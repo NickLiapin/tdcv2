@@ -129,6 +129,44 @@ describe('TDC class', () => {
     expect(() => tdc.getAt(4)).toThrow(/out of range/);
   });
 
+  it('getAt reads one row without materialising the run before it', () => {
+    // Ten million rows. The object path used to build its own in-memory registry
+    // whatever the router said, so this needed some two gigabytes and a minute to
+    // hand back a single record; through the routed engine it is one row's work.
+    // The ceiling is generous on purpose — this is asserting a change of order,
+    // not a stopwatch reading.
+    const DSL = `<tdc><env count="10000000" seed="wide" local="en">
+      <sequence name="Id"><gen type="increment" value="1"/></sequence>
+      <sequence name="Age"><gen type="number" value="18..80"/></sequence>
+    </env><block><line><data>\${{Id}},\${{Age}}</data></line></block></tdc>`;
+    const tdc = new TDC({ configString: DSL, now: FIXED_NOW });
+
+    const started = Date.now();
+    const last = tdc.getAt(9_999_999);
+    expect(Date.now() - started).toBeLessThan(2000);
+
+    expect(last['Id']).toBe('10000000');
+    // The row is the run's, not a fresh draw: the same index asked twice, and
+    // asked through iterate(), has to agree.
+    expect(tdc.getAt(9_999_999)).toEqual(last);
+  });
+
+  it('the object rows follow the engine the router picked', () => {
+    // Same seed, three engines, one answer. The object path reads whichever
+    // registry prepareRender built, so forcing an engine must not change a value
+    // — if it does, the object API has stopped sharing the renderer's build.
+    const DSL = (engine: string) =>
+      `<tdc><env count="6" seed="routed" local="en"${engine}>
+        <sequence name="Kind"><gen type="text" value="a,b,c" percent="50,30,20"/></sequence>
+        <sequence name="N" parent="Kind.a"><gen type="number" value="100..999"/></sequence>
+      </env><block><line><data>\${{Kind}}</data></line></block></tdc>`;
+    const memory = new TDC({ configString: DSL(' engine="1"'), now: FIXED_NOW }).toArray();
+    const streaming = new TDC({ configString: DSL(' engine="2"'), now: FIXED_NOW }).toArray();
+    const routed = new TDC({ configString: DSL(''), now: FIXED_NOW }).toArray();
+    expect(streaming).toEqual(memory);
+    expect(routed).toEqual(memory);
+  });
+
   it('seed override changes output from the declared one', () => {
     // count=20 (not 3): with only 3 values, a 3-row output has too few distinct
     // permutations, so two arbitrary seeds can collide by chance on the default

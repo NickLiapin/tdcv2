@@ -450,6 +450,8 @@ export interface PreparedRender {
   readonly prng: () => number;
   /** Repeating sequences by name, for `<line each=…>`. */
   readonly eachInfo: ReadonlyMap<string, EachInfo>;
+  /** The `<sequence>` specs, in declaration order — what the object API reports. */
+  readonly sequenceSpecs: readonly SequenceSpec[];
 }
 
 /**
@@ -570,7 +572,7 @@ export function prepareRender(
       httpDeferred: deferHttp,
     });
   }
-  return { tdc, blockEl, env, registry, now, prng, eachInfo };
+  return { tdc, blockEl, env, registry, now, prng, eachInfo, sequenceSpecs };
 }
 
 export function* renderStream(
