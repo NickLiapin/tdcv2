@@ -874,9 +874,12 @@ export function streamCtx(options: SequenceBuildOptions): SequenceBuildContext {
  * Excluded on purpose, and each because it is a PLAN over the whole column
  * rather than a draw per row — make one of these per-row and its proportions
  * stop being exact:
- *   `percent=` on text, `weight=` on file, a weighted choice inside
+ *   `percent=` on any type, `weight=` on file, a weighted choice inside
  *   advanced_regex, and the shares a pack can declare for a `template` — so
  *   `file`, `advanced_regex` and `template` stay off this list entirely.
+ *   `text` too: the streaming engine spreads even an UNWEIGHTED list evenly
+ *   across the column with a permutation rather than picking independently per
+ *   row, so a per-row pick here would disagree with it.
  * `order="sequential"` is excluded too: it reads the position, never the
  * randomness. Both remaining conditions are checked below.
  */
@@ -886,7 +889,6 @@ function forStreamOf(ctx: SequenceBuildContext, streamId: string): SequenceBuild
 }
 
 const PER_ROW_TYPES: ReadonlySet<string> = new Set([
-  'text',
   'number',
   'regex',
   'symbol',
@@ -898,7 +900,15 @@ function perRowBuildable(gen: GenSpec, count: number, ctx: SequenceBuildContext)
   if (count <= 1 || ctx.seed === undefined || ctx.streamId === undefined) return false;
   if (!PER_ROW_TYPES.has(gen.type)) return false;
   if (gen.attrs['order'] === 'sequential') return false;
-  if (gen.type === 'text' && gen.attrs['percent'] !== undefined) return false;
+  // `percent=` on ANY type, not just text: a number can apportion its LENGTH
+  // groups the same exact way (`length="2,10-12" percent="85,15"`), and reading
+  // this as a text-only attribute turned a 15% group into 0% of the rows.
+  if (gen.attrs['percent'] !== undefined) return false;
+  // `repeat=` apportions the LENGTHS exactly across the column — how many rows
+  // get two elements, how many get five. That plan lives in
+  // `buildRepeatedValues`, further down this function, and taking the per-row
+  // path would skip it: a 15% length group came out as 0% of the rows.
+  if (gen.attrs['repeat'] !== undefined) return false;
   return true;
 }
 
