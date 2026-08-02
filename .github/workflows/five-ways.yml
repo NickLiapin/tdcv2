@@ -10,7 +10,7 @@ name: Five ways
 
 on:
   push:
-    branches: [tdcv2]
+    branches: [main]
     paths:
       - "python/**"
       - "rust/**"
@@ -22,7 +22,7 @@ on:
       - "scripts/five-ways.mjs"
       - ".github/workflows/five-ways.yml"
   pull_request:
-    branches: [tdcv2]
+    branches: [main]
     paths:
       - "python/**"
       - "rust/**"
