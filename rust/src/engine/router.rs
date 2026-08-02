@@ -110,16 +110,17 @@ pub fn resolve(config: &Config) -> EngineResult<u8> {
 /// weighted choice inside a pattern. Ordinary exact percentages, uniform
 /// uniqueness, switch, distinct and text parent-child all stream.
 pub fn needs_exact(config: &Config) -> bool {
+    // A group REARRANGES the columns it covers — every column keeps its multiset, so every
+    // declared share survives — and that cannot be decided a row at a time. The streaming
+    // engine could only offer a different answer, and two answers from one seed is the thing
+    // this whole design exists to prevent.
+    if !config.env_uniq_groups.is_empty() {
+        return true;
+    }
+
     for spec in &config.sequences {
         if spec.uniq {
-            if trim_to_none(spec.parent.as_deref()).is_some() {
-                return true;
-            }
-            for field in fields_of(spec) {
-                if field.gen_type != "text" || has_percent(field) {
-                    return true;
-                }
-            }
+            return true;
         }
 
         if let Source::Gen(gen) = &spec.source {
@@ -161,10 +162,6 @@ fn parent_is_finite_text(config: &Config, reference: &str) -> bool {
 fn is_weighted_advanced_regex(gen: &Gen) -> bool {
     gen.gen_type == "advanced_regex"
         && advanced_regex::has_weighted_choice(gen.attr_or("value", ""))
-}
-
-fn has_percent(gen: &Gen) -> bool {
-    !gen.attr_or("percent", "").is_empty()
 }
 
 /// `common.vehicle.model.${{Brand}}` — an address not known until the row is.

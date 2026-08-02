@@ -61,7 +61,7 @@ fn two_strokes_are_a_band_and_a_transform_is_honoured() {
     std::fs::write(dir.join("band.svg"), BAND_SVG).expect("the file is written");
     assert_eq!(
         read(&dir, "band.svg").expect("the drawing reads"),
-        ["33.4", "49.7", "39.8", "39.8", "69.1", "66.7"]
+        ["76.2", "29.1", "39.0", "84.1", "57.4", "54.0"]
     );
 }
 

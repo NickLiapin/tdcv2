@@ -32,16 +32,14 @@ fn lines(config: &Config) -> Vec<String> {
 
 #[test]
 fn a_config_with_no_mode_streams_rather_than_going_to_memory() {
-    // Which engine a config gets is part of the contract, not an optimisation:
-    // the two draw in different orders, so routing a config to the wrong one
-    // produces output that is wrong in every row while looking plausible.
+    // Which engine a config gets is part of the contract. It is no longer visible in the
+    // output — every engine derives a cell from (seed, column, row), so all three agree — and
+    // that agreement is asserted here alongside the routing, because a router that quietly
+    // sent this to memory would scale differently while looking identical.
     let body = r#"<sequence name="V"><gen type="number" value="10..99"/></sequence>"#;
     let streamed = lines(&config(body, 6, "route"));
     let in_memory = lines(&config(body, 6, "route").with_engine("1"));
-    assert_ne!(
-        streamed, in_memory,
-        "the engines are supposed to disagree — if they match, the router sent both to one engine"
-    );
+    assert_eq!(streamed, in_memory, "the engines must agree from one seed");
     assert_eq!(engine::router::resolve(&config(body, 6, "route")), Ok(2));
 }
 
@@ -129,7 +127,8 @@ fn uniqueness_comes_from_arithmetic_rather_than_from_remembering() {
 #[test]
 fn a_uniq_asking_for_more_rows_than_combinations_says_so() {
     // Twelve combinations, thirteen rows. Refusing beats emitting a duplicate
-    // under a uniq= that promised there would not be one.
+    // under a uniq= that promised there would not be one. The router sends every uniq to the
+    // exact engine, so this is that engine's refusal.
     let text = "<tdc><env count=\"13\" seed=\"radix\" local=\"en\">\
         <sequence name=\"P\" uniq=\"true\">\
           <gen name=\"a\" type=\"text\" value=\"1,2,3,4\"/>\
@@ -142,8 +141,5 @@ fn a_uniq_asking_for_more_rows_than_combinations_says_so() {
         .expect_err("13 rows cannot be unique over 12 combinations")
         .message()
         .to_string();
-    assert!(
-        message.contains("only 12 distinct combinations"),
-        "{message}"
-    );
+    assert!(message.contains("at most 12 distinct rows"), "{message}");
 }

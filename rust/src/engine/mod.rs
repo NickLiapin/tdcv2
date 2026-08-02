@@ -14,6 +14,8 @@ pub mod disk;
 pub mod exact_uniq;
 pub mod external_sort;
 pub mod memory;
+pub mod per_row;
+pub mod repeat_keyed;
 pub mod router;
 pub mod stream;
 pub mod uniq_simple;

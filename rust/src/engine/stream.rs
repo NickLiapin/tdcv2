@@ -59,9 +59,6 @@ const INLINE_TYPES: [&str; 4] = ["text", "increment", "decrement", "timeseries"]
 /// than the impossible request it is.
 const DISTINCT_FUSE: usize = 64;
 
-/// Beyond this many combinations a uniq index no longer fits a double exactly.
-const SAFE_UNIQ_CAP: f64 = 9_007_199_254_740_992.0;
-
 // ── the pieces a column is made of ───────────────────────────────────────────
 
 /// The rows a sequence covers.
@@ -307,18 +304,6 @@ enum Column {
         anomaly: Option<Vec<bool>>,
     },
     Conditional(Vec<(Option<String>, Box<Column>)>),
-    /// One digit of a mixed-radix counter — how `uniq="true"` is answered here.
-    ///
-    /// Uniqueness stops being something to check and becomes something the
-    /// arithmetic cannot violate: two rows would have to share an index, and the
-    /// permutation is a bijection. Nothing is remembered, so the millionth row
-    /// costs what the first one did.
-    MixedRadix {
-        pool: Vec<String>,
-        prefix: i64,
-        total: i32,
-        key: i32,
-    },
     /// A member of a `<distinct>` group, repaired against the others.
     Distinct {
         members: Vec<DistinctMember>,
@@ -1170,6 +1155,18 @@ impl StreamEngine<'_> {
     /// percent-weighted uniq is refused here rather than quietly delivered as an
     /// even split.
     fn build_uniq(&mut self, spec: &SequenceSpec) -> EngineResult<()> {
+        if !self.exact_uniq {
+            // A group REARRANGES whole columns so each keeps its multiset — a promise about
+            // the finished column, which no engine can keep a row at a time. This one could
+            // only offer something else (a mixed-radix bijection over the combination space,
+            // uniform over combinations, ignoring the values actually drawn), and one seed
+            // would then mean two datasets. It says so instead. The router sends every uniq to
+            // the exact engine; this is the backstop for a forced one.
+            return here(&format!(
+                "uniq (a whole-column rearrangement) (\"{}\")",
+                spec.name
+            ));
+        }
         let Source::Fields(fields) = &spec.source else {
             return here(&format!(
                 "uniq on a simple sequence (a whole-column draw) (\"{}\")",
@@ -1186,23 +1183,7 @@ impl StreamEngine<'_> {
             return here(&format!("uniq combined with a parent (\"{}\")", spec.name));
         }
 
-        if self.exact_uniq {
-            return self.build_exact_uniq(spec, fields);
-        }
-
-        let mut ids = Vec::with_capacity(fields.len());
-        let mut pools = Vec::with_capacity(fields.len());
-        for field in fields {
-            let id = format!("{}.{}", spec.name, field.name);
-            pools.push(uniq_pool(&field.gen, &format!("\"{id}\""))?);
-            ids.push(id);
-        }
-        self.mixed_radix(
-            &ids,
-            &pools,
-            &format!("{}#uniq", spec.name),
-            &format!("\"{}\"", spec.name),
-        )
+        self.build_exact_uniq(spec, fields)
     }
 
     /// The exact-engine version: each column built to its declared shares, then
@@ -1281,76 +1262,14 @@ impl StreamEngine<'_> {
     fn build_env_uniq(
         &mut self,
         group: &[String],
-        by_name: &BTreeMap<&str, &SequenceSpec>,
+        _by_name: &BTreeMap<&str, &SequenceSpec>,
     ) -> EngineResult<Vec<String>> {
-        let mut pools = Vec::with_capacity(group.len());
-        for name in group {
-            let Some(member) = by_name.get(name.as_str()) else {
-                return here(&format!("<uniq> member \"{name}\" (no such sequence)"));
-            };
-            if trim_to_none(member.parent.as_deref()).is_some() {
-                return here(&format!("<uniq> member \"{name}\" with a parent"));
-            }
-            let Some(gen) = member.gen() else {
-                return here(&format!(
-                    "<uniq> member \"{name}\" (must be a simple text sequence)"
-                ));
-            };
-            pools.push(uniq_pool(gen, &format!("\"{name}\""))?);
-        }
-
-        self.mixed_radix(
-            group,
-            &pools,
-            &format!("#uniq#{}", group.join(",")),
-            &format!("<{}>", group.join(" \u{d7} ")),
-        )?;
-        Ok(group.to_vec())
-    }
-
-    /// Lay the columns out as the digits of one number, and give row `i` a
-    /// distinct value of it.
-    fn mixed_radix(
-        &mut self,
-        ids: &[String],
-        pools: &[Vec<String>],
-        key_id: &str,
-        label: &str,
-    ) -> EngineResult<()> {
-        let mut prefixes = Vec::with_capacity(pools.len());
-        let mut capacity = 1.0f64;
-        for pool in pools {
-            prefixes.push(capacity as i64);
-            capacity *= pool.len() as f64;
-            if capacity > SAFE_UNIQ_CAP {
-                return invalid(&format!(
-                    "stream mode: uniq {label} has more than 2^52 possible combinations — too \
-                     many to index exactly. Reduce columns/values, or use the in-memory engine."
-                ));
-            }
-        }
-        if f64::from(self.count) > capacity {
-            return invalid(&format!(
-                "stream mode: uniq {label} is infeasible — only {} distinct combinations exist, \
-                 but {} unique rows were requested.",
-                capacity as i64, self.count
-            ));
-        }
-
-        let total = capacity as i32;
-        let key = permute::key(&self.seed, key_id);
-        for (j, pool) in pools.iter().enumerate() {
-            self.put(
-                &ids[j],
-                Column::MixedRadix {
-                    pool: pool.clone(),
-                    prefix: prefixes[j],
-                    total,
-                    key,
-                },
-            );
-        }
-        Ok(())
+        // As with a sequence's own `uniq`: a group rearranges finished columns, so it belongs
+        // to the in-memory engine and both disk engines refuse rather than answer differently.
+        here(&format!(
+            "<uniq> across sequences (a whole-column rearrangement) ({})",
+            group.join(" \u{d7} ")
+        ))
     }
 
     // ── distinct ─────────────────────────────────────────────────────────────
@@ -1965,18 +1884,6 @@ impl StreamEngine<'_> {
                 }
             }
 
-            Column::MixedRadix {
-                pool,
-                prefix,
-                total,
-                key,
-            } => {
-                let index = i64::from(permute::apply(row, *total, *key));
-                Ok(Some(
-                    pool[(index / prefix % pool.len() as i64) as usize].clone(),
-                ))
-            }
-
             Column::Distinct {
                 members,
                 groups,
@@ -2378,37 +2285,6 @@ impl Lookup for ElementLookup<'_, '_, '_> {
             _ => self.base.value(name),
         }
     }
-}
-
-/// A uniq field's pool: a finite text list, with duplicates dropped and percent
-/// refused.
-fn uniq_pool(gen: &Gen, label: &str) -> EngineResult<Vec<String>> {
-    if gen.gen_type != "text" {
-        return here(&format!(
-            "uniq column {label} of type \"{}\" (only text lists)",
-            gen.gen_type
-        ));
-    }
-    if !gen.attr_or("percent", "").is_empty() {
-        return here(&format!(
-            "uniq column {label} uses percent — streaming uniq gives UNIFORM distinct \
-             combinations only. Exact percentages + uniqueness together need the in-memory \
-             engine (run without mode=\"stream\"), or drop percent."
-        ));
-    }
-    // Deduplicated in first-seen order: a repeated value would make the
-    // mixed-radix index map two combinations onto one, and the column would no
-    // longer be unique.
-    let mut pool: Vec<String> = Vec::new();
-    for value in memory::split_text(gen.attr_or("value", "")) {
-        if !pool.contains(&value) {
-            pool.push(value);
-        }
-    }
-    if pool.is_empty() {
-        return here(&format!("uniq column {label} with an empty value list"));
-    }
-    Ok(pool)
 }
 
 // ── small helpers ────────────────────────────────────────────────────────────

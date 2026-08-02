@@ -567,7 +567,9 @@ impl Validator {
             let message = if itself {
                 format!("pool \"{pool_name}\" draws from itself")
             } else {
-                format!("pool \"{pool_name}\" draws from \"{target}\", which is not declared above it")
+                format!(
+                    "pool \"{pool_name}\" draws from \"{target}\", which is not declared above it"
+                )
             };
             let hint = if itself {
                 "A pool is built before its own members exist, so there is nothing to draw. That \
@@ -3106,7 +3108,13 @@ fn member_pool_ref(node: &Element) -> Option<String> {
         if child.attr_value("type") != Some("pool") {
             continue;
         }
-        return Some(child.attr_value("value").unwrap_or_default().trim().to_string());
+        return Some(
+            child
+                .attr_value("value")
+                .unwrap_or_default()
+                .trim()
+                .to_string(),
+        );
     }
     None
 }

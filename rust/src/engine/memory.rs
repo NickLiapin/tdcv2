@@ -16,6 +16,7 @@
 use std::cell::RefCell;
 use std::collections::{BTreeMap, BTreeSet};
 
+use super::per_row;
 use super::{invalid, unsupported, EngineError, EngineResult, RowSource};
 use crate::compute;
 use crate::date;
@@ -454,6 +455,9 @@ fn build_columns_with(
     columns.insert("_total".to_string(), total);
 
     let mut prng = prng::create(&env.config.seed);
+    // What each finished column's exact layout gave each row, by column name. A child that
+    // filters on one of them is ordered by its RANK there, not by row order.
+    let mut layouts: BTreeMap<String, per_row::ExactLayout> = BTreeMap::new();
 
     // Pools first, and off a DERIVED seed. A pool must be invisible to every
     // column it does not feed: adding one leaves the ids, the ages and the names
@@ -468,7 +472,10 @@ fn build_columns_with(
         // of work, and a single message would hide which one is actually holding
         // a config up.
         let mask = parent_mask(spec, &columns, count)?;
-        let applicable = mask.iter().filter(|on| **on).count();
+        // In the order the column BUILDS them, which for a child is its rank inside
+        // the parent's exact layout rather than plain row order.
+        let rows = per_row::ordered_rows(spec.parent.as_deref(), &mask, &layouts);
+        let applicable = rows.len();
 
         // A reference to a <pool>: this row gets one member, and every field of
         // that member is published under `Ref.field`. Resolved HERE, in
@@ -504,7 +511,7 @@ fn build_columns_with(
                 if gen.gen_type == "template" && gen.attr_or("value", "").contains("${{") =>
             {
                 let values = dynamic_template(gen, &mask, &columns, &mut prng, env)?;
-                columns.insert(spec.name.clone(), spread(&mask, values, count));
+                columns.insert(spec.name.clone(), spread(&rows, values, count));
             }
 
             // A single column cannot be both proportional and unique, so —
@@ -518,58 +525,106 @@ fn build_columns_with(
                 } else {
                     super::uniq_simple::build(&spec.name, gen, applicable, &mut prng, env)?
                 };
-                columns.insert(spec.name.clone(), spread(&mask, values, count));
+                columns.insert(spec.name.clone(), spread(&rows, values, count));
             }
 
             Source::Gen(gen) => {
                 let mut anomaly_flags = vec![false; applicable];
+                let stream = per_row::Stream::with_rows(&env.config.seed, &spec.name, rows.clone());
+                let flag_named = gen
+                    .attr("anomaly_flag")
+                    .map(str::trim)
+                    .is_some_and(|f| !f.is_empty());
+                // With `repeat` the anomaly label is a LIST parallel to the values, saying
+                // which ELEMENT spiked rather than merely that one did.
+                let mut repeat_flags: Option<Vec<String>> = None;
                 let values = match repeat::parse(&gen.attrs)? {
-                    // The per-value passes run INSIDE, on the flat slot buffer,
-                    // so anomaly, missing and formatting come out per element of
-                    // the list rather than over the joined cell.
-                    Some(spec) => {
-                        let element = Gen::new(gen.gen_type.clone(), repeat::without(&gen.attrs));
-                        repeat::build(&spec, applicable, &mut prng, |slots, prng| {
-                            let drawn = generate(&element, slots, prng, env)?;
-                            finish(drawn, &gen.attrs, prng, None)
-                        })?
-                    }
-                    None => {
-                        let drawn = generate(gen, applicable, &mut prng, env)?;
-                        finish(drawn, &gen.attrs, &mut prng, Some(&mut anomaly_flags))?
-                    }
+                    // A listed column lays every element of every row out at once and reads
+                    // the slots the length plan gave the row; anything drawn takes one
+                    // sub-stream per element. Which of the two is the streaming engine's own
+                    // split.
+                    Some(repeat_spec) => match listed_values(gen, env)? {
+                        Some((values, percents)) => {
+                            let mut modify = element_modifier(gen, &repeat_spec, &stream)?;
+                            super::repeat_keyed::build_layout(
+                                &repeat_spec,
+                                &values,
+                                &percents,
+                                applicable,
+                                &stream,
+                                &mut modify,
+                            )?
+                        }
+                        None => {
+                            let element =
+                                Gen::new(gen.gen_type.clone(), repeat::without(&gen.attrs));
+                            let mut collected = flag_named.then(Vec::new);
+                            let built = super::repeat_keyed::build_draws(
+                                &repeat_spec,
+                                applicable,
+                                &stream,
+                                |_, element_prng, flag| {
+                                    let drawn = generate(&element, 1, element_prng, env)?;
+                                    let done =
+                                        finish(drawn, &element.attrs, element_prng, Some(flag))?;
+                                    Ok(done.into_iter().next().unwrap_or_default())
+                                },
+                                collected.as_mut(),
+                            )?;
+                            repeat_flags = collected;
+                            built
+                        }
+                    },
+                    None => column_values(
+                        gen,
+                        applicable,
+                        &mut prng,
+                        env,
+                        Some(&stream),
+                        Some(&mut anomaly_flags),
+                        Some(&mut layouts),
+                    )?,
                 };
-                columns.insert(spec.name.clone(), spread(&mask, values, count));
+                columns.insert(spec.name.clone(), spread(&rows, values, count));
 
                 if let Some(flag_name) = gen
                     .attr("anomaly_flag")
                     .map(str::trim)
                     .filter(|f| !f.is_empty())
                 {
-                    // The ground-truth companion: which rows the run chose to
-                    // spike. A detector trained on this cannot learn from a
-                    // label the data never had.
-                    // Shares the parent mask, so the label is absent exactly
-                    // where the value is — a detector trained on this cannot
-                    // learn from a label the data never had.
-                    columns.insert(
-                        flag_name.to_string(),
-                        spread(
-                            &mask,
-                            anomaly_flags
-                                .into_iter()
-                                .map(|on| if on { "true" } else { "false" }.to_string())
-                                .collect(),
-                            count,
-                        ),
-                    );
+                    // The ground-truth companion: which rows the run chose to spike. It
+                    // shares the parent mask, so the label is absent exactly where the value
+                    // is — a detector trained on this cannot learn from a label the data
+                    // never had. With `repeat` the label is a LIST parallel to the values,
+                    // saying which ELEMENT spiked rather than merely that one did.
+                    let labels = repeat_flags.unwrap_or_else(|| {
+                        anomaly_flags
+                            .into_iter()
+                            .map(|on| if on { "true" } else { "false" }.to_string())
+                            .collect()
+                    });
+                    columns.insert(flag_name.to_string(), spread(&rows, labels, count));
                 }
             }
 
             Source::Mix(mix) => {
                 let mut flags = vec![false; applicable];
-                let values = mix_values(mix, applicable, &mut prng, Some(&mut flags), env)?;
-                columns.insert(spec.name.clone(), spread(&mask, values, count));
+                // The '#switch' suffix is a stable historical key: the streaming engine
+                // spells it that way so a <mix> keeps the values of the <switch> it replaced.
+                let stream = per_row::Stream::with_rows(
+                    &env.config.seed,
+                    &format!("{}#switch", spec.name),
+                    rows.clone(),
+                );
+                let values = mix_values(
+                    mix,
+                    applicable,
+                    &mut prng,
+                    Some(&mut flags),
+                    env,
+                    Some(&stream),
+                )?;
+                columns.insert(spec.name.clone(), spread(&rows, values, count));
 
                 if let Some(flag_name) =
                     mix.flag.as_deref().map(str::trim).filter(|f| !f.is_empty())
@@ -580,7 +635,7 @@ fn build_columns_with(
                     columns.insert(
                         flag_name.to_string(),
                         spread(
-                            &mask,
+                            &rows,
                             flags
                                 .into_iter()
                                 .map(|on| if on { "true" } else { "false" }.to_string())
@@ -592,7 +647,7 @@ fn build_columns_with(
             }
 
             Source::Switch(sw) => {
-                let values = switch_values(sw, count, &mut prng, &columns, env)?;
+                let values = switch_values(sw, count, &mut prng, &columns, env, &spec.name)?;
                 columns.insert(spec.name.clone(), values);
             }
 
@@ -622,6 +677,9 @@ fn build_columns_with(
                 // this counts rather than assumes.
                 let drawn_parts = items.iter().filter(|i| matches!(i, Item::Gen(_))).count();
                 let uniq_draw = spec.uniq && drawn_parts == 1;
+                // Unnamed parts are numbered among ALL parts, literals included, because that
+                // is how the streaming engine numbers them.
+                let mut unnamed = 0usize;
 
                 for item in items {
                     match item {
@@ -636,20 +694,45 @@ fn build_columns_with(
                             produced.push((name.clone(), vec![text.clone(); applicable]));
                         }
                         Item::Field(field) => {
-                            let drawn = generate(&field.gen, applicable, &mut prng, env)?;
+                            let part = per_row::Stream::with_rows(
+                                &env.config.seed,
+                                &format!("{}.{}", spec.name, field.name),
+                                rows.clone(),
+                            );
                             produced.push((
                                 field.name.clone(),
-                                finish(drawn, &field.gen.attrs, &mut prng, None)?,
+                                column_values(
+                                    &field.gen,
+                                    applicable,
+                                    &mut prng,
+                                    env,
+                                    Some(&part),
+                                    None,
+                                    Some(&mut layouts),
+                                )?,
                             ));
                         }
                         Item::Gen(gen) => {
+                            let part = per_row::Stream::with_rows(
+                                &env.config.seed,
+                                &format!("{}#p{unnamed}", spec.name),
+                                rows.clone(),
+                            );
+                            unnamed += 1;
                             let values = if uniq_draw {
                                 super::uniq_simple::build(
                                     &spec.name, gen, applicable, &mut prng, env,
                                 )?
                             } else {
-                                let drawn = generate(gen, applicable, &mut prng, env)?;
-                                finish(drawn, &gen.attrs, &mut prng, None)?
+                                column_values(
+                                    gen,
+                                    applicable,
+                                    &mut prng,
+                                    env,
+                                    Some(&part),
+                                    None,
+                                    Some(&mut layouts),
+                                )?
                             };
                             for (cell, value) in composed.iter_mut().zip(values) {
                                 cell.push_str(&value);
@@ -666,7 +749,7 @@ fn build_columns_with(
                             _ => None,
                         })
                         .collect();
-                    enforce_distinct(spec, &fields, &mut produced, applicable, &mut prng, env)?;
+                    enforce_distinct(spec, &fields, &mut produced, applicable, env, &rows)?;
                 }
 
                 // Only when something unnamed actually composed it. A body of
@@ -674,12 +757,12 @@ fn build_columns_with(
                 // `${{Name}}` stays the literal marker that says you meant a
                 // field.
                 if composes_own_value(items) {
-                    columns.insert(spec.name.clone(), spread(&mask, composed, count));
+                    columns.insert(spec.name.clone(), spread(&rows, composed, count));
                 }
                 for (field_name, values) in produced {
                     columns.insert(
                         format!("{}.{field_name}", spec.name),
-                        spread(&mask, values, count),
+                        spread(&rows, values, count),
                     );
                 }
             }
@@ -692,16 +775,28 @@ fn build_columns_with(
                 // would still produce plausible values and pair the wrong ones.
                 let mut produced: Vec<(String, Vec<String>)> = Vec::with_capacity(fields.len());
                 for field in fields {
-                    let drawn = generate(&field.gen, applicable, &mut prng, env)?;
+                    let stream = per_row::Stream::with_rows(
+                        &env.config.seed,
+                        &format!("{}.{}", spec.name, field.name),
+                        rows.clone(),
+                    );
                     produced.push((
                         field.name.clone(),
-                        finish(drawn, &field.gen.attrs, &mut prng, None)?,
+                        column_values(
+                            &field.gen,
+                            applicable,
+                            &mut prng,
+                            env,
+                            Some(&stream),
+                            None,
+                            Some(&mut layouts),
+                        )?,
                     ));
                 }
                 // Both run over FINISHED fields: a group's members must all
                 // exist before the constraint between them means anything.
                 if !spec.distinct_groups.is_empty() {
-                    enforce_distinct(spec, fields, &mut produced, applicable, &mut prng, env)?;
+                    enforce_distinct(spec, fields, &mut produced, applicable, env, &rows)?;
                 }
                 if spec.uniq {
                     enforce_uniq_redrawing(
@@ -717,7 +812,7 @@ fn build_columns_with(
                 for (name, values) in produced {
                     columns.insert(
                         format!("{}.{name}", spec.name),
-                        spread(&mask, values, count),
+                        spread(&rows, values, count),
                     );
                 }
             }
@@ -731,7 +826,7 @@ fn build_columns_with(
 
     // Both run over finished columns, for the same reason the per-sequence ones
     // do — and after the loop, because a group may name a sequence declared last.
-    enforce_env_distinct(env, &mut columns, count, &mut prng)?;
+    enforce_env_distinct(env, &mut columns, count)?;
     enforce_env_uniq(env.config, &mut columns, count)?;
 
     Ok(columns)
@@ -760,8 +855,8 @@ fn enforce_distinct(
     fields: &[Field],
     produced: &mut [(String, Vec<String>)],
     count: usize,
-    prng: &mut Sfc32,
     env: &Env,
+    rows: &[usize],
 ) -> EngineResult<()> {
     for group in &spec.distinct_groups {
         let members: Vec<usize> = group
@@ -791,7 +886,16 @@ fn enforce_distinct(
                         ));
                     }
                     attempts += 1;
-                    value = generate(&field.gen, 1, prng, env)?
+                    // Each attempt has a stream of its own, named for the field and the
+                    // attempt number — the same names the streaming engine redraws under, so
+                    // both engines land on the same replacement.
+                    let row = rows.get(i).copied().unwrap_or(i);
+                    let mut one = seekable::generator(
+                        &env.config.seed,
+                        &format!("{}.{field_name}#d{attempts}", spec.name),
+                        row as i32,
+                    );
+                    value = generate(&field.gen, 1, &mut one, env)?
                         .into_iter()
                         .next()
                         .unwrap_or_default();
@@ -812,6 +916,25 @@ fn enforce_distinct(
 /// builder's own answer.
 fn arrange_unique(produced: &mut [(String, Vec<String>)], count: usize) -> Result<(), usize> {
     let columns: Vec<Vec<String>> = produced.iter().map(|(_, v)| v.clone()).collect();
+
+    // Already unique as drawn? Then there is nothing to rearrange, and moving values anyway
+    // would only make this engine disagree with the exact one, which checks the same thing
+    // first and leaves a passing draw untouched. Cheap enough to always ask: one pass, one set.
+    // NUL joins the tuple because a generated value cannot contain it, so no two different
+    // tuples can join into the same key.
+    let mut seen: std::collections::HashSet<String> = std::collections::HashSet::new();
+    let collided = (0..count).any(|i| {
+        let key = columns
+            .iter()
+            .map(|c| c.get(i).map(String::as_str).unwrap_or(""))
+            .collect::<Vec<_>>()
+            .join("\0");
+        !seen.insert(key)
+    });
+    if !collided {
+        return Ok(());
+    }
+
     let column_counts: Vec<Vec<usize>> = columns.iter().map(|c| uniq::value_counts(c)).collect();
 
     let upper = uniq::upper_bound(&column_counts);
@@ -919,7 +1042,6 @@ fn enforce_env_distinct(
     env: &Env,
     columns: &mut BTreeMap<String, Vec<Option<String>>>,
     count: usize,
-    prng: &mut Sfc32,
 ) -> EngineResult<()> {
     for group in &env.config.env_distinct_groups {
         let members = scalar_members(group, env.config, columns);
@@ -948,7 +1070,14 @@ fn enforce_env_distinct(
                         ));
                     }
                     attempts += 1;
-                    value = one_scalar(spec, prng, env)?;
+                    // Named for the sequence and the attempt, exactly as the streaming engine
+                    // names it, so the replacement is the same value on both engines.
+                    let mut one = seekable::generator(
+                        &env.config.seed,
+                        &format!("{name}#ed{attempts}"),
+                        i as i32,
+                    );
+                    value = one_scalar(spec, &mut one, env)?;
                 }
                 if let Some(column) = columns.get_mut(name) {
                     column[i] = Some(value.clone());
@@ -1135,7 +1264,7 @@ fn one_scalar(spec: &SequenceSpec, prng: &mut Sfc32, env: &Env) -> EngineResult<
         }
         Source::Mix(mix) => {
             let mut flags = vec![false; 1];
-            Ok(mix_values(mix, 1, prng, Some(&mut flags), env)?
+            Ok(mix_values(mix, 1, prng, Some(&mut flags), env, None)?
                 .into_iter()
                 .next()
                 .unwrap_or_default())
@@ -1162,8 +1291,15 @@ pub(super) fn finish(
     if let Some(missing) = imperfections::parse_missing(attrs)? {
         imperfections::apply_missing(&mut values, &missing, prng);
     }
-    // `case=` and `mask=` reach the same code the `|upper` and `|mask:` filters
-    // do, so the three ways of asking cannot drift apart.
+    format_values(values, attrs)
+}
+
+/// `case=` and `mask=`, which reach the same code the `|upper` and `|mask:` filters do so the
+/// three ways of asking cannot drift apart.
+fn format_values(
+    mut values: Vec<String>,
+    attrs: &BTreeMap<String, String>,
+) -> EngineResult<Vec<String>> {
     if let Some(case) = attrs.get("case").map(String::as_str) {
         if !transforms::is_case_transform(case) {
             return invalid(&format!(
@@ -1183,6 +1319,328 @@ pub(super) fn finish(
 }
 
 /// One column's worth of values, drawn from the shared stream.
+/// `finish`, with the anomaly and missing draws taken from a stream rather than in order.
+fn finish_with(
+    mut values: Vec<String>,
+    attrs: &BTreeMap<String, String>,
+    prng: &mut Sfc32,
+    mut anomaly_flags: Option<&mut [bool]>,
+    stream: Option<&per_row::Stream>,
+) -> EngineResult<Vec<String>> {
+    if let Some(anomaly) = imperfections::parse_anomaly(attrs)? {
+        match stream {
+            Some(s) => {
+                for i in 0..values.len() {
+                    let selected = anomaly.probability > 0.0
+                        && per_row::purpose_draw(s, "#anom", s.row_at(i)) < anomaly.probability;
+                    if let Some(flags) = anomaly_flags.as_deref_mut() {
+                        flags[i] = selected;
+                    }
+                    if selected {
+                        values[i] = imperfections::spike(&values[i], anomaly.factor);
+                    }
+                }
+            }
+            None => imperfections::apply_anomaly(&mut values, anomaly, prng, anomaly_flags.take()),
+        }
+    }
+    if let Some(missing) = imperfections::parse_missing(attrs)? {
+        match stream {
+            Some(s) if missing.probability > 0.0 => {
+                for (i, value) in values.iter_mut().enumerate() {
+                    if per_row::purpose_draw(s, "#miss", s.row_at(i)) < missing.probability {
+                        *value = missing.token.clone();
+                    }
+                }
+            }
+            Some(_) => {}
+            None => imperfections::apply_missing(&mut values, &missing, prng),
+        }
+    }
+    format_values(values, attrs)
+}
+
+/// A `<gen type="template">` pointing at a pack that carries its own shares.
+///
+/// A synthetic address (`person.b_day` and its kind) is resolved inside the generator and has
+/// no pack file behind it, so asking the registry would fail rather than answer.
+fn weighted_template_pack(gen: &Gen, env: &Env) -> EngineResult<Option<(Vec<String>, Vec<f64>)>> {
+    if gen.gen_type != "template" {
+        return Ok(None);
+    }
+    let path = gen.attr_or("value", "");
+    let locale = gen
+        .attr("local")
+        .or(env.config.locale.as_deref())
+        .unwrap_or("en");
+    if path.is_empty() || !env.packs.exists(path, locale) {
+        return Ok(None);
+    }
+    let entry = env.packs.load(path, locale)?;
+    Ok(match (entry.weighted(), entry.percents.clone()) {
+        (true, Some(percents)) => Some((entry.values.clone(), percents)),
+        _ => None,
+    })
+}
+
+/// Whether a pack GENERATOR apportions a share over the whole column. Its values are computed
+/// rather than listed, so there is no list to lay out.
+fn pack_needs_whole_column(gen: &Gen, env: &Env) -> bool {
+    if gen.gen_type != "template" {
+        return false;
+    }
+    let path = gen.attr_or("value", "");
+    let locale = gen
+        .attr("local")
+        .or(env.config.locale.as_deref())
+        .unwrap_or("en");
+    if path.is_empty() || !env.packs.exists(path, locale) {
+        return false;
+    }
+    // A `percent=` anywhere in a generator's body — on its `<mix>`, on a `<gen>`, on a
+    // compound field — makes its quota a property of the run rather than of a row. Read from
+    // the body text rather than from a parse: the shape varies, the attribute does not, and a
+    // false positive here only costs the column its per-row path.
+    match env.packs.load(path, locale) {
+        Ok(entry) => entry
+            .generator
+            .as_deref()
+            .is_some_and(|body| body.contains("percent=")),
+        Err(_) => false,
+    }
+}
+
+/// A weighted file column read as a value list and its shares.
+fn weighted_file_values(gen: &Gen, env: &Env) -> EngineResult<Option<(Vec<String>, Vec<f64>)>> {
+    let roots = env.packs.data_roots();
+    Ok(file::load_weighted(&gen.attrs, env.base_dir, roots)?
+        .map(|w| (w.values.clone(), w.percents.clone())))
+}
+
+/// One generator's finished values for a whole column, keyed the way the streaming engine
+/// keys them.
+///
+/// Three shapes, and which one applies is the streaming engine's own split:
+///
+///   * a LISTED column — a `text` list, a weighted file column, a weighted pack — is laid out
+///     exactly over the rows and permuted, never picked per row;
+///   * an independent generator is built ROW BY ROW off `(seed, stream_id, row)`, with the
+///     modifiers applied inside that loop so `anomaly=` spends the row's own draw;
+///   * everything else keeps the older shape: generate the column, then finish it.
+///
+/// Without a `stream` — an inline generator, a nested pack body — all three collapse to the
+/// last, which is what those callers want.
+#[allow(clippy::too_many_arguments)]
+pub(super) fn column_values(
+    gen: &Gen,
+    count: usize,
+    prng: &mut Sfc32,
+    env: &Env,
+    stream: Option<&per_row::Stream>,
+    anomaly_flags: Option<&mut [bool]>,
+    layouts: Option<&mut BTreeMap<String, per_row::ExactLayout>>,
+) -> EngineResult<Vec<String>> {
+    let Some(stream) = stream else {
+        let drawn = generate(gen, count, prng, env)?;
+        return finish(drawn, &gen.attrs, prng, anomaly_flags);
+    };
+
+    if let Some((values, percents)) = listed_values(gen, env)? {
+        let laid = per_row::exact_text_layout(&values, &percents, count, stream, layouts);
+        return finish_keyed(laid, gen, prng, anomaly_flags, Some(stream));
+    }
+
+    // Two types the streaming engine builds INLINE: the value follows the position, and only
+    // the one draw that perturbs it is keyed by the row.
+    match gen.gen_type.as_str() {
+        "timeseries" => {
+            let built = timeseries_keyed(&gen.attrs, count, stream)?;
+            return finish_keyed(built, gen, prng, anomaly_flags, Some(stream));
+        }
+        "pattern" => {
+            let built = pattern_keyed(&gen.attrs, count, env, stream)?;
+            return finish_keyed(built, gen, prng, anomaly_flags, Some(stream));
+        }
+        _ => {}
+    }
+
+    // A weighted choice inside an advanced_regex — `(?%{RU:70|US:20|DE:10})` — is a quota over
+    // the column like any other share. Decided one row at a time it awards every row to the
+    // largest share: 100% RU, not 70/20/10.
+    let weighted = weighted_template_pack(gen, env)?.is_some()
+        || (gen.gen_type == "advanced_regex"
+            && advanced_regex::has_weighted_choice(gen.attr_or("value", "")));
+    let whole_column = pack_needs_whole_column(gen, env);
+    if per_row::per_row_buildable(gen, count, weighted, whole_column) {
+        let mut out = Vec::with_capacity(count);
+        let mut flags = anomaly_flags;
+        for i in 0..count {
+            let mut row_prng = per_row::row_generator(stream, stream.row_at(i));
+            let drawn = generate(gen, 1, &mut row_prng, env)?;
+            let mut one = [false];
+            let done = finish(drawn, &gen.attrs, &mut row_prng, Some(&mut one))?;
+            out.push(done.into_iter().next().unwrap_or_default());
+            if let Some(store) = flags.as_deref_mut() {
+                store[i] = one[0];
+            }
+        }
+        return Ok(out);
+    }
+
+    let drawn = generate(gen, count, prng, env)?;
+    finish_keyed(drawn, gen, prng, anomaly_flags, Some(stream))
+}
+
+/// `anomaly=`, `missing=` and the formatting layer for ONE element of a repeating LISTED
+/// column.
+///
+/// The two probability draws come off the row's `#anom` and `#miss` streams with a budget of
+/// the row's maximum length, so element k always gets the same uniform however long its row
+/// turned out to be.
+fn element_modifier<'a>(
+    gen: &'a Gen,
+    spec: &repeat::Spec,
+    stream: &'a per_row::Stream,
+) -> EngineResult<impl FnMut(usize, String, usize) -> String + 'a> {
+    let anomaly = imperfections::parse_anomaly(&gen.attrs)?.filter(|a| a.probability > 0.0);
+    let missing = imperfections::parse_missing(&gen.attrs)?.filter(|m| m.probability > 0.0);
+    let mask_attr = gen.attr("mask").map(str::to_string);
+    let case_name = gen
+        .attr("case")
+        .filter(|c| transforms::is_case_transform(c))
+        .map(str::to_string);
+
+    let budget = spec.max.max(1) as usize;
+    let mut anom_at = anomaly
+        .as_ref()
+        .map(|_| super::repeat_keyed::element_uniforms(stream, "#anom", budget));
+    let mut miss_at = missing
+        .as_ref()
+        .map(|_| super::repeat_keyed::element_uniforms(stream, "#miss", budget));
+
+    Ok(move |row: usize, value: String, k: usize| -> String {
+        let mut out = value;
+        if let (Some(a), Some(draw)) = (anomaly.as_ref(), anom_at.as_mut()) {
+            if draw(row, k) < a.probability {
+                out = imperfections::spike(&out, a.factor);
+            }
+        }
+        if let (Some(m), Some(draw)) = (missing.as_ref(), miss_at.as_mut()) {
+            if draw(row, k) < m.probability {
+                out = m.token.clone();
+            }
+        }
+        if let Some(pattern) = mask_attr.as_deref() {
+            out = mask::apply(pattern, &out).unwrap_or(out);
+        }
+        if let Some(case) = case_name.as_deref() {
+            out = transforms::apply_case(case, &out);
+        }
+        out
+    })
+}
+
+/// `<gen type="timeseries" noise=…>` keyed by the row.
+///
+/// The value follows the POSITION — a series read at a point of the run — while the noise
+/// follows the ROW, on the dedicated `:ts` stream the streaming engine uses. Same two names,
+/// same two uniforms, same series.
+fn timeseries_keyed(
+    attrs: &BTreeMap<String, String>,
+    count: usize,
+    stream: &per_row::Stream,
+) -> EngineResult<Vec<String>> {
+    let spec = timeseries::parse(attrs)?;
+    let noisy = spec.has_noise();
+    let mut result = Vec::with_capacity(count);
+    for i in 0..count {
+        let z = if noisy {
+            let u = seekable::uniforms(
+                &stream.seed,
+                &format!("{}:ts", stream.id),
+                stream.row_at(i) as i32,
+                2,
+            );
+            timeseries::standard_normal(u[0], u[1])
+        } else {
+            0.0
+        };
+        result.push(crate::numbers::to_fixed(
+            timeseries::value_at(&spec, i as i64, z),
+            spec.decimals,
+        ));
+    }
+    Ok(result)
+}
+
+/// `<gen type="pattern">` keyed by the row.
+///
+/// As with timeseries: the curve is read at the POSITION, and the one draw that places the
+/// value inside its band is keyed by the ROW on the streaming engine's `:pat` stream.
+fn pattern_keyed(
+    attrs: &BTreeMap<String, String>,
+    count: usize,
+    env: &Env,
+    stream: &per_row::Stream,
+) -> EngineResult<Vec<String>> {
+    let gen = crate::pattern::PatternGen::of(attrs, env.base_dir, env.packs.data_roots())?;
+    let draws = gen.draws();
+    let denom = if count > 1 { (count - 1) as f64 } else { 1.0 };
+    let mut result = Vec::with_capacity(count);
+    for i in 0..count {
+        let u = if draws {
+            seekable::uniforms(
+                &stream.seed,
+                &format!("{}:pat", stream.id),
+                stream.row_at(i) as i32,
+                1,
+            )[0]
+        } else {
+            0.0
+        };
+        result.push(gen.value_at(i as f64 / denom, u, 1.0 / denom));
+    }
+    Ok(result)
+}
+
+/// `finish`, with the two modifier draws taken from the column's own `#anom` and `#miss`
+/// streams when the type is one the streaming engine builds inline.
+fn finish_keyed(
+    values: Vec<String>,
+    gen: &Gen,
+    prng: &mut Sfc32,
+    anomaly_flags: Option<&mut [bool]>,
+    stream: Option<&per_row::Stream>,
+) -> EngineResult<Vec<String>> {
+    match stream.filter(|_| per_row::is_inline_anomaly(&gen.gen_type)) {
+        Some(s) => finish_with(values, &gen.attrs, prng, anomaly_flags, Some(s)),
+        None => finish(values, &gen.attrs, prng, anomaly_flags),
+    }
+}
+
+/// The value list and the shares a column lays out, when its values are LISTED.
+fn listed_values(gen: &Gen, env: &Env) -> EngineResult<Option<(Vec<String>, Vec<f64>)>> {
+    if gen.attr("order") == Some("sequential") {
+        return Ok(None);
+    }
+    if gen.attrs.contains_key("weight") {
+        // `row=` links whole rows of the file; the choice is not this column's.
+        if !gen.attr("row").map(str::trim).unwrap_or("").is_empty() {
+            return Ok(None);
+        }
+        return weighted_file_values(gen, env);
+    }
+    if let Some(pack) = weighted_template_pack(gen, env)? {
+        return Ok(Some(pack));
+    }
+    if gen.gen_type != "text" {
+        return Ok(None);
+    }
+    let values = split_text(gen.attr_or("value", ""));
+    let shares = per_row::shares_of(gen.attr("percent"), values.len());
+    Ok(Some((values, shares)))
+}
+
 pub(super) fn generate(
     gen: &Gen,
     count: usize,
@@ -1430,13 +1888,18 @@ fn case_values(
     count: usize,
     prng: &mut Sfc32,
     env: &Env,
+    stream: Option<&per_row::Stream>,
 ) -> EngineResult<Vec<String>> {
     let mut parts: Vec<String> = vec![String::new(); count];
-    for part in &case.parts {
+    // Parts are numbered among ALL of them, literals included: the streaming engine numbers
+    // them off the same list, and a different count here would key the same part under a
+    // different name.
+    for (p, part) in case.parts.iter().enumerate() {
+        let sub = stream.map(|s| s.named(&format!("{}#p{p}", s.id)));
         let values: Vec<String> = match part {
             CasePart::Text(text) => vec![text.clone(); count],
-            CasePart::Gen(gen) => generate(gen, count, prng, env)?,
-            CasePart::Mix(mix) => mix_values(mix, count, prng, None, env)?,
+            CasePart::Gen(gen) => column_values(gen, count, prng, env, sub.as_ref(), None, None)?,
+            CasePart::Mix(mix) => mix_values(mix, count, prng, None, env, sub.as_ref())?,
         };
         for (slot, value) in parts.iter_mut().zip(values) {
             slot.push_str(&value);
@@ -1457,6 +1920,7 @@ fn mix_values(
     prng: &mut Sfc32,
     flags: Option<&mut Vec<bool>>,
     env: &Env,
+    stream: Option<&per_row::Stream>,
 ) -> EngineResult<Vec<String>> {
     if mix.cases.is_empty() {
         return Ok(vec![String::new(); count]);
@@ -1468,24 +1932,85 @@ fn mix_values(
             .map_err(|e| EngineError::Invalid(e.message))?,
     };
 
-    let indices: Vec<usize> = (0..mix.cases.len()).collect();
-    let selected = hamilton::distribute(count as i32, &indices, &percents, prng);
+    // An inline mix inside a pack generator body has nothing to key by, so the older
+    // arrangement stands there.
+    let Some(stream) = stream else {
+        let indices: Vec<usize> = (0..mix.cases.len()).collect();
+        let selected = hamilton::distribute(count as i32, &indices, &percents, prng);
+        let mut result = vec![String::new(); count];
+        if let Some(flags) = flags {
+            for (i, chosen) in selected.iter().enumerate() {
+                flags[i] = mix.cases[*chosen].anomaly;
+            }
+        }
+        for (c, case) in mix.cases.iter().enumerate() {
+            let rows: Vec<usize> = (0..count).filter(|i| selected[*i] == c).collect();
+            if rows.is_empty() {
+                continue;
+            }
+            let values = case_values(case, rows.len(), prng, env, None)?;
+            for (row, value) in rows.into_iter().zip(values) {
+                result[row] = value;
+            }
+        }
+        return Ok(result);
+    };
+
+    // Which case a row takes is the same exact layout a weighted list gets: a quota per case,
+    // permuted over the rows. So the choice follows from the row alone, and the shares still
+    // come out to the digit over the whole run.
+    let mut pct_prng = prng::create(&format!("{}|{}|pct", stream.seed, stream.id));
+    let counts = hamilton::counts_per_value(count as i32, &percents, &mut pct_prng);
+    let layout_key = crate::prng::permute::key(&stream.seed, &stream.id);
+
+    // Case c owns slots [cum_lo[c], cum_lo[c] + counts[c]).
+    let mut cum_lo = Vec::with_capacity(counts.len());
+    let mut acc = 0;
+    for c in &counts {
+        cum_lo.push(acc);
+        acc += c;
+    }
+
+    // The permutation both ways. The streaming engine asks "which slot is this row?"; building
+    // a case's body needs the reverse, "which row holds slot s?".
+    let mut slot_of = vec![0i32; count];
+    let mut position_of_slot = vec![0usize; count];
+    for (i, at) in slot_of.iter_mut().enumerate() {
+        let slot = crate::prng::permute::apply(i as i32, count as i32, layout_key);
+        *at = slot;
+        position_of_slot[slot as usize] = i;
+    }
+    let case_of_slot = |slot: i32| -> usize {
+        for c in 0..counts.len() {
+            if slot < cum_lo[c] + counts[c] {
+                return c;
+            }
+        }
+        counts.len() - 1
+    };
 
     let mut result = vec![String::new(); count];
-    if let Some(flags) = flags {
-        for (i, chosen) in selected.iter().enumerate() {
-            flags[i] = mix.cases[*chosen].anomaly;
+    for (c, case) in mix.cases.iter().enumerate() {
+        let quota = counts[c];
+        if quota == 0 {
+            continue;
+        }
+        let positions: Vec<usize> = (0..quota)
+            .map(|local| position_of_slot[(cum_lo[c] + local) as usize])
+            .collect();
+        let rows: Vec<usize> = positions.iter().map(|&p| stream.row_at(p)).collect();
+        let sub = per_row::Stream::with_rows(&stream.seed, &format!("{}#c{c}", stream.id), rows);
+        let values = case_values(case, quota as usize, prng, env, Some(&sub))?;
+        for (local, &position) in positions.iter().enumerate() {
+            result[position] = values[local].clone();
         }
     }
 
-    for (c, case) in mix.cases.iter().enumerate() {
-        let rows: Vec<usize> = (0..count).filter(|i| selected[*i] == c).collect();
-        if rows.is_empty() {
-            continue;
-        }
-        let values = case_values(case, rows.len(), prng, env)?;
-        for (row, value) in rows.into_iter().zip(values) {
-            result[row] = value;
+    if let Some(flags) = flags {
+        // The label reads the same slot-to-case mapping the value did, so the two cannot
+        // disagree on a row — which is the whole point of a ground-truth column.
+        for i in 0..count {
+            flags[i] = mix.cases[case_of_slot(slot_of[i])].anomaly;
         }
     }
 
@@ -1507,13 +2032,26 @@ fn switch_values(
     prng: &mut Sfc32,
     columns: &BTreeMap<String, Vec<Option<String>>>,
     env: &Env,
+    name: &str,
 ) -> EngineResult<Vec<Option<String>>> {
+    // Every entry resolves over the WHOLE run, not over the rows that chose it — the streaming
+    // engine builds them that way so a lookup stays O(1), and the stream names have to match it
+    // entry for entry.
+    let named = |stream_id: String| per_row::Stream {
+        seed: env.config.seed.clone(),
+        id: stream_id,
+        rows: None,
+    };
     let mut built = Vec::with_capacity(sw.entries.len());
-    for entry in &sw.entries {
-        built.push(case_values(&entry.value, count, prng, env)?);
+    for (e, entry) in sw.entries.iter().enumerate() {
+        let stream = named(format!("{name}#sw{e}"));
+        built.push(case_values(&entry.value, count, prng, env, Some(&stream))?);
     }
     let fallback = match &sw.fallback {
-        Some(case) => Some(case_values(case, count, prng, env)?),
+        Some(case) => {
+            let stream = named(format!("{name}#swdef"));
+            Some(case_values(case, count, prng, env, Some(&stream))?)
+        }
         None => None,
     };
 
@@ -1643,13 +2181,11 @@ fn parent_mask(
 /// `None` means "this row is outside the column's parent filter", which renders
 /// as empty rather than as a neighbour's value shifted up — the failure a dense
 /// array would produce silently.
-fn spread(mask: &[bool], produced: Vec<String>, count: usize) -> Vec<Option<String>> {
+fn spread(rows: &[usize], produced: Vec<String>, count: usize) -> Vec<Option<String>> {
     let mut values = vec![None; count];
-    let mut next = 0usize;
-    for (i, on) in mask.iter().enumerate().take(count) {
-        if *on {
-            values[i] = produced.get(next).cloned();
-            next += 1;
+    for (i, &row) in rows.iter().enumerate() {
+        if row < count {
+            values[row] = produced.get(i).cloned();
         }
     }
     values

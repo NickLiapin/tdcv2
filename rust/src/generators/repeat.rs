@@ -93,6 +93,73 @@ pub fn without(attrs: &BTreeMap<String, String>) -> BTreeMap<String, String> {
 /// those come out per element here with no extra work. The draw order is fixed:
 /// all the length draws first, then the values. Both engines depend on it
 /// staying that way.
+/// Where each row's values sit in one flat run of slots.
+///
+/// The lengths are decided before any value exists, so a row's slice follows from its own
+/// position rather than from a running total over the rows before it. That is what lets the
+/// streaming engine answer row nine million without having built the first eight.
+#[derive(Clone, Debug)]
+pub struct Plan {
+    pub min: i32,
+    pub total_slots: usize,
+    row_cum_lo: Vec<usize>,
+    slot_offset: Vec<usize>,
+}
+
+impl Plan {
+    /// How many values the row at permuted position `p` keeps.
+    pub fn length_at(&self, p: usize) -> usize {
+        self.min as usize + self.group_of(p)
+    }
+
+    /// The first slot the row at permuted position `p` owns.
+    pub fn slot_start_at(&self, p: usize) -> usize {
+        let j = self.group_of(p);
+        self.slot_offset[j] + (p - self.row_cum_lo[j]) * (self.min as usize + j)
+    }
+
+    fn group_of(&self, p: usize) -> usize {
+        let (mut lo, mut hi) = (0usize, self.row_cum_lo.len() - 1);
+        while lo < hi {
+            let mid = (lo + hi).div_ceil(2);
+            if p >= self.row_cum_lo[mid] {
+                lo = mid;
+            } else {
+                hi = mid - 1;
+            }
+        }
+        lo
+    }
+}
+
+/// Lay out `row_count` rows whose lengths were apportioned as `counts`.
+pub fn plan(spec: &Spec, counts: &[i32]) -> Plan {
+    let groups = (spec.max - spec.min + 1).max(1) as usize;
+    let mut row_cum_lo = vec![0usize; groups];
+    let mut slot_offset = vec![0usize; groups];
+    let mut row_acc = 0usize;
+    let mut slot_acc = 0usize;
+    for j in 0..groups {
+        row_cum_lo[j] = row_acc;
+        slot_offset[j] = slot_acc;
+        let c = counts.get(j).copied().unwrap_or(0).max(0) as usize;
+        row_acc += c;
+        slot_acc += c * (spec.min as usize + j);
+    }
+    Plan {
+        min: spec.min,
+        total_slots: slot_acc,
+        row_cum_lo,
+        slot_offset,
+    }
+}
+
+/// An even split across the possible lengths — the shares `plan` quotas by.
+pub fn length_percents(spec: &Spec) -> Vec<f64> {
+    let groups = (spec.max - spec.min + 1).max(1) as usize;
+    vec![100.0 / groups as f64; groups]
+}
+
 pub fn build(
     spec: &Spec,
     count: usize,

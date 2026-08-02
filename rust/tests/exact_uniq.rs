@@ -108,12 +108,15 @@ fn a_run_too_tight_for_its_data_is_refused_rather_than_nearly_unique() {
 
 #[test]
 fn engine_2_refuses_what_engine_3_answers() {
-    // The two are the same code but for one setting, and this is the setting:
-    // streaming uniq cannot honour percent, and says so instead of quietly
-    // dropping the shares.
+    // The two are the same code but for one setting, and this is the setting: a uniq group
+    // REARRANGES whole columns so each keeps its multiset, which no engine can decide a row at
+    // a time. Streaming says so instead of quietly answering something else.
     let error = render(&dense(12), "2").expect_err("engine 2 cannot do this");
     assert!(matches!(error, EngineError::Unsupported(_)), "{error}");
-    assert!(error.message().contains("percent"), "{error}");
+    assert!(
+        error.message().contains("whole-column rearrangement"),
+        "{error}"
+    );
 
     // And engine 3 does it.
     assert!(render(&dense(12), "3").is_ok());
