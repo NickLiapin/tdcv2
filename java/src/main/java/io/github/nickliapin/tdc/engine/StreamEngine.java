@@ -101,8 +101,6 @@ public final class StreamEngine {
    */
   private static final int DISTINCT_FUSE = 64;
 
-  /** Beyond this many combinations a uniq index no longer fits a double exactly. */
-  private static final double SAFE_UNIQ_CAP = 9007199254740992.0;
 
   private final Config config;
   private final DataPacks packs;
@@ -335,25 +333,12 @@ public final class StreamEngine {
    * @return the names this took over, which the ordinary loop must then leave alone
    */
   private Set<String> buildEnvUniq(List<String> group, Map<String, Config.SequenceSpec> byName) {
-    List<String> pools = new ArrayList<>();
-    List<List<String>> values = new ArrayList<>();
-    for (String name : group) {
-      Config.SequenceSpec member = byName.get(name);
-      if (member == null) {
-        throw new Unsupported("<uniq> member \"" + name + "\" (no such sequence)");
-      }
-      if (trimToNull(member.parent()) != null) {
-        throw new Unsupported("<uniq> member \"" + name + "\" with a parent");
-      }
-      if (member.gen() == null) {
-        throw new Unsupported("<uniq> member \"" + name + "\" (must be a simple text sequence)");
-      }
-      pools.add(name);
-      values.add(uniqPool(member.gen(), "\"" + name + "\""));
-    }
-    String label = "<" + String.join(" × ", group) + ">";
-    mixedRadix(pools, values, "#uniq#" + String.join(",", group), label);
-    return new LinkedHashSet<>(group);
+    // As with a sequence's own `uniq`: a group rearranges finished columns, so it belongs to the
+    // in-memory engine and both disk engines refuse rather than answer differently.
+    throw new Unsupported(
+        "<uniq> across sequences (a whole-column rearrangement) ("
+            + String.join(" × ", group)
+            + ")");
   }
 
   /**
@@ -1350,70 +1335,23 @@ public final class StreamEngine {
    * quietly delivered as an even split.
    */
   private void buildUniq(Config.SequenceSpec spec) {
+    if (!exactUniq) {
+      // A group REARRANGES whole columns so each keeps its multiset — a promise about the
+      // finished column, which no engine can keep a row at a time. This one could only offer
+      // something else (a mixed-radix bijection over the combination space, uniform over
+      // combinations, ignoring the values actually drawn), and one seed would then mean two
+      // datasets. It says so instead. The router sends every uniq to the exact engine; this is
+      // the backstop for a forced one.
+      throw new Unsupported(
+          "uniq (a whole-column rearrangement) (\"" + spec.name() + "\")");
+    }
     if (!spec.isCompound() || spec.fields().isEmpty()) {
       throw new Unsupported("uniq on a simple sequence (a whole-column draw) (\"" + spec.name() + "\")");
     }
     if (trimToNull(spec.parent()) != null) {
       throw new Unsupported("uniq combined with a parent (\"" + spec.name() + "\")");
     }
-    if (exactUniq) {
-      buildExactUniq(spec);
-      return;
-    }
-
-    List<String> ids = new ArrayList<>();
-    List<List<String>> pools = new ArrayList<>();
-    for (Config.Field field : spec.fields()) {
-      ids.add(spec.name() + "." + field.name());
-      pools.add(uniqPool(field.gen(), "\"" + spec.name() + "." + field.name() + "\""));
-    }
-
-    mixedRadix(ids, pools, spec.name() + "#uniq", "\"" + spec.name() + "\"");
-  }
-
-  /**
-   * Lay the columns out as the digits of one number, and give row {@code i} a distinct value of
-   * it.
-   *
-   * <p>This is the whole trick. Uniqueness stops being something to check and becomes something
-   * the arithmetic cannot violate: two rows would have to share an index, and the permutation is
-   * a bijection. Nothing is remembered, so the millionth row costs what the first one did.
-   */
-  private void mixedRadix(
-      List<String> ids, List<List<String>> pools, String keyId, String label) {
-    long[] prefixes = new long[pools.size()];
-    double capacity = 1;
-    for (int j = 0; j < pools.size(); j++) {
-      prefixes[j] = (long) capacity;
-      capacity *= pools.get(j).size();
-      if (capacity > SAFE_UNIQ_CAP) {
-        throw new IllegalStateException(
-            "stream mode: uniq "
-                + label
-                + " has more than 2^52 possible combinations — too many to index exactly. "
-                + "Reduce columns/values, or use the in-memory engine.");
-      }
-    }
-    if (count > capacity) {
-      throw new IllegalStateException(
-          "stream mode: uniq "
-              + label
-              + " is infeasible — only "
-              + (long) capacity
-              + " distinct combinations exist, but "
-              + count
-              + " unique rows were requested.");
-    }
-
-    int total = (int) capacity;
-    int key = Permute.key(seed, keyId);
-    for (int j = 0; j < pools.size(); j++) {
-      List<String> pool = pools.get(j);
-      long prefix = prefixes[j];
-      columns.put(
-          ids.get(j),
-          row -> pool.get((int) ((Permute.permute(row, total, key) / prefix) % pool.size())));
-    }
+    buildExactUniq(spec);
   }
 
   /**
@@ -1450,31 +1388,6 @@ public final class StreamEngine {
       ExactUniq.Resolver resolver = entry.getValue();
       columns.put(entry.getKey(), resolver::valueAt);
     }
-  }
-
-  /** A uniq field's pool: a finite text list, with duplicates dropped and percent refused. */
-  private List<String> uniqPool(Config.Gen gen, String label) {
-    if (!"text".equals(gen.type())) {
-      throw new Unsupported(
-          "uniq column " + label + " of type \"" + gen.type() + "\" (only text lists)");
-    }
-    String percent = gen.attrs().get("percent");
-    if (percent != null && !percent.isEmpty()) {
-      throw new Unsupported(
-          "uniq column "
-              + label
-              + " uses percent — streaming uniq gives UNIFORM distinct combinations only. "
-              + "Exact percentages + uniqueness together need the in-memory engine "
-              + "(run without mode=\"stream\"), or drop percent.");
-    }
-    // Deduplicated in first-seen order: a repeated value would make the mixed-radix index map
-    // two combinations onto one, and the column would no longer be unique.
-    List<String> pool =
-        new ArrayList<>(new LinkedHashSet<>(splitText(gen.attrs().getOrDefault("value", ""))));
-    if (pool.isEmpty()) {
-      throw new Unsupported("uniq column " + label + " with an empty value list");
-    }
-    return pool;
   }
 
   // ── writing ──────────────────────────────────────────────────────────────────────────────

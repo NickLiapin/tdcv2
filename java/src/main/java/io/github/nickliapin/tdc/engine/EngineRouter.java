@@ -101,10 +101,9 @@ public final class EngineRouter {
   /**
    * Whether disk mode needs the exact engine rather than the streaming one.
    *
-   * <p>Everything here is a case where a per-row answer and a whole-column answer differ: exact
-   * percentages combined with uniqueness, a uniq field that is not a finite list, a child of a
-   * parent whose values are not a finite list, a weighted choice inside a pattern. Ordinary
-   * exact percentages, uniform uniqueness, switch, distinct and text parent-child all stream.
+   * <p>Everything here is a case where a per-row answer and a whole-column answer differ: ANY
+   * uniqueness, a child of a parent whose values are not a finite list, a weighted choice inside
+   * a pattern. Ordinary exact percentages, switch, distinct and text parent-child all stream.
    */
   public static boolean needsExact(Config config) {
     Map<String, Config.SequenceSpec> byName = new HashMap<>();
@@ -112,16 +111,17 @@ public final class EngineRouter {
       byName.put(spec.name(), spec);
     }
 
+    // A group REARRANGES the columns it covers — every column keeps its multiset, so every
+    // declared share survives — and that cannot be decided a row at a time. The streaming engine
+    // could only offer a different answer, and two answers from one seed is the thing this whole
+    // design exists to prevent.
+    if (!config.envUniqGroups().isEmpty()) {
+      return true;
+    }
+
     for (Config.SequenceSpec spec : config.sequences()) {
       if (spec.uniq()) {
-        if (trimToNull(spec.parent()) != null) {
-          return true;
-        }
-        for (Config.Field field : fieldsOf(spec)) {
-          if (!"text".equals(field.gen().type()) || hasPercent(field.gen())) {
-            return true;
-          }
-        }
+        return true;
       }
       if (spec.gen() != null && isWeightedAdvancedRegex(spec.gen())) {
         return true;

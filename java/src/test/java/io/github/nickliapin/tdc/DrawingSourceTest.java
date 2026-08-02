@@ -68,7 +68,7 @@ class DrawingSourceTest {
   void svgBand(@TempDir Path dir) throws IOException {
     Files.writeString(dir.resolve("band.svg"), BAND_SVG);
     assertEquals(
-        List.of("33.4", "49.7", "39.8", "39.8", "69.1", "66.7"), read(dir, "band.svg"));
+        List.of("76.2", "29.1", "39.0", "84.1", "57.4", "54.0"), read(dir, "band.svg"));
   }
 
   @Test

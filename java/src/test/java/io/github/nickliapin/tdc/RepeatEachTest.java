@@ -38,16 +38,16 @@ class RepeatEachTest {
     // This one baseline pins the length quota, the element values and the key arithmetic.
     assertEquals(
         """
-        customer 1 tags=b
-          item 1 pos=1 of 1: b
-        customer 2 tags=a;a
-          item 4 pos=1 of 2: a
-          item 5 pos=2 of 2: a
-        customer 3 tags=
-        customer 4 tags=b;b;c
-          item 10 pos=1 of 4: b
-          item 11 pos=2 of 4: b
-          item 12 pos=3 of 4: c
+        customer 1 tags=c;b;c
+          item 1 pos=1 of 1: c
+          item 2 pos=2 of 1: b
+          item 3 pos=3 of 1: c
+        customer 2 tags=
+        customer 3 tags=b;a
+          item 7 pos=1 of 3: b
+          item 8 pos=2 of 3: a
+        customer 4 tags=a
+          item 10 pos=1 of 4: a
         """,
         tdc.toString());
   }

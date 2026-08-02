@@ -212,9 +212,13 @@ public final class DataPacks {
       if (spec.gen() != null && declares(spec.gen().attrs().get("percent"))) {
         return true;
       }
-      for (io.github.nickliapin.tdc.model.Config.Field field : spec.fields()) {
-        if (field.gen() != null && declares(field.gen().attrs().get("percent"))) {
-          return true;
+      // A local sequence holding a lone <gen> has no fields at all, which is the ordinary shape
+      // inside a pack body — most of them are one generator and a check digit.
+      if (spec.fields() != null) {
+        for (io.github.nickliapin.tdc.model.Config.Field field : spec.fields()) {
+          if (field.gen() != null && declares(field.gen().attrs().get("percent"))) {
+            return true;
+          }
         }
       }
     }

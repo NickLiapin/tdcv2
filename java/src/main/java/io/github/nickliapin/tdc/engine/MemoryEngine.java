@@ -24,6 +24,7 @@ import io.github.nickliapin.tdc.pattern.PatternGen;
 import io.github.nickliapin.tdc.parser.ConfigBuilder;
 import io.github.nickliapin.tdc.parser.generated.TDCParser;
 import io.github.nickliapin.tdc.sequence.Pool;
+import io.github.nickliapin.tdc.prng.Permute;
 import io.github.nickliapin.tdc.prng.Prng;
 import io.github.nickliapin.tdc.prng.Seekable;
 import io.github.nickliapin.tdc.prng.Random;
@@ -402,14 +403,16 @@ public final class MemoryEngine {
     Map<String, Pool.Table> tables =
         prebuilt != null ? prebuilt : buildPoolTables(config, packs, nowMillis, baseDir);
 
+    // What each finished column's exact layout gave each row, by column name. A child that
+    // filters on one of them is ordered by its RANK there, not by row order.
+    Map<String, PerRow.ExactLayout> layouts = new LinkedHashMap<>();
+
     for (Config.SequenceSpec spec : config.sequences()) {
       boolean[] mask = parentMask(spec, columns, count);
-      int applicable = 0;
-      for (boolean on : mask) {
-        if (on) {
-          applicable++;
-        }
-      }
+      // In the order the column BUILDS them, which for a child is its rank inside the parent's
+      // exact layout rather than plain row order.
+      List<Integer> rows = PerRow.orderedRows(spec.parent(), mask, layouts);
+      int applicable = rows.size();
       // A reference to a <pool>: this row gets one member, and every field of that member is
       // published under `Ref.field`. Resolved HERE, in declaration order, so a later
       // `<switch on="Doc.city">` finds the field already registered.
@@ -441,6 +444,10 @@ public final class MemoryEngine {
                 .toList();
         Config.Item uniqPart = spec.uniq() && drawnParts.size() == 1 ? drawnParts.get(0) : null;
 
+        // Unnamed parts are numbered among ALL parts, literals included, because that is how the
+        // streaming engine numbers them.
+        int unnamed = 0;
+
         for (Config.Item item : spec.items()) {
           if (item.constantName() != null) {
             // A constant costs no draw at all — that is the whole reason it exists rather than a
@@ -459,6 +466,11 @@ public final class MemoryEngine {
             continue;
           }
           Config.Gen gen = item.field() != null ? item.field().gen() : item.gen();
+          String partId =
+              item.field() != null
+                  ? spec.name() + "." + item.field().name()
+                  : spec.name() + "#p" + unnamed++;
+          PerRow.Stream part = new PerRow.Stream(config.seed(), partId, rows);
           List<String> values;
           if (applicable == 0) {
             values = new ArrayList<>();
@@ -470,11 +482,9 @@ public final class MemoryEngine {
           } else {
             values =
                 new ArrayList<>(
-                    finish(
-                        generate(gen, applicable, prng, packs, config, nowMillis, baseDir, rowLinks),
-                        gen.attrs(),
-                        prng,
-                        new boolean[applicable]));
+                    columnValues(
+                        gen, applicable, prng, packs, config, nowMillis, baseDir, rowLinks,
+                        part, null, layouts));
           }
           if (item.field() != null) {
             built.put(item.field().name(), values);
@@ -489,16 +499,17 @@ public final class MemoryEngine {
           // The groups name FIELDS, and a composed body carries its fields in `items` — so the
           // constraint is checked against a spec that spells them out.
           enforceDistinct(
-              withFieldsOf(spec), built, applicable, prng, packs, config, nowMillis, baseDir, rowLinks);
+              withFieldsOf(spec), built, applicable, prng, packs, config, nowMillis, baseDir,
+              rowLinks, rows);
         }
 
         // Only when something unnamed actually composed it. A body of nothing but named items has
         // no value of its own, and ${{Name}} stays the literal marker that says you meant a field.
         if (composesOwnValue(spec.items())) {
-          columns.put(spec.name(), spread(mask, Arrays.asList(composed), count));
+          columns.put(spec.name(), spread(rows, Arrays.asList(composed), count));
         }
         for (Map.Entry<String, List<String>> entry : built.entrySet()) {
-          columns.put(spec.name() + "." + entry.getKey(), spread(mask, entry.getValue(), count));
+          columns.put(spec.name() + "." + entry.getKey(), spread(rows, entry.getValue(), count));
         }
         continue;
       }
@@ -514,15 +525,18 @@ public final class MemoryEngine {
               applicable == 0
                   ? new ArrayList<>()
                   : new ArrayList<>(
-                      finish(
-                          generate(field.gen(), applicable, prng, packs, config, nowMillis, baseDir, rowLinks),
-                          field.gen().attrs(),
-                          prng,
-                          new boolean[applicable])));
+                      columnValues(
+                          field.gen(), applicable, prng, packs, config, nowMillis, baseDir,
+                          rowLinks,
+                          new PerRow.Stream(
+                              config.seed(), spec.name() + "." + field.name(), rows),
+                          null,
+                          layouts)));
         }
 
         if (applicable > 0 && spec.distinctGroups() != null) {
-          enforceDistinct(spec, produced, applicable, prng, packs, config, nowMillis, baseDir, rowLinks);
+          enforceDistinct(
+              spec, produced, applicable, prng, packs, config, nowMillis, baseDir, rowLinks, rows);
         }
         if (applicable > 0 && spec.uniq()) {
           enforceUniqRedrawing(
@@ -532,7 +546,7 @@ public final class MemoryEngine {
         for (Config.Field field : spec.fields()) {
           columns.put(
               spec.name() + "." + field.name(),
-              spread(mask, produced.get(field.name()), count));
+              spread(rows, produced.get(field.name()), count));
         }
         continue;
       }
@@ -542,8 +556,13 @@ public final class MemoryEngine {
         List<String> produced =
             applicable == 0
                 ? List.of()
-                : mixValues(spec.mix(), applicable, prng, packs, config, nowMillis, baseDir, rowLinks, flags);
-        columns.put(spec.name(), spread(mask, produced, count));
+                : mixValues(
+                    spec.mix(), applicable, prng, packs, config, nowMillis, baseDir, rowLinks,
+                    flags,
+                    // The '#switch' suffix is a stable historical key: the streaming engine
+                    // spells it that way so a <mix> keeps the values of the <switch> it replaced.
+                    new PerRow.Stream(config.seed(), spec.name() + "#switch", rows));
+        columns.put(spec.name(), spread(rows, produced, count));
 
         String flagName = spec.mix().flag();
         if (flagName != null && !flagName.isBlank()) {
@@ -551,7 +570,7 @@ public final class MemoryEngine {
           for (boolean on : flags) {
             labels.add(String.valueOf(on));
           }
-          columns.put(flagName, spread(mask, labels, count));
+          columns.put(flagName, spread(rows, labels, count));
         }
         continue;
       }
@@ -560,7 +579,8 @@ public final class MemoryEngine {
         columns.put(
             spec.name(),
             switchValues(
-                spec.switchSpec(), count, prng, packs, config, nowMillis, baseDir, rowLinks, columns));
+                spec.switchSpec(), count, prng, packs, config, nowMillis, baseDir, rowLinks,
+                columns, spec.name()));
         continue;
       }
 
@@ -569,8 +589,13 @@ public final class MemoryEngine {
         List<String> produced =
             applicable == 0
                 ? List.of()
-                : mixValues(spec.mix(), applicable, prng, packs, config, nowMillis, baseDir, rowLinks, flags);
-        columns.put(spec.name(), spread(mask, produced, count));
+                : mixValues(
+                    spec.mix(), applicable, prng, packs, config, nowMillis, baseDir, rowLinks,
+                    flags,
+                    // The '#switch' suffix is a stable historical key: the streaming engine
+                    // spells it that way so a <mix> keeps the values of the <switch> it replaced.
+                    new PerRow.Stream(config.seed(), spec.name() + "#switch", rows));
+        columns.put(spec.name(), spread(rows, produced, count));
 
         String flagName = spec.mix().flag();
         if (flagName != null && !flagName.isBlank()) {
@@ -580,7 +605,7 @@ public final class MemoryEngine {
           for (boolean on : flags) {
             labels.add(String.valueOf(on));
           }
-          columns.put(flagName, spread(mask, labels, count));
+          columns.put(flagName, spread(rows, labels, count));
         }
         continue;
       }
@@ -589,7 +614,8 @@ public final class MemoryEngine {
         columns.put(
             spec.name(),
             switchValues(
-                spec.switchSpec(), count, prng, packs, config, nowMillis, baseDir, rowLinks, columns));
+                spec.switchSpec(), count, prng, packs, config, nowMillis, baseDir, rowLinks,
+                columns, spec.name()));
         continue;
       }
 
@@ -629,7 +655,7 @@ public final class MemoryEngine {
         columns.put(
             spec.name(),
             spread(
-                mask,
+                rows,
                 dynamicTemplate(spec.gen(), mask, columns, prng, packs, config, nowMillis, baseDir),
                 count));
         continue;
@@ -646,49 +672,80 @@ public final class MemoryEngine {
                 ? List.of()
                 : UniqSimple.build(
                     spec.name(), spec.gen(), applicable, prng, packs, config.locale(), baseDir);
-        columns.put(spec.name(), spread(mask, unique, count));
+        columns.put(spec.name(), spread(rows, unique, count));
         continue;
       }
 
       boolean[] anomalyFlags = new boolean[applicable];
       Repeat.Spec repeat = Repeat.parse(spec.gen().attrs());
+      PerRow.Stream stream = new PerRow.Stream(config.seed(), spec.name(), rows);
+      String flagName = spec.gen().attrs().get("anomaly_flag");
+      boolean flagNamed = flagName != null && !flagName.isBlank();
+
+      // With `repeat` the anomaly label is a LIST parallel to the values, saying which ELEMENT
+      // spiked rather than merely that one did.
+      List<String> repeatFlags = null;
       List<String> produced;
       if (applicable == 0) {
         produced = List.of();
       } else if (repeat != null) {
-        // The per-value passes run inside, on the flat slot buffer, so anomaly, missing and
-        // formatting come out per element of the list rather than over the joined cell.
-        produced =
-            Repeat.build(
-                repeat,
-                applicable,
-                prng,
-                slots ->
-                    finish(
-                        generate(spec.gen(), slots, prng, packs, config, nowMillis, baseDir, rowLinks),
-                        spec.gen().attrs(),
-                        prng,
-                        new boolean[slots]));
+        // A listed column lays every element of every row out at once and reads the slots the
+        // length plan gave the row; anything drawn takes one sub-stream per element. Which of
+        // the two is the streaming engine's own split.
+        Listed listed = listedValues(spec.gen(), packs, config, baseDir);
+        if (listed != null) {
+          produced =
+              RepeatKeyed.buildLayout(
+                  repeat,
+                  listed.values(),
+                  listed.percents(),
+                  applicable,
+                  stream,
+                  elementModifier(spec.gen(), repeat, stream));
+        } else {
+          Config.Gen element =
+              new Config.Gen(spec.gen().type(), Repeat.without(spec.gen().attrs()));
+          repeatFlags = flagNamed ? new ArrayList<>() : null;
+          produced =
+              RepeatKeyed.buildDraws(
+                  repeat,
+                  applicable,
+                  stream,
+                  (k, elementPrng, flag) -> {
+                    List<String> done =
+                        finish(
+                            generate(
+                                element, 1, elementPrng, packs, config, nowMillis, baseDir,
+                                rowLinks),
+                            element.attrs(),
+                            elementPrng,
+                            flag);
+                    return done.isEmpty() ? "" : done.get(0);
+                  },
+                  repeatFlags);
+        }
       } else {
         produced =
-            finish(
-                generate(spec.gen(), applicable, prng, packs, config, nowMillis, baseDir, rowLinks),
-                spec.gen().attrs(),
-                prng,
-                anomalyFlags);
+            columnValues(
+                spec.gen(), applicable, prng, packs, config, nowMillis, baseDir, rowLinks,
+                stream, anomalyFlags, layouts);
       }
-      columns.put(spec.name(), spread(mask, produced, count));
+      columns.put(spec.name(), spread(rows, produced, count));
 
-      String flagName = spec.gen().attrs().get("anomaly_flag");
-      if (flagName != null && !flagName.isBlank()) {
+      if (flagNamed) {
         // The ground-truth companion: which rows the run chose to spike. It shares the parent
         // mask, so the label is absent on exactly the rows the value is absent from — a
         // detector trained on this cannot learn from a label the data never had.
-        List<String> flags = new ArrayList<>(applicable);
-        for (boolean on : anomalyFlags) {
-          flags.add(String.valueOf(on));
+        List<String> flags;
+        if (repeatFlags != null) {
+          flags = repeatFlags;
+        } else {
+          flags = new ArrayList<>(applicable);
+          for (boolean on : anomalyFlags) {
+            flags.add(String.valueOf(on));
+          }
         }
-        columns.put(flagName, spread(mask, flags, count));
+        columns.put(flagName, spread(rows, flags, count));
       }
     }
     enforceEnvDistinct(config, columns, count, prng, packs, nowMillis, baseDir);
@@ -741,7 +798,10 @@ public final class MemoryEngine {
                       + " attempts — its source likely has too few distinct values.");
             }
             attempts++;
-            value = oneScalar(byName.get(name), prng, packs, config, nowMillis, baseDir);
+            // Named for the sequence and the attempt, exactly as the streaming engine names it,
+            // so the replacement is the same value on both engines.
+            Prng.Sfc32 one = Seekable.generator(config.seed(), name + "#ed" + attempts, i);
+            value = oneScalar(byName.get(name), one, packs, config, nowMillis, baseDir);
           }
           values[i] = value;
           seen.add(value);
@@ -929,7 +989,8 @@ public final class MemoryEngine {
     if (spec.isMix()) {
       List<String> built =
           mixValues(
-              spec.mix(), 1, prng, packs, config, nowMillis, baseDir, new LinkedHashMap<>(), new boolean[1]);
+              spec.mix(), 1, prng, packs, config, nowMillis, baseDir, new LinkedHashMap<>(),
+              new boolean[1], null);
       return built.isEmpty() ? "" : built.get(0);
     }
     return "";
@@ -959,7 +1020,8 @@ public final class MemoryEngine {
       Config config,
       long nowMillis,
       Path baseDir,
-      Map<String, RowLinkPlan> rowLinks) {
+      Map<String, RowLinkPlan> rowLinks,
+      List<Integer> rows) {
     Map<String, Config.Gen> genByField = new LinkedHashMap<>();
     for (Config.Field field : spec.fields()) {
       genByField.put(field.name(), field.gen());
@@ -995,7 +1057,14 @@ public final class MemoryEngine {
                       + " attempts — its source likely has too few distinct values.");
             }
             attempts++;
-            value = generate(gen, 1, prng, packs, config, nowMillis, baseDir, rowLinks).get(0);
+            // Each attempt has a stream of its own, named for the field and the attempt number —
+            // the same names the streaming engine redraws under, so both engines land on the
+            // same replacement.
+            int row = i < rows.size() ? rows.get(i) : i;
+            Prng.Sfc32 one =
+                Seekable.generator(
+                    config.seed(), spec.name() + "." + fieldName + "#d" + attempts, row);
+            value = generate(gen, 1, one, packs, config, nowMillis, baseDir, rowLinks).get(0);
           }
           values.set(i, value);
           seen.add(value);
@@ -1032,10 +1101,30 @@ public final class MemoryEngine {
   private static void arrangeUnique(
       Config.SequenceSpec spec, Map<String, List<String>> produced, int count) {
     List<List<String>> columns = new ArrayList<>();
-    List<List<Integer>> columnCounts = new ArrayList<>();
     for (Config.Field field : spec.fields()) {
-      List<String> column = produced.get(field.name());
-      columns.add(column);
+      columns.add(produced.get(field.name()));
+    }
+
+    // Already unique as drawn? Then there is nothing to rearrange, and moving values anyway would
+    // only make this engine disagree with the exact one, which checks the same thing first and
+    // leaves a passing draw untouched. Cheap enough to always ask: one pass, one set. NUL joins
+    // the tuple because a generated value cannot contain it, so no two different tuples can join
+    // into the same key.
+    Set<String> seenTuples = new java.util.HashSet<>();
+    boolean collided = false;
+    for (int i = 0; i < count && !collided; i++) {
+      StringBuilder key = new StringBuilder();
+      for (List<String> column : columns) {
+        key.append(i < column.size() ? column.get(i) : "").append('\0');
+      }
+      collided = !seenTuples.add(key.toString());
+    }
+    if (!collided) {
+      return;
+    }
+
+    List<List<Integer>> columnCounts = new ArrayList<>();
+    for (List<String> column : columns) {
       columnCounts.add(Uniq.valueCounts(column));
     }
 
@@ -1183,7 +1272,8 @@ public final class MemoryEngine {
       long nowMillis,
       Path baseDir,
       Map<String, RowLinkPlan> rowLinks,
-      boolean[] flags) {
+      boolean[] flags,
+      PerRow.Stream stream) {
     List<Config.Case> cases = mix.cases();
     if (cases.isEmpty()) {
       List<String> out = new ArrayList<>(count);
@@ -1201,37 +1291,109 @@ public final class MemoryEngine {
       percents = PercentMask.expand(mix.percent(), cases.size());
     }
 
-    List<Integer> indexes = new ArrayList<>(cases.size());
-    for (int i = 0; i < cases.size(); i++) {
-      indexes.add(i);
-    }
-    List<Integer> selected = Hamilton.distribute(count, indexes, percents, prng);
-
     List<String> out = new ArrayList<>(count);
     for (int i = 0; i < count; i++) {
       out.add("");
-      if (flags != null) {
-        flags[i] = cases.get(selected.get(i)).anomaly();
+    }
+
+    // An inline mix inside a pack generator body has nothing to key by, so the older arrangement
+    // stands there.
+    if (stream == null) {
+      List<Integer> indexes = new ArrayList<>(cases.size());
+      for (int i = 0; i < cases.size(); i++) {
+        indexes.add(i);
       }
+      List<Integer> selected = Hamilton.distribute(count, indexes, percents, prng);
+      if (flags != null) {
+        for (int i = 0; i < count; i++) {
+          flags[i] = cases.get(selected.get(i)).anomaly();
+        }
+      }
+      for (int c = 0; c < cases.size(); c++) {
+        List<Integer> taken = new ArrayList<>();
+        for (int i = 0; i < count; i++) {
+          if (selected.get(i) == c) {
+            taken.add(i);
+          }
+        }
+        if (taken.isEmpty()) {
+          continue;
+        }
+        List<String> values =
+            caseValues(
+                cases.get(c), taken.size(), prng, packs, config, nowMillis, baseDir, rowLinks,
+                null);
+        for (int i = 0; i < taken.size(); i++) {
+          out.set(taken.get(i), values.get(i));
+        }
+      }
+      return out;
+    }
+
+    // Which case a row takes is the same exact layout a weighted list gets: a quota per case,
+    // permuted over the rows. So the choice follows from the row alone, and the shares still come
+    // out to the digit over the whole run.
+    int[] counts =
+        Hamilton.countsPerValue(
+            count, percents, Prng.create(stream.seed() + "|" + stream.id() + "|pct"));
+    int layoutKey = Permute.key(stream.seed(), stream.id());
+
+    // Case c owns slots [cumLo[c], cumLo[c] + counts[c]).
+    int[] cumLo = new int[counts.length];
+    int acc = 0;
+    for (int c = 0; c < counts.length; c++) {
+      cumLo[c] = acc;
+      acc += counts[c];
+    }
+
+    // The permutation both ways. The streaming engine asks "which slot is this row?"; building a
+    // case's body needs the reverse, "which row holds slot s?".
+    int[] slotOf = new int[count];
+    int[] positionOfSlot = new int[count];
+    for (int i = 0; i < count; i++) {
+      int slot = Permute.permute(i, count, layoutKey);
+      slotOf[i] = slot;
+      positionOfSlot[slot] = i;
     }
 
     for (int c = 0; c < cases.size(); c++) {
-      List<Integer> rows = new ArrayList<>();
-      for (int i = 0; i < count; i++) {
-        if (selected.get(i) == c) {
-          rows.add(i);
-        }
-      }
-      if (rows.isEmpty()) {
+      int quota = counts[c];
+      if (quota == 0) {
         continue;
       }
+      int[] positions = new int[quota];
+      List<Integer> caseRows = new ArrayList<>(quota);
+      for (int local = 0; local < quota; local++) {
+        positions[local] = positionOfSlot[cumLo[c] + local];
+        caseRows.add(stream.rowAt(positions[local]));
+      }
       List<String> values =
-          caseValues(cases.get(c), rows.size(), prng, packs, config, nowMillis, baseDir, rowLinks);
-      for (int i = 0; i < rows.size(); i++) {
-        out.set(rows.get(i), values.get(i));
+          caseValues(
+              cases.get(c), quota, prng, packs, config, nowMillis, baseDir, rowLinks,
+              new PerRow.Stream(stream.seed(), stream.id() + "#c" + c, caseRows));
+      for (int local = 0; local < quota; local++) {
+        out.set(positions[local], values.get(local));
+      }
+    }
+
+    if (flags != null) {
+      // The label reads the same slot-to-case mapping the value did, so the two cannot disagree
+      // on a row — which is the whole point of a ground-truth column.
+      for (int i = 0; i < count; i++) {
+        flags[i] = cases.get(caseOfSlot(counts, cumLo, slotOf[i])).anomaly();
       }
     }
     return out;
+  }
+
+  /** Which case owns a slot, read off the same cumulative quotas the values were placed by. */
+  private static int caseOfSlot(int[] counts, int[] cumLo, int slot) {
+    for (int c = 0; c < counts.length; c++) {
+      if (slot < cumLo[c] + counts[c]) {
+        return c;
+      }
+    }
+    return counts.length - 1;
   }
 
   /** A case body: its pieces concatenated, each built for the rows that chose this case. */
@@ -1243,12 +1405,18 @@ public final class MemoryEngine {
       Config config,
       long nowMillis,
       Path baseDir,
-      Map<String, RowLinkPlan> rowLinks) {
+      Map<String, RowLinkPlan> rowLinks,
+      PerRow.Stream stream) {
     List<StringBuilder> out = new ArrayList<>(count);
     for (int i = 0; i < count; i++) {
       out.add(new StringBuilder());
     }
-    for (Config.CasePart part : caseSpec.parts()) {
+    // Parts are numbered among ALL of them, literals included: the streaming engine numbers them
+    // off the same list, and a different count here would key the same part under a different
+    // name.
+    for (int p = 0; p < caseSpec.parts().size(); p++) {
+      Config.CasePart part = caseSpec.parts().get(p);
+      PerRow.Stream sub = stream == null ? null : stream.named(stream.id() + "#p" + p);
       List<String> values;
       if (part.text() != null) {
         values = new ArrayList<>(count);
@@ -1256,9 +1424,14 @@ public final class MemoryEngine {
           values.add(part.text());
         }
       } else if (part.gen() != null) {
-        values = generate(part.gen(), count, prng, packs, config, nowMillis, baseDir, rowLinks);
+        values =
+            columnValues(
+                part.gen(), count, prng, packs, config, nowMillis, baseDir, rowLinks, sub, null,
+                null);
       } else {
-        values = mixValues(part.mix(), count, prng, packs, config, nowMillis, baseDir, rowLinks, null);
+        values =
+            mixValues(
+                part.mix(), count, prng, packs, config, nowMillis, baseDir, rowLinks, null, sub);
       }
       for (int i = 0; i < count; i++) {
         out.get(i).append(values.get(i));
@@ -1288,15 +1461,24 @@ public final class MemoryEngine {
       long nowMillis,
       Path baseDir,
       Map<String, RowLinkPlan> rowLinks,
-      Map<String, String[]> columns) {
+      Map<String, String[]> columns,
+      String name) {
+    // Every entry resolves over the WHOLE run, not over the rows that chose it — the streaming
+    // engine builds them that way so a lookup stays O(1), and the stream names have to match it
+    // entry for entry.
     List<List<String>> built = new ArrayList<>(spec.entries().size());
-    for (Config.SwitchEntry entry : spec.entries()) {
-      built.add(caseValues(entry.value(), count, prng, packs, config, nowMillis, baseDir, rowLinks));
+    for (int e = 0; e < spec.entries().size(); e++) {
+      built.add(
+          caseValues(
+              spec.entries().get(e).value(), count, prng, packs, config, nowMillis, baseDir,
+              rowLinks, new PerRow.Stream(config.seed(), name + "#sw" + e, null)));
     }
     List<String> fallback =
         spec.fallback() == null
             ? null
-            : caseValues(spec.fallback(), count, prng, packs, config, nowMillis, baseDir, rowLinks);
+            : caseValues(
+                spec.fallback(), count, prng, packs, config, nowMillis, baseDir, rowLinks,
+                new PerRow.Stream(config.seed(), name + "#swdef", null));
 
     String[] subject = columns.get(spec.on());
     String[] out = new String[count];
@@ -1370,6 +1552,295 @@ public final class MemoryEngine {
    * <p>The order is the contract. Spiking after blanking would multiply an empty string, and
    * formatting before either would format a value that is about to be replaced.
    */
+  /**
+   * One generator's finished values for a whole column, keyed the way the streaming engine keys
+   * them.
+   *
+   * <p>Three shapes, and which one applies is the streaming engine's own split: a LISTED column —
+   * a {@code text} list, a weighted file column, a weighted pack — is laid out exactly over the
+   * rows and permuted, never picked per row; an independent generator is built ROW BY ROW off
+   * {@code (seed, streamId, row)}, with the modifiers applied inside that loop so {@code anomaly=}
+   * spends the row's own draw; everything else keeps the older shape.
+   *
+   * <p>Without a {@code stream} — an inline generator, a nested pack body — all three collapse to
+   * the last, which is what those callers want.
+   */
+  private static List<String> columnValues(
+      Config.Gen gen,
+      int count,
+      Prng.Sfc32 prng,
+      DataPacks packs,
+      Config config,
+      long nowMillis,
+      Path baseDir,
+      Map<String, RowLinkPlan> rowLinks,
+      PerRow.Stream stream,
+      boolean[] anomalyFlags,
+      Map<String, PerRow.ExactLayout> layouts) {
+    if (stream == null) {
+      return finish(
+          generate(gen, count, prng, packs, config, nowMillis, baseDir, rowLinks),
+          gen.attrs(),
+          prng,
+          anomalyFlags);
+    }
+
+    Listed listed = listedValues(gen, packs, config, baseDir);
+    if (listed != null) {
+      return finishKeyed(
+          PerRow.exactTextLayout(listed.values(), listed.percents(), count, stream, layouts),
+          gen,
+          prng,
+          anomalyFlags,
+          stream);
+    }
+
+    // Two types the streaming engine builds INLINE: the value follows the position, and only the
+    // one draw that perturbs it is keyed by the row.
+    if ("timeseries".equals(gen.type())) {
+      return finishKeyed(
+          timeseriesKeyed(gen.attrs(), count, stream), gen, prng, anomalyFlags, stream);
+    }
+    if ("pattern".equals(gen.type())) {
+      return finishKeyed(
+          patternKeyed(gen.attrs(), count, baseDir, stream), gen, prng, anomalyFlags, stream);
+    }
+
+    // A weighted choice inside an advanced_regex — `(?%{RU:70|US:20|DE:10})` — is a quota over the
+    // column like any other share. Decided one row at a time it awards every row to the largest
+    // share: 100% RU, not 70/20/10.
+    boolean weighted =
+        weightedTemplatePack(gen, packs, config) != null
+            || ("advanced_regex".equals(gen.type())
+                && AdvancedRegexGen.hasWeightedChoice(gen.attr("value", "")));
+    if (PerRow.perRowBuildable(gen, count, weighted, packNeedsWholeColumn(gen, packs, config))) {
+      List<String> out = new ArrayList<>(count);
+      for (int i = 0; i < count; i++) {
+        Prng.Sfc32 rowPrng = PerRow.rowGenerator(stream, stream.rowAt(i));
+        boolean[] one = new boolean[1];
+        List<String> done =
+            finish(
+                generate(gen, 1, rowPrng, packs, config, nowMillis, baseDir, rowLinks),
+                gen.attrs(),
+                rowPrng,
+                one);
+        out.add(done.isEmpty() ? "" : done.get(0));
+        if (anomalyFlags != null && i < anomalyFlags.length) {
+          anomalyFlags[i] = one[0];
+        }
+      }
+      return out;
+    }
+
+    return finishKeyed(
+        generate(gen, count, prng, packs, config, nowMillis, baseDir, rowLinks),
+        gen,
+        prng,
+        anomalyFlags,
+        stream);
+  }
+
+  /**
+   * {@link #finish}, with the two modifier draws taken from the column's own {@code #anom} and
+   * {@code #miss} streams when the type is one the streaming engine builds inline.
+   */
+  private static List<String> finishKeyed(
+      List<String> values,
+      Config.Gen gen,
+      Prng.Sfc32 prng,
+      boolean[] anomalyFlags,
+      PerRow.Stream stream) {
+    return PerRow.INLINE_ANOMALY_TYPES.contains(gen.type())
+        ? finishWith(values, gen.attrs(), prng, anomalyFlags, stream)
+        : finish(values, gen.attrs(), prng, anomalyFlags);
+  }
+
+  /** {@link #finish}, with the anomaly and missing draws taken from a stream rather than in order. */
+  private static List<String> finishWith(
+      List<String> values,
+      Map<String, String> attrs,
+      Prng.Sfc32 prng,
+      boolean[] anomalyFlags,
+      PerRow.Stream stream) {
+    List<String> out = new ArrayList<>(values);
+
+    Imperfections.Anomaly anomaly = Imperfections.parseAnomaly(attrs);
+    if (anomaly != null) {
+      for (int i = 0; i < out.size(); i++) {
+        boolean selected =
+            anomaly.probability() > 0
+                && PerRow.purposeDraw(stream, "#anom", stream.rowAt(i)) < anomaly.probability();
+        if (anomalyFlags != null && i < anomalyFlags.length) {
+          anomalyFlags[i] = selected;
+        }
+        if (selected) {
+          out.set(i, Imperfections.spike(out.get(i), anomaly.factor()));
+        }
+      }
+    }
+
+    Imperfections.Missing missing = Imperfections.parseMissing(attrs);
+    if (missing != null && missing.probability() > 0) {
+      for (int i = 0; i < out.size(); i++) {
+        if (PerRow.purposeDraw(stream, "#miss", stream.rowAt(i)) < missing.probability()) {
+          out.set(i, missing.token());
+        }
+      }
+    }
+
+    return formatValues(out, attrs);
+  }
+
+  /** A value list and the shares it is laid out by. */
+  private record Listed(List<String> values, double[] percents) {}
+
+  /** The value list and the shares a column lays out, when its values are LISTED. */
+  private static Listed listedValues(
+      Config.Gen gen, DataPacks packs, Config config, Path baseDir) {
+    if ("sequential".equals(gen.attrs().get("order"))) {
+      return null;
+    }
+    if (gen.attrs().containsKey("weight")) {
+      // `row=` links whole rows of the file; the choice is not this column's.
+      if (trimToNull(gen.attrs().get("row")) != null) {
+        return null;
+      }
+      FileGen.Weighted weighted = FileGen.loadWeighted(gen.attrs(), baseDir, packs.dataRoots());
+      return weighted == null ? null : new Listed(weighted.values(), weighted.percents());
+    }
+    Listed pack = weightedTemplatePack(gen, packs, config);
+    if (pack != null) {
+      return pack;
+    }
+    if (!"text".equals(gen.type())) {
+      return null;
+    }
+    List<String> values = splitText(gen.attr("value", ""));
+    return new Listed(values, PerRow.sharesOf(gen.attr("percent", ""), values.size()));
+  }
+
+  /**
+   * A {@code <gen type="template">} pointing at a pack that carries its own shares.
+   *
+   * <p>A synthetic address ({@code person.b_day} and its kind) is resolved inside the generator and
+   * has no pack file behind it, so asking the registry would throw rather than answer.
+   */
+  private static Listed weightedTemplatePack(Config.Gen gen, DataPacks packs, Config config) {
+    if (!"template".equals(gen.type())) {
+      return null;
+    }
+    String path = gen.attr("value", "");
+    if (path.isEmpty() || !packs.exists(path, config.locale())) {
+      return null;
+    }
+    DataPacks.Entry entry = packs.load(path, config.locale());
+    return entry.weighted() ? new Listed(entry.values(), entry.percents()) : null;
+  }
+
+  /**
+   * Whether a pack GENERATOR apportions a share over the whole column. Its values are computed
+   * rather than listed, so there is no list to lay out.
+   */
+  private static boolean packNeedsWholeColumn(Config.Gen gen, DataPacks packs, Config config) {
+    if (!"template".equals(gen.type())) {
+      return false;
+    }
+    String path = gen.attr("value", "");
+    return !path.isEmpty()
+        && packs.exists(path, config.locale())
+        && packs.needsWholeColumn(path, config.locale());
+  }
+
+  /**
+   * {@code <gen type="timeseries" noise=…>} keyed by the row.
+   *
+   * <p>The value follows the POSITION — a series read at a point of the run — while the noise
+   * follows the ROW, on the dedicated {@code :ts} stream the streaming engine uses. Same two names,
+   * same two uniforms, same series.
+   */
+  private static List<String> timeseriesKeyed(
+      Map<String, String> attrs, int count, PerRow.Stream stream) {
+    Timeseries.Spec spec = Timeseries.parse(attrs);
+    boolean noisy = spec.hasNoise();
+    List<String> out = new ArrayList<>(count);
+    for (int i = 0; i < count; i++) {
+      double z = 0;
+      if (noisy) {
+        double[] u = Seekable.uniforms(stream.seed(), stream.id() + ":ts", stream.rowAt(i), 2);
+        z = Timeseries.standardNormal(u[0], u[1]);
+      }
+      out.add(io.github.nickliapin.tdc.lib.Fixed.toFixed(Timeseries.valueAt(spec, i, z), spec.decimals()));
+    }
+    return out;
+  }
+
+  /**
+   * {@code <gen type="pattern">} keyed by the row.
+   *
+   * <p>As with timeseries: the curve is read at the POSITION, and the one draw that places the
+   * value inside its band is keyed by the ROW on the streaming engine's {@code :pat} stream.
+   */
+  private static List<String> patternKeyed(
+      Map<String, String> attrs, int count, Path baseDir, PerRow.Stream stream) {
+    PatternGen gen = PatternGen.of(attrs, baseDir);
+    boolean draws = gen.draws();
+    double denom = count > 1 ? count - 1 : 1;
+    List<String> out = new ArrayList<>(count);
+    for (int i = 0; i < count; i++) {
+      double u =
+          draws
+              ? Seekable.uniforms(stream.seed(), stream.id() + ":pat", stream.rowAt(i), 1)[0]
+              : 0;
+      out.add(gen.valueAt(i / denom, u, 1 / denom));
+    }
+    return out;
+  }
+
+  /**
+   * {@code anomaly=}, {@code missing=} and the formatting layer for ONE element of a repeating
+   * LISTED column.
+   *
+   * <p>The two probability draws come off the row's {@code #anom} and {@code #miss} streams with a
+   * budget of the row's maximum length, so element k always gets the same uniform however long its
+   * row turned out to be.
+   */
+  private static RepeatKeyed.Modifier elementModifier(
+      Config.Gen gen, Repeat.Spec spec, PerRow.Stream stream) {
+    Imperfections.Anomaly anomaly = Imperfections.parseAnomaly(gen.attrs());
+    Imperfections.Missing missing = Imperfections.parseMissing(gen.attrs());
+    String mask = gen.attrs().get("mask");
+    String caseName = gen.attrs().get("case");
+    boolean hasAnomaly = anomaly != null && anomaly.probability() > 0;
+    boolean hasMissing = missing != null && missing.probability() > 0;
+    boolean hasFormat = mask != null || (caseName != null && Transforms.isCaseTransform(caseName));
+    if (!hasAnomaly && !hasMissing && !hasFormat) {
+      return null;
+    }
+
+    int budget = Math.max(1, spec.max());
+    RepeatKeyed.ElementDraw anomalyAt =
+        hasAnomaly ? RepeatKeyed.elementUniforms(stream, "#anom", budget) : null;
+    RepeatKeyed.ElementDraw missingAt =
+        hasMissing ? RepeatKeyed.elementUniforms(stream, "#miss", budget) : null;
+
+    return (row, value, k) -> {
+      String out = value;
+      if (anomalyAt != null && anomalyAt.at(row, k) < anomaly.probability()) {
+        out = Imperfections.spike(out, anomaly.factor());
+      }
+      if (missingAt != null && missingAt.at(row, k) < missing.probability()) {
+        out = missing.token();
+      }
+      if (mask != null) {
+        out = Mask.apply(mask, out);
+      }
+      if (caseName != null && Transforms.isCaseTransform(caseName)) {
+        out = Transforms.applyCase(caseName, out);
+      }
+      return out;
+    };
+  }
+
   static List<String> finish(
       List<String> values, Map<String, String> attrs, Prng.Sfc32 prng, boolean[] anomalyFlags) {
     List<String> out = new ArrayList<>(values);
@@ -1383,6 +1854,14 @@ public final class MemoryEngine {
       Imperfections.applyMissing(out, missing, prng);
     }
 
+    return formatValues(out, attrs);
+  }
+
+  /**
+   * {@code case=} and {@code mask=}, which reach the same code the {@code |upper} and {@code
+   * |mask:} filters do so the three ways of asking cannot drift apart.
+   */
+  private static List<String> formatValues(List<String> out, Map<String, String> attrs) {
     String mask = attrs.get("mask");
     if (mask != null) {
       out.replaceAll(v -> Mask.apply(mask, v));
@@ -1817,14 +2296,10 @@ public final class MemoryEngine {
     return out;
   }
 
-  private static String[] spread(boolean[] mask, List<String> produced, int count) {
+  private static String[] spread(List<Integer> rows, List<String> produced, int count) {
     String[] values = new String[count];
-    int next = 0;
-    for (int i = 0; i < count; i++) {
-      if (mask[i]) {
-        values[i] = next < produced.size() ? produced.get(next) : null;
-        next++;
-      }
+    for (int at = 0; at < rows.size(); at++) {
+      values[rows.get(at)] = at < produced.size() ? produced.get(at) : null;
     }
     return values;
   }
