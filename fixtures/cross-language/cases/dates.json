@@ -6,12 +6,12 @@
       "description": "A range with no times is drawn by day",
       "config": "<tdc><env count=\"6\" seed=\"unit-test\" local=\"en\" mode=\"memory\"><sequence name=\"V\"><gen type=\"date\" range=\"2026-01-01..2026-01-31\" format=\"YYYY-MM-DD\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
       "expected": [
-        "2026-01-22",
-        "2026-01-25",
-        "2026-01-18",
+        "2026-01-19",
+        "2026-01-07",
+        "2026-01-31",
+        "2026-01-07",
         "2026-01-27",
-        "2026-01-05",
-        "2026-01-30"
+        "2026-01-24"
       ],
       "now": "2026-04-23T12:00:00Z"
     },
@@ -20,12 +20,12 @@
       "description": "precision=second draws a second inside the range, not a day",
       "config": "<tdc><env count=\"6\" seed=\"unit-test\" local=\"en\" mode=\"memory\"><sequence name=\"V\"><gen type=\"date\" range=\"2026-01-01T00:00:00..2026-01-01T23:59:59\" format=\"ISO_TIME\" precision=\"second\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
       "expected": [
-        "2026-01-01T16:37:05",
-        "2026-01-01T19:12:27",
-        "2026-01-01T13:33:00",
-        "2026-01-01T20:20:18",
-        "2026-01-01T03:25:40",
-        "2026-01-01T22:47:45"
+        "2026-01-01T14:28:34",
+        "2026-01-01T05:19:33",
+        "2026-01-01T23:36:29",
+        "2026-01-01T05:18:47",
+        "2026-01-01T20:17:06",
+        "2026-01-01T18:17:21"
       ],
       "now": "2026-04-23T12:00:00Z"
     },
@@ -41,12 +41,12 @@
       "description": "person.b_day draws a millisecond, not a day",
       "config": "<tdc><env count=\"6\" seed=\"unit-test\" local=\"en\" mode=\"memory\"><sequence name=\"V\"><gen type=\"template\" value=\"person.b_day\" oldest=\"70\" youngest=\"14\" format=\"LL\" local=\"en\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
       "expected": [
-        "February 1, 1995",
-        "February 16, 2001",
-        "December 5, 1987",
-        "October 7, 2003",
-        "April 22, 1964",
-        "July 2, 2009"
+        "February 1, 1990",
+        "September 26, 1968",
+        "May 25, 2011",
+        "September 15, 1968",
+        "August 23, 2003",
+        "December 26, 1998"
       ],
       "now": "2026-04-23T12:00:00Z"
     }

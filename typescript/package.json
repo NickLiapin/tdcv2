@@ -65,6 +65,8 @@
     "postpack": "node scripts/bundle-packs.mjs remove",
     "cases": "npx tsx scripts/cross-language-cases.mjs",
     "cases:update": "npx tsx scripts/cross-language-cases.mjs --update",
+    "fixtures": "npx tsx scripts/runtime-fixtures.mjs",
+    "fixtures:update": "npx tsx scripts/runtime-fixtures.mjs --update",
     "diagnostics": "npx tsx scripts/cross-language-diagnostics.mjs",
     "diagnostics:update": "npx tsx scripts/cross-language-diagnostics.mjs --update",
     "engines": "npx tsx scripts/cross-language-engines.mjs",

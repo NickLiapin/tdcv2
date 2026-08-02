@@ -7,13 +7,13 @@ CREATE TABLE users_tbl(
   PRIMARY KEY ( user_id )
 );
 
-INSERT INTO user_tbl ( user_first_name, user_last_name, user_b_day ) VALUES ( 'David', 'Jones', 'December 1, 2011', 'Chronic arthritis' );
-INSERT INTO user_tbl ( user_first_name, user_last_name, user_b_day ) VALUES ( 'Robert', 'Davis', 'July 1, 2003', 'Rectal cancer' );
-INSERT INTO user_tbl ( user_first_name, user_last_name, user_b_day ) VALUES ( 'John', 'Martinez', 'June 30, 1997', 'Phimosis' );
-INSERT INTO user_tbl ( user_first_name, user_last_name, user_b_day ) VALUES ( 'Charles', 'Brown', 'September 2, 2002', 'Rectal cancer' );
-INSERT INTO user_tbl ( user_first_name, user_last_name, user_b_day ) VALUES ( 'Thomas', 'Garcia', 'November 29, 1998', 'Chronic arthritis' );
-INSERT INTO user_tbl ( user_first_name, user_last_name, user_b_day ) VALUES ( 'Richard', 'Johnson', 'March 25, 1961', 'Chronic pancreatitis' );
-INSERT INTO user_tbl ( user_first_name, user_last_name, user_b_day ) VALUES ( 'William', 'Miller', 'May 17, 2009', 'Chronic pancreatitis' );
-INSERT INTO user_tbl ( user_first_name, user_last_name, user_b_day ) VALUES ( 'Joseph', 'Smith', 'January 24, 2008', 'Chronic pancreatitis' );
-INSERT INTO user_tbl ( user_first_name, user_last_name, user_b_day ) VALUES ( 'James', 'Williams', 'March 14, 1990', 'Prostatitis' );
-INSERT INTO user_tbl ( user_first_name, user_last_name, user_b_day ) VALUES ( 'Michael', 'Rodriguez', 'June 14, 1995', 'Chronic arthritis' );
+INSERT INTO user_tbl ( user_first_name, user_last_name, user_b_day ) VALUES ( 'Thomas', 'Garcia', 'June 27, 1971', 'Cryptorchism' );
+INSERT INTO user_tbl ( user_first_name, user_last_name, user_b_day ) VALUES ( 'Joseph', 'Williams', 'April 9, 2002', 'Cryptorchism' );
+INSERT INTO user_tbl ( user_first_name, user_last_name, user_b_day ) VALUES ( 'James', 'Rodriguez', 'March 20, 2006', 'Chronic pancreatitis' );
+INSERT INTO user_tbl ( user_first_name, user_last_name, user_b_day ) VALUES ( 'Robert', 'Jones', 'May 6, 2001', 'Prostatitis' );
+INSERT INTO user_tbl ( user_first_name, user_last_name, user_b_day ) VALUES ( 'Charles', 'Martinez', 'September 15, 1981', 'Rectal cancer' );
+INSERT INTO user_tbl ( user_first_name, user_last_name, user_b_day ) VALUES ( 'Michael', 'Miller', 'October 29, 2006', 'Rectal cancer' );
+INSERT INTO user_tbl ( user_first_name, user_last_name, user_b_day ) VALUES ( 'David', 'Davis', 'September 26, 1961', 'Prostate adenoma' );
+INSERT INTO user_tbl ( user_first_name, user_last_name, user_b_day ) VALUES ( 'John', 'Smith', 'October 6, 2010', 'Chlamydia' );
+INSERT INTO user_tbl ( user_first_name, user_last_name, user_b_day ) VALUES ( 'Richard', 'Johnson', 'June 17, 1972', 'Rectal cancer' );
+INSERT INTO user_tbl ( user_first_name, user_last_name, user_b_day ) VALUES ( 'William', 'Brown', 'April 28, 1993', 'Chronic pancreatitis' );

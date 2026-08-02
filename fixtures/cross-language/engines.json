@@ -640,23 +640,23 @@
         "lines": [
           "B",
           "A-Y",
+          "A-Y",
+          "A-Y",
+          "A-Y",
+          "B",
+          "B",
+          "A-Y",
+          "B",
+          "B",
           "A-X",
-          "A-Y",
-          "A-Y",
           "B",
           "A-X",
           "B",
-          "B",
-          "B",
-          "B",
           "A-Y",
           "B",
           "A-Y",
-          "A-Y",
           "B",
           "A-Y",
-          "A-Y",
-          "B",
           "B"
         ]
       }
@@ -1351,10 +1351,10 @@
     },
     "pool/a-pool-hands-a-whole-member-to-a-row": {
       "engine2": {
-        "lines": ["y2", "y2", "z2", "x3", "z2", "x3"]
+        "lines": ["z1", "z1", "y3", "x2", "y3", "x2"]
       },
       "engine3": {
-        "lines": ["y2", "y2", "z2", "x3", "z2", "x3"]
+        "lines": ["z1", "z1", "y3", "x2", "y3", "x2"]
       }
     },
     "pool/a-pool-is-drawn-from-a-derived-seed": {
@@ -1368,93 +1368,93 @@
     "pool/a-pool-reference-filtered-by-a-column": {
       "engine2": {
         "lines": [
-          "S:Ss",
-          "S:Ss",
-          "S:St",
-          "S:Ss",
-          "N:Nr",
-          "N:Nr",
-          "N:Nq",
-          "N:Nq"
+          "S:Sp",
+          "S:Sp",
+          "S:Sq",
+          "S:Sp",
+          "N:Nu",
+          "N:Nu",
+          "N:Nt",
+          "N:Nt"
         ]
       },
       "engine3": {
         "lines": [
-          "S:Ss",
-          "S:Ss",
-          "S:St",
-          "S:Ss",
-          "N:Nr",
-          "N:Nr",
-          "N:Nq",
-          "N:Nq"
+          "S:Sp",
+          "S:Sp",
+          "S:Sq",
+          "S:Sp",
+          "N:Nu",
+          "N:Nu",
+          "N:Nt",
+          "N:Nt"
         ]
       }
     },
     "pool/a-pool-filter-is-an-expression-not-a-pair-of-names": {
       "engine2": {
-        "lines": ["N7", "N7", "N1", "N7", "N6", "N3", "N6", "N7"]
+        "lines": ["N5", "N5", "N1", "N5", "N4", "N2", "N4", "N5"]
       },
       "engine3": {
-        "lines": ["N7", "N7", "N1", "N7", "N6", "N3", "N6", "N7"]
+        "lines": ["N5", "N5", "N1", "N5", "N4", "N2", "N4", "N5"]
       }
     },
     "pool/uniq-inside-a-pool-makes-the-members-differ": {
       "engine2": {
         "lines": [
+          "x2",
+          "x1",
+          "x1",
+          "x1",
+          "x1",
+          "x1",
+          "y1",
+          "x1",
+          "y2",
+          "y2",
+          "y2",
+          "y2",
+          "y1",
           "y2",
           "y1",
           "y1",
-          "y1",
-          "y1",
-          "y1",
           "x1",
-          "y1",
-          "x2",
-          "x2",
-          "x2",
-          "x2",
+          "y2",
           "x1",
-          "x2",
-          "x1",
-          "x1",
-          "y1",
-          "x2",
-          "y1",
-          "y1"
+          "x1"
         ]
       },
       "engine3": {
         "lines": [
+          "x2",
+          "x1",
+          "x1",
+          "x1",
+          "x1",
+          "x1",
+          "y1",
+          "x1",
+          "y2",
+          "y2",
+          "y2",
+          "y2",
+          "y1",
           "y2",
           "y1",
           "y1",
-          "y1",
-          "y1",
-          "y1",
           "x1",
-          "y1",
-          "x2",
-          "x2",
-          "x2",
-          "x2",
+          "y2",
           "x1",
-          "x2",
-          "x1",
-          "x1",
-          "y1",
-          "x2",
-          "y1",
-          "y1"
+          "x1"
         ]
       }
     },
     "pool/a-pool-member-draws-from-another-pool": {
       "engine2": {
-        "lines": ["ys2", "ys2", "zn2", "zn2", "zn2", "zn2"]
+        "lines": ["zs2", "zs2", "xn1", "yn1", "xn1", "yn1"]
       },
       "engine3": {
-        "lines": ["ys2", "ys2", "zn2", "zn2", "zn2", "zn2"]
+        "lines": ["zs2", "zs2", "xn1", "yn1", "xn1", "yn1"]
       }
     },
     "running/a-running-total-down-a-column": {
@@ -1463,12 +1463,12 @@
       },
       "engine3": {
         "lines": [
-          "59 1059",
-          "365 1424",
-          "276 1700",
-          "-7 1693",
-          "-108 1585",
-          "444 2029"
+          "399 1399",
+          "-246 1153",
+          "-270 883",
+          "159 1042",
+          "24 1066",
+          "-400 666"
         ]
       }
     },
@@ -1478,15 +1478,15 @@
       },
       "engine3": {
         "lines": [
-          "A 96.47 96.47",
-          "A 29.18 125.65",
-          "A 91.43 217.08",
-          "B 15.65 15.65",
-          "B 67.87 83.52",
-          "C 48.03 48.03",
-          "C 39.00 87.03",
-          "C 56.04 143.07",
-          "C 78.62 221.69"
+          "A 49.86 49.86",
+          "A 21.54 71.40",
+          "A 35.12 106.52",
+          "B 80.60 80.60",
+          "B 98.09 178.69",
+          "C 33.58 33.58",
+          "C 23.09 56.67",
+          "C 72.74 129.41",
+          "C 94.78 224.19"
         ]
       }
     },
@@ -1495,7 +1495,7 @@
         "refused": "a running total (\"Peak\") is the accumulation of every row before it, so it cannot be computed one row at a time; the in-memory engine handles it (run without a forced streaming engine)"
       },
       "engine3": {
-        "lines": ["33 33", "15 33", "78 78", "15 78", "79 79", "32 79"]
+        "lines": ["29 29", "49 49", "83 83", "59 83", "92 92", "94 94"]
       }
     },
     "statistics/distribution-normal": {
@@ -1842,12 +1842,12 @@
       },
       "engine3": {
         "lines": [
-          "Nissan Ariya",
-          "Hyundai Ioniq 6",
           "Honda CR-V",
-          "Chevrolet Blazer",
-          "Toyota Supra",
-          "Ford Mustang"
+          "Toyota Corolla",
+          "Ford Maverick",
+          "Hyundai Santa Cruz",
+          "Nissan Kicks",
+          "Chevrolet Trax"
         ]
       }
     },
@@ -2141,28 +2141,7 @@
     },
     "uniq-distinct/uniq-rearranges-a-tight-pool": {
       "engine2": {
-        "lines": [
-          "a2-b5",
-          "a4-b5",
-          "a1-b5",
-          "a3-b1",
-          "a3-b2",
-          "a2-b1",
-          "a1-b4",
-          "a4-b6",
-          "a4-b1",
-          "a1-b8",
-          "a4-b8",
-          "a4-b2",
-          "a4-b4",
-          "a1-b2",
-          "a2-b3",
-          "a2-b8",
-          "a3-b7",
-          "a3-b8",
-          "a2-b2",
-          "a3-b6"
-        ]
+        "refused": "stream mode: uniq (a whole-column rearrangement) (\"K\") is not supported yet — run without mode=\"stream\" (the in-memory engine handles it), or remove it."
       },
       "engine3": {
         "lines": [
@@ -2191,7 +2170,7 @@
     },
     "uniq-distinct/uniq-keeps-exact-shares": {
       "engine2": {
-        "refused": "stream mode: uniq column \"K.a\" uses percent — streaming uniq gives UNIFORM distinct combinations only. Exact percentages + uniqueness together need the in-memory engine (run without mode=\"stream\"), or drop percent."
+        "refused": "stream mode: uniq (a whole-column rearrangement) (\"K\") is not supported yet — run without mode=\"stream\" (the in-memory engine handles it), or remove it."
       },
       "engine3": {
         "lines": [
@@ -2208,36 +2187,27 @@
     },
     "uniq-distinct/env-uniq-across-sequences": {
       "engine2": {
-        "lines": [
-          "a4-b4",
-          "a1-b5",
-          "a4-b5",
-          "a2-b1",
-          "a5-b3",
-          "a5-b6",
-          "a2-b2",
-          "a3-b3"
-        ]
+        "refused": "stream mode: <uniq> across sequences (a whole-column rearrangement) (\"A × B\") is not supported yet — run without mode=\"stream\" (the in-memory engine handles it), or remove it."
       },
       "engine3": {
         "lines": [
-          "a4-b4",
-          "a1-b5",
-          "a4-b5",
-          "a2-b1",
-          "a5-b3",
-          "a5-b6",
-          "a2-b2",
-          "a3-b3"
+          "a6-b2",
+          "a5-b4",
+          "a3-b1",
+          "a1-b1",
+          "a2-b3",
+          "a4-b6",
+          "a3-b3",
+          "a2-b5"
         ]
       }
     },
     "uniq-distinct/env-uniq-leaves-outsiders-alone": {
       "engine2": {
-        "lines": ["yt|k2", "ys|k2", "wp|k1", "vt|k1", "zt|k1", "xp|k2"]
+        "refused": "stream mode: <uniq> across sequences (a whole-column rearrangement) (\"A × B\") is not supported yet — run without mode=\"stream\" (the in-memory engine handles it), or remove it."
       },
       "engine3": {
-        "lines": ["yt|k2", "ys|k2", "wp|k1", "vt|k1", "zt|k1", "xp|k2"]
+        "lines": ["yq|k2", "xr|k2", "ws|k1", "vo|k1", "zt|k1", "up|k2"]
       }
     },
     "uniq-distinct/env-distinct-across-sequences": {
@@ -2280,7 +2250,7 @@
     },
     "uniq-distinct/uniq-simple-list": {
       "engine2": {
-        "refused": "stream mode: uniq on a simple sequence (a whole-column draw) (\"G\") is not supported yet — run without mode=\"stream\" (the in-memory engine handles it), or remove it."
+        "refused": "stream mode: uniq (a whole-column rearrangement) (\"G\") is not supported yet — run without mode=\"stream\" (the in-memory engine handles it), or remove it."
       },
       "engine3": {
         "lines": ["c", "a", "d", "e", "b"]
@@ -2288,7 +2258,7 @@
     },
     "uniq-distinct/uniq-simple-int-range": {
       "engine2": {
-        "refused": "stream mode: uniq on a simple sequence (a whole-column draw) (\"G\") is not supported yet — run without mode=\"stream\" (the in-memory engine handles it), or remove it."
+        "refused": "stream mode: uniq (a whole-column rearrangement) (\"G\") is not supported yet — run without mode=\"stream\" (the in-memory engine handles it), or remove it."
       },
       "engine3": {
         "lines": [
@@ -2309,7 +2279,7 @@
     },
     "uniq-distinct/uniq-simple-weighted-pack": {
       "engine2": {
-        "refused": "stream mode: uniq on a simple sequence (a whole-column draw) (\"G\") is not supported yet — run without mode=\"stream\" (the in-memory engine handles it), or remove it."
+        "refused": "stream mode: uniq (a whole-column rearrangement) (\"G\") is not supported yet — run without mode=\"stream\" (the in-memory engine handles it), or remove it."
       },
       "engine3": {
         "lines": [
@@ -2328,18 +2298,18 @@
     },
     "uniq-distinct/uniq-group-with-a-mix-member": {
       "engine2": {
-        "refused": "stream mode: <uniq> member \"K\" (must be a simple text sequence) (\"K\") is not supported yet — run without mode=\"stream\" (the in-memory engine handles it), or remove it."
+        "refused": "stream mode: <uniq> across sequences (a whole-column rearrangement) (\"K × N\") is not supported yet — run without mode=\"stream\" (the in-memory engine handles it), or remove it."
       },
       "engine3": {
-        "lines": ["B2", "A2", "A4", "B4"]
+        "lines": ["A2", "B1", "A3", "B3"]
       }
     },
     "uniq-distinct/uniq-group-with-a-switch-member": {
       "engine2": {
-        "refused": "stream mode: <uniq> member \"N\" (must be a simple text sequence) (\"N\") is not supported yet — run without mode=\"stream\" (the in-memory engine handles it), or remove it."
+        "refused": "stream mode: <uniq> across sequences (a whole-column rearrangement) (\"N × S\") is not supported yet — run without mode=\"stream\" (the in-memory engine handles it), or remove it."
       },
       "engine3": {
-        "lines": ["F-cat-3", "M-bob-3", "F-dot-3", "F-dot-4"]
+        "lines": ["M-ann-1", "M-bob-3", "F-cat-2", "F-cat-3"]
       }
     }
   }

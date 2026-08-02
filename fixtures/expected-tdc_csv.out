@@ -1,11 +1,11 @@
 FirstName,LastName,BDay,Diagnosis
-David,Jones,December 1, 2011,Chronic arthritis
-Robert,Davis,July 1, 2003,Rectal cancer
-John,Martinez,June 30, 1997,Phimosis
-Charles,Brown,September 2, 2002,Rectal cancer
-Thomas,Garcia,November 29, 1998,Chronic arthritis
-Richard,Johnson,March 25, 1961,Chronic pancreatitis
-William,Miller,May 17, 2009,Chronic pancreatitis
-Joseph,Smith,January 24, 2008,Chronic pancreatitis
-James,Williams,March 14, 1990,Prostatitis
-Michael,Rodriguez,June 14, 1995,Chronic arthritis
+Thomas,Garcia,June 27, 1971,Cryptorchism
+Joseph,Williams,April 9, 2002,Cryptorchism
+James,Rodriguez,March 20, 2006,Chronic pancreatitis
+Robert,Jones,May 6, 2001,Prostatitis
+Charles,Martinez,September 15, 1981,Rectal cancer
+Michael,Miller,October 29, 2006,Rectal cancer
+David,Davis,September 26, 1961,Prostate adenoma
+John,Smith,October 6, 2010,Chlamydia
+Richard,Johnson,June 17, 1972,Rectal cancer
+William,Brown,April 28, 1993,Chronic pancreatitis

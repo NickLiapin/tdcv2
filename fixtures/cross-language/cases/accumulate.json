@@ -5,41 +5,41 @@
       "name": "a-running-total-inside-one-record",
       "description": "The whole idea in one line: a repeat list becomes its own running total. The record is computed whole anyway, so nothing about rows, streaming or parallelism changes.",
       "config": "<tdc><env count=\"4\" seed=\"cart\" local=\"en\" mode=\"memory\"><sequence name=\"R\"><gen type=\"number\" value=\"10..99\" repeat=\"3\" separator=\",\" accumulate=\"sum\"/></sequence></env><block><line><data>${{R}}</data></line></block></tdc>",
-      "expected": ["87,118,177", "89,117,163", "48,97,184", "67,126,225"]
+      "expected": ["58,144,204", "33,121,173", "34,102,118", "68,80,114"]
     },
     {
       "name": "a-running-total-of-decimals-is-exact",
       "description": "Money. The arithmetic is done on scaled integers, never on floating point, because the five implementations print a float differently — 19.99 + 0.01 has to be 20.00 in all of them.",
       "config": "<tdc><env count=\"3\" seed=\"money\" local=\"en\" mode=\"memory\"><sequence name=\"R\"><gen type=\"number\" value=\"199..1999\" decimals=\"2\" repeat=\"3\" separator=\",\" accumulate=\"sum\"/></sequence></env><block><line><data>${{R}}</data></line></block></tdc>",
       "expected": [
-        "1133.69,1594.05,3154.13",
-        "1405.09,3260.15,4241.25",
-        "700.88,1780.91,2911.07"
+        "1117.65,1575.97,3404.60",
+        "1897.82,2443.21,3214.54",
+        "559.16,1688.91,3645.92"
       ]
     },
     {
       "name": "a-running-maximum-keeps-the-winning-element",
       "description": "max and min return an element that already exists, so its own spelling is kept rather than reformatted. A value drawn as 007 stays 007.",
       "config": "<tdc><env count=\"3\" seed=\"hi\" local=\"en\" mode=\"memory\"><sequence name=\"R\"><gen type=\"number\" value=\"10..99\" length=\"3\" first_zero=\"true\" repeat=\"4\" separator=\",\" accumulate=\"max\"/></sequence></env><block><line><data>${{R}}</data></line></block></tdc>",
-      "expected": ["014,086,086,092", "032,080,080,083", "066,066,066,066"]
+      "expected": ["063,084,084,084", "087,087,087,087", "021,098,098,098"]
     },
     {
       "name": "a-running-minimum",
       "description": "The mirror of max, and the case that says the accumulator moves one way only.",
       "config": "<tdc><env count=\"3\" seed=\"lo\" local=\"en\" mode=\"memory\"><sequence name=\"R\"><gen type=\"number\" value=\"10..99\" repeat=\"4\" separator=\",\" accumulate=\"min\"/></sequence></env><block><line><data>${{R}}</data></line></block></tdc>",
-      "expected": ["33,33,20,20", "34,34,34,34", "80,24,24,20"]
+      "expected": ["91,29,23,23", "36,36,26,26", "72,64,14,14"]
     },
     {
       "name": "a-running-total-over-a-variable-length-list",
       "description": "repeat=\"1..4\" makes the list length a whole-run quota, and the accumulation simply follows whatever length a row got — including a row of one, where the total is the element itself.",
       "config": "<tdc><env count=\"6\" seed=\"var\" local=\"en\" mode=\"memory\"><sequence name=\"R\"><gen type=\"number\" value=\"10..99\" repeat=\"1..4\" separator=\",\" accumulate=\"sum\"/></sequence></env><block><line><data>${{R}}</data></line></block></tdc>",
       "expected": [
-        "59,132,142",
-        "76,108",
-        "70",
-        "10,58,96,181",
-        "20,61",
-        "44,117,141,201"
+        "45,117,172,261",
+        "73",
+        "47",
+        "59,110,191",
+        "26,49",
+        "35,75,111"
       ]
     }
   ]

@@ -5,61 +5,61 @@
       "name": "number-padded-range",
       "description": "A range written with leading zeros pads to that width",
       "config": "<tdc><env count=\"6\" seed=\"unit-test\" local=\"en\" mode=\"memory\"><sequence name=\"V\"><gen type=\"number\" value=\"0000..9999\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
-      "expected": ["6924", "8003", "5645", "8474", "1428", "9498"]
+      "expected": ["6031", "2219", "9836", "2213", "8452", "7620"]
     },
     {
       "name": "number-negative-range",
       "description": "A range that crosses zero",
       "config": "<tdc><env count=\"6\" seed=\"unit-test\" local=\"en\" mode=\"memory\"><sequence name=\"V\"><gen type=\"number\" value=\"-5..5\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
-      "expected": ["2", "3", "1", "4", "-4", "5"]
+      "expected": ["1", "-3", "5", "-3", "4", "3"]
     },
     {
       "name": "number-bit",
       "description": "value=\"bit\" is 0 or 1",
       "config": "<tdc><env count=\"6\" seed=\"unit-test\" local=\"en\" mode=\"memory\"><sequence name=\"V\"><gen type=\"number\" value=\"bit\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
-      "expected": ["1", "1", "1", "1", "0", "1"]
+      "expected": ["1", "0", "1", "0", "1", "1"]
     },
     {
       "name": "number-digit-string",
       "description": "length with no value builds a digit string one digit at a time",
       "config": "<tdc><env count=\"6\" seed=\"unit-test\" local=\"en\" mode=\"memory\"><sequence name=\"V\"><gen type=\"number\" length=\"4\" first_zero=\"true\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
-      "expected": ["6858", "1930", "5365", "6550", "4178", "2938"]
+      "expected": ["6093", "2515", "9110", "2420", "8477", "7896"]
     },
     {
       "name": "number-range-list",
       "description": "A list of ranges picks the range first, then the value",
       "config": "<tdc><env count=\"6\" seed=\"unit-test\" local=\"en\" mode=\"memory\"><sequence name=\"V\"><gen type=\"number\" value=\"[1..3],[100..102]\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
-      "expected": ["102", "102", "3", "1", "100", "101"]
+      "expected": ["100", "2", "100", "2", "101", "102"]
     },
     {
       "name": "number-exclude",
       "description": "exclude removes a value and the draw stays uniform over what is left",
       "config": "<tdc><env count=\"6\" seed=\"unit-test\" local=\"en\" mode=\"memory\"><sequence name=\"V\"><gen type=\"number\" value=\"0..9\" exclude=\"3\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
-      "expected": ["7", "8", "6", "8", "1", "9"]
+      "expected": ["6", "1", "9", "1", "8", "7"]
     },
     {
       "name": "number-decimals",
       "description": "decimals draw over the decimal grid in one draw",
       "config": "<tdc><env count=\"6\" seed=\"unit-test\" local=\"en\" mode=\"memory\"><sequence name=\"V\"><gen type=\"number\" value=\"1..2\" decimals=\"2\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
-      "expected": ["1.69", "1.80", "1.57", "1.85", "1.14", "1.95"]
+      "expected": ["1.60", "1.22", "1.99", "1.22", "1.85", "1.76"]
     },
     {
       "name": "regex-pattern",
       "description": "regex fills a pattern",
       "config": "<tdc><env count=\"6\" seed=\"unit-test\" local=\"en\" mode=\"memory\"><sequence name=\"V\"><gen type=\"regex\" value=\"[A-Z]{2}-\\d{3}\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
-      "expected": ["UO-193", "NI-565", "AK-782", "JV-987", "ON-917", "LZ-045"]
+      "expected": ["BY-546", "NC-665", "EE-623", "LF-045", "KU-864", "WX-575"]
     },
     {
       "name": "regex-backreference",
       "description": "A backreference repeats what the group actually produced",
       "config": "<tdc><env count=\"6\" seed=\"unit-test\" local=\"en\" mode=\"memory\"><sequence name=\"V\"><gen type=\"regex\" value=\"([ab])-\\1\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
-      "expected": ["b-b", "b-b", "b-b", "b-b", "a-a", "b-b"]
+      "expected": ["b-b", "a-a", "b-b", "a-a", "b-b", "b-b"]
     },
     {
       "name": "regex-bounded-repeat",
       "description": "A bounded quantifier draws its count; zero repeats is empty",
       "config": "<tdc><env count=\"6\" seed=\"unit-test\" local=\"en\" mode=\"memory\"><sequence name=\"V\"><gen type=\"regex\" value=\"x{0,3}\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
-      "expected": ["xx", "xxx", "xx", "xxx", "", "xxx"]
+      "expected": ["xx", "", "xxx", "", "xxx", "xxx"]
     },
     {
       "name": "advanced-regex-weighted",
@@ -83,13 +83,13 @@
       "name": "symbol-alphabet",
       "description": "symbol draws from a named alphabet",
       "config": "<tdc><env count=\"6\" seed=\"unit-test\" local=\"en\" mode=\"memory\"><sequence name=\"V\"><gen type=\"symbol\" alphabet=\"latin.lower\" length=\"3\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
-      "expected": ["suo", "wdy", "jan", "iqn", "rno", "akf"]
+      "expected": ["pby", "fnc", "zee", "flf", "vku", "twx"]
     },
     {
       "name": "symbol-exclude",
       "description": "symbol excludes a character from an inline set",
       "config": "<tdc><env count=\"6\" seed=\"unit-test\" local=\"en\" mode=\"memory\"><sequence name=\"V\"><gen type=\"symbol\" value=\"[a-c]\" exclude=\"b\" length=\"4\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
-      "expected": ["cccc", "acaa", "cacc", "ccca", "aacc", "acac"]
+      "expected": ["caca", "acac", "caaa", "aaaa", "cacc", "cccc"]
     },
     {
       "name": "counter-increment",
@@ -107,21 +107,21 @@
       "name": "text-percent",
       "description": "percent apportions a text list exactly",
       "config": "<tdc><env count=\"8\" seed=\"unit-test\" local=\"en\" mode=\"memory\"><sequence name=\"V\"><gen type=\"text\" value=\"A,B,C\" percent=\"25,50,25\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
-      "expected": ["A", "C", "B", "A", "B", "B", "C", "B"]
+      "expected": ["B", "A", "C", "B", "A", "B", "B", "C"]
     },
     {
       "name": "template-weighted-pack",
       "description": "A weighted pack is laid out to its counts, not sampled",
       "config": "<tdc><env count=\"8\" seed=\"unit-test\" local=\"en\" mode=\"memory\"><sequence name=\"V\"><gen type=\"template\" value=\"person.lastName\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
       "expected": [
-        "Johnson",
-        "Miller",
-        "Williams",
+        "Garcia",
         "Smith",
+        "Davis",
+        "Williams",
+        "Johnson",
         "Jones",
         "Brown",
-        "Davis",
-        "Garcia"
+        "Miller"
       ]
     }
   ]

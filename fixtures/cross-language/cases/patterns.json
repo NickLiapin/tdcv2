@@ -66,14 +66,14 @@
       "description": "spread scatters a single line into a tunnel",
       "config": "<tdc><env count=\"8\" seed=\"unit-test\" local=\"en\" mode=\"memory\"><sequence name=\"V\"><gen type=\"pattern\" points=\"0,0 5,10 10,0\" decimals=\"2\" spread=\"1\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
       "expected": [
-        "0.38",
-        "3.46",
-        "5.84",
-        "9.27",
-        "7.86",
-        "6.61",
-        "2.59",
-        "-0.95"
+        "0.83",
+        "3.17",
+        "6.28",
+        "8.07",
+        "9.48",
+        "6.70",
+        "2.79",
+        "-0.18"
       ]
     },
     {
@@ -81,14 +81,14 @@
       "description": "A corridor picks a value between two lines",
       "config": "<tdc><env count=\"8\" seed=\"unit-test\" local=\"en\" mode=\"memory\"><sequence name=\"V\"><gen type=\"pattern\" upper=\"0,10 10,10\" lower=\"0,0 10,0\" y_range=\"0..100\" decimals=\"1\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
       "expected": [
-        "69.2",
-        "80.0",
-        "56.5",
-        "84.7",
-        "14.3",
-        "95.0",
-        "36.5",
-        "2.7"
+        "91.6",
+        "65.9",
+        "78.1",
+        "25.0",
+        "95.6",
+        "99.4",
+        "46.7",
+        "41.2"
       ]
     },
     {
@@ -96,14 +96,14 @@
       "description": "mode=density reads the same drawing as a distribution",
       "config": "<tdc><env count=\"8\" seed=\"unit-test\" local=\"en\" mode=\"memory\"><sequence name=\"V\"><gen type=\"pattern\" points=\"0,0 5,10 10,0\" y_range=\"0..100\" decimals=\"1\" mode=\"density\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
       "expected": [
-        "60.8",
-        "68.4",
-        "53.3",
-        "72.4",
-        "26.7",
-        "84.2",
-        "42.7",
-        "11.7"
+        "79.5",
+        "58.7",
+        "66.9",
+        "35.3",
+        "85.2",
+        "94.3",
+        "48.3",
+        "45.4"
       ]
     },
     {

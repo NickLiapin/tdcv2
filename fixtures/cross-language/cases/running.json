@@ -6,12 +6,12 @@
       "description": "The ledger. Row i is the accumulation of every row up to it, which is the one thing a row cannot compute from its own index — so the streaming engines refuse it by name and the router sends the config to the in-memory one.",
       "config": "<tdc><env count=\"6\" seed=\"ledger\" local=\"en\" mode=\"memory\"><sequence name=\"Op\"><gen type=\"number\" value=\"-400..500\"/></sequence><sequence name=\"Balance\"><gen type=\"running\" of=\"Op\" accumulate=\"sum\" base=\"1000\"/></sequence></env><block><line><data>${{Op}} ${{Balance}}</data></line></block></tdc>",
       "expected": [
-        "59 1059",
-        "365 1424",
-        "276 1700",
-        "-7 1693",
-        "-108 1585",
-        "444 2029"
+        "399 1399",
+        "-246 1153",
+        "-270 883",
+        "159 1042",
+        "24 1066",
+        "-400 666"
       ]
     },
     {
@@ -19,22 +19,22 @@
       "description": "reset= splits the column into segments and accumulates each on its own — one balance per account rather than one for the file. The decimals stay exact because the arithmetic is the same scaled-integer fold the list flavour uses.",
       "config": "<tdc><env count=\"9\" seed=\"acct\" local=\"en\" mode=\"memory\"><sequence name=\"Account\"><gen type=\"text\" value=\"A,A,A,B,B,C,C,C,C\" order=\"sequential\"/></sequence><sequence name=\"Op\"><gen type=\"number\" value=\"10..99\" decimals=\"2\"/></sequence><sequence name=\"Balance\"><gen type=\"running\" of=\"Op\" accumulate=\"sum\" reset=\"Account\"/></sequence></env><block><line><data>${{Account}} ${{Op}} ${{Balance}}</data></line></block></tdc>",
       "expected": [
-        "A 96.47 96.47",
-        "A 29.18 125.65",
-        "A 91.43 217.08",
-        "B 15.65 15.65",
-        "B 67.87 83.52",
-        "C 48.03 48.03",
-        "C 39.00 87.03",
-        "C 56.04 143.07",
-        "C 78.62 221.69"
+        "A 49.86 49.86",
+        "A 21.54 71.40",
+        "A 35.12 106.52",
+        "B 80.60 80.60",
+        "B 98.09 178.69",
+        "C 33.58 33.58",
+        "C 23.09 56.67",
+        "C 72.74 129.41",
+        "C 94.78 224.19"
       ]
     },
     {
       "name": "a-running-maximum-down-a-column",
       "description": "The high-water mark: the largest value seen so far. Like the list flavour, min and max return an element that already exists rather than a reformatted one.",
       "config": "<tdc><env count=\"6\" seed=\"peak\" local=\"en\" mode=\"memory\"><sequence name=\"Load\"><gen type=\"number\" value=\"10..99\"/></sequence><sequence name=\"Peak\"><gen type=\"running\" of=\"Load\" accumulate=\"max\"/></sequence></env><block><line><data>${{Load}} ${{Peak}}</data></line></block></tdc>",
-      "expected": ["33 33", "15 33", "78 78", "15 78", "79 79", "32 79"]
+      "expected": ["29 29", "49 49", "83 83", "59 83", "92 92", "94 94"]
     }
   ]
 }

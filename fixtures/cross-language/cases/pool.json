@@ -5,67 +5,67 @@
       "name": "a-pool-hands-a-whole-member-to-a-row",
       "description": "A <pool> is a small table computed once, before the rows. A sequence draws ONE member per row through <gen type=\"pool\">, and every field of that member is read as ${{Ref.field}}. The point is what cannot happen: two fields in a row always come from the same member, because a reference is one sequence and a sequence holds one value per row.",
       "config": "<tdc><env count=\"6\" seed=\"pool\" local=\"en\" mode=\"memory\"><pool name=\"P\" count=\"3\"><sequence name=\"a\"><gen type=\"text\" value=\"x,y,z\"/></sequence><sequence name=\"b\"><gen type=\"text\" value=\"1,2,3\"/></sequence></pool><sequence name=\"R\"><gen type=\"pool\" value=\"P\"/></sequence></env><block><line><data>${{R.a}}${{R.b}}</data></line></block></tdc>",
-      "expected": ["y2", "y2", "z2", "x3", "z2", "x3"]
+      "expected": ["z1", "z1", "y3", "x2", "y3", "x2"]
     },
     {
       "name": "a-pool-is-drawn-from-a-derived-seed",
       "description": "A pool draws from <seed>#pool:<Name>, not from the main stream, so adding one must leave every other column exactly where it was. These two columns are byte-identical to the same config with no pool in it — that is what this case pins.",
       "config": "<tdc><env count=\"5\" seed=\"derive\" local=\"en\" mode=\"memory\"><pool name=\"P\" count=\"4\"><sequence name=\"n\"><gen type=\"text\" value=\"a,b,c,d\"/></sequence></pool><sequence name=\"id\"><gen type=\"increment\" value=\"1\"/></sequence><sequence name=\"age\"><gen type=\"number\" value=\"18..90\"/></sequence><sequence name=\"R\"><gen type=\"pool\" value=\"P\"/></sequence></env><block><line><data>${{id}},${{age}}</data></line></block></tdc>",
-      "expected": ["1,86", "2,43", "3,41", "4,83", "5,42"]
+      "expected": ["1,41", "2,65", "3,46", "4,22", "5,83"]
     },
     {
       "name": "a-pool-reference-filtered-by-a-column",
       "description": "filter= narrows WHICH members a row may draw from — here to those whose c equals the row's own C. Unlike if=, it never leaves a cell empty: it substitutes a matching member, and no match at all is an error rather than a gap. The pool uses percent so the quota guarantees both values are present.",
       "config": "<tdc><env count=\"8\" seed=\"filt\" local=\"en\" mode=\"memory\"><pool name=\"P\" count=\"6\"><sequence name=\"c\"><gen type=\"text\" value=\"N,S\" percent=\"50,50\"/></sequence><sequence name=\"who\"><gen type=\"text\" value=\"p,q,r,s,t,u\" order=\"sequential\"/></sequence></pool><sequence name=\"C\"><gen type=\"text\" value=\"N,S\" percent=\"50,50\"/></sequence><sequence name=\"R\"><gen type=\"pool\" value=\"P\" filter=\"c == C\"/></sequence></env><block><line><data>${{C}}:${{R.c}}${{R.who}}</data></line></block></tdc>",
       "expected": [
-        "S:Ss",
-        "N:Np",
-        "S:St",
-        "S:Ss",
-        "N:Nr",
-        "N:Nr",
-        "N:Nq",
-        "S:St"
+        "S:Sp",
+        "S:Sp",
+        "S:Sq",
+        "S:Sp",
+        "N:Nu",
+        "N:Nu",
+        "N:Nt",
+        "N:Nt"
       ]
     },
     {
       "name": "a-pool-filter-is-an-expression-not-a-pair-of-names",
       "description": "filter= takes the same expression language as if=, so !=, <, >, && and || all work. A bare word stays a string literal exactly as it does in if=, which this case relies on: `c != S` compares against the literal S, not against a column.",
       "config": "<tdc><env count=\"8\" seed=\"expr\" local=\"en\" mode=\"memory\"><pool name=\"P\" count=\"8\"><sequence name=\"c\"><gen type=\"text\" value=\"N,S\" percent=\"50,50\"/></sequence><sequence name=\"k\"><gen type=\"text\" value=\"1,2,3,4,5,6,7,8\" order=\"sequential\"/></sequence></pool><sequence name=\"R\"><gen type=\"pool\" value=\"P\" filter=\"c != S\"/></sequence></env><block><line><data>${{R.c}}${{R.k}}</data></line></block></tdc>",
-      "expected": ["N7", "N7", "N1", "N7", "N6", "N3", "N6", "N7"]
+      "expected": ["N5", "N5", "N1", "N5", "N4", "N2", "N4", "N5"]
     },
     {
       "name": "uniq-inside-a-pool-makes-the-members-differ",
       "description": "A pool is a miniature <env>, so <uniq> inside one means what it means outside: these four members are four different (a, b) pairs. Nothing was written to make that work — a pool is built by the ordinary sequence machinery with the member count in place of the row count.",
       "config": "<tdc><env count=\"20\" seed=\"pooluniq\" local=\"en\" mode=\"memory\"><pool name=\"P\" count=\"4\"><uniq><sequence name=\"a\"><gen type=\"text\" value=\"x,y\" percent=\"50,50\"/></sequence><sequence name=\"b\"><gen type=\"text\" value=\"1,2\" percent=\"50,50\"/></sequence></uniq></pool><sequence name=\"R\"><gen type=\"pool\" value=\"P\"/></sequence></env><block><line><data>${{R.a}}${{R.b}}</data></line></block></tdc>",
       "expected": [
+        "x2",
+        "x1",
+        "x1",
+        "x1",
+        "x1",
+        "x1",
+        "y1",
+        "x1",
+        "y2",
+        "y2",
+        "y2",
+        "y2",
+        "y1",
         "y2",
         "y1",
         "y1",
-        "y1",
-        "y1",
-        "y1",
         "x1",
-        "y1",
-        "x2",
-        "x2",
-        "x2",
-        "x2",
+        "y2",
         "x1",
-        "x2",
-        "x1",
-        "x1",
-        "y1",
-        "x2",
-        "y1",
-        "y1"
+        "x1"
       ]
     },
     {
       "name": "a-pool-member-draws-from-another-pool",
       "description": "A member of one pool draws a whole member of another, declared above it. The inner reference publishes no bare column — only `at.k` and `at.t` — so a row reads `${{R.at.k}}` and the clinic a doctor works at is fixed per MEMBER, not per row. The inner pool is built off its own derived seed, which is why the same pair travels together everywhere the doctor appears.",
       "config": "<tdc><env count=\"6\" seed=\"pool\" local=\"en\"><pool name=\"C\" count=\"2\"><sequence name=\"k\" uniq=\"true\"><gen type=\"text\" value=\"n,s\"/></sequence><sequence name=\"t\"><gen type=\"text\" value=\"1,2\"/></sequence></pool><pool name=\"D\" count=\"3\"><sequence name=\"a\"><gen type=\"text\" value=\"x,y,z\"/></sequence><sequence name=\"at\"><gen type=\"pool\" value=\"C\"/></sequence></pool><sequence name=\"R\"><gen type=\"pool\" value=\"D\"/></sequence></env><block><line><data>${{R.a}}${{R.at.k}}${{R.at.t}}</data></line></block></tdc>",
-      "expected": ["ys2", "ys2", "zn2", "zn2", "zn2", "zn2"]
+      "expected": ["zs2", "zs2", "xn1", "yn1", "xn1", "yn1"]
     }
   ]
 }

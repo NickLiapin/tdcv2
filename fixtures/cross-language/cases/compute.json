@@ -6,36 +6,36 @@
       "description": "A mod-10 check digit, from a composed pack",
       "config": "<tdc><env count=\"6\" seed=\"packs\" local=\"en\" mode=\"memory\"><sequence name=\"V\"><gen type=\"template\" value=\"usa.finance.aba_routing\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
       "expected": [
-        "310328870",
-        "244716189",
-        "038589726",
-        "635327608",
-        "033210951",
-        "301879448"
+        "712545125",
+        "634135147",
+        "271641227",
+        "727481685",
+        "657563039",
+        "718685733"
       ]
     },
     {
       "name": "compute-ordinal-suffix",
       "description": "choose picks the right ordinal suffix, including the teens",
       "config": "<tdc><env count=\"6\" seed=\"packs\" local=\"en\" mode=\"memory\"><sequence name=\"V\"><gen type=\"template\" value=\"usa.geo.streetName\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
-      "expected": ["93rd", "6th", "48th", "39th", "121st", "129th"]
+      "expected": ["Sunset", "109th", "145th", "Birch", "120th", "Hickory"]
     },
     {
       "name": "compute-uuid-pack",
       "description": "A pack that ships a rule rather than a list",
       "config": "<tdc><env count=\"4\" seed=\"packs\" local=\"en\" mode=\"memory\"><sequence name=\"V\"><gen type=\"template\" value=\"common.id.uuid\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
       "expected": [
-        "61b09905-cdc1-4b2b-89d8-fb30863ca015",
-        "30e8d2dc-77cf-4654-8abe-b8f6490f5342",
-        "9d94d5e4-315b-4e34-94e4-b016b049401d",
-        "012162c5-575a-4300-9040-3f727e7e73a7"
+        "13979244-8b56-4357-9607-deed5e23fb1a",
+        "b736936f-5be4-401a-b643-180c72ff17fa",
+        "f296233b-3613-4972-bc88-4d19b5ef70e3",
+        "8c6d2aec-53d9-4271-a8dc-d065d78951f7"
       ]
     },
     {
       "name": "compute-takes-no-draws",
       "description": "A computed sequence draws nothing, so it shifts nothing after it",
       "config": "<tdc><env count=\"4\" seed=\"nodraw\" local=\"en\" mode=\"memory\"><sequence name=\"A\"><gen type=\"number\" value=\"100..999\"/></sequence><sequence name=\"S\"><compute><result><to_number><field name=\"A\"/></to_number></result></compute></sequence><sequence name=\"B\"><gen type=\"number\" value=\"100..999\"/></sequence></env><block><line><data>${{A}},${{S}},${{B}}</data></line></block></tdc>",
-      "expected": ["308,308,747", "291,291,109", "708,708,936", "104,104,673"]
+      "expected": ["448,448,139", "729,729,341", "901,901,564", "817,817,554"]
     },
     {
       "name": "compute-reduce-and-encode",

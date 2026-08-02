@@ -2,28 +2,28 @@
   "users": [
     {
       "id": 1,
-      "firstName": "John",
-      "lastName": "Brown"
-    },
-    {
-      "id": 2,
-      "firstName": "Robert",
+      "firstName": "Michael",
       "lastName": "Jones"
     },
     {
+      "id": 2,
+      "firstName": "James",
+      "lastName": "Brown"
+    },
+    {
       "id": 3,
-      "firstName": "Michael",
-      "lastName": "Smith"
+      "firstName": "Robert",
+      "lastName": "Johnson"
     },
     {
       "id": 4,
       "firstName": "William",
-      "lastName": "Johnson"
+      "lastName": "Williams"
     },
     {
       "id": 5,
-      "firstName": "James",
-      "lastName": "Williams"
+      "firstName": "John",
+      "lastName": "Smith"
     }
   ]
 }

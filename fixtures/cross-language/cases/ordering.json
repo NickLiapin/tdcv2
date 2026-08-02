@@ -17,7 +17,7 @@
       "name": "sequential-takes-no-draws",
       "description": "Walking a list in order consumes no randomness",
       "config": "<tdc><env count=\"4\" seed=\"demo\" local=\"en\" mode=\"memory\"><sequence name=\"M\"><gen type=\"text\" value=\"Jan,Feb,Mar\" order=\"sequential\"/></sequence><sequence name=\"N\"><gen type=\"number\" value=\"100..999\"/></sequence></env><block><line><data>${{M}} ${{N}}</data></line></block></tdc>",
-      "expected": ["Jan 777", "Feb 148", "Mar 872", "Jan 341"]
+      "expected": ["Jan 845", "Feb 908", "Mar 421", "Jan 573"]
     }
   ]
 }
