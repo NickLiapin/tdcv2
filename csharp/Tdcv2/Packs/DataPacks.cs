@@ -99,6 +99,15 @@ public sealed class DataPacks
             dir = dir.Parent;
         }
 
+        // The starter set compiled into this assembly, which is what a package installed from
+        // NuGet has: there is nothing above ~/.nuget/packages to walk up to, and without this
+        // every type="template" answered "no data packs found". A folder on disk wins above,
+        // because that is the copy every implementation shares and the one a contributor edits.
+        if (!EmbeddedSource.IsEmpty)
+        {
+            return new DataPacks(new EmbeddedSource());
+        }
+
         throw new DirectoryNotFoundException(
             "no data packs found; set TDCV2_PACKS to a pack folder");
     }

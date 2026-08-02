@@ -64,3 +64,44 @@ public class DataPacksTest
         Assert.Contains("en/person/nosuchthing.txt", e.Message);
     }
 }
+
+/// <summary>
+/// The starter packs compiled into the assembly.
+/// </summary>
+/// <remarks>
+/// A NuGet package has nothing above it, so looking beside the assembly and walking up for
+/// <c>data/packs</c> cannot work in <c>~/.nuget/packages</c>. The package built before this
+/// carried 0 data files and threw on the first <c>type="template"</c> — while all 775 tests were
+/// green, because every test runs inside the repository.
+/// <para>
+/// These assert the SHAPE of the embedded source. Whether the packed .nupkg actually carries
+/// anything is a question no in-repo test can answer, so <c>scripts/verify-package.mjs</c> packs
+/// it, installs it outside the repository and runs one.
+/// </para>
+/// </remarks>
+public class EmbeddedPacksTest
+{
+    [Fact]
+    public void ACheckoutEmbedsNothingAndReadsTheRepositoryInstead()
+    {
+        // `bundle-packs.mjs add` stages the packs only for packing, and `remove` clears them. A
+        // checkout that had them embedded would be reading a stale copy of packs that live once.
+        Assert.True(
+            EmbeddedSource.IsEmpty,
+            "a checkout must not carry a second copy of the packs; run "
+                + "`node scripts/bundle-packs.mjs remove`");
+    }
+
+    [Fact]
+    public void AnEmptyEmbeddedSourceAnswersNothingRatherThanWrongly()
+    {
+        // The dangerous failure is not "no data" — it is an empty source that claims to have an
+        // address and hands back nothing.
+        var source = new EmbeddedSource();
+        Assert.False(source.Has("en/person/lastName.txt"));
+        Assert.Empty(source.ReadLines("en/person/lastName.txt"));
+        Assert.Empty(source.ListFiles());
+        Assert.False(source.HasTopLevel("en"));
+        Assert.False(source.HasCountry("usa"));
+    }
+}

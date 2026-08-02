@@ -30,6 +30,24 @@
     <None Include="../README.md" Pack="true" PackagePath="\" />
   </ItemGroup>
 
+  <!--
+    The starter data packs, embedded INTO the assembly rather than shipped beside it.
+
+    `scripts/bundle-packs.mjs add` stages them here before `dotnet pack`; the folder is
+    gitignored, because the packs live once at the repository root and a second committed copy
+    would shadow the real one and go quietly out of date. A checkout matches nothing here and
+    falls back to reading data/packs from disk, which is what keeps this implementation and the
+    other four looking at the same bytes.
+
+    `LogicalName` gives every file the same `tdc/packs/…` prefix the jar uses, so the two ports
+    name their resources identically.
+  -->
+  <ItemGroup>
+    <EmbeddedResource Include="PacksData/**/*.txt">
+      <LogicalName>tdc/packs/%(RecursiveDir)%(Filename)%(Extension)</LogicalName>
+    </EmbeddedResource>
+  </ItemGroup>
+
   <ItemGroup>
     <PackageReference Include="Antlr4.Runtime.Standard" Version="4.13.1" />
   </ItemGroup>

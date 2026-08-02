@@ -22,6 +22,18 @@ TypeScript reference since before it, held there by the shared fixtures under
   data packs a config draws on. See the binding's README for the shape it takes
   here.
 
+### Added
+
+- **`scripts/verify-jar.mjs`** — builds the library jar, compiles against it
+  OUTSIDE the repository with only the jar and the ANTLR runtime on the
+  classpath, and compares the output with the TypeScript reference.
+
+  Nothing was broken here: the Gradle build has always copied the starter packs
+  into the jar as resources, which is why this is the one implementation of the
+  five that was already correct. That is exactly why the check is worth having —
+  the Rust crate and the NuGet package both shipped dataless, and in both cases
+  every test in the repository was green, because every test runs inside it.
+
 ### Fixed
 
 - **Pack parameters now work.** A pack whose body declares

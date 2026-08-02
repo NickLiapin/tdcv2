@@ -1,3 +1,5 @@
+using System.Reflection;
+
 namespace Tdcv2.Packs;
 
 /// <summary>
@@ -142,4 +144,74 @@ public sealed class LayeredSource : IPackSource
     public bool HasCountry(string name) => _sources.Any(s => s.HasCountry(name));
 
     public override string ToString() => string.Join(", ", _sources);
+}
+
+/// <summary>
+/// The starter packs compiled into the assembly.
+/// </summary>
+/// <remarks>
+/// <para>
+/// A NuGet package is a zip with an assembly in it and nothing above it, so looking beside the
+/// assembly and then walking up for <c>data/packs</c> — which is how <see cref="DataPacks.Discover"/>
+/// finds the repository's copy — cannot work in <c>~/.nuget/packages</c>. Embedding is the only
+/// shape that survives every way a consumer can build: a plain library reference, a single-file
+/// publish, a trimmed one.
+/// </para>
+/// <para>
+/// Empty in a checkout, where the real <c>data/packs</c> is on disk and reading it from there is
+/// what keeps all five implementations looking at the same bytes. <see cref="IsEmpty"/> is how a
+/// caller tells the two apart.
+/// </para>
+/// <para>
+/// Unlike the jar, this needs no index file: .NET can list its own resources.
+/// </para>
+/// </remarks>
+public sealed class EmbeddedSource : IPackSource
+{
+    /// <summary>The resource-name prefix the .csproj gives every embedded pack.</summary>
+    private const string Prefix = "tdc/packs/";
+
+    private static readonly Assembly Owner = typeof(EmbeddedSource).Assembly;
+
+    private static readonly IReadOnlyList<string> Paths = Owner
+        .GetManifestResourceNames()
+        .Where(n => n.StartsWith(Prefix, StringComparison.Ordinal))
+        .Select(n => n[Prefix.Length..])
+        .OrderBy(n => n, StringComparer.Ordinal)
+        .ToArray();
+
+    /// <summary>Whether anything was embedded — false in a checkout.</summary>
+    public static bool IsEmpty => Paths.Count == 0;
+
+    public bool Has(string relativePath) => Paths.Contains(relativePath);
+
+    public IReadOnlyList<string> ReadLines(string relativePath)
+    {
+        using Stream? stream = Owner.GetManifestResourceStream(Prefix + relativePath);
+        if (stream is null)
+        {
+            return Array.Empty<string>();
+        }
+
+        // Split the same way DirectorySource does, so an embedded pack and a pack on disk give
+        // the identical list of values — including the trailing-newline rule.
+        using var reader = new StreamReader(stream);
+        var lines = new List<string>();
+        while (reader.ReadLine() is { } line)
+        {
+            lines.Add(line);
+        }
+
+        return lines;
+    }
+
+    public IReadOnlyList<string> ListFiles() => Paths;
+
+    public bool HasTopLevel(string name) =>
+        Paths.Any(p => p.StartsWith(name + "/", StringComparison.Ordinal));
+
+    public bool HasCountry(string name) =>
+        Paths.Any(p => p.StartsWith("countries/" + name + "/", StringComparison.Ordinal));
+
+    public string Describe() => $"the {Paths.Count} packs built into this assembly";
 }

@@ -148,6 +148,10 @@ rust/target/
 # not consult this file.
 rust/src/packs/bundled/
 
+# The same, for C#: `csharp/scripts/bundle-packs.mjs` stages the starter packs
+# here only long enough for `dotnet pack` to embed them in the assembly.
+csharp/Tdcv2/PacksData/
+
 # --- Local-only: AI assistant state, scratch files ---------------------------
 # These are created by the tools a developer happens to use and say nothing about
 # the project. They must never reach the tree.

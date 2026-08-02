@@ -24,6 +24,24 @@ TypeScript reference since before it, held there by the shared fixtures under
 
 ### Fixed
 
+- **The package shipped without any data at all.** It looked for packs beside the
+  assembly and then walked up for `data/packs` — which works in a checkout and
+  cannot work in `~/.nuget/packages`, where an installed package has nothing above
+  it. The .nupkg held 6 files and none of them data, so `dotnet add package Tdcv2`
+  produced an assembly that threw `no data packs found` on the first
+  `type="template"`. All 775 tests were green: every test runs inside the
+  repository.
+
+  The starter set is embedded in the assembly now — the same `common`, `en` and
+  USA the other four carry, under the same `tdc/packs/…` resource names the jar
+  uses. The package is 384 KB. A folder on disk still wins, so a downloaded pack
+  shadows it.
+
+  `scripts/verify-package.mjs` is the guard: it packs the project, installs it
+  into a console app OUTSIDE the repository, runs three pack-backed columns and
+  compares them with the TypeScript reference. No in-repo test can see this class
+  of bug.
+
 - **Pack parameters now work.** A pack whose body declares
   `<sequence name="domain">` accepts `domain="…"` from the caller, and the
   engine replaces that sequence with the constant. This implementation refused
