@@ -590,10 +590,24 @@
       // clicks it. What we store is a `location.pathname`, which starts with
       // "/" on every real page — but "on every real page" is the wrong kind of
       // guarantee for a sink, and the store is a JSON file a reviewer can edit
-      // or be handed. Anything that is not a plain in-site path stays text
-      // rather than becoming a link.
-      const path = typeof c.url === 'string' && /^\/(?![/\\])/.test(c.url) ? c.url : null;
-      if (path) where.href = path;
+      // or be handed.
+      //
+      // So the stored string never reaches the attribute. It is resolved
+      // against a base that belongs to nothing, and only a result that stayed
+      // on that base becomes a link — rebuilt from the parts the URL parser
+      // produced. `javascript:` and `//evil.com` both land on a different
+      // origin and are dropped. The result is relative, so it still resolves
+      // whether the bundle is opened over http or straight off disk.
+      let href = null;
+      try {
+        const parsed = new URL(String(c.url ?? ''), 'https://review.invalid/');
+        if (parsed.origin === 'https://review.invalid') {
+          href = parsed.pathname + parsed.search + parsed.hash;
+        }
+      } catch {
+        href = null; // not something the URL parser accepts: not a link
+      }
+      if (href) where.href = href;
       where.textContent = `${c.title.split('|')[0].trim()} — ${c.section || '—'}`;
       const quote = document.createElement('div');
       quote.className = 'tdcr-quote';
