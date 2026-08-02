@@ -55,16 +55,16 @@ function diagnose(source) {
   return validate(parsed.tree, {
     packAddresses: PACK_ADDRESSES,
     packParams: PACK_PARAMS,
-  }).diagnostics.map(
-    (d) => `${d.severity} ${d.code ?? '?'} ${d.line}:${d.column}`,
-  );
+  }).diagnostics.map((d) => `${d.severity} ${d.code ?? '?'} ${d.line}:${d.column}`);
 }
 
 let checked = 0;
 let changed = 0;
 const failures = [];
 
-for (const file of readdirSync(DIR).filter((f) => f.endsWith('.json')).sort()) {
+for (const file of readdirSync(DIR)
+  .filter((f) => f.endsWith('.json'))
+  .sort()) {
   const path = join(DIR, file);
   const doc = JSON.parse(readFileSync(path, 'utf8'));
   let fileChanged = false;
@@ -82,10 +82,7 @@ for (const file of readdirSync(DIR).filter((f) => f.endsWith('.json')).sort()) {
     // `demonstrates` is the guard against a mis-transcribed config: a case named after TDC062
     // that quietly produces TDC050 instead would otherwise be recorded as correct and then
     // held over every implementation forever.
-    if (
-      testCase.demonstrates &&
-      !actual.some((d) => d.split(' ')[1] === testCase.demonstrates)
-    ) {
+    if (testCase.demonstrates && !actual.some((d) => d.split(' ')[1] === testCase.demonstrates)) {
       failures.push(
         `${file} / ${testCase.name}: claims to demonstrate ${testCase.demonstrates}, ` +
           `but the reference reports ${JSON.stringify(actual)}`,

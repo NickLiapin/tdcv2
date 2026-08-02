@@ -59,7 +59,8 @@ const grammarTime = newest(SOURCES.map((f) => join(GRAMMAR, f)));
 const existing = generatedFiles();
 // The OLDEST generated file is the one to compare against: if any single output
 // predates the grammar, the set as a whole is stale.
-const generatedTime = existing.length === 0 ? 0 : Math.min(...existing.map((f) => statSync(f).mtimeMs));
+const generatedTime =
+  existing.length === 0 ? 0 : Math.min(...existing.map((f) => statSync(f).mtimeMs));
 
 if (!force && existing.length > 0 && generatedTime >= grammarTime) {
   process.exit(0);

@@ -240,7 +240,8 @@ function authored(id, generated) {
   const previousText = handWritten.get(id)?.description;
   if (previousText === undefined) return generated;
   const looksGenerated =
-    previousText.startsWith('Data specific to ') || previousText.startsWith('Content bound to the ');
+    previousText.startsWith('Data specific to ') ||
+    previousText.startsWith('Content bound to the ');
   const listsCategories = /: [a-z_]+(, [a-z_]+)+\.$|, and \d+ more\.$/.test(previousText);
   return looksGenerated && listsCategories ? generated : previousText;
 }
@@ -266,7 +267,9 @@ for (const id of ['common']) {
   });
 }
 
-for (const entry of readdirSync(PACKS, { withFileTypes: true }).sort((a, b) => a.name.localeCompare(b.name))) {
+for (const entry of readdirSync(PACKS, { withFileTypes: true }).sort((a, b) =>
+  a.name.localeCompare(b.name),
+)) {
   if (!entry.isDirectory() || entry.name === 'countries' || entry.name === 'common') continue;
   const id = entry.name;
   const dir = join(PACKS, id);
@@ -286,13 +289,20 @@ for (const entry of readdirSync(PACKS, { withFileTypes: true }).sort((a, b) => a
 }
 
 const countriesDir = join(PACKS, 'countries');
-for (const entry of readdirSync(countriesDir, { withFileTypes: true }).sort((a, b) => a.name.localeCompare(b.name))) {
+for (const entry of readdirSync(countriesDir, { withFileTypes: true }).sort((a, b) =>
+  a.name.localeCompare(b.name),
+)) {
   if (!entry.isDirectory()) continue;
   const id = entry.name;
   const dir = join(countriesDir, id);
   const files = countFiles(dir);
   if (files < COUNTRY_MIN) {
-    skipped.push({ id, kind: 'country', files, why: files === 0 ? 'empty' : `only ${files} files` });
+    skipped.push({
+      id,
+      kind: 'country',
+      files,
+      why: files === 0 ? 'empty' : `only ${files} files`,
+    });
     continue;
   }
   const place = GEOGRAPHY[id];
@@ -322,9 +332,7 @@ for (const bundle of bundles) {
 process.stdout.write(`\n${bundles.length} bundles\n`);
 
 if (unplaced.length > 0) {
-  process.stdout.write(
-    `\nno place on the map (add them to GEOGRAPHY): ${unplaced.join(', ')}\n`,
-  );
+  process.stdout.write(`\nno place on the map (add them to GEOGRAPHY): ${unplaced.join(', ')}\n`);
 }
 
 if (skipped.length > 0) {
@@ -335,14 +343,18 @@ if (skipped.length > 0) {
     byReason.set(key, [...(byReason.get(key) ?? []), s.id]);
   }
   for (const [reason, ids] of byReason) {
-    process.stdout.write(`  ${reason}: ${ids.length} — ${ids.slice(0, 8).join(', ')}${ids.length > 8 ? ', …' : ''}\n`);
+    process.stdout.write(
+      `  ${reason}: ${ids.length} — ${ids.slice(0, 8).join(', ')}${ids.length > 8 ? ', …' : ''}\n`,
+    );
   }
 }
 
 if (CHECK) {
   const current = readFileSync(MANIFEST, 'utf8');
   if (current !== text) {
-    process.stderr.write('\ndata/bundles.json is out of date — run scripts/refresh-bundle-manifest.mjs\n');
+    process.stderr.write(
+      '\ndata/bundles.json is out of date — run scripts/refresh-bundle-manifest.mjs\n',
+    );
     process.exit(1);
   }
   process.stdout.write('\nmanifest is up to date\n');

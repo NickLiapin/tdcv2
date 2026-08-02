@@ -35,6 +35,9 @@
       "prettier --write",
       "eslint --fix --config typescript/eslint.config.mjs"
     ],
+    "typescript/**/*.{mjs,js}": [
+      "prettier --write"
+    ],
     "typescript/**/*.{json,md,yml,yaml}": [
       "prettier --write --embedded-language-formatting=off"
     ],

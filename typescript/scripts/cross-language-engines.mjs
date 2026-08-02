@@ -55,7 +55,9 @@ const disagreed = [];
 let refused = 0;
 let produced = 0;
 
-for (const file of readdirSync(CASES_DIR).filter((f) => f.endsWith('.json')).sort()) {
+for (const file of readdirSync(CASES_DIR)
+  .filter((f) => f.endsWith('.json'))
+  .sort()) {
   const doc = JSON.parse(readFileSync(join(CASES_DIR, file), 'utf8'));
   for (const testCase of doc.cases) {
     const key = `${file.replace(/\.json$/, '')}/${testCase.name}`;

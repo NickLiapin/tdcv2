@@ -43,8 +43,7 @@ const OUT = resolve(HERE, '../src/quick/addresses.ts');
  * an identifier is quoted and escaped.
  */
 const bare = (name) => /^[A-Za-z_$][A-Za-z0-9_$]*$/.test(name);
-const key = (name) =>
-  bare(name) ? name : `'${name.replace(/\\/g, '\\\\').replace(/'/g, "\\'")}'`;
+const key = (name) => (bare(name) ? name : `'${name.replace(/\\/g, '\\\\').replace(/'/g, "\\'")}'`);
 
 /**
  * Marks a node whose own path is a real address.
@@ -157,5 +156,7 @@ if (process.argv.includes('--check')) {
   console.log(`quick API types match the packs (${String(registry.size)} addresses)`);
 } else {
   writeFileSync(OUT, generated);
-  console.log(`wrote ${String(registry.size)} addresses to ${join('src', 'quick', 'addresses.ts')}`);
+  console.log(
+    `wrote ${String(registry.size)} addresses to ${join('src', 'quick', 'addresses.ts')}`,
+  );
 }

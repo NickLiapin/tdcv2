@@ -28,7 +28,9 @@ let agree = 0;
 const disagree = [];
 const skipped = [];
 
-for (const file of readdirSync(cases).filter((f) => f.endsWith('.json')).sort()) {
+for (const file of readdirSync(cases)
+  .filter((f) => f.endsWith('.json'))
+  .sort()) {
   const { cases: list } = JSON.parse(readFileSync(resolve(cases, file), 'utf8'));
   for (const c of list ?? []) {
     const parsed = parse(c.config);

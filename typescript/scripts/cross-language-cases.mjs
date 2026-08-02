@@ -56,7 +56,9 @@ let checked = 0;
 let changed = 0;
 const failures = [];
 
-for (const file of readdirSync(CASES_DIR).filter((f) => f.endsWith('.json')).sort()) {
+for (const file of readdirSync(CASES_DIR)
+  .filter((f) => f.endsWith('.json'))
+  .sort()) {
   const path = join(CASES_DIR, file);
   const doc = JSON.parse(readFileSync(path, 'utf8'));
   let fileChanged = false;
