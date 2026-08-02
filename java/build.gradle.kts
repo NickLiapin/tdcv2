@@ -215,10 +215,9 @@ publishing {
             from(components["java"])
 
             pom {
-                // Gradle leaves this out and lets Maven assume the default. Written down
-                // instead, because a publication that cannot be withdrawn is the wrong
-                // place to rely on somebody else's default.
-                packaging = "jar"
+                // No `packaging` here: Gradle drops the element when it equals the default
+                // it is already producing, so setting it changes nothing. Verified by
+                // reading the POM out of the built bundle. Central does not ask for it.
                 name = "TDC — The Data Constructor"
                 description =
                     "Deterministic test-data generator: coherent records, exact proportions, " +
