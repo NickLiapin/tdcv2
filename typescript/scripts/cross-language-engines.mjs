@@ -1,18 +1,19 @@
 #!/usr/bin/env node
 /**
- * The shared cases, run again on the streaming engines.
+ * The shared cases, run again on the streaming engines — and the guard that all
+ * three agree.
  *
- * The `expected` in each case file is what the in-memory engine produces. That is not what the
- * streaming engines produce — they draw by row index rather than in order, so the same seed
- * gives a different column. Both are correct and neither is the other's reference.
+ * This used to record a SECOND set of expectations, because the engines drew in
+ * different orders and the same seed gave different columns. That is over: a
+ * value is derived from `(seed, column name, row)`, so an engine that renders a
+ * case at all must render the case's own `expected`, byte for byte. The check
+ * below enforces exactly that, which is the whole point of the rewrite and the
+ * thing most likely to rot silently if nobody looks.
  *
- * What must hold across languages is that TypeScript's Engine 2 and Java's Engine 2 agree with
- * each other, value for value. So this records what the reference's streaming engines do with
- * every shared case, including which ones they refuse, and the ports are held to that.
- *
- * A refusal is recorded as deliberately as a value. An engine that quietly answers a config it
- * cannot do correctly is worse than one that stops, and "did the port refuse the same configs"
- * is exactly the question a message-by-message comparison could not answer.
+ * What is left to record is which cases an engine REFUSES. A refusal is a
+ * deliberate answer — an engine that quietly answers a config it cannot do
+ * correctly is worse than one that stops — and "did the port refuse the same
+ * configs" is the question a message-by-message comparison could never settle.
  *
  *   --update   rewrite the fixture from current behaviour; the diff is the review.
  *   (default)  verify, so the reference cannot drift away from what the ports are checked on.
@@ -50,6 +51,7 @@ function toLines(text) {
 }
 
 const results = {};
+const disagreed = [];
 let refused = 0;
 let produced = 0;
 
@@ -60,8 +62,13 @@ for (const file of readdirSync(CASES_DIR).filter((f) => f.endsWith('.json')).sor
     const entry = {};
     for (const engine of ENGINES) {
       try {
-        entry[`engine${engine}`] = { lines: toLines(render(testCase, engine)) };
+        const lines = toLines(render(testCase, engine));
+        entry[`engine${engine}`] = { lines };
         produced += 1;
+        // The guard: same seed, same values, whichever engine ran.
+        if (JSON.stringify(lines) !== JSON.stringify(testCase.expected)) {
+          disagreed.push({ key, engine, expected: testCase.expected, actual: lines });
+        }
       } catch (error) {
         // Only the reason matters, not the wording — the ports phrase their refusals in their
         // own language and are checked on refusing, not on how they say so.
@@ -76,11 +83,27 @@ for (const file of readdirSync(CASES_DIR).filter((f) => f.endsWith('.json')).sor
 const document = {
   comment:
     'Streaming-engine output for every shared case, from the reference implementation. ' +
-    'Engine 1 output lives in the cases themselves; the engines draw differently, so the two ' +
-    'do not match and are not meant to. Regenerate with: npm run fixtures:engines -- --update',
+    'It MATCHES the `expected` in the cases themselves — all three engines agree, and this ' +
+    'file is where that is checked. What it adds is which cases an engine refuses. ' +
+    'Regenerate with: npm run fixtures:engines -- --update',
   engines: ENGINES,
   cases: results,
 };
+
+if (disagreed.length > 0) {
+  console.error(
+    `${String(disagreed.length)} case(s) where an engine disagrees with the case's own expected ` +
+      'output. All three engines are supposed to produce the same bytes from one seed; this is ' +
+      'the check that says so.\n',
+  );
+  for (const d of disagreed.slice(0, 5)) {
+    console.error(`--- ${d.key}  (engine ${String(d.engine)})`);
+    console.error(`  expected: ${JSON.stringify(d.expected.slice(0, 3))}`);
+    console.error(`  actual:   ${JSON.stringify(d.actual.slice(0, 3))}`);
+  }
+  if (disagreed.length > 5) console.error(`  … and ${String(disagreed.length - 5)} more`);
+  process.exit(1);
+}
 const text = `${JSON.stringify(document, null, 2)}\n`;
 
 if (update) {
@@ -105,4 +128,7 @@ if (JSON.stringify(current) !== JSON.stringify(document)) {
   );
   process.exit(1);
 }
-console.log(`engines.json: ${produced} rendered, ${refused} refused — all match`);
+console.log(
+  `engines.json: ${produced} rendered, ${refused} refused — all match, ` +
+    'and every rendered case equals the in-memory engine byte for byte',
+);

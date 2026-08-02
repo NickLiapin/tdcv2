@@ -1,5 +1,5 @@
 {
-  "comment": "Streaming-engine output for every shared case, from the reference implementation. Engine 1 output lives in the cases themselves; the engines draw differently, so the two do not match and are not meant to. Regenerate with: npm run fixtures:engines -- --update",
+  "comment": "Streaming-engine output for every shared case, from the reference implementation. It MATCHES the `expected` in the cases themselves — all three engines agree, and this file is where that is checked. What it adds is which cases an engine refuses. Regenerate with: npm run fixtures:engines -- --update",
   "engines": [2, 3],
   "cases": {
     "accumulate/a-running-total-inside-one-record": {
