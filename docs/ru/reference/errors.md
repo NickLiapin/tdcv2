@@ -116,6 +116,7 @@ note: Declare it in <env>, or set a different inject= pattern if you really want
 | `TDC098` | У `type="symbol"` заданы и `value`, и `alphabet`, либо **ни один** | Задайте ровно один — набор в `value` или именованный `alphabet` |
 | `TDC099` | Именованный алфавит неизвестен | См. [Символы](../generators/symbol.md#top) |
 | `TDC128` | `type="advanced_regex"` без `value` | Шаблон кладётся в `value` |
+| `TDC128` | *(второе значение)* `default=` или `if=` написаны на `<case>` | `<mix>` выбирает случай по проценту, `<switch>` — по ключу `is`; условий не спрашивает ни тот, ни другой. Для значений по условию используйте `<sequence>` с ветками `<gen if="…">` |
 | `TDC130` | Продвинутый шаблон не разбирается | См. [Advanced regex](../generators/advanced-regex.md#top) |
 
 ## Выражения в `if`

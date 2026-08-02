@@ -212,13 +212,18 @@ DSL и поведение — те же, что в npm-версии.
 </tdc>
 ```
 
-Запускаем:
+Запустите той командой, которую дала ваша установка:
 
-```bash
-./run demo.tdc
-```
+| Ставили через | Запуск |
+| :--- | :--- |
+| npm | `npx tdcv2 demo.tdc` |
+| pip | `tdcv2 demo.tdc` |
+| Maven | `java -jar tdcv2-cli.jar demo.tdc` |
+| NuGet | `tdcv2 demo.tdc` (после `dotnet tool install -g Tdcv2.Cli`) |
+| Cargo | `tdcv2 demo.tdc` (после `cargo install tdcv2`) |
+| клон репозитория | `./run demo.tdc` |
 
-`./run demo.tdc`
+`tdcv2 demo.tdc`
 
 ```
 Елена, возраст 59
@@ -236,7 +241,7 @@ DSL и поведение — те же, что в npm-версии.
 Затем переопределите число строк и сид прямо из командной строки, не трогая файл:
 
 ```bash
-./run demo.tdc --count 20 --seed alt
+tdcv2 demo.tdc --count 20 --seed alt
 ```
 
 ## Установка пакетов данных (необязательно)

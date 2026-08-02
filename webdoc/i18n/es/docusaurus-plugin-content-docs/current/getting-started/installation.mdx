@@ -220,13 +220,18 @@ de salida de una sola línea:
 </tdc>
 ```
 
-Ejecútelo:
+Ejecútelo con el comando que le dejó su instalación:
 
-```bash
-./run demo.tdc
-```
+| Instalado con | Ejecutar |
+| :--- | :--- |
+| npm | `npx tdcv2 demo.tdc` |
+| pip | `tdcv2 demo.tdc` |
+| Maven | `java -jar tdcv2-cli.jar demo.tdc` |
+| NuGet | `tdcv2 demo.tdc` (tras `dotnet tool install -g Tdcv2.Cli`) |
+| Cargo | `tdcv2 demo.tdc` (tras `cargo install tdcv2`) |
+| un clon del repositorio | `./run demo.tdc` |
 
-<Terminal title="./run demo.tdc">
+<Terminal title="tdcv2 demo.tdc">
 {`Elena, edad 59
 Diego, edad 18
 Carlos, edad 53`}
@@ -244,7 +249,7 @@ idénticas. Después cambie la cantidad de filas y el seed desde la línea de
 comandos, sin tocar el archivo:
 
 ```bash
-./run demo.tdc --count 20 --seed alt
+tdcv2 demo.tdc --count 20 --seed alt
 ```
 
 ## Instalar paquetes de datos (opcional)

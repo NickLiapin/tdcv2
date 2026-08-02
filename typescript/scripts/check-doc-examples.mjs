@@ -78,7 +78,10 @@ function matches(expected, actual) {
  * config, not results.
  */
 function extractExamples(markdown) {
-  const fence = /^```(\w*)\n([\s\S]*?)^```$/gm;
+  // `(\w*)` then anything up to the newline: a fence may carry attributes —
+  // ```xml title="users.tdc" — and those are the examples a reader copies, so
+  // skipping them silently was the worst possible thing for this check to do.
+  const fence = /^```(\w*)[^\n]*\n([\s\S]*?)^```$/gm;
   const blocks = [];
   let m;
   while ((m = fence.exec(markdown)) !== null) {

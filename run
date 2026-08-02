@@ -11,10 +11,11 @@ DIR="$(cd "$(dirname "$0")" && pwd)"
 CLI="$DIR/typescript/dist/cli/main.js"
 
 if [ $# -lt 1 ]; then
-  echo "usage: ./run <file.tdc>" >&2
+  echo "usage: ./run <file.tdc> [--count N] [--seed S] [...]" >&2
   exit 2
 fi
 FILE="$1"
+shift  # anything else goes to the CLI: --count, --seed, --locale, --engine…
 
 if [ ! -f "$CLI" ]; then
   echo "The engine is not built. Build it once:" >&2
@@ -28,4 +29,4 @@ fi
 
 echo "▶ $FILE"
 echo "-------------------------------------------------"
-node "$CLI" "$FILE"
+node "$CLI" "$FILE" "$@"

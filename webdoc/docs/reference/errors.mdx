@@ -113,6 +113,7 @@ classification. Use the groups below.
 | `TDC098` | `type="symbol"` is given both `value` and `alphabet`, or **neither** | Give exactly one: an inline set in `value`, or a named `alphabet` |
 | `TDC099` | The named alphabet is unknown | See [Symbol](../generators/symbol.mdx) |
 | `TDC128` | `type="advanced_regex"` without `value` | The pattern goes in `value` |
+| `TDC128` | *(second meaning)* `default=` or `if=` written on a `<case>` | A `<mix>` picks its case by percentage and a `<switch>` by the `is` key — neither asks a condition. For condition-driven values use a `<sequence>` with `<gen if="…">` branches |
 | `TDC130` | The advanced pattern doesn't parse | See [Advanced regex](../generators/advanced-regex.mdx) |
 
 ## Expressions in `if`

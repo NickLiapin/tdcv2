@@ -11,18 +11,56 @@ import Terminal from '@site/src/components/Terminal';
 
 # TDC — The Data Constructor
 
-**TDC genera datos de prueba _conectados_.** Una fila sale como un registro coherente —el
-nombre concuerda con el sexo, la ciudad está dentro del país correcto, el diagnóstico es
-uno que este paciente podría tener de verdad— y el mismo seed la reconstruye exactamente,
-ejecución tras ejecución, en cualquiera de los cinco lenguajes y en cualquier máquina.
+**Datos de prueba cuyos campos concuerdan entre sí.** El nombre corresponde al sexo, la
+ciudad está dentro de su país, el diagnóstico es uno que ese paciente realmente podría
+tener. Ejecútelo otra vez con la misma semilla y vuelven las mismas filas, byte a byte,
+en cada una de las cinco implementaciones.
 
-Esa promesa tiene una forma exacta: **la misma configuración, el mismo seed, la misma
-versión de TDC y el mismo modo de salida** dan los mismos bytes. Cambie cualquiera de los
-cuatro y las filas pueden diferir; cuáles y por qué está en
-[Determinismo y proporciones](core-concepts/determinism.mdx).
+Este es un generador entero. Cinco pacientes, donde el sexo decide tanto el nombre como
+el diagnóstico:
 
-Esa es la diferencia con una biblioteca corriente de datos falsos, que rellena cada campo
-por su cuenta y responde algo distinto cada vez que se le pregunta.
+```xml title="clinic.tdc"
+<tdc>
+  <env count="5" seed="clinic" local="en">
+    <sequence name="Sex"><gen type="text" value="Male,Female" percent="50,50"/></sequence>
+
+    <sequence name="M"   parent="Sex.Male">  <gen type="template" value="person.male.firstName"/></sequence>
+    <sequence name="F"   parent="Sex.Female"><gen type="template" value="person.female.firstName"/></sequence>
+    <sequence name="DxM" parent="Sex.Male">  <gen type="template" value="person.male.diagnosis"/></sequence>
+    <sequence name="DxF" parent="Sex.Female"><gen type="template" value="person.female.diagnosis"/></sequence>
+  </env>
+
+  <block>
+    <line>
+      <data if="Sex == Male">${{M}},${{Sex}},${{DxM}}</data>
+      <data if="Sex == Female">${{F}},${{Sex}},${{DxF}}</data>
+    </line>
+  </block>
+</tdc>
+```
+
+<Terminal title="tdcv2 clinic.tdc">
+{`John,Male,Prostatitis
+James,Male,Cryptorchism
+Mary,Female,Uterine Fibroids
+Elizabeth,Female,Breast Fibroadenoma
+Patricia,Female,Breast Fibroadenoma`}
+</Terminal>
+
+Ninguna fila puede salir mal aquí, y no porque un filtro haya descartado las malas.
+`parent="Sex.Male"` significa que en una fila masculina las listas femeninas quedan
+**fuera de alcance**: no hay combinación imposible que rechazar, porque no hay manera de
+expresarla. `percent="50,50"` es exacto con cualquier número de filas, no una moneda al
+aire que cae cerca de la mitad.
+
+Esa es toda la idea. Una biblioteca de datos falsos corriente rellena cada campo por su
+cuenta; todo lo que viene abajo se sigue de que TDC no hace eso.
+
+:::info[La promesa de determinismo, exacta]
+**El mismo config, la misma semilla, la misma versión de TDC, el mismo modo de salida**
+dan los mismos bytes. Cambie cualquiera de los cuatro y las filas pueden diferir; cuáles
+y por qué está en [Determinismo y proporciones](core-concepts/determinism.mdx).
+:::
 
 ## La fila que no se sostiene
 
@@ -242,9 +280,11 @@ Vale la pena decirlo claro, porque le ahorra la evaluación:
 - **[Archivos y CSV](guides/files-and-csv.mdx)** — lea valores, y filas enlazadas enteras, desde sus propios datos.
 - **[Cualquier formato de salida](guides/output-formats.mdx)** — CSV, JSON, SQL, YAML o el suyo propio, construido con plantillas.
 - **[Conjuntos enormes](guides/large-outputs.mdx)** — transmita millones de filas sin mantenerlas en memoria.
-- **Paquetes de idioma y de país** — personas, lugares, medicina y documentos en diez
-  idiomas completamente construidos, más identificadores nacionales de más de noventa
-  países, cada uno con su regla real de dígito de control.
+- **Paquetes de idioma y de país** — personas, lugares, medicina y documentos en **diez
+  idiomas completamente construidos**: alemán, árabe, español, francés, griego, inglés,
+  italiano, polaco, portugués y ruso. Más **110 paquetes de país**, 97 de los cuales
+  traen los formatos de identificación propios de ese país con sus reglas reales de
+  dígito de control.
 
 ## Disponibilidad
 

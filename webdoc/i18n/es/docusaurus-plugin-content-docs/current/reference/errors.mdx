@@ -113,6 +113,7 @@ identificador, no una clasificación. Guíese por los grupos de abajo.
 | `TDC098` | A `type="symbol"` se le dan `value` y `alphabet`, o **ninguno** | Dé exactamente uno — un conjunto en `value` o un `alphabet` con nombre |
 | `TDC099` | El alfabeto con nombre es desconocido | Ver [Symbol](../generators/symbol.mdx) |
 | `TDC128` | `type="advanced_regex"` sin `value` | El patrón va en `value` |
+| `TDC128` | *(segundo significado)* `default=` o `if=` escritos en un `<case>` | Un `<mix>` elige su caso por porcentaje y un `<switch>` por la clave `is`: ninguno pregunta una condición. Para valores por condición use una `<sequence>` con ramas `<gen if="…">` |
 | `TDC130` | El patrón avanzado no parsea | Ver [Advanced regex](../generators/advanced-regex.mdx) |
 
 ## Expresiones en `if`

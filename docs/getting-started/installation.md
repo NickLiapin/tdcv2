@@ -219,13 +219,18 @@ from a range with [`type="number"`](../generators/number.md#top):
 </tdc>
 ```
 
-Run it:
+Run it with whichever command your install gave you:
 
-```bash
-./run demo.tdc
-```
+| Installed with | Run it |
+| :--- | :--- |
+| npm | `npx tdcv2 demo.tdc` |
+| pip | `tdcv2 demo.tdc` |
+| Maven | `java -jar tdcv2-cli.jar demo.tdc` |
+| NuGet | `tdcv2 demo.tdc` (after `dotnet tool install -g Tdcv2.Cli`) |
+| Cargo | `tdcv2 demo.tdc` (after `cargo install tdcv2`) |
+| a clone of the repository | `./run demo.tdc` |
 
-`./run demo.tdc`
+`tdcv2 demo.tdc`
 
 ```
 Emma, age 59
@@ -243,7 +248,7 @@ to confirm — the three rows come back identical. Then override the row count a
 the seed from the command line, without touching the file:
 
 ```bash
-./run demo.tdc --count 20 --seed alt
+tdcv2 demo.tdc --count 20 --seed alt
 ```
 
 ## Install data packs (optional)

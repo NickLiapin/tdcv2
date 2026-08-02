@@ -1076,7 +1076,7 @@ function checkMixBody(mixEl: OpenCloseElementContext, ctx: Ctx, named = true): v
 
 function checkCase(caseEl: OpenCloseElementContext, ctx: Ctx): void {
   // <case> selection is purely percentage-based: <mix> distributes its cases
-  // across the rows via the Hamilton method (see docs/user/ru/mix.md).
+  // across the rows via the Hamilton method.
   // Conditional attributes like `if` or `default` are NOT honored — the
   // runtime never reads them. Writing `<case if="Age < 18">` would look like
   // if/elif/else but silently produces randomly-distributed cases — wrong data
@@ -1095,7 +1095,7 @@ function checkCase(caseEl: OpenCloseElementContext, ctx: Ctx): void {
       hint:
         'Case selection is random (Hamilton distribution over `percent`), not conditional. ' +
         'For condition-driven values use a <sequence> with <gen if="…"> branches. ' +
-        'See docs/user/ru/mix.md.',
+        'See the <mix> page in the documentation.',
       code: 'TDC128',
     });
   }

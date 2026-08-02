@@ -74,6 +74,23 @@ etiqueta y se explica donde se explica esa etiqueta — ver la
 | `anomaly_factor` | Cuán lejos se empuja un valor atípico | [Anomalías](../guides/anomalies.md#top)               |
 | `anomaly_flag` | Columna-respuesta que marca los atípicos | [Anomalías](../guides/anomalies.md#top)              |
 
+**Cada distribución tiene sus propios parámetros**, y solo se leen cuando
+`distribution=` nombra esa distribución. Todas aceptan además `decimals`, `min` y
+`max`. Cada una está explicada, con un histograma, en la
+[guía de distribuciones](../guides/statistical-distributions.md#top).
+
+| `distribution=` | Parámetros | Qué significan |
+| :--- | :--- | :--- |
+| `normal` | `mean` `sd` | El centro y la dispersión |
+| `lognormal` | `meanlog` `sdlog` | El centro y la dispersión **del logaritmo** — el valor en sí queda sesgado a la derecha |
+| `exponential` | `rate` | Eventos por unidad de tiempo; la media es `1/rate` |
+| `pareto` | `alpha` `xmin` | El grosor de la cola y el valor mínimo posible |
+| `weibull` | `shape` `scale` | `shape` menor que 1 = fallos tempranos, mayor = desgaste; `scale` fija la vida típica |
+| `poisson` | `lambda` | Recuento medio por intervalo (tope de 700) |
+| `zipf` | `n` `s` | Cuántos rangos, y con qué pendiente caen |
+| `gamma` | `shape` `scale` | Espera total de `shape` eventos que tardan `scale` de media |
+| `beta` | `alpha` `beta` | Tiran hacia 1 y hacia 0 — el resultado queda entre 0 y 1 |
+
 ## Series temporales
 
 | Atributo   | Qué define                                  | Ver                                                |

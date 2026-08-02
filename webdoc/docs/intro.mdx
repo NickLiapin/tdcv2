@@ -11,17 +11,56 @@ import Terminal from '@site/src/components/Terminal';
 
 # TDC — The Data Constructor
 
-TDC generates test data in which the fields of a row agree with each other. The name matches
-the gender, the city belongs to the country, the diagnosis is one the patient could have.
-Run it again with the same seed and you get the same rows, byte for byte — in every one of
-the five languages, on every machine.
+**Test data whose fields agree with each other.** The name matches the gender, the
+city belongs to the country, the diagnosis is one the patient could actually have.
+Run it again with the same seed and the same rows come back, byte for byte, in
+every one of the five implementations.
 
-That promise has an exact shape: **same config, same seed, same TDC version, same output
-mode** gives the same bytes. Change any of the four and the rows may differ —
+Here is a whole generator. Five patients, where the sex decides both the name and
+the diagnosis:
+
+```xml title="clinic.tdc"
+<tdc>
+  <env count="5" seed="clinic" local="en">
+    <sequence name="Sex"><gen type="text" value="Male,Female" percent="50,50"/></sequence>
+
+    <sequence name="M"   parent="Sex.Male">  <gen type="template" value="person.male.firstName"/></sequence>
+    <sequence name="F"   parent="Sex.Female"><gen type="template" value="person.female.firstName"/></sequence>
+    <sequence name="DxM" parent="Sex.Male">  <gen type="template" value="person.male.diagnosis"/></sequence>
+    <sequence name="DxF" parent="Sex.Female"><gen type="template" value="person.female.diagnosis"/></sequence>
+  </env>
+
+  <block>
+    <line>
+      <data if="Sex == Male">${{M}},${{Sex}},${{DxM}}</data>
+      <data if="Sex == Female">${{F}},${{Sex}},${{DxF}}</data>
+    </line>
+  </block>
+</tdc>
+```
+
+<Terminal title="tdcv2 clinic.tdc">
+{`John,Male,Prostatitis
+James,Male,Cryptorchism
+Mary,Female,Uterine Fibroids
+Elizabeth,Female,Breast Fibroadenoma
+Patricia,Female,Breast Fibroadenoma`}
+</Terminal>
+
+No row here can come out wrong, and not because a filter threw the bad ones away.
+`parent="Sex.Male"` means the female lists are **out of reach** on a male row —
+there is no impossible combination to reject, because there is no way to express
+one. `percent="50,50"` is exact at any row count, not a coin flip that lands near
+half.
+
+That is the whole idea. An ordinary fake-data library fills each field on its own;
+everything below follows from TDC not doing that.
+
+:::info[The determinism promise, exactly]
+**Same config, same seed, same TDC version, same output mode** gives the same
+bytes. Change any of the four and the rows may differ —
 [Determinism & proportions](core-concepts/determinism.mdx) says which and why.
-
-An ordinary fake-data library fills each field on its own. That is the difference, and
-everything below follows from it.
+:::
 
 ## The problem with independent fields
 
@@ -226,9 +265,10 @@ one's personal data.
 - **[Files and CSV](guides/files-and-csv.mdx).** Values, and whole linked rows, read from your own data.
 - **[Any output format](guides/output-formats.mdx).** CSV, JSON, SQL, YAML, or one you define.
 - **[Large datasets](guides/large-outputs.mdx).** Millions of rows, streamed.
-- **Locale and country packs.** People, places, medicine, and documents in ten languages,
-  plus national ID formats for more than ninety countries, each with its real check-digit
-  rule.
+- **Locale and country packs.** People, places, medicine and documents in **ten
+  fully-built languages** — Arabic, English, French, German, Greek, Italian, Polish,
+  Portuguese, Russian and Spanish — plus **110 country packs**, 97 of which carry that
+  country's own identifier formats with their real check-digit rules.
 
 ## Availability
 

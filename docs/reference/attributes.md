@@ -72,6 +72,23 @@ covered where that tag is explained — see the [compute reference](compute.md#t
 | `anomaly_factor` | How far an outlier is pushed          | [Anomalies](../guides/anomalies.md#top)               |
 | `anomaly_flag` | Answer column that marks the outliers   | [Anomalies](../guides/anomalies.md#top)               |
 
+**Each distribution takes its own parameters**, and they are only read when
+`distribution=` names that one. Every distribution also accepts `decimals`, `min`
+and `max`. Each is explained, with a histogram, on the
+[distributions guide](../guides/statistical-distributions.md#top).
+
+| `distribution=` | Parameters | What they mean |
+| :--- | :--- | :--- |
+| `normal` | `mean` `sd` | The centre and the spread |
+| `lognormal` | `meanlog` `sdlog` | The centre and spread **of the logarithm** — the value itself is skewed right |
+| `exponential` | `rate` | Events per unit of time; the mean is `1/rate` |
+| `pareto` | `alpha` `xmin` | Tail thickness, and the smallest possible value |
+| `weibull` | `shape` `scale` | `shape` below 1 = early failures, above 1 = wear-out; `scale` sets the typical lifetime |
+| `poisson` | `lambda` | Average count per interval (capped at 700) |
+| `zipf` | `n` `s` | How many ranks, and how steeply they fall off |
+| `gamma` | `shape` `scale` | Total wait for `shape` events that each take `scale` on average |
+| `beta` | `alpha` `beta` | Pull toward 1 and toward 0 — the result is between 0 and 1 |
+
 ## Timeseries
 
 | Attribute  | What it sets                                | See                                                |
