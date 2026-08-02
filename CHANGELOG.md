@@ -105,6 +105,21 @@ All five implementations released together at one version number.
   not have understood, in all five at once. Two shared diagnostic cases say so if
   one is forgotten.
 
+- **The Rust crate shipped without any data at all.** It found packs by walking
+  up from the build directory looking for `data/packs` — which works in a
+  checkout and cannot work in `~/.cargo/registry`, where a published crate has
+  nothing above it. Packaged as it stood, `cargo install tdcv2` produced a binary
+  that answered every `type="template"` with "no data packs found", while all 32
+  test binaries were green: every test runs inside the repository.
+
+  The starter set is compiled into the binary now — the same `common`, `en` and
+  USA the other four carry, 489 files, and the crate is 0.5 MB against a 10 MB
+  limit. A folder on disk still wins, so a downloaded pack shadows it.
+
+  `rust/scripts/verify-crate.mjs` is the guard: it packages the crate, unpacks it
+  OUTSIDE the repository, builds it there, and compares three pack-backed columns
+  against the TypeScript reference. No in-repo test can see this class of bug.
+
 ### Changed
 
 - **Every package now carries a version and the metadata to publish it.** The C#

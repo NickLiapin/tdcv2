@@ -8,6 +8,25 @@ license = "MIT"
 repository = "https://github.com/NickLiapin/tdcv2"
 keywords = ["test-data", "synthetic-data", "data-generation", "deterministic"]
 categories = ["development-tools::testing"]
+readme = "README.md"
+
+# What goes in the published crate.
+#
+# Spelled out because the starter data packs under `src/packs/bundled/` are
+# gitignored — they are a temporary copy of `data/packs`, which lives once at the
+# repository root — and Cargo excludes gitignored files unless an `include` list
+# overrides that. Without them the crate builds and then answers every
+# `type="template"` with "no data packs found", because a crate in
+# ~/.cargo/registry has no repository above it to walk up to. Checked by
+# `scripts/verify-crate.mjs`, which packages, unpacks OUTSIDE the repository,
+# builds and runs.
+include = [
+    "src/**/*.rs",
+    "src/packs/bundled/**/*.txt",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE",
+]
 
 # No dependencies, and that is deliberate rather than austere. The three other
 # implementations produce identical bytes because every number, every rounding

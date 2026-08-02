@@ -40,9 +40,14 @@ point of the `seed`.
 ### Data packs
 
 A pack is the _data_ — the name lists, cities, streets and locale rules that
-`type="template"` draws from. A starter set ships with the code: `common`, `en`
-and the USA country pack, which is what the example above uses. Everything else
-is downloaded on demand:
+`type="template"` draws from.
+
+**Installed from crates.io, the crate already has data.** The starter set —
+`common`, `en` and the USA country pack, 489 files — is compiled into the binary,
+so `cargo install tdcv2` gives you something that works with no further steps.
+
+Ten languages and more than ninety country packs, each with the right check-digit
+rule for its national ID formats, are a download away:
 
 ```bash
 tdcv2 init                 # write a tdcv2.config.json, once per project
@@ -51,8 +56,10 @@ tdcv2 pack add ru france   # download and wire up
 ```
 
 One registry, one `tdcv2.config.json`, one store, shared by all five
-implementations: a pack installed from here is a pack the others find. The full
-story is in [the data-packs guide](../docs/data-packs/installing-packs.md).
+implementations: a pack installed from here is a pack the others find. A folder
+on disk always wins over the compiled-in copy, so a downloaded or hand-written
+pack shadows the starter set without replacing it. The full story is in
+[the data-packs guide](https://nickliapin.github.io/tdcv2/docs/data-packs/installing-packs).
 
 ## Using it as a library
 

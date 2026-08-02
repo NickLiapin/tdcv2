@@ -8,13 +8,14 @@
 
 pub mod project;
 pub mod registry;
+pub mod bundled_files;
 pub mod source;
 
 use std::cell::RefCell;
 use std::collections::BTreeMap;
 use std::path::Path;
 
-use source::{discover_root, DirectorySource, LayeredSource, PackSource};
+use source::{discover_root, DirectorySource, EmbeddedSource, LayeredSource, PackSource};
 
 use crate::engine::{invalid, EngineResult};
 
@@ -78,11 +79,24 @@ impl DataPacks {
     }
 
     /// The packs found without being told where they are.
+    ///
+    /// A folder on disk wins — `TDCV2_PACKS`, or the repository's own
+    /// `data/packs` found by walking up — because that is the copy every
+    /// implementation shares and the one a contributor edits. Failing that, the
+    /// starter set compiled into this binary, which is what a crate installed
+    /// from the registry has: there is nothing above `~/.cargo/registry` to walk
+    /// up to, and without this every `type="template"` answered "no data packs
+    /// found".
     pub fn discover() -> EngineResult<DataPacks> {
-        match discover_root() {
-            Some(root) => Ok(Self::from_root(&root.display().to_string())),
-            None => invalid("no data packs found; set TDCV2_PACKS to a pack folder"),
+        if let Some(root) = discover_root() {
+            return Ok(Self::from_root(&root.display().to_string()));
         }
+        if !EmbeddedSource::is_empty() {
+            return Ok(Self::new(Box::new(EmbeddedSource::new()), Vec::new()));
+        }
+        invalid(
+            "no data packs found; set TDCV2_PACKS to a pack folder",
+        )
     }
 
     /// The packs a project has, rather than the packs this build ships with.

@@ -24,6 +24,18 @@ TypeScript reference since before it, held there by the shared fixtures under
 
 ### Fixed
 
+- **The crate now carries data.** It found packs by walking up from the build
+  directory looking for `data/packs` — which works in a checkout and cannot work
+  in `~/.cargo/registry`, where a published crate has nothing above it. Packaged
+  as it was, `cargo install tdcv2` produced a binary that answered every
+  `type="template"` with "no data packs found". Every test was green, because
+  every test runs inside the repository.
+
+  The starter set is compiled in with `include_str!` now — 489 files, and the
+  crate is 0.5 MB. `scripts/verify-crate.mjs` packages it, unpacks it OUTSIDE
+  the repository, builds it there and compares the output against the TypeScript
+  reference; it is the only check that can see this class of bug.
+
 - **Pack parameters now work.** A pack whose body declares
   `<sequence name="domain">` accepts `domain="…"` from the caller, and the
   engine replaces that sequence with the constant. This implementation refused

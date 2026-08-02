@@ -141,6 +141,13 @@ temp_docs/
 # Rust
 rust/target/
 
+# The starter data packs, copied in by `rust/scripts/bundle-packs.mjs` only long
+# enough to build the crate. The packs live once, at data/packs; a second copy
+# committed here would shadow the real one and go quietly out of date. Cargo is
+# told to package them anyway through `include` in rust/Cargo.toml, which does
+# not consult this file.
+rust/src/packs/bundled/
+
 # --- Local-only: AI assistant state, scratch files ---------------------------
 # These are created by the tools a developer happens to use and say nothing about
 # the project. They must never reach the tree.

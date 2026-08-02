@@ -122,3 +122,43 @@ fn the_header_is_optional_and_its_absence_is_not_a_shape_of_its_own() {
         }
     }
 }
+
+/// The starter packs compiled into the binary.
+///
+/// A published crate is a tarball with nothing above it, so the walk that finds
+/// `data/packs` in a checkout cannot work in `~/.cargo/registry`. The crate
+/// published without this answered every `type="template"` with "no data packs
+/// found" — while every test in this file was green, because every test in this
+/// file runs inside the repository.
+///
+/// These assert the SHAPE of the embedded source. Whether the packaged crate
+/// actually carries anything is a question no in-repo test can answer, so
+/// `scripts/verify-crate.mjs` packages it, unpacks it outside the repository,
+/// builds it there and runs one.
+mod embedded {
+    use tdcv2::packs::source::{EmbeddedSource, PackSource};
+
+    #[test]
+    fn a_checkout_embeds_nothing_and_reads_the_repository_instead() {
+        // `bundle-packs.mjs add` fills the table in only for packaging, and
+        // `remove` empties it again. A checkout that had it filled would be
+        // reading a stale copy of packs that live once.
+        assert!(
+            EmbeddedSource::is_empty(),
+            "a checkout must not carry a second copy of the packs; run \
+             `node scripts/bundle-packs.mjs remove`"
+        );
+    }
+
+    #[test]
+    fn an_empty_embedded_source_answers_nothing_rather_than_wrongly() {
+        // The dangerous failure is not "no data" — it is an empty source that
+        // claims to have an address and hands back nothing.
+        let source = EmbeddedSource::new();
+        assert!(!source.has("en/person/lastName.txt"));
+        assert_eq!(source.read_lines("en/person/lastName.txt"), None);
+        assert!(source.list_files().is_empty());
+        assert!(!source.has_top_level("en"));
+        assert!(!source.has_country("usa"));
+    }
+}

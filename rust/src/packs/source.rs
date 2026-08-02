@@ -109,6 +109,90 @@ impl PackSource for DirectorySource {
     }
 }
 
+/// The starter packs compiled into the binary.
+///
+/// A published crate is a tarball with nothing above it, so walking up from
+/// `CARGO_MANIFEST_DIR` — which is how [`discover_root`] finds the repository's
+/// `data/packs` — cannot work in `~/.cargo/registry`. Embedding is the only
+/// shape that survives `cargo install`: the files are read by `include_str!` at
+/// compile time, so the program needs nothing beside it at run time.
+///
+/// Empty in a checkout, where the real `data/packs` is on disk and reading it
+/// from there is what keeps all five implementations looking at the same bytes.
+/// [`is_empty`](Self::is_empty) is how a caller tells the two apart.
+#[derive(Debug)]
+pub struct EmbeddedSource;
+
+impl EmbeddedSource {
+    pub fn new() -> Self {
+        Self
+    }
+
+    /// Whether anything was embedded — false in a checkout.
+    ///
+    /// Clippy sees a `const` empty slice and calls this always true, which it is
+    /// — in a CHECKOUT. `bundle-packs.mjs add` rewrites the table before the
+    /// crate is packaged, and in the published crate the same expression is
+    /// always false. That is the one fact about this file worth keeping.
+    #[allow(clippy::const_is_empty)]
+    pub fn is_empty() -> bool {
+        super::bundled_files::FILES.is_empty()
+    }
+
+    fn find(relative_path: &str) -> Option<&'static str> {
+        super::bundled_files::FILES
+            .iter()
+            .find(|(path, _)| *path == relative_path)
+            .map(|(_, text)| *text)
+    }
+}
+
+impl Default for EmbeddedSource {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+
+impl PackSource for EmbeddedSource {
+    fn has(&self, relative_path: &str) -> bool {
+        Self::find(relative_path).is_some()
+    }
+
+    fn read_lines(&self, relative_path: &str) -> Option<Vec<String>> {
+        // Split the same way DirectorySource does, so an embedded pack and a
+        // pack on disk give the identical list of values — including the
+        // trailing-newline and \r\n rules the other four implementations follow.
+        Some(Self::find(relative_path)?.lines().map(str::to_string).collect())
+    }
+
+    fn list_files(&self) -> Vec<String> {
+        let mut out: Vec<String> = super::bundled_files::FILES
+            .iter()
+            .map(|(path, _)| (*path).to_string())
+            .collect();
+        out.sort();
+        out
+    }
+
+    fn has_top_level(&self, name: &str) -> bool {
+        let prefix = format!("{name}/");
+        super::bundled_files::FILES
+            .iter()
+            .any(|(path, _)| path.starts_with(&prefix))
+    }
+
+    fn has_country(&self, name: &str) -> bool {
+        let prefix = format!("countries/{name}/");
+        super::bundled_files::FILES
+            .iter()
+            .any(|(path, _)| path.starts_with(&prefix))
+    }
+
+    fn describe(&self) -> String {
+        format!("the {} packs built into this binary", super::bundled_files::FILES.len())
+    }
+}
+
 /// Several sources searched in order, the last one winning.
 ///
 /// This is what lets a project's own packs shadow the bundled ones without
