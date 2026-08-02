@@ -260,12 +260,21 @@ for (const user of users) {
 
 ## Availability
 
-The **[TypeScript](bindings/typescript.md#top)** implementation is available now on npm. The
-**[Python](bindings/python.md#top)**, **[Java](bindings/java.md#top)**,
-**[C#](bindings/csharp.md#top)** and **[Rust](bindings/rust.md#top)** implementations are
-complete and run from a checkout; publishing them to their registries is still to come.
-The DSL is designed so that all five implementations produce identical output, and a
-shared fixture suite checks that on every change.
+Four of the five are published. Equal version numbers mean the same engine: the
+five are held to one contract by a shared fixture suite, so `0.1.3` from any
+registry produces the same bytes for the same config and seed.
+
+| Implementation | Registry | Install | Version |
+| :--- | :--- | :--- | :--- |
+| **[TypeScript](bindings/typescript.md#top)** | npm | `npm i tdcv2` | 0.1.3 |
+| **[Python](bindings/python.md#top)** | PyPI | `pip install tdcv2` | 0.1.3 |
+| **[Rust](bindings/rust.md#top)** | crates.io | `cargo add tdcv2` | 0.1.3 |
+| **[C#](bindings/csharp.md#top)** | NuGet | `dotnet add package Tdcv2` | 0.1.3 |
+| **[Java](bindings/java.md#top)** | Maven Central | not yet — build from a checkout | — |
+
+Every published package carries a starter set of data packs, so it works with
+nothing else installed; the other ten languages and ninety-odd country packs are
+[a download away](data-packs/installing-packs.md#top).
 
 ## Where to start
 

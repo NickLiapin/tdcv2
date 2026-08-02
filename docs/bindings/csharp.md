@@ -18,19 +18,21 @@ Two packages: the library, and the command line as a `dotnet tool`.
 
 ## Getting it
 
-> [!NOTE]
-> **Pre-release**
+> [!TIP]
+> **On NuGet — version 0.1.3**
 >
-> Not on NuGet yet — `dotnet add package Tdcv2` will not find it. Build from a checkout:
+> ```bash
+> dotnet add package Tdcv2
+> ```
+>
+> The starter data packs are embedded in the assembly, so it works with nothing else
+> installed. The command line is not packaged as a tool yet — for now it is built from a
+> checkout:
 >
 > ```bash
 > cd csharp && dotnet build
 > dotnet run --project Tdcv2.Cli.Tool -- demo.tdc
 > ```
->
-> After the release it becomes `dotnet add package Tdcv2` plus
-> `dotnet tool install -g Tdcv2.Cli`; see
-> [Installation](../getting-started/installation.md#top).
 
 ## Using it
 

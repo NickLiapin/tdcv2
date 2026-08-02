@@ -18,20 +18,20 @@
 
 ## Где взять
 
-> [!NOTE]
-> **Перед релизом**
+> [!TIP]
+> **На NuGet — версия 0.1.3**
 >
-> На NuGet его пока нет — `dotnet add package Tdcv2` ничего не найдёт. Собирайте из
-> репозитория:
+> ```bash
+> dotnet add package Tdcv2
+> ```
+>
+> Стартовые паки вшиты в сборку, поэтому пакет работает без всего остального. Командная
+> строка отдельным пакетом пока не выпущена — её собирают из клона:
 >
 > ```bash
 > cd csharp && dotnet build
 > dotnet run --project Tdcv2.Cli.Tool -- demo.tdc
 > ```
->
-> После релиза это станет `dotnet add package Tdcv2` плюс
-> `dotnet tool install -g Tdcv2.Cli`; см.
-> [Установку](../getting-started/installation.md#top).
 
 ## Как пользоваться
 

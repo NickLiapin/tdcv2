@@ -18,20 +18,21 @@ Dos paquetes: la biblioteca y la línea de comandos como `dotnet tool`.
 
 ## Cómo obtenerlo
 
-> [!NOTE]
-> **Antes del lanzamiento**
+> [!TIP]
+> **En NuGet — versión 0.1.3**
 >
-> Todavía no está en NuGet — `dotnet add package Tdcv2` no lo encontrará. Compílelo desde
-> el repositorio:
+> ```bash
+> dotnet add package Tdcv2
+> ```
+>
+> Los paquetes de datos iniciales van incrustados en el ensamblado, así que funciona sin
+> instalar nada más. La línea de comandos todavía no se publica como herramienta; por
+> ahora se compila desde el repositorio:
 >
 > ```bash
 > cd csharp && dotnet build
 > dotnet run --project Tdcv2.Cli.Tool -- demo.tdc
 > ```
->
-> Tras el lanzamiento será `dotnet add package Tdcv2` más
-> `dotnet tool install -g Tdcv2.Cli`; vea
-> [Instalación](../getting-started/installation.md#top).
 
 ## Cómo usarlo
 

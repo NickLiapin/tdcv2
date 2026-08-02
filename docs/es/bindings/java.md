@@ -17,17 +17,17 @@ garantía entre lenguajes.
 ## Cómo obtenerlo
 
 > [!NOTE]
-> **Antes del lanzamiento**
+> **Todavía no está en Maven Central**
 >
-> La implementación en Java está terminada y pasa todos los fixtures entre lenguajes, pero
-> **todavía no está en Maven Central**. Compílela desde el repositorio:
+> Java es la única de las cinco implementaciones que falta por publicar. Está terminada y
+> pasa todos los fixtures entre lenguajes —el jar incluso lleva los paquetes de datos
+> iniciales—, así que por ahora se compila desde el repositorio:
 >
 > ```bash
 > cd java && ./gradlew build
 > ```
 >
-> Tras el primer lanzamiento, la misma biblioteca será una sola dependencia — el panorama
-> completo, incluido el jar aparte para la línea de comandos, está en
+> El panorama completo, incluido el jar aparte para la línea de comandos, está en
 > [Instalación](../getting-started/installation.md#top).
 
 ## Cómo usarlo

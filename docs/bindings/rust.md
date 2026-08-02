@@ -18,18 +18,16 @@ One crate, library and command line together.
 
 ## Getting it
 
-> [!NOTE]
-> **Pre-release**
->
-> Not on crates.io yet — `cargo add tdcv2` will not find it. Build from a checkout:
+> [!TIP]
+> **On crates.io — version 0.1.3**
 >
 > ```bash
-> cd rust && cargo build --release
-> ./target/release/tdcv2 demo.tdc
+> cargo add tdcv2      # as a dependency
+> cargo install tdcv2  # as a command
 > ```
 >
-> The crate takes **no dependencies**, so this needs nothing but a Rust toolchain. After
-> the release it becomes `cargo add tdcv2` / `cargo install tdcv2`; see
+> The crate takes **no dependencies**, and the starter data packs are compiled into the
+> binary, so an installed crate needs nothing else on disk. See
 > [Installation](../getting-started/installation.md#top).
 
 ## Using it

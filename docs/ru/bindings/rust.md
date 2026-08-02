@@ -18,19 +18,17 @@ Parquet.
 
 ## Где взять
 
-> [!NOTE]
-> **Перед релизом**
->
-> На crates.io его пока нет — `cargo add tdcv2` ничего не найдёт. Собирайте из репозитория:
+> [!TIP]
+> **На crates.io — версия 0.1.3**
 >
 > ```bash
-> cd rust && cargo build --release
-> ./target/release/tdcv2 demo.tdc
+> cargo add tdcv2      # как зависимость
+> cargo install tdcv2  # как команда
 > ```
 >
-> У крейта **нет зависимостей**, так что для сборки нужен только тулчейн Rust. После
-> релиза это станет `cargo add tdcv2` / `cargo install tdcv2`; см.
-> [Установку](../getting-started/installation.md#top).
+> У крейта **нет зависимостей**, а стартовые паки вшиты в бинарник — установленному
+> крейту не нужно ничего на диске. Подробнее на странице
+> [Установка](../getting-started/installation.md#top).
 
 ## Как пользоваться
 

@@ -72,26 +72,15 @@ lives in the [CLI reference](../reference/cli.mdx).
 
 **Requirements:** Python **3.10** or newer.
 
-:::note[Pre-release]
-Not on PyPI yet. Once it is, one command gets you both the library and the
-`tdcv2` command:
-:::
+One command gets you both the library and the `tdcv2` command:
 
 ```bash
 pip install tdcv2
 tdcv2 demo.tdc
 ```
 
-Until then, install from a checkout of the repository:
-
-```bash
-pip install -e python
-tdcv2 demo.tdc
-```
-
-That is the whole setup — an editable install puts `tdcv2` on your PATH the
-same way the published package will, so nothing changes when the release
-lands.
+That is the whole setup. A starter set of data packs travels inside the wheel,
+so the example above runs with nothing else installed.
 
 The DSL and behavior are identical to the npm version: the same `.tdc` config,
 run with the same `seed`, produces the same bytes. See
@@ -102,17 +91,18 @@ run with the same `seed`, produces the same bytes. See
 
 **Requirements:** Java **17** or newer.
 
-:::note[Pre-release]
-Not on Maven Central yet. Once it is, the library is one dependency:
-:::
+:::note[Not on Maven Central yet]
+Java is the one implementation still to be published. When it is, the library
+will be one dependency:
 
 ```xml
 <dependency>
   <groupId>io.github.nickliapin</groupId>
   <artifactId>tdcv2</artifactId>
-  <version>1.0.0</version>
+  <version>0.1.3</version>
 </dependency>
 ```
+:::
 
 Until then, build it from a checkout:
 
@@ -141,27 +131,24 @@ The DSL and behavior are identical to the npm version. See
 
 **Requirements:** .NET **6.0** or newer.
 
-:::note[Pre-release]
-Not on NuGet yet. Once it is, the library is one package and the command line is
-one tool:
-:::
+The library is one package:
 
 ```bash
 dotnet add package Tdcv2
-dotnet tool install -g Tdcv2.Cli
-tdcv2 demo.tdc
 ```
 
-Until then, build it from a checkout:
+A starter set of data packs is embedded in the assembly, so it works with
+nothing else installed.
+
+:::note[The command line is not packaged yet]
+.NET does have an answer to npm's `bin` — a tool package — but `Tdcv2.Cli` is
+not published, so for now the command line is built from a checkout:
 
 ```bash
 cd csharp && dotnet build
 dotnet run --project Tdcv2.Cli.Tool -- demo.tdc
 ```
-
-Unlike Maven, .NET does have an answer to npm's `bin` — a tool package — so
-`tdcv2` lands on your PATH the same way it does with npm and pip, and every
-command on these pages reads identically.
+:::
 
 The DSL and behavior are identical to the npm version.
 
@@ -170,18 +157,18 @@ The DSL and behavior are identical to the npm version.
 
 **Requirements:** Rust **1.74** or newer.
 
-:::note[Pre-release]
-Not on crates.io yet. Once it is, one crate carries both the library and the
-command line:
-:::
+One crate carries both the library and the command line:
 
 ```bash
-cargo add tdcv2
-cargo install tdcv2
+cargo add tdcv2      # as a dependency
+cargo install tdcv2  # as a command
 tdcv2 demo.tdc
 ```
 
-Until then, build it from a checkout:
+The starter data packs are compiled into the binary, so an installed crate
+works with nothing else on disk.
+
+Or from a checkout:
 
 ```bash
 cd rust && cargo build --release
@@ -226,13 +213,13 @@ Run it with whichever command your install gave you. **Node.js is on npm**; the
 other four are not on their registries yet, so for those the route today is a
 checkout of the repository, and the last column is what it will be once they ship:
 
-| Installed with | Today | Once published |
-| :--- | :--- | :--- |
-| Node.js | `npx tdcv2 demo.tdc` | — already there |
-| Python | `.venv/bin/tdcv2 demo.tdc` | `tdcv2 demo.tdc` |
-| Java | `java -jar java/build/libs/tdcv2-*-cli.jar demo.tdc` | the same |
-| C# | `dotnet run --project csharp/Tdcv2.Cli.Tool -- demo.tdc` | `tdcv2 demo.tdc` |
-| Rust | `cargo run --bin tdcv2 -- demo.tdc` | `tdcv2 demo.tdc` |
+| Installed with | The command |
+| :--- | :--- |
+| Node.js | `npx tdcv2 demo.tdc` |
+| Python | `tdcv2 demo.tdc` |
+| Rust | `tdcv2 demo.tdc`, after `cargo install tdcv2` |
+| C# | `dotnet run --project csharp/Tdcv2.Cli.Tool -- demo.tdc` — the tool package is not published yet |
+| Java | `java -jar java/build/libs/tdcv2-*-cli.jar demo.tdc` — Maven has no equivalent of npm's `bin`, so the CLI stays a separate jar |
 
 From the repository root, `./run demo.tdc` is the shortest of them all.
 

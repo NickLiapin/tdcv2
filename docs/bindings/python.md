@@ -16,18 +16,16 @@ cross-language guarantee is one of TDC's core promises.
 
 ## Getting it
 
-> [!NOTE]
-> **Pre-release**
->
-> The Python implementation is complete and passes every cross-language fixture, but it is
-> **not on PyPI yet** — `pip install tdcv2` will not find it. Install from a checkout:
+> [!TIP]
+> **On PyPI — version 0.1.3**
 >
 > ```bash
-> pip install -e python
+> pip install tdcv2
 > ```
 >
-> That gives you both the library and the `tdcv2` command. See
-> [Installation](../getting-started/installation.md#top) for the whole picture.
+> That gives you both the library and the `tdcv2` command, with a starter set of data
+> packs inside the wheel. See [Installation](../getting-started/installation.md#top) for the
+> whole picture.
 
 ## Using it
 

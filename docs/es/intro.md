@@ -267,12 +267,22 @@ for (const user of users) {
 
 ## Disponibilidad
 
-La implementación en **[TypeScript](bindings/typescript.md#top)** ya está disponible en npm.
-Las implementaciones en **[Python](bindings/python.md#top)**, **[Java](bindings/java.md#top)**,
-**[C#](bindings/csharp.md#top)** y **[Rust](bindings/rust.md#top)** están completas y se
-ejecutan desde un clon del repositorio; publicarlas en sus registros está pendiente. El
-DSL está diseñado para que las cinco implementaciones produzcan una salida idéntica, y un
-conjunto compartido de fixtures lo comprueba en cada cambio.
+Cuatro de las cinco están publicadas. Un mismo número de versión significa el mismo
+motor: las cinco están sujetas a un único contrato por un conjunto compartido de
+fixtures, así que `0.1.3` desde cualquier registro produce los mismos bytes para la
+misma configuración y la misma semilla.
+
+| Implementación | Registro | Instalación | Versión |
+| :--- | :--- | :--- | :--- |
+| **[TypeScript](bindings/typescript.md#top)** | npm | `npm i tdcv2` | 0.1.3 |
+| **[Python](bindings/python.md#top)** | PyPI | `pip install tdcv2` | 0.1.3 |
+| **[Rust](bindings/rust.md#top)** | crates.io | `cargo add tdcv2` | 0.1.3 |
+| **[C#](bindings/csharp.md#top)** | NuGet | `dotnet add package Tdcv2` | 0.1.3 |
+| **[Java](bindings/java.md#top)** | Maven Central | todavía no — compilar desde el repositorio | — |
+
+Cada paquete publicado lleva un juego inicial de paquetes de datos, así que funciona sin
+instalar nada más; los otros diez idiomas y noventa y tantos paquetes de país están
+[a una descarga](data-packs/installing-packs.md#top).
 
 ## Por dónde empezar
 

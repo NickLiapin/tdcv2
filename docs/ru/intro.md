@@ -260,12 +260,21 @@ for (const user of users) {
 
 ## Доступность
 
-Реализация на **[TypeScript](bindings/typescript.md#top)** уже доступна в npm. Реализации на
-**[Python](bindings/python.md#top)**, **[Java](bindings/java.md#top)**,
-**[C#](bindings/csharp.md#top)** и **[Rust](bindings/rust.md#top)** готовы и запускаются из
-клона репозитория; публикация в их реестры ещё впереди. DSL спроектирован так, чтобы все
-пять реализаций давали одинаковый вывод, и общий набор фикстур проверяет это при каждом
-изменении.
+Четыре реализации из пяти опубликованы. Одинаковые номера версий означают один и тот
+же движок: все пять держит общий набор фикстур, поэтому `0.1.3` из любого реестра даёт
+те же байты для того же конфига и сида.
+
+| Реализация | Реестр | Установка | Версия |
+| :--- | :--- | :--- | :--- |
+| **[TypeScript](bindings/typescript.md#top)** | npm | `npm i tdcv2` | 0.1.3 |
+| **[Python](bindings/python.md#top)** | PyPI | `pip install tdcv2` | 0.1.3 |
+| **[Rust](bindings/rust.md#top)** | crates.io | `cargo add tdcv2` | 0.1.3 |
+| **[C#](bindings/csharp.md#top)** | NuGet | `dotnet add package Tdcv2` | 0.1.3 |
+| **[Java](bindings/java.md#top)** | Maven Central | пока нет — сборка из клона | — |
+
+Каждый опубликованный пакет несёт стартовый набор паков, поэтому работает без всего
+остального; остальные десять языков и девяносто с лишним пакетов стран —
+[в одну команду](data-packs/installing-packs.md#top).
 
 ## С чего начать
 

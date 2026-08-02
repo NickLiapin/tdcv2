@@ -17,18 +17,18 @@ cross-language guarantee.
 ## Getting it
 
 > [!NOTE]
-> **Pre-release**
+> **Not on Maven Central yet**
 >
-> The Java implementation is complete and passes every cross-language fixture, but it is
-> **not on Maven Central yet**. Build it from a checkout:
+> Java is the one implementation of the five still to be published. It is complete and
+> passes every cross-language fixture — the jar even carries the starter data packs — so
+> for now it is built from a checkout:
 >
 > ```bash
 > cd java && ./gradlew build
 > ```
 >
-> After the first release the same library will be one dependency — see
-> [Installation](../getting-started/installation.md#top) for the whole picture, including the
-> separate CLI jar.
+> See [Installation](../getting-started/installation.md#top) for the whole picture, including
+> the separate CLI jar.
 
 ## Using it
 

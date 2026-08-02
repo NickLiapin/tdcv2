@@ -13,17 +13,14 @@ Un solo crate: biblioteca y línea de comandos a la vez.
 
 ## Cómo obtenerlo
 
-:::note[Antes del lanzamiento]
-Todavía no está en crates.io — `cargo add tdcv2` no lo encontrará. Compílelo desde el
-repositorio:
-
+:::tip[En crates.io — versión 0.1.3]
 ```bash
-cd rust && cargo build --release
-./target/release/tdcv2 demo.tdc
+cargo add tdcv2      # como dependencia
+cargo install tdcv2  # como comando
 ```
 
-El crate **no tiene dependencias**, así que basta con el toolchain de Rust. Tras el
-lanzamiento será `cargo add tdcv2` / `cargo install tdcv2`; vea
+El crate **no tiene dependencias**, y los paquetes de datos iniciales van compilados
+dentro del binario, así que un crate instalado no necesita nada más en disco. Vea
 [Instalación](../getting-started/installation.mdx).
 :::
 

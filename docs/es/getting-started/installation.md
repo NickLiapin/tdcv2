@@ -67,26 +67,15 @@ resultado en la terminal. Por debajo llama al mismo CLI. La lista completa de op
 
 **Requisitos:** Python **3.10** o más reciente.
 
-> [!NOTE]
-> **Antes del lanzamiento**
->
-> Todavía no está en PyPI. Cuando lo esté, un solo comando le dará la biblioteca y el
-> comando `tdcv2`:
+Un solo comando le da la biblioteca y el comando `tdcv2`:
 
 ```bash
 pip install tdcv2
 tdcv2 demo.tdc
 ```
 
-Hasta entonces, instálela desde una copia del repositorio:
-
-```bash
-pip install -e python
-tdcv2 demo.tdc
-```
-
-Eso es toda la configuración: una instalación editable pone `tdcv2` en su PATH igual
-que lo hará el paquete publicado, así que nada cambia cuando salga la versión.
+Eso es toda la configuración. Un juego inicial de paquetes de datos viaja dentro del
+wheel, así que el ejemplo de arriba funciona sin instalar nada más.
 
 El DSL y el comportamiento son idénticos a los de la versión de npm: la misma
 configuración `.tdc`, ejecutada con el mismo `seed`, produce los mismos bytes. La API
@@ -97,17 +86,18 @@ está en [Bibliotecas por lenguaje — Python](../bindings/python.md#top).
 **Requisitos:** Java **17** o más reciente.
 
 > [!NOTE]
-> **Antes del lanzamiento**
+> **Todavía no está en Maven Central**
 >
-> Todavía no está en Maven Central. Cuando lo esté, la biblioteca es una dependencia:
-
-```xml
-<dependency>
-  <groupId>io.github.nickliapin</groupId>
-  <artifactId>tdcv2</artifactId>
-  <version>1.0.0</version>
-</dependency>
-```
+> Java es la única implementación que falta por publicar. Cuando salga, la biblioteca
+> será una dependencia:
+>
+> ```xml
+> <dependency>
+>   <groupId>io.github.nickliapin</groupId>
+>   <artifactId>tdcv2</artifactId>
+>   <version>0.1.3</version>
+> </dependency>
+> ```
 
 Hasta entonces, compílela desde una copia del repositorio:
 
@@ -135,28 +125,26 @@ El DSL y el comportamiento son idénticos a los de la versión de npm. La API es
 
 **Requisitos:** .NET **6.0** o más reciente.
 
-> [!NOTE]
-> **Antes del lanzamiento**
->
-> Todavía no está en NuGet. Cuando lo esté, la biblioteca es un paquete y la línea de
-> comandos es una herramienta:
+La biblioteca es un paquete:
 
 ```bash
 dotnet add package Tdcv2
-dotnet tool install -g Tdcv2.Cli
-tdcv2 demo.tdc
 ```
 
-Hasta entonces, compílelo desde una copia del repositorio:
+El juego inicial de paquetes de datos va incrustado en el ensamblado, así que
+funciona sin instalar nada más.
 
-```bash
-cd csharp && dotnet build
-dotnet run --project Tdcv2.Cli.Tool -- demo.tdc
-```
-
-A diferencia de Maven, .NET sí tiene una respuesta al `bin` de npm —un paquete de
-herramienta—, así que `tdcv2` llega a su PATH igual que con npm y con pip, y todos
-los comandos de estas páginas se leen idénticos.
+> [!NOTE]
+> **La línea de comandos todavía no se publica como herramienta**
+>
+> .NET sí tiene una respuesta al `bin` de npm —un paquete de herramienta—, pero
+> `Tdcv2.Cli` no está publicado, así que por ahora la línea de comandos se compila
+> desde una copia del repositorio:
+>
+> ```bash
+> cd csharp && dotnet build
+> dotnet run --project Tdcv2.Cli.Tool -- demo.tdc
+> ```
 
 El DSL y el comportamiento son idénticos a los de la versión de npm.
 
@@ -164,19 +152,18 @@ El DSL y el comportamiento son idénticos a los de la versión de npm.
 
 **Requisitos:** Rust **1.74** o superior.
 
-> [!NOTE]
-> **Versión previa**
->
-> Todavía no está en crates.io. Cuando lo esté, un solo crate trae la biblioteca y
-> la línea de comandos:
+Un solo crate trae la biblioteca y la línea de comandos:
 
 ```bash
-cargo add tdcv2
-cargo install tdcv2
+cargo add tdcv2      # como dependencia
+cargo install tdcv2  # como comando
 tdcv2 demo.tdc
 ```
 
-Mientras tanto, se compila desde una copia del repositorio:
+Los paquetes de datos iniciales van compilados dentro del binario, así que un crate
+instalado no necesita nada más en disco.
+
+O bien, desde una copia del repositorio:
 
 ```bash
 cd rust && cargo build --release
@@ -219,13 +206,15 @@ Ejecútelo con el comando que le dejó su instalación. **Node.js ya está en np
 otros cuatro todavía no están en sus registros, así que para ellos la vía de hoy es un
 clon del repositorio, y la columna de la derecha es cómo será cuando salgan:
 
-| Lenguaje | Hoy | Cuando se publiquen |
-| :--- | :--- | :--- |
-| Node.js | `npx tdcv2 demo.tdc` | — ya está |
-| Python | `.venv/bin/tdcv2 demo.tdc` | `tdcv2 demo.tdc` |
-| Java | `java -jar java/build/libs/tdcv2-*-cli.jar demo.tdc` | igual |
-| C# | `dotnet run --project csharp/Tdcv2.Cli.Tool -- demo.tdc` | `tdcv2 demo.tdc` |
-| Rust | `cargo run --bin tdcv2 -- demo.tdc` | `tdcv2 demo.tdc` |
+Ejecútelo con el comando que le dio su instalación:
+
+| Lenguaje | Comando |
+| :--- | :--- |
+| Node.js | `npx tdcv2 demo.tdc` |
+| Python | `tdcv2 demo.tdc` |
+| Rust | `tdcv2 demo.tdc`, tras `cargo install tdcv2` |
+| C# | `dotnet run --project csharp/Tdcv2.Cli.Tool -- demo.tdc` — el paquete de herramienta todavía no se publica |
+| Java | `java -jar java/build/libs/tdcv2-*-cli.jar demo.tdc` — Maven no tiene equivalente del `bin` de npm, así que la CLI sigue siendo un jar aparte |
 
 Desde la raíz del repositorio, `./run demo.tdc` es el más corto de todos.
 
