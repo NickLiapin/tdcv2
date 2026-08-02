@@ -50,8 +50,14 @@ import { resolveTemplate } from '../templates/resolver.js';
 import { isDynamicTemplateValue } from '../validator/known.js';
 import { buildDynamicTemplateValues } from './dynamic-template.js';
 import { StreamUnsupportedError } from './stream-build.js';
-import { openUnit, seekableGen } from '../prng/seekable.js';
-import { exactTextLayout, forStreamOf, perRowBuildable } from './per-row.js';
+import { openUnit, seekableGen, seekableUniforms } from '../prng/seekable.js';
+import {
+  absoluteRow,
+  exactTextLayout,
+  forStreamOf,
+  keyedDraws,
+  perRowBuildable,
+} from './per-row.js';
 export { patternGenForGen } from './pattern-source.js';
 import { patternGenForGen } from './pattern-source.js';
 import { evaluateIf } from '../expr/evaluate.js';
@@ -888,7 +894,7 @@ export function buildGenValues(
   // so there is no second implementation to keep in step, only the same one
   // called the same way. The recursive call has count = 1, which the guard
   // refuses, and that is what stops this from looping.
-  if (perRowBuildable(gen, count, ctx)) {
+  if (perRowBuildable(gen, count, ctx, locale)) {
     const seed = ctx.seed ?? '';
     const streamId = ctx.streamId ?? '';
     const out = new Array<string>(count);
@@ -1042,12 +1048,13 @@ function buildGenValuesRaw(
         // `percent=` and `weight=` use — so `Smith` gets its Census share, not
         // a uniform one. A plain pack stays a uniform pick.
         return packEntry.percents
-          ? distributeByPercent({
-              count,
-              values: [...packEntry.values],
-              percents: [...packEntry.percents],
-              prng,
-            })
+          ? (exactTextLayout(packEntry.values, undefined, count, ctx, packEntry.percents) ??
+              distributeByPercent({
+                count,
+                values: [...packEntry.values],
+                percents: [...packEntry.percents],
+                prng,
+              }))
           : textUniform(packEntry.values)(count, prng).slice();
       }
       const source = resolveTemplate(path);
@@ -1145,9 +1152,19 @@ function buildGenValuesRaw(
       // per-row standard-normal draw (2 uniforms) when present.
       const spec = parseTimeseries(gen.attrs);
       const noisy = timeseriesHasNoise(spec);
+      const keyed = keyedDraws(ctx);
       const out = new Array<string>(count);
       for (let i = 0; i < count; i++) {
-        const z = noisy ? standardNormal(openUnit(prng()), openUnit(prng())) : 0;
+        let z = 0;
+        if (noisy) {
+          // The value follows the position; the noise follows the row, on the
+          // dedicated `:ts` stream the streaming engine uses. Same two names,
+          // same two uniforms, same series.
+          const [u1 = 0.5, u2 = 0.5] = keyed
+            ? seekableUniforms(keyed.seed, `${keyed.streamId}:ts`, absoluteRow(ctx, i), 2)
+            : [openUnit(prng()), openUnit(prng())];
+          z = standardNormal(u1, u2);
+        }
         out[i] = formatTimeseries(timeseriesValueAt(spec, i, z), spec.decimals);
       }
       return out;
@@ -1158,10 +1175,20 @@ function buildGenValuesRaw(
       // Index-dependent (like counters) — streaming special-cases it too.
       const pg = patternGenForGen(gen, ctx.dataSources);
       const draws = patternGenDraws(pg);
+      const keyed = keyedDraws(ctx);
       const out = new Array<string>(count);
       const denom = count > 1 ? count - 1 : 1;
       for (let i = 0; i < count; i++) {
-        out[i] = patternGenValue(pg, i / denom, draws ? openUnit(prng()) : 0, 1 / denom);
+        // As with timeseries: the curve is read at the position, the one draw
+        // inside the band is keyed by the row on the streaming engine's `:pat`
+        // stream.
+        const u = !draws
+          ? 0
+          : keyed
+            ? (seekableUniforms(keyed.seed, `${keyed.streamId}:pat`, absoluteRow(ctx, i), 1)[0] ??
+              0.5)
+            : openUnit(prng());
+        out[i] = patternGenValue(pg, i / denom, u, 1 / denom);
       }
       return out;
     }

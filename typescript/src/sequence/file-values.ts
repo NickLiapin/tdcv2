@@ -24,6 +24,7 @@ import { WeightedFileError, loadWeightedValues, weightColumnOf } from '../genera
 import { randomInt } from '../prng/random.js';
 
 import type { SequenceBuildContext } from './context.js';
+import { exactTextLayout } from './per-row.js';
 import { normalizeRowLink } from './row-link.js';
 import type { GenSpec } from './types.js';
 
@@ -58,7 +59,14 @@ export function buildFileValues(
   const weightColumn = weightColumnOf(gen.attrs);
   if (weightColumn !== undefined && !rowKey) {
     const { values, percents } = loadWeightedValues(resolvedSrc, options, weightColumn);
-    return distributeByPercent({ count, values, percents, prng });
+    // The streaming engine lays the same quota out over the column and permutes
+    // it; matching that here is what makes a weighted file column come out the
+    // same on every engine. Without a seed or a column name there is nothing to
+    // key the layout by, and the older draw stands.
+    return (
+      exactTextLayout(values, undefined, count, ctx, percents) ??
+      distributeByPercent({ count, values, percents, prng })
+    );
   }
 
   if (!rowKey) return fileUniform(resolvedSrc, options)(count, prng).slice();

@@ -17,7 +17,11 @@ import { expandPercentMask } from '../distribution/percent-mask.js';
 import { permute, permuteKey } from '../prng/permute.js';
 import { createPrng } from '../prng/prng.js';
 
+import { resolvePackAddress } from '../data-pack/locales.js';
+import type { PackEntry } from '../data-pack/load.js';
+
 import type { SequenceBuildContext } from './context.js';
+import { weightedTemplatePack } from './stream-weighted.js';
 import type { GenSpec } from './types.js';
 
 /**
@@ -41,6 +45,31 @@ export function forStreamOf(
   return { ...ctx, streamId, rows };
 }
 
+/**
+ * The seed and column name this build draws under, when it has both.
+ *
+ * An inline generator or a nested build has no column of its own, so there is
+ * nothing to key by and the caller falls back to the shared PRNG.
+ */
+export function keyedDraws(
+  ctx: SequenceBuildContext,
+): { seed: string; streamId: string } | undefined {
+  if (ctx.seed === undefined || ctx.streamId === undefined) return undefined;
+  return { seed: ctx.seed, streamId: ctx.streamId };
+}
+
+/**
+ * The absolute row a drawn position belongs to.
+ *
+ * Index-dependent generators — counters, timeseries, a pattern stretched over
+ * the run — read the POSITION for their value, and the streaming engine does
+ * the same. Their random draws are keyed by the row instead, which is why the
+ * two numbers have to be told apart.
+ */
+export function absoluteRow(ctx: SequenceBuildContext, position: number): number {
+  return ctx.rows ? (ctx.rows[position] ?? position) : position;
+}
+
 /** The absolute row index of each position a masked column draws. */
 function rowsOf(mask: readonly boolean[]): number[] {
   const rows: number[] = [];
@@ -53,23 +82,47 @@ function rowsOf(mask: readonly boolean[]): number[] {
  * streaming engine already builds these one row at a time; this list is what
  * lets the in-memory engine do the same.
  *
- * Excluded on purpose, and each because it is a PLAN over the whole column
- * rather than a draw per row — make one of these per-row and its proportions
- * stop being exact: `percent=` on any type, `weight=` on a file column, a
- * weighted choice inside `advanced_regex`, and the shares a pack can declare
- * for a `template`. `text` is excluded for the same reason from the other
- * side: even an UNWEIGHTED list is spread evenly over the column and permuted,
- * never picked independently per row, so `exactTextLayout` below handles it
- * instead of this path.
+ * A generator is off this list when its column is a PLAN rather than a series
+ * of draws — make one of those per-row and its proportions stop being exact.
+ * `text` is the clearest case: even an UNWEIGHTED list is spread evenly over
+ * the column and permuted, never picked independently per row, so
+ * `exactTextLayout` below handles it instead of this path. The rest are
+ * conditional and checked in `perRowBuildable`.
  */
-const PER_ROW_TYPES: ReadonlySet<string> = new Set(['number', 'regex', 'symbol', 'date']);
+const PER_ROW_TYPES: ReadonlySet<string> = new Set([
+  'number',
+  'regex',
+  'symbol',
+  'date',
+  'template',
+  'file',
+  'advanced_regex',
+]);
 
 /** Can this generator be built row by row? `count <= 1` is already one row. */
-export function perRowBuildable(gen: GenSpec, count: number, ctx: SequenceBuildContext): boolean {
+export function perRowBuildable(
+  gen: GenSpec,
+  count: number,
+  ctx: SequenceBuildContext,
+  locale: string,
+): boolean {
   if (count <= 1 || ctx.seed === undefined || ctx.streamId === undefined) return false;
   if (!PER_ROW_TYPES.has(gen.type)) return false;
   // `order="sequential"` reads the position, never the randomness.
   if (gen.attrs['order'] === 'sequential') return false;
+  // A weighted file column and a pack that declares shares are both exact
+  // quotas over the whole column: the streaming engine lays them out the way
+  // it lays out weighted text, so this engine must too, not draw per row.
+  if (gen.attrs['weight'] !== undefined) return false;
+  if (weightedTemplatePack(gen, ctx.packs, gen.attrs['local'] ?? locale) !== undefined)
+    return false;
+  // A pack GENERATOR may declare a share too. Its values are computed rather
+  // than listed, so there is no list to lay out — the whole column is built at
+  // once or the quota is wrong, and the streaming engine refuses it outright.
+  if (packEntryFor(gen, ctx, locale)?.needsWholeColumn === true) return false;
+  // `row=` links several columns to ONE row of a file. That choice belongs to
+  // the row as a whole, not to any single column reading from it.
+  if ((gen.attrs['row'] ?? '').trim() !== '') return false;
   // `percent=` on ANY type, not just text: a number can apportion its LENGTH
   // groups the same exact way (`length="2,10-12" percent="85,15"`), and reading
   // this as a text-only attribute turned a 15% group into 0% of the rows.
@@ -80,6 +133,16 @@ export function perRowBuildable(gen: GenSpec, count: number, ctx: SequenceBuildC
   // 0% of the rows.
   if (gen.attrs['repeat'] !== undefined) return false;
   return true;
+}
+
+/** The pack a `<gen type="template">` points at, if it points at one. */
+function packEntryFor(
+  gen: GenSpec,
+  ctx: SequenceBuildContext,
+  locale: string,
+): PackEntry | undefined {
+  if (gen.type !== 'template') return undefined;
+  return ctx.packs?.get(resolvePackAddress(gen.attrs['value'] ?? '', gen.attrs['local'] ?? locale));
 }
 
 /**
