@@ -215,6 +215,10 @@ publishing {
             from(components["java"])
 
             pom {
+                // Gradle leaves this out and lets Maven assume the default. Written down
+                // instead, because a publication that cannot be withdrawn is the wrong
+                // place to rely on somebody else's default.
+                packaging = "jar"
                 name = "TDC — The Data Constructor"
                 description =
                     "Deterministic test-data generator: coherent records, exact proportions, " +
