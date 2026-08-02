@@ -66,9 +66,13 @@ jobs:
         # The whole reason this check exists: the .nupkg shipped with 0 data files
         # once, and every one of the 777 tests passed, because every test runs
         # inside the repository where the packs are a few directories up.
+        # The reference CLI is what the check compares against, and this is an npm
+        # workspace: installing and building happen from the root, not from
+        # inside `typescript/`. The dry run found that too.
         run: |
-          cd typescript && npm ci && npm run build
-          cd ../csharp && node scripts/verify-package.mjs
+          npm ci
+          npm run build --workspace=typescript
+          cd csharp && node scripts/verify-package.mjs
 
       - name: Pack
         run: |
