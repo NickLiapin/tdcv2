@@ -27,6 +27,7 @@
  *   node scripts/generate-quick-types.mjs --check   # fail if stale
  */
 
+import { spawnSync } from 'node:child_process';
 import { readFileSync, writeFileSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -145,9 +146,30 @@ const generated =
   `import type { QuickAddress, QuickParams } from './types.js';\n\n` +
   `export type QuickAddressTree = ${render(merged, 0)};\n`;
 
+/**
+ * The file as it will actually sit on disk.
+ *
+ * A commit passes through prettier (lint-staged), and prettier drops the quotes this
+ * script puts round a key like `Amerykańska` — a valid identifier it sees no reason to
+ * quote. So the raw generation never matched the committed file, `--check` reported the
+ * types stale on a tree where nothing had changed, and regenerating could not fix it:
+ * the next commit stripped the quotes again. Format both sides the same way and the
+ * comparison is about the DATA, which is what it was meant to be about.
+ */
+function formatted(source) {
+  const result = spawnSync('npx', ['prettier', '--stdin-filepath', OUT], {
+    input: source,
+    encoding: 'utf8',
+    cwd: join(HERE, '..'),
+  });
+  // Prettier missing or unhappy is not a reason to call the types stale: fall back to
+  // the unformatted text, which is what the comparison used to use for both sides.
+  return result.status === 0 && typeof result.stdout === 'string' ? result.stdout : source;
+}
+
 if (process.argv.includes('--check')) {
   const current = readFileSync(OUT, 'utf8');
-  if (current !== generated) {
+  if (formatted(current) !== formatted(generated)) {
     console.error(
       'src/quick/addresses.ts is out of date — run `npm run quick:types` and commit the result',
     );
