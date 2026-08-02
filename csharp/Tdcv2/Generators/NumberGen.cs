@@ -25,7 +25,6 @@ namespace Tdcv2.Generators;
 public static class NumberGen
 {
     private static readonly Regex RangePattern = new(@"^\s*(-?\d+)\s*\.\.\s*(-?\d+)\s*$", RegexOptions.Compiled);
-    private static readonly Regex RangeListHead = new(@"^\[\s*([^\]]+?)\s*]", RegexOptions.Compiled);
     private static readonly Regex LengthRange = new(@"^(\d+)\s*-\s*(\d+)$", RegexOptions.Compiled);
     private static readonly Regex SingleInt = new(@"^-?\d+$", RegexOptions.Compiled);
 
@@ -180,14 +179,19 @@ public static class NumberGen
         string rest = spec;
         while (rest.Length > 0)
         {
-            Match m = RangeListHead.Match(rest);
-            if (!m.Success)
+            // Found by index, not by a regex. `^\[\s*([^\]]+?)\s*]` said the same thing,
+            // but `\s*` and `[^\]]+?` can both match a space, so an unclosed bracket made
+            // the engine try every way to split the run between them: `value="["` followed
+            // by four thousand spaces took a minute. A generator hanging on its own config
+            // is not a slow path, it is a stopped program.
+            int close = rest.StartsWith('[') ? rest.IndexOf(']') : -1;
+            if (close < 0)
             {
                 throw new ArgumentException($"number generator: invalid range list \"{source}\"");
             }
 
-            ranges.Add(ParseRange(m.Groups[1].Value));
-            rest = rest[m.Length..].Trim();
+            ranges.Add(ParseRange(rest[1..close].Trim()));
+            rest = rest[(close + 1)..].Trim();
             if (rest.Length == 0)
             {
                 break;

@@ -22,7 +22,6 @@ from ..prng import rand
 from ..prng.prng import Sfc32
 
 _RANGE = re.compile(r"^\s*(-?\d+)\s*\.\.\s*(-?\d+)\s*$")
-_RANGE_LIST_HEAD = re.compile(r"^\[\s*([^\]]+?)\s*\]")
 _INT = re.compile(r"^-?\d+$")
 _LENGTH_RANGE = re.compile(r"^(\d+)\s*-\s*(\d+)$")
 _DIGITS_ONLY = re.compile(r"^\d+$")
@@ -146,11 +145,17 @@ def parse_ranges(source: str) -> list[Range]:
     ranges: list[Range] = []
     rest = spec
     while rest:
-        m = _RANGE_LIST_HEAD.search(rest)
-        if not m:
+        # Found by index, not by a regex. ``^\[\s*([^\]]+?)\s*\]`` said the same
+        # thing, but ``\s*`` and ``[^\]]+?`` can both match a space, so an
+        # unclosed bracket made the engine try every way to split the run
+        # between them: ``value="["`` followed by four thousand spaces took a
+        # minute. A generator hanging on its own config is not a slow path, it
+        # is a stopped program.
+        close = rest.find("]") if rest.startswith("[") else -1
+        if close < 0:
             raise ValueError(f'number generator: invalid range list "{source}"')
-        ranges.append(_parse_range(m.group(1)))
-        rest = rest[m.end() :].strip()
+        ranges.append(_parse_range(rest[1:close].strip()))
+        rest = rest[close + 1 :].strip()
         if not rest:
             break
         if not rest.startswith(","):

@@ -153,12 +153,18 @@ export function parseNumberRanges(source: string): readonly NumberRange[] {
   const ranges: NumberRange[] = [];
   let rest = spec;
   while (rest.length > 0) {
-    const m = /^\[\s*([^\]]+?)\s*\]/.exec(rest);
-    if (!m) {
+    // Found by index, not by a regex. `/^\[\s*([^\]]+?)\s*\]/` said the same
+    // thing, but `\s*` and `[^\]]+?` can both match a space, so an unclosed
+    // bracket made the engine try every way to split the run between them:
+    // `value="[` followed by ten thousand spaces did not finish in five
+    // minutes. A generator hanging on its own config is not a slow path, it is
+    // a stopped program.
+    const close = rest.startsWith('[') ? rest.indexOf(']') : -1;
+    if (close < 0) {
       throw new Error(`number generator: invalid range list "${source}"`);
     }
-    ranges.push(parseRange(m[1] ?? ''));
-    rest = rest.slice(m[0].length).trim();
+    ranges.push(parseRange(rest.slice(1, close).trim()));
+    rest = rest.slice(close + 1).trim();
     if (rest.length === 0) break;
     if (!rest.startsWith(',')) {
       throw new Error(`number generator: invalid range list "${source}"`);

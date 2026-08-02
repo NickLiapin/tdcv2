@@ -586,7 +586,14 @@
       item.className = 'tdcr-item';
       const where = document.createElement('a');
       where.className = 'tdcr-where';
-      where.href = c.url;
+      // `href` is a sink: a stored `javascript:` value runs when the reviewer
+      // clicks it. What we store is a `location.pathname`, which starts with
+      // "/" on every real page — but "on every real page" is the wrong kind of
+      // guarantee for a sink, and the store is a JSON file a reviewer can edit
+      // or be handed. Anything that is not a plain in-site path stays text
+      // rather than becoming a link.
+      const path = typeof c.url === 'string' && /^\/(?![/\\])/.test(c.url) ? c.url : null;
+      if (path) where.href = path;
       where.textContent = `${c.title.split('|')[0].trim()} — ${c.section || '—'}`;
       const quote = document.createElement('div');
       quote.className = 'tdcr-quote';

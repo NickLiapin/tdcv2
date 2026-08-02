@@ -24,6 +24,37 @@ describe('number include/exclude — parsing', () => {
   });
 });
 
+describe('number range list — an unclosed bracket does not hang', () => {
+  /**
+   * The list used to be read with `^\[\s*([^\]]+?)\s*\]`, where `\s*` and
+   * `[^\]]+?` can both match a space — so on `[` followed by a long run of
+   * spaces and no `]`, the engine tried every way to split the run between
+   * them. Ten thousand spaces did not finish in five minutes: a config that
+   * stops the generator rather than being rejected by it.
+   *
+   * A time bound is a blunt assertion, but it is the only one that states the
+   * actual property. The margin is wide enough that a slow CI machine is not
+   * the thing being measured — the old code needed minutes, not milliseconds.
+   */
+  it('rejects a million spaces in well under a second', () => {
+    const started = Date.now();
+    expect(() => parseNumberRanges(`[${' '.repeat(1_000_000)}`)).toThrow(/invalid range list/);
+    expect(Date.now() - started).toBeLessThan(1000);
+  });
+
+  it('still parses and rejects exactly what it did before', () => {
+    expect(parseNumberRanges('[1..9]')).toEqual([{ min: 1, max: 9 }]);
+    expect(parseNumberRanges('  [ 1..9 ] ,[20..30]  ')).toEqual([
+      { min: 1, max: 9 },
+      { min: 20, max: 30 },
+    ]);
+    expect(() => parseNumberRanges('[1..9')).toThrow(/invalid range list/);
+    expect(() => parseNumberRanges('[1..9] [2..3]')).toThrow(/invalid range list/);
+    expect(() => parseNumberRanges('[1..9],')).toThrow(/invalid range list/);
+    expect(() => parseNumberRanges('[]')).toThrow(/invalid range/);
+  });
+});
+
 describe('number include/exclude — interval math', () => {
   it('subtracts a value, splitting the base range', () => {
     const base = parseNumberRanges('0..9');

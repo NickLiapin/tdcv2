@@ -229,3 +229,32 @@ def test_a_delimiter_may_be_named_or_written(written: str, expected: str) -> Non
     assert file.parse_delimiter(written) == expected
     # Resolving twice is harmless — a real tab must not be trimmed away to a comma.
     assert file.parse_delimiter(expected) == expected
+
+
+def test_an_unclosed_range_bracket_is_rejected_at_once() -> None:
+    """The list used to be read with ``^\\[\\s*([^\\]]+?)\\s*\\]``, where ``\\s*`` and
+    ``[^\\]]+?`` can both match a space — so on ``[`` followed by a long run of
+    spaces and no ``]``, the engine tried every way to split the run between
+    them. Four thousand spaces took a minute: a config that stops the generator
+    rather than being rejected by it.
+
+    A time bound is a blunt assertion, but it is the only one that states the
+    actual property. The margin is wide enough that a slow machine is not the
+    thing being measured — the old code needed minutes, not milliseconds.
+    """
+    import time
+
+    from tdcv2.generators.number import parse_ranges
+
+    started = time.monotonic()
+    with pytest.raises(ValueError, match="invalid range list"):
+        parse_ranges("[" + " " * 1_000_000)
+    assert time.monotonic() - started < 1.0
+
+    # And it still parses and rejects exactly what it did before.
+    assert [(r.min, r.max) for r in parse_ranges("  [ 1..9 ] ,[20..30]  ")] == [(1, 9), (20, 30)]
+    for bad in ("[1..9", "[1..9] [2..3]", "[1..9],"):
+        with pytest.raises(ValueError, match="invalid range list"):
+            parse_ranges(bad)
+    with pytest.raises(ValueError, match="invalid range"):
+        parse_ranges("[]")

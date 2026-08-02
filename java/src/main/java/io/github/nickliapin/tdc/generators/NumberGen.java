@@ -37,7 +37,6 @@ import java.util.regex.Pattern;
 public final class NumberGen {
 
   private static final Pattern RANGE = Pattern.compile("^\\s*(-?\\d+)\\s*\\.\\.\\s*(-?\\d+)\\s*$");
-  private static final Pattern RANGE_LIST_HEAD = Pattern.compile("^\\[\\s*([^\\]]+?)\\s*]");
   private static final Pattern INT = Pattern.compile("^-?\\d+$");
   private static final Pattern LENGTH_RANGE = Pattern.compile("^(\\d+)\\s*-\\s*(\\d+)$");
 
@@ -167,12 +166,17 @@ public final class NumberGen {
     List<Range> ranges = new ArrayList<>();
     String rest = spec;
     while (!rest.isEmpty()) {
-      Matcher m = RANGE_LIST_HEAD.matcher(rest);
-      if (!m.find()) {
+      // Found by index, not by a regex. `^\\[\\s*([^\\]]+?)\\s*]` said the same thing, but
+      // `\\s*` and `[^\\]]+?` can both match a space, so an unclosed bracket made the
+      // engine try every way to split the run between them: `value="["` followed by
+      // four thousand spaces took a minute. A generator hanging on its own config is
+      // not a slow path, it is a stopped program.
+      int close = rest.startsWith("[") ? rest.indexOf(']') : -1;
+      if (close < 0) {
         throw new IllegalArgumentException("number generator: invalid range list \"" + source + "\"");
       }
-      ranges.add(parseRange(m.group(1)));
-      rest = rest.substring(m.end()).trim();
+      ranges.add(parseRange(rest.substring(1, close).trim()));
+      rest = rest.substring(close + 1).trim();
       if (rest.isEmpty()) {
         break;
       }
