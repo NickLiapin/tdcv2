@@ -114,6 +114,8 @@ tdc.common.id.uuid(); // 3ff6ff76-6ea7-4fad-8b99-3075a14cc7e9
 tdc.common.finance.iban(); // DE62299399441396459682
 tdc.country.usa.docs.ssn(); // 699209702 — with its real check digits
 
+tdc.lang.ru.person.lastName(); // after `npx tdcv2 pack add ru`
+
 tdc.person.lastName.many(5); // [ 'Bush', 'Armstrong', 'Andrews', … ]
 tdc.gen.number('18..80'); // 66
 ```

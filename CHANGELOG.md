@@ -9,7 +9,31 @@ Per-language-implementation changes (TypeScript, Python, Java) are additionally
 tracked in each implementation directory's own `CHANGELOG.md` once they begin to
 publish to their respective package registries.
 
-## [Unreleased]
+## [0.1.1] — 2026-08-02
+
+### Changed
+
+- **The npm landing page now shows both ways of using TDC.** npm renders the
+  README out of the published tarball, so 0.1.0's page could only show what
+  0.1.0 shipped with. The page opens on a fork — reach for a value
+  (`tdc.person.lastName()`) or describe a dataset (a config) — because these are
+  two tools sharing one set of data and a reader has to see both.
+- **Package metadata written for discovery.** A description that says what the
+  thing does rather than what it is called, and 27 keywords covering the terms
+  people actually search: `mock-data`, `fake-data-generator`, `synthetic-data`,
+  `deterministic`, `fixtures`, `faker`, and the output formats.
+
+### Fixed
+
+- **A smoke test that was not testing what its name said.** It claimed to check
+  `VERSION` against `package.json` and compared it to the literal `'0.1.0'`, so
+  it agreed with itself and nothing else: `npm version` moved `package.json`
+  while the test stayed green and `tdcv2 --version` reported the old number. It
+  reads `package.json` now.
+
+## [0.1.0] — 2026-08-02
+
+First public release, to npm. Everything below shipped in it.
 
 ### Fixed
 
