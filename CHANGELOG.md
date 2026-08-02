@@ -9,7 +9,7 @@ Per-language-implementation changes (TypeScript, Python, Java) are additionally
 tracked in each implementation directory's own `CHANGELOG.md` once they begin to
 publish to their respective package registries.
 
-## [Unreleased]
+## [0.1.2] — 2026-08-02
 
 ### Fixed
 
