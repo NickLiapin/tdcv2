@@ -23,11 +23,11 @@ import type { GenSpec, SequenceRegistry } from './types.js';
  * (in order) the address is interpolated from the registry, the pack is looked
  * up, and ONE value is drawn — a uniform pick, or the pack generator run once.
  * Deterministic: rows are walked in order, one PRNG draw each. Returns one value
- * per applicable row, in mask order (what `assembleValues` consumes).
+ * per applicable row, in the order `rows` gives them (what `assembleAt` consumes).
  */
 export function buildDynamicTemplateValues(
   gen: GenSpec,
-  mask: readonly boolean[],
+  rows: readonly number[],
   registry: SequenceRegistry,
   prng: () => number,
   locale: string,
@@ -37,8 +37,7 @@ export function buildDynamicTemplateValues(
   const template = gen.attrs['value'] ?? '';
   const localeAttr = gen.attrs['local'] ?? locale;
   const out: string[] = [];
-  for (let i = 0; i < mask.length; i++) {
-    if (!mask[i]) continue;
+  for (const i of rows) {
     const address = interpolate(template, '${{%}}', i, registry);
     const packEntry = ctx.packs?.get(resolvePackAddress(address, localeAttr));
     if (packEntry?.generator) {

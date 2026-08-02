@@ -70,6 +70,21 @@ export function absoluteRow(ctx: SequenceBuildContext, position: number): number
   return ctx.rows ? (ctx.rows[position] ?? position) : position;
 }
 
+/**
+ * The context for a column whose drawn positions are known rows outright.
+ *
+ * A `<mix>` case is the reason this exists: its rows are not a contiguous run
+ * and not a mask over the whole set either — they are whichever rows the
+ * percentage layout gave that case.
+ */
+export function withRows(
+  ctx: SequenceBuildContext,
+  streamId: string,
+  rows: readonly number[],
+): SequenceBuildContext {
+  return { ...ctx, streamId, rows };
+}
+
 /** The absolute row index of each position a masked column draws. */
 function rowsOf(mask: readonly boolean[]): number[] {
   const rows: number[] = [];
@@ -185,6 +200,7 @@ export function exactTextLayout(
 ): string[] | undefined {
   if (ctx.seed === undefined || ctx.streamId === undefined) return undefined;
   if (values.length === 0 || count <= 0) return undefined;
+  const slotByRow = new Map<number, number>();
   const shares =
     percents ??
     (percentAttr !== undefined && percentAttr.length > 0
@@ -208,6 +224,7 @@ export function exactTextLayout(
   const out = new Array<string>(count);
   for (let i = 0; i < count; i++) {
     const slot = permute(i, count, key);
+    slotByRow.set(absoluteRow(ctx, i), slot);
     // Binary search rather than a linear scan: a wide column (many values)
     // would otherwise make the render O(count · values).
     let lo = 0;
@@ -219,5 +236,21 @@ export function exactTextLayout(
     }
     out[i] = values[lo] ?? '';
   }
+  // Remembered for any child that filters on this column: which slot a row got
+  // is what decides its RANK inside the parent's subset, and the streaming
+  // engine hands a child exactly that rank as its position.
+  ctx.layouts?.set(ctx.streamId, { values, counts, cumHi, slotByRow });
   return out;
+}
+
+/**
+ * What a column's exact layout gave each row — kept so a child can be ordered
+ * the way the streaming engine orders it. See `orderedRows` in assemble.ts.
+ */
+export interface ExactLayout {
+  readonly values: readonly string[];
+  readonly counts: readonly number[];
+  /** Cumulative upper bound per value: value v owns slots [cumHi[v-1], cumHi[v]). */
+  readonly cumHi: readonly number[];
+  readonly slotByRow: ReadonlyMap<number, number>;
 }

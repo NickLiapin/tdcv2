@@ -7,6 +7,7 @@
  */
 
 import type { DataSourceOptions } from '../data-source/index.js';
+import type { ExactLayout } from './per-row.js';
 import type { PackRegistry } from '../data-pack/index.js';
 
 /**
@@ -51,6 +52,16 @@ export interface SequenceBuildContext {
    * column covers every row, so position and row are the same number.
    */
   readonly rows?: readonly number[] | undefined;
+  /**
+   * The exact layout each finished column got, by column name — written by
+   * `exactTextLayout`, read by a child that filters on one of them.
+   *
+   * A child's position inside its parent's subset is its RANK in the parent's
+   * layout, not its ordinal among the matching rows, and the two are different
+   * orders. Shared by reference across every derived context, so a column
+   * declared later can see one built earlier.
+   */
+  readonly layouts?: Map<string, ExactLayout> | undefined;
   /**
    * Set only by the async render path. A `type="http"` generator makes a network
    * call, which cannot happen inside this synchronous builder — so it produces a

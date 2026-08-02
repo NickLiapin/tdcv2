@@ -54,10 +54,10 @@ import { openUnit, seekableGen, seekableUniforms } from '../prng/seekable.js';
 import {
   absoluteRow,
   exactTextLayout,
-  forStreamOf,
   INLINE_ANOMALY_TYPES,
   keyedDraws,
   perRowBuildable,
+  withRows,
 } from './per-row.js';
 export { patternGenForGen } from './pattern-source.js';
 import { patternGenForGen } from './pattern-source.js';
@@ -69,7 +69,6 @@ import type { OpenCloseElementContext } from '../generated/TDCParser.js';
 import type { AttrMap } from '../processor/attrs.js';
 
 import type {
-  CaseSpec,
   CondBranch,
   GenSpec,
   Sequence,
@@ -80,8 +79,9 @@ import type {
 } from './types.js';
 import { sequenceValueAt } from './types.js';
 import { composesOwnValue, drawComposed, uniqDrawPart } from './composed.js';
+import { buildCaseValues, buildMixValues } from './mix-values.js';
 import { materializeCompute } from './compute-sequence.js';
-import { assembleValues, computeParentMask } from './assemble.js';
+import { assembleAt, computeParentMask, orderedRows } from './assemble.js';
 import type { LinkedFileRowPlan, SequenceBuildContext } from './context.js';
 import { buildUniqueValues } from './uniq-simple.js';
 import { buildFileValues } from './file-values.js';
@@ -296,6 +296,7 @@ export function buildSequences(
     fileRowLinks: new Map<string, LinkedFileRowPlan>(),
     httpDeferred: options.httpDeferred,
     seed: options.seed,
+    layouts: new Map(),
   };
 
   // Built-in positional sequences. All deterministic by iteration index,
@@ -363,7 +364,8 @@ export function buildSequences(
       // literals build the value, named ones stay fields. The order is owned by
       // `drawComposed`; the draw itself is still this engine's.
       const mask = computeParentMask(spec, registry, count);
-      const applicableCount = mask.filter(Boolean).length;
+      const rows = orderedRows(spec, mask, ctx.layouts);
+      const applicableCount = rows.length;
       const uniqPart = uniqDrawPart(spec.items, spec.uniq === true);
       // The stream names must be the ones `buildComposedStream` gives the same
       // body: a named field is `Name.field`, an unnamed part is `Name#pN`
@@ -380,7 +382,7 @@ export function buildSequences(
               : `${spec.name}#p${String(unnamed++)}`;
           return item === uniqPart
             ? buildUniqueValues(spec.name, item.gen, n, prng, locale, ctx)
-            : buildGenValues(item.gen, n, prng, locale, now, forStreamOf(ctx, streamId, mask));
+            : buildGenValues(item.gen, n, prng, locale, now, withRows(ctx, streamId, rows));
         },
       );
 
@@ -389,12 +391,12 @@ export function buildSequences(
       }
 
       if (composesOwnValue(spec.items)) {
-        registry[spec.name] = assembleValues(spec.name, mask, composed, count);
+        registry[spec.name] = assembleAt(spec.name, rows, composed, count);
       }
       for (const [fieldName, values] of produced) {
-        registry[`${spec.name}.${fieldName}`] = assembleValues(
+        registry[`${spec.name}.${fieldName}`] = assembleAt(
           `${spec.name}.${fieldName}`,
-          mask,
+          rows,
           values,
           count,
         );
@@ -407,7 +409,8 @@ export function buildSequences(
       // — compute it once, then materialize each field against that
       // mask using the shared PRNG stream (in declaration order).
       const mask = computeParentMask(spec, registry, count);
-      const applicableCount = mask.filter(Boolean).length;
+      const rows = orderedRows(spec, mask, ctx.layouts);
+      const applicableCount = rows.length;
       const produced = new Map<string, string[]>();
       for (const field of spec.gens) {
         produced.set(
@@ -420,7 +423,7 @@ export function buildSequences(
                 prng,
                 locale,
                 now,
-                forStreamOf(ctx, `${spec.name}.${field.name}`, mask),
+                withRows(ctx, `${spec.name}.${field.name}`, rows),
               ),
         );
       }
@@ -437,9 +440,9 @@ export function buildSequences(
         );
       }
       for (const field of spec.gens) {
-        registry[`${spec.name}.${field.name}`] = assembleValues(
+        registry[`${spec.name}.${field.name}`] = assembleAt(
           `${spec.name}.${field.name}`,
-          mask,
+          rows,
           produced.get(field.name) ?? [],
           count,
         );
@@ -483,7 +486,8 @@ export function buildSequences(
         // the per-row anomaly selection, then register a companion "true"/"false"
         // sequence masked identically (undefined on parent-filtered rows).
         const mask = computeParentMask(spec, registry, count);
-        const applicableCount = mask.filter(Boolean).length;
+        const rows = orderedRows(spec, mask, ctx.layouts);
+        const applicableCount = rows.length;
         const flags: string[] = [];
         const produced =
           applicableCount === 0
@@ -494,11 +498,11 @@ export function buildSequences(
                 prng,
                 locale,
                 now,
-                forStreamOf(ctx, spec.name, mask),
+                withRows(ctx, spec.name, rows),
                 flags,
               );
-        registry[spec.name] = assembleValues(spec.name, mask, produced, count);
-        registry[flagName] = assembleValues(flagName, mask, flags, count);
+        registry[spec.name] = assembleAt(spec.name, rows, produced, count);
+        registry[flagName] = assembleAt(flagName, rows, flags, count);
       } else {
         registry[spec.name] = materializeSimple(
           spec,
@@ -714,14 +718,15 @@ function materializeSimple(
   ctx: SequenceBuildContext,
 ): Sequence {
   const mask = computeParentMask(spec, registry, count);
-  const applicableCount = mask.filter(Boolean).length;
+  const rows = orderedRows(spec, mask, ctx.layouts);
+  const applicableCount = rows.length;
 
   // A template whose `value` interpolates a sibling field (`common.vehicle.model.${{Brand}}`)
   // resolves its address per row from the registry — the child pack is the one the
   // parent named on that row. Engine-1 only; streaming defers it (see render.ts).
   if (gen.type === 'template' && isDynamicTemplateValue(gen.attrs['value'] ?? '')) {
-    const produced = buildDynamicTemplateValues(gen, mask, registry, prng, locale, now, ctx);
-    return assembleValues(spec.name, mask, produced, count);
+    const produced = buildDynamicTemplateValues(gen, rows, registry, prng, locale, now, ctx);
+    return assembleAt(spec.name, rows, produced, count);
   }
 
   // `uniq="true"` on a simple sequence: a draw WITHOUT REPLACEMENT. A single
@@ -733,15 +738,15 @@ function materializeSimple(
       applicableCount === 0
         ? []
         : buildUniqueValues(spec.name, gen, applicableCount, prng, locale, ctx);
-    return assembleValues(spec.name, mask, produced, count);
+    return assembleAt(spec.name, rows, produced, count);
   }
 
   const produced =
     applicableCount === 0
       ? []
-      : buildGenValues(gen, applicableCount, prng, locale, now, forStreamOf(ctx, spec.name, mask));
+      : buildGenValues(gen, applicableCount, prng, locale, now, withRows(ctx, spec.name, rows));
 
-  return assembleValues(spec.name, mask, produced, count);
+  return assembleAt(spec.name, rows, produced, count);
 }
 
 /**
@@ -761,24 +766,36 @@ function materializeMixSequence(
   ctx: SequenceBuildContext,
 ): { sequence: Sequence; flag?: { name: string; sequence: Sequence } } {
   const mask = computeParentMask(spec, registry, count);
-  const applicableCount = mask.filter(Boolean).length;
+  const rows = orderedRows(spec, mask, ctx.layouts);
+  const applicableCount = rows.length;
   const flagName = mixSpec.attrs['flag'];
   const flags: boolean[] | undefined = flagName ? [] : undefined;
 
   const produced =
     applicableCount === 0
       ? []
-      : buildMixValues(mixSpec, applicableCount, prng, locale, now, ctx, flags);
+      : buildMixValues(
+          mixSpec,
+          applicableCount,
+          prng,
+          locale,
+          now,
+          // The `#switch` suffix is a stable historical PRNG key — the streaming
+          // engine uses it verbatim so a `<mix>` keeps the values of the
+          // `<switch>` it replaced. Both engines must spell it the same way.
+          withRows(ctx, `${spec.name}#switch`, rows),
+          flags,
+        );
 
-  const sequence = assembleValues(spec.name, mask, produced, count);
+  const sequence = assembleAt(spec.name, rows, produced, count);
   if (flagName === undefined || flags === undefined) return { sequence };
   return {
     sequence,
     flag: {
       name: flagName,
-      sequence: assembleValues(
+      sequence: assembleAt(
         flagName,
-        mask,
+        rows,
         flags.map((b) => (b ? 'true' : 'false')),
         count,
       ),
@@ -1221,80 +1238,4 @@ function buildGenValuesRaw(
     default:
       throw new Error(`sequence: gen type "${gen.type}" not yet supported`);
   }
-}
-
-/**
- * `flagsOut`, when given, records for each row whether the case selected for it
- * carries `anomaly="true"` — the ground-truth label behind `<mix flag="NAME">`.
- * It reflects the SELECTION, so the label and the value can never disagree.
- */
-function buildMixValues(
-  mixSpec: MixSpec,
-  count: number,
-  prng: () => number,
-  locale: string,
-  now: number,
-  ctx: SequenceBuildContext,
-  flagsOut?: boolean[],
-): string[] {
-  if (count === 0) return [];
-  const cases = mixSpec.cases;
-  if (cases.length === 0) {
-    if (flagsOut) for (let i = 0; i < count; i++) flagsOut[i] = false;
-    return new Array<string>(count).fill('');
-  }
-
-  const percentAttr = mixSpec.attrs['percent'];
-  const percents =
-    percentAttr === undefined
-      ? new Array<number>(cases.length).fill(100 / cases.length)
-      : expandPercentMask(percentAttr, cases.length);
-
-  const selectedCases = distributeByPercent({ count, values: cases, percents, prng });
-  const out: string[] = new Array<string>(count).fill('');
-  if (flagsOut) {
-    for (let i = 0; i < count; i++) flagsOut[i] = selectedCases[i]?.anomaly === true;
-  }
-
-  for (const currentCase of cases) {
-    const indexes: number[] = [];
-    for (let i = 0; i < selectedCases.length; i++) {
-      if (selectedCases[i] === currentCase) indexes.push(i);
-    }
-    if (indexes.length === 0) continue;
-
-    const caseValues = buildCaseValues(currentCase, indexes.length, prng, locale, now, ctx);
-    for (let i = 0; i < indexes.length; i++) {
-      const targetIndex = indexes[i];
-      if (targetIndex !== undefined) out[targetIndex] = caseValues[i] ?? '';
-    }
-  }
-
-  return out;
-}
-
-function buildCaseValues(
-  caseSpec: CaseSpec,
-  count: number,
-  prng: () => number,
-  locale: string,
-  now: number,
-  ctx: SequenceBuildContext,
-): string[] {
-  const out: string[] = new Array<string>(count).fill('');
-  for (const part of caseSpec.parts) {
-    let values: readonly string[];
-    if (part.kind === 'data') {
-      values = new Array<string>(count).fill(part.text);
-    } else if (part.kind === 'gen') {
-      values = buildGenValues(part.gen, count, prng, locale, now, ctx);
-    } else {
-      values = buildMixValues(part.mixSpec, count, prng, locale, now, ctx);
-    }
-
-    for (let i = 0; i < count; i++) {
-      out[i] = `${out[i] ?? ''}${values[i] ?? ''}`;
-    }
-  }
-  return out;
 }
