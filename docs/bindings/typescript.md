@@ -4,7 +4,7 @@
 
 📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/bindings/typescript)**
 
-← Previous: [Error codes](../reference/errors.md#top) · **[Contents](../README.md#top)** · Next: [One value at a time](./quick-api.md#top) →
+← Previous: [Error codes](../reference/errors.md#top) · **[Contents](../README.md#top)** · Next: [Python](./python.md#top) →
 
 ---
 
@@ -164,6 +164,6 @@ on that row. That's what a parent filter looks like in object output.
 
 ---
 
-← Previous: [Error codes](../reference/errors.md#top) · **[Contents](../README.md#top)** · Next: [One value at a time](./quick-api.md#top) →
+← Previous: [Error codes](../reference/errors.md#top) · **[Contents](../README.md#top)** · Next: [Python](./python.md#top) →
 
 📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/bindings/typescript)**

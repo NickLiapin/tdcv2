@@ -133,7 +133,7 @@ t.person.lastName(); // Jones, today and next year
 
 Every call is independent — nothing here ties one value to another. The moment two
 values have to agree, you want a config, which is the rest of this page.
-[Full reference](https://nickliapin.github.io/tdcv2/docs/bindings/quick-api).
+[Full reference](https://nickliapin.github.io/tdcv2/docs/core-concepts/quick-api).
 
 ## A first config
 

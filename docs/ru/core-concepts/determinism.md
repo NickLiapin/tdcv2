@@ -4,7 +4,7 @@
 
 📖 **[Открыть на сайте документации →](https://nickliapin.github.io/tdcv2/ru/docs/core-concepts/determinism)**
 
-← Назад: [Вывод и форматирование](./output-formatting.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Обзор генераторов](../generators/overview.md#top) →
+← Назад: [Вывод и форматирование](./output-formatting.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [По одному значению](./quick-api.md#top) →
 
 ---
 
@@ -327,6 +327,6 @@ bronze    20
 
 ---
 
-← Назад: [Вывод и форматирование](./output-formatting.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Обзор генераторов](../generators/overview.md#top) →
+← Назад: [Вывод и форматирование](./output-formatting.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [По одному значению](./quick-api.md#top) →
 
 📖 **[Открыть на сайте документации →](https://nickliapin.github.io/tdcv2/ru/docs/core-concepts/determinism)**

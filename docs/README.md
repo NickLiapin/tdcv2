@@ -21,6 +21,7 @@
 - [Sequences](./core-concepts/sequences.md#top)
 - [Output & formatting](./core-concepts/output-formatting.md#top)
 - [Determinism & proportions](./core-concepts/determinism.md#top)
+- [One value at a time](./core-concepts/quick-api.md#top)
 
 ## Generators
 
@@ -99,7 +100,6 @@
 ## Language Bindings
 
 - [TypeScript](./bindings/typescript.md#top)
-- [One value at a time](./bindings/quick-api.md#top)
 - [Python](./bindings/python.md#top)
 - [Java](./bindings/java.md#top)
 - [C#](./bindings/csharp.md#top)

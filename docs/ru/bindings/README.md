@@ -11,7 +11,6 @@
 ---
 
 - [TypeScript](./typescript.md#top)
-- [По одному значению](./quick-api.md#top)
 - [Python](./python.md#top)
 - [Java](./java.md#top)
 - [C#](./csharp.md#top)

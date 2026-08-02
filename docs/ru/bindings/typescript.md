@@ -4,7 +4,7 @@
 
 📖 **[Открыть на сайте документации →](https://nickliapin.github.io/tdcv2/ru/docs/bindings/typescript)**
 
-← Назад: [Коды ошибок](../reference/errors.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [По одному значению](./quick-api.md#top) →
+← Назад: [Коды ошибок](../reference/errors.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Python](./python.md#top) →
 
 ---
 
@@ -162,6 +162,6 @@ console.log(tdc.getAt(1)); // мужская строка
 
 ---
 
-← Назад: [Коды ошибок](../reference/errors.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [По одному значению](./quick-api.md#top) →
+← Назад: [Коды ошибок](../reference/errors.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Python](./python.md#top) →
 
 📖 **[Открыть на сайте документации →](https://nickliapin.github.io/tdcv2/ru/docs/bindings/typescript)**

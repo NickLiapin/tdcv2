@@ -4,7 +4,7 @@
 
 📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/generators/overview)**
 
-← Previous: [Determinism & proportions](../core-concepts/determinism.md#top) · **[Contents](../README.md#top)** · Next: [Text](./text.md#top) →
+← Previous: [One value at a time](../core-concepts/quick-api.md#top) · **[Contents](../README.md#top)** · Next: [Text](./text.md#top) →
 
 ---
 
@@ -227,6 +227,6 @@ without a warning. Full rules on
 
 ---
 
-← Previous: [Determinism & proportions](../core-concepts/determinism.md#top) · **[Contents](../README.md#top)** · Next: [Text](./text.md#top) →
+← Previous: [One value at a time](../core-concepts/quick-api.md#top) · **[Contents](../README.md#top)** · Next: [Text](./text.md#top) →
 
 📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/generators/overview)**

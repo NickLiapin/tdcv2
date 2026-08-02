@@ -21,6 +21,7 @@
 - [Последовательности](./core-concepts/sequences.md#top)
 - [Вывод и форматирование](./core-concepts/output-formatting.md#top)
 - [Детерминизм и пропорции](./core-concepts/determinism.md#top)
+- [По одному значению](./core-concepts/quick-api.md#top)
 
 ## Генераторы
 
@@ -99,7 +100,6 @@
 ## Библиотеки для языков
 
 - [TypeScript](./bindings/typescript.md#top)
-- [По одному значению](./bindings/quick-api.md#top)
 - [Python](./bindings/python.md#top)
 - [Java](./bindings/java.md#top)
 - [C#](./bindings/csharp.md#top)

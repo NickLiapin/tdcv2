@@ -14,6 +14,7 @@
 - [Sequences](./sequences.md#top)
 - [Output & formatting](./output-formatting.md#top)
 - [Determinism & proportions](./determinism.md#top)
+- [One value at a time](./quick-api.md#top)
 
 ---
 

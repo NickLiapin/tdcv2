@@ -14,6 +14,7 @@
 - [Последовательности](./sequences.md#top)
 - [Вывод и форматирование](./output-formatting.md#top)
 - [Детерминизм и пропорции](./determinism.md#top)
+- [По одному значению](./quick-api.md#top)
 
 ---
 

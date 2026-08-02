@@ -254,6 +254,35 @@ the seed from the command line, without touching the file:
 tdcv2 demo.tdc --count 20 --seed alt
 ```
 
+## Or skip the config entirely
+
+A config is how you describe a whole dataset. But the same install also answers a single
+value, the way a faker does — no file, no `<env>`, one call:
+
+```typescript
+import { tdc } from 'tdcv2';
+
+tdc.person.lastName(); // Jones
+tdc.person.male.firstName(); // Robert
+tdc.common.finance.iban(); // DE62299399441396459682
+tdc.country.usa.docs.ssn(); // 699209702 — with its real check digits
+tdc.lang.ru.person.lastName(); // after `tdcv2 pack add ru`
+```
+
+Both routes read the same data packs, so the surname in a one-line call and the surname
+in a million-row config come from one list. Which one you want depends on whether the
+values have to agree with each other: a config is what ties a city to its country and
+holds a share to exactly 30%, and a single call ties nothing to anything.
+
+[The one-value API](../core-concepts/quick-api.md#top) has the whole surface — `.many(n)`,
+`seed()`, `locale()`, and the prefixes that reach a specific pack.
+
+> [!NOTE]
+> **Node.js only**
+>
+> This shortcut is part of the npm package. The Python, Java, C# and Rust implementations
+> read configs; they have no equivalent one-call API.
+
 ## Install data packs (optional)
 
 Names, cities, states, companies, and other value lists ship as **data packs**,

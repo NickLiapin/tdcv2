@@ -1,10 +1,10 @@
 <a name="top"></a>
 
-**English** · [Русский](../ru/bindings/quick-api.md#top) · [Español](../es/bindings/quick-api.md#top)
+**English** · [Русский](../ru/core-concepts/quick-api.md#top) · [Español](../es/core-concepts/quick-api.md#top)
 
-📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/bindings/quick-api)**
+📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/core-concepts/quick-api)**
 
-← Previous: [TypeScript](./typescript.md#top) · **[Contents](../README.md#top)** · Next: [Python](./python.md#top) →
+← Previous: [Determinism & proportions](./determinism.md#top) · **[Contents](../README.md#top)** · Next: [Overview](../generators/overview.md#top) →
 
 ---
 
@@ -157,12 +157,12 @@ first dataset](../getting-started/first-data.md#top).
 
 ## See also
 
-- **[TypeScript](./typescript.md#top)** — the `TDC` class, for whole datasets.
+- **[TypeScript](../bindings/typescript.md#top)** — the `TDC` class, for whole datasets.
 - **[Data packs](../data-packs/overview.md#top)** — what a pack is and how addresses are organised.
 - **[Installing packs](../data-packs/installing-packs.md#top)** — adding the other 120.
 
 ---
 
-← Previous: [TypeScript](./typescript.md#top) · **[Contents](../README.md#top)** · Next: [Python](./python.md#top) →
+← Previous: [Determinism & proportions](./determinism.md#top) · **[Contents](../README.md#top)** · Next: [Overview](../generators/overview.md#top) →
 
-📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/bindings/quick-api)**
+📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/core-concepts/quick-api)**

@@ -4,7 +4,7 @@
 
 📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/bindings/python)**
 
-← Previous: [One value at a time](./quick-api.md#top) · **[Contents](../README.md#top)** · Next: [Java](./java.md#top) →
+← Previous: [TypeScript](./typescript.md#top) · **[Contents](../README.md#top)** · Next: [Java](./java.md#top) →
 
 ---
 
@@ -47,6 +47,6 @@ snake_case.
 
 ---
 
-← Previous: [One value at a time](./quick-api.md#top) · **[Contents](../README.md#top)** · Next: [Java](./java.md#top) →
+← Previous: [TypeScript](./typescript.md#top) · **[Contents](../README.md#top)** · Next: [Java](./java.md#top) →
 
 📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/bindings/python)**

@@ -1,6 +1,11 @@
----
-title: Un valor a la vez
-sidebar_position: 2
+<a name="top"></a>
+
+[English](../../core-concepts/quick-api.md#top) · [Русский](../../ru/core-concepts/quick-api.md#top) · **Español**
+
+📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/core-concepts/quick-api)**
+
+← Anterior: [Determinismo y proporciones](./determinism.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Descripción general](../generators/overview.md#top) →
+
 ---
 
 # Un valor a la vez
@@ -18,13 +23,14 @@ tdc.person.lastName(); // Jones
 
 Ese es todo el API. Lo que sigue es esa misma llamada con algo delante.
 
-:::note[Este es el cajón de valores sueltos]
-Cada llamada es independiente. Nada aquí ata un valor a otro: ni `parent=`, ni
-`<switch>` sobre una columna sorteada, ni `uniq`, ni `<compute>`. Un **registro
-coherente** es una configuración; vea [Su primer conjunto de
-datos](../getting-started/first-data.mdx). Use esto cuando los valores de verdad no
-necesiten concordar entre sí.
-:::
+> [!NOTE]
+> **Este es el cajón de valores sueltos**
+>
+> Cada llamada es independiente. Nada aquí ata un valor a otro: ni `parent=`, ni
+> `<switch>` sobre una columna sorteada, ni `uniq`, ni `<compute>`. Un **registro
+> coherente** es una configuración; vea [Su primer conjunto de
+> datos](../getting-started/first-data.md#top). Use esto cuando los valores de verdad no
+> necesiten concordar entre sí.
 
 ## Una regla: un punto es un punto
 
@@ -70,22 +76,23 @@ tdc.country.usa.finance.aba_routing(); // 659939946
 Esos dos identificadores no solo parecen reales: llevan dígitos de control de verdad,
 los mismos que produciría una configuración.
 
-:::tip[Una dirección no instalada lo dice]
-`common`, `en` y el paquete de EE. UU. vienen con el paquete npm. Todo lo demás está a
-una descarga, y pedirlo antes de tenerlo devuelve un error con nombre, no un vacío:
-
-```ts
-tdc.lang.ru.person.lastName();
-// TdcQuickError: unknown address "ru.person.lastName" (locale "en")
-```
-
-```bash
-npx tdcv2 init
-npx tdcv2 pack add ru
-```
-
-Vea [Instalar paquetes](../data-packs/installing-packs.mdx).
-:::
+> [!TIP]
+> **Una dirección no instalada lo dice**
+>
+> `common`, `en` y el paquete de EE. UU. vienen con el paquete npm. Todo lo demás está a
+> una descarga, y pedirlo antes de tenerlo devuelve un error con nombre, no un vacío:
+>
+> ```ts
+> tdc.lang.ru.person.lastName();
+> // TdcQuickError: unknown address "ru.person.lastName" (locale "en")
+> ```
+>
+> ```bash
+> npx tdcv2 init
+> npx tdcv2 pack add ru
+> ```
+>
+> Vea [Instalar paquetes](../data-packs/installing-packs.md#top).
 
 ## Varios de una vez
 
@@ -127,7 +134,7 @@ tdc.gen.regex('[A-Z]{2}-[0-9]{4}'); // FZ-3994
 ```
 
 Cada generador y sus atributos están en [la referencia de
-generadores](../generators/number.mdx).
+generadores](../generators/number.md#top).
 
 ## Los valores siempre son cadenas
 
@@ -145,10 +152,16 @@ const age = Number(tdc.gen.number('18..80'));
 Recurra a una configuración en cuanto dos valores tengan que concordar: una ciudad que
 pertenece a su país, un total de pedido que cuadra con sus líneas, un 30% que tiene que
 ser exactamente 30%. De eso trata el resto de esta documentación, y empieza en [Su
-primer conjunto de datos](../getting-started/first-data.mdx).
+primer conjunto de datos](../getting-started/first-data.md#top).
 
 ## Vea también
 
-- **[TypeScript](./typescript.mdx)** — la clase `TDC`, para conjuntos completos.
-- **[Paquetes de datos](../data-packs/overview.mdx)** — qué es un paquete y cómo se organizan las direcciones.
-- **[Instalar paquetes](../data-packs/installing-packs.mdx)** — cómo añadir los otros 120.
+- **[TypeScript](../bindings/typescript.md#top)** — la clase `TDC`, para conjuntos completos.
+- **[Paquetes de datos](../data-packs/overview.md#top)** — qué es un paquete y cómo se organizan las direcciones.
+- **[Instalar paquetes](../data-packs/installing-packs.md#top)** — cómo añadir los otros 120.
+
+---
+
+← Anterior: [Determinismo y proporciones](./determinism.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Descripción general](../generators/overview.md#top) →
+
+📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/core-concepts/quick-api)**
