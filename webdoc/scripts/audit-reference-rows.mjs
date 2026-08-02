@@ -15,14 +15,23 @@
  * Usage:  node webdoc/scripts/audit-reference-rows.mjs
  */
 
-import { readFileSync, readdirSync, statSync } from 'node:fs';
+import { existsSync, readFileSync, readdirSync, statSync } from 'node:fs';
 import { join } from 'node:path';
 
 import { dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
 const DOCS = join(ROOT, 'webdoc', 'docs');
-const v = await import(join(ROOT, 'typescript/dist/validator/index.js'));
+// The engine's own tables, read from the build. `dist/` is a build artifact and
+// is not in the repository, so a fresh checkout has to build before this runs —
+// say that plainly instead of throwing ERR_MODULE_NOT_FOUND at the reader.
+const ENGINE = join(ROOT, 'typescript/dist/validator/index.js');
+if (!existsSync(ENGINE)) {
+  console.error('The engine is not built, and this audit reads its own tables.\n');
+  console.error('  npm --workspace typescript run build\n');
+  process.exit(2);
+}
+const v = await import(ENGINE);
 
 function walk(d, out = []) {
   for (const n of readdirSync(d)) {

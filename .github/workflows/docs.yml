@@ -46,6 +46,11 @@ jobs:
       - name: Install
         run: npm ci
 
+      # The reference audit reads the engine's own tables, so the engine has to
+      # exist before the docs can be judged against it.
+      - name: Build the engine
+        run: npm --workspace typescript run build
+
       - name: Check the docs before publishing them
         run: npm run docs:check
 
