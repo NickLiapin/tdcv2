@@ -17,6 +17,7 @@
  *   npm run fixtures:quick -- --check # fail if it would change
  */
 
+import { spawnSync } from 'node:child_process';
 import { readFileSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -67,11 +68,33 @@ const document = {
   })),
 };
 
-const rendered = `${JSON.stringify(document, null, 2)}\n`;
+/**
+ * Written the way a commit will leave it.
+ *
+ * lint-staged runs prettier over the fixture, and prettier keeps a short array on
+ * one line where `JSON.stringify` gives each element its own. Formatting only one
+ * side means the check fails on whitespace immediately after every commit — which
+ * is exactly how `quick:check` spent its life red before it was made to format
+ * both sides too.
+ */
+function formatted(value) {
+  const json = `${JSON.stringify(value, null, 2)}\n`;
+  const result = spawnSync('npx', ['prettier', '--stdin-filepath', TARGET], {
+    cwd: join(ROOT, 'typescript'),
+    input: json,
+    encoding: 'utf8',
+  });
+  return result.status === 0 ? result.stdout : json;
+}
+
+const rendered = formatted(document);
 
 if (process.argv.includes('--check')) {
   const current = readFileSync(TARGET, 'utf8');
-  if (current !== rendered) {
+  // Compared as DATA as well as text: a fixture that differs only in whitespace is
+  // the same contract, and saying otherwise would train everyone to ignore this.
+  const sameData = JSON.stringify(JSON.parse(current)) === JSON.stringify(JSON.parse(rendered));
+  if (!sameData) {
     console.error(
       'quick-vectors.json is out of date with this implementation.\n' +
         'Run `npm run fixtures:quick` and commit the result — or, if the change was ' +
