@@ -65,7 +65,7 @@ import { resolveTemplate } from '../templates/resolver.js';
 import { isDynamicTemplateValue } from '../validator/known.js';
 import { buildDynamicTemplateValues } from './dynamic-template.js';
 import { StreamUnsupportedError } from './stream-build.js';
-import { openUnit } from '../prng/seekable.js';
+import { openUnit, seekableGen } from '../prng/seekable.js';
 import { evaluateIf } from '../expr/evaluate.js';
 
 import { evaluateCompute, evaluateComputePredicate } from '../compute/index.js';
@@ -300,7 +300,17 @@ export function buildSequences(
     packs: options.packs,
     fileRowLinks: new Map<string, LinkedFileRowPlan>(),
     httpDeferred: options.httpDeferred,
+    seed: options.seed,
   };
+
+  /**
+   * The same context, told which column it is building.
+   *
+   * Independent generators derive from `(seed, streamId, row)` so this engine
+   * and the streaming one agree; everything else ignores it. A fresh object
+   * rather than a mutable field — two columns must never see each other's name.
+   */
+  const forStream = (streamId: string): SequenceBuildContext => ({ ...ctx, streamId });
 
   // Built-in positional sequences. All deterministic by iteration index,
   // so they consume zero prng state and always produce the same values
@@ -713,7 +723,9 @@ function materializeSimple(
   }
 
   const produced =
-    applicableCount === 0 ? [] : buildGenValues(gen, applicableCount, prng, locale, now, ctx);
+    applicableCount === 0
+      ? []
+      : buildGenValues(gen, applicableCount, prng, locale, now, forStreamOf(ctx, spec.name));
 
   return assembleValues(spec.name, mask, produced, count);
 }
@@ -854,6 +866,42 @@ export function streamCtx(options: SequenceBuildOptions): SequenceBuildContext {
  * timeseries, pattern) apply the same two modifiers seekably in stream-build.ts
  * (`missingAnomalyMod`).
  */
+/**
+ * Generators whose value for a row depends on nothing but that row. The
+ * streaming engine already builds these one row at a time; this list is what
+ * lets the in-memory engine do the same.
+ *
+ * Excluded on purpose, and each because it is a PLAN over the whole column
+ * rather than a draw per row — make one of these per-row and its proportions
+ * stop being exact:
+ *   `percent=` on text, `weight=` on file, a weighted choice inside
+ *   advanced_regex, and the shares a pack can declare for a `template` — so
+ *   `file`, `advanced_regex` and `template` stay off this list entirely.
+ * `order="sequential"` is excluded too: it reads the position, never the
+ * randomness. Both remaining conditions are checked below.
+ */
+/** The context, told which column it is building. See `forStream` above. */
+function forStreamOf(ctx: SequenceBuildContext, streamId: string): SequenceBuildContext {
+  return { ...ctx, streamId };
+}
+
+const PER_ROW_TYPES: ReadonlySet<string> = new Set([
+  'text',
+  'number',
+  'regex',
+  'symbol',
+  'date',
+]);
+
+/** Can this generator be built row by row? `count <= 1` is already one row. */
+function perRowBuildable(gen: GenSpec, count: number, ctx: SequenceBuildContext): boolean {
+  if (count <= 1 || ctx.seed === undefined || ctx.streamId === undefined) return false;
+  if (!PER_ROW_TYPES.has(gen.type)) return false;
+  if (gen.attrs['order'] === 'sequential') return false;
+  if (gen.type === 'text' && gen.attrs['percent'] !== undefined) return false;
+  return true;
+}
+
 export function buildGenValues(
   gen: GenSpec,
   count: number,
@@ -863,6 +911,25 @@ export function buildGenValues(
   ctx: SequenceBuildContext,
   flagTextOut?: string[],
 ): string[] {
+  // Row by row, off the very stream the streaming engine uses, so the two
+  // engines produce the same bytes from one seed. `gen-resolve.ts` already
+  // calls THIS function that way — one row, `seekableGen(seed, streamId, i)` —
+  // so there is no second implementation to keep in step, only the same one
+  // called the same way. The recursive call has count = 1, which the guard
+  // refuses, and that is what stops this from looping.
+  if (perRowBuildable(gen, count, ctx)) {
+    const seed = ctx.seed ?? '';
+    const streamId = ctx.streamId ?? '';
+    const out = new Array<string>(count);
+    for (let i = 0; i < count; i++) {
+      const flags: string[] | undefined = flagTextOut ? [] : undefined;
+      out[i] =
+        buildGenValues(gen, 1, seekableGen(seed, streamId, i), locale, now, ctx, flags)[0] ?? '';
+      if (flagTextOut && flags) flagTextOut[i] = flags[0] ?? 'false';
+    }
+    return out;
+  }
+
   const repeat = parseRepeat(gen.attrs);
   if (!repeat) {
     const flags: boolean[] | undefined = flagTextOut ? [] : undefined;

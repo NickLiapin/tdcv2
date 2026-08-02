@@ -30,6 +30,15 @@ export interface SequenceBuildContext {
    * quietly compute its quota over a single row.
    */
   readonly perRow?: boolean | undefined;
+  /** The run's seed, for anything that derives a stream of its own. */
+  readonly seed?: string | undefined;
+  /**
+   * The column being built, as the registry keys it — `Name`, or `Name.field`
+   * for a compound field. It is the stream name the per-row derivation hashes,
+   * and it must be the SAME string the streaming engine passes, or the two key
+   * their randomness differently and produce different data from one seed.
+   */
+  readonly streamId?: string | undefined;
   /**
    * Set only by the async render path. A `type="http"` generator makes a network
    * call, which cannot happen inside this synchronous builder — so it produces a
