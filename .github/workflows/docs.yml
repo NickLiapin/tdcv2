@@ -43,8 +43,13 @@ jobs:
           node-version: "20.x"
           cache: "npm"
 
+      # Two installs on purpose: webdoc/ is NOT an npm workspace of the root — it
+      # keeps its own lockfile so a Docusaurus upgrade cannot move the engine's
+      # dependencies. `npm ci` at the root does not reach it.
       - name: Install
-        run: npm ci
+        run: |
+          npm ci
+          npm --prefix webdoc ci
 
       # The reference audit reads the engine's own tables, so the engine has to
       # exist before the docs can be judged against it.
