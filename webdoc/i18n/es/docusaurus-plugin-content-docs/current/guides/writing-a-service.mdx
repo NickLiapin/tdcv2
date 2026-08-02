@@ -28,7 +28,7 @@ Para escribir uno bastan cuatro líneas de él:
 - responda con exactamente **`N` líneas**, en el mismo orden;
 - texto plano, no hace falta JSON en ninguna parte.
 
-## El servicio, en cuatro lenguajes
+## El servicio, en cinco lenguajes
 
 <Tabs groupId="lang">
 <TabItem value="node" label="Node.js" default>
@@ -307,9 +307,96 @@ while (true)
 Ejecútelo con `dotnet run` y apunte `src` a `http://127.0.0.1:5704/`.
 
 </TabItem>
+<TabItem value="rust" label="Rust">
+
+```rust
+use std::io::{BufRead, BufReader, Read, Write};
+use std::net::TcpListener;
+
+/// FNV-1a (32-bit). The same three lines in every language — that is the point.
+fn fnv1a(text: &str) -> u32 {
+    let mut h: u32 = 0x811c9dc5;
+    for b in text.bytes() {
+        h ^= u32::from(b);
+        h = h.wrapping_mul(0x01000193); // wrapping_mul keeps it 32-bit
+    }
+    h
+}
+
+/// Source mode: an 8-digit account for row `i`, decided only by (seed, i).
+fn account_for(seed: &str, i: usize) -> String {
+    format!("{:08}", fnv1a(&format!("{seed}#{i}")) % 100_000_000)
+}
+
+/// Handler mode: the Luhn check digit of what was sent.
+fn luhn(number: &str) -> String {
+    let (mut sum, mut dbl) = (0u32, true);
+    for ch in number.chars().rev() {
+        let Some(d) = ch.to_digit(10) else { continue };
+        let d = if dbl && d * 2 > 9 {
+            d * 2 - 9
+        } else if dbl {
+            d * 2
+        } else {
+            d
+        };
+        sum += d;
+        dbl = !dbl;
+    }
+    ((10 - sum % 10) % 10).to_string()
+}
+
+fn main() -> std::io::Result<()> {
+    let listener = TcpListener::bind("127.0.0.1:5705")?;
+    for stream in listener.incoming() {
+        let mut stream = stream?;
+        let mut reader = BufReader::new(stream.try_clone()?);
+
+        let (mut length, mut count, mut seed) = (0usize, 0usize, String::new());
+        loop {
+            let mut line = String::new();
+            if reader.read_line(&mut line)? == 0 || line == "\r\n" {
+                break;
+            }
+            let Some((name, value)) = line.split_once(':') else { continue };
+            match name.to_ascii_lowercase().as_str() {
+                "content-length" => length = value.trim().parse().unwrap_or(0),
+                "x-tdc-count" => count = value.trim().parse().unwrap_or(0),
+                "x-tdc-seed" => seed = value.trim().to_string(),
+                _ => {}
+            }
+        }
+
+        let mut body = vec![0u8; length];
+        reader.read_exact(&mut body)?;
+        let body = String::from_utf8_lossy(&body);
+
+        let out: Vec<String> = if body.is_empty() {
+            (0..count).map(|i| account_for(&seed, i)).collect()  // source
+        } else {
+            body.split('\n')
+                .map(|line| format!("{line}{}", luhn(line)))     // handler
+                .collect()
+        };
+
+        let payload = out.join("\n");
+        write!(
+            stream,
+            "HTTP/1.1 200 OK\r\nContent-Type: text/plain\r\nContent-Length: {}\r\n\r\n{payload}",
+            payload.len()
+        )?;
+    }
+    Ok(())
+}
+```
+
+Ejecútelo con `cargo run` y apunte `src` a `http://127.0.0.1:5705/`. Sin ninguna
+dependencia: `wrapping_mul` da la aritmética de 32 bits que FNV-1a necesita.
+
+</TabItem>
 </Tabs>
 
-Cualquiera de los cuatro, contra el mismo config:
+Cualquiera de los cinco, contra el mismo config:
 
 ```xml
 <env count="3" seed="demo">
@@ -326,7 +413,7 @@ Cualquiera de los cuatro, contra el mismo config:
 </Terminal>
 
 `Card` pasó por el manejador — la carga volvió con su dígito de control. `Acct` se inventó
-solo a partir del seed. Cambie el puerto por 5702, 5703 o 5704 y la salida es carácter por
+solo a partir del seed. Cambie el puerto por 5702, 5703, 5704 o 5705 y la salida es carácter por
 carácter la misma.
 
 ## Reproducibilidad: para qué sirve el seed
@@ -365,9 +452,9 @@ posición de garantizar nada de eso: el motor puede reintentar una petición, y 
 peticiones pueden llegar a la vez. Una función sin estado de `(seed, i)` es inmune a todo
 ello, y no cuesta más escribirla.
 
-### La trampa: 32 bits en cuatro lenguajes
+### La trampa: 32 bits en cinco lenguajes
 
-Para que los cuatro coincidan, tiene que coincidir la aritmética. Aquí es donde se rompe un
+Para que los cinco coincidan, tiene que coincidir la aritmética. Aquí es donde se rompe un
 port ingenuo, y se arregla con una línea por lenguaje:
 
 | Lenguaje | Qué mantiene el hash en 32 bits |
@@ -376,6 +463,7 @@ port ingenuo, y se arregla con una línea por lenguaje:
 | Python | `& 0xFFFFFFFF` — los enteros son de precisión arbitraria, nada se desborda solo |
 | Java | nada — la multiplicación de `int` ya da la vuelta |
 | C# | `unchecked { … }` — fuera de ahí, .NET *lanza una excepción* al desbordarse en vez de dar la vuelta |
+| Rust | `wrapping_mul` — un `*` normal *entra en pánico* al desbordar en una compilación de depuración |
 
 Olvídelo en Python y los números crecen sin fin, produciendo en silencio valores distintos
 de los demás. El propio motor de TDC tiene que resolver exactamente este problema — su

@@ -111,7 +111,7 @@ not a network round trip per value. It's also why `http` runs on the in-memory e
 and why it's best pointed at a service on your own machine, or at a run you have sized
 on purpose — not a billion rows against a distant endpoint.
 
-## A whole service, in four languages
+## A whole service, in five languages
 
 Each of these is complete and answers **both** modes: it wraps whatever you send, and
 invents values when the body is empty. Pick your language — they behave identically.
@@ -235,17 +235,68 @@ while (true)
 ```
 
 </TabItem>
+<TabItem value="rust" label="Rust">
+
+```rust
+use std::io::{BufRead, BufReader, Read, Write};
+use std::net::TcpListener;
+
+fn main() -> std::io::Result<()> {
+    let listener = TcpListener::bind("127.0.0.1:5805")?;
+    for stream in listener.incoming() {
+        let mut stream = stream?;
+        let mut reader = BufReader::new(stream.try_clone()?);
+
+        let (mut length, mut count) = (0usize, 0usize);
+        loop {
+            let mut line = String::new();
+            if reader.read_line(&mut line)? == 0 || line == "\r\n" {
+                break;
+            }
+            let lower = line.to_ascii_lowercase();
+            if let Some(v) = lower.strip_prefix("content-length:") {
+                length = v.trim().parse().unwrap_or(0);
+            } else if let Some(v) = lower.strip_prefix("x-tdc-count:") {
+                count = v.trim().parse().unwrap_or(0);
+            }
+        }
+
+        let mut sent = vec![0u8; length];
+        reader.read_exact(&mut sent)?;
+        let sent = String::from_utf8_lossy(&sent);
+
+        let out: Vec<String> = if sent.is_empty() {
+            (0..count).map(|i| format!("SRC-{i:03}")).collect()             // source
+        } else {
+            sent.split('\n').map(|line| format!("[{line} ok]")).collect()   // handler
+        };
+
+        let body = out.join("\n");
+        write!(
+            stream,
+            "HTTP/1.1 200 OK\r\nContent-Type: text/plain\r\nContent-Length: {}\r\n\r\n{body}",
+            body.len()
+        )?;
+    }
+    Ok(())
+}
+```
+
+No crates: the standard library has a TCP listener, and an HTTP request is a few
+lines of headers followed by a body.
+
+</TabItem>
 </Tabs>
 
 Start one, point `src` at its port, and run the config from
-[Two modes](#two-modes-it-generates-or-it-processes) — all four produce the same output.
+[Two modes](#two-modes-it-generates-or-it-processes) — all five produce the same output.
 
 :::danger[Read this before writing your own — it is not optional]
 The services above are the shortest thing that works. They are **not reproducible**: run
 the config twice and the invented values are whatever the service felt like.
 
 **[→ Writing a service generator](../guides/writing-a-service.mdx)** is the page that
-matters. It covers, with working code in all four languages:
+matters. It covers, with working code in all five languages:
 
 - **how to make a run reproducible** using the `X-TDC-Seed` header TDC sends you — the
   one thing that gets this generator's guarantee back;

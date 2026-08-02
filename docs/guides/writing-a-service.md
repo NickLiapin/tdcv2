@@ -27,7 +27,7 @@ Four lines of it are all you need to write one:
 - answer with exactly **`N` lines**, in the same order;
 - plain text, no JSON needed anywhere.
 
-## The service, in four languages
+## The service, in five languages
 
 #### Node.js
 
@@ -301,7 +301,93 @@ while (true)
 
 Run it with `dotnet run`, then point `src` at `http://127.0.0.1:5704/`.
 
-Any of the four, against the same config:
+#### Rust
+
+```rust
+use std::io::{BufRead, BufReader, Read, Write};
+use std::net::TcpListener;
+
+/// FNV-1a (32-bit). The same three lines in every language — that is the point.
+fn fnv1a(text: &str) -> u32 {
+    let mut h: u32 = 0x811c9dc5;
+    for b in text.bytes() {
+        h ^= u32::from(b);
+        h = h.wrapping_mul(0x01000193); // wrapping_mul keeps it 32-bit
+    }
+    h
+}
+
+/// Source mode: an 8-digit account for row `i`, decided only by (seed, i).
+fn account_for(seed: &str, i: usize) -> String {
+    format!("{:08}", fnv1a(&format!("{seed}#{i}")) % 100_000_000)
+}
+
+/// Handler mode: the Luhn check digit of what was sent.
+fn luhn(number: &str) -> String {
+    let (mut sum, mut dbl) = (0u32, true);
+    for ch in number.chars().rev() {
+        let Some(d) = ch.to_digit(10) else { continue };
+        let d = if dbl && d * 2 > 9 {
+            d * 2 - 9
+        } else if dbl {
+            d * 2
+        } else {
+            d
+        };
+        sum += d;
+        dbl = !dbl;
+    }
+    ((10 - sum % 10) % 10).to_string()
+}
+
+fn main() -> std::io::Result<()> {
+    let listener = TcpListener::bind("127.0.0.1:5705")?;
+    for stream in listener.incoming() {
+        let mut stream = stream?;
+        let mut reader = BufReader::new(stream.try_clone()?);
+
+        let (mut length, mut count, mut seed) = (0usize, 0usize, String::new());
+        loop {
+            let mut line = String::new();
+            if reader.read_line(&mut line)? == 0 || line == "\r\n" {
+                break;
+            }
+            let Some((name, value)) = line.split_once(':') else { continue };
+            match name.to_ascii_lowercase().as_str() {
+                "content-length" => length = value.trim().parse().unwrap_or(0),
+                "x-tdc-count" => count = value.trim().parse().unwrap_or(0),
+                "x-tdc-seed" => seed = value.trim().to_string(),
+                _ => {}
+            }
+        }
+
+        let mut body = vec![0u8; length];
+        reader.read_exact(&mut body)?;
+        let body = String::from_utf8_lossy(&body);
+
+        let out: Vec<String> = if body.is_empty() {
+            (0..count).map(|i| account_for(&seed, i)).collect()  // source
+        } else {
+            body.split('\n')
+                .map(|line| format!("{line}{}", luhn(line)))     // handler
+                .collect()
+        };
+
+        let payload = out.join("\n");
+        write!(
+            stream,
+            "HTTP/1.1 200 OK\r\nContent-Type: text/plain\r\nContent-Length: {}\r\n\r\n{payload}",
+            payload.len()
+        )?;
+    }
+    Ok(())
+}
+```
+
+Run it with `cargo run`, then point `src` at `http://127.0.0.1:5705/`. No crates:
+`wrapping_mul` gives the 32-bit arithmetic FNV-1a needs without a single dependency.
+
+Any of the five, against the same config:
 
 ```xml
 <env count="3" seed="demo">
@@ -320,7 +406,7 @@ Any of the four, against the same config:
 ```
 
 `Card` went through the handler — the payload came back with its check digit. `Acct` was
-invented from the seed alone. Swap the port for 5702, 5703 or 5704 and the output is
+invented from the seed alone. Swap the port for 5702, 5703, 5704 or 5705 and the output is
 character for character the same.
 
 ## Reproducibility: what the seed is for
@@ -360,9 +446,9 @@ right order, from the start, exactly once. A service can't guarantee any of that
 engine may retry a request, and requests may arrive concurrently. A stateless function of
 `(seed, i)` is immune to all of it, and it's no harder to write.
 
-### The trap: 32 bits in four languages
+### The trap: 32 bits in five languages
 
-For all four to agree, the arithmetic has to agree. This is where a naive port breaks,
+For all five to agree, the arithmetic has to agree. This is where a naive port breaks,
 and it comes down to one line per language:
 
 | Language | What keeps the hash 32-bit |
@@ -371,6 +457,7 @@ and it comes down to one line per language:
 | Python | `& 0xFFFFFFFF` — integers are arbitrary-precision, so nothing overflows on its own |
 | Java | nothing — `int` multiplication already wraps |
 | C# | `unchecked { … }` — outside it, .NET *throws* on overflow instead of wrapping |
+| Rust | `wrapping_mul` — a plain `*` *panics* on overflow in a debug build |
 
 Miss it in Python and the numbers grow forever, silently producing different values from
 the rest. TDC's own engine has to solve exactly this problem: its PRNG is written in

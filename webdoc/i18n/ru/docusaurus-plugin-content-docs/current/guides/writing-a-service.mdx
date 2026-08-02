@@ -28,7 +28,7 @@ Python или Java, чтобы он был быстрым, корректным 
 - ответить нужно ровно **`N` строками**, в том же порядке;
 - обычный текст, никакого JSON нигде не требуется.
 
-## Сервис на четырёх языках
+## Сервис на пяти языках
 
 <Tabs groupId="lang">
 <TabItem value="node" label="Node.js" default>
@@ -307,9 +307,96 @@ while (true)
 Запуск: `dotnet run`, затем направьте `src` на `http://127.0.0.1:5704/`.
 
 </TabItem>
+<TabItem value="rust" label="Rust">
+
+```rust
+use std::io::{BufRead, BufReader, Read, Write};
+use std::net::TcpListener;
+
+/// FNV-1a (32-bit). The same three lines in every language — that is the point.
+fn fnv1a(text: &str) -> u32 {
+    let mut h: u32 = 0x811c9dc5;
+    for b in text.bytes() {
+        h ^= u32::from(b);
+        h = h.wrapping_mul(0x01000193); // wrapping_mul keeps it 32-bit
+    }
+    h
+}
+
+/// Source mode: an 8-digit account for row `i`, decided only by (seed, i).
+fn account_for(seed: &str, i: usize) -> String {
+    format!("{:08}", fnv1a(&format!("{seed}#{i}")) % 100_000_000)
+}
+
+/// Handler mode: the Luhn check digit of what was sent.
+fn luhn(number: &str) -> String {
+    let (mut sum, mut dbl) = (0u32, true);
+    for ch in number.chars().rev() {
+        let Some(d) = ch.to_digit(10) else { continue };
+        let d = if dbl && d * 2 > 9 {
+            d * 2 - 9
+        } else if dbl {
+            d * 2
+        } else {
+            d
+        };
+        sum += d;
+        dbl = !dbl;
+    }
+    ((10 - sum % 10) % 10).to_string()
+}
+
+fn main() -> std::io::Result<()> {
+    let listener = TcpListener::bind("127.0.0.1:5705")?;
+    for stream in listener.incoming() {
+        let mut stream = stream?;
+        let mut reader = BufReader::new(stream.try_clone()?);
+
+        let (mut length, mut count, mut seed) = (0usize, 0usize, String::new());
+        loop {
+            let mut line = String::new();
+            if reader.read_line(&mut line)? == 0 || line == "\r\n" {
+                break;
+            }
+            let Some((name, value)) = line.split_once(':') else { continue };
+            match name.to_ascii_lowercase().as_str() {
+                "content-length" => length = value.trim().parse().unwrap_or(0),
+                "x-tdc-count" => count = value.trim().parse().unwrap_or(0),
+                "x-tdc-seed" => seed = value.trim().to_string(),
+                _ => {}
+            }
+        }
+
+        let mut body = vec![0u8; length];
+        reader.read_exact(&mut body)?;
+        let body = String::from_utf8_lossy(&body);
+
+        let out: Vec<String> = if body.is_empty() {
+            (0..count).map(|i| account_for(&seed, i)).collect()  // source
+        } else {
+            body.split('\n')
+                .map(|line| format!("{line}{}", luhn(line)))     // handler
+                .collect()
+        };
+
+        let payload = out.join("\n");
+        write!(
+            stream,
+            "HTTP/1.1 200 OK\r\nContent-Type: text/plain\r\nContent-Length: {}\r\n\r\n{payload}",
+            payload.len()
+        )?;
+    }
+    Ok(())
+}
+```
+
+Запуск: `cargo run`, дальше указать `src` на `http://127.0.0.1:5705/`. Ни одной
+зависимости: `wrapping_mul` даёт ту самую 32-битную арифметику, которая нужна FNV-1a.
+
+</TabItem>
 </Tabs>
 
-Любой из четырёх, на одном и том же конфиге:
+Любой из пяти, на одном и том же конфиге:
 
 ```xml
 <env count="3" seed="demo">
@@ -326,7 +413,7 @@ while (true)
 </Terminal>
 
 `Card` прошла через обработчик — полезная часть вернулась с контрольной цифрой. `Acct`
-придумана из одного лишь сида. Поменяйте порт на 5702, 5703 или 5704 — вывод будет символ в
+придумана из одного лишь сида. Поменяйте порт на 5702, 5703, 5704 или 5705 — вывод будет символ в
 символ тем же.
 
 ## Воспроизводимость: зачем нужен сид
@@ -367,9 +454,9 @@ new Date(); // not
 одновременно. Функция без состояния от `(сид, i)` ко всему этому невосприимчива, а писать
 её не сложнее.
 
-### Ловушка: 32 бита на четырёх языках
+### Ловушка: 32 бита на пяти языках
 
-Чтобы все четыре сошлись, должна сойтись арифметика. Именно здесь ломается наивный перенос,
+Чтобы все пять сошлись, должна сойтись арифметика. Именно здесь ломается наивный перенос,
 и лечится это одной строкой на язык:
 
 | Язык | Что удерживает хеш в 32 битах |
@@ -378,6 +465,7 @@ new Date(); // not
 | Python | `& 0xFFFFFFFF` — целые здесь неограниченной длины, само ничего не переполнится |
 | Java | ничего — умножение `int` уже заворачивается |
 | C# | `unchecked { … }` — вне него .NET на переполнении *бросает исключение*, а не заворачивает |
+| Rust | `wrapping_mul` — обычное `*` в отладочной сборке *паникует* на переполнении |
 
 Пропустите это в Python — числа будут расти бесконечно и тихо дадут значения, отличные от
 остальных. Движку TDC приходится решать ровно ту же задачу: его генератор случайных

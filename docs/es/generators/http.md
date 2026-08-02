@@ -111,7 +111,7 @@ del propio servicio, no un viaje por valor. También por eso `http` corre en el 
 memoria y conviene reservarlo para un servicio en su propia máquina, o una corrida que
 usted dimensionó a propósito — no mil millones de filas contra un endpoint lejano.
 
-## Un servicio entero, en cuatro lenguajes
+## Un servicio entero, en cinco lenguajes
 
 Cada uno está completo y responde a **ambos** modos: envuelve lo que usted manda e
 inventa valores cuando el cuerpo viene vacío. Elija su lenguaje — se comportan igual.
@@ -230,8 +230,58 @@ while (true)
 }
 ```
 
+#### Rust
+
+```rust
+use std::io::{BufRead, BufReader, Read, Write};
+use std::net::TcpListener;
+
+fn main() -> std::io::Result<()> {
+    let listener = TcpListener::bind("127.0.0.1:5805")?;
+    for stream in listener.incoming() {
+        let mut stream = stream?;
+        let mut reader = BufReader::new(stream.try_clone()?);
+
+        let (mut length, mut count) = (0usize, 0usize);
+        loop {
+            let mut line = String::new();
+            if reader.read_line(&mut line)? == 0 || line == "\r\n" {
+                break;
+            }
+            let lower = line.to_ascii_lowercase();
+            if let Some(v) = lower.strip_prefix("content-length:") {
+                length = v.trim().parse().unwrap_or(0);
+            } else if let Some(v) = lower.strip_prefix("x-tdc-count:") {
+                count = v.trim().parse().unwrap_or(0);
+            }
+        }
+
+        let mut sent = vec![0u8; length];
+        reader.read_exact(&mut sent)?;
+        let sent = String::from_utf8_lossy(&sent);
+
+        let out: Vec<String> = if sent.is_empty() {
+            (0..count).map(|i| format!("SRC-{i:03}")).collect()             // source
+        } else {
+            sent.split('\n').map(|line| format!("[{line} ok]")).collect()   // handler
+        };
+
+        let body = out.join("\n");
+        write!(
+            stream,
+            "HTTP/1.1 200 OK\r\nContent-Type: text/plain\r\nContent-Length: {}\r\n\r\n{body}",
+            body.len()
+        )?;
+    }
+    Ok(())
+}
+```
+
+Sin crates: la biblioteca estándar trae un listener TCP, y una petición HTTP son
+unas cuantas líneas de cabeceras seguidas de un cuerpo.
+
 Arranque uno, apunte `src` a su puerto y corra el config de
-[Dos modos](#dos-modos-genera-o-procesa) — los cuatro producen la misma salida.
+[Dos modos](#dos-modos-genera-o-procesa) — los cinco producen la misma salida.
 
 > [!CAUTION]
 > **Lea esto antes de escribir el suyo — no es opcional**
@@ -240,7 +290,7 @@ Arranque uno, apunte `src` a su puerto y corra el config de
 > config dos veces y los valores inventados serán los que al servicio se le ocurran.
 >
 > **[→ Escribir un generador de servicio](../guides/writing-a-service.md#top)** es la página que
-> importa. Allí, con código funcionando en los cuatro lenguajes:
+> importa. Allí, con código funcionando en los cinco lenguajes:
 >
 > - **cómo hacer que una corrida se reproduzca** usando el `X-TDC-Seed` que TDC le envía —
 >   lo único que le devuelve a este generador su garantía;

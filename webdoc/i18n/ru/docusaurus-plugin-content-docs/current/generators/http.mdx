@@ -114,7 +114,7 @@ Tokyo  ->  [Tokyo ok]    |  Made: SRC-002`}
 держать для сервиса на вашей машине или для прогона, размер которого вы прикинули
 нарочно, — а не для миллиарда строк к далёкому адресу.
 
-## Целый сервис на четырёх языках
+## Целый сервис на пяти языках
 
 Каждый из них полон и отвечает на **оба** режима: оборачивает то, что вы прислали, и
 придумывает значения, когда тело пустое. Выбирайте язык — ведут себя одинаково.
@@ -238,10 +238,61 @@ while (true)
 ```
 
 </TabItem>
+<TabItem value="rust" label="Rust">
+
+```rust
+use std::io::{BufRead, BufReader, Read, Write};
+use std::net::TcpListener;
+
+fn main() -> std::io::Result<()> {
+    let listener = TcpListener::bind("127.0.0.1:5805")?;
+    for stream in listener.incoming() {
+        let mut stream = stream?;
+        let mut reader = BufReader::new(stream.try_clone()?);
+
+        let (mut length, mut count) = (0usize, 0usize);
+        loop {
+            let mut line = String::new();
+            if reader.read_line(&mut line)? == 0 || line == "\r\n" {
+                break;
+            }
+            let lower = line.to_ascii_lowercase();
+            if let Some(v) = lower.strip_prefix("content-length:") {
+                length = v.trim().parse().unwrap_or(0);
+            } else if let Some(v) = lower.strip_prefix("x-tdc-count:") {
+                count = v.trim().parse().unwrap_or(0);
+            }
+        }
+
+        let mut sent = vec![0u8; length];
+        reader.read_exact(&mut sent)?;
+        let sent = String::from_utf8_lossy(&sent);
+
+        let out: Vec<String> = if sent.is_empty() {
+            (0..count).map(|i| format!("SRC-{i:03}")).collect()             // source
+        } else {
+            sent.split('\n').map(|line| format!("[{line} ok]")).collect()   // handler
+        };
+
+        let body = out.join("\n");
+        write!(
+            stream,
+            "HTTP/1.1 200 OK\r\nContent-Type: text/plain\r\nContent-Length: {}\r\n\r\n{body}",
+            body.len()
+        )?;
+    }
+    Ok(())
+}
+```
+
+Никаких крейтов: в стандартной библиотеке есть TCP-слушатель, а HTTP-запрос —
+это несколько строк заголовков и тело за ними.
+
+</TabItem>
 </Tabs>
 
 Запустите любой, направьте `src` на его порт и прогоните конфиг из раздела
-[Два режима](#два-режима-он-генерирует-или-он-обрабатывает) — все четыре дадут один и тот же вывод.
+[Два режима](#два-режима-он-генерирует-или-он-обрабатывает) — все пять дадут один и тот же вывод.
 
 :::danger[Прочитайте это, прежде чем писать свой, — это не опционально]
 Сервисы выше — самое короткое, что работает. Они **невоспроизводимы**: прогоните конфиг
