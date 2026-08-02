@@ -27,6 +27,43 @@ plausible columns.
 One more, for the curious: you can hand it an SVG or PNG curve and TDC will use
 the shape as the probability distribution.
 
+## Two ways to use it
+
+They are different tools that happen to share one set of data, and most people
+need both at different moments.
+
+**Reach for a value.** Import the library, call an address, get a string — the job
+a faker does. Nothing is tied to anything else.
+
+```typescript
+import { tdc } from 'tdcv2';
+
+tdc.person.lastName(); // Jones
+tdc.common.finance.iban(); // DE62299399441396459682
+tdc.country.usa.docs.ssn(); // 699209702
+```
+
+**Describe a dataset.** Write a config saying what the records are and how they
+should look, then generate as many as you want — as CSV, JSON, SQL, or a format
+you spell out yourself. This is where the exact proportions, the parent-child
+distributions and the coherent records live.
+
+```xml
+<tdc>
+  <env count="1000" seed="demo" local="en">
+    <sequence name="Status"><gen type="text" value="paid,refunded" percent="97,3"/></sequence>
+    <sequence name="Refund" parent="Status.refunded"><gen type="number" value="5..500"/></sequence>
+  </env>
+  <block><line><data>${{Status}},${{Refund}}</data></line></block>
+</tdc>
+```
+
+Exactly thirty of those thousand rows are refunds, and only those rows carry an
+amount. No sequence of loose calls gives you that.
+
+The rest of this page walks both: [one value](#just-one-value-like-a-faker) first,
+then [a first config](#a-first-config).
+
 ## Documentation
 
 📖 **[nickliapin.github.io/tdcv2](https://nickliapin.github.io/tdcv2/docs/intro)**
@@ -63,9 +100,8 @@ identifiers out of the box.
 
 ## Just one value, like a faker
 
-You do not always want a dataset. Sometimes you want a surname, on this line of a
-test. TDC answers that from the same data packs its configs draw on, so the name in
-your unit test and the name in your million-row fixture come from one list.
+The values come from the same data packs a config draws on, so the name in your
+unit test and the name in your million-row fixture come from one list.
 
 ```typescript
 import { tdc } from 'tdcv2';

@@ -1,10 +1,21 @@
+import { readFileSync } from 'node:fs';
+import { dirname, join } from 'node:path';
+import { fileURLToPath } from 'node:url';
+
 import { describe, expect, it } from 'vitest';
 
 import { SUPPORTED_DSL_VERSION, VERSION, compareVersions } from '../src/index.js';
 
+const packageJson = JSON.parse(
+  readFileSync(join(dirname(fileURLToPath(import.meta.url)), '..', 'package.json'), 'utf8'),
+) as { version: string };
+
 describe('package smoke test', () => {
+  // Read rather than repeated. The assertion used to name the version outright, so
+  // it agreed with itself and with nothing else: `npm version` moved package.json
+  // and this test went on passing while `tdcv2 --version` reported the old number.
   it('exports a version string matching package.json', () => {
-    expect(VERSION).toBe('0.1.0');
+    expect(VERSION).toBe(packageJson.version);
   });
 
   it('VERSION conforms to semver-like shape', () => {
