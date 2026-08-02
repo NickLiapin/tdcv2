@@ -31,26 +31,11 @@ import { decrementGenerator, incrementGenerator } from '../generators/counter.js
 import { dateGenerator } from '../generators/date.js';
 import { loadCsvColumnFile, loadListFile } from '../generators/file.js';
 import { formatSample, parseDistribution, sampleDistribution } from '../generators/distribution.js';
-import { readFileSync } from 'node:fs';
 
 import { applyAnomaly, parseAnomaly } from '../generators/anomaly.js';
 import { applyMissing, parseMissing } from '../generators/missing.js';
 import { numberGenerator } from '../generators/number.js';
-import {
-  corridorFromAttrs,
-  parsePoints,
-  type PatternGen,
-  asDensity,
-  parseMode,
-  patternFromEnvelope,
-  patternGenDraws,
-  patternGenValue,
-  rasterPatternGen,
-  signalCurveFromAttrs,
-  spreadFromAttrs,
-} from '../generators/pattern.js';
-import { svgEnvelope } from '../generators/svg-path.js';
-import { decodePng, isPng } from '../generators/png.js';
+import { patternGenDraws, patternGenValue } from '../generators/pattern.js';
 import { regexGenerator } from '../generators/regex.js';
 import { symbolGenerator } from '../generators/symbol.js';
 import { textUniform } from '../generators/text.js';
@@ -66,6 +51,9 @@ import { isDynamicTemplateValue } from '../validator/known.js';
 import { buildDynamicTemplateValues } from './dynamic-template.js';
 import { StreamUnsupportedError } from './stream-build.js';
 import { openUnit, seekableGen } from '../prng/seekable.js';
+import { exactTextLayout, forStreamOf, perRowBuildable } from './per-row.js';
+export { patternGenForGen } from './pattern-source.js';
+import { patternGenForGen } from './pattern-source.js';
 import { evaluateIf } from '../expr/evaluate.js';
 
 import { evaluateCompute, evaluateComputePredicate } from '../compute/index.js';
@@ -303,15 +291,6 @@ export function buildSequences(
     seed: options.seed,
   };
 
-  /**
-   * The same context, told which column it is building.
-   *
-   * Independent generators derive from `(seed, streamId, row)` so this engine
-   * and the streaming one agree; everything else ignores it. A fresh object
-   * rather than a mutable field — two columns must never see each other's name.
-   */
-  const forStream = (streamId: string): SequenceBuildContext => ({ ...ctx, streamId });
-
   // Built-in positional sequences. All deterministic by iteration index,
   // so they consume zero prng state and always produce the same values
   // for a given `count`.
@@ -379,10 +358,23 @@ export function buildSequences(
       const mask = computeParentMask(spec, registry, count);
       const applicableCount = mask.filter(Boolean).length;
       const uniqPart = uniqDrawPart(spec.items, spec.uniq === true);
-      const { composed, fields: produced } = drawComposed(spec.items, applicableCount, (item, n) =>
-        item === uniqPart
-          ? buildUniqueValues(spec.name, item.gen, n, prng, locale, ctx)
-          : buildGenValues(item.gen, n, prng, locale, now, ctx),
+      // The stream names must be the ones `buildComposedStream` gives the same
+      // body: a named field is `Name.field`, an unnamed part is `Name#pN`
+      // counted among the unnamed ones only. Numbering them any other way keys
+      // the same cell differently in the two engines.
+      let unnamed = 0;
+      const { composed, fields: produced } = drawComposed(
+        spec.items,
+        applicableCount,
+        (item, n) => {
+          const streamId =
+            item.kind === 'field'
+              ? `${spec.name}.${item.name}`
+              : `${spec.name}#p${String(unnamed++)}`;
+          return item === uniqPart
+            ? buildUniqueValues(spec.name, item.gen, n, prng, locale, ctx)
+            : buildGenValues(item.gen, n, prng, locale, now, forStreamOf(ctx, streamId, mask));
+        },
       );
 
       if (spec.distinctGroups && applicableCount > 0) {
@@ -415,7 +407,14 @@ export function buildSequences(
           field.name,
           applicableCount === 0
             ? []
-            : buildGenValues(field.gen, applicableCount, prng, locale, now, ctx),
+            : buildGenValues(
+                field.gen,
+                applicableCount,
+                prng,
+                locale,
+                now,
+                forStreamOf(ctx, `${spec.name}.${field.name}`, mask),
+              ),
         );
       }
       // `<distinct>` groups: repair collisions per row (see enforceDistinct).
@@ -482,7 +481,15 @@ export function buildSequences(
         const produced =
           applicableCount === 0
             ? []
-            : buildGenValues(spec.gen, applicableCount, prng, locale, now, ctx, flags);
+            : buildGenValues(
+                spec.gen,
+                applicableCount,
+                prng,
+                locale,
+                now,
+                forStreamOf(ctx, spec.name, mask),
+                flags,
+              );
         registry[spec.name] = assembleValues(spec.name, mask, produced, count);
         registry[flagName] = assembleValues(flagName, mask, flags, count);
       } else {
@@ -725,7 +732,7 @@ function materializeSimple(
   const produced =
     applicableCount === 0
       ? []
-      : buildGenValues(gen, applicableCount, prng, locale, now, forStreamOf(ctx, spec.name));
+      : buildGenValues(gen, applicableCount, prng, locale, now, forStreamOf(ctx, spec.name, mask));
 
   return assembleValues(spec.name, mask, produced, count);
 }
@@ -866,52 +873,6 @@ export function streamCtx(options: SequenceBuildOptions): SequenceBuildContext {
  * timeseries, pattern) apply the same two modifiers seekably in stream-build.ts
  * (`missingAnomalyMod`).
  */
-/**
- * Generators whose value for a row depends on nothing but that row. The
- * streaming engine already builds these one row at a time; this list is what
- * lets the in-memory engine do the same.
- *
- * Excluded on purpose, and each because it is a PLAN over the whole column
- * rather than a draw per row — make one of these per-row and its proportions
- * stop being exact:
- *   `percent=` on any type, `weight=` on file, a weighted choice inside
- *   advanced_regex, and the shares a pack can declare for a `template` — so
- *   `file`, `advanced_regex` and `template` stay off this list entirely.
- *   `text` too: the streaming engine spreads even an UNWEIGHTED list evenly
- *   across the column with a permutation rather than picking independently per
- *   row, so a per-row pick here would disagree with it.
- * `order="sequential"` is excluded too: it reads the position, never the
- * randomness. Both remaining conditions are checked below.
- */
-/** The context, told which column it is building. See `forStream` above. */
-function forStreamOf(ctx: SequenceBuildContext, streamId: string): SequenceBuildContext {
-  return { ...ctx, streamId };
-}
-
-const PER_ROW_TYPES: ReadonlySet<string> = new Set([
-  'number',
-  'regex',
-  'symbol',
-  'date',
-]);
-
-/** Can this generator be built row by row? `count <= 1` is already one row. */
-function perRowBuildable(gen: GenSpec, count: number, ctx: SequenceBuildContext): boolean {
-  if (count <= 1 || ctx.seed === undefined || ctx.streamId === undefined) return false;
-  if (!PER_ROW_TYPES.has(gen.type)) return false;
-  if (gen.attrs['order'] === 'sequential') return false;
-  // `percent=` on ANY type, not just text: a number can apportion its LENGTH
-  // groups the same exact way (`length="2,10-12" percent="85,15"`), and reading
-  // this as a text-only attribute turned a 15% group into 0% of the rows.
-  if (gen.attrs['percent'] !== undefined) return false;
-  // `repeat=` apportions the LENGTHS exactly across the column — how many rows
-  // get two elements, how many get five. That plan lives in
-  // `buildRepeatedValues`, further down this function, and taking the per-row
-  // path would skip it: a 15% length group came out as 0% of the rows.
-  if (gen.attrs['repeat'] !== undefined) return false;
-  return true;
-}
-
 export function buildGenValues(
   gen: GenSpec,
   count: number,
@@ -933,8 +894,9 @@ export function buildGenValues(
     const out = new Array<string>(count);
     for (let i = 0; i < count; i++) {
       const flags: string[] | undefined = flagTextOut ? [] : undefined;
+      const row = ctx.rows ? (ctx.rows[i] ?? i) : i;
       out[i] =
-        buildGenValues(gen, 1, seekableGen(seed, streamId, i), locale, now, ctx, flags)[0] ?? '';
+        buildGenValues(gen, 1, seekableGen(seed, streamId, row), locale, now, ctx, flags)[0] ?? '';
       if (flagTextOut && flags) flagTextOut[i] = flags[0] ?? 'false';
     }
     return out;
@@ -1025,6 +987,13 @@ function buildGenValuesRaw(
       const valueAttr = gen.attrs['value'] ?? '';
       const values = valueAttr.split(',').map((s) => s.trim());
       const percentAttr = gen.attrs['percent'];
+      // The streaming engine has NO separate uniform path: no `percent=` simply
+      // means equal shares, and either way it lays the values out exactly over
+      // the column and then permutes. Doing the same here is what makes a text
+      // column come out the same on every engine — and it is one mechanism, not
+      // a random pick plus a quota plan.
+      const exact = exactTextLayout(values, percentAttr, count, ctx);
+      if (exact) return exact;
       if (percentAttr) {
         const percents = expandPercentMask(percentAttr, values.length);
         return distributeByPercent({ count, values, percents, prng }).slice();
@@ -1212,67 +1181,6 @@ function buildGenValuesRaw(
     default:
       throw new Error(`sequence: gen type "${gen.type}" not yet supported`);
   }
-}
-
-/** Pattern gens are stable per render; cache so an `src` SVG file is read once. */
-const patternGenCache = new WeakMap<GenSpec, PatternGen>();
-
-/**
- * Resolve a pattern gen (cached per render). `upper` (± `lower`) → corridor;
- * otherwise `points`/`src` → a single-curve signal.
- */
-export function patternGenForGen(gen: GenSpec, dataSources: DataSourceOptions): PatternGen {
-  const cached = patternGenCache.get(gen);
-  if (cached) return cached;
-  const pg = readPatternGen(gen, dataSources);
-  // `mode="density"` asks a different question of the SAME drawing (how often a
-  // value occurs, instead of which card gets it), so it is applied once here,
-  // after whichever reader produced the curve.
-  const out = parseMode(gen.attrs['mode']) === 'density' ? asDensity(pg) : pg;
-  patternGenCache.set(gen, out);
-  return out;
-}
-
-function readPatternGen(gen: GenSpec, dataSources: DataSourceOptions): PatternGen {
-  const upperRaw = gen.attrs['upper'];
-  let pg: PatternGen;
-  if (upperRaw !== undefined && upperRaw.trim() !== '') {
-    const lowerRaw = gen.attrs['lower'];
-    const lowerPts =
-      lowerRaw !== undefined && lowerRaw.trim() !== '' ? parsePoints(lowerRaw) : undefined;
-    pg = {
-      kind: 'corridor',
-      corridor: corridorFromAttrs(gen.attrs, parsePoints(upperRaw), lowerPts),
-      spread: spreadFromAttrs(gen.attrs),
-    };
-  } else {
-    const pointsRaw = gen.attrs['points'];
-    let points: readonly (readonly [number, number])[];
-    if (pointsRaw !== undefined && pointsRaw.trim() !== '') {
-      points = parsePoints(pointsRaw);
-    } else {
-      const src = gen.attrs['src'];
-      if (src === undefined || src.trim() === '') {
-        throw new Error(
-          'sequence: <gen type="pattern"> needs "points"/"src", or "upper"[/"lower"]',
-        );
-      }
-      const path = resolveExistingDataSourcePath(src, dataSources).path;
-      const bytes = readFileSync(path);
-      if (isPng(bytes)) return rasterPatternGen(decodePng(bytes), gen.attrs);
-      // A vector file is measured exactly like a picture: highest and lowest
-      // point at each position. One stroke → exact values; two strokes or a
-      // closed outline → a band, and a file may switch from one to the other.
-      const env = svgEnvelope(bytes.toString('utf8'));
-      return patternFromEnvelope(env.top, env.bottom, gen.attrs);
-    }
-    pg = {
-      kind: 'signal',
-      curve: signalCurveFromAttrs(gen.attrs, points),
-      spread: spreadFromAttrs(gen.attrs),
-    };
-  }
-  return pg;
 }
 
 /**

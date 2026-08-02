@@ -40,6 +40,18 @@ export interface SequenceBuildContext {
    */
   readonly streamId?: string | undefined;
   /**
+   * The ABSOLUTE row each drawn position belongs to, when the column does not
+   * cover every row.
+   *
+   * A `parent="G.M"` column is built compacted — one value per applicable row,
+   * spread over the mask afterwards — but the streaming engine derives it at the
+   * row's real index. Without this, position 1 of the compacted column would be
+   * keyed as row 1 while the streaming engine keys the same cell as row 3, and
+   * the two engines part company on every filtered column. Absent means the
+   * column covers every row, so position and row are the same number.
+   */
+  readonly rows?: readonly number[] | undefined;
+  /**
    * Set only by the async render path. A `type="http"` generator makes a network
    * call, which cannot happen inside this synchronous builder — so it produces a
    * placeholder column here and an async post-pass fills it. When this flag is

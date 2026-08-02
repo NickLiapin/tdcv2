@@ -118,7 +118,11 @@ describe('mode="memory|disk" and disk-mode routing', () => {
     const mem = render(parseStrict(NORMAL), { now: NOW, mode: 'memory' });
     expect(mem).toBe(render(parseStrict(NORMAL), { now: NOW, engine: 1 }));
     // ...and the default is NOT memory anymore — it is disk (Engine 2 here).
-    expect(render(parseStrict(NORMAL), { now: NOW })).not.toBe(mem);
+    // Which engine ran can only be asserted by the router: the output no longer
+    // tells them apart, because all three now agree byte for byte.
+    expect(resolveRenderEngine({ mode: 'memory' }, [], [])).toBe(1);
+    expect(resolveRenderEngine({}, [], [])).toBe(2);
+    expect(render(parseStrict(NORMAL), { now: NOW })).toBe(mem);
   });
 
   it('mode="disk" auto-runs Engine 3 for percent+uniq — exact marginals + distinct', () => {
