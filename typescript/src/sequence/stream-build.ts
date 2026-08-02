@@ -115,9 +115,6 @@ export interface EnvGroups {
   readonly distinct: readonly (readonly string[])[];
 }
 
-/** Largest combination count `uniq` can index exactly with double arithmetic. */
-const SAFE_UNIQ_CAP = 2 ** 52;
-
 export function buildLazyRegistry(
   specs: readonly SequenceSpec[],
   count: number,
@@ -137,19 +134,20 @@ export function buildLazyRegistry(
   };
   const parents = new Map<string, ParentCapable>();
 
-  // Env-level `<uniq>`: build the wrapped members together via mixed-radix and
-  // register them under their bare names; skip their independent build below.
-  const specByName = new Map(specs.map((s) => [s.name, s]));
-  const envUniqMembers = new Set<string>();
+  // A `<uniq>` group REARRANGES whole columns so each keeps its multiset — a
+  // promise about the finished column, which no engine can keep a row at a
+  // time. This one could only offer something else (a bijection over the
+  // combination space, uniform over combinations, ignoring the values actually
+  // drawn), and one seed would then mean two datasets. It says so instead. The
+  // router sends every uniq to the exact engine; this is the backstop for a
+  // forced one.
   for (const group of envGroups.uniq) {
-    const built = buildEnvUniq(group, specByName, count, seed);
-    Object.assign(registry, built);
-    for (const name of Object.keys(built)) envUniqMembers.add(name);
+    throw unsupported('<uniq> across sequences (a whole-column rearrangement)', group.join(' × '));
   }
 
-  for (const spec of specs) {
-    if (envUniqMembers.has(spec.name)) continue; // built by its <uniq> group above
+  const specByName = new Map(specs.map((s) => [s.name, s]));
 
+  for (const spec of specs) {
     // A reference to a <pool>. The table was computed before the run, so only
     // the per-row PICK happens here — and it is seekable, so it costs the
     // streaming engines nothing. A reference under a parent needs the parent's
@@ -176,10 +174,10 @@ export function buildLazyRegistry(
     }
 
     if (spec.uniq) {
-      Object.assign(
-        registry,
-        exactUniq ? buildExactCompoundUniq(spec, count, seed) : buildStreamUniq(spec, count, seed),
-      );
+      // Same rule as the env-level groups above: only the exact engine can
+      // rearrange a finished column.
+      if (!exactUniq) throw unsupported('uniq (a whole-column rearrangement)', spec.name);
+      Object.assign(registry, buildExactCompoundUniq(spec, count, seed));
       continue;
     }
 
@@ -1070,110 +1068,6 @@ function distinctValues(list: readonly string[]): string[] {
   return out;
 }
 
-/** One uniq column: a registry id and the finite pool of values it draws from. */
-interface UniqColumn {
-  readonly id: string;
-  readonly pool: readonly string[];
-}
-
-/**
- * Mixed-radix uniq over the given columns → `id → resolve`. The columns become
- * digits of one number: capacity = Π(pool sizes), `permute(i, capacity)` gives
- * row `i` a UNIQUE combination index (bijection → no repeats), decoded per
- * column as `⌊c / prefixⱼ⌋ mod nⱼ`. Uniform distinct combinations, no array.
- * `label` names the group in errors; `keyId` seeds its permutation.
- */
-function streamUniqColumns(
-  columns: readonly UniqColumn[],
-  count: number,
-  seed: string,
-  keyId: string,
-  label: string,
-): Record<string, Sequence> {
-  // Capacity = Π pool sizes; the prefix product per column is its radix place.
-  const prefixes: number[] = [];
-  let capacity = 1;
-  for (const c of columns) {
-    prefixes.push(capacity);
-    capacity *= c.pool.length;
-    if (capacity > SAFE_UNIQ_CAP) {
-      throw new Error(
-        `stream mode: uniq ${label} has more than 2^52 possible combinations — ` +
-          'too many to index exactly. Reduce columns/values, or use the in-memory engine.',
-      );
-    }
-  }
-  if (count > capacity) {
-    throw new Error(
-      `stream mode: uniq ${label} is infeasible — only ${String(capacity)} distinct ` +
-        `combinations exist, but ${String(count)} unique rows were requested.`,
-    );
-  }
-
-  const key = permuteKey(seed, keyId);
-  const combAt = (i: number): number => permute(i, capacity, key);
-
-  const out: Record<string, Sequence> = {};
-  columns.forEach((c, j) => {
-    const prefix = prefixes[j] ?? 1;
-    const n = c.pool.length;
-    out[c.id] = lazy(c.id, (i) => c.pool[Math.floor(combAt(i) / prefix) % n]);
-  });
-  return out;
-}
-
-/** Read a finite text pool from a gen, rejecting percent/non-text (see uniqPercentError). */
-function uniqPoolFromGen(gen: GenSpec, columnLabel: string, name: string): string[] {
-  if (gen.type !== 'text') {
-    throw unsupported(`uniq column ${columnLabel} of type "${gen.type}" (only text lists)`, name);
-  }
-  const percent = gen.attrs['percent'];
-  if (percent !== undefined && percent.length > 0) throw uniqPercentError(columnLabel);
-  const pool = distinctValues((gen.attrs['value'] ?? '').split(',').map((s) => s.trim()));
-  if (pool.length === 0)
-    throw unsupported(`uniq column ${columnLabel} with an empty value list`, name);
-  return pool;
-}
-
-/**
- * Percent-weighted uniq can't be produced lazily: exact percentages and
- * all-tuples-distinct are two different by-construction tricks that don't
- * combine without materialising the data (the in-memory engine's heuristic
- * builder + global swap-repair). So streaming uniq is uniform-only.
- */
-function uniqPercentError(columnLabel: string): StreamUnsupportedError {
-  // A StreamUnsupportedError (not a plain Error) so the disk engines' fallback
-  // catches it: env-level <uniq>+percent isn't wired into Engine 3's exact path
-  // yet, so it must fall back to the in-memory engine rather than crash.
-  return new StreamUnsupportedError(
-    `stream mode: uniq column ${columnLabel} uses percent — streaming uniq gives UNIFORM ` +
-      'distinct combinations only. Exact percentages + uniqueness together need the ' +
-      'in-memory engine (run without mode="stream"), or drop percent.',
-  );
-}
-
-/**
- * Compound `uniq="true"`: the fields are the uniq columns, registered under
- * `Name.field`. Parented uniq stays on the in-memory engine.
- */
-function buildStreamUniq(
-  spec: SequenceSpec,
-  count: number,
-  seed: string,
-): Record<string, Sequence> {
-  // A simple uniq draws WITHOUT REPLACEMENT over the whole column — state the
-  // streaming engines cannot hold row by row. The router sends auto/disk mode
-  // to the in-memory engine; this refusal is the backstop for a forced one.
-  if (!spec.gens) throw unsupported('uniq on a simple sequence (a whole-column draw)', spec.name);
-  if (spec.parent) throw unsupported('uniq combined with a parent', spec.name);
-
-  const columns = spec.gens.map((f) => ({
-    id: `${spec.name}.${f.name}`,
-    pool: uniqPoolFromGen(f.gen, `"${spec.name}.${f.name}"`, spec.name),
-  }));
-  return streamUniqColumns(columns, count, seed, `${spec.name}#uniq`, `"${spec.name}"`);
-}
-
 /**
  * Engine 3 compound `uniq="true"`: keep each field's EXACT percentages and
  * verify the tuples are unique (arrangeExactUniq). Parented / non-text uniq
@@ -1209,29 +1103,4 @@ function buildExactCompoundUniq(
     return { id: `${spec.name}.${f.name}`, values, percents };
   });
   return arrangeExactUniq(fields, count, seed, `"${spec.name}"`);
-}
-
-/**
- * Env-level `<uniq>` (Form B): the wrapped sequences are the uniq columns,
- * registered under their bare names. Each member must be a simple top-level
- * text sequence (uniform); parented / compound / switch / percent members stay
- * on the in-memory engine.
- */
-function buildEnvUniq(
-  group: readonly string[],
-  specByName: Map<string, SequenceSpec>,
-  count: number,
-  seed: string,
-): Record<string, Sequence> {
-  const label = `<${group.join(' × ')}>`;
-  const columns = group.map((name) => {
-    const member = specByName.get(name);
-    if (!member) throw unsupported(`<uniq> member "${name}" (no such sequence)`, group.join('+'));
-    if (member.parent) throw unsupported(`<uniq> member "${name}" with a parent`, name);
-    if (!member.gen) {
-      throw unsupported(`<uniq> member "${name}" (must be a simple text sequence)`, name);
-    }
-    return { id: name, pool: uniqPoolFromGen(member.gen, `"${name}"`, name) };
-  });
-  return streamUniqColumns(columns, count, seed, `#uniq#${group.join(',')}`, label);
 }

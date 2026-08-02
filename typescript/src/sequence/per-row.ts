@@ -17,6 +17,7 @@ import { expandPercentMask } from '../distribution/percent-mask.js';
 import { permute, permuteKey } from '../prng/permute.js';
 import { createPrng } from '../prng/prng.js';
 
+import { advancedRegexHasWeightedChoice } from '../generators/advanced-regex.js';
 import { resolvePackAddress } from '../data-pack/locales.js';
 import { resolveExistingDataSourcePath } from '../data-source/index.js';
 import { loadWeightedValues, weightColumnOf } from '../generators/weighted.js';
@@ -133,6 +134,12 @@ export function perRowBuildable(
   if (gen.attrs['weight'] !== undefined) return false;
   if (weightedTemplatePack(gen, ctx.packs, gen.attrs['local'] ?? locale) !== undefined)
     return false;
+  // A weighted choice inside an advanced_regex — `(?%{RU:70|US:20|DE:10})` —
+  // is a quota over the whole column like any other share. Decided one row at
+  // a time it awards every row to the largest share: 100% RU, not 70/20/10.
+  if (gen.type === 'advanced_regex' && advancedRegexHasWeightedChoice(gen.attrs['value'] ?? '')) {
+    return false;
+  }
   // A pack GENERATOR may declare a share too. Its values are computed rather
   // than listed, so there is no list to lay out — the whole column is built at
   // once or the quota is wrong, and the streaming engine refuses it outright.

@@ -829,22 +829,24 @@ function specsUseWeightedRowLink(specs: readonly SequenceSpec[]): boolean {
 
 /**
  * True if the config needs Engine 3 rather than Engine 2 for disk mode — i.e.
- * it uses something Engine 2 can't do lazily: a percent-weighted or parented
- * `uniq` (exact % + uniqueness together), a non-text uniq field, a parent-child
- * whose parent isn't a finite text sequence, or an `advanced_regex` weighted
- * choice `(?%{…})` (exact percentages need the whole column). Everything else
- * (exact %, uniform uniq, switch, distinct, text parent-child) streams fine on
- * Engine 2.
+ * it uses something Engine 2 can't do lazily: ANY `uniq`, a parent-child whose
+ * parent isn't a finite text sequence, or an `advanced_regex` weighted choice
+ * `(?%{…})` (exact percentages need the whole column). Everything else (exact
+ * %, switch, distinct, text parent-child) streams fine on Engine 2.
+ *
+ * `uniq` is here in full, and that is a deliberate cost. A group REARRANGES the
+ * columns it covers — every column keeps its multiset, so every declared share
+ * survives — and that cannot be decided a row at a time. Engine 2 could only
+ * offer a different answer: a mixed-radix bijection over the whole combination
+ * space, which is uniform over combinations and discards the values actually
+ * drawn. Two engines, two datasets from one seed. Sending uniq to Engine 3
+ * costs a uniq config the lazy path and buys back one answer everywhere.
  */
 export function needsExactEngine(
   specs: readonly SequenceSpec[],
   envUniqGroups: readonly (readonly string[])[],
 ): boolean {
   const specByName = new Map(specs.map((s) => [s.name, s]));
-  const hasPercent = (gen: { readonly attrs: AttrMap }): boolean => {
-    const pct = gen.attrs['percent'];
-    return pct !== undefined && pct !== '';
-  };
   const parentIsFiniteText = (ref: string): boolean =>
     specByName.get(ref.split('.')[0] ?? ref)?.gen?.type === 'text';
   // A weighted-choice advanced_regex can't be materialized lazily (see the
@@ -858,12 +860,7 @@ export function needsExactEngine(
     gen.type === 'advanced_regex' && advancedRegexHasWeightedChoice(gen.attrs['value'] ?? '');
 
   for (const spec of specs) {
-    if (spec.uniq) {
-      if (spec.parent) return true;
-      for (const field of spec.gens ?? []) {
-        if (field.gen.type !== 'text' || hasPercent(field.gen)) return true;
-      }
-    }
+    if (spec.uniq) return true;
     if (spec.gen && isWeightedAdvancedRegex(spec.gen)) return true;
     for (const field of spec.gens ?? []) {
       if (isWeightedAdvancedRegex(field.gen)) return true;
@@ -871,16 +868,7 @@ export function needsExactEngine(
     // A child whose parent isn't a finite text sequence — Engine 2 can't nest there.
     if (spec.parent && !parentIsFiniteText(spec.parent)) return true;
   }
-  for (const group of envUniqGroups) {
-    for (const name of group) {
-      const member = specByName.get(name);
-      if (!member) continue;
-      if (member.parent) return true;
-      const gen = member.gen;
-      if (gen?.type !== 'text') return true; // non-text / switch member → Engine 3
-      if (hasPercent(gen)) return true;
-    }
-  }
+  if (envUniqGroups.length > 0) return true;
   return false;
 }
 
