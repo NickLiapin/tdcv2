@@ -9,7 +9,21 @@
 
 export const VERSION = '0.1.3';
 
-export const SUPPORTED_DSL_VERSION = VERSION;
+/**
+ * The newest DSL dialect this runtime understands — deliberately NOT `VERSION`.
+ *
+ * A package version moves for a fixed error message or a rewritten README; the
+ * language does not. Tying the two meant every patch release quietly raised the
+ * ceiling here while the four ports stayed where the language actually was, so
+ * `<tdc version="0.1.3">` ran in TypeScript and was refused with `TDC005` by
+ * Python, Java, C# and Rust — the same config, five implementations, two
+ * answers.
+ *
+ * Raise this only when the DSL itself gains something: a tag, an attribute, a
+ * value a previous runtime could not have understood. Then raise it in all five
+ * at once, and the shared diagnostic case will say so if one is forgotten.
+ */
+export const SUPPORTED_DSL_VERSION = '0.1.0';
 
 export type VersionComparison = -1 | 0 | 1;
 

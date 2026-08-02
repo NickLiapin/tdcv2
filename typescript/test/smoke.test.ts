@@ -22,8 +22,13 @@ describe('package smoke test', () => {
     expect(VERSION).toMatch(/^\d+\.\d+\.\d+/);
   });
 
-  it('uses the runtime version as the current DSL compatibility ceiling', () => {
-    expect(SUPPORTED_DSL_VERSION).toBe(VERSION);
+  it('keeps the DSL ceiling separate from the package version', () => {
+    // They moved together once, so every patch release raised the ceiling here
+    // while the four ports stayed where the language was — and the same config
+    // ran in one implementation and was refused by four. The ceiling rises only
+    // when the DSL gains something, and then in all five at once.
+    expect(SUPPORTED_DSL_VERSION).toBe('0.1.0');
+    expect(compareVersions(SUPPORTED_DSL_VERSION, VERSION)).not.toBe(1);
   });
 
   it('compares document versions numerically', () => {

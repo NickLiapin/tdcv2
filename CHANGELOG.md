@@ -93,6 +93,18 @@ All five implementations released together at one version number.
   all five, with three shared diagnostic cases and a runtime fixture holding them
   there.
 
+- **The DSL version ceiling was tied to the package version, in one
+  implementation only.** `<tdc version="0.1.3">` ran under TypeScript and was
+  refused with `TDC005` by Python, Java, C# and Rust — the same config, five
+  implementations, two answers. A package version moves for a fixed message or a
+  rewritten README; the language does not, so every patch release quietly raised
+  the reference's ceiling while the ports stayed where the DSL actually was.
+
+  The two are separate now. The ceiling is `0.1.0` in all five — the current
+  dialect — and rises only when the DSL gains something a previous runtime could
+  not have understood, in all five at once. Two shared diagnostic cases say so if
+  one is forgotten.
+
 ### Changed
 
 - **Every package now carries a version and the metadata to publish it.** The C#

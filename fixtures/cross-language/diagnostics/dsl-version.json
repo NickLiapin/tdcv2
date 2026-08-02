@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "$comment": "The DSL version ceiling, which is NOT the package version. A package version moves for a fixed message or a rewritten README; the language does not. The reference tied the two, so every patch release raised its ceiling while the four ports stayed where the language actually was — `<tdc version=\"0.1.3\">` ran in TypeScript and was refused with TDC005 by the other four. These cases make the ceiling a shared fact: raising it in one implementation and not the rest fails here.",
+  "cases": [
+    {
+      "name": "the-current-dialect-is-accepted",
+      "demonstrates": "",
+      "description": "0.1.0 is the DSL every implementation understands today",
+      "config": "<tdc version=\"0.1.0\"><env count=\"2\" seed=\"v\"><sequence name=\"N\"><gen type=\"number\" value=\"1..9\"/></sequence></env><block><line><data>${{N}}</data></line></block></tdc>",
+      "expected": []
+    },
+    {
+      "name": "a-newer-dialect-is-refused",
+      "demonstrates": "TDC005",
+      "description": "A document from a future runtime must not be processed as though it were understood",
+      "config": "<tdc version=\"0.1.3\"><env count=\"2\" seed=\"v\"><sequence name=\"N\"><gen type=\"number\" value=\"1..9\"/></sequence></env><block><line><data>${{N}}</data></line></block></tdc>",
+      "expected": ["error TDC005 1:14"]
+    }
+  ]
+}
