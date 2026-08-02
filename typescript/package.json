@@ -60,6 +60,7 @@
     "!dist/**/*.map",
     "data",
     "README.md",
+    "CHANGELOG.md",
     "LICENSE"
   ],
   "scripts": {

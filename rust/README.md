@@ -73,6 +73,47 @@ A sequence that does not apply to a row returns `None`, never `Some("")` — a
 column declared `parent="Gender.Male"` has no value on a female row, and an
 empty string would claim it had one that happened to be blank.
 
+## One value, without a config
+
+Sometimes a test wants a name, not a dataset. The quick API answers from the same
+data packs a config draws on, so the name in a unit test and the name in a
+million-row fixture come from one list.
+
+```rust
+use tdcv2::quick::Quick;
+
+let mut tdc = Quick::new();
+
+tdc.get("person.lastName")?;            // Jones
+tdc.get("person.male.firstName")?;      // Robert
+tdc.get("usa.docs.ssn")?;               // 699209702 — with its real check digits
+tdc.many("person.lastName", 5)?;        // five of them
+tdc.gen("number", &[("value", "18..80")])?;
+```
+
+Values are random per process. Pin a seed when the value should be part of the
+test rather than a variable in it — and `Quick::seeded` builds a NEW value, so two
+tests can hold two seeds at once:
+
+```rust
+let mut demo = Quick::seeded("demo").locale("en");
+demo.get("person.lastName")?;           // Jones, today and next year
+```
+
+The address is spelled the way the pack spells it: `person.male.firstName` here is
+`person.male.firstName` in a config and in the reference. A bare address is read
+against the active locale; write `ru.person.lastName` to name a pack outright.
+
+**Why a string and not `tdc.person().last_name()`.** That shape needs a generated
+function per address, and a generated surface can only ever cover the packs
+compiled into the binary. Most packs are downloaded at runtime — ten languages,
+ninety-odd countries — so `tdc.lang().ru()` would not exist for the pack a user
+had just installed, while `get("ru.person.lastName")` works the moment the
+download finishes.
+
+Every call is independent: nothing here ties one value to another. The moment two
+values have to agree, you want a config.
+
 ## The command line
 
 ```bash

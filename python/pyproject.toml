@@ -75,7 +75,7 @@ dependencies = ["antlr4-python3-runtime==4.13.2"]
 Homepage = "https://nickliapin.github.io/tdcv2/"
 Documentation = "https://nickliapin.github.io/tdcv2/docs/bindings/python"
 Repository = "https://github.com/NickLiapin/tdcv2"
-Changelog = "https://github.com/NickLiapin/tdcv2/blob/main/CHANGELOG.md"
+Changelog = "https://github.com/NickLiapin/tdcv2/blob/main/python/CHANGELOG.md"
 Issues = "https://github.com/NickLiapin/tdcv2/issues"
 
 [project.optional-dependencies]

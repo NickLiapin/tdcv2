@@ -86,6 +86,47 @@ Packs are found without configuration: `TDCV2_PACKS`, else a `packs` folder besi
 else the repository's own `data/packs` found by walking upward. Everything past the starter set
 comes from the shared registry the other three implementations read.
 
+## One value, without a config
+
+Sometimes a test wants a name, not a dataset. The quick API answers from the same
+data packs a config draws on, so the name in a unit test and the name in a
+million-row fixture come from one list.
+
+```csharp
+using Tdcv2.Quick;
+
+dynamic tdc = Quick.Tdc;
+
+tdc.person.lastName();                  // Jones
+tdc.person.male.firstName();            // Robert
+tdc.country.usa.docs.ssn();             // 699209702 — with its real check digits
+tdc.person.lastName.many(5);            // five of them
+tdc.gen.number("18..80");               // "66"
+```
+
+Values are random per process. Pin a seed when the value should be part of the
+test rather than a variable in it — and `seed()` returns a NEW object, so two
+tests can hold two seeds at once:
+
+```csharp
+dynamic demo = Quick.Seed("demo").locale("en");
+demo.person.lastName();                 // Jones, today and next year
+```
+
+The segments are camelCase because they are the names the data already has, not
+names this library chose: a dot in the code is a dot in the address, the same
+address a config writes. A bare address is read against the active locale;
+`lang.ru.…` and `country.usa.…` name a pack outright.
+
+This is the one `dynamic` part of the library, and deliberately: an address is a
+path through data, not a fixed set of members, and generating a class per pack
+folder would put a hundred thousand lines of nothing in the assembly. The cost is
+that a misspelled address is caught when it runs — so the message it throws names
+the nearest real address.
+
+Every call is independent: nothing here ties one value to another. The moment two
+values have to agree, you want a config.
+
 ## The command line
 
 .NET's answer to npm's `bin` is a tool package, so that is what it is:

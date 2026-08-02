@@ -76,6 +76,47 @@ The jar ships a starter pack set only — `common`, `en`, and the USA country pa
 else comes from the shared registry on demand, the same one the command-line tool and the
 Python library read: `DataPacks.install(projectDir, "ru", "france")`.
 
+## One value, without a config
+
+Sometimes a test wants a name, not a dataset. The quick API answers from the same
+data packs a config draws on, so the name in a unit test and the name in a
+million-row fixture come from one list.
+
+```java
+import io.github.nickliapin.tdc.quick.Quick;
+
+Quick tdc = Quick.tdc();
+
+tdc.get("person.lastName");             // Jones
+tdc.get("person.male.firstName");       // Robert
+tdc.get("usa.docs.ssn");                // 699209702 — with its real check digits
+tdc.many("person.lastName", 5);         // five of them
+tdc.gen("number", Map.of("value", "18..80"));
+```
+
+Values are random per process. Pin a seed when the value should be part of the
+test rather than a variable in it — and `seed()` returns a NEW object, so two
+tests can hold two seeds at once:
+
+```java
+Quick demo = Quick.tdc().seed("demo").locale("en");
+demo.get("person.lastName");            // Jones, today and next year
+```
+
+The address is spelled the way the pack spells it: `person.male.firstName` here is
+`person.male.firstName` in a config and in the reference. A bare address is read
+against the active locale; write `ru.person.lastName` to name a pack outright.
+
+**Why a string and not `tdc.person().lastName()`.** That shape needs a generated
+method per address, and a generated surface can only ever cover the packs inside
+the jar. Most packs are downloaded at runtime — ten languages, ninety-odd
+countries — so `tdc.lang().ru()` would not exist for the pack a user had just
+installed, while `get("ru.person.lastName")` works the moment the download
+finishes.
+
+Every call is independent: nothing here ties one value to another. The moment two
+values have to agree, you want a config.
+
 ## The command line
 
 Maven has no equivalent of npm's `bin` — adding a library to a project does not put a command on
