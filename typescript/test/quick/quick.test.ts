@@ -109,6 +109,38 @@ describe('quick API', () => {
     }
   });
 
+  it('says a pack is missing rather than guessing at a typo', () => {
+    // npm ships `common`, `en` and `usa`; the other hundred-odd packs are
+    // downloaded. So the FIRST thing a reader tries from the landing page —
+    // `tdc.lang.ru.person.lastName()` on a fresh install — used to answer
+    // "did you mean en.person.lastName?", which suggests English to someone
+    // who asked for Russian. `af` stands in for that here, because a repo
+    // checkout has every pack and `ru` therefore resolves.
+    const draw = new QuickDraw('m', 'en');
+    try {
+      draw.draw({ type: 'template', attrs: { value: 'af.person.lastName' } }, 1);
+      expect.unreachable('should have thrown');
+    } catch (error) {
+      const message = (error as Error).message;
+      expect(message).toContain('"af" pack is not installed');
+      expect(message).toContain('tdcv2 pack add af');
+      // The wrong answer, specifically: never propose another language.
+      expect(message).not.toContain('Did you mean');
+    }
+  });
+
+  it('still names the nearest address when the pack IS installed', () => {
+    // The other side of the same fork: `usa` is bundled, so a typo in the tail
+    // is a typo, not a missing pack.
+    const draw = new QuickDraw('m', 'en');
+    try {
+      draw.draw({ type: 'template', attrs: { value: 'usa.docs.sn' } }, 1);
+      expect.unreachable('should have thrown');
+    } catch (error) {
+      expect((error as Error).message).toContain('Did you mean "usa.docs.ssn"');
+    }
+  });
+
   it('refuses a count that is not a positive whole number', () => {
     expect(() => tdc.seed('c').locale('en').person.lastName.many(0)).toThrow(TdcQuickError);
     expect(() => tdc.seed('c').locale('en').person.lastName.many(1.5)).toThrow(TdcQuickError);

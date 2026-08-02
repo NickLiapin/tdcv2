@@ -20,7 +20,13 @@
  * continues without bound and stays reproducible from the same starting seed.
  */
 
-import { scanPacks, bundledPacksDir } from '../data-pack/index.js';
+import { loadConfig } from '../config/config.js';
+import {
+  scanPacks,
+  bundledPacksDir,
+  CANONICAL_LOCALES,
+  CANONICAL_COUNTRIES,
+} from '../data-pack/index.js';
 import { TDC, type TdcObjectRow } from '../lib/index.js';
 
 /**
@@ -121,6 +127,36 @@ export function nearestAddress(typed: string, locale: string): string | undefine
 }
 
 /**
+ * The pack an address names, when that pack is real but not on this machine.
+ *
+ * npm carries a starter set — `common`, `en`, `usa` — and the registry carries
+ * the other hundred-odd. So `tdc.lang.ru.person.lastName()` on a fresh install
+ * fails not because `ru` is a typo but because `ru` has not been downloaded
+ * yet, and answering it with "did you mean en.person.lastName?" answers a
+ * question the caller did not ask: they wanted Russian.
+ *
+ * Only a leading segment that IS a known pack and has NO address under it
+ * qualifies. A typo in the tail of an installed pack (`ru.person.lastNam`)
+ * leaves the pack reachable, and falls through to the "did you mean" path.
+ */
+function uninstalledPack(address: string): string | undefined {
+  const first = address.split('.')[0];
+  if (first === undefined || first === '') return undefined;
+  if (!CANONICAL_LOCALES.has(first) && !CANONICAL_COUNTRIES.has(first)) return undefined;
+  // The same roots the draw itself used: bundled packs plus whatever the
+  // project's `tdcv2.config.json` registered. Anything else would report a
+  // pack as missing that the very next call resolves.
+  const roots = [bundledPacksDir(), ...loadConfig({ cwd: process.cwd() }).dataPaths].filter(
+    (p): p is string => p !== undefined,
+  );
+  const prefix = `${first}.`;
+  for (const known of scanPacks(roots).registry.keys()) {
+    if (known.startsWith(prefix)) return undefined;
+  }
+  return first;
+}
+
+/**
  * Streams held open per generator, for one seed and one locale.
  *
  * Keyed by the generator and its attributes: two different addresses draw
@@ -180,6 +216,14 @@ export class QuickDraw {
     if (spec.type !== 'template') return error instanceof Error ? error : new Error(String(error));
     const address = spec.attrs['value'] ?? '';
     const locale = this.locale ?? 'en';
+    const missing = uninstalledPack(address);
+    if (missing !== undefined) {
+      return new TdcQuickError(
+        `the "${missing}" pack is not installed, so "${address}" cannot be drawn. ` +
+          `Install it with \`npx tdcv2 pack add ${missing}\` ` +
+          '(run `npx tdcv2 init` once first, to say where packs go).',
+      );
+    }
     const near = nearestAddress(address, locale);
     return new TdcQuickError(
       `unknown address "${address}" (locale "${locale}")` +

@@ -9,6 +9,20 @@ Per-language-implementation changes (TypeScript, Python, Java) are additionally
 tracked in each implementation directory's own `CHANGELOG.md` once they begin to
 publish to their respective package registries.
 
+## [Unreleased]
+
+### Fixed
+
+- **A missing pack now says it is missing, instead of proposing another
+  language.** npm ships a starter set — `common`, `en`, `usa` — and the registry
+  carries the other hundred-odd, so `tdc.lang.ru.person.lastName()` on a fresh
+  install has no `ru` to draw from. It answered `unknown address
+"ru.person.lastName" (locale "en"). Did you mean "en.person.lastName"?`, which
+  suggests English to someone who asked for Russian and reads like the address
+  was a typo. When the leading segment names a real pack that is not reachable,
+  the message now names the pack and the command that installs it. A typo inside
+  an installed pack still gets the nearest address, as before.
+
 ## [0.1.1] — 2026-08-02
 
 ### Changed
