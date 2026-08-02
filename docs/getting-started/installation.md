@@ -2,6 +2,8 @@
 
 **English** · [Русский](../ru/getting-started/installation.md#top) · [Español](../es/getting-started/installation.md#top)
 
+📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/getting-started/installation)**
+
 ← Previous: [Introduction](../intro.md#top) · **[Contents](../README.md#top)** · Next: [Your first dataset](./first-data.md#top) →
 
 ---
@@ -297,3 +299,5 @@ full workflow (the config file, pack shadowing, removing packs) is covered in
 ---
 
 ← Previous: [Introduction](../intro.md#top) · **[Contents](../README.md#top)** · Next: [Your first dataset](./first-data.md#top) →
+
+📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/getting-started/installation)**

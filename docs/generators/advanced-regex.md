@@ -2,6 +2,8 @@
 
 **English** · [Русский](../ru/generators/advanced-regex.md#top) · [Español](../es/generators/advanced-regex.md#top)
 
+📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/generators/advanced-regex)**
+
 ← Previous: [Regex](./regex.md#top) · **[Contents](../README.md#top)** · Next: [Increment & Decrement](./counters.md#top) →
 
 ---
@@ -583,3 +585,5 @@ Until they ship, model cross-field logic with a
 ---
 
 ← Previous: [Regex](./regex.md#top) · **[Contents](../README.md#top)** · Next: [Increment & Decrement](./counters.md#top) →
+
+📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/generators/advanced-regex)**

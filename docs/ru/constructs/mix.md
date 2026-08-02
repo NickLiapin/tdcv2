@@ -2,6 +2,8 @@
 
 [English](../../constructs/mix.md#top) · **Русский** · [Español](../../es/constructs/mix.md#top)
 
+📖 **[Открыть на сайте документации →](https://nickliapin.github.io/tdcv2/ru/docs/constructs/mix)**
+
 ← Назад: [Обзор](./overview.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Таблицы соответствий (switch)](./switch.md#top) →
 
 ---
@@ -338,3 +340,5 @@ error/fatal    3
 ---
 
 ← Назад: [Обзор](./overview.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Таблицы соответствий (switch)](./switch.md#top) →
+
+📖 **[Открыть на сайте документации →](https://nickliapin.github.io/tdcv2/ru/docs/constructs/mix)**

@@ -2,6 +2,8 @@
 
 [English](../../core-concepts/output-formatting.md#top) · [Русский](../../ru/core-concepts/output-formatting.md#top) · **Español**
 
+📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/core-concepts/output-formatting)**
+
 ← Anterior: [Secuencias](./sequences.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Determinismo y proporciones](./determinism.md#top) →
 
 ---
@@ -503,3 +505,5 @@ texto común. (Sin el `inject="[[%]]"`, `${{Name}}` se interpolaría igualmente 
 ---
 
 ← Anterior: [Secuencias](./sequences.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Determinismo y proporciones](./determinism.md#top) →
+
+📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/core-concepts/output-formatting)**

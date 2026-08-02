@@ -2,6 +2,8 @@
 
 [English](../../constructs/conditional-output.md#top) · [Русский](../../ru/constructs/conditional-output.md#top) · **Español**
 
+📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/constructs/conditional-output)**
+
 ← Anterior: [Tablas de consulta (switch)](./switch.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Varios valores en una celda (repeat)](./multiple-values.md#top) →
 
 ---
@@ -500,3 +502,5 @@ sea `Hombre`.
 ---
 
 ← Anterior: [Tablas de consulta (switch)](./switch.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Varios valores en una celda (repeat)](./multiple-values.md#top) →
+
+📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/constructs/conditional-output)**

@@ -2,6 +2,8 @@
 
 [English](../../constructs/unique-values.md#top) · **Русский** · [Español](../../es/constructs/unique-values.md#top)
 
+📖 **[Открыть на сайте документации →](https://nickliapin.github.io/tdcv2/ru/docs/constructs/unique-values)**
+
 ← Назад: [Строка на элемент (each)](./relational-tables.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Обзор](../compute/overview.md#top) →
 
 ---
@@ -389,3 +391,5 @@ but 5 unique rows were requested.
 ---
 
 ← Назад: [Строка на элемент (each)](./relational-tables.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Обзор](../compute/overview.md#top) →
+
+📖 **[Открыть на сайте документации →](https://nickliapin.github.io/tdcv2/ru/docs/constructs/unique-values)**

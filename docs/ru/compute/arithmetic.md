@@ -2,6 +2,8 @@
 
 [English](../../compute/arithmetic.md#top) · **Русский** · [Español](../../es/compute/arithmetic.md#top)
 
+📖 **[Открыть на сайте документации →](https://nickliapin.github.io/tdcv2/ru/docs/compute/arithmetic)**
+
 ← Назад: [Обзор](./overview.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Списки и перебор](./lists.md#top) →
 
 ---
@@ -557,3 +559,5 @@ binary   1000001
 ---
 
 ← Назад: [Обзор](./overview.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Списки и перебор](./lists.md#top) →
+
+📖 **[Открыть на сайте документации →](https://nickliapin.github.io/tdcv2/ru/docs/compute/arithmetic)**

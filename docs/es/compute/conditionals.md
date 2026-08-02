@@ -2,6 +2,8 @@
 
 [English](../../compute/conditionals.md#top) · [Русский](../../ru/compute/conditionals.md#top) · **Español**
 
+📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/compute/conditionals)**
+
 ← Anterior: [Strings y formato](./strings.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Un pack leído línea por línea](./walkthrough.md#top) →
 
 ---
@@ -589,3 +591,5 @@ buenas sin complicar la fórmula.
 ---
 
 ← Anterior: [Strings y formato](./strings.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Un pack leído línea por línea](./walkthrough.md#top) →
+
+📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/compute/conditionals)**

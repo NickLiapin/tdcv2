@@ -2,6 +2,8 @@
 
 **English** · [Русский](../ru/reference/identifiers.md#top) · [Español](../es/reference/identifiers.md#top)
 
+📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/reference/identifiers)**
+
 ← Previous: [Built-ins](./builtins.md#top) · **[Contents](../README.md#top)** · Next: [Error codes](./errors.md#top) →
 
 ---
@@ -499,3 +501,5 @@ digit. See [Data Packs](../data-packs/overview.md#top) for how a pack is structu
 ---
 
 ← Previous: [Built-ins](./builtins.md#top) · **[Contents](../README.md#top)** · Next: [Error codes](./errors.md#top) →
+
+📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/reference/identifiers)**

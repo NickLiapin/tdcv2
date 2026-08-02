@@ -2,6 +2,8 @@
 
 **English** · [Русский](../ru/guides/statistical-distributions.md#top) · [Español](../es/guides/statistical-distributions.md#top)
 
+📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/guides/statistical-distributions)**
+
 ← Previous: [Masks & case](./masks-and-case.md#top) · **[Contents](../README.md#top)** · Next: [Anomalies & outliers](./anomalies.md#top) →
 
 ---
@@ -618,3 +620,5 @@ at any scale.
 ---
 
 ← Previous: [Masks & case](./masks-and-case.md#top) · **[Contents](../README.md#top)** · Next: [Anomalies & outliers](./anomalies.md#top) →
+
+📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/guides/statistical-distributions)**

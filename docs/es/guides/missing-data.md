@@ -2,6 +2,8 @@
 
 [English](../../guides/missing-data.md#top) · [Русский](../../ru/guides/missing-data.md#top) · **Español**
 
+📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/guides/missing-data)**
+
 ← Anterior: [Anomalías y valores atípicos](./anomalies.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Salida tipada y Parquet](./typed-output-parquet.md#top) →
 
 ---
@@ -230,3 +232,5 @@ marcador por omisión no es nada en absoluto). Los vacíos de los dos campos son
 ---
 
 ← Anterior: [Anomalías y valores atípicos](./anomalies.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Salida tipada y Parquet](./typed-output-parquet.md#top) →
+
+📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/guides/missing-data)**

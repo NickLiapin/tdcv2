@@ -2,6 +2,8 @@
 
 [English](../../generators/overview.md#top) · [Русский](../../ru/generators/overview.md#top) · **Español**
 
+📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/generators/overview)**
+
 ← Anterior: [Determinismo y proporciones](../core-concepts/determinism.md#top) · **[Contenido](../README.md#top)** · Siguiente: [text](./text.md#top) →
 
 ---
@@ -234,3 +236,5 @@ multiplica; un nombre pasa sin cambios y sin aviso. Las reglas completas están 
 ---
 
 ← Anterior: [Determinismo y proporciones](../core-concepts/determinism.md#top) · **[Contenido](../README.md#top)** · Siguiente: [text](./text.md#top) →
+
+📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/generators/overview)**

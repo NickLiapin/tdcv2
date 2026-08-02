@@ -2,6 +2,8 @@
 
 [English](../../constructs/multiple-values.md#top) · [Русский](../../ru/constructs/multiple-values.md#top) · **Español**
 
+📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/constructs/multiple-values)**
+
 ← Anterior: [Salida condicional (if)](./conditional-output.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Una fila por elemento (each)](./relational-tables.md#top) →
 
 ---
@@ -403,3 +405,5 @@ También se puede definir el tipo a mano: `type="[]int64"`,
 ---
 
 ← Anterior: [Salida condicional (if)](./conditional-output.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Una fila por elemento (each)](./relational-tables.md#top) →
+
+📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/constructs/multiple-values)**

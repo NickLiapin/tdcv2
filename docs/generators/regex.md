@@ -2,6 +2,8 @@
 
 **English** · [Русский](../ru/generators/regex.md#top) · [Español](../es/generators/regex.md#top)
 
+📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/generators/regex)**
+
 ← Previous: [Symbol](./symbol.md#top) · **[Contents](../README.md#top)** · Next: [Advanced Regex](./advanced-regex.md#top) →
 
 ---
@@ -571,3 +573,5 @@ not "exactly 70/30". For exact shares, use:
 ---
 
 ← Previous: [Symbol](./symbol.md#top) · **[Contents](../README.md#top)** · Next: [Advanced Regex](./advanced-regex.md#top) →
+
+📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/generators/regex)**

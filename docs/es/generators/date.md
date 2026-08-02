@@ -2,6 +2,8 @@
 
 [English](../../generators/date.md#top) · [Русский](../../ru/generators/date.md#top) · **Español**
 
+📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/generators/date)**
+
 ← Anterior: [File](./file.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Symbol](./symbol.md#top) →
 
 ---
@@ -324,3 +326,5 @@ local="ru"     15 марта 2024 г.
 ---
 
 ← Anterior: [File](./file.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Symbol](./symbol.md#top) →
+
+📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/generators/date)**

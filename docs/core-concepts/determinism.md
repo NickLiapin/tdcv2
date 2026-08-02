@@ -2,6 +2,8 @@
 
 **English** · [Русский](../ru/core-concepts/determinism.md#top) · [Español](../es/core-concepts/determinism.md#top)
 
+📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/core-concepts/determinism)**
+
 ← Previous: [Output & formatting](./output-formatting.md#top) · **[Contents](../README.md#top)** · Next: [Overview](../generators/overview.md#top) →
 
 ---
@@ -324,3 +326,5 @@ cases are distributed evenly.
 ---
 
 ← Previous: [Output & formatting](./output-formatting.md#top) · **[Contents](../README.md#top)** · Next: [Overview](../generators/overview.md#top) →
+
+📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/core-concepts/determinism)**

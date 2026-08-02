@@ -2,6 +2,8 @@
 
 **English** · [Русский](../ru/constructs/conditional-output.md#top) · [Español](../es/constructs/conditional-output.md#top)
 
+📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/constructs/conditional-output)**
+
 ← Previous: [Lookup tables (switch)](./switch.md#top) · **[Contents](../README.md#top)** · Next: [Multiple values in a cell (repeat)](./multiple-values.md#top) →
 
 ---
@@ -486,3 +488,5 @@ The `adult male` tag shows only when both conditions are true (`Gender == Male` 
 ---
 
 ← Previous: [Lookup tables (switch)](./switch.md#top) · **[Contents](../README.md#top)** · Next: [Multiple values in a cell (repeat)](./multiple-values.md#top) →
+
+📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/constructs/conditional-output)**

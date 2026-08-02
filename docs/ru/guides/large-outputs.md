@@ -2,6 +2,8 @@
 
 [English](../../guides/large-outputs.md#top) · **Русский** · [Español](../../es/guides/large-outputs.md#top)
 
+📖 **[Открыть на сайте документации →](https://nickliapin.github.io/tdcv2/ru/docs/guides/large-outputs)**
+
 ← Назад: [Типизированный вывод и Parquet](./typed-output-parquet.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Как написать сервис-генератор](./writing-a-service.md#top) →
 
 ---
@@ -572,3 +574,5 @@ const diagnostic = tdc.preflight({ output: "streaming" });
 ---
 
 ← Назад: [Типизированный вывод и Parquet](./typed-output-parquet.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Как написать сервис-генератор](./writing-a-service.md#top) →
+
+📖 **[Открыть на сайте документации →](https://nickliapin.github.io/tdcv2/ru/docs/guides/large-outputs)**

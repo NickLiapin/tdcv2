@@ -2,6 +2,8 @@
 
 [English](../../guides/masks-and-case.md#top) · **Русский** · [Español](../../es/guides/masks-and-case.md#top)
 
+📖 **[Открыть на сайте документации →](https://nickliapin.github.io/tdcv2/ru/docs/guides/masks-and-case)**
+
 ← Назад: [Форматы вывода (CSV, JSON, SQL…)](./output-formats.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Статистические распределения](./statistical-distributions.md#top) →
 
 ---
@@ -649,3 +651,5 @@ INSERT INTO t VALUES ('O''Brien');
 ---
 
 ← Назад: [Форматы вывода (CSV, JSON, SQL…)](./output-formats.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Статистические распределения](./statistical-distributions.md#top) →
+
+📖 **[Открыть на сайте документации →](https://nickliapin.github.io/tdcv2/ru/docs/guides/masks-and-case)**

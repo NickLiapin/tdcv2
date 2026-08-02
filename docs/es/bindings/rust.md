@@ -2,6 +2,8 @@
 
 [English](../../bindings/rust.md#top) · [Русский](../../ru/bindings/rust.md#top) · **Español**
 
+📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/bindings/rust)**
+
 ← Anterior: [C#](./csharp.md#top) · **[Contenido](../README.md#top)**
 
 ---
@@ -117,3 +119,5 @@ Rust **1.74** o superior.
 ---
 
 ← Anterior: [C#](./csharp.md#top) · **[Contenido](../README.md#top)**
+
+📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/bindings/rust)**

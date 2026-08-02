@@ -2,6 +2,8 @@
 
 **English** · [Русский](../ru/guides/anomalies.md#top) · [Español](../es/guides/anomalies.md#top)
 
+📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/guides/anomalies)**
+
 ← Previous: [Statistical distributions](./statistical-distributions.md#top) · **[Contents](../README.md#top)** · Next: [Missing data](./missing-data.md#top) →
 
 ---
@@ -365,3 +367,5 @@ TDC never guesses a type it isn't sure of. See **[Output formats](output-formats
 ---
 
 ← Previous: [Statistical distributions](./statistical-distributions.md#top) · **[Contents](../README.md#top)** · Next: [Missing data](./missing-data.md#top) →
+
+📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/guides/anomalies)**

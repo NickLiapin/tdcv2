@@ -2,6 +2,8 @@
 
 [English](../../bindings/csharp.md#top) · [Русский](../../ru/bindings/csharp.md#top) · **Español**
 
+📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/bindings/csharp)**
+
 ← Anterior: [Java](./java.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Rust](./rust.md#top) →
 
 ---
@@ -99,3 +101,5 @@ bytes.
 ---
 
 ← Anterior: [Java](./java.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Rust](./rust.md#top) →
+
+📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/bindings/csharp)**

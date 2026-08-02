@@ -4,6 +4,8 @@
 
 [English](../../constructs/README.md#top) · [Русский](../../ru/constructs/README.md#top) · **Español**
 
+📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/intro)**
+
 **[Contenido](../README.md#top)**
 
 ---

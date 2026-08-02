@@ -2,6 +2,8 @@
 
 [English](../../guides/typed-output-parquet.md#top) · [Русский](../../ru/guides/typed-output-parquet.md#top) · **Español**
 
+📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/guides/typed-output-parquet)**
+
 ← Anterior: [Datos faltantes](./missing-data.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Salidas grandes y streaming](./large-outputs.md#top) →
 
 ---
@@ -392,3 +394,5 @@ ida y vuelta. Para la API completa de la biblioteca en cada lenguaje, vea
 ---
 
 ← Anterior: [Datos faltantes](./missing-data.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Salidas grandes y streaming](./large-outputs.md#top) →
+
+📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/guides/typed-output-parquet)**

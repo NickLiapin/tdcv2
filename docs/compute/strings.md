@@ -2,6 +2,8 @@
 
 **English** · [Русский](../ru/compute/strings.md#top) · [Español](../es/compute/strings.md#top)
 
+📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/compute/strings)**
+
 ← Previous: [Lists & iteration](./lists.md#top) · **[Contents](../README.md#top)** · Next: [Conditionals](./conditionals.md#top) →
 
 ---
@@ -465,3 +467,5 @@ the attribute or filter for a plain value.
 ---
 
 ← Previous: [Lists & iteration](./lists.md#top) · **[Contents](../README.md#top)** · Next: [Conditionals](./conditionals.md#top) →
+
+📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/compute/strings)**

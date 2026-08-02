@@ -2,6 +2,8 @@
 
 [English](../../constructs/relational-tables.md#top) · [Русский](../../ru/constructs/relational-tables.md#top) · **Español**
 
+📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/constructs/relational-tables)**
+
 ← Anterior: [Varios valores en una celda (repeat)](./multiple-values.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Unicidad (uniq, distinct)](./unique-values.md#top) →
 
 ---
@@ -256,3 +258,5 @@ varias filas físicas.
 ---
 
 ← Anterior: [Varios valores en una celda (repeat)](./multiple-values.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Unicidad (uniq, distinct)](./unique-values.md#top) →
+
+📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/constructs/relational-tables)**

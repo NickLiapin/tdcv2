@@ -2,6 +2,8 @@
 
 **English** · [Русский](../ru/guides/missing-data.md#top) · [Español](../es/guides/missing-data.md#top)
 
+📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/guides/missing-data)**
+
 ← Previous: [Anomalies & outliers](./anomalies.md#top) · **[Contents](../README.md#top)** · Next: [Typed output & Parquet](./typed-output-parquet.md#top) →
 
 ---
@@ -233,3 +235,5 @@ one column tells you nothing about the other.
 ---
 
 ← Previous: [Anomalies & outliers](./anomalies.md#top) · **[Contents](../README.md#top)** · Next: [Typed output & Parquet](./typed-output-parquet.md#top) →
+
+📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/guides/missing-data)**

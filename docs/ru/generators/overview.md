@@ -2,6 +2,8 @@
 
 [English](../../generators/overview.md#top) · **Русский** · [Español](../../es/generators/overview.md#top)
 
+📖 **[Открыть на сайте документации →](https://nickliapin.github.io/tdcv2/ru/docs/generators/overview)**
+
 ← Назад: [Детерминизм и пропорции](../core-concepts/determinism.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [text](./text.md#top) →
 
 ---
@@ -230,3 +232,5 @@ random=янв   sequential=янв
 ---
 
 ← Назад: [Детерминизм и пропорции](../core-concepts/determinism.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [text](./text.md#top) →
+
+📖 **[Открыть на сайте документации →](https://nickliapin.github.io/tdcv2/ru/docs/generators/overview)**

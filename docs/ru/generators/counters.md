@@ -2,6 +2,8 @@
 
 [English](../../generators/counters.md#top) · **Русский** · [Español](../../es/generators/counters.md#top)
 
+📖 **[Открыть на сайте документации →](https://nickliapin.github.io/tdcv2/ru/docs/generators/counters)**
+
 ← Назад: [Продвинутый Regex](./advanced-regex.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Временные ряды](./timeseries.md#top) →
 
 ---
@@ -188,3 +190,5 @@ seed=alpha   seed=omega
 ---
 
 ← Назад: [Продвинутый Regex](./advanced-regex.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Временные ряды](./timeseries.md#top) →
+
+📖 **[Открыть на сайте документации →](https://nickliapin.github.io/tdcv2/ru/docs/generators/counters)**

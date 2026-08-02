@@ -2,6 +2,8 @@
 
 [English](../../guides/typed-output-parquet.md#top) · **Русский** · [Español](../../es/guides/typed-output-parquet.md#top)
 
+📖 **[Открыть на сайте документации →](https://nickliapin.github.io/tdcv2/ru/docs/guides/typed-output-parquet)**
+
 ← Назад: [Пропуски в данных](./missing-data.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Большие объёмы](./large-outputs.md#top) →
 
 ---
@@ -379,3 +381,5 @@ dtype: object
 ---
 
 ← Назад: [Пропуски в данных](./missing-data.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Большие объёмы](./large-outputs.md#top) →
+
+📖 **[Открыть на сайте документации →](https://nickliapin.github.io/tdcv2/ru/docs/guides/typed-output-parquet)**

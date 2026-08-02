@@ -2,6 +2,8 @@
 
 [English](../../reference/compute.md#top) · **Русский** · [Español](../../es/reference/compute.md#top)
 
+📖 **[Открыть на сайте документации →](https://nickliapin.github.io/tdcv2/ru/docs/reference/compute)**
+
 ← Назад: [Генераторы](./generators.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Встроенные значения](./builtins.md#top) →
 
 ---
@@ -108,3 +110,5 @@
 ---
 
 ← Назад: [Генераторы](./generators.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Встроенные значения](./builtins.md#top) →
+
+📖 **[Открыть на сайте документации →](https://nickliapin.github.io/tdcv2/ru/docs/reference/compute)**

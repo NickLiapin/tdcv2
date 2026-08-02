@@ -2,6 +2,8 @@
 
 [English](../../bindings/csharp.md#top) · **Русский** · [Español](../../es/bindings/csharp.md#top)
 
+📖 **[Открыть на сайте документации →](https://nickliapin.github.io/tdcv2/ru/docs/bindings/csharp)**
+
 ← Назад: [Java](./java.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Rust](./rust.md#top) →
 
 ---
@@ -98,3 +100,5 @@ Console.WriteLine(first.Nested()["Address"]);      // или весь адрес
 ---
 
 ← Назад: [Java](./java.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Rust](./rust.md#top) →
+
+📖 **[Открыть на сайте документации →](https://nickliapin.github.io/tdcv2/ru/docs/bindings/csharp)**

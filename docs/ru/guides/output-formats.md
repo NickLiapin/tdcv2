@@ -2,6 +2,8 @@
 
 [English](../../guides/output-formats.md#top) · **Русский** · [Español](../../es/guides/output-formats.md#top)
 
+📖 **[Открыть на сайте документации →](https://nickliapin.github.io/tdcv2/ru/docs/guides/output-formats)**
+
 ← Назад: [Файлы и CSV](./files-and-csv.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Маски и регистр](./masks-and-case.md#top) →
 
 ---
@@ -535,3 +537,5 @@ TDC лишь подставляет значения — формат таков
 ---
 
 ← Назад: [Файлы и CSV](./files-and-csv.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Маски и регистр](./masks-and-case.md#top) →
+
+📖 **[Открыть на сайте документации →](https://nickliapin.github.io/tdcv2/ru/docs/guides/output-formats)**

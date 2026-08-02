@@ -2,6 +2,8 @@
 
 **English** · [Русский](../ru/compute/walkthrough.md#top) · [Español](../es/compute/walkthrough.md#top)
 
+📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/compute/walkthrough)**
+
 ← Previous: [Conditionals](./conditionals.md#top) · **[Contents](../README.md#top)** · Next: [Hierarchical dependencies](../guides/hierarchical-dependencies.md#top) →
 
 ---
@@ -193,3 +195,5 @@ same five-step shape with different weights and a different final step.
 ---
 
 ← Previous: [Conditionals](./conditionals.md#top) · **[Contents](../README.md#top)** · Next: [Hierarchical dependencies](../guides/hierarchical-dependencies.md#top) →
+
+📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/compute/walkthrough)**

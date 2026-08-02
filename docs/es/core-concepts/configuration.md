@@ -2,6 +2,8 @@
 
 [English](../../core-concepts/configuration.md#top) · [Русский](../../ru/core-concepts/configuration.md#top) · **Español**
 
+📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/core-concepts/configuration)**
+
 ← Anterior: [Su primer conjunto de datos](../getting-started/first-data.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Secuencias](./sequences.md#top) →
 
 ---
@@ -398,3 +400,5 @@ producía calladamente diez con un seed aleatorio. Use siempre la forma completa
 ---
 
 ← Anterior: [Su primer conjunto de datos](../getting-started/first-data.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Secuencias](./sequences.md#top) →
+
+📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/core-concepts/configuration)**

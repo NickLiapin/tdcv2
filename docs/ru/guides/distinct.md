@@ -2,6 +2,8 @@
 
 [English](../../guides/distinct.md#top) · **Русский** · [Español](../../es/guides/distinct.md#top)
 
+📖 **[Открыть на сайте документации →](https://nickliapin.github.io/tdcv2/ru/docs/guides/distinct)**
+
 ← Назад: [Связные данные](./coherent-data.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Файлы и CSV](./files-and-csv.md#top) →
 
 ---
@@ -290,3 +292,5 @@ Use a simple <gen> or a <switch> sequence, not a compound
 ---
 
 ← Назад: [Связные данные](./coherent-data.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Файлы и CSV](./files-and-csv.md#top) →
+
+📖 **[Открыть на сайте документации →](https://nickliapin.github.io/tdcv2/ru/docs/guides/distinct)**

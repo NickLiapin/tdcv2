@@ -2,6 +2,8 @@
 
 **English** · [Русский](../ru/generators/file.md#top) · [Español](../es/generators/file.md#top)
 
+📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/generators/file)**
+
 ← Previous: [Template](./template.md#top) · **[Contents](../README.md#top)** · Next: [Date](./date.md#top) →
 
 ---
@@ -482,3 +484,5 @@ This is covered in depth in **[Coherent & relational data](../guides/coherent-da
 ---
 
 ← Previous: [Template](./template.md#top) · **[Contents](../README.md#top)** · Next: [Date](./date.md#top) →
+
+📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/generators/file)**

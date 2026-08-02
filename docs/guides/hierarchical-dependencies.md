@@ -2,6 +2,8 @@
 
 **English** · [Русский](../ru/guides/hierarchical-dependencies.md#top) · [Español](../es/guides/hierarchical-dependencies.md#top)
 
+📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/guides/hierarchical-dependencies)**
+
 ← Previous: [A pack read line by line](../compute/walkthrough.md#top) · **[Contents](../README.md#top)** · Next: [Coherent & relational data](./coherent-data.md#top) →
 
 ---
@@ -383,3 +385,5 @@ sense for the tree to be a valid tree.
 ---
 
 ← Previous: [A pack read line by line](../compute/walkthrough.md#top) · **[Contents](../README.md#top)** · Next: [Coherent & relational data](./coherent-data.md#top) →
+
+📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/guides/hierarchical-dependencies)**

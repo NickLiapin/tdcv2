@@ -2,6 +2,8 @@
 
 [English](../../data-packs/installing-packs.md#top) · **Русский** · [Español](../../es/data-packs/installing-packs.md#top)
 
+📖 **[Открыть на сайте документации →](https://nickliapin.github.io/tdcv2/ru/docs/data-packs/installing-packs)**
+
 ← Назад: [Обзор](./overview.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Свой пакет данных](./writing-your-own.md#top) →
 
 ---
@@ -313,3 +315,5 @@ Installed rus: 18 files → /path/to/project/tdcv2-packs/rus
 ---
 
 ← Назад: [Обзор](./overview.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Свой пакет данных](./writing-your-own.md#top) →
+
+📖 **[Открыть на сайте документации →](https://nickliapin.github.io/tdcv2/ru/docs/data-packs/installing-packs)**

@@ -2,6 +2,8 @@
 
 [English](../../generators/counters.md#top) · [Русский](../../ru/generators/counters.md#top) · **Español**
 
+📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/generators/counters)**
+
 ← Anterior: [Regex avanzado](./advanced-regex.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Series de tiempo](./timeseries.md#top) →
 
 ---
@@ -187,3 +189,5 @@ un paso distinto de 1.
 ---
 
 ← Anterior: [Regex avanzado](./advanced-regex.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Series de tiempo](./timeseries.md#top) →
+
+📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/generators/counters)**

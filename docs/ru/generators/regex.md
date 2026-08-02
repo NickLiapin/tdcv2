@@ -2,6 +2,8 @@
 
 [English](../../generators/regex.md#top) · **Русский** · [Español](../../es/generators/regex.md#top)
 
+📖 **[Открыть на сайте документации →](https://nickliapin.github.io/tdcv2/ru/docs/generators/regex)**
+
 ← Назад: [symbol](./symbol.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Продвинутый Regex](./advanced-regex.md#top) →
 
 ---
@@ -579,3 +581,5 @@ allowed; use "{1,n}"
 ---
 
 ← Назад: [symbol](./symbol.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Продвинутый Regex](./advanced-regex.md#top) →
+
+📖 **[Открыть на сайте документации →](https://nickliapin.github.io/tdcv2/ru/docs/generators/regex)**

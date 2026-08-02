@@ -2,6 +2,8 @@
 
 **English** · [Русский](../ru/guides/distinct.md#top) · [Español](../es/guides/distinct.md#top)
 
+📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/guides/distinct)**
+
 ← Previous: [Coherent & relational data](./coherent-data.md#top) · **[Contents](../README.md#top)** · Next: [Reading files & CSV](./files-and-csv.md#top) →
 
 ---
@@ -282,3 +284,5 @@ For the vertical rule, see [Unique values](../constructs/unique-values.md#top).
 ---
 
 ← Previous: [Coherent & relational data](./coherent-data.md#top) · **[Contents](../README.md#top)** · Next: [Reading files & CSV](./files-and-csv.md#top) →
+
+📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/guides/distinct)**

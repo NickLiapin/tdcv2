@@ -2,6 +2,8 @@
 
 [English](../../guides/hierarchical-dependencies.md#top) · [Русский](../../ru/guides/hierarchical-dependencies.md#top) · **Español**
 
+📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/guides/hierarchical-dependencies)**
+
 ← Anterior: [Un pack leído línea por línea](../compute/walkthrough.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Datos coherentes y relacionales](./coherent-data.md#top) →
 
 ---
@@ -393,3 +395,5 @@ que formar una conversación coherente para que el árbol sea un árbol válido.
 ---
 
 ← Anterior: [Un pack leído línea por línea](../compute/walkthrough.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Datos coherentes y relacionales](./coherent-data.md#top) →
+
+📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/guides/hierarchical-dependencies)**

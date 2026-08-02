@@ -2,6 +2,8 @@
 
 [English](../../bindings/java.md#top) · **Русский** · [Español](../../es/bindings/java.md#top)
 
+📖 **[Открыть на сайте документации →](https://nickliapin.github.io/tdcv2/ru/docs/bindings/java)**
+
 ← Назад: [Python](./python.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [C#](./csharp.md#top) →
 
 ---
@@ -44,3 +46,5 @@ for (var row : data.iterate()) {
 ---
 
 ← Назад: [Python](./python.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [C#](./csharp.md#top) →
+
+📖 **[Открыть на сайте документации →](https://nickliapin.github.io/tdcv2/ru/docs/bindings/java)**

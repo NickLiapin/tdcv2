@@ -2,6 +2,8 @@
 
 [English](../../constructs/conditional-output.md#top) · **Русский** · [Español](../../es/constructs/conditional-output.md#top)
 
+📖 **[Открыть на сайте документации →](https://nickliapin.github.io/tdcv2/ru/docs/constructs/conditional-output)**
+
 ← Назад: [Таблицы соответствий (switch)](./switch.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Несколько значений в ячейке (repeat)](./multiple-values.md#top) →
 
 ---
@@ -494,3 +496,5 @@ _count=5: !==3
 ---
 
 ← Назад: [Таблицы соответствий (switch)](./switch.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Несколько значений в ячейке (repeat)](./multiple-values.md#top) →
+
+📖 **[Открыть на сайте документации →](https://nickliapin.github.io/tdcv2/ru/docs/constructs/conditional-output)**

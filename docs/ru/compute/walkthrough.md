@@ -2,6 +2,8 @@
 
 [English](../../compute/walkthrough.md#top) · **Русский** · [Español](../../es/compute/walkthrough.md#top)
 
+📖 **[Открыть на сайте документации →](https://nickliapin.github.io/tdcv2/ru/docs/compute/walkthrough)**
+
 ← Назад: [Условия](./conditionals.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Иерархические зависимости](../guides/hierarchical-dependencies.md#top) →
 
 ---
@@ -193,3 +195,5 @@
 ---
 
 ← Назад: [Условия](./conditionals.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Иерархические зависимости](../guides/hierarchical-dependencies.md#top) →
+
+📖 **[Открыть на сайте документации →](https://nickliapin.github.io/tdcv2/ru/docs/compute/walkthrough)**

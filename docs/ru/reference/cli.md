@@ -2,6 +2,8 @@
 
 [English](../../reference/cli.md#top) · **Русский** · [Español](../../es/reference/cli.md#top)
 
+📖 **[Открыть на сайте документации →](https://nickliapin.github.io/tdcv2/ru/docs/reference/cli)**
+
 ← Назад: [Свой пакет данных](../data-packs/writing-your-own.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Теги](./tags.md#top) →
 
 ---
@@ -161,3 +163,5 @@ tdcv2 format -w demo.tdc     # переписывает файл на месте
 ---
 
 ← Назад: [Свой пакет данных](../data-packs/writing-your-own.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Теги](./tags.md#top) →
+
+📖 **[Открыть на сайте документации →](https://nickliapin.github.io/tdcv2/ru/docs/reference/cli)**

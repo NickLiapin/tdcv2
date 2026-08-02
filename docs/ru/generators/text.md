@@ -2,6 +2,8 @@
 
 [English](../../generators/text.md#top) · **Русский** · [Español](../../es/generators/text.md#top)
 
+📖 **[Открыть на сайте документации →](https://nickliapin.github.io/tdcv2/ru/docs/generators/text)**
+
 ← Назад: [Обзор генераторов](./overview.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [number](./number.md#top) →
 
 ---
@@ -224,3 +226,5 @@ bronze   20
 ---
 
 ← Назад: [Обзор генераторов](./overview.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [number](./number.md#top) →
+
+📖 **[Открыть на сайте документации →](https://nickliapin.github.io/tdcv2/ru/docs/generators/text)**

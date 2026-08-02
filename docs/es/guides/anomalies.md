@@ -2,6 +2,8 @@
 
 [English](../../guides/anomalies.md#top) · [Русский](../../ru/guides/anomalies.md#top) · **Español**
 
+📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/guides/anomalies)**
+
 ← Anterior: [Distribuciones estadísticas](./statistical-distributions.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Datos faltantes](./missing-data.md#top) →
 
 ---
@@ -376,3 +378,5 @@ salida](output-formats.md#top)**.
 ---
 
 ← Anterior: [Distribuciones estadísticas](./statistical-distributions.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Datos faltantes](./missing-data.md#top) →
+
+📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/guides/anomalies)**

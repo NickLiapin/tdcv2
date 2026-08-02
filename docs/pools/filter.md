@@ -2,6 +2,8 @@
 
 **English** · [Русский](../ru/pools/filter.md#top) · [Español](../es/pools/filter.md#top)
 
+📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/pools/filter)**
+
 ← Previous: [Overview](./overview.md#top) · **[Contents](../README.md#top)** · Next: [Linking pools together](./linking.md#top) →
 
 ---
@@ -213,3 +215,5 @@ the row's column draws from, so every value is represented.
 ---
 
 ← Previous: [Overview](./overview.md#top) · **[Contents](../README.md#top)** · Next: [Linking pools together](./linking.md#top) →
+
+📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/pools/filter)**

@@ -2,6 +2,8 @@
 
 [English](../../compute/lists.md#top) · **Русский** · [Español](../../es/compute/lists.md#top)
 
+📖 **[Открыть на сайте документации →](https://nickliapin.github.io/tdcv2/ru/docs/compute/lists)**
+
 ← Назад: [Арифметика](./arithmetic.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Строки и форматирование](./strings.md#top) →
 
 ---
@@ -818,3 +820,5 @@ mod-97.
 ---
 
 ← Назад: [Арифметика](./arithmetic.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Строки и форматирование](./strings.md#top) →
+
+📖 **[Открыть на сайте документации →](https://nickliapin.github.io/tdcv2/ru/docs/compute/lists)**

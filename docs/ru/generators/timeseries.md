@@ -2,6 +2,8 @@
 
 [English](../../generators/timeseries.md#top) · **Русский** · [Español](../../es/generators/timeseries.md#top)
 
+📖 **[Открыть на сайте документации →](https://nickliapin.github.io/tdcv2/ru/docs/generators/timeseries)**
+
 ← Назад: [Счётчики (increment / decrement)](./counters.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Кривая (pattern)](./pattern.md#top) →
 
 ---
@@ -277,3 +279,5 @@
 ---
 
 ← Назад: [Счётчики (increment / decrement)](./counters.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Кривая (pattern)](./pattern.md#top) →
+
+📖 **[Открыть на сайте документации →](https://nickliapin.github.io/tdcv2/ru/docs/generators/timeseries)**

@@ -2,6 +2,8 @@
 
 [English](../../reference/identifiers.md#top) · **Русский** · [Español](../../es/reference/identifiers.md#top)
 
+📖 **[Открыть на сайте документации →](https://nickliapin.github.io/tdcv2/ru/docs/reference/identifiers)**
+
 ← Назад: [Встроенные значения](./builtins.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Коды ошибок](./errors.md#top) →
 
 ---
@@ -503,3 +505,5 @@ russia.tax.ogrn        1691669019293
 ---
 
 ← Назад: [Встроенные значения](./builtins.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Коды ошибок](./errors.md#top) →
+
+📖 **[Открыть на сайте документации →](https://nickliapin.github.io/tdcv2/ru/docs/reference/identifiers)**

@@ -2,6 +2,8 @@
 
 [English](../../generators/number.md#top) · **Русский** · [Español](../../es/generators/number.md#top)
 
+📖 **[Открыть на сайте документации →](https://nickliapin.github.io/tdcv2/ru/docs/generators/number)**
+
 ← Назад: [text](./text.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Шаблон](./template.md#top) →
 
 ---
@@ -295,3 +297,5 @@ value="0..9" include="100"             -> 8
 ---
 
 ← Назад: [text](./text.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Шаблон](./template.md#top) →
+
+📖 **[Открыть на сайте документации →](https://nickliapin.github.io/tdcv2/ru/docs/generators/number)**

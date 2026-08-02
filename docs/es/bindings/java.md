@@ -2,6 +2,8 @@
 
 [English](../../bindings/java.md#top) · [Русский](../../ru/bindings/java.md#top) · **Español**
 
+📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/bindings/java)**
+
 ← Anterior: [Python](./python.md#top) · **[Contenido](../README.md#top)** · Siguiente: [C#](./csharp.md#top) →
 
 ---
@@ -44,3 +46,5 @@ Los nombres de los métodos son un espejo de la [API de TypeScript](typescript.m
 ---
 
 ← Anterior: [Python](./python.md#top) · **[Contenido](../README.md#top)** · Siguiente: [C#](./csharp.md#top) →
+
+📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/bindings/java)**

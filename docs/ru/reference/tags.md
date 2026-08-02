@@ -2,6 +2,8 @@
 
 [English](../../reference/tags.md#top) · **Русский** · [Español](../../es/reference/tags.md#top)
 
+📖 **[Открыть на сайте документации →](https://nickliapin.github.io/tdcv2/ru/docs/reference/tags)**
+
 ← Назад: [CLI](./cli.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Атрибуты](./attributes.md#top) →
 
 ---
@@ -69,3 +71,5 @@
 ---
 
 ← Назад: [CLI](./cli.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Атрибуты](./attributes.md#top) →
+
+📖 **[Открыть на сайте документации →](https://nickliapin.github.io/tdcv2/ru/docs/reference/tags)**

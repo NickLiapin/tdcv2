@@ -2,6 +2,8 @@
 
 [English](../../reference/attributes.md#top) · **Русский** · [Español](../../es/reference/attributes.md#top)
 
+📖 **[Открыть на сайте документации →](https://nickliapin.github.io/tdcv2/ru/docs/reference/attributes)**
+
 ← Назад: [Теги](./tags.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Генераторы](./generators.md#top) →
 
 ---
@@ -152,3 +154,5 @@
 ---
 
 ← Назад: [Теги](./tags.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Генераторы](./generators.md#top) →
+
+📖 **[Открыть на сайте документации →](https://nickliapin.github.io/tdcv2/ru/docs/reference/attributes)**

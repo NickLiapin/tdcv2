@@ -2,6 +2,8 @@
 
 [English](../../constructs/unique-values.md#top) · [Русский](../../ru/constructs/unique-values.md#top) · **Español**
 
+📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/constructs/unique-values)**
+
 ← Anterior: [Una fila por elemento (each)](./relational-tables.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Descripción general](../compute/overview.md#top) →
 
 ---
@@ -390,3 +392,5 @@ las formas de `uniq` — exacto, pero acotado por la RAM. Vea **[Salidas grandes
 ---
 
 ← Anterior: [Una fila por elemento (each)](./relational-tables.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Descripción general](../compute/overview.md#top) →
+
+📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/constructs/unique-values)**

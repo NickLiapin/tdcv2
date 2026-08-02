@@ -2,6 +2,8 @@
 
 [English](../../pools/overview.md#top) · [Русский](../../ru/pools/overview.md#top) · **Español**
 
+📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/pools/overview)**
+
 ← Anterior: [Total acumulado](../generators/running.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Acotar con filter](./filter.md#top) →
 
 ---
@@ -258,3 +260,5 @@ millones de filas de pacientes al mismo coste que mil, y funciona en todos los
 ---
 
 ← Anterior: [Total acumulado](../generators/running.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Acotar con filter](./filter.md#top) →
+
+📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/pools/overview)**

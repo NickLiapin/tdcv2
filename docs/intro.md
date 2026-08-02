@@ -2,6 +2,8 @@
 
 **English** · [Русский](./ru/intro.md#top) · [Español](./es/intro.md#top)
 
+📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/intro)**
+
 **[Contents](./README.md#top)** · Next: [Installation](./getting-started/installation.md#top) →
 
 ---
@@ -288,3 +290,5 @@ walks through for every ecosystem.
 ---
 
 **[Contents](./README.md#top)** · Next: [Installation](./getting-started/installation.md#top) →
+
+📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/intro)**

@@ -2,6 +2,8 @@
 
 [English](../../compute/overview.md#top) · **Русский** · [Español](../../es/compute/overview.md#top)
 
+📖 **[Открыть на сайте документации →](https://nickliapin.github.io/tdcv2/ru/docs/compute/overview)**
+
 ← Назад: [Уникальность (uniq, distinct)](../constructs/unique-values.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Арифметика](./arithmetic.md#top) →
 
 ---
@@ -424,3 +426,5 @@ John Smith → jsmith
 ---
 
 ← Назад: [Уникальность (uniq, distinct)](../constructs/unique-values.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Арифметика](./arithmetic.md#top) →
+
+📖 **[Открыть на сайте документации →](https://nickliapin.github.io/tdcv2/ru/docs/compute/overview)**

@@ -2,6 +2,8 @@
 
 [English](../../pools/filter.md#top) · **Русский** · [Español](../../es/pools/filter.md#top)
 
+📖 **[Открыть на сайте документации →](https://nickliapin.github.io/tdcv2/ru/docs/pools/filter)**
+
 ← Назад: [Обзор](./overview.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Связывание пулов](./linking.md#top) →
 
 ---
@@ -210,3 +212,5 @@ tdcv2: pool "Doctors": no member satisfies filter="clinic == Clinic" for row 3 (
 ---
 
 ← Назад: [Обзор](./overview.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Связывание пулов](./linking.md#top) →
+
+📖 **[Открыть на сайте документации →](https://nickliapin.github.io/tdcv2/ru/docs/pools/filter)**

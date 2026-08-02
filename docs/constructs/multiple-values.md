@@ -2,6 +2,8 @@
 
 **English** · [Русский](../ru/constructs/multiple-values.md#top) · [Español](../es/constructs/multiple-values.md#top)
 
+📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/constructs/multiple-values)**
+
 ← Previous: [Conditional output (if)](./conditional-output.md#top) · **[Contents](../README.md#top)** · Next: [One row per element (each)](./relational-tables.md#top) →
 
 ---
@@ -398,3 +400,5 @@ You can also set the type by hand: `type="[]int64"`,
 ---
 
 ← Previous: [Conditional output (if)](./conditional-output.md#top) · **[Contents](../README.md#top)** · Next: [One row per element (each)](./relational-tables.md#top) →
+
+📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/constructs/multiple-values)**

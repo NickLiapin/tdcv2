@@ -2,6 +2,8 @@
 
 [English](../../compute/arithmetic.md#top) · [Русский](../../ru/compute/arithmetic.md#top) · **Español**
 
+📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/compute/arithmetic)**
+
 ← Anterior: [Descripción general](./overview.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Listas e iteración](./lists.md#top) →
 
 ---
@@ -558,3 +560,5 @@ directo, ya que un string de un carácter se convierte solo).
 ---
 
 ← Anterior: [Descripción general](./overview.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Listas e iteración](./lists.md#top) →
+
+📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/compute/arithmetic)**

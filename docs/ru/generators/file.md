@@ -2,6 +2,8 @@
 
 [English](../../generators/file.md#top) · **Русский** · [Español](../../es/generators/file.md#top)
 
+📖 **[Открыть на сайте документации →](https://nickliapin.github.io/tdcv2/ru/docs/generators/file)**
+
 ← Назад: [Шаблон](./template.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Дата](./date.md#top) →
 
 ---
@@ -486,3 +488,5 @@ name,category,price,sales
 ---
 
 ← Назад: [Шаблон](./template.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Дата](./date.md#top) →
+
+📖 **[Открыть на сайте документации →](https://nickliapin.github.io/tdcv2/ru/docs/generators/file)**

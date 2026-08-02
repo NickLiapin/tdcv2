@@ -2,6 +2,8 @@
 
 [English](../../reference/attributes.md#top) · [Русский](../../ru/reference/attributes.md#top) · **Español**
 
+📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/reference/attributes)**
+
 ← Anterior: [Etiquetas](./tags.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Generadores](./generators.md#top) →
 
 ---
@@ -153,3 +155,5 @@ motores; en un generador `pattern` elige la pregunta que se le hace al dibujo.
 ---
 
 ← Anterior: [Etiquetas](./tags.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Generadores](./generators.md#top) →
+
+📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/reference/attributes)**

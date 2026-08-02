@@ -4,6 +4,8 @@
 
 **English** · [Русский](../ru/compute/README.md#top) · [Español](../es/compute/README.md#top)
 
+📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/intro)**
+
 **[Contents](../README.md#top)**
 
 ---

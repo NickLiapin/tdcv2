@@ -2,6 +2,8 @@
 
 [English](../../generators/symbol.md#top) · [Русский](../../ru/generators/symbol.md#top) · **Español**
 
+📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/generators/symbol)**
+
 ← Anterior: [Date](./date.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Regex](./regex.md#top) →
 
 ---
@@ -294,3 +296,5 @@ fuera.
 ---
 
 ← Anterior: [Date](./date.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Regex](./regex.md#top) →
+
+📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/generators/symbol)**

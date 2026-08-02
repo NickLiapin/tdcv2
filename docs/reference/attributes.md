@@ -2,6 +2,8 @@
 
 **English** · [Русский](../ru/reference/attributes.md#top) · [Español](../es/reference/attributes.md#top)
 
+📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/reference/attributes)**
+
 ← Previous: [Tags](./tags.md#top) · **[Contents](../README.md#top)** · Next: [Generators](./generators.md#top) →
 
 ---
@@ -151,3 +153,5 @@ engine family; on a `pattern` generator it picks what you're asking the drawing 
 ---
 
 ← Previous: [Tags](./tags.md#top) · **[Contents](../README.md#top)** · Next: [Generators](./generators.md#top) →
+
+📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/reference/attributes)**

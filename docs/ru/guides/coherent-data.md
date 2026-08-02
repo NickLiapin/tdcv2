@@ -2,6 +2,8 @@
 
 [English](../../guides/coherent-data.md#top) · **Русский** · [Español](../../es/guides/coherent-data.md#top)
 
+📖 **[Открыть на сайте документации →](https://nickliapin.github.io/tdcv2/ru/docs/guides/coherent-data)**
+
 ← Назад: [Иерархические зависимости](./hierarchical-dependencies.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Без повторов в строке (distinct)](./distinct.md#top) →
 
 ---
@@ -189,3 +191,5 @@ data/packs/common/vehicle/
 ---
 
 ← Назад: [Иерархические зависимости](./hierarchical-dependencies.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Без повторов в строке (distinct)](./distinct.md#top) →
+
+📖 **[Открыть на сайте документации →](https://nickliapin.github.io/tdcv2/ru/docs/guides/coherent-data)**

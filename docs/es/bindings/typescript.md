@@ -2,6 +2,8 @@
 
 [English](../../bindings/typescript.md#top) · [Русский](../../ru/bindings/typescript.md#top) · **Español**
 
+📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/bindings/typescript)**
+
 ← Anterior: [Códigos de error](../reference/errors.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Python](./python.md#top) →
 
 ---
@@ -163,3 +165,5 @@ coincidió allí. Así se ve un filtro por padre en la salida de objetos.
 ---
 
 ← Anterior: [Códigos de error](../reference/errors.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Python](./python.md#top) →
+
+📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/bindings/typescript)**

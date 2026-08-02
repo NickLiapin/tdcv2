@@ -2,6 +2,8 @@
 
 [English](../../pools/overview.md#top) · **Русский** · [Español](../../es/pools/overview.md#top)
 
+📖 **[Открыть на сайте документации →](https://nickliapin.github.io/tdcv2/ru/docs/pools/overview)**
+
 ← Назад: [Нарастающий итог](../generators/running.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Отбор через filter](./filter.md#top) →
 
 ---
@@ -255,3 +257,5 @@ note: Read a field: ${{Seen.name}}.
 ---
 
 ← Назад: [Нарастающий итог](../generators/running.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Отбор через filter](./filter.md#top) →
+
+📖 **[Открыть на сайте документации →](https://nickliapin.github.io/tdcv2/ru/docs/pools/overview)**

@@ -2,6 +2,8 @@
 
 **English** · [Русский](../ru/guides/masks-and-case.md#top) · [Español](../es/guides/masks-and-case.md#top)
 
+📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/guides/masks-and-case)**
+
 ← Previous: [Output formats (CSV, JSON, SQL…)](./output-formats.md#top) · **[Contents](../README.md#top)** · Next: [Statistical distributions](./statistical-distributions.md#top) →
 
 ---
@@ -643,3 +645,5 @@ default mode also treats `\` as an escape character — either enable
 ---
 
 ← Previous: [Output formats (CSV, JSON, SQL…)](./output-formats.md#top) · **[Contents](../README.md#top)** · Next: [Statistical distributions](./statistical-distributions.md#top) →
+
+📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/guides/masks-and-case)**

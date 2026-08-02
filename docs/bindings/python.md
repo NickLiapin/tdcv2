@@ -2,6 +2,8 @@
 
 **English** · [Русский](../ru/bindings/python.md#top) · [Español](../es/bindings/python.md#top)
 
+📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/bindings/python)**
+
 ← Previous: [TypeScript](./typescript.md#top) · **[Contents](../README.md#top)** · Next: [Java](./java.md#top) →
 
 ---
@@ -46,3 +48,5 @@ snake_case.
 ---
 
 ← Previous: [TypeScript](./typescript.md#top) · **[Contents](../README.md#top)** · Next: [Java](./java.md#top) →
+
+📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/bindings/python)**

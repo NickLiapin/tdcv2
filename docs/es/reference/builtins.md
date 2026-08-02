@@ -2,6 +2,8 @@
 
 [English](../../reference/builtins.md#top) · [Русский](../../ru/reference/builtins.md#top) · **Español**
 
+📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/reference/builtins)**
+
 ← Anterior: [Funciones de cálculo](./compute.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Catálogo de identificadores](./identifiers.md#top) →
 
 ---
@@ -112,3 +114,5 @@ note: Builtins: _count, _first, _last, _total. Pick a different name.
 ---
 
 ← Anterior: [Funciones de cálculo](./compute.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Catálogo de identificadores](./identifiers.md#top) →
+
+📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/reference/builtins)**

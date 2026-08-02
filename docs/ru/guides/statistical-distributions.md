@@ -2,6 +2,8 @@
 
 [English](../../guides/statistical-distributions.md#top) · **Русский** · [Español](../../es/guides/statistical-distributions.md#top)
 
+📖 **[Открыть на сайте документации →](https://nickliapin.github.io/tdcv2/ru/docs/guides/statistical-distributions)**
+
 ← Назад: [Маски и регистр](./masks-and-case.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Аномалии и выбросы](./anomalies.md#top) →
 
 ---
@@ -622,3 +624,5 @@ note: Distributions: normal (mean, sd), lognormal (meanlog, sdlog), exponential 
 ---
 
 ← Назад: [Маски и регистр](./masks-and-case.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Аномалии и выбросы](./anomalies.md#top) →
+
+📖 **[Открыть на сайте документации →](https://nickliapin.github.io/tdcv2/ru/docs/guides/statistical-distributions)**

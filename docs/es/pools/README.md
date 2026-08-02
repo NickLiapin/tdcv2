@@ -4,6 +4,8 @@
 
 [English](../../pools/README.md#top) · [Русский](../../ru/pools/README.md#top) · **Español**
 
+📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/intro)**
+
 **[Contenido](../README.md#top)**
 
 ---

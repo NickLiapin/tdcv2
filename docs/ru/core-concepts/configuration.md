@@ -2,6 +2,8 @@
 
 [English](../../core-concepts/configuration.md#top) · **Русский** · [Español](../../es/core-concepts/configuration.md#top)
 
+📖 **[Открыть на сайте документации →](https://nickliapin.github.io/tdcv2/ru/docs/core-concepts/configuration)**
+
 ← Назад: [Первый датасет](../getting-started/first-data.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Последовательности](./sequences.md#top) →
 
 ---
@@ -394,3 +396,5 @@ error[TDC014]: <env> must not be self-closing — write <env> ... </env>
 ---
 
 ← Назад: [Первый датасет](../getting-started/first-data.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Последовательности](./sequences.md#top) →
+
+📖 **[Открыть на сайте документации →](https://nickliapin.github.io/tdcv2/ru/docs/core-concepts/configuration)**

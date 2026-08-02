@@ -2,6 +2,8 @@
 
 **English** · [Русский](../ru/bindings/csharp.md#top) · [Español](../es/bindings/csharp.md#top)
 
+📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/bindings/csharp)**
+
 ← Previous: [Java](./java.md#top) · **[Contents](../README.md#top)** · Next: [Rust](./rust.md#top) →
 
 ---
@@ -97,3 +99,5 @@ mapping and locale data — each of which would otherwise have changed the bytes
 ---
 
 ← Previous: [Java](./java.md#top) · **[Contents](../README.md#top)** · Next: [Rust](./rust.md#top) →
+
+📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/bindings/csharp)**

@@ -2,6 +2,8 @@
 
 **English** · [Русский](../ru/getting-started/first-data.md#top) · [Español](../es/getting-started/first-data.md#top)
 
+📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/getting-started/first-data)**
+
 ← Previous: [Installation](./installation.md#top) · **[Contents](../README.md#top)** · Next: [Configuration structure](../core-concepts/configuration.md#top) →
 
 ---
@@ -232,3 +234,5 @@ println!("{data}");
 ---
 
 ← Previous: [Installation](./installation.md#top) · **[Contents](../README.md#top)** · Next: [Configuration structure](../core-concepts/configuration.md#top) →
+
+📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/getting-started/first-data)**

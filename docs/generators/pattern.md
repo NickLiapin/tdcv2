@@ -2,6 +2,8 @@
 
 **English** · [Русский](../ru/generators/pattern.md#top) · [Español](../es/generators/pattern.md#top)
 
+📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/generators/pattern)**
+
 ← Previous: [Time series](./timeseries.md#top) · **[Contents](../README.md#top)** · Next: [HTTP service](./http.md#top) →
 
 ---
@@ -554,3 +556,5 @@ row 20: 100     (the spike)
 ---
 
 ← Previous: [Time series](./timeseries.md#top) · **[Contents](../README.md#top)** · Next: [HTTP service](./http.md#top) →
+
+📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/generators/pattern)**

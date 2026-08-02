@@ -2,6 +2,8 @@
 
 [English](../../compute/lists.md#top) · [Русский](../../ru/compute/lists.md#top) · **Español**
 
+📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/compute/lists)**
+
 ← Anterior: [Aritmética](./arithmetic.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Strings y formato](./strings.md#top) →
 
 ---
@@ -828,3 +830,5 @@ contra un objetivo con [`<choose>`](conditionals.md#top).
 ---
 
 ← Anterior: [Aritmética](./arithmetic.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Strings y formato](./strings.md#top) →
+
+📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/compute/lists)**

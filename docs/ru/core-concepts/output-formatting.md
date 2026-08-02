@@ -2,6 +2,8 @@
 
 [English](../../core-concepts/output-formatting.md#top) · **Русский** · [Español](../../es/core-concepts/output-formatting.md#top)
 
+📖 **[Открыть на сайте документации →](https://nickliapin.github.io/tdcv2/ru/docs/core-concepts/output-formatting)**
+
 ← Назад: [Последовательности](./sequences.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Детерминизм и пропорции](./determinism.md#top) →
 
 ---
@@ -483,3 +485,5 @@ suggestion: did you mean "Name"?
 ---
 
 ← Назад: [Последовательности](./sequences.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Детерминизм и пропорции](./determinism.md#top) →
+
+📖 **[Открыть на сайте документации →](https://nickliapin.github.io/tdcv2/ru/docs/core-concepts/output-formatting)**

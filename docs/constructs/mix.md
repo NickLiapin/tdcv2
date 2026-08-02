@@ -2,6 +2,8 @@
 
 **English** · [Русский](../ru/constructs/mix.md#top) · [Español](../es/constructs/mix.md#top)
 
+📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/constructs/mix)**
+
 ← Previous: [Overview](./overview.md#top) · **[Contents](../README.md#top)** · Next: [Lookup tables (switch)](./switch.md#top) →
 
 ---
@@ -339,3 +341,5 @@ own full treatment in the anomalies guide.
 ---
 
 ← Previous: [Overview](./overview.md#top) · **[Contents](../README.md#top)** · Next: [Lookup tables (switch)](./switch.md#top) →
+
+📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/constructs/mix)**

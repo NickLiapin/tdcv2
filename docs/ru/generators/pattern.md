@@ -2,6 +2,8 @@
 
 [English](../../generators/pattern.md#top) · **Русский** · [Español](../../es/generators/pattern.md#top)
 
+📖 **[Открыть на сайте документации →](https://nickliapin.github.io/tdcv2/ru/docs/generators/pattern)**
+
 ← Назад: [Временные ряды](./timeseries.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [HTTP-сервис](./http.md#top) →
 
 ---
@@ -550,3 +552,5 @@ spread 5, seed B:   5  11  21  26  45  53  64  73  82  94   99
 ---
 
 ← Назад: [Временные ряды](./timeseries.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [HTTP-сервис](./http.md#top) →
+
+📖 **[Открыть на сайте документации →](https://nickliapin.github.io/tdcv2/ru/docs/generators/pattern)**

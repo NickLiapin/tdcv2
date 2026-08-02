@@ -2,6 +2,8 @@
 
 [English](../../guides/files-and-csv.md#top) · **Русский** · [Español](../../es/guides/files-and-csv.md#top)
 
+📖 **[Открыть на сайте документации →](https://nickliapin.github.io/tdcv2/ru/docs/guides/files-and-csv)**
+
 ← Назад: [Без повторов в строке (distinct)](./distinct.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Форматы вывода (CSV, JSON, SQL…)](./output-formats.md#top) →
 
 ---
@@ -363,3 +365,5 @@ Coffee (продажи 1200) выпадает чаще всего, Backpack (п�
 ---
 
 ← Назад: [Без повторов в строке (distinct)](./distinct.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Форматы вывода (CSV, JSON, SQL…)](./output-formats.md#top) →
+
+📖 **[Открыть на сайте документации →](https://nickliapin.github.io/tdcv2/ru/docs/guides/files-and-csv)**

@@ -2,6 +2,8 @@
 
 [English](../../generators/template.md#top) · **Русский** · [Español](../../es/generators/template.md#top)
 
+📖 **[Открыть на сайте документации →](https://nickliapin.github.io/tdcv2/ru/docs/generators/template)**
+
 ← Назад: [number](./number.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Файл](./file.md#top) →
 
 ---
@@ -553,3 +555,5 @@ r5t9bd6l2e@example.test
 ---
 
 ← Назад: [number](./number.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Файл](./file.md#top) →
+
+📖 **[Открыть на сайте документации →](https://nickliapin.github.io/tdcv2/ru/docs/generators/template)**

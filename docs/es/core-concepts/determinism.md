@@ -2,6 +2,8 @@
 
 [English](../../core-concepts/determinism.md#top) · [Русский](../../ru/core-concepts/determinism.md#top) · **Español**
 
+📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/core-concepts/determinism)**
+
 ← Anterior: [Salida y formato](./output-formatting.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Descripción general](../generators/overview.md#top) →
 
 ---
@@ -328,3 +330,5 @@ los casos se distribuyen de forma pareja.
 ---
 
 ← Anterior: [Salida y formato](./output-formatting.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Descripción general](../generators/overview.md#top) →
+
+📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/core-concepts/determinism)**

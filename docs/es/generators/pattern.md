@@ -2,6 +2,8 @@
 
 [English](../../generators/pattern.md#top) · [Русский](../../ru/generators/pattern.md#top) · **Español**
 
+📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/generators/pattern)**
+
 ← Anterior: [Series de tiempo](./timeseries.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Servicio HTTP](./http.md#top) →
 
 ---
@@ -567,3 +569,5 @@ fila 20: 100     (el pico)
 ---
 
 ← Anterior: [Series de tiempo](./timeseries.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Servicio HTTP](./http.md#top) →
+
+📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/generators/pattern)**

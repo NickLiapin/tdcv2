@@ -2,6 +2,8 @@
 
 [English](../../pools/filter.md#top) · [Русский](../../ru/pools/filter.md#top) · **Español**
 
+📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/pools/filter)**
+
 ← Anterior: [Resumen](./overview.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Enlazar pools entre sí](./linking.md#top) →
 
 ---
@@ -217,3 +219,5 @@ representados.
 ---
 
 ← Anterior: [Resumen](./overview.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Enlazar pools entre sí](./linking.md#top) →
+
+📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/pools/filter)**

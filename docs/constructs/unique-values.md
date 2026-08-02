@@ -2,6 +2,8 @@
 
 **English** · [Русский](../ru/constructs/unique-values.md#top) · [Español](../es/constructs/unique-values.md#top)
 
+📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/constructs/unique-values)**
+
 ← Previous: [One row per element (each)](./relational-tables.md#top) · **[Contents](../README.md#top)** · Next: [Overview](../compute/overview.md#top) →
 
 ---
@@ -385,3 +387,5 @@ too — exact, but bounded by RAM. See **[Large outputs](../guides/large-outputs
 ---
 
 ← Previous: [One row per element (each)](./relational-tables.md#top) · **[Contents](../README.md#top)** · Next: [Overview](../compute/overview.md#top) →
+
+📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/constructs/unique-values)**

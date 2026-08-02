@@ -2,6 +2,8 @@
 
 [English](../../getting-started/installation.md#top) · **Русский** · [Español](../../es/getting-started/installation.md#top)
 
+📖 **[Открыть на сайте документации →](https://nickliapin.github.io/tdcv2/ru/docs/getting-started/installation)**
+
 ← Назад: [Введение](../intro.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Первый датасет](./first-data.md#top) →
 
 ---
@@ -289,3 +291,5 @@ Available data packs:
 ---
 
 ← Назад: [Введение](../intro.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Первый датасет](./first-data.md#top) →
+
+📖 **[Открыть на сайте документации →](https://nickliapin.github.io/tdcv2/ru/docs/getting-started/installation)**

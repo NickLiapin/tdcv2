@@ -2,6 +2,8 @@
 
 **English** · [Русский](../ru/pools/overview.md#top) · [Español](../es/pools/overview.md#top)
 
+📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/pools/overview)**
+
 ← Previous: [Running total](../generators/running.md#top) · **[Contents](../README.md#top)** · Next: [Narrowing with filter](./filter.md#top) →
 
 ---
@@ -256,3 +258,5 @@ patient rows at the same cost as a thousand, and works on every
 ---
 
 ← Previous: [Running total](../generators/running.md#top) · **[Contents](../README.md#top)** · Next: [Narrowing with filter](./filter.md#top) →
+
+📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/pools/overview)**

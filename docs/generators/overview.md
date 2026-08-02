@@ -2,6 +2,8 @@
 
 **English** · [Русский](../ru/generators/overview.md#top) · [Español](../es/generators/overview.md#top)
 
+📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/generators/overview)**
+
 ← Previous: [Determinism & proportions](../core-concepts/determinism.md#top) · **[Contents](../README.md#top)** · Next: [Text](./text.md#top) →
 
 ---
@@ -226,3 +228,5 @@ without a warning. Full rules on
 ---
 
 ← Previous: [Determinism & proportions](../core-concepts/determinism.md#top) · **[Contents](../README.md#top)** · Next: [Text](./text.md#top) →
+
+📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/generators/overview)**

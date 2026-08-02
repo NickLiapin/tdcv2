@@ -2,6 +2,8 @@
 
 [English](../../compute/walkthrough.md#top) · [Русский](../../ru/compute/walkthrough.md#top) · **Español**
 
+📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/compute/walkthrough)**
+
 ← Anterior: [Condicionales](./conditionals.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Dependencias jerárquicas](../guides/hierarchical-dependencies.md#top) →
 
 ---
@@ -194,3 +196,5 @@ incluidos son todos esta misma forma de cinco pasos con otros pesos y otro paso 
 ---
 
 ← Anterior: [Condicionales](./conditionals.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Dependencias jerárquicas](../guides/hierarchical-dependencies.md#top) →
+
+📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/compute/walkthrough)**

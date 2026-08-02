@@ -2,6 +2,8 @@
 
 [English](../../guides/hierarchical-dependencies.md#top) · **Русский** · [Español](../../es/guides/hierarchical-dependencies.md#top)
 
+📖 **[Открыть на сайте документации →](https://nickliapin.github.io/tdcv2/ru/docs/guides/hierarchical-dependencies)**
+
 ← Назад: [Разбор пака построчно](../compute/walkthrough.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Связные данные](./coherent-data.md#top) →
 
 ---
@@ -387,3 +389,5 @@ US
 ---
 
 ← Назад: [Разбор пака построчно](../compute/walkthrough.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Связные данные](./coherent-data.md#top) →
+
+📖 **[Открыть на сайте документации →](https://nickliapin.github.io/tdcv2/ru/docs/guides/hierarchical-dependencies)**

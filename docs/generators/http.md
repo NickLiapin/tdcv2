@@ -2,6 +2,8 @@
 
 **English** · [Русский](../ru/generators/http.md#top) · [Español](../es/generators/http.md#top)
 
+📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/generators/http)**
+
 ← Previous: [Pattern](./pattern.md#top) · **[Contents](../README.md#top)** · Next: [Running total](./running.md#top) →
 
 ---
@@ -338,3 +340,5 @@ to yourself before reaching for it:
 ---
 
 ← Previous: [Pattern](./pattern.md#top) · **[Contents](../README.md#top)** · Next: [Running total](./running.md#top) →
+
+📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/generators/http)**

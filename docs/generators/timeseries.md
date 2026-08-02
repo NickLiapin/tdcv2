@@ -2,6 +2,8 @@
 
 **English** · [Русский](../ru/generators/timeseries.md#top) · [Español](../es/generators/timeseries.md#top)
 
+📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/generators/timeseries)**
+
 ← Previous: [Increment & Decrement](./counters.md#top) · **[Contents](../README.md#top)** · Next: [Pattern](./pattern.md#top) →
 
 ---
@@ -275,3 +277,5 @@ then real-world roughness. That's how a realistic series is assembled.
 ---
 
 ← Previous: [Increment & Decrement](./counters.md#top) · **[Contents](../README.md#top)** · Next: [Pattern](./pattern.md#top) →
+
+📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/generators/timeseries)**

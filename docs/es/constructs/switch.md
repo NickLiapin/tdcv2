@@ -2,6 +2,8 @@
 
 [English](../../constructs/switch.md#top) · [Русский](../../ru/constructs/switch.md#top) · **Español**
 
+📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/constructs/switch)**
+
 ← Anterior: [Elegir entre valores (mix)](./mix.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Salida condicional (if)](./conditional-output.md#top) →
 
 ---
@@ -428,3 +430,5 @@ El contraste de una línea que conviene recordar:
 ---
 
 ← Anterior: [Elegir entre valores (mix)](./mix.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Salida condicional (if)](./conditional-output.md#top) →
+
+📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/constructs/switch)**

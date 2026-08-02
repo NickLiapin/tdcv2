@@ -2,6 +2,8 @@
 
 **English** · [Русский](../ru/guides/coherent-data.md#top) · [Español](../es/guides/coherent-data.md#top)
 
+📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/guides/coherent-data)**
+
 ← Previous: [Hierarchical dependencies](./hierarchical-dependencies.md#top) · **[Contents](../README.md#top)** · Next: [No repeats within a row](./distinct.md#top) →
 
 ---
@@ -182,3 +184,5 @@ Full details are on the [File generator](../generators/file.md#top) page.
 ---
 
 ← Previous: [Hierarchical dependencies](./hierarchical-dependencies.md#top) · **[Contents](../README.md#top)** · Next: [No repeats within a row](./distinct.md#top) →
+
+📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/guides/coherent-data)**

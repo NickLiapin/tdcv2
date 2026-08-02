@@ -2,6 +2,8 @@
 
 **English** · [Русский](../ru/data-packs/installing-packs.md#top) · [Español](../es/data-packs/installing-packs.md#top)
 
+📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/data-packs/installing-packs)**
+
 ← Previous: [Overview](./overview.md#top) · **[Contents](../README.md#top)** · Next: [Writing your own](./writing-your-own.md#top) →
 
 ---
@@ -357,3 +359,5 @@ shadowed for as long as a richer set sits above it.
 ---
 
 ← Previous: [Overview](./overview.md#top) · **[Contents](../README.md#top)** · Next: [Writing your own](./writing-your-own.md#top) →
+
+📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/data-packs/installing-packs)**

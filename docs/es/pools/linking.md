@@ -2,6 +2,8 @@
 
 [English](../../pools/linking.md#top) · [Русский](../../ru/pools/linking.md#top) · **Español**
 
+📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/pools/linking)**
+
 ← Anterior: [Acotar con filter](./filter.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Visión general](../constructs/overview.md#top) →
 
 ---
@@ -253,3 +255,5 @@ configuración no cambia. De eso trata la construcción.
 ---
 
 ← Anterior: [Acotar con filter](./filter.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Visión general](../constructs/overview.md#top) →
+
+📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/pools/linking)**

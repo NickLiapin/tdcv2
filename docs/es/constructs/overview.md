@@ -2,6 +2,8 @@
 
 [English](../../constructs/overview.md#top) · [Русский](../../ru/constructs/overview.md#top) · **Español**
 
+📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/constructs/overview)**
+
 ← Anterior: [Enlazar pools entre sí](../pools/linking.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Elegir entre valores (mix)](./mix.md#top) →
 
 ---
@@ -103,3 +105,5 @@ huecos y conjuntos que no caben en memoria.
 ---
 
 ← Anterior: [Enlazar pools entre sí](../pools/linking.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Elegir entre valores (mix)](./mix.md#top) →
+
+📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/constructs/overview)**

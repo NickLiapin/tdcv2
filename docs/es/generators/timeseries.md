@@ -2,6 +2,8 @@
 
 [English](../../generators/timeseries.md#top) · [Русский](../../ru/generators/timeseries.md#top) · **Español**
 
+📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/generators/timeseries)**
+
 ← Anterior: [Contadores (increment / decrement)](./counters.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Pattern (dibujo)](./pattern.md#top) →
 
 ---
@@ -280,3 +282,5 @@ aspereza del mundo real. Así se arma una serie realista.
 ---
 
 ← Anterior: [Contadores (increment / decrement)](./counters.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Pattern (dibujo)](./pattern.md#top) →
+
+📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/generators/timeseries)**

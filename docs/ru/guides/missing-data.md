@@ -2,6 +2,8 @@
 
 [English](../../guides/missing-data.md#top) · **Русский** · [Español](../../es/guides/missing-data.md#top)
 
+📖 **[Открыть на сайте документации →](https://nickliapin.github.io/tdcv2/ru/docs/guides/missing-data)**
+
 ← Назад: [Аномалии и выбросы](./anomalies.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Типизированный вывод и Parquet](./typed-output-parquet.md#top) →
 
 ---
@@ -230,3 +232,5 @@
 ---
 
 ← Назад: [Аномалии и выбросы](./anomalies.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Типизированный вывод и Parquet](./typed-output-parquet.md#top) →
+
+📖 **[Открыть на сайте документации →](https://nickliapin.github.io/tdcv2/ru/docs/guides/missing-data)**

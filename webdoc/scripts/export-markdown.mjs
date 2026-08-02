@@ -35,12 +35,59 @@ const LOCALES = [
   { code: 'es', dir: join(WEBSITE, 'i18n/es/docusaurus-plugin-content-docs/current'), out: 'es', name: 'Español' },
 ];
 
+/**
+ * The published site. These pages are a convenience copy for reading on GitHub;
+ * the site is the same content with search, a sidebar and working anchors, so
+ * every page says where its live twin is.
+ */
+const SITE = 'https://nickliapin.github.io/tdcv2';
+
 /** The few words the generated navigation needs in each language. */
 const UI = {
-  en: { title: 'TDC Documentation', contents: 'Contents', prev: 'Previous', next: 'Next' },
-  ru: { title: 'Документация TDC', contents: 'Оглавление', prev: 'Назад', next: 'Вперёд' },
-  es: { title: 'Documentación de TDC', contents: 'Contenido', prev: 'Anterior', next: 'Siguiente' },
+  en: {
+    title: 'TDC Documentation',
+    contents: 'Contents',
+    prev: 'Previous',
+    next: 'Next',
+    site: 'Read this on the documentation site',
+  },
+  ru: {
+    title: 'Документация TDC',
+    contents: 'Оглавление',
+    prev: 'Назад',
+    next: 'Вперёд',
+    site: 'Открыть на сайте документации',
+  },
+  es: {
+    title: 'Documentación de TDC',
+    contents: 'Contenido',
+    prev: 'Anterior',
+    next: 'Siguiente',
+    site: 'Abrir en el sitio de documentación',
+  },
 };
+
+/**
+ * The address of this page on the published site.
+ *
+ * `outRel` is the path of the generated file — `ru/generators/running.md`. The
+ * site keeps the same shape under a locale prefix, so the two differ only by
+ * dropping the extension. An index page has no page of its own on the site, so
+ * it points at the introduction, which is where the sidebar opens anyway.
+ */
+function siteUrl(outRel, code) {
+  const prefix = code === 'en' ? '' : `${code}/`;
+  const rel = outRel
+    .replace(/^(ru|es)\//, '')
+    .replace(/\.md$/, '');
+  const page = rel === 'README' || rel.endsWith('/README') ? 'intro' : rel;
+  return `${SITE}/${prefix}docs/${page}`;
+}
+
+/** The line that sends a reader from this copy to the live one. */
+function siteLink(outRel, code) {
+  return `📖 **[${UI[code].site} →](${siteUrl(outRel, code)})**`;
+}
 
 /** Docusaurus admonitions map onto GitHub's five alert types. */
 const ALERTS = {
@@ -316,7 +363,18 @@ function nav(outRel, code, home, prev, next) {
 
 /** The table of contents a reader lands on when opening the folder. */
 function contents(items, code, outRel, siblings) {
-  const lines = [TOP, '', `# ${UI[code].title}`, '', switcher(outRel, code, siblings), '', '---', ''];
+  const lines = [
+    TOP,
+    '',
+    `# ${UI[code].title}`,
+    '',
+    switcher(outRel, code, siblings),
+    '',
+    siteLink(outRel, code),
+    '',
+    '---',
+    '',
+  ];
   const walk = (list, depth) => {
     for (const it of list) {
       if (it.type === 'page') lines.push(`- [${it.label}](${to(outRel, it)})`);
@@ -339,6 +397,8 @@ function folderIndex(cat, code, outRel, siblings, home) {
     `# ${cat.label}`,
     '',
     switcher(outRel, code, siblings),
+    '',
+    siteLink(outRel, code),
     '',
     back,
     '',
@@ -411,9 +471,16 @@ for (const { locale, tree, home, pages, pageBy } of built) {
     const { body } = frontmatter(readFileSync(page.source, 'utf8'));
     const sw = switcher(page.outRel, code, siblings((b) => b.pageBy.get(page.relPath)));
     const bar = nav(page.outRel, code, home, pages[i - 1], pages[i + 1]);
+    const live = siteLink(page.outRel, code);
     const dest = join(OUT, page.outRel);
     mkdirSync(dirname(dest), { recursive: true });
-    writeFileSync(dest, `${TOP}\n\n${sw}\n\n${bar}\n\n---\n\n${convert(body, page)}\n---\n\n${bar}\n`);
+    // The live link goes at the top AND the bottom: at the top for the reader
+    // who wants search and a sidebar before reading, at the bottom for the one
+    // who finished the page and now wants the rest of the documentation.
+    writeFileSync(
+      dest,
+      `${TOP}\n\n${sw}\n\n${live}\n\n${bar}\n\n---\n\n${convert(body, page)}\n---\n\n${bar}\n\n${live}\n`,
+    );
     written++;
   });
 

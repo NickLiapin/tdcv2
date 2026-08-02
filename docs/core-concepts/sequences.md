@@ -2,6 +2,8 @@
 
 **English** · [Русский](../ru/core-concepts/sequences.md#top) · [Español](../es/core-concepts/sequences.md#top)
 
+📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/core-concepts/sequences)**
+
 ← Previous: [Configuration structure](./configuration.md#top) · **[Contents](../README.md#top)** · Next: [Output & formatting](./output-formatting.md#top) →
 
 ---
@@ -362,3 +364,5 @@ tool.
 ---
 
 ← Previous: [Configuration structure](./configuration.md#top) · **[Contents](../README.md#top)** · Next: [Output & formatting](./output-formatting.md#top) →
+
+📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/core-concepts/sequences)**

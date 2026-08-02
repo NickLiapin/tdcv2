@@ -2,6 +2,8 @@
 
 [English](../../reference/compute.md#top) · [Русский](../../ru/reference/compute.md#top) · **Español**
 
+📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/reference/compute)**
+
 ← Anterior: [Generadores](./generators.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Valores integrados](./builtins.md#top) →
 
 ---
@@ -108,3 +110,5 @@ Vea la sección [Lenguaje de cálculo](../compute/overview.md#top) para ejemplos
 ---
 
 ← Anterior: [Generadores](./generators.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Valores integrados](./builtins.md#top) →
+
+📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/reference/compute)**

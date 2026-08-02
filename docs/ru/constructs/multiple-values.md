@@ -2,6 +2,8 @@
 
 [English](../../constructs/multiple-values.md#top) · **Русский** · [Español](../../es/constructs/multiple-values.md#top)
 
+📖 **[Открыть на сайте документации →](https://nickliapin.github.io/tdcv2/ru/docs/constructs/multiple-values)**
+
 ← Назад: [Условный вывод (if)](./conditional-output.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Строка на элемент (each)](./relational-tables.md#top) →
 
 ---
@@ -398,3 +400,5 @@ city     BYTE_ARRAY  REQUIRED
 ---
 
 ← Назад: [Условный вывод (if)](./conditional-output.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Строка на элемент (each)](./relational-tables.md#top) →
+
+📖 **[Открыть на сайте документации →](https://nickliapin.github.io/tdcv2/ru/docs/constructs/multiple-values)**

@@ -2,6 +2,8 @@
 
 **English** · [Русский](../ru/pools/linking.md#top) · [Español](../es/pools/linking.md#top)
 
+📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/pools/linking)**
+
 ← Previous: [Narrowing with filter](./filter.md#top) · **[Contents](../README.md#top)** · Next: [Overview](../constructs/overview.md#top) →
 
 ---
@@ -245,3 +247,5 @@ shape changes. That is the point of the construct.
 ---
 
 ← Previous: [Narrowing with filter](./filter.md#top) · **[Contents](../README.md#top)** · Next: [Overview](../constructs/overview.md#top) →
+
+📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/pools/linking)**

@@ -2,6 +2,8 @@
 
 [English](../../guides/large-outputs.md#top) · [Русский](../../ru/guides/large-outputs.md#top) · **Español**
 
+📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/guides/large-outputs)**
+
 ← Anterior: [Salida tipada y Parquet](./typed-output-parquet.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Escribir un generador de servicio](./writing-a-service.md#top) →
 
 ---
@@ -568,3 +570,5 @@ ocupa dos ranuras de secuencia: `Person.FirstName` y `Person.LastName`.
 ---
 
 ← Anterior: [Salida tipada y Parquet](./typed-output-parquet.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Escribir un generador de servicio](./writing-a-service.md#top) →
+
+📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/guides/large-outputs)**

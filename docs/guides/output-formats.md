@@ -2,6 +2,8 @@
 
 **English** · [Русский](../ru/guides/output-formats.md#top) · [Español](../es/guides/output-formats.md#top)
 
+📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/guides/output-formats)**
+
 ← Previous: [Reading files & CSV](./files-and-csv.md#top) · **[Contents](../README.md#top)** · Next: [Masks & case](./masks-and-case.md#top) →
 
 ---
@@ -538,3 +540,5 @@ TDC just fills in the values — the format is whatever you wrote.
 ---
 
 ← Previous: [Reading files & CSV](./files-and-csv.md#top) · **[Contents](../README.md#top)** · Next: [Masks & case](./masks-and-case.md#top) →
+
+📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/guides/output-formats)**

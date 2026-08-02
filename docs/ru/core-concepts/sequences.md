@@ -2,6 +2,8 @@
 
 [English](../../core-concepts/sequences.md#top) · **Русский** · [Español](../../es/core-concepts/sequences.md#top)
 
+📖 **[Открыть на сайте документации →](https://nickliapin.github.io/tdcv2/ru/docs/core-concepts/sequences)**
+
 ← Назад: [Структура конфигурации](./configuration.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Вывод и форматирование](./output-formatting.md#top) →
 
 ---
@@ -367,3 +369,5 @@ Parquet как есть: склеивать на выводе нечего.
 ---
 
 ← Назад: [Структура конфигурации](./configuration.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Вывод и форматирование](./output-formatting.md#top) →
+
+📖 **[Открыть на сайте документации →](https://nickliapin.github.io/tdcv2/ru/docs/core-concepts/sequences)**

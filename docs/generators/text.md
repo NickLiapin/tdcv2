@@ -2,6 +2,8 @@
 
 **English** · [Русский](../ru/generators/text.md#top) · [Español](../es/generators/text.md#top)
 
+📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/generators/text)**
+
 ← Previous: [Overview](./overview.md#top) · **[Contents](../README.md#top)** · Next: [Number](./number.md#top) →
 
 ---
@@ -221,3 +223,5 @@ output — for example uppercasing the picked word, or forcing sequential order.
 ---
 
 ← Previous: [Overview](./overview.md#top) · **[Contents](../README.md#top)** · Next: [Number](./number.md#top) →
+
+📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/generators/text)**

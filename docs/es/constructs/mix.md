@@ -2,6 +2,8 @@
 
 [English](../../constructs/mix.md#top) · [Русский](../../ru/constructs/mix.md#top) · **Español**
 
+📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/constructs/mix)**
+
 ← Anterior: [Visión general](./overview.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Tablas de consulta (switch)](./switch.md#top) →
 
 ---
@@ -344,3 +346,5 @@ la columna `flag` reciben su tratamiento completo en la guía de anomalías.
 ---
 
 ← Anterior: [Visión general](./overview.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Tablas de consulta (switch)](./switch.md#top) →
+
+📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/constructs/mix)**

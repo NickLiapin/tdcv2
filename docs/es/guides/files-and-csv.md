@@ -2,6 +2,8 @@
 
 [English](../../guides/files-and-csv.md#top) · [Русский](../../ru/guides/files-and-csv.md#top) · **Español**
 
+📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/guides/files-and-csv)**
+
 ← Anterior: [Sin repeticiones dentro de una fila](./distinct.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Formatos de salida (CSV, JSON, SQL…)](./output-formats.md#top) →
 
 ---
@@ -365,3 +367,5 @@ tabla completa de resolución está en la página del
 ---
 
 ← Anterior: [Sin repeticiones dentro de una fila](./distinct.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Formatos de salida (CSV, JSON, SQL…)](./output-formats.md#top) →
+
+📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/guides/files-and-csv)**

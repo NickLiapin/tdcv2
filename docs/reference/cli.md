@@ -2,6 +2,8 @@
 
 **English** · [Русский](../ru/reference/cli.md#top) · [Español](../es/reference/cli.md#top)
 
+📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/reference/cli)**
+
 ← Previous: [Writing your own](../data-packs/writing-your-own.md#top) · **[Contents](../README.md#top)** · Next: [Tags](./tags.md#top) →
 
 ---
@@ -162,3 +164,5 @@ the formatter reports it and leaves the file untouched (exit code 1).
 ---
 
 ← Previous: [Writing your own](../data-packs/writing-your-own.md#top) · **[Contents](../README.md#top)** · Next: [Tags](./tags.md#top) →
+
+📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/reference/cli)**

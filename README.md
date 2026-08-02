@@ -10,15 +10,19 @@ byte-identical output), produces **exact proportions**, and emits **any text
 format you describe** — CSV, JSON, SQL, YAML, Markdown, or your own. A single
 config runs identically in TypeScript, Python, Java, C# and Rust.
 
-## 📖 Documentation
+## Documentation
 
-**[Read the documentation here in the repository →](docs/)** — every implemented
-feature, in **English** (canonical), **[Русский](docs/ru/)** and
-**[Español](docs/es/)**.
+### 📖 **[nickliapin.github.io/tdcv2](https://nickliapin.github.io/tdcv2/docs/intro)**
 
-Those pages are generated from the documentation site in [`webdoc/`](webdoc/) and
-are checked on every build, so the two can never drift apart. To read the site
-version, with search and a sidebar, run `npm --prefix webdoc run start`.
+Every implemented feature, with search, a sidebar and working anchors — in
+**[English](https://nickliapin.github.io/tdcv2/docs/intro)** (canonical),
+**[Русский](https://nickliapin.github.io/tdcv2/ru/docs/intro)** and
+**[Español](https://nickliapin.github.io/tdcv2/es/docs/intro)**.
+
+The same pages are also [in this repository](docs/) —
+[ru](docs/ru/) · [es](docs/es/) — for reading without leaving GitHub, or offline.
+They are generated from [`webdoc/`](webdoc/) and checked on every build, so the
+copy and the site can never drift apart.
 
 ---
 

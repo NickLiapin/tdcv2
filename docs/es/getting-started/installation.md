@@ -2,6 +2,8 @@
 
 [English](../../getting-started/installation.md#top) · [Русский](../../ru/getting-started/installation.md#top) · **Español**
 
+📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/getting-started/installation)**
+
 ← Anterior: [Introducción](../intro.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Su primer conjunto de datos](./first-data.md#top) →
 
 ---
@@ -297,3 +299,5 @@ de configuración, el ocultamiento entre paquetes, cómo quitarlos) está en
 ---
 
 ← Anterior: [Introducción](../intro.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Su primer conjunto de datos](./first-data.md#top) →
+
+📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/getting-started/installation)**

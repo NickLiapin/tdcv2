@@ -2,6 +2,8 @@
 
 **English** · [Русский](../ru/generators/number.md#top) · [Español](../es/generators/number.md#top)
 
+📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/generators/number)**
+
 ← Previous: [Text](./text.md#top) · **[Contents](../README.md#top)** · Next: [Template](./template.md#top) →
 
 ---
@@ -292,3 +294,5 @@ These modifiers need a **range** `value`; they don't apply to the digit-string
 ---
 
 ← Previous: [Text](./text.md#top) · **[Contents](../README.md#top)** · Next: [Template](./template.md#top) →
+
+📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/generators/number)**

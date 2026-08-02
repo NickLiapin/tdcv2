@@ -4,6 +4,8 @@
 
 [English](../README.md#top) · **Русский** · [Español](../es/README.md#top)
 
+📖 **[Открыть на сайте документации →](https://nickliapin.github.io/tdcv2/ru/docs/intro)**
+
 ---
 
 - [Введение](./intro.md#top)

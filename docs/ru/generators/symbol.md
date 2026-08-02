@@ -2,6 +2,8 @@
 
 [English](../../generators/symbol.md#top) · **Русский** · [Español](../../es/generators/symbol.md#top)
 
+📖 **[Открыть на сайте документации →](https://nickliapin.github.io/tdcv2/ru/docs/generators/symbol)**
+
 ← Назад: [Дата](./date.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Regex](./regex.md#top) →
 
 ---
@@ -289,3 +291,5 @@ value="あア[0-9][A-F]" length="6" → アB4あ7ア
 ---
 
 ← Назад: [Дата](./date.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Regex](./regex.md#top) →
+
+📖 **[Открыть на сайте документации →](https://nickliapin.github.io/tdcv2/ru/docs/generators/symbol)**

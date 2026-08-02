@@ -2,6 +2,8 @@
 
 [English](../../core-concepts/determinism.md#top) · **Русский** · [Español](../../es/core-concepts/determinism.md#top)
 
+📖 **[Открыть на сайте документации →](https://nickliapin.github.io/tdcv2/ru/docs/core-concepts/determinism)**
+
 ← Назад: [Вывод и форматирование](./output-formatting.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Обзор генераторов](../generators/overview.md#top) →
 
 ---
@@ -323,3 +325,5 @@ bronze    20
 ---
 
 ← Назад: [Вывод и форматирование](./output-formatting.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Обзор генераторов](../generators/overview.md#top) →
+
+📖 **[Открыть на сайте документации →](https://nickliapin.github.io/tdcv2/ru/docs/core-concepts/determinism)**

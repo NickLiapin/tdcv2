@@ -2,6 +2,8 @@
 
 [English](../../generators/regex.md#top) · [Русский](../../ru/generators/regex.md#top) · **Español**
 
+📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/generators/regex)**
+
 ← Anterior: [Symbol](./symbol.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Regex avanzado](./advanced-regex.md#top) →
 
 ---
@@ -575,3 +577,5 @@ no exactamente 70/30. Para porciones exactas use:
 ---
 
 ← Anterior: [Symbol](./symbol.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Regex avanzado](./advanced-regex.md#top) →
+
+📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/generators/regex)**

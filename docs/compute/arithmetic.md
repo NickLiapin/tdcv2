@@ -2,6 +2,8 @@
 
 **English** · [Русский](../ru/compute/arithmetic.md#top) · [Español](../es/compute/arithmetic.md#top)
 
+📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/compute/arithmetic)**
+
 ← Previous: [Overview](./overview.md#top) · **[Contents](../README.md#top)** · Next: [Lists & iteration](./lists.md#top) →
 
 ---
@@ -555,3 +557,5 @@ directly, since a one-character string is coerced on its own).
 ---
 
 ← Previous: [Overview](./overview.md#top) · **[Contents](../README.md#top)** · Next: [Lists & iteration](./lists.md#top) →
+
+📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/compute/arithmetic)**

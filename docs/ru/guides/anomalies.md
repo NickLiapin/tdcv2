@@ -2,6 +2,8 @@
 
 [English](../../guides/anomalies.md#top) · **Русский** · [Español](../../es/guides/anomalies.md#top)
 
+📖 **[Открыть на сайте документации →](https://nickliapin.github.io/tdcv2/ru/docs/guides/anomalies)**
+
 ← Назад: [Статистические распределения](./statistical-distributions.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Пропуски в данных](./missing-data.md#top) →
 
 ---
@@ -373,3 +375,5 @@ TDC не угадывает тип, в котором не уверен. См. *
 ---
 
 ← Назад: [Статистические распределения](./statistical-distributions.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Пропуски в данных](./missing-data.md#top) →
+
+📖 **[Открыть на сайте документации →](https://nickliapin.github.io/tdcv2/ru/docs/guides/anomalies)**

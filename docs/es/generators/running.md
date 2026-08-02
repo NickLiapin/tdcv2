@@ -2,6 +2,8 @@
 
 [English](../../generators/running.md#top) · [Русский](../../ru/generators/running.md#top) · **Español**
 
+📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/generators/running)**
+
 ← Anterior: [Servicio HTTP](./http.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Resumen](../pools/overview.md#top) →
 
 ---
@@ -160,3 +162,5 @@ registro](../constructs/multiple-values.md#accumulate--un-total-acumulado-a-lo-l
 ---
 
 ← Anterior: [Servicio HTTP](./http.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Resumen](../pools/overview.md#top) →
+
+📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/generators/running)**

@@ -2,6 +2,8 @@
 
 **English** · [Русский](../ru/constructs/relational-tables.md#top) · [Español](../es/constructs/relational-tables.md#top)
 
+📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/constructs/relational-tables)**
+
 ← Previous: [Multiple values in a cell (repeat)](./multiple-values.md#top) · **[Contents](../README.md#top)** · Next: [Uniqueness (uniq, distinct)](./unique-values.md#top) →
 
 ---
@@ -252,3 +254,5 @@ formats — SQL, CSV, JSON lines — where one record must become several physic
 ---
 
 ← Previous: [Multiple values in a cell (repeat)](./multiple-values.md#top) · **[Contents](../README.md#top)** · Next: [Uniqueness (uniq, distinct)](./unique-values.md#top) →
+
+📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/constructs/relational-tables)**

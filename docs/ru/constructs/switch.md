@@ -2,6 +2,8 @@
 
 [English](../../constructs/switch.md#top) · **Русский** · [Español](../../es/constructs/switch.md#top)
 
+📖 **[Открыть на сайте документации →](https://nickliapin.github.io/tdcv2/ru/docs/constructs/switch)**
+
 ← Назад: [Выбор между значениями (mix)](./mix.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Условный вывод (if)](./conditional-output.md#top) →
 
 ---
@@ -433,3 +435,5 @@ MX -> USD
 ---
 
 ← Назад: [Выбор между значениями (mix)](./mix.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Условный вывод (if)](./conditional-output.md#top) →
+
+📖 **[Открыть на сайте документации →](https://nickliapin.github.io/tdcv2/ru/docs/constructs/switch)**

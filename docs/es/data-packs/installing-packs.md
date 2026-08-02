@@ -2,6 +2,8 @@
 
 [English](../../data-packs/installing-packs.md#top) · [Русский](../../ru/data-packs/installing-packs.md#top) · **Español**
 
+📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/data-packs/installing-packs)**
+
 ← Anterior: [Descripción general](./overview.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Cree su propio paquete](./writing-your-own.md#top) →
 
 ---
@@ -330,3 +332,5 @@ encima.
 ---
 
 ← Anterior: [Descripción general](./overview.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Cree su propio paquete](./writing-your-own.md#top) →
+
+📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/data-packs/installing-packs)**

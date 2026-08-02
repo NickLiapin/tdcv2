@@ -2,6 +2,8 @@
 
 [English](../../generators/template.md#top) · [Русский](../../ru/generators/template.md#top) · **Español**
 
+📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/generators/template)**
+
 ← Anterior: [number](./number.md#top) · **[Contenido](../README.md#top)** · Siguiente: [File](./file.md#top) →
 
 ---
@@ -570,3 +572,5 @@ plantillas disponibles son exactamente las integradas que se documentan aquí.
 ---
 
 ← Anterior: [number](./number.md#top) · **[Contenido](../README.md#top)** · Siguiente: [File](./file.md#top) →
+
+📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/generators/template)**

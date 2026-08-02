@@ -2,6 +2,8 @@
 
 [English](../../guides/distinct.md#top) · [Русский](../../ru/guides/distinct.md#top) · **Español**
 
+📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/guides/distinct)**
+
 ← Anterior: [Datos coherentes y relacionales](./coherent-data.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Leer archivos y CSV](./files-and-csv.md#top) →
 
 ---
@@ -282,3 +284,5 @@ el dataset. Para la regla vertical, vea [Valores únicos](../constructs/unique-v
 ---
 
 ← Anterior: [Datos coherentes y relacionales](./coherent-data.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Leer archivos y CSV](./files-and-csv.md#top) →
+
+📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/guides/distinct)**

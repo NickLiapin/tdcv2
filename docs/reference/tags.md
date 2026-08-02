@@ -2,6 +2,8 @@
 
 **English** · [Русский](../ru/reference/tags.md#top) · [Español](../es/reference/tags.md#top)
 
+📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/reference/tags)**
+
 ← Previous: [CLI](./cli.md#top) · **[Contents](../README.md#top)** · Next: [Attributes](./attributes.md#top) →
 
 ---
@@ -69,3 +71,5 @@ Compute tags (the ones that go inside `<compute>`) have their own list in the
 ---
 
 ← Previous: [CLI](./cli.md#top) · **[Contents](../README.md#top)** · Next: [Attributes](./attributes.md#top) →
+
+📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/reference/tags)**

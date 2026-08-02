@@ -2,6 +2,8 @@
 
 **English** · [Русский](../ru/guides/files-and-csv.md#top) · [Español](../es/guides/files-and-csv.md#top)
 
+📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/guides/files-and-csv)**
+
 ← Previous: [No repeats within a row](./distinct.md#top) · **[Contents](../README.md#top)** · Next: [Output formats (CSV, JSON, SQL…)](./output-formats.md#top) →
 
 ---
@@ -357,3 +359,5 @@ table is on the [File generator](../generators/file.md#top) page.
 ---
 
 ← Previous: [No repeats within a row](./distinct.md#top) · **[Contents](../README.md#top)** · Next: [Output formats (CSV, JSON, SQL…)](./output-formats.md#top) →
+
+📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/guides/files-and-csv)**

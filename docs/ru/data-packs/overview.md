@@ -2,6 +2,8 @@
 
 [English](../../data-packs/overview.md#top) · **Русский** · [Español](../../es/data-packs/overview.md#top)
 
+📖 **[Открыть на сайте документации →](https://nickliapin.github.io/tdcv2/ru/docs/data-packs/overview)**
+
 ← Назад: [Как написать сервис-генератор](../guides/writing-a-service.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Установка пакетов данных](./installing-packs.md#top) →
 
 ---
@@ -347,3 +349,5 @@ TDC071: unknown template path 'person.male.firstNam'
 ---
 
 ← Назад: [Как написать сервис-генератор](../guides/writing-a-service.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Установка пакетов данных](./installing-packs.md#top) →
+
+📖 **[Открыть на сайте документации →](https://nickliapin.github.io/tdcv2/ru/docs/data-packs/overview)**

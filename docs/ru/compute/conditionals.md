@@ -2,6 +2,8 @@
 
 [English](../../compute/conditionals.md#top) · **Русский** · [Español](../../es/compute/conditionals.md#top)
 
+📖 **[Открыть на сайте документации →](https://nickliapin.github.io/tdcv2/ru/docs/compute/conditionals)**
+
 ← Назад: [Строки и форматирование](./strings.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Разбор пака построчно](./walkthrough.md#top) →
 
 ---
@@ -588,3 +590,5 @@ generator: tdc
 ---
 
 ← Назад: [Строки и форматирование](./strings.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Разбор пака построчно](./walkthrough.md#top) →
+
+📖 **[Открыть на сайте документации →](https://nickliapin.github.io/tdcv2/ru/docs/compute/conditionals)**

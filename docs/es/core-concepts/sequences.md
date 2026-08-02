@@ -2,6 +2,8 @@
 
 [English](../../core-concepts/sequences.md#top) · [Русский](../../ru/core-concepts/sequences.md#top) · **Español**
 
+📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/core-concepts/sequences)**
+
 ← Anterior: [Estructura de la configuración](./configuration.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Salida y formato](./output-formatting.md#top) →
 
 ---
@@ -370,3 +372,5 @@ Cuando solo necesita una columna de valores aleatorios o ponderados, la herramie
 ---
 
 ← Anterior: [Estructura de la configuración](./configuration.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Salida y formato](./output-formatting.md#top) →
+
+📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/core-concepts/sequences)**

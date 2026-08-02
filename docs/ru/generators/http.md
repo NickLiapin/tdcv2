@@ -2,6 +2,8 @@
 
 [English](../../generators/http.md#top) · **Русский** · [Español](../../es/generators/http.md#top)
 
+📖 **[Открыть на сайте документации →](https://nickliapin.github.io/tdcv2/ru/docs/generators/http)**
+
 ← Назад: [Кривая (pattern)](./pattern.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Нарастающий итог](./running.md#top) →
 
 ---
@@ -341,3 +343,5 @@ fn main() -> std::io::Result<()> {
 ---
 
 ← Назад: [Кривая (pattern)](./pattern.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Нарастающий итог](./running.md#top) →
+
+📖 **[Открыть на сайте документации →](https://nickliapin.github.io/tdcv2/ru/docs/generators/http)**

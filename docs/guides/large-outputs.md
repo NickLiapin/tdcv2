@@ -2,6 +2,8 @@
 
 **English** · [Русский](../ru/guides/large-outputs.md#top) · [Español](../es/guides/large-outputs.md#top)
 
+📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/guides/large-outputs)**
+
 ← Previous: [Typed output & Parquet](./typed-output-parquet.md#top) · **[Contents](../README.md#top)** · Next: [Writing a service generator](./writing-a-service.md#top) →
 
 ---
@@ -554,3 +556,5 @@ takes two sequence slots: `Person.FirstName` and `Person.LastName`.
 ---
 
 ← Previous: [Typed output & Parquet](./typed-output-parquet.md#top) · **[Contents](../README.md#top)** · Next: [Writing a service generator](./writing-a-service.md#top) →
+
+📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/guides/large-outputs)**

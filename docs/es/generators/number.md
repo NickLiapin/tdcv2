@@ -2,6 +2,8 @@
 
 [English](../../generators/number.md#top) · [Русский](../../ru/generators/number.md#top) · **Español**
 
+📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/generators/number)**
+
 ← Anterior: [text](./text.md#top) · **[Contenido](../README.md#top)** · Siguiente: [template](./template.md#top) →
 
 ---
@@ -297,3 +299,5 @@ de dígitos (solo con `length`).
 ---
 
 ← Anterior: [text](./text.md#top) · **[Contenido](../README.md#top)** · Siguiente: [template](./template.md#top) →
+
+📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/generators/number)**

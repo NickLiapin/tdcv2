@@ -2,6 +2,8 @@
 
 [English](../../reference/tags.md#top) · [Русский](../../ru/reference/tags.md#top) · **Español**
 
+📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/reference/tags)**
+
 ← Anterior: [CLI](./cli.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Atributos](./attributes.md#top) →
 
 ---
@@ -69,3 +71,5 @@ Las etiquetas de cálculo (dentro de `<compute>`) tienen su propia lista en la
 ---
 
 ← Anterior: [CLI](./cli.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Atributos](./attributes.md#top) →
+
+📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/reference/tags)**

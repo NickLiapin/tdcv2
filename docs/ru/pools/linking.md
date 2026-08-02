@@ -2,6 +2,8 @@
 
 [English](../../pools/linking.md#top) · **Русский** · [Español](../../es/pools/linking.md#top)
 
+📖 **[Открыть на сайте документации →](https://nickliapin.github.io/tdcv2/ru/docs/pools/linking)**
+
 ← Назад: [Отбор через filter](./filter.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Обзор](../constructs/overview.md#top) →
 
 ---
@@ -246,3 +248,5 @@ Linda needs a therapist -> Dr. Smith, East clinic, tel 239
 ---
 
 ← Назад: [Отбор через filter](./filter.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Обзор](../constructs/overview.md#top) →
+
+📖 **[Открыть на сайте документации →](https://nickliapin.github.io/tdcv2/ru/docs/pools/linking)**

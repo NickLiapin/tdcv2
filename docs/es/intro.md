@@ -2,6 +2,8 @@
 
 [English](../intro.md#top) · [Русский](../ru/intro.md#top) · **Español**
 
+📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/intro)**
+
 **[Contenido](./README.md#top)** · Siguiente: [Instalación](./getting-started/installation.md#top) →
 
 ---
@@ -304,3 +306,5 @@ paquetes; hasta entonces se instala desde una copia del repositorio, y
 ---
 
 **[Contenido](./README.md#top)** · Siguiente: [Instalación](./getting-started/installation.md#top) →
+
+📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/intro)**

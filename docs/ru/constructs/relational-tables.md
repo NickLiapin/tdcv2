@@ -2,6 +2,8 @@
 
 [English](../../constructs/relational-tables.md#top) · **Русский** · [Español](../../es/constructs/relational-tables.md#top)
 
+📖 **[Открыть на сайте документации →](https://nickliapin.github.io/tdcv2/ru/docs/constructs/relational-tables)**
+
 ← Назад: [Несколько значений в ячейке (repeat)](./multiple-values.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Уникальность (uniq, distinct)](./unique-values.md#top) →
 
 ---
@@ -255,3 +257,5 @@ note: add repeat="…" to its generator, or point each at a list sequence
 ---
 
 ← Назад: [Несколько значений в ячейке (repeat)](./multiple-values.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Уникальность (uniq, distinct)](./unique-values.md#top) →
+
+📖 **[Открыть на сайте документации →](https://nickliapin.github.io/tdcv2/ru/docs/constructs/relational-tables)**

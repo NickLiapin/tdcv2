@@ -2,6 +2,8 @@
 
 **English** · [Русский](../ru/compute/lists.md#top) · [Español](../es/compute/lists.md#top)
 
+📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/compute/lists)**
+
 ← Previous: [Arithmetic](./arithmetic.md#top) · **[Contents](../README.md#top)** · Next: [Strings & formatting](./strings.md#top) →
 
 ---
@@ -816,3 +818,5 @@ average or ratio, a check that compares the length to a target with
 ---
 
 ← Previous: [Arithmetic](./arithmetic.md#top) · **[Contents](../README.md#top)** · Next: [Strings & formatting](./strings.md#top) →
+
+📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/compute/lists)**

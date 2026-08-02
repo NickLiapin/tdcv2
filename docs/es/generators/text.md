@@ -2,6 +2,8 @@
 
 [English](../../generators/text.md#top) · [Русский](../../ru/generators/text.md#top) · **Español**
 
+📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/generators/text)**
+
 ← Anterior: [Descripción general](./overview.md#top) · **[Contenido](../README.md#top)** · Siguiente: [number](./number.md#top) →
 
 ---
@@ -224,3 +226,5 @@ secuencial. Vea **[Máscaras y mayúsculas](../guides/masks-and-case.md#top)**.
 ---
 
 ← Anterior: [Descripción general](./overview.md#top) · **[Contenido](../README.md#top)** · Siguiente: [number](./number.md#top) →
+
+📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/generators/text)**

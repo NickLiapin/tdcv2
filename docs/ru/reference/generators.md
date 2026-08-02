@@ -2,6 +2,8 @@
 
 [English](../../reference/generators.md#top) · **Русский** · [Español](../../es/reference/generators.md#top)
 
+📖 **[Открыть на сайте документации →](https://nickliapin.github.io/tdcv2/ru/docs/reference/generators)**
+
 ← Назад: [Атрибуты](./attributes.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Compute-функции](./compute.md#top) →
 
 ---
@@ -54,3 +56,5 @@
 ---
 
 ← Назад: [Атрибуты](./attributes.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Compute-функции](./compute.md#top) →
+
+📖 **[Открыть на сайте документации →](https://nickliapin.github.io/tdcv2/ru/docs/reference/generators)**

@@ -2,6 +2,8 @@
 
 **English** · [Русский](../ru/core-concepts/output-formatting.md#top) · [Español](../es/core-concepts/output-formatting.md#top)
 
+📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/core-concepts/output-formatting)**
+
 ← Previous: [Sequences](./sequences.md#top) · **[Contents](../README.md#top)** · Next: [Determinism & proportions](./determinism.md#top) →
 
 ---
@@ -493,3 +495,5 @@ a value — `pair` protects the tags, not the substitution markers.)
 ---
 
 ← Previous: [Sequences](./sequences.md#top) · **[Contents](../README.md#top)** · Next: [Determinism & proportions](./determinism.md#top) →
+
+📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/core-concepts/output-formatting)**

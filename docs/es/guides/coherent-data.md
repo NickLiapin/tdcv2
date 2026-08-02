@@ -2,6 +2,8 @@
 
 [English](../../guides/coherent-data.md#top) · [Русский](../../ru/guides/coherent-data.md#top) · **Español**
 
+📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/guides/coherent-data)**
+
 ← Anterior: [Dependencias jerárquicas](./hierarchical-dependencies.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Sin repeticiones dentro de una fila](./distinct.md#top) →
 
 ---
@@ -190,3 +192,5 @@ aparezcan con más frecuencia. Todos los detalles están en el
 ---
 
 ← Anterior: [Dependencias jerárquicas](./hierarchical-dependencies.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Sin repeticiones dentro de una fila](./distinct.md#top) →
+
+📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/guides/coherent-data)**

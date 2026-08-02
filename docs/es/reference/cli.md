@@ -2,6 +2,8 @@
 
 [English](../../reference/cli.md#top) · [Русский](../../ru/reference/cli.md#top) · **Español**
 
+📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/reference/cli)**
+
 ← Anterior: [Cree su propio paquete](../data-packs/writing-your-own.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Etiquetas](./tags.md#top) →
 
 ---
@@ -161,3 +163,5 @@ archivo queda intacto (código de salida 1).
 ---
 
 ← Anterior: [Cree su propio paquete](../data-packs/writing-your-own.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Etiquetas](./tags.md#top) →
+
+📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/reference/cli)**

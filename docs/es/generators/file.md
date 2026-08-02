@@ -2,6 +2,8 @@
 
 [English](../../generators/file.md#top) · [Русский](../../ru/generators/file.md#top) · **Español**
 
+📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/generators/file)**
+
 ← Anterior: [template](./template.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Date](./date.md#top) →
 
 ---
@@ -488,3 +490,5 @@ silencio. Esto se cubre a fondo en **[Datos coherentes y relacionales](../guides
 ---
 
 ← Anterior: [template](./template.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Date](./date.md#top) →
+
+📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/generators/file)**

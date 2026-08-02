@@ -2,6 +2,8 @@
 
 [English](../../compute/strings.md#top) · **Русский** · [Español](../../es/compute/strings.md#top)
 
+📖 **[Открыть на сайте документации →](https://nickliapin.github.io/tdcv2/ru/docs/compute/strings)**
+
 ← Назад: [Списки и перебор](./lists.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Условия](./conditionals.md#top) →
 
 ---
@@ -469,3 +471,5 @@ zero=000042 | fill*=****42 | over=1234567
 ---
 
 ← Назад: [Списки и перебор](./lists.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Условия](./conditionals.md#top) →
+
+📖 **[Открыть на сайте документации →](https://nickliapin.github.io/tdcv2/ru/docs/compute/strings)**

@@ -2,6 +2,8 @@
 
 [English](../../compute/strings.md#top) · [Русский](../../ru/compute/strings.md#top) · **Español**
 
+📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/compute/strings)**
+
 ← Anterior: [Listas e iteración](./lists.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Condicionales](./conditionals.md#top) →
 
 ---
@@ -475,3 +477,5 @@ cálculo**; eche mano del atributo o del filtro para un valor sencillo.
 ---
 
 ← Anterior: [Listas e iteración](./lists.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Condicionales](./conditionals.md#top) →
+
+📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/compute/strings)**

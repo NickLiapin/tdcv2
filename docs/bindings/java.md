@@ -2,6 +2,8 @@
 
 **English** · [Русский](../ru/bindings/java.md#top) · [Español](../es/bindings/java.md#top)
 
+📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/bindings/java)**
+
 ← Previous: [Python](./python.md#top) · **[Contents](../README.md#top)** · Next: [C#](./csharp.md#top) →
 
 ---
@@ -44,3 +46,5 @@ The method names mirror the [TypeScript API](typescript.md#top).
 ---
 
 ← Previous: [Python](./python.md#top) · **[Contents](../README.md#top)** · Next: [C#](./csharp.md#top) →
+
+📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/bindings/java)**

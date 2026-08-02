@@ -2,6 +2,8 @@
 
 [English](../../constructs/overview.md#top) · **Русский** · [Español](../../es/constructs/overview.md#top)
 
+📖 **[Открыть на сайте документации →](https://nickliapin.github.io/tdcv2/ru/docs/constructs/overview)**
+
 ← Назад: [Связывание пулов](../pools/linking.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Выбор между значениями (mix)](./mix.md#top) →
 
 ---
@@ -101,3 +103,5 @@
 ---
 
 ← Назад: [Связывание пулов](../pools/linking.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Выбор между значениями (mix)](./mix.md#top) →
+
+📖 **[Открыть на сайте документации →](https://nickliapin.github.io/tdcv2/ru/docs/constructs/overview)**

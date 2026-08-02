@@ -2,6 +2,8 @@
 
 [English](../../guides/statistical-distributions.md#top) · [Русский](../../ru/guides/statistical-distributions.md#top) · **Español**
 
+📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/guides/statistical-distributions)**
+
 ← Anterior: [Máscaras y mayúsculas](./masks-and-case.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Anomalías y valores atípicos](./anomalies.md#top) →
 
 ---
@@ -640,3 +642,5 @@ transmitibles a cualquier escala.
 ---
 
 ← Anterior: [Máscaras y mayúsculas](./masks-and-case.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Anomalías y valores atípicos](./anomalies.md#top) →
+
+📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/guides/statistical-distributions)**

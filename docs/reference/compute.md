@@ -2,6 +2,8 @@
 
 **English** · [Русский](../ru/reference/compute.md#top) · [Español](../es/reference/compute.md#top)
 
+📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/reference/compute)**
+
 ← Previous: [Generators](./generators.md#top) · **[Contents](../README.md#top)** · Next: [Built-ins](./builtins.md#top) →
 
 ---
@@ -109,3 +111,5 @@ See the [Compute Language](../compute/overview.md#top) section for worked exampl
 ---
 
 ← Previous: [Generators](./generators.md#top) · **[Contents](../README.md#top)** · Next: [Built-ins](./builtins.md#top) →
+
+📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/reference/compute)**

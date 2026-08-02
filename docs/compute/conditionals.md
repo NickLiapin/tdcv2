@@ -2,6 +2,8 @@
 
 **English** · [Русский](../ru/compute/conditionals.md#top) · [Español](../es/compute/conditionals.md#top)
 
+📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/compute/conditionals)**
+
 ← Previous: [Strings & formatting](./strings.md#top) · **[Contents](../README.md#top)** · Next: [A pack read line by line](./walkthrough.md#top) →
 
 ---
@@ -585,3 +587,5 @@ complicating the formula.
 ---
 
 ← Previous: [Strings & formatting](./strings.md#top) · **[Contents](../README.md#top)** · Next: [A pack read line by line](./walkthrough.md#top) →
+
+📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/compute/conditionals)**

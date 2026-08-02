@@ -2,6 +2,8 @@
 
 **English** · [Русский](../ru/generators/symbol.md#top) · [Español](../es/generators/symbol.md#top)
 
+📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/generators/symbol)**
+
 ← Previous: [Date](./date.md#top) · **[Contents](../README.md#top)** · Next: [Regex](./regex.md#top) →
 
 ---
@@ -289,3 +291,5 @@ validated by name, and cover characters that a bare range would drop.
 ---
 
 ← Previous: [Date](./date.md#top) · **[Contents](../README.md#top)** · Next: [Regex](./regex.md#top) →
+
+📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/generators/symbol)**

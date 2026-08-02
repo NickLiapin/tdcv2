@@ -2,6 +2,8 @@
 
 **English** · [Русский](../ru/constructs/overview.md#top) · [Español](../es/constructs/overview.md#top)
 
+📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/constructs/overview)**
+
 ← Previous: [Linking pools together](../pools/linking.md#top) · **[Contents](../README.md#top)** · Next: [Choosing between values (mix)](./mix.md#top) →
 
 ---
@@ -101,3 +103,5 @@ outliers, gaps, and datasets too big for memory.
 ---
 
 ← Previous: [Linking pools together](../pools/linking.md#top) · **[Contents](../README.md#top)** · Next: [Choosing between values (mix)](./mix.md#top) →
+
+📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/constructs/overview)**

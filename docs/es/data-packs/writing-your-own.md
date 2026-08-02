@@ -2,6 +2,8 @@
 
 [English](../../data-packs/writing-your-own.md#top) · [Русский](../../ru/data-packs/writing-your-own.md#top) · **Español**
 
+📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/data-packs/writing-your-own)**
+
 ← Anterior: [Instalar paquetes de datos](./installing-packs.md#top) · **[Contenido](../README.md#top)** · Siguiente: [CLI](../reference/cli.md#top) →
 
 ---
@@ -395,3 +397,5 @@ implementados y son independientes.
 ---
 
 ← Anterior: [Instalar paquetes de datos](./installing-packs.md#top) · **[Contenido](../README.md#top)** · Siguiente: [CLI](../reference/cli.md#top) →
+
+📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/data-packs/writing-your-own)**

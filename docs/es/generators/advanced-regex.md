@@ -2,6 +2,8 @@
 
 [English](../../generators/advanced-regex.md#top) · [Русский](../../ru/generators/advanced-regex.md#top) · **Español**
 
+📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/generators/advanced-regex)**
+
 ← Anterior: [Regex](./regex.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Contadores (increment / decrement)](./counters.md#top) →
 
 ---
@@ -597,3 +599,5 @@ Hasta que lleguen, modele la lógica entre campos con un filtro
 ---
 
 ← Anterior: [Regex](./regex.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Contadores (increment / decrement)](./counters.md#top) →
+
+📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/generators/advanced-regex)**

@@ -2,6 +2,8 @@
 
 **English** · [Русский](../ru/guides/typed-output-parquet.md#top) · [Español](../es/guides/typed-output-parquet.md#top)
 
+📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/guides/typed-output-parquet)**
+
 ← Previous: [Missing data](./missing-data.md#top) · **[Contents](../README.md#top)** · Next: [Large outputs & streaming](./large-outputs.md#top) →
 
 ---
@@ -378,3 +380,5 @@ the full library API in each language, see [Language bindings](../bindings/pytho
 ---
 
 ← Previous: [Missing data](./missing-data.md#top) · **[Contents](../README.md#top)** · Next: [Large outputs & streaming](./large-outputs.md#top) →
+
+📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/guides/typed-output-parquet)**

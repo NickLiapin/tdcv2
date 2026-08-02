@@ -2,6 +2,8 @@
 
 [English](../../reference/identifiers.md#top) · [Русский](../../ru/reference/identifiers.md#top) · **Español**
 
+📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/reference/identifiers)**
+
 ← Anterior: [Valores integrados](./builtins.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Códigos de error](./errors.md#top) →
 
 ---
@@ -511,3 +513,5 @@ paquete, y [Cree su propio paquete](../data-packs/writing-your-own.md#top) para 
 ---
 
 ← Anterior: [Valores integrados](./builtins.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Códigos de error](./errors.md#top) →
+
+📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/reference/identifiers)**

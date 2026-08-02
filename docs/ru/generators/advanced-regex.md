@@ -2,6 +2,8 @@
 
 [English](../../generators/advanced-regex.md#top) · **Русский** · [Español](../../es/generators/advanced-regex.md#top)
 
+📖 **[Открыть на сайте документации →](https://nickliapin.github.io/tdcv2/ru/docs/generators/advanced-regex)**
+
 ← Назад: [Regex](./regex.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Счётчики (increment / decrement)](./counters.md#top) →
 
 ---
@@ -584,3 +586,5 @@ quantifier is not allowed; use "{1,n}"
 ---
 
 ← Назад: [Regex](./regex.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Счётчики (increment / decrement)](./counters.md#top) →
+
+📖 **[Открыть на сайте документации →](https://nickliapin.github.io/tdcv2/ru/docs/generators/advanced-regex)**
