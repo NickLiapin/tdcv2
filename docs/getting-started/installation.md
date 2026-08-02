@@ -34,18 +34,16 @@ own.
 
 **Requirements:** Node.js **20.0.0** or newer.
 
-> [!NOTE]
-> **Pre-release**
->
-> TDC isn't on npm yet. Once it is, installing and running will be a two-liner:
-
 ```bash
 npm install -D tdcv2
 npx tdcv2 demo.tdc
 ```
 
-Until then, run the engine straight from a checkout of the repository. Build it
-once:
+That is the whole installation. The `common`, `en` and USA data packs come with
+the package, so the example below runs without downloading anything.
+
+To work on the engine itself instead, run it from a checkout of the repository.
+Build it once:
 
 ```bash
 npm --workspace typescript run build
@@ -221,13 +219,13 @@ from a range with [`type="number"`](../generators/number.md#top):
 </tdc>
 ```
 
-Run it with whichever command your install gave you. **Nothing is published to a
-package registry yet**, so today every route is a checkout of the repository —
-the registry column is what it will be once the packages ship:
+Run it with whichever command your install gave you. **Node.js is on npm**; the
+other four are not on their registries yet, so for those the route today is a
+checkout of the repository, and the last column is what it will be once they ship:
 
-| Installed with | Today, from a checkout | Once published |
+| Installed with | Today | Once published |
 | :--- | :--- | :--- |
-| Node.js | `node typescript/dist/cli/main.js demo.tdc` | `npx tdcv2 demo.tdc` |
+| Node.js | `npx tdcv2 demo.tdc` | — already there |
 | Python | `.venv/bin/tdcv2 demo.tdc` | `tdcv2 demo.tdc` |
 | Java | `java -jar java/build/libs/tdcv2-*-cli.jar demo.tdc` | the same |
 | C# | `dotnet run --project csharp/Tdcv2.Cli.Tool -- demo.tdc` | `tdcv2 demo.tdc` |

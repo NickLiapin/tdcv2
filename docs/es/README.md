@@ -99,6 +99,7 @@
 ## Bibliotecas por lenguaje
 
 - [TypeScript](./bindings/typescript.md#top)
+- [Un valor a la vez](./bindings/quick-api.md#top)
 - [Python](./bindings/python.md#top)
 - [Java](./bindings/java.md#top)
 - [C#](./bindings/csharp.md#top)

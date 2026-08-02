@@ -4,7 +4,7 @@
 
 📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/bindings/python)**
 
-← Anterior: [TypeScript](./typescript.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Java](./java.md#top) →
+← Anterior: [Un valor a la vez](./quick-api.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Java](./java.md#top) →
 
 ---
 
@@ -51,6 +51,6 @@ imprime los mismos errores señalando el lugar exacto en la configuración.
 
 ---
 
-← Anterior: [TypeScript](./typescript.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Java](./java.md#top) →
+← Anterior: [Un valor a la vez](./quick-api.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Java](./java.md#top) →
 
 📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/bindings/python)**

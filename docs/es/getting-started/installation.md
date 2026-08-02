@@ -30,19 +30,16 @@ necesita nada de código.
 
 **Requisitos:** Node.js **20.0.0** o más reciente.
 
-> [!NOTE]
-> **Versión previa al lanzamiento**
->
-> TDC todavía no está publicado en npm. En cuanto lo esté, instalarlo y ejecutarlo
-> serán dos líneas:
-
 ```bash
 npm install -D tdcv2
 npx tdcv2 demo.tdc
 ```
 
-Mientras el paquete siga sin publicarse, el motor se ejecuta directamente desde una
-copia local del repositorio. Compílelo una vez:
+Esa es toda la instalación. Los paquetes de datos `common`, `en` y el de EE. UU.
+vienen con el paquete, así que el ejemplo de abajo funciona sin descargar nada.
+
+Si en cambio quiere trabajar sobre el motor mismo, ejecútelo desde una copia local
+del repositorio. Compílelo una vez:
 
 ```bash
 npm --workspace typescript run build
@@ -218,14 +215,13 @@ de salida de una sola línea:
 </tdc>
 ```
 
-Ejecútelo con el comando que le dejó su instalación. **Todavía no hay nada
-publicado en ningún registro de paquetes**, así que hoy toda vía pasa por un clon
-del repositorio; la columna de la derecha es cómo será cuando los paquetes
-salgan:
+Ejecútelo con el comando que le dejó su instalación. **Node.js ya está en npm**; los
+otros cuatro todavía no están en sus registros, así que para ellos la vía de hoy es un
+clon del repositorio, y la columna de la derecha es cómo será cuando salgan:
 
-| Lenguaje | Hoy, desde un clon | Cuando se publiquen |
+| Lenguaje | Hoy | Cuando se publiquen |
 | :--- | :--- | :--- |
-| Node.js | `node typescript/dist/cli/main.js demo.tdc` | `npx tdcv2 demo.tdc` |
+| Node.js | `npx tdcv2 demo.tdc` | — ya está |
 | Python | `.venv/bin/tdcv2 demo.tdc` | `tdcv2 demo.tdc` |
 | Java | `java -jar java/build/libs/tdcv2-*-cli.jar demo.tdc` | igual |
 | C# | `dotnet run --project csharp/Tdcv2.Cli.Tool -- demo.tdc` | `tdcv2 demo.tdc` |

@@ -142,11 +142,11 @@ console.log(tdc.getAt(1)); // una fila Male
 cada fila se rellena exactamente una: la otra vale `undefined`, porque su `parent` no
 coincidió allí. Así se ve un filtro por padre en la salida de objetos.
 
-:::note[Un motor distinto]
-Los métodos de objetos devuelven objetos JS a través del motor pequeño en RAM, así que
-mantienen los datos en memoria: sirven para conjuntos chicos. Para archivos grandes use
-`writeFile()` / `toStream()` / el CLI (disco, memoria plana). Como es un motor distinto,
-sus valores aleatorios no tienen por qué coincidir con los de `toString()`.
+:::note[Los mismos valores, de a una fila]
+Los métodos de objetos leen del motor al que el enrutador manda la configuración — el
+mismo que usa `toString()` — así que los valores coinciden, y `getAt(index)` cuesta una
+fila en vez de todo lo que va antes: pedir la fila nueve millones de una configuración
+de diez millones es el trabajo de una sola fila.
 :::
 
 ## Vea también

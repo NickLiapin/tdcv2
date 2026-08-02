@@ -17,14 +17,14 @@ tdcv2 <input.tdc> [options]
 ```
 
 > [!NOTE]
-> **De dónde sale `tdcv2` antes del primer lanzamiento**
+> **De dónde sale `tdcv2`**
 >
-> Todavía no hay nada publicado en los registros de paquetes, así que `tdcv2` no estará en
-> su PATH hasta que lo instale desde el repositorio — el comando cambia según el lenguaje,
-> y [Instalación](../getting-started/installation.md#top) tiene la pestaña de cada uno. Java es
-> el único que nunca llega a ser un `tdcv2` a secas (Maven no tiene equivalente del `bin` de
-> npm); un alias hace que todos los comandos de esta página se lean igual. Todo lo de abajo
-> funciona igual en cualquier implementación.
+> `npm install -D tdcv2` deja el comando `tdcv2` disponible vía `npx`. Los otros cuatro
+> todavía no están en sus registros, así que esos se instalan desde el repositorio — el
+> comando cambia según el lenguaje, y [Instalación](../getting-started/installation.md#top)
+> tiene la pestaña de cada uno. Java es el único que nunca llega a ser un `tdcv2` a secas
+> (Maven no tiene equivalente del `bin` de npm); un alias hace que todos los comandos de
+> esta página se lean igual. Todo lo de abajo funciona igual en cualquier implementación.
 
 Además de generar, la CLI tiene `tdcv2 init` y `tdcv2 pack` para la configuración inicial
 y los datos — vea [Instalar packs](../data-packs/installing-packs.md#top) — y `tdcv2 format`

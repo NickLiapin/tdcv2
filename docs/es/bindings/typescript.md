@@ -4,7 +4,7 @@
 
 📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/bindings/typescript)**
 
-← Anterior: [Códigos de error](../reference/errors.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Python](./python.md#top) →
+← Anterior: [Códigos de error](../reference/errors.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Un valor a la vez](./quick-api.md#top) →
 
 ---
 
@@ -150,12 +150,12 @@ cada fila se rellena exactamente una: la otra vale `undefined`, porque su `paren
 coincidió allí. Así se ve un filtro por padre en la salida de objetos.
 
 > [!NOTE]
-> **Un motor distinto**
+> **Los mismos valores, de a una fila**
 >
-> Los métodos de objetos devuelven objetos JS a través del motor pequeño en RAM, así que
-> mantienen los datos en memoria: sirven para conjuntos chicos. Para archivos grandes use
-> `writeFile()` / `toStream()` / el CLI (disco, memoria plana). Como es un motor distinto,
-> sus valores aleatorios no tienen por qué coincidir con los de `toString()`.
+> Los métodos de objetos leen del motor al que el enrutador manda la configuración — el
+> mismo que usa `toString()` — así que los valores coinciden, y `getAt(index)` cuesta una
+> fila en vez de todo lo que va antes: pedir la fila nueve millones de una configuración
+> de diez millones es el trabajo de una sola fila.
 
 ## Vea también
 
@@ -164,6 +164,6 @@ coincidió allí. Así se ve un filtro por padre en la salida de objetos.
 
 ---
 
-← Anterior: [Códigos de error](../reference/errors.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Python](./python.md#top) →
+← Anterior: [Códigos de error](../reference/errors.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Un valor a la vez](./quick-api.md#top) →
 
 📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/bindings/typescript)**

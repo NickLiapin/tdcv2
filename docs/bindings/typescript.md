@@ -4,7 +4,7 @@
 
 📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/bindings/typescript)**
 
-← Previous: [Error codes](../reference/errors.md#top) · **[Contents](../README.md#top)** · Next: [Python](./python.md#top) →
+← Previous: [Error codes](../reference/errors.md#top) · **[Contents](../README.md#top)** · Next: [One value at a time](./quick-api.md#top) →
 
 ---
 
@@ -150,12 +150,12 @@ one is filled on each row; the other is `undefined`, because its `parent` didn't
 on that row. That's what a parent filter looks like in object output.
 
 > [!NOTE]
-> **A different engine**
+> **Same values, one row at a time**
 >
-> The object methods run on the small in-memory engine, so they hold the whole dataset
-> in RAM — fine for small sets. For big files, use `writeFile()`, `toStream()`, or the
-> CLI, which go through disk and keep memory flat. And because it is a different engine,
-> the random values it produces won't necessarily match what `toString()` gives you.
+> The object methods read from whichever engine the config routes to — the same one
+> `toString()` uses — so the values agree, and `getAt(index)` costs one row rather
+> than the whole run before it. Asking for row nine million of a ten-million-row
+> config is a single row's work.
 
 ## See also
 
@@ -164,6 +164,6 @@ on that row. That's what a parent filter looks like in object output.
 
 ---
 
-← Previous: [Error codes](../reference/errors.md#top) · **[Contents](../README.md#top)** · Next: [Python](./python.md#top) →
+← Previous: [Error codes](../reference/errors.md#top) · **[Contents](../README.md#top)** · Next: [One value at a time](./quick-api.md#top) →
 
 📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/bindings/typescript)**

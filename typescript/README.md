@@ -61,6 +61,42 @@ The `tdcv2` command comes with it, and so does a starter set of data — the
 `common`, `en` and USA packs — which is enough for names, addresses, companies and
 identifiers out of the box.
 
+## Just one value, like a faker
+
+You do not always want a dataset. Sometimes you want a surname, on this line of a
+test. TDC answers that from the same data packs its configs draw on, so the name in
+your unit test and the name in your million-row fixture come from one list.
+
+```typescript
+import { tdc } from 'tdcv2';
+
+tdc.person.lastName(); // Jones
+tdc.person.male.firstName(); // Robert
+tdc.company.industry(); // Pharmaceuticals
+
+tdc.common.id.uuid(); // 3ff6ff76-6ea7-4fad-8b99-3075a14cc7e9
+tdc.common.finance.iban(); // DE62299399441396459682
+tdc.country.usa.docs.ssn(); // 699209702 — with its real check digits
+
+tdc.person.lastName.many(5); // [ 'Bush', 'Armstrong', 'Andrews', … ]
+tdc.gen.number('18..80'); // 66
+```
+
+A dot in the code is a dot in the address: `person.male.firstName` here is
+`person.male.firstName` in a config and in the reference — one vocabulary, not two.
+A bare address reads against the active locale; `common.`, `country.<code>.` and
+`lang.<code>.` name a pack outright. Pin a seed when the value should be part of the
+test rather than a variable in it:
+
+```typescript
+const t = tdc.seed('demo');
+t.person.lastName(); // Jones, today and next year
+```
+
+Every call is independent — nothing here ties one value to another. The moment two
+values have to agree, you want a config, which is the rest of this page.
+[Full reference](https://nickliapin.github.io/tdcv2/docs/bindings/quick-api).
+
 ## A first config
 
 ```xml title="demo.tdc"
