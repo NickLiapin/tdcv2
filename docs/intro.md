@@ -10,73 +10,30 @@
 
 # TDC — The Data Constructor
 
-**Test data whose fields agree with each other.** The name matches the gender, the
-city belongs to the country, the diagnosis is one the patient could actually have.
-Run it again with the same seed and the same rows come back, byte for byte, in
-every one of the five implementations.
+TDC generates internally consistent test data. Within each row, names match gender
+categories, cities belong to the correct countries, and diagnoses fit patient profiles.
+Run TDC again with the same seed and core version, and it produces the same rows, byte
+for byte.
 
-Here is a whole generator. Five patients, where the sex decides both the name and
-the diagnosis:
-
-```xml title="clinic.tdc"
-<tdc>
-  <env count="5" seed="clinic" local="en">
-    <sequence name="Sex"><gen type="text" value="Male,Female" percent="50,50"/></sequence>
-
-    <sequence name="M"   parent="Sex.Male">  <gen type="template" value="person.male.firstName"/></sequence>
-    <sequence name="F"   parent="Sex.Female"><gen type="template" value="person.female.firstName"/></sequence>
-    <sequence name="DxM" parent="Sex.Male">  <gen type="template" value="person.male.diagnosis"/></sequence>
-    <sequence name="DxF" parent="Sex.Female"><gen type="template" value="person.female.diagnosis"/></sequence>
-  </env>
-
-  <block>
-    <line>
-      <data if="Sex == Male">${{M}},${{Sex}},${{DxM}}</data>
-      <data if="Sex == Female">${{F}},${{Sex}},${{DxF}}</data>
-    </line>
-  </block>
-</tdc>
-```
-
-`tdcv2 clinic.tdc`
-
-```
-John,Male,Prostatitis
-James,Male,Cryptorchism
-Mary,Female,Uterine Fibroids
-Elizabeth,Female,Breast Fibroadenoma
-Patricia,Female,Breast Fibroadenoma
-```
-
-No row here can come out wrong, and not because a filter threw the bad ones away.
-`parent="Sex.Male"` means the female lists are **out of reach** on a male row —
-there is no impossible combination to reject, because there is no way to express
-one. `percent="50,50"` is exact at any row count, not a coin flip that lands near
-half.
-
-That is the whole idea. An ordinary fake-data library fills each field on its own;
-everything below follows from TDC not doing that.
-
-> [!IMPORTANT]
-> **The determinism promise, exactly**
->
-> **Same config, same seed, same TDC version, same output mode** gives the same
-> bytes. Change any of the four and the rows may differ —
-> [Determinism & proportions](core-concepts/determinism.md#top) says which and why.
+A conventional fake-data library generates each field independently. That distinction is
+the foundation of everything that follows.
 
 ## The problem with independent fields
 
-When each field is drawn separately, every value is valid and the record they form is not.
-Three ways that shows up in practice:
+When fields are generated independently, every value can be valid in isolation while the
+record they form is invalid as a whole. In practice, this creates several kinds of
+problems:
 
-- A patient comes out female, 34 years old, with benign prostatic hyperplasia. The bug looks
-  like an application bug until someone checks the fixture.
-- A million seeded orders pair a random city with a random country. The address validator
-  rejects a third of them, so the load test measures the error path instead of the feature.
-- A test fails in CI, you rerun it, the generator produces different data, and the test
-  passes. Nothing tells you whether the bug is fixed.
+- A generated patient is female and 34 years old but is assigned 'benign prostatic
+  hyperplasia' — a diagnosis that conflicts with the demographic data in the same record.
+  The resulting failure looks like an application bug until someone inspects the fixture.
+- A seeded generator creates a million orders by pairing cities and countries at random.
+  The address validator rejects a third of them, so the load test measures the error path
+  instead of the feature.
+- A test fails in CI. When you rerun it, the generator produces different data and the
+  test passes. There is no way to tell whether the bug has actually been fixed.
 
-The fields have no way to know about each other.
+Independently generated fields have no shared context.
 
 ![](./img/intro/flat-vs-linked.svg)
 
@@ -87,13 +44,13 @@ The fields have no way to know about each other.
 - **C** — one source starts the record
 - **D** — every later field is drawn from what the earlier one picked, so the row agrees with itself
 
-## How TDC solves it
+## How TDC solves the problem
 
-A field can name a parent. From then on it draws only from the branch the parent landed in.
+A sequence can reference a parent branch. It then draws only from the data available in
+the branch selected for the current row.
 
-Once a row is female, the male-only lists are not filtered out afterwards. They are out of
-reach. There is no impossible combination to reject, because there is no way to express one.
-Every draw comes from a seeded stream, so one seed rebuilds the whole set.
+Once a row is assigned `Female`, TDC does not draw from male-only lists and filter the
+results afterward. Those lists are never reachable from the selected branch.
 
 ![](./img/intro/dependency-tree.svg)
 
@@ -105,14 +62,14 @@ Every draw comes from a seeded stream, so one seed rebuilds the whole set.
 - **D** — the list both branches share: 78 conditions anyone can have
 - **E** — the edge that cannot exist, because a record never leaves its branch
 
-Everything else in these docs builds on that.
+Everything else in this documentation builds on this mechanism.
 
-## A first example
+## A basic example
 
-Ten people, split 60/40 by gender, with names drawn from gender-specific lists and ages in a
-range:
+The following configuration generates ten people with a 60/40 gender split. Their names
+come from gender-specific lists, and their ages fall within a defined range:
 
-```xml
+```xml title="people.tdc"
 <tdc>
     <env count="10" seed="demo">
         <sequence name="Gender">
@@ -154,27 +111,28 @@ range:
 10. Male — William, age 56
 ```
 
-Three things are true of that output.
+Three properties of this output are worth noting.
 
-[`percent="60,40"`](reference/attributes.md#top) produced 6 men and 4 women. Not approximately
-six: the split is computed with the Hamilton method and is exact at any row count.
+**Exact allocation:** `percent="60,40"` produces six men and four women. This is not an
+approximation based on independent random draws: TDC uses the Hamilton method to
+determine group sizes.
 
-Every name matches its gender. The two name fields name the split as their
-[`parent`](reference/attributes.md#top), so a female row cannot reach the male list.
+**Consistent names:** every name matches its gender category. Each name sequence points
+to the corresponding branch of the gender sequence, so a female row cannot access the
+male name list.
 
-The run is reproducible. The same [`seed`](core-concepts/determinism.md#top) returns these same
-ten people; a different seed returns a different ten, still split 6 to 4.
+**Reproducible output:** the same seed and core version produce the same ten people. A
+different seed produces a different set of ten people while preserving the 6-to-4
+allocation.
 
-The second half of the config controls the shape of the output.
-[`<block>`](core-concepts/output-formatting.md#top) wraps what repeats,
-[`<line>`](core-concepts/output-formatting.md#top) is one line, and
-[`<data>`](core-concepts/output-formatting.md#top) is the text on it. Rearranging those three
-turns the same ten people into CSV, JSON, or SQL.
+The `<block>` section controls the output format. `<line>` defines a line, and `<data>`
+defines its contents. By changing this section, you can render the same records as
+[CSV, JSON, SQL, or another format](guides/output-formats.md#top).
 
-### Dependencies nest
+## Dependencies can be nested
 
-Suppose half the men have no car, and a quarter of the women. That is two more sequences,
-and nothing else in the config changes:
+Suppose half of the men have no car, while one quarter of the women do. This requires two
+additional sequences; the rest of the configuration remains unchanged:
 
 ```xml
 <sequence name="MaleCar" parent="Gender.Male">
@@ -200,22 +158,55 @@ and nothing else in the config changes:
 10. Male — William — no car
 ```
 
-Each rate applies within its own group, and each is exact there: 3 of the 6 men and 1 of the
-4 women have no car. Sequences nest as deep as you need.
+Each percentage is applied within its parent group. In this example, 3 of the 6 men and 1
+of the 4 women have no car. Dependencies can be
+[nested to any depth](guides/hierarchical-dependencies.md#top) required by the data model.
 
-> [!IMPORTANT]
-> **Example outputs are illustrative**
->
-> TDC is deterministic for a given seed and a given core version. The engine is still
-> changing, so the names and numbers you get today may differ from the ones printed here. The
-> behavior is the point — the split is exactly 60/40 — not a byte-for-byte match.
+## Example outputs are illustrative
+
+TDC produces deterministic output for a given seed and core version. Because the engine is
+still evolving, the names and numbers produced by the current version may differ from
+those shown here.
+
+The important part is the behavior — in this example, the exact 60/40 allocation — not a
+byte-for-byte match with the output shown above.
+
+## What TDC does
+
+- **Deterministic allocation.** [`percent="60,40"`](reference/attributes.md#top) calculates
+  whole-row group sizes using the Hamilton method instead of relying on independent random
+  draws.
+
+- **[Hierarchical dependencies](guides/hierarchical-dependencies.md#top).** A field can
+  depend on its parent's value, with dependencies nested to any required depth.
+
+- **[Coherent related fields](guides/coherent-data.md#top).** Related values — such as a
+  product name, price, and category — can be drawn from the same source row.
+
+- **[Unique values](constructs/unique-values.md#top).** Values can be generated without
+  duplicates within a column.
+
+- **[External data sources](guides/files-and-csv.md#top).** Individual values or complete
+  linked rows can be read from your own data sources.
+
+- **[Flexible output formats](guides/output-formats.md#top).** Generate CSV, JSON, SQL,
+  YAML, or a custom format of your own.
+
+- **[Large datasets](guides/large-outputs.md#top).** Stream millions of rows without holding
+  the entire dataset in memory.
+
+- **[Locale and country packs](data-packs/overview.md#top).** Generate data for people,
+  places, medical records, and documents in ten languages. Country packs also support
+  national ID formats for more than ninety countries, with the appropriate check-digit
+  rule for each format.
 
 ## Where TDC is used
 
-**Test automation.** Fixtures that cannot contradict themselves, and a seed you can paste
-into a bug report to reproduce the exact row that failed. TDC is a library as well as a
-command-line tool, so rows go into the test directly instead of into a fixture file that has
-to be kept in sync:
+- **Test automation.** Generate internally consistent fixtures, and include the seed in a
+  bug report to reproduce the exact dataset in which a test failed. TDC is available both
+  as a [library](bindings/typescript.md#top) and as a [command-line tool](reference/cli.md#top),
+  so tests can consume generated rows directly instead of relying on fixture files that
+  must be kept in sync:
 
 ```typescript
 import { test, expect } from '@playwright/test';
@@ -224,9 +215,9 @@ import { TDC } from 'tdcv2';
 const users = new TDC({ configFile: 'users.tdc' }).toArray();
 
 for (const user of users) {
-  test(`sign up ${user.Name}`, async ({ page }) => {
+  test(`sign up ${String(user.Name)}`, async ({ page }) => {
     await page.goto('/signup');
-    await page.fill('#name', user.Name);
+    await page.fill('#name', String(user.Name));
     await page.fill('#age', String(user.Age));
     await page.click('#submit');
     await expect(page.getByText('Welcome')).toBeVisible();
@@ -234,49 +225,43 @@ for (const user of users) {
 }
 ```
 
-**Load and performance testing.** Millions of rows that pass your own foreign keys and
-validators. The output is [streamed](guides/large-outputs.md#top) rather than held in memory,
-so the limit is disk, not RAM.
+- **Load and performance testing.** Output is streamed rather than held entirely in
+  memory, so large datasets do not need to fit in RAM.
 
-**Development.** Demo environments, sandboxes, and seed scripts that hold together under
-inspection and rebuild identically next time.
+- **Development.** Create demo environments, sandboxes, and seed scripts with coherent
+  data that can be reproduced exactly.
 
-**Research and data work.** Datasets with proportions you set deliberately, containing no
-one's personal data.
+- **Research and data work.** Build synthetic datasets with controlled proportions without
+  relying on production data.
 
 ## When not to use TDC
 
-- **You need one random value in one test.** `faker.name()` is less setup. TDC pays off when
-  a whole record has to hold together.
-- **You need a synthetic copy of a production database.** TDC invents plausible data. It
-  does not learn the joint distribution of your tables, which is a different problem.
-- **You need to de-identify production data.** That is masking, and it starts from real
-  rows. TDC never sees them.
-- **You need a fixed five-row fixture.** Write the JSON by hand.
-- **You need to generate load.** TDC produces the data; k6, JMeter, and Locust send it.
+- **You need a single random value in one test.** Tools like Faker require less setup.
+  TDC becomes useful when the fields of an entire record need to remain consistent. (For
+  the occasional loose value from TDC's own packs, there is
+  [the one-value API](bindings/quick-api.md#top).)
 
-## What TDC does
+- **You need a synthetic copy of a production database.** TDC invents plausible data; it
+  does not learn the joint distribution of your production tables. That is a different
+  problem.
 
-- **Exact proportions.** [`percent="60,40"`](reference/attributes.md#top) is exact at any row count.
-- **[Hierarchical dependencies](guides/hierarchical-dependencies.md#top).** A field conditioned on its parent's value, nested as deep as needed.
-- **[Coherent related fields](guides/coherent-data.md#top).** Name, price, and category taken from the same source row.
-- **[Unique values](constructs/unique-values.md#top).** No duplicates down a column.
-- **[Files and CSV](guides/files-and-csv.md#top).** Values, and whole linked rows, read from your own data.
-- **[Any output format](guides/output-formats.md#top).** CSV, JSON, SQL, YAML, or one you define.
-- **[Large datasets](guides/large-outputs.md#top).** Millions of rows, streamed.
-- **Locale and country packs.** People, places, medicine and documents in **ten
-  fully-built languages** — Arabic, English, French, German, Greek, Italian, Polish,
-  Portuguese, Russian and Spanish — plus **110 country packs**, 97 of which carry that
-  country's own identifier formats with their real check-digit rules.
+- **You need to de-identify production data.** TDC generates new records; it does not mask
+  or transform existing production data.
+
+- **You need a fixed five-row fixture.** For a dataset of only a few static records,
+  writing the data directly in JSON is usually simpler.
+
+- **You need to generate load.** TDC produces test data; tools such as k6, JMeter, and
+  Locust generate and send requests.
 
 ## Availability
 
-Five implementations are complete — **[TypeScript](bindings/typescript.md#top)**,
+The **[TypeScript](bindings/typescript.md#top)** implementation is available now on npm. The
 **[Python](bindings/python.md#top)**, **[Java](bindings/java.md#top)**,
-**[C#](bindings/csharp.md#top)** and **[Rust](bindings/rust.md#top)** — and the same config
-produces the same bytes in each. None is published to a package registry yet; until then
-you install from a checkout, which [Installation](getting-started/installation.md#top)
-walks through for every ecosystem.
+**[C#](bindings/csharp.md#top)** and **[Rust](bindings/rust.md#top)** implementations are
+complete and run from a checkout; publishing them to their registries is still to come.
+The DSL is designed so that all five implementations produce identical output, and a
+shared fixture suite checks that on every change.
 
 ## Where to start
 

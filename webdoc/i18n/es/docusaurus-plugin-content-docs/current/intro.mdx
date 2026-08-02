@@ -11,130 +11,84 @@ import Terminal from '@site/src/components/Terminal';
 
 # TDC — The Data Constructor
 
-**Datos de prueba cuyos campos concuerdan entre sí.** El nombre corresponde al sexo, la
-ciudad está dentro de su país, el diagnóstico es uno que ese paciente realmente podría
-tener. Ejecútelo otra vez con la misma semilla y vuelven las mismas filas, byte a byte,
-en cada una de las cinco implementaciones.
+TDC genera datos de prueba coherentes dentro de cada registro. En una misma fila, los
+nombres corresponden a la categoría de sexo, las ciudades pertenecen al país correcto y
+los diagnósticos encajan con el perfil del paciente. Ejecute TDC de nuevo con la misma
+semilla y la misma versión del núcleo y producirá las mismas filas, byte por byte.
 
-Este es un generador entero. Cinco pacientes, donde el sexo decide tanto el nombre como
-el diagnóstico:
+Una librería convencional de datos falsos genera cada campo de forma independiente. Esa
+distinción es la base de todo lo que sigue.
 
-```xml title="clinic.tdc"
-<tdc>
-  <env count="5" seed="clinic" local="en">
-    <sequence name="Sex"><gen type="text" value="Male,Female" percent="50,50"/></sequence>
+## El problema de los campos independientes
 
-    <sequence name="M"   parent="Sex.Male">  <gen type="template" value="person.male.firstName"/></sequence>
-    <sequence name="F"   parent="Sex.Female"><gen type="template" value="person.female.firstName"/></sequence>
-    <sequence name="DxM" parent="Sex.Male">  <gen type="template" value="person.male.diagnosis"/></sequence>
-    <sequence name="DxF" parent="Sex.Female"><gen type="template" value="person.female.diagnosis"/></sequence>
-  </env>
+Cuando los campos se generan de forma independiente, cada valor puede ser válido por
+separado mientras el registro que forman es inválido en conjunto. En la práctica, esto
+produce varios tipos de problemas:
 
-  <block>
-    <line>
-      <data if="Sex == Male">${{M}},${{Sex}},${{DxM}}</data>
-      <data if="Sex == Female">${{F}},${{Sex}},${{DxF}}</data>
-    </line>
-  </block>
-</tdc>
-```
+- Una paciente generada es mujer de 34 años, pero se le asigna «hiperplasia prostática
+  benigna»: un diagnóstico que contradice los datos demográficos del mismo registro. El
+  fallo parece un error de la aplicación hasta que alguien revisa el fixture.
+- Un generador con semilla fija crea un millón de pedidos emparejando ciudades y países al
+  azar. El validador de direcciones rechaza un tercio, así que la prueba de carga mide la
+  ruta de error en lugar de la funcionalidad.
+- Una prueba falla en CI. Al reintentarla, el generador produce datos distintos y la prueba
+  pasa. No hay forma de saber si el error se corrigió de verdad.
 
-<Terminal title="tdcv2 clinic.tdc">
-{`John,Male,Prostatitis
-James,Male,Cryptorchism
-Mary,Female,Uterine Fibroids
-Elizabeth,Female,Breast Fibroadenoma
-Patricia,Female,Breast Fibroadenoma`}
-</Terminal>
-
-Ninguna fila puede salir mal aquí, y no porque un filtro haya descartado las malas.
-`parent="Sex.Male"` significa que en una fila masculina las listas femeninas quedan
-**fuera de alcance**: no hay combinación imposible que rechazar, porque no hay manera de
-expresarla. `percent="50,50"` es exacto con cualquier número de filas, no una moneda al
-aire que cae cerca de la mitad.
-
-Esa es toda la idea. Una biblioteca de datos falsos corriente rellena cada campo por su
-cuenta; todo lo que viene abajo se sigue de que TDC no hace eso.
-
-:::info[La promesa de determinismo, exacta]
-**El mismo config, la misma semilla, la misma versión de TDC, el mismo modo de salida**
-dan los mismos bytes. Cambie cualquiera de los cuatro y las filas pueden diferir; cuáles
-y por qué está en [Determinismo y proporciones](core-concepts/determinism.mdx).
-:::
-
-## La fila que no se sostiene
-
-La mayoría de los generadores rellenan los campos de uno en uno. Cada valor es plausible
-por separado; el registro que forman entre todos, no. Tres maneras de perder un día así:
-
-- **El fallo que no existía.** Un tester abre un paciente generado: mujer, 34 años,
-  _hiperplasia prostática benigna_. Se van veinte minutos revisando la aplicación antes de
-  que alguien sospeche del fixture.
-- **La prueba de carga que midió otra cosa.** Un millón de pedidos sembrados emparejan una
-  ciudad al azar con un país al azar. El validador de direcciones rechaza un tercio, y el
-  rendimiento que usted lleva a la reunión es el rendimiento de la rama de error.
-- **El fallo que se esfumó.** Una prueba se puso en rojo en CI durante la noche. Usted la
-  relanza, el generador produce otros datos, la prueba pasa, y nadie puede decir si el
-  error está corregido o escondido.
-
-Nada de esto es exótico, y todo comparte una raíz: los campos no saben unos de otros.
+Los campos generados de forma independiente no tienen contexto compartido.
 
 <Figure
   src="/img/intro/flat-vs-linked.svg"
   alt=""
-  caption="Las mismas tres fuentes, cableadas de dos maneras distintas."
+  caption="Las mismas tres fuentes, conectadas de dos maneras distintas."
 />
 
 <Legend items={[
-  ["A", "tres fuentes, cada una con valores de todos los grupos; cada campo se extrae por su cuenta"],
-  ["B", "los registros que salen — el color indica a qué grupo pertenece cada valor, y dentro de una fila nada concuerda"],
-  ["C", "una sola fuente abre el registro"],
-  ["D", "cada valor siguiente se extrae de lo que eligió el anterior, así que la fila entera va junta"],
+  ["A", "tres fuentes, cada una con valores de todos los grupos"],
+  ["B", "los registros que resultan: cada campo se sorteó por su cuenta, así que nada concuerda dentro de una fila"],
+  ["C", "una fuente inicia el registro"],
+  ["D", "cada campo posterior se sortea de lo que eligió el anterior, así que la fila concuerda consigo misma"],
 ]} />
 
-## Un campo extrae de lo que otro ya decidió
+## Cómo lo resuelve TDC
 
-La respuesta es una sola idea, aplicada en todas partes: **un campo puede nombrar un
-padre, y a partir de ahí solo extrae de la rama en la que ese padre cayó.**
+Una secuencia puede referirse a una rama del padre. A partir de ahí sortea únicamente
+entre los datos disponibles en la rama elegida para la fila actual.
 
-Una vez que la fila cae en ♀, las listas masculinas no se filtran después: son
-inalcanzables. Las combinaciones imposibles no se descartan a posteriori; no se pueden
-expresar. Y como cada extracción sale de un flujo sembrado, un seed reconstruye el
-conjunto entero exactamente.
+Una vez que a una fila le toca `Female`, TDC no sortea de las listas masculinas para
+filtrar el resultado después. Esas listas son inalcanzables desde la rama elegida.
 
 <Figure
   src="/img/intro/dependency-tree.svg"
   alt=""
-  caption="Los números son los tamaños reales de las listas médicas en inglés."
+  caption="Los números son los tamaños de las listas médicas en inglés."
 />
 
 <Legend items={[
   ["A", "un registro en construcción"],
   ["B", "la rama en la que cae"],
-  ["C", "la lista que solo esa rama alcanza — 26 cuadros propios de las mujeres, 20 de los hombres"],
-  ["D", "la lista que ambas ramas comparten — 78 cuadros que puede tener cualquiera"],
-  ["E", "la arista que no puede existir: este registro nunca alcanzará la lista de la otra rama"],
+  ["C", "la lista que solo esa rama alcanza: 26 cuadros específicos de mujeres, 20 de hombres"],
+  ["D", "la lista que comparten ambas ramas: 78 cuadros que puede tener cualquiera"],
+  ["E", "la arista que no puede existir, porque un registro nunca sale de su rama"],
 ]} />
 
-Esa es toda la arquitectura. Todo lo demás en esta documentación son piezas colgadas de
-ella.
+Todo lo demás en esta documentación se apoya en este mecanismo.
 
-## Véalo funcionar
+## Un ejemplo básico
 
-Diez personas, un reparto 60/40, nombres tomados de listas separadas por sexo y edades
-dentro de un rango:
+La siguiente configuración genera diez personas con una división por sexo de 60/40. Sus
+nombres vienen de listas específicas por sexo y sus edades caen en un rango definido:
 
-```xml
+```xml title="people.tdc"
 <tdc>
-    <env count="10" seed="demo" local="es">
+    <env count="10" seed="demo">
         <sequence name="Gender">
-            <gen type="text" value="Hombre,Mujer" percent="60,40"/>
+            <gen type="text" value="Male,Female" percent="60,40"/>
         </sequence>
 
-        <sequence name="MaleName" parent="Gender.Hombre">
+        <sequence name="MaleName" parent="Gender.Male">
             <gen type="template" value="person.male.firstName"/>
         </sequence>
-        <sequence name="FemaleName" parent="Gender.Mujer">
+        <sequence name="FemaleName" parent="Gender.Female">
             <gen type="template" value="person.female.firstName"/>
         </sequence>
 
@@ -145,87 +99,124 @@ dentro de un rango:
 
     <block>
         <line>
-            <data>${{_count}}. ${{Gender}} — ${{MaleName}}${{FemaleName}}, edad ${{Age}}</data>
+            <data>${{_count}}. ${{Gender}} — ${{MaleName}}${{FemaleName}}, age ${{Age}}</data>
         </line>
     </block>
 </tdc>
 ```
 
 <Terminal title="./run people.tdc">
-{`1. Hombre — Bernardo, edad 59
-2. Mujer — Alicia, edad 18
-3. Hombre — Máximo, edad 53
-4. Hombre — Santiago, edad 24
-5. Hombre — Quintín, edad 28
-6. Hombre — Isaac, edad 34
-7. Mujer — Julieta, edad 57
-8. Mujer — Sonia, edad 58
-9. Mujer — Tamara, edad 52
-10. Hombre — Elpidio, edad 56`}
+{`1. Male — Robert, age 59
+2. Female — Mary, age 18
+3. Male — James, age 53
+4. Male — John, age 24
+5. Male — Michael, age 28
+6. Male — David, age 34
+7. Female — Elizabeth, age 57
+8. Female — Jennifer, age 58
+9. Female — Patricia, age 52
+10. Male — William, age 56`}
 </Terminal>
 
-Aquí ocurrieron tres cosas a la vez. [`percent="60,40"`](reference/attributes.mdx) dio
-**exactamente 6 hombres y 4 mujeres**: no aproximadamente, sino exactamente, calculado con
-el método de Hamilton. Cada nombre concuerda con su sexo, porque los dos campos de nombre
-están atados al reparto por el atributo [`parent`](reference/attributes.mdx) y no pueden
-desfasarse. Y todo el conjunto es reproducible: el mismo
-[`seed`](core-concepts/determinism.mdx) entrega las mismas personas, y otro seed entrega
-una muestra distinta, pero igual de exacta.
+Vale la pena señalar tres propiedades de esta salida.
 
-La mitad inferior del config es la forma de la salida, y es suya:
-[`<block>`](core-concepts/output-formatting.mdx) envuelve lo que se repite,
-[`<line>`](core-concepts/output-formatting.mdx) es una línea y
-[`<data>`](core-concepts/output-formatting.mdx) es su texto. Reordénelos y las mismas diez
-personas saldrán como CSV, JSON o SQL.
+**Reparto exacto.** `percent="60,40"` produce seis hombres y cuatro mujeres. No es una
+aproximación basada en sorteos independientes: TDC calcula los tamaños de grupo con el
+método de Hamilton.
 
-### Y se anida
+**Nombres coherentes.** Cada nombre corresponde a su categoría de sexo. Cada secuencia de
+nombres apunta a la rama correspondiente de la secuencia de sexo, de modo que una fila
+femenina no puede acceder a la lista de nombres masculinos.
 
-Digamos que **la mitad de los hombres no tiene coche, pero solo una cuarta parte de las
-mujeres**. Son dos secuencias más; nada más del config cambia:
+**Salida reproducible.** La misma semilla y la misma versión del núcleo producen las
+mismas diez personas. Otra semilla produce otras diez, conservando el reparto de seis a
+cuatro.
+
+La sección `<block>` controla el formato de salida. `<line>` define una línea y `<data>`
+su contenido. Cambiando esta sección, los mismos registros se pueden representar como
+[CSV, JSON, SQL u otro formato](guides/output-formats.mdx).
+
+## Las dependencias se pueden anidar
+
+Suponga que la mitad de los hombres no tiene coche, mientras que una cuarta parte de las
+mujeres tampoco. Esto requiere dos secuencias adicionales; el resto de la configuración no
+cambia:
 
 ```xml
-<sequence name="MaleCar" parent="Gender.Hombre">
-    <gen type="text" value="tiene coche,sin coche" percent="50,50"/>
+<sequence name="MaleCar" parent="Gender.Male">
+    <gen type="text" value="has a car,no car" percent="50,50"/>
 </sequence>
-<sequence name="FemaleCar" parent="Gender.Mujer">
-    <gen type="text" value="tiene coche,sin coche" percent="75,25"/>
+<sequence name="FemaleCar" parent="Gender.Female">
+    <gen type="text" value="has a car,no car" percent="75,25"/>
 </sequence>
 ```
 
 <Terminal title="./run people.tdc">
-{`1. Hombre — Bernardo — tiene coche
-2. Mujer — Alicia — sin coche
-3. Hombre — Máximo — sin coche
-4. Hombre — Santiago — tiene coche
-5. Hombre — Quintín — tiene coche
-6. Hombre — Isaac — sin coche
-7. Mujer — Julieta — tiene coche
-8. Mujer — Sonia — tiene coche
-9. Mujer — Tamara — tiene coche
-10. Hombre — Elpidio — sin coche`}
+{`1. Male — Robert — has a car
+2. Female — Mary — no car
+3. Male — James — no car
+4. Male — John — has a car
+5. Male — Michael — has a car
+6. Male — David — no car
+7. Female — Elizabeth — has a car
+8. Female — Jennifer — has a car
+9. Female — Patricia — has a car
+10. Male — William — no car`}
 </Terminal>
 
-Cada proporción se calcula **dentro de su propio grupo**, así que también aquí cuadra
-exactamente: 3 de los 6 hombres y 1 de las 4 mujeres no tienen coche. Anide tan hondo como
-quiera: es la misma idea de la figura de arriba, un nivel más abajo.
+Cada porcentaje se aplica dentro de su grupo padre. En este ejemplo, 3 de los 6 hombres y
+1 de las 4 mujeres no tienen coche. Las dependencias se pueden
+[anidar a la profundidad](guides/hierarchical-dependencies.mdx) que exija el modelo de
+datos.
 
-:::info[Las salidas de ejemplo son ilustrativas]
-TDC es determinista para un seed dado **y una versión dada del núcleo**. El motor sigue
-evolucionando, así que los nombres y números exactos que imprime el núcleo actual pueden
-diferir de los que aparecen aquí. Lo que importa es el **comportamiento** —el reparto
-exacto 60/40—, no una coincidencia byte a byte.
-:::
+## Las salidas de ejemplo son ilustrativas
 
-## Dónde se usa
+TDC produce una salida determinista para una semilla y una versión del núcleo dadas. Como
+el motor sigue evolucionando, los nombres y números que produce la versión actual pueden
+diferir de los mostrados aquí.
 
-La herramienta no es de un solo propósito, y los cuatro grupos de abajo quieren de ella
-cosas bastante distintas.
+Lo importante es el comportamiento —en este ejemplo, el reparto exacto de 60/40— y no una
+coincidencia byte por byte con la salida de arriba.
 
-**QA y automatización de pruebas.** Fixtures que no pueden contradecirse a sí mismos, y un
-seed que se pega en el informe de error para que un colega reproduzca exactamente la fila
-que falló. TDC es una biblioteca además de una herramienta de línea de comandos, así que
-las filas entran directas en la prueba en lugar de en un archivo que hay que mantener
-sincronizado:
+## Qué hace TDC
+
+- **Reparto determinista.** [`percent="60,40"`](reference/attributes.mdx) calcula los
+  tamaños de grupo en filas enteras con el método de Hamilton, en lugar de depender de
+  sorteos independientes.
+
+- **[Dependencias jerárquicas](guides/hierarchical-dependencies.mdx).** Un campo puede
+  depender del valor de su padre, con dependencias anidadas a la profundidad que haga
+  falta.
+
+- **[Campos relacionados coherentes](guides/coherent-data.mdx).** Valores relacionados
+  —como el nombre de un producto, su precio y su categoría— pueden salir de la misma fila
+  de origen.
+
+- **[Valores únicos](constructs/unique-values.mdx).** Los valores se pueden generar sin
+  duplicados dentro de una columna.
+
+- **[Fuentes de datos externas](guides/files-and-csv.mdx).** Valores sueltos o filas
+  enlazadas completas se pueden leer de sus propias fuentes.
+
+- **[Formatos de salida flexibles](guides/output-formats.mdx).** Genere CSV, JSON, SQL,
+  YAML o un formato propio.
+
+- **[Conjuntos grandes](guides/large-outputs.mdx).** Transmita millones de filas sin
+  mantener todo el conjunto en memoria.
+
+- **[Paquetes de locale y de país](data-packs/overview.mdx).** Genere datos de personas,
+  lugares, registros médicos y documentos en diez idiomas. Los paquetes de país también
+  cubren formatos de identificación nacional de más de noventa países, con la regla de
+  dígito de control que corresponde a cada formato.
+
+## Dónde se usa TDC
+
+- **Automatización de pruebas.** Generar fixtures coherentes dentro del registro e incluir
+  la semilla en un informe de error para reproducir exactamente el conjunto de datos en el
+  que falló una prueba. TDC está disponible como [librería](bindings/typescript.mdx) y
+  como [herramienta de línea de comandos](reference/cli.mdx), así que las pruebas pueden
+  consumir las filas generadas directamente en lugar de depender de archivos de fixtures
+  que hay que mantener sincronizados:
 
 ```typescript
 import { test, expect } from '@playwright/test';
@@ -234,9 +225,9 @@ import { TDC } from 'tdcv2';
 const users = new TDC({ configFile: 'users.tdc' }).toArray();
 
 for (const user of users) {
-  test(`sign up ${user.Name}`, async ({ page }) => {
+  test(`sign up ${String(user.Name)}`, async ({ page }) => {
     await page.goto('/signup');
-    await page.fill('#name', user.Name);
+    await page.fill('#name', String(user.Name));
     await page.fill('#age', String(user.Age));
     await page.click('#submit');
     await expect(page.getByText('Welcome')).toBeVisible();
@@ -244,63 +235,50 @@ for (const user of users) {
 }
 ```
 
-**Rendimiento y carga.** Llenar una base de datos con millones de filas que sobreviven a
-sus propias claves foráneas y validadores, [en streaming](guides/large-outputs.mdx) en vez
-de en memoria, de modo que la ejecución la limite el disco y no la RAM.
+- **Pruebas de carga y rendimiento.** La salida se transmite en lugar de mantenerse
+  entera en memoria, así que los conjuntos grandes no necesitan caber en la RAM.
 
-**Desarrollo.** Entornos de demostración, sandboxes y scripts de seed que parecen un
-sistema real a quien se los enseña, y que se reconstruyen idénticos para la próxima demo.
+- **Desarrollo.** Cree entornos de demostración, entornos de pruebas y scripts de carga
+  inicial con datos coherentes que se reproducen exactamente.
 
-**Investigación y trabajo con datos.** Conjuntos sintéticos con proporciones que usted fija
-a propósito: útil cuando necesita un corpus cuya forma controla y cuyo contenido no lleva
-datos personales de nadie.
+- **Investigación y trabajo con datos.** Construya conjuntos sintéticos con proporciones
+  controladas sin recurrir a datos de producción.
 
-## Cuándo no necesita TDC
+## Cuándo no usar TDC
 
-Vale la pena decirlo claro, porque le ahorra la evaluación:
+- **Necesita un solo valor aleatorio en una prueba.** Herramientas como Faker requieren
+  menos preparación. TDC resulta útil cuando los campos de un registro entero deben
+  mantenerse coherentes. (Para el valor suelto ocasional desde los propios paquetes de
+  TDC, existe [el API de un valor](bindings/quick-api.mdx).)
 
-- **Necesita un valor aleatorio en una prueba.** `faker.name()` o el aleatorio de su
-  lenguaje piden menos preparación. TDC se gana el sitio cuando lo que debe sostenerse es
-  un _registro_.
-- **Necesita una copia sintética de una base de datos real.** TDC inventa datos
-  plausibles; no aprende la distribución conjunta de sus tablas de producción. Preservar
-  la estructura estadística real es otra clase de herramienta.
-- **Necesita anonimizar datos de producción.** Eso es enmascaramiento y anonimización: se
-  parte de filas reales. TDC nunca las ve.
-- **Necesita un fixture fijo de cinco filas que nunca cambia.** Escriba el JSON a mano.
-- **Necesita lanzar la carga, no construirla.** TDC produce los datos; k6, JMeter o Locust
-  los entregan.
+- **Necesita una copia sintética de una base de producción.** TDC inventa datos
+  plausibles; no aprende la distribución conjunta de sus tablas de producción. Ese es otro
+  problema.
 
-## Qué trae
+- **Necesita anonimizar datos de producción.** TDC genera registros nuevos; no enmascara
+  ni transforma los existentes.
 
-- **Proporciones exactas** — [`percent="60,40"`](reference/attributes.mdx) cuadra exactamente con cualquier número de filas.
-- **[Dependencias jerárquicas](guides/hierarchical-dependencies.mdx)** — un campo hijo condicionado al valor del padre, anidado tan hondo como haga falta.
-- **[Campos relacionados coherentes](guides/coherent-data.mdx)** — nombre, precio y categoría tomados de la _misma_ fila de origen, así siempre concuerdan.
-- **[Valores únicos](constructs/unique-values.mdx)** — sin duplicados en una columna.
-- **[Archivos y CSV](guides/files-and-csv.mdx)** — lea valores, y filas enlazadas enteras, desde sus propios datos.
-- **[Cualquier formato de salida](guides/output-formats.mdx)** — CSV, JSON, SQL, YAML o el suyo propio, construido con plantillas.
-- **[Conjuntos enormes](guides/large-outputs.mdx)** — transmita millones de filas sin mantenerlas en memoria.
-- **Paquetes de idioma y de país** — personas, lugares, medicina y documentos en **diez
-  idiomas completamente construidos**: alemán, árabe, español, francés, griego, inglés,
-  italiano, polaco, portugués y ruso. Más **110 paquetes de país**, 97 de los cuales
-  traen los formatos de identificación propios de ese país con sus reglas reales de
-  dígito de control.
+- **Necesita un fixture fijo de cinco filas.** Para un conjunto de unos pocos registros
+  estáticos, escribir los datos directamente en JSON suele ser más simple.
+
+- **Necesita generar carga.** TDC produce los datos de prueba; herramientas como k6,
+  JMeter y Locust generan y envían las peticiones.
 
 ## Disponibilidad
 
-Hay cinco implementaciones terminadas — **[TypeScript](bindings/typescript.mdx)**,
-**[Python](bindings/python.mdx)**, **[Java](bindings/java.mdx)**,
-**[C#](bindings/csharp.mdx)** y **[Rust](bindings/rust.mdx)** — y la misma configuración
-produce los mismos bytes en cada una. Ninguna está publicada todavía en un registro de
-paquetes; hasta entonces se instala desde una copia del repositorio, y
-[Instalación](getting-started/installation.mdx) lo explica para cada ecosistema.
+La implementación en **[TypeScript](bindings/typescript.mdx)** ya está disponible en npm.
+Las implementaciones en **[Python](bindings/python.mdx)**, **[Java](bindings/java.mdx)**,
+**[C#](bindings/csharp.mdx)** y **[Rust](bindings/rust.mdx)** están completas y se
+ejecutan desde un clon del repositorio; publicarlas en sus registros está pendiente. El
+DSL está diseñado para que las cinco implementaciones produzcan una salida idéntica, y un
+conjunto compartido de fixtures lo comprueba en cada cambio.
 
 ## Por dónde empezar
 
-- **[Instalación](getting-started/installation.mdx)** — requisitos y cómo ejecutar un config.
-- **[Su primer conjunto de datos](getting-started/first-data.mdx)** — un recorrido breve y práctico.
+- **[Instalación](getting-started/installation.mdx)** — requisitos y cómo ejecutar una configuración.
+- **[Su primer conjunto de datos](getting-started/first-data.mdx)** — un recorrido breve.
 
 :::note
-La documentación describe **solo lo que está implementado** en la versión actual. Las
-funciones aún en desarrollo están marcadas donde aparecen.
+Esta documentación describe lo que está implementado en la versión actual. Lo que sigue en
+desarrollo se señala allí donde aparece.
 :::
