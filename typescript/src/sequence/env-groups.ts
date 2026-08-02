@@ -19,8 +19,17 @@
  *   - a compound may not: it owns a field per gen, not one column (TDC129).
  */
 
+import { seekableGen } from '../prng/seekable.js';
+
+import { buildGenValues } from './build.js';
+import type { SequenceBuildContext } from './context.js';
+import { buildMixValues } from './mix-values.js';
+import { redrawCtx } from './per-row.js';
 import { arrangeUnique, uniqUpperBound, valueCounts } from './uniq.js';
 import type { Sequence, SequenceSpec } from './types.js';
+
+/** Maximum redraws for one field of a `<distinct>` group before giving up. */
+const DISTINCT_FUSE = 1000;
 
 /** The message a refusal carries: what was asked for, and what the data allows. */
 export function uniqGroupMessage(name: string, requested: number, achievable: number): string {
@@ -140,4 +149,92 @@ export function enforceEnvUniq(
       registry[name] = { name, values };
     });
   }
+}
+
+/**
+ * Enforce config-level `<distinct>` groups. Each group names scalar
+ * sequences whose values must differ from each other within one row. For
+ * each group and applicable row, walk the group's sequences in declaration
+ * order; a value that collides with an already-accepted one is redrawn
+ * (one fresh scalar from that sequence's own gen/switch, on a stream named
+ * for the sequence and the attempt — the same one the streaming engine uses)
+ * until it differs. Rows where a sequence produced `undefined` (filtered
+ * out by a parent) are skipped for that sequence.
+ *
+ * Only scalar sequences (simple `<gen>` or `<mix>`) participate;
+ * compound sequences have no single value and are excluded (the validator
+ * rejects them in a group). Deterministic and fuse-bounded like the
+ * field-level repair (see enforceDistinct).
+ */
+export function enforceEnvDistinct(
+  groups: readonly (readonly string[])[],
+  specs: readonly SequenceSpec[],
+  registry: Record<string, Sequence>,
+  count: number,
+  prng: () => number,
+  locale: string,
+  now: number,
+  ctx: SequenceBuildContext,
+): void {
+  const specByName = new Map<string, SequenceSpec>();
+  for (const spec of specs) specByName.set(spec.name, spec);
+  const keyed = ctx.seed === undefined ? undefined : { seed: ctx.seed };
+  const redraw = redrawCtx(ctx);
+
+  for (const group of groups) {
+    const members = group.filter((name) => {
+      const spec = specByName.get(name);
+      return spec !== undefined && isScalarSpec(spec) && registry[name] !== undefined;
+    });
+    if (members.length < 2) continue;
+
+    // Mutable working copies of each member's values.
+    const arrays = new Map<string, (string | undefined)[]>();
+    for (const name of members) arrays.set(name, [...(registry[name]?.values ?? [])]);
+
+    for (let i = 0; i < count; i++) {
+      const seen = new Set<string>();
+      for (const name of members) {
+        const values = arrays.get(name);
+        if (!values) continue;
+        let value = values[i];
+        if (value === undefined) continue; // filtered-out row for this sequence
+        let attempts = 0;
+        while (seen.has(value)) {
+          if (attempts >= DISTINCT_FUSE) {
+            throw new Error(
+              `<distinct> across sequences: could not find a value for sequence ` +
+                `"${name}" different from the others after ${String(DISTINCT_FUSE)} attempts — ` +
+                'its source likely has too few distinct values.',
+            );
+          }
+          attempts += 1;
+          const memberSpec = specByName.get(name);
+          const draw = keyed ? seekableGen(keyed.seed, `${name}#ed${String(attempts)}`, i) : prng;
+          value = memberSpec
+            ? produceOneScalar(memberSpec, draw, locale, now, keyed ? redraw : ctx)
+            : value;
+        }
+        values[i] = value;
+        seen.add(value);
+      }
+    }
+
+    for (const name of members) {
+      registry[name] = { name, values: arrays.get(name) ?? [] };
+    }
+  }
+}
+
+/** Draw one fresh scalar value from a simple or switch sequence spec. */
+function produceOneScalar(
+  spec: SequenceSpec,
+  prng: () => number,
+  locale: string,
+  now: number,
+  ctx: SequenceBuildContext,
+): string {
+  if (spec.gen) return buildGenValues(spec.gen, 1, prng, locale, now, ctx)[0] ?? '';
+  if (spec.mixSpec) return buildMixValues(spec.mixSpec, 1, prng, locale, now, ctx)[0] ?? '';
+  return '';
 }

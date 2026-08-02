@@ -54,6 +54,7 @@ import { openUnit, seekableGen, seekableUniforms } from '../prng/seekable.js';
 import {
   absoluteRow,
   exactTextLayout,
+  redrawCtx,
   INLINE_ANOMALY_TYPES,
   keyedDraws,
   listedValues,
@@ -93,7 +94,7 @@ import {
   keyedElementUniforms,
 } from './repeat-keyed.js';
 import { enforceUniqRedrawing } from './enforce-uniq.js';
-import { enforceEnvUniq, isScalarSpec } from './env-groups.js';
+import { enforceEnvDistinct, enforceEnvUniq } from './env-groups.js';
 import { poolRefName, type PoolTables } from './pool.js';
 import { registerPoolRef } from './pool-ref.js';
 import { registerRunning } from './running.js';
@@ -393,7 +394,7 @@ export function buildSequences(
       );
 
       if (spec.distinctGroups && applicableCount > 0) {
-        enforceDistinct(spec, produced, applicableCount, prng, locale, now, ctx);
+        enforceDistinct(spec, produced, rows, prng, locale, now, ctx);
       }
 
       if (composesOwnValue(spec.items)) {
@@ -436,7 +437,7 @@ export function buildSequences(
       // `<distinct>` groups: repair collisions per row (see enforceDistinct).
       // Runs after all initial draws so the base PRNG stream is unchanged.
       if (spec.distinctGroups && applicableCount > 0) {
-        enforceDistinct(spec, produced, applicableCount, prng, locale, now, ctx);
+        enforceDistinct(spec, produced, rows, prng, locale, now, ctx);
       }
       // `uniq="true"`: rearrange the field columns so every row's tuple is
       // unique across the dataset. Errors before output if infeasible.
@@ -554,88 +555,6 @@ export function buildSequences(
 }
 
 /**
- * Enforce config-level `<distinct>` groups. Each group names scalar
- * sequences whose values must differ from each other within one row. For
- * each group and applicable row, walk the group's sequences in declaration
- * order; a value that collides with an already-accepted one is redrawn
- * (one fresh scalar from that sequence's own gen/switch on the shared PRNG)
- * until it differs. Rows where a sequence produced `undefined` (filtered
- * out by a parent) are skipped for that sequence.
- *
- * Only scalar sequences (simple `<gen>` or `<mix>`) participate;
- * compound sequences have no single value and are excluded (the validator
- * rejects them in a group). Deterministic and fuse-bounded like the
- * field-level repair (see enforceDistinct).
- */
-function enforceEnvDistinct(
-  groups: readonly (readonly string[])[],
-  specs: readonly SequenceSpec[],
-  registry: Record<string, Sequence>,
-  count: number,
-  prng: () => number,
-  locale: string,
-  now: number,
-  ctx: SequenceBuildContext,
-): void {
-  const specByName = new Map<string, SequenceSpec>();
-  for (const spec of specs) specByName.set(spec.name, spec);
-
-  for (const group of groups) {
-    const members = group.filter((name) => {
-      const spec = specByName.get(name);
-      return spec !== undefined && isScalarSpec(spec) && registry[name] !== undefined;
-    });
-    if (members.length < 2) continue;
-
-    // Mutable working copies of each member's values.
-    const arrays = new Map<string, (string | undefined)[]>();
-    for (const name of members) arrays.set(name, [...(registry[name]?.values ?? [])]);
-
-    for (let i = 0; i < count; i++) {
-      const seen = new Set<string>();
-      for (const name of members) {
-        const values = arrays.get(name);
-        if (!values) continue;
-        let value = values[i];
-        if (value === undefined) continue; // filtered-out row for this sequence
-        let attempts = 0;
-        while (seen.has(value)) {
-          if (attempts >= DISTINCT_FUSE) {
-            throw new Error(
-              `<distinct> across sequences: could not find a value for sequence ` +
-                `"${name}" different from the others after ${String(DISTINCT_FUSE)} attempts — ` +
-                'its source likely has too few distinct values.',
-            );
-          }
-          attempts += 1;
-          // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-          value = produceOneScalar(specByName.get(name)!, prng, locale, now, ctx);
-        }
-        values[i] = value;
-        seen.add(value);
-      }
-    }
-
-    for (const name of members) {
-      registry[name] = { name, values: arrays.get(name) ?? [] };
-    }
-  }
-}
-
-/** Draw one fresh scalar value from a simple or switch sequence spec. */
-function produceOneScalar(
-  spec: SequenceSpec,
-  prng: () => number,
-  locale: string,
-  now: number,
-  ctx: SequenceBuildContext,
-): string {
-  if (spec.gen) return buildGenValues(spec.gen, 1, prng, locale, now, ctx)[0] ?? '';
-  if (spec.mixSpec) return buildMixValues(spec.mixSpec, 1, prng, locale, now, ctx)[0] ?? '';
-  return '';
-}
-
-/**
  * Switch sequence (in-memory / Engine 1): build each entry's value-producer
  * over all rows, then per row look the subject sequence's value up in the
  * entries' keys — the FIRST entry whose keys contain it wins. No match → the
@@ -653,12 +572,23 @@ function materializeSwitch(
   now: number,
   ctx: SequenceBuildContext,
 ): Sequence {
-  const built = switchSpec.entries.map((e) => ({
+  // Every entry resolves over the WHOLE run, not over the rows that chose it —
+  // the streaming engine builds them that way so a lookup stays O(1), and the
+  // stream names have to match it entry for entry.
+  const named = (streamId: string): SequenceBuildContext => ({ ...ctx, streamId });
+  const built = switchSpec.entries.map((e, k) => ({
     keys: e.keys,
-    values: buildCaseValues(e.value, count, prng, locale, now, ctx),
+    values: buildCaseValues(
+      e.value,
+      count,
+      prng,
+      locale,
+      now,
+      named(`${spec.name}#sw${String(k)}`),
+    ),
   }));
   const fallback = switchSpec.fallback
-    ? buildCaseValues(switchSpec.fallback, count, prng, locale, now, ctx)
+    ? buildCaseValues(switchSpec.fallback, count, prng, locale, now, named(`${spec.name}#swdef`))
     : undefined;
   const subject = registry[switchSpec.on];
 
@@ -833,12 +763,14 @@ const DISTINCT_FUSE = 1000;
 function enforceDistinct(
   spec: SequenceSpec,
   produced: Map<string, string[]>,
-  applicableCount: number,
+  rows: readonly number[],
   prng: () => number,
   locale: string,
   now: number,
   ctx: SequenceBuildContext,
 ): void {
+  const keyed = keyedDraws(ctx);
+  const redraw = redrawCtx(ctx);
   const genByField = new Map<string, GenSpec>();
   for (const field of spec.gens ?? []) genByField.set(field.name, field.gen);
 
@@ -846,7 +778,8 @@ function enforceDistinct(
     const fields = group.filter((f) => produced.has(f) && genByField.has(f));
     if (fields.length < 2) continue;
 
-    for (let i = 0; i < applicableCount; i++) {
+    for (let i = 0; i < rows.length; i++) {
+      const row = rows[i] ?? i;
       const seen = new Set<string>();
       for (const fieldName of fields) {
         const values = produced.get(fieldName);
@@ -863,7 +796,13 @@ function enforceDistinct(
             );
           }
           attempts += 1;
-          value = buildGenValues(gen, 1, prng, locale, now, ctx)[0] ?? '';
+          // Each attempt has a stream of its own, named for the field and the
+          // attempt number — the same names the streaming engine redraws under,
+          // so both engines land on the same replacement.
+          const draw = keyed
+            ? seekableGen(keyed.seed, `${spec.name}.${fieldName}#d${String(attempts)}`, row)
+            : prng;
+          value = buildGenValues(gen, 1, draw, locale, now, keyed ? redraw : ctx)[0] ?? '';
         }
         values[i] = value;
         seen.add(value);

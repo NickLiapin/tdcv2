@@ -153,6 +153,18 @@ export function perRowBuildable(
 }
 
 /**
+ * The context a REDRAW runs under: one row, no column name of its own.
+ *
+ * A `<distinct>` repair asks a generator for another value, and the streaming
+ * engine asks with a context like this — so no whole-column layout can kick in
+ * on a build of one row and hand back the same value it was trying to replace.
+ * The caller supplies the stream through the PRNG it passes.
+ */
+export function redrawCtx(ctx: SequenceBuildContext): SequenceBuildContext {
+  return { ...ctx, streamId: undefined, rows: undefined, layouts: undefined, perRow: true };
+}
+
+/**
  * Types the streaming engine builds INLINE — it reads the row's position rather
  * than deriving a value from the row — and whose `anomaly=`/`missing=` draws it
  * therefore takes from dedicated `#anom` and `#miss` streams instead of from

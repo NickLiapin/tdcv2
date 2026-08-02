@@ -222,19 +222,25 @@ export function buildCaseValues(
   ctx: SequenceBuildContext,
 ): string[] {
   const out: string[] = new Array<string>(count).fill('');
-  for (const part of caseSpec.parts) {
+  caseSpec.parts.forEach((part, p) => {
+    // Each part draws on a stream of its own, numbered among ALL the parts —
+    // literals included, because the streaming engine numbers them off the same
+    // array. A case with no column name of its own (an inline mix inside a pack
+    // body) has nothing to key by and keeps the context as it found it.
+    const partCtx =
+      ctx.streamId === undefined ? ctx : { ...ctx, streamId: `${ctx.streamId}#p${String(p)}` };
     let values: readonly string[];
     if (part.kind === 'data') {
       values = new Array<string>(count).fill(part.text);
     } else if (part.kind === 'gen') {
-      values = buildGenValues(part.gen, count, prng, locale, now, ctx);
+      values = buildGenValues(part.gen, count, prng, locale, now, partCtx);
     } else {
-      values = buildMixValues(part.mixSpec, count, prng, locale, now, ctx);
+      values = buildMixValues(part.mixSpec, count, prng, locale, now, partCtx);
     }
 
     for (let i = 0; i < count; i++) {
       out[i] = `${out[i] ?? ''}${values[i] ?? ''}`;
     }
-  }
+  });
   return out;
 }
