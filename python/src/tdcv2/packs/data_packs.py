@@ -198,6 +198,15 @@ class DataPacks:
         self._index = index
         return index
 
+    def addresses(self) -> list[str]:
+        """Every address these packs can answer to, in no particular order.
+
+        The quick API needs the whole list rather than a yes-or-no about one
+        address: to say "did you mean" it has to compare what was typed against
+        all of them. Building the index is the cost of the first call only.
+        """
+        return list(self._addresses())
+
     def exists(self, dotted_path: str, locale: str) -> bool:
         """Whether an address resolves, without loading it.
 

@@ -8,7 +8,7 @@ name = "tdcv2"
 # contract by the fixtures under `fixtures/cross-language/`, so a reader comparing
 # tdcv2 0.1.2 on PyPI with tdcv2 0.1.2 on npm should be able to assume the same
 # engine and the same bytes — which is the whole claim of the project.
-version = "0.1.2"
+version = "0.1.3"
 description = "Deterministic test-data generator: coherent records, exact proportions, and any text format you describe. Same seed, same bytes — in Python, TypeScript, Java, C# and Rust alike."
 readme = "README.md"
 requires-python = ">=3.10"

@@ -13,11 +13,53 @@ publish to their respective package registries.
 
 ### Added
 
-- **The Python implementation is published to PyPI** as `tdcv2`, at the same
-  version number as the npm package. The five implementations are held to one
-  contract by `fixtures/cross-language/`, so one number across all of them is
-  what lets a reader assume `tdcv2 0.1.2` means the same engine and the same
-  bytes wherever it is installed from.
+- **The quick API now exists in Python too** — `from tdcv2 import tdc`, then
+  `tdc.person.lastName()`. It was TypeScript-only, which made the npm landing
+  page show a way of working the PyPI page could not.
+
+  ```python
+  from tdcv2 import tdc
+
+  tdc.person.male.firstName()      # Robert
+  tdc.country.usa.docs.ssn()       # 699209702
+  tdc.person.lastName.many(5)      # five of them
+  tdc.gen.number("18..80")         # '66'
+  ```
+
+  Not a second implementation of the idea: the same synthesised config, the same
+  512-row batch, the same derived seed for the batch after that. So the same seed
+  and address give the same value in both, and a test pins six of them plus the
+  values either side of the batch boundary — the one place two implementations
+  would drift. `seed()` and `locale()` return a new object rather than mutating
+  a global, so two tests can hold two seeds at once.
+
+  A missing pack says which pack and how to install it, as TypeScript now does.
+  Python decides that structurally — nothing under the first segment, but the
+  rest of the address resolves elsewhere — rather than from a table of locale
+  codes, so it holds for packs that do not exist yet.
+
+- **`DataPacks.addresses()`** — every address the packs can answer to. The quick
+  API needs the whole list to say "did you mean", not a yes-or-no about one.
+
+- **The Python implementation is published to PyPI** as `tdcv2`. Equal version
+  numbers mean the same engine: the five are held to one contract by
+  `fixtures/cross-language/`, so `tdcv2 0.1.2` from PyPI and `tdcv2 0.1.2` from
+  npm produce the same bytes. Verified by running one config through both CLIs
+  and comparing the sha256. The numbers need not move in lockstep — a library
+  feature in one implementation moves only that one.
+
+### Known
+
+- **Pack parameters are a TypeScript-only feature.** A pack whose body declares a
+  named sequence lets a caller override it —
+  `<gen type="template" value="common.internet.email" domain="example.test"/>`.
+  TypeScript reads the pack's declared parameter names and allows the attribute
+  (`TDC072` when it is not declared); Python, Java, C# and Rust have no such
+  notion and refuse the whole config with `TDC015`. The same `.tdc` file
+  therefore runs in one implementation and fails in four, which is precisely what
+  the shared fixtures exist to prevent — and no shared case covers it. Found
+  while porting the quick API; recorded as a strict `xfail` in
+  `python/tests/test_quick.py` so closing it flips the test green.
 
 ### Fixed
 

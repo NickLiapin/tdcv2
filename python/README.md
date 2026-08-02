@@ -12,6 +12,60 @@ the previous field chose.
 pip install tdcv2
 ```
 
+**[Documentation](https://nickliapin.github.io/tdcv2/)** ·
+[Getting started](https://nickliapin.github.io/tdcv2/docs/getting-started/installation) ·
+[Generators](https://nickliapin.github.io/tdcv2/docs/generators/overview) ·
+[The DSL reference](https://nickliapin.github.io/tdcv2/docs/reference/attributes) ·
+[Data packs](https://nickliapin.github.io/tdcv2/docs/data-packs/overview) ·
+[Source](https://github.com/NickLiapin/tdcv2)
+
+## Two ways to use it
+
+They are different tools that happen to share one set of data, and most people
+need both at different moments.
+
+**Reach for a value.** Import the library, call an address, get a string — the job
+a faker does. Nothing is tied to anything else, and there is no config in sight.
+
+```python
+from tdcv2 import tdc
+
+tdc.person.lastName()               # Jones
+tdc.person.male.firstName()         # Robert
+tdc.company.industry()              # Pharmaceuticals
+
+tdc.common.id.uuid()                # 3ff6ff76-6ea7-4fad-8b99-3075a14cc7e9
+tdc.common.finance.iban()           # DE62299399441396459682
+tdc.country.usa.docs.ssn()          # 699209702 — with its real check digits
+
+tdc.lang.ru.person.lastName()       # after `tdcv2 pack add ru`
+
+tdc.person.lastName.many(5)         # ['Bush', 'Armstrong', 'Andrews', …]
+tdc.gen.number("18..80")            # '66'
+```
+
+A dot in the code is a dot in the address: `person.male.firstName` here is
+`person.male.firstName` in a config and in the reference — one vocabulary, not two.
+That is also why the segments are camelCase in a Python module: they are not names
+we chose, they are the names the data already has. A bare address reads against the
+active locale; `common.`, `country.<code>.` and `lang.<code>.` name a pack outright.
+
+Values are random per process. Pin a seed when the value should be part of the test
+rather than a variable in it:
+
+```python
+t = tdc.seed("demo")
+t.person.lastName()                 # Jones, today and next year
+```
+
+The same seed gives the same value in the TypeScript implementation — the streams
+are one contract, and a test compares the two.
+
+**Describe a dataset.** Write a config saying what the records are and how they
+should look, then generate as many as you want. This is where the exact
+proportions, the parent-child distributions and the coherent records live — none
+of which a sequence of loose calls can give you. That is the rest of this page.
+
 ## A first config
 
 A config says what the records are; a block says how they should look on the page.
