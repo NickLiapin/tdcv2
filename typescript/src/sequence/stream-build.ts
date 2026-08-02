@@ -48,6 +48,7 @@ import {
 import { parseAnomaly } from '../generators/anomaly.js';
 import { parseMissing } from '../generators/missing.js';
 import { permute, permuteKey } from '../prng/permute.js';
+import { INLINE_ANOMALY_TYPES } from './per-row.js';
 import { buildMixSeq } from './stream-mix.js';
 import { lazy } from './stream-lazy.js';
 import { poolRefName } from './pool.js';
@@ -475,10 +476,6 @@ function missingAnomalyMod(
     return fmt ? fmt(out) : out;
   };
 }
-
-/** Gen types whose value is built inline and whose anomaly is applied seekably
- * via `missingAnomalyMod` (the `#anom` draw), not through `buildGenValues`. */
-const INLINE_ANOMALY_TYPES = new Set(['text', 'increment', 'decrement', 'timeseries', 'pattern']);
 
 /**
  * Build the `anomaly_flag="NAME"` companion column for a streaming simple gen, or

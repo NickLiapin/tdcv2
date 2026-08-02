@@ -55,6 +55,7 @@ import {
   absoluteRow,
   exactTextLayout,
   forStreamOf,
+  INLINE_ANOMALY_TYPES,
   keyedDraws,
   perRowBuildable,
 } from './per-row.js';
@@ -911,7 +912,7 @@ export function buildGenValues(
   const repeat = parseRepeat(gen.attrs);
   if (!repeat) {
     const flags: boolean[] | undefined = flagTextOut ? [] : undefined;
-    const out = buildGenValuesOnce(gen, count, prng, locale, now, ctx, flags);
+    const out = buildGenValuesOnce(gen, count, prng, locale, now, ctx, flags, true);
     if (flagTextOut && flags) {
       for (let i = 0; i < count; i++) flagTextOut[i] = flags[i] === true ? 'true' : 'false';
     }
@@ -935,12 +936,24 @@ function buildGenValuesOnce(
   now: number,
   ctx: SequenceBuildContext,
   anomalyFlagsOut?: boolean[],
+  rowKeyed = false,
 ): string[] {
   const values = buildGenValuesRaw(gen, count, prng, locale, now, ctx);
+  // The inline-built types never reach the per-row path — their value follows
+  // the position — so their two modifier draws are keyed here, on the same
+  // `#anom` and `#miss` streams the streaming engine uses. Every other type got
+  // there through `seekableGen` already and must keep drawing off it in order.
+  const keyed = rowKeyed && INLINE_ANOMALY_TYPES.has(gen.type) ? keyedDraws(ctx) : undefined;
+  const drawOn = (purpose: string): ((i: number) => number) =>
+    keyed
+      ? (i) =>
+          seekableUniforms(keyed.seed, `${keyed.streamId}${purpose}`, absoluteRow(ctx, i), 1)[0] ??
+          1
+      : () => prng();
   const anomaly = parseAnomaly(gen.attrs);
-  const spiked = anomaly ? applyAnomaly(values, anomaly, prng, anomalyFlagsOut) : values;
+  const spiked = anomaly ? applyAnomaly(values, anomaly, drawOn('#anom'), anomalyFlagsOut) : values;
   const missing = parseMissing(gen.attrs);
-  const withMissing = missing ? applyMissing(spiked, missing, prng) : spiked;
+  const withMissing = missing ? applyMissing(spiked, missing, drawOn('#miss')) : spiked;
   // Output formatting: `mask=`/`case=` post-process each value (mask then case).
   const fmt = genFormatter(gen.attrs['mask'], gen.attrs['case']);
   return fmt ? withMissing.map((v) => fmt(v)) : withMissing;

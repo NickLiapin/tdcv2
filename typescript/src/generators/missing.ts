@@ -29,11 +29,19 @@ export function parseMissing(attrs: Record<string, string | undefined>): Missing
   return { p, token: attrs['missing_as'] ?? '' };
 }
 
-/** Blank each value with probability `spec.p`, one PRNG draw per row. Mutates and returns `values`. */
-export function applyMissing(values: string[], spec: MissingSpec, prng: () => number): string[] {
+/**
+ * Blank each value with probability `spec.p`, one draw per row. Mutates and
+ * returns `values`. `draw` is asked for the uniform of row i — see
+ * `applyAnomaly` for why the row, not the next one, is what it takes.
+ */
+export function applyMissing(
+  values: string[],
+  spec: MissingSpec,
+  draw: (i: number) => number,
+): string[] {
   if (spec.p <= 0) return values; // no draws when nothing can go missing
   for (let i = 0; i < values.length; i++) {
-    if (prng() < spec.p) values[i] = spec.token;
+    if (draw(i) < spec.p) values[i] = spec.token;
   }
   return values;
 }

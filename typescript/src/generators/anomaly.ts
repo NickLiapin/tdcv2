@@ -46,15 +46,19 @@ export function parseAnomaly(attrs: Record<string, string | undefined>): Anomaly
  * `anomaly_flag` ground-truth column can mark exactly these rows. It reflects the
  * draw, not whether the value happened to be numeric — anomaly is a numeric-only
  * feature, so for supported gens selected == spiked.
+ *
+ * `draw` is asked for the uniform of row i rather than for "the next" one: the
+ * streaming engine derives it from the row, and the in-memory engine passes a
+ * closure over its own PRNG. Same rows selected either way.
  */
 export function applyAnomaly(
   values: string[],
   spec: AnomalySpec,
-  prng: () => number,
+  draw: (i: number) => number,
   flagsOut?: boolean[],
 ): string[] {
   for (let i = 0; i < values.length; i++) {
-    const selected = spec.p > 0 && prng() < spec.p;
+    const selected = spec.p > 0 && draw(i) < spec.p;
     if (flagsOut) flagsOut[i] = selected;
     if (!selected) continue;
     const n = Number(values[i]);

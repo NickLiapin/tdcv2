@@ -135,6 +135,20 @@ export function perRowBuildable(
   return true;
 }
 
+/**
+ * Types the streaming engine builds INLINE — it reads the row's position rather
+ * than deriving a value from the row — and whose `anomaly=`/`missing=` draws it
+ * therefore takes from dedicated `#anom` and `#miss` streams instead of from
+ * the generator's own. The in-memory engine has to key those two the same way.
+ */
+export const INLINE_ANOMALY_TYPES: ReadonlySet<string> = new Set([
+  'text',
+  'increment',
+  'decrement',
+  'timeseries',
+  'pattern',
+]);
+
 /** The pack a `<gen type="template">` points at, if it points at one. */
 function packEntryFor(
   gen: GenSpec,
