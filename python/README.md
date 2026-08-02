@@ -2,9 +2,12 @@
 
 ## Quick start
 
-**You need:** **Python 3.10 or newer**. Nothing else.
+**You need:** **Python 3.10 or newer**, plus **Node** once — the parser is generated from
+the grammar the five implementations share, and the generator runs on Node. A released
+package ships it already generated; a checkout does not.
 
 ```bash
+node scripts/generate-parsers.mjs --only python
 cd python
 python3 -m venv .venv
 .venv/bin/pip install -e ".[dev]"
@@ -60,11 +63,15 @@ three engines, the 108 diagnostic cases by code and position, the PRNG and appor
 and the six Parquet files byte for byte.
 
 ```bash
+node scripts/generate-parsers.mjs --only python
 cd python
 python -m venv .venv && .venv/bin/pip install -e ".[dev]"
-.venv/bin/pytest                  # 799 tests
+.venv/bin/pytest                  # 969 tests
 .venv/bin/ruff check src tests
 ```
+
+`node ../scripts/five-ways.mjs --only python` does the same and regenerates the parser
+first, which is what CI runs.
 
 ## Using it
 

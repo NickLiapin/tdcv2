@@ -24,6 +24,12 @@ Thumbs.db
 
 # Archives & backups
 *.zip
+# …except the archives the Rust zip reader is tested against. They are INPUTS, written
+# by another tool (Python's zipfile) so the decompressor is not merely reading its own
+# output, and one of them is a deliberate path-traversal archive the extractor must
+# refuse. Frozen bytes, not build output — the blanket rule above swallowed them, and
+# CI spent its whole life red because a fresh checkout had no fixtures to read.
+!rust/tests/data/*.zip
 *.tar.gz
 *.tgz
 *.bak
@@ -91,9 +97,9 @@ hs_err_pid*
 gradle-app.setting
 
 # ─── ANTLR (generated parsers, check in per-language) ────────
-# Note: generated parsers may live under packages/*/src/generated/
-# Each language decides whether to commit generated code or regenerate.
-# Common default: regenerate via build, don't commit.
+# Regenerated, never committed — by TypeScript's `pretest`, Java's Gradle plugin, and
+# `scripts/generate-parsers.mjs` for Python and C#. One generator (antlr-ng, pinned in
+# typescript/package.json) across all four targets, so the parse tree is the same tree.
 **/generated/
 !grammar/**
 

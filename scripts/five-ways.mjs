@@ -48,6 +48,9 @@ const IMPLEMENTATIONS = [
     id: 'python',
     label: 'Python',
     cwd: 'python',
+    // Its parser is ANTLR output, generated rather than committed. Nothing else in
+    // this package builds, so without this step a fresh checkout fails at import.
+    generateParser: true,
     probe: 'python/.venv/bin/python',
     command: ['.venv/bin/python', ['-m', 'pytest', '-q']],
     install: 'python3 -m venv python/.venv && python/.venv/bin/pip install -e "python[dev]"',
@@ -63,6 +66,7 @@ const IMPLEMENTATIONS = [
     id: 'csharp',
     label: 'C#',
     cwd: 'csharp',
+    generateParser: true,
     command: ['dotnet', ['test', '--nologo', '-v', 'q']],
     install: 'https://dotnet.microsoft.com/download',
   },
@@ -105,6 +109,23 @@ async function main() {
   if (selected.length === 0) {
     console.error(`--only matched nothing. Known: ${IMPLEMENTATIONS.map((i) => i.id).join(', ')}`);
     process.exit(2);
+  }
+
+  // Java's Gradle plugin and TypeScript's own pretest generate their parsers; Rust's
+  // is hand-written. Python and C# have no build of their own, so the step lives here
+  // — in the command both a developer and CI run, rather than in one of the two.
+  const needParser = selected.filter((impl) => impl.generateParser).map((impl) => impl.id);
+  if (needParser.length > 0) {
+    const generated = await run(
+      process.execPath,
+      [join(ROOT, 'scripts', 'generate-parsers.mjs'), '--only', needParser.join(',')],
+      ROOT,
+    );
+    if (generated.code !== 0) {
+      console.error(generated.output.trimEnd());
+      console.error(`\ncannot generate the parser for: ${needParser.join(', ')}`);
+      process.exit(1);
+    }
   }
 
   console.log(`running ${selected.length} implementation${selected.length === 1 ? '' : 's'}\n`);

@@ -2,9 +2,12 @@
 
 ## Quick start
 
-**You need:** **The .NET SDK, 6.0 or newer**. Nothing else — the ANTLR runtime comes from NuGet.
+**You need:** **The .NET SDK, 6.0 or newer** — the ANTLR runtime comes from NuGet — plus
+**Node** once, to generate the parser from the grammar the five implementations share. A
+released package ships it already generated; a checkout does not.
 
 ```bash
+node scripts/generate-parsers.mjs --only csharp
 cd csharp
 dotnet build
 ```

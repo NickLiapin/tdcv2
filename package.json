@@ -23,7 +23,7 @@
     "docs:check": "npm --prefix webdoc run docs:check",
     "check": "npm run check --workspaces --if-present && npm run docs:check",
     "parity": "node scripts/five-ways.mjs",
-    "csharp:generate": "antlr-ng -D language=CSharp -o csharp/Tdcv2/Generated grammar/TDCLexer.g4 grammar/TDCParser.g4",
+    "generate:parsers": "node scripts/generate-parsers.mjs",
     "fixtures:filters": "node typescript/scripts/filter-vectors.mjs"
   },
   "devDependencies": {
