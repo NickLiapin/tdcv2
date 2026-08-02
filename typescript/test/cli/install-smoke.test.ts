@@ -54,9 +54,18 @@ describe('the published package works after a real install', () => {
     installed = join(dir, 'node_modules', 'tdcv2');
   }, 300_000);
 
-  it('ships the data packs inside the package', () => {
+  it('ships the STARTER data packs inside the package', () => {
     // Not `node_modules/data` — inside the package, where the runtime looks.
-    expect(readdirSync(join(installed, 'data', 'packs')).length).toBeGreaterThan(10);
+    // Named rather than counted: the published package deliberately carries a
+    // starter set (see scripts/bundle-packs.mjs) and everything else is
+    // downloaded by `tdcv2 pack add`, so a count would only say "some packs"
+    // and would have to be edited whenever the set changes on purpose.
+    expect(readdirSync(join(installed, 'data', 'packs')).sort()).toEqual([
+      'common',
+      'countries',
+      'en',
+    ]);
+    expect(readdirSync(join(installed, 'data', 'packs', 'countries'))).toEqual(['usa']);
   });
 
   it('does not ship source maps', () => {

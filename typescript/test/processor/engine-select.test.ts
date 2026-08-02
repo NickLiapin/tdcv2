@@ -127,7 +127,8 @@ describe('mode="memory|disk" and disk-mode routing', () => {
     // Which engine ran can only be asserted by the router: the output no longer
     // tells them apart, because all three now agree byte for byte.
     expect(resolveRenderEngine({ mode: 'memory' }, [], [])).toBe(1);
-    expect(resolveRenderEngine({}, [], [])).toBe(2);
+    // `disk` is what a config with no mode= resolves to (resolveEngineSelection).
+    expect(resolveRenderEngine({ mode: 'disk' }, [], [])).toBe(2);
     expect(render(parseStrict(NORMAL), { now: NOW })).toBe(mem);
   });
 
