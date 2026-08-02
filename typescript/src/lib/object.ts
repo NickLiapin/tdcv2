@@ -11,6 +11,9 @@ import type { DocumentContext, OpenCloseElementContext } from '../generated/TDCP
 import { parseRegexMaxLength } from '../generators/regex.js';
 import { createPrng } from '../prng/prng.js';
 import { buildSequences, extractSequenceSpecs } from '../sequence/index.js';
+import { buildPoolTables } from '../sequence/pool-build.js';
+import { extractPoolSpecs } from '../sequence/pool.js';
+import { extractEnvDistinctGroups, extractEnvUniqGroups } from '../sequence/extract.js';
 import type { SequenceRegistry, SequenceSpec } from '../sequence/index.js';
 import type { RenderOptions } from '../processor/render.js';
 import { elementKind, elementName, extractAttrs, findChildElement } from '../processor/walk.js';
@@ -69,13 +72,33 @@ function materializeObjectRuntime(
   const config = extractObjectConfig(tdc, envEl, options);
   const prng = createPrng(config.seed);
   const specs = extractSequenceSpecs(envEl);
-  const registry = buildSequences(specs, config.count, prng, config.locale, config.now, {
+  const packOptions = {
     regexMaxLength: config.regexMaxLength,
     packs: options.packs ?? bundledPacks(),
     dataSources: {
       baseDir: options.baseDir,
       dataPaths: options.dataPaths,
     },
+  };
+  // The SAME build the text renderer performs. It used to be a shorter call —
+  // no `seed`, no pools, no uniq/distinct groups — and the result was that
+  // `iterate()` and `toString()` returned different data from one object with
+  // one seed: generators that derive a per-sequence stream from `seed` fell
+  // back to consuming the shared PRNG in a different order. A row read through
+  // the object API also silently ignored every <pool> and every uniqueness
+  // group. Whatever the renderer needs to be correct, this needs too.
+  const registry = buildSequences(specs, config.count, prng, config.locale, config.now, {
+    ...packOptions,
+    seed: config.seed,
+    pools: buildPoolTables(
+      extractPoolSpecs(envEl),
+      config.seed,
+      config.locale,
+      config.now,
+      packOptions,
+    ),
+    envUniqGroups: extractEnvUniqGroups(envEl),
+    envDistinctGroups: extractEnvDistinctGroups(envEl),
   });
 
   return { count: config.count, specs, registry };
