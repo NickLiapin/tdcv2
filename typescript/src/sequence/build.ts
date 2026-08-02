@@ -56,6 +56,7 @@ import {
   exactTextLayout,
   INLINE_ANOMALY_TYPES,
   keyedDraws,
+  listedValues,
   perRowBuildable,
   withRows,
 } from './per-row.js';
@@ -85,7 +86,12 @@ import { assembleAt, computeParentMask, orderedRows } from './assemble.js';
 import type { LinkedFileRowPlan, SequenceBuildContext } from './context.js';
 import { buildUniqueValues } from './uniq-simple.js';
 import { buildFileValues } from './file-values.js';
-import { buildRepeatedValues, parseRepeat } from './repeat.js';
+import { buildRepeatedValues, parseRepeat, type RepeatSpec } from './repeat.js';
+import {
+  buildKeyedRepeatDraws,
+  buildKeyedRepeatLayout,
+  keyedElementUniforms,
+} from './repeat-keyed.js';
 import { enforceUniqRedrawing } from './enforce-uniq.js';
 import { enforceEnvUniq, isScalarSpec } from './env-groups.js';
 import { poolRefName, type PoolTables } from './pool.js';
@@ -936,6 +942,36 @@ export function buildGenValues(
     return out;
   }
 
+  const keyed = keyedDraws(ctx);
+  if (keyed) {
+    // A listed column lays every element of every row out at once and reads the
+    // slots the length plan gave the row; anything drawn takes one sub-stream
+    // per element. Which of the two is the streaming engine's own split.
+    const listed = listedValues(gen, ctx, locale);
+    return listed
+      ? buildKeyedRepeatLayout(
+          repeat,
+          listed.values,
+          listed.percents,
+          count,
+          ctx,
+          keyed.seed,
+          keyed.streamId,
+          elementModifier(gen, repeat, keyed.seed, keyed.streamId),
+        )
+      : buildKeyedRepeatDraws(
+          gen,
+          repeat,
+          count,
+          locale,
+          now,
+          ctx,
+          keyed.seed,
+          keyed.streamId,
+          flagTextOut,
+        );
+  }
+
   return buildRepeatedValues(
     repeat,
     count,
@@ -943,6 +979,38 @@ export function buildGenValues(
     (n, flagsOut) => buildGenValuesOnce(gen, n, prng, locale, now, ctx, flagsOut),
     flagTextOut,
   );
+}
+
+/**
+ * `anomaly=`, `missing=` and the formatting layer applied to ONE element of a
+ * repeating listed column. The two probability draws come off the row's `#anom`
+ * and `#miss` streams with a budget of the row's maximum length, so element k
+ * always gets the same uniform however long its row turned out to be.
+ */
+function elementModifier(
+  gen: GenSpec,
+  repeat: RepeatSpec,
+  seed: string,
+  streamId: string,
+): ((row: number, value: string, k: number) => string) | undefined {
+  const anomaly = parseAnomaly(gen.attrs);
+  const missing = parseMissing(gen.attrs);
+  const fmt = genFormatter(gen.attrs['mask'], gen.attrs['case']);
+  const hasAnomaly = anomaly !== undefined && anomaly.p > 0;
+  const hasMissing = missing !== undefined && missing.p > 0;
+  if (!hasAnomaly && !hasMissing && !fmt) return undefined;
+
+  const anomAt = hasAnomaly ? keyedElementUniforms(seed, streamId, '#anom', repeat.max) : undefined;
+  const missAt = hasMissing ? keyedElementUniforms(seed, streamId, '#miss', repeat.max) : undefined;
+  return (row, value, k) => {
+    let out = value;
+    if (anomaly && anomAt && anomAt(row, k) < anomaly.p) {
+      const n = Number(out);
+      if (Number.isFinite(n)) out = String(n * anomaly.factor);
+    }
+    if (missing && missAt && missAt(row, k) < missing.p) out = missing.token;
+    return fmt ? fmt(out) : out;
+  };
 }
 
 function buildGenValuesOnce(

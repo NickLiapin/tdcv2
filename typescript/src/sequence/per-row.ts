@@ -18,6 +18,8 @@ import { permute, permuteKey } from '../prng/permute.js';
 import { createPrng } from '../prng/prng.js';
 
 import { resolvePackAddress } from '../data-pack/locales.js';
+import { resolveExistingDataSourcePath } from '../data-source/index.js';
+import { loadWeightedValues, weightColumnOf } from '../generators/weighted.js';
 import type { PackEntry } from '../data-pack/load.js';
 
 import type { SequenceBuildContext } from './context.js';
@@ -163,6 +165,50 @@ export const INLINE_ANOMALY_TYPES: ReadonlySet<string> = new Set([
   'timeseries',
   'pattern',
 ]);
+
+/**
+ * The value list and the shares a column lays out, when its values are LISTED
+ * rather than drawn: a `text` list, a weighted file column, a weighted pack.
+ *
+ * These are the three the streaming engine sends down one path — it has no
+ * separate uniform case, so an unweighted `text` list arrives here too, with
+ * equal shares. Anything else returns undefined and is drawn per row.
+ */
+export function listedValues(
+  gen: GenSpec,
+  ctx: SequenceBuildContext,
+  locale: string,
+): { values: readonly string[]; percents: readonly number[] } | undefined {
+  // `order="sequential"` reads the position, so there is no layout to speak of.
+  if (gen.attrs['order'] === 'sequential') return undefined;
+  const weightColumn = weightColumnOf(gen.attrs);
+  if (weightColumn !== undefined) {
+    // `row=` links whole rows of the file; the choice is not this column's.
+    if ((gen.attrs['row'] ?? '').trim() !== '') return undefined;
+    const path = resolveExistingDataSourcePath(gen.attrs['src'] ?? '', ctx.dataSources).path;
+    return loadWeightedValues(
+      path,
+      {
+        column: gen.attrs['column'],
+        header: gen.attrs['header'],
+        delimiter: gen.attrs['delimiter'],
+      },
+      weightColumn,
+    );
+  }
+  const pack = weightedTemplatePack(gen, ctx.packs, gen.attrs['local'] ?? locale);
+  if (pack) return pack;
+  if (gen.type !== 'text') return undefined;
+  const values = (gen.attrs['value'] ?? '').split(',').map((v) => v.trim());
+  const percentAttr = gen.attrs['percent'];
+  return {
+    values,
+    percents:
+      percentAttr !== undefined && percentAttr.length > 0
+        ? expandPercentMask(percentAttr, values.length)
+        : values.map(() => 100 / values.length),
+  };
+}
 
 /** The pack a `<gen type="template">` points at, if it points at one. */
 function packEntryFor(
