@@ -214,6 +214,16 @@ publishing {
         create<MavenPublication>("mavenJava") {
             from(components["java"])
 
+            // The command line, under the SAME coordinates as the library.
+            //
+            // Maven has no equivalent of npm's `bin`: adding a dependency to a project puts
+            // nothing on anyone's PATH. So the command line is a file people download —
+            // `tdcv2-<version>-cli.jar`, self-contained, `java -jar` and it runs. NuGet needs
+            // a whole second package for this; Maven does not, because one set of coordinates
+            // can carry several files told apart by a classifier. One address, one signature
+            // pass, nothing extra to publish.
+            artifact(cliJar)
+
             pom {
                 // No `packaging` here: Gradle drops the element when it equals the default
                 // it is already producing, so setting it changes nothing. Verified by

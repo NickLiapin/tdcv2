@@ -1,6 +1,14 @@
 name: Publish to NuGet
 
-# Publishing the C# package, without a key existing anywhere.
+# Publishing the two C# packages, without a key existing anywhere.
+#
+# Two, because NuGet has no equivalent of npm's `bin`: `Tdcv2` is the library and
+# `Tdcv2.Cli` is the command line, a package kind of its own that puts `tdcv2` on
+# a user's PATH. They go out together, at one version, from one tag.
+#
+# The Trusted Publishing policy on nuget.org lists the packages it covers. Adding
+# a second package id means the policy has to name it too, or the push of that one
+# is refused while the first succeeds.
 #
 # NuGet's Trusted Publishing hands this workflow a short-lived token in exchange
 # for GitHub's proof of who is running it — the repository, the workflow file,
@@ -44,16 +52,21 @@ jobs:
         with:
           node-version: 22
 
-      - name: The tag must agree with the .csproj
+      - name: The tag must agree with both .csproj files
+        # Two packages go out together: the library and the command line. Their
+        # versions are equal on purpose — a `tdcv2` one release behind the Tdcv2 it
+        # drives would be a puzzle nobody should have to solve — so both are checked.
         if: startsWith(github.ref, 'refs/tags/')
         run: |
-          declared=$(grep -m1 '<Version>' csharp/Tdcv2/Tdcv2.csproj | sed 's/.*<Version>\(.*\)<.*/\1/')
           tagged="${GITHUB_REF_NAME#csharp-v}"
-          if [ "$declared" != "$tagged" ]; then
-            echo "tag $GITHUB_REF_NAME says $tagged, Tdcv2.csproj says $declared" >&2
-            exit 1
-          fi
-          echo "version $declared"
+          for proj in csharp/Tdcv2/Tdcv2.csproj csharp/Tdcv2.Cli.Tool/Tdcv2.Cli.Tool.csproj; do
+            declared=$(grep -m1 '<Version>' "$proj" | sed 's/.*<Version>\(.*\)<.*/\1/')
+            if [ "$declared" != "$tagged" ]; then
+              echo "tag $GITHUB_REF_NAME says $tagged, $proj says $declared" >&2
+              exit 1
+            fi
+          done
+          echo "version $tagged"
 
       - name: Generate the parser
         # `csharp/Tdcv2/Generated/` is not in the repository — it is produced from
@@ -62,23 +75,30 @@ jobs:
         # from an earlier `five-ways` run, and a clean clone does not.
         run: node scripts/generate-parsers.mjs --only csharp
 
-      - name: The package must work outside the repository
+      - name: Both packages must work outside the repository
         # The whole reason this check exists: the .nupkg shipped with 0 data files
         # once, and every one of the 777 tests passed, because every test runs
         # inside the repository where the packs are a few directories up.
         # The reference CLI is what the check compares against, and this is an npm
         # workspace: installing and building happen from the root, not from
         # inside `typescript/`. The dry run found that too.
+        #
+        # The tool is checked separately from the library, because it can fail on
+        # its own: it is a different package kind, carrying the library's dll
+        # rather than depending on it.
         run: |
           npm ci
           npm run build --workspace=typescript
-          cd csharp && node scripts/verify-package.mjs
+          cd csharp
+          node scripts/verify-package.mjs
+          node scripts/verify-tool.mjs
 
       - name: Pack
         run: |
           cd csharp
           node scripts/bundle-packs.mjs add
           dotnet pack Tdcv2/Tdcv2.csproj -c Release --nologo
+          dotnet pack Tdcv2.Cli.Tool/Tdcv2.Cli.Tool.csproj -c Release --nologo
           node scripts/bundle-packs.mjs remove
 
       - name: Publish
@@ -91,7 +111,13 @@ jobs:
       - name: Push
         if: startsWith(github.ref, 'refs/tags/')
         run: |
-          dotnet nuget push csharp/Tdcv2/bin/Release/*.nupkg \
+          dotnet nuget push \
+            "csharp/Tdcv2/bin/Release/*.nupkg" \
+            --api-key "${{ steps.login.outputs.NUGET_API_KEY }}" \
+            --source https://api.nuget.org/v3/index.json \
+            --skip-duplicate
+          dotnet nuget push \
+            "csharp/Tdcv2.Cli.Tool/bin/Release/*.nupkg" \
             --api-key "${{ steps.login.outputs.NUGET_API_KEY }}" \
             --source https://api.nuget.org/v3/index.json \
             --skip-duplicate

@@ -124,6 +124,10 @@ the PATH — so the CLI ships as one self-contained jar instead. Nothing but a J
 it, and nothing from another language: a Java user should not have to install Node to run a `.tdc`
 file.
 
+It travels with the library, under the same Maven coordinates — one address, two files, told
+apart by a classifier. Download `tdcv2-<version>-cli.jar` from
+`https://repo1.maven.org/maven2/io/github/nickliapin/tdcv2/<version>/`, or build it here:
+
 ```bash
 ./gradlew cliJar
 java -jar build/libs/tdcv2-*-cli.jar users.tdc -o users.csv

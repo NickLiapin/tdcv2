@@ -12,9 +12,36 @@
     <!-- The .NET way to ship a command line: `dotnet tool install -g Tdcv2.Cli`. -->
     <PackAsTool>true</PackAsTool>
     <ToolCommandName>tdcv2</ToolCommandName>
-    <PackageId>Tdcv2.Cli</PackageId>
-    <Version>0.1.0</Version>
   </PropertyGroup>
+
+  <!--
+    A second package, and it has to be one.
+
+    npm, pip and cargo let a single package carry both a library and a command; NuGet does not.
+    A tool is its own package kind — `PackAsTool` above — so `dotnet tool install -g Tdcv2.Cli`
+    is the only way a .NET user gets `tdcv2` on their PATH, and it cannot be an extra file
+    inside Tdcv2.
+
+    The version is deliberately the same as the library's. Equal numbers across all of this
+    project's packages mean the same engine, and a command line one version behind the library
+    it drives would be a puzzle nobody should have to solve.
+  -->
+  <PropertyGroup>
+    <PackageId>Tdcv2.Cli</PackageId>
+    <Version>0.1.3</Version>
+    <Authors>Nick Liapin</Authors>
+    <Description>Command line for TDC — the deterministic test-data generator. Turns a .tdc config into data: generate, check, format, init, and pack. Same seed, same bytes as the TypeScript, Python, Java and Rust implementations. The library itself is the Tdcv2 package.</Description>
+    <PackageTags>test-data;mock-data;fake-data;synthetic-data;data-generator;deterministic;fixtures;testing;cli;dotnet-tool</PackageTags>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://nickliapin.github.io/tdcv2/</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/NickLiapin/tdcv2</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="../README.md" Pack="true" PackagePath="\" />
+  </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="../Tdcv2/Tdcv2.csproj" />

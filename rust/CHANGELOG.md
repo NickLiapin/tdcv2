@@ -9,7 +9,7 @@ this package: the crate, its library API and its binary.
 
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
-## [0.1.3] — unreleased
+## [0.1.3] — 2026-08-02
 
 The first release to crates.io. Everything below is what changed in this
 implementation on the way there; the engine itself has been at parity with the

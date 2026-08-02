@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tdcv2", "Tdcv2\Tdcv2.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tdcv2.Tests", "Tdcv2.Tests\Tdcv2.Tests.csproj", "{D117ECA0-C361-46D0-A87D-11F9BC86B499}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tdcv2.Cli.Tool", "Tdcv2.Cli.Tool\Tdcv2.Cli.Tool.csproj", "{7EB84FB2-9E6E-49B6-9FBB-54D0419D3711}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{D117ECA0-C361-46D0-A87D-11F9BC86B499}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D117ECA0-C361-46D0-A87D-11F9BC86B499}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D117ECA0-C361-46D0-A87D-11F9BC86B499}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7EB84FB2-9E6E-49B6-9FBB-54D0419D3711}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7EB84FB2-9E6E-49B6-9FBB-54D0419D3711}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7EB84FB2-9E6E-49B6-9FBB-54D0419D3711}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7EB84FB2-9E6E-49B6-9FBB-54D0419D3711}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

@@ -75,9 +75,10 @@ try {
   run('./gradlew', ['jar', '-q'], { cwd: projectDir });
 
   const libs = join(projectDir, 'build', 'libs');
-  const jar = readdirSync(libs).find(
-    (f) => f.endsWith('.jar') && !f.includes('-cli') && !f.includes('-sources'),
-  );
+  // The plain library jar is the one with no classifier — `tdcv2-<version>.jar`.
+  // Naming what to exclude instead is how this once picked up the javadoc archive
+  // after a publish left one lying here, and reported the library as dataless.
+  const jar = readdirSync(libs).find((f) => /^tdcv2-\d[^-]*\.jar$/.test(f));
   if (!jar) {
     throw new Error(`no library jar in ${libs}`);
   }
@@ -113,6 +114,31 @@ try {
   console.log(
     `the library jar runs outside the repository and matches the reference (${String(fromJar.split('\n').length)} rows)`,
   );
+
+  // The second artefact under the same coordinates: the command line. It ships as a
+  // file people download rather than a dependency they declare, because Maven puts
+  // nothing on a PATH — so it is self-contained, and `java -jar` has to be enough.
+  // Checked here for the same reason as the library: nothing else in the suite runs
+  // it from outside the repository, where its data has to come from inside itself.
+  console.log('building the cli jar…');
+  run('./gradlew', ['cliJar', '-q'], { cwd: projectDir });
+
+  const cli = readdirSync(libs).find((f) => f.endsWith('-cli.jar'));
+  if (!cli) {
+    throw new Error(`no cli jar in ${libs}`);
+  }
+
+  // Only the jar on the command line — no classpath, no ANTLR runtime. If the merge
+  // dropped a dependency, this is where it shows.
+  const fromCli = run('java', ['-jar', join(libs, cli), configFile]).trimEnd();
+
+  if (fromCli !== fromReference) {
+    console.error('the cli jar does not agree with the reference.\n');
+    console.error(`cli:\n${fromCli}\nreference:\n${fromReference}`);
+    process.exit(1);
+  }
+
+  console.log(`${cli} runs outside the repository with nothing beside it and matches the reference`);
 } finally {
   rmSync(work, { recursive: true, force: true });
 }

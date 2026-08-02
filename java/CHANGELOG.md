@@ -9,6 +9,21 @@ this package: the jar and the library API.
 
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [Unreleased]
+
+### Added
+
+- **The command line ships from Maven Central too**, as a second file under the
+  same coordinates: `tdcv2-<version>-cli.jar`, self-contained, `java -jar` and it
+  runs. Maven puts nothing on a PATH, so a command line cannot arrive as a
+  dependency — but it can arrive as a download, and one set of coordinates can
+  carry several files told apart by a classifier. No second address, no second
+  signature pass.
+
+  `scripts/verify-jar.mjs` now runs that jar too, outside the repository with
+  nothing beside it on the command line — which is where a dropped dependency or
+  a missing data pack would show.
+
 ## [0.1.3] — 2026-08-02
 
 The first release to Maven Central. Everything below is what changed in this

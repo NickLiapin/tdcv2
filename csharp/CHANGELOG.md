@@ -9,7 +9,26 @@ this package: the assembly and its library API.
 
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
-## [0.1.3] — unreleased
+## [Unreleased]
+
+### Added
+
+- **`Tdcv2.Cli`, a second package: the command line.** `dotnet tool install -g
+Tdcv2.Cli` puts `tdcv2` on your PATH, the same command the npm, pip and cargo
+  packages already carry.
+
+  It has to be a separate package. NuGet has no equivalent of npm's `bin`, so a
+  tool is a package kind of its own and cannot be an extra file inside `Tdcv2`.
+  Both go out together, at one version, from one tag — a command line one release
+  behind the library it drives would be a puzzle nobody should have to solve.
+
+  The tool bundles the library's assembly rather than depending on it, so the
+  starter data packs ride along inside. `scripts/verify-tool.mjs` installs the
+  built package into a directory outside the repository and compares a run with
+  the TypeScript reference, because that is the only way to see data that is
+  missing from an artefact but present a few directories up.
+
+## [0.1.3] — 2026-08-02
 
 The first release to NuGet. Everything below is what changed in this
 implementation on the way there; the engine itself has been at parity with the
