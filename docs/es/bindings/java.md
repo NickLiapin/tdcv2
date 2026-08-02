@@ -16,19 +16,28 @@ garantía entre lenguajes.
 
 ## Cómo obtenerlo
 
-> [!NOTE]
-> **Todavía no está en Maven Central**
->
-> Java es la única de las cinco implementaciones que falta por publicar. Está terminada y
-> pasa todos los fixtures entre lenguajes —el jar incluso lleva los paquetes de datos
-> iniciales—, así que por ahora se compila desde el repositorio:
->
-> ```bash
-> cd java && ./gradlew build
-> ```
->
-> El panorama completo, incluido el jar aparte para la línea de comandos, está en
-> [Instalación](../getting-started/installation.md#top).
+Una sola dependencia, desde Maven Central:
+
+```xml
+<dependency>
+  <groupId>io.github.nickliapin</groupId>
+  <artifactId>tdcv2</artifactId>
+  <version>0.1.3</version>
+</dependency>
+```
+
+Con Gradle, en `build.gradle.kts`:
+
+```kotlin
+implementation("io.github.nickliapin:tdcv2:0.1.3")
+```
+
+Los paquetes de datos iniciales viajan dentro del jar, así que esto funciona sin
+instalar nada más.
+
+El panorama completo, incluido el jar aparte para la línea de comandos, está en
+[Instalación](../getting-started/installation.md#top): Maven no tiene equivalente del
+`bin` de npm, así que la línea de comandos se distribuye como su propio artefacto.
 
 ## Cómo usarlo
 

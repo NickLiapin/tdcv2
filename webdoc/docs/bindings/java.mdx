@@ -11,18 +11,27 @@ cross-language guarantee.
 
 ## Getting it
 
-:::note[Not on Maven Central yet]
-Java is the one implementation of the five still to be published. It is complete and
-passes every cross-language fixture — the jar even carries the starter data packs — so
-for now it is built from a checkout:
+One dependency, from Maven Central:
 
-```bash
-cd java && ./gradlew build
+```xml
+<dependency>
+  <groupId>io.github.nickliapin</groupId>
+  <artifactId>tdcv2</artifactId>
+  <version>0.1.3</version>
+</dependency>
 ```
 
+Gradle, in `build.gradle.kts`:
+
+```kotlin
+implementation("io.github.nickliapin:tdcv2:0.1.3")
+```
+
+The starter data packs travel inside the jar, so this runs with nothing else installed.
+
 See [Installation](../getting-started/installation.mdx) for the whole picture, including
-the separate CLI jar.
-:::
+the separate CLI jar — Maven has no equivalent of npm's `bin`, so the command line ships
+as its own self-contained artifact.
 
 ## Using it
 

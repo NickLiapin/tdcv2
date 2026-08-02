@@ -87,9 +87,7 @@ está en [Bibliotecas por lenguaje — Python](../bindings/python.mdx).
 
 **Requisitos:** Java **17** o más reciente.
 
-:::note[Todavía no está en Maven Central]
-Java es la única implementación que falta por publicar. Cuando salga, la biblioteca
-será una dependencia:
+La biblioteca es una sola dependencia:
 
 ```xml
 <dependency>
@@ -98,13 +96,15 @@ será una dependencia:
   <version>0.1.3</version>
 </dependency>
 ```
-:::
 
-Hasta entonces, compílela desde una copia del repositorio:
+Con Gradle, en `build.gradle.kts`:
 
-```bash
-cd java && ./gradlew build
+```kotlin
+implementation("io.github.nickliapin:tdcv2:0.1.3")
 ```
+
+Un juego inicial de paquetes de datos viaja dentro del jar, así que el ejemplo de
+arriba funciona sin instalar nada más.
 
 **La línea de comandos es un artefacto aparte, y lo seguirá siendo tras el
 lanzamiento.** Maven no tiene equivalente del `bin` de npm —añadir una biblioteca a

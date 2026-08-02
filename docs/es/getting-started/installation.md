@@ -85,25 +85,24 @@ está en [Bibliotecas por lenguaje — Python](../bindings/python.md#top).
 
 **Requisitos:** Java **17** o más reciente.
 
-> [!NOTE]
-> **Todavía no está en Maven Central**
->
-> Java es la única implementación que falta por publicar. Cuando salga, la biblioteca
-> será una dependencia:
->
-> ```xml
-> <dependency>
->   <groupId>io.github.nickliapin</groupId>
->   <artifactId>tdcv2</artifactId>
->   <version>0.1.3</version>
-> </dependency>
-> ```
+La biblioteca es una sola dependencia:
 
-Hasta entonces, compílela desde una copia del repositorio:
-
-```bash
-cd java && ./gradlew build
+```xml
+<dependency>
+  <groupId>io.github.nickliapin</groupId>
+  <artifactId>tdcv2</artifactId>
+  <version>0.1.3</version>
+</dependency>
 ```
+
+Con Gradle, en `build.gradle.kts`:
+
+```kotlin
+implementation("io.github.nickliapin:tdcv2:0.1.3")
+```
+
+Un juego inicial de paquetes de datos viaja dentro del jar, así que el ejemplo de
+arriba funciona sin instalar nada más.
 
 **La línea de comandos es un artefacto aparte, y lo seguirá siendo tras el
 lanzamiento.** Maven no tiene equivalente del `bin` de npm —añadir una biblioteca a

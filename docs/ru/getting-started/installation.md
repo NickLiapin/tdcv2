@@ -82,27 +82,26 @@ DSL и поведение идентичны npm-версии: тот же `.tdc
 
 **Требования:** Java **17** или новее.
 
-> [!NOTE]
-> **Пока не на Maven Central**
->
-> Java — единственная реализация, которую ещё предстоит опубликовать. Когда это
-> случится, библиотека станет одной зависимостью:
->
-> ```xml
-> <dependency>
->   <groupId>io.github.nickliapin</groupId>
->   <artifactId>tdcv2</artifactId>
->   <version>0.1.3</version>
-> </dependency>
-> ```
+Библиотека — одна зависимость:
 
-Пока — сборка из копии репозитория:
-
-```bash
-cd java && ./gradlew build
+```xml
+<dependency>
+  <groupId>io.github.nickliapin</groupId>
+  <artifactId>tdcv2</artifactId>
+  <version>0.1.3</version>
+</dependency>
 ```
 
-**Командная строка — отдельный артефакт, и останется им после релиза.** У Maven нет
+Gradle, в `build.gradle.kts`:
+
+```kotlin
+implementation("io.github.nickliapin:tdcv2:0.1.3")
+```
+
+Стартовый набор паков едет внутри jar, так что пример выше работает без всякой
+доустановки.
+
+**Командная строка — отдельный артефакт.** У Maven нет
 аналога npm-овского `bin`: добавление библиотеки в проект не кладёт команду в PATH,
 — поэтому CLI поставляется одним самодостаточным jar, которому нужен только JDK:
 

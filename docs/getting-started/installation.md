@@ -21,10 +21,10 @@ bytes — a gigabyte of output from the same config comes out identical in each.
 Each one also carries the same command line, so nothing needs another
 language's toolchain to run a config.
 
-What is *not* done yet is publishing to the package registries. Until the
-first release lands on npm, PyPI, Maven Central, NuGet and crates.io, you install
-from a checkout
-— each tab below shows how.
+All five are published, at the same version: **0.1.3** on npm, PyPI, Maven
+Central, NuGet and crates.io. Equal version numbers are not a coincidence — they
+mean the same engine, so `tdcv2 0.1.3` from any one of them answers a config the
+same way.
 
 Pick your ecosystem. To try TDC without committing to a language, use the npm
 tab: it includes a wrapper script that runs a config without any code of your
@@ -89,27 +89,26 @@ run with the same `seed`, produces the same bytes. See
 
 **Requirements:** Java **17** or newer.
 
-> [!NOTE]
-> **Not on Maven Central yet**
->
-> Java is the one implementation still to be published. When it is, the library
-> will be one dependency:
->
-> ```xml
-> <dependency>
->   <groupId>io.github.nickliapin</groupId>
->   <artifactId>tdcv2</artifactId>
->   <version>0.1.3</version>
-> </dependency>
-> ```
+The library is one dependency:
 
-Until then, build it from a checkout:
-
-```bash
-cd java && ./gradlew build
+```xml
+<dependency>
+  <groupId>io.github.nickliapin</groupId>
+  <artifactId>tdcv2</artifactId>
+  <version>0.1.3</version>
+</dependency>
 ```
 
-**The command line is a separate artifact, and stays one after release.** Maven
+Gradle, in `build.gradle.kts`:
+
+```kotlin
+implementation("io.github.nickliapin:tdcv2:0.1.3")
+```
+
+A starter set of data packs travels inside the jar, so the example above runs
+with nothing else installed.
+
+**The command line is a separate artifact.** Maven
 has no equivalent of npm's `bin` — adding a library to a project does not put a
 command on your PATH — so the CLI ships as one self-contained jar that needs
 nothing but a JDK:
