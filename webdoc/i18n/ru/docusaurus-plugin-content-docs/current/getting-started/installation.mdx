@@ -216,16 +216,19 @@ DSL и поведение — те же, что в npm-версии.
 </tdc>
 ```
 
-Запустите той командой, которую дала ваша установка:
+Запустите той командой, которую дала ваша установка. **В пакетные реестры пока
+ничего не выложено**, поэтому сегодня любой путь — это клон репозитория; правая
+колонка показывает, как будет, когда пакеты выйдут:
 
-| Ставили через | Запуск |
-| :--- | :--- |
-| npm | `npx tdcv2 demo.tdc` |
-| pip | `tdcv2 demo.tdc` |
-| Maven | `java -jar tdcv2-cli.jar demo.tdc` |
-| NuGet | `tdcv2 demo.tdc` (после `dotnet tool install -g Tdcv2.Cli`) |
-| Cargo | `tdcv2 demo.tdc` (после `cargo install tdcv2`) |
-| клон репозитория | `./run demo.tdc` |
+| Язык | Сегодня, из клона | Когда выйдут пакеты |
+| :--- | :--- | :--- |
+| Node.js | `node typescript/dist/cli/main.js demo.tdc` | `npx tdcv2 demo.tdc` |
+| Python | `.venv/bin/tdcv2 demo.tdc` | `tdcv2 demo.tdc` |
+| Java | `java -jar java/build/libs/tdcv2-*-cli.jar demo.tdc` | так же |
+| C# | `dotnet run --project csharp/Tdcv2.Cli.Tool -- demo.tdc` | `tdcv2 demo.tdc` |
+| Rust | `cargo run --bin tdcv2 -- demo.tdc` | `tdcv2 demo.tdc` |
+
+Из корня репозитория короче всех — `./run demo.tdc`.
 
 <Terminal title="tdcv2 demo.tdc">
 {`Елена, возраст 59

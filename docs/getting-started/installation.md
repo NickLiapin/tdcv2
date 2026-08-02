@@ -219,16 +219,19 @@ from a range with [`type="number"`](../generators/number.md#top):
 </tdc>
 ```
 
-Run it with whichever command your install gave you:
+Run it with whichever command your install gave you. **Nothing is published to a
+package registry yet**, so today every route is a checkout of the repository —
+the registry column is what it will be once the packages ship:
 
-| Installed with | Run it |
-| :--- | :--- |
-| npm | `npx tdcv2 demo.tdc` |
-| pip | `tdcv2 demo.tdc` |
-| Maven | `java -jar tdcv2-cli.jar demo.tdc` |
-| NuGet | `tdcv2 demo.tdc` (after `dotnet tool install -g Tdcv2.Cli`) |
-| Cargo | `tdcv2 demo.tdc` (after `cargo install tdcv2`) |
-| a clone of the repository | `./run demo.tdc` |
+| Installed with | Today, from a checkout | Once published |
+| :--- | :--- | :--- |
+| Node.js | `node typescript/dist/cli/main.js demo.tdc` | `npx tdcv2 demo.tdc` |
+| Python | `.venv/bin/tdcv2 demo.tdc` | `tdcv2 demo.tdc` |
+| Java | `java -jar java/build/libs/tdcv2-*-cli.jar demo.tdc` | the same |
+| C# | `dotnet run --project csharp/Tdcv2.Cli.Tool -- demo.tdc` | `tdcv2 demo.tdc` |
+| Rust | `cargo run --bin tdcv2 -- demo.tdc` | `tdcv2 demo.tdc` |
+
+From the repository root, `./run demo.tdc` is the shortest of them all.
 
 `tdcv2 demo.tdc`
 

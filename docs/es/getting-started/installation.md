@@ -216,16 +216,20 @@ de salida de una sola línea:
 </tdc>
 ```
 
-Ejecútelo con el comando que le dejó su instalación:
+Ejecútelo con el comando que le dejó su instalación. **Todavía no hay nada
+publicado en ningún registro de paquetes**, así que hoy toda vía pasa por un clon
+del repositorio; la columna de la derecha es cómo será cuando los paquetes
+salgan:
 
-| Instalado con | Ejecutar |
-| :--- | :--- |
-| npm | `npx tdcv2 demo.tdc` |
-| pip | `tdcv2 demo.tdc` |
-| Maven | `java -jar tdcv2-cli.jar demo.tdc` |
-| NuGet | `tdcv2 demo.tdc` (tras `dotnet tool install -g Tdcv2.Cli`) |
-| Cargo | `tdcv2 demo.tdc` (tras `cargo install tdcv2`) |
-| un clon del repositorio | `./run demo.tdc` |
+| Lenguaje | Hoy, desde un clon | Cuando se publiquen |
+| :--- | :--- | :--- |
+| Node.js | `node typescript/dist/cli/main.js demo.tdc` | `npx tdcv2 demo.tdc` |
+| Python | `.venv/bin/tdcv2 demo.tdc` | `tdcv2 demo.tdc` |
+| Java | `java -jar java/build/libs/tdcv2-*-cli.jar demo.tdc` | igual |
+| C# | `dotnet run --project csharp/Tdcv2.Cli.Tool -- demo.tdc` | `tdcv2 demo.tdc` |
+| Rust | `cargo run --bin tdcv2 -- demo.tdc` | `tdcv2 demo.tdc` |
+
+Desde la raíz del repositorio, `./run demo.tdc` es el más corto de todos.
 
 `tdcv2 demo.tdc`
 
