@@ -110,6 +110,16 @@ tdcv2/
 └── .github/                 CI workflows
 ```
 
+**Starting from a fresh clone?** Each implementation's own README opens with a
+quick start — what to install, how to build it, and one config to run so you see
+output in under a minute:
+[TypeScript](typescript/README.md) ·
+[Python](python/README.md) ·
+[Java](java/README.md) ·
+[C#](csharp/README.md) ·
+[Rust](rust/README.md). They all end at the same place: `tdcv2 pack add …` for
+the data, from one shared registry.
+
 **Principle:** one grammar (`grammar/TDCLexer.g4` + `grammar/TDCParser.g4`) is what
 every implementation parses — through ANTLR where the runtime is available, and by
 hand in Rust, which takes no dependencies. Each language directory is self-contained

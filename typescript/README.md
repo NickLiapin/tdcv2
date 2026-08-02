@@ -1,9 +1,64 @@
 # TDC — TypeScript Implementation
 
-**Status:** v0.1.0 pre-release implementation in progress.
+## Quick start
 
-This is the **reference implementation** of TDC. All design decisions are first
-validated here; once stable, they are ported to Python and Java.
+**You need:** **Node.js 20 or newer**. Nothing else.
+
+```bash
+cd typescript
+npm install
+npm run build
+```
+
+Then write a config and run it:
+
+```xml title="demo.tdc"
+<tdc>
+  <env count="3" seed="demo" local="en">
+    <sequence name="Id"><gen type="increment" value="1"/></sequence>
+    <sequence name="Name"><gen type="template" value="person.lastName"/></sequence>
+  </env>
+  <block><line><data>${{Id}},${{Name}}</data></line></block>
+</tdc>
+```
+
+```bash
+node dist/cli/main.js demo.tdc
+```
+
+`npm link` puts it on the PATH as `tdcv2`, after which it is just
+`tdcv2 demo.tdc`.
+
+```
+1,Williams
+2,Johnson
+3,Smith
+```
+
+The same three names, every time, in every implementation — that is the whole
+point of the `seed`.
+
+### Data packs
+
+A pack is the _data_ — the name lists, cities, streets and locale rules that
+`type="template"` draws from. A starter set ships with the code: `common`, `en`
+and the USA country pack, which is what the example above uses. Everything else
+is downloaded on demand:
+
+```bash
+tdcv2 init                 # write a tdcv2.config.json, once per project
+tdcv2 pack list            # what the registry has
+tdcv2 pack add ru france   # download and wire up
+```
+
+One registry, one `tdcv2.config.json`, one store, shared by all five
+implementations: a pack installed from here is a pack the others find. The full
+story is in [the data-packs guide](../docs/data-packs/installing-packs.md).
+
+This is the **reference implementation** of TDC, and the one that also carries
+the CLI and the language server. Every design decision is settled here first and
+then ported to Python, Java, C# and Rust, which are held to it by the shared
+fixtures in [`fixtures/cross-language/`](../fixtures/cross-language/README.md).
 
 ## Current capabilities
 

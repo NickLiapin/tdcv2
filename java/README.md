@@ -1,5 +1,59 @@
 # TDC — Java Implementation
 
+## Quick start
+
+**You need:** **A JDK, 17 or newer**. Nothing else — the Gradle wrapper fetches what it uses.
+
+```bash
+cd java
+./gradlew cliJar
+```
+
+Then write a config and run it:
+
+```xml title="demo.tdc"
+<tdc>
+  <env count="3" seed="demo" local="en">
+    <sequence name="Id"><gen type="increment" value="1"/></sequence>
+    <sequence name="Name"><gen type="template" value="person.lastName"/></sequence>
+  </env>
+  <block><line><data>${{Id}},${{Name}}</data></line></block>
+</tdc>
+```
+
+```bash
+java -jar build/libs/tdcv2-*-cli.jar demo.tdc
+```
+
+```
+1,Williams
+2,Johnson
+3,Smith
+```
+
+The same three names, every time, in every implementation — that is the whole
+point of the `seed`.
+
+Worth an alias — `alias tdcv2='java -jar /absolute/path/tdcv2-0.1.0-SNAPSHOT-cli.jar'` —
+after which the commands below read the same as in every other implementation.
+
+### Data packs
+
+A pack is the _data_ — the name lists, cities, streets and locale rules that
+`type="template"` draws from. A starter set ships with the code: `common`, `en`
+and the USA country pack, which is what the example above uses. Everything else
+is downloaded on demand:
+
+```bash
+tdcv2 init                 # write a tdcv2.config.json, once per project
+tdcv2 pack list            # what the registry has
+tdcv2 pack add ru france   # download and wire up
+```
+
+One registry, one `tdcv2.config.json`, one store, shared by all five
+implementations: a pack installed from here is a pack the others find. The full
+story is in [the data-packs guide](../docs/data-packs/installing-packs.md).
+
 Complete. Every cross-language fixture passes: the 104 shared cases through the router and on
 all three engines, the 108 diagnostic cases by code and position, the PRNG and apportionment
 vectors, and the six Parquet files byte for byte.
