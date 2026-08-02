@@ -1,0 +1,141 @@
+name: Publish to Maven Central
+
+# Publishing the Java library.
+#
+# Maven Central asks for more than the other four registries: a POM that names the
+# licence, the author and the source, a sources jar, a javadoc jar, and a GPG
+# signature on every one of them. Gradle builds all of that into `java/build/central`
+# as an ordinary folder in repository layout; this workflow zips that folder and posts
+# it to the Central Portal, which validates the bundle before anything becomes public.
+#
+# It runs on a tag, not on a push to main, because a release is a decision somebody
+# makes rather than a side effect of merging:
+#
+#   git tag java-v0.1.3 && git push origin java-v0.1.3
+#
+# The version comes from build.gradle.kts, not from the tag. A tag that disagrees with
+# it is a mistake worth stopping for, so the job checks and refuses.
+#
+# Unlike npm, PyPI, crates.io and NuGet, a Central release is IRREVERSIBLE — a version
+# can never be replaced or removed. So the upload is `USER_MANAGED`: the Portal
+# validates the bundle and then waits. The last step is a human pressing Publish at
+# https://central.sonatype.com/publishing/deployments — which is also the only place
+# the validation errors are readable.
+
+on:
+  push:
+    tags: ["java-v*"]
+  # A dry run any time: everything except the upload, so the bundle can be proven
+  # without spending a version number that can never be reused.
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 17
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: The tag must agree with build.gradle.kts
+        if: startsWith(github.ref, 'refs/tags/')
+        run: |
+          declared=$(grep -m1 '^version = ' java/build.gradle.kts | sed 's/.*"\(.*\)".*/\1/')
+          tagged="${GITHUB_REF_NAME#java-v}"
+          if [ "$declared" != "$tagged" ]; then
+            echo "tag $GITHUB_REF_NAME says $tagged, build.gradle.kts says $declared" >&2
+            exit 1
+          fi
+          echo "version $declared"
+
+      - name: The jar must work outside the repository
+        # Every test in this repository runs INSIDE it, where `data/packs` is a few
+        # directories up. A published artefact has nothing above it — which is how the
+        # crate and the nupkg both shipped with zero data while every test passed. This
+        # compiles a program against the library jar in a temporary directory and
+        # compares its output with the TypeScript reference.
+        #
+        # The reference is an npm workspace, so installing and building happen at the
+        # root, not inside `typescript/`.
+        run: |
+          npm ci
+          npm run build --workspace=typescript
+          cd java && node scripts/verify-jar.mjs
+
+      - name: Build and sign the bundle
+        env:
+          GPG_SIGNING_KEY: ${{ secrets.GPG_SIGNING_KEY }}
+          GPG_SIGNING_PASSPHRASE: ${{ secrets.GPG_SIGNING_PASSPHRASE }}
+        run: |
+          cd java
+          ./gradlew publish
+          # `maven-metadata.xml` is Central's to write, not ours to send: an unexpected
+          # file in the bundle fails validation.
+          cd build/central && find . -name 'maven-metadata.xml*' -delete
+          zip -qr ../bundle.zip .
+          unzip -l ../bundle.zip | tail -1
+
+      - name: Every artefact must carry a signature
+        # A missing signature is only reported by the Portal after the upload, by which
+        # time the deployment has to be dropped by hand. Cheaper to notice here.
+        run: |
+          cd java/build/central
+          missing=0
+          for f in $(find . -type f ! -name '*.asc' ! -name '*.md5' ! -name '*.sha*'); do
+            [ -f "$f.asc" ] || { echo "no signature for $f" >&2; missing=1; }
+          done
+          exit $missing
+
+      - name: Keep the bundle, so a failed upload can be inspected
+        uses: actions/upload-artifact@v4
+        with:
+          name: maven-central-bundle
+          path: java/build/bundle.zip
+
+      - name: Upload to the Central Portal
+        if: startsWith(github.ref, 'refs/tags/')
+        env:
+          # A user token generated at https://central.sonatype.com/account — a name and
+          # a password, sent as one base64 pair. Not the account password.
+          USERNAME: ${{ secrets.CENTRAL_TOKEN_USERNAME }}
+          PASSWORD: ${{ secrets.CENTRAL_TOKEN_PASSWORD }}
+        run: |
+          auth=$(printf '%s:%s' "$USERNAME" "$PASSWORD" | base64 | tr -d '\n')
+          id=$(curl -sS --fail-with-body \
+            -H "Authorization: Bearer $auth" \
+            -F "bundle=@java/build/bundle.zip" \
+            "https://central.sonatype.com/api/v1/publisher/upload?name=tdcv2-${GITHUB_REF_NAME#java-v}&publishingType=USER_MANAGED")
+          echo "deployment $id"
+
+          # Validation takes a minute or two. Report what it decided rather than leaving
+          # a green tick over a bundle the Portal rejected.
+          for _ in $(seq 1 40); do
+            sleep 15
+            state=$(curl -sS -X POST \
+              -H "Authorization: Bearer $auth" \
+              "https://central.sonatype.com/api/v1/publisher/status?id=$id" \
+              | grep -o '"deploymentState":"[A-Z_]*"' | cut -d'"' -f4)
+            echo "  $state"
+            case "$state" in
+              VALIDATED|PUBLISHED)
+                echo "bundle accepted — press Publish at https://central.sonatype.com/publishing/deployments"
+                exit 0
+                ;;
+              FAILED)
+                echo "the Portal rejected the bundle; the reasons are on the deployment page" >&2
+                exit 1
+                ;;
+            esac
+          done
+          echo "still not validated after ten minutes; check the deployment page" >&2
+          exit 1

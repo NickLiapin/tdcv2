@@ -1,6 +1,8 @@
 plugins {
     `java-library`
     antlr
+    `maven-publish`
+    signing
 }
 
 group = "io.github.nickliapin"
@@ -11,6 +13,11 @@ repositories {
 }
 
 java {
+    // Maven Central refuses a publication without these two. They are also the difference
+    // between a dependency an IDE can step into and one that is a wall of decompiled names.
+    withSourcesJar()
+    withJavadocJar()
+
     // The docs promise Java 17 and newer. Compiling with `release` rather than only setting a
     // toolchain means the bytecode is checked against the 17 API too, so a call that exists
     // only in a later JDK fails here instead of at a user's runtime.
@@ -183,4 +190,90 @@ val cliJar by tasks.registering(Jar::class) {
 
 tasks.named("assemble") {
     dependsOn(cliJar)
+}
+
+// The ANTLR plugin generates into the main source set, so anything that reads that source
+// set has to wait for it. Gradle cannot infer the edge on its own and says so rather than
+// racing — which is right, and is why this is spelled out instead of disabled.
+tasks.named("sourcesJar") {
+    dependsOn(tasks.named("generateGrammarSource"), bundlePacks)
+}
+
+// ── Publishing ──────────────────────────────────────────────────────────────────────────
+//
+// Maven Central asks for more than a jar: a POM that says who wrote this, under what licence
+// and where the source lives, plus sources and javadoc archives, plus a cryptographic
+// signature on every file. None of it is optional — the Portal validates and rejects.
+//
+// The signing key never lives in this repository. In CI it arrives through two secrets, and
+// on a laptop through the ordinary gpg agent; `signing.isRequired` is false when neither is
+// present so that `./gradlew build` on a fresh checkout does not demand a key nobody has.
+
+publishing {
+    publications {
+        create<MavenPublication>("mavenJava") {
+            from(components["java"])
+
+            pom {
+                name = "TDC — The Data Constructor"
+                description =
+                    "Deterministic test-data generator: coherent records, exact proportions, " +
+                        "and any text format you describe. Same seed, same bytes — in Java, " +
+                        "TypeScript, Python, C# and Rust alike."
+                url = "https://nickliapin.github.io/tdcv2/"
+
+                licenses {
+                    license {
+                        name = "MIT License"
+                        url = "https://opensource.org/licenses/MIT"
+                    }
+                }
+                developers {
+                    developer {
+                        id = "nickliapin"
+                        name = "Nick Liapin"
+                        url = "https://github.com/NickLiapin"
+                    }
+                }
+                scm {
+                    connection = "scm:git:https://github.com/NickLiapin/tdcv2.git"
+                    developerConnection = "scm:git:ssh://git@github.com/NickLiapin/tdcv2.git"
+                    url = "https://github.com/NickLiapin/tdcv2"
+                }
+            }
+        }
+    }
+
+    repositories {
+        // A folder, not a server. The Central Portal takes a zip of a repository layout
+        // rather than a stream of uploads, so the publish step builds one here and the
+        // workflow posts it. That also means `./gradlew publish` is safe to run by hand:
+        // it writes files and reaches nothing.
+        maven {
+            name = "central"
+            url = uri(layout.buildDirectory.dir("central"))
+        }
+    }
+}
+
+signing {
+    // Two ways in, and neither puts a key in this repository.
+    //
+    // In CI: the armoured private key and its passphrase, both from repository secrets.
+    // On a laptop: `-Psigning.gnupg.keyName=<key id>`, which hands the work to the installed
+    // gpg and lets its agent ask for the passphrase — nothing secret passes through Gradle.
+    //
+    // With neither, signing is skipped rather than failing, so a contributor who only wants
+    // to run the tests is not asked for a key nobody but the publisher has.
+    val key = providers.environmentVariable("GPG_SIGNING_KEY").orNull
+    val passphrase = providers.environmentVariable("GPG_SIGNING_PASSPHRASE").orNull
+    val localKeyName = providers.gradleProperty("signing.gnupg.keyName").orNull
+    isRequired = key != null || localKeyName != null
+
+    if (key != null) {
+        useInMemoryPgpKeys(key, passphrase)
+    } else if (localKeyName != null) {
+        useGpgCmd()
+    }
+    sign(publishing.publications["mavenJava"])
 }
