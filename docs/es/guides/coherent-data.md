@@ -51,11 +51,11 @@ elegida) y la interpola en la dirección de la
 `./run showroom.tdc`
 
 ```
-Honda Passport
-Nissan Ariya
-Chevrolet Blazer
-Toyota RAV4
+Honda CR-V
+Toyota Corolla
 Ford Maverick
+Chevrolet Bolt EV
+Nissan Kicks
 ```
 
 Cada modelo pertenece a su marca. Y `common.vehicle.brand` es un pack **ponderado**

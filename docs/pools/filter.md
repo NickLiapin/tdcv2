@@ -36,15 +36,15 @@ The obvious case: a patient at the northern clinic must see a doctor who works t
 `./run clinic.tdc`
 
 ```
-South | Barbara -> Dr. Brown (South)
-North | Mary -> Dr. Williams (North)
-South | Dorothy -> Dr. Brown (South)
-South | Jennifer -> Dr. Brown (South)
-North | Elizabeth -> Dr. Williams (North)
-North | Patricia -> Dr. Williams (North)
-North | Susan -> Dr. Jones (North)
-South | Sarah -> Dr. Brown (South)
-South | Margaret -> Dr. Brown (South)
+South | Barbara -> Dr. Smith (South)
+North | Mary -> Dr. Jones (North)
+South | Dorothy -> Dr. Garcia (South)
+South | Jennifer -> Dr. Johnson (South)
+North | Elizabeth -> Dr. Jones (North)
+North | Patricia -> Dr. Jones (North)
+North | Susan -> Dr. Williams (North)
+South | Sarah -> Dr. Smith (South)
+South | Margaret -> Dr. Garcia (South)
 North | Linda -> Dr. Jones (North)
 ```
 
@@ -134,14 +134,14 @@ can afford:
 `./run shop.tdc`
 
 ```
-budget 232 -> Chair at 227
-budget 124 -> Lamp at 85
-budget 61 -> Rug at 30
-budget 148 -> Rug at 30
-budget 208 -> Rug at 30
-budget 54 -> Rug at 30
-budget 102 -> Lamp at 85
-budget 60 -> Rug at 30
+budget 232 -> Clock at 11
+budget 124 -> Desk at 92
+budget 61 -> Clock at 11
+budget 148 -> Clock at 11
+budget 208 -> Rug at 198
+budget 54 -> Clock at 11
+budget 102 -> Desk at 92
+budget 60 -> Clock at 11
 ```
 
 Nobody buys above their budget, and nothing had to be listed by hand.

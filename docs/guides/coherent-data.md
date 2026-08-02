@@ -51,11 +51,11 @@ with `${{Brand}}`:
 `./run showroom.tdc`
 
 ```
-Honda Passport
-Nissan Ariya
-Chevrolet Blazer
-Toyota RAV4
+Honda CR-V
+Toyota Corolla
 Ford Maverick
+Chevrolet Bolt EV
+Nissan Kicks
 ```
 
 Every model belongs to its brand. And `common.vehicle.brand` is a **weighted** pack

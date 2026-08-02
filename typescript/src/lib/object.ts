@@ -14,7 +14,7 @@ import { buildSequences, extractSequenceSpecs } from '../sequence/index.js';
 import { buildPoolTables } from '../sequence/pool-build.js';
 import { extractPoolSpecs } from '../sequence/pool.js';
 import { extractEnvDistinctGroups, extractEnvUniqGroups } from '../sequence/extract.js';
-import type { SequenceRegistry, SequenceSpec } from '../sequence/index.js';
+import type { Sequence, SequenceRegistry, SequenceSpec } from '../sequence/index.js';
 import type { RenderOptions } from '../processor/render.js';
 import { elementKind, elementName, extractAttrs, findChildElement } from '../processor/walk.js';
 
@@ -115,9 +115,33 @@ function objectRowAt(runtime: ObjectRuntime, index: number): TdcObjectRow {
       row[spec.name] = nested;
       continue;
     }
+    // A `<gen type="pool">` hands the row a whole MEMBER, so it registers one
+    // column per pool field under `Name.field` and nothing under `Name` — the
+    // text renderer reads `${{Name.field}}` and never asks for the bare name.
+    // Read the same way, or the whole sequence comes back undefined.
+    const fields = poolFieldsOf(spec, runtime.registry);
+    if (fields) {
+      const nested: Record<string, TdcObjectScalar> = {};
+      for (const [field, seq] of fields) nested[field] = seq.values[index];
+      row[spec.name] = nested;
+      continue;
+    }
     row[spec.name] = runtime.registry[spec.name]?.values[index];
   }
   return row;
+}
+
+/** The `Name.field` columns a pool reference registered, or undefined. */
+function poolFieldsOf(
+  spec: SequenceSpec,
+  registry: SequenceRegistry,
+): [string, Sequence][] | undefined {
+  if (spec.gen?.type !== 'pool') return undefined;
+  const prefix = `${spec.name}.`;
+  const fields = Object.entries(registry)
+    .filter(([key]) => key.startsWith(prefix))
+    .map(([key, seq]): [string, Sequence] => [key.slice(prefix.length), seq]);
+  return fields.length > 0 ? fields : undefined;
 }
 
 function extractObjectConfig(

@@ -43,14 +43,14 @@
 `./run clinic.tdc`
 
 ```
-Barbara -> Dr. John Brown, room 167
-Mary -> Dr. James Smith, room 197
-Margaret -> Dr. Michael Johnson, room 123
-Jennifer -> Dr. Robert Williams, room 118
-Elizabeth -> Dr. James Smith, room 197
-Patricia -> Dr. James Smith, room 197
-Susan -> Dr. Robert Williams, room 118
-Linda -> Dr. John Brown, room 167
+Barbara -> Dr. James Johnson, room 100
+Mary -> Dr. Michael Smith, room 186
+Margaret -> Dr. Robert Brown, room 148
+Jennifer -> Dr. John Williams, room 154
+Elizabeth -> Dr. Michael Smith, room 186
+Patricia -> Dr. Michael Smith, room 186
+Susan -> Dr. John Williams, room 154
+Linda -> Dr. James Johnson, room 100
 ```
 
 > [!NOTE]

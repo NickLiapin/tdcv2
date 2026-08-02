@@ -147,6 +147,46 @@ describe('TDC class', () => {
     expect(b.split('\n').filter(Boolean)).toHaveLength(3);
   });
 
+  it('the object API and the text output agree, value for value', () => {
+    // They used to be two different engines with two different ideas of
+    // randomness, so one object answered differently depending on the method
+    // called. The engines agree now, so this is a real check rather than a
+    // restatement of one code path.
+    const DSL = `<tdc><env count="12" seed="obj-agree" local="en" inject="\${{%}}">
+        <sequence name="G"><gen type="text" value="M,F" percent="70,30"/></sequence>
+        <sequence name="N"><gen type="number" value="10..99"/></sequence>
+        <sequence name="L"><gen type="template" value="person.lastName"/></sequence>
+      </env><block><line><data>\${{G}},\${{N}},\${{L}}</data></line></block></tdc>`;
+    const tdc = new TDC({ configString: DSL });
+    // Every column here is a simple sequence, so each cell is a scalar; the
+    // nested shape belongs to compounds and pools (see the next test).
+    const cell = (r: Record<string, unknown>, name: string): string =>
+      typeof r[name] === 'string' ? r[name] : '';
+    const rows = [...tdc.iterate()].map((r) => `${cell(r, 'G')},${cell(r, 'N')},${cell(r, 'L')}`);
+    expect(rows).toEqual(tdc.toString().split('\n').filter(Boolean));
+    expect(tdc.getAt(4)).toEqual([...tdc.iterate()][4]);
+  });
+
+  it('a pool reference reaches the object API as a member with fields', () => {
+    // A `<gen type="pool">` registers one column per pool field under
+    // `Name.field` and nothing under `Name` — read it the way a simple
+    // sequence is read and the whole thing comes back undefined, which is
+    // exactly what it used to do.
+    const DSL = `<tdc><env count="6" seed="obj-pool" local="en" inject="\${{%}}">
+        <pool name="Doc" count="3">
+          <sequence name="last"><gen type="text" value="Smith,Jones,Brown"/></sequence>
+          <sequence name="room"><gen type="number" value="100..199"/></sequence>
+        </pool>
+        <sequence name="D"><gen type="pool" value="Doc"/></sequence>
+      </env><block><line><data>\${{D.last}}/\${{D.room}}</data></line></block></tdc>`;
+    const tdc = new TDC({ configString: DSL });
+    const rows = [...tdc.iterate()].map((r) => {
+      const d = r['D'] as Record<string, string>;
+      return `${d['last'] ?? ''}/${d['room'] ?? ''}`;
+    });
+    expect(rows).toEqual(tdc.toString().split('\n').filter(Boolean));
+  });
+
   describe('validation', () => {
     it('collects ALL semantic errors before rendering, not just the first', () => {
       const BAD = [

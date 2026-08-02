@@ -37,17 +37,20 @@ es un conjunto nuevo. `seed` sí: el mismo seed y la misma configuración siempr
 exactamente la misma salida.
 
 > [!NOTE]
-> **La misma salida, en el mismo motor**
+> **La misma salida, sea cual sea el motor**
 >
-> La garantía vale dentro de un motor. TDC elige el motor según la configuración (el de
-> streaming rápido por omisión; el pequeño en RAM bajo `mode="memory"` o detrás del API de
-> objetos `toArray`/`getAt`), y los motores sacan los valores en distinto orden — así que
-> los **números y nombres** pueden diferir entre ellos para un mismo seed, aunque la
-> **forma** — cantidad de filas, proporciones exactas, unicidad — es idéntica. La salida de
-> texto (`toString`, la CLI, `writeFile`) es un motor; los métodos de objeto son otro, y sus
-> valores aleatorios no tienen por qué coincidir. Cómo se elige el motor está en
-> [Salidas grandes](../guides/large-outputs.md#top). Lo que nunca varía es un motor dado con un
-> seed dado.
+> TDC tiene tres motores y elige uno según la configuración: el de streaming rápido por
+> omisión, el exacto en disco para la unicidad, y el pequeño en RAM bajo `mode="memory"` y
+> detrás del API de objetos. **Los tres producen los mismos valores con el mismo seed.** El
+> valor de una fila se deriva de `(seed, nombre de la columna, número de fila)`, así que no
+> depende de qué motor lo calculó, ni de lo que sacaron las columnas vecinas, ni de cuántos
+> hilos escribieron el archivo.
+>
+> Conviene decirlo con claridad porque antes no era así: los motores sacaban los valores en
+> distinto orden, y un mismo objeto respondía de forma distinta según llamaras a
+> `toString()` o a `iterate()`. Ahora coinciden, y cada fixture compartido se comprueba en
+> los tres. Cómo se elige el motor está en [Salidas grandes](../guides/large-outputs.md#top):
+> es cuestión de velocidad y memoria, no de qué datos obtienes.
 
 `seed` se define en [`<env>`](configuration.md#top). Su valor es cualquier string (una cadena
 de texto): un hash, una palabra, un número escrito como texto; internamente se normaliza a

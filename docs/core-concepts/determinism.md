@@ -37,17 +37,20 @@ stand on. Plain "random" can't give it to you — every run is a fresh set. `see
 the same seed and the same config always produce exactly the same output.
 
 > [!NOTE]
-> **Same output, on the same engine**
+> **The same output, whichever engine runs**
 >
-> That guarantee holds within a single engine. TDC picks an engine based on the config
-> (the fast streaming one by default, the small in-RAM one under `mode="memory"` or behind
-> the object API `toArray`/`getAt`), and the two engines draw values in a different order.
-> So for one seed the **numbers and names** can differ between them, even though the
-> **shape** — row count, exact proportions, uniqueness — is identical. Text output
-> (`toString`, the CLI, `writeFile`) comes from one engine and the object methods come
-> from the other, so their random values aren't guaranteed to match. See
-> [Large outputs](../guides/large-outputs.md#top) for how the engine gets chosen. What never
-> changes is one engine on one seed.
+> TDC has three engines and picks one from your config — the fast streaming one by
+> default, the exact on-disk one for uniqueness, the small in-RAM one under
+> `mode="memory"` and behind the object API. **They all produce the same values from the
+> same seed.** A row's value is derived from `(seed, column name, row number)`, so it does
+> not depend on which engine computed it, on what the columns beside it drew, or on how
+> many threads wrote the file.
+>
+> That is worth stating plainly because it used to be false: the engines drew in different
+> orders, and one object could answer differently depending on whether you called
+> `toString()` or `iterate()`. They agree now, and every shared fixture is checked on all
+> three. See [Large outputs](../guides/large-outputs.md#top) for how the engine gets chosen —
+> useful for speed and memory, and not something your data depends on.
 
 `seed` is set on [`<env>`](configuration.md#top). Its value is any string — a hash, a word,
 a number written as text — and internally the cyrb128 algorithm normalizes it to a

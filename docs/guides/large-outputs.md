@@ -32,14 +32,18 @@ There are two engines under "disk", and TDC picks the right one **from your conf
 
 - **The fast streaming engine** — used for almost everything. Lazy, multi-threaded (see
   [`--jobs`](../reference/cli.md#top)), memory O(number of fields). Exact percentages,
-  uniqueness, [`parent`](hierarchical-dependencies.md#top) dependencies,
-  [`<mix>`](../reference/tags.md#top), [`<distinct>`](../constructs/unique-values.md#top) — all on the fly.
-- **The exact on-disk engine** — turns itself on for the uniqueness cases the
-  streaming engine can't settle on the fly: `percent` **and** `uniq` on the same
-  columns, or `uniq` over non-text fields (numbers, dates, templates). It guarantees the
-  result exactly, and its memory stays bounded — but it pays for that by checking the data
-  with an external sort and a repair pass, and **that check gets dramatically slower as
-  the row count grows** (see the warning below).
+  [`parent`](hierarchical-dependencies.md#top) dependencies, [`<mix>`](../reference/tags.md#top),
+  [`<distinct>`](../constructs/unique-values.md#top) — all on the fly.
+- **The exact on-disk engine** — turns itself on for **any** uniqueness:
+  [`uniq="true"`](../constructs/unique-values.md#top) on a sequence, or a `<uniq>` group.
+  It guarantees the result exactly, and its memory stays bounded — but it pays for that by
+  checking the data with an external sort and a repair pass, and **that check gets
+  dramatically slower as the row count grows** (see the warning below).
+
+  Uniqueness is a promise about the **finished dataset**, not about any one row, so it
+  cannot be settled a row at a time. That is also why `--jobs` refuses a config that asks
+  for it: a worker sees only its own range of rows, and could not tell a duplicate outside
+  that range from a value it has never seen.
 
 You don't need to know which one runs. The choice is **deterministic — based on the
 config, not the hardware** — so the same config gives the same result on every machine

@@ -33,15 +33,19 @@ configuración**:
 
 - **El motor rápido de streaming** — se usa para casi todo. Es perezoso, multihilo (vea
   [`--jobs`](../reference/cli.md#top)), con memoria O(cantidad de campos). Porcentajes
-  exactos, unicidad, dependencias [`parent`](hierarchical-dependencies.md#top),
+  exactos, dependencias [`parent`](hierarchical-dependencies.md#top),
   [`<mix>`](../reference/tags.md#top), [`<distinct>`](../constructs/unique-values.md#top) — todo al vuelo.
-- **El motor exacto en disco** — se enciende solo para los casos de unicidad que el motor
-  de streaming no puede resolver al vuelo: `percent` **y** `uniq` sobre las mismas
-  columnas, o `uniq` sobre campos no textuales (números, fechas, plantillas). Garantiza el
-  resultado de forma exacta y su memoria se mantiene acotada — pero lo paga revisando los
-  datos con un ordenamiento externo y una pasada de reparación, y **esa revisión se vuelve
-  drásticamente más lenta a medida que crece el número de filas** (vea la advertencia
-  abajo).
+- **El motor exacto en disco** — se enciende solo ante **cualquier** unicidad:
+  [`uniq="true"`](../constructs/unique-values.md#top) en una secuencia, o un grupo `<uniq>`.
+  Garantiza el resultado de forma exacta y su memoria se mantiene acotada — pero lo paga
+  revisando los datos con un ordenamiento externo y una pasada de reparación, y **esa
+  revisión se vuelve drásticamente más lenta a medida que crece el número de filas** (vea
+  la advertencia abajo).
+
+  La unicidad es una promesa sobre el **conjunto terminado**, no sobre una fila, y no se
+  puede resolver fila a fila. Por eso mismo `--jobs` se niega a repartir una configuración
+  que la pide: un worker sólo ve su propio rango de filas, y no distinguiría un duplicado
+  fuera de ese rango de un valor que nunca ha visto.
 
 No hace falta saber cuál corre. La elección es **determinista — se basa en la
 configuración, no en el hardware** — así que la misma configuración da el mismo resultado

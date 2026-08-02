@@ -51,14 +51,14 @@
 `./run clinics.tdc`
 
 ```
-Dr. Brown @ North (tel 695)
-Dr. Brown @ North (tel 695)
-Dr. Jones @ East (tel 300)
-Dr. Smith @ South (tel 428)
-Dr. Smith @ South (tel 428)
-Dr. Jones @ East (tel 300)
-Dr. Johnson @ East (tel 300)
-Dr. Jones @ East (tel 300)
+Dr. Johnson @ North (tel 825)
+Dr. Johnson @ North (tel 825)
+Dr. Williams @ East (tel 997)
+Dr. Brown @ South (tel 415)
+Dr. Brown @ South (tel 415)
+Dr. Williams @ East (tel 997)
+Dr. Smith @ East (tel 997)
+Dr. Williams @ East (tel 997)
 ```
 
 > [!NOTE]
@@ -143,14 +143,14 @@ note: Pools are built in declaration order, so a pool can only read the pools ab
 `./run team.tdc`
 
 ```
-Dr. Williams (South) + nurse Susan (South)
-Dr. Jones (East) + nurse Mary (East)
-Dr. Johnson (South) + nurse Patricia (South)
-Dr. Garcia (North) + nurse Dorothy (North)
-Dr. Jones (East) + nurse Mary (East)
-Dr. Jones (East) + nurse Mary (East)
-Dr. Brown (East) + nurse Mary (East)
-Dr. Williams (South) + nurse Linda (South)
+Dr. Smith (South) + nurse Margaret (South)
+Dr. Garcia (East) + nurse Linda (East)
+Dr. Williams (South) + nurse Margaret (South)
+Dr. Brown (North) + nurse Dorothy (North)
+Dr. Garcia (East) + nurse Linda (East)
+Dr. Garcia (East) + nurse Linda (East)
+Dr. Jones (East) + nurse Jennifer (East)
+Dr. Smith (South) + nurse Susan (South)
 ```
 
 Фильтр в одном выражении дотягивается через две связи: `Seen.at.city` — это город клиники
@@ -198,16 +198,16 @@ Dr. Williams (South) + nurse Linda (South)
 `./run clinic.tdc`
 
 ```
-Barbara needs a therapist -> Dr. Johnson, South clinic, tel 284
-Mary needs a therapist -> Dr. Jones, North clinic, tel 278
-Dorothy needs a therapist -> Dr. Davis, South clinic, tel 284
-Jennifer needs a therapist -> Dr. Smith, East clinic, tel 239
-Elizabeth needs a surgeon -> Dr. Williams, South clinic, tel 284
-Patricia needs a surgeon -> Dr. Williams, South clinic, tel 284
-Susan needs a therapist -> Dr. Garcia, North clinic, tel 278
-Sarah needs a surgeon -> Dr. Williams, South clinic, tel 284
-Margaret needs a therapist -> Dr. Davis, South clinic, tel 284
-Linda needs a therapist -> Dr. Smith, East clinic, tel 239
+Barbara needs a therapist -> Dr. Jones, South clinic, tel 233
+Mary needs a therapist -> Dr. Garcia, East clinic, tel 255
+Dorothy needs a therapist -> Dr. Davis, South clinic, tel 233
+Jennifer needs a therapist -> Dr. Brown, North clinic, tel 233
+Elizabeth needs a surgeon -> Dr. Williams, South clinic, tel 233
+Patricia needs a surgeon -> Dr. Williams, South clinic, tel 233
+Susan needs a therapist -> Dr. Miller, East clinic, tel 255
+Sarah needs a surgeon -> Dr. Williams, South clinic, tel 233
+Margaret needs a therapist -> Dr. Davis, South clinic, tel 233
+Linda needs a therapist -> Dr. Brown, North clinic, tel 233
 ```
 
 Каждое условие этого конфига выполняется в каждой строке, и ни одно не написано дважды:
