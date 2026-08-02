@@ -1,0 +1,16 @@
+---
+description: Bicycle type (French)
+locale: fr
+---
+Vélo de route
+VTT
+Vélo hybride
+Vélo de ville
+Vélo électrique
+BMX
+Vélo pliant
+Vélo de course
+Gravel
+Vélo cargo
+Tandem
+Vélo tout chemin

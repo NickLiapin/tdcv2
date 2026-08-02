@@ -1,0 +1,29 @@
+---
+description: Name / academic suffix (Italian)
+locale: it
+---
+Jr.
+Sr.
+Junior
+Senior
+II
+III
+IV
+V
+Ph.D.
+M.D.
+M.Sc.
+MBA
+Dott.
+Dott.ssa
+Ing.
+Arch.
+Avv.
+Geom.
+Rag.
+Perito Ind.
+Med. Vet.
+Cav.
+Comm.
+Gr. Uff.
+O.M.R.I.

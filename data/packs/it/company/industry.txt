@@ -1,0 +1,59 @@
+---
+description: Industry sector (Italian)
+locale: it
+---
+Agricoltura
+Allevamento
+Pesca
+Silvicoltura
+Attività estrattive
+Edilizia
+Industria manifatturiera
+Commercio al dettaglio
+Commercio all'ingrosso
+Trasporti
+Tecnologie dell'informazione
+Finanza
+Banche
+Assicurazioni
+Immobiliare
+Sanità
+Istruzione
+Ristorazione e alberghi
+Turismo
+Intrattenimento
+Energia
+Petrolio e gas
+Energie rinnovabili
+Telecomunicazioni
+Settore automobilistico
+Aerospaziale
+Farmaceutica
+Biotecnologie
+Logistica
+Editoria e media
+Pubblicità
+Consulenza
+Servizi legali
+Contabilità
+Risorse umane
+Alimenti e bevande
+Tessile
+Chimica
+Metallurgia
+Carta e cellulosa
+Elettronica
+Software
+Commercio elettronico
+Videogiochi
+Sport
+Cultura
+Ricerca scientifica
+Pubblica amministrazione
+Difesa
+Sicurezza privata
+Organizzazioni non profit
+Gestione dei rifiuti
+Acqua e servizi igienici
+Architettura
+Ingegneria

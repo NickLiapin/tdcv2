@@ -1,0 +1,27 @@
+---
+address: honduras.holiday
+description: Honduran holiday — the statutory días feriados of the Código del Trabajo (art. 339) plus the widely observed civic and religious dates that are not days of rest
+locale: es
+---
+Año Nuevo
+Día de las Américas
+Jueves Santo
+Viernes Santo
+Sábado de Gloria
+Día del Trabajo
+Día de la Independencia
+Día del Soldado
+Día de la Raza
+Día de las Fuerzas Armadas
+Feriado Morazánico
+Navidad
+Día de la Virgen de Suyapa
+Día de Lempira
+Día de la Madre
+Día del Padre
+Día del Niño
+Día del Estudiante
+Día de la Bandera
+Día de los Difuntos
+Nochebuena
+Nochevieja

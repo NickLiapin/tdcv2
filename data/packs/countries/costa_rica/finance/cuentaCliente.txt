@@ -1,0 +1,8 @@
+---
+address: costa_rica.finance.cuentaCliente
+description: Costa Rican cuenta cliente — the 17-digit domestic account number used inside SINPE: a 3-digit BCCR entity code + a 14-digit account. STRUCTURAL ONLY: the internal branch/account layout is bank-specific and no public check digit exists (the verifiable checksum lives in the IBAN, costa_rica.finance.iban)
+generator: tdc
+---
+<sequence name="bank"><gen type="template" value="costa_rica.finance.bankCode"/></sequence>
+<sequence name="account"><gen type="regex" value="[0-9]{14}"/></sequence>
+<data>${{bank}}${{account}}</data>

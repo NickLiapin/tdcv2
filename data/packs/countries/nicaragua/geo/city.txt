@@ -1,0 +1,50 @@
+---
+address: nicaragua.geo.city
+description: Nicaraguan city — municipal cabeceras with a substantial urban population, largest first
+locale: es
+---
+Managua
+León
+Masaya
+Tipitapa
+Chinandega
+Matagalpa
+Estelí
+Granada
+Ciudad Sandino
+Juigalpa
+El Viejo
+Nueva Guinea
+Jinotega
+Bluefields
+Diriamba
+Chichigalpa
+Bilwi
+Rivas
+Jinotepe
+Boaco
+Somoto
+Ocotal
+Nagarote
+Camoapa
+San Rafael del Sur
+Nandaime
+La Paz Centro
+Corinto
+Sébaco
+Ciudad Darío
+San Marcos
+Somotillo
+Nindirí
+Jalapa
+Siuna
+Bonanza
+Masatepe
+Villa El Carmen
+Ticuantepe
+Mateare
+San Juan del Sur
+Quilalí
+Condega
+Acoyapa
+Puerto Morazán

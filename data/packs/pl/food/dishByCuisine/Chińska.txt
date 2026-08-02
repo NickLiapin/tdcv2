@@ -1,0 +1,12 @@
+---
+description: Dishes of Chinese cuisine (Polish)
+locale: pl
+---
+Kurczak kung pao
+Smażony ryż
+Chow mein
+Wieprzowina w sosie słodko-kwaśnym
+Tofu mapo
+Kaczka po pekińsku
+Zupa wonton
+Sajgonki

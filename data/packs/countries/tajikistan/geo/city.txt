@@ -1,0 +1,21 @@
+---
+address: tajikistan.geo.city
+description: Cities of Tajikistan (Russian names)
+locale: ru
+---
+Душанбе
+Худжанд
+Бохтар
+Куляб
+Истаравшан
+Турсунзаде
+Канибадам
+Хорог
+Пенджикент
+Вахдат
+Исфара
+Гиссар
+Нурек
+Яван
+Табошар
+Гулистон

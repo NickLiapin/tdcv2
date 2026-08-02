@@ -1,0 +1,32 @@
+---
+description: Flower (Italian)
+locale: it
+---
+Rosa
+Tulipano
+Margherita
+Girasole
+Giglio
+Orchidea
+Narciso
+Calendula
+Lavanda
+Iris
+Peonia
+Garofano
+Crisantemo
+Papavero
+Viola
+Gelsomino
+Ibisco
+Loto
+Dalia
+Begonia
+Mughetto
+Gardenia
+Camelia
+Petunia
+Geranio
+Bouganville
+Nontiscordardimé
+Azalea

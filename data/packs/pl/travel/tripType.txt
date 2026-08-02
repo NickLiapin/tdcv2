@@ -1,0 +1,24 @@
+---
+description: Trip type (Polish)
+locale: pl
+---
+Podróż służbowa
+Wypoczynek
+Wakacje rodzinne
+Podróż poślubna
+Przygoda
+Podróż samochodem
+Rejs wycieczkowy
+Wyprawa z plecakiem
+Weekend w mieście
+Wakacje nad morzem
+Wyjazd grupowy
+Podróż w pojedynkę
+Turystyka kulturowa
+Ekoturystyka
+Pielgrzymka
+Wycieczka szkolna
+Turystyka kulinarna
+Wyjazd na narty
+Odwiedziny u rodziny
+Kongres lub targi

@@ -1,0 +1,30 @@
+---
+description: Gemstone (French)
+locale: fr
+---
+Diamant
+Rubis
+Saphir
+Émeraude
+Améthyste
+Topaze
+Opale
+Aigue-marine
+Grenat
+Péridot
+Turquoise
+Jade
+Lapis-lazuli
+Onyx
+Agate
+Citrine
+Tourmaline
+Quartz
+Ambre
+Perle
+Corail
+Malachite
+Œil-de-tigre
+Zircon
+Spinelle
+Tanzanite

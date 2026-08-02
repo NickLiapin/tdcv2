@@ -1,0 +1,7 @@
+---
+address: saudi_arabia.tax.vat
+description: Saudi VAT registration number (الرقم الضريبي) — 15 digits that begin and end with 3. Structural.
+generator: tdc
+locale: ar
+---
+<gen type="regex" value="3[0-9]{13}3"/>

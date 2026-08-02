@@ -1,0 +1,15 @@
+---
+description: Shipping status (German)
+locale: de
+---
+Etikett erstellt
+Unterwegs
+In Zustellung
+Zugestellt
+Zustellproblem
+An Absender zurückgesandt
+Zur Abholung bereit
+Verzögert
+In der Zollabfertigung
+Falsche Adresse
+Zustellversuch fehlgeschlagen

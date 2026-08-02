@@ -1,0 +1,12 @@
+---
+address: monaco.sport.team
+description: Monaco sports clubs
+locale: fr
+---
+AS Monaco FC
+AS Monaco Basket
+Rugby Club de Monaco
+AS Monaco Handball
+Monaco Volley-Ball
+AS Monaco Natation
+Monaco Yacht Club

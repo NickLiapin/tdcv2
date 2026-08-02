@@ -1,0 +1,26 @@
+---
+description: Property amenity (Polish)
+locale: pl
+---
+Basen
+Garaż
+Kominek
+Klimatyzacja
+Podłogi drewniane
+Garderoba
+Balkon
+Ogród
+Siłownia
+Winda
+Miejsce parkingowe
+Zmywarka
+Pralnia
+Zwierzęta dozwolone
+System alarmowy
+Panele fotowoltaiczne
+Taras
+Piwnica
+Recepcja
+Miejsce na grilla
+Umeblowane
+Ogrzewanie

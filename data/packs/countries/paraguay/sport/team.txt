@@ -1,0 +1,33 @@
+---
+address: paraguay.sport.team
+description: Paraguayan football club — Primera División and other well-known clubs affiliated to the Asociación Paraguaya de Fútbol
+locale: es
+---
+Club Olimpia
+Club Cerro Porteño
+Club Libertad
+Club Guaraní
+Club Nacional
+Club Sol de América
+Club Sportivo Luqueño
+Club General Díaz
+Sportivo Trinidense
+Deportivo Capiatá
+Club Rubio Ñu
+Club River Plate
+Club 12 de Octubre
+Club Atlético 3 de Febrero
+Club Sportivo San Lorenzo
+Club Tacuary
+Club Silvio Pettirossi
+Deportivo Santaní
+Club Presidente Hayes
+Club Fernando de la Mora
+Club 2 de Mayo
+Sportivo Ameliano
+Club Resistencia
+Club Atlético Colegiales
+Guaireña Fútbol Club
+General Caballero de Juan León Mallorquín
+Club Cerro Porteño de Presidente Franco
+Club Sportivo Iteño

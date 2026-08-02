@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Orthopedics (Portuguese)
+locale: pt
+---
+Artrose
+Artrite reumatoide
+Hérnia de disco
+Síndrome do túnel do carpo
+Ciática
+Lesão do manguito rotador
+Fratura do colo do fêmur
+Entorse de tornozelo
+Tendinite
+Escoliose

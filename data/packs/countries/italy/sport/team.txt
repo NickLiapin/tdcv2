@@ -1,0 +1,33 @@
+---
+address: italy.sport.team
+description: Serie A and Serie B football clubs (Italian names)
+locale: it
+---
+Juventus
+Inter
+Milan
+Napoli
+Roma
+Lazio
+Atalanta
+Fiorentina
+Bologna
+Torino
+Udinese
+Sassuolo
+Genoa
+Cagliari
+Lecce
+Verona
+Empoli
+Monza
+Como
+Parma
+Sampdoria
+Palermo
+Brescia
+Cremonese
+Spezia
+Frosinone
+Salernitana
+Catanzaro

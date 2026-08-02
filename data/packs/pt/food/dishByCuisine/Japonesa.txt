@@ -1,0 +1,13 @@
+---
+description: Dishes of Japanese cuisine (Portuguese)
+locale: pt
+---
+Sushi
+Ramen
+Tempura
+Udon
+Frango teriyaki
+Sopa de missô
+Katsu curry
+Onigiri
+Sashimi

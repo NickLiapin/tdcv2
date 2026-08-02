@@ -1,0 +1,6 @@
+---
+address: argentina.phone
+description: Argentine mobile phone in E.164 form — +54, the mobile marker 9, the AMBA area code 11 and an 8-digit subscriber number (+549 11 XXXX-XXXX). Fixed lines across the other area codes are argentina.phoneLandline.
+generator: tdc
+---
+<gen type="regex" value="\+54911[0-9]{8}"/>

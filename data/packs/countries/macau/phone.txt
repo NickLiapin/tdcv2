@@ -1,0 +1,7 @@
+---
+address: macau.phone
+description: Macau mobile phone in E.164 form (+853, mobile numbers start with 6)
+generator: tdc
+locale: pt
+---
+<gen type="regex" value="\+8536[0-9]{7}"/>

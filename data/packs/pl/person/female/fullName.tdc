@@ -1,0 +1,10 @@
+---
+description: Polish full female name — a single given name and a single surname (Anna Nowak). Polish names carry one surname, unlike the two-surname Spanish form. The surname comes from the feminine list, so adjectival surnames read -ska / -cka as Polish requires.
+generator: tdc
+locale: pl
+---
+<sequence name="p">
+  <gen name="f" type="template" value="pl.person.female.firstName"/>
+  <gen name="l" type="template" value="pl.person.female.lastName"/>
+</sequence>
+<data>${{p.f}} ${{p.l}}</data>

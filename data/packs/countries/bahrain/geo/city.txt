@@ -1,0 +1,21 @@
+---
+address: bahrain.geo.city
+description: Cities and towns of Bahrain (Arabic)
+locale: ar
+---
+المنامة
+المحرق
+الرفاع
+مدينة حمد
+مدينة عيسى
+سترة
+البديع
+الجفير
+سماهيج
+عالي
+جدحفص
+الحد
+سار
+البسيتين
+كرباباد
+جو

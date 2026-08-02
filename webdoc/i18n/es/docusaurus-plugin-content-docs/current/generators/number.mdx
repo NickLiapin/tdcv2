@@ -1,0 +1,271 @@
+---
+title: number
+sidebar_position: 3
+---
+
+import Terminal from '@site/src/components/Terminal';
+
+# El generador `number`
+
+**Úselo cuando** necesite un entero —un id, un código, un precio, una edad— dentro de
+un rango; o una cadena de exactamente _N_ dígitos (incluso cientos o miles de ellos,
+mucho más allá de lo que cabe en un tipo numérico común).
+
+El generador `number` tiene varios modos, y se elige según cuál de `value` y `length`
+se le dé. Esta página recorre cada uno.
+
+## De un vistazo
+
+| Atributo     | Obligatorio | Qué hace                                                            |
+| :----------- | :---------- | :------------------------------------------------------------------ |
+| `value`      | no          | `bit`, un rango `"100..999"`, o una lista de rangos                 |
+| `length`     | no          | Ancho fijo `"10"`, un rango `"2-10"`, o grupos `"2,10-12"`          |
+| `percent`    | no          | Proporciones para los grupos de `length`, p. ej. `length="2,10-12" percent="85,15"` |
+| `first_zero` | no          | `true` / `false` — si se permite un cero inicial                    |
+| `include`    | no          | Agrega números o rangos a `value`                                   |
+| `exclude`    | no          | Quita números o rangos de `value`                                   |
+
+**Sin** `value` y **sin** `length`, `number` emite un solo dígito aleatorio del `0`
+al `9`.
+
+<Terminal title="./run demo.tdc">
+{`7
+2
+9
+0
+4`}
+</Terminal>
+
+## Un solo bit
+
+`value="bit"` da un `0` o un `1` al azar — práctico para banderas tipo booleano.
+
+```xml
+<gen type="number" value="bit"/>
+```
+
+<Terminal title="./run demo.tdc">
+{`1
+0
+1
+1
+0`}
+</Terminal>
+
+## Un rango
+
+Déle a `value` un rango en la forma `from..to` (inclusivo) y obtiene un entero
+aleatorio dentro de él.
+
+```xml
+<gen type="number" value="1000..9999"/>
+```
+
+<Terminal title="./run demo.tdc">
+{`7931
+2608
+4415
+8842
+1307`}
+</Terminal>
+
+Dos reglas sobre la sintaxis:
+
+- El separador es **siempre** `..`, nunca un guion solo.
+- Un `-` solo dentro de `value` es el **signo de menos** de un número negativo, así
+  que los rangos negativos funcionan sin más:
+
+```xml
+<gen type="number" value="-500..-200"/>
+```
+
+<Terminal title="./run demo.tdc">
+{`-269
+-451
+-312
+-208
+-377`}
+</Terminal>
+
+### Los ceros a la izquierda se conservan
+
+Si el rango se escribe con ceros a la izquierda, el ancho se preserva — excelente
+para códigos de ancho fijo:
+
+```xml
+<gen type="number" value="0000..9999"/>
+```
+
+<Terminal title="./run demo.tdc">
+{`0770
+0034
+0983
+7702
+0208`}
+</Terminal>
+
+## Varios rangos a la vez
+
+Pase una lista separada por comas de rangos entre corchetes y TDC elige primero un
+rango al azar, y luego un número dentro de él.
+
+```xml
+<gen type="number" value="[0..100],[345..678],[1934..2026]"/>
+```
+
+<Terminal title="./run demo.tdc">
+{`73
+512
+1998
+41
+2007`}
+</Terminal>
+
+:::note[Detalle de la distribución]
+Con una **lista** de rangos, cada *rango* es igual de probable, y luego un número
+*dentro* del rango elegido es igual de probable — de modo que los números
+individuales **no** quedan uniformes sobre el conjunto completo. Si quiere una
+elección genuinamente uniforme sobre un rango al que le faltan unos cuantos huecos,
+use `exclude` (más abajo) en su lugar.
+:::
+
+## Ancho fijo con `length` (relleno)
+
+Cuando da **ambos**, `value` y `length`, `length` funciona como ancho de
+presentación: los números cortos se rellenan con ceros a la izquierda y los más
+largos se imprimen tal cual. Mismo seed, así que los números son idénticos — lo único
+que cambia es el ancho:
+
+```xml
+<gen type="number" value="1..999"/>            <!-- valor crudo -->
+<gen type="number" value="1..999" length="4"/> <!-- misma serie, ancho 4 -->
+```
+
+<Terminal title="./run demo.tdc">
+{`raw    length="4"
+770  →  0770
+350  →  0350
+79   →  0079
+959  →  0959
+208  →  0208`}
+</Terminal>
+
+Los números no cambiaron — nada más se rellenaron a cuatro dígitos. En este modo de
+relleno se permite un cero inicial por omisión (para que un valor corto pueda
+alcanzar el ancho).
+
+## Modo cadena de dígitos
+
+Déle `length` **sin** `value` y el generador cambia de modo: arma el resultado dígito
+por dígito y siempre devuelve una cadena de exactamente ese largo. Esto no es un
+número de JavaScript — es texto —, así que puede generar identificadores de cientos o
+miles de dígitos.
+
+```xml
+<gen type="number" length="10" first_zero="true"/>
+```
+
+<Terminal title="./run demo.tdc">
+{`7702701363
+3682926087
+0220609313
+9277428409
+2165957920`}
+</Terminal>
+
+Aquí `first_zero="true"` permite un cero inicial (vea la tercera línea,
+`0220609313`). Sin él, el primer dígito en este modo nunca es cero.
+
+### Largo variable
+
+`length` puede ser a su vez un rango, o grupos con proporciones:
+
+```xml
+<gen type="number" length="2-10"/>                       <!-- largo aleatorio de 2 a 10 -->
+<gen type="number" length="2,10-12" percent="85,15"/>    <!-- 85 % cortos, 15 % largos -->
+```
+
+<Terminal title="./run demo.tdc">
+{`length="2-10"            → 70270136
+length="2,10-12" 85/15   → 77`}
+</Terminal>
+
+El `percent` de aquí funciona exactamente igual que en [`text`](text.mdx#proporciones-exactas-con-percent):
+sobre `count="100"`, exactamente 85 valores son de largo 2 y 15 son de largo 10 a 12.
+
+## `first_zero` — controlar el cero inicial
+
+`first_zero` decide si el **primer** dígito puede ser `0`. El valor por omisión
+depende del modo:
+
+- **Modo relleno** (con `value`): el cero inicial está **permitido** por omisión,
+  para que el relleno alcance el ancho. `first_zero="false"` lo prohíbe — TDC
+  entonces saca un valor que ya trae suficientes dígitos:
+
+```xml
+<gen type="number" value="0..9999" length="4"/>                    <!-- cero permitido -->
+<gen type="number" value="0..9999" length="4" first_zero="false"/> <!-- sin cero -->
+```
+
+<Terminal title="./run demo.tdc">
+{`default        first_zero="false"
+7701      →     7701
+3494      →     3494
+0785      →     2379
+9597      →     9597
+2078      →     2078`}
+</Terminal>
+
+Solo `0785` (el único valor que empezaba con cero) se reemplaza por un `2379` de
+cuatro dígitos completos; todo lo demás ya no tenía cero inicial y queda intacto.
+
+- **Modo cadena de dígitos** (sin `value`): el cero inicial está **prohibido** por
+  omisión. Pase `first_zero="true"` cuando la cadena pueda empezar con cero (el
+  ejemplo de diez dígitos de arriba).
+
+## Agregar y quitar números: `include` / `exclude`
+
+Para abrirle un par de huecos a un rango sin tener que deletrear una lista de
+subrangos, use `exclude` (quitar) e `include` (agregar). Los valores son números o
+rangos `a..b`, separados por comas.
+
+```xml
+<gen type="number" value="0..9" exclude="3"/>               <!-- del 0 al 9 menos el 3 -->
+<gen type="number" value="1000..9999" exclude="1234,5678"/> <!-- ids menos dos -->
+<gen type="number" value="0..100" exclude="40..60"/>        <!-- sin la parte de en medio -->
+<gen type="number" value="0..9" include="100"/>             <!-- del 0 al 9 y también el 100 -->
+```
+
+<Terminal title="./run demo.tdc">
+{`value="0..9" exclude="3"               → 7
+value="1000..9999" exclude="1234,5678" → 7931
+value="0..100" exclude="40..60"        → 82
+value="0..9" include="100"             → 8`}
+</Terminal>
+
+Dos cosas que vale la pena saber:
+
+- **La elección sí es genuinamente uniforme** sobre todo lo que queda. `value="0..9"
+  exclude="3"` da exactamente 1/9 para cada uno de los nueve números
+  sobrevivientes — a diferencia de una lista de rangos, donde lo que pesa igual son
+  los rangos, no los números.
+- **`exclude` tiene la última palabra.** El conjunto final es
+  `(base ∪ include) − exclude`, así que un número agregado por `include` y quitado por
+  `exclude` desaparece. Si no queda nada después de los modificadores, eso es el error
+  `TDC087`.
+
+Estos modificadores necesitan un `value` de tipo **rango**; no aplican al modo cadena
+de dígitos (solo con `length`).
+
+## Detalles a tener presentes, todos juntos
+
+- Los rangos usan `..`, nunca `-` (un `-` solo es un signo de menos).
+- El ancho con ceros a la izquierda se conserva: `value="0000..9999"` → `"0034"`.
+- El modo cadena de dígitos devuelve **texto**, no un número — seguro para ids enormes.
+- En una lista de rangos, lo uniforme son los rangos, no los números individuales —
+  use `exclude` para una elección uniforme con huecos.
+
+## Vea también
+
+- [`length`](../reference/attributes.mdx) y [`first_zero`](../reference/attributes.mdx) en la referencia de atributos.
+- **[Text](text.mdx)** — la misma maquinaria de `percent` exacto, para listas.

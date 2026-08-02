@@ -1,0 +1,20 @@
+---
+description: Compass direction
+locale: en
+---
+North
+South
+East
+West
+Northeast
+Northwest
+Southeast
+Southwest
+North-Northeast
+East-Northeast
+East-Southeast
+South-Southeast
+South-Southwest
+West-Southwest
+West-Northwest
+North-Northwest

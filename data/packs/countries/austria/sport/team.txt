@@ -1,0 +1,20 @@
+---
+address: austria.sport.team
+description: Austrian Bundesliga football clubs (German names)
+locale: de
+---
+FC Red Bull Salzburg
+SK Rapid Wien
+FK Austria Wien
+SK Sturm Graz
+LASK
+Wolfsberger AC
+TSV Hartberg
+SCR Altach
+WSG Tirol
+SV Ried
+Austria Klagenfurt
+FC Blau-Weiß Linz
+Grazer AK
+First Vienna FC
+SKN St. Pölten

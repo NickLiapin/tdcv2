@@ -1,0 +1,17 @@
+---
+address: chad.sport.team
+description: Chadian first-division football clubs
+locale: fr
+---
+Gazelle FC
+Foullah Edifice
+Renaissance FC
+Elect-Sport
+AS CotonTchad
+Tourbillon FC
+PSTT
+DGSSIE
+Postel 2000
+AS Coton Tchad
+Toumaï FC
+Union Sportive de Moundou

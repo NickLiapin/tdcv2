@@ -1,0 +1,10 @@
+---
+description: Diagnoses seen in Neurology
+locale: en
+---
+Migraine
+Epilepsy
+Parkinson Disease
+Multiple Sclerosis
+Ischemic Stroke
+Peripheral Neuropathy

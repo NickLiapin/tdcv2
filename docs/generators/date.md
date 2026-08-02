@@ -1,0 +1,321 @@
+<a name="top"></a>
+
+**English** · [Русский](../ru/generators/date.md#top) · [Español](../es/generators/date.md#top)
+
+← Previous: [File](./file.md#top) · **[Contents](../README.md#top)** · Next: [Symbol](./symbol.md#top) →
+
+---
+
+# The `date` generator
+
+**Use it when** you need a date or a date-time — a birthday, a document date, an
+event timestamp — inside a range and printed in a specific format.
+
+Dates run on TDC's own portable date runtime: a strict parser, a UTC calendar, and
+a localized formatter, with no dependency on moment.js. The same config is designed
+to produce the same dates in every implementation.
+
+Example outputs below are illustrative — the exact values depend on the seed and
+can differ by core version. What stays fixed is the shape and the format.
+
+## At a glance
+
+| Attribute             | What it does                                                       |
+| :-------------------- | :----------------------------------------------------------------- |
+| `value`               | `birth`, `today`, `now`, a single date, or a range `START..END`    |
+| `range`               | A range `START..END` — a newer spelling of the same idea           |
+| `from` / `to`         | The two endpoints of a range, given separately                     |
+| `format`              | Output format (see [Formatting the output](#formatting-the-output)); default `L` |
+| `local`               | `en`, `es`, `ru`, or `zh-cn`; inherited from [`<env>`](../reference/tags.md#top) if omitted |
+| `oldest` / `youngest` | Age window in years for `value="birth"` (defaults `80` and `10`)   |
+| `precision`           | `day`, `second`, or `millisecond`                                  |
+
+Use only one of `value`, `range`, or the `from`/`to` pair to describe a range — they
+are three spellings of the same thing.
+
+## A random date in a range
+
+Give `value` a range as `START..END` (both ends **inclusive**) and you get a random
+date drawn uniformly inside it.
+
+```xml
+<gen type="date" value="2020-01-01..2025-12-31" format="YYYY-MM-DD"/>
+```
+
+`./run demo.tdc (5 rows)`
+
+```
+2024-08-15
+2022-02-04
+2020-06-21
+2025-10-04
+2021-03-31
+```
+
+The endpoints are part of the window. A one-week range makes that easy to see —
+over enough rows, both `2024-06-01` and `2024-06-07` show up:
+
+```xml
+<gen type="date" value="2024-06-01..2024-06-07" format="YYYY-MM-DD"/>
+```
+
+`./run demo.tdc (6 rows)`
+
+```
+2024-06-06
+2024-06-03
+2024-06-01
+2024-06-07
+2024-06-02
+2024-06-02
+```
+
+Input dates are parsed **strictly**, in one of these forms:
+
+- date: `YYYY-MM-DD`, `YYYY.MM.DD`, or `YYYY/MM/DD`;
+- date-time: `YYYY-MM-DDTHH:mm`, `YYYY-MM-DDTHH:mm:ss`, or `YYYY-MM-DDTHH:mm:ss.SSS`;
+- range: `START..END`.
+
+Free text (`June 6th`, `06/06/24`) is **not** accepted — use one of the strict forms
+above.
+
+### The `range` attribute — the same window, a newer spelling
+
+`range="START..END"` means exactly what `value="START..END"` does. It reads better
+when `value` would otherwise look like a keyword, and it's the spelling shared with
+the [`date.range`](../generators/template.md#top) template.
+
+```xml
+<gen type="date" range="2020-01-01..2024-12-31" format="YYYY-MM-DD"/>
+```
+
+`./run demo.tdc (5 rows)`
+
+```
+2023-11-08
+2021-09-30
+2020-05-23
+2024-10-19
+2021-01-14
+```
+
+The [`format`](../reference/attributes.md#top) attribute only controls how the date is
+written — it never changes the window, and the window never depends on the format.
+
+### `from` and `to` — the endpoints given separately
+
+When it's clearer to name the two ends separately, use `from` and `to`. This is the
+most natural spelling for date-time windows, where the range would otherwise be one
+long string.
+
+```xml
+<gen type="date"
+     from="2026-05-02T09:00:00"
+     to="2026-05-02T09:00:05"
+     format="YYYY-MM-DDTHH:mm:ss"/>
+```
+
+`./run demo.tdc (5 rows)`
+
+```
+2026-05-02T09:00:04
+2026-05-02T09:00:01
+2026-05-02T09:00:03
+2026-05-02T09:00:00
+2026-05-02T09:00:02
+```
+
+## A birthday with `value="birth"`
+
+`value="birth"` produces a date of birth relative to the current date, bounded by an
+age window. `youngest` and `oldest` are ages **in years** (defaults `10` and `80`),
+so `youngest="18" oldest="65"` gives working-age adults.
+
+```xml
+<gen type="date" value="birth" youngest="18" oldest="65" format="MM/DD/YYYY"/>
+```
+
+`./run demo.tdc (5 rows)`
+
+```
+07/05/1997
+11/23/1985
+02/14/2003
+09/30/1971
+06/18/1990
+```
+
+**Why use it instead of a fixed range:** the window follows "now", so the same config
+still produces plausible ages next year, with no dates to go back and edit. For a
+birthday tied to a whole synthetic person, the
+[`person.b_day`](../generators/template.md#top) template takes the same
+`oldest`/`youngest`/`format` attributes.
+
+## `today` and `now`
+
+`value="today"` is the current date; `value="now"` is the current date **and** time.
+Both read from the runtime clock, so they're the natural stamps for "generated on"
+or "as of" fields.
+
+```xml
+<gen type="date" value="today" format="LL"/>
+<gen type="date" value="now"   format="YYYY-MM-DDTHH:mm:ss.SSS"/>
+```
+
+`./run demo.tdc`
+
+```
+value="today" format="LL"                       April 23, 2026
+value="now"   format="YYYY-MM-DDTHH:mm:ss.SSS"   2026-04-23T12:00:00.000
+```
+
+## `precision` — the step for date-time ranges
+
+`precision` sets the smallest step a range moves in: `day`, `second`, or
+`millisecond`. For a five-second window stepped by whole seconds:
+
+```xml
+<gen type="date"
+     from="2026-05-02T09:00:00"
+     to="2026-05-02T09:00:05"
+     precision="second"
+     format="YYYY-MM-DDTHH:mm:ss"/>
+```
+
+`./run demo.tdc (5 rows)`
+
+```
+2026-05-02T09:00:04
+2026-05-02T09:00:01
+2026-05-02T09:00:03
+2026-05-02T09:00:00
+2026-05-02T09:00:02
+```
+
+When `precision` is omitted, the default follows the range type:
+
+| Range type              | Default step   | What `precision` changes                      |
+| :---------------------- | :------------- | :-------------------------------------------- |
+| date-only (`YYYY-MM-DD`) | one **day**   | rarely needed — the range already steps in whole days |
+| date-time               | one **millisecond** | `precision="second"` zeros the milliseconds |
+
+Use `precision="second"` whenever you want clean, human-looking timestamps instead of
+millisecond noise; use `precision="millisecond"` (the date-time default) when you need
+sub-second resolution.
+
+## Formatting the output
+
+`format` is a template of tokens. It changes only how a date is **written** — the
+underlying value is untouched. The default is `L` (a locale-aware short date).
+
+Here is every token, applied to one fixed moment: **Tuesday, March 5, 2024,
+09:04:07**. The day and the month are single-digit on purpose, so the padded and
+unpadded pairs differ visibly:
+
+| Token  | Means                          | Example                        |
+| :----- | :----------------------------- | :----------------------------- |
+| `YYYY` | 4-digit year                   | `2024`                         |
+| `YY`   | 2-digit year                   | `24`                           |
+| `MMMM` | full month name                | `March`                        |
+| `MMM`  | short month name               | `Mar`                          |
+| `MM`   | 2-digit month                  | `03`                           |
+| `M`    | month, no leading zero         | `3`                            |
+| `DD`   | 2-digit day                    | `05`                           |
+| `D`    | day, no leading zero           | `5`                            |
+| `dddd` | full weekday name              | `Tuesday`                      |
+| `ddd`  | short weekday name             | `Tue`                          |
+| `HH`   | 2-digit hour (24h)             | `09`                           |
+| `H`    | hour, no leading zero          | `9`                            |
+| `mm`   | 2-digit minute                 | `04`                           |
+| `m`    | minute, no leading zero        | `4`                            |
+| `ss`   | 2-digit second                 | `07`                           |
+| `s`    | second, no leading zero        | `7`                            |
+| `SSS`  | milliseconds                   | `000`                          |
+| `Z`    | UTC offset with a colon        | `+00:00`                       |
+| `ZZ`   | UTC offset without a colon     | `+0000`                        |
+| `ISO`  | ISO 8601 date                  | `2024-03-05`                   |
+| `L`    | locale-aware short date        | `03/05/2024`                   |
+| `LL`   | locale-aware long date         | `March 5, 2024`                |
+| `LLL`  | locale-aware long date + time  | `March 5, 2024 09:04`          |
+| `LLLL` | the same, with the weekday     | `Tuesday, March 5, 2024 09:04` |
+
+Month and weekday names, and the four `L` forms, follow the locale — see
+[below](#locale-aware-formats-l-and-ll). Everything else is the same in every
+language.
+
+The same date under four formats — same seed, so the date is identical on each line
+and only the writing differs:
+
+```xml
+<gen type="date" value="2020-01-01..2024-12-31" format="YYYY-MM-DD"/>
+<gen type="date" value="2020-01-01..2024-12-31" format="DD.MM.YYYY"/>
+<gen type="date" value="2020-01-01..2024-12-31" format="DD MMM YYYY"/>
+<gen type="date" value="2020-01-01..2024-12-31" format="LL"/>
+```
+
+`./run demo.tdc`
+
+```
+YYYY-MM-DD    DD.MM.YYYY    DD MMM YYYY    LL
+2023-11-08    08.11.2023    08 Nov 2023    November 8, 2023
+2021-09-30    30.09.2021    30 Sep 2021    September 30, 2021
+2020-05-23    23.05.2020    23 May 2020    May 23, 2020
+```
+
+### Literal text with brackets
+
+Anything in square brackets is copied through verbatim, so you can wrap a date in
+fixed text:
+
+```xml
+<gen type="date" value="2024-03-15..2024-03-15" format="[date:] YYYY-MM-DD"/>
+```
+
+`./run demo.tdc`
+
+```
+date: 2024-03-15
+```
+
+### Locale-aware formats: `L` and `LL`
+
+`L`, `LL`, `LLL` and `LLLL` follow the locale, taken from the `local` attribute (or
+`local` on [`<env>`](../reference/tags.md#top)) — as do the name tokens `MMMM`, `MMM`,
+`dddd` and `ddd`. The default locale is `en`. Numeric templates like `YYYY-MM-DD` and
+`DD.MM.YYYY` never depend on the locale — only on the template you write.
+
+Here is the fixed date `2024-03-15` under `format="LL"`, first in the default English
+locale, then re-rendered with `local="ru"` to show the localized month name and
+long-date form — a deliberate localization demo:
+
+```xml
+<gen type="date" value="2024-03-15..2024-03-15" format="LL"/>            <!-- default en -->
+<gen type="date" value="2024-03-15..2024-03-15" format="LL" local="ru"/> <!-- Russian -->
+```
+
+`./run demo.tdc`
+
+```
+default (en)   March 15, 2024
+local="ru"     15 марта 2024 г.
+```
+
+`L` shifts the same way: `03/15/2024` in `en`, `15.03.2024` in `ru`.
+
+## Gotchas, in one place
+
+- Input dates are parsed **strictly** — use `YYYY-MM-DD` (or `.` / `/`), not free text.
+- Both range endpoints are **inclusive**.
+- `value`, `range`, and `from`/`to` are three spellings of one window — use whichever reads best.
+- `L` / `LL` change with `local`; `YYYY-MM-DD` and friends do not.
+- Date-only ranges step by day; date-time ranges by millisecond unless you set `precision`.
+- `format` applies **only** to dates. On template identifiers (SSN, IBAN, phone…) it is an error — shape those with [interpolation filters](../core-concepts/output-formatting.md#top) instead.
+
+## See also
+
+- [`format`](../reference/attributes.md#top), [`range`](../reference/attributes.md#top), and [`local`](../reference/attributes.md#top) in the attribute reference.
+- **[Template](../generators/template.md#top)** — `person.b_day` and `date.range` share this same date formatting.
+
+---
+
+← Previous: [File](./file.md#top) · **[Contents](../README.md#top)** · Next: [Symbol](./symbol.md#top) →

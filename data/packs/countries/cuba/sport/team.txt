@@ -1,0 +1,21 @@
+---
+address: cuba.sport.team
+description: Cuban baseball clubs — the Serie Nacional de Béisbol teams (one per province)
+locale: es
+---
+Industriales
+Santiago de Cuba
+Matanzas
+Las Tunas
+Granma
+Villa Clara
+Ciego de Ávila
+Camagüey
+Holguín
+Pinar del Río
+Cienfuegos
+Sancti Spíritus
+Artemisa
+Mayabeque
+Guantánamo
+Isla de la Juventud

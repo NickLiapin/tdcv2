@@ -1,0 +1,24 @@
+---
+description: Dog breed
+locale: en
+---
+Labrador Retriever
+German Shepherd
+Golden Retriever
+French Bulldog
+Bulldog
+Poodle
+Beagle
+Rottweiler
+Dachshund
+Boxer
+Siberian Husky
+Great Dane
+Doberman Pinscher
+Australian Shepherd
+Border Collie
+Chihuahua
+Shih Tzu
+Pomeranian
+Corgi
+Bernese Mountain Dog

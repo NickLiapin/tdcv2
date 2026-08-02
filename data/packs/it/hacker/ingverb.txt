@@ -1,0 +1,32 @@
+---
+description: Tech verb, gerund (Italian)
+locale: it
+---
+eseguendo il backup
+aggirando
+hackerando
+sovrascrivendo
+comprimendo
+copiando
+navigando
+indicizzando
+connettendo
+generando
+quantificando
+calcolando
+sintetizzando
+immettendo
+trasmettendo
+programmando
+riavviando
+analizzando
+cifrando
+decifrando
+distribuendo
+compilando
+eseguendo il debug
+ottimizzando
+sincronizzando
+virtualizzando
+instradando
+monitorando

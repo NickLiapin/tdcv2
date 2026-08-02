@@ -1,0 +1,8 @@
+---
+address: ecuador.finance.accountType
+description: Ecuadorian bank account type as named on a transfer form
+locale: es
+---
+Cuenta de Ahorros
+Cuenta Corriente
+Cuenta Básica de Ahorros

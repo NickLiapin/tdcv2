@@ -1,0 +1,7 @@
+---
+address: italy.phone
+description: Italy mobile phone in E.164 form (+39, mobile numbers start with 3)
+generator: tdc
+locale: it
+---
+<gen type="regex" value="\+393[0-9]{9}"/>

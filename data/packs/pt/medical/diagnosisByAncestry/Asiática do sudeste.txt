@@ -1,0 +1,11 @@
+---
+description: Conditions markedly more frequent in people of Southeast Asian ancestry, in Portuguese. A prevalence signal, not an exclusive one.
+locale: pt
+---
+Doença da hemoglobina E
+Alfa-talassemia
+Deficiência de glicose-6-fosfato desidrogenase
+Carcinoma da nasofaringe
+Beta-talassemia
+Síndrome de Brugada
+Não persistência da lactase

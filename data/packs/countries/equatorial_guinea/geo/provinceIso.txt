@@ -1,0 +1,12 @@
+---
+address: equatorial_guinea.geo.provinceIso
+description: ISO 3166-2:GQ subdivision code (with the GQ- prefix); same order as equatorial_guinea.geo.province
+---
+GQ-AN
+GQ-BN
+GQ-BS
+GQ-CS
+GQ-DJ
+GQ-KN
+GQ-LI
+GQ-WN

@@ -1,0 +1,19 @@
+---
+address: south_africa.sport.team
+description: South African football clubs (Betway Premiership / PSL)
+locale: en
+---
+Kaizer Chiefs
+Orlando Pirates
+Mamelodi Sundowns
+SuperSport United
+Stellenbosch
+Sekhukhune United
+Cape Town City
+AmaZulu
+Golden Arrows
+Chippa United
+Polokwane City
+Richards Bay
+Marumo Gallants
+Magesi

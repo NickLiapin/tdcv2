@@ -1,0 +1,29 @@
+---
+description: Product review title (German)
+locale: de
+---
+Ausgezeichnetes Produkt!
+Sehr empfehlenswert
+Den Preis nicht wert
+Hat meine Erwartungen übertroffen
+Gerade noch akzeptabel
+Würde ich wieder kaufen
+Enttäuschend
+Hervorragende Qualität
+Ging sofort kaputt
+Perfekt für den Preis
+Besser als erwartet
+Kann ich nicht empfehlen
+Ich liebe es!
+Etwas zu teuer
+Genau wie beschrieben
+Erfüllt seinen Zweck
+Gutes Preis-Leistungs-Verhältnis
+Kam früher als erwartet an
+Minderwertige Materialien
+Genau das, was ich gesucht habe
+Verwirrende Anleitung
+Sehr einfach zu bedienen
+Nicht das, was ich erwartet habe
+Kaufe ich auf jeden Fall wieder
+Tadelloser Service

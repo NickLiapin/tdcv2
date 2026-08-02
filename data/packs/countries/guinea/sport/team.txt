@@ -1,0 +1,17 @@
+---
+address: guinea.sport.team
+description: Guinean first-division football clubs
+locale: fr
+---
+Horoya AC
+Hafia FC
+AS Kaloum Star
+Fello Star
+Séquence FC
+Milo FC
+Ashanti GB
+CI Kamsar
+Wakriya AC
+Satellite FC
+Étoile de Guinée
+Flamme Olympique

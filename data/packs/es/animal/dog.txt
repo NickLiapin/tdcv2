@@ -1,0 +1,29 @@
+---
+description: Dog breed (Spanish)
+locale: es
+---
+Labrador retriever
+Pastor alemán
+Golden retriever
+Bulldog francés
+Bulldog inglés
+Caniche
+Beagle
+Rottweiler
+Teckel
+Bóxer
+Husky siberiano
+Gran danés
+Dóberman
+Pastor australiano
+Border collie
+Chihuahua
+Shih tzu
+Pomerania
+Corgi
+Boyero de Berna
+Galgo
+Mastín
+Bull terrier
+San Bernardo
+Dálmata

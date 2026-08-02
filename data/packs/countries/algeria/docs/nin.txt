@@ -1,0 +1,7 @@
+---
+address: algeria.docs.nin
+description: Algerian national ID number (NIN / رقم التعريف الوطني) — 18 digits. Structural; no public check digit.
+generator: tdc
+locale: ar
+---
+<gen type="regex" value="[0-9]{18}"/>

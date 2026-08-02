@@ -1,0 +1,35 @@
+---
+address: austria.geo.city
+description: Cities of Austria, roughly ordered by population
+locale: de
+---
+Wien
+Graz
+Linz
+Salzburg
+Innsbruck
+Klagenfurt
+Villach
+Wels
+Sankt Pölten
+Dornbirn
+Steyr
+Wiener Neustadt
+Feldkirch
+Bregenz
+Leonding
+Klosterneuburg
+Baden
+Wolfsberg
+Leoben
+Krems an der Donau
+Traun
+Amstetten
+Lustenau
+Kapfenberg
+Mödling
+Hallein
+Kufstein
+Schwechat
+Braunau am Inn
+Eisenstadt

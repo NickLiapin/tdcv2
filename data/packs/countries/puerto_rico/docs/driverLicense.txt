@@ -1,0 +1,6 @@
+---
+address: puerto_rico.docs.driverLicense
+description: Puerto Rico driver's licence number (DTOP/CESCO) — 9 numeric digits. Structural only; DTOP publishes no check digit for the licence number. NOTE — the federal identifier for a PR resident is the US Social Security number (puerto_rico.docs.ssn); Puerto Rico issues no separate national ID. File is named driverLicense (not license) because the pack loader ignores files named license.txt
+generator: tdc
+---
+<gen type="regex" value="[0-9]{9}"/>

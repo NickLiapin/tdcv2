@@ -1,0 +1,6 @@
+---
+address: france.phone
+description: France mobile phone in E.164 form (+33 6XXXXXXXX)
+generator: tdc
+---
+<gen type="regex" value="\+336[0-9]{8}"/>

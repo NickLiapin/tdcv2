@@ -1,0 +1,19 @@
+---
+description: Streaming platform available in Italy (Italian)
+locale: it
+---
+Netflix
+Amazon Prime Video
+Disney+
+RaiPlay
+Mediaset Infinity
+NOW
+Sky Go
+Apple TV+
+Paramount+
+Discovery+
+Crunchyroll
+Pluto TV
+YouTube
+Twitch
+Spotify

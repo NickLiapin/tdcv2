@@ -1,0 +1,59 @@
+---
+description: Sport (German)
+locale: de
+---
+Fußball
+Futsal
+American Football
+Basketball
+Baseball
+Volleyball
+Beachvolleyball
+Handball
+Rugby
+Eishockey
+Feldhockey
+Cricket
+Tennis
+Padel
+Tischtennis
+Badminton
+Squash
+Golf
+Schwimmen
+Wasserball
+Leichtathletik
+Radsport
+Mountainbiken
+Boxen
+Ringen
+Judo
+Karate
+Taekwondo
+Fechten
+Gerätturnen
+Rhythmische Sportgymnastik
+Gewichtheben
+Triathlon
+Rudern
+Kanusport
+Segeln
+Surfen
+Ski alpin
+Skilanglauf
+Snowboard
+Eiskunstlauf
+Rollschuhlaufen
+Sportklettern
+Bogenschießen
+Sportschießen
+Reitsport
+Motorsport
+Motorradsport
+Skateboarding
+Bowling
+Billard
+Kegeln
+Biathlon
+Skispringen
+Softball

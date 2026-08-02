@@ -1,0 +1,10 @@
+---
+description: Diagnoses seen in Neurología
+locale: es
+---
+Migraña
+Epilepsia
+Enfermedad de Parkinson
+Esclerosis múltiple
+Accidente cerebrovascular isquémico
+Neuropatía periférica

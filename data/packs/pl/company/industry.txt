@@ -1,0 +1,59 @@
+---
+description: Industry sector (Polish)
+locale: pl
+---
+Rolnictwo
+Hodowla zwierząt
+Rybołówstwo
+Leśnictwo
+Górnictwo
+Budownictwo
+Przemysł wytwórczy
+Handel detaliczny
+Handel hurtowy
+Transport
+Technologie informacyjne
+Finanse
+Bankowość
+Ubezpieczenia
+Nieruchomości
+Ochrona zdrowia
+Edukacja
+Hotelarstwo
+Turystyka
+Rozrywka
+Energetyka
+Ropa naftowa i gaz
+Odnawialne źródła energii
+Telekomunikacja
+Motoryzacja
+Przemysł lotniczy
+Farmacja
+Biotechnologia
+Logistyka
+Media
+Reklama
+Doradztwo
+Usługi prawne
+Rachunkowość
+Zasoby ludzkie
+Żywność i napoje
+Przemysł tekstylny
+Przemysł chemiczny
+Metalurgia
+Przemysł papierniczy
+Elektronika
+Oprogramowanie
+Handel elektroniczny
+Gry wideo
+Sport
+Kultura
+Badania naukowe
+Administracja publiczna
+Obronność
+Ochrona osób i mienia
+Organizacje pozarządowe
+Gospodarka odpadami
+Wodociągi i kanalizacja
+Architektura
+Inżynieria

@@ -1,0 +1,54 @@
+---
+description: Store department / category (Polish)
+locale: pl
+---
+Książki
+Filmy
+Muzyka
+Gry wideo
+Elektronika
+Komputery
+Telefony
+Dom
+Ogród
+Narzędzia
+Artykuły metalowe
+Supermarket
+Żywność
+Napoje
+Zdrowie
+Apteka
+Uroda
+Perfumeria
+Zabawki
+Dziecięce
+Niemowlęce
+Odzież
+Obuwie
+Biżuteria
+Zegarki
+Akcesoria
+Sport
+Turystyka
+Motoryzacja
+Motocykle
+Przemysłowe
+Biuro
+Artykuły papiernicze
+Zwierzęta
+Meble
+Dekoracje
+AGD
+Oświetlenie
+Tekstylia domowe
+Wyposażenie kuchni
+Majsterkowanie
+Budownictwo
+Fotografia
+Instrumenty muzyczne
+Bagaż
+Optyka
+Środki czystości
+Prezenty
+Artykuły plastyczne
+Żeglarstwo

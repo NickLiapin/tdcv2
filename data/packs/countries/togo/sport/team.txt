@@ -1,0 +1,17 @@
+---
+address: togo.sport.team
+description: Togolese first-division football clubs
+locale: fr
+---
+AS Togo-Port
+ASKO Kara
+Gomido FC
+Maranatha FC
+Dynamic Togolais
+AS OTR
+Unisport FC
+Semassi FC
+Foadan FC
+AC Merlan
+Kotoko de Lavié
+Gbikinti FC

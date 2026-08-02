@@ -1,0 +1,7 @@
+---
+address: egypt.vehicle.plate
+description: Egyptian licence plate — three Arabic letters and up to four digits (e.g. س ب ج ١٢٣٤). Structural.
+generator: tdc
+locale: ar
+---
+<gen type="regex" value="[أ-ي] [أ-ي] [أ-ي] [0-9]{3,4}"/>

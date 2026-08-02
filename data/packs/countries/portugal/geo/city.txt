@@ -1,0 +1,35 @@
+---
+address: portugal.geo.city
+description: Cities of Portugal (Portuguese names)
+locale: pt
+---
+Lisboa
+Porto
+Vila Nova de Gaia
+Amadora
+Braga
+Coimbra
+Funchal
+Setúbal
+Almada
+Queluz
+Aveiro
+Faro
+Évora
+Guimarães
+Leiria
+Viseu
+Barreiro
+Odivelas
+Matosinhos
+Portimão
+Cascais
+Loures
+Ponta Delgada
+Viana do Castelo
+Guarda
+Bragança
+Santarém
+Torres Vedras
+Figueira da Foz
+Covilhã

@@ -1,0 +1,13 @@
+---
+description: Positions in Baseball (French)
+locale: fr
+---
+Lanceur
+Receveur
+Première base
+Deuxième base
+Troisième base
+Arrêt-court
+Champ gauche
+Champ centre
+Champ droit

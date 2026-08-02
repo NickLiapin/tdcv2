@@ -1,0 +1,39 @@
+---
+description: Street names common across the Arab world (rulers, national dates, nature). Compose after a streetSuffix; country-specific streets belong in a country pack.
+locale: ar
+---
+الملك فهد
+الملك عبد العزيز
+الأمير سلطان
+العليا
+التحلية
+الملك فيصل
+النصر
+الجمهورية
+الاستقلال
+الوحدة
+فلسطين
+القدس
+النيل
+الأزهر
+التحرير
+المعز
+الحمراء
+البحر
+النخيل
+الزهور
+الورود
+السلام
+النهضة
+الملك خالد
+الأمير محمد بن سلمان
+الكورنيش
+الجامعة
+المطار
+الملك حسين
+الثورة
+العروبة
+المدينة المنورة
+مكة
+الخليج
+الشيخ زايد

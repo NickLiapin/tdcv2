@@ -1,0 +1,16 @@
+---
+description: Conditions markedly more frequent in people of Sub-Saharan African ancestry. A prevalence signal, not an exclusive one — anyone can have these, and most patients of this ancestry have none of them.
+locale: en
+---
+Sickle Cell Disease
+Sickle Cell Trait
+Glucose-6-Phosphate Dehydrogenase Deficiency
+APOL1-Associated Nephropathy
+Keloid Scarring
+Sarcoidosis
+Hypertensive Nephrosclerosis
+Uterine Fibroids
+Benign Ethnic Neutropenia
+Lactase Non-Persistence
+Pseudofolliculitis Barbae
+Vitiligo

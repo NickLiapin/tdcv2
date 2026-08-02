@@ -1,0 +1,26 @@
+---
+description: Film genre (French)
+locale: fr
+---
+Action
+Aventure
+Comédie
+Drame
+Horreur
+Thriller
+Science-fiction
+Fantastique
+Romance
+Policier
+Documentaire
+Animation
+Comédie musicale
+Western
+Guerre
+Biographie
+Historique
+Film noir
+Catastrophe
+Espionnage
+Comédie romantique
+Film d'auteur

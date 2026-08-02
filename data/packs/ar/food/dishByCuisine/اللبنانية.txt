@@ -1,0 +1,16 @@
+---
+description: Dishes of Lebanese cuisine (Arabic)
+locale: ar
+---
+حمص
+تبولة
+فلافل
+شاورما
+بابا غنوج
+كبة
+فتوش
+مناقيش
+متبل
+مزة
+ورق عنب
+شيش طاووق

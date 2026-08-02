@@ -1,0 +1,19 @@
+---
+description: Jobs in Retail (French)
+locale: fr
+---
+Vendeur
+Caissier
+Chef de rayon
+Responsable de magasin
+Marchandiseur
+Magasinier
+Conseiller de vente
+Hôte de caisse
+Réassortisseur
+Directeur de magasin
+Employé libre-service
+Chef de caisse
+Démonstrateur
+Responsable e-commerce
+Agent d'accueil

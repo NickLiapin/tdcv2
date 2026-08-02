@@ -1,0 +1,6 @@
+---
+address: canada.finance.transit
+description: Canadian branch transit number — the 5-digit code that identifies a specific branch on a cheque's MICR line. Random here, not tied to a particular institution.
+generator: tdc
+---
+<gen type="regex" value="[0-9]{5}"/>

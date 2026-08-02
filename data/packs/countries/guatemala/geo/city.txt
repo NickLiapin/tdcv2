@@ -1,0 +1,99 @@
+---
+address: guatemala.geo.city
+description: Guatemalan city or major urban locality (real municipios and cabeceras)
+locale: es
+---
+Ciudad de Guatemala
+Mixco
+Villa Nueva
+San Miguel Petapa
+Villa Canales
+Chinautla
+Amatitlán
+Santa Catarina Pinula
+San José Pinula
+Fraijanes
+Palencia
+San Juan Sacatepéquez
+San Pedro Sacatepéquez
+Quetzaltenango
+Coatepeque
+Escuintla
+Santa Lucía Cotzumalguapa
+Tiquisate
+Palín
+San Vicente Pacaya
+La Gomera
+Nueva Concepción
+Cobán
+San Pedro Carchá
+San Juan Chamelco
+Chisec
+Huehuetenango
+La Democracia
+Chiantla
+Santa Cruz Barillas
+Chimaltenango
+Tecpán Guatemala
+Patzún
+Comalapa
+San Martín Jilotepeque
+Antigua Guatemala
+Ciudad Vieja
+Jocotenango
+Santiago Sacatepéquez
+Sumpango
+San Lucas Sacatepéquez
+Mazatenango
+Chicacao
+Cuyotenango
+Retalhuleu
+San Marcos
+Malacatán
+Tecún Umán
+Santa Cruz del Quiché
+Chichicastenango
+Nebaj
+Chinique
+Sololá
+Panajachel
+Santiago Atitlán
+San Pedro La Laguna
+Nahualá
+Totonicapán
+San Cristóbal Totonicapán
+Momostenango
+San Francisco El Alto
+Puerto Barrios
+Morales
+Los Amates
+Livingston
+El Estor
+Zacapa
+Gualán
+Río Hondo
+Estanzuela
+Chiquimula
+Esquipulas
+Jocotán
+Camotán
+Cuilapa
+Barberena
+Chiquimulilla
+Taxisco
+Jalapa
+Mataquescuintla
+San Pedro Pinula
+Jutiapa
+Asunción Mita
+El Progreso
+Guastatoya
+Sanarate
+El Jícaro
+Salamá
+Rabinal
+San Jerónimo
+Flores
+San Benito
+Poptún
+Melchor de Mencos

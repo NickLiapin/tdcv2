@@ -1,0 +1,122 @@
+---
+address: spain.geo.streetNamed
+description: Spanish street name, bare (without the Calle / Avenida / Plaza prefix) — the recurring saints, writers, painters and civic names that fill INE's callejero, plus well-known named streets of the big cities
+locale: es
+---
+Mayor
+Real
+Nueva
+Larga
+Ancha
+Alta
+Baja
+La Iglesia
+La Constitución
+La Paz
+La Fuente
+La Estación
+La Cruz
+La Rosa
+La Ermita
+La Fuensanta
+El Sol
+El Pilar
+El Molino
+El Carmen
+El Rosario
+Las Escuelas
+Las Flores
+Las Fuentes
+Los Olivos
+Los Almendros
+San Juan
+San José
+San Pedro
+San Miguel
+San Antonio
+San Roque
+San Francisco
+San Isidro
+San Fernando
+San Sebastián
+San Vicente
+Santa Ana
+Santa María
+Santa Teresa
+Santiago
+Nuestra Señora del Carmen
+Cervantes
+Miguel de Cervantes
+Lope de Vega
+Calderón de la Barca
+Francisco de Quevedo
+Antonio Machado
+Federico García Lorca
+Juan Ramón Jiménez
+Rosalía de Castro
+Emilia Pardo Bazán
+Gustavo Adolfo Bécquer
+Vicente Blasco Ibáñez
+Benito Pérez Galdós
+Camilo José Cela
+Miguel Hernández
+Rafael Alberti
+Gloria Fuertes
+Concepción Arenal
+Clara Campoamor
+Francisco de Goya
+Diego Velázquez
+Bartolomé Esteban Murillo
+El Greco
+Joaquín Sorolla
+Pablo Picasso
+Salvador Dalí
+Joan Miró
+Antoni Gaudí
+Isaac Albéniz
+Manuel de Falla
+Enrique Granados
+Pau Casals
+Ramón y Cajal
+Severo Ochoa
+Isaac Peral
+Blas de Lezo
+Cristóbal Colón
+Juan Sebastián Elcano
+Blas Infante
+Doctor Fleming
+Doctor Marañón
+Maestro Serrano
+Pintor Sorolla
+Reyes Católicos
+Gran Vía
+Alcalá
+Serrano
+Bailén
+Génova
+Princesa
+Preciados
+Fuencarral
+Hortaleza
+Atocha
+Bravo Murillo
+Goya
+Velázquez
+Diagonal
+Balmes
+Aragó
+Muntaner
+Sant Antoni Maria Claret
+Marqués de Larios
+Sierpes
+Tetuán
+Colón
+Xàtiva
+Uría
+Compostela
+Fernando el Católico
+Camino Viejo
+Camino de la Vega
+Huertas
+Olmo
+Almendra

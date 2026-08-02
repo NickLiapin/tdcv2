@@ -1,0 +1,237 @@
+---
+description: Country and territory names (Polish)
+locale: pl
+---
+Afganistan
+Albania
+Niemcy
+Andora
+Angola
+Anguilla
+Antarktyda
+Antigua i Barbuda
+Arabia Saudyjska
+Algieria
+Argentyna
+Armenia
+Aruba
+Australia
+Austria
+Azerbejdżan
+Bahamy
+Bangladesz
+Barbados
+Bahrajn
+Belgia
+Belize
+Benin
+Bermudy
+Białoruś
+Boliwia
+Bośnia i Hercegowina
+Botswana
+Brazylia
+Brunei
+Bułgaria
+Burkina Faso
+Burundi
+Bhutan
+Republika Zielonego Przylądka
+Kambodża
+Kamerun
+Kanada
+Katar
+Czad
+Czechy
+Chile
+Chiny
+Cypr
+Watykan
+Kolumbia
+Komory
+Korea Północna
+Korea Południowa
+Wybrzeże Kości Słoniowej
+Kostaryka
+Chorwacja
+Kuba
+Curaçao
+Dania
+Dominika
+Ekwador
+Egipt
+Salwador
+Zjednoczone Emiraty Arabskie
+Erytrea
+Słowacja
+Słowenia
+Hiszpania
+Stany Zjednoczone
+Estonia
+Eswatini
+Etiopia
+Filipiny
+Finlandia
+Fidżi
+Francja
+Gabon
+Gambia
+Gruzja
+Ghana
+Gibraltar
+Grenada
+Grecja
+Grenlandia
+Gwadelupa
+Guam
+Gwatemala
+Gujana Francuska
+Gwinea
+Gwinea Bissau
+Gwinea Równikowa
+Gujana
+Haiti
+Honduras
+Hongkong
+Węgry
+Indie
+Indonezja
+Irak
+Iran
+Irlandia
+Wyspa Bożego Narodzenia
+Islandia
+Kajmany
+Wyspy Kokosowe
+Wyspy Cooka
+Wyspy Owcze
+Falklandy
+Mariany Północne
+Wyspy Marshalla
+Wyspy Pitcairn
+Wyspy Salomona
+Turks i Caicos
+Brytyjskie Wyspy Dziewicze
+Wyspy Dziewicze Stanów Zjednoczonych
+Izrael
+Włochy
+Jamajka
+Japonia
+Jordania
+Kazachstan
+Kenia
+Kirgistan
+Kiribati
+Kosowo
+Kuwejt
+Laos
+Lesotho
+Łotwa
+Liban
+Liberia
+Libia
+Liechtenstein
+Litwa
+Luksemburg
+Makau
+Macedonia Północna
+Madagaskar
+Malezja
+Malawi
+Malediwy
+Mali
+Malta
+Maroko
+Martynika
+Mauritius
+Mauretania
+Majotta
+Meksyk
+Mikronezja
+Mołdawia
+Monako
+Mongolia
+Czarnogóra
+Montserrat
+Mozambik
+Mjanma
+Namibia
+Nauru
+Nepal
+Nikaragua
+Niger
+Nigeria
+Niue
+Norwegia
+Nowa Kaledonia
+Nowa Zelandia
+Oman
+Holandia
+Pakistan
+Palau
+Palestyna
+Panama
+Papua-Nowa Gwinea
+Paragwaj
+Peru
+Polinezja Francuska
+Polska
+Portugalia
+Portoryko
+Wielka Brytania
+Republika Środkowoafrykańska
+Republika Konga
+Demokratyczna Republika Konga
+Dominikana
+Reunion
+Rwanda
+Rumunia
+Rosja
+Sahara Zachodnia
+Samoa
+Samoa Amerykańskie
+Saint Kitts i Nevis
+San Marino
+Saint Vincent i Grenadyny
+Saint Lucia
+Wyspy Świętego Tomasza i Książęca
+Senegal
+Serbia
+Seszele
+Sierra Leone
+Singapur
+Syria
+Somalia
+Sri Lanka
+Republika Południowej Afryki
+Sudan
+Sudan Południowy
+Szwecja
+Szwajcaria
+Surinam
+Tajlandia
+Tajwan
+Tanzania
+Tadżykistan
+Francuskie Terytoria Południowe
+Timor Wschodni
+Togo
+Tokelau
+Tonga
+Trynidad i Tobago
+Tunezja
+Turkmenistan
+Turcja
+Tuvalu
+Ukraina
+Uganda
+Urugwaj
+Uzbekistan
+Vanuatu
+Wenezuela
+Wietnam
+Wallis i Futuna
+Jemen
+Dżibuti
+Zambia
+Zimbabwe

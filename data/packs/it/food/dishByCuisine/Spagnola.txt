@@ -1,0 +1,14 @@
+---
+description: Dishes of Spanish cuisine (Italian)
+locale: it
+---
+Paella
+Tapas
+Gazpacho
+Tortilla spagnola
+Churros
+Patatas bravas
+Prosciutto iberico
+Polpo alla galiziana
+Fabada asturiana
+Salmorejo

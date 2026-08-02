@@ -1,0 +1,34 @@
+---
+description: Bird (Spanish)
+locale: es
+---
+Gorrión
+Petirrojo
+Águila
+Halcón
+Búho
+Loro
+Pingüino
+Cernícalo
+Cardenal
+Arrendajo
+Colibrí
+Pájaro carpintero
+Pelícano
+Flamenco
+Cisne
+Cuervo
+Corneja
+Jilguero
+Garza
+Martín pescador
+Gaviota
+Paloma
+Golondrina
+Ruiseñor
+Cóndor
+Tucán
+Avestruz
+Cigüeña
+Lechuza
+Quetzal

@@ -1,0 +1,44 @@
+---
+description: Language name (Portuguese)
+locale: pt
+---
+Português
+Inglês
+Espanhol
+Francês
+Italiano
+Alemão
+Galego
+Mirandês
+Crioulo cabo-verdiano
+Tétum
+Quimbundo
+Umbundo
+Changana
+Macua
+Guarani
+Nheengatu
+Chinês mandarim
+Hindi
+Árabe
+Russo
+Japonês
+Coreano
+Neerlandês
+Sueco
+Norueguês
+Dinamarquês
+Polaco
+Romeno
+Grego
+Turco
+Hebraico
+Vietnamita
+Tailandês
+Indonésio
+Suaíli
+Persa
+Ucraniano
+Checo
+Húngaro
+Bengali

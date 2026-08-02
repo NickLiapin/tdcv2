@@ -1,0 +1,21 @@
+---
+description: Official document type (Portuguese)
+locale: pt
+---
+Passaporte
+Certidão de nascimento
+Certidão de casamento
+Certidão de óbito
+Carta de condução
+Documento de identidade
+Cartão de cidadão
+Recenseamento eleitoral
+Declaração de impostos
+Licença de construção
+Alvará comercial
+Visto
+Certificado de residência
+Comprovativo de morada
+Número de identificação fiscal
+Certificado de habilitações
+Certificado de registo criminal

@@ -1,0 +1,10 @@
+---
+description: Conditions markedly more frequent in people of Pacific Islander ancestry, in Polish. A prevalence signal, not an exclusive one.
+locale: pl
+---
+Cukrzyca typu 2
+Nadciśnienie tętnicze związane z otyłością
+Dna moczanowa
+Reumatyczna choroba serca
+Przewlekła choroba nerek
+Hiperurykemia

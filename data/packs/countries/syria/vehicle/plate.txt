@@ -1,0 +1,7 @@
+---
+address: syria.vehicle.plate
+description: Syrian licence plate — up to six digits. Structural.
+generator: tdc
+locale: ar
+---
+<gen type="regex" value="[0-9]{5,6}"/>

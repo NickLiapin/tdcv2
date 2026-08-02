@@ -1,0 +1,30 @@
+---
+description: Medical diagnosis in Italian that requires female anatomy — it cannot occur in a male patient. Draw from this list only for female rows; general conditions live in medical/diagnosis.
+locale: it
+---
+Endometriosi
+Sindrome dell'ovaio policistico
+Fibromi uterini
+Cisti ovarica
+Carcinoma ovarico
+Carcinoma della cervice uterina
+Displasia cervicale
+Cervicite
+Endometrite
+Carcinoma dell'endometrio
+Malattia infiammatoria pelvica
+Vaginosi batterica
+Candidosi vulvovaginale
+Menorragia
+Dismenorrea
+Amenorrea
+Preeclampsia
+Diabete gestazionale
+Iperemesi gravidica
+Gravidanza extrauterina
+Emorragia post partum
+Mastite
+Mastopatia fibrocistica
+Sindrome climaterica
+Disturbo disforico premestruale
+Prolasso uterino

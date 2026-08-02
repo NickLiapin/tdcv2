@@ -1,0 +1,20 @@
+---
+address: uruguay.geo.streetType
+description: Uruguayan tipo de vía as written in a postal address; repeated entries carry the real frequency — most Montevideo addresses are written with the bare street name, so "Calle" leads by a wide margin
+locale: es
+---
+Calle
+Calle
+Calle
+Calle
+Calle
+Calle
+Avenida
+Avenida
+Avenida
+Bulevar
+Camino
+Rambla
+Pasaje
+Ruta
+Plaza

@@ -1,0 +1,34 @@
+---
+description: Spice / herb (Italian)
+locale: it
+---
+Cannella
+Cumino
+Paprika
+Curcuma
+Zenzero
+Noce moscata
+Origano
+Basilico
+Timo
+Rosmarino
+Cardamomo
+Coriandolo
+Peperoncino in polvere
+Chiodi di garofano
+Zafferano
+Alloro
+Aneto
+Salvia
+Prezzemolo
+Menta
+Anice
+Pepe bianco
+Pepe di Caienna
+Semi di senape
+Dragoncello
+Finocchio
+Mentuccia
+Maggiorana
+Vaniglia
+Sesamo

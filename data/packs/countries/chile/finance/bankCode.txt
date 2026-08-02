@@ -1,0 +1,24 @@
+---
+address: chile.finance.bankCode
+description: SBIF/CMF 3-digit institution code — what a Chilean transferencia form calls the código de banco; same order as chile.finance.bank
+---
+001
+009
+012
+014
+016
+028
+031
+037
+039
+049
+051
+053
+055
+504
+672
+729
+730
+732
+738
+875

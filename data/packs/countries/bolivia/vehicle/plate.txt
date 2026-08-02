@@ -1,0 +1,7 @@
+---
+address: bolivia.vehicle.plate
+description: Bolivian placa de vehículo (RUAT) — the current national layout is 3 or 4 digits followed by 3 letters (e.g. 1234ABC), issued in ascending numeric blocks since 1999; the legacy 3-letters-then-3-digits layout (ABC123) is still in circulation. A separate box on the plate carries the single-letter department code (bolivia.geo.departmentIso)
+generator: tdc
+locale: es
+---
+<gen type="regex" value="([0-9]{3,4}[A-Z]{3}|[A-Z]{3}[0-9]{3})"/>

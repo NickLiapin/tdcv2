@@ -1,0 +1,29 @@
+---
+description: Dish
+locale: en
+---
+Pizza
+Sushi
+Tacos
+Cheeseburger
+Spaghetti Carbonara
+Ramen
+Chicken Curry
+Ribeye Steak
+Caesar Salad
+Club Sandwich
+Lasagna
+Mushroom Risotto
+Paella
+Dumplings
+Pad Thai
+Fish and Chips
+Beef Stew
+Pancakes
+Falafel Wrap
+Chicken Tikka Masala
+Pho
+Burrito
+Gnocchi
+Shakshuka
+Fried Rice

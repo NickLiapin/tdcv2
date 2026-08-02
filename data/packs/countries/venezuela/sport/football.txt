@@ -1,0 +1,25 @@
+---
+address: venezuela.sport.football
+description: Venezuelan professional football club — Primera División (Liga FUTVE) sides plus long-standing clubs of the top flight
+locale: es
+---
+Caracas Fútbol Club
+Deportivo Táchira
+Carabobo Fútbol Club
+Deportivo La Guaira
+Estudiantes de Mérida
+Monagas Sport Club
+Metropolitanos Fútbol Club
+Academia Puerto Cabello
+Portuguesa Fútbol Club
+Zamora Fútbol Club
+Deportivo Rayo Zuliano
+Universidad Central de Venezuela Fútbol Club
+Yaracuyanos Fútbol Club
+Anzoátegui Fútbol Club
+Mineros de Guayana
+Aragua Fútbol Club
+Estudiantes de Caracas
+Trujillanos Fútbol Club
+Deportivo Anzoátegui
+Llaneros de Guanare

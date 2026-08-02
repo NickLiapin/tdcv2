@@ -1,0 +1,16 @@
+---
+description: Streaming platform available in the Polish market
+locale: pl
+---
+Netflix
+Disney+
+Amazon Prime Video
+Max
+Apple TV+
+SkyShowtime
+YouTube
+Player
+Polsat Box Go
+CDA
+Spotify
+Twitch

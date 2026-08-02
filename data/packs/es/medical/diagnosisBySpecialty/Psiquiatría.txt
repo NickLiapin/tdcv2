@@ -1,0 +1,10 @@
+---
+description: Diagnoses seen in Psiquiatría
+locale: es
+---
+Trastorno depresivo mayor
+Trastorno de ansiedad generalizada
+Trastorno bipolar
+Esquizofrenia
+Trastorno de estrés postraumático
+Trastorno por déficit de atención e hiperactividad

@@ -1,0 +1,15 @@
+---
+description: Employment / contract type (Italian)
+locale: it
+---
+Tempo pieno
+Tempo parziale
+Collaborazione
+Tempo determinato
+Tirocinio
+Libero professionista
+Stagionale
+A chiamata
+Apprendistato
+Tempo indeterminato
+Somministrazione

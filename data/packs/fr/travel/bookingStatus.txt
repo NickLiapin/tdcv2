@@ -1,0 +1,14 @@
+---
+description: Travel booking status (French)
+locale: fr
+---
+Confirmée
+En attente
+Annulée
+Modifiée
+En cours
+Terminée
+Remboursée
+Non présentée
+Enregistrement effectué
+Départ effectué

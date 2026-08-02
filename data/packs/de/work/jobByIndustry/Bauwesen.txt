@@ -1,0 +1,16 @@
+---
+description: Jobs in Construction (German)
+locale: de
+---
+Elektriker
+Sanitärinstallateur
+Tischler
+Polier
+Baumaschinenführer
+Vermessungstechniker
+Maurer
+Dachdecker
+Bauleiter
+Trockenbaumonteur
+Bauzeichner
+Stahlbetonbauer

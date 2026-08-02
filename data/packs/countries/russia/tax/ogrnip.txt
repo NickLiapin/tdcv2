@@ -1,0 +1,22 @@
+---
+address: russia.tax.ogrnip
+description: Russian OGRNIP for a sole proprietor (15 digits, whole-number mod-13 check)
+generator: tdc
+---
+<sequence name="year"><gen type="regex" value="[0-9]{2}"/></sequence>
+<sequence name="tax_office"><gen type="regex" value="[0-9]{4}"/></sequence>
+<sequence name="tail"><gen type="regex" value="[0-9]{9}"/></sequence>
+<sequence name="ogrnip"><compute>
+  <let name="region">
+    <join><each><over><field name="tax_office"/></over><do>
+      <choose>
+        <when><test><less_than><current_index/><int v="2"/></less_than></test><then><current/></then></when>
+        <otherwise><str v=""/></otherwise>
+      </choose>
+    </do></each></join>
+  </let>
+  <let name="base"><concat><str v="3"/><field name="year"/><var name="region"/><field name="tail"/></concat></let>
+  <let name="check"><mod><mod><to_number><var name="base"/></to_number><int v="13"/></mod><int v="10"/></mod></let>
+  <result><concat><var name="base"/><var name="check"/></concat></result>
+</compute></sequence>
+<data>${{ogrnip}}</data>

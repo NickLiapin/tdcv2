@@ -1,0 +1,9 @@
+---
+address: poland.vehicle.plate
+description: Polish vehicle plate — a one- or two-letter voivodeship-and-county code followed by a four- or five-character series (e.g. WA 12345, KR 1234A).
+generator: tdc
+locale: pl
+---
+<sequence name="code"><gen type="text" value="WA,WB,WE,WF,WH,WI,WK,WL,WN,WO,WP,WR,WS,WT,WU,WW,WX,WY,WZ,KR,KA,GD,PO,PZ,DW,DJ,DL,SB,SC,SK,ST,LU,LB,BI,BK,OP,RZ,RK,ZS,ZG,EL,ET,CB,CT,NO,NE,TK,TO"/></sequence>
+<sequence name="series"><gen type="regex" value="([0-9]{5}|[0-9]{4}[A-Z]|[0-9]{3}[A-Z]{2})"/></sequence>
+<data>${{code}} ${{series}}</data>

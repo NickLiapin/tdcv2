@@ -1,0 +1,14 @@
+---
+description: Legal case type (French)
+locale: fr
+---
+Civil
+Pénal
+Familial
+Commercial
+Administratif
+Social
+Prud'homal
+Correctionnel
+Criminel
+Fiscal

@@ -1,0 +1,43 @@
+---
+address: south_africa.docs.id
+description: South African ID number — 13 digits (YYMMDD + SSSS gender sequence + citizenship + A + Luhn check digit over the first 12)
+generator: tdc
+locale: en
+---
+<sequence name="dob"><gen type="date" from="1950-01-01" to="2008-12-31" format="YYMMDD"/></sequence>
+<sequence name="seq"><gen type="regex" value="[0-9]{4}"/></sequence>
+<sequence name="cit"><gen type="text" value="0,1"/></sequence>
+<sequence name="a"><gen type="text" value="8"/></sequence>
+<sequence name="base"><compute>
+  <result><concat><field name="dob"/><field name="seq"/><field name="cit"/><field name="a"/></concat></result>
+</compute></sequence>
+<sequence name="id"><compute>
+  <!-- Luhn over the 12-digit base: digits at ODD 0-based index (counting from
+       the left of the 12-digit base) are doubled, subtracting 9 when > 9. -->
+  <let name="sum">
+    <reduce>
+      <over><field name="base"/></over>
+      <init><int v="0"/></init>
+      <do>
+        <add><acc/>
+          <choose>
+            <when>
+              <test><equals><mod><current_index/><int v="2"/></mod><int v="1"/></equals></test>
+              <then>
+                <choose>
+                  <when><test><greater_than><multiply><to_number><current/></to_number><int v="2"/></multiply><int v="9"/></greater_than></test>
+                    <then><subtract><multiply><to_number><current/></to_number><int v="2"/></multiply><int v="9"/></subtract></then></when>
+                  <otherwise><multiply><to_number><current/></to_number><int v="2"/></multiply></otherwise>
+                </choose>
+              </then>
+            </when>
+            <otherwise><to_number><current/></to_number></otherwise>
+          </choose>
+        </add>
+      </do>
+    </reduce>
+  </let>
+  <let name="check"><mod><subtract><int v="10"/><mod><var name="sum"/><int v="10"/></mod></subtract><int v="10"/></mod></let>
+  <result><concat><field name="base"/><var name="check"/></concat></result>
+</compute></sequence>
+<data>${{id}}</data>

@@ -1,0 +1,24 @@
+---
+description: Medical diagnosis in Portuguese that requires male anatomy — it cannot occur in a female patient. Draw from this list only for male rows; general conditions live in medical/diagnosis.
+locale: pt
+---
+Hiperplasia prostática benigna
+Prostatite
+Câncer de próstata
+Câncer de testículo
+Torção testicular
+Varicocele
+Hidrocele
+Epididimite
+Criptorquidia
+Fimose
+Balanite
+Disfunção erétil
+Doença de Peyronie
+Infertilidade masculina
+Ginecomastia
+Hipogonadismo masculino
+Priapismo
+Espermatocele
+Alopecia androgenética masculina
+Hérnia escrotal

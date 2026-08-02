@@ -1,0 +1,12 @@
+---
+description: Dishes of Indian cuisine (Spanish)
+locale: es
+---
+Pollo a la mantequilla
+Biryani
+Tikka masala
+Samosa
+Dal makhani
+Pan naan
+Palak paneer
+Rogan josh

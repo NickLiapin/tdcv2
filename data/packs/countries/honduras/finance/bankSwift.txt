@@ -1,0 +1,19 @@
+---
+address: honduras.finance.bankSwift
+description: SWIFT/BIC code (8-character head office) of the Honduran bank; same order as honduras.finance.bank. Honduras has no domestic single-scheme institution code and no IBAN, so the BIC is the stable per-bank identifier
+locale: es
+---
+ATTDHNTE
+BOCCHNTE
+FCOHHNTE
+BMILHNTE
+PISAHNTE
+BHCAHNT1
+CABFHNTE
+BCCEHNTE
+BGAHHNTE
+BPRHHNTE
+DEAGHNT1
+AZTKHNTE
+POUUHNT1
+TSBOHNTA

@@ -1,0 +1,15 @@
+---
+address: cameroon.geo.region
+description: Regions of Cameroon
+locale: fr
+---
+Adamaoua
+Centre
+Est
+Extrême-Nord
+Littoral
+Nord
+Nord-Ouest
+Ouest
+Sud
+Sud-Ouest

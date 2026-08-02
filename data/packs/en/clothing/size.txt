@@ -1,0 +1,12 @@
+---
+description: Clothing size
+locale: en
+---
+XXS
+XS
+S
+M
+L
+XL
+XXL
+XXXL

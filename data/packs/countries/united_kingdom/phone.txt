@@ -1,0 +1,6 @@
+---
+address: united_kingdom.phone
+description: UK mobile phone in E.164 form (Ofcom drama range +44 7700 900xxx)
+generator: tdc
+---
+<gen type="regex" value="\+447700900[0-9]{3}"/>

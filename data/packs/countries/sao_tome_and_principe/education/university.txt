@@ -1,0 +1,9 @@
+---
+address: sao_tome_and_principe.education.university
+description: Universities and higher-education institutions of São Tomé and Príncipe (Portuguese names)
+locale: pt
+---
+Universidade de São Tomé e Príncipe
+Universidade Lusíada de São Tomé e Príncipe
+Instituto Superior Politécnico de São Tomé e Príncipe
+Instituto Universitário de Contabilidade Administração e Informática

@@ -1,0 +1,21 @@
+---
+address: chile.geo.region
+description: Chilean región — all 16, in the official north-to-south order; same order as chile.geo.regionRoman / regionCode / regionNumber / regionCapital
+locale: es
+---
+Arica y Parinacota
+Tarapacá
+Antofagasta
+Atacama
+Coquimbo
+Valparaíso
+Metropolitana de Santiago
+Libertador General Bernardo O'Higgins
+Maule
+Ñuble
+Biobío
+La Araucanía
+Los Ríos
+Los Lagos
+Aysén del General Carlos Ibáñez del Campo
+Magallanes y de la Antártica Chilena

@@ -1,0 +1,41 @@
+---
+description: Trailing qualifier of a Polish place name (Ostrów Wielkopolski, Nowy Dwór Mazowiecki, Kazimierz Dolny)
+locale: pl
+---
+Wielkopolski
+Wielkopolska
+Wielkopolskie
+Mazowiecki
+Mazowiecka
+Mazowieckie
+Śląski
+Śląska
+Śląskie
+Małopolski
+Małopolska
+Podlaski
+Podlaska
+Pomorski
+Pomorska
+Lubelski
+Lubelska
+Kujawski
+Kaszubski
+Zdrój
+Zdroje
+Górny
+Górna
+Górne
+Dolny
+Dolna
+Dolne
+Nowy
+Nowa
+Stary
+Stara
+nad Wisłą
+nad Odrą
+nad Wartą
+nad Notecią
+nad Bugiem
+nad Morzem

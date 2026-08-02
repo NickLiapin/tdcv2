@@ -1,0 +1,6 @@
+---
+address: ireland.tax.vat
+description: Irish VAT (IE + 7 digits + 1 uppercase letter)
+generator: tdc
+---
+<gen type="regex" value="IE[0-9]{7}[A-Z]"/>

@@ -1,0 +1,7 @@
+---
+address: sudan.vehicle.plate
+description: Sudanese licence plate — up to five digits and two letters. Structural.
+generator: tdc
+locale: ar
+---
+<gen type="regex" value="[0-9]{1,5} [أ-ي]{2}"/>

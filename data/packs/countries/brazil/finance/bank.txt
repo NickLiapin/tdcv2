@@ -1,0 +1,23 @@
+---
+address: brazil.finance.bank
+description: Major banks of Brazil (Portuguese names)
+locale: pt
+---
+Banco do Brasil
+Caixa Econômica Federal
+Itaú Unibanco
+Bradesco
+Santander Brasil
+Nubank
+Banco Inter
+BTG Pactual
+Banco Safra
+Banrisul
+Banco do Nordeste
+Sicredi
+Sicoob
+C6 Bank
+Banco Original
+Banco Pan
+XP Investimentos
+Banco Votorantim

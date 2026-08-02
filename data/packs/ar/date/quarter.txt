@@ -1,0 +1,8 @@
+---
+description: Fiscal quarter (Arabic)
+locale: ar
+---
+الربع الأول
+الربع الثاني
+الربع الثالث
+الربع الرابع

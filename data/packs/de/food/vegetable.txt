@@ -1,0 +1,38 @@
+---
+description: Vegetable (German)
+locale: de
+---
+Karotte
+Möhre
+Brokkoli
+Spinat
+Kartoffel
+Erdapfel
+Gurke
+Kopfsalat
+Zwiebel
+Paprika
+Zucchini
+Blumenkohl
+Erbse
+Mais
+Spargel
+Aubergine
+Grünkohl
+Weißkohl
+Sellerie
+Champignon
+Süßkartoffel
+Rote Bete
+Radieschen
+Kürbis
+Mangold
+Artischocke
+Lauch
+Steckrübe
+Tomate
+Brunnenkresse
+Frühlingszwiebel
+Knoblauch
+Rotkohl
+Rosenkohl

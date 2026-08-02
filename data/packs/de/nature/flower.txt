@@ -1,0 +1,32 @@
+---
+description: Flower (German)
+locale: de
+---
+Rose
+Tulpe
+Gänseblümchen
+Sonnenblume
+Lilie
+Orchidee
+Narzisse
+Ringelblume
+Lavendel
+Schwertlilie
+Pfingstrose
+Nelke
+Chrysantheme
+Mohnblume
+Veilchen
+Jasmin
+Hibiskus
+Lotusblume
+Dahlie
+Begonie
+Madonnenlilie
+Gardenie
+Kamelie
+Petunie
+Geranie
+Bougainvillea
+Vergissmeinnicht
+Azalee

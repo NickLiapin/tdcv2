@@ -1,0 +1,27 @@
+---
+address: madagascar.geo.city
+description: Cities and larger towns of Madagascar
+locale: fr
+---
+Antananarivo
+Toamasina
+Antsirabe
+Mahajanga
+Fianarantsoa
+Toliara
+Antsiranana
+Ambovombe
+Antanifotsy
+Antalaha
+Manakara
+Morondava
+Sambava
+Nosy Be
+Ihosy
+Farafangana
+Maevatanana
+Moramanga
+Ambatondrazaka
+Fort-Dauphin
+Ambositra
+Maroantsetra

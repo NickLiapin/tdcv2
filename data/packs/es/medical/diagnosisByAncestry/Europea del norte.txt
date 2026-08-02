@@ -1,0 +1,14 @@
+---
+description: Conditions markedly more frequent in people of Northern European ancestry, in Spanish. A prevalence signal, not an exclusive one.
+locale: es
+---
+Fibrosis quística
+Hemocromatosis hereditaria
+Deficiencia de alfa-1 antitripsina
+Fenilcetonuria
+Enfermedad celíaca
+Esclerosis múltiple
+Diabetes mellitus tipo 1
+Contractura de Dupuytren
+Carcinoma basocelular
+Persistencia de la lactasa

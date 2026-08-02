@@ -1,0 +1,174 @@
+{
+  "schemaVersion": 1,
+  "$comment": "Interpolation filters and positional masks, as the TypeScript reference computes them. Regenerate with `npm run fixtures:filters`. The formatting layer is shared by three places that mean the same thing — the case= attribute, the compute tags and the ${{Name|filter}} syntax — so one of these drifting shows up in all of them.",
+  "vectors": [
+    {
+      "kind": "mask",
+      "arg": "xxx-xxx",
+      "input": "1234567",
+      "expected": "123-456"
+    },
+    {
+      "kind": "mask",
+      "arg": "w[1] w[0]",
+      "input": "John Smith",
+      "expected": "Smith John"
+    },
+    {
+      "kind": "mask",
+      "arg": "w[0] *",
+      "input": "John Ronald Reuel Tolkien",
+      "expected": "John Ronald Reuel Tolkien"
+    },
+    {
+      "kind": "mask",
+      "arg": "x[0]. *",
+      "input": "John Smith",
+      "expected": "J. ohn Smith"
+    },
+    {
+      "kind": "mask",
+      "arg": "[tel.] xxx",
+      "input": "123",
+      "expected": "[tel.] 123"
+    },
+    {
+      "kind": "mask",
+      "arg": "x[-1]",
+      "input": "abcdef",
+      "expected": "f"
+    },
+    {
+      "kind": "mask",
+      "arg": "x[1..3]",
+      "input": "abcdef",
+      "expected": "bcd"
+    },
+    {
+      "kind": "mask",
+      "arg": "x[3..1]",
+      "input": "abcdef",
+      "expected": "dcb"
+    },
+    {
+      "kind": "mask",
+      "arg": "x[9]",
+      "input": "abc",
+      "expected": ""
+    },
+    {
+      "kind": "mask",
+      "arg": "\\x xx",
+      "input": "abc",
+      "expected": "x ab"
+    },
+    {
+      "kind": "mask",
+      "arg": "w[-1], w[0]",
+      "input": "Ann Bee Cee",
+      "expected": "Cee, Ann"
+    },
+    {
+      "kind": "upper",
+      "arg": "",
+      "input": "straße",
+      "expected": "STRASSE"
+    },
+    {
+      "kind": "lower",
+      "arg": "",
+      "input": "ÄÖÜ",
+      "expected": "äöü"
+    },
+    {
+      "kind": "capitalize",
+      "arg": "",
+      "input": "мир труд",
+      "expected": "Мир труд"
+    },
+    {
+      "kind": "title",
+      "arg": "",
+      "input": "mcDonald and sons",
+      "expected": "McDonald And Sons"
+    },
+    {
+      "kind": "slice",
+      "arg": "1,4",
+      "input": "abcdefg",
+      "expected": "bcd"
+    },
+    {
+      "kind": "slice",
+      "arg": "2",
+      "input": "abcdefg",
+      "expected": "cdefg"
+    },
+    {
+      "kind": "slice",
+      "arg": "-3",
+      "input": "abcdefg",
+      "expected": "efg"
+    },
+    {
+      "kind": "replace",
+      "arg": "a,X",
+      "input": "banana",
+      "expected": "bXnXnX"
+    },
+    {
+      "kind": "trim",
+      "arg": "",
+      "input": "  padded  ",
+      "expected": "padded"
+    },
+    {
+      "kind": "group",
+      "arg": "3,-",
+      "input": "1234567",
+      "expected": "1-234-567"
+    },
+    {
+      "kind": "group",
+      "arg": "4, ",
+      "input": "1234567890",
+      "expected": "12 3456 7890"
+    },
+    {
+      "kind": "compact",
+      "arg": "",
+      "input": "1000000",
+      "expected": "lfls"
+    },
+    {
+      "kind": "compact",
+      "arg": "16",
+      "input": "255",
+      "expected": "ff"
+    },
+    {
+      "kind": "compact",
+      "arg": "",
+      "input": "not a number",
+      "expected": "not a number"
+    },
+    {
+      "kind": "csv",
+      "arg": "",
+      "input": "Knife set, 3 \"pcs\"",
+      "expected": "\"Knife set, 3 \"\"pcs\"\"\""
+    },
+    {
+      "kind": "sql",
+      "arg": "",
+      "input": "O'Brien",
+      "expected": "O''Brien"
+    },
+    {
+      "kind": "nosuchfilter",
+      "arg": "",
+      "input": "left alone",
+      "expected": "left alone"
+    }
+  ]
+}

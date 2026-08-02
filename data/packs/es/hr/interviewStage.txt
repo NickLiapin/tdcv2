@@ -1,0 +1,15 @@
+---
+description: Hiring / interview stage (Spanish)
+locale: es
+---
+Revisión de solicitud
+Entrevista telefónica
+Entrevista técnica
+Entrevista presencial
+Entrevista con panel
+Ronda final
+Verificación de referencias
+Oferta
+Rechazado
+Contratado
+Retirado

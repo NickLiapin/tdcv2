@@ -1,0 +1,64 @@
+---
+description: Business buzz noun (Polish)
+locale: pl
+---
+synergia
+paradygmat
+ekosystem
+model działania
+przepływ pracy
+architektura
+infrastruktura
+platforma
+rozwiązanie
+strategia
+mapa drogowa
+inicjatywa
+metodyka
+dopasowanie
+dźwignia
+wydajność
+produkt końcowy
+punkt styku
+punkt odniesienia
+kamień milowy
+zaangażowanie
+orkiestracja
+integracja
+migracja
+transformacja
+optymalizacja
+skalowalność
+interoperacyjność
+ład korporacyjny
+zgodność
+odporność
+obserwowalność
+telemetria
+kadencja
+wertykał
+kanał
+dźwignia finansowa
+wartość dodana
+propozycja wartości
+przewaga konkurencyjna
+udział w rynku
+segment
+nisza
+portfel
+portfolio
+inwestycja
+zwrot z inwestycji
+produktywność
+efektywność
+innowacja
+dysrupcja
+cyfryzacja
+automatyzacja
+analityka
+inteligencja biznesowa
+cykl życia
+czas wprowadzenia na rynek
+ekonomia skali
+ciągłe doskonalenie
+zarządzanie zmianą

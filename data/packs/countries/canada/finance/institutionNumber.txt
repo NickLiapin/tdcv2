@@ -1,0 +1,17 @@
+---
+address: canada.finance.institutionNumber
+description: Payments Canada 3-digit institution number that identifies the bank on the MICR line; same order as canada.finance.bank
+---
+003
+004
+002
+001
+010
+006
+039
+219
+614
+540
+623
+320
+815

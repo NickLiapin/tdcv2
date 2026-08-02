@@ -1,0 +1,19 @@
+---
+address: oman.sport.team
+description: Omani Professional League football clubs (Arabic)
+locale: ar
+---
+النصر
+ظفار
+السيب
+صحار
+العروبة
+السويق
+صور
+عمان
+بهلا
+مرباط
+النهضة
+الرستاق
+مسقط
+اتحاد السيب

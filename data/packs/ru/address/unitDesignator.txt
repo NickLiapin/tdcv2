@@ -1,0 +1,7 @@
+---
+description: Russian address unit designator (квартира, офис, …)
+---
+кв.
+комн.
+оф.
+пом.

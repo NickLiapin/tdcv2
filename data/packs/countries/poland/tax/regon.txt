@@ -1,0 +1,19 @@
+---
+address: poland.tax.regon
+description: Polish REGON statistical number — 9 digits: an 8-digit base plus a weighted mod-11 check digit (weights 8,9,2,3,4,5,6,7; a remainder of 10 becomes 0).
+generator: tdc
+locale: pl
+---
+<sequence name="base"><gen type="regex" value="[1-9][0-9]{7}"/></sequence>
+<sequence name="regon"><compute>
+  <let name="sum"><reduce>
+    <over><field name="base"/></over>
+    <init><int v="0"/></init>
+    <do><add><acc/><multiply><current/>
+      <at><in><list v="8,9,2,3,4,5,6,7"/></in><index><current_index/></index></at>
+    </multiply></add></do>
+  </reduce></let>
+  <let name="check"><mod><mod><var name="sum"/><int v="11"/></mod><int v="10"/></mod></let>
+  <result><concat><field name="base"/><var name="check"/></concat></result>
+</compute></sequence>
+<data>${{regon}}</data>

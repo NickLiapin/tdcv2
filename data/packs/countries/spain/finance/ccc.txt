@@ -1,0 +1,52 @@
+---
+address: spain.finance.ccc
+description: Spanish Código Cuenta Cliente — 20 digits: 4-digit Banco de España entity + 4-digit oficina + 2 dígitos de control + 10-digit account. The first control digit covers "00" + entity + oficina, the second the account; both use the weights 1,2,4,8,5,10,9,7,3,6 mod 11, mapping a result of 10 to 1 and 11 to 0.
+generator: tdc
+---
+<sequence name="entidad"><gen type="template" value="spain.finance.bankCode"/></sequence>
+<sequence name="oficina"><gen type="regex" value="[0-9]{4}"/></sequence>
+<sequence name="cuenta"><gen type="regex" value="[0-9]{10}"/></sequence>
+<sequence name="ccc"><compute>
+  <!-- DC1 is computed over ten digits, so the eight of entidad+oficina are
+       left-padded with "00" to line up with the weight table. -->
+  <let name="head"><concat><str v="00"/><field name="entidad"/><field name="oficina"/></concat></let>
+  <let name="sumHead"><reduce>
+    <over><var name="head"/></over>
+    <init><int v="0"/></init>
+    <do><add><acc/>
+      <multiply><current/>
+        <at><in><list v="1,2,4,8,5,10,9,7,3,6"/></in><index><current_index/></index></at>
+      </multiply>
+    </add></do>
+  </reduce></let>
+  <let name="sumTail"><reduce>
+    <over><field name="cuenta"/></over>
+    <init><int v="0"/></init>
+    <do><add><acc/>
+      <multiply><current/>
+        <at><in><list v="1,2,4,8,5,10,9,7,3,6"/></in><index><current_index/></index></at>
+      </multiply>
+    </add></do>
+  </reduce></let>
+  <!-- d = 11 - (sum mod 11); the two overflow cases collapse: 11 -> 0, 10 -> 1. -->
+  <let name="dc1"><choose>
+    <when><test><equals><mod><var name="sumHead"/><int v="11"/></mod><int v="0"/></equals></test>
+      <then><int v="0"/></then></when>
+    <when><test><equals><mod><var name="sumHead"/><int v="11"/></mod><int v="1"/></equals></test>
+      <then><int v="1"/></then></when>
+    <otherwise><subtract><int v="11"/><mod><var name="sumHead"/><int v="11"/></mod></subtract></otherwise>
+  </choose></let>
+  <let name="dc2"><choose>
+    <when><test><equals><mod><var name="sumTail"/><int v="11"/></mod><int v="0"/></equals></test>
+      <then><int v="0"/></then></when>
+    <when><test><equals><mod><var name="sumTail"/><int v="11"/></mod><int v="1"/></equals></test>
+      <then><int v="1"/></then></when>
+    <otherwise><subtract><int v="11"/><mod><var name="sumTail"/><int v="11"/></mod></subtract></otherwise>
+  </choose></let>
+  <result><concat>
+    <field name="entidad"/><field name="oficina"/>
+    <var name="dc1"/><var name="dc2"/>
+    <field name="cuenta"/>
+  </concat></result>
+</compute></sequence>
+<data>${{ccc}}</data>

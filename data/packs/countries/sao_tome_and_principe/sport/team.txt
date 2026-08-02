@@ -1,0 +1,20 @@
+---
+address: sao_tome_and_principe.sport.team
+description: Football clubs of São Tomé and Príncipe (Portuguese names)
+locale: pt
+---
+Sporting Praia Cruz
+Vitória FC de Riboque
+UDRA
+Bairros Unidos FC
+Trindade FC
+Aliança Nacional
+GD Sundy
+6 de Setembro
+Os Operários
+Santana FC
+FC Neves
+Agrosport
+Inter Bom-Bom
+Guadalupe FC
+Sporting Clube do Príncipe

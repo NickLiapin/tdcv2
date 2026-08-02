@@ -1,0 +1,10 @@
+---
+description: Positions in Rugby
+locale: en
+---
+Prop
+Hooker
+Lock
+Scrum-half
+Fly-half
+Fullback

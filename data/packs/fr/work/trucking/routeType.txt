@@ -1,0 +1,14 @@
+---
+description: Trucking route type (French)
+locale: fr
+---
+Longue distance
+Régionale
+Locale
+Nationale
+Internationale
+Messagerie
+Ramasse
+Navette
+Distribution urbaine
+Grand routier

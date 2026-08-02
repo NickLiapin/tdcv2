@@ -1,0 +1,6 @@
+---
+address: united_kingdom.tax.utr
+description: HMRC Unique Taxpayer Reference — 10 digits. STRUCTURAL ONLY — a UTR carries a leading mod-11 check digit, but HMRC does not publish the weighting, so the check digit is NOT computed here and these values are not guaranteed to validate.
+generator: tdc
+---
+<gen type="regex" value="[0-9]{10}"/>

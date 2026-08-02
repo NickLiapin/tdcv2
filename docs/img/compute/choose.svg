@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 250" width="620" height="250" font-family="system-ui, -apple-system, Segoe UI, Roboto, sans-serif">
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#3b82f6"/></marker></defs>
+<defs><marker id="af" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b0b0b4"/></marker><marker id="am" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2f9e63"/></marker></defs>
+<circle cx="22.0" cy="37.0" r="9.5" fill="#e0662b"/><text x="22.0" y="41.0" text-anchor="middle" font-size="12" font-weight="700" fill="#ffffff">A</text>
+<rect x="46" y="20" width="60" height="34" rx="5" fill="none" stroke="#e0662b" stroke-width="1.5"/><text x="76.0" y="41.3" text-anchor="middle" font-size="13" font-weight="600" fill="#e0662b">7</text>
+<circle cx="140.0" cy="117.0" r="9.5" fill="#3b82f6"/><text x="140.0" y="121.0" text-anchor="middle" font-size="12" font-weight="700" fill="#ffffff">B</text>
+<rect x="160" y="20" width="140" height="34" rx="5" fill="none" stroke="#3b82f6" stroke-width="1.5"/><text x="230.0" y="41.3" text-anchor="middle" font-size="13" font-weight="600" fill="#3b82f6">&gt; 5</text>
+<rect x="400" y="20" width="70" height="34" rx="5" fill="none" stroke="#2f9e63" stroke-width="1.5"/><text x="435.0" y="41.3" text-anchor="middle" font-size="13" font-weight="600" fill="#2f9e63">100</text>
+<line x1="304" y1="37" x2="396" y2="37" stroke="#3b82f6" stroke-width="1.6" marker-end="url(#a)"/>
+<text x="348.0" y="31.0" text-anchor="middle" font-size="14" font-weight="700" fill="#3b82f6">✓</text>
+<rect x="160" y="100" width="140" height="34" rx="5" fill="none" stroke="#b0b0b4" stroke-width="1.5"/><text x="230.0" y="121.0" text-anchor="middle" font-size="12" font-weight="600" fill="#b0b0b4">&gt; 2</text>
+<rect x="400" y="100" width="70" height="34" rx="5" fill="none" stroke="#b0b0b4" stroke-width="1.5"/><text x="435.0" y="121.3" text-anchor="middle" font-size="13" font-weight="600" fill="#b0b0b4">50</text>
+<line x1="304" y1="117" x2="396" y2="117" stroke="#b0b0b4" stroke-width="1.6" marker-end="url(#af)"/>
+<text x="348.0" y="111.0" text-anchor="middle" font-size="14" font-weight="700" fill="#b0b0b4">✗</text>
+<rect x="160" y="180" width="140" height="34" rx="5" fill="none" stroke="#b0b0b4" stroke-width="1.5"/><text x="230.0" y="201.0" text-anchor="middle" font-size="12" font-weight="600" fill="#b0b0b4">&lt;otherwise&gt;</text>
+<rect x="400" y="180" width="70" height="34" rx="5" fill="none" stroke="#b0b0b4" stroke-width="1.5"/><text x="435.0" y="201.3" text-anchor="middle" font-size="13" font-weight="600" fill="#b0b0b4">0</text>
+<line x1="304" y1="197" x2="396" y2="197" stroke="#b0b0b4" stroke-width="1.6" marker-end="url(#af)"/>
+<line x1="110" y1="37" x2="156" y2="37" stroke="#3b82f6" stroke-width="1.6" marker-end="url(#a)"/>
+<line x1="230" y1="58" x2="230" y2="96" stroke="#b0b0b4" stroke-width="1.6" marker-end="url(#af)"/>
+<line x1="230" y1="138" x2="230" y2="176" stroke="#b0b0b4" stroke-width="1.6" marker-end="url(#af)"/>
+<circle cx="510.0" cy="37.0" r="9.5" fill="#2f9e63"/><text x="510.0" y="41.0" text-anchor="middle" font-size="12" font-weight="700" fill="#ffffff">C</text>
+<line x1="474" y1="37" x2="500" y2="37" stroke="#2f9e63" stroke-width="1.6" marker-end="url(#am)"/>
+</svg>

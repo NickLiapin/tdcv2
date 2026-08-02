@@ -1,0 +1,9 @@
+---
+description: Positions in Cricket
+locale: en
+---
+Batsman
+Bowler
+Wicketkeeper
+All-rounder
+Fielder

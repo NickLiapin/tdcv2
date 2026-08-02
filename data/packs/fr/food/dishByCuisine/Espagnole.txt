@@ -1,0 +1,16 @@
+---
+description: Dishes of Spanish cuisine (French)
+locale: fr
+---
+Paella
+Tapas
+Tortilla española
+Gaspacho
+Jambon serrano
+Croquetas
+Patatas bravas
+Chorizo
+Churros
+Fabada
+Pulpo a la gallega
+Pan con tomate

@@ -1,0 +1,29 @@
+---
+address: germany.tax.vat
+description: German VAT / USt-IdNr (DE + 8 digits, iterative mod-11/10 check)
+generator: tdc
+---
+<sequence name="base"><gen type="regex" value="[1-9][0-9]{7}"/></sequence>
+<sequence name="vat"><compute>
+  <let name="product">
+    <reduce>
+      <over><field name="base"/></over>
+      <init><int v="10"/></init>
+      <do>
+        <let name="s"><mod><add><current/><acc/></add><int v="10"/></mod></let>
+        <mod>
+          <multiply><int v="2"/>
+            <choose>
+              <when><test><equals><var name="s"/><int v="0"/></equals></test><then><int v="10"/></then></when>
+              <otherwise><var name="s"/></otherwise>
+            </choose>
+          </multiply>
+          <int v="11"/>
+        </mod>
+      </do>
+    </reduce>
+  </let>
+  <let name="check"><mod><subtract><int v="11"/><var name="product"/></subtract><int v="10"/></mod></let>
+  <result><concat><str v="DE"/><field name="base"/><var name="check"/></concat></result>
+</compute></sequence>
+<data>${{vat}}</data>

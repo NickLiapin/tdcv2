@@ -1,0 +1,35 @@
+---
+description: Medical specialties
+locale: en
+---
+Cardiology
+Dermatology
+Endocrinology
+Gastroenterology
+Neurology
+Oncology
+Ophthalmology
+Orthopedics
+Pediatrics
+Psychiatry
+Pulmonology
+Radiology
+Rheumatology
+Urology
+Nephrology
+Hematology
+Immunology
+Anesthesiology
+Emergency Medicine
+Family Medicine
+Internal Medicine
+Obstetrics and Gynecology
+Otolaryngology
+Pathology
+Plastic Surgery
+General Surgery
+Vascular Surgery
+Infectious Disease
+Geriatrics
+Neonatology
+Physical Medicine and Rehabilitation

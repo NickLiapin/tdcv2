@@ -1,0 +1,15 @@
+---
+address: chad.finance.bank
+description: Banks operating in Chad
+locale: fr
+---
+Ecobank
+Société Générale Tchad
+Commercial Bank Tchad
+UBA
+BSIC
+Orabank
+Banque Commerciale du Chari
+Banque Agricole et Commerciale
+BGFIBank
+Banque Sahélo-Saharienne

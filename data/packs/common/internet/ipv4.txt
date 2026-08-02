@@ -1,0 +1,36 @@
+---
+address: common.internet.ipv4
+description: IPv4 in private ranges (10/8, 172.16/12, 192.168/16); octets 0-255
+generator: tdc
+---
+<!-- Octets are numbers, not alternations. `(?:25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])`
+     covers 0-255, but an alternation picks each of its four sides equally, so a
+     quarter of every octet landed in 250-255 — six values with the weight of a
+     hundred. The block itself stays an even three-way choice, as it was. -->
+<sequence name="block"><gen type="text" value="10,172,192"/></sequence>
+<sequence name="second"><gen type="number" value="0..255"/></sequence>
+<sequence name="secondPrivate"><gen type="number" value="16..31"/></sequence>
+<sequence name="third"><gen type="number" value="0..255"/></sequence>
+<sequence name="fourth"><gen type="number" value="0..255"/></sequence>
+<sequence name="ip"><compute>
+  <result><choose>
+    <when>
+      <test><equals><to_number><field name="block"/></to_number><int v="10"/></equals></test>
+      <then><concat>
+        <str v="10."/><field name="second"/><str v="."/>
+        <field name="third"/><str v="."/><field name="fourth"/>
+      </concat></then>
+    </when>
+    <when>
+      <test><equals><to_number><field name="block"/></to_number><int v="172"/></equals></test>
+      <then><concat>
+        <str v="172."/><field name="secondPrivate"/><str v="."/>
+        <field name="third"/><str v="."/><field name="fourth"/>
+      </concat></then>
+    </when>
+    <otherwise><concat>
+      <str v="192.168."/><field name="third"/><str v="."/><field name="fourth"/>
+    </concat></otherwise>
+  </choose></result>
+</compute></sequence>
+<data>${{ip}}</data>

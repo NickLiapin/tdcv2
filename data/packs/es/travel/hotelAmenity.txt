@@ -1,0 +1,34 @@
+---
+description: Hotel amenity (Spanish)
+locale: es
+---
+Wifi gratuito
+Piscina
+Piscina climatizada
+Spa
+Gimnasio
+Restaurante
+Bar
+Servicio de habitaciones
+Traslado al aeropuerto
+Desayuno incluido
+Estacionamiento gratuito
+Admite mascotas
+Centro de negocios
+Conserjería
+Servicio de lavandería
+Jacuzzi
+Terraza en la azotea
+Aire acondicionado
+Caja fuerte
+Recepción 24 horas
+Salas de reuniones
+Ascensor
+Minibar
+Acceso para personas con movilidad reducida
+Guardaequipaje
+Alquiler de bicicletas
+Zona infantil
+Sauna
+Vistas al mar
+Cocina equipada

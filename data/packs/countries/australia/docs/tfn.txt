@@ -1,0 +1,31 @@
+---
+address: australia.docs.tfn
+description: Australian Tax File Number (TFN) — 9 digits carrying an ATO mod-11 check. Weights 1,4,3,7,5,8,6,9,10 are applied left to right and the weighted sum of all nine digits must be divisible by 11. Built by taking 8 random digits and appending the digit that closes the sum; the <valid> guard redraws the rare 1-in-11 body whose required check digit would be 10 (not representable)
+generator: tdc
+locale: en
+---
+<!-- Positions 1-8, freely drawn. -->
+<sequence name="body"><gen type="regex" value="[0-9]{8}"/></sequence>
+<!-- Check digit d9 (weight 10). With P8 = sum of the first eight weighted
+     digits, the divisibility rule 10*d9 ≡ -P8 (mod 11) reduces to d9 ≡ P8
+     (mod 11), because 10 ≡ -1 (mod 11) makes 10 its own inverse. -->
+<sequence name="check"><compute>
+  <let name="sum">
+    <reduce>
+      <over><field name="body"/></over>
+      <init><int v="0"/></init>
+      <do><add><acc/>
+        <multiply><current/>
+          <at><in><list v="1,4,3,7,5,8,6,9"/></in><index><current_index/></index></at>
+        </multiply>
+      </add></do>
+    </reduce>
+  </let>
+  <result><mod><var name="sum"/><int v="11"/></mod></result>
+</compute></sequence>
+<!-- A required check of 10 has no single-digit form; the guard redraws. -->
+<valid><less_than><to_number><field name="check"/></to_number><int v="10"/></less_than></valid>
+<sequence name="tfn"><compute>
+  <result><concat><field name="body"/><field name="check"/></concat></result>
+</compute></sequence>
+<data>${{tfn}}</data>

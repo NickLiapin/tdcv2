@@ -1,0 +1,21 @@
+---
+address: denmark.sport.team
+description: Superliga and 1. division football clubs of Denmark (Danish names)
+locale: da
+---
+FC København
+Brøndby IF
+FC Midtjylland
+AGF
+Randers FC
+FC Nordsjælland
+Silkeborg IF
+Viborg FF
+AaB
+Odense Boldklub
+Lyngby BK
+Vejle Boldklub
+SønderjyskE
+Hvidovre IF
+AC Horsens
+Esbjerg fB

@@ -1,0 +1,52 @@
+---
+address: panama.geo.streetNamed
+description: Real named Panamanian street or avenue, written with the type prefix it is actually known by (Vía / Avenida / Calle) — Panamanian street names are tied to a fixed type, so they are kept whole here rather than split
+locale: es
+---
+Vía España
+Avenida Balboa
+Vía Argentina
+Vía Israel
+Vía Porras
+Vía Brasil
+Vía Fernández de Córdoba
+Vía Ricardo J. Alfaro
+Vía Simón Bolívar
+Vía Cincuentenario
+Vía Transístmica
+Avenida Central
+Avenida Perú
+Avenida Cuba
+Avenida México
+Avenida Ecuador
+Avenida Justo Arosemena
+Avenida Federico Boyd
+Avenida Manuel Espinosa Batista
+Avenida Nicanor de Obarrio
+Avenida Samuel Lewis
+Avenida Ricardo Arango
+Avenida de los Mártires
+Avenida Domingo Díaz
+Avenida John F. Kennedy
+Avenida Aquilino de la Guardia
+Avenida Ascanio Arosemena
+Avenida Roosevelt
+Avenida Amador Guerrero
+Avenida Bolívar
+Avenida del Frente
+Calle 50
+Calle Uruguay
+Calle Elvira Méndez
+Calle Eusebio A. Morales
+Calle José Gabriel Duque
+Calle Carlos A. Mendoza
+Calle Colombia
+Calle Venezuela
+Calle Ramón H. Jurado
+Calle Manuel María Icaza
+Calle Abel Bravo
+Calle Alberto Navarro
+Corredor Sur
+Corredor Norte
+Boulevard El Dorado
+Boulevard Costa del Este

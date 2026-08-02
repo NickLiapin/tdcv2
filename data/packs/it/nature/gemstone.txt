@@ -1,0 +1,29 @@
+---
+description: Gemstone (Italian)
+locale: it
+---
+Diamante
+Rubino
+Zaffiro
+Smeraldo
+Ametista
+Topazio
+Opale
+Granato
+Acquamarina
+Peridoto
+Turchese
+Giada
+Onice
+Perla
+Citrino
+Tanzanite
+Tormalina
+Pietra di luna
+Zircone
+Lapislazzuli
+Ambra
+Corallo
+Malachite
+Quarzo rosa
+Ossidiana

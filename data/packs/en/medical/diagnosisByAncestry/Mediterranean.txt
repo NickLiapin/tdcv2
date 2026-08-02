@@ -1,0 +1,11 @@
+---
+description: Conditions markedly more frequent in people of Mediterranean ancestry. A prevalence signal, not an exclusive one.
+locale: en
+---
+Beta-Thalassemia
+Beta-Thalassemia Trait
+Glucose-6-Phosphate Dehydrogenase Deficiency
+Familial Mediterranean Fever
+Behçet Disease
+Alpha-Thalassemia
+Favism

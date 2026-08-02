@@ -1,0 +1,21 @@
+---
+description: Academic degree / qualification awarded in Italy (Italian)
+locale: it
+---
+Licenza media
+Qualifica professionale
+Diploma professionale
+Diploma di maturità
+Istituto tecnico superiore
+Laurea triennale
+Laurea magistrale
+Laurea magistrale a ciclo unico
+Master di primo livello
+Master di secondo livello
+Dottorato di ricerca
+Diploma accademico di primo livello
+Diploma accademico di secondo livello
+Scuola di specializzazione
+Corso di perfezionamento
+MBA
+Abilitazione professionale

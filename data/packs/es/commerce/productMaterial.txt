@@ -1,0 +1,62 @@
+---
+description: Product material (Spanish), as a noun — compose with "de" ("mesa de roble", "silla de acero inoxidable")
+locale: es
+---
+acero
+acero inoxidable
+hierro
+aluminio
+cobre
+latón
+bronce
+titanio
+zinc
+madera
+roble
+nogal
+pino
+haya
+cedro
+caoba
+bambú
+mimbre
+ratán
+corcho
+plástico
+policarbonato
+poliéster
+nailon
+acrílico
+resina
+silicona
+caucho
+goma
+espuma
+algodón
+lino
+lana
+seda
+cuero
+piel sintética
+ante
+fieltro
+lona
+denim
+vidrio
+cristal
+cerámica
+porcelana
+gres
+mármol
+granito
+pizarra
+hormigón
+piedra
+papel
+cartón
+fibra de carbono
+fibra de vidrio
+neopreno
+terciopelo
+yute
+cáñamo

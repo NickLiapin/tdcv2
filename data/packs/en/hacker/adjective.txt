@@ -1,0 +1,24 @@
+---
+description: Tech adjective
+locale: en
+---
+auxiliary
+primary
+back-end
+digital
+open-source
+virtual
+cross-platform
+redundant
+online
+haptic
+multi-byte
+bluetooth
+wireless
+neural
+optical
+solid-state
+mobile
+1080p
+8-bit
+high-speed

@@ -1,0 +1,173 @@
+---
+address: mexico.geo.streetNamed
+description: Common Mexican street name, bare (without the Calle / Avenida / Calzada prefix)
+---
+Benito Juárez
+Miguel Hidalgo
+Miguel Hidalgo y Costilla
+Francisco I. Madero
+Emiliano Zapata
+Venustiano Carranza
+Álvaro Obregón
+Lázaro Cárdenas
+Adolfo López Mateos
+Plutarco Elías Calles
+José María Morelos
+José María Morelos y Pavón
+Ignacio Allende
+Ignacio Zaragoza
+Ignacio Ramírez
+Ignacio Manuel Altamirano
+Vicente Guerrero
+Nicolás Bravo
+Mariano Matamoros
+Mariano Escobedo
+Mariano Abasolo
+Melchor Ocampo
+Guadalupe Victoria
+Josefa Ortiz de Domínguez
+Leona Vicario
+Sor Juana Inés de la Cruz
+José María Pino Suárez
+Belisario Domínguez
+Ricardo Flores Magón
+Justo Sierra
+Vasco de Quiroga
+Amado Nervo
+Rosario Castellanos
+Octavio Paz
+Juan Rulfo
+Diego Rivera
+Frida Kahlo
+David Alfaro Siqueiros
+José Clemente Orozco
+Agustín Yáñez
+Manuel Doblado
+Antonio Caso
+Juan Escutia
+Niños Héroes
+Heroico Colegio Militar
+Insurgentes
+Reforma
+Paseo de la Reforma
+Revolución
+Independencia
+Constitución
+Constituyentes
+5 de Mayo
+16 de Septiembre
+20 de Noviembre
+5 de Febrero
+21 de Marzo
+1 de Mayo
+2 de Abril
+27 de Septiembre
+Cuauhtémoc
+Nezahualcóyotl
+Xicoténcatl
+Tenochtitlán
+Quetzalcóatl
+Tlaloc
+Anáhuac
+Tepeyac
+División del Norte
+Ejército Nacional
+Universidad
+Politécnico Nacional
+Tlalpan
+Coyoacán
+Churubusco
+Chapultepec
+Circunvalación
+Periférico
+Patriotismo
+Vallarta
+Américas
+Colón
+Hidalgo
+Morelos
+Allende
+Guerrero
+Aldama
+Zaragoza
+Matamoros
+Abasolo
+Bravo
+Mina
+Ocampo
+Rosales
+Rayón
+Galeana
+Comonfort
+Corregidora
+Río Nilo
+Río Lerma
+Río Bravo
+Río Pánuco
+Río Usumacinta
+Río Grijalva
+Río Balsas
+Popocatépetl
+Iztaccíhuatl
+Citlaltépetl
+Nevado de Toluca
+Pico de Orizaba
+Sierra Madre
+Del Sol
+De la Luna
+Las Flores
+Los Pinos
+Los Olivos
+Girasoles
+Bugambilias
+Jacarandas
+Azaleas
+Magnolias
+Nogal
+Fresno
+Cedro
+Encino
+Roble
+Ceiba
+Palma
+Framboyán
+Laurel
+Sauce
+Álamo
+Pirul
+Mezquite
+Huizache
+Maguey
+Nardo
+Tulipán
+Violeta
+Gardenia
+Clavel
+Margarita
+Azucena
+Dalia
+Orquídea
+Camelia
+Begonia
+Hortensia
+Crisantemo
+Jazmín
+Primavera
+Progreso
+Libertad
+Unión
+Esperanza
+Aztecas
+Toltecas
+Mayas
+Olmecas
+Zapotecas
+Mixtecas
+Huastecas
+Tarascos
+Pípila
+Ferrocarril
+Del Trabajo
+De los Maestros
+De la Juventud
+Solidaridad

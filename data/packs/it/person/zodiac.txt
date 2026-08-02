@@ -1,0 +1,16 @@
+---
+description: Zodiac sign (Italian)
+locale: it
+---
+Ariete
+Toro
+Gemelli
+Cancro
+Leone
+Vergine
+Bilancia
+Scorpione
+Sagittario
+Capricorno
+Acquario
+Pesci

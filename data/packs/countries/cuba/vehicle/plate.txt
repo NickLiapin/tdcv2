@@ -1,0 +1,7 @@
+---
+address: cuba.vehicle.plate
+description: Cuban licence plate (structural — a category letter + 6 digits; P = particular/private)
+generator: tdc
+locale: es
+---
+<gen type="regex" value="[PBTKEMOU][0-9]{6}"/>

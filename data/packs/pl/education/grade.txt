@@ -1,0 +1,16 @@
+---
+description: Grade / mark on the Polish school and university scale (2-5, plus celujacy)
+locale: pl
+---
+Celujący
+Bardzo dobry
+Dobry plus
+Dobry
+Dostateczny plus
+Dostateczny
+Dopuszczający
+Niedostateczny
+Zaliczone
+Niezaliczone
+Zwolniony
+Nieklasyfikowany

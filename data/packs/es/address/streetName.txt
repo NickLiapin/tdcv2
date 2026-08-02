@@ -1,0 +1,159 @@
+---
+description: Street names common across the Spanish-speaking world (saints, national heroes, dates, nature). Compose after a streetSuffix; country-specific streets belong in a country pack.
+locale: es
+---
+Mayor
+Real
+Nueva
+Larga
+Ancha
+Alta
+Baja
+Central
+Principal
+del Sol
+de la Luna
+del Mar
+del Río
+del Puente
+del Parque
+del Bosque
+del Valle
+de la Sierra
+de la Montaña
+de las Flores
+de los Olivos
+de los Pinos
+de los Almendros
+de los Naranjos
+de las Palmeras
+de los Cedros
+de los Sauces
+de los Álamos
+de las Acacias
+de las Rosas
+de los Jazmines
+de la Constitución
+de la Independencia
+de la Libertad
+de la República
+de la Reforma
+de la Unión
+de la Paz
+de la Victoria
+de la Concordia
+de la Esperanza
+de la Amistad
+de la Cultura
+de la Universidad
+de la Estación
+del Ferrocarril
+del Mercado
+del Comercio
+del Progreso
+de la Industria
+de la Aurora
+del Carmen
+de la Merced
+del Rosario
+de la Cruz
+de Guadalupe
+de la Candelaria
+de los Ángeles
+San Martín
+San José
+San Juan
+San Pedro
+San Miguel
+San Francisco
+San Antonio
+San Rafael
+San Nicolás
+San Lorenzo
+San Ignacio
+San Sebastián
+San Andrés
+San Isidro
+San Vicente
+Santa María
+Santa Ana
+Santa Rosa
+Santa Teresa
+Santa Clara
+Santa Cecilia
+Santo Domingo
+Simón Bolívar
+José de San Martín
+Miguel Hidalgo
+Benito Juárez
+José Martí
+Antonio José de Sucre
+Bernardo O'Higgins
+Francisco de Miranda
+Cristóbal Colón
+Miguel de Cervantes
+Federico García Lorca
+Pablo Neruda
+Gabriela Mistral
+Rubén Darío
+Jorge Luis Borges
+Gabriel García Márquez
+Sor Juana Inés de la Cruz
+Andrés Bello
+Rafael Núñez
+Ramón y Cajal
+Goya
+Velázquez
+Picasso
+Cervantes
+Quevedo
+Lope de Vega
+Calderón de la Barca
+Isabel la Católica
+Alfonso X
+Doce de Octubre
+Primero de Mayo
+Cinco de Mayo
+Dieciséis de Septiembre
+Veinticinco de Mayo
+Nueve de Julio
+Veinte de Julio
+Dieciocho de Septiembre
+Cinco de Febrero
+Veintiocho de Julio
+de los Héroes
+de los Libertadores
+de las Américas
+de la Amazonia
+de los Andes
+del Pacífico
+del Atlántico
+del Caribe
+del Norte
+del Sur
+del Este
+del Oeste
+del Centro
+del Cerro
+de la Loma
+de la Vega
+del Molino
+de la Fuente
+del Pozo
+de la Ermita
+de la Iglesia
+del Convento
+del Colegio
+del Hospital
+del Ayuntamiento
+de la Alameda
+del Prado
+de la Ribera
+de la Playa
+del Faro
+del Puerto
+de la Marina
+del Astillero
+de la Aduana
+de la Feria
+de la Plaza

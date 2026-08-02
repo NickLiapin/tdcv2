@@ -1,0 +1,6 @@
+---
+address: el_salvador.phone
+description: El Salvador phone in E.164 form — every number is +503 plus 8 digits; mobiles start with 6 or 7, geographic fixed lines with 2. Mobiles dominate, so they are drawn three times as often
+generator: tdc
+---
+<gen type="regex" value="(\+503[67][0-9]{7}|\+503[67][0-9]{7}|\+503[67][0-9]{7}|\+5032[0-9]{7})"/>

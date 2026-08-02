@@ -1,0 +1,19 @@
+---
+address: ivory_coast.geo.region
+description: Autonomous districts of Côte d'Ivoire
+locale: fr
+---
+Abidjan
+Yamoussoukro
+Bas-Sassandra
+Comoé
+Denguélé
+Gôh-Djiboua
+Lacs
+Lagunes
+Montagnes
+Sassandra-Marahoué
+Savanes
+Vallée du Bandama
+Woroba
+Zanzan

@@ -1,0 +1,10 @@
+---
+description: Diagnoses seen in Orthopedics
+locale: en
+---
+Osteoarthritis
+Rheumatoid Arthritis
+Herniated Disc
+Carpal Tunnel Syndrome
+Sciatica
+Rotator Cuff Tear

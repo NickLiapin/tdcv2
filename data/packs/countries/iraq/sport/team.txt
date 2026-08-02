@@ -1,0 +1,19 @@
+---
+address: iraq.sport.team
+description: Iraqi Stars League football clubs (Arabic)
+locale: ar
+---
+الشرطة
+القوة الجوية
+الزوراء
+النفط
+أربيل
+الطلبة
+نفط الوسط
+الميناء
+الكهرباء
+الحدود
+دهوك
+نفط البصرة
+الديوانية
+زاخو

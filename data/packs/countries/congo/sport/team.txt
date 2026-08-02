@@ -1,0 +1,17 @@
+---
+address: congo.sport.team
+description: Congolese (Brazzaville) first-division football clubs
+locale: fr
+---
+AS Otôho
+Diables Noirs
+CARA Brazzaville
+Étoile du Congo
+AC Léopards
+Patronage Sainte-Anne
+JST Pointe-Noire
+V.Club Mokanda
+Nico-Nicoyé
+FC Kondzo
+Interclub
+AS BNG

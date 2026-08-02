@@ -1,0 +1,13 @@
+---
+address: bolivia.geo.departmentCode
+description: INE 2-digit código de departamento (01 Chuquisaca … 09 Pando) — the first block of every INE municipal code; same order as bolivia.geo.department
+---
+01
+02
+03
+04
+05
+06
+07
+08
+09

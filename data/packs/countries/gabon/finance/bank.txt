@@ -1,0 +1,15 @@
+---
+address: gabon.finance.bank
+description: Banks operating in Gabon
+locale: fr
+---
+BGFIBank
+Union Gabonaise de Banque
+BICIG
+Ecobank
+Orabank
+Citibank Gabon
+Banque Gabonaise de Développement
+UBA
+Attijariwafa Bank Gabon
+Banque de l'Habitat du Gabon

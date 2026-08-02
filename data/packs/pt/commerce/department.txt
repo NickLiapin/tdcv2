@@ -1,0 +1,54 @@
+---
+description: Store department / category (Portuguese)
+locale: pt
+---
+Livros
+Filmes
+Música
+Videogames
+Eletrônicos
+Informática
+Telefonia
+Casa
+Jardim
+Ferramentas
+Ferragens
+Supermercado
+Alimentos
+Bebidas
+Saúde
+Farmácia
+Beleza
+Perfumaria
+Brinquedos
+Infantil
+Bebê
+Roupas
+Calçados
+Joalheria
+Relojoaria
+Acessórios
+Esportes
+Ar livre
+Automotivo
+Motocicletas
+Industrial
+Escritório
+Papelaria
+Pet shop
+Móveis
+Decoração
+Eletrodomésticos
+Iluminação
+Cama, mesa e banho
+Utilidades domésticas
+Bricolagem
+Construção
+Fotografia
+Instrumentos musicais
+Bagagem
+Ótica
+Limpeza
+Presentes
+Arte e artesanato
+Náutica

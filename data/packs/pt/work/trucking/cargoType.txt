@@ -1,0 +1,17 @@
+---
+description: Truck cargo / trailer type (Portuguese)
+locale: pt
+---
+Baú seco
+Refrigerado
+Plataforma
+Tanque
+Gado
+Materiais perigosos
+Contêiner intermodal
+Cegonha
+Prancha rebaixada
+Plataforma escalonada
+Caçamba basculante
+Granel
+Madeira

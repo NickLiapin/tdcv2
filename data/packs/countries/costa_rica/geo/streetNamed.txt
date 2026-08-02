@@ -1,0 +1,79 @@
+---
+address: costa_rica.geo.streetNamed
+description: Common Costa Rican street / avenue name, bare (without the Calle / Avenida / Bulevar prefix) — national figures, landmarks and flora
+locale: es
+---
+Central
+Juan Santamaría
+Braulio Carrillo
+Juan Mora Fernández
+Juan Rafael Mora
+José María Castro Madriz
+Cleto González Víquez
+Ricardo Jiménez
+Jesús Jiménez
+Tomás Guardia
+Alfredo González Flores
+León Cortés
+Rafael Ángel Calderón Guardia
+José Figueres Ferrer
+Daniel Oduber
+Mario Echandi
+Florencio del Castillo
+Próspero Fernández
+Bernardo Soto
+Ricardo Moreno Cañas
+Julián Volio
+Manuel María Gutiérrez
+Aquileo Echeverría
+Joaquín García Monge
+Carmen Lyra
+Fernández Guardia
+Colón
+Paseo Colón
+Los Estudiantes
+Rohrmoser
+Los Yoses
+Las Américas
+La Sabana
+Escazú
+Lindora
+Belén
+Los Ángeles
+La Paz
+La Independencia
+La Libertad
+La Cultura
+Central Norte
+Central Sur
+Las Flores
+Los Almendros
+Los Higuerones
+Los Laureles
+Los Robles
+El Roble
+La Ceiba
+El Cedro
+El Guarumo
+El Malinche
+Guanacaste
+El Cortés
+El Poró
+Cocobolo
+Las Palmas
+Los Cipreses
+Las Orquídeas
+La Guaria
+Guaria Morada
+Bugambilias
+Los Jazmines
+Las Camelias
+El Bosque
+El Prado
+Real Cariari
+Los Colegios
+La Trinidad
+San Blas
+Del Río
+Del Mar
+Del Sol

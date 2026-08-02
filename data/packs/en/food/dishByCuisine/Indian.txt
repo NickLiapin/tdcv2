@@ -1,0 +1,12 @@
+---
+description: Dishes of Indian cuisine
+locale: en
+---
+Butter Chicken
+Biryani
+Tikka Masala
+Samosa
+Dal Makhani
+Naan
+Palak Paneer
+Rogan Josh

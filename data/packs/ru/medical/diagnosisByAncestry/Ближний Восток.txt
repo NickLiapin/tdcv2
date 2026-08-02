@@ -1,0 +1,10 @@
+---
+description: Conditions markedly more frequent in people of Middle Eastern ancestry (Russian). A prevalence signal, not an exclusive one.
+locale: ru
+---
+Семейная средиземноморская лихорадка
+Бета-талассемия
+Дефицит глюкозо-6-фосфатдегидрогеназы
+Болезнь Бехчета
+Дефицит витамина D
+Носительство серповидноклеточного гена

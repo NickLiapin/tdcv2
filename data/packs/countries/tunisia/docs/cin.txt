@@ -1,0 +1,7 @@
+---
+address: tunisia.docs.cin
+description: Tunisian national ID (CIN / بطاقة التعريف الوطنية) — 8 digits. Structural; no public check digit.
+generator: tdc
+locale: ar
+---
+<gen type="regex" value="[0-9]{8}"/>

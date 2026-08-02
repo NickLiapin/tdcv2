@@ -1,0 +1,189 @@
+---
+description: English job titles across sectors (tech, healthcare, trades, transport, business, service, public)
+locale: en
+---
+Software Engineer
+Senior Software Engineer
+Data Analyst
+Data Scientist
+DevOps Engineer
+Site Reliability Engineer
+QA Engineer
+Product Manager
+UX Designer
+UI Designer
+System Administrator
+Network Engineer
+Database Administrator
+Security Analyst
+Cloud Architect
+Mobile Developer
+Frontend Developer
+Backend Developer
+Machine Learning Engineer
+IT Support Specialist
+Registered Nurse
+Nurse Practitioner
+Physician
+Surgeon
+Anesthesiologist
+Pediatrician
+Pharmacist
+Paramedic
+Emergency Medical Technician
+Physical Therapist
+Occupational Therapist
+Dental Hygienist
+Dentist
+Radiologic Technologist
+Medical Assistant
+Phlebotomist
+Respiratory Therapist
+Optometrist
+Veterinarian
+Home Health Aide
+Electrician
+Plumber
+Welder
+Carpenter
+HVAC Technician
+Machinist
+Millwright
+Pipefitter
+Sheet Metal Worker
+Ironworker
+Boilermaker
+Elevator Mechanic
+Glazier
+Mason
+Roofer
+Painter
+Drywall Installer
+Automotive Technician
+Diesel Mechanic
+Aircraft Mechanic
+Miner
+Underground Miner
+Drilling Operator
+Heavy Equipment Operator
+Crane Operator
+Excavator Operator
+Blasting Technician
+Mine Surveyor
+Quarry Worker
+Truck Driver
+Long-Haul Driver
+Delivery Driver
+Bus Driver
+Forklift Operator
+Warehouse Worker
+Logistics Coordinator
+Dispatcher
+Freight Broker
+Air Traffic Controller
+Commercial Pilot
+Flight Attendant
+Ship Captain
+Locomotive Engineer
+Courier
+Line Installer
+Telecommunications Technician
+Cable Splicer
+Fiber Optic Technician
+Power Plant Operator
+Water Treatment Operator
+Wind Turbine Technician
+Solar Installer
+Gas Utility Worker
+Meter Reader
+Accountant
+Bookkeeper
+Financial Analyst
+Auditor
+Actuary
+Tax Advisor
+Sales Representative
+Account Executive
+Marketing Manager
+Marketing Specialist
+Brand Manager
+Human Resources Specialist
+Recruiter
+Operations Manager
+Project Manager
+Business Analyst
+Executive Assistant
+Office Manager
+Receptionist
+Data Entry Clerk
+Procurement Specialist
+Chef
+Sous Chef
+Line Cook
+Baker
+Bartender
+Barista
+Waiter
+Host
+Dishwasher
+Hotel Manager
+Housekeeper
+Concierge
+Retail Associate
+Store Manager
+Cashier
+Customer Service Representative
+Call Center Agent
+Security Guard
+Janitor
+Groundskeeper
+Elementary School Teacher
+High School Teacher
+Special Education Teacher
+Professor
+Lecturer
+Teaching Assistant
+School Counselor
+Librarian
+Principal
+Tutor
+Police Officer
+Firefighter
+Detective
+Correctional Officer
+Border Patrol Agent
+Social Worker
+Case Manager
+Postal Worker
+Mail Carrier
+Sanitation Worker
+Graphic Designer
+Photographer
+Videographer
+Copywriter
+Content Writer
+Journalist
+Editor
+Architect
+Interior Designer
+Civil Engineer
+Mechanical Engineer
+Electrical Engineer
+Lawyer
+Paralegal
+Judge
+Legal Secretary
+Notary
+Farmer
+Rancher
+Farmhand
+Landscaper
+Arborist
+Fisher
+Logger
+Beekeeper
+Construction Worker
+Construction Foreman
+Surveyor
+Building Inspector
+Demolition Worker

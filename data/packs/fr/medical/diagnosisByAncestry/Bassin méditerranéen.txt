@@ -1,0 +1,11 @@
+---
+description: Conditions in French markedly more frequent in people of Mediterranean ancestry. A prevalence signal, not an exclusive one.
+locale: fr
+---
+Bêta-thalassémie
+Trait bêta-thalassémique
+Déficit en glucose-6-phosphate déshydrogénase
+Fièvre méditerranéenne familiale
+Maladie de Behçet
+Alpha-thalassémie
+Favisme

@@ -1,0 +1,22 @@
+---
+address: argentina.geo.streetName
+description: Argentine street name with its vialidad type — mostly named (Avenida San Martín), ~20% numbered (Calle 47, Diagonal 74 — the La Plata grid)
+generator: tdc
+locale: es
+---
+<sequence name="mode"><gen type="number" value="1..10"/></sequence>
+<sequence name="type"><gen type="text" value="Calle,Calle,Calle,Calle,Avenida,Avenida,Avenida,Avenida,Pasaje,Pasaje,Diagonal,Bulevar,Camino,Autopista,Peatonal,Callejón"/></sequence>
+<!-- La Plata numbers its grid 1..170 and its diagonals in the same series. -->
+<sequence name="numType"><gen type="text" value="Calle,Calle,Calle,Diagonal"/></sequence>
+<sequence name="n"><gen type="number" value="1..170"/></sequence>
+<sequence name="named"><gen type="template" value="argentina.geo.streetNamed"/></sequence>
+<sequence name="street"><compute>
+  <result>
+    <choose>
+      <when><test><greater_than><to_number><field name="mode"/></to_number><int v="8"/></greater_than></test>
+        <then><concat><field name="numType"/><str v=" "/><field name="n"/></concat></then></when>
+      <otherwise><concat><field name="type"/><str v=" "/><field name="named"/></concat></otherwise>
+    </choose>
+  </result>
+</compute></sequence>
+<data>${{street}}</data>

@@ -1,0 +1,26 @@
+---
+description: Vehicle body type (Polish)
+locale: pl
+---
+Sedan
+Coupé
+Hatchback
+SUV
+Crossover
+Terenowy
+Kabriolet
+Minivan
+Kombi
+Furgonetka
+Pickup
+Van
+Samochód dostawczy
+Samochód sportowy
+Roadster
+Samochód miejski
+Samochód luksusowy
+Limuzyna
+Mikrobus
+Autobus
+Ciężarówka
+Motocykl

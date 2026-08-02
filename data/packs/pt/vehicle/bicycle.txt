@@ -1,0 +1,21 @@
+---
+description: Bicycle type (Portuguese)
+locale: pt
+---
+Bicicleta de estrada
+Bicicleta de montanha
+Bicicleta híbrida
+Bicicleta de passeio
+Bicicleta de gravel
+Bicicleta BMX
+Bicicleta elétrica
+Bicicleta dobrável
+Bicicleta de cicloturismo
+Bicicleta de ciclocrosse
+Bicicleta de pista
+Bicicleta reclinada
+Bicicleta de carga
+Bicicleta de descida
+Bicicleta infantil
+Triciclo
+Tandem

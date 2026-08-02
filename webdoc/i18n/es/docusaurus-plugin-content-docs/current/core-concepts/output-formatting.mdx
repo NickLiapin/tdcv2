@@ -1,0 +1,474 @@
+---
+title: Salida y formato
+sidebar_position: 3
+---
+
+import Figure from '@site/src/components/Figure';
+import Legend from '@site/src/components/Legend';
+
+import Terminal from '@site/src/components/Terminal';
+
+# Salida y formato
+
+Una vez que los datos están declarados como [secuencias](sequences.mdx), el **bloque de
+salida** los convierte en texto, con la forma que usted quiera: CSV, JSON, SQL, una línea
+de log, un archivo de configuración. Son tres etiquetas anidadas —`<block>` → `<line>` →
+`<data>`— más la interpolación y algunas piezas opcionales (fixtures, filtros,
+condiciones).
+
+:::note
+Las salidas de ejemplo de abajo son ilustrativas: los valores exactos pueden variar según
+la versión del núcleo y el seed. Lo que importa es la **forma** de cada transformación, no
+los nombres o números concretos.
+:::
+
+<Figure
+  src="/img/concepts/output-layout.svg"
+  alt=""
+  caption="La salida tal como se imprime, de arriba abajo, para una ejecución de dos tarjetas."
+/>
+
+<Legend items={[["A", "se imprime una vez, al mero principio"], ["B", "antes de cada tarjeta"], ["C", "una línea de la tarjeta"], ["D", "entre las líneas de una tarjeta — nunca después de la última línea"], ["E", "después de cada tarjeta"], ["F", "entre tarjetas — nunca después de la última tarjeta"], ["G", "se imprime una vez, al mero final"], ["H", "todo lo que está dentro del corchete se repite una vez por tarjeta"]]} />
+
+## El bloque de salida: `<block>` → `<line>` → `<data>`
+
+- **[`<block>`](#block--el-diseño-de-un-registro)** describe el diseño de **un registro**.
+  El renderizador lo repite `count` veces —una por registro— sustituyendo en cada pasada
+  valores frescos de las secuencias.
+- **[`<line>`](#line--una-línea-de-un-registro)** es una línea de salida dentro de un
+  registro. Después de cada `<line>` va un salto de línea.
+- **[`<data>`](#data--texto-crudo)** es un contenedor de **texto crudo**: todo lo que está
+  entre `<data>` y `</data>` se imprime tal cual, salvo la interpolación `${{…}}`, que se
+  reemplaza por los valores de las secuencias.
+
+Un registro puede ocupar varias líneas; usted las describe una vez y el bloque se repite:
+
+```xml
+<tdc>
+    <env count="2" seed="demo">
+        <sequence name="Person">
+            <gen name="Name" type="text" value="Ana,Carlos,Elena"/>
+            <gen name="Age" type="number" value="20..40"/>
+        </sequence>
+    </env>
+    <block>
+        <line><data>name=${{Person.Name}}</data></line>
+        <line><data>age=${{Person.Age}}</data></line>
+    </block>
+</tdc>
+```
+
+<Terminal title="./run demo.tdc (count=2)">
+{`name=Carlos
+age=30
+name=Ana
+age=28`}
+</Terminal>
+
+El bloque de dos líneas se renderizó dos veces (`count="2"`): dos registros de dos líneas
+cada uno, cada uno con su propio `Name`/`Age`.
+
+## `<block>` — el diseño de un registro
+
+`<block>` es el único hijo **obligatorio** de [`<tdc>`](../reference/tags.mdx). No tiene
+atributos. Su única tarea es contener las líneas de un solo registro, que el renderizador
+repite `count` veces.
+
+Sus únicos hijos permitidos son `<line>`. Una etiqueta ajena directamente dentro de
+`<block>` es un error, no un salto silencioso: así se atrapa un
+[`<gen>`](../generators/overview.mdx) mal puesto o una etiqueta con errata antes de que
+corrompa la salida:
+
+<Terminal title="./run demo.tdc">
+{`error[TDC013]: <foo> is not allowed directly inside <block>`}
+</Terminal>
+
+Si [`<before_block>`](#fixtures--texto-alrededor-de-los-registros) /
+[`<after_block>`](#fixtures--texto-alrededor-de-los-registros) /
+[`<delimiter_block>`](#fixtures--texto-alrededor-de-los-registros) están declarados en
+`<env>`, envuelven cada registro renderizado — vea
+[Fixtures](#fixtures--texto-alrededor-de-los-registros) más abajo.
+
+## `<line>` — una línea de un registro
+
+`<line>` describe una sola línea dentro de un registro. Se emite una vez por pasada, con
+un salto de línea al final. Contiene cualquier cantidad de hijos `<data>`, que se imprimen
+uno tras otro de izquierda a derecha.
+
+### `if` — mostrar toda la línea solo bajo una condición
+
+**Problema.** Quiere un separador `---` **entre** registros, pero no colgando después del
+último. Proteja toda la línea con `if`: cuando la expresión es falsa, en esa pasada no se
+emite ni la línea **ni** su delimitador entre líneas.
+
+```xml
+<tdc>
+    <env count="3" seed="demo">
+        <sequence name="Name">
+            <gen type="text" value="Ana,Carlos,Elena" order="sequential"/>
+        </sequence>
+    </env>
+    <block>
+        <line><data>name=${{Name}}</data></line>
+        <line if="!_last"><data>---</data></line>
+    </block>
+</tdc>
+```
+
+<Terminal title="./run demo.tdc (count=3)">
+{`name=Ana
+---
+name=Carlos
+---
+name=Elena`}
+</Terminal>
+
+La segunda línea se imprime en cada registro **salvo el último** (`_last` es la bandera
+integrada que dice «este es el registro final»): exactamente el comportamiento «entre,
+pero no al final» que también da la fixture
+[`<delimiter_block>`](#fixtures--texto-alrededor-de-los-registros). La expresión de `if`
+es el mismo lenguajito que usa [`<data if>`](#texto-condicional-con-if): comparaciones,
+`!`, `&&`, `||` y los nombres integrados.
+
+### `comment` — una nota que nunca se renderiza
+
+`<line comment="…">` lleva una nota libre para el autor de la configuración. Se ignora al
+renderizar y nunca aparece en la salida — es cómoda para anotar un diseño complejo.
+
+### Los generadores no viven en `<line>`
+
+El bloque de salida es solo para **formatear**. No se puede poner un `<gen>` ni un `<mix>`
+directamente en un `<line>`: declare una [`<sequence>`](sequences.mdx) nombrada (o un
+[`<mix>`](../reference/tags.mdx)) en [`<env>`](configuration.mdx) y refiéralo con
+`${{Name}}`. Así se mantiene separado *qué son los datos* de *cómo se acomodan*.
+
+Un límite relacionado: un generador
+[`advanced_regex`](../generators/advanced-regex.mdx) usado desde la salida no puede
+emplear la forma de selección ponderada `(?%{...})`, porque los porcentajes exactos
+necesitan un contexto de secuencia con un `count` conocido. Declárelo como una secuencia
+nombrada en `<env>`.
+
+## `<data>` — texto crudo
+
+`<data>` es un contenedor de **texto crudo**. Todo lo que está entre el `<data>` de
+apertura y su `</data>` se imprime literalmente, con una sola excepción: la interpolación
+`${{…}}` se reemplaza por los valores de las secuencias.
+
+`<data>` es el **único** lugar donde se puede escribir libremente `<`, `>`, `{`, `}`,
+comillas y comas — los caracteres que son especiales para XML. Eso es lo que permite
+armar JSON, CSV, SQL o cualquier formato construido con esos caracteres:
+
+```xml
+<line><data><tag> = "value", {key: 42}</data></line>
+```
+
+<Terminal title="./run demo.tdc">
+{`<tag> = "value", {key: 42}`}
+</Terminal>
+
+Dos cosas que hay que saber sobre el texto crudo:
+
+- **Las entidades XML no se expanden.** `&lt;` se queda como el literal `&lt;`, **no** se
+  convierte en `<`. Escriba directamente el carácter que realmente quiere.
+- **En el diseño, `<data>` vive dentro de un `<line>`** —las líneas del bloque o las de
+  una fixture— y en ningún otro sitio. Aquí lleva dos atributos opcionales:
+  [`if`](#texto-condicional-con-if) (suprimir esta pieza según una condición) y
+  [`pair`](#texto-crudo-y-un-data-literal) (para un `</data>` literal en el texto).
+  La misma etiqueta tiene un segundo trabajo, sin relación con el primero, dentro de
+  `<env>`: como hijo de una [`<sequence>`](sequences.mdx) es texto literal pegado a un
+  valor compuesto, y con un `name` es un campo constante. Diseño o valor — lo decide la
+  etiqueta que la rodea.
+
+### Los espacios también son texto — la indentación sale gratis
+
+«Literal» incluye los **espacios**. Los iniciales, los finales y cualquier racha
+interior llegan a la salida exactamente como se escribieron:
+
+```xml
+<line><data>      hello   </data><data>|end</data></line>
+```
+
+<Terminal title="./run demo.tdc">
+{`      hello   |end`}
+</Terminal>
+
+No se recorta ni se colapsa nada, así que **la indentación de la salida es la
+indentación del texto dentro de `<data>`**. En eso consiste toda la técnica para
+producir ficheros estructurados y legibles: un esquema SQL indentado, JSON anidado,
+YAML, un árbol.
+
+La diferencia que conviene captar: la indentación de las **etiquetas** (`<line>`
+desplazado dos espacios) es la disposición de su propio config y no aparece en ninguna
+parte. Solo es texto lo que está *entre* `<data>` y `</data>`. En el esquema de abajo,
+los dos espacios delante de `id` están dentro de los datos y sobreviven; los cuatro
+delante de `<line>` están fuera y desaparecen:
+
+```xml
+<env count="2" seed="indent">
+  <before>
+    <line><data>CREATE TABLE customers (</data></line>
+    <line><data>  id    INTEGER PRIMARY KEY,</data></line>
+    <line><data>  name  TEXT NOT NULL,</data></line>
+    <line><data>  city  TEXT NOT NULL</data></line>
+    <line><data>);</data></line>
+  </before>
+  <sequence name="Id"><gen type="increment" value="1"/></sequence>
+  <sequence name="Name"><gen type="template" value="person.male.firstName"/></sequence>
+  <sequence name="City"><gen type="text" value="Paris,Berlin"/></sequence>
+</env>
+<block>
+  <line><data>INSERT INTO customers VALUES (${{Id}}, '${{Name}}', '${{City}}');</data></line>
+</block>
+```
+
+<Terminal title="./run demo.tdc">
+{`CREATE TABLE customers (
+  id    INTEGER PRIMARY KEY,
+  name  TEXT NOT NULL,
+  city  TEXT NOT NULL
+);
+INSERT INTO customers VALUES (1, 'James', 'Berlin');
+INSERT INTO customers VALUES (2, 'John', 'Paris');`}
+</Terminal>
+
+Los espacios de más tras `id` y `name` hacen el trabajo de alineación: nadie los alinea
+por usted, los escribe usted. El mismo truco da JSON indentado: `  {` en una línea,
+`    "id": ${{Id}},` en la siguiente, y el anidamiento son simplemente los espacios que
+escribió.
+
+:::note[Con los atributos ocurre lo contrario]
+El cuerpo de `<data>` no se recorta nunca; una lista en un atributo **sí**. En
+`value="a, b"` el segundo elemento es `b`, no `" b"`: el espacio junto a la coma es
+relleno del separador, no dato. Dentro de `<data>` los espacios son suyos; dentro de
+una lista `value=` se los limpian. La otra cara de «nunca se recorta»: un espacio final
+que no ve seguirá estando en el fichero.
+:::
+
+## Interpolación — `${{Name}}`
+
+Dentro de `<data>`, `${{Name}}` se reemplaza por el valor de esa secuencia en la fila
+actual.
+
+```xml
+<block>
+    <line><data>Nombre: ${{Name}}, edad: ${{Age}}</data></line>
+</block>
+```
+
+<Terminal title="./run demo.tdc (Name = person name, Age = 18..80)">
+{`Nombre: Paulina, edad: 72
+Nombre: Cruz, edad: 18
+Nombre: Fabiola, edad: 64
+Nombre: Santiago, edad: 26`}
+</Terminal>
+
+### Cómo se resuelve un nombre
+
+Para cada `${{Name}}`:
+
+1. **Una secuencia declarada con valor en esta fila** → ese valor.
+2. **Una secuencia declarada sin valor en esta fila** (filtrada por un
+   [`parent`](../guides/hierarchical-dependencies.mdx) en esta iteración) → la **cadena
+   vacía**.
+3. **Un nombre no declarado** (una errata, una declaración olvidada) → error `TDC193`, con
+   una sugerencia:
+
+<Terminal title="./run typo.tdc">
+{`error[TDC193]: "Nmae" is not a declared sequence — it would be
+printed literally
+suggestion: did you mean "Name"?`}
+</Terminal>
+
+Esta verificación se gana su lugar en la salida tipada: en un CSV quizá alcance a
+detectar a simple vista un `${{Nmae}}` perdido, pero en un archivo Parquet caería en una
+columna tipada de texto y parecería un valor real, imposible de notar. Si de veras quiere
+un `${{...}}` literal en la salida (al generar una configuración, un archivo de GitHub
+Actions, una plantilla de Handlebars), cambie el marcador con
+[`inject`](#un-marcador-de-interpolación-personalizado) y la verificación se apaga.
+
+### Nombres integrados
+
+Siempre disponibles sin declarar nada: `${{_count}}` (número de registro, empezando en 1),
+`${{_first}}` / `${{_last}}` (`"true"` / `"false"`) y `${{_total}}` (el total). Vea
+[Nombres integrados](../reference/builtins.mdx).
+
+### Filtros
+
+Un valor se puede transformar en el lugar con una «tubería» `|`: una máscara, un cambio de
+mayúsculas, un recorte, etcétera. Esto es formateo **a la salida**: el valor se genera
+como siempre y luego el filtro le cambia la forma. Aquí un SSN estadounidense de nueve
+dígitos (en crudo) recibe una máscara de presentación:
+
+```xml
+<data>${{Ssn}}  ->  ${{Ssn | mask:xxx-xx-xxxx}}</data>
+```
+
+<Terminal title="./run demo.tdc">
+{`407963258  ->  407-96-3258
+539027461  ->  539-02-7461`}
+</Terminal>
+
+Los filtros se encadenan de izquierda a derecha (`${{Name | mask:w:w | upper}}` — primero
+la máscara, luego mayúsculas). El conjunto completo —`mask`,
+`upper`/`lower`/`capitalize`/`title`, `slice`, `replace`, `trim`, `group`, `compact` y los
+escapes `csv`/`sql`— está en **[Máscaras y mayúsculas](../guides/masks-and-case.mdx)**.
+
+### Dónde *no* se ejecuta la interpolación
+
+- **No en las fixtures.** `${{…}}` queda intacto dentro de
+  [`<before>`](#fixtures--texto-alrededor-de-los-registros) / `<after>` /
+  `<before_block>` y las demás fixtures — quedan lógicamente fuera de la iteración por
+  fila.
+- **No en los atributos.** La interpolación ocurre solo dentro del texto de `<data>`,
+  nunca dentro del valor de un atributo.
+- **Sin anidamiento.** La interpolación es de una sola pasada. Si el valor de una
+  secuencia contiene a su vez `${{Something}}`, ese marcador interno **no** se vuelve a
+  procesar: se inserta tal cual.
+
+## Texto condicional con `if`
+
+`<data if="…">` se imprime solo cuando la expresión es verdadera. Si la condición es
+falsa, ese `<data>` en particular se suprime para esa fila, y cualquier otro `<data>` de
+la misma `<line>` se renderiza con normalidad. El uso clásico es «JSON sin coma colgante»:
+un segundo `<data if="!_last">,` imprime una coma en cada registro menos el último.
+
+```xml
+<tdc>
+    <env count="3" seed="demo">
+        <before><line><data>[</data></line></before>
+        <after><line><data>]</data></line></after>
+        <sequence name="Id"><gen type="increment" value="1"/></sequence>
+    </env>
+    <block>
+        <line><data>  {"id": ${{Id}}}</data><data if="!_last">,</data></line>
+    </block>
+</tdc>
+```
+
+<Terminal title="./run demo.tdc (count=3)">
+{`[
+  {"id": 1},
+  {"id": 2},
+  {"id": 3}
+]`}
+</Terminal>
+
+Los dos `<data>` de una misma `<line>` se imprimen pegados: primero el objeto, luego la
+coma. En el último registro `!_last` es falso, la coma se salta y el JSON sigue siendo
+válido. El lenguaje de expresiones admite comparaciones (`==`, `!=`, `<`, `>`), los
+booleanos `!`/`&&`/`||` y los nombres integrados — el mismo que usa
+[`<line if>`](#if--mostrar-toda-la-línea-solo-bajo-una-condición).
+
+## Fixtures — texto alrededor de los registros
+
+Las fixtures imprimen texto fijo en los bordes de la ejecución, para que el `<block>` por
+registro se mantenga limpio:
+
+- **`<before>`** / **`<after>`** se imprimen **una vez**: antes del primer registro y
+  después del último. Usos típicos: el `[` de apertura y el `]` de cierre de un arreglo
+  JSON, una fila de encabezado de CSV, un prefijo `INSERT INTO … VALUES`, un `;` final.
+- **`<before_block>`** / **`<after_block>`** / **`<delimiter_block>`** envuelven **cada**
+  registro; el último de ellos se imprime entre registros pero no después del final.
+
+Todas las fixtures viven dentro de [`<env>`](configuration.mdx) y, como el bloque,
+contienen `<line>` → `<data>`. El `[` y el `]` del ejemplo JSON de arriba son `<before>` y
+`<after>`:
+
+```xml
+<tdc>
+    <env count="3" seed="demo">
+        <before><line><data>[</data></line></before>
+        <after><line><data>]</data></line></after>
+        <sequence name="Id"><gen type="increment" value="1"/></sequence>
+    </env>
+    <block>
+        <line><data>  ${{Id}}</data></line>
+    </block>
+</tdc>
+```
+
+<Terminal title="./run demo.tdc (count=3)">
+{`[
+  1
+  2
+  3
+]`}
+</Terminal>
+
+El `[` se imprimió exactamente una vez arriba y el `]` exactamente una vez abajo, sin
+importar si `count` es 3 o 3 000.
+
+Dos advertencias, ambas obligadas:
+
+- **La interpolación no se ejecuta en las fixtures** (quedan fuera de la iteración): un
+  `${{…}}` ahí se queda como texto literal.
+- **Los generadores tampoco corren en las fixtures.** Un `<gen>`, `<mix>` o `<switch>`
+  dentro de una fixture es el error `TDC131`. Antes esto fallaba en silencio: un generador
+  `value="500..999"` en una fixture siempre emitía `500` (la cota inferior), lo que parecía
+  un valor real.
+
+## Un marcador de interpolación personalizado
+
+[`inject`](../reference/attributes.mdx) en [`<env>`](configuration.mdx) cambia los
+marcadores de interpolación. La cadena debe contener exactamente un `%`, donde va el
+nombre:
+
+```xml
+<env inject="${{%}}">…</env>   <!-- el valor por omisión -->
+<env inject="[%]">…</env>       <!-- entonces en <data> se escribe [Name] -->
+<env inject="%{%}%">…</env>     <!-- entonces en <data> se escribe %{Name}% -->
+```
+
+Con `inject="[%]"` y `<data>Nombre: [Name]</data>`:
+
+<Terminal title="./run demo.tdc (inject=[%])">
+{`Nombre: Paulina
+Nombre: Cruz
+Nombre: Fabiola
+Nombre: Santiago`}
+</Terminal>
+
+Solo cambia la **sintaxis** de la sustitución, no los datos: los valores son idénticos a
+los de la forma `${{Name}}` por omisión. El prefijo y el sufijo se escapan
+automáticamente, incluso cuando contienen metacaracteres de expresiones regulares. La
+razón principal para cambiar el marcador es emitir un `${{...}}` literal en la salida (una
+configuración, una plantilla) sin disparar la verificación de nombres no declarados.
+
+## Texto crudo y un `</data>` literal
+
+`<data>` es crudo, pero un `<data>` común se cierra en el **primer** `</data>` que
+encuentra. Para emitir un `</data>` literal en el texto —por ejemplo, un fragmento de
+sintaxis TDC en documentación generada— dele a la etiqueta un marcador
+[`pair`](../reference/attributes.mdx); tanto la etiqueta de apertura como la de cierre
+deben llevar el mismo marcador. Aquí el `${{...}}` también debe aparecer literal, así que
+el ejemplo además aparta el [marcador de interpolación](configuration.mdx) con
+`inject`:
+
+```xml
+<env count="1" seed="demo" inject="[[%]]">
+    <sequence name="Name"><gen type="text" value="a,b"/></sequence>
+</env>
+<block>
+    <line><data pair="doc-example">Para imprimir un nombre, escriba: <data>${{Name}}</data></data pair="doc-example"></line>
+</block>
+```
+
+```
+Para imprimir un nombre, escriba: <data>${{Name}}</data>
+```
+
+El valor de `pair` debe ser único dentro del archivo. Ahora el parser sabe que solo
+`</data pair="doc-example">` cierra el bloque, así que el `</data>` interno se trata como
+texto común. (Sin el `inject="[[%]]"`, `${{Name}}` se interpolaría igualmente a un valor —
+`pair` protege las etiquetas, no los marcadores de sustitución.)
+
+## Véase también
+
+- **[Máscaras y mayúsculas](../guides/masks-and-case.mdx)** — el conjunto completo de
+  filtros y máscaras.
+- **[Determinismo y proporciones](determinism.mdx)** — `seed`, `count` y `percent`.
+- **[Dependencias jerárquicas](../guides/hierarchical-dependencies.mdx)** — cómo `parent`
+  filtra una secuencia, lo que da el caso de la cadena vacía de arriba.
+- [Nombres integrados](../reference/builtins.mdx) — `_count`, `_first`, `_last`, `_total`.
+- [Referencia de etiquetas](../reference/tags.mdx) — `<block>`, `<line>`, `<data>` y las
+  fixtures de un vistazo.

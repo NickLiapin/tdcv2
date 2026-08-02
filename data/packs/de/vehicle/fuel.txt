@@ -1,0 +1,14 @@
+---
+description: Fuel type (German)
+locale: de
+---
+Benzin
+Diesel
+Elektro
+Hybrid
+Plug-in-Hybrid
+Wasserstoff
+Ethanol
+Erdgas
+Autogas
+Biodiesel

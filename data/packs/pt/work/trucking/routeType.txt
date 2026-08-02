@@ -1,0 +1,11 @@
+---
+description: Trucking route type (Portuguese)
+locale: pt
+---
+Longa distância
+Interurbana
+Regional
+Local
+Dedicada
+Em dupla
+Última milha

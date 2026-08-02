@@ -1,0 +1,38 @@
+---
+description: Generic drug name (French, INN)
+locale: fr
+---
+Paracétamol
+Ibuprofène
+Amoxicilline
+Aspirine
+Oméprazole
+Metformine
+Atorvastatine
+Amlodipine
+Lévothyroxine
+Salbutamol
+Prednisolone
+Diclofénac
+Codéine
+Tramadol
+Morphine
+Insuline
+Ramipril
+Furosémide
+Simvastatine
+Clopidogrel
+Warfarine
+Métoprolol
+Sertraline
+Fluoxétine
+Diazépam
+Lorazépam
+Cétirizine
+Loratadine
+Azithromycine
+Ciprofloxacine
+Amoxicilline-acide clavulanique
+Pantoprazole
+Bisoprolol
+Lévofloxacine

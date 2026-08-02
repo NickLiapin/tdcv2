@@ -1,0 +1,23 @@
+<tdc version="0.01" comment="Demo of sequences with parent-child dependency">
+    <env count="100" seed="dep-demo-seed" inject="${{%}}" local="en">
+        <sequence name="Gender">
+            <gen type="text" value="Male,Female" percent="42,58"/>
+        </sequence>
+        <sequence name="ProstateIssue" parent="Gender.Male">
+            <gen type="text" value="yes,no" percent="20,80"/>
+        </sequence>
+        <sequence name="BreastIssue" parent="Gender.Female">
+            <gen type="text" value="yes,no" percent="15,85"/>
+        </sequence>
+        <before>
+            <line>
+                <data>ID,Gender,ProstateIssue,BreastIssue</data>
+            </line>
+        </before>
+    </env>
+    <block>
+        <line>
+            <data>${{_count}},${{Gender}},${{ProstateIssue}},${{BreastIssue}}</data>
+        </line>
+    </block>
+</tdc>

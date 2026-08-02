@@ -1,0 +1,14 @@
+---
+address: jordan.holiday
+description: Public holidays in Jordan (Arabic)
+locale: ar
+---
+رأس السنة الميلادية
+عيد العمال
+عيد الاستقلال
+عيد الفطر
+عيد الأضحى
+رأس السنة الهجرية
+المولد النبوي
+الإسراء والمعراج
+عيد الميلاد

@@ -1,0 +1,11 @@
+---
+address: comoros.holiday
+description: Public holidays in the Comoros (Arabic)
+locale: ar
+---
+عيد الاستقلال
+عيد الفطر
+عيد الأضحى
+رأس السنة الهجرية
+المولد النبوي
+رأس السنة الميلادية

@@ -1,0 +1,17 @@
+---
+description: Grade / mark on the Greek 0-20 scale, written with the qualitative labels used by Greek schools and universities
+locale: el
+---
+Άριστα
+Λίαν Καλώς
+Καλώς
+Σχεδόν Καλώς
+Μέτρια
+Ανεπαρκώς
+Εξαιρετικά
+Πολύ καλά
+Καλά
+Ικανοποιητικά
+Επιτυχώς
+Ανεπιτυχώς
+Απορρίφθηκε

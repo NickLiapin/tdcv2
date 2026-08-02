@@ -1,0 +1,18 @@
+---
+description: Building / dwelling type (French)
+locale: fr
+---
+Maison
+Appartement
+Studio
+Immeuble
+Villa
+Pavillon
+Duplex
+Loft
+Résidence
+Chalet
+Ferme
+Longère
+Hôtel particulier
+Bâtiment

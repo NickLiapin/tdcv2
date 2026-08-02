@@ -1,0 +1,6 @@
+---
+address: monaco.phone
+description: Monaco mobile phone in E.164 form (+377 4 or 6 + 7 digits)
+generator: tdc
+---
+<gen type="regex" value="\+377[46][0-9]{7}"/>

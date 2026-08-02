@@ -1,0 +1,31 @@
+---
+address: ireland.geo.countyCode
+description: Vehicle-registration county identifier (1-2 letters, used in licence plates); same order as ireland.geo.county
+locale: en
+---
+CW
+CN
+CE
+C
+DL
+D
+G
+KY
+KE
+KK
+LS
+LM
+L
+LD
+LH
+MO
+MH
+MN
+OY
+RN
+SO
+T
+W
+WH
+WX
+WW

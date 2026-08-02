@@ -1,0 +1,20 @@
+---
+description: Leading element of a French place name (Saint-Denis, Villeneuve, Châteauneuf). Combine with a real toponym; it does not by itself name a real city.
+locale: fr
+---
+Saint
+Sainte
+Villeneuve
+Villefranche
+Châteauneuf
+Château
+Neuville
+Mont
+Bourg
+Pont
+Val
+Fontaine
+Aix
+La
+Le
+Les

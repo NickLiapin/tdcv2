@@ -1,0 +1,31 @@
+---
+description: Medical diagnoses in Spanish (female-specific + common)
+locale: es
+---
+Displasia cervical
+Miomas uterinos
+Candidiasis vaginal
+Fibroadenoma de mama
+Síndrome de ovario poliquístico
+Erosión cervical
+Endometritis
+Endometriosis
+Cervicitis
+Vaginosis bacteriana
+Cáncer de mama
+Cáncer de cuello uterino
+Quiste ovárico
+Menopausia precoz
+Pancreatitis crónica
+Clamidia
+Artritis crónica
+Gastritis crónica
+Hipertensión arterial
+Diabetes mellitus tipo 2
+Asma bronquial
+Migraña
+Anemia ferropénica
+Hipotiroidismo
+Osteoporosis
+Cáncer de recto
+Embolia de la arteria central de la retina

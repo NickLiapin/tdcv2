@@ -1,0 +1,12 @@
+---
+address: liechtenstein.sport.team
+description: Football clubs of Liechtenstein (German names) — they play in the Swiss league system and contest the Liechtensteiner Cup
+locale: de
+---
+FC Vaduz
+USV Eschen-Mauren
+FC Balzers
+FC Triesen
+FC Schaan
+FC Ruggell
+FC Triesenberg

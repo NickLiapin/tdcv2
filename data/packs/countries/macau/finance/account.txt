@@ -1,0 +1,7 @@
+---
+address: macau.finance.account
+description: Macau bank account number — 16 digits (Macau is not in the IBAN registry). Structure only.
+generator: tdc
+locale: pt
+---
+<gen type="regex" value="[0-9]{16}"/>

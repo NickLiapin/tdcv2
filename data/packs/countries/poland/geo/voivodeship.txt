@@ -1,0 +1,21 @@
+---
+address: poland.geo.voivodeship
+description: The 16 voivodeships (województwa) of Poland
+locale: pl
+---
+dolnośląskie
+kujawsko-pomorskie
+lubelskie
+lubuskie
+łódzkie
+małopolskie
+mazowieckie
+opolskie
+podkarpackie
+podlaskie
+pomorskie
+śląskie
+świętokrzyskie
+warmińsko-mazurskie
+wielkopolskie
+zachodniopomorskie

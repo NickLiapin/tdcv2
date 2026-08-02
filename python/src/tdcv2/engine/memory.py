@@ -1,0 +1,1426 @@
+"""The in-memory engine: materialize every column up front, then render row by row.
+
+This is the engine the golden fixtures were captured from, so it is the one a port has to match.
+The streaming engines compute a row from its index instead, and are a separate job.
+
+The thing that decides whether output matches is not the algorithm but the ORDER THE SHARED
+GENERATOR IS CONSUMED IN. Columns are built in declaration order, each drawing from one generator
+seeded once. Building them in a different order, or giving each its own generator, produces
+perfectly valid data that matches nothing.
+"""
+
+from __future__ import annotations
+
+import math
+from dataclasses import dataclass, field, replace
+from pathlib import Path
+
+from ..compute import evaluate as compute_evaluate
+from ..compute import evaluate_predicate
+from ..date import gen as date_gen
+from ..distribution import hamilton, percent_mask
+from ..expr import as_condition
+from ..format import interpolate
+from ..format.mask import apply_mask
+from ..format.transforms import apply_case, is_case_transform
+from ..generators import accumulate as accumulate_gen
+from ..generators import advanced_regex, counter, imperfections, number, regex, symbol
+from ..generators import file as file_gen
+from ..generators import http as http_gen
+from ..generators import repeat as repeat_gen
+from ..model.config import Config, Gen, Item, Line, SequenceSpec
+from ..packs import DataPacks
+from ..parser import config_builder
+from ..pattern import gen as patterns
+from ..prng import rand, seekable
+from ..prng.prng import Sfc32, create
+from ..prng.seekable import open_unit
+from ..sequence import pool as pool_mod
+from ..sequence import uniq as uniq_lib
+from ..sequence import uniq_simple
+from ..stats import distribution as dist
+from ..stats import timeseries
+
+# How many redraws a <distinct> field gets before its source is called too small.
+DISTINCT_FUSE = 100
+
+# How many independent redraws before a uniq= config is declared genuinely impossible.
+UNIQ_REDRAW_ATTEMPTS = 8
+
+# How many redraws a <valid> constraint gets before the generator is called impossible.
+VALID_FUSE = 100
+
+# Pack bodies parse once per address and are then reused; a pack does not change mid-run.
+_PACK_BODIES: dict[str, object] = {}
+
+
+class EngineError(RuntimeError):
+    """A run that cannot be completed — always with the number that would have worked."""
+
+
+@dataclass(frozen=True, slots=True)
+class Rendered:
+    """A finished run: the text, and the columns it was rendered from.
+
+    Both, because they answer different questions. A test that asserts on a field wants the
+    column; a file on disk wants the text. Generating them separately would take two runs of the
+    generator and could produce two different answers.
+    """
+
+    output: str
+    columns: dict[str, list[str | None]]
+    count: int
+
+    def text(self) -> str:
+        """The whole run as text — the same call the streaming engines answer."""
+        return self.output
+
+    def write_to(self, emit) -> None:
+        emit(self.output)
+
+    def value(self, column: str, row: int) -> str | None:
+        values = self.columns.get(column)
+        return None if values is None else values[row]
+
+    def sequence_names(self) -> list[str]:
+        """The declared sequences, in declaration order — not the built-in rows."""
+        return [name for name in self.columns if not name.startswith("_")]
+
+
+@dataclass(slots=True)
+class _Run:
+    """Everything the column builders need, gathered so the call sites stay readable."""
+
+    config: Config
+    packs: DataPacks
+    now_millis: int
+    base_dir: Path | None
+    prng: Sfc32
+    # Row links are shared across the whole render: two sequences naming one key must land on the
+    # same rows, whichever sequence reaches it first.
+    row_links: dict[str, tuple[str, list[int]]] = field(default_factory=dict)
+
+
+def render(config: Config, packs: DataPacks, now_millis: int, base_dir: Path | None = None) -> str:
+    return build(config, packs, now_millis, base_dir).output
+
+
+def build(
+    config: Config, packs: DataPacks, now_millis: int, base_dir: Path | None = None
+) -> Rendered:
+    count = config.count
+    columns = _build_columns(config, count, packs, now_millis, base_dir)
+
+    each_info = _each_info(config)
+    fx = config.fixtures
+    out: list[str] = []
+    _emit(out, fx.before, columns, 0, config.inject)
+
+    for row in range(count):
+        _emit(out, fx.before_block, columns, row, config.inject)
+
+        # The suppressed lines are dropped first. A delimiter belongs between the lines that
+        # SURVIVE, so deciding that up front is what keeps a separator off the last one standing.
+        active = [
+            line
+            for line in config.block
+            if line.if_expr is None or _condition(line.if_expr, columns, row)
+        ]
+        for i, line in enumerate(active):
+            _emit(out, fx.before_line, columns, row, config.inject)
+            out.append(_render_line(line, columns, row, config.inject, each_info))
+            _emit(out, fx.after_line, columns, row, config.inject)
+            if i < len(active) - 1:
+                _emit(out, fx.delimiter_line, columns, row, config.inject)
+
+        _emit(out, fx.after_block, columns, row, config.inject)
+        if row < count - 1:
+            _emit(out, fx.delimiter_block, columns, row, config.inject)
+
+    _emit(out, fx.after, columns, count - 1, config.inject)
+    return Rendered("".join(out), columns, count)
+
+
+def _emit(out: list[str], lines: list[Line], columns, row: int, inject: str) -> None:
+    for line in lines:
+        out.append(_render_line(line, columns, row, inject, {}))
+
+
+def _each_info(config: Config) -> dict[str, repeat_gen.Spec]:
+    """The repeating sequences, by name. A name that is not here is not a list."""
+    out: dict[str, repeat_gen.Spec] = {}
+    for spec in config.sequences:
+        if spec.gen is None:
+            continue
+        parsed = repeat_gen.parse(spec.gen.attrs)
+        if parsed is not None and spec.name:
+            out[spec.name] = parsed
+    return out
+
+
+# ── pools ───────────────────────────────────────────────────────────────────────────────────
+
+
+def build_pool_tables(
+    config: Config, packs: DataPacks, now_millis: int, base_dir: Path | None
+) -> dict[str, pool_mod.PoolTable]:
+    """Compute every ``<pool>`` declared in the config, once, before any row exists.
+
+    A pool is built by the ORDINARY column machinery with ``count`` set to the member count
+    instead of the row count — which is the whole reason a ``<uniq>``, a ``<mix>``, an ``if=`` or
+    a ``parent=`` inside a pool behaves exactly as it does outside one, with nothing here to make
+    it so.
+    """
+    tables: dict[str, pool_mod.PoolTable] = {}
+    for spec in config.pools:
+        if not spec.name or spec.count < 1:
+            continue  # the validator already said so
+        inner = replace(
+            config,
+            count=spec.count,
+            seed=pool_mod.pool_seed(config.seed, spec.name),
+            sequences=spec.sequences,
+            env_uniq_groups=spec.uniq_groups,
+            env_distinct_groups=spec.distinct_groups,
+            pools=[],
+        )
+        # The pools already built — so a MEMBER can reference one, exactly as a row does.
+        # Declaration order is the whole cycle check: a pool sees only the pools above it.
+        built = _build_columns(inner, spec.count, packs, now_millis, base_dir, tables)
+        fields: list[str] = []
+        columns: dict[str, list[str]] = {}
+        for member in spec.sequences:
+            # A member that references another pool publishes ONLY `name.field` — a record has
+            # no value of its own — which is why this matches the dotted keys too.
+            for key, values in built.items():
+                if key != member.name and not key.startswith(f"{member.name}."):
+                    continue
+                fields.append(key)
+                columns[key] = [v or "" for v in values]
+        tables[spec.name] = pool_mod.PoolTable(spec.name, spec.count, fields, columns)
+    return tables
+
+
+def _running(spec: SequenceSpec, columns: dict[str, list[str | None]], count: int) -> None:
+    """Publish a running total.
+
+    Reads its source out of the columns rather than drawing anything: a running total
+    consumes no randomness at all, which is why adding one leaves every other column
+    exactly where it was.
+    """
+    attrs = spec.gen.attrs if spec.gen is not None else {}
+    source = columns.get((attrs.get("of") or "").strip())
+    op = accumulate_gen.read(attrs)
+    if source is None or op is None:
+        return  # the validator reports both
+
+    reset_name = (attrs.get("reset") or "").strip()
+    reset_at = columns.get(reset_name) if reset_name else None
+    base = (attrs.get("base") or "").strip() or None
+    columns[spec.name or ""] = accumulate_gen.apply_column(source[:count], op, base, reset_at)
+
+
+def _pool_reference(
+    spec: SequenceSpec,
+    columns: dict[str, list[str | None]],
+    mask: list[bool],
+    count: int,
+    tables: dict[str, pool_mod.PoolTable],
+    seed: str,
+) -> None:
+    """Publish one member of a pool per row, under ``Ref.field`` for every field it has.
+
+    One pick per ROW, shared by every field: that is what makes the first name and the last name
+    in a row belong to the same doctor. Not one pick per field, which is exactly how
+    "Дмитрий Иванова" would get out.
+    """
+    name = spec.name or ""
+    pool_name = (spec.gen.attrs.get("value") or "").strip()
+    table = tables.get(pool_name)
+    if table is None or table.count < 1:
+        return  # unknown pool — the validator reports it
+
+    expression = (spec.gen.attrs.get("filter") or "").strip()
+    equality = (
+        None
+        if not expression
+        else pool_mod.parse_equality_filter(expression, table, lambda n: n in columns)
+    )
+    buckets = pool_mod.bucket_by_field(table, equality[0]) if equality else None
+
+    members: list[int] = []
+    for row in range(count):
+        if not mask[row]:
+            members.append(-1)
+            continue
+        if not expression:
+            members.append(pool_mod.pick_member(seed, name, table, row))
+            continue
+        if equality and buckets is not None:
+            wanted = (columns.get(equality[1]) or [None] * count)[row] or ""
+            eligible = buckets.get(wanted, [])
+            detail = f' ({equality[1]}="{wanted}")'
+        else:
+            eligible = pool_mod.eligible_members(
+                expression,
+                table,
+                lambda n, r=row: (columns[n][r] or "") if n in columns else None,
+            )
+            detail = ""
+        if not eligible:
+            raise ValueError(pool_mod.no_candidate_message(pool_name, expression, row, detail))
+        slot = seekable.next_int(seed, pool_mod.ref_stream(name), row, len(eligible))
+        members.append(eligible[slot])
+
+    for field_name in table.fields:
+        column = table.columns.get(field_name, [])
+        columns[f"{name}.{field_name}"] = [
+            None if m < 0 else (column[m] if m < len(column) else "") for m in members
+        ]
+
+
+# ── columns ─────────────────────────────────────────────────────────────────────────────────
+
+
+def _build_columns(
+    config: Config,
+    count: int,
+    packs: DataPacks,
+    now_millis: int,
+    base_dir: Path | None,
+    pool_tables: dict[str, pool_mod.PoolTable] | None = None,
+) -> dict[str, list[str | None]]:
+    """Every column materialized.
+
+    A value of ``None`` means "this row is outside the column's parent filter", which renders as
+    empty rather than as a neighbour's value shifted up.
+    """
+    columns: dict[str, list[str | None]] = {}
+
+    # The built-ins first. They are positional, consume no randomness, and are therefore
+    # identical for a given count no matter what else the config does.
+    columns["_count"] = [str(i + 1) for i in range(count)]
+    columns["_first"] = ["true" if i == 0 else "false" for i in range(count)]
+    columns["_last"] = ["true" if i == count - 1 else "false" for i in range(count)]
+    columns["_total"] = [str(count)] * count
+
+    run = _Run(config, packs, now_millis, base_dir, create(config.seed))
+
+    # Pools first, and off a DERIVED seed. A pool must be invisible to every column it does not
+    # feed: adding one to a config leaves the ids, the ages and the names exactly where they
+    # were, so an old snapshot still matches.
+    tables = (
+        pool_tables
+        if pool_tables is not None
+        else build_pool_tables(config, packs, now_millis, base_dir)
+    )
+
+    for spec in config.sequences:
+        mask = _parent_mask(spec, columns, count)
+        applicable = sum(1 for on in mask if on)
+
+        # A reference to a <pool>: this row gets one member, and every field of that member is
+        # published under `Ref.field`. Resolved HERE, in declaration order, so a later
+        # `<switch on="Doc.city">` finds the field already registered.
+        if spec.gen is not None and spec.gen.type == "pool":
+            _pool_reference(spec, columns, mask, count, tables, config.seed)
+            continue
+
+        # A running total down a column. Resolved HERE, in declaration order, so it reads a
+        # column that already exists — which is also why `of=` must name a sequence above it.
+        if spec.gen is not None and spec.gen.type == "running":
+            _running(spec, columns, count)
+            continue
+
+        if spec.is_composed:
+            _composed(spec, columns, mask, applicable, count, run)
+            continue
+
+        if spec.is_compound:
+            _compound(spec, columns, mask, applicable, count, run)
+            continue
+        if spec.is_mix:
+            _mix_column(spec, columns, mask, applicable, count, run)
+            continue
+        if spec.is_switch:
+            columns[spec.name or ""] = _switch_values(spec.switch_spec, count, run, columns)
+            continue
+        if spec.is_computed:
+            # Derived, not drawn: no PRNG at all. A check digit is a function of the values
+            # already in the row, so it takes nothing from the stream and adding one shifts
+            # nothing.
+            columns[spec.name or ""] = [
+                compute_evaluate(spec.compute, _row_lookup(columns, row)) for row in range(count)
+            ]
+            continue
+        if spec.is_conditional:
+            # Over every row, and without the parent mask — matching the reference. A conditional
+            # already says which rows it applies to through its own conditions, so parent= on one
+            # has nothing left to decide.
+            columns[spec.name or ""] = _conditional(spec, count, run, columns)
+            continue
+
+        assert spec.gen is not None
+        if spec.gen.type == "template" and "${{" in spec.gen.attr("value"):
+            # `common.vehicle.model.${{Brand}}` — the pack to draw from is decided by another
+            # column, so the address is not known until the row is. Built here rather than in the
+            # generator, because this is the only place the sibling columns exist.
+            columns[spec.name or ""] = _spread(
+                mask, _dynamic_template(spec.gen, mask, columns, run), count
+            )
+            continue
+
+        if spec.uniq and spec.gen.type not in ("increment", "decrement"):
+            # A single column cannot be both proportional and unique, so — unlike
+            # the compound path, which only rearranges — uniq changes the draw:
+            # without replacement, one PRNG draw per pick (sequence/uniq_simple.py).
+            produced = (
+                []
+                if applicable == 0
+                else uniq_simple.build_unique_values(spec.name or "", spec.gen, applicable, run)
+            )
+            columns[spec.name or ""] = _spread(mask, produced, count)
+            continue
+
+        _plain_column(spec, columns, mask, applicable, count, run)
+
+    _enforce_env_distinct(config, columns, count, run)
+    _enforce_env_uniq(config, columns, count)
+    _resolve_http(config, columns, count)
+    return columns
+
+
+def composes_own_value(items: list[Item]) -> bool:
+    """Whether a composed body builds a value of its own.
+
+    A body of nothing but named items — fields and constants — has none, and ``${{Name}}`` stays
+    the literal marker that says you meant a field.
+    """
+    return any(item.constant_name is None and (item.gen is not None or item.text is not None)
+               for item in items)
+
+
+def _composed(spec: SequenceSpec, columns, mask, applicable: int, count: int, run: _Run) -> None:
+    """The body in declaration order: unnamed items build the value, named ones are fields.
+
+    One pass, because the order the gens draw in is part of the contract and taking the named ones
+    first would shift every column after this sequence.
+    """
+    assert spec.items is not None
+    composed = [""] * applicable
+    produced: dict[str, list[str]] = {}
+
+    # `uniq="true"` on a composed value. The value is a concatenation, so it is unique exactly
+    # when the join is injective — true when ONE part is drawn and the rest are constants, since
+    # appending a constant cannot make two different draws collide. Two drawn parts is the
+    # variable-width trap and the validator refuses it (TDC220), so this stays None there.
+    drawn_parts = [i for i in spec.items if i.gen is not None and i.field is None]
+    uniq_part = drawn_parts[0] if spec.uniq and len(drawn_parts) == 1 else None
+
+    for item in spec.items:
+        if item.constant_name is not None:
+            # A constant costs no draw at all — that is the whole reason it exists rather than a
+            # one-value generator.
+            produced[item.constant_name] = [item.text or ""] * applicable
+            continue
+        if item.text is not None:
+            for i in range(applicable):
+                composed[i] += item.text
+            continue
+        gen = item.field.gen if item.field is not None else item.gen
+        assert gen is not None
+        if applicable == 0:
+            values: list[str] = []
+        elif item is uniq_part:
+            values = uniq_simple.build_unique_values(spec.name or "", gen, applicable, run)
+        else:
+            values = _finish(
+                _generate(gen, applicable, run), gen.attrs, run.prng, [False] * applicable
+            )
+        if item.field is not None:
+            produced[item.field.name] = values
+            continue
+        for i in range(applicable):
+            composed[i] += values[i]
+
+    if applicable > 0 and spec.distinct_groups is not None:
+        # The groups name FIELDS, and a composed body carries its fields in `items` — so the
+        # constraint is checked against a spec that spells them out.
+        fields = [item.field for item in spec.items if item.field is not None]
+        _enforce_distinct(replace(spec, fields=fields), produced, applicable, run)
+
+    if composes_own_value(spec.items):
+        columns[spec.name] = _spread(mask, composed, count)
+    for field_name, values in produced.items():
+        columns[f"{spec.name}.{field_name}"] = _spread(mask, values, count)
+
+
+def _compound(spec: SequenceSpec, columns, mask, applicable: int, count: int, run: _Run) -> None:
+    """Every field shares the parent mask and draws from the shared stream in declaration order.
+
+    That is what keeps a compound coherent: the city and the postcode of one generated address
+    belong to the same row, not to two independent ones.
+    """
+    assert spec.fields is not None
+    produced: dict[str, list[str]] = {}
+    for f in spec.fields:
+        produced[f.name] = (
+            []
+            if applicable == 0
+            else _finish(
+                _generate(f.gen, applicable, run), f.gen.attrs, run.prng, [False] * applicable
+            )
+        )
+
+    if applicable > 0 and spec.distinct_groups is not None:
+        _enforce_distinct(spec, produced, applicable, run)
+    if applicable > 0 and spec.uniq:
+        _enforce_uniq(spec, produced, applicable, run)
+
+    for f in spec.fields:
+        columns[f"{spec.name}.{f.name}"] = _spread(mask, produced[f.name], count)
+
+
+def _mix_column(spec: SequenceSpec, columns, mask, applicable: int, count: int, run: _Run) -> None:
+    assert spec.mix is not None
+    flags = [False] * applicable
+    produced = [] if applicable == 0 else _mix_values(spec.mix, applicable, run, flags)
+    columns[spec.name or ""] = _spread(mask, produced, count)
+
+    flag_name = spec.mix.flag
+    if flag_name and flag_name.strip():
+        # The ground-truth companion: which rows took a case declared anomalous. It shares the
+        # parent mask, so the label is absent exactly where the value is.
+        columns[flag_name] = _spread(mask, [str(on).lower() for on in flags], count)
+
+
+def _plain_column(
+    spec: SequenceSpec, columns, mask, applicable: int, count: int, run: _Run
+) -> None:
+    assert spec.gen is not None
+    anomaly_flags = [False] * applicable
+    repeat = repeat_gen.parse(spec.gen.attrs)
+
+    if applicable == 0:
+        produced: list[str] = []
+    elif repeat is not None:
+        # The per-value passes run inside, on the flat slot buffer, so anomaly, missing and
+        # formatting come out per element of the list rather than over the joined cell.
+        produced = repeat_gen.build(
+            repeat,
+            applicable,
+            run.prng,
+            lambda slots: _finish(
+                _generate(spec.gen, slots, run), spec.gen.attrs, run.prng, [False] * slots
+            ),
+        )
+    else:
+        produced = _finish(
+            _generate(spec.gen, applicable, run), spec.gen.attrs, run.prng, anomaly_flags
+        )
+
+    columns[spec.name or ""] = _spread(mask, produced, count)
+
+    flag_name = spec.gen.attrs.get("anomaly_flag")
+    if flag_name and flag_name.strip():
+        # Which rows the run chose to spike. It shares the parent mask, so the label is absent on
+        # exactly the rows the value is absent from — a detector trained on this cannot learn
+        # from a label the data never had.
+        columns[flag_name] = _spread(mask, [str(on).lower() for on in anomaly_flags], count)
+
+
+def _parent_mask(spec: SequenceSpec, columns, count: int) -> list[bool]:
+    """Which rows a column applies to."""
+    if spec.parent is None:
+        return [True] * count
+    dot = spec.parent.find(".")
+    parent_name = spec.parent if dot < 0 else spec.parent[:dot]
+    parent_value = None if dot < 0 else spec.parent[dot + 1 :]
+
+    parent = columns.get(parent_name)
+    if parent is None:
+        raise EngineError(
+            f'sequence "{spec.name}" references unknown parent "{parent_name}". '
+            "Parent sequences must be declared before their children."
+        )
+    if parent_value is None:
+        return [parent[i] is not None for i in range(count)]
+    return [parent[i] == parent_value for i in range(count)]
+
+
+def _dynamic_template(gen: Gen, mask: list[bool], columns, run: _Run) -> list[str]:
+    """A template whose address names another column.
+
+    The row decides where its value comes from: a car's model list depends on its make, a
+    region's cities on its country. That is the difference between data that is merely plausible
+    per column and data that holds together across a record.
+
+    One row at a time, necessarily — the address changes with it — and only on the rows the parent
+    selected, so a filtered-out row draws nothing rather than drawing from whatever address an
+    empty interpolation happens to produce.
+    """
+    template = gen.attr("value")
+    locale = gen.attrs.get("local") or run.config.locale
+
+    out: list[str] = []
+    for row in range(len(mask)):
+        if not mask[row]:
+            continue
+        address = interpolate.apply(template, run.config.inject, _row_lookup(columns, row))
+        resolved = Gen("template", {**gen.attrs, "value": address, "local": locale})
+        built = _generate(resolved, 1, run)
+        out.append(built[0] if built else "")
+    return out
+
+
+def _spread(mask: list[bool], produced: list[str], count: int) -> list[str | None]:
+    """Dense produced values laid back over the full row range, filtered rows left absent."""
+    values: list[str | None] = [None] * count
+    following = 0
+    for i in range(count):
+        if mask[i]:
+            values[i] = produced[following] if following < len(produced) else None
+            following += 1
+    return values
+
+
+# ── the passes that run over a finished column ──────────────────────────────────────────────
+
+
+def _finish(
+    values: list[str], attrs: dict[str, str], prng: Sfc32, anomaly_flags: list[bool]
+) -> list[str]:
+    """Outliers, then blanks, then formatting — and the order is the contract.
+
+    Spiking after blanking would multiply an empty string, and formatting before either would
+    format a value that is about to be replaced.
+    """
+    out = list(values)
+
+    anomaly = imperfections.parse_anomaly(attrs)
+    if anomaly is not None:
+        imperfections.apply_anomaly(out, anomaly, prng, anomaly_flags)
+    missing = imperfections.parse_missing(attrs)
+    if missing is not None:
+        imperfections.apply_missing(out, missing, prng)
+
+    mask = attrs.get("mask")
+    if mask is not None:
+        out = [apply_mask(mask, v) for v in out]
+    case_name = attrs.get("case")
+    if case_name is not None and is_case_transform(case_name):
+        out = [apply_case(case_name, v) for v in out]
+    return out
+
+
+# ── mix, switch, conditional ────────────────────────────────────────────────────────────────
+
+
+def _mix_values(mix, count: int, run: _Run, flags: list[bool] | None) -> list[str]:
+    """A mix: the cases apportioned exactly over the rows, then each case fills its own.
+
+    Grouping the rows by case BEFORE generating is what makes a nested mix mean what it says. The
+    inner percentages then apply to the subset the outer case selected, so "20% of the readings
+    are faulty, and half of those are out of range" comes out as ten per cent of everything rather
+    than as two independent coin flips.
+    """
+    cases = mix.cases
+    if not cases:
+        return [""] * count
+
+    if mix.percent is None or not mix.percent.strip():
+        percents = [100.0 / len(cases)] * len(cases)
+    else:
+        percents = percent_mask.expand(mix.percent, len(cases))
+
+    selected = hamilton.distribute(count, list(range(len(cases))), percents, run.prng)
+
+    out = [""] * count
+    if flags is not None:
+        for i in range(count):
+            flags[i] = cases[selected[i]].anomaly
+
+    for c, case in enumerate(cases):
+        rows = [i for i in range(count) if selected[i] == c]
+        if not rows:
+            continue
+        values = _case_values(case, len(rows), run)
+        for i, row in enumerate(rows):
+            out[row] = values[i]
+    return out
+
+
+def _case_values(case, count: int, run: _Run) -> list[str]:
+    """A case body: its pieces concatenated, each built for the rows that chose this case."""
+    out = [""] * count
+    for part in case.parts:
+        if part.text is not None:
+            values = [part.text] * count
+        elif part.gen is not None:
+            values = _generate(part.gen, count, run)
+        else:
+            values = _mix_values(part.mix, count, run, None)
+        out = [out[i] + values[i] for i in range(count)]
+    return out
+
+
+def _switch_values(spec, count: int, run: _Run, columns) -> list[str | None]:
+    """A switch: the subject's value looked up in the table.
+
+    Built over EVERY row rather than only the matching ones, because a case may hold a generator
+    and its draws are part of the stream whether or not that key came up. A row with no match and
+    no default is empty — which is a value, not a failure: a country with no currency listed
+    simply has none here.
+    """
+    built = [_case_values(entry.value, count, run) for entry in spec.entries]
+    fallback = None if spec.fallback is None else _case_values(spec.fallback, count, run)
+
+    subject = columns.get(spec.on)
+    out: list[str | None] = [None] * count
+    for i in range(count):
+        key = "" if subject is None or subject[i] is None else subject[i]
+        picked = None
+        for e, entry in enumerate(spec.entries):
+            if key in entry.keys:
+                picked = built[e][i]
+                break
+        if picked is None and fallback is not None:
+            picked = fallback[i]
+        out[i] = picked
+    return out
+
+
+def _conditional(spec: SequenceSpec, count: int, run: _Run, columns) -> list[str | None]:
+    """The first branch whose condition holds wins.
+
+    EVERY branch is generated in full, for every row, even though at most one value survives on
+    each. That is not waste to be optimised away — the draws a branch takes are part of the
+    stream, so generating only the winning branch would make the whole run depend on which branch
+    happened to win, and two engines would stop agreeing.
+    """
+    assert spec.branches is not None
+    if count == 0:
+        return []
+    built = [
+        _finish(_generate(b.gen, count, run), b.gen.attrs, run.prng, [False] * count)
+        for b in spec.branches
+    ]
+
+    out: list[str | None] = []
+    for i in range(count):
+        picked = None
+        for b, branch in enumerate(spec.branches):
+            if branch.if_expr is None or _condition(branch.if_expr, columns, i):
+                picked = built[b][i]
+                break
+        out.append(picked)
+    return out
+
+
+# ── distinct and uniq ───────────────────────────────────────────────────────────────────────
+
+
+def _enforce_distinct(spec: SequenceSpec, produced, count: int, run: _Run) -> None:
+    """``<distinct>`` — fields inside one group must differ from each other within a row.
+
+    Redraw on collision, field by field, in declaration order. A person's city of birth and city
+    of residence come from the same list and are usually different; without this they coincide
+    about as often as the list is short.
+
+    Redrawing appends to the stream, so the result stays deterministic. The fuse is there because
+    a one-value list can never satisfy two fields, and spinning forever would say far less than
+    naming the problem.
+    """
+    assert spec.fields is not None
+    gen_by_field = {f.name: f.gen for f in spec.fields}
+
+    for group in spec.distinct_groups or []:
+        fields = [name for name in group if name in produced and name in gen_by_field]
+        if len(fields) < 2:
+            continue
+
+        for i in range(count):
+            seen: set[str] = set()
+            for field_name in fields:
+                values = produced[field_name]
+                gen = gen_by_field[field_name]
+                value = values[i]
+                attempts = 0
+                while value in seen:
+                    if attempts >= DISTINCT_FUSE:
+                        raise EngineError(
+                            f'<distinct> in sequence "{spec.name}": could not find a value for '
+                            f'field "{field_name}" different from the others after '
+                            f"{DISTINCT_FUSE} attempts — its source likely has too few distinct "
+                            "values."
+                        )
+                    attempts += 1
+                    value = _generate(gen, 1, run)[0]
+                values[i] = value
+                seen.add(value)
+
+
+class _UniqInfeasibleError(Exception):
+    """Raised by the arranger alone, so the retry can tell it from a real failure."""
+
+    def __init__(self, achievable: int) -> None:
+        super().__init__("uniq is infeasible")
+        self.achievable = achievable
+
+
+def _arrange_unique(spec: SequenceSpec, produced, count: int) -> None:
+    assert spec.fields is not None
+    columns = [produced[f.name] for f in spec.fields]
+    column_counts = [uniq_lib.value_counts(c) for c in columns]
+
+    # The cheap bound first: it cannot be reached, so there is no point building anything.
+    upper = uniq_lib.upper_bound(column_counts)
+    if count > upper:
+        raise _UniqInfeasibleError(upper)
+
+    arranged = uniq_lib.arrange(columns)
+    if arranged.distinct < count:
+        raise _UniqInfeasibleError(arranged.distinct)
+    for i, f in enumerate(spec.fields):
+        produced[f.name] = arranged.columns[i]
+
+
+def _enforce_uniq(spec: SequenceSpec, produced, count: int, run: _Run) -> None:
+    """``uniq="true"``, and a fresh draw when the first one happened to be unarrangeable.
+
+    The arranger may only rearrange what was drawn — that is what keeps ``percent=`` exact. But
+    when nothing pins the proportions, a lopsided draw is an accident of sampling rather than
+    something to protect, and refusing the whole run over it blames the value lists for a problem
+    they do not have: four values by eight values over twenty rows offers 32 combinations, and a
+    draw of a×7 a×6 a×3 a×4 tops out at nineteen.
+
+    So it draws again. This runs only where the previous behaviour failed, so no config that works
+    today shifts by a byte. When the columns come from an exact quota, a redraw returns the same
+    multiset in a different order and cannot help; that is detected after one attempt and reported
+    as what it is, rather than retried seven more times for nothing.
+    """
+    assert spec.fields is not None
+    try:
+        _arrange_unique(spec, produced, count)
+        return
+    except _UniqInfeasibleError:
+        pass
+
+    first_signature = _uniq_signature(spec, produced)
+    best = 0
+    for attempt in range(UNIQ_REDRAW_ATTEMPTS):
+        for f in spec.fields:
+            produced[f.name] = _finish(
+                _generate(f.gen, count, run), f.gen.attrs, run.prng, [False] * count
+            )
+        # The same value frequencies mean the draw is quota-fixed: every further attempt would
+        # produce this multiset again.
+        quota_fixed = attempt == 0 and _uniq_signature(spec, produced) == first_signature
+        try:
+            _arrange_unique(spec, produced, count)
+            return
+        except _UniqInfeasibleError as e:
+            best = max(best, e.achievable)
+            if quota_fixed:
+                raise EngineError(_uniq_quota_message(spec.name, count, e.achievable)) from None
+    raise EngineError(_uniq_redrawn_message(spec.name, count, best))
+
+
+def _uniq_signature(spec: SequenceSpec, produced) -> str:
+    """Per field, its value frequencies sorted — what changes when a draw is not quota-fixed."""
+    assert spec.fields is not None
+    return "|".join(
+        ",".join(str(c) for c in sorted(uniq_lib.value_counts(produced[f.name])))
+        for f in spec.fields
+    )
+
+
+def _uniq_quota_message(name: str | None, requested: int, achievable: int) -> str:
+    """The proportions are the config's requirement, so the draw is not the engine's to change."""
+    return (
+        f'uniq: sequence "{name}" cannot produce {requested} unique combinations. Its values are '
+        "drawn to an exact share (percent=, or a weighted pack), so their proportions are fixed "
+        f"by the config, and those proportions allow at most {achievable} distinct rows. Add more "
+        "values to a field (more distinct names, wider ranges…), relax the share, or lower the "
+        "count."
+    )
+
+
+def _uniq_redrawn_message(name: str | None, requested: int, achievable: int) -> str:
+    """Nothing pinned the draw, and redrawing still could not get there."""
+    return (
+        f'uniq: sequence "{name}" cannot produce {requested} unique combinations — '
+        f"{UNIQ_REDRAW_ATTEMPTS} independent draws each topped out around {achievable} distinct "
+        "rows. Its fields do not hold enough distinct values between them. Add more values to a "
+        "field (more distinct names, wider ranges…) or lower the count."
+    )
+
+
+def _enforce_env_distinct(config: Config, columns, count: int, run: _Run) -> None:
+    """Env-level ``<distinct>``: the wrapped sequences differ from each other on every row.
+
+    The same idea as ``<distinct>`` inside one compound, one level up. A colliding sequence
+    redraws until it differs, which is cheap because a collision is rare and the alternative —
+    planning the whole group together — would tie sequences that are otherwise independent.
+    """
+    by_name = {spec.name: spec for spec in config.sequences}
+
+    for group in config.env_distinct_groups:
+        members = _scalar_members(group, by_name, columns)
+        if len(members) < 2:
+            continue
+        for i in range(count):
+            seen: list[str] = []
+            for name in members:
+                values = columns[name]
+                value = values[i]
+                if value is None:
+                    continue  # a row this sequence does not apply to
+                attempts = 0
+                while value in seen:
+                    if attempts >= DISTINCT_FUSE:
+                        raise EngineError(
+                            "<distinct> across sequences: could not find a value for sequence "
+                            f'"{name}" different from the others after {DISTINCT_FUSE} attempts '
+                            "— its source likely has too few distinct values."
+                        )
+                    attempts += 1
+                    value = _one_scalar(by_name[name], run)
+                values[i] = value
+                seen.append(value)
+
+
+def _enforce_env_uniq(config: Config, columns, count: int) -> None:
+    """Env-level ``<uniq>``: the tuple of the wrapped sequences is unique across the run.
+
+    The values are already drawn, so this rearranges rather than redraws — each column keeps the
+    multiset it produced and only the pairings change. That is what keeps a weighted member's
+    proportions intact while the combinations become distinct.
+    """
+    by_name = {spec.name: spec for spec in config.sequences}
+
+    for group in config.env_uniq_groups:
+        members = _scalar_members(group, by_name, columns)
+        if len(members) < 2:
+            continue
+        # Only the rows where every member has a value: a row one member skips has no tuple to
+        # make unique, and forcing one would invent a value the config never asked for.
+        rows = [i for i in range(count) if all(columns[name][i] is not None for name in members)]
+        if not rows:
+            continue
+
+        label = " × ".join(members)
+        by_row: dict[int, list[str]] = {}
+
+        for block in _partition_rows(rows, _subjects_of(members, by_name), columns):
+            grid = [[columns[name][row] for row in block] for name in members]
+            counts = [uniq_lib.value_counts(column) for column in grid]
+
+            upper = uniq_lib.upper_bound(counts)
+            if len(block) > upper:
+                raise EngineError(_uniq_group_message(label, len(rows), upper))
+            arranged = uniq_lib.arrange(grid)
+            if arranged.distinct < len(block):
+                raise EngineError(_uniq_group_message(label, len(rows), arranged.distinct))
+            for k, row in enumerate(block):
+                by_row[row] = [arranged.columns[m][k] for m in range(len(members))]
+
+        # Blocks are made unique on their own; two of them could still meet on the same tuple
+        # when the subjects share a value (a name in both lists). Rare, but silence here would
+        # be a broken promise, so it is counted and refused.
+        seen = {tuple(by_row[row]) for row in rows}
+        if len(seen) < len(rows):
+            raise EngineError(_uniq_group_message(label, len(rows), len(seen)))
+
+        for m, name in enumerate(members):
+            for row in rows:
+                columns[name][row] = by_row[row][m]
+
+
+def _uniq_group_message(label: str, need: int, available: int) -> str:
+    return (
+        f'uniq: group "{label}" cannot produce {need} unique combinations — the values drawn for '
+        f"these sequences allow at most {available} distinct rows. Add more values to a member "
+        "(more distinct names, wider ranges…) or lower the count."
+    )
+
+
+def _subjects_of(members: list[str], by_name) -> list[str]:
+    """The subjects the group's ``<switch>`` members are keyed by, in order, without repeats.
+
+    Empty when no member is a switch, which is the ordinary case and leaves the behaviour
+    exactly as it was.
+    """
+    subjects: list[str] = []
+    for name in members:
+        spec = by_name.get(name)
+        on = spec.switch_spec.on if spec is not None and spec.switch_spec is not None else None
+        if on is not None and on not in subjects:
+            subjects.append(on)
+    return subjects
+
+
+def _partition_rows(rows: list[int], subjects: list[str], columns) -> list[list[int]]:
+    """Split the rows into blocks that may be shuffled among themselves.
+
+    With no switch member there is one block holding every row — the old behaviour, bit for
+    bit. With one, rows are grouped by the value of its subject, so male rows only ever trade
+    with male rows: a switch's value answers the subject of ITS row.
+    """
+    if not subjects:
+        return [list(rows)]
+    blocks: dict[tuple, list[int]] = {}
+    for row in rows:
+        key = tuple(columns[s][row] if s in columns else None for s in subjects)
+        blocks.setdefault(key, []).append(row)
+    return list(blocks.values())
+
+
+def _scalar_members(group: list[str], by_name, columns) -> list[str]:
+    """The members of a group that are single-valued sequences and were actually built."""
+    out = []
+    for name in group:
+        spec = by_name.get(name)
+        if (
+            spec is not None
+            and (spec.gen is not None or spec.is_mix or spec.is_switch)
+            and name in columns
+        ):
+            out.append(name)
+    return out
+
+
+def _one_scalar(spec: SequenceSpec, run: _Run) -> str:
+    """One fresh value from a sequence — what a ``<distinct>`` collision redraws."""
+    if spec.gen is not None:
+        built = _finish(_generate(spec.gen, 1, run), spec.gen.attrs, run.prng, [False])
+        return built[0] if built else ""
+    if spec.is_mix:
+        built = _mix_values(spec.mix, 1, run, [False])
+        return built[0] if built else ""
+    return ""
+
+
+# ── generating ──────────────────────────────────────────────────────────────────────────────
+
+
+def _generate(gen: Gen, count: int, run: _Run) -> list[str]:
+    """One generator's values.
+
+    Shared with the streaming engine, which calls it with a count of one and a generator private
+    to the row. Two copies of this dispatch would be two places for the languages to drift apart
+    from each other and from themselves.
+    """
+    config = run.config
+    locale = config.locale
+    prng = run.prng
+    attrs = gen.attrs
+
+    # order="sequential" comes before everything else: it replaces the draw entirely, so the
+    # percent= and the random pick below never happen. Row i is element i mod N.
+    #
+    # Only text and file, matching the reference. A sequential regex or date would have to mean
+    # something invented here, and inventing it is how two implementations stop agreeing.
+    if gen.type in ("text", "file") and attrs.get("order") == "sequential":
+        values = (
+            file_gen.load(attrs, run.base_dir, run.packs.data_roots)
+            if gen.type == "file"
+            else _split_text(gen.attr("value"))
+        )
+        cycle = attrs.get("cycle") != "false"
+        return [_pick_sequential(values, i, cycle) for i in range(count)]
+
+    if gen.type == "increment":
+        return counter.generate(attrs, count, True)
+    if gen.type == "decrement":
+        return counter.generate(attrs, count, False)
+    if gen.type == "number":
+        distribution = attrs.get("distribution")
+        if distribution is not None and distribution.strip():
+            return _distribute(attrs, count, prng)
+        return number.generate(attrs, count, prng)
+    if gen.type == "timeseries":
+        return _timeseries(attrs, count, prng)
+    if gen.type == "file":
+        row_key = _trim_to_none(attrs.get("row"))
+        if row_key is not None:
+            return _linked_file_values(row_key, attrs, count, run)
+        weighted = file_gen.load_weighted(attrs, run.base_dir, run.packs.data_roots)
+        if weighted is not None:
+            # The same apportionment percent= uses, so the file's counts come out exact rather
+            # than approximate.
+            return hamilton.distribute(count, weighted.values, weighted.percents, prng)
+        return file_gen.generate(attrs, count, run.base_dir, prng, run.packs.data_roots)
+    if gen.type == "pattern":
+        return _pattern(attrs, count, run)
+    if gen.type == "http":
+        # Filled in a second pass, after every ordinary column exists: an http gen may read
+        # another sequence through in=, and that sequence has to be there first.
+        return [""] * count
+    if gen.type == "regex":
+        return regex.generate(attrs, count, config.regex_max_length, prng)
+    if gen.type == "advanced_regex":
+        return advanced_regex.generate(attrs, count, config.regex_max_length, prng)
+    if gen.type == "symbol":
+        return symbol.generate(attrs, count, prng)
+    if gen.type == "date":
+        return date_gen.generate(attrs, count, locale, run.now_millis, prng)
+
+    if gen.type == "text":
+        values = _split_text(gen.attr("value"))
+        percent = gen.attr("percent")
+    elif gen.type == "template":
+        path = gen.attr("value")
+        # Two template paths are generators rather than lists. They are resolved before the pack
+        # registry is consulted, which is why no pack file is named after them.
+        if path == "person.b_day":
+            return [
+                date_gen.render_birthday(attrs, locale, run.now_millis, prng) for _ in range(count)
+            ]
+        if path == "date.range":
+            return [
+                date_gen.render_date_range(attrs, locale, run.now_millis, prng)
+                for _ in range(count)
+            ]
+        entry = run.packs.load(path, locale)
+        if entry.is_generator:
+            # The pack ships a rule rather than a list. Two shapes: a lone <gen>, or local
+            # sequences feeding an output template — which is how an identifier with a check
+            # digit is expressed as editable data instead of as engine code.
+            return _run_pack_generator(entry, path, count, run)
+        if entry.weighted:
+            # A weighted pack is laid out exactly, not sampled: the counts in the file are
+            # proportions the run has to hit, which is the same path percent= takes.
+            return hamilton.distribute(count, entry.values, entry.percents or [], prng)
+        values = entry.values
+        percent = ""
+    else:
+        raise EngineError(f'generator type "{gen.type}" is not ported yet')
+
+    if not percent:
+        return [values[math.floor(prng.next() * len(values))] for _ in range(count)]
+    # Through the shared mask reader, so a partial mask like percent="50" over three values
+    # splits the remainder instead of throwing on the blanks.
+    return hamilton.distribute(count, values, percent_mask.expand(percent, len(values)), prng)
+
+
+def _distribute(attrs: dict[str, str], count: int, prng: Sfc32) -> list[str]:
+    """A column drawn from a named distribution.
+
+    Each row spends the same number of uniforms whatever the value turns out to be, which is what
+    keeps a row computable from its index. Rejection sampling would be simpler to write and would
+    break that.
+    """
+    spec = dist.parse(attrs)
+    out = []
+    for _ in range(count):
+        uniforms = [open_unit(prng.next()) for _ in range(spec.draws)]
+        out.append(dist.format_sample(dist.sample(spec, uniforms), spec))
+    return out
+
+
+def _timeseries(attrs: dict[str, str], count: int, prng: Sfc32) -> list[str]:
+    spec = timeseries.parse(attrs)
+    out = []
+    for i in range(count):
+        z = (
+            timeseries.standard_normal(open_unit(prng.next()), open_unit(prng.next()))
+            if spec.has_noise()
+            else 0.0
+        )
+        out.append(timeseries.format_value(timeseries.value_at(spec, i, z), spec.decimals))
+    return out
+
+
+def _pattern(attrs: dict[str, str], count: int, run: _Run) -> list[str]:
+    resolved = patterns.of(attrs, run.base_dir, run.packs.data_roots)
+    draws = patterns.draws(resolved)
+    denom = count - 1 if count > 1 else 1
+    return [
+        patterns.value_at(
+            resolved, i / denom, open_unit(run.prng.next()) if draws else 0.0, 1 / denom
+        )
+        for i in range(count)
+    ]
+
+
+def _linked_file_values(row_key: str, attrs: dict[str, str], count: int, run: _Run) -> list[str]:
+    """``row="key"`` — every sequence on the same key reads the same row of the file.
+
+    The first sequence to use a key draws the plan — one row index per record — and every later
+    one follows it. That is the whole point: a city and its postcode taken from one real record
+    are consistent, where two independent draws produce a pairing no validator would accept.
+
+    Because only the first draws, adding a second field to an existing link consumes no further
+    randomness and leaves every other column exactly where it was.
+    """
+    source = file_gen.load_rows(attrs, run.base_dir, run.packs.data_roots)
+    plan = run.row_links.get(row_key)
+
+    if plan is None:
+        weighted = file_gen.weighted_rows(attrs, source)
+        if weighted is not None:
+            # With weight=, the shared rows follow the file's counts exactly; every linked field
+            # then reads those same rows.
+            indexes = [
+                int(i)
+                for i in hamilton.distribute(count, weighted.values, weighted.percents, run.prng)
+            ]
+        else:
+            indexes = [rand.next_int(run.prng, 0, len(source.rows)) for _ in range(count)]
+        plan = (source.source_key, indexes)
+        run.row_links[row_key] = plan
+    else:
+        if plan[0] != source.source_key:
+            raise EngineError(f'sequence: row link "{row_key}" cannot mix different file sources')
+        if len(plan[1]) != count:
+            raise EngineError(
+                f'sequence: row link "{row_key}" cannot be reused with a different row count'
+            )
+
+    return [file_gen.cell_at(source, index) for index in plan[1]]
+
+
+def _split_text(value: str) -> list[str]:
+    """A ``value="a, b, c"`` list, trimmed.
+
+    A config writes the space after the comma because that is how a person writes a list, and the
+    space is formatting rather than part of the value.
+    """
+    return [part.strip() for part in value.split(",")]
+
+
+def _pick_sequential(values: list[str], index: int, cycle: bool) -> str:
+    """Element ``index mod N``, or a refusal once the data runs out under ``cycle="false"``.
+
+    Looping is the default because a short list walked over many rows is the ordinary case —
+    twelve months across a year of daily records. ``cycle="false"`` is for when running out is a
+    mistake worth hearing about rather than something to paper over by starting again.
+    """
+    if not values:
+        return ""
+    if not cycle and index >= len(values):
+        raise EngineError(
+            f'order="sequential" cycle="false": only {len(values)} values for {index + 1} rows'
+        )
+    return values[index % len(values)]
+
+
+def _trim_to_none(value: str | None) -> str | None:
+    if value is None:
+        return None
+    trimmed = value.strip()
+    if not trimmed:
+        raise EngineError("sequence: file row link must not be empty")
+    return trimmed
+
+
+# ── pack generators ─────────────────────────────────────────────────────────────────────────
+
+
+def _run_pack_generator(entry, path: str, count: int, run: _Run) -> list[str]:
+    body = _PACK_BODIES.get(path)
+    if body is None:
+        source = entry.generator
+        # A body holding <sequence> or <data> is composed; anything else is a lone <gen>.
+        body = (
+            config_builder.parse_pack_body(source)
+            if "<sequence" in source or "<data" in source
+            else config_builder.parse_gen_tag(source)
+        )
+        _PACK_BODIES[path] = body
+
+    if isinstance(body, Gen):
+        return _generate(body, count, run)
+
+    local: dict[str, list[str | None]] = {}
+    for spec in body.sequences:
+        local[spec.name or ""] = _materialize_local(spec, count, run, local)
+
+    if body.validate is not None:
+        _enforce_valid(body, local, count, run)
+
+    return [
+        interpolate.apply(body.output, run.config.inject, _row_lookup(local, row))
+        for row in range(count)
+    ]
+
+
+def _materialize_local(spec: SequenceSpec, count: int, run: _Run, local) -> list[str | None]:
+    """One local sequence of a pack body: a computed value, or an ordinary generated column."""
+    if spec.is_computed:
+        return [compute_evaluate(spec.compute, _row_lookup(local, i)) for i in range(count)]
+    assert spec.gen is not None
+    produced = _generate(spec.gen, count, run)
+    return list(_finish(produced, spec.gen.attrs, run.prng, [False] * count))
+
+
+def _enforce_valid(pack, local, count: int, run: _Run) -> None:
+    """Reject and redraw until the pack's ``<valid>`` predicate holds.
+
+    Some identifiers have combinations that were never issued — a region code that does not exist,
+    a date inside a national ID that never happened. Redrawing appends to the stream, so the
+    result stays deterministic; the fuse is there because a constraint no draw can satisfy would
+    otherwise hang the run rather than report itself.
+    """
+    for row in range(count):
+        attempts = 0
+        while not evaluate_predicate(pack.validate, _row_lookup(local, row)):
+            if attempts >= VALID_FUSE:
+                raise EngineError(
+                    f"pack generator <valid> constraint could not be satisfied for row {row} "
+                    f"after {VALID_FUSE} attempts — the base cannot produce a valid value"
+                )
+            attempts += 1
+            for spec in pack.sequences:
+                if spec.is_computed:
+                    continue
+                if spec.gen is None:
+                    raise EngineError(
+                        "pack generator <valid> requires simple <gen> base sequences; sequence "
+                        f'"{spec.name}" is not supported'
+                    )
+                one = _finish(_generate(spec.gen, 1, run), spec.gen.attrs, run.prng, [False])
+                local[spec.name][row] = one[0]
+            # Derived values follow their inputs, in declaration order.
+            for spec in pack.sequences:
+                if spec.is_computed:
+                    local[spec.name][row] = compute_evaluate(spec.compute, _row_lookup(local, row))
+
+
+# ── http, resolved after everything else ────────────────────────────────────────────────────
+
+
+def _resolve_http(config: Config, columns, count: int) -> None:
+    """Every ``type="http"`` column filled from its service, once the rest of the run exists.
+
+    A second pass rather than a generator branch, because an http gen may read another sequence
+    through ``in=``, and that sequence has to be finished first.
+
+    One call per column, carrying the whole batch — a million rows is a handful of requests, not a
+    million. The ``in=`` column travels as the request body, so a service can answer per input
+    rather than out of thin air.
+
+    The seed sent along is derived from the run's seed and the sequence name. The engine cannot
+    make an http column reproducible, since the service decides the values; what it can do is give
+    the service everything it needs to be reproducible on its own.
+    """
+    for spec in config.sequences:
+        if spec.gen is None or spec.gen.type != "http":
+            continue
+        attrs = spec.gen.attrs
+        in_name = attrs.get("in")
+        inputs = None
+        if in_name and in_name.strip():
+            column = columns.get(in_name)
+            inputs = [
+                "" if column is None or column[i] is None else column[i] for i in range(count)
+            ]
+
+        request = http_gen.Request(
+            src=attrs.get("src", ""),
+            count=count,
+            inputs=inputs,
+            seed=http_gen.seed_for(config.seed, spec.name or ""),
+            on_error=http_gen.parse_on_error(attrs.get("on_error")),
+            timeout_ms=http_gen.parse_timeout(attrs.get("timeout")),
+        )
+        try:
+            values = http_gen.fetch(request)
+        except http_gen.ServiceError as e:
+            raise EngineError(f'http service for sequence "{spec.name}" at {e.url} {e}') from e
+
+        target = columns.get(spec.name or "")
+        if target is not None:
+            for i in range(min(count, len(values))):
+                target[i] = values[i]
+
+
+# ── rendering ───────────────────────────────────────────────────────────────────────────────
+
+
+def _row_lookup(columns, row: int):
+    """One row's view of the columns, shared by the interpolator and the compute layer."""
+
+    def lookup(name: str) -> str | None:
+        column = columns.get(name)
+        if column is None:
+            return None
+        value = column[row]
+        return "" if value is None else value
+
+    return lookup
+
+
+def _condition(expr: str, columns, row: int) -> bool:
+    """An ``if`` evaluated against one row.
+
+    A column that has no value on this row reads as EMPTY rather than as missing, so a condition
+    on a child column is false on the rows its parent did not select — which is what a config
+    expects when it asks about a field that only some records have.
+    """
+    return as_condition(
+        expr,
+        lambda name: name in columns,
+        lambda name: columns[name][row] if columns[name][row] is not None else "",
+    )
+
+
+def _render_line(line: Line, columns, row: int, inject: str, each_info) -> str:
+    """One line — or, with ``each="NAME"``, one line per element of that list.
+
+    The text comes back with its newline already attached, because a line with ``each`` may
+    produce several and a list with nothing in it must produce none at all: a customer with no
+    orders leaves no blank row behind.
+    """
+    template = "".join(
+        part.text
+        for part in line.parts
+        if part.if_expr is None or _condition(part.if_expr, columns, row)
+    )
+
+    list_name = None if line.each is None else line.each.strip()
+    if not list_name:
+        return interpolate.apply(template, inject, _row_lookup(columns, row)) + "\n"
+
+    spec = each_info.get(list_name)
+    column = columns.get(list_name)
+    cell = "" if column is None or column[row] is None else column[row]
+    separator = repeat_gen.DEFAULT_SEPARATOR if spec is None else spec.separator
+    elements = repeat_gen.split(cell, separator)
+
+    # Lanes: two repeating sequences write into the same child table, so each gets its own slice
+    # of every card's key block rather than sharing one counter.
+    lane = 0
+    stride = 0
+    for name, info in each_info.items():
+        if name == list_name:
+            lane = stride
+        stride += info.max
+    if stride == 0:
+        stride = len(elements)
+
+    out = []
+    for k, element in enumerate(elements):
+        lookup = _element_lookup(columns, row, list_name, element, k + 1, lane, stride)
+        out.append(interpolate.apply(template, inject, lookup) + "\n")
+    return "".join(out)
+
+
+def _element_lookup(columns, row: int, list_name: str, element: str, position: int, lane, stride):
+    """The row's view with one element substituted for the list, plus the two positional built-ins.
+
+    Shallow on purpose: every other column still resolves per record, which is exactly what makes
+    a foreign key on the repeated line point at the right parent on every emitted row.
+    """
+    overlay = {
+        list_name: element,
+        "_item": str(position),
+        "_item_id": str(repeat_gen.item_key(row + 1, position, lane, stride)),
+    }
+    base = _row_lookup(columns, row)
+
+    def lookup(name: str) -> str | None:
+        return overlay[name] if name in overlay else base(name)
+
+    return lookup

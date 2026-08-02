@@ -1,0 +1,15 @@
+---
+description: Shipping status (Polish)
+locale: pl
+---
+Etykieta utworzona
+W transporcie
+W doręczeniu
+Doręczona
+Problem w transporcie
+Zwrot do nadawcy
+Oczekuje na odbiór
+Opóźniona
+W odprawie celnej
+Błędny adres
+Nieudana próba doręczenia

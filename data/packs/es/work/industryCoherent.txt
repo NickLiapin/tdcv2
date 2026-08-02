@@ -1,0 +1,14 @@
+---
+description: Industry that has a coherent job list (jobByIndustry child)
+locale: es
+---
+Tecnología
+Salud
+Finanzas
+Construcción
+Educación
+Hotelería
+Manufactura
+Comercio Minorista
+Transporte
+Jurídico

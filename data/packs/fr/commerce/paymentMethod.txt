@@ -1,0 +1,21 @@
+---
+description: Payment method (French)
+locale: fr
+---
+Carte bancaire
+Carte de crédit
+Carte de débit
+PayPal
+Apple Pay
+Google Pay
+Paylib
+Virement bancaire
+Prélèvement automatique
+Chèque
+Espèces
+Carte cadeau
+Paiement en 3 fois
+Paiement en 4 fois
+Contre-remboursement
+Ticket restaurant
+Cryptomonnaie

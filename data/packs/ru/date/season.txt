@@ -1,0 +1,7 @@
+---
+description: Season (Russian)
+---
+Весна
+Лето
+Осень
+Зима

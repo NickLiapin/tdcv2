@@ -1,0 +1,18 @@
+---
+address: el_salvador.geo.departmentCode
+description: DIGESTYC 2-digit department code (01-14) — also the first two digits of every 4-digit municipality code; same order as el_salvador.geo.department
+---
+01
+02
+03
+04
+05
+06
+07
+08
+09
+10
+11
+12
+13
+14

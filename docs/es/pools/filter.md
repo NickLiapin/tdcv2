@@ -1,0 +1,219 @@
+<a name="top"></a>
+
+[English](../../pools/filter.md#top) · [Русский](../../ru/pools/filter.md#top) · **Español**
+
+← Anterior: [Resumen](./overview.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Enlazar pools entre sí](./linking.md#top) →
+
+---
+
+# Acotar con `filter`
+
+Sin `filter`, una fila sortea de todo el pool. Con él, sortea solo de los miembros que la
+expresión acepta.
+
+El caso evidente: un paciente de la clínica norte tiene que ver a un médico que trabaje
+allí.
+
+```xml
+<tdc>
+  <env count="10" seed="clinic" local="en">
+    <pool name="Doctors" count="6">
+      <sequence name="clinic"><gen type="text" value="North,South"/></sequence>
+      <sequence name="name"><gen type="template" value="person.lastName"/></sequence>
+    </pool>
+
+    <sequence name="Clinic"><gen type="text" value="North,South" percent="50,50"/></sequence>
+    <sequence name="Patient"><gen type="template" value="person.female.firstName"/></sequence>
+    <sequence name="Seen"><gen type="pool" value="Doctors" filter="clinic == Clinic"/></sequence>
+  </env>
+  <block>
+    <line><data>${{Clinic}} | ${{Patient}} -> Dr. ${{Seen.name}} (${{Seen.clinic}})</data></line>
+  </block>
+</tdc>
+```
+
+`./run clinic.tdc`
+
+```
+South | Barbara -> Dr. Brown (South)
+North | Mary -> Dr. Williams (North)
+South | Dorothy -> Dr. Brown (South)
+South | Jennifer -> Dr. Brown (South)
+North | Elizabeth -> Dr. Williams (North)
+North | Patricia -> Dr. Williams (North)
+North | Susan -> Dr. Jones (North)
+South | Sarah -> Dr. Brown (South)
+South | Margaret -> Dr. Brown (South)
+North | Linda -> Dr. Jones (North)
+```
+
+La columna de la clínica y la clínica del médico coinciden en todas las filas.
+
+## El sorteo sigue siendo uniforme
+
+`filter` decide **qué miembros están disponibles**, no cuál se toma. Entre los que pasan,
+la elección es uniforme: a un paciente del norte puede tocarle cualquiera de los médicos
+del norte.
+
+Vale la pena decirlo, porque la alternativa obvia — «usar el primer miembro que encaje» —
+le daría a todos los pacientes del norte el mismo médico y destruiría en silencio la
+dispersión para la que se construyó el pool.
+
+## Qué significa un nombre dentro de `filter`
+
+La expresión se evalúa en **dos ámbitos a la vez**: los campos del miembro candidato y las
+columnas de la fila actual.
+
+| El nombre        | Qué lee                            |
+| :--------------- | :---------------------------------- |
+| `clinic`         | un **campo** del miembro candidato, si el pool tiene uno con ese nombre |
+| `Clinic`         | una **columna** de la fila actual   |
+| `Doctors.clinic` | siempre el campo del candidato — la forma cualificada |
+| `North`          | una palabra suelta, leída como cadena literal |
+
+El orden importa: un nombre suelto se busca **primero** como campo del miembro y solo
+después como columna de la fila. Un nombre que es las dos cosas se rechaza en lugar de
+adivinarse:
+
+`./run clinic.tdc`
+
+```
+error[TDC232]: "clinic" in filter= is both a field of pool "Doctors" and a sequence — which one is meant is not decidable
+ --> clinic.tdc:8:27
+  |
+8 |     <sequence name="Seen"><gen type="pool" value="Doctors" filter="clinic == clinic"/></sequence>
+  |                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  |
+note: Rename one of them. Qualifying one side ("Doctors.clinic") does not help: the other "clinic" still reads as the member's field, so the test would compare a value with itself.
+```
+
+Un nombre cualificado que el pool no tiene también se detecta:
+
+`./run clinic.tdc`
+
+```
+error[TDC226]: filter= reads "Doctors.branch", but pool "Doctors" has no field "branch"
+ --> clinic.tdc:7:27
+  |
+7 |     <sequence name="Seen"><gen type="pool" value="Doctors" filter="Doctors.branch == Site"/></sequence>
+  |                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  |
+note: Fields of "Doctors": clinic.
+```
+
+Un nombre desconocido **sin cualificar** se deja pasar, a propósito: el lenguaje de
+expresiones lee una palabra suelta como cadena literal, y así es como
+`filter="clinic == North"` dice «solo los médicos del norte» sin declarar nada.
+
+## Es una expresión completa
+
+`campo == Columna` es la forma habitual, pero `filter` admite todo lo que entiende el
+[lenguaje de expresiones](../constructs/conditional-output.md#operadores-de-comparación):
+`!=`, `<`, `>`, `<=`, `>=`, `&&`, `||`, `!` y aritmética.
+
+Eso abre los casos que valen más que el de la clínica — un cliente que compra lo que puede
+pagar:
+
+```xml
+<tdc>
+  <env count="8" seed="shop" local="en">
+    <pool name="Catalog" count="6">
+      <sequence name="item" uniq="true"><gen type="text" value="Kettle,Lamp,Chair,Desk,Rug,Clock"/></sequence>
+      <sequence name="price"><gen type="number" value="10..300"/></sequence>
+    </pool>
+
+    <sequence name="Budget"><gen type="number" value="50..250"/></sequence>
+    <sequence name="Buys"><gen type="pool" value="Catalog" filter="price <= Budget"/></sequence>
+  </env>
+  <block>
+    <line><data>budget ${{Budget}} -> ${{Buys.item}} at ${{Buys.price}}</data></line>
+  </block>
+</tdc>
+```
+
+`./run shop.tdc`
+
+```
+budget 232 -> Chair at 227
+budget 124 -> Lamp at 85
+budget 61 -> Rug at 30
+budget 148 -> Rug at 30
+budget 208 -> Rug at 30
+budget 54 -> Rug at 30
+budget 102 -> Lamp at 85
+budget 60 -> Rug at 30
+```
+
+Nadie compra por encima de su presupuesto, y no hubo que enumerar nada a mano.
+
+> [!WARNING]
+> **Escribe `<=` y `&&` tal cual**
+>
+> TDC no expande entidades XML. `filter="price &lt;= Budget"` llega al analizador como esos
+> nueve caracteres y falla. Escribe el operador que quieres decir.
+
+### Lo que cuesta
+
+Hay dos caminos, y cuál se recorre lo decide cómo está escrito el filtro:
+
+| El filtro | Cómo se responde una fila |
+| :-------- | :------------------------- |
+| `campo == Columna` (en cualquier orden) | el pool se agrupa por ese campo **una vez**; una fila cuesta una búsqueda |
+| cualquier otra cosa | los candidatos se recorren, por fila — lineal en el tamaño del pool |
+
+Los dos son correctos. La diferencia es la razón de que un pool tenga un
+[techo de tamaño](overview.md#tamaño): recorrer un millón de miembros, dos mil veces, es
+un coste real, y el techo es donde la herramienta lo dice.
+
+## `filter` no es `if`
+
+Los dos acotan algo, y los dos pueden aparecer en el mismo `<gen>`. Se diferencian en **lo
+que sale**:
+
+| | Qué pregunta | Cuando dice que no |
+| :-- | :-- | :-- |
+| `if`     | por la **fila** — una respuesta por fila | no se genera nada; la celda queda vacía |
+| `filter` | por cada **candidato** — una respuesta por miembro | se sustituye un miembro que encaja; la celda nunca queda vacía |
+
+Así, `if="Age >= 18"` deja a los menores sin médico, y `filter="clinic == Clinic"` da
+médico a todos, pero de su clínica. Juntos se leen como «solo adultos, y de su propia
+clínica»:
+
+```xml
+<gen type="pool" value="Doctors" if="Age >= 18" filter="clinic == Clinic"/>
+```
+
+También preguntan por cosas distintas, y por eso un solo atributo no podía hacer los dos
+trabajos. `if` pregunta una vez por fila. `filter` pregunta una vez por candidato: treinta
+preguntas por fila para un pool de treinta.
+
+## Cuando no encaja nadie
+
+Como `filter` nunca produce una celda vacía, «no encajó nadie» es un error y no un hueco.
+El mensaje nombra la fila y el valor que la acotó hasta cero:
+
+`./run clinic.tdc`
+
+```
+tdcv2: pool "Doctors": no member satisfies filter="clinic == Clinic" for row 3 (Clinic="South"). A filter narrows the members a row may draw from; when it narrows them to none there is nothing to substitute. Add a member that matches, or widen the filter.
+```
+
+Es un rechazo **en tiempo de ejecución**, no un error de validación, y no puede ser de otra
+manera: el validador no puede saber que ningún miembro saldrá `South` hasta que el pool se
+haya sorteado. Las dos soluciones están en el mensaje — añadir un miembro que encaje o
+ampliar el filtro — y hay una tercera que conviene conocer: darle al campo del pool la
+misma lista finita de la que sortea la columna de la fila, para que todos los valores estén
+representados.
+
+## Relacionado
+
+- [Resumen](overview.md#top) — qué es un pool, y el techo de tamaño al que se refiere esta
+  página
+- [Enlazar pools entre sí](linking.md#top) — `filter` leyendo un campo de *otra* referencia a
+  un pool, que es como se construye una cadena
+- [Condiciones](../constructs/conditional-output.md#top) — `if` completo, incluidos los
+  operadores que comparte con `filter`
+
+---
+
+← Anterior: [Resumen](./overview.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Enlazar pools entre sí](./linking.md#top) →

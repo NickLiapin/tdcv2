@@ -1,0 +1,9 @@
+---
+address: russia.bank.bik
+description: Russian BIK (9 digits: 04 + region + RKC + participant; no checksum)
+generator: tdc
+---
+<sequence name="region"><gen type="regex" value="[0-9]{2}"/></sequence>
+<sequence name="rkc"><gen type="text" value="25"/></sequence>
+<sequence name="participant"><gen type="regex" value="[0-9]{3}"/></sequence>
+<data>04${{region}}${{rkc}}${{participant}}</data>

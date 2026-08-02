@@ -1,0 +1,45 @@
+---
+description: Common generic drug names (Italian INN)
+locale: it
+---
+Paracetamolo
+Ibuprofene
+Acido acetilsalicilico
+Amoxicillina
+Amoxicillina e acido clavulanico
+Azitromicina
+Ciprofloxacina
+Doxiciclina
+Lisinopril
+Enalapril
+Losartan
+Amlodipina
+Metoprololo
+Idroclorotiazide
+Furosemide
+Spironolattone
+Metformina
+Glibenclamide
+Insulina glargine
+Atorvastatina
+Simvastatina
+Omeprazolo
+Pantoprazolo
+Levotiroxina
+Salbutamolo
+Montelukast
+Prednisone
+Desametasone
+Loratadina
+Gabapentin
+Sertralina
+Fluoxetina
+Escitalopram
+Citalopram
+Duloxetina
+Warfarin
+Clopidogrel
+Tramadolo
+Naprossene
+Diclofenac
+Allopurinolo

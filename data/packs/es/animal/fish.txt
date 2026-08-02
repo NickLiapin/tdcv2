@@ -1,0 +1,29 @@
+---
+description: Fish (Spanish)
+locale: es
+---
+Salmón
+Atún
+Trucha
+Lubina
+Bacalao
+Bagre
+Pez dorado
+Pez payaso
+Guppy
+Caballa
+Fletán
+Pargo
+Pez espada
+Marlín
+Pez ángel
+Betta
+Carpa
+Perca
+Sardina
+Anchoa
+Merluza
+Corvina
+Tilapia
+Dorada
+Rodaballo

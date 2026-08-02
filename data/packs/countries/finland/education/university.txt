@@ -1,0 +1,17 @@
+---
+address: finland.education.university
+description: Universities of Finland (Finnish names; Swedish-language universities keep their own names)
+locale: fi
+---
+Helsingin yliopisto
+Aalto-yliopisto
+Turun yliopisto
+Tampereen yliopisto
+Oulun yliopisto
+Jyväskylän yliopisto
+Itä-Suomen yliopisto
+Lappeenrannan-Lahden teknillinen yliopisto
+Åbo Akademi
+Vaasan yliopisto
+Lapin yliopisto
+Hanken

@@ -1,0 +1,14 @@
+---
+description: Positions in Football (soccer) (Arabic)
+locale: ar
+---
+حارس مرمى
+قلب دفاع
+ظهير أيمن
+ظهير أيسر
+وسط دفاعي
+وسط
+صانع ألعاب
+جناح
+رأس حربة
+مهاجم

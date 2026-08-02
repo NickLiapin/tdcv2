@@ -1,0 +1,16 @@
+---
+description: Dishes of Japanese cuisine (Italian)
+locale: it
+---
+Sushi
+Ramen
+Tempura
+Udon
+Pollo teriyaki
+Zuppa di miso
+Katsu curry
+Onigiri
+Sashimi
+Gyoza
+Okonomiyaki
+Yakitori

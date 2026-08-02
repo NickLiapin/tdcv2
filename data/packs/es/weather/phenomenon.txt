@@ -1,0 +1,19 @@
+---
+description: Weather phenomenon (Spanish)
+locale: es
+---
+Huracán
+Tornado
+Ventisca
+Ola de calor
+Ola de frío
+Inundación
+Sequía
+Monzón
+Tormenta de arena
+Tormenta de hielo
+Incendio forestal
+Ciclón
+Helada
+Granizada
+Marejada

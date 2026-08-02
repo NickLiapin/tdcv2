@@ -1,0 +1,12 @@
+---
+description: Time of day (German)
+locale: de
+---
+Morgen
+Vormittag
+Mittag
+Nachmittag
+Abend
+Nacht
+Mitternacht
+Morgendämmerung

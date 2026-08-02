@@ -1,0 +1,9 @@
+---
+description: Positions in Basketball
+locale: en
+---
+Point Guard
+Shooting Guard
+Small Forward
+Power Forward
+Center

@@ -1,0 +1,17 @@
+---
+description: Room type
+locale: en
+---
+Bedroom
+Bathroom
+Kitchen
+Living Room
+Dining Room
+Office
+Basement
+Attic
+Garage
+Laundry Room
+Guest Room
+Sunroom
+Pantry

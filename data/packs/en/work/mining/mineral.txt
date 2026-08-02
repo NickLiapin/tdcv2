@@ -1,0 +1,21 @@
+---
+description: Mined mineral / commodity
+locale: en
+---
+Coal
+Copper
+Gold
+Silver
+Iron Ore
+Zinc
+Lead
+Bauxite
+Limestone
+Nickel
+Uranium
+Potash
+Phosphate
+Lithium
+Cobalt
+Gypsum
+Salt

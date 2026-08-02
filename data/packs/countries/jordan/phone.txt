@@ -1,0 +1,6 @@
+---
+address: jordan.phone
+description: Jordanian mobile phone in E.164 form (+962 7[789]XXXXXXX)
+generator: tdc
+---
+<gen type="regex" value="\+9627[789][0-9]{7}"/>

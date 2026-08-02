@@ -1,0 +1,16 @@
+---
+description: Dishes of Vietnamese cuisine (German)
+locale: de
+---
+Pho
+Banh Mi
+Sommerrollen
+Bun Cha
+Com Tam
+Vietnamesischer Kaffee
+Bun Bo Hue
+Banh Xeo
+Ca Kho To
+Cha Gio
+Che
+Grüner Papayasalat

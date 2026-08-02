@@ -1,0 +1,30 @@
+---
+address: italy.education.university
+description: Universities of Italy (Italian names)
+locale: it
+---
+Università di Bologna
+Sapienza Università di Roma
+Università degli Studi di Milano
+Politecnico di Milano
+Università degli Studi di Padova
+Università degli Studi di Napoli Federico II
+Università degli Studi di Torino
+Politecnico di Torino
+Università degli Studi di Firenze
+Università di Pisa
+Scuola Normale Superiore di Pisa
+Università Cattolica del Sacro Cuore
+Università Commerciale Luigi Bocconi
+Università degli Studi di Genova
+Università degli Studi di Palermo
+Università degli Studi di Catania
+Università degli Studi di Bari Aldo Moro
+Università Ca' Foscari Venezia
+Università degli Studi di Verona
+Università degli Studi di Perugia
+Università degli Studi di Pavia
+Università degli Studi di Siena
+Università degli Studi Roma Tre
+Politecnico di Bari
+Università degli Studi di Trento

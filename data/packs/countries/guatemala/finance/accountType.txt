@@ -1,0 +1,8 @@
+---
+address: guatemala.finance.accountType
+description: Guatemalan bank account type as named on a transfer or deposit form
+locale: es
+---
+Cuenta Monetaria
+Cuenta de Ahorro
+Depósito a Plazo Fijo

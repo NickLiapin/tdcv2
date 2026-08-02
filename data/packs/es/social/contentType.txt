@@ -1,0 +1,17 @@
+---
+description: Social content type (Spanish)
+locale: es
+---
+Publicación
+Comentario
+Respuesta
+Historia
+Reel
+Encuesta
+Transmisión en vivo
+Republicación
+Hilo
+Mención
+Mensaje directo
+Video corto
+Álbum de fotos

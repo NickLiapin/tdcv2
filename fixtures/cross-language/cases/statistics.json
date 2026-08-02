@@ -1,0 +1,102 @@
+{
+  "schemaVersion": 1,
+  "cases": [
+    {
+      "name": "distribution-normal",
+      "description": "normal spends two draws a row, by Box-Muller",
+      "config": "<tdc><env count=\"6\" seed=\"unit-test\" local=\"en\" mode=\"memory\"><sequence name=\"V\"><gen type=\"number\" distribution=\"normal\" mean=\"170\" sd=\"10\" decimals=\"2\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
+      "expected": ["172.67", "176.14", "188.76", "183.98", "165.65", "160.54"]
+    },
+    {
+      "name": "distribution-lognormal",
+      "description": "lognormal, two draws",
+      "config": "<tdc><env count=\"6\" seed=\"unit-test\" local=\"en\" mode=\"memory\"><sequence name=\"V\"><gen type=\"number\" distribution=\"lognormal\" meanlog=\"10\" sdlog=\"1\" decimals=\"0\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
+      "expected": ["28755", "40720", "143725", "89136", "14263", "8549"]
+    },
+    {
+      "name": "distribution-exponential",
+      "description": "exponential, one draw by inverse CDF",
+      "config": "<tdc><env count=\"6\" seed=\"unit-test\" local=\"en\" mode=\"memory\"><sequence name=\"V\"><gen type=\"number\" distribution=\"exponential\" rate=\"0.5\" decimals=\"3\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
+      "expected": ["0.735", "0.445", "1.143", "0.331", "3.892", "0.103"]
+    },
+    {
+      "name": "distribution-pareto",
+      "description": "pareto, one draw",
+      "config": "<tdc><env count=\"6\" seed=\"unit-test\" local=\"en\" mode=\"memory\"><sequence name=\"V\"><gen type=\"number\" distribution=\"pareto\" alpha=\"1.5\" xmin=\"100\" decimals=\"1\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
+      "expected": ["219.5", "292.7", "174.1", "350.2", "110.8", "735.1"]
+    },
+    {
+      "name": "distribution-weibull",
+      "description": "weibull, one draw",
+      "config": "<tdc><env count=\"6\" seed=\"unit-test\" local=\"en\" mode=\"memory\"><sequence name=\"V\"><gen type=\"number\" distribution=\"weibull\" shape=\"2\" scale=\"5\" decimals=\"3\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
+      "expected": ["3.031", "2.360", "3.780", "2.034", "6.975", "1.134"]
+    },
+    {
+      "name": "distribution-poisson",
+      "description": "poisson samples a cumulative table by binary search",
+      "config": "<tdc><env count=\"6\" seed=\"unit-test\" local=\"en\" mode=\"memory\"><sequence name=\"V\"><gen type=\"number\" distribution=\"poisson\" lambda=\"4\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
+      "expected": ["5", "6", "4", "6", "2", "8"]
+    },
+    {
+      "name": "distribution-zipf",
+      "description": "zipf returns a 1-based rank",
+      "config": "<tdc><env count=\"6\" seed=\"unit-test\" local=\"en\" mode=\"memory\"><sequence name=\"V\"><gen type=\"number\" distribution=\"zipf\" n=\"20\" s=\"1.2\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
+      "expected": ["5", "8", "3", "10", "1", "16"]
+    },
+    {
+      "name": "distribution-gamma",
+      "description": "gamma has no closed-form inverse and is inverted numerically",
+      "config": "<tdc><env count=\"6\" seed=\"unit-test\" local=\"en\" mode=\"memory\"><sequence name=\"V\"><gen type=\"number\" distribution=\"gamma\" shape=\"2\" scale=\"3\" decimals=\"4\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
+      "expected": ["7.2120", "8.9893", "5.6824", "10.0513", "1.9871", "14.2193"]
+    },
+    {
+      "name": "distribution-beta",
+      "description": "beta, likewise inverted numerically",
+      "config": "<tdc><env count=\"6\" seed=\"unit-test\" local=\"en\" mode=\"memory\"><sequence name=\"V\"><gen type=\"number\" distribution=\"beta\" alpha=\"2\" beta=\"5\" decimals=\"5\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
+      "expected": [
+        "0.35620",
+        "0.42267",
+        "0.29301",
+        "0.45911",
+        "0.11400",
+        "0.58149"
+      ]
+    },
+    {
+      "name": "distribution-clipped",
+      "description": "min and max clip the sample rather than redrawing it",
+      "config": "<tdc><env count=\"6\" seed=\"unit-test\" local=\"en\" mode=\"memory\"><sequence name=\"V\"><gen type=\"number\" distribution=\"normal\" mean=\"0\" sd=\"1\" decimals=\"1\" min=\"-1\" max=\"1\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
+      "expected": ["0.3", "0.6", "1.0", "1.0", "-0.4", "-0.9"]
+    },
+    {
+      "name": "timeseries-trend",
+      "description": "A trend-only series takes no draws at all",
+      "config": "<tdc><env count=\"6\" seed=\"unit-test\" local=\"en\" mode=\"memory\"><sequence name=\"V\"><gen type=\"timeseries\" base=\"100\" trend=\"2\" decimals=\"0\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
+      "expected": ["100", "102", "104", "106", "108", "110"]
+    },
+    {
+      "name": "timeseries-seasonal",
+      "description": "A seasonal wave repeats on its period",
+      "config": "<tdc><env count=\"6\" seed=\"unit-test\" local=\"en\" mode=\"memory\"><sequence name=\"V\"><gen type=\"timeseries\" base=\"100\" trend=\"0.5\" period=\"4\" amplitude=\"10\" decimals=\"2\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
+      "expected": ["100.00", "110.50", "101.00", "91.50", "102.00", "112.50"]
+    },
+    {
+      "name": "timeseries-noise",
+      "description": "Noise costs two draws a row",
+      "config": "<tdc><env count=\"6\" seed=\"unit-test\" local=\"en\" mode=\"memory\"><sequence name=\"V\"><gen type=\"timeseries\" base=\"50\" noise=\"3\" decimals=\"3\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
+      "expected": ["50.800", "51.843", "55.627", "54.194", "48.696", "47.161"]
+    },
+    {
+      "name": "missing-token",
+      "description": "missing blanks a row with the token it was given",
+      "config": "<tdc><env count=\"6\" seed=\"unit-test\" local=\"en\" mode=\"memory\"><sequence name=\"V\"><gen type=\"text\" value=\"a,b,c,d,e,f\" percent=\"100,,,,,\" missing=\"0.4\" missing_as=\"NULL\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
+      "expected": ["a", "NULL", "NULL", "a", "NULL", "a"]
+    },
+    {
+      "name": "anomaly-spike",
+      "description": "anomaly multiplies the values it selects",
+      "config": "<tdc><env count=\"6\" seed=\"unit-test\" local=\"en\" mode=\"memory\"><sequence name=\"V\"><gen type=\"number\" value=\"1..9\" anomaly=\"0.3\" anomaly_factor=\"10\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
+      "expected": ["7", "80", "6", "8", "2", "9"]
+    }
+  ]
+}

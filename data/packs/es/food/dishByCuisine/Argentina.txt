@@ -1,0 +1,12 @@
+---
+description: Dishes of Argentine cuisine (Spanish)
+locale: es
+---
+Asado
+Empanadas
+Milanesa a la napolitana
+Choripán
+Locro
+Provoleta
+Dulce de leche
+Matambre

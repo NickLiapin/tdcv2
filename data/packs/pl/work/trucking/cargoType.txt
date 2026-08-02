@@ -1,0 +1,17 @@
+---
+description: Truck cargo / trailer type (Polish)
+locale: pl
+---
+Naczepa furgonowa
+Chłodnia
+Naczepa platformowa
+Cysterna
+Transport żywca
+Materiały niebezpieczne
+Kontener intermodalny
+Laweta samochodowa
+Naczepa niskopodwoziowa
+Naczepa schodkowa
+Wywrotka
+Ładunek luzem
+Naczepa do drewna

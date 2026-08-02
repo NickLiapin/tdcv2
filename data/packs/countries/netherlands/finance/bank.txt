@@ -1,0 +1,17 @@
+---
+address: netherlands.finance.bank
+description: Major banks of the Netherlands (Dutch names)
+locale: nl
+---
+ING
+Rabobank
+ABN AMRO
+de Volksbank
+SNS Bank
+ASN Bank
+RegioBank
+Triodos Bank
+Knab
+bunq
+Van Lanschot
+NIBC

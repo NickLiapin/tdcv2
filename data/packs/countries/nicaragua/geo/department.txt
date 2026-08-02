@@ -1,0 +1,22 @@
+---
+address: nicaragua.geo.department
+description: Nicaraguan first-level division — the 15 departamentos plus the 2 regiones autónomas of the Caribbean coast (RACCN / RACCS); ordered by postal region block; same order as nicaragua.geo.departmentCode / departmentIso / departmentCapital
+locale: es
+---
+Managua
+León
+Chinandega
+Estelí
+Madriz
+Nueva Segovia
+Masaya
+Granada
+Carazo
+Rivas
+Boaco
+Chontales
+Matagalpa
+Jinotega
+Región Autónoma de la Costa Caribe Norte
+Región Autónoma de la Costa Caribe Sur
+Río San Juan

@@ -1,0 +1,34 @@
+---
+description: Product adjective
+locale: en
+---
+Small
+Ergonomic
+Rustic
+Intelligent
+Gorgeous
+Incredible
+Fantastic
+Practical
+Sleek
+Handcrafted
+Handmade
+Licensed
+Refined
+Unbranded
+Elegant
+Modern
+Vintage
+Premium
+Luxurious
+Compact
+Portable
+Durable
+Lightweight
+Wireless
+Rechargeable
+Adjustable
+Foldable
+Waterproof
+Insulated
+Recycled

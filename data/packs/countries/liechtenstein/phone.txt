@@ -1,0 +1,7 @@
+---
+address: liechtenstein.phone
+description: Liechtenstein mobile phone in E.164 form (+423, mobile numbers start with 7)
+generator: tdc
+locale: de
+---
+<gen type="regex" value="\+4237[0-9]{6}"/>

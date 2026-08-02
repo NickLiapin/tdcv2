@@ -1,0 +1,19 @@
+---
+description: Jobs in Construction (French)
+locale: fr
+---
+Maçon
+Électricien
+Plombier
+Charpentier
+Menuisier
+Chef de chantier
+Conducteur de travaux
+Grutier
+Peintre en bâtiment
+Couvreur
+Carreleur
+Plaquiste
+Terrassier
+Géomètre
+Architecte

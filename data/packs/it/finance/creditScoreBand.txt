@@ -1,0 +1,9 @@
+---
+description: Credit score band (Italian)
+locale: it
+---
+Scarso
+Discreto
+Buono
+Molto buono
+Eccellente

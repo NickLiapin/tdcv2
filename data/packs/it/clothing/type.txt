@@ -1,0 +1,30 @@
+---
+description: Garment type (Italian)
+locale: it
+---
+Maglietta
+Jeans
+Vestito
+Giacca
+Maglione
+Gonna
+Pantaloncini
+Felpa con cappuccio
+Camicetta
+Abito
+Cappotto
+Scarpe da ginnastica
+Stivali
+Cappello
+Sciarpa
+Camicia
+Pantaloni
+Gilet
+Impermeabile
+Pigiama
+Calzini
+Cintura
+Berretto
+Sandali
+Guanti
+Cravatta

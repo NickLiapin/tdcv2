@@ -1,0 +1,13 @@
+---
+description: TV / film content rating, descriptive Polish (country rating codes are country data)
+locale: pl
+---
+Dozwolone bez ograniczeń wiekowych
+Dozwolone od lat 7
+Dozwolone od lat 12
+Dozwolone od lat 16
+Dozwolone od lat 18
+Zalecany nadzór rodzicielski
+Tylko dla dorosłych
+Dla dzieci
+Dla młodzieży

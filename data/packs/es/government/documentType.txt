@@ -1,0 +1,21 @@
+---
+description: Official document type (Spanish)
+locale: es
+---
+Pasaporte
+Acta de nacimiento
+Acta de matrimonio
+Acta de defunción
+Licencia de conducir
+Documento de identidad
+Cédula de identidad
+Registro electoral
+Declaración de impuestos
+Permiso de construcción
+Licencia comercial
+Visa
+Certificado de residencia
+Comprobante de domicilio
+Número de identificación fiscal
+Certificado de estudios
+Certificado de antecedentes penales

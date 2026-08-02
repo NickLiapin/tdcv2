@@ -1,0 +1,59 @@
+---
+description: Business buzz verb (Italian, infinitive)
+locale: it
+---
+sfruttare
+ottimizzare
+snellire
+orchestrare
+responsabilizzare
+abilitare
+scalare
+trasformare
+stravolgere
+innovare
+iterare
+integrare
+distribuire
+valorizzare
+sbloccare
+accelerare
+amplificare
+progettare
+confrontare
+coltivare
+promuovere
+evolvere
+facilitare
+generare
+incentivare
+monetizzare
+rendere operativo
+ridefinire
+reimmaginare
+rivoluzionare
+guidare
+standardizzare
+migrare
+unificare
+massimizzare
+minimizzare
+consolidare
+sinergizzare
+digitalizzare
+automatizzare
+esternalizzare
+internalizzare
+segmentare
+dare priorità
+allineare
+articolare
+capitalizzare
+dinamizzare
+fidelizzare
+posizionare
+potenziare
+rendere redditizio
+sistematizzare
+verticalizzare
+rendere visibile

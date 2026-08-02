@@ -1,0 +1,12 @@
+---
+description: Dishes of American cuisine (Portuguese)
+locale: pt
+---
+Hambúrguer com queijo
+Costelas barbecue
+Macarrão com queijo
+Asinhas de búfalo
+Sopa de amêijoas
+Tarte de maçã
+Pão de milho
+Cheesecake

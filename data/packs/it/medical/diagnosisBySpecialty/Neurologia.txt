@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Neurology (Italian)
+locale: it
+---
+Emicrania
+Epilessia
+Malattia di Parkinson
+Sclerosi multipla
+Ictus ischemico
+Neuropatia periferica
+Malattia di Alzheimer
+Nevralgia del trigemino
+Cefalea a grappolo
+Sindrome del tunnel carpale

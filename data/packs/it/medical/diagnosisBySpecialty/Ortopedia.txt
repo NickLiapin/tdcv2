@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Orthopedics (Italian)
+locale: it
+---
+Artrosi
+Artrite reumatoide
+Ernia del disco
+Sindrome del tunnel carpale
+Sciatica
+Lesione della cuffia dei rotatori
+Frattura del femore
+Lesione del legamento crociato anteriore
+Epicondilite laterale
+Alluce valgo

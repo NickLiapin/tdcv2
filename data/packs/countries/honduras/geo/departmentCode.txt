@@ -1,0 +1,23 @@
+---
+address: honduras.geo.departmentCode
+description: Honduran departamento code — the 2-digit administrative number (01-18) that opens every national ID and RTN; same order as honduras.geo.department
+locale: es
+---
+01
+02
+03
+04
+05
+06
+07
+08
+09
+10
+11
+12
+13
+14
+15
+16
+17
+18

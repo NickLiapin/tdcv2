@@ -1,0 +1,17 @@
+---
+address: niger.sport.team
+description: Nigerien first-division football clubs
+locale: fr
+---
+Sahel SC
+AS GNN
+AS Douanes
+Zumunta AC
+Akokana FC
+Olympic FC de Niamey
+US Gendarmerie Nationale
+AS FNIS
+AS SONIDEP
+Espoir FC de Zinder
+JS du Ténéré
+Dan Baraka FC

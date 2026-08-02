@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Psychiatry (French)
+locale: fr
+---
+Dépression
+Trouble anxieux
+Trouble bipolaire
+Schizophrénie
+Trouble obsessionnel compulsif
+Trouble de stress post-traumatique
+Trouble panique
+Anorexie mentale
+Addiction
+Insomnie

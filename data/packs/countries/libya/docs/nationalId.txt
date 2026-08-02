@@ -1,0 +1,7 @@
+---
+address: libya.docs.nationalId
+description: Libyan national number (الرقم الوطني) — 12 digits. Structural; no public check digit.
+generator: tdc
+locale: ar
+---
+<gen type="regex" value="[0-9]{12}"/>

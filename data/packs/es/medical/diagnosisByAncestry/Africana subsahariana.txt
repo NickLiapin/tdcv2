@@ -1,0 +1,16 @@
+---
+description: Conditions markedly more frequent in people of Sub-Saharan African ancestry, in Spanish. A prevalence signal, not an exclusive one — anyone can have these, and most patients of this ancestry have none of them.
+locale: es
+---
+Anemia falciforme
+Rasgo falciforme
+Deficiencia de glucosa-6-fosfato deshidrogenasa
+Nefropatía asociada a APOL1
+Cicatrices queloides
+Sarcoidosis
+Nefroesclerosis hipertensiva
+Miomatosis uterina
+Neutropenia étnica benigna
+No persistencia de la lactasa
+Pseudofoliculitis de la barba
+Vitíligo

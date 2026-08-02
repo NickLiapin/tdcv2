@@ -1,0 +1,14 @@
+---
+description: Payment status (German)
+locale: de
+---
+Ausstehend
+Autorisiert
+Bezahlt
+Fehlgeschlagen
+Erstattet
+Teilweise erstattet
+Rückbuchung
+Storniert
+Abgelehnt
+In Prüfung

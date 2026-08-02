@@ -1,0 +1,17 @@
+---
+address: switzerland.education.university
+description: Swiss universities and federal institutes of technology
+locale: fr
+---
+EPFL
+ETH Zurich
+Université de Genève
+Université de Lausanne
+Université de Zurich
+Université de Berne
+Université de Fribourg
+Université de Neuchâtel
+Université de Bâle
+Université de Saint-Gall
+Università della Svizzera italiana
+Université de Lucerne

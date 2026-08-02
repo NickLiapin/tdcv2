@@ -1,0 +1,39 @@
+---
+address: zh-cn.person.male.firstName
+description: Chinese male given names (given-name part only)
+locale: zh-cn
+---
+伟
+强
+磊
+军
+洋
+勇
+涛
+明
+超
+刚
+平
+辉
+鹏
+飞
+波
+斌
+宇
+浩
+峰
+亮
+俊
+旭
+志强
+建国
+建华
+志明
+国强
+晓明
+家豪
+宇轩
+浩然
+子轩
+俊杰
+思远

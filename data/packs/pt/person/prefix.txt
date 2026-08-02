@@ -1,0 +1,36 @@
+---
+description: Portuguese honorific / form of address (abbreviated forms as used before a name)
+locale: pt
+---
+Sr.
+Sra.
+Srta.
+Dna.
+D.
+Dr.
+Dra.
+Prof.
+Prof.ª
+Eng.
+Eng.ª
+Arq.
+Me.
+Cmdt.
+Cap.
+Sarg.
+Ten.
+Cor.
+Gen.
+Alm.
+Maj.
+Exmo.
+Exma.
+Ilmo.
+Ilma.
+Rev.
+Frei
+Madre
+Padre
+Dom
+Doutor
+Dona

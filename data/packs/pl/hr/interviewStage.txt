@@ -1,0 +1,15 @@
+---
+description: Hiring / interview stage (Polish)
+locale: pl
+---
+Weryfikacja zgłoszenia
+Rozmowa telefoniczna
+Rozmowa techniczna
+Rozmowa osobista
+Rozmowa z panelem
+Runda finałowa
+Sprawdzenie referencji
+Oferta
+Odrzucony
+Zatrudniony
+Wycofany

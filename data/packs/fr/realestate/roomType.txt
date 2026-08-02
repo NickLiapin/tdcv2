@@ -1,0 +1,26 @@
+---
+description: Room type (French)
+locale: fr
+---
+Salon
+Salle à manger
+Cuisine
+Chambre
+Salle de bain
+WC
+Bureau
+Buanderie
+Dressing
+Entrée
+Couloir
+Cave
+Grenier
+Garage
+Véranda
+Terrasse
+Balcon
+Jardin
+Sous-sol
+Cellier
+Mezzanine
+Suite parentale

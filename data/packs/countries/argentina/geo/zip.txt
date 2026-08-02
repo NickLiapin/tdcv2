@@ -1,0 +1,6 @@
+---
+address: argentina.geo.zip
+description: Argentine código postal in the pre-1998 four-digit form (1000-9431 — 1000-1499 is the Ciudad de Buenos Aires, 9410 Ushuaia). Still what most forms ask for; the full modern code is argentina.geo.cpa.
+generator: tdc
+---
+<gen type="number" value="1000..9431"/>

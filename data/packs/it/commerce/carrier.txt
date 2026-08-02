@@ -1,0 +1,22 @@
+---
+description: Parcel carrier operating in Italy (Italian)
+locale: it
+---
+Poste Italiane
+SDA
+BRT
+GLS
+DHL
+UPS
+FedEx
+TNT
+Nexive
+InPost
+Amazon Logistics
+Fercam
+Arco Spedizioni
+Executive
+Sailpost
+Milkman
+Mail Boxes Etc.
+Poste Delivery Business

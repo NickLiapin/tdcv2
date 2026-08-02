@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Psychiatry (Polish)
+locale: pl
+---
+Zaburzenie depresyjne nawracające
+Zaburzenie lękowe uogólnione
+Choroba afektywna dwubiegunowa
+Schizofrenia
+Zespół stresu pourazowego
+Zespół nadpobudliwości psychoruchowej z deficytem uwagi
+Zaburzenie obsesyjno-kompulsyjne
+Jadłowstręt psychiczny
+Zaburzenie lękowe z napadami paniki
+Uzależnienie od alkoholu

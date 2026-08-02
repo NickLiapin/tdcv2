@@ -1,0 +1,42 @@
+{
+  "version.label": {
+    "message": "Actual",
+    "description": "The label for version current"
+  },
+  "sidebar.docsSidebar.category.Getting Started": {
+    "message": "Primeros pasos",
+    "description": "The label for category 'Getting Started' in sidebar 'docsSidebar'"
+  },
+  "sidebar.docsSidebar.category.Core Concepts": {
+    "message": "Conceptos básicos",
+    "description": "The label for category 'Core Concepts' in sidebar 'docsSidebar'"
+  },
+  "sidebar.docsSidebar.category.Generators": {
+    "message": "Generadores",
+    "description": "The label for category 'Generators' in sidebar 'docsSidebar'"
+  },
+  "sidebar.docsSidebar.category.Guides": {
+    "message": "Guías",
+    "description": "The label for category 'Guides' in sidebar 'docsSidebar'"
+  },
+  "sidebar.docsSidebar.category.Compute Language": {
+    "message": "Lenguaje de cálculo",
+    "description": "The label for category 'Compute Language' in sidebar 'docsSidebar'"
+  },
+  "sidebar.docsSidebar.category.Data Packs": {
+    "message": "Paquetes de datos",
+    "description": "The label for category 'Data Packs' in sidebar 'docsSidebar'"
+  },
+  "sidebar.docsSidebar.category.Reference": {
+    "message": "Referencia",
+    "description": "The label for category 'Reference' in sidebar 'docsSidebar'"
+  },
+  "sidebar.docsSidebar.category.Language Bindings": {
+    "message": "Bibliotecas por lenguaje",
+    "description": "The label for category 'Language Bindings' in sidebar 'docsSidebar'"
+  },
+  "sidebar.docsSidebar.category.Constructs": {
+    "message": "Construcciones",
+    "description": "The label for category Constructs in sidebar docsSidebar"
+  }
+}

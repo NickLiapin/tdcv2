@@ -1,0 +1,7 @@
+---
+address: costa_rica.vehicle.plate
+description: Costa Rican matrícula — the private-car layout is purely numeric (up to 6 digits); motorcycles carry the MOT-prefixed alphanumeric layout MOT###LLL introduced once the numeric moto series reached 999999
+generator: tdc
+locale: es
+---
+<gen type="regex" value="([1-9][0-9]{5}|MOT[0-9]{3}[A-Z]{3})"/>

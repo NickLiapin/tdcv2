@@ -1,0 +1,6 @@
+---
+address: algeria.phone
+description: Algerian mobile phone in E.164 form (+213 [567]XXXXXXXX)
+generator: tdc
+---
+<gen type="regex" value="\+213[567][0-9]{8}"/>

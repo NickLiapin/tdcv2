@@ -1,0 +1,34 @@
+---
+description: Unit of measure for products (Polish)
+locale: pl
+---
+sztuka
+karton
+paczka
+opakowanie
+tuzin
+para
+zestaw
+rolka
+bela
+wiązka
+kilogram
+gram
+tona
+litr
+mililitr
+metr
+centymetr
+metr kwadratowy
+metr sześcienny
+torba
+taca
+puszka
+butelka
+słoik
+tuba
+worek
+paleta
+koperta
+komplet
+partia

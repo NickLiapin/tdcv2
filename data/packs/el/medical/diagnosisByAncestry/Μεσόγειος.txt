@@ -1,0 +1,11 @@
+---
+description: Conditions markedly more frequent in people of Mediterranean ancestry, given in Greek. A prevalence signal, not an exclusive one.
+locale: el
+---
+Βήτα-θαλασσαιμία
+Στίγμα βήτα-θαλασσαιμίας
+Ανεπάρκεια αφυδρογονάσης της 6-φωσφορικής γλυκόζης
+Οικογενής μεσογειακός πυρετός
+Νόσος Μπεχτσέτ
+Άλφα-θαλασσαιμία
+Κυαμισμός

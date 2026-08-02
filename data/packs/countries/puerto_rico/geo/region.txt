@@ -1,0 +1,14 @@
+---
+address: puerto_rico.geo.region
+description: Informal geographic region of Puerto Rico. The island has no administrative level between the commonwealth and its 78 municipios; these cardinal/functional regions are the groupings used in weather, planning and tourism contexts
+locale: es
+---
+Región Metropolitana
+Región Norte
+Región Noreste
+Región Este
+Región Sureste
+Región Sur
+Región Suroeste
+Región Oeste
+Región Central

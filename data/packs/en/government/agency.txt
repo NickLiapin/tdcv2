@@ -1,0 +1,13 @@
+---
+description: Government agency type
+locale: en
+---
+Department of Health
+Department of Education
+Department of Transportation
+Internal Revenue Service
+Environmental Protection Agency
+Department of Justice
+Social Security Administration
+Department of Labor
+Department of Defense

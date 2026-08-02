@@ -1,0 +1,16 @@
+---
+description: Building / dwelling type (Arabic)
+locale: ar
+---
+عمارة
+فيلا
+برج
+مجمع سكني
+مبنى
+بيت
+شقة
+عمارة سكنية
+دور
+استراحة
+قصر
+شاليه

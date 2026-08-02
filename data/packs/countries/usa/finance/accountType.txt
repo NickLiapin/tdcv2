@@ -1,0 +1,17 @@
+---
+address: usa.finance.accountType
+description: US bank account type
+locale: en
+---
+Checking
+Savings
+Money Market
+Certificate of Deposit
+Individual Retirement Account
+Health Savings Account
+Brokerage
+Trust
+Business Checking
+Business Savings
+Joint Checking
+Line of Credit

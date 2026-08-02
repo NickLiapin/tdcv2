@@ -1,0 +1,14 @@
+---
+description: Positions in baseball (German)
+locale: de
+---
+Werfer
+Fänger
+Erste Base
+Zweite Base
+Dritte Base
+Shortstop
+Linkes Außenfeld
+Mittleres Außenfeld
+Rechtes Außenfeld
+Designated Hitter

@@ -1,0 +1,9 @@
+---
+description: Work shift
+locale: en
+---
+Day
+Night
+Swing
+Graveyard
+Rotating

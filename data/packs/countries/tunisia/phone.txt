@@ -1,0 +1,6 @@
+---
+address: tunisia.phone
+description: Tunisian mobile phone in E.164 form (+216 [2459]XXXXXXX)
+generator: tdc
+---
+<gen type="regex" value="\+216[2459][0-9]{7}"/>

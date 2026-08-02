@@ -1,0 +1,7 @@
+---
+address: new_zealand.phone
+description: New Zealand mobile number in E.164 form (+64 2X…) — the leading 0 of the national 02X prefix is dropped; second digit is a real mobile range (0/1/2/7/9), then 6-7 subscriber digits
+generator: tdc
+locale: en
+---
+<gen type="regex" value="\+642[01279][0-9]{6,7}"/>

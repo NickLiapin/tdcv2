@@ -1,0 +1,23 @@
+---
+description: Movie genre (Spanish)
+locale: es
+---
+Acción
+Comedia
+Drama
+Terror
+Suspenso
+Romance
+Ciencia ficción
+Fantasía
+Documental
+Animación
+Aventura
+Crimen
+Misterio
+Western
+Musical
+Bélico
+Biográfico
+Cine negro
+Comedia romántica

@@ -1,0 +1,359 @@
+---
+title: Writing your own
+sidebar_position: 3
+---
+
+import Terminal from '@site/src/components/Terminal';
+
+# Writing your own pack
+
+The simplest pack is a plain file, one value per line, addressed by its path (see
+[Overview](overview.mdx#how-the-address-is-formed)). From there, a **header** unlocks
+weighted lists, external files, and small generators — all without touching engine
+code, and all safe to share, since a pack is never more than data or a parsed,
+sandboxed DSL.
+
+The example outputs below are **illustrative**: exact values depend on the seed and can
+shift between core versions. What is guaranteed — determinism per seed, and the exact
+proportions — is called out where it matters.
+
+## The header
+
+Put fields between two `---` lines at the top of the file. All are optional:
+
+| Field         | Meaning                                                         |
+| :------------ | :-------------------------------------------------------------- |
+| `description` | A human-readable description — "what this is"                  |
+| `address`     | An explicit address, overriding the one computed from the path |
+| `locale`      | Language (`en`, `es`, `ru`…) — and the locale segment a flat path lacks |
+| `file`        | Point at an external data file instead of an inline body       |
+| `column`      | With `file`: take a named/numbered column from an existing CSV |
+| `delimiter`   | With `file` CSV, or a weighted body: the separator (default `,`)|
+| `weight`      | With `file`: the frequency column that makes the pack weighted |
+| `weighted`    | `true` — the body is `value,weight` lines                      |
+| `generator`   | `tdc` — the body is a [`<gen>`](../generators/overview.mdx), not a list |
+| `inject`      | A custom interpolation marker for the generator                |
+
+Each of these is covered below, with a config and its output.
+
+## Weighted packs — frequency from the data
+
+A plain pack is drawn from **uniformly**: `Smith` comes up as often as `Zabrowski`.
+Real life isn't like that — over 2.4 million Americans are named `Smith`. A weighted
+pack fixes that, and it's **exact**, laying the frequencies out with the Hamilton
+(largest-remainder) method — the same guarantee as
+[`percent`](../generators/text.mdx#exact-proportions-with-percent). There are two ways
+to supply the weights.
+
+### Inline body — `weighted: true`
+
+Set `weighted: true` and write each line as `value,weight`:
+
+```text
+---
+description: US surnames, weighted (2010 Census)
+weighted: true
+---
+Smith,2442977
+Johnson,1932812
+Williams,1625252
+…
+```
+
+(The real `en` pack carries the census top 1000; three lines are enough to show the
+shape.)
+
+You call it like any other pack — nothing changes in the config:
+
+```xml
+<sequence name="Last">
+    <gen type="template" value="person.lastName"/>
+</sequence>
+```
+
+Across 100,000 rows, each surname shows up in proportion to its weight — `Smith` about
+2,000 times, matching the 2.02% share its count holds among those thousand names:
+
+<Terminal title="./run surnames.tdc (100,000 rows)">
+{`Smith      2022
+Johnson    1599
+Williams   1345`}
+</Terminal>
+
+Use this form when the list is short and you want the weights right next to the values.
+
+### External CSV — `file:` + `weight:`
+
+When the list is large and already lives in a file of its own, point at it with `file:`
+and name the frequency column with `weight:` (and the value column with `column:`):
+
+```text
+---
+description: US surnames, weighted (2010 Census)
+file: ../../../sources/us/person/lastName.csv
+column: name
+weight: count
+---
+```
+
+The call is identical; the header change is invisible from the config's side:
+
+```xml
+<gen type="template" value="person.lastName"/>
+```
+
+Use this form to point at a big census or catalog CSV without copying it into the pack.
+
+The proportions are exact in **both** engines — the streaming default and
+`mode="memory"` alike. A weight is a **non-negative integer** (a raw count, not a
+percentage). An empty weight cell (`Smith,`) is an error, not a silent zero, and a
+deliberate `0` excludes the value.
+
+### Values that contain commas — `delimiter:`
+
+If your values are phrases that contain commas of their own (notifications, whole
+sentences), a comma separator would split them in the wrong place. Set `delimiter:` to
+any character, or to one of the aliases `tab`, `semicolon`, `pipe`:
+
+```text
+---
+weighted: true
+delimiter: @
+---
+Your order, ready for pickup, has shipped@100
+New message, marked urgent@50
+```
+
+The line is split on its **last** delimiter, so commas inside a value survive:
+
+<Terminal title="./run notices.tdc (30 rows)">
+{`Your order, ready for pickup, has shipped
+New message, marked urgent
+Your order, ready for pickup, has shipped`}
+</Terminal>
+
+The same `delimiter:` also sets the column separator for an external `file:` CSV.
+
+## Generators in a pack — `generator: tdc`
+
+A pack can return a **generator** instead of a list, so that the address yields a
+*computed* value. It's written in TDC's own DSL, so there's nothing new to learn. Set
+`generator: tdc` in the header; the body is a [`<gen>`](../generators/overview.mdx). Here
+is a US-style license plate — three letters, a dash, four digits:
+
+```text
+---
+description: US license plate
+address: usa.vehicle.plate
+generator: tdc
+---
+<gen type="regex" value="[A-Z]{3}-[0-9]{4}"/>
+```
+
+Call it exactly like a list-backed template:
+
+```xml
+<gen type="template" value="usa.vehicle.plate"/>
+```
+
+<Terminal title="./run plates.tdc">
+{`KLM-8042
+QRT-1195
+BHD-6203`}
+</Terminal>
+
+It runs on the same engine as your config, so every guarantee holds — determinism, and
+portability to the future Python and Java runtimes — and it's **safe** even when
+downloaded, because it's a parsed, limited DSL with no system access. Give generator
+files a `.tdc` extension (data files stay `.txt`) so you can tell them apart at a
+glance; the file name becomes the last address segment (`plate.tdc` → `…plate`).
+
+### Assembling from data
+
+A generator can pull neighboring data lists in by address and build a value out of them.
+The body is a **compound sequence** — the individual draws, each with a name you reach
+through a dot — plus one [`<data>`](../core-concepts/output-formatting.mdx) that says
+what to return.
+
+Names resolve to English under the default `en` locale. This example deliberately sets
+`locale: es` to show a naming convention English doesn't have: a Spanish full name made
+of two given names and two surnames.
+
+```text
+---
+description: Spanish full male name
+generator: tdc
+locale: es
+---
+<sequence name="p">
+  <distinct>
+    <gen name="f1" type="template" value="es.person.male.firstName"/>
+    <gen name="f2" type="template" value="es.person.male.firstName"/>
+  </distinct>
+  <distinct>
+    <gen name="l1" type="template" value="es.person.lastName"/>
+    <gen name="l2" type="template" value="es.person.lastName"/>
+  </distinct>
+</sequence>
+<data>${{p.f1}} ${{p.f2}} ${{p.l1}} ${{p.l2}}</data>
+```
+
+<Terminal title="./run es-fullname.tdc">
+{`Antonio Javier García Fernández
+Miguel Rodrigo López Romero
+Carlos Alejandro Martín Ruiz`}
+</Terminal>
+
+The data (`firstName`, `lastName`) lives in its own files; the generator only assembles
+it. The [`<distinct>`](../constructs/unique-values.mdx) tag says that the two draws from
+a single list must **differ** within a row — otherwise two independent draws could
+collide and hand you `Juan Juan`.
+
+### Exact percentages inside a generator — `<mix>` + `percent`
+
+A [`<mix>`](../reference/tags.mdx#distributions-and-choice) with `percent` works inside
+a generator, and the split is **exact** by row count. Say 60% of people get **two**
+surnames and 40% get **one**:
+
+```text
+---
+description: Spanish surname — 60% double, 40% single
+address: es.person.surname
+generator: tdc
+---
+<mix name="s" percent="60,40">
+  <case>
+    <gen type="template" value="es.person.lastName"/>
+    <data> </data>
+    <gen type="template" value="es.person.lastName"/>
+  </case>
+  <case>
+    <gen type="template" value="es.person.lastName"/>
+  </case>
+</mix>
+<data>${{s}}</data>
+```
+
+<Terminal title="./run es-surname.tdc (100 rows)">
+{`García Fernández
+López
+Martín Romero
+Ruiz`}
+</Terminal>
+
+Over 100 rows, exactly 60 carry two surnames and 40 carry one. The generator body runs
+on the same engine, which knows `count` and lays the percentages out with Hamilton
+rather than leaving it to chance.
+
+Inside a [`<case>`](../reference/tags.mdx#distributions-and-choice), build the value out
+of the tags themselves — [`<gen>`](../generators/overview.mdx), plus
+[`<data>`](../core-concepts/output-formatting.mdx) for any literal text between them —
+rather than with `${{…}}`. Interpolating other fields inside a case isn't supported yet.
+
+### A custom interpolation marker — `inject:`
+
+Sometimes a generator's **output** has to contain a literal `${{ }}` — you're generating
+GitHub Actions workflows, Handlebars, or Go templates. Set your own marker with
+`inject:`, using exactly one `%` to mark where the name goes, and TDC's substitution
+stops colliding with your text:
+
+```text
+---
+address: common.ci.deploy_step
+generator: tdc
+inject: <<%>>
+---
+<sequence name="s"><gen name="env" type="text" value="prod,staging"/></sequence>
+<data>  - run: deploy.sh --token ${{ secrets.TOKEN }} --env <<s.env>></data>
+```
+
+Here `<<s.env>>` is TDC's substitution, while `${{ secrets.TOKEN }}` passes through
+untouched. The output (shown as a code block, because it literally contains the
+`${{ }}` marker):
+
+```text
+  - run: deploy.sh --token ${{ secrets.TOKEN }} --env prod
+  - run: deploy.sh --token ${{ secrets.TOKEN }} --env staging
+```
+
+The marker is **isolated** — it doesn't depend on the main config's `inject`, so the
+same generator behaves identically wherever you plug it in. Without `inject:`, the
+default stays `${{%}}`.
+
+### A generator that calls another generator
+
+A generator can reference **another generator**, not just a list — a "full name" can
+draw on a "surname" generator that decides single vs. double on its own. TDC checks at
+load time that there's **no cycle** (A → B → A, or a self-reference) and fails with
+`generator reference cycle: …` before generation starts, rather than recursing forever.
+
+:::note[What's allowed inside a generator (today)]
+Primitives — [`regex`](../generators/regex.mdx), [`number`](../generators/number.mdx),
+[`symbol`](../generators/symbol.mdx), [`date`](../generators/date.mdx),
+[`text`](../generators/text.mdx) — the
+[`<mix>`](../reference/tags.mdx#distributions-and-choice) / `percent` distribution, and
+references to **data lists** and **other generators** by address. Complex correlations
+between fields belong in the config, not in a pack generator.
+:::
+
+## `<distinct>` — no repeats in one row
+
+Two independent draws from one list will sometimes collide (`James James`). Wrap the
+fields — or whole sequences — that must **differ within a row** in
+[`<distinct>`](../constructs/unique-values.mdx):
+
+```xml
+<sequence name="pair">
+    <distinct>
+        <gen name="a" type="template" value="person.male.firstName"/>
+        <gen name="b" type="template" value="person.male.firstName"/>
+    </distinct>
+</sequence>
+```
+
+<Terminal title="./run pair.tdc">
+{`James and Robert
+William and John
+Michael and David`}
+</Terminal>
+
+`James and Robert` is fine; `James and James` never appears. On a collision the engine
+redraws one of the values, and determinism per seed still holds. It works both inside a
+[`<sequence>`](../core-concepts/sequences.mdx), wrapping `<gen>`, and inside `<env>`,
+wrapping whole sequences.
+
+Don't confuse it with [`uniq`](../constructs/unique-values.mdx): `uniq` keeps a whole row
+from repeating anywhere in the **entire** dataset (vertical), while `<distinct>` keeps
+fields **within one row** from matching (horizontal). Both are implemented, and they're
+independent of each other.
+
+## Where custom packs go
+
+- The **built-in set** ships in the repo under `data/packs/` and is scanned
+  automatically at startup.
+- **Your own folders** are added with the CLI flag `--data-path <folder>` (repeatable)
+  or with the library's `dataPaths` — see [Installing packs](installing-packs.mdx).
+
+## Errors and ignored files
+
+- **Two files claiming the same address** → `TDC170`, naming both files. Rename or move
+  one.
+- **A file that lands at no address** — a header, but no `address:`, no `locale:`, and a
+  path whose first segment is no locale, country or `common` → `TDC171`, a warning
+  naming the file. It is skipped, so a later `value=` naming it fails with `TDC071`.
+- **A typo in a path** in the config (`value="person.lastNam"`) → `TDC071`,
+  "unknown template path", raised before generation starts.
+- Hidden files (anything starting with `.`) and `README` / `LICENSE` / `CHANGELOG` are
+  **ignored** by the scanner.
+
+## Not yet
+
+- **Address auto-completion** in the editor, driven by the header descriptions — next up.
+- A **pack manifest** for a whole folder (license, author, version) — planned.
+
+## See also
+
+- **[Overview](overview.mdx)** — addresses and using packs.
+- **[Installing packs](installing-packs.mdx)** — `tdcv2 init` and `tdcv2 pack`.
+- **[Coherent & relational data](../guides/coherent-data.mdx)** — parent → child by name.
+- **[Unique values](../constructs/unique-values.mdx)** — `<distinct>` and `uniq` in depth.

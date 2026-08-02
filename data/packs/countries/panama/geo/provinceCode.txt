@@ -1,0 +1,17 @@
+---
+address: panama.geo.provinceCode
+description: Panama numeric province code — the cédula prefix, also the INEC/Contraloría province geocode (1-9 provinces alphabetically, 10-12 the comarcas Guna Yala/Emberá-Wounaan/Ngäbe-Buglé, 13 Panamá Oeste added 2014); this is the first field of panama.docs.cedula. Note this differs from panama.geo.provinceIso, where Panamá Oeste is 10 and the comarcas take letters. Same order as panama.geo.province
+---
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13

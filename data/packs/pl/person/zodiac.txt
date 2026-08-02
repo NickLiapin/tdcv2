@@ -1,0 +1,16 @@
+---
+description: Zodiac sign (Polish)
+locale: pl
+---
+Baran
+Byk
+Bliźnięta
+Rak
+Lew
+Panna
+Waga
+Skorpion
+Strzelec
+Koziorożec
+Wodnik
+Ryby

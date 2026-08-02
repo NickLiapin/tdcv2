@@ -1,0 +1,8 @@
+---
+description: Season (Spanish, lowercase per Spanish orthography)
+locale: es
+---
+primavera
+verano
+otoño
+invierno

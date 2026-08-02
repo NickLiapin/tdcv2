@@ -1,0 +1,39 @@
+---
+description: Music genre (German, including German-language genres)
+locale: de
+---
+Rock
+Pop
+Jazz
+Klassik
+Hip-Hop
+Country
+Elektronische Musik
+Blues
+Reggae
+Heavy Metal
+Volksmusik
+R&B
+Soul
+Funk
+Punk
+Disco
+House
+Techno
+Indie
+Gospel
+Ambient
+Ska
+Schlager
+Deutschrap
+Neue Deutsche Welle
+Krautrock
+Liedermacher
+Trance
+Drum and Bass
+Hardstyle
+Blasmusik
+Operette
+Swing
+Alternative
+Grunge

@@ -1,0 +1,7 @@
+---
+address: venezuela.phone
+description: Venezuelan mobile phone in E.164 form — +58 followed by an operator code (412, 414, 416, 424 or 426) and seven digits
+generator: tdc
+locale: es
+---
+<gen type="regex" value="\+58(412|414|416|424|426)[0-9]{7}"/>

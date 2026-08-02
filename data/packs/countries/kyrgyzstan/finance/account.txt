@@ -1,0 +1,7 @@
+---
+address: kyrgyzstan.finance.account
+description: Kyrgyzstani bank account number — 16 digits (Kyrgyzstan is not in the IBAN registry). Structure only.
+generator: tdc
+locale: ru
+---
+<gen type="regex" value="1[0-9]{15}"/>

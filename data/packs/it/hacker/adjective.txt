@@ -1,0 +1,32 @@
+---
+description: Tech adjective (Italian)
+locale: it
+---
+ausiliario
+primario
+secondario
+digitale
+virtuale
+ridondante
+senza fili
+ottico
+neurale
+aptico
+multipiattaforma
+distribuito
+cifrato
+remoto
+mobile
+integrato
+scalabile
+asincrono
+bidirezionale
+open source
+a stato solido
+ad alta velocità
+ad alte prestazioni
+in cloud
+online
+offline
+a 64 bit
+a 8 bit

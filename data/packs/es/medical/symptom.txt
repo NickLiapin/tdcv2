@@ -1,0 +1,42 @@
+---
+description: Common symptoms / complaints (Spanish)
+locale: es
+---
+Fiebre
+Dolor de cabeza
+Fatiga
+Náuseas
+Vómito
+Diarrea
+Estreñimiento
+Dolor abdominal
+Dolor torácico
+Dificultad para respirar
+Tos
+Dolor de garganta
+Secreción nasal
+Congestión nasal
+Mareo
+Visión borrosa
+Dolor muscular
+Dolor articular
+Dolor lumbar
+Erupción cutánea
+Picazón
+Hinchazón
+Entumecimiento
+Hormigueo
+Palpitaciones
+Pérdida del apetito
+Pérdida de peso involuntaria
+Sudores nocturnos
+Escalofríos
+Estornudos
+Acidez estomacal
+Distensión abdominal
+Calambres
+Debilidad
+Confusión
+Insomnio
+Zumbido de oídos
+Sangrado nasal

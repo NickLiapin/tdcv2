@@ -1,0 +1,7 @@
+---
+address: portugal.geo.postal
+description: Portuguese postal code (código postal) in the NNNN-NNN form
+generator: tdc
+locale: pt
+---
+<gen type="regex" value="[1-9][0-9]{3}-[0-9]{3}"/>

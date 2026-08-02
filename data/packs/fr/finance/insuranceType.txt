@@ -1,0 +1,20 @@
+---
+description: Insurance type (French)
+locale: fr
+---
+Santé
+Automobile
+Habitation
+Vie
+Responsabilité civile
+Prévoyance
+Décès
+Emprunteur
+Scolaire
+Voyage
+Animaux
+Mutuelle
+Dépendance
+Professionnelle
+Multirisque
+Obsèques

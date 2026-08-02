@@ -1,0 +1,9 @@
+---
+description: Positions in Basketball (French)
+locale: fr
+---
+Meneur
+Arrière
+Ailier
+Ailier fort
+Pivot

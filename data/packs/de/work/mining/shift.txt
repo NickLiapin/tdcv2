@@ -1,0 +1,9 @@
+---
+description: Work shift (German)
+locale: de
+---
+Tagschicht
+Nachtschicht
+Spätschicht
+Wechselschicht
+Frühschicht

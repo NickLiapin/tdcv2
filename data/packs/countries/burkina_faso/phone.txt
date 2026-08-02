@@ -1,0 +1,6 @@
+---
+address: burkina_faso.phone
+description: Burkinabè mobile phone in E.164 form (+226 [567]XXXXXXX)
+generator: tdc
+---
+<gen type="regex" value="\+226[567][0-9]{7}"/>

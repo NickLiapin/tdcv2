@@ -1,0 +1,18 @@
+---
+description: Court type (generic Portuguese, not a specific country's court)
+locale: pt
+---
+Supremo Tribunal de Justiça
+Supremo Tribunal Federal
+Tribunal Constitucional
+Tribunal da Relação
+Tribunal de Primeira Instância
+Vara Cível
+Vara Criminal
+Tribunal de Família
+Tribunal do Trabalho
+Tribunal de Comércio
+Julgado de Paz
+Tribunal Municipal
+Tribunal Administrativo
+Tribunal Eleitoral

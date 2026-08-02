@@ -1,0 +1,26 @@
+---
+description: Property amenity (Spanish)
+locale: es
+---
+Piscina
+Garaje
+Chimenea
+Aire acondicionado central
+Pisos de madera
+Vestidor
+Balcón
+Jardín
+Gimnasio
+Ascensor
+Estacionamiento
+Lavavajillas
+Lavandería
+Se admiten mascotas
+Sistema de seguridad
+Paneles solares
+Terraza
+Sótano
+Conserjería
+Zona de parrilla
+Amueblado
+Calefacción

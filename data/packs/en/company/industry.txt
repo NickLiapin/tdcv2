@@ -1,0 +1,29 @@
+---
+description: Industry sector
+locale: en
+---
+Agriculture
+Mining
+Construction
+Manufacturing
+Retail
+Wholesale
+Transportation
+Information Technology
+Finance
+Insurance
+Real Estate
+Healthcare
+Education
+Hospitality
+Entertainment
+Energy
+Telecommunications
+Automotive
+Aerospace
+Pharmaceuticals
+Biotechnology
+Logistics
+Media
+Consulting
+Nonprofit

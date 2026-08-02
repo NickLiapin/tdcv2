@@ -1,0 +1,439 @@
+---
+title: Strings & formatting
+sidebar_position: 4
+---
+
+import Terminal from '@site/src/components/Terminal';
+
+# Strings & formatting
+
+These tags shape a **string** as a step in a calculation. They live inside
+[`<compute>`](overview.mdx), next to [`<gen>`](../generators/overview.mdx) in a
+[`<sequence>`](../core-concepts/sequences.mdx), and they read other sequences with
+[`<field name="…"/>`](overview.mdx) — the same names you'd use in
+[`${{…}}`](../core-concepts/output-formatting.mdx).
+
+Most of them (`mask`, `case`, `slice`, `replace`, `trim`, `group`) are also available in
+two other ways — as a [`<gen>`](../generators/overview.mdx) attribute
+(`mask=` / `case=`) and as an interpolation filter (`${{X | mask:…}}`). The
+[Masks & case](../guides/masks-and-case.mdx) guide covers those routes with worked
+output. Reach for the **compute tag** when the formatting is a step in a calculation —
+for example, masking a number and *then* uppercasing it before appending a check digit.
+`<concat>`, `<str>`, and `<pad>` exist **only** as compute tags.
+
+:::note
+Example outputs on this page are illustrative — the exact values can differ from one core
+version to the next. What matters is the shape of each transformation. The examples use
+`order="sequential"` so the input values stay stable and repeat in order.
+:::
+
+## Building and casing
+
+### `<concat>` — glue parts into a string
+
+**Takes** any number of values → **gives** a string. A number becomes its digits on the way in.
+
+`<concat>` coerces each child to a string and joins them **in order, with no
+separator**. Unlike [`<add>`](arithmetic.mdx), this is a **string** operation:
+`<concat>` of `"12"` and `"3"` is `"123"`, not `15`. An integer child is written as
+its decimal digits; a **list** child must be turned into a string first with
+[`<join>`](lists.mdx).
+
+**Use it when** you assemble an identifier from pieces — a prefix, a field, and a
+computed check digit.
+
+```xml
+<sequence name="Num"><gen type="number" value="100..999"/></sequence>
+<sequence name="Year"><gen type="number" value="20..24"/></sequence>
+<sequence name="Code">
+  <compute><result>
+    <concat><str v="ORD-"/><field name="Year"/><str v="-"/><field name="Num"/></concat>
+  </result></compute>
+</sequence>
+...
+<data>${{Code}}</data>
+```
+
+<Terminal title="./run order-code.tdc">
+{`ORD-24-692
+ORD-21-695
+ORD-23-979
+ORD-24-326
+ORD-24-587`}
+</Terminal>
+
+There's no built-in separator — the dashes are their own `<str v="-"/>` children.
+Appending a computed check digit is the same move: name the remainder with
+[`<let>`](overview.mdx), then glue it on (the integer becomes text automatically).
+
+```xml
+<sequence name="Base"><gen type="number" value="1000..9999"/></sequence>
+<sequence name="Full">
+  <compute>
+    <let name="c"><mod><to_number><field name="Base"/></to_number><int v="7"/></mod></let>
+    <result><concat><field name="Base"/><str v="-"/><var name="c"/></concat></result>
+  </compute>
+</sequence>
+...
+<data>${{Full}}</data>
+```
+
+<Terminal title="./run check-digit.tdc">
+{`5962-5
+4783-2
+6257-6
+2280-5
+6591-4`}
+</Terminal>
+
+### `<str>` — a string literal
+
+**Takes** nothing; the text lives in `v=` → **gives** a string.
+
+`<str v="…"/>` is a literal string; the text goes in the `v` attribute (in TDC, tags
+can't hold text between `<tag>` and `</tag>`).
+
+**Use it when** you need a fixed prefix, a separator inside `<concat>`, or padding
+characters — like the `<str v="  "/>` that fakes the stray spaces in the `<trim>`
+example below.
+
+### `<upper>` / `<lower>` / `<capitalize>` / `<title>` — case
+
+**Takes** one string → **gives** a string of the same length.
+
+Four case transforms, each taking one string child:
+
+| Tag            | What it does                                                |
+| :------------- | :---------------------------------------------------------- |
+| `<upper>`      | ALL UPPERCASE                                               |
+| `<lower>`      | all lowercase                                               |
+| `<capitalize>` | **only the first** letter uppercase, the rest as-is         |
+| `<title>`      | the first letter of **each word** uppercase, the rest as-is |
+
+**Use them when** data arrives in mixed case (different sources, imports) and you need
+one consistent form. The same string through all four:
+
+```xml
+<sequence name="W"><gen type="text" value="iPhone CASE,mary JONES,ANNA von lee" order="sequential"/></sequence>
+<sequence name="U"><compute><result><upper><field name="W"/></upper></result></compute></sequence>
+<sequence name="L"><compute><result><lower><field name="W"/></lower></result></compute></sequence>
+<sequence name="C"><compute><result><capitalize><field name="W"/></capitalize></result></compute></sequence>
+<sequence name="T"><compute><result><title><field name="W"/></title></result></compute></sequence>
+...
+<data>${{W}}  ->  upper=${{U}} | lower=${{L}} | capitalize=${{C}} | title=${{T}}</data>
+```
+
+<Terminal title="./run case.tdc">
+{`iPhone CASE   ->  upper=IPHONE CASE | lower=iphone case | capitalize=IPhone CASE | title=IPhone CASE
+mary JONES    ->  upper=MARY JONES | lower=mary jones | capitalize=Mary JONES | title=Mary JONES
+ANNA von lee  ->  upper=ANNA VON LEE | lower=anna von lee | capitalize=ANNA von lee | title=ANNA Von Lee`}
+</Terminal>
+
+`capitalize` touches only the very first character (`ANNA von lee` comes back almost
+unchanged — its first `A` is already uppercase), while `title` uppercases the first
+letter of **every** word (`von` → `Von`, `lee` → `Lee`). `upper` / `lower` change
+everything.
+
+## Reshaping
+
+These five tags rearrange the characters of a string. All of them are also available as
+`${{X | …}}` filters (see [Masks & case](../guides/masks-and-case.mdx)); the compute-tag
+form shown here is what you use when the reshaping is a step in a calculation.
+
+### `<mask>` — split and rearrange by a pattern
+
+**Takes** one string plus `pattern=` → **gives** a string. Nothing is invented: every character in the result either came from the input or is a literal in the pattern.
+
+`<mask pattern="…">` rebuilds a string from a positional pattern: it runs left to right,
+each **slot** eats a piece of the input, and everything else is printed as a literal.
+
+| Slot          | Takes from the input                                        |
+| :------------ | :---------------------------------------------------------- |
+| `x`           | one character                                               |
+| `w`           | one word (letters up to a space) and **swallows one** space |
+| `*`           | all remaining input                                         |
+| `\`           | escapes the next character (`\x` → a literal `x`)           |
+| anything else | a literal: dash, dot, space, brackets — printed as-is       |
+
+`pattern` is the only attribute, and it's required. A mask is **lenient and never fails**: if
+`x` / `w` run past the end of the input they print nothing, and any leftover tail is
+dropped unless a `*` picks it up.
+
+**Use it when** a value arrives as one glued-together string and you need groups and
+separators — an SSN, a card number, a phone. The same digits under one pattern:
+
+```xml
+<sequence name="Raw"><gen type="text" value="378984323,889735724,852139753,263243158" order="sequential"/></sequence>
+<sequence name="Masked">
+  <compute><result><mask pattern="xxx-xx-xxxx"><field name="Raw"/></mask></result></compute>
+</sequence>
+...
+<data>${{Raw}}  ->  ${{Masked}}</data>
+```
+
+<Terminal title="./run mask-ssn.tdc">
+{`378984323  ->  378-98-4323
+889735724  ->  889-73-5724
+852139753  ->  852-13-9753
+263243158  ->  263-24-3158`}
+</Terminal>
+
+Each `x` takes one character; `-` and the space are literals — the pattern reads
+`xxx-xx-xxxx`.
+
+**The `w` slot — working in whole words.** `w` grabs one word and swallows the single
+space after it, so you're not left with a stray gap:
+
+```xml
+<sequence name="Full"><gen type="text" value="james michael miller,mary jane jones,anna von lee" order="sequential"/></sequence>
+<sequence name="First">
+  <compute><result><mask pattern="w: *"><field name="Full"/></mask></result></compute>
+</sequence>
+...
+<data>${{Full}}  ->  ${{First}}</data>
+```
+
+<Terminal title="./run mask-word.tdc">
+{`james michael miller  ->  james: michael miller
+mary jane jones       ->  mary: jane jones
+anna von lee          ->  anna: von lee`}
+</Terminal>
+
+The first `w` takes `james` and eats its trailing space, the literal `: ` is printed,
+and `*` sweeps up the rest. There's no space before the `:` — the `w` swallowed it.
+
+**Escaping — a literal `w`.** To print a slot character verbatim, escape it with `\`:
+
+```xml
+<sequence name="Num"><gen type="text" value="1234,5678,9012" order="sequential"/></sequence>
+<sequence name="Tagged">
+  <compute><result><mask pattern="\w-xxxx"><field name="Num"/></mask></result></compute>
+</sequence>
+...
+<data>${{Num}}  ->  ${{Tagged}}</data>
+```
+
+<Terminal title="./run mask-escape.tdc">
+{`1234  ->  w-1234
+5678  ->  w-5678
+9012  ->  w-9012`}
+</Terminal>
+
+`\w` is the literal letter `w` (not a slot), then the literal `-`, then four `x` slots
+take four characters.
+
+### `<slice>` — substring by index
+
+**Takes** one string plus `from=` and optional `to=` → **gives** a string. Counting starts at 0, a negative `from` counts from the end, and a range past the end yields an empty string rather than an error.
+
+`<slice from="…" to="…">` cuts a substring over the half-open range `[from, to)`: the
+character at `from` is included, the character at `to` is not — so the length is
+`to − from`. Indices are **zero-based** and counted in **code points** (so Unicode is
+cut by letters, not bytes).
+
+| Attribute | Required | Sets                                                      |
+| :-------- | :------- | :-------------------------------------------------------- |
+| `from`    | yes      | index of the first character (zero-based), included       |
+| `to`      | no       | index just past the last character; omitted → to the end  |
+
+**Use it when** you need a fixed part of a value — the year or month of a date, a code
+prefix, the last few characters of an identifier.
+
+```xml
+<sequence name="D"><gen type="text" value="2020-05-14,2022-11-03,2020-01-30,2021-07-19" order="sequential"/></sequence>
+<sequence name="Year"><compute><result><slice from="0" to="4"><field name="D"/></slice></result></compute></sequence>
+<sequence name="Month"><compute><result><slice from="5" to="7"><field name="D"/></slice></result></compute></sequence>
+<sequence name="Tail"><compute><result><slice from="5"><field name="D"/></slice></result></compute></sequence>
+...
+<data>${{D}}  ->  year=${{Year}} | month=${{Month}} | tail=${{Tail}}</data>
+```
+
+<Terminal title="./run slice.tdc">
+{`2020-05-14  ->  year=2020 | month=05 | tail=05-14
+2022-11-03  ->  year=2022 | month=11 | tail=11-03
+2020-01-30  ->  year=2020 | month=01 | tail=01-30
+2021-07-19  ->  year=2021 | month=07 | tail=07-19`}
+</Terminal>
+
+`from=0 to=4` takes characters 0–3 (the year); `from=5 to=7` takes 5–6 (the month — the
+dash at index 4 is not included); `from=5` with no `to` runs from index 5 to the end.
+
+### `<replace>` — replace every occurrence
+
+**Takes** one string plus `from=` and `to=` → **gives** a string. `from=` is matched **literally**, not as a regular expression, and **every** occurrence is replaced.
+
+`<replace from="…" to="…">` replaces **all** occurrences of the literal substring `from`
+with `to`. Both are plain strings, not regular expressions — what you write is matched
+verbatim. If `from` is empty, or isn't found, the string is returned unchanged.
+
+| Attribute | Required | Sets                              |
+| :-------- | :------- | :-------------------------------- |
+| `from`    | yes      | what to search for (literal)      |
+| `to`      | yes      | what to replace it with           |
+
+**Use it when** you need to swap a separator (dash → slash in a date) or strip a
+character entirely (`to=""` removes every match):
+
+```xml
+<sequence name="D"><gen type="text" value="2020-05-14,2022-11-03,2020-01-30,2021-07-19" order="sequential"/></sequence>
+<sequence name="Slashed"><compute><result><replace from="-" to="/"><field name="D"/></replace></result></compute></sequence>
+<sequence name="Bare"><compute><result><replace from="-" to=""><field name="D"/></replace></result></compute></sequence>
+...
+<data>${{D}}  ->  slash=${{Slashed}} | bare=${{Bare}}</data>
+```
+
+<Terminal title="./run replace.tdc">
+{`2020-05-14  ->  slash=2020/05/14 | bare=20200514
+2022-11-03  ->  slash=2022/11/03 | bare=20221103
+2020-01-30  ->  slash=2020/01/30 | bare=20200130
+2021-07-19  ->  slash=2021/07/19 | bare=20210719`}
+</Terminal>
+
+**Both** dashes are replaced, not just the first. For replacing by position rather than
+by substring, use [`<mask>`](#reshaping).
+
+### `<trim>` — strip outer whitespace
+
+**Takes** one string → **gives** a string. Only the ends are touched; spaces inside stay.
+
+`<trim>` removes whitespace from **both edges** of a string. Inner spaces are left
+alone. It takes no attributes.
+
+**Use it when** values from a file or CSV carry stray spaces on the edges. Here the
+spaces are added on purpose (imitating dirty source data) and the brackets just make
+them visible:
+
+```xml
+<sequence name="City"><gen type="text" value="Austin,Denver,Boston" order="sequential"/></sequence>
+<sequence name="Padded">
+  <compute><result><concat><str v="  "/><field name="City"/><str v="   "/></concat></result></compute>
+</sequence>
+<sequence name="Clean">
+  <compute><result><trim><field name="Padded"/></trim></result></compute>
+</sequence>
+...
+<data>[${{Padded}}]  ->  [${{Clean}}]</data>
+```
+
+<Terminal title="./run trim.tdc">
+{`[  Austin   ]  ->  [Austin]
+[  Denver   ]  ->  [Denver]
+[  Boston   ]  ->  [Boston]`}
+</Terminal>
+
+### `<group>` — group characters from the right
+
+**Takes** one string plus `size=` and `sep=` → **gives** a string. Grouping runs right to left, so the short group ends up on the left, as money is written.
+
+`<group size="…" sep="…">` splits a string into groups of `size` characters and inserts
+`sep` between them. Grouping runs **right to left**, so the short (incomplete) group
+ends up on the **left**, exactly like thousands separators. A string shorter than one
+group is returned unchanged (no separator added).
+
+| Attribute | Required | Default    | Sets                        |
+| :-------- | :------- | :--------- | :-------------------------- |
+| `size`    | no       | `3`        | group size (characters)     |
+| `sep`     | no       | space `" "` | separator between groups    |
+
+**Use it when** a long number is hard to read — thousands separators, card blocks, long
+codes:
+
+```xml
+<sequence name="N"><gen type="text" value="1234567,42,1000000,89150000" order="sequential"/></sequence>
+<sequence name="G3"><compute><result><group size="3"><field name="N"/></group></result></compute></sequence>
+<sequence name="G3d"><compute><result><group size="3" sep="-"><field name="N"/></group></result></compute></sequence>
+<sequence name="G4"><compute><result><group size="4"><field name="N"/></group></result></compute></sequence>
+...
+<data>${{N}}  ->  group3=${{G3}} | group3,-=${{G3d}} | group4=${{G4}}</data>
+```
+
+<Terminal title="./run group.tdc">
+{`1234567   ->  group3=1 234 567 | group3,-=1-234-567 | group4=123 4567
+42        ->  group3=42 | group3,-=42 | group4=42
+1000000   ->  group3=1 000 000 | group3,-=1-000-000 | group4=100 0000
+89150000  ->  group3=89 150 000 | group3,-=89-150-000 | group4=8915 0000`}
+</Terminal>
+
+Because grouping runs from the right, `1234567` splits as `1 234 567` — the leftover
+`1` stays on the left. `group size="3"` gives you thousands (with the default space
+separator), `sep="-"` sets your own separator, and `size="4"` reads like card blocks.
+`42` is shorter than a single group, so it comes back as-is. For grouping from the
+**left** or by position, use [`<mask>`](#reshaping).
+
+### `<pad>` — pad on the left to a fixed width
+
+**Takes** one value plus `width=` and `fill=` → **gives** a string. `width` is a minimum: a value already that long or longer comes through untouched, never cut.
+
+`<pad width="…" fill="…">` coerces its child to a string and prepends `fill` on the
+**left** until the string reaches `width`. It behaves like `padStart`: if the string is
+**already at least** `width` long, it comes back unchanged — there's **no** truncation.
+
+| Attribute | Default | Sets                                            |
+| :-------- | :------ | :---------------------------------------------- |
+| `width`   | —       | target width of the string                      |
+| `fill`    | `"0"`   | the character to prepend on the left            |
+
+**Use it when** an identifier needs a fixed width — a control number, an article code,
+a check digit that has to take up two positions (`09`). Leading zeros to width 6:
+
+```xml
+<sequence name="Id"><gen type="number" value="1..9999"/></sequence>
+<sequence name="Padded"><compute><result><pad width="6"><field name="Id"/></pad></result></compute></sequence>
+...
+<data>${{Id}}  ->  ${{Padded}}</data>
+```
+
+<Terminal title="./run pad.tdc">
+{`1401  ->  001401
+3593  ->  003593
+7646  ->  007646
+6755  ->  006755
+4701  ->  004701`}
+</Terminal>
+
+`fill` can be any character, and a value longer than `width` is left alone:
+
+```xml
+<sequence name="P1"><compute><result><pad width="6"><str v="42"/></pad></result></compute></sequence>
+<sequence name="P2"><compute><result><pad width="6" fill="*"><str v="42"/></pad></result></compute></sequence>
+<sequence name="P3"><compute><result><pad width="4"><str v="1234567"/></pad></result></compute></sequence>
+...
+<data>zero=${{P1}} | fill*=${{P2}} | over=${{P3}}</data>
+```
+
+<Terminal title="./run pad-variants.tdc">
+{`zero=000042 | fill*=****42 | over=1234567`}
+</Terminal>
+
+`"42"` is padded to width 6 with zeros or asterisks; `"1234567"` is already longer than
+`4`, so it passes through — **no truncation**. Unlike `mask` / `case` / `slice` /
+`group`, `<pad>` has **no** filter form and **no** `<gen>` attribute — it works only as
+a compute tag.
+
+## The same behavior, three ways
+
+Formatting is available as a compute tag, a [`<gen>`](../generators/overview.mdx)
+attribute (`mask=` / `case=`), and an interpolation filter (`${{X | mask:…}}`) — same
+result. The [Masks & case](../guides/masks-and-case.mdx) guide shows each route with
+real output. Which tags live where:
+
+| Operation                        | Filter `${{X\|…}}` | `<gen>` attribute | `<compute>` tag                   |
+| :------------------------------- | :----------------: | :---------------: | :-------------------------------- |
+| case (`upper`…`title`)           | yes                | `case=`           | [`<upper>` …](#building-and-casing) |
+| `mask`                           | yes                | `mask=`           | [`<mask>`](#reshaping)            |
+| `slice` / `replace` / `trim` / `group` | yes          | —                 | [`<slice>` …](#reshaping)         |
+| `concat` / `str` / `pad`         | —                  | —                 | this page (compute-only)          |
+
+Reach for the compute tag when the formatting is a **step in a calculation**; reach for
+the attribute or filter for a plain value.
+
+## See also
+
+- **[Masks & case](../guides/masks-and-case.mdx)** — the same operations as `${{X|…}}`
+  filters and `<gen>` attributes, with worked output.
+- **[Compute overview](overview.mdx)** — how `<compute>`, `<let>`, and `<field>` fit
+  together.
+- **[Arithmetic](arithmetic.mdx)** — `<to_number>` / `<encode>` to go from text to
+  numbers.
+- **[Lists & iteration](lists.mdx)** — `<join>` to turn a list into a string before
+  `<concat>`.

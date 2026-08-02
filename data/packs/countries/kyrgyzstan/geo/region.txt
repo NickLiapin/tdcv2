@@ -1,0 +1,14 @@
+---
+address: kyrgyzstan.geo.region
+description: Regions of Kyrgyzstan — seven oblasts plus the two cities of republican significance (the "state" equivalent)
+locale: ru
+---
+Баткенская область
+Джалал-Абадская область
+Иссык-Кульская область
+Нарынская область
+Ошская область
+Таласская область
+Чуйская область
+город Бишкек
+город Ош

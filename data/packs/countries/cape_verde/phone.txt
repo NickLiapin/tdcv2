@@ -1,0 +1,7 @@
+---
+address: cape_verde.phone
+description: Cape Verde mobile phone in E.164 form (+238 followed by a 7-digit mobile number starting with 9)
+generator: tdc
+locale: pt
+---
+<gen type="regex" value="\+2389[1-9][0-9]{5}"/>

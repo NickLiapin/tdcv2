@@ -1,0 +1,19 @@
+---
+description: Jobs in Health care (French)
+locale: fr
+---
+Médecin généraliste
+Infirmier
+Pharmacien
+Chirurgien
+Kinésithérapeute
+Sage-femme
+Aide-soignant
+Radiologue
+Anesthésiste
+Dentiste
+Cardiologue
+Psychiatre
+Ambulancier
+Diététicien
+Orthophoniste

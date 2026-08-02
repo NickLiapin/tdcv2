@@ -1,0 +1,18 @@
+---
+description: Cable type (French; standard designations kept in their usual form)
+locale: fr
+---
+Fibre optique
+Coaxial
+Paire torsadée
+Cat5e
+Cat6
+Cat6a
+Cat7
+RJ45
+HDMI
+USB
+Blindé
+Non blindé
+Électrique
+Téléphonique

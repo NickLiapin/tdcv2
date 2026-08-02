@@ -1,0 +1,7 @@
+---
+address: australia.phone
+description: Australian mobile number in E.164 form (+61 4 XXXXXXXX — the national 04XX XXX XXX written with the +61 country code and no trunk 0)
+generator: tdc
+locale: en
+---
+<gen type="regex" value="\+614[0-9]{8}"/>

@@ -1,0 +1,30 @@
+---
+description: Medical diagnoses in Spanish (male-specific + common)
+locale: es
+---
+Varicocele
+Criptorquidia
+Fimosis
+Adenoma de próstata
+Prostatitis
+Hiperplasia prostática benigna
+Hidrocele
+Orquitis
+Epididimitis
+Cáncer de próstata
+Cáncer testicular
+Pancreatitis crónica
+Clamidia
+Artritis crónica
+Gastritis crónica
+Hipertensión arterial
+Diabetes mellitus tipo 2
+Asma bronquial
+Bronquitis crónica
+Migraña
+Anemia ferropénica
+Hipotiroidismo
+Cálculos renales
+Hernia inguinal
+Cáncer de recto
+Embolia de la arteria central de la retina

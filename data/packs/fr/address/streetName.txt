@@ -1,0 +1,40 @@
+---
+description: Street names common across the French-speaking world (heroes, saints, dates, nature). Compose after a streetSuffix; country-specific streets belong in a country pack.
+locale: fr
+---
+de la République
+de la Paix
+de la Gare
+de la Liberté
+de la Mairie
+de l'Église
+de l'Hôtel de Ville
+du Général de Gaulle
+du Moulin
+du Château
+du Stade
+du Marché
+des Écoles
+des Fleurs
+des Lilas
+des Tilleuls
+des Jardins
+Nationale
+Grande Rue
+Victor Hugo
+Jean Jaurès
+Émile Zola
+Jean Moulin
+Gambetta
+Pasteur
+Voltaire
+Jules Ferry
+Georges Clemenceau
+Jeanne d'Arc
+Saint-Martin
+Saint-Michel
+du 8 Mai 1945
+du 11 Novembre
+du 14 Juillet
+de la Résistance
+de la Libération

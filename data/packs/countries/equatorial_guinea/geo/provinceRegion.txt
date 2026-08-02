@@ -1,0 +1,13 @@
+---
+address: equatorial_guinea.geo.provinceRegion
+description: The región (ISO 3166-2 group) each provincia belongs to — Insular (the islands of Bioko and Annobón) or Continental (Río Muni on the mainland); same order as equatorial_guinea.geo.province
+locale: es
+---
+Insular
+Insular
+Insular
+Continental
+Continental
+Continental
+Continental
+Continental

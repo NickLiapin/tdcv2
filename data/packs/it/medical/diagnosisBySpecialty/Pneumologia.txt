@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Pulmonology (Italian)
+locale: it
+---
+Asma
+Broncopneumopatia cronica ostruttiva
+Polmonite
+Embolia polmonare
+Tubercolosi
+Apnea ostruttiva del sonno
+Bronchite cronica
+Fibrosi polmonare idiopatica
+Bronchiectasie
+Pleurite

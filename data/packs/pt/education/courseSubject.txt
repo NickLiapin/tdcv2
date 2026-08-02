@@ -1,0 +1,24 @@
+---
+description: School subject (Portuguese)
+locale: pt
+---
+Matemática
+Física
+Química
+Biologia
+Informática
+História
+Geografia
+Língua e Literatura
+Arte
+Música
+Educação Física
+Economia
+Filosofia
+Psicologia
+Língua Estrangeira
+Estatística
+Ciências Naturais
+Ciências Sociais
+Educação Cívica
+Tecnologia

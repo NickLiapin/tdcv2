@@ -1,0 +1,30 @@
+---
+description: Name / academic suffix (German)
+locale: de
+---
+Jr.
+Sen.
+Jun.
+d. Ä.
+d. J.
+II
+III
+IV
+V
+Dr.
+Dr. med.
+Dr. jur.
+Dr. phil.
+Dr. rer. nat.
+Dr.-Ing.
+Ph.D.
+B.A.
+B.Sc.
+M.A.
+M.Sc.
+M.Ed.
+MBA
+LL.M.
+Dipl.-Ing.
+Dipl.-Kfm.
+Mag.

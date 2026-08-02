@@ -1,0 +1,13 @@
+---
+description: Gaming platform
+locale: en
+---
+PlayStation 5
+Xbox Series X
+Nintendo Switch
+PC
+Steam Deck
+Mobile
+PlayStation 4
+Xbox One
+Meta Quest

@@ -1,0 +1,11 @@
+---
+address: guinea_bissau.finance.bank
+description: Banks operating in Guinea-Bissau (Portuguese names)
+locale: pt
+---
+Banco da África Ocidental
+Banco Regional de Solidariedade
+Ecobank Guiné-Bissau
+Orabank Guiné-Bissau
+Banco da União
+Banco Central dos Estados da África Ocidental

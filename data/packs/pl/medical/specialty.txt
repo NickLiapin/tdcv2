@@ -1,0 +1,40 @@
+---
+description: Medical specialties (Polish)
+locale: pl
+---
+Kardiologia
+Dermatologia
+Endokrynologia
+Gastroenterologia
+Neurologia
+Onkologia
+Okulistyka
+Ortopedia
+Traumatologia
+Pediatria
+Psychiatria
+Pulmonologia
+Radiologia
+Reumatologia
+Urologia
+Nefrologia
+Hematologia
+Immunologia
+Alergologia
+Anestezjologia
+Medycyna ratunkowa
+Medycyna rodzinna
+Choroby wewnętrzne
+Ginekologia i położnictwo
+Otolaryngologia
+Patomorfologia
+Chirurgia ogólna
+Chirurgia plastyczna
+Chirurgia naczyniowa
+Kardiochirurgia
+Choroby zakaźne
+Geriatria
+Neonatologia
+Rehabilitacja medyczna
+Medycyna nuklearna
+Dietetyka kliniczna

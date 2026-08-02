@@ -1,0 +1,9 @@
+---
+address: belgium.geo.streetName
+description: Belgian street name — a voie type followed by a bare name; e.g. "Rue de la Loi", "Chaussée de Namur".
+generator: tdc
+locale: fr
+---
+<sequence name="type"><gen type="text" value="Rue,Rue,Rue,Avenue,Avenue,Chaussée,Boulevard,Place,Quai,Rue,Impasse,Clos"/></sequence>
+<sequence name="named"><gen type="template" value="belgium.geo.streetNamed"/></sequence>
+<data>${{type}} ${{named}}</data>

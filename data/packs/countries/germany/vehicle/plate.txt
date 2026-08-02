@@ -1,0 +1,10 @@
+---
+address: germany.vehicle.plate
+description: German vehicle plate — a real district code (Unterscheidungszeichen), then one or two letters and up to four digits, e.g. B-MW 1234.
+generator: tdc
+locale: de
+---
+<sequence name="district"><gen type="text" value="B,M,HH,K,F,S,D,H,N,L,DD,E,DO,BO,W,BI,BN,MS,MA,KA,A,WI,MG,GE,BS,KI,C,AC,HAL,MD,FR,KR,MZ,HL,EF,OB,HRO,KS,P,SB,HD,R,WÜ,IN,UL,OS,GÖ,J,LG,FL"/></sequence>
+<sequence name="letters"><gen type="regex" value="[A-Z]{1,2}"/></sequence>
+<sequence name="digits"><gen type="regex" value="[1-9][0-9]{0,3}"/></sequence>
+<data>${{district}}-${{letters}} ${{digits}}</data>

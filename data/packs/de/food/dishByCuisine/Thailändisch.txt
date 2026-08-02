@@ -1,0 +1,16 @@
+---
+description: Dishes of Thai cuisine (German)
+locale: de
+---
+Pad Thai
+Grünes Curry
+Tom-Yum-Suppe
+Massaman-Curry
+Papayasalat
+Klebreis mit Mango
+Satay-Spieße
+Tom Kha Gai
+Rotes Curry
+Pad Kra Pao
+Larb
+Thai-Frühlingsrollen

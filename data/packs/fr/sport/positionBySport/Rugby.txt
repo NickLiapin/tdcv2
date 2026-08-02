@@ -1,0 +1,14 @@
+---
+description: Positions in Rugby (French)
+locale: fr
+---
+Pilier
+Talonneur
+Deuxième ligne
+Troisième ligne aile
+Numéro 8
+Demi de mêlée
+Demi d'ouverture
+Centre
+Ailier
+Arrière

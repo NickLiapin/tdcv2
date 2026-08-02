@@ -1,0 +1,44 @@
+---
+description: Cooking ingredient (Spanish)
+locale: es
+---
+Harina
+Azúcar
+Sal
+Mantequilla
+Huevos
+Leche
+Cebolla
+Ajo
+Tomate
+Pechuga de pollo
+Arroz
+Queso
+Aceite de oliva
+Pimienta negra
+Zanahoria
+Papa
+Pimiento
+Carne molida
+Pan rallado
+Limón
+Miel
+Levadura
+Crema de leche
+Espinaca
+Vinagre
+Caldo de pollo
+Frijol
+Lentejas
+Fideos
+Atún
+Yogur
+Queso rallado
+Perejil
+Aceite vegetal
+Salsa de tomate
+Maicena
+Vino blanco
+Almendras
+Nuez
+Chocolate

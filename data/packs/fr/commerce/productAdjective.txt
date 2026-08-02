@@ -1,0 +1,49 @@
+---
+description: Product marketing adjective (French, masculine singular)
+locale: fr
+---
+élégant
+portable
+polyvalent
+résistant
+imperméable
+léger
+compact
+ergonomique
+durable
+rechargeable
+pliable
+réglable
+silencieux
+connecté
+sans fil
+écologique
+premium
+robuste
+ultrafin
+professionnel
+intelligent
+antidérapant
+réversible
+lavable
+respirant
+isotherme
+anti-rayures
+étanche
+modulable
+extensible
+amovible
+tactile
+puissant
+économique
+design
+artisanal
+fait main
+biologique
+équitable
+recyclé
+hypoallergénique
+antibactérien
+ultraléger
+haute performance
+grande capacité

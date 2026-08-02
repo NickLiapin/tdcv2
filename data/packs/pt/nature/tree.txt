@@ -1,0 +1,32 @@
+---
+description: Tree (Portuguese)
+locale: pt
+---
+Carvalho
+Ácer
+Pinheiro
+Bétula
+Cedro
+Salgueiro
+Sequoia
+Espruce
+Olmo
+Freixo
+Faia
+Cerejeira
+Nogueira
+Choupo
+Cipreste
+Abeto
+Sicómoro
+Choupo-tremedor
+Magnólia
+Corniso
+Azinheira
+Oliveira
+Laranjeira
+Eucalipto
+Castanheiro
+Palmeira
+Ceiba
+Sobreiro

@@ -1,0 +1,21 @@
+---
+description: Aircraft type
+locale: en
+---
+Boeing 737
+Boeing 747
+Boeing 757
+Boeing 767
+Boeing 777
+Boeing 787 Dreamliner
+Airbus A319
+Airbus A320
+Airbus A321
+Airbus A330
+Airbus A350
+Airbus A380
+Embraer E175
+Embraer E190
+Bombardier CRJ900
+ATR 72
+Boeing 737 MAX

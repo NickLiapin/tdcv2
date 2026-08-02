@@ -1,0 +1,6 @@
+---
+address: oman.phone
+description: Omani mobile phone in E.164 form (+968 [79]XXXXXXX)
+generator: tdc
+---
+<gen type="regex" value="\+968[79][0-9]{7}"/>

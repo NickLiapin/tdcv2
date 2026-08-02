@@ -1,0 +1,20 @@
+---
+description: Weather condition (Portuguese)
+locale: pt
+---
+Ensolarado
+Parcialmente nublado
+Nublado
+Encoberto
+Chuvoso
+Chuvisco
+Trovoada
+Nevado
+Aguaneve
+Neblina
+Ventoso
+Bruma
+Céu limpo
+Granizo
+Aguaceiros
+Húmido

@@ -1,0 +1,26 @@
+---
+description: Company department / function (Italian)
+locale: it
+---
+Ingegneria
+Prodotto
+Design
+Vendite
+Marketing
+Finanza
+Contabilità
+Risorse umane
+Operazioni
+Legale
+Assistenza clienti
+Tecnologie informatiche
+Ricerca e sviluppo
+Acquisti
+Controllo qualità
+Logistica
+Amministrazione
+Manutenzione
+Sicurezza
+Conformità
+Comunicazione
+Formazione

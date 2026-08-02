@@ -1,0 +1,16 @@
+---
+description: Dishes of Portuguese cuisine (Portuguese)
+locale: pt
+---
+Bacalhau à Brás
+Caldo verde
+Francesinha
+Pastel de nata
+Bifana
+Cozido à portuguesa
+Arroz de marisco
+Sardinha assada
+Bacalhau com natas
+Feijoada à transmontana
+Polvo à lagareiro
+Alheira

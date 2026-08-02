@@ -1,0 +1,10 @@
+---
+description: Models of Maserati
+locale: en
+---
+Ghibli
+Quattroporte
+Levante
+GranTurismo
+Grecale
+MC20

@@ -1,0 +1,32 @@
+---
+description: Field of study / major (German)
+locale: de
+---
+Informatik
+Betriebswirtschaftslehre
+Psychologie
+Biologie
+Maschinenbau
+Elektrotechnik
+Bauingenieurwesen
+Volkswirtschaftslehre
+Politikwissenschaft
+Literaturwissenschaft
+Pflegewissenschaft
+Chemie
+Mathematik
+Geschichte
+Marketing
+Finanzwirtschaft
+Kommunikationswissenschaft
+Soziologie
+Physik
+Grafikdesign
+Data Science
+Umweltwissenschaften
+Rechtswissenschaft
+Medizin
+Architektur
+Rechnungswesen
+Pädagogik
+Philosophie

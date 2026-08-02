@@ -1,0 +1,13 @@
+---
+description: Dishes of French cuisine (Polish)
+locale: pl
+---
+Coq au vin
+Wołowina po burgundzku
+Ratatouille
+Croissant
+Quiche lorraine
+Bouillabaisse
+Naleśniki francuskie
+Cassoulet
+Zupa cebulowa

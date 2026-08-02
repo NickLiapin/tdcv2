@@ -1,0 +1,120 @@
+---
+address: bolivia.geo.municipality
+description: Bolivian municipio (third-level division, the autonomous local government created by the Ley de Participación Popular) — real municipalities across the nine departments
+locale: es
+---
+Sucre
+Yotala
+Poroma
+Tarabuco
+Zudáñez
+Padilla
+Monteagudo
+Villa Serrano
+Camargo
+Villa Abecia
+Culpina
+Villa Vaca Guzmán
+La Paz
+El Alto
+Viacha
+Achocalla
+Palca
+Mecapaca
+Achacachi
+Copacabana
+Coroico
+Coripata
+Caranavi
+Chulumani
+Sica Sica
+Patacamaya
+Guaqui
+Desaguadero
+Pucarani
+Laja
+Cochabamba
+Sacaba
+Quillacollo
+Tiquipaya
+Colcapirhua
+Vinto
+Sipe Sipe
+Punata
+Cliza
+Tarata
+Capinota
+Aiquile
+Mizque
+Totora
+Villa Tunari
+Puerto Villarroel
+Entre Ríos
+Colomi
+Oruro
+Caracollo
+Challapata
+Huanuni
+Machacamarca
+Poopó
+Eucaliptus
+Turco
+Sabaya
+Llica
+Potosí
+Uyuni
+Tupiza
+Villazón
+Betanzos
+Colquechaca
+Llallagua
+Uncía
+Cotagaita
+Atocha
+Colcha K
+Tarija
+Bermejo
+Yacuíba
+Villa Montes
+Caraparí
+Padcaya
+Uriondo
+San Lorenzo
+El Puente
+Entre Ríos
+Santa Cruz de la Sierra
+La Guardia
+Cotoca
+Warnes
+Montero
+Portachuelo
+Buena Vista
+Yapacaní
+San Ignacio de Velasco
+San José de Chiquitos
+Roboré
+Puerto Suárez
+Puerto Quijarro
+Charagua
+Camiri
+Vallegrande
+Comarapa
+Samaipata
+Ascensión de Guarayos
+Mineros
+Pailón
+El Torno
+Trinidad
+Riberalta
+Guayaramerín
+San Borja
+San Ignacio de Moxos
+Rurrenabaque
+Reyes
+Santa Ana del Yacuma
+Magdalena
+Cobija
+Porvenir
+Puerto Rico
+Filadelfia
+Bella Flor

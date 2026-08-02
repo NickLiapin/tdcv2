@@ -1,0 +1,16 @@
+---
+description: Aircraft type (manufacturer designations, used unchanged in Arabic)
+locale: ar
+---
+إيرباص A320
+إيرباص A320neo
+إيرباص A321
+إيرباص A330
+إيرباص A350
+إيرباص A380
+بوينغ 737
+بوينغ 777
+بوينغ 787
+بوينغ 747
+إمبراير E190
+ATR 72

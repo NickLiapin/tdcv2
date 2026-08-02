@@ -1,0 +1,7 @@
+---
+address: new_zealand.docs.driverLicence
+description: New Zealand driver licence number — 2 letters followed by 6 digits (AA######), as printed on the NZTA Waka Kotahi card. Structural only; there is no published check digit.
+generator: tdc
+locale: en
+---
+<gen type="regex" value="[A-Z]{2}[0-9]{6}"/>

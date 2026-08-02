@@ -1,0 +1,11 @@
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.ruff_cache/
+dist/
+build/
+*.egg-info/
+
+# Generated from data/packs by scripts/bundle_packs.py — the packs live there, once.
+src/tdcv2/packs_data/

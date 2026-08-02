@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Cardiology (Italian)
+locale: it
+---
+Ipertensione arteriosa
+Cardiopatia ischemica
+Fibrillazione atriale
+Scompenso cardiaco
+Infarto miocardico acuto
+Iperlipidemia
+Pericardite
+Endocardite
+Valvulopatia
+Angina pectoris

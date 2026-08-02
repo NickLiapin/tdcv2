@@ -1,0 +1,34 @@
+---
+description: Hotel amenity (Portuguese)
+locale: pt
+---
+Wi-Fi gratuito
+Piscina
+Piscina aquecida
+Spa
+Ginásio
+Restaurante
+Bar
+Serviço de quartos
+Transporte do aeroporto
+Pequeno-almoço incluído
+Estacionamento gratuito
+Aceita animais de estimação
+Centro de negócios
+Portaria
+Serviço de lavandaria
+Jacuzzi
+Terraço panorâmico
+Ar condicionado
+Cofre
+Receção 24 horas
+Salas de reuniões
+Elevador
+Minibar
+Acesso para pessoas com mobilidade reduzida
+Depósito de bagagem
+Aluguer de bicicletas
+Zona infantil
+Sauna
+Vista para o mar
+Cozinha equipada

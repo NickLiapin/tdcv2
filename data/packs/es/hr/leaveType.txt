@@ -1,0 +1,16 @@
+---
+description: Leave type (Spanish)
+locale: es
+---
+Vacaciones
+Licencia por enfermedad
+Licencia parental
+Licencia por maternidad
+Licencia por paternidad
+Permiso por duelo
+Licencia sin goce de sueldo
+Año sabático
+Día personal
+Licencia médica
+Permiso por matrimonio
+Licencia por estudios

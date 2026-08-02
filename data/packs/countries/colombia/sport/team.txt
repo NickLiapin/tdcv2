@@ -1,0 +1,40 @@
+---
+address: colombia.sport.team
+description: Colombian football club — Categoría Primera A first, then Primera B and other long-standing DIMAYOR clubs
+locale: es
+---
+Atlético Nacional
+Millonarios
+América de Cali
+Independiente Santa Fe
+Deportivo Cali
+Junior de Barranquilla
+Independiente Medellín
+Once Caldas
+Deportes Tolima
+Atlético Bucaramanga
+Alianza
+Envigado
+La Equidad
+Deportivo Pasto
+Águilas Doradas
+Jaguares de Córdoba
+Boyacá Chicó
+Fortaleza CEIF
+Llaneros
+Unión Magdalena
+Deportivo Pereira
+Atlético Huila
+Cúcuta Deportivo
+Real Cartagena
+Patriotas Boyacá
+Bogotá FC
+Barranquilla FC
+Real Santander
+Orsomarso
+Tigres FC
+Leones
+Internacional de Bogotá
+Deportes Quindío
+Atlético FC
+Boca Juniors de Cali

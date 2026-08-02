@@ -1,0 +1,20 @@
+---
+description: Weather condition (Italian)
+locale: it
+---
+Soleggiato
+Parzialmente nuvoloso
+Nuvoloso
+Coperto
+Piovoso
+Pioggerella
+Temporale
+Nevoso
+Nevischio
+Nebbia
+Ventoso
+Foschia
+Sereno
+Grandine
+Rovesci
+Umido

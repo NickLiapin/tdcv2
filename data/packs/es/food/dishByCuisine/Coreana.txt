@@ -1,0 +1,11 @@
+---
+description: Dishes of Korean cuisine (Spanish)
+locale: es
+---
+Bibimbap
+Bulgogi
+Estofado de kimchi
+Japchae
+Tteokbokki
+Pollo frito coreano
+Galbi

@@ -1,0 +1,7 @@
+---
+address: belarus.docs.unp
+description: Belarusian taxpayer number (УНП) — 9 digits, first digit is the issuing region code. Structure only; the official control-digit algorithm is not published.
+generator: tdc
+locale: ru
+---
+<gen type="regex" value="[1-7][0-9]{8}"/>

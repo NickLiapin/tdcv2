@@ -1,0 +1,27 @@
+---
+description: Government body (public bodies of the German-speaking world)
+locale: de
+---
+Finanzamt
+Einwohnermeldeamt
+Bürgeramt
+Bundesagentur für Arbeit
+Kraftfahrt-Bundesamt
+Jugendamt
+Ordnungsamt
+Standesamt
+Zollamt
+Gesundheitsamt
+Sozialamt
+Bauamt
+Gewerbeamt
+Ausländerbehörde
+Straßenverkehrsamt
+Grundbuchamt
+Umweltbundesamt
+Statistisches Bundesamt
+Deutsche Rentenversicherung
+Bundesnetzagentur
+Bundespolizei
+Katasteramt
+Veterinäramt

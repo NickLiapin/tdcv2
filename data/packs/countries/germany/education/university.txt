@@ -1,0 +1,35 @@
+---
+address: germany.education.university
+description: Universities of Germany (German names)
+locale: de
+---
+Ludwig-Maximilians-Universität München
+Technische Universität München
+Ruprecht-Karls-Universität Heidelberg
+Humboldt-Universität zu Berlin
+Freie Universität Berlin
+Technische Universität Berlin
+RWTH Aachen
+Universität Hamburg
+Georg-August-Universität Göttingen
+Rheinische Friedrich-Wilhelms-Universität Bonn
+Universität zu Köln
+Goethe-Universität Frankfurt am Main
+Albert-Ludwigs-Universität Freiburg
+Eberhard Karls Universität Tübingen
+Westfälische Wilhelms-Universität Münster
+Karlsruher Institut für Technologie
+Technische Universität Dresden
+Universität Leipzig
+Friedrich-Alexander-Universität Erlangen-Nürnberg
+Universität Stuttgart
+Universität Mannheim
+Julius-Maximilians-Universität Würzburg
+Christian-Albrechts-Universität zu Kiel
+Universität Potsdam
+Friedrich-Schiller-Universität Jena
+Universität Bremen
+Leibniz Universität Hannover
+Ruhr-Universität Bochum
+Technische Universität Darmstadt
+Universität Konstanz

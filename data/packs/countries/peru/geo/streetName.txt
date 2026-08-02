@@ -1,0 +1,21 @@
+---
+address: peru.geo.streetName
+description: Peruvian street with its tipo de vía — peru.geo.streetType + peru.geo.streetNamed (e.g. "Avenida Javier Prado", "Jirón de la Unión"), with about one in eight rendered as a numbered calle, the pattern of the coastal urbanizaciones
+generator: tdc
+locale: es
+---
+<sequence name="mode"><gen type="number" value="1..8"/></sequence>
+<sequence name="type"><gen type="template" value="peru.geo.streetType"/></sequence>
+<sequence name="named"><gen type="template" value="peru.geo.streetNamed"/></sequence>
+<sequence name="n"><gen type="number" value="1..40"/></sequence>
+<sequence name="street"><compute>
+  <result>
+    <choose>
+      <!-- Numbered grid: "Calle 7", used across the newer urbanizaciones. -->
+      <when><test><equals><to_number><field name="mode"/></to_number><int v="8"/></equals></test>
+        <then><concat><str v="Calle"/><str v=" "/><field name="n"/></concat></then></when>
+      <otherwise><concat><field name="type"/><str v=" "/><field name="named"/></concat></otherwise>
+    </choose>
+  </result>
+</compute></sequence>
+<data>${{street}}</data>

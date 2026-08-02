@@ -1,0 +1,19 @@
+---
+address: finland.sport.team
+description: Veikkausliiga football clubs (Finnish names)
+locale: fi
+---
+HJK Helsinki
+KuPS
+FC Inter Turku
+SJK Seinäjoki
+FC Haka
+FC Lahti
+Ilves
+VPS Vaasa
+AC Oulu
+IFK Mariehamn
+Gnistan
+KTP
+FC Honka
+HIFK

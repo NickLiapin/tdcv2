@@ -1,0 +1,9 @@
+---
+description: Positions in ice hockey (Portuguese)
+locale: pt
+---
+Goleiro/Guarda-redes
+Defensor
+Centro
+Ala esquerda
+Ala direita

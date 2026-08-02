@@ -1,0 +1,10 @@
+---
+address: togo.geo.region
+description: Regions of Togo
+locale: fr
+---
+Maritime
+Plateaux
+Centrale
+Kara
+Savanes

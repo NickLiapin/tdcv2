@@ -1,0 +1,15 @@
+---
+description: Positions in American football (Polish)
+locale: pl
+---
+Quarterback
+Running back
+Wide receiver
+Tight end
+Liniowy ofensywny
+Liniowy defensywny
+Linebacker
+Cornerback
+Safety
+Kicker
+Punter

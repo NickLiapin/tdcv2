@@ -1,0 +1,7 @@
+---
+address: united_kingdom.vehicle.plate
+description: UK vehicle registration in the current (2001-) format — two memory-tag letters, a two-digit age identifier, a space, then three random letters, e.g. "AB12 CDE". Letters I and Q are never used; the age identifier is limited to the ranges actually issued (02-25 for March plates, 52-75 for September plates).
+generator: tdc
+locale: en
+---
+<gen type="regex" value="[A-HJ-PR-Y][A-HJ-PR-Z](?:0[2-9]|1[0-9]|2[0-5]|5[2-9]|6[0-9]|7[0-5]) [A-HJ-PR-Z]{3}"/>

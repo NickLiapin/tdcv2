@@ -1,0 +1,20 @@
+---
+description: Religion / belief (French)
+locale: fr
+---
+Christianisme
+Catholicisme
+Protestantisme
+Orthodoxie
+Islam
+Judaïsme
+Bouddhisme
+Hindouisme
+Sikhisme
+Taoïsme
+Shintoïsme
+Athéisme
+Agnosticisme
+Animisme
+Bahaïsme
+Jaïnisme

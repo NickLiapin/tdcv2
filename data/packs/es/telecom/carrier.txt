@@ -1,0 +1,30 @@
+---
+description: Mobile carrier (brands across the Spanish-speaking world and international)
+locale: es
+---
+Movistar
+Claro
+Telcel
+Vodafone
+Orange
+Yoigo
+MásMóvil
+Digi
+Entel
+Tigo
+Personal
+Antel
+WOM
+Bitel
+AT&T
+Telefónica
+Cantv
+Etecsa
+Liberty
+Altice
+Unefon
+Virgin Mobile
+Movilnet
+Jazztel
+Pepephone
+Euskaltel

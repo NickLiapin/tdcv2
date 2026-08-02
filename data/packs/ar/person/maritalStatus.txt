@@ -1,0 +1,14 @@
+---
+description: Marital status (Arabic)
+locale: ar
+---
+أعزب
+عزباء
+متزوج
+متزوجة
+مطلق
+مطلقة
+أرمل
+أرملة
+مخطوب
+مخطوبة

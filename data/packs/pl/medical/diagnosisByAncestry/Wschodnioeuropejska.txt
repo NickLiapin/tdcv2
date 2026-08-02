@@ -1,0 +1,10 @@
+---
+description: Conditions markedly more frequent in people of Eastern European ancestry, in Polish. A prevalence signal, not an exclusive one.
+locale: pl
+---
+Hemochromatoza dziedziczna
+Fenyloketonuria
+Hipercholesterolemia rodzinna
+Alkoholowa choroba wątroby
+Mukowiscydoza
+Choroba Wilsona

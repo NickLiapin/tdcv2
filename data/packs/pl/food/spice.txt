@@ -1,0 +1,34 @@
+---
+description: Spice / herb (Polish)
+locale: pl
+---
+Cynamon
+Kmin rzymski
+Papryka słodka
+Kurkuma
+Imbir
+Gałka muszkatołowa
+Oregano
+Bazylia
+Tymianek
+Rozmaryn
+Kardamon
+Kolendra
+Chili w proszku
+Goździki
+Szafran
+Liść laurowy
+Koper
+Szałwia
+Pietruszka
+Mięta
+Anyż
+Pieprz biały
+Pieprz cayenne
+Gorczyca
+Estragon
+Koper włoski
+Majeranek
+Ziele angielskie
+Wanilia
+Sezam

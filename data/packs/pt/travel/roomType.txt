@@ -1,0 +1,22 @@
+---
+description: Hotel room type (Portuguese)
+locale: pt
+---
+Standard
+Superior
+Suite
+Suite júnior
+Suite presidencial
+Individual
+Duplo
+Duplo com duas camas
+Casal
+Triplo
+Quádruplo
+Quarto familiar
+Estúdio
+Apartamento
+Bangaló
+Quarto acessível
+Quarto com vista para o mar
+Cobertura

@@ -1,0 +1,40 @@
+---
+description: Medical specialties (Portuguese)
+locale: pt
+---
+Cardiologia
+Dermatologia
+Endocrinologia
+Gastroenterologia
+Neurologia
+Oncologia
+Oftalmologia
+Ortopedia
+Traumatologia
+Pediatria
+Psiquiatria
+Pneumologia
+Radiologia
+Reumatologia
+Urologia
+Nefrologia
+Hematologia
+Imunologia
+Alergologia
+Anestesiologia
+Medicina de Emergência
+Medicina de Família e Comunidade
+Medicina Interna
+Ginecologia e Obstetrícia
+Otorrinolaringologia
+Anatomia Patológica
+Cirurgia Geral
+Cirurgia Plástica
+Cirurgia Vascular
+Cirurgia Cardiovascular
+Infectologia
+Geriatria
+Neonatologia
+Medicina Física e Reabilitação
+Medicina Nuclear
+Nutrição Clínica

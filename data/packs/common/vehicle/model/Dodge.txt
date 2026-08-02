@@ -1,0 +1,8 @@
+---
+description: Models of Dodge
+locale: en
+---
+Charger
+Challenger
+Durango
+Hornet

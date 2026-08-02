@@ -1,0 +1,17 @@
+---
+description: Social content type (Portuguese)
+locale: pt
+---
+Publicação
+Comentário
+Resposta
+Story
+Reel
+Enquete
+Transmissão ao vivo
+Repostagem
+Tópico
+Menção
+Mensagem direta
+Vídeo curto
+Álbum de fotos

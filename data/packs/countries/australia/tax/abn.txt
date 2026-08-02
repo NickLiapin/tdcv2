@@ -1,0 +1,37 @@
+---
+address: australia.tax.abn
+description: Australian Business Number (ABN) — 11 digits carrying the ATO mod-89 check. Subtract 1 from the first digit, apply weights 10,1,3,5,7,9,11,13,15,17,19 left to right, and the weighted sum must be divisible by 89 (real example: 51 824 753 556, the ATO's own ABN). Built by drawing the last 9 digits and computing the first two so the check closes — those two act exactly as the real leading check digits do
+generator: tdc
+locale: en
+---
+<!-- Positions 3-11, freely drawn. Their weights are 3,5,7,9,11,13,15,17,19. -->
+<sequence name="mid"><gen type="regex" value="[0-9]{9}"/></sequence>
+<sequence name="abn"><compute>
+  <!-- Weighted sum of the nine trailing digits. -->
+  <let name="p">
+    <reduce>
+      <over><field name="mid"/></over>
+      <init><int v="0"/></init>
+      <do><add><acc/>
+        <multiply><current/>
+          <at><in><list v="3,5,7,9,11,13,15,17,19"/></in><index><current_index/></index></at>
+        </multiply>
+      </add></do>
+    </reduce>
+  </let>
+  <let name="pm"><mod><var name="p"/><int v="89"/></mod></let>
+  <!-- The first two digits d1,d2 (weights 10 and 1, d1 taken as d1-1) must
+       satisfy (d1-1)*10 + d2 ≡ -P (mod 89), i.e. 10*d1 + d2 ≡ 10 - P (mod 89).
+       The two-digit number N = 10*d1 + d2 lands that residue in [10,98], so its
+       decimal form IS "d1 d2" with d1 in 1-9 — no lookup table, no reject. -->
+  <let name="t"><mod><subtract><int v="10"/><var name="pm"/></subtract><int v="89"/></mod></let>
+  <let name="n">
+    <choose>
+      <when><test><less_than><var name="t"/><int v="10"/></less_than></test>
+        <then><add><var name="t"/><int v="89"/></add></then></when>
+      <otherwise><var name="t"/></otherwise>
+    </choose>
+  </let>
+  <result><concat><var name="n"/><field name="mid"/></concat></result>
+</compute></sequence>
+<data>${{abn}}</data>

@@ -1,0 +1,10 @@
+---
+address: ecuador.geo.postalCode
+description: Ecuadorian código postal — 6 digits: the first two are the real province code (01-24), the next two the canton and the last two the parish
+generator: tdc
+---
+<sequence name="province"><gen type="template" value="ecuador.geo.provinceCode"/></sequence>
+<!-- Canton then parroquia; the real registers start at 01, so 01-99 each. -->
+<sequence name="canton"><gen type="regex" value="0[1-9]|[1-9][0-9]"/></sequence>
+<sequence name="parish"><gen type="regex" value="0[1-9]|[1-9][0-9]"/></sequence>
+<data>${{province}}${{canton}}${{parish}}</data>

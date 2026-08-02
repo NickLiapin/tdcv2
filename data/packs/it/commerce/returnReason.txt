@@ -1,0 +1,19 @@
+---
+description: Order return reason (Italian)
+locale: it
+---
+Arrivato danneggiato
+Articolo sbagliato
+Non corrisponde alla descrizione
+Taglia errata
+Ho cambiato idea
+Trovato a un prezzo migliore
+Difetto di fabbrica
+Pezzi mancanti
+Consegna in ritardo
+Non mi serve più
+Ordinato per errore
+Qualità inferiore alle attese
+Colore diverso da quello mostrato
+Non compatibile
+Prodotto duplicato

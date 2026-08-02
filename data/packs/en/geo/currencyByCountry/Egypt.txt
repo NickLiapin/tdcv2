@@ -1,0 +1,5 @@
+---
+description: Currency of Egypt
+locale: en
+---
+Egyptian Pound

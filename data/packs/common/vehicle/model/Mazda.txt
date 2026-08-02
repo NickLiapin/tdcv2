@@ -1,0 +1,12 @@
+---
+description: Models of Mazda
+locale: en
+---
+Mazda3
+Mazda6
+CX-5
+CX-30
+CX-50
+CX-90
+MX-5 Miata
+CX-9

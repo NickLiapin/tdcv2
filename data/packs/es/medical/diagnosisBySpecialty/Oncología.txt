@@ -1,0 +1,10 @@
+---
+description: Diagnoses seen in Oncología
+locale: es
+---
+Cáncer de mama
+Cáncer de pulmón
+Cáncer colorrectal
+Leucemia
+Linfoma
+Melanoma

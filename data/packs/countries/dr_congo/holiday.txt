@@ -1,0 +1,13 @@
+---
+address: dr_congo.holiday
+description: Public holidays in the Democratic Republic of the Congo (French names)
+locale: fr
+---
+Jour de l'An
+Journée des Martyrs de l'Indépendance
+Journée des Héros nationaux Kabila et Lumumba
+Fête du Travail
+Journée de la Libération
+Fête de l'Indépendance
+Journée des Parents
+Noël

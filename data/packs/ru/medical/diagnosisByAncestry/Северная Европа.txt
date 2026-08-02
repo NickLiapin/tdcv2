@@ -1,0 +1,14 @@
+---
+description: Conditions markedly more frequent in people of Northern European ancestry (Russian). A prevalence signal, not an exclusive one.
+locale: ru
+---
+Муковисцидоз
+Наследственный гемохроматоз
+Дефицит альфа-1-антитрипсина
+Фенилкетонурия
+Целиакия
+Рассеянный склероз
+Сахарный диабет 1 типа
+Контрактура Дюпюитрена
+Базальноклеточный рак кожи
+Персистенция лактазы во взрослом возрасте

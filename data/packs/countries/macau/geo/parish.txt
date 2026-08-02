@@ -1,0 +1,12 @@
+---
+address: macau.geo.parish
+description: Civil parishes (freguesias) of Macau — the administrative subdivision, in Portuguese
+locale: pt
+---
+Nossa Senhora de Fátima
+Santo António
+São Lázaro
+Sé
+São Lourenço
+Nossa Senhora do Carmo
+São Francisco Xavier

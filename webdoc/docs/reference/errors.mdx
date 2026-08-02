@@ -1,0 +1,246 @@
+---
+title: Error codes
+sidebar_position: 8
+---
+
+import Terminal from '@site/src/components/Terminal';
+
+# Error codes
+
+Every diagnostic TDC can raise, listed by code. Look one up when a run stops and the
+message alone isn't enough.
+
+## How to read a diagnostic
+
+A diagnostic carries four things. The code is the part that never changes between
+versions — the wording may improve, but `TDC193` stays `TDC193`:
+
+<Terminal title="./run demo.tdc">
+{`error[TDC193]: "Naem" is not a declared sequence — it would be printed literally
+ --> demo.tdc:8:11
+  |
+8 |     <line><data>\${{Naem}}</data></line>
+  |           ^^^^^^^^^^^^^^^^^^^^^^
+  |
+help: did you mean "Name"?
+note: Declare it in <env>, or set a different inject= pattern if you really want the text \${{…}} in the output.`}
+</Terminal>
+
+- the **code** — what went wrong, stable across releases;
+- the **place** — file, line, and column, with the offending element underlined;
+- **`help:`** — a guess at what you meant, when the name is a near miss;
+- **`note:`** — what to do about it.
+
+Validation runs before generation, so a config with errors produces no data at all rather
+than half a file. Almost every diagnostic here is an **error** and stops the run: if the
+config asked for something it wouldn't actually get, TDC refuses rather than handing back
+data that looks right but isn't. The exceptions are two **warnings** that let the run
+finish — `TDC136` (a single malformed `<map>` row is skipped and the valid rows still
+apply) and `TDC200` (a memory estimate that's large but still fits). Both say as much in
+their rows below.
+
+The numbers run roughly in the order a config is checked — structure first, then
+generators, then everything built on top of them — but a number is an identifier, not a
+classification. Use the groups below.
+
+## Document structure
+
+| Code | Fires when | Fix |
+| :--- | :--------- | :-- |
+| `TDC001` | The file has no `<tdc>` root | Wrap everything in a single `<tdc>…</tdc>` |
+| `TDC002` | `<tdc>` has no `<block>` child | Add the `<block>` that describes one record's layout |
+| `TDC003` | Both `version` and `v` are given on `<tdc>` | Keep one — they're aliases |
+| `TDC004` | The declared document version isn't a valid version number | Use a version this runtime supports, e.g. `v="0.1"` (a value newer than the runtime raises `TDC005`) |
+| `TDC005` | The file asks for a version newer than this runtime | Upgrade TDC, or lower the declared version |
+| `TDC010` | A tag other than `<env>` or `<block>` sits directly under `<tdc>` | Move it inside one of those two |
+| `TDC013` | A tag is nested somewhere it isn't allowed | See [Tags](tags.mdx) for what may contain what |
+| `TDC014` | A tag that has to hold children is written self-closing | Write `<env …></env>`, not `<env …/>` — its children would be silently dropped |
+| `TDC015` | A tag carries an attribute the engine doesn't read | The run stops, because the config asked for something it wouldn't get. Check the spelling — the message suggests the nearest real name |
+| `TDC020` | `count` isn't a non-negative integer | `count="1000"` |
+| `TDC021` | An `inject` pattern has no `%` placeholder | The marker needs a `%` for the name, e.g. `inject="[[%]]"` |
+
+## Sequences
+
+| Code | Fires when | Fix |
+| :--- | :--------- | :-- |
+| `TDC030` | A tag that requires a name doesn't have one | Add `name="…"` |
+| `TDC031` | A sequence name starts with `_` | That prefix is reserved for [built-ins](builtins.mdx) |
+| `TDC032` | Two sequences share a name | Rename one — references to it would be ambiguous |
+| `TDC033` | A name collides with a built-in | Pick another one; built-ins always win |
+| `TDC034` | A `parent` value isn't in `Parent.Value` form | Use the two-part form, e.g. `parent="Gender.Male"` |
+| `TDC035` | The parent sequence is declared *after* this one | Move the parent above it — resolution is top-down |
+| `TDC214` | `parent=` names a compound sequence | A parent is filtered by the value it produced, and a group of fields produces none |
+| `TDC036` | A `<sequence>` has no `<gen>` inside it | A sequence needs a generator to produce anything |
+| `TDC110` | *retired* — an unnamed `<gen>` beside a named one now [composes](../core-concepts/sequences.mdx#a-composed-sequence) rather than failing | — |
+| `TDC111` | Two fields of one compound sequence share a name | Rename one |
+| `TDC129` | A `<sequence>` inside a config-level tag produces nothing usable there | See [Sequences](../core-concepts/sequences.mdx) |
+
+## Generators
+
+| Code | Fires when | Fix |
+| :--- | :--------- | :-- |
+| `TDC040` | A `<gen>` has no `type` | Add `type="…"` — see [Generators](generators.mdx) |
+| `TDC041` | The `type` is unknown, or isn't supported on an inline `<gen>` | Check the spelling; TDC suggests the nearest name |
+| `TDC050` | `type="text"` without `value` | Give it the list, e.g. `value="a,b,c"` |
+| `TDC051` | A `percent` on a value list has more entries than the list has values | One percentage per value, e.g. `value="a,b"` with `percent="70,30"` |
+| `TDC052` | A `percent` entry isn't a non-negative number | Every filled position has to be a number; an empty position splits what's left equally |
+| `TDC053` | The `percent` values don't add up to 100 | Adjust them to total 100, or leave a position empty to absorb the remainder |
+| `TDC060` | `type="file"` without `src` | Point `src` at the file |
+| `TDC061` | The file can't be read | Check the path — it's relative to the config file — or use `--data-path` |
+| `TDC062` | `column` doesn't resolve | Use a header name (`column="email"`) or a 1-based index (`column="2"`) |
+| `TDC064` | `row` is used without `column` | Row linking needs to know which CSV column to draw from |
+| `TDC065` | `type="http"` without `src` | Point it at the service — `src="http://127.0.0.1:5566/gen"` |
+| `TDC066` | `src` isn't an http(s) URL | Use `http://…` or `https://…`, with a host and a path |
+| `TDC067` | `in=` names nothing that was declared before it | The value sent with each row has to come from an earlier `<sequence>` |
+| `TDC068` | `on_error` is neither `fail` nor `empty` | `fail` (default) stops the run; `empty` blanks the cell |
+| `TDC070` | `type="template"` without `value` | Give it the dotted address, e.g. `value="person.lastName"` |
+| `TDC071` | The template address is unknown | Check the spelling, or install the pack that provides it |
+| `TDC072` | `value="date.range"` without `range`, **or** a `type="template"` parameter the pack doesn't declare | Add `range="…"`, or check the parameter name — the message lists the ones the pack accepts |
+| `TDC073` | A legacy `range` isn't two valid dates | Use `YYYY.MM.DD - YYYY.MM.DD` |
+| `TDC081` | A number range is malformed | `value="10..99"` |
+| `TDC082` | `first_zero` isn't `true` or `false` | Those are the only two values |
+| `TDC083` | `length` isn't a count, a range, or a comma-separated list | e.g. `length="8"`, `length="6..9"`, `length="4,6,8"` |
+| `TDC084` | A `percent` on a numeric `value` has more entries than the range allows | One percentage per value |
+| `TDC085` | A `percent` entry on a number isn't a non-negative number | Every filled position has to be a number |
+| `TDC086` | The `percent` values on a number don't add up to 100 | Adjust them to total 100 |
+| `TDC087` | `include`/`exclude` without a numeric range in `value` | They filter a range, so there has to be one |
+| `TDC088` | `distribution` is combined with an attribute it rules out | A named distribution shapes the draw on its own |
+| `TDC089` | The distribution parameters are wrong | See [Distributions](../guides/statistical-distributions.mdx) |
+| `TDC090` | An attribute that has to be a number isn't one | Check the value |
+| `TDC095` | `type="regex"` without `value` | The pattern goes in `value` |
+| `TDC096` | `regex_max_length` isn't a positive integer | e.g. `regex_max_length="64"` |
+| `TDC097` | The regex doesn't parse | Fix the pattern — the parser's own message follows |
+| `TDC098` | `type="symbol"` is given both `value` and `alphabet`, or **neither** | Give exactly one: an inline set in `value`, or a named `alphabet` |
+| `TDC099` | The named alphabet is unknown | See [Symbol](../generators/symbol.mdx) |
+| `TDC128` | `type="advanced_regex"` without `value` | The pattern goes in `value` |
+| `TDC130` | The advanced pattern doesn't parse | See [Advanced regex](../generators/advanced-regex.mdx) |
+
+## Expressions in `if`
+
+| Code | Fires when | Fix |
+| :--- | :--------- | :-- |
+| `TDC100` | The expression doesn't parse | See [Output & formatting](../core-concepts/output-formatting.mdx) |
+| `TDC101` | A binary operator isn't supported | Supported: `== != === !== < > <= >= && \|\| + - * /` |
+| `TDC102` | A unary operator isn't supported | Supported: `!`, `-`, `+` |
+| `TDC103` | The expression uses computed member access | Only plain names are allowed |
+| `TDC215` | A name in an `if=` that no sequence has | It reads as its own text: alone the branch always fires, compared it never does |
+| `TDC216` | *(warning)* `if="Seq.Value"` names a value the sequence never produces | The branch is dead. A warning, not an error: a list narrowed on purpose is a real thing to write |
+| `TDC217` | A template path exists, but not for the run's locale | The message names the locale; set `local=` on the `<gen>` or `<env>`, or pick a path your locale ships |
+| `TDC218` | `uniq="true"` on a sequence with no values of its own — `<compute>` reads other sequences, `if=` picks a branch per row | Put `uniq=` on the sequences it reads, or wrap them in `<uniq>` |
+| `TDC219` | A `<compute>` and a `<gen>` in the same `<sequence>` — one of them would be dropped | Move the `<compute>` into its own `<sequence>` and read the drawn one with `<field>` |
+| `TDC220` | `uniq="true"` on a composed value joining two or more drawn parts | The parts have no fixed width, so a unique set of parts is not a unique string: `9`+`15` and `91`+`5` are the same three characters. Keep one drawn part, or make the widths fixed |
+| `TDC221` | *(warning)* A `<uniq>` or `<distinct>` around fewer than two `<sequence>`s | A group constrains its members against each other, so one member constrains nothing. Add a second member, or write `uniq="true"` on the sequence itself |
+
+## `<pool>`
+
+See [Coherent records](../pools/overview.mdx).
+
+| Code | Fires when | Fix |
+| :--- | :--------- | :-- |
+| `TDC222` | A `<pool>` with no `name`, or with no `count` | A pool is read by name and holds a fixed number of members: `<pool name="Doctors" count="30">` |
+| `TDC223` | A `<pool count="…">` that is not a whole number of at least 1 | A pool of nothing has no member to hand out |
+| `TDC224` | `<gen type="pool" value="X">` where no `<pool name="X">` is declared | The message lists the declared pools. Declare it in the same `<env>` |
+| `TDC226` | `filter=` reads `Pool.field` and the pool has no such field | The message lists the pool's fields. An **unqualified** unknown name is left alone — the expression language reads a bare word as a literal |
+| `TDC229` | `${{Ref}}` where `Ref` draws a whole member | A member is a record, not a value. Read a field: `${{Ref.lastName}}` |
+| `TDC230` | A `<block>`, a fixture tag, or another `<pool>` inside a `<pool>` | A pool is a table other columns read, not something written to a file, and pools do not nest |
+| `TDC232` | A name in `filter=` that is both a field of the pool and a sequence | Rename one of them. Qualifying one side does not help — the other name still reads as the member's field, so the test compares a value with itself |
+| `TDC234` | *(warning)* Over 100,000 members | A pool stays in memory for the whole run — about 320 bytes a member with four fields. If you meant the number of ROWS, that is `count` on `<env>` |
+| `TDC235` | Over 1,000,000 members | Same cause, past the point where it is worth running. Reduce the pool, or move the number to `<env count="…">` |
+| `TDC241` | Two pools declared under one name | A pool is reached by name, so two cannot share one. The second used to replace the first in silence, and the only sign was a `TDC193` in the block about a field that "does not exist" |
+
+## Running totals
+
+See [`accumulate=`](../constructs/multiple-values.mdx#accumulate--a-running-total-across-the-list)
+and [`<gen type="running">`](../generators/running.mdx).
+
+| Code | Fires when | Fix |
+| :--- | :--------- | :-- |
+| `TDC237` | `accumulate=` on a generator with no `repeat=` | There is no list to accumulate. Add `repeat="N"`, or drop `accumulate=`. (`type="running"` is exempt — it accumulates down a column) |
+| `TDC238` | `accumulate=` names an operation that does not exist | One of `sum`, `min`, `max` |
+| `TDC239` | `<gen type="running">` does not say what (`of=`) or how (`accumulate=`) to accumulate | A running total reads another column and draws nothing of its own, so both are required |
+| `TDC240` | `of=` or `reset=` names a column not declared above | The total is built from a column that already exists — the same rule `parent=` follows |
+
+## `<compute>`
+
+| Code | Fires when | Fix |
+| :--- | :--------- | :-- |
+| `TDC181` | `<current>`, `<current_index>`, or `<acc>` is used outside its iteration body | They exist only inside a `<do>` (or a `<reduce>`'s `<do>`) |
+| `TDC182` | `<var name="X">` names no enclosing `<let>` | Wrap it in `<let name="X">…</let>`, or fix the name |
+| `TDC183` | A binary compute op has the wrong number of children | `<add>`, `<subtract>` … take exactly two operands |
+| `TDC184` | `<choose>` has no `<otherwise>` branch | Add `<otherwise>` — every record needs an answer |
+| `TDC185` | A `<let name="X">` shadows an outer binding of the same name | Rename one — the inner binding would hide the outer one |
+| `TDC186` | `<encode>`: unknown encoding | One of: `base36`, `ascii`, `unicode`, `hex`, `binary`, `octal` |
+| `TDC187` | A predicate is missing its wrapper child | `<when>` wants `<test>`, `<choose>` wants `<then>` — the message names the pair |
+| `TDC188` | `<int v="…">` isn't a whole number | Write a whole number; for text, use `<str v="…"/>` |
+| `TDC189` | `<compute>` has more than one `<result>` | Keep a single `<result>` — the earlier ones would be dropped |
+
+## `<mix>`, `<switch>`, fixtures
+
+| Code | Fires when | Fix |
+| :--- | :--------- | :-- |
+| `TDC120` | `<mix>` has no `<case>` | A mix needs branches to pick between |
+| `TDC121` | A `percent` on a `<mix>`/`<switch>` has more entries than there are cases | One percentage per case |
+| `TDC122` | A `percent` entry on a `<mix>`/`<switch>` isn't a non-negative number | Every filled position has to be a number |
+| `TDC123` | The `percent` values on a `<mix>`/`<switch>` don't add up to 100 | Adjust them to total 100 |
+| `TDC124` | `<mix>` has a child that isn't a `<case>` | Only `<case>` belongs there |
+| `TDC125` | `<case>` has an unknown child | Allowed: `<data>`, `<gen>`, `<mix>` |
+| `TDC131` | A fixture contains a tag that fixtures don't accept | Fixtures hold `<line>` and `<data>` only |
+| `TDC132` | A tag that doesn't belong there sits inside `<line>` | The output block is for layout — generators live in `<env>` |
+| `TDC133` | `<switch>` has no `on` | Name the sequence being switched on |
+| `TDC134` | `on` names a sequence, or a field of one, that doesn't exist | Check the name — the message says which half is wrong |
+| `TDC135` | `<switch>` has no entries | Add a `<map>`, `<case>`, or `<default>` |
+| `TDC136` | A `<map>` row isn't `KEY:VALUE` (a **warning** — the bad row is skipped and the rest of the map still applies) | One pair per entry, separated by a colon |
+| `TDC137` | A `<case>` inside `<switch>` has no `is` | `is` is the branch key |
+
+## Dates
+
+| Code | Fires when | Fix |
+| :--- | :--------- | :-- |
+| `TDC150` | Only one of `from` / `to` is given | Give both endpoints or neither |
+| `TDC151` | The date value doesn't parse | `value="2020-01-01..2025-12-31"`, `"birth"`, `"today"`, `"now"` |
+| `TDC152` | A `format` token is unknown | See the [token table](../generators/date.mdx#formatting-the-output) |
+| `TDC153` | `local` names a locale with no date data | Built in: `en`, `es`, `ru`, `zh-cn` |
+| `TDC154` | `precision` isn't a supported step | See [precision](../generators/date.mdx) |
+
+## While rendering
+
+These are raised during generation rather than validation — the config is well-formed,
+but the combination it asks for can't be carried out.
+
+| Code | Fires when | Fix |
+| :--- | :--------- | :-- |
+| `TDC160` | `row="…"` is used on an inline `<gen>` | Row linking needs a `<sequence>` |
+| `TDC161` | Weighted `advanced_regex` choices are used inline | Exact percentages need the whole column — move it into a `<sequence>` |
+| `TDC162` | An inline counter's `value` or `step` isn't numeric | `value="1" step="2"` |
+| `TDC170` | A data-pack file can't be loaded | The message names the file — see [Writing your own](../data-packs/writing-your-own.mdx) |
+| `TDC171` | A data-pack file lands at no address (a **warning** — the file is skipped) | Add `address:` or `locale:` to its header, or move it under a locale folder |
+| `TDC200` | The estimated memory use is a large share of this machine's RAM (a **warning** — the run continues) | For very large sets, use `mode="disk"`, which keeps memory flat |
+| `TDC201` | The estimated memory use is more than this machine's RAM | Lower `count`, batch the run, or use `mode="disk"` |
+
+## Formatting and modifiers
+
+| Code | Fires when | Fix |
+| :--- | :--------- | :-- |
+| `TDC190` | `case` isn't a known transform | `upper`, `lower`, `capitalize`, `title` |
+| `TDC191` | `order` is neither `random` nor `sequential` | Those are the only two values |
+| `TDC192` | An interpolation filter is unknown | See [Masks & case](../guides/masks-and-case.mdx) |
+| `TDC193` | `${{Name}}` or `${{Name.field}}` names nothing that was declared | It would print literally — the whole reference is checked, field and all |
+| `TDC194` | A typed `<data>` has no `name` | Only a named `<data>` becomes a column |
+| `TDC195` | `repeat` isn't a count or a range | `repeat="3"` or `repeat="1..5"` (0 to 64) |
+| `TDC196` | `repeat` is used on a `<mix>` | A mix picks one branch; it doesn't produce a list |
+| `TDC198` | `separator` without `repeat` | It joins repeated values, so there have to be some |
+| `TDC199` | A `mask` index is malformed | Indices are 0-based and ranges use `..` — `x[0..3]`, `w[-1]` |
+| `TDC202` | `flag` is set but no `<case>` is marked `anomaly="true"` | The column would be all-negative — mark the outlier branch |
+| `TDC203` | `flag` is used on a nested `<mix>` | Only a named env-level mix carries the answer column |
+| `TDC204` | `repeat` is used on a generator that can't repeat | The message names the type |
+| `TDC206` | `each=""` names no sequence | Name the list to walk |
+| `TDC207` | `each` names a single-value sequence | It has to be a list — add `repeat` to the source |
+| `TDC209` | A named `<data>` sits inside an `each=` line | That line produces several rows, so a column name is ambiguous |
+| `TDC211` | `weight` is used on a generator other than `file` | Weights come from a CSV column |
+| `TDC212` | `weight` without `column` | The weights live in a second column, which has to be named |
+| `TDC213` | `weight` is combined with `order` | `order` walks the rows by position; weighting picks them by frequency |
+
+## See also
+
+- [CLI](cli.mdx) — exit codes and flags
+- [Tags](tags.mdx) and [Attributes](attributes.mdx) — what's allowed where

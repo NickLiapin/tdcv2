@@ -1,0 +1,16 @@
+---
+address: togo.finance.bank
+description: Banks operating in Togo
+locale: fr
+---
+Ecobank
+Orabank
+Banque Togolaise pour le Commerce et l'Industrie
+Union Togolaise de Banque
+Bank of Africa
+Coris Bank
+BSIC
+NSIA Banque
+Banque Atlantique
+BIA-Togo
+Société Générale Togo

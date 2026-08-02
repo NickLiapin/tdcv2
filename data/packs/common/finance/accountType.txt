@@ -1,0 +1,12 @@
+---
+description: Bank account type
+---
+Checking
+Savings
+Money Market
+Certificate of Deposit
+Credit Card
+Investment
+Business Checking
+Joint
+Retirement

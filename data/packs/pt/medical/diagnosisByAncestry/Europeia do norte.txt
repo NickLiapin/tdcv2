@@ -1,0 +1,14 @@
+---
+description: Conditions markedly more frequent in people of Northern European ancestry, in Portuguese. A prevalence signal, not an exclusive one.
+locale: pt
+---
+Fibrose cística
+Hemocromatose hereditária
+Deficiência de alfa-1 antitripsina
+Fenilcetonúria
+Doença celíaca
+Esclerose múltipla
+Diabetes mellitus tipo 1
+Contratura de Dupuytren
+Carcinoma basocelular
+Persistência da lactase

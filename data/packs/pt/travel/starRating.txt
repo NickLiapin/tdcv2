@@ -1,0 +1,9 @@
+---
+description: Hotel star rating (Portuguese)
+locale: pt
+---
+1 estrela
+2 estrelas
+3 estrelas
+4 estrelas
+5 estrelas

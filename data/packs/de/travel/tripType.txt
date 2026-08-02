@@ -1,0 +1,24 @@
+---
+description: Trip type (German)
+locale: de
+---
+Geschäftsreise
+Freizeitreise
+Familienurlaub
+Hochzeitsreise
+Abenteuerreise
+Autoreise
+Kreuzfahrt
+Rucksackreise
+Städtereise
+Strandurlaub
+Gruppenreise
+Alleinreise
+Kulturreise
+Ökotourismus
+Pilgerreise
+Studienreise
+Kulinarische Reise
+Skiurlaub
+Verwandtenbesuch
+Kongress- oder Messebesuch

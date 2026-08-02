@@ -1,0 +1,10 @@
+---
+description: Conditions markedly more frequent in people of Middle Eastern ancestry. A prevalence signal, not an exclusive one.
+locale: en
+---
+Familial Mediterranean Fever
+Beta-Thalassemia
+Glucose-6-Phosphate Dehydrogenase Deficiency
+Behçet Disease
+Vitamin D Deficiency
+Sickle Cell Trait

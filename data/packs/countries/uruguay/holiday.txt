@@ -1,0 +1,22 @@
+---
+address: uruguay.holiday
+description: Uruguayan holiday — the five feriados no laborables fixed by law (1 de enero, 1 de mayo, 18 de julio, 25 de agosto, 25 de diciembre) plus the feriados laborables and the Carnaval / Semana de Turismo days that the country still keeps
+locale: es
+---
+Año Nuevo
+Día de Reyes
+Carnaval
+Semana de Turismo
+Jueves Santo
+Viernes Santo
+Desembarco de los Treinta y Tres Orientales
+Día de los Trabajadores
+Batalla de Las Piedras
+Natalicio de Artigas
+Jura de la Constitución
+Declaratoria de la Independencia
+Día de la Diversidad Cultural
+Día de los Difuntos
+Día de la Familia
+Nochebuena
+Noche de Fin de Año

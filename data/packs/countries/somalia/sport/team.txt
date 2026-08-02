@@ -1,0 +1,16 @@
+---
+address: somalia.sport.team
+description: Somali first-division football clubs (Arabic)
+locale: ar
+---
+نادي حرية
+بنادر سبورت
+الجيش
+إيلمان
+هورسيد
+الشرطة
+دقفير
+جزيرة
+مقديشو
+الشباب
+جوبا

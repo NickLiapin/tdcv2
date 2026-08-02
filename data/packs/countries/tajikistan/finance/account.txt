@@ -1,0 +1,7 @@
+---
+address: tajikistan.finance.account
+description: Tajikistani bank account number — 20 digits (Tajikistan is not in the IBAN registry). Structure only.
+generator: tdc
+locale: ru
+---
+<gen type="regex" value="20[0-9]{18}"/>

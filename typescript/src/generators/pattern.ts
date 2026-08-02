@@ -1,0 +1,703 @@
+/**
+ * Pattern-graph — a drawn curve stretched over the cards.
+ *
+ * The curve's HORIZONTAL axis is the card index: card `i` of `count` reads the
+ * curve at position `t = i/(count−1)`, so a small drawing (100 px, a handful of
+ * points) is interpolated onto however many cards you generate (1, 1000,
+ * 1_000_000). The curve's VERTICAL axis is the value; because a drawing has no
+ * inherent scale, the caller declares the value range with `y_range="min..max"`
+ * — the curve's own height extent is normalized into it (so only the SHAPE
+ * matters, not the pixel heights). Without `y_range` the raw point-Y values are
+ * used as-is.
+ *
+ * Mode 1 (this file) is a single curve → a deterministic signal. Corridor mode
+ * (two curves → a random value between them) and raster input (PNG → vector)
+ * build on the same core. Design: `docs/superpowers/specs/
+ * 2026-07-15-pattern-graph-density-design.md` (mode corrected to signal).
+ */
+
+import { luminance } from './png.js';
+import { svgGraphPoints } from './svg-path.js';
+
+/**
+ * How the drawing is read BETWEEN two points.
+ *
+ * `linear` follows the straight segment — faithful to a polyline, but when one
+ * segment is stretched over thousands of cards the values climb by an identical
+ * step every time, which reads as obviously artificial. `smooth` runs a
+ * monotone cubic through the points instead: it eases in and out of every point
+ * and, unlike an ordinary spline, never overshoots beyond the drawn values —
+ * important when the drawing is the specification. `step` holds each value
+ * until the next point.
+ */
+export type Interp = 'linear' | 'smooth' | 'step';
+
+export interface SignalCurve {
+  /** Point x-coordinates, sorted (the horizontal shape). */
+  readonly xs: readonly number[];
+  /** Point y-values (the drawn height at each x). */
+  readonly ys: readonly number[];
+  readonly yMin: number;
+  readonly yMax: number;
+  /** Output value range the curve's height maps into; absent → raw y. */
+  readonly yRange?: readonly [number, number];
+  readonly decimals: number;
+  readonly interp: Interp;
+  /** Monotone-cubic tangents, precomputed for `smooth`. */
+  readonly slopes?: readonly number[];
+}
+
+/** `interp="linear|smooth|step"` (default `linear`). */
+export function parseInterp(raw: string | undefined): Interp {
+  if (raw === undefined || raw.trim() === '') return 'linear';
+  const v = raw.trim().toLowerCase();
+  if (v !== 'linear' && v !== 'smooth' && v !== 'step') {
+    throw new Error('pattern: "interp" must be "linear", "smooth" or "step"');
+  }
+  return v;
+}
+
+/**
+ * Monotone cubic (Fritsch–Carlson) tangents: the slope at a point is a weighted
+ * harmonic mean of its neighbouring secants, and is forced to zero wherever the
+ * data turns. That is what keeps the smoothed curve inside the drawn values.
+ */
+function pchipSlopes(xs: readonly number[], ys: readonly number[]): number[] {
+  const n = xs.length;
+  const h: number[] = [];
+  const d: number[] = [];
+  for (let i = 0; i < n - 1; i++) {
+    const hi = (xs[i + 1] ?? 0) - (xs[i] ?? 0);
+    h.push(hi);
+    d.push(hi === 0 ? 0 : ((ys[i + 1] ?? 0) - (ys[i] ?? 0)) / hi);
+  }
+  const m = new Array<number>(n).fill(0);
+  m[0] = d[0] ?? 0;
+  m[n - 1] = d[n - 2] ?? 0;
+  for (let i = 1; i < n - 1; i++) {
+    const d0 = d[i - 1] ?? 0;
+    const d1 = d[i] ?? 0;
+    if (d0 * d1 <= 0) {
+      m[i] = 0;
+      continue;
+    }
+    const w1 = 2 * (h[i] ?? 0) + (h[i - 1] ?? 0);
+    const w2 = (h[i] ?? 0) + 2 * (h[i - 1] ?? 0);
+    m[i] = (w1 + w2) / (w1 / d0 + w2 / d1);
+  }
+  return m;
+}
+
+/**
+ * Parse a points list into `[x,y]` pairs. Robust to both `"x,y x,y"` and SVG's
+ * space-separated `"x y x y"`: extracts every number and pairs them.
+ */
+export function parsePoints(raw: string): [number, number][] {
+  const nums = (raw.match(/-?\d+(?:\.\d+)?(?:[eE][+-]?\d+)?/g) ?? []).map(Number);
+  if (nums.length === 0 || nums.length % 2 !== 0) {
+    throw new Error(
+      `pattern: points must be an even list of "x,y" coordinates (got ${String(nums.length)} numbers)`,
+    );
+  }
+  const points: [number, number][] = [];
+  for (let i = 0; i < nums.length; i += 2) points.push([nums[i] ?? 0, nums[i + 1] ?? 0]);
+  return points;
+}
+
+/** Optional `y_range="min..max"` → `[min, max]` (the value axis). */
+export function parseYRange(raw: string | undefined): [number, number] | undefined {
+  if (raw === undefined || raw.trim() === '') return undefined;
+  const parts = raw.split('..');
+  const a = Number(parts[0]);
+  const b = Number(parts[1]);
+  if (parts.length !== 2 || !Number.isFinite(a) || !Number.isFinite(b)) {
+    throw new Error(`pattern: y_range "${raw}" must be "min..max" with two numbers`);
+  }
+  return [a, b];
+}
+
+/**
+ * Build a signal curve from raw points: sort by x, record the y extent used for
+ * `y_range` normalization. `normExtent` overrides that extent — a corridor
+ * passes the SHARED extent of both curves so they live in one value space.
+ */
+export function buildSignalCurve(
+  points: readonly (readonly [number, number])[],
+  yRange: readonly [number, number] | undefined,
+  decimals: number,
+  normExtent?: readonly [number, number],
+  interp: Interp = 'linear',
+): SignalCurve {
+  if (points.length < 2) {
+    throw new Error('pattern: need at least two points to define a curve');
+  }
+  const sorted = [...points].sort((a, b) => a[0] - b[0]);
+  const xs = sorted.map((p) => p[0]);
+  const ys = sorted.map((p) => p[1]);
+  let yMin = ys[0] ?? 0;
+  let yMax = ys[0] ?? 0;
+  for (const y of ys) {
+    if (y < yMin) yMin = y;
+    if (y > yMax) yMax = y;
+  }
+  const [nyMin, nyMax] = normExtent ?? [yMin, yMax];
+  return {
+    xs,
+    ys,
+    yMin: nyMin,
+    yMax: nyMax,
+    ...(yRange ? { yRange } : {}),
+    decimals,
+    interp,
+    ...(interp === 'smooth' ? { slopes: pchipSlopes(xs, ys) } : {}),
+  };
+}
+
+/** A corridor: two curves in one value space; the value is random between them. */
+export interface Corridor {
+  readonly lower: SignalCurve;
+  readonly upper: SignalCurve;
+  readonly decimals: number;
+}
+
+/**
+ * Build a corridor from an upper curve and an optional lower one (omitted → a
+ * flat floor at 0). Both curves are normalized against their SHARED height
+ * extent so the band between them is meaningful.
+ */
+export function buildCorridor(
+  upperPts: readonly (readonly [number, number])[],
+  lowerPts: readonly (readonly [number, number])[] | undefined,
+  yRange: readonly [number, number] | undefined,
+  decimals: number,
+  interp: Interp = 'linear',
+): Corridor {
+  const heights = [...upperPts, ...(lowerPts ?? [])].map((p) => p[1]);
+  if (!lowerPts) heights.push(0); // include the 0 floor in the shared extent
+  const ext: [number, number] = [Math.min(...heights), Math.max(...heights)];
+  const upper = buildSignalCurve(upperPts, yRange, decimals, ext, interp);
+  const x0 = upperPts[0]?.[0] ?? 0;
+  const xN = upperPts[upperPts.length - 1]?.[0] ?? 0;
+  const lower = lowerPts
+    ? buildSignalCurve(lowerPts, yRange, decimals, ext, interp)
+    : buildSignalCurve(
+        [
+          [x0, ext[0]],
+          [xN, ext[0]],
+        ],
+        yRange,
+        decimals,
+        ext,
+        interp,
+      );
+  return { lower, upper, decimals };
+}
+
+/** Random value between the two curves at position `t`, using uniform `u`. */
+export function corridorValueAt(c: Corridor, t: number, u: number, dt = 0): number {
+  const a = signalValueAt(c.lower, t, dt);
+  const b = signalValueAt(c.upper, t, dt);
+  const lo = Math.min(a, b);
+  const hi = Math.max(a, b);
+  return lo + u * (hi - lo);
+}
+
+/** Index of the segment `[xs[k], xs[k+1]]` containing `x`. */
+function segmentAt(xs: readonly number[], x: number): number {
+  let lo = 0;
+  let hi = xs.length - 1;
+  while (lo < hi) {
+    const mid = (lo + hi + 1) >> 1;
+    if ((xs[mid] ?? 0) <= x) lo = mid;
+    else hi = mid - 1;
+  }
+  return Math.min(lo, xs.length - 2);
+}
+
+/** Curve height at a horizontal coordinate, honouring the interpolation mode. */
+function heightAtX(curve: SignalCurve, x: number): number {
+  const { xs, ys } = curve;
+  const k = segmentAt(xs, x);
+  const xa = xs[k] ?? 0;
+  const xb = xs[k + 1] ?? 0;
+  const ya = ys[k] ?? 0;
+  const yb = ys[k + 1] ?? 0;
+  const dx = xb - xa;
+  if (dx <= 0) return ya;
+  const s = (x - xa) / dx;
+  if (curve.interp === 'step') return ya;
+  if (curve.interp === 'smooth' && curve.slopes) {
+    // Cubic Hermite on the segment with the monotone tangents.
+    const ma = curve.slopes[k] ?? 0;
+    const mb = curve.slopes[k + 1] ?? 0;
+    const s2 = s * s;
+    const s3 = s2 * s;
+    return (
+      (2 * s3 - 3 * s2 + 1) * ya +
+      (s3 - 2 * s2 + s) * dx * ma +
+      (-2 * s3 + 3 * s2) * yb +
+      (s3 - s2) * dx * mb
+    );
+  }
+  return ya + s * (yb - ya);
+}
+
+/**
+ * The value of the card at position `t ∈ [0,1]`.
+ *
+ * `dt` is how much of the drawing ONE card covers (1/(count−1)). When the cards
+ * outnumber the points that window is shorter than a segment and the reading is
+ * simply the point on the curve. When the drawing has MORE points than there are
+ * cards — a thousand-point trace squeezed into ten rows — each card instead
+ * averages the curve across its whole window, so the detail in between is
+ * summarised rather than silently dropped by landing on one arbitrary sample.
+ */
+export function signalValueAt(curve: SignalCurve, t: number, dt = 0): number {
+  const { xs } = curve;
+  const x0 = xs[0] ?? 0;
+  const xN = xs[xs.length - 1] ?? 0;
+  const span = xN - x0;
+  const at = (tt: number): number => heightAtX(curve, x0 + Math.min(Math.max(tt, 0), 1) * span);
+
+  let y: number;
+  const half = dt / 2;
+  const xa = x0 + Math.min(Math.max(t - half, 0), 1) * span;
+  const xb = x0 + Math.min(Math.max(t + half, 0), 1) * span;
+  // Points of the drawing inside this card's window decide whether averaging
+  // buys anything: none → the window is finer than the drawing, take the point.
+  const inside = dt > 0 ? segmentAt(xs, xb) - segmentAt(xs, xa) : 0;
+  if (inside <= 0) {
+    y = at(t);
+  } else {
+    const steps = Math.min(64, Math.max(2, inside * 2));
+    let sum = 0;
+    for (let i = 0; i <= steps; i++) {
+      const w = i === 0 || i === steps ? 0.5 : 1; // trapezoid weights
+      sum += w * heightAtX(curve, xa + ((xb - xa) * i) / steps);
+    }
+    y = sum / steps;
+  }
+
+  if (!curve.yRange) return y;
+  const vspan = curve.yMax - curve.yMin;
+  const yn = vspan === 0 ? 0 : (y - curve.yMin) / vspan;
+  const [a, b] = curve.yRange;
+  return a + yn * (b - a);
+}
+
+export function formatSignal(v: number, curve: SignalCurve): string {
+  return v.toFixed(curve.decimals);
+}
+
+/**
+ * The SECOND way to read the same drawing (`mode="density"`).
+ *
+ * A signal reads the curve as a TRAJECTORY: the horizontal axis is the card
+ * index and the height is that card's value, so the cards walk along the line
+ * in order. A density asks the opposite question — the horizontal axis is the
+ * VALUE and the height is HOW OFTEN that value comes up. Draw a hump over the
+ * middle and the numbers pile up in the middle, in random order: "draw your own
+ * probability" instead of picking `normal`/`poisson` from a list.
+ *
+ * `xs` is a fine grid across the drawing, `dens` the (non-negative) height above
+ * the baseline there, and `cdf` the normalized running area — inverting it turns
+ * a uniform draw into a value. The grid keeps every drawn vertex and subdivides
+ * between them, so `interp="smooth"` shapes the distribution too.
+ */
+export interface Density {
+  readonly xs: readonly number[];
+  readonly dens: readonly number[];
+  readonly cdf: readonly number[];
+  /** Total area under the drawing — the scale `cdf` was normalized by. */
+  readonly area: number;
+  /** Value range the drawing's WIDTH maps into; absent → the raw x coordinates. */
+  readonly yRange?: readonly [number, number];
+  readonly decimals: number;
+}
+
+/** How many grid points the density is integrated on (vertices are all kept). */
+const DENSITY_GRID = 512;
+
+/**
+ * Turn a curve into a distribution. Zero probability is the curve's BASELINE
+ * (`curve.yMin`) — the picture's floor for a raster, the lowest drawn point
+ * otherwise — so the deepest part of the drawing is the value that never
+ * appears. A drawing with no height at all (a flat line) has nothing to weight
+ * by and degrades to a uniform distribution rather than an error.
+ */
+export function buildDensity(curve: SignalCurve): Density {
+  const { xs: vertices } = curve;
+  const xMax = vertices[vertices.length - 1] ?? 0;
+
+  // Grid = the drawn vertices plus enough subdivision to resolve curvature.
+  const grid: number[] = [];
+  const per = Math.max(1, Math.ceil(DENSITY_GRID / Math.max(1, vertices.length - 1)));
+  for (let i = 0; i < vertices.length - 1; i++) {
+    const a = vertices[i] ?? 0;
+    const b = vertices[i + 1] ?? 0;
+    for (let k = 0; k < per; k++) grid.push(a + ((b - a) * k) / per);
+  }
+  grid.push(xMax);
+
+  const dens = grid.map((x) => Math.max(0, heightAtX(curve, x) - curve.yMin));
+  const cum: number[] = [0];
+  let total = 0;
+  for (let i = 0; i < grid.length - 1; i++) {
+    const h = (grid[i + 1] ?? 0) - (grid[i] ?? 0);
+    total += (h * ((dens[i] ?? 0) + (dens[i + 1] ?? 0))) / 2;
+    cum.push(total);
+  }
+  if (total <= 0) {
+    // Nothing to weight by: every value equally likely.
+    const flat = grid.map(() => 1);
+    const uniform = grid.map((_, i) => (grid.length > 1 ? i / (grid.length - 1) : 0));
+    return {
+      xs: grid,
+      dens: flat,
+      cdf: uniform,
+      area: xMax - (grid[0] ?? 0),
+      ...(curve.yRange ? { yRange: curve.yRange } : {}),
+      decimals: curve.decimals,
+    };
+  }
+  return {
+    xs: grid,
+    dens,
+    cdf: cum.map((c) => c / total),
+    area: total,
+    ...(curve.yRange ? { yRange: curve.yRange } : {}),
+    decimals: curve.decimals,
+  };
+}
+
+/**
+ * Invert the distribution: a uniform `u` becomes a value. Inside a grid cell the
+ * density is a straight line, so the area up to `s` is a quadratic in `s` and the
+ * exact crossing is solved rather than searched — no bias from bucketing.
+ */
+export function densityValueAt(d: Density, u: number): number {
+  const { cdf, xs, dens } = d;
+  const target = Math.min(Math.max(u, 0), 1);
+  // The cell whose running area contains the draw.
+  let lo = 0;
+  let hi = cdf.length - 1;
+  while (lo < hi) {
+    const mid = (lo + hi + 1) >> 1;
+    if ((cdf[mid] ?? 0) <= target) lo = mid;
+    else hi = mid - 1;
+  }
+  const k = Math.min(lo, xs.length - 2);
+  const xa = xs[k] ?? 0;
+  const xb = xs[k + 1] ?? 0;
+  const h = xb - xa;
+  const d0 = dens[k] ?? 0;
+  const d1 = dens[k + 1] ?? 0;
+  // Area still to cover inside this cell, in the same units as `dens * x`.
+  const cellArea = (target - (cdf[k] ?? 0)) * d.area;
+  let s: number;
+  const slope = d1 - d0;
+  if (h <= 0) {
+    s = 0;
+  } else if (Math.abs(slope) < 1e-12) {
+    s = d0 === 0 ? 0 : Math.min(1, cellArea / (h * d0));
+  } else {
+    // (slope/2)·s² + d0·s − cellArea/h = 0
+    const c = -cellArea / h;
+    const disc = Math.max(0, d0 * d0 - 2 * slope * c);
+    s = (-d0 + Math.sqrt(disc)) / slope;
+    if (!Number.isFinite(s) || s < 0) s = 0;
+    if (s > 1) s = 1;
+  }
+  const x = xa + s * h;
+
+  if (!d.yRange) return x;
+  const x0 = xs[0] ?? 0;
+  const xN = xs[xs.length - 1] ?? 0;
+  const span = xN - x0;
+  const xn = span === 0 ? 0 : (x - x0) / span;
+  const [a, b] = d.yRange;
+  return a + xn * (b - a);
+}
+
+/** `mode="signal|density"` (default `signal`) — which question the drawing answers. */
+export function parseMode(raw: string | undefined): 'signal' | 'density' {
+  if (raw === undefined || raw.trim() === '') return 'signal';
+  const v = raw.trim().toLowerCase();
+  if (v !== 'signal' && v !== 'density') {
+    throw new Error(
+      'pattern: "mode" must be "signal" (a trajectory) or "density" (a distribution)',
+    );
+  }
+  return v;
+}
+
+/**
+ * A resolved pattern gen — one curve (a deterministic signal) or a corridor
+ * (a random band) — plus `spread`.
+ *
+ * `spread` widens the reading by ±N in VALUE units, so a single drawn line can
+ * be treated as the CENTRE of a tunnel without drawing the two edges by hand:
+ * `spread="1"` scatters every card ±1 around the curve. It follows whatever
+ * scale `y_range` sets, so on a 0..1 axis a spread of `0.001` is the natural
+ * way to ask for a barely-there wobble. Left at 0 a single line stays exactly
+ * predictable.
+ */
+export type PatternGen =
+  | { readonly kind: 'signal'; readonly curve: SignalCurve; readonly spread: number }
+  | { readonly kind: 'corridor'; readonly corridor: Corridor; readonly spread: number }
+  | { readonly kind: 'density'; readonly density: Density };
+
+/**
+ * Value of the card at position `t`. `u` is the per-card uniform, used when the
+ * gen has a band to pick from (a corridor, or any curve given a `spread`);
+ * `dt` is the share of the drawing one card covers.
+ */
+export function patternGenValue(pg: PatternGen, t: number, u: number, dt = 0): string {
+  if (pg.kind === 'density') {
+    // Position in the run means nothing here — the drawing is a distribution, so
+    // the card's own uniform draw picks the value and the order is random.
+    return densityValueAt(pg.density, u).toFixed(pg.density.decimals);
+  }
+  if (pg.kind === 'signal') {
+    const v = signalValueAt(pg.curve, t, dt);
+    const out = pg.spread > 0 ? v + (2 * u - 1) * pg.spread : v;
+    return formatSignal(out, pg.curve);
+  }
+  const c = pg.corridor;
+  const a = signalValueAt(c.lower, t, dt);
+  const b = signalValueAt(c.upper, t, dt);
+  const lo = Math.min(a, b) - pg.spread;
+  const hi = Math.max(a, b) + pg.spread;
+  return (lo + u * (hi - lo)).toFixed(c.decimals);
+}
+
+/** Whether the gen consumes a uniform draw per card (a band, a spread, a density). */
+export function patternGenDraws(pg: PatternGen): boolean {
+  return pg.kind !== 'signal' || pg.spread > 0;
+}
+
+/**
+ * Re-read an already-built gen as a distribution (`mode="density"`).
+ *
+ * Every input path — inline points, `upper`/`lower`, an SVG, a PNG — has by then
+ * produced a curve in one common shape, so the switch is a single conversion at
+ * the end rather than a branch in each reader. A band contributes its TOP edge:
+ * the outline is the distribution, whatever the drawing's lower edge does.
+ */
+export function asDensity(pg: PatternGen): PatternGen {
+  if (pg.kind === 'density') return pg;
+  if (pg.spread > 0) {
+    throw new Error(
+      'pattern: "spread" has no meaning with mode="density" — the drawing itself sets the scatter',
+    );
+  }
+  const curve = pg.kind === 'corridor' ? pg.corridor.upper : pg.curve;
+  return { kind: 'density', density: buildDensity(curve) };
+}
+
+function decimalsFromAttrs(attrs: Record<string, string | undefined>): number {
+  const raw = attrs['decimals'];
+  const decimals = raw === undefined || raw.trim() === '' ? 0 : Number(raw);
+  if (!Number.isInteger(decimals) || decimals < 0) {
+    throw new Error('pattern: "decimals" must be a non-negative integer');
+  }
+  return decimals;
+}
+
+/** `spread="N"` — half-width of the random band around the drawing, in values. */
+export function spreadFromAttrs(attrs: Record<string, string | undefined>): number {
+  const raw = attrs['spread'];
+  if (raw === undefined || raw.trim() === '') return 0;
+  const s = Number(raw);
+  if (!Number.isFinite(s) || s < 0) {
+    throw new Error('pattern: "spread" must be a non-negative number');
+  }
+  return s;
+}
+
+/** Build a signal curve straight from gen attributes (`y_range`, `decimals`) + points. */
+export function signalCurveFromAttrs(
+  attrs: Record<string, string | undefined>,
+  points: readonly (readonly [number, number])[],
+): SignalCurve {
+  return buildSignalCurve(
+    points,
+    parseYRange(attrs['y_range']),
+    decimalsFromAttrs(attrs),
+    undefined,
+    parseInterp(attrs['interp']),
+  );
+}
+
+/** Build a corridor straight from gen attributes + the two point lists. */
+export function corridorFromAttrs(
+  attrs: Record<string, string | undefined>,
+  upperPts: readonly (readonly [number, number])[],
+  lowerPts: readonly (readonly [number, number])[] | undefined,
+): Corridor {
+  return buildCorridor(
+    upperPts,
+    lowerPts,
+    parseYRange(attrs['y_range']),
+    decimalsFromAttrs(attrs),
+    parseInterp(attrs['interp']),
+  );
+}
+
+/**
+ * Turn a decoded raster image into a pattern gen. Each image column becomes a
+ * point on the horizontal axis; the ink (dark, opaque) pixels in that column
+ * define the height. The image's full height maps to `y_range` (the frame is
+ * the scale — floor of the image = min, top = max), so only the drawing's shape
+ * matters, not the pixel count.
+ *
+ * A pixel is INK by ALPHA when the image has no opaque background (a drawing
+ * exported on transparency): anything not fully transparent counts. Otherwise
+ * ink falls back to luminance, with `ink_threshold` (0..1, default 0.5) as the
+ * dark/light cutoff.
+ *
+ * There is no separate signal-vs-corridor detection step. Every column is
+ * measured twice — from the top down to the first ink and from the bottom up to
+ * the first ink. If both readings meet on the same pixel the column is an EXACT
+ * point on the graph; if they differ the column is a band and the value is
+ * random between them. One drawing can therefore run as a single line and split
+ * into a corridor further along, which is exactly what a hand drawing does.
+ */
+export function rasterPatternGen(
+  img: { readonly width: number; readonly height: number; readonly rgba: Uint8Array },
+  attrs: Record<string, string | undefined>,
+): PatternGen {
+  const { width, height, rgba } = img;
+  const lumCut = rasterInkThreshold(attrs) * 255;
+  const opaqueOnly = !hasOpaqueBackground(rgba);
+  const isInk = (x: number, y: number): boolean => {
+    const p = (y * width + x) * 4;
+    if ((rgba[p + 3] ?? 0) < 128) return false; // transparent → background
+    // A drawing exported on alpha has no background at all, so every opaque
+    // pixel is the line. Only when the picture is flattened onto an opaque
+    // canvas do we fall back to "dark = ink".
+    if (opaqueOnly) return true;
+    return luminance(rgba[p] ?? 0, rgba[p + 1] ?? 0, rgba[p + 2] ?? 0) <= lumCut;
+  };
+
+  // Per column, measure from the bottom up and from the top down to the first
+  // ink. Those two readings ARE the band for that column: where they meet on one
+  // pixel the drawing is a single line (an exact value, no random); where they
+  // stand apart the value is random between them. So one picture can be an exact
+  // curve in some columns and a widening corridor in others.
+  const top: [number, number][] = [];
+  const bottom: [number, number][] = [];
+  for (let x = 0; x < width; x++) {
+    let minRow = -1;
+    let maxRow = -1;
+    for (let y = 0; y < height; y++) {
+      if (isInk(x, y)) {
+        if (minRow < 0) minRow = y;
+        maxRow = y;
+      }
+    }
+    if (minRow < 0) continue; // empty column (a gap in the stroke) — interpolated across
+    if (maxRow - minRow <= 1) {
+      // Touching within one pixel: a single line, not a band.
+      const mid = height - 1 - (minRow + maxRow) / 2;
+      top.push([x, mid]);
+      bottom.push([x, mid]);
+    } else {
+      top.push([x, height - 1 - minRow]);
+      bottom.push([x, height - 1 - maxRow]);
+    }
+  }
+  if (top.length < 2) {
+    throw new Error('pattern: the image has too little ink to read a curve from');
+  }
+
+  const ext: [number, number] = [0, height - 1]; // the frame is the value scale
+  return patternFromEnvelope(top, bottom, attrs, ext);
+}
+
+/**
+ * Turn a per-position "highest point / lowest point" measurement into a gen —
+ * the one rule both inputs share.
+ *
+ * Where the two readings coincide the drawing is a single line at that position,
+ * so the value is exact. Where they stand apart it is a band and the value is
+ * random between them. A picture that never parts is therefore a plain signal
+ * and spends no random draw at all; as soon as it parts anywhere the gen draws
+ * per card, and the positions that still touch keep returning their exact value
+ * because a zero-width band ignores the draw.
+ */
+export function patternFromEnvelope(
+  top: readonly (readonly [number, number])[],
+  bottom: readonly (readonly [number, number])[],
+  attrs: Record<string, string | undefined>,
+  normExtent?: readonly [number, number],
+): PatternGen {
+  const yRange = parseYRange(attrs['y_range']);
+  const decimals = decimalsFromAttrs(attrs);
+  const n = Math.min(top.length, bottom.length);
+  let banded = false;
+  for (let i = 0; i < n; i++) {
+    const a = top[i];
+    const b = bottom[i];
+    if (a && b && Math.abs(a[1] - b[1]) > 1e-9) {
+      banded = true;
+      break;
+    }
+  }
+  const interp = parseInterp(attrs['interp']);
+  const spread = spreadFromAttrs(attrs);
+  if (!banded) {
+    return {
+      kind: 'signal',
+      curve: buildSignalCurve(top, yRange, decimals, normExtent, interp),
+      spread,
+    };
+  }
+  let lo = Infinity;
+  let hi = -Infinity;
+  for (const [, y] of [...top, ...bottom]) {
+    if (y < lo) lo = y;
+    if (y > hi) hi = y;
+  }
+  const ext = normExtent ?? ([lo, hi] as const);
+  return {
+    kind: 'corridor',
+    corridor: {
+      upper: buildSignalCurve(top, yRange, decimals, ext, interp),
+      lower: buildSignalCurve(bottom, yRange, decimals, ext, interp),
+      decimals,
+    },
+    spread,
+  };
+}
+
+/** True when the picture is flattened onto an opaque canvas (no alpha cut-out). */
+function hasOpaqueBackground(rgba: Uint8Array): boolean {
+  for (let p = 3; p < rgba.length; p += 4) {
+    if ((rgba[p] ?? 0) < 128) return false;
+  }
+  return true;
+}
+
+function rasterInkThreshold(attrs: Record<string, string | undefined>): number {
+  const raw = attrs['ink_threshold'];
+  if (raw === undefined || raw.trim() === '') return 0.5;
+  const t = Number(raw);
+  if (!Number.isFinite(t) || t <= 0 || t >= 1) {
+    throw new Error('pattern: "ink_threshold" must be a number strictly between 0 and 1');
+  }
+  return t;
+}
+
+/**
+ * Extract the graph curve from an SVG file.
+ *
+ * Handles what real editors actually export: the full path grammar (Bezier
+ * curves, arcs, relative commands), `<polyline>`/`<polygon>`/`<line>`, and
+ * nested `<g transform>`. Among several shapes the widest one is taken as the
+ * data line (axes and frames are narrower). Y is flipped, because SVG grows
+ * downward while a graph grows upward. See `svg-path.ts`.
+ */
+export function parseSvgCurve(svg: string): [number, number][] {
+  return svgGraphPoints(svg);
+}

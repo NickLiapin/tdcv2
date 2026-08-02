@@ -1,0 +1,6 @@
+---
+address: peru.phone
+description: Peru mobile phone in E.164 form (+51 9XXXXXXXX) — every Peruvian mobile number is nine digits and starts with 9
+generator: tdc
+---
+<gen type="regex" value="\+519[0-9]{8}"/>

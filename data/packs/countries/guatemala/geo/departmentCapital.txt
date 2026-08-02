@@ -1,0 +1,27 @@
+---
+address: guatemala.geo.departmentCapital
+description: Cabecera departamental (department capital); same order as guatemala.geo.department
+locale: es
+---
+Ciudad de Guatemala
+Guastatoya
+Antigua Guatemala
+Chimaltenango
+Escuintla
+Cuilapa
+Sololá
+Totonicapán
+Quetzaltenango
+Mazatenango
+Retalhuleu
+San Marcos
+Huehuetenango
+Santa Cruz del Quiché
+Salamá
+Cobán
+Flores
+Puerto Barrios
+Zacapa
+Chiquimula
+Jalapa
+Jutiapa

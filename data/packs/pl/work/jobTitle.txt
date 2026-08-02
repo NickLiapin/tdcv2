@@ -1,0 +1,221 @@
+---
+description: Polish job titles across sectors (tech, healthcare, trades, transport, business, service, public)
+locale: pl
+---
+Inżynier oprogramowania
+Starszy inżynier oprogramowania
+Analityk danych
+Naukowiec ds. danych
+Inżynier DevOps
+Inżynier niezawodności systemów
+Inżynier jakości oprogramowania
+Menedżer produktu
+Projektant UX
+Projektant UI
+Administrator systemów
+Inżynier sieci
+Administrator baz danych
+Analityk bezpieczeństwa informatycznego
+Architekt chmury
+Programista aplikacji mobilnych
+Programista frontend
+Programista backend
+Inżynier uczenia maszynowego
+Specjalista wsparcia technicznego
+Programista stron internetowych
+Analityk systemowy
+Inżynier danych
+Pielęgniarka
+Pielęgniarka specjalistka
+Lekarz rodzinny
+Chirurg
+Anestezjolog
+Pediatra
+Farmaceuta
+Ratownik medyczny
+Technik ratownictwa medycznego
+Fizjoterapeuta
+Terapeuta zajęciowy
+Higienistka stomatologiczna
+Dentysta
+Technik radiolog
+Asystent medyczny
+Diagnosta laboratoryjny
+Technik farmaceutyczny
+Optometrysta
+Weterynarz
+Opiekun medyczny
+Ginekolog
+Kardiolog
+Psycholog
+Psychiatra
+Dietetyk
+Elektryk
+Hydraulik
+Spawacz
+Stolarz
+Technik klimatyzacji
+Tokarz
+Mechanik przemysłowy
+Monter instalacji rurowych
+Blacharz
+Kowal
+Murarz
+Dekarz
+Malarz
+Monter płyt gipsowo-kartonowych
+Mechanik samochodowy
+Mechanik silników wysokoprężnych
+Mechanik lotniczy
+Ślusarz
+Szklarz
+Tynkarz
+Technik chłodnictwa
+Konserwator dźwigów
+Górnik
+Górnik dołowy
+Operator wiertnicy
+Operator maszyn ciężkich
+Operator dźwigu
+Operator koparki
+Strzałowy
+Mierniczy górniczy
+Pracownik kamieniołomu
+Kierowca ciężarówki
+Kierowca w transporcie dalekobieżnym
+Dostawca
+Kierowca autobusu
+Operator wózka widłowego
+Magazynier
+Koordynator logistyki
+Dyspozytor
+Spedytor
+Kontroler ruchu lotniczego
+Pilot liniowy
+Steward pokładowy
+Kapitan statku
+Maszynista kolejowy
+Kurier rowerowy
+Taksówkarz
+Monter linii energetycznych
+Technik telekomunikacji
+Monter kabli
+Technik światłowodowy
+Operator elektrowni
+Operator oczyszczalni ścieków
+Technik turbin wiatrowych
+Monter paneli fotowoltaicznych
+Technik gazowniczy
+Inkasent
+Księgowy
+Asystent księgowego
+Analityk finansowy
+Audytor
+Aktuariusz
+Doradca podatkowy
+Przedstawiciel handlowy
+Opiekun klienta
+Menedżer marketingu
+Specjalista ds. marketingu
+Menedżer marki
+Specjalista ds. kadr
+Rekruter
+Menedżer operacyjny
+Kierownik projektu
+Analityk biznesowy
+Asystent zarządu
+Kierownik biura
+Recepcjonista
+Pracownik administracyjny
+Specjalista ds. zakupów
+Ekonomista
+Agent ubezpieczeniowy
+Pośrednik nieruchomości
+Makler giełdowy
+Szef kuchni
+Zastępca szefa kuchni
+Kucharz
+Piekarz
+Cukiernik
+Barman
+Barista
+Kelner
+Hostessa
+Pomoc kuchenna
+Menedżer hotelu
+Pracownik sprzątający
+Konsjerż
+Recepcjonista hotelowy
+Koordynator wydarzeń
+Przewodnik turystyczny
+Sprzedawca
+Kierownik sklepu
+Kasjer
+Wykładacz towaru
+Specjalista ds. zapobiegania stratom
+Kupiec
+Konsultant ds. obsługi klienta
+Konsultant infolinii
+Pracownik ochrony
+Ogrodnik
+Nauczyciel szkoły podstawowej
+Nauczyciel szkoły średniej
+Pedagog specjalny
+Wykładowca akademicki
+Naukowiec
+Asystent nauczyciela
+Pedagog szkolny
+Bibliotekarz
+Dyrektor szkoły
+Korepetytor
+Nauczyciel wychowania przedszkolnego
+Policjant
+Strażak
+Detektyw
+Funkcjonariusz służby więziennej
+Funkcjonariusz celny
+Pracownik socjalny
+Koordynator pomocy społecznej
+Listonosz
+Pracownik poczty
+Pracownik oczyszczania miasta
+Żołnierz
+Sędzia
+Prokurator
+Notariusz
+Adwokat
+Asystent prawny
+Sekretarz sądowy
+Grafik
+Fotograf
+Operator kamery
+Copywriter
+Twórca treści
+Dziennikarz
+Redaktor
+Architekt
+Architekt wnętrz
+Inżynier budownictwa
+Inżynier mechanik
+Inżynier elektryk
+Inżynier chemik
+Inżynier przemysłowy
+Tłumacz
+Tłumacz ustny
+Muzyk
+Aktor
+Rolnik
+Hodowca bydła
+Robotnik rolny
+Architekt krajobrazu
+Arborysta
+Rybak
+Drwal
+Pszczelarz
+Winiarz
+Robotnik budowlany
+Kierownik budowy
+Geodeta
+Inspektor nadzoru budowlanego
+Pracownik rozbiórkowy
+Cieśla szalunkowy

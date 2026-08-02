@@ -1,0 +1,12 @@
+---
+description: Booking status
+locale: en
+---
+Confirmed
+Pending
+Cancelled
+Checked In
+Checked Out
+No Show
+Modified
+Refunded

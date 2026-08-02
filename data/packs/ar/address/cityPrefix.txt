@@ -1,0 +1,18 @@
+---
+description: Leading element of an Arabic place name (مدينة، حي، أم، رأس). Combine with a real toponym; it does not by itself name a real city.
+locale: ar
+---
+مدينة
+حي
+قرية
+بلدة
+أم
+أبو
+رأس
+تل
+دير
+عين
+بئر
+وادي
+جبل
+مرسى

@@ -1,0 +1,9 @@
+---
+address: australia.finance.bsb
+description: Australian BSB (Bank-State-Branch) — 6 digits written NNN-NNN. The leading 3 digits are a real institution+state block (01x ANZ, 03x Westpac, 06x CommBank, 08x NAB, plus other ADIs); the trailing 3 are a random branch number. STRUCTURAL ONLY — a BSB carries no check digit, it is validated by lookup against APCA's register, not arithmetic
+generator: tdc
+locale: en
+---
+<sequence name="prefix"><gen type="text" value="012,013,014,015,016,017,032,033,034,035,036,062,063,064,065,066,082,083,084,085,086,112,114,182,242,302,305,306,342,484,633,923,939"/></sequence>
+<sequence name="branch"><gen type="regex" value="[0-9]{3}"/></sequence>
+<data>${{prefix}}-${{branch}}</data>

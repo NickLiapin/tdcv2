@@ -1,0 +1,7 @@
+---
+address: ireland.finance.sortCode
+description: Irish National Sort Code (NSC) — 6 digits identifying the bank branch. STRUCTURAL ONLY: the NSC carries no published check digit
+generator: tdc
+locale: en
+---
+<gen type="regex" value="[0-9]{6}"/>

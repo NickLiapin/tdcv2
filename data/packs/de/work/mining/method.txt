@@ -1,0 +1,12 @@
+---
+description: Mining method (German)
+locale: de
+---
+Tagebau
+Untertagebau
+Streifentagebau
+Seifenbergbau
+Bergkuppenabbau
+Schachtbau
+Stollenbau
+Strebbau

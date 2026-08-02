@@ -1,0 +1,36 @@
+---
+address: common.device.imei
+description: IMEI (14-digit base + Luhn check digit = 15 digits)
+generator: tdc
+---
+<sequence name="base"><gen type="regex" value="[0-9]{14}"/></sequence>
+<sequence name="imei"><compute>
+  <let name="sum">
+    <reduce>
+      <over><field name="base"/></over>
+      <init><int v="0"/></init>
+      <do><add><acc/>
+        <choose>
+          <when>
+            <test><equals>
+              <mod><current_index/><int v="2"/></mod>
+              <mod><add><length><field name="base"/></length><int v="1"/></add><int v="2"/></mod>
+            </equals></test>
+            <then>
+              <let name="d"><multiply><current/><int v="2"/></multiply></let>
+              <choose>
+                <when><test><greater_than><var name="d"/><int v="9"/></greater_than></test>
+                      <then><subtract><var name="d"/><int v="9"/></subtract></then></when>
+                <otherwise><var name="d"/></otherwise>
+              </choose>
+            </then>
+          </when>
+          <otherwise><current/></otherwise>
+        </choose>
+      </add></do>
+    </reduce>
+  </let>
+  <let name="check"><mod><subtract><int v="10"/><mod><var name="sum"/><int v="10"/></mod></subtract><int v="10"/></mod></let>
+  <result><concat><field name="base"/><var name="check"/></concat></result>
+</compute></sequence>
+<data>${{imei}}</data>

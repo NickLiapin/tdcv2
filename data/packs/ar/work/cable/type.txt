@@ -1,0 +1,17 @@
+---
+description: Cable type (Arabic; standard designations kept in their usual form)
+locale: ar
+---
+ألياف بصرية
+محوري
+مزدوج ملتوي
+Cat5e
+Cat6
+Cat6a
+RJ45
+HDMI
+USB
+مدرع
+غير مدرع
+كهربائي
+هاتفي

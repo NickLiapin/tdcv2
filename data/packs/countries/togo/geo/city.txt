@@ -1,0 +1,25 @@
+---
+address: togo.geo.city
+description: Cities and larger towns of Togo
+locale: fr
+---
+Lomé
+Sokodé
+Kara
+Kpalimé
+Atakpamé
+Dapaong
+Tsévié
+Aného
+Mango
+Bassar
+Tchamba
+Notsé
+Sotouboua
+Vogan
+Badou
+Niamtougou
+Bafilo
+Tabligbo
+Kandé
+Amlamé

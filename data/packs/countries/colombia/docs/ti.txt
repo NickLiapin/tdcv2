@@ -1,0 +1,6 @@
+---
+address: colombia.docs.ti
+description: Colombian tarjeta de identidad — the document for 7-17 year olds, carrying the same 10-digit NUIP the holder keeps for life. No check digit exists
+generator: tdc
+---
+<gen type="regex" value="1[0-9]{9}"/>

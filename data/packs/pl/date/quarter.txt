@@ -1,0 +1,8 @@
+---
+description: Fiscal quarter (Polish, kwartał)
+locale: pl
+---
+Q1
+Q2
+Q3
+Q4

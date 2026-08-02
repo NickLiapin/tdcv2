@@ -1,0 +1,15 @@
+---
+address: palestine.finance.bank
+description: Banks operating in Palestine (Arabic)
+locale: ar
+---
+بنك فلسطين
+البنك الإسلامي الفلسطيني
+بنك القدس
+البنك الوطني
+بنك الاستثمار الفلسطيني
+البنك الإسلامي العربي
+بنك الأردن
+البنك العربي
+بنك الصفا
+سلطة النقد الفلسطينية

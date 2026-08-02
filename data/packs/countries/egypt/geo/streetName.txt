@@ -1,0 +1,9 @@
+---
+address: egypt.geo.streetName
+description: Egyptian street name — a thoroughfare type followed by a bare name; e.g. "شارع التحرير", "ميدان رمسيس".
+generator: tdc
+locale: ar
+---
+<sequence name="type"><gen type="text" value="شارع,شارع,شارع,ميدان,طريق,كوبري,حي,ممر,كورنيش"/></sequence>
+<sequence name="named"><gen type="template" value="egypt.geo.streetNamed"/></sequence>
+<data>${{type}} ${{named}}</data>

@@ -1,0 +1,17 @@
+---
+address: panama.geo.provinceIso
+description: ISO 3166-2:PA subdivision code without the PA- prefix — provinces are numbered 1-10 (Panamá Oeste is 10), the province-level comarcas take two letters (KY Guna Yala, EM Emberá, NB Ngäbe-Buglé). This is a different numbering from panama.geo.provinceCode. Same order as panama.geo.province
+---
+1
+2
+3
+4
+5
+6
+7
+8
+9
+KY
+EM
+NB
+10

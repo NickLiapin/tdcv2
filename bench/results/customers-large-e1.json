@@ -1,0 +1,47 @@
+[
+  {
+    "language": "ts",
+    "config": "customers",
+    "tier": "large",
+    "rows": 14900000,
+    "engine": 1,
+    "ok": true,
+    "wall": 50.893,
+    "user": null,
+    "sys": null,
+    "peak_rss_mb": 3572.6,
+    "bytes_out": 1112473473,
+    "digest": "eedf58c4d10f613a87bab158e11567cecc0d012e2d1b471a64124eb5139394b5",
+    "note": ""
+  },
+  {
+    "language": "java",
+    "config": "customers",
+    "tier": "large",
+    "rows": 14900000,
+    "engine": 1,
+    "ok": true,
+    "wall": 40.819,
+    "user": null,
+    "sys": null,
+    "peak_rss_mb": 8246.3,
+    "bytes_out": 1112473473,
+    "digest": "eedf58c4d10f613a87bab158e11567cecc0d012e2d1b471a64124eb5139394b5",
+    "note": ""
+  },
+  {
+    "language": "python",
+    "config": "customers",
+    "tier": "large",
+    "rows": 14900000,
+    "engine": 1,
+    "ok": true,
+    "wall": 237.056,
+    "user": null,
+    "sys": null,
+    "peak_rss_mb": 8247.0,
+    "bytes_out": 1112473473,
+    "digest": "eedf58c4d10f613a87bab158e11567cecc0d012e2d1b471a64124eb5139394b5",
+    "note": ""
+  }
+]

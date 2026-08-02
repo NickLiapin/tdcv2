@@ -1,0 +1,24 @@
+---
+address: uruguay.geo.department
+description: Uruguayan departamento — all 19, alphabetical; same order as uruguay.geo.departmentCode / departmentPlateLetter / zipPrefix
+locale: es
+---
+Artigas
+Canelones
+Cerro Largo
+Colonia
+Durazno
+Flores
+Florida
+Lavalleja
+Maldonado
+Montevideo
+Paysandú
+Río Negro
+Rivera
+Rocha
+Salto
+San José
+Soriano
+Tacuarembó
+Treinta y Tres

@@ -1,0 +1,10 @@
+---
+description: Conditions markedly more frequent in people of Middle Eastern ancestry, in Spanish. A prevalence signal, not an exclusive one.
+locale: es
+---
+Fiebre mediterránea familiar
+Beta-talasemia
+Deficiencia de glucosa-6-fosfato deshidrogenasa
+Enfermedad de Behçet
+Deficiencia de vitamina D
+Rasgo falciforme

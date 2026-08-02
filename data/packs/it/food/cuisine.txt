@@ -1,0 +1,20 @@
+---
+description: Cuisine (Italian). Each value has a dishByCuisine child file.
+locale: it
+---
+Italiana
+Giapponese
+Messicana
+Cinese
+Indiana
+Francese
+Thailandese
+Greca
+Spagnola
+Americana
+Coreana
+Vietnamita
+Turca
+Libanese
+Peruviana
+Argentina

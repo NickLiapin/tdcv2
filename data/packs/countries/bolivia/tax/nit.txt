@@ -1,0 +1,7 @@
+---
+address: bolivia.tax.nit
+description: Bolivian NIT (9-digit tax number, no check digit)
+generator: tdc
+---
+<sequence name="body"><gen type="regex" value="[0-9]{9}"/></sequence>
+<data>${{body}}</data>

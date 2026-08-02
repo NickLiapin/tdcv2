@@ -1,0 +1,16 @@
+---
+description: Dishes of Turkish cuisine (German)
+locale: de
+---
+Döner Kebab
+Baklava
+Meze
+Lahmacun
+Dolma
+Köfte
+Pide
+Menemen
+Iskender Kebab
+Börek
+Manti
+Künefe

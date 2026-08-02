@@ -1,0 +1,36 @@
+---
+description: Building type (Spanish)
+locale: es
+---
+Casa
+Departamento
+Apartamento
+Edificio
+Oficina
+Bodega
+Almacén
+Local comercial
+Fábrica
+Nave industrial
+Hospital
+Clínica
+Escuela
+Colegio
+Universidad
+Hotel
+Restaurante
+Centro comercial
+Estadio
+Biblioteca
+Iglesia
+Museo
+Teatro
+Quinta
+Chalet
+Cabaña
+Rancho
+Finca
+Torre
+Condominio
+Residencial
+Estacionamiento

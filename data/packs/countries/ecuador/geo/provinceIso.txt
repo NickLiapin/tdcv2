@@ -1,0 +1,28 @@
+---
+address: ecuador.geo.provinceIso
+description: ISO 3166-2:EC subdivision code without the "EC-" prefix; same order as ecuador.geo.province. Santo Domingo de los Tsáchilas is EC-SD and Santa Elena EC-SE (two letters); the rest are a single letter
+---
+A
+B
+F
+C
+X
+H
+O
+E
+G
+I
+L
+R
+M
+S
+N
+Y
+P
+T
+Z
+W
+U
+D
+SD
+SE

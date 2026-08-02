@@ -1,0 +1,21 @@
+---
+address: argentina.phoneLandline
+description: Argentine fixed line in E.164 form (+54 + area code + subscriber number). The national significant number is always 10 digits, so the subscriber part shrinks as the area code grows — 8 digits behind 11, 7 behind a three-digit code, 6 behind a four-digit one.
+generator: tdc
+---
+<sequence name="area"><gen type="template" value="argentina.phoneAreaCode"/></sequence>
+<sequence name="sub8"><gen type="regex" value="[2-9][0-9]{7}"/></sequence>
+<sequence name="sub7"><gen type="regex" value="[2-9][0-9]{6}"/></sequence>
+<sequence name="sub6"><gen type="regex" value="[2-9][0-9]{5}"/></sequence>
+<sequence name="number"><compute>
+  <let name="len"><length><field name="area"/></length></let>
+  <result><concat>
+    <str v="+54"/><field name="area"/>
+    <choose>
+      <when><test><equals><var name="len"/><int v="2"/></equals></test><then><field name="sub8"/></then></when>
+      <when><test><equals><var name="len"/><int v="3"/></equals></test><then><field name="sub7"/></then></when>
+      <otherwise><field name="sub6"/></otherwise>
+    </choose>
+  </concat></result>
+</compute></sequence>
+<data>${{number}}</data>

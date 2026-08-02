@@ -1,0 +1,12 @@
+---
+description: Jobs in Finance (Portuguese)
+locale: pt
+---
+Analista financeiro
+Contador
+Banqueiro de investimentos
+Auditor
+Atuário
+Analista de crédito
+Consultor tributário
+Corretor de valores

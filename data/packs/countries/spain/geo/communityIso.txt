@@ -1,0 +1,21 @@
+---
+address: spain.geo.communityIso
+description: ISO 3166-2:ES subdivision code of the autonomous community, without the "ES-" prefix; same order as spain.geo.community
+---
+AN
+AR
+AS
+IB
+CN
+CB
+CL
+CM
+CT
+VC
+EX
+GA
+MD
+MC
+NC
+PV
+RI

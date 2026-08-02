@@ -1,0 +1,68 @@
+---
+address: new_zealand.docs.ird
+description: New Zealand IRD (Inland Revenue) number — 9 digits: an 8-digit base plus a mod-11 check digit. Primary weights 3,2,7,6,5,4,3,2; when the primary check resolves to 10 the secondary weights 7,4,3,2,5,2,7,6 are used; the rare base that fails both is nudged to the next valid one. Every emitted number passes IRD's own validation.
+generator: tdc
+locale: en
+---
+<!-- The 8-digit base sits inside IRD's valid range (10,000,000-150,000,000). -->
+<sequence name="base"><gen type="regex" value="[1-9][0-9]{7}"/></sequence>
+<sequence name="ird"><compute>
+  <!-- Primary weighting 3,2,7,6,5,4,3,2 across the eight base digits. -->
+  <let name="sum1"><reduce>
+    <over><field name="base"/></over>
+    <init><int v="0"/></init>
+    <do><add><acc/>
+      <multiply><current/>
+        <at><in><list v="3,2,7,6,5,4,3,2"/></in><index><current_index/></index></at>
+      </multiply>
+    </add></do>
+  </reduce></let>
+  <let name="r1"><mod><var name="sum1"/><int v="11"/></mod></let>
+  <!-- 11 - remainder, with remainder 0 mapping to check 0. A check of 10
+       (remainder 1) is not a valid digit and falls through to the secondary
+       stage below. -->
+  <let name="c1"><choose>
+    <when><test><equals><var name="r1"/><int v="0"/></equals></test><then><int v="0"/></then></when>
+    <otherwise><subtract><int v="11"/><var name="r1"/></subtract></otherwise>
+  </choose></let>
+  <!-- Secondary weighting 7,4,3,2,5,2,7,6; only used when c1 resolves to 10. -->
+  <let name="sum2"><reduce>
+    <over><field name="base"/></over>
+    <init><int v="0"/></init>
+    <do><add><acc/>
+      <multiply><current/>
+        <at><in><list v="7,4,3,2,5,2,7,6"/></in><index><current_index/></index></at>
+      </multiply>
+    </add></do>
+  </reduce></let>
+  <let name="r2"><mod><var name="sum2"/><int v="11"/></mod></let>
+  <let name="c2"><choose>
+    <when><test><equals><var name="r2"/><int v="0"/></equals></test><then><int v="0"/></then></when>
+    <otherwise><subtract><int v="11"/><var name="r2"/></subtract></otherwise>
+  </choose></let>
+  <!-- Residual case (c1 == 10 and c2 == 10): this base has no valid check
+       digit, so IRD would never issue it. Bump the last base digit by 1
+       (mod 10). Because the primary remainder is exactly 1 in this case, the
+       shift moves the primary remainder to 3 (or to 5 when the digit wrapped
+       9 -> 0), giving a valid single-digit check of 8 (or 6). -->
+  <let name="last"><to_number><slice from="7" to="8"><field name="base"/></slice></to_number></let>
+  <let name="bumpedLast"><mod><add><var name="last"/><int v="1"/></add><int v="10"/></mod></let>
+  <let name="bumpedCheck"><choose>
+    <when><test><equals><var name="last"/><int v="9"/></equals></test><then><int v="6"/></then></when>
+    <otherwise><int v="8"/></otherwise>
+  </choose></let>
+  <result>
+    <choose>
+      <when><test><equals><var name="c1"/><int v="10"/></equals></test>
+        <then>
+          <choose>
+            <when><test><equals><var name="c2"/><int v="10"/></equals></test>
+              <then><concat><slice from="0" to="7"><field name="base"/></slice><var name="bumpedLast"/><var name="bumpedCheck"/></concat></then></when>
+            <otherwise><concat><field name="base"/><var name="c2"/></concat></otherwise>
+          </choose>
+        </then></when>
+      <otherwise><concat><field name="base"/><var name="c1"/></concat></otherwise>
+    </choose>
+  </result>
+</compute></sequence>
+<data>${{ird}}</data>

@@ -1,0 +1,11 @@
+---
+description: Conditions markedly more frequent in people of Southeast Asian ancestry, given in Greek. A prevalence signal, not an exclusive one.
+locale: el
+---
+Νόσος της αιμοσφαιρίνης E
+Άλφα-θαλασσαιμία
+Ανεπάρκεια αφυδρογονάσης της 6-φωσφορικής γλυκόζης
+Καρκίνωμα του ρινοφάρυγγα
+Βήτα-θαλασσαιμία
+Σύνδρομο Μπρουγκάντα
+Ανεπάρκεια λακτάσης ενηλίκων

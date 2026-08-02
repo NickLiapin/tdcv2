@@ -1,0 +1,12 @@
+---
+description: Sport (has a coherent position list)
+locale: en
+---
+Soccer
+Basketball
+American Football
+Baseball
+Ice Hockey
+Volleyball
+Rugby
+Cricket

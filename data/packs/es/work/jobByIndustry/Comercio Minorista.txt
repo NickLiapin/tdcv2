@@ -1,0 +1,10 @@
+---
+description: Jobs in Retail (Spanish)
+locale: es
+---
+Gerente de tienda
+Cajero
+Vendedor
+Reponedor
+Encargado de prevención de pérdidas
+Comprador

@@ -1,0 +1,54 @@
+---
+description: Airline (Greek and Cypriot carriers plus major international ones)
+locale: el
+---
+Aegean Airlines
+Olympic Air
+Sky Express
+Ellinair
+Blue Bird Airways
+Marathon Airlines
+Astra Airlines
+Orange2fly
+GainJet Aviation
+Amjet Executive
+Cyprus Airways
+TUS Airways
+Ryanair
+easyJet
+Wizz Air
+Volotea
+Transavia
+Eurowings
+Vueling
+British Airways
+Lufthansa
+Air France
+KLM
+Swiss International Air Lines
+Austrian Airlines
+Brussels Airlines
+Iberia
+TAP Air Portugal
+ITA Airways
+SAS Scandinavian Airlines
+Finnair
+LOT Polish Airlines
+Air Serbia
+Turkish Airlines
+Pegasus Airlines
+Emirates
+Qatar Airways
+Etihad Airways
+El Al
+Egyptair
+Royal Jordanian
+Middle East Airlines
+Singapore Airlines
+Qantas
+American Airlines
+United Airlines
+Delta Air Lines
+Air Canada
+Ethiopian Airlines
+Royal Air Maroc

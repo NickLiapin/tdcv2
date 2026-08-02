@@ -1,0 +1,17 @@
+---
+address: jordan.sport.team
+description: Jordanian Pro League football clubs (Arabic)
+locale: ar
+---
+الوحدات
+الفيصلي
+الحسين إربد
+شباب الأردن
+الرمثا
+معان
+السلط
+الجزيرة
+الأهلي
+سحاب
+مغير السرحان
+الحسين عمان

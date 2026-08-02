@@ -1,0 +1,39 @@
+---
+description: Vegetable (French)
+locale: fr
+---
+Carotte
+Pomme de terre
+Tomate
+Courgette
+Aubergine
+Poivron
+Concombre
+Salade
+Épinard
+Chou
+Chou-fleur
+Brocoli
+Haricot vert
+Petit pois
+Poireau
+Oignon
+Ail
+Échalote
+Navet
+Betterave
+Radis
+Céleri
+Fenouil
+Artichaut
+Asperge
+Champignon
+Potiron
+Courge
+Endive
+Maïs
+Lentille
+Pois chiche
+Blette
+Panais
+Topinambour

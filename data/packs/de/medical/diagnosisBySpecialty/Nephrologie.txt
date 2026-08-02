@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Nephrology (German)
+locale: de
+---
+Chronische Niereninsuffizienz
+Nierensteine
+Glomerulonephritis
+Akutes Nierenversagen
+Polyzystische Nierenerkrankung
+Nephrotisches Syndrom
+Diabetische Nephropathie
+Harnwegsinfektion
+Renale Anämie
+Hyperkaliämie

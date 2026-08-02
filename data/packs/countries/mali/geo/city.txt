@@ -1,0 +1,27 @@
+---
+address: mali.geo.city
+description: Cities and larger towns of Mali
+locale: fr
+---
+Bamako
+Sikasso
+Koutiala
+Ségou
+Kayes
+Mopti
+Kati
+Gao
+Markala
+San
+Bougouni
+Tombouctou
+Koulikoro
+Kolokani
+Djenné
+Niono
+Nioro du Sahel
+Kadiolo
+Bandiagara
+Kidal
+Kalabancoro
+Yorosso

@@ -1,0 +1,16 @@
+---
+description: Shipment tracking status (French)
+locale: fr
+---
+Étiquette créée
+Pris en charge
+En transit
+Arrivé au centre de tri
+En cours de livraison
+Livré
+Échec de livraison
+En attente au point relais
+Disponible au point relais
+Retourné à l'expéditeur
+En dédouanement
+Adresse incorrecte

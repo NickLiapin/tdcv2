@@ -1,0 +1,10 @@
+---
+description: Polish full male name — a single given name and a single surname (Piotr Kowalski). Polish names carry one surname, unlike the two-surname Spanish form.
+generator: tdc
+locale: pl
+---
+<sequence name="p">
+  <gen name="f" type="template" value="pl.person.male.firstName"/>
+  <gen name="l" type="template" value="pl.person.lastName"/>
+</sequence>
+<data>${{p.f}} ${{p.l}}</data>

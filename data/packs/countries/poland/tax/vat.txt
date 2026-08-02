@@ -1,0 +1,20 @@
+---
+address: poland.tax.vat
+description: Polish VAT (PL + NIP; weighted mod-11, rejects check==10)
+generator: tdc
+---
+<sequence name="base"><gen type="regex" value="[0-9]{9}"/></sequence>
+<sequence name="check"><compute><result>
+  <mod>
+    <reduce>
+      <over><field name="base"/></over>
+      <init><int v="0"/></init>
+      <do><add><acc/><multiply><current/>
+        <at><in><list v="6,5,7,2,3,4,5,6,7"/></in><index><current_index/></index></at>
+      </multiply></add></do>
+    </reduce>
+    <int v="11"/>
+  </mod>
+</result></compute></sequence>
+<valid><less_than><to_number><field name="check"/></to_number><int v="10"/></less_than></valid>
+<data>PL${{base}}${{check}}</data>

@@ -1,0 +1,36 @@
+---
+description: Building type (Portuguese)
+locale: pt
+---
+Casa
+Apartamento
+Prédio
+Edifício
+Escritório
+Adega
+Armazém
+Loja comercial
+Fábrica
+Galpão industrial
+Hospital
+Clínica
+Escola
+Colégio
+Universidade
+Hotel
+Restaurante
+Centro comercial
+Estádio
+Biblioteca
+Igreja
+Museu
+Teatro
+Quinta
+Chalé
+Cabana
+Rancho
+Fazenda
+Torre
+Condomínio
+Residencial
+Estacionamento

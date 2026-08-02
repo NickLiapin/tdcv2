@@ -1,0 +1,19 @@
+---
+description: Jobs in Construction (Italian)
+locale: it
+---
+Elettricista
+Idraulico
+Falegname
+Capocantiere
+Operatore di macchine pesanti
+Topografo
+Muratore
+Gruista
+Architetto
+Ingegnere civile
+Imbianchino
+Copritetto
+Carpentiere edile
+Direttore dei lavori
+Responsabile della sicurezza in cantiere

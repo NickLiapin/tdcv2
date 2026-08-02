@@ -1,0 +1,10 @@
+---
+description: Positions in Volleyball (Arabic)
+locale: ar
+---
+معد
+ضارب
+وسط
+ليبرو
+مستقبل
+معاكس

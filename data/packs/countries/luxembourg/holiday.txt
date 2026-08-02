@@ -1,0 +1,16 @@
+---
+address: luxembourg.holiday
+description: Luxembourg public holidays (French names)
+locale: fr
+---
+Jour de l'An
+Lundi de Pâques
+Fête du Travail
+Journée de l'Europe
+Ascension
+Lundi de Pentecôte
+Fête nationale
+Assomption
+Toussaint
+Noël
+Saint-Étienne

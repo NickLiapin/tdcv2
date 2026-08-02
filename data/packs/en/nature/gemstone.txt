@@ -1,0 +1,24 @@
+---
+description: Gemstone
+locale: en
+---
+Diamond
+Ruby
+Sapphire
+Emerald
+Amethyst
+Topaz
+Opal
+Garnet
+Aquamarine
+Peridot
+Turquoise
+Jade
+Onyx
+Pearl
+Citrine
+Tanzanite
+Tourmaline
+Moonstone
+Zircon
+Lapis Lazuli

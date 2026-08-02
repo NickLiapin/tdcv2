@@ -1,0 +1,27 @@
+---
+description: Polish address unit / interior designator (abbreviated forms used before a number)
+locale: pl
+---
+m.
+lok.
+mieszk.
+piętro
+klatka
+kl.
+blok
+bud.
+budynek
+wejście
+pokój
+apartament
+lokal
+biuro
+pom.
+poziom
+garaż
+miejsce postojowe
+boks
+komórka
+działka
+segment
+oficyna

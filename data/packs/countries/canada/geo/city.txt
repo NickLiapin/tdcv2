@@ -1,0 +1,89 @@
+---
+address: canada.geo.city
+description: Canadian city or large municipality (real incorporated cities across all provinces and territories)
+---
+Toronto
+Montreal
+Vancouver
+Calgary
+Edmonton
+Ottawa
+Winnipeg
+Quebec City
+Hamilton
+Kitchener
+London
+Victoria
+Halifax
+Oshawa
+Windsor
+Saskatoon
+Regina
+St. John's
+Barrie
+Kelowna
+Abbotsford
+Sherbrooke
+Trois-Rivières
+Guelph
+Kingston
+Moncton
+Saint John
+Thunder Bay
+Greater Sudbury
+Peterborough
+Lethbridge
+Nanaimo
+Kamloops
+Fredericton
+Chilliwack
+Red Deer
+Sarnia
+Prince George
+Drummondville
+Sault Ste. Marie
+Medicine Hat
+Charlottetown
+Granby
+Fort McMurray
+Grande Prairie
+North Bay
+Cornwall
+Mississauga
+Brampton
+Surrey
+Laval
+Markham
+Vaughan
+Gatineau
+Longueuil
+Burnaby
+Richmond
+Richmond Hill
+Oakville
+Burlington
+Milton
+Ajax
+Waterloo
+Cambridge
+Whitby
+Coquitlam
+Terrebonne
+Saanich
+Lévis
+Saguenay
+Brantford
+Belleville
+Airdrie
+Saint-Jérôme
+St. Catharines
+Niagara Falls
+Newmarket
+Pickering
+Delta
+Langley
+Maple Ridge
+New Westminster
+Whitehorse
+Yellowknife
+Iqaluit

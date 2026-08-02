@@ -1,0 +1,28 @@
+---
+address: bolivia.holiday
+description: Bolivian holiday — the national feriados set by decree (Año Nuevo, Estado Plurinacional, Carnaval, Viernes Santo, Día del Trabajo, Corpus Christi, Año Nuevo Andino Amazónico, Independencia, Todos los Difuntos, Navidad) followed by widely observed civic and religious dates that are not statutory days of rest
+locale: es
+---
+Año Nuevo
+Día del Estado Plurinacional de Bolivia
+Lunes de Carnaval
+Martes de Carnaval
+Viernes Santo
+Día del Trabajo
+Corpus Christi
+Año Nuevo Andino Amazónico
+Día de la Independencia de Bolivia
+Día de Todos los Difuntos
+Navidad
+Día de Reyes
+Día del Mar
+Jueves Santo
+Domingo de Resurrección
+Día de la Madre
+Día del Padre
+San Juan
+Día de la Bandera
+Día del Estudiante
+Día de la Primavera
+Día de Todos los Santos
+Nochebuena

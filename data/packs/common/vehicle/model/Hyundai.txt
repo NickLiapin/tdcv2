@@ -1,0 +1,15 @@
+---
+description: Models of Hyundai
+locale: en
+---
+Elantra
+Sonata
+Tucson
+Santa Fe
+Kona
+Palisade
+Venue
+Ioniq 5
+Ioniq 6
+Accent
+Santa Cruz

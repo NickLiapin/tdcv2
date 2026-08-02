@@ -1,0 +1,32 @@
+---
+description: Tech verb, infinitive (German)
+locale: de
+---
+sichern
+umgehen
+hacken
+überschreiben
+komprimieren
+kopieren
+navigieren
+indexieren
+verbinden
+generieren
+quantifizieren
+berechnen
+synthetisieren
+eingeben
+übertragen
+programmieren
+neustarten
+analysieren
+verschlüsseln
+entschlüsseln
+bereitstellen
+kompilieren
+debuggen
+optimieren
+synchronisieren
+virtualisieren
+routen
+überwachen

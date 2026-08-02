@@ -1,0 +1,27 @@
+---
+address: chad.geo.city
+description: Cities and larger towns of Chad
+locale: fr
+---
+N'Djaména
+Moundou
+Sarh
+Abéché
+Kélo
+Koumra
+Pala
+Am Timan
+Bongor
+Mongo
+Doba
+Ati
+Fada
+Faya-Largeau
+Massaguet
+Bol
+Léré
+Oum Hadjer
+Massakory
+Bitkine
+Biltine
+Goz Beïda

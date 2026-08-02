@@ -1,0 +1,10 @@
+---
+description: Diagnoses seen in Dermatología
+locale: es
+---
+Psoriasis
+Dermatitis atópica
+Acné vulgar
+Melanoma
+Rosácea
+Dermatitis de contacto

@@ -1,0 +1,37 @@
+---
+address: zh-cn.person.female.firstName
+description: Chinese female given names (given-name part only)
+locale: zh-cn
+---
+芳
+娜
+敏
+静
+丽
+娟
+英
+慧
+燕
+霞
+玲
+桂英
+秀英
+秀兰
+玉兰
+丹
+萍
+红
+婷
+雪
+倩
+悦
+婷婷
+晓燕
+丽娟
+淑英
+美玲
+芳芳
+晓红
+梦琪
+欣怡
+雨萱

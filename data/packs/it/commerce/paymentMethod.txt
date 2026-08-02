@@ -1,0 +1,19 @@
+---
+description: Payment method (Italian)
+locale: it
+---
+Carta di credito
+Carta di debito
+PayPal
+Apple Pay
+Google Pay
+Bonifico bancario
+Contrassegno
+Contanti
+Carta regalo
+Criptovaluta
+Pagamento rateale
+Addebito diretto
+Assegno
+Buono sconto
+Portafoglio elettronico

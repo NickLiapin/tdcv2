@@ -1,0 +1,44 @@
+---
+description: Sport (French)
+locale: fr
+---
+Football
+Futsal
+Football américain
+Basket-ball
+Baseball
+Volley-ball
+Beach-volley
+Handball
+Rugby
+Hockey sur glace
+Hockey sur gazon
+Cricket
+Tennis
+Padel
+Tennis de table
+Badminton
+Golf
+Natation
+Athlétisme
+Cyclisme
+Boxe
+Judo
+Karaté
+Escrime
+Équitation
+Ski
+Snowboard
+Surf
+Voile
+Aviron
+Gymnastique
+Escalade
+Course à pied
+Triathlon
+Pétanque
+Canoë-kayak
+Ski de fond
+Patinage artistique
+Lutte
+Haltérophilie

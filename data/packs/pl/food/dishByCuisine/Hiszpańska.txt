@@ -1,0 +1,14 @@
+---
+description: Dishes of Spanish cuisine (Polish)
+locale: pl
+---
+Paella
+Tapas
+Gazpacho
+Tortilla hiszpańska
+Churros
+Patatas bravas
+Szynka iberyjska
+Ośmiornica po galicyjsku
+Fabada asturiana
+Salmorejo

@@ -1,0 +1,15 @@
+---
+address: tajikistan.sport.team
+description: Tajikistan Higher League football clubs (Russian names)
+locale: ru
+---
+Истиклол
+Худжанд
+Хосилот
+Регар-ТадАЗ
+ЦСКА-Памир
+Куктош
+Файзканд
+Равшан
+Истаравшан
+Баркчи

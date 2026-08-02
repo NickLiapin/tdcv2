@@ -1,0 +1,34 @@
+---
+description: Insect / small invertebrate (French)
+locale: fr
+---
+Abeille
+Guêpe
+Frelon
+Fourmi
+Coccinelle
+Papillon
+Libellule
+Sauterelle
+Criquet
+Grillon
+Mouche
+Moustique
+Araignée
+Scarabée
+Hanneton
+Puceron
+Chenille
+Ver de terre
+Escargot
+Limace
+Cafard
+Termite
+Mante religieuse
+Cigale
+Luciole
+Bourdon
+Puce
+Tique
+Pou
+Punaise

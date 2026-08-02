@@ -1,0 +1,6 @@
+---
+address: united_kingdom.finance.sortCode
+description: UK sort code — 6 digits written in three hyphen-separated pairs (NN-NN-NN). Identifies the bank and branch; carries no check digit.
+generator: tdc
+---
+<gen type="regex" value="[0-9]{2}-[0-9]{2}-[0-9]{2}"/>

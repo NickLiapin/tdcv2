@@ -1,0 +1,23 @@
+---
+address: austria.education.university
+description: Universities of Austria (German names)
+locale: de
+---
+Universität Wien
+Technische Universität Wien
+Universität Innsbruck
+Karl-Franzens-Universität Graz
+Technische Universität Graz
+Universität Salzburg
+Johannes Kepler Universität Linz
+Wirtschaftsuniversität Wien
+Medizinische Universität Wien
+Medizinische Universität Graz
+Medizinische Universität Innsbruck
+Universität Klagenfurt
+Universität für Bodenkultur Wien
+Montanuniversität Leoben
+Veterinärmedizinische Universität Wien
+Universität für angewandte Kunst Wien
+Universität Mozarteum Salzburg
+Donau-Universität Krems

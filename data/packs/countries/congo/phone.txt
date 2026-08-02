@@ -1,0 +1,6 @@
+---
+address: congo.phone
+description: Congolese (Brazzaville) mobile phone in E.164 form (+242 0[456]XXXXXXX)
+generator: tdc
+---
+<gen type="regex" value="\+2420[456][0-9]{7}"/>

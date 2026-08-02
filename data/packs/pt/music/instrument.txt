@@ -1,0 +1,35 @@
+---
+description: Musical instrument (Portuguese)
+locale: pt
+---
+Violão
+Piano
+Violino
+Bateria
+Baixo elétrico
+Saxofone
+Trompete
+Flauta
+Violoncelo
+Clarinete
+Trombone
+Harpa
+Ukulele
+Banjo
+Acordeão
+Teclado
+Oboé
+Contrabaixo
+Gaita
+Xilofone
+Guitarra
+Cajón
+Maracas
+Bongô
+Congas
+Timbales
+Cavaquinho
+Pandeiro
+Berimbau
+Agogô
+Reco-reco

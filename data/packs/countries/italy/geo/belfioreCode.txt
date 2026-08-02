@@ -1,0 +1,45 @@
+---
+address: italy.geo.belfioreCode
+description: Italian cadastral town codes (codice Belfiore) — a letter plus three digits, used as the place-of-birth field of a codice fiscale. Real codes for major comuni.
+locale: it
+---
+H501
+F205
+F839
+L219
+D612
+A944
+G273
+C351
+L736
+D969
+A662
+L424
+G482
+F704
+D548
+A271
+C573
+B354
+E463
+L781
+I754
+G888
+A345
+L049
+F257
+C342
+E506
+H294
+B963
+G337
+M082
+L483
+A182
+C133
+E815
+I452
+F912
+D643
+H223
+L840

@@ -1,0 +1,420 @@
+---
+title: Overview
+sidebar_position: 1
+---
+
+import Figure from '@site/src/components/Figure';
+import Legend from '@site/src/components/Legend';
+
+import Terminal from '@site/src/components/Terminal';
+
+# The compute sub-language
+
+`<compute>` is part of the TDC language, like `<switch>` or `<mix>`, but its job is
+**calculation**: it **derives a value from other values**. Inventing data at random is
+[`<gen>`](../generators/overview.mdx)'s job; `<compute>` **processes values you already
+have**. It lives right in the config, inside a
+[`<sequence>`](../core-concepts/sequences.mdx), and it's how real-world checksums get
+built: a credit card's Luhn digit, an ISBN check digit, an IBAN mod-97.
+
+- [`<gen>`](../generators/overview.mdx) **produces** a value (random, from a
+  range/list/template).
+- `<compute>` **derives** a value as a pure function of other values.
+
+`<compute>` reads other sequences with `<field name="…"/>` — the same names you'd use
+in [`${{…}}`](../core-concepts/output-formatting.mdx).
+
+:::caution[A processor, not a generator]
+`<compute>` has **no randomness of its own** — none at all. Give it the same inputs and
+it returns the same answer, every time. A sequence whose only child is a `<compute>`
+ignores the run's `seed` completely: change the seed and the column is byte-identical,
+because nothing in it was ever drawn.
+
+That is why **`uniq="true"` is not allowed on such a sequence** ([`TDC218`](../reference/errors.mdx)).
+A processor cannot promise uniqueness: it has no pool to draw from without replacement,
+no columns of its own to rearrange, and no dice to re-roll on a collision — `f(x)` is
+`f(x)`. Whether the result repeats is a property of the formula, not of `<compute>`. Ask
+for uniqueness on the `<gen>` sequences it reads, or wrap them in
+[`<uniq>`](../constructs/unique-values.mdx).
+
+Every data pack that builds an identifier works this way: the `<gen>` siblings do the
+drawing and the `<compute>` derives the check digit. Of the 188 bundled packs that use
+`<compute>`, not one has a `<compute>` without a `<gen>` beside it.
+
+A `<sequence>` therefore holds **one or the other, never both**: a `<compute>` next to a
+`<gen>` is [`TDC219`](../reference/errors.mdx). Put the `<compute>` in its own
+`<sequence>` and read the drawn one with `<field name="…"/>` — exactly the way the packs
+are laid out.
+:::
+
+<Figure
+  src="/img/guides/compute.svg"
+  alt=""
+  caption="A real card number from one run: fifteen generated digits, plus the check digit derived from them."
+/>
+
+<Legend items={[["A", "the generated digits"], ["B", "the derived check digit"], ["C", "the arithmetic: every second digit is doubled, everything is summed, and the check digit is whatever brings the total to a multiple of ten"]]} />
+
+## The pipe
+
+Read a `<compute>` as a pipe with three parts.
+
+1. **Input.** `<field name="First"/>` pulls in a column that already exists.
+2. **Work.** Operations nest inside one another, innermost first.
+3. **Output.** `<result>` holds the finished value, one per record.
+
+`<result>` is required and there is exactly one of it. Everything else in the block is
+either a `<let>` binding or the tree inside that `<result>`.
+
+<Figure
+  src="/img/compute/pipe.svg"
+  alt=""
+  caption="A login built from two columns: the first letter of one, glued to the other, lowercased."
+/>
+
+<Legend items={[["A", "the columns a <compute> reads with <field> — they were drawn elsewhere"], ["B", "the operations, each feeding the next; the innermost one runs first"], ["C", "the finished value, which is what <result> holds"]]} />
+
+Here is the whole shape at its smallest — a login built from a first name and a last
+name:
+
+```xml
+<tdc>
+    <env count="3" seed="pipe" local="en">
+        <sequence name="First"><gen type="template" value="person.male.firstName"/></sequence>
+        <sequence name="Last"><gen type="template" value="person.lastName"/></sequence>
+        <sequence name="Login">
+            <compute>
+                <result>
+                    <lower>
+                        <concat>
+                            <slice from="0" to="1"><field name="First"/></slice>
+                            <field name="Last"/>
+                        </concat>
+                    </lower>
+                </result>
+            </compute>
+        </sequence>
+    </env>
+    <block><line><data>${{First}} ${{Last}} → ${{Login}}</data></line></block>
+</tdc>
+```
+
+<Terminal title="./run login.tdc">
+{`James Williams → jwilliams
+Robert Johnson → rjohnson
+John Smith → jsmith`}
+</Terminal>
+
+Three operations, evaluated inside out: `<slice>` takes the first letter, `<concat>`
+glues it to the last name, `<lower>` lowercases the result. Nothing here is drawn — the
+two names were drawn by their `<gen>`s, and `<compute>` only rearranges what they
+produced.
+
+## Slots: children with a job title
+
+Most tags take their children as plain values, in order. Some take **named roles**
+instead, and those children are called slots. `<at>` picks an element out of a list, and
+it needs two different things — a list and a position — so each gets its own tag:
+
+```xml
+<tdc>
+    <env count="3" seed="slot" local="en">
+        <sequence name="Score"><gen type="number" value="0..2"/></sequence>
+        <sequence name="Grade">
+            <compute>
+                <result>
+                    <at>
+                        <in><list v="100,200,300"/></in>
+                        <index><to_number><field name="Score"/></to_number></index>
+                    </at>
+                </result>
+            </compute>
+        </sequence>
+    </env>
+    <block><line><data>${{Score}} → ${{Grade}}</data></line></block>
+</tdc>
+```
+
+<Terminal title="./run at.tdc">
+{`1 → 200
+2 → 300
+0 → 100`}
+</Terminal>
+
+`<in>` and `<index>` are slots of `<at>`. They mean nothing on their own, they never
+appear anywhere else, and swapping their order changes nothing — the name carries the
+meaning, not the position. Fourteen of the tags on these pages are slots or loop
+variables like this, and each one is introduced together with the tag that owns it.
+
+<Figure
+  src="/img/compute/studio-at-slots-light.png"
+  srcDark="/img/compute/studio-at-slots.png"
+  alt=""
+  frame
+  zoom
+  caption="The same lookup on the Studio canvas — the list and the position hang off named ports, not off a first and a second child. Click to open it full size."
+/>
+
+## A fuller example — a valid card number
+
+A payment-card number is *almost* random: the last digit is a
+[Luhn](https://en.wikipedia.org/wiki/Luhn_algorithm) check digit computed from the
+rest. Generate 15 random digits, then let `<compute>` append the one digit that makes
+the whole thing valid:
+
+```xml
+<tdc>
+  <env count="100" seed="demo">
+    <sequence name="Base">
+      <gen type="number" length="15" first_zero="false"/>   <!-- 15 random digits -->
+    </sequence>
+
+    <sequence name="Card">
+      <compute>
+        <let name="sum">
+          <reduce>
+            <over><field name="Base"/></over>
+            <init><int v="0"/></init>
+            <do><add><acc/>
+              <choose>
+                <when>
+                  <test><equals><mod><current_index/><int v="2"/></mod><int v="0"/></equals></test>
+                  <then><at><in><list v="0,2,4,6,8,1,3,5,7,9"/></in>
+                            <index><current/></index></at></then>
+                </when>
+                <otherwise><current/></otherwise>
+              </choose>
+            </add></do>
+          </reduce>
+        </let>
+        <let name="check">
+          <mod><subtract><int v="10"/><mod><var name="sum"/><int v="10"/></mod></subtract><int v="10"/></mod>
+        </let>
+        <result><concat><field name="Base"/><var name="check"/></concat></result>
+      </compute>
+    </sequence>
+  </env>
+  <block><line><data>${{Card}}</data></line></block>
+</tdc>
+```
+
+<Terminal title="./run card.tdc">
+{`5651468319671434
+4592454318080046
+6795599553235471
+2342763161342247
+6190038560588706`}
+</Terminal>
+
+Example outputs on this page are illustrative — the exact values depend on the seed and
+the core version — but every line above is a genuinely Luhn-valid 16-digit number.
+
+Piece by piece: [`<reduce>`](lists.mdx#reduce--fold-to-one-value) folds the 15 digits
+into a single running `sum`. Every second digit (an even
+[`<current_index/>`](lists.mdx)) gets "doubled" — but Luhn wants the *digit sum* of the
+doubled value, so instead of `<multiply>` the config looks it up in a small table with
+[`<at>`](lists.mdx#at--index-into-a-list). A [`<choose>`](conditionals.mdx) picks either
+the doubled value or the plain digit. The second `check` step turns that sum into the
+final digit, and [`<concat>`](strings.mdx) glues it onto the base.
+
+## Three value types
+
+Every compute expression evaluates to one of three types.
+
+| Type   | What it is             | Literal              |
+| :----- | :--------------------- | :------------------- |
+| `int`  | a 64-bit integer       | `<int v="10"/>`      |
+| `str`  | a string               | `<str v="AB"/>`      |
+| `list` | a list of `int`/`str`  | `<list v="2,4,10"/>` |
+
+A literal's value goes in the **`v` attribute** — in TDC, tags can't hold text between
+`<tag>` and `</tag>`. There are no floats and no booleans.
+
+## Familiar names, different behavior
+
+Several tags share a name with something in a programming language and then behave
+differently. A familiar name is worse than an unfamiliar one here: you do not reread the
+documentation for a tag you think you already know. Each row below is measured, not
+inferred.
+
+| You write | You may expect | TDC gives |
+| :--- | :--- | :--- |
+| `<divide>` of 7 by 2 | `3.5` | `3` — integer division, the remainder is dropped |
+| `<divide>` of 1 by 3 | `0.33` | `0` |
+| `<mod>` of -7 by 3 | `-1`, as in C, Java and JavaScript | `2` — the remainder is never negative |
+| `<list v="a,b"/>` | a list of two strings | an error: `"a" is not an integer` |
+| `<replace from="[ab]"/>` | a regular expression | a literal match, so nothing is replaced |
+| `<replace from="a"/>` on `banana` | the first `a` | `bXnXnX` — every occurrence |
+| `<equals>` of `5` and `"5"` | different types, not equal | equal |
+| `<slice from="99">` of `abc` | an error | an empty string, silently |
+| `<pad width="2">` of `12345` | `12` | `12345` — `width` is a minimum, never a cut |
+| `<each>` used as a string | a string | an error: `cannot use a list where a string is expected` |
+
+Three of these deserve more than a row.
+
+### `<let>` and `<var>` are not two kinds of variable
+
+They are a **declaration** and a **read**. `<let name="x">` binds a name; `<var name="x"/>`
+reads it back. In most programming languages both `let` and `var` declare a variable, which is
+exactly why the pair misleads here.
+
+Three rules follow, and the engine enforces all three:
+
+| Rule | What you get when you break it |
+| :--- | :--- |
+| A name must be bound before it is read | `TDC182: <var name="x"> is not bound by an enclosing <let>` |
+| A name is bound once and cannot be rebound | `TDC185: <let name="x"> shadows an outer binding of the same name` |
+| A binding is visible only inside its own slot | a `<let>` inside `<do>` is invisible outside it — `TDC182` again |
+
+Put plainly: `<let>` works a value out once and gives it a name, and `<var>` is how the
+rest of the block asks for that value again instead of repeating the work. The value
+never changes after it is named — that is what makes naming it worth anything. It is the
+same move as arithmetic on paper: *let s be the score as a number*, written once and used
+to the end.
+
+### `<divide>` throws the remainder away
+
+This is the one that costs the most, because nothing goes wrong loudly. A percentage
+computed as `<divide>` of a part by a whole is `0` for every record, and the column looks
+plausible until someone checks it. Multiply first and divide last, or keep the value in
+whole units — cents rather than dollars.
+
+Dividing by zero is refused rather than silently skipped:
+`<divide>: the divisor (second child) must not be zero`.
+
+### A value from a `<field>` is a string
+
+`<field name="Score"/>` hands you a string even when the column holds digits. Arithmetic
+needs a number, so `<to_number>` sits on the border between the two. Miss it and the
+error names the tag that received the wrong type.
+
+The reverse crossing is automatic: a number placed in `<concat>` becomes its digits.
+
+## The tag families
+
+Each family has its own page with worked examples; the full alphabetical catalog is in
+the [Compute functions reference](../reference/compute.mdx).
+
+### Literals & references
+
+The values you start from and the names you give intermediate results.
+
+| Tag                    | What it does                                              |
+| :--------------------- | :------------------------------------------------------- |
+| `<int v="10"/>`        | an integer (`v` is decimal, may carry a leading `-`)     |
+| `<str v="AB"/>`        | a string                                                 |
+| `<list v="2,4,10"/>`   | a comma-separated list of ints                           |
+| `<field name="X"/>`    | the value of sequence `X` in scope — same as `${{X}}`    |
+| `<var name="X"/>`      | the value bound by an enclosing `<let name="X">`         |
+| `<let name="X">…`      | names an intermediate result that sibling tags can read  |
+| `<current/>`           | the current element (only inside `<do>`)                 |
+| `<current_index/>`     | the zero-based position of the current element           |
+| `<acc/>`               | the accumulator (only inside `<reduce><do>`)             |
+
+### [Arithmetic](arithmetic.mdx)
+
+Integer math. `<add>` sums its children, `<subtract>` is first-minus-the-rest,
+`<multiply>` is the product, `<divide>` is integer division, and `<mod>` is an
+**always-non-negative** remainder. Alongside them are `<to_number>` (a digit string →
+int) and `<encode>` (a character → a number in some base).
+
+### [Lists & iteration](lists.mdx)
+
+`<each>` maps `<do>` over a list, `<reduce>` folds a list down to one value through
+`<acc>`, `<join>` renders a list as a string, `<at>` pulls one element out by position,
+and `<length>` measures a string or a list. The wrappers `<over>` / `<do>` / `<init>` /
+`<in>` / `<index>` mark exactly which child plays which role.
+
+### [Strings & formatting](strings.mdx)
+
+`<concat>` glues parts together; `<upper>` / `<lower>` / `<capitalize>` / `<title>`
+change case; and `<mask>`, `<slice>`, `<replace>`, `<trim>`, `<group>`, and `<pad>`
+reshape a string. You can get the same formatting through
+[`<gen>` attributes and `${{X|…}}` filters](../guides/masks-and-case.mdx).
+
+### [Conditionals](conditionals.mdx)
+
+`<choose>` takes the first `<when>` whose `<test>` is true, and falls back to
+`<otherwise>`, which is required. Predicates live only inside `<test>` and return no
+value: `<equals>`, `<greater_than>`, and `<less_than>` compare two ints, and
+`<is_digit>` asks whether a character is `0`–`9`.
+
+```xml
+<choose>
+  <when><test><greater_than><var name="d"/><int v="9"/></greater_than></test>
+        <then><subtract><var name="d"/><int v="9"/></subtract></then></when>
+  <otherwise><var name="d"/></otherwise>
+</choose>
+```
+
+## In packs: parameters and `<valid>`
+
+The built-in identifier generators are `.tdc` packs where `<compute>` sits next to
+[`<gen>`](../generators/overview.mdx). Two mechanisms exist to help pack authors.
+
+### Parameters
+
+Any attribute on the calling `<gen type="template" …>` — other than the reserved
+`type` / `value` / `local` — **replaces a same-named local `<sequence>`** in the pack
+with a constant. The pack author declares the parameter as a sequence with a default,
+and the caller can pin it:
+
+```xml
+<gen type="template" value="usa.docs.ssn" area="078"/>
+```
+
+Every number now starts with the fixed area code (`area`), and the pack's own rules
+still apply to the rest — the group and serial are drawn as usual.
+
+<Terminal title="./run area.tdc">
+{`078090293
+078050204
+078014168`}
+</Terminal>
+
+**Use it when** one preset has to cover many concrete variants — a single SSN pack that
+any area code can drive, or one phone pack you aim at a specific area code.
+
+### Reject-and-retry — `<valid>`
+
+Sometimes a computed check digit can't be *represented* in the target format. An ISBN-10
+check value of 10 is written as the letter `X`, so if a field has to stay purely
+numeric, those rows have to be thrown out. A pack adds one `<valid>` predicate and the
+engine **regenerates the base until it passes** — with a safety cap, so an impossible
+condition can't loop forever:
+
+```xml
+<sequence name="check"><compute><result> …check digit… </result></compute></sequence>
+<valid><less_than><to_number><field name="check"/></to_number><int v="10"/></less_than></valid>
+```
+
+Across thousands of rows, not one will have a check value of 10 — every emitted ISBN-10
+is ten clean digits.
+
+<Terminal title="./run isbn.tdc">
+{`4188261811
+8761685496
+2444206142`}
+</Terminal>
+
+**Use it when** a correct value can still be *invalid* for the domain — an unissued
+range, a forbidden check digit — and you want the pack to emit nothing but good rows.
+
+## Limitations
+
+- **No expression strings** — every operation is its own tag.
+- **Integers only** — a 64-bit overflow is an error, not a silent wrap; there are no
+  floats or booleans.
+- **Bounded loops only** (`<each>`, `<reduce>` over a finite input) — the language
+  always terminates.
+- **Tag names use `_`** (like `before_block`): `current_index`, `to_number`,
+  `greater_than`, `less_than`, `is_digit`.
+- **Tree errors are caught before the run** (codes `TDC180`–`TDC187`): an unknown tag,
+  an unbound `<var>`, a `<choose>` with no `<otherwise>`, and so on.
+
+## See also
+
+- **[Compute functions reference](../reference/compute.mdx)** — the full catalog.
+- **[Conditionals](conditionals.mdx)** — `<choose>`, predicates, and `<valid>` in depth.
+- **[Masks & case](../guides/masks-and-case.mdx)** — the same formatting via filters and
+  `<gen>` attributes.

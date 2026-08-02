@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Oncology (Italian)
+locale: it
+---
+Carcinoma della mammella
+Carcinoma del polmone
+Carcinoma del colon-retto
+Leucemia
+Linfoma
+Melanoma
+Carcinoma della prostata
+Carcinoma gastrico
+Tumore del pancreas
+Mieloma multiplo

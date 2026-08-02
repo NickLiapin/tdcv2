@@ -1,0 +1,21 @@
+---
+description: Movie genre
+locale: en
+---
+Action
+Comedy
+Drama
+Horror
+Thriller
+Romance
+Science Fiction
+Fantasy
+Documentary
+Animation
+Adventure
+Crime
+Mystery
+Western
+Musical
+War
+Biography

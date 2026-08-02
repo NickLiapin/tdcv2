@@ -1,0 +1,12 @@
+---
+address: equatorial_guinea.education.university
+description: Equatorial Guinea higher-education institution (public national universities plus the foreign and partner campuses established in the country)
+locale: es
+---
+Universidad Nacional de Guinea Ecuatorial (UNGE)
+Universidad Afroamericana de África Central (AAUCA)
+Escuela Complutense Africana
+BANGE Business School
+Fundación Universitaria Iberoamericana (FUNIBER)
+UNED - Centro Asociado de Malabo
+UNED - Centro Asociado de Bata

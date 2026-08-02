@@ -1,0 +1,7 @@
+---
+address: nicaragua.vehicle.plate
+description: Nicaraguan licence plate (model in issue since 2005) — a regional letter code followed by six digits. The verified region codes are M (Managua), GR (Granada) and CT (Chontales); Managua carries most of the fleet, so its M plates are drawn most often
+generator: tdc
+locale: es
+---
+<gen type="regex" value="(M[0-9]{6}|M[0-9]{6}|M[0-9]{6}|GR[0-9]{6}|CT[0-9]{6})"/>

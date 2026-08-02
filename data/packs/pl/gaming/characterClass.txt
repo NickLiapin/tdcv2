@@ -1,0 +1,28 @@
+---
+description: RPG character class (Polish)
+locale: pl
+---
+Wojownik
+Mag
+Łotrzyk
+Paladyn
+Łowca
+Kapłan
+Czarnoksiężnik
+Druid
+Mnich
+Szaman
+Rycerz śmierci
+Łowca demonów
+Barbarzyńca
+Nekromanta
+Bard
+Zabójca
+Kleryk
+Czarodziej
+Zwiadowca
+Templariusz
+Berserker
+Przywoływacz
+Alchemik
+Inżynier

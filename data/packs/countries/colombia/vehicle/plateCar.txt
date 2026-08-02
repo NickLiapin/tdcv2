@@ -1,0 +1,6 @@
+---
+address: colombia.vehicle.plateCar
+description: Colombian car placa only — three letters plus three digits (ABC123)
+generator: tdc
+---
+<gen type="regex" value="[A-Z]{3}[0-9]{3}"/>

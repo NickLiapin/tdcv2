@@ -1,0 +1,30 @@
+---
+address: venezuela.finance.bankCode
+description: 4-digit SUDEBAN bank code — the first block of a 20-digit Venezuelan account number; same order as venezuela.finance.bank
+locale: es
+---
+0102
+0104
+0105
+0108
+0114
+0115
+0128
+0134
+0137
+0138
+0146
+0151
+0156
+0157
+0163
+0166
+0168
+0169
+0171
+0172
+0173
+0174
+0175
+0177
+0191

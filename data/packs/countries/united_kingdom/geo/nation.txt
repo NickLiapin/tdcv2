@@ -1,0 +1,8 @@
+---
+address: united_kingdom.geo.nation
+description: The four constituent countries of the United Kingdom
+---
+England
+Scotland
+Wales
+Northern Ireland

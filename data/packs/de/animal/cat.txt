@@ -1,0 +1,22 @@
+---
+description: Cat breed (German)
+locale: de
+---
+Perserkatze
+Maine Coon
+Siamkatze
+Ragdoll
+Bengalkatze
+Sphynx
+Britisch Kurzhaar
+Abessinier
+Scottish Fold
+Norwegische Waldkatze
+Russisch Blau
+Heilige Birma
+Amerikanisch Kurzhaar
+Devon Rex
+Burma
+Türkisch Angora
+Somali
+Manx

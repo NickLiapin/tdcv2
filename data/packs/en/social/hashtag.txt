@@ -1,0 +1,29 @@
+---
+description: Hashtag word (prefix with # in a template)
+locale: en
+---
+throwback
+mood
+love
+instagood
+photooftheday
+fashion
+beautiful
+happy
+cute
+tbt
+followme
+picoftheday
+nature
+art
+travel
+fitness
+foodie
+motivation
+style
+sunset
+viral
+trending
+fyp
+ootd
+wanderlust

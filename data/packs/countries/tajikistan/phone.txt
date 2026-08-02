@@ -1,0 +1,7 @@
+---
+address: tajikistan.phone
+description: Tajikistan mobile phone in E.164 form (+992)
+generator: tdc
+locale: ru
+---
+<gen type="regex" value="\+992(90|91|92|93|55|77|88|98|50|44|11)[0-9]{7}"/>

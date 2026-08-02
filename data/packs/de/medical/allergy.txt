@@ -1,0 +1,26 @@
+---
+description: Common allergies (German)
+locale: de
+---
+Penicillin
+Erdnüsse
+Nüsse
+Meeresfrüchte
+Hühnerei
+Kuhmilch
+Soja
+Weizen
+Latex
+Pollen
+Hausstaubmilben
+Tierhaare
+Bienengift
+Aspirin
+Sulfonamide
+Jod
+Sesam
+Gluten
+Schimmelpilze
+Nickel
+Erdbeeren
+Jodhaltiges Kontrastmittel

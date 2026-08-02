@@ -1,0 +1,41 @@
+---
+description: Trailing qualifier of a German place name (Frankfurt am Main, Freiburg im Breisgau, Rothenburg ob der Tauber)
+locale: de
+---
+am Main
+am Rhein
+am Neckar
+am Inn
+an der Donau
+an der Elbe
+an der Saale
+an der Weser
+an der Oder
+an der Mosel
+an der Ruhr
+an der Lahn
+an der Havel
+an der Spree
+an der Isar
+an der Aare
+an der Enns
+an der Nahe
+an der Weinstraße
+am Bodensee
+am Chiemsee
+am Harz
+im Breisgau
+im Allgäu
+im Schwarzwald
+im Erzgebirge
+im Odenwald
+im Taunus
+im Westerwald
+in Bayern
+in Sachsen
+in Thüringen
+in Hessen
+in Westfalen
+in der Oberpfalz
+ob der Tauber
+vor der Höhe

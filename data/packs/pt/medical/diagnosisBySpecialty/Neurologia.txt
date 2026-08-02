@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Neurology (Portuguese)
+locale: pt
+---
+Enxaqueca
+Epilepsia
+Doença de Parkinson
+Esclerose múltipla
+Acidente vascular cerebral isquêmico
+Neuropatia periférica
+Doença de Alzheimer
+Cefaleia tensional
+Neuralgia do trigêmeo
+Doença de Huntington

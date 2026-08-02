@@ -1,0 +1,16 @@
+---
+description: Marital status (French)
+locale: fr
+---
+Célibataire
+Marié
+Mariée
+Divorcé
+Divorcée
+Veuf
+Veuve
+Pacsé
+Pacsée
+Séparé
+Séparée
+En concubinage

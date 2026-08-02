@@ -1,0 +1,7 @@
+---
+address: greece.phone
+description: Greece mobile phone in E.164 form (+30 69XXXXXXXX)
+generator: tdc
+locale: el
+---
+<gen type="regex" value="\+3069[0-9]{8}"/>

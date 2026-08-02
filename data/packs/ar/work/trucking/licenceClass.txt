@@ -1,0 +1,14 @@
+---
+description: Driving licence class for professional driving (Arabic)
+locale: ar
+---
+خصوصي
+عمومي
+نقل ثقيل
+نقل عام
+معدات ثقيلة
+درجة أولى
+درجة ثانية
+درجة ثالثة
+دراجة نارية
+حافلة

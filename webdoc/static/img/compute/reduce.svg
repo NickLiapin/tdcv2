@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 250" width="760" height="250" font-family="system-ui, -apple-system, Segoe UI, Roboto, sans-serif">
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#3b82f6"/></marker></defs>
+<circle cx="24.0" cy="44.0" r="9.5" fill="#e0662b"/><text x="24.0" y="48.0" text-anchor="middle" font-size="12" font-weight="700" fill="#ffffff">A</text>
+<rect x="70" y="28" width="44" height="34" rx="5" fill="none" stroke="#e0662b" stroke-width="1.5"/><text x="92.0" y="49.3" text-anchor="middle" font-size="13" font-weight="600" fill="#e0662b">4</text>
+<rect x="230" y="28" width="44" height="34" rx="5" fill="none" stroke="#e0662b" stroke-width="1.5"/><text x="252.0" y="49.3" text-anchor="middle" font-size="13" font-weight="600" fill="#e0662b">8</text>
+<rect x="390" y="28" width="44" height="34" rx="5" fill="none" stroke="#e0662b" stroke-width="1.5"/><text x="412.0" y="49.3" text-anchor="middle" font-size="13" font-weight="600" fill="#e0662b">1</text>
+<rect x="550" y="28" width="44" height="34" rx="5" fill="none" stroke="#e0662b" stroke-width="1.5"/><text x="572.0" y="49.3" text-anchor="middle" font-size="13" font-weight="600" fill="#e0662b">6</text>
+<circle cx="36.0" cy="92.0" r="9.5" fill="#3b82f6"/><text x="36.0" y="96.0" text-anchor="middle" font-size="12" font-weight="700" fill="#ffffff">B</text>
+<rect x="14" y="114" width="44" height="36" rx="5" fill="none" stroke="#3b82f6" stroke-width="1.5" stroke-dasharray="4 3"/><text x="36.0" y="136.3" text-anchor="middle" font-size="13" font-weight="600" fill="#3b82f6">0</text>
+<circle cx="24.0" cy="132.0" r="9.5" fill="#2f9e63"/><text x="24.0" y="136.0" text-anchor="middle" font-size="12" font-weight="700" fill="#ffffff">C</text>
+<rect x="70" y="114" width="44" height="36" rx="5" fill="none" stroke="#2f9e63" stroke-width="1.5"/><text x="92.0" y="136.3" text-anchor="middle" font-size="13" font-weight="600" fill="#2f9e63">4</text>
+<line x1="92" y1="66" x2="92" y2="110" stroke="#3b82f6" stroke-width="1.6" marker-end="url(#a)"/>
+<line x1="58" y1="132" x2="66" y2="132" stroke="#3b82f6" stroke-width="1.6" marker-end="url(#a)"/>
+<rect x="230" y="114" width="44" height="36" rx="5" fill="none" stroke="#2f9e63" stroke-width="1.5"/><text x="252.0" y="136.3" text-anchor="middle" font-size="13" font-weight="600" fill="#2f9e63">12</text>
+<line x1="252" y1="66" x2="252" y2="110" stroke="#3b82f6" stroke-width="1.6" marker-end="url(#a)"/>
+<line x1="114" y1="132" x2="226" y2="132" stroke="#3b82f6" stroke-width="1.6" marker-end="url(#a)"/>
+<rect x="390" y="114" width="44" height="36" rx="5" fill="none" stroke="#2f9e63" stroke-width="1.5"/><text x="412.0" y="136.3" text-anchor="middle" font-size="13" font-weight="600" fill="#2f9e63">13</text>
+<line x1="412" y1="66" x2="412" y2="110" stroke="#3b82f6" stroke-width="1.6" marker-end="url(#a)"/>
+<line x1="274" y1="132" x2="386" y2="132" stroke="#3b82f6" stroke-width="1.6" marker-end="url(#a)"/>
+<rect x="550" y="114" width="44" height="36" rx="5" fill="none" stroke="#2f9e63" stroke-width="1.5"/><text x="572.0" y="136.3" text-anchor="middle" font-size="13" font-weight="600" fill="#2f9e63">19</text>
+<line x1="572" y1="66" x2="572" y2="110" stroke="#3b82f6" stroke-width="1.6" marker-end="url(#a)"/>
+<line x1="434" y1="132" x2="546" y2="132" stroke="#3b82f6" stroke-width="1.6" marker-end="url(#a)"/>
+<circle cx="734.0" cy="132.0" r="9.5" fill="#2f9e63"/><text x="734.0" y="136.0" text-anchor="middle" font-size="12" font-weight="700" fill="#ffffff">D</text>
+<line x1="594" y1="132" x2="720" y2="132" stroke="#3b82f6" stroke-width="1.6" marker-end="url(#a)"/>
+<text x="92.0" y="196.0" text-anchor="middle" font-size="11" font-weight="400" fill="#b0b0b4">0</text>
+<text x="252.0" y="196.0" text-anchor="middle" font-size="11" font-weight="400" fill="#b0b0b4">1</text>
+<text x="412.0" y="196.0" text-anchor="middle" font-size="11" font-weight="400" fill="#b0b0b4">2</text>
+<text x="572.0" y="196.0" text-anchor="middle" font-size="11" font-weight="400" fill="#b0b0b4">3</text>
+</svg>

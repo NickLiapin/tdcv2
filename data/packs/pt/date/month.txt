@@ -1,0 +1,16 @@
+---
+description: Month name (Portuguese, lowercase per Portuguese orthography)
+locale: pt
+---
+janeiro
+fevereiro
+março
+abril
+maio
+junho
+julho
+agosto
+setembro
+outubro
+novembro
+dezembro

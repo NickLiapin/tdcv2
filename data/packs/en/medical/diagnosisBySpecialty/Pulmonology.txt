@@ -1,0 +1,10 @@
+---
+description: Diagnoses seen in Pulmonology
+locale: en
+---
+Asthma
+Chronic Obstructive Pulmonary Disease
+Pneumonia
+Pulmonary Embolism
+Tuberculosis
+Sleep Apnea

@@ -1,0 +1,7 @@
+---
+address: kyrgyzstan.phone
+description: Kyrgyzstan mobile phone in E.164 form (+996)
+generator: tdc
+locale: ru
+---
+<gen type="regex" value="\+996(20[0-9]|22[0-9]|50[0-9]|51[0-9]|55[0-9]|70[0-9]|77[0-9]|99[0-9])[0-9]{6}"/>

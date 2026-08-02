@@ -1,0 +1,30 @@
+---
+description: Medical diagnosis in Polish that requires female anatomy — it cannot occur in a male patient. Draw from this list only for female rows; general conditions live in medical/diagnosis.
+locale: pl
+---
+Endometrioza
+Zespół policystycznych jajników
+Mięśniaki macicy
+Torbiel jajnika
+Rak jajnika
+Rak szyjki macicy
+Dysplazja szyjki macicy
+Zapalenie szyjki macicy
+Zapalenie błony śluzowej macicy
+Rak endometrium
+Zapalenie narządów miednicy mniejszej
+Waginoza bakteryjna
+Kandydoza sromu i pochwy
+Obfite krwawienia miesiączkowe
+Bolesne miesiączkowanie
+Brak miesiączki
+Stan przedrzucawkowy
+Cukrzyca ciążowa
+Niepowściągliwe wymioty ciężarnych
+Ciąża pozamaciczna
+Krwotok poporodowy
+Zapalenie gruczołu piersiowego
+Zmiany włóknisto-torbielowate piersi
+Zespół klimakteryczny
+Przedmiesiączkowe zaburzenie dysforyczne
+Wypadanie macicy

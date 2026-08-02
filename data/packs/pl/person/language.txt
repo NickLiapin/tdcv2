@@ -1,0 +1,44 @@
+---
+description: Language name (Polish)
+locale: pl
+---
+Polski
+Angielski
+Niemiecki
+Rosyjski
+Francuski
+Ukraiński
+Białoruski
+Czeski
+Słowacki
+Litewski
+Kaszubski
+Śląski
+Hiszpański
+Włoski
+Portugalski
+Niderlandzki
+Szwedzki
+Norweski
+Duński
+Fiński
+Węgierski
+Rumuński
+Bułgarski
+Serbski
+Chorwacki
+Grecki
+Turecki
+Hebrajski
+Arabski
+Perski
+Chiński mandaryński
+Japoński
+Koreański
+Hindi
+Wietnamski
+Tajski
+Indonezyjski
+Suahili
+Łotewski
+Estoński

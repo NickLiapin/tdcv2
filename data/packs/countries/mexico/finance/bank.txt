@@ -1,0 +1,51 @@
+---
+address: mexico.finance.bank
+description: Mexican bank (institución de banca múltiple / de desarrollo, plus STP); same order as mexico.finance.bankCode
+---
+Citibanamex
+Bancomext
+Banobras
+BBVA México
+Santander
+Banjército
+HSBC
+Banco del Bajío
+Inbursa
+Mifel
+Scotiabank
+Banregio
+Invex
+Bansi
+Afirme
+Banorte
+American Express
+Bank of America
+MUFG Bank
+J.P. Morgan
+BMonex
+Ve por Más
+Banco Azteca
+Banco Autofin
+Barclays
+Compartamos Banco
+Banco Multiva
+Actinver
+Nacional Financiera
+Intercam Banco
+BanCoppel
+ABC Capital
+Consubanco
+Volkswagen Bank
+CIBanco
+Banco BASE
+Bankaool
+Banco PagaTodo
+Banco Inmobiliario Mexicano
+Banco Donde
+Bancrea
+Banco Finterra
+ICBC México
+Banco Sabadell
+Banco del Bienestar
+Sociedad Hipotecaria Federal
+STP

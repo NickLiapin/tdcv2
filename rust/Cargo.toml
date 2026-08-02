@@ -1,0 +1,30 @@
+[package]
+name = "tdcv2"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.74"
+description = "TDC — The Data Constructor. Deterministic test data from a declarative config."
+license = "MIT"
+repository = "https://github.com/NickLiapin/tdc-v2"
+keywords = ["test-data", "synthetic-data", "data-generation", "deterministic"]
+categories = ["development-tools::testing"]
+
+# No dependencies, and that is deliberate rather than austere. The three other
+# implementations produce identical bytes because every number, every rounding
+# and every compressed block is written here rather than borrowed: a crate that
+# changed its rounding, its hashing or its deflate level would change our
+# output. The parser is hand-written for the same reason plus one more — the
+# only ANTLR runtime for Rust targets 4.8 and the shared grammar is 4.13.
+
+[lib]
+name = "tdcv2"
+path = "src/lib.rs"
+
+[[bin]]
+name = "tdcv2"
+path = "src/bin/tdcv2.rs"
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1

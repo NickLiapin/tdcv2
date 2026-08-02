@@ -1,0 +1,6 @@
+---
+address: guatemala.finance.account
+description: Guatemalan bank account number — 10 to 13 digits. STRUCTURAL ONLY: Guatemala has no IBAN and no national account-number standard, each bank sets its own length and internal check rule and publishes none, so nothing here can be validated
+generator: tdc
+---
+<gen type="regex" value="[0-9]{10,13}"/>

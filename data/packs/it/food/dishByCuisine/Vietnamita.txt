@@ -1,0 +1,12 @@
+---
+description: Dishes of Vietnamese cuisine (Italian)
+locale: it
+---
+Pho
+Banh mi
+Involtini vietnamiti
+Bun cha
+Com tam
+Caffè vietnamita
+Banh xeo
+Bun bo Hue

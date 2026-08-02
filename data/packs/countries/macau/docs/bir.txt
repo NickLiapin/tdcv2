@@ -1,0 +1,7 @@
+---
+address: macau.docs.bir
+description: Macau resident identity card number (Bilhete de Identidade de Residente) — a leading 1, 5 or 7 + 6 digits + a bracketed check digit, e.g. 1234567(8). Structure only; the official check algorithm is not published.
+generator: tdc
+locale: pt
+---
+<gen type="regex" value="[157][0-9]{6}\([0-9]\)"/>

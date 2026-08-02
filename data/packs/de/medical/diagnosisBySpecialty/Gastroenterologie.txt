@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Gastroenterology (German)
+locale: de
+---
+Gastroösophageale Refluxkrankheit
+Morbus Crohn
+Colitis ulcerosa
+Magengeschwür
+Reizdarmsyndrom
+Leberzirrhose
+Zöliakie
+Divertikulitis
+Akute Pankreatitis
+Gallensteine

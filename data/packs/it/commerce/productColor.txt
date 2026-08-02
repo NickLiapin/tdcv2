@@ -1,0 +1,58 @@
+---
+description: Colour as written on an Italian product listing (masculine singular, noun-modifier forms kept invariable)
+locale: it
+---
+Nero
+Bianco
+Grigio
+Grigio grafite
+Grigio perla
+Argento
+Dorato
+Bronzo
+Rame
+Rosso
+Rosso bordeaux
+Granata
+Vinaccia
+Corallo
+Rosa
+Rosa cipria
+Fucsia
+Magenta
+Arancione
+Terracotta
+Salmone
+Giallo
+Senape
+Oro antico
+Verde
+Verde oliva
+Verde menta
+Verde smeraldo
+Verde militare
+Turchese
+Blu
+Blu navy
+Azzurro cielo
+Blu petrolio
+Celeste
+Indaco
+Viola
+Violetto
+Lilla
+Lavanda
+Marrone
+Cioccolato
+Cammello
+Beige
+Crema
+Avorio
+Sabbia
+Talpa
+Antracite
+Trasparente
+Multicolore
+Fantasia
+Bicolore
+Naturale

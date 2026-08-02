@@ -1,0 +1,30 @@
+---
+description: Medical diagnosis that requires female anatomy — it cannot occur in a male patient. Draw from this list only for female rows; general conditions live in medical/diagnosis.
+locale: en
+---
+Endometriosis
+Polycystic Ovary Syndrome
+Uterine Fibroids
+Ovarian Cyst
+Ovarian Cancer
+Cervical Cancer
+Cervical Dysplasia
+Cervicitis
+Endometritis
+Endometrial Cancer
+Pelvic Inflammatory Disease
+Bacterial Vaginosis
+Vulvovaginal Candidiasis
+Menorrhagia
+Dysmenorrhea
+Amenorrhea
+Preeclampsia
+Gestational Diabetes Mellitus
+Hyperemesis Gravidarum
+Ectopic Pregnancy
+Postpartum Hemorrhage
+Mastitis
+Fibrocystic Breast Change
+Menopausal Syndrome
+Premenstrual Dysphoric Disorder
+Uterine Prolapse

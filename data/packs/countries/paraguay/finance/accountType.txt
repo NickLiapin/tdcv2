@@ -1,0 +1,11 @@
+---
+address: paraguay.finance.accountType
+description: Paraguayan bank account type as named on a transfer form
+locale: es
+---
+Caja de Ahorro
+Cuenta Corriente
+Cuenta Corriente en Guaraníes
+Cuenta Corriente en Dólares
+Caja de Ahorro en Guaraníes
+Caja de Ahorro en Dólares

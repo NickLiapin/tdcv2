@@ -1,0 +1,10 @@
+---
+description: Positions in Volleyball (French)
+locale: fr
+---
+Passeur
+Attaquant
+Central
+Réceptionneur-attaquant
+Libéro
+Pointu

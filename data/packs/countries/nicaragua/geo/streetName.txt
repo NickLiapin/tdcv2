@@ -1,0 +1,31 @@
+---
+address: nicaragua.geo.streetName
+description: Nicaraguan street with its vía type — mostly named avenues and calles (Avenida Bolívar, Pista Juan Pablo II), the distinctive "Carretera a <city>" form, and a few numbered calles of the colonial grids in León and Granada. Note that everyday Nicaraguan addressing is landmark-based rather than street-numbered
+generator: tdc
+locale: es
+---
+<sequence name="mode"><gen type="number" value="1..12"/></sequence>
+<sequence name="named"><gen type="template" value="nicaragua.geo.streetNamed"/></sequence>
+<sequence name="city"><gen type="template" value="nicaragua.geo.city"/></sequence>
+<sequence name="n"><gen type="number" value="1..40"/></sequence>
+<sequence name="street"><compute>
+  <result>
+    <choose>
+      <!-- Avenidas dominate the named vías. -->
+      <when><test><less_than><to_number><field name="mode"/></to_number><int v="5"/></less_than></test>
+        <then><concat><str v="Avenida"/><str v=" "/><field name="named"/></concat></then></when>
+      <when><test><less_than><to_number><field name="mode"/></to_number><int v="8"/></less_than></test>
+        <then><concat><str v="Calle"/><str v=" "/><field name="named"/></concat></then></when>
+      <when><test><equals><to_number><field name="mode"/></to_number><int v="8"/></equals></test>
+        <then><concat><str v="Pista"/><str v=" "/><field name="named"/></concat></then></when>
+      <!-- The "Carretera a <ciudad>" form, ubiquitous in Nicaraguan addresses. -->
+      <when><test><equals><to_number><field name="mode"/></to_number><int v="9"/></equals></test>
+        <then><concat><str v="Carretera a "/><field name="city"/></concat></then></when>
+      <when><test><equals><to_number><field name="mode"/></to_number><int v="10"/></equals></test>
+        <then><concat><str v="Callejón"/><str v=" "/><field name="named"/></concat></then></when>
+      <!-- Numbered calles of the León / Granada colonial grids. -->
+      <otherwise><concat><str v="Calle"/><str v=" "/><field name="n"/></concat></otherwise>
+    </choose>
+  </result>
+</compute></sequence>
+<data>${{street}}</data>

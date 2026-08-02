@@ -1,0 +1,11 @@
+---
+address: costa_rica.geo.provinceIso
+description: ISO 3166-2:CR subdivision code without the CR- prefix (SJ, A, C, H, G, P, L); same order as costa_rica.geo.province
+---
+SJ
+A
+C
+H
+G
+P
+L

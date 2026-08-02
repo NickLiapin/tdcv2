@@ -1,0 +1,12 @@
+---
+description: Annual household income bracket, labelled in Greek. Amounts are in EUR, the currency of Greece and Cyprus. Greek writes thousands with a dot.
+locale: el
+---
+Κάτω από 10.000 EUR
+10.000–20.000 EUR
+20.000–35.000 EUR
+35.000–50.000 EUR
+50.000–75.000 EUR
+75.000–100.000 EUR
+100.000–150.000 EUR
+Πάνω από 150.000 EUR

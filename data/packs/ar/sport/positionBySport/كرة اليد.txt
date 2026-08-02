@@ -1,0 +1,11 @@
+---
+description: Positions in Handball (Arabic)
+locale: ar
+---
+حارس مرمى
+جناح أيسر
+جناح أيمن
+ظهير أيسر
+ظهير أيمن
+صانع ألعاب
+دائرة

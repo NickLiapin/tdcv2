@@ -1,0 +1,12 @@
+---
+address: cape_verde.finance.bank
+description: Banks operating in Cape Verde (Portuguese names)
+locale: pt
+---
+Banco Comercial do Atlântico
+Caixa Económica de Cabo Verde
+Banco Interatlântico
+Banco Angolano de Investimentos Cabo Verde
+Ecobank Cabo Verde
+Banco Cabo-verdiano de Negócios
+IIB – International Investment Bank

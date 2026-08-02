@@ -1,0 +1,40 @@
+---
+address: netherlands.docs.bsn
+description: Dutch burgerservicenummer (BSN) — 9 digits validated by the elfproef: 9*d1 + 8*d2 + 7*d3 + 6*d4 + 5*d5 + 4*d6 + 3*d7 + 2*d8 - d9 must be divisible by 11, so the ninth digit equals that weighted sum mod 11. A prefix whose sum mod 11 is 10 has no valid BSN at all; the eighth digit is then bumped by one (9 wraps to 0), which always shifts the sum to a usable value. Every emitted number passes the elfproef.
+generator: tdc
+locale: nl
+---
+<!-- Eight leading digits; the first is non-zero so the BSN reads as a full
+     9-digit number. -->
+<sequence name="base"><gen type="regex" value="[1-9][0-9]{7}"/></sequence>
+<sequence name="bsn"><compute>
+  <let name="head"><slice from="0" to="7"><field name="base"/></slice></let>
+  <let name="d8"><to_number><slice from="7" to="8"><field name="base"/></slice></to_number></let>
+  <!-- Weighted sum of the first seven digits (weights 9,8,7,6,5,4,3). The
+       eighth digit carries weight 2 and is added separately, because it is the
+       digit that gets bumped when the prefix turns out to be unusable. -->
+  <let name="sumHead"><reduce>
+    <over><var name="head"/></over>
+    <init><int v="0"/></init>
+    <do><add><acc/>
+      <multiply><current/>
+        <at><in><list v="9,8,7,6,5,4,3"/></in><index><current_index/></index></at>
+      </multiply>
+    </add></do>
+  </reduce></let>
+  <let name="s"><mod><add><var name="sumHead"/><multiply><int v="2"/><var name="d8"/></multiply></add><int v="11"/></mod></let>
+  <!-- s == 10 would demand a two-digit check, which cannot exist. Bumping d8
+       by one shifts the sum by +2 (or by -18 when 9 wraps to 0), i.e. by a
+       non-zero amount mod 11, so the second attempt is always 9 or less. -->
+  <let name="d8final"><choose>
+    <when><test><equals><var name="s"/><int v="10"/></equals></test>
+      <then><mod><add><var name="d8"/><int v="1"/></add><int v="10"/></mod></then></when>
+    <otherwise><var name="d8"/></otherwise>
+  </choose></let>
+  <let name="check"><mod><add><var name="sumHead"/><multiply><int v="2"/><var name="d8final"/></multiply></add><int v="11"/></mod></let>
+  <result><concat>
+    <slice from="0" to="7"><field name="base"/></slice>
+    <var name="d8final"/><var name="check"/>
+  </concat></result>
+</compute></sequence>
+<data>${{bsn}}</data>

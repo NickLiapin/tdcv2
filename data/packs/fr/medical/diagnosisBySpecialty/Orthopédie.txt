@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Orthopedics (French)
+locale: fr
+---
+Arthrose
+Fracture
+Entorse
+Hernie discale
+Tendinite
+Scoliose
+Luxation
+Ostéoporose
+Rupture ligamentaire
+Lombalgie

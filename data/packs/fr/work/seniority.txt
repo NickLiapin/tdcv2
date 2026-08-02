@@ -1,0 +1,19 @@
+---
+description: Seniority level (French)
+locale: fr
+---
+Stagiaire
+Apprenti
+Débutant
+Junior
+Confirmé
+Intermédiaire
+Sénior
+Expert
+Principal
+Lead
+Responsable
+Manager
+Directeur
+Associé
+Cadre supérieur

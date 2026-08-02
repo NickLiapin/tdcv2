@@ -1,0 +1,30 @@
+---
+address: peru.geo.department
+description: Peru first-level division — the 24 departamentos plus the Provincia Constitucional del Callao, in INEI ubigeo order (01 Amazonas … 25 Ucayali); same order as peru.geo.departmentCode / departmentIso
+locale: es
+---
+Amazonas
+Áncash
+Apurímac
+Arequipa
+Ayacucho
+Cajamarca
+Callao
+Cusco
+Huancavelica
+Huánuco
+Ica
+Junín
+La Libertad
+Lambayeque
+Lima
+Loreto
+Madre de Dios
+Moquegua
+Pasco
+Piura
+Puno
+San Martín
+Tacna
+Tumbes
+Ucayali

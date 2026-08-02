@@ -1,0 +1,10 @@
+---
+address: spain.geo.zip
+description: Spanish código postal — 5 digits; the first two are the INE province code, so 01xxx is Álava, 28xxx Madrid, 50xxx Zaragoza, and 51/52 the ciudades autónomas of Ceuta and Melilla. The last three run 001-999 (000 is never assigned).
+generator: tdc
+---
+<!-- Province block: 01-50 for the provinces, 51 Ceuta, 52 Melilla. 00 and
+     53-99 are not assigned by Correos. -->
+<sequence name="province"><gen type="number" value="1..52" length="2" first_zero="true"/></sequence>
+<sequence name="office"><gen type="number" value="1..999" length="3" first_zero="true"/></sequence>
+<data>${{province}}${{office}}</data>

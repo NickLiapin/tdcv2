@@ -1,0 +1,11 @@
+---
+description: Conditions markedly more frequent in people of Mediterranean ancestry (Russian). A prevalence signal, not an exclusive one.
+locale: ru
+---
+Бета-талассемия
+Малая бета-талассемия
+Дефицит глюкозо-6-фосфатдегидрогеназы
+Семейная средиземноморская лихорадка
+Болезнь Бехчета
+Альфа-талассемия
+Фавизм

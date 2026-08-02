@@ -1,0 +1,7 @@
+---
+address: netherlands.phone
+description: Dutch mobile phone in E.164 form (+316 followed by eight digits)
+generator: tdc
+locale: nl
+---
+<gen type="regex" value="\+316[1-5][0-9]{7}"/>

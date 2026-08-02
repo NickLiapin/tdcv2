@@ -1,0 +1,17 @@
+---
+description: Order status
+locale: en
+---
+Pending
+Processing
+Confirmed
+Shipped
+Out for Delivery
+Delivered
+Cancelled
+Returned
+Refunded
+On Hold
+Backordered
+Failed
+Awaiting Payment

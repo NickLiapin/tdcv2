@@ -1,0 +1,19 @@
+---
+description: Order return reason (Portuguese)
+locale: pt
+---
+Chegou danificado
+Item errado
+Não corresponde à descrição
+Tamanho incorreto
+Mudei de ideia
+Encontrei preço melhor
+Defeito de fábrica
+Faltam peças
+Entrega atrasada
+Não preciso mais
+Pedido por engano
+Qualidade abaixo do esperado
+Cor diferente da exibida
+Não é compatível
+Produto duplicado

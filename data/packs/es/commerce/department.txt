@@ -1,0 +1,54 @@
+---
+description: Store department / category (Spanish)
+locale: es
+---
+Libros
+Películas
+Música
+Videojuegos
+Electrónica
+Informática
+Telefonía
+Hogar
+Jardín
+Herramientas
+Ferretería
+Supermercado
+Alimentación
+Bebidas
+Salud
+Farmacia
+Belleza
+Perfumería
+Juguetes
+Infantil
+Bebé
+Ropa
+Calzado
+Joyería
+Relojería
+Accesorios
+Deportes
+Aire libre
+Automotriz
+Motocicletas
+Industrial
+Oficina
+Papelería
+Mascotas
+Muebles
+Decoración
+Electrodomésticos
+Iluminación
+Textil hogar
+Menaje
+Bricolaje
+Construcción
+Fotografía
+Instrumentos musicales
+Equipaje
+Óptica
+Limpieza
+Regalos
+Arte y manualidades
+Náutica

@@ -1,0 +1,16 @@
+---
+description: Jobs in Legal (German)
+locale: de
+---
+Rechtsanwalt
+Rechtsanwaltsfachangestellter
+Richter
+Rechtspfleger
+Compliance-Beauftragter
+Notar
+Staatsanwalt
+Justiziar
+Patentanwalt
+Wirtschaftsjurist
+Gerichtsvollzieher
+Mediator

@@ -1,0 +1,13 @@
+---
+description: Dishes of Thai cuisine (Italian)
+locale: it
+---
+Pad thai
+Curry verde
+Zuppa tom yum
+Curry massaman
+Insalata di papaia
+Riso glutinoso al mango
+Satay
+Pad see ew
+Tom kha gai

@@ -1,0 +1,26 @@
+---
+description: Horse breed (French)
+locale: fr
+---
+Pur-sang
+Selle français
+Cheval de Camargue
+Percheron
+Breton
+Comtois
+Ardennais
+Trait du Nord
+Frison
+Arabe
+Andalou
+Appaloosa
+Quarter Horse
+Shetland
+Haflinger
+Trotteur français
+Anglo-arabe
+Boulonnais
+Mérens
+Fjord
+Lipizzan
+Connemara

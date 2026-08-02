@@ -1,0 +1,305 @@
+---
+address: colombia.geo.municipality
+description: Colombian municipio (second-level division) — the 300 largest by DANE population projection, covering every departamento
+locale: es
+---
+Bogotá
+Medellín
+Cali
+Barranquilla
+Cartagena
+Soacha
+Cúcuta
+Soledad
+Bucaramanga
+Bello
+Valledupar
+Villavicencio
+Santa Marta
+Ibagué
+Montería
+Pereira
+Manizales
+Pasto
+Neiva
+Palmira
+Buenaventura
+Armenia
+Floridablanca
+Sincelejo
+Itagüí
+Tumaco
+Envigado
+Dosquebradas
+Tuluá
+Barrancabermeja
+Riohacha
+Uribia
+Maicao
+Piedecuesta
+Tunja
+Yopal
+Florencia
+Girón
+Facatativá
+Jamundí
+Fusagasugá
+Mosquera
+Chía
+Zipaquirá
+Rionegro
+Malambo
+Magangué
+Madrid
+Cartago
+Turbo
+Quibdó
+Apartadó
+Sogamoso
+Ocaña
+Pitalito
+Buga
+Duitama
+Ciénaga
+Aguachica
+Girardot
+Lorica
+Turbaco
+Ipiales
+Funza
+Santander de Quilichao
+Villa del Rosario
+Sahagún
+Yumbo
+Cereté
+Sabanalarga
+Cajicá
+Arauca
+Caucasia
+Los Patios
+Manaure
+Tierralta
+Candelaria
+Acacías
+Sabaneta
+Montelíbano
+Caldas
+Copacabana
+Cumaribo
+Santa Rosa de Cabal
+La Estrella
+Calarcá
+Zona Bananera
+Arjona
+La Dorada
+Garzón
+El Carmen de Bolívar
+Corozal
+Fundación
+Granada
+El Banco
+La Ceja
+Espinal
+Marinilla
+Puerto Asís
+Baranoa
+Galapa
+Villamaría
+Agustín Codazzi
+Plato
+Planeta Rica
+Saravena
+El Carmen de Viboral
+La Plata
+Chigorodó
+San Marcos
+Ciénaga de Oro
+Mocoa
+San Gil
+Guarne
+Tibú
+San José del Guaviare
+San Andrés
+Florida
+Chiquinquirá
+Arauquita
+El Cerrito
+Girardota
+Barbosa
+Barbacoas
+El Bagre
+Tuchín
+Puerto Colombia
+Pamplona
+El Tambo
+San Vicente del Caguán
+San Pelayo
+Chinchiná
+Carepa
+La Jagua de Ibirico
+Riosucio
+Leticia
+San Onofre
+San Juan del Cesar
+Ubaté
+Tame
+Chaparral
+Sampués
+Tocancipá
+María La Baja
+Dagua
+Chinú
+Puerto Boyacá
+Pradera
+San Andrés Sotavento
+Ayapel
+Mompox
+Páez
+Fonseca
+Andes
+Necoclí
+Bosconia
+Lebrija
+Yarumal
+Túquerres
+Puerto Gaitán
+Puerto Libertador
+Dibulla
+Cajibío
+Zarzal
+Aracataca
+El Paso
+Piendamó
+Puerto Tejada
+Caldono
+Puerto Berrío
+Sevilla
+Curumaní
+Segovia
+Morales
+Cota
+Sibaté
+Orito
+Barrancas
+Pivijay
+San Juan Nepomuceno
+La Mesa
+Santa Rosa de Osos
+Majagual
+Montenegro
+Silvia
+Aguazul
+Mariquita
+Patía
+Sonsón
+El Santuario
+Puerto Guzmán
+Paz de Ariporo
+Chimichagua
+Melgar
+Bolívar
+San Bernardo del Viento
+Anserma
+Toribío
+Roldanillo
+Mitú
+Pueblo Nuevo
+Timbío
+Valencia
+Cumbal
+Villanueva
+Guaduas
+Sabanagrande
+Líbano
+La Calera
+La Tebaida
+Valle del Guamuez
+Santa Rosa del Sur
+San Antero
+Inírida
+Sabana de Torres
+Paipa
+Cimitarra
+Tolú
+La Unión
+Puerto Wilches
+Ábrego
+Ortega
+San Agustín
+Socorro
+San Vicente de Chucurí
+Guacarí
+Albania
+San Pedro de Urabá
+Santo Tomás
+Suárez
+Pueblo Viejo
+El Copey
+Guamo
+Sincé
+Ariguaní
+Miranda
+Buenos Aires
+Amagá
+Quimbaya
+Urrao
+Palmar de Varela
+Cartagena del Chairá
+Villeta
+Campoalegre
+Sopó
+Arboletes
+Sucre
+Cáceres
+Luruaco
+Istmina
+Fresno
+Moñitos
+Bajo Baudó
+Chiriguaná
+La Paz
+Remedios
+Puerto López
+Caloto
+Pueblo Bello
+San Benito Abad
+Puerto Leguízamo
+Mahates
+Circasia
+San Martín
+Sitionuevo
+Supía
+Inzá
+El Zulia
+San Alberto
+San Pablo
+Tarazá
+Repelón
+Ituango
+Caicedonia
+Alto Baudó
+Guamal
+El Colegio
+Flandes
+La Virginia
+La Macarena
+Nechí
+Santa Bárbara
+Pacho
+Guapi
+Amalfi
+Santafé de Antioquia
+Quinchía
+San Carlos
+Samaniego
+Ciudad Bolívar
+Palermo
+Sardinata
+El Rosal
+Timbiquí
+Argelia
+Puerto Rico
+Santa Ana
+Cogua
+Zaragoza
+Ponedera

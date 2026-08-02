@@ -1,0 +1,18 @@
+---
+description: E-commerce order status (French)
+locale: fr
+---
+En attente
+En cours de traitement
+Confirmée
+Préparation en cours
+Expédiée
+En cours de livraison
+Livrée
+Annulée
+Retournée
+Remboursée
+En litige
+Partiellement expédiée
+En rupture de stock
+Prête pour retrait

@@ -1,0 +1,529 @@
+---
+title: Aritmética
+sidebar_position: 2
+---
+
+import Figure from '@site/src/components/Figure';
+import Legend from '@site/src/components/Legend';
+
+import Terminal from '@site/src/components/Terminal';
+
+# Aritmética
+
+Matemática de enteros dentro de [`<compute>`](overview.mdx). Cada operación es su propia
+etiqueta; se anidan para construir un árbol de expresión. Estos son los operadores
+aritméticos del lenguaje TDC — viven en una
+[`<sequence>`](../core-concepts/sequences.mdx) justo al lado de
+[`<gen>`](../generators/overview.mdx), tanto en su propio config como dentro de los packs
+de identificadores integrados.
+
+| Etiqueta                   | Qué hace                                          | Ejemplo → resultado        |
+| :------------------------- | :------------------------------------------------ | :------------------------- |
+| [`<add>`](#add)            | suma de todos los hijos (vacío → `0`)             | `add(2, 3, 4)` → `9`       |
+| [`<subtract>`](#subtract)  | el primero menos la suma del resto                | `subtract(10, 3, 2)` → `5` |
+| [`<multiply>`](#multiply)  | producto de todos los hijos (vacío → `1`)         | `multiply(2, 3, 4)` → `24` |
+| [`<divide>`](#divide)      | división entera hacia −∞ (exactamente 2 hijos)    | `divide(7, 2)` → `3`       |
+| [`<mod>`](#mod)            | residuo, siempre ≥ 0 (exactamente 2 hijos)        | `mod(17, 5)` → `2`         |
+
+Dos reglas valen para **todos** ellos:
+
+- **Solo enteros.** Un string de un solo dígito (`"7"`) se convierte automáticamente,
+  pero un string de **varios dígitos** como el valor de una secuencia (`"342"`) **no** —
+  envuélvalo primero en [`<to_number>`](#to_number). Esto es deliberado: evita que «sumar
+  dos valores como números» se confunda con «pegar dos strings»
+  ([`<concat>`](strings.mdx)).
+- **El desbordamiento es un error.** Un desbordamiento de 64 bits se reporta, no se da la
+  vuelta en silencio — usted se entera antes de que salgan datos malos.
+
+Las salidas de ejemplo de esta página son ilustrativas: los valores exactos dependen del
+seed y de la versión del núcleo, pero la aritmética mostrada siempre es correcta.
+
+## `<add>`
+
+**Toma** cualquier cantidad de hijos → **da** un número. Sin hijos da `0`. Un string de un solo dígito se convierte solo; uno de varios dígitos necesita [`<to_number>`](#to_number) primero.
+
+`<add>` suma todos sus hijos en orden y devuelve un entero. **Sin** hijos devuelve `0`
+(el neutro aditivo). **Úselo cuando** necesite un total derivado — la suma de un pedido,
+un puntaje total — o un acumulador corriendo dentro de un plegado.
+
+### Suma de dos campos
+
+Los valores de una secuencia son strings, así que cada campo se envuelve en
+[`<to_number>`](#to_number):
+
+```xml
+<sequence name="Base"><gen type="number" value="100..900"/></sequence>
+<sequence name="Tax"><gen type="number" value="10..90"/></sequence>
+<sequence name="Total">
+  <compute>
+    <result>
+      <add>
+        <to_number><field name="Base"/></to_number>
+        <to_number><field name="Tax"/></to_number>
+      </add>
+    </result>
+  </compute>
+</sequence>
+```
+
+<Terminal title="./run add.tdc — ${{Base}} + ${{Tax}} = ${{Total}}">
+{`742 + 55 = 797
+318 + 61 = 379
+560 + 24 = 584
+193 + 88 = 281
+607 + 39 = 646`}
+</Terminal>
+
+### Suma de dígitos dentro de un plegado
+
+Dentro de [`<reduce>`](lists.mdx), `<add>` va acumulando un resultado:
+[`<current/>`](lists.mdx) es el siguiente dígito (un string de un carácter, que se
+convierte solo) y [`<acc/>`](lists.mdx) es el total corriendo. Aquí no hace falta
+`<to_number>` porque cada elemento es un solo dígito.
+
+```xml
+<sequence name="Pin"><gen type="number" value="1000..9999"/></sequence>
+<sequence name="DigitSum">
+  <compute>
+    <result>
+      <reduce>
+        <over><field name="Pin"/></over>
+        <init><int v="0"/></init>
+        <do><add><acc/><current/></add></do>
+      </reduce>
+    </result>
+  </compute>
+</sequence>
+```
+
+<Terminal title="./run digitsum.tdc — ${{Pin}} -> suma ${{DigitSum}}">
+{`4821 -> suma 15
+3067 -> suma 16
+9145 -> suma 19
+5530 -> suma 13
+7284 -> suma 21`}
+</Terminal>
+
+`4+8+2+1 = 15`, `3+0+6+7 = 16`, y así. Esta forma de «ponderar y luego sumar» es el
+corazón de todo esquema de dígito verificador (vea [`<mod>`](#mod)).
+
+## `<subtract>`
+
+**Toma** cualquier cantidad de hijos → **da** un número: el primero menos la suma del resto.
+
+`<subtract>` toma el **primer** hijo y le resta la **suma de todos los demás**,
+devolviendo un entero. Necesita **al menos un** hijo (si no, error `TDC183`); con un solo
+hijo devuelve ese valor sin cambios (`subtract(9)` → `9`). **Úselo cuando** necesite una
+diferencia — un saldo, el cambio a devolver, los asientos que quedan, o la edad como «año
+actual menos año de nacimiento».
+
+### Saldo de una cuenta
+
+```xml
+<sequence name="Deposit"><gen type="number" value="500..900"/></sequence>
+<sequence name="Withdrawal"><gen type="number" value="100..400"/></sequence>
+<sequence name="Balance">
+  <compute><result>
+    <subtract>
+      <to_number><field name="Deposit"/></to_number>
+      <to_number><field name="Withdrawal"/></to_number>
+    </subtract>
+  </result></compute>
+</sequence>
+```
+
+<Terminal title="./run balance.tdc — ${{Deposit}} - ${{Withdrawal}} = ${{Balance}}">
+{`830 - 245 = 585
+655 - 190 = 465
+719 - 302 = 417
+588 - 137 = 451
+742 - 168 = 574`}
+</Terminal>
+
+### El primero menos la suma del resto
+
+Con **tres** hijos, `<subtract>` toma el primero menos la *suma* de los otros dos — muy
+útil cuando varios rubros van bajando un mismo presupuesto:
+
+```xml
+<sequence name="A"><gen type="number" value="10..40"/></sequence>
+<sequence name="B"><gen type="number" value="10..40"/></sequence>
+<sequence name="Left">
+  <compute><result>
+    <subtract>
+      <int v="100"/>
+      <to_number><field name="A"/></to_number>
+      <to_number><field name="B"/></to_number>
+    </subtract>
+  </result></compute>
+</sequence>
+```
+
+<Terminal title="./run left.tdc — 100 - ${{A}} - ${{B}} = ${{Left}}">
+{`100 - 22 - 31 = 47
+100 - 15 - 28 = 57
+100 - 34 - 19 = 47
+100 - 27 - 27 = 46
+100 - 11 - 40 = 49`}
+</Terminal>
+
+`100 − (22 + 31) = 47` — lo que se resta es la **suma** de todo lo que viene después del
+primero. El paso `11 − residuo` de muchos esquemas de dígito verificador se escribe con
+`<subtract>` junto con [`<mod>`](#mod).
+
+## `<multiply>`
+
+**Toma** cualquier cantidad de hijos → **da** un número. Sin hijos da `1`.
+
+`<multiply>` multiplica todos sus hijos en orden y devuelve un entero. **Sin** hijos
+devuelve `1` (el neutro multiplicativo). **Úselo cuando** necesite un producto derivado —
+área, volumen, «precio × cantidad» — o, lo más frecuente, para ponderar un dígito según su
+posición al calcular un dígito verificador.
+
+### Área
+
+```xml
+<sequence name="W"><gen type="number" value="2..9"/></sequence>
+<sequence name="H"><gen type="number" value="2..9"/></sequence>
+<sequence name="Area">
+  <compute><result>
+    <multiply>
+      <to_number><field name="W"/></to_number>
+      <to_number><field name="H"/></to_number>
+    </multiply>
+  </result></compute>
+</sequence>
+```
+
+<Terminal title="./run area.tdc — ${{W}} x ${{H}} = ${{Area}}">
+{`6 x 7 = 42
+3 x 9 = 27
+8 x 4 = 32
+5 x 5 = 25
+2 x 8 = 16`}
+</Terminal>
+
+### Suma ponderada de dígitos dentro de un plegado
+
+El papel estelar de `<multiply>` es multiplicar cada dígito por su **peso** al calcular un
+dígito verificador (Luhn, ISBN, IBAN). Dentro de [`<reduce>`](lists.mdx), cada dígito
+[`<current/>`](lists.mdx) — un string de un carácter, que se convierte solo — se
+multiplica por el peso que se saca de una lista según la posición, con
+[`<at>`](lists.mdx) / [`<current_index/>`](lists.mdx):
+
+```xml
+<sequence name="Base"><gen type="number" value="100000000..999999999"/></sequence>
+<sequence name="Weighted">
+  <compute><result>
+    <reduce>
+      <over><field name="Base"/></over>
+      <init><int v="0"/></init>
+      <do>
+        <add>
+          <acc/>
+          <multiply>
+            <current/>
+            <at><in><list v="1,3,1,3,1,3,1,3,1"/></in>
+                <index><current_index/></index></at>
+          </multiply>
+        </add>
+      </do>
+    </reduce>
+  </result></compute>
+</sequence>
+```
+
+<Terminal title="./run weighted.tdc — ${{Base}} -> ponderada ${{Weighted}}">
+{`384019267 -> ponderada 86
+512700483 -> ponderada 62
+907316258 -> ponderada 69
+146829035 -> ponderada 86
+673540192 -> ponderada 79`}
+</Terminal>
+
+Cada dígito se multiplica por su peso (`1,3,1,3,…`) y [`<add>`](#add) va acumulando la
+suma de los productos. Esa suma ponderada normalmente se toma después [`<mod>`](#mod)
+alguna base — que es exactamente como se produce un dígito verificador.
+
+## `<divide>`
+
+**Toma** exactamente dos hijos → **da** un número **entero**. El resto se descarta, así que 7 entre 2 es 3 y 1 entre 3 es 0. Un divisor cero se rechaza.
+
+`<divide>` divide el **primer** hijo entre el **segundo** y devuelve un entero — la parte
+fraccionaria se descarta. Toma **exactamente dos** hijos (si no, error `TDC183`), y
+dividir entre `0` es un error. **Úselo cuando** reparta una cantidad en partes iguales
+(precio por unidad, promedio por cabeza, centavos → dólares con `÷ 100`) o cuando vaya
+desprendiendo dígitos de un número junto con [`<mod>`](#mod).
+
+### Cuánto le toca a cada quien
+
+```xml
+<sequence name="Total"><gen type="number" value="100..900"/></sequence>
+<sequence name="Count"><gen type="number" value="3..7"/></sequence>
+<sequence name="Per">
+  <compute><result>
+    <divide>
+      <to_number><field name="Total"/></to_number>
+      <to_number><field name="Count"/></to_number>
+    </divide>
+  </result></compute>
+</sequence>
+```
+
+<Terminal title="./run per.tdc — ${{Total}} / ${{Count}} = ${{Per}}">
+{`645 / 5 = 129
+480 / 3 = 160
+733 / 6 = 122
+218 / 4 = 54
+591 / 7 = 84`}
+</Terminal>
+
+`218 ÷ 4 = 54` — el residuo (`2`) se descarta. Si lo que quiere es el residuo, use
+[`<mod>`](#mod).
+
+### El redondeo va hacia −∞
+
+Un detalle importante: la división redondea **hacia abajo** (piso), no hacia cero. Con
+operandos positivos el resultado es el conocido (`7 ÷ 2 = 3`); con negativos baja más:
+
+```xml
+<sequence name="D1"><compute><result><divide><int v="-7"/><int v="2"/></divide></result></compute></sequence>
+<sequence name="D2"><compute><result><divide><int v="7"/><int v="2"/></divide></result></compute></sequence>
+<sequence name="D3"><compute><result><divide><int v="-8"/><int v="4"/></divide></result></compute></sequence>
+<sequence name="D4"><compute><result><divide><int v="-1"/><int v="2"/></divide></result></compute></sequence>
+```
+
+<Terminal title="./run floor.tdc — -7/2=${{D1}}  7/2=${{D2}}  -8/4=${{D3}}  -1/2=${{D4}}">
+{`-7/2=-4   7/2=3   -8/4=-2   -1/2=-1`}
+</Terminal>
+
+`−7 ÷ 2` da `−4` (redondeado hacia abajo), y `−1 ÷ 2` da `−1`. Una división exacta como
+`−8 ÷ 4` se queda en `−2`. `<divide>` y [`<mod>`](#mod) forman una pareja consistente, que
+es lo que esperan los algoritmos de checksum.
+
+## `<mod>`
+
+**Toma** exactamente dos hijos → **da** un número entre `0` y `divisor-1`. Nunca es negativo, a diferencia de `%` en C, Java o JavaScript.
+
+`<mod>` devuelve el **residuo** del primer hijo dividido entre el segundo — un entero,
+**siempre no negativo**. Toma **exactamente dos** hijos (si no, error `TDC183`), y dividir
+entre `0` es un error. El residuo es **euclidiano**: siempre queda en `[0, |divisor|)`, así
+que **nunca** es negativo, ni siquiera cuando el dividendo lo es (`−3 mod 5 = 2`, no `−3`).
+Esto difiere del `%` de algunos lenguajes, donde el residuo lleva el signo del dividendo.
+
+**Úselo cuando** calcule un dígito verificador (el corazón de todo esquema de validación),
+parta un número en dígitos, o ajuste un índice a los límites de una lista.
+
+### Último dígito y paridad
+
+`n mod 10` extrae el último dígito; `n mod 2` responde si es par o impar (`0` es par, `1`
+es impar):
+
+```xml
+<sequence name="N"><gen type="number" value="1000..9999"/></sequence>
+<sequence name="Last">
+  <compute><result><mod><to_number><field name="N"/></to_number><int v="10"/></mod></result></compute>
+</sequence>
+<sequence name="Parity">
+  <compute><result><mod><to_number><field name="N"/></to_number><int v="2"/></mod></result></compute>
+</sequence>
+```
+
+<Terminal title="./run mod.tdc — ${{N}}: último=${{Last}}, paridad=${{Parity}}">
+{`4827: último=7, paridad=1
+9060: último=0, paridad=0
+3514: último=4, paridad=0
+6288: último=8, paridad=0
+7135: último=5, paridad=1`}
+</Terminal>
+
+### El residuo siempre es ≥ 0
+
+Con dividendos negativos se ve que `<mod>` es euclidiano — el resultado nunca se va a
+negativo:
+
+```xml
+<sequence name="M1"><compute><result><mod><int v="-3"/><int v="5"/></mod></result></compute></sequence>
+<sequence name="M2"><compute><result><mod><int v="3"/><int v="5"/></mod></result></compute></sequence>
+<sequence name="M3"><compute><result><mod><int v="-13"/><int v="10"/></mod></result></compute></sequence>
+```
+
+<Terminal title="./run modneg.tdc — -3 mod 5=${{M1}}  3 mod 5=${{M2}}  -13 mod 10=${{M3}}">
+{`-3 mod 5=2   3 mod 5=3   -13 mod 10=7`}
+</Terminal>
+
+`−3 mod 5` da `2` (porque `−3 = −1·5 + 2`) y `−13 mod 10` da `7`. El resultado siempre cae
+en `[0, divisor)`. Por eso una suma ponderada de dígitos tomada `mod 11`, `mod 97`, o a
+través de Luhn produce un dígito verificador estable y positivo — el ejemplo completo está
+en la [descripción general de compute](overview.mdx).
+
+## `<to_number>`
+
+**Toma** un string → **da** un número. Esta es la frontera entre los dos mundos, y la mayoría de los errores de la primera vez son un cruce que falta.
+
+<Figure
+  src="/img/compute/border.svg"
+  alt=""
+  caption="Una frontera, dos cruces: uno lo escribe usted, el otro ocurre solo."
+/>
+
+<Legend items={[["A", "el lado de los strings: un valor de <field>, aunque sean puros dígitos"], ["B", "el cruce que usted tiene que escribir — <to_number>"], ["C", "el cruce que ocurre solo: un número puesto en <concat> se vuelve sus dígitos"], ["D", "el lado de los números, donde vive la aritmética"]]} />
+
+`<to_number>` convierte un **string de dígitos** en un **entero**. Es el caballito de
+batalla de la aritmética: sin él no puede sumar, restar, multiplicar ni dividir valores de
+secuencia de varios dígitos. Se permite un `-` al inicio (`"-42"` → `-42`); un string con
+caracteres que no son dígitos es un error.
+
+Existe por la conversión de tipos. El valor de una secuencia
+([`<field name="…"/>`](overview.mdx)) y todo valor `${{…}}` es un **string**. La aritmética
+solo acepta enteros: convierte sola un string de **un solo dígito** (`"7"`), pero **no** uno
+de varios — eso es un error. `<to_number>` es la única forma de decir «interpreta este
+string de dígitos como número», y mantenerlo explícito evita que «sumar como números» se
+confunda con «pegar como strings» ([`<concat>`](strings.mdx)).
+
+### Sin él — un error
+
+Sumar dos campos de varios dígitos directamente falla antes de que se genere cualquier
+dato:
+
+```xml
+<sequence name="A"><gen type="number" value="10..90"/></sequence>
+<sequence name="B"><gen type="number" value="10..90"/></sequence>
+<sequence name="Sum">
+  <compute><result><add><field name="A"/><field name="B"/></add></result></compute>
+</sequence>
+```
+
+<Terminal title="./run bad.tdc — error antes de la generación">
+{`tdc: expected an integer in <add>, got the string "10" — wrap it in <to_number> to convert a multi-digit string`}
+</Terminal>
+
+`"10"` es un string de dos dígitos y no se convierte solo. El mensaje de error apunta
+directo a la solución.
+
+### Con él — funciona
+
+Envuelva cada campo y la suma se calcula:
+
+```xml
+<sequence name="A"><gen type="number" value="10..90"/></sequence>
+<sequence name="B"><gen type="number" value="10..90"/></sequence>
+<sequence name="Sum">
+  <compute><result>
+    <add>
+      <to_number><field name="A"/></to_number>
+      <to_number><field name="B"/></to_number>
+    </add>
+  </result></compute>
+</sequence>
+```
+
+<Terminal title="./run sum.tdc — ${{A}} + ${{B}} = ${{Sum}}">
+{`10 + 76 = 86
+67 + 30 = 97
+61 + 75 = 136
+54 + 27 = 81
+51 + 53 = 104`}
+</Terminal>
+
+### Cuándo no lo necesita
+
+Un string de un solo dígito se convierte solo. Así que dentro de un recorrido de dígitos
+([`<reduce>`](lists.mdx), [`<each>`](lists.mdx)) el elemento
+[`<current/>`](lists.mdx) es un string de **un carácter** y puede sumarse o multiplicarse
+sin envoltorio — por eso los ejemplos de «suma de dígitos» y «suma ponderada» de arriba se
+saltan `<to_number>`. El envoltorio solo hace falta cuando el número tiene **varios
+dígitos**: el valor completo de un campo, un `${{…}}`, o un pedazo sacado con
+[`<slice>`](strings.mdx).
+
+## `<encode as="…">`
+
+**Toma** un string de **un solo carácter** más `as=` → **da** un string.
+
+`<encode as="…">` convierte **un solo carácter** en su código numérico y devuelve el
+resultado como **string**. El atributo `as` elige la tabla. **Úselo cuando** un esquema
+pondere letras como números — el mod-97 del IBAN, por ejemplo, reemplaza cada letra por su
+valor en base 36 antes de sacar el módulo.
+
+Para conseguir el carácter que se le pasa, tome un elemento de un string:
+[`<current/>`](lists.mdx) dentro de un recorrido, [`<slice>`](strings.mdx), o un literal
+`<str v="A"/>`.
+
+| `as`      | Qué produce                                                  |
+| :-------- | :---------------------------------------------------------- |
+| `base36`  | `0`–`9` → `0…9`, letras `A`–`Z`/`a`–`z` → `10…35` (decimal) |
+| `ascii`   | punto de código decimal, solo `0`–`127` (si no, es un error) |
+| `unicode` | punto de código decimal, sin el límite de `127`             |
+| `hex`     | el punto de código en base 16                               |
+| `octal`   | el punto de código en base 8                                |
+| `binary`  | el punto de código en base 2                                |
+
+Un valor de `as` desconocido se detecta antes de la corrida (error `TDC186`).
+
+### `base36` — de letra a número
+
+Recorra un string carácter por carácter con [`<each>`](lists.mdx), codifique cada uno en
+`base36`, y pegue los resultados con [`<join>`](lists.mdx):
+
+```xml
+<sequence name="Codes">
+  <compute><result>
+    <join sep=" ">
+      <each>
+        <over><str v="A9z"/></over>
+        <do><encode as="base36"><current/></encode></do>
+      </each>
+    </join>
+  </result></compute>
+</sequence>
+```
+
+<Terminal title="./run base36.tdc — A9z -> ${{Codes}}">
+{`A9z -> 10 9 35`}
+</Terminal>
+
+`A` → `10`, el dígito `9` → `9`, `z` → `35` (no importan mayúsculas ni minúsculas). Note
+que estos son pesos **decimales**, no «dígitos en base 36». Esta es exactamente la tabla
+que usa el IBAN antes de tomar `mod 97`.
+
+### Un carácter en cada base
+
+El mismo carácter `A` (punto de código 65) a través de cada tabla:
+
+```xml
+<sequence name="Asc"><compute><result><encode as="ascii"><str v="A"/></encode></result></compute></sequence>
+<sequence name="Uni"><compute><result><encode as="unicode"><str v="A"/></encode></result></compute></sequence>
+<sequence name="Hex"><compute><result><encode as="hex"><str v="A"/></encode></result></compute></sequence>
+<sequence name="Oct"><compute><result><encode as="octal"><str v="A"/></encode></result></compute></sequence>
+<sequence name="Bin"><compute><result><encode as="binary"><str v="A"/></encode></result></compute></sequence>
+```
+
+<Terminal title="./run bases.tdc — A: ascii/unicode/hex/octal/binary">
+{`ascii    65
+unicode  65
+hex      41
+octal    101
+binary   1000001`}
+</Terminal>
+
+`ascii`/`unicode` dan el decimal `65`; `hex`/`octal`/`binary` dan el mismo punto de código
+en base 16/8/2. El resultado es un string — para seguir calculando con él, envuélvalo en
+[`<to_number>`](#to_number) (aunque un solo carácter en `base36` alimenta la aritmética
+directo, ya que un string de un carácter se convierte solo).
+
+## Limitaciones
+
+- **Nada de expresiones en texto** — cada operación es su propia etiqueta.
+- **Solo enteros** — no hay números con decimales ni booleanos; un desbordamiento de 64
+  bits es un error, no una vuelta silenciosa.
+- **Los nombres de etiquetas usan `_`**: `to_number`, `current_index`, y así.
+- **Los errores de árbol se detectan antes de la corrida** (códigos `TDC180`–`TDC187`):
+  una etiqueta desconocida, un número de hijos equivocado, un [`<var>`](overview.mdx) sin
+  ligar, y cosas por el estilo.
+
+## Vea también
+
+- **[Listas e iteración](lists.mdx)** — sume o pondere una lista completa con `<reduce>`.
+- **[Condicionales](conditionals.mdx)** — ramifique con `<greater_than>` / `<mod>` en un dígito verificador.
+- **[Descripción general de compute](overview.mdx)** — el ejemplo completo de Luhn / dígito verificador.
+- **[Referencia de funciones de compute](../reference/compute.mdx)** — el catálogo alfabético.

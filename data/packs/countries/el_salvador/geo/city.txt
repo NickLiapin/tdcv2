@@ -1,0 +1,90 @@
+---
+address: el_salvador.geo.city
+description: Salvadoran city (real municipalities and urban centres, largest and best known first)
+---
+San Salvador
+Soyapango
+Santa Ana
+San Miguel
+Mejicanos
+Santa Tecla
+Apopa
+Delgado
+Ilopango
+Colón
+Ahuachapán
+San Marcos
+Sonsonate
+Usulután
+Zacatecoluca
+Cojutepeque
+Ciudad Arce
+San Vicente
+San Martín
+Quezaltepeque
+Ayutuxtepeque
+Chalchuapa
+Metapán
+Izalco
+Nahuizalco
+Acajutla
+San Juan Opico
+Antiguo Cuscatlán
+Aguilares
+Tonacatepeque
+Nueva Concepción
+Chalatenango
+Sensuntepeque
+Ilobasco
+La Unión
+San Francisco Gotera
+Jiquilisco
+Santiago de María
+Berlín
+Chinameca
+Ciudad Barrios
+Santa Rosa de Lima
+Pasaquina
+Conchagua
+La Libertad
+Zaragoza
+Olocuilta
+San Rafael Oriente
+El Tránsito
+Jucuapa
+Suchitoto
+Sonzacate
+Guazapa
+Nejapa
+Panchimalco
+Santo Tomás
+Santiago Nonualco
+San Pedro Masahuat
+Cuscatancingo
+Atiquizaya
+Concepción de Ataco
+Juayúa
+Armenia
+San Sebastián Salitrillo
+Texistepeque
+Coatepeque
+El Congo
+Puerto El Triunfo
+Moncagua
+San Rafael Cedros
+Tejutla
+La Palma
+San Ignacio
+Verapaz
+Tecoluca
+Apastepeque
+San Sebastián
+Jucuarán
+Corinto
+Guatajiagua
+Cacaopera
+Perquín
+Anamorós
+San Alejo
+Intipucá
+Rosario de Mora

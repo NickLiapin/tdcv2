@@ -1,0 +1,6 @@
+---
+address: usa.phone
+description: US phone in E.164 form (area 202, fictional 555 exchange)
+generator: tdc
+---
+<gen type="regex" value="\+1202555[0-9]{4}"/>

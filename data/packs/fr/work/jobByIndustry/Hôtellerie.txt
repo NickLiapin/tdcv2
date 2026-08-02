@@ -1,0 +1,19 @@
+---
+description: Jobs in Hospitality (French)
+locale: fr
+---
+Réceptionniste
+Concierge
+Femme de chambre
+Directeur d'hôtel
+Serveur
+Cuisinier
+Chef de cuisine
+Barman
+Maître d'hôtel
+Gouvernante
+Commis de cuisine
+Sommelier
+Voiturier
+Chef de rang
+Night auditor

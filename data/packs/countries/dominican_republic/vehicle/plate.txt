@@ -1,0 +1,7 @@
+---
+address: dominican_republic.vehicle.plate
+description: Dominican Republic private-car licence plate — a one-letter category prefix (A = automóvil privado) followed by six digits, e.g. A123456
+generator: tdc
+locale: es
+---
+<gen type="regex" value="A[0-9]{6}"/>

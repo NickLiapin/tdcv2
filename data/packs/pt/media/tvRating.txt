@@ -1,0 +1,14 @@
+---
+description: TV / film content rating, descriptive Portuguese (country rating codes are country data)
+locale: pt
+---
+Livre para todos os públicos
+Não recomendado para menores de 10 anos
+Não recomendado para menores de 12 anos
+Não recomendado para menores de 14 anos
+Não recomendado para menores de 16 anos
+Não recomendado para menores de 18 anos
+Orientação dos pais recomendada
+Somente para adultos
+Infantil
+Adolescentes

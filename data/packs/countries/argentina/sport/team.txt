@@ -1,0 +1,70 @@
+---
+address: argentina.sport.team
+description: Argentine football club — the 30 Primera División (Liga Profesional de Fútbol, 2025 season) sides first, then long-standing Primera Nacional clubs
+locale: es
+---
+Club Atlético Boca Juniors
+Club Atlético River Plate
+Racing Club
+Club Atlético Independiente
+Club Atlético San Lorenzo de Almagro
+Club Atlético Vélez Sarsfield
+Club Atlético Huracán
+Club Atlético Lanús
+Club Atlético Banfield
+Club Atlético Platense
+Asociación Atlética Argentinos Juniors
+Club Atlético Tigre
+Club Atlético Barracas Central
+Club Deportivo Riestra
+Club Social y Deportivo Defensa y Justicia
+Club Atlético Rosario Central
+Club Atlético Newell's Old Boys
+Club Atlético Unión
+Club Atlético Talleres
+Club Atlético Belgrano
+Instituto Atlético Central Córdoba
+Club Atlético Central Córdoba de Santiago del Estero
+Club Atlético Tucumán
+Club Deportivo Godoy Cruz Antonio Tomba
+Club Sportivo Independiente Rivadavia
+Club Atlético Aldosivi
+Club Atlético San Martín de San Juan
+Club Atlético Sarmiento
+Club Estudiantes de La Plata
+Club de Gimnasia y Esgrima La Plata
+Club Atlético Colón
+Club Atlético Chacarita Juniors
+Club Ferro Carril Oeste
+Club Atlético All Boys
+Club Atlético Nueva Chicago
+Club Almagro
+Club Atlético Temperley
+Quilmes Atlético Club
+Club Atlético San Miguel
+Arsenal Fútbol Club
+Club Atlético Patronato
+Club Atlético Gimnasia y Esgrima de Mendoza
+Club Deportivo Morón
+Asociación Atlética Estudiantes de Río Cuarto
+Club Atlético San Martín de Tucumán
+Club Atlético Atlanta
+Club Atlético Defensores de Belgrano
+Club Atlético Los Andes
+Club Social y Atlético Guillermo Brown
+Club Social y Deportivo Madryn
+Club Atlético Almirante Brown
+Club Atlético Tristán Suárez
+Racing de Córdoba
+Club Atlético Alvarado
+Club Atlético Güemes
+Club Atlético Chaco For Ever
+Club Atlético Talleres de Remedios de Escalada
+Club Deportivo Maipú
+Club Atlético Central Norte
+Club Atlético Gimnasia y Esgrima de Jujuy
+Club Atlético Colegiales
+Club Atlético San Telmo
+Club Atlético Brown de Adrogué
+Club Villa Dálmine
+Club Atlético Agropecuario Argentino

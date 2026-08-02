@@ -1,0 +1,29 @@
+---
+description: Gemstone (Portuguese)
+locale: pt
+---
+Diamante
+Rubi
+Safira
+Esmeralda
+Ametista
+Topázio
+Opala
+Granada
+Água-marinha
+Peridoto
+Turquesa
+Jade
+Ónix
+Pérola
+Citrino
+Tanzanita
+Turmalina
+Pedra-da-lua
+Zircão
+Lápis-lazúli
+Âmbar
+Coral
+Malaquite
+Quartzo rosa
+Obsidiana

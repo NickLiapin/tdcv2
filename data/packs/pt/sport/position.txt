@@ -1,0 +1,39 @@
+---
+description: Playing position, mixed sports (Portuguese)
+locale: pt
+---
+Goleiro/Guarda-redes
+Zagueiro central
+Lateral
+Volante
+Meio-campista
+Ponta
+Centroavante
+Meia-atacante
+Armador
+Ala-armador
+Ala
+Ala-pivô
+Pivô
+Arremessador
+Receptor
+Interbases
+Primeira base
+Jardineiro central
+Rebatedor designado
+Levantador
+Líbero
+Central
+Oposto
+Pilar
+Talonador
+Meio-scrum
+Abertura
+Fullback
+Quarterback
+Running back
+Wide receiver
+Linebacker
+Cornerback
+Ala esquerda
+Ala direita

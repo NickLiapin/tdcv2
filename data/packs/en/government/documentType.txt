@@ -1,0 +1,14 @@
+---
+description: Official document type
+locale: en
+---
+Passport
+Birth Certificate
+Marriage Certificate
+Driver License
+Social Security Card
+Voter Registration
+Tax Return
+Building Permit
+Business License
+Visa

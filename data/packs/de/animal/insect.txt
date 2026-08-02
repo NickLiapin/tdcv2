@@ -1,0 +1,24 @@
+---
+description: Insect (German)
+locale: de
+---
+Ameise
+Biene
+Schmetterling
+Käfer
+Libelle
+Heuschrecke
+Marienkäfer
+Motte
+Grille
+Wespe
+Glühwürmchen
+Gottesanbeterin
+Zikade
+Termite
+Stechmücke
+Fliege
+Kakerlake
+Floh
+Tausendfüßler
+Wanze

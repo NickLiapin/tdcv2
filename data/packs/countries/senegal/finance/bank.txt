@@ -1,0 +1,19 @@
+---
+address: senegal.finance.bank
+description: Banks operating in Senegal
+locale: fr
+---
+Société Générale Sénégal
+CBAO Groupe Attijariwafa Bank
+Ecobank
+Bank of Africa
+BICIS
+Banque Atlantique
+UBA
+Orabank
+Banque de l'Habitat du Sénégal
+BNDE
+Banque Islamique du Sénégal
+Coris Bank
+BGFIBank
+Crédit du Sénégal

@@ -1,0 +1,14 @@
+---
+description: Positions in baseball (Italian)
+locale: it
+---
+Lanciatore
+Ricevitore
+Prima base
+Seconda base
+Terza base
+Interbase
+Esterno sinistro
+Esterno centro
+Esterno destro
+Battitore designato

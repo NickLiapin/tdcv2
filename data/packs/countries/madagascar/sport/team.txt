@@ -1,0 +1,17 @@
+---
+address: madagascar.sport.team
+description: Malagasy first-division football clubs
+locale: fr
+---
+CNaPS Sport
+Fosa Juniors FC
+Elgeco Plus
+AS Adema
+Ajesaia
+Zanakala FC
+Uscafoot
+Disciples FC
+Tia Kitra
+Mama FC
+COSFA
+Three FB

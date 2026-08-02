@@ -1,0 +1,20 @@
+---
+description: Seniority / level label for a role (Italian)
+locale: it
+---
+Tirocinante
+Apprendista
+Junior
+Associato
+Livello intermedio
+Senior
+Responsabile di team
+Specialista
+Principale
+Esperto di riferimento
+Manager
+Manager senior
+Direttore
+Vicepresidente
+Capo divisione
+Amministratore delegato

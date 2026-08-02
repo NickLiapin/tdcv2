@@ -1,0 +1,47 @@
+---
+address: spain.sport.team
+description: Spanish professional football club — the 20 clubs of Primera División (LaLiga) and the 22 of Segunda División (LaLiga Hypermotion), 2025-26 season, official names
+locale: es
+---
+Real Madrid Club de Fútbol
+Fútbol Club Barcelona
+Club Atlético de Madrid
+Athletic Club
+Real Sociedad de Fútbol
+Real Betis Balompié
+Sevilla Fútbol Club
+Valencia Club de Fútbol
+Villarreal Club de Fútbol
+Real Club Celta de Vigo
+Deportivo Alavés
+Club Atlético Osasuna
+Getafe Club de Fútbol
+Girona Fútbol Club
+Rayo Vallecano de Madrid
+Real Club Deportivo Espanyol
+Real Club Deportivo Mallorca
+Elche Club de Fútbol
+Levante Unión Deportiva
+Real Oviedo
+Albacete Balompié
+Unión Deportiva Almería
+Fútbol Club Andorra
+Burgos Club de Fútbol
+Cádiz Club de Fútbol
+Club Deportivo Castellón
+Agrupación Deportiva Ceuta Fútbol Club
+Córdoba Club de Fútbol
+Cultural y Deportiva Leonesa
+Real Club Deportivo de La Coruña
+Sociedad Deportiva Eibar
+Granada Club de Fútbol
+Sociedad Deportiva Huesca
+Unión Deportiva Las Palmas
+Club Deportivo Leganés
+Málaga Club de Fútbol
+Club Deportivo Mirandés
+Real Racing Club de Santander
+Real Sociedad de Fútbol B
+Real Sporting de Gijón
+Real Valladolid Club de Fútbol
+Real Zaragoza

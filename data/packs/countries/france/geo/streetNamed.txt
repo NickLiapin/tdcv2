@@ -1,0 +1,75 @@
+---
+address: france.geo.streetNamed
+description: Common French street name, bare (without the Rue / Avenue / Boulevard voie type)
+locale: fr
+---
+de la République
+de la Gare
+de la Paix
+de la Liberté
+de la Mairie
+de la Poste
+de l'Église
+de l'Hôtel de Ville
+du Général de Gaulle
+du Maréchal Foch
+du Maréchal Joffre
+du 8 Mai 1945
+du 11 Novembre
+du 14 Juillet
+du Moulin
+du Château
+du Stade
+du Pont
+du Marché
+du Commerce
+des Écoles
+des Lilas
+des Roses
+des Acacias
+des Tilleuls
+des Marronniers
+des Peupliers
+des Jardins
+des Vignes
+des Fleurs
+des Alpes
+des Vosges
+Victor Hugo
+Jean Jaurès
+Émile Zola
+Jean Moulin
+Gambetta
+Pasteur
+Voltaire
+Jules Ferry
+Anatole France
+Aristide Briand
+Georges Clemenceau
+Léon Blum
+Jean-Baptiste Colbert
+Denis Diderot
+Molière
+Jean de La Fontaine
+Pierre et Marie Curie
+Louis Pasteur
+Gustave Eiffel
+Auguste Renoir
+Claude Monet
+Charles Baudelaire
+Guy de Maupassant
+Alexandre Dumas
+Saint-Martin
+Saint-Michel
+Saint-Jacques
+Saint-Honoré
+Nationale
+Grande Rue
+du Faubourg
+de Paris
+de Lyon
+de Strasbourg
+de Verdun
+de la Résistance
+de la Libération
+Jeanne d'Arc

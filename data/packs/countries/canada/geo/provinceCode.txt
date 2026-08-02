@@ -1,0 +1,17 @@
+---
+address: canada.geo.provinceCode
+description: ISO 3166-2:CA / Canada Post two-letter province and territory code; same order as canada.geo.province
+---
+AB
+BC
+MB
+NB
+NL
+NS
+ON
+PE
+QC
+SK
+NT
+NU
+YT

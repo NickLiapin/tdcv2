@@ -1,0 +1,34 @@
+---
+description: Filler sentence (original neutral Spanish prose, no country-specific vocabulary)
+locale: es
+---
+La mañana fue tranquila y la ciudad seguía dormida bajo una niebla ligera.
+Abrió la ventana y respiró el aire frío del día que empezaba.
+El camino se perdía a lo lejos, entre colinas y campos de trigo.
+Hacía mucho que no volvía, pero todo le resultaba conocido.
+Sobre la mesa había un libro abierto y una taza de té ya frío.
+A lo lejos se oía el ruido del río y el canto de los pájaros.
+Nadie dijo nada durante un rato largo y el silencio no incomodó a ninguno.
+La casa estaba al final de la calle, detrás de un muro bajo de piedra.
+Guardó las llaves en el bolsillo y cerró la puerta sin hacer ruido.
+El sol de la tarde entraba por la ventana y calentaba el suelo de madera.
+Caminaron juntos hasta la plaza sin ponerse de acuerdo en el destino.
+La respuesta llegó una semana después, cuando ya casi la había olvidado.
+Los árboles del parque habían crecido mucho desde la última vez.
+Se sentó en el banco y miró pasar a la gente durante media hora.
+El invierno llegó pronto ese año y sorprendió a todo el mundo.
+Encendió la lámpara pequeña y siguió trabajando hasta muy tarde.
+Desde el balcón se veía el mar, apenas una línea azul entre los edificios.
+Preguntó por el camino y le señalaron una calle estrecha cuesta arriba.
+Todo estaba en su sitio, aunque nadie vivía allí desde hacía años.
+El tren se detuvo unos minutos y después continuó su marcha.
+Recordaba el olor de la cocina mejor que las palabras de aquella noche.
+La carta era corta y no explicaba casi nada.
+Se levantó temprano para aprovechar la luz de la mañana.
+El perro los siguió hasta el final del sendero y allí se quedó.
+Contó la historia despacio, como si la estuviera recordando por primera vez.
+La ciudad cambiaba de aspecto cuando llegaban las primeras lluvias.
+Dejó el trabajo a medias y salió a dar una vuelta.
+El reloj de la torre marcaba una hora que ya no era la correcta.
+Aprendió a esperar sin impaciencia, que era lo más difícil.
+Al día siguiente todo pareció más sencillo de lo que había imaginado.

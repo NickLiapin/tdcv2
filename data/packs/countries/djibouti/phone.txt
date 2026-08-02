@@ -1,0 +1,6 @@
+---
+address: djibouti.phone
+description: Djiboutian mobile phone in E.164 form (+253 77XXXXXX)
+generator: tdc
+---
+<gen type="regex" value="\+25377[0-9]{6}"/>

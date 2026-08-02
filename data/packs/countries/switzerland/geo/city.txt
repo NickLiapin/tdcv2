@@ -1,0 +1,35 @@
+---
+address: switzerland.geo.city
+description: Swiss cities and larger municipalities (French names where they exist)
+locale: fr
+---
+Zurich
+Genève
+Bâle
+Lausanne
+Berne
+Winterthour
+Lucerne
+Saint-Gall
+Lugano
+Bienne
+Thoune
+Köniz
+La Chaux-de-Fonds
+Fribourg
+Schaffhouse
+Coire
+Neuchâtel
+Vernier
+Sion
+Uster
+Yverdon-les-Bains
+Montreux
+Nyon
+Carouge
+Renens
+Morges
+Vevey
+Bulle
+Martigny
+Delémont

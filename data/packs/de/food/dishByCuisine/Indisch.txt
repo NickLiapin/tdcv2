@@ -1,0 +1,16 @@
+---
+description: Dishes of Indian cuisine (German)
+locale: de
+---
+Butter Chicken
+Biryani
+Tikka Masala
+Samosa
+Dal Makhani
+Naan-Brot
+Palak Paneer
+Rogan Josh
+Tandoori-Hähnchen
+Chana Masala
+Korma
+Raita

@@ -1,0 +1,16 @@
+---
+description: Hotel room type (French)
+locale: fr
+---
+Chambre simple
+Chambre double
+Chambre twin
+Suite
+Suite junior
+Chambre familiale
+Chambre supérieure
+Chambre deluxe
+Studio
+Chambre communicante
+Suite présidentielle
+Chambre avec vue mer

@@ -1,0 +1,36 @@
+---
+description: Dog breed (French)
+locale: fr
+---
+Berger allemand
+Labrador
+Golden retriever
+Bouledogue français
+Caniche
+Chihuahua
+Berger australien
+Border collie
+Beagle
+Rottweiler
+Yorkshire
+Teckel
+Boxer
+Dogue allemand
+Cocker
+Épagneul breton
+Jack Russell
+Husky sibérien
+Berger malinois
+Bichon frisé
+Cavalier King Charles
+Shih Tzu
+Carlin
+Basset hound
+Saint-Bernard
+Dalmatien
+Doberman
+Braque
+Setter irlandais
+Lévrier
+Bouledogue anglais
+Berger des Pyrénées

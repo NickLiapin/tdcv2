@@ -1,0 +1,20 @@
+---
+description: Room type (Italian)
+locale: it
+---
+Camera da letto
+Bagno
+Cucina
+Soggiorno
+Sala da pranzo
+Ufficio
+Cantina
+Soffitta
+Garage
+Lavanderia
+Camera degli ospiti
+Dispensa
+Ingresso
+Studio
+Cortile
+Terrazza

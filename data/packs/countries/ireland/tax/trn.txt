@@ -1,0 +1,8 @@
+---
+address: ireland.tax.trn
+description: Irish Tax Reference Number for an individual — this is the person's PPSN (7 digits + mod-23 check letter), reused by Revenue as the tax reference
+generator: tdc
+locale: en
+---
+<sequence name="trn"><gen type="template" value="ireland.docs.pps"/></sequence>
+<data>${{trn}}</data>

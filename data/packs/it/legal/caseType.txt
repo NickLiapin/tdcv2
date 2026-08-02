@@ -1,0 +1,17 @@
+---
+description: Legal case type (Italian)
+locale: it
+---
+Civile
+Penale
+Famiglia
+Fallimentare
+Danni alla persona
+Lavoro
+Controversia contrattuale
+Proprietà intellettuale
+Immobiliare
+Immigrazione
+Tributario
+Amministrativo
+Commerciale

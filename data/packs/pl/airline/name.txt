@@ -1,0 +1,54 @@
+---
+description: Airline (Polish carriers and major international ones)
+locale: pl
+---
+LOT Polskie Linie Lotnicze
+Enter Air
+SprintAir
+Buzz
+Wizz Air
+Ryanair
+easyJet
+Lufthansa
+Air France
+KLM
+British Airways
+Iberia
+Swiss International Air Lines
+Austrian Airlines
+Brussels Airlines
+SAS Scandinavian Airlines
+Finnair
+Norwegian
+airBaltic
+TAP Air Portugal
+ITA Airways
+Aegean Airlines
+Turkish Airlines
+Pegasus Airlines
+Czech Airlines
+Smartwings
+Air Serbia
+Croatia Airlines
+Tarom
+Bulgaria Air
+Aer Lingus
+Vueling
+Eurowings
+Condor
+Emirates
+Qatar Airways
+Etihad Airways
+Singapore Airlines
+Qantas
+Cathay Pacific
+Japan Airlines
+All Nippon Airways
+Korean Air
+Air China
+American Airlines
+United Airlines
+Delta Air Lines
+JetBlue Airways
+Air Canada
+Ethiopian Airlines

@@ -1,0 +1,10 @@
+---
+description: Italian full female name — a single given name and a single surname (Chiara Ferrari). Italian names carry one surname, unlike the two-surname Spanish form.
+generator: tdc
+locale: it
+---
+<sequence name="p">
+  <gen name="f" type="template" value="it.person.female.firstName"/>
+  <gen name="l" type="template" value="it.person.lastName"/>
+</sequence>
+<data>${{p.f}} ${{p.l}}</data>

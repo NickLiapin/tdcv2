@@ -1,0 +1,13 @@
+---
+address: niger.education.university
+description: Universities of Niger
+locale: fr
+---
+Université Abdou Moumouni
+Université de Zinder
+Université Dan Dicko Dankoulodo de Maradi
+Université de Tahoua
+Université d'Agadez
+Université de Dosso
+Université de Tillabéri
+Université Islamique au Niger

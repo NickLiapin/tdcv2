@@ -1,0 +1,7 @@
+---
+address: peru.docs.dni
+description: Peru DNI — the 8-digit RENIEC national identity number. RENIEC also derives a dígito de verificación (a digit, or one of K/A-J on the non-expiring cards issued to over-60s until 2007) and prints it to the right of the number after a hyphen, but it is not part of the DNI itself, it is absent from most records that carry one, and RENIEC has never published its algorithm — so this pack emits the eight digits only rather than attaching a character it cannot compute honestly.
+generator: tdc
+---
+<sequence name="body"><gen type="regex" value="[0-9]{8}"/></sequence>
+<data>${{body}}</data>

@@ -1,0 +1,22 @@
+---
+description: Event type (French)
+locale: fr
+---
+Conférence
+Congrès
+Mariage
+Séminaire
+Salon
+Concert
+Festival
+Anniversaire
+Colloque
+Vernissage
+Cocktail
+Gala
+Réception
+Baptême
+Inauguration
+Table ronde
+Atelier
+Webinaire

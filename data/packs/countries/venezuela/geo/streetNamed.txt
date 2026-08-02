@@ -1,0 +1,95 @@
+---
+address: venezuela.geo.streetNamed
+description: Common Venezuelan street or avenue name, bare (without the Avenida / Calle / Carrera prefix) — próceres, patriotic dates and well-known thoroughfares
+locale: es
+---
+Bolívar
+Simón Bolívar
+Sucre
+Antonio José de Sucre
+Miranda
+Francisco de Miranda
+Urdaneta
+Rafael Urdaneta
+Páez
+José Antonio Páez
+Andrés Bello
+Rómulo Gallegos
+Rómulo Betancourt
+Fuerzas Armadas
+Universidad
+Libertador
+San Martín
+Panteón
+Cristóbal Colón
+Bella Vista
+Bello Monte
+Casanova
+Las Delicias
+Los Próceres
+Los Ilustres
+Principal
+Intercomunal
+La Marina
+Victoria
+Ayacucho
+Carabobo
+Junín
+Boyacá
+Nueva Granada
+Lecuna
+México
+Baralt
+Este
+Oeste
+Norte
+Sur
+Ezequiel Zamora
+José Félix Ribas
+Santiago Mariño
+José María Vargas
+Cajigal
+Guaicaipuro
+Negro Primero
+Soublette
+Ricaurte
+Bermúdez
+Cedeño
+Anzoátegui
+Guzmán Blanco
+La Paz
+Los Samanes
+Las Acacias
+Los Chaguaramos
+Sabana Grande
+Las Mercedes
+Chacaíto
+El Rosal
+La Castellana
+Altamira
+Los Palos Grandes
+La Florida
+El Recreo
+La Candelaria
+San Bernardino
+El Paraíso
+Las Fuentes
+19 de Abril
+5 de Julio
+24 de Junio
+12 de Octubre
+23 de Enero
+Simón Rodríguez
+Andrés Eloy Blanco
+Cecilio Acosta
+Fermín Toro
+Tomás Lander
+El Ejército
+La República
+Independencia
+La Salle
+Los Haticos
+Delicias Norte
+Padilla
+Vargas
+Santos Michelena

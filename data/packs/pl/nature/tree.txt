@@ -1,0 +1,32 @@
+---
+description: Tree (Polish)
+locale: pl
+---
+Dąb
+Klon
+Sosna
+Brzoza
+Cedr
+Wierzba
+Sekwoja
+Świerk
+Wiąz
+Jesion
+Buk
+Czereśnia
+Orzech włoski
+Topola
+Cyprys
+Jodła
+Jawor
+Osika
+Magnolia
+Dereń
+Lipa
+Modrzew
+Jarzębina
+Eukaliptus
+Kasztanowiec
+Palma
+Grab
+Olcha

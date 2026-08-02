@@ -1,0 +1,16 @@
+---
+description: Streaming platform available in the Greek market
+locale: el
+---
+Netflix
+Disney+
+Amazon Prime Video
+Max
+Apple TV+
+ERTFLIX
+Cosmote TV
+Vodafone TV
+ANT1+
+YouTube
+Spotify
+Twitch

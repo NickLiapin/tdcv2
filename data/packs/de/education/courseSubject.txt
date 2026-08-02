@@ -1,0 +1,24 @@
+---
+description: School subject (German)
+locale: de
+---
+Mathematik
+Physik
+Chemie
+Biologie
+Informatik
+Geschichte
+Geografie
+Deutsch
+Kunst
+Musik
+Sport
+Wirtschaft
+Philosophie
+Psychologie
+Fremdsprache
+Statistik
+Naturwissenschaften
+Sozialkunde
+Politische Bildung
+Technik

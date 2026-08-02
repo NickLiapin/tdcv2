@@ -1,0 +1,19 @@
+---
+description: Jobs in Healthcare (Italian)
+locale: it
+---
+Infermiere
+Medico di base
+Farmacista
+Fisioterapista
+Assistente medico
+Tecnico di radiologia
+Soccorritore sanitario
+Chirurgo
+Pediatra
+Ostetrica
+Operatore socio-sanitario
+Anestesista
+Dietista
+Logopedista
+Cardiologo

@@ -1,0 +1,23 @@
+---
+description: Property type (Italian)
+locale: it
+---
+Casa unifamiliare
+Appartamento
+Villetta a schiera
+Bifamiliare
+Palazzina
+Villa
+Bungalow
+Baita
+Loft
+Monolocale
+Attico
+Casa mobile
+Cascina
+Villa signorile
+Casa di campagna
+Masseria
+Terreno
+Locale commerciale
+Rustico

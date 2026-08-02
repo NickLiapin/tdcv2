@@ -1,0 +1,23 @@
+---
+address: uae.geo.city
+description: Cities and towns of the United Arab Emirates (Arabic)
+locale: ar
+---
+أبوظبي
+دبي
+الشارقة
+العين
+عجمان
+رأس الخيمة
+الفجيرة
+أم القيوين
+خورفكان
+دبا الفجيرة
+كلباء
+الرويس
+مدينة زايد
+ليوا
+مصفح
+جبل علي
+حتا
+دبا الحصن

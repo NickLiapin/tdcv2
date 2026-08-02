@@ -1,0 +1,12 @@
+---
+description: Conditions markedly more frequent in people of South Asian ancestry, given in Greek. A prevalence signal, not an exclusive one.
+locale: el
+---
+Πρώιμος σακχαρώδης διαβήτης τύπου 2
+Πρώιμη στεφανιαία νόσος
+Κεντρική παχυσαρκία με φυσιολογικό δείκτη μάζας σώματος
+Ανεπάρκεια βιταμίνης D
+Στίγμα βήτα-θαλασσαιμίας
+Μεταβολικό σύνδρομο
+Ανεπάρκεια αφυδρογονάσης της 6-φωσφορικής γλυκόζης
+Ρευματική καρδιοπάθεια

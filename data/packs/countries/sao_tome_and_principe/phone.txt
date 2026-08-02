@@ -1,0 +1,7 @@
+---
+address: sao_tome_and_principe.phone
+description: São Tomé and Príncipe mobile phone in E.164 form (+239, mobile prefixes 98/99)
+generator: tdc
+locale: pt
+---
+<gen type="regex" value="\+2399[89][0-9]{5}"/>

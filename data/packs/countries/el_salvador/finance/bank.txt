@@ -1,0 +1,17 @@
+---
+address: el_salvador.finance.bank
+description: Salvadoran bank supervised by the Superintendencia del Sistema Financiero (SSF); same order as el_salvador.finance.bankCode. El Salvador's legal tender is the US dollar (and, since 2021, Bitcoin), so account balances are in USD
+---
+Banco Agrícola
+Banco Cuscatlán de El Salvador
+Banco Davivienda Salvadoreño
+Banco Hipotecario de El Salvador
+Banco de América Central
+Banco Promerica
+Banco Industrial El Salvador
+Banco Azul de El Salvador
+Banco ABANK
+Banco Atlántida El Salvador
+Banco de Fomento Agropecuario
+Citibank El Salvador
+Banco Central de Reserva de El Salvador

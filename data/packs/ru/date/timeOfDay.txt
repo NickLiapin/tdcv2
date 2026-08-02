@@ -1,0 +1,7 @@
+---
+description: Time of day (Russian)
+---
+Утро
+День
+Вечер
+Ночь

@@ -1,0 +1,25 @@
+---
+address: guatemala.geo.streetNamed
+description: Named Guatemalan thoroughfare, written with its own vialidad type (Calzada / Avenida / Boulevard) as it appears on the street — these carry a name instead of a grid number
+locale: es
+---
+Calzada Roosevelt
+Calzada San Juan
+Calzada Aguilar Batres
+Calzada Atanasio Tzul
+Calzada La Paz
+Calzada José Milla
+Avenida La Reforma
+Avenida Las Américas
+Avenida Petapa
+Avenida Bolívar
+Avenida Elena
+Avenida Hincapié
+Avenida Simeón Cañas
+Boulevard Los Próceres
+Boulevard Liberación
+Boulevard Vista Hermosa
+Boulevard Rafael Landívar
+Boulevard Naciones Unidas
+Boulevard El Naranjo
+Anillo Periférico

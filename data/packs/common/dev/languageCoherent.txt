@@ -1,0 +1,13 @@
+---
+description: Programming language (has a coherent framework list)
+---
+Python
+JavaScript
+TypeScript
+Java
+Ruby
+PHP
+Go
+Rust
+C#
+Swift

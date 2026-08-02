@@ -1,0 +1,7 @@
+---
+address: guinea_bissau.phone
+description: Guinea-Bissau mobile phone in E.164 form (+245 followed by a 7-digit mobile number starting with 95, 96 or 97)
+generator: tdc
+locale: pt
+---
+<gen type="regex" value="\+2459[5-7][0-9]{5}"/>

@@ -1,0 +1,11 @@
+---
+description: Conduit / installation method for cable runs (Polish)
+locale: pl
+---
+PVC
+Rura stalowa sztywna
+Polietylen wysokiej gęstości
+Układanie bezpośrednio w ziemi
+Kanał wewnętrzny
+Korytko kablowe
+Podwieszenie napowietrzne

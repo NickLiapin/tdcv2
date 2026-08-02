@@ -1,0 +1,21 @@
+---
+description: Common allergies
+locale: en
+---
+Penicillin
+Peanuts
+Tree Nuts
+Shellfish
+Eggs
+Milk
+Soy
+Wheat
+Latex
+Pollen
+Dust Mites
+Pet Dander
+Bee Stings
+Aspirin
+Sulfa Drugs
+Iodine
+Sesame

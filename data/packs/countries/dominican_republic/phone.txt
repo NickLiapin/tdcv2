@@ -1,0 +1,6 @@
+---
+address: dominican_republic.phone
+description: Dominican Republic phone in E.164 form — +1 country code with a NANP area code 809, 829 or 849 and a 7-digit subscriber number (exchange 2-9)
+generator: tdc
+---
+<gen type="regex" value="\+1(?:809|829|849)[2-9][0-9]{6}"/>

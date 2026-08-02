@@ -1,0 +1,246 @@
+---
+title: Códigos de error
+sidebar_position: 8
+---
+
+import Terminal from '@site/src/components/Terminal';
+
+# Códigos de error
+
+Todos los diagnósticos que TDC puede emitir, por código. Consúltelo cuando una
+ejecución se detiene y el mensaje por sí solo no alcanza.
+
+## Cómo leer un diagnóstico
+
+Un diagnóstico lleva cuatro cosas, y el código es la parte que no cambia entre
+versiones: la redacción puede mejorar, `TDC193` sigue siendo `TDC193`.
+
+<Terminal title="./run demo.tdc">
+{`error[TDC193]: "Naem" is not a declared sequence — it would be printed literally
+ --> demo.tdc:8:11
+  |
+8 |     <line><data>\${{Naem}}</data></line>
+  |           ^^^^^^^^^^^^^^^^^^^^^^
+  |
+help: did you mean "Name"?
+note: Declare it in <env>, or set a different inject= pattern if you really want the text \${{…}} in the output.`}
+</Terminal>
+
+- el **código** — qué salió mal; estable entre versiones;
+- el **lugar** — archivo, línea y columna, con el elemento culpable subrayado;
+- **`help:`** — una conjetura de lo que quiso decir, cuando el nombre casi acierta;
+- **`note:`** — qué hacer al respecto.
+
+La validación corre antes de la generación, así que un config con errores no produce
+dato alguno en vez de medio archivo. Casi cada diagnóstico aquí es un **error** y detiene
+el run: si el config pidió algo que no va a obtener, TDC se niega en vez de devolver
+datos que parecen correctos pero no lo son. Las excepciones son dos **advertencias** que
+dejan terminar el run: `TDC136` (una fila de `<map>` malformada, omitida mientras las
+válidas quedan) y `TDC200` (una estimación de memoria grande pero que cabe). Ambas lo
+indican en sus filas más abajo.
+
+Los números se reparten más o menos en el orden en que se revisa un config — primero la
+estructura, luego los generadores, luego todo lo construido encima — pero el número es un
+identificador, no una clasificación. Guíese por los grupos de abajo.
+
+## Estructura del documento
+
+| Código | Cuándo salta | Qué hacer |
+| :--- | :--------- | :-- |
+| `TDC001` | El archivo no tiene raíz `<tdc>` | Envuelva todo en un único `<tdc>…</tdc>` |
+| `TDC002` | `<tdc>` no tiene hijo `<block>` | Agregue el `<block>` con la disposición de un registro |
+| `TDC003` | En `<tdc>` están `version` y `v` a la vez | Deje uno — son alias |
+| `TDC004` | La versión declarada no parece una versión | Use una versión que el runtime admita, p. ej. `v="0.1"` (un valor más nuevo que el runtime lanza `TDC005`) |
+| `TDC005` | El archivo pide una versión más nueva que este runtime | Actualice TDC, o baje la versión declarada |
+| `TDC010` | Bajo `<tdc>` hay una etiqueta que no es `<env>` ni `<block>` | Muévala dentro de una de las dos |
+| `TDC013` | Una etiqueta está anidada donde no se permite | Ver [Etiquetas](tags.mdx): qué puede contener qué |
+| `TDC014` | Una etiqueta que necesita hijos se escribió autocerrada | Escriba `<env …></env>`, no `<env …/>` — sus hijos se perderían en silencio |
+| `TDC015` | Una etiqueta lleva un atributo que el motor no lee | La corrida se detiene: el config pidió algo que no iba a obtener. Revise la escritura — el mensaje sugiere el nombre real más cercano |
+| `TDC020` | `count` no es un entero no negativo | `count="1000"` |
+| `TDC021` | Un patrón `inject` no tiene hueco `%` | El marcador necesita `%` para el nombre, p. ej. `inject="[[%]]"` |
+
+## Secuencias
+
+| Código | Cuándo salta | Qué hacer |
+| :--- | :--------- | :-- |
+| `TDC030` | Una etiqueta que necesita nombre no lo tiene | Agregue `name="…"` |
+| `TDC031` | Un nombre de secuencia empieza con `_` | Ese prefijo está reservado a los [integrados](builtins.mdx) |
+| `TDC032` | Dos secuencias comparten nombre | Renombre una — la referencia sería ambigua |
+| `TDC033` | Un nombre choca con un integrado | Elija otro; el integrado siempre gana |
+| `TDC034` | Un valor de `parent` no es `Padre.Valor` | Use las dos partes, p. ej. `parent="Gender.Male"` |
+| `TDC035` | La secuencia padre se declara **después** de esta | Suba el padre — la resolución va de arriba abajo |
+| `TDC214` | `parent=` nombra una secuencia compuesta | El padre se filtra por el valor que produjo, y un grupo de campos no produce ninguno |
+| `TDC036` | Un `<sequence>` no tiene `<gen>` dentro | Sin generador una secuencia no produce nada |
+| `TDC110` | *retirado* — un `<gen>` sin nombre junto a uno con nombre ahora [compone el valor](../core-concepts/sequences.mdx#una-secuencia-compuesta-por-valor) en vez de fallar | — |
+| `TDC111` | Dos campos de una misma compuesta comparten nombre | Renombre uno |
+| `TDC129` | Un `<sequence>` dentro de una etiqueta de nivel config no da nada útil allí | Ver [Secuencias](../core-concepts/sequences.mdx) |
+
+## Generadores
+
+| Código | Cuándo salta | Qué hacer |
+| :--- | :--------- | :-- |
+| `TDC040` | `<gen>` no tiene `type` | Agregue `type="…"` — ver [Generadores](generators.mdx) |
+| `TDC041` | El tipo es desconocido, o no se admite en un `<gen>` en línea | Revise la escritura; TDC sugiere el nombre más cercano |
+| `TDC050` | `type="text"` sin `value` | Dé la lista, p. ej. `value="a,b,c"` |
+| `TDC051` | Un `percent` tiene más entradas que la lista `value` | Un porcentaje por valor |
+| `TDC052` | Una entrada de `percent` no es un número no negativo | Las posiciones llenas son números; una vacía reparte el resto |
+| `TDC053` | Los valores de `percent` no suman 100 | Ajústelos a 100, o deje una posición vacía para el resto |
+| `TDC060` | `type="file"` sin `src` | Apunte `src` al archivo |
+| `TDC061` | El archivo no se puede leer | Revise la ruta — se cuenta desde el config, o use `--data-path` |
+| `TDC062` | `column` no se resuelve | Un nombre de cabecera (`column="email"`) o un índice desde 1 (`column="2"`) |
+| `TDC064` | `row` sin `column` | El enlace por fila necesita saber de qué columna del CSV tomar |
+| `TDC065` | `type="http"` sin `src` | Apúntelo al servicio — `src="http://127.0.0.1:5566/gen"` |
+| `TDC066` | `src` no es una URL http(s) | Use `http://…` o `https://…`, con host y ruta |
+| `TDC067` | `in=` no nombra nada declarado antes | El valor enviado por fila viene de una `<sequence>` anterior |
+| `TDC068` | `on_error` no es `fail` ni `empty` | `fail` (por omisión) detiene la corrida; `empty` deja la celda vacía |
+| `TDC070` | `type="template"` sin `value` | Dé la dirección con puntos, p. ej. `value="person.lastName"` |
+| `TDC071` | La dirección de plantilla es desconocida | Revise la escritura, o instale el pack que la provee |
+| `TDC072` | `value="date.range"` sin `range`, **o** un parámetro de `type="template"` que el pack no declara | Agregue `range="…"`; o revise el nombre del parámetro — el mensaje lista los válidos |
+| `TDC073` | Un `range` heredado no son dos fechas válidas | Use `YYYY.MM.DD - YYYY.MM.DD` |
+| `TDC081` | Un rango numérico está mal escrito | `value="10..99"` |
+| `TDC082` | `first_zero` no es `true` ni `false` | No hay otros valores |
+| `TDC083` | `length` no es un número, un rango ni una lista con comas | p. ej. `length="8"`, `length="6..9"`, `length="4,6,8"` |
+| `TDC084` | Un `percent` sobre un `value` numérico tiene más entradas de las que el rango admite | Un porcentaje por valor |
+| `TDC085` | Una entrada de `percent` sobre un número no es un número no negativo | Las posiciones llenas son números |
+| `TDC086` | `percent` sobre un número no suma 100 | Ajuste los valores a 100 |
+| `TDC087` | `include`/`exclude` sin rango numérico en `value` | Filtran un rango, así que el rango debe existir |
+| `TDC088` | `distribution` se combina con un atributo incompatible | Una distribución con nombre define ella misma el sorteo |
+| `TDC089` | Los parámetros de la distribución están mal | Ver [Distribuciones](../guides/statistical-distributions.mdx) |
+| `TDC090` | Un atributo que debe ser número no lo es | Revise el valor |
+| `TDC095` | `type="regex"` sin `value` | El patrón va en `value` |
+| `TDC096` | `regex_max_length` no es un entero positivo | p. ej. `regex_max_length="64"` |
+| `TDC097` | La expresión regular no parsea | Corrija el patrón — sigue el mensaje del propio parser |
+| `TDC098` | A `type="symbol"` se le dan `value` y `alphabet`, o **ninguno** | Dé exactamente uno — un conjunto en `value` o un `alphabet` con nombre |
+| `TDC099` | El alfabeto con nombre es desconocido | Ver [Symbol](../generators/symbol.mdx) |
+| `TDC128` | `type="advanced_regex"` sin `value` | El patrón va en `value` |
+| `TDC130` | El patrón avanzado no parsea | Ver [Advanced regex](../generators/advanced-regex.mdx) |
+
+## Expresiones en `if`
+
+| Código | Cuándo salta | Qué hacer |
+| :--- | :--------- | :-- |
+| `TDC100` | La expresión no parsea | Ver [Salida y formato](../core-concepts/output-formatting.mdx) |
+| `TDC101` | Un operador binario no está admitido | Admitidos: `== != === !== < > <= >= && \|\| + - * /` |
+| `TDC102` | Un operador unario no está admitido | Admitidos: `!`, `-`, `+` |
+| `TDC103` | Se usa acceso calculado a un miembro | Solo se permiten nombres simples |
+| `TDC215` | Un nombre en un `if=` que ninguna secuencia tiene | Se lee como su propio texto: solo, la rama siempre se activa; comparado, nunca |
+| `TDC216` | *(advertencia)* `if="Seq.Value"` nombra un valor que la secuencia nunca produce | La rama está muerta. Advertencia y no error: acotar la lista a propósito es algo que se hace |
+| `TDC217` | Una ruta de plantilla existe, pero no para la configuración regional de la corrida | El mensaje nombra la configuración regional; ponga `local=` en el `<gen>` o el `<env>`, o elija una ruta que su configuración regional traiga |
+| `TDC218` | `uniq="true"` en una secuencia sin valores propios — `<compute>` lee otras, `if=` elige una rama por fila | Ponga `uniq=` en las secuencias que lee, o envuélvalas en `<uniq>` |
+| `TDC219` | Un `<compute>` y un `<gen>` en la misma `<sequence>` — uno de los dos se descartaría | Mueva el `<compute>` a su propia `<sequence>` y lea la sorteada con `<field>` |
+| `TDC220` | `uniq="true"` sobre un valor compuesto que junta dos o más partes sorteadas | Las partes no tienen ancho fijo, así que un conjunto único de partes no da un string único: `9`+`15` y `91`+`5` son los mismos tres caracteres. Deje una sola parte sorteada, o fije los anchos |
+| `TDC221` | *(advertencia)* Un `<uniq>` o `<distinct>` alrededor de menos de dos `<sequence>` | Un grupo restringe a sus miembros entre sí, así que un solo miembro no restringe nada. Agregue un segundo, o escriba `uniq="true"` en la secuencia misma |
+
+## `<pool>`
+
+Ver [Registros coherentes](../pools/overview.mdx).
+
+| Código | Cuándo salta | Cómo arreglarlo |
+| :--- | :--------- | :-- |
+| `TDC222` | Un `<pool>` sin `name`, o sin `count` | Un pool se lee por nombre y tiene un número fijo de miembros: `<pool name="Doctors" count="30">` |
+| `TDC223` | Un `<pool count="…">` que no es un entero de al menos 1 | Un pool vacío no tiene ningún miembro que entregar |
+| `TDC224` | `<gen type="pool" value="X">` sin ningún `<pool name="X">` declarado | El mensaje enumera los pools declarados. Decláralo en el mismo `<env>` |
+| `TDC226` | `filter=` lee `Pool.field` y el pool no tiene ese campo | El mensaje enumera los campos del pool. Un nombre desconocido **sin cualificar** se deja pasar: el lenguaje de expresiones lee una palabra suelta como literal |
+| `TDC229` | `${{Ref}}` donde `Ref` sortea un miembro entero | Un miembro es un registro, no un valor. Lee un campo: `${{Ref.lastName}}` |
+| `TDC230` | Un `<block>`, una etiqueta de formato u otro `<pool>` dentro de un `<pool>` | Un pool es una tabla que otras columnas leen, no algo que se escriba en un archivo, y los pools no se anidan |
+| `TDC232` | Un nombre en `filter=` que es a la vez campo del pool y secuencia | Renombra uno de los dos. Cualificar un lado no ayuda: el otro nombre sigue leyéndose como el campo del miembro, así que la comparación sería consigo misma |
+| `TDC234` | *(advertencia)* Más de 100.000 miembros | Un pool se mantiene en memoria toda la ejecución — unos 320 bytes por miembro con cuatro campos. Si querías decir el número de FILAS, eso es `count` en `<env>` |
+| `TDC235` | Más de 1.000.000 de miembros | La misma causa, pasado el punto en que vale la pena ejecutarlo. Reduce el pool, o mueve el número a `<env count="…">` |
+| `TDC241` | Dos pools declarados con el mismo nombre | A un pool se llega por su nombre, así que dos no pueden compartirlo. El segundo reemplazaba al primero en silencio, y la única señal era un `TDC193` en el bloque sobre un campo que «no existe» |
+
+## Totales acumulados
+
+Véase [`accumulate=`](../constructs/multiple-values.mdx#accumulate--un-total-acumulado-a-lo-largo-de-la-lista)
+y [`<gen type="running">`](../generators/running.mdx).
+
+| Código | Cuándo salta | Cómo se arregla |
+| :--- | :--------- | :-- |
+| `TDC237` | `accumulate=` en un generador sin `repeat=` | No hay nada que acumular: no hay lista. Agregue `repeat="N"` o quite `accumulate=`. (`type="running"` es la excepción: acumula por columna) |
+| `TDC238` | `accumulate=` nombra una operación que no existe | Una de `sum`, `min`, `max` |
+| `TDC239` | `<gen type="running">` no dice qué (`of=`) ni cómo (`accumulate=`) acumular | Un total acumulado lee la columna de otro y no sortea nada por su cuenta, así que ambos son obligatorios |
+| `TDC240` | `of=` o `reset=` nombra una columna que no está declarada más arriba | El total se arma con una columna que ya existe — la misma regla que tiene `parent=` |
+
+## `<compute>`
+
+| Código | Cuándo salta | Cómo arreglarlo |
+| :--- | :--------- | :-- |
+| `TDC181` | `<current>`, `<current_index>` o `<acc>` fuera de su cuerpo de iteración | Solo existen dentro de un `<do>` (o el `<do>` de un `<reduce>`) |
+| `TDC182` | `<var name="X">` no nombra ningún `<let>` que lo envuelva | Envuélvalo en `<let name="X">…</let>`, o corrija el nombre |
+| `TDC183` | Una operación binaria de compute no tiene dos hijos | `<add>`, `<subtract>` … toman exactamente dos operandos |
+| `TDC184` | `<choose>` no tiene rama `<otherwise>` | Agregue `<otherwise>` — cada registro necesita una respuesta |
+| `TDC185` | Un `<let name="X">` tapa una vinculación externa del mismo nombre | Renombre una — la interna ocultaría la externa |
+| `TDC186` | `<encode>`: codificación desconocida | Una de: `base36`, `ascii`, `unicode`, `hex`, `binary`, `octal` |
+| `TDC187` | A un predicado le falta su hijo envoltorio | `<when>` quiere `<test>`, `<choose>` quiere `<then>` — el mensaje nombra el par |
+| `TDC188` | `<int v="…">` no es un número entero | Escriba un entero; para texto use `<str v="…"/>` |
+| `TDC189` | `<compute>` tiene más de un `<result>` | Deje un solo `<result>` — los anteriores se descartarían |
+
+## `<mix>`, `<switch>`, fixtures
+
+| Código | Cuándo salta | Qué hacer |
+| :--- | :--------- | :-- |
+| `TDC120` | `<mix>` no tiene ningún `<case>` | Una mezcla necesita ramas entre las que elegir |
+| `TDC121` | Un `percent` sobre un `<mix>`/`<switch>` tiene más entradas que casos | Un porcentaje por caso |
+| `TDC122` | Una entrada de `percent` sobre un `<mix>`/`<switch>` no es un número no negativo | Las posiciones llenas son números |
+| `TDC123` | `percent` sobre un `<mix>`/`<switch>` no suma 100 | Ajuste los valores a 100 |
+| `TDC124` | `<mix>` tiene un hijo que no es `<case>` | Allí solo puede ir `<case>` |
+| `TDC125` | `<case>` tiene un hijo desconocido | Se permiten `<data>`, `<gen>`, `<mix>` |
+| `TDC131` | Dentro de una fixture hay una etiqueta que las fixtures no aceptan | Las fixtures solo llevan `<line>` y `<data>` |
+| `TDC132` | Dentro de `<line>` hay una etiqueta que no corresponde | El bloque de salida es disposición; los generadores viven en `<env>` |
+| `TDC133` | `<switch>` no tiene `on` | Nombre la secuencia sobre la que se conmuta |
+| `TDC134` | `on` nombra una secuencia, o un campo suyo, que no existe | Revise el nombre — el mensaje dice cuál de las dos mitades falla |
+| `TDC135` | `<switch>` no tiene entradas | Agregue `<map>`, `<case>` o `<default>` |
+| `TDC136` | Una fila de `<map>` no es `CLAVE:VALOR` (**advertencia** — la fila mala se omite, el resto del mapa queda) | Un par por entrada, separado por dos puntos |
+| `TDC137` | Un `<case>` dentro de `<switch>` no tiene `is` | `is` es la clave de la rama |
+
+## Fechas
+
+| Código | Cuándo salta | Qué hacer |
+| :--- | :--------- | :-- |
+| `TDC150` | Solo se dio uno de `from` / `to` | Ambos extremos o ninguno |
+| `TDC151` | El valor de fecha no parsea | `value="2020-01-01..2025-12-31"`, `"birth"`, `"today"`, `"now"` |
+| `TDC152` | Un token de `format` es desconocido | Ver la [tabla de tokens](../generators/date.mdx#formato-de-la-salida) |
+| `TDC153` | `local` nombra un locale sin datos de fecha | Incluidas: `en`, `es`, `ru`, `zh-cn` |
+| `TDC154` | `precision` no es un paso admitido | Ver [precision](../generators/date.mdx) |
+
+## Durante la generación
+
+Estos surgen al generar, no al validar: el config es correcto, pero la combinación no
+se puede llevar a cabo.
+
+| Código | Cuándo salta | Qué hacer |
+| :--- | :--------- | :-- |
+| `TDC160` | `row="…"` en un `<gen>` en línea | El enlace por fila necesita un `<sequence>` |
+| `TDC161` | Se usan opciones ponderadas de `advanced_regex` en línea | Los porcentajes exactos se calculan sobre toda la columna — muévalo a un `<sequence>` |
+| `TDC162` | En un contador en línea `value` o `step` no es numérico | `value="1" step="2"` |
+| `TDC170` | Un archivo de data pack no se puede cargar | El mensaje nombra el archivo — ver [Escribir los suyos](../data-packs/writing-your-own.mdx) |
+| `TDC171` | Un archivo de data pack no obtiene dirección (**advertencia** — se omite el archivo) | Añada `address:` o `locale:` a su cabecera, o muévalo bajo una carpeta de locale |
+| `TDC200` | La estimación de memoria es una parte grande de la RAM de esta máquina (**advertencia** — el run continúa) | Para conjuntos muy grandes use `mode="disk"`, la memoria se mantiene plana |
+| `TDC201` | La estimación de memoria supera la RAM de esta máquina | Baje `count`, divida el run, o use `mode="disk"` |
+
+## Formato y modificadores
+
+| Código | Cuándo salta | Qué hacer |
+| :--- | :--------- | :-- |
+| `TDC190` | `case` no es una transformación conocida | `upper`, `lower`, `capitalize`, `title` |
+| `TDC191` | `order` no es `random` ni `sequential` | Esos son los dos |
+| `TDC192` | Un filtro de interpolación es desconocido | Ver [Máscaras y mayúsculas](../guides/masks-and-case.mdx) |
+| `TDC193` | `${{Name}}` o `${{Name.field}}` nombra algo no declarado | Se imprimiría literal — se comprueba la referencia entera, campo incluido |
+| `TDC194` | Un `<data>` tipado no tiene `name` | Solo un `<data>` con nombre se vuelve columna |
+| `TDC195` | `repeat` no es un número ni un rango | `repeat="3"` o `repeat="1..5"` (de 0 a 64) |
+| `TDC196` | `repeat` se usa en `<mix>` | Una mezcla elige una rama; no produce una lista |
+| `TDC198` | `separator` sin `repeat` | Une valores repetidos, así que tiene que haberlos |
+| `TDC199` | Un índice de `mask` está mal formado | Los índices empiezan en 0 y los rangos usan `..` — `x[0..3]`, `w[-1]` |
+| `TDC202` | Hay `flag` pero ningún `<case>` marcado `anomaly="true"` | La columna saldría toda en negativo — marque la rama atípica |
+| `TDC203` | `flag` en un `<mix>` anidado | Solo una mezcla con nombre a nivel `<env>` lleva la columna-respuesta |
+| `TDC204` | `repeat` en un generador que no puede repetir | El mensaje nombra el tipo |
+| `TDC206` | `each=""` no nombra ninguna secuencia | Nombre la lista a recorrer |
+| `TDC207` | `each` nombra una secuencia de un solo valor | Tiene que ser una lista — agregue `repeat` en el origen |
+| `TDC209` | Un `<data>` con nombre dentro de una línea con `each=` | Esa línea produce varias filas, y el nombre de columna queda ambiguo |
+| `TDC211` | `weight` en un generador que no es `file` | Los pesos vienen de una columna del CSV |
+| `TDC212` | `weight` sin `column` | Los pesos viven en una segunda columna, que hay que nombrar |
+| `TDC213` | `weight` junto con `order` | `order` recorre las filas por posición; ponderar las elige por frecuencia |
+
+## Vea también
+
+- [CLI](cli.mdx) — códigos de salida y banderas
+- [Etiquetas](tags.mdx) y [Atributos](attributes.mdx) — qué se permite dónde

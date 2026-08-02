@@ -1,0 +1,6 @@
+---
+address: luxembourg.phone
+description: Luxembourg mobile phone in E.164 form (+352 6[269]XXXXXX)
+generator: tdc
+---
+<gen type="regex" value="\+3526[269][0-9]{6}"/>

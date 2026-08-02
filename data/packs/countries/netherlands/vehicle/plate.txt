@@ -1,0 +1,7 @@
+---
+address: netherlands.vehicle.plate
+description: Dutch vehicle plate in sidecode 6 — two letters, two digits, two letters, hyphen-separated (e.g. XZ-42-BN). Letters are drawn from the vowel-free set the RDW uses so the groups cannot spell words; the sidecode itself carries no checksum.
+generator: tdc
+locale: nl
+---
+<gen type="regex" value="[BDFGHJKLMNPRSTVXZ]{2}-[0-9]{2}-[BDFGHJKLMNPRSTVXZ]{2}"/>

@@ -1,0 +1,6 @@
+---
+address: senegal.phone
+description: Senegalese mobile phone in E.164 form (+221 7X XXXXXXX)
+generator: tdc
+---
+<gen type="regex" value="\+2217[05678][0-9]{7}"/>

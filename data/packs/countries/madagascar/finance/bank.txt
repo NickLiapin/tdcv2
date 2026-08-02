@@ -1,0 +1,15 @@
+---
+address: madagascar.finance.bank
+description: Banks operating in Madagascar
+locale: fr
+---
+BNI Madagascar
+BFV-Société Générale
+BMOI
+Bank of Africa Madagascar
+Accès Banque
+BGFIBank Madagascar
+Baobab Banque
+SBM Madagascar
+BICM
+MCB Madagascar

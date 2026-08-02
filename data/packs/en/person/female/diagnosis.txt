@@ -1,0 +1,17 @@
+---
+description: Medical diagnoses (female + common)
+locale: en
+---
+Cervical Dysplasia
+Uterine Fibroids
+Thrush
+Breast Fibroadenoma
+Polycystic Ovary
+Cervical Erosion
+Chronic pancreatitis
+Chlamydia
+Chronic arthritis
+Cervicitis
+Central retinal artery embolism
+Rectal cancer
+Endometritis

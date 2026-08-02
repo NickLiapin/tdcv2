@@ -1,0 +1,16 @@
+---
+description: Month abbreviation (German)
+locale: de
+---
+Jan.
+Feb.
+März
+Apr.
+Mai
+Juni
+Juli
+Aug.
+Sept.
+Okt.
+Nov.
+Dez.

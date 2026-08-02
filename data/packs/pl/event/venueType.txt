@@ -1,0 +1,20 @@
+---
+description: Venue type (Polish)
+locale: pl
+---
+Sala hotelowa
+Centrum kongresowe
+Stadion
+Teatr
+Sala bankietowa
+Taras
+Ogród
+Hala przemysłowa
+Audytorium
+Klub nocny
+Sala konferencyjna
+Dwór
+Winnica
+Plaża
+Muzeum
+Centrum kultury

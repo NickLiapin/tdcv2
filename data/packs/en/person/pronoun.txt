@@ -1,0 +1,11 @@
+---
+description: Personal pronoun set
+locale: en
+---
+he/him
+she/her
+they/them
+he/they
+she/they
+ze/zir
+xe/xem

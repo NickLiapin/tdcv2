@@ -1,0 +1,6 @@
+---
+address: mali.phone
+description: Malian mobile phone in E.164 form (+223 [679]XXXXXXX)
+generator: tdc
+---
+<gen type="regex" value="\+223[679][0-9]{7}"/>

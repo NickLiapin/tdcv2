@@ -1,0 +1,65 @@
+{
+  "name": "tdc-language-support",
+  "displayName": "TDC — The Data Constructor",
+  "description": "Highlighting, live diagnostics and completion for .tdc files, through the @tdc/lsp language server.",
+  "version": "0.1.0",
+  "private": true,
+  "publisher": "tdc-local",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.75.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "activationEvents": [
+    "onLanguage:tdc"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "languages": [
+      {
+        "id": "tdc",
+        "aliases": [
+          "TDC",
+          "tdc"
+        ],
+        "extensions": [
+          ".tdc"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "tdc",
+        "scopeName": "source.tdc",
+        "path": "./tdc.tmLanguage.json"
+      }
+    ],
+    "configuration": {
+      "title": "TDC",
+      "properties": {
+        "tdc.server.path": {
+          "type": "string",
+          "default": "",
+          "description": "Absolute path to the language server (typescript/dist/lsp/server.js). Empty means look for it inside the repository."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "sync": "node sync.mjs",
+    "prepare": "node sync.mjs",
+    "build": "node sync.mjs && tsc -p ./",
+    "vscode:prepublish": "npm run build"
+  },
+  "dependencies": {
+    "vscode-languageclient": "^9.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.16.5",
+    "@types/vscode": "^1.75.0",
+    "typescript": "^5.6.2"
+  }
+}

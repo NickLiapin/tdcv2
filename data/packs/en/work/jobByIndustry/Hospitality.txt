@@ -1,0 +1,10 @@
+---
+description: Jobs in Hospitality
+locale: en
+---
+Chef
+Hotel Manager
+Bartender
+Concierge
+Sous Chef
+Event Coordinator

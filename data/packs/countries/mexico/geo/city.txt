@@ -1,0 +1,246 @@
+---
+address: mexico.geo.city
+description: Mexican city (real localities, INEGI/SEDATU urban areas)
+---
+Ciudad de México
+Guadalajara
+Monterrey
+Puebla
+Tijuana
+León
+Ciudad Juárez
+Zapopan
+Ecatepec de Morelos
+Nezahualcóyotl
+Chihuahua
+Naucalpan de Juárez
+Mérida
+San Luis Potosí
+Aguascalientes
+Hermosillo
+Saltillo
+Mexicali
+Culiacán
+Guadalupe
+Acapulco de Juárez
+Tlalnepantla de Baz
+Cancún
+Querétaro
+Chimalhuacán
+Torreón
+Morelia
+Reynosa
+Tlaquepaque
+Tuxtla Gutiérrez
+Durango
+Toluca
+Ciudad López Mateos
+Cuautitlán Izcalli
+Apodaca
+Matamoros
+San Nicolás de los Garza
+Veracruz
+Xalapa
+Tonalá
+Mazatlán
+Nuevo Laredo
+Irapuato
+Villahermosa
+General Escobedo
+Celaya
+Cuernavaca
+Tepic
+Ixtapaluca
+Ciudad Victoria
+Tehuacán
+Ciudad Obregón
+Tapachula
+Nicolás Romero
+Coatzacoalcos
+Santa Catarina
+San Juan del Río
+Campeche
+Gómez Palacio
+Uruapan
+Los Mochis
+Oaxaca de Juárez
+Ensenada
+Puerto Vallarta
+Chilpancingo de los Bravo
+Pachuca de Soto
+Ciudad del Carmen
+Chetumal
+La Paz
+Colima
+Manzanillo
+Zacatecas
+Fresnillo
+Tepatitlán de Morelos
+Salamanca
+Silao
+San Francisco del Rincón
+Guanajuato
+Dolores Hidalgo
+San Miguel de Allende
+Playa del Carmen
+Cozumel
+Valladolid
+Progreso
+Tulum
+Comalcalco
+Córdoba
+Orizaba
+Poza Rica de Hidalgo
+Minatitlán
+Tuxpan
+San Andrés Tuxtla
+Papantla
+Martínez de la Torre
+Boca del Río
+Tierra Blanca
+Acayucan
+Río Blanco
+Nogales
+Navojoa
+Guaymas
+San Luis Río Colorado
+Agua Prieta
+Caborca
+Delicias
+Hidalgo del Parral
+Cuauhtémoc
+Nuevo Casas Grandes
+Piedras Negras
+Monclova
+Ciudad Acuña
+Sabinas
+Ramos Arizpe
+Frontera
+San Pedro Garza García
+Linares
+Montemorelos
+Sabinas Hidalgo
+Cadereyta Jiménez
+Tampico
+Ciudad Madero
+Altamira
+Río Bravo
+Valle Hermoso
+San Fernando
+Tamazunchale
+Ciudad Valles
+Matehuala
+Rioverde
+Soledad de Graciano Sánchez
+Zamora
+Lázaro Cárdenas
+Apatzingán
+Zitácuaro
+Sahuayo
+La Piedad
+Pátzcuaro
+Ciudad Hidalgo
+Jiquilpan
+Ocotlán
+Lagos de Moreno
+Ciudad Guzmán
+Autlán de Navarro
+Ameca
+Arandas
+El Salto
+Tlajomulco de Zúñiga
+Chapala
+Tequila
+Compostela
+Santiago Ixcuintla
+Xalisco
+Tecomán
+Villa de Álvarez
+Tecate
+Playas de Rosarito
+Cabo San Lucas
+San José del Cabo
+Ciudad Constitución
+Loreto
+Santa Rosalía
+Guerrero Negro
+Guasave
+Navolato
+Escuinapa
+Guamúchil
+El Mante
+Ojinaga
+Jiménez
+Meoqui
+Chalco
+Texcoco
+Metepec
+Zumpango
+Valle de Chalco Solidaridad
+Coacalco de Berriozábal
+Tultitlán
+Huixquilucan
+Atlacomulco
+Tenancingo
+Amecameca
+Ixtapan de la Sal
+Jiutepec
+Temixco
+Cuautla
+Zacatepec
+Yautepec
+Iguala de la Independencia
+Taxco de Alarcón
+Zihuatanejo
+Tlapa de Comonfort
+Huajuapan de León
+Salina Cruz
+Juchitán de Zaragoza
+Santo Domingo Tehuantepec
+Puerto Escondido
+San Juan Bautista Tuxtepec
+Ciudad Ixtepec
+Atlixco
+San Pedro Cholula
+Teziutlán
+Zacatlán
+San Martín Texmelucan
+Izúcar de Matamoros
+Amozoc
+Huauchinango
+Tulancingo de Bravo
+Tula de Allende
+Tizayuca
+Ixmiquilpan
+Actopan
+Huejutla de Reyes
+Tequisquiapan
+Cadereyta de Montes
+Comitán de Domínguez
+San Cristóbal de las Casas
+Palenque
+Villaflores
+Ocosingo
+Chiapa de Corzo
+Cárdenas
+Paraíso
+Macuspana
+Tenosique
+Escárcega
+Champotón
+Motul
+Tizimín
+Ticul
+Umán
+Kanasín
+Izamal
+Felipe Carrillo Puerto
+Bacalar
+Isla Mujeres
+Jerez de García Salinas
+Río Grande
+Sombrerete
+Calvillo
+Jesús María
+Pabellón de Arteaga
+Rincón de Romos

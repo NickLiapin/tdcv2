@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Nephrology (French)
+locale: fr
+---
+Insuffisance rénale chronique
+Calculs rénaux
+Glomérulonéphrite
+Infection urinaire
+Syndrome néphrotique
+Polykystose rénale
+Néphropathie diabétique
+Pyélonéphrite
+Insuffisance rénale aiguë
+Protéinurie

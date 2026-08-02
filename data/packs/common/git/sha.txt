@@ -1,0 +1,6 @@
+---
+address: common.git.sha
+description: Git commit SHA-1 (40 lowercase hex chars)
+generator: tdc
+---
+<gen type="regex" value="[0-9a-f]{40}" regex_max_length="40"/>

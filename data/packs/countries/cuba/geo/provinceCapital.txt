@@ -1,0 +1,21 @@
+---
+address: cuba.geo.provinceCapital
+description: Capital of each Cuban province, index-aligned with cuba.geo.province
+locale: es
+---
+Pinar del Río
+Artemisa
+La Habana
+San José de las Lajas
+Matanzas
+Santa Clara
+Cienfuegos
+Sancti Spíritus
+Ciego de Ávila
+Camagüey
+Las Tunas
+Holguín
+Bayamo
+Santiago de Cuba
+Guantánamo
+Nueva Gerona

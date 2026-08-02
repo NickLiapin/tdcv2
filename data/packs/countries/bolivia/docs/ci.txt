@@ -1,0 +1,7 @@
+---
+address: bolivia.docs.ci
+description: Bolivian Cedula de Identidad (7-digit number, no check digit)
+generator: tdc
+---
+<sequence name="body"><gen type="regex" value="[1-9][0-9]{6}"/></sequence>
+<data>${{body}}</data>

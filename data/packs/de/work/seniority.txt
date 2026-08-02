@@ -1,0 +1,20 @@
+---
+description: Seniority / level label for a role (German)
+locale: de
+---
+Praktikant
+Auszubildender
+Junior
+Sachbearbeiter
+Berufserfahren
+Senior
+Teamleiter
+Spezialist
+Fachexperte
+Leitender Experte
+Abteilungsleiter
+Bereichsleiter
+Direktor
+Vizepräsident
+Hauptabteilungsleiter
+Geschäftsführer

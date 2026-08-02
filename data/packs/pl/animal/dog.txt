@@ -1,0 +1,29 @@
+---
+description: Dog breed (Polish)
+locale: pl
+---
+Labrador retriever
+Owczarek niemiecki
+Golden retriever
+Buldog francuski
+Buldog angielski
+Pudel
+Beagle
+Rottweiler
+Jamnik
+Bokser
+Husky syberyjski
+Dog niemiecki
+Doberman
+Owczarek australijski
+Border collie
+Chihuahua
+Shih tzu
+Szpic miniaturowy
+Corgi
+Berneński pies pasterski
+Chart
+Mastif
+Bulterier
+Bernardyn
+Dalmatyńczyk

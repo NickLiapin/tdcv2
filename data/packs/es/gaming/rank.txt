@@ -1,0 +1,14 @@
+---
+description: Competitive rank tier (Spanish)
+locale: es
+---
+Hierro
+Bronce
+Plata
+Oro
+Platino
+Esmeralda
+Diamante
+Maestro
+Gran maestro
+Aspirante

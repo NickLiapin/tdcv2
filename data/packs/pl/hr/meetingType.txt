@@ -1,0 +1,16 @@
+---
+description: Meeting type (Polish)
+locale: pl
+---
+Codzienne spotkanie zespołu
+Spotkanie jeden na jeden
+Spotkanie ogólnofirmowe
+Retrospektywa
+Planowanie sprintu
+Spotkanie otwierające projekt
+Synchronizacja
+Przegląd
+Warsztaty
+Burza mózgów
+Spotkanie kontrolne
+Podsumowanie projektu

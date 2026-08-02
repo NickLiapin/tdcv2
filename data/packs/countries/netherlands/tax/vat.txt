@@ -1,0 +1,11 @@
+---
+address: netherlands.tax.vat
+description: Dutch VAT / BTW (NL + 9 digits + B + 2-digit branch 01-99, no checksum)
+generator: tdc
+---
+<sequence name="serial"><gen type="regex" value="[0-9]{9}"/></sequence>
+<!-- Branch 01-99 as a number, not an alternation: `(?:0[1-9]|[1-9][0-9])`
+     picks each side half the time, so nine values would carry the weight of
+     ninety. -->
+<sequence name="branch"><gen type="number" value="1..99" length="2" first_zero="true"/></sequence>
+<data>NL${{serial}}B${{branch}}</data>

@@ -1,0 +1,16 @@
+---
+description: Conditions markedly more frequent in people of Ashkenazi Jewish ancestry (Russian), where founder mutations are unusually well characterised. A prevalence signal, not an exclusive one.
+locale: ru
+---
+Болезнь Тея — Сакса
+Болезнь Гоше 1 типа
+Семейная дизавтономия
+Болезнь Канавана
+Болезнь Ниманна — Пика, тип A
+Синдром Блума
+Дефицит фактора XI
+Мутация-основатель в гене BRCA1
+Мутация-основатель в гене BRCA2
+Муколипидоз IV типа
+Болезнь Крона
+Торсионная дистония

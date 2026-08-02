@@ -1,0 +1,17 @@
+---
+description: Social content type (Italian)
+locale: it
+---
+Post
+Commento
+Risposta
+Storia
+Reel
+Sondaggio
+Diretta streaming
+Ricondivisione
+Thread
+Menzione
+Messaggio diretto
+Video breve
+Album di foto

@@ -1,0 +1,16 @@
+---
+description: Leave type (Polish)
+locale: pl
+---
+Urlop wypoczynkowy
+Zwolnienie lekarskie
+Urlop rodzicielski
+Urlop macierzyński
+Urlop ojcowski
+Urlop okolicznościowy
+Urlop bezpłatny
+Urlop naukowy
+Dzień wolny na żądanie
+Urlop dla poratowania zdrowia
+Urlop z okazji ślubu
+Urlop szkoleniowy

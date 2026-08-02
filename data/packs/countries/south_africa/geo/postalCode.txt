@@ -1,0 +1,7 @@
+---
+address: south_africa.geo.postalCode
+description: South African 4-digit postal code (structural — the assigned per-area ranges are not fully modelled)
+generator: tdc
+locale: en
+---
+<gen type="regex" value="[0-9]{4}"/>

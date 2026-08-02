@@ -1,0 +1,32 @@
+---
+description: Tech verb, infinitive (Polish)
+locale: pl
+---
+archiwizować
+omijać
+hakować
+nadpisywać
+kompresować
+kopiować
+nawigować
+indeksować
+łączyć
+generować
+kwantyfikować
+obliczać
+syntetyzować
+wprowadzać
+transmitować
+programować
+restartować
+analizować
+szyfrować
+deszyfrować
+wdrażać
+kompilować
+debugować
+optymalizować
+synchronizować
+wirtualizować
+trasować
+monitorować

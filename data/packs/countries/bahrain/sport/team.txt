@@ -1,0 +1,19 @@
+---
+address: bahrain.sport.team
+description: Bahraini Premier League football clubs (Arabic)
+locale: ar
+---
+المحرق
+الرفاع
+الأهلي
+النجمة
+الحد
+المنامة
+البسيتين
+الرفاع الشرقي
+سترة
+البحرين
+الحالة
+مالكية
+الشباب
+البديع

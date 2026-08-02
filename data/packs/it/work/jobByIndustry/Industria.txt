@@ -1,0 +1,19 @@
+---
+description: Jobs in Manufacturing (Italian)
+locale: it
+---
+Tornitore
+Saldatore
+Ispettore della qualità
+Responsabile di produzione
+Addetto all'assemblaggio
+Manutentore meccanico
+Operatore di macchine a controllo numerico
+Tecnico di automazione
+Pianificatore della produzione
+Magazziniere
+Progettista meccanico
+Carrellista
+Addetto al collaudo
+Responsabile di stabilimento
+Verniciatore industriale

@@ -1,0 +1,12 @@
+---
+description: Dishes of Lebanese cuisine (Greek)
+locale: el
+---
+Χούμους
+Φαλάφελ
+Σαουάρμα
+Ταμπουλέ
+Κίμπε
+Φατούς
+Μανακίς
+Μουτάμπαλ

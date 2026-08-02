@@ -1,0 +1,57 @@
+---
+description: Product adjective (Spanish), masculine singular base form — Spanish adjectives follow the noun ("Sillón plegable"). Many entries here are gender-invariant (-e, -al, -ble endings) and fit any noun; the -o forms need a feminine variant to agree.
+locale: es
+---
+elegante
+portátil
+versátil
+resistente
+impermeable
+inteligente
+artesanal
+funcional
+ergonómico
+plegable
+ajustable
+recargable
+inalámbrico
+ligero
+compacto
+duradero
+reversible
+antideslizante
+transpirable
+aislante
+reciclable
+sostenible
+ecológico
+premium
+clásico
+moderno
+minimalista
+rústico
+vintage
+industrial
+deportivo
+multifuncional
+apilable
+desmontable
+lavable
+antibacteriano
+antimanchas
+térmico
+acolchado
+reforzado
+silencioso
+automático
+programable
+compatible
+universal
+profesional
+económico
+hecho a mano
+de lujo
+de diseño
+de alta gama
+sin marca
+edición limitada

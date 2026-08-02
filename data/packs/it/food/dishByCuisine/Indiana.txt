@@ -1,0 +1,14 @@
+---
+description: Dishes of Indian cuisine (Italian)
+locale: it
+---
+Pollo al burro
+Biryani
+Tikka masala
+Samosa
+Dal makhani
+Pane naan
+Palak paneer
+Rogan josh
+Chana masala
+Raita

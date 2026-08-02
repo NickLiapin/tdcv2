@@ -1,0 +1,240 @@
+/**
+ * Evaluate `if`-attribute expressions against the sequence registry.
+ *
+ * Supports the operators listed in docs/vision/03-dsl.md:
+ *   comparison: == != < > <= >=
+ *   logical:    && || !
+ *   arithmetic: + - * /
+ *
+ * Identifiers resolve to the current-iteration value of the named
+ * sequence (string) or to the special `_count` (1-based iteration
+ * number). Numeric literals and quoted string literals are supported.
+ * Unquoted bare identifiers that happen to look like plain English
+ * words (e.g. `Male`, `Female`) also work and compare equal to the
+ * string of the same name — this mirrors the prototype's "if gender ==
+ * Male" style where "Male" is just a word, not a quoted string.
+ *
+ * Implementation: `jsep` handles parsing; evaluation is a small
+ * recursive walk over the AST. Expression compilation is cached per
+ * source string since the same `if` attribute is evaluated per
+ * iteration of the main loop.
+ */
+
+import jsep from 'jsep';
+
+import { sequenceValueAt } from '../sequence/types.js';
+import type { SequenceRegistry } from '../sequence/types.js';
+
+type JsepNode = jsep.Expression;
+
+const COMPILE_CACHE = new Map<string, JsepNode>();
+
+function compile(expr: string): JsepNode {
+  let cached = COMPILE_CACHE.get(expr);
+  if (!cached) {
+    cached = jsep(expr);
+    COMPILE_CACHE.set(expr, cached);
+  }
+  return cached;
+}
+
+/**
+ * Evaluate `expr` against the given registry at `iteration` (0-based).
+ * Returns a boolean. Coercion to truthy/falsy uses `toBoolean` (below),
+ * which differs from raw JS `Boolean(...)` in one place: the literal
+ * string `"false"` is treated as falsy. This makes the built-in
+ * `_first` / `_last` / boolean-looking user values interoperate with
+ * `if` expressions intuitively:
+ *
+ *   `<data if="_last">...</data>`     — truthy only on the last row
+ *   `<data if="!_last">,</data>`      — truthy on every row except last
+ *   `${{_last}}`                      — interpolates as "true" / "false"
+ */
+export function evaluateIf(expr: string, registry: SequenceRegistry, iteration: number): boolean {
+  return evaluateInScope(expr, (name) => {
+    const seq = registry[name];
+    return seq ? (sequenceValueAt(seq, iteration) ?? '') : undefined;
+  });
+}
+
+/**
+ * How a name in an expression is given a value.
+ *
+ * `undefined` means "no such name here" — the evaluator then falls back to
+ * treating the identifier as a bare word, which is what makes `if="x == Male"`
+ * read the way it does.
+ *
+ * The indirection exists because `filter=` on a `<gen type="pool">` evaluates
+ * the same expression language against TWO scopes at once: a candidate member's
+ * fields and the current row's columns. Rather than inventing a second
+ * evaluator that would drift from this one, the caller decides what a name
+ * means and the operators, the precedence and the truthiness stay shared.
+ */
+export type ExprScope = (name: string) => string | undefined;
+
+/** Evaluate `expr` with names resolved by `scope`, as a boolean. */
+export function evaluateInScope(expr: string, scope: ExprScope): boolean {
+  return toBoolean(walk(compile(expr), scope));
+}
+
+/**
+ * Project a value to the boolean domain used by `if` expressions and
+ * by the `!`, `&&`, `||` operators. Matches JS truthiness EXCEPT that
+ * the literal string `"false"` is also falsy.
+ */
+function toBoolean(v: unknown): boolean {
+  if (v === null || v === undefined) return false;
+  if (typeof v === 'string') return v !== '' && v !== 'false';
+  return Boolean(v);
+}
+
+function walk(node: JsepNode, scope: ExprScope): unknown {
+  switch (node.type) {
+    case 'Literal': {
+      return (node as jsep.Literal).value;
+    }
+    case 'Identifier': {
+      const name = (node as jsep.Identifier).name;
+      // An unknown identifier is a bare string literal; the prototype supports
+      // `if="x == Male"` where `Male` is a word, not a quoted string.
+      return scope(name) ?? name;
+    }
+    case 'MemberExpression': {
+      // Compound-sequence access: `Person.FirstName` → look up the
+      // dotted key in the registry. jsep parses the whole chain into
+      // nested MemberExpressions; flatten it back to the dotted string
+      // the registry uses.
+      const name = memberExpressionToName(node as jsep.MemberExpression);
+      const direct = scope(name);
+      if (direct !== undefined) return direct;
+      // Sugar: `X.Value` where X IS a sequence but `X.Value` is not a compound
+      // field → the value-check `X == "Value"` (a boolean), matching how
+      // `parent="X.Value"` reads. So `if="Gender.Male"` means "current Gender
+      // is Male". `X.A.B` compares X against the literal "A.B".
+      const dot = name.indexOf('.');
+      const base = dot > 0 ? scope(name.slice(0, dot)) : undefined;
+      if (base !== undefined) return base === name.slice(dot + 1);
+      // Unknown reference — return the dotted name as a bare string literal so
+      // typos surface verbatim (mirrors the Identifier fallback).
+      return name;
+    }
+    case 'BinaryExpression':
+    case 'LogicalExpression': {
+      const bin = node as jsep.BinaryExpression;
+      const left = walk(bin.left, scope);
+      const right = walk(bin.right, scope);
+      return applyBinary(bin.operator, left, right);
+    }
+    case 'UnaryExpression': {
+      const un = node as jsep.UnaryExpression;
+      const arg = walk(un.argument, scope);
+      return applyUnary(un.operator, arg);
+    }
+    default:
+      throw new Error(`unsupported expression node: ${node.type}`);
+  }
+}
+
+/**
+ * Collapse a MemberExpression chain back to a dotted name.
+ * `Person.Address.City` → "Person.Address.City". Only plain-identifier
+ * chains are supported; computed access like `x[0]` throws.
+ */
+function memberExpressionToName(node: jsep.MemberExpression): string {
+  if (node.computed) {
+    throw new Error('computed member access is not supported in if expressions');
+  }
+  const parts: string[] = [];
+  let cur: jsep.Expression = node;
+  while (cur.type === 'MemberExpression') {
+    const m = cur as jsep.MemberExpression;
+    if (m.computed) {
+      throw new Error('computed member access is not supported in if expressions');
+    }
+    if (m.property.type !== 'Identifier') {
+      throw new Error(`unsupported member property type: ${m.property.type}`);
+    }
+    parts.unshift((m.property as jsep.Identifier).name);
+    cur = m.object;
+  }
+  if (cur.type !== 'Identifier') {
+    throw new Error(`unsupported member base type: ${cur.type}`);
+  }
+  parts.unshift((cur as jsep.Identifier).name);
+  return parts.join('.');
+}
+
+function applyBinary(op: string, left: unknown, right: unknown): unknown {
+  switch (op) {
+    case '==':
+      return coerce(left, right, (a, b) => a == b);
+    case '!=':
+      return coerce(left, right, (a, b) => a != b);
+    case '===':
+      return left === right;
+    case '!==':
+      return left !== right;
+    case '<':
+      return asNumber(left) < asNumber(right);
+    case '>':
+      return asNumber(left) > asNumber(right);
+    case '<=':
+      return asNumber(left) <= asNumber(right);
+    case '>=':
+      return asNumber(left) >= asNumber(right);
+    case '&&':
+      return toBoolean(left) && toBoolean(right);
+    case '||':
+      return toBoolean(left) || toBoolean(right);
+    case '+':
+      // If both sides look numeric, prefer numeric addition; otherwise
+      // fall back to string concatenation to match JS semantics.
+      return typeof left === 'number' || typeof right === 'number'
+        ? asNumber(left) + asNumber(right)
+        : String(left) + String(right);
+    case '-':
+      return asNumber(left) - asNumber(right);
+    case '*':
+      return asNumber(left) * asNumber(right);
+    case '/':
+      return asNumber(left) / asNumber(right);
+    default:
+      throw new Error(`unsupported binary operator: ${op}`);
+  }
+}
+
+function applyUnary(op: string, arg: unknown): unknown {
+  switch (op) {
+    case '!':
+      return !toBoolean(arg);
+    case '-':
+      return -asNumber(arg);
+    case '+':
+      return asNumber(arg);
+    default:
+      throw new Error(`unsupported unary operator: ${op}`);
+  }
+}
+
+function coerce(left: unknown, right: unknown, op: (a: unknown, b: unknown) => boolean): boolean {
+  // `==` compares loosely: if one side is a number and the other a
+  // numeric string, compare as numbers; otherwise compare as strings.
+  // This matches user intent when writing `if="_count == 5"` (where
+  // _count is "5" as a string) and `if="Gender == Male"` (string==string).
+  if (typeof left === 'number' && typeof right === 'string') {
+    const n = Number(right);
+    if (!Number.isNaN(n)) return op(left, n);
+  }
+  if (typeof right === 'number' && typeof left === 'string') {
+    const n = Number(left);
+    if (!Number.isNaN(n)) return op(n, right);
+  }
+  return op(left, right);
+}
+
+function asNumber(v: unknown): number {
+  if (typeof v === 'number') return v;
+  if (typeof v === 'string') return Number(v);
+  if (typeof v === 'boolean') return v ? 1 : 0;
+  return Number.NaN;
+}

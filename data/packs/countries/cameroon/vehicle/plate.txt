@@ -1,0 +1,7 @@
+---
+address: cameroon.vehicle.plate
+description: Cameroonian licence plate — structural layout of two letters, three digits and two letters (e.g. CE-123-AB)
+generator: tdc
+locale: fr
+---
+<gen type="regex" value="[A-Z]{2}-[0-9]{3}-[A-Z]{2}"/>

@@ -1,0 +1,6 @@
+---
+address: kuwait.phone
+description: Kuwaiti mobile phone in E.164 form (+965 [569]XXXXXXX)
+generator: tdc
+---
+<gen type="regex" value="\+965[569][0-9]{7}"/>

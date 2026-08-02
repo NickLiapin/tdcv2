@@ -1,0 +1,96 @@
+---
+address: australia.geo.suburb
+description: Australian suburb (real localities across the capital cities)
+locale: en
+---
+Bondi
+Parramatta
+Surry Hills
+Newtown
+Manly
+Chatswood
+Cronulla
+Penrith
+Bankstown
+Blacktown
+Liverpool
+Randwick
+Coogee
+Mosman
+Ryde
+Hornsby
+Dee Why
+Castle Hill
+Rockdale
+Marrickville
+Redfern
+Glebe
+Paddington
+Double Bay
+Hurstville
+Campbelltown
+St Kilda
+Fitzroy
+Carlton
+Richmond
+Footscray
+Brunswick
+Toorak
+Prahran
+South Yarra
+Collingwood
+Preston
+Coburg
+Essendon
+Camberwell
+Box Hill
+Dandenong
+Frankston
+Werribee
+Sunshine
+Doncaster
+Ringwood
+Glen Waverley
+Fortitude Valley
+South Brisbane
+Toowong
+Chermside
+Sunnybank
+Indooroopilly
+Carindale
+Mount Gravatt
+Nundah
+Ashgrove
+Paddington
+Fremantle
+Subiaco
+Scarborough
+Joondalup
+Cottesloe
+Nedlands
+Cannington
+Midland
+Armadale
+Rockingham
+Glenelg
+Norwood
+Prospect
+Unley
+Burnside
+Semaphore
+Henley Beach
+Modbury
+Salisbury
+Elizabeth
+Sandy Bay
+Battery Point
+Glenorchy
+Kingston
+Bellerive
+Braddon
+Kingston
+Belconnen
+Tuggeranong
+Gungahlin
+Dickson
+Manuka

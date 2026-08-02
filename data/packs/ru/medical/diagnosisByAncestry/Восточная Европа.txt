@@ -1,0 +1,10 @@
+---
+description: Conditions markedly more frequent in people of Eastern European ancestry (Russian). A prevalence signal, not an exclusive one.
+locale: ru
+---
+Наследственный гемохроматоз
+Фенилкетонурия
+Семейная гиперхолестеринемия
+Алкогольная болезнь печени
+Муковисцидоз
+Болезнь Вильсона — Коновалова

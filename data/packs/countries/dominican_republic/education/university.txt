@@ -1,0 +1,34 @@
+---
+address: dominican_republic.education.university
+description: Dominican Republic university or higher-education institution (public and private)
+---
+Universidad Autónoma de Santo Domingo
+Pontificia Universidad Católica Madre y Maestra
+Instituto Tecnológico de Santo Domingo
+Universidad Nacional Pedro Henríquez Ureña
+Universidad APEC
+Universidad Iberoamericana
+Universidad Tecnológica de Santiago
+Universidad Central del Este
+Universidad Católica Santo Domingo
+Universidad Católica Nordestana
+Universidad Católica Tecnológica del Cibao
+Universidad Dominicana O&M
+Universidad Nacional Evangélica
+Universidad del Caribe
+Universidad Abierta para Adultos
+Universidad Federico Henríquez y Carvajal
+Universidad Tecnológica del Sur
+Universidad Interamericana
+Universidad Agroforestal Fernando Arturo de Meriño
+Universidad ISA
+Universidad Adventista Dominicana
+Universidad Experimental Félix Adam
+Universidad Psicología Industrial Dominicana
+Instituto Tecnológico de las Américas
+Instituto Especializado de Estudios Superiores Loyola
+Instituto Global de Altos Estudios en Ciencias Sociales
+Escuela Nacional de la Judicatura
+Instituto Superior para la Defensa
+Barna Management School
+Universidad Odontológica Dominicana

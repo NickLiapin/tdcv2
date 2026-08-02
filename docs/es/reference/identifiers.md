@@ -1,0 +1,513 @@
+<a name="top"></a>
+
+[English](../../reference/identifiers.md#top) · [Русский](../../ru/reference/identifiers.md#top) · **Español**
+
+← Anterior: [Valores integrados](./builtins.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Códigos de error](./errors.md#top) →
+
+---
+
+# El catálogo de identificadores
+
+**Úselo cuando** necesite un identificador técnico que tenga que *verse* real y **pasar
+una revisión de formato**: un UUID, un correo electrónico, un IBAN, un número de tarjeta
+de pago, un número fiscal o de documento con suma de verificación, sin inventarlo a mano
+ni copiar uno verdadero. Cada ruta de esta página es un valor para
+[`type="template"`](../generators/template.md#top); el atributo
+[`value`](./attributes.md#top) es una **ruta con puntos** que elige cuál identificador.
+
+Esta página es la consulta completa. Para el recorrido guiado del mismo generador —datos
+de personas, fechas, localización— vea el
+[generador `template`](../generators/template.md#top). Para las familias de
+persona, nombre y fecha en particular, esa página es el mejor punto de partida; esta es
+el catálogo exhaustivo de identificadores **técnicos**.
+
+> [!NOTE]
+> **Las salidas son ilustrativas**
+>
+> Cada valor de abajo viene de un [`seed`](../core-concepts/determinism.md#top) fijo, así que
+> es reproducible, pero la cadena exacta puede diferir entre versiones del núcleo. Léalos
+> como ejemplos de *forma*, no como garantías.
+
+## Cómo llamarlos
+
+Dos reglas de nombrado parten el catálogo en dos:
+
+- Los identificadores **globales** llevan el prefijo `common.` — `common.id.uuid`,
+  `common.finance.iban`, `common.payment.card.pan`, `common.phone.e164`.
+- Los **específicos de un país** empiezan con el nombre del país — `usa.docs.ssn`,
+  `usa.tax.ein`, `brazil.tax.cpf`, `poland.docs.pesel`.
+
+```xml
+<gen type="template" value="common.id.uuid"/>
+<gen type="template" value="usa.docs.ssn"/>
+```
+
+Una ruta desconocida es un error duro, nunca un vacío silencioso:
+
+`./run bad.tdc`
+
+```
+error[TDC071]: unknown template path "usa.docs.nope"
+ --> bad.tdc:2:48
+  |
+2 | <gen type="template" value="usa.docs.nope"/>
+  |                             ^^^^^^^^^^^^^
+```
+
+## Por qué estos pasan la validación
+
+La mayoría de los identificadores «de aspecto numérico» llevan un **dígito de control**
+calculado a partir del resto del número (Luhn, mod-11, ISO 7064, GS1 mod-10, …). Diez
+dígitos al azar reprueban la primerísima revisión de formato, así que una prueba armada
+sobre ellos no sirve de nada. Estas plantillas emiten valores que **pasan su suma de
+verificación** y que aun así son deliberadamente irreales —rangos de prueba reservados,
+prefijos ficticios, dominios de primer nivel reservados por la IANA—, de modo que se
+pueden soltar sin riesgo en demos, fixtures y CI. Cómo se define cada dígito de control
+se explica [más abajo](#cómo-se-construyen-los-dígitos-de-control).
+
+## Parámetros
+
+Muchos identificadores aceptan **parámetros**: se pasan como atributos comunes y
+corrientes en [`<gen>`](./tags.md#top). Cualquier parámetro que omita se extrae al azar; el
+que fije queda **clavado** en todas las filas, y el dígito de control siempre se vuelve a
+calcular para seguir siendo válido.
+
+Por ejemplo, clave la parte de área de todos los números de seguro social de EE. UU.:
+
+```xml
+<gen type="template" value="usa.docs.ssn" area="555"/>
+```
+
+`./run ssn.tdc`
+
+```
+555700070
+555073260
+555030016
+555375840
+555020557
+```
+
+Todos los valores empiezan con `555`, y cada uno sigue siendo un SSN bien formado. **Use
+un parámetro cuando** parte del identificador deba ser constante —un emisor fijo, una
+oficina fiscal fija, un dominio fijo— mientras el resto varía.
+
+### Cómo descubrir los parámetros de una ruta
+
+Un parámetro no es más que una
+[`<sequence name="…">`](../core-concepts/sequences.md#top) local dentro del
+[paquete de datos](../data-packs/overview.md#top) que hay detrás de la ruta, y quien la
+llama la anula con una constante. Así que los parámetros que acepta una ruta son
+exactamente los nombres de las secuencias locales de su paquete. Uno equivocado es un
+error claro (`TDC072`), nunca algo que se ignore en silencio:
+
+`./run bad-param.tdc`
+
+```
+error[TDC072]: "bogus" is not a parameter of "usa.docs.ssn" — it would be ignored
+ --> bad-param.tdc:2:47
+  |
+2 | <gen type="template" value="usa.docs.ssn" bogus="1"/>
+  |                                           ^^^^^
+```
+
+Unas cuantas rutas representativas y los parámetros que exponen:
+
+| Ruta                      | Parámetros              |
+| :------------------------ | :---------------------- |
+| `common.internet.email`   | `local`, `domain`       |
+| `common.internet.url`     | `scheme`, `domain`, `slug` |
+| `common.internet.domain`  | `word`, `token`, `suffix` |
+| `common.finance.iban`     | `bban`                  |
+| `common.payment.card.pan` | `base`                  |
+| `usa.docs.ssn`            | `area`, `group`, `serial` |
+| `usa.tax.ein`             | `prefix`, `serial`      |
+| `usa.tax.itin`            | `mid`, `group`, `serial` |
+| `usa.finance.aba_routing` | `prefix`, `tail`        |
+
+> [!NOTE]
+> **Variantes simplificadas**
+>
+> Cuando estos generadores se mudaron a paquetes editables, algunos parámetros poco usados
+> y ciertas variantes «con formato» (con corchetes o guiones) se redujeron a la forma
+> simple. Las sumas de verificación y el formato esencial se conservan; solo se dejó ir el
+> envoltorio cosmético.
+
+## Identificadores e internet
+
+Identificadores opacos (UUID, ULID, Nano ID, ObjectId), hashes de commit y valores web
+seguros. **Úselos cuando** un registro necesite una clave primaria, un correo falso o una
+URL de relleno que jamás pueda chocar con una real.
+
+```xml
+<gen type="template" value="common.id.uuid"/>
+<gen type="template" value="common.id.ulid"/>
+<gen type="template" value="common.id.nanoid"/>
+<gen type="template" value="common.git.sha"/>
+```
+
+`./run ids.tdc`
+
+```
+common.id.uuid        63af26a7-9997-4aa8-8883-bec8f2a5c541
+common.id.ulid        5GQ9BM9G731XA1KW1KMYM9EGAK
+common.id.nanoid      LKCYPokQsGREjVYrZvJjz
+common.id.object_id   3ed9c528008a4cc46dbb53b2
+common.git.sha        efffc5bd4c321932277f4ff77cc01993344ecd2e
+common.system.semver  8.13.7
+```
+
+Los correos y los dominios usan dominios de primer nivel reservados por la IANA
+(`.test`, `.invalid`, `.example`) y las IP caen en rangos privados o de documentación,
+así que nada de aquí puede alcanzar una dirección real:
+
+`./run internet.tdc`
+
+```
+common.internet.email     qjoasyc4yx@sandbox-8s2332.test
+common.internet.domain    test-26vh9o.test
+common.internet.url       https://fixture-vaqpcg.example/atlas-sandbox-sandbox
+common.internet.ipv4      10.251.85.160
+common.internet.ipv6      2001:db8:c43:28eb:f2c:ee5:e:8d5
+common.internet.mac       c5:62:b8:e2:af:d3
+common.internet.username  lfmln1e_b
+```
+
+| Ruta                       | Produce                                                           | Ejemplo                                  |
+| :------------------------- | :---------------------------------------------------------------- | :--------------------------------------- |
+| `common.git.sha`           | SHA-1 de commit de Git (40 caracteres hex en minúsculas)          | `efffc5bd4c321932277f4ff77cc01993344ecd2e` |
+| `common.id.nanoid`         | Nano ID (21 caracteres, alfabeto seguro para URL `A–Za–z0–9_-`)   | `LKCYPokQsGREjVYrZvJjz`                   |
+| `common.id.object_id`      | ObjectId de MongoDB (24 caracteres hex en minúsculas)             | `3ed9c528008a4cc46dbb53b2`               |
+| `common.id.ulid`           | ULID (26 caracteres, base32 de Crockford; primer carácter 0–7)    | `5GQ9BM9G731XA1KW1KMYM9EGAK`             |
+| `common.id.uuid`           | UUID v4 (RFC 4122 — versión 4, variante 8/9/a/b)                  | `63af26a7-9997-4aa8-8883-bec8f2a5c541`   |
+| `common.internet.domain`   | Dominio falso seguro — token.suffix (TLD reservados por RFC 2606) | `test-26vh9o.test`                       |
+| `common.internet.email`    | Correo seguro — parte local de 10 caracteres @ dominio falso seguro | `qjoasyc4yx@sandbox-8s2332.test`         |
+| `common.internet.ipv4`     | IPv4 en rangos privados (10/8, 172.16/12, 192.168/16)             | `10.251.85.160`                          |
+| `common.internet.ipv6`     | IPv6 en el rango de documentación 2001:db8::/32                   | `2001:db8:c43:28eb:f2c:ee5:e:8d5`        |
+| `common.internet.mac`      | Dirección MAC — seis octetos hex en minúsculas separados por dos puntos | `c5:62:b8:e2:af:d3`                 |
+| `common.internet.slug`     | Slug de URL — de 2 a 4 palabras en minúsculas unidas por guiones   | `test-atlas-sandbox`                     |
+| `common.internet.url`      | URL segura — scheme://safe-domain/slug (el esquema por omisión es https) | `https://fixture-vaqpcg.example/atlas-sandbox-sandbox` |
+| `common.internet.username` | Nombre de usuario — letra inicial y luego de 7 a 13 caracteres de `a–z0–9_` | `lfmln1e_b`                  |
+| `common.system.semver`     | Versión semántica — mayor 0–9, menor 0–19, parche 0–99            | `8.13.7`                                 |
+
+## Finanzas y pagos
+
+IBAN, códigos SWIFT/BIC, PAN de tarjetas de pago y el número de ruta ABA de EE. UU.,
+cada uno con una verificación real incorporada. **Úselos cuando** un fixture tenga que
+sobrevivir a un validador de formato bancario o de Luhn.
+
+```xml
+<gen type="template" value="common.finance.iban"/>
+<gen type="template" value="common.finance.bic"/>
+<gen type="template" value="common.payment.card.pan"/>
+<gen type="template" value="usa.finance.aba_routing"/>
+```
+
+`./run finance.tdc`
+
+```
+common.finance.iban       DE60077427668812994595
+common.finance.bic        VROLFR00F1Y
+common.payment.card.pan   4111111726740445
+usa.finance.aba_routing   649946910
+```
+
+El IBAN lleva una verificación ISO 7064 mod-97 válida, el PAN una verificación Luhn
+válida dentro del rango de prueba de Visa (`4111…`), y el número de ruta una verificación
+mod-10 `[3,7,1]` válida.
+
+| Ruta                      | Produce                                                          | Ejemplo                    |
+| :------------------------ | :--------------------------------------------------------------- | :------------------------- |
+| `common.finance.bic`      | SWIFT/BIC-11 (4 letras + país + 2 de localidad + 3 de sucursal)   | `VROLFR00F1Y`              |
+| `common.finance.iban`     | IBAN (país DE por omisión, BBAN de 18 dígitos, verificación ISO 7064 mod-97) | `DE60077427668812994595`  |
+| `common.payment.card.pan` | PAN de tarjeta de pago (rango de prueba Visa, 16 dígitos + verificación Luhn) | `4111111726740445`        |
+| `usa.finance.aba_routing` | Número de ruta ABA de EE. UU. (8 dígitos + verificación mod-10 `[3,7,1]`) | `649946910`               |
+
+## Productos y dispositivos
+
+Códigos de barras e identificadores de comercio y hardware: ISBN, EAN, UPC, GTIN, IMEI,
+ICCID, ISSN. **Úselos cuando** un fixture de catálogo o de inventario tenga que
+escanearse y validarse sin problemas.
+
+```xml
+<gen type="template" value="common.book.isbn13"/>
+<gen type="template" value="common.product.ean13"/>
+<gen type="template" value="common.device.imei"/>
+```
+
+`./run products.tdc`
+
+```
+common.book.isbn13     9783635567452
+common.product.ean13   9418766812071
+common.product.upc_a   277703531852
+common.product.gtin14  69243931643417
+common.device.imei     263236381039942
+common.device.iccid    8910106572426433879
+common.periodical.issn 23614552
+common.vehicle.vin     XJV8TB3B7W5726830
+```
+
+| Ruta                     | Produce                                                            | Ejemplo                 |
+| :----------------------- | :------------------------------------------------------------------ | :---------------------- |
+| `common.book.isbn10`     | ISBN-10 (9 dígitos + verificación mod-11, 10 → X)                   | `1684319684`            |
+| `common.book.isbn13`     | ISBN-13 (prefijo 978/979 + 9 dígitos + verificación GS1 mod-10)     | `9783635567452`         |
+| `common.periodical.issn` | ISSN (base de 7 dígitos + verificación mod-11, pesos 8..2, 10 → X)  | `23614552`              |
+| `common.product.ean13`   | EAN-13 (base de 12 dígitos + verificación GS1 mod-10)               | `9418766812071`         |
+| `common.product.gtin14`  | GTIN-14 (base de 13 dígitos + verificación GS1 mod-10)              | `69243931643417`        |
+| `common.product.upc_a`   | UPC-A (base de 11 dígitos + verificación GS1 mod-10)                | `277703531852`          |
+| `common.device.iccid`    | ICCID (89 + país + prefijo del emisor, 19 dígitos + verificación Luhn) | `8910106572426433879`   |
+| `common.device.imei`     | IMEI (base de 14 dígitos + dígito de control Luhn = 15 dígitos)     | `263236381039942`       |
+
+## Seguridad y hashes
+
+Llaves de API, códigos de un solo uso, secretos TOTP, JWT y digests crudos. **Úselos
+cuando** necesite un relleno con forma de credencial para un flujo de autenticación o una
+línea de log; nunca un secreto real.
+
+```xml
+<gen type="template" value="common.security.api_key"/>
+<gen type="template" value="common.security.otp"/>
+<gen type="template" value="common.security.sha256"/>
+```
+
+`./run security.tdc`
+
+```
+common.security.api_key      tdc_cxmmn0eD60xEB5CLOilveNjDyxBcYaaM
+common.security.otp          874846
+common.security.md5          db3d24933e41cbafde844af6dddc769f
+common.security.sha1         313f20b6a4fb5eedc53cf02ae32e56c2b7ee0d7b
+common.security.sha256       f1be92ba089ddaa35e2273dd6c7d66d712c85e313316a2f006786f383e9f686e
+common.security.totp_secret  76F7GJ5PYJXYHYY7E5DMY2L6G6XGVSAL
+```
+
+| Ruta                          | Produce                                                           | Ejemplo                            |
+| :---------------------------- | :------------------------------------------------------------------ | :--------------------------------- |
+| `common.security.api_key`     | Llave de API (prefijo `tdc_` por omisión + 32 alfanuméricos)        | `tdc_cxmmn0eD60xEB5CLOilveNjDyxBcYaaM` |
+| `common.security.jwt`         | JWT falso (encabezado base64url fijo por algoritmo + carga y firma al azar) | `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.6LKo…` |
+| `common.security.md5`         | Digest MD5 (32 caracteres hex en minúsculas)                        | `db3d24933e41cbafde844af6dddc769f` |
+| `common.security.otp`         | Código numérico de un solo uso (6 dígitos por omisión)              | `874846`                           |
+| `common.security.sha1`        | Digest SHA-1 (40 caracteres hex en minúsculas)                      | `313f20b6a4fb5eedc53cf02ae32e56c2b7ee0d7b` |
+| `common.security.sha256`      | Digest SHA-256 (64 caracteres hex en minúsculas)                    | `f1be92ba089ddaa35e2273dd6c7d66d712c85e313316a2f006786f383e9f686e` |
+| `common.security.totp_secret` | Secreto compartido TOTP (32 caracteres base32 por omisión, RFC 4648 A–Z2–7) | `76F7GJ5PYJXYHYY7E5DMY2L6G6XGVSAL` |
+
+## Documentos, transporte, logística
+
+Documentos de viaje de lectura mecánica (MRZ de ICAO 9303), VIN de vehículos y
+contenedores de embarque ISO 6346. **Úselos cuando** un fixture se escanee o se pase por
+OCR y tenga que satisfacer los dígitos de control compuestos del formato.
+
+Las dos rutas de MRZ son de varias líneas: una tarjeta de identidad TD1 son tres líneas
+de 30 caracteres, y un pasaporte TD3 son dos líneas de 44 caracteres, cada una con sus
+dígitos de control compuestos de la ICAO:
+
+`./run mrz.tdc`
+
+```
+common.docs.mrz.id_td1 (tarjeta de identidad, tres líneas de 30 caracteres):
+I<UTOV80Y7XXNC58C1E31V2B6IGCXD
+8402079F3111275UTOFP4DCM7IPY95
+MILLER<<ADAM<<<<<<<<<<<<<<<<<<
+
+common.docs.mrz.passport_td3 (pasaporte, dos líneas de 44 caracteres):
+P<UTODOE<<JOHN<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+22VVYEM7V0UTO9403280<3703276L73REEFL4AFXU642
+```
+
+Los códigos de una sola línea:
+
+`./run transport.tdc`
+
+```
+common.vehicle.vin                  XJV8TB3B7W5726830
+common.logistics.container_iso6346  PQXU6242844
+```
+
+| Ruta                                 | Produce                                                                            | Ejemplo             |
+| :----------------------------------- | :---------------------------------------------------------------------------------- | :------------------ |
+| `common.docs.mrz.id_td1`             | MRZ de tarjeta de identidad ICAO 9303 TD1 (tres líneas de 30 caracteres) con dígitos de control compuestos | *(vea arriba)*       |
+| `common.docs.mrz.passport_td3`       | MRZ de pasaporte ICAO 9303 TD3 (dos líneas de 44 caracteres) con dígitos de control compuestos | *(vea arriba)*       |
+| `common.logistics.container_iso6346` | Código de contenedor ISO 6346 (propietario + categoría + serie de 6 dígitos + verificación mod-11) | `PQXU6242844`       |
+| `common.vehicle.vin`                 | Número de identificación vehicular (ISO 3779, 17 caracteres, verificación mod-11 ponderada; 10 → X) | `XJV8TB3B7W5726830` |
+
+## Números de teléfono
+
+`common.phone.e164` elige un país al azar; cada país tiene además su propia ruta. Todos
+emiten la forma E.164. Cuando un país reserva un rango para ficción y pruebas, el paquete
+lo usa —el área `202` de EE. UU. con la central `555`, el `613 555` de Canadá, el
+`07700 900xxx` de Ofcom en el Reino Unido—. La mayoría de los países no reserva ninguno,
+así que esas rutas construyen un número válido por estructura a partir de prefijos reales:
+sirve para guardar y analizar, pero no para marcarlo. **Úselos cuando** un fixture de
+contactos deba analizarse como un número internacional válido.
+
+```xml
+<gen type="template" value="usa.phone"/>
+<gen type="template" value="common.phone.e164"/>
+```
+
+`./run phones.tdc`
+
+```
+usa.phone             +12025550883
+canada.phone          +16135558575
+united_kingdom.phone  +447700900864
+germany.phone         +4917140038023
+france.phone          +33618948981
+common.phone.e164     +34663489915
+```
+
+| Ruta                   | Produce                                                       | Ejemplo           |
+| :--------------------- | :------------------------------------------------------------- | :---------------- |
+| `argentina.phone`      | Móvil de Argentina, E.164 (+54 9 11…)                          | `+5491185268868`  |
+| `brazil.phone`         | Móvil de Brasil, E.164 (+55 + DDD + 9…)                        | `+5562940038023`  |
+| `canada.phone`         | Canadá, E.164 (área 613, central ficticia 555)                 | `+16135558575`    |
+| `common.phone.e164`    | Teléfono E.164, país al azar del conjunto                      | `+34663489915`    |
+| `france.phone`         | Móvil de Francia, E.164 (+33 6…)                               | `+33618948981`    |
+| `germany.phone`        | Móvil de Alemania, E.164 (+49 15x/16x/17x…)                    | `+4917140038023`  |
+| `mexico.phone`         | México, E.164 (+52 + LADA, número nacional de 10 dígitos)      | `+527353382246`   |
+| `poland.phone`         | Móvil de Polonia, E.164 (+48 5…)                               | `+48587209191`    |
+| `russia.phone`         | Móvil de Rusia, E.164 (+7 9…)                                  | `+79962527739`    |
+| `spain.phone`          | Móvil de España, E.164 (+34 6…)                                | `+34631634932`    |
+| `united_kingdom.phone` | Móvil del Reino Unido, E.164 (rango de ficción de Ofcom +44 7700 900xxx) | `+447700900864`   |
+| `usa.phone`            | EE. UU., E.164 (área 202, central ficticia 555)                | `+12025550883`    |
+
+## Números fiscales y de documentos por país
+
+Cada país listado tiene su propia familia de números fiscales, de identidad y (en algunos
+casos) bancarios, con suma de verificación. El conjunto de EE. UU. por sí solo cubre la
+mayoría de las necesidades comunes:
+
+```xml
+<gen type="template" value="usa.docs.ssn"/>
+<gen type="template" value="usa.tax.ein"/>
+<gen type="template" value="usa.tax.itin"/>
+```
+
+`./run us-ids.tdc`
+
+```
+usa.docs.ssn             003060008
+usa.tax.ein              678895040
+usa.tax.itin             975531718
+usa.finance.aba_routing  649946910
+```
+
+**Úselos cuando** un registro deba llevar un identificador propio de un país que
+sobreviva al validador de ese país —un CPF brasileño, un PESEL polaco, un número de IVA
+alemán— sin dejar de ser demostrablemente falso. La lista completa, por dirección:
+
+| Ruta                                | Produce                                                                                        | Ejemplo                  |
+| :---------------------------------- | :---------------------------------------------------------------------------------------------- | :----------------------- |
+| `argentina.docs.dni`                | DNI argentino (número nacional de identidad de 8 dígitos, sin dígito de control)                | `43073935`               |
+| `argentina.tax.cuil`                | CUIL argentino (prefijo de 2 dígitos + cuerpo de 8 dígitos + verificación mod-11 ponderada)     | `27740275106`            |
+| `argentina.tax.cuit`                | CUIT argentino (prefijo de 2 dígitos + cuerpo de 8 dígitos + verificación mod-11 ponderada)     | `24574791010`            |
+| `austria.tax.vat`                   | IVA / UID austriaco (ATU + 7 dígitos + dígito de control estilo Luhn)                           | `ATU55031548`            |
+| `belgium.tax.vat`                   | IVA belga (BE + base de 8 dígitos + verificación mod-97)                                        | `BE0507916645`           |
+| `bolivia.docs.ci`                   | Cédula de Identidad boliviana (número de 7 dígitos, sin dígito de control)                      | `3991646`                |
+| `bolivia.tax.nit`                   | NIT boliviano (número fiscal de 9 dígitos, sin dígito de control)                               | `252014061`              |
+| `brazil.tax.cnpj`                   | CNPJ brasileño (raíz de 8 dígitos + sucursal de 4 dígitos + dos dígitos de control mod-11)      | `25232116564552`         |
+| `brazil.tax.cpf`                    | CPF brasileño (base de 9 dígitos + dos dígitos de control mod-11)                               | `14806904651`            |
+| `bulgaria.tax.vat`                  | IVA búlgaro (BG + 9 o 10 dígitos, sin suma de verificación)                                     | `BG380883064`            |
+| `canada.docs.sin`                   | SIN canadiense (8 dígitos + verificación Luhn)                                                  | `585996796`              |
+| `canada.tax.bn`                     | Número de Negocio canadiense (9 dígitos, sin suma de verificación)                              | `307343577`              |
+| `canada.tax.program_account`        | Cuenta de programa canadiense (BN + código de programa + referencia de 4 dígitos)               | `921050900RP9000`        |
+| `chile.docs.run`                    | RUN chileno (cuerpo de 7 u 8 dígitos + verificación mod-11 ponderada cíclica, 10 → K)           | `271951701`              |
+| `chile.tax.rut`                     | RUT chileno (cuerpo de 7 u 8 dígitos + verificación mod-11 ponderada cíclica, 10 → K)           | `90529471`               |
+| `colombia.docs.cc`                  | Cédula de Ciudadanía colombiana (número de 8 a 10 dígitos, sin dígito de control)               | `74407968`               |
+| `colombia.tax.nit`                  | NIT colombiano (cuerpo de 9 dígitos + verificación mod-11 con pesos primos, de derecha a izquierda) | `4444807433`         |
+| `costa_rica.docs.cpf`               | Identificación de persona física costarricense (10 dígitos que empiezan con 0, sin dígito de control) | `0813694243`        |
+| `costa_rica.tax.cpj`                | Identificación de persona jurídica costarricense (dígito de clase + tipo + serie de 6 dígitos, sin dígito de control) | `4000813072` |
+| `croatia.tax.vat`                   | IVA / OIB croata (HR + base de 10 dígitos + verificación ISO 7064 MOD 11,10)                    | `HR99570241890`          |
+| `cyprus.tax.vat`                    | IVA chipriota (CY + 8 dígitos + 1 letra mayúscula)                                              | `CY65642357G`            |
+| `czechia.tax.vat`                   | IVA / DIC checo (CZ + 8, 9 o 10 dígitos, sin suma de verificación)                              | `CZ288311951`            |
+| `denmark.tax.vat`                   | IVA / CVR danés (DK + 8 dígitos, sin suma de verificación)                                      | `DK42005491`             |
+| `dominican_republic.docs.cedula`    | Cédula dominicana (cuerpo de 10 dígitos + dígito de control Luhn)                               | `96179414394`            |
+| `dominican_republic.tax.rnc`        | RNC dominicano (cuerpo de 8 dígitos + verificación mod-11 ponderada)                            | `970897251`              |
+| `ecuador.docs.ci`                   | Cédula ecuatoriana (provincia + carga útil de 9 dígitos + verificación mod-10)                  | `2144971195`             |
+| `ecuador.tax.ruc`                   | RUC ecuatoriano, forma de sociedad privada (provincia + 9 + verificación mod-11 ponderada + 001) | `0294486720001`          |
+| `el_salvador.docs.dui`              | DUI de El Salvador (cuerpo de 8 dígitos + dígito de control mod-10 ponderado)                   | `332432757`              |
+| `el_salvador.tax.nit`               | NIT de El Salvador (cuerpo de 8 dígitos + dígito de control mod-10 ponderado)                   | `492719607`              |
+| `estonia.tax.vat`                   | IVA / KMKR estonio (EE + 9 dígitos, sin suma de verificación)                                   | `EE949727018`            |
+| `europe.tax.vat`                    | IVA de la UE (delega en un estado miembro por omisión: Alemania)                                | `DE193530291`            |
+| `finland.tax.vat`                   | IVA / ALV finlandés (FI + base de 7 dígitos + verificación mod-11 ponderada)                    | `FI76372425`             |
+| `france.tax.siren`                  | SIREN francés (8 dígitos + verificación Luhn)                                                   | `033948829`              |
+| `france.tax.vat`                    | IVA francés (FR + clave mod-97 + SIREN con Luhn válido)                                         | `FR82250352820`          |
+| `germany.tax.vat`                   | IVA / USt-IdNr alemán (DE + 8 dígitos, verificación iterativa mod-11/10)                        | `DE641787309`            |
+| `greece.tax.vat`                    | IVA / AFM griego (EL + base de 8 dígitos + verificación mod-11 ponderada y luego mod-10)        | `EL413288496`            |
+| `guatemala.docs.cui`                | CUI de Guatemala (serie de 9 dígitos + departamento 01–22 + municipio 01–99, sin dígito de control) | `2642014611803`      |
+| `guatemala.tax.nit`                 | NIT de Guatemala (cuerpo de 13 dígitos, con la misma forma del CUI, sin dígito de control)      | `4436278540509`          |
+| `honduras.docs.id`                  | Identidad nacional de Honduras (departamento + municipio + año + serie de 5 dígitos, sin dígito de control) | `1801200568981` |
+| `honduras.tax.rtn`                  | RTN de Honduras (forma de la identidad hondureña de 13 dígitos + 1 dígito final, sin dígito de control) | `09281955957643` |
+| `hungary.tax.vat`                   | IVA / ANUM húngaro (HU + base de 7 dígitos + verificación mod-10 ponderada)                     | `HU27025501`             |
+| `ireland.tax.vat`                   | IVA irlandés (IE + 7 dígitos + 1 letra mayúscula)                                               | `IE8448267L`             |
+| `italy.tax.vat`                     | IVA / Partita IVA italiano (IT + 10 dígitos + verificación Luhn)                                | `IT12124511358`          |
+| `latvia.tax.vat`                    | IVA / PVN letón (LV + 11 dígitos, sin suma de verificación)                                     | `LV51009639397`          |
+| `lithuania.tax.vat`                 | IVA / PVM lituano (LT + 9 o 12 dígitos, sin suma de verificación)                               | `LT117600379`            |
+| `luxembourg.tax.vat`                | IVA / TVA luxemburgués (LU + 8 dígitos, sin suma de verificación)                               | `LU96561821`             |
+| `malta.tax.vat`                     | IVA maltés (MT + 8 dígitos, sin suma de verificación)                                           | `MT07558770`             |
+| `mexico.tax.rfc`                    | RFC de México (4 letras de persona o 3 de organización + AAMMDD + 2 caracteres de homoclave + carácter de control mod-11) | `TLT870426K69` |
+| `mexico.tax.rfc_org`                | RFC de México para una organización (3 letras + AAMMDD + 2 caracteres de homoclave + carácter de control mod-11) | `ESV970818ZA1`   |
+| `mexico.tax.rfc_person`             | RFC de México para una persona (4 letras + AAMMDD + 2 caracteres de homoclave + carácter de control mod-11) | `QEHF820406TE1`      |
+| `netherlands.tax.vat`               | IVA / BTW neerlandés (NL + 9 dígitos + B + sucursal de 2 dígitos 01–99, sin suma de verificación) | `NL430439452B03`        |
+| `nicaragua.docs.cedula`             | Cédula de Nicaragua (municipio + DDMMAA + serie de 4 dígitos + letra de control, sin dígito de control) | `0051201752201B`  |
+| `nicaragua.tax.ruc`                 | RUC de Nicaragua (forma de persona = forma de la cédula, sin dígito de control)                 | `0041010962608F`         |
+| `panama.docs.cedula`                | Cédula de Panamá, forma de ciudadano (provincia 1–13 + dos grupos de 1–9999, sin dígito de control) | `13187`              |
+| `panama.tax.ruc`                    | RUC de Panamá, forma natural = forma de la cédula de ciudadano                                  | `1221339`                |
+| `paraguay.docs.ci`                  | Cédula de Identidad de Paraguay (número de 7 dígitos, sin dígito de control)                    | `3254657`                |
+| `paraguay.tax.ruc`                  | RUC de Paraguay (cuerpo de 7 dígitos de persona u 8 de organización + verificación mod-11 con pesos cíclicos) | `919747108` |
+| `peru.docs.dni`                     | DNI de Perú (número nacional de identidad de 8 dígitos, sin dígito de control)                  | `00124682`               |
+| `peru.tax.ruc`                      | RUC de Perú (prefijo de 2 dígitos + cuerpo de 8 dígitos + dígito de control mod-11 ponderado)   | `15278344671`            |
+| `poland.docs.pesel`                 | PESEL polaco (fecha con siglo codificado + serie + dígito de sexo + verificación mod-10 ponderada) | `87212812168`         |
+| `poland.tax.nip`                    | NIP polaco (9 dígitos + verificación mod-11 ponderada; rechaza control==10)                     | `6047995975`             |
+| `poland.tax.vat`                    | IVA polaco (PL + NIP)                                                                           | `PL8126284465`           |
+| `portugal.tax.vat`                  | IVA / NIF portugués (PT + base de 8 dígitos + verificación mod-11 ponderada)                    | `PT909207518`            |
+| `romania.tax.vat`                   | IVA / CIF rumano (RO + de 2 a 10 dígitos, sin suma de verificación)                             | `RO98311815`             |
+| `russia.bank.account`               | Cuenta bancaria rusa de 20 dígitos con clave de control mod-10 entre campos sobre la cola del BIK | `40702810299206214921`   |
+| `russia.bank.bik`                   | BIK ruso (9 dígitos: 04 + región + RKC + participante; sin suma de verificación)                | `047225281`              |
+| `russia.bank.correspondent_account` | Cuenta corresponsal rusa (20 dígitos, incrusta la cola del BIK, clave mod-10 entre campos)      | `30101810080720184177`   |
+| `russia.docs.snils`                 | SNILS ruso (9 dígitos + verificación mod-101 de dos dígitos)                                    | `21804781661`            |
+| `russia.geo.postal`                 | Índice postal ruso (6 dígitos, rango real 101000–692999)                                        | `326151`                 |
+| `russia.tax.inn_org`                | INN ruso de persona jurídica (10 dígitos, verificación mod-11 ponderada)                        | `6840437608`             |
+| `russia.tax.inn_person`             | INN ruso de persona física (12 dígitos, dos verificaciones mod-11 ponderadas)                   | `860084325267`           |
+| `russia.tax.kpp`                    | KPP ruso (9 dígitos: oficina fiscal + motivo + serie; sin suma de verificación)                 | `976244677`              |
+| `russia.tax.ogrn`                   | OGRN ruso de persona jurídica (13 dígitos, verificación mod-11 sobre el número entero)          | `1691669019293`          |
+| `russia.tax.ogrnip`                 | OGRNIP ruso de empresario individual (15 dígitos, verificación mod-13 sobre el número entero)   | `361197456067674`        |
+| `slovakia.tax.vat`                  | IVA / IC DPH eslovaco (SK + 10 dígitos, sin suma de verificación)                               | `SK2872567116`           |
+| `slovenia.tax.vat`                  | IVA / ID za DDV esloveno (SI + base de 7 dígitos + verificación mod-11 ponderada)               | `SI47349972`             |
+| `spain.docs.dni`                    | DNI español (8 dígitos + letra de control mod-23)                                               | `73742916V`              |
+| `spain.docs.nie`                    | NIE español (X/Y/Z + 7 dígitos + letra de control mod-23)                                       | `X3914405N`              |
+| `spain.tax.cif`                     | CIF español (entidad con dígito de control + 7 dígitos + dígito de control estilo Luhn)         | `A43753219`              |
+| `spain.tax.vat`                     | IVA español (ES + CIF)                                                                          | `ESH50310499`            |
+| `sweden.tax.vat`                    | IVA / Momsnr sueco (SE + base de 9 dígitos + verificación Luhn + el literal 01)                 | `SE977841031701`         |
+| `united_kingdom.docs.nino`          | Número de seguro nacional del Reino Unido (2 letras + 6 dígitos + sufijo A–D; sin suma de verificación) | `QQ995347B`       |
+| `uruguay.docs.ci`                   | Cédula de Identidad de Uruguay (cuerpo de hasta 7 dígitos + dígito de control mod-10 ponderado) | `01252600`               |
+| `uruguay.tax.rut`                   | RUT de Uruguay (cuerpo de 11 dígitos + verificación mod-11 ponderada)                           | `218883180011`           |
+| `usa.docs.ssn`                      | Número de seguro social de EE. UU. (área 001–899 excepto 666, grupo 01–99, serie 0001–9999)     | `003060008`              |
+| `usa.finance.aba_routing`           | Número de ruta ABA de EE. UU. (8 dígitos + verificación mod-10 `[3,7,1]`)                       | `649946910`              |
+| `usa.tax.ein`                       | Número de identificación patronal de EE. UU. (prefijo válido del IRS + 7 dígitos; sin suma de verificación) | `678895040` |
+| `usa.tax.itin`                      | ITIN de EE. UU. (9 + 2 dígitos + grupo válido + 4 dígitos; sin suma de verificación)            | `975531718`              |
+| `venezuela.docs.ci`                 | Cédula de Identidad de Venezuela (prefijo V/E + cuerpo de 7 u 8 dígitos, sin dígito de control) | `E7831675`               |
+| `venezuela.tax.rif`                 | RIF de Venezuela (prefijo V/E/J/P/G + cuerpo de 8 dígitos + dígito de control mod-11 ponderado) | `V919623361`             |
+
+## Cómo se construyen los dígitos de control
+
+La lógica de la suma de verificación no está escondida en código compilado: cada paquete
+calcula su dígito de control **de forma declarativa** con la etiqueta
+[`<compute>`](./compute.md#top), justo al lado de los datos. Si un país cambia sus reglas,
+usted edita el archivo de texto del paquete, no el motor. Los cuerpos de estos
+identificadores se extraen con los generadores [`regex`](../generators/regex.md#top) y
+[`number`](../generators/number.md#top), y luego `<compute>` agrega el dígito de control.
+Vea [Paquetes de datos](../data-packs/overview.md#top) para saber cómo está estructurado un
+paquete, y [Cree su propio paquete](../data-packs/writing-your-own.md#top) para agregar uno.
+
+## Vea también
+
+- **[Generador `template`](../generators/template.md#top)** — el recorrido guiado, más las familias de persona, fecha y localización.
+- **[Referencia de generadores](./generators.md#top)** — todos los `type` de `<gen>`.
+- **[Referencia de `<compute>`](./compute.md#top)** — cómo se definen los dígitos de control.
+- **[Paquetes de datos](../data-packs/overview.md#top)** — dónde viven los datos de los identificadores y cómo agregar los suyos.
+
+---
+
+← Anterior: [Valores integrados](./builtins.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Códigos de error](./errors.md#top) →

@@ -1,0 +1,15 @@
+---
+address: guinea.holiday
+description: Public holidays in Guinea (French names; civil, Christian and Muslim)
+locale: fr
+---
+Jour de l'An
+Fête du Travail
+Fête de l'Indépendance
+Journée de la Deuxième République
+Toussaint
+Noël
+Aïd el-Fitr
+Aïd el-Kébir
+Maouloud
+Laylat al-Qadr

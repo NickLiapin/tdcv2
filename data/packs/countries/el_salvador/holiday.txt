@@ -1,0 +1,23 @@
+---
+address: el_salvador.holiday
+description: Salvadoran holiday — the national días de asueto set by the Código de Trabajo (art. 190) followed by widely observed civic and religious dates
+locale: es
+---
+Año Nuevo
+Día de Reyes
+Jueves Santo
+Viernes Santo
+Sábado de Gloria
+Día del Trabajo
+Día de la Cruz
+Día de la Madre
+Día del Padre
+Fiestas Agostinas
+Día del Divino Salvador del Mundo
+Día de la Independencia
+Primer Grito de Independencia
+Día de los Difuntos
+Día de la Reina de la Paz
+Nochebuena
+Navidad
+Día de los Santos Inocentes

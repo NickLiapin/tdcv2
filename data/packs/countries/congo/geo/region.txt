@@ -1,0 +1,17 @@
+---
+address: congo.geo.region
+description: Departments of the Republic of the Congo
+locale: fr
+---
+Bouenza
+Cuvette
+Cuvette-Ouest
+Kouilou
+Lékoumou
+Likouala
+Niari
+Plateaux
+Pool
+Sangha
+Brazzaville
+Pointe-Noire

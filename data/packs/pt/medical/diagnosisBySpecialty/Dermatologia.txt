@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Dermatology (Portuguese)
+locale: pt
+---
+Psoríase
+Dermatite atópica
+Acne vulgar
+Melanoma
+Rosácea
+Dermatite de contato
+Urticária
+Vitiligo
+Herpes-zóster
+Carcinoma basocelular

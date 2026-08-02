@@ -1,0 +1,9 @@
+---
+description: Driving licence category for trucks (Portuguese-language convention: C / D series)
+locale: pt
+---
+Categoria C
+Categoria C1
+Categoria CE
+Categoria C1E
+Categoria D

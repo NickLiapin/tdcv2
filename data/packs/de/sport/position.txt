@@ -1,0 +1,39 @@
+---
+description: Playing position, mixed sports (German)
+locale: de
+---
+Torwart
+Innenverteidiger
+Außenverteidiger
+Defensives Mittelfeld
+Zentrales Mittelfeld
+Offensives Mittelfeld
+Flügelspieler
+Mittelstürmer
+Stürmer
+Aufbauspieler
+Shooting Guard
+Small Forward
+Power Forward
+Center
+Werfer
+Fänger
+Shortstop
+Erste Base
+Außenfeldspieler
+Designated Hitter
+Zuspieler
+Libero
+Mittelblocker
+Diagonalangreifer
+Außenangreifer
+Kreisläufer
+Rückraumspieler
+Pfeiler
+Hakler
+Gedrängehalb
+Verbinder
+Quarterback
+Runningback
+Wide Receiver
+Linebacker

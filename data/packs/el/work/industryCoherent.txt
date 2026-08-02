@@ -1,0 +1,14 @@
+---
+description: Industry that has a coherent job list (jobByIndustry child)
+locale: el
+---
+Τεχνολογία
+Υγεία
+Χρηματοοικονομικά
+Κατασκευές
+Εκπαίδευση
+Φιλοξενία
+Βιομηχανία
+Λιανικό εμπόριο
+Μεταφορές
+Νομικά

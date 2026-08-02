@@ -1,0 +1,25 @@
+---
+address: zh-cn.geo.streetNamed
+description: Bare Chinese street-name cores; zh-cn.geo.streetName appends a type (路/街/大道)
+locale: zh-cn
+---
+中山
+人民
+解放
+建设
+和平
+新华
+文化
+胜利
+光明
+朝阳
+长江
+黄河
+南京
+北京
+学院
+环城
+迎宾
+青年
+花园
+幸福

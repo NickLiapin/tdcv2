@@ -1,0 +1,6 @@
+---
+address: nicaragua.finance.account
+description: Nicaraguan domestic bank account number — 10 to 14 digits. STRUCTURAL ONLY: each bank sets its own length and internal rule and publishes no national check standard, so nothing here can be validated. For the standardized international form see nicaragua.finance.iban
+generator: tdc
+---
+<gen type="regex" value="[0-9]{10,14}"/>

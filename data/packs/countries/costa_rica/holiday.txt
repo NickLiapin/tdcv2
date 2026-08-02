@@ -1,0 +1,20 @@
+---
+address: costa_rica.holiday
+description: Costa Rican feriado — the statutory public holidays plus widely observed national and religious dates
+locale: es
+---
+Año Nuevo
+Jueves Santo
+Viernes Santo
+Día de Juan Santamaría
+Día Internacional del Trabajo
+Anexión del Partido de Nicoya a Costa Rica
+Día de la Virgen de los Ángeles
+Día de la Madre
+Día de la Persona Negra y la Cultura Afrocostarricense
+Día de la Independencia
+Día de las Culturas
+Día de la Abolición del Ejército
+Nochebuena
+Navidad
+Fin de Año

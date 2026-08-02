@@ -1,0 +1,33 @@
+---
+address: canada.sport.team
+description: Canadian professional sports club — the seven NHL teams, the nine CFL teams, the Toronto Raptors (NBA) and Blue Jays (MLB), the three MLS clubs, and the Canadian Premier League soccer clubs
+---
+Toronto Maple Leafs
+Montreal Canadiens
+Ottawa Senators
+Winnipeg Jets
+Calgary Flames
+Edmonton Oilers
+Vancouver Canucks
+BC Lions
+Calgary Stampeders
+Edmonton Elks
+Saskatchewan Roughriders
+Winnipeg Blue Bombers
+Hamilton Tiger-Cats
+Toronto Argonauts
+Ottawa Redblacks
+Montreal Alouettes
+Toronto Raptors
+Toronto Blue Jays
+Toronto FC
+CF Montréal
+Vancouver Whitecaps FC
+Forge FC
+Cavalry FC
+Pacific FC
+Atlético Ottawa
+York United FC
+Valour FC
+HFX Wanderers FC
+Vancouver FC

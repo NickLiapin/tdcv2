@@ -1,0 +1,29 @@
+---
+address: poland.education.university
+description: Universities of Poland (Polish names)
+locale: pl
+---
+Uniwersytet Warszawski
+Uniwersytet Jagielloński
+Politechnika Warszawska
+Akademia Górniczo-Hutnicza
+Uniwersytet im. Adama Mickiewicza w Poznaniu
+Politechnika Wrocławska
+Uniwersytet Wrocławski
+Politechnika Gdańska
+Uniwersytet Gdański
+Uniwersytet Łódzki
+Politechnika Łódzka
+Uniwersytet Mikołaja Kopernika w Toruniu
+Uniwersytet Śląski w Katowicach
+Politechnika Śląska
+Uniwersytet Marii Curie-Skłodowskiej
+Szkoła Główna Handlowa w Warszawie
+Szkoła Główna Gospodarstwa Wiejskiego
+Warszawski Uniwersytet Medyczny
+Uniwersytet Ekonomiczny w Krakowie
+Politechnika Poznańska
+Uniwersytet Szczeciński
+Uniwersytet w Białymstoku
+Katolicki Uniwersytet Lubelski Jana Pawła II
+Uniwersytet Rzeszowski

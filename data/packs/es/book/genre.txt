@@ -1,0 +1,30 @@
+---
+description: Book genre (Spanish)
+locale: es
+---
+Ficción
+No ficción
+Misterio
+Suspenso
+Romance
+Ciencia ficción
+Fantasía
+Terror
+Biografía
+Historia
+Autoayuda
+Poesía
+Literatura juvenil
+Novela histórica
+Novela negra
+Aventura
+Memorias
+Filosofía
+Viajes
+Libro de cocina
+Novela gráfica
+Distopía
+Ensayo
+Cuento
+Realismo mágico
+Infantil

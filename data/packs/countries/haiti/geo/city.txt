@@ -1,0 +1,25 @@
+---
+address: haiti.geo.city
+description: Cities and larger towns of Haiti
+locale: fr
+---
+Port-au-Prince
+Carrefour
+Delmas
+Pétion-Ville
+Cap-Haïtien
+Gonaïves
+Saint-Marc
+Les Cayes
+Croix-des-Bouquets
+Port-de-Paix
+Jacmel
+Léogâne
+Jérémie
+Hinche
+Petit-Goâve
+Fort-Liberté
+Mirebalais
+Ouanaminthe
+Verrettes
+Limbé

@@ -1,0 +1,10 @@
+---
+description: Conditions markedly more frequent in people of North African ancestry, in Italian. A prevalence signal, not an exclusive one.
+locale: it
+---
+Deficit di glucosio-6-fosfato deidrogenasi
+Beta-talassemia eterozigote
+Febbre mediterranea familiare
+Malattia di Behçet
+Ipolattasia dell'adulto
+Xeroderma pigmentoso

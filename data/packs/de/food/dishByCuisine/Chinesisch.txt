@@ -1,0 +1,16 @@
+---
+description: Dishes of Chinese cuisine (German)
+locale: de
+---
+Kung-Pao-Hähnchen
+Gebratener Reis
+Chow Mein
+Süßsaures Schweinefleisch
+Mapo-Tofu
+Pekingente
+Wan-Tan-Suppe
+Frühlingsrollen
+Dim Sum
+Chop Suey
+Baozi
+Feuertopf

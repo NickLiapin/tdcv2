@@ -1,0 +1,18 @@
+---
+description: Trailing qualifier of a French place name (Boulogne-sur-Mer, Aix-en-Provence, Enghien-les-Bains)
+locale: fr
+---
+-sur-Mer
+-sur-Seine
+-sur-Loire
+-sur-Rhône
+-sur-Marne
+-en-Provence
+-le-Château
+-les-Bains
+-sous-Bois
+-la-Forêt
+-en-Josas
+-le-Grand
+-le-Petit
+-la-Vallée

@@ -1,0 +1,10 @@
+---
+address: togo.education.university
+description: Universities of Togo
+locale: fr
+---
+Université de Lomé
+Université de Kara
+Institut Africain d'Administration et d'Études Commerciales
+École Supérieure d'Administration et des Carrières Juridiques
+Université Catholique de l'Afrique de l'Ouest - Unité de Lomé

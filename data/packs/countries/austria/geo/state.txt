@@ -1,0 +1,14 @@
+---
+address: austria.geo.state
+description: The nine federal states of Austria (Bundesländer)
+locale: de
+---
+Burgenland
+Kärnten
+Niederösterreich
+Oberösterreich
+Salzburg
+Steiermark
+Tirol
+Vorarlberg
+Wien

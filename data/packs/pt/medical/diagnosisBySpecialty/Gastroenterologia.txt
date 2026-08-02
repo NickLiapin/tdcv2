@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Gastroenterology (Portuguese)
+locale: pt
+---
+Doença do refluxo gastroesofágico
+Doença de Crohn
+Colite ulcerativa
+Úlcera péptica
+Síndrome do intestino irritável
+Cirrose hepática
+Pancreatite aguda
+Hepatite B crônica
+Doença celíaca
+Diverticulite

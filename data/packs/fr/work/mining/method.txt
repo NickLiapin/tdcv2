@@ -1,0 +1,14 @@
+---
+description: Mining extraction method (French)
+locale: fr
+---
+À ciel ouvert
+Souterraine
+Par dissolution
+Alluvionnaire
+Par forage
+Par abattage
+Longue taille
+Chambres et piliers
+Dragage
+Lixiviation en tas

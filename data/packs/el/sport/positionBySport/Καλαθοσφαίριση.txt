@@ -1,0 +1,9 @@
+---
+description: Positions in basketball (Greek)
+locale: el
+---
+Πλέι μέικερ
+Σούτινγκ γκαρντ
+Σμολ φόργουορντ
+Πάουερ φόργουορντ
+Σέντερ

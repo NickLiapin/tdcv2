@@ -1,0 +1,22 @@
+---
+description: Weather condition (French)
+locale: fr
+---
+Ensoleillé
+Nuageux
+Partiellement nuageux
+Couvert
+Pluvieux
+Orageux
+Neigeux
+Brumeux
+Venteux
+Averses
+Bruine
+Grêle
+Verglas
+Éclaircies
+Ciel dégagé
+Canicule
+Gel
+Brouillard

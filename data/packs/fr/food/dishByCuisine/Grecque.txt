@@ -1,0 +1,16 @@
+---
+description: Dishes of Greek cuisine (French)
+locale: fr
+---
+Moussaka
+Souvláki
+Tzatziki
+Salade grecque
+Gyros
+Dolmades
+Spanakopita
+Feta au four
+Baklava
+Keftédes
+Pastitsio
+Taramosalata

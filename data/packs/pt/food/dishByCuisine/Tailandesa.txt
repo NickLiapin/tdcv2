@@ -1,0 +1,12 @@
+---
+description: Dishes of Thai cuisine (Portuguese)
+locale: pt
+---
+Pad thai
+Caril verde
+Sopa tom yum
+Caril massaman
+Salada de papaia
+Arroz glutinoso com manga
+Satay
+Caril vermelho

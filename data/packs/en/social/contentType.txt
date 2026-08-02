@@ -1,0 +1,15 @@
+---
+description: Social content type
+locale: en
+---
+Post
+Comment
+Reply
+Story
+Reel
+Poll
+Live
+Repost
+Thread
+Mention
+Direct Message

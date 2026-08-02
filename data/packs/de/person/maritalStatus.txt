@@ -1,0 +1,15 @@
+---
+description: Marital status (German). German status labels do not inflect for gender, so there is one entry per state.
+locale: de
+---
+ledig
+verheiratet
+geschieden
+verwitwet
+getrennt lebend
+verlobt
+wiederverheiratet
+eingetragene Lebenspartnerschaft
+Lebenspartnerschaft aufgehoben
+Lebenspartner verstorben
+in eheähnlicher Gemeinschaft

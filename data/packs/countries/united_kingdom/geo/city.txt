@@ -1,0 +1,78 @@
+---
+address: united_kingdom.geo.city
+description: Major UK city or large town across all four nations
+---
+London
+Birmingham
+Manchester
+Glasgow
+Liverpool
+Leeds
+Sheffield
+Edinburgh
+Bristol
+Cardiff
+Belfast
+Newcastle upon Tyne
+Nottingham
+Leicester
+Coventry
+Bradford
+Stoke-on-Trent
+Wolverhampton
+Plymouth
+Southampton
+Reading
+Derby
+Kingston upon Hull
+Preston
+Aberdeen
+Dundee
+Swansea
+Sunderland
+Portsmouth
+York
+Oxford
+Cambridge
+Norwich
+Exeter
+Brighton and Hove
+Milton Keynes
+Bournemouth
+Peterborough
+Luton
+Middlesbrough
+Ipswich
+Blackpool
+Bolton
+Gloucester
+Warrington
+Slough
+Chester
+Bath
+Carlisle
+Lincoln
+Durham
+Lancaster
+Salford
+Wakefield
+Chelmsford
+Winchester
+Truro
+Canterbury
+Salisbury
+Worcester
+Hereford
+Lichfield
+Chichester
+St Albans
+Inverness
+Perth
+Stirling
+Newport
+Bangor
+Wrexham
+Armagh
+Londonderry
+Lisburn
+Newry

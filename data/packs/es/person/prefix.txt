@@ -1,0 +1,36 @@
+---
+description: Spanish honorific / form of address (abbreviated forms as used before a name)
+locale: es
+---
+Sr.
+Sra.
+Srta.
+D.
+Dña.
+Dr.
+Dra.
+Lic.
+Ing.
+Arq.
+Mtro.
+Mtra.
+Prof.
+Profa.
+C.P.
+Cmte.
+Cap.
+Sgto.
+Tte.
+Cnel.
+Gral.
+Excmo.
+Excma.
+Ilmo.
+Ilma.
+Rvdo.
+Fray
+Sor
+Padre
+Madre
+Don
+Doña

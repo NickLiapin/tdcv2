@@ -1,0 +1,16 @@
+---
+description: Leave type (German)
+locale: de
+---
+Urlaub
+Krankheitsbedingte Abwesenheit
+Elternzeit
+Mutterschutz
+Vaterschaftsurlaub
+Trauerurlaub
+Unbezahlter Urlaub
+Sabbatical
+Persönlicher Tag
+Krankschreibung
+Sonderurlaub zur Hochzeit
+Bildungsurlaub

@@ -1,0 +1,97 @@
+---
+address: argentina.education.university
+description: Argentine university — universidades nacionales, provinciales and privadas
+locale: es
+---
+Universidad de Buenos Aires
+Universidad Nacional de La Plata
+Universidad Tecnológica Nacional
+Universidad Nacional de Córdoba
+Universidad Nacional de Rosario
+Universidad Nacional del Litoral
+Universidad Nacional de Cuyo
+Universidad Nacional de Tucumán
+Universidad Nacional del Sur
+Universidad Nacional de Mar del Plata
+Universidad Nacional del Nordeste
+Universidad Nacional de San Martín
+Universidad Nacional de Quilmes
+Universidad Nacional de Lanús
+Universidad Nacional de General Sarmiento
+Universidad Nacional de La Matanza
+Universidad Nacional de Tres de Febrero
+Universidad Nacional de Avellaneda
+Universidad Nacional de Hurlingham
+Universidad Nacional Arturo Jauretche
+Universidad Nacional de José C. Paz
+Universidad Nacional de Moreno
+Universidad Nacional del Oeste
+Universidad Nacional de Luján
+Universidad Nacional del Centro de la Provincia de Buenos Aires
+Universidad Nacional del Noroeste de la Provincia de Buenos Aires
+Universidad Nacional de San Luis
+Universidad Nacional de San Juan
+Universidad Nacional de Río Cuarto
+Universidad Nacional de Villa María
+Universidad Nacional de Villa Mercedes
+Universidad Nacional de Chilecito
+Universidad Nacional de La Rioja
+Universidad Nacional de Catamarca
+Universidad Nacional de Santiago del Estero
+Universidad Nacional de Salta
+Universidad Nacional de Jujuy
+Universidad Nacional de Formosa
+Universidad Nacional de Misiones
+Universidad Nacional del Chaco Austral
+Universidad Nacional de Entre Ríos
+Universidad Nacional de Rafaela
+Universidad Nacional del Comahue
+Universidad Nacional de Río Negro
+Universidad Nacional de La Pampa
+Universidad Nacional de la Patagonia San Juan Bosco
+Universidad Nacional de la Patagonia Austral
+Universidad Nacional de Tierra del Fuego
+Universidad Nacional de las Artes
+Universidad Nacional de Lomas de Zamora
+Universidad Nacional de San Antonio de Areco
+Universidad Nacional Guillermo Brown
+Universidad Pedagógica Nacional
+Universidad de la Defensa Nacional
+Universidad Provincial de Córdoba
+Universidad Provincial del Sudoeste
+Universidad Autónoma de Entre Ríos
+Pontificia Universidad Católica Argentina
+Universidad Austral
+Universidad de San Andrés
+Universidad Torcuato Di Tella
+Instituto Tecnológico de Buenos Aires
+Universidad Argentina de la Empresa
+Universidad de Belgrano
+Universidad de Palermo
+Universidad del Salvador
+Universidad de Ciencias Empresariales y Sociales
+Universidad Abierta Interamericana
+Universidad Argentina John F. Kennedy
+Universidad de Morón
+Universidad CAECE
+Universidad Maimónides
+Universidad Favaloro
+Universidad Católica de Córdoba
+Universidad Blas Pascal
+Universidad Empresarial Siglo 21
+Universidad Católica de Salta
+Universidad Católica de Santiago del Estero
+Universidad del Norte Santo Tomás de Aquino
+Universidad Católica de Cuyo
+Universidad de Mendoza
+Universidad de Congreso
+Universidad Champagnat
+Universidad Católica de Santa Fe
+Universidad Católica de La Plata
+Universidad Adventista del Plata
+Universidad de Flores
+Universidad del Cine
+Universidad de la Marina Mercante
+Universidad del Museo Social Argentino
+Facultad Latinoamericana de Ciencias Sociales
+Instituto Universitario del Hospital Italiano

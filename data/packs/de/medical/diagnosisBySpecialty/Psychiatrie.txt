@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Psychiatry (German)
+locale: de
+---
+Depression
+Generalisierte Angststörung
+Bipolare Störung
+Schizophrenie
+Zwangsstörung
+Posttraumatische Belastungsstörung
+Panikstörung
+Magersucht
+Suchterkrankung
+Schlafstörung

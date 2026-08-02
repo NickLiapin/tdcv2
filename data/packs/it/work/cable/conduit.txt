@@ -1,0 +1,11 @@
+---
+description: Conduit / installation method for cable runs (Italian)
+locale: it
+---
+PVC
+Acciaio rigido
+Polietilene ad alta densità
+Interrato diretto
+Cavidotto interno
+Passerella portacavi
+Sospensione aerea

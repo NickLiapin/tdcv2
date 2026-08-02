@@ -1,0 +1,26 @@
+---
+description: Common allergies (Spanish)
+locale: es
+---
+Penicilina
+Maní
+Frutos secos
+Mariscos
+Huevo
+Leche
+Soya
+Trigo
+Látex
+Polen
+Ácaros del polvo
+Caspa de animales
+Picadura de abeja
+Aspirina
+Sulfamidas
+Yodo
+Sésamo
+Gluten
+Moho
+Níquel
+Fresas
+Medio de contraste yodado

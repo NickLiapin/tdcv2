@@ -1,0 +1,21 @@
+---
+description: Payment method (Portuguese)
+locale: pt
+---
+Cartão de crédito
+Cartão de débito
+Pix
+MB Way
+PayPal
+Apple Pay
+Google Pay
+Transferência bancária
+Boleto bancário
+Pagamento na entrega
+Dinheiro
+Cartão-presente
+Criptomoeda
+Parcelamento
+Débito automático
+Carteira digital
+Cheque

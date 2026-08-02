@@ -1,0 +1,19 @@
+---
+description: Jobs in Education (Italian)
+locale: it
+---
+Maestro di scuola primaria
+Professore universitario
+Orientatore scolastico
+Bibliotecario
+Assistente didattico
+Dirigente scolastico
+Professore di scuola secondaria
+Insegnante di sostegno
+Educatore d'infanzia
+Ricercatore
+Tutor
+Insegnante di lingue
+Formatore aziendale
+Coordinatore didattico
+Segretario scolastico

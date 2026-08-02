@@ -1,0 +1,7 @@
+---
+address: new_zealand.vehicle.plate
+description: New Zealand vehicle registration plate — the current general-issue layout of 3 letters + 3 digits (ABC123, issued since 2001), plus the legacy 2 letters + 4 digits (AB1234) still on older vehicles
+generator: tdc
+locale: en
+---
+<gen type="regex" value="([A-Z]{3}[0-9]{3}|[A-Z]{2}[0-9]{4})"/>

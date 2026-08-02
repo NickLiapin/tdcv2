@@ -1,0 +1,25 @@
+---
+address: rwanda.geo.city
+description: Cities and larger towns of Rwanda
+locale: fr
+---
+Kigali
+Huye
+Muhanga
+Musanze
+Rubavu
+Byumba
+Rusizi
+Karongi
+Nyanza
+Kibungo
+Rwamagana
+Nyagatare
+Nyamata
+Kayonza
+Gicumbi
+Ruhango
+Nyabihu
+Kabuga
+Kamonyi
+Nyamagabe

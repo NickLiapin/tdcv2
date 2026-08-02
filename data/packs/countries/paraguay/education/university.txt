@@ -1,0 +1,36 @@
+---
+address: paraguay.education.university
+description: Paraguayan university or higher-education institution (public and private)
+locale: es
+---
+Universidad Nacional de Asunción
+Universidad Católica Nuestra Señora de la Asunción
+Universidad Nacional del Este
+Universidad Nacional de Itapúa
+Universidad Nacional de Pilar
+Universidad Nacional de Concepción
+Universidad Nacional de Caaguazú
+Universidad Nacional de Villarrica del Espíritu Santo
+Universidad Nacional de Canindeyú
+Universidad Autónoma de Asunción
+Universidad Americana
+Universidad Columbia del Paraguay
+Universidad del Cono Sur de las Américas
+Universidad Comunera
+Universidad Politécnica y Artística del Paraguay
+Universidad Iberoamericana
+Universidad Tecnológica Intercontinental
+Universidad Privada del Este
+Universidad del Pacífico
+Universidad Metropolitana de Asunción
+Universidad Autónoma del Paraguay
+Universidad Gran Asunción
+Universidad San Carlos
+Universidad Sudamericana
+Universidad Central del Paraguay
+Universidad Nihon Gakko
+Universidad María Serrana
+Universidad San Lorenzo
+Universidad Adventista del Paraguay
+Universidad Paraguayo Alemana
+Universidad Uninorte

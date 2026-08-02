@@ -1,0 +1,27 @@
+---
+description: Government body type (generic Spanish, not a specific country's ministry)
+locale: es
+---
+Ministerio de Salud
+Ministerio de Educación
+Ministerio de Transporte
+Ministerio de Hacienda
+Ministerio de Justicia
+Ministerio de Trabajo
+Ministerio de Defensa
+Ministerio del Interior
+Ministerio de Relaciones Exteriores
+Ministerio de Agricultura
+Ministerio de Medio Ambiente
+Ministerio de Economía
+Ministerio de Cultura
+Ministerio de Vivienda
+Ministerio de Energía
+Ministerio de Turismo
+Administración Tributaria
+Registro Civil
+Instituto de Seguridad Social
+Dirección General de Migración
+Instituto Nacional de Estadística
+Defensoría del Pueblo
+Contraloría General

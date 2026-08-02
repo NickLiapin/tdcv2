@@ -1,0 +1,42 @@
+---
+description: Common symptoms / complaints (German)
+locale: de
+---
+Fieber
+Kopfschmerzen
+Müdigkeit
+Übelkeit
+Erbrechen
+Durchfall
+Verstopfung
+Bauchschmerzen
+Brustschmerzen
+Atemnot
+Husten
+Halsschmerzen
+Schnupfen
+Verstopfte Nase
+Schwindel
+Verschwommenes Sehen
+Muskelschmerzen
+Gelenkschmerzen
+Rückenschmerzen
+Hautausschlag
+Juckreiz
+Schwellung
+Taubheitsgefühl
+Kribbeln
+Herzklopfen
+Appetitlosigkeit
+Ungewollter Gewichtsverlust
+Nachtschweiß
+Schüttelfrost
+Niesen
+Sodbrennen
+Blähungen
+Muskelkrämpfe
+Schwäche
+Verwirrtheit
+Schlaflosigkeit
+Ohrensausen
+Nasenbluten

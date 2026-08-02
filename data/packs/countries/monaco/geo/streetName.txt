@@ -1,0 +1,9 @@
+---
+address: monaco.geo.streetName
+description: Monaco street name — a voie type followed by a bare name; e.g. "Boulevard des Moulins", "Avenue Princesse Grace".
+generator: tdc
+locale: fr
+---
+<sequence name="type"><gen type="text" value="Boulevard,Avenue,Avenue,Rue,Rue,Place,Allée,Montée,Descente,Quai"/></sequence>
+<sequence name="named"><gen type="template" value="monaco.geo.streetNamed"/></sequence>
+<data>${{type}} ${{named}}</data>

@@ -1,0 +1,16 @@
+---
+address: mauritania.sport.team
+description: Mauritanian Super D1 football clubs (Arabic)
+locale: ar
+---
+نواذيبو
+تفرغ زينة
+سنيم
+الجمارك
+كنكوصة
+الهلال
+النجمة
+اتحاد زوارات
+الشباب
+تيدجيكجا
+الأهلي نواكشوط

@@ -1,0 +1,6 @@
+---
+address: colombia.docs.ce
+description: Colombian cédula de extranjería — the resident-foreigner document issued by Migración Colombia, 6 or 7 digits. No check digit exists
+generator: tdc
+---
+<gen type="regex" value="[1-9][0-9]{5,6}"/>

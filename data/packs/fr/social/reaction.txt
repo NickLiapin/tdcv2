@@ -1,0 +1,16 @@
+---
+description: Social media reaction (French)
+locale: fr
+---
+J'aime
+J'adore
+Haha
+Waouh
+Triste
+Grrr
+Bravo
+Soutien
+Pouce en l'air
+Cœur
+Feu
+Applaudissements

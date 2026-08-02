@@ -1,0 +1,22 @@
+---
+description: Cat breed (Polish)
+locale: pl
+---
+Perski
+Maine Coon
+Syjamski
+Ragdoll
+Bengalski
+Sphynx
+Brytyjski krótkowłosy
+Abisyński
+Scottish Fold
+Norweski leśny
+Rosyjski niebieski
+Birma
+Amerykański krótkowłosy
+Devon Rex
+Burmski
+Angora turecka
+Somalijski
+Manx

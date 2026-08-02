@@ -1,0 +1,20 @@
+---
+address: portugal.education.university
+description: Universities of Portugal (Portuguese names)
+locale: pt
+---
+Universidade de Lisboa
+Universidade do Porto
+Universidade de Coimbra
+Universidade Nova de Lisboa
+Universidade do Minho
+Universidade de Aveiro
+Instituto Superior Técnico
+Universidade de Évora
+Universidade da Beira Interior
+Universidade do Algarve
+ISCTE – Instituto Universitário de Lisboa
+Universidade de Trás-os-Montes e Alto Douro
+Universidade da Madeira
+Universidade dos Açores
+Universidade Católica Portuguesa

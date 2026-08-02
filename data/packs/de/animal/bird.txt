@@ -1,0 +1,34 @@
+---
+description: Bird (German)
+locale: de
+---
+Spatz
+Rotkehlchen
+Adler
+Falke
+Uhu
+Papagei
+Pinguin
+Turmfalke
+Kardinal
+Eichelhäher
+Kolibri
+Specht
+Pelikan
+Flamingo
+Schwan
+Rabe
+Krähe
+Stieglitz
+Reiher
+Eisvogel
+Möwe
+Taube
+Schwalbe
+Nachtigall
+Kondor
+Tukan
+Strauß
+Storch
+Schleiereule
+Quetzal

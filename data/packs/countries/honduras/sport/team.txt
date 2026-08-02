@@ -1,0 +1,25 @@
+---
+address: honduras.sport.team
+description: Honduran professional football club — Liga Nacional and Liga de Ascenso sides, current and recent
+locale: es
+---
+Club Deportivo Olimpia
+Fútbol Club Motagua
+Real Club Deportivo España
+Club Deportivo Marathón
+Club Deportivo y Social Vida
+Club Deportivo Victoria
+Platense Fútbol Club
+Olancho Fútbol Club
+Juticalpa Fútbol Club
+Club Deportivo Génesis Comayagua
+Club Deportivo Real Sociedad
+Lobos de la UPNFM
+Club Deportivo Honduras Progreso
+Real Club Deportivo de Minas
+Club Deportivo Universidad
+Atlético Olanchano
+Club Deportivo Broncos
+Hispano Fútbol Club
+Deportes Savio
+Club Deportivo Parrillas One

@@ -1,0 +1,16 @@
+---
+description: Order return reason
+locale: en
+---
+Arrived damaged
+Wrong item shipped
+Item not as described
+Wrong size
+Changed my mind
+Better price found elsewhere
+Defective on arrival
+Missing parts
+Late delivery
+No longer needed
+Ordered by mistake
+Quality below expectations

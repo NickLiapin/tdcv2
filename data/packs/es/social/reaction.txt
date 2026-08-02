@@ -1,0 +1,15 @@
+---
+description: Social reaction (Spanish)
+locale: es
+---
+Me gusta
+Me encanta
+Me divierte
+Me asombra
+Me entristece
+Me enoja
+Me importa
+Celebrar
+Apoyar
+Interesante
+Curioso

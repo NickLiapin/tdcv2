@@ -1,0 +1,17 @@
+---
+description: World religion
+locale: en
+---
+Christianity
+Islam
+Hinduism
+Buddhism
+Judaism
+Sikhism
+Baháʼí
+Jainism
+Shinto
+Taoism
+Atheism
+Agnosticism
+Secular

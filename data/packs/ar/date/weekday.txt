@@ -1,0 +1,11 @@
+---
+description: Weekday name (Arabic)
+locale: ar
+---
+الأحد
+الإثنين
+الثلاثاء
+الأربعاء
+الخميس
+الجمعة
+السبت

@@ -1,0 +1,23 @@
+---
+description: Mined mineral / commodity (German)
+locale: de
+---
+Kohle
+Kupfer
+Gold
+Silber
+Eisenerz
+Zink
+Blei
+Bauxit
+Kalkstein
+Nickel
+Uran
+Kalisalz
+Phosphat
+Lithium
+Kobalt
+Gips
+Salz
+Zinn
+Molybdän

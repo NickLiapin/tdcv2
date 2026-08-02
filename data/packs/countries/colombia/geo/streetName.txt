@@ -1,0 +1,30 @@
+---
+address: colombia.geo.streetName
+description: Colombian street — the nomenclatura is a grid: Calles run one way and Carreras the other, both numbered, with Diagonal / Transversal for the streets that cut across. Mostly numbered, with the named avenues mixed in
+generator: tdc
+locale: es
+---
+<sequence name="mode"><gen type="number" value="1..10"/></sequence>
+<sequence name="type"><gen type="text" value="Calle,Calle,Calle,Calle,Carrera,Carrera,Carrera,Carrera,Diagonal,Transversal"/></sequence>
+<sequence name="n"><gen type="number" value="1..180"/></sequence>
+<!-- A bis-numbered street repeats its number with a letter: Calle 85A. -->
+<sequence name="letter"><gen type="text" value="A,B,C,D,Bis"/></sequence>
+<!-- South of Calle 1 the numbering restarts, so the cardinal is part of the name. -->
+<sequence name="cardinal"><gen type="text" value="Sur,Sur,Norte,Este,Oeste"/></sequence>
+<sequence name="named"><gen type="template" value="colombia.geo.streetNamed"/></sequence>
+<sequence name="street"><compute>
+  <!-- One street in five is a named avenue; the rest are numbered, a few of
+       them with a letter or a cardinal. -->
+  <result>
+    <choose>
+      <when><test><less_than><to_number><field name="mode"/></to_number><int v="3"/></less_than></test>
+        <then><field name="named"/></then></when>
+      <when><test><less_than><to_number><field name="mode"/></to_number><int v="9"/></less_than></test>
+        <then><concat><field name="type"/><str v=" "/><field name="n"/></concat></then></when>
+      <when><test><equals><to_number><field name="mode"/></to_number><int v="9"/></equals></test>
+        <then><concat><field name="type"/><str v=" "/><field name="n"/><field name="letter"/></concat></then></when>
+      <otherwise><concat><field name="type"/><str v=" "/><field name="n"/><str v=" "/><field name="cardinal"/></concat></otherwise>
+    </choose>
+  </result>
+</compute></sequence>
+<data>${{street}}</data>

@@ -1,0 +1,37 @@
+---
+address: uae.docs.emiratesId
+description: UAE Emirates ID (رقم الهوية) — 15 digits shown 784-YYYY-NNNNNNN-C: the 784 country prefix + 4-digit birth year + 7 digits + a Luhn check; the whole number is Luhn-valid.
+generator: tdc
+locale: ar
+---
+<sequence name="year"><gen type="number" value="1950..2019"/></sequence>
+<sequence name="seven"><gen type="regex" value="[0-9]{7}"/></sequence>
+<sequence name="eid"><compute>
+  <let name="base"><concat><str v="784"/><field name="year"/><field name="seven"/></concat></let>
+  <let name="sum"><reduce>
+    <over><var name="base"/></over>
+    <init><int v="0"/></init>
+    <do><add><acc/>
+      <choose>
+        <when>
+          <test><equals>
+            <mod><current_index/><int v="2"/></mod>
+            <mod><add><length><var name="base"/></length><int v="1"/></add><int v="2"/></mod>
+          </equals></test>
+          <then>
+            <let name="d"><multiply><current/><int v="2"/></multiply></let>
+            <choose>
+              <when><test><greater_than><var name="d"/><int v="9"/></greater_than></test>
+                    <then><subtract><var name="d"/><int v="9"/></subtract></then></when>
+              <otherwise><var name="d"/></otherwise>
+            </choose>
+          </then>
+        </when>
+        <otherwise><current/></otherwise>
+      </choose>
+    </add></do>
+  </reduce></let>
+  <let name="check"><mod><subtract><int v="10"/><mod><var name="sum"/><int v="10"/></mod></subtract><int v="10"/></mod></let>
+  <result><concat><str v="784-"/><field name="year"/><str v="-"/><field name="seven"/><str v="-"/><var name="check"/></concat></result>
+</compute></sequence>
+<data>${{eid}}</data>

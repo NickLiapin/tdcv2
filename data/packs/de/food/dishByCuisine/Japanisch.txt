@@ -1,0 +1,16 @@
+---
+description: Dishes of Japanese cuisine (German)
+locale: de
+---
+Sushi
+Ramen
+Tempura
+Udon
+Teriyaki-Hähnchen
+Misosuppe
+Katsu-Curry
+Onigiri
+Sashimi
+Gyoza
+Okonomiyaki
+Yakitori

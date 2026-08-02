@@ -1,0 +1,16 @@
+---
+description: Dishes of Thai cuisine (French)
+locale: fr
+---
+Pad thaï
+Curry vert
+Curry rouge
+Soupe tom yum
+Soupe tom kha
+Riz sauté
+Nouilles sautées
+Salade de papaye
+Satay
+Riz gluant à la mangue
+Poulet au basilic thaï
+Massaman

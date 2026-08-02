@@ -1,0 +1,15 @@
+---
+description: Booking status (Portuguese, agrees with "reserva")
+locale: pt
+---
+Confirmada
+Pendente
+Cancelada
+Em espera
+Check-in efetuado
+Check-out efetuado
+Não compareceu
+Modificada
+Reembolsada
+Expirada
+Garantida

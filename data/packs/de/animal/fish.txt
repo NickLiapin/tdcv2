@@ -1,0 +1,29 @@
+---
+description: Fish (German)
+locale: de
+---
+Lachs
+Thunfisch
+Forelle
+Wolfsbarsch
+Kabeljau
+Wels
+Goldfisch
+Clownfisch
+Guppy
+Makrele
+Heilbutt
+Schnapper
+Schwertfisch
+Marlin
+Kaiserfisch
+Kampffisch
+Karpfen
+Barsch
+Sardine
+Sardelle
+Seehecht
+Zander
+Tilapia
+Goldbrasse
+Steinbutt

@@ -1,0 +1,77 @@
+---
+address: honduras.geo.city
+description: Honduran city (real urban localities, INE population centres)
+locale: es
+---
+Tegucigalpa
+San Pedro Sula
+Choloma
+La Ceiba
+El Progreso
+Choluteca
+Comayagua
+Puerto Cortés
+La Lima
+Danlí
+Siguatepeque
+Juticalpa
+Tocoa
+Villanueva
+Tela
+Santa Rosa de Copán
+Catacamas
+Olanchito
+Santa Bárbara
+Nacaome
+Trujillo
+La Esperanza
+Gracias
+Roatán
+Nueva Ocotepeque
+Yoro
+La Paz
+Comayagüela
+Talanga
+Marcala
+San Lorenzo
+Sabá
+Sonaguera
+Cofradía
+Potrerillos
+Pimienta
+Santa Cruz de Yojoa
+Omoa
+San Marcos de Colón
+Valle de Ángeles
+Santa Lucía
+Ojojona
+Yuscarán
+Puerto Lempira
+Amapala
+Intibucá
+Copán Ruinas
+El Paraíso
+Guaimaca
+Jesús de Otoro
+La Entrada
+Quimistán
+Jutiapa
+El Porvenir
+Morazán
+El Negrito
+Santa Rita
+Lepaera
+Nueva Arcadia
+San Manuel
+Villa de San Antonio
+Campamento
+Dulce Nombre de Culmí
+Gualaco
+San Esteban
+Pespire
+Marcovia
+El Triunfo
+Sulaco
+Yorito
+Utila
+Guanaja

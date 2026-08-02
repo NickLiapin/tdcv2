@@ -1,0 +1,24 @@
+---
+description: Academic degree / diploma awarded in France (French)
+locale: fr
+---
+Baccalauréat
+CAP
+BEP
+BTS
+BUT
+DUT
+Licence
+Licence professionnelle
+Master
+Master professionnel
+Master recherche
+Doctorat
+Diplôme d'ingénieur
+Diplôme de grande école
+DEUG
+Maîtrise
+MBA
+Certificat d'aptitude
+Habilitation à diriger des recherches
+Mastère spécialisé

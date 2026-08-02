@@ -1,0 +1,6 @@
+---
+address: malta.tax.vat
+description: Maltese VAT (MT + 8 digits, no checksum)
+generator: tdc
+---
+<gen type="regex" value="MT[0-9]{8}"/>

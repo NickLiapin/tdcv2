@@ -1,0 +1,19 @@
+---
+address: senegal.holiday
+description: Public holidays in Senegal (French names; civil, Christian and Muslim)
+locale: fr
+---
+Jour de l'An
+Fête de l'Indépendance
+Lundi de Pâques
+Fête du Travail
+Ascension
+Lundi de Pentecôte
+Assomption
+Toussaint
+Noël
+Korité
+Tabaski
+Tamkharit
+Maouloud
+Grand Magal de Touba

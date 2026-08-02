@@ -1,0 +1,20 @@
+---
+address: switzerland.finance.bank
+description: Banks operating in Switzerland (French names where they exist)
+locale: fr
+---
+UBS
+PostFinance
+Raiffeisen
+Banque Cantonale de Zurich
+Banque Cantonale Vaudoise
+Banque Cantonale de Genève
+Banque Cantonale du Valais
+Julius Bär
+Pictet
+Lombard Odier
+Banque Migros
+Cornèr Banca
+Banque Cler
+Bank J. Safra Sarasin
+Union Bancaire Privée

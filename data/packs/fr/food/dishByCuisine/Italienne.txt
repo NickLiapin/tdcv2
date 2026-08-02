@@ -1,0 +1,16 @@
+---
+description: Dishes of Italian cuisine (French)
+locale: fr
+---
+Pizza margherita
+Spaghetti carbonara
+Lasagnes
+Risotto
+Osso buco
+Tiramisu
+Gnocchis
+Minestrone
+Bruschetta
+Ravioli
+Pesto
+Panna cotta

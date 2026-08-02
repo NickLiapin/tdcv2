@@ -1,0 +1,53 @@
+.terminal {
+  margin: 0 0 1.2rem;
+  border: 1px solid #30363d;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.28);
+  background: #0d1117;
+}
+
+.bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 14px;
+  background: #161b22;
+  border-bottom: 1px solid #30363d;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.dot[data-color='red'] {
+  background: #ff5f56;
+}
+.dot[data-color='yellow'] {
+  background: #ffbd2e;
+}
+.dot[data-color='green'] {
+  background: #27c93f;
+}
+
+.title {
+  margin-left: 6px;
+  color: #8b949e;
+  font-size: 0.8rem;
+  font-family: var(--ifm-font-family-monospace);
+}
+
+.body {
+  margin: 0;
+  padding: 16px 18px;
+  background: #0d1117;
+  color: #d1d7e0;
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.88rem;
+  line-height: 1.65;
+  white-space: pre;
+  overflow-x: auto;
+}

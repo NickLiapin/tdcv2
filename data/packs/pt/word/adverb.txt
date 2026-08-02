@@ -1,0 +1,36 @@
+---
+description: Common adverb (Portuguese)
+locale: pt
+---
+rapidamente
+lentamente
+cuidadosamente
+facilmente
+silenciosamente
+ruidosamente
+sempre
+nunca
+frequentemente
+às vezes
+raramente
+de repente
+suavemente
+claramente
+simplesmente
+quase
+plenamente
+apenas
+principalmente
+verdadeiramente
+profundamente
+amplamente
+livremente
+corajosamente
+firmemente
+alegremente
+amavelmente
+em breve
+tarde
+cedo
+talvez
+ainda

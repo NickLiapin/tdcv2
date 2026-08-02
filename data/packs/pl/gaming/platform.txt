@@ -1,0 +1,15 @@
+---
+description: Gaming platform (Polish; brand names kept as-is)
+locale: pl
+---
+PlayStation 5
+PlayStation 4
+Xbox Series X
+Xbox Series S
+Xbox One
+Nintendo Switch
+PC
+Steam Deck
+Meta Quest
+Urządzenia mobilne
+Przeglądarka

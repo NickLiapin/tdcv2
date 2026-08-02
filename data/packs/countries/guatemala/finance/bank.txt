@@ -1,0 +1,19 @@
+---
+address: guatemala.finance.bank
+description: Guatemalan bank authorised by the Superintendencia de Bancos (SIB)
+locale: es
+---
+Banco Industrial
+Banco de Desarrollo Rural
+Banco G&T Continental
+Banco Agromercantil de Guatemala
+Banco de América Central
+Banco Internacional
+Banco de los Trabajadores
+Banco Promerica
+Banco Ficohsa Guatemala
+Banco de Antigua
+Vivibanco
+Banco Inmobiliario
+Crédito Hipotecario Nacional de Guatemala
+Banco Azteca de Guatemala

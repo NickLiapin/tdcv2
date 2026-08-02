@@ -1,0 +1,13 @@
+---
+address: somalia.holiday
+description: Public holidays in Somalia (Arabic)
+locale: ar
+---
+عيد الجمهورية
+عيد الاستقلال
+عيد الفطر
+عيد الأضحى
+رأس السنة الهجرية
+عاشوراء
+المولد النبوي
+رأس السنة الميلادية

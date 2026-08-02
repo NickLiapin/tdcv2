@@ -1,0 +1,35 @@
+---
+address: belgium.geo.streetNamed
+description: Common Belgian street name, bare (without the Rue / Avenue / Chaussée type)
+locale: fr
+---
+de la Loi
+Neuve
+Royale
+de la Station
+de l'Église
+de la Gare
+du Commerce
+Léopold
+Albert Ier
+de Namur
+de Bruxelles
+de la Régence
+Louise
+du Midi
+Haute
+Basse
+du Marché
+de la Paix
+des Combattants
+du Moulin
+de la Chapelle
+Grand-Place
+de Flandre
+de Wallonie
+des Écoles
+du Parc
+de la Meuse
+de l'Yser
+du 8 Mai
+de la Liberté

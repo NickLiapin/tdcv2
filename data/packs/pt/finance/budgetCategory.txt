@@ -1,0 +1,24 @@
+---
+description: Budget / spending category (Portuguese)
+locale: pt
+---
+Aluguel
+Hipoteca
+Supermercado
+Serviços essenciais
+Transporte
+Entretenimento
+Saúde
+Seguros
+Restaurantes
+Poupança
+Assinaturas
+Viagens
+Educação
+Roupa
+Presentes
+Cuidados infantis
+Pagamento de dívidas
+Animais de estimação
+Telefone e internet
+Impostos

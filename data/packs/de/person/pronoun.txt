@@ -1,0 +1,14 @@
+---
+description: Personal pronoun set (German)
+locale: de
+---
+er
+sie
+dey
+xier
+er/ihm
+sie/ihr
+dey/demm
+xier/xiem
+er/sie
+sie/dey

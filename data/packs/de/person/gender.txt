@@ -1,0 +1,8 @@
+---
+description: Gender label (German). Two values, matching en, es and ru — this list is what
+  `parent="Gender.Mann"` filters on, so a longer one silently leaves most rows without a
+  name. Identity options beyond the pair belong in a file of their own.
+locale: de
+---
+Mann
+Frau

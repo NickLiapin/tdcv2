@@ -1,0 +1,28 @@
+---
+description: Name / academic suffix (Greek). Greek marks generations with ο νεότερος / ο πρεσβύτερος and numbers them with Greek numerals.
+locale: el
+---
+ο νεότερος
+ο πρεσβύτερος
+υιός
+Β΄
+Γ΄
+Δ΄
+Ε΄
+Ph.D.
+M.D.
+M.Sc.
+M.A.
+MBA
+Δρ
+Καθ.
+Δικ.
+Μηχ.
+Αρχ.
+Οικ.
+Ιατρ.
+Οδοντ.
+Κτην.
+Φαρμ.
+Ψυχ.
+Νοσ.

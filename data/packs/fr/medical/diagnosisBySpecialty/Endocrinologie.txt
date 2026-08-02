@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Endocrinology (French)
+locale: fr
+---
+Diabète de type 1
+Diabète de type 2
+Hypothyroïdie
+Hyperthyroïdie
+Maladie de Basedow
+Syndrome de Cushing
+Ostéoporose
+Goutte
+Insuffisance surrénalienne
+Hyperparathyroïdie

@@ -1,0 +1,12 @@
+---
+description: Mining method (Portuguese)
+locale: pt
+---
+A céu aberto
+Subterrânea
+Lavra em tiras
+Aluvial
+Remoção de topo de montanha
+Por poço vertical
+Por galeria
+Frente larga

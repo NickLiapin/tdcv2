@@ -1,0 +1,28 @@
+---
+address: new_zealand.holiday
+description: New Zealand public holiday — the 11 nationwide statutory holidays plus the regional Anniversary Days observed under the Holidays Act 2003
+locale: en
+---
+New Year's Day
+Day after New Year's Day
+Waitangi Day
+Good Friday
+Easter Monday
+Anzac Day
+King's Birthday
+Matariki
+Labour Day
+Christmas Day
+Boxing Day
+Auckland Anniversary Day
+Wellington Anniversary Day
+Canterbury Anniversary Day
+South Canterbury Anniversary Day
+Otago Anniversary Day
+Southland Anniversary Day
+Taranaki Anniversary Day
+Hawke's Bay Anniversary Day
+Marlborough Anniversary Day
+Nelson Anniversary Day
+Westland Anniversary Day
+Chatham Islands Anniversary Day

@@ -1,0 +1,7 @@
+---
+address: usa.docs.passport
+description: US passport book number — 9 digits (legacy) or a letter + 8 digits (Next Generation Passport). Structural only; the number carries no public check digit.
+generator: tdc
+locale: en
+---
+<gen type="regex" value="([0-9]{9}|[A-Z][0-9]{8})"/>

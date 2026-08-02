@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Dermatology (Polish)
+locale: pl
+---
+Łuszczyca
+Atopowe zapalenie skóry
+Trądzik pospolity
+Czerniak
+Trądzik różowaty
+Kontaktowe zapalenie skóry
+Pokrzywka
+Grzybica skóry
+Bielactwo nabyte
+Łojotokowe zapalenie skóry

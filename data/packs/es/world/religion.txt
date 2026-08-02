@@ -1,0 +1,25 @@
+---
+description: World religion (Spanish)
+locale: es
+---
+Cristianismo
+Catolicismo
+Protestantismo
+Ortodoxia
+Islam
+Hinduismo
+Budismo
+Judaísmo
+Sijismo
+Jainismo
+Fe bahá'í
+Sintoísmo
+Taoísmo
+Confucianismo
+Zoroastrismo
+Santería
+Espiritismo
+Animismo
+Ateísmo
+Agnosticismo
+Sin religión

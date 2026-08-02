@@ -1,0 +1,6 @@
+---
+address: common.id.ulid
+description: ULID (26 chars, Crockford base32; first char 0-7)
+generator: tdc
+---
+<gen type="regex" value="[0-7][0-9A-HJKMNP-TV-Z]{25}"/>

@@ -1,0 +1,26 @@
+---
+address: guatemala.geo.isoCode
+description: ISO 3166-2:GT subdivision code without the GT- prefix; same order as guatemala.geo.department
+---
+GU
+PR
+SA
+CM
+ES
+SR
+SO
+TO
+QZ
+SU
+RE
+SM
+HU
+QC
+BV
+AV
+PE
+IZ
+ZA
+CQ
+JA
+JU

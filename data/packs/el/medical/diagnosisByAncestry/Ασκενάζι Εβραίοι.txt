@@ -1,0 +1,16 @@
+---
+description: Conditions markedly more frequent in people of Ashkenazi Jewish ancestry, given in Greek. A prevalence signal, not an exclusive one, where founder mutations are unusually well characterised.
+locale: el
+---
+Νόσος Τέι-Σαξ
+Νόσος Γκωσέ τύπου 1
+Οικογενής δυσαυτονομία
+Νόσος Κάναβαν
+Νόσος Νίμαν-Πικ τύπου Α
+Σύνδρομο Μπλουμ
+Ανεπάρκεια του παράγοντα XI
+Ιδρυτική μετάλλαξη BRCA1
+Ιδρυτική μετάλλαξη BRCA2
+Βλεννολιπίδωση τύπου IV
+Νόσος του Κρον
+Δυστονία συστροφής

@@ -1,0 +1,35 @@
+---
+address: france.education.university
+description: French universities and grandes écoles
+locale: fr
+---
+Sorbonne Université
+Université Paris-Saclay
+Université PSL
+Université Paris Cité
+Université Sorbonne Nouvelle
+Université Paris 1 Panthéon-Sorbonne
+Sciences Po
+École normale supérieure
+École polytechnique
+CentraleSupélec
+Mines Paris - PSL
+HEC Paris
+Université Grenoble Alpes
+Aix-Marseille Université
+Université de Strasbourg
+Université de Bordeaux
+Université de Lille
+Université de Lorraine
+Université Claude Bernard Lyon 1
+Université Lumière Lyon 2
+Université Toulouse Capitole
+Université Toulouse III - Paul Sabatier
+Université de Montpellier
+Nantes Université
+Université de Rennes
+Université Côte d'Azur
+Université Clermont Auvergne
+Université de Bourgogne
+Université de Caen Normandie
+INSA Lyon

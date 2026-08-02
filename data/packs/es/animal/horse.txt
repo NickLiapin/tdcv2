@@ -1,0 +1,20 @@
+---
+description: Horse breed (Spanish)
+locale: es
+---
+Árabe
+Pura sangre inglés
+Mustang
+Clydesdale
+Appaloosa
+Cuarto de milla
+Frisón
+Shire
+Andaluz
+Morgan
+Palomino
+Percherón
+Poni Shetland
+Lusitano
+Criollo
+Haflinger

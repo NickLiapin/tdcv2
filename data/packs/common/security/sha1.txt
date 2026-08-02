@@ -1,0 +1,6 @@
+---
+address: common.security.sha1
+description: SHA-1 digest (40 lowercase hex chars)
+generator: tdc
+---
+<gen type="regex" value="[0-9a-f]{40}" regex_max_length="40"/>

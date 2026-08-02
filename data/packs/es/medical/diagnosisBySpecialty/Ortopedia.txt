@@ -1,0 +1,10 @@
+---
+description: Diagnoses seen in Ortopedia
+locale: es
+---
+Artrosis
+Artritis reumatoide
+Hernia discal
+Síndrome del túnel carpiano
+Ciática
+Rotura del manguito rotador

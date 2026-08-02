@@ -1,0 +1,19 @@
+---
+description: Directional qualifier used with a Polish street, district or estate name (osiedle Południe, dzielnica Wschód)
+locale: pl
+---
+Północ
+Południe
+Wschód
+Zachód
+Północny wschód
+Północny zachód
+Południowy wschód
+Południowy zachód
+Północny
+Południowy
+Wschodni
+Zachodni
+Centrum
+Centralny
+Śródmieście

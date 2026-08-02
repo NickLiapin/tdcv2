@@ -1,0 +1,10 @@
+---
+description: Jobs in Legal (Spanish)
+locale: es
+---
+Abogado
+Asistente legal
+Juez
+Secretario judicial
+Oficial de cumplimiento
+Notario

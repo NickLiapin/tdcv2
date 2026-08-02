@@ -1,0 +1,54 @@
+---
+description: Airline (carriers of the German-speaking world and major international ones)
+locale: de
+---
+Lufthansa
+Lufthansa CityLine
+Lufthansa Cargo
+Eurowings
+Discover Airlines
+Condor
+TUI fly Deutschland
+Sundair
+Marabu Airlines
+German Airways
+Austrian Airlines
+Lauda Europe
+Swiss International Air Lines
+Edelweiss Air
+Helvetic Airways
+Chair Airlines
+Luxair
+KLM
+Air France
+British Airways
+Iberia
+Vueling
+Ryanair
+easyJet
+Wizz Air
+ITA Airways
+TAP Air Portugal
+SAS
+Norwegian
+Finnair
+Aer Lingus
+LOT Polish Airlines
+Czech Airlines
+Turkish Airlines
+Pegasus Airlines
+Aegean Airlines
+Emirates
+Qatar Airways
+Etihad Airways
+Singapore Airlines
+Cathay Pacific
+Japan Airlines
+All Nippon Airways
+Korean Air
+Qantas
+Air Canada
+American Airlines
+United Airlines
+Delta Air Lines
+Ethiopian Airlines

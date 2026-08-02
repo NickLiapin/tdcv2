@@ -1,0 +1,21 @@
+---
+address: spain.tax.nif
+description: Spanish NIF — the tax number of any taxpayer: the DNI plus its mod-23 letter for nationals (60%), the NIE for foreign residents (20%), the CIF for legal entities (20%). Every value carries its real check character.
+generator: tdc
+---
+<sequence name="mode"><gen type="number" value="1..10"/></sequence>
+<sequence name="dni"><gen type="template" value="spain.docs.dni"/></sequence>
+<sequence name="nie"><gen type="template" value="spain.docs.nie"/></sequence>
+<sequence name="cif"><gen type="template" value="spain.tax.cif"/></sequence>
+<sequence name="nif"><compute>
+  <result>
+    <choose>
+      <when><test><greater_than><to_number><field name="mode"/></to_number><int v="8"/></greater_than></test>
+        <then><field name="cif"/></then></when>
+      <when><test><greater_than><to_number><field name="mode"/></to_number><int v="6"/></greater_than></test>
+        <then><field name="nie"/></then></when>
+      <otherwise><field name="dni"/></otherwise>
+    </choose>
+  </result>
+</compute></sequence>
+<data>${{nif}}</data>

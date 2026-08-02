@@ -1,0 +1,15 @@
+---
+address: niger.holiday
+description: Public holidays in Niger (French names; civil, Christian and Muslim)
+locale: fr
+---
+Jour de l'An
+Fête de la Concorde
+Fête du Travail
+Fête de l'Indépendance
+Proclamation de la République
+Noël
+Aïd el-Fitr
+Aïd el-Kébir
+Maouloud
+Laylat al-Qadr

@@ -1,0 +1,14 @@
+---
+description: Jobs in Healthcare (Portuguese)
+locale: pt
+---
+Enfermeiro
+Clínico geral
+Farmacêutico
+Fisioterapeuta
+Auxiliar médico
+Técnico em radiologia
+Paramédico
+Nutricionista
+Auxiliar de enfermagem
+Dentista

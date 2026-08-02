@@ -1,0 +1,7 @@
+---
+address: puerto_rico.tax.ein
+description: Employer Identification Number used by a Puerto Rico employer. PR businesses use the FEDERAL EIN issued by the US IRS (valid prefix + 7 digits, no checksum); this delegates to usa.tax.ein. Puerto Rico has no separate territorial employer ID
+generator: tdc
+---
+<sequence name="ein"><gen type="template" value="usa.tax.ein"/></sequence>
+<data>${{ein}}</data>

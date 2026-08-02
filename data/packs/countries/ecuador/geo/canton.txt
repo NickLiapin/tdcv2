@@ -1,0 +1,222 @@
+---
+address: ecuador.geo.canton
+description: Ecuadorian cantón (second-level division), listed by province in province-code order; the capital cantón of each province leads its block
+locale: es
+---
+Cuenca
+Girón
+Gualaceo
+Nabón
+Paute
+Pucará
+San Fernando
+Santa Isabel
+Sígsig
+Chordeleg
+El Pan
+Sevilla de Oro
+Guachapala
+Camilo Ponce Enríquez
+Oña
+Guaranda
+Chillanes
+Chimbo
+Echeandía
+San Miguel
+Caluma
+Las Naves
+Azogues
+Biblián
+Cañar
+La Troncal
+El Tambo
+Déleg
+Suscal
+Tulcán
+Bolívar
+Espejo
+Mira
+Montúfar
+San Pedro de Huaca
+Latacunga
+La Maná
+Pangua
+Pujilí
+Salcedo
+Saquisilí
+Sigchos
+Riobamba
+Alausí
+Colta
+Chambo
+Chunchi
+Guamote
+Guano
+Pallatanga
+Penipe
+Cumandá
+Machala
+Arenillas
+Atahualpa
+Balsas
+Chilla
+El Guabo
+Huaquillas
+Marcabelí
+Pasaje
+Piñas
+Portovelo
+Santa Rosa
+Zaruma
+Las Lajas
+Esmeraldas
+Eloy Alfaro
+Muisne
+Quinindé
+San Lorenzo
+Atacames
+Rioverde
+La Concordia
+Guayaquil
+Alfredo Baquerizo Moreno
+Balao
+Balzar
+Colimes
+Daule
+Durán
+El Empalme
+El Triunfo
+Milagro
+Naranjal
+Naranjito
+Palestina
+Pedro Carbo
+Samborondón
+Santa Lucía
+Salitre
+Yaguachi
+Playas
+Simón Bolívar
+Coronel Marcelino Maridueña
+Lomas de Sargentillo
+Nobol
+General Antonio Elizalde
+Isidro Ayora
+Ibarra
+Antonio Ante
+Cotacachi
+Otavalo
+Pimampiro
+Urcuquí
+Loja
+Calvas
+Catamayo
+Celica
+Chaguarpamba
+Espíndola
+Gonzanamá
+Macará
+Paltas
+Puyango
+Saraguro
+Sozoranga
+Zapotillo
+Pindal
+Quilanga
+Olmedo
+Babahoyo
+Baba
+Montalvo
+Puebloviejo
+Quevedo
+Urdaneta
+Ventanas
+Vinces
+Palenque
+Buena Fe
+Valencia
+Mocache
+Quinsaloma
+Portoviejo
+Chone
+El Carmen
+Flavio Alfaro
+Jipijapa
+Junín
+Manta
+Montecristi
+Paján
+Rocafuerte
+Santa Ana
+Sucre
+Tosagua
+Veinticuatro de Mayo
+Pedernales
+Puerto López
+Jama
+Jaramijó
+San Vicente
+Morona
+Gualaquiza
+Limón Indanza
+Palora
+Santiago
+Sucúa
+Huamboya
+San Juan Bosco
+Taisha
+Logroño
+Pablo Sexto
+Tiwintza
+Tena
+Archidona
+El Chaco
+Quijos
+Carlos Julio Arosemena Tola
+Pastaza
+Mera
+Santa Clara
+Arajuno
+Quito
+Cayambe
+Mejía
+Pedro Moncayo
+Rumiñahui
+San Miguel de los Bancos
+Pedro Vicente Maldonado
+Puerto Quito
+Ambato
+Baños de Agua Santa
+Cevallos
+Mocha
+Patate
+Quero
+San Pedro de Pelileo
+Santiago de Píllaro
+Tisaleo
+Zamora
+Chinchipe
+Nangaritza
+Yacuambi
+Yantzaza
+El Pangui
+Centinela del Cóndor
+Palanda
+Paquisha
+San Cristóbal
+Isabela
+Santa Cruz
+Lago Agrio
+Gonzalo Pizarro
+Putumayo
+Shushufindi
+Cascales
+Cuyabeno
+Orellana
+Aguarico
+La Joya de los Sachas
+Loreto
+Santo Domingo
+Santa Elena
+La Libertad
+Salinas

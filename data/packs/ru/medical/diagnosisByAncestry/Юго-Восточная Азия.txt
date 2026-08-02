@@ -1,0 +1,11 @@
+---
+description: Conditions markedly more frequent in people of Southeast Asian ancestry (Russian). A prevalence signal, not an exclusive one.
+locale: ru
+---
+Болезнь гемоглобина E
+Альфа-талассемия
+Дефицит глюкозо-6-фосфатдегидрогеназы
+Рак носоглотки
+Бета-талассемия
+Синдром Бругада
+Лактазная недостаточность взрослого типа

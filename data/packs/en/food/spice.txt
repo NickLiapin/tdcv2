@@ -1,0 +1,24 @@
+---
+description: Spice / herb
+locale: en
+---
+Cinnamon
+Cumin
+Paprika
+Turmeric
+Ginger
+Nutmeg
+Oregano
+Basil
+Thyme
+Rosemary
+Cardamom
+Coriander
+Chili Powder
+Cloves
+Saffron
+Bay Leaf
+Dill
+Sage
+Parsley
+Mint

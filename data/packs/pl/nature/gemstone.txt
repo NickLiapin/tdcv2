@@ -1,0 +1,29 @@
+---
+description: Gemstone (Polish)
+locale: pl
+---
+Diament
+Rubin
+Szafir
+Szmaragd
+Ametyst
+Topaz
+Opal
+Granat
+Akwamaryn
+Perydot
+Turkus
+Jadeit
+Onyks
+Perła
+Cytryn
+Tanzanit
+Turmalin
+Kamień księżycowy
+Cyrkon
+Lapis lazuli
+Bursztyn
+Koral
+Malachit
+Kwarc różowy
+Obsydian

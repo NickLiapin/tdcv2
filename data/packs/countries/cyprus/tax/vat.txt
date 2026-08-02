@@ -1,0 +1,6 @@
+---
+address: cyprus.tax.vat
+description: Cypriot VAT (CY + 8 digits + 1 uppercase letter)
+generator: tdc
+---
+<gen type="regex" value="CY[0-9]{8}[A-Z]"/>

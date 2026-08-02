@@ -1,0 +1,19 @@
+---
+address: qatar.sport.team
+description: Qatar Stars League football clubs (Arabic)
+locale: ar
+---
+السد
+الدحيل
+الغرافة
+الريان
+العربي
+الوكرة
+أم صلال
+قطر
+الأهلي
+الخور
+الشمال
+الشحانية
+الوسيل
+مركز شباب الأهلي

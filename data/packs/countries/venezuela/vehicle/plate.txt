@@ -1,0 +1,7 @@
+---
+address: venezuela.vehicle.plate
+description: Venezuelan licence plate — the private-car layout in issue since 2008, two letters + three digits + two letters (AB123CD); the final letter encodes the state of registration
+generator: tdc
+locale: es
+---
+<gen type="regex" value="[A-Z]{2}[0-9]{3}[A-Z]{2}"/>

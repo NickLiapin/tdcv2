@@ -1,0 +1,42 @@
+{
+  "version.label": {
+    "message": "Текущая",
+    "description": "The label for version current"
+  },
+  "sidebar.docsSidebar.category.Getting Started": {
+    "message": "С чего начать",
+    "description": "The label for category 'Getting Started' in sidebar 'docsSidebar'"
+  },
+  "sidebar.docsSidebar.category.Core Concepts": {
+    "message": "Основы",
+    "description": "The label for category 'Core Concepts' in sidebar 'docsSidebar'"
+  },
+  "sidebar.docsSidebar.category.Generators": {
+    "message": "Генераторы",
+    "description": "The label for category 'Generators' in sidebar 'docsSidebar'"
+  },
+  "sidebar.docsSidebar.category.Guides": {
+    "message": "Руководства",
+    "description": "The label for category 'Guides' in sidebar 'docsSidebar'"
+  },
+  "sidebar.docsSidebar.category.Compute Language": {
+    "message": "Язык вычислений",
+    "description": "The label for category 'Compute Language' in sidebar 'docsSidebar'"
+  },
+  "sidebar.docsSidebar.category.Data Packs": {
+    "message": "Пакеты данных",
+    "description": "The label for category 'Data Packs' in sidebar 'docsSidebar'"
+  },
+  "sidebar.docsSidebar.category.Reference": {
+    "message": "Справочник",
+    "description": "The label for category 'Reference' in sidebar 'docsSidebar'"
+  },
+  "sidebar.docsSidebar.category.Language Bindings": {
+    "message": "Библиотеки для языков",
+    "description": "The label for category 'Language Bindings' in sidebar 'docsSidebar'"
+  },
+  "sidebar.docsSidebar.category.Constructs": {
+    "message": "Конструкции",
+    "description": "The label for category Constructs in sidebar docsSidebar"
+  }
+}

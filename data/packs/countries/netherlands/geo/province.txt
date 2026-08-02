@@ -1,0 +1,17 @@
+---
+address: netherlands.geo.province
+description: The 12 provinces (provincies) of the Netherlands
+locale: nl
+---
+Drenthe
+Flevoland
+Friesland
+Gelderland
+Groningen
+Limburg
+Noord-Brabant
+Noord-Holland
+Overijssel
+Utrecht
+Zeeland
+Zuid-Holland

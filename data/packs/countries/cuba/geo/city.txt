@@ -1,0 +1,44 @@
+---
+address: cuba.geo.city
+description: Major Cuban cities and towns
+locale: es
+---
+La Habana
+Santiago de Cuba
+Camagüey
+Holguín
+Santa Clara
+Guantánamo
+Bayamo
+Las Tunas
+Cienfuegos
+Pinar del Río
+Matanzas
+Ciego de Ávila
+Sancti Spíritus
+Manzanillo
+Cárdenas
+Palma Soriano
+Contramaestre
+Moa
+Nueva Gerona
+Florida
+Colón
+Sagua la Grande
+Morón
+Placetas
+Baracoa
+Banes
+Puerto Padre
+Trinidad
+Nuevitas
+Artemisa
+San José de las Lajas
+Güines
+Jovellanos
+Cabaiguán
+Caibarién
+Santo Domingo
+Jagüey Grande
+Consolación del Sur
+Bejucal

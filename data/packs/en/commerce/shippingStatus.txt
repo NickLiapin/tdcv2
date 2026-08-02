@@ -1,0 +1,12 @@
+---
+description: Shipping status
+locale: en
+---
+Label Created
+In Transit
+Out for Delivery
+Delivered
+Exception
+Returned to Sender
+Awaiting Pickup
+Delayed

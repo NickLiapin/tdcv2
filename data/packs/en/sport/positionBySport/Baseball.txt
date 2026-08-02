@@ -1,0 +1,10 @@
+---
+description: Positions in Baseball
+locale: en
+---
+Pitcher
+Catcher
+First Baseman
+Shortstop
+Center Fielder
+Designated Hitter

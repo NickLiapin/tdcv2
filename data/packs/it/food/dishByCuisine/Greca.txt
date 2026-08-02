@@ -1,0 +1,14 @@
+---
+description: Dishes of Greek cuisine (Italian)
+locale: it
+---
+Moussaka
+Souvlaki
+Gyros
+Insalata greca
+Spanakopita
+Baklava
+Tzatziki
+Dolmades
+Pastitsio
+Saganaki

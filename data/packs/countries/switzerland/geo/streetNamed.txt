@@ -1,0 +1,35 @@
+---
+address: switzerland.geo.streetNamed
+description: Common Swiss-French street name, bare (without the Rue / Avenue / Chemin type)
+locale: fr
+---
+de la Gare
+du Lac
+de la Paix
+du Marché
+de la Poste
+de l'Église
+du Rhône
+du Mont-Blanc
+de Lausanne
+de Genève
+de Berne
+du Grand-Pont
+de la Servette
+des Alpes
+du Léman
+de la Corraterie
+de Rive
+du Stand
+de Carouge
+des Eaux-Vives
+de la Navigation
+du Molard
+du Bourg
+de la Cité
+de la Tour
+des Vergers
+du Château
+de la Vallée
+du Signal
+de la Praille

@@ -1,0 +1,15 @@
+---
+description: Hiring / interview stage (German)
+locale: de
+---
+Bewerbungsprüfung
+Telefoninterview
+Fachgespräch
+Vorstellungsgespräch vor Ort
+Panelinterview
+Endrunde
+Referenzprüfung
+Angebot
+Abgelehnt
+Eingestellt
+Zurückgezogen

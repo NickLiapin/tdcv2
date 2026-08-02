@@ -1,0 +1,9 @@
+---
+description: Work shift (Portuguese)
+locale: pt
+---
+Diurno
+Noturno
+Vespertino
+Rotativo
+Madrugada

@@ -1,0 +1,14 @@
+---
+description: Loan type (Italian)
+locale: it
+---
+Mutuo ipotecario
+Prestito auto
+Prestito personale
+Prestito studentesco
+Prestito con garanzia ipotecaria
+Prestito aziendale
+Linea di credito
+Consolidamento debiti
+Credito su pegno
+Microcredito

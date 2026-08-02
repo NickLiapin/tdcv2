@@ -1,0 +1,24 @@
+---
+description: Customer review title (French)
+locale: fr
+---
+Excellent produit
+Très satisfait
+Bon rapport qualité-prix
+Je recommande
+Parfait !
+Conforme à mes attentes
+Un peu déçu
+Ne fonctionne pas
+À éviter
+Qualité au rendez-vous
+Livraison rapide
+Rien à redire
+Correct sans plus
+Décevant pour le prix
+Coup de cœur
+Exactement ce que je cherchais
+Fragile
+Meilleur achat de l'année
+Service client au top
+Ne vaut pas le prix

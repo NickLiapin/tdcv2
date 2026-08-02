@@ -1,0 +1,16 @@
+---
+description: Month name (Spanish, lowercase per Spanish orthography)
+locale: es
+---
+enero
+febrero
+marzo
+abril
+mayo
+junio
+julio
+agosto
+septiembre
+octubre
+noviembre
+diciembre

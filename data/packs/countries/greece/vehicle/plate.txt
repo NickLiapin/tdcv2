@@ -1,0 +1,7 @@
+---
+address: greece.vehicle.plate
+description: Greek vehicle plate — three letters, a hyphen and four digits (e.g. ABE-1234). Only the 14 letters whose shape is common to the Greek and Latin alphabets (ABEZHIKMNOPTYX) are ever issued, so a plate reads the same either way. The letter trigram encodes the issuing prefecture, but that mapping is not modelled here.
+generator: tdc
+locale: el
+---
+<gen type="regex" value="[ABEZHIKMNOPTYX]{3}-[1-9][0-9]{3}"/>

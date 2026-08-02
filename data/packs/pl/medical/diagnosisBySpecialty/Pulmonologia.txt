@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Pulmonology (Polish)
+locale: pl
+---
+Astma oskrzelowa
+Przewlekła obturacyjna choroba płuc
+Zapalenie płuc
+Zatorowość płucna
+Gruźlica
+Obturacyjny bezdech senny
+Rozstrzenie oskrzeli
+Sarkoidoza płuc
+Włóknienie płuc
+Przewlekłe zapalenie oskrzeli

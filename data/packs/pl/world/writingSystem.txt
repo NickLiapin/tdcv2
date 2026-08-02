@@ -1,0 +1,24 @@
+---
+description: Writing system (Polish)
+locale: pl
+---
+Alfabet łaciński
+Alfabet cyrylicki
+Alfabet grecki
+Alfabet arabski
+Alfabet hebrajski
+Alfabet ormiański
+Alfabet gruziński
+Pismo chińskie (han)
+Hiragana
+Katakana
+Hangul
+Dewanagari
+Pismo tajskie
+Pismo tybetańskie
+Pismo etiopskie (ge'ez)
+Sylabariusz czirokeski
+Pismo Majów
+Pismo bengalskie
+Pismo tamilskie
+Głagolica

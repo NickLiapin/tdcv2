@@ -1,0 +1,17 @@
+---
+description: Legal case type (German)
+locale: de
+---
+Zivilsache
+Strafsache
+Familiensache
+Insolvenzverfahren
+Personenschaden
+Arbeitsrechtsstreit
+Vertragsstreitigkeit
+Geistiges Eigentum
+Immobilienrecht
+Ausländerrecht
+Steuerrecht
+Verwaltungssache
+Handelssache

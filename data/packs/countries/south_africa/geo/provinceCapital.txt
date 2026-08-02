@@ -1,0 +1,14 @@
+---
+address: south_africa.geo.provinceCapital
+description: Provincial capital, index-aligned with south_africa.geo.province
+locale: en
+---
+Johannesburg
+Cape Town
+Pietermaritzburg
+Bhisho
+Polokwane
+Mbombela
+Mahikeng
+Bloemfontein
+Kimberley

@@ -1,0 +1,19 @@
+---
+address: bolivia.finance.bankCode
+description: ASFI 3-letter sigla identifying the entidad de intermediación financiera (BNB, BME, BIS, …), as published in the ASFI register of siglas; same order as bolivia.finance.bank. Bolivia has no numeric interbank routing code of the kind Mexico or Peru publish — this ASFI sigla is the standard institution identifier
+---
+BNB
+BME
+BIS
+BCR
+BEC
+BGA
+BSO
+BIE
+BFO
+BPR
+BUN
+BDR
+PCO
+PEF
+BNA

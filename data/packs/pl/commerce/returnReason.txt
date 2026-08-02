@@ -1,0 +1,19 @@
+---
+description: Order return reason (Polish)
+locale: pl
+---
+Dotarł uszkodzony
+Otrzymano niewłaściwy produkt
+Niezgodny z opisem
+Zły rozmiar
+Zmiana decyzji
+Znalazłem niższą cenę
+Wada fabryczna
+Brakujące elementy
+Opóźniona dostawa
+Już niepotrzebny
+Zamówiony przez pomyłkę
+Jakość gorsza niż oczekiwana
+Kolor inny niż na zdjęciu
+Niekompatybilny
+Zdublowane zamówienie

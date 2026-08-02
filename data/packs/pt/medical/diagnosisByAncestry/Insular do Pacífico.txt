@@ -1,0 +1,10 @@
+---
+description: Conditions markedly more frequent in people of Pacific Islander ancestry, in Portuguese. A prevalence signal, not an exclusive one.
+locale: pt
+---
+Diabetes mellitus tipo 2
+Hipertensão relacionada à obesidade
+Gota
+Cardiopatia reumática
+Doença renal crônica
+Hiperuricemia

@@ -1,0 +1,26 @@
+---
+address: cape_verde.finance.iban
+description: Cape Verdean IBAN — 25 chars: CV + 2 ISO 7064 mod-97-10 check digits + a 21-digit BBAN (4-digit bank code + 4-digit branch code + 11-digit account + 2-digit national check). The IBAN check digits are computed exactly; the 2-digit national check inside the BBAN is emitted as plain digits because its algorithm is not published.
+generator: tdc
+locale: pt
+---
+<sequence name="bank"><gen type="regex" value="[0-9]{4}"/></sequence>
+<sequence name="branch"><gen type="regex" value="[0-9]{4}"/></sequence>
+<sequence name="account"><gen type="regex" value="[0-9]{11}"/></sequence>
+<sequence name="nacional"><gen type="regex" value="[0-9]{2}"/></sequence>
+<sequence name="iban"><compute>
+  <let name="bban"><concat><field name="bank"/><field name="branch"/><field name="account"/><field name="nacional"/></concat></let>
+  <let name="rearranged"><concat><var name="bban"/><str v="CV"/><str v="00"/></concat></let>
+  <let name="digits"><join><each>
+    <over><var name="rearranged"/></over>
+    <do><encode as="base36"><current/></encode></do>
+  </each></join></let>
+  <let name="rem"><reduce>
+    <over><var name="digits"/></over>
+    <init><int v="0"/></init>
+    <do><mod><add><multiply><acc/><int v="10"/></multiply><current/></add><int v="97"/></mod></do>
+  </reduce></let>
+  <let name="check"><pad width="2" fill="0"><subtract><int v="98"/><var name="rem"/></subtract></pad></let>
+  <result><concat><str v="CV"/><var name="check"/><field name="bank"/><field name="branch"/><field name="account"/><field name="nacional"/></concat></result>
+</compute></sequence>
+<data>${{iban}}</data>

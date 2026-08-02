@@ -1,0 +1,18 @@
+---
+description: Insurance type (Polish)
+locale: pl
+---
+Zdrowotne
+Komunikacyjne
+Mieszkaniowe
+Na życie
+Najemcy
+Podróżne
+Zwierząt domowych
+Od niezdolności do pracy
+Stomatologiczne
+Okulistyczne
+Odpowiedzialności cywilnej
+Następstw nieszczęśliwych wypadków
+Od utraty pracy
+Rolnicze

@@ -1,0 +1,12 @@
+---
+description: Conditions markedly more frequent in people of South Asian ancestry, in Polish. A prevalence signal, not an exclusive one.
+locale: pl
+---
+Wcześnie ujawniająca się cukrzyca typu 2
+Przedwczesna choroba niedokrwienna serca
+Otyłość brzuszna przy prawidłowym wskaźniku masy ciała
+Niedobór witaminy D
+Cecha beta-talasemii
+Zespół metaboliczny
+Niedobór dehydrogenazy glukozo-6-fosforanowej
+Reumatyczna choroba serca

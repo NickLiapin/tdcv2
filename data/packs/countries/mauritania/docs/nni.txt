@@ -1,0 +1,7 @@
+---
+address: mauritania.docs.nni
+description: Mauritanian national ID number (NNI / الرقم الوطني للتعريف) — 10 digits. Structural; no public check digit.
+generator: tdc
+locale: ar
+---
+<gen type="regex" value="[0-9]{10}"/>

@@ -1,0 +1,13 @@
+---
+address: bahrain.holiday
+description: Public holidays in Bahrain (Arabic)
+locale: ar
+---
+رأس السنة الميلادية
+عيد العمال
+العيد الوطني
+عيد الفطر
+عيد الأضحى
+رأس السنة الهجرية
+عاشوراء
+المولد النبوي

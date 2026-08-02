@@ -1,0 +1,16 @@
+---
+description: Streaming platform popular in the Arab world (Arabic)
+locale: ar
+---
+نتفليكس
+شاهد
+OSN
+أمازون برايم فيديو
+ديزني بلس
+ستارزبلاي
+واتش إت
+أنغامي
+يوتيوب
+تويتش
+سبوتيفاي
+آبل تي في بلس

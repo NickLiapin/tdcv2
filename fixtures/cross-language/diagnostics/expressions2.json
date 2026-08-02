@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "cases": [
+    {
+      "name": "malformed-if",
+      "demonstrates": "TDC100",
+      "description": "An if= that does not parse",
+      "config": "<tdc><env count=\"2\" seed=\"s\"><sequence name=\"G\"><gen type=\"text\" value=\"a\"/></sequence></env><block><line><data if=\"G >=\">x</data></line></block></tdc>",
+      "expected": ["error TDC100 1:116"]
+    },
+    {
+      "name": "undeclared-reference",
+      "demonstrates": "TDC193",
+      "description": "A ${{name}} naming no sequence would print literally",
+      "config": "<tdc><env count=\"2\" seed=\"s\"><sequence name=\"G\"><gen type=\"text\" value=\"a\"/></sequence></env><block><line><data>${{Nope}}</data></line></block></tdc>",
+      "expected": ["error TDC193 1:106"]
+    },
+    {
+      "name": "unknown-filter",
+      "demonstrates": "TDC192",
+      "description": "An interpolation filter that does not exist",
+      "config": "<tdc><env count=\"2\" seed=\"s\"><sequence name=\"G\"><gen type=\"text\" value=\"a\"/></sequence></env><block><line><data>${{G|nosuchfilter}}</data></line></block></tdc>",
+      "expected": ["error TDC192 1:106"]
+    },
+    {
+      "name": "separator-without-repeat",
+      "demonstrates": "TDC198",
+      "description": "separator= does nothing without repeat=",
+      "config": "<tdc><env count=\"2\" seed=\"s\"><sequence name=\"G\"><gen type=\"text\" value=\"a,b\" separator=\";\"/></sequence></env><block><line><data>x</data></line></block></tdc>",
+      "expected": ["error TDC198 1:88"]
+    },
+    {
+      "name": "each-on-a-scalar",
+      "demonstrates": "TDC207",
+      "description": "each= on a sequence that holds one value",
+      "config": "<tdc><env count=\"2\" seed=\"s\"><sequence name=\"G\"><gen type=\"text\" value=\"a,b\"/></sequence></env><block><line each=\"G\"><data>${{G}}</data></line></block></tdc>",
+      "expected": ["error TDC207 1:114"]
+    },
+    {
+      "name": "expression-nesting-past-the-ceiling",
+      "demonstrates": "TDC100",
+      "description": "40 nested parentheses in if= — expression parsers recurse per level, so a runaway expression is refused at 32, not parsed until the stack gives out",
+      "config": "<tdc><env count=\"1\" seed=\"s\"><sequence name=\"G\"><gen type=\"text\" value=\"a\"/></sequence></env><block><line if=\"((((((((((((((((((((((((((((((((((((((((G))))))))))))))))))))))))))))))))))))))))\"><data>x</data></line></block></tdc>",
+      "expected": ["error TDC100 1:110"]
+    }
+  ]
+}

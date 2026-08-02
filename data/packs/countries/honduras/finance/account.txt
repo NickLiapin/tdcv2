@@ -1,0 +1,7 @@
+---
+address: honduras.finance.account
+description: Honduran bank account number — 10 to 13 digits. STRUCTURAL ONLY: Honduras has no IBAN and no national account-number standard, each bank sets its own length and internal check, so nothing here can be validated
+generator: tdc
+locale: es
+---
+<gen type="regex" value="[0-9]{10,13}"/>

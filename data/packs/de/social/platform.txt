@@ -1,0 +1,21 @@
+---
+description: Social platform popular in the German-speaking world
+locale: de
+---
+WhatsApp
+Facebook
+Instagram
+TikTok
+YouTube
+X
+LinkedIn
+Telegram
+Snapchat
+Pinterest
+Reddit
+Twitch
+Discord
+Threads
+Xing
+Mastodon
+Tumblr

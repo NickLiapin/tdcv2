@@ -1,0 +1,6 @@
+---
+address: ecuador.finance.account
+description: Ecuadorian bank account number — 8 to 12 digits. STRUCTURAL ONLY: Ecuador has no IBAN and no national account-number standard, each bank sets its own length (Banco Pichincha uses 10 digits, others differ) and publishes no check rule, so nothing here can be validated.
+generator: tdc
+---
+<gen type="regex" value="[0-9]{8,12}"/>

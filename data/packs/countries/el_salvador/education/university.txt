@@ -1,0 +1,28 @@
+---
+address: el_salvador.education.university
+description: Salvadoran university or higher-education institution (the public Universidad de El Salvador plus the accredited private universities)
+---
+Universidad de El Salvador
+Universidad Centroamericana José Simeón Cañas
+Universidad Don Bosco
+Universidad Tecnológica de El Salvador
+Universidad Dr. José Matías Delgado
+Universidad Francisco Gavidia
+Universidad Evangélica de El Salvador
+Universidad Católica de El Salvador
+Universidad Gerardo Barrios
+Universidad Salvadoreña Alberto Masferrer
+Universidad Modular Abierta
+Universidad Panamericana de El Salvador
+Universidad Politécnica de El Salvador
+Universidad Pedagógica de El Salvador
+Universidad Dr. Andrés Bello
+Universidad Autónoma de Santa Ana
+Universidad de Sonsonate
+Universidad de Oriente
+Universidad Luterana Salvadoreña
+Universidad Cristiana de las Asambleas de Dios
+Universidad Albert Einstein
+Universidad Técnica Latinoamericana
+Universidad Monseñor Óscar Arnulfo Romero
+Universidad Nueva San Salvador

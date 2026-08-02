@@ -1,0 +1,11 @@
+---
+address: san_marino.finance.bank
+description: Banks of San Marino (Italian names)
+locale: it
+---
+Banca di San Marino
+Banca Agricola Commerciale
+Cassa di Risparmio della Repubblica di San Marino
+Banca Nazionale Sammarinese
+BSI Banca
+Banca Centrale della Repubblica di San Marino

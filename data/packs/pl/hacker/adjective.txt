@@ -1,0 +1,32 @@
+---
+description: Tech adjective (Polish)
+locale: pl
+---
+pomocniczy
+podstawowy
+drugorzędny
+cyfrowy
+wirtualny
+nadmiarowy
+bezprzewodowy
+optyczny
+neuronowy
+dotykowy
+wieloplatformowy
+rozproszony
+szyfrowany
+zdalny
+mobilny
+wbudowany
+skalowalny
+asynchroniczny
+dwukierunkowy
+otwartoźródłowy
+półprzewodnikowy
+szybki
+wydajny
+chmurowy
+sieciowy
+offline
+64-bitowy
+8-bitowy

@@ -1,0 +1,17 @@
+---
+description: Grade / mark (qualitative German scale, incl. Austrian variants and Latin doctoral grades)
+locale: de
+---
+Sehr gut
+Gut
+Befriedigend
+Ausreichend
+Genügend
+Mangelhaft
+Ungenügend
+Nicht genügend
+Mit Auszeichnung bestanden
+Bestanden
+Nicht bestanden
+Summa cum laude
+Magna cum laude

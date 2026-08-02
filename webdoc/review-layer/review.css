@@ -1,0 +1,252 @@
+/*
+ * The review layer. Injected only into the reviewer's bundle — the published
+ * site never loads this file.
+ */
+
+:root {
+  --tdcr-accent: #e0662b;
+  --tdcr-bg: #ffffff;
+  --tdcr-fg: #1c1e21;
+  --tdcr-line: #d0d3d8;
+}
+
+html[data-theme='dark'] {
+  --tdcr-bg: #22252a;
+  --tdcr-fg: #e8eaed;
+  --tdcr-line: #40454d;
+}
+
+/* A commented passage, and the numbered badge that points at it. */
+mark.tdcr-hl {
+  background: rgba(224, 102, 43, 0.22);
+  border-bottom: 2px solid var(--tdcr-accent);
+  color: inherit;
+  padding: 0;
+  cursor: pointer;
+}
+
+mark.tdcr-hl:hover {
+  background: rgba(224, 102, 43, 0.38);
+}
+
+.tdcr-badge {
+  display: inline-block;
+  min-width: 1.15em;
+  margin-left: 3px;
+  padding: 0 4px;
+  border-radius: 9px;
+  background: var(--tdcr-accent);
+  color: #fff;
+  font-size: 0.72em;
+  font-weight: 700;
+  line-height: 1.5;
+  text-align: center;
+  vertical-align: super;
+  cursor: pointer;
+  user-select: none;
+}
+
+/* A commented image gets a frame and a badge in its corner. */
+.tdcr-img-wrap {
+  position: relative;
+  display: inline-block;
+  max-width: 100%;
+}
+
+.tdcr-img-wrap.tdcr-commented {
+  outline: 2px solid var(--tdcr-accent);
+  outline-offset: 2px;
+}
+
+.tdcr-img-btn {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  z-index: 5;
+  padding: 3px 9px;
+  border: 0;
+  border-radius: 6px;
+  background: var(--tdcr-accent);
+  color: #fff;
+  font: 600 12px/1.6 system-ui, sans-serif;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.12s;
+}
+
+.tdcr-img-wrap:hover .tdcr-img-btn,
+.tdcr-img-wrap.tdcr-commented .tdcr-img-btn {
+  opacity: 1;
+}
+
+/* The button that follows a text selection. */
+#tdcr-pop {
+  position: absolute;
+  z-index: 10000;
+  padding: 6px 12px;
+  border: 0;
+  border-radius: 7px;
+  background: var(--tdcr-accent);
+  color: #fff;
+  font: 600 13px/1.4 system-ui, sans-serif;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+}
+
+/* The comment editor. */
+#tdcr-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 10001;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.45);
+}
+
+#tdcr-modal .tdcr-card {
+  width: min(560px, 92vw);
+  padding: 20px;
+  border-radius: 12px;
+  background: var(--tdcr-bg);
+  color: var(--tdcr-fg);
+  font: 14px/1.55 system-ui, sans-serif;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+}
+
+#tdcr-modal h3 {
+  margin: 0 0 10px;
+  font-size: 15px;
+}
+
+#tdcr-modal blockquote {
+  margin: 0 0 12px;
+  padding: 8px 12px;
+  border-left: 3px solid var(--tdcr-accent);
+  background: rgba(224, 102, 43, 0.09);
+  max-height: 140px;
+  overflow: auto;
+  font-size: 13px;
+}
+
+#tdcr-modal textarea {
+  width: 100%;
+  min-height: 120px;
+  padding: 9px;
+  border: 1px solid var(--tdcr-line);
+  border-radius: 7px;
+  background: var(--tdcr-bg);
+  color: var(--tdcr-fg);
+  font: 14px/1.5 system-ui, sans-serif;
+  resize: vertical;
+}
+
+#tdcr-modal .tdcr-row {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+  margin-top: 12px;
+}
+
+.tdcr-btn {
+  padding: 7px 15px;
+  border: 1px solid var(--tdcr-line);
+  border-radius: 7px;
+  background: transparent;
+  color: var(--tdcr-fg);
+  font: 600 13px/1.4 system-ui, sans-serif;
+  cursor: pointer;
+}
+
+.tdcr-btn.tdcr-primary {
+  border-color: var(--tdcr-accent);
+  background: var(--tdcr-accent);
+  color: #fff;
+}
+
+.tdcr-btn.tdcr-danger {
+  border-color: #c0392b;
+  color: #c0392b;
+}
+
+.tdcr-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+/* The always-visible bar. */
+#tdcr-bar {
+  position: fixed;
+  right: 14px;
+  bottom: 14px;
+  z-index: 9999;
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  padding: 7px 9px;
+  border: 1px solid var(--tdcr-line);
+  border-radius: 10px;
+  background: var(--tdcr-bg);
+  color: var(--tdcr-fg);
+  font: 13px/1.4 system-ui, sans-serif;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18);
+}
+
+#tdcr-bar .tdcr-count {
+  padding: 0 6px;
+  font-weight: 700;
+  color: var(--tdcr-accent);
+  white-space: nowrap;
+}
+
+/* The list of everything written so far. */
+#tdcr-list {
+  position: fixed;
+  right: 14px;
+  bottom: 62px;
+  z-index: 9999;
+  width: min(420px, 92vw);
+  max-height: 60vh;
+  overflow: auto;
+  padding: 12px;
+  border: 1px solid var(--tdcr-line);
+  border-radius: 10px;
+  background: var(--tdcr-bg);
+  color: var(--tdcr-fg);
+  font: 13px/1.5 system-ui, sans-serif;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.25);
+}
+
+#tdcr-list .tdcr-item {
+  padding: 8px 0;
+  border-bottom: 1px solid var(--tdcr-line);
+}
+
+#tdcr-list .tdcr-item:last-child {
+  border-bottom: 0;
+}
+
+#tdcr-list .tdcr-where {
+  color: var(--tdcr-accent);
+  font-weight: 600;
+  font-size: 12px;
+}
+
+#tdcr-list .tdcr-quote {
+  margin: 3px 0;
+  font-style: italic;
+  opacity: 0.75;
+}
+
+#tdcr-list a {
+  color: inherit;
+}
+
+@media print {
+  #tdcr-bar,
+  #tdcr-list,
+  #tdcr-pop,
+  .tdcr-img-btn {
+    display: none !important;
+  }
+}

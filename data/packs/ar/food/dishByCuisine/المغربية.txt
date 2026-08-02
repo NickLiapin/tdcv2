@@ -1,0 +1,16 @@
+---
+description: Dishes of Moroccan cuisine (Arabic)
+locale: ar
+---
+كسكس
+طاجين
+حريرة
+بسطيلة
+مشوي
+رفيسة
+بريوات
+مروزية
+زعلوك
+شباكية
+مسمن
+طنجية

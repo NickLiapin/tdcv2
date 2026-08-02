@@ -1,0 +1,6 @@
+---
+address: niger.phone
+description: Nigerien mobile phone in E.164 form (+227 [89]XXXXXXX)
+generator: tdc
+---
+<gen type="regex" value="\+227[89][0-9]{7}"/>

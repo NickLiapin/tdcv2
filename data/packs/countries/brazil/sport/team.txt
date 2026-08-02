@@ -1,0 +1,29 @@
+---
+address: brazil.sport.team
+description: Campeonato Brasileiro Série A football clubs (Portuguese names)
+locale: pt
+---
+Flamengo
+Palmeiras
+Corinthians
+São Paulo
+Santos
+Grêmio
+Internacional
+Cruzeiro
+Atlético Mineiro
+Vasco da Gama
+Botafogo
+Fluminense
+Bahia
+Sport Recife
+Fortaleza
+Ceará
+Athletico Paranaense
+Coritiba
+Vitória
+Juventude
+Bragantino
+Cuiabá
+Goiás
+Criciúma

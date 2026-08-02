@@ -1,0 +1,41 @@
+<tdc version="0.01" regex_max_length="64" comment="Cross-language deterministic generator core">
+    <env count="8" seed="cross-language-core" inject="${{%}}" local="en">
+        <sequence name="Kind">
+            <gen type="text" value="A,B,C" percent="25,50,25"/>
+        </sequence>
+        <sequence name="Int">
+            <gen type="number" value="-5..5"/>
+        </sequence>
+        <sequence name="Bit">
+            <gen type="number" value="bit"/>
+        </sequence>
+        <sequence name="Padded">
+            <gen type="number" value="0000..9999"/>
+        </sequence>
+        <sequence name="Digits">
+            <gen type="number" length="4" first_zero="true"/>
+        </sequence>
+        <sequence name="Code">
+            <gen type="regex" value="[A-Z]{2}[0-9]{4}"/>
+        </sequence>
+        <sequence name="Letters">
+            <gen type="symbol" alphabet="latin.lower" length="3"/>
+        </sequence>
+        <sequence name="Day">
+            <gen type="date" range="2026-01-01..2026-01-31" format="YYYY-MM-DD"/>
+        </sequence>
+        <sequence name="Uuid">
+            <gen type="template" value="common.id.uuid"/>
+        </sequence>
+        <before>
+            <line>
+                <data>i,kind,int,bit,padded,digits,code,letters,day,uuid</data>
+            </line>
+        </before>
+    </env>
+    <block>
+        <line>
+            <data>${{_count}},${{Kind}},${{Int}},${{Bit}},${{Padded}},${{Digits}},${{Code}},${{Letters}},${{Day}},${{Uuid}}</data>
+        </line>
+    </block>
+</tdc>

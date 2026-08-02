@@ -1,0 +1,16 @@
+---
+description: Official document type (French)
+locale: fr
+---
+Passeport
+Acte de naissance
+Acte de mariage
+Carte nationale d'identité
+Permis de conduire
+Livret de famille
+Carte Vitale
+Titre de séjour
+Acte de décès
+Extrait de casier judiciaire
+Justificatif de domicile
+Carte grise

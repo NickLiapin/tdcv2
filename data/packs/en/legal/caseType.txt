@@ -1,0 +1,15 @@
+---
+description: Legal case type
+locale: en
+---
+Civil
+Criminal
+Family
+Bankruptcy
+Personal Injury
+Employment
+Contract Dispute
+Intellectual Property
+Real Estate
+Immigration
+Tax

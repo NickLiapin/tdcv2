@@ -1,0 +1,6 @@
+---
+address: chad.phone
+description: Chadian mobile phone in E.164 form (+235 [69]XXXXXXX)
+generator: tdc
+---
+<gen type="regex" value="\+235[69][0-9]{7}"/>

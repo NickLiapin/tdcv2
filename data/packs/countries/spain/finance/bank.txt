@@ -1,0 +1,41 @@
+---
+address: spain.finance.bank
+description: Spanish credit institution registered with the Banco de España — banks, cajas rurales and the large foreign branches; same order as spain.finance.bankCode
+---
+Banco Santander
+Banco Bilbao Vizcaya Argentaria
+CaixaBank
+Banco de Sabadell
+Bankinter
+Unicaja Banco
+Abanca Corporación Bancaria
+Ibercaja Banco
+Kutxabank
+Banco de Castilla-La Mancha
+Cajamar Caja Rural
+Caja Rural de Castilla-La Mancha
+Caja Laboral Popular
+Banco Cooperativo Español
+Banco de Crédito Social Cooperativo
+Arquia Bank
+Cecabank
+Openbank
+Banca March
+Banca Pueyo
+Banco Caminos
+Banco Mediolanum
+Banco Alcalá
+Banco Inversis
+Renta 4 Banco
+EBN Banco de Negocios
+Santander Consumer Finance
+Deutsche Bank S.A.E.
+ING Bank N.V., Sucursal en España
+Citibank Europe plc, Sucursal en España
+Société Générale, Sucursal en España
+BNP Paribas Securities Services
+Andbank España
+Allfunds Bank
+Aresbank
+A&G Banco
+Instituto de Crédito Oficial

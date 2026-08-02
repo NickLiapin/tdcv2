@@ -1,0 +1,20 @@
+---
+description: Weather condition (Polish)
+locale: pl
+---
+Słonecznie
+Częściowe zachmurzenie
+Pochmurno
+Zachmurzenie całkowite
+Deszczowo
+Mżawka
+Burza
+Śnieżnie
+Deszcz ze śniegiem
+Mgła
+Wietrznie
+Zamglenie
+Bezchmurnie
+Grad
+Przelotne opady
+Parno

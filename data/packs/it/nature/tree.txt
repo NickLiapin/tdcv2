@@ -1,0 +1,32 @@
+---
+description: Tree (Italian)
+locale: it
+---
+Quercia
+Acero
+Pino
+Betulla
+Cedro
+Salice
+Sequoia
+Abete rosso
+Olmo
+Frassino
+Faggio
+Ciliegio
+Noce
+Pioppo
+Cipresso
+Abete bianco
+Sicomoro
+Pioppo tremulo
+Magnolia
+Corniolo
+Leccio
+Olivo
+Arancio
+Eucalipto
+Castagno
+Palma
+Tiglio
+Sughera

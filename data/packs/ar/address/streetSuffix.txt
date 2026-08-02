@@ -1,0 +1,16 @@
+---
+description: Arabic thoroughfare type — goes BEFORE the street name (شارع الملك فهد)
+locale: ar
+---
+شارع
+طريق
+جادة
+حي
+زقاق
+ممر
+ساحة
+ميدان
+كورنيش
+درب
+شعب
+حارة

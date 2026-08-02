@@ -1,0 +1,10 @@
+---
+address: chile.finance.accountType
+description: Chilean bank account type as named on a transfer form
+locale: es
+---
+Cuenta Corriente
+Cuenta Vista
+Cuenta de Ahorro
+Cuenta RUT
+Chequera Electrónica

@@ -1,0 +1,72 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "TDC",
+  "scopeName": "source.tdc",
+  "fileTypes": ["tdc"],
+  "patterns": [
+    { "include": "#comment" },
+    { "include": "#data-block" },
+    { "include": "#tag" },
+    { "include": "#interpolation" }
+  ],
+  "repository": {
+    "comment": {
+      "name": "comment.block.tdc",
+      "begin": "<!--",
+      "end": "-->"
+    },
+    "interpolation": {
+      "name": "variable.other.interpolation.tdc",
+      "match": "\\$\\{\\{[^}]*\\}\\}"
+    },
+    "string": {
+      "name": "string.quoted.double.tdc",
+      "begin": "\"",
+      "end": "\"",
+      "patterns": [{ "include": "#interpolation" }]
+    },
+    "attribute": {
+      "patterns": [
+        {
+          "match": "([A-Za-z_][A-Za-z0-9_-]*)(=)",
+          "captures": {
+            "1": { "name": "entity.other.attribute-name.tdc" },
+            "2": { "name": "punctuation.separator.key-value.tdc" }
+          }
+        },
+        { "include": "#string" }
+      ]
+    },
+    "data-block": {
+      "comment": "<data …> raw-text body </data …> — body is literal text with ${{…}} interpolation.",
+      "begin": "(<)(data)\\b",
+      "beginCaptures": {
+        "1": { "name": "punctuation.definition.tag.begin.tdc" },
+        "2": { "name": "entity.name.tag.tdc" }
+      },
+      "end": "(</)(data)\\b[^>]*(>)",
+      "endCaptures": {
+        "1": { "name": "punctuation.definition.tag.begin.tdc" },
+        "2": { "name": "entity.name.tag.tdc" },
+        "3": { "name": "punctuation.definition.tag.end.tdc" }
+      },
+      "patterns": [
+        { "include": "#attribute" },
+        { "match": "/?>", "name": "punctuation.definition.tag.end.tdc" },
+        { "include": "#interpolation" }
+      ]
+    },
+    "tag": {
+      "begin": "(</?)([A-Za-z_][A-Za-z0-9_-]*)",
+      "beginCaptures": {
+        "1": { "name": "punctuation.definition.tag.begin.tdc" },
+        "2": { "name": "entity.name.tag.tdc" }
+      },
+      "end": "/?>",
+      "endCaptures": {
+        "0": { "name": "punctuation.definition.tag.end.tdc" }
+      },
+      "patterns": [{ "include": "#attribute" }]
+    }
+  }
+}

@@ -1,0 +1,7 @@
+---
+address: denmark.vehicle.plate
+description: Danish vehicle plate (nummerplade) — two letters then five digits, written as AB 12 345. Structure only; the letter pair is not restricted to the series actually issued.
+generator: tdc
+locale: da
+---
+<gen type="regex" value="[A-Z]{2} [0-9]{2} [0-9]{3}"/>

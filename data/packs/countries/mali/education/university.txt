@@ -1,0 +1,12 @@
+---
+address: mali.education.university
+description: Universities of Mali
+locale: fr
+---
+Université des Sciences Sociales et de Gestion de Bamako
+Université des Lettres et des Sciences Humaines de Bamako
+Université des Sciences Techniques et Technologies de Bamako
+Université des Sciences Juridiques et Politiques de Bamako
+Université de Ségou
+École Nationale d'Ingénieurs Abderhamane Baba Touré
+Institut Polytechnique Rural de Katibougou

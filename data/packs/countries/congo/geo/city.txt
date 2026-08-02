@@ -1,0 +1,23 @@
+---
+address: congo.geo.city
+description: Cities and larger towns of the Republic of the Congo
+locale: fr
+---
+Brazzaville
+Pointe-Noire
+Dolisie
+Nkayi
+Owando
+Ouésso
+Madingou
+Gamboma
+Impfondo
+Sibiti
+Mossendjo
+Kinkala
+Djambala
+Ewo
+Loandjili
+Makoua
+Sembé
+Kindamba

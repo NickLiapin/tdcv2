@@ -1,0 +1,16 @@
+---
+description: Meeting type (Spanish)
+locale: es
+---
+Reunión diaria
+Reunión individual
+Reunión general
+Retrospectiva
+Planificación de sprint
+Reunión de inicio
+Sincronización
+Revisión
+Taller
+Lluvia de ideas
+Seguimiento
+Análisis post mortem

@@ -1,0 +1,6 @@
+---
+address: common.security.md5
+description: MD5 digest (32 lowercase hex chars)
+generator: tdc
+---
+<gen type="regex" value="[0-9a-f]{32}"/>

@@ -1,0 +1,17 @@
+---
+address: jordan.geo.region
+description: Governorates of Jordan (Arabic)
+locale: ar
+---
+عمان
+إربد
+الزرقاء
+البلقاء
+المفرق
+الكرك
+جرش
+مأدبا
+عجلون
+العقبة
+معان
+الطفيلة

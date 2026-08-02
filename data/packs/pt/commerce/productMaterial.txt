@@ -1,0 +1,62 @@
+---
+description: Product material (Portuguese), as a noun — compose with "de" ("mesa de carvalho", "cadeira de aço inoxidável")
+locale: pt
+---
+aço
+aço inoxidável
+ferro
+alumínio
+cobre
+latão
+bronze
+titânio
+zinco
+madeira
+carvalho
+nogueira
+pinho
+faia
+cedro
+mogno
+bambu
+vime
+ratã
+cortiça
+plástico
+policarbonato
+poliéster
+náilon
+acrílico
+resina
+silicone
+borracha natural
+borracha
+espuma
+algodão
+linho
+lã
+seda
+couro
+couro sintético
+camurça
+feltro
+lona
+jeans
+vidro
+cristal
+cerâmica
+porcelana
+grés
+mármore
+granito
+ardósia
+concreto
+pedra
+papel
+papelão
+fibra de carbono
+fibra de vidro
+neoprene
+veludo
+juta
+cânhamo

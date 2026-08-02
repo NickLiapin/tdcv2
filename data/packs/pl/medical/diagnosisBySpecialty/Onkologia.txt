@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Oncology (Polish)
+locale: pl
+---
+Rak piersi
+Rak płuca
+Rak jelita grubego
+Białaczka
+Chłoniak
+Czerniak
+Rak gruczołu krokowego
+Rak żołądka
+Rak trzustki
+Szpiczak mnogi

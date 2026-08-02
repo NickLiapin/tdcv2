@@ -1,0 +1,10 @@
+---
+description: Models of Genesis
+locale: en
+---
+G70
+G80
+G90
+GV70
+GV80
+GV60

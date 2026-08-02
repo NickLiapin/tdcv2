@@ -1,0 +1,25 @@
+---
+address: peru.geo.streetType
+description: Peruvian tipo de vía as written in a postal address; repeated entries carry the real frequency — Jirón and Avenida dominate the older grids, Calle and Pasaje the newer urbanizaciones
+locale: es
+---
+Avenida
+Avenida
+Avenida
+Avenida
+Avenida
+Jirón
+Jirón
+Jirón
+Jirón
+Calle
+Calle
+Calle
+Calle
+Pasaje
+Pasaje
+Prolongación
+Malecón
+Alameda
+Óvalo
+Paseo

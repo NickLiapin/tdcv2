@@ -1,0 +1,29 @@
+---
+description: Metal (French)
+locale: fr
+---
+Or
+Argent
+Platine
+Cuivre
+Fer
+Acier
+Aluminium
+Zinc
+Étain
+Plomb
+Nickel
+Titane
+Chrome
+Cobalt
+Tungstène
+Mercure
+Bronze
+Laiton
+Palladium
+Rhodium
+Magnésium
+Manganèse
+Uranium
+Lithium
+Fonte

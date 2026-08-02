@@ -1,0 +1,10 @@
+# TypeScript implementation local artifacts.
+# Common patterns are in the repo-root .gitignore; this file only adds
+# typescript-specific items (if any) or overrides.
+
+# tsc build info for incremental compilation
+*.tsbuildinfo
+.tsbuildinfo
+
+# vitest local cache
+.vitest-cache/

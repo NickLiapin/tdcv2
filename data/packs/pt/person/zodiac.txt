@@ -1,0 +1,16 @@
+---
+description: Zodiac sign (Portuguese)
+locale: pt
+---
+Áries
+Touro
+Gémeos
+Câncer
+Leão
+Virgem
+Libra
+Escorpião
+Sagitário
+Capricórnio
+Aquário
+Peixes

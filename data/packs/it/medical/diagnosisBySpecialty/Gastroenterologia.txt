@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Gastroenterology (Italian)
+locale: it
+---
+Malattia da reflusso gastroesofageo
+Malattia di Crohn
+Colite ulcerosa
+Ulcera peptica
+Sindrome dell'intestino irritabile
+Cirrosi epatica
+Pancreatite acuta
+Celiachia
+Epatite B cronica
+Diverticolite

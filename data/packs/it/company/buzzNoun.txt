@@ -1,0 +1,64 @@
+---
+description: Business buzz noun (Italian)
+locale: it
+---
+sinergia
+paradigma
+ecosistema
+quadro di riferimento
+flusso di lavoro
+architettura
+infrastruttura
+piattaforma
+soluzione
+strategia
+tabella di marcia
+iniziativa
+metodologia
+allineamento
+leva finanziaria
+rendimento
+risultato atteso
+punto di contatto
+riferimento
+traguardo
+impegno
+orchestrazione
+integrazione
+migrazione
+trasformazione
+ottimizzazione
+scalabilità
+interoperabilità
+governance
+conformità
+resilienza
+osservabilità
+telemetria
+cadenza
+verticale
+canale
+leva
+valore aggiunto
+proposta di valore
+vantaggio competitivo
+quota di mercato
+segmento
+nicchia
+portafoglio clienti
+portafoglio prodotti
+investimento
+ritorno
+produttività
+efficienza
+innovazione
+cambiamento dirompente
+digitalizzazione
+automazione
+analisi dei dati
+intelligenza aziendale
+esperienza del cliente
+ciclo di vita
+tempo di commercializzazione
+economia di scala
+miglioramento continuo

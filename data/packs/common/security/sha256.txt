@@ -1,0 +1,6 @@
+---
+address: common.security.sha256
+description: SHA-256 digest (64 lowercase hex chars)
+generator: tdc
+---
+<gen type="regex" value="[0-9a-f]{64}" regex_max_length="64"/>

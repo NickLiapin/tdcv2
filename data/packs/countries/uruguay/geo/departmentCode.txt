@@ -1,0 +1,23 @@
+---
+address: uruguay.geo.departmentCode
+description: ISO 3166-2:UY subdivision code without the "UY-" prefix; same order as uruguay.geo.department. Note FS is Flores and FD is Florida.
+---
+AR
+CA
+CL
+CO
+DU
+FS
+FD
+LA
+MA
+MO
+PA
+RN
+RV
+RO
+SA
+SJ
+SO
+TA
+TT

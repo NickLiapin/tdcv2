@@ -1,0 +1,10 @@
+---
+description: Marital status in Russian (some forms are gendered: женат / замужем)
+---
+холост
+не замужем
+женат
+замужем
+в разводе
+вдовец
+вдова

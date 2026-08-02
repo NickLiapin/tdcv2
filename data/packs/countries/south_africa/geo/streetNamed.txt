@@ -1,0 +1,35 @@
+---
+address: south_africa.geo.streetNamed
+description: Bare South African street names; south_africa.geo.streetName prepends a type
+locale: en
+---
+Church
+Main
+Long
+Loop
+Bree
+Adderley
+Commissioner
+Pritchard
+Jan Smuts
+Oxford
+Rivonia
+William Nicol
+Nelson Mandela
+Oliver Tambo
+Beyers Naudé
+Voortrekker
+Kloof
+Florida
+Marine
+West
+Smith
+Berea
+Musgrave
+Umgeni
+Govan Mbeki
+Cape
+Victoria
+Albert
+Kerk
+Andries

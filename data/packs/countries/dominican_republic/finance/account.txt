@@ -1,0 +1,6 @@
+---
+address: dominican_republic.finance.account
+description: Dominican Republic bank account number — typically 9 to 12 digits. STRUCTURAL ONLY, the country has no IBAN and no national account-number standard; each bank sets its own length and internal check rule and publishes none, so nothing here can be externally validated
+generator: tdc
+---
+<gen type="regex" value="[0-9]{9,12}"/>

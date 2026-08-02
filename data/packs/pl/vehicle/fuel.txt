@@ -1,0 +1,14 @@
+---
+description: Fuel type (Polish)
+locale: pl
+---
+Benzyna
+Diesel
+Elektryczny
+Hybryda
+Hybryda plug-in
+Wodór
+Etanol
+Sprężony gaz ziemny
+Gaz płynny LPG
+Biodiesel

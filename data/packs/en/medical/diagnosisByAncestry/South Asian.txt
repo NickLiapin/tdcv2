@@ -1,0 +1,12 @@
+---
+description: Conditions markedly more frequent in people of South Asian ancestry. A prevalence signal, not an exclusive one.
+locale: en
+---
+Early-Onset Type 2 Diabetes Mellitus
+Premature Coronary Artery Disease
+Central Obesity at Normal Body Mass Index
+Vitamin D Deficiency
+Beta-Thalassemia Trait
+Metabolic Syndrome
+Glucose-6-Phosphate Dehydrogenase Deficiency
+Rheumatic Heart Disease

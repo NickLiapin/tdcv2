@@ -1,0 +1,16 @@
+---
+description: Jobs in Technology (German)
+locale: de
+---
+Softwareentwickler
+Data Scientist
+DevOps-Ingenieur
+Produktmanager
+UX-Designer
+Testingenieur
+Systemadministrator
+Frontend-Entwickler
+Backend-Entwickler
+IT-Sicherheitsanalyst
+Cloud-Architekt
+Dateningenieur

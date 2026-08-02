@@ -1,0 +1,29 @@
+---
+address: ecuador.geo.provinceCapital
+description: Capital city of the province; same order as ecuador.geo.province
+locale: es
+---
+Cuenca
+Guaranda
+Azogues
+Tulcán
+Latacunga
+Riobamba
+Machala
+Esmeraldas
+Guayaquil
+Ibarra
+Loja
+Babahoyo
+Portoviejo
+Macas
+Tena
+Puyo
+Quito
+Ambato
+Zamora
+Puerto Baquerizo Moreno
+Nueva Loja
+Puerto Francisco de Orellana
+Santo Domingo
+Santa Elena

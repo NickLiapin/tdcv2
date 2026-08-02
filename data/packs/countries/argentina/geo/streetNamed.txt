@@ -1,0 +1,176 @@
+---
+address: argentina.geo.streetNamed
+description: Common Argentine street name, bare (without the Calle / Avenida / Pasaje prefix) — próceres, provinces, patriotic dates, neighbouring countries and the usual tree-and-flower names
+locale: es
+---
+San Martín
+General San Martín
+José de San Martín
+Belgrano
+Manuel Belgrano
+Rivadavia
+Bernardino Rivadavia
+Mitre
+Bartolomé Mitre
+Sarmiento
+Domingo Faustino Sarmiento
+Moreno
+Mariano Moreno
+Alsina
+Adolfo Alsina
+Alberdi
+Juan Bautista Alberdi
+Urquiza
+Justo José de Urquiza
+Roca
+Julio Argentino Roca
+Güemes
+Martín Miguel de Güemes
+Brown
+Almirante Brown
+Dorrego
+Manuel Dorrego
+Lavalle
+Juan Lavalle
+Pueyrredón
+Juan Martín de Pueyrredón
+Las Heras
+Juan Gregorio de Las Heras
+Vélez Sarsfield
+Chacabuco
+Maipú
+Ayacucho
+Suipacha
+Tucumán
+Salta
+Córdoba
+Santa Fe
+Entre Ríos
+Corrientes
+Mendoza
+Catamarca
+La Rioja
+San Juan
+San Luis
+Jujuy
+Chubut
+Misiones
+Formosa
+Chaco
+Neuquén
+Río Negro
+Santa Cruz
+Bolívar
+Perú
+Chile
+Brasil
+Uruguay
+Paraguay
+México
+Bolivia
+Venezuela
+Colombia
+Ecuador
+Guatemala
+Nicaragua
+El Salvador
+Costa Rica
+Honduras
+9 de Julio
+25 de Mayo
+3 de Febrero
+12 de Octubre
+24 de Septiembre
+20 de Junio
+17 de Agosto
+1 de Mayo
+Hipólito Yrigoyen
+Juan Domingo Perón
+Eva Perón
+Juan B. Justo
+Leandro N. Alem
+Bernardo de Irigoyen
+Carlos Pellegrini
+Nicolás Avellaneda
+Marcelo T. de Alvear
+Cornelio Saavedra
+Juan José Castelli
+Manuel Rodríguez
+Francisco Narciso de Laprida
+Estanislao del Campo
+José Hernández
+Jorge Luis Borges
+Julio Cortázar
+Leopoldo Lugones
+Ricardo Güiraldes
+Almafuerte
+Florentino Ameghino
+Bernardo Houssay
+René Favaloro
+Luis Federico Leloir
+Independencia
+Libertad
+Constitución
+La Nación
+Los Andes
+Colón
+Cabildo
+Callao
+Esmeralda
+Florida
+Viamonte
+Defensa
+Balcarce
+Piedras
+Tacuarí
+Humberto Primo
+Azcuénaga
+Larrea
+Anchorena
+Riobamba
+Rodríguez Peña
+Montevideo
+Uriburu
+Agüero
+Medrano
+Bulnes
+Salguero
+Scalabrini Ortiz
+Godoy Cruz
+Thames
+Gurruchaga
+Armenia
+Malabia
+Aráoz
+Serrano
+Gorriti
+Cabrera
+Charcas
+Arenales
+Juncal
+French
+Beruti
+Ejército de los Andes
+Los Constituyentes
+Los Inmigrantes
+Los Aromos
+Las Acacias
+Los Ceibos
+Los Tilos
+Las Magnolias
+Los Jacarandás
+Los Álamos
+Los Sauces
+Las Retamas
+Los Robles
+Los Nogales
+Las Camelias
+Los Talas
+Los Espinillos
+Las Violetas
+Los Paraísos
+Las Margaritas
+Los Eucaliptos
+Las Rosas
+Los Lapachos
+Los Cedros

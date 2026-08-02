@@ -1,0 +1,21 @@
+---
+address: panama.sport.team
+description: Panamanian professional football club — the current Liga Panameña de Fútbol (LPF) sides plus other clubs that have played in the top flight
+locale: es
+---
+Tauro FC
+Club Deportivo Plaza Amador
+Club Deportivo Árabe Unido
+San Francisco FC
+Sporting San Miguelito
+Club Atlético Independiente
+Alianza FC
+Herrera FC
+Potros del Este
+Club Deportivo Universitario
+Umecit FC
+Veraguas United FC
+Chorrillo FC
+Costa del Este FC
+Atlético Chiriquí
+Chepo FC

@@ -1,0 +1,266 @@
+---
+address: el_salvador.geo.municipality
+description: Salvadoran municipio (the 262 historical municipalities used for DIGESTYC codes and NIT); same order as el_salvador.geo.municipalityCode
+---
+Ahuachapán
+Apaneca
+Atiquizaya
+Concepción de Ataco
+El Refugio
+Guaymango
+Jujutla
+San Francisco Menéndez
+San Lorenzo
+San Pedro Puxtla
+Tacuba
+Turín
+Candelaria de la Frontera
+Coatepeque
+Chalchuapa
+El Congo
+El Porvenir
+Masahuat
+Metapán
+San Antonio Pajonal
+San Sebastián Salitrillo
+Santa Ana
+Santa Rosa Guachipilín
+Santiago de la Frontera
+Texistepeque
+Acajutla
+Armenia
+Caluco
+Cuisnahuat
+Santa Isabel Ishuatán
+Izalco
+Juayúa
+Nahuizalco
+Nahulingo
+Salcoatitán
+San Antonio del Monte
+San Julián
+Santa Catarina Masahuat
+Santo Domingo de Guzmán
+Sonsonate
+Sonzacate
+Agua Caliente
+Arcatao
+Azacualpa
+Citalá
+Comalapa
+Concepción Quezaltepeque
+Chalatenango
+Dulce Nombre de María
+El Carrizal
+El Paraíso
+La Laguna
+La Palma
+La Reina
+Las Vueltas
+Nombre de Jesús
+Nueva Concepción
+Nueva Trinidad
+Ojos de Agua
+Potonico
+San Antonio de la Cruz
+San Antonio Los Ranchos
+San Fernando
+San Francisco Lempa
+San Francisco Morazán
+San Ignacio
+San Isidro Labrador
+San José Cancasque
+San José Las Flores
+San Luis del Carmen
+San Miguel de Mercedes
+San Rafael
+Santa Rita
+Tejutla
+Antiguo Cuscatlán
+Ciudad Arce
+Colón
+Comasagua
+Chiltiupán
+Huizúcar
+Jayaque
+Jicalapa
+La Libertad
+Nuevo Cuscatlán
+Santa Tecla
+Quezaltepeque
+Sacacoyo
+San José Villanueva
+San Juan Opico
+San Matías
+San Pablo Tacachico
+Tamanique
+Talnique
+Teotepeque
+Tepecoyo
+Zaragoza
+Aguilares
+Apopa
+Ayutuxtepeque
+Cuscatancingo
+El Paisnal
+Guazapa
+Ilopango
+Mejicanos
+Nejapa
+Panchimalco
+Rosario de Mora
+San Marcos
+San Martín
+San Salvador
+Santiago Texacuangos
+Santo Tomás
+Soyapango
+Tonacatepeque
+Delgado
+Candelaria
+Cojutepeque
+El Carmen
+El Rosario
+Monte San Juan
+Oratorio de Concepción
+San Bartolomé Perulapía
+San Cristóbal
+San José Guayabal
+San Pedro Perulapán
+San Rafael Cedros
+San Ramón
+Santa Cruz Analquito
+Santa Cruz Michapa
+Suchitoto
+Tenancingo
+Cuyultitán
+El Rosario
+Jerusalén
+Mercedes La Ceiba
+Olocuilta
+Paraíso de Osorio
+San Antonio Masahuat
+San Emigdio
+San Francisco Chinameca
+San Juan Nonualco
+San Juan Talpa
+San Juan Tepezontes
+San Luis Talpa
+San Miguel Tepezontes
+San Pedro Masahuat
+San Pedro Nonualco
+San Rafael Obrajuelo
+Santa María Ostuma
+Santiago Nonualco
+Tapalhuaca
+Zacatecoluca
+San Luis La Herradura
+Cinquera
+Guacotecti
+Ilobasco
+Jutiapa
+San Isidro
+Sensuntepeque
+Tejutepeque
+Victoria
+Dolores
+Apastepeque
+Guadalupe
+San Cayetano Istepeque
+Santa Clara
+Santo Domingo
+San Esteban Catarina
+San Ildefonso
+San Lorenzo
+San Sebastián
+San Vicente
+Tecoluca
+Tepetitán
+Verapaz
+Alegría
+Berlín
+California
+Concepción Batres
+El Triunfo
+Ereguayquín
+Estanzuelas
+Jiquilisco
+Jucuapa
+Jucuarán
+Mercedes Umaña
+Nueva Granada
+Ozatlán
+Puerto El Triunfo
+San Agustín
+San Buenaventura
+San Dionisio
+Santa Elena
+San Francisco Javier
+Santa María
+Santiago de María
+Tecapán
+Usulután
+Carolina
+Ciudad Barrios
+Comacarán
+Chapeltique
+Chinameca
+Chirilagua
+El Tránsito
+Lolotique
+Moncagua
+Nueva Guadalupe
+Nuevo Edén de San Juan
+Quelepa
+San Antonio del Mosco
+San Gerardo
+San Jorge
+San Luis de la Reina
+San Miguel
+San Rafael Oriente
+Sesori
+Uluazapa
+Arambala
+Cacaopera
+Corinto
+Chilanga
+Delicias de Concepción
+El Divisadero
+El Rosario
+Gualococti
+Guatajiagua
+Joateca
+Jocoaitique
+Jocoro
+Lolotiquillo
+Meanguera
+Osicala
+Perquín
+San Carlos
+San Fernando
+San Francisco Gotera
+San Isidro
+San Simón
+Sensembra
+Sociedad
+Torola
+Yamabal
+Yoloaiquín
+Anamorós
+Bolívar
+Concepción de Oriente
+Conchagua
+El Carmen
+El Sauce
+Intipucá
+La Unión
+Lislique
+Meanguera del Golfo
+Nueva Esparta
+Pasaquina
+Polorós
+San Alejo
+San José La Fuente
+Santa Rosa de Lima
+Yayantique
+Yucuaiquín

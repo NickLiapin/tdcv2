@@ -1,0 +1,74 @@
+{
+  users: [
+    {
+      ID: 1,
+      "First name": "David",
+      "Last name": "Jones"
+      "B-day": "December 1, 2011"
+      "Diagnosis": "Chronic arthritis"
+    },
+    {
+      ID: 2,
+      "First name": "Robert",
+      "Last name": "Davis"
+      "B-day": "July 1, 2003"
+      "Diagnosis": "Rectal cancer"
+    },
+    {
+      ID: 3,
+      "First name": "John",
+      "Last name": "Martinez"
+      "B-day": "June 30, 1997"
+      "Diagnosis": "Phimosis"
+    },
+    {
+      ID: 4,
+      "First name": "Charles",
+      "Last name": "Brown"
+      "B-day": "September 2, 2002"
+      "Diagnosis": "Rectal cancer"
+    },
+    {
+      ID: 5,
+      "First name": "Thomas",
+      "Last name": "Garcia"
+      "B-day": "November 29, 1998"
+      "Diagnosis": "Chronic arthritis"
+    },
+    {
+      ID: 6,
+      "First name": "Richard",
+      "Last name": "Johnson"
+      "B-day": "March 25, 1961"
+      "Diagnosis": "Chronic pancreatitis"
+    },
+    {
+      ID: 7,
+      "First name": "William",
+      "Last name": "Miller"
+      "B-day": "May 17, 2009"
+      "Diagnosis": "Chronic pancreatitis"
+    },
+    {
+      ID: 8,
+      "First name": "Joseph",
+      "Last name": "Smith"
+      "B-day": "January 24, 2008"
+      "Diagnosis": "Chronic pancreatitis"
+    },
+    {
+      ID: 9,
+      "First name": "James",
+      "Last name": "Williams"
+      "B-day": "March 14, 1990"
+      "Diagnosis": "Prostatitis"
+    },
+    {
+      ID: 10,
+      "First name": "Michael",
+      "Last name": "Rodriguez"
+      "B-day": "June 14, 1995"
+      "Diagnosis": "Chronic arthritis"
+    },
+  ]
+}

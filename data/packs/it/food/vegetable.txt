@@ -1,0 +1,34 @@
+---
+description: Vegetable (Italian)
+locale: it
+---
+Carota
+Broccoli
+Spinaci
+Patata
+Cetriolo
+Lattuga
+Cipolla
+Peperone
+Zucchina
+Cavolfiore
+Pisello
+Mais
+Asparago
+Melanzana
+Cavolo riccio
+Cavolo cappuccio
+Sedano
+Champignon
+Patata dolce
+Barbabietola
+Ravanello
+Zucca
+Bietola
+Carciofo
+Porro
+Rapa
+Pomodoro
+Crescione
+Cipollotto
+Aglio

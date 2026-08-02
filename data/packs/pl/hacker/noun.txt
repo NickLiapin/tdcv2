@@ -1,0 +1,41 @@
+---
+description: Tech noun (Polish)
+locale: pl
+---
+sterownik
+protokół
+przepustowość
+panel
+mikroukład
+program
+port
+karta
+macierz
+interfejs
+system
+czujnik
+zapora sieciowa
+dysk twardy
+piksel
+alarm
+strumień danych
+monitor
+aplikacja
+nadajnik
+magistrala
+obwód
+kondensator
+baza danych
+potok przetwarzania
+serwer
+router
+przełącznik
+pamięć podręczna
+jądro
+biblioteka
+wtyczka
+kontener
+kopia zapasowa
+sieć neuronowa
+klucz szyfrujący
+pakiet sieciowy

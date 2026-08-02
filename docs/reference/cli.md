@@ -1,0 +1,164 @@
+<a name="top"></a>
+
+**English** · [Русский](../ru/reference/cli.md#top) · [Español](../es/reference/cli.md#top)
+
+← Previous: [Writing your own](../data-packs/writing-your-own.md#top) · **[Contents](../README.md#top)** · Next: [Tags](./tags.md#top) →
+
+---
+
+# CLI reference
+
+The `tdcv2` command reads a `.tdc` config, generates the data, and writes it to a file or
+to standard output. No code of your own is involved.
+
+```bash
+tdcv2 <input.tdc> [options]
+```
+
+> [!NOTE]
+> **Where `tdcv2` comes from, before the first release**
+>
+> Nothing is published to a package registry yet, so `tdcv2` is not on your PATH until you
+> install it from a checkout — the command differs per language, and
+> [Installation](../getting-started/installation.md#top) has the tab for each. Java is the one
+> that never becomes a bare `tdcv2` (Maven has no equivalent of npm's `bin`); an alias
+> makes every command on this page read the same. Everything below is identical whichever
+> implementation you run.
+
+Besides generating, the CLI has `tdcv2 init` and `tdcv2 pack` for setup and data — see
+[Installing packs](../data-packs/installing-packs.md#top) — and `tdcv2 format`
+([below](#tdcv2-format)).
+
+## Options
+
+| Option                  | What it does                                             |
+| :---------------------- | :------------------------------------------------------ |
+| `-o, --output <path>`   | Write to a file. Without it, output goes to stdout       |
+| `--seed <seed>`         | Override the `seed` from `<env>`                         |
+| `--count <n>`           | Override the `count` from `<env>`                        |
+| `--locale <loc>`        | Override the locale (default `en`)                      |
+| `--data-path <dir>`     | Add a data folder for `@data/…` (repeatable)            |
+| `--jobs <n>`            | Number of worker threads (TDC picks one by default)     |
+| `--mode <memory\|disk>` | Engine: `disk` (default) or `memory`                    |
+| `--engine <1\|2\|3>`    | Force a specific engine (advanced)                      |
+| `--disk`                | Shortcut for `--mode disk` — already the default        |
+| `--stream`              | Legacy alias for `--engine 2`                           |
+| `-h, --help`            | Show help                                               |
+| `-v, --version`         | Show version                                            |
+
+Long options also accept `=`: `tdcv2 demo.tdc --output=out.csv --count=100`.
+
+The examples below all use this `demo.tdc`:
+
+```xml
+<tdc>
+  <env count="10" seed="demo" local="en">
+    <sequence name="Id"><gen type="increment" value="1"/></sequence>
+    <sequence name="City"><gen type="text" value="Moscow,Berlin,Paris" order="sequential"/></sequence>
+    <sequence name="Status"><gen type="text" value="new,active,closed"/></sequence>
+    <before><line><data>Id,City,Status</data></line></before>
+  </env>
+  <block><line><data>${{Id}},${{City}},${{Status}}</data></line></block>
+</tdc>
+```
+
+`./run demo.tdc`
+
+```
+Id,City,Status
+1,Moscow,closed
+2,Berlin,new
+3,Paris,closed
+4,Moscow,new
+5,Berlin,closed
+6,Paris,new
+7,Moscow,new
+8,Berlin,active
+9,Paris,active
+10,Moscow,active
+```
+
+## `--seed` — override the randomness
+
+The config bakes in one seed. When you want a different set without editing the file,
+`--seed` overrides it. The counter (`Id`) and cycling (`City`) columns don't depend on the
+seed, so only `Status` changes.
+
+## `--count` — how many rows
+
+`--count 4` renders four rows. Positional columns (counters, cycling text) give
+you the first four values of the same sequence; exact-proportion columns (`percent`,
+`<mix>`) and `uniq` recompute against the new total. See
+[Determinism & proportions](../core-concepts/determinism.md#top).
+
+## `--output` — write to a file
+
+`-o` (or `--output`) writes to a file; nothing goes to stdout:
+
+```bash
+tdcv2 demo.tdc -o out.csv
+```
+
+## `--locale` — the language of template data
+
+Template generators (names, cities) default to English; `--locale ru` switches the whole
+file to Russian, field for field.
+
+## `--data-path` — external data
+
+When a config reads `src="@data/…"`, the CLI needs to know where `data/` lives. Pass it
+with `--data-path` (repeatable — the folders are searched in order):
+
+```bash
+tdcv2 demo.tdc --data-path ./data --data-path ./private-data -o out.csv
+```
+
+A bare relative `src="names.txt"` is looked up next to the `.tdc` file first, then in the
+`--data-path` folders.
+
+## Speed and engines — `--jobs`, `--mode`, `--engine`
+
+You usually need none of these — TDC picks the engine from the config and decides for
+itself whether to parallelize. In short:
+
+- **`--jobs N`** — set the worker count by hand. This is **only about speed**: the output
+  is byte-identical to a single-threaded run.
+- **`--mode memory`** — the small in-RAM engine, an escape hatch for small datasets and
+  the object API. It produces its **own** sequence of values: a different engine means a
+  different result, not the same one.
+- **`--engine 1|2|3`** — force a specific engine; `--stream` is a legacy alias for
+  `--engine 2`.
+
+TDC works out how many threads fit in this machine's RAM and uses that many, so on a weak
+machine a run just takes longer instead of dying halfway through. Full details in
+[Large outputs](../guides/large-outputs.md#top).
+
+## `tdcv2 format`
+
+Tidies up a `.tdc` file — indentation, attribute spacing, aligned `<map>` tables. It's
+the same formatter the editor uses.
+
+```bash
+tdcv2 format demo.tdc        # print the formatted config to stdout
+tdcv2 format -w demo.tdc     # rewrite the file in place (-w / --write)
+```
+
+Formatting **never changes** what a config generates. If the file has a syntax error,
+the formatter reports it and leaves the file untouched (exit code 1).
+
+## Exit codes
+
+| Code | Meaning                                        |
+| ---: | :--------------------------------------------- |
+| `0`  | Successful generation, `--help`, or `--version`|
+| `1`  | A read, parse, validation, or runtime error    |
+| `2`  | Bad CLI arguments                              |
+
+## See also
+
+- **[Installing packs](../data-packs/installing-packs.md#top)** — `tdcv2 init`, `tdcv2 pack`.
+- **[Large outputs](../guides/large-outputs.md#top)** — `--jobs`, `--mode`, `--engine` in depth.
+
+---
+
+← Previous: [Writing your own](../data-packs/writing-your-own.md#top) · **[Contents](../README.md#top)** · Next: [Tags](./tags.md#top) →

@@ -1,0 +1,30 @@
+---
+description: Medical diagnoses in Polish (male-specific + common)
+locale: pl
+---
+Żylaki powrózka nasiennego
+Wnętrostwo
+Stulejka
+Zaburzenia erekcji
+Zapalenie gruczołu krokowego
+Łagodny rozrost gruczołu krokowego
+Wodniak jądra
+Zapalenie jądra
+Zapalenie najądrza
+Rak gruczołu krokowego
+Rak jądra
+Przewlekłe zapalenie trzustki
+Chlamydioza
+Przewlekłe zapalenie stawów
+Przewlekłe zapalenie błony śluzowej żołądka
+Nadciśnienie tętnicze
+Cukrzyca typu 2
+Astma oskrzelowa
+Przewlekłe zapalenie oskrzeli
+Migrena
+Niedokrwistość z niedoboru żelaza
+Niedoczynność tarczycy
+Kamica nerkowa
+Przepuklina pachwinowa
+Rak odbytnicy
+Zator tętnicy środkowej siatkówki

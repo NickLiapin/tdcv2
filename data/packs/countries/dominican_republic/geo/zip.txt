@@ -1,0 +1,8 @@
+---
+address: dominican_republic.geo.zip
+description: Dominican Republic código postal (INPOSDOM) — 5 digits. The first digit is the real postal region (1 Distrito Nacional/Santo Domingo, 2 Este, 3 Nordeste, 4 Cibao Central, 5 Cibao Norte, 6 Noroeste, 7 Sur/El Valle, 8 Enriquillo, 9 Valdesia); the remaining four are structural
+generator: tdc
+---
+<sequence name="region"><gen type="text" value="1,2,3,4,5,6,7,8,9"/></sequence>
+<sequence name="tail"><gen type="regex" value="[0-9]{4}"/></sequence>
+<data>${{region}}${{tail}}</data>

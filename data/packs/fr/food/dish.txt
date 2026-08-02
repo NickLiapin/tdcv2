@@ -1,0 +1,44 @@
+---
+description: Popular dish (French)
+locale: fr
+---
+Steak-frites
+Croque-monsieur
+Quiche lorraine
+Bœuf bourguignon
+Blanquette de veau
+Pot-au-feu
+Ratatouille
+Cassoulet
+Coq au vin
+Gratin dauphinois
+Hachis parmentier
+Soupe à l'oignon
+Salade niçoise
+Choucroute
+Raclette
+Fondue savoyarde
+Tartiflette
+Crêpes
+Galette bretonne
+Bouillabaisse
+Confit de canard
+Magret de canard
+Escalope de veau
+Gigot d'agneau
+Andouillette
+Bœuf carottes
+Pizza
+Pâtes bolognaise
+Sushi
+Hamburger
+Couscous
+Paella
+Lasagnes
+Risotto
+Curry
+Tacos
+Poulet rôti
+Omelette
+Croque-madame
+Quenelles

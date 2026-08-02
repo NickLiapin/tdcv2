@@ -1,0 +1,7 @@
+---
+address: switzerland.vehicle.plate
+description: Swiss licence plate — two-letter canton code followed by up to six digits (e.g. GE 123456, VD 45678)
+generator: tdc
+locale: fr
+---
+<gen type="regex" value="(?:ZH|BE|LU|UR|SZ|OW|NW|GL|ZG|FR|SO|BS|BL|SH|AR|AI|SG|GR|AG|TG|TI|VD|VS|NE|GE|JU) [0-9]{4,6}"/>

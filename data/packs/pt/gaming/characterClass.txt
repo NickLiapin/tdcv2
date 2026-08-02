@@ -1,0 +1,28 @@
+---
+description: RPG character class (Portuguese)
+locale: pt
+---
+Guerreiro
+Mago
+Ladino
+Paladino
+Caçador
+Sacerdote
+Bruxo
+Druida
+Monge
+Xamã
+Cavaleiro da Morte
+Caçador de demônios
+Bárbaro
+Necromante
+Bardo
+Assassino
+Clérigo
+Feiticeiro
+Explorador
+Templário
+Berserker
+Invocador
+Alquimista
+Engenheiro

@@ -1,0 +1,12 @@
+---
+description: Dishes of Vietnamese cuisine (Polish)
+locale: pl
+---
+Pho
+Banh mi
+Sajgonki wietnamskie
+Bun cha
+Com tam
+Kawa wietnamska
+Goi cuon
+Banh xeo

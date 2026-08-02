@@ -1,0 +1,19 @@
+---
+description: Garment type
+locale: en
+---
+T-Shirt
+Jeans
+Dress
+Jacket
+Sweater
+Skirt
+Shorts
+Hoodie
+Blouse
+Suit
+Coat
+Sneakers
+Boots
+Hat
+Scarf

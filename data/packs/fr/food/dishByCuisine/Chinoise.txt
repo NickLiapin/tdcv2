@@ -1,0 +1,16 @@
+---
+description: Dishes of Chinese cuisine (French)
+locale: fr
+---
+Riz cantonais
+Nouilles sautées
+Canard laqué
+Raviolis vapeur
+Porc au caramel
+Poulet aigre-doux
+Rouleaux de printemps
+Dim sum
+Bœuf aux oignons
+Soupe won-ton
+Poulet aux noix de cajou
+Nems

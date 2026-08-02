@@ -1,0 +1,23 @@
+---
+description: Mined mineral / commodity (Polish)
+locale: pl
+---
+Węgiel kamienny
+Miedź
+Złoto
+Srebro
+Ruda żelaza
+Cynk
+Ołów
+Boksyt
+Wapień
+Nikiel
+Uran
+Sól potasowa
+Fosforyt
+Lit
+Kobalt
+Gips
+Sól kamienna
+Cyna
+Molibden

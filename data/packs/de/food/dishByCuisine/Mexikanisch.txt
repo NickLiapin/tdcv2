@@ -1,0 +1,16 @@
+---
+description: Dishes of Mexican cuisine (German)
+locale: de
+---
+Tacos
+Burrito
+Enchiladas
+Quesadilla
+Guacamole
+Tamales
+Gefüllte Chilischoten
+Pozole
+Mole poblano
+Fajitas
+Nachos
+Tortillasuppe

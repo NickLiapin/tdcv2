@@ -1,0 +1,7 @@
+---
+address: iraq.vehicle.plate
+description: Iraqi licence plate — up to five digits and an Arabic letter. Structural.
+generator: tdc
+locale: ar
+---
+<gen type="regex" value="[0-9]{1,5} [أ-ي]"/>

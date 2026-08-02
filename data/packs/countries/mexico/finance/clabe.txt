@@ -1,0 +1,31 @@
+---
+address: mexico.finance.clabe
+description: Mexico CLABE — 18 digits (3-digit Banxico bank code + 3-digit plaza/branch + 11-digit account + weighted 3,7,1 mod-10 check digit)
+generator: tdc
+---
+<sequence name="bank"><gen type="template" value="mexico.finance.bankCode"/></sequence>
+<sequence name="plaza"><gen type="regex" value="[0-9]{3}"/></sequence>
+<sequence name="account"><gen type="regex" value="[0-9]{11}"/></sequence>
+<sequence name="clabe"><compute>
+  <!-- First 17 digits: bank (3) + plaza (3) + account (11). -->
+  <let name="base"><concat><field name="bank"/><field name="plaza"/><field name="account"/></concat></let>
+  <!-- Weights 3,7,1 repeat; every digit*weight is folded mod 10 before summing. -->
+  <let name="sum"><reduce>
+    <over><var name="base"/></over>
+    <init><int v="0"/></init>
+    <do><add><acc/>
+      <mod>
+        <multiply><current/>
+          <at><in><list v="3,7,1"/></in><index><mod><current_index/><int v="3"/></mod></index></at>
+        </multiply>
+        <int v="10"/>
+      </mod>
+    </add></do>
+  </reduce></let>
+  <!-- Control digit = (10 - sum mod 10) mod 10, so a sum ending in 0 yields 0. -->
+  <let name="check">
+    <mod><subtract><int v="10"/><mod><var name="sum"/><int v="10"/></mod></subtract><int v="10"/></mod>
+  </let>
+  <result><concat><var name="base"/><var name="check"/></concat></result>
+</compute></sequence>
+<data>${{clabe}}</data>

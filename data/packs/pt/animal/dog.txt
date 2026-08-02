@@ -1,0 +1,29 @@
+---
+description: Dog breed (Portuguese)
+locale: pt
+---
+Labrador retriever
+Pastor-alemão
+Golden retriever
+Buldogue francês
+Buldogue inglês
+Caniche
+Beagle
+Rottweiler
+Dachshund
+Boxer
+Husky siberiano
+Dogue alemão
+Dobermann
+Pastor-australiano
+Border collie
+Chihuahua
+Shih tzu
+Lulu da Pomerânia
+Corgi
+Boiadeiro de Berna
+Galgo
+Mastim
+Bull terrier
+São Bernardo
+Dálmata

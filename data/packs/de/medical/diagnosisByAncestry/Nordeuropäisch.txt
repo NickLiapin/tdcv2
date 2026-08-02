@@ -1,0 +1,14 @@
+---
+description: Conditions markedly more frequent in people of Northern European ancestry, given in German. A prevalence signal, not an exclusive one.
+locale: de
+---
+Mukoviszidose
+Hereditäre Hämochromatose
+Alpha-1-Antitrypsin-Mangel
+Phenylketonurie
+Zöliakie
+Multiple Sklerose
+Diabetes mellitus Typ 1
+Morbus Dupuytren
+Basalzellkarzinom
+Laktasepersistenz

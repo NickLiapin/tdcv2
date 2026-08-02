@@ -1,0 +1,11 @@
+---
+address: benin.education.university
+description: Universities of Benin
+locale: fr
+---
+Université d'Abomey-Calavi
+Université de Parakou
+Université Nationale des Sciences Technologies Ingénierie et Mathématiques
+Université Nationale d'Agriculture
+Haute École de Commerce et de Management
+Université Africaine de Développement Coopératif

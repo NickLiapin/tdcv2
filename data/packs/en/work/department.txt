@@ -1,0 +1,24 @@
+---
+description: Company departments / functions
+locale: en
+---
+Engineering
+Product
+Design
+Sales
+Marketing
+Finance
+Accounting
+Human Resources
+Operations
+Legal
+Customer Support
+Information Technology
+Research and Development
+Procurement
+Quality Assurance
+Logistics
+Administration
+Facilities
+Security
+Compliance

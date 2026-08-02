@@ -1,0 +1,20 @@
+---
+address: denmark.holiday
+description: Public holidays and widely observed days off in Denmark (Danish names)
+locale: da
+---
+Nytårsdag
+Palmesøndag
+Skærtorsdag
+Langfredag
+Påskedag
+2. påskedag
+Store bededag
+Kristi himmelfartsdag
+Pinsedag
+2. pinsedag
+Grundlovsdag
+Juleaftensdag
+Juledag
+2. juledag
+Nytårsaftensdag

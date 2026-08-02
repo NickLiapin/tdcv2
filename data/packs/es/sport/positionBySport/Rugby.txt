@@ -1,0 +1,14 @@
+---
+description: Positions in rugby union (Spanish)
+locale: es
+---
+Pilar
+Talonador
+Segunda línea
+Tercera línea
+Número ocho
+Medio melé
+Apertura
+Centro
+Wing
+Zaguero

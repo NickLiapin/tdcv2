@@ -1,0 +1,5 @@
+---
+description: Capital of Egypt
+locale: en
+---
+Cairo

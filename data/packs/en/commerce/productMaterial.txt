@@ -1,0 +1,28 @@
+---
+description: Product material
+locale: en
+---
+Steel
+Wooden
+Concrete
+Plastic
+Cotton
+Granite
+Rubber
+Metal
+Ceramic
+Leather
+Bamboo
+Glass
+Aluminum
+Silicone
+Linen
+Wool
+Copper
+Brass
+Marble
+Carbon Fiber
+Stainless Steel
+Oak
+Walnut
+Canvas

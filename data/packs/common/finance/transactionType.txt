@@ -1,0 +1,12 @@
+---
+description: Transaction type
+---
+Deposit
+Withdrawal
+Payment
+Transfer
+Refund
+Fee
+Interest
+Adjustment
+Chargeback

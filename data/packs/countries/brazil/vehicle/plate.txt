@@ -1,0 +1,7 @@
+---
+address: brazil.vehicle.plate
+description: Brazilian vehicle plate in the Mercosul form (three letters, a digit, a letter, two digits — ABC1D23).
+generator: tdc
+locale: pt
+---
+<gen type="regex" value="[A-Z]{3}[0-9][A-Z][0-9]{2}"/>

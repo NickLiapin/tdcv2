@@ -1,0 +1,27 @@
+---
+address: guatemala.geo.department
+description: Guatemalan first-level division — the 22 departamentos, in official INE code order; same order as guatemala.geo.departmentCode / departmentCapital / isoCode
+locale: es
+---
+Guatemala
+El Progreso
+Sacatepéquez
+Chimaltenango
+Escuintla
+Santa Rosa
+Sololá
+Totonicapán
+Quetzaltenango
+Suchitepéquez
+Retalhuleu
+San Marcos
+Huehuetenango
+Quiché
+Baja Verapaz
+Alta Verapaz
+Petén
+Izabal
+Zacapa
+Chiquimula
+Jalapa
+Jutiapa

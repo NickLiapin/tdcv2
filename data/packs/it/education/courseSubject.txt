@@ -1,0 +1,24 @@
+---
+description: School subject (Italian)
+locale: it
+---
+Matematica
+Fisica
+Chimica
+Biologia
+Informatica
+Storia
+Geografia
+Italiano
+Arte e immagine
+Musica
+Scienze motorie
+Economia
+Filosofia
+Psicologia
+Lingua straniera
+Statistica
+Scienze naturali
+Scienze sociali
+Educazione civica
+Tecnologia

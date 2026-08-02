@@ -1,0 +1,11 @@
+---
+description: Dishes of American cuisine
+locale: en
+---
+Cheeseburger
+BBQ Ribs
+Mac and Cheese
+Buffalo Wings
+Clam Chowder
+Apple Pie
+Cornbread

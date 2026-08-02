@@ -1,0 +1,14 @@
+---
+description: Competitive rank tier (German)
+locale: de
+---
+Eisen
+Bronze
+Silber
+Gold
+Platin
+Smaragd
+Diamant
+Meister
+Großmeister
+Herausforderer

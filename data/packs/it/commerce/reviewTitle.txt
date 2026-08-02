@@ -1,0 +1,29 @@
+---
+description: Product review title (Italian)
+locale: it
+---
+Prodotto eccellente!
+Lo consiglio vivamente
+Non vale il prezzo
+Ha superato le mie aspettative
+Nella media
+Lo ricomprerei
+Deludente
+Qualità ottima
+Si è rotto subito
+Perfetto per il prezzo
+Meglio del previsto
+Non lo consiglio
+Lo adoro!
+Un po' caro
+Esattamente come descritto
+Fa il suo dovere
+Buon rapporto qualità-prezzo
+Arrivato prima del previsto
+Materiali scadenti
+Proprio quello che cercavo
+Istruzioni poco chiare
+Molto facile da usare
+Non è quello che mi aspettavo
+Lo ricomprerò senza dubbio
+Servizio impeccabile

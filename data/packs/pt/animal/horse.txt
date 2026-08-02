@@ -1,0 +1,20 @@
+---
+description: Horse breed (Portuguese)
+locale: pt
+---
+Árabe
+Puro-sangue inglês
+Mustang
+Clydesdale
+Appaloosa
+Quarto de milha
+Frísio
+Shire
+Andaluz
+Morgan
+Palomino
+Percherão
+Pónei Shetland
+Lusitano
+Crioulo
+Haflinger

@@ -1,0 +1,6 @@
+---
+address: switzerland.phone
+description: Swiss mobile phone in E.164 form (+41 7[5-9]XXXXXXX)
+generator: tdc
+---
+<gen type="regex" value="\+417[5-9][0-9]{7}"/>

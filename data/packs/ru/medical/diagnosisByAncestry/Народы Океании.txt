@@ -1,0 +1,10 @@
+---
+description: Conditions markedly more frequent in people of Pacific Islander ancestry (Russian). A prevalence signal, not an exclusive one.
+locale: ru
+---
+Сахарный диабет 2 типа
+Артериальная гипертензия, ассоциированная с ожирением
+Подагра
+Хроническая ревматическая болезнь сердца
+Хроническая болезнь почек
+Гиперурикемия

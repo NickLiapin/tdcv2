@@ -1,0 +1,17 @@
+---
+address: luxembourg.geo.canton
+description: Luxembourg cantons
+locale: fr
+---
+Capellen
+Clervaux
+Diekirch
+Echternach
+Esch-sur-Alzette
+Grevenmacher
+Luxembourg
+Mersch
+Redange
+Remich
+Vianden
+Wiltz

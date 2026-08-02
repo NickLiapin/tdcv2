@@ -1,0 +1,356 @@
+---
+title: Secuencias
+sidebar_position: 2
+---
+
+import Figure from '@site/src/components/Figure';
+import Legend from '@site/src/components/Legend';
+
+import Terminal from '@site/src/components/Terminal';
+
+# Secuencias
+
+Un `<sequence>` declara una columna nombrada de valores, con una longitud de `count`.
+Piénselo como una columna terminada que existe antes de que empiece el renderizado: el
+[generador](../generators/overview.mdx) llena todas las filas, y en cada fila de salida
+se toma un valor por su nombre, ya sea con [interpolación](output-formatting.mdx)
+`${{Name}}` o dentro de una condición `if`.
+
+Ese es el modelo **lógico**, y todo lo de esta página se deduce de él. Si la columna
+realmente vive en memoria es otra pregunta que el motor responde por usted: el motor por
+omisión calcula cada valor a partir de su número de fila mientras la fila pasa, y nunca
+guarda la columna, mientras que `mode="memory"` y la API de objetos sí construyen el
+arreglo. Los valores son los mismos en ambos casos — vea
+[Salidas grandes](../guides/large-outputs.mdx).
+
+Las secuencias viven en `<env>`, junto a `count` y `seed`. El diseño de una fila (en
+`<block>`) nunca genera valores por sí mismo: solo lee las columnas que sus secuencias ya
+produjeron.
+
+Las salidas de ejemplo de abajo son **ilustrativas**: muestran la forma del resultado y
+pueden variar entre versiones del núcleo.
+
+<Figure
+  src="/img/concepts/sequences.svg"
+  alt=""
+  caption="Seis filas de una ejecución real. Cada secuencia llena su propia columna; una fila es lo que se obtiene al leerlas de forma transversal."
+/>
+
+<Legend items={[["A", "una secuencia — una columna, que se llena de manera independiente"], ["B", "una segunda secuencia, que no sabe nada de la primera"], ["C", "una tercera"], ["D", "una fila: la misma posición tomada de cada columna y ensamblada en una línea de salida"]]} />
+
+## Atributos
+
+| Atributo  | Obligatorio | Qué hace                                                              |
+| :-------- | :---------- | :-------------------------------------------------------------------- |
+| `name`    | **sí**      | El nombre de la secuencia — con él se la referencia, p. ej. `${{City}}` |
+| `parent`  | no          | Restringe esta secuencia a un subconjunto de filas. Sintaxis: `Parent.Value` |
+| `comment` | no          | Una nota de texto libre; el motor la ignora                           |
+
+El único hijo obligatorio es una o más etiquetas
+[`<gen>`](../generators/overview.mdx), que producen los valores reales.
+
+## Una secuencia simple
+
+**Se usa cuando** hace falta una sola columna que se pueda referenciar por nombre desde
+cualquier parte del diseño. Se declara una vez en `<env>` y se lee con `${{City}}`:
+
+```xml
+<tdc>
+    <env count="5" seed="demo">
+        <sequence name="City">
+            <gen type="text" value="Guadalajara,Monterrey,Puebla"/>
+        </sequence>
+    </env>
+    <block>
+        <line><data>${{City}}</data></line>
+    </block>
+</tdc>
+```
+
+<Terminal title="./run city.tdc (count=5, seed=demo)">
+{`Monterrey
+Guadalajara
+Puebla
+Monterrey
+Puebla`}
+</Terminal>
+
+Por omisión los valores se eligen **al azar** de la lista, y el
+[`seed`](determinism.mdx) fija exactamente cuáles le tocan. ¿Quiere el orden estricto de
+la lista? Agregue `order="sequential"` — vea
+[Máscaras y mayúsculas](../guides/masks-and-case.mdx).
+
+Una secuencia «simple» se define por tener **exactamente un `<gen>` sin nombre**. El
+acceso es `${{NombreDeLaSecuencia}}`.
+
+### Con proporciones
+
+La misma forma de una sola columna cubre también las selecciones ponderadas. Dele al
+generador [`text`](../generators/text.mdx) una lista `percent` y los valores salen en
+proporciones exactas:
+
+```xml
+<sequence name="Gender">
+    <gen type="text" value="Hombre,Mujer" percent="60,40"/>
+</sequence>
+```
+
+Con `count=100` esto produce exactamente 60 `Hombre` y 40 `Mujer`: `percent` es un
+reparto exacto a lo largo de toda la ejecución, no una probabilidad por fila. Vea
+[Determinismo y proporciones](determinism.mdx) para saber cómo se hace valer `percent`.
+
+<Terminal title="./run gender.tdc (count=100)">
+{`Hombre   60
+Mujer    40`}
+</Terminal>
+
+## Una secuencia compuesta por valor
+
+**Úsala cuando** un valor se arma a partir de varios: un nombre completo a partir del
+nombre, un espacio y el apellido. Deja los `<gen>` **sin nombre** y pon el texto literal
+entre ellos:
+
+```xml
+<sequence name="FullName">
+    <gen type="template" value="person.male.firstName"/>
+    <data> </data>
+    <gen type="template" value="person.lastName"/>
+</sequence>
+```
+
+<Terminal title="./run people.tdc">
+{`Robert Williams
+James Johnson
+John Smith`}
+</Terminal>
+
+`${{FullName}}` es un solo valor, así que entra tal cual en una ficha, en una columna
+CSV o en una de Parquet: no hay nada que unir en la salida.
+
+Los `<gen>` con y sin nombre conviven en un mismo cuerpo. Los que no llevan nombre
+construyen el valor propio de la secuencia; el que sí lo lleva es un campo aparte, se
+lee como `${{Name.Field}}` y no entra en la concatenación.
+
+## Una secuencia compuesta
+
+**Se usa cuando** una «entidad» tiene varios campos relacionados —nombre, apellido,
+edad— que van juntos. Agrúpelos en una sola secuencia en vez de tres separadas, y dele a
+**cada** `<gen>` un `name`:
+
+```xml
+<sequence name="Person">
+    <gen name="FirstName" type="template" value="person.male.firstName"/>
+    <gen name="LastName"  type="template" value="person.lastName"/>
+    <gen name="Age"       type="number"   value="18..60"/>
+</sequence>
+```
+
+A los campos se llega con un punto:
+
+```xml
+<line><data>${{Person.FirstName}} ${{Person.LastName}}, edad ${{Person.Age}}</data></line>
+```
+
+<Terminal title="./run people.tdc (count=3, seed=demo, local=es)">
+{`Leandro Zambrano, edad 39
+Leandro Juárez, edad 35
+Rodolfo Miranda, edad 26`}
+</Terminal>
+
+### Un campo constante
+
+Un `<data>` con `name` es un **campo constante** y, a diferencia de un generador de
+un solo valor, **no gasta una tirada**:
+
+```xml
+<sequence name="Row">
+    <gen name="id"     type="increment" value="1"/>
+    <data name="source">import-2026</data>
+</sequence>
+```
+
+`${{Row.source}}` vale `import-2026` en todos los registros.
+
+:::tip[Por qué no `<gen type="text" value="import-2026"/>`]
+Produce el mismo valor y aun así gasta una tirada por fila, así que meterlo en una
+configuración ya escrita desplaza **todas las columnas declaradas después**. Un
+`<data>` con nombre no gasta ninguna, y es la única forma de añadir una constante a
+una configuración que alguien ya está usando.
+:::
+
+### Reglas de las compuestas
+
+- Un `<gen>` con `name` es un **campo**; sin nombre forma parte del valor propio de la
+  secuencia (ver [secuencia compuesta por valor](#una-secuencia-compuesta-por-valor)
+  arriba). Un cuerpo con todos los `<gen>` nombrados es una compuesta por campos y no
+  tiene valor propio.
+- Los nombres de campo deben ser **únicos** dentro de la secuencia (error `TDC111` si hay
+  un duplicado).
+- Todos los campos comparten el **mismo filtro
+  [`parent`](../guides/hierarchical-dependencies.mdx)**. Si hay un padre definido, cada
+  campo se llena solo en las filas que coinciden y queda vacío en el resto.
+- Referenciar una secuencia compuesta **sin** un campo —`${{Person}}`— deja el texto en la
+  salida **tal cual**. Ese marcador intacto es la pista de que en realidad quería
+  `${{Person.FieldName}}`.
+
+### Campos en condiciones `if`
+
+El acceso con punto también funciona dentro de las condiciones, no solo en `${{...}}`:
+
+```xml
+<line if="Person.Age >= 18"><data>adulto</data></line>
+<line if="Person.Age < 18"><data>menor</data></line>
+```
+
+## Una secuencia condicional
+
+**Se usa cuando** el valor de una columna depende de otra columna. Se enumeran varias
+ramas `<gen if="…">`; gana la **primera** rama cuya condición sea verdadera. Un `<gen>`
+**sin nombre** (sin `if`) actúa como el «si no»:
+
+```xml
+<sequence name="Age">
+    <gen type="number" value="0..90"/>
+</sequence>
+
+<sequence name="AgeGroup">
+    <gen if="Age < 18" type="text" value="Menor"/>
+    <gen if="Age < 65" type="text" value="Adulto"/>
+    <gen               type="text" value="Mayor"/>
+</sequence>
+```
+
+Como las ramas se prueban de arriba hacia abajo, `Age < 65` solo llega a ver filas que ya
+fallaron `Age < 18`, así que en la práctica significa «18–64». El acceso es por el nombre
+de la secuencia, `${{AgeGroup}}`:
+
+<Terminal title="./run agegroup.tdc">
+{`14  Menor
+42  Adulto
+71  Mayor
+9   Menor
+58  Adulto`}
+</Terminal>
+
+Una secuencia condicional sigue siendo una sola columna: se lee como `${{AgeGroup}}`,
+igual que una simple. Las varias etiquetas `<gen>` solo deciden *qué* valor llena cada
+fila.
+
+## Secuencias dependientes (`parent`)
+
+Una secuencia puede depender de otra con `parent="Parent.Value"`. La hija se calcula
+**solo** en las filas donde el padre coincide, y cualquier porcentaje dentro de ella se
+mide contra ese subconjunto, no contra el `count` completo. Este es el corazón del modelo
+jerárquico de TDC:
+
+```xml
+<sequence name="Gender">
+    <gen type="text" value="Hombre,Mujer" percent="50,50"/>
+</sequence>
+
+<sequence name="MaleName" parent="Gender.Hombre">
+    <gen type="template" value="person.male.firstName"/>
+</sequence>
+
+<sequence name="FemaleName" parent="Gender.Mujer">
+    <gen type="template" value="person.female.firstName"/>
+</sequence>
+```
+
+`MaleName` se materializa solo en las filas donde `Gender == Hombre`; en las demás queda
+vacía. El tratamiento completo —porcentajes anidados, varios niveles— está en
+**[Dependencias jerárquicas](../guides/hierarchical-dependencies.mdx)**.
+
+### Una secuencia compuesta con `parent`
+
+Lo compuesto y `parent` se combinan directamente. Aquí cada género obtiene su propia
+entidad agrupada, y el subconjunto masculino lleva un campo `Rank` adicional:
+
+```xml
+<sequence name="Gender">
+    <gen type="text" value="Hombre,Mujer" percent="50,50"/>
+</sequence>
+
+<sequence name="Male" parent="Gender.Hombre">
+    <gen name="FirstName" type="template" value="person.male.firstName"/>
+    <gen name="LastName"  type="template" value="person.lastName"/>
+    <gen name="Rank"      type="text"     value="Soldado,Capitán" percent="70,30"/>
+</sequence>
+
+<sequence name="Female" parent="Gender.Mujer">
+    <gen name="FirstName" type="template" value="person.female.firstName"/>
+    <gen name="LastName"  type="template" value="person.lastName"/>
+</sequence>
+
+<block>
+    <line if="Gender == Hombre"><data>H: ${{Male.FirstName}} ${{Male.LastName}} (${{Male.Rank}})</data></line>
+    <line if="Gender == Mujer"><data>M: ${{Female.FirstName}} ${{Female.LastName}}</data></line>
+</block>
+```
+
+<Terminal title="./run ranks.tdc (count=6, seed=demo, local=es)">
+{`M: Justina Cifuentes
+H: Bonifacio Ordóñez (Soldado)
+M: Silvia Guerra
+M: Azucena Mesa
+H: Faustino Posada (Capitán)
+H: Justo Uribe (Soldado)`}
+</Terminal>
+
+Lo que esto garantiza:
+
+- Los tres campos `Male.*` se materializan **solo** en las filas masculinas; en las
+  femeninas quedan vacíos (y viceversa).
+- `Male.Rank` se reparte `70% Soldado, 30% Capitán` **dentro del subconjunto masculino**:
+  los porcentajes se cuentan contra el número de hombres, no contra el `count` total.
+
+## Determinismo y orden de los campos
+
+Los campos de una secuencia compuesta se materializan **en orden de declaración**, y cada
+`<gen>` consume el [PRNG](determinism.mdx) de forma independiente. Eso tiene una
+consecuencia que vale la pena recordar:
+
+**Intercambiar dos etiquetas `<gen name="…">` cambia la salida con el mismo seed.** El
+primer campo drena una porción distinta del flujo aleatorio que antes, así que todos los
+campos que vienen después se desplazan.
+
+```xml
+<!-- Estos dos producen valores DIFERENTES con el mismo seed -->
+<sequence name="Person">
+    <gen name="FirstName" type="template" value="person.male.firstName"/>
+    <gen name="Age"       type="number"   value="18..60"/>
+</sequence>
+
+<sequence name="Person">
+    <gen name="Age"       type="number"   value="18..60"/>
+    <gen name="FirstName" type="template" value="person.male.firstName"/>
+</sequence>
+```
+
+Si necesita una salida reproducible byte por byte entre ejecuciones, **fije el orden de
+los campos una vez y no reordene** los generadores después de haberse comprometido con un
+seed. Hay más sobre lo que el seed sí garantiza y lo que no en
+[Determinismo y proporciones](determinism.mdx).
+
+## Fuentes de valores relacionadas
+
+Otras dos fuentes nombradas viven junto a `<sequence>` en `<env>` y también se leen con
+`${{Name}}`:
+
+- **[`<mix>`](../constructs/mix.mdx)** — una distribución por porcentaje exacto, donde
+  cada rama puede ser un compuesto completo de literales y generadores (no solo un valor
+  suelto).
+- **[`<switch>`](../constructs/switch.mdx)** — una tabla de búsqueda determinista de
+  clave → valor.
+
+Cuando solo necesita una columna de valores aleatorios o ponderados, la herramienta es
+`<sequence>`.
+
+## Siguiente
+
+- **[Generadores](../generators/overview.mdx)** — el `<gen>` que produce los valores de
+  una secuencia.
+- **[Determinismo y proporciones](determinism.mdx)** — cómo encajan `seed`, `count` y
+  `percent`.
+- **[Dependencias jerárquicas](../guides/hierarchical-dependencies.mdx)** — el modelo
+  completo de `parent`.

@@ -1,0 +1,19 @@
+---
+address: netherlands.education.university
+description: Research universities of the Netherlands (Dutch names)
+locale: nl
+---
+Universiteit van Amsterdam
+Vrije Universiteit Amsterdam
+Universiteit Leiden
+Universiteit Utrecht
+Rijksuniversiteit Groningen
+Erasmus Universiteit Rotterdam
+Technische Universiteit Delft
+Technische Universiteit Eindhoven
+Universiteit Twente
+Radboud Universiteit
+Universiteit Maastricht
+Tilburg University
+Wageningen University & Research
+Open Universiteit

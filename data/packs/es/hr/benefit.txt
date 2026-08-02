@@ -1,0 +1,22 @@
+---
+description: Employee benefit (Spanish)
+locale: es
+---
+Seguro médico
+Seguro dental
+Seguro de visión
+Plan de retiro
+Vacaciones pagadas
+Trabajo remoto
+Horario flexible
+Opciones sobre acciones
+Seguro de vida
+Licencia parental
+Membresía de gimnasio
+Reembolso de estudios
+Ayuda de transporte
+Programa de bienestar
+Vales de comida
+Bono anual
+Días personales
+Capacitación

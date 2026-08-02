@@ -1,0 +1,17 @@
+---
+address: benin.finance.bank
+description: Banks operating in Benin
+locale: fr
+---
+Bank of Africa
+Ecobank
+BSIC
+UBA
+Orabank
+NSIA Banque
+Banque Atlantique
+Société Générale Bénin
+Coris Bank
+BGFIBank
+Banque Internationale du Bénin
+Crédit du Bénin

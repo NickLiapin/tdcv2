@@ -1,0 +1,13 @@
+---
+description: TV / film content rating, descriptive Italian (country rating codes are country data)
+locale: it
+---
+Adatto a tutti
+Adatto ai maggiori di 6 anni
+Adatto ai maggiori di 12 anni
+Adatto ai maggiori di 14 anni
+Adatto ai maggiori di 18 anni
+Si consiglia la visione con i genitori
+Solo per adulti
+Per bambini
+Per adolescenti

@@ -1,0 +1,33 @@
+---
+address: egypt.geo.governorateCode
+description: Egyptian governorate codes as embedded in the national ID (01 Cairo, 02 Alexandria … 88 born abroad)
+locale: ar
+---
+01
+02
+03
+04
+11
+12
+13
+14
+15
+16
+17
+18
+19
+21
+22
+23
+24
+25
+26
+27
+28
+29
+31
+32
+33
+34
+35
+88

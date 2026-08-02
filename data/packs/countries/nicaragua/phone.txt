@@ -1,0 +1,6 @@
+---
+address: nicaragua.phone
+description: Nicaraguan phone in E.164 form — +505 plus 8 digits. Mobiles begin with 5, 7 or 8 (Claro, Tigo); fixed lines begin with 2. Mobiles dominate, so they are drawn three times as often
+generator: tdc
+---
+<gen type="regex" value="(\+505[578][0-9]{7}|\+505[578][0-9]{7}|\+505[578][0-9]{7}|\+5052[0-9]{7})"/>

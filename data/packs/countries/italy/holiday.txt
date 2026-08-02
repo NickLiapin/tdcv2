@@ -1,0 +1,18 @@
+---
+address: italy.holiday
+description: Public holidays in Italy (Italian names)
+locale: it
+---
+Capodanno
+Epifania
+Pasqua
+Lunedì dell'Angelo
+Festa della Liberazione
+Festa dei Lavoratori
+Festa della Repubblica
+Ferragosto
+Ognissanti
+Immacolata Concezione
+Natale
+Santo Stefano
+San Silvestro

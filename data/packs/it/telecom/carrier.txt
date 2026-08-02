@@ -1,0 +1,30 @@
+---
+description: Mobile carrier (Italian brands and international ones)
+locale: it
+---
+TIM
+Vodafone Italia
+WindTre
+Iliad
+Fastweb
+PosteMobile
+Ho Mobile
+Very Mobile
+Kena Mobile
+CoopVoce
+Tiscali
+Spusu
+Lyca Mobile
+Digi Mobil
+Optima Italia
+Sky Wifi
+Eolo
+Rabona Mobile
+O2
+Orange
+Movistar
+Deutsche Telekom
+Swisscom
+A1
+Telefónica
+Salt Mobile

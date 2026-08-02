@@ -1,0 +1,24 @@
+---
+description: Budget / spending category (German)
+locale: de
+---
+Miete
+Hypothek
+Lebensmittel
+Nebenkosten
+Verkehr
+Unterhaltung
+Gesundheit
+Versicherungen
+Restaurantbesuche
+Sparen
+Abonnements
+Reisen
+Bildung
+Kleidung
+Geschenke
+Kinderbetreuung
+Schuldentilgung
+Haustiere
+Telefon und Internet
+Steuern

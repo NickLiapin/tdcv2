@@ -1,0 +1,159 @@
+---
+description: Street names common across the German-speaking world (trades, trees, birds, composers, writers). In German the thoroughfare type is usually fused onto the name itself; country-specific streets belong in a country pack.
+locale: de
+---
+Hauptstraße
+Bahnhofstraße
+Dorfstraße
+Gartenstraße
+Schulstraße
+Kirchstraße
+Bergstraße
+Waldstraße
+Feldstraße
+Wiesenstraße
+Mühlenstraße
+Ringstraße
+Poststraße
+Marktstraße
+Schlossstraße
+Burgstraße
+Turmstraße
+Brückenstraße
+Uferstraße
+Hafenstraße
+Lindenstraße
+Ahornstraße
+Birkenweg
+Buchenweg
+Eichenweg
+Erlenweg
+Tannenweg
+Kastanienallee
+Lindenallee
+Kiefernweg
+Fichtenweg
+Weidenweg
+Ulmenweg
+Pappelallee
+Rosenweg
+Tulpenweg
+Nelkenweg
+Fliederweg
+Veilchenweg
+Blumenstraße
+Holunderweg
+Haselweg
+Ginsterweg
+Heideweg
+Farnweg
+Amselweg
+Lerchenweg
+Finkenweg
+Drosselweg
+Meisenweg
+Storchenweg
+Falkenweg
+Schwalbenweg
+Möwenweg
+Adlerstraße
+Hirschstraße
+Rehweg
+Fuchsweg
+Bärenstraße
+Löwenstraße
+Talstraße
+Sonnenstraße
+Sonnenweg
+Mondstraße
+Sternstraße
+Seestraße
+Bergweg
+Höhenweg
+Panoramaweg
+Quellweg
+Bachstraße
+Teichweg
+Moorweg
+Sandweg
+Steinweg
+Nordstraße
+Südstraße
+Oststraße
+Weststraße
+Neustraße
+Altstraße
+Lange Straße
+Breite Straße
+Kurze Straße
+Krumme Straße
+Hohe Straße
+Neue Straße
+Am Markt
+Am Anger
+Am Bahnhof
+Am Mühlbach
+Am Sportplatz
+Am Stadtpark
+Am Kirchberg
+Am Waldrand
+Am Sonnenhang
+Am Rosengarten
+Am Graben
+Am Wall
+An der Mühle
+An der Kirche
+An der Bleiche
+An der Trift
+An der Schleuse
+Auf dem Berg
+Auf der Höhe
+Im Winkel
+Im Grund
+Im Tal
+Im Kirchfeld
+Zur Mühle
+Zum Sportplatz
+Kirchgasse
+Schulgasse
+Hauptgasse
+Marktgasse
+Rathausgasse
+Schmiedgasse
+Brunnengasse
+Badgasse
+Rosengasse
+Kramgasse
+Spitalgasse
+Färbergasse
+Gartengasse
+Goethestraße
+Schillerstraße
+Lessingstraße
+Herderstraße
+Kleiststraße
+Hölderlinstraße
+Fontanestraße
+Rilkestraße
+Mozartstraße
+Beethovenstraße
+Brahmsstraße
+Haydnstraße
+Wagnerstraße
+Schubertstraße
+Händelstraße
+Kantstraße
+Hegelstraße
+Leibnizstraße
+Keplerstraße
+Kopernikusstraße
+Gaußstraße
+Humboldtstraße
+Röntgenstraße
+Gutenbergstraße
+Siemensstraße
+Zeppelinstraße
+Lilienthalstraße
+Dieselstraße
+Benzstraße
+Bismarckstraße

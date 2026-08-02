@@ -1,0 +1,14 @@
+---
+description: Positions in baseball (Polish)
+locale: pl
+---
+Miotacz
+Łapacz
+Pierwszobazowy
+Drugobazowy
+Trzeciobazowy
+Łącznik
+Lewy zapolowy
+Środkowy zapolowy
+Prawy zapolowy
+Odbijający wyznaczony

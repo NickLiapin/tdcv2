@@ -1,0 +1,22 @@
+---
+description: Property amenity
+locale: en
+---
+Swimming Pool
+Garage
+Fireplace
+Central Air
+Hardwood Floors
+Walk-in Closet
+Balcony
+Garden
+Gym
+Elevator
+Parking
+Dishwasher
+In-unit Laundry
+Pet-Friendly
+Security System
+Solar Panels
+Deck
+Basement

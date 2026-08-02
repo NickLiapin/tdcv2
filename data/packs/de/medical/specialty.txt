@@ -1,0 +1,40 @@
+---
+description: Medical specialties (German)
+locale: de
+---
+Kardiologie
+Dermatologie
+Endokrinologie
+Gastroenterologie
+Neurologie
+Onkologie
+Augenheilkunde
+Orthopädie
+Unfallchirurgie
+Kinderheilkunde
+Psychiatrie
+Pneumologie
+Radiologie
+Rheumatologie
+Urologie
+Nephrologie
+Hämatologie
+Immunologie
+Allergologie
+Anästhesiologie
+Notfallmedizin
+Allgemeinmedizin
+Innere Medizin
+Frauenheilkunde und Geburtshilfe
+Hals-Nasen-Ohren-Heilkunde
+Pathologie
+Allgemeinchirurgie
+Plastische Chirurgie
+Gefäßchirurgie
+Herzchirurgie
+Infektiologie
+Geriatrie
+Neonatologie
+Physikalische und Rehabilitative Medizin
+Nuklearmedizin
+Klinische Ernährungsmedizin

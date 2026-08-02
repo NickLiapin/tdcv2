@@ -1,0 +1,16 @@
+---
+description: Streaming platform available across Spanish-speaking markets
+locale: es
+---
+Netflix
+Disney+
+Amazon Prime Video
+Max
+Apple TV+
+Paramount+
+YouTube
+ViX
+Crunchyroll
+Pluto TV
+Spotify
+Twitch

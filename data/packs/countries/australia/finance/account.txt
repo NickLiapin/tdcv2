@@ -1,0 +1,7 @@
+---
+address: australia.finance.account
+description: Australian bank account number — commonly 9 digits (paired with a BSB to address an account). STRUCTURAL ONLY — Australia has no IBAN and no national account-number check standard; each bank sets its own length (6–10 digits) and validates internally, so nothing here is a computable checksum
+generator: tdc
+locale: en
+---
+<gen type="regex" value="[0-9]{9}"/>

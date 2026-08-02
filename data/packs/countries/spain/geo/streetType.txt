@@ -1,0 +1,33 @@
+---
+address: spain.geo.streetType
+description: Spanish tipo de vía (Calle, Avenida, Plaza, Paseo…) as written in a postal address; repeated entries carry the real frequency — Calle alone is about half of all Spanish vías
+locale: es
+---
+Calle
+Calle
+Calle
+Calle
+Calle
+Calle
+Avenida
+Avenida
+Avenida
+Plaza
+Plaza
+Paseo
+Camino
+Carretera
+Travesía
+Ronda
+Glorieta
+Callejón
+Cuesta
+Bulevar
+Alameda
+Pasaje
+Rambla
+Carrer
+Avinguda
+Plaça
+Passeig
+Rúa

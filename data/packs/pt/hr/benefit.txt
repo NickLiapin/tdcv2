@@ -1,0 +1,22 @@
+---
+description: Employee benefit (Portuguese)
+locale: pt
+---
+Plano de saúde
+Plano odontológico
+Seguro de visão
+Plano de aposentadoria
+Férias remuneradas
+Trabalho remoto
+Horário flexível
+Opções de ações
+Seguro de vida
+Licença parental
+Auxílio academia
+Reembolso de estudos
+Vale-transporte
+Programa de bem-estar
+Vale-refeição
+Bônus anual
+Dias pessoais
+Treinamento

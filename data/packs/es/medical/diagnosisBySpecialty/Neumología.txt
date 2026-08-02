@@ -1,0 +1,10 @@
+---
+description: Diagnoses seen in Neumología
+locale: es
+---
+Asma
+Enfermedad pulmonar obstructiva crónica
+Neumonía
+Embolia pulmonar
+Tuberculosis
+Apnea del sueño

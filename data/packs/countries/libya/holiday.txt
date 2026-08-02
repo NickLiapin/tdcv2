@@ -1,0 +1,13 @@
+---
+address: libya.holiday
+description: Public holidays in Libya (Arabic)
+locale: ar
+---
+عيد ثورة السابع عشر من فبراير
+عيد الشهداء
+عيد الاستقلال
+عيد الفطر
+عيد الأضحى
+رأس السنة الهجرية
+عاشوراء
+المولد النبوي

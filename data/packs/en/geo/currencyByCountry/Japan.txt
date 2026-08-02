@@ -1,0 +1,5 @@
+---
+description: Currency of Japan
+locale: en
+---
+Japanese Yen

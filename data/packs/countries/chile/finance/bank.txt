@@ -1,0 +1,24 @@
+---
+address: chile.finance.bank
+description: Chilean bank or licensed payment institution; same order as chile.finance.bankCode
+---
+Banco de Chile
+Banco Internacional
+Banco del Estado de Chile
+Scotiabank Chile
+Banco de Crédito e Inversiones
+Banco BICE
+HSBC Bank Chile
+Banco Santander-Chile
+Banco Itaú Chile
+Banco Security
+Banco Falabella
+Banco Ripley
+Banco Consorcio
+Banco Bilbao Vizcaya Argentaria Chile
+Coopeuch
+Caja Los Héroes
+Tenpo
+Caja Los Andes
+Global66
+Mercado Pago

@@ -1,0 +1,19 @@
+---
+description: Jobs in Education (French)
+locale: fr
+---
+Enseignant
+Professeur des écoles
+Instituteur
+Directeur d'école
+Conseiller pédagogique
+Documentaliste
+Surveillant
+Formateur
+Chercheur
+Maître de conférences
+Professeur des universités
+Conseiller d'orientation
+Assistant d'éducation
+Éducateur spécialisé
+Animateur périscolaire

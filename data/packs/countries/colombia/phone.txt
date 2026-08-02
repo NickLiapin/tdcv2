@@ -1,0 +1,6 @@
+---
+address: colombia.phone
+description: Colombian phone in E.164 form — mobiles are +57 3 plus nine digits; since the 2022 renumbering fixed lines are +57 60 plus the one-digit indicativo (1 Bogotá, 2 Cali, 4 Medellín, 5 Barranquilla, 6 Pereira, 7 Bucaramanga, 8 Ibagué) and seven digits. Mobiles dominate, so they are drawn three times as often
+generator: tdc
+---
+<gen type="regex" value="(\+573(?:0[0-5]|1[0-9]|2[0-4]|5[0-1])[0-9]{7}|\+573(?:0[0-5]|1[0-9]|2[0-4]|5[0-1])[0-9]{7}|\+573(?:0[0-5]|1[0-9]|2[0-4]|5[0-1])[0-9]{7}|\+5760[124-8][0-9]{7})"/>

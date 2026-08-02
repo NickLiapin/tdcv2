@@ -1,0 +1,72 @@
+---
+address: spain.tax.cif
+description: Spanish CIF — entity letter + 7 digits (the first two are the province of the registry) + control character. The control is the Luhn-style digit E = (10 - sum mod 10) mod 10; entities A/B/E/H carry E as a digit, N/P/Q/R/S/W carry the letter "JABCDEFGHI"[E], and C/D/F/G/J/U/V accept either (a digit is emitted).
+generator: tdc
+---
+<!-- Which control form the entity takes is fixed by its letter, so the letter
+     is drawn from the matching group and the control follows from the group.
+     Weights inside each group follow how common the legal form is: S.L. (B)
+     outnumbers S.A. (A), asociaciones/fundaciones (G) outnumber the rest. -->
+<sequence name="mode"><gen type="number" value="1..10"/></sequence>
+<!-- Digit control: sociedades anónimas, limitadas, comunidades de bienes,
+     comunidades de propietarios. -->
+<sequence name="digitEntity"><gen type="text" value="B,B,B,B,A,A,E,H"/></sequence>
+<!-- Either form accepted: colectivas, comanditarias, cooperativas,
+     asociaciones y fundaciones, sociedades civiles, UTEs, otros. -->
+<sequence name="dualEntity"><gen type="text" value="G,G,G,J,C,D,F,U,V"/></sequence>
+<!-- Letter control required: corporaciones locales, organismos públicos,
+     congregaciones, órganos de la Administración, entidades extranjeras. -->
+<sequence name="letterEntity"><gen type="text" value="P,Q,S,N,R,W"/></sequence>
+<!-- The first two of the seven digits are the province code of the registry. -->
+<sequence name="province"><gen type="template" value="spain.geo.provinceCode"/></sequence>
+<sequence name="serial"><gen type="regex" value="[0-9]{5}"/></sequence>
+<sequence name="cif"><compute>
+  <let name="digits"><concat><field name="province"/><field name="serial"/></concat></let>
+  <!-- Odd 1-based positions (index 0,2,4,6) are doubled and folded back to one
+       digit; even positions are added as they stand. -->
+  <let name="sum">
+    <reduce>
+      <over><var name="digits"/></over>
+      <init><int v="0"/></init>
+      <do><add><acc/>
+        <choose>
+          <when>
+            <test><equals><mod><current_index/><int v="2"/></mod><int v="0"/></equals></test>
+            <then>
+              <let name="d"><multiply><current/><int v="2"/></multiply></let>
+              <choose>
+                <when><test><greater_than><var name="d"/><int v="9"/></greater_than></test>
+                      <then><subtract><var name="d"/><int v="9"/></subtract></then></when>
+                <otherwise><var name="d"/></otherwise>
+              </choose>
+            </then>
+          </when>
+          <otherwise><current/></otherwise>
+        </choose>
+      </add></do>
+    </reduce>
+  </let>
+  <let name="e"><mod><subtract><int v="10"/><mod><var name="sum"/><int v="10"/></mod></subtract><int v="10"/></mod></let>
+  <let name="entity">
+    <choose>
+      <when><test><greater_than><to_number><field name="mode"/></to_number><int v="8"/></greater_than></test>
+        <then><field name="letterEntity"/></then></when>
+      <when><test><greater_than><to_number><field name="mode"/></to_number><int v="6"/></greater_than></test>
+        <then><field name="dualEntity"/></then></when>
+      <otherwise><field name="digitEntity"/></otherwise>
+    </choose>
+  </let>
+  <let name="control">
+    <choose>
+      <when><test><greater_than><to_number><field name="mode"/></to_number><int v="8"/></greater_than></test>
+        <then>
+          <at><in><list><str v="J"/><str v="A"/><str v="B"/><str v="C"/><str v="D"/><str v="E"/><str v="F"/><str v="G"/><str v="H"/><str v="I"/></list></in>
+              <index><var name="e"/></index></at>
+        </then>
+      </when>
+      <otherwise><var name="e"/></otherwise>
+    </choose>
+  </let>
+  <result><concat><var name="entity"/><var name="digits"/><var name="control"/></concat></result>
+</compute></sequence>
+<data>${{cif}}</data>

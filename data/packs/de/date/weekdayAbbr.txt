@@ -1,0 +1,11 @@
+---
+description: Weekday abbreviation (German)
+locale: de
+---
+Mo
+Di
+Mi
+Do
+Fr
+Sa
+So

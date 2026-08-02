@@ -1,0 +1,20 @@
+---
+description: Venue type (Portuguese)
+locale: pt
+---
+Salão de hotel
+Centro de convenções
+Estádio
+Teatro
+Salão de banquetes
+Terraço
+Jardim
+Galpão industrial
+Auditório
+Discoteca
+Sala de reuniões
+Quinta
+Vinícola
+Praia
+Museu
+Centro cultural

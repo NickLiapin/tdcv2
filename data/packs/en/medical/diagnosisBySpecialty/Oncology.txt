@@ -1,0 +1,10 @@
+---
+description: Diagnoses seen in Oncology
+locale: en
+---
+Breast Cancer
+Lung Cancer
+Colorectal Cancer
+Leukemia
+Lymphoma
+Melanoma

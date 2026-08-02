@@ -1,0 +1,9 @@
+---
+address: comoros.education.university
+description: Higher-education institutions in the Comoros (Arabic)
+locale: ar
+---
+جامعة جزر القمر
+المعهد الجامعي للتكنولوجيا
+كلية العلوم الإسلامية
+المدرسة الوطنية للتعليم العالي

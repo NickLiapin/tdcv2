@@ -1,0 +1,21 @@
+---
+description: Streaming platform available in France (French)
+locale: fr
+---
+Netflix
+Amazon Prime Video
+Disney+
+Canal+
+myCanal
+OCS
+Apple TV+
+Paramount+
+France.tv
+Arte
+Molotov
+Max
+Crunchyroll
+YouTube
+Twitch
+Spotify
+Deezer

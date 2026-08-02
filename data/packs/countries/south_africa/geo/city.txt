@@ -1,0 +1,40 @@
+---
+address: south_africa.geo.city
+description: Major South African cities and towns
+locale: en
+---
+Johannesburg
+Cape Town
+Durban
+Pretoria
+Gqeberha
+Bloemfontein
+East London
+Pietermaritzburg
+Polokwane
+Kimberley
+Mbombela
+Rustenburg
+Vereeniging
+Soweto
+Benoni
+Tembisa
+Centurion
+Randburg
+Roodepoort
+George
+Stellenbosch
+Paarl
+Welkom
+Newcastle
+eMalahleni
+Klerksdorp
+Potchefstroom
+Krugersdorp
+Boksburg
+Springs
+Uitenhage
+Vanderbijlpark
+Midrand
+Kempton Park
+Nelspruit

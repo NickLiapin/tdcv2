@@ -1,0 +1,11 @@
+---
+description: Sport that has a coherent position list (positionBySport child)
+---
+Футбол
+Баскетбол
+Американский футбол
+Бейсбол
+Хоккей
+Волейбол
+Регби
+Крикет

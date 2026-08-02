@@ -1,0 +1,72 @@
+---
+address: panama.geo.district
+description: Panamanian distrito — the second-level division (each province is split into districts, which are in turn split into corregimientos); the district seat usually shares the district's name
+locale: es
+---
+Panamá
+San Miguelito
+Arraiján
+La Chorrera
+Capira
+Chame
+San Carlos
+Balboa
+Chepo
+Chimán
+Taboga
+Colón
+Chagres
+Donoso
+Portobelo
+Santa Isabel
+David
+Alanje
+Barú
+Boquerón
+Boquete
+Bugaba
+Dolega
+Gualaca
+Remedios
+Renacimiento
+San Félix
+San Lorenzo
+Tierras Altas
+Tolé
+Penonomé
+Aguadulce
+Antón
+La Pintada
+Natá
+Olá
+Chitré
+Las Minas
+Los Pozos
+Ocú
+Parita
+Pesé
+Santa María
+Las Tablas
+Guararé
+Los Santos
+Macaracas
+Pedasí
+Pocrí
+Tonosí
+Santiago
+Atalaya
+Calobre
+Cañazas
+La Mesa
+Las Palmas
+Mariato
+Montijo
+Río de Jesús
+San Francisco
+Santa Fe
+Soná
+Changuinola
+Bocas del Toro
+Chiriquí Grande
+Chepigana
+Pinogana

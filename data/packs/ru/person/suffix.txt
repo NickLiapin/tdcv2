@@ -1,0 +1,11 @@
+---
+description: Name / academic suffix (Russian)
+---
+мл.
+ст.
+к.т.н.
+д.т.н.
+к.м.н.
+д.м.н.
+проф.
+доц.

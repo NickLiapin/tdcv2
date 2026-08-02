@@ -1,0 +1,19 @@
+---
+description: Weather phenomenon (Portuguese)
+locale: pt
+---
+Furacão
+Tornado
+Nevasca
+Onda de calor
+Onda de frio
+Inundação
+Seca
+Monção
+Tempestade de areia
+Tempestade de gelo
+Incêndio florestal
+Ciclone
+Geada
+Saraivada
+Ondulação

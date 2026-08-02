@@ -1,0 +1,11 @@
+---
+description: Conduit / installation method for cable runs
+locale: en
+---
+PVC
+Rigid Steel
+HDPE
+Direct Burial
+Innerduct
+Cable Tray
+Aerial Messenger

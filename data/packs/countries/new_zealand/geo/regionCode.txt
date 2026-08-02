@@ -1,0 +1,21 @@
+---
+address: new_zealand.geo.regionCode
+description: ISO 3166-2:NZ region code (3 letters); same order as new_zealand.geo.region
+locale: en
+---
+AUK
+BOP
+CAN
+GIS
+HKB
+MWT
+MBH
+NSN
+NTL
+OTA
+STL
+TKI
+TAS
+WKO
+WGN
+WTC

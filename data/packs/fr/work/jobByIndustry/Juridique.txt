@@ -1,0 +1,19 @@
+---
+description: Jobs in Legal (French)
+locale: fr
+---
+Avocat
+Notaire
+Juriste
+Huissier de justice
+Greffier
+Magistrat
+Clerc de notaire
+Juriste d'entreprise
+Assistant juridique
+Médiateur
+Commissaire de justice
+Juge
+Procureur
+Conseiller juridique
+Fiscaliste

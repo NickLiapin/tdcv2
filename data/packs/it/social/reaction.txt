@@ -1,0 +1,15 @@
+---
+description: Social reaction (Italian)
+locale: it
+---
+Mi piace
+Adoro
+Divertente
+Wow
+Triste
+Arrabbiato
+Abbraccio
+Congratulazioni
+Sostegno
+Interessante
+Curioso

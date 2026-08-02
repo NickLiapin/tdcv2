@@ -1,0 +1,15 @@
+---
+address: uruguay.finance.bic
+description: SWIFT/BIC of each Uruguayan bank, 8 characters (head office); same order as uruguay.finance.bank. Uruguay has no national account-number format of its own — account numbers are bank-specific and there is no CBU/CLABE-style national standard — so this pack ships the institution identifiers and stops there rather than inventing one.
+---
+BROUUYMM
+CFACUYMM
+ITAUUYMM
+COMEUYMM
+BSCHUYMM
+BBVAUYMM
+BLICUYMM
+SURIUYMM
+CITIUYMM
+NACNUYMM
+PRBAUYMM

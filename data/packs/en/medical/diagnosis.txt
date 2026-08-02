@@ -1,0 +1,82 @@
+---
+description: Medical diagnosis that can occur in any patient — no sex or ancestry restriction. Sex-specific conditions live in diagnosisMale/diagnosisFemale; ancestry-linked ones in diagnosisByAncestry.
+locale: en
+---
+Hypertension
+Type 2 Diabetes Mellitus
+Asthma
+Acute Bronchitis
+Influenza
+Migraine
+Generalized Anxiety Disorder
+Major Depressive Disorder
+Osteoarthritis
+Rheumatoid Arthritis
+Gastroesophageal Reflux Disease
+Iron Deficiency Anemia
+Hypothyroidism
+Urinary Tract Infection
+Pneumonia
+Chronic Kidney Disease
+Coronary Artery Disease
+Atrial Fibrillation
+Congestive Heart Failure
+Ischemic Stroke
+Epilepsy
+Parkinson Disease
+Alzheimer Disease
+Multiple Sclerosis
+Psoriasis
+Atopic Dermatitis
+Allergic Rhinitis
+Chronic Sinusitis
+Otitis Media
+Conjunctivitis
+Cataract
+Glaucoma
+Appendicitis
+Cholecystitis
+Diverticulitis
+Irritable Bowel Syndrome
+Crohn Disease
+Ulcerative Colitis
+Chronic Hepatitis B
+Hepatic Cirrhosis
+Acute Pancreatitis
+Gout
+Osteoporosis
+Fibromyalgia
+Sciatica
+Herniated Disc
+Carpal Tunnel Syndrome
+Tendinitis
+Chronic Obstructive Pulmonary Disease
+Tuberculosis
+Leukemia
+Lymphoma
+Melanoma
+Hyperlipidemia
+Obesity
+Obstructive Sleep Apnea
+Insomnia
+Bipolar Disorder
+Attention Deficit Hyperactivity Disorder
+Celiac Disease
+Systemic Lupus Erythematosus
+Vertigo
+Tinnitus
+Hemorrhoids
+Varicose Veins
+Deep Vein Thrombosis
+Pulmonary Embolism
+Nephrolithiasis
+Anemia
+Hyperthyroidism
+Peptic Ulcer Disease
+Gastritis
+Cellulitis
+Sepsis
+Breast Cancer
+Acute Gastroenteritis
+Vitamin D Deficiency
+Chronic Venous Insufficiency

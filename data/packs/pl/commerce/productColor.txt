@@ -1,0 +1,58 @@
+---
+description: Colour as written on a Polish product listing (masculine singular; borrowed names kept invariable)
+locale: pl
+---
+Czarny
+Biały
+Szary
+Grafitowy
+Perłowoszary
+Srebrny
+Złoty
+Brąz
+Miedziany
+Czerwony
+Burgundowy
+Wiśniowy
+Bordowy
+Koralowy
+Różowy
+Pudrowy róż
+Fuksja
+Magenta
+Pomarańczowy
+Terakotowy
+Łososiowy
+Żółty
+Musztardowy
+Stare złoto
+Zielony
+Oliwkowy
+Miętowy
+Szmaragdowy
+Khaki
+Turkusowy
+Niebieski
+Granatowy
+Błękitny
+Petrol
+Lazurowy
+Indygo
+Fioletowy
+Purpurowy
+Liliowy
+Lawendowy
+Brązowy
+Czekoladowy
+Camel
+Beżowy
+Kremowy
+Kość słoniowa
+Piaskowy
+Taupe
+Antracytowy
+Przezroczysty
+Wielokolorowy
+Wzorzysty
+Dwukolorowy
+Naturalny

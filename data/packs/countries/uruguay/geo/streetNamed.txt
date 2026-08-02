@@ -1,0 +1,102 @@
+---
+address: uruguay.geo.streetNamed
+description: Common Uruguayan street name, bare (without the Calle / Avenida / Bulevar prefix) — the Montevideo grid, whose department and national-figure names repeat in every Uruguayan town
+locale: es
+---
+18 de Julio
+25 de Mayo
+25 de Agosto
+8 de Octubre
+General Flores
+Agraciada
+Artigas
+España
+Italia
+Rivera
+Millán
+Larrañaga
+Garibaldi
+Propios
+Burgues
+Batlle y Ordóñez
+Luis Alberto de Herrera
+Instrucciones
+Colonia
+Mercedes
+Uruguay
+Paysandú
+Cerro Largo
+Maldonado
+Canelones
+San José
+Soriano
+Durazno
+Isla de Flores
+Constituyente
+Yaguarón
+Andes
+Convención
+Río Negro
+Julio Herrera y Obes
+Ciudadela
+Florida
+Ituzaingó
+Juncal
+Misiones
+Treinta y Tres
+Zabala
+Piedras
+Cerrito
+Reconquista
+Buenos Aires
+Washington
+Guaraní
+Bartolomé Mitre
+Pérez Castellano
+Maciel
+Bacacay
+Sarandí
+Rincón
+Solís
+Rondeau
+Paraguay
+Ejido
+Gaboto
+Magallanes
+Tacuarembó
+Salto
+Minas
+Rocha
+Arenal Grande
+Nueva York
+Carlos María Ramírez
+Grecia
+Chile
+Brasil
+Sarmiento
+Ellauri
+Solano García
+Juan Benito Blanco
+Gabriel Pereira
+Luis Franzini
+Comercio
+Centenario
+Máximo Tajes
+Rivera Indarte
+Joaquín Suárez
+José Enrique Rodó
+José Pedro Varela
+Juan Manuel Blanes
+Eduardo Acevedo
+Alberto Zum Felde
+Doctor Luis Piera
+Democracia
+Libertad
+Independencia
+Progreso
+Los Aromos
+Las Acacias
+Los Eucaliptos
+Los Ceibos
+Las Camelias
+Los Talas

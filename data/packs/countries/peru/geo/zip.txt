@@ -1,0 +1,9 @@
+---
+address: peru.geo.zip
+description: Peruvian código postal — the 5-digit scheme Serpost rolled out in 2011. The first two digits are the INEI department code (01-25, so 15xxx is Lima and 07xxx Callao), the next two the province and the last one the postal zone; 15001 is central Lima Cercado.
+generator: tdc
+---
+<!-- Department block: the same 01-25 codes as peru.geo.departmentCode. -->
+<sequence name="department"><gen type="template" value="peru.geo.departmentCode"/></sequence>
+<sequence name="zone"><gen type="regex" value="(?:0[0-9][1-9]|[1-4][0-9]{2})"/></sequence>
+<data>${{department}}${{zone}}</data>

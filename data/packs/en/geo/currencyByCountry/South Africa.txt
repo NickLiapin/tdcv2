@@ -1,0 +1,5 @@
+---
+description: Currency of South Africa
+locale: en
+---
+South African Rand

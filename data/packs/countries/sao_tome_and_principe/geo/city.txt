@@ -1,0 +1,20 @@
+---
+address: sao_tome_and_principe.geo.city
+description: Cities, towns and villages of São Tomé and Príncipe (Portuguese names)
+locale: pt
+---
+São Tomé
+Trindade
+Neves
+Santana
+Santo Amaro
+Guadalupe
+Santo António
+São João dos Angolares
+Ribeira Afonso
+Pantufo
+Madalena
+Porto Alegre
+Água Izé
+Santa Catarina
+Ribeira Peixe

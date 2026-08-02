@@ -1,0 +1,21 @@
+---
+description: Bicycle type (Polish)
+locale: pl
+---
+Rower szosowy
+Rower górski
+Rower hybrydowy
+Rower miejski
+Rower gravelowy
+Rower BMX
+Rower elektryczny
+Rower składany
+Rower turystyczny
+Rower przełajowy
+Rower torowy
+Rower poziomy
+Rower cargo
+Rower zjazdowy
+Rower dziecięcy
+Rower trzykołowy
+Tandem

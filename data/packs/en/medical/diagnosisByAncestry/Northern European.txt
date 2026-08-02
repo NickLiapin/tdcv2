@@ -1,0 +1,14 @@
+---
+description: Conditions markedly more frequent in people of Northern European ancestry. A prevalence signal, not an exclusive one.
+locale: en
+---
+Cystic Fibrosis
+Hereditary Hemochromatosis
+Alpha-1 Antitrypsin Deficiency
+Phenylketonuria
+Celiac Disease
+Multiple Sclerosis
+Type 1 Diabetes Mellitus
+Dupuytren Contracture
+Basal Cell Carcinoma
+Lactase Persistence

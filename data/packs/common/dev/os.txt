@@ -1,0 +1,19 @@
+---
+description: Operating system
+---
+Windows 11
+Windows 10
+macOS
+Ubuntu
+Debian
+Fedora
+CentOS
+Red Hat Enterprise Linux
+Arch Linux
+Android
+iOS
+FreeBSD
+Alpine Linux
+Windows Server
+openSUSE
+Rocky Linux

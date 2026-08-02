@@ -1,0 +1,18 @@
+---
+address: east_timor.geo.municipality
+description: The thirteen municipalities of Timor-Leste (Portuguese names); Oecusse is a special administrative region
+locale: pt
+---
+Aileu
+Ainaro
+Baucau
+Bobonaro
+Cova Lima
+Díli
+Ermera
+Lautém
+Liquiçá
+Manatuto
+Manufahi
+Oecusse
+Viqueque

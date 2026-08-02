@@ -1,0 +1,11 @@
+---
+description: Mobile plan type
+locale: en
+---
+Prepaid
+Postpaid
+Unlimited
+Family
+Business
+Pay As You Go
+Data-Only

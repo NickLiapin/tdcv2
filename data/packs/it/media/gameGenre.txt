@@ -1,0 +1,21 @@
+---
+description: Video game genre (Italian)
+locale: it
+---
+Azione
+Avventura
+Gioco di ruolo
+Strategia
+Simulazione
+Sport
+Rompicapo
+Sparatutto
+Platform
+Corse
+Picchiaduro
+Sopravvivenza
+Mondo aperto
+MMORPG
+Roguelike
+Horror
+Musicale

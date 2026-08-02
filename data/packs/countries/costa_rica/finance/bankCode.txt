@@ -1,0 +1,16 @@
+---
+address: costa_rica.finance.bankCode
+description: BCCR 3-digit código de entidad — the bank identifier carried inside every Costa Rican IBAN (positions 5-7, after the CR + check + reserved 0); same order as costa_rica.finance.bank
+---
+151
+152
+161
+102
+104
+107
+114
+116
+120
+123
+125
+126

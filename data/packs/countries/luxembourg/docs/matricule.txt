@@ -1,0 +1,9 @@
+---
+address: luxembourg.docs.matricule
+description: Luxembourg national ID (matricule / numéro d'identification) — 13 digits: YYYYMMDD birth date + 5 digits. Structural: the two trailing control digits (a Luhn and a Verhoeff digit) are not reproduced.
+generator: tdc
+locale: fr
+---
+<sequence name="birth"><gen type="date" from="1940-01-01" to="2015-12-31" format="YYYYMMDD"/></sequence>
+<sequence name="tail"><gen type="regex" value="[0-9]{5}"/></sequence>
+<data>${{birth}}${{tail}}</data>

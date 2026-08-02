@@ -1,0 +1,25 @@
+---
+description: World religion (Polish)
+locale: pl
+---
+Chrześcijaństwo
+Katolicyzm
+Protestantyzm
+Prawosławie
+Islam
+Hinduizm
+Buddyzm
+Judaizm
+Sikhizm
+Dżinizm
+Bahaizm
+Sintoizm
+Taoizm
+Konfucjanizm
+Zoroastrianizm
+Rodzimowierstwo słowiańskie
+Spirytyzm
+Animizm
+Ateizm
+Agnostycyzm
+Bezwyznaniowość

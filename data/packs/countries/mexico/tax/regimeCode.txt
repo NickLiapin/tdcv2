@@ -1,0 +1,26 @@
+---
+address: mexico.tax.regimeCode
+description: SAT régimen fiscal code (catálogo c_RegimenFiscal, 3 digits — 626 is RESICO); same order as mexico.tax.regime
+---
+601
+603
+605
+606
+607
+608
+610
+611
+612
+614
+615
+616
+620
+621
+622
+623
+624
+625
+626
+628
+629
+630

@@ -1,0 +1,98 @@
+---
+address: new_zealand.geo.city
+description: New Zealand city or town (real urban areas, roughly population-ordered)
+locale: en
+---
+Auckland
+Wellington
+Christchurch
+Hamilton
+Tauranga
+Lower Hutt
+Dunedin
+Palmerston North
+Napier
+Hastings
+Nelson
+Rotorua
+New Plymouth
+Whangārei
+Invercargill
+Upper Hutt
+Porirua
+Whanganui
+Gisborne
+Blenheim
+Timaru
+Taupō
+Pukekohe
+Masterton
+Levin
+Cambridge
+Ashburton
+Feilding
+Rolleston
+Queenstown
+Paraparaumu
+Tokoroa
+Hāwera
+Oamaru
+Kerikeri
+Greymouth
+Wānaka
+Motueka
+Rangiora
+Waiuku
+Te Awamutu
+Morrinsville
+Matamata
+Thames
+Kaitaia
+Dargaville
+Westport
+Alexandra
+Cromwell
+Gore
+Balclutha
+Picton
+Kaikōura
+Stratford
+Waitara
+Ōtaki
+Katikati
+Whakatāne
+Ōpōtiki
+Kawerau
+Tūrangi
+Taumarunui
+Huntly
+Ngāruawāhia
+Putāruru
+Te Kūiti
+Ōtorohanga
+Paeroa
+Waihi
+Coromandel
+Warkworth
+Wellsford
+Bulls
+Marton
+Taihape
+Dannevirke
+Waipukurau
+Wairoa
+Foxton
+Ōpunake
+Eltham
+Richmond
+Renwick
+Twizel
+Tekapo
+Wyndham
+Winton
+Riverton
+Milton
+Roxburgh
+Ranfurly
+Mosgiel
+Brightwater

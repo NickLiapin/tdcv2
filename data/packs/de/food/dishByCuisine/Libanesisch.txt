@@ -1,0 +1,16 @@
+---
+description: Dishes of Lebanese cuisine (German)
+locale: de
+---
+Hummus
+Falafel
+Schawarma
+Tabbouleh
+Kibbeh
+Fattousch
+Manakisch
+Baba Ghanoush
+Mudschaddara
+Kafta
+Gefüllte Weinblätter
+Knafeh

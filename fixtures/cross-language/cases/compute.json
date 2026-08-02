@@ -1,0 +1,59 @@
+{
+  "schemaVersion": 1,
+  "cases": [
+    {
+      "name": "compute-aba-routing",
+      "description": "A mod-10 check digit, from a composed pack",
+      "config": "<tdc><env count=\"6\" seed=\"packs\" local=\"en\" mode=\"memory\"><sequence name=\"V\"><gen type=\"template\" value=\"usa.finance.aba_routing\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
+      "expected": [
+        "310328870",
+        "244716189",
+        "038589726",
+        "635327608",
+        "033210951",
+        "301879448"
+      ]
+    },
+    {
+      "name": "compute-ordinal-suffix",
+      "description": "choose picks the right ordinal suffix, including the teens",
+      "config": "<tdc><env count=\"6\" seed=\"packs\" local=\"en\" mode=\"memory\"><sequence name=\"V\"><gen type=\"template\" value=\"usa.geo.streetName\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
+      "expected": ["93rd", "6th", "48th", "39th", "121st", "129th"]
+    },
+    {
+      "name": "compute-uuid-pack",
+      "description": "A pack that ships a rule rather than a list",
+      "config": "<tdc><env count=\"4\" seed=\"packs\" local=\"en\" mode=\"memory\"><sequence name=\"V\"><gen type=\"template\" value=\"common.id.uuid\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
+      "expected": [
+        "61b09905-cdc1-4b2b-89d8-fb30863ca015",
+        "30e8d2dc-77cf-4654-8abe-b8f6490f5342",
+        "9d94d5e4-315b-4e34-94e4-b016b049401d",
+        "012162c5-575a-4300-9040-3f727e7e73a7"
+      ]
+    },
+    {
+      "name": "compute-takes-no-draws",
+      "description": "A computed sequence draws nothing, so it shifts nothing after it",
+      "config": "<tdc><env count=\"4\" seed=\"nodraw\" local=\"en\" mode=\"memory\"><sequence name=\"A\"><gen type=\"number\" value=\"100..999\"/></sequence><sequence name=\"S\"><compute><result><to_number><field name=\"A\"/></to_number></result></compute></sequence><sequence name=\"B\"><gen type=\"number\" value=\"100..999\"/></sequence></env><block><line><data>${{A}},${{S}},${{B}}</data></line></block></tdc>",
+      "expected": ["308,308,747", "291,291,109", "708,708,936", "104,104,673"]
+    },
+    {
+      "name": "compute-reduce-and-encode",
+      "description": "reduce over a string, with encode folding letters to numbers",
+      "config": "<tdc><env count=\"1\" seed=\"unit-test\" local=\"en\" mode=\"memory\"><sequence name=\"Code\"><gen type=\"text\" value=\"AB12\"/></sequence><sequence name=\"Sum\"><compute><result><reduce><over><field name=\"Code\"/></over><init><int v=\"0\"/></init><do><add><acc/><to_number><encode as=\"base36\"><current/></encode></to_number></add></do></reduce></result></compute></sequence></env><block><line><data>${{Code}}=${{Sum}}</data></line></block></tdc>",
+      "expected": ["AB12=24"]
+    },
+    {
+      "name": "compute-euclidean-mod",
+      "description": "mod is always non-negative, whatever the host language does",
+      "config": "<tdc><env count=\"1\" seed=\"unit-test\" local=\"en\" mode=\"memory\"><sequence name=\"M\"><compute><result><concat><mod><int v=\"-7\"/><int v=\"3\"/></mod><str v=\" \"/><mod><int v=\"7\"/><int v=\"-3\"/></mod><str v=\" \"/><divide><int v=\"-7\"/><int v=\"3\"/></divide></concat></result></compute></sequence></env><block><line><data>${{M}}</data></line></block></tdc>",
+      "expected": ["2 1 -3"]
+    },
+    {
+      "name": "compute-pad-and-slice",
+      "description": "pad, slice and length",
+      "config": "<tdc><env count=\"1\" seed=\"unit-test\" local=\"en\" mode=\"memory\"><sequence name=\"V\"><compute><let name=\"s\"><str v=\"42\"/></let><result><concat><pad width=\"6\"><var name=\"s\"/></pad><str v=\"|\"/><pad width=\"6\" fill=\"*\"><var name=\"s\"/></pad><str v=\"|\"/><length><str v=\"hello\"/></length></concat></result></compute></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
+      "expected": ["000042|****42|5"]
+    }
+  ]
+}

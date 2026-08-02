@@ -1,0 +1,24 @@
+---
+description: Writing system (Spanish)
+locale: es
+---
+Alfabeto latino
+Alfabeto cirílico
+Alfabeto griego
+Alfabeto árabe
+Alfabeto hebreo
+Alfabeto armenio
+Alfabeto georgiano
+Escritura china (han)
+Hiragana
+Katakana
+Hangul
+Devanagari
+Escritura tailandesa
+Escritura tibetana
+Escritura etíope (ge'ez)
+Silabario cherokee
+Escritura maya
+Escritura bengalí
+Escritura tamil
+Alfabeto glagolítico

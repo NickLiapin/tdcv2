@@ -1,0 +1,495 @@
+<a name="top"></a>
+
+**English** · [Русский](../ru/core-concepts/output-formatting.md#top) · [Español](../es/core-concepts/output-formatting.md#top)
+
+← Previous: [Sequences](./sequences.md#top) · **[Contents](../README.md#top)** · Next: [Determinism & proportions](./determinism.md#top) →
+
+---
+
+# Output & formatting
+
+Once you've declared your data as [sequences](sequences.md#top), the **output block** turns
+it into text in whatever shape you want: CSV, JSON, SQL, a log line, a config file. It's
+three nested tags — `<block>` → `<line>` → `<data>` — plus interpolation and a few
+optional pieces (fixtures, filters, conditions).
+
+> [!NOTE]
+> The example outputs below are illustrative — the exact values can differ by core version
+> and seed. What matters is the **shape** of each transformation, not the specific names
+> or numbers.
+
+![](../img/concepts/output-layout.svg)
+
+*The output in the order it's printed, top to bottom, for a run of two records.*
+
+- **A** — printed once, at the very start
+- **B** — before every record
+- **C** — a line of the record
+- **D** — between the lines of one record — never after the last line
+- **E** — after every record
+- **F** — between records — never after the last record
+- **G** — printed once, at the very end
+- **H** — everything inside the bracket repeats once per record
+
+## The output block: `<block>` → `<line>` → `<data>`
+
+- **[`<block>`](#block--the-record-layout)** describes the layout of **one record**. The
+  renderer repeats it `count` times — once per record — substituting fresh sequence
+  values on each pass.
+- **[`<line>`](#line--one-line-of-a-record)** is one line of output inside a record.
+  Every `<line>` is followed by a newline.
+- **[`<data>`](#data--raw-text)** holds **raw text**: everything between `<data>` and
+  `</data>` is printed as-is, with one exception — interpolation `${{…}}`, which is
+  replaced by sequence values.
+
+A record can span several lines. You describe them once and the block repeats:
+
+```xml
+<tdc>
+    <env count="2" seed="demo">
+        <sequence name="Person">
+            <gen name="Name" type="text" value="Alice,Bob,Carol"/>
+            <gen name="Age" type="number" value="20..40"/>
+        </sequence>
+    </env>
+    <block>
+        <line><data>name=${{Person.Name}}</data></line>
+        <line><data>age=${{Person.Age}}</data></line>
+    </block>
+</tdc>
+```
+
+`./run demo.tdc (count=2)`
+
+```
+name=Bob
+age=30
+name=Alice
+age=28
+```
+
+The two-line block rendered twice (`count="2"`) — two records of two lines apiece, each
+with its own `Name` and `Age`.
+
+## `<block>` — the record layout
+
+`<block>` is the one **required** child of [`<tdc>`](../reference/tags.md#top). It has no
+attributes. Its only job is to hold the lines of a single record, which the renderer
+repeats `count` times.
+
+The only child it allows is `<line>`. A stray tag directly inside `<block>` is an error,
+not a silent skip — that catches a misplaced [`<gen>`](../generators/overview.md#top) or a
+mistyped tag before it corrupts your output:
+
+`./run demo.tdc`
+
+```
+error[TDC013]: <foo> is not allowed directly inside <block>
+```
+
+If [`<before_block>`](#fixtures--text-around-the-records) /
+[`<after_block>`](#fixtures--text-around-the-records) /
+[`<delimiter_block>`](#fixtures--text-around-the-records) are declared in `<env>`, they
+wrap each rendered record — see [Fixtures](#fixtures--text-around-the-records) below.
+
+## `<line>` — one line of a record
+
+`<line>` describes a single line inside a record. It's emitted once per pass, with a
+trailing newline, and it holds any number of `<data>` children, printed one after
+another from left to right.
+
+### `if` — show the whole line only on a condition
+
+**Problem.** You want a `---` separator **between** records, but not dangling after the
+last one. Guard the whole line with `if`: when the expression is false, neither the line
+**nor** its inter-line delimiter is emitted on that pass.
+
+```xml
+<tdc>
+    <env count="3" seed="demo">
+        <sequence name="Name">
+            <gen type="text" value="Alice,Bob,Carol" order="sequential"/>
+        </sequence>
+    </env>
+    <block>
+        <line><data>name=${{Name}}</data></line>
+        <line if="!_last"><data>---</data></line>
+    </block>
+</tdc>
+```
+
+`./run demo.tdc (count=3)`
+
+```
+name=Alice
+---
+name=Bob
+---
+name=Carol
+```
+
+The second line prints on every record **except the last** (`_last` is the built-in
+"this is the final record" flag) — exactly the "between, but not at the end" behavior
+you also get from the [`<delimiter_block>`](#fixtures--text-around-the-records) fixture.
+The `if` expression uses the same small language as
+[`<data if>`](#conditional-text-with-if): comparisons, `!`, `&&`, `||`, and the built-in
+names.
+
+### `comment` — a note that never renders
+
+`<line comment="…">` carries a free-form note for whoever maintains the config. It's
+ignored at render time and never reaches the output. Use it to annotate a complicated
+layout.
+
+### Generators don't live in `<line>`
+
+The output block is for **formatting only**. You can't put a `<gen>` or a `<mix>`
+directly in a `<line>` — declare a named [`<sequence>`](sequences.md#top) (or a
+[`<mix>`](../reference/tags.md#top)) in [`<env>`](configuration.md#top) and reference it with
+`${{Name}}`. This keeps *what the data is* separate from *how it's laid out*.
+
+There's a related limit: an [`advanced_regex`](../generators/advanced-regex.md#top)
+generator used from inside the output can't use the weighted-choice form `(?%{...})`,
+because exact percentages need a sequence context with a known `count`. Declare it as a
+named sequence in `<env>` instead.
+
+## `<data>` — raw text
+
+`<data>` holds **raw text**. Everything between the opening `<data>` and its `</data>`
+is printed verbatim, with a single exception: interpolation `${{…}}` is replaced by
+sequence values.
+
+`<data>` is the **only** place you can freely write `<`, `>`, `{`, `}`, quotes, and
+commas — the characters that are special to XML. That's what lets you assemble JSON,
+CSV, SQL, or any other format built out of those characters:
+
+```xml
+<line><data><tag> = "value", {key: 42}</data></line>
+```
+
+`./run demo.tdc`
+
+```
+<tag> = "value", {key: 42}
+```
+
+Two things to know about the raw text:
+
+- **XML entities are not expanded.** `&lt;` stays the literal `&lt;`; it does **not**
+  turn into `<`. Just write the character you actually want.
+- **In the layout, `<data>` lives inside a `<line>`** — either the block's lines or a
+  fixture's — and nowhere else. Here it takes two optional attributes:
+  [`if`](#conditional-text-with-if) (suppress this piece on a condition) and
+  [`pair`](#raw-text-and-a-literal-data) (for a literal `</data>` in the text).
+  The same tag has a second, unrelated job inside `<env>`: as a child of a
+  [`<sequence>`](sequences.md#a-composed-sequence) it is literal text glued into a
+  composed value, and with a `name` it is a
+  [constant field](sequences.md#a-constant-field). Layout or value — the surrounding tag
+  decides.
+
+### Spaces are text too — indentation comes free
+
+"Verbatim" includes **spaces**. Leading ones, trailing ones, and long runs in the middle
+all reach the output exactly as you typed them:
+
+```xml
+<line><data>      hello   </data><data>|end</data></line>
+```
+
+`./run demo.tdc`
+
+```
+      hello   |end
+```
+
+Nothing is trimmed and nothing is collapsed, so **you indent the output by indenting the
+text inside `<data>`**. That's the whole technique for producing structured, readable
+files — an indented SQL schema, nested JSON, YAML, a tree.
+
+Keep the two kinds of indentation straight. The indentation of the **tags** (`<line>`
+sitting two spaces in) is your config's own layout, and it never shows up in the output.
+Only what sits *between* `<data>` and `</data>` is text. In the schema below, the two
+spaces before `id` are inside the data and survive; the four before `<line>` are outside
+it and disappear:
+
+```xml
+<env count="2" seed="indent">
+  <before>
+    <line><data>CREATE TABLE customers (</data></line>
+    <line><data>  id    INTEGER PRIMARY KEY,</data></line>
+    <line><data>  name  TEXT NOT NULL,</data></line>
+    <line><data>  city  TEXT NOT NULL</data></line>
+    <line><data>);</data></line>
+  </before>
+  <sequence name="Id"><gen type="increment" value="1"/></sequence>
+  <sequence name="Name"><gen type="template" value="person.male.firstName"/></sequence>
+  <sequence name="City"><gen type="text" value="Paris,Berlin"/></sequence>
+</env>
+<block>
+  <line><data>INSERT INTO customers VALUES (${{Id}}, '${{Name}}', '${{City}}');</data></line>
+</block>
+```
+
+`./run demo.tdc`
+
+```
+CREATE TABLE customers (
+  id    INTEGER PRIMARY KEY,
+  name  TEXT NOT NULL,
+  city  TEXT NOT NULL
+);
+INSERT INTO customers VALUES (1, 'James', 'Berlin');
+INSERT INTO customers VALUES (2, 'John', 'Paris');
+```
+
+The extra spaces after `id` and `name` are doing alignment work — nothing lines the
+columns up for you, you type the padding yourself. The same trick gives you indented
+JSON: put `  {` on one line and `    "id": ${{Id}},` on the next, and the nesting is
+the spaces you wrote.
+
+> [!NOTE]
+> **Attributes behave the opposite way**
+>
+> A `<data>` body is never trimmed; a comma-separated attribute list **is**. In
+> `value="a, b"` the second item is `b`, not `" b"` — the space around the comma is
+> separator padding, not data. So inside `<data>` the spaces are yours to control, and
+> inside a `value=` list they're cleaned up for you. The flip side of "never trimmed":
+> a trailing space you can't see is still in the file.
+
+## Interpolation — `${{Name}}`
+
+Inside `<data>`, `${{Name}}` is replaced by that sequence's value on the current row.
+
+```xml
+<block>
+    <line><data>Name: ${{Name}}, age: ${{Age}}</data></line>
+</block>
+```
+
+`./run demo.tdc (Name = person name, Age = 18..80)`
+
+```
+Name: James, age: 72
+Name: Mary, age: 18
+Name: Andrew, age: 64
+Name: Emma, age: 26
+```
+
+### How a name resolves
+
+For each `${{Name}}`:
+
+1. **A declared sequence with a value on this row** → that value.
+2. **A declared sequence with no value on this row** (filtered out on this pass by a
+   [`parent`](../guides/hierarchical-dependencies.md#top)) → the **empty string**.
+3. **An undeclared name** (a typo, a forgotten declaration) → error `TDC193`, with a
+   suggestion:
+
+`./run typo.tdc`
+
+```
+error[TDC193]: "Nmae" is not a declared sequence — it would be
+printed literally
+suggestion: did you mean "Name"?
+```
+
+This check earns its keep in typed output. In a CSV you might spot a stray `${{Nmae}}`
+by eye, but in a Parquet file it would land in a typed string column and look like a
+real value — you'd never catch it. If you genuinely want a literal `${{...}}` in the
+output (you're generating a config, a GitHub Actions file, a Handlebars template),
+change the marker with [`inject`](#a-custom-interpolation-marker) and the check turns
+off.
+
+### Built-in names
+
+Always available without declaring anything: `${{_count}}` (1-based record number),
+`${{_first}}` / `${{_last}}` (`"true"` / `"false"`), and `${{_total}}` (the total). See
+[Built-ins](../reference/builtins.md#top).
+
+### Filters
+
+You can transform a value in place with a `|` "pipe" — a mask, a case change, a slice,
+and so on. This is formatting **on the way out**: the value is generated as usual, and
+then the filter reshapes it. Here a raw nine-digit US SSN gets a display mask:
+
+```xml
+<data>${{Ssn}}  ->  ${{Ssn | mask:xxx-xx-xxxx}}</data>
+```
+
+`./run demo.tdc`
+
+```
+407963258  ->  407-96-3258
+539027461  ->  539-02-7461
+```
+
+Filters chain left to right (`${{Name | mask:w:w | upper}}` — mask, then uppercase).
+The full set — `mask`, `upper`/`lower`/`capitalize`/`title`, `slice`, `replace`,
+`trim`, `group`, `compact`, and the `csv`/`sql` escapes — is in
+**[Masks & case](../guides/masks-and-case.md#top)**.
+
+### Where interpolation does *not* run
+
+- **Not in fixtures.** `${{…}}` is left untouched inside
+  [`<before>`](#fixtures--text-around-the-records) / `<after>` / `<before_block>` and
+  the rest — they sit outside the per-row loop.
+- **Not in attributes.** Interpolation happens only in `<data>` text, never inside a
+  tag's attribute value.
+- **No nesting.** Interpolation is single-pass. If a sequence value itself contains
+  `${{Something}}`, that inner marker is **not** processed again — it goes out as-is.
+
+## Conditional text with `if`
+
+`<data if="…">` prints only when the expression is true. If the condition is false, that
+one `<data>` is suppressed for the row, and any other `<data>` in the same `<line>`
+still renders normally. The classic use is "JSON without a trailing comma": a second
+`<data if="!_last">,` prints a comma on every record but the last.
+
+```xml
+<tdc>
+    <env count="3" seed="demo">
+        <before><line><data>[</data></line></before>
+        <after><line><data>]</data></line></after>
+        <sequence name="Id"><gen type="increment" value="1"/></sequence>
+    </env>
+    <block>
+        <line><data>  {"id": ${{Id}}}</data><data if="!_last">,</data></line>
+    </block>
+</tdc>
+```
+
+`./run demo.tdc (count=3)`
+
+```
+[
+  {"id": 1},
+  {"id": 2},
+  {"id": 3}
+]
+```
+
+Two `<data>` tags in one `<line>` print back to back: the object, then the comma. On the
+last record `!_last` is false, the comma is skipped, and the JSON stays valid. The
+expression language supports comparisons (`==`, `!=`, `<`, `>`), the boolean operators
+`!`, `&&`, and `||`, and the built-in names — it's the same language
+[`<line if>`](#if--show-the-whole-line-only-on-a-condition) uses.
+
+## Fixtures — text around the records
+
+Fixtures print fixed text at the edges of the run, which keeps the per-record `<block>`
+clean:
+
+- **`<before>`** and **`<after>`** print **once** — before the first record and after
+  the last. Typical uses: the opening `[` and closing `]` of a JSON array, a CSV header
+  row, an `INSERT INTO … VALUES` prefix, a trailing `;`.
+- **`<before_block>`**, **`<after_block>`**, and **`<delimiter_block>`** wrap **each**
+  record. The last of the three prints between records but not after the final one.
+
+All fixtures live inside [`<env>`](configuration.md#top) and, like the block, hold
+`<line>` → `<data>`. The `[` and `]` in the JSON example above are a `<before>` and an
+`<after>`:
+
+```xml
+<tdc>
+    <env count="3" seed="demo">
+        <before><line><data>[</data></line></before>
+        <after><line><data>]</data></line></after>
+        <sequence name="Id"><gen type="increment" value="1"/></sequence>
+    </env>
+    <block>
+        <line><data>  ${{Id}}</data></line>
+    </block>
+</tdc>
+```
+
+`./run demo.tdc (count=3)`
+
+```
+[
+  1
+  2
+  3
+]
+```
+
+The `[` printed exactly once at the top and the `]` exactly once at the bottom, whether
+`count` is 3 or 3,000.
+
+Two caveats, both enforced:
+
+- **Interpolation doesn't run in fixtures** (they're outside the loop) — a `${{…}}`
+  there stays literal text.
+- **Generators don't run in fixtures either.** A `<gen>`, `<mix>`, or `<switch>` inside
+  a fixture is error `TDC131`. This used to fail silently: a `value="500..999"`
+  generator in a fixture always emitted `500`, the low bound, which looked like a real
+  value.
+
+## A custom interpolation marker
+
+[`inject`](../reference/attributes.md#top) on [`<env>`](configuration.md#top) changes the
+interpolation markers. The string must contain exactly one `%`, which is where the name
+goes:
+
+```xml
+<env inject="${{%}}">…</env>   <!-- the default -->
+<env inject="[%]">…</env>       <!-- then write [Name] in <data> -->
+<env inject="%{%}%">…</env>     <!-- then write %{Name}% in <data> -->
+```
+
+With `inject="[%]"` and `<data>Name: [Name]</data>`:
+
+`./run demo.tdc (inject=[%])`
+
+```
+Name: James
+Name: Mary
+Name: Andrew
+Name: Emma
+```
+
+Only the substitution **syntax** changes, not the data — the values are identical to the
+default `${{Name}}` form. The prefix and suffix are escaped for you, even when they
+contain regex metacharacters. The main reason to change the marker is to emit a literal
+`${{...}}` in your output (a config, a template) without tripping the undeclared-name
+check.
+
+## Raw text and a literal `</data>`
+
+`<data>` is raw, but a plain `<data>` closes at the **first** `</data>` it hits. To emit
+a literal `</data>` in the text — a snippet of TDC syntax in generated documentation,
+say — give the tag a [`pair`](../reference/attributes.md#top) marker; the opening and
+closing tags both have to carry the same one. In the example below the `${{...}}` is
+meant to appear verbatim too, so it also moves the
+[interpolation marker](configuration.md#top) out of the way with `inject`:
+
+```xml
+<env count="1" seed="demo" inject="[[%]]">
+    <sequence name="Name"><gen type="text" value="a,b"/></sequence>
+</env>
+<block>
+    <line><data pair="doc-example">To print a name, write: <data>${{Name}}</data></data pair="doc-example"></line>
+</block>
+```
+
+```
+To print a name, write: <data>${{Name}}</data>
+```
+
+The `pair` value has to be unique within the file. The parser now knows that only
+`</data pair="doc-example">` closes the block, so the inner `</data>` comes through as
+plain text. (Without the `inject="[[%]]"`, `${{Name}}` would still be interpolated into
+a value — `pair` protects the tags, not the substitution markers.)
+
+## See also
+
+- **[Masks & case](../guides/masks-and-case.md#top)** — the full set of filters and masks.
+- **[Determinism & proportions](determinism.md#top)** — `seed`, `count`, and `percent`.
+- **[Hierarchical dependencies](../guides/hierarchical-dependencies.md#top)** — how `parent`
+  filters a sequence, giving the empty-string case above.
+- [Built-ins](../reference/builtins.md#top) — `_count`, `_first`, `_last`, `_total`.
+- [Tags reference](../reference/tags.md#top) — `<block>`, `<line>`, `<data>`, and the
+  fixtures at a glance.
+
+---
+
+← Previous: [Sequences](./sequences.md#top) · **[Contents](../README.md#top)** · Next: [Determinism & proportions](./determinism.md#top) →

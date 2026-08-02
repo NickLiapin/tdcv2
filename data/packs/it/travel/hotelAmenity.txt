@@ -1,0 +1,34 @@
+---
+description: Hotel amenity (Italian)
+locale: it
+---
+Wi-Fi gratuito
+Piscina
+Piscina riscaldata
+Spa
+Palestra
+Ristorante
+Bar
+Servizio in camera
+Navetta per l'aeroporto
+Colazione inclusa
+Parcheggio gratuito
+Animali ammessi
+Centro business
+Portineria
+Servizio lavanderia
+Vasca idromassaggio
+Terrazza panoramica
+Aria condizionata
+Cassaforte
+Reception 24 ore
+Sale riunioni
+Ascensore
+Minibar
+Accesso per disabili
+Deposito bagagli
+Noleggio biciclette
+Area bambini
+Sauna
+Vista mare
+Cucina attrezzata

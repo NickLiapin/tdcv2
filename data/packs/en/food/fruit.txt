@@ -1,0 +1,26 @@
+---
+description: Fruit
+locale: en
+---
+Apple
+Banana
+Orange
+Strawberry
+Grape
+Mango
+Pineapple
+Watermelon
+Peach
+Pear
+Cherry
+Blueberry
+Raspberry
+Kiwi
+Lemon
+Lime
+Plum
+Apricot
+Pomegranate
+Fig
+Papaya
+Coconut

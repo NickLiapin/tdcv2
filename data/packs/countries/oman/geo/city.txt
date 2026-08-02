@@ -1,0 +1,25 @@
+---
+address: oman.geo.city
+description: Cities and towns of Oman (Arabic)
+locale: ar
+---
+مسقط
+صلالة
+صحار
+السيب
+بوشر
+صور
+نزوى
+البريمي
+عبري
+الرستاق
+بركاء
+صحم
+خصب
+إبراء
+بهلا
+ينقل
+مطرح
+الخابورة
+سمائل
+جعلان

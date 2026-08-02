@@ -1,0 +1,12 @@
+---
+description: Time of day (Italian)
+locale: it
+---
+mattina
+mezzogiorno
+pomeriggio
+tramonto
+sera
+mezzanotte
+notte fonda
+alba

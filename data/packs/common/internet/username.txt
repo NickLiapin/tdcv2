@@ -1,0 +1,6 @@
+---
+address: common.internet.username
+description: Username — leading letter then 7-13 chars of a-z0-9_ (length 8-14)
+generator: tdc
+---
+<gen type="regex" value="[a-z][a-z0-9_]{7,13}"/>

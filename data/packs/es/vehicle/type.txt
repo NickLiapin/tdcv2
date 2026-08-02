@@ -1,0 +1,26 @@
+---
+description: Vehicle body type (Spanish)
+locale: es
+---
+Sedán
+Cupé
+Hatchback
+SUV
+Todocamino
+Todoterreno
+Descapotable
+Monovolumen
+Familiar
+Camioneta
+Camioneta pickup
+Furgoneta
+Furgón
+Deportivo
+Roadster
+Utilitario
+Vehículo de lujo
+Limusina
+Microbús
+Autobús
+Camión
+Motocicleta

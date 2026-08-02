@@ -1,0 +1,195 @@
+<a name="top"></a>
+
+**English** · [Русский](../ru/compute/walkthrough.md#top) · [Español](../es/compute/walkthrough.md#top)
+
+← Previous: [Conditionals](./conditionals.md#top) · **[Contents](../README.md#top)** · Next: [Hierarchical dependencies](../guides/hierarchical-dependencies.md#top) →
+
+---
+
+# A pack read line by line
+
+The other pages introduce one tag at a time. This one goes the other way: a real
+generator, start to finish, with every line accounted for. Nothing new is introduced —
+if you have read [Lists](lists.md#top) and [Arithmetic](arithmetic.md#top), you have already
+met every tag below.
+
+The subject is a US bank routing number, the nine digits printed at the bottom left of
+a check. Eight of them are arbitrary. The ninth is a check digit: multiply the first
+eight by the weights 3, 7, 1, 3, 7, 1, 3, 7 in turn, add up the products, and choose the
+last digit so the total lands on a multiple of ten.
+
+## The whole thing
+
+```xml
+<tdc>
+    <env count="4" seed="aba-walk" local="en">
+        <sequence name="Prefix"><gen type="text" value="01,02,03,04,05,06,07,08,09,10,11,12"/></sequence>
+        <sequence name="Tail"><gen type="regex" value="[0-9]{6}"/></sequence>
+
+        <sequence name="Routing">
+            <compute>
+                <let name="base"><concat><field name="Prefix"/><field name="Tail"/></concat></let>
+                <let name="weighted">
+                    <reduce>
+                        <over><var name="base"/></over>
+                        <init><int v="0"/></init>
+                        <do>
+                            <add>
+                                <acc/>
+                                <multiply>
+                                    <current/>
+                                    <at><in><list v="3,7,1,3,7,1,3,7"/></in><index><current_index/></index></at>
+                                </multiply>
+                            </add>
+                        </do>
+                    </reduce>
+                </let>
+                <let name="check">
+                    <mod><subtract><int v="10"/><mod><var name="weighted"/><int v="10"/></mod></subtract><int v="10"/></mod>
+                </let>
+                <result><concat><var name="base"/><var name="check"/></concat></result>
+            </compute>
+        </sequence>
+    </env>
+    <block><line><data>${{Routing}}</data></line></block>
+</tdc>
+```
+
+`./run routing.tdc`
+
+```
+107718758
+096763296
+073800334
+052259744
+```
+
+Every one of those four passes the real check: weight the first eight digits by
+3, 7, 1, 3, 7, 1, 3, 7, add the ninth, and the sum divides by ten.
+
+![](../img/compute/studio-routing-config-light.png)
+
+*The config as a graph: two drawn columns feed one computed column, and every arrow says who uses whom.*
+
+## Who draws and who computes
+
+Two sequences draw, one computes.
+
+`Prefix` and `Tail` hold `<gen>` tags, so they are the only places anything random
+happens. `Routing` holds a `<compute>`, so it invents nothing — it reads the two drawn
+columns and works out what follows from them. Change the seed and the first two change;
+the third changes only because its inputs did.
+
+That split is the whole shape of an identifier pack. The randomness is in the parts, the
+rules are in the compute.
+
+![](../img/compute/studio-routing-tree-light.png)
+
+*The same compute as a tree, in the Studio canvas. It is wider than this column — click to open it full size and move around it.*
+
+## Line by line
+
+### The base: eight digits from two columns
+
+```xml
+<let name="base"><concat><field name="Prefix"/><field name="Tail"/></concat></let>
+```
+
+`<field>` pulls in a column that already exists; `<concat>` glues the two strings into
+one eight-character string; `<let>` gives that string the name `base`.
+
+`base` is now readable as `<var name="base"/>` for the rest of this `<compute>` — and
+only after this line. A name is bound once, read forward, and never rebound.
+
+### The weighted sum: a fold with a lookup inside
+
+```xml
+<reduce>
+    <over><var name="base"/></over>
+    <init><int v="0"/></init>
+    <do>
+        <add>
+            <acc/>
+            <multiply>
+                <current/>
+                <at><in><list v="3,7,1,3,7,1,3,7"/></in><index><current_index/></index></at>
+            </multiply>
+        </add>
+    </do>
+</reduce>
+```
+
+Three slots, in the roles they always have. `<over>` is the shelf — `base` is a string,
+so it walks one character at a time, eight steps. `<init>` puts `0` in the jar. `<do>`
+runs once per step.
+
+Inside `<do>`, read outward from the middle:
+
+1. `<current_index/>` is the step number, counting from 0.
+2. `<at>` uses it to pick the matching weight out of the eight-element list. This is a
+   lookup table standing in for eight branches of a conditional.
+3. `<multiply>` multiplies the digit in hand by that weight.
+4. `<add>` adds the product to what is already in the jar, `<acc/>`.
+
+Walking `07718758`'s first eight digits `0 7 7 1 8 7 5 8` against the weights
+3, 7, 1, 3, 7, 1, 3, 7:
+
+| Step | `<current/>` | weight | product | jar after |
+| ---: | ---: | ---: | ---: | ---: |
+| 1 | 0 | 3 | 0 | 0 |
+| 2 | 7 | 7 | 49 | 49 |
+| 3 | 7 | 1 | 7 | 56 |
+| 4 | 1 | 3 | 3 | 59 |
+| 5 | 8 | 7 | 56 | 115 |
+| 6 | 7 | 1 | 7 | 122 |
+| 7 | 5 | 3 | 15 | 137 |
+| 8 | 8 | 7 | 56 | 193 |
+
+So `weighted` is 193 for that record.
+
+### The check digit: what is missing to reach a round ten
+
+```xml
+<mod><subtract><int v="10"/><mod><var name="weighted"/><int v="10"/></mod></subtract><int v="10"/></mod>
+```
+
+Read it inside out. `193 mod 10` is 3 — how far past a multiple of ten the sum already
+is. `10 - 3` is 7 — how much more it needs. The outer `<mod>` handles the one case where
+that arithmetic misbehaves: when the sum already ends in 0, `10 - 0` is 10, and a check
+digit has to be a single digit, so `10 mod 10` brings it back to 0.
+
+That outer `<mod>` is the kind of line that looks redundant until the one record in ten
+that needs it.
+
+### The answer
+
+```xml
+<result><concat><var name="base"/><var name="check"/></concat></result>
+```
+
+Eight digits and the ninth, joined. `<result>` is where a `<compute>` ends; there is
+exactly one, and its value is what `${{Routing}}` prints.
+
+## What to copy from this
+
+The shape transfers to any check-digit scheme:
+
+1. Draw the arbitrary part with `<gen>`, in one or more sequences.
+2. Name it with `<let>` so the rest of the block can read it.
+3. Fold it with `<reduce>`, using `<at>` for per-position weights instead of branches.
+4. Turn the total into a digit with `<mod>` arithmetic.
+5. `<concat>` the parts and hand them to `<result>`.
+
+Luhn, ISBN, IBAN's mod-97 and the national ID schemes in the bundled packs are all this
+same five-step shape with different weights and a different final step.
+
+## See also
+
+- **[Overview](overview.md#top)** — the pipe, slots, and the tags whose names mislead.
+- **[Lists & iteration](lists.md#top)** — where a list comes from, and `<reduce>` step by step.
+- **[Arithmetic](arithmetic.md#top)** — integer division, `<mod>`, and the string-to-number border.
+- **[Writing your own pack](../data-packs/writing-your-own.md#top)** — how to ship a generator like this one.
+
+---
+
+← Previous: [Conditionals](./conditionals.md#top) · **[Contents](../README.md#top)** · Next: [Hierarchical dependencies](../guides/hierarchical-dependencies.md#top) →

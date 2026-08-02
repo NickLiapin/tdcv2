@@ -1,0 +1,10 @@
+---
+description: Conditions in French markedly more frequent in people of Pacific Islander ancestry. A prevalence signal, not an exclusive one.
+locale: fr
+---
+Diabète de type 2
+Hypertension artérielle liée à l'obésité
+Goutte
+Cardiopathie rhumatismale
+Maladie rénale chronique
+Hyperuricémie

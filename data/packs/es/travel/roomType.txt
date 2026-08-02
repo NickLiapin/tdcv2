@@ -1,0 +1,22 @@
+---
+description: Hotel room type (Spanish)
+locale: es
+---
+Estándar
+Superior
+Suite
+Suite júnior
+Suite presidencial
+Individual
+Doble
+Doble con dos camas
+Matrimonial
+Triple
+Cuádruple
+Habitación familiar
+Estudio
+Apartamento
+Bungaló
+Habitación accesible
+Habitación con vistas al mar
+Ático

@@ -1,0 +1,58 @@
+---
+description: Product adjective (Italian), masculine singular base form — Italian adjectives follow the noun ("Poltrona pieghevole"). Entries ending in -e are gender-invariant; the -o forms need a feminine variant to agree.
+locale: it
+---
+elegante
+portatile
+versatile
+resistente
+impermeabile
+intelligente
+artigianale
+funzionale
+ergonomico
+pieghevole
+regolabile
+ricaricabile
+senza fili
+leggero
+compatto
+durevole
+reversibile
+antiscivolo
+traspirante
+isolante
+riciclabile
+sostenibile
+ecologico
+premium
+classico
+moderno
+minimalista
+rustico
+vintage
+industriale
+sportivo
+multifunzione
+impilabile
+smontabile
+lavabile
+antibatterico
+antimacchia
+termico
+imbottito
+rinforzato
+silenzioso
+automatico
+programmabile
+compatibile
+universale
+professionale
+economico
+fatto a mano
+di lusso
+di design
+di alta gamma
+senza marca
+in edizione limitata
+su misura

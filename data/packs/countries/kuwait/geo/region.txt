@@ -1,0 +1,11 @@
+---
+address: kuwait.geo.region
+description: Governorates of Kuwait (Arabic)
+locale: ar
+---
+العاصمة
+حولي
+الفروانية
+الأحمدي
+الجهراء
+مبارك الكبير

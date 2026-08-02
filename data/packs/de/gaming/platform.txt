@@ -1,0 +1,15 @@
+---
+description: Gaming platform (German; brand names kept as-is)
+locale: de
+---
+PlayStation 5
+PlayStation 4
+Xbox Series X
+Xbox Series S
+Xbox One
+Nintendo Switch
+PC
+Steam Deck
+Meta Quest
+Mobilgerät
+Browser

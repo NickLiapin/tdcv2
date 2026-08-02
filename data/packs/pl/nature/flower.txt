@@ -1,0 +1,32 @@
+---
+description: Flower (Polish)
+locale: pl
+---
+Róża
+Tulipan
+Stokrotka
+Słonecznik
+Lilia
+Storczyk
+Narcyz
+Nagietek
+Lawenda
+Irys
+Piwonia
+Goździk
+Chryzantema
+Mak
+Fiołek
+Jaśmin
+Hibiskus
+Lotos
+Dalia
+Begonia
+Konwalia
+Gardenia
+Kamelia
+Petunia
+Pelargonia
+Bugenwilla
+Niezapominajka
+Azalia

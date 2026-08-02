@@ -1,0 +1,23 @@
+---
+description: Movie genre (Italian)
+locale: it
+---
+Azione
+Commedia
+Drammatico
+Horror
+Thriller
+Romantico
+Fantascienza
+Fantasy
+Documentario
+Animazione
+Avventura
+Poliziesco
+Giallo
+Western
+Musicale
+Guerra
+Biografico
+Noir
+Commedia romantica

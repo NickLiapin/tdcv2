@@ -1,0 +1,7 @@
+---
+address: cuba.geo.zip
+description: Cuban 5-digit postal code (structural — the assigned per-locality ranges are not fully published)
+generator: tdc
+locale: es
+---
+<gen type="regex" value="[1-9][0-9]{4}"/>

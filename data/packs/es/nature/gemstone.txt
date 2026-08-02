@@ -1,0 +1,29 @@
+---
+description: Gemstone (Spanish)
+locale: es
+---
+Diamante
+Rubí
+Zafiro
+Esmeralda
+Amatista
+Topacio
+Ópalo
+Granate
+Aguamarina
+Peridoto
+Turquesa
+Jade
+Ónice
+Perla
+Citrino
+Tanzanita
+Turmalina
+Piedra lunar
+Circón
+Lapislázuli
+Ámbar
+Coral
+Malaquita
+Cuarzo rosa
+Obsidiana

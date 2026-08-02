@@ -1,0 +1,18 @@
+---
+address: panama.geo.province
+description: Panama first-level division — the 10 provinces plus the 3 province-level comarcas indígenas, in cédula-prefix order (1-13); same order as panama.geo.provinceCode / panama.geo.provinceIso
+locale: es
+---
+Bocas del Toro
+Coclé
+Colón
+Chiriquí
+Darién
+Herrera
+Los Santos
+Panamá
+Veraguas
+Comarca Guna Yala
+Comarca Emberá-Wounaan
+Comarca Ngäbe-Buglé
+Panamá Oeste

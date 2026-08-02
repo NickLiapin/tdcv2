@@ -1,0 +1,7 @@
+---
+address: austria.geo.postalCode
+description: Austrian postal code (Postleitzahl) — four digits, 1000 to 9999
+generator: tdc
+locale: de
+---
+<gen type="regex" value="[1-9][0-9]{3}"/>

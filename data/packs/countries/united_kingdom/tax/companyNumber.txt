@@ -1,0 +1,6 @@
+---
+address: united_kingdom.tax.companyNumber
+description: Companies House company registration number — 8 characters: 8 digits for England and Wales, or a real 2-letter prefix + 6 digits (SC Scotland, NI Northern Ireland, OC LLP in England and Wales, SO LLP in Scotland, NC LLP in Northern Ireland). Companies House numbers carry no check digit.
+generator: tdc
+---
+<gen type="regex" value="(?:[0-9]{8}|(?:SC|NI|OC|SO|NC)[0-9]{6})"/>

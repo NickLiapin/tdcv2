@@ -1,0 +1,55 @@
+---
+address: netherlands.geo.city
+description: Cities and towns of the Netherlands, roughly ordered by population
+locale: nl
+---
+Amsterdam
+Rotterdam
+Den Haag
+Utrecht
+Eindhoven
+Groningen
+Tilburg
+Almere
+Breda
+Nijmegen
+Enschede
+Haarlem
+Arnhem
+Zaanstad
+Amersfoort
+'s-Hertogenbosch
+Apeldoorn
+Hoofddorp
+Maastricht
+Leiden
+Dordrecht
+Zoetermeer
+Zwolle
+Deventer
+Delft
+Alkmaar
+Leeuwarden
+Venlo
+Helmond
+Hilversum
+Heerlen
+Hengelo
+Amstelveen
+Purmerend
+Roosendaal
+Oss
+Schiedam
+Vlaardingen
+Almelo
+Gouda
+Assen
+Emmen
+Ede
+Veenendaal
+Katwijk
+Bergen op Zoom
+Capelle aan den IJssel
+Spijkenisse
+Sittard
+Middelburg

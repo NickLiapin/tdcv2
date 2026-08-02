@@ -1,0 +1,11 @@
+---
+description: Italian driving licence category for professional driving (Italian)
+locale: it
+---
+Patente B
+Patente BE
+Patente C1
+Patente C
+Patente CE
+Patente D
+CQC

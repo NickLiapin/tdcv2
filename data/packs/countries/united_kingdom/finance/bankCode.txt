@@ -1,0 +1,24 @@
+---
+address: united_kingdom.finance.bankCode
+description: 4-letter bank code — the institution block of a UK BIC and characters 5-8 of a GB IBAN (e.g. NWBK NatWest, HBUK HSBC UK, BARC Barclays); same order as united_kingdom.finance.bank
+---
+BUKB
+HBUK
+LOYD
+NWBK
+ABBY
+HLFX
+BOFS
+RBOS
+NAIA
+TSBS
+CPBK
+CLYD
+COUT
+MYMB
+MONZ
+SRLG
+SCBL
+HAND
+DABA
+ULSB

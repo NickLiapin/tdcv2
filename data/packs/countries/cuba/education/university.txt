@@ -1,0 +1,22 @@
+---
+address: cuba.education.university
+description: Cuban universities
+locale: es
+---
+Universidad de La Habana
+Universidad Tecnológica de La Habana José Antonio Echeverría
+Universidad de Oriente
+Universidad Central Marta Abreu de Las Villas
+Universidad de Camagüey Ignacio Agramonte Loynaz
+Universidad de Holguín
+Universidad de Cienfuegos Carlos Rafael Rodríguez
+Universidad de Matanzas
+Universidad de Pinar del Río Hermanos Saíz Montes de Oca
+Universidad de Sancti Spíritus José Martí Pérez
+Universidad de Granma
+Universidad de Guantánamo
+Universidad de Ciego de Ávila Máximo Gómez Báez
+Universidad de Las Tunas
+Universidad de Ciencias Médicas de La Habana
+Universidad de las Artes
+Instituto Superior de Diseño

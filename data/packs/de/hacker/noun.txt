@@ -1,0 +1,41 @@
+---
+description: Tech noun (German)
+locale: de
+---
+Treiber
+Protokoll
+Bandbreite
+Panel
+Mikrochip
+Programm
+Port
+Karte
+Matrix
+Schnittstelle
+System
+Sensor
+Firewall
+Festplatte
+Pixel
+Alarm
+Datenstrom
+Monitor
+Anwendung
+Sender
+Bus
+Schaltkreis
+Kondensator
+Datenbank
+Pipeline
+Server
+Router
+Switch
+Cache
+Kern
+Bibliothek
+Erweiterung
+Container
+Sicherungskopie
+Neuronales Netz
+Verschlüsselungsschlüssel
+Netzwerkpaket

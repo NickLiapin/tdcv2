@@ -1,0 +1,7 @@
+---
+address: san_marino.phone
+description: San Marino mobile phone in E.164 form (+378)
+generator: tdc
+locale: it
+---
+<gen type="regex" value="\+3786[0-9]{7}"/>

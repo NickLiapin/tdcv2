@@ -1,0 +1,10 @@
+---
+description: Conditions markedly more frequent in people of Indigenous American ancestry, in Portuguese. A prevalence signal, not an exclusive one.
+locale: pt
+---
+Diabetes mellitus tipo 2
+Colelitíase
+Nefropatia diabética
+Artrite reumatoide
+Doença hepática gordurosa não alcoólica
+Síndrome metabólica

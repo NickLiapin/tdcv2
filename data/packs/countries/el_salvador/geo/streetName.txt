@@ -1,0 +1,23 @@
+---
+address: el_salvador.geo.streetName
+description: Salvadoran street name — the numbered central-grid form (2a Calle Poniente, 4a Avenida Norte) mixed with named vías (Calle Rubén Darío, Boulevard Los Próceres, Alameda Juan Pablo II)
+generator: tdc
+---
+<sequence name="mode"><gen type="number" value="1..10"/></sequence>
+<sequence name="ord"><gen type="text" value="1a,2a,3a,4a,5a,6a,7a,8a,9a,10a,11a,12a,13a,14a,15a,17a,19a,21a,23a,25a"/></sequence>
+<sequence name="calleDir"><gen type="text" value="Poniente,Oriente"/></sequence>
+<sequence name="avDir"><gen type="text" value="Norte,Sur"/></sequence>
+<sequence name="type"><gen type="text" value="Calle,Calle,Avenida,Avenida,Boulevard,Alameda,Paseo,Pasaje,Prolongación,Diagonal,Final"/></sequence>
+<sequence name="named"><gen type="template" value="el_salvador.geo.streetNamed"/></sequence>
+<sequence name="street"><compute>
+  <result>
+    <choose>
+      <when><test><less_than><to_number><field name="mode"/></to_number><int v="4"/></less_than></test>
+        <then><concat><field name="ord"/><str v=" Calle "/><field name="calleDir"/></concat></then></when>
+      <when><test><less_than><to_number><field name="mode"/></to_number><int v="7"/></less_than></test>
+        <then><concat><field name="ord"/><str v=" Avenida "/><field name="avDir"/></concat></then></when>
+      <otherwise><concat><field name="type"/><str v=" "/><field name="named"/></concat></otherwise>
+    </choose>
+  </result>
+</compute></sequence>
+<data>${{street}}</data>

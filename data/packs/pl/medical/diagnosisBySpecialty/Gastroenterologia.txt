@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Gastroenterology (Polish)
+locale: pl
+---
+Choroba refluksowa przełyku
+Choroba Leśniowskiego-Crohna
+Wrzodziejące zapalenie jelita grubego
+Choroba wrzodowa żołądka i dwunastnicy
+Zespół jelita drażliwego
+Marskość wątroby
+Celiakia
+Ostre zapalenie trzustki
+Zapalenie uchyłków jelita grubego
+Kamica żółciowa

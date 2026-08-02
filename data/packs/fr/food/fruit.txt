@@ -1,0 +1,38 @@
+---
+description: Fruit (French)
+locale: fr
+---
+Pomme
+Poire
+Banane
+Orange
+Citron
+Fraise
+Framboise
+Cerise
+Pêche
+Abricot
+Prune
+Raisin
+Melon
+Pastèque
+Ananas
+Mangue
+Kiwi
+Pamplemousse
+Clémentine
+Figue
+Grenade
+Myrtille
+Groseille
+Cassis
+Mûre
+Nectarine
+Coing
+Litchi
+Papaye
+Fruit de la passion
+Datte
+Noix de coco
+Rhubarbe
+Mandarine

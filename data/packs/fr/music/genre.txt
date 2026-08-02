@@ -1,0 +1,34 @@
+---
+description: Music genre (French)
+locale: fr
+---
+Pop
+Rock
+Rap
+Hip-hop
+Jazz
+Blues
+Classique
+Électro
+Techno
+House
+Reggae
+Metal
+Punk
+Funk
+Soul
+R&B
+Country
+Folk
+Variété française
+Chanson française
+Disco
+Gospel
+Latino
+Musiques du monde
+Ambient
+Trap
+Raï
+Zouk
+Afrobeat
+Indie

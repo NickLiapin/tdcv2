@@ -1,0 +1,10 @@
+---
+description: Conditions in Arabic markedly more frequent in people of Pacific Islander ancestry. A prevalence signal, not an exclusive one.
+locale: ar
+---
+السكري من النوع الثاني
+ارتفاع ضغط الدم المرتبط بالسمنة
+النقرس
+مرض القلب الروماتيزمي
+مرض الكلى المزمن
+فرط حمض اليوريك في الدم

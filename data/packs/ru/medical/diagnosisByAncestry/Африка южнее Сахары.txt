@@ -1,0 +1,16 @@
+---
+description: Conditions markedly more frequent in people of Sub-Saharan African ancestry (Russian). A prevalence signal, not an exclusive one — anyone can have these, and most patients of this ancestry have none of them.
+locale: ru
+---
+Серповидноклеточная анемия
+Носительство серповидноклеточного гена
+Дефицит глюкозо-6-фосфатдегидрогеназы
+APOL1-ассоциированная нефропатия
+Келоидные рубцы
+Саркоидоз
+Гипертонический нефросклероз
+Миома матки
+Доброкачественная этническая нейтропения
+Лактазная недостаточность взрослого типа
+Псевдофолликулит области бороды
+Витилиго

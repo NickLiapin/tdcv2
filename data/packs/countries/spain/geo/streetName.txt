@@ -1,0 +1,9 @@
+---
+address: spain.geo.streetName
+description: Spanish street with its tipo de vía — spain.geo.streetType + spain.geo.streetNamed (e.g. "Calle Mayor", "Avenida Federico García Lorca", "Plaza San Miguel")
+generator: tdc
+locale: es
+---
+<sequence name="type"><gen type="template" value="spain.geo.streetType"/></sequence>
+<sequence name="named"><gen type="template" value="spain.geo.streetNamed"/></sequence>
+<data>${{type}} ${{named}}</data>

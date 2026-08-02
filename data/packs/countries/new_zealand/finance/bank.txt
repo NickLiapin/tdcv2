@@ -1,0 +1,17 @@
+---
+address: new_zealand.finance.bank
+description: New Zealand registered bank whose two-digit bank prefix is on the Payments NZ register; same order as new_zealand.finance.bankCode
+locale: en
+---
+ANZ
+BNZ
+Westpac
+China Construction Bank
+National Australia Bank
+ICBC
+ASB
+TSB
+HSBC
+Citibank
+Kiwibank
+Bank of China

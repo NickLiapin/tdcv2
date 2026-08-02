@@ -1,0 +1,10 @@
+---
+description: Day-of-week abbreviation (Russian)
+---
+Пн
+Вт
+Ср
+Чт
+Пт
+Сб
+Вс

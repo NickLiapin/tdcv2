@@ -1,0 +1,25 @@
+---
+address: gabon.geo.city
+description: Cities and larger towns of Gabon
+locale: fr
+---
+Libreville
+Port-Gentil
+Franceville
+Oyem
+Moanda
+Mouila
+Lambaréné
+Tchibanga
+Koulamoutou
+Makokou
+Bitam
+Gamba
+Ndjolé
+Booué
+Mékambo
+Lastoursville
+Mitzic
+Ntoum
+Fougamou
+Okondja

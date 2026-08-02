@@ -1,0 +1,11 @@
+---
+description: Weekday name
+locale: en
+---
+Monday
+Tuesday
+Wednesday
+Thursday
+Friday
+Saturday
+Sunday

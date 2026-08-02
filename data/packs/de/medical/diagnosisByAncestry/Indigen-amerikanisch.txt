@@ -1,0 +1,10 @@
+---
+description: Conditions markedly more frequent in people of Indigenous American ancestry, given in German. A prevalence signal, not an exclusive one.
+locale: de
+---
+Diabetes mellitus Typ 2
+Cholelithiasis
+Diabetische Nephropathie
+Rheumatoide Arthritis
+Nichtalkoholische Fettlebererkrankung
+Metabolisches Syndrom

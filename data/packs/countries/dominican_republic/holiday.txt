@@ -1,0 +1,17 @@
+---
+address: dominican_republic.holiday
+description: Dominican Republic public holiday (día feriado nacional)
+locale: es
+---
+Año Nuevo
+Día de los Santos Reyes
+Día de Nuestra Señora de la Altagracia
+Día de Duarte
+Día de la Independencia Nacional
+Viernes Santo
+Día del Trabajo
+Corpus Christi
+Día de la Restauración
+Día de Nuestra Señora de las Mercedes
+Día de la Constitución
+Navidad

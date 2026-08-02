@@ -1,0 +1,81 @@
+---
+description: Medical diagnosis in Polish that can occur in any patient — no sex or ancestry restriction. Sex-specific conditions live in diagnosisMale/diagnosisFemale; ancestry-linked ones in diagnosisByAncestry.
+locale: pl
+---
+Nadciśnienie tętnicze
+Cukrzyca typu 2
+Astma oskrzelowa
+Ostre zapalenie oskrzeli
+Grypa
+Migrena
+Zaburzenie lękowe uogólnione
+Zaburzenie depresyjne nawracające
+Choroba zwyrodnieniowa stawów
+Reumatoidalne zapalenie stawów
+Choroba refluksowa przełyku
+Niedokrwistość z niedoboru żelaza
+Niedoczynność tarczycy
+Zakażenie układu moczowego
+Zapalenie płuc
+Przewlekła choroba nerek
+Choroba niedokrwienna serca
+Migotanie przedsionków
+Niewydolność serca
+Udar niedokrwienny mózgu
+Padaczka
+Choroba Parkinsona
+Choroba Alzheimera
+Stwardnienie rozsiane
+Łuszczyca
+Atopowe zapalenie skóry
+Alergiczny nieżyt nosa
+Przewlekłe zapalenie zatok przynosowych
+Zapalenie ucha środkowego
+Zapalenie spojówek
+Zaćma
+Jaskra
+Zapalenie wyrostka robaczkowego
+Zapalenie pęcherzyka żółciowego
+Zapalenie uchyłków jelita grubego
+Zespół jelita drażliwego
+Choroba Leśniowskiego-Crohna
+Wrzodziejące zapalenie jelita grubego
+Przewlekłe wirusowe zapalenie wątroby typu B
+Marskość wątroby
+Ostre zapalenie trzustki
+Dna moczanowa
+Osteoporoza
+Fibromialgia
+Rwa kulszowa
+Przepuklina krążka międzykręgowego
+Zespół cieśni nadgarstka
+Zapalenie ścięgna
+Przewlekła obturacyjna choroba płuc
+Gruźlica
+Białaczka
+Chłoniak
+Czerniak
+Hiperlipidemia
+Otyłość
+Obturacyjny bezdech senny
+Bezsenność
+Choroba afektywna dwubiegunowa
+Zespół nadpobudliwości psychoruchowej z deficytem uwagi
+Celiakia
+Toczeń rumieniowaty układowy
+Zawroty głowy pochodzenia błędnikowego
+Szumy uszne
+Żylaki odbytu
+Żylaki kończyn dolnych
+Zakrzepica żył głębokich
+Zatorowość płucna
+Kamica nerkowa
+Niedokrwistość
+Nadczynność tarczycy
+Choroba wrzodowa żołądka i dwunastnicy
+Zapalenie błony śluzowej żołądka
+Zapalenie tkanki łącznej skóry
+Sepsa
+Rak piersi
+Ostre zapalenie żołądka i jelit
+Niedobór witaminy D

@@ -1,0 +1,18 @@
+---
+description: Insurance type (Italian)
+locale: it
+---
+Salute
+Auto
+Casa
+Vita
+Inquilino
+Viaggio
+Animali domestici
+Invalidità
+Dentale
+Oculistica
+Responsabilità civile
+Infortuni
+Disoccupazione
+Agricola

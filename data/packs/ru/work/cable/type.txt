@@ -1,0 +1,12 @@
+---
+description: Cable type (Russian)
+---
+Оптоволокно
+Коаксиальный
+Витая пара
+Cat5e
+Cat6
+Cat6a
+Ethernet
+Воздушный
+Подземный

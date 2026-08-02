@@ -1,0 +1,21 @@
+---
+address: macau.geo.district
+description: Districts and well-known areas of Macau (Portuguese names)
+locale: pt
+---
+Península de Macau
+Taipa
+Coloane
+Cotai
+Porto Interior
+Porto Exterior
+Zona de Aterros do Porto Exterior
+Areia Preta
+Fai Chi Kei
+Barra
+Praia Grande
+Horta e Costa
+Ilha Verde
+Baixa da Taipa
+Vila de Coloane
+Hac Sá

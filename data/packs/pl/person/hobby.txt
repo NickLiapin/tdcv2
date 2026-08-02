@@ -1,0 +1,81 @@
+---
+description: Hobby / interest (Polish)
+locale: pl
+---
+Czytanie
+Wędrówki górskie
+Fotografia
+Gotowanie
+Ogrodnictwo
+Malarstwo
+Kolarstwo
+Gry komputerowe
+Joga
+Podróże
+Wędkarstwo
+Robótki na drutach
+Bieganie
+Pieczenie
+Stolarstwo
+Szachy
+Taniec
+Surfing
+Biwakowanie
+Obserwacja ptaków
+Ceramika
+Astronomia
+Pływanie
+Wspinaczka
+Nurkowanie
+Muzyka
+Gitara
+Fortepian
+Śpiew
+Teatr
+Pisanie
+Kolekcjonerstwo
+Numizmatyka
+Filatelistyka
+Modelarstwo
+Szycie
+Haft
+Garncarstwo
+Rysunek
+Kaligrafia
+Medytacja
+Sztuki walki
+Boks
+Łyżwiarstwo
+Narciarstwo
+Jazda konna
+Żeglarstwo
+Kajakarstwo
+Golf
+Tenis
+Piłka nożna
+Koszykówka
+Siatkówka
+Siłownia
+Crossfit
+Pilates
+Układanki
+Gry planszowe
+Programowanie
+Robotyka
+Druk 3D
+Enologia
+Degustacja kawy
+Kino
+Podcasty
+Genealogia
+Wolontariat
+Pszczelarstwo
+Ogród miejski
+Bonsai
+Akwarystyka
+Astrofotografia
+Spadochroniarstwo
+Paralotniarstwo
+Speleologia
+Bieg na orientację
+Geocaching

@@ -1,0 +1,13 @@
+---
+description: Directional qualifier appended to an Arabic street or district
+locale: ar
+---
+شمال
+جنوب
+شرق
+غرب
+شمال شرق
+شمال غرب
+جنوب شرق
+جنوب غرب
+وسط

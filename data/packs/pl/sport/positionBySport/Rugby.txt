@@ -1,0 +1,14 @@
+---
+description: Positions in rugby union (Polish)
+locale: pl
+---
+Młynarz
+Hakier
+Drugoliniowy
+Trzecioliniowy
+Numer osiem
+Łącznik młyna
+Łącznik ataku
+Środkowy ataku
+Skrzydłowy
+Zamykający

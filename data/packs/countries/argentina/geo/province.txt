@@ -1,0 +1,29 @@
+---
+address: argentina.geo.province
+description: Argentine first-level division — the 23 provincias plus the Ciudad Autónoma de Buenos Aires, alphabetical; same order as argentina.geo.provinceCode
+locale: es
+---
+Buenos Aires
+Catamarca
+Chaco
+Chubut
+Ciudad Autónoma de Buenos Aires
+Córdoba
+Corrientes
+Entre Ríos
+Formosa
+Jujuy
+La Pampa
+La Rioja
+Mendoza
+Misiones
+Neuquén
+Río Negro
+Salta
+San Juan
+San Luis
+Santa Cruz
+Santa Fe
+Santiago del Estero
+Tierra del Fuego, Antártida e Islas del Atlántico Sur
+Tucumán

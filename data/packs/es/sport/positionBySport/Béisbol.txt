@@ -1,0 +1,14 @@
+---
+description: Positions in baseball (Spanish)
+locale: es
+---
+Lanzador
+Receptor
+Primera base
+Segunda base
+Tercera base
+Campocorto
+Jardinero izquierdo
+Jardinero central
+Jardinero derecho
+Bateador designado

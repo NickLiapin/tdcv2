@@ -1,0 +1,9 @@
+---
+address: ireland.geo.province
+description: The four provinces of Ireland (cúige)
+locale: en
+---
+Leinster
+Munster
+Connacht
+Ulster

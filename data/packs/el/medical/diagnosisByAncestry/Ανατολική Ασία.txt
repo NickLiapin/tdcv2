@@ -1,0 +1,14 @@
+---
+description: Conditions markedly more frequent in people of East Asian ancestry, given in Greek. A prevalence signal, not an exclusive one.
+locale: el
+---
+Άλφα-θαλασσαιμία
+Ανεπάρκεια της αφυδρογονάσης της αλδεΰδης 2
+Ανεπάρκεια λακτάσης ενηλίκων
+Καρκίνωμα του ρινοφάρυγγα
+Καρκίνος του στομάχου
+Πρωτοπαθές γλαύκωμα κλειστής γωνίας
+Νόσος Καβασάκι
+Νόσος Μογιαμόγια
+Υπερευαισθησία στην καρβαμαζεπίνη
+Παθολογική μυωπία

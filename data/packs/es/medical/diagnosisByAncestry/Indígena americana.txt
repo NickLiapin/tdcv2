@@ -1,0 +1,10 @@
+---
+description: Conditions markedly more frequent in people of Indigenous American ancestry, in Spanish. A prevalence signal, not an exclusive one.
+locale: es
+---
+Diabetes mellitus tipo 2
+Litiasis biliar
+Nefropatía diabética
+Artritis reumatoide
+Enfermedad del hígado graso no alcohólico
+Síndrome metabólico

@@ -1,0 +1,9 @@
+---
+address: honduras.geo.postalCode
+description: Honduran código postal (Honducor) — 5 digits; the first two are the real postal-region prefix of the departamento (11-16 centre, 21-23 north-central Sula valley, 31-34 Caribbean coast, 41-43 west, 51-52 south) and the last three the delivery zone
+generator: tdc
+locale: es
+---
+<sequence name="region"><gen type="text" value="11,12,13,14,15,16,21,22,23,31,32,33,34,41,42,43,51,52"/></sequence>
+<sequence name="tail"><gen type="regex" value="[0-9]{3}"/></sequence>
+<data>${{region}}${{tail}}</data>

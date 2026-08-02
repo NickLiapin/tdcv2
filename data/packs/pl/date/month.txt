@@ -1,0 +1,16 @@
+---
+description: Month name (Polish, nominative, lowercase per Polish orthography)
+locale: pl
+---
+styczeń
+luty
+marzec
+kwiecień
+maj
+czerwiec
+lipiec
+sierpień
+wrzesień
+październik
+listopad
+grudzień

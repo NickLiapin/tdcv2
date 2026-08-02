@@ -1,0 +1,10 @@
+---
+description: HTTP method
+---
+GET
+POST
+PUT
+PATCH
+DELETE
+HEAD
+OPTIONS

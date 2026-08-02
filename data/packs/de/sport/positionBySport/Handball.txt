@@ -1,0 +1,11 @@
+---
+description: Positions in handball (German)
+locale: de
+---
+Torwart
+Linker Rückraum
+Rückraum Mitte
+Rechter Rückraum
+Linksaußen
+Rechtsaußen
+Kreisläufer

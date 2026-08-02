@@ -1,0 +1,16 @@
+---
+description: Genetic ancestry group, used as the parent of diagnosisByAncestry. These are ancestry populations as clinical genetics defines them — geographic descent, not social race categories.
+locale: en
+---
+Sub-Saharan African
+North African
+Mediterranean
+Middle Eastern
+Northern European
+Eastern European
+Ashkenazi Jewish
+South Asian
+East Asian
+Southeast Asian
+Indigenous American
+Pacific Islander

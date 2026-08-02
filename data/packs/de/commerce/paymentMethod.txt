@@ -1,0 +1,19 @@
+---
+description: Payment method (German)
+locale: de
+---
+Kreditkarte
+Debitkarte
+PayPal
+Apple Pay
+Google Pay
+Banküberweisung
+Nachnahme
+Barzahlung
+Geschenkkarte
+Kryptowährung
+Ratenzahlung
+Lastschrift
+Scheck
+Gutschein
+Digitale Geldbörse

@@ -1,0 +1,19 @@
+CREATE TABLE users_tbl(
+  user_id INT NOT NULL AUTO_INCREMENT,
+  user_first_name VARCHAR(50) NOT NULL,
+  user_last_name VARCHAR(50) NOT NULL,
+  user_b_day DATE,
+  user_diagnosis VARCHAR(250) NOT NULL,
+  PRIMARY KEY ( user_id )
+);
+
+INSERT INTO user_tbl ( user_first_name, user_last_name, user_b_day ) VALUES ( 'David', 'Jones', 'December 1, 2011', 'Chronic arthritis' );
+INSERT INTO user_tbl ( user_first_name, user_last_name, user_b_day ) VALUES ( 'Robert', 'Davis', 'July 1, 2003', 'Rectal cancer' );
+INSERT INTO user_tbl ( user_first_name, user_last_name, user_b_day ) VALUES ( 'John', 'Martinez', 'June 30, 1997', 'Phimosis' );
+INSERT INTO user_tbl ( user_first_name, user_last_name, user_b_day ) VALUES ( 'Charles', 'Brown', 'September 2, 2002', 'Rectal cancer' );
+INSERT INTO user_tbl ( user_first_name, user_last_name, user_b_day ) VALUES ( 'Thomas', 'Garcia', 'November 29, 1998', 'Chronic arthritis' );
+INSERT INTO user_tbl ( user_first_name, user_last_name, user_b_day ) VALUES ( 'Richard', 'Johnson', 'March 25, 1961', 'Chronic pancreatitis' );
+INSERT INTO user_tbl ( user_first_name, user_last_name, user_b_day ) VALUES ( 'William', 'Miller', 'May 17, 2009', 'Chronic pancreatitis' );
+INSERT INTO user_tbl ( user_first_name, user_last_name, user_b_day ) VALUES ( 'Joseph', 'Smith', 'January 24, 2008', 'Chronic pancreatitis' );
+INSERT INTO user_tbl ( user_first_name, user_last_name, user_b_day ) VALUES ( 'James', 'Williams', 'March 14, 1990', 'Prostatitis' );
+INSERT INTO user_tbl ( user_first_name, user_last_name, user_b_day ) VALUES ( 'Michael', 'Rodriguez', 'June 14, 1995', 'Chronic arthritis' );

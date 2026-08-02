@@ -1,0 +1,31 @@
+---
+address: uruguay.sport.team
+description: Uruguayan football club — the sixteen clubs of the 2026 Liga AUF Uruguaya (Primera División) followed by the historic first-division clubs currently in the Segunda División Profesional
+locale: es
+---
+Club Nacional de Football
+Club Atlético Peñarol
+Defensor Sporting Club
+Danubio Fútbol Club
+Liverpool Fútbol Club
+Montevideo Wanderers Fútbol Club
+Club Atlético Cerro
+Racing Club de Montevideo
+Club Atlético Progreso
+Montevideo City Torque
+Central Español Fútbol Club
+Albion Football Club
+Club Atlético Boston River
+Club Atlético Juventud
+Cerro Largo Fútbol Club
+Deportivo Maldonado
+Rampla Juniors Fútbol Club
+Club Atlético River Plate
+Centro Atlético Fénix
+Club Sportivo Miramar Misiones
+Plaza Colonia de Deportes
+Club Sportivo Cerrito
+Club Atlético Rentistas
+Tacuarembó Fútbol Club
+Club Atlético Bella Vista
+Club Oriental de Football

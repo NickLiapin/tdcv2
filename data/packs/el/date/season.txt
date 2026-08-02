@@ -1,0 +1,8 @@
+---
+description: Season (Greek)
+locale: el
+---
+Άνοιξη
+Καλοκαίρι
+Φθινόπωρο
+Χειμώνας

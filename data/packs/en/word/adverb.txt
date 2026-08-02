@@ -1,0 +1,34 @@
+---
+description: Adverb
+locale: en
+---
+quickly
+slowly
+carefully
+easily
+quietly
+loudly
+always
+never
+often
+sometimes
+rarely
+suddenly
+gently
+clearly
+simply
+nearly
+fully
+barely
+mostly
+truly
+deeply
+widely
+freely
+boldly
+calmly
+eagerly
+firmly
+gladly
+kindly
+rapidly

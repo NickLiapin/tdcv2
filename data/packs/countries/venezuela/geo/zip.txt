@@ -1,0 +1,9 @@
+---
+address: venezuela.geo.zip
+description: Venezuelan código postal — 4 digits; the first two are the real IPOSTEL state block (10 Distrito Capital, 11 La Guaira, 12 Miranda, 20 Carabobo … 80 Bolívar), the last two the delivery area
+generator: tdc
+locale: es
+---
+<sequence name="block"><gen type="text" value="10,11,12,20,21,22,23,30,31,32,33,40,41,50,51,52,60,61,62,63,64,70,71,80"/></sequence>
+<sequence name="tail"><gen type="regex" value="[0-9]{2}"/></sequence>
+<data>${{block}}${{tail}}</data>

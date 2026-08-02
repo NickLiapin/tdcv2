@@ -1,0 +1,19 @@
+---
+description: Jobs in Retail (Italian)
+locale: it
+---
+Direttore di negozio
+Cassiere
+Commesso
+Addetto al rifornimento scaffali
+Addetto antitaccheggio
+Responsabile acquisti
+Visual merchandiser
+Addetto al servizio clienti
+Capo reparto
+Magazziniere di punto vendita
+Addetto al banco gastronomia
+Promoter
+Responsabile di area
+Addetto all'e-commerce
+Addetto all'inventario

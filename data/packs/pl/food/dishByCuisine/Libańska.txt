@@ -1,0 +1,12 @@
+---
+description: Dishes of Lebanese cuisine (Polish)
+locale: pl
+---
+Hummus
+Falafel
+Szawarma
+Tabbouleh
+Kibbeh
+Fattoush
+Manakisz
+Baba ghanoush

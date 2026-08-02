@@ -1,0 +1,289 @@
+/**
+ * Date generator and legacy date template adapters.
+ *
+ * This module intentionally does not depend on moment.js. It uses the
+ * portable date runtime in src/date so the same parsing/formatting rules
+ * can be implemented in Python and Java later.
+ */
+
+import {
+  DateRuntimeError,
+  MS_PER_SECOND,
+  formatDateTime,
+  fromEpochDay,
+  fromEpochMillis,
+  parseDateRangeValue,
+  parseDateTimeStrict,
+  parseLegacyDateRange,
+  startOfDay,
+  subtractUtcYears,
+  toEpochDay,
+  toEpochMillis,
+  type DatePrecision,
+  type ParsedDateRange,
+  type PlainDateTime,
+} from '../date/index.js';
+import type { AttrMap } from '../processor/attrs.js';
+
+import type { Generator } from './generator.js';
+
+export interface DateGenAttrs {
+  readonly value?: string | undefined;
+  readonly from?: string | undefined;
+  readonly to?: string | undefined;
+  readonly range?: string | undefined;
+  readonly format?: string | undefined;
+  readonly local?: string | undefined;
+  readonly oldest?: string | number | undefined;
+  readonly youngest?: string | number | undefined;
+  readonly precision?: string | undefined;
+}
+
+interface DatePlan {
+  readonly kind: 'fixed' | 'range';
+  readonly fixed?: PlainDateTime;
+  readonly start?: PlainDateTime;
+  readonly end?: PlainDateTime;
+  readonly precision: DatePrecision;
+  readonly format: string;
+  readonly locale: string;
+}
+
+const DEFAULT_DATE_START = '1970-01-01';
+const DEFAULT_FORMAT = 'L';
+
+export function dateGenerator(attrs: DateGenAttrs, locale: string, now: number): Generator {
+  const plan = buildDatePlan(attrs, locale, now);
+  return (count, prng) => {
+    const out: string[] = new Array<string>(count);
+    for (let i = 0; i < count; i++) {
+      const value = plan.kind === 'fixed' ? plan.fixed : pickRangeDate(plan, prng);
+      if (!value) throw new DateRuntimeError('date generator: invalid generation plan');
+      out[i] = formatDateTime(value, plan.format, plan.locale);
+    }
+    return out;
+  };
+}
+
+function buildDatePlan(attrs: DateGenAttrs, locale: string, now: number): DatePlan {
+  const format = attrs.format ?? DEFAULT_FORMAT;
+  const loc = attrs.local ?? locale;
+  const value = attrs.value?.trim();
+
+  if (value === 'today') {
+    return {
+      kind: 'fixed',
+      fixed: startOfDay(fromEpochMillis(now)),
+      precision: parsePrecision(attrs.precision, 'day'),
+      format,
+      locale: loc,
+    };
+  }
+
+  if (value === 'now') {
+    return {
+      kind: 'fixed',
+      fixed: fromEpochMillis(now),
+      precision: parsePrecision(attrs.precision, 'millisecond'),
+      format,
+      locale: loc,
+    };
+  }
+
+  if (value === 'birth') {
+    const oldest = parseAge(attrs.oldest, 80, 'oldest');
+    const youngest = parseAge(attrs.youngest, 10, 'youngest');
+    if (youngest > oldest) {
+      throw new DateRuntimeError('date generator: youngest must be less than or equal to oldest');
+    }
+    const start = fromEpochMillis(subtractUtcYears(now, oldest));
+    const end = fromEpochMillis(subtractUtcYears(now, youngest));
+    return rangePlan(
+      { start: { value: start, hasTime: false }, end: { value: end, hasTime: false } },
+      attrs,
+      {
+        format,
+        locale: loc,
+        fallbackPrecision: 'day',
+      },
+    );
+  }
+
+  const rangeFromAttrs = attrs.from !== undefined || attrs.to !== undefined;
+  if (rangeFromAttrs) {
+    if (attrs.from === undefined || attrs.to === undefined) {
+      throw new DateRuntimeError('date generator: "from" and "to" must be provided together');
+    }
+    return rangePlan(
+      { start: parseDateTimeStrict(attrs.from), end: parseDateTimeStrict(attrs.to) },
+      attrs,
+      { format, locale: loc },
+    );
+  }
+
+  if (attrs.range !== undefined) {
+    return rangePlan(parseDateRangeValue(attrs.range), attrs, { format, locale: loc });
+  }
+
+  if (value !== undefined && value.length > 0) {
+    if (value.includes('..')) {
+      return rangePlan(parseDateRangeValue(value), attrs, { format, locale: loc });
+    }
+    const parsed = parseDateTimeStrict(value);
+    return {
+      kind: 'fixed',
+      fixed: parsed.value,
+      precision: parsePrecision(attrs.precision, parsed.hasTime ? 'millisecond' : 'day'),
+      format,
+      locale: loc,
+    };
+  }
+
+  return rangePlan(
+    {
+      start: parseDateTimeStrict(DEFAULT_DATE_START),
+      end: { value: fromEpochMillis(now), hasTime: true },
+    },
+    attrs,
+    { format, locale: loc, fallbackPrecision: 'day' },
+  );
+}
+
+function rangePlan(
+  range: ParsedDateRange,
+  attrs: DateGenAttrs,
+  options: {
+    readonly format: string;
+    readonly locale: string;
+    readonly fallbackPrecision?: DatePrecision;
+  },
+): DatePlan {
+  const hasTime = range.start.hasTime || range.end.hasTime;
+  return {
+    kind: 'range',
+    start: range.start.value,
+    end: range.end.value,
+    precision: parsePrecision(
+      attrs.precision,
+      options.fallbackPrecision ?? (hasTime ? 'millisecond' : 'day'),
+    ),
+    format: options.format,
+    locale: options.locale,
+  };
+}
+
+function pickRangeDate(plan: DatePlan, prng: () => number): PlainDateTime {
+  const start = plan.start;
+  const end = plan.end;
+  if (!start || !end) throw new DateRuntimeError('date generator: range plan is incomplete');
+
+  if (plan.precision === 'day') {
+    const a = toEpochDay(start);
+    const b = toEpochDay(end);
+    return fromEpochDay(randomIntegerInclusive(prng, Math.min(a, b), Math.max(a, b)));
+  }
+
+  const divisor = plan.precision === 'second' ? MS_PER_SECOND : 1;
+  const a = Math.floor(toEpochMillis(start) / divisor);
+  const b = Math.floor(toEpochMillis(end) / divisor);
+  const picked = randomIntegerInclusive(prng, Math.min(a, b), Math.max(a, b));
+  return fromEpochMillis(picked * divisor);
+}
+
+function randomIntegerInclusive(prng: () => number, min: number, max: number): number {
+  return Math.floor(prng() * (max - min + 1) + min);
+}
+
+function parseAge(raw: string | number | undefined, fallback: number, name: string): number {
+  if (raw === undefined) return fallback;
+  const value = typeof raw === 'number' ? raw : Number(raw.trim());
+  if (!Number.isSafeInteger(value) || value < 0 || value > 150) {
+    throw new DateRuntimeError(`date generator: ${name} must be an integer from 0 to 150`);
+  }
+  return value;
+}
+
+export function parsePrecision(
+  raw: string | undefined,
+  fallback: DatePrecision = 'day',
+): DatePrecision {
+  if (raw === undefined) return fallback;
+  if (raw === 'day' || raw === 'second' || raw === 'millisecond') return raw;
+  throw new DateRuntimeError(
+    `date generator: unsupported precision "${raw}" (supported: day, second, millisecond)`,
+  );
+}
+
+/**
+ * `person.b_day` template source. Exported so the template resolver can
+ * register it directly in its static registry — see
+ * templates/resolver.ts. (Previously wired via a side-effect import; the
+ * explicit export removes that fragility.)
+ */
+export function renderBDay(
+  prng: () => number,
+  attrs: AttrMap,
+  locale: string,
+  now: number,
+): string {
+  return (
+    dateGenerator(
+      {
+        value: 'birth',
+        oldest: attrs['oldest'],
+        youngest: attrs['youngest'],
+        format: attrs['format'],
+        local: attrs['local'],
+        precision: attrs['precision'] ?? 'millisecond',
+      },
+      locale,
+      now,
+    )(1, prng)[0] ?? ''
+  );
+}
+
+/**
+ * `date.range` template source. Exported for the same reason as
+ * {@link renderBDay} — direct registration in templates/resolver.ts.
+ */
+export function renderDateRange(
+  prng: () => number,
+  attrs: AttrMap,
+  locale: string,
+  now: number,
+): string {
+  const rangeText = attrs['range'] ?? '';
+  let range: ParsedDateRange;
+  try {
+    range = parseLegacyDateRange(rangeText);
+  } catch (error) {
+    if (error instanceof DateRuntimeError) {
+      throw new DateRuntimeError(`date.range: invalid range attribute "${rangeText}"`);
+    }
+    throw error;
+  }
+  return (
+    dateGenerator(
+      {
+        from: serializeDateTime(range.start.value),
+        to: serializeDateTime(range.end.value),
+        format: attrs['format'],
+        local: attrs['local'],
+        precision: attrs['precision'] ?? 'day',
+      },
+      locale,
+      now,
+    )(1, prng)[0] ?? ''
+  );
+}
+
+function serializeDateTime(value: PlainDateTime): string {
+  return `${pad(value.year, 4)}-${pad(value.month, 2)}-${pad(value.day, 2)}T${pad(
+    value.hour,
+    2,
+  )}:${pad(value.minute, 2)}:${pad(value.second, 2)}.${pad(value.millisecond, 3)}`;
+}
+
+function pad(value: number, length: number): string {
+  return String(value).padStart(length, '0');
+}

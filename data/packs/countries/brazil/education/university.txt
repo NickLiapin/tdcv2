@@ -1,0 +1,26 @@
+---
+address: brazil.education.university
+description: Universities of Brazil (Portuguese names)
+locale: pt
+---
+Universidade de São Paulo
+Universidade Estadual de Campinas
+Universidade Federal do Rio de Janeiro
+Universidade Federal de Minas Gerais
+Universidade Federal do Rio Grande do Sul
+Universidade Estadual Paulista
+Universidade de Brasília
+Universidade Federal de Santa Catarina
+Universidade Federal do Paraná
+Universidade Federal de Pernambuco
+Universidade Federal da Bahia
+Universidade Federal do Ceará
+Universidade Federal Fluminense
+Universidade Federal de São Paulo
+Universidade Federal de São Carlos
+Pontifícia Universidade Católica do Rio de Janeiro
+Pontifícia Universidade Católica de São Paulo
+Universidade Federal de Viçosa
+Universidade Federal do Pará
+Universidade Federal de Goiás
+Instituto Tecnológico de Aeronáutica

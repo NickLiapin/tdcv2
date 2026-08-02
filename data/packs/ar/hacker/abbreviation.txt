@@ -1,0 +1,24 @@
+---
+description: Tech abbreviation (international, used unchanged in Arabic)
+locale: ar
+---
+TCP
+HTTP
+HTTPS
+FTP
+SSH
+SQL
+API
+USB
+RAM
+ROM
+CPU
+GPU
+DNS
+VPN
+HTML
+CSS
+JSON
+XML
+PDF
+IP

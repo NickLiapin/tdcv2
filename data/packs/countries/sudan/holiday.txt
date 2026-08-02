@@ -1,0 +1,12 @@
+---
+address: sudan.holiday
+description: Public holidays in Sudan (Arabic)
+locale: ar
+---
+عيد الاستقلال
+عيد الفطر
+عيد الأضحى
+رأس السنة الهجرية
+المولد النبوي
+عيد الميلاد
+رأس السنة الميلادية

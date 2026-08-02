@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Endocrinology (Portuguese)
+locale: pt
+---
+Diabetes mellitus tipo 2
+Hipotireoidismo
+Hipertireoidismo
+Osteoporose
+Síndrome de Cushing
+Síndrome dos ovários policísticos
+Diabetes mellitus tipo 1
+Doença de Graves
+Insuficiência adrenal
+Nódulo de tireoide

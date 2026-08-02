@@ -1,0 +1,21 @@
+---
+description: Academic degree / level (generic Spanish, not country-specific)
+locale: es
+---
+Educación Primaria
+Educación Secundaria
+Bachillerato
+Técnico Medio
+Técnico Superior
+Diplomado
+Licenciatura
+Licenciatura en Artes
+Licenciatura en Ciencias
+Ingeniería
+Especialidad
+Maestría
+Máster
+Maestría en Administración de Empresas
+Doctorado
+Doctorado en Filosofía
+Posdoctorado

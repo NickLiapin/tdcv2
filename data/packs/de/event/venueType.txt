@@ -1,0 +1,20 @@
+---
+description: Venue type (German)
+locale: de
+---
+Hotelsaal
+Kongresszentrum
+Stadion
+Theater
+Festsaal
+Dachterrasse
+Garten
+Industriehalle
+Auditorium
+Diskothek
+Konferenzraum
+Landgut
+Weingut
+Strand
+Museum
+Kulturzentrum

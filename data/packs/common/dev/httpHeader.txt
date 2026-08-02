@@ -1,0 +1,22 @@
+---
+description: HTTP header name
+---
+Accept
+Authorization
+Content-Type
+Content-Length
+Cookie
+User-Agent
+Host
+Referer
+Cache-Control
+Accept-Encoding
+Accept-Language
+Origin
+Set-Cookie
+ETag
+Location
+X-Request-Id
+X-Forwarded-For
+X-Api-Key
+If-None-Match

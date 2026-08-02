@@ -1,0 +1,15 @@
+---
+description: Gaming platform (Portuguese; brand names kept as-is)
+locale: pt
+---
+PlayStation 5
+PlayStation 4
+Xbox Series X
+Xbox Series S
+Xbox One
+Nintendo Switch
+PC
+Steam Deck
+Meta Quest
+Celular
+Navegador

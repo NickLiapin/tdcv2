@@ -1,0 +1,7 @@
+---
+address: brazil.geo.cep
+description: Brazilian postal code (CEP) in the NNNNN-NNN form
+generator: tdc
+locale: pt
+---
+<gen type="regex" value="[0-9]{5}-[0-9]{3}"/>

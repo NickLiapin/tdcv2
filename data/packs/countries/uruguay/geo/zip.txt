@@ -1,0 +1,9 @@
+---
+address: uruguay.geo.zip
+description: Uruguayan código postal — 5 digits. Correo Uruguayo reads them as área / región / subregión / centro de distribución, but in practice the leading pair identifies the departamento (11xxx–12xxx Montevideo, 20xxx Maldonado, 70xxx Colonia …) and a trailing 000 marks the departmental capital, e.g. 11000 Montevideo, 33000 Treinta y Tres, 80000 San José de Mayo.
+generator: tdc
+---
+<sequence name="prefix"><gen type="template" value="uruguay.geo.zipPrefix"/></sequence>
+<!-- Capitals sit at x000; the rest of the department fans out from there. -->
+<sequence name="zone"><gen type="regex" value="(?:000|[0-5][0-9][0-9])"/></sequence>
+<data>${{prefix}}${{zone}}</data>

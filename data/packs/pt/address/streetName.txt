@@ -1,0 +1,159 @@
+---
+description: Street names common across the Portuguese-speaking world (saints, national heroes, dates, nature). Compose after a streetSuffix; country-specific streets belong in a country pack.
+locale: pt
+---
+Maior
+Real
+Nova
+Longa
+Larga
+Alta
+Baixa
+Central
+Principal
+Direita
+Formosa
+Comprida
+do Sol
+da Lua
+do Mar
+do Rio
+da Ponte
+do Parque
+do Bosque
+do Vale
+da Serra
+da Montanha
+das Flores
+das Oliveiras
+dos Pinheiros
+das Amendoeiras
+das Laranjeiras
+das Palmeiras
+dos Cedros
+dos Salgueiros
+dos Choupos
+das Acácias
+das Rosas
+dos Jasmins
+da Constituição
+da Independência
+da Liberdade
+da República
+da Reforma
+da União
+da Paz
+da Vitória
+da Concórdia
+da Esperança
+da Amizade
+da Cultura
+da Universidade
+da Estação
+da Ferrovia
+do Mercado
+do Comércio
+do Progresso
+da Indústria
+da Aurora
+do Carmo
+da Mercê
+do Rosário
+da Cruz
+da Guia
+da Candelária
+dos Anjos
+da Conceição
+São Martinho
+São José
+São João
+São Pedro
+São Miguel
+São Francisco
+São António
+São Rafael
+São Nicolau
+São Lourenço
+São Inácio
+São Sebastião
+São André
+São Vicente
+Santa Maria
+Santa Ana
+Santa Rosa
+Santa Teresa
+Santa Clara
+Santa Cecília
+São Domingos
+Luís de Camões
+Fernando Pessoa
+Vasco da Gama
+Infante Dom Henrique
+Pedro Álvares Cabral
+Marquês de Pombal
+Dom Afonso Henriques
+Dom Dinis
+Almeida Garrett
+Alexandre Herculano
+Eça de Queirós
+Fernão Mendes Pinto
+Bartolomeu Dias
+Duarte Pacheco
+Aristides de Sousa Mendes
+Amália Rodrigues
+Sá da Bandeira
+Mouzinho da Silveira
+Tiradentes
+Dom Pedro I
+Princesa Isabel
+Machado de Assis
+José de Alencar
+Santos Dumont
+Rui Barbosa
+Castro Alves
+Carlos Gomes
+Oswaldo Cruz
+Monteiro Lobato
+Getúlio Vargas
+Agostinho Neto
+Amílcar Cabral
+Samora Machel
+Eduardo Mondlane
+Deolinda Rodrigues
+Josina Machel
+Vinte e Cinco de Abril
+Primeiro de Maio
+Cinco de Outubro
+Dez de Junho
+Sete de Setembro
+Quinze de Novembro
+Onze de Novembro
+Vinte e Cinco de Junho
+Primeiro de Dezembro
+Vinte e Um de Abril
+dos Heróis
+dos Descobrimentos
+das Américas
+da Amazónia
+dos Andes
+do Pacífico
+do Atlântico
+do Índico
+do Norte
+do Sul
+do Nascente
+do Poente
+do Centro
+do Outeiro
+da Veiga
+do Moinho
+da Fonte
+do Poço
+da Ermida
+da Igreja
+do Convento
+do Colégio
+do Hospital
+da Câmara
+da Alameda
+do Prado

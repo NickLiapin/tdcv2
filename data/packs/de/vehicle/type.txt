@@ -1,0 +1,26 @@
+---
+description: Vehicle body type (German)
+locale: de
+---
+Limousine
+Coupé
+Schrägheck
+SUV
+Crossover
+Geländewagen
+Cabrio
+Van
+Kombi
+Pick-up
+Kleintransporter
+Kastenwagen
+Sportwagen
+Roadster
+Kleinwagen
+Luxusfahrzeug
+Stretchlimousine
+Kleinbus
+Bus
+Lastwagen
+Motorrad
+Wohnmobil

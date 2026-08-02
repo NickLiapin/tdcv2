@@ -1,0 +1,32 @@
+---
+description: Field of study / major (Polish)
+locale: pl
+---
+Informatyka
+Zarządzanie
+Psychologia
+Biologia
+Mechanika i budowa maszyn
+Elektrotechnika
+Budownictwo
+Ekonomia
+Politologia
+Filologia polska
+Pielęgniarstwo
+Chemia
+Matematyka
+Historia
+Marketing
+Finanse i rachunkowość
+Dziennikarstwo i komunikacja społeczna
+Socjologia
+Fizyka
+Grafika
+Analityka danych
+Ochrona środowiska
+Prawo
+Kierunek lekarski
+Architektura
+Logistyka
+Pedagogika
+Filozofia

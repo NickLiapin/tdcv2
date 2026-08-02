@@ -1,0 +1,156 @@
+---
+address: dominican_republic.geo.municipality
+description: Dominican Republic municipio (second-level division; municipal seat within a province)
+---
+Azua de Compostela
+Las Charcas
+Las Yayas de Viajama
+Padre Las Casas
+Peralta
+Sabana Yegua
+Pueblo Viejo
+Estebanía
+Guayabal
+Tábara Arriba
+Neiba
+Galván
+Tamayo
+Villa Jaragua
+Los Ríos
+Vicente Noble
+Barahona
+Cabral
+El Peñón
+Enriquillo
+Paraíso
+La Ciénaga
+Fundación
+Jaquimeyes
+Polo
+Dajabón
+Loma de Cabrera
+Partido
+Restauración
+El Pino
+San Francisco de Macorís
+Arenoso
+Castillo
+Eugenio María de Hostos
+Las Guáranas
+Pimentel
+Villa Riva
+Comendador
+Bánica
+El Llano
+Hondo Valle
+Juan Santiago
+Pedro Santana
+El Seibo
+Miches
+Moca
+Cayetano Germosén
+Gaspar Hernández
+Jamao al Norte
+Jimaní
+Duvergé
+La Descubierta
+Postrer Río
+Cristóbal
+Higüey
+San Rafael del Yuma
+La Romana
+Guaymate
+Villa Hermosa
+Concepción de La Vega
+Constanza
+Jarabacoa
+Jima Abajo
+Nagua
+Cabrera
+El Factor
+Río San Juan
+Villa Tapia
+Salcedo
+Tenares
+Monte Cristi
+Castañuelas
+Guayubín
+Las Matas de Santa Cruz
+Pepillo Salcedo
+Villa Vásquez
+Pedernales
+Oviedo
+Baní
+Nizao
+Puerto Plata
+Altamira
+Guananico
+Imbert
+Los Hidalgos
+Luperón
+Sosúa
+Villa Isabela
+Villa Montellano
+Santa Bárbara de Samaná
+Las Terrenas
+Sánchez
+San Cristóbal
+Bajos de Haina
+Cambita Garabitos
+Los Cacaos
+Sabana Grande de Palenque
+San Gregorio de Nigua
+Villa Altagracia
+Yaguate
+San Juan de la Maguana
+Bohechío
+El Cercado
+Juan de Herrera
+Las Matas de Farfán
+Vallejuelo
+San Pedro de Macorís
+Consuelo
+Guayacanes
+Los Llanos
+Quisqueya
+Ramón Santana
+Cotuí
+Cevicos
+Fantino
+La Mata
+Santiago de los Caballeros
+Bisonó
+Jánico
+Licey al Medio
+Puñal
+Sabana Iglesia
+San José de las Matas
+Tamboril
+Villa González
+Sabaneta
+Los Almácigos
+Monción
+Esperanza
+Laguna Salada
+Mao
+Bonao
+Maimón
+Piedra Blanca
+Monte Plata
+Bayaguana
+Sabana Grande de Boyá
+Yamasá
+Peralvillo
+Hato Mayor del Rey
+Sabana de la Mar
+El Valle
+San José de Ocoa
+Sabana Larga
+Rancho Arriba
+Santo Domingo Este
+Santo Domingo Norte
+Santo Domingo Oeste
+Boca Chica
+Los Alcarrizos
+Pedro Brand
+San Antonio de Guerra

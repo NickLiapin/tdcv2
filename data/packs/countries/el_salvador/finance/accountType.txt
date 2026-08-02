@@ -1,0 +1,10 @@
+---
+address: el_salvador.finance.accountType
+description: Salvadoran bank account type as named on a transfer form
+locale: es
+---
+Cuenta de Ahorro
+Cuenta Corriente
+Depósito a Plazo
+Cuenta de Ahorro Programado
+Cuenta Básica

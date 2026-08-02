@@ -1,0 +1,7 @@
+---
+address: finland.phone
+description: Finnish mobile phone in E.164 form (+3584XXXXXXX)
+generator: tdc
+locale: fi
+---
+<gen type="regex" value="\+3584[0-9]{7,8}"/>

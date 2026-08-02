@@ -1,0 +1,11 @@
+---
+description: Positions in Handball (French)
+locale: fr
+---
+Gardien
+Ailier gauche
+Ailier droit
+Arrière gauche
+Arrière droit
+Demi-centre
+Pivot

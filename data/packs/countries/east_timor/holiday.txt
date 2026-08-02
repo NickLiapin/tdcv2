@@ -1,0 +1,16 @@
+---
+address: east_timor.holiday
+description: Public holidays of Timor-Leste (Portuguese names)
+locale: pt
+---
+Ano Novo
+Dia dos Veteranos
+Sexta-feira Santa
+Dia do Trabalhador
+Dia da Restauração da Independência
+Dia dos Heróis Nacionais
+Dia da Consulta Popular
+Dia de Todos os Santos
+Dia da Proclamação da Independência
+Nossa Senhora da Imaculada Conceição
+Natal

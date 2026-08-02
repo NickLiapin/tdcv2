@@ -1,0 +1,11 @@
+---
+description: Dishes of Lebanese cuisine
+locale: en
+---
+Hummus
+Falafel
+Shawarma
+Tabbouleh
+Kibbeh
+Fattoush
+Manakish

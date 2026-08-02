@@ -1,0 +1,13 @@
+---
+address: uae.holiday
+description: Public holidays in the United Arab Emirates (Arabic)
+locale: ar
+---
+رأس السنة الميلادية
+عيد الفطر
+وقفة عرفة
+عيد الأضحى
+رأس السنة الهجرية
+المولد النبوي
+يوم الشهيد
+اليوم الوطني

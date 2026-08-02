@@ -1,0 +1,7 @@
+---
+address: finland.geo.postalCode
+description: Finnish postal code (postinumero) — five digits
+generator: tdc
+locale: fi
+---
+<gen type="regex" value="[0-9]{5}"/>

@@ -1,0 +1,11 @@
+---
+description: Weekday name (Italian, lowercase per Italian orthography)
+locale: it
+---
+lunedì
+martedì
+mercoledì
+giovedì
+venerdì
+sabato
+domenica

@@ -1,0 +1,59 @@
+---
+description: Sport (Italian)
+locale: it
+---
+Calcio
+Calcio a 5
+Football americano
+Pallacanestro
+Baseball
+Pallavolo
+Beach volley
+Pallamano
+Rugby
+Hockey su ghiaccio
+Hockey su prato
+Cricket
+Tennis
+Padel
+Tennis da tavolo
+Badminton
+Squash
+Golf
+Nuoto
+Pallanuoto
+Atletica leggera
+Ciclismo
+Mountain bike
+Pugilato
+Lotta libera
+Judo
+Karate
+Taekwondo
+Scherma
+Ginnastica artistica
+Ginnastica ritmica
+Sollevamento pesi
+Triathlon
+Canottaggio
+Canoa
+Vela
+Surf
+Sci alpino
+Sci di fondo
+Snowboard
+Pattinaggio artistico
+Pattinaggio a rotelle
+Arrampicata sportiva
+Tiro con l'arco
+Tiro a segno
+Equitazione
+Automobilismo
+Motociclismo
+Skateboard
+Bowling
+Biliardo
+Bocce
+Pallapugno
+Rugby a sette
+Softball

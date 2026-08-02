@@ -1,0 +1,25 @@
+---
+description: World religion (Portuguese)
+locale: pt
+---
+Cristianismo
+Catolicismo
+Protestantismo
+Ortodoxia
+Islão
+Hinduísmo
+Budismo
+Judaísmo
+Siquismo
+Jainismo
+Fé bahá'í
+Xintoísmo
+Taoismo
+Confucionismo
+Zoroastrismo
+Santería
+Espiritismo
+Animismo
+Ateísmo
+Agnosticismo
+Sem religião

@@ -1,0 +1,23 @@
+---
+description: Movie genre (Portuguese)
+locale: pt
+---
+Ação
+Comédia
+Drama
+Terror
+Suspense
+Romance
+Ficção científica
+Fantasia
+Documentário
+Animação
+Aventura
+Crime
+Mistério
+Faroeste
+Musical
+Guerra
+Biográfico
+Noir
+Comédia romântica

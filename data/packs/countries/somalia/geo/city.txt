@@ -1,0 +1,21 @@
+---
+address: somalia.geo.city
+description: Cities and towns of Somalia (Arabic)
+locale: ar
+---
+مقديشو
+هرجيسا
+بوصاصو
+كيسمايو
+مركا
+بيدوا
+جالكعيو
+بربرة
+بلدوين
+جوهر
+جروي
+بوراما
+لاس عانود
+عيل واق
+أفجوي
+بيدو

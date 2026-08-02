@@ -1,0 +1,10 @@
+---
+description: Diagnoses seen in Endocrinology
+locale: en
+---
+Type 2 Diabetes Mellitus
+Hypothyroidism
+Hyperthyroidism
+Osteoporosis
+Cushing Syndrome
+Polycystic Ovary Syndrome

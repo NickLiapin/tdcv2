@@ -1,0 +1,22 @@
+---
+address: paraguay.geo.departmentIso
+description: ISO 3166-2:PY subdivision code without the PY- prefix (ASU for the capital, then 1-16 and 19). ISO numbering diverges from the DGEEC codes for the last two Chaco departments — ISO gives Alto Paraguay 16 and Boquerón 19, and assigns no 17 or 18; same order as paraguay.geo.department
+---
+ASU
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+19
+16

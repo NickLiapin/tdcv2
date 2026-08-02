@@ -1,0 +1,13 @@
+---
+description: Loan type
+locale: en
+---
+Mortgage
+Auto Loan
+Personal Loan
+Student Loan
+Home Equity Loan
+Business Loan
+Payday Loan
+Line of Credit
+Debt Consolidation

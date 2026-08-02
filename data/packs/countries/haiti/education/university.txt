@@ -1,0 +1,12 @@
+---
+address: haiti.education.university
+description: Universities of Haiti
+locale: fr
+---
+Université d'État d'Haïti
+Université Quisqueya
+Université Notre-Dame d'Haïti
+Université Caraïbe
+Université Épiscopale d'Haïti
+Université Lumière
+Institut National d'Administration, de Gestion et des Hautes Études Internationales

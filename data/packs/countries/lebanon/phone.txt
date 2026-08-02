@@ -1,0 +1,6 @@
+---
+address: lebanon.phone
+description: Lebanese mobile phone in E.164 form (+961 [37]XXXXXXX)
+generator: tdc
+---
+<gen type="regex" value="\+961[37][0-9]{7}"/>

@@ -1,0 +1,36 @@
+---
+address: dominican_republic.geo.provinceIso
+description: ISO 3166-2:DO subdivision code for the province; same order as dominican_republic.geo.province
+---
+DO-01
+DO-02
+DO-03
+DO-04
+DO-05
+DO-06
+DO-07
+DO-08
+DO-09
+DO-10
+DO-11
+DO-12
+DO-13
+DO-14
+DO-15
+DO-16
+DO-17
+DO-18
+DO-19
+DO-20
+DO-21
+DO-22
+DO-23
+DO-24
+DO-25
+DO-26
+DO-27
+DO-28
+DO-29
+DO-30
+DO-31
+DO-32

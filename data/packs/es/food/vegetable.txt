@@ -1,0 +1,34 @@
+---
+description: Vegetable (Spanish)
+locale: es
+---
+Zanahoria
+Brócoli
+Espinaca
+Papa
+Pepino
+Lechuga
+Cebolla
+Pimiento
+Calabacín
+Coliflor
+Guisante
+Maíz
+Espárrago
+Berenjena
+Col rizada
+Repollo
+Apio
+Champiñón
+Batata
+Remolacha
+Rábano
+Calabaza
+Acelga
+Alcachofa
+Puerro
+Nabo
+Tomate
+Berro
+Cebolleta
+Ajo

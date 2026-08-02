@@ -1,0 +1,15 @@
+---
+address: switzerland.holiday
+description: Swiss public holidays (French names; the federal ones plus widely observed days)
+locale: fr
+---
+Nouvel An
+Saint-Berchtold
+Vendredi saint
+Lundi de Pâques
+Ascension
+Lundi de Pentecôte
+Fête nationale
+Jeûne fédéral
+Noël
+Saint-Étienne

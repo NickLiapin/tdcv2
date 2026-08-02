@@ -1,0 +1,45 @@
+---
+description: Common generic drug names (Spanish INN)
+locale: es
+---
+Paracetamol
+Ibuprofeno
+Ácido acetilsalicílico
+Amoxicilina
+Amoxicilina con ácido clavulánico
+Azitromicina
+Ciprofloxacino
+Doxiciclina
+Lisinopril
+Enalapril
+Losartán
+Amlodipino
+Metoprolol
+Hidroclorotiazida
+Furosemida
+Espironolactona
+Metformina
+Glibenclamida
+Insulina glargina
+Atorvastatina
+Simvastatina
+Omeprazol
+Pantoprazol
+Levotiroxina
+Salbutamol
+Montelukast
+Prednisona
+Dexametasona
+Loratadina
+Gabapentina
+Sertralina
+Fluoxetina
+Escitalopram
+Citalopram
+Duloxetina
+Warfarina
+Clopidogrel
+Tramadol
+Naproxeno
+Diclofenaco
+Alopurinol

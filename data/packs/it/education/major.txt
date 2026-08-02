@@ -1,0 +1,32 @@
+---
+description: Field of study / major (Italian)
+locale: it
+---
+Informatica
+Economia aziendale
+Psicologia
+Biologia
+Ingegneria meccanica
+Ingegneria elettrica
+Ingegneria civile
+Economia
+Scienze politiche
+Lettere
+Infermieristica
+Chimica
+Matematica
+Storia
+Marketing
+Finanza
+Scienze della comunicazione
+Sociologia
+Fisica
+Design grafico
+Scienza dei dati
+Scienze ambientali
+Giurisprudenza
+Medicina e chirurgia
+Architettura
+Economia e commercio
+Scienze della formazione
+Filosofia

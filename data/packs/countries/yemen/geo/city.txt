@@ -1,0 +1,25 @@
+---
+address: yemen.geo.city
+description: Cities and towns of Yemen (Arabic)
+locale: ar
+---
+صنعاء
+عدن
+تعز
+الحديدة
+إب
+ذمار
+المكلا
+صعدة
+حجة
+زبيد
+سيئون
+الغيضة
+رداع
+دمت
+البيضاء
+عمران
+لحج
+مأرب
+باجل
+شبام

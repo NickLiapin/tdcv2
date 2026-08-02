@@ -1,0 +1,10 @@
+---
+description: Diagnoses seen in Endocrinología
+locale: es
+---
+Diabetes mellitus tipo 2
+Hipotiroidismo
+Hipertiroidismo
+Osteoporosis
+Síndrome de Cushing
+Síndrome de ovario poliquístico

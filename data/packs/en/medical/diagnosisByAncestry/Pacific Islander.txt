@@ -1,0 +1,10 @@
+---
+description: Conditions markedly more frequent in people of Pacific Islander ancestry. A prevalence signal, not an exclusive one.
+locale: en
+---
+Type 2 Diabetes Mellitus
+Obesity-Related Hypertension
+Gout
+Rheumatic Heart Disease
+Chronic Kidney Disease
+Hyperuricemia

@@ -1,0 +1,36 @@
+---
+description: Unit of measure (French)
+locale: fr
+---
+unité
+boîte
+paquet
+lot
+douzaine
+kilogramme
+gramme
+tonne
+litre
+millilitre
+centilitre
+mètre
+centimètre
+millimètre
+mètre carré
+mètre cube
+pièce
+palette
+carton
+sachet
+rouleau
+tube
+flacon
+bouteille
+bidon
+pot
+barquette
+sac
+caisse
+plaque
+paire
+bloc

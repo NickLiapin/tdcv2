@@ -1,0 +1,29 @@
+---
+description: Fish (Polish)
+locale: pl
+---
+Łosoś
+Tuńczyk
+Pstrąg
+Okoń morski
+Dorsz
+Sum
+Złota rybka
+Błazenek
+Gupik
+Makrela
+Halibut
+Lucjan
+Miecznik
+Marlin
+Skalar
+Bojownik
+Karp
+Okoń
+Sardynka
+Sardela
+Morszczuk
+Szczupak
+Tilapia
+Dorada
+Turbot

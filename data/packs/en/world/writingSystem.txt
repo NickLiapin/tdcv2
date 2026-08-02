@@ -1,0 +1,16 @@
+---
+description: Writing system
+locale: en
+---
+Latin
+Cyrillic
+Arabic
+Han
+Devanagari
+Hangul
+Greek
+Hebrew
+Thai
+Georgian
+Armenian
+Hiragana

@@ -1,0 +1,34 @@
+---
+description: Hashtag word in Portuguese (prefix with # in a template)
+locale: pt
+---
+amor
+felicidade
+beleza
+moda
+natureza
+arte
+viagens
+comida
+esporte
+motivação
+estilo
+entardecer
+tendência
+paravocê
+família
+verão
+fitness
+vida
+inspiração
+memórias
+fotografia
+música
+bemestar
+amizade
+domingo
+café
+gatos
+cachorros
+leitura
+sextafeira

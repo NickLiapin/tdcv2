@@ -1,0 +1,16 @@
+---
+description: Genetic ancestry group in German, used as the parent of diagnosisByAncestry. These are ancestry populations as clinical genetics defines them - geographic descent, not social race categories.
+locale: de
+---
+Subsaharisch-afrikanisch
+Nordafrikanisch
+Mediterran
+Nahöstlich
+Nordeuropäisch
+Osteuropäisch
+Aschkenasisch-jüdisch
+Südasiatisch
+Ostasiatisch
+Südostasiatisch
+Indigen-amerikanisch
+Ozeanisch

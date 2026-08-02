@@ -1,0 +1,7 @@
+---
+address: saudi_arabia.vehicle.plate
+description: Saudi licence plate — three Arabic letters and up to four digits (e.g. أ ب ج ١٢٣٤). Structural.
+generator: tdc
+locale: ar
+---
+<gen type="regex" value="[أ-ي] [أ-ي] [أ-ي] [0-9]{3,4}"/>

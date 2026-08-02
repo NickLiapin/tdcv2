@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Cardiology (Polish)
+locale: pl
+---
+Nadciśnienie tętnicze
+Choroba niedokrwienna serca
+Migotanie przedsionków
+Niewydolność serca
+Zawał mięśnia sercowego
+Hiperlipidemia
+Kardiomiopatia rozstrzeniowa
+Zapalenie mięśnia sercowego
+Stenoza zastawki aortalnej
+Częstoskurcz nadkomorowy

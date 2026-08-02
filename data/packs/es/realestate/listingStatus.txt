@@ -1,0 +1,16 @@
+---
+description: Listing status (Spanish)
+locale: es
+---
+En venta
+En alquiler
+Pendiente
+Vendido
+Bajo contrato
+Fuera del mercado
+Próximamente
+Ejecución hipotecaria
+Obra nueva
+Precio reducido
+Reservado
+Alquilado

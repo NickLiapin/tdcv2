@@ -1,0 +1,17 @@
+---
+address: cape_verde.sport.team
+description: Cape Verdean football clubs (Portuguese names)
+locale: pt
+---
+Sporting Clube da Praia
+CS Mindelense
+Académica do Mindelo
+Boavista FC da Praia
+Sporting Clube do Mindelo
+Batuque FC
+Académica da Praia
+Derby FC
+Onze Unidos
+Ultramarina
+Sal Rei FC
+Paulense DC

@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Cardiology (German)
+locale: de
+---
+Bluthochdruck
+Koronare Herzkrankheit
+Vorhofflimmern
+Herzinsuffizienz
+Herzinfarkt
+Hyperlipidämie
+Perikarditis
+Endokarditis
+Herzklappenerkrankung
+Angina pectoris

@@ -1,0 +1,159 @@
+---
+description: Street names common across Italy (saints, national figures, dates, nature). Compose after a streetSuffix, which in Italian precedes the name (Via Roma, Piazza della Repubblica); country-specific streets belong in a country pack.
+locale: it
+---
+Maggiore
+Reale
+Nuova
+Lunga
+Larga
+Alta
+Bassa
+Centrale
+Principale
+del Sole
+della Luna
+del Mare
+del Fiume
+del Ponte
+del Parco
+del Bosco
+della Valle
+dei Monti
+della Montagna
+dei Fiori
+degli Ulivi
+dei Pini
+dei Mandorli
+degli Aranci
+delle Palme
+dei Cedri
+dei Salici
+dei Pioppi
+delle Acacie
+delle Rose
+dei Gelsomini
+della Costituzione
+dell'Indipendenza
+della Libertà
+della Repubblica
+del Risorgimento
+dell'Unità
+della Pace
+della Vittoria
+della Concordia
+della Speranza
+dell'Amicizia
+della Cultura
+dell'Università
+della Stazione
+della Ferrovia
+del Mercato
+del Commercio
+del Progresso
+dell'Industria
+dell'Aurora
+del Carmine
+della Misericordia
+del Rosario
+della Croce
+della Madonna
+dell'Annunziata
+degli Angeli
+San Martino
+San Giuseppe
+San Giovanni
+San Pietro
+San Michele
+San Francesco
+Sant'Antonio
+San Raffaele
+San Nicola
+San Lorenzo
+Sant'Ignazio
+San Sebastiano
+Sant'Andrea
+Sant'Isidoro
+San Vincenzo
+Santa Maria
+Sant'Anna
+Santa Rosa
+Santa Teresa
+Santa Chiara
+Santa Cecilia
+San Domenico
+Giuseppe Garibaldi
+Giuseppe Mazzini
+Camillo Benso di Cavour
+Vittorio Emanuele II
+Silvio Pellico
+Goffredo Mameli
+Cristoforo Colombo
+Marco Polo
+Amerigo Vespucci
+Dante Alighieri
+Francesco Petrarca
+Giovanni Boccaccio
+Ludovico Ariosto
+Torquato Tasso
+Alessandro Manzoni
+Giacomo Leopardi
+Ugo Foscolo
+Giosuè Carducci
+Giovanni Pascoli
+Gabriele D'Annunzio
+Luigi Pirandello
+Grazia Deledda
+Leonardo da Vinci
+Michelangelo Buonarroti
+Raffaello Sanzio
+Donatello
+Caravaggio
+Tiziano
+Giotto
+XX Settembre
+XXV Aprile
+IV Novembre
+I Maggio
+II Giugno
+XXIV Maggio
+XI Febbraio
+VIII Marzo
+XVII Marzo
+XXIII Maggio
+degli Eroi
+dei Martiri
+dei Mille
+dei Partigiani
+delle Alpi
+degli Appennini
+del Tirreno
+dell'Adriatico
+dello Ionio
+del Nord
+del Sud
+dell'Est
+dell'Ovest
+del Centro
+del Colle
+della Collina
+della Vigna
+del Mulino
+della Fontana
+del Pozzo
+dell'Eremo
+della Chiesa
+del Convento
+del Collegio
+dell'Ospedale
+del Municipio
+del Prato
+della Riva
+della Spiaggia
+del Faro
+del Porto
+della Marina
+del Cantiere
+della Dogana
+della Fiera
+della Piazza

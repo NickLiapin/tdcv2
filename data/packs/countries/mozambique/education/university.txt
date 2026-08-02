@@ -1,0 +1,19 @@
+---
+address: mozambique.education.university
+description: Universities and higher education institutions of Mozambique (Portuguese names)
+locale: pt
+---
+Universidade Eduardo Mondlane
+Universidade Pedagógica de Maputo
+Universidade Católica de Moçambique
+Universidade Lúrio
+Universidade Zambeze
+Universidade Save
+Universidade Politécnica
+Instituto Superior de Ciências e Tecnologia de Moçambique
+Universidade Joaquim Chissano
+Universidade Rovuma
+Universidade Licungo
+Universidade Púnguè
+Universidade São Tomás de Moçambique
+Instituto Superior de Relações Internacionais

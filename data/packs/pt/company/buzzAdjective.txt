@@ -1,0 +1,58 @@
+---
+description: Business buzz adjective (Portuguese, for catch-phrases). Masculine singular base form.
+locale: pt
+---
+escalável
+ágil
+integral
+robusto
+integrado
+distribuído
+otimizado
+seguro
+inteligente
+automatizado
+unificado
+colaborativo
+inovador
+disruptivo
+modular
+chave na mão
+sustentável
+proativo
+adaptativo
+flexível
+resiliente
+elástico
+extensível
+acionável
+estratégico
+transversal
+holístico
+omnicanal
+multicanal
+personalizado
+centrado no cliente
+orientado a dados
+de nova geração
+em tempo real
+multiplataforma
+de missão crítica
+de alto impacto
+de alto desempenho
+de valor agregado
+sob medida
+sem atrito
+nativo em nuvem
+preparado para o futuro
+de classe mundial
+líder de mercado
+certificado
+homologado
+interoperável
+rastreável
+auditável
+transparente
+eficiente
+rentável
+competitivo

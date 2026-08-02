@@ -1,0 +1,124 @@
+{
+  "schemaVersion": 1,
+  "cases": [
+    {
+      "name": "unknown-gen-attribute",
+      "demonstrates": "TDC015",
+      "description": "An attribute no generator reads",
+      "config": "<tdc><env count=\"2\" seed=\"s\"><sequence name=\"G\"><gen type=\"text\" value=\"a,b\" nosuchattr=\"1\"/></sequence></env><block><line><data>x</data></line></block></tdc>",
+      "expected": ["error TDC015 1:89"]
+    },
+    {
+      "name": "weight-on-inline-values",
+      "demonstrates": "TDC211",
+      "description": "weight= on inline values — percent= is for that",
+      "config": "<tdc><env count=\"2\" seed=\"s\"><sequence name=\"G\"><gen type=\"text\" value=\"a,b\" weight=\"w\"/></sequence></env><block><line><data>x</data></line></block></tdc>",
+      "expected": ["error TDC211 1:85"]
+    },
+    {
+      "name": "weight-without-column",
+      "demonstrates": "TDC212",
+      "description": "weight= needs a column to weight",
+      "config": "<tdc><env count=\"2\" seed=\"s\"><sequence name=\"G\"><gen type=\"file\" src=\"x.csv\" weight=\"w\"/></sequence></env><block><line><data>x</data></line></block></tdc>",
+      "expected": ["error TDC212 1:85", "error TDC061 1:70"]
+    },
+    {
+      "name": "weight-with-order",
+      "demonstrates": "TDC213",
+      "description": "weight= and order= contradict each other",
+      "config": "<tdc><env count=\"2\" seed=\"s\"><sequence name=\"G\"><gen type=\"file\" src=\"x.csv\" column=\"c\" weight=\"w\" order=\"sequential\"/></sequence></env><block><line><data>x</data></line></block></tdc>",
+      "expected": ["error TDC213 1:96", "error TDC061 1:70"]
+    },
+    {
+      "name": "http-without-src",
+      "demonstrates": "TDC065",
+      "description": "A service generator with no endpoint",
+      "config": "<tdc><env count=\"2\" seed=\"s\"><sequence name=\"G\"><gen type=\"http\"/></sequence></env><block><line><data>x</data></line></block></tdc>",
+      "expected": ["error TDC065 1:48"]
+    },
+    {
+      "name": "http-src-not-a-url",
+      "demonstrates": "TDC066",
+      "description": "An endpoint that is not an http URL",
+      "config": "<tdc><env count=\"2\" seed=\"s\"><sequence name=\"G\"><gen type=\"http\" src=\"localhost:5566/gen\"/></sequence></env><block><line><data>x</data></line></block></tdc>",
+      "expected": ["error TDC066 1:70"]
+    },
+    {
+      "name": "http-in-names-nothing",
+      "demonstrates": "TDC067",
+      "description": "in= pointing at a sequence nobody declared",
+      "config": "<tdc><env count=\"2\" seed=\"s\"><sequence name=\"G\"><gen type=\"http\" src=\"http://127.0.0.1:5566/gen\" in=\"Ghost\"/></sequence></env><block><line><data>x</data></line></block></tdc>",
+      "expected": ["error TDC067 1:101"]
+    },
+    {
+      "name": "http-bad-on-error",
+      "demonstrates": "TDC068",
+      "description": "on_error outside the two allowed values",
+      "config": "<tdc><env count=\"2\" seed=\"s\"><sequence name=\"G\"><gen type=\"http\" src=\"http://127.0.0.1:5566/gen\" on_error=\"retry\"/></sequence></env><block><line><data>x</data></line></block></tdc>",
+      "expected": ["error TDC068 1:107"]
+    },
+    {
+      "name": "unsupported-binary-operator",
+      "demonstrates": "TDC101",
+      "description": "An operator the evaluator does not implement",
+      "config": "<tdc><env count=\"2\" seed=\"s\"><sequence name=\"A\"><gen type=\"number\" value=\"1..9\"/></sequence></env><block><line><data if=\"A % 2\">x</data></line></block></tdc>",
+      "expected": ["error TDC101 1:121"]
+    },
+    {
+      "name": "unsupported-unary-operator",
+      "demonstrates": "TDC102",
+      "description": "A unary operator the evaluator does not implement",
+      "config": "<tdc><env count=\"2\" seed=\"s\"><sequence name=\"A\"><gen type=\"number\" value=\"1..9\"/></sequence></env><block><line><data if=\"~A\">x</data></line></block></tdc>",
+      "expected": ["error TDC102 1:121"]
+    },
+    {
+      "name": "invalid-mask",
+      "demonstrates": "TDC199",
+      "description": "A mask that does not parse",
+      "config": "<tdc><env count=\"2\" seed=\"s\"><sequence name=\"G\"><gen type=\"text\" value=\"a,b\" mask=\"x[9..]\"/></sequence></env><block><line><data>x</data></line></block></tdc>",
+      "expected": ["error TDC199 1:83"]
+    },
+    {
+      "name": "malformed-repeat",
+      "demonstrates": "TDC195",
+      "description": "A repeat that is not a count or a range",
+      "config": "<tdc><env count=\"2\" seed=\"s\"><sequence name=\"G\"><gen type=\"text\" value=\"a,b\" repeat=\"lots\"/></sequence></env><block><line><data>x</data></line></block></tdc>",
+      "expected": ["error TDC195 1:85"]
+    },
+    {
+      "name": "repeat-on-a-mix",
+      "demonstrates": "TDC196",
+      "description": "repeat on a mix, which picks one branch rather than a list",
+      "config": "<tdc><env count=\"2\" seed=\"s\"><mix name=\"M\" percent=\"50,50\" repeat=\"2\"><case><data>a</data></case><case><data>b</data></case></mix></env><block><line><data>x</data></line></block></tdc>",
+      "expected": ["error TDC015 1:67", "error TDC196 1:67"]
+    },
+    {
+      "name": "flag-on-a-nested-mix",
+      "demonstrates": "TDC203",
+      "description": "A nested mix cannot own a flag column",
+      "config": "<tdc><env count=\"2\" seed=\"s\"><mix name=\"M\" percent=\"100\"><case><mix percent=\"50,50\" flag=\"F\"><case><data>a</data></case><case><data>b</data></case></mix></case></mix></env><block><line><data>x</data></line></block></tdc>",
+      "expected": ["error TDC203 1:90"]
+    },
+    {
+      "name": "anomaly-without-a-flag",
+      "demonstrates": "TDC203",
+      "description": "A branch marked as the outlier with nothing recording it",
+      "config": "<tdc><env count=\"2\" seed=\"s\"><mix name=\"M\" percent=\"50,50\"><case anomaly=\"true\"><data>a</data></case><case><data>b</data></case></mix></env><block><line><data>x</data></line></block></tdc>",
+      "expected": ["error TDC203 1:74"]
+    },
+    {
+      "name": "unknown-child-of-case",
+      "demonstrates": "TDC125",
+      "description": "A tag a case body has no meaning for",
+      "config": "<tdc><env count=\"2\" seed=\"s\"><mix name=\"M\" percent=\"100\"><case><sequence name=\"Q\"><gen type=\"text\" value=\"a\"/></sequence></case></mix></env><block><line><data>x</data></line></block></tdc>",
+      "expected": ["error TDC125 1:63"]
+    },
+    {
+      "name": "computed-member-access",
+      "demonstrates": "TDC103",
+      "description": "Subscripting in an if expression, which the evaluator does not implement",
+      "config": "<tdc><env count=\"2\" seed=\"s\"><sequence name=\"A\"><gen type=\"text\" value=\"a,b\"/></sequence></env><block><line><data if=\"A[0] == 1\">x</data></line></block></tdc>",
+      "expected": ["error TDC103 1:118"]
+    }
+  ]
+}

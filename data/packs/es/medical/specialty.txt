@@ -1,0 +1,40 @@
+---
+description: Medical specialties (Spanish)
+locale: es
+---
+Cardiología
+Dermatología
+Endocrinología
+Gastroenterología
+Neurología
+Oncología
+Oftalmología
+Ortopedia
+Traumatología
+Pediatría
+Psiquiatría
+Neumología
+Radiología
+Reumatología
+Urología
+Nefrología
+Hematología
+Inmunología
+Alergología
+Anestesiología
+Medicina de Urgencias
+Medicina Familiar
+Medicina Interna
+Ginecología y Obstetricia
+Otorrinolaringología
+Anatomía Patológica
+Cirugía General
+Cirugía Plástica
+Cirugía Vascular
+Cirugía Cardiovascular
+Infectología
+Geriatría
+Neonatología
+Medicina Física y Rehabilitación
+Medicina Nuclear
+Nutrición Clínica

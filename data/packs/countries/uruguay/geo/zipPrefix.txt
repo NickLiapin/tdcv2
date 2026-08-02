@@ -1,0 +1,23 @@
+---
+address: uruguay.geo.zipPrefix
+description: First two digits of the Correo Uruguayo postal code for each departamento; same order as uruguay.geo.department. Montevideo also runs into 12xxx and Canelones into 14xxx/16xxx and the 90xxx–91xxx block, so these are the leading block of each department rather than its only one.
+---
+55
+15
+37
+70
+97
+85
+94
+30
+20
+11
+60
+65
+40
+27
+50
+80
+75
+45
+33

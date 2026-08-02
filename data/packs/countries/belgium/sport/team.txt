@@ -1,0 +1,21 @@
+---
+address: belgium.sport.team
+description: Belgian first-division football clubs (Pro League)
+locale: fr
+---
+Club Bruges
+RSC Anderlecht
+KRC Genk
+Standard de Liège
+Royal Antwerp
+La Gantoise
+Sporting Charleroi
+Union Saint-Gilloise
+KV Malines
+Cercle Bruges
+KV Courtrai
+Saint-Trond
+OH Louvain
+Westerlo
+Eupen
+Zulte Waregem

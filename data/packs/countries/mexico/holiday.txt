@@ -1,0 +1,28 @@
+---
+address: mexico.holiday
+description: Mexican public holiday — the eight statutory days of rest (LFT art. 74) plus widely observed civic and religious dates
+locale: es
+---
+Año Nuevo
+Día de Reyes
+Día de la Constitución
+Día de la Bandera
+Natalicio de Benito Juárez
+Jueves Santo
+Viernes Santo
+Día del Trabajo
+Batalla de Puebla
+Día de las Madres
+Día del Maestro
+Día del Padre
+Grito de Independencia
+Día de la Independencia
+Día de la Raza
+Día de Muertos
+Día de la Revolución
+Día de la Virgen de Guadalupe
+Las Posadas
+Nochebuena
+Navidad
+Día de los Santos Inocentes
+Transmisión del Poder Ejecutivo Federal

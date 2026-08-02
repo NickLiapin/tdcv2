@@ -1,0 +1,29 @@
+---
+description: Dog breed (Italian)
+locale: it
+---
+Labrador retriever
+Pastore tedesco
+Golden retriever
+Bulldog francese
+Bulldog inglese
+Barboncino
+Beagle
+Rottweiler
+Bassotto
+Boxer
+Husky siberiano
+Alano
+Dobermann
+Pastore australiano
+Border collie
+Chihuahua
+Shih tzu
+Volpino di Pomerania
+Corgi
+Bovaro del Bernese
+Levriero
+Mastino
+Bull terrier
+San Bernardo
+Dalmata

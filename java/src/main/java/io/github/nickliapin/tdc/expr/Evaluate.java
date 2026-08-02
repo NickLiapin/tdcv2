@@ -1,0 +1,215 @@
+package io.github.nickliapin.tdc.expr;
+
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+
+/**
+ * Evaluates a parsed {@link Expr} against the row being rendered.
+ *
+ * <p>Values live in the same three-type world the reference works in: a number, a string, or a
+ * boolean. The rules for moving between them are JavaScript's, with one deliberate change the
+ * reference also makes — the string {@code "false"} counts as false. Without that, {@code
+ * if="!_last"} would be true on every row, because the string "false" is a non-empty string.
+ */
+public final class Evaluate {
+
+  /** What a name resolves to. Separate {@code has} because an absent name is not an empty one. */
+  public interface Scope {
+    boolean has(String name);
+
+    /** The value for {@code name} on the current row; {@code ""} when the row has none. */
+    String value(String name);
+  }
+
+  private static final Map<String, Expr> CACHE = new ConcurrentHashMap<>();
+
+  private Evaluate() {}
+
+  public static boolean asCondition(String source, Scope scope) {
+    Expr ast = CACHE.computeIfAbsent(source, Expr::parse);
+    return toBoolean(eval(ast, scope));
+  }
+
+  // A chain of `instanceof` rather than a switch over the sealed type: switch patterns are still
+  // a preview feature on Java 17, and 17 is the version the docs promise this library runs on.
+  private static Object eval(Expr node, Scope scope) {
+    if (node instanceof Expr.Num n) {
+      return n.value();
+    }
+    if (node instanceof Expr.Str s) {
+      return s.value();
+    }
+    if (node instanceof Expr.Bool b) {
+      return b.value();
+    }
+    if (node instanceof Expr.Null) {
+      return null;
+    }
+    if (node instanceof Expr.Name n) {
+      // An unknown name is its own value, which is what lets `Gender == Male` go unquoted.
+      return scope.has(n.value()) ? scope.value(n.value()) : n.value();
+    }
+    if (node instanceof Expr.Member m) {
+      return member(m.dotted(), scope);
+    }
+    if (node instanceof Expr.Unary u) {
+      return unary(u.op(), eval(u.operand(), scope));
+    }
+    if (node instanceof Expr.Binary b) {
+      return binary(b.op(), eval(b.left(), scope), eval(b.right(), scope));
+    }
+    throw new IllegalStateException("if expression: unhandled node " + node);
+  }
+
+  /**
+   * {@code A.B} is read three ways, in order: a compound field named "A.B"; else, when "A" is a
+   * sequence, the test "is A currently B?" — so {@code if="Gender.Male"} reads the way {@code
+   * parent="Gender.Male"} does; else the dotted text itself, so a typo shows up verbatim
+   * instead of silently becoming empty.
+   */
+  private static Object member(String dotted, Scope scope) {
+    if (scope.has(dotted)) {
+      return scope.value(dotted);
+    }
+    int dot = dotted.indexOf('.');
+    if (dot > 0 && scope.has(dotted.substring(0, dot))) {
+      return scope.value(dotted.substring(0, dot)).equals(dotted.substring(dot + 1));
+    }
+    return dotted;
+  }
+
+  private static Object unary(String op, Object arg) {
+    return switch (op) {
+      case "!" -> !toBoolean(arg);
+      case "-" -> -asNumber(arg);
+      case "+" -> asNumber(arg);
+      default -> throw new IllegalArgumentException("if expression: unsupported operator " + op);
+    };
+  }
+
+  private static Object binary(String op, Object left, Object right) {
+    return switch (op) {
+      case "==" -> looseEquals(left, right);
+      case "!=" -> !looseEquals(left, right);
+      case "===" -> strictEquals(left, right);
+      case "!==" -> !strictEquals(left, right);
+      case "<" -> asNumber(left) < asNumber(right);
+      case ">" -> asNumber(left) > asNumber(right);
+      case "<=" -> asNumber(left) <= asNumber(right);
+      case ">=" -> asNumber(left) >= asNumber(right);
+      case "&&" -> toBoolean(left) && toBoolean(right);
+      case "||" -> toBoolean(left) || toBoolean(right);
+      // `+` adds when either side is already a number and joins otherwise, as in JavaScript.
+      case "+" ->
+          left instanceof Double || right instanceof Double
+              ? (Object) (asNumber(left) + asNumber(right))
+              : text(left) + text(right);
+      case "-" -> asNumber(left) - asNumber(right);
+      case "*" -> asNumber(left) * asNumber(right);
+      case "/" -> asNumber(left) / asNumber(right);
+      case "%" -> asNumber(left) % asNumber(right);
+      default -> throw new IllegalArgumentException("if expression: unsupported operator " + op);
+    };
+  }
+
+  /**
+   * Loose equality. A number against a numeric-looking string compares as numbers, so {@code
+   * _count == 5} works even though {@code _count} arrives as text; everything else compares as
+   * text.
+   */
+  private static boolean looseEquals(Object left, Object right) {
+    if (left instanceof Double a && right instanceof String s) {
+      double b = jsNumber(s);
+      if (!Double.isNaN(b)) {
+        return a == b;
+      }
+    }
+    if (right instanceof Double b && left instanceof String s) {
+      double a = jsNumber(s);
+      if (!Double.isNaN(a)) {
+        return a == b;
+      }
+    }
+    if (left == null || right == null) {
+      return left == null && right == null;
+    }
+    if (left instanceof Boolean || right instanceof Boolean) {
+      return asNumber(left) == asNumber(right);
+    }
+    if (left instanceof Double a && right instanceof Double b) {
+      return a.doubleValue() == b.doubleValue();
+    }
+    return text(left).equals(text(right));
+  }
+
+  private static boolean strictEquals(Object left, Object right) {
+    if (left == null || right == null) {
+      return left == right;
+    }
+    return left.getClass() == right.getClass() && left.equals(right);
+  }
+
+  public static boolean toBoolean(Object v) {
+    if (v == null) {
+      return false;
+    }
+    if (v instanceof String s) {
+      return !s.isEmpty() && !"false".equals(s);
+    }
+    if (v instanceof Boolean b) {
+      return b;
+    }
+    if (v instanceof Double d) {
+      return d != 0 && !Double.isNaN(d);
+    }
+    return true;
+  }
+
+  private static double asNumber(Object v) {
+    if (v instanceof Double d) {
+      return d;
+    }
+    if (v instanceof String s) {
+      return jsNumber(s);
+    }
+    if (v instanceof Boolean b) {
+      return b ? 1 : 0;
+    }
+    return Double.NaN;
+  }
+
+  /** {@code Number(x)} as JavaScript defines it: blank is zero, anything unreadable is NaN. */
+  private static double jsNumber(String raw) {
+    String s = raw.trim();
+    if (s.isEmpty()) {
+      return 0;
+    }
+    try {
+      if (s.startsWith("0x") || s.startsWith("0X")) {
+        return Long.parseLong(s.substring(2), 16);
+      }
+      // Java accepts "1d", "1f" and leading "+"; JavaScript does not read the suffixes.
+      char last = s.charAt(s.length() - 1);
+      if (last == 'd' || last == 'D' || last == 'f' || last == 'F') {
+        return Double.NaN;
+      }
+      return Double.parseDouble(s);
+    } catch (NumberFormatException e) {
+      return Double.NaN;
+    }
+  }
+
+  /** {@code String(x)}: a whole number prints without a decimal point, as in JavaScript. */
+  private static String text(Object v) {
+    if (v == null) {
+      return "null";
+    }
+    if (v instanceof Double d) {
+      if (d == Math.rint(d) && !Double.isInfinite(d)) {
+        return String.valueOf((long) (double) d);
+      }
+      return String.valueOf((double) d);
+    }
+    return String.valueOf(v);
+  }
+}

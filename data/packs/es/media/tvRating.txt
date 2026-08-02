@@ -1,0 +1,13 @@
+---
+description: TV / film content rating, descriptive Spanish (country rating codes are country data)
+locale: es
+---
+Apta para todo público
+Apta para mayores de 7 años
+Apta para mayores de 12 años
+Apta para mayores de 16 años
+Apta para mayores de 18 años
+Se recomienda la orientación de los padres
+Solo para adultos
+Infantil
+Adolescentes

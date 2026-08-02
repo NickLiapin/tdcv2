@@ -1,0 +1,6 @@
+---
+address: spain.docs.passport
+description: Spanish passport number — 3 letters + 6 digits (e.g. XDA123456). Structural only: the Policía Nacional publishes no check character for this number, so the shape is real but nothing in it is verifiable.
+generator: tdc
+---
+<gen type="regex" value="[A-Z]{3}[0-9]{6}"/>

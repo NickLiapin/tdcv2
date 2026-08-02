@@ -1,0 +1,11 @@
+---
+description: Trucking route type (German)
+locale: de
+---
+Fernverkehr
+Überlandverkehr
+Regionalverkehr
+Nahverkehr
+Feste Tour
+Doppelbesetzung
+Letzte Meile

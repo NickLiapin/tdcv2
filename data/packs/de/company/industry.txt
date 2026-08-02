@@ -1,0 +1,59 @@
+---
+description: Industry sector (German)
+locale: de
+---
+Landwirtschaft
+Viehzucht
+Fischerei
+Forstwirtschaft
+Bergbau
+Bauwesen
+Industrie
+Einzelhandel
+Großhandel
+Transport
+Informationstechnologie
+Finanzen
+Bankwesen
+Versicherungen
+Immobilien
+Gesundheitswesen
+Bildung
+Gastgewerbe
+Tourismus
+Unterhaltung
+Energie
+Öl und Gas
+Erneuerbare Energien
+Telekommunikation
+Automobilindustrie
+Luft- und Raumfahrt
+Pharmaindustrie
+Biotechnologie
+Logistik
+Medien
+Werbung
+Unternehmensberatung
+Rechtsberatung
+Rechnungswesen
+Personalwesen
+Lebensmittel und Getränke
+Textilindustrie
+Chemieindustrie
+Metallverarbeitung
+Papier und Zellstoff
+Elektronik
+Software
+E-Commerce
+Videospiele
+Sport
+Kultur
+Wissenschaftliche Forschung
+Öffentliche Verwaltung
+Verteidigung
+Sicherheitsdienste
+Gemeinnützige Organisationen
+Abfallwirtschaft
+Wasserwirtschaft
+Architektur
+Ingenieurwesen

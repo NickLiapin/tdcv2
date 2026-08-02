@@ -1,0 +1,17 @@
+---
+address: canada.finance.bank
+description: Canadian bank or deposit-taking institution (the Big Six, the main mid-size banks, and Desjardins); same order as canada.finance.institutionNumber
+---
+Royal Bank of Canada
+Toronto-Dominion Bank
+Bank of Nova Scotia
+Bank of Montreal
+Canadian Imperial Bank of Commerce
+National Bank of Canada
+Laurentian Bank of Canada
+ATB Financial
+Tangerine Bank
+Manulife Bank of Canada
+Equitable Bank
+President's Choice Bank
+Desjardins

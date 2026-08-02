@@ -1,0 +1,19 @@
+---
+description: Employment type / contract (French)
+locale: fr
+---
+Temps plein
+Temps partiel
+CDI
+CDD
+Intérim
+Freelance
+Stage
+Alternance
+Apprentissage
+Contrat de professionnalisation
+Saisonnier
+Bénévolat
+Portage salarial
+Vacataire
+Indépendant

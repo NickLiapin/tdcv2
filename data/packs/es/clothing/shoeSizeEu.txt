@@ -1,0 +1,16 @@
+---
+description: Shoe size (European sizing, used across Spain and most of Latin America)
+locale: es
+---
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46

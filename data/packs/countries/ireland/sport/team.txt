@@ -1,0 +1,29 @@
+---
+address: ireland.sport.team
+description: Irish sports club — League of Ireland football clubs plus the four professional rugby provinces
+locale: en
+---
+Shamrock Rovers
+Bohemian FC
+St Patrick's Athletic
+Shelbourne
+Derry City
+Sligo Rovers
+Dundalk
+Drogheda United
+Waterford
+Galway United
+Cork City
+Bray Wanderers
+Finn Harps
+Longford Town
+Wexford
+Athlone Town
+Cobh Ramblers
+Treaty United
+Kerry FC
+University College Dublin AFC
+Leinster Rugby
+Munster Rugby
+Connacht Rugby
+Ulster Rugby

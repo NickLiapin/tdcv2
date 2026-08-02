@@ -1,0 +1,53 @@
+---
+address: colombia.geo.streetNamed
+description: Named Colombian thoroughfare — the minority of streets that carry a name rather than a number, in Bogotá, Medellín, Cali and Barranquilla
+locale: es
+---
+Avenida Caracas
+Autopista Norte
+Avenida El Dorado
+Avenida Boyacá
+Avenida Suba
+Avenida Ciudad de Cali
+Avenida de las Américas
+Avenida Jiménez
+Avenida Circunvalar
+Avenida NQS
+Avenida 68
+Autopista Sur
+Avenida Villavicencio
+Avenida Primero de Mayo
+Avenida Chile
+Avenida Ciudad de Quito
+Avenida Medellín
+Avenida Guayacanes
+Avenida Ciudad de Villavicencio
+Avenida Esperanza
+Avenida El Poblado
+Avenida Oriental
+Avenida Regional
+Avenida Las Vegas
+Avenida 33
+Avenida 80
+Avenida Colombia
+Avenida La Playa
+Calle Junín
+Carrera Palacé
+Carrera Carabobo
+Avenida Roosevelt
+Avenida Sexta
+Autopista Suroriental
+Avenida Pasoancho
+Avenida Simón Bolívar
+Vía 40
+Avenida Murillo
+Avenida del Río
+Avenida Pedro de Heredia
+Avenida Santander
+Avenida Libertador
+Avenida Los Estudiantes
+Avenida Quebrada Seca
+Avenida González Valencia
+Autopista Medellín
+Autopista Bogotá
+Avenida Panamericana

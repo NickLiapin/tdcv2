@@ -1,0 +1,7 @@
+---
+address: burkina_faso.vehicle.plate
+description: Burkinabè licence plate — structural layout of two digits, two letters and four digits (e.g. 11-BF-1234)
+generator: tdc
+locale: fr
+---
+<gen type="regex" value="[0-9]{2}-[A-Z]{2}-[0-9]{4}"/>

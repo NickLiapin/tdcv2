@@ -1,0 +1,16 @@
+---
+description: Jobs in Manufacturing (German)
+locale: de
+---
+Zerspanungsmechaniker
+Schweißer
+Qualitätsprüfer
+Produktionsleiter
+Montagemitarbeiter
+Industriemechaniker
+Fertigungsplaner
+Anlagenführer
+Werkzeugmacher
+Instandhaltungstechniker
+Verfahrensmechaniker
+Schichtleiter

@@ -1,0 +1,17 @@
+---
+description: Grade / mark (qualitative Spanish scale)
+locale: es
+---
+Matrícula de Honor
+Sobresaliente
+Notable
+Bien
+Aprobado
+Suspenso
+Excelente
+Muy Bueno
+Bueno
+Regular
+Insuficiente
+Deficiente
+Reprobado

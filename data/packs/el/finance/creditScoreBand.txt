@@ -1,0 +1,9 @@
+---
+description: Credit score band (Greek)
+locale: el
+---
+Κακή
+Μέτρια
+Καλή
+Πολύ καλή
+Εξαιρετική

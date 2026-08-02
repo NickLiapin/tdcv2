@@ -1,0 +1,23 @@
+---
+address: guatemala.sport.team
+description: Guatemalan football club — Liga Nacional first, then long-standing Primera División sides
+locale: es
+---
+Comunicaciones FC
+Club Social y Deportivo Municipal
+Xelajú MC
+Antigua GFC
+Cobán Imperial
+Deportivo Malacateco
+Deportivo Guastatoya
+Deportivo Achuapa
+Deportivo Mixco
+Deportivo Marquense
+Deportivo Xinabajul
+Deportivo Sanarate
+Deportivo Suchitepéquez
+Deportivo Petapa
+Deportivo Iztapa
+Aurora FC
+Sacachispas FC
+Deportivo Nueva Concepción

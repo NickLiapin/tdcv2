@@ -1,0 +1,10 @@
+---
+address: denmark.geo.region
+description: The five administrative regions (regioner) of Denmark
+locale: da
+---
+Region Hovedstaden
+Region Sjælland
+Region Syddanmark
+Region Midtjylland
+Region Nordjylland

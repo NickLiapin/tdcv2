@@ -1,0 +1,7 @@
+---
+address: sao_tome_and_principe.docs.nif
+description: São Tomé and Príncipe taxpayer number (NIF / Número de Identificação Fiscal) — 9 digits. Structure only; the official check-digit algorithm is not published.
+generator: tdc
+locale: pt
+---
+<gen type="regex" value="[0-9]{9}"/>

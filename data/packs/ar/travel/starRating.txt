@@ -1,0 +1,10 @@
+---
+description: Hotel star rating (Arabic)
+locale: ar
+---
+نجمة واحدة
+نجمتان
+ثلاث نجوم
+أربع نجوم
+خمس نجوم
+فندق فاخر

@@ -1,0 +1,7 @@
+---
+address: puerto_rico.vehicle.plate
+description: Puerto Rican licence plate — the standard passenger layout is three letters and three digits (ABC 123, "Isla del Encanto"). Current issues print a space; issues from 2007–2023 print a dash, which is used here (ABC-123)
+generator: tdc
+locale: es
+---
+<gen type="regex" value="[A-Z]{3}-[0-9]{3}"/>

@@ -1,0 +1,13 @@
+---
+description: French audiovisual content rating (Arcom / CSA)
+locale: fr
+---
+Tous publics
+Déconseillé aux moins de 10 ans
+Déconseillé aux moins de 12 ans
+Déconseillé aux moins de 16 ans
+Déconseillé aux moins de 18 ans
+-10
+-12
+-16
+-18

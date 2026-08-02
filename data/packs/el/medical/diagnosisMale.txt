@@ -1,0 +1,24 @@
+---
+description: Medical diagnosis that requires male anatomy (Greek) — it cannot occur in a female patient. Draw from this list only for male rows; general conditions live in medical/diagnosis.
+locale: el
+---
+Καλοήθης υπερπλασία προστάτη
+Προστατίτιδα
+Καρκίνος του προστάτη
+Καρκίνος των όρχεων
+Συστροφή όρχεως
+Κιρσοκήλη
+Υδροκήλη
+Επιδιδυμίτιδα
+Κρυψορχία
+Φίμωση
+Βαλανίτιδα
+Στυτική δυσλειτουργία
+Νόσος Πεϊρονί
+Ανδρική υπογονιμότητα
+Γυναικομαστία
+Ανδρικός υπογοναδισμός
+Πριαπισμός
+Σπερματοκήλη
+Ανδρογενετική αλωπεκία
+Οσχεοκήλη

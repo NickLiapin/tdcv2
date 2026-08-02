@@ -1,0 +1,24 @@
+---
+description: Medical diagnosis that requires male anatomy (Russian) — it cannot occur in a female patient. Draw from this list only for male rows; general conditions live in medical/diagnosis.
+locale: ru
+---
+Доброкачественная гиперплазия предстательной железы
+Простатит
+Рак предстательной железы
+Рак яичка
+Перекрут яичка
+Варикоцеле
+Гидроцеле
+Эпидидимит
+Крипторхизм
+Фимоз
+Баланит
+Эректильная дисфункция
+Болезнь Пейрони
+Мужское бесплодие
+Гинекомастия
+Мужской гипогонадизм
+Приапизм
+Сперматоцеле
+Облысение по мужскому типу
+Пахово-мошоночная грыжа

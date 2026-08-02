@@ -1,0 +1,24 @@
+---
+description: Medical diagnosis in Italian that requires male anatomy — it cannot occur in a female patient. Draw from this list only for male rows; general conditions live in medical/diagnosis.
+locale: it
+---
+Ipertrofia prostatica benigna
+Prostatite
+Carcinoma della prostata
+Tumore del testicolo
+Torsione testicolare
+Varicocele
+Idrocele
+Epididimite
+Criptorchidismo
+Fimosi
+Balanite
+Disfunzione erettile
+Induratio penis plastica
+Infertilità maschile
+Ginecomastia
+Ipogonadismo maschile
+Priapismo
+Spermatocele
+Alopecia androgenetica maschile
+Ernia scrotale

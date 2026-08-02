@@ -1,0 +1,14 @@
+---
+description: Medical specialty (has a coherent diagnosis list)
+locale: ar
+---
+أمراض القلب
+الأعصاب
+الأورام
+الجلدية
+الجهاز الهضمي
+الغدد الصماء
+الصدرية
+العظام
+النفسية
+الكلى

@@ -1,0 +1,20 @@
+---
+address: mauritania.geo.city
+description: Cities and towns of Mauritania (Arabic)
+locale: ar
+---
+نواكشوط
+نواذيبو
+كيهيدي
+كيفة
+روصو
+زويرات
+العيون
+أطار
+النعمة
+سيلبابي
+ألاك
+بوكي
+تجكجة
+اكجوجت
+بير أم الكرين

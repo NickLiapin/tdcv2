@@ -1,0 +1,81 @@
+---
+description: Hobby / interest (Spanish)
+locale: es
+---
+Lectura
+Senderismo
+Fotografía
+Cocina
+Jardinería
+Pintura
+Ciclismo
+Videojuegos
+Yoga
+Viajar
+Pesca
+Tejer
+Correr
+Repostería
+Carpintería
+Ajedrez
+Baile
+Surf
+Acampar
+Observación de aves
+Cerámica
+Astronomía
+Natación
+Escalada
+Buceo
+Música
+Guitarra
+Piano
+Canto
+Teatro
+Escritura
+Coleccionismo
+Numismática
+Filatelia
+Modelismo
+Costura
+Bordado
+Alfarería
+Dibujo
+Caligrafía
+Meditación
+Artes marciales
+Boxeo
+Patinaje
+Esquí
+Equitación
+Vela
+Kayak
+Golf
+Tenis
+Fútbol
+Baloncesto
+Voleibol
+Gimnasio
+Crossfit
+Pilates
+Rompecabezas
+Juegos de mesa
+Programación
+Robótica
+Impresión 3D
+Enología
+Cata de café
+Cine
+Podcasts
+Genealogía
+Voluntariado
+Apicultura
+Huerto urbano
+Bonsái
+Acuarismo
+Astrofotografía
+Paracaidismo
+Parapente
+Espeleología
+Orientación
+Geocaching

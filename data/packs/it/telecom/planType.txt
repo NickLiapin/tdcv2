@@ -1,0 +1,16 @@
+---
+description: Mobile plan type (Italian)
+locale: it
+---
+Prepagato
+Abbonamento
+Illimitato
+Piano famiglia
+Piano aziendale
+Pagamento a consumo
+Solo dati
+Piano condiviso
+Tariffa flat
+Piano ricaricabile
+Piano combinato
+Ricarica

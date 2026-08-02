@@ -1,0 +1,19 @@
+---
+address: portugal.finance.bank
+description: Major banks of Portugal (Portuguese names)
+locale: pt
+---
+Caixa Geral de Depósitos
+Millennium bcp
+Novo Banco
+Banco BPI
+Santander Totta
+Banco CTT
+Bankinter Portugal
+Crédito Agrícola
+Banco Montepio
+EuroBic
+Banco BiG
+Banco Invest
+Banco Best
+Abanca

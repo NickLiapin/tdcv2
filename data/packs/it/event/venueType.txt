@@ -1,0 +1,20 @@
+---
+description: Venue type (Italian)
+locale: it
+---
+Sala d'albergo
+Centro congressi
+Stadio
+Teatro
+Sala per banchetti
+Terrazza
+Giardino
+Capannone industriale
+Auditorium
+Discoteca
+Sala riunioni
+Villa storica
+Cantina vinicola
+Spiaggia
+Museo
+Centro culturale

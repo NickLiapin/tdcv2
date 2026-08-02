@@ -1,0 +1,11 @@
+---
+description: Dishes of Thai cuisine (Spanish)
+locale: es
+---
+Pad thai
+Curry verde
+Sopa tom yum
+Curry massaman
+Ensalada de papaya
+Arroz glutinoso con mango
+Satay

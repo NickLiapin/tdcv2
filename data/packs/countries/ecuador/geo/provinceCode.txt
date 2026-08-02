@@ -1,0 +1,28 @@
+---
+address: ecuador.geo.provinceCode
+description: Ecuadorian 2-digit province code (01-24) — the first two digits of a cédula and of a 6-digit postal code; same order as ecuador.geo.province
+---
+01
+02
+03
+04
+05
+06
+07
+08
+09
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24

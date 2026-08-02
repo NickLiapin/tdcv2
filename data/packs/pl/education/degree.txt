@@ -1,0 +1,20 @@
+---
+description: Academic degree / qualification level as awarded in Poland
+locale: pl
+---
+Wykształcenie podstawowe
+Wykształcenie zasadnicze zawodowe
+Wykształcenie średnie
+Matura
+Technik
+Dyplom zawodowy
+Wykształcenie policealne
+Licencjat
+Inżynier
+Magister
+Magister inżynier
+Studia podyplomowe
+MBA
+Doktor
+Doktor habilitowany
+Profesor

@@ -1,0 +1,26 @@
+---
+description: Common allergies (Portuguese)
+locale: pt
+---
+Penicilina
+Amendoim
+Castanhas
+Frutos do mar
+Ovo
+Leite
+Soja
+Trigo
+Látex
+Pólen
+Ácaros do pó
+Pelo de animais
+Picada de abelha
+Aspirina
+Sulfas
+Iodo
+Gergelim
+Glúten
+Mofo
+Níquel
+Morango
+Contraste iodado

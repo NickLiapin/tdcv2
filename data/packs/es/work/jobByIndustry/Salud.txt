@@ -1,0 +1,11 @@
+---
+description: Jobs in Healthcare (Spanish)
+locale: es
+---
+Enfermero
+Médico general
+Farmacéutico
+Fisioterapeuta
+Auxiliar médico
+Técnico radiólogo
+Paramédico

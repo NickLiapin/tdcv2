@@ -1,0 +1,147 @@
+---
+description: Product noun (Polish). Grammatical gender varies, so compose adjectives carefully.
+locale: pl
+---
+Krzesło
+Stół
+Biurko
+Sofa
+Fotel
+Regał
+Szafa
+Komoda
+Materac
+Poduszka
+Koc
+Pościel
+Ręczniki
+Zasłony
+Dywan
+Lustro
+Lampa
+Zegar
+Wazon
+Obraz
+Doniczka
+Komputer
+Laptop
+Tablet
+Telefon
+Klawiatura
+Mysz
+Monitor
+Drukarka
+Aparat fotograficzny
+Słuchawki
+Głośnik
+Ładowarka
+Powerbank
+Kabel
+Adapter
+Dysk twardy
+Pendrive
+Router
+Telewizor
+Konsola
+Pad do gier
+Rower
+Hulajnoga
+Kask
+Piłka
+Rakieta
+Rękawice
+Plecak
+Walizka
+Torebka
+Portfel
+Pasek
+Czapka z daszkiem
+Kapelusz
+Szalik
+Koszula
+Koszulka
+Spodnie
+Dżinsy
+Spódnica
+Sukienka
+Kurtka
+Płaszcz
+Sweter
+Bluza
+Skarpetki
+Buty
+Trampki
+Kozaki
+Sandały
+Okulary przeciwsłoneczne
+Parasol
+Zegarek na rękę
+Naszyjnik
+Bransoletka
+Pierścionek
+Kolczyki
+Perfumy
+Mydło
+Szampon
+Krem
+Szczotka
+Suszarka
+Golarka
+Termos
+Butelka
+Kubek
+Szklanka
+Talerz
+Nóż
+Widelec
+Łyżka
+Patelnia
+Garnek
+Deska do krojenia
+Mikser
+Blender
+Ekspres do kawy
+Toster
+Czajnik
+Kuchenka mikrofalowa
+Lodówka
+Pralka
+Odkurzacz
+Wentylator
+Grzejnik
+Żelazko
+Koszyk
+Pudełko
+Namiot
+Śpiwór
+Latarka
+Młotek
+Śrubokręt
+Wiertarka
+Klucz nastawny
+Drabina
+Wąż ogrodowy
+Konewka
+Kosiarka
+Sekator
+Grabie
+Łopata
+Taczka
+Piła
+Miarka
+Ser
+Chleb
+Olej
+Kawa
+Herbata
+Czekolada
+Miód
+Ryż
+Makaron
+Sok
+Wino
+Zeszyt
+Długopis
+Ołówek
+Tornister
+Kalkulator

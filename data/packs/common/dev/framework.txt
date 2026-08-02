@@ -1,0 +1,31 @@
+---
+description: Software framework / library
+---
+React
+Angular
+Vue
+Svelte
+Next.js
+Nuxt
+Django
+Flask
+FastAPI
+Spring Boot
+Ruby on Rails
+Laravel
+Express
+NestJS
+.NET
+Symfony
+Gin
+Actix
+Phoenix
+Ktor
+Flutter
+SwiftUI
+TensorFlow
+PyTorch
+Node.js
+Deno
+Bun
+Remix

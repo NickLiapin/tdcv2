@@ -1,0 +1,12 @@
+---
+description: Dishes of Argentine cuisine (Portuguese)
+locale: pt
+---
+Asado
+Empanadas
+Milanesa à napolitana
+Choripán
+Locro
+Provoleta
+Doce de leite
+Matambre

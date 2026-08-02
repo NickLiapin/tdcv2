@@ -1,0 +1,53 @@
+---
+address: egypt.docs.nationalId
+description: Egyptian national ID (الرقم القومي) — 14 digits: century (2 = 1900s, 3 = 2000s) + YYMMDD birth date + 2-digit governorate code + 4-digit serial + check digit. The structure (century, date, governorate) is authentic; the 14th digit is the Luhn check of the first 13 (the de-facto validation used in practice — Egypt does not publish an official check algorithm).
+generator: tdc
+locale: ar
+---
+<sequence name="birth"><gen type="date" from="1960-01-01" to="2004-12-31" format="YYYYMMDD"/></sequence>
+<sequence name="gov"><gen type="template" value="egypt.geo.governorateCode"/></sequence>
+<sequence name="serial"><gen type="regex" value="[0-9]{4}"/></sequence>
+<sequence name="nid"><compute>
+  <!-- Century digit: 2 for a 19xx birth year, 3 for 20xx. -->
+  <let name="century">
+    <choose>
+      <when><test><equals><to_number><slice from="0" to="2"><field name="birth"/></slice></to_number><int v="19"/></equals></test>
+        <then><str v="2"/></then></when>
+      <otherwise><str v="3"/></otherwise>
+    </choose>
+  </let>
+  <let name="yymmdd"><slice from="2" to="8"><field name="birth"/></slice></let>
+  <!-- 13-digit body: century + YYMMDD + governorate + serial. -->
+  <let name="body"><concat>
+    <var name="century"/><var name="yymmdd"/><field name="gov"/><field name="serial"/>
+  </concat></let>
+  <!-- Luhn check: double the positions whose index parity matches (length + 1). -->
+  <let name="sum"><reduce>
+    <over><var name="body"/></over>
+    <init><int v="0"/></init>
+    <do><add><acc/>
+      <choose>
+        <when>
+          <test><equals>
+            <mod><current_index/><int v="2"/></mod>
+            <mod><add><length><var name="body"/></length><int v="1"/></add><int v="2"/></mod>
+          </equals></test>
+          <then>
+            <let name="d"><multiply><current/><int v="2"/></multiply></let>
+            <choose>
+              <when><test><greater_than><var name="d"/><int v="9"/></greater_than></test>
+                    <then><subtract><var name="d"/><int v="9"/></subtract></then></when>
+              <otherwise><var name="d"/></otherwise>
+            </choose>
+          </then>
+        </when>
+        <otherwise><current/></otherwise>
+      </choose>
+    </add></do>
+  </reduce></let>
+  <let name="check"><mod><subtract><int v="10"/><mod><var name="sum"/><int v="10"/></mod></subtract><int v="10"/></mod></let>
+  <result><concat>
+    <var name="century"/><var name="yymmdd"/><field name="gov"/><field name="serial"/><var name="check"/>
+  </concat></result>
+</compute></sequence>
+<data>${{nid}}</data>

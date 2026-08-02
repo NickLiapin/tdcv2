@@ -1,0 +1,25 @@
+---
+address: ecuador.tax.ruc
+description: Ecuadorian RUC, private-company (org) form (province + 9 + weighted mod-11 check + 001; redraw when check would be 10)
+generator: tdc
+---
+<sequence name="body"><gen type="regex" value="(0[1-9]|1[0-9]|2[0-4]|30|50)9[0-9]{6}"/></sequence>
+<sequence name="check"><compute>
+  <let name="sum">
+    <reduce>
+      <over><field name="body"/></over>
+      <init><int v="0"/></init>
+      <do><add><acc/>
+        <multiply><current/>
+          <at><in><list v="4,3,2,7,6,5,4,3,2"/></in><index><current_index/></index></at>
+        </multiply>
+      </add></do>
+    </reduce>
+  </let>
+  <result><mod><subtract><int v="11"/><mod><var name="sum"/><int v="11"/></mod></subtract><int v="11"/></mod></result>
+</compute></sequence>
+<valid><less_than><to_number><field name="check"/></to_number><int v="10"/></less_than></valid>
+<sequence name="out"><compute>
+  <result><concat><field name="body"/><field name="check"/><str v="001"/></concat></result>
+</compute></sequence>
+<data>${{out}}</data>

@@ -1,0 +1,9 @@
+---
+description: Positions in Ice hockey (Arabic)
+locale: ar
+---
+حارس مرمى
+مدافع
+جناح أيسر
+جناح أيمن
+مهاجم وسط

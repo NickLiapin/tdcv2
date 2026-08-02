@@ -1,0 +1,22 @@
+---
+description: Event type (Italian)
+locale: it
+---
+Conferenza
+Congresso
+Matrimonio
+Concerto
+Festival
+Laboratorio
+Seminario
+Webinar
+Fiera commerciale
+Mostra
+Raccolta fondi
+Incontro professionale
+Lancio di prodotto
+Gala
+Compleanno
+Laurea
+Battesimo
+Anniversario

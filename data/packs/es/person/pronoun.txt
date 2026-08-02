@@ -1,0 +1,12 @@
+---
+description: Personal pronoun set (Spanish)
+locale: es
+---
+él
+ella
+elle
+él/lo
+ella/la
+elle/le
+él/ella
+ella/elle

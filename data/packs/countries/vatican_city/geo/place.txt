@@ -1,0 +1,20 @@
+---
+address: vatican_city.geo.place
+description: Places within Vatican City (Italian names)
+locale: it
+---
+Piazza San Pietro
+Basilica di San Pietro
+Palazzo Apostolico
+Cappella Sistina
+Musei Vaticani
+Giardini Vaticani
+Cortile del Belvedere
+Biblioteca Apostolica Vaticana
+Archivio Apostolico Vaticano
+Domus Sanctae Marthae
+Governatorato
+Torre San Giovanni
+Necropoli Vaticana
+Aula Paolo VI
+Stazione Vaticana

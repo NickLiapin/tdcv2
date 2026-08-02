@@ -1,0 +1,12 @@
+---
+description: Dishes of Thai cuisine (Polish)
+locale: pl
+---
+Pad thai
+Zielone curry
+Zupa tom yum
+Curry massaman
+Sałatka z zielonej papai
+Kleisty ryż z mango
+Satay
+Zupa tom kha

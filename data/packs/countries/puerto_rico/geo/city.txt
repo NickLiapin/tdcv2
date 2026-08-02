@@ -1,0 +1,46 @@
+---
+address: puerto_rico.geo.city
+description: Puerto Rican city or well-known urban zone — the largest municipio seats plus notable urban districts (Santurce, Río Piedras, Condado, Isla Verde) of the San Juan metropolitan area
+locale: es
+---
+San Juan
+Bayamón
+Carolina
+Ponce
+Caguas
+Guaynabo
+Arecibo
+Toa Baja
+Mayagüez
+Trujillo Alto
+Toa Alta
+Vega Baja
+Fajardo
+Humacao
+Manatí
+Cataño
+Cayey
+Aguadilla
+Juana Díaz
+Yauco
+Cabo Rojo
+Isabela
+San Germán
+Coamo
+Hormigueros
+Dorado
+Gurabo
+Juncos
+Hatillo
+Aguada
+Viejo San Juan
+Santurce
+Río Piedras
+Hato Rey
+Miramar
+Condado
+Isla Verde
+Ocean Park
+Puerto Nuevo
+Levittown
+Caparra

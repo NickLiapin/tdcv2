@@ -1,0 +1,35 @@
+---
+description: Musical instrument (German)
+locale: de
+---
+Gitarre
+Klavier
+Geige
+Schlagzeug
+E-Bass
+Saxofon
+Trompete
+Querflöte
+Cello
+Klarinette
+Posaune
+Harfe
+Ukulele
+Banjo
+Akkordeon
+Keyboard
+Oboe
+Kontrabass
+Mundharmonika
+Xylofon
+Konzertgitarre
+Cajon
+Bratsche
+Waldhorn
+Tuba
+Fagott
+Zither
+Alphorn
+Hackbrett
+Blockflöte
+Tamburin

@@ -1,0 +1,26 @@
+---
+description: Hobby / interest
+locale: en
+---
+Reading
+Hiking
+Photography
+Cooking
+Gardening
+Painting
+Cycling
+Gaming
+Yoga
+Traveling
+Fishing
+Knitting
+Running
+Baking
+Woodworking
+Chess
+Dancing
+Surfing
+Camping
+Birdwatching
+Pottery
+Astronomy

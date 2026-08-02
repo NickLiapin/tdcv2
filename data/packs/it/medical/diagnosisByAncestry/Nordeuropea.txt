@@ -1,0 +1,14 @@
+---
+description: Conditions markedly more frequent in people of Northern European ancestry, in Italian. A prevalence signal, not an exclusive one.
+locale: it
+---
+Fibrosi cistica
+Emocromatosi ereditaria
+Deficit di alfa-1 antitripsina
+Fenilchetonuria
+Celiachia
+Sclerosi multipla
+Diabete mellito di tipo 1
+Malattia di Dupuytren
+Carcinoma basocellulare
+Persistenza della lattasi

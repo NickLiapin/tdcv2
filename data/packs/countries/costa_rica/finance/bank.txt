@@ -1,0 +1,17 @@
+---
+address: costa_rica.finance.bank
+description: Costa Rican bank (state, private and cooperative banks supervised by SUGEF); same order as costa_rica.finance.bankCode
+locale: es
+---
+Banco Nacional de Costa Rica
+Banco de Costa Rica
+Banco Popular y de Desarrollo Comunal
+BAC San José
+Banco Davivienda (Costa Rica)
+Banco BCT
+Banco LAFISE
+Banca Promérica
+Banco Improsa
+Scotiabank de Costa Rica
+Banco Cathay de Costa Rica
+Banco General (Costa Rica)

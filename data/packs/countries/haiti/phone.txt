@@ -1,0 +1,6 @@
+---
+address: haiti.phone
+description: Haitian mobile phone in E.164 form (+509 [34]XXXXXXX)
+generator: tdc
+---
+<gen type="regex" value="\+509[34][0-9]{7}"/>

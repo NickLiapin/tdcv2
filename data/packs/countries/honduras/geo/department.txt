@@ -1,0 +1,23 @@
+---
+address: honduras.geo.department
+description: Honduran first-level division — the 18 departamentos in official (INE) numeric-code order; same order as honduras.geo.departmentCode / departmentIso / departmentCapital
+locale: es
+---
+Atlántida
+Colón
+Comayagua
+Copán
+Cortés
+Choluteca
+El Paraíso
+Francisco Morazán
+Gracias a Dios
+Intibucá
+Islas de la Bahía
+La Paz
+Lempira
+Ocotepeque
+Olancho
+Santa Bárbara
+Valle
+Yoro

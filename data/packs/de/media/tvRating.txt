@@ -1,0 +1,13 @@
+---
+description: TV / film content rating, descriptive German (country rating codes are country data)
+locale: de
+---
+Freigegeben ohne Altersbeschränkung
+Freigegeben ab 6 Jahren
+Freigegeben ab 12 Jahren
+Freigegeben ab 16 Jahren
+Freigegeben ab 18 Jahren
+Elterliche Begleitung empfohlen
+Nur für Erwachsene
+Kinderprogramm
+Jugendliche

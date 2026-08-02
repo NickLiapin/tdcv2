@@ -1,0 +1,52 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "tdcv2"
+version = "0.1.0"
+description = "TDC — The Data Constructor. Deterministic test data from a declarative config."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Nick Liapin" }]
+keywords = ["test-data", "synthetic-data", "data-generation", "deterministic"]
+
+# One runtime dependency, and it is the parser generator's own runtime — the grammar is shared
+# with the other implementations, so the parse tree has to be the same tree. Everything else is
+# written here rather than depended on, which is what keeps the three implementations producing
+# identical bytes: a library that changes its rounding or its compression changes our output.
+dependencies = ["antlr4-python3-runtime==4.13.2"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "ruff>=0.6"]
+
+# `pip install tdcv2` puts `tdcv2` on the PATH. A Python user should never need another language's
+# toolchain to run a .tdc file, which is exactly what having only the TypeScript CLI would mean.
+[project.scripts]
+tdcv2 = "tdcv2.cli.main:cli"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+# The starter packs, put here by scripts/bundle_packs.py. Everything else is downloaded from the
+# shared registry on demand — see src/tdcv2/packs/registry.py.
+"tdcv2" = ["packs_data/**/*.txt", "packs_data/index.txt"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+# The generated parser is not ours to style, and regenerating it would undo any edit anyway.
+extend-exclude = ["src/tdcv2/parser/generated"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "N", "UP", "B", "SIM", "RUF"]
+# The "ambiguous unicode character" rules warn that а might be a typo for a. In a library whose
+# job is multilingual data they fire on every alphabet we ship on purpose — Cyrillic, fullwidth
+# digits, Greek — and there is no true positive among them.
+ignore = ["RUF001", "RUF002", "RUF003"]

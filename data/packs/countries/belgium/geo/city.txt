@@ -1,0 +1,39 @@
+---
+address: belgium.geo.city
+description: Belgian cities and larger municipalities (French names where they exist)
+locale: fr
+---
+Bruxelles
+Anvers
+Gand
+Charleroi
+Liège
+Bruges
+Namur
+Louvain
+Mons
+Alost
+Malines
+La Louvière
+Courtrai
+Hasselt
+Ostende
+Saint-Nicolas
+Tournai
+Genk
+Seraing
+Roulers
+Verviers
+Mouscron
+Wavre
+Arlon
+Nivelles
+Louvain-la-Neuve
+Waterloo
+Dinant
+Spa
+Ypres
+Bastogne
+Eupen
+Huy
+Braine-l'Alleud

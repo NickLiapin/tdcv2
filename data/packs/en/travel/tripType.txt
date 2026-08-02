@@ -1,0 +1,16 @@
+---
+description: Trip type
+locale: en
+---
+Business
+Leisure
+Family Vacation
+Honeymoon
+Adventure
+Road Trip
+Cruise
+Backpacking
+City Break
+Beach Holiday
+Group Tour
+Solo Travel

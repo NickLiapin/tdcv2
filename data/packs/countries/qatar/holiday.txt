@@ -1,0 +1,9 @@
+---
+address: qatar.holiday
+description: Public holidays in Qatar (Arabic)
+locale: ar
+---
+اليوم الوطني
+اليوم الرياضي للدولة
+عيد الفطر
+عيد الأضحى

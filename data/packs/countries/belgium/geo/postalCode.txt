@@ -1,0 +1,7 @@
+---
+address: belgium.geo.postalCode
+description: Belgian postal code — 4 digits (1000–9999)
+generator: tdc
+locale: fr
+---
+<gen type="regex" value="[1-9][0-9]{3}"/>

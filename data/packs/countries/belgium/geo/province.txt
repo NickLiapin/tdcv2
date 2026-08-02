@@ -1,0 +1,15 @@
+---
+address: belgium.geo.province
+description: Belgian provinces (French names)
+locale: fr
+---
+Anvers
+Brabant flamand
+Brabant wallon
+Flandre-Occidentale
+Flandre-Orientale
+Hainaut
+Liège
+Limbourg
+Luxembourg
+Namur

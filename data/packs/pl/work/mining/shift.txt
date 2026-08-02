@@ -1,0 +1,9 @@
+---
+description: Work shift (Polish)
+locale: pl
+---
+Dzienna
+Nocna
+Popołudniowa
+Rotacyjna
+Poranna

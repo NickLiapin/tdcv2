@@ -1,0 +1,29 @@
+---
+address: dr_congo.geo.city
+description: Cities and larger towns of the Democratic Republic of the Congo
+locale: fr
+---
+Kinshasa
+Lubumbashi
+Mbuji-Mayi
+Kananga
+Kisangani
+Bukavu
+Goma
+Kolwezi
+Likasi
+Tshikapa
+Beni
+Bunia
+Uvira
+Matadi
+Boma
+Mbandaka
+Kikwit
+Kindu
+Isiro
+Butembo
+Kamina
+Kalemie
+Mwene-Ditu
+Gemena

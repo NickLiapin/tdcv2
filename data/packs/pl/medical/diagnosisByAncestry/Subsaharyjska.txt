@@ -1,0 +1,16 @@
+---
+description: Conditions markedly more frequent in people of Sub-Saharan African ancestry, in Polish. A prevalence signal, not an exclusive one — anyone can have these, and most patients of this ancestry have none of them.
+locale: pl
+---
+Niedokrwistość sierpowatokrwinkowa
+Cecha sierpowatokrwinkowa
+Niedobór dehydrogenazy glukozo-6-fosforanowej
+Nefropatia związana z APOL1
+Bliznowce
+Sarkoidoza
+Nefroskleroza nadciśnieniowa
+Mięśniaki macicy
+Łagodna neutropenia etniczna
+Hipolaktazja typu dorosłych
+Rzekome zapalenie mieszków włosowych brody
+Bielactwo nabyte

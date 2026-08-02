@@ -1,0 +1,13 @@
+---
+address: kuwait.holiday
+description: Public holidays in Kuwait (Arabic)
+locale: ar
+---
+رأس السنة الميلادية
+العيد الوطني
+يوم التحرير
+الإسراء والمعراج
+عيد الفطر
+عيد الأضحى
+رأس السنة الهجرية
+المولد النبوي

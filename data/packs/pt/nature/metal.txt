@@ -1,0 +1,26 @@
+---
+description: Metal (Portuguese)
+locale: pt
+---
+Ouro
+Prata
+Platina
+Cobre
+Ferro
+Alumínio
+Titânio
+Zinco
+Níquel
+Chumbo
+Estanho
+Bronze
+Latão
+Aço
+Paládio
+Cobalto
+Crómio
+Tungsténio
+Mercúrio
+Magnésio
+Lítio
+Manganês

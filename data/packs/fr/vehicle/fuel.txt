@@ -1,0 +1,13 @@
+---
+description: Fuel type (French)
+locale: fr
+---
+Essence
+Diesel
+Électrique
+Hybride
+Hybride rechargeable
+GPL
+Hydrogène
+Bioéthanol
+Micro-hybride

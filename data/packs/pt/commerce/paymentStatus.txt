@@ -1,0 +1,14 @@
+---
+description: Payment status (Portuguese)
+locale: pt
+---
+Pendente
+Autorizado
+Pago
+Falhou
+Reembolsado
+Reembolsado parcialmente
+Estorno
+Anulado
+Recusado
+Em análise

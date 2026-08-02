@@ -1,0 +1,7 @@
+---
+address: niger.docs.idCard
+description: Nigerien national ID number — 11 digits. Structural; no public check digit.
+generator: tdc
+locale: fr
+---
+<gen type="regex" value="[0-9]{11}"/>

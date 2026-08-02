@@ -1,0 +1,15 @@
+---
+description: Social reaction
+locale: en
+---
+Like
+Love
+Haha
+Wow
+Sad
+Angry
+Care
+Celebrate
+Support
+Insightful
+Curious

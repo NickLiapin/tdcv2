@@ -1,0 +1,12 @@
+---
+description: Time of day (Spanish)
+locale: es
+---
+mañana
+mediodía
+tarde
+atardecer
+noche
+medianoche
+madrugada
+amanecer

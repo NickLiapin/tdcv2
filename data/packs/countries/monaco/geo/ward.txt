@@ -1,0 +1,17 @@
+---
+address: monaco.geo.ward
+description: Monaco wards / quartiers
+locale: fr
+---
+Monaco-Ville
+Monte-Carlo
+La Condamine
+Fontvieille
+Larvotto
+La Rousse
+Les Moneghetti
+Les Révoires
+La Colle
+Saint-Roman
+La Gare
+Le Portier

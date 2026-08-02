@@ -1,0 +1,59 @@
+---
+address: chile.education.university
+description: Chilean university or higher-education institution — the CRUCH state and traditional universities plus the main private ones
+locale: es
+---
+Universidad de Chile
+Pontificia Universidad Católica de Chile
+Universidad de Santiago de Chile
+Universidad de Concepción
+Universidad Técnica Federico Santa María
+Pontificia Universidad Católica de Valparaíso
+Universidad de Valparaíso
+Universidad Austral de Chile
+Universidad de La Frontera
+Universidad de Talca
+Universidad del Bío-Bío
+Universidad de Tarapacá
+Universidad Arturo Prat
+Universidad de Antofagasta
+Universidad Católica del Norte
+Universidad de Atacama
+Universidad de La Serena
+Universidad de Playa Ancha de Ciencias de la Educación
+Universidad Metropolitana de Ciencias de la Educación
+Universidad Tecnológica Metropolitana
+Universidad de Los Lagos
+Universidad de Magallanes
+Universidad Católica del Maule
+Universidad Católica de Temuco
+Universidad Católica de la Santísima Concepción
+Universidad de O'Higgins
+Universidad de Aysén
+Universidad Adolfo Ibáñez
+Universidad de los Andes
+Universidad del Desarrollo
+Universidad Diego Portales
+Universidad Alberto Hurtado
+Universidad Andrés Bello
+Universidad Mayor
+Universidad Autónoma de Chile
+Universidad Central de Chile
+Universidad de Las Américas
+Universidad San Sebastián
+Universidad Santo Tomás
+Universidad Finis Terrae
+Universidad del Pacífico
+Universidad Bernardo O'Higgins
+Universidad Academia de Humanismo Cristiano
+Universidad Católica Silva Henríquez
+Universidad Viña del Mar
+Universidad Gabriela Mistral
+Universidad SEK
+Universidad Adventista de Chile
+Universidad Tecnológica de Chile INACAP
+Instituto Profesional DUOC UC
+Universidad La República
+Universidad Miguel de Cervantes
+Universidad Bolivariana
+Universidad de Aconcagua

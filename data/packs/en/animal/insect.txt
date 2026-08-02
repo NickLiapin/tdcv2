@@ -1,0 +1,19 @@
+---
+description: Insect
+locale: en
+---
+Ant
+Bee
+Butterfly
+Beetle
+Dragonfly
+Grasshopper
+Ladybug
+Moth
+Cricket
+Wasp
+Firefly
+Mantis
+Cicada
+Termite
+Mosquito

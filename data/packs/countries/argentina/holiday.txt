@@ -1,0 +1,22 @@
+---
+address: argentina.holiday
+description: Argentine national holiday (feriado nacional, ley 27.399). Six of them move — Carnaval and the Easter days follow the liturgical calendar, and Güemes, San Martín, Diversidad Cultural and Soberanía Nacional are trasladables, shifted to a Monday when their fixed date (17 June, 17 August, 12 October, 20 November) falls midweek. Jueves Santo is a día no laborable rather than a full feriado.
+locale: es
+---
+Año Nuevo
+Lunes de Carnaval
+Martes de Carnaval
+Día Nacional de la Memoria por la Verdad y la Justicia
+Día del Veterano y de los Caídos en la Guerra de Malvinas
+Jueves Santo
+Viernes Santo
+Día del Trabajador
+Día de la Revolución de Mayo
+Paso a la Inmortalidad del General Martín Miguel de Güemes
+Paso a la Inmortalidad del General Manuel Belgrano
+Día de la Independencia
+Paso a la Inmortalidad del General José de San Martín
+Día del Respeto a la Diversidad Cultural
+Día de la Soberanía Nacional
+Inmaculada Concepción de María
+Navidad

@@ -1,0 +1,32 @@
+---
+description: Tech verb, gerund (Spanish)
+locale: es
+---
+respaldando
+eludiendo
+hackeando
+anulando
+comprimiendo
+copiando
+navegando
+indexando
+conectando
+generando
+cuantificando
+calculando
+sintetizando
+introduciendo
+transmitiendo
+programando
+reiniciando
+analizando
+cifrando
+descifrando
+desplegando
+compilando
+depurando
+optimizando
+sincronizando
+virtualizando
+enrutando
+monitorizando

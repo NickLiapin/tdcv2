@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Pulmonology (French)
+locale: fr
+---
+Asthme
+Bronchopneumopathie chronique obstructive
+Pneumonie
+Bronchite chronique
+Embolie pulmonaire
+Fibrose pulmonaire
+Apnée du sommeil
+Tuberculose
+Cancer du poumon
+Pleurésie

@@ -1,0 +1,64 @@
+---
+address: canada.education.university
+description: Canadian university or degree-granting institution (public, across every region)
+---
+University of Toronto
+McGill University
+University of British Columbia
+University of Waterloo
+University of Alberta
+McMaster University
+Université de Montréal
+University of Calgary
+University of Ottawa
+Western University
+Queen's University
+Dalhousie University
+Simon Fraser University
+University of Victoria
+Université Laval
+University of Manitoba
+University of Saskatchewan
+University of Guelph
+Carleton University
+Concordia University
+York University
+Toronto Metropolitan University
+Université de Sherbrooke
+Université du Québec à Montréal
+Memorial University of Newfoundland
+University of New Brunswick
+University of Windsor
+University of Regina
+Brock University
+Wilfrid Laurier University
+University of Lethbridge
+Lakehead University
+Trent University
+Laurentian University
+University of Northern British Columbia
+OCAD University
+University of Prince Edward Island
+Saint Mary's University
+Mount Allison University
+Acadia University
+University of Winnipeg
+Thompson Rivers University
+Vancouver Island University
+Kwantlen Polytechnic University
+University of the Fraser Valley
+MacEwan University
+Mount Royal University
+Nipissing University
+Ontario Tech University
+Cape Breton University
+St. Francis Xavier University
+Bishop's University
+Polytechnique Montréal
+HEC Montréal
+Université du Québec à Trois-Rivières
+Université du Québec à Chicoutimi
+Athabasca University
+Emily Carr University of Art and Design
+NSCAD University
+Royal Military College of Canada

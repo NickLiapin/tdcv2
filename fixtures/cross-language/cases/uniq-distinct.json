@@ -1,0 +1,241 @@
+{
+  "schemaVersion": 1,
+  "cases": [
+    {
+      "name": "distinct-pair",
+      "description": "Two fields from the same two-value list never coincide in a row",
+      "config": "<tdc><env count=\"40\" seed=\"distinct-1\" local=\"en\" mode=\"memory\"><sequence name=\"P\"><distinct><gen name=\"A\" type=\"text\" value=\"X,Y\"/><gen name=\"B\" type=\"text\" value=\"X,Y\"/></distinct></sequence></env><block><line><data>${{P.A}}|${{P.B}}</data></line></block></tdc>",
+      "expected": [
+        "X|Y",
+        "X|Y",
+        "X|Y",
+        "X|Y",
+        "Y|X",
+        "X|Y",
+        "Y|X",
+        "Y|X",
+        "X|Y",
+        "X|Y",
+        "Y|X",
+        "X|Y",
+        "X|Y",
+        "Y|X",
+        "X|Y",
+        "Y|X",
+        "Y|X",
+        "X|Y",
+        "X|Y",
+        "Y|X",
+        "Y|X",
+        "Y|X",
+        "X|Y",
+        "Y|X",
+        "X|Y",
+        "Y|X",
+        "Y|X",
+        "Y|X",
+        "Y|X",
+        "X|Y",
+        "Y|X",
+        "Y|X",
+        "X|Y",
+        "Y|X",
+        "X|Y",
+        "Y|X",
+        "X|Y",
+        "Y|X",
+        "X|Y",
+        "Y|X"
+      ]
+    },
+    {
+      "name": "distinct-two-groups",
+      "description": "Two independent groups each hold within a row",
+      "config": "<tdc><env count=\"25\" seed=\"distinct-2grp\" local=\"en\" mode=\"memory\"><sequence name=\"P\"><distinct><gen name=\"F1\" type=\"text\" value=\"p,q\"/><gen name=\"F2\" type=\"text\" value=\"p,q\"/></distinct><distinct><gen name=\"L1\" type=\"text\" value=\"m,n\"/><gen name=\"L2\" type=\"text\" value=\"m,n\"/></distinct></sequence></env><block><line><data>${{P.F1}}${{P.F2}} ${{P.L1}}${{P.L2}}</data></line></block></tdc>",
+      "expected": [
+        "pq nm",
+        "qp nm",
+        "pq nm",
+        "qp nm",
+        "qp nm",
+        "pq mn",
+        "pq mn",
+        "qp mn",
+        "qp nm",
+        "qp nm",
+        "pq nm",
+        "qp nm",
+        "qp mn",
+        "qp nm",
+        "pq nm",
+        "pq nm",
+        "qp mn",
+        "pq nm",
+        "pq nm",
+        "pq mn",
+        "pq nm",
+        "qp mn",
+        "pq nm",
+        "pq mn",
+        "qp mn"
+      ]
+    },
+    {
+      "name": "distinct-leaves-outsiders-alone",
+      "description": "A field outside the group is left unconstrained",
+      "config": "<tdc><env count=\"10\" seed=\"distinct-mixed\" local=\"en\" mode=\"memory\"><sequence name=\"P\"><distinct><gen name=\"A\" type=\"text\" value=\"X,Y\"/><gen name=\"B\" type=\"text\" value=\"X,Y\"/></distinct><gen name=\"C\" type=\"text\" value=\"X,Y\"/></sequence></env><block><line><data>${{P.A}}${{P.B}}${{P.C}}</data></line></block></tdc>",
+      "expected": [
+        "YXY",
+        "YXY",
+        "XYY",
+        "XYY",
+        "XYY",
+        "YXY",
+        "YXY",
+        "YXY",
+        "XYX",
+        "YXY"
+      ]
+    },
+    {
+      "name": "uniq-rearranges-a-tight-pool",
+      "description": "20 unique rows out of a 4x8 pool a single draw could not arrange",
+      "config": "<tdc><env count=\"20\" seed=\"u\" local=\"en\" mode=\"memory\"><sequence name=\"K\" uniq=\"true\"><gen name=\"a\" type=\"text\" value=\"a1,a2,a3,a4\"/><gen name=\"b\" type=\"text\" value=\"b1,b2,b3,b4,b5,b6,b7,b8\"/></sequence></env><block><line><data>${{K.a}}-${{K.b}}</data></line></block></tdc>",
+      "expected": [
+        "a3-b2",
+        "a1-b1",
+        "a2-b7",
+        "a2-b1",
+        "a1-b3",
+        "a3-b5",
+        "a1-b6",
+        "a1-b4",
+        "a2-b4",
+        "a3-b7",
+        "a2-b3",
+        "a2-b6",
+        "a3-b8",
+        "a3-b3",
+        "a4-b7",
+        "a4-b8",
+        "a4-b5",
+        "a4-b2",
+        "a3-b6",
+        "a4-b6"
+      ]
+    },
+    {
+      "name": "uniq-keeps-exact-shares",
+      "description": "uniq only rearranges, so a declared share stays exact",
+      "config": "<tdc><env count=\"8\" seed=\"u-shares\" local=\"en\" mode=\"memory\"><sequence name=\"K\" uniq=\"true\"><gen name=\"a\" type=\"text\" value=\"a1,a2\" percent=\"25,75\"/><gen name=\"b\" type=\"text\" value=\"b1,b2,b3,b4,b5,b6,b7,b8\"/></sequence></env><block><line><data>${{K.a}}-${{K.b}}</data></line></block></tdc>",
+      "expected": [
+        "a2-b3",
+        "a2-b2",
+        "a1-b5",
+        "a2-b6",
+        "a2-b1",
+        "a2-b5",
+        "a2-b4",
+        "a1-b1"
+      ]
+    },
+    {
+      "name": "env-uniq-across-sequences",
+      "description": "<uniq> at env level: the tuple of the wrapped sequences is unique across rows",
+      "config": "<tdc><env count=\"8\" seed=\"env-u\" local=\"en\" mode=\"memory\"><uniq><sequence name=\"A\"><gen type=\"text\" value=\"a1,a2,a3,a4,a5,a6\"/></sequence><sequence name=\"B\"><gen type=\"text\" value=\"b1,b2,b3,b4,b5,b6\"/></sequence></uniq></env><block><line><data>${{A}}-${{B}}</data></line></block></tdc>",
+      "expected": [
+        "a3-b5",
+        "a2-b2",
+        "a1-b3",
+        "a4-b2",
+        "a4-b5",
+        "a5-b2",
+        "a6-b5",
+        "a4-b3"
+      ]
+    },
+    {
+      "name": "env-uniq-leaves-outsiders-alone",
+      "description": "a sequence outside the <uniq> wrapper keeps the values it drew",
+      "config": "<tdc><env count=\"6\" seed=\"env-u2\" local=\"en\" mode=\"memory\"><uniq><sequence name=\"A\"><gen type=\"text\" value=\"x,y,z,w,v,u\"/></sequence><sequence name=\"B\"><gen type=\"text\" value=\"p,q,r,s,t,o\"/></sequence></uniq><sequence name=\"C\"><gen type=\"text\" value=\"k1,k2\"/></sequence></env><block><line><data>${{A}}${{B}}|${{C}}</data></line></block></tdc>",
+      "expected": ["uo|k1", "vo|k2", "uq|k1", "yo|k2", "zo|k1", "xp|k2"]
+    },
+    {
+      "name": "env-distinct-across-sequences",
+      "description": "<distinct> at env level: the wrapped sequences differ from each other on every row",
+      "config": "<tdc><env count=\"10\" seed=\"env-d\" local=\"en\" mode=\"memory\"><distinct><sequence name=\"Born\"><gen type=\"text\" value=\"Paris,Rome,Lyon\"/></sequence><sequence name=\"Lives\"><gen type=\"text\" value=\"Paris,Rome,Lyon\"/></sequence></distinct></env><block><line><data>${{Born}} -> ${{Lives}}</data></line></block></tdc>",
+      "expected": [
+        "Lyon -> Paris",
+        "Paris -> Rome",
+        "Lyon -> Rome",
+        "Lyon -> Rome",
+        "Paris -> Rome",
+        "Lyon -> Paris",
+        "Paris -> Lyon",
+        "Lyon -> Rome",
+        "Rome -> Paris",
+        "Paris -> Lyon"
+      ]
+    },
+    {
+      "name": "env-distinct-three-members",
+      "description": "three sequences that must all differ from each other within a row",
+      "config": "<tdc><env count=\"8\" seed=\"env-d3\" local=\"en\" mode=\"memory\"><distinct><sequence name=\"A\"><gen type=\"text\" value=\"1,2,3,4\"/></sequence><sequence name=\"B\"><gen type=\"text\" value=\"1,2,3,4\"/></sequence><sequence name=\"C\"><gen type=\"text\" value=\"1,2,3,4\"/></sequence></distinct></env><block><line><data>${{A}}${{B}}${{C}}</data></line></block></tdc>",
+      "expected": ["312", "124", "134", "142", "413", "214", "423", "214"]
+    },
+    {
+      "name": "uniq-simple-list",
+      "description": "5 rows over a 5-value list — every value exactly once, order is the draw",
+      "config": "<tdc><env count=\"5\" seed=\"u\" local=\"en\" mode=\"memory\"><sequence name=\"G\" uniq=\"true\"><gen type=\"text\" value=\"a,b,c,d,e\"/></sequence></env><block><line><data>${{G}}</data></line></block></tdc>",
+      "expected": ["c", "a", "d", "e", "b"]
+    },
+    {
+      "name": "uniq-simple-int-range",
+      "description": "12 distinct integers out of 1..40, drawn then never repeated",
+      "config": "<tdc><env count=\"12\" seed=\"u\" local=\"en\" mode=\"memory\"><sequence name=\"G\" uniq=\"true\"><gen type=\"number\" value=\"1..40\"/></sequence></env><block><line><data>${{G}}</data></line></block></tdc>",
+      "expected": [
+        "19",
+        "9",
+        "30",
+        "8",
+        "4",
+        "33",
+        "6",
+        "34",
+        "25",
+        "11",
+        "3",
+        "10"
+      ]
+    },
+    {
+      "name": "uniq-simple-weighted-pack",
+      "description": "10 first names from the weighted en pack, no repeats — the draw is without replacement",
+      "config": "<tdc><env count=\"10\" seed=\"u\" local=\"en\" mode=\"memory\"><sequence name=\"G\" uniq=\"true\"><gen type=\"template\" value=\"person.male.firstName\"/></sequence></env><block><line><data>${{G}}</data></line></block></tdc>",
+      "expected": [
+        "Alexander",
+        "Thomas",
+        "Dennis",
+        "Gavin",
+        "Richard",
+        "Robert",
+        "Andre",
+        "David",
+        "Tim",
+        "Craig"
+      ]
+    },
+    {
+      "name": "uniq-group-with-a-mix-member",
+      "description": "A <mix> inside an env-level <uniq> is a member like any other: a group rearranges whole columns between rows, and a mix keeps its value multiset whatever the order, so its percentages survive the move. Before this case the name was not registered at all — every reference to it read as undeclared.",
+      "config": "<tdc><env count=\"4\" seed=\"mixgroup\" local=\"en\" mode=\"memory\"><uniq><mix name=\"K\" percent=\"50,50\"><case><gen type=\"text\" value=\"A\"/></case><case><gen type=\"text\" value=\"B\"/></case></mix><sequence name=\"N\"><gen type=\"number\" value=\"1..4\"/></sequence></uniq></env><block><line><data>${{K}}${{N}}</data></line></block></tdc>",
+      "expected": ["B2", "A2", "A4", "B4"]
+    },
+    {
+      "name": "uniq-group-with-a-switch-member",
+      "description": "A <switch> may join a group, but the group may only move its value between rows that share the subject: a male name must not land in a female row. Rows are partitioned by the subject and rearranged inside each block, so the tuple is unique across all rows AND every value still answers its own row's subject. Here the three F rows carry cat/dot and the M row carries bob.",
+      "config": "<tdc><env count=\"4\" seed=\"switchgroup\" local=\"en\" mode=\"memory\"><sequence name=\"G\"><gen type=\"text\" value=\"M,F\"/></sequence><uniq><switch name=\"N\" on=\"G\"><case is=\"M\"><gen type=\"text\" value=\"ann,bob\"/></case><case is=\"F\"><gen type=\"text\" value=\"cat,dot\"/></case></switch><sequence name=\"S\"><gen type=\"number\" value=\"1..4\"/></sequence></uniq></env><block><line><data>${{G}}-${{N}}-${{S}}</data></line></block></tdc>",
+      "expected": ["F-cat-3", "M-bob-3", "F-dot-3", "F-dot-4"]
+    }
+  ]
+}

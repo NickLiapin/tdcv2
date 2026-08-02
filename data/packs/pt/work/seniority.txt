@@ -1,0 +1,20 @@
+---
+description: Seniority / level label for a role (Portuguese)
+locale: pt
+---
+Estagiário
+Aprendiz
+Júnior
+Associado
+Pleno
+Sênior
+Líder
+Especialista
+Principal
+Distinto
+Gerente
+Gerente sênior
+Diretor
+Vice-presidente
+Chefe
+Diretor-geral

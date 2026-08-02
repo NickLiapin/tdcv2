@@ -1,0 +1,7 @@
+---
+address: gabon.vehicle.plate
+description: Gabonese licence plate — structural layout of four digits and three letters (e.g. 1234-GAB)
+generator: tdc
+locale: fr
+---
+<gen type="regex" value="[0-9]{4}-[A-Z]{3}"/>

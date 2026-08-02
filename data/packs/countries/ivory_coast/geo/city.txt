@@ -1,0 +1,31 @@
+---
+address: ivory_coast.geo.city
+description: Cities and larger towns of Côte d'Ivoire
+locale: fr
+---
+Abidjan
+Bouaké
+Daloa
+Yamoussoukro
+San-Pédro
+Korhogo
+Man
+Divo
+Gagnoa
+Abengourou
+Anyama
+Agboville
+Grand-Bassam
+Dabou
+Bingerville
+Séguéla
+Bondoukou
+Odienné
+Soubré
+Ferkessédougou
+Katiola
+Dimbokro
+Aboisso
+Bouaflé
+Issia
+Sinfra

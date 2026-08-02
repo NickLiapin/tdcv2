@@ -1,0 +1,13 @@
+---
+description: Dishes of Italian cuisine (Portuguese)
+locale: pt
+---
+Pizza margherita
+Esparguete à carbonara
+Lasanha
+Risoto
+Osso buco
+Tiramisu
+Nhoque
+Minestrone
+Fettuccine alfredo

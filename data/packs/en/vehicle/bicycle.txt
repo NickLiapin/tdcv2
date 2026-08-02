@@ -1,0 +1,16 @@
+---
+description: Bicycle type
+locale: en
+---
+Road Bicycle
+Mountain Bicycle
+Hybrid Bicycle
+Cruiser Bicycle
+Gravel Bicycle
+BMX Bike
+Electric Bicycle
+Folding Bicycle
+Touring Bicycle
+Cyclocross Bicycle
+Fat Bike
+Recumbent Bicycle

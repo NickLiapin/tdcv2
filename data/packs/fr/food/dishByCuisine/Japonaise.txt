@@ -1,0 +1,16 @@
+---
+description: Dishes of Japanese cuisine (French)
+locale: fr
+---
+Sushi
+Sashimi
+Ramen
+Tempura
+Yakitori
+Udon
+Soupe miso
+Gyoza
+Donburi
+Takoyaki
+Onigiri
+Katsu curry

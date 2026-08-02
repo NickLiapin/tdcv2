@@ -1,0 +1,25 @@
+---
+address: lebanon.geo.city
+description: Cities and towns of Lebanon (Arabic)
+locale: ar
+---
+بيروت
+طرابلس
+صيدا
+صور
+جونية
+زحلة
+بعلبك
+النبطية
+جبيل
+بعبدا
+عاليه
+بشري
+البترون
+جل الديب
+المتن
+كسروان
+عين المريسة
+الشوف
+حمانا
+جزين

@@ -1,0 +1,11 @@
+---
+address: nicaragua.finance.bankCode
+description: 4-letter bank identifier used inside a Nicaraguan IBAN — the first four letters of the bank's BIC/SWIFT code; same order as nicaragua.finance.bank
+---
+BAPR
+BCCE
+BAMC
+BBDF
+BUNO
+PRCB
+ATTD

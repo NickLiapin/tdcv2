@@ -1,0 +1,20 @@
+---
+description: Seniority / level label for a role (Polish)
+locale: pl
+---
+Stażysta
+Praktykant
+Junior
+Młodszy specjalista
+Specjalista
+Starszy specjalista
+Lider zespołu
+Ekspert
+Główny specjalista
+Koordynator
+Kierownik
+Starszy kierownik
+Dyrektor
+Wiceprezes
+Szef pionu
+Prezes zarządu

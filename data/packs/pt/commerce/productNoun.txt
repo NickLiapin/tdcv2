@@ -1,0 +1,146 @@
+---
+description: Product noun (Portuguese). Grammatical gender varies, so compose adjectives carefully.
+locale: pt
+---
+Cadeira
+Mesa
+Escrivaninha
+Sofá
+Poltrona
+Estante
+Armário
+Cômoda
+Colchão
+Travesseiro
+Cobertor
+Lençóis
+Toalhas
+Cortinas
+Tapete
+Espelho
+Luminária
+Relógio
+Vaso
+Quadro
+Vaso de plantas
+Computador
+Computador de mesa
+Notebook
+Tablet
+Telefone
+Teclado
+Mouse
+Monitor
+Impressora
+Câmera
+Fones de ouvido
+Alto-falante
+Carregador
+Bateria
+Cabo
+Adaptador
+Disco rígido
+Pen drive
+Roteador
+Televisor
+Console
+Controle
+Bicicleta
+Patinete
+Capacete
+Bola
+Raquete
+Luvas
+Mochila
+Mala
+Bolsa
+Carteira
+Cinto
+Boné
+Chapéu
+Cachecol
+Camisa
+Camiseta
+Calça
+Jeans
+Saia
+Vestido
+Jaqueta
+Casaco
+Suéter
+Moletom
+Meias
+Sapatos
+Tênis
+Botas
+Sandálias
+Óculos de sol
+Guarda-chuva
+Relógio de pulso
+Colar
+Pulseira
+Anel
+Brincos
+Perfume
+Sabonete
+Xampu
+Creme
+Escova
+Secador
+Barbeador
+Garrafa térmica
+Garrafa
+Caneca
+Copo
+Prato
+Faca
+Garfo
+Colher
+Frigideira
+Panela
+Tábua de corte
+Batedeira
+Liquidificador
+Cafeteira
+Torradeira
+Chaleira elétrica
+Micro-ondas
+Geladeira
+Máquina de lavar
+Aspirador de pó
+Ventilador
+Aquecedor
+Ferro de passar
+Cesto
+Caixa
+Barraca de camping
+Saco de dormir
+Lanterna
+Martelo
+Chave de fenda
+Furadeira
+Chave inglesa
+Escada
+Mangueira
+Regador
+Cortador de grama
+Queijo
+Pão
+Azeite
+Café
+Chá
+Chocolate
+Mel
+Arroz
+Massa
+Pizza
+Salada
+Biscoitos
+Suco
+Vinho
+Cerveja
+Caderno
+Caneta
+Lápis
+Mochila escolar
+Calculadora

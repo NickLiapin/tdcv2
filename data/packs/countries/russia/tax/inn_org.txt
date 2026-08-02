@@ -1,0 +1,25 @@
+---
+address: russia.tax.inn_org
+description: Russian INN for a legal entity (10 digits, weighted mod-11 check)
+generator: tdc
+---
+<sequence name="tax_office"><gen type="regex" value="[0-9]{4}"/></sequence>
+<sequence name="tail"><gen type="regex" value="[0-9]{5}"/></sequence>
+<sequence name="inn"><compute>
+  <let name="base"><concat><field name="tax_office"/><field name="tail"/></concat></let>
+  <let name="check">
+    <mod><mod>
+      <reduce>
+        <over><var name="base"/></over>
+        <init><int v="0"/></init>
+        <do><add><acc/>
+          <multiply><current/>
+            <at><in><list v="2,4,10,3,5,9,4,6,8"/></in><index><current_index/></index></at>
+          </multiply>
+        </add></do>
+      </reduce>
+      <int v="11"/></mod><int v="10"/></mod>
+  </let>
+  <result><concat><var name="base"/><var name="check"/></concat></result>
+</compute></sequence>
+<data>${{inn}}</data>

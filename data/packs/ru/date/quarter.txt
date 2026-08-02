@@ -1,0 +1,7 @@
+---
+description: Calendar quarter (Russian)
+---
+1 квартал
+2 квартал
+3 квартал
+4 квартал

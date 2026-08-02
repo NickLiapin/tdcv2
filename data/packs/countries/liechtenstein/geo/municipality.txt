@@ -1,0 +1,16 @@
+---
+address: liechtenstein.geo.municipality
+description: The eleven municipalities (Gemeinden) of Liechtenstein
+locale: de
+---
+Vaduz
+Schaan
+Triesen
+Balzers
+Eschen
+Mauren
+Triesenberg
+Ruggell
+Gamprin
+Schellenberg
+Planken

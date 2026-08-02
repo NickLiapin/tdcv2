@@ -1,0 +1,7 @@
+---
+address: vatican_city.phone
+description: Vatican City telephone number. The state shares the Italian numbering plan through the Rome 06 area code (its own +379 country code is assigned but unused).
+generator: tdc
+locale: it
+---
+<gen type="regex" value="\+39066988[0-9]{4}"/>

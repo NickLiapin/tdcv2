@@ -1,0 +1,18 @@
+---
+address: burkina_faso.holiday
+description: Public holidays in Burkina Faso (French names; civil, Christian and Muslim)
+locale: fr
+---
+Jour de l'An
+Journée du Soulèvement populaire
+Journée internationale de la femme
+Fête du Travail
+Ascension
+Fête de l'Indépendance
+Assomption
+Toussaint
+Proclamation de la République
+Noël
+Aïd el-Fitr
+Aïd el-Kébir
+Maouloud

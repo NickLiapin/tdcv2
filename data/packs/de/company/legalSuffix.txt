@@ -1,0 +1,48 @@
+---
+description: Company legal / name suffix used in the German-speaking world (GmbH, AG, GmbH & Co. KG, UG, plus Austrian and Swiss forms)
+locale: de
+---
+GmbH
+AG
+GmbH & Co. KG
+KG
+OHG
+e.K.
+UG (haftungsbeschränkt)
+eG
+SE
+gGmbH
+KGaA
+GmbH & Co. KGaA
+GesmbH
+OG
+Sàrl
+Einzelunternehmen
+Genossenschaft
+Stiftung
+e.V.
+GbR
+PartG
+& Söhne
+& Partner
+& Co.
+Gebrüder
+Gruppe
+Holding
+Konzern
+Beteiligungen
+Gesellschaft
+Unternehmensgruppe
+Consulting
+Beratung
+Dienstleistungen
+Lösungen
+Systeme
+Technologien
+Industrie
+International
+Investment
+Handel
+Vertrieb
+Werke
+Laboratorien

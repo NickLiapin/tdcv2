@@ -1,0 +1,9 @@
+---
+address: saudi_arabia.holiday
+description: Public holidays in Saudi Arabia (Arabic)
+locale: ar
+---
+عيد الفطر
+عيد الأضحى
+اليوم الوطني
+يوم التأسيس

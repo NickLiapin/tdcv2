@@ -1,0 +1,6 @@
+node_modules/
+out/
+*.vsix
+# Synced from ../ by sync.mjs — build artifacts, not sources.
+tdc.tmLanguage.json
+language-configuration.json

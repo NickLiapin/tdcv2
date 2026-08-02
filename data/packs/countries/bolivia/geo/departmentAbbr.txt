@@ -1,0 +1,13 @@
+---
+address: bolivia.geo.departmentAbbr
+description: Two-letter departamento abbreviation as used by SEGIP for the extensión printed on a cédula de identidad (e.g. "1234567 LP"); same order as bolivia.geo.department
+---
+CH
+LP
+CB
+OR
+PT
+TJ
+SC
+BN
+PD

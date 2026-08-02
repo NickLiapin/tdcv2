@@ -1,0 +1,10 @@
+---
+description: Jobs in Manufacturing (Spanish)
+locale: es
+---
+Tornero
+Soldador
+Inspector de calidad
+Supervisor de producción
+Ensamblador
+Mecánico industrial

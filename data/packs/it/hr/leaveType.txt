@@ -1,0 +1,16 @@
+---
+description: Leave type (Italian)
+locale: it
+---
+Ferie
+Malattia
+Congedo parentale
+Congedo di maternità
+Congedo di paternità
+Permesso per lutto
+Aspettativa non retribuita
+Anno sabbatico
+Permesso personale
+Congedo per cure mediche
+Congedo matrimoniale
+Permesso per studio

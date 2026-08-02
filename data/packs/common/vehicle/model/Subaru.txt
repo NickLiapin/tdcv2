@@ -1,0 +1,13 @@
+---
+description: Models of Subaru
+locale: en
+---
+Outback
+Forester
+Impreza
+Crosstrek
+Legacy
+Ascent
+WRX
+BRZ
+Solterra

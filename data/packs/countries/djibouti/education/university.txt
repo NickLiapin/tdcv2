@@ -1,0 +1,9 @@
+---
+address: djibouti.education.university
+description: Higher-education institutions in Djibouti
+locale: fr
+---
+Université de Djibouti
+Institut Supérieur d'Études et de Recherches Scientifiques et Techniques
+École de Management de Djibouti
+Institut des Sciences de la Santé

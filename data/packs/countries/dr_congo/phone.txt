@@ -1,0 +1,6 @@
+---
+address: dr_congo.phone
+description: DR Congo mobile phone in E.164 form (+243 [89]XXXXXXXX)
+generator: tdc
+---
+<gen type="regex" value="\+243[89][0-9]{8}"/>

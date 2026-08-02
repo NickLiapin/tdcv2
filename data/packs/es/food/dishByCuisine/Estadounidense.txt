@@ -1,0 +1,11 @@
+---
+description: Dishes of American cuisine (Spanish)
+locale: es
+---
+Hamburguesa con queso
+Costillas a la barbacoa
+Macarrones con queso
+Alitas búfalo
+Crema de almejas
+Tarta de manzana
+Pan de maíz

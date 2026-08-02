@@ -1,0 +1,16 @@
+---
+description: Mobile plan type (German)
+locale: de
+---
+Prepaid
+Postpaid
+Unbegrenzt
+Familientarif
+Geschäftstarif
+Nach Verbrauch
+Nur Daten
+Partnertarif
+Flatrate
+Allnet-Flat
+Kombitarif
+Aufladung

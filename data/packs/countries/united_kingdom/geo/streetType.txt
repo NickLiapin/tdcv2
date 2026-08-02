@@ -1,0 +1,35 @@
+---
+address: united_kingdom.geo.streetType
+description: UK thoroughfare designation as written after the name (High Street, Church Lane); repeated entries carry the real frequency — Road and Street dominate
+locale: en
+---
+Street
+Street
+Street
+Street
+Road
+Road
+Road
+Road
+Road
+Lane
+Lane
+Avenue
+Avenue
+Close
+Close
+Drive
+Drive
+Way
+Gardens
+Crescent
+Grove
+Place
+Court
+Terrace
+Hill
+Row
+Walk
+Rise
+Green
+Square

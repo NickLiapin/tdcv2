@@ -1,0 +1,11 @@
+---
+description: Weekday abbreviation (French)
+locale: fr
+---
+lun.
+mar.
+mer.
+jeu.
+ven.
+sam.
+dim.

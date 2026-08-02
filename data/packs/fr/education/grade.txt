@@ -1,0 +1,14 @@
+---
+description: Grade / honours mention (French)
+locale: fr
+---
+Très bien
+Bien
+Assez bien
+Passable
+Insuffisant
+Éliminatoire
+Félicitations du jury
+Ajourné
+Admis
+Recalé

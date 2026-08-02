@@ -1,0 +1,24 @@
+---
+description: Musical instrument
+locale: en
+---
+Guitar
+Piano
+Violin
+Drums
+Bass Guitar
+Saxophone
+Trumpet
+Flute
+Cello
+Clarinet
+Trombone
+Harp
+Ukulele
+Banjo
+Accordion
+Keyboard
+Oboe
+Double Bass
+Harmonica
+Xylophone

@@ -1,0 +1,42 @@
+---
+description: Leading element of an Italian place name (San Giovanni, Borgo Nuovo, Castel Volturno). Combine with a real toponym; it does not by itself name a real city.
+locale: it
+---
+San
+Santa
+Santo
+Sant'
+Borgo
+Borgo di
+Villa
+Villanova
+Porto
+Città di
+Nuova
+Nuovo
+Val di
+Valle di
+Monte
+Poggio
+Castel
+Castello di
+Rocca
+Colle
+Campo
+Costa
+Punta
+Marina di
+Lido di
+Serra
+Pieve di
+Torre
+Ponte
+Passo di
+Piano di
+Isola
+Lago di
+Fonte di
+Casal
+Ca'
+Corte
+Bagno di

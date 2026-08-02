@@ -1,0 +1,16 @@
+---
+description: Dishes of Brazilian cuisine (Portuguese)
+locale: pt
+---
+Feijoada
+Pão de queijo
+Coxinha
+Brigadeiro
+Moqueca
+Acarajé
+Pastel
+Vatapá
+Farofa
+Picanha
+Bobó de camarão
+Açaí na tigela

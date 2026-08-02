@@ -1,0 +1,424 @@
+<a name="top"></a>
+
+**English** · [Русский](../ru/guides/writing-a-service.md#top) · [Español](../es/guides/writing-a-service.md#top)
+
+← Previous: [Large outputs & streaming](./large-outputs.md#top) · **[Contents](../README.md#top)** · Next: [Overview](../data-packs/overview.md#top) →
+
+---
+
+# Writing a service generator
+
+The [`http` generator](../generators/http.md#top) lets a service you wrote decide values.
+This page is the other half: **how to write that service**, in Node, Python, or Java, so
+that it is fast, correct, and **reproducible**. Reproducibility is the one that takes
+deliberate work, because a service is free to answer differently every time it is asked.
+
+Below is one working service per language. Each one covers both modes: it invents account
+numbers when asked for values, and appends a Luhn check digit when handed values to
+process.
+
+## What the service must do
+
+The full contract lives on the [generator's page](../generators/http.md#the-contract-your-service-implements).
+Four lines of it are all you need to write one:
+
+- a **`POST`** arrives, carrying `X-TDC-Count: N` and `X-TDC-Seed: <hex>`;
+- the **body** is `N` values, one per line — or **empty**, which means "invent them";
+- answer with exactly **`N` lines**, in the same order;
+- plain text, no JSON needed anywhere.
+
+## The service, in four languages
+
+#### Node.js
+
+```js
+import { createServer } from 'node:http';
+
+/** FNV-1a (32-bit). The same three lines in every language — that is the point. */
+function fnv1a(text) {
+  let h = 0x811c9dc5;
+  for (const ch of Buffer.from(text, 'utf8')) {
+    h ^= ch;
+    h = Math.imul(h, 0x01000193) >>> 0; // Math.imul keeps it 32-bit
+  }
+  return h >>> 0;
+}
+
+/** Source mode: an 8-digit account for row `i`, decided only by (seed, i). */
+function accountFor(seed, i) {
+  return String(fnv1a(`${seed}#${i}`) % 100000000).padStart(8, '0');
+}
+
+/** Handler mode: the Luhn check digit of what was sent. */
+function luhn(number) {
+  let sum = 0;
+  let dbl = true;
+  for (let i = number.length - 1; i >= 0; i--) {
+    let d = number.charCodeAt(i) - 48;
+    if (d < 0 || d > 9) continue;
+    if (dbl) {
+      d *= 2;
+      if (d > 9) d -= 9;
+    }
+    sum += d;
+    dbl = !dbl;
+  }
+  return String((10 - (sum % 10)) % 10);
+}
+
+createServer((req, res) => {
+  const chunks = [];
+  req.on('data', (c) => chunks.push(c));
+  req.on('end', () => {
+    const count = Number(req.headers['x-tdc-count'] ?? '0');
+    const seed = String(req.headers['x-tdc-seed'] ?? '');
+    const body = Buffer.concat(chunks).toString('utf8');
+
+    const out =
+      body.length === 0
+        ? Array.from({ length: count }, (_, i) => accountFor(seed, i)) // source
+        : body.split('\n').map((line) => line + luhn(line)); // handler
+
+    const payload = out.join('\n');
+    res.writeHead(200, {
+      'Content-Type': 'text/plain',
+      'Content-Length': Buffer.byteLength(payload),
+    });
+    res.end(payload);
+  });
+}).listen(5701, '127.0.0.1');
+```
+
+Run it with `node service.mjs`, then point `src` at `http://127.0.0.1:5701/`.
+
+#### Python
+
+```python
+import sys
+from http.server import BaseHTTPRequestHandler, HTTPServer
+
+
+def fnv1a(text: str) -> int:
+    """FNV-1a (32-bit). The mask is what keeps Python's big ints 32-bit."""
+    h = 0x811C9DC5
+    for byte in text.encode("utf-8"):
+        h ^= byte
+        h = (h * 0x01000193) & 0xFFFFFFFF
+    return h
+
+
+def account_for(seed: str, i: int) -> str:
+    """Source mode: an 8-digit account for row `i`, decided only by (seed, i)."""
+    return f"{fnv1a(f'{seed}#{i}') % 100000000:08d}"
+
+
+def luhn(number: str) -> str:
+    """Handler mode: the Luhn check digit of what was sent."""
+    total, dbl = 0, True
+    for ch in reversed(number):
+        if not ch.isdigit():
+            continue
+        d = int(ch)
+        if dbl:
+            d *= 2
+            if d > 9:
+                d -= 9
+        total += d
+        dbl = not dbl
+    return str((10 - total % 10) % 10)
+
+
+class Handler(BaseHTTPRequestHandler):
+    def do_POST(self):
+        n = int(self.headers.get("Content-Length", 0))
+        body = self.rfile.read(n).decode("utf-8") if n else ""
+        count = int(self.headers.get("X-TDC-Count", "0"))
+        seed = self.headers.get("X-TDC-Seed", "")
+
+        if body == "":
+            out = [account_for(seed, i) for i in range(count)]   # source
+        else:
+            out = [line + luhn(line) for line in body.split("\n")]  # handler
+
+        payload = "\n".join(out).encode("utf-8")
+        self.send_response(200)
+        self.send_header("Content-Type", "text/plain")
+        self.send_header("Content-Length", str(len(payload)))
+        self.end_headers()
+        self.wfile.write(payload)
+
+
+HTTPServer(("127.0.0.1", 5702), Handler).serve_forever()
+```
+
+Run it with `python3 service.py`, then point `src` at `http://127.0.0.1:5702/`.
+
+#### Java
+
+```java
+import com.sun.net.httpserver.HttpServer;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.net.InetSocketAddress;
+import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
+import java.util.List;
+
+public class Service {
+
+    /** FNV-1a (32-bit). Java's int overflow already wraps — no mask needed. */
+    static int fnv1a(String text) {
+        int h = 0x811C9DC5;
+        for (byte b : text.getBytes(StandardCharsets.UTF_8)) {
+            h ^= (b & 0xFF);
+            h *= 0x01000193;
+        }
+        return h;
+    }
+
+    /** Source mode: an 8-digit account for row `i`, decided only by (seed, i). */
+    static String accountFor(String seed, int i) {
+        long h = fnv1a(seed + "#" + i) & 0xFFFFFFFFL;   // read the 32 bits as unsigned
+        return String.format("%08d", h % 100000000L);
+    }
+
+    /** Handler mode: the Luhn check digit of what was sent. */
+    static String luhn(String number) {
+        int sum = 0;
+        boolean dbl = true;
+        for (int i = number.length() - 1; i >= 0; i--) {
+            char c = number.charAt(i);
+            if (c < '0' || c > '9') continue;
+            int d = c - '0';
+            if (dbl) {
+                d *= 2;
+                if (d > 9) d -= 9;
+            }
+            sum += d;
+            dbl = !dbl;
+        }
+        return String.valueOf((10 - sum % 10) % 10);
+    }
+
+    public static void main(String[] args) throws IOException {
+        HttpServer server = HttpServer.create(new InetSocketAddress("127.0.0.1", 5703), 0);
+        server.createContext("/", exchange -> {
+            String body = new String(exchange.getRequestBody().readAllBytes(),
+                                     StandardCharsets.UTF_8);
+            String rawCount = exchange.getRequestHeaders().getFirst("X-TDC-Count");
+            int count = Integer.parseInt(rawCount == null ? "0" : rawCount);
+            String seed = exchange.getRequestHeaders().getFirst("X-TDC-Seed");
+            if (seed == null) seed = "";
+
+            List<String> out = new ArrayList<>();
+            if (body.isEmpty()) {
+                for (int i = 0; i < count; i++) out.add(accountFor(seed, i));  // source
+            } else {
+                for (String line : body.split("\n", -1)) out.add(line + luhn(line));  // handler
+            }
+
+            byte[] payload = String.join("\n", out).getBytes(StandardCharsets.UTF_8);
+            exchange.getResponseHeaders().set("Content-Type", "text/plain");
+            exchange.sendResponseHeaders(200, payload.length);
+            try (OutputStream os = exchange.getResponseBody()) {
+                os.write(payload);
+            }
+        });
+        server.start();
+    }
+}
+```
+
+Run it with `javac Service.java && java Service`, then point `src` at
+`http://127.0.0.1:5703/`.
+
+#### C#
+
+```csharp
+using System.Net;
+using System.Text;
+
+// FNV-1a (32-bit). C# needs `unchecked` — its int does not wrap by default.
+static int Fnv1a(string text)
+{
+    unchecked
+    {
+        int h = (int)0x811C9DC5;
+        foreach (byte b in Encoding.UTF8.GetBytes(text))
+        {
+            h ^= b;
+            h *= 0x01000193;
+        }
+
+        return h;
+    }
+}
+
+// Source mode: an 8-digit account for row `i`, decided only by (seed, i).
+static string AccountFor(string seed, int i) =>
+    ((uint)Fnv1a($"{seed}#{i}") % 100000000L).ToString("D8");
+
+// Handler mode: the Luhn check digit of what was sent.
+static string Luhn(string number)
+{
+    int sum = 0;
+    bool dbl = true;
+    for (int i = number.Length - 1; i >= 0; i--)
+    {
+        if (number[i] is < '0' or > '9') continue;
+        int d = number[i] - '0';
+        if (dbl) { d *= 2; if (d > 9) d -= 9; }
+        sum += d;
+        dbl = !dbl;
+    }
+
+    return ((10 - (sum % 10)) % 10).ToString();
+}
+
+var server = new HttpListener();
+server.Prefixes.Add("http://127.0.0.1:5704/");
+server.Start();
+
+while (true)
+{
+    HttpListenerContext ctx = server.GetContext();
+    using var reader = new StreamReader(ctx.Request.InputStream, Encoding.UTF8);
+    string body = reader.ReadToEnd();
+    int count = int.Parse(ctx.Request.Headers["X-TDC-Count"] ?? "0");
+    string seed = ctx.Request.Headers["X-TDC-Seed"] ?? "";
+
+    IEnumerable<string> lines = body.Length == 0
+        ? Enumerable.Range(0, count).Select(i => AccountFor(seed, i))   // source
+        : body.Split('\n').Select(line => line + Luhn(line));           // handler
+
+    byte[] payload = Encoding.UTF8.GetBytes(string.Join("\n", lines));
+    ctx.Response.ContentType = "text/plain";
+    ctx.Response.ContentLength64 = payload.Length;
+    ctx.Response.OutputStream.Write(payload);
+    ctx.Response.Close();
+}
+```
+
+Run it with `dotnet run`, then point `src` at `http://127.0.0.1:5704/`.
+
+Any of the four, against the same config:
+
+```xml
+<env count="3" seed="demo">
+  <sequence name="Payload"><gen type="number" value="10000000..99999999"/></sequence>
+  <sequence name="Card"><gen type="http" src="http://127.0.0.1:5701/" in="Payload"/></sequence>
+  <sequence name="Acct"><gen type="http" src="http://127.0.0.1:5701/"/></sequence>
+</env>
+```
+
+`./run demo.tdc`
+
+```
+77737493 -> 777374935   |  account: 71102997
+14850763 -> 148507635   |  account: 54325378
+87262332 -> 872623327   |  account: 37547759
+```
+
+`Card` went through the handler — the payload came back with its check digit. `Acct` was
+invented from the seed alone. Swap the port for 5702, 5703 or 5704 and the output is
+character for character the same.
+
+## Reproducibility: what the seed is for
+
+The `http` generator is the one place TDC [gives up its guarantee](../generators/http.md#what-it-does-not-promise):
+the service decides the values, so the engine can't promise that a re-run produces the
+same data. **Your service can promise it** — and `X-TDC-Seed` is what makes that possible.
+
+The rule is one line: **derive every value from the seed, never from a clock or a random
+number generator.**
+
+```js
+accountFor(seed, i); // reproducible — same seed, same row, same answer
+Math.random(); // not
+new Date(); // not
+```
+
+The seed TDC sends is stable across runs and **different for every sequence**, so two
+`http` sequences pointed at one service never receive the same stream.
+
+Written this way, the run reproduces:
+
+`./run demo.tdc — twice`
+
+```
+run 1:  71102997  54325378  37547759
+run 2:  71102997  54325378  37547759
+```
+
+### Compute each row directly, don't iterate
+
+Note the shape of `accountFor(seed, i)`: it takes the **row index** and returns that
+row's value, with no state carried between calls. That's deliberate, and worth copying.
+
+A generator that walks a sequence — "call `next()` N times" — has to be called in the
+right order, from the start, exactly once. A service can't guarantee any of that: the
+engine may retry a request, and requests may arrive concurrently. A stateless function of
+`(seed, i)` is immune to all of it, and it's no harder to write.
+
+### The trap: 32 bits in four languages
+
+For all four to agree, the arithmetic has to agree. This is where a naive port breaks,
+and it comes down to one line per language:
+
+| Language | What keeps the hash 32-bit |
+| :--- | :--- |
+| Node | `Math.imul(h, prime) >>> 0` — a plain `*` would go through a double and lose the low bits |
+| Python | `& 0xFFFFFFFF` — integers are arbitrary-precision, so nothing overflows on its own |
+| Java | nothing — `int` multiplication already wraps |
+| C# | `unchecked { … }` — outside it, .NET *throws* on overflow instead of wrapping |
+
+Miss it in Python and the numbers grow forever, silently producing different values from
+the rest. TDC's own engine has to solve exactly this problem: its PRNG is written in
+terms of `Math.imul` and 32-bit operations precisely so every
+bindings agree — which means the constraint isn't an artifact of this example.
+
+The implementations above were run and compared:
+
+`shasum -a 256 out.*.txt`
+
+```
+875cd44fe86e15d7  out.cs.txt
+875cd44fe86e15d7  out.java.txt
+875cd44fe86e15d7  out.node.txt
+875cd44fe86e15d7  out.py.txt
+```
+
+Identical, not merely similar. If you port this to a fifth language, do the same check
+before trusting it.
+
+### The handler is usually reproducible already
+
+Worth noting: `luhn()` never touches the seed. A handler computes its answer **from the
+value you sent it**, so it's a pure function by nature — same input, same output, every
+run. Only the **source** mode has to work at reproducibility.
+
+## Before you point TDC at it
+
+A short list, each item learned from the way this generator actually fails:
+
+- **Answer with exactly `N` lines.** One too many or too few and the run stops with
+  `returned N line(s) for a batch of M`. That check exists because a length mismatch
+  means the answers no longer line up with the rows — silent corruption otherwise.
+- **Keep the order.** Line _i_ of the response must answer line _i_ of the request. TDC
+  can't detect a shuffle; you'd just get wrong data.
+- **Values must not contain a newline**, in either direction — the protocol is
+  line-delimited, so an embedded newline breaks the count. It fails loudly rather than
+  corrupting anything, but it fails.
+- **Be safe to call concurrently**, or run the generation with `--jobs 1`. TDC doesn't
+  coordinate its workers for you.
+- **Handle the whole batch in one request.** Don't fan out internally to one call per
+  value; the batch is what keeps this fast.
+
+## See also
+
+- [The `http` generator](../generators/http.md#top) — the attributes, the contract, the failure modes
+- [Error codes](../reference/errors.md#top) — `TDC065`–`TDC068`
+
+---
+
+← Previous: [Large outputs & streaming](./large-outputs.md#top) · **[Contents](../README.md#top)** · Next: [Overview](../data-packs/overview.md#top) →

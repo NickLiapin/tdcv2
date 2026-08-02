@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 224" width="680" height="224" font-family="system-ui, -apple-system, Segoe UI, Roboto, sans-serif">
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+<rect x="56" y="26" width="30" height="30" rx="6" fill="#e0662b" opacity="0.85"/>
+<text x="71.0" y="46.0" text-anchor="middle" font-size="14" font-weight="700" fill="#fff">7</text>
+<rect x="91" y="26" width="30" height="30" rx="6" fill="#e0662b" opacity="0.85"/>
+<text x="106.0" y="46.0" text-anchor="middle" font-size="14" font-weight="700" fill="#fff">2</text>
+<rect x="126" y="26" width="30" height="30" rx="6" fill="#e0662b" opacity="0.85"/>
+<text x="141.0" y="46.0" text-anchor="middle" font-size="14" font-weight="700" fill="#fff">2</text>
+<rect x="161" y="26" width="30" height="30" rx="6" fill="#e0662b" opacity="0.85"/>
+<text x="176.0" y="46.0" text-anchor="middle" font-size="14" font-weight="700" fill="#fff">6</text>
+<rect x="196" y="26" width="30" height="30" rx="6" fill="#e0662b" opacity="0.85"/>
+<text x="211.0" y="46.0" text-anchor="middle" font-size="14" font-weight="700" fill="#fff">6</text>
+<rect x="231" y="26" width="30" height="30" rx="6" fill="#e0662b" opacity="0.85"/>
+<text x="246.0" y="46.0" text-anchor="middle" font-size="14" font-weight="700" fill="#fff">5</text>
+<rect x="266" y="26" width="30" height="30" rx="6" fill="#e0662b" opacity="0.85"/>
+<text x="281.0" y="46.0" text-anchor="middle" font-size="14" font-weight="700" fill="#fff">7</text>
+<rect x="301" y="26" width="30" height="30" rx="6" fill="#e0662b" opacity="0.85"/>
+<text x="316.0" y="46.0" text-anchor="middle" font-size="14" font-weight="700" fill="#fff">7</text>
+<rect x="336" y="26" width="30" height="30" rx="6" fill="#e0662b" opacity="0.85"/>
+<text x="351.0" y="46.0" text-anchor="middle" font-size="14" font-weight="700" fill="#fff">6</text>
+<circle cx="30.0" cy="41.0" r="9.5" fill="#3b82f6"/><text x="30.0" y="45.0" text-anchor="middle" font-size="12" font-weight="700" fill="#ffffff">A</text>
+<rect x="56" y="100" width="30" height="30" rx="6" fill="#3b82f6" opacity="0.3"/>
+<text x="71.0" y="120.0" text-anchor="middle" font-size="14" font-weight="700" fill="#3b82f6">x</text>
+<rect x="91" y="100" width="30" height="30" rx="6" fill="#3b82f6" opacity="0.3"/>
+<text x="106.0" y="120.0" text-anchor="middle" font-size="14" font-weight="700" fill="#3b82f6">x</text>
+<rect x="126" y="100" width="30" height="30" rx="6" fill="#3b82f6" opacity="0.3"/>
+<text x="141.0" y="120.0" text-anchor="middle" font-size="14" font-weight="700" fill="#3b82f6">x</text>
+<rect x="161" y="100" width="30" height="30" rx="6" fill="#94a3b8" opacity="0.18"/>
+<text x="176.0" y="120.0" text-anchor="middle" font-size="14" font-weight="700" fill="#94a3b8">-</text>
+<rect x="196" y="100" width="30" height="30" rx="6" fill="#3b82f6" opacity="0.3"/>
+<text x="211.0" y="120.0" text-anchor="middle" font-size="14" font-weight="700" fill="#3b82f6">x</text>
+<rect x="231" y="100" width="30" height="30" rx="6" fill="#3b82f6" opacity="0.3"/>
+<text x="246.0" y="120.0" text-anchor="middle" font-size="14" font-weight="700" fill="#3b82f6">x</text>
+<rect x="266" y="100" width="30" height="30" rx="6" fill="#94a3b8" opacity="0.18"/>
+<text x="281.0" y="120.0" text-anchor="middle" font-size="14" font-weight="700" fill="#94a3b8">-</text>
+<rect x="301" y="100" width="30" height="30" rx="6" fill="#3b82f6" opacity="0.3"/>
+<text x="316.0" y="120.0" text-anchor="middle" font-size="14" font-weight="700" fill="#3b82f6">x</text>
+<rect x="336" y="100" width="30" height="30" rx="6" fill="#3b82f6" opacity="0.3"/>
+<text x="351.0" y="120.0" text-anchor="middle" font-size="14" font-weight="700" fill="#3b82f6">x</text>
+<rect x="371" y="100" width="30" height="30" rx="6" fill="#3b82f6" opacity="0.3"/>
+<text x="386.0" y="120.0" text-anchor="middle" font-size="14" font-weight="700" fill="#3b82f6">x</text>
+<rect x="406" y="100" width="30" height="30" rx="6" fill="#3b82f6" opacity="0.3"/>
+<text x="421.0" y="120.0" text-anchor="middle" font-size="14" font-weight="700" fill="#3b82f6">x</text>
+<circle cx="30.0" cy="115.0" r="9.5" fill="#3b82f6"/><text x="30.0" y="119.0" text-anchor="middle" font-size="12" font-weight="700" fill="#ffffff">B</text>
+<rect x="56" y="174" width="30" height="30" rx="6" fill="#2f9e63" opacity="0.85"/>
+<text x="71.0" y="194.0" text-anchor="middle" font-size="14" font-weight="700" fill="#fff">7</text>
+<rect x="91" y="174" width="30" height="30" rx="6" fill="#2f9e63" opacity="0.85"/>
+<text x="106.0" y="194.0" text-anchor="middle" font-size="14" font-weight="700" fill="#fff">2</text>
+<rect x="126" y="174" width="30" height="30" rx="6" fill="#2f9e63" opacity="0.85"/>
+<text x="141.0" y="194.0" text-anchor="middle" font-size="14" font-weight="700" fill="#fff">2</text>
+<rect x="161" y="174" width="30" height="30" rx="6" fill="#94a3b8" opacity="0.2"/>
+<text x="176.0" y="194.0" text-anchor="middle" font-size="14" font-weight="700" fill="#94a3b8">-</text>
+<rect x="196" y="174" width="30" height="30" rx="6" fill="#2f9e63" opacity="0.85"/>
+<text x="211.0" y="194.0" text-anchor="middle" font-size="14" font-weight="700" fill="#fff">6</text>
+<rect x="231" y="174" width="30" height="30" rx="6" fill="#2f9e63" opacity="0.85"/>
+<text x="246.0" y="194.0" text-anchor="middle" font-size="14" font-weight="700" fill="#fff">6</text>
+<rect x="266" y="174" width="30" height="30" rx="6" fill="#94a3b8" opacity="0.2"/>
+<text x="281.0" y="194.0" text-anchor="middle" font-size="14" font-weight="700" fill="#94a3b8">-</text>
+<rect x="301" y="174" width="30" height="30" rx="6" fill="#2f9e63" opacity="0.85"/>
+<text x="316.0" y="194.0" text-anchor="middle" font-size="14" font-weight="700" fill="#fff">5</text>
+<rect x="336" y="174" width="30" height="30" rx="6" fill="#2f9e63" opacity="0.85"/>
+<text x="351.0" y="194.0" text-anchor="middle" font-size="14" font-weight="700" fill="#fff">7</text>
+<rect x="371" y="174" width="30" height="30" rx="6" fill="#2f9e63" opacity="0.85"/>
+<text x="386.0" y="194.0" text-anchor="middle" font-size="14" font-weight="700" fill="#fff">7</text>
+<rect x="406" y="174" width="30" height="30" rx="6" fill="#2f9e63" opacity="0.85"/>
+<text x="421.0" y="194.0" text-anchor="middle" font-size="14" font-weight="700" fill="#fff">6</text>
+<circle cx="30.0" cy="189.0" r="9.5" fill="#3b82f6"/><text x="30.0" y="193.0" text-anchor="middle" font-size="12" font-weight="700" fill="#ffffff">C</text>
+<path d="M71 59 C 71 78, 71 152, 71 170" fill="none" stroke="#94a3b8" stroke-width="1.1" opacity="0.55"/>
+<path d="M106 59 C 106 78, 106 152, 106 170" fill="none" stroke="#94a3b8" stroke-width="1.1" opacity="0.55"/>
+<path d="M141 59 C 141 78, 141 152, 141 170" fill="none" stroke="#94a3b8" stroke-width="1.1" opacity="0.55"/>
+<path d="M176 59 C 176 78, 211 152, 211 170" fill="none" stroke="#94a3b8" stroke-width="1.1" opacity="0.55"/>
+<path d="M211 59 C 211 78, 246 152, 246 170" fill="none" stroke="#94a3b8" stroke-width="1.1" opacity="0.55"/>
+<path d="M246 59 C 246 78, 316 152, 316 170" fill="none" stroke="#94a3b8" stroke-width="1.1" opacity="0.55"/>
+<path d="M281 59 C 281 78, 351 152, 351 170" fill="none" stroke="#94a3b8" stroke-width="1.1" opacity="0.55"/>
+<path d="M316 59 C 316 78, 386 152, 386 170" fill="none" stroke="#94a3b8" stroke-width="1.1" opacity="0.55"/>
+<path d="M351 59 C 351 78, 421 152, 421 170" fill="none" stroke="#94a3b8" stroke-width="1.1" opacity="0.55"/>
+</svg>

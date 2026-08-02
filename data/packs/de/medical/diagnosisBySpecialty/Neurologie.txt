@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Neurology (German)
+locale: de
+---
+Migräne
+Epilepsie
+Parkinson-Krankheit
+Multiple Sklerose
+Schlaganfall
+Periphere Neuropathie
+Alzheimer-Krankheit
+Spannungskopfschmerz
+Trigeminusneuralgie
+Restless-Legs-Syndrom

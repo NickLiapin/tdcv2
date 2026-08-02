@@ -1,0 +1,377 @@
+---
+title: Dependencias jerárquicas
+sidebar_position: 1
+---
+
+import Figure from '@site/src/components/Figure';
+import Legend from '@site/src/components/Legend';
+
+import Terminal from '@site/src/components/Terminal';
+
+# Dependencias jerárquicas
+
+Esta es la característica estrella de TDC. Los generadores de datos falsos comunes
+llenan cada campo de forma independiente. TDC puede enlazar
+[secuencias](../core-concepts/sequences.mdx) en una relación **padre → hijo**: los
+valores del hijo se calculan **solo en las filas donde el padre tomó cierto valor**, y
+cualquier porcentaje dentro del hijo se mide contra el tamaño de ese **subconjunto
+filtrado**, no contra el `count` completo.
+
+Eso es lo que permite modelar distribuciones dependientes reales — «nombres masculinos
+solo para hombres», «el diagnóstico depende del sexo», «los niños no tienen cónyuge» —
+en una sola descripción declarativa.
+
+:::note
+Las salidas de ejemplo que siguen son ilustrativas. Los *valores* exactos que emite un
+generador pueden cambiar entre versiones del core y entre seeds; lo que la
+característica garantiza son los **conteos** y las **reglas estructurales** (qué filas
+se llenan y cuáles quedan vacías).
+:::
+
+<Figure
+  src="/img/guides/parent-child.svg"
+  alt=""
+  caption="40 filas reales. El padre toma A o B; cada valor del padre tiene su propio alfabeto de hijos, y ninguna fila los mezcla."
+/>
+
+<Legend items={[["drawn", "filas donde el padre eligió A — el hijo de abajo siempre es 1, 2 o 3"], ["alt", "filas donde el padre eligió B — el hijo de abajo siempre es 7 u 8"]]} />
+
+## El problema: los campos independientes producen pares imposibles
+
+Para ver por qué importa [`parent`](../reference/attributes.mdx), conviene mirar qué
+pasa **sin** él. Dos secuencias [`text`](../generators/text.mdx), país y ciudad,
+declaradas de forma independiente:
+
+```xml
+<env count="8" seed="demo">
+    <sequence name="Country"><gen type="text" value="Russia,France" percent="50,50"/></sequence>
+    <sequence name="City"><gen type="text" value="Moscow,Paris" percent="50,50"/></sequence>
+</env>
+<block><line><data>${{Country}}: ${{City}}</data></line></block>
+```
+
+<Terminal title="./run demo.tdc">
+{`Russia: Moscow
+Russia: Moscow
+France: Paris
+France: Paris
+Russia: Moscow
+France: Paris
+Russia: Paris
+France: Moscow`}
+</Terminal>
+
+Cada campo tira su propio dado. Las dos últimas filas son el problema: **Russia: Paris
+y France: Moscow** — París en Rusia, Moscú en Francia. Para una prueba que verifica que
+«la ciudad pertenece al país», esos datos son basura, y entre más filas, más pares
+imposibles.
+
+## La solución: `parent`
+
+Se le da a cada país su propio generador de ciudades, filtrado con
+`parent="Country.Valor"`. Ahora la ciudad se elige **solo** en las filas del país que
+corresponde:
+
+```xml
+<env count="8" seed="demo">
+    <sequence name="Country"><gen type="text" value="Russia,France" percent="50,50"/></sequence>
+    <sequence name="CityRU" parent="Country.Russia"><gen type="text" value="Moscow,Kazan"/></sequence>
+    <sequence name="CityFR" parent="Country.France"><gen type="text" value="Paris,Lyon"/></sequence>
+</env>
+<block><line><data>${{Country}}: ${{CityRU}}${{CityFR}}</data></line></block>
+```
+
+<Terminal title="./run demo.tdc">
+{`Russia: Moscow
+Russia: Moscow
+France: Lyon
+France: Lyon
+Russia: Kazan
+France: Paris
+Russia: Kazan
+France: Paris`}
+</Terminal>
+
+La columna `Country` es la misma (mismo [`seed`](../core-concepts/determinism.mdx)),
+pero ahora la ciudad siempre es consistente: Rusia recibe únicamente `Moscow`/`Kazan`,
+Francia únicamente `Paris`/`Lyon`. Los pares imposibles desaparecieron. En cada fila
+está activo exactamente uno de los dos generadores de ciudad y el otro queda vacío, así
+que `${{CityRU}}${{CityFR}}` produce una sola ciudad.
+
+## Cómo funciona
+
+1. Se declara el **padre** con una distribución
+   ([`text`](../generators/text.mdx) con [`percent`](../generators/text.mdx),
+   [`template`](../generators/template.mdx) o cualquier otro tipo).
+2. Se declara el **hijo** con
+   [`parent="Parent.Value"`](../reference/attributes.mdx).
+3. El hijo se materializa **solo en las filas donde `Parent == Value`**. En las demás
+   filas su valor queda indefinido — una cadena vacía en la
+   [interpolación](../core-concepts/output-formatting.mdx).
+4. Cualquier porcentaje dentro del hijo se mide contra el número de filas **activas**,
+   es decir, contra el subconjunto filtrado.
+
+## Nombres según el género
+
+El caso clásico: los hombres necesitan nombres masculinos y las mujeres, nombres
+femeninos. Un único generador de nombres compartido no puede hacerlo — no conoce el
+género de la fila. Dos generadores de nombres, cada uno bajo su propio `parent`, sí:
+
+```xml
+<env count="8" seed="demo">
+    <sequence name="Gender"><gen type="text" value="Hombre,Mujer" percent="60,40"/></sequence>
+    <sequence name="MaleName" parent="Gender.Hombre"><gen type="template" value="person.male.firstName"/></sequence>
+    <sequence name="FemaleName" parent="Gender.Mujer"><gen type="template" value="person.female.firstName"/></sequence>
+</env>
+<block><line><data>${{Gender}}: ${{MaleName}}${{FemaleName}}</data></line></block>
+```
+
+<Terminal title="./run demo.tdc">
+{`Mujer: Alexis
+Hombre: Bruno
+Hombre: Khari
+Hombre: Adriel
+Hombre: Wayne
+Hombre: Callan
+Mujer: Alena
+Mujer: Naomi`}
+</Terminal>
+
+- `Gender` con `count="8"` produce 5 `Hombre` + 3 `Mujer` (60/40 de ocho, redondeado con
+  el método del resto mayor — vea [`percent`](../core-concepts/determinism.mdx)). Con
+  `count="100"` serían exactamente 60 + 40.
+- `MaleName` se llena **solo** en las filas masculinas (la plantilla
+  `person.male.firstName` toma valores del diccionario masculino); en las filas
+  femeninas queda vacío.
+- `FemaleName`, de forma simétrica, se llena solo en las filas femeninas.
+- Concatenar `${{MaleName}}${{FemaleName}}` deja exactamente un nombre por fila, y
+  siempre corresponde al género — nunca `Hombre: Alena`.
+
+## Probabilidad dentro de un subconjunto
+
+«30 % de los aficionados» — ¿30 % **de quiénes**? Si solo los rusos pueden ser
+aficionados y usted cuenta el 30 % de todo el mundo, la proporción real de aficionados
+rusos se reduce a la mitad. Ponga el [`percent`](../generators/text.mdx) en el hijo y se
+aplicará a las filas filtradas:
+
+```xml
+<env count="100" seed="demo">
+    <sequence name="Country"><gen type="text" value="RU,US" percent="50,50"/></sequence>
+    <sequence name="FootballFan" parent="Country.RU"><gen type="text" value="Yes,No" percent="30,70"/></sequence>
+</env>
+<block><line><data>${{Country}} -> [${{FootballFan}}]</data></line></block>
+```
+
+<Terminal title="./run demo.tdc  (first 10 rows)">
+{`RU -> [Yes]
+RU -> [Yes]
+US -> []
+RU -> [No]
+RU -> [No]
+US -> []
+US -> []
+RU -> [No]
+RU -> [No]
+RU -> [No]`}
+</Terminal>
+
+En las filas US, `FootballFan` queda vacío — el generador nunca se dispara ahí.
+Contando las 100 filas, columna por columna:
+
+| Qué                                  | Resultado          |
+| :----------------------------------- | :----------------- |
+| `Country`                            | 50 RU + 50 US      |
+| `FootballFan` entre las filas **RU** | 15 `Yes` + 35 `No` |
+| `FootballFan` entre las filas **US** | 50 vacías          |
+
+El reparto 30/70 se midió contra las **50** filas RU — «el 30 % de los rusos son
+aficionados», no «30 de las 100 filas» (lo cual daría 30 `Yes`).
+
+### Variación — otro reparto, el mismo subconjunto
+
+No se cambia nada salvo la máscara del hijo, que pasa a `percent="50,50"`:
+
+```xml
+<sequence name="FootballFan" parent="Country.RU"><gen type="text" value="Yes,No" percent="50,50"/></sequence>
+```
+
+<Terminal title="./run demo.tdc  (counts over 100 rows)">
+{`FootballFan entre las filas RU:  25 Yes + 25 No
+FootballFan entre las filas US:  50 vacías`}
+</Terminal>
+
+Ahora se obtienen exactamente **25 `Yes` + 25 `No`** entre esas mismas 50 filas RU — la
+mitad del subconjunto, no la mitad de `count`. Las filas US siguen vacías. Por eso el
+porcentaje vive en el hijo: siempre se escala al segmento filtrado por el padre.
+
+## Orden de declaración
+
+Un padre **debe** declararse antes que su hijo en el documento. Si se declaran al revés,
+el render falla de inmediato:
+
+```xml
+<env count="8" seed="demo">
+    <sequence name="City" parent="Country.Russia"><gen type="text" value="Moscow,Kazan"/></sequence>
+    <sequence name="Country"><gen type="text" value="Russia,France" percent="50,50"/></sequence>
+</env>
+```
+
+<Terminal title="./run demo.tdc">
+{`Error: parent sequence "Country" is not declared before this sequence`}
+</Terminal>
+
+El error indica la línea y la columna del problema. No se admiten dependencias cíclicas
+ni referencias hacia adelante — el grafo de dependencias se resuelve de arriba hacia
+abajo, así que los padres siempre van primero.
+
+## `parent` sin valor
+
+`parent="Parent"` — **sin punto ni valor** — significa «cualquier fila donde el padre
+tenga algún valor», sin importar *cuál*. Rara vez se necesita en el primer nivel (un
+padre de nivel superior siempre tiene valor), pero es la herramienta para cadenas más
+profundas, donde una secuencia intermedia está a su vez filtrada y usted quiere un nieto
+solo donde ese nivel intermedio se disparó.
+
+Aquí `Country` elige las filas US, `USCity` llena solo esas filas, y `USZip` debe
+aparecer dondequiera que **haya** una ciudad de EE. UU. — cualquiera de ellas —, así que
+usa la forma sin valor:
+
+```xml
+<env count="8" seed="demo">
+    <sequence name="Country"><gen type="text" value="US,UK" percent="50,50"/></sequence>
+    <sequence name="USCity" parent="Country.US"><gen type="text" value="New York,Chicago"/></sequence>
+    <sequence name="USZip" parent="USCity"><gen type="regex" value="[0-9]{5}"/></sequence>
+</env>
+<block><line><data>${{Country}} | ${{USCity}} ${{USZip}}</data></line></block>
+```
+
+<Terminal title="./run demo.tdc">
+{`US | New York 10021
+US | Chicago 60614
+UK |
+UK |
+US | New York 10021
+UK |
+US | Chicago 60614
+UK |`}
+</Terminal>
+
+`USZip` se dispara en cada fila US y en ninguna otra — `parent="USCity.New York"` lo
+habría restringido únicamente a Nueva York. La forma sin valor dice «hereda el filtro
+del padre, no agregues el mío», que es justo lo que se quiere para un campo que cuelga
+de lo que sea que haya producido el padre.
+
+## Interacción con `if`
+
+Las [expresiones `if`](../reference/attributes.mdx) se evalúan contra los valores de la
+fila actual. En una fila filtrada, el valor del hijo queda indefinido — se trata como
+vacío, es decir, como falso. Así que una condición sobre una columna hija excluye
+automáticamente las filas donde ese hijo nunca se disparó, sin ninguna verificación
+explícita del padre:
+
+```xml
+<env count="8" seed="demo">
+    <sequence name="Country"><gen type="text" value="RU,US" percent="50,50"/></sequence>
+    <sequence name="FootballFan" parent="Country.RU"><gen type="text" value="Yes,No" percent="30,70"/></sequence>
+</env>
+<block><line>
+    <data>${{Country}} ${{FootballFan}}</data>
+    <data if="FootballFan == Yes"> BUY</data>
+</line></block>
+```
+
+<Terminal title="./run demo.tdc">
+{`RU Yes BUY
+RU No
+US
+US
+RU No
+US
+RU No
+US`}
+</Terminal>
+
+`Ticket` se renderiza solo donde `FootballFan == Yes`. Las filas US tienen un
+`FootballFan` vacío, que la comparación lee como falso, así que pasan de largo sin
+`Ticket` — y nunca hizo falta escribir `Country == RU` en la condición.
+
+## Un árbol en los datos, no en la configuración
+
+`parent` relaciona una **secuencia** con otra. Casi con la misma frecuencia aparece otra
+tarea: un registro que apunta a *otro registro del mismo tipo*. Un empleado cuyo jefe es
+un empleado, un comentario que responde a un comentario, una categoría dentro de una
+categoría.
+
+Eso es una columna, no una construcción, y toda la dificultad está en una palabra:
+**ciclos**. Una cadena de jefes que se cierra sobre sí misma colgará a lo que intente
+dibujarla, y volver a sortear no lo arregla, porque el problema está en la forma y no en
+ningún valor concreto.
+
+La solución es aritmética y no necesita nada nuevo. Que cada registro apunte a un **id
+menor que el suyo**:
+
+```xml
+<env count="10" seed="tree" local="en">
+    <sequence name="Id"><gen type="increment" value="1"/></sequence>
+    <sequence name="Back"><gen type="number" value="1..4"/></sequence>
+    <sequence name="ParentId"><compute><result>
+        <choose>
+            <when>
+                <test><less_than><subtract><to_number><field name="Id"/></to_number><to_number><field name="Back"/></to_number></subtract><int v="1"/></less_than></test>
+                <then>
+                    <choose>
+                        <when><test><equals><to_number><field name="Id"/></to_number><int v="1"/></equals></test><then><int v="0"/></then></when>
+                        <otherwise><int v="1"/></otherwise>
+                    </choose>
+                </then>
+            </when>
+            <otherwise><subtract><to_number><field name="Id"/></to_number><to_number><field name="Back"/></to_number></subtract></otherwise>
+        </choose>
+    </result></compute></sequence>
+    <sequence name="Author"><gen type="template" value="person.lastName"/></sequence>
+</env>
+<block>
+    <line><data>${{Id}},${{ParentId}},${{Author}}</data></line>
+</block>
+```
+
+<Terminal title="./run tree.tdc">
+{`1,0,Smith
+2,1,Jones
+3,1,Miller
+4,1,Garcia
+5,3,Davis
+6,5,Williams
+7,5,Brown
+8,7,Johnson
+9,7,Martinez
+10,7,Rodriguez`}
+</Terminal>
+
+Se lee como `id, parent_id, autor`. `Back` es cuántas filas hacia arriba se engancha este
+registro — de una a cuatro — y las dos ramas de `<choose>` resuelven el principio del
+archivo: el registro 1 recibe `0`, la raíz, y todo lo que llegaría más arriba se engancha
+a la raíz.
+
+Lo que eso garantiza por construcción, no por suerte:
+
+- **Sin ciclos.** Toda flecha apunta a un número menor, así que seguirlas siempre termina.
+- **Una sola raíz.** Solo el registro 1 no tiene padre.
+- **Una forma viva.** El registro 1 tiene aquí tres hijos y el 2 ninguno, porque `Back` se
+  sortea por fila. Amplíalo a `1..20` para un árbol plano y ancho; redúcelo a `1..2` para
+  uno profundo y estrecho.
+
+La misma columna sirve para un organigrama, un árbol de comentarios, una lista de
+materiales o categorías anidadas. Lo que los registros *dicen* es otra cuestión: el texto
+de un comentario es simplemente [`text.paragraph`](../generators/template.mdx) y no tiene
+que formar una conversación coherente para que el árbol sea un árbol válido.
+
+## Véase también
+
+- **[Secuencias](../core-concepts/sequences.mdx)** y
+  [`parent`](../reference/attributes.mdx) — la mecánica detrás del filtro.
+- **[Determinismo y proporciones](../core-concepts/determinism.mdx)** — cómo
+  [`seed`](../core-concepts/determinism.mdx) y
+  [`percent`](../core-concepts/determinism.mdx) se mantienen exactos.
+- **[Datos coherentes y relacionales](coherent-data.mdx)** — padre → hijo mediante
+  búsqueda por nombre.

@@ -1,0 +1,78 @@
+---
+address: united_kingdom.education.university
+description: UK university or higher-education institution
+---
+University of Oxford
+University of Cambridge
+Imperial College London
+University College London
+The University of Edinburgh
+King's College London
+The University of Manchester
+The London School of Economics and Political Science
+The University of Warwick
+University of Bristol
+University of Glasgow
+Durham University
+The University of Sheffield
+University of Birmingham
+University of Leeds
+University of Nottingham
+University of Southampton
+Newcastle University
+University of Liverpool
+Cardiff University
+Queen Mary University of London
+Lancaster University
+University of York
+University of Exeter
+University of Bath
+University of St Andrews
+Loughborough University
+University of Leicester
+University of Aberdeen
+University of Dundee
+University of Strathclyde
+Heriot-Watt University
+University of Reading
+University of Surrey
+University of Sussex
+University of East Anglia
+University of Kent
+Queen's University Belfast
+Ulster University
+Swansea University
+Aberystwyth University
+Bangor University
+University of Stirling
+University of Essex
+Royal Holloway, University of London
+SOAS University of London
+City, University of London
+Brunel University London
+Aston University
+University of Portsmouth
+Northumbria University
+University of Plymouth
+Coventry University
+Nottingham Trent University
+Manchester Metropolitan University
+Sheffield Hallam University
+University of the West of England
+Oxford Brookes University
+De Montfort University
+University of Hertfordshire
+University of Bradford
+University of Huddersfield
+University of Central Lancashire
+Birkbeck, University of London
+Goldsmiths, University of London
+London Metropolitan University
+University of Greenwich
+Kingston University
+University of Westminster
+Robert Gordon University
+Glasgow Caledonian University
+Edinburgh Napier University
+Cardiff Metropolitan University
+The Open University

@@ -1,0 +1,16 @@
+---
+address: oman.geo.region
+description: Governorates of Oman (Arabic)
+locale: ar
+---
+مسقط
+ظفار
+مسندم
+البريمي
+الداخلية
+شمال الباطنة
+جنوب الباطنة
+جنوب الشرقية
+شمال الشرقية
+الظاهرة
+الوسطى

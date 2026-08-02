@@ -1,0 +1,148 @@
+---
+title: Total acumulado
+sidebar_position: 14
+---
+
+import Terminal from '@site/src/components/Terminal';
+
+# `running` — un total que se arrastra por la columna
+
+**Sirve cuando** un valor no se sortea sino que se *acumula*: el saldo de una cuenta
+después de cada movimiento, un medidor que solo sube, la carga más alta vista hasta ahora.
+El valor de la fila 40 depende de las filas 1 a 39.
+
+Todos los demás generadores contestan una fila a partir de su propio índice. Este no puede,
+y no es una limitación que haya que esquivar: es lo que «acumulado» significa.
+
+```xml
+<tdc>
+  <env count="8" seed="ledger" local="en">
+    <sequence name="Op"><gen type="number" value="-400..500"/></sequence>
+    <sequence name="Balance"><gen type="running" of="Op" accumulate="sum" base="1000"/></sequence>
+  </env>
+  <block>
+    <line><data>${{Op}}   ${{Balance}}</data></line>
+  </block>
+</tdc>
+```
+
+<Terminal title="./run ledger.tdc">
+{`59   1059
+365   1424
+276   1700
+-7   1693
+-108   1585
+444   2029
+192   2221
+326   2547`}
+</Terminal>
+
+:::note[La salida es ilustrativa]
+Los valores salen de un `seed` fijo, así que son reproducibles, pero las cadenas exactas
+pueden cambiar entre versiones del núcleo. Tómelas como ejemplo de *forma*, no como
+garantía.
+:::
+
+## De un vistazo
+
+| Atributo | Obligatorio | Qué hace |
+| :------- | :---------- | :-------- |
+| `of` | sí | La columna que se acumula. Tiene que estar **declarada más arriba** que esta secuencia |
+| `accumulate` | sí | `sum`, `min` o `max` |
+| `base` | no | El valor de apertura — un saldo inicial, un odómetro de partida |
+| `reset` | no | Una columna cuyo cambio reinicia el total |
+
+Un total acumulado **no sortea nada**. Lee una columna que ya existe, no consume azar, y
+por eso agregar uno deja todas las demás columnas exactamente donde estaban.
+
+## `reset=` — un total por grupo
+
+Sin `reset=` hay un total para todo el archivo. Con él, la columna se parte en tramos y
+cada uno se acumula por su cuenta — un saldo por cuenta y no un saldo por corrida.
+
+```xml
+<env count="9" seed="acct" local="en">
+    <sequence name="Account"><gen type="text" value="A,A,A,B,B,C,C,C,C" order="sequential"/></sequence>
+    <sequence name="Op"><gen type="number" value="10..99" decimals="2"/></sequence>
+    <sequence name="Balance"><gen type="running" of="Op" accumulate="sum" reset="Account"/></sequence>
+</env>
+```
+
+<Terminal title="./run accounts.tdc">
+{`A  96.47  96.47
+A  29.18  125.65
+A  91.43  217.08
+B  15.65  15.65
+B  67.87  83.52
+C  48.03  48.03
+C  39.00  87.03
+C  56.04  143.07
+C  78.62  221.69`}
+</Terminal>
+
+Un tramo termina donde el valor de `reset=` **cambia respecto de la fila anterior**, así
+que los grupos tienen que venir juntos. `order="sequential"` arriba es una manera de
+lograrlo; ordenar es otra, aunque [de ordenar suele encargarse la base de
+datos](../constructs/overview.mdx), así que lo habitual es que la columna ya venga
+agrupada.
+
+## Centavos exactos
+
+La aritmética corre sobre enteros escalados por la fracción más ancha de la columna, nunca
+sobre punto flotante. `96.47 + 29.18` es `125.65` — y es el mismo `125.65` en las cinco
+implementaciones, cosa que un flotante no garantizaría.
+
+`base=` entra en esa misma escala. Una apertura de `1000.00` ensancha toda la columna a
+dos decimales, que es lo que espera quien lee un extracto.
+
+## Orden de declaración
+
+`of=` y `reset=` nombran una columna, y las dos tienen que estar **declaradas más arriba**
+que el total acumulado (`TDC240`). La razón es la misma que tiene
+[`parent`](../guides/hierarchical-dependencies.mdx): el total se arma con una columna que
+ya existe.
+
+<Terminal title="./run ledger.tdc">
+{`error[TDC240]: of="Op" is not a sequence declared above this one
+ --> ledger.tdc:3:54
+  |
+3 |     <sequence name="Balance"><gen type="running" of="Op" accumulate="sum"/></sequence>
+  |                                                      ^^
+  |
+note: A running total is built from a column that already exists, so the column it reads has to come first.`}
+</Terminal>
+
+Un total acumulado que no dice qué ni cómo acumular es `TDC239`.
+
+## Qué motor lo ejecuta
+
+Los [motores de streaming](../guides/large-outputs.mdx) rechazan un total acumulado, y lo
+nombran al hacerlo; el enrutador manda la configuración al motor en memoria:
+
+<Terminal title="./run ledger.tdc --engine 2">
+{`tdcv2: a running total ("Balance") is the accumulation of every row before it, so it cannot be computed one row at a time; the in-memory engine handles it (run without a forced streaming engine)`}
+</Terminal>
+
+Normalmente nunca ve ese mensaje: el enrutador elige el motor solo, y el rechazo aparece
+únicamente cuando la configuración *nombra* un motor de streaming y por lo tanto pidió que
+se lo dijeran.
+
+Lo que cuesta: un total acumulado vive en memoria durante toda la corrida, como cualquier
+columna del motor en memoria. Ese es el límite honesto de este generador. Un libro mayor
+de unos millones de filas está bien; uno de mil millones no es algo que TDC haga, porque
+todo el sentido de los motores de streaming es que una fila se calcula desde su índice, y
+acá no se puede.
+
+**Todo lo demás sigue en streaming.** El límite es por configuración, no por proyecto: una
+corrida sin total acumulado queda intacta, y el [total acumulado dentro de un
+registro](../constructs/multiple-values.mdx#accumulate--un-total-acumulado-a-lo-largo-de-la-lista)
+—`accumulate=` sobre una lista `repeat`— no cuesta nada y funciona en todos los motores.
+
+## Véase también
+
+- [`accumulate=` sobre una lista `repeat`](../constructs/multiple-values.mdx#accumulate--un-total-acumulado-a-lo-largo-de-la-lista) —
+  la misma idea dentro de un registro, gratis en todos los motores
+- [Contadores](counters.mdx) — `increment` y `decrement`, que se mueven a paso fijo y sí se
+  calculan desde el índice de la fila
+- [Series de tiempo](timeseries.mdx) — una curva que sube con tendencia y ruido, también
+  desde el índice solo, y normalmente lo que «un valor que crece» realmente necesita

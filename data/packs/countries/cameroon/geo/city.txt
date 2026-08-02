@@ -1,0 +1,29 @@
+---
+address: cameroon.geo.city
+description: Cities and larger towns of Cameroon
+locale: fr
+---
+Yaoundé
+Douala
+Garoua
+Bamenda
+Maroua
+Bafoussam
+Ngaoundéré
+Bertoua
+Loum
+Kumba
+Nkongsamba
+Buéa
+Ebolowa
+Kribi
+Édéa
+Dschang
+Foumban
+Limbé
+Mbouda
+Bafang
+Kousséri
+Guider
+Tiko
+Mbalmayo

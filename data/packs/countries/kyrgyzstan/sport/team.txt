@@ -1,0 +1,15 @@
+---
+address: kyrgyzstan.sport.team
+description: Kyrgyzstan Premier League football clubs (Russian names)
+locale: ru
+---
+Дордой
+Алга
+Абдыш-Ата
+Нефтчи Кочкор-Ата
+Алай
+Мурас Юнайтед
+Ак-Марал
+Кара-Балта
+Илбирс
+Дружба

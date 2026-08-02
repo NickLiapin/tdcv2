@@ -1,0 +1,9 @@
+---
+description: Driving licence category for trucks (Spanish-language convention: C / D series)
+locale: es
+---
+Categoría C
+Categoría C1
+Categoría CE
+Categoría C1E
+Categoría D

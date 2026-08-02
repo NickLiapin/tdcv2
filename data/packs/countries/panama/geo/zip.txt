@@ -1,0 +1,8 @@
+---
+address: panama.geo.zip
+description: Panamanian zona postal — 4 digits. The first two are a real Correos de Panamá province block (01 Bocas del Toro, 02 Coclé, 03 Colón, 04 Chiriquí, 05 Darién, 06 Herrera, 07 Los Santos, 08 Panamá, 09 Veraguas, 10 Panamá Oeste — the ISO-style province numbering, so Panama City is 08xx and David 04xx); the last two are the district/locality and are structural here. Comarca blocks are not emitted.
+generator: tdc
+---
+<sequence name="block"><gen type="text" value="01,02,03,04,05,06,07,08,09,10"/></sequence>
+<sequence name="tail"><gen type="regex" value="[0-9]{2}"/></sequence>
+<data>${{block}}${{tail}}</data>

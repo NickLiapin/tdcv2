@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 274" width="680" height="274" font-family="system-ui, -apple-system, Segoe UI, Roboto, sans-serif">
+<rect x="142" y="36" width="362" height="74" rx="10" fill="#3b82f6" opacity="0.08"/>
+<rect x="142" y="36" width="362" height="74" rx="10" fill="none" stroke="#3b82f6" opacity="0.45"/>
+<rect x="150" y="44" width="110" height="58" rx="6" fill="#e0662b" opacity="0.75"/>
+<rect x="268" y="44" width="110" height="58" rx="6" fill="#2f9e63" opacity="0.75"/>
+<rect x="386" y="44" width="110" height="58" rx="6" fill="#8b5cf6" opacity="0.75"/>
+<circle cx="116.0" cy="73.0" r="9.5" fill="#3b82f6"/><text x="116.0" y="77.0" text-anchor="middle" font-size="12" font-weight="700" fill="#ffffff">A</text>
+<circle cx="205.0" cy="18.0" r="9.5" fill="#3b82f6"/><text x="205.0" y="22.0" text-anchor="middle" font-size="12" font-weight="700" fill="#ffffff">B</text>
+<circle cx="323.0" cy="18.0" r="9.5" fill="#3b82f6"/><text x="323.0" y="22.0" text-anchor="middle" font-size="12" font-weight="700" fill="#ffffff">C</text>
+<circle cx="441.0" cy="18.0" r="9.5" fill="#3b82f6"/><text x="441.0" y="22.0" text-anchor="middle" font-size="12" font-weight="700" fill="#ffffff">D</text>
+<text x="518.0" y="77.0" text-anchor="start" font-size="11.5" font-weight="400" fill="#94a3b8">50 000</text>
+<rect x="142" y="106" width="362" height="74" rx="10" fill="#3b82f6" opacity="0.08"/>
+<rect x="142" y="106" width="362" height="74" rx="10" fill="none" stroke="#3b82f6" opacity="0.45"/>
+<rect x="150" y="114" width="110" height="58" rx="6" fill="#e0662b" opacity="0.75"/>
+<rect x="268" y="114" width="110" height="58" rx="6" fill="#2f9e63" opacity="0.75"/>
+<rect x="386" y="114" width="110" height="58" rx="6" fill="#8b5cf6" opacity="0.75"/>
+<text x="518.0" y="147.0" text-anchor="start" font-size="11.5" font-weight="400" fill="#94a3b8">50 000</text>
+<rect x="142" y="176" width="362" height="74" rx="10" fill="#3b82f6" opacity="0.08"/>
+<rect x="142" y="176" width="362" height="74" rx="10" fill="none" stroke="#3b82f6" opacity="0.45"/>
+<rect x="150" y="184" width="110" height="58" rx="6" fill="#e0662b" opacity="0.75"/>
+<rect x="268" y="184" width="110" height="58" rx="6" fill="#2f9e63" opacity="0.75"/>
+<rect x="386" y="184" width="110" height="58" rx="6" fill="#8b5cf6" opacity="0.75"/>
+<text x="518.0" y="217.0" text-anchor="start" font-size="11.5" font-weight="400" fill="#94a3b8">50 000</text>
+</svg>

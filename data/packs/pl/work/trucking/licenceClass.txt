@@ -1,0 +1,11 @@
+---
+description: Driving licence category for trucks (Polish categories: B / C / D series plus initial qualification)
+locale: pl
+---
+Kategoria B
+Kategoria B+E
+Kategoria C1
+Kategoria C
+Kategoria C+E
+Kategoria D
+Kwalifikacja wstępna

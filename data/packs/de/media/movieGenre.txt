@@ -1,0 +1,23 @@
+---
+description: Movie genre (German)
+locale: de
+---
+Action
+Komödie
+Drama
+Horror
+Thriller
+Liebesfilm
+Science-Fiction
+Fantasy
+Dokumentarfilm
+Animationsfilm
+Abenteuer
+Krimi
+Mystery
+Western
+Musical
+Kriegsfilm
+Biografie
+Film noir
+Romantische Komödie

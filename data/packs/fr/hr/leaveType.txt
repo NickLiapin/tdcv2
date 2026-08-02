@@ -1,0 +1,18 @@
+---
+description: Type of leave / time off (French)
+locale: fr
+---
+Congés payés
+RTT
+Congé maladie
+Congé maternité
+Congé paternité
+Congé parental
+Congé sans solde
+Congé sabbatique
+Congé pour événement familial
+Congé de deuil
+Arrêt maladie
+Congé de formation
+Congé de proche aidant
+Récupération

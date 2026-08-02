@@ -1,0 +1,27 @@
+---
+address: venezuela.holiday
+description: Venezuelan public holiday — the statutory días feriados nacionales (LOTTT art. 184) plus widely observed civic and religious dates
+locale: es
+---
+Año Nuevo
+Día de Reyes
+Lunes de Carnaval
+Martes de Carnaval
+Jueves Santo
+Viernes Santo
+Declaración de la Independencia
+Día del Trabajador
+Batalla de Carabobo
+Día de la Independencia
+Natalicio de Simón Bolívar
+Día de las Madres
+Día del Padre
+Día de la Virgen del Carmen
+Día de la Virgen de Coromoto
+Día de la Resistencia Indígena
+Día de Todos los Santos
+Día de los Fieles Difuntos
+Día de la Chinita
+Nochebuena
+Navidad
+Fin de Año

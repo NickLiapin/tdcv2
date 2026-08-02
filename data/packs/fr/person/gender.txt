@@ -1,0 +1,8 @@
+---
+description: Gender label (French). Two values, matching en, es and ru — this list is what
+  `parent="Gender.Homme"` filters on, so a longer one silently leaves most rows without a
+  name. Identity options beyond the pair belong in a file of their own.
+locale: fr
+---
+Homme
+Femme

@@ -1,0 +1,8 @@
+---
+description: Hotel star rating (Russian, with number agreement)
+---
+1 звезда
+2 звезды
+3 звезды
+4 звезды
+5 звёзд

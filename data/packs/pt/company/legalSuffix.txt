@@ -1,0 +1,47 @@
+---
+description: Company legal / name suffix used in the Portuguese-speaking world (Lda., S.A., Unipessoal Lda., Ltda., S/A, ME, EIRELI, MEI)
+locale: pt
+---
+Lda.
+Unipessoal Lda.
+S.A.
+S/A
+Ltda.
+S.G.P.S.
+EIRELI
+MEI
+ME
+EPP
+S.S.
+E.I.
+Sociedade Anónima
+Sociedade Limitada
+Cia.
+Companhia
+& Cia.
+e Filhos
+e Associados
+Irmãos
+Grupo
+Holding
+Participações
+Consórcio
+Corporação
+Sociedade
+Cooperativa
+Associados
+Consultores
+Serviços
+Soluções
+Sistemas
+Tecnologias
+Indústrias
+Internacional
+Investimentos
+Distribuição
+Comercial
+Comercializadora
+Laboratórios
+Empreendimentos
+Incorporadora
+Agroindustrial

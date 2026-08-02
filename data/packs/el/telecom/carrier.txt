@@ -1,0 +1,30 @@
+---
+description: Mobile carrier (Greek and Cypriot brands plus international ones)
+locale: el
+---
+Cosmote
+Vodafone Ελλάδας
+Nova
+Wind Ελλάς
+Cyta Hellas
+Forthnet
+Q Telecom
+What's Up
+Vodafone CU
+Frog
+Epic
+PrimeTel
+Cablenet
+MTN Cyprus
+Orange
+Telekom
+Telefónica
+Movistar
+O2
+Three
+EE
+SFR
+TIM
+A1
+Telenor
+Swisscom

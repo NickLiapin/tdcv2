@@ -1,0 +1,8 @@
+---
+address: venezuela.docs.ci
+description: Venezuela Cedula de Identidad (V/E prefix + 7-8 digit body, no check digit)
+generator: tdc
+---
+<sequence name="prefix"><gen type="text" value="V,E"/></sequence>
+<sequence name="body"><gen type="regex" value="[1-9][0-9]{6,7}"/></sequence>
+<data>${{prefix}}${{body}}</data>

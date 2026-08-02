@@ -1,0 +1,30 @@
+---
+description: Product review title (Polish)
+locale: pl
+---
+Świetny produkt!
+Bardzo polecam
+Nie warty swojej ceny
+Przerósł moje oczekiwania
+Po prostu w porządku
+Kupiłbym ponownie
+Rozczarowanie
+Doskonała jakość
+Szybko się zepsuł
+Idealny w tej cenie
+Lepszy niż się spodziewałem
+Nie polecam
+Zachwycony!
+Trochę drogi
+Dokładnie jak w opisie
+Spełnia swoje zadanie
+Dobry stosunek jakości do ceny
+Dotarł szybciej niż zapowiadano
+Materiały kiepskiej jakości
+Dokładnie to, czego szukałem
+Instrukcja niezrozumiała
+Bardzo łatwy w obsłudze
+Nie tego się spodziewałem
+Na pewno zamówię ponownie
+Obsługa bez zarzutu
+Solidne wykonanie

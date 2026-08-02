@@ -1,0 +1,13 @@
+---
+address: australia.geo.state
+description: Australian state or territory — the 6 states and 2 mainland territories, full name; same order as australia.geo.stateAbbr
+locale: en
+---
+New South Wales
+Victoria
+Queensland
+South Australia
+Western Australia
+Tasmania
+Northern Territory
+Australian Capital Territory

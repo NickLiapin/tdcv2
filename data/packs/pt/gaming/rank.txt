@@ -1,0 +1,14 @@
+---
+description: Competitive rank tier (Portuguese)
+locale: pt
+---
+Ferro
+Bronze
+Prata
+Ouro
+Platina
+Esmeralda
+Diamante
+Mestre
+Grão-mestre
+Desafiante

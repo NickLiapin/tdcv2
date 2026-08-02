@@ -1,0 +1,18 @@
+---
+description: Russian surname, gender-neutral (indeclinable forms, identical for men and women). For a gendered surname use person.male.lastName / person.female.lastName.
+---
+Шевченко
+Бондаренко
+Ткаченко
+Коваленко
+Кравчук
+Кузьменко
+Петренко
+Мельник
+Гончар
+Черных
+Белых
+Седых
+Долгих
+Живаго
+Дурново

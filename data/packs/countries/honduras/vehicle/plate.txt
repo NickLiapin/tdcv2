@@ -1,0 +1,7 @@
+---
+address: honduras.vehicle.plate
+description: Honduran licence plate — a type letter, two serial letters and four digits (PAX1234). The type letter marks the class: P and the post-2018 H for private cars, A for commercial, B for motorcycles. Private plates dominate and are drawn most often
+generator: tdc
+locale: es
+---
+<gen type="regex" value="(H[A-Z]{2}[0-9]{4}|H[A-Z]{2}[0-9]{4}|P[A-Z]{2}[0-9]{4}|P[A-Z]{2}[0-9]{4}|A[A-Z]{2}[0-9]{4}|B[A-Z]{2}[0-9]{4})"/>

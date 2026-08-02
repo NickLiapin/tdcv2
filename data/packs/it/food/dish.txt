@@ -1,0 +1,44 @@
+---
+description: Dish (Italian)
+locale: it
+---
+Pizza
+Sushi
+Tacos
+Hamburger con formaggio
+Spaghetti alla carbonara
+Ramen
+Pollo al curry
+Bistecca alla griglia
+Insalata Caesar
+Club sandwich
+Lasagne
+Risotto ai funghi
+Paella
+Empanadas
+Pad thai
+Pesce fritto con patatine
+Spezzatino di manzo
+Burrito
+Gnocchi
+Riso fritto
+Ceviche
+Grigliata mista di carne
+Enchiladas
+Zuppa di pollo
+Riso con pollo
+Tortilla spagnola
+Pollo tikka masala
+Gazpacho
+Cotoletta alla milanese
+Zuppa di lenticchie
+Crocchette
+Cannelloni
+Polpette
+Insalata greca
+Quesadilla
+Zuppa di pomodoro
+Polpettone
+Pollo arrosto
+Zuppa di pesce
+Melanzane ripiene

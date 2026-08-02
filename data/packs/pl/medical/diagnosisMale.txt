@@ -1,0 +1,24 @@
+---
+description: Medical diagnosis in Polish that requires male anatomy — it cannot occur in a female patient. Draw from this list only for male rows; general conditions live in medical/diagnosis.
+locale: pl
+---
+Łagodny rozrost gruczołu krokowego
+Zapalenie gruczołu krokowego
+Rak gruczołu krokowego
+Rak jądra
+Skręt jądra
+Żylaki powrózka nasiennego
+Wodniak jądra
+Zapalenie najądrza
+Wnętrostwo
+Stulejka
+Zapalenie żołędzi prącia
+Zaburzenia erekcji
+Choroba Peyroniego
+Niepłodność męska
+Ginekomastia
+Hipogonadyzm męski
+Priapizm
+Torbiel najądrza
+Łysienie androgenowe typu męskiego
+Przepuklina mosznowa

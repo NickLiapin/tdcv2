@@ -1,0 +1,14 @@
+---
+address: south_africa.geo.province
+description: South African province (all 9); same order as south_africa.geo.provinceCode / provinceCapital
+locale: en
+---
+Gauteng
+Western Cape
+KwaZulu-Natal
+Eastern Cape
+Limpopo
+Mpumalanga
+North West
+Free State
+Northern Cape

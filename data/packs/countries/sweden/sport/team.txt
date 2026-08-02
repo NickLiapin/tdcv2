@@ -1,0 +1,23 @@
+---
+address: sweden.sport.team
+description: Swedish football clubs of Allsvenskan and the Superettan tier (Swedish names)
+locale: sv
+---
+Malmö FF
+AIK
+IFK Göteborg
+Djurgårdens IF
+Hammarby IF
+IF Elfsborg
+BK Häcken
+IFK Norrköping
+Kalmar FF
+Halmstads BK
+IFK Värnamo
+Mjällby AIF
+Sirius
+Degerfors IF
+Brommapojkarna
+GAIS
+Örebro SK
+Helsingborgs IF

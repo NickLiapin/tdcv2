@@ -1,0 +1,9 @@
+---
+description: Work shift (Spanish)
+locale: es
+---
+Diurno
+Nocturno
+Vespertino
+Rotativo
+Madrugada

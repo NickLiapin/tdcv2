@@ -1,0 +1,11 @@
+---
+description: Conditions markedly more frequent in people of Southeast Asian ancestry, in Polish. A prevalence signal, not an exclusive one.
+locale: pl
+---
+Hemoglobinopatia E
+Alfa-talasemia
+Niedobór dehydrogenazy glukozo-6-fosforanowej
+Rak nosogardła
+Beta-talasemia
+Zespół Brugadów
+Hipolaktazja typu dorosłych

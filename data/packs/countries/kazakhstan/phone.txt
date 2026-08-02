@@ -1,0 +1,7 @@
+---
+address: kazakhstan.phone
+description: Kazakhstan mobile phone in E.164 form (+7 7xx)
+generator: tdc
+locale: ru
+---
+<gen type="regex" value="\+77(0[0-57]|1[0-8]|47|58|6[0-9]|7[0-8])[0-9]{7}"/>

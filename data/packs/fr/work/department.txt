@@ -1,0 +1,28 @@
+---
+description: Company department (French)
+locale: fr
+---
+Ingénierie
+Produit
+Design
+Ventes
+Marketing
+Finance
+Ressources humaines
+Juridique
+Opérations
+Support client
+Achats
+Logistique
+Recherche et développement
+Communication
+Qualité
+Sécurité
+Comptabilité
+Direction générale
+Informatique
+Administration
+Relations publiques
+Formation
+Maintenance
+Production

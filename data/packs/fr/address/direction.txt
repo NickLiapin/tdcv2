@@ -1,0 +1,13 @@
+---
+description: Directional qualifier appended to a French street or avenue
+locale: fr
+---
+Nord
+Sud
+Est
+Ouest
+Nord-Est
+Nord-Ouest
+Sud-Est
+Sud-Ouest
+Centre

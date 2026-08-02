@@ -1,0 +1,16 @@
+---
+address: rwanda.holiday
+description: Public holidays in Rwanda (French names)
+locale: fr
+---
+Jour de l'An
+Journée nationale du Héros
+Commémoration du Génocide
+Vendredi saint
+Lundi de Pâques
+Fête du Travail
+Jour de l'Indépendance
+Journée de la Libération
+Fête nationale de la Moisson
+Assomption
+Noël

@@ -1,0 +1,155 @@
+---
+title: TypeScript
+sidebar_position: 1
+---
+
+import Terminal from '@site/src/components/Terminal';
+
+# TypeScript
+
+El paquete de TypeScript es la implementación de referencia de TDC. El CLI es
+estupendo cuando lo que quiere es un archivo; la biblioteca es para obtener datos
+**dentro de su código** —como una cadena o como objetos JS vivos— sin lanzar un proceso
+ni leer un archivo.
+
+```ts
+import { TDC } from "tdcv2";
+```
+
+## Cómo crear un `TDC`
+
+El constructor recibe o bien una ruta a un archivo DSL (`configFile`), o bien una
+cadena DSL (`configString`). Desde el código se pueden anular los parámetros de
+ejecución `seed`, `count`, `locale` y `now`: le ganan a los valores de `<env>`.
+
+```ts
+const tdc = new TDC({
+  configString: `<tdc>
+    <env count="4" seed="demo" local="en">
+      <sequence name="Gender"><gen type="text" value="Male,Female"/></sequence>
+      <sequence name="MaleName" parent="Gender.Male"><gen type="template" value="person.male.firstName"/></sequence>
+      <sequence name="FemaleName" parent="Gender.Female"><gen type="template" value="person.female.firstName"/></sequence>
+      <before><line><data>Gender,Name</data></line></before>
+    </env>
+    <block><line><data>\${{Gender}},\${{MaleName}}\${{FemaleName}}</data></line></block>
+  </tdc>`,
+});
+
+console.log(tdc.toString());
+```
+
+El nombre queda atado al género mediante `parent`: dos secuencias, una por rama — si no,
+el nombre se sortearía por su cuenta y a un hombre le tocaría un nombre de mujer. En cada
+fila se rellena exactamente una, así que en la salida van simplemente una junto a otra.
+
+<Terminal title="node example.js">
+{`Gender,Name
+Female,Mary
+Male,James
+Male,John
+Female,Elizabeth`}
+</Terminal>
+
+Anular desde el código — estos le ganan a `<env>`:
+
+```ts
+const tdc = new TDC({
+  configFile: "./patients.tdc",
+  seed: "test-seed",
+  count: 100,
+  locale: "ru",
+});
+```
+
+Para fuentes en archivos externos, indique las carpetas de datos (y un directorio base
+para `configString`):
+
+```ts
+const tdc = new TDC({
+  configFile: "./configs/users.tdc",
+  dataPaths: ["./data", "./private-data"],
+});
+```
+
+Con `configFile`, las rutas `src` relativas dentro del `.tdc` se resuelven desde la
+carpeta de ese archivo; con `configString`, fije `baseDir` usted mismo.
+
+## Métodos terminales
+
+| Método             | Devuelve                                        | Para                            |
+| :----------------- | :---------------------------------------------- | :------------------------------ |
+| `toString()`       | toda la salida como una sola cadena             | resultados chicos o medianos    |
+| `writeFile(path)`  | escribe la salida en un archivo (por trozos)    | un archivo de cualquier tamaño  |
+| `toIterator()`     | un generador de líneas (una por registro)       | texto grande, sin cadena entera |
+| `toStream()`       | un `Readable` de Node.js                        | `pipe` a archivo / HTTP / gzip  |
+| `toArray()`        | un arreglo de objetos-fila                      | fixtures chicos de objetos      |
+| `iterate()`        | un generador de objetos-fila                    | salida de objetos, sin arreglo  |
+| `getAt(index)`     | un objeto-fila por índice                       | acceso puntual                  |
+| `preflight(opts?)` | un diagnóstico de memoria, o `undefined`        | una revisión antes de una corrida grande |
+| `seedInfo()`       | `{ seed, generated }`                           | leer o registrar el seed        |
+
+`toString`/`writeFile`/`toIterator`/`toStream` son salida de texto a través del disco,
+con memoria O(cantidad de campos). Vea
+**[Salidas grandes](../guides/large-outputs.mdx)** para las mediciones.
+
+## Salida en objetos
+
+En las pruebas suele ser más cómodo trabajar con objetos vivos que analizar CSV o JSON:
+se puede revisar `row.Gender` directamente. `toArray()`, `iterate()` y `getAt(index)` le
+dan eso. La salida en objetos **ignora** `<block>` y los envoltorios de texto: solo lee
+las `<sequence>` materializadas:
+
+- una secuencia simple se vuelve una propiedad escalar;
+- una secuencia compuesta se vuelve un objeto **anidado**;
+- una secuencia filtrada por `parent` queda como `undefined` en las filas donde no
+  aplica.
+
+```ts
+const tdc = new TDC({
+  configString: `<tdc>
+    <env count="4" seed="demo" local="en">
+      <sequence name="Gender"><gen type="text" value="Male,Female"/></sequence>
+      <sequence name="Person">
+        <gen name="Code" type="regex" value="[0-9]{4}"/>
+      </sequence>
+      <sequence name="MaleName" parent="Gender.Male"><gen type="template" value="person.male.firstName"/></sequence>
+      <sequence name="FemaleName" parent="Gender.Female"><gen type="template" value="person.female.firstName"/></sequence>
+          </env>
+    <block><line><data>ignored</data></line></block>
+  </tdc>`,
+});
+
+console.log(tdc.getAt(0)); // una fila Female
+console.log(tdc.getAt(1)); // una fila Male
+```
+
+<Terminal title="node objects.js">
+{`{
+  Gender: 'Female',
+  Person: { Code: '5218' },
+  MaleName: undefined,
+  FemaleName: 'Mary'
+}
+{
+  Gender: 'Male',
+  Person: { Code: '7698' },
+  MaleName: 'John',
+  FemaleName: undefined
+}`}
+</Terminal>
+
+`Person` es un objeto anidado. `MaleName` y `FemaleName` están las dos presentes, pero en
+cada fila se rellena exactamente una: la otra vale `undefined`, porque su `parent` no
+coincidió allí. Así se ve un filtro por padre en la salida de objetos.
+
+:::note[Un motor distinto]
+Los métodos de objetos devuelven objetos JS a través del motor pequeño en RAM, así que
+mantienen los datos en memoria: sirven para conjuntos chicos. Para archivos grandes use
+`writeFile()` / `toStream()` / el CLI (disco, memoria plana). Como es un motor distinto,
+sus valores aleatorios no tienen por qué coincidir con los de `toString()`.
+:::
+
+## Vea también
+
+- **[CLI](../reference/cli.mdx)** — el mismo motor desde la línea de comandos.
+- **[Salidas grandes](../guides/large-outputs.mdx)** — métodos de streaming y memoria.

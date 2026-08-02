@@ -1,0 +1,28 @@
+---
+description: Company legal / name suffix used in France (SARL, SAS, SA, SASU, EURL, SNC, SCI)
+locale: fr
+---
+SARL
+SAS
+SA
+SASU
+EURL
+SNC
+SCI
+SCOP
+SE
+EI
+GIE
+SCA
+SCS
+SCM
+SEM
+Société Civile
+Association
+Auto-entrepreneur
+Micro-entreprise
+et Cie
+et Fils
+et Associés
+Groupe
+Holding

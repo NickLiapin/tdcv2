@@ -1,0 +1,13 @@
+---
+description: Trucking route type (Arabic)
+locale: ar
+---
+مسافات طويلة
+إقليمي
+محلي
+وطني
+دولي
+توزيع
+خط ثابت
+مكوكي
+توزيع حضري

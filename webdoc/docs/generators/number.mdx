@@ -1,0 +1,266 @@
+---
+title: Number
+sidebar_position: 3
+---
+
+import Terminal from '@site/src/components/Terminal';
+
+# The `number` generator
+
+**Use it when** you need an integer — an id, a code, a price, an age — inside a
+range; or a string of exactly _N_ digits (even hundreds or thousands of them, far
+past what an ordinary number type can hold).
+
+The `number` generator has several modes, chosen by which of `value` and `length`
+you provide. This page walks through each one.
+
+## At a glance
+
+| Attribute    | Required | What it does                                                        |
+| :----------- | :------- | :------------------------------------------------------------------ |
+| `value`      | no       | `bit`, a range `"100..999"`, or a list of ranges                    |
+| `length`     | no       | Fixed width `"10"`, a range `"2-10"`, or groups `"2,10-12"`         |
+| `percent`    | no       | Shares for `length` groups, e.g. `length="2,10-12" percent="85,15"` |
+| `first_zero` | no       | `true` / `false` — whether a leading zero is allowed                |
+| `include`    | no       | Add numbers or ranges to `value`                                    |
+| `exclude`    | no       | Remove numbers or ranges from `value`                               |
+
+With **no** `value` and **no** `length`, `number` emits a single random digit
+`0`–`9`.
+
+<Terminal title="./run demo.tdc">
+{`7
+2
+9
+0
+4`}
+</Terminal>
+
+## A single bit
+
+`value="bit"` gives a random `0` or `1`, which is what a boolean-style flag needs.
+
+```xml
+<gen type="number" value="bit"/>
+```
+
+<Terminal title="./run demo.tdc">
+{`1
+0
+1
+1
+0`}
+</Terminal>
+
+## A range
+
+Give `value` a range as `from..to` (inclusive) and you get a random integer inside
+it.
+
+```xml
+<gen type="number" value="1000..9999"/>
+```
+
+<Terminal title="./run demo.tdc">
+{`7931
+2608
+4415
+8842
+1307`}
+</Terminal>
+
+Two rules about the syntax:
+
+- The separator is **always** `..`, never a single dash.
+- A single `-` inside `value` is the **minus sign** of a negative number, so
+  so a negative range needs no escaping:
+
+```xml
+<gen type="number" value="-500..-200"/>
+```
+
+<Terminal title="./run demo.tdc">
+{`-269
+-451
+-312
+-208
+-377`}
+</Terminal>
+
+### Leading zeros are kept
+
+If the range is written with leading zeros, the width is preserved, which is what
+fixed-width codes need:
+
+```xml
+<gen type="number" value="0000..9999"/>
+```
+
+<Terminal title="./run demo.tdc">
+{`0770
+0034
+0983
+7702
+0208`}
+</Terminal>
+
+## Several ranges at once
+
+Pass a comma-separated list of bracketed ranges and TDC first picks one range at
+random, then a number inside it.
+
+```xml
+<gen type="number" value="[0..100],[345..678],[1934..2026]"/>
+```
+
+<Terminal title="./run demo.tdc">
+{`73
+512
+1998
+41
+2007`}
+</Terminal>
+
+:::note[Distribution detail]
+With a range **list**, each *range* is equally likely, and then a number *inside*
+the chosen range is equally likely — so individual numbers are **not** uniform
+across the whole set. If you want a genuinely uniform pick over a range minus a few
+holes, use `exclude` (below) instead.
+:::
+
+## Fixed width with `length` (padding)
+
+When you give **both** `value` and `length`, `length` acts as a display width:
+short numbers are padded with leading zeros, longer ones print as-is. Same seed,
+so the numbers are identical — only the width changes:
+
+```xml
+<gen type="number" value="1..999"/>            <!-- raw -->
+<gen type="number" value="1..999" length="4"/> <!-- same series, width 4 -->
+```
+
+<Terminal title="./run demo.tdc">
+{`raw    length="4"
+770  →  0770
+350  →  0350
+79   →  0079
+959  →  0959
+208  →  0208`}
+</Terminal>
+
+The numbers didn't change — they were just padded to four digits. In this padding
+mode a leading zero is allowed by default (so a short value can reach the width).
+
+## Digit-string mode
+
+Give `length` **without** `value` and the generator switches modes: it assembles
+the result digit by digit and always returns a string of exactly that length. This
+is not a JavaScript number — it's text — so you can generate identifiers hundreds
+or thousands of digits long.
+
+```xml
+<gen type="number" length="10" first_zero="true"/>
+```
+
+<Terminal title="./run demo.tdc">
+{`7702701363
+3682926087
+0220609313
+9277428409
+2165957920`}
+</Terminal>
+
+Here `first_zero="true"` allows a leading zero (see the third line, `0220609313`).
+Without it, the first digit in this mode is never zero.
+
+### Variable length
+
+`length` can itself be a range, or groups with shares:
+
+```xml
+<gen type="number" length="2-10"/>                       <!-- random length 2..10 -->
+<gen type="number" length="2,10-12" percent="85,15"/>    <!-- 85% short, 15% long -->
+```
+
+<Terminal title="./run demo.tdc">
+{`length="2-10"            → 70270136
+length="2,10-12" 85/15   → 77`}
+</Terminal>
+
+The `percent` here works exactly like it does for [`text`](text.mdx#exact-proportions-with-percent):
+over `count="100"`, exactly 85 values are length 2 and 15 are length 10–12.
+
+## `first_zero` — control the leading zero
+
+`first_zero` decides whether the **first** digit may be `0`. The default depends on
+the mode:
+
+- **Padding mode** (with `value`): a leading zero is **allowed** by default, so
+  padding can reach the width. `first_zero="false"` forbids it — TDC then draws a
+  value that already has enough digits:
+
+```xml
+<gen type="number" value="0..9999" length="4"/>                    <!-- zero ok -->
+<gen type="number" value="0..9999" length="4" first_zero="false"/> <!-- no zero -->
+```
+
+<Terminal title="./run demo.tdc">
+{`default        first_zero="false"
+7701      →     7701
+3494      →     3494
+0785      →     2379
+9597      →     9597
+2078      →     2078`}
+</Terminal>
+
+Only `0785` (the one value that started with a zero) is replaced by a full
+four-digit `2379`; everything else already had no leading zero and is untouched.
+
+- **Digit-string mode** (no `value`): a leading zero is **forbidden** by default.
+  Pass `first_zero="true"` when the string is allowed to start with a zero (the
+  ten-digit example above).
+
+## Add and remove numbers: `include` / `exclude`
+
+To carve a couple of holes out of a range without spelling out a list of
+sub-ranges, use `exclude` (remove) and `include` (add). Values are numbers or
+`a..b` ranges, comma-separated.
+
+```xml
+<gen type="number" value="0..9" exclude="3"/>               <!-- 0–9 except 3 -->
+<gen type="number" value="1000..9999" exclude="1234,5678"/> <!-- ids minus two -->
+<gen type="number" value="0..100" exclude="40..60"/>        <!-- without the middle -->
+<gen type="number" value="0..9" include="100"/>             <!-- 0–9 and also 100 -->
+```
+
+<Terminal title="./run demo.tdc">
+{`value="0..9" exclude="3"               → 7
+value="1000..9999" exclude="1234,5678" → 7931
+value="0..100" exclude="40..60"        → 82
+value="0..9" include="100"             → 8`}
+</Terminal>
+
+Two things worth knowing:
+
+- **The pick is genuinely uniform** over everything that remains. `value="0..9"
+  exclude="3"` gives each of the nine surviving numbers exactly a 1-in-9 chance —
+  unlike a range list, where ranges, not numbers, are equally weighted.
+- **`exclude` has the last word.** The final set is `(base ∪ include) − exclude`,
+  so a number added by `include` and removed by `exclude` is gone. If nothing is
+  left after the modifiers, that's error `TDC087`.
+
+These modifiers need a **range** `value`; they don't apply to the digit-string
+(`length`-only) mode.
+
+## Gotchas, in one place
+
+- Ranges use `..`, never `-` (a single `-` is a minus sign).
+- Leading-zero width is preserved: `value="0000..9999"` → `"0034"`.
+- Digit-string mode returns **text**, not a number — safe for huge ids.
+- In a range list, ranges are uniform, not the individual numbers — use `exclude`
+  for a uniform pick with holes.
+
+## See also
+
+- [`length`](../reference/attributes.mdx) and [`first_zero`](../reference/attributes.mdx) in the attribute reference.
+- **[Text](text.mdx)** — the same exact-`percent` machinery, for lists.

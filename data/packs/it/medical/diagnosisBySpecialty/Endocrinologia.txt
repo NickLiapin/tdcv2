@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Endocrinology (Italian)
+locale: it
+---
+Diabete mellito di tipo 2
+Diabete mellito di tipo 1
+Ipotiroidismo
+Ipertiroidismo
+Osteoporosi
+Sindrome di Cushing
+Sindrome dell'ovaio policistico
+Tiroidite di Hashimoto
+Morbo di Basedow
+Insufficienza surrenalica

@@ -1,0 +1,39 @@
+---
+description: Hobby / interest (French)
+locale: fr
+---
+Lecture
+Randonnée
+Photographie
+Cuisine
+Jardinage
+Peinture
+Musique
+Danse
+Cinéma
+Voyage
+Vélo
+Course à pied
+Natation
+Yoga
+Pêche
+Bricolage
+Couture
+Tricot
+Échecs
+Jeux vidéo
+Théâtre
+Chant
+Poterie
+Escalade
+Ski
+Équitation
+Plongée
+Astronomie
+Œnologie
+Généalogie
+Collection de timbres
+Modélisme
+Aquariophilie
+Calligraphie
+Méditation

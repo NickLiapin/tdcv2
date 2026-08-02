@@ -1,0 +1,16 @@
+---
+description: Jobs in Retail (Polish)
+locale: pl
+---
+Sprzedawca
+Kasjer
+Kierownik sklepu
+Zastępca kierownika sklepu
+Wykładacz towaru
+Kupiec
+Doradca klienta
+Merchandiser
+Specjalista ds. zapobiegania stratom
+Pracownik działu obsługi klienta
+Kierownik regionalny
+Inwentaryzator

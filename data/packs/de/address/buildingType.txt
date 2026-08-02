@@ -1,0 +1,36 @@
+---
+description: Building type (German)
+locale: de
+---
+Haus
+Wohnung
+Mehrfamilienhaus
+Gebäude
+Bürogebäude
+Lagerhalle
+Lager
+Ladenlokal
+Fabrik
+Industriehalle
+Krankenhaus
+Klinik
+Schule
+Gymnasium
+Universität
+Hotel
+Restaurant
+Einkaufszentrum
+Stadion
+Bibliothek
+Kirche
+Museum
+Theater
+Landhaus
+Villa
+Hütte
+Bauernhof
+Gutshof
+Turm
+Reihenhaus
+Wohnanlage
+Parkhaus

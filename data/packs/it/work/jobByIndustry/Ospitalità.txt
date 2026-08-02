@@ -1,0 +1,19 @@
+---
+description: Jobs in Hospitality (Italian)
+locale: it
+---
+Chef
+Direttore d'albergo
+Barman
+Portiere d'albergo
+Sous chef
+Coordinatore di eventi
+Cameriere
+Receptionist d'albergo
+Addetto alle pulizie
+Maître di sala
+Pasticcere
+Barista
+Governante
+Sommelier
+Animatore turistico

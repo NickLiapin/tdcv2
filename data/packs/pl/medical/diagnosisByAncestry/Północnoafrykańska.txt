@@ -1,0 +1,10 @@
+---
+description: Conditions markedly more frequent in people of North African ancestry, in Polish. A prevalence signal, not an exclusive one.
+locale: pl
+---
+Niedobór dehydrogenazy glukozo-6-fosforanowej
+Cecha beta-talasemii
+Rodzinna gorączka śródziemnomorska
+Choroba Behçeta
+Hipolaktazja typu dorosłych
+Skóra pergaminowata i barwnikowa

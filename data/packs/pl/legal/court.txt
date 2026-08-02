@@ -1,0 +1,19 @@
+---
+description: Court type (Polish judiciary)
+locale: pl
+---
+Sąd Najwyższy
+Trybunał Konstytucyjny
+Trybunał Stanu
+Naczelny Sąd Administracyjny
+Wojewódzki Sąd Administracyjny
+Sąd Apelacyjny
+Sąd Okręgowy
+Sąd Rejonowy
+Sąd Cywilny
+Sąd Karny
+Sąd Rodzinny
+Sąd Pracy
+Sąd Gospodarczy
+Sąd Wojskowy
+Sąd Polubowny

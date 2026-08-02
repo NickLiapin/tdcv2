@@ -1,0 +1,38 @@
+---
+description: Cooking ingredient (French)
+locale: fr
+---
+Farine
+Sucre
+Beurre
+Œuf
+Lait
+Crème fraîche
+Huile d'olive
+Levure
+Chocolat
+Miel
+Vinaigre
+Moutarde
+Tomate concassée
+Bouillon
+Fromage
+Riz
+Pâtes
+Pain
+Ail
+Oignon
+Citron
+Vin blanc
+Yaourt
+Fécule de maïs
+Gélatine
+Chapelure
+Amandes
+Noix
+Lardons
+Crème liquide
+Sirop d'érable
+Pâte feuilletée
+Sauce soja
+Concentré de tomate

@@ -1,0 +1,9 @@
+---
+description: Positions in basketball (Italian)
+locale: it
+---
+Playmaker
+Guardia tiratrice
+Ala piccola
+Ala grande
+Centro

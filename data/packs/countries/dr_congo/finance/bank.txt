@@ -1,0 +1,17 @@
+---
+address: dr_congo.finance.bank
+description: Banks operating in the Democratic Republic of the Congo
+locale: fr
+---
+Rawbank
+Equity BCDC
+Trust Merchant Bank
+Ecobank
+FBN Bank
+Access Bank
+UBA
+Sofibanque
+Afriland First Bank CD
+BGFIBank RDC
+Standard Bank
+Banque Commerciale du Congo

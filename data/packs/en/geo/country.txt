@@ -1,0 +1,41 @@
+---
+description: Country, weighted by population
+locale: en
+weighted: true
+---
+China,1410
+India,1400
+United States,335
+Indonesia,275
+Pakistan,240
+Nigeria,220
+Brazil,215
+Bangladesh,170
+Russia,144
+Mexico,128
+Japan,125
+Germany,84
+France,68
+United Kingdom,67
+Italy,59
+South Korea,52
+Spain,47
+Argentina,46
+Canada,39
+Poland,38
+Australia,26
+Netherlands,18
+Turkey,85
+Egypt,110
+Sweden,10
+Switzerland,9
+Saudi Arabia,36
+South Africa,60
+Norway,5
+Greece,10
+Portugal,10
+Ireland,5
+New Zealand,5
+Singapore,6
+Thailand,72
+Vietnam,98

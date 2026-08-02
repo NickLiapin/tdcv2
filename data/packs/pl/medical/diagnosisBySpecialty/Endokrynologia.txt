@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Endocrinology (Polish)
+locale: pl
+---
+Cukrzyca typu 2
+Niedoczynność tarczycy
+Nadczynność tarczycy
+Osteoporoza
+Zespół Cushinga
+Zespół policystycznych jajników
+Choroba Hashimoto
+Choroba Gravesa-Basedowa
+Niedoczynność kory nadnerczy
+Cukrzyca typu 1

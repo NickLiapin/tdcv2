@@ -1,0 +1,12 @@
+---
+address: rwanda.education.university
+description: Universities of Rwanda
+locale: fr
+---
+Université du Rwanda
+Université Adventiste d'Afrique Centrale
+Institut Catholique de Kabgayi
+Université Libre de Kigali
+Mount Kenya University Rwanda
+African Leadership University
+Institut d'Enseignement Supérieur de Ruhengeri

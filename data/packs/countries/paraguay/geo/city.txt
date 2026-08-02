@@ -1,0 +1,73 @@
+---
+address: paraguay.geo.city
+description: Paraguayan city or distrito (real localities — the departmental capitals plus the largest urban centres, mostly in the Central department metro of Asunción)
+locale: es
+---
+Asunción
+Ciudad del Este
+San Lorenzo
+Luque
+Capiatá
+Lambaré
+Fernando de la Mora
+Limpio
+Ñemby
+Encarnación
+Mariano Roque Alonso
+Pedro Juan Caballero
+Itauguá
+Villa Elisa
+Presidente Franco
+Coronel Oviedo
+Caaguazú
+Hernandarias
+Concepción
+Villarrica
+Itá
+Caacupé
+Areguá
+Pilar
+San Juan Bautista
+Paraguarí
+Villeta
+Guarambaré
+Ypacaraí
+Ypané
+San Antonio
+Minga Guazú
+Santa Rita
+Tobatí
+Piribebuy
+Eusebio Ayala
+Carapeguá
+Quiindy
+San Ignacio
+Ayolas
+Santa Rosa
+Coronel Bogado
+Hohenau
+Obligado
+Bella Vista
+Natalio
+Cambyretá
+San Estanislao
+Santa Rosa del Aguaray
+Horqueta
+Curuguaty
+Salto del Guairá
+Katueté
+Filadelfia
+Loma Plata
+Mariscal Estigarribia
+Villa Hayes
+Benjamín Aceval
+Fuerte Olimpo
+Emboscada
+Atyrá
+Altos
+San Bernardino
+Yaguarón
+Yby Yaú
+Doctor Juan León Mallorquín
+Ñacunday
+Nueva Italia

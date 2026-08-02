@@ -1,0 +1,11 @@
+---
+description: Weekday abbreviation (Arabic)
+locale: ar
+---
+أحد
+إثنين
+ثلاثاء
+أربعاء
+خميس
+جمعة
+سبت

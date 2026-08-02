@@ -1,0 +1,24 @@
+---
+description: Insect (Italian)
+locale: it
+---
+Formica
+Ape
+Farfalla
+Scarabeo
+Libellula
+Cavalletta
+Coccinella
+Falena
+Grillo
+Vespa
+Lucciola
+Mantide religiosa
+Cicala
+Termite
+Zanzara
+Mosca
+Scarafaggio
+Pulce
+Centopiedi
+Cimice

@@ -1,0 +1,11 @@
+---
+address: honduras.finance.accountType
+description: Honduran bank account type as named on a transfer or deposit form
+locale: es
+---
+Cuenta de Ahorro
+Cuenta de Cheques
+Cuenta de Ahorro en Dólares
+Cuenta de Cheques en Dólares
+Cuenta Básica
+Depósito a Plazo Fijo

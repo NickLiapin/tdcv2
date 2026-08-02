@@ -1,0 +1,11 @@
+---
+description: Conditions markedly more frequent in people of Mediterranean ancestry, given in German. A prevalence signal, not an exclusive one.
+locale: de
+---
+Beta-Thalassämie
+Beta-Thalassaemia minor
+Glukose-6-Phosphat-Dehydrogenase-Mangel
+Familiäres Mittelmeerfieber
+Morbus Behçet
+Alpha-Thalassämie
+Favismus

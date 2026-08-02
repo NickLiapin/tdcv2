@@ -1,0 +1,11 @@
+---
+address: france.geo.streetName
+description: French street name — a voie type (Rue is the most common) followed by a bare name; e.g. "Rue de la République", "Avenue Victor Hugo".
+generator: tdc
+locale: fr
+---
+<!-- Weighted so Rue dominates, as it does on the ground, followed by Avenue and
+     Boulevard; the long tail (Impasse, Allée, Quai...) stays rare. -->
+<sequence name="type"><gen type="text" value="Rue,Rue,Rue,Rue,Rue,Avenue,Avenue,Boulevard,Boulevard,Place,Impasse,Allée,Chemin,Quai,Cours,Passage,Route"/></sequence>
+<sequence name="named"><gen type="template" value="france.geo.streetNamed"/></sequence>
+<data>${{type}} ${{named}}</data>

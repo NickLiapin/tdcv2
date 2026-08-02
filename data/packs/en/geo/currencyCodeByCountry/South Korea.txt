@@ -1,0 +1,5 @@
+---
+description: Currency code of South Korea
+locale: en
+---
+KRW

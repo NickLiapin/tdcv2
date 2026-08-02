@@ -1,0 +1,7 @@
+---
+address: luxembourg.vehicle.plate
+description: Luxembourg licence plate — two letters and four digits (e.g. AB 1234)
+generator: tdc
+locale: fr
+---
+<gen type="regex" value="[A-Z]{2} [0-9]{4}"/>

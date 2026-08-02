@@ -1,0 +1,6 @@
+---
+address: panama.phone
+description: Panamanian phone in E.164 form (+507). Mobiles are 8 digits and always start with 6 (+5076XXXXXXX); fixed lines are 7 digits and start with 2/3 (Panamá, Panamá Oeste), 4 (Colón), 5 (government), 7 (Bocas del Toro, Chiriquí) or 9 (Coclé, Herrera, Los Santos, Veraguas). Panama has no area codes. Mobiles dominate, so they are drawn three times as often.
+generator: tdc
+---
+<gen type="regex" value="(\+5076[0-9]{7}|\+5076[0-9]{7}|\+5076[0-9]{7}|\+507[234579][0-9]{6})"/>

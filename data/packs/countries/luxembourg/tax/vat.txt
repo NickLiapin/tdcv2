@@ -1,0 +1,11 @@
+---
+address: luxembourg.tax.vat
+description: Luxembourg VAT / TVA — LU + 8 digits: a 6-digit base + 2-digit check = the 6-digit base mod 89.
+generator: tdc
+---
+<sequence name="base"><gen type="regex" value="[0-9]{6}"/></sequence>
+<sequence name="vat"><compute>
+  <let name="check"><mod><to_number><field name="base"/></to_number><int v="89"/></mod></let>
+  <result><concat><str v="LU"/><field name="base"/><pad width="2" fill="0"><var name="check"/></pad></concat></result>
+</compute></sequence>
+<data>${{vat}}</data>

@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Orthopedics (Polish)
+locale: pl
+---
+Choroba zwyrodnieniowa stawów
+Reumatoidalne zapalenie stawów
+Przepuklina krążka międzykręgowego
+Zespół cieśni nadgarstka
+Rwa kulszowa
+Uszkodzenie stożka rotatorów
+Złamanie szyjki kości udowej
+Skolioza
+Zapalenie ścięgna Achillesa
+Uszkodzenie więzadła krzyżowego przedniego

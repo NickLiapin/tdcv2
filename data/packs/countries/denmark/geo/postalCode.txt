@@ -1,0 +1,7 @@
+---
+address: denmark.geo.postalCode
+description: Danish postal code (postnummer) — four digits from 1000 to 9999. Structure only; not restricted to codes actually in use (the real ranges have gaps).
+generator: tdc
+locale: da
+---
+<gen type="regex" value="[1-9][0-9]{3}"/>

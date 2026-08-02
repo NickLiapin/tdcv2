@@ -1,0 +1,43 @@
+---
+address: argentina.finance.cbu
+description: Argentine CBU (Clave Bancaria Uniforme) — 22 digits in two independently checksummed blocks. Block 1 is 3-digit BCRA entity code + 4-digit sucursal + mod-10 check digit weighted 7,1,3,9,7,1,3; block 2 is a 13-digit account number + mod-10 check digit weighted 3,9,7,1,3,9,7,1,3,9,7,1,3. A CVU (virtual account at a payment provider) uses the same 22-digit layout and the same two check digits. The alias CBU — a 6-20 character label bound to the account — is NOT part of the number and carries no check digit.
+generator: tdc
+---
+<!-- Block 1: entidad (3) + sucursal (4). -->
+<sequence name="bank"><gen type="template" value="argentina.finance.bankCode"/></sequence>
+<sequence name="branch"><gen type="regex" value="[0-9]{4}"/></sequence>
+<!-- Block 2 payload: 13-digit account number. -->
+<sequence name="account"><gen type="regex" value="[0-9]{13}"/></sequence>
+<sequence name="cbu"><compute>
+  <let name="block1"><concat><field name="bank"/><field name="branch"/></concat></let>
+  <!-- DV1 over the 7 digits of block 1, weights 7,1,3,9,7,1,3. -->
+  <let name="sum1"><reduce>
+    <over><var name="block1"/></over>
+    <init><int v="0"/></init>
+    <do><add><acc/>
+      <multiply><current/>
+        <at><in><list v="7,1,3,9,7,1,3"/></in><index><current_index/></index></at>
+      </multiply>
+    </add></do>
+  </reduce></let>
+  <let name="dv1">
+    <mod><subtract><int v="10"/><mod><var name="sum1"/><int v="10"/></mod></subtract><int v="10"/></mod>
+  </let>
+  <!-- DV2 over the 13 account digits, weights 3,9,7,1,3 repeating in the
+       published 3,9,7,1 cycle read from the right. -->
+  <let name="body2"><field name="account"/></let>
+  <let name="sum2"><reduce>
+    <over><var name="body2"/></over>
+    <init><int v="0"/></init>
+    <do><add><acc/>
+      <multiply><current/>
+        <at><in><list v="3,9,7,1,3,9,7,1,3,9,7,1,3"/></in><index><current_index/></index></at>
+      </multiply>
+    </add></do>
+  </reduce></let>
+  <let name="dv2">
+    <mod><subtract><int v="10"/><mod><var name="sum2"/><int v="10"/></mod></subtract><int v="10"/></mod>
+  </let>
+  <result><concat><var name="block1"/><var name="dv1"/><var name="body2"/><var name="dv2"/></concat></result>
+</compute></sequence>
+<data>${{cbu}}</data>

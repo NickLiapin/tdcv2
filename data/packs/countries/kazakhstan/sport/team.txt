@@ -1,0 +1,19 @@
+---
+address: kazakhstan.sport.team
+description: Kazakhstan Premier League football clubs (Russian names)
+locale: ru
+---
+Кайрат
+Астана
+Тобол
+Ордабасы
+Актобе
+Шахтёр Караганда
+Тараз
+Атырау
+Окжетпес
+Кызылжар
+Женис
+Елимай
+Туран
+Жетысу

@@ -1,0 +1,15 @@
+---
+description: Positions in American football (Italian)
+locale: it
+---
+Quarterback
+Running back
+Wide receiver
+Tight end
+Linea offensiva
+Linea difensiva
+Linebacker
+Cornerback
+Safety
+Kicker
+Punter

@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Psychiatry (Portuguese)
+locale: pt
+---
+Transtorno depressivo maior
+Transtorno de ansiedade generalizada
+Transtorno bipolar
+Esquizofrenia
+Transtorno obsessivo-compulsivo
+Transtorno de estresse pós-traumático
+Transtorno do pânico
+Anorexia nervosa
+Transtorno do déficit de atenção e hiperatividade
+Insônia

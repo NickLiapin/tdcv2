@@ -1,0 +1,27 @@
+---
+address: guinea.geo.city
+description: Cities and larger towns of Guinea
+locale: fr
+---
+Conakry
+Nzérékoré
+Kankan
+Kindia
+Labé
+Guéckédou
+Boké
+Mamou
+Kissidougou
+Siguiri
+Macenta
+Faranah
+Kamsar
+Coyah
+Dubréka
+Télimélé
+Pita
+Dalaba
+Dinguiraye
+Forécariah
+Kouroussa
+Mandiana

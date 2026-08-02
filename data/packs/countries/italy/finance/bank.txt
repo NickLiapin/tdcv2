@@ -1,0 +1,23 @@
+---
+address: italy.finance.bank
+description: Major banks of Italy (Italian names)
+locale: it
+---
+Intesa Sanpaolo
+UniCredit
+Banco BPM
+BPER Banca
+Banca Monte dei Paschi di Siena
+Mediobanca
+Credito Emiliano
+Banca Popolare di Sondrio
+Banca Sella
+FinecoBank
+Banca Mediolanum
+Crédit Agricole Italia
+Banca Nazionale del Lavoro
+Cassa Depositi e Prestiti
+Poste Italiane
+Banca Generali
+Illimity Bank
+Banca Ifis

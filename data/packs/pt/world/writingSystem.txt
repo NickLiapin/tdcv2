@@ -1,0 +1,24 @@
+---
+description: Writing system (Portuguese)
+locale: pt
+---
+Alfabeto latino
+Alfabeto cirílico
+Alfabeto grego
+Alfabeto árabe
+Alfabeto hebraico
+Alfabeto arménio
+Alfabeto georgiano
+Escrita chinesa (han)
+Hiragana
+Katakana
+Hangul
+Devanágari
+Escrita tailandesa
+Escrita tibetana
+Escrita etíope (ge'ez)
+Silabário cherokee
+Escrita maia
+Escrita bengali
+Escrita tâmil
+Alfabeto glagolítico

@@ -1,0 +1,26 @@
+---
+description: Common allergies (Italian)
+locale: it
+---
+Penicillina
+Arachidi
+Frutta a guscio
+Crostacei
+Uovo
+Latte
+Soia
+Grano
+Lattice
+Polline
+Acari della polvere
+Forfora animale
+Puntura d'ape
+Aspirina
+Sulfamidici
+Iodio
+Sesamo
+Glutine
+Muffa
+Nichel
+Fragole
+Mezzo di contrasto iodato

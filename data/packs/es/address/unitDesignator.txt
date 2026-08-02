@@ -1,0 +1,27 @@
+---
+description: Spanish address unit / interior designator (abbreviated forms used before a number)
+locale: es
+---
+Int.
+Depto.
+Dpto.
+Apto.
+Piso
+Planta
+Puerta
+Escalera
+Bloque
+Torre
+Edif.
+Casa
+Local
+Ofic.
+Desp.
+Nivel
+Mz.
+Lote
+Bodega
+Cochera
+Habitación
+Suite
+Km.

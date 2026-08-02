@@ -1,0 +1,54 @@
+---
+address: venezuela.education.university
+description: Venezuelan university or higher-education institution (public autonomous, experimental and private)
+locale: es
+---
+Universidad Central de Venezuela
+Universidad de Los Andes
+Universidad del Zulia
+Universidad de Carabobo
+Universidad de Oriente
+Universidad Simón Bolívar
+Universidad Centroccidental Lisandro Alvarado
+Universidad Nacional Experimental del Táchira
+Universidad Nacional Experimental Francisco de Miranda
+Universidad Nacional Experimental de los Llanos Occidentales Ezequiel Zamora
+Universidad Nacional Experimental Simón Rodríguez
+Universidad Nacional Experimental Politécnica Antonio José de Sucre
+Universidad Nacional Experimental de Guayana
+Universidad Nacional Experimental Rómulo Gallegos
+Universidad Nacional Experimental Marítima del Caribe
+Universidad Pedagógica Experimental Libertador
+Universidad Nacional Abierta
+Universidad Bolivariana de Venezuela
+Universidad Nacional Experimental de las Artes
+Universidad Nacional Experimental de la Seguridad
+Universidad Militar Bolivariana de Venezuela
+Universidad Nacional Experimental Sur del Lago Jesús María Semprún
+Universidad Politécnica Territorial del Estado Mérida Kléber Ramírez
+Universidad Católica Andrés Bello
+Universidad Metropolitana
+Universidad Monteávila
+Universidad Santa María
+Universidad José María Vargas
+Universidad Nueva Esparta
+Universidad Alejandro de Humboldt
+Universidad Rafael Belloso Chacín
+Universidad Rafael Urdaneta
+Universidad Dr. José Gregorio Hernández
+Universidad Católica Cecilio Acosta
+Universidad Católica del Táchira
+Universidad Bicentenaria de Aragua
+Universidad José Antonio Páez
+Universidad Tecnológica del Centro
+Universidad de Falcón
+Universidad Fermín Toro
+Universidad Yacambú
+Universidad Gran Mariscal de Ayacucho
+Universidad Panamericana del Puerto
+Universidad Valle del Momboy
+Instituto Universitario de Tecnología Región Capital
+Instituto Universitario Politécnico Santiago Mariño
+Universidad Nacional Experimental Rafael María Baralt
+Universidad Nacional Experimental del Yaracuy
+Universidad Politécnica Territorial de Barlovento Argelia Laya

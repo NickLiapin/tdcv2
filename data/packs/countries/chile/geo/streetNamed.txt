@@ -1,0 +1,143 @@
+---
+address: chile.geo.streetNamed
+description: Chilean street name, bare (without the Calle / Avenida / Pasaje prefix) — real thoroughfares, mostly Santiago and the regional capitals
+locale: es
+---
+Bernardo O'Higgins
+Vicuña Mackenna
+Américo Vespucio
+Providencia
+Apoquindo
+Manquehue
+Tobalaba
+Irarrázaval
+Pedro de Valdivia
+Manuel Montt
+Salvador
+Los Leones
+Suecia
+Andrés Bello
+Kennedy
+Las Condes
+Colón
+Francisco Bilbao
+Grecia
+Macul
+Departamental
+Santa Rosa
+José Miguel Carrera
+Pajaritos
+San Pablo
+Independencia
+Recoleta
+Portugal
+Manuel Antonio Matta
+Diez de Julio
+Bulnes
+Cumming
+Brasil
+República
+Ejército Libertador
+Blanco Encalada
+Beauchef
+Club Hípico
+Exposición
+Arturo Prat
+Manuel Rodríguez
+Diego Portales
+Pedro Aguirre Cerda
+Gabriela Mistral
+Pablo Neruda
+Baquedano
+Balmaceda
+Errázuriz
+Ramón Freire
+Lord Cochrane
+Condell
+Serrano
+Sotomayor
+Esmeralda
+Chacabuco
+Maipú
+Rancagua
+Yungay
+José Victorino Lastarria
+Merced
+Agustinas
+Huérfanos
+Ahumada
+Estado
+Moneda
+Compañía de Jesús
+Catedral
+Bandera
+Morandé
+Teatinos
+Amunátegui
+San Martín
+Nataniel Cox
+Dieciocho
+Alonso de Córdova
+El Bosque
+Isidora Goyenechea
+Nueva Providencia
+Ricardo Lyon
+Antonio Varas
+Eliodoro Yáñez
+Los Conquistadores
+Santa María
+Bellavista
+Pío Nono
+Purísima
+Loreto
+Constitución
+La Dehesa
+Cristóbal Colón
+San Diego
+Gran Avenida
+Lo Ovalle
+Ochagavía
+Carlos Valdovinos
+Las Rejas
+Neptuno
+Cinco de Abril
+Los Pajaritos
+La Florida
+Vitacura
+Padre Hurtado
+Camino a Melipilla
+Camino a Farellones
+Einstein
+Zapadores
+Dorsal
+Vespucio Norte
+Arturo Pérez Canto
+Simón Bolívar
+Larraín
+Quilín
+Tomás Moro
+El Salto
+Perú
+Guanaco
+Fermín Vivaceta
+Domingo Santa María
+Presidente Riesco
+Isabel La Católica
+Cerro El Plomo
+Alcántara
+Gertrudis Echeñique
+Luis Thayer Ojeda
+Carmencita
+Roger de Flor
+Málaga
+Croacia
+Bucarest
+Lyon
+Guardia Vieja
+Holanda
+Seminario
+Marín
+Curicó
+Coquimbo
+Copiapó
+Vergara

@@ -1,0 +1,7 @@
+---
+address: mozambique.phone
+description: Mozambique mobile phone in E.164 form (+258, mobile prefixes 82-87)
+generator: tdc
+locale: pt
+---
+<gen type="regex" value="\+2588[2-7][0-9]{7}"/>

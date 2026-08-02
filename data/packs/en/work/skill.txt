@@ -1,0 +1,44 @@
+---
+description: Job skills (technical, trade, and soft), for skill lists and profiles
+locale: en
+---
+Python
+JavaScript
+SQL
+Java
+C++
+Cloud Computing
+Machine Learning
+Data Analysis
+Project Management
+Agile
+Public Speaking
+Technical Writing
+Customer Service
+Sales
+Bookkeeping
+Financial Modeling
+CAD
+3D Modeling
+Graphic Design
+Copywriting
+Welding
+Electrical Wiring
+Plumbing
+Carpentry
+Blueprint Reading
+Machining
+Soldering
+Forklift Operation
+Heavy Equipment Operation
+CDL Driving
+First Aid
+CPR
+Food Safety
+Spanish
+Mandarin
+French
+Negotiation
+Team Leadership
+Time Management
+Problem Solving

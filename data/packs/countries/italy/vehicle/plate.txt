@@ -1,0 +1,7 @@
+---
+address: italy.vehicle.plate
+description: Italian vehicle plate in the current AA000AA form (two letters, three digits, two letters). The vowels I, O, Q and U are not used in the letter groups.
+generator: tdc
+locale: it
+---
+<gen type="regex" value="[ABCDEFGHJKLMNPRSTVWXYZ]{2}[0-9]{3}[ABCDEFGHJKLMNPRSTVWXYZ]{2}"/>

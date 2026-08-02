@@ -1,0 +1,41 @@
+---
+description: Trailing qualifier of a Spanish place name (Jerez de la Frontera, Viña del Mar, San Pedro de Atacama)
+locale: es
+---
+de la Frontera
+del Mar
+del Río
+del Valle
+de la Sierra
+de los Andes
+de la Costa
+del Campo
+del Monte
+de Arriba
+de Abajo
+del Norte
+del Sur
+del Este
+del Oeste
+de la Vega
+del Llano
+del Puerto
+de la Cruz
+de la Concepción
+de los Reyes
+de la Paz
+del Rosario
+del Carmen
+de Guadalupe
+la Nueva
+el Viejo
+la Vieja
+Nuevo
+Nueva
+Alto
+Alta
+Bajo
+Baja
+Grande
+Chico
+Chica

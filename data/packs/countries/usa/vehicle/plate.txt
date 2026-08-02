@@ -1,0 +1,6 @@
+---
+description: US license plate — 3 letters + 4 digits (generic format).
+generator: tdc
+locale: en
+---
+<gen type="regex" value="[A-Z]{3}[0-9]{4}"/>

@@ -1,0 +1,6 @@
+---
+address: ecuador.phone
+description: Ecuadorian mobile phone in E.164 form (+593 9XXXXXXXX) — every Ecuadorian mobile number is nine digits and starts with 9, so the national trunk 0 is dropped after the +593 country code
+generator: tdc
+---
+<gen type="regex" value="\+5939[0-9]{8}"/>

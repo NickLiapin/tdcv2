@@ -1,0 +1,11 @@
+---
+description: Conditions markedly more frequent in people of Southeast Asian ancestry, given in German. A prevalence signal, not an exclusive one.
+locale: de
+---
+Hämoglobin-E-Krankheit
+Alpha-Thalassämie
+Glukose-6-Phosphat-Dehydrogenase-Mangel
+Nasopharynxkarzinom
+Beta-Thalassämie
+Brugada-Syndrom
+Laktase-Nonpersistenz

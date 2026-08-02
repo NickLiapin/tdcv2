@@ -1,0 +1,14 @@
+---
+description: Payment method
+locale: en
+---
+Credit Card
+Debit Card
+PayPal
+Apple Pay
+Google Pay
+Bank Transfer
+Cash on Delivery
+Gift Card
+Cryptocurrency
+Buy Now Pay Later

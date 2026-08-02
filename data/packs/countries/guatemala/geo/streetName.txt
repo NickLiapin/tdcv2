@@ -1,0 +1,27 @@
+---
+address: guatemala.geo.streetName
+description: Guatemalan street — the city grid is numbered, avenidas running one way and calles the other inside a zona (6a Avenida, 12 Calle), with Diagonal / Vía cutting across and the named calzadas mixed in
+generator: tdc
+locale: es
+---
+<sequence name="mode"><gen type="number" value="1..12"/></sequence>
+<sequence name="n"><gen type="number" value="1..40"/></sequence>
+<!-- Types written before the number in the older grids. -->
+<sequence name="diag"><gen type="text" value="Diagonal,Vía,Ruta"/></sequence>
+<sequence name="named"><gen type="template" value="guatemala.geo.streetNamed"/></sequence>
+<sequence name="street"><compute>
+  <!-- A quarter of the streets are named calzadas; the rest are numbered,
+       avenidas carrying the ordinal "a", calles bare, a few diagonales. -->
+  <result>
+    <choose>
+      <when><test><less_than><to_number><field name="mode"/></to_number><int v="4"/></less_than></test>
+        <then><field name="named"/></then></when>
+      <when><test><less_than><to_number><field name="mode"/></to_number><int v="8"/></less_than></test>
+        <then><concat><field name="n"/><str v="a Avenida"/></concat></then></when>
+      <when><test><less_than><to_number><field name="mode"/></to_number><int v="11"/></less_than></test>
+        <then><concat><field name="n"/><str v=" Calle"/></concat></then></when>
+      <otherwise><concat><field name="diag"/><str v=" "/><field name="n"/></concat></otherwise>
+    </choose>
+  </result>
+</compute></sequence>
+<data>${{street}}</data>

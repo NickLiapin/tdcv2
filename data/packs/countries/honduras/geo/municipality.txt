@@ -1,0 +1,174 @@
+---
+address: honduras.geo.municipality
+description: Honduran municipio (second-level division; the Distrito Central covers Tegucigalpa and Comayagüela)
+locale: es
+---
+Distrito Central
+Talanga
+Cedros
+Guaimaca
+Ojojona
+Santa Lucía
+Valle de Ángeles
+Sabanagrande
+San Antonio de Oriente
+Tatumbla
+Lepaterique
+Cantarranas
+Villa de San Francisco
+Vallecillo
+Marale
+San Pedro Sula
+Choloma
+La Lima
+Villanueva
+Puerto Cortés
+Omoa
+Pimienta
+Potrerillos
+San Antonio de Cortés
+San Francisco de Yojoa
+San Manuel
+Santa Cruz de Yojoa
+Cofradía
+La Ceiba
+Tela
+El Porvenir
+Jutiapa
+La Masica
+Arizona
+Esparta
+San Francisco
+Yoro
+El Progreso
+Olanchito
+Morazán
+El Negrito
+Santa Rita
+Victoria
+Yorito
+Sulaco
+Jocón
+Arenal
+Choluteca
+San Marcos de Colón
+El Triunfo
+Pespire
+Marcovia
+Concepción de María
+Namasigüe
+Orocuina
+Yusguare
+Yuscarán
+Danlí
+El Paraíso
+Trojes
+Teupasenti
+Güinope
+Morocelí
+Jacaleapa
+Alauca
+Liure
+Comayagua
+Siguatepeque
+La Libertad
+Villa de San Antonio
+Ajuterique
+Lejamaní
+Taulabé
+Meámbar
+El Rosario
+Minas de Oro
+Esquías
+Trujillo
+Tocoa
+Sabá
+Sonaguera
+Bonito Oriental
+Balfate
+Limón
+Santa Fe
+Iriona
+Santa Rosa de Copán
+Copán Ruinas
+Nueva Arcadia
+Cabañas
+Corquín
+Dulce Nombre
+Florida
+Santa Rita
+Trinidad de Copán
+San Jerónimo
+Juticalpa
+Catacamas
+Campamento
+Dulce Nombre de Culmí
+Gualaco
+San Esteban
+Salamá
+Santa María del Real
+Manto
+San Francisco de Becerra
+Guayape
+Patuca
+Santa Bárbara
+Trinidad
+Quimistán
+Ilama
+Macuelizo
+Naranjito
+Protección
+San Nicolás
+San Pedro Zacapa
+Las Vegas
+Gracias
+Lepaera
+La Iguala
+Erandique
+Candelaria
+La Campa
+San Manuel Colohete
+Santa Cruz
+Tomalá
+Valladolid
+La Esperanza
+Intibucá
+Jesús de Otoro
+Camasca
+Colomoncagua
+Masaguara
+Yamaranguila
+San Miguel Guancapla
+La Paz
+Marcala
+Aguanqueterique
+Cane
+Chinacla
+Guajiquiro
+Opatoro
+San Pedro de Tutule
+Santiago de Puringla
+Yarula
+Nueva Ocotepeque
+San Marcos
+Sinuapa
+Belén Gualcho
+La Labor
+San Fernando
+San Francisco del Valle
+Nacaome
+San Lorenzo
+Amapala
+Aramecina
+Goascorán
+Langue
+Alianza
+Caridad
+Puerto Lempira
+Brus Laguna
+Ahuas
+Wampusirpi
+Roatán
+José Santos Guardiola
+Guanaja
+Utila

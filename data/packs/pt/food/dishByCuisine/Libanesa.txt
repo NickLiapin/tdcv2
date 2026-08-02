@@ -1,0 +1,12 @@
+---
+description: Dishes of Lebanese cuisine (Portuguese)
+locale: pt
+---
+Hummus
+Falafel
+Shawarma
+Tabule
+Quibe
+Fattoush
+Manakish
+Baba ganoush

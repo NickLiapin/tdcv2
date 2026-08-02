@@ -1,0 +1,12 @@
+---
+description: Personal pronoun set (Portuguese)
+locale: pt
+---
+ele
+ela
+elu
+ele/dele
+ela/dela
+elu/delu
+ele/ela
+ela/elu

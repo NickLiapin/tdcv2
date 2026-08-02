@@ -1,0 +1,17 @@
+---
+description: Truck cargo / trailer type (Italian)
+locale: it
+---
+Cassa chiusa
+Refrigerato
+Pianale
+Cisterna
+Bestiame
+Merci pericolose
+Container intermodale
+Bisarca
+Pianale ribassato
+Pianale a gradino
+Ribaltabile
+Rinfusa
+Legname

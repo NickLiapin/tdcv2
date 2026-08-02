@@ -1,0 +1,41 @@
+---
+address: chile.sport.team
+description: Chilean football club — Primera División first, then Primera B and other long-standing ANFP clubs
+locale: es
+---
+Colo-Colo
+Universidad de Chile
+Universidad Católica
+Unión Española
+Palestino
+Audax Italiano
+Cobresal
+Everton de Viña del Mar
+O'Higgins
+Coquimbo Unido
+Deportes Iquique
+Huachipato
+Ñublense
+Unión La Calera
+Deportes La Serena
+Deportes Limache
+Cobreloa
+Santiago Wanderers
+Magallanes
+Rangers de Talca
+Deportes Copiapó
+Curicó Unido
+Deportes Antofagasta
+Santiago Morning
+San Marcos de Arica
+Deportes Temuco
+Deportes Puerto Montt
+Deportes Concepción
+San Luis de Quillota
+Barnechea
+Universidad de Concepción
+Unión San Felipe
+Deportes Recoleta
+Deportes Melipilla
+Deportes Santa Cruz
+Lautaro de Buin

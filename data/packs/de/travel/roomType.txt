@@ -1,0 +1,22 @@
+---
+description: Hotel room type (German)
+locale: de
+---
+Standardzimmer
+Superiorzimmer
+Suite
+Juniorsuite
+Präsidentensuite
+Einzelzimmer
+Doppelzimmer
+Zweibettzimmer
+Zimmer mit Kingsize-Bett
+Dreibettzimmer
+Vierbettzimmer
+Familienzimmer
+Studio
+Apartment
+Bungalow
+Barrierefreies Zimmer
+Zimmer mit Meerblick
+Penthouse-Suite

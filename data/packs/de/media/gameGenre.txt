@@ -1,0 +1,21 @@
+---
+description: Video game genre (German)
+locale: de
+---
+Action
+Abenteuer
+Rollenspiel
+Strategie
+Simulation
+Sport
+Puzzle
+Shooter
+Plattformer
+Rennspiel
+Kampfspiel
+Survival
+Open World
+MMORPG
+Roguelike
+Horror
+Musikspiel

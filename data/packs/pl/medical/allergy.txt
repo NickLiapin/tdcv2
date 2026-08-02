@@ -1,0 +1,26 @@
+---
+description: Common allergies (Polish)
+locale: pl
+---
+Penicylina
+Orzeszki ziemne
+Orzechy
+Skorupiaki
+Jajko
+Mleko
+Soja
+Pszenica
+Lateks
+Pyłki roślin
+Roztocza kurzu domowego
+Sierść zwierząt
+Użądlenie pszczoły
+Aspiryna
+Sulfonamidy
+Jod
+Sezam
+Gluten
+Pleśń
+Nikiel
+Truskawki
+Jodowy środek kontrastowy

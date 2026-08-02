@@ -1,0 +1,6 @@
+---
+address: common.security.api_key
+description: API key (default "tdc_" prefix + 32 alphanumerics)
+generator: tdc
+---
+<gen type="regex" value="tdc_[0-9A-Za-z]{32}" regex_max_length="36"/>

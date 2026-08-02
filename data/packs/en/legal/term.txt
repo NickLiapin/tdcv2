@@ -1,0 +1,16 @@
+---
+description: Legal term
+locale: en
+---
+Plaintiff
+Defendant
+Subpoena
+Deposition
+Affidavit
+Injunction
+Testimony
+Verdict
+Settlement
+Litigation
+Arraignment
+Jurisdiction

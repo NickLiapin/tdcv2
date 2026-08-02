@@ -1,0 +1,45 @@
+---
+description: Cooking ingredient (German)
+locale: de
+---
+Mehl
+Zucker
+Salz
+Butter
+Eier
+Milch
+Zwiebel
+Knoblauch
+Tomate
+Hähnchenbrust
+Reis
+Käse
+Olivenöl
+Schwarzer Pfeffer
+Karotte
+Kartoffel
+Paprika
+Hackfleisch
+Semmelbrösel
+Zitrone
+Honig
+Hefe
+Sahne
+Rahm
+Spinat
+Essig
+Hühnerbrühe
+Bohnen
+Linsen
+Nudeln
+Thunfisch
+Joghurt
+Geriebener Käse
+Petersilie
+Pflanzenöl
+Tomatensoße
+Speisestärke
+Weißwein
+Mandeln
+Walnüsse
+Schokolade

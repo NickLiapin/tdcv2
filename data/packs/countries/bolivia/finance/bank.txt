@@ -1,0 +1,19 @@
+---
+address: bolivia.finance.bank
+description: Bolivian bank licensed by ASFI — the bancos múltiples, the two bancos PyME, the state banks and the one foreign branch; same order as bolivia.finance.bankCode
+---
+Banco Nacional de Bolivia
+Banco Mercantil Santa Cruz
+Banco Bisa
+Banco de Crédito de Bolivia
+Banco Económico
+Banco Ganadero
+Banco Solidario
+Banco para el Fomento a Iniciativas Económicas
+Banco Fortaleza
+Banco Prodem
+Banco Unión
+Banco de Desarrollo Productivo
+Banco PYME de la Comunidad
+Banco PYME Ecofuturo
+Banco de la Nación Argentina

@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Oncology (Portuguese)
+locale: pt
+---
+Câncer de mama
+Câncer de pulmão
+Câncer colorretal
+Leucemia
+Linfoma
+Melanoma
+Câncer de próstata
+Câncer de estômago
+Câncer de pâncreas
+Câncer do colo do útero

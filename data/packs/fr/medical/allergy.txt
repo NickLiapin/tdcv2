@@ -1,0 +1,28 @@
+---
+description: Allergy (French)
+locale: fr
+---
+Pollen
+Acariens
+Poils d'animaux
+Arachides
+Fruits à coque
+Lait
+Œufs
+Gluten
+Soja
+Fruits de mer
+Poisson
+Pénicilline
+Aspirine
+Latex
+Piqûres d'insectes
+Moisissures
+Nickel
+Sésame
+Sulfites
+Iode
+Fraises
+Kiwi
+Moutarde
+Céleri

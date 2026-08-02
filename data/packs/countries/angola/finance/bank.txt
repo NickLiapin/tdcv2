@@ -1,0 +1,17 @@
+---
+address: angola.finance.bank
+description: Major banks of Angola (Portuguese names)
+locale: pt
+---
+Banco Angolano de Investimentos
+Banco de Fomento Angola
+Banco BIC
+Banco Millennium Atlântico
+Banco de Poupança e Crédito
+Banco Sol
+Standard Bank Angola
+Banco Caixa Geral Angola
+Banco Económico
+Banco Comercial Angolano
+Banco Keve
+Banco BAI Micro Finanças

@@ -1,0 +1,21 @@
+---
+description: Social platform popular in the Spanish-speaking world
+locale: es
+---
+WhatsApp
+Facebook
+Instagram
+TikTok
+YouTube
+X
+LinkedIn
+Telegram
+Snapchat
+Pinterest
+Reddit
+Twitch
+Discord
+Threads
+Kwai
+Mastodon
+Tumblr

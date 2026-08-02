@@ -1,0 +1,7 @@
+---
+address: djibouti.vehicle.plate
+description: Djiboutian licence plate — structural layout of five digits and two letters (e.g. 12345-DJ)
+generator: tdc
+locale: fr
+---
+<gen type="regex" value="[0-9]{5}-[A-Z]{2}"/>

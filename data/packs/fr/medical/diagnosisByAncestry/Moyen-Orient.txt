@@ -1,0 +1,10 @@
+---
+description: Conditions in French markedly more frequent in people of Middle Eastern ancestry. A prevalence signal, not an exclusive one.
+locale: fr
+---
+Fièvre méditerranéenne familiale
+Bêta-thalassémie
+Déficit en glucose-6-phosphate déshydrogénase
+Maladie de Behçet
+Carence en vitamine D
+Trait drépanocytaire

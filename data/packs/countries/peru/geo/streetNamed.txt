@@ -1,0 +1,103 @@
+---
+address: peru.geo.streetNamed
+description: Common Peruvian street name, bare (without the Avenida / Jirón / Calle prefix) — the national heroes, the departments and the Lima arterials that repeat in every Peruvian city
+locale: es
+---
+Miguel Grau
+Francisco Bolognesi
+Ramón Castilla
+José de San Martín
+Simón Bolívar
+Andrés Avelino Cáceres
+Alfonso Ugarte
+José Olaya
+Túpac Amaru
+Micaela Bastidas
+José Gálvez
+Manco Cápac
+Atahualpa
+Garcilaso de la Vega
+Nicolás de Piérola
+José Pardo
+Augusto B. Leguía
+José Faustino Sánchez Carrión
+Hipólito Unanue
+Daniel Alcides Carrión
+Antonio Raimondi
+José Carlos Mariátegui
+César Vallejo
+Ricardo Palma
+José María Arguedas
+Abraham Valdelomar
+Javier Prado
+La Marina
+Arequipa
+Abancay
+Tacna
+Cusco
+Junín
+Ayacucho
+Puno
+Ica
+Camaná
+Carabaya
+Lampa
+Ucayali
+Huallaga
+Amazonas
+Callao
+Áncash
+Cajamarca
+Huánuco
+Moquegua
+Loreto
+Piura
+Lambayeque
+La Libertad
+Brasil
+Colonial
+Universitaria
+Venezuela
+Argentina
+Canadá
+Bolivia
+República de Panamá
+República de Chile
+Petit Thouars
+Arenales
+Salaverry
+Del Ejército
+Angamos
+Benavides
+Aviación
+Wilson
+Emancipación
+Quilca
+De la Unión
+Dos de Mayo
+28 de Julio
+9 de Diciembre
+2 de Mayo
+Independencia
+Progreso
+Comercio
+Libertad
+Unión
+San Martín de Porres
+Santa Rosa
+Señor de los Milagros
+Las Begonias
+Las Camelias
+Los Laureles
+Los Álamos
+Los Cedros
+Los Olivos
+Las Palmeras
+Los Nogales
+Los Eucaliptos
+Las Magnolias
+Los Girasoles
+Las Gardenias
+Los Sauces
+Los Pinos
+Las Acacias

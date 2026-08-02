@@ -1,0 +1,7 @@
+---
+address: europe.tax.vat
+description: EU VAT (delegates to a default member state — Germany)
+generator: tdc
+---
+<sequence name="vat"><gen type="template" value="germany.tax.vat"/></sequence>
+<data>${{vat}}</data>

@@ -1,0 +1,24 @@
+---
+description: Airline (French carriers and major international ones)
+locale: fr
+---
+Air France
+Transavia France
+French Bee
+Corsair
+Air Caraïbes
+HOP!
+Volotea
+easyJet
+Ryanair
+Lufthansa
+KLM
+British Airways
+Iberia
+Swiss
+Brussels Airlines
+Emirates
+Qatar Airways
+Turkish Airlines
+Air Canada
+Royal Air Maroc

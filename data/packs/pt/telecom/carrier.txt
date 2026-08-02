@@ -1,0 +1,30 @@
+---
+description: Mobile carrier (brands across the Portuguese-speaking world and international)
+locale: pt
+---
+MEO
+NOS
+Vodafone
+NOWO
+UZO
+WTF
+Lycamobile
+Vivo
+Claro
+TIM
+Oi
+Algar Telecom
+Sercomtel
+Unitel
+Movicel
+Africell
+Vodacom
+Tmcel
+Movitel
+CVMóvel
+Unitel T+
+Timor Telecom
+Telemor
+Telkomcel
+Orange
+MTN

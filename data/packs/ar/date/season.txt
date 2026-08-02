@@ -1,0 +1,8 @@
+---
+description: Season (Arabic)
+locale: ar
+---
+الربيع
+الصيف
+الخريف
+الشتاء

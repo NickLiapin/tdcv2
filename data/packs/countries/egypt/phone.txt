@@ -1,0 +1,6 @@
+---
+address: egypt.phone
+description: Egyptian mobile phone in E.164 form (+20 1[0125]XXXXXXXX)
+generator: tdc
+---
+<gen type="regex" value="\+201[0125][0-9]{8}"/>

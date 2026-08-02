@@ -1,0 +1,28 @@
+---
+description: Cooking ingredient
+locale: en
+---
+Flour
+Sugar
+Salt
+Butter
+Eggs
+Milk
+Onion
+Garlic
+Tomato
+Chicken Breast
+Rice
+Cheddar Cheese
+Olive Oil
+Black Pepper
+Carrot
+Potato
+Bell Pepper
+Ground Beef
+Bread Crumbs
+Lemon
+Honey
+Yeast
+Cream
+Spinach

@@ -1,0 +1,100 @@
+---
+address: puerto_rico.geo.streetNamed
+description: Common Puerto Rican street name, bare (without the Calle / Avenida / Paseo prefix) — próceres, historic Old San Juan streets and major metro avenues
+locale: es
+---
+Ponce de León
+Luis Muñoz Rivera
+Luis Muñoz Marín
+José de Diego
+Eugenio María de Hostos
+Ramón Emeterio Betances
+Román Baldorioty de Castro
+José Celso Barbosa
+Roberto Clemente
+Ramón Power y Giralt
+Segundo Ruiz Belvis
+Rafael Cordero
+Manuel Fernández Juncos
+Franklin Delano Roosevelt
+John F. Kennedy
+Jesús T. Piñero
+Las Américas
+Los Próceres
+65 de Infantería
+De Diego
+Barbosa
+Domenech
+Chardón
+Piñero
+Iturregui
+Roosevelt
+Ashford
+Loíza
+McLeary
+Magdalena
+Cervantes
+Fortaleza
+San Francisco
+San Sebastián
+San Justo
+Del Cristo
+La Luna
+El Sol
+Tetuán
+Tanca
+Recinto Sur
+La Marina
+Comercio
+Concordia
+Villa
+Isabel
+Cristina
+Aurora
+Reina
+Salud
+Vives
+Mayor
+Estrella
+Progreso
+Méndez Vigo
+Post
+Nenadich
+Palmer
+Georgetti
+Degetau
+Palma
+Flamboyán
+Amapola
+Trinitaria
+Ceiba
+Yagrumo
+Almácigo
+Maga
+Roble
+Caoba
+Úcar
+Cedro
+Laurel
+Palma Real
+Guayacán
+Orquídea
+Girasol
+Buganvilia
+Jazmín
+Azucena
+Margarita
+Hortensia
+Los Robles
+Los Pinos
+Las Flores
+Villa Caparra
+Los Maestros
+La Milagrosa
+Del Parque
+Del Valle
+El Monte
+Los Almendros
+Paseo Tablado
+Paseo del Prado
+Paseo Caribe

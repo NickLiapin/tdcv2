@@ -1,0 +1,44 @@
+---
+description: Cooking ingredient (Polish)
+locale: pl
+---
+Mąka
+Cukier
+Sól
+Masło
+Jajka
+Mleko
+Cebula
+Czosnek
+Pomidor
+Pierś z kurczaka
+Ryż
+Ser
+Oliwa z oliwek
+Pieprz czarny
+Marchew
+Ziemniak
+Papryka
+Mięso mielone
+Bułka tarta
+Cytryna
+Miód
+Drożdże
+Śmietana
+Szpinak
+Ocet
+Bulion drobiowy
+Fasola
+Soczewica
+Makaron
+Tuńczyk
+Jogurt
+Ser tarty
+Pietruszka
+Olej roślinny
+Przecier pomidorowy
+Skrobia kukurydziana
+Białe wino
+Migdały
+Orzech włoski
+Czekolada

@@ -1,0 +1,25 @@
+---
+address: common.periodical.issn
+description: ISSN (7-digit base + mod-11 check, weights 8..2, 10 -> X)
+generator: tdc
+---
+<sequence name="base"><gen type="regex" value="[0-9]{7}"/></sequence>
+<sequence name="issn"><compute>
+  <let name="sum">
+    <reduce>
+      <over><field name="base"/></over>
+      <init><int v="0"/></init>
+      <do><add><acc/>
+        <multiply><current/><subtract><int v="8"/><current_index/></subtract></multiply>
+      </add></do>
+    </reduce>
+  </let>
+  <let name="c"><mod><subtract><int v="11"/><mod><var name="sum"/><int v="11"/></mod></subtract><int v="11"/></mod></let>
+  <result><concat><field name="base"/>
+    <choose>
+      <when><test><equals><var name="c"/><int v="10"/></equals></test><then><str v="X"/></then></when>
+      <otherwise><var name="c"/></otherwise>
+    </choose>
+  </concat></result>
+</compute></sequence>
+<data>${{issn}}</data>

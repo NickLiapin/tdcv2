@@ -1,0 +1,27 @@
+---
+address: dominican_republic.sport.team
+description: Dominican Republic professional sports club — LIDOM winter baseball (the national sport), plus Liga Dominicana de Fútbol and pro basketball
+locale: es
+---
+Tigres del Licey
+Águilas Cibaeñas
+Leones del Escogido
+Estrellas Orientales
+Gigantes del Cibao
+Toros del Este
+Cibao FC
+Atlético Pantoja
+Moca FC
+O&M FC
+Delfines del Este
+Atlántico FC
+Jarabacoa FC
+Vega Real
+Salcedo FC
+Atlético San Cristóbal
+Metros de Santiago
+Titanes del Distrito Nacional
+Reales de La Vega
+Leones de Santo Domingo
+Indios de San Francisco de Macorís
+Cañeros del Este

@@ -1,0 +1,12 @@
+---
+address: uae.geo.region
+description: Emirates of the United Arab Emirates (Arabic)
+locale: ar
+---
+أبوظبي
+دبي
+الشارقة
+عجمان
+أم القيوين
+رأس الخيمة
+الفجيرة

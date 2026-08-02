@@ -1,0 +1,16 @@
+---
+description: Spanish full female name — two given names + paternal and maternal surname (María Carmen Rodríguez Vázquez).
+generator: tdc
+locale: es
+---
+<sequence name="p">
+  <distinct>
+    <gen name="f1" type="template" value="es.person.female.firstName"/>
+    <gen name="f2" type="template" value="es.person.female.firstName"/>
+  </distinct>
+  <distinct>
+    <gen name="l1" type="template" value="es.person.lastName"/>
+    <gen name="l2" type="template" value="es.person.lastName"/>
+  </distinct>
+</sequence>
+<data>${{p.f1}} ${{p.f2}} ${{p.l1}} ${{p.l2}}</data>

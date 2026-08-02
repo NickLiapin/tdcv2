@@ -1,0 +1,39 @@
+---
+description: German honorific / form of address (abbreviated forms as used before a name)
+locale: de
+---
+Herr
+Frau
+Fräulein
+Dr.
+Dr. med.
+Dr. jur.
+Dr. phil.
+Dr. rer. nat.
+Dr. h. c.
+Prof.
+Prof. Dr.
+Priv.-Doz.
+Dipl.-Ing.
+Dipl.-Kfm.
+Dipl.-Kffr.
+Dipl.-Psych.
+Mag.
+Ing.
+RA
+StB
+Pfarrer
+Pfarrerin
+Pater
+Schwester
+Bruder
+Hochwürden
+Leutnant
+Hauptmann
+Major
+Oberst
+General
+Feldwebel
+Bürgermeister
+Botschafter
+Exzellenz

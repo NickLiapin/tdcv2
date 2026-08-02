@@ -1,0 +1,334 @@
+{
+  "schemaVersion": 1,
+  "cases": [
+    {
+      "name": "file-without-src",
+      "demonstrates": "TDC060",
+      "description": "A file generator with no file",
+      "config": "<tdc><env count=\"2\" seed=\"s\"><sequence name=\"G\"><gen type=\"file\"/></sequence></env><block><line><data>x</data></line></block></tdc>",
+      "expected": ["error TDC060 1:48"]
+    },
+    {
+      "name": "row-without-column",
+      "demonstrates": "TDC064",
+      "description": "A row link needs a column to link on",
+      "config": "<tdc><env count=\"2\" seed=\"s\"><sequence name=\"G\"><gen type=\"file\" src=\"x.csv\" row=\"k\"/></sequence></env><block><line><data>x</data></line></block></tdc>",
+      "expected": ["error TDC064 1:82", "error TDC061 1:70"]
+    },
+    {
+      "name": "row-without-src-or-column",
+      "demonstrates": "TDC064",
+      "description": "A missing src does not hide the second thing that is wrong",
+      "config": "<tdc><env count=\"2\" seed=\"s\"><sequence name=\"G\"><gen type=\"file\" row=\"k\"/></sequence></env><block><line><data>x</data></line></block></tdc>",
+      "expected": ["error TDC060 1:48", "error TDC064 1:70"]
+    },
+    {
+      "name": "drawing-source-missing",
+      "demonstrates": "TDC061",
+      "description": "A drawing that is not there is caught before the run, not on row one",
+      "config": "<tdc><env count=\"2\" seed=\"s\"><sequence name=\"G\"><gen type=\"pattern\" src=\"nowhere.svg\" y_range=\"0..9\"/></sequence></env><block><line><data>x</data></line></block></tdc>",
+      "expected": ["error TDC061 1:73"]
+    },
+    {
+      "name": "dotted-ref-unknown-field",
+      "demonstrates": "TDC193",
+      "description": "A typo AFTER the dot is caught, not only before it",
+      "config": "<tdc><env count=\"2\" seed=\"s\" local=\"en\"><sequence name=\"P\"><gen name=\"a\" type=\"text\" value=\"x\"/><gen name=\"b\" type=\"text\" value=\"y\"/></sequence><sequence name=\"C\"><gen type=\"text\" value=\"q\"/><data>-</data><data name=\"k\">K</data></sequence><mix name=\"M\" percent=\"50,50\"><case><gen type=\"text\" value=\"m\"/></case><case><gen type=\"text\" value=\"n\"/></case></mix></env><block><line><data>${{P.gone}}</data></line></block></tdc>",
+      "expected": ["error TDC193 1:376"]
+    },
+    {
+      "name": "dotted-ref-valid-field",
+      "demonstrates": "",
+      "description": "A real field, and a constant one, resolve — no diagnostic at all. The half of the dotted check that must never fire.",
+      "config": "<tdc><env count=\"2\" seed=\"s\" local=\"en\"><sequence name=\"P\"><gen name=\"a\" type=\"text\" value=\"x\"/><gen name=\"b\" type=\"text\" value=\"y\"/></sequence><sequence name=\"C\"><gen type=\"text\" value=\"q\"/><data>-</data><data name=\"k\">K</data></sequence><mix name=\"M\" percent=\"50,50\"><case><gen type=\"text\" value=\"m\"/></case><case><gen type=\"text\" value=\"n\"/></case></mix></env><block><line><data>${{P.a}}${{C.k}}</data></line></block></tdc>",
+      "expected": []
+    },
+    {
+      "name": "dotted-ref-on-a-fieldless-name",
+      "demonstrates": "TDC193",
+      "description": "A <mix> has no fields at all, so any dot on it is wrong",
+      "config": "<tdc><env count=\"2\" seed=\"s\" local=\"en\"><sequence name=\"P\"><gen name=\"a\" type=\"text\" value=\"x\"/><gen name=\"b\" type=\"text\" value=\"y\"/></sequence><sequence name=\"C\"><gen type=\"text\" value=\"q\"/><data>-</data><data name=\"k\">K</data></sequence><mix name=\"M\" percent=\"50,50\"><case><gen type=\"text\" value=\"m\"/></case><case><gen type=\"text\" value=\"n\"/></case></mix></env><block><line><data>${{M.gone}}</data></line></block></tdc>",
+      "expected": ["error TDC193 1:376"]
+    },
+    {
+      "name": "dotted-ref-second-level",
+      "demonstrates": "TDC193",
+      "description": "There is no second level below a field",
+      "config": "<tdc><env count=\"2\" seed=\"s\" local=\"en\"><sequence name=\"P\"><gen name=\"a\" type=\"text\" value=\"x\"/><gen name=\"b\" type=\"text\" value=\"y\"/></sequence><sequence name=\"C\"><gen type=\"text\" value=\"q\"/><data>-</data><data name=\"k\">K</data></sequence><mix name=\"M\" percent=\"50,50\"><case><gen type=\"text\" value=\"m\"/></case><case><gen type=\"text\" value=\"n\"/></case></mix></env><block><line><data>${{P.a.deeper}}</data></line></block></tdc>",
+      "expected": ["error TDC193 1:376"]
+    },
+    {
+      "name": "parent-on-a-compound",
+      "demonstrates": "TDC214",
+      "description": "A compound produces no value, so nothing can be filtered on it — caught before the run",
+      "config": "<tdc><env count=\"2\" seed=\"s\" local=\"en\"><sequence name=\"P\"><gen name=\"a\" type=\"text\" value=\"x\"/><gen name=\"b\" type=\"text\" value=\"y\"/></sequence><sequence name=\"C\"><gen type=\"text\" value=\"q\"/><data>-</data><data name=\"k\">K</data></sequence><mix name=\"M\" percent=\"50,50\"><case><gen type=\"text\" value=\"m\"/></case><case><gen type=\"text\" value=\"n\"/></case></mix><sequence name=\"Kid\" parent=\"P.a\"><gen type=\"text\" value=\"z\"/></sequence></env><block><line><data>x</data></line></block></tdc>",
+      "expected": ["error TDC214 1:386"]
+    },
+    {
+      "name": "switch-on-an-unknown-field",
+      "demonstrates": "TDC134",
+      "description": "A switch subject with a good sequence and a bad field",
+      "config": "<tdc><env count=\"2\" seed=\"s\" local=\"en\"><sequence name=\"P\"><gen name=\"a\" type=\"text\" value=\"x\"/><gen name=\"b\" type=\"text\" value=\"y\"/></sequence><sequence name=\"C\"><gen type=\"text\" value=\"q\"/><data>-</data><data name=\"k\">K</data></sequence><mix name=\"M\" percent=\"50,50\"><case><gen type=\"text\" value=\"m\"/></case><case><gen type=\"text\" value=\"n\"/></case></mix><switch name=\"S\" on=\"P.gone\"><map>x:1</map></switch></env><block><line><data>x</data></line></block></tdc>",
+      "expected": ["error TDC134 1:378"]
+    },
+    {
+      "name": "if-on-a-gen-is-checked-at-all",
+      "demonstrates": "TDC101",
+      "description": "A conditional gen's own if= is an expression like any other — only the reference was checking it. \"%\" parses everywhere and is supported nowhere.",
+      "config": "<tdc><env count=\"2\" seed=\"s\" local=\"en\"><sequence name=\"Z\"><gen if=\"1 % 2\" type=\"text\" value=\"a\"/><gen type=\"text\" value=\"b\"/></sequence></env><block><line><data>${{Z}}</data></line></block></tdc>",
+      "expected": ["error TDC101 1:68"]
+    },
+    {
+      "name": "if-name-alone-undeclared",
+      "demonstrates": "TDC215",
+      "description": "A bare word as the whole condition reads as its own text, so the branch fires on every row",
+      "config": "<tdc><env count=\"2\" seed=\"s\" local=\"en\"><sequence name=\"G\"><gen type=\"text\" value=\"Male,Female\" percent=\"50,50\"/></sequence><sequence name=\"P\"><gen name=\"a\" type=\"text\" value=\"x\"/><gen name=\"b\" type=\"text\" value=\"y\"/></sequence><sequence name=\"Z\"><gen if=\"Nope\" type=\"text\" value=\"a\"/><gen type=\"text\" value=\"b\"/></sequence></env><block><line><data>${{Z}}</data></line></block></tdc>",
+      "expected": ["error TDC215 1:256"]
+    },
+    {
+      "name": "if-name-undeclared-compared",
+      "demonstrates": "TDC215",
+      "description": "The same word on the LEFT of a comparison equals nothing, so the branch fires on no row",
+      "config": "<tdc><env count=\"2\" seed=\"s\" local=\"en\"><sequence name=\"G\"><gen type=\"text\" value=\"Male,Female\" percent=\"50,50\"/></sequence><sequence name=\"P\"><gen name=\"a\" type=\"text\" value=\"x\"/><gen name=\"b\" type=\"text\" value=\"y\"/></sequence><sequence name=\"Z\"><gen if=\"Nope == 'x'\" type=\"text\" value=\"a\"/><gen type=\"text\" value=\"b\"/></sequence></env><block><line><data>${{Z}}</data></line></block></tdc>",
+      "expected": ["error TDC215 1:256"]
+    },
+    {
+      "name": "if-bare-word-on-the-right",
+      "demonstrates": "",
+      "description": "The documented idiom: a word on the right of a comparison is a literal, not a name, and must never be flagged",
+      "config": "<tdc><env count=\"2\" seed=\"s\" local=\"en\"><sequence name=\"G\"><gen type=\"text\" value=\"Male,Female\" percent=\"50,50\"/></sequence><sequence name=\"P\"><gen name=\"a\" type=\"text\" value=\"x\"/><gen name=\"b\" type=\"text\" value=\"y\"/></sequence><sequence name=\"Z\"><gen if=\"G == Male\" type=\"text\" value=\"a\"/><gen type=\"text\" value=\"b\"/></sequence></env><block><line><data>${{Z}}</data></line></block></tdc>",
+      "expected": []
+    },
+    {
+      "name": "if-value-sugar-is-not-a-field",
+      "demonstrates": "",
+      "description": "Gender.Male asks whether G came out Male — the tail is a value, which the config cannot be asked about",
+      "config": "<tdc><env count=\"2\" seed=\"s\" local=\"en\"><sequence name=\"G\"><gen type=\"text\" value=\"Male,Female\" percent=\"50,50\"/></sequence><sequence name=\"P\"><gen name=\"a\" type=\"text\" value=\"x\"/><gen name=\"b\" type=\"text\" value=\"y\"/></sequence><sequence name=\"Z\"><gen if=\"G.Male\" type=\"text\" value=\"a\"/><gen type=\"text\" value=\"b\"/></sequence></env><block><line><data>${{Z}}</data></line></block></tdc>",
+      "expected": []
+    },
+    {
+      "name": "if-field-undeclared-on-a-compound",
+      "demonstrates": "TDC215",
+      "description": "Where the root IS a compound the tail is a field, and a field either exists or is a typo",
+      "config": "<tdc><env count=\"2\" seed=\"s\" local=\"en\"><sequence name=\"G\"><gen type=\"text\" value=\"Male,Female\" percent=\"50,50\"/></sequence><sequence name=\"P\"><gen name=\"a\" type=\"text\" value=\"x\"/><gen name=\"b\" type=\"text\" value=\"y\"/></sequence><sequence name=\"Z\"><gen if=\"P.gone == 'x'\" type=\"text\" value=\"a\"/><gen type=\"text\" value=\"b\"/></sequence></env><block><line><data>${{Z}}</data></line></block></tdc>",
+      "expected": ["error TDC215 1:256"]
+    },
+    {
+      "name": "if-value-not-in-a-visible-list",
+      "demonstrates": "TDC216",
+      "description": "A typo in the VALUE after the dot. A warning, not an error: the config runs, the branch is simply dead — and a list narrowed on purpose is a real thing people write",
+      "config": "<tdc><env count=\"2\" seed=\"s\" local=\"en\"><sequence name=\"G\"><gen type=\"text\" value=\"Male,Female\" percent=\"50,50\"/></sequence><sequence name=\"Z\"><gen if=\"G.Mail\" type=\"text\" value=\"a\"/><gen type=\"text\" value=\"b\"/></sequence></env><block><line><data>${{Z}}</data></line></block></tdc>",
+      "expected": ["warning TDC216 1:152"]
+    },
+    {
+      "name": "if-value-in-a-visible-list",
+      "demonstrates": "",
+      "description": "The same shape spelled right — the half that must never fire",
+      "config": "<tdc><env count=\"2\" seed=\"s\" local=\"en\"><sequence name=\"G\"><gen type=\"text\" value=\"Male,Female\" percent=\"50,50\"/></sequence><sequence name=\"Z\"><gen if=\"G.Male\" type=\"text\" value=\"a\"/><gen type=\"text\" value=\"b\"/></sequence></env><block><line><data>${{Z}}</data></line></block></tdc>",
+      "expected": []
+    },
+    {
+      "name": "if-value-where-a-transform-rewrites-it",
+      "demonstrates": "",
+      "description": "case= rewrites what the sequence produces, so the written list is no longer what is compared and nothing can be claimed about it",
+      "config": "<tdc><env count=\"2\" seed=\"s\" local=\"en\"><sequence name=\"G\"><gen type=\"text\" value=\"Male,Female\" percent=\"50,50\" case=\"upper\"/></sequence><sequence name=\"Z\"><gen if=\"G.Male\" type=\"text\" value=\"a\"/><gen type=\"text\" value=\"b\"/></sequence></env><block><line><data>${{Z}}</data></line></block></tdc>",
+      "expected": []
+    },
+    {
+      "name": "template-without-value",
+      "demonstrates": "TDC070",
+      "description": "A template generator with no address",
+      "config": "<tdc><env count=\"2\" seed=\"s\"><sequence name=\"G\"><gen type=\"template\"/></sequence></env><block><line><data>x</data></line></block></tdc>",
+      "expected": ["error TDC070 1:48"]
+    },
+    {
+      "name": "unknown-template-path",
+      "demonstrates": "TDC071",
+      "description": "An address no pack provides",
+      "config": "<tdc><env count=\"2\" seed=\"s\"><sequence name=\"G\"><gen type=\"template\" value=\"no.such.path\"/></sequence></env><block><line><data>x</data></line></block></tdc>",
+      "expected": ["error TDC071 1:76"]
+    },
+    {
+      "name": "regex-without-value",
+      "demonstrates": "TDC095",
+      "description": "A regex generator with no pattern",
+      "config": "<tdc><env count=\"2\" seed=\"s\"><sequence name=\"G\"><gen type=\"regex\"/></sequence></env><block><line><data>x</data></line></block></tdc>",
+      "expected": ["error TDC095 1:48"]
+    },
+    {
+      "name": "invalid-regex",
+      "demonstrates": "TDC097",
+      "description": "A pattern the finite subset refuses",
+      "config": "<tdc><env count=\"2\" seed=\"s\"><sequence name=\"G\"><gen type=\"regex\" value=\"a*\"/></sequence></env><block><line><data>x</data></line></block></tdc>",
+      "expected": ["error TDC097 1:73"]
+    },
+    {
+      "name": "symbol-value-and-alphabet",
+      "demonstrates": "TDC098",
+      "description": "value= and alphabet= together",
+      "config": "<tdc><env count=\"2\" seed=\"s\"><sequence name=\"G\"><gen type=\"symbol\" value=\"abc\" alphabet=\"latin.lower\"/></sequence></env><block><line><data>x</data></line></block></tdc>",
+      "expected": ["error TDC098 1:74"]
+    },
+    {
+      "name": "unknown-alphabet",
+      "demonstrates": "TDC099",
+      "description": "An alphabet that does not exist",
+      "config": "<tdc><env count=\"2\" seed=\"s\"><sequence name=\"G\"><gen type=\"symbol\" alphabet=\"klingon\"/></sequence></env><block><line><data>x</data></line></block></tdc>",
+      "expected": ["error TDC099 1:77"]
+    },
+    {
+      "name": "advanced-regex-without-value",
+      "demonstrates": "TDC128",
+      "description": "An advanced_regex with no pattern",
+      "config": "<tdc><env count=\"2\" seed=\"s\"><sequence name=\"G\"><gen type=\"advanced_regex\"/></sequence></env><block><line><data>x</data></line></block></tdc>",
+      "expected": ["error TDC128 1:48"]
+    },
+    {
+      "name": "invalid-advanced-regex",
+      "demonstrates": "TDC130",
+      "description": "An advanced_regex pattern that does not parse",
+      "config": "<tdc><env count=\"2\" seed=\"s\"><sequence name=\"G\"><gen type=\"advanced_regex\" value=\"(?%{70:a})\"/></sequence></env><block><line><data>x</data></line></block></tdc>",
+      "expected": ["error TDC130 1:82"]
+    },
+    {
+      "name": "percent-too-many-entries",
+      "demonstrates": "TDC051",
+      "description": "A percent mask with more entries than values",
+      "config": "<tdc><env count=\"2\" seed=\"s\"><sequence name=\"G\"><gen type=\"text\" value=\"a,b\" percent=\"50,30,20\"/></sequence></env><block><line><data>x</data></line></block></tdc>",
+      "expected": ["error TDC051 1:86"]
+    },
+    {
+      "name": "percent-not-a-number",
+      "demonstrates": "TDC052",
+      "description": "A percent entry that is not a share",
+      "config": "<tdc><env count=\"2\" seed=\"s\"><sequence name=\"G\"><gen type=\"text\" value=\"a,b\" percent=\"lots,20\"/></sequence></env><block><line><data>x</data></line></block></tdc>",
+      "expected": ["error TDC052 1:86"]
+    },
+    {
+      "name": "percent-does-not-sum",
+      "demonstrates": "TDC053",
+      "description": "Percent entries that do not add up",
+      "config": "<tdc><env count=\"2\" seed=\"s\"><sequence name=\"G\"><gen type=\"text\" value=\"a,b\" percent=\"70,50\"/></sequence></env><block><line><data>x</data></line></block></tdc>",
+      "expected": ["error TDC053 1:86"]
+    },
+    {
+      "name": "number-percent-too-many",
+      "demonstrates": "TDC084",
+      "description": "A length percent mask longer than the length groups",
+      "config": "<tdc><env count=\"2\" seed=\"s\"><sequence name=\"G\"><gen type=\"number\" length=\"2,4\" percent=\"50,30,20\"/></sequence></env><block><line><data>x</data></line></block></tdc>",
+      "expected": ["error TDC084 1:89"]
+    },
+    {
+      "name": "mix-percent-too-many",
+      "demonstrates": "TDC121",
+      "description": "A mix percent mask with more entries than cases",
+      "config": "<tdc><env count=\"2\" seed=\"s\"><mix name=\"M\" percent=\"50,30,20\"><case><data>a</data></case><case><data>b</data></case></mix></env><block><line><data>x</data></line></block></tdc>",
+      "expected": ["error TDC121 1:52"]
+    },
+    {
+      "name": "mix-percent-does-not-sum",
+      "demonstrates": "TDC123",
+      "description": "Mix shares that do not add up",
+      "config": "<tdc><env count=\"2\" seed=\"s\"><mix name=\"M\" percent=\"70,50\"><case><data>a</data></case><case><data>b</data></case></mix></env><block><line><data>x</data></line></block></tdc>",
+      "expected": ["error TDC123 1:52"]
+    },
+    {
+      "name": "counter-value-not-a-number",
+      "demonstrates": "TDC090",
+      "description": "A counter starting somewhere that is not a number",
+      "config": "<tdc><env count=\"2\" seed=\"s\"><sequence name=\"G\"><gen type=\"increment\" value=\"one\"/></sequence></env><block><line><data>x</data></line></block></tdc>",
+      "expected": ["error TDC090 1:77"]
+    },
+    {
+      "name": "unknown-case-transform",
+      "demonstrates": "TDC190",
+      "description": "A case transform that is not one",
+      "config": "<tdc><env count=\"2\" seed=\"s\"><sequence name=\"G\"><gen type=\"text\" value=\"a,b\" case=\"shouty\"/></sequence></env><block><line><data>x</data></line></block></tdc>",
+      "expected": ["error TDC190 1:83"]
+    },
+    {
+      "name": "unknown-order",
+      "demonstrates": "TDC191",
+      "description": "An order that is neither random nor sequential",
+      "config": "<tdc><env count=\"2\" seed=\"s\"><sequence name=\"G\"><gen type=\"text\" value=\"a,b\" order=\"backwards\"/></sequence></env><block><line><data>x</data></line></block></tdc>",
+      "expected": ["error TDC191 1:84"]
+    },
+    {
+      "name": "malformed-map-row",
+      "demonstrates": "TDC136",
+      "description": "A map row that is not a mapping",
+      "config": "<tdc><env count=\"2\" seed=\"s\"><sequence name=\"S\"><gen type=\"text\" value=\"RU,US\"/></sequence><switch name=\"W\" on=\"S\"><map>RU:Russia, oops</map></switch></env><block><line><data>x</data></line></block></tdc>",
+      "expected": ["warning TDC136 1:115"]
+    },
+    {
+      "name": "type-without-a-name",
+      "demonstrates": "TDC194",
+      "description": "A declared type on a piece that is not a column",
+      "config": "<tdc><env count=\"2\" seed=\"s\"><sequence name=\"G\"><gen type=\"text\" value=\"a,b\"/></sequence></env><block><line><data type=\"int64\">${{G}}</data></line></block></tdc>",
+      "expected": ["error TDC194 1:120"]
+    },
+    {
+      "name": "unparsable-column-type",
+      "demonstrates": "TDC194",
+      "description": "A column type that is not one",
+      "config": "<tdc><env count=\"2\" seed=\"s\"><sequence name=\"G\"><gen type=\"text\" value=\"a,b\"/></sequence></env><block><line><data name=\"g\" type=\"int65\">${{G}}</data></line></block></tdc>",
+      "expected": ["error TDC194 1:129"]
+    },
+    {
+      "name": "date-format-unterminated-literal",
+      "demonstrates": "TDC152",
+      "description": "A bracket literal nobody closed",
+      "config": "<tdc><env count=\"2\" seed=\"s\"><sequence name=\"G\"><gen type=\"date\" value=\"today\" format=\"YYYY [at\"/></sequence></env><block><line><data>x</data></line></block></tdc>",
+      "expected": ["error TDC152 1:87"]
+    },
+    {
+      "name": "date-unknown-precision",
+      "demonstrates": "TDC154",
+      "description": "A precision the generator does not implement",
+      "config": "<tdc><env count=\"2\" seed=\"s\"><sequence name=\"G\"><gen type=\"date\" value=\"today\" precision=\"fortnight\"/></sequence></env><block><line><data>x</data></line></block></tdc>",
+      "expected": ["error TDC154 1:90"]
+    },
+    {
+      "name": "birth-ages-inverted",
+      "demonstrates": "TDC151",
+      "description": "youngest older than oldest, which spans nothing",
+      "config": "<tdc><env count=\"2\" seed=\"s\"><sequence name=\"G\"><gen type=\"date\" value=\"birth\" oldest=\"20\" youngest=\"50\"/></sequence></env><block><line><data>x</data></line></block></tdc>",
+      "expected": ["error TDC151 1:72"]
+    },
+    {
+      "name": "date-range-without-range",
+      "demonstrates": "TDC072",
+      "description": "date.range with nothing to range over",
+      "config": "<tdc><env count=\"2\" seed=\"s\"><sequence name=\"G\"><gen type=\"template\" value=\"date.range\"/></sequence></env><block><line><data>x</data></line></block></tdc>",
+      "expected": ["error TDC072 1:48"]
+    },
+    {
+      "name": "date-range-malformed",
+      "demonstrates": "TDC073",
+      "description": "A range that is not two dotted dates",
+      "config": "<tdc><env count=\"2\" seed=\"s\"><sequence name=\"G\"><gen type=\"template\" value=\"date.range\" range=\"1990-01-01..2000-12-31\"/></sequence></env><block><line><data>x</data></line></block></tdc>",
+      "expected": ["error TDC073 1:95"]
+    },
+    {
+      "name": "distribution-bad-parameters",
+      "demonstrates": "TDC089",
+      "description": "A distribution whose parameters do not describe a shape",
+      "config": "<tdc><env count=\"2\" seed=\"s\"><sequence name=\"G\"><gen type=\"number\" distribution=\"normal\" mean=\"10\" sd=\"-1\"/></sequence></env><block><line><data>x</data></line></block></tdc>",
+      "expected": ["error TDC089 1:81"]
+    },
+    {
+      "name": "named-column-in-an-each-line",
+      "demonstrates": "TDC209",
+      "description": "A typed column on a line that emits several rows per record",
+      "config": "<tdc><env count=\"2\" seed=\"s\"><sequence name=\"T\"><gen type=\"number\" value=\"1..9\" repeat=\"2\"/></sequence></env><block><line each=\"T\"><data name=\"t\">${{T}}</data></line></block></tdc>",
+      "expected": ["error TDC209 1:128"]
+    },
+    {
+      "name": "template-path-missing-for-the-locale",
+      "demonstrates": "TDC217",
+      "description": "A path the en pack ships and ru does not: check used to pass and the run then refused it with \"unknown template path\", which reads as a typo and is not one",
+      "config": "<tdc><env count=\"2\" seed=\"s\" local=\"ru\"><sequence name=\"S\"><gen type=\"template\" value=\"clothing.shoeSizeUs\"/></sequence></env><block><line><data>${{S}}</data></line></block></tdc>",
+      "expected": ["error TDC217 1:87"]
+    }
+  ]
+}

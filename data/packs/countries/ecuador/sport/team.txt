@@ -1,0 +1,33 @@
+---
+address: ecuador.sport.team
+description: Ecuadorian professional football club — LigaPro Serie A and Serie B sides and traditional clubs
+locale: es
+---
+Barcelona Sporting Club
+Club Sport Emelec
+Liga Deportiva Universitaria de Quito
+Independiente del Valle
+Sociedad Deportiva Aucas
+Club Deportivo El Nacional
+Delfín Sporting Club
+Club Deportivo Cuenca
+Club Técnico Universitario
+Mushuc Runa Sporting Club
+Orense Sporting Club
+Club Deportivo Universidad Católica
+Guayaquil City Fútbol Club
+Club Social y Deportivo Macará
+Manta Fútbol Club
+Sociedad Deportivo Quito
+Club Deportivo Olmedo
+Liga Deportiva Universitaria de Portoviejo
+Liga Deportiva Universitaria de Loja
+Imbabura Sporting Club
+Gualaceo Sporting Club
+Club 9 de Octubre
+Cumbayá Fútbol Club
+Libertad Fútbol Club
+Club Deportivo América de Quito
+Deportivo Azogues
+Chacaritas Fútbol Club
+Club Deportivo Espoli

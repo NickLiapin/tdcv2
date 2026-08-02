@@ -1,0 +1,13 @@
+---
+address: south_africa.sport.rugby
+description: South African rugby union teams (URC franchises and Currie Cup unions)
+locale: en
+---
+Bulls
+Sharks
+Stormers
+Lions
+Cheetahs
+Griquas
+Pumas
+Western Province

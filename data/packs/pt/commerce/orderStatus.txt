@@ -1,0 +1,18 @@
+---
+description: Order status (Portuguese)
+locale: pt
+---
+Pendente
+Em processamento
+Confirmado
+Preparando envio
+Enviado
+Saiu para entrega
+Entregue
+Cancelado
+Devolvido
+Reembolsado
+Em espera
+Aguardando pagamento
+Sem estoque
+Falhou

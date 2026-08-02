@@ -1,0 +1,16 @@
+---
+description: Jobs in Technology (Polish)
+locale: pl
+---
+Inżynier oprogramowania
+Programista frontend
+Programista backend
+Inżynier DevOps
+Naukowiec ds. danych
+Analityk danych
+Menedżer produktu
+Projektant UX
+Inżynier jakości oprogramowania
+Administrator systemów
+Architekt chmury
+Specjalista ds. cyberbezpieczeństwa

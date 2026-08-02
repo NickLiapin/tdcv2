@@ -1,0 +1,32 @@
+---
+description: Musical instrument (French)
+locale: fr
+---
+Piano
+Guitare
+Violon
+Batterie
+Basse
+Flûte traversière
+Saxophone
+Trompette
+Clarinette
+Violoncelle
+Contrebasse
+Harpe
+Accordéon
+Orgue
+Synthétiseur
+Trombone
+Cor
+Hautbois
+Percussions
+Ukulélé
+Banjo
+Mandoline
+Harmonica
+Tuba
+Xylophone
+Guitare électrique
+Cornemuse
+Vielle

@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 300" width="680" height="300" font-family="system-ui, -apple-system, Segoe UI, Roboto, sans-serif">
+<defs><marker id="mf" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#8b5cf6"/></marker><marker id="mm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e0662b"/></marker></defs>
+<rect x="290" y="26" width="100" height="30" rx="6" fill="#3b82f628" stroke="#3b82f6" stroke-width="1.4"/>
+<text x="340.0" y="46.4" text-anchor="middle" font-size="15" font-weight="700" fill="#3b82f6">1</text>
+<path d="M340,56 L196,105" fill="none" stroke="#8b5cf6" stroke-width="1.6" marker-end="url(#mf)"/>
+<path d="M340,56 L484,105" fill="none" stroke="#e0662b" stroke-width="1.6" marker-end="url(#mm)"/>
+<rect x="150" y="108" width="92" height="40" rx="6" fill="#8b5cf628" stroke="#8b5cf6" stroke-width="1.4"/>
+<text x="196.0" y="135.9" text-anchor="middle" font-size="22" font-weight="700" fill="#8b5cf6">♀</text>
+<rect x="438" y="108" width="92" height="40" rx="6" fill="#e0662b28" stroke="#e0662b" stroke-width="1.4"/>
+<text x="484.0" y="135.9" text-anchor="middle" font-size="22" font-weight="700" fill="#e0662b">♂</text>
+<path d="M196,148 L121,203" fill="none" stroke="#8b5cf6" stroke-width="1.6" marker-end="url(#mf)"/>
+<path d="M196,148 L314,203" fill="none" stroke="#8b5cf6" stroke-width="1.6" marker-end="url(#mf)"/>
+<path d="M484,148 L559,203" fill="none" stroke="#e0662b" stroke-width="1.6" marker-end="url(#mm)"/>
+<path d="M484,148 L366,203" fill="none" stroke="#e0662b" stroke-width="1.6" marker-end="url(#mm)"/>
+<rect x="62" y="206" width="118" height="46" rx="6" fill="#8b5cf628" stroke="#8b5cf6" stroke-width="1.4"/>
+<text x="121.0" y="235.8" text-anchor="middle" font-size="19" font-weight="700" fill="#8b5cf6">26</text>
+<rect x="281" y="206" width="118" height="46" rx="6" fill="#2f9e6328" stroke="#2f9e63" stroke-width="1.4"/>
+<text x="340.0" y="235.8" text-anchor="middle" font-size="19" font-weight="700" fill="#2f9e63">78</text>
+<rect x="500" y="206" width="118" height="46" rx="6" fill="#e0662b28" stroke="#e0662b" stroke-width="1.4"/>
+<text x="559.0" y="235.8" text-anchor="middle" font-size="19" font-weight="700" fill="#e0662b">20</text>
+<path d="M242.0,130.0 Q298.4,119.6 354.8,129.0" fill="none" stroke="#b0b0b4" stroke-width="1.6" stroke-dasharray="6 5"/><path d="M411.2,143.4 Q467.6,162.8 524.0,202.0" fill="none" stroke="#b0b0b4" stroke-width="1.6" stroke-dasharray="6 5"/><path d="M375.0,127.0 L391.0,143.0 M391.0,127.0 L375.0,143.0" stroke="#b0b0b4" stroke-width="2.6" stroke-linecap="round" fill="none"/>
+<circle cx="264.0" cy="41.0" r="9.5" fill="#3b82f6"/><text x="264.0" y="45.0" text-anchor="middle" font-size="12" font-weight="700" fill="#ffffff">A</text>
+<circle cx="124.0" cy="128.0" r="9.5" fill="#3b82f6"/><text x="124.0" y="132.0" text-anchor="middle" font-size="12" font-weight="700" fill="#ffffff">B</text>
+<circle cx="36.0" cy="229.0" r="9.5" fill="#3b82f6"/><text x="36.0" y="233.0" text-anchor="middle" font-size="12" font-weight="700" fill="#ffffff">C</text>
+<circle cx="340.0" cy="276.0" r="9.5" fill="#3b82f6"/><text x="340.0" y="280.0" text-anchor="middle" font-size="12" font-weight="700" fill="#ffffff">D</text>
+<circle cx="260.0" cy="110.0" r="9.5" fill="#b0b0b4"/><text x="260.0" y="114.0" text-anchor="middle" font-size="12" font-weight="700" fill="#ffffff">E</text>
+</svg>

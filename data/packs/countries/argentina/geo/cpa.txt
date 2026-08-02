@@ -1,0 +1,10 @@
+---
+address: argentina.geo.cpa
+description: Argentine CPA (Código Postal Argentino) — 8 chars, e.g. C1425DKE. The leading letter is the province (the ISO 3166-2:AR letter, drawn index-aligned from argentina.geo.provinceCode), the 4 digits are the legacy código postal (assigned range 1000-9431), and the 3 trailing letters identify the side of the block. Pass province="C" to pin a jurisdiction.
+generator: tdc
+---
+<sequence name="province"><gen type="template" value="argentina.geo.provinceCode"/></sequence>
+<sequence name="cp"><gen type="number" value="1000..9431"/></sequence>
+<!-- "Cara" of the block: three letters assigned by Correo Argentino. -->
+<sequence name="side"><gen type="regex" value="[A-Z]{3}"/></sequence>
+<data>${{province}}${{cp}}${{side}}</data>

@@ -1,0 +1,28 @@
+---
+address: portugal.tax.vat
+description: Portuguese VAT / NIF (PT + 8-digit base + weighted mod-11 check)
+generator: tdc
+---
+<sequence name="base"><gen type="regex" value="[1235689][0-9]{7}"/></sequence>
+<sequence name="vat"><compute>
+  <let name="sum">
+    <reduce>
+      <over><field name="base"/></over>
+      <init><int v="0"/></init>
+      <do><add><acc/>
+        <multiply><current/>
+          <at><in><list v="9,8,7,6,5,4,3,2"/></in><index><current_index/></index></at>
+        </multiply>
+      </add></do>
+    </reduce>
+  </let>
+  <let name="c"><subtract><int v="11"/><mod><var name="sum"/><int v="11"/></mod></subtract></let>
+  <let name="check">
+    <choose>
+      <when><test><greater_than><var name="c"/><int v="9"/></greater_than></test><then><int v="0"/></then></when>
+      <otherwise><var name="c"/></otherwise>
+    </choose>
+  </let>
+  <result><concat><str v="PT"/><field name="base"/><var name="check"/></concat></result>
+</compute></sequence>
+<data>${{vat}}</data>

@@ -1,0 +1,25 @@
+---
+address: palestine.geo.city
+description: Cities and towns of Palestine (Arabic)
+locale: ar
+---
+غزة
+القدس
+الخليل
+نابلس
+رام الله
+خان يونس
+جباليا
+رفح
+بيت لحم
+جنين
+طولكرم
+قلقيلية
+أريحا
+البيرة
+دير البلح
+بيت حانون
+الظاهرية
+دورا
+بيت جالا
+سلفيت

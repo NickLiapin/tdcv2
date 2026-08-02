@@ -1,0 +1,24 @@
+---
+description: Trip type (Italian)
+locale: it
+---
+Affari
+Svago
+Vacanza in famiglia
+Luna di miele
+Avventura
+Viaggio in auto
+Crociera
+Viaggio zaino in spalla
+Fuga in città
+Vacanza al mare
+Viaggio di gruppo
+Viaggio in solitaria
+Turismo culturale
+Ecoturismo
+Pellegrinaggio
+Viaggio di studio
+Turismo enogastronomico
+Settimana bianca
+Visita ai parenti
+Congresso o fiera

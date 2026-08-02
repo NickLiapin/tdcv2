@@ -1,0 +1,14 @@
+---
+description: Fuel type (Portuguese)
+locale: pt
+---
+Gasolina
+Diesel
+Elétrico
+Híbrido
+Híbrido plug-in
+Hidrogénio
+Etanol
+Gás natural comprimido
+Gás de petróleo liquefeito
+Biodiesel

@@ -1,0 +1,12 @@
+---
+description: Dishes of Chinese cuisine (Portuguese)
+locale: pt
+---
+Frango kung pao
+Arroz frito
+Chow mein
+Porco agridoce
+Tofu mapo
+Pato à Pequim
+Sopa wonton
+Rolinhos primavera

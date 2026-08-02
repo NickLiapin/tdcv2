@@ -1,0 +1,6 @@
+---
+address: colombia.docs.cc
+description: Colombian cédula de ciudadanía — 8 to 10 digits. It carries NO check digit: the Registraduría issues the number sequentially (numbers above 1 000 000 000 are the NUIP series given to people born from 1988 on) and validates it by lookup, not arithmetic, so there is nothing here to verify and none is invented
+generator: tdc
+---
+<gen type="regex" value="[1-9][0-9]{7,9}"/>

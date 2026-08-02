@@ -1,0 +1,14 @@
+---
+description: Positions in association football (Portuguese)
+locale: pt
+---
+Guarda-redes/Goleiro
+Defesa central
+Lateral direito
+Lateral esquerdo
+Médio defensivo
+Médio
+Médio ofensivo
+Extremo direito
+Extremo esquerdo
+Ponta de lança/Centroavante

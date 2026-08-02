@@ -1,0 +1,23 @@
+---
+description: Property type (Spanish)
+locale: es
+---
+Casa unifamiliar
+Apartamento
+Condominio
+Casa adosada
+Dúplex
+Edificio multifamiliar
+Villa
+Bungaló
+Cabaña
+Loft
+Estudio
+Ático
+Casa móvil
+Rancho
+Mansión
+Casa de campo
+Finca
+Terreno
+Local comercial

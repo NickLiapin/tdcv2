@@ -1,0 +1,12 @@
+/**
+ * Sequence module public surface.
+ */
+
+export { buildSequences, runGenerator } from './build.js';
+export type { SequenceBuildOptions } from './build.js';
+export { resolveGenValueAt } from './gen-resolve.js';
+export { buildLazyRegistry, StreamUnsupportedError } from './stream-build.js';
+export { buildExactDiskRegistry } from './exact-disk.js';
+export { extractEnvDistinctGroups, extractEnvUniqGroups, extractSequenceSpecs } from './extract.js';
+export { sequenceValueAt } from './types.js';
+export type { GenSpec, Sequence, SequenceRegistry, SequenceSpec } from './types.js';

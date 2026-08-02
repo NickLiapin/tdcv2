@@ -1,0 +1,18 @@
+---
+description: Marital status (Italian)
+locale: it
+---
+Celibe
+Nubile
+Coniugato
+Coniugata
+Divorziato
+Divorziata
+Vedovo
+Vedova
+Separato
+Separata
+Convivente
+Unione civile
+Fidanzato
+Fidanzata

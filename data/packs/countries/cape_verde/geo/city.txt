@@ -1,0 +1,23 @@
+---
+address: cape_verde.geo.city
+description: Cities and towns of Cape Verde (Portuguese names)
+locale: pt
+---
+Praia
+Mindelo
+Santa Maria
+Assomada
+Pedra Badejo
+São Filipe
+Espargos
+Porto Novo
+Ribeira Grande
+Tarrafal
+Sal Rei
+Vila do Maio
+Nova Sintra
+Ponta do Sol
+Calheta de São Miguel
+Ribeira Brava
+Cidade Velha
+Mosteiros

@@ -1,0 +1,27 @@
+---
+description: Greek address unit / interior designator (abbreviated forms used before a number)
+locale: el
+---
+Διαμ.
+Όρ.
+Όροφος
+Ισόγειο
+Ημιώροφος
+Υπόγειο
+Πατάρι
+Ρετιρέ
+Κτίριο
+Κτ.
+Είσοδος
+Κλιμακοστάσιο
+Πτέρυγα
+Γρ.
+Κατάστημα
+Αποθήκη
+Γκαράζ
+Θέση
+Δωμάτιο
+Σουίτα
+Οικόπεδο
+Τ.Θ.
+Χλμ.

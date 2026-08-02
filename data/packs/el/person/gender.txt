@@ -1,0 +1,8 @@
+---
+description: Gender label (Greek). Two values, matching en and ru — this list is what
+  `parent="Gender.Άνδρας"` filters on, so a longer one silently leaves most rows without a
+  name. Identity options beyond the pair belong in a file of their own.
+locale: el
+---
+Άνδρας
+Γυναίκα

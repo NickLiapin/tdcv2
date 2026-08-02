@@ -1,0 +1,35 @@
+---
+description: Musical instrument (Spanish)
+locale: es
+---
+Guitarra
+Piano
+Violín
+Batería
+Bajo eléctrico
+Saxofón
+Trompeta
+Flauta
+Violonchelo
+Clarinete
+Trombón
+Arpa
+Ukelele
+Banjo
+Acordeón
+Teclado
+Oboe
+Contrabajo
+Armónica
+Xilófono
+Guitarra española
+Cajón
+Maracas
+Bongó
+Congas
+Timbales
+Charango
+Bandoneón
+Güiro
+Castañuelas
+Pandereta

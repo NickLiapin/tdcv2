@@ -1,0 +1,21 @@
+---
+description: Cuisine (German). Each value has a dishByCuisine child file.
+locale: de
+---
+Italienisch
+Japanisch
+Mexikanisch
+Chinesisch
+Indisch
+Französisch
+Thailändisch
+Griechisch
+Spanisch
+Amerikanisch
+Koreanisch
+Vietnamesisch
+Türkisch
+Libanesisch
+Peruanisch
+Argentinisch
+Deutsch

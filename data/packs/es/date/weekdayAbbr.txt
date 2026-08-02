@@ -1,0 +1,11 @@
+---
+description: Weekday abbreviation (Spanish)
+locale: es
+---
+lun
+mar
+mié
+jue
+vie
+sáb
+dom

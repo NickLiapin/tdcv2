@@ -1,0 +1,24 @@
+---
+description: Budget / spending category (Italian)
+locale: it
+---
+Affitto
+Mutuo
+Spesa alimentare
+Utenze
+Trasporti
+Intrattenimento
+Salute
+Assicurazioni
+Ristoranti
+Risparmi
+Abbonamenti
+Viaggi
+Istruzione
+Abbigliamento
+Regali
+Assistenza all'infanzia
+Rimborso debiti
+Animali domestici
+Telefonia e internet
+Tasse

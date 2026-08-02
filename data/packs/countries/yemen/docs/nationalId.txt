@@ -1,0 +1,7 @@
+---
+address: yemen.docs.nationalId
+description: Yemeni national number (الرقم الوطني) — 11 digits. Structural; no public check digit.
+generator: tdc
+locale: ar
+---
+<gen type="regex" value="[0-9]{11}"/>

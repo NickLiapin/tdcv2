@@ -1,0 +1,142 @@
+---
+address: venezuela.geo.city
+description: Venezuelan city or town (real localities across all states)
+locale: es
+---
+Caracas
+Maracaibo
+Valencia
+Barquisimeto
+Maracay
+Ciudad Guayana
+Puerto Ordaz
+San Félix
+Barcelona
+Puerto La Cruz
+Maturín
+Ciudad Bolívar
+San Cristóbal
+Cumaná
+Mérida
+Barinas
+Los Teques
+Cabimas
+Turmero
+Petare
+Guarenas
+Guatire
+Punto Fijo
+Acarigua
+Araure
+Guanare
+El Tigre
+Coro
+Puerto Cabello
+La Victoria
+Valle de la Pascua
+Carúpano
+Porlamar
+Guacara
+Villa de Cura
+San Fernando de Apure
+San Juan de los Morros
+San Felipe
+Ocumare del Tuy
+Charallave
+Cúa
+Anaco
+Cabudare
+Tucupita
+Puerto Ayacucho
+La Asunción
+Trujillo
+Valera
+Carora
+El Vigía
+Ejido
+La Guaira
+Catia La Mar
+Santa Teresa del Tuy
+Yaritagua
+Cagua
+Palo Negro
+Santa Rita
+Ciudad Ojeda
+Machiques
+Santa Bárbara del Zulia
+San Carlos
+Tinaquillo
+Upata
+Guasdualito
+Zaraza
+Altagracia de Orituco
+Chivacoa
+Nirgua
+Rubio
+La Fría
+Táriba
+San Antonio del Táchira
+Colón
+Mariara
+Bejuma
+Montalbán
+Güigüe
+Bailadores
+Tovar
+Santo Domingo
+Boconó
+Sabaneta
+Socopó
+Barrancas
+Caripito
+Punta de Mata
+Temblador
+Caicara del Orinoco
+Santa Elena de Uairén
+Caripe
+Río Caribe
+Güiria
+Irapa
+Cariaco
+Juangriego
+Pampatar
+San Juan Bautista
+Onoto
+Aragua de Barcelona
+Cantaura
+Pariaguán
+El Sombrero
+Calabozo
+Tucacas
+Chichiriviche
+Dabajuro
+Churuguara
+Mene Grande
+Bachaquero
+La Concepción
+El Callao
+Tumeremo
+Guasipati
+El Palmar
+Duaca
+Sanare
+Quíbor
+El Tocuyo
+Siquisique
+Timotes
+Lagunillas
+Santa Cruz de Mora
+El Consejo
+San Mateo
+La Grita
+Pregonero
+Zea
+Motatán
+Escuque
+Sabana de Mendoza
+Nueva Bolivia
+Guanarito
+Turén
+Villa Bruzual
+El Hatillo
+Baruta

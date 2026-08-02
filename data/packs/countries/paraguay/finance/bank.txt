@@ -1,0 +1,18 @@
+---
+address: paraguay.finance.bank
+description: Paraguayan bank supervised by the Banco Central del Paraguay; same order as paraguay.finance.bankCode
+locale: es
+---
+Banco Nacional de Fomento
+Banco Continental
+Banco Itaú Paraguay
+Sudameris Bank
+Banco GNB Paraguay
+Banco Familiar
+Banco Atlas
+Banco Basa
+ueno bank
+Bancop
+Banco do Brasil
+Banco de la Nación Argentina
+Citibank

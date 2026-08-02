@@ -1,0 +1,34 @@
+---
+description: Spice / herb (Spanish)
+locale: es
+---
+Canela
+Comino
+Pimentón
+Cúrcuma
+Jengibre
+Nuez moscada
+Orégano
+Albahaca
+Tomillo
+Romero
+Cardamomo
+Cilantro
+Chile en polvo
+Clavo de olor
+Azafrán
+Hoja de laurel
+Eneldo
+Salvia
+Perejil
+Menta
+Anís
+Pimienta blanca
+Pimienta de cayena
+Semilla de mostaza
+Estragón
+Hinojo
+Hierbabuena
+Achiote
+Vainilla
+Sésamo

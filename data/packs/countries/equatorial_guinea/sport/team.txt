@@ -1,0 +1,30 @@
+---
+address: equatorial_guinea.sport.team
+description: Equatoguinean football club (Liga Nacional de Fútbol de Guinea Ecuatorial / LIFGE), plus the men's and women's national teams (both nicknamed Nzalang)
+locale: es
+---
+Sony Elá Nguema
+Deportivo Mongomo
+Cano Sport Academy
+Akonangui FC
+Atlético Malabo
+CD Elá Nguema
+Leones Vegetarianos FC
+The Panthers FC
+Águilas Verdes de Guadalupe
+Dragón FC
+AD Mongomo
+Racing de Micomeseng
+Malabo United
+Fundación FC Bata
+Diablo Rojo Niefang
+15 de Agosto de Akonibe
+CD Unidad de Malabo
+Deportivo Ebenezer
+UD Santa María
+Deportivo Evinayong
+Bata City Sport
+Real Rebola
+Renacimiento FC
+Nzalang Nacional
+Nzalang Femenino

@@ -1,0 +1,7 @@
+---
+address: new_zealand.geo.postcode
+description: New Zealand postcode — 4 digits. NZ Post codes run roughly 0110 (Northland) to 9893 (deep south), north to south; this emits a structurally-valid 4-digit code in that range but not every value is an assigned delivery area.
+generator: tdc
+locale: en
+---
+<gen type="regex" value="(0[1-9][0-9]{2}|[1-9][0-9]{3})"/>

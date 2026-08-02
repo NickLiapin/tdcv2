@@ -1,0 +1,13 @@
+---
+address: bolivia.geo.departmentIso
+description: ISO 3166-2:BO subdivision code — the single letter after "BO-" (H Chuquisaca, L La Paz, C Cochabamba, O Oruro, P Potosí, T Tarija, S Santa Cruz, B Beni, N Pando); the same letter is stamped on the department box of a licence plate. Same order as bolivia.geo.department
+---
+H
+L
+C
+O
+P
+T
+S
+B
+N

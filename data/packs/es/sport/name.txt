@@ -1,0 +1,59 @@
+---
+description: Sport (Spanish)
+locale: es
+---
+Fútbol
+Fútbol sala
+Fútbol americano
+Baloncesto
+Béisbol
+Voleibol
+Voleibol de playa
+Balonmano
+Rugby
+Hockey sobre hielo
+Hockey sobre hierba
+Críquet
+Tenis
+Pádel
+Tenis de mesa
+Bádminton
+Squash
+Golf
+Natación
+Waterpolo
+Atletismo
+Ciclismo
+Ciclismo de montaña
+Boxeo
+Lucha libre
+Judo
+Karate
+Taekwondo
+Esgrima
+Gimnasia artística
+Gimnasia rítmica
+Halterofilia
+Triatlón
+Remo
+Piragüismo
+Vela
+Surf
+Esquí alpino
+Esquí de fondo
+Snowboard
+Patinaje artístico
+Patinaje sobre ruedas
+Escalada deportiva
+Tiro con arco
+Tiro deportivo
+Equitación
+Automovilismo
+Motociclismo
+Monopatín
+Bolos
+Billar
+Frontón
+Pelota vasca
+Rugby a siete
+Sóftbol

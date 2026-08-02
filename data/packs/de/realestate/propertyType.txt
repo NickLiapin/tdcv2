@@ -1,0 +1,23 @@
+---
+description: Property type (German)
+locale: de
+---
+Einfamilienhaus
+Wohnung
+Eigentumswohnung
+Reihenhaus
+Doppelhaushälfte
+Mehrfamilienhaus
+Villa
+Bungalow
+Ferienhaus
+Loft
+Studio
+Penthouse
+Mobilheim
+Bauernhof
+Herrenhaus
+Landhaus
+Gutshof
+Grundstück
+Gewerbeimmobilie

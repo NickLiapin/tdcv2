@@ -1,0 +1,11 @@
+---
+description: Weekday abbreviation (Portuguese)
+locale: pt
+---
+dom
+seg
+ter
+qua
+qui
+sex
+sáb

@@ -1,0 +1,14 @@
+---
+description: Positions in American football (French)
+locale: fr
+---
+Quarterback
+Running back
+Wide receiver
+Tight end
+Ligne offensive
+Linebacker
+Cornerback
+Safety
+Ligne défensive
+Kicker

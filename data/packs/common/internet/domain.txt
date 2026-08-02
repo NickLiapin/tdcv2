@@ -1,0 +1,9 @@
+---
+address: common.internet.domain
+description: Safe fake domain — word-token.suffix (RFC 2606 reserved TLDs)
+generator: tdc
+---
+<sequence name="word"><gen type="text" value="alpha,atlas,demo,fixture,sample,sandbox,synthetic,test"/></sequence>
+<sequence name="token"><gen type="regex" value="[a-z0-9]{6}"/></sequence>
+<sequence name="suffix"><gen type="text" value="example,invalid,test"/></sequence>
+<data>${{word}}-${{token}}.${{suffix}}</data>

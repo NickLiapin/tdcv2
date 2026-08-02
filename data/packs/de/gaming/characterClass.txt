@@ -1,0 +1,28 @@
+---
+description: RPG character class (German)
+locale: de
+---
+Krieger
+Magier
+Schurke
+Paladin
+Jäger
+Priester
+Hexenmeister
+Druide
+Mönch
+Schamane
+Todesritter
+Dämonenjäger
+Barbar
+Nekromant
+Barde
+Assassine
+Kleriker
+Zauberer
+Waldläufer
+Templer
+Berserker
+Beschwörer
+Alchemist
+Ingenieur

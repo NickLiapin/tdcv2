@@ -1,0 +1,15 @@
+---
+address: haiti.geo.region
+description: Departments of Haiti
+locale: fr
+---
+Ouest
+Sud-Est
+Nord
+Nord-Est
+Artibonite
+Centre
+Sud
+Grand'Anse
+Nord-Ouest
+Nippes

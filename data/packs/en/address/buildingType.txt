@@ -1,0 +1,18 @@
+---
+description: Building type
+locale: en
+---
+Apartment
+House
+Office
+Warehouse
+Store
+Factory
+Hospital
+School
+Hotel
+Restaurant
+Mall
+Stadium
+Library
+Church

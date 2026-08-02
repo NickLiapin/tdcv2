@@ -1,0 +1,611 @@
+---
+title: Distribuciones estadísticas
+sidebar_position: 7
+---
+
+import Terminal from '@site/src/components/Terminal';
+import Figure from '@site/src/components/Figure';
+import Legend from '@site/src/components/Legend';
+
+# Distribuciones estadísticas — números con forma de vida real
+
+Un simple [`<gen type="number" value="150..200"/>`](../generators/number.mdx) sortea
+de manera **uniforme**: `150` es exactamente igual de probable que `175` o `199`. Los
+datos reales casi nunca se ven así. Las estaturas de las personas se agrupan
+alrededor de un promedio, los salarios están sesgados (muchos medianos, unos pocos
+enormes) y la riqueza tiene una cola larga y pesada. Para generar números
+**creíbles**, agregue un atributo `distribution` al generador de números.
+
+## Cómo activarlo
+
+No hay ninguna etiqueta nueva — `distribution` es un atributo del ya conocido
+[`<gen type="number">`](../generators/number.mdx):
+
+```xml
+<gen type="number" distribution="normal" mean="170" sd="10"/>
+```
+
+En el momento en que aparece `distribution="..."`, el generador pasa del modo
+**rango** al modo **distribución**. Déjelo fuera y el generador se comporta
+exactamente como antes.
+
+Aquí van cuatro columnas, cada una sorteada de una distribución distinta (seed
+`demo`, 8 filas):
+
+```xml
+<env count="8" seed="demo">
+  <sequence name="Height"> <gen type="number" distribution="normal"      mean="170" sd="10"/></sequence>
+  <sequence name="Salary"> <gen type="number" distribution="lognormal"   meanlog="10.8" sdlog="0.5"/></sequence>
+  <sequence name="Pause">  <gen type="number" distribution="exponential" rate="0.5" decimals="1"/></sequence>
+  <sequence name="Balance"><gen type="number" distribution="pareto"      alpha="1.5" xmin="1000"/></sequence>
+</env>
+```
+
+<Terminal title="./run life.tdc (8 filas)">
+{`156 cm | $29884  | 0.4 s | $1329
+175 cm | $75675  | 0.0 s | $2337
+179 cm | $35084  | 1.1 s | $3587
+160 cm | $74516  | 3.2 s | $3130
+178 cm | $65256  | 1.1 s | $3285
+170 cm | $39817  | 0.4 s | $1664
+159 cm | $107734 | 1.9 s | $8781
+182 cm | $65121  | 1.4 s | $2924`}
+</Terminal>
+
+Las estaturas se quedan cerca de 170, los salarios se sesgan a la derecha, las pausas
+casi siempre son cortas, y el saldo nunca baja de 1000 pero de vez en cuando se
+dispara.
+
+:::note[Las salidas de ejemplo son ilustrativas]
+Los histogramas y los valores de abajo son lo que produce una corrida típica. Los
+sorteos exactos pueden diferir según la versión del core, pero lo que se mantiene
+fijo es la **forma** que garantiza cada distribución. Las distribuciones son
+deterministas: misma `seed`, mismos números.
+:::
+
+## Uniforme frente a «como en la vida real» — visible en un histograma
+
+**El problema.** Mirar fijamente una columna de números no le dirá si están planos o
+apiñados. Así que dibujemos la forma: generemos 300 «estaturas» de dos maneras y
+repartámoslas en cubetas. Cada fila del histograma es un rango; las barras de `#`
+muestran cuántos valores cayeron ahí (el pie con `n` / `min` / `max` da los totales y
+los extremos).
+
+**Un rango simple** — `value="150..200"`. Los números se reparten en una capa
+pareja: una estatura de 150 es tan común como 175 o 199. Las personas no funcionan
+así:
+
+```xml
+<gen type="number" value="150..200"/>
+```
+
+<Terminal title="./run uniform.tdc (300 filas)">
+{`150 | ############################# 27
+154 | ####################### 21
+158 | ############################### 29
+163 | ######################## 22
+167 | ##################### 19
+171 | ######################## 22
+175 | ################### 18
+179 | ################################## 31
+183 | ############################# 27
+188 | ##################################### 34
+192 | ############## 13
+196 | ######################################## 37
+n=300  min=150  max=200`}
+</Terminal>
+
+**El mismo rango, pero con `distribution="normal"`** (centro 175, dispersión 8).
+Aparece una campana: casi todas las estaturas se agrupan cerca del centro y se
+adelgazan hacia los extremos — igual que las personas de verdad:
+
+```xml
+<gen type="number" distribution="normal" mean="175" sd="8"/>
+```
+
+<Terminal title="./run normal.tdc (300 filas)">
+{`157 | ### 5
+161 | ############# 19
+165 | ###################### 33
+169 | ####################################### 57
+172 | ######################################## 59
+176 | ########################## 39
+180 | ################################## 50
+184 | ################# 25
+188 | #### 6
+192 | ## 3
+195 | ## 3
+199 | # 1
+n=300  min=157  max=203`}
+</Terminal>
+
+<Figure
+  src="/img/distributions/uniform-vs-normal.svg"
+  alt="Un histograma plano junto a otro con forma de campana sobre el mismo rango"
+  caption="El mismo rango 150–200, generado 20 000 veces de cada manera y contado."
+/>
+
+<Legend items={[["faint", "un rango simple: cada estatura es más o menos tan probable como cualquier otra"], ["made", "el mismo rango con una distribución normal: una colina alrededor del centro"]]} />
+
+El tramo de valores es casi el mismo (~150–200), pero la forma es completamente
+distinta: las barras uniformes tienen todas más o menos la misma altura, mientras que
+la normal es una colina que hace pico cerca de 175 con extremos raros. De eso se
+trata todo: pasar de «uniforme (irreal)» a «como en la vida real».
+
+Las nueve formas, cada una generada con los atributos impresos debajo. El eje
+horizontal se detiene en el percentil 99 — de otro modo una cola larga aplastaría
+todos los valores visibles dentro de la primera barra:
+
+<Figure
+  src="/img/distributions/nine-shapes.svg"
+  alt="Histogramas de las nueve distribuciones soportadas"
+  caption="Nueve corridas de 8000 valores cada una, contadas. Así se ven de verdad estos nombres."
+/>
+
+<Legend items={[["made", "20 000 valores generados, contados en cubetas"]]} />
+
+## `normal` — la campana
+
+**Qué es.** Los valores se agrupan alrededor de un centro y se vuelven más raros
+mientras más se aleja uno, de forma simétrica hacia ambos lados. La clásica curva en
+forma de campana.
+
+**Dónde aparece.** Estatura, peso, temperatura, calificaciones de examen, error de
+medición — cualquier cosa que oscile alrededor de un valor típico.
+
+**Parámetros.** `mean` — el centro (el promedio). `sd` — la dispersión (desviación
+estándar: qué tan ampliamente se abren los valores desde el centro). Regla práctica:
+cerca de dos tercios de los valores caen dentro de `mean ± sd`.
+
+```xml
+<gen type="number" distribution="normal" mean="170" sd="10"/>
+```
+
+<Terminal title="./run normal.tdc (300 filas)">
+{`147 | #### 6
+153 | ################# 28
+159 | ################################## 55
+164 | ######################################## 65
+170 | ################################### 57
+176 | #################################### 59
+182 | ############# 21
+188 | ### 5
+193 | ## 3
+199 | # 1
+n=300  min=147  max=205`}
+</Terminal>
+
+→ estaturas en centímetros: casi todas entre 160 y 180, rara vez 150 o 190. Una
+campana simétrica que hace pico cerca de 170.
+
+**Cuándo usarla.** Una columna como «estatura», «peso» o «temperatura» — cualquier
+cantidad con un valor típico y una dispersión simétrica a su alrededor.
+
+## `lognormal` — sesgada a la derecha
+
+**Qué es.** Como `normal`, pero inclinada a la derecha: muchos valores chicos y una
+cola larga de valores grandes. Nunca negativa.
+
+**Dónde aparece.** Salarios, precios, tamaños de ciudades, duración de sesiones — en
+cualquier lado donde haya «mucho de lo común, poco de lo enorme».
+
+**Parámetros.** `meanlog` y `sdlog` son el centro y la dispersión del **logaritmo**
+del valor (así definen los estadísticos esta distribución). En la práctica: un
+`meanlog` más grande hace más grande el valor típico; un `sdlog` más grande alarga la
+cola rica. Un ancla práctica — el valor típico es aproximadamente `e^meanlog` (con
+`meanlog=10.8` eso es alrededor de 49 000).
+
+```xml
+<gen type="number" distribution="lognormal" meanlog="10.8" sdlog="0.5"/>
+```
+
+<Terminal title="./run lognormal.tdc (300 filas)">
+{` 15633 | ######################################## 114
+ 41886 | ####################################### 110
+ 68140 | ################## 51
+ 94393 | ###### 17
+120646 | # 3
+146900 | # 1
+173153 | # 2
+199406 | # 1
+225659 |  0
+251913 | # 1
+n=300  min=15633  max=278166`}
+</Terminal>
+
+→ salario: una multitud alrededor de 50 000, unos pocos que ganan muchísimo más. El
+pico está a la izquierda con una cola larga que se estira a la derecha (hasta unos
+278 000).
+
+**Cuándo usarla.** «Salario», «precio», «tamaño de archivo» — cantidades que no pueden
+ser negativas y que se sesgan hacia los valores grandes.
+
+## `exponential` — tiempo entre eventos
+
+**Qué es.** Los huecos entre eventos aleatorios: muchos cortos, alguno largo de vez en
+cuando. Siempre no negativa.
+
+**Dónde aparece.** Tiempo entre pedidos, entre clics, entre fallas del servidor, entre
+llamadas que entran a un centro de atención.
+
+**Parámetros.** `rate` (la letra griega λ) — cuántos eventos ocurren en promedio por unidad
+de tiempo. La espera media es `1 / rate`. Con `rate=0.5`, los eventos llegan más o
+menos una vez cada 2 unidades, así que una pausa típica ronda el 2.
+
+```xml
+<gen type="number" distribution="exponential" rate="0.5"/>
+```
+
+<Terminal title="./run exponential.tdc (300 filas)">
+{` 0 | ############################ 70
+ 1 | ######################################## 98
+ 2 | ################### 47
+ 3 | ################ 38
+ 4 | ####### 17
+ 5 | ####### 18
+ 6 | # 3
+ 7 | # 3
+ 8 | # 2
+ 9 | # 1
+10 | # 2
+12 | # 1
+n=300  min=0  max=12`}
+</Terminal>
+
+→ «segundos hasta el siguiente evento»: normalmente poco, a veces mucho. La barra más
+alta está en el extremo bajo y de ahí en adelante cae — los huecos cortos son los más
+comunes.
+
+**Cuándo usarla.** Cualquier columna de «cuánto falta para…» / «intervalo entre…».
+
+## `pareto` — la regla 80/20, cola larga
+
+**Qué es.** Sesgo extremo: casi todos los valores son chicos, pero los raros son
+gigantescos. Es el principio de «el 20 % de las causas produce el 80 % de los
+efectos».
+
+**Dónde aparece.** Riqueza (unas pocas personas son dueñas de casi todo), vistas de
+video, tamaños de archivo, poblaciones de ciudades, cantidad de seguidores.
+
+**Parámetros.** `xmin` — el menor valor posible (nada cae por debajo). `alpha` — el
+grosor de la cola: mientras **más chico** sea `alpha`, **más gorda** es la cola (más
+gigantes raros). Alrededor de un `alpha` de 1 a 2 la cola es muy pronunciada.
+
+```xml
+<gen type="number" distribution="pareto" alpha="1.5" xmin="1000"/>
+```
+
+<Terminal title="./run pareto.tdc (300 filas)">
+{` 1002 | ######################################## 259
+ 4234 | #### 23
+ 7466 | # 8
+10698 | # 5
+13930 | # 1
+17162 |  0
+20393 | # 1
+23625 | # 2
+26857 |  0
+30089 | # 1
+n=300  min=1002  max=33321`}
+</Terminal>
+
+→ «saldo de cuenta»: todos tienen al menos 1000, pero un puñado tiene muchas veces
+más. Casi todo (259 de 300) cae en la primera cubeta, mientras que los gigantes
+raros se estiran hasta unos 33 000 — la clásica cola larga.
+
+**Cuándo usarla.** Cantidades donde unos pocos casos dominan a todo el resto: dinero,
+popularidad, tamaños.
+
+## `weibull` — tiempo hasta la falla, confiabilidad
+
+**Qué es.** Una distribución flexible de «tiempo hasta un evento»: a diferencia de
+`exponential` (donde el riesgo es constante), aquí el riesgo puede **subir** o
+**bajar** con el tiempo. Un solo parámetro define la forma.
+
+**Dónde aparece.** Vida útil de las piezas antes de romperse, tiempo hasta la falla de
+un equipo, velocidades del viento, tamaños de partículas.
+
+**Parámetros.** `shape`: `shape < 1` es «mortalidad infantil» (falla temprano o dura
+mucho tiempo); `shape = 1` se comporta como `exponential` (riesgo constante);
+`shape > 1` es desgaste (mientras más tiempo lleva funcionando, más probable es que
+falle). `scale` — la escala de tiempo característica (más o menos el tiempo típico
+hasta la falla).
+
+```xml
+<gen type="number" distribution="weibull" shape="1.5" scale="1000"/>
+```
+
+<Terminal title="./run weibull.tdc (300 filas)">
+{`  30 | ########################## 57
+ 358 | ######################################## 88
+ 687 | ##################### 47
+1015 | ######################## 52
+1343 | ########## 21
+1672 | ########## 23
+2000 | ### 6
+2328 | # 2
+2656 | # 3
+2985 | # 1
+n=300  min=30  max=3313`}
+</Terminal>
+
+→ «horas hasta la falla»: normalmente de cientos a miles, con desgaste. Con
+`shape=1.5` el pico no queda clavado en cero (como sí ocurre con `exponential`) —
+está corrido a la derecha: el riesgo primero trepa y después la cola se cae.
+
+**Cuándo usarla.** Cualquier «tiempo en servicio hasta la falla» / «tiempo hasta un
+evento» donde el riesgo no sea constante a lo largo del tiempo.
+
+## `poisson` — conteos de eventos
+
+**Qué es.** Cuántos eventos aleatorios ocurrieron en un intervalo. Un número entero.
+Los valores se agrupan alrededor del promedio, pero son **conteos** (0, 1, 2, 3…), no
+una cantidad continua.
+
+**Dónde aparece.** Llamadas que entran a un centro de atención por hora, defectos por
+lote, correos por día, goles por partido, visitantes por minuto.
+
+**Parámetros.** `lambda` — el número promedio de eventos por intervalo. Con
+`lambda=4` normalmente le tocan de 2 a 6 eventos, y ocasionalmente 0 u 8 o más.
+
+```xml
+<gen type="number" distribution="poisson" lambda="4"/>
+```
+
+<Terminal title="./run poisson.tdc (300 filas)">
+{` 0 | #### 5
+ 1 | ############ 17
+ 2 | #################################### 50
+ 3 | ####################################### 53
+ 4 | ##################################### 51
+ 5 | ######################################## 55
+ 6 | #################### 28
+ 7 | ############### 21
+ 8 | ########## 14
+ 9 | ### 4
+10 | # 2
+n=300  min=0  max=10`}
+</Terminal>
+
+→ «llamadas por hora»: 3, 0, 7, 5, 3… Son conteos (enteros) que hacen pico en el
+promedio `lambda=4`, se dispersan hacia ambos lados y nunca bajan de 0.
+
+**Limitación.** `lambda` tiene un tope de 700. Para promedios muy grandes, use
+`normal` con `mean=lambda` y `sd` ≈ la raíz cuadrada de `lambda` — la aproximación
+estándar.
+
+**Cuándo usarla.** Cualquier columna de «cuántas veces pasó en un periodo».
+
+## `zipf` — datos por ranking, «estrellas y una cola larga»
+
+**Qué es.** Unas pocas «estrellas» (los puestos 1, 2, 3…) aparecen muy seguido,
+mientras que una enorme cola de casos raros casi nunca lo hace. Devuelve un **número
+de puesto** (1, 2, … n).
+
+**Dónde aparece.** Frecuencia de palabras en un idioma, popularidad de sitios web,
+ciudades por población, cantidad de seguidores, ventas de productos.
+
+**Parámetros.** `n` — cuántos puestos hay (digamos 100 productos). `s` — la
+«pendiente»: un `s` más grande sesga con más fuerza hacia los primeros puestos. Con
+`s≈1` esta es la clásica ley de Zipf.
+
+```xml
+<gen type="number" distribution="zipf" n="100" s="1.1"/>
+```
+
+<Terminal title="./run zipf.tdc (300 filas)">
+{` 1 | ######################################## 174
+11 | ########## 42
+20 | ###### 27
+30 | ### 12
+39 | # 4
+49 | ### 11
+59 | ## 7
+68 | ## 8
+78 | ## 9
+87 | # 6
+n=300  min=1  max=97`}
+</Terminal>
+
+→ «puesto del producto»: del #1 al #5 con mucha frecuencia, el #58 o el #37 rara vez.
+Los primeros puestos se llevan casi todo (174 de 300 son puestos del 1 al 10); las
+otras 90 posiciones son una cola larga y rara.
+
+**Cuándo usarla.** Cuando necesite modelar «los de arriba dominan» — una elección
+dentro de una lista numerada donde las primeras posiciones se llevan casi todo.
+
+## `gamma` — tiempo total de espera
+
+**Qué es.** Una generalización de `exponential`: si `exponential` es el tiempo hasta
+**un** evento, `gamma` es el tiempo total hasta **varios**. Siempre no negativa,
+sesgada a la derecha.
+
+**Dónde aparece.** Tiempo para acumular N eventos, pagos de seguros, totales de
+lluvia, tamaños de cola, tiempos de respuesta de un servicio (una suma de etapas).
+
+**Parámetros.** `shape` (k) — «cuántas etapas/eventos se suman» (un `shape` más grande
+hace el pico más simétrico y lo empuja a la derecha). `scale` (θ) — la escala. La
+media es aproximadamente `shape · scale`.
+
+```xml
+<gen type="number" distribution="gamma" shape="2" scale="1000"/>
+```
+
+<Terminal title="./run gamma.tdc (300 filas)">
+{`  71 | ############################ 53
+ 803 | ######################################## 77
+1534 | ############################# 56
+2266 | ############################# 55
+2997 | ######### 18
+3729 | ######### 17
+4460 | ###### 11
+5192 | #### 8
+5923 | # 2
+6655 | ## 3
+n=300  min=71  max=7386`}
+</Terminal>
+
+→ «milisegundos de espera»: normalmente alrededor de 2000 (2·1000), con cola. A
+diferencia de `exponential`, el pico no queda clavado en cero — está corrido a la
+derecha, porque es la suma de dos etapas.
+
+**Cuándo usarla.** Tiempos o volúmenes totales que suman varias contribuciones
+aleatorias.
+
+## `beta` — fracciones y probabilidades (un número de 0 a 1)
+
+**Qué es.** La única distribución de esta lista cuyos valores siempre quedan **entre 0
+y 1**. Dos parámetros definen la forma (dónde queda el pico, qué tan simétrica
+es).
+
+**Dónde aparece.** Fracciones, porcentajes, probabilidades, tasas de conversión,
+calificaciones de 0 a 1, tasas de defectos.
+
+**Parámetros.** `alpha` y `beta` jalan la masa hacia el 1 y hacia el 0
+respectivamente. `alpha = beta` es simétrica alrededor de 0.5; `alpha < beta` se sesga
+hacia cero (como una tasa de conversión baja); `alpha > beta` se sesga hacia uno. La
+media es aproximadamente `alpha / (alpha + beta)`.
+
+```xml
+<gen type="number" distribution="beta" alpha="2" beta="8" decimals="3"/>
+```
+
+Como todos los valores quedan entre 0 y 1, las etiquetas de cubeta de la
+izquierda se redondean a `0` — revise el pie con `min`/`max` para ver el tramo real
+(`0.008..0.583`):
+
+<Terminal title="./run beta.tdc (300 filas)">
+{`0 | ######################## 35
+0 | ######################################## 59
+0 | ################################# 49
+0 | ############################### 46
+0 | ################################# 48
+0 | ############## 21
+0 | ############ 18
+0 | ######### 14
+0 | #### 6
+1 | ### 4
+n=300  min=0.008  max=0.583`}
+</Terminal>
+
+→ «tasa de conversión»: normalmente de 0.05 a 0.4 (media ≈ 0.2). Todo queda encerrado
+en 0..1, el pico está cerca de 0.2, y casi nada llega a 1. Como los valores son
+fraccionarios, ponga `decimals` — de lo contrario se redondean a 0/1.
+
+**Cuándo usarla.** Cualquier fracción en el rango 0..1: una probabilidad, un
+porcentaje, una tasa de conversión, una calificación.
+
+## Controlar la salida: `decimals`, `min`, `max`
+
+### `decimals` — dígitos después del punto decimal
+
+El valor por omisión es `0` — el valor se redondea a un número entero (una estatura de
+«170», no de «170.4213»). Pida fracciones de manera explícita:
+
+```xml
+<gen type="number" distribution="exponential" rate="1" decimals="3"/>   <!-- por ejemplo 0.693 -->
+```
+
+Esto importa sobre todo para `beta` (cuyos valores viven en 0..1) y para cualquier
+tiempo o razón donde el redondeo a entero aplastaría el detalle.
+
+### `min` / `max` — recortar a los límites
+
+Las distribuciones a veces emiten valores extremos (una `normal` con un `mean` chico
+puede irse a negativo). `min` / `max` mantienen el valor dentro de los límites:
+cualquier cosa por debajo de `min` se pega a `min`, y cualquier cosa por encima de
+`max` se pega a `max`.
+
+```xml
+<gen type="number" distribution="normal" mean="30" sd="20" min="0"/>   <!-- la edad nunca es negativa -->
+```
+
+Se puede ver en el histograma. **Sin `min`**, una `normal` con `mean=30 sd=20` se mete
+en terreno negativo (`min=-16`):
+
+<Terminal title="./run age-raw.tdc (300 filas)">
+{`-16 | ### 6
+ -4 | ############### 27
+  7 | ############################## 52
+ 19 | ################################## 60
+ 30 | ######################################## 70
+ 42 | ############################### 55
+ 53 | ############ 21
+ 65 | ## 4
+ 76 | ## 4
+ 88 | # 1
+n=300  min=-16  max=99`}
+</Terminal>
+
+**Con `min="0"`**, todo lo que estaba por debajo de cero se pega a cero — el borde
+izquierdo es exactamente `0`, y la cubeta del cero se hincha (absorbe a los antiguos
+negativos):
+
+<Terminal title="./run age-clipped.tdc (300 filas)">
+{` 0 | ################################# 46
+10 | ################################# 46
+20 | ####################################### 53
+30 | ######################################## 55
+40 | ####################################### 54
+50 | ####################### 31
+59 | ###### 8
+69 | ## 3
+79 | ## 3
+89 | # 1
+n=300  min=0  max=99`}
+</Terminal>
+
+Ambos atributos son opcionales. Sin ellos usted obtiene la distribución cruda. Úselos
+cuando una columna tenga un piso o un techo duro — una edad, un porcentaje topado en
+100, un monto no negativo.
+
+<Figure
+  src="/img/distributions/min-max.svg"
+  alt="Una campana, y la misma campana recortada a unos límites"
+  caption="El mismo generador, sin límites y con límites. Los valores que caen afuera se pegan al límite más cercano, así que los bordes ganan un pico."
+/>
+
+<Legend items={[["made", "a la izquierda: sin límites; a la derecha: la misma corrida limitada a 160 y 180"]]} />
+
+## Lo que no se puede combinar
+
+`distribution` **reemplaza** el modo numérico corriente, así que no se puede poner en
+el mismo generador junto con un rango o con porcentajes — TDC lo informa sin rodeos:
+
+- `value` (un rango), `percent`, `length`, `include` y `exclude` son todos
+  incompatibles con `distribution` — error `TDC088`:
+
+<Terminal title="./run bad.tdc">
+{`error[TDC088]: <gen type="number" distribution="..."> cannot be combined with "value"
+note: A distribution replaces the range/percent. Remove "value", or drop "distribution" to use a range.`}
+</Terminal>
+
+- Un nombre de distribución desconocido, o un parámetro obligatorio faltante (por
+  ejemplo `normal` sin `sd`), es el error `TDC089`, con una pista sobre lo que hace
+  falta:
+
+<Terminal title="./run bad.tdc">
+{`error[TDC089]: distribution "normal": "sd" is required and must be a number
+note: Distributions: normal (mean, sd), lognormal (meanlog, sdlog), exponential (rate), pareto (alpha, xmin). Optional: decimals, min, max.`}
+</Terminal>
+
+## Determinismo y escala
+
+Como todo en TDC, las distribuciones son **deterministas**: la misma `seed` da el
+mismo resultado. Y funcionan a **cualquier volumen** — el valor de cada fila se
+calcula a partir de su número de fila, así que la memoria no crece con la cantidad de
+filas (vea [Salidas grandes](../guides/large-outputs.mdx)). Mil millones de
+«salarios» lognormales no son ningún problema.
+
+**Las nueve distribuciones están listas:** `normal`, `lognormal`, `exponential`,
+`pareto`, `weibull`, `poisson`, `zipf`, `gamma` y `beta` — exactas, deterministas y
+transmitibles a cualquier escala.
+
+## Vea también
+
+- **[Number](../generators/number.mdx)** — los modos de rango y de cadena de dígitos
+  que este atributo reemplaza.
+- **[Salidas grandes](../guides/large-outputs.mdx)** — por qué las distribuciones
+  siguen siendo baratas con mil millones de filas.
+- **[Datos coherentes](../guides/coherent-data.mdx)** — cómo mantener consistentes los
+  campos generados dentro de una fila.

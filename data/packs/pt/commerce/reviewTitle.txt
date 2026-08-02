@@ -1,0 +1,29 @@
+---
+description: Product review title (Portuguese)
+locale: pt
+---
+Produto excelente!
+Super recomendo
+Não vale o que custa
+Superou minhas expectativas
+Simplesmente aceitável
+Compraria novamente
+Decepcionante
+Qualidade excelente
+Quebrou logo
+Perfeito pelo preço
+Melhor do que o esperado
+Não recomendo
+Amei!
+Um pouco caro
+Exatamente como descrito
+Cumpre sua função
+Bom custo-benefício
+Chegou antes do previsto
+Materiais de má qualidade
+Exatamente o que eu procurava
+Instruções confusas
+Muito fácil de usar
+Não é o que eu esperava
+Compro de novo com certeza
+Atendimento impecável

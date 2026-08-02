@@ -1,0 +1,28 @@
+---
+description: Music genre
+locale: en
+---
+Rock
+Pop
+Jazz
+Classical
+Hip Hop
+Country
+Electronic
+Blues
+Reggae
+Heavy Metal
+Folk
+R&B
+Soul
+Funk
+Punk
+Disco
+House
+Techno
+Indie
+Gospel
+Ambient
+Ska
+Bluegrass
+Latin

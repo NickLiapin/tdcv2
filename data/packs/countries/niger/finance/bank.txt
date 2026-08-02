@@ -1,0 +1,16 @@
+---
+address: niger.finance.bank
+description: Banks operating in Niger
+locale: fr
+---
+Sonibank
+Bank of Africa
+Ecobank
+BIA-Niger
+Banque Agricole du Niger
+Orabank
+BSIC
+Banque Atlantique
+Coris Bank
+NSIA Banque
+Banque Commerciale du Niger

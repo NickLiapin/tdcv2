@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Nephrology (Italian)
+locale: it
+---
+Insufficienza renale cronica
+Insufficienza renale acuta
+Calcolosi renale
+Glomerulonefrite
+Rene policistico
+Sindrome nefrosica
+Nefropatia diabetica
+Pielonefrite
+Nefropatia da IgA
+Acidosi tubulare renale

@@ -1,0 +1,20 @@
+---
+description: School subject
+locale: en
+---
+Mathematics
+Physics
+Chemistry
+Biology
+Computer Science
+History
+Geography
+English
+Art
+Music
+Physical Education
+Economics
+Philosophy
+Psychology
+Foreign Language
+Statistics

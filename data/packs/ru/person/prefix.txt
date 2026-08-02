@@ -1,0 +1,8 @@
+---
+description: Russian honorific / form of address (varies by gender)
+---
+Господин
+Госпожа
+Гражданин
+Гражданка
+Товарищ

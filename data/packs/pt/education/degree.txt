@@ -1,0 +1,21 @@
+---
+description: Academic degree / level (generic Portuguese, not country-specific)
+locale: pt
+---
+Ensino Fundamental
+Ensino Médio
+Ensino Secundário
+Curso Técnico
+Tecnólogo
+Diploma
+Licenciatura
+Bacharelado em Artes
+Bacharelado em Ciências
+Engenharia
+Especialização
+Mestrado
+Mestrado Profissional
+Mestrado em Administração de Empresas
+Doutorado
+Doutorado em Filosofia
+Pós-doutorado

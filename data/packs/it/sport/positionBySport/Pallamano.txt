@@ -1,0 +1,11 @@
+---
+description: Positions in handball (Italian)
+locale: it
+---
+Portiere
+Ala sinistra
+Ala destra
+Terzino sinistro
+Terzino destro
+Centrale
+Pivot

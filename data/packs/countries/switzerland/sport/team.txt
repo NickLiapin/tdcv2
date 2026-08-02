@@ -1,0 +1,17 @@
+---
+address: switzerland.sport.team
+description: Swiss Super League football clubs
+locale: fr
+---
+BSC Young Boys
+FC Bâle
+FC Zurich
+Servette FC
+FC Lugano
+FC Saint-Gall
+Grasshopper Club Zurich
+FC Lucerne
+FC Sion
+Lausanne-Sport
+Yverdon-Sport
+FC Winterthour

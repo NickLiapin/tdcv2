@@ -1,0 +1,11 @@
+---
+description: Weekday name (French, lowercase per French orthography)
+locale: fr
+---
+lundi
+mardi
+mercredi
+jeudi
+vendredi
+samedi
+dimanche

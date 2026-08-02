@@ -1,0 +1,15 @@
+---
+address: yemen.education.university
+description: Universities of Yemen (Arabic)
+locale: ar
+---
+جامعة صنعاء
+جامعة عدن
+جامعة تعز
+جامعة الحديدة
+جامعة ذمار
+جامعة إب
+جامعة حضرموت
+جامعة العلوم والتكنولوجيا
+جامعة الملكة أروى
+الجامعة اللبنانية الدولية

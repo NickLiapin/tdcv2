@@ -1,0 +1,7 @@
+---
+address: dr_congo.vehicle.plate
+description: DR Congo licence plate — structural layout of four digits and two letters plus a province code (e.g. 1234-AB/KN)
+generator: tdc
+locale: fr
+---
+<gen type="regex" value="[0-9]{4}-[A-Z]{2}/[A-Z]{2}"/>

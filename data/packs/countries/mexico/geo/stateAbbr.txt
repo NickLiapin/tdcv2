@@ -1,0 +1,36 @@
+---
+address: mexico.geo.stateAbbr
+description: Mexican federal entity abbreviation as used in postal addresses (AML); same order as mexico.geo.state
+---
+Ags.
+B.C.
+B.C.S.
+Camp.
+Coah.
+Col.
+Chis.
+Chih.
+CDMX
+Dgo.
+Gto.
+Gro.
+Hgo.
+Jal.
+Edomex
+Mich.
+Mor.
+Nay.
+N.L.
+Oax.
+Pue.
+Qro.
+Q. Roo
+S.L.P.
+Sin.
+Son.
+Tab.
+Tamps.
+Tlax.
+Ver.
+Yuc.
+Zac.

@@ -1,0 +1,16 @@
+---
+description: Genetic ancestry group in Polish, used as the parent of diagnosisByAncestry. These are ancestry populations as clinical genetics defines them — geographic descent, not social race categories.
+locale: pl
+---
+Subsaharyjska
+Północnoafrykańska
+Śródziemnomorska
+Bliskowschodnia
+Północnoeuropejska
+Wschodnioeuropejska
+Aszkenazyjska
+Południowoazjatycka
+Wschodnioazjatycka
+Południowo-wschodnioazjatycka
+Rdzenna amerykańska
+Wysp Pacyfiku

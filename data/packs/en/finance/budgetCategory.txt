@@ -1,0 +1,21 @@
+---
+description: Budget / spending category
+locale: en
+---
+Rent
+Mortgage
+Groceries
+Utilities
+Transportation
+Entertainment
+Healthcare
+Insurance
+Dining Out
+Savings
+Subscriptions
+Travel
+Education
+Clothing
+Gifts
+Childcare
+Debt Payment

@@ -1,0 +1,39 @@
+---
+address: venezuela.tax.rif
+description: Venezuela RIF (V/E/J/P/G prefix + 8-digit body + weighted mod-11 check digit)
+generator: tdc
+---
+<sequence name="prefix"><gen type="text" value="V,E,J,P,G"/></sequence>
+<sequence name="body"><gen type="regex" value="[0-9]{8}"/></sequence>
+<sequence name="rif"><compute>
+  <let name="code"><to_number><encode as="base36"><field name="prefix"/></encode></to_number></let>
+  <let name="typeValue">
+    <choose>
+      <when><test><equals><var name="code"/><int v="31"/></equals></test><then><int v="4"/></then></when>
+      <when><test><equals><var name="code"/><int v="14"/></equals></test><then><int v="8"/></then></when>
+      <when><test><equals><var name="code"/><int v="19"/></equals></test><then><int v="12"/></then></when>
+      <when><test><equals><var name="code"/><int v="25"/></equals></test><then><int v="16"/></then></when>
+      <when><test><equals><var name="code"/><int v="16"/></equals></test><then><int v="20"/></then></when>
+      <otherwise><int v="0"/></otherwise>
+    </choose>
+  </let>
+  <let name="sum">
+    <reduce>
+      <over><field name="body"/></over>
+      <init><var name="typeValue"/></init>
+      <do><add><acc/>
+        <multiply><current/>
+          <at><in><list v="3,2,7,6,5,4,3,2"/></in><index><current_index/></index></at>
+        </multiply>
+      </add></do>
+    </reduce>
+  </let>
+  <let name="check">
+    <at>
+      <in><list><str v="0"/><str v="0"/><str v="9"/><str v="8"/><str v="7"/><str v="6"/><str v="5"/><str v="4"/><str v="3"/><str v="2"/><str v="1"/></list></in>
+      <index><mod><var name="sum"/><int v="11"/></mod></index>
+    </at>
+  </let>
+  <result><concat><field name="prefix"/><field name="body"/><var name="check"/></concat></result>
+</compute></sequence>
+<data>${{rif}}</data>

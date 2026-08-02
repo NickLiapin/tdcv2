@@ -1,0 +1,21 @@
+---
+address: nicaragua.geo.departmentCode
+description: 2-digit postal region block that Correos de Nicaragua assigns to each department — the first two digits of every Nicaraguan postal code; same order as nicaragua.geo.department
+---
+10
+21
+25
+31
+34
+37
+41
+43
+45
+47
+51
+55
+61
+65
+71
+82
+91

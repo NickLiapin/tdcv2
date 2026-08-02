@@ -1,0 +1,24 @@
+---
+description: Company legal / name suffix
+locale: en
+---
+Inc
+LLC
+Ltd
+Corp
+Co
+Group
+Holdings
+Partners
+LLP
+PLC
+and Sons
+Associates
+Enterprises
+Industries
+International
+Solutions
+Systems
+Technologies
+Ventures
+Labs

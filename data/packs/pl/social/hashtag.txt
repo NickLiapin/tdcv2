@@ -1,0 +1,34 @@
+---
+description: Hashtag word in Polish (prefix with # in a template)
+locale: pl
+---
+miłość
+szczęście
+piękno
+moda
+natura
+sztuka
+podróże
+jedzenie
+sport
+motywacja
+styl
+słońce
+trendy
+dlaciebie
+rodzina
+lato
+fitness
+życie
+inspiracja
+wspomnienia
+fotografia
+muzyka
+zdrowie
+przyjaźń
+niedziela
+kawa
+koty
+psy
+czytanie
+piątek

@@ -1,0 +1,11 @@
+---
+description: Dishes of Japanese cuisine
+---
+Суши
+Рамен
+Темпура
+Сашими
+Удон
+Гёдза
+Мисо-суп
+Якитори

@@ -1,0 +1,17 @@
+---
+address: dr_congo.sport.team
+description: DR Congo first-division football clubs
+locale: fr
+---
+TP Mazembe
+AS Vita Club
+Daring Club Motema Pembe
+AS Maniema Union
+FC Saint Éloi Lupopo
+Sanga Balende
+OC Renaissance du Congo
+FC MK
+Lubumbashi Sport
+AS Dauphins Noirs
+CS Don Bosco
+JS Groupe Bazano

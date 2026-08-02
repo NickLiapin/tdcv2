@@ -1,0 +1,72 @@
+---
+address: new_zealand.geo.district
+description: New Zealand territorial authority (city or district council; the second-level division)
+locale: en
+---
+Far North District
+Whangārei District
+Kaipara District
+Auckland
+Thames-Coromandel District
+Hauraki District
+Waikato District
+Matamata-Piako District
+Hamilton City
+Waipā District
+Ōtorohanga District
+South Waikato District
+Waitomo District
+Taupō District
+Western Bay of Plenty District
+Tauranga City
+Rotorua Lakes District
+Whakatāne District
+Kawerau District
+Ōpōtiki District
+Gisborne District
+Wairoa District
+Hastings District
+Napier City
+Central Hawke's Bay District
+New Plymouth District
+Stratford District
+South Taranaki District
+Ruapehu District
+Whanganui District
+Rangitīkei District
+Manawatū District
+Palmerston North City
+Tararua District
+Horowhenua District
+Kāpiti Coast District
+Porirua City
+Upper Hutt City
+Hutt City
+Wellington City
+Masterton District
+Carterton District
+South Wairarapa District
+Tasman District
+Nelson City
+Marlborough District
+Kaikōura District
+Buller District
+Grey District
+Westland District
+Hurunui District
+Waimakariri District
+Christchurch City
+Selwyn District
+Ashburton District
+Timaru District
+Mackenzie District
+Waimate District
+Waitaki District
+Central Otago District
+Queenstown-Lakes District
+Dunedin City
+Clutha District
+Southland District
+Gore District
+Invercargill City
+Chatham Islands Territory

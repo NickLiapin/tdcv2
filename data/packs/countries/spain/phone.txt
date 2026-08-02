@@ -1,0 +1,6 @@
+---
+address: spain.phone
+description: Spain mobile phone in E.164 form (+34 6XXXXXXXX)
+generator: tdc
+---
+<gen type="regex" value="\+346[0-9]{8}"/>

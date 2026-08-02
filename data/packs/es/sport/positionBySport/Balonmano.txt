@@ -1,0 +1,11 @@
+---
+description: Positions in handball (Spanish)
+locale: es
+---
+Portero
+Lateral izquierdo
+Lateral derecho
+Central
+Extremo izquierdo
+Extremo derecho
+Pivote

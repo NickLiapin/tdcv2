@@ -1,0 +1,39 @@
+---
+description: Music genre (Italian, including Italian genres)
+locale: it
+---
+Rock
+Pop
+Jazz
+Musica classica
+Hip hop
+Country
+Musica elettronica
+Blues
+Reggae
+Heavy metal
+Folk
+R&B
+Soul
+Funk
+Punk
+Disco
+House
+Techno
+Indie
+Gospel
+Ambient
+Ska
+Musica leggera
+Cantautorato
+Opera lirica
+Italo disco
+Trap italiana
+Tarantella
+Canzone napoletana
+Liscio
+Rock progressivo
+Rap italiano
+Musica latina
+Colonna sonora
+Musica sacra

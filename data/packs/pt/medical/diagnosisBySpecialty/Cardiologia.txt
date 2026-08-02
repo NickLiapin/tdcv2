@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Cardiology (Portuguese)
+locale: pt
+---
+Hipertensão arterial
+Doença arterial coronariana
+Fibrilação atrial
+Insuficiência cardíaca
+Infarto agudo do miocárdio
+Hiperlipidemia
+Pericardite
+Endocardite
+Valvopatia
+Angina de peito

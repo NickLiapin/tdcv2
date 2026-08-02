@@ -1,0 +1,7 @@
+---
+address: iraq.docs.nationalId
+description: Iraqi national card number (البطاقة الوطنية) — 12 digits. Structural; no public check digit.
+generator: tdc
+locale: ar
+---
+<gen type="regex" value="[0-9]{12}"/>

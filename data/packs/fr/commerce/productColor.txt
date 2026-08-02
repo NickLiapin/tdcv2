@@ -1,0 +1,34 @@
+---
+description: Product colour option (French)
+locale: fr
+---
+Noir
+Blanc
+Gris sidéral
+Argent
+Or
+Or rose
+Bleu nuit
+Bleu ciel
+Rouge
+Vert sauge
+Rose poudré
+Beige
+Taupe
+Anthracite
+Marine
+Bordeaux
+Kaki
+Moutarde
+Corail
+Turquoise
+Ivoire
+Crème
+Chocolat
+Prune
+Menthe
+Lavande
+Graphite
+Cuivre
+Champagne
+Écru

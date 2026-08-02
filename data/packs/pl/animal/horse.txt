@@ -1,0 +1,20 @@
+---
+description: Horse breed (Polish)
+locale: pl
+---
+Arab
+Koń pełnej krwi angielskiej
+Mustang
+Clydesdale
+Appaloosa
+Quarter horse
+Fryz
+Shire
+Andaluzyjski
+Morgan
+Palomino
+Perszeron
+Kuc szetlandzki
+Lusitano
+Konik polski
+Haflinger

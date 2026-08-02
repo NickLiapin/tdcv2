@@ -1,0 +1,7 @@
+---
+address: belgium.vehicle.plate
+description: Belgian licence plate — the current layout 1-ABC-123 (a leading digit, 3 letters, 3 digits)
+generator: tdc
+locale: fr
+---
+<gen type="regex" value="[1-9]-[A-Z]{3}-[0-9]{3}"/>

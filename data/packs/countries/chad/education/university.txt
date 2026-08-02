@@ -1,0 +1,12 @@
+---
+address: chad.education.university
+description: Universities of Chad
+locale: fr
+---
+Université de N'Djaména
+Université Adam Barka d'Abéché
+Université de Moundou
+Université de Sarh
+Université de Doba
+Institut National Supérieur des Sciences et Techniques d'Abéché
+École Nationale d'Administration

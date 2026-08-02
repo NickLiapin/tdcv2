@@ -1,0 +1,15 @@
+---
+description: Shipping status (Portuguese)
+locale: pt
+---
+Etiqueta criada
+Em trânsito
+Saiu para entrega
+Entregue
+Ocorrência
+Devolvido ao remetente
+Aguardando retirada
+Atrasado
+Na alfândega
+Endereço incorreto
+Tentativa de entrega frustrada

@@ -1,0 +1,9 @@
+---
+address: saudi_arabia.geo.streetName
+description: Saudi street name — a thoroughfare type followed by a bare name; e.g. "طريق الملك فهد", "شارع التحلية".
+generator: tdc
+locale: ar
+---
+<sequence name="type"><gen type="text" value="شارع,شارع,طريق,طريق,حي,ممر,ميدان,دوار"/></sequence>
+<sequence name="named"><gen type="template" value="saudi_arabia.geo.streetNamed"/></sequence>
+<data>${{type}} ${{named}}</data>

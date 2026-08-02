@@ -1,0 +1,37 @@
+---
+address: colombia.geo.departmentIso
+description: ISO 3166-2:CO subdivision code without the CO- prefix; same order as colombia.geo.department
+---
+ANT
+ATL
+DC
+BOL
+BOY
+CAL
+CAQ
+CAU
+CES
+COR
+CUN
+CHO
+HUI
+LAG
+MAG
+MET
+NAR
+NSA
+QUI
+RIS
+SAN
+SUC
+TOL
+VAC
+ARA
+CAS
+PUT
+SAP
+AMA
+GUA
+GUV
+VAU
+VID

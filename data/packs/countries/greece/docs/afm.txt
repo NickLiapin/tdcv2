@@ -1,0 +1,25 @@
+---
+address: greece.docs.afm
+description: Greek tax number (ΑΦΜ) — 9 digits: an 8-digit base plus a check digit, where each base digit is weighted by a descending power of two (256,128,64,32,16,8,4,2) and the check is (sum mod 11) mod 10.
+generator: tdc
+locale: el
+---
+<sequence name="base"><gen type="regex" value="[0-9]{8}"/></sequence>
+<sequence name="afm"><compute>
+  <!-- Weight d1..d8 by 2^8..2^1, then check = (sum mod 11) mod 10, so a
+       remainder of 10 collapses to 0. -->
+  <let name="sum">
+    <reduce>
+      <over><field name="base"/></over>
+      <init><int v="0"/></init>
+      <do><add><acc/>
+        <multiply><current/>
+          <at><in><list v="256,128,64,32,16,8,4,2"/></in><index><current_index/></index></at>
+        </multiply>
+      </add></do>
+    </reduce>
+  </let>
+  <let name="check"><mod><mod><var name="sum"/><int v="11"/></mod><int v="10"/></mod></let>
+  <result><concat><field name="base"/><var name="check"/></concat></result>
+</compute></sequence>
+<data>${{afm}}</data>

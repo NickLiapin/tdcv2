@@ -1,0 +1,17 @@
+---
+address: paraguay.holiday
+description: Paraguayan public holiday (feriado nacional) — the statutory rest days plus widely observed civic and religious dates
+locale: es
+---
+Año Nuevo
+Día de los Héroes
+Jueves Santo
+Viernes Santo
+Día del Trabajador
+Día de la Independencia Nacional
+Día de la Madre
+Paz del Chaco
+Fundación de Asunción
+Victoria de Boquerón
+Día de la Virgen de Caacupé
+Navidad

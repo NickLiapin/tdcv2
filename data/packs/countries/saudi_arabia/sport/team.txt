@@ -1,0 +1,21 @@
+---
+address: saudi_arabia.sport.team
+description: Saudi Pro League football clubs (Arabic)
+locale: ar
+---
+الهلال
+النصر
+الاتحاد
+الأهلي
+الشباب
+الفتح
+الاتفاق
+الطائي
+الفيحاء
+الرائد
+أبها
+ضمك
+الوحدة
+الخليج
+الحزم
+النجمة

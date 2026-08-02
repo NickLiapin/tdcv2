@@ -1,0 +1,27 @@
+---
+description: German address unit / interior designator (abbreviated forms used before a number)
+locale: de
+---
+Whg.
+App.
+Apt.
+Zi.
+Stock
+Etage
+Geschoss
+EG
+OG
+UG
+DG
+Aufgang
+Haus
+Gebäude
+Geb.
+Eingang
+Treppe
+Büro
+Raum
+Stellplatz
+Keller
+Suite
+Top

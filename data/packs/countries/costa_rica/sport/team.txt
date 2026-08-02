@@ -1,0 +1,27 @@
+---
+address: costa_rica.sport.team
+description: Costa Rican professional football club (Liga de Fútbol de Primera División and other well-known clubs)
+locale: es
+---
+Deportivo Saprissa
+Liga Deportiva Alajuelense
+Club Sport Herediano
+Club Sport Cartaginés
+Municipal Pérez Zeledón
+Santos de Guápiles
+Asociación Deportiva San Carlos
+Municipal Grecia
+Sporting FC
+Puntarenas Fútbol Club
+Asociación Deportiva Guanacasteca
+Municipal Liberia
+Club Sport Uruguay de Coronado
+Guadalupe Fútbol Club
+Deportivo Río Cuarto
+Fútbol Consultants Desamparados
+Municipal Santa Ana
+Barrio México
+Asociación Deportiva Carmelita
+Orión Fútbol Club
+Universidad de Costa Rica
+Jicaral Sercoba

@@ -1,0 +1,16 @@
+---
+description: Competitive game rank (French)
+locale: fr
+---
+Fer
+Bronze
+Argent
+Or
+Platine
+Diamant
+Maître
+Grand Maître
+Challenger
+Champion
+Légende
+Radiant

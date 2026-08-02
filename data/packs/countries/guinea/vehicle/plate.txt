@@ -1,0 +1,7 @@
+---
+address: guinea.vehicle.plate
+description: Guinean licence plate — structural layout of the RC prefix, four digits and a letter (e.g. RC-1234-A)
+generator: tdc
+locale: fr
+---
+<gen type="regex" value="RC-[0-9]{4}-[A-Z]"/>

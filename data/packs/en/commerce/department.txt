@@ -1,0 +1,32 @@
+---
+description: Store department / category
+locale: en
+---
+Books
+Movies
+Music
+Games
+Electronics
+Computers
+Home
+Garden
+Tools
+Grocery
+Health
+Beauty
+Toys
+Kids
+Baby
+Clothing
+Shoes
+Jewelry
+Sports
+Outdoors
+Automotive
+Industrial
+Office
+Pet
+Furniture
+Appliances
+Stationery
+Hardware

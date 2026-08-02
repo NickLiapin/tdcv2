@@ -1,0 +1,20 @@
+---
+description: Room type (Portuguese)
+locale: pt
+---
+Quarto
+Casa de banho
+Cozinha
+Sala de estar
+Sala de jantar
+Escritório
+Cave
+Sótão
+Garagem
+Lavandaria
+Quarto de hóspedes
+Despensa
+Hall de entrada
+Sala de estudos
+Pátio
+Terraço

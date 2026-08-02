@@ -1,0 +1,269 @@
+---
+title: Symbol
+sidebar_position: 7
+---
+
+import Terminal from '@site/src/components/Terminal';
+
+# The `symbol` generator
+
+**Use it when** you need a string of a given length built from a specific set of
+**characters** — a token, a coupon code, a random suffix, or "noise" in a
+particular script. `symbol` picks **one character at a time** out of a set you
+define. (For a whole **word** from a list, use [`text`](text.mdx) instead.)
+
+You define the character set in **one of two** ways — never both at once:
+
+- [`value`](#your-own-set-with-value) — spell out your own set, right here;
+- [`alphabet`](#named-alphabets-with-alphabet) — name a built-in Unicode alphabet.
+
+Then [`length`](#length) says how many characters to produce, and
+[`include`](#extend-the-set-with-include) / [`exclude`](#trim-the-set-with-exclude)
+tweak the set without rewriting it.
+
+Example outputs on this page are illustrative — the exact characters depend on the
+seed and can differ between core versions. The **rules** they demonstrate are
+stable.
+
+## At a glance
+
+| Attribute  | Required       | What it does                                          |
+| :--------- | :------------- | :---------------------------------------------------- |
+| `value`    | one of the two | Your own character set (literals + `[x-y]` ranges)    |
+| `alphabet` | one of the two | Name of a built-in Unicode alphabet                   |
+| `length`   | no             | String length; default `1`, maximum `1024`            |
+| `include`  | no             | Add characters to the set (same grammar as `value`)   |
+| `exclude`  | no             | Remove characters from the set                        |
+
+## Your own set with `value`
+
+The simplest route: list the characters you want in `value`. No regular expressions
+required — you write the set, `symbol` draws from it.
+
+```xml
+<gen type="symbol" value="ABCDEF" length="4"/>        <!-- literals -->
+<gen type="symbol" value="[a-z]" length="6"/>         <!-- a range -->
+<gen type="symbol" value="[A-Z0-9]" length="8"/>      <!-- two ranges in one group -->
+<gen type="symbol" value="[a-f]xY[0-9]" length="5"/>  <!-- ranges + literals mixed -->
+```
+
+<Terminal title="./run demo.tdc">
+{`value="ABCDEF" length="4"      → CDFA
+value="[a-z]" length="6"       → tqmboa
+value="[A-Z0-9]" length="8"    → K7QW2ZP4
+value="[a-f]xY[0-9]" length="5" → x3bYa`}
+</Terminal>
+
+### The rules for a set
+
+- **Literals** — just write the characters: `value="ABCDEF"` → the set
+  `{A, B, C, D, E, F}`.
+- **Ranges** — in square brackets: `[a-z]`, `[A-Z]`, `[0-9]`. You can put several
+  ranges in one group: `[a-z0-9_]`.
+- **Commas and spaces outside brackets are ignored** — they're there only for
+  readability: `value="[a-f], [0-5]"` is the same set as `value="[a-f][0-5]"`. To
+  use a comma or a space *as a character*, put it in brackets: `[,]`, `[ ]`.
+- **Duplicates are removed; order is preserved.** `value="AABB"` is just `{A, B}`.
+
+Characters from any language work — you're not limited to ASCII. See
+[Named alphabets](#named-alphabets-with-alphabet) below for a shortcut to whole
+scripts, and [Unicode scripts by hand](#unicode-scripts-by-hand) for typing them
+directly.
+
+:::note[One character, not one word]
+`symbol` picks a single **character** at a time. To choose a whole **word** from a
+list, use [`text`](text.mdx): `<gen type="text" value="red,green,blue"/>`.
+:::
+
+## Length
+
+`length` sets how many characters to produce. It defaults to `1` and caps at
+`1024`. Use it whenever you need a fixed-width token — a 6-digit code, a 32-char
+key, and so on.
+
+```xml
+<gen type="symbol" value="[A-Z0-9]"/>            <!-- length omitted → 1 -->
+<gen type="symbol" value="[A-Z0-9]" length="6"/>
+<gen type="symbol" value="[A-Z0-9]" length="16"/>
+```
+
+<Terminal title="./run demo.tdc">
+{`length omitted → K
+length="6"     → Q7ZW2P
+length="16"    → K7QW2ZP4M9RXB3TA`}
+</Terminal>
+
+Only an **exact** length is supported here. If you need a variable-width string,
+[`number`](number.mdx#variable-length) accepts length ranges and
+groups; `symbol` does not.
+
+## Extend the set with `include`
+
+Rather than rewriting a whole set to add a few characters, hand them to `include`.
+It uses the same grammar as `value` (literals and `[x-y]` ranges). This is most
+useful with a **named alphabet**, which is otherwise fixed — for example, letters
+plus digits for a login-style string.
+
+```xml
+<!-- your own letters, plus two specific digits -->
+<gen type="symbol" value="[a-z]" include="2,4" length="8"/>
+
+<!-- a named alphabet, extended with the digits it lacks -->
+<gen type="symbol" alphabet="latin.lower" include="[0-9]" length="8"/>
+```
+
+<Terminal title="./run demo.tdc">
+{`value="[a-z]" include="2,4" length="8"   → t2qm4boa
+alphabet="latin.lower" include="[0-9]"   → k7qw2zp4`}
+</Terminal>
+
+## Trim the set with `exclude`
+
+The mirror image: `exclude` removes characters from the set. Use it to drop
+look-alike characters from a code (no `O`/`0`, no `l`/`1`), or trimming a couple of
+letters from a named alphabet.
+
+```xml
+<!-- letters and digits, minus the confusing pairs -->
+<gen type="symbol" value="[A-Z0-9]" exclude="O0Il1" length="8"/>
+
+<!-- letters, minus one vowel -->
+<gen type="symbol" value="[a-z]" exclude="y" length="8"/>
+```
+
+<Terminal title="./run demo.tdc">
+{`value="[A-Z0-9]" exclude="O0Il1" length="8" → K7QW2ZP4
+value="[a-z]" exclude="y" length="8"        → tqmboade`}
+</Terminal>
+
+### How `include` and `exclude` combine
+
+The final set is `(base ∪ include) − exclude`, so **`exclude` has the last word**:
+a character that is both added by `include` and removed by `exclude` will **not**
+appear. If the set ends up empty after the modifiers, that's error `TDC099`.
+
+```xml
+<!-- 4 is included, then excluded → it loses; 2 survives -->
+<gen type="symbol" value="[a-z]" include="2,4" exclude="4" length="8"/>
+```
+
+<Terminal title="./run demo.tdc">
+{`value="[a-z]" include="2,4" exclude="4" → t2qmboad   (no 4 anywhere)`}
+</Terminal>
+
+## Named alphabets with `alphabet`
+
+**Use it when** you need a random string from a specific writing system — Cyrillic
+for Russian-style logins, kana for Japanese test data, Arabic or Hebrew letters to
+exercise right-to-left layout. Typing the Unicode range by hand (`[а-я]`) is
+error-prone: you forget `ё`, or you get the boundary wrong. A named alphabet is
+checked by name and contains exactly the right characters.
+
+`alphabet` replaces `value` — you give a name from the registry, plus a `length`.
+
+```xml
+<gen type="symbol" alphabet="cyrillic.ru.letters" length="10"/>
+<gen type="symbol" alphabet="kana.hiragana" length="8"/>
+<gen type="symbol" alphabet="arabic.letters" length="6"/>
+```
+
+<Terminal title="./run demo.tdc">
+{`cyrillic.ru.letters length="10" → рнБСпВЖЧжХ
+kana.hiragana length="8"        → ゃまぃすめいおち
+arabic.letters length="6"       → فؿآحـآ`}
+</Terminal>
+
+This is a deliberate Unicode and localization demo: the output is non-Latin on
+purpose, to show that the same generator produces whatever script you name.
+
+### Live examples of each script
+
+The same generator, one line per alphabet (`length="10"`), so you can compare the
+scripts side by side:
+
+| `alphabet`            | Example output       |
+| :-------------------- | :------------------- |
+| `latin.lower`         | `usahtbcjpi`         |
+| `latin.upper`         | `USAHTBCJPI`         |
+| `digits.fullwidth`    | `７７０２７０１３６３` |
+| `cyrillic.ru.letters` | `рнБСпВЖЧжХ`         |
+| `greek.letters`       | `ξμΒΟνΓΖΤζΡ`         |
+| `hebrew.letters`      | `פףאחפבגךני`         |
+| `arabic.letters`      | `فؿآحـآإذغد`         |
+| `kana.hiragana`       | `ゃまぃすめいおちふそ` |
+| `kana.katakana`       | `ユメィズヤイオヂヘタ` |
+| `cjk.unified.basic`   | `货袪倱料護冣囱沌耣楿` |
+| `roman.upper`         | `DDIXDIIXCX`         |
+
+### All supported names
+
+| `alphabet`            | Contains                                       |
+| :-------------------- | :--------------------------------------------- |
+| `latin.lower`         | ASCII `a-z`                                    |
+| `latin.upper`         | ASCII `A-Z`                                    |
+| `latin.letters`       | ASCII `A-Z` and `a-z`                          |
+| `digits.ascii`        | ASCII digits `0-9`                             |
+| `digits.fullwidth`    | Full-width digits `０-９`                      |
+| `cyrillic.ru.lower`   | Russian `а-я` plus `ё`                         |
+| `cyrillic.ru.upper`   | Russian `А-Я` plus `Ё`                         |
+| `cyrillic.ru.letters` | Russian Cyrillic, both cases, including `ё`    |
+| `greek.letters`       | Basic Greek letters                            |
+| `hebrew.letters`      | Hebrew `א-ת`                                   |
+| `arabic.letters`      | Arabic letters `ء-ي`                           |
+| `kana.hiragana`       | Japanese hiragana `ぁ-ゖ`                      |
+| `kana.katakana`       | Japanese katakana `ァ-ヺ`                      |
+| `cjk.unified.basic`   | CJK Unified Ideographs `U+4E00..U+9FFF`        |
+| `roman.upper`         | Roman-numeral letters `I V X L C D M`          |
+| `roman.lower`         | Roman-numeral letters `i v x l c d m`          |
+
+All 16 names are validated: each one resolves and produces characters from its own
+script. Because the set is fixed, use [`include`](#extend-the-set-with-include) /
+[`exclude`](#trim-the-set-with-exclude) to adjust it — for example
+`alphabet="cyrillic.ru.letters" exclude="ъь"`.
+
+## Unicode scripts by hand
+
+You don't *have* to use a named alphabet — because `value` accepts any characters,
+you can also type a script (or mix several) directly. Named alphabets are still
+preferred where one exists: they're documented, validated, and include the awkward
+characters a plain range would miss, such as Russian `ё`.
+
+```xml
+<gen type="symbol" value="[А-Я]" length="4"/>            <!-- Cyrillic range -->
+<gen type="symbol" value="कखगघचछ" length="3"/>          <!-- Devanagari literals -->
+<gen type="symbol" value="あア[0-9][A-F]" length="6"/>   <!-- mixed scripts + ranges -->
+```
+
+<Terminal title="./run demo.tdc">
+{`value="[А-Я]" length="4"          → ШФПР
+value="कखगघचछ" length="3"         → चचग
+value="あア[0-9][A-F]" length="6" → アB4あ7ア`}
+</Terminal>
+
+## The same alphabets in regex
+
+The alphabet registry is also available inside [`regex`](regex.mdx) and
+[`advanced_regex`](advanced-regex.mdx) through the escape `\a{name}`, so you can
+drop a named script into a larger pattern:
+
+```xml
+<gen type="regex" value="\a{kana.hiragana}{5}"/>
+<gen type="advanced_regex" value="(?%{70:\a{latin.upper}{2};30:\a{cyrillic.ru.upper}{2}})-[0-9]{4}"/>
+```
+
+<Terminal title="./run demo.tdc">
+{`kana.hiragana{5}          → まぃすめい
+weighted upper + -[0-9]4  → KM-8042`}
+</Terminal>
+
+Plain BMP ranges such as `[а-я]{8}` also work inside `regex`, but the named
+alphabets are preferred for the same reasons as above — they're documented,
+validated by name, and cover characters that a bare range would drop.
+
+## See also
+
+- [`alphabet`](../reference/attributes.mdx) and [`length`](../reference/attributes.mdx)
+  in the attribute reference.
+- **[Regex](regex.mdx)** — when the string has structure, not just a character set.
+- **[Masks and case](../guides/masks-and-case.mdx)** — reshape a generated string
+  after the fact.

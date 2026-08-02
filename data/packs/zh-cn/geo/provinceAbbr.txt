@@ -1,0 +1,36 @@
+---
+address: zh-cn.geo.provinceAbbr
+description: One-character province abbreviation (used on licence plates), index-aligned with zh-cn.geo.province
+locale: zh-cn
+---
+京
+津
+冀
+晋
+蒙
+辽
+吉
+黑
+沪
+苏
+浙
+皖
+闽
+赣
+鲁
+豫
+鄂
+湘
+粤
+桂
+琼
+渝
+川
+贵
+云
+藏
+陕
+甘
+青
+宁
+新

@@ -1,0 +1,32 @@
+---
+address: argentina.tax.cuit
+description: Argentine CUIT (Clave Única de Identificación Tributaria) — 11 digits: a 2-digit type prefix (20/23/24/27 personas físicas, 30/33/34 personas jurídicas), the 8-digit DNI or AFIP serial, and a mod-11 check digit over the weights 5,4,3,2,7,6,5,4,3,2. Remainder 0 yields 0 and remainder 1 yields 9; AFIP itself sidesteps the remainder-1 case by re-issuing under prefix 23/33, so those values satisfy the published check-digit rule without matching AFIP's assignment convention. Pass prefix="30" to pin a taxpayer type.
+generator: tdc
+---
+<sequence name="prefix"><gen type="text" value="20,23,24,27,30,33,34"/></sequence>
+<sequence name="dni"><gen type="regex" value="[1-9][0-9]{7}"/></sequence>
+<sequence name="cuit"><compute>
+  <let name="payload"><concat><field name="prefix"/><field name="dni"/></concat></let>
+  <let name="sum">
+    <reduce>
+      <over><var name="payload"/></over>
+      <init><int v="0"/></init>
+      <do><add><acc/>
+        <multiply><current/>
+          <at><in><list v="5,4,3,2,7,6,5,4,3,2"/></in><index><current_index/></index></at>
+        </multiply>
+      </add></do>
+    </reduce>
+  </let>
+  <let name="r"><mod><var name="sum"/><int v="11"/></mod></let>
+  <!-- verificador = 11 - r, folded: 11 -> 0, 10 -> 9. -->
+  <let name="check">
+    <choose>
+      <when><test><equals><var name="r"/><int v="0"/></equals></test><then><int v="0"/></then></when>
+      <when><test><equals><var name="r"/><int v="1"/></equals></test><then><int v="9"/></then></when>
+      <otherwise><subtract><int v="11"/><var name="r"/></subtract></otherwise>
+    </choose>
+  </let>
+  <result><concat><var name="payload"/><var name="check"/></concat></result>
+</compute></sequence>
+<data>${{cuit}}</data>

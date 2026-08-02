@@ -1,0 +1,6 @@
+---
+address: common.id.uuid
+description: UUID v4 (RFC 4122 — version 4, variant 8/9/a/b)
+generator: tdc
+---
+<gen type="regex" value="[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}" regex_max_length="40"/>

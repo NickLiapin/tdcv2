@@ -1,0 +1,26 @@
+---
+description: Metal (Italian)
+locale: it
+---
+Oro
+Argento
+Platino
+Rame
+Ferro
+Alluminio
+Titanio
+Zinco
+Nichel
+Piombo
+Stagno
+Bronzo
+Ottone
+Acciaio
+Palladio
+Cobalto
+Cromo
+Tungsteno
+Mercurio
+Magnesio
+Litio
+Manganese

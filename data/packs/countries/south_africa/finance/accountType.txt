@@ -1,0 +1,9 @@
+---
+address: south_africa.finance.accountType
+description: South African bank account types
+locale: en
+---
+Cheque Account
+Savings Account
+Transmission Account
+Credit Card

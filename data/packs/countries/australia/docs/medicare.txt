@@ -1,0 +1,35 @@
+---
+address: australia.docs.medicare
+description: Australian Medicare card number — 10 digits. The first digit is 2-6, digits 1-8 carry a check digit (the 9th) computed as the weighted sum of the first eight digits (weights 1,3,7,9,1,3,7,9) modulo 10, and the 10th digit is the issue number printed after the card number. The optional 11th individual reference (the number beside each name on the card) is not part of the card number and is omitted
+generator: tdc
+locale: en
+---
+<!-- First digit of a valid Medicare number is 2-6. -->
+<sequence name="lead"><gen type="regex" value="[2-6]"/></sequence>
+<!-- Positions 2-8. -->
+<sequence name="rest"><gen type="regex" value="[0-9]{7}"/></sequence>
+<sequence name="first8"><compute>
+  <result><concat><field name="lead"/><field name="rest"/></concat></result>
+</compute></sequence>
+<!-- Check digit (9th): sum of digit_i * weight_i, weights 1,3,7,9,1,3,7,9,
+     taken mod 10. -->
+<sequence name="check"><compute>
+  <let name="sum">
+    <reduce>
+      <over><field name="first8"/></over>
+      <init><int v="0"/></init>
+      <do><add><acc/>
+        <multiply><current/>
+          <at><in><list v="1,3,7,9,1,3,7,9"/></in><index><current_index/></index></at>
+        </multiply>
+      </add></do>
+    </reduce>
+  </let>
+  <result><mod><var name="sum"/><int v="10"/></mod></result>
+</compute></sequence>
+<!-- Issue number (10th), 1-9. -->
+<sequence name="issue"><gen type="regex" value="[1-9]"/></sequence>
+<sequence name="medicare"><compute>
+  <result><concat><field name="first8"/><field name="check"/><field name="issue"/></concat></result>
+</compute></sequence>
+<data>${{medicare}}</data>

@@ -1,0 +1,15 @@
+---
+description: Booking status (Italian, agrees with "prenotazione")
+locale: it
+---
+Confermata
+In attesa
+Annullata
+In lista d'attesa
+Check-in effettuato
+Check-out effettuato
+Mancata presentazione
+Modificata
+Rimborsata
+Scaduta
+Garantita

@@ -1,0 +1,6 @@
+---
+address: costa_rica.phone
+description: Costa Rican phone in E.164 form (+506 + 8 digits) — first digit 2 is a fixed line, 6/7/8 a mobile
+generator: tdc
+---
+<gen type="regex" value="\+506[2678][0-9]{7}"/>

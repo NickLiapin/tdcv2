@@ -1,0 +1,19 @@
+---
+address: guatemala.education.university
+description: Guatemalan university — the public Universidad de San Carlos and the private universities licensed by the CEPS
+locale: es
+---
+Universidad de San Carlos de Guatemala
+Universidad Mariano Gálvez de Guatemala
+Universidad del Valle de Guatemala
+Universidad Rafael Landívar
+Universidad Francisco Marroquín
+Universidad Rural de Guatemala
+Universidad del Istmo
+Universidad Panamericana
+Universidad Mesoamericana
+Universidad Galileo
+Universidad San Pablo de Guatemala
+Universidad InterNaciones
+Universidad da Vinci de Guatemala
+Universidad Regional de Guatemala

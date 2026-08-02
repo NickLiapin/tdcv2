@@ -1,0 +1,30 @@
+---
+address: dominican_republic.finance.bank
+description: Dominican Republic bank or licensed deposit institution — banco múltiple and asociación de ahorros y préstamos, supervised by the Superintendencia de Bancos
+---
+Banco Popular Dominicano
+Banreservas
+Banco BHD
+Scotiabank República Dominicana
+Banco del Progreso
+Banco Santa Cruz
+Banco BDI
+Banco Caribe
+Banco Promerica
+Banco Vimenca
+Banco López de Haro
+Banco Ademi
+Banco Lafise
+Banesco
+Bancamérica
+Banco Activo Dominicana
+Banco BellBank
+Citibank
+Asociación Popular de Ahorros y Préstamos
+Asociación Cibao de Ahorros y Préstamos
+Asociación La Nacional de Ahorros y Préstamos
+Asociación Duarte de Ahorros y Préstamos
+Asociación Bonao de Ahorros y Préstamos
+Asociación Romana de Ahorros y Préstamos
+Asociación Peravia de Ahorros y Préstamos
+Asociación Mocana de Ahorros y Préstamos

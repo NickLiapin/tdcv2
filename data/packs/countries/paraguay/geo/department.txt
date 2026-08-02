@@ -1,0 +1,23 @@
+---
+address: paraguay.geo.department
+description: Paraguay first-level division — the capital district Asunción plus the 17 departamentos, in DGEEC census-code order (00 Asunción, 01 Concepción … 17 Alto Paraguay); same order as paraguay.geo.departmentCode / departmentCapital / departmentIso
+locale: es
+---
+Asunción
+Concepción
+San Pedro
+Cordillera
+Guairá
+Caaguazú
+Caazapá
+Itapúa
+Misiones
+Paraguarí
+Alto Paraná
+Central
+Ñeembucú
+Amambay
+Canindeyú
+Presidente Hayes
+Boquerón
+Alto Paraguay

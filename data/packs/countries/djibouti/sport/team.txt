@@ -1,0 +1,15 @@
+---
+address: djibouti.sport.team
+description: Djiboutian first-division football clubs
+locale: fr
+---
+AS Ali Sabieh Djibouti Télécom
+Gendarmerie Nationale
+AS Port
+Arta/Solar7
+Guelleh Batal
+CDE
+Force Nationale de Police
+AS Boreh
+Djibouti Poste
+Chemins de Fer

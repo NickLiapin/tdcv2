@@ -1,0 +1,31 @@
+---
+address: switzerland.geo.canton
+description: Swiss cantons (French names)
+locale: fr
+---
+Zurich
+Berne
+Lucerne
+Uri
+Schwytz
+Obwald
+Nidwald
+Glaris
+Zoug
+Fribourg
+Soleure
+Bâle-Ville
+Bâle-Campagne
+Schaffhouse
+Appenzell Rhodes-Extérieures
+Appenzell Rhodes-Intérieures
+Saint-Gall
+Grisons
+Argovie
+Thurgovie
+Tessin
+Vaud
+Valais
+Neuchâtel
+Genève
+Jura

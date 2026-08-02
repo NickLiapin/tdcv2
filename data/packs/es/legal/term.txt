@@ -1,0 +1,23 @@
+---
+description: Legal term (Spanish)
+locale: es
+---
+Demandante
+Demandado
+Citación judicial
+Declaración jurada
+Declaración testimonial
+Testimonio
+Medida cautelar
+Sentencia
+Acuerdo conciliatorio
+Litigio
+Audiencia inicial
+Jurisdicción
+Apelación
+Fiscal
+Abogado defensor
+Prueba
+Recurso de amparo
+Notificación
+Poder notarial

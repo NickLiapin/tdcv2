@@ -1,0 +1,221 @@
+---
+description: Spanish job titles across sectors (tech, healthcare, trades, transport, business, service, public). Pan-Hispanic wording.
+locale: es
+---
+Ingeniero de software
+Ingeniero de software sénior
+Analista de datos
+Científico de datos
+Ingeniero DevOps
+Ingeniero de fiabilidad de sistemas
+Ingeniero de calidad
+Gerente de producto
+Diseñador UX
+Diseñador UI
+Administrador de sistemas
+Ingeniero de redes
+Administrador de bases de datos
+Analista de seguridad informática
+Arquitecto de la nube
+Desarrollador móvil
+Desarrollador frontend
+Desarrollador backend
+Ingeniero de aprendizaje automático
+Especialista en soporte técnico
+Programador web
+Analista de sistemas
+Ingeniero de datos
+Enfermero
+Enfermero especialista
+Médico general
+Cirujano
+Anestesiólogo
+Pediatra
+Farmacéutico
+Paramédico
+Técnico en emergencias médicas
+Fisioterapeuta
+Terapeuta ocupacional
+Higienista dental
+Dentista
+Técnico radiólogo
+Auxiliar médico
+Flebotomista
+Terapeuta respiratorio
+Optometrista
+Veterinario
+Auxiliar de enfermería
+Ginecólogo
+Cardiólogo
+Psicólogo
+Psiquiatra
+Nutricionista
+Electricista
+Plomero
+Soldador
+Carpintero
+Técnico en climatización
+Tornero
+Mecánico industrial
+Instalador de tuberías
+Hojalatero
+Herrero
+Albañil
+Techador
+Pintor
+Instalador de paneles de yeso
+Mecánico automotriz
+Mecánico diésel
+Mecánico de aeronaves
+Cerrajero
+Vidriero
+Yesero
+Técnico en refrigeración
+Técnico de ascensores
+Minero
+Minero subterráneo
+Operador de perforación
+Operador de maquinaria pesada
+Operador de grúa
+Operador de excavadora
+Técnico en voladuras
+Topógrafo de minas
+Trabajador de cantera
+Conductor de camión
+Conductor de larga distancia
+Repartidor
+Conductor de autobús
+Operador de montacargas
+Operario de almacén
+Coordinador logístico
+Despachador
+Agente de carga
+Controlador aéreo
+Piloto comercial
+Auxiliar de vuelo
+Capitán de barco
+Maquinista de tren
+Mensajero
+Taxista
+Instalador de líneas eléctricas
+Técnico en telecomunicaciones
+Empalmador de cables
+Técnico en fibra óptica
+Operador de central eléctrica
+Operador de planta de tratamiento de agua
+Técnico de turbinas eólicas
+Instalador de paneles solares
+Técnico de gas
+Lector de medidores
+Contador
+Auxiliar contable
+Analista financiero
+Auditor
+Actuario
+Asesor fiscal
+Representante de ventas
+Ejecutivo de cuentas
+Gerente de marketing
+Especialista en marketing
+Gerente de marca
+Especialista en recursos humanos
+Reclutador
+Gerente de operaciones
+Gerente de proyectos
+Analista de negocios
+Asistente ejecutivo
+Jefe de oficina
+Recepcionista
+Auxiliar administrativo
+Especialista en compras
+Economista
+Agente de seguros
+Agente inmobiliario
+Corredor de bolsa
+Chef
+Subchef
+Cocinero
+Panadero
+Pastelero
+Barman
+Barista
+Mesero
+Anfitrión
+Lavaplatos
+Gerente de hotel
+Personal de limpieza
+Conserje
+Recepcionista de hotel
+Coordinador de eventos
+Guía turístico
+Vendedor
+Gerente de tienda
+Cajero
+Reponedor
+Encargado de prevención de pérdidas
+Comprador
+Representante de servicio al cliente
+Agente de centro de llamadas
+Guardia de seguridad
+Jardinero
+Maestro de primaria
+Profesor de secundaria
+Profesor de educación especial
+Profesor universitario
+Investigador
+Auxiliar docente
+Orientador escolar
+Bibliotecario
+Director de escuela
+Tutor
+Educador infantil
+Policía
+Bombero
+Detective
+Oficial penitenciario
+Agente de aduanas
+Trabajador social
+Gestor de casos
+Cartero
+Empleado de correos
+Recolector de residuos
+Militar
+Juez
+Fiscal
+Notario
+Abogado
+Asistente legal
+Secretario judicial
+Diseñador gráfico
+Fotógrafo
+Camarógrafo
+Redactor publicitario
+Redactor de contenidos
+Periodista
+Editor
+Arquitecto
+Diseñador de interiores
+Ingeniero civil
+Ingeniero mecánico
+Ingeniero eléctrico
+Ingeniero químico
+Ingeniero industrial
+Traductor
+Intérprete
+Músico
+Actor
+Agricultor
+Ganadero
+Peón agrícola
+Paisajista
+Arborista
+Pescador
+Leñador
+Apicultor
+Viticultor
+Obrero de la construcción
+Capataz de obra
+Topógrafo
+Inspector de obras
+Trabajador de demolición
+Encofrador

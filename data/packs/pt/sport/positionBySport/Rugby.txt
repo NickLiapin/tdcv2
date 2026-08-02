@@ -1,0 +1,14 @@
+---
+description: Positions in rugby union (Portuguese)
+locale: pt
+---
+Pilar
+Hooker
+Segunda linha
+Terceira linha
+Número oito
+Meio-scrum
+Abertura
+Centro
+Ponta
+Fullback

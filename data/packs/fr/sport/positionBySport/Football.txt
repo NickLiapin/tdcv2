@@ -1,0 +1,14 @@
+---
+description: Positions in Football (soccer) (French)
+locale: fr
+---
+Gardien de but
+Défenseur central
+Arrière droit
+Arrière gauche
+Milieu défensif
+Milieu central
+Milieu offensif
+Ailier
+Avant-centre
+Attaquant

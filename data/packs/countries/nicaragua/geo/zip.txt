@@ -1,0 +1,8 @@
+---
+address: nicaragua.geo.zip
+description: Nicaraguan código postal — 5 digits; the first two are the real Correos de Nicaragua postal region block that identifies the department (nicaragua.geo.departmentCode), the last three the municipio / barrio within it
+generator: tdc
+---
+<sequence name="block"><gen type="template" value="nicaragua.geo.departmentCode"/></sequence>
+<sequence name="tail"><gen type="regex" value="[0-9]{3}"/></sequence>
+<data>${{block}}${{tail}}</data>

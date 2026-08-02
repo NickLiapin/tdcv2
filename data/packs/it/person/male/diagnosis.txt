@@ -1,0 +1,30 @@
+---
+description: Medical diagnoses in Italian (male-specific + common)
+locale: it
+---
+Varicocele
+Criptorchidismo
+Fimosi
+Adenoma prostatico
+Prostatite
+Disfunzione erettile
+Idrocele
+Orchite
+Epididimite
+Carcinoma della prostata
+Tumore del testicolo
+Pancreatite cronica
+Clamidia
+Artrite cronica
+Gastrite cronica
+Ipertensione arteriosa
+Diabete mellito di tipo 2
+Asma bronchiale
+Bronchite cronica
+Emicrania
+Anemia sideropenica
+Ipotiroidismo
+Calcolosi renale
+Ernia inguinale
+Tumore del retto
+Occlusione dell'arteria centrale della retina

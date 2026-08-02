@@ -1,0 +1,6 @@
+---
+address: ivory_coast.phone
+description: Ivorian mobile phone in E.164 form (+225 0[157]XXXXXXXX, 10-digit national number)
+generator: tdc
+---
+<gen type="regex" value="\+2250[157][0-9]{8}"/>

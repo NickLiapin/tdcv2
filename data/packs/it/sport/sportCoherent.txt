@@ -1,0 +1,12 @@
+---
+description: Sport that has a coherent position list (Italian)
+locale: it
+---
+Calcio
+Pallacanestro
+Pallavolo
+Pallamano
+Baseball
+Rugby
+Football americano
+Hockey su ghiaccio

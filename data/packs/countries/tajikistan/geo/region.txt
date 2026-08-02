@@ -1,0 +1,10 @@
+---
+address: tajikistan.geo.region
+description: Regions of Tajikistan — provinces, the autonomous region, the districts of republican subordination, and the capital (the "state" equivalent)
+locale: ru
+---
+Согдийская область
+Хатлонская область
+Горно-Бадахшанская автономная область
+Районы республиканского подчинения
+город Душанбе

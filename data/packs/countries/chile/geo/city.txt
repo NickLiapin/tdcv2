@@ -1,0 +1,257 @@
+---
+address: chile.geo.city
+description: Chilean city or town — the urban entities in the INE Ciudades, Pueblos, Aldeas y Caseríos report, Santiago first and then grouped by región from north to south; a ciudad is one over 5 000 inhabitants or any provincial/regional seat
+locale: es
+---
+Santiago
+Arica
+Putre
+Pozo Almonte
+Antofagasta
+Mejillones
+Taltal
+Calama
+San Pedro de Atacama
+Tocopilla
+Copiapó
+Caldera
+Tierra Amarilla
+Chañaral
+Diego de Almagro
+El Salvador
+Vallenar
+Huasco
+La Serena
+Coquimbo
+Tongoy
+Andacollo
+Vicuña
+Illapel
+Los Vilos
+Canela
+Salamanca
+Ovalle
+Combarbalá
+Monte Patria
+El Palqui
+Punitaqui
+Valparaíso
+Viña del Mar
+Concón
+Quilpué
+Villa Alemana
+Casablanca
+Puchuncaví
+Las Ventanas
+Quintero
+Hanga Roa
+Juan Fernández
+Los Andes
+Calle Larga
+Rinconada
+San Esteban
+La Ligua
+Cabildo
+Quillota
+La Calera
+Hijuelas
+La Cruz
+Nogales
+El Melón
+San Antonio
+Cartagena
+Las Cruces
+Santo Domingo
+Algarrobo
+El Quisco
+El Tabo
+Mirasol
+El Yeco
+San Felipe
+Villa Los Almendros
+Santa María
+Catemu
+Llay-Llay
+Putaendo
+Limache
+Olmué
+Rancagua
+Machalí
+Gultro
+Los Lirios
+Codegua
+Coltauco
+Doñihue
+Lo Miranda
+Graneros
+Las Cabras
+Punta Diamante
+San Francisco de Mostazal
+La Punta
+Peumo
+Pichidegua
+Quinta de Tilcoco
+Rengo
+Requínoa
+San Vicente de Tagua Tagua
+Pichilemu
+San Fernando
+Chépica
+Chimbarongo
+Nancagua
+Peralillo
+Santa Cruz
+Talca
+Maule Norte
+Maule
+San Clemente
+Constitución (Chile)
+Cauquenes
+Curicó
+Molina
+Hualañé
+Rauco
+Romeral
+Teno
+Linares
+Colbún
+Longaví
+Parral
+Retiro
+San Javier
+Villa Alegre
+Chillán
+Chillán Viejo
+Coelemu
+Quirihue
+Bulnes
+Quillón
+Yungay
+Coihueco
+San Carlos
+Concepción
+Talcahuano
+Chiguayante
+Hualpén
+Penco
+San Pedro de la Paz
+Coronel
+Hualqui
+Lota
+Santa Juana
+Tomé
+Lebu
+Arauco
+Laraquete
+Cañete
+Curanilahue
+Los Álamos
+Contulmo
+Los Ángeles
+Cabrero
+La Laja
+San Rosendo
+Monte Águila
+Mulchén
+Nacimiento
+Santa Bárbara
+Huépil
+Yumbel
+Florida
+Temuco
+Padre Las Casas
+Corral
+Lanco
+Los Lagos
+San José de la Mariquina
+Paillaco
+Panguipulli
+La Unión
+Futrono
+Río Bueno
+Valdivia
+Máfil
+Puerto Montt
+Alerce
+Puerto Varas
+Calbuco
+Fresia
+Frutillar
+Los Muermos
+Llanquihue
+Castro
+Ancud
+Chonchi
+Dalcahue
+Quellón
+Osorno
+Purranque
+Río Negro
+Chaitén
+Coyhaique
+Puerto Aysén
+Cochrane
+Chile Chico
+Punta Arenas
+Puerto Williams
+Porvenir
+Puerto Natales
+Cerrillos
+Cerro Navia
+Conchalí
+El Bosque
+Estación Central
+Huechuraba
+Independencia
+La Cisterna
+La Florida
+La Granja
+La Pintana
+La Reina
+Las Condes
+Lo Barnechea
+Lo Espejo
+Lo Prado
+Macul
+Maipú
+Ñuñoa
+Pedro Aguirre Cerda
+Peñalolén
+Providencia
+Pudahuel
+Quilicura
+Quinta Normal
+Recoleta
+Renca
+San Joaquín
+San Miguel
+San Ramón
+Vitacura
+Puente Alto
+Pirque
+La Obra
+Las Vertientes
+Valle Grande
+San Bernardo
+Padre Hurtado
+Chicureo
+Chamisero
+Ciudad del Valle
+San José de Maipo
+Colina
+Lampa
+Batuco
+Chicauma
+Tiltil
+Buin
+Alto Jahuel
+Bajos de San Agustín
+Paine
+Hospital
+Melipilla
+Curacaví
+Talagante
+El Monte
+Isla de Maipo
+La Islita
+Peñaflor

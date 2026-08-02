@@ -1,0 +1,20 @@
+---
+address: san_marino.sport.team
+description: Campionato sammarinese di calcio clubs (Italian names)
+locale: it
+---
+Tre Fiori
+La Fiorita
+Tre Penne
+Folgore
+Cosmos
+Domagnano
+Murata
+Pennarossa
+Juvenes-Dogana
+Faetano
+Libertas
+Cailungo
+San Giovanni
+Virtus
+Fiorentino

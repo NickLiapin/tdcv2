@@ -1,0 +1,14 @@
+---
+address: guinea_bissau.geo.region
+description: The eight regions of Guinea-Bissau plus the autonomous sector of Bissau (Portuguese names)
+locale: pt
+---
+Bafatá
+Biombo
+Bolama
+Cacheu
+Gabú
+Oio
+Quinara
+Tombali
+Setor Autónomo de Bissau

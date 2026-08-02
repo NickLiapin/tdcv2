@@ -1,0 +1,12 @@
+---
+address: guinea.education.university
+description: Universities of Guinea
+locale: fr
+---
+Université Gamal Abdel Nasser de Conakry
+Université Général Lansana Conté de Sonfonia
+Université Julius Nyerere de Kankan
+Université de Labé
+Université de Nzérékoré
+Institut Supérieur de Technologie de Mamou
+Université Kofi Annan de Guinée

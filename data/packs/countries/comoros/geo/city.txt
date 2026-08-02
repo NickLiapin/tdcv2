@@ -1,0 +1,15 @@
+---
+address: comoros.geo.city
+description: Cities and towns of the Comoros (Arabic)
+locale: ar
+---
+موروني
+موتسامودو
+فومبوني
+دوموني
+ميتساميولي
+تسيمبيو
+ميرونتسي
+سيما
+نيومبادجو
+واني

@@ -1,0 +1,26 @@
+---
+description: Vehicle body type (Italian)
+locale: it
+---
+Berlina
+Coupé
+Hatchback
+SUV
+Crossover
+Fuoristrada
+Cabriolet
+Monovolume
+Station wagon
+Pick-up
+Furgone
+Furgoncino
+Sportiva
+Roadster
+Utilitaria
+Auto di lusso
+Limousine
+Minibus
+Autobus
+Camion
+Motocicletta
+Microcar

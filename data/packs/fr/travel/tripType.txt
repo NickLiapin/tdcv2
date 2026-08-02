@@ -1,0 +1,20 @@
+---
+description: Type of trip (French)
+locale: fr
+---
+Loisirs
+Affaires
+Week-end
+Séjour balnéaire
+Circuit
+Croisière
+Randonnée
+Road trip
+Voyage de noces
+Séjour au ski
+City break
+Séjour tout compris
+Aventure
+Séjour culturel
+Séjour gastronomique
+Voyage en famille

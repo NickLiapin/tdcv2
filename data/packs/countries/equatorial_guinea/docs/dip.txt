@@ -1,0 +1,6 @@
+---
+address: equatorial_guinea.docs.dip
+description: Equatorial Guinea DIP (Documento de Identidad Personal), the national ID issued by CNEDOGE. STRUCTURAL ONLY — an 8-digit personal serial. The DIP number is the same as the holder's passport number; no check digit is published for it, so none is invented here and nothing in this value can be arithmetically verified
+generator: tdc
+---
+<gen type="regex" value="[1-9][0-9]{7}"/>

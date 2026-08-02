@@ -1,0 +1,12 @@
+---
+description: Mining method (Italian)
+locale: it
+---
+A cielo aperto
+Sotterranea
+A strisce
+Alluvionale
+Rimozione della sommità
+A pozzo verticale
+Per galleria
+A fronte lunga

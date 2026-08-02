@@ -1,0 +1,14 @@
+---
+description: Conditions markedly more frequent in people of East Asian ancestry, in Portuguese. A prevalence signal, not an exclusive one.
+locale: pt
+---
+Alfa-talassemia
+Deficiência de aldeído desidrogenase 2
+Não persistência da lactase
+Carcinoma da nasofaringe
+Câncer gástrico
+Glaucoma primário de ângulo fechado
+Doença de Kawasaki
+Doença de Moyamoya
+Hipersensibilidade à carbamazepina
+Miopia patológica

@@ -1,0 +1,38 @@
+---
+address: colombia.geo.department
+description: Colombian first-level division — the 32 departamentos plus the Distrito Capital de Bogotá, in DANE code order; same order as colombia.geo.departmentCode / departmentIso / departmentCapital
+locale: es
+---
+Antioquia
+Atlántico
+Bogotá, D.C.
+Bolívar
+Boyacá
+Caldas
+Caquetá
+Cauca
+Cesar
+Córdoba
+Cundinamarca
+Chocó
+Huila
+La Guajira
+Magdalena
+Meta
+Nariño
+Norte de Santander
+Quindío
+Risaralda
+Santander
+Sucre
+Tolima
+Valle del Cauca
+Arauca
+Casanare
+Putumayo
+Archipiélago de San Andrés, Providencia y Santa Catalina
+Amazonas
+Guainía
+Guaviare
+Vaupés
+Vichada

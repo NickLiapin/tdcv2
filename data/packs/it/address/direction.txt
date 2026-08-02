@@ -1,0 +1,19 @@
+---
+description: Directional qualifier appended to an Italian street or avenue (Viale Europa Nord, Circonvallazione Ovest)
+locale: it
+---
+Nord
+Sud
+Est
+Ovest
+Nord-Est
+Nord-Ovest
+Sud-Est
+Sud-Ovest
+Centro
+Settentrionale
+Meridionale
+Orientale
+Occidentale
+Levante
+Ponente

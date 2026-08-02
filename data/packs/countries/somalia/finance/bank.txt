@@ -1,0 +1,13 @@
+---
+address: somalia.finance.bank
+description: Banks operating in Somalia (Arabic)
+locale: ar
+---
+البنك المركزي الصومالي
+بنك دهب شيل
+بنك سلام الصومالي
+البنك التجاري الصومالي
+أميل بنك
+بريمير بنك
+إيدهب بنك
+بنك الأمل

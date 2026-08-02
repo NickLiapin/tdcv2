@@ -1,0 +1,2346 @@
+{
+  "comment": "Streaming-engine output for every shared case, from the reference implementation. Engine 1 output lives in the cases themselves; the engines draw differently, so the two do not match and are not meant to. Regenerate with: npm run fixtures:engines -- --update",
+  "engines": [2, 3],
+  "cases": {
+    "accumulate/a-running-total-inside-one-record": {
+      "engine2": {
+        "lines": ["58,144,204", "33,121,173", "34,102,118", "68,80,114"]
+      },
+      "engine3": {
+        "lines": ["58,144,204", "33,121,173", "34,102,118", "68,80,114"]
+      }
+    },
+    "accumulate/a-running-total-of-decimals-is-exact": {
+      "engine2": {
+        "lines": [
+          "1117.65,1575.97,3404.60",
+          "1897.82,2443.21,3214.54",
+          "559.16,1688.91,3645.92"
+        ]
+      },
+      "engine3": {
+        "lines": [
+          "1117.65,1575.97,3404.60",
+          "1897.82,2443.21,3214.54",
+          "559.16,1688.91,3645.92"
+        ]
+      }
+    },
+    "accumulate/a-running-maximum-keeps-the-winning-element": {
+      "engine2": {
+        "lines": ["063,084,084,084", "087,087,087,087", "021,098,098,098"]
+      },
+      "engine3": {
+        "lines": ["063,084,084,084", "087,087,087,087", "021,098,098,098"]
+      }
+    },
+    "accumulate/a-running-minimum": {
+      "engine2": {
+        "lines": ["91,29,23,23", "36,36,26,26", "72,64,14,14"]
+      },
+      "engine3": {
+        "lines": ["91,29,23,23", "36,36,26,26", "72,64,14,14"]
+      }
+    },
+    "accumulate/a-running-total-over-a-variable-length-list": {
+      "engine2": {
+        "lines": [
+          "45,117,172,261",
+          "73",
+          "47",
+          "59,110,191",
+          "26,49",
+          "35,75,111"
+        ]
+      },
+      "engine3": {
+        "lines": [
+          "45,117,172,261",
+          "73",
+          "47",
+          "59,110,191",
+          "26,49",
+          "35,75,111"
+        ]
+      }
+    },
+    "compute/compute-aba-routing": {
+      "engine2": {
+        "lines": [
+          "712545125",
+          "634135147",
+          "271641227",
+          "727481685",
+          "657563039",
+          "718685733"
+        ]
+      },
+      "engine3": {
+        "lines": [
+          "712545125",
+          "634135147",
+          "271641227",
+          "727481685",
+          "657563039",
+          "718685733"
+        ]
+      }
+    },
+    "compute/compute-ordinal-suffix": {
+      "engine2": {
+        "lines": ["Sunset", "109th", "145th", "Birch", "120th", "Hickory"]
+      },
+      "engine3": {
+        "lines": ["Sunset", "109th", "145th", "Birch", "120th", "Hickory"]
+      }
+    },
+    "compute/compute-uuid-pack": {
+      "engine2": {
+        "lines": [
+          "13979244-8b56-4357-9607-deed5e23fb1a",
+          "b736936f-5be4-401a-b643-180c72ff17fa",
+          "f296233b-3613-4972-bc88-4d19b5ef70e3",
+          "8c6d2aec-53d9-4271-a8dc-d065d78951f7"
+        ]
+      },
+      "engine3": {
+        "lines": [
+          "13979244-8b56-4357-9607-deed5e23fb1a",
+          "b736936f-5be4-401a-b643-180c72ff17fa",
+          "f296233b-3613-4972-bc88-4d19b5ef70e3",
+          "8c6d2aec-53d9-4271-a8dc-d065d78951f7"
+        ]
+      }
+    },
+    "compute/compute-takes-no-draws": {
+      "engine2": {
+        "lines": ["448,448,139", "729,729,341", "901,901,564", "817,817,554"]
+      },
+      "engine3": {
+        "lines": ["448,448,139", "729,729,341", "901,901,564", "817,817,554"]
+      }
+    },
+    "compute/compute-reduce-and-encode": {
+      "engine2": {
+        "lines": ["AB12=24"]
+      },
+      "engine3": {
+        "lines": ["AB12=24"]
+      }
+    },
+    "compute/compute-euclidean-mod": {
+      "engine2": {
+        "lines": ["2 1 -3"]
+      },
+      "engine3": {
+        "lines": ["2 1 -3"]
+      }
+    },
+    "compute/compute-pad-and-slice": {
+      "engine2": {
+        "lines": ["000042|****42|5"]
+      },
+      "engine3": {
+        "lines": ["000042|****42|5"]
+      }
+    },
+    "dates/date-range-day": {
+      "engine2": {
+        "lines": [
+          "2026-01-19",
+          "2026-01-07",
+          "2026-01-31",
+          "2026-01-07",
+          "2026-01-27",
+          "2026-01-24"
+        ]
+      },
+      "engine3": {
+        "lines": [
+          "2026-01-19",
+          "2026-01-07",
+          "2026-01-31",
+          "2026-01-07",
+          "2026-01-27",
+          "2026-01-24"
+        ]
+      }
+    },
+    "dates/date-range-second": {
+      "engine2": {
+        "lines": [
+          "2026-01-01T14:28:34",
+          "2026-01-01T05:19:33",
+          "2026-01-01T23:36:29",
+          "2026-01-01T05:18:47",
+          "2026-01-01T20:17:06",
+          "2026-01-01T18:17:21"
+        ]
+      },
+      "engine3": {
+        "lines": [
+          "2026-01-01T14:28:34",
+          "2026-01-01T05:19:33",
+          "2026-01-01T23:36:29",
+          "2026-01-01T05:18:47",
+          "2026-01-01T20:17:06",
+          "2026-01-01T18:17:21"
+        ]
+      }
+    },
+    "dates/date-today": {
+      "engine2": {
+        "lines": ["2026-04-23", "2026-04-23", "2026-04-23"]
+      },
+      "engine3": {
+        "lines": ["2026-04-23", "2026-04-23", "2026-04-23"]
+      }
+    },
+    "dates/date-birth": {
+      "engine2": {
+        "lines": [
+          "February 1, 1990",
+          "September 26, 1968",
+          "May 25, 2011",
+          "September 15, 1968",
+          "August 23, 2003",
+          "December 26, 1998"
+        ]
+      },
+      "engine3": {
+        "lines": [
+          "February 1, 1990",
+          "September 26, 1968",
+          "May 25, 2011",
+          "September 15, 1968",
+          "August 23, 2003",
+          "December 26, 1998"
+        ]
+      }
+    },
+    "formatting/mask-phone": {
+      "engine2": {
+        "lines": ["555-123-4567"]
+      },
+      "engine3": {
+        "lines": ["555-123-4567"]
+      }
+    },
+    "formatting/mask-swap-words": {
+      "engine2": {
+        "lines": ["Smith John"]
+      },
+      "engine3": {
+        "lines": ["Smith John"]
+      }
+    },
+    "formatting/mask-copy-and-rest": {
+      "engine2": {
+        "lines": ["J. ohn Smith"]
+      },
+      "engine3": {
+        "lines": ["J. ohn Smith"]
+      }
+    },
+    "formatting/mask-reversed-range": {
+      "engine2": {
+        "lines": ["cba"]
+      },
+      "engine3": {
+        "lines": ["cba"]
+      }
+    },
+    "formatting/mask-out-of-range": {
+      "engine2": {
+        "lines": ["[]"]
+      },
+      "engine3": {
+        "lines": ["[]"]
+      }
+    },
+    "formatting/mask-literal-brackets": {
+      "engine2": {
+        "lines": ["[tel.] 555"]
+      },
+      "engine3": {
+        "lines": ["[tel.] 555"]
+      }
+    },
+    "formatting/case-transforms": {
+      "engine2": {
+        "lines": ["JOHN MCDONALD|john mcdonald|JOHN mcDONALD|JOHN McDONALD"]
+      },
+      "engine3": {
+        "lines": ["JOHN MCDONALD|john mcdonald|JOHN mcDONALD|JOHN McDONALD"]
+      }
+    },
+    "formatting/filter-slice-and-group": {
+      "engine2": {
+        "lines": ["123|34567890|1 234 567 890|12-3456-7890"]
+      },
+      "engine3": {
+        "lines": ["123|34567890|1 234 567 890|12-3456-7890"]
+      }
+    },
+    "formatting/filter-compact": {
+      "engine2": {
+        "lines": ["lfls|f4240"]
+      },
+      "engine3": {
+        "lines": ["lfls|f4240"]
+      }
+    },
+    "formatting/filter-csv-and-sql": {
+      "engine2": {
+        "lines": ["\"Jr\" Jr"]
+      },
+      "engine3": {
+        "lines": ["\"Jr\" Jr"]
+      }
+    },
+    "formatting/filter-chain": {
+      "engine2": {
+        "lines": ["O''BRIEN"]
+      },
+      "engine3": {
+        "lines": ["O''BRIEN"]
+      }
+    },
+    "formatting/custom-inject": {
+      "engine2": {
+        "lines": ["hi Ann and ${{V}}"]
+      },
+      "engine3": {
+        "lines": ["hi Ann and ${{V}}"]
+      }
+    },
+    "generators/number-padded-range": {
+      "engine2": {
+        "lines": ["6031", "2219", "9836", "2213", "8452", "7620"]
+      },
+      "engine3": {
+        "lines": ["6031", "2219", "9836", "2213", "8452", "7620"]
+      }
+    },
+    "generators/number-negative-range": {
+      "engine2": {
+        "lines": ["1", "-3", "5", "-3", "4", "3"]
+      },
+      "engine3": {
+        "lines": ["1", "-3", "5", "-3", "4", "3"]
+      }
+    },
+    "generators/number-bit": {
+      "engine2": {
+        "lines": ["1", "0", "1", "0", "1", "1"]
+      },
+      "engine3": {
+        "lines": ["1", "0", "1", "0", "1", "1"]
+      }
+    },
+    "generators/number-digit-string": {
+      "engine2": {
+        "lines": ["6093", "2515", "9110", "2420", "8477", "7896"]
+      },
+      "engine3": {
+        "lines": ["6093", "2515", "9110", "2420", "8477", "7896"]
+      }
+    },
+    "generators/number-range-list": {
+      "engine2": {
+        "lines": ["100", "2", "100", "2", "101", "102"]
+      },
+      "engine3": {
+        "lines": ["100", "2", "100", "2", "101", "102"]
+      }
+    },
+    "generators/number-exclude": {
+      "engine2": {
+        "lines": ["6", "1", "9", "1", "8", "7"]
+      },
+      "engine3": {
+        "lines": ["6", "1", "9", "1", "8", "7"]
+      }
+    },
+    "generators/number-decimals": {
+      "engine2": {
+        "lines": ["1.60", "1.22", "1.99", "1.22", "1.85", "1.76"]
+      },
+      "engine3": {
+        "lines": ["1.60", "1.22", "1.99", "1.22", "1.85", "1.76"]
+      }
+    },
+    "generators/regex-pattern": {
+      "engine2": {
+        "lines": ["BY-546", "NC-665", "EE-623", "LF-045", "KU-864", "WX-575"]
+      },
+      "engine3": {
+        "lines": ["BY-546", "NC-665", "EE-623", "LF-045", "KU-864", "WX-575"]
+      }
+    },
+    "generators/regex-backreference": {
+      "engine2": {
+        "lines": ["b-b", "a-a", "b-b", "a-a", "b-b", "b-b"]
+      },
+      "engine3": {
+        "lines": ["b-b", "a-a", "b-b", "a-a", "b-b", "b-b"]
+      }
+    },
+    "generators/regex-bounded-repeat": {
+      "engine2": {
+        "lines": ["xx", "", "xxx", "", "xxx", "xxx"]
+      },
+      "engine3": {
+        "lines": ["xx", "", "xxx", "", "xxx", "xxx"]
+      }
+    },
+    "generators/advanced-regex-weighted": {
+      "engine2": {
+        "refused": "stream mode: advanced_regex weighted choice \"(?%{…})\" (\"V\") is not supported yet — run without mode=\"stream\" (the in-memory engine handles it), or remove it."
+      },
+      "engine3": {
+        "lines": ["RU", "RU", "DE", "RU", "US", "RU", "RU", "RU", "US", "RU"]
+      }
+    },
+    "generators/advanced-regex-nested": {
+      "engine2": {
+        "refused": "stream mode: advanced_regex weighted choice \"(?%{…})\" (\"V\") is not supported yet — run without mode=\"stream\" (the in-memory engine handles it), or remove it."
+      },
+      "engine3": {
+        "lines": ["aa", "ab", "b", "ab", "b", "aa", "ab", "aa", "b", "b"]
+      }
+    },
+    "generators/advanced-regex-branches-are-patterns": {
+      "engine2": {
+        "refused": "stream mode: advanced_regex weighted choice \"(?%{…})\" (\"V\") is not supported yet — run without mode=\"stream\" (the in-memory engine handles it), or remove it."
+      },
+      "engine3": {
+        "lines": ["58", "02", "OU", "49", "NE", "13", "CL", "78", "ZZ", "EE"]
+      }
+    },
+    "generators/symbol-alphabet": {
+      "engine2": {
+        "lines": ["pby", "fnc", "zee", "flf", "vku", "twx"]
+      },
+      "engine3": {
+        "lines": ["pby", "fnc", "zee", "flf", "vku", "twx"]
+      }
+    },
+    "generators/symbol-exclude": {
+      "engine2": {
+        "lines": ["caca", "acac", "caaa", "aaaa", "cacc", "cccc"]
+      },
+      "engine3": {
+        "lines": ["caca", "acac", "caaa", "aaaa", "cacc", "cccc"]
+      }
+    },
+    "generators/counter-increment": {
+      "engine2": {
+        "lines": ["1000", "1005", "1010", "1015", "1020"]
+      },
+      "engine3": {
+        "lines": ["1000", "1005", "1010", "1015", "1020"]
+      }
+    },
+    "generators/counter-decrement": {
+      "engine2": {
+        "lines": ["100", "93", "86", "79", "72"]
+      },
+      "engine3": {
+        "lines": ["100", "93", "86", "79", "72"]
+      }
+    },
+    "generators/text-percent": {
+      "engine2": {
+        "lines": ["B", "A", "C", "B", "A", "B", "B", "C"]
+      },
+      "engine3": {
+        "lines": ["B", "A", "C", "B", "A", "B", "B", "C"]
+      }
+    },
+    "generators/template-weighted-pack": {
+      "engine2": {
+        "lines": [
+          "Garcia",
+          "Smith",
+          "Davis",
+          "Williams",
+          "Johnson",
+          "Jones",
+          "Brown",
+          "Miller"
+        ]
+      },
+      "engine3": {
+        "lines": [
+          "Garcia",
+          "Smith",
+          "Davis",
+          "Williams",
+          "Johnson",
+          "Jones",
+          "Brown",
+          "Miller"
+        ]
+      }
+    },
+    "mix-switch/mix-exact-percents": {
+      "engine2": {
+        "lines": ["A", "B", "A", "B", "B", "B", "B", "A", "B", "B"]
+      },
+      "engine3": {
+        "lines": ["A", "B", "A", "B", "B", "B", "B", "A", "B", "B"]
+      }
+    },
+    "mix-switch/mix-nested": {
+      "engine2": {
+        "lines": [
+          "B",
+          "AY",
+          "B",
+          "AX",
+          "B",
+          "AX",
+          "AY",
+          "AY",
+          "AY",
+          "B",
+          "AY",
+          "B",
+          "B",
+          "B",
+          "AY",
+          "AY",
+          "B",
+          "B",
+          "AY",
+          "B",
+          "B",
+          "B",
+          "B",
+          "B",
+          "B",
+          "AY",
+          "AY",
+          "AX",
+          "AY",
+          "AY",
+          "AX",
+          "AY",
+          "B",
+          "B",
+          "AY",
+          "B",
+          "AY",
+          "B",
+          "AX",
+          "B"
+        ]
+      },
+      "engine3": {
+        "lines": [
+          "B",
+          "AY",
+          "B",
+          "AX",
+          "B",
+          "AX",
+          "AY",
+          "AY",
+          "AY",
+          "B",
+          "AY",
+          "B",
+          "B",
+          "B",
+          "AY",
+          "AY",
+          "B",
+          "B",
+          "AY",
+          "B",
+          "B",
+          "B",
+          "B",
+          "B",
+          "B",
+          "AY",
+          "AY",
+          "AX",
+          "AY",
+          "AY",
+          "AX",
+          "AY",
+          "B",
+          "B",
+          "AY",
+          "B",
+          "AY",
+          "B",
+          "AX",
+          "B"
+        ]
+      }
+    },
+    "mix-switch/mix-generator-in-a-case": {
+      "engine2": {
+        "lines": [
+          "B",
+          "A-CI55",
+          "B",
+          "A-HE48",
+          "B",
+          "A-FJ63",
+          "B",
+          "B",
+          "A-SG65",
+          "A-XE20",
+          "B",
+          "A-QD96",
+          "A-OF52",
+          "B",
+          "A-LF39",
+          "B",
+          "A-LV98",
+          "A-AS97",
+          "B",
+          "B"
+        ]
+      },
+      "engine3": {
+        "lines": [
+          "B",
+          "A-CI55",
+          "B",
+          "A-HE48",
+          "B",
+          "A-FJ63",
+          "B",
+          "B",
+          "A-SG65",
+          "A-XE20",
+          "B",
+          "A-QD96",
+          "A-OF52",
+          "B",
+          "A-LF39",
+          "B",
+          "A-LV98",
+          "A-AS97",
+          "B",
+          "B"
+        ]
+      }
+    },
+    "mix-switch/mix-advanced-regex-in-a-case": {
+      "engine2": {
+        "refused": "stream mode: advanced_regex weighted choice \"(?%{…})\" (\"Code#switch#c0#p0\") is not supported yet — run without mode=\"stream\" (the in-memory engine handles it), or remove it."
+      },
+      "engine3": {
+        "lines": [
+          "B",
+          "A-Y",
+          "A-X",
+          "A-Y",
+          "A-Y",
+          "B",
+          "A-X",
+          "B",
+          "B",
+          "B",
+          "B",
+          "A-Y",
+          "B",
+          "A-Y",
+          "A-Y",
+          "B",
+          "A-Y",
+          "A-Y",
+          "B",
+          "B"
+        ]
+      }
+    },
+    "mix-switch/mix-respects-parent": {
+      "engine2": {
+        "lines": [
+          "F:",
+          "F:",
+          "F:",
+          "M:Y",
+          "F:",
+          "M:Y",
+          "M:X",
+          "M:X",
+          "F:",
+          "M:Y"
+        ]
+      },
+      "engine3": {
+        "lines": [
+          "F:",
+          "F:",
+          "F:",
+          "M:Y",
+          "F:",
+          "M:Y",
+          "M:X",
+          "M:X",
+          "F:",
+          "M:Y"
+        ]
+      }
+    },
+    "mix-switch/mix-flag-marks-the-branch": {
+      "engine2": {
+        "lines": [
+          "56|false",
+          "121|true",
+          "62|false",
+          "64|false",
+          "50|false",
+          "118|true",
+          "121|true",
+          "51|false",
+          "64|false",
+          "58|false",
+          "59|false",
+          "54|false",
+          "52|false",
+          "61|false",
+          "60|false",
+          "65|false",
+          "61|false",
+          "120|true",
+          "61|false",
+          "56|false"
+        ]
+      },
+      "engine3": {
+        "lines": [
+          "56|false",
+          "121|true",
+          "62|false",
+          "64|false",
+          "50|false",
+          "118|true",
+          "121|true",
+          "51|false",
+          "64|false",
+          "58|false",
+          "59|false",
+          "54|false",
+          "52|false",
+          "61|false",
+          "60|false",
+          "65|false",
+          "61|false",
+          "120|true",
+          "61|false",
+          "56|false"
+        ]
+      }
+    },
+    "mix-switch/switch-map-with-default": {
+      "engine2": {
+        "lines": [
+          "ZZ|OTHER",
+          "US|USD",
+          "DE|EUR",
+          "FR|EUR",
+          "DE|EUR",
+          "FR|EUR",
+          "DE|EUR",
+          "US|USD",
+          "ZZ|OTHER",
+          "ZZ|OTHER",
+          "US|USD",
+          "DE|EUR",
+          "ZZ|OTHER",
+          "JP|JPY",
+          "US|USD",
+          "JP|JPY",
+          "FR|EUR",
+          "JP|JPY",
+          "FR|EUR",
+          "ZZ|OTHER",
+          "JP|JPY",
+          "DE|EUR",
+          "US|USD",
+          "JP|JPY",
+          "FR|EUR"
+        ]
+      },
+      "engine3": {
+        "lines": [
+          "ZZ|OTHER",
+          "US|USD",
+          "DE|EUR",
+          "FR|EUR",
+          "DE|EUR",
+          "FR|EUR",
+          "DE|EUR",
+          "US|USD",
+          "ZZ|OTHER",
+          "ZZ|OTHER",
+          "US|USD",
+          "DE|EUR",
+          "ZZ|OTHER",
+          "JP|JPY",
+          "US|USD",
+          "JP|JPY",
+          "FR|EUR",
+          "JP|JPY",
+          "FR|EUR",
+          "ZZ|OTHER",
+          "JP|JPY",
+          "DE|EUR",
+          "US|USD",
+          "JP|JPY",
+          "FR|EUR"
+        ]
+      }
+    },
+    "mix-switch/switch-multi-key-map": {
+      "engine2": {
+        "lines": [
+          "FR|EUR",
+          "CA|USD",
+          "CA|USD",
+          "CA|USD",
+          "FR|EUR",
+          "MX|USD",
+          "MX|USD",
+          "MX|USD",
+          "MX|USD",
+          "FR|EUR",
+          "FR|EUR",
+          "CA|USD"
+        ]
+      },
+      "engine3": {
+        "lines": [
+          "FR|EUR",
+          "CA|USD",
+          "CA|USD",
+          "CA|USD",
+          "FR|EUR",
+          "MX|USD",
+          "MX|USD",
+          "MX|USD",
+          "MX|USD",
+          "FR|EUR",
+          "FR|EUR",
+          "CA|USD"
+        ]
+      }
+    },
+    "mix-switch/switch-no-default-leaves-empty": {
+      "engine2": {
+        "lines": [
+          "ZZ|",
+          "US|USD",
+          "DE|",
+          "FR|EUR",
+          "DE|",
+          "FR|EUR",
+          "DE|",
+          "US|USD",
+          "ZZ|",
+          "ZZ|",
+          "US|USD",
+          "DE|",
+          "ZZ|",
+          "JP|",
+          "US|USD",
+          "JP|",
+          "FR|EUR",
+          "JP|",
+          "FR|EUR",
+          "ZZ|",
+          "JP|",
+          "DE|",
+          "US|USD",
+          "JP|",
+          "FR|EUR"
+        ]
+      },
+      "engine3": {
+        "lines": [
+          "ZZ|",
+          "US|USD",
+          "DE|",
+          "FR|EUR",
+          "DE|",
+          "FR|EUR",
+          "DE|",
+          "US|USD",
+          "ZZ|",
+          "ZZ|",
+          "US|USD",
+          "DE|",
+          "ZZ|",
+          "JP|",
+          "US|USD",
+          "JP|",
+          "FR|EUR",
+          "JP|",
+          "FR|EUR",
+          "ZZ|",
+          "JP|",
+          "DE|",
+          "US|USD",
+          "JP|",
+          "FR|EUR"
+        ]
+      }
+    },
+    "mix-switch/switch-first-match-wins": {
+      "engine2": {
+        "lines": [
+          "ZZ|?",
+          "US|FROM_MAP",
+          "DE|?",
+          "FR|?",
+          "DE|?",
+          "FR|?",
+          "DE|?",
+          "US|FROM_MAP",
+          "ZZ|?",
+          "ZZ|?",
+          "US|FROM_MAP",
+          "DE|?",
+          "ZZ|?",
+          "JP|?",
+          "US|FROM_MAP",
+          "JP|?",
+          "FR|?",
+          "JP|?",
+          "FR|?",
+          "ZZ|?",
+          "JP|?",
+          "DE|?",
+          "US|FROM_MAP",
+          "JP|?",
+          "FR|?"
+        ]
+      },
+      "engine3": {
+        "lines": [
+          "ZZ|?",
+          "US|FROM_MAP",
+          "DE|?",
+          "FR|?",
+          "DE|?",
+          "FR|?",
+          "DE|?",
+          "US|FROM_MAP",
+          "ZZ|?",
+          "ZZ|?",
+          "US|FROM_MAP",
+          "DE|?",
+          "ZZ|?",
+          "JP|?",
+          "US|FROM_MAP",
+          "JP|?",
+          "FR|?",
+          "JP|?",
+          "FR|?",
+          "ZZ|?",
+          "JP|?",
+          "DE|?",
+          "US|FROM_MAP",
+          "JP|?",
+          "FR|?"
+        ]
+      }
+    },
+    "mix-switch/switch-splits-on-first-colon": {
+      "engine2": {
+        "lines": [
+          "ZZ|?",
+          "US|Test : Down",
+          "DE|?",
+          "FR|?",
+          "DE|?",
+          "FR|?",
+          "DE|?",
+          "US|Test : Down",
+          "ZZ|?",
+          "ZZ|?",
+          "US|Test : Down",
+          "DE|?",
+          "ZZ|?",
+          "JP|?",
+          "US|Test : Down",
+          "JP|?",
+          "FR|?",
+          "JP|?",
+          "FR|?",
+          "ZZ|?",
+          "JP|?",
+          "DE|?",
+          "US|Test : Down",
+          "JP|?",
+          "FR|?"
+        ]
+      },
+      "engine3": {
+        "lines": [
+          "ZZ|?",
+          "US|Test : Down",
+          "DE|?",
+          "FR|?",
+          "DE|?",
+          "FR|?",
+          "DE|?",
+          "US|Test : Down",
+          "ZZ|?",
+          "ZZ|?",
+          "US|Test : Down",
+          "DE|?",
+          "ZZ|?",
+          "JP|?",
+          "US|Test : Down",
+          "JP|?",
+          "FR|?",
+          "JP|?",
+          "FR|?",
+          "ZZ|?",
+          "JP|?",
+          "DE|?",
+          "US|Test : Down",
+          "JP|?",
+          "FR|?"
+        ]
+      }
+    },
+    "mix-switch/switch-multi-key-case": {
+      "engine2": {
+        "lines": [
+          "ZZ|?",
+          "US|WEST",
+          "DE|?",
+          "FR|WEST",
+          "DE|?",
+          "FR|WEST",
+          "DE|?",
+          "US|WEST",
+          "ZZ|?",
+          "ZZ|?",
+          "US|WEST",
+          "DE|?",
+          "ZZ|?",
+          "JP|?",
+          "US|WEST",
+          "JP|?",
+          "FR|WEST",
+          "JP|?",
+          "FR|WEST",
+          "ZZ|?",
+          "JP|?",
+          "DE|?",
+          "US|WEST",
+          "JP|?",
+          "FR|WEST"
+        ]
+      },
+      "engine3": {
+        "lines": [
+          "ZZ|?",
+          "US|WEST",
+          "DE|?",
+          "FR|WEST",
+          "DE|?",
+          "FR|WEST",
+          "DE|?",
+          "US|WEST",
+          "ZZ|?",
+          "ZZ|?",
+          "US|WEST",
+          "DE|?",
+          "ZZ|?",
+          "JP|?",
+          "US|WEST",
+          "JP|?",
+          "FR|WEST",
+          "JP|?",
+          "FR|WEST",
+          "ZZ|?",
+          "JP|?",
+          "DE|?",
+          "US|WEST",
+          "JP|?",
+          "FR|WEST"
+        ]
+      }
+    },
+    "mix-switch/switch-case-with-generator": {
+      "engine2": {
+        "lines": [
+          "ZZ|X-030",
+          "US|USD",
+          "DE|?",
+          "FR|?",
+          "DE|?",
+          "FR|?",
+          "DE|?",
+          "US|USD",
+          "ZZ|X-125",
+          "ZZ|X-849",
+          "US|USD",
+          "DE|?",
+          "ZZ|X-706",
+          "JP|?",
+          "US|USD",
+          "JP|?",
+          "FR|?",
+          "JP|?",
+          "FR|?",
+          "ZZ|X-986",
+          "JP|?",
+          "DE|?",
+          "US|USD",
+          "JP|?",
+          "FR|?"
+        ]
+      },
+      "engine3": {
+        "lines": [
+          "ZZ|X-030",
+          "US|USD",
+          "DE|?",
+          "FR|?",
+          "DE|?",
+          "FR|?",
+          "DE|?",
+          "US|USD",
+          "ZZ|X-125",
+          "ZZ|X-849",
+          "US|USD",
+          "DE|?",
+          "ZZ|X-706",
+          "JP|?",
+          "US|USD",
+          "JP|?",
+          "FR|?",
+          "JP|?",
+          "FR|?",
+          "ZZ|X-986",
+          "JP|?",
+          "DE|?",
+          "US|USD",
+          "JP|?",
+          "FR|?"
+        ]
+      }
+    },
+    "ordering/sequential-text-loops": {
+      "engine2": {
+        "lines": ["Jan", "Feb", "Mar", "Jan", "Feb", "Mar", "Jan"]
+      },
+      "engine3": {
+        "lines": ["Jan", "Feb", "Mar", "Jan", "Feb", "Mar", "Jan"]
+      }
+    },
+    "ordering/sequential-exact-length": {
+      "engine2": {
+        "lines": ["Jan", "Feb", "Mar"]
+      },
+      "engine3": {
+        "lines": ["Jan", "Feb", "Mar"]
+      }
+    },
+    "ordering/sequential-takes-no-draws": {
+      "engine2": {
+        "lines": ["Jan 845", "Feb 908", "Mar 421", "Jan 573"]
+      },
+      "engine3": {
+        "lines": ["Jan 845", "Feb 908", "Mar 421", "Jan 573"]
+      }
+    },
+    "patterns/pattern-signal": {
+      "engine2": {
+        "lines": [
+          "0.00",
+          "2.86",
+          "5.71",
+          "8.57",
+          "8.57",
+          "5.71",
+          "2.86",
+          "0.00"
+        ]
+      },
+      "engine3": {
+        "lines": [
+          "0.00",
+          "2.86",
+          "5.71",
+          "8.57",
+          "8.57",
+          "5.71",
+          "2.86",
+          "0.00"
+        ]
+      }
+    },
+    "patterns/pattern-smooth": {
+      "engine2": {
+        "lines": [
+          "0.00",
+          "3.44",
+          "7.11",
+          "9.46",
+          "9.62",
+          "7.11",
+          "3.44",
+          "0.00"
+        ]
+      },
+      "engine3": {
+        "lines": [
+          "0.00",
+          "3.44",
+          "7.11",
+          "9.46",
+          "9.62",
+          "7.11",
+          "3.44",
+          "0.00"
+        ]
+      }
+    },
+    "patterns/pattern-step": {
+      "engine2": {
+        "lines": [
+          "0.00",
+          "0.00",
+          "0.00",
+          "2.50",
+          "10.00",
+          "10.00",
+          "10.00",
+          "10.00"
+        ]
+      },
+      "engine3": {
+        "lines": [
+          "0.00",
+          "0.00",
+          "0.00",
+          "2.50",
+          "10.00",
+          "10.00",
+          "10.00",
+          "10.00"
+        ]
+      }
+    },
+    "patterns/pattern-y-range": {
+      "engine2": {
+        "lines": [
+          "100.0",
+          "128.6",
+          "157.1",
+          "185.7",
+          "185.7",
+          "157.1",
+          "128.6",
+          "100.0"
+        ]
+      },
+      "engine3": {
+        "lines": [
+          "100.0",
+          "128.6",
+          "157.1",
+          "185.7",
+          "185.7",
+          "157.1",
+          "128.6",
+          "100.0"
+        ]
+      }
+    },
+    "patterns/pattern-spread": {
+      "engine2": {
+        "lines": [
+          "0.83",
+          "3.17",
+          "6.28",
+          "8.07",
+          "9.48",
+          "6.70",
+          "2.79",
+          "-0.18"
+        ]
+      },
+      "engine3": {
+        "lines": [
+          "0.83",
+          "3.17",
+          "6.28",
+          "8.07",
+          "9.48",
+          "6.70",
+          "2.79",
+          "-0.18"
+        ]
+      }
+    },
+    "patterns/pattern-corridor": {
+      "engine2": {
+        "lines": [
+          "91.6",
+          "65.9",
+          "78.1",
+          "25.0",
+          "95.6",
+          "99.4",
+          "46.7",
+          "41.2"
+        ]
+      },
+      "engine3": {
+        "lines": [
+          "91.6",
+          "65.9",
+          "78.1",
+          "25.0",
+          "95.6",
+          "99.4",
+          "46.7",
+          "41.2"
+        ]
+      }
+    },
+    "patterns/pattern-density": {
+      "engine2": {
+        "lines": [
+          "79.5",
+          "58.7",
+          "66.9",
+          "35.3",
+          "85.2",
+          "94.3",
+          "48.3",
+          "45.4"
+        ]
+      },
+      "engine3": {
+        "lines": [
+          "79.5",
+          "58.7",
+          "66.9",
+          "35.3",
+          "85.2",
+          "94.3",
+          "48.3",
+          "45.4"
+        ]
+      }
+    },
+    "patterns/pattern-averaged": {
+      "engine2": {
+        "lines": ["2.500", "4.000", "0.000"]
+      },
+      "engine3": {
+        "lines": ["2.500", "4.000", "0.000"]
+      }
+    },
+    "pool/a-pool-hands-a-whole-member-to-a-row": {
+      "engine2": {
+        "lines": ["y2", "y2", "z2", "x3", "z2", "x3"]
+      },
+      "engine3": {
+        "lines": ["y2", "y2", "z2", "x3", "z2", "x3"]
+      }
+    },
+    "pool/a-pool-is-drawn-from-a-derived-seed": {
+      "engine2": {
+        "lines": ["1,41", "2,65", "3,46", "4,22", "5,83"]
+      },
+      "engine3": {
+        "lines": ["1,41", "2,65", "3,46", "4,22", "5,83"]
+      }
+    },
+    "pool/a-pool-reference-filtered-by-a-column": {
+      "engine2": {
+        "lines": [
+          "S:Ss",
+          "S:Ss",
+          "S:St",
+          "S:Ss",
+          "N:Nr",
+          "N:Nr",
+          "N:Nq",
+          "N:Nq"
+        ]
+      },
+      "engine3": {
+        "lines": [
+          "S:Ss",
+          "S:Ss",
+          "S:St",
+          "S:Ss",
+          "N:Nr",
+          "N:Nr",
+          "N:Nq",
+          "N:Nq"
+        ]
+      }
+    },
+    "pool/a-pool-filter-is-an-expression-not-a-pair-of-names": {
+      "engine2": {
+        "lines": ["N7", "N7", "N1", "N7", "N6", "N3", "N6", "N7"]
+      },
+      "engine3": {
+        "lines": ["N7", "N7", "N1", "N7", "N6", "N3", "N6", "N7"]
+      }
+    },
+    "pool/uniq-inside-a-pool-makes-the-members-differ": {
+      "engine2": {
+        "lines": [
+          "y2",
+          "y1",
+          "y1",
+          "y1",
+          "y1",
+          "y1",
+          "x1",
+          "y1",
+          "x2",
+          "x2",
+          "x2",
+          "x2",
+          "x1",
+          "x2",
+          "x1",
+          "x1",
+          "y1",
+          "x2",
+          "y1",
+          "y1"
+        ]
+      },
+      "engine3": {
+        "lines": [
+          "y2",
+          "y1",
+          "y1",
+          "y1",
+          "y1",
+          "y1",
+          "x1",
+          "y1",
+          "x2",
+          "x2",
+          "x2",
+          "x2",
+          "x1",
+          "x2",
+          "x1",
+          "x1",
+          "y1",
+          "x2",
+          "y1",
+          "y1"
+        ]
+      }
+    },
+    "pool/a-pool-member-draws-from-another-pool": {
+      "engine2": {
+        "lines": ["ys2", "ys2", "zn2", "zn2", "zn2", "zn2"]
+      },
+      "engine3": {
+        "lines": ["ys2", "ys2", "zn2", "zn2", "zn2", "zn2"]
+      }
+    },
+    "running/a-running-total-down-a-column": {
+      "engine2": {
+        "refused": "a running total (\"Balance\") is the accumulation of every row before it, so it cannot be computed one row at a time; the in-memory engine handles it (run without a forced streaming engine)"
+      },
+      "engine3": {
+        "lines": [
+          "59 1059",
+          "365 1424",
+          "276 1700",
+          "-7 1693",
+          "-108 1585",
+          "444 2029"
+        ]
+      }
+    },
+    "running/a-running-total-that-restarts-per-group": {
+      "engine2": {
+        "refused": "a running total (\"Balance\") is the accumulation of every row before it, so it cannot be computed one row at a time; the in-memory engine handles it (run without a forced streaming engine)"
+      },
+      "engine3": {
+        "lines": [
+          "A 96.47 96.47",
+          "A 29.18 125.65",
+          "A 91.43 217.08",
+          "B 15.65 15.65",
+          "B 67.87 83.52",
+          "C 48.03 48.03",
+          "C 39.00 87.03",
+          "C 56.04 143.07",
+          "C 78.62 221.69"
+        ]
+      }
+    },
+    "running/a-running-maximum-down-a-column": {
+      "engine2": {
+        "refused": "a running total (\"Peak\") is the accumulation of every row before it, so it cannot be computed one row at a time; the in-memory engine handles it (run without a forced streaming engine)"
+      },
+      "engine3": {
+        "lines": ["33 33", "15 33", "78 78", "15 78", "79 79", "32 79"]
+      }
+    },
+    "statistics/distribution-normal": {
+      "engine2": {
+        "lines": ["179.38", "152.83", "170.71", "153.99", "165.24", "174.37"]
+      },
+      "engine3": {
+        "lines": ["179.38", "152.83", "170.71", "153.99", "165.24", "174.37"]
+      }
+    },
+    "statistics/distribution-lognormal": {
+      "engine2": {
+        "lines": ["56256", "3956", "23638", "4443", "13689", "34108"]
+      },
+      "engine3": {
+        "lines": ["56256", "3956", "23638", "4443", "13689", "34108"]
+      }
+    },
+    "statistics/distribution-exponential": {
+      "engine2": {
+        "lines": ["1.011", "3.011", "0.033", "3.016", "0.336", "0.543"]
+      },
+      "engine3": {
+        "lines": ["1.011", "3.011", "0.033", "3.016", "0.336", "0.543"]
+      }
+    },
+    "statistics/distribution-pareto": {
+      "engine2": {
+        "lines": ["185.2", "118.2", "1554.1", "118.2", "346.9", "260.4"]
+      },
+      "engine3": {
+        "lines": ["185.2", "118.2", "1554.1", "118.2", "346.9", "260.4"]
+      }
+    },
+    "statistics/distribution-weibull": {
+      "engine2": {
+        "lines": ["3.555", "6.135", "0.641", "6.140", "2.050", "2.606"]
+      },
+      "engine3": {
+        "lines": ["3.555", "6.135", "0.641", "6.140", "2.050", "2.606"]
+      }
+    },
+    "statistics/distribution-poisson": {
+      "engine2": {
+        "lines": ["4", "2", "9", "2", "6", "5"]
+      },
+      "engine3": {
+        "lines": ["4", "2", "9", "2", "6", "5"]
+      }
+    },
+    "statistics/distribution-zipf": {
+      "engine2": {
+        "lines": ["4", "1", "19", "1", "10", "7"]
+      },
+      "engine3": {
+        "lines": ["4", "1", "19", "1", "10", "7"]
+      }
+    },
+    "statistics/distribution-gamma": {
+      "engine2": {
+        "lines": ["6.1027", "2.6540", "18.2137", "2.6497", "9.9951", "8.2805"]
+      },
+      "engine3": {
+        "lines": ["6.1027", "2.6540", "18.2137", "2.6497", "9.9951", "8.2805"]
+      }
+    },
+    "statistics/distribution-beta": {
+      "engine2": {
+        "lines": [
+          "0.31095",
+          "0.14932",
+          "0.67299",
+          "0.14909",
+          "0.45724",
+          "0.39702"
+        ]
+      },
+      "engine3": {
+        "lines": [
+          "0.31095",
+          "0.14932",
+          "0.67299",
+          "0.14909",
+          "0.45724",
+          "0.39702"
+        ]
+      }
+    },
+    "statistics/distribution-clipped": {
+      "engine2": {
+        "lines": ["0.9", "-1.0", "0.1", "-1.0", "-0.5", "0.4"]
+      },
+      "engine3": {
+        "lines": ["0.9", "-1.0", "0.1", "-1.0", "-0.5", "0.4"]
+      }
+    },
+    "statistics/timeseries-trend": {
+      "engine2": {
+        "lines": ["100", "102", "104", "106", "108", "110"]
+      },
+      "engine3": {
+        "lines": ["100", "102", "104", "106", "108", "110"]
+      }
+    },
+    "statistics/timeseries-seasonal": {
+      "engine2": {
+        "lines": ["100.00", "110.50", "101.00", "91.50", "102.00", "112.50"]
+      },
+      "engine3": {
+        "lines": ["100.00", "110.50", "101.00", "91.50", "102.00", "112.50"]
+      }
+    },
+    "statistics/timeseries-noise": {
+      "engine2": {
+        "lines": ["47.025", "51.433", "52.662", "50.269", "45.629", "50.088"]
+      },
+      "engine3": {
+        "lines": ["47.025", "51.433", "52.662", "50.269", "45.629", "50.088"]
+      }
+    },
+    "statistics/missing-token": {
+      "engine2": {
+        "lines": ["a", "NULL", "a", "a", "a", "a"]
+      },
+      "engine3": {
+        "lines": ["a", "NULL", "a", "a", "a", "a"]
+      }
+    },
+    "statistics/anomaly-spike": {
+      "engine2": {
+        "lines": ["60", "2", "90", "2", "8", "7"]
+      },
+      "engine3": {
+        "lines": ["60", "2", "90", "2", "8", "7"]
+      }
+    },
+    "structure/if-on-data-drops-comma": {
+      "engine2": {
+        "lines": ["1,", "2,", "3,", "4"]
+      },
+      "engine3": {
+        "lines": ["1,", "2,", "3,", "4"]
+      }
+    },
+    "structure/if-on-line-drops-the-row": {
+      "engine2": {
+        "lines": ["61", "34", "56", "72", "34", "75", "44", "25", "51"]
+      },
+      "engine3": {
+        "lines": ["61", "34", "56", "72", "34", "75", "44", "25", "51"]
+      }
+    },
+    "structure/expression-precedence": {
+      "engine2": {
+        "lines": ["18*", "74", "60", "96", "90", "87", "18*", "35", "65", "63"]
+      },
+      "engine3": {
+        "lines": ["18*", "74", "60", "96", "90", "87", "18*", "35", "65", "63"]
+      }
+    },
+    "structure/dotted-value-test": {
+      "engine2": {
+        "lines": ["Male!", "Male!", "Female", "Female", "Male!", "Female"]
+      },
+      "engine3": {
+        "lines": ["Male!", "Male!", "Female", "Female", "Male!", "Female"]
+      }
+    },
+    "structure/parent-filter": {
+      "engine2": {
+        "lines": [
+          "Male,m,",
+          "Male,m,",
+          "Female,,f",
+          "Female,,f",
+          "Male,m,",
+          "Female,,f"
+        ]
+      },
+      "engine3": {
+        "lines": [
+          "Male,m,",
+          "Male,m,",
+          "Female,,f",
+          "Female,,f",
+          "Male,m,",
+          "Female,,f"
+        ]
+      }
+    },
+    "structure/compound-sequence": {
+      "engine2": {
+        "lines": ["9/76", "5/87", "2/54", "7/50"]
+      },
+      "engine3": {
+        "lines": ["9/76", "5/87", "2/54", "7/50"]
+      }
+    },
+    "structure/conditional-sequence": {
+      "engine2": {
+        "lines": [
+          "61,adult",
+          "34,adult",
+          "56,adult",
+          "72,senior",
+          "34,adult",
+          "75,senior",
+          "44,adult",
+          "25,adult"
+        ]
+      },
+      "engine3": {
+        "lines": [
+          "61,adult",
+          "34,adult",
+          "56,adult",
+          "72,senior",
+          "34,adult",
+          "75,senior",
+          "44,adult",
+          "25,adult"
+        ]
+      }
+    },
+    "structure/repeat-and-each": {
+      "engine2": {
+        "lines": [
+          "card 1: c;b;c",
+          "  1/1 c",
+          "  2/2 b",
+          "  3/3 c",
+          "card 2: ",
+          "card 3: b;a",
+          "  7/1 b",
+          "  8/2 a",
+          "card 4: a",
+          "  10/1 a"
+        ]
+      },
+      "engine3": {
+        "lines": [
+          "card 1: c;b;c",
+          "  1/1 c",
+          "  2/2 b",
+          "  3/3 c",
+          "card 2: ",
+          "card 3: b;a",
+          "  7/1 b",
+          "  8/2 a",
+          "card 4: a",
+          "  10/1 a"
+        ]
+      }
+    },
+    "structure/fixtures-nest": {
+      "engine2": {
+        "lines": [
+          "[",
+          "  {",
+          "    1",
+          "  }",
+          "  ,",
+          "  {",
+          "    2",
+          "  }",
+          "  ,",
+          "  {",
+          "    3",
+          "  }",
+          "]"
+        ]
+      },
+      "engine3": {
+        "lines": [
+          "[",
+          "  {",
+          "    1",
+          "  }",
+          "  ,",
+          "  {",
+          "    2",
+          "  }",
+          "  ,",
+          "  {",
+          "    3",
+          "  }",
+          "]"
+        ]
+      }
+    },
+    "structure/builtins": {
+      "engine2": {
+        "lines": [
+          "1/3 first=true last=false",
+          "2/3 first=false last=false",
+          "3/3 first=false last=true"
+        ]
+      },
+      "engine3": {
+        "lines": [
+          "1/3 first=true last=false",
+          "2/3 first=false last=false",
+          "3/3 first=false last=true"
+        ]
+      }
+    },
+    "structure/default-engine-is-disk-mode": {
+      "engine2": {
+        "lines": [
+          "Male:59",
+          "Female:51",
+          "Male:76",
+          "Male:42",
+          "Male:61",
+          "Male:31",
+          "Male:14",
+          "Female:16"
+        ]
+      },
+      "engine3": {
+        "lines": [
+          "Male:59",
+          "Female:51",
+          "Male:76",
+          "Male:42",
+          "Male:61",
+          "Male:31",
+          "Male:14",
+          "Female:16"
+        ]
+      }
+    },
+    "structure/dotted-version-is-accepted": {
+      "engine2": {
+        "lines": ["id=1", "id=2", "id=3"]
+      },
+      "engine3": {
+        "lines": ["id=1", "id=2", "id=3"]
+      }
+    },
+    "structure/template-address-named-by-another-column": {
+      "engine2": {
+        "refused": "stream mode: bare parent=\"Brand\" (use parent=\"Name.Value\") (\"Model\") is not supported yet — run without mode=\"stream\" (the in-memory engine handles it), or remove it."
+      },
+      "engine3": {
+        "lines": [
+          "Nissan Ariya",
+          "Hyundai Ioniq 6",
+          "Honda CR-V",
+          "Chevrolet Blazer",
+          "Toyota Supra",
+          "Ford Mustang"
+        ]
+      }
+    },
+    "structure/anomaly-flag-names-a-column": {
+      "engine2": {
+        "lines": [
+          "180 true",
+          "20 false",
+          "10 false",
+          "16 false",
+          "17 false",
+          "190 true",
+          "18 false",
+          "18 false"
+        ]
+      },
+      "engine3": {
+        "lines": [
+          "180 true",
+          "20 false",
+          "10 false",
+          "16 false",
+          "17 false",
+          "190 true",
+          "18 false",
+          "18 false"
+        ]
+      }
+    },
+    "structure/composed-sequence-joins-its-unnamed-gens": {
+      "engine2": {
+        "lines": ["b-31", "b-26", "a-67", "a-41", "a-13", "b-49"]
+      },
+      "engine3": {
+        "lines": ["b-31", "b-26", "a-67", "a-41", "a-13", "b-49"]
+      }
+    },
+    "structure/composed-sequence-keeps-named-gens-as-fields": {
+      "engine2": {
+        "lines": ["b-31|y", "b-26|x", "a-67|x", "a-41|x", "a-13|y", "b-49|y"]
+      },
+      "engine3": {
+        "lines": ["b-31|y", "b-26|x", "a-67|x", "a-41|x", "a-13|y", "b-49|y"]
+      }
+    },
+    "structure/named-data-is-a-constant-field": {
+      "engine2": {
+        "lines": [
+          "a/F/[${{V}}]",
+          "a/F/[${{V}}]",
+          "a/F/[${{V}}]",
+          "b/F/[${{V}}]",
+          "b/F/[${{V}}]"
+        ]
+      },
+      "engine3": {
+        "lines": [
+          "a/F/[${{V}}]",
+          "a/F/[${{V}}]",
+          "a/F/[${{V}}]",
+          "b/F/[${{V}}]",
+          "b/F/[${{V}}]"
+        ]
+      }
+    },
+    "structure/a-constant-field-costs-no-draw": {
+      "engine2": {
+        "lines": ["21|22|F", "84|82|F", "76|57|F", "92|35|F", "74|58|F"]
+      },
+      "engine3": {
+        "lines": ["21|22|F", "84|82|F", "76|57|F", "92|35|F", "74|58|F"]
+      }
+    },
+    "structure/composed-sequence-with-a-literal-at-each-end": {
+      "engine2": {
+        "lines": ["b-d!", "b-d!", "a-d!", "a-c!", "a-c!"]
+      },
+      "engine3": {
+        "lines": ["b-d!", "b-d!", "a-d!", "a-c!", "a-c!"]
+      }
+    },
+    "structure/composed-value-of-a-literals-only-body": {
+      "engine2": {
+        "lines": ["-LIT-|b", "-LIT-|a", "-LIT-|a", "-LIT-|a", "-LIT-|b"]
+      },
+      "engine3": {
+        "lines": ["-LIT-|b", "-LIT-|a", "-LIT-|a", "-LIT-|a", "-LIT-|b"]
+      }
+    },
+    "structure/a-literals-only-composed-value-still-obeys-its-parent": {
+      "engine2": {
+        "lines": [
+          "Male|[-LIT-]",
+          "Female|[]",
+          "Female|[]",
+          "Male|[-LIT-]",
+          "Female|[]",
+          "Male|[-LIT-]"
+        ]
+      },
+      "engine3": {
+        "lines": [
+          "Male|[-LIT-]",
+          "Female|[]",
+          "Female|[]",
+          "Male|[-LIT-]",
+          "Female|[]",
+          "Male|[-LIT-]"
+        ]
+      }
+    },
+    "uniq-distinct/distinct-pair": {
+      "engine2": {
+        "lines": [
+          "Y|X",
+          "Y|X",
+          "X|Y",
+          "Y|X",
+          "X|Y",
+          "Y|X",
+          "X|Y",
+          "Y|X",
+          "Y|X",
+          "X|Y",
+          "Y|X",
+          "Y|X",
+          "X|Y",
+          "Y|X",
+          "X|Y",
+          "X|Y",
+          "X|Y",
+          "Y|X",
+          "X|Y",
+          "X|Y",
+          "Y|X",
+          "Y|X",
+          "X|Y",
+          "Y|X",
+          "Y|X",
+          "Y|X",
+          "Y|X",
+          "Y|X",
+          "Y|X",
+          "X|Y",
+          "X|Y",
+          "Y|X",
+          "X|Y",
+          "X|Y",
+          "X|Y",
+          "X|Y",
+          "X|Y",
+          "X|Y",
+          "X|Y",
+          "Y|X"
+        ]
+      },
+      "engine3": {
+        "lines": [
+          "Y|X",
+          "Y|X",
+          "X|Y",
+          "Y|X",
+          "X|Y",
+          "Y|X",
+          "X|Y",
+          "Y|X",
+          "Y|X",
+          "X|Y",
+          "Y|X",
+          "Y|X",
+          "X|Y",
+          "Y|X",
+          "X|Y",
+          "X|Y",
+          "X|Y",
+          "Y|X",
+          "X|Y",
+          "X|Y",
+          "Y|X",
+          "Y|X",
+          "X|Y",
+          "Y|X",
+          "Y|X",
+          "Y|X",
+          "Y|X",
+          "Y|X",
+          "Y|X",
+          "X|Y",
+          "X|Y",
+          "Y|X",
+          "X|Y",
+          "X|Y",
+          "X|Y",
+          "X|Y",
+          "X|Y",
+          "X|Y",
+          "X|Y",
+          "Y|X"
+        ]
+      }
+    },
+    "uniq-distinct/distinct-two-groups": {
+      "engine2": {
+        "lines": [
+          "qp mn",
+          "pq mn",
+          "pq nm",
+          "qp nm",
+          "pq mn",
+          "pq mn",
+          "qp nm",
+          "qp nm",
+          "qp mn",
+          "pq mn",
+          "pq mn",
+          "pq mn",
+          "qp nm",
+          "qp nm",
+          "qp mn",
+          "pq nm",
+          "pq nm",
+          "pq nm",
+          "qp nm",
+          "pq nm",
+          "qp mn",
+          "pq mn",
+          "pq nm",
+          "qp mn",
+          "qp nm"
+        ]
+      },
+      "engine3": {
+        "lines": [
+          "qp mn",
+          "pq mn",
+          "pq nm",
+          "qp nm",
+          "pq mn",
+          "pq mn",
+          "qp nm",
+          "qp nm",
+          "qp mn",
+          "pq mn",
+          "pq mn",
+          "pq mn",
+          "qp nm",
+          "qp nm",
+          "qp mn",
+          "pq nm",
+          "pq nm",
+          "pq nm",
+          "qp nm",
+          "pq nm",
+          "qp mn",
+          "pq mn",
+          "pq nm",
+          "qp mn",
+          "qp nm"
+        ]
+      }
+    },
+    "uniq-distinct/distinct-leaves-outsiders-alone": {
+      "engine2": {
+        "lines": [
+          "XYX",
+          "XYY",
+          "YXX",
+          "XYX",
+          "YXY",
+          "XYY",
+          "YXY",
+          "YXX",
+          "XYX",
+          "YXY"
+        ]
+      },
+      "engine3": {
+        "lines": [
+          "XYX",
+          "XYY",
+          "YXX",
+          "XYX",
+          "YXY",
+          "XYY",
+          "YXY",
+          "YXX",
+          "XYX",
+          "YXY"
+        ]
+      }
+    },
+    "uniq-distinct/uniq-rearranges-a-tight-pool": {
+      "engine2": {
+        "lines": [
+          "a2-b5",
+          "a4-b5",
+          "a1-b5",
+          "a3-b1",
+          "a3-b2",
+          "a2-b1",
+          "a1-b4",
+          "a4-b6",
+          "a4-b1",
+          "a1-b8",
+          "a4-b8",
+          "a4-b2",
+          "a4-b4",
+          "a1-b2",
+          "a2-b3",
+          "a2-b8",
+          "a3-b7",
+          "a3-b8",
+          "a2-b2",
+          "a3-b6"
+        ]
+      },
+      "engine3": {
+        "lines": [
+          "a4-b1",
+          "a4-b4",
+          "a2-b1",
+          "a4-b6",
+          "a4-b7",
+          "a2-b3",
+          "a3-b1",
+          "a3-b2",
+          "a1-b2",
+          "a3-b4",
+          "a1-b3",
+          "a2-b4",
+          "a1-b5",
+          "a1-b7",
+          "a3-b5",
+          "a2-b6",
+          "a4-b8",
+          "a2-b7",
+          "a3-b6",
+          "a1-b8"
+        ]
+      }
+    },
+    "uniq-distinct/uniq-keeps-exact-shares": {
+      "engine2": {
+        "refused": "stream mode: uniq column \"K.a\" uses percent — streaming uniq gives UNIFORM distinct combinations only. Exact percentages + uniqueness together need the in-memory engine (run without mode=\"stream\"), or drop percent."
+      },
+      "engine3": {
+        "lines": [
+          "a2-b5",
+          "a2-b8",
+          "a2-b7",
+          "a2-b6",
+          "a1-b4",
+          "a2-b1",
+          "a1-b2",
+          "a2-b3"
+        ]
+      }
+    },
+    "uniq-distinct/env-uniq-across-sequences": {
+      "engine2": {
+        "lines": [
+          "a4-b4",
+          "a1-b5",
+          "a4-b5",
+          "a2-b1",
+          "a5-b3",
+          "a5-b6",
+          "a2-b2",
+          "a3-b3"
+        ]
+      },
+      "engine3": {
+        "lines": [
+          "a4-b4",
+          "a1-b5",
+          "a4-b5",
+          "a2-b1",
+          "a5-b3",
+          "a5-b6",
+          "a2-b2",
+          "a3-b3"
+        ]
+      }
+    },
+    "uniq-distinct/env-uniq-leaves-outsiders-alone": {
+      "engine2": {
+        "lines": ["yt|k2", "ys|k2", "wp|k1", "vt|k1", "zt|k1", "xp|k2"]
+      },
+      "engine3": {
+        "lines": ["yt|k2", "ys|k2", "wp|k1", "vt|k1", "zt|k1", "xp|k2"]
+      }
+    },
+    "uniq-distinct/env-distinct-across-sequences": {
+      "engine2": {
+        "lines": [
+          "Paris -> Lyon",
+          "Lyon -> Rome",
+          "Rome -> Paris",
+          "Lyon -> Paris",
+          "Paris -> Rome",
+          "Rome -> Paris",
+          "Lyon -> Rome",
+          "Lyon -> Rome",
+          "Rome -> Lyon",
+          "Paris -> Rome"
+        ]
+      },
+      "engine3": {
+        "lines": [
+          "Paris -> Lyon",
+          "Lyon -> Rome",
+          "Rome -> Paris",
+          "Lyon -> Paris",
+          "Paris -> Rome",
+          "Rome -> Paris",
+          "Lyon -> Rome",
+          "Lyon -> Rome",
+          "Rome -> Lyon",
+          "Paris -> Rome"
+        ]
+      }
+    },
+    "uniq-distinct/env-distinct-three-members": {
+      "engine2": {
+        "lines": ["243", "341", "124", "134", "421", "412", "231", "321"]
+      },
+      "engine3": {
+        "lines": ["243", "341", "124", "134", "421", "412", "231", "321"]
+      }
+    },
+    "uniq-distinct/uniq-simple-list": {
+      "engine2": {
+        "refused": "stream mode: uniq on a simple sequence (a whole-column draw) (\"G\") is not supported yet — run without mode=\"stream\" (the in-memory engine handles it), or remove it."
+      },
+      "engine3": {
+        "lines": ["c", "a", "d", "e", "b"]
+      }
+    },
+    "uniq-distinct/uniq-simple-int-range": {
+      "engine2": {
+        "refused": "stream mode: uniq on a simple sequence (a whole-column draw) (\"G\") is not supported yet — run without mode=\"stream\" (the in-memory engine handles it), or remove it."
+      },
+      "engine3": {
+        "lines": [
+          "19",
+          "9",
+          "30",
+          "8",
+          "4",
+          "33",
+          "6",
+          "34",
+          "25",
+          "11",
+          "3",
+          "10"
+        ]
+      }
+    },
+    "uniq-distinct/uniq-simple-weighted-pack": {
+      "engine2": {
+        "refused": "stream mode: uniq on a simple sequence (a whole-column draw) (\"G\") is not supported yet — run without mode=\"stream\" (the in-memory engine handles it), or remove it."
+      },
+      "engine3": {
+        "lines": [
+          "Alexander",
+          "Thomas",
+          "Dennis",
+          "Gavin",
+          "Richard",
+          "Robert",
+          "Andre",
+          "David",
+          "Tim",
+          "Craig"
+        ]
+      }
+    },
+    "uniq-distinct/uniq-group-with-a-mix-member": {
+      "engine2": {
+        "refused": "stream mode: <uniq> member \"K\" (must be a simple text sequence) (\"K\") is not supported yet — run without mode=\"stream\" (the in-memory engine handles it), or remove it."
+      },
+      "engine3": {
+        "lines": ["B2", "A2", "A4", "B4"]
+      }
+    },
+    "uniq-distinct/uniq-group-with-a-switch-member": {
+      "engine2": {
+        "refused": "stream mode: <uniq> member \"N\" (must be a simple text sequence) (\"N\") is not supported yet — run without mode=\"stream\" (the in-memory engine handles it), or remove it."
+      },
+      "engine3": {
+        "lines": ["F-cat-3", "M-bob-3", "F-dot-3", "F-dot-4"]
+      }
+    }
+  }
+}

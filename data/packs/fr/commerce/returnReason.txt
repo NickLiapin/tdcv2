@@ -1,0 +1,19 @@
+---
+description: Product return reason (French)
+locale: fr
+---
+Arrivé endommagé
+Article incorrect
+Ne correspond pas à la description
+Mauvaise taille
+J'ai changé d'avis
+Produit défectueux
+Meilleur prix ailleurs
+Livraison trop lente
+Article manquant
+Qualité insuffisante
+Reçu en double
+Colis incomplet
+Ne fonctionne pas
+Couleur différente
+Commande passée par erreur

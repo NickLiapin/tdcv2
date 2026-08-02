@@ -1,0 +1,19 @@
+---
+address: uae.sport.team
+description: UAE Pro League football clubs (Arabic)
+locale: ar
+---
+العين
+الجزيرة
+الوصل
+شباب الأهلي
+الشارقة
+النصر
+الوحدة
+بني ياس
+الظفرة
+خورفكان
+عجمان
+الاتحاد كلباء
+دبا الحصن
+البطائح

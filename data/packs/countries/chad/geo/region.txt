@@ -1,0 +1,28 @@
+---
+address: chad.geo.region
+description: Provinces of Chad
+locale: fr
+---
+N'Djaména
+Logone Occidental
+Logone Oriental
+Mayo-Kebbi Est
+Mayo-Kebbi Ouest
+Tandjilé
+Moyen-Chari
+Mandoul
+Chari-Baguirmi
+Hadjer-Lamis
+Ouaddaï
+Wadi Fira
+Kanem
+Lac
+Batha
+Guéra
+Salamat
+Borkou
+Ennedi-Est
+Ennedi-Ouest
+Tibesti
+Sila
+Barh-El-Gazel

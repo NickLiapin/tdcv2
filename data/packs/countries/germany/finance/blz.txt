@@ -1,0 +1,7 @@
+---
+address: germany.finance.blz
+description: German bank sort code (Bankleitzahl) — eight digits, where the first two identify the clearing region. Structure only; not restricted to codes actually issued by the Bundesbank.
+generator: tdc
+locale: de
+---
+<gen type="regex" value="[1-8][0-9]{7}"/>

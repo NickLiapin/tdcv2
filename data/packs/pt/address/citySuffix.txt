@@ -1,0 +1,41 @@
+---
+description: Trailing qualifier of a Portuguese place name (Ponte de Lima, Montemor-o-Novo, Vila Franca de Xira)
+locale: pt
+---
+da Fronteira
+do Mar
+do Rio
+do Vale
+da Serra
+das Neves
+da Costa
+do Campo
+do Monte
+de Cima
+de Baixo
+do Norte
+do Sul
+do Leste
+do Oeste
+da Veiga
+da Planície
+do Porto
+da Cruz
+da Conceição
+dos Reis
+da Paz
+do Rosário
+do Carmo
+da Guia
+a Nova
+o Velho
+a Velha
+Novo
+Nova
+Alto
+Alta
+Baixo
+Baixa
+Grande
+Pequeno
+Pequena

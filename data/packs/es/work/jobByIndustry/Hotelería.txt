@@ -1,0 +1,11 @@
+---
+description: Jobs in Hospitality (Spanish)
+locale: es
+---
+Chef
+Gerente de hotel
+Barman
+Conserje
+Subchef
+Coordinador de eventos
+Mesero

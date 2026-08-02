@@ -1,0 +1,18 @@
+---
+description: Parcel carrier operating across the Arab world (Arabic)
+locale: ar
+---
+أرامكس
+دي إتش إل
+فيديكس
+يو بي إس
+سمسا
+البريد السعودي
+البريد المصري
+زاجل
+ناقل
+فلكس
+بوسطة
+إمبوست
+أجيليتي
+ناقل إكسبريس

@@ -1,0 +1,10 @@
+---
+description: French full male name — a single given name and a single surname (Julien Moreau). French names carry one surname, unlike the two-surname Spanish form.
+generator: tdc
+locale: fr
+---
+<sequence name="p">
+  <gen name="f" type="template" value="fr.person.male.firstName"/>
+  <gen name="l" type="template" value="fr.person.lastName"/>
+</sequence>
+<data>${{p.f}} ${{p.l}}</data>

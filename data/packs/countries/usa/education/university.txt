@@ -1,0 +1,38 @@
+---
+description: US university
+---
+Harvard University
+Stanford University
+Massachusetts Institute of Technology
+Yale University
+Princeton University
+Columbia University
+University of Chicago
+University of Pennsylvania
+California Institute of Technology
+Duke University
+Johns Hopkins University
+Northwestern University
+Cornell University
+Brown University
+University of California, Berkeley
+University of California, Los Angeles
+University of Michigan
+New York University
+University of Texas at Austin
+Georgia Institute of Technology
+Carnegie Mellon University
+University of Washington
+University of Wisconsin-Madison
+University of Illinois Urbana-Champaign
+Ohio State University
+Pennsylvania State University
+University of Florida
+Arizona State University
+University of Southern California
+Boston University
+Purdue University
+University of North Carolina at Chapel Hill
+University of Virginia
+Michigan State University
+Texas A&M University

@@ -1,0 +1,361 @@
+---
+title: Anomalías y valores atípicos
+sidebar_position: 8
+---
+
+import Figure from '@site/src/components/Figure';
+import Legend from '@site/src/components/Legend';
+
+import Terminal from '@site/src/components/Terminal';
+
+# Anomalías y valores atípicos — `anomaly`
+
+**Se usa cuando** está armando datos de prueba para un detector de anomalías, una
+alerta de monitoreo o un modelo robusto frente a valores atípicos — cualquier cosa que
+tenga que notar valores muy lejos del rango normal. Los datos reales siempre traen
+algunos: un sensor trabado, un dedo que se resbaló al capturar, una transacción
+sospechosa. El atributo `anomaly` inyecta esos picos **a propósito**, con la frecuencia
+que usted elija, para que su pipeline tenga algo anormal a lo cual reaccionar.
+
+Hay dos rutas, y esta página cubre las dos:
+
+| Ruta | El valor atípico se ve como | Columna de verdad de referencia |
+| :--- | :-------------------------- | :------------------------------ |
+| `anomaly="p"` en un [`<gen>`](../generators/overview.mdx) que produce números | el valor base **× un factor** | `anomaly_flag="Name"` |
+| `anomaly="true"` en un `<case>` dentro de un [`<mix>`](../reference/tags.mdx) | lo que sea que genere esa rama | `flag="Name"` |
+
+Use la primera cuando un número «demasiado grande» ya es un buen valor atípico. Use la
+segunda cuando el valor atípico necesita su propia forma — otro rango, un string
+basura, un evento raro pero legítimo.
+
+:::note[Las salidas de ejemplo son ilustrativas]
+Los números de abajo son los que produce una corrida típica. Las extracciones exactas
+pueden cambiar según la versión del core y el `seed`; lo que queda fijo es la
+**estructura**: qué filas tienen pico lo decide el número de fila, así que la columna
+de verdad de referencia siempre concuerda con el valor.
+:::
+
+<Figure
+  src="/img/guides/anomalies-missing.svg"
+  alt=""
+  caption="El mismo generador, 80 filas, con cada modificador encendido por turnos."
+/>
+
+<Legend items={[["A", "la serie limpia"], ["B", "con anomaly= — los puntos marcados son los valores atípicos inyectados"], ["C", "con missing= — las marcas de abajo son filas que no produjeron ningún valor"]]} />
+
+## Cómo activarlo
+
+Ponga `anomaly="p"` en un generador que produzca números, donde `p` es la fracción de valores (de 0
+a 1) que se vuelven atípicos. El tamaño de cada pico lo da `anomaly_factor` (por
+omisión `10`):
+
+```xml
+<gen type="number" distribution="normal" mean="50" sd="3" anomaly="0.15" anomaly_factor="8"/>
+```
+
+Cerca del 15% de los valores se multiplican por 8 — las lecturas normales quedan cerca
+de `50` y los valores atípicos aterrizan cerca de `400`. Un valor atípico es
+exactamente el valor base **multiplicado** por el factor. Funciona **solo con
+números**; los valores no numéricos pasan intactos (vea [Detalles](#detalles)).
+
+## Antes y después — la misma serie, con y sin picos
+
+**Problema.** Si solo muestra la columna sucia, no puede distinguir un pico de un valor
+genuinamente grande — ¿`460` es una falla o nada más una lectura alta? Necesita una
+referencia limpia justo al lado.
+
+**Herramienta.** Tome una lista de lecturas con
+[`order="sequential"`](masks-and-case.mdx) (estrictamente en orden) y arme **dos**
+columnas a partir de ella: `Clean` tal cual, y `Dirty` — la misma serie con `anomaly`.
+Fila por fila el valor base coincide, así que cada pico salta a la vista: es el mismo
+número, por el factor.
+
+```xml
+<env count="12" seed="demo">
+  <sequence name="Clean"><gen type="text" value="48,50,46,52,49,51,47,53,50,48,52,49" order="sequential"/></sequence>
+  <sequence name="Dirty"><gen type="text" value="48,50,46,52,49,51,47,53,50,48,52,49" order="sequential" anomaly="0.3" anomaly_factor="10"/></sequence>
+</env>
+...
+<data>clean=${{Clean}} | dirty=${{Dirty}}</data>
+```
+
+<Terminal title="./run readings.tdc (12 filas)">
+{`clean=48 | dirty=48
+clean=50 | dirty=50
+clean=46 | dirty=460
+clean=52 | dirty=52
+clean=49 | dirty=49
+clean=51 | dirty=510
+clean=47 | dirty=47
+clean=53 | dirty=53
+clean=50 | dirty=50
+clean=48 | dirty=480
+clean=52 | dirty=52
+clean=49 | dirty=49`}
+</Terminal>
+
+Tres filas se dispararon: `46 → 460`, `51 → 510`, `48 → 480` — exactamente ×10. No hace
+falta ninguna anotación de «← atípico»: la referencia está a la izquierda, el pico a la
+derecha, y la diferencia habla sola. En 12 filas con `anomaly="0.3"` nos tocaron 3 picos
+(la tasa es aleatoria, y en una muestra chica la dispersión es amplia).
+
+**Por qué/cuándo.** Esta comparación lado a lado es la forma más rápida de comprobar que
+`anomaly` hace lo que usted cree, antes de escalar a un dataset real.
+
+## Qué tan alto es el pico — `anomaly_factor`
+
+**Problema.** Un valor atípico «suave» (un poco arriba de lo normal) y uno «duro»
+(varias veces mayor) los atrapan umbrales distintos. Necesita poder graduar la altura
+del pico.
+
+**Herramienta.** Cambie solo `anomaly_factor` y deje todo lo demás igual — la misma
+secuencia, el mismo `seed`, el mismo `anomaly="0.25"`. Con el seed, el nombre y la tasa
+fijos, **las mismas filas hacen pico** siempre; lo único que cambia es su altura.
+
+```xml
+<gen type="text" value="48,50,46,52,49,51,47,53,50,48,52,49"
+     order="sequential" anomaly="0.25" anomaly_factor="5"/>   <!-- luego 10, luego 20 -->
+```
+
+`anomaly_factor="5"` → `"10"` → `"20"`, las mismas 12 filas en cada caso:
+
+<Terminal title="./run factor.tdc (12 filas, tres factores)">
+{`factor=5    factor=10    factor=20
+240         480          960
+50          50           50
+230         460          920
+52          52           52
+49          49           49
+51          51           51
+235         470          940
+265         530          1060
+50          50           50
+48          48           48
+52          52           52
+245         490          980`}
+</Terminal>
+
+La base de la fila 8 es `53`: `53×5=265`, `53×10=530`, `53×20=1060`. Las filas atípicas
+(1, 3, 7, 8, 12) son idénticas en las tres columnas — `anomaly_factor` controla solo la
+**altura**, nunca **cuáles** filas hacen pico. (Qué filas hacen pico depende del `seed`
+y del **nombre** de la secuencia: si le cambia el nombre, los picos se mueven.)
+
+**Por qué/cuándo.** Barra el factor para encontrar dónde empieza y dónde deja de
+dispararse el umbral de su detector, sin perturbar nada más.
+
+## Cuántos picos — la tasa `anomaly`
+
+**Problema.** Una falla rara (una en cien) y el ruido constante necesitan umbrales
+distintos. El valor de `anomaly` es justamente lo que fija cada cuánto ocurre un pico.
+
+**Herramienta.** Fije el valor base en `50` para que un pico (`500`) se vea de un
+vistazo. Columna izquierda con `anomaly="0.1"`, columna derecha con `anomaly="0.5"`, 20
+filas:
+
+```xml
+<env count="20" seed="demo">
+  <sequence name="Low"> <gen type="text" value="50" order="sequential" anomaly="0.1" anomaly_factor="10"/></sequence>
+  <sequence name="High"><gen type="text" value="50" order="sequential" anomaly="0.5" anomaly_factor="10"/></sequence>
+</env>
+...
+<data>rate 0.1: ${{Low}}   rate 0.5: ${{High}}</data>
+```
+
+<Terminal title="./run rate.tdc (20 filas)">
+{`rate 0.1:  50   rate 0.5:  50
+rate 0.1:  50   rate 0.5:  50
+rate 0.1:  50   rate 0.5: 500
+rate 0.1:  50   rate 0.5: 500
+rate 0.1:  50   rate 0.5: 500
+rate 0.1:  50   rate 0.5:  50
+rate 0.1:  50   rate 0.5: 500
+rate 0.1:  50   rate 0.5: 500
+rate 0.1:  50   rate 0.5: 500
+rate 0.1:  50   rate 0.5: 500
+rate 0.1:  50   rate 0.5: 500
+rate 0.1:  50   rate 0.5:  50
+rate 0.1:  50   rate 0.5: 500
+rate 0.1: 500   rate 0.5:  50
+rate 0.1:  50   rate 0.5: 500
+rate 0.1:  50   rate 0.5:  50
+rate 0.1:  50   rate 0.5:  50
+rate 0.1:  50   rate 0.5:  50
+rate 0.1:  50   rate 0.5:  50
+rate 0.1:  50   rate 0.5: 500`}
+</Terminal>
+
+La columna izquierda hizo pico una vez de 20; la derecha, 11 veces — a mayor tasa,
+valores atípicos más densos. `anomaly` **se combina con cualquier cosa**: un rango, una
+[distribución](../generators/number.mdx) o [`missing`](../generators/overview.mdx).
+
+**Por qué/cuándo.** Ajuste la tasa al fenómeno que está modelando — un defecto raro en
+`0.01`, un sensor descompuesto y parlanchín en `0.4`.
+
+## La columna de verdad de referencia — `anomaly_flag`
+
+**Problema.** Los valores atípicos ya están inyectados, pero para **calificar a un
+detector** hace falta la respuesta correcta: exactamente cuáles filas son anómalas.
+Viendo solo los números, un pico por falla es indistinguible de una lectura
+legítimamente alta.
+
+**Herramienta.** Agregue `anomaly_flag="Name"` junto a `anomaly` y TDC crea una **nueva
+columna** — una secuencia llamada `Name` con `true`/`false`, en `true` precisamente en
+las filas que hicieron pico:
+
+```xml
+<gen type="number" distribution="normal" mean="50" sd="3"
+     anomaly="0.2" anomaly_factor="8" anomaly_flag="IsOutlier"/>
+...
+<data>${{Reading}},${{IsOutlier}}</data>
+```
+
+<Terminal title="./run labeled.tdc">
+{`360,true
+48,false
+49,false
+51,false
+52,false
+52,false
+47,false
+49,false`}
+</Terminal>
+
+`360` (≈ 45 × 8) queda marcado como `true`; las lecturas ordinarias quedan en `false`.
+La bandera se calcula a partir de **la misma** decisión que produjo el pico, así que las
+dos nunca pueden contradecirse — y esto se cumple en todos los motores, con cualquier
+volumen.
+
+**La bandera es una columna común y corriente**, así que puede filtrar por ella con
+[`if`](../core-concepts/output-formatting.mdx). Quédese solo con los valores atípicos
+usando `if="IsOutlier"` (lee la veracidad de la fila, igual que los integrados
+`_first`/`_last`):
+
+```xml
+<block><line if="IsOutlier"><data>outlier: ${{Reading}}</data></line></block>
+```
+
+<Terminal title="./run outliers-only.tdc (20 lecturas)">
+{`outlier: 360
+outlier: 392
+outlier: 400`}
+</Terminal>
+
+De 20 lecturas, 3 salieron como anomalías — un dataset etiquetado listo para medir la
+precisión y el recall de un detector.
+
+**Por qué/cuándo.** Cada vez que necesite *medir* un detector, no solo alimentarlo. Note
+que `anomaly_flag` sin `anomaly` es un error: no hay nada que marcar.
+
+## Un valor atípico a la medida — `flag` en un `<mix>`
+
+**Problema.** `anomaly="p"` solo sabe multiplicar. A veces el valor atípico tiene que
+verse distinto — su propio rango, su propio texto, un evento raro pero legítimo — y aun
+así usted quiere una columna de respuesta honesta que diga cuáles filas son las raras.
+
+**Herramienta.** Describa el valor atípico como su propia rama de un
+[`<mix>`](../reference/tags.mdx), marque ese [`<case>`](../reference/tags.mdx) con
+`anomaly="true"` y pídale al mix una columna de respuesta con
+[`flag="Name"`](../reference/attributes.mdx). Aquí las temperaturas normalmente andan en
+`20–24`, pero una cuarta parte de las veces un sensor trabado marca `90–99`:
+
+```xml
+<env count="12" seed="sensor-2026">
+  <sequence name="Id"><gen type="increment" value="1"/></sequence>
+  <mix name="Temp" percent="75,25" flag="Bad">
+    <case><gen type="number" value="20..24"/></case>
+    <case anomaly="true"><gen type="number" value="90..99"/></case>
+  </mix>
+</env>
+<block>
+  <line><data>${{Id}},${{Temp}},${{Bad}}</data></line>
+</block>
+```
+
+Las columnas son `id`, `temp`, `bad`:
+
+<Terminal title="./run sensor.tdc (12 filas)">
+{`1,23,false
+2,21,false
+3,22,false
+4,21,false
+5,24,false
+6,23,false
+7,21,false
+8,92,true
+9,20,false
+10,97,true
+11,21,false
+12,98,true`}
+</Terminal>
+
+Tres de doce filas — exactamente el 25% que pidió [`percent`](../generators/text.mdx) —
+y `bad` está en `true` en todas ellas. La etiqueta viene de **la misma elección** que
+escogió la rama, así que no puede desviarse del valor.
+
+**Por qué/cuándo.** `anomaly="true"` en un `<case>` es **solo una etiqueta**: no inyecta
+nada y no cambia nada; el valor atípico lo produce enteramente el generador de la rama
+(`<gen type="number" value="90..99"/>`). Eso significa que usted controla con exactitud
+cómo se ve el valor atípico — a diferencia de `anomaly="p"`, que solo puede escalar un
+número.
+
+### Las dos mitades solo funcionan juntas
+
+TDC verifica que la etiqueta y la columna estén ambas presentes:
+
+| Lo que escribió | Lo que dice TDC |
+| :-------------- | :-------------- |
+| `anomaly="true"`, pero el `<mix>` no tiene `flag=` | error `TDC203` — la etiqueta no tiene a dónde ir |
+| `flag=`, pero ningún `<case>` está marcado | advertencia `TDC202` — la columna queda toda en `false` |
+| `flag=` en un `<mix>` **anidado** | error `TDC203` — solo un mix con nombre es dueño de la columna |
+
+### En Parquet — un tipo de verdad
+
+Cuando exporta a Parquet, la columna de respuesta se vuelve un `BOOLEAN` genuino y los
+valores conservan su tipo numérico, sin un solo `type=` de por medio:
+
+<Terminal title="./run sensor.tdc --format parquet (esquema)">
+{`id     INT64    REQUIRED
+temp   INT64    REQUIRED
+bad    BOOLEAN  REQUIRED`}
+</Terminal>
+
+El tipo del valor se infiere solo cuando **todas** las ramas coinciden (aquí las dos son
+números). Si una rama regresa un número y otra una palabra, la columna se queda como
+texto: TDC nunca adivina un tipo del que no está seguro. Vea **[Formatos de
+salida](output-formats.mdx)**.
+
+### Más maneras de usarlo
+
+- **Calificar un limpiador de datos.** Marque una rama que emita basura — una dirección
+  malformada, un teléfono vacío — y vea cuántas filas marcadas elimina realmente el
+  limpiador.
+- **Varios tipos de defecto.** Puede marcar más de una rama; `flag` se pone en `true` en
+  todos los casos marcados a la vez.
+- **Marcar un «evento raro».** La marca no tiene que significar *descompuesto*: puede
+  señalar un caso raro pero perfectamente legítimo que su modelo igual debería aprender
+  a atrapar.
+
+## Detalles
+
+- **Determinista.** El mismo `seed` da los mismos valores atípicos, en las mismas filas.
+  Vea [Determinismo y proporciones](../core-concepts/determinism.mdx).
+- **Cualquier motor, cualquier volumen.** Los valores atípicos se deciden por número de
+  fila, así que las corridas en memoria y en disco coinciden exactamente.
+- **Solo números, y decide el valor — no el `type=`.** En los ejemplos de arriba la
+  lista está escrita como `type="text"`, pero los valores *son* números, así que
+  `anomaly` los multiplica. Póngalo en una columna de nombres y los valores pasan sin
+  cambios, y además **en silencio**: `tdcv2 check` no dice nada, porque una lista de
+  texto bien puede contener números y TDC no sabe qué quiso usted. Si una columna que
+  debería tener picos sale limpia, esto es lo primero que hay que mirar.
+- **`anomaly="0"`** significa que no hay valores atípicos.
+
+## Vea también
+
+- **[Generador number](../generators/number.mdx)** — rangos y distribuciones a los
+  cuales enganchar `anomaly`.
+- **[Panorama de generadores](../generators/overview.mdx)** — `missing=` y `anomaly=`
+  lado a lado, ambos aplicados después de producir el valor.
+- **[Referencia de etiquetas](../reference/tags.mdx)** — `<mix>` y `<case>`, la
+  ramificación sobre la que se apoya la ruta del valor atípico a la medida.
+- **[Salida y formato](../core-concepts/output-formatting.mdx)** — la expresión `if` que
+  filtra por una columna de verdad de referencia.

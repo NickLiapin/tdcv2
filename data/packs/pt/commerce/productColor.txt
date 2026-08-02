@@ -1,0 +1,58 @@
+---
+description: Colour as written on a Portuguese product listing (masculine singular, noun-modifier forms kept invariable)
+locale: pt
+---
+Preto
+Branco
+Cinza
+Cinza grafite
+Cinza perolado
+Prata
+Dourado
+Bronze
+Cobre
+Vermelho
+Vermelho bordô
+Grená
+Vinho
+Coral
+Rosa
+Rosa claro
+Fúcsia
+Magenta
+Laranja
+Terracota
+Salmão
+Amarelo
+Mostarda
+Ouro velho
+Verde
+Verde oliva
+Verde menta
+Verde esmeralda
+Verde militar
+Turquesa
+Azul
+Azul marinho
+Azul celeste
+Azul petróleo
+Azul bebê
+Índigo
+Roxo
+Violeta
+Lilás
+Lavanda
+Marrom
+Chocolate
+Camel
+Bege
+Creme
+Marfim
+Areia
+Taupe
+Antracite
+Transparente
+Multicolorido
+Estampado
+Bicolor
+Natural

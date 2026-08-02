@@ -1,0 +1,19 @@
+---
+description: Jobs in Finance (Italian)
+locale: it
+---
+Analista finanziario
+Commercialista
+Banchiere d'investimento
+Revisore contabile
+Attuario
+Analista del credito
+Consulente fiscale
+Gestore di portafoglio
+Impiegato di banca
+Consulente finanziario
+Responsabile dei rischi
+Operatore di borsa
+Analista antiriciclaggio
+Direttore di filiale
+Tesoriere

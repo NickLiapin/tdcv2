@@ -1,0 +1,22 @@
+---
+description: Employee benefit (Polish)
+locale: pl
+---
+Prywatna opieka medyczna
+Ubezpieczenie stomatologiczne
+Pakiet okulistyczny
+Pracowniczy plan kapitałowy
+Płatny urlop
+Praca zdalna
+Elastyczny czas pracy
+Opcje na akcje
+Ubezpieczenie na życie
+Urlop rodzicielski
+Karta sportowa
+Dofinansowanie studiów
+Dofinansowanie dojazdów
+Program wellbeingowy
+Karta lunchowa
+Premia roczna
+Dni wolne na żądanie
+Szkolenia zawodowe

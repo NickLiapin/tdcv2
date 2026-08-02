@@ -1,0 +1,14 @@
+---
+description: Shipping carrier
+locale: en
+---
+FedEx
+UPS
+USPS
+DHL
+Amazon Logistics
+OnTrac
+Canada Post
+Royal Mail
+TNT
+Aramex

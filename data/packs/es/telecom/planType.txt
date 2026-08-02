@@ -1,0 +1,16 @@
+---
+description: Mobile plan type (Spanish)
+locale: es
+---
+Prepago
+Pospago
+Ilimitado
+Plan familiar
+Plan empresarial
+Pago por uso
+Solo datos
+Plan compartido
+Tarifa plana
+Plan de control
+Plan combinado
+Recarga

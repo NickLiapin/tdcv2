@@ -1,0 +1,14 @@
+---
+description: Payment status (French)
+locale: fr
+---
+En attente
+Autorisé
+Payé
+Refusé
+Remboursé
+Partiellement remboursé
+En litige
+Expiré
+Annulé
+En cours de vérification

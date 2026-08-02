@@ -1,0 +1,16 @@
+---
+description: Models of Kia
+locale: en
+---
+Forte
+K5
+Sportage
+Sorento
+Soul
+Telluride
+Seltos
+Carnival
+Rio
+Niro
+EV6
+Stinger

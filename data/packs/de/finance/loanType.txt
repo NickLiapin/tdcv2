@@ -1,0 +1,14 @@
+---
+description: Loan type (German)
+locale: de
+---
+Baufinanzierung
+Autokredit
+Privatkredit
+Studienkredit
+Hypothekendarlehen
+Unternehmenskredit
+Kreditlinie
+Umschuldungskredit
+Pfandkredit
+Mikrokredit

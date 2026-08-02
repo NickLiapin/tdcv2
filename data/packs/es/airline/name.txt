@@ -1,0 +1,54 @@
+---
+description: Airline (carriers of the Spanish-speaking world and major international ones)
+locale: es
+---
+Iberia
+Iberia Express
+Air Europa
+Vueling
+Volotea
+Air Nostrum
+Binter Canarias
+Plus Ultra Líneas Aéreas
+Aeroméxico
+Volaris
+VivaAerobus
+Avianca
+LATAM Airlines
+Copa Airlines
+Aerolíneas Argentinas
+Flybondi
+JetSMART
+Sky Airline
+Wingo
+Satena
+Arajet
+Boliviana de Aviación
+Amaszonas
+Paranair
+Conviasa
+LASER Airlines
+Estelar Latinoamérica
+Cubana de Aviación
+TAG Airlines
+American Airlines
+United Airlines
+Delta Air Lines
+JetBlue Airways
+Southwest Airlines
+Air Canada
+British Airways
+Lufthansa
+Air France
+KLM
+Swiss International Air Lines
+TAP Air Portugal
+ITA Airways
+Turkish Airlines
+Emirates
+Qatar Airways
+Etihad Airways
+Singapore Airlines
+Qantas
+Ethiopian Airlines
+Royal Air Maroc

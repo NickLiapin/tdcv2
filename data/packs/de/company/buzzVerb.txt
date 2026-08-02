@@ -1,0 +1,59 @@
+---
+description: Business buzz verb (German, infinitive)
+locale: de
+---
+hebeln
+optimieren
+verschlanken
+orchestrieren
+befähigen
+ermöglichen
+skalieren
+transformieren
+disruptieren
+innovieren
+iterieren
+integrieren
+ausrollen
+nutzen
+erschließen
+beschleunigen
+verstärken
+gestalten
+benchmarken
+kultivieren
+vorantreiben
+weiterentwickeln
+erleichtern
+generieren
+anreizen
+monetarisieren
+operationalisieren
+neu definieren
+neu denken
+revolutionieren
+anführen
+standardisieren
+migrieren
+vereinheitlichen
+maximieren
+minimieren
+konsolidieren
+synergieren
+digitalisieren
+automatisieren
+auslagern
+internalisieren
+segmentieren
+priorisieren
+ausrichten
+artikulieren
+kapitalisieren
+dynamisieren
+binden
+positionieren
+stärken
+amortisieren
+systematisieren
+vertikalisieren
+sichtbar machen

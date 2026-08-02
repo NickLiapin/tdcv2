@@ -1,0 +1,12 @@
+---
+description: Dishes of American cuisine (Polish)
+locale: pl
+---
+Cheeseburger
+Żeberka z grilla
+Makaron z serem
+Skrzydełka buffalo
+Zupa z małży
+Szarlotka
+Chleb kukurydziany
+Hot dog

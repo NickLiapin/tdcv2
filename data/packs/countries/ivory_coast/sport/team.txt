@@ -1,0 +1,17 @@
+---
+address: ivory_coast.sport.team
+description: Ivorian Ligue 1 football clubs
+locale: fr
+---
+ASEC Mimosas
+Africa Sports d'Abidjan
+Stella Club d'Adjamé
+SC Gagnoa
+FC San Pédro
+Racing Club d'Abidjan
+Williamsville AC
+SOL FC
+Bouaké FC
+AFAD Djékanou
+USC Bassam
+Sporting Club de Gagnoa

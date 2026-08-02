@@ -1,0 +1,24 @@
+---
+description: Medical diagnosis that requires male anatomy — it cannot occur in a female patient. Draw from this list only for male rows; general conditions live in medical/diagnosis.
+locale: en
+---
+Benign Prostatic Hyperplasia
+Prostatitis
+Prostate Cancer
+Testicular Cancer
+Testicular Torsion
+Varicocele
+Hydrocele
+Epididymitis
+Cryptorchidism
+Phimosis
+Balanitis
+Erectile Dysfunction
+Peyronie Disease
+Male Factor Infertility
+Gynecomastia
+Male Hypogonadism
+Priapism
+Spermatocele
+Male Pattern Baldness
+Scrotal Hernia

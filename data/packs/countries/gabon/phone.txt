@@ -1,0 +1,6 @@
+---
+address: gabon.phone
+description: Gabonese mobile phone in E.164 form (+241 0[567]XXXXXX)
+generator: tdc
+---
+<gen type="regex" value="\+2410[567][0-9]{6}"/>

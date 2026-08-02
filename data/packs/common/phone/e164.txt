@@ -1,0 +1,6 @@
+---
+address: common.phone.e164
+description: E.164 phone (random country from the migrated set; default e164 form)
+generator: tdc
+---
+<gen type="regex" value="(?:\+1202555[0-9]{4}|\+1613555[0-9]{4}|\+79[0-9]{9}|\+447700900[0-9]{3}|\+49151[0-9]{8}|\+336[0-9]{8}|\+55119[0-9]{8}|\+5255[0-9]{8}|\+54911[0-9]{8}|\+346[0-9]{8}|\+485[0-9]{8})"/>

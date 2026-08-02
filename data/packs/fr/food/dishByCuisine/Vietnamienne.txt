@@ -1,0 +1,16 @@
+---
+description: Dishes of Vietnamese cuisine (French)
+locale: fr
+---
+Pho
+Nems
+Bo bun
+Rouleaux de printemps
+Banh mi
+Bun cha
+Riz sauté
+Poulet à la citronnelle
+Ca kho
+Soupe pho au bœuf
+Banh xeo
+Porc au caramel

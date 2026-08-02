@@ -1,0 +1,7 @@
+---
+address: angola.vehicle.plate
+description: Angolan licence plate — two letters, then two pairs of digits, then two letters, hyphen-separated (LD-12-34-AB). Structural only; the letter blocks are not restricted to the issued series.
+generator: tdc
+locale: pt
+---
+<gen type="regex" value="[A-Z]{2}-[0-9]{2}-[0-9]{2}-[A-Z]{2}"/>

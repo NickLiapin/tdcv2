@@ -1,0 +1,29 @@
+---
+description: Gemstone (German)
+locale: de
+---
+Diamant
+Rubin
+Saphir
+Smaragd
+Amethyst
+Topas
+Opal
+Granat
+Aquamarin
+Peridot
+Türkis
+Jade
+Onyx
+Perle
+Citrin
+Tansanit
+Turmalin
+Mondstein
+Zirkon
+Lapislazuli
+Bernstein
+Koralle
+Malachit
+Rosenquarz
+Obsidian

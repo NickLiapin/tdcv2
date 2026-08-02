@@ -1,0 +1,9 @@
+---
+address: canada.tax.program_account
+description: Canadian program account (BN + program code + 4-digit reference)
+generator: tdc
+---
+<sequence name="bn"><gen type="regex" value="[0-9]{9}"/></sequence>
+<sequence name="program"><gen type="text" value="RC,RM,RP,RR,RT"/></sequence>
+<sequence name="reference"><gen type="regex" value="[0-9]{4}"/></sequence>
+<data>${{bn}}${{program}}${{reference}}</data>

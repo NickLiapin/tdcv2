@@ -1,0 +1,22 @@
+---
+description: French honorific / form of address (abbreviated forms as used before a name)
+locale: fr
+---
+M.
+Mme
+Mlle
+Dr
+Pr
+Me
+Mgr
+Mme la Présidente
+M. le Président
+Mme la Députée
+M. le Maire
+Cdt
+Cne
+Lt
+Col
+Gén
+St
+Ste

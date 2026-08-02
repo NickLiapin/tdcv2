@@ -1,0 +1,21 @@
+---
+description: Video game genre (Spanish)
+locale: es
+---
+Acción
+Aventura
+Rol
+Estrategia
+Simulación
+Deportes
+Rompecabezas
+Disparos
+Plataformas
+Carreras
+Lucha
+Supervivencia
+Mundo abierto
+MMORPG
+Roguelike
+Terror
+Musical

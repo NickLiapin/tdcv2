@@ -1,0 +1,10 @@
+---
+address: usa.tax.filingStatus
+description: US federal income-tax filing status (IRS). A CLASSIFICATION of the taxpayer, not an identifier — no check digit; the identifiers are the SSN / EIN / ITIN.
+locale: en
+---
+Single
+Married Filing Jointly
+Married Filing Separately
+Head of Household
+Qualifying Surviving Spouse

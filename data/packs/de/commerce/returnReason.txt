@@ -1,0 +1,19 @@
+---
+description: Order return reason (German)
+locale: de
+---
+Beschädigt angekommen
+Falscher Artikel
+Entspricht nicht der Beschreibung
+Falsche Größe
+Meinung geändert
+Besseren Preis gefunden
+Herstellungsfehler
+Teile fehlen
+Verspätete Lieferung
+Wird nicht mehr benötigt
+Versehentlich bestellt
+Qualität schlechter als erwartet
+Farbe weicht von der Abbildung ab
+Nicht kompatibel
+Doppelt bestellt

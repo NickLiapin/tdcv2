@@ -1,0 +1,41 @@
+---
+description: Trailing qualifier of an Italian place name (Castiglione della Pescaia, Greve in Chianti, Bassano del Grappa)
+locale: it
+---
+sul Mare
+a Mare
+sul Lago
+sul Colle
+in Valle
+in Monte
+in Piano
+in Chianti
+del Grappa
+del Friuli
+di Sopra
+di Sotto
+Superiore
+Inferiore
+Alto
+Alta
+Basso
+Bassa
+Grande
+Piccolo
+Nuovo
+Nuova
+Vecchio
+Vecchia
+Marittima
+Terme
+Marina
+Lido
+Ligure
+Veneto
+Fiorentino
+Umbro
+Calabro
+Sabino
+Laziale
+del Nord
+del Sud

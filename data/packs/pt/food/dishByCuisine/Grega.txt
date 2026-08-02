@@ -1,0 +1,12 @@
+---
+description: Dishes of Greek cuisine (Portuguese)
+locale: pt
+---
+Musaca
+Souvlaki
+Gyros
+Salada grega
+Spanakopita
+Baklava
+Tzatziki
+Dolmades

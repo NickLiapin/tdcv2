@@ -1,0 +1,31 @@
+---
+address: finland.tax.vat
+description: Finnish VAT / ALV (FI + 7-digit base + weighted mod-11 check; redraw when check would be 10)
+generator: tdc
+---
+<sequence name="base"><gen type="regex" value="[0-9]{7}"/></sequence>
+<sequence name="check"><compute>
+  <let name="sum">
+    <reduce>
+      <over><field name="base"/></over>
+      <init><int v="0"/></init>
+      <do><add><acc/>
+        <multiply><current/>
+          <at><in><list v="7,9,10,5,8,4,2"/></in><index><current_index/></index></at>
+        </multiply>
+      </add></do>
+    </reduce>
+  </let>
+  <let name="r"><mod><var name="sum"/><int v="11"/></mod></let>
+  <result>
+    <choose>
+      <when><test><equals><var name="r"/><int v="0"/></equals></test><then><int v="0"/></then></when>
+      <otherwise><subtract><int v="11"/><var name="r"/></subtract></otherwise>
+    </choose>
+  </result>
+</compute></sequence>
+<valid><less_than><to_number><field name="check"/></to_number><int v="10"/></less_than></valid>
+<sequence name="out"><compute>
+  <result><concat><str v="FI"/><field name="base"/><field name="check"/></concat></result>
+</compute></sequence>
+<data>${{out}}</data>

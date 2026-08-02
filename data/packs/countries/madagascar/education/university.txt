@@ -1,0 +1,12 @@
+---
+address: madagascar.education.university
+description: Universities of Madagascar
+locale: fr
+---
+Université d'Antananarivo
+Université de Toamasina
+Université de Fianarantsoa
+Université de Mahajanga
+Université de Toliara
+Université d'Antsiranana
+École Supérieure Polytechnique d'Antananarivo

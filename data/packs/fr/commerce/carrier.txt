@@ -1,0 +1,21 @@
+---
+description: Parcel carrier operating in France (French)
+locale: fr
+---
+Colissimo
+Chronopost
+Mondial Relay
+Relais Colis
+DPD
+GLS
+DHL
+FedEx
+UPS
+TNT
+Colis Privé
+La Poste
+GeoPost
+Colisweb
+Star's Service
+Fnac Livraison
+Amazon Logistics

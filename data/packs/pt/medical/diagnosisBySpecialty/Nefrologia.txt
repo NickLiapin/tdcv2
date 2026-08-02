@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Nephrology (Portuguese)
+locale: pt
+---
+Doença renal crônica
+Cálculo renal
+Glomerulonefrite
+Lesão renal aguda
+Doença renal policística
+Síndrome nefrótica
+Pielonefrite
+Nefropatia diabética
+Infecção urinária
+Nefrite intersticial

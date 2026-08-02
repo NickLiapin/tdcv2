@@ -1,0 +1,22 @@
+---
+description: Tech adjective (French)
+locale: fr
+---
+auxiliaire
+primaire
+secondaire
+numérique
+virtuel
+redondant
+crypté
+distant
+optique
+sans fil
+neuronal
+quantique
+multithread
+open source
+propriétaire
+haut débit
+mobile
+embarqué

@@ -1,0 +1,15 @@
+---
+description: Employment / contract type (Portuguese)
+locale: pt
+---
+Tempo integral
+Meio período
+Contrato
+Temporário
+Estágio
+Freelancer
+Sazonal
+Por hora
+Aprendizagem
+Efetivo
+Por empreitada

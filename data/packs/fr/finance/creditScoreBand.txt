@@ -1,0 +1,10 @@
+---
+description: Credit score band (French)
+locale: fr
+---
+Mauvais
+Passable
+Moyen
+Bon
+Très bon
+Excellent

@@ -1,0 +1,10 @@
+---
+description: Conditions markedly more frequent in people of Eastern European ancestry, given in Greek. A prevalence signal, not an exclusive one.
+locale: el
+---
+Κληρονομική αιμοχρωμάτωση
+Φαινυλκετονουρία
+Οικογενής υπερχοληστερολαιμία
+Αλκοολική ηπατική νόσος
+Κυστική ίνωση
+Νόσος του Ουίλσον

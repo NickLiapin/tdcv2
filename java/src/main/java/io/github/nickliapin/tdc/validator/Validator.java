@@ -1,0 +1,2863 @@
+package io.github.nickliapin.tdc.validator;
+
+import io.github.nickliapin.tdc.date.DateParse;
+import io.github.nickliapin.tdc.errors.Diagnostic;
+import io.github.nickliapin.tdc.distribution.PercentMask;
+import io.github.nickliapin.tdc.generators.Accumulate;
+import io.github.nickliapin.tdc.generators.RegexGen;
+import io.github.nickliapin.tdc.parser.generated.TDCParser;
+import io.github.nickliapin.tdc.sequence.Pool;
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.LinkedHashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import org.antlr.v4.runtime.Token;
+import org.antlr.v4.runtime.tree.ParseTree;
+
+/**
+ * Checks a config before it runs, and reports what is wrong by stable code.
+ *
+ * <p>This exists because "the same config produces the same data everywhere" is only half a
+ * promise if one implementation accepts what another refuses. A config that runs in Java and
+ * fails in TypeScript is a portability bug even when no value was ever wrong.
+ *
+ * <p>The grammar is deliberately permissive — it lets any element nest anywhere — so every rule
+ * about <em>where</em> a tag may live is owned here rather than by the parser. That keeps the
+ * grammar shared and small while the rules stay readable.
+ *
+ * <p>Codes and their meanings come from the reference. Nothing is invented here: a rule that
+ * exists in one implementation and not the other is exactly the divergence this file is meant to
+ * prevent.
+ */
+public final class Validator {
+
+  /** What may sit directly inside {@code <tdc>}. */
+  private static final Set<String> TDC_CHILDREN = Set.of("env", "block");
+
+  /**
+   * What each closed tag reads.
+   *
+   * <p>An attribute a tag does not read is a request the config made and silently did not get,
+   * which is indistinguishable from a typo — and the data comes out looking fine either way.
+   * {@code comment} is accepted everywhere: it is documented as a note that never renders, and
+   * refusing it on a tag that happens not to list it would be a pointless trap.
+   */
+  private static final Map<String, Set<String>> CLOSED_TAG_ATTRIBUTES =
+      Map.ofEntries(
+          Map.entry("env", Set.of("count", "seed", "local", "inject", "mode", "engine", "comment")),
+          Map.entry("sequence", Set.of("name", "parent", "uniq", "comment")),
+          Map.entry("line", Set.of("if", "each", "comment")),
+          Map.entry("tdc", Set.of("version", "v", "regex_max_length", "comment")),
+          Map.entry("mix", Set.of("name", "percent", "parent", "flag", "comment")),
+          // `percent` is NOT here: a <switch> picks its case from `on=`, and <case>
+          // requires `is=` (TDC137). The percentage short-form belongs to <mix>.
+          Map.entry("switch", Set.of("name", "on", "comment")),
+          Map.entry("case", Set.of("is", "if", "anomaly", "default", "comment")),
+          Map.entry("map", Set.of("comment")),
+          Map.entry("default", Set.of("comment")),
+          Map.entry("data", Set.of("if", "pair", "name", "type", "comment")),
+          Map.entry("pool", Set.of("name", "count", "comment")),
+          // A group wrapper says what must hold BETWEEN the sequences inside it; it has no
+          // settings of its own. uniq="true" is an attribute of <sequence>, not of <uniq> —
+          // writing it on the wrapper is a common slip and now says so.
+          Map.entry("uniq", Set.of("comment")),
+          Map.entry("distinct", Set.of("comment")));
+
+  /** Where each construct belongs — the "put it in X" half of a placement complaint. */
+  /** Constructs that live at env level; inside a <sequence> they are simply misplaced. */
+  private static final java.util.Set<String> MISPLACED_IN_SEQUENCE =
+      java.util.Set.of("mix", "switch", "case", "default", "map");
+
+
+  /**
+   * Which generator types actually read a given attribute.
+   *
+   * <p>An attribute in {@code GEN_ATTRS} is spelled correctly for SOME generator; this says
+   * whether it means anything for THIS one. Without it a {@code min=}/{@code max=} on a number
+   * and a {@code range=} on anything but a date pass silently and are dropped.
+   */
+  private static final Map<String, java.util.Set<String>> ATTRIBUTE_OWNERS =
+      Map.ofEntries(
+          // A list to walk. A range-based generator draws instead of stepping.
+          Map.entry("order", java.util.Set.of("text", "file")),
+          Map.entry("cycle", java.util.Set.of("text", "file")),
+          // Where the characters come from.
+          Map.entry("alphabet", java.util.Set.of("symbol")),
+          // Only `pool` takes a filter: everywhere else there are no candidates to narrow, and
+          // the row-level question is `if=`.
+          Map.entry("filter", java.util.Set.of("pool")),
+          // The external source and how to read it. `pattern` is here because a drawn curve is
+          // loaded the same way — src="curve.svg", src="curve.png".
+          Map.entry("src", java.util.Set.of("file", "http", "pattern")),
+          Map.entry("column", java.util.Set.of("file")),
+          Map.entry("header", java.util.Set.of("file")),
+          Map.entry("delimiter", java.util.Set.of("file")),
+          Map.entry("row", java.util.Set.of("file")),
+          // The network generator's own knobs.
+          Map.entry("in", java.util.Set.of("http")),
+          Map.entry("on_error", java.util.Set.of("http")),
+          Map.entry("timeout", java.util.Set.of("http")),
+          // The drawn curve.
+          Map.entry("points", java.util.Set.of("pattern")),
+          Map.entry("upper", java.util.Set.of("pattern")),
+          Map.entry("lower", java.util.Set.of("pattern")),
+          Map.entry("y_range", java.util.Set.of("pattern")),
+          Map.entry("interp", java.util.Set.of("pattern")),
+          Map.entry("spread", java.util.Set.of("pattern")),
+          Map.entry("ink_threshold", java.util.Set.of("pattern")),
+          // The synthetic series.
+          Map.entry("base", java.util.Set.of("timeseries", "running")),
+          Map.entry("of", java.util.Set.of("running")),
+          Map.entry("reset", java.util.Set.of("running")),
+          Map.entry("trend", java.util.Set.of("timeseries")),
+          Map.entry("period", java.util.Set.of("timeseries")),
+          Map.entry("amplitude", java.util.Set.of("timeseries")),
+          Map.entry("noise", java.util.Set.of("timeseries")),
+          // Zero-padding a numeric range.
+          Map.entry("first_zero", java.util.Set.of("number")),
+          // The legacy two-date span, read by the date generator and by the `date.range` builtin
+          // template. On a number it is the wrong word for value="10..99" — and silently gave
+          // single digits.
+          Map.entry("range", java.util.Set.of("date", "template")));
+
+  /**
+   * Parameters of the named distributions. They shape the DRAW, so they mean nothing unless
+   * {@code distribution=} asked for one — {@code min="10" max="20"} on a plain number is the trap
+   * this catches. Gated on the attribute rather than on the type, because that is how the engine
+   * reads them.
+   */
+  private static final java.util.Set<String> DISTRIBUTION_PARAMS =
+      java.util.Set.of(
+          "mean", "sd", "meanlog", "sdlog", "rate", "alpha", "xmin", "shape", "scale",
+          "min", "max", "lambda", "beta", "s", "n");
+
+  /**
+   * The two template paths no pack backs, and the parameters each reads. A pack declares its own
+   * parameters and is judged against the registry; these two would otherwise be checked by
+   * nobody, and {@code oldst="30"} for {@code oldest} is the same silent failure {@code persent}
+   * used to be.
+   */
+  private static final Map<String, java.util.Set<String>> BUILTIN_TEMPLATE_PARAMS =
+      Map.of(
+          "person.b_day", java.util.Set.of("oldest", "youngest", "format", "precision"),
+          "date.range", java.util.Set.of("range", "format", "precision"));
+
+  /** What any template takes regardless of which path it names. */
+  private static final java.util.Set<String> TEMPLATE_COMMON_ATTRS =
+      java.util.Set.of("type", "value", "name", "local", "count", "percent", "weight", "if");
+
+  private static final Map<String, String> PLACEMENT_HINTS =
+      Map.of(
+          "gen", "A <gen> lives inside a <sequence> (or a <case> of a <mix>/<switch>).",
+          "mix",
+          "A <mix> is a named env-level construct — declare it directly in <env> and use "
+              + "${{Name}}.",
+          "switch",
+          "A <switch> is a named env-level construct — declare it directly in <env> and use "
+              + "${{Name}}.",
+          "case", "A <case> belongs inside a <mix> or a <switch>.",
+          "map", "A <map> belongs inside a <switch>.",
+          "default", "A <default> belongs inside a <switch>.",
+          "line", "A <line> belongs inside a <block> (or a before/after fixture).",
+          "sequence", "A <sequence> belongs directly inside <env>.");
+
+  /** The binary operators the evaluator implements. Anything else is refused, not ignored. */
+  /** Operators whose right side may be a bare word rather than a name. */
+  private static final List<String> COMPARISON_OPERATORS =
+      List.of("==", "!=", "===", "!==", "<", ">", "<=", ">=");
+
+  private static final List<String> SUPPORTED_BINARY_OPERATORS =
+      List.of("==", "!=", "===", "!==", "<", ">", "<=", ">=", "&&", "||", "+", "-", "*", "/");
+
+  private static final List<String> SUPPORTED_UNARY_OPERATORS = List.of("!", "-", "+");
+
+  /** What may sit directly inside {@code <env>}. */
+  private static final Set<String> ENV_CHILDREN =
+      Set.of(
+          "sequence", "mix", "switch", "uniq", "distinct", "pool", "before", "after",
+          "before_block", "after_block", "delimiter_block", "before_line", "after_line",
+          "delimiter_line");
+
+  /** Everything a {@code <gen>} may carry, whatever its type. */
+  /**
+   * Everything a {@code <gen>} may carry, whatever its type.
+   *
+   * <p>Eight names are deliberately ABSENT: {@code seed}, {@code engine}, {@code version} and
+   * {@code inject} belong to {@code <env>} or {@code <tdc>}, {@code uniq} to {@code <sequence>},
+   * {@code is} to {@code <case>}, {@code on} to {@code <switch>}, {@code v} to {@code <tdc>}. This
+   * was one flat union of every attribute name in the language, so writing any of them on a
+   * {@code <gen>} passed in silence here while the reference refused it.
+   */
+  private static final Set<String> GEN_ATTRS =
+      Set.of(
+          "type", "value", "name", "if", "comment", "case", "mask", "order", "cycle", "repeat",
+          "separator", "missing", "missing_as", "anomaly", "anomaly_factor", "anomaly_flag",
+          "flag", "local", "count", "weight", "percent", "first_zero", "include", "exclude",
+          "accumulate", "of", "reset", "length", "decimals", "distribution", "regex_max_length", "alphabet",
+          "format", "from",
+          "to", "oldest", "youngest", "precision", "range", "step", "src", "column", "header",
+          "delimiter", "row", "base", "trend", "period", "amplitude", "noise", "points", "upper",
+          "lower", "y_range", "interp", "spread", "ink_threshold", "mode", "in", "on_error",
+          "timeout", "mean", "sd", "meanlog", "sdlog", "rate", "alpha", "xmin", "shape", "scale",
+          "lambda", "n", "s", "beta", "min", "max", "filter");
+
+  private static final Set<String> GEN_TYPES =
+      Set.of(
+          "text", "file", "template", "number", "regex", "advanced_regex", "symbol", "date",
+          "increment", "decrement", "timeseries", "pattern", "http", "pool", "running");
+
+  /**
+   * Template paths that are generators rather than pack files.
+   *
+   * <p>No pack is named after them, so looking them up on disk would report a missing address
+   * for the two paths that always work.
+   */
+  private static final Set<String> BUILTIN_TEMPLATE_PATHS = Set.of("person.b_day", "date.range");
+
+  /** The document versions this runtime understands. */
+  private static final String SUPPORTED_VERSION = "0.1.0";
+
+  private final List<Diagnostic> diagnostics = new ArrayList<>();
+  private final java.nio.file.Path baseDir;
+  private final io.github.nickliapin.tdc.packs.DataPacks packs;
+  private int documentRegexMaxLength = RegexGen.DEFAULT_MAX_LENGTH;
+  private String locale = "en";
+  /** Every sequence name the config declares — what an interpolation may refer to. */
+  private final Set<String> declaredNames = new LinkedHashSet<>();
+  /** Those of them that produce a list, which is what each= may walk. */
+  private final Set<String> repeatingNames = new LinkedHashSet<>();
+
+  /**
+   * Of the declared names, the compounds: every {@code <gen>} named, so the sequence is a group of
+   * fields and produces no value of its own — which is what {@code parent=} filters on.
+   */
+  private final Set<String> valuelessNames = new LinkedHashSet<>();
+
+  /** Sequence names declared at the top level — a pool's members are NOT among them. */
+  private final Set<String> envNames = new LinkedHashSet<>();
+
+  /** The sequences declared BEFORE the one being walked — see {@link #checkRunning}. */
+  private List<String> declaredOrder = new ArrayList<>();
+
+  /** Field names per pool, gathered before the members are walked. */
+  private final Map<String, List<String>> poolFields = new LinkedHashMap<>();
+
+  /** Sequences that draw a whole member: {@code Ref.field} is readable, {@code Ref} is not. */
+  private final Set<String> poolReferences = new LinkedHashSet<>();
+
+  /** The member declarations of every pool, by identity — they are scoped to their pool. */
+  private final Set<TDCParser.OpenCloseElementContext> poolMemberNodes =
+      java.util.Collections.newSetFromMap(new java.util.IdentityHashMap<>());
+
+  /**
+   * Sequences whose produced values are plainly the list in their {@code value=}.
+   *
+   * <p>Which is what lets {@code if="Gender.Mail"} be caught: the dot on a plain sequence asks
+   * about a VALUE, and here the values are known. Only recorded where nothing rewrites them — see
+   * {@link #finiteTextValues}.
+   */
+  private final Map<String, List<String>> finiteValues = new LinkedHashMap<>();
+
+  /**
+   * Every {@code if=} seen, where its complaint belongs in the report, and whether the builtins of
+   * an {@code each=} line are in scope.
+   *
+   * <p>The names cannot be checked as the walk passes: an expression may name a sequence declared
+   * BELOW it, and the run resolves that happily, so checking mid-walk would invent errors on
+   * configs that work.
+   */
+  private record Pending(int at, String expression, int line, int column, boolean each) {}
+
+  private final List<Pending> pendingExpressions = new ArrayList<>();
+
+  private static final java.util.regex.Pattern INTERPOLATION =
+      java.util.regex.Pattern.compile("\\$\\{\\{([^}]+)}}");
+
+  /** {@code Pool.field} in a {@code filter=} — the qualified form that says what it means. */
+  private static final java.util.regex.Pattern QUALIFIED_NAME =
+      java.util.regex.Pattern.compile("([A-Za-z_][A-Za-z0-9_]*)\\.([A-Za-z_][A-Za-z0-9_]*)");
+
+  private static final java.util.regex.Pattern PLAIN_NAME =
+      java.util.regex.Pattern.compile("[A-Za-z_][A-Za-z0-9_]*");
+
+  private Validator(java.nio.file.Path baseDir, io.github.nickliapin.tdc.packs.DataPacks packs) {
+    this.baseDir = baseDir;
+    this.packs = packs;
+  }
+
+  public static List<Diagnostic> validate(TDCParser.DocumentContext document) {
+    return validate(document, null, null);
+  }
+
+  /**
+   * @param baseDir where a relative {@code src=} resolves from — the config file's own folder.
+   */
+  public static List<Diagnostic> validate(
+      TDCParser.DocumentContext document,
+      java.nio.file.Path baseDir,
+      io.github.nickliapin.tdc.packs.DataPacks packs) {
+    Validator v = new Validator(baseDir, packs);
+    v.run(document);
+    return List.copyOf(v.diagnostics);
+  }
+
+
+  /** The folders a file source may name. Absent packs mean none were configured. */
+  private java.util.List<java.nio.file.Path> dataRoots() {
+    return packs == null ? java.util.List.of() : packs.dataRoots();
+  }
+
+  private void run(TDCParser.DocumentContext document) {
+    TDCParser.OpenCloseElementContext tdc = findElement(document, "tdc");
+    if (tdc == null) {
+      error("TDC001", "document has no <tdc> root element",
+          "Wrap your configuration in a single <tdc>…</tdc> root tag.", 1, 0);
+      return;
+    }
+
+    checkVersion(tdc);
+    checkRegexMaxLength(tdc);
+    try {
+      documentRegexMaxLength = RegexGen.parseMaxLength(attributes(tdc.attr()).get("regex_max_length"));
+    } catch (RuntimeException e) {
+      documentRegexMaxLength = RegexGen.DEFAULT_MAX_LENGTH;
+    }
+
+    TDCParser.OpenCloseElementContext env = findElement(tdc.content(), "env");
+    TDCParser.OpenCloseElementContext block = findElement(tdc.content(), "block");
+    if (block == null) {
+      error("TDC002", "<tdc> has no <block> child — nothing to render",
+          "<block> describes the layout of each generated card. Add a <block>…</block> inside <tdc>.",
+          line(tdc), column(tdc));
+    }
+
+    checkTdcChildren(tdc);
+    if (env != null) {
+      checkEnv(env);
+    }
+    if (block != null) {
+      checkBlock(block);
+    }
+
+    // Now that every name is known, the expressions can be checked — and each complaint goes back
+    // where its attribute was, so the report stays in source order.
+    List<Pending> pending = new ArrayList<>(pendingExpressions);
+    pendingExpressions.clear();
+    int shift = 0;
+    for (Pending item : pending) {
+      int before = diagnostics.size();
+      checkExpressionNames(item.expression(), item.line(), item.column(), item.each());
+      List<Diagnostic> found = new ArrayList<>(diagnostics.subList(before, diagnostics.size()));
+      diagnostics.subList(before, diagnostics.size()).clear();
+      for (int i = 0; i < found.size(); i++) {
+        diagnostics.add(item.at() + shift + i, found.get(i));
+      }
+      shift += found.size();
+    }
+  }
+
+  /**
+   * {@code <tdc>} holds {@code <env>} and {@code <block>}, and a self-closing spelling of either
+   * is refused rather than honoured in part.
+   *
+   * <p>{@code <env count="3" seed="demo"/>} parses, and then every attribute on it is discarded:
+   * the run silently falls back to a default count on a random seed. Half-honouring it is worse
+   * than refusing it.
+   */
+  private void checkTdcChildren(TDCParser.OpenCloseElementContext tdc) {
+    for (TDCParser.ElementContext child : tdc.content().element()) {
+      TDCParser.SelfClosingElementContext self = child.selfClosingElement();
+      if (self != null) {
+        String name = self.name.getText();
+        if ("env".equals(name) || "block".equals(name)) {
+          error("TDC014",
+              "<" + name + "/> cannot be self-closing — its attributes and children would be ignored",
+              "Write <" + name + "> … </" + name + ">.", line(self), column(self));
+          continue;
+        }
+        error("TDC010", "unknown child of <tdc>: \"<" + name + ">\"",
+            "Allowed children: env, block.", line(self), column(self));
+        continue;
+      }
+      TDCParser.OpenCloseElementContext open = child.openCloseElement();
+      if (open != null && !TDC_CHILDREN.contains(open.name.getText())) {
+        error("TDC010", "unknown child of <tdc>: \"<" + open.name.getText() + ">\"",
+            "Allowed children: env, block.", line(open), column(open));
+      }
+    }
+  }
+
+  // ── document ─────────────────────────────────────────────────────────────────────────────
+
+  private void checkVersion(TDCParser.OpenCloseElementContext tdc) {
+    checkClosedTagAttrs("tdc", tdc.attr(), line(tdc), column(tdc));
+    Map<String, String> attrs = attributes(tdc.attr());
+    String versionAttr = attrs.get("version");
+    String shortAttr = attrs.get("v");
+
+    if (versionAttr != null && shortAttr != null) {
+      error("TDC003", "both \"version\" and \"v\" are present on <tdc>",
+          "Use one of them. They mean the same thing.", line(tdc), column(tdc));
+      return;
+    }
+    String raw = versionAttr != null ? versionAttr : shortAttr;
+    if (raw == null) {
+      return;
+    }
+    // Any dot-separated numeric version: "0.1", "0.1.0", "1.2.3". Insisting on exactly two
+    // parts would reject the version this runtime itself declares.
+    if (!raw.trim().matches("^\\d+(?:\\.\\d+)*$")) {
+      int[] where = at(tdc, versionAttr != null ? "version" : "v");
+      error("TDC004", "invalid TDC document version \"" + raw + "\"",
+          "Use dot-separated numeric versions, e.g. \"0.1\", \"0.1.0\", or \"1.2.3\".",
+          where[0], where[1]);
+      return;
+    }
+    // A document from the future may use tags this runtime has never heard of, and rendering it
+    // as best we can would produce data that is quietly missing whatever it did not understand.
+    if (compareVersions(raw, SUPPORTED_VERSION) > 0) {
+      int[] where = at(tdc, versionAttr != null ? "version" : "v");
+      error("TDC005",
+          "document version \"" + raw + "\" is newer than this runtime supports (" + SUPPORTED_VERSION + ")",
+          "Update the library, or lower the version attribute.", where[0], where[1]);
+    }
+  }
+
+  private static int compareVersions(String a, String b) {
+    String[] x = a.split("\\.");
+    String[] y = b.split("\\.");
+    for (int i = 0; i < Math.max(x.length, y.length); i++) {
+      int xi = i < x.length ? Integer.parseInt(x[i]) : 0;
+      int yi = i < y.length ? Integer.parseInt(y[i]) : 0;
+      if (xi != yi) {
+        return Integer.compare(xi, yi);
+      }
+    }
+    return 0;
+  }
+
+  private void checkRegexMaxLength(TDCParser.OpenCloseElementContext tdc) {
+    String raw = attributes(tdc.attr()).get("regex_max_length");
+    if (raw == null) {
+      return;
+    }
+    try {
+      if (Integer.parseInt(raw.trim()) <= 0) {
+        throw new NumberFormatException();
+      }
+    } catch (NumberFormatException e) {
+      error("TDC096", "regex_max_length must be a positive integer, got \"" + raw + "\"",
+          "It caps how long a generated regex value may be.", at(tdc, "regex_max_length")[0], at(tdc, "regex_max_length")[1]);
+    }
+  }
+
+  // ── env ──────────────────────────────────────────────────────────────────────────────────
+
+  private void checkEnv(TDCParser.OpenCloseElementContext env) {
+    Map<String, String> envAttrs = attributes(env.attr());
+    locale = envAttrs.getOrDefault("local", "en");
+
+    String count = envAttrs.get("count");
+    if (count != null) {
+      try {
+        if (Integer.parseInt(count.trim()) < 0) {
+          throw new NumberFormatException();
+        }
+      } catch (NumberFormatException e) {
+        error("TDC020", "invalid count \"" + count + "\" — expected a non-negative integer",
+            "count is how many records to generate.", at(env, "count")[0], at(env, "count")[1]);
+      }
+    }
+
+    String inject = envAttrs.get("inject");
+    if (inject != null && !inject.contains("%")) {
+      error("TDC021",
+          "inject pattern \"" + inject + "\" has no \"%\" placeholder — interpolation will never match",
+          "Use a single \"%\" where the sequence name should go, e.g. inject=\"${{%}}\".",
+          at(env, "inject")[0], at(env, "inject")[1]);
+    }
+
+    // Pools first, and only their shape: a reference may stand above the pool it names, and
+    // complaining about an unknown field in that case would report the wrong problem.
+    collectPoolFields(env);
+    checkChildren(env.content(), "env", ENV_CHILDREN);
+    checkClosedTagAttrs("env", env.attr(), line(env), column(env));
+
+    Set<String> names = new LinkedHashSet<>();
+    List<String> declared = new ArrayList<>();
+    declaredOrder = declared;
+
+    for (TDCParser.OpenCloseElementContext open : declarations(env)) {
+      String tag = open.name.getText();
+      checkClosedTagAttrs(tag, open.attr(), line(open), column(open));
+      Map<String, String> attrs = attributes(open.attr());
+      String name = attrs.get("name");
+      if (name == null || name.isBlank()) {
+        error("TDC030", "<" + tag + "> is missing a required \"name\" attribute",
+            "A sequence is referenced by name, so it needs one.", line(open), column(open));
+      } else if (Checks.isBuiltin(name)) {
+        error("TDC033", "sequence name \"" + name + "\" collides with a builtin",
+            "Builtins: " + String.join(", ", new java.util.TreeSet<>(Checks.BUILTINS)) + ".",
+            at(open, "name")[0], at(open, "name")[1]);
+      } else if (name.startsWith("_")) {
+        // The leading underscore is the engine's namespace. Letting a config into it means a
+        // future builtin would silently shadow somebody's column.
+        error("TDC031", "sequence name \"" + name + "\" starts with \"_\" — reserved for builtins",
+            "User sequences should avoid the leading underscore.", at(open, "name")[0], at(open, "name")[1]);
+      } else if (!poolMemberNodes.contains(open) && !names.add(name)) {
+        error("TDC032", "duplicate sequence name \"" + name + "\"",
+            "Two sequences cannot share a name — the second would shadow the first.",
+            at(open, "name")[0], at(open, "name")[1]);
+      }
+
+      // Declaration order decides who can filter whom: a parent must already exist, because the
+      // rows it selects are what the child is built over.
+      String parent = attrs.get("parent");
+      if (parent != null && !parent.isBlank()) {
+        String parentName = parent.contains(".") ? parent.substring(0, parent.indexOf('.')) : parent;
+        if (parentName.isEmpty()) {
+          error("TDC034", "invalid parent reference \"" + parent + "\"",
+              "Syntax: parent=\"ParentName\" or parent=\"ParentName.Value\".",
+              at(open, "parent")[0], at(open, "parent")[1]);
+        } else if (!declared.contains(parentName)) {
+          error("TDC035", "parent sequence \"" + parentName + "\" is not declared before this sequence",
+              "Move the parent above it. A child is built over the rows its parent selected.",
+              at(open, "parent")[0], at(open, "parent")[1]);
+        } else if (valuelessNames.contains(parentName)) {
+          // A parent selects rows by the VALUE it produced. A compound is a group of fields and
+          // produces none, so no row can ever match — the run used to discover that and report the
+          // parent as unknown, sending the reader after a name that is declared right above.
+          error("TDC214",
+              "compound sequence \"" + parentName + "\" has no value of its own to filter on",
+              "A parent is chosen by the value it produced, e.g. parent=\"Gender.Male\". \""
+                  + parentName + "\" is a group of fields and produces none — name one of its "
+                  + "fields, or a sequence that has a single value.",
+              at(open, "parent")[0], at(open, "parent")[1]);
+        }
+      }
+
+      if ("switch".equals(tag)) {
+        checkSwitch(open, declared);
+      } else if ("mix".equals(tag)) {
+        checkMix(open);
+      } else if ("sequence".equals(tag)) {
+        checkSequenceBody(open, name);
+        checkSequenceDataAttrs(open);
+        checkComputeBody(open);
+      }
+      for (TDCParser.ElementContext inner : open.content().element()) {
+        checkGensIn(inner);
+      }
+
+      if (name != null && !name.isBlank()) {
+        declared.add(name);
+        declaredNames.add(name);
+        if (!poolMemberNodes.contains(open)) {
+          envNames.add(name);
+          registerPoolReference(open, name);
+        }
+        // A compound's fields are referenced as Name.Field, and a flag column is a name too.
+        // Fields inside a <distinct> wrapper are ordinary fields, so they count as well.
+        collectFieldNames(open, name);
+        String flag = attrs.get("flag");
+        if (flag != null && !flag.isBlank()) {
+          declaredNames.add(flag);
+        }
+        String anomalyFlag = attrs.get("anomaly_flag");
+        if (anomalyFlag != null && !anomalyFlag.isBlank()) {
+          declaredNames.add(anomalyFlag);
+        }
+      }
+    }
+  }
+
+  /**
+   * Every sequence-like declaration in {@code <env>}, in the order they appear.
+   *
+   * <p>A {@code <uniq>} or {@code <distinct>} wrapper is not a declaration of its own — it says
+   * what must hold between the sequences inside it. So its children are flattened into the same
+   * list, and each is checked, named and ordered exactly as if it had been written directly under
+   * {@code <env>}. Anything else would make wrapping a sequence change what the sequence is.
+   */
+  private List<TDCParser.OpenCloseElementContext> declarations(
+      TDCParser.OpenCloseElementContext env) {
+    List<TDCParser.OpenCloseElementContext> out = new ArrayList<>();
+    List<String> poolsAbove = new ArrayList<>();
+    for (TDCParser.ElementContext child : env.content().element()) {
+      TDCParser.OpenCloseElementContext open = child.openCloseElement();
+      if (open == null) {
+        continue;
+      }
+      String tag = open.name.getText();
+      if ("sequence".equals(tag) || "mix".equals(tag) || "switch".equals(tag)) {
+        out.add(open);
+      } else if ("pool".equals(tag)) {
+        // A pool node is not a declaration, so the env walk never reached its own attributes —
+        // every one of them, including a typo, used to pass in silence.
+        checkClosedTagAttrs("pool", open.attr(), line(open), column(open));
+        // A pool's members are declarations too — checked exactly as at the top level — but its
+        // names are ITS columns, not the run's, so they are recorded separately and kept out of
+        // the shared namespace.
+        checkPool(open);
+        // Only the pools ALREADY seen: a member may draw from one of those and from nothing
+        // else, which is what makes a cycle unwritable.
+        checkPoolMemberRefs(open, poolsAbove);
+        String declaredPool = attributes(open.attr()).get("name");
+        if (declaredPool != null && !declaredPool.isBlank()) {
+          if (poolsAbove.contains(declaredPool)) {
+            // The second pool quietly replaced the first, and the only sign was a TDC193
+            // in the block about a field that "does not exist".
+            error(
+                "TDC241",
+                "duplicate pool name \"" + declaredPool + "\"",
+                "A pool is reached by name, so two of them cannot share one. Rename or remove the second.",
+                line(open), column(open));
+          } else {
+            poolsAbove.add(declaredPool);
+          }
+        }
+        out.addAll(poolMembers(open));
+      } else if ("uniq".equals(tag) || "distinct".equals(tag)) {
+        // A group wrapper is not a declaration either — same gap, same fix.
+        checkClosedTagAttrs(tag, open.attr(), line(open), column(open));
+        int members = 0;
+        for (TDCParser.ElementContext inner : open.content().element()) {
+          TDCParser.OpenCloseElementContext wrapped = inner.openCloseElement();
+          if (wrapped == null) {
+            continue;
+          }
+          // A <mix> inside the group is a member and a declaration both — without this its name
+          // never exists and every reference to it reads as undeclared.
+          if ("mix".equals(wrapped.name.getText())
+              || "switch".equals(wrapped.name.getText())) {
+            members++;
+            out.add(wrapped);
+          } else if ("sequence".equals(wrapped.name.getText())) {
+            members++;
+            checkEnvGroupMember(wrapped, tag);
+            out.add(wrapped);
+          }
+        }
+        checkGroupSize(open, tag, members);
+      }
+    }
+    return out;
+  }
+
+  /** The member declarations of one pool, flattened out of any {@code <uniq>} wrapper. */
+  private List<TDCParser.OpenCloseElementContext> poolMembers(
+      TDCParser.OpenCloseElementContext pool) {
+    List<TDCParser.OpenCloseElementContext> out = new ArrayList<>();
+    for (TDCParser.ElementContext member : pool.content().element()) {
+      TDCParser.OpenCloseElementContext inner = member.openCloseElement();
+      if (inner == null) {
+        continue;
+      }
+      String tag = inner.name.getText();
+      if (isDeclarationTag(tag)) {
+        poolMemberNodes.add(inner);
+        out.add(inner);
+      } else if ("uniq".equals(tag) || "distinct".equals(tag)) {
+        int wrapped = 0;
+        for (TDCParser.ElementContext w : inner.content().element()) {
+          TDCParser.OpenCloseElementContext node = w.openCloseElement();
+          if (node == null || !isDeclarationTag(node.name.getText())) {
+            continue;
+          }
+          wrapped++;
+          poolMemberNodes.add(node);
+          out.add(node);
+        }
+        checkGroupSize(inner, tag, wrapped);
+      }
+    }
+    return out;
+  }
+
+  private static boolean isDeclarationTag(String tag) {
+    return "sequence".equals(tag) || "mix".equals(tag) || "switch".equals(tag);
+  }
+
+  /** Field names per pool, gathered before the members are walked. */
+  private void collectPoolFields(TDCParser.OpenCloseElementContext env) {
+    for (TDCParser.ElementContext child : env.content().element()) {
+      TDCParser.OpenCloseElementContext open = child.openCloseElement();
+      if (open == null || !"pool".equals(open.name.getText())) {
+        continue;
+      }
+      String name = attributes(open.attr()).get("name");
+      if (name == null || name.isBlank()) {
+        continue;
+      }
+      List<String> fields = new ArrayList<>();
+      for (TDCParser.ElementContext member : open.content().element()) {
+        TDCParser.OpenCloseElementContext inner = member.openCloseElement();
+        if (inner == null) {
+          continue;
+        }
+        String tag = inner.name.getText();
+        if (isDeclarationTag(tag)) {
+          addFieldName(fields, inner);
+        } else if ("uniq".equals(tag) || "distinct".equals(tag)) {
+          for (TDCParser.ElementContext w : inner.content().element()) {
+            TDCParser.OpenCloseElementContext wrapped = w.openCloseElement();
+            if (wrapped != null) {
+              addFieldName(fields, wrapped);
+            }
+          }
+        }
+      }
+      poolFields.put(name, fields);
+    }
+  }
+
+  /**
+   * What one member contributes to its pool's field list.
+   *
+   * <p>Usually its own name. A member that is itself a reference to another pool contributes that
+   * pool's fields under its name instead — {@code at} pointing at {@code Clinics} gives {@code
+   * at.city}, and no bare {@code at}, because a record has no value to print. Only pools declared
+   * ABOVE are visible, which is exactly what the engine can compute.
+   */
+  private void addFieldName(List<String> fields, TDCParser.OpenCloseElementContext node) {
+    String field = attributes(node.attr()).get("name");
+    if (field == null || field.isBlank()) {
+      return;
+    }
+    String target = memberPoolRef(node);
+    List<String> nested = target == null ? null : poolFields.get(target);
+    if (nested == null) {
+      fields.add(field);
+      return;
+    }
+    for (String inner : nested) {
+      fields.add(field + "." + inner);
+    }
+  }
+
+  /**
+   * A member that draws from another pool may only name a pool declared ABOVE.
+   *
+   * <p>The engine builds pools in declaration order, so this is not a style rule: a pool named
+   * below has no table yet when this one is computed, and a pool naming itself never would. Both
+   * used to pass validation and produce a member with no fields, which surfaced far away as "not a
+   * field of R" — blaming the line that reads for a mistake made in the declaration.
+   *
+   * <p>Declaration order is also the entire cycle check: a cycle cannot be written down.
+   */
+  private void checkPoolMemberRefs(
+      TDCParser.OpenCloseElementContext pool, List<String> above) {
+    String poolName = attributes(pool.attr()).getOrDefault("name", "");
+    for (TDCParser.OpenCloseElementContext member : poolMembers(pool)) {
+      String target = memberPoolRef(member);
+      if (target == null || above.contains(target)) {
+        continue;
+      }
+      boolean itself = target.equals(poolName);
+      String message =
+          itself
+              ? "pool \"" + poolName + "\" draws from itself"
+              : "pool \"" + poolName + "\" draws from \"" + target
+                  + "\", which is not declared above it";
+      String hint =
+          itself
+              ? "A pool is built before its own members exist, so there is nothing to draw. "
+              : "Pools are built in declaration order, so a pool can only read the pools above "
+                  + "it. Move \"" + target + "\" above \"" + poolName + "\". ";
+      error(
+          "TDC236",
+          message,
+          hint + "That order is also why a cycle between pools cannot be written down.",
+          line(member),
+          column(member));
+    }
+  }
+
+  /** The pool a member draws from, when the member is a {@code <gen type="pool">}. */
+  private static String memberPoolRef(TDCParser.OpenCloseElementContext node) {
+    for (TDCParser.ElementContext child : node.content().element()) {
+      TDCParser.SelfClosingElementContext self = child.selfClosingElement();
+      TDCParser.OpenCloseElementContext open = child.openCloseElement();
+      String tag = self != null ? self.name.getText() : open == null ? null : open.name.getText();
+      if (!"gen".equals(tag)) {
+        continue;
+      }
+      Map<String, String> attrs = self != null ? attributes(self.attr()) : attributes(open.attr());
+      if (!"pool".equals(attrs.get("type"))) {
+        continue;
+      }
+      return attrs.getOrDefault("value", "").trim();
+    }
+    return null;
+  }
+
+  /**
+   * A {@code <pool>}'s own attributes and the tags it may hold.
+   *
+   * <p>What is inside a legal child is NOT checked here — the pool's members go through the same
+   * checks the top level gets, which is the whole point of the construct.
+   */
+  private void checkPool(TDCParser.OpenCloseElementContext node) {
+    Map<String, String> attrs = attributes(node.attr());
+    int line = line(node);
+    int column = column(node);
+    String name = attrs.get("name");
+    if (name == null || name.isBlank()) {
+      error("TDC222", "<pool> has no name",
+          "A pool is read by name: <pool name=\"Doctors\" count=\"30\">, then "
+              + "<gen type=\"pool\" value=\"Doctors\"/>.",
+          line, column);
+    }
+
+    String raw = attrs.get("count");
+    if (raw == null || raw.isBlank()) {
+      String shown = name == null || name.isBlank() ? "" : " name=\"" + name + "\"";
+      error("TDC222", "<pool" + shown + "> has no count",
+          "count is how many members the table holds — thirty doctors for two thousand "
+              + "patients: count=\"30\".",
+          line, column);
+    } else {
+      checkPoolCount(raw, line, column);
+    }
+
+    for (TDCParser.ElementContext child : node.content().element()) {
+      TDCParser.OpenCloseElementContext inner = child.openCloseElement();
+      String reason = inner == null ? null : forbiddenInPool(inner.name.getText());
+      if (reason == null) {
+        continue;
+      }
+      error("TDC230", "<" + inner.name.getText() + "> cannot live inside a <pool>", reason + ".",
+          line(inner), column(inner));
+    }
+  }
+
+  /** A pool that is far too big is a typo for the ROW count often enough to be worth saying. */
+  private void checkPoolCount(String raw, int line, int column) {
+    long count;
+    try {
+      count = Long.parseLong(raw.trim());
+    } catch (NumberFormatException e) {
+      count = 0;
+    }
+    if (count < 1) {
+      error("TDC223", "<pool> count \"" + raw + "\" is not a whole number of members",
+          "Use a whole number of at least 1 — a pool of nothing has no member to hand out.",
+          line, column);
+    } else if (count > Pool.MAX_MEMBERS) {
+      error("TDC235",
+          "<pool> holds " + grouped(count) + " members — more than the "
+              + grouped(Pool.MAX_MEMBERS) + " a pool may hold",
+          "A pool is kept in memory for the whole run (measured: ~320 bytes a member with four "
+              + "fields), so this would cost hundreds of megabytes before the first row. If you "
+              + "meant the number of ROWS, that is count on <env>.",
+          line, column);
+    } else if (count > Pool.WARN_MEMBERS) {
+      warn("TDC234",
+          "<pool> holds " + grouped(count) + " members and stays in memory for the whole run",
+          "Measured at ~320 bytes a member with four fields — 100,000 members cost about 29 MB. "
+              + "It works; it is worth being deliberate about. If you meant the number of ROWS, "
+              + "that is count on <env>.",
+          line, column);
+    }
+  }
+
+  private static String grouped(long value) {
+    return String.format(java.util.Locale.ROOT, "%,d", value);
+  }
+
+  private static String forbiddenInPool(String tag) {
+    return switch (tag) {
+      case "block" -> "a pool has no output of its own — it is a table other columns read";
+      case "before", "after", "before_block", "after_block", "delimiter_block", "before_line",
+          "after_line", "delimiter_line" ->
+          "fixtures describe a file, and a pool is not written to one";
+      case "pool" -> "a pool stays a flat table — point one pool at another instead of nesting them";
+      default -> null;
+    };
+  }
+
+  /** Publish {@code Ref.field} for a {@code <gen type="pool">}. */
+  private void registerPoolReference(TDCParser.OpenCloseElementContext sequence, String name) {
+    for (TDCParser.ElementContext child : sequence.content().element()) {
+      TDCParser.SelfClosingElementContext self = child.selfClosingElement();
+      TDCParser.OpenCloseElementContext open = child.openCloseElement();
+      String tag = self != null ? self.name.getText() : open == null ? null : open.name.getText();
+      if (!"gen".equals(tag)) {
+        continue;
+      }
+      Map<String, String> attrs =
+          self != null ? attributes(self.attr()) : attributes(open.attr());
+      if (!"pool".equals(attrs.get("type"))) {
+        continue;
+      }
+      int line = self != null ? line(self) : line(open);
+      int column = self != null ? column(self) : column(open);
+      String poolName = attrs.getOrDefault("value", "").trim();
+      List<String> fields = poolFields.get(poolName);
+      if (fields == null) {
+        error("TDC224",
+            "<gen type=\"pool\"> draws from \"" + poolName + "\", which is not a declared pool",
+            poolFields.isEmpty()
+                ? "Declare it first: <pool name=\"…\" count=\"…\"> inside the same <env>."
+                : "Declared pools: " + String.join(", ", new java.util.TreeSet<>(poolFields.keySet()))
+                    + ".",
+            line, column);
+        continue;
+      }
+      checkPoolFilter(attrs, poolName, fields, line, column);
+      for (String field : fields) {
+        declaredNames.add(name + "." + field);
+      }
+      // The reference itself is a record, not a value: nothing to print.
+      valuelessNames.add(name);
+      poolReferences.add(name);
+    }
+  }
+
+  /**
+   * What {@code filter=} may name.
+   *
+   * <p>A qualified {@code Pool.field} says exactly what it means, so a field the pool has not got
+   * is a certain mistake. An UNQUALIFIED unknown name is left alone: the expression language reads
+   * a bare word as a string literal, which is how {@code filter="c == North"} says "northern only".
+   */
+  private void checkPoolFilter(
+      Map<String, String> attrs, String poolName, List<String> fields, int line, int column) {
+    String expression = attrs.get("filter");
+    if (expression == null || expression.isBlank()) {
+      return;
+    }
+    java.util.regex.Matcher dotted = QUALIFIED_NAME.matcher(expression);
+    while (dotted.find()) {
+      if (!dotted.group(1).equals(poolName) || fields.contains(dotted.group(2))) {
+        continue;
+      }
+      error("TDC226",
+          "filter= reads \"" + dotted.group() + "\", but pool \"" + poolName
+              + "\" has no field \"" + dotted.group(2) + "\"",
+          fields.isEmpty()
+              ? "Pool \"" + poolName + "\" declares no fields."
+              : "Fields of \"" + poolName + "\": " + String.join(", ", fields) + ".",
+          line, column);
+    }
+
+    Set<String> seen = new LinkedHashSet<>();
+    java.util.regex.Matcher plain = PLAIN_NAME.matcher(expression);
+    while (plain.find()) {
+      String word = plain.group();
+      if (!seen.add(word) || !fields.contains(word) || !envNames.contains(word)) {
+        continue;
+      }
+      error("TDC232",
+          "\"" + word + "\" in filter= is both a field of pool \"" + poolName
+              + "\" and a sequence — which one is meant is not decidable",
+          "Rename one of them. Qualifying one side (\"" + poolName + "." + word
+              + "\") does not help: the other \"" + word + "\" still reads as the member's field, "
+              + "so the test would compare a value with itself.",
+          line, column);
+    }
+  }
+
+  /**
+   * A group of fewer than two sequences constrains nothing.
+   *
+   * <p>It used to be dropped in silence: check called the config valid and the run drew repeats
+   * anyway. A warning rather than an error — the config still runs, it just does not do what it
+   * was written for.
+   */
+  private void checkGroupSize(
+      TDCParser.OpenCloseElementContext wrapper, String tag, int members) {
+    if (members >= 2) {
+      return;
+    }
+    String counted = members == 0 ? "no sequences" : "one sequence";
+    String hint =
+        "uniq".equals(tag)
+            ? "Put at least two <sequence> members in it, or drop the wrapper and write "
+                + "uniq=\"true\" on the one sequence — that draws without replacement."
+            : "Put at least two <sequence> members in it, or drop the wrapper: there is nothing "
+                + "for a single value to differ from.";
+    warn(
+        "TDC221",
+        "<"
+            + tag
+            + "> wraps "
+            + counted
+            + " — a group constrains its members against each other, so it does nothing here",
+        hint,
+        wrapper.getStart().getLine(),
+        wrapper.getStart().getCharPositionInLine());
+  }
+
+  /**
+   * A member of an env-level group has to produce one value per row.
+   *
+   * <p>The constraint is stated between sequences, so a compound has no single value to compare
+   * or to make unique. Refusing is the only honest answer: silently using its first field would
+   * enforce something the config did not ask for.
+   */
+  private void checkEnvGroupMember(TDCParser.OpenCloseElementContext sequence, String tag) {
+    int named = 0;
+    int total = 0;
+    for (TDCParser.ElementContext child : sequence.content().element()) {
+      TDCParser.SelfClosingElementContext self = child.selfClosingElement();
+      if (self != null && "gen".equals(self.name.getText())) {
+        total++;
+        if (attributes(self.attr()).get("name") != null) {
+          named++;
+        }
+      }
+    }
+    if (named > 0 || total > 1) {
+      String name = attributes(sequence.attr()).get("name");
+      error(
+          "TDC129",
+          "<sequence name=\"" + (name == null ? "?" : name) + "\"> inside a config-level <" + tag
+              + "> must produce a single value",
+          "A <" + tag + "> around sequences uses one value per sequence. Use a simple <gen> or a "
+              + "<switch> sequence, not a compound (multi-field) one.",
+          line(sequence), column(sequence));
+    }
+  }
+
+  /**
+   * A {@code <compute>} sequence's tree, checked against everything declared so far.
+   *
+   * <p>Its {@code <field>} references can only name a sequence that already exists — the value
+   * is derived from the row, and a row is built in declaration order.
+   */
+  private void checkComputeBody(TDCParser.OpenCloseElementContext sequence) {
+    for (TDCParser.ElementContext child : sequence.content().element()) {
+      TDCParser.OpenCloseElementContext open = child.openCloseElement();
+      if (open == null || !"compute".equals(open.name.getText())) {
+        continue;
+      }
+      Set<String> knownFields = new LinkedHashSet<>(declaredNames);
+      knownFields.addAll(Checks.BUILTINS);
+      new ComputeCheck(diagnostics).check(open, knownFields);
+    }
+  }
+
+  /** Register {@code Name.Field} for every field, wherever in the sequence body it sits. */
+  private void collectFieldNames(TDCParser.OpenCloseElementContext element, String name) {
+    for (TDCParser.ElementContext child : element.content().element()) {
+      // A named <data> is a constant field and a real column, so a reference to it must not read
+      // as a typo for a sequence nobody declared.
+      if (child.dataElement() instanceof TDCParser.DataWithBodyContext data) {
+        String constant = attributes(data.attr()).get("name");
+        if (constant != null && !constant.isBlank()) {
+          declaredNames.add(name + "." + constant);
+        }
+        continue;
+      }
+      TDCParser.SelfClosingElementContext self = child.selfClosingElement();
+      if (self != null && "gen".equals(self.name.getText())) {
+        Map<String, String> genAttrs = attributes(self.attr());
+        String field = genAttrs.get("name");
+        if (field != null && !field.isBlank()) {
+          declaredNames.add(name + "." + field);
+        }
+        // anomaly_flag= sits on the <gen>, not on the <sequence>, and names a real column —
+        // referencing it must not read as a typo for a sequence nobody declared.
+        String genFlag = genAttrs.get("anomaly_flag");
+        if (genFlag != null && !genFlag.isBlank()) {
+          declaredNames.add(genFlag);
+        }
+        try {
+          if (Checks.hasRepeat(genAttrs)) {
+            repeatingNames.add(name);
+          }
+        } catch (RuntimeException ignored) {
+          // A malformed repeat is reported by checkRepeat; it is not this pass's business.
+        }
+        continue;
+      }
+      TDCParser.OpenCloseElementContext inner = child.openCloseElement();
+      if (inner != null && "distinct".equals(inner.name.getText())) {
+        collectFieldNames(inner, name);
+      }
+    }
+  }
+
+  /** A sequence must actually produce something, and a compound must name its fields. */
+  private void checkSequenceBody(TDCParser.OpenCloseElementContext open, String name) {
+    List<Map<String, String>> gens = new ArrayList<>();
+    List<TDCParser.SelfClosingElementContext> genNodes = new ArrayList<>();
+    boolean hasCompute = false;
+    TDCParser.OpenCloseElementContext computeEl = null;
+    for (TDCParser.ElementContext child : open.content().element()) {
+      TDCParser.SelfClosingElementContext self = child.selfClosingElement();
+      if (self != null && "gen".equals(self.name.getText())) {
+        gens.add(attributes(self.attr()));
+        genNodes.add(self);
+        continue;
+      }
+      TDCParser.OpenCloseElementContext inner = child.openCloseElement();
+      if (inner == null) {
+        continue;
+      }
+      if ("compute".equals(inner.name.getText())) {
+        hasCompute = true;
+        computeEl = inner;
+      } else if ("distinct".equals(inner.name.getText())) {
+        for (TDCParser.ElementContext g : inner.content().element()) {
+          TDCParser.SelfClosingElementContext gen = g.selfClosingElement();
+          if (gen != null && "gen".equals(gen.name.getText())) {
+            gens.add(attributes(gen.attr()));
+            genNodes.add(gen);
+          }
+        }
+      }
+    }
+
+    // A <sequence> holds only <gen> (optionally wrapped in <distinct>). A construct that belongs
+    // at env level is a placement mistake — saying so beats letting it fall through to a
+    // confusing "no <gen>", which names a symptom rather than the cause.
+    int misplaced = 0;
+    for (TDCParser.ElementContext child : open.content().element()) {
+      String tag = null;
+      org.antlr.v4.runtime.ParserRuleContext node = null;
+      if (child.mapElement() != null) {
+        tag = "map";
+        node = child.mapElement();
+      } else if (child.openCloseElement() != null) {
+        tag = child.openCloseElement().name.getText();
+        node = child.openCloseElement();
+      } else if (child.selfClosingElement() != null) {
+        tag = child.selfClosingElement().name.getText();
+        node = child.selfClosingElement();
+      }
+      if (tag != null && MISPLACED_IN_SEQUENCE.contains(tag)) {
+        error("TDC013", "<" + tag + "> is not allowed directly inside <sequence>",
+            PLACEMENT_HINTS.get(tag),
+            node.getStart().getLine(), node.getStart().getCharPositionInLine());
+        misplaced++;
+      }
+    }
+
+    if (hasCompute && !gens.isEmpty()) {
+      // One <sequence>, two producers. The engine cannot honour both, and the five
+      // implementations did not even agree on which one to drop — same config, different
+      // data. Refuse instead.
+      error("TDC219",
+          "<compute> cannot sit beside a <gen> in <sequence name=\"" + (name == null ? "?" : name)
+              + "\"> \u2014 one of the two would be dropped",
+          "A sequence either DERIVES its value with <compute> or DRAWS it with <gen>. Move the "
+              + "<compute> into its own <sequence> and read the drawn one from it with "
+              + "<field name=\"\u2026\"/>.",
+          line(computeEl), column(computeEl));
+    }
+
+    if (hasCompute && gens.isEmpty()) {
+      uniqUnsupported(open, name, "<compute> processes the values it reads rather than drawing any of its own, so it cannot promise uniqueness");
+    }
+
+    if (gens.isEmpty() && !hasCompute && misplaced == 0) {
+      error("TDC036", "<sequence name=\"" + (name == null ? "?" : name) + "\"> has no <gen> child",
+          "A sequence needs at least one <gen type=\"…\"/> describing how values are made.",
+          line(open), column(open));
+      return;
+    }
+
+    // Conditional first, exactly as the reference orders it: gens carrying `if` are branches,
+    // and a branch has no need of a name.
+    boolean conditional = gens.stream().anyMatch(g -> g.containsKey("if"));
+    if (conditional) {
+      uniqUnsupported(open, name,
+          "its value is picked per row from <gen if=\"…\"> branches rather than drawn as one pool, so it cannot promise uniqueness");
+      return;
+    }
+
+    uniqOnComposed(open, name, gens);
+
+    // Three readings, and the body says which: every gen named is a compound (several columns, no
+    // value of its own), one unnamed gen alone is a simple sequence, and anything else COMPOSES —
+    // the unnamed gens and the literals concatenate into the sequence's own value while the named
+    // ones stay fields beside it. None of the three is an error, so the only thing left to check
+    // is that two fields do not share a name.
+    Set<String> fieldNames = new LinkedHashSet<>();
+    for (int g = 0; g < gens.size(); g++) {
+      String fieldName = gens.get(g).get("name");
+      if (fieldName == null || fieldName.isBlank()) {
+        continue;
+      }
+      if (!fieldNames.add(fieldName)) {
+        TDCParser.SelfClosingElementContext node = genNodes.get(g);
+        error("TDC111",
+            "duplicate field name \"" + fieldName + "\" inside compound <sequence name=\""
+                + (name == null ? "?" : name) + "\">",
+            "Each <gen name=\"…\"> within a compound sequence must have a unique name.",
+            at(node, "name")[0], at(node, "name")[1]);
+      }
+    }
+
+    // Compound: every gen named, and no literal to compose with. Recorded so a later parent=
+    // naming this sequence can be refused before the run rather than during it.
+    boolean composes = false;
+    for (TDCParser.ElementContext child : open.content().element()) {
+      if (child.dataElement() instanceof TDCParser.DataWithBodyContext body
+          && !body.dataContent().getText().isBlank()) {
+        composes = true;
+        break;
+      }
+    }
+    if (!gens.isEmpty() && fieldNames.size() == gens.size() && !composes && name != null) {
+      valuelessNames.add(name);
+    }
+
+    // A simple body — one unnamed gen and nothing else — may say outright what it produces.
+    if (gens.size() == 1 && fieldNames.isEmpty() && !composes && name != null) {
+      List<String> values = finiteTextValues(gens.get(0));
+      if (values != null) {
+        finiteValues.put(name, values);
+      }
+    }
+  }
+
+  /**
+   * A {@code <data>} inside a {@code <sequence>} reads {@code name} and nothing else.
+   *
+   * <p>It is a literal, or — with a name — a constant field. An output type belongs on the
+   * {@code <data>} in the {@code <line>}, where the column is actually emitted; dropping one here
+   * is the silent loss this whole reading was introduced to end.
+   */
+  private void checkSequenceDataAttrs(TDCParser.OpenCloseElementContext open) {
+    for (TDCParser.ElementContext child : open.content().element()) {
+      if (!(child.dataElement() instanceof TDCParser.DataWithBodyContext body)) {
+        continue;
+      }
+      for (TDCParser.AttrContext attr : body.attr()) {
+        String attrName = attr.attrName.getText();
+        if ("name".equals(attrName) || "comment".equals(attrName)) {
+          continue;
+        }
+        int[] where = at(body.attr(), attrName, line(open), column(open));
+        error("TDC015",
+            "<data> inside <sequence> does not read \"" + attrName + "\" — it is ignored",
+            "Inside a <sequence> a <data> is a literal or, with name=\"…\", a constant field. "
+                + "Output types belong on the <data> in the <line>.",
+            where[0], where[1]);
+      }
+    }
+  }
+
+  /** A mix needs branches, and only branches. */
+  private void checkMix(TDCParser.OpenCloseElementContext open) {
+    checkMix(open, true);
+  }
+
+  /**
+   * @param named whether this mix sits at env level and can therefore own a flag column. A
+   *     nested one contributes a value to somebody else's column and has nowhere to put a flag.
+   */
+  private void checkMix(TDCParser.OpenCloseElementContext open, boolean named) {
+    int cases = 0;
+    boolean anomalous = false;
+    TDCParser.OpenCloseElementContext firstAnomalous = null;
+    for (TDCParser.ElementContext child : open.content().element()) {
+      TDCParser.OpenCloseElementContext inner = child.openCloseElement();
+      TDCParser.SelfClosingElementContext self = child.selfClosingElement();
+      String tag = inner != null ? inner.name.getText() : self != null ? self.name.getText() : null;
+      if (tag == null) {
+        continue;
+      }
+      if ("case".equals(tag)) {
+        cases++;
+        if (inner != null && "true".equals(attributes(inner.attr()).get("anomaly"))) {
+          anomalous = true;
+          if (firstAnomalous == null) {
+            firstAnomalous = inner;
+          }
+        }
+        if (inner != null) {
+          checkClosedTagAttrs("case", inner.attr(), line(inner), column(inner));
+          checkCaseBody(inner);
+        }
+        continue;
+      }
+      int l = inner != null ? line(inner) : line(self);
+      int c = inner != null ? column(inner) : column(self);
+      error("TDC124", "unknown child of <mix>: \"<" + tag + ">\"", "Allowed children: case.", l, c);
+    }
+    if (cases > 0) {
+      checkPercentMask(attributes(open.attr()).get("percent"), cases,
+          new String[] {"TDC121", "TDC122", "TDC123"},
+          at(open, "percent")[0], at(open, "percent")[1]);
+    }
+    if (cases == 0) {
+      error("TDC120", "<mix> has no <case> children",
+          "Add at least one <case>...</case> inside <mix>.", line(open), column(open));
+    }
+
+    String flag = attributes(open.attr()).get("flag");
+    if (flag != null && !named) {
+      error("TDC203",
+          "\"flag\" on a nested <mix> is not supported — only a named env-level <mix> can declare one",
+          "A flag becomes its own sequence, so it needs a <mix name=\"…\"> at env level.",
+          at(open, "flag")[0], at(open, "flag")[1]);
+      // One complaint per mix: whether its branches are marked is beside the point once the
+      // flag itself cannot exist.
+      return;
+    }
+    if (flag == null && firstAnomalous != null) {
+      // A branch marked as the outlier, and nothing recording which rows took it. The label is
+      // the only reason to mark it, so the complaint points at the branch.
+      int[] where = at(firstAnomalous, "anomaly");
+      error("TDC203",
+          "anomaly=\"true\" on <case> does nothing — the enclosing <mix> declares no flag=\"…\"",
+          "Name the ground-truth column: <mix name=\"…\" flag=\"IsAnomaly\">.",
+          where[0], where[1]);
+    }
+    for (String listy : new String[] {"repeat", "separator"}) {
+      if (attributes(open.attr()).get(listy) != null) {
+        error("TDC196",
+            "\"" + listy + "\" is not supported on <mix> — it picks one branch, it does not produce a list",
+            "Put repeat= on the <gen> inside a <case>, or on a plain <sequence>.",
+            at(open, listy)[0], at(open, listy)[1]);
+      }
+    }
+    if (flag != null && !flag.isBlank() && cases > 0 && !anomalous) {
+      // A label that is false on every row is not a label. It reads as ground truth and
+      // teaches whatever consumes it that nothing is ever anomalous.
+      error("TDC202",
+          "flag=\"…\" but no <case> is marked anomaly=\"true\" — the column would be all \"false\"",
+          "Mark the outlier branch: <case anomaly=\"true\">…</case>.", at(open, "flag")[0], at(open, "flag")[1]);
+    }
+  }
+
+  private void checkSwitch(TDCParser.OpenCloseElementContext open, List<String> declared) {
+    Map<String, String> attrs = attributes(open.attr());
+    String on = attrs.get("on");
+    if (on == null || on.isBlank()) {
+      error("TDC133", "<switch> is missing a required \"on\" attribute",
+          "A switch looks a value up; \"on\" names the sequence it looks up.", line(open), column(open));
+    } else if (!declared.contains(on)) {
+      error("TDC134", "<switch on=\"" + on + "\"> refers to an unknown sequence",
+          "Declare the subject sequence above the switch.", at(open, "on")[0], at(open, "on")[1]);
+    }
+
+    int entries = 0;
+    for (TDCParser.ElementContext child : open.content().element()) {
+      if (child.mapElement() != null) {
+        entries++;
+        checkMapRows(child.mapElement());
+        continue;
+      }
+      TDCParser.OpenCloseElementContext inner = child.openCloseElement();
+      if (inner == null) {
+        continue;
+      }
+      if ("case".equals(inner.name.getText())) {
+        entries++;
+        String is = attributes(inner.attr()).get("is");
+        if (is == null || is.isBlank()) {
+          error("TDC137", "<case> inside <switch> is missing a required \"is\" attribute",
+              "A switch case matches a value; \"is\" is the value it matches.",
+              line(inner), column(inner));
+        }
+      } else if ("default".equals(inner.name.getText())) {
+        entries++;
+      }
+    }
+    if (entries == 0) {
+      error("TDC135", "<switch> has no entries",
+          "Add a <map>, a <case is=\"…\">, or a <default>.", line(open), column(open));
+    }
+  }
+
+  /** Walk into a sequence body so a {@code <gen>} inside a {@code <distinct>} is checked too. */
+  private void checkGensIn(TDCParser.ElementContext element) {
+    TDCParser.SelfClosingElementContext self = element.selfClosingElement();
+    if (self != null && "gen".equals(self.name.getText())) {
+      checkGen(self);
+      return;
+    }
+    TDCParser.OpenCloseElementContext open = element.openCloseElement();
+    if (open != null) {
+      for (TDCParser.ElementContext inner : open.content().element()) {
+        checkGensIn(inner);
+      }
+    }
+  }
+
+  // ── gen ──────────────────────────────────────────────────────────────────────────────────
+
+  private void checkGen(TDCParser.SelfClosingElementContext gen) {
+    Map<String, String> attrs = attributes(gen.attr());
+    String type = attrs.get("type");
+
+    // A conditional gen carries `if` as its branch condition, and a plain one may have one too.
+    // An expression here is an expression like any other: left unchecked, a branch that can never
+    // be taken looks exactly like a branch nobody happened to hit.
+    String condition = attrs.get("if");
+    if (condition != null) {
+      int[] where = at(gen.attr(), "if", line(gen), column(gen));
+      checkIfExpression(condition, where[0], where[1]);
+      pendingExpressions.add(
+          new Pending(diagnostics.size(), condition, where[0], where[1], false));
+    }
+
+    if (type == null || type.isBlank()) {
+      error("TDC040", "<gen> is missing a required \"type\" attribute",
+          "Every generator names what it generates.", at(gen, "name")[0], at(gen, "name")[1]);
+    } else if (!GEN_TYPES.contains(type)) {
+      error("TDC041", "unknown gen type \"" + type + "\"",
+          "Known types: " + String.join(", ", new java.util.TreeSet<>(GEN_TYPES)) + ".",
+          at(gen, "type")[0], at(gen, "type")[1]);
+    }
+
+    checkRequiredValue(gen, attrs, type);
+    checkNumber(gen, attrs, type);
+    checkRegexes(gen, attrs, type);
+    checkSymbol(gen, attrs, type);
+    checkDate(gen, attrs, type);
+    checkRepeat(gen, attrs, type);
+
+    checkGenAttributes(gen, attrs, type);
+
+    checkWeight(gen, attrs, type);
+    checkSource(gen, attrs, type);
+    checkHttp(gen, attrs, type);
+    checkRunning(gen, attrs, type);
+    checkMask(gen, attrs);
+    checkCounter(gen, attrs, type);
+    checkDateTemplates(gen, attrs, type);
+    checkCaseAndOrder(gen, attrs);
+    if ("text".equals(type) && attrs.get("percent") != null) {
+      int values = splitCount(attrs.getOrDefault("value", ""));
+      checkPercentMask(attrs.get("percent"), values,
+          new String[] {"TDC051", "TDC052", "TDC053"},
+          at(gen, "percent")[0], at(gen, "percent")[1]);
+    }
+    if ("number".equals(type) && attrs.get("percent") != null && attrs.get("length") != null) {
+      int groups = splitCount(attrs.get("length"));
+      checkPercentMask(attrs.get("percent"), groups,
+          new String[] {"TDC084", "TDC085", "TDC086"},
+          at(gen, "percent")[0], at(gen, "percent")[1]);
+    }
+  }
+
+  /**
+   * The {@code http} generator: everything knowable before the run.
+   *
+   * <p>A missing endpoint, an address that is not a URL, an {@code in=} naming nothing. The
+   * transport failures — the service down, slow or wrong — cannot be known until the run and are
+   * reported then; these can, and a run that calls a service is the most expensive kind to
+   * discover a typo in.
+   */
+  private void checkHttp(
+      TDCParser.SelfClosingElementContext gen, Map<String, String> attrs, String type) {
+    if (!"http".equals(type)) {
+      return;
+    }
+    String src = attrs.get("src");
+    if (src == null || src.trim().isEmpty()) {
+      error("TDC065", "<gen type=\"http\"> requires a \"src\" attribute",
+          "Point it at the service, e.g. src=\"http://127.0.0.1:5566/gen\".",
+          at(gen, "src")[0], at(gen, "src")[1]);
+    } else if (!isHttpUrl(src.trim())) {
+      error("TDC066", "invalid http src \"" + src.trim() + "\" — must be an http:// or https:// URL",
+          "e.g. src=\"http://127.0.0.1:5566/gen\" or src=\"https://svc.example.com/gen\".",
+          at(gen, "src")[0], at(gen, "src")[1]);
+    }
+
+    String in = attrs.get("in");
+    if (in != null && !declaredNames.contains(in.trim())) {
+      error("TDC067", "in=\"" + in.trim() + "\" does not name a sequence declared before this one",
+          "The value sent per row comes from an earlier <sequence>; declare it above.",
+          at(gen, "in")[0], at(gen, "in")[1]);
+    }
+
+    String onError = attrs.get("on_error");
+    if (onError != null && !"fail".equals(onError) && !"empty".equals(onError)) {
+      error("TDC068", "invalid on_error \"" + onError + "\" — expected \"fail\" or \"empty\"",
+          "fail (default) stops the run; empty blanks the cell and continues.",
+          at(gen, "on_error")[0], at(gen, "on_error")[1]);
+    }
+  }
+
+  private static boolean isHttpUrl(String value) {
+    try {
+      java.net.URI uri = java.net.URI.create(value);
+      String scheme = uri.getScheme();
+      return uri.isAbsolute()
+          && ("http".equals(scheme) || "https".equals(scheme))
+          && uri.getHost() != null;
+    } catch (RuntimeException e) {
+      return false;
+    }
+  }
+
+  /** A {@code mask=} that does not parse. Caught here rather than on the first row. */
+  private void checkMask(TDCParser.SelfClosingElementContext gen, Map<String, String> attrs) {
+    String mask = attrs.get("mask");
+    if (mask == null) {
+      return;
+    }
+    try {
+      io.github.nickliapin.tdc.format.Mask.check(mask);
+    } catch (RuntimeException e) {
+      error("TDC199", e.getMessage(),
+          "Indices are 0-based; ranges use \"..\", e.g. mask=\"x[0..3]\" or mask=\"w[-1], w[0]\".",
+          at(gen, "mask")[0], at(gen, "mask")[1]);
+    }
+  }
+
+  /**
+   * A {@code src=} that names a file nobody can read.
+   *
+   * <p>Checked before the run rather than during it: a missing file discovered on row one of a
+   * million-row job has already cost whatever the job cost.
+   */
+  private void checkSource(
+      TDCParser.SelfClosingElementContext gen, Map<String, String> attrs, String type) {
+    if (!"file".equals(type) && !"pattern".equals(type)) {
+      return;
+    }
+    String src = attrs.get("src");
+    if (src == null || src.isBlank()) {
+      return;
+    }
+    // The same resolution the generator itself performs, or the validator would refuse a config
+    // the run would have handled — an @data/ source above all.
+    java.nio.file.Path path;
+    try {
+      path = io.github.nickliapin.tdc.generators.FileGen.resolve(src, baseDir, dataRoots());
+    } catch (RuntimeException e) {
+      error("TDC061", e.getMessage(), "Paths are relative to the config file's own folder.",
+          at(gen, "src")[0], at(gen, "src")[1]);
+      return;
+    }
+    if (!java.nio.file.Files.isReadable(path)) {
+      error("TDC061", "cannot read file \"" + src + "\"",
+          "Paths are relative to the config file's own folder.", at(gen, "src")[0], at(gen, "src")[1]);
+      return;
+    }
+    if (attrs.get("column") == null) {
+      return;
+    }
+    // A column that names nothing in the file: caught by loading it, which is the only way to
+    // know, and cheap next to discovering it a million rows in.
+    try {
+      io.github.nickliapin.tdc.generators.FileGen.load(attrs, baseDir, dataRoots());
+    } catch (RuntimeException e) {
+      error("TDC062", e.getMessage(),
+          "For CSV files, use a header name like column=\"email\" or a 1-based index like "
+              + "column=\"2\".",
+          at(gen, "column")[0], at(gen, "column")[1]);
+    }
+  }
+
+  /** Every generator that cannot work without one particular attribute. */
+  /**
+   * Every attribute is spelled right AND read by this generator.
+   *
+   * <p>An ignored attribute is a request the config made and silently did not get, which is
+   * indistinguishable from a typo — and the data comes out looking fine either way, which is what
+   * makes it worth stopping for. All errors, matching the reference.
+   */
+  private void checkGenAttributes(
+      TDCParser.SelfClosingElementContext gen, Map<String, String> attrs, String type) {
+    if ("template".equals(type)) {
+      checkBuiltinTemplateAttrs(gen, attrs);
+      return;
+    }
+
+    String distribution = attrs.get("distribution");
+    boolean hasDistribution = distribution != null && !distribution.isBlank();
+
+    for (String name : attrs.keySet()) {
+      if (!GEN_ATTRS.contains(name)) {
+        ignored(gen, name, "Check the spelling against the generator's attributes.");
+        continue;
+      }
+      // A distribution parameter with no distribution asked for shapes nothing.
+      if (DISTRIBUTION_PARAMS.contains(name) && !hasDistribution) {
+        ignored(gen, name,
+            "\"" + name + "\" is a parameter of a named distribution — add distribution=\"…\" "
+                + "for it to mean anything. To bound a plain number, put the range in "
+                + "value=\"10..20\".");
+        continue;
+      }
+      java.util.Set<String> owners = ATTRIBUTE_OWNERS.get(name);
+      if (owners != null && type != null && !owners.contains(type)) {
+        List<String> sorted = new ArrayList<>(owners);
+        java.util.Collections.sort(sorted);
+        StringBuilder belongs = new StringBuilder();
+        for (int i = 0; i < sorted.size(); i++) {
+          belongs.append(i == 0 ? "" : ", ").append("type=\"").append(sorted.get(i)).append('"');
+        }
+        ignored(gen, name,
+            "\"" + name + "\" belongs to " + belongs + " — a type=\"" + type
+                + "\" generator ignores it.");
+      }
+    }
+  }
+
+  /**
+   * The two pack-less template paths, against their own closed parameter sets.
+   *
+   * <p>A pack declares its own parameters and is judged with the registry in hand; these two are
+   * backed by no pack, so nothing else checks them.
+   */
+  private void checkBuiltinTemplateAttrs(
+      TDCParser.SelfClosingElementContext gen, Map<String, String> attrs) {
+    String path = attrs.get("value") == null ? "" : attrs.get("value").trim();
+    java.util.Set<String> allowed = BUILTIN_TEMPLATE_PARAMS.get(path);
+    if (allowed == null) {
+      for (String name : attrs.keySet()) {
+        if (!GEN_ATTRS.contains(name)) {
+          ignored(gen, name, "Check the spelling against the generator's attributes.");
+        }
+      }
+      return;
+    }
+
+    for (String name : attrs.keySet()) {
+      if (TEMPLATE_COMMON_ATTRS.contains(name)) {
+        continue;
+      }
+      if (!allowed.contains(name)) {
+        List<String> sorted = new ArrayList<>(allowed);
+        java.util.Collections.sort(sorted);
+        ignored(gen, name, "\"" + path + "\" reads only " + String.join(", ", sorted) + ".");
+      }
+    }
+  }
+
+  /**
+   * {@code uniq="true"} where the value is not DRAWN, so there is no pool to take from.
+   *
+   * <p>Uniqueness is a property of a draw — without replacement on a simple sequence, a
+   * rearrangement of the columns on a compound one. A computed result and a conditional pick are
+   * neither, so the attribute could only be ignored, and it used to be in silence: the config
+   * claimed the column was unique and the data disagreed without a word.
+   */
+  /**
+   * {@code uniq="true"} on a composed value that joins two or more DRAWN parts.
+   *
+   * <p>One drawn part plus constants is fine and honoured: appending a constant cannot make two
+   * different draws collide. Two drawn parts have no fixed widths, so a unique set of parts is not
+   * a unique join — {@code 9} + {@code 15} and {@code 91} + {@code 5} are the same three
+   * characters.
+   */
+  private void uniqOnComposed(
+      TDCParser.OpenCloseElementContext open, String name, List<Map<String, String>> gens) {
+    String uniq = attributes(open.attr()).get("uniq");
+    if (uniq == null || !"true".equals(uniq.trim().toLowerCase(java.util.Locale.ROOT))) {
+      return;
+    }
+    long drawn = gens.stream().filter(g -> !g.containsKey("name")).count();
+    if (drawn < 2) {
+      return;
+    }
+    int[] pos = at(open.attr(), "uniq", line(open), column(open));
+    error("TDC220",
+        "uniq=\"true\" cannot be honoured on <sequence name=\"" + (name == null ? "?" : name)
+            + "\">: its value joins " + drawn + " drawn parts, and a unique set of parts is not a "
+            + "unique join when the parts have no fixed width",
+        "Give each part its own <sequence> and wrap them in <uniq>\u2026</uniq>, with a fixed "
+            + "width per part (length= plus first_zero=\"true\" on a number). Then the join can "
+            + "be split back one way only, so a unique combination is a unique result.",
+        pos[0], pos[1]);
+  }
+
+  private void uniqUnsupported(
+      TDCParser.OpenCloseElementContext open, String name, String why) {
+    Map<String, String> attrs = attributes(open.attr());
+    String uniq = attrs.get("uniq");
+    if (uniq == null || !"true".equals(uniq.trim().toLowerCase(java.util.Locale.ROOT))) {
+      return;
+    }
+    int[] pos = at(open.attr(), "uniq", line(open), column(open));
+    error("TDC218",
+        "uniq=\"true\" is not allowed on <sequence name=\"" + (name == null ? "?" : name)
+            + "\">: " + why,
+        "Put uniq= on the sequences this one reads, or wrap them in <uniq>…</uniq> so their "
+            + "combination is unique across records. When the parts have fixed widths, a unique "
+            + "combination means a unique result.",
+        pos[0], pos[1]);
+  }
+
+  private void ignored(TDCParser.SelfClosingElementContext gen, String name, String why) {
+    error("TDC015", "<gen> does not read \"" + name + "\" — it is ignored", why,
+        at(gen, name)[0], at(gen, name)[1]);
+  }
+
+  private void checkRequiredValue(
+      TDCParser.SelfClosingElementContext gen, Map<String, String> attrs, String type) {
+    String value = attrs.get("value");
+    boolean missing = value == null || value.isBlank();
+    switch (type == null ? "" : type) {
+      case "text" -> {
+        if (missing) {
+          error("TDC050", "<gen type=\"text\"> requires a \"value\" attribute",
+              "It is the comma-separated list to pick from.", line(gen), column(gen));
+        }
+      }
+      case "file" -> {
+        if (attrs.get("src") == null || attrs.get("src").isBlank()) {
+          error("TDC060", "<gen type=\"file\"> requires a \"src\" attribute",
+              "Provide the path to a UTF-8 text file with one value per line.",
+              line(gen), column(gen));
+        }
+        String row = attrs.get("row");
+        if (row != null && !row.isBlank()
+            && (attrs.get("column") == null || attrs.get("column").isBlank())) {
+          error("TDC064", "row-linked file generators require a CSV \"column\" attribute",
+              "Use column=\"name\" or column=\"2\" together with row=\"sharedKey\".",
+              at(gen, "row")[0], at(gen, "row")[1]);
+        }
+      }
+      case "template" -> {
+        if (missing) {
+          error("TDC070", "<gen type=\"template\"> requires a \"value\" attribute",
+              "Use a known template path, e.g. person.male.firstName.", line(gen), column(gen));
+        } else if (value.contains("${{")) {
+          // An address that names a field is not known until the row is, so there is nothing
+          // to look up here. The engine resolves it per row and reports what it cannot find.
+          return;
+        } else if (!BUILTIN_TEMPLATE_PATHS.contains(value.trim())
+            && packs != null
+            && packs.exists(value.trim(), locale)) {
+          // The address resolves; whether the file behind it is usable is a separate question,
+          // and one worth answering now. A pack a user wrote themselves is exactly the kind that
+          // is malformed, and finding out on the first row wastes the run.
+          try {
+            packs.load(value.trim(), locale);
+          } catch (RuntimeException e) {
+            error("TDC170", e.getMessage(),
+                "Data pack file for \"" + value.trim() + "\".",
+                at(gen, "value")[0], at(gen, "value")[1]);
+          }
+        } else if (!BUILTIN_TEMPLATE_PATHS.contains(value.trim())
+            && packs != null
+            && !packs.exists(value.trim(), locale)) {
+          // The path may be real and only missing DATA for this locale. Said as
+          // its own code because "unknown template path" reads as a typo and sends
+          // the reader hunting for one that is not there.
+          if (!"en".equals(locale) && packs.exists(value.trim(), "en")) {
+            error("TDC217",
+                "template path \"" + value + "\" has no data for locale \"" + locale + "\"",
+                "The \"en\" pack ships it. Set local=\"…\" on this <gen> or on <env>, or choose "
+                    + "a path your locale ships.",
+                at(gen, "value")[0], at(gen, "value")[1]);
+          } else {
+            error("TDC071", "unknown template path \"" + value + "\"",
+                "Check the address against the packs you have.",
+                at(gen, "value")[0], at(gen, "value")[1]);
+          }
+        }
+      }
+      case "regex" -> {
+        if (missing) {
+          error("TDC095", "<gen type=\"regex\"> requires a \"value\" attribute",
+              "Provide a finite regex pattern, e.g. value=\"[A-Z]{2}[0-9]{6}\".",
+              line(gen), column(gen));
+        }
+      }
+      case "advanced_regex" -> {
+        if (missing) {
+          error("TDC128", "<gen type=\"advanced_regex\"> requires a \"value\" attribute",
+              "Provide a finite pattern, optionally with a weighted choice.",
+              line(gen), column(gen));
+        }
+      }
+      default -> {
+        // Nothing else has a single required attribute.
+      }
+    }
+  }
+
+  /**
+   * The number generator's own parsers decide what is valid.
+   *
+   * <p>A validator with its own idea of a valid range drifts from the generator that reads it,
+   * and then a config passes the check and fails at run time — the worst of both.
+   */
+  private void checkNumber(
+      TDCParser.SelfClosingElementContext gen, Map<String, String> attrs, String type) {
+    if (!"number".equals(type)) {
+      return;
+    }
+    String distribution = attrs.get("distribution");
+    if (distribution != null && !distribution.isBlank()) {
+      for (String key : Checks.DISTRIBUTION_CONFLICTS) {
+        if (attrs.get(key) != null) {
+          error("TDC088",
+              "<gen type=\"number\" distribution=\"...\"> cannot be combined with \"" + key + "\"",
+              "A distribution replaces the range/percent. Remove \"" + key
+                  + "\", or drop \"distribution\" to use a range.",
+              at(gen, key)[0], at(gen, key)[1]);
+        }
+      }
+      // The distribution's own parameters: a shape nobody can draw from is an error before the
+      // run, not a surprise on the first row.
+      try {
+        io.github.nickliapin.tdc.stats.Distribution.parse(attrs);
+      } catch (RuntimeException e) {
+        error("TDC089", e.getMessage(),
+            "Distributions: normal (mean, sd), lognormal (meanlog, sdlog), exponential (rate), "
+                + "pareto (alpha, xmin). Optional: decimals, min, max.",
+            at(gen, "distribution")[0], at(gen, "distribution")[1]);
+      }
+      return;
+    }
+
+    String value = attrs.get("value");
+    if (value != null && !value.isBlank()) {
+      String problem = Checks.numberRangeProblem(value);
+      if (problem != null) {
+        error("TDC081", "invalid number range \"" + value + "\"",
+            "Expected \"bit\", \"MIN..MAX\", or a list like \"[0..9],[20..29]\".",
+            at(gen, "value")[0], at(gen, "value")[1]);
+      }
+    }
+
+    String firstZero = attrs.get("first_zero");
+    if (firstZero != null && !Checks.isBooleanText(firstZero)) {
+      error("TDC082", "invalid first_zero \"" + firstZero + "\" — expected \"true\" or \"false\"",
+          "It decides whether a generated digit string may start with a zero.",
+          at(gen, "first_zero")[0], at(gen, "first_zero")[1]);
+    }
+
+    String length = attrs.get("length");
+    if (length != null && !Checks.isValidLength(length)) {
+      error("TDC083",
+          "invalid length \"" + length + "\" — expected a positive integer, range, or comma-separated list",
+          "Examples: length=\"10\", length=\"2-10\", length=\"2,10-12\".",
+          at(gen, "length")[0], at(gen, "length")[1]);
+    }
+
+    boolean hasModifier =
+        (attrs.get("include") != null && !attrs.get("include").isBlank())
+            || (attrs.get("exclude") != null && !attrs.get("exclude").isBlank());
+    if (hasModifier && (value == null || value.isBlank())) {
+      error("TDC087", "<gen type=\"number\"> include/exclude require a numeric range in \"value\"",
+          "Add a range first, e.g. value=\"0..9\" exclude=\"3\".", line(gen), column(gen));
+    }
+  }
+
+  private void checkRegexes(
+      TDCParser.SelfClosingElementContext gen, Map<String, String> attrs, String type) {
+    String value = attrs.get("value");
+    if (value == null || value.isBlank()) {
+      return;
+    }
+    int limit =
+        attrs.get("regex_max_length") != null
+            ? safeMaxLength(attrs.get("regex_max_length"))
+            : documentRegexMaxLength;
+
+    if ("regex".equals(type)) {
+      String problem = Checks.regexProblem(value, limit);
+      if (problem != null) {
+        error("TDC097", "invalid regex generator pattern: " + problem,
+            "The subset is finite: no * or +, and every pattern has a longest output.",
+            at(gen, "value")[0], at(gen, "value")[1]);
+      }
+    } else if ("advanced_regex".equals(type)) {
+      String problem = Checks.advancedRegexProblem(value, limit);
+      if (problem != null) {
+        error("TDC130", "invalid advanced_regex generator pattern: " + problem,
+            "Weighted branches must sum to 100.", at(gen, "value")[0], at(gen, "value")[1]);
+      }
+    }
+  }
+
+  private void checkSymbol(
+      TDCParser.SelfClosingElementContext gen, Map<String, String> attrs, String type) {
+    if (!"symbol".equals(type)) {
+      return;
+    }
+    String value = attrs.get("value");
+    String alphabet = attrs.get("alphabet");
+    boolean hasValue = value != null && !value.isEmpty();
+    boolean hasAlphabet = alphabet != null && !alphabet.isEmpty();
+
+    if (hasValue && hasAlphabet) {
+      error("TDC098", "<gen type=\"symbol\"> accepts either \"value\" or \"alphabet\", not both",
+          "Use value=\"[a-z]\" for an inline set, or alphabet=\"cyrillic.ru.letters\" for a named one.",
+          at(gen, "value")[0], at(gen, "value")[1]);
+      return;
+    }
+    if (!hasValue && !hasAlphabet) {
+      // Neither an inline set nor a named one: there is nothing to draw a character from, and the
+      // generator would produce empty strings for the whole run.
+      error("TDC098", "<gen type=\"symbol\"> requires a \"value\" (inline set) or \"alphabet\" (named)",
+          "Use value=\"[a-z]\" for an inline set, or alphabet=\"cyrillic.ru.letters\" for a named one.",
+          line(gen), column(gen));
+      return;
+    }
+    if (hasAlphabet && !Checks.isKnownAlphabet(alphabet)) {
+      error("TDC099", "unknown alphabet \"" + alphabet + "\"",
+          "Known alphabets: " + String.join(", ", Checks.alphabetNames()) + ".",
+          at(gen, "alphabet")[0], at(gen, "alphabet")[1]);
+    }
+  }
+
+  private void checkDate(
+      TDCParser.SelfClosingElementContext gen, Map<String, String> attrs, String type) {
+    if (!"date".equals(type)) {
+      return;
+    }
+    boolean from = attrs.get("from") != null;
+    boolean to = attrs.get("to") != null;
+    if (from != to) {
+      error("TDC150", "<gen type=\"date\"> requires both \"from\" and \"to\" when either is used",
+          "Use from=\"2020-01-01\" to=\"2025-12-31\", or value=\"2020-01-01..2025-12-31\".",
+          line(gen), column(gen));
+    }
+    String local = attrs.get("local");
+    if (local != null && !local.isBlank() && !Checks.isKnownDateLocale(local)) {
+      error("TDC153", "unknown date locale \"" + local + "\"",
+          "A date locale has to be translated deliberately — month names inflect.",
+          at(gen, "local")[0], at(gen, "local")[1]);
+    }
+    checkDateCommonAttrs(gen, attrs);
+    checkDateValues(gen, attrs);
+  }
+
+  /**
+   * The dates themselves parse.
+   *
+   * <p>Without this a {@code from="notadate"} reached the generator and failed there, which is a
+   * crash at render time instead of a diagnostic at validation time — and the reference reports
+   * it here.
+   */
+  private void checkDateValues(
+      TDCParser.SelfClosingElementContext gen, Map<String, String> attrs) {
+    try {
+      if (attrs.get("from") != null && attrs.get("to") != null) {
+        DateParse.dateTime(attrs.get("from"));
+        DateParse.dateTime(attrs.get("to"));
+      }
+      if (attrs.get("range") != null) {
+        DateParse.range(attrs.get("range"));
+      }
+      String value = attrs.get("value") == null ? "" : attrs.get("value").trim();
+      if (!value.isEmpty()) {
+        checkDateValue(value);
+      }
+      if ("birth".equals(value)) {
+        io.github.nickliapin.tdc.date.DateGen.checkBirthAges(attrs);
+      }
+    } catch (RuntimeException e) {
+      // Whichever attribute the reader would look at first — the complaint is about the span, and
+      // pointing at one of its two ends names only half of it.
+      int[] where = at(gen, primaryDateAttr(attrs));
+      error("TDC151", e.getMessage(),
+          "Examples: value=\"2020-01-01..2025-12-31\", value=\"birth\", value=\"today\", "
+              + "or value=\"now\".",
+          where[0], where[1]);
+    }
+  }
+
+  /** A {@code value=} that is a date, a range, or one of the words the generator knows. */
+  private static void checkDateValue(String value) {
+    if ("birth".equals(value) || "today".equals(value) || "now".equals(value)) {
+      return;
+    }
+    if (value.contains("..")) {
+      DateParse.range(value);
+      return;
+    }
+    DateParse.dateTime(value);
+  }
+
+  /**
+   * The attributes every date-shaped generator shares: how it is formatted, and how precise it is.
+   *
+   * <p>Also reached from the pack templates {@code date.range} and {@code person.b_day}, which
+   * are dates wearing a different address and would otherwise skip these checks entirely.
+   */
+  private void checkDateCommonAttrs(
+      TDCParser.SelfClosingElementContext gen, Map<String, String> attrs) {
+    String format = attrs.get("format");
+    if (format != null) {
+      try {
+        io.github.nickliapin.tdc.date.DateFormatter.checkFormat(format);
+      } catch (RuntimeException e) {
+        error("TDC152", e.getMessage(),
+            "Use Moment-like tokens such as YYYY-MM-DD, DD.MM.YYYY, L, LL, or bracket "
+                + "literals [text].",
+            at(gen, "format")[0], at(gen, "format")[1]);
+      }
+    }
+    if (attrs.get("precision") != null) {
+      try {
+        io.github.nickliapin.tdc.date.DateGen.precision(
+            attrs.get("precision"), io.github.nickliapin.tdc.date.DateGen.Precision.DAY);
+      } catch (RuntimeException e) {
+        error("TDC154", e.getMessage(), "Supported: day, second, millisecond.",
+            at(gen, "precision")[0], at(gen, "precision")[1]);
+      }
+    }
+  }
+
+  /** {@code oldest}/{@code youngest} on a birth date: whole ages, and in that order. */
+  private void checkBirthAges(
+      TDCParser.SelfClosingElementContext gen, Map<String, String> attrs) {
+    try {
+      io.github.nickliapin.tdc.date.DateGen.checkBirthAges(attrs);
+    } catch (RuntimeException e) {
+      // Whichever attribute the reader would look at first — the complaint is about the span,
+      // and pointing at one of its two ends names only half of it.
+      int[] where = at(gen, primaryDateAttr(attrs));
+      error("TDC151", e.getMessage(), "", where[0], where[1]);
+    }
+  }
+
+  /** The attribute a date complaint points at, in the order the reference tries them. */
+  private static String primaryDateAttr(Map<String, String> attrs) {
+    for (String name : new String[] {"value", "range", "from", "to", "oldest", "youngest"}) {
+      if (attrs.get(name) != null) {
+        return name;
+      }
+    }
+    return "value";
+  }
+
+  /**
+   * {@code date.range} and {@code person.b_day}: pack addresses that are date generators.
+   *
+   * <p>They take the same attributes and can be wrong in the same ways, so they are checked the
+   * same way rather than passing through as ordinary template lookups.
+   */
+  private void checkDateTemplates(
+      TDCParser.SelfClosingElementContext gen, Map<String, String> attrs, String type) {
+    if (!"template".equals(type)) {
+      return;
+    }
+    String path = attrs.getOrDefault("value", "").trim();
+    if ("date.range".equals(path)) {
+      String range = attrs.get("range");
+      if (range == null) {
+        error("TDC072", "<gen value=\"date.range\"> requires a \"range\" attribute",
+            "Syntax: range=\"YYYY.MM.DD - YYYY.MM.DD\".", line(gen), column(gen));
+        return;
+      }
+      try {
+        io.github.nickliapin.tdc.date.DateParse.legacyRange(range);
+        checkDateCommonAttrs(gen, attrs);
+      } catch (RuntimeException e) {
+        error("TDC073", e.getMessage(),
+            "Expected two valid dates in \"YYYY.MM.DD - YYYY.MM.DD\" form.",
+            at(gen, "range")[0], at(gen, "range")[1]);
+      }
+      return;
+    }
+    if ("person.b_day".equals(path)) {
+      checkDateCommonAttrs(gen, attrs);
+      checkBirthAges(gen, attrs);
+    }
+  }
+
+  /** {@code value=} and {@code step=} on a counter have to be numbers. */
+  private void checkCounter(
+      TDCParser.SelfClosingElementContext gen, Map<String, String> attrs, String type) {
+    if (!"increment".equals(type) && !"decrement".equals(type)) {
+      return;
+    }
+    for (String name : new String[] {"value", "step"}) {
+      String raw = attrs.get(name);
+      if (raw == null) {
+        continue;
+      }
+      try {
+        double v = Double.parseDouble(raw.trim());
+        if (!Double.isFinite(v)) {
+          throw new NumberFormatException();
+        }
+      } catch (NumberFormatException e) {
+        error("TDC090", "invalid " + name + " \"" + raw + "\" — expected a number", "",
+            at(gen, name)[0], at(gen, name)[1]);
+      }
+    }
+  }
+
+  /**
+   * Everything a running total cannot do without.
+   *
+   * <p>Two things have to hold before the engine sees it, and neither is discoverable from the row
+   * it stands on: it has to say WHAT to accumulate and HOW, and the column it reads has to be
+   * declared ABOVE it — the same rule {@code parent=} follows, and for the same reason.
+   */
+  private void checkRunning(
+      TDCParser.SelfClosingElementContext gen, Map<String, String> attrs, String type) {
+    if (!"running".equals(type)) {
+      return;
+    }
+    if (attrs.getOrDefault("of", "").trim().isEmpty()) {
+      error("TDC239", "<gen type=\"running\"> does not say what to accumulate",
+          "Name the column it adds up: of=\"Delta\". A running total reads another sequence — "
+              + "it draws nothing of its own.",
+          line(gen), column(gen));
+    }
+    if (attrs.getOrDefault("accumulate", "").trim().isEmpty()) {
+      error("TDC239", "<gen type=\"running\"> does not say how to accumulate",
+          "Add accumulate=\"…\" — one of: " + String.join(", ", Accumulate.OPS) + ".",
+          line(gen), column(gen));
+    }
+    // `of=` and `reset=` both read a column, so both take the rule. Reported separately: naming
+    // the wrong one would send the reader to the wrong attribute.
+    for (String name : new String[] {"of", "reset"}) {
+      String value = attrs.getOrDefault(name, "").trim();
+      if (value.isEmpty() || declaredOrder.contains(value)) {
+        continue;
+      }
+      error("TDC240", name + "=\"" + value + "\" is not a sequence declared above this one",
+          declaredOrder.isEmpty()
+              ? "A running total is built from a column that already exists, so the column it "
+                  + "reads has to come first."
+              : "Declared above: " + String.join(", ", declaredOrder) + ".",
+          at(gen, name)[0], at(gen, name)[1]);
+    }
+  }
+
+  /** {@code accumulate=} needs a list, and its op is one of a short closed set. */
+  private void checkAccumulate(
+      TDCParser.SelfClosingElementContext gen, Map<String, String> attrs, boolean repeats) {
+    if (!attrs.containsKey("accumulate")) {
+      return;
+    }
+    int line = at(gen, "accumulate")[0];
+    int column = at(gen, "accumulate")[1];
+    try {
+      Accumulate.parse(attrs);
+    } catch (Accumulate.AccumulateException e) {
+      error("TDC238", e.getMessage(),
+          "accumulate= keeps a running total across a repeat list. One of: "
+              + String.join(", ", Accumulate.OPS) + ".",
+          line, column);
+    }
+    // `type="running"` accumulates down a COLUMN, so it carries the same word with no list in
+    // sight. Only the list flavour needs `repeat`.
+    if (!repeats && !"running".equals(attrs.get("type"))) {
+      error("TDC237", "\"accumulate\" has no effect without \"repeat\"",
+          "accumulate= turns the values of a repeat list into a running total, so there has to "
+              + "be a list. Add repeat=\"N\", or drop accumulate=.",
+          line, column);
+    }
+  }
+
+  private void checkRepeat(
+      TDCParser.SelfClosingElementContext gen, Map<String, String> attrs, String type) {
+    boolean repeats;
+    try {
+      repeats = Checks.hasRepeat(attrs);
+    } catch (RuntimeException e) {
+      error("TDC195", e.getMessage(),
+          "Use repeat=\"3\" for a fixed count or repeat=\"1..5\" for a range (0 to 64).",
+          at(gen, "repeat")[0], at(gen, "repeat")[1]);
+      checkAccumulate(gen, attrs, true);
+      return;
+    }
+
+    checkAccumulate(gen, attrs, repeats);
+
+    if (repeats) {
+      String reason = Checks.repeatUnsupportedReason(type);
+      if (reason != null) {
+        error("TDC204", "\"repeat\" is not supported on <gen type=\"" + type + "\"> — " + reason,
+            "Its value comes from the row index, which a variable-length list makes unknowable.",
+            at(gen, "repeat")[0], at(gen, "repeat")[1]);
+      }
+    } else if (attrs.get("separator") != null) {
+      // A separator with nothing to separate is a request that silently does nothing.
+      error("TDC198", "\"separator\" has no effect without \"repeat\"",
+          "separator joins the values a repeating gen produces. Add repeat=\"N\", or drop it.",
+          at(gen, "separator")[0], at(gen, "separator")[1]);
+    }
+  }
+
+  /**
+   * What may sit inside a {@code <case>}: literal text, one generator, or a nested mix.
+   *
+   * <p>A nested mix is checked as a nested one — it contributes a value to the column around it
+   * and has nowhere of its own to put a flag.
+   */
+  /** Every attribute on a closed tag, checked against what that tag actually reads. */
+  private void checkClosedTagAttrs(
+      String tag, List<TDCParser.AttrContext> attrs, int line, int column) {
+    Set<String> known = CLOSED_TAG_ATTRIBUTES.get(tag);
+    if (known == null) {
+      return;
+    }
+    for (Map.Entry<String, String> attr : attributes(attrs).entrySet()) {
+      if (!known.contains(attr.getKey())) {
+        int[] where = at(attrs, attr.getKey(), line, column);
+        error("TDC015", "<" + tag + "> does not read \"" + attr.getKey() + "\" — it is ignored",
+            "Attributes of <" + tag + ">: " + String.join(", ", new java.util.TreeSet<>(known)) + ".",
+            where[0], where[1]);
+      }
+    }
+  }
+
+  private void checkCaseBody(TDCParser.OpenCloseElementContext caseEl) {
+    for (TDCParser.ElementContext child : caseEl.content().element()) {
+      if (child.dataElement() != null) {
+        continue;
+      }
+      TDCParser.SelfClosingElementContext self = child.selfClosingElement();
+      if (self != null && "gen".equals(self.name.getText())) {
+        continue;
+      }
+      TDCParser.OpenCloseElementContext open = child.openCloseElement();
+      if (open == null) {
+        continue;
+      }
+      if ("mix".equals(open.name.getText())) {
+        checkMix(open, false);
+        continue;
+      }
+      if ("gen".equals(open.name.getText())) {
+        continue;
+      }
+      error("TDC125", "unknown child of <case>: \"<" + open.name.getText() + ">\"",
+          "Allowed children: data, gen, mix.", line(open), column(open));
+    }
+  }
+
+  /**
+   * A percent mask, checked against how many things it is dividing.
+   *
+   * <p>Three different mistakes get three different codes, because they call for three different
+   * fixes: the wrong number of entries, an entry that is not a share, and shares that do not add
+   * up.
+   *
+   * @param codes the codes for length, number and sum, in that order — {@code <gen>},
+   *     {@code <mix>} and {@code <switch>} each have their own trio.
+   */
+  private void checkPercentMask(
+      String mask, int valueCount, String[] codes, int line, int column) {
+    if (mask == null) {
+      return;
+    }
+    try {
+      PercentMask.expand(mask, valueCount);
+    } catch (PercentMask.MaskException e) {
+      String code =
+          switch (e.kind()) {
+            case LENGTH -> codes[0];
+            case NUMBER -> codes[1];
+            case SUM -> codes[2];
+          };
+      String hint =
+          e.kind() == PercentMask.Kind.LENGTH
+              ? "Percent masks may be shorter than value only when missing positions can be "
+                  + "inferred. They may never be longer than value."
+              : "Filled positions must be non-negative numbers. Empty positions split the "
+                  + "remaining percent equally.";
+      error(code, e.getMessage(), hint, line, column);
+    } catch (RuntimeException e) {
+      error(codes[2], e.getMessage(), "", line, column);
+    }
+  }
+
+  /** {@code case=} and {@code order=} take one of a short list, and nothing else. */
+  private void checkCaseAndOrder(
+      TDCParser.SelfClosingElementContext gen, Map<String, String> attrs) {
+    String transform = attrs.get("case");
+    if (transform != null
+        && !io.github.nickliapin.tdc.format.Transforms.isCaseTransform(transform)) {
+      error("TDC190", "unknown case \"" + transform + "\"",
+          "Supported: "
+              + String.join(", ", io.github.nickliapin.tdc.format.Transforms.CASE_TRANSFORMS)
+              + ".",
+          at(gen, "case")[0], at(gen, "case")[1]);
+    }
+    String order = attrs.get("order");
+    if (order != null && !"random".equals(order) && !"sequential".equals(order)) {
+      error("TDC191", "unknown order \"" + order + "\"",
+          "Supported: random (the default), sequential.",
+          at(gen, "order")[0], at(gen, "order")[1]);
+    }
+  }
+
+  /**
+   * A {@code <map>} body: one {@code KEY:VALUE} per row.
+   *
+   * <p>Entries are separated by commas, and a row with no colon is not a mapping — it would
+   * otherwise become a key with no value, silently absent from the table the switch reads. A
+   * warning rather than an error: the rest of the table still works, and the run is worth
+   * finishing.
+   */
+  private void checkMapRows(TDCParser.MapElementContext element) {
+    if (!(element instanceof TDCParser.MapWithBodyContext body)) {
+      return;
+    }
+    int line = body.getStart().getLine();
+    int column = body.getStart().getCharPositionInLine();
+    for (String row : body.mapContent().getText().split(",", -1)) {
+      String trimmed = row.trim();
+      if (trimmed.isEmpty()) {
+        continue;
+      }
+      if (!trimmed.contains(":")) {
+        warn("TDC136", "malformed <map> row \"" + trimmed + "\" — expected KEY:VALUE",
+            "Each entry is KEY:VALUE, entries separated by commas, multi-key via \"|\" "
+                + "(US|CA:USD).",
+            line, column);
+      }
+    }
+  }
+
+  /**
+   * {@code type=} on a {@code <data>}: parsable, and on a piece that is actually a column.
+   *
+   * <p>A type on an unnamed {@code <data>} is a request that does nothing — only a named one
+   * becomes a column, so the declaration would be quietly dropped.
+   */
+  private void checkDataType(TDCParser.DataWithBodyContext body, int line, int column) {
+    Map<String, String> attrs = attributes(body.attr());
+    String rawType = attrs.get("type");
+    if (rawType == null) {
+      return;
+    }
+    int[] where = at(body.attr(), "type", line, column);
+    String name = attrs.get("name");
+    if (name == null || name.trim().isEmpty()) {
+      error("TDC194", "type=\"" + rawType + "\" has no name — only a named <data> becomes a column",
+          "Add name=\"…\" to export this as a typed column, or drop type=.", where[0], where[1]);
+      return;
+    }
+    try {
+      io.github.nickliapin.tdc.output.ColumnType.parseOutput(rawType);
+    } catch (RuntimeException e) {
+      error("TDC194", e.getMessage(),
+          "Types: bool, int32, int64, uint8/16/32/64, float, float16, double, string, enum, "
+              + "date, timestamp, decimal(p,s), uuid, json; []T for a list; |null to allow NULL.",
+          where[0], where[1]);
+    }
+  }
+
+  /** How many entries a comma-separated attribute holds. */
+  private static int splitCount(String value) {
+    return value.split(",", -1).length;
+  }
+
+  private int safeMaxLength(String raw) {
+    try {
+      return RegexGen.parseMaxLength(raw);
+    } catch (RuntimeException e) {
+      return documentRegexMaxLength;
+    }
+  }
+
+  private void checkWeight(
+      TDCParser.SelfClosingElementContext gen, Map<String, String> attrs, String type) {
+    String weight = attrs.get("weight");
+    if (weight == null || weight.isBlank()) {
+      return;
+    }
+    if (!"file".equals(type)) {
+      error("TDC211", "\"weight\" applies to <gen type=\"file\">, not type=\"" + (type == null ? "" : type) + "\"",
+          "For inline values, percent= states the shares.", at(gen, "weight")[0], at(gen, "weight")[1]);
+      return;
+    }
+    if (attrs.get("column") == null || attrs.get("column").isBlank()) {
+      error("TDC212", "\"weight\" needs \"column\" — the weights live in a second CSV column",
+          "Name the value column too.", at(gen, "weight")[0], at(gen, "weight")[1]);
+    }
+    if (attrs.get("order") != null) {
+      error("TDC213", "\"weight\" cannot be combined with \"order\" — that walks rows by position, not by share",
+          "Drop one of them.", at(gen, "weight")[0], at(gen, "weight")[1]);
+    }
+  }
+
+  // ── block ────────────────────────────────────────────────────────────────────────────────
+
+  private void checkBlock(TDCParser.OpenCloseElementContext block) {
+    for (TDCParser.ElementContext child : block.content().element()) {
+      TDCParser.OpenCloseElementContext open = child.openCloseElement();
+      if (open != null && "line".equals(open.name.getText())) {
+        checkLine(open);
+      }
+    }
+  }
+
+  /**
+   * A {@code <line>} holds text, and only text.
+   *
+   * <p>The block describes the shape of the output, not where values come from. A generator
+   * placed here would produce a value nothing else could reference, and a construct like a
+   * switch would be building a column in the middle of a layout.
+   */
+  private void checkLine(TDCParser.OpenCloseElementContext line) {
+    checkClosedTagAttrs("line", line.attr(), line(line), column(line));
+    // `if=` sits on the <line> as well as on each <data> inside it, and an unparsable one has to
+    // be caught in both places or a whole line silently never renders.
+    // `_item` and `_item_id` exist only while a line walks a list, and both the line's own
+    // condition and every <data> inside it may name them.
+    boolean walksAList = attributes(line.attr()).get("each") != null;
+    String lineCondition = attributes(line.attr()).get("if");
+    if (lineCondition != null) {
+      int[] where = at(line.attr(), "if", line(line), column(line));
+      checkIfExpression(lineCondition, where[0], where[1]);
+      pendingExpressions.add(
+          new Pending(diagnostics.size(), lineCondition, where[0], where[1], walksAList));
+    }
+    String each = attributes(line.attr()).get("each");
+    if (each != null) {
+      if (each.isBlank()) {
+        error("TDC206", "each=\"\" names no sequence",
+            "Give it the name of a repeating sequence, or drop the attribute.",
+            at(line, "each")[0], at(line, "each")[1]);
+      } else if (declaredNames.contains(each) && !repeatingNames.contains(each)) {
+        // Walking a scalar would emit one line and look like it worked, which is the kind of
+        // near-miss that survives review.
+        error("TDC207", "each=\"" + each + "\" — that sequence holds one value, not a list",
+            "Add repeat= to its <gen>, e.g. repeat=\"1..5\", or drop each=.",
+            at(line, "each")[0], at(line, "each")[1]);
+      }
+      // A typed column is collected once per record, and an each= line emits several. The two
+      // cannot both be true, so the column would silently take whichever element came last.
+      for (TDCParser.ElementContext child : line.content().element()) {
+        TDCParser.DataElementContext data = child.dataElement();
+        if (!(data instanceof TDCParser.DataWithBodyContext body)) {
+          continue;
+        }
+        String columnName = attributes(body.attr()).get("name");
+        if (columnName != null && !columnName.trim().isEmpty()) {
+          error("TDC209",
+              "a named <data name=\"" + columnName + "\"> cannot sit inside an each= line",
+              "Typed columns are collected once per card. For columnar output keep the list as "
+                  + "a list column (type=\"[]…\"); each= is for text and SQL.",
+              at(line, "each")[0], at(line, "each")[1]);
+        }
+      }
+    }
+
+    for (TDCParser.ElementContext child : line.content().element()) {
+      TDCParser.SelfClosingElementContext self = child.selfClosingElement();
+      if (self != null && "gen".equals(self.name.getText())) {
+        error("TDC131", "a <gen> is not allowed inside <line> — the output block is for formatting only",
+            "Declare it as a <sequence> in <env> and reference it with ${{Name}}.",
+            line(self), column(self));
+        continue;
+      }
+      TDCParser.DataElementContext data = child.dataElement();
+      if (data instanceof TDCParser.DataWithBodyContext body) {
+        checkClosedTagAttrs("data", body.attr(), line(line), column(line));
+        checkDataType(body, line(line), column(line));
+        // The <data> element, not the <line> around it: several <data> pieces can share a
+        // line, and pointing at the line would name the wrong one whenever they do.
+        checkInterpolation(
+            body.dataContent().getText(),
+            body.getStart().getLine(),
+            body.getStart().getCharPositionInLine());
+        String condition = attributes(body.attr()).get("if");
+        if (condition != null) {
+          int[] where = at(body.attr(), "if", line(line), column(line));
+          checkIfExpression(condition, where[0], where[1]);
+          pendingExpressions.add(
+              new Pending(diagnostics.size(), condition, where[0], where[1], walksAList));
+        }
+        continue;
+      }
+      TDCParser.OpenCloseElementContext open = child.openCloseElement();
+      if (open != null && !"data".equals(open.name.getText())) {
+        error("TDC132",
+            "a <" + open.name.getText() + "> is not allowed inside <line> — the output block is for formatting only",
+            "Move it into <env>.", line(open), column(open));
+      }
+    }
+  }
+
+  /**
+   * Every {@code ${{…}}} in a line: the name has to exist, and each filter has to be one.
+   *
+   * <p>A name nobody declared is printed literally, so a typo reaches the output looking like
+   * data. An unknown filter is simply ignored, so the value comes out unformatted and correct
+   * enough to pass a glance.
+   */
+  private void checkInterpolation(String text, int line, int column) {
+    java.util.regex.Matcher m = INTERPOLATION.matcher(text);
+    while (m.find()) {
+      String[] parts = m.group(1).split("\\|", -1);
+      String name = parts[0].trim();
+      if (poolReferences.contains(name)) {
+        // A reference draws a whole MEMBER, so it has no single value to print. Without this it
+        // reached the output as literal text: a name that exists, resolves to nothing, and says
+        // nothing.
+        List<String> fields = new ArrayList<>();
+        for (String declaredName : declaredNames) {
+          if (declaredName.startsWith(name + ".")) {
+            fields.add(declaredName.substring(name.length() + 1));
+          }
+        }
+        java.util.Collections.sort(fields);
+        List<String> shown = new ArrayList<>();
+        for (String field : fields) {
+          shown.add("${{" + name + "." + field + "}}");
+        }
+        error("TDC229",
+            "\"" + name + "\" draws a whole member from a pool — it has no value of its own to print",
+            fields.isEmpty()
+                ? "Read one of its fields: ${{" + name + ".field}}."
+                : "Read a field: " + String.join(", ", shown) + ".",
+            line, column);
+        continue;
+      }
+      if (!name.isEmpty() && !declaredNames.contains(name) && !Checks.isBuiltin(name)) {
+        error("TDC193", "\"" + name + "\" is not a declared sequence — it would be printed literally",
+            "Declare it in <env>, or change the inject= pattern if the text is meant to be literal.",
+            line, column);
+      }
+      for (int i = 1; i < parts.length; i++) {
+        String filter = parts[i];
+        int colon = filter.indexOf(':');
+        String kind = (colon < 0 ? filter : filter.substring(0, colon)).trim();
+        if (!kind.isEmpty() && !Checks.isKnownFilter(kind)) {
+          error("TDC192", "unknown interpolation filter \"" + kind + "\"",
+              "Supported: " + String.join(", ", io.github.nickliapin.tdc.format.Transforms.FILTER_NAMES) + ".",
+              line, column);
+        }
+      }
+    }
+  }
+
+  /**
+   * The names an {@code if=} expression uses, checked against what exists.
+   *
+   * <p>An identifier that names no sequence is not an error by itself — it is how a bare word
+   * works: {@code if="Gender == Male"} compares against the literal {@code Male}, and the
+   * documentation is written that way throughout. What decides is WHERE the identifier sits:
+   *
+   * <ul>
+   *   <li>the whole condition ({@code if="Ready"}, {@code if="!Ready"}) — a name. An unknown one
+   *       is its own name as a string, which is never empty, so the branch fires on every row.
+   *   <li>the left of a comparison, and anything arithmetic — a name. An unknown one equals
+   *       nothing, so the branch fires on no row.
+   *   <li>the right of a comparison — left alone. {@code A == B} is a value comparison when B is
+   *       declared and a bare word when it is not, and both are meant.
+   * </ul>
+   *
+   * <p>A dot is read the same two ways the engine reads it: {@code Person.FirstName} is a field of
+   * a compound, {@code Gender.Male} asks whether Gender came out {@code Male}. So the root must
+   * always exist, and the tail is checked only where the root is a compound.
+   */
+  private void checkExpressionNames(String expression, int line, int column, boolean each) {
+    io.github.nickliapin.tdc.expr.Expr parsed;
+    try {
+      parsed = io.github.nickliapin.tdc.expr.Expr.parse(expression);
+    } catch (RuntimeException e) {
+      return; // Already reported as TDC100; there is no tree to walk.
+    }
+    walkExpressionNames(parsed, line, column, each, true);
+  }
+
+  private void walkExpressionNames(
+      io.github.nickliapin.tdc.expr.Expr node, int line, int column, boolean each, boolean asName) {
+    if (node instanceof io.github.nickliapin.tdc.expr.Expr.Name name) {
+      if (asName) {
+        checkExpressionName(name.value(), line, column, each);
+      }
+      return;
+    }
+    if (node instanceof io.github.nickliapin.tdc.expr.Expr.Member member) {
+      if (asName) {
+        checkExpressionName(member.dotted(), line, column, each);
+      }
+      return;
+    }
+    if (node instanceof io.github.nickliapin.tdc.expr.Expr.Unary unary) {
+      walkExpressionNames(unary.operand(), line, column, each, asName);
+      return;
+    }
+    if (node instanceof io.github.nickliapin.tdc.expr.Expr.Binary binary) {
+      // Each side of && or || is a condition in its own right; arithmetic on a bare word is
+      // meaningless, so both sides are names there; on a comparison the right side may be the
+      // word to match.
+      boolean logical = "&&".equals(binary.op()) || "||".equals(binary.op());
+      boolean comparison = COMPARISON_OPERATORS.contains(binary.op());
+      walkExpressionNames(binary.left(), line, column, each, true);
+      walkExpressionNames(binary.right(), line, column, each, logical || !comparison);
+    }
+  }
+
+  /**
+   * The values a sequence will actually produce, when the config says so outright.
+   *
+   * <p>Only one unnamed {@code <gen type="text" value="a,b,c">} qualifies — a text generator's
+   * list is always literal, never a file or a pack, so what is written is what comes out.
+   *
+   * <p>Unless something rewrites it. {@code case="upper"} turns {@code Male} into {@code MALE} and
+   * {@code mask="xxxx"} turns {@code Female} into {@code Fema}, so a comparison against the
+   * written word would then be wrong in both directions — flagging a config that works and
+   * accepting one that never matches. {@code repeat=} makes the value a list rather than a word.
+   * Any of the three, and the values stop being knowable from here.
+   */
+  private static List<String> finiteTextValues(Map<String, String> gen) {
+    if (!"text".equals(gen.get("type"))) {
+      return null;
+    }
+    for (String rewrites : List.of("case", "mask", "repeat")) {
+      if (gen.containsKey(rewrites)) {
+        return null;
+      }
+    }
+    String raw = gen.get("value");
+    if (raw == null || raw.isBlank()) {
+      return null;
+    }
+    List<String> values = new ArrayList<>();
+    for (String piece : raw.split(",", -1)) {
+      values.add(piece.trim());
+    }
+    return values;
+  }
+
+  private void checkExpressionName(String path, int line, int column, boolean each) {
+    int dot = path.indexOf('.');
+    String root = dot < 0 ? path : path.substring(0, dot);
+    String tail = dot < 0 ? null : path.substring(dot + 1);
+
+    boolean known = declaredNames.contains(root)
+        || Checks.BUILTINS.contains(root)
+        || (each && ("_item".equals(root) || "_item_id".equals(root)));
+    if (!known) {
+      String hint = tail == null
+          ? "A condition that is a bare word is always true. Name a sequence declared in <env>, "
+              + "or compare against the word: Gender == Male."
+          : "Name a sequence declared in <env>. A word on the RIGHT of a comparison is a literal "
+              + "and needs no declaration.";
+      error("TDC215",
+          "\"" + path + "\" is not a declared sequence — the condition reads it as the literal "
+              + "text \"" + path + "\"",
+          hint, line, column);
+      return;
+    }
+
+    if (tail == null) {
+      return;
+    }
+
+    // On a plain sequence the tail is a VALUE — Gender.Male asks whether Gender came out Male —
+    // and where the config says outright what it produces, a value that is not among them makes a
+    // branch nothing can take.
+    if (!valuelessNames.contains(root)) {
+      List<String> values = finiteValues.get(root);
+      if (values == null || values.contains(tail)) {
+        return;
+      }
+      warn("TDC216",
+          "\"" + path + "\" — \"" + root + "\" never produces \"" + tail
+              + "\", so this branch can never be taken",
+          "\"" + root + "\" produces: " + String.join(", ", values) + ".",
+          line, column);
+      return;
+    }
+    int inner = tail.indexOf('.');
+    String field = inner < 0 ? tail : tail.substring(0, inner);
+    if (declaredNames.contains(root + "." + field)) {
+      return;
+    }
+    List<String> fields = new ArrayList<>();
+    for (String name : declaredNames) {
+      if (name.startsWith(root + ".")) {
+        fields.add(name.substring(root.length() + 1));
+      }
+    }
+    error("TDC215",
+        "\"" + path + "\" is not a field of \"" + root + "\" — the condition can never be true",
+        fields.isEmpty()
+            ? "\"" + root + "\" has no fields."
+            : "Fields of \"" + root + "\": " + String.join(", ", fields) + ".",
+        line, column);
+  }
+
+  private void checkIfExpression(String expression, int line, int column) {
+    io.github.nickliapin.tdc.expr.Expr parsed;
+    try {
+      parsed = io.github.nickliapin.tdc.expr.Expr.parse(expression);
+    } catch (RuntimeException e) {
+      error("TDC100", "invalid if expression \"" + clip(expression) + "\": " + e.getMessage(),
+          "Supported: comparison, && || !, and arithmetic.", line, column);
+      return;
+    }
+    checkExprNode(parsed, line, column);
+  }
+
+  /**
+   * Every operator in a parsed condition, checked against the ones the engine implements.
+   *
+   * <p>A parser that is more permissive than the evaluator is a trap: the config is accepted, and
+   * the operator it asked for is quietly not the operator it gets.
+   */
+  private void checkExprNode(io.github.nickliapin.tdc.expr.Expr node, int line, int column) {
+    if (node instanceof io.github.nickliapin.tdc.expr.Expr.Binary binary) {
+      if (!SUPPORTED_BINARY_OPERATORS.contains(binary.op())) {
+        error("TDC101", "unsupported operator \"" + binary.op() + "\" in if expression",
+            "Supported binary operators: " + String.join(" ", SUPPORTED_BINARY_OPERATORS) + ".",
+            line, column);
+      }
+      checkExprNode(binary.left(), line, column);
+      checkExprNode(binary.right(), line, column);
+      return;
+    }
+    if (node instanceof io.github.nickliapin.tdc.expr.Expr.Computed computed) {
+      error("TDC103", "computed member access is not supported in if expression",
+          "Use plain dotted access like Gender.Male or Person.FirstName.", line, column);
+      checkExprNode(computed.object(), line, column);
+      return;
+    }
+    if (node instanceof io.github.nickliapin.tdc.expr.Expr.Unary unary) {
+      if (!SUPPORTED_UNARY_OPERATORS.contains(unary.op())) {
+        error("TDC102", "unsupported unary operator \"" + unary.op() + "\" in if expression",
+            "Supported unary operators: " + String.join(" ", SUPPORTED_UNARY_OPERATORS) + ".",
+            line, column);
+      }
+      checkExprNode(unary.operand(), line, column);
+    }
+  }
+
+  // ── placement ────────────────────────────────────────────────────────────────────────────
+
+  private void checkChildren(TDCParser.ContentContext content, String parent, Set<String> allowed) {
+    if (content == null) {
+      return;
+    }
+    for (TDCParser.ElementContext child : content.element()) {
+      String name = null;
+      int line = 0;
+      int column = 0;
+      TDCParser.OpenCloseElementContext open = child.openCloseElement();
+      TDCParser.SelfClosingElementContext self = child.selfClosingElement();
+      if (open != null) {
+        name = open.name.getText();
+        line = line(open);
+        column = column(open);
+      } else if (self != null) {
+        name = self.name.getText();
+        line = line(self);
+        column = column(self);
+      } else if (child.mapElement() != null) {
+        name = "map";
+        line = 1;
+        column = 0;
+      }
+      if (name == null || allowed.contains(name)) {
+        continue;
+      }
+      // Two different mistakes, and two different fixes. A construct this language knows is in
+      // the wrong place and needs moving; a tag nobody has heard of is a typo and needs
+      // correcting. One code for both would tell the author neither.
+      String hint = PLACEMENT_HINTS.get(name);
+      if (hint != null) {
+        error("TDC013", "<" + name + "> is not allowed directly inside <" + parent + ">",
+            hint, line, column);
+      } else {
+        error("TDC010", "unknown child of <" + parent + ">: \"<" + name + ">\"",
+            "Allowed children: " + String.join(", ", new java.util.TreeSet<>(allowed)) + ".",
+            line, column);
+      }
+    }
+  }
+
+  // ── helpers ──────────────────────────────────────────────────────────────────────────────
+
+  private void error(String code, String message, String hint, int line, int column) {
+    diagnostics.add(Diagnostic.error(code, message, hint, line, column));
+  }
+
+  /** Worth saying, not worth stopping for: the run still produces usable data. */
+  private void warn(String code, String message, String hint, int line, int column) {
+    diagnostics.add(Diagnostic.warning(code, message, hint, line, column));
+  }
+
+  /**
+   * Where an attribute's value sits, for a complaint that is about that value.
+   *
+   * <p>An editor underlines what a diagnostic points at, and a whole tag is not what is wrong
+   * when one attribute is. The position is the first character INSIDE the quotes, which is where
+   * the value the message is quoting actually begins.
+   *
+   * <p>Falls back to the element when the attribute is absent — a complaint about a missing
+   * attribute has nowhere better to point.
+   */
+  private static int[] at(List<TDCParser.AttrContext> attrs, String name, int line, int column) {
+    for (TDCParser.AttrContext attr : attrs) {
+      if (attr.attrName != null && name.equals(attr.attrName.getText()) && attr.attrValue != null) {
+        String text = attr.attrValue.getText();
+        boolean quoted = text.length() >= 2 && text.startsWith("\"") && text.endsWith("\"");
+        return new int[] {
+          attr.attrValue.getLine(),
+          attr.attrValue.getCharPositionInLine() + (quoted ? 1 : 0)
+        };
+      }
+    }
+    return new int[] {line, column};
+  }
+
+  private static int[] at(TDCParser.SelfClosingElementContext el, String name) {
+    return at(el.attr(), name, line(el), column(el));
+  }
+
+  private static int[] at(TDCParser.OpenCloseElementContext el, String name) {
+    return at(el.attr(), name, line(el), column(el));
+  }
+
+  private static Map<String, String> attributes(List<TDCParser.AttrContext> attrs) {
+    Map<String, String> out = new LinkedHashMap<>();
+    for (TDCParser.AttrContext attr : attrs) {
+      String raw = attr.attrValue.getText();
+      out.put(attr.attrName.getText(), raw.substring(1, raw.length() - 1));
+    }
+    return out;
+  }
+
+  private static int line(TDCParser.OpenCloseElementContext el) {
+    return el.getStart().getLine();
+  }
+
+  private static int column(TDCParser.OpenCloseElementContext el) {
+    return el.getStart().getCharPositionInLine();
+  }
+
+  private static int line(TDCParser.SelfClosingElementContext el) {
+    return el.getStart().getLine();
+  }
+
+  private static int column(TDCParser.SelfClosingElementContext el) {
+    return el.getStart().getCharPositionInLine();
+  }
+
+  private static TDCParser.OpenCloseElementContext findElement(ParseTree parent, String name) {
+    if (parent == null) {
+      return null;
+    }
+    for (int i = 0; i < parent.getChildCount(); i++) {
+      ParseTree child = parent.getChild(i);
+      TDCParser.OpenCloseElementContext open = null;
+      if (child instanceof TDCParser.ElementContext element) {
+        open = element.openCloseElement();
+      } else if (child instanceof TDCParser.OpenCloseElementContext direct) {
+        open = direct;
+      }
+      if (open != null && name.equals(open.name.getText())) {
+        return open;
+      }
+    }
+    return null;
+  }
+
+  /**
+   * The most of an attribute value a message will quote. The full text is in the config the
+   * position already points at; a message quoting 100 KB of it buries every other diagnostic in
+   * the report. The same limit lives in the other four implementations; change them together.
+   */
+  private static final int MESSAGE_ECHO_LIMIT = 120;
+
+  /** An attribute value, cut to fit inside a one-line message. */
+  private static String clip(String value) {
+    if (value.length() <= MESSAGE_ECHO_LIMIT) {
+      return value;
+    }
+    int hidden = value.length() - MESSAGE_ECHO_LIMIT;
+    return value.substring(0, MESSAGE_ECHO_LIMIT) + "\u2026 (" + hidden + " more chars)";
+  }
+}

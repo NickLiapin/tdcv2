@@ -1,0 +1,15 @@
+---
+description: Social reaction (Portuguese)
+locale: pt
+---
+Curtir
+Amei
+Haha
+Uau
+Triste
+Grr
+Força
+Celebrar
+Apoiar
+Interessante
+Curioso

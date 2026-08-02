@@ -1,0 +1,17 @@
+---
+address: mali.finance.bank
+description: Banks operating in Mali
+locale: fr
+---
+Banque de Développement du Mali
+Banque Malienne de Solidarité
+Ecobank
+Banque Internationale pour le Mali
+Bank of Africa
+Orabank
+Coris Bank
+BSIC
+Banque Atlantique
+Banque Nationale de Développement Agricole
+BCI Mali
+BICIM

@@ -1,0 +1,36 @@
+---
+address: mexico.geo.stateCode
+description: ISO 3166-2:MX subdivision code (3 letters); same order as mexico.geo.state
+---
+AGU
+BCN
+BCS
+CAM
+COA
+COL
+CHP
+CHH
+CMX
+DUR
+GUA
+GRO
+HID
+JAL
+MEX
+MIC
+MOR
+NAY
+NLE
+OAX
+PUE
+QUE
+ROO
+SLP
+SIN
+SON
+TAB
+TAM
+TLA
+VER
+YUC
+ZAC

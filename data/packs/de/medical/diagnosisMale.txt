@@ -1,0 +1,24 @@
+---
+description: Medical diagnosis in German that requires male anatomy - it cannot occur in a female patient. Draw from this list only for male rows; general conditions live in medical/diagnosis.
+locale: de
+---
+Benigne Prostatahyperplasie
+Prostatitis
+Prostatakarzinom
+Hodenkarzinom
+Hodentorsion
+Varikozele
+Hydrozele
+Epididymitis
+Kryptorchismus
+Phimose
+Balanitis
+Erektile Dysfunktion
+Induratio penis plastica
+Männliche Infertilität
+Gynäkomastie
+Männlicher Hypogonadismus
+Priapismus
+Spermatozele
+Androgenetische Alopezie
+Skrotalhernie

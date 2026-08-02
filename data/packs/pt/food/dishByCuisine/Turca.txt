@@ -1,0 +1,12 @@
+---
+description: Dishes of Turkish cuisine (Portuguese)
+locale: pt
+---
+Kebab
+Baklava
+Meze
+Lahmacun
+Dolma
+Köfte
+Pide
+Börek

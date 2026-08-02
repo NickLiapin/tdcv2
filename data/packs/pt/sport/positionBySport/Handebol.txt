@@ -1,0 +1,11 @@
+---
+description: Positions in handball (Portuguese)
+locale: pt
+---
+Goleiro/Guarda-redes
+Lateral esquerdo
+Lateral direito
+Central
+Ponta esquerda
+Ponta direita
+Pivô

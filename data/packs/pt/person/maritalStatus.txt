@@ -1,0 +1,18 @@
+---
+description: Marital status (Portuguese)
+locale: pt
+---
+Solteiro
+Solteira
+Casado
+Casada
+Divorciado
+Divorciada
+Viúvo
+Viúva
+Separado
+Separada
+União estável
+União de facto
+Noivo
+Noiva

@@ -1,0 +1,104 @@
+---
+description: Product noun / object for a catalogue (French)
+locale: fr
+---
+Chaise
+Table
+Bureau
+Canapé
+Fauteuil
+Tabouret
+Lampe
+Étagère
+Bibliothèque
+Armoire
+Commode
+Lit
+Matelas
+Oreiller
+Coussin
+Couette
+Rideau
+Tapis
+Miroir
+Horloge
+Cadre
+Vase
+Bougie
+Corbeille
+Porte-manteau
+Ordinateur
+Ordinateur portable
+Tablette
+Smartphone
+Casque
+Écouteurs
+Enceinte
+Clavier
+Souris
+Écran
+Webcam
+Chargeur
+Batterie externe
+Disque dur
+Clé USB
+Imprimante
+Appareil photo
+Télévision
+Console de jeu
+Montre connectée
+Réveil
+Cafetière
+Bouilloire
+Grille-pain
+Micro-ondes
+Réfrigérateur
+Lave-vaisselle
+Aspirateur
+Ventilateur
+Radiateur
+Fer à repasser
+Sèche-cheveux
+Rasoir
+Brosse à dents électrique
+Mixeur
+Casserole
+Poêle
+Couteau
+Assiette
+Bol
+Verre
+Tasse
+Mug
+Théière
+Saladier
+Sac à dos
+Sac à main
+Valise
+Portefeuille
+Ceinture
+Écharpe
+Gants
+Chapeau
+Parapluie
+Lunettes de soleil
+Chaussures
+Baskets
+Bottes
+Manteau
+Veste
+Pull
+Chemise
+Pantalon
+Jean
+Robe
+Jupe
+T-shirt
+Serviette
+Trousse
+Cahier
+Stylo
+Crayon
+Agenda
+Calculatrice
+Ballon

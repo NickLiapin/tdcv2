@@ -1,0 +1,7 @@
+---
+address: argentina.vehicle.plate
+description: Argentine licence plate — the Mercosur layout AB 123 CD issued since April 2016, plus the 1995-2016 layout AAA 123 still in circulation
+generator: tdc
+locale: es
+---
+<gen type="regex" value="([A-Z]{2} [0-9]{3} [A-Z]{2}|[A-Z]{3} [0-9]{3})"/>

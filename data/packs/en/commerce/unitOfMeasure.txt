@@ -1,0 +1,24 @@
+---
+description: Unit of measure for products
+locale: en
+---
+each
+box
+case
+pack
+dozen
+pair
+set
+roll
+bundle
+kilogram
+gram
+liter
+milliliter
+meter
+pound
+ounce
+gallon
+carton
+tray
+bag

@@ -1,0 +1,24 @@
+---
+description: Parcel carriers commonly used in Poland
+locale: pl
+---
+InPost
+Poczta Polska
+DPD Polska
+DHL Parcel
+UPS
+FedEx
+GLS
+Pocztex
+Orlen Paczka
+Allegro One
+DHL Express
+TNT
+Geis
+Raben
+Rhenus
+Ambro Express
+DB Schenker
+Dachser
+Meest
+X-press Couriers

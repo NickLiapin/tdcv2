@@ -1,0 +1,6 @@
+---
+address: morocco.phone
+description: Moroccan mobile phone in E.164 form (+212 [67]XXXXXXXX)
+generator: tdc
+---
+<gen type="regex" value="\+212[67][0-9]{8}"/>

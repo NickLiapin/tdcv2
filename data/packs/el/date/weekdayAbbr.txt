@@ -1,0 +1,11 @@
+---
+description: Weekday abbreviation (Greek, Monday first)
+locale: el
+---
+Δευ
+Τρί
+Τετ
+Πέμ
+Παρ
+Σάβ
+Κυρ

@@ -1,0 +1,7 @@
+---
+address: kazakhstan.vehicle.plate
+description: Kazakhstani vehicle plate — 3 digits + 3 letters + 2-digit region code (e.g. 123 ABC 02).
+generator: tdc
+locale: ru
+---
+<gen type="regex" value="[0-9]{3} [A-Z]{3} (0[1-9]|1[0-9])"/>

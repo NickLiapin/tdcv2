@@ -1,0 +1,13 @@
+---
+description: Competitive rank tier
+locale: en
+---
+Iron
+Bronze
+Silver
+Gold
+Platinum
+Diamond
+Master
+Grandmaster
+Challenger

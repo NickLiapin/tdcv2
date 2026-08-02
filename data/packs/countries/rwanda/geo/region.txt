@@ -1,0 +1,10 @@
+---
+address: rwanda.geo.region
+description: Provinces of Rwanda
+locale: fr
+---
+Ville de Kigali
+Province du Nord
+Province du Sud
+Province de l'Est
+Province de l'Ouest

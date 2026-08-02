@@ -1,0 +1,20 @@
+---
+address: east_timor.sport.team
+description: Football clubs of Timor-Leste (Liga Futebol Amadora)
+locale: pt
+---
+Karketu Dili
+Sport Laulara e Benfica
+Boavista FC Timor
+Ponta Leste
+Assalam FC
+Lalenok United
+Académica Timor
+DIT FC
+Atlético Ultramar
+Santa Cruz FC
+Aitana FC
+Cacusan CF
+AS Marca
+Emmanuel FC
+Kablaki FC

@@ -1,0 +1,16 @@
+---
+description: Jobs in Legal (Polish)
+locale: pl
+---
+Adwokat
+Radca prawny
+Notariusz
+Sędzia
+Prokurator
+Komornik sądowy
+Asystent prawny
+Sekretarz sądowy
+Aplikant adwokacki
+Specjalista ds. zgodności
+Doradca prawny
+Rzecznik patentowy

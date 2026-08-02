@@ -1,0 +1,153 @@
+---
+title: TypeScript
+sidebar_position: 1
+---
+
+import Terminal from '@site/src/components/Terminal';
+
+# TypeScript
+
+Пакет для TypeScript — это эталонная реализация TDC. CLI хорош, когда нужен файл;
+библиотека нужна, чтобы получить данные **прямо в коде** — как строку или как живые
+JS-объекты — без запуска внешнего процесса и чтения файла.
+
+```ts
+import { TDC } from "tdcv2";
+```
+
+## Создание `TDC`
+
+Конструктор принимает либо путь к DSL-файлу (`configFile`), либо строку с DSL
+(`configString`). Runtime-параметры `seed`, `count`, `locale` и `now` можно
+переопределить из кода — они бьют значения из `<env>`.
+
+```ts
+const tdc = new TDC({
+  configString: `<tdc>
+    <env count="4" seed="demo" local="ru">
+      <sequence name="Gender"><gen type="text" value="Мужчина,Женщина"/></sequence>
+      <sequence name="MaleName" parent="Gender.Мужчина"><gen type="template" value="person.male.firstName"/></sequence>
+      <sequence name="FemaleName" parent="Gender.Женщина"><gen type="template" value="person.female.firstName"/></sequence>
+      <before><line><data>Пол,Имя</data></line></before>
+    </env>
+    <block><line><data>\${{Gender}},\${{MaleName}}\${{FemaleName}}</data></line></block>
+  </tdc>`,
+});
+
+console.log(tdc.toString());
+```
+
+Имя привязано к полу через `parent`: две последовательности, каждая под своей веткой, —
+иначе имя разыгрывалось бы независимо и мужчине досталось бы женское имя. На каждой
+строке заполнена ровно одна из них, поэтому в выводе они просто идут подряд.
+
+<Terminal title="node example.js">
+{`Пол,Имя
+Женщина,Злата
+Мужчина,Матвей
+Мужчина,Павел
+Женщина,Лариса`}
+</Terminal>
+
+Переопределение из кода — эти значения бьют `<env>`:
+
+```ts
+const tdc = new TDC({
+  configFile: "./patients.tdc",
+  seed: "test-seed",
+  count: 100,
+  locale: "ru",
+});
+```
+
+Для внешних файловых источников задайте папки данных (и базовую директорию для
+`configString`):
+
+```ts
+const tdc = new TDC({
+  configFile: "./configs/users.tdc",
+  dataPaths: ["./data", "./private-data"],
+});
+```
+
+При `configFile` относительные пути `src` внутри `.tdc` считаются от папки этого
+файла; при `configString` базовую директорию `baseDir` задавайте вручную.
+
+## Терминальные методы
+
+| Метод              | Что возвращает                            | Для чего                           |
+| :----------------- | :---------------------------------------- | :--------------------------------- |
+| `toString()`       | весь вывод одной строкой                 | маленькие / средние результаты     |
+| `writeFile(path)`  | пишет вывод в файл (частями)              | файл любой величины                |
+| `toIterator()`     | генератор строк (по одной карточке)       | большой текст без общей строки     |
+| `toStream()`       | Node.js `Readable`                        | `pipe` в файл / HTTP / архиватор   |
+| `toArray()`        | массив объектов-строк                     | маленькие объектные фикстуры          |
+| `iterate()`        | генератор объектов-строк                  | объектный вывод без массива        |
+| `getAt(index)`     | одну объектную строку по индексу          | точечный доступ                    |
+| `preflight(opts?)` | диагностику по памяти или `undefined`     | проверка до большого запуска       |
+| `seedInfo()`       | `{ seed, generated }`                     | узнать / залогировать сид          |
+
+`toString`/`writeFile`/`toIterator`/`toStream` — текстовый вывод через диск,
+память O(числа полей). Замеры смотрите на странице
+**[Большие объёмы](../guides/large-outputs.mdx)**.
+
+## Объектный вывод
+
+В тестах часто удобнее работать с живыми объектами, чем парсить CSV/JSON — можно
+проверять `row.Gender` напрямую. Это дают `toArray()`, `iterate()` и `getAt(index)`.
+Объектный вывод **игнорирует** `<block>` и текстовые обёртки — берёт только
+материализованные `<sequence>`:
+
+- простая sequence становится скалярным свойством;
+- составная sequence становится **вложенным** объектом;
+- sequence с фильтром по родителю даёт `undefined` в строках, где она не применима.
+
+```ts
+const tdc = new TDC({
+  configString: `<tdc>
+    <env count="4" seed="demo" local="ru">
+      <sequence name="Gender"><gen type="text" value="Мужчина,Женщина"/></sequence>
+      <sequence name="Person">
+        <gen name="Code" type="regex" value="[0-9]{4}"/>
+      </sequence>
+      <sequence name="MaleName" parent="Gender.Мужчина"><gen type="template" value="person.male.firstName"/></sequence>
+      <sequence name="FemaleName" parent="Gender.Женщина"><gen type="template" value="person.female.firstName"/></sequence>
+    </env>
+    <block><line><data>игнорируется</data></line></block>
+  </tdc>`,
+});
+
+console.log(tdc.getAt(0)); // женская строка
+console.log(tdc.getAt(1)); // мужская строка
+```
+
+<Terminal title="node objects.js">
+{`{
+  Gender: 'Женщина',
+  Person: { Code: '5218' },
+  MaleName: undefined,
+  FemaleName: 'Милана'
+}
+{
+  Gender: 'Мужчина',
+  Person: { Code: '7698' },
+  MaleName: 'Иван',
+  FemaleName: undefined
+}`}
+</Terminal>
+
+`Person` — вложенный объект. `MaleName` и `FemaleName` присутствуют обе, но на каждой
+строке заполнена ровно одна: вторая равна `undefined`, потому что её `parent` на этой
+строке не совпал. Так в объектном выводе и выглядит фильтр по родителю.
+
+:::note[Другой движок]
+Объектные методы отдают JS-объекты через маленький in-RAM движок, поэтому держат данные
+в памяти — для небольших наборов. Для больших файлов берите `writeFile()` /
+`toStream()` / CLI (диск, память не растёт). Из-за другого движка их случайные
+значения не обязаны совпадать с `toString()`.
+:::
+
+## Смотрите также
+
+- **[CLI](../reference/cli.mdx)** — тот же движок из командной строки.
+- **[Большие объёмы](../guides/large-outputs.mdx)** — потоковые методы и память.

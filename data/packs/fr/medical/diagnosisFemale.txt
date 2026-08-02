@@ -1,0 +1,30 @@
+---
+description: Medical diagnosis in French that requires female anatomy — it cannot occur in a male patient. Draw from this list only for female rows; general conditions live in medical/diagnosis.
+locale: fr
+---
+Endométriose
+Syndrome des ovaires polykystiques
+Fibromes utérins
+Kyste ovarien
+Cancer de l'ovaire
+Cancer du col de l'utérus
+Dysplasie cervicale
+Cervicite
+Endométrite
+Cancer de l'endomètre
+Infection génitale haute
+Vaginose bactérienne
+Candidose vulvo-vaginale
+Ménorragie
+Dysménorrhée
+Aménorrhée
+Prééclampsie
+Diabète gestationnel
+Hyperémèse gravidique
+Grossesse extra-utérine
+Hémorragie du post-partum
+Mastite
+Mastopathie fibrokystique
+Syndrome climatérique
+Trouble dysphorique prémenstruel
+Prolapsus utérin

@@ -1,0 +1,18 @@
+---
+address: uruguay.education.university
+description: Uruguayan university or instituto universitario recognised by the MEC — two public and five private universities, then the private university institutes. That is the entire sector; a longer list would have to be invented.
+locale: es
+---
+Universidad de la República
+Universidad Tecnológica del Uruguay
+Universidad ORT Uruguay
+Universidad Católica del Uruguay Dámaso Antonio Larrañaga
+Universidad de Montevideo
+Universidad de la Empresa
+Universidad CLAEH
+Instituto Universitario Asociación Cristiana de Jóvenes
+Instituto Universitario Elbio Fernández
+Instituto Universitario Crandon
+Instituto Universitario Francisco de Asís
+Instituto Universitario Monseñor Mariano Soler
+Instituto Universitario Fundación Politécnico de Punta del Este

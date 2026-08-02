@@ -1,0 +1,34 @@
+---
+description: Symptom (French)
+locale: fr
+---
+Fièvre
+Toux
+Maux de tête
+Fatigue
+Nausées
+Vomissements
+Diarrhée
+Douleurs abdominales
+Essoufflement
+Vertiges
+Douleurs thoraciques
+Éruption cutanée
+Démangeaisons
+Courbatures
+Frissons
+Congestion nasale
+Mal de gorge
+Perte d'appétit
+Insomnie
+Palpitations
+Gonflement
+Saignement
+Constipation
+Crampes
+Sueurs nocturnes
+Perte de poids
+Douleurs articulaires
+Difficulté à avaler
+Bourdonnements d'oreille
+Troubles de la vision

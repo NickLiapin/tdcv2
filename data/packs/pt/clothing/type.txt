@@ -1,0 +1,30 @@
+---
+description: Garment type (Portuguese)
+locale: pt
+---
+Camiseta
+Jeans
+Vestido
+Jaqueta
+Pulôver
+Saia
+Calções
+Moletom com capuz
+Blusa
+Fato
+Sobretudo
+Ténis
+Botas
+Chapéu
+Cachecol
+Camisa
+Calças
+Colete
+Impermeável
+Pijama
+Meias
+Cinto
+Boné
+Sandálias
+Luvas
+Gravata

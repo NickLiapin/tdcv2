@@ -1,0 +1,24 @@
+---
+address: germany.holiday
+description: Public holidays in Germany (German names) — the nationwide days plus the widely observed regional ones
+locale: de
+---
+Neujahr
+Heilige Drei Könige
+Karfreitag
+Ostersonntag
+Ostermontag
+Tag der Arbeit
+Christi Himmelfahrt
+Pfingstsonntag
+Pfingstmontag
+Fronleichnam
+Mariä Himmelfahrt
+Tag der Deutschen Einheit
+Reformationstag
+Allerheiligen
+Buß- und Bettag
+Heiligabend
+Erster Weihnachtstag
+Zweiter Weihnachtstag
+Silvester

@@ -1,0 +1,96 @@
+{
+  "schemaVersion": 1,
+  "cases": [
+    {
+      "name": "pool-without-a-name-or-a-count",
+      "demonstrates": "TDC222",
+      "description": "A pool is read by name and sized by count; without either there is nothing to reference and nothing to hand out.",
+      "config": "<tdc><env count=\"3\" seed=\"s\" local=\"en\"><pool><sequence name=\"c\"><gen type=\"text\" value=\"A,B\"/></sequence></pool></env><block><line><data>x</data></line></block></tdc>",
+      "expected": ["error TDC222 1:40", "error TDC222 1:40"]
+    },
+    {
+      "name": "pool-count-that-is-not-a-number-of-members",
+      "demonstrates": "TDC223",
+      "description": "A pool of zero has no member to hand out, and a count that is not a whole number is not a size at all.",
+      "config": "<tdc><env count=\"3\" seed=\"s\" local=\"en\"><pool name=\"D\" count=\"0\"><sequence name=\"c\"><gen type=\"text\" value=\"A,B\"/></sequence></pool></env><block><line><data>x</data></line></block></tdc>",
+      "expected": ["error TDC223 1:40"]
+    },
+    {
+      "name": "a-block-cannot-live-inside-a-pool",
+      "demonstrates": "TDC230",
+      "description": "A pool has no output of its own — it is a table other columns read — so <block> and the fixtures, which describe a FILE, mean nothing inside one. A nested <pool> is refused for a different reason: a pool stays a flat table, and one pool pointing at another says the same thing without making every later feature ask at which depth it applies.",
+      "config": "<tdc><env count=\"3\" seed=\"s\" local=\"en\"><pool name=\"D\" count=\"3\"><sequence name=\"c\"><gen type=\"text\" value=\"A,B\"/></sequence><block><line><data>no</data></line></block></pool></env><block><line><data>x</data></line></block></tdc>",
+      "expected": ["error TDC230 1:125"]
+    },
+    {
+      "name": "a-pool-reference-to-a-pool-that-is-not-declared",
+      "demonstrates": "TDC224",
+      "description": "The generator names the pool it draws from, so a name that is not a declared pool has nothing behind it. Reported at the reference, with the declared pools listed. The TDC193 beside it is the knock-on: with no pool there are no fields for R either.",
+      "config": "<tdc><env count=\"3\" seed=\"s\" local=\"en\"><pool name=\"D\" count=\"3\"><sequence name=\"c\"><gen type=\"text\" value=\"A,B\"/></sequence></pool><sequence name=\"R\"><gen type=\"pool\" value=\"Doctors\"/></sequence></env><block><line><data>${{R.c}}</data></line></block></tdc>",
+      "expected": ["error TDC224 1:151", "error TDC193 1:215"]
+    },
+    {
+      "name": "a-filter-that-reads-a-field-the-pool-has-not-got",
+      "demonstrates": "TDC226",
+      "description": "A name written Pool.field says exactly what it means, so a field the pool does not declare is a certain mistake. An UNQUALIFIED unknown name is deliberately NOT reported: the expression language reads a bare word as a string literal, which is how filter=\"c == North\" says \"northern only\".",
+      "config": "<tdc><env count=\"3\" seed=\"s\" local=\"en\"><pool name=\"D\" count=\"3\"><sequence name=\"c\"><gen type=\"text\" value=\"A,B\"/></sequence></pool><sequence name=\"R\"><gen type=\"pool\" value=\"D\" filter=\"D.zzz == c\"/></sequence></env><block><line><data>${{R.c}}</data></line></block></tdc>",
+      "expected": ["error TDC226 1:151"]
+    },
+    {
+      "name": "a-pool-reference-read-without-a-field",
+      "demonstrates": "TDC229",
+      "description": "A reference draws a whole MEMBER, so it has no single value to print. Without this check the reference reached the output as literal text — a name that exists, resolves to nothing, and says nothing.",
+      "config": "<tdc><env count=\"3\" seed=\"s\" local=\"en\"><pool name=\"D\" count=\"3\"><sequence name=\"c\"><gen type=\"text\" value=\"A,B\"/></sequence></pool><sequence name=\"R\"><gen type=\"pool\" value=\"D\"/></sequence></env><block><line><data>${{R}}</data></line></block></tdc>",
+      "expected": ["error TDC229 1:209"]
+    },
+    {
+      "name": "a-name-that-is-both-a-pool-field-and-a-column",
+      "demonstrates": "TDC232",
+      "description": "filter= is evaluated in two scopes at once — the candidate's fields and the row's columns — so a name in both is not decidable. Qualifying one side does not repair it: the other bare name still reads as the field, and the test would compare a value with itself.",
+      "config": "<tdc><env count=\"3\" seed=\"s\" local=\"en\"><pool name=\"D\" count=\"3\"><sequence name=\"c\"><gen type=\"text\" value=\"A,B\"/></sequence></pool><sequence name=\"c\"><gen type=\"text\" value=\"A,B\"/></sequence><sequence name=\"R\"><gen type=\"pool\" value=\"D\" filter=\"c == c\"/></sequence></env><block><line><data>${{R.c}}</data></line></block></tdc>",
+      "expected": ["error TDC232 1:211"]
+    },
+    {
+      "name": "a-pool-too-large-to-keep-in-memory",
+      "demonstrates": "TDC235",
+      "description": "A pool is held in memory for the whole run — measured at about 320 bytes a member with four fields, so a million members cost a third of a gigabyte before the first row. Above the ceiling it is refused; above 100,000 it is a warning (TDC234). Both messages name the likelier mistake: a count typed onto the wrong tag.",
+      "config": "<tdc><env count=\"3\" seed=\"s\" local=\"en\"><pool name=\"D\" count=\"2000000\"><sequence name=\"c\"><gen type=\"text\" value=\"A,B\"/></sequence></pool><sequence name=\"R\"><gen type=\"pool\" value=\"D\"/></sequence></env><block><line><data>${{R.c}}</data></line></block></tdc>",
+      "expected": ["error TDC235 1:40"]
+    },
+    {
+      "name": "a-pool-large-enough-to-be-worth-noticing",
+      "demonstrates": "TDC234",
+      "description": "The warning half of the ceiling: 200,000 members work and cost about 60 MB for the whole run. It is a warning because the config is correct — it is just worth being deliberate about.",
+      "config": "<tdc><env count=\"3\" seed=\"s\" local=\"en\"><pool name=\"D\" count=\"200000\"><sequence name=\"c\"><gen type=\"text\" value=\"A,B\"/></sequence></pool><sequence name=\"R\"><gen type=\"pool\" value=\"D\"/></sequence></env><block><line><data>${{R.c}}</data></line></block></tdc>",
+      "expected": ["warning TDC234 1:40"]
+    },
+    {
+      "name": "a-pool-that-draws-from-a-pool-declared-below",
+      "demonstrates": "TDC236",
+      "description": "Pools are built in the order they are written, so a member may only draw from a pool ABOVE it. Without this the config validated and produced a member with no fields, and the complaint surfaced far away as \"not a field of R\" — blaming the line that reads for a mistake made in the declaration.",
+      "config": "<tdc><env count=\"3\" seed=\"p\" local=\"en\"><pool name=\"D\" count=\"2\"><sequence name=\"a\"><gen type=\"text\" value=\"x,y\"/></sequence><sequence name=\"at\"><gen type=\"pool\" value=\"C\"/></sequence></pool><pool name=\"C\" count=\"2\"><sequence name=\"k\"><gen type=\"text\" value=\"n,s\"/></sequence></pool><sequence name=\"R\"><gen type=\"pool\" value=\"D\"/></sequence></env><block><line><data>${{R.a}}</data></line></block></tdc>",
+      "expected": ["error TDC236 1:125"]
+    },
+    {
+      "name": "a-pool-that-draws-from-itself",
+      "demonstrates": "TDC236",
+      "description": "A pool is built before its own members exist, so there is nothing to draw. The same code as the forward reference, because it is the same rule: only the pools above.",
+      "config": "<tdc><env count=\"3\" seed=\"p\" local=\"en\"><pool name=\"D\" count=\"2\"><sequence name=\"a\"><gen type=\"text\" value=\"x,y\"/></sequence><sequence name=\"me\"><gen type=\"pool\" value=\"D\"/></sequence></pool><sequence name=\"R\"><gen type=\"pool\" value=\"D\"/></sequence></env><block><line><data>${{R.a}}</data></line></block></tdc>",
+      "expected": ["error TDC236 1:125"]
+    },
+    {
+      "name": "a-pool-carries-an-attribute-the-engine-does-not-read",
+      "demonstrates": "TDC015",
+      "description": "A <pool> is a closed tag like every other, so an attribute it does not read has to be reported rather than ignored. seed= is the one that invites the mistake: a pool DOES have its own seed, derived as `<seed>#pool:<name>`, and it is not settable — so writing it silently changed nothing at all.",
+      "config": "<tdc><env count=\"2\" seed=\"s\" local=\"en\"><pool name=\"P\" count=\"2\" seed=\"own\"><sequence name=\"a\"><gen type=\"text\" value=\"x,y\"/></sequence></pool><sequence name=\"R\"><gen type=\"pool\" value=\"P\"/></sequence></env><block><line><data>${{R.a}}</data></line></block></tdc>",
+      "expected": ["error TDC015 1:71"]
+    },
+    {
+      "name": "two-pools-under-one-name",
+      "demonstrates": "TDC241",
+      "description": "The second pool quietly replaced the first, and the only sign was a TDC193 in the block about a field that \"does not exist\" — sending the reader to look in the wrong place entirely. <sequence> has said this since TDC032; a pool is a declaration too.",
+      "config": "<tdc><env count=\"2\" seed=\"s\" local=\"en\"><pool name=\"P\" count=\"2\"><sequence name=\"f\"><gen type=\"text\" value=\"f1,f2\"/></sequence></pool><pool name=\"P\" count=\"2\"><sequence name=\"g\"><gen type=\"text\" value=\"g1,g2\"/></sequence></pool><sequence name=\"c\"><gen type=\"pool\" value=\"P\"/></sequence></env><block><line><data>${{c.g}}</data></line></block></tdc>",
+      "expected": ["error TDC241 1:134"]
+    }
+  ]
+}

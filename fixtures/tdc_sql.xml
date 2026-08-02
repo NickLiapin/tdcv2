@@ -1,0 +1,40 @@
+<tdc version="0.01" comment="SQL template">
+    <env count="10" seed="674teyer74yTRGY7" inject="${{%}}" local="en">
+        <sequence name="FirstName"><gen type="template" value="person.male.firstName"/></sequence>
+        <sequence name="LastName"><gen type="template" value="person.lastName"/></sequence>
+        <sequence name="BDay"><gen type="template" value="person.b_day" oldest="70" youngest="14" format="LL" local="en"/></sequence>
+        <sequence name="Diagnosis"><gen type="template" value="person.male.diagnosis"/></sequence>
+        <before>
+            <line>
+                <data>CREATE TABLE users_tbl(</data>
+            </line>
+            <line>
+                <data>  user_id INT NOT NULL AUTO_INCREMENT,</data>
+            </line>
+            <line>
+                <data>  user_first_name VARCHAR(50) NOT NULL,</data>
+            </line>
+            <line>
+                <data>  user_last_name VARCHAR(50) NOT NULL,</data>
+            </line>
+            <line>
+                <data>  user_b_day DATE,</data>
+            </line>
+            <line>
+                <data>  user_diagnosis VARCHAR(250) NOT NULL,</data>
+            </line>
+            <line>
+                <data>  PRIMARY KEY ( user_id )</data>
+            </line>
+            <line>
+                <data>);</data>
+            </line>
+            <line></line>
+        </before>
+    </env>
+    <block>
+        <line>
+            <data>INSERT INTO user_tbl ( user_first_name, user_last_name, user_b_day ) VALUES ( '${{FirstName}}', '${{LastName}}', '${{BDay}}', '${{Diagnosis}}' );</data>
+        </line>
+    </block>
+</tdc>

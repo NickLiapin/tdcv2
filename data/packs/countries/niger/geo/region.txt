@@ -1,0 +1,13 @@
+---
+address: niger.geo.region
+description: Regions of Niger (plus the capital district of Niamey)
+locale: fr
+---
+Agadez
+Diffa
+Dosso
+Maradi
+Tahoua
+Tillabéri
+Zinder
+Niamey

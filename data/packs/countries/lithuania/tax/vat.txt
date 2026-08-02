@@ -1,0 +1,6 @@
+---
+address: lithuania.tax.vat
+description: Lithuanian VAT / PVM (LT + 9 or 12 digits, no checksum)
+generator: tdc
+---
+<gen type="regex" value="LT(?:[0-9]{9}|[0-9]{12})"/>

@@ -1,0 +1,7 @@
+---
+address: honduras.phone
+description: Honduran phone in E.164 form — country code +504 then 8 digits. Mobiles begin 3, 7, 8 or 9 (Claro, Hondutel, Tigo) and dominate the numbering, so they are drawn four times as often as fixed lines, which begin 2
+generator: tdc
+locale: es
+---
+<gen type="regex" value="(\+504[3789][0-9]{7}|\+504[3789][0-9]{7}|\+504[3789][0-9]{7}|\+504[3789][0-9]{7}|\+5042[0-9]{7})"/>

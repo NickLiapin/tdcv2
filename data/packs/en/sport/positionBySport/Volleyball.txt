@@ -1,0 +1,9 @@
+---
+description: Positions in Volleyball
+locale: en
+---
+Setter
+Outside Hitter
+Middle Blocker
+Libero
+Opposite

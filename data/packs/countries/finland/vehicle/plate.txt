@@ -1,0 +1,7 @@
+---
+address: finland.vehicle.plate
+description: Finnish vehicle plate (rekisterikilpi) — three letters, a hyphen and up to three digits (e.g. ABC-123). The letters are drawn freely, not from the issued series.
+generator: tdc
+locale: fi
+---
+<gen type="regex" value="[A-Z]{3}-[0-9]{1,3}"/>

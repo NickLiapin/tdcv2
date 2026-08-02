@@ -1,0 +1,45 @@
+---
+description: Common generic drug names (Portuguese INN / DCB)
+locale: pt
+---
+Paracetamol
+Ibuprofeno
+Ácido acetilsalicílico
+Amoxicilina
+Amoxicilina com ácido clavulânico
+Azitromicina
+Ciprofloxacino
+Doxiciclina
+Lisinopril
+Enalapril
+Losartana
+Anlodipino
+Metoprolol
+Hidroclorotiazida
+Furosemida
+Espironolactona
+Metformina
+Glibenclamida
+Insulina glargina
+Atorvastatina
+Sinvastatina
+Omeprazol
+Pantoprazol
+Levotiroxina
+Salbutamol
+Montelucaste
+Prednisona
+Dexametasona
+Loratadina
+Gabapentina
+Sertralina
+Fluoxetina
+Escitalopram
+Citalopram
+Duloxetina
+Varfarina
+Clopidogrel
+Tramadol
+Naproxeno
+Diclofenaco
+Alopurinol

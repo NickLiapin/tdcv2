@@ -1,0 +1,14 @@
+---
+description: Conditions markedly more frequent in people of East Asian ancestry, given in German. A prevalence signal, not an exclusive one.
+locale: de
+---
+Alpha-Thalassämie
+Aldehyddehydrogenase-2-Mangel
+Laktase-Nonpersistenz
+Nasopharynxkarzinom
+Magenkarzinom
+Primäres Engwinkelglaukom
+Kawasaki-Syndrom
+Moyamoya-Krankheit
+Carbamazepin-Überempfindlichkeit
+Pathologische Myopie

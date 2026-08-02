@@ -1,0 +1,15 @@
+---
+address: palestine.education.university
+description: Universities of Palestine (Arabic)
+locale: ar
+---
+جامعة بيرزيت
+جامعة النجاح الوطنية
+الجامعة الإسلامية بغزة
+جامعة الخليل
+جامعة الأزهر غزة
+جامعة القدس
+جامعة بيت لحم
+جامعة الأقصى
+الجامعة العربية الأمريكية
+جامعة بوليتكنك فلسطين

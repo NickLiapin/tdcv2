@@ -1,0 +1,86 @@
+/* Colours mirror the figure palette in scripts/figure-kit.mjs — change both. */
+
+.legend {
+  list-style: none;
+  margin: -0.9rem 0 1.5rem;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 1.4rem;
+  font-size: 0.87rem;
+  line-height: 1.5;
+  color: var(--ifm-color-emphasis-800);
+}
+
+.item {
+  display: flex;
+  align-items: baseline;
+  gap: 0.45rem;
+  margin: 0;
+}
+
+.badge {
+  flex: none;
+  display: inline-grid;
+  place-items: center;
+  width: 1.15rem;
+  height: 1.15rem;
+  border-radius: 50%;
+  background: #3b82f6;
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 700;
+  transform: translateY(0.15rem);
+}
+
+.swatch {
+  flex: none;
+  width: 1.1rem;
+  height: 0.7rem;
+  border-radius: 2px;
+  transform: translateY(0.1rem);
+}
+
+.swatch[data-kind='drawn'] {
+  height: 0;
+  border-top: 3px solid #e0662b;
+  transform: translateY(-0.15rem);
+}
+
+.swatch[data-kind='dash'] {
+  height: 0;
+  border-top: 3px dashed #e0662b;
+  transform: translateY(-0.15rem);
+}
+
+.swatch[data-kind='band'] {
+  background: #e0662b;
+  opacity: 0.35;
+}
+
+.swatch[data-kind='made'] {
+  width: 0.7rem;
+  height: 0.7rem;
+  border-radius: 50%;
+  background: #2f9e63;
+}
+
+.swatch[data-kind='alt'] {
+  width: 0.7rem;
+  height: 0.7rem;
+  border-radius: 50%;
+  background: #8b5cf6;
+}
+
+.swatch[data-kind='mark'] {
+  width: 0.7rem;
+  height: 0.7rem;
+  border-radius: 50%;
+  background: #3b82f6;
+}
+
+.swatch[data-kind='faint'] {
+  height: 0;
+  border-top: 3px solid #b0b0b4;
+  transform: translateY(-0.15rem);
+}

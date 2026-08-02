@@ -1,0 +1,24 @@
+---
+description: Budget / spending category (Spanish)
+locale: es
+---
+Alquiler
+Hipoteca
+Supermercado
+Servicios básicos
+Transporte
+Entretenimiento
+Salud
+Seguros
+Restaurantes
+Ahorro
+Suscripciones
+Viajes
+Educación
+Ropa
+Regalos
+Cuidado infantil
+Pago de deudas
+Mascotas
+Telefonía e internet
+Impuestos

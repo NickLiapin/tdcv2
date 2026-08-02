@@ -1,0 +1,60 @@
+---
+address: new_zealand.sport.team
+description: New Zealand sports team — national sides, the Super Rugby franchises, NPC provincial unions, and franchises across netball, cricket, basketball, football and rugby league
+locale: en
+---
+All Blacks
+Black Ferns
+Māori All Blacks
+All Blacks Sevens
+Black Caps
+White Ferns
+Silver Ferns
+Tall Blacks
+Tall Ferns
+Kiwis
+Football Ferns
+All Whites
+Black Sticks
+Blues
+Chiefs
+Hurricanes
+Crusaders
+Highlanders
+Moana Pasifika
+Auckland
+North Harbour
+Counties Manukau
+Waikato
+Bay of Plenty
+Taranaki
+Manawatū
+Hawke's Bay
+Wellington
+Tasman
+Canterbury
+Otago
+Southland
+Northland
+New Zealand Warriors
+Wellington Phoenix
+Auckland FC
+New Zealand Breakers
+Northern Mystics
+Northern Stars
+Central Pulse
+Mainland Tactix
+Southern Steel
+Waikato Bay of Plenty Magic
+Auckland Aces
+Northern Brave
+Central Stags
+Wellington Firebirds
+Canterbury Kings
+Otago Volts
+Canterbury Rams
+Wellington Saints
+Nelson Giants
+Southland Sharks
+Taranaki Airs
+Hawke's Bay Hawks

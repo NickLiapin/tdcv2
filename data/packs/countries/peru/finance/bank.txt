@@ -1,0 +1,37 @@
+---
+address: peru.finance.bank
+description: Peruvian financial institution registered with the BCRP — the banks, the two remaining financieras of note and the cajas municipales; same order as peru.finance.bankCode
+---
+Banco de Crédito del Perú
+Interbank
+Citibank del Perú
+Scotiabank Perú
+BBVA Perú
+Banco de la Nación
+Banco de Comercio
+Banco Pichincha
+BanBif
+Financiera Santander Consumer Perú
+Mibanco
+Banco GNB Perú
+Banco Falabella
+Banco Ripley
+Banco Santander Perú
+Alfin Banco
+CAT Perú
+ICBC Perú
+Bank of China Perú
+Banco BCI Perú
+Compartamos Financiera
+Financiera Confianza
+Caja Metropolitana de Lima
+Caja Municipal de Ahorro y Crédito Piura
+Caja Municipal de Ahorro y Crédito Trujillo
+Caja Municipal de Ahorro y Crédito Arequipa
+Caja Municipal de Ahorro y Crédito Cusco
+Caja Municipal de Ahorro y Crédito del Santa
+Caja Municipal de Ahorro y Crédito Huancayo
+Caja Municipal de Ahorro y Crédito Ica
+Caja Municipal de Ahorro y Crédito Paita
+Caja Municipal de Ahorro y Crédito Maynas
+Caja Municipal de Ahorro y Crédito Tacna

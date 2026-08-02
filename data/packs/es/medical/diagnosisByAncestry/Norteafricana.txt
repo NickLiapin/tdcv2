@@ -1,0 +1,10 @@
+---
+description: Conditions markedly more frequent in people of North African ancestry, in Spanish. A prevalence signal, not an exclusive one.
+locale: es
+---
+Deficiencia de glucosa-6-fosfato deshidrogenasa
+Rasgo de beta-talasemia
+Fiebre mediterránea familiar
+Enfermedad de Behçet
+No persistencia de la lactasa
+Xerodermia pigmentosa

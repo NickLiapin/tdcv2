@@ -1,0 +1,30 @@
+---
+description: Book genre (German)
+locale: de
+---
+Belletristik
+Sachbuch
+Krimi
+Thriller
+Liebesroman
+Science-Fiction
+Fantasy
+Horror
+Biografie
+Geschichte
+Ratgeber
+Lyrik
+Jugendbuch
+Historischer Roman
+Noir-Roman
+Abenteuer
+Memoiren
+Philosophie
+Reiseliteratur
+Kochbuch
+Graphic Novel
+Dystopie
+Essay
+Kurzgeschichte
+Magischer Realismus
+Kinderbuch

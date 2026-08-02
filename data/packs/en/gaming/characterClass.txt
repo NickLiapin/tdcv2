@@ -1,0 +1,20 @@
+---
+description: RPG character class
+locale: en
+---
+Warrior
+Mage
+Rogue
+Paladin
+Hunter
+Priest
+Warlock
+Druid
+Monk
+Ranger
+Barbarian
+Necromancer
+Bard
+Assassin
+Cleric
+Sorcerer

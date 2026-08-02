@@ -1,0 +1,12 @@
+---
+description: Dishes of Korean cuisine (Portuguese)
+locale: pt
+---
+Bibimbap
+Bulgogi
+Ensopado de kimchi
+Japchae
+Tteokbokki
+Frango frito coreano
+Galbi
+Samgyeopsal

@@ -1,0 +1,19 @@
+---
+description: Jobs in Transportation (Italian)
+locale: it
+---
+Autista di camion
+Coordinatore logistico
+Controllore del traffico aereo
+Addetto allo smistamento
+Pilota di linea
+Magazziniere
+Autista di autobus
+Macchinista ferroviario
+Spedizioniere
+Assistente di volo
+Corriere
+Carrellista
+Responsabile del parco veicoli
+Capotreno
+Operatore portuale

@@ -1,0 +1,11 @@
+---
+description: Positions in handball (Polish)
+locale: pl
+---
+Bramkarz
+Lewy rozgrywający
+Środkowy rozgrywający
+Prawy rozgrywający
+Lewoskrzydłowy
+Prawoskrzydłowy
+Obrotowy

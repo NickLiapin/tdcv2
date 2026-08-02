@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "cases": [
+    {
+      "name": "switch-without-on",
+      "demonstrates": "TDC133",
+      "description": "A switch with no subject to look up",
+      "config": "<tdc><env count=\"2\" seed=\"s\"><sequence name=\"G\"><gen type=\"text\" value=\"a,b\"/></sequence><switch name=\"S\"><map>a:1</map></switch></env><block><line><data>x</data></line></block></tdc>",
+      "expected": ["error TDC133 1:89"]
+    },
+    {
+      "name": "switch-unknown-subject",
+      "demonstrates": "TDC134",
+      "description": "A switch on a sequence that does not exist",
+      "config": "<tdc><env count=\"2\" seed=\"s\"><switch name=\"S\" on=\"Nope\"><map>a:1</map></switch></env><block><line><data>x</data></line></block></tdc>",
+      "expected": ["error TDC134 1:50"]
+    },
+    {
+      "name": "switch-with-no-entries",
+      "demonstrates": "TDC135",
+      "description": "A switch with nothing to match against",
+      "config": "<tdc><env count=\"2\" seed=\"s\"><sequence name=\"G\"><gen type=\"text\" value=\"a,b\"/></sequence><switch name=\"S\" on=\"G\"></switch></env><block><line><data>x</data></line></block></tdc>",
+      "expected": ["error TDC135 1:89"]
+    },
+    {
+      "name": "case-without-is",
+      "demonstrates": "TDC137",
+      "description": "A switch case with no key",
+      "config": "<tdc><env count=\"2\" seed=\"s\"><sequence name=\"G\"><gen type=\"text\" value=\"a,b\"/></sequence><switch name=\"S\" on=\"G\"><case><data>x</data></case></switch></env><block><line><data>x</data></line></block></tdc>",
+      "expected": ["error TDC137 1:113"]
+    }
+  ]
+}

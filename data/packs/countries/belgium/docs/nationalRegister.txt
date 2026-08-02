@@ -1,0 +1,26 @@
+---
+address: belgium.docs.nationalRegister
+description: Belgian national register number (numéro de registre national / rijksregisternummer) — 11 digits: YYMMDD birth date + 3-digit serial (odd male / even female) + 2-digit check = 97 - (the 9-digit base mod 97). This form covers people born before 2000, whose base is the 9 digits as they stand.
+generator: tdc
+---
+<sequence name="year"><gen type="regex" value="[4-9][0-9]"/></sequence>
+<sequence name="month"><gen type="number" value="1..12" length="2" first_zero="true"/></sequence>
+<sequence name="day"><gen type="number" value="1..31" length="2" first_zero="true"/></sequence>
+<sequence name="serial"><gen type="regex" value="[0-9]{3}"/></sequence>
+<sequence name="nn"><compute>
+  <let name="base"><concat>
+    <field name="year"/><field name="month"/><field name="day"/><field name="serial"/>
+  </concat></let>
+  <!-- Check = 97 - (base mod 97); a remainder of 0 yields 97, so it is 01..97. -->
+  <let name="rem"><reduce>
+    <over><var name="base"/></over>
+    <init><int v="0"/></init>
+    <do><mod><add><multiply><acc/><int v="10"/></multiply><current/></add><int v="97"/></mod></do>
+  </reduce></let>
+  <let name="check"><subtract><int v="97"/><var name="rem"/></subtract></let>
+  <result><concat>
+    <field name="year"/><field name="month"/><field name="day"/><field name="serial"/>
+    <pad width="2" fill="0"><var name="check"/></pad>
+  </concat></result>
+</compute></sequence>
+<data>${{nn}}</data>

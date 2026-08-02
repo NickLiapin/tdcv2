@@ -1,0 +1,20 @@
+---
+address: chile.geo.regionRoman
+description: Roman numeral of the región (RM for the Metropolitana); the numbering runs north to south except for the four regions created later — XV, XVI and XIV sit out of sequence. Same order as chile.geo.region
+---
+XV
+I
+II
+III
+IV
+V
+RM
+VI
+VII
+XVI
+VIII
+IX
+XIV
+X
+XI
+XII

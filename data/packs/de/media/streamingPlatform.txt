@@ -1,0 +1,17 @@
+---
+description: Streaming platform available across German-speaking markets
+locale: de
+---
+Netflix
+Disney+
+Amazon Prime Video
+WOW
+Apple TV+
+Paramount+
+YouTube
+Joyn
+RTL+
+ARD Mediathek
+Crunchyroll
+Spotify
+Twitch

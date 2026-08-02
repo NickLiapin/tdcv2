@@ -1,0 +1,10 @@
+---
+address: costa_rica.finance.accountType
+description: Costa Rican bank account type as named on a transfer form
+locale: es
+---
+Cuenta de Ahorros
+Cuenta Corriente
+Cuenta de Ahorro en Dólares
+Cuenta Corriente en Dólares
+Cuenta Electrónica

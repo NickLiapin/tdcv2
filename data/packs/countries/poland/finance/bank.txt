@@ -1,0 +1,21 @@
+---
+address: poland.finance.bank
+description: Major banks of Poland (Polish names)
+locale: pl
+---
+PKO Bank Polski
+Bank Pekao
+Santander Bank Polska
+mBank
+ING Bank Śląski
+BNP Paribas Bank Polska
+Alior Bank
+Millennium Bank
+Credit Agricole Bank Polska
+Citi Handlowy
+Bank Ochrony Środowiska
+Velo Bank
+Nest Bank
+Bank Pocztowy
+Getin Noble Bank
+Bank Gospodarstwa Krajowego

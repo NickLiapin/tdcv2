@@ -1,0 +1,15 @@
+---
+address: uruguay.finance.bank
+description: Uruguayan bank authorised by the BCU for the Sistema de Pagos — this is the whole banking sector, eleven institutions; same order as uruguay.finance.bankCode. Banco BTG Pactual Uruguay is the former HSBC Bank Uruguay, bought by BTG Pactual in 2026 and still carrying institution number 157. The Banco Hipotecario del Uruguay is a state mortgage bank and does not appear on the BCU payment-system list, so it is not here.
+---
+Banco de la República Oriental del Uruguay
+Banco Bandes Uruguay
+Banco Itaú Uruguay
+Scotiabank Uruguay
+Banco Santander Uruguay
+BBVA Uruguay
+Banco BTG Pactual Uruguay
+Banque Heritage Uruguay
+Citibank Sucursal Uruguay
+Banco de la Nación Argentina Uruguay
+Bapro Uruguay

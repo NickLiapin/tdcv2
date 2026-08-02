@@ -1,0 +1,12 @@
+---
+address: ireland.finance.bankCode
+description: 4-letter bank identifier used in an Irish IBAN (the first four characters of the institution's BIC); same order as ireland.finance.bank
+locale: en
+---
+AIBK
+BOFI
+IPBS
+ULSB
+EBSI
+CITI
+BARC

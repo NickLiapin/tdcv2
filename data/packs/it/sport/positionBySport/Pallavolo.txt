@@ -1,0 +1,9 @@
+---
+description: Positions in volleyball (Italian)
+locale: it
+---
+Palleggiatore
+Schiacciatore di banda
+Centrale
+Opposto
+Libero

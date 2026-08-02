@@ -1,0 +1,32 @@
+---
+description: Medical diagnoses in French (female-specific + common)
+locale: fr
+---
+Dysplasie cervicale
+Fibromes utérins
+Candidose vaginale
+Fibroadénome mammaire
+Syndrome des ovaires polykystiques
+Endométriose
+Kyste ovarien
+Cancer du sein
+Cancer du col de l'utérus
+Ménopause précoce
+Ostéoporose
+Mastite
+Anémie ferriprive
+Hypothyroïdie
+Migraine
+Arthrite chronique
+Gastrite chronique
+Hypertension artérielle
+Diabète de type 2
+Asthme bronchique
+Bronchite chronique
+Calculs rénaux
+Hernie inguinale
+Dépression
+Trouble anxieux
+Reflux gastro-œsophagien
+Infection urinaire
+Cystite

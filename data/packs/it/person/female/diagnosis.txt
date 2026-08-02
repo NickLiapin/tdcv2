@@ -1,0 +1,31 @@
+---
+description: Medical diagnoses in Italian (female-specific + common)
+locale: it
+---
+Displasia cervicale
+Fibromi uterini
+Candidosi vaginale
+Fibroadenoma della mammella
+Sindrome dell'ovaio policistico
+Ectopia cervicale
+Endometrite
+Endometriosi
+Cervicite
+Vaginosi batterica
+Carcinoma della mammella
+Carcinoma della cervice uterina
+Cisti ovarica
+Menopausa precoce
+Pancreatite cronica
+Clamidia
+Artrite cronica
+Gastrite cronica
+Ipertensione arteriosa
+Diabete mellito di tipo 2
+Asma bronchiale
+Emicrania
+Anemia sideropenica
+Ipotiroidismo
+Osteoporosi
+Tumore del retto
+Occlusione dell'arteria centrale della retina

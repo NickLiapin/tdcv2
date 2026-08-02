@@ -1,0 +1,28 @@
+---
+description: Name / academic suffix (Spanish)
+locale: es
+---
+Jr.
+Hijo
+Padre
+II
+III
+IV
+V
+Ph.D.
+M.D.
+Lic.
+Ing.
+Arq.
+Mtro.
+Dr.
+Dra.
+M.Sc.
+MBA
+C.P.
+Abg.
+Vet.
+Odont.
+Enf.
+Q.F.
+Psic.

@@ -1,0 +1,15 @@
+---
+address: macau.finance.bank
+description: Banks operating in Macau (Portuguese names)
+locale: pt
+---
+Banco Nacional Ultramarino
+Banco da China, Sucursal de Macau
+Banco Tai Fung
+Banco Luso Internacional
+Banco Comercial de Macau
+Banco Industrial e Comercial da China (Macau)
+Banco OCBC Weng Hang
+Banco Well Link
+Banco Delta Ásia
+Banco Chinês de Macau

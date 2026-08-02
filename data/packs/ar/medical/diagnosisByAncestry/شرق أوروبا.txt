@@ -1,0 +1,10 @@
+---
+description: Conditions in Arabic markedly more frequent in people of Eastern European ancestry. A prevalence signal, not an exclusive one.
+locale: ar
+---
+داء ترسب الأصبغة الدموية الوراثي
+بيلة الفينيل كيتون
+فرط كوليسترول الدم العائلي
+مرض الكبد الكحولي
+التليف الكيسي
+داء ويلسون

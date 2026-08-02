@@ -1,0 +1,7 @@
+---
+address: greece.geo.postalCode
+description: Greek postal code (ταχυδρομικός κώδικας) — five digits, written here in the common spaced form NNN NN (e.g. 104 32); the leading digit indicates the region, so codes start 1-8.
+generator: tdc
+locale: el
+---
+<gen type="regex" value="[1-8][0-9]{2} [0-9]{2}"/>

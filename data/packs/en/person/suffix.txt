@@ -1,0 +1,20 @@
+---
+description: Name suffix
+locale: en
+---
+Jr
+Sr
+II
+III
+IV
+V
+PhD
+MD
+DDS
+DVM
+Esq
+JD
+LLD
+MBA
+RN
+CPA

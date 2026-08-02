@@ -1,0 +1,23 @@
+---
+description: ISO 4217 currency code
+---
+USD
+EUR
+GBP
+JPY
+CHF
+CAD
+AUD
+CNY
+INR
+BRL
+RUB
+MXN
+KRW
+SGD
+HKD
+SEK
+NOK
+PLN
+TRY
+ZAR

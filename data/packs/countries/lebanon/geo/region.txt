@@ -1,0 +1,13 @@
+---
+address: lebanon.geo.region
+description: Governorates of Lebanon (Arabic)
+locale: ar
+---
+بيروت
+جبل لبنان
+الشمال
+الجنوب
+البقاع
+النبطية
+عكار
+بعلبك الهرمل

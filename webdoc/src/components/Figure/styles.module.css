@@ -1,0 +1,142 @@
+.figure {
+  margin: 0 0 1.5rem;
+}
+
+.img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Input pictures are transparent PNGs: a light card makes the stroke visible in
+   both themes, and pixelated scaling keeps the honest pixel grid. */
+.panel {
+  display: block;
+  margin: 0 auto;
+  max-width: 360px;
+  width: 100%;
+  height: auto;
+  padding: 10px;
+  background: #fff;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 8px;
+  image-rendering: pixelated;
+}
+
+/* A capture of the Studio canvas. It comes in a light and a dark version, so the
+   plate only has to say "this is a screenshot, not ink on the page" — it takes
+   the page's own surface colour and lets the picture supply the rest. */
+.framed {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  padding: 12px;
+  background: var(--ifm-background-surface-color);
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 10px;
+}
+
+/* The whole figure is the click target, so the button must not look like one. */
+.zoom {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: zoom-in;
+}
+
+/* The viewer. A wide graph is read by moving around it, so the backdrop is a
+   working surface rather than a spotlight: near-opaque, and only a shade away
+   from the page, or a light screenshot glares against a black hole. */
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 400;
+  display: flex;
+  flex-direction: column;
+  background: #171921;
+}
+
+:global(html[data-theme='light']) .overlay {
+  background: #e8eaef;
+}
+
+.toolbar {
+  display: flex;
+  gap: 0.15rem;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0.35rem 0.6rem;
+  background: var(--ifm-background-surface-color);
+  border-bottom: 1px solid var(--ifm-color-emphasis-300);
+}
+
+.toolbar button {
+  min-width: 2.1rem;
+  padding: 0.1rem 0.45rem;
+  font-size: 1.25rem;
+  line-height: 1.5;
+  color: var(--ifm-font-color-base);
+  cursor: pointer;
+  background: none;
+  border: 0;
+  border-radius: 6px;
+}
+
+.toolbar button:hover {
+  background: var(--ifm-color-emphasis-200);
+}
+
+.percent {
+  min-width: 3.6rem;
+  font-size: 0.8rem;
+  font-variant-numeric: tabular-nums;
+  color: var(--ifm-color-emphasis-700);
+  text-align: center;
+}
+
+/* The hand: the whole area drags, so the cursor has to say so everywhere. */
+.frame {
+  position: relative;
+  flex: 1;
+  overflow: hidden;
+  cursor: grab;
+  touch-action: none;
+}
+
+.grabbing {
+  cursor: grabbing;
+}
+
+/* The picture keeps its own plate, so a capture with a transparent margin still
+   reads as one object while it is being dragged around. */
+.stage {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  padding: 10px;
+  background: var(--ifm-background-surface-color);
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgb(0 0 0 / 25%);
+  transform-origin: center center;
+  translate: -50% -50%;
+  will-change: transform;
+}
+
+.full {
+  display: block;
+  max-width: none;
+  user-select: none;
+}
+
+.caption {
+  margin-top: 0.55rem;
+  font-size: 0.85rem;
+  line-height: 1.45;
+  color: var(--ifm-color-emphasis-700);
+  text-align: center;
+}

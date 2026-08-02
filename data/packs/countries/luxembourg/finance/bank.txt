@@ -1,0 +1,17 @@
+---
+address: luxembourg.finance.bank
+description: Banks operating in Luxembourg
+locale: fr
+---
+BGL BNP Paribas
+Banque Internationale à Luxembourg
+Banque de Luxembourg
+Spuerkeess
+Banque Raiffeisen
+ING Luxembourg
+POST Finance
+Banque de Patrimoines Privés
+Quintet Private Bank
+Société Générale Luxembourg
+Banque Havilland
+Advanzia Bank

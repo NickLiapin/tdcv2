@@ -1,0 +1,34 @@
+---
+address: common.logistics.container_iso6346
+description: ISO 6346 shipping container code (owner + category + 6-digit serial + mod-11 check; rejects check==10)
+generator: tdc
+---
+<sequence name="owner"><gen type="regex" value="[A-Z]{3}"/></sequence>
+<sequence name="category"><gen type="text" value="U,J,Z"/></sequence>
+<sequence name="serial"><gen type="regex" value="[0-9]{6}"/></sequence>
+<sequence name="check"><compute>
+  <let name="base"><concat><field name="owner"/><field name="category"/><field name="serial"/></concat></let>
+  <!-- ISO 6346: each character's letter-value (A=10, skipping multiples of 11) times 2^position,
+       summed, mod 11. Digits map to themselves; the value table is indexed A..Z (0..25). -->
+  <result><mod>
+    <reduce>
+      <over><var name="base"/></over>
+      <init><int v="0"/></init>
+      <do><add><acc/>
+        <multiply>
+          <choose>
+            <when><test><is_digit><current/></is_digit></test><then><current/></then></when>
+            <otherwise>
+              <at><in><list v="10,12,13,14,15,16,17,18,19,20,21,23,24,25,26,27,28,29,30,31,32,34,35,36,37,38"/></in>
+                <index><subtract><to_number><encode as="unicode"><current/></encode></to_number><int v="65"/></subtract></index></at>
+            </otherwise>
+          </choose>
+          <at><in><list v="1,2,4,8,16,32,64,128,256,512"/></in><index><current_index/></index></at>
+        </multiply>
+      </add></do>
+    </reduce>
+    <int v="11"/>
+  </mod></result>
+</compute></sequence>
+<valid><less_than><to_number><field name="check"/></to_number><int v="10"/></less_than></valid>
+<data>${{owner}}${{category}}${{serial}}${{check}}</data>

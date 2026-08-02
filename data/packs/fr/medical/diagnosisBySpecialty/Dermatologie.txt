@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Dermatology (French)
+locale: fr
+---
+Eczéma
+Psoriasis
+Acné
+Dermatite atopique
+Urticaire
+Mélanome
+Rosacée
+Mycose cutanée
+Verrue
+Zona

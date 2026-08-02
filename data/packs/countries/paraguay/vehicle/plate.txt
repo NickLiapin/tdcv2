@@ -1,0 +1,7 @@
+---
+address: paraguay.vehicle.plate
+description: Paraguayan chapa — the Mercosur layout in use since July 2019 (cars four letters then three digits ABCD123, motorcycles three digits then four letters 123ABCD), plus the 2000-2019 national layout still in circulation (cars three letters then three digits ABC123)
+generator: tdc
+locale: es
+---
+<gen type="regex" value="([A-Z]{4}[0-9]{3}|[0-9]{3}[A-Z]{4}|[A-Z]{3}[0-9]{3})"/>

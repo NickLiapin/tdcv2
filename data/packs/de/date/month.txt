@@ -1,0 +1,16 @@
+---
+description: Month name (German, capitalised per German orthography)
+locale: de
+---
+Januar
+Februar
+März
+April
+Mai
+Juni
+Juli
+August
+September
+Oktober
+November
+Dezember

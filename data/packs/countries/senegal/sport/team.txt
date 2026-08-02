@@ -1,0 +1,17 @@
+---
+address: senegal.sport.team
+description: Senegalese Ligue 1 football clubs
+locale: fr
+---
+Génération Foot
+ASC Jaraaf
+Casa Sports
+Diambars FC
+Teungueth FC
+US Gorée
+AS Pikine
+Guédiawaye FC
+Stade de Mbour
+NGB Niarry Tally
+AS Douanes
+Dakar Sacré-Cœur

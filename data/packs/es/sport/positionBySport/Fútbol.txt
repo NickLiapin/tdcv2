@@ -1,0 +1,14 @@
+---
+description: Positions in association football (Spanish)
+locale: es
+---
+Portero
+Defensa central
+Lateral derecho
+Lateral izquierdo
+Mediocentro defensivo
+Mediocentro
+Mediapunta
+Extremo derecho
+Extremo izquierdo
+Delantero centro

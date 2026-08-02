@@ -1,0 +1,8 @@
+---
+address: belgium.geo.region
+description: Belgian regions (French names)
+locale: fr
+---
+Région flamande
+Région wallonne
+Région de Bruxelles-Capitale

@@ -1,0 +1,7 @@
+---
+address: canada.tax.gst
+description: Canadian GST/HST account number — the 9-digit Business Number, the RT program identifier and the 0001 reference (BN + RT0001). As with canada.tax.bn, the Business Number carries no checksum.
+generator: tdc
+---
+<sequence name="bn"><gen type="regex" value="[0-9]{9}"/></sequence>
+<data>${{bn}}RT0001</data>

@@ -1,0 +1,31 @@
+---
+description: Medical diagnoses in German (female-specific + common)
+locale: de
+---
+Zervikale Dysplasie
+Uterusmyome
+Vaginale Candidose
+Fibroadenom der Brust
+Polyzystisches Ovarialsyndrom
+Zervixektopie
+Endometritis
+Endometriose
+Zervizitis
+Bakterielle Vaginose
+Brustkrebs
+Gebärmutterhalskrebs
+Ovarialzyste
+Vorzeitige Menopause
+Chronische Pankreatitis
+Chlamydieninfektion
+Chronische Arthritis
+Chronische Gastritis
+Arterielle Hypertonie
+Diabetes mellitus Typ 2
+Asthma bronchiale
+Migräne
+Eisenmangelanämie
+Hypothyreose
+Osteoporose
+Rektumkarzinom
+Zentralarterienverschluss der Netzhaut

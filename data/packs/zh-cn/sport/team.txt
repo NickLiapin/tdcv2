@@ -1,0 +1,21 @@
+---
+address: zh-cn.sport.team
+description: Chinese Super League (中超) football clubs
+locale: zh-cn
+---
+上海海港
+山东泰山
+上海申花
+北京国安
+成都蓉城
+浙江队
+武汉三镇
+天津津门虎
+长春亚泰
+河南队
+青岛海牛
+深圳新鹏城
+沧州雄狮
+梅州客家
+南通支云
+大连英博

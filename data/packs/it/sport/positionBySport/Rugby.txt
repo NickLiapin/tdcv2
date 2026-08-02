@@ -1,0 +1,14 @@
+---
+description: Positions in rugby union (Italian)
+locale: it
+---
+Pilone
+Tallonatore
+Seconda linea
+Terza linea ala
+Numero 8
+Mediano di mischia
+Mediano d'apertura
+Centro
+Ala
+Estremo

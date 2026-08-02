@@ -1,0 +1,11 @@
+---
+description: Jobs in Construction (Spanish)
+locale: es
+---
+Electricista
+Plomero
+Carpintero
+Capataz de obra
+Operador de maquinaria pesada
+Topógrafo
+Albañil

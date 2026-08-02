@@ -1,0 +1,16 @@
+---
+description: Dishes of Argentine cuisine (French)
+locale: fr
+---
+Asado
+Empanadas
+Milanesa
+Chimichurri
+Choripán
+Locro
+Provoleta
+Dulce de leche
+Alfajores
+Matambre
+Bife de chorizo
+Humita

@@ -1,0 +1,15 @@
+---
+description: Positions in association football (Italian)
+locale: it
+---
+Portiere
+Difensore centrale
+Terzino destro
+Terzino sinistro
+Mediano
+Centrocampista
+Trequartista
+Ala destra
+Ala sinistra
+Attaccante
+Centravanti

@@ -1,0 +1,12 @@
+---
+description: Sport that has a coherent position list (German)
+locale: de
+---
+Fußball
+Basketball
+Volleyball
+Handball
+Baseball
+Rugby
+American Football
+Eishockey

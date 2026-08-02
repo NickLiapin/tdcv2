@@ -1,0 +1,7 @@
+---
+address: austria.phone
+description: Austria mobile phone in E.164 form (+43, mobile prefixes 650-699)
+generator: tdc
+locale: de
+---
+<gen type="regex" value="\+436(5[0-9]|6[0-9]|7[0-9]|8[0-9]|9[0-9])[0-9]{7}"/>

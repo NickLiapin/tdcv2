@@ -1,0 +1,31 @@
+---
+description: Medical diagnoses in Polish (female-specific + common)
+locale: pl
+---
+Dysplazja szyjki macicy
+Mięśniaki macicy
+Kandydoza pochwy
+Gruczolakowłókniak piersi
+Zespół policystycznych jajników
+Nadżerka szyjki macicy
+Zapalenie błony śluzowej macicy
+Endometrioza
+Zapalenie szyjki macicy
+Bakteryjne zapalenie pochwy
+Rak piersi
+Rak szyjki macicy
+Torbiel jajnika
+Przedwczesna menopauza
+Przewlekłe zapalenie trzustki
+Chlamydioza
+Przewlekłe zapalenie stawów
+Przewlekłe zapalenie błony śluzowej żołądka
+Nadciśnienie tętnicze
+Cukrzyca typu 2
+Astma oskrzelowa
+Migrena
+Niedokrwistość z niedoboru żelaza
+Niedoczynność tarczycy
+Osteoporoza
+Rak odbytnicy
+Zator tętnicy środkowej siatkówki

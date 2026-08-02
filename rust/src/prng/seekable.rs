@@ -1,0 +1,50 @@
+//! Draws that can be taken for one row without taking them for any other.
+//!
+//! The in-memory engine walks one generator from the start, so row 900 000's
+//! value exists only after the 899 999 before it. That is fine when the whole
+//! run is in memory and impossible when it is not.
+//!
+//! Here each draw is keyed by `seed | streamId | index`, so a row's values are a
+//! function of its own number. Nothing has to be kept, nothing has to be
+//! replayed, and a run of any size costs the memory of one row. It is also what
+//! lets separate workers each render a slice of the same file and agree at the
+//! seams.
+
+use super::{cyrb128, Sfc32};
+
+/// Half of a 32-bit unit in the last place — see [`open_unit`].
+const HALF_ULP: f64 = 0.5 / 4294967296.0;
+
+/// A generator private to one row of one stream.
+pub fn generator(seed: &str, stream_id: &str, index: i32) -> Sfc32 {
+    let key = format!("{seed}|{stream_id}|{index}");
+    let s = cyrb128(&key);
+    Sfc32::new(s[0], s[1], s[2], s[3])
+}
+
+pub fn next(seed: &str, stream_id: &str, index: i32) -> f64 {
+    generator(seed, stream_id, index).next()
+}
+
+/// An integer in `[0, n)` for this row.
+pub fn next_int(seed: &str, stream_id: &str, index: i32, n: i32) -> i32 {
+    if n <= 1 {
+        return 0;
+    }
+    (next(seed, stream_id, index) * f64::from(n)).floor() as i32
+}
+
+/// Nudge a raw draw into the open interval `(0, 1)`.
+///
+/// sfc32 emits values in `[0, 1)`, and inverse-CDF sampling takes logarithms —
+/// at exactly zero those are infinite. The shift is about 1e-10 and changes
+/// nothing statistically.
+pub fn open_unit(u: f64) -> f64 {
+    (u + HALF_ULP).clamp(HALF_ULP, 1.0 - HALF_ULP)
+}
+
+/// `count` uniforms in `(0, 1)` for one row — what a fixed-draw sampler needs.
+pub fn uniforms(seed: &str, stream_id: &str, index: i32, count: usize) -> Vec<f64> {
+    let mut gen = generator(seed, stream_id, index);
+    (0..count).map(|_| open_unit(gen.next())).collect()
+}

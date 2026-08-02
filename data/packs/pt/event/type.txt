@@ -1,0 +1,22 @@
+---
+description: Event type (Portuguese)
+locale: pt
+---
+Conferência
+Congresso
+Casamento
+Concerto
+Festival
+Oficina
+Seminário
+Webinar
+Feira comercial
+Exposição
+Angariação de fundos
+Encontro profissional
+Lançamento de produto
+Gala
+Festa de aniversário
+Formatura
+Batizado
+Aniversário

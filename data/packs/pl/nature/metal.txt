@@ -1,0 +1,26 @@
+---
+description: Metal (Polish)
+locale: pl
+---
+Złoto
+Srebro
+Platyna
+Miedź
+Żelazo
+Aluminium
+Tytan
+Cynk
+Nikiel
+Ołów
+Cyna
+Brąz
+Mosiądz
+Stal
+Pallad
+Kobalt
+Chrom
+Wolfram
+Rtęć
+Magnez
+Lit
+Mangan

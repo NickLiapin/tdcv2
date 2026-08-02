@@ -1,0 +1,86 @@
+---
+address: uruguay.tax.rut
+description: Uruguay RUT — 12 digits: a 2-digit DGI office, a 6-digit taxpayer serial, a 3-digit dependencia (001 = casa central) and a mod-11 check digit over the weights 4,3,2,9,8,7,6,5,4,3,2. DGI never issues a body whose remainder would demand a check of 10 — unlike the Chilean RUT there is no letter to carry it — so the last serial digit is nudged whenever the draw lands on that case, and every emitted RUT validates.
+generator: tdc
+---
+<sequence name="prefix"><gen type="regex" value="(0[1-9]|1[0-9]|2[01])"/></sequence>
+<sequence name="middle"><gen type="regex" value="[0-9]{6}"/></sequence>
+<sequence name="branch"><gen type="text" value="001"/></sequence>
+<sequence name="body"><compute>
+  <!-- Weighted sum of everything except the last serial digit: the first
+       seven positions take the weights 4,3,2,9,8,7,6 … -->
+  <let name="head"><concat><field name="prefix"/><slice from="0" to="5"><field name="middle"/></slice></concat></let>
+  <let name="headSum">
+    <reduce>
+      <over><var name="head"/></over>
+      <init><int v="0"/></init>
+      <do><add><acc/>
+        <multiply><current/>
+          <at><in><list v="4,3,2,9,8,7,6"/></in><index><current_index/></index></at>
+        </multiply>
+      </add></do>
+    </reduce>
+  </let>
+  <!-- … and the dependencia takes the last three, 4,3,2. -->
+  <let name="branchSum">
+    <reduce>
+      <over><field name="branch"/></over>
+      <init><int v="0"/></init>
+      <do><add><acc/>
+        <multiply><current/>
+          <at><in><list v="4,3,2"/></in><index><current_index/></index></at>
+        </multiply>
+      </add></do>
+    </reduce>
+  </let>
+  <!-- The eighth position carries weight 5. -->
+  <let name="last"><to_number><slice from="5" to="6"><field name="middle"/></slice></to_number></let>
+  <let name="trial">
+    <mod>
+      <add>
+        <add><var name="headSum"/><multiply><int v="5"/><var name="last"/></multiply></add>
+        <var name="branchSum"/>
+      </add>
+      <int v="11"/>
+    </mod>
+  </let>
+  <!-- Remainder 1 is the unusable case (11 - 1 = 10). Advancing the last
+       serial digit by one moves the remainder to 6, or to 0 when it wraps
+       9 -> 0; either way the check digit becomes legal. -->
+  <let name="fixed">
+    <choose>
+      <when><test><equals><var name="trial"/><int v="1"/></equals></test>
+        <then><mod><add><var name="last"/><int v="1"/></add><int v="10"/></mod></then></when>
+      <otherwise><var name="last"/></otherwise>
+    </choose>
+  </let>
+  <result><concat>
+    <field name="prefix"/><slice from="0" to="5"><field name="middle"/></slice>
+    <var name="fixed"/><field name="branch"/>
+  </concat></result>
+</compute></sequence>
+<sequence name="rut"><compute>
+  <let name="sum">
+    <reduce>
+      <over><field name="body"/></over>
+      <init><int v="0"/></init>
+      <do><add><acc/>
+        <multiply><current/>
+          <at><in><list v="4,3,2,9,8,7,6,5,4,3,2"/></in><index><current_index/></index></at>
+        </multiply>
+      </add></do>
+    </reduce>
+  </let>
+  <let name="raw"><subtract><int v="11"/><mod><var name="sum"/><int v="11"/></mod></subtract></let>
+  <let name="check">
+    <choose>
+      <when><test><equals><var name="raw"/><int v="11"/></equals></test><then><int v="0"/></then></when>
+      <!-- Unreachable for a body this pack builds; only a caller-supplied
+           body= that DGI would itself reject can land here. -->
+      <when><test><equals><var name="raw"/><int v="10"/></equals></test><then><int v="1"/></then></when>
+      <otherwise><var name="raw"/></otherwise>
+    </choose>
+  </let>
+  <result><concat><field name="body"/><var name="check"/></concat></result>
+</compute></sequence>
+<data>${{rut}}</data>

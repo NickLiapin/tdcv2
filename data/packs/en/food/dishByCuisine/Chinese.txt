@@ -1,0 +1,12 @@
+---
+description: Dishes of Chinese cuisine
+locale: en
+---
+Kung Pao Chicken
+Fried Rice
+Dumplings
+Chow Mein
+Sweet and Sour Pork
+Mapo Tofu
+Peking Duck
+Wonton Soup

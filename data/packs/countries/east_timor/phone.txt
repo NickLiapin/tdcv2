@@ -1,0 +1,7 @@
+---
+address: east_timor.phone
+description: Timor-Leste mobile phone in E.164 form (+670, mobile prefixes 72-78)
+generator: tdc
+locale: pt
+---
+<gen type="regex" value="\+6707[2-8][0-9]{5}"/>

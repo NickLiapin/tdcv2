@@ -1,0 +1,7 @@
+---
+address: angola.phone
+description: Angolan mobile phone in E.164 form — +244 followed by a 9-digit mobile number starting with 9
+generator: tdc
+locale: pt
+---
+<gen type="regex" value="\+2449[1-9][0-9]{7}"/>

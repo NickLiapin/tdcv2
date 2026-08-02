@@ -1,0 +1,13 @@
+---
+address: equatorial_guinea.geo.provinceCapital
+description: Capital of the provincia; same order as equatorial_guinea.geo.province. Bioko Norte's seat is Malabo, the national capital that sits inside it (some sources list the smaller town of Rebola as the de jure provincial capital). Djibloho's seat is the purpose-built new national capital, Ciudad de la Paz (Oyala)
+locale: es
+---
+San Antonio de Palé
+Malabo
+Luba
+Evinayong
+Ciudad de la Paz
+Ebebiyín
+Bata
+Mongomo

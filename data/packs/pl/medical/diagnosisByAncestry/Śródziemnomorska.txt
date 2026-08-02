@@ -1,0 +1,11 @@
+---
+description: Conditions markedly more frequent in people of Mediterranean ancestry, in Polish. A prevalence signal, not an exclusive one.
+locale: pl
+---
+Beta-talasemia
+Cecha beta-talasemii
+Niedobór dehydrogenazy glukozo-6-fosforanowej
+Rodzinna gorączka śródziemnomorska
+Choroba Behçeta
+Alfa-talasemia
+Fawizm

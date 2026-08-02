@@ -1,0 +1,29 @@
+---
+address: monaco.geo.streetNamed
+description: Common Monaco street name, bare (without the Boulevard / Avenue / Rue type)
+locale: fr
+---
+des Moulins
+de Monte-Carlo
+Albert Ier
+de la Costa
+du Larvotto
+Princesse Grace
+Grimaldi
+de Suisse
+Saint-Michel
+Princesse Charlotte
+des Beaux-Arts
+de la Madone
+du Ténao
+de l'Hermitage
+Rainier III
+Prince Pierre
+des Spélugues
+de France
+Honoré Labande
+du Portier
+de la Turbie
+Pasteur
+Charles III
+de Belgique

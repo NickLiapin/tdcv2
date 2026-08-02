@@ -1,0 +1,25 @@
+---
+address: honduras.education.university
+description: Honduran university or higher-education institution (public and private)
+locale: es
+---
+Universidad Nacional Autónoma de Honduras
+Universidad Pedagógica Nacional Francisco Morazán
+Universidad Nacional de Agricultura
+Escuela Agrícola Panamericana Zamorano
+Universidad Tecnológica Centroamericana
+Centro Universitario Tecnológico
+Universidad Católica de Honduras Nuestra Señora Reina de la Paz
+Universidad José Cecilio del Valle
+Universidad Tecnológica de Honduras
+Universidad Metropolitana de Honduras
+Universidad de San Pedro Sula
+Universidad Cristiana Evangélica Nuevo Milenio
+Universidad Politécnica de Honduras
+Universidad Politécnica de Ingeniería
+Universidad de Defensa de Honduras
+Universidad Nacional de la Policía de Honduras
+Escuela Nacional de Ciencias Forestales
+Universidad Cristiana de Honduras
+Universidad de las Ciencias y las Artes de Honduras
+Seminario Mayor Nuestra Señora de Suyapa

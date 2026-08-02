@@ -1,0 +1,26 @@
+---
+description: Book genre
+locale: en
+---
+Fiction
+Non-Fiction
+Mystery
+Thriller
+Romance
+Science Fiction
+Fantasy
+Horror
+Biography
+History
+Self-Help
+Poetry
+Young Adult
+Historical Fiction
+Crime
+Adventure
+Memoir
+Philosophy
+Travel
+Cookbook
+Graphic Novel
+Dystopian

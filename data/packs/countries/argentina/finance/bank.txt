@@ -1,0 +1,66 @@
+---
+address: argentina.finance.bank
+description: Argentine bank authorised by the BCRA (Comunicación "A" 8139, listado de entidades financieras grupos A/B/C); same order as argentina.finance.bankCode
+locale: es
+---
+Banco de Galicia y Buenos Aires S.A.U.
+Banco de la Nación Argentina
+Banco de la Provincia de Buenos Aires
+Industrial and Commercial Bank of China (Argentina) S.A.U.
+Citibank N.A.
+Banco BBVA Argentina S.A.
+Banco de la Provincia de Córdoba S.A.
+Banco Supervielle S.A.
+Banco de la Ciudad de Buenos Aires
+Banco Patagonia S.A.
+Banco Hipotecario S.A.
+Banco de San Juan S.A.
+Banco Municipal de Rosario
+Banco Santander Argentina S.A.
+Banco del Chubut S.A.
+Banco de Santa Cruz S.A.
+Banco de La Pampa S.E.M.
+Banco de Corrientes S.A.
+Banco Provincia del Neuquén S.A.
+Bank of China Limited, Sucursal Buenos Aires
+Brubank S.A.U.
+Bibank S.A.
+HSBC Bank Argentina S.A.
+JPMorgan Chase Bank N.A., Sucursal Buenos Aires
+Banco Credicoop Cooperativo Limitado
+Banco de Valores S.A.
+Banco Roela S.A.
+Banco Mariva S.A.
+BNP Paribas
+Banco Provincia de Tierra del Fuego
+Banco de la República Oriental del Uruguay
+Banco Sáenz S.A.
+Banco Meridian S.A.
+Banco Macro S.A.
+Banco Comafi S.A.
+Banco de Inversión y Comercio Exterior S.A.
+Banco Piano S.A.
+Banco Julio S.A.
+Banco Rioja S.A.U.
+Banco del Sol S.A.
+Nuevo Banco del Chaco S.A.
+Banco Voii S.A.
+Banco de Formosa S.A.
+Banco CMF S.A.
+Banco de Santiago del Estero S.A.
+Banco Industrial S.A.
+Nuevo Banco de Santa Fe S.A.
+Banco Cetelem Argentina S.A.
+Banco de Servicios Financieros S.A.
+Banco de Servicios y Transacciones S.A.
+RCI Banque S.A.
+BACS Banco de Crédito y Securitización S.A.
+Banco Masventas S.A.
+Wilobank S.A.U.
+Nuevo Banco de Entre Ríos S.A.
+Banco Columbia S.A.
+Banco Bica S.A.
+Banco Coinag S.A.
+Banco de Comercio S.A.
+Banco Sucrédito Regional S.A.U.
+Banco Dino S.A.

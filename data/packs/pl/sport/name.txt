@@ -1,0 +1,59 @@
+---
+description: Sport (Polish)
+locale: pl
+---
+Piłka nożna
+Futsal
+Futbol amerykański
+Koszykówka
+Baseball
+Siatkówka
+Siatkówka plażowa
+Piłka ręczna
+Rugby
+Hokej na lodzie
+Hokej na trawie
+Krykiet
+Tenis
+Padel
+Tenis stołowy
+Badminton
+Squash
+Golf
+Pływanie
+Piłka wodna
+Lekkoatletyka
+Kolarstwo
+Kolarstwo górskie
+Boks
+Zapasy
+Judo
+Karate
+Taekwondo
+Szermierka
+Gimnastyka sportowa
+Gimnastyka artystyczna
+Podnoszenie ciężarów
+Triathlon
+Wioślarstwo
+Kajakarstwo
+Żeglarstwo
+Surfing
+Narciarstwo alpejskie
+Biegi narciarskie
+Snowboard
+Łyżwiarstwo figurowe
+Wrotkarstwo
+Wspinaczka sportowa
+Łucznictwo
+Strzelectwo sportowe
+Jeździectwo
+Sporty motorowe
+Wyścigi motocyklowe
+Deskorolka
+Kręgle
+Bilard
+Żużel
+Skoki narciarskie
+Rugby 7
+Softball

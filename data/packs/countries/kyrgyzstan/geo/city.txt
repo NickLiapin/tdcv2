@@ -1,0 +1,21 @@
+---
+address: kyrgyzstan.geo.city
+description: Cities of Kyrgyzstan (Russian names)
+locale: ru
+---
+Бишкек
+Ош
+Джалал-Абад
+Каракол
+Токмок
+Кара-Балта
+Узген
+Нарын
+Талас
+Баткен
+Кызыл-Кия
+Кербен
+Балыкчы
+Кант
+Сулюкта
+Майлуу-Суу

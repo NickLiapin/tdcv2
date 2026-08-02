@@ -1,0 +1,16 @@
+---
+description: Conditions markedly more frequent in people of Sub-Saharan African ancestry, given in German. A prevalence signal, not an exclusive one - anyone can have these, and most patients of this ancestry have none of them.
+locale: de
+---
+Sichelzellkrankheit
+Sichelzellmerkmal
+Glukose-6-Phosphat-Dehydrogenase-Mangel
+APOL1-assoziierte Nephropathie
+Keloidbildung
+Sarkoidose
+Hypertensive Nephrosklerose
+Uterusmyome
+Benigne ethnische Neutropenie
+Laktase-Nonpersistenz
+Pseudofolliculitis barbae
+Vitiligo

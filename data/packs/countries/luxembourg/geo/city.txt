@@ -1,0 +1,29 @@
+---
+address: luxembourg.geo.city
+description: Luxembourg cities and communes
+locale: fr
+---
+Luxembourg
+Esch-sur-Alzette
+Differdange
+Dudelange
+Ettelbruck
+Diekirch
+Wiltz
+Echternach
+Rumelange
+Grevenmacher
+Remich
+Vianden
+Mersch
+Bettembourg
+Pétange
+Sanem
+Bertrange
+Strassen
+Mamer
+Hesperange
+Schifflange
+Kayl
+Mondorf-les-Bains
+Clervaux

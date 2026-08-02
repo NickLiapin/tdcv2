@@ -1,0 +1,32 @@
+---
+description: Tech action noun (Polish)
+locale: pl
+---
+archiwizowanie
+omijanie
+hakowanie
+nadpisywanie
+kompresowanie
+kopiowanie
+nawigowanie
+indeksowanie
+łączenie
+generowanie
+kwantyfikowanie
+obliczanie
+syntetyzowanie
+wprowadzanie
+transmitowanie
+programowanie
+restartowanie
+analizowanie
+szyfrowanie
+deszyfrowanie
+wdrażanie
+kompilowanie
+debugowanie
+optymalizowanie
+synchronizowanie
+wirtualizowanie
+trasowanie
+monitorowanie

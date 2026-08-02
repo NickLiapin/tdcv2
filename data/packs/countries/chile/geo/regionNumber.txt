@@ -1,0 +1,20 @@
+---
+address: chile.geo.regionNumber
+description: Modern 2-digit región code from the SUBDERE Código Único Territorial (CUT) — the first two digits of any comuna code; same order as chile.geo.region
+---
+15
+01
+02
+03
+04
+05
+13
+06
+07
+16
+08
+09
+14
+10
+11
+12

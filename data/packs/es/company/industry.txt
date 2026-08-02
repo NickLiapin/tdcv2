@@ -1,0 +1,59 @@
+---
+description: Industry sector (Spanish)
+locale: es
+---
+Agricultura
+Ganadería
+Pesca
+Silvicultura
+Minería
+Construcción
+Manufactura
+Comercio minorista
+Comercio mayorista
+Transporte
+Tecnologías de la información
+Finanzas
+Banca
+Seguros
+Bienes raíces
+Salud
+Educación
+Hostelería
+Turismo
+Entretenimiento
+Energía
+Petróleo y gas
+Energías renovables
+Telecomunicaciones
+Automotriz
+Aeroespacial
+Farmacéutica
+Biotecnología
+Logística
+Medios de comunicación
+Publicidad
+Consultoría
+Servicios jurídicos
+Contabilidad
+Recursos humanos
+Alimentos y bebidas
+Textil
+Química
+Metalurgia
+Papel y celulosa
+Electrónica
+Software
+Comercio electrónico
+Videojuegos
+Deporte
+Cultura
+Investigación científica
+Administración pública
+Defensa
+Seguridad privada
+Organizaciones sin fines de lucro
+Gestión de residuos
+Agua y saneamiento
+Arquitectura
+Ingeniería

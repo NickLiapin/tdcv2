@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "cases": [
+    {
+      "name": "from-without-to",
+      "demonstrates": "TDC150",
+      "description": "from= and to= are used together or not at all",
+      "config": "<tdc><env count=\"2\" seed=\"s\"><sequence name=\"G\"><gen type=\"date\" from=\"2026-01-01\"/></sequence></env><block><line><data>x</data></line></block></tdc>",
+      "expected": ["error TDC150 1:48"]
+    },
+    {
+      "name": "unknown-date-locale",
+      "demonstrates": "TDC153",
+      "description": "A date locale nobody has translated",
+      "config": "<tdc><env count=\"2\" seed=\"s\"><sequence name=\"G\"><gen type=\"date\" range=\"2026-01-01..2026-01-31\" local=\"klingon\"/></sequence></env><block><line><data>x</data></line></block></tdc>",
+      "expected": ["error TDC153 1:103"]
+    }
+  ]
+}

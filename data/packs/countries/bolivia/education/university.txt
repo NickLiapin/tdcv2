@@ -1,0 +1,35 @@
+---
+address: bolivia.education.university
+description: Bolivian university — the public autonomous universities of the CEUB system, the special (military and police) universities and the larger private universities
+locale: es
+---
+Universidad Mayor de San Andrés
+Universidad Mayor de San Simón
+Universidad Autónoma Gabriel René Moreno
+Universidad Mayor Real y Pontificia de San Francisco Xavier de Chuquisaca
+Universidad Técnica de Oruro
+Universidad Autónoma Tomás Frías
+Universidad Autónoma Juan Misael Saracho
+Universidad Autónoma del Beni José Ballivián
+Universidad Amazónica de Pando
+Universidad Nacional Siglo XX
+Universidad Pública de El Alto
+Universidad Católica Boliviana San Pablo
+Escuela Militar de Ingeniería
+Universidad Policial Mariscal Antonio José de Sucre
+Universidad Privada Boliviana
+Universidad Privada de Santa Cruz de la Sierra
+Universidad Privada del Valle
+Universidad NUR
+Universidad Privada Franz Tamayo
+Universidad de Aquino Bolivia
+Universidad Privada Domingo Savio
+Universidad Evangélica Boliviana
+Universidad Salesiana de Bolivia
+Universidad Técnica Privada Cosmos
+Universidad Cristiana de Bolivia
+Universidad Privada Abierta Latinoamericana
+Universidad Loyola
+Universidad Central
+Universidad San Francisco de Asís
+Universidad de los Andes

@@ -1,0 +1,14 @@
+---
+description: Loan type (Portuguese)
+locale: pt
+---
+Habitação
+Automóvel
+Pessoal
+Estudantil
+Com garantia imobiliária
+Empresarial
+Linha de crédito
+Consolidação de dívidas
+Penhor
+Microcrédito

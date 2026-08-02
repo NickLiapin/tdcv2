@@ -1,0 +1,19 @@
+---
+address: syria.geo.region
+description: Governorates of Syria (Arabic)
+locale: ar
+---
+دمشق
+ريف دمشق
+حلب
+حمص
+حماة
+اللاذقية
+طرطوس
+إدلب
+دير الزور
+الرقة
+الحسكة
+درعا
+السويداء
+القنيطرة

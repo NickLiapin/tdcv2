@@ -1,0 +1,36 @@
+---
+address: dominican_republic.geo.province
+description: Dominican Republic first-level division — the 31 provincias plus the Distrito Nacional, in official ONE código-de-provincia order (01-32)
+---
+Distrito Nacional
+Azua
+Baoruco
+Barahona
+Dajabón
+Duarte
+Elías Piña
+El Seibo
+Espaillat
+Independencia
+La Altagracia
+La Romana
+La Vega
+María Trinidad Sánchez
+Monte Cristi
+Pedernales
+Peravia
+Puerto Plata
+Hermanas Mirabal
+Samaná
+San Cristóbal
+San Juan
+San Pedro de Macorís
+Sánchez Ramírez
+Santiago
+Santiago Rodríguez
+Valverde
+Monseñor Nouel
+Monte Plata
+Hato Mayor
+San José de Ocoa
+Santo Domingo

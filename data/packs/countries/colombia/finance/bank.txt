@@ -1,0 +1,33 @@
+---
+address: colombia.finance.bank
+description: Colombian bank or licensed deposit institution registered with the Superintendencia Financiera; same order as colombia.finance.bankCode
+---
+Banco de Bogotá
+Banco Popular
+Itaú
+Bancolombia
+Citibank Colombia
+Banco GNB Sudameris
+BBVA Colombia
+Scotiabank Colpatria
+Banco de Occidente
+Banco Caja Social
+Banco Agrario de Colombia
+Banco Mundo Mujer
+Davivienda
+Banco AV Villas
+Banco W
+Banco Credifinanciera
+Bancamía
+Banco Pichincha
+Bancoomeva
+Banco Falabella
+Banco Finandina
+Banco Santander de Negocios Colombia
+Banco Cooperativo Coopcentral
+Mibanco
+Banco Serfinanza
+Lulo Bank
+Banco Unión
+Nequi
+Daviplata

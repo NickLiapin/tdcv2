@@ -1,0 +1,23 @@
+---
+address: vatican_city.holiday
+description: Holy days and civil holidays observed in Vatican City (Italian names)
+locale: it
+---
+Maria Santissima Madre di Dio
+Epifania
+Anniversario dei Patti Lateranensi
+Festa della Cattedra di San Pietro
+San Giuseppe
+Pasqua
+Lunedì dell'Angelo
+Anniversario dell'elezione del Pontefice
+San Giuseppe Lavoratore
+Ascensione
+Santi Pietro e Paolo
+Assunzione di Maria
+Natività della Beata Vergine Maria
+Ognissanti
+Commemorazione dei defunti
+Immacolata Concezione
+Natale
+Santo Stefano

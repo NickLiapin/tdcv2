@@ -1,0 +1,7 @@
+---
+address: south_africa.vehicle.plate
+description: South African licence plate — Gauteng-style LLL NNN GP and Western Cape-style CA NNNNNN (structural)
+generator: tdc
+locale: en
+---
+<gen type="regex" value="([A-Z]{3} [0-9]{3} (GP|MP|NW|FS|L|NC)|C[AFJ] [0-9]{6}|N[UD] [0-9]{6})"/>

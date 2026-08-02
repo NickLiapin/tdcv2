@@ -1,0 +1,36 @@
+---
+description: Building type (Polish)
+locale: pl
+---
+Dom
+Mieszkanie
+Apartament
+Budynek
+Biuro
+Magazyn
+Skład
+Lokal handlowy
+Fabryka
+Hala przemysłowa
+Szpital
+Przychodnia
+Szkoła
+Liceum
+Uniwersytet
+Hotel
+Restauracja
+Centrum handlowe
+Stadion
+Biblioteka
+Kościół
+Muzeum
+Teatr
+Willa
+Dom szeregowy
+Domek letniskowy
+Gospodarstwo
+Dworek
+Wieżowiec
+Kamienica
+Osiedle mieszkaniowe
+Parking

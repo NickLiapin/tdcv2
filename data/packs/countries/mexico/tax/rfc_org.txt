@@ -1,0 +1,42 @@
+---
+address: mexico.tax.rfc_org
+description: Mexico RFC for an organization (3 random letters + YYMMDD date + 2 homoclave chars + mod-11 check char)
+generator: tdc
+---
+<sequence name="letters"><gen type="regex" value="[A-Z]{3}"/></sequence>
+<sequence name="date"><gen type="date" from="1970-01-01" to="2026-12-31" format="YYMMDD"/></sequence>
+<sequence name="homoclave"><gen type="regex" value="[A-Z0-9]{2}"/></sequence>
+<sequence name="base"><compute>
+  <result><concat><field name="letters"/><field name="date"/><field name="homoclave"/></concat></result>
+</compute></sequence>
+<sequence name="rfc"><compute>
+  <let name="len"><length><field name="base"/></length></let>
+  <let name="sum">
+    <reduce>
+      <over><field name="base"/></over>
+      <init><multiply><subtract><int v="12"/><var name="len"/></subtract><int v="481"/></multiply></init>
+      <do>
+        <add><acc/>
+          <multiply>
+            <choose>
+              <when><test><greater_than><to_number><encode as="base36"><current/></encode></to_number><int v="23"/></greater_than></test>
+                <then><add><to_number><encode as="base36"><current/></encode></to_number><int v="1"/></add></then></when>
+              <otherwise><to_number><encode as="base36"><current/></encode></to_number></otherwise>
+            </choose>
+            <subtract><add><var name="len"/><int v="1"/></add><current_index/></subtract>
+          </multiply>
+        </add>
+      </do>
+    </reduce>
+  </let>
+  <let name="raw"><subtract><int v="11"/><mod><var name="sum"/><int v="11"/></mod></subtract></let>
+  <let name="check">
+    <choose>
+      <when><test><equals><var name="raw"/><int v="11"/></equals></test><then><str v="0"/></then></when>
+      <when><test><equals><var name="raw"/><int v="10"/></equals></test><then><str v="A"/></then></when>
+      <otherwise><var name="raw"/></otherwise>
+    </choose>
+  </let>
+  <result><concat><field name="base"/><var name="check"/></concat></result>
+</compute></sequence>
+<data>${{rfc}}</data>

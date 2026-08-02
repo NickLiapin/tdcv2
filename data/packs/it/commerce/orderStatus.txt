@@ -1,0 +1,18 @@
+---
+description: Order status (Italian)
+locale: it
+---
+In attesa
+In lavorazione
+Confermato
+In preparazione
+Spedito
+In consegna
+Consegnato
+Annullato
+Reso
+Rimborsato
+Sospeso
+In attesa di pagamento
+Non disponibile
+Non riuscito

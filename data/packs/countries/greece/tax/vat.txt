@@ -1,0 +1,22 @@
+---
+address: greece.tax.vat
+description: Greek VAT / AFM (EL + 8-digit base + weighted mod-11 then mod-10 check)
+generator: tdc
+---
+<sequence name="base"><gen type="regex" value="[0-9]{8}"/></sequence>
+<sequence name="vat"><compute>
+  <let name="sum">
+    <reduce>
+      <over><field name="base"/></over>
+      <init><int v="0"/></init>
+      <do><add><acc/>
+        <multiply><current/>
+          <at><in><list v="256,128,64,32,16,8,4,2"/></in><index><current_index/></index></at>
+        </multiply>
+      </add></do>
+    </reduce>
+  </let>
+  <let name="check"><mod><mod><var name="sum"/><int v="11"/></mod><int v="10"/></mod></let>
+  <result><concat><str v="EL"/><field name="base"/><var name="check"/></concat></result>
+</compute></sequence>
+<data>${{vat}}</data>

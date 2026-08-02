@@ -1,0 +1,10 @@
+---
+description: Conditions in French markedly more frequent in people of Indigenous American ancestry. A prevalence signal, not an exclusive one.
+locale: fr
+---
+Diabète de type 2
+Lithiase biliaire
+Néphropathie diabétique
+Polyarthrite rhumatoïde
+Stéatose hépatique non alcoolique
+Syndrome métabolique

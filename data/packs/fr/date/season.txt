@@ -1,0 +1,8 @@
+---
+description: Season (French, lowercase per French orthography)
+locale: fr
+---
+printemps
+été
+automne
+hiver

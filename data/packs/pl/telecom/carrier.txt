@@ -1,0 +1,30 @@
+---
+description: Mobile carrier (Polish operators and international brands)
+locale: pl
+---
+Orange Polska
+Play
+Plus
+T-Mobile Polska
+Virgin Mobile
+Heyah
+nju mobile
+Plush
+Red Bull Mobile
+Mobile Vikings
+Lycamobile
+Premium Mobile
+a2mobile
+Lajt Mobile
+Otvarta
+Klucz Mobile
+Netia
+Vectra
+UPC Polska
+Inea
+Multimedia Polska
+Polkomtel
+P4
+Vodafone
+O2
+Telekom

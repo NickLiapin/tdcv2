@@ -1,0 +1,90 @@
+---
+address: dominican_republic.geo.streetNamed
+description: Common Dominican street name, bare (without the Calle / Avenida / Autopista prefix)
+---
+Duarte
+Juan Pablo Duarte
+Francisco del Rosario Sánchez
+Matías Ramón Mella
+Mella
+Sánchez
+Gregorio Luperón
+Máximo Gómez
+Ulises Francisco Espaillat
+Espaillat
+José Núñez de Cáceres
+Núñez de Cáceres
+Pedro Henríquez Ureña
+Salomé Ureña
+Eugenio María de Hostos
+Hostos
+Juan Bosch
+Fernando Arturo de Meriño
+Arzobispo Meriño
+Arzobispo Nouel
+Emilio Prud'Homme
+Ercilia Pepín
+Rosa Duarte
+María Trinidad Sánchez
+Concepción Bona
+Juan Sánchez Ramírez
+Independencia
+Restauración
+Las Carreras
+El Conde
+Las Mercedes
+Las Damas
+Padre Billini
+Palo Hincado
+Isabel la Católica
+Nicolás de Ovando
+Benito Monción
+El Sol
+Del Sol
+27 de Febrero
+16 de Agosto
+30 de Marzo
+6 de Noviembre
+26 de Enero
+12 de Julio
+Winston Churchill
+John F. Kennedy
+George Washington
+Abraham Lincoln
+Charles de Gaulle
+Rómulo Betancourt
+Simón Bolívar
+Bolívar
+José Martí
+España
+Francia
+Las Américas
+Sarasota
+Tiradentes
+Gustavo Mejía Ricart
+Roberto Pastoriza
+Lope de Vega
+Ortega y Gasset
+Jiménez Moya
+San Martín
+Pasteur
+Correa y Cidrón
+Estrella Sadhalá
+Bartolomé Colón
+Anacaona
+Enriquillo
+Caonabo
+Guarocuya
+Hermanas Mirabal
+Los Próceres
+Los Robles
+Las Palmas
+El Flamboyán
+Caoba
+Central
+Primera
+Segunda
+Tercera
+Duartiana
+El Portal
+Los Jardines

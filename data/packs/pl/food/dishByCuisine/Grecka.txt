@@ -1,0 +1,12 @@
+---
+description: Dishes of Greek cuisine (Polish)
+locale: pl
+---
+Musaka
+Souvlaki
+Gyros
+Sałatka grecka
+Spanakopita
+Baklawa
+Tzatziki
+Dolmades

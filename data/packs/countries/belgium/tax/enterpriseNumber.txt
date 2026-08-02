@@ -1,0 +1,11 @@
+---
+address: belgium.tax.enterpriseNumber
+description: Belgian enterprise number (numéro d'entreprise BCE/KBO) — 10 digits: a 0 or 1 prefix + 7 digits + 2-digit check = 97 - (the 8-digit base mod 97). This is the VAT number without the BE prefix.
+generator: tdc
+---
+<sequence name="base"><gen type="regex" value="[01][0-9]{7}"/></sequence>
+<sequence name="bce"><compute>
+  <let name="check"><subtract><int v="97"/><mod><to_number><field name="base"/></to_number><int v="97"/></mod></subtract></let>
+  <result><concat><field name="base"/><pad width="2" fill="0"><var name="check"/></pad></concat></result>
+</compute></sequence>
+<data>${{bce}}</data>

@@ -1,0 +1,9 @@
+---
+address: france.geo.postalCode
+description: French postal code — 5 digits; the first two are the department (01–95 metropolitan), so the code prefix is a real department block.
+generator: tdc
+locale: fr
+---
+<sequence name="dept"><gen type="number" value="1..95" length="2" first_zero="true"/></sequence>
+<sequence name="tail"><gen type="regex" value="[0-9]{3}"/></sequence>
+<data>${{dept}}${{tail}}</data>

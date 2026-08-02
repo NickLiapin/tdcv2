@@ -1,0 +1,8 @@
+---
+description: Models of Mini
+locale: en
+---
+Cooper
+Countryman
+Clubman
+Convertible

@@ -1,0 +1,81 @@
+---
+description: Hobby / interest (Portuguese)
+locale: pt
+---
+Leitura
+Caminhada
+Fotografia
+Culinária
+Jardinagem
+Pintura
+Ciclismo
+Videojogos
+Ioga
+Viajar
+Pesca
+Tricô
+Corrida
+Confeitaria
+Marcenaria
+Xadrez
+Dança
+Surfe
+Acampar
+Observação de aves
+Cerâmica
+Astronomia
+Natação
+Escalada
+Mergulho
+Música
+Guitarra
+Piano
+Canto
+Teatro
+Escrita
+Colecionismo
+Numismática
+Filatelia
+Modelismo
+Costura
+Bordado
+Olaria
+Desenho
+Caligrafia
+Meditação
+Artes marciais
+Boxe
+Patinagem
+Esqui
+Equitação
+Vela
+Caiaque
+Golfe
+Ténis
+Futebol
+Basquetebol
+Voleibol
+Ginásio
+Crossfit
+Pilates
+Quebra-cabeças
+Jogos de tabuleiro
+Programação
+Robótica
+Impressão 3D
+Enologia
+Prova de café
+Cinema
+Podcasts
+Genealogia
+Voluntariado
+Apicultura
+Horta urbana
+Bonsai
+Aquarismo
+Astrofotografia
+Paraquedismo
+Parapente
+Espeleologia
+Orientação
+Geocaching

@@ -1,0 +1,34 @@
+---
+description: Fish (French)
+locale: fr
+---
+Saumon
+Truite
+Thon
+Cabillaud
+Morue
+Sardine
+Maquereau
+Hareng
+Bar
+Dorade
+Sole
+Turbot
+Merlu
+Lieu
+Anchois
+Rouget
+Carpe
+Brochet
+Perche
+Sandre
+Anguille
+Poisson-clown
+Poisson rouge
+Guppy
+Requin
+Raie
+Espadon
+Congre
+Lotte
+Colin

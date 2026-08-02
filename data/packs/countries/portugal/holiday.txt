@@ -1,0 +1,19 @@
+---
+address: portugal.holiday
+description: Public holidays in Portugal (Portuguese names)
+locale: pt
+---
+Ano Novo
+Carnaval
+Sexta-feira Santa
+Domingo de Páscoa
+Dia da Liberdade
+Dia do Trabalhador
+Dia de Portugal
+Corpo de Deus
+Assunção de Nossa Senhora
+Implantação da República
+Dia de Todos os Santos
+Restauração da Independência
+Imaculada Conceição
+Natal

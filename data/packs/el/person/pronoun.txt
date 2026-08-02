@@ -1,0 +1,12 @@
+---
+description: Personal pronoun set (Greek)
+locale: el
+---
+αυτός
+αυτή
+αυτό
+αυτός/τον
+αυτή/την
+αυτό/το
+αυτός/αυτή
+αυτή/αυτό

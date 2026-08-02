@@ -1,0 +1,282 @@
+---
+address: mexico.geo.municipality
+description: Mexican municipio (second-level division; CDMX has alcaldías instead and is not listed here)
+---
+Benito Juárez
+Othón P. Blanco
+Solidaridad
+Puerto Morelos
+José María Morelos
+Lázaro Cárdenas
+Centro
+Huimanguillo
+Cunduacán
+Jalpa de Méndez
+Nacajuca
+Balancán
+Emiliano Zapata
+Teapa
+Tacotalpa
+Centla
+Zapopan
+San Pedro Tlaquepaque
+Tonalá
+Tlajomulco de Zúñiga
+El Salto
+Juanacatlán
+Ixtlahuacán de los Membrillos
+Zapotlanejo
+Zapotlán el Grande
+Cabo Corrientes
+Guadalupe
+Apodaca
+San Nicolás de los Garza
+General Escobedo
+Santa Catarina
+García
+Santiago
+Salinas Victoria
+Pesquería
+Ciénega de Flores
+Cadereyta Jiménez
+Zumpango
+Tecámac
+Chicoloapan
+La Paz
+Acolman
+Tepotzotlán
+Melchor Ocampo
+Nextlalpan
+Tultepec
+Teoloyucan
+Huehuetoca
+Nicolás Romero
+Lerma
+Ocoyoacac
+San Mateo Atenco
+Almoloya de Juárez
+Zinacantepec
+Temoaya
+Otzolotepec
+Valle de Bravo
+Los Cabos
+Comondú
+Mulegé
+Ensenada
+Tecate
+Playas de Rosarito
+San Quintín
+Corregidora
+El Marqués
+Huimilpan
+Colón
+Pedro Escobedo
+Amealco de Bonfil
+Ezequiel Montes
+Jalpan de Serra
+San Andrés Cholula
+Cuautlancingo
+Coronango
+Amozoc
+Tepeaca
+Chignahuapan
+Xicotepec
+Zacapoaxtla
+Tlatlauquitepec
+Tecamachalco
+Mineral de la Reforma
+San Agustín Tlaxiaca
+Zempoala
+Atotonilco de Tula
+Tepeji del Río de Ocampo
+Zimapán
+Huichapan
+Santa Lucía del Camino
+Santa Cruz Xoxocotlán
+San Jacinto Amilpas
+Villa de Zaachila
+Santiago Pinotepa Nacional
+San Pedro Mixtepec
+Santa María Huatulco
+San Pedro Pochutla
+Loma Bonita
+Matías Romero Avendaño
+Cintalapa
+Berriozábal
+Suchiapa
+Las Margaritas
+Frontera Comalapa
+Motozintla
+Huixtla
+Mapastepec
+Pijijiapan
+Arriaga
+Cajeme
+Puerto Peñasco
+Empalme
+Etchojoa
+Huatabampo
+Cananea
+Magdalena
+Álamos
+Ures
+Ahome
+Salvador Alvarado
+El Fuerte
+Rosario
+Elota
+San Ignacio
+Mocorito
+Angostura
+Concordia
+Cosalá
+Ascensión
+Bocoyna
+Guachochi
+Madera
+Namiquipa
+Saucillo
+Ramos Arizpe
+San Pedro
+Francisco I. Madero
+Múzquiz
+Parras
+Castaños
+Nava
+Lerdo
+Santiago Papasquiaro
+Guadalupe Victoria
+Nombre de Dios
+Pueblo Nuevo
+Canatlán
+Cuencamé
+Silao de la Victoria
+Dolores Hidalgo Cuna de la Independencia Nacional
+Pénjamo
+Valle de Santiago
+Acámbaro
+Salvatierra
+Cortazar
+Moroleón
+Uriangato
+Yuriria
+San José Iturbide
+Apaseo el Grande
+Apaseo el Alto
+Villagrán
+Purísima del Rincón
+Comonfort
+Zacapu
+Los Reyes
+Tacámbaro
+Maravatío
+Puruándiro
+Jacona
+Xochitepec
+Puente de Ixtla
+Ayala
+Tepoztlán
+Tlaltizapán de Zapata
+Jojutla
+Tlaquiltenango
+Yecapixtla
+Huitzilac
+Cosoleacaque
+Fortín
+Ixtaczoquitlán
+Medellín de Bravo
+Alvarado
+Tlapacoyan
+Perote
+Huatusco
+Misantla
+Cosamaloapan de Carpio
+Kanasín
+Hunucmá
+Tekax
+Maxcanú
+Oxkutzcab
+Peto
+Espita
+Tinum
+Conkal
+Tixkokob
+Halachó
+Jerez
+Pinos
+Ojocaliente
+Villanueva
+Nochistlán de Mejía
+Calera
+Jesús María
+Calvillo
+Rincón de Romos
+Pabellón de Arteaga
+San Francisco de los Romo
+Asientos
+Cosío
+Tepezalá
+El Llano
+San José de Gracia
+Apizaco
+Huamantla
+Chiautempan
+San Pablo del Monte
+Zacatelco
+Calpulalpan
+Tlaxco
+Contla de Juan Cuamatzi
+Papalotla de Xicohténcatl
+Nativitas
+Tetla de la Solidaridad
+Carmen
+Champotón
+Escárcega
+Calkiní
+Hopelchén
+Hecelchakán
+Tenabo
+Palizada
+Candelaria
+Calakmul
+Zihuatanejo de Azueta
+Chilapa de Álvarez
+Ometepec
+Ayutla de los Libres
+Coyuca de Benítez
+Atoyac de Álvarez
+Tecpan de Galeana
+Petatlán
+San Marcos
+Teloloapan
+Arcelia
+Soledad de Graciano Sánchez
+Ébano
+Tamuín
+Xilitla
+Cerritos
+Salinas
+Villa de Reyes
+Charcas
+Santa María del Río
+Ciudad Fernández
+Bahía de Banderas
+Santiago Ixcuintla
+Compostela
+Xalisco
+San Blas
+Acaponeta
+Ixtlán del Río
+Rosamorada
+Tecuala
+Ruíz
+Ahuacatlán
+Coquimatlán
+Comala
+Armería
+Ixtlahuacán
+Xicoténcatl
+González
+Soto la Marina
+Miguel Alemán
+Camargo

@@ -1,0 +1,36 @@
+---
+address: puerto_rico.education.university
+description: Puerto Rican university or higher-education institution — the University of Puerto Rico system and its campuses, plus the major private universities
+locale: es
+---
+Universidad de Puerto Rico
+Universidad de Puerto Rico, Recinto de Río Piedras
+Universidad de Puerto Rico, Recinto Universitario de Mayagüez
+Universidad de Puerto Rico, Recinto de Ciencias Médicas
+Universidad de Puerto Rico en Cayey
+Universidad de Puerto Rico en Humacao
+Universidad de Puerto Rico en Ponce
+Universidad de Puerto Rico en Arecibo
+Universidad de Puerto Rico en Bayamón
+Universidad de Puerto Rico en Aguadilla
+Universidad de Puerto Rico en Carolina
+Universidad de Puerto Rico en Utuado
+Universidad Interamericana de Puerto Rico
+Pontificia Universidad Católica de Puerto Rico
+Universidad Politécnica de Puerto Rico
+Universidad Ana G. Méndez
+Universidad del Sagrado Corazón
+Universidad Central de Bayamón
+Universidad Central del Caribe
+Universidad Carlos Albizu
+Universidad Adventista de las Antillas
+EDP University
+National University College
+Atlantic University College
+Caribbean University
+American University of Puerto Rico
+Ponce Health Sciences University
+San Juan Bautista School of Medicine
+Conservatorio de Música de Puerto Rico
+Escuela de Artes Plásticas y Diseño de Puerto Rico
+Instituto Tecnológico de Puerto Rico

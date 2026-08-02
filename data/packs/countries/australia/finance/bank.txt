@@ -1,0 +1,39 @@
+---
+address: australia.finance.bank
+description: Australian bank or authorised deposit-taking institution (ADI)
+locale: en
+---
+Commonwealth Bank
+Westpac
+National Australia Bank
+ANZ
+Macquarie Bank
+Bendigo Bank
+Bank of Queensland
+Suncorp Bank
+ING
+Bankwest
+St.George Bank
+Bank of Melbourne
+BankSA
+HSBC Bank Australia
+Citibank Australia
+AMP Bank
+ME Bank
+Ubank
+Bank Australia
+Great Southern Bank
+Newcastle Permanent
+Heritage Bank
+IMB Bank
+Beyond Bank Australia
+Teachers Mutual Bank
+P&N Bank
+Bank of Sydney
+Judo Bank
+Rabobank Australia
+Bank First
+Greater Bank
+Bank of us
+Auswide Bank
+MyState Bank

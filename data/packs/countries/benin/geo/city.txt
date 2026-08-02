@@ -1,0 +1,27 @@
+---
+address: benin.geo.city
+description: Cities and larger towns of Benin
+locale: fr
+---
+Cotonou
+Porto-Novo
+Parakou
+Djougou
+Bohicon
+Abomey
+Natitingou
+Lokossa
+Ouidah
+Abomey-Calavi
+Kandi
+Savè
+Malanville
+Pobè
+Comè
+Dogbo
+Aplahoué
+Nikki
+Cové
+Allada
+Sakété
+Bassila

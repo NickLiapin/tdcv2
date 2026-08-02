@@ -1,0 +1,16 @@
+---
+description: Jobs in Healthcare (German)
+locale: de
+---
+Krankenpfleger
+Allgemeinmediziner
+Apotheker
+Physiotherapeut
+Medizinischer Fachangestellter
+Radiologietechnologe
+Notfallsanitäter
+Chirurg
+Kinderarzt
+Zahnarzt
+Ergotherapeut
+Pflegehelfer

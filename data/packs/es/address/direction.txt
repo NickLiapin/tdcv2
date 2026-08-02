@@ -1,0 +1,19 @@
+---
+description: Directional qualifier appended to a Spanish street or avenue (Avenida Insurgentes Sur, Calle 50 Oriente)
+locale: es
+---
+Norte
+Sur
+Oriente
+Poniente
+Este
+Oeste
+Nororiente
+Noroccidente
+Suroriente
+Suroccidente
+Noreste
+Noroeste
+Sureste
+Suroeste
+Centro

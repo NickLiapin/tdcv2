@@ -1,0 +1,11 @@
+---
+description: Conditions markedly more frequent in people of Southeast Asian ancestry, in Italian. A prevalence signal, not an exclusive one.
+locale: it
+---
+Emoglobinopatia E
+Alfa-talassemia
+Deficit di glucosio-6-fosfato deidrogenasi
+Carcinoma del rinofaringe
+Beta-talassemia
+Sindrome di Brugada
+Ipolattasia dell'adulto

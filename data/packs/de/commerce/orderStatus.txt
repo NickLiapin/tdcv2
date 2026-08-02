@@ -1,0 +1,18 @@
+---
+description: Order status (German)
+locale: de
+---
+Ausstehend
+In Bearbeitung
+Bestätigt
+Versand wird vorbereitet
+Versandt
+In Zustellung
+Zugestellt
+Storniert
+Zurückgesendet
+Erstattet
+Zurückgestellt
+Zahlung ausstehend
+Nicht auf Lager
+Fehlgeschlagen

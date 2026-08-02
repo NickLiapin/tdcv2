@@ -1,0 +1,12 @@
+---
+description: Conditions in Arabic markedly more frequent in people of South Asian ancestry. A prevalence signal, not an exclusive one.
+locale: ar
+---
+السكري من النوع الثاني المبكر الظهور
+مرض الشريان التاجي المبكر
+السمنة المركزية مع مؤشر كتلة جسم طبيعي
+نقص فيتامين د
+سمة الثلاسيميا بيتا
+المتلازمة الأيضية
+نقص إنزيم غلوكوز 6 فوسفات ديهيدروجيناز
+مرض القلب الروماتيزمي

@@ -1,0 +1,16 @@
+---
+description: Secondary address unit designator
+locale: en
+---
+Apt
+Suite
+Unit
+Building
+Floor
+Room
+Department
+Lot
+Trailer
+Space
+Slip
+Hangar

@@ -1,0 +1,10 @@
+---
+description: Jobs in Education (Spanish)
+locale: es
+---
+Maestro de primaria
+Profesor universitario
+Orientador escolar
+Bibliotecario
+Auxiliar docente
+Director de escuela

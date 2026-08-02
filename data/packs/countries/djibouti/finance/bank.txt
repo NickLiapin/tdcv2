@@ -1,0 +1,15 @@
+---
+address: djibouti.finance.bank
+description: Banks operating in Djibouti
+locale: fr
+---
+Banque de Djibouti et du Moyen-Orient
+CAC International Bank
+Banque pour le Commerce et l'Industrie - Mer Rouge
+Salaam African Bank
+East Africa Bank
+Exim Bank Djibouti
+Banque Centrale Populaire
+Silkroad Bank
+International Islamic Bank
+Dahabshiil Bank

@@ -1,0 +1,16 @@
+---
+description: Dishes of Turkish cuisine (French)
+locale: fr
+---
+Kebab
+Döner
+Baklava
+Köfte
+Börek
+Lahmacun
+Pide
+Dolma
+Menemen
+Manti
+Iskender
+Simit

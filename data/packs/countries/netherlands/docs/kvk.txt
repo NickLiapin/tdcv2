@@ -1,0 +1,7 @@
+---
+address: netherlands.docs.kvk
+description: Dutch Chamber of Commerce number (KvK-nummer) — 8 digits. Structural only: the KvK does not publish a check-digit rule, so the numbers are well-formed but cannot be verified against any official checksum.
+generator: tdc
+locale: nl
+---
+<gen type="regex" value="[0-9]{8}"/>

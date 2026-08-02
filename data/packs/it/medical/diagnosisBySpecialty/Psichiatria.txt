@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Psychiatry (Italian)
+locale: it
+---
+Disturbo depressivo maggiore
+Disturbo d'ansia generalizzato
+Disturbo bipolare
+Schizofrenia
+Disturbo da stress post-traumatico
+Disturbo da deficit di attenzione e iperattività
+Disturbo ossessivo-compulsivo
+Disturbo di panico
+Anoressia nervosa
+Disturbo borderline di personalità

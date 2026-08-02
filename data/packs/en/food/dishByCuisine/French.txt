@@ -1,0 +1,12 @@
+---
+description: Dishes of French cuisine
+locale: en
+---
+Coq au Vin
+Beef Bourguignon
+Ratatouille
+Croissant
+Quiche Lorraine
+Bouillabaisse
+Crepes
+Cassoulet

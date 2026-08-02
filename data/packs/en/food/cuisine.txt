@@ -1,0 +1,18 @@
+---
+description: Cuisine
+locale: en
+---
+Italian
+Japanese
+Mexican
+Chinese
+Indian
+French
+Thai
+Greek
+Spanish
+American
+Korean
+Vietnamese
+Turkish
+Lebanese

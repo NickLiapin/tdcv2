@@ -1,0 +1,221 @@
+---
+description: Italian job titles across sectors (tech, healthcare, trades, transport, business, service, public).
+locale: it
+---
+Ingegnere del software
+Ingegnere del software senior
+Analista dei dati
+Data scientist
+Ingegnere DevOps
+Ingegnere dell'affidabilità dei sistemi
+Ingegnere della qualità
+Responsabile di prodotto
+Designer UX
+Designer UI
+Amministratore di sistema
+Ingegnere di rete
+Amministratore di database
+Analista di sicurezza informatica
+Architetto cloud
+Sviluppatore mobile
+Sviluppatore frontend
+Sviluppatore backend
+Ingegnere di apprendimento automatico
+Specialista del supporto tecnico
+Programmatore web
+Analista di sistema
+Ingegnere dei dati
+Infermiere
+Infermiere specialista
+Medico di base
+Chirurgo
+Anestesista
+Pediatra
+Farmacista
+Soccorritore sanitario
+Tecnico di emergenza sanitaria
+Fisioterapista
+Terapista occupazionale
+Igienista dentale
+Dentista
+Tecnico di radiologia
+Assistente medico
+Flebotomista
+Terapista respiratorio
+Optometrista
+Veterinario
+Operatore socio-sanitario
+Ginecologo
+Cardiologo
+Psicologo
+Psichiatra
+Nutrizionista
+Elettricista
+Idraulico
+Saldatore
+Falegname
+Tecnico di climatizzazione
+Tornitore
+Manutentore meccanico
+Tubista
+Lattoniere
+Fabbro ferraio
+Muratore
+Copritetto
+Imbianchino
+Installatore di cartongesso
+Meccanico d'auto
+Meccanico diesel
+Manutentore aeronautico
+Fabbro
+Vetraio
+Intonacatore
+Tecnico frigorista
+Manutentore di ascensori
+Minatore
+Minatore in sotterraneo
+Operatore di perforazione
+Operatore di macchine pesanti
+Gruista
+Escavatorista
+Fochino
+Topografo minerario
+Cavatore
+Autista di camion
+Autista di lunga percorrenza
+Fattorino
+Autista di autobus
+Carrellista
+Magazziniere
+Coordinatore logistico
+Addetto allo smistamento
+Spedizioniere
+Controllore del traffico aereo
+Pilota di linea
+Assistente di volo
+Comandante di nave
+Macchinista ferroviario
+Corriere
+Tassista
+Installatore di linee elettriche
+Tecnico delle telecomunicazioni
+Giuntista di cavi
+Tecnico di fibra ottica
+Operatore di centrale elettrica
+Operatore di impianto di depurazione
+Tecnico di turbine eoliche
+Installatore di pannelli solari
+Tecnico del gas
+Letturista di contatori
+Commercialista
+Contabile
+Analista finanziario
+Revisore contabile
+Attuario
+Consulente fiscale
+Rappresentante commerciale
+Responsabile clienti
+Responsabile marketing
+Specialista di marketing
+Responsabile di marca
+Specialista delle risorse umane
+Selezionatore del personale
+Responsabile delle operazioni
+Responsabile di progetto
+Analista aziendale
+Assistente di direzione
+Capo ufficio
+Addetto alla reception
+Impiegato amministrativo
+Specialista degli acquisti
+Economista
+Agente assicurativo
+Agente immobiliare
+Operatore di borsa
+Chef
+Sous chef
+Cuoco
+Panettiere
+Pasticcere
+Barman
+Barista
+Cameriere
+Maître di sala
+Lavapiatti
+Direttore d'albergo
+Addetto alle pulizie
+Portiere d'albergo
+Receptionist d'albergo
+Coordinatore di eventi
+Guida turistica
+Commesso
+Direttore di negozio
+Cassiere
+Addetto al rifornimento scaffali
+Addetto antitaccheggio
+Responsabile acquisti
+Addetto al servizio clienti
+Operatore di call center
+Guardia giurata
+Giardiniere
+Maestro di scuola primaria
+Professore di scuola secondaria
+Insegnante di sostegno
+Professore universitario
+Ricercatore
+Assistente didattico
+Orientatore scolastico
+Bibliotecario
+Dirigente scolastico
+Tutor
+Educatore d'infanzia
+Poliziotto
+Vigile del fuoco
+Investigatore
+Agente di polizia penitenziaria
+Funzionario doganale
+Assistente sociale
+Case manager
+Postino
+Impiegato postale
+Operatore ecologico
+Militare
+Giudice
+Pubblico ministero
+Notaio
+Avvocato
+Assistente legale
+Cancelliere
+Grafico
+Fotografo
+Operatore di ripresa
+Redattore pubblicitario
+Redattore di contenuti
+Giornalista
+Curatore editoriale
+Architetto
+Arredatore d'interni
+Ingegnere civile
+Ingegnere meccanico
+Ingegnere elettrico
+Ingegnere chimico
+Ingegnere gestionale
+Traduttore
+Interprete
+Musicista
+Attore
+Agricoltore
+Allevatore
+Bracciante agricolo
+Paesaggista
+Arboricoltore
+Pescatore
+Boscaiolo
+Apicoltore
+Viticoltore
+Operaio edile
+Capocantiere
+Topografo
+Direttore dei lavori
+Addetto alle demolizioni
+Carpentiere edile

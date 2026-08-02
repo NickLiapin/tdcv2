@@ -1,0 +1,12 @@
+---
+description: Fuel type
+locale: en
+---
+Gasoline
+Diesel
+Electric
+Hybrid
+Plug-in Hybrid
+Hydrogen
+Ethanol
+Natural Gas

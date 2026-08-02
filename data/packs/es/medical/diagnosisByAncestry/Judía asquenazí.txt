@@ -1,0 +1,16 @@
+---
+description: Conditions markedly more frequent in people of Ashkenazi Jewish ancestry, in Spanish, where founder mutations are unusually well characterised. A prevalence signal, not an exclusive one.
+locale: es
+---
+Enfermedad de Tay-Sachs
+Enfermedad de Gaucher tipo 1
+Disautonomía familiar
+Enfermedad de Canavan
+Enfermedad de Niemann-Pick tipo A
+Síndrome de Bloom
+Deficiencia del factor XI
+Mutación fundadora en BRCA1
+Mutación fundadora en BRCA2
+Mucolipidosis tipo IV
+Enfermedad de Crohn
+Distonía de torsión

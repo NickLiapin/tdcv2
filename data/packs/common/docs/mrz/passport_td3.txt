@@ -1,0 +1,105 @@
+---
+address: common.docs.mrz.passport_td3
+description: ICAO 9303 TD3 passport MRZ (two 44-char lines) with ICAO composite check digits
+generator: tdc
+---
+<sequence name="issuing_country"><gen type="text" value="UTO"/></sequence>
+<sequence name="nationality"><gen type="text" value="UTO"/></sequence>
+<sequence name="surname"><gen type="text" value="DOE,SMITH,MILLER,GARCIA,KOWALSKI"/></sequence>
+<sequence name="given"><gen type="text" value="JOHN,JANE,ALEX,MARIA,ADAM"/></sequence>
+<sequence name="sex"><gen type="text" value="M,F,<"/></sequence>
+<sequence name="doc"><gen type="regex" value="[A-Z0-9]{9}"/></sequence>
+<sequence name="birth"><gen type="date" from="1960-01-01" to="2006-12-31" format="YYMMDD"/></sequence>
+<sequence name="expiry"><gen type="date" from="2030-01-01" to="2040-12-31" format="YYMMDD"/></sequence>
+<sequence name="personal"><gen type="regex" value="[A-Z0-9]{14}"/></sequence>
+<sequence name="pad"><gen type="regex" value="[0]{22}"/></sequence>
+<sequence name="docCd"><compute><result><mod><reduce>
+  <over><field name="doc"/></over>
+  <init><int v="0"/></init>
+  <do><add><acc/><multiply>
+    <choose>
+      <when><test><is_digit><current/></is_digit></test><then><current/></then></when>
+      <otherwise><choose>
+        <when><test><equals><to_number><encode as="unicode"><current/></encode></to_number><int v="60"/></equals></test><then><int v="0"/></then></when>
+        <otherwise><subtract><to_number><encode as="unicode"><current/></encode></to_number><int v="55"/></subtract></otherwise>
+      </choose></otherwise>
+    </choose>
+    <at><in><list v="7,3,1"/></in><index><mod><current_index/><int v="3"/></mod></index></at>
+  </multiply></add></do>
+</reduce><int v="10"/></mod></result></compute></sequence>
+<sequence name="birthCd"><compute><result><mod><reduce>
+  <over><field name="birth"/></over>
+  <init><int v="0"/></init>
+  <do><add><acc/><multiply>
+    <choose>
+      <when><test><is_digit><current/></is_digit></test><then><current/></then></when>
+      <otherwise><choose>
+        <when><test><equals><to_number><encode as="unicode"><current/></encode></to_number><int v="60"/></equals></test><then><int v="0"/></then></when>
+        <otherwise><subtract><to_number><encode as="unicode"><current/></encode></to_number><int v="55"/></subtract></otherwise>
+      </choose></otherwise>
+    </choose>
+    <at><in><list v="7,3,1"/></in><index><mod><current_index/><int v="3"/></mod></index></at>
+  </multiply></add></do>
+</reduce><int v="10"/></mod></result></compute></sequence>
+<sequence name="expiryCd"><compute><result><mod><reduce>
+  <over><field name="expiry"/></over>
+  <init><int v="0"/></init>
+  <do><add><acc/><multiply>
+    <choose>
+      <when><test><is_digit><current/></is_digit></test><then><current/></then></when>
+      <otherwise><choose>
+        <when><test><equals><to_number><encode as="unicode"><current/></encode></to_number><int v="60"/></equals></test><then><int v="0"/></then></when>
+        <otherwise><subtract><to_number><encode as="unicode"><current/></encode></to_number><int v="55"/></subtract></otherwise>
+      </choose></otherwise>
+    </choose>
+    <at><in><list v="7,3,1"/></in><index><mod><current_index/><int v="3"/></mod></index></at>
+  </multiply></add></do>
+</reduce><int v="10"/></mod></result></compute></sequence>
+<sequence name="personalCd"><compute><result><mod><reduce>
+  <over><field name="personal"/></over>
+  <init><int v="0"/></init>
+  <do><add><acc/><multiply>
+    <choose>
+      <when><test><is_digit><current/></is_digit></test><then><current/></then></when>
+      <otherwise><choose>
+        <when><test><equals><to_number><encode as="unicode"><current/></encode></to_number><int v="60"/></equals></test><then><int v="0"/></then></when>
+        <otherwise><subtract><to_number><encode as="unicode"><current/></encode></to_number><int v="55"/></subtract></otherwise>
+      </choose></otherwise>
+    </choose>
+    <at><in><list v="7,3,1"/></in><index><mod><current_index/><int v="3"/></mod></index></at>
+  </multiply></add></do>
+</reduce><int v="10"/></mod></result></compute></sequence>
+<sequence name="composite"><compute>
+  <let name="src"><concat><field name="doc"/><field name="docCd"/><field name="birth"/><field name="birthCd"/><field name="expiry"/><field name="expiryCd"/><field name="personal"/><field name="personalCd"/></concat></let>
+  <result><mod><reduce>
+    <over><var name="src"/></over>
+    <init><int v="0"/></init>
+    <do><add><acc/><multiply>
+      <choose>
+        <when><test><is_digit><current/></is_digit></test><then><current/></then></when>
+        <otherwise><choose>
+          <when><test><equals><to_number><encode as="unicode"><current/></encode></to_number><int v="60"/></equals></test><then><int v="0"/></then></when>
+          <otherwise><subtract><to_number><encode as="unicode"><current/></encode></to_number><int v="55"/></subtract></otherwise>
+        </choose></otherwise>
+      </choose>
+      <at><in><list v="7,3,1"/></in><index><mod><current_index/><int v="3"/></mod></index></at>
+    </multiply></add></do>
+  </reduce><int v="10"/></mod></result>
+</compute></sequence>
+<sequence name="line1"><compute>
+  <let name="raw"><concat><str v="P<"/><field name="issuing_country"/><field name="surname"/><str v="<<"/><field name="given"/></concat></let>
+  <let name="rc"><each><over><var name="raw"/></over><do><current/></do></each></let>
+  <let name="rlen"><length><var name="raw"/></length></let>
+  <let name="w44"><concat><field name="pad"/><field name="pad"/></concat></let>
+  <result><join sep=""><each>
+    <over><var name="w44"/></over>
+    <do><choose>
+      <when><test><less_than><current_index/><var name="rlen"/></less_than></test>
+        <then><at><in><var name="rc"/></in><index><current_index/></index></at></then></when>
+      <otherwise><str v="<"/></otherwise>
+    </choose></do>
+  </each></join></result>
+</compute></sequence>
+<sequence name="line2"><compute><result><concat><field name="doc"/><field name="docCd"/><field name="nationality"/><field name="birth"/><field name="birthCd"/><field name="sex"/><field name="expiry"/><field name="expiryCd"/><field name="personal"/><field name="personalCd"/><field name="composite"/></concat></result></compute></sequence>
+<data>${{line1}}
+${{line2}}</data>

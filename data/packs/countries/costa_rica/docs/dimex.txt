@@ -1,0 +1,7 @@
+---
+address: costa_rica.docs.dimex
+description: Costa Rican DIMEX (Documento de Identificación Migratoria para Extranjeros) — the 12-digit number the Dirección General de Migración issues to resident foreigners. STRUCTURAL ONLY: it is a serial validated against Migración's register, with no publicly documented check digit, so none is computed
+generator: tdc
+---
+<sequence name="body"><gen type="regex" value="[1-9][0-9]{11}"/></sequence>
+<data>${{body}}</data>

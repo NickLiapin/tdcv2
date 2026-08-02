@@ -1,0 +1,6 @@
+---
+address: guinea.phone
+description: Guinean mobile phone in E.164 form (+224 6XXXXXXXX)
+generator: tdc
+---
+<gen type="regex" value="\+2246[0-9]{8}"/>

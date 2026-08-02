@@ -1,0 +1,7 @@
+---
+address: puerto_rico.docs.ssn
+description: Social Security number of a Puerto Rico resident. Puerto Rico is a US territory with no national ID of its own — residents use the FEDERAL US SSN. This delegates to usa.docs.ssn (area 001-899 excl. 666, group 01-99, serial 0001-9999); it does not invent a PR-specific identifier
+generator: tdc
+---
+<sequence name="ssn"><gen type="template" value="usa.docs.ssn"/></sequence>
+<data>${{ssn}}</data>

@@ -1,0 +1,18 @@
+---
+address: burkina_faso.geo.region
+description: Regions of Burkina Faso
+locale: fr
+---
+Boucle du Mouhoun
+Cascades
+Centre
+Centre-Est
+Centre-Nord
+Centre-Ouest
+Centre-Sud
+Est
+Hauts-Bassins
+Nord
+Plateau-Central
+Sahel
+Sud-Ouest

@@ -1,0 +1,17 @@
+---
+address: el_salvador.finance.bankCode
+description: SWIFT/BIC code of each Salvadoran bank — El Salvador has no CLABE-style national routing number, so the BIC is the real institution identifier; same order as el_salvador.finance.bank
+---
+CAGRSVSS
+BACUSVSS
+BSALSVSS
+BHSASVSS
+BAMCSVSS
+BPRASVSS
+INDLSVSS
+AZULSVSS
+ABNNSVS2
+PRCBSVSS
+FOAGSVS1
+CITISVS1
+CENRSVSS

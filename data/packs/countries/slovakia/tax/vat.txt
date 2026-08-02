@@ -1,0 +1,6 @@
+---
+address: slovakia.tax.vat
+description: Slovak VAT / IC DPH (SK + 10 digits, no checksum)
+generator: tdc
+---
+<gen type="regex" value="SK[0-9]{10}"/>

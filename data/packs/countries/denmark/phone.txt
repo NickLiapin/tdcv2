@@ -1,0 +1,7 @@
+---
+address: denmark.phone
+description: Danish phone number in E.164 form — +45 followed by 8 digits. Danish numbers are not area-coded, and mobile ranges start with 2 to 9.
+generator: tdc
+locale: da
+---
+<gen type="regex" value="\+45[2-9][0-9]{7}"/>

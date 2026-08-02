@@ -1,0 +1,15 @@
+---
+description: Hiring / interview stage (Italian)
+locale: it
+---
+Esame della candidatura
+Colloquio telefonico
+Colloquio tecnico
+Colloquio in sede
+Colloquio con commissione
+Colloquio finale
+Verifica delle referenze
+Offerta
+Respinto
+Assunto
+Ritirato

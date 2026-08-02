@@ -1,0 +1,99 @@
+---
+address: ecuador.geo.city
+description: Ecuadorian city (real localities, roughly in descending population order)
+locale: es
+---
+Guayaquil
+Quito
+Cuenca
+Santo Domingo
+Machala
+Durán
+Manta
+Portoviejo
+Loja
+Ambato
+Riobamba
+Esmeraldas
+Quevedo
+Ibarra
+Milagro
+Latacunga
+Babahoyo
+Sangolquí
+Daule
+Chone
+Santa Elena
+La Libertad
+Salinas
+Tulcán
+Otavalo
+Azogues
+Guaranda
+Nueva Loja
+Puyo
+Tena
+Macas
+Zamora
+Puerto Francisco de Orellana
+Jipijapa
+Ventanas
+Cayambe
+Huaquillas
+Pasaje
+Santa Rosa
+Vinces
+El Carmen
+Bahía de Caráquez
+Atacames
+General Villamil
+Naranjito
+Naranjal
+Yaguachi
+Gualaceo
+La Troncal
+Cañar
+Baños de Agua Santa
+Pelileo
+Píllaro
+Guano
+Alausí
+Catamayo
+Macará
+Cariamanga
+Balzar
+Montecristi
+Pedernales
+Calceta
+Tosagua
+Rocafuerte
+Puerto Baquerizo Moreno
+Puerto Ayora
+Lago Agrio
+Shushufindi
+La Joya de los Sachas
+Yantzaza
+Nabón
+Paute
+Sígsig
+Chordeleg
+Biblián
+Playas
+Samborondón
+Buena Fe
+Valencia
+Mocache
+Pujilí
+Salcedo
+Saquisilí
+Antonio Ante
+Cotacachi
+Pimampiro
+Celica
+Zaruma
+Piñas
+Portovelo
+Arenillas
+Quinindé
+San Lorenzo
+Muisne

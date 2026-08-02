@@ -1,0 +1,24 @@
+---
+description: Writing system (Italian)
+locale: it
+---
+Alfabeto latino
+Alfabeto cirillico
+Alfabeto greco
+Alfabeto arabo
+Alfabeto ebraico
+Alfabeto armeno
+Alfabeto georgiano
+Scrittura cinese (han)
+Hiragana
+Katakana
+Hangul
+Devanagari
+Scrittura thailandese
+Scrittura tibetana
+Scrittura etiope (ge'ez)
+Sillabario cherokee
+Scrittura maya
+Scrittura bengalese
+Scrittura tamil
+Alfabeto glagolitico

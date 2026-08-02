@@ -1,0 +1,23 @@
+---
+description: Currency name
+---
+US Dollar
+Euro
+British Pound
+Japanese Yen
+Swiss Franc
+Canadian Dollar
+Australian Dollar
+Chinese Yuan
+Indian Rupee
+Brazilian Real
+Russian Ruble
+Mexican Peso
+South Korean Won
+Singapore Dollar
+Hong Kong Dollar
+Swedish Krona
+Norwegian Krone
+Polish Zloty
+Turkish Lira
+South African Rand

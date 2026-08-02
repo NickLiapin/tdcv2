@@ -1,0 +1,12 @@
+---
+description: Name suffix / lineage marker (Arabic)
+locale: ar
+---
+بن
+ابن
+الابن
+الأب
+الثاني
+الثالث
+الأصغر
+الأكبر

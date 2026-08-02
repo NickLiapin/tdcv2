@@ -1,0 +1,19 @@
+---
+description: Jobs in Technology (Italian)
+locale: it
+---
+Ingegnere del software
+Data scientist
+Ingegnere DevOps
+Responsabile di prodotto
+Designer UX
+Ingegnere della qualità
+Amministratore di sistema
+Sviluppatore web
+Architetto software
+Ingegnere di rete
+Analista di sicurezza informatica
+Tecnico del supporto informatico
+Responsabile dei sistemi informativi
+Sviluppatore mobile
+Ingegnere di intelligenza artificiale

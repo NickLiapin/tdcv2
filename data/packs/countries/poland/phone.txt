@@ -1,0 +1,6 @@
+---
+address: poland.phone
+description: Poland mobile phone in E.164 form (+48 5XXXXXXXX)
+generator: tdc
+---
+<gen type="regex" value="\+485[0-9]{8}"/>

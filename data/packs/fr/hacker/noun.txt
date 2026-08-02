@@ -1,0 +1,29 @@
+---
+description: Tech noun (French)
+locale: fr
+---
+contrôleur
+protocole
+bande passante
+pare-feu
+sauvegarde
+serveur
+base de données
+interface
+pilote
+noyau
+mémoire tampon
+paquet
+matrice
+flux
+port
+passerelle
+algorithme
+chiffrement
+jeton
+registre
+tableau de bord
+microprocesseur
+disque
+réseau
+système

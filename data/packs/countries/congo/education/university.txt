@@ -1,0 +1,10 @@
+---
+address: congo.education.university
+description: Universities of the Republic of the Congo
+locale: fr
+---
+Université Marien Ngouabi
+Université Denis Sassou-Nguesso
+École Nationale d'Administration et de Magistrature
+Institut Supérieur de Gestion
+École Nationale Supérieure Polytechnique

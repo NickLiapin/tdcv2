@@ -1,0 +1,20 @@
+---
+description: Seniority / level labels for a role
+locale: en
+---
+Intern
+Trainee
+Junior
+Associate
+Mid-Level
+Senior
+Lead
+Staff
+Principal
+Distinguished
+Manager
+Senior Manager
+Director
+Vice President
+Head
+Chief

@@ -1,0 +1,16 @@
+---
+description: Month abbreviation (Arabic; the Gregorian names are not commonly shortened)
+locale: ar
+---
+يناير
+فبراير
+مارس
+أبريل
+مايو
+يونيو
+يوليو
+أغسطس
+سبتمبر
+أكتوبر
+نوفمبر
+ديسمبر

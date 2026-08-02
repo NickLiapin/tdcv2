@@ -1,0 +1,32 @@
+---
+description: Tech verb, gerund (Portuguese)
+locale: pt
+---
+fazendo backup
+contornando
+hackeando
+anulando
+comprimindo
+copiando
+navegando
+indexando
+conectando
+gerando
+quantificando
+calculando
+sintetizando
+introduzindo
+transmitindo
+programando
+reiniciando
+analisando
+encriptando
+desencriptando
+implementando
+compilando
+depurando
+otimizando
+sincronizando
+virtualizando
+encaminhando
+monitorizando

@@ -1,0 +1,18 @@
+---
+description: Generic playing position (French)
+locale: fr
+---
+Gardien
+Défenseur
+Milieu
+Attaquant
+Ailier
+Arrière
+Avant
+Capitaine
+Remplaçant
+Pivot
+Meneur
+Buteur
+Latéral
+Libéro

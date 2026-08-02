@@ -1,0 +1,6 @@
+---
+address: equatorial_guinea.phone
+description: Equatorial Guinea mobile phone in E.164 form — country code +240 then a 9-digit national number. Mobile blocks are 222 (GETESA / Orange GQ) and 551 (Muni / HiTs G.E.), each followed by six digits, per the ITU national numbering plan
+generator: tdc
+---
+<gen type="regex" value="\+240(?:222|551)[0-9]{6}"/>

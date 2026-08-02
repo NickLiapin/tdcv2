@@ -1,0 +1,28 @@
+---
+description: Name / academic suffix (Polish). Polish academic degrees normally precede the name, so these read as trailing qualifiers.
+locale: pl
+---
+Jr.
+Junior
+Senior
+II
+III
+IV
+V
+Ph.D.
+MBA
+M.Sc.
+dr
+dr hab.
+prof.
+mgr
+mgr inż.
+inż.
+lic.
+lek. med.
+lek. dent.
+lek. wet.
+dr n. med.
+tech.
+adw.
+r. pr.

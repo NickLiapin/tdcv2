@@ -1,0 +1,17 @@
+---
+address: vatican_city.sport.team
+description: Clubs of the Vatican football championship, drawn from the city-state's own departments (Italian names)
+locale: it
+---
+Guardia
+Musei
+Biblioteca
+Poste
+OTV
+Fabbrica di San Pietro
+Santos
+Dirtec
+Zecca
+Telecomunicazioni
+Pontificia Accademia
+Gendarmeria

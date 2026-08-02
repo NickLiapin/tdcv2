@@ -1,0 +1,89 @@
+---
+address: mexico.education.university
+description: Mexican university or higher-education institution (public and private)
+---
+Universidad Nacional Autónoma de México
+Instituto Politécnico Nacional
+Instituto Tecnológico y de Estudios Superiores de Monterrey
+Universidad de Guadalajara
+Universidad Autónoma Metropolitana
+Universidad Autónoma de Nuevo León
+Benemérita Universidad Autónoma de Puebla
+Universidad Iberoamericana
+Instituto Tecnológico Autónomo de México
+Universidad Anáhuac
+Universidad de las Américas Puebla
+El Colegio de México
+Universidad Autónoma del Estado de México
+Universidad Michoacana de San Nicolás de Hidalgo
+Universidad Veracruzana
+Universidad Autónoma de Yucatán
+Universidad de Guanajuato
+Universidad Autónoma de San Luis Potosí
+Universidad Autónoma de Chihuahua
+Universidad Autónoma de Sinaloa
+Universidad Autónoma de Baja California
+Universidad Autónoma de Baja California Sur
+Universidad de Sonora
+Universidad Juárez Autónoma de Tabasco
+Universidad Autónoma de Coahuila
+Universidad Autónoma de Querétaro
+Universidad Autónoma de Aguascalientes
+Universidad Autónoma de Zacatecas
+Universidad Autónoma de Nayarit
+Universidad de Colima
+Universidad Autónoma del Estado de Hidalgo
+Universidad Autónoma del Estado de Morelos
+Universidad Autónoma de Tlaxcala
+Universidad Autónoma de Campeche
+Universidad Autónoma de Chiapas
+Universidad Autónoma Benito Juárez de Oaxaca
+Universidad Autónoma de Guerrero
+Universidad Autónoma de Tamaulipas
+Universidad Juárez del Estado de Durango
+Universidad Autónoma Agraria Antonio Narro
+Universidad Autónoma Chapingo
+Universidad de Quintana Roo
+Universidad Pedagógica Nacional
+Universidad Panamericana
+Universidad del Valle de México
+Universidad La Salle
+Tecnológico Nacional de México
+Centro de Investigación y de Estudios Avanzados del IPN
+El Colegio de la Frontera Norte
+El Colegio de la Frontera Sur
+Universidad Popular Autónoma del Estado de Puebla
+Universidad Autónoma de la Ciudad de México
+Universidad Autónoma de Ciudad Juárez
+Universidad Autónoma de Guadalajara
+Universidad Autónoma de Occidente
+Universidad Autónoma Indígena de México
+Instituto Tecnológico de Sonora
+Universidad Estatal de Sonora
+Universidad Tecnológica de México
+Universidad Cuauhtémoc
+Universidad Regiomontana
+Universidad de Monterrey
+Universidad Marista
+Universidad Intercontinental
+Universidad Modelo
+Universidad Politécnica de San Luis Potosí
+Universidad del Caribe
+Universidad Nacional Rosario Castellanos
+Centro de Investigación en Matemáticas
+Instituto Nacional de Astrofísica, Óptica y Electrónica
+Colegio de Postgraduados
+Universidad Tecnológica de la Mixteca
+Universidad del Mar
+Universidad de la Sierra Sur
+Escuela Nacional de Antropología e Historia
+Universidad Vasco de Quiroga
+Universidad de Montemorelos
+Universidad Cristóbal Colón
+Universidad Anáhuac Mayab
+Universidad TecMilenio
+Universidad Latinoamericana
+Universidad del Noreste
+Universidad Tecnológica de Querétaro
+Universidad Politécnica de Guanajuato
+Universidad Politécnica del Valle de México

@@ -1,0 +1,16 @@
+---
+description: Conditions in Arabic markedly more frequent in people of Ashkenazi Jewish ancestry, where founder mutations are unusually well characterised. A prevalence signal, not an exclusive one.
+locale: ar
+---
+داء تاي ساكس
+داء غوشيه من النوع الأول
+خلل الاستقلال الذاتي العائلي
+داء كانافان
+داء نيمان بيك من النوع أ
+متلازمة بلوم
+نقص العامل الحادي عشر
+الطفرة المؤسسة في جين بي آر سي إيه1
+الطفرة المؤسسة في جين بي آر سي إيه2
+الداء الدهني المخاطي من النوع الرابع
+داء كرون
+خلل التوتر الالتوائي

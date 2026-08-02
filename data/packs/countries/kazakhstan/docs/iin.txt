@@ -1,0 +1,41 @@
+---
+address: kazakhstan.docs.iin
+description: Kazakhstani Individual Identification Number (ИИН / ЖСН) — 12 digits: YYMMDD + century-and-sex digit + 4-digit serial + a weighted mod-11 check digit (two-pass algorithm). A prefix where both passes yield 10 is never issued; it falls back to 0 here.
+generator: tdc
+locale: ru
+---
+<sequence name="dob"><gen type="regex" value="[0-9]{2}(0[1-9]|1[0-2])(0[1-9]|[12][0-9]|3[01])"/></sequence>
+<sequence name="cs"><gen type="text" value="3,4,5,6"/></sequence>
+<sequence name="serial"><gen type="regex" value="[0-9]{4}"/></sequence>
+<sequence name="iin"><compute>
+  <let name="base"><concat><field name="dob"/><field name="cs"/><field name="serial"/></concat></let>
+  <!-- Pass 1: weights 1..11 over the 11 base digits. -->
+  <let name="c1"><mod><reduce>
+    <over><var name="base"/></over>
+    <init><int v="0"/></init>
+    <do><add><acc/><multiply><current/>
+      <at><in><list v="1,2,3,4,5,6,7,8,9,10,11"/></in><index><current_index/></index></at>
+    </multiply></add></do>
+  </reduce><int v="11"/></mod></let>
+  <!-- Pass 2 (used only when pass 1 gives 10): shifted weights 3..11,1,2. -->
+  <let name="c2"><mod><reduce>
+    <over><var name="base"/></over>
+    <init><int v="0"/></init>
+    <do><add><acc/><multiply><current/>
+      <at><in><list v="3,4,5,6,7,8,9,10,11,1,2"/></in><index><current_index/></index></at>
+    </multiply></add></do>
+  </reduce><int v="11"/></mod></let>
+  <let name="check">
+    <choose>
+      <when><test><equals><var name="c1"/><int v="10"/></equals></test>
+        <then><choose>
+          <when><test><equals><var name="c2"/><int v="10"/></equals></test><then><int v="0"/></then></when>
+          <otherwise><var name="c2"/></otherwise>
+        </choose></then>
+      </when>
+      <otherwise><var name="c1"/></otherwise>
+    </choose>
+  </let>
+  <result><concat><field name="dob"/><field name="cs"/><field name="serial"/><var name="check"/></concat></result>
+</compute></sequence>
+<data>${{iin}}</data>

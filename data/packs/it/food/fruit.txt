@@ -1,0 +1,38 @@
+---
+description: Fruit (Italian)
+locale: it
+---
+Mela
+Banana
+Arancia
+Fragola
+Uva
+Mango
+Ananas
+Anguria
+Pesca
+Pera
+Ciliegia
+Mirtillo
+Lampone
+Kiwi
+Limone
+Lime
+Prugna
+Albicocca
+Melograno
+Fico
+Papaia
+Cocco
+Melone
+Mandarino
+Frutto della passione
+Guava
+Cherimoya
+Mora
+Nettarina
+Pompelmo
+Dattero
+Mela cotogna
+Tamarindo
+Cachi

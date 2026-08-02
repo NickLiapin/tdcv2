@@ -1,0 +1,16 @@
+---
+description: Jobs in Transportation (Polish)
+locale: pl
+---
+Kierowca ciężarówki
+Kierowca autobusu
+Kurier
+Spedytor
+Dyspozytor
+Koordynator logistyki
+Magazynier
+Operator wózka widłowego
+Maszynista kolejowy
+Kontroler ruchu lotniczego
+Pilot liniowy
+Agent celny

@@ -1,0 +1,16 @@
+---
+description: Jobs in Construction (Polish)
+locale: pl
+---
+Elektryk
+Hydraulik
+Murarz
+Cieśla
+Kierownik budowy
+Operator maszyn ciężkich
+Geodeta
+Dekarz
+Zbrojarz
+Tynkarz
+Inspektor nadzoru budowlanego
+Robotnik budowlany

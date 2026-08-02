@@ -1,0 +1,7 @@
+---
+address: jordan.docs.nationalId
+description: Jordanian national number (الرقم الوطني) — 10 digits. Structural; no public check algorithm.
+generator: tdc
+locale: ar
+---
+<gen type="regex" value="[0-9]{10}"/>

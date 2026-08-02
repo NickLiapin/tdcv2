@@ -1,0 +1,7 @@
+---
+address: guatemala.vehicle.plate
+description: Guatemalan licence plate (SAT) — a service letter, three digits and three letters (P123ABC). The leading letter marks the service: P particular, C comercial, M motocicleta; particulars dominate, so P is drawn twice as often
+generator: tdc
+locale: es
+---
+<gen type="regex" value="(P[0-9]{3}[A-Z]{3}|P[0-9]{3}[A-Z]{3}|C[0-9]{3}[A-Z]{3}|M[0-9]{3}[A-Z]{3})"/>

@@ -1,0 +1,21 @@
+---
+address: chile.geo.regionCapital
+description: Capital city of the región; same order as chile.geo.region
+locale: es
+---
+Arica
+Iquique
+Antofagasta
+Copiapó
+La Serena
+Valparaíso
+Santiago
+Rancagua
+Talca
+Chillán
+Concepción
+Temuco
+Valdivia
+Puerto Montt
+Coyhaique
+Punta Arenas

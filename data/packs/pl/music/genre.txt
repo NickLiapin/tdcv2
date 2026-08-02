@@ -1,0 +1,39 @@
+---
+description: Music genre (Polish, including Polish genres)
+locale: pl
+---
+Rock
+Pop
+Jazz
+Muzyka klasyczna
+Hip-hop
+Country
+Muzyka elektroniczna
+Blues
+Reggae
+Heavy metal
+Folk
+R&B
+Soul
+Funk
+Punk
+Disco
+House
+Techno
+Indie
+Gospel
+Ambient
+Ska
+Disco polo
+Poezja śpiewana
+Muzyka ludowa
+Rap polski
+Piosenka aktorska
+Muzyka filmowa
+Metal progresywny
+Drum and bass
+Trance
+Rock alternatywny
+Ballada
+Muzyka biesiadna
+Chillout

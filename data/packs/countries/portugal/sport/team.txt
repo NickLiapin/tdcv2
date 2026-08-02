@@ -1,0 +1,23 @@
+---
+address: portugal.sport.team
+description: Primeira Liga football clubs (Portuguese names)
+locale: pt
+---
+Benfica
+FC Porto
+Sporting CP
+SC Braga
+Vitória de Guimarães
+Boavista
+Rio Ave
+Gil Vicente
+Famalicão
+Casa Pia
+Estoril Praia
+Moreirense
+Santa Clara
+Arouca
+Farense
+Nacional
+Estrela da Amadora
+AVS

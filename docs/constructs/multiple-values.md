@@ -1,0 +1,400 @@
+<a name="top"></a>
+
+**English** · [Русский](../ru/constructs/multiple-values.md#top) · [Español](../es/constructs/multiple-values.md#top)
+
+← Previous: [Conditional output (if)](./conditional-output.md#top) · **[Contents](../README.md#top)** · Next: [One row per element (each)](./relational-tables.md#top) →
+
+---
+
+# Multiple values in a cell (`repeat`)
+
+**Use it when** one field isn't always one value. An order has one item or five.
+An article carries a single tag or four. A sensor reports three readings at once.
+`repeat` makes a single [`<gen>`](../generators/overview.md#top) emit **several**
+values into one cell instead of one — and the count can vary from row to row.
+
+Before `repeat`, the only way to fake a variable-length field was five separate
+sequences with half the rows left blank. Now it's one attribute on the generator.
+
+Example outputs below are illustrative — the exact values a given `seed`
+produces can shift between core versions, but the **structure** each form
+guarantees (how many values land in a cell, and how they're joined) does not.
+
+![](../img/concepts/repeat-lists.svg)
+
+*The first eight rows of a 2000-row run, and the length of every list in it.*
+
+- **A** — one cell per row, holding between one and four values
+- **B** — how many rows came out with each length — the counts are an exact quota, not an approximation
+
+## At a glance
+
+| Attribute       | What it means                                              |
+| :-------------- | :-------------------------------------------------------- |
+| `repeat="3"`    | exactly three values                                      |
+| `repeat="1..5"` | between one and five — every length gets an exact share of the rows |
+| `repeat="0..3"` | zero is allowed — the cell can come out empty             |
+| `separator=" "` | what to join with; defaults to a comma                    |
+
+The upper bound is **64**. `separator` without `repeat` is an error — there's
+nothing to join.
+
+> [!NOTE]
+> **A range is a quota, not a coin flip**
+>
+> `repeat="1..4"` does **not** roll a die per row. TDC hands each length an exact
+> share of the run, the same way [`percent`](../generators/text.md#top) does — 200 rows
+> come out 50 / 50 / 50 / 50, and 201 rows come out 51 / 50 / 50 / 50. That is what
+> keeps the value proportions exact too ([below](#word-lists-and-exact-proportions)).
+>
+> The price is the one every whole-run layout pays: **change `count` and the lengths
+> are laid out again**, so a short run is not the beginning of a long one. See
+> [the whole-run exceptions](../core-concepts/determinism.md#the-exception-whole-run-layouts).
+
+## `repeat="1..5"` — a varying count per row
+
+This is the everyday case. An order line should hold however many items the
+order happened to have. Here each basket draws one to four SKUs, joined by
+spaces:
+
+```xml
+<env count="8" seed="basket-7">
+    <sequence name="Id"><gen type="increment" value="1"/></sequence>
+    <sequence name="Items">
+        <gen type="regex" value="SKU-[0-9]{4}" repeat="1..4" separator=" "/>
+    </sequence>
+</env>
+<block>
+    <line><data>order ${{Id}}: ${{Items}}</data></line>
+</block>
+```
+
+`./run basket.tdc (count=8)`
+
+```
+order 1: SKU-5365 SKU-2241 SKU-0758 SKU-9382
+order 2: SKU-2033 SKU-3412 SKU-3799
+order 3: SKU-3278
+order 4: SKU-3984 SKU-4578
+order 5: SKU-5351 SKU-5903
+order 6: SKU-3412
+order 7: SKU-0258 SKU-3326 SKU-1157
+order 8: SKU-3205 SKU-4821 SKU-3618 SKU-2450
+```
+
+Basket size varies from one item to four, the way real orders do. **Why:** any field
+whose real-world cardinality varies (order items, tags, phone numbers, addresses)
+maps directly onto a `min..max` range.
+
+## `repeat="3"` — a fixed number of values
+
+Give a single integer and every cell holds exactly that many values. Useful for
+fixed-shape tokens — a three-group code, an (x, y, z) triple, a set of three
+readings:
+
+```xml
+<sequence name="Code">
+    <gen type="regex" value="[A-Z]{2}" repeat="3" separator="-"/>
+</sequence>
+```
+
+`./run code.tdc (count=6)`
+
+```
+QR-LM-ZP
+BX-TT-KD
+WM-AE-RH
+NP-CC-JU
+FL-GO-VS
+DK-HY-QN
+```
+
+**Why:** when the shape is fixed and only the values vary, `repeat="3"` is
+clearer than three separate fields glued together in the output block.
+
+## `repeat="0..3"` — zero is allowed
+
+A range that starts at `0` lets a cell come out **empty**. That's exactly right
+for an optional list — some articles have no tags at all:
+
+```xml
+<sequence name="Tags">
+    <gen type="text" value="news,tech,sport,food,travel" repeat="0..2" separator=", "/>
+</sequence>
+```
+
+`./run tags.tdc (count=6)`
+
+```
+article 1: tech, news
+article 2:
+article 3: sport
+article 4:
+article 5: travel, food
+article 6: news
+```
+
+Articles 2 and 4 drew a length of zero, so their cells are blank — not a special
+value, just an empty list. **Why:** "sometimes present, sometimes absent" is a
+real data shape, and `0..n` models it without a second sequence.
+
+## `separator=` — how the values are joined
+
+Without `separator`, the values are joined with a comma. Set it to any string to
+match the format you're building — a space, a pipe, `" | "`, `"; "`, whatever the
+column needs.
+
+```xml
+<sequence name="Letters">
+    <gen type="text" value="a,b,c,d,e" repeat="3"/>          <!-- default comma -->
+</sequence>
+<sequence name="Piped">
+    <gen type="text" value="a,b,c,d,e" repeat="3" separator=" | "/>
+</sequence>
+```
+
+`./run sep.tdc (count=3) — default vs. piped`
+
+```
+d,a,c        d | a | c
+b,e,b        b | e | b
+a,c,e        a | c | e
+```
+
+**Why:** the joined cell is just text, so the separator is how you make it fit a
+CSV column, a JSON-ish inline list, or a human-readable line.
+
+## `accumulate=` — a running total across the list
+
+The values in a cell are often steps of one thing rather than three unrelated draws: the
+lines of a receipt, the legs of a trip, the minutes of a session. `accumulate=` replaces
+the list with its running total.
+
+```xml
+<gen type="number" value="150..900" decimals="2" repeat="3" separator=", " accumulate="sum"/>
+```
+
+`./run cart.tdc`
+
+```
+792.47, 325.07, 563.18   →   459.93, 1277.62, 1909.65
+814.04, 304.59, 456.76   →   495.46, 984.22, 1420.44
+471.89, 479.67, 795.74   →   718.26, 1309.23, 1948.80
+```
+
+The left column is the same generator without `accumulate=`; the right one is with it. The
+last element is the total, and every element before it is the subtotal at that point.
+
+| `accumulate=` | Each element becomes |
+| :------------ | :-------------------- |
+| `sum` | everything up to and including it, added up |
+| `max` | the largest value seen so far — a high-water mark |
+| `min` | the smallest so far |
+
+`./run peaks.tdc`
+
+```
+пик 22,22,22,83,83
+пик 11,48,54,54,54
+пик 57,60,62,62,93
+```
+
+**The arithmetic is exact, including decimals.** The sum is computed on whole numbers
+scaled by the widest fraction in the list, never on floating point — so `19.99 + 0.01` is
+`20.00` and not `20.000000000000004`, and it is the same `20.00` in all five
+implementations.
+
+**`min` and `max` return an element that already exists**, so its own spelling survives. A
+value drawn as `007` stays `007` rather than becoming `7`.
+
+**An empty element is passed over.** [`missing=`](../guides/missing-data.md#top) blanks some
+cells, and a blank one leaves the accumulator alone rather than counting as a zero — "no
+reading that day" should not reset a meter.
+
+`accumulate=` needs a list, so it needs `repeat=` (`TDC237`), and the operation is one of
+those three (`TDC238`).
+
+> [!NOTE]
+> **Down a column instead**
+>
+> This accumulates **inside one record**. For a total that carries from row to row — an
+> account balance, a meter that only goes up — that is a different construct:
+> [`<gen type="running">`](../generators/running.md#top).
+
+## Missing, anomalies, and formatting act **per element**
+
+This is the one thing to remember: because `repeat` lives on the **generator**,
+everything that generator does happens to **each value separately**, not to the
+cell as a whole. Missing-data blanks, anomaly injection, and
+[output formatting](../guides/masks-and-case.md#top) all operate element by element.
+
+The practical payoff shows up with a flag column. When a generator marks
+anomalies, its flag field becomes a list of the **same length** as the readings —
+one flag per reading, lined up exactly:
+
+`./run sensors.tdc (readings -> anomaly flags)`
+
+```
+5,500,100     ->   false,true,true
+800,200,1     ->   true,true,false
+6,8,7         ->   false,false,false
+100,300,900   ->   true,true,true
+```
+
+The flag sits precisely where the outlier is. That lets you test a detector
+exactly, instead of at the coarse "something in this batch was off" level —
+you know **which reading broke**.
+
+If instead you want "the whole record is corrupt," that's a different job for a
+different tool: a `<mix>` branch with a record-level `flag`, not `repeat`.
+
+## Word lists and exact proportions
+
+The most common list is a set of tags, and `repeat` works straight on the
+[`text`](../generators/text.md#top) generator:
+
+```xml
+<sequence name="Tags">
+    <gen type="text" value="news,tech,sport,food,travel" repeat="1..3" separator=", "/>
+</sequence>
+```
+
+`./run tags.tdc (count=6)`
+
+```
+article 1: [food]
+article 2: [tech, news]
+article 3: [news, tech, travel]
+article 4: [sport, tech]
+article 5: [travel, travel, news]
+article 6: [sport]
+```
+
+Here's the subtle part. [`text`](../generators/text.md#top) lays its values out to
+**exact** proportions via a [`percent`](../generators/text.md#top) list, not
+approximate ones — and that guarantee **survives** `repeat`, for both a fixed
+count and a range.
+
+It works because TDC **decides all the lengths first** (also by an exact quota),
+and only then fills the resulting slots. Since the lengths are known up front, so
+is the total number of slots — nothing gets generated and thrown away, and no
+quota is lost.
+
+Checked on 120,000 rows with `repeat="1..4"` and `percent="40,30,20,10"`:
+
+`./run tags-big.tdc (count=120000, tallied)`
+
+```
+row lengths:   30000 x1    30000 x2    30000 x3    30000 x4     (exactly a quarter each)
+values:       120000 news   90000 tech   60000 sport  30000 food   (exactly 40/30/20/10)
+```
+
+300,000 slots in total, and the distribution lands exactly. Run it with
+`--jobs 7` and you get the same numbers — the file is byte-for-byte identical.
+
+> [!NOTE]
+> **Values inside a cell can repeat**
+>
+> `[travel, travel, news]` above is fine, not a bug. Each slot is filled
+> independently, so the same value can land twice — two readings of `40` or two of
+> the same item in a cart are normal data. There's no built-in "make them distinct"
+> for `repeat`; if you need that, it's a different constraint.
+
+## Where `repeat` won't work
+
+A few generators tie each value to the **row number**, and `repeat` can't apply
+to them:
+
+| Generator                                                       | Why not                                     |
+| :-------------------------------------------------------------- | :------------------------------------------ |
+| [`increment`](../generators/counters.md#top), `decrement`          | the value depends on the row's position     |
+| [`timeseries`](../generators/timeseries.md#top), [`pattern`](../generators/pattern.md#top) | same — the value is bound to the position   |
+
+For these, an element's index would depend on how long **all the previous rows**
+turned out to be — a random quantity. That would make a row impossible to compute
+without its neighbors, breaking streaming and `--jobs`. TDC refuses with a clear
+error (`TDC204`) rather than silently doing the wrong thing.
+
+## What else TDC won't accept
+
+| What you wrote                                 | What it says                                                        |
+| :--------------------------------------------- | :----------------------------------------------------------------- |
+| `repeat="many"`, `repeat="1.5"`                | `TDC195` — an integer is required                                  |
+| `repeat="-1"`, `repeat="5..2"`                 | `TDC195` — the minimum can't be negative or above the maximum      |
+| `repeat="1..65"`                               | `TDC195` — the upper bound is 64                                   |
+| `separator=";"` without `repeat`              | `TDC198` — nothing to join                                        |
+| `repeat` or `separator` on a `<mix>`          | `TDC196` — a mix picks one branch; it doesn't build a list        |
+
+On that last one: a `<mix>` **chooses** among branches, so "repeat it" has no
+well-defined meaning. If you want a list inside a branch, put `repeat` on the
+[`<gen>`](../generators/overview.md#top) inside the `<case>`.
+
+## At scale
+
+`repeat` doesn't get in the way of streaming or `--jobs`: a row is still computed
+independently of its neighbors. Two separate things make that work, and they are
+easy to mix up:
+
+- **The length** of each row's list comes from the whole-run quota above. A row can
+  look its length up from its own row number — no neighbour needed.
+- **The values** are then drawn for the **maximum** (five, in the case of
+  `repeat="1..5"`) and the extras discarded, so the draw position depends only on the
+  row number and never on how long the previous rows turned out.
+
+That's what lets a row be computed without computing the ones before it, and it's
+why multi-threaded output matches single-threaded byte for byte.
+
+That's also where the cap of 64 comes from: a large `repeat` costs real work even
+when the row ends up with only two elements. See
+**[Large outputs](../guides/large-outputs.md#top)**.
+
+## In Parquet, a real list
+
+When you export to Parquet, a `repeat` column becomes a **true list**, not a
+joined string. The element type is inferred automatically:
+
+`parquet schema`
+
+```
+id       INT64       REQUIRED
+items    LIST of BYTE_ARRAY (UTF8)
+prices   LIST of INT64
+city     BYTE_ARRAY  REQUIRED
+```
+
+`parquet rows (as JSON)`
+
+```
+{"id":1,"items":["bread","cheese"],        "prices":[262],         "city":"Boston"}
+{"id":3,"items":["cheese","milk"],         "prices":[469,241,188], "city":"Boston"}
+{"id":6,"items":["milk","bread","coffee"], "prices":[81,262],      "city":"Denver"}
+```
+
+An empty list stays an empty list — it doesn't vanish. And a missing value inside
+a list produces a **real `null`** in the element's place: in text that's
+indistinguishable from an empty string, but Parquet records it exactly.
+
+`parquet — a null element`
+
+```
+{"t":[6,5,null]}
+```
+
+You can also set the type by hand: `type="[]int64"`,
+`type="[]decimal(18,2)"`. Writing `type="[]int64|null"` means "a list whose
+**element** may be null" — precisely what a per-element missing value produces.
+
+## See also
+
+- **[`text`](../generators/text.md#top)** — comma-separated lists and exact
+  `percent` proportions, which `repeat` preserves.
+- **[Counters](../generators/counters.md#top)** — `increment` / `decrement`, the
+  position-bound generators `repeat` can't apply to.
+- **[Masks & case](../guides/masks-and-case.md#top)** — the per-element formatting that
+  applies to each value in a `repeat` cell.
+- **[Large outputs](../guides/large-outputs.md#top)** — why `repeat` stays streaming-safe and
+  identical across `--jobs`.
+
+---
+
+← Previous: [Conditional output (if)](./conditional-output.md#top) · **[Contents](../README.md#top)** · Next: [One row per element (each)](./relational-tables.md#top) →

@@ -1,0 +1,36 @@
+---
+address: mexico.geo.state
+description: Mexican federal entity (32 states, INEGI order, common short form)
+---
+Aguascalientes
+Baja California
+Baja California Sur
+Campeche
+Coahuila
+Colima
+Chiapas
+Chihuahua
+Ciudad de México
+Durango
+Guanajuato
+Guerrero
+Hidalgo
+Jalisco
+Estado de México
+Michoacán
+Morelos
+Nayarit
+Nuevo León
+Oaxaca
+Puebla
+Querétaro
+Quintana Roo
+San Luis Potosí
+Sinaloa
+Sonora
+Tabasco
+Tamaulipas
+Tlaxcala
+Veracruz
+Yucatán
+Zacatecas

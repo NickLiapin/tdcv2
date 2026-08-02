@@ -1,0 +1,15 @@
+---
+address: south_africa.finance.branchCode
+description: South African universal branch code (6 digits), index-aligned with south_africa.finance.bank
+locale: en
+---
+051001
+632005
+250655
+198765
+470010
+580105
+430000
+462005
+678910
+679000

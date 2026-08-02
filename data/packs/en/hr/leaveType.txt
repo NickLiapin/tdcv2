@@ -1,0 +1,14 @@
+---
+description: Leave type
+locale: en
+---
+Vacation
+Sick Leave
+Parental Leave
+Bereavement
+Jury Duty
+Unpaid Leave
+Sabbatical
+Personal Day
+Medical Leave
+Military Leave

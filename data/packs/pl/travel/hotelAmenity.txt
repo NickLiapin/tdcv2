@@ -1,0 +1,34 @@
+---
+description: Hotel amenity (Polish)
+locale: pl
+---
+Bezpłatne wi-fi
+Basen
+Basen podgrzewany
+Spa
+Siłownia
+Restauracja
+Bar
+Obsługa pokoju
+Transfer z lotniska
+Śniadanie w cenie
+Bezpłatny parking
+Przyjazny zwierzętom
+Centrum biznesowe
+Recepcja konsjerża
+Usługa pralnicza
+Jacuzzi
+Taras na dachu
+Klimatyzacja
+Sejf
+Recepcja czynna całą dobę
+Sale konferencyjne
+Winda
+Minibar
+Udogodnienia dla osób z niepełnosprawnością
+Przechowalnia bagażu
+Wypożyczalnia rowerów
+Kącik zabaw dla dzieci
+Sauna
+Widok na morze
+Aneks kuchenny

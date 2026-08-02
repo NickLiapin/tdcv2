@@ -1,0 +1,16 @@
+---
+description: Listing status (Italian)
+locale: it
+---
+In vendita
+In affitto
+In attesa
+Venduto
+Sotto compromesso
+Fuori mercato
+Prossimamente
+Pignoramento
+Nuova costruzione
+Prezzo ribassato
+Riservato
+Affittato

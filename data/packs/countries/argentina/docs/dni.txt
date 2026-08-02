@@ -1,0 +1,7 @@
+---
+address: argentina.docs.dni
+description: Argentine DNI (Documento Nacional de Identidad) — the 8-digit RENAPER number, printed without leading zeros and grouped 12.345.678. It carries no check digit; the checksummed form of the same number is argentina.tax.cuil.
+generator: tdc
+---
+<sequence name="body"><gen type="regex" value="[1-9][0-9]{7}"/></sequence>
+<data>${{body}}</data>

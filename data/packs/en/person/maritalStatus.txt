@@ -1,0 +1,11 @@
+---
+description: Marital status
+locale: en
+---
+Single
+Married
+Divorced
+Widowed
+Separated
+Engaged
+Domestic Partnership

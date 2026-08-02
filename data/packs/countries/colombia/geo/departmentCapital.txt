@@ -1,0 +1,38 @@
+---
+address: colombia.geo.departmentCapital
+description: Capital of the departamento; same order as colombia.geo.department
+locale: es
+---
+Medellín
+Barranquilla
+Bogotá
+Cartagena de Indias
+Tunja
+Manizales
+Florencia
+Popayán
+Valledupar
+Montería
+Bogotá, D.C.
+Quibdó
+Neiva
+Riohacha
+Santa Marta
+Villavicencio
+Pasto
+Cúcuta
+Armenia
+Pereira
+Bucaramanga
+Sincelejo
+Ibagué
+Cali
+Arauca
+Yopal
+Mocoa
+San Andrés
+Leticia
+Inírida
+San José del Guaviare
+Mitú
+Puerto Carreño

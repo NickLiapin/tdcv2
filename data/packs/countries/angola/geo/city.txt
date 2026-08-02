@@ -1,0 +1,35 @@
+---
+address: angola.geo.city
+description: Cities of Angola (Portuguese names)
+locale: pt
+---
+Luanda
+Huambo
+Lobito
+Benguela
+Lubango
+Cabinda
+Malanje
+Namibe
+Soyo
+Uíge
+Saurimo
+Cuito
+Menongue
+Caxito
+N'dalatando
+Sumbe
+Ondjiva
+Dundo
+Luena
+Camacupa
+Catumbela
+Gabela
+M'banza-Kongo
+Viana
+Cacuaco
+Talatona
+Lucapa
+Baía Farta
+Quibala
+Porto Amboim

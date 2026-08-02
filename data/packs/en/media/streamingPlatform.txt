@@ -1,0 +1,16 @@
+---
+description: Streaming platform
+locale: en
+---
+Netflix
+Hulu
+Disney+
+Amazon Prime Video
+Max
+Apple TV+
+Peacock
+Paramount+
+YouTube
+Spotify
+Twitch
+Crunchyroll

@@ -1,0 +1,17 @@
+---
+address: cameroon.finance.bank
+description: Banks operating in Cameroon
+locale: fr
+---
+Afriland First Bank
+BICEC
+Société Générale Cameroun
+Ecobank
+UBA
+Standard Chartered
+BGFIBank
+CCA Bank
+Banque Atlantique
+Union Bank of Cameroon
+Commercial Bank of Cameroon
+NFC Bank

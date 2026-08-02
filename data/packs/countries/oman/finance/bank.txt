@@ -1,0 +1,15 @@
+---
+address: oman.finance.bank
+description: Banks operating in Oman (Arabic)
+locale: ar
+---
+بنك مسقط
+البنك الوطني العماني
+بنك ظفار
+بنك صحار الدولي
+البنك الأهلي
+بنك نزوى
+بنك مسقط الإسلامي
+بنك العز الإسلامي
+بنك عمان العربي
+بنك HSBC عمان

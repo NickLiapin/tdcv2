@@ -1,0 +1,129 @@
+---
+title: Attributes
+sidebar_position: 3
+---
+
+# Attributes reference
+
+Every attribute in the tag DSL, with a one-line description and where it's covered.
+
+The `<compute>` tags have attributes of their own (`v`, `sep`, `as`, `width`, `fill`,
+`from`, `to`, `size`, `pattern`, `default`). Each one belongs to a single tag and is
+covered where that tag is explained — see the [compute reference](compute.mdx).
+
+## Environment & config
+
+| Attribute  | What it sets                                | See                                                |
+| :--------- | :------------------------------------------ | :------------------------------------------------- |
+| `version` / `v` | The DSL version the file requires      | [Configuration](../core-concepts/configuration.mdx) |
+| `count`    | Number of records                           | [Determinism](../core-concepts/determinism.mdx)    |
+| `seed`     | RNG seed, for reproducibility               | [Determinism](../core-concepts/determinism.mdx)    |
+| `local`    | Locale for template data                    | [Template](../generators/template.mdx)             |
+| `inject`   | Custom interpolation marker                 | [Output & formatting](../core-concepts/output-formatting.mdx) |
+| `mode`     | `memory` / `disk` — which engine family     | [Large outputs](../guides/large-outputs.mdx)       |
+| `engine`   | `1` / `2` / `3` — force one engine (advanced) | [Large outputs](../guides/large-outputs.mdx)     |
+| `comment`  | Free-form comment                           | [Configuration](../core-concepts/configuration.mdx#comment) |
+
+## Sequences & dependencies
+
+| Attribute  | What it sets                                | See                                                |
+| :--------- | :------------------------------------------ | :------------------------------------------------- |
+| `name`     | On `<sequence>`: its name. On `<gen>`: makes it a field, `Sequence.Field`. On `<data>` inside a sequence: a constant field, the only one that costs no draw | [Sequences](../core-concepts/sequences.mdx#a-constant-field) |
+| `parent`   | Parent filter, `Parent.Value`               | [Hierarchical dependencies](../guides/hierarchical-dependencies.mdx) |
+| `uniq`     | Combination that must be unique across all rows | [Unique values](../constructs/unique-values.mdx)   |
+| `on` / `is` | Subject / branch key for `<switch>`        | [Switch](../constructs/switch.mdx)                 |
+| `filter`   | On `<gen type="pool">`: which members this row may draw from | [Coherent records](../pools/filter.mdx) |
+| `of`       | On `<gen type="running">`: the column to accumulate | [Running total](../generators/running.mdx) |
+| `reset`    | On `<gen type="running">`: a column whose change restarts the total | [Running total](../generators/running.mdx) |
+
+## Generator values
+
+| Attribute  | What it sets                                | See                                                |
+| :--------- | :------------------------------------------ | :------------------------------------------------- |
+| `type`     | Which generator to use                      | [Generators](../generators/overview.mdx)           |
+| `value`    | The generator's main value (type-specific)  | [Generators](../generators/overview.mdx)           |
+| `percent`  | Exact distribution of the values            | [Text](../generators/text.mdx)                     |
+| `accumulate` | Replace a `repeat` list with its running total, or say how a `running` column accumulates | [Several values in a cell](../constructs/multiple-values.mdx#accumulate--a-running-total-across-the-list) |
+| `alphabet` | Named Unicode alphabet                      | [Symbol](../generators/symbol.mdx)                 |
+| `length`   | Output length or width                      | [Number](../generators/number.mdx)                 |
+| `first_zero` | Allow a leading zero                      | [Number](../generators/number.mdx)                 |
+| `step`     | Counter step                                | [Counters](../generators/counters.mdx)             |
+| `regex_max_length` | Length cap for a regex             | [Regex](../generators/regex.mdx)                   |
+| `include` / `exclude` | Keep or drop values from the pool | [Number](../generators/number.mdx)               |
+| `decimals` | Digits after the decimal point              | [Number](../generators/number.mdx)                 |
+| `oldest` / `youngest` | Birthday age window              | [Date](../generators/date.mdx)                     |
+| `format`   | Date output format                          | [Date](../generators/date.mdx)                     |
+| `from` / `to` | Range endpoints, given separately        | [Date](../generators/date.mdx)                     |
+| `precision` | Step size for a date-time range            | [Date](../generators/date.mdx)                     |
+| `range`    | Date range for `date.range`                 | [Template](../generators/template.mdx)             |
+
+## Statistical shape
+
+| Attribute  | What it sets                                | See                                                |
+| :--------- | :------------------------------------------ | :------------------------------------------------- |
+| `distribution` | Named distribution (`normal`, `zipf`, …) | [Distributions](../guides/statistical-distributions.mdx) |
+| `min` / `max` | Clip the drawn values to a range         | [Distributions](../guides/statistical-distributions.mdx) |
+| `missing`  | Share of rows left empty                    | [Missing data](../guides/missing-data.mdx)         |
+| `missing_as` | How an empty cell is written              | [Missing data](../guides/missing-data.mdx)         |
+| `anomaly`  | Share of rows turned into outliers          | [Anomalies](../guides/anomalies.mdx)               |
+| `anomaly_factor` | How far an outlier is pushed          | [Anomalies](../guides/anomalies.mdx)               |
+| `anomaly_flag` | Answer column that marks the outliers   | [Anomalies](../guides/anomalies.mdx)               |
+
+## Timeseries
+
+| Attribute  | What it sets                                | See                                                |
+| :--------- | :------------------------------------------ | :------------------------------------------------- |
+| `base`     | Starting level of the series                | [Timeseries](../generators/timeseries.mdx)         |
+| `trend`    | Drift per step                              | [Timeseries](../generators/timeseries.mdx)         |
+| `period`   | Length of one seasonal cycle                | [Timeseries](../generators/timeseries.mdx)         |
+| `amplitude`| Height of the seasonal swing                | [Timeseries](../generators/timeseries.mdx)         |
+| `noise`    | Random jitter added on top                  | [Timeseries](../generators/timeseries.mdx)         |
+
+## Pattern (a drawing as the source)
+
+| Attribute  | What it sets                                | See                                                |
+| :--------- | :------------------------------------------ | :------------------------------------------------- |
+| `points`   | Inline `x,y` pairs instead of a file        | [Pattern](../generators/pattern.mdx)               |
+| `upper` / `lower` | Two boundary curves — a corridor     | [Pattern](../generators/pattern.mdx)               |
+| `mode`     | `signal` (a trajectory) / `density` (a distribution) | [Pattern](../generators/pattern.mdx)      |
+| `y_range`  | `min..max` — the vertical scale             | [Pattern](../generators/pattern.mdx)               |
+| `interp`   | `linear` / `smooth` / `step` between points | [Pattern](../generators/pattern.mdx)               |
+| `spread`   | Widen the line into a band of ±N            | [Pattern](../generators/pattern.mdx)               |
+| `ink_threshold` | How dark a PNG pixel has to be to count as ink | [Pattern](../generators/pattern.mdx)     |
+
+`mode` is really two different attributes that share a name: on `<env>` it picks the
+engine family; on a `pattern` generator it picks what you're asking the drawing for.
+
+## Files & CSV
+
+| Attribute  | What it sets                                | See                                                |
+| :--------- | :------------------------------------------ | :------------------------------------------------- |
+| `src`      | Path to a data file                         | [File](../generators/file.mdx)                     |
+| `column`   | CSV column (name or number)                 | [File](../generators/file.mdx)                     |
+| `header`   | Skip the first CSV row                      | [File](../generators/file.mdx)                     |
+| `delimiter`| CSV separator                               | [File](../generators/file.mdx)                     |
+| `row`      | Linked-row key                              | [File](../generators/file.mdx)                     |
+| `weight`   | Frequency column for weighted rows          | [Coherent data](../guides/coherent-data.mdx)       |
+
+## HTTP service
+
+| Attribute  | What it sets                                | See                                                |
+| :--------- | :------------------------------------------ | :------------------------------------------------- |
+| `src`      | Service URL (the same attribute as the file path above) | [HTTP service](../generators/http.mdx) |
+| `in`       | Sequence whose value is sent with each row  | [HTTP service](../generators/http.mdx)             |
+| `on_error` | `fail` (default) or `empty` when a request fails | [HTTP service](../generators/http.mdx)         |
+| `timeout`  | Seconds to wait for a response (default 30) | [HTTP service](../generators/http.mdx)             |
+
+## Output & formatting
+
+| Attribute  | What it sets                                | See                                                |
+| :--------- | :------------------------------------------ | :------------------------------------------------- |
+| `if`       | Display condition (an expression)           | [Output & formatting](../core-concepts/output-formatting.mdx) |
+| `pair`     | Paired marker for a literal `</data>`       | [Output & formatting](../core-concepts/output-formatting.mdx) |
+| `mask`     | Display mask (`x`/`w`/`*`)                   | [Masks & case](../guides/masks-and-case.mdx)       |
+| `case`     | Letter case (`upper`/`lower`/…)             | [Masks & case](../guides/masks-and-case.mdx)       |
+| `order`    | Value order (`random` / `sequential`)       | [Masks & case](../guides/masks-and-case.mdx)       |
+| `cycle`    | With `sequential`: cycle or raise an error  | [Masks & case](../guides/masks-and-case.mdx)       |
+| `repeat` / `separator` | Several values in one cell      | [Multiple values](../constructs/multiple-values.mdx) |
+| `each`     | Repeat a line for each list element         | [Relational tables](../constructs/relational-tables.mdx) |
+| `flag`     | Answer column that marks `<mix>` outliers   | [Mix](../constructs/mix.mdx#marking-outliers-with-flag) |

@@ -1,0 +1,6 @@
+---
+description: Personal pronoun set (Arabic)
+locale: ar
+---
+هو
+هي

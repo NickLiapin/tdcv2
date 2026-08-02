@@ -1,0 +1,24 @@
+---
+description: School subject (Spanish)
+locale: es
+---
+Matemáticas
+Física
+Química
+Biología
+Informática
+Historia
+Geografía
+Lengua y Literatura
+Arte
+Música
+Educación Física
+Economía
+Filosofía
+Psicología
+Lengua Extranjera
+Estadística
+Ciencias Naturales
+Ciencias Sociales
+Educación Cívica
+Tecnología

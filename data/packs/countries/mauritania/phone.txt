@@ -1,0 +1,6 @@
+---
+address: mauritania.phone
+description: Mauritanian mobile phone in E.164 form (+222 [234]XXXXXXX)
+generator: tdc
+---
+<gen type="regex" value="\+222[234][0-9]{7}"/>

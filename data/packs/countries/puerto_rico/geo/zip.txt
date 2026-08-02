@@ -1,0 +1,8 @@
+---
+address: puerto_rico.geo.zip
+description: Puerto Rico ZIP code — 5 digits in the US system; PR uses the 006xx, 007xx and 009xx blocks (008xx is the US Virgin Islands and is excluded). Structural within those real blocks
+generator: tdc
+---
+<sequence name="block"><gen type="text" value="006,007,009"/></sequence>
+<sequence name="tail"><gen type="regex" value="[0-9]{2}"/></sequence>
+<data>${{block}}${{tail}}</data>

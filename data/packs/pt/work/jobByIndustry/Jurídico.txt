@@ -1,0 +1,12 @@
+---
+description: Jobs in Legal (Portuguese)
+locale: pt
+---
+Advogado
+Assistente jurídico
+Juiz
+Escrivão judicial
+Oficial de conformidade
+Tabelião
+Promotor de justiça
+Paralegal

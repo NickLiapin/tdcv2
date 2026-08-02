@@ -1,0 +1,81 @@
+---
+description: Medical diagnosis in German that can occur in any patient - no sex or ancestry restriction. Sex-specific conditions live in diagnosisMale/diagnosisFemale; ancestry-linked ones in diagnosisByAncestry.
+locale: de
+---
+Bluthochdruck
+Diabetes mellitus Typ 2
+Asthma bronchiale
+Akute Bronchitis
+Grippe
+Migräne
+Generalisierte Angststörung
+Depression
+Arthrose
+Rheumatoide Arthritis
+Gastroösophageale Refluxkrankheit
+Eisenmangelanämie
+Schilddrüsenunterfunktion
+Harnwegsinfektion
+Lungenentzündung
+Chronische Niereninsuffizienz
+Koronare Herzkrankheit
+Vorhofflimmern
+Herzinsuffizienz
+Ischämischer Schlaganfall
+Epilepsie
+Parkinson-Krankheit
+Alzheimer-Krankheit
+Multiple Sklerose
+Schuppenflechte
+Neurodermitis
+Allergische Rhinitis
+Chronische Sinusitis
+Mittelohrentzündung
+Bindehautentzündung
+Grauer Star
+Grüner Star
+Blinddarmentzündung
+Gallenblasenentzündung
+Divertikulitis
+Reizdarmsyndrom
+Morbus Crohn
+Colitis ulcerosa
+Chronische Hepatitis B
+Leberzirrhose
+Akute Pankreatitis
+Gicht
+Osteoporose
+Fibromyalgie
+Ischias
+Bandscheibenvorfall
+Karpaltunnelsyndrom
+Sehnenentzündung
+Chronisch obstruktive Lungenerkrankung
+Tuberkulose
+Leukämie
+Lymphom
+Melanom
+Hyperlipidämie
+Adipositas
+Obstruktive Schlafapnoe
+Schlaflosigkeit
+Bipolare Störung
+Aufmerksamkeitsdefizit-Hyperaktivitätsstörung
+Zöliakie
+Systemischer Lupus erythematodes
+Schwindel
+Tinnitus
+Hämorrhoiden
+Krampfadern
+Tiefe Venenthrombose
+Lungenembolie
+Nierensteine
+Blutarmut
+Schilddrüsenüberfunktion
+Magengeschwür
+Gastritis
+Erysipel
+Sepsis
+Brustkrebs
+Akute Gastroenteritis
+Vitamin-D-Mangel

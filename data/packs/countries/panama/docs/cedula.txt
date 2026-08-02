@@ -1,0 +1,9 @@
+---
+address: panama.docs.cedula
+description: Panama cedula, citizen form (province 1-13 + two 1-9999 groups, no check digit; abroad/naturalized/foreign kinds dropped)
+generator: tdc
+---
+<sequence name="province"><gen type="regex" value="(1[0-3]|[1-9])"/></sequence>
+<sequence name="second"><gen type="regex" value="[1-9][0-9]{0,3}"/></sequence>
+<sequence name="third"><gen type="regex" value="[1-9][0-9]{0,3}"/></sequence>
+<data>${{province}}${{second}}${{third}}</data>

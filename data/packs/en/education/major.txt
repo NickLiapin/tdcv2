@@ -1,0 +1,26 @@
+---
+description: Field of study / major
+locale: en
+---
+Computer Science
+Business Administration
+Psychology
+Biology
+Mechanical Engineering
+Electrical Engineering
+Economics
+Political Science
+English Literature
+Nursing
+Chemistry
+Mathematics
+History
+Marketing
+Finance
+Communications
+Sociology
+Physics
+Graphic Design
+Civil Engineering
+Data Science
+Environmental Science

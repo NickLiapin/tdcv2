@@ -1,0 +1,6 @@
+---
+address: belgium.phone
+description: Belgian mobile phone in E.164 form (+32 4XXXXXXXX)
+generator: tdc
+---
+<gen type="regex" value="\+324[5-9][0-9]{7}"/>

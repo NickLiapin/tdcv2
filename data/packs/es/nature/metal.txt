@@ -1,0 +1,26 @@
+---
+description: Metal (Spanish)
+locale: es
+---
+Oro
+Plata
+Platino
+Cobre
+Hierro
+Aluminio
+Titanio
+Zinc
+Níquel
+Plomo
+Estaño
+Bronce
+Latón
+Acero
+Paladio
+Cobalto
+Cromo
+Tungsteno
+Mercurio
+Magnesio
+Litio
+Manganeso

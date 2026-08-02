@@ -1,0 +1,31 @@
+---
+description: Medical diagnoses in Portuguese (female-specific + common)
+locale: pt
+---
+Displasia cervical
+Miomas uterinos
+Candidíase vaginal
+Fibroadenoma da mama
+Síndrome do ovário policístico
+Erosão cervical
+Endometrite
+Endometriose
+Cervicite
+Vaginose bacteriana
+Cancro da mama
+Cancro do colo do útero
+Quisto ovárico
+Menopausa precoce
+Pancreatite crónica
+Clamídia
+Artrite crónica
+Gastrite crónica
+Hipertensão arterial
+Diabetes mellitus tipo 2
+Asma brônquica
+Enxaqueca
+Anemia ferropénica
+Hipotiroidismo
+Osteoporose
+Cancro do reto
+Embolia da artéria central da retina

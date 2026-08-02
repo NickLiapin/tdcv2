@@ -1,0 +1,16 @@
+---
+description: Court type (French, civil-law system)
+locale: fr
+---
+Cour de cassation
+Conseil constitutionnel
+Conseil d'État
+Cour d'appel
+Tribunal judiciaire
+Tribunal de commerce
+Conseil de prud'hommes
+Tribunal administratif
+Cour d'assises
+Tribunal correctionnel
+Tribunal de police
+Cour administrative d'appel

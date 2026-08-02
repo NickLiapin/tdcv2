@@ -1,0 +1,10 @@
+---
+description: Conditions markedly more frequent in people of Eastern European ancestry, given in German. A prevalence signal, not an exclusive one.
+locale: de
+---
+Hereditäre Hämochromatose
+Phenylketonurie
+Familiäre Hypercholesterinämie
+Alkoholische Lebererkrankung
+Mukoviszidose
+Morbus Wilson

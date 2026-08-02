@@ -1,0 +1,117 @@
+{
+  "name": "tdcv2",
+  "version": "0.1.0",
+  "description": "TDC — The Data Constructor. TypeScript reference implementation of a cross-language declarative test data generator.",
+  "keywords": [
+    "test-data",
+    "synthetic-data",
+    "data-generation",
+    "dsl",
+    "deterministic",
+    "fixture"
+  ],
+  "license": "MIT",
+  "author": "Nick Liapin",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/NickLiapin/tdc-v2.git",
+    "directory": "typescript"
+  },
+  "bugs": {
+    "url": "https://github.com/NickLiapin/tdc-v2/issues"
+  },
+  "homepage": "https://github.com/NickLiapin/tdc-v2#readme",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "bin": {
+    "tdcv2": "./dist/cli/main.js",
+    "tdcv2-lsp": "./dist/lsp/server.js"
+  },
+  "files": [
+    "dist",
+    "!dist/**/*.map",
+    "data",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "generate": "node scripts/generate-parser.mjs",
+    "generate:force": "node scripts/generate-parser.mjs --force",
+    "generate:clean": "rm -rf src/generated && npm run generate",
+    "prebuild": "npm run generate",
+    "build": "tsc -p tsconfig.build.json",
+    "build:data-packs": "node scripts/build-data-packs.mjs",
+    "prepack": "node scripts/bundle-packs.mjs add",
+    "clean": "rm -rf dist coverage .tsbuildinfo src/generated",
+    "pretest": "npm run generate",
+    "test": "vitest run",
+    "test:pack": "vitest run --config vitest.pack.config.ts",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "pretypecheck": "npm run generate",
+    "typecheck": "tsc --noEmit",
+    "check": "npm run lint && npm run typecheck && npm run test && npm run cases && npm run diagnostics && npm run engines && npm run parquet && npm run test:pack && npm run packs:ranges && npm run docs:examples && npm run quick:check",
+    "postpack": "node scripts/bundle-packs.mjs remove",
+    "cases": "npx tsx scripts/cross-language-cases.mjs",
+    "cases:update": "npx tsx scripts/cross-language-cases.mjs --update",
+    "diagnostics": "npx tsx scripts/cross-language-diagnostics.mjs",
+    "diagnostics:update": "npx tsx scripts/cross-language-diagnostics.mjs --update",
+    "engines": "npx tsx scripts/cross-language-engines.mjs",
+    "engines:update": "npx tsx scripts/cross-language-engines.mjs --update",
+    "parquet": "npx tsx scripts/cross-language-parquet.mjs",
+    "parquet:update": "npx tsx scripts/cross-language-parquet.mjs --update",
+    "docs:examples": "npx tsx scripts/check-doc-examples.mjs --quiet",
+    "packs:ranges": "node scripts/check-pack-ranges.mjs",
+    "quick:types": "npm run build && node scripts/generate-quick-types.mjs",
+    "quick:check": "node scripts/generate-quick-types.mjs --check"
+  },
+  "devDependencies": {
+    "@types/node": "^20.16.5",
+    "@vitest/coverage-v8": "^2.1.1",
+    "antlr-ng": "^1.0.10",
+    "eslint": "^9.10.0",
+    "eslint-config-prettier": "^9.1.0",
+    "hyparquet": "^1.26.2",
+    "prettier": "^3.3.3",
+    "typescript": "^5.6.2",
+    "typescript-eslint": "^8.6.0",
+    "vitest": "^2.1.1",
+    "vscode-languageserver": "^9.0.1",
+    "vscode-languageserver-textdocument": "^1.0.12"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@inquirer/prompts": "^8.5.2",
+    "antlr4ng": "^3.0.16",
+    "fflate": "^0.8.3",
+    "jsep": "^1.4.0"
+  },
+  "peerDependencies": {
+    "vscode-languageserver": "^9.0.1",
+    "vscode-languageserver-textdocument": "^1.0.12"
+  },
+  "peerDependenciesMeta": {
+    "vscode-languageserver": {
+      "optional": true
+    },
+    "vscode-languageserver-textdocument": {
+      "optional": true
+    }
+  }
+}

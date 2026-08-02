@@ -1,0 +1,7 @@
+---
+address: jordan.vehicle.plate
+description: Jordanian licence plate — two digits, a dash and five digits (e.g. 12-34567). Structural.
+generator: tdc
+locale: ar
+---
+<gen type="regex" value="[0-9]{1,2}-[0-9]{5}"/>

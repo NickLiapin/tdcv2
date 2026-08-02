@@ -1,0 +1,17 @@
+---
+description: Truck cargo / trailer type (German)
+locale: de
+---
+Kofferauflieger
+Kühlauflieger
+Pritschenauflieger
+Tankauflieger
+Viehtransporter
+Gefahrguttransport
+Containerchassis
+Autotransporter
+Tieflader
+Stufentieflader
+Kipper
+Schüttgutauflieger
+Holztransporter

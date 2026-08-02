@@ -1,0 +1,15 @@
+---
+address: new_zealand.docs.irdFormatted
+description: New Zealand IRD number in the grouped display form NNN-NNN-NNN — the same valid, mod-11-checked number as new_zealand.docs.ird, just hyphenated for presentation
+generator: tdc
+locale: en
+---
+<sequence name="raw"><gen type="template" value="new_zealand.docs.ird"/></sequence>
+<sequence name="fmt"><compute>
+  <result><concat>
+    <slice from="0" to="3"><field name="raw"/></slice><str v="-"/>
+    <slice from="3" to="6"><field name="raw"/></slice><str v="-"/>
+    <slice from="6" to="9"><field name="raw"/></slice>
+  </concat></result>
+</compute></sequence>
+<data>${{fmt}}</data>

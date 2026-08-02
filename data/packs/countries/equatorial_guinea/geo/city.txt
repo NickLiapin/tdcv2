@@ -1,0 +1,34 @@
+---
+address: equatorial_guinea.geo.city
+description: Equatorial Guinea city or town (real localities; Bata and Malabo are the two big cities, the rest are the province seats and the larger mainland and island towns)
+locale: es
+---
+Malabo
+Bata
+Ebebiyín
+Aconibe
+Añisok
+Luba
+Evinayong
+Mongomo
+Micomeseng
+Rebola
+Mbini
+Niefang
+Cogo
+Nsork
+Ayene
+Acurenam
+Bicurga
+Riaba
+Moka
+Río Campo
+Corisco
+Ciudad de la Paz
+Mengomeyén
+Nsok-Nsomo
+Santiago de Baney
+San Antonio de Palé
+Machinda
+Bitica
+Nsang

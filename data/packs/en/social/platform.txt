@@ -1,0 +1,19 @@
+---
+description: Social media platform
+locale: en
+---
+Twitter
+Facebook
+Instagram
+TikTok
+LinkedIn
+Reddit
+YouTube
+Snapchat
+Pinterest
+Threads
+Mastodon
+Discord
+Tumblr
+WhatsApp
+Telegram

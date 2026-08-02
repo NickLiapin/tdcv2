@@ -1,0 +1,12 @@
+---
+description: Sport that has a coherent position list (Polish)
+locale: pl
+---
+Piłka nożna
+Koszykówka
+Siatkówka
+Piłka ręczna
+Baseball
+Rugby
+Futbol amerykański
+Hokej na lodzie

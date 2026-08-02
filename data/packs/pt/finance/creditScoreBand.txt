@@ -1,0 +1,9 @@
+---
+description: Credit score band (Portuguese)
+locale: pt
+---
+Ruim
+Regular
+Bom
+Muito bom
+Excelente

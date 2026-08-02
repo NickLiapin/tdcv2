@@ -1,0 +1,34 @@
+---
+description: Unit of measure for products (Italian)
+locale: it
+---
+unità
+scatola
+pacco
+confezione
+dozzina
+paio
+set
+rotolo
+collo
+balla
+chilogrammo
+grammo
+tonnellata
+litro
+millilitro
+metro
+centimetro
+metro quadrato
+metro cubo
+busta
+vaschetta
+lattina
+bottiglia
+barattolo
+tubetto
+sacco
+pallet
+bustina
+kit
+lotto

@@ -1,0 +1,8 @@
+---
+address: cuba.finance.accountType
+description: Cuban bank account types
+locale: es
+---
+Cuenta Corriente
+Cuenta de Ahorro
+Cuenta en Divisas

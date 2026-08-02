@@ -1,0 +1,16 @@
+---
+description: Month abbreviation (Greek)
+locale: el
+---
+Ιαν
+Φεβ
+Μαρ
+Απρ
+Μαΐ
+Ιουν
+Ιουλ
+Αυγ
+Σεπ
+Οκτ
+Νοε
+Δεκ

@@ -1,0 +1,12 @@
+---
+address: south_africa.geo.streetName
+description: A South African street — a named street plus a type (Street, Road, Avenue, Drive)
+generator: tdc
+locale: en
+---
+<sequence name="named"><gen type="template" value="south_africa.geo.streetNamed"/></sequence>
+<sequence name="type"><gen type="text" value="Street,Road,Avenue,Drive,Lane"/></sequence>
+<sequence name="street"><compute>
+  <result><concat><field name="named"/><str v=" "/><field name="type"/></concat></result>
+</compute></sequence>
+<data>${{street}}</data>

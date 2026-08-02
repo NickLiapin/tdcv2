@@ -1,0 +1,7 @@
+---
+address: equatorial_guinea.vehicle.plate
+description: Equatorial Guinea licence plate — a two-letter province code, three digits and a closing series letter (e.g. LT987Z), black on white in the Spanish typeface. The province codes are the real ones (AN Annobón, BN Bioko Norte, BS Bioko Sur, CS Centro Sur, KN Kié-Ntem, LT Litoral, WN Wele-Nzas); the system predates the 2017 Djibloho province, which has no code
+generator: tdc
+locale: es
+---
+<gen type="regex" value="(?:AN|BN|BS|CS|KN|LT|WN)[0-9]{3}[A-Z]"/>

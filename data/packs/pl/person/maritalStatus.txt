@@ -1,0 +1,18 @@
+---
+description: Marital status in Polish (most forms are gendered: żonaty / zamężna, wdowiec / wdowa)
+locale: pl
+---
+kawaler
+panna
+żonaty
+zamężna
+rozwiedziony
+rozwiedziona
+wdowiec
+wdowa
+w separacji
+w związku partnerskim
+w związku nieformalnym
+zaręczony
+zaręczona
+stanu wolnego

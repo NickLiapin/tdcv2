@@ -1,0 +1,32 @@
+---
+description: Tech verb, infinitive (Italian)
+locale: it
+---
+eseguire il backup
+aggirare
+hackerare
+sovrascrivere
+comprimere
+copiare
+navigare
+indicizzare
+connettere
+generare
+quantificare
+calcolare
+sintetizzare
+immettere
+trasmettere
+programmare
+riavviare
+analizzare
+cifrare
+decifrare
+distribuire
+compilare
+eseguire il debug
+ottimizzare
+sincronizzare
+virtualizzare
+instradare
+monitorare

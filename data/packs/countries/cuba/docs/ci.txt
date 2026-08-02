@@ -1,0 +1,12 @@
+---
+address: cuba.docs.ci
+description: Cuban Carné de Identidad — 11 digits (birth date YYMMDD + 5-digit tail; the 7th digit encodes century/sex). No public check digit, so none is computed.
+generator: tdc
+locale: es
+---
+<sequence name="born"><gen type="date" from="1940-01-01" to="2010-12-31" format="YYMMDD"/></sequence>
+<sequence name="tail"><gen type="regex" value="[0-9]{5}"/></sequence>
+<sequence name="ci"><compute>
+  <result><concat><field name="born"/><field name="tail"/></concat></result>
+</compute></sequence>
+<data>${{ci}}</data>

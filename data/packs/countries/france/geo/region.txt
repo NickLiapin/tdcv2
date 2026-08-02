@@ -1,0 +1,23 @@
+---
+address: france.geo.region
+description: French administrative regions — the 13 metropolitan regions plus the 5 overseas regions
+locale: fr
+---
+Auvergne-Rhône-Alpes
+Bourgogne-Franche-Comté
+Bretagne
+Centre-Val de Loire
+Corse
+Grand Est
+Hauts-de-France
+Île-de-France
+Normandie
+Nouvelle-Aquitaine
+Occitanie
+Pays de la Loire
+Provence-Alpes-Côte d'Azur
+Guadeloupe
+Martinique
+Guyane
+La Réunion
+Mayotte

@@ -1,0 +1,27 @@
+---
+address: mexico.tax.regime
+description: SAT régimen fiscal (catálogo c_RegimenFiscal). A regime is a CLASSIFICATION of the taxpayer, not an identifier — it carries no check digit and is not unique to a person; the identifier is the RFC (mexico.tax.rfc). Same order as mexico.tax.regimeCode.
+locale: es
+---
+General de Ley Personas Morales
+Personas Morales con Fines no Lucrativos
+Sueldos y Salarios e Ingresos Asimilados a Salarios
+Arrendamiento
+Régimen de Enajenación o Adquisición de Bienes
+Demás ingresos
+Residentes en el Extranjero sin Establecimiento Permanente en México
+Ingresos por Dividendos (socios y accionistas)
+Personas Físicas con Actividades Empresariales y Profesionales
+Ingresos por intereses
+Régimen de los ingresos por obtención de premios
+Sin obligaciones fiscales
+Sociedades Cooperativas de Producción que optan por diferir sus ingresos
+Incorporación Fiscal
+Actividades Agrícolas, Ganaderas, Silvícolas y Pesqueras
+Opcional para Grupos de Sociedades
+Coordinados
+Régimen de las Actividades Empresariales con ingresos a través de Plataformas Tecnológicas
+Régimen Simplificado de Confianza
+Hidrocarburos
+De los Regímenes Fiscales Preferentes y de las Empresas Multinacionales
+Enajenación de acciones en bolsa de valores

@@ -1,0 +1,59 @@
+---
+description: Sport (Portuguese)
+locale: pt
+---
+Futebol
+Futsal
+Futebol americano
+Basquete
+Beisebol
+Vôlei
+Vôlei de praia
+Handebol
+Rugby
+Hóquei no gelo
+Hóquei sobre a grama
+Críquete
+Tênis
+Padel
+Tênis de mesa
+Badminton
+Squash
+Golfe
+Natação
+Polo aquático
+Atletismo
+Ciclismo
+Ciclismo de montanha
+Boxe
+Luta livre
+Judô
+Karatê
+Taekwondo
+Esgrima
+Ginástica artística
+Ginástica rítmica
+Halterofilismo
+Triatlo
+Remo
+Canoagem
+Vela
+Surfe
+Esqui alpino
+Esqui de fundo
+Snowboard
+Patinação artística
+Patinação sobre rodas
+Escalada esportiva
+Tiro com arco
+Tiro esportivo
+Hipismo
+Automobilismo
+Motociclismo
+Skate
+Boliche
+Bilhar
+Frontão
+Pelota basca
+Rugby sevens
+Softbol

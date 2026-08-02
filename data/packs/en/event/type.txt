@@ -1,0 +1,16 @@
+---
+description: Event type
+locale: en
+---
+Conference
+Wedding
+Concert
+Festival
+Workshop
+Webinar
+Trade Show
+Fundraiser
+Networking
+Product Launch
+Seminar
+Gala

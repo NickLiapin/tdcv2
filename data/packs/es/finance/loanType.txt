@@ -1,0 +1,14 @@
+---
+description: Loan type (Spanish)
+locale: es
+---
+Hipotecario
+Automotriz
+Personal
+Estudiantil
+Con garantía hipotecaria
+Empresarial
+Línea de crédito
+Consolidación de deuda
+Prendario
+Microcrédito

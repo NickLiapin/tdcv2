@@ -1,0 +1,7 @@
+---
+address: mozambique.docs.nuit
+description: Mozambican taxpayer number (NUIT / Número Único de Identificação Tributária) — 9 digits whose first digit marks the taxpayer class (1 or 2 for individuals, 4 for companies). Structure only; the official check algorithm is not published.
+generator: tdc
+locale: pt
+---
+<gen type="regex" value="[124][0-9]{8}"/>

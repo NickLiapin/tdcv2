@@ -1,0 +1,14 @@
+---
+description: Cable conduit / raceway (French)
+locale: fr
+---
+Goulotte
+Gaine
+Chemin de câbles
+Tube IRL
+Fourreau
+Caniveau
+Buse
+Conduit encastré
+Plinthe électrique
+Moulure

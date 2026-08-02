@@ -1,0 +1,6 @@
+---
+address: guatemala.phone
+description: Guatemalan phone in E.164 form — +502 then 8 digits. Mobiles start 3, 4 or 5; fixed lines start 2 (Guatemala City) or 6/7 (the rest of the country). Mobiles dominate, so they are drawn three times as often
+generator: tdc
+---
+<gen type="regex" value="(\+502[345][0-9]{7}|\+502[345][0-9]{7}|\+502[345][0-9]{7}|\+502[267][0-9]{7})"/>

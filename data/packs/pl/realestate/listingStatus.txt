@@ -1,0 +1,16 @@
+---
+description: Listing status (Polish)
+locale: pl
+---
+Na sprzedaż
+Na wynajem
+Oczekująca
+Sprzedane
+Umowa przedwstępna
+Wycofane z rynku
+Wkrótce w ofercie
+Licytacja komornicza
+Nowa inwestycja
+Obniżona cena
+Zarezerwowane
+Wynajęte

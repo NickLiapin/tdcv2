@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "cases": [
+    {
+      "name": "accumulate-without-a-list",
+      "demonstrates": "TDC237",
+      "description": "accumulate= turns a list into its running total, so without repeat= there is no list. Silently ignoring it would leave a config that looks like it keeps a total and does not.",
+      "config": "<tdc><env count=\"2\" seed=\"s\" local=\"en\"><sequence name=\"R\"><gen type=\"number\" value=\"10..99\" accumulate=\"sum\"/></sequence></env><block><line><data>${{R}}</data></line></block></tdc>",
+      "expected": ["error TDC237 1:105"]
+    },
+    {
+      "name": "an-accumulate-operation-that-does-not-exist",
+      "demonstrates": "TDC238",
+      "description": "The op is one of a short closed list. A misspelling has to be named rather than treated as \"no accumulation\", which would look like the feature simply not working.",
+      "config": "<tdc><env count=\"2\" seed=\"s\" local=\"en\"><sequence name=\"R\"><gen type=\"number\" value=\"10..99\" repeat=\"3\" accumulate=\"avg\"/></sequence></env><block><line><data>${{R}}</data></line></block></tdc>",
+      "expected": ["error TDC238 1:116"]
+    }
+  ]
+}

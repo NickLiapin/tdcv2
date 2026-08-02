@@ -1,0 +1,7 @@
+---
+address: san_marino.vehicle.plate
+description: San Marino vehicle plate — a letter followed by up to four digits, shown beside the state coat of arms.
+generator: tdc
+locale: it
+---
+<gen type="regex" value="[A-Z][1-9][0-9]{2,3}"/>

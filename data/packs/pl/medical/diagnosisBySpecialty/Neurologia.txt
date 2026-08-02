@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Neurology (Polish)
+locale: pl
+---
+Migrena
+Padaczka
+Choroba Parkinsona
+Stwardnienie rozsiane
+Udar niedokrwienny mózgu
+Neuropatia obwodowa
+Choroba Alzheimera
+Neuralgia nerwu trójdzielnego
+Miastenia rzekomoporaźna
+Przemijający napad niedokrwienny mózgu

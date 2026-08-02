@@ -1,0 +1,7 @@
+---
+address: burkina_faso.docs.idCard
+description: Burkinabè national ID number (CNIB) — a letter B followed by 8 digits. Structural; no public check digit.
+generator: tdc
+locale: fr
+---
+<gen type="regex" value="B[0-9]{8}"/>

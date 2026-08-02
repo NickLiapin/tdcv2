@@ -1,0 +1,16 @@
+---
+description: Month abbreviation (Italian)
+locale: it
+---
+gen
+feb
+mar
+apr
+mag
+giu
+lug
+ago
+set
+ott
+nov
+dic

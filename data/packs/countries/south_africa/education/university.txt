@@ -1,0 +1,23 @@
+---
+address: south_africa.education.university
+description: South African universities
+locale: en
+---
+University of Cape Town
+University of the Witwatersrand
+Stellenbosch University
+University of Pretoria
+University of KwaZulu-Natal
+Rhodes University
+University of Johannesburg
+University of the Free State
+North-West University
+University of the Western Cape
+Nelson Mandela University
+University of South Africa
+University of Limpopo
+Cape Peninsula University of Technology
+Tshwane University of Technology
+Durban University of Technology
+University of Fort Hare
+Sol Plaatje University

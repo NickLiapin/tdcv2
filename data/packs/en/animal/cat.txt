@@ -1,0 +1,19 @@
+---
+description: Cat breed
+locale: en
+---
+Persian
+Maine Coon
+Siamese
+Ragdoll
+Bengal
+Sphynx
+British Shorthair
+Abyssinian
+Scottish Fold
+Norwegian Forest
+Russian Blue
+Birman
+American Shorthair
+Devon Rex
+Burmese

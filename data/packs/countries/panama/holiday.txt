@@ -1,0 +1,27 @@
+---
+address: panama.holiday
+description: Panamanian holiday — the national días de fiesta o duelo nacional (public days of rest), followed by widely observed civic and religious dates that are not statutory days of rest
+locale: es
+---
+Año Nuevo
+Día de los Mártires
+Martes de Carnaval
+Viernes Santo
+Día del Trabajador
+Separación de Panamá de Colombia
+Día de los Símbolos Patrios
+Día de Colón
+Primer Grito de Independencia de la Villa de Los Santos
+Independencia de Panamá de España
+Día de las Madres
+Navidad
+Domingo de Carnaval
+Lunes de Carnaval
+Jueves Santo
+Domingo de Resurrección
+Día del Padre
+Día del Niño
+Día de los Difuntos
+Toma de Posesión Presidencial
+Nochebuena
+Año Viejo

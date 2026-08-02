@@ -1,0 +1,16 @@
+---
+description: Leave type (Portuguese)
+locale: pt
+---
+Férias
+Licença por doença
+Licença parental
+Licença-maternidade
+Licença-paternidade
+Licença por luto
+Licença não remunerada
+Ano sabático
+Folga pessoal
+Afastamento médico
+Licença-casamento
+Licença para estudos

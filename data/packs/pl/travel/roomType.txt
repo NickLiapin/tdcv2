@@ -1,0 +1,22 @@
+---
+description: Hotel room type (Polish)
+locale: pl
+---
+Standardowy
+Superior
+Apartament
+Junior suite
+Apartament prezydencki
+Jednoosobowy
+Dwuosobowy
+Dwuosobowy z dwoma łóżkami
+Z łóżkiem małżeńskim
+Trzyosobowy
+Czteroosobowy
+Pokój rodzinny
+Studio
+Apartament z aneksem kuchennym
+Bungalow
+Pokój dostosowany dla osób z niepełnosprawnością
+Pokój z widokiem na morze
+Penthouse

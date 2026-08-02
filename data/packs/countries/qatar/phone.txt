@@ -1,0 +1,6 @@
+---
+address: qatar.phone
+description: Qatari mobile phone in E.164 form (+974 [3567]XXXXXXX)
+generator: tdc
+---
+<gen type="regex" value="\+974[3567][0-9]{7}"/>

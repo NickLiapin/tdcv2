@@ -1,0 +1,81 @@
+---
+address: united_kingdom.geo.county
+description: UK county or upper-tier area across the four nations — English ceremonial counties, Scottish council areas, Welsh principal areas, and the six counties of Northern Ireland
+---
+Greater London
+Greater Manchester
+West Midlands
+West Yorkshire
+Merseyside
+South Yorkshire
+Tyne and Wear
+Kent
+Essex
+Hampshire
+Lancashire
+Surrey
+Hertfordshire
+Norfolk
+Suffolk
+Devon
+Cornwall
+Cumbria
+Cheshire
+Derbyshire
+Nottinghamshire
+Leicestershire
+Lincolnshire
+Staffordshire
+Warwickshire
+Worcestershire
+Gloucestershire
+Somerset
+Dorset
+Wiltshire
+Oxfordshire
+Berkshire
+Buckinghamshire
+Bedfordshire
+Cambridgeshire
+Northamptonshire
+Shropshire
+Herefordshire
+Northumberland
+County Durham
+North Yorkshire
+East Riding of Yorkshire
+Rutland
+Isle of Wight
+Bristol
+Aberdeenshire
+Angus
+Argyll and Bute
+Ayrshire
+Dumfries and Galloway
+Fife
+Highland
+Lanarkshire
+Perthshire
+Renfrewshire
+Stirlingshire
+East Lothian
+Midlothian
+West Lothian
+Gwynedd
+Powys
+Ceredigion
+Pembrokeshire
+Carmarthenshire
+Glamorgan
+Monmouthshire
+Denbighshire
+Flintshire
+Conwy
+Isle of Anglesey
+Wrexham
+Antrim
+Armagh
+Down
+Fermanagh
+Londonderry
+Tyrone

@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>Tdcv2.Cli</RootNamespace>
+    <!-- Not "tdcv2": the deps file keys assemblies case-insensitively, so a tool named tdcv2
+         collides with the Tdcv2 library it references. The COMMAND is still tdcv2. -->
+    <AssemblyName>Tdcv2.Cli</AssemblyName>
+    <!-- The .NET way to ship a command line: `dotnet tool install -g Tdcv2.Cli`. -->
+    <PackAsTool>true</PackAsTool>
+    <ToolCommandName>tdcv2</ToolCommandName>
+    <PackageId>Tdcv2.Cli</PackageId>
+    <Version>0.1.0</Version>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="../Tdcv2/Tdcv2.csproj" />
+  </ItemGroup>
+
+</Project>

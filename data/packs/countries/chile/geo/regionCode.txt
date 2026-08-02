@@ -1,0 +1,20 @@
+---
+address: chile.geo.regionCode
+description: ISO 3166-2:CL subdivision code without the CL- prefix (2 letters); same order as chile.geo.region
+---
+AP
+TA
+AN
+AT
+CO
+VS
+RM
+LI
+ML
+NB
+BI
+AR
+LR
+LL
+AI
+MA

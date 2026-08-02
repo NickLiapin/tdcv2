@@ -1,0 +1,5 @@
+---
+description: Currency of Brazil
+locale: en
+---
+Brazilian Real

@@ -1,0 +1,11 @@
+---
+description: Trucking route type (Spanish)
+locale: es
+---
+Larga distancia
+Interurbana
+Regional
+Local
+Dedicada
+En equipo
+Última milla

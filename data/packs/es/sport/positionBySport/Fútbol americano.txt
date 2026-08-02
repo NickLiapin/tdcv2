@@ -1,0 +1,15 @@
+---
+description: Positions in American football (Spanish)
+locale: es
+---
+Mariscal de campo
+Corredor
+Receptor abierto
+Ala cerrada
+Liniero ofensivo
+Liniero defensivo
+Apoyador
+Esquinero
+Profundo
+Pateador
+Despejador

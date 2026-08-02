@@ -1,0 +1,24 @@
+---
+description: Insect (Spanish)
+locale: es
+---
+Hormiga
+Abeja
+Mariposa
+Escarabajo
+Libélula
+Saltamontes
+Mariquita
+Polilla
+Grillo
+Avispa
+Luciérnaga
+Mantis religiosa
+Cigarra
+Termita
+Mosquito
+Mosca
+Cucaracha
+Pulga
+Ciempiés
+Chinche

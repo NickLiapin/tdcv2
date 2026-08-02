@@ -1,0 +1,36 @@
+---
+description: Common adverb (Spanish)
+locale: es
+---
+rápidamente
+lentamente
+cuidadosamente
+fácilmente
+silenciosamente
+ruidosamente
+siempre
+nunca
+a menudo
+a veces
+rara vez
+de repente
+suavemente
+claramente
+simplemente
+casi
+plenamente
+apenas
+mayormente
+verdaderamente
+profundamente
+ampliamente
+libremente
+audazmente
+firmemente
+gustosamente
+amablemente
+pronto
+tarde
+temprano
+quizás
+todavía

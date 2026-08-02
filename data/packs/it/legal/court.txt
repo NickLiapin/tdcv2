@@ -1,0 +1,18 @@
+---
+description: Court type (Italian judiciary)
+locale: it
+---
+Giudice di pace
+Tribunale
+Tribunale per i minorenni
+Tribunale di sorveglianza
+Corte d'appello
+Corte d'assise
+Corte d'assise d'appello
+Corte di cassazione
+Corte costituzionale
+Tribunale amministrativo regionale
+Consiglio di Stato
+Corte dei conti
+Commissione tributaria
+Giudice per le indagini preliminari

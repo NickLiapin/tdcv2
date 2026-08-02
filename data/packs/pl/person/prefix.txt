@@ -1,0 +1,36 @@
+---
+description: Polish honorific / form of address (abbreviated forms as used before a name)
+locale: pl
+---
+Pan
+Pani
+Panna
+Dr
+Dr hab.
+Prof.
+Prof. dr hab.
+Doc.
+Inż.
+Mgr
+Mgr inż.
+Lek.
+Lek. dent.
+Lek. wet.
+Dr n. med.
+Ks.
+Ksiądz
+Ojciec
+Siostra
+Brat
+Matka
+Adw.
+Mec.
+Sędzia
+Red.
+Dyr.
+Prez.
+Min.
+Gen.
+Płk
+Mjr
+Kpt.

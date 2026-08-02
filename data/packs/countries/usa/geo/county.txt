@@ -1,0 +1,183 @@
+---
+address: usa.geo.county
+description: US county / parish / borough name (bare name, no "County" suffix), drawn from the most populous US counties
+locale: en
+---
+Los Angeles
+Cook
+Harris
+Maricopa
+San Diego
+Orange
+Miami-Dade
+Dallas
+Kings
+Riverside
+Clark
+King
+San Bernardino
+Tarrant
+Santa Clara
+Broward
+Bexar
+Wayne
+Alameda
+Middlesex
+Suffolk
+Sacramento
+Bronx
+Palm Beach
+Nassau
+Hillsborough
+Cuyahoga
+Allegheny
+Oakland
+Franklin
+Hennepin
+Travis
+Fairfax
+Salt Lake
+Montgomery
+Wake
+Mecklenburg
+Fulton
+Contra Costa
+Pima
+Fresno
+Kern
+Ventura
+San Francisco
+Fairfield
+Marion
+Duval
+Milwaukee
+Collin
+Pinellas
+Bergen
+Gwinnett
+Prince George's
+Baltimore
+Shelby
+Hartford
+Honolulu
+Multnomah
+El Paso
+Erie
+DuPage
+Denton
+Hidalgo
+Snohomish
+DeKalb
+Pierce
+Essex
+Cobb
+Jefferson
+Monroe
+Denver
+Arapahoe
+Jackson
+Norfolk
+Lake
+Worcester
+Westchester
+Bucks
+Philadelphia
+Utah
+Ramsey
+Anne Arundel
+St. Louis
+Guilford
+Chester
+Hamilton
+Polk
+Lee
+Volusia
+Seminole
+Cameron
+Nueces
+Williamson
+Fort Bend
+Brazoria
+Bell
+Washington
+Spokane
+Clackamas
+Davis
+Kane
+Will
+McHenry
+Winnebago
+Macomb
+Kent
+Genesee
+Washtenaw
+Ingham
+Placer
+Sonoma
+San Joaquin
+Stanislaus
+Tulare
+Santa Barbara
+Monterey
+San Mateo
+Solano
+Marin
+Yolo
+Lancaster
+York
+Douglas
+Adams
+Weld
+Larimer
+Boulder
+Pueblo
+Cumberland
+Onondaga
+Albany
+Oneida
+Rockland
+Orleans
+East Baton Rouge
+Caddo
+Lafayette
+Anchorage
+Matanuska-Susitna
+Fairbanks North Star
+Providence
+New Haven
+Richmond
+Camden
+Hudson
+Morris
+Ocean
+Monmouth
+Passaic
+Union
+Lucas
+Summit
+Stark
+Butler
+Lorain
+Sedgwick
+Johnson
+Wyandotte
+Tulsa
+Oklahoma
+Cleveland
+Comal
+Guadalupe
+Galveston
+Charleston
+Greenville
+Richland
+Horry
+Knox
+Davidson
+Rutherford
+Sumner
+Madison
+Mobile
+Baldwin
+Tuscaloosa
+Pulaski
+Benton

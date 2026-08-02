@@ -1,0 +1,103 @@
+<a name="top"></a>
+
+**English** · [Русский](../ru/constructs/overview.md#top) · [Español](../es/constructs/overview.md#top)
+
+← Previous: [Linking pools together](../pools/linking.md#top) · **[Contents](../README.md#top)** · Next: [Choosing between values (mix)](./mix.md#top) →
+
+---
+
+# Constructs
+
+A [generator](../generators/overview.md#top) produces a value. A **construct** decides
+what happens around that value: *which* one is used, *whether* it appears at all, *how
+many* of them go in a cell, whether it may repeat, and how many rows one record turns
+into.
+
+That's the whole list: six constructs. Everything else in TDC is either a generator, a
+place to put text, or a way to compute something from values you already have.
+
+| Construct | The question it answers | |
+| :-------- | :---------------------- | :-- |
+| `<mix>` | Which of several branches — in exact proportions? | [Choosing between values](mix.md#top) |
+| `<switch>` | Which value follows from another field? | [Lookup tables](switch.md#top) |
+| `if` | Should this piece appear at all? | [Conditions](conditional-output.md#top) |
+| `repeat` | How many values go in one cell? | [Several values in a cell](multiple-values.md#top) |
+| `each` | How many rows does one record produce? | [One row per element](relational-tables.md#top) |
+| `uniq` · `<distinct>` | May a value repeat — in the row, or ever? | [Uniqueness](unique-values.md#top) |
+
+Three more things behave like constructs and are documented elsewhere, because they
+belong to a bigger topic:
+
+- **`<pool>`** — a row referencing a whole record instead of a value: thirty doctors,
+  and a patient row that gets one of them entire. It grew into a topic of its own, with
+  [its own section](../pools/overview.md#top).
+
+- **`parent`** — a value drawn from the subset its parent selected. It's part of how
+  sequences relate to one another, so it lives with
+  [Sequences](../core-concepts/sequences.md#top); the applied side is in
+  [Hierarchical dependencies](../guides/hierarchical-dependencies.md#top).
+- **`<compute>`** — deriving a value by calculation instead of by drawing. It's a small
+  language of its own, with [its own section](../compute/overview.md#top).
+
+## Four of them in one config
+
+Nothing here is contrived — this is what a config looks like once the constructs are
+doing the work. A plan drawn in fixed proportions, a price that follows from the plan,
+a variable number of tags in one cell, and a word that appears only on paid rows:
+
+```xml
+<env count="6" seed="tour">
+  <mix name="Plan" percent="50,30,20">
+    <case><gen type="text" value="free"/></case>
+    <case><gen type="text" value="pro"/></case>
+    <case><gen type="text" value="team"/></case>
+  </mix>
+
+  <switch name="Price" on="Plan">
+    <map>free:0, pro:12, team:40</map>
+  </switch>
+
+  <sequence name="Tags">
+    <gen type="text" value="api,web,cli,db" repeat="1..3" separator=";"/>
+  </sequence>
+
+  <sequence name="Id"><gen type="increment" value="1"/></sequence>
+</env>
+
+<block>
+  <line>
+    <data>${{Id}} ${{Plan}} $${{Price}} [${{Tags}}]</data>
+    <data if="Price > 0"> paid</data>
+  </line>
+</block>
+```
+
+`./run tour.tdc`
+
+```
+1 free $0 [web;api]
+2 free $0 [api;db;cli]
+3 pro $12 [web] paid
+4 free $0 [cli]
+5 pro $12 [cli;api;db] paid
+6 team $40 [db;web] paid
+```
+
+Read the output against the config and every construct is visible in it. Three of the six
+rows are `free`, which is the `50` in `percent`. No `free` row carries `$12`, because
+`Price` is derived from `Plan` rather than drawn on its own. The tag count changes from row
+to row. And `paid` is missing on exactly the rows where the price is zero.
+
+## Where to go next
+
+Each page in this section covers one construct in full. Read them in order if you're
+learning the language — they build on one another, and the examples get less trivial as
+they go.
+
+Once the constructs are familiar, the [Guides](../guides/hierarchical-dependencies.md#top)
+show what to build with them: coherent records, CSV and SQL output, statistical shapes,
+outliers, gaps, and datasets too big for memory.
+
+---
+
+← Previous: [Linking pools together](../pools/linking.md#top) · **[Contents](../README.md#top)** · Next: [Choosing between values (mix)](./mix.md#top) →

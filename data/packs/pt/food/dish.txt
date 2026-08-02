@@ -1,0 +1,44 @@
+---
+description: Dish (Portuguese)
+locale: pt
+---
+Pizza
+Sushi
+Tacos
+Hambúrguer com queijo
+Esparguete à carbonara
+Ramen
+Frango com caril
+Bife grelhado
+Salada César
+Sanduíche clube
+Lasanha
+Risoto de cogumelos
+Paella
+Empanadas
+Pad thai
+Peixe frito com batatas
+Ensopado de carne
+Burrito
+Nhoque
+Arroz frito
+Ceviche
+Churrasco
+Enchiladas
+Canja de galinha
+Arroz de frango
+Tortilha espanhola
+Frango tikka masala
+Gaspacho
+Milanesa
+Guisado de lentilhas
+Croquetes
+Canelone
+Almôndegas
+Salada grega
+Quesadilla
+Sopa de tomate
+Empadão de carne
+Frango assado
+Sopa de marisco
+Beringelas recheadas

@@ -1,0 +1,14 @@
+---
+address: mexico.docs.ine
+description: Mexico clave de elector (INE/IFE voter key) — 18 chars: 6 name letters + YYMMDD birth date + 2-digit entity (01-32) + H/M + 3-digit homonymy serial. Structural only; INE publishes no check digit for this key.
+generator: tdc
+---
+<!-- Initial + first internal consonant of apellido paterno, apellido materno
+     and nombre. -->
+<sequence name="letters"><gen type="regex" value="([A-Z][BCDFGHJKLMNPQRSTVWXYZ]){3}"/></sequence>
+<sequence name="birth"><gen type="date" from="1930-01-01" to="2007-12-31" format="YYMMDD"/></sequence>
+<!-- Clave de entidad federativa, 01-32 (INEGI order). -->
+<sequence name="entity"><gen type="number" value="1..32" length="2" first_zero="true"/></sequence>
+<sequence name="sex"><gen type="text" value="H,M"/></sequence>
+<sequence name="serial"><gen type="regex" value="[0-9]{3}"/></sequence>
+<data>${{letters}}${{birth}}${{entity}}${{sex}}${{serial}}</data>

@@ -1,0 +1,41 @@
+---
+address: nicaragua.geo.streetNamed
+description: Common Nicaraguan street or avenue proper name, bare (without the Avenida / Calle / Pista prefix) — real Managua vías and names of national figures
+locale: es
+---
+Bolívar
+Simón Bolívar
+Juan Pablo II
+de la Resistencia
+Rubén Darío
+Augusto C. Sandino
+Sandino
+Universitaria
+Central
+Xolotlán
+Suburbana
+Jean Paul Genie
+Roosevelt
+Monseñor Lezcano
+Miguel Obando y Bravo
+Salvador Allende
+27 de Mayo
+14 de Septiembre
+19 de Julio
+Carlos Fonseca
+Germán Pomares
+Andrés Castro
+José Dolores Estrada
+Benjamín Zeledón
+Rafaela Herrera
+Miguel Larreynaga
+Máximo Jerez
+José de Marcoleta
+Pedro Joaquín Chamorro
+Bartolomé de las Casas
+La Calzada
+Real Xalteva
+Atravesada
+El Comercio
+Los Robles
+Bello Horizonte

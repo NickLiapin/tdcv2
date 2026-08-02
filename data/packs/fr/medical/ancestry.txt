@@ -1,0 +1,16 @@
+---
+description: Genetic ancestry group in French, used as the parent of diagnosisByAncestry. These are ancestry populations as clinical genetics defines them — geographic descent, not social race categories.
+locale: fr
+---
+Afrique subsaharienne
+Afrique du Nord
+Bassin méditerranéen
+Moyen-Orient
+Europe du Nord
+Europe de l'Est
+Juifs ashkénazes
+Asie du Sud
+Asie de l'Est
+Asie du Sud-Est
+Amérindiens
+Îles du Pacifique

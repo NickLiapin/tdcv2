@@ -1,0 +1,34 @@
+---
+description: Unit of measure for products (German)
+locale: de
+---
+Stück
+Karton
+Paket
+Pack
+Dutzend
+Paar
+Set
+Rolle
+Kollo
+Ballen
+Kilogramm
+Gramm
+Tonne
+Liter
+Milliliter
+Meter
+Zentimeter
+Quadratmeter
+Kubikmeter
+Beutel
+Schale
+Dose
+Flasche
+Glas
+Tube
+Sack
+Palette
+Umschlag
+Kit
+Charge

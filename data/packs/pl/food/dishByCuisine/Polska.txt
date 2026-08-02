@@ -1,0 +1,18 @@
+---
+description: Dishes of Polish cuisine (Polish)
+locale: pl
+---
+Pierogi
+Bigos
+Żurek
+Rosół
+Kotlet schabowy
+Gołąbki
+Barszcz czerwony
+Placki ziemniaczane
+Kopytka
+Flaki
+Sernik
+Makowiec
+Pączki
+Zapiekanka

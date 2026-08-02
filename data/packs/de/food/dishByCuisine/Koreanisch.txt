@@ -1,0 +1,16 @@
+---
+description: Dishes of Korean cuisine (German)
+locale: de
+---
+Bibimbap
+Bulgogi
+Kimchi-Eintopf
+Japchae
+Tteokbokki
+Koreanisches Brathähnchen
+Galbi
+Samgyeopsal
+Kimbap
+Sundubu-Jjigae
+Haemul-Pajeon
+Naengmyeon

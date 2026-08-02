@@ -1,0 +1,14 @@
+---
+description: Grade / assessment result (Arabic)
+locale: ar
+---
+ممتاز
+جيد جداً
+جيد
+مقبول
+ضعيف
+راسب
+ناجح
+امتياز مع مرتبة الشرف
+مستوفٍ
+غير مستوفٍ

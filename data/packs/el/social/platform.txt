@@ -1,0 +1,21 @@
+---
+description: Social platform popular in Greece
+locale: el
+---
+Facebook
+Instagram
+TikTok
+YouTube
+Viber
+WhatsApp
+X
+LinkedIn
+Telegram
+Snapchat
+Pinterest
+Reddit
+Twitch
+Discord
+Threads
+Mastodon
+Tumblr

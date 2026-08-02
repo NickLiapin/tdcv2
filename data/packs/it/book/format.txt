@@ -1,0 +1,12 @@
+---
+description: Book format (Italian)
+locale: it
+---
+Copertina rigida
+Copertina flessibile
+Libro elettronico
+Audiolibro
+Edizione tascabile
+Brossura
+Edizione illustrata
+Edizione per biblioteche

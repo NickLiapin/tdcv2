@@ -1,0 +1,15 @@
+---
+description: Competitive game rank (Arabic)
+locale: ar
+---
+حديد
+برونز
+فضة
+ذهب
+بلاتيني
+ماسي
+أستاذ
+أستاذ كبير
+متحدٍ
+بطل
+أسطورة

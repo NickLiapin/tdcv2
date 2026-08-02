@@ -1,0 +1,14 @@
+---
+description: Payment status (Spanish)
+locale: es
+---
+Pendiente
+Autorizado
+Pagado
+Fallido
+Reembolsado
+Reembolsado parcialmente
+Contracargo
+Anulado
+Rechazado
+En revisión

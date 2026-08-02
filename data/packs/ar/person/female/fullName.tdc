@@ -1,0 +1,11 @@
+---
+description: Arabic full female name — given name + father's given name + family name (مريم أحمد الخالدي), the traditional three-part form.
+generator: tdc
+locale: ar
+---
+<sequence name="p">
+  <gen name="f" type="template" value="ar.person.female.firstName"/>
+  <gen name="father" type="template" value="ar.person.male.firstName"/>
+  <gen name="l" type="template" value="ar.person.lastName"/>
+</sequence>
+<data>${{p.f}} ${{p.father}} ${{p.l}}</data>

@@ -1,0 +1,21 @@
+---
+address: belgium.finance.bank
+description: Retail and commercial banks operating in Belgium
+locale: fr
+---
+BNP Paribas Fortis
+KBC
+Belfius
+ING Belgique
+Argenta
+Crelan
+AXA Bank
+Beobank
+bpost banque
+CBC Banque
+Deutsche Bank
+Triodos
+Keytrade Bank
+Nagelmackers
+Europabank
+vdk bank

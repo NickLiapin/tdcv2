@@ -1,0 +1,15 @@
+---
+description: Dishes of Mexican cuisine (Italian)
+locale: it
+---
+Tacos
+Burrito
+Enchiladas
+Quesadilla
+Guacamole
+Tamales
+Chiles rellenos
+Pozole
+Mole poblano
+Nachos
+Fajitas

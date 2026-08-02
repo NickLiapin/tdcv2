@@ -1,0 +1,11 @@
+---
+description: Weekday name (Spanish, lowercase per Spanish orthography)
+locale: es
+---
+lunes
+martes
+miércoles
+jueves
+viernes
+sábado
+domingo

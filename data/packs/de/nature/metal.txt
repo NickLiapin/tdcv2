@@ -1,0 +1,26 @@
+---
+description: Metal (German)
+locale: de
+---
+Gold
+Silber
+Platin
+Kupfer
+Eisen
+Aluminium
+Titan
+Zink
+Nickel
+Blei
+Zinn
+Bronze
+Messing
+Stahl
+Palladium
+Kobalt
+Chrom
+Wolfram
+Quecksilber
+Magnesium
+Lithium
+Mangan

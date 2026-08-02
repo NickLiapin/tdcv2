@@ -1,0 +1,15 @@
+---
+address: cameroon.education.university
+description: Universities of Cameroon
+locale: fr
+---
+Université de Yaoundé I
+Université de Yaoundé II
+Université de Douala
+Université de Dschang
+Université de Buéa
+Université de Ngaoundéré
+Université de Maroua
+Université de Bamenda
+Université de Bertoua
+Université de Ebolowa

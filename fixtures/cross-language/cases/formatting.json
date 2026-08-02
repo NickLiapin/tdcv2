@@ -1,0 +1,77 @@
+{
+  "schemaVersion": 1,
+  "cases": [
+    {
+      "name": "mask-phone",
+      "description": "Bare slots consume the input left to right",
+      "config": "<tdc><env count=\"1\" seed=\"unit-test\" local=\"en\" mode=\"memory\"><sequence name=\"V\"><gen type=\"text\" value=\"5551234567\" mask=\"xxx-xxx-xxxx\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
+      "expected": ["555-123-4567"]
+    },
+    {
+      "name": "mask-swap-words",
+      "description": "An index reads the original input, so two words swap",
+      "config": "<tdc><env count=\"1\" seed=\"unit-test\" local=\"en\" mode=\"memory\"><sequence name=\"V\"><gen type=\"text\" value=\"John Smith\" mask=\"w[1] w[0]\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
+      "expected": ["Smith John"]
+    },
+    {
+      "name": "mask-copy-and-rest",
+      "description": "The same notation copies when something else claims the position",
+      "config": "<tdc><env count=\"1\" seed=\"unit-test\" local=\"en\" mode=\"memory\"><sequence name=\"V\"><gen type=\"text\" value=\"John Smith\" mask=\"x[0]. *\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
+      "expected": ["J. ohn Smith"]
+    },
+    {
+      "name": "mask-reversed-range",
+      "description": "A backwards range walks backwards",
+      "config": "<tdc><env count=\"1\" seed=\"unit-test\" local=\"en\" mode=\"memory\"><sequence name=\"V\"><gen type=\"text\" value=\"abcdef\" mask=\"x[2..0]\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
+      "expected": ["cba"]
+    },
+    {
+      "name": "mask-out-of-range",
+      "description": "An out-of-range index emits nothing rather than failing the run",
+      "config": "<tdc><env count=\"1\" seed=\"unit-test\" local=\"en\" mode=\"memory\"><sequence name=\"V\"><gen type=\"text\" value=\"abc\" mask=\"x[9]\"/></sequence></env><block><line><data>[${{V}}]</data></line></block></tdc>",
+      "expected": ["[]"]
+    },
+    {
+      "name": "mask-literal-brackets",
+      "description": "A bracket is index syntax only right after an x or a w",
+      "config": "<tdc><env count=\"1\" seed=\"unit-test\" local=\"en\" mode=\"memory\"><sequence name=\"V\"><gen type=\"text\" value=\"5551234\" mask=\"[tel.] xxx\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
+      "expected": ["[tel.] 555"]
+    },
+    {
+      "name": "case-transforms",
+      "description": "capitalize and title touch only the first letter of a word",
+      "config": "<tdc><env count=\"1\" seed=\"unit-test\" local=\"en\" mode=\"memory\"><sequence name=\"V\"><gen type=\"text\" value=\"jOHN mcDONALD\"/></sequence></env><block><line><data>${{V|upper}}|${{V|lower}}|${{V|capitalize}}|${{V|title}}</data></line></block></tdc>",
+      "expected": ["JOHN MCDONALD|john mcdonald|JOHN mcDONALD|JOHN McDONALD"]
+    },
+    {
+      "name": "filter-slice-and-group",
+      "description": "slice, group and trim",
+      "config": "<tdc><env count=\"1\" seed=\"unit-test\" local=\"en\" mode=\"memory\"><sequence name=\"V\"><gen type=\"text\" value=\"1234567890\"/></sequence></env><block><line><data>${{V|slice:0,3}}|${{V|slice:2}}|${{V|group:3}}|${{V|group:4,-}}</data></line></block></tdc>",
+      "expected": ["123|34567890|1 234 567 890|12-3456-7890"]
+    },
+    {
+      "name": "filter-compact",
+      "description": "compact shortens a whole number and leaves anything else alone",
+      "config": "<tdc><env count=\"1\" seed=\"unit-test\" local=\"en\" mode=\"memory\"><sequence name=\"V\"><gen type=\"text\" value=\"1000000\"/></sequence></env><block><line><data>${{V|compact}}|${{V|compact:16}}</data></line></block></tdc>",
+      "expected": ["lfls|f4240"]
+    },
+    {
+      "name": "filter-csv-and-sql",
+      "description": "csv quotes unconditionally and sql doubles apostrophes",
+      "config": "<tdc><env count=\"1\" seed=\"unit-test\" local=\"en\" mode=\"memory\"><sequence name=\"V\"><gen type=\"text\" value=\"O'Brien, Jr\"/></sequence></env><block><line><data>${{V|csv}} ${{V|sql}}</data></line></block></tdc>",
+      "expected": ["\"Jr\" Jr"]
+    },
+    {
+      "name": "filter-chain",
+      "description": "Filters chain left to right",
+      "config": "<tdc><env count=\"1\" seed=\"unit-test\" local=\"en\" mode=\"memory\"><sequence name=\"V\"><gen type=\"text\" value=\"o'brien\"/></sequence></env><block><line><data>${{V|upper|sql}}</data></line></block></tdc>",
+      "expected": ["O''BRIEN"]
+    },
+    {
+      "name": "custom-inject",
+      "description": "The inject marker is configurable",
+      "config": "<tdc><env count=\"1\" seed=\"unit-test\" local=\"en\" mode=\"memory\" inject=\"&lt;&lt;%&gt;&gt;\"><sequence name=\"V\"><gen type=\"text\" value=\"Ann\"/></sequence></env><block><line><data>hi &lt;&lt;V&gt;&gt; and ${{V}}</data></line></block></tdc>",
+      "expected": ["hi Ann and ${{V}}"]
+    }
+  ]
+}

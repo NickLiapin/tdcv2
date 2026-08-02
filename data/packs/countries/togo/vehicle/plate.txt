@@ -1,0 +1,7 @@
+---
+address: togo.vehicle.plate
+description: Togolese licence plate — structural layout of four digits and two letters (e.g. 1234-TG)
+generator: tdc
+locale: fr
+---
+<gen type="regex" value="[0-9]{4}-[A-Z]{2}"/>

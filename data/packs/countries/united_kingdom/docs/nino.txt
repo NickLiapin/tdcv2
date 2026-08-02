@@ -1,0 +1,9 @@
+---
+address: united_kingdom.docs.nino
+description: UK National Insurance number (2 letters + 6 digits + suffix A-D; no checksum)
+generator: tdc
+---
+<sequence name="prefix"><gen type="text" value="QQ"/></sequence>
+<sequence name="body"><gen type="regex" value="[0-9]{6}"/></sequence>
+<sequence name="suffix"><gen type="text" value="A,B,C,D"/></sequence>
+<data>${{prefix}}${{body}}${{suffix}}</data>

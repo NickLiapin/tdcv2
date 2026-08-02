@@ -1,0 +1,14 @@
+---
+address: dr_congo.education.university
+description: Universities of the Democratic Republic of the Congo
+locale: fr
+---
+Université de Kinshasa
+Université de Lubumbashi
+Université de Kisangani
+Université Pédagogique Nationale
+Université Protestante au Congo
+Université Catholique du Congo
+Université de Goma
+Université de Kananga
+Université Notre-Dame du Kasayi

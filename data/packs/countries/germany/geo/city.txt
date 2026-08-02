@@ -1,0 +1,55 @@
+---
+address: germany.geo.city
+description: Cities of Germany, roughly ordered by population
+locale: de
+---
+Berlin
+Hamburg
+München
+Köln
+Frankfurt am Main
+Stuttgart
+Düsseldorf
+Leipzig
+Dortmund
+Essen
+Bremen
+Dresden
+Hannover
+Nürnberg
+Duisburg
+Bochum
+Wuppertal
+Bielefeld
+Bonn
+Münster
+Mannheim
+Karlsruhe
+Augsburg
+Wiesbaden
+Mönchengladbach
+Gelsenkirchen
+Braunschweig
+Kiel
+Chemnitz
+Aachen
+Halle (Saale)
+Magdeburg
+Freiburg im Breisgau
+Krefeld
+Mainz
+Lübeck
+Erfurt
+Oberhausen
+Rostock
+Kassel
+Potsdam
+Saarbrücken
+Heidelberg
+Regensburg
+Würzburg
+Ingolstadt
+Ulm
+Osnabrück
+Göttingen
+Jena

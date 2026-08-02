@@ -1,0 +1,27 @@
+---
+address: panama.education.university
+description: Panamanian university or higher-education institution (public and private)
+locale: es
+---
+Universidad de Panamá
+Universidad Tecnológica de Panamá
+Universidad Autónoma de Chiriquí
+Universidad Especializada de las Américas
+Universidad Marítima Internacional de Panamá
+Universidad Católica Santa María La Antigua
+Universidad Latina de Panamá
+Universidad Latinoamericana de Ciencia y Tecnología
+Universidad Interamericana de Panamá
+Universidad del Istmo
+Universidad Metropolitana de Educación, Ciencia y Tecnología
+Universidad Tecnológica Oteima
+Universidad Americana
+Universidad de Cartago
+Columbus University
+Quality Leadership University
+Florida State University Panamá
+ISAE Universidad
+Universidad Abierta y a Distancia de Panamá
+Universidad Internacional de Ciencia y Tecnología
+Universidad Euroamericana
+Universidad del Arte Ganexa

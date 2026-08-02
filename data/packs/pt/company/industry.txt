@@ -1,0 +1,59 @@
+---
+description: Industry sector (Portuguese)
+locale: pt
+---
+Agricultura
+Pecuária
+Pesca
+Silvicultura
+Mineração
+Construção
+Indústria
+Comércio varejista
+Comércio atacadista
+Transporte
+Tecnologia da informação
+Finanças
+Bancos
+Seguros
+Imobiliário
+Saúde
+Educação
+Hotelaria
+Turismo
+Entretenimento
+Energia
+Petróleo e gás
+Energias renováveis
+Telecomunicações
+Automotivo
+Aeroespacial
+Farmacêutica
+Biotecnologia
+Logística
+Mídia
+Publicidade
+Consultoria
+Serviços jurídicos
+Contabilidade
+Recursos humanos
+Alimentos e bebidas
+Têxtil
+Química
+Metalurgia
+Papel e celulose
+Eletrônica
+Software
+Comércio eletrônico
+Jogos eletrônicos
+Esporte
+Cultura
+Pesquisa científica
+Administração pública
+Defesa
+Segurança privada
+Organizações sem fins lucrativos
+Gestão de resíduos
+Água e saneamento
+Arquitetura
+Engenharia

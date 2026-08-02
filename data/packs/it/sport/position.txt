@@ -1,0 +1,39 @@
+---
+description: Playing position, mixed sports (Italian)
+locale: it
+---
+Portiere
+Difensore centrale
+Terzino
+Mediano
+Centrocampista
+Ala
+Centravanti
+Trequartista
+Playmaker
+Guardia tiratrice
+Ala piccola
+Ala grande
+Centro
+Lanciatore
+Ricevitore
+Interbase
+Prima base
+Esterno centro
+Battitore designato
+Palleggiatore
+Libero
+Centrale
+Opposto
+Pilone
+Tallonatore
+Mediano di mischia
+Mediano d'apertura
+Estremo
+Quarterback
+Running back
+Wide receiver
+Linebacker
+Cornerback
+Ala sinistra
+Ala destra

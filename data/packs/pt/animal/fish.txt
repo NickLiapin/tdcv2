@@ -1,0 +1,29 @@
+---
+description: Fish (Portuguese)
+locale: pt
+---
+Salmão
+Atum
+Truta
+Robalo
+Bacalhau
+Bagre
+Peixe-dourado
+Peixe-palhaço
+Guppy
+Cavala
+Alabote
+Pargo
+Espadarte
+Espadim
+Peixe-anjo
+Betta
+Carpa
+Perca
+Sardinha
+Anchova
+Pescada
+Corvina
+Tilápia
+Dourada
+Pregado

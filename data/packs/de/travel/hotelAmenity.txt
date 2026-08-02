@@ -1,0 +1,34 @@
+---
+description: Hotel amenity (German)
+locale: de
+---
+Kostenloses WLAN
+Schwimmbad
+Beheiztes Schwimmbad
+Spa
+Fitnessraum
+Restaurant
+Bar
+Zimmerservice
+Flughafentransfer
+Frühstück inklusive
+Kostenlose Parkplätze
+Haustiere erlaubt
+Businesscenter
+Concierge-Service
+Wäscheservice
+Whirlpool
+Dachterrasse
+Klimaanlage
+Zimmersafe
+24-Stunden-Rezeption
+Tagungsräume
+Aufzug
+Minibar
+Barrierefreier Zugang
+Gepäckaufbewahrung
+Fahrradverleih
+Kinderspielbereich
+Sauna
+Meerblick
+Voll ausgestattete Küche

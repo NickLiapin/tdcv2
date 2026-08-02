@@ -1,0 +1,7 @@
+---
+address: ecuador.vehicle.plate
+description: Ecuadorian licence plate — three letters and a dash before three or four digits (ABC-1234, older ABC-123). The first letter is the province of registration (A Azuay, G Guayas, P Pichincha, …); the second is the key letter for the plate class. D and F are unused as the first letter.
+generator: tdc
+locale: es
+---
+<gen type="regex" value="[ABCEGHIJKLMNOPQRSTUVWXYZ][A-Z]{2}-[0-9]{3,4}"/>

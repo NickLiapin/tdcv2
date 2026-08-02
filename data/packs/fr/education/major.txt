@@ -1,0 +1,36 @@
+---
+description: University major / field of study (French)
+locale: fr
+---
+Informatique
+Gestion
+Psychologie
+Biologie
+Génie mécanique
+Droit
+Médecine
+Économie
+Histoire
+Lettres modernes
+Mathématiques
+Physique
+Chimie
+Sociologie
+Sciences politiques
+Architecture
+Génie civil
+Marketing
+Finance
+Communication
+Génie électrique
+Pharmacie
+Géographie
+Philosophie
+Langues étrangères appliquées
+Arts du spectacle
+Biochimie
+Sciences de l'éducation
+Génie informatique
+Sciences de gestion
+Journalisme
+Design

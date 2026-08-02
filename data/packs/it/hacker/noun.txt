@@ -1,0 +1,41 @@
+---
+description: Tech noun (Italian)
+locale: it
+---
+controller
+protocollo
+larghezza di banda
+pannello
+microchip
+programma
+porta
+scheda
+matrice
+interfaccia
+sistema
+sensore
+firewall
+disco rigido
+pixel
+allarme
+flusso di dati
+monitor
+applicazione
+trasmettitore
+bus
+circuito
+condensatore
+banca dati
+pipeline
+server
+router
+switch
+memoria cache
+nucleo
+libreria
+plugin
+contenitore
+copia di sicurezza
+rete neurale
+chiave di cifratura
+pacchetto di rete

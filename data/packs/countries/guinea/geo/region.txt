@@ -1,0 +1,13 @@
+---
+address: guinea.geo.region
+description: Administrative regions of Guinea (plus the capital Conakry)
+locale: fr
+---
+Boké
+Faranah
+Kankan
+Kindia
+Labé
+Mamou
+Nzérékoré
+Conakry

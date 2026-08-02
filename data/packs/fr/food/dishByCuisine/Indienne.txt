@@ -1,0 +1,16 @@
+---
+description: Dishes of Indian cuisine (French)
+locale: fr
+---
+Poulet tikka masala
+Curry
+Biryani
+Naan
+Samosa
+Dal
+Poulet tandoori
+Korma
+Raïta
+Chapati
+Palak paneer
+Rogan josh

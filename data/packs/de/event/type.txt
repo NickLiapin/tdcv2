@@ -1,0 +1,22 @@
+---
+description: Event type (German)
+locale: de
+---
+Konferenz
+Kongress
+Hochzeit
+Konzert
+Festival
+Workshop
+Seminar
+Webinar
+Fachmesse
+Ausstellung
+Benefizveranstaltung
+Netzwerktreffen
+Produktvorstellung
+Gala
+Geburtstag
+Abschlussfeier
+Taufe
+Jubiläum

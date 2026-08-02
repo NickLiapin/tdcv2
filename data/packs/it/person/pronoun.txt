@@ -1,0 +1,12 @@
+---
+description: Personal pronoun set (Italian)
+locale: it
+---
+lui
+lei
+loro
+lui/lo
+lei/la
+loro/li
+lui/lei
+lei/loro

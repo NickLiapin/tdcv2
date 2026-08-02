@@ -1,0 +1,9 @@
+---
+address: common.security.jwt
+description: Fake JWT (fixed base64url header per alg + random base64url payload/signature)
+generator: tdc
+---
+<sequence name="header"><gen type="text" value="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9,eyJhbGciOiJIUzM4NCIsInR5cCI6IkpXVCJ9,eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9,eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9,eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCJ9"/></sequence>
+<sequence name="payload"><gen type="regex" value="[A-Za-z0-9_-]{120}" regex_max_length="120"/></sequence>
+<sequence name="sig"><gen type="regex" value="[A-Za-z0-9_-]{43}" regex_max_length="43"/></sequence>
+<data>${{header}}.${{payload}}.${{sig}}</data>

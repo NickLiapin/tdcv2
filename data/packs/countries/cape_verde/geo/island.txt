@@ -1,0 +1,15 @@
+---
+address: cape_verde.geo.island
+description: The ten islands of the Cape Verde archipelago (Portuguese names)
+locale: pt
+---
+Santiago
+São Vicente
+Santo Antão
+Fogo
+Sal
+Boa Vista
+Maio
+Brava
+São Nicolau
+Santa Luzia

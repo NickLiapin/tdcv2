@@ -1,0 +1,20 @@
+---
+description: Horse breed (Italian)
+locale: it
+---
+Arabo
+Purosangue inglese
+Mustang
+Clydesdale
+Appaloosa
+Quarter horse
+Frisone
+Shire
+Andaluso
+Morgan
+Palomino
+Percheron
+Pony Shetland
+Lusitano
+Criollo
+Haflinger

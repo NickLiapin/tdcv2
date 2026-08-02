@@ -1,0 +1,9 @@
+---
+description: Positions in volleyball (Polish)
+locale: pl
+---
+Rozgrywający
+Przyjmujący
+Środkowy bloku
+Atakujący
+Libero

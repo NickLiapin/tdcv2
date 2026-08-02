@@ -1,0 +1,12 @@
+---
+description: Dishes of Japanese cuisine
+locale: en
+---
+Sushi
+Ramen
+Tempura
+Udon
+Teriyaki Chicken
+Miso Soup
+Katsu Curry
+Onigiri

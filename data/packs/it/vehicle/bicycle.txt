@@ -1,0 +1,21 @@
+---
+description: Bicycle type (Italian)
+locale: it
+---
+Bici da corsa
+Mountain bike
+Bici ibrida
+Bici da città
+Gravel bike
+BMX
+Bici elettrica
+Bici pieghevole
+Bici da cicloturismo
+Bici da ciclocross
+Bici da pista
+Bici reclinata
+Bici da carico
+Bici da downhill
+Bici per bambini
+Triciclo
+Tandem

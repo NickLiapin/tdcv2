@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "fixedNow": "2026-04-23T12:00:00Z",
+  "vectorFiles": {
+    "prng": "prng-vectors.json",
+    "hamilton": "hamilton-vectors.json"
+  },
+  "runtimeFixtures": [
+    {
+      "name": "tdc_csv",
+      "source": "../tdc_csv.xml",
+      "expected": "../expected-tdc_csv.out",
+      "description": "Canonical CSV output from the 2022-2024 prototype"
+    },
+    {
+      "name": "tdc_json",
+      "source": "../tdc_json.xml",
+      "expected": "../expected-tdc_json.out",
+      "description": "Canonical JSON-shaped output from the 2022-2024 prototype"
+    },
+    {
+      "name": "tdc_sql",
+      "source": "../tdc_sql.xml",
+      "expected": "../expected-tdc_sql.out",
+      "description": "Canonical SQL output from the 2022-2024 prototype"
+    },
+    {
+      "name": "tdc_markdown",
+      "source": "../tdc_markdown.xml",
+      "expected": "../expected-tdc_markdown.out",
+      "description": "Canonical Markdown output from the 2022-2024 prototype"
+    },
+    {
+      "name": "tdc_txt",
+      "source": "../tdc_txt.xml",
+      "expected": "../expected-tdc_txt.out",
+      "description": "Canonical plain-text output from the 2022-2024 prototype"
+    },
+    {
+      "name": "tdc_sequence_demo",
+      "source": "../tdc_sequence_demo.xml",
+      "expected": "../expected-tdc_sequence_demo.out",
+      "description": "Parent-child sequence dependency output"
+    },
+    {
+      "name": "tdc_conditional_demo",
+      "source": "../tdc_conditional_demo.xml",
+      "expected": "../expected-tdc_conditional_demo.out",
+      "description": "Conditional line rendering output"
+    },
+    {
+      "name": "tdc_json_valid",
+      "source": "../tdc_json_valid.xml",
+      "expected": "../expected-tdc_json_valid.out",
+      "description": "Valid JSON comma handling output"
+    },
+    {
+      "name": "tdc_generators_core",
+      "source": "runtime/tdc_generators_core.tdc",
+      "expected": "expected/tdc_generators_core.out",
+      "description": "Focused fixture for newer deterministic generator primitives"
+    }
+  ]
+}

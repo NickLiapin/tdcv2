@@ -1,0 +1,15 @@
+---
+address: equatorial_guinea.holiday
+description: Equatorial Guinea public holiday (día festivo) — the fixed civic and national days plus the observed Catholic feasts
+locale: es
+---
+Año Nuevo
+Viernes Santo
+Día del Trabajo
+Día del Presidente
+Corpus Christi
+Día de la Libertad
+Día de la Constitución
+Día de la Independencia
+Inmaculada Concepción
+Navidad

@@ -1,0 +1,7 @@
+---
+description: Filler paragraph (original neutral French prose, no country-specific vocabulary)
+locale: fr
+---
+Le matin arriva lentement sur les toits du quartier. L'air gardait encore le froid de la nuit et les rues restaient presque vides. Peu à peu les lumières des cuisines s'allumèrent et le jour finit par ressembler à tous les autres.
+L'atelier occupait le fond d'une cour étroite. À l'intérieur, cela sentait le bois et le vernis, et sur les étagères s'entassaient des bocaux, des pinceaux et des travaux inachevés. Son propriétaire préférait cet endroit à tout autre au monde.
+Le train sortit de la gare sans hâte et gagna peu à peu de la vitesse. Par la fenêtre défilèrent d'abord les maisons, puis les jardins, et enfin une plaine qui semblait ne jamais finir. Devant lui restaient un long voyage et une ville inconnue.

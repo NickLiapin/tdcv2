@@ -1,0 +1,43 @@
+<tdc version="0.01" comment="JSON with proper trailing-comma handling (no stray , on the last object)">
+    <env count="5" seed="json-valid-demo" inject="${{%}}" local="en">
+        <sequence name="FirstName"><gen type="template" value="person.male.firstName"/></sequence>
+        <sequence name="LastName"><gen type="template" value="person.lastName"/></sequence>
+        <before>
+            <line>
+                <data>{</data>
+            </line>
+            <line>
+                <data>  "users": [</data>
+            </line>
+        </before>
+        <after>
+            <line>
+                <data>  ]</data>
+            </line>
+            <line>
+                <data>}</data>
+            </line>
+        </after>
+    </env>
+    <block>
+        <line>
+            <data>    {</data>
+        </line>
+        <line>
+            <data>      "id": ${{_count}},</data>
+        </line>
+        <line>
+            <data>      "firstName": "${{FirstName}}",</data>
+        </line>
+        <line>
+            <data>      "lastName": "${{LastName}}"</data>
+        </line>
+        <!-- The closing brace: plain `}` on the last card, `},` on others.
+             The comma lives inside a <data if="!_last">,</data> — the `if`
+             gate on <data> skips emission when the condition is false. -->
+        <line>
+            <data>    }</data>
+            <data if="!_last">,</data>
+        </line>
+    </block>
+</tdc>

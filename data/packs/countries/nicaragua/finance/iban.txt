@@ -1,0 +1,34 @@
+---
+address: nicaragua.finance.iban
+description: Nicaragua IBAN — 28 chars: "NI" + 2 ISO 7064 mod-97-10 check digits + a real 4-letter bank code + a 20-digit account number (the domestic account left-padded with zeros). The bank code is genuine and the check digits are computed, so the IBAN passes standard validation; the account digits themselves are structural
+generator: tdc
+---
+<sequence name="bankcode"><gen type="template" value="nicaragua.finance.bankCode"/></sequence>
+<!-- Domestic account left-padded with zeros to fill the 20-digit account field. -->
+<sequence name="account"><gen type="regex" value="0{8}[1-9][0-9]{11}"/></sequence>
+<sequence name="iban"><compute>
+  <!-- BBAN = bank code (4 letters) + account (20 digits) = 24 chars. -->
+  <let name="bban"><concat><field name="bankcode"/><field name="account"/></concat></let>
+  <!-- ISO 13616: move the country code and a "00" placeholder to the end. -->
+  <let name="rearranged"><concat><var name="bban"/><str v="NI"/><str v="00"/></concat></let>
+  <!-- Letters become their base-36 value (N -> 23, I -> 18); digits stay. -->
+  <let name="digits">
+    <join>
+      <each>
+        <over><var name="rearranged"/></over>
+        <do><encode as="base36"><current/></encode></do>
+      </each>
+    </join>
+  </let>
+  <!-- Horner fold mod 97, so the long value never has to exist as one number. -->
+  <let name="rem">
+    <reduce>
+      <over><var name="digits"/></over>
+      <init><int v="0"/></init>
+      <do><mod><add><multiply><acc/><int v="10"/></multiply><current/></add><int v="97"/></mod></do>
+    </reduce>
+  </let>
+  <let name="check"><pad width="2" fill="0"><subtract><int v="98"/><var name="rem"/></subtract></pad></let>
+  <result><concat><str v="NI"/><var name="check"/><var name="bban"/></concat></result>
+</compute></sequence>
+<data>${{iban}}</data>

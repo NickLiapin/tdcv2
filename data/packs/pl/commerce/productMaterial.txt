@@ -1,0 +1,62 @@
+---
+description: Product material (Polish), as a noun - compose with "z" ("stol z debu", "krzeslo ze stali nierdzewnej")
+locale: pl
+---
+stal
+stal nierdzewna
+żelazo
+aluminium
+miedź
+mosiądz
+brąz
+tytan
+cynk
+drewno
+dąb
+orzech
+sosna
+buk
+cedr
+mahoń
+bambus
+wiklina
+rattan
+korek
+plastik
+poliwęglan
+poliester
+nylon
+akryl
+żywica
+silikon
+kauczuk
+guma
+pianka
+bawełna
+len
+wełna
+jedwab
+skóra
+ekoskóra
+zamsz
+filc
+płótno
+dżins
+szkło
+kryształ
+ceramika
+porcelana
+kamionka
+marmur
+granit
+łupek
+beton
+kamień
+papier
+karton
+włókno węglowe
+włókno szklane
+neopren
+aksamit
+juta
+konopie

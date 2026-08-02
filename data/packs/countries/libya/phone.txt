@@ -1,0 +1,6 @@
+---
+address: libya.phone
+description: Libyan mobile phone in E.164 form (+218 9[1-6]XXXXXX)
+generator: tdc
+---
+<gen type="regex" value="\+2189[1-6][0-9]{6}"/>

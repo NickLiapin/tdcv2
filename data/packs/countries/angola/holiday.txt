@@ -1,0 +1,17 @@
+---
+address: angola.holiday
+description: Public holidays of Angola (Portuguese names)
+locale: pt
+---
+Ano Novo
+Dia do Início da Luta Armada
+Carnaval
+Dia da Mulher
+Dia da Paz e Reconciliação Nacional
+Sexta-feira Santa
+Dia do Trabalhador
+Dia do Herói Nacional
+Dia da Independência Nacional
+Dia dos Finados
+Natal
+Dia da Fundação do MPLA

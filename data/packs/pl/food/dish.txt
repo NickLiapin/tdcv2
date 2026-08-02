@@ -1,0 +1,44 @@
+---
+description: Dish (Polish)
+locale: pl
+---
+Pizza
+Sushi
+Tacos
+Cheeseburger
+Spaghetti carbonara
+Ramen
+Kurczak w curry
+Stek z grilla
+Sałatka cezar
+Kanapka klubowa
+Lasagne
+Risotto z pieczarkami
+Paella
+Empanadas
+Pad thai
+Ryba z frytkami
+Gulasz wołowy
+Burrito
+Gnocchi
+Smażony ryż
+Ceviche
+Pierogi
+Bigos
+Rosół
+Kotlet schabowy
+Gołąbki
+Barszcz czerwony
+Placki ziemniaczane
+Żurek
+Zapiekanka
+Kurczak tikka masala
+Gazpacho
+Sałatka grecka
+Quesadilla
+Zupa pomidorowa
+Klopsiki
+Pieczony kurczak
+Zupa rybna
+Faszerowany bakłażan
+Naleśniki

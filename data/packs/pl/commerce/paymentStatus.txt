@@ -1,0 +1,14 @@
+---
+description: Payment status (Polish)
+locale: pl
+---
+Oczekująca
+Autoryzowana
+Opłacona
+Nieudana
+Zwrócona
+Częściowo zwrócona
+Obciążenie zwrotne
+Anulowana
+Odrzucona
+W weryfikacji

@@ -1,0 +1,22 @@
+---
+description: Hotel room type (Italian)
+locale: it
+---
+Standard
+Superior
+Suite
+Junior suite
+Suite presidenziale
+Singola
+Doppia
+Doppia con due letti
+Matrimoniale
+Tripla
+Quadrupla
+Camera familiare
+Monolocale
+Appartamento
+Bungalow
+Camera accessibile
+Camera vista mare
+Attico

@@ -1,0 +1,11 @@
+---
+description: Dishes of Thai cuisine
+locale: en
+---
+Pad Thai
+Green Curry
+Tom Yum
+Massaman Curry
+Papaya Salad
+Mango Sticky Rice
+Satay

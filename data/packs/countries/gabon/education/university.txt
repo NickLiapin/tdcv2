@@ -1,0 +1,11 @@
+---
+address: gabon.education.university
+description: Universities of Gabon
+locale: fr
+---
+Université Omar Bongo
+Université des Sciences et Techniques de Masuku
+Université des Sciences de la Santé
+École Polytechnique de Masuku
+Institut National des Sciences de Gestion
+École Normale Supérieure de Libreville

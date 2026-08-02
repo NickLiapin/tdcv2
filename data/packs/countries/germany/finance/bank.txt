@@ -1,0 +1,25 @@
+---
+address: germany.finance.bank
+description: Major banks of Germany (German names)
+locale: de
+---
+Deutsche Bank
+Commerzbank
+DZ Bank
+KfW
+Sparkasse
+Volksbank Raiffeisenbank
+Postbank
+ING Deutschland
+HypoVereinsbank
+Landesbank Baden-Württemberg
+Bayerische Landesbank
+Norddeutsche Landesbank
+Helaba
+DKB
+Targobank
+Santander Consumer Bank
+Comdirect
+N26
+Apobank
+Sparda-Bank

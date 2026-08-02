@@ -1,0 +1,11 @@
+---
+address: costa_rica.geo.zip
+description: Costa Rican código postal — 5 digits: 1st digit is the province (1-7), the next 2 the cantón and the last 2 the distrito (e.g. 10101 = San José, cantón 01, distrito Carmen)
+generator: tdc
+---
+<!-- Province digit 1-7, then a 2-digit cantón (01-20 spans the largest
+     province) and a 2-digit distrito (01-13). -->
+<sequence name="province"><gen type="regex" value="[1-7]"/></sequence>
+<sequence name="canton"><gen type="number" value="1..20" length="2" first_zero="true"/></sequence>
+<sequence name="district"><gen type="number" value="1..13" length="2" first_zero="true"/></sequence>
+<data>${{province}}${{canton}}${{district}}</data>

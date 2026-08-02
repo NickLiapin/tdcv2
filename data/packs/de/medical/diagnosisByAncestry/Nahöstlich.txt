@@ -1,0 +1,10 @@
+---
+description: Conditions markedly more frequent in people of Middle Eastern ancestry, given in German. A prevalence signal, not an exclusive one.
+locale: de
+---
+Familiäres Mittelmeerfieber
+Beta-Thalassämie
+Glukose-6-Phosphat-Dehydrogenase-Mangel
+Morbus Behçet
+Vitamin-D-Mangel
+Sichelzellmerkmal

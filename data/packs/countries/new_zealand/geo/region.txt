@@ -1,0 +1,21 @@
+---
+address: new_zealand.geo.region
+description: New Zealand region (all 16 regions, alphabetical; same order as new_zealand.geo.regionCode)
+locale: en
+---
+Auckland
+Bay of Plenty
+Canterbury
+Gisborne
+Hawke's Bay
+Manawatū-Whanganui
+Marlborough
+Nelson
+Northland
+Otago
+Southland
+Taranaki
+Tasman
+Waikato
+Wellington
+West Coast

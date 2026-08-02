@@ -1,0 +1,9 @@
+---
+description: Log level
+---
+TRACE
+DEBUG
+INFO
+WARN
+ERROR
+FATAL

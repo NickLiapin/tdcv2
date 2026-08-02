@@ -1,0 +1,17 @@
+---
+address: rwanda.sport.team
+description: Rwandan first-division football clubs
+locale: fr
+---
+APR FC
+Rayon Sports
+Police FC
+Mukura Victory Sports
+AS Kigali
+Musanze FC
+Gorilla FC
+Étincelles FC
+Marines FC
+Bugesera FC
+Kiyovu Sports
+Gasogi United

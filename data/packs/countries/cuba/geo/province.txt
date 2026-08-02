@@ -1,0 +1,21 @@
+---
+address: cuba.geo.province
+description: Cuban first-level division — the 15 provinces plus the special municipality Isla de la Juventud; same order as cuba.geo.provinceCapital / provinceIso
+locale: es
+---
+Pinar del Río
+Artemisa
+La Habana
+Mayabeque
+Matanzas
+Villa Clara
+Cienfuegos
+Sancti Spíritus
+Ciego de Ávila
+Camagüey
+Las Tunas
+Holguín
+Granma
+Santiago de Cuba
+Guantánamo
+Isla de la Juventud

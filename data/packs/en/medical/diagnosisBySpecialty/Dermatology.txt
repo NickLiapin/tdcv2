@@ -1,0 +1,10 @@
+---
+description: Diagnoses seen in Dermatology
+locale: en
+---
+Psoriasis
+Atopic Dermatitis
+Acne Vulgaris
+Melanoma
+Rosacea
+Contact Dermatitis

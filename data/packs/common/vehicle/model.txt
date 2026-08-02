@@ -1,0 +1,41 @@
+---
+description: Car model
+locale: en
+---
+Corolla
+Camry
+Civic
+Accord
+F-150
+Silverado
+Mustang
+Explorer
+Model 3
+Model S
+Altima
+Sentra
+3 Series
+5 Series
+A4
+Golf
+Passat
+Elantra
+Sonata
+Sorento
+Outback
+CX-5
+Wrangler
+Grand Cherokee
+RAV4
+CR-V
+Rogue
+Tucson
+Malibu
+Impala
+Ranger
+Tacoma
+Highlander
+Pilot
+Escape
+Edge
+Forester

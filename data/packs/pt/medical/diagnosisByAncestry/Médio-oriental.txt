@@ -1,0 +1,10 @@
+---
+description: Conditions markedly more frequent in people of Middle Eastern ancestry, in Portuguese. A prevalence signal, not an exclusive one.
+locale: pt
+---
+Febre familiar do Mediterrâneo
+Beta-talassemia
+Deficiência de glicose-6-fosfato desidrogenase
+Doença de Behçet
+Deficiência de vitamina D
+Traço falciforme

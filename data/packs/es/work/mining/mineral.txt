@@ -1,0 +1,23 @@
+---
+description: Mined mineral / commodity (Spanish)
+locale: es
+---
+Carbón
+Cobre
+Oro
+Plata
+Mineral de hierro
+Zinc
+Plomo
+Bauxita
+Caliza
+Níquel
+Uranio
+Potasa
+Fosfato
+Litio
+Cobalto
+Yeso
+Sal
+Estaño
+Molibdeno

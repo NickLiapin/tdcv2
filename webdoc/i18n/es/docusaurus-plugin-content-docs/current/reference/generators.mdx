@@ -1,0 +1,49 @@
+---
+title: Generadores
+sidebar_position: 4
+---
+
+# Referencia de generadores
+
+Todos los valores de `type` para [`<gen>`](../generators/overview.mdx). Cada uno enlaza a su página completa.
+
+| `type`                                        | Qué produce                                                  |
+| :-------------------------------------------- | :----------------------------------------------------------- |
+| [`text`](../generators/text.mdx)              | Un valor de un conjunto — uniforme o por `percent` exactos    |
+| [`number`](../generators/number.mdx)          | Un entero dentro de un rango, o una cadena de dígitos de ancho fijo |
+| [`template`](../generators/template.mdx)      | Datos realistas integrados e identificadores técnicos         |
+| [`file`](../generators/file.mdx)              | Valores de sus propios archivos y columnas de CSV             |
+| [`date`](../generators/date.mdx)              | Una fecha o fecha-hora en un rango y formato dados            |
+| [`symbol`](../generators/symbol.mdx)          | Una cadena de caracteres de un conjunto o de un alfabeto con nombre |
+| [`regex`](../generators/regex.mdx)            | Una cadena que coincide con una expresión regular finita      |
+| [`advanced_regex`](../generators/advanced-regex.mdx) | Regex más elección ponderada entre alternativas        |
+| [`increment` / `decrement`](../generators/counters.mdx) | Contadores ascendentes y descendentes       |
+| [`timeseries`](../generators/timeseries.mdx)  | Una serie de tiempo — tendencia + estacionalidad + ruido      |
+| [`pattern`](../generators/pattern.mdx)        | Una distribución con la forma de una curva dibujada           |
+| [`http`](../generators/http.mdx)              | Un valor de un servicio suyo, vía HTTP                       |
+| [`pool`](../pools/overview.mdx)             | Un miembro entero de un `<pool>` — un registro, no un valor  |
+| [`running`](../generators/running.mdx)      | Un total acumulado por la columna, no sorteado               |
+
+## Atributos transversales
+
+Estos funcionan con **cualquier** generador (vea [Máscaras y mayúsculas](../guides/masks-and-case.mdx)):
+
+- `case=` / `mask=` — mayúsculas/minúsculas y máscaras de despliegue;
+- `missing=` — deja en blanco una parte de las celdas.
+
+Estos dos necesitan que el generador produzca algo sobre lo que puedan actuar, y en
+los demás casos se ignoran:
+
+- `order=` / `cycle=` — orden de los valores (aleatorio por omisión, o `sequential`).
+  Recorre una lista, así que aplica a [`text`](../generators/text.mdx) y
+  [`file`](../generators/file.mdx). [`number`](../generators/number.mdx) y
+  [`date`](../generators/date.mdx) toman su valor de un rango, no de una lista, y no
+  lo leen.
+- `anomaly=` — empuja una parte de los valores fuera del rango multiplicándolos. La
+  regla es sobre el **valor**, no sobre el generador: se multiplica todo lo que se lea
+  como número, incluida una cadena numérica de [`text`](../generators/text.mdx),
+  [`file`](../generators/file.mdx) o un pack. Lo demás — un nombre, una ciudad — pasa sin
+  cambios y **sin aviso**, porque para eso no existe un «más afuera».
+  Vea [Anomalías y valores faltantes](../guides/anomalies.mdx).
+
+Vea también la [descripción general de los generadores](../generators/overview.mdx).

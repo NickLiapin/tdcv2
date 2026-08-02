@@ -1,0 +1,22 @@
+---
+description: Event type (Polish)
+locale: pl
+---
+Konferencja
+Kongres
+Ślub
+Koncert
+Festiwal
+Warsztaty
+Seminarium
+Webinar
+Targi branżowe
+Wystawa
+Zbiórka charytatywna
+Spotkanie branżowe
+Premiera produktu
+Gala
+Urodziny
+Ukończenie studiów
+Chrzciny
+Rocznica

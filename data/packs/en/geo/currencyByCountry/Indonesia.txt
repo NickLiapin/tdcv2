@@ -1,0 +1,5 @@
+---
+description: Currency of Indonesia
+locale: en
+---
+Rupiah

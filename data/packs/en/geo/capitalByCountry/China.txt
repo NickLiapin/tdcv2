@@ -1,0 +1,5 @@
+---
+description: Capital of China
+locale: en
+---
+Beijing

@@ -1,0 +1,17 @@
+---
+address: burkina_faso.finance.bank
+description: Banks operating in Burkina Faso
+locale: fr
+---
+Coris Bank International
+Ecobank
+Bank of Africa
+BICIA-B
+Banque Commerciale du Burkina
+UBA
+Orabank
+BSIC
+Banque Atlantique
+Banque de l'Union
+Wend Kuni Bank
+IB Bank

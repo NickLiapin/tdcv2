@@ -1,0 +1,11 @@
+---
+description: Conditions markedly more frequent in people of Southeast Asian ancestry. A prevalence signal, not an exclusive one.
+locale: en
+---
+Hemoglobin E Disease
+Alpha-Thalassemia
+Glucose-6-Phosphate Dehydrogenase Deficiency
+Nasopharyngeal Carcinoma
+Beta-Thalassemia
+Brugada Syndrome
+Lactase Non-Persistence

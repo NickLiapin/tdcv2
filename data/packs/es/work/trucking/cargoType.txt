@@ -1,0 +1,17 @@
+---
+description: Truck cargo / trailer type (Spanish)
+locale: es
+---
+Furgón seco
+Refrigerado
+Plataforma
+Cisterna
+Ganado
+Materiales peligrosos
+Contenedor intermodal
+Portavehículos
+Cama baja
+Plataforma escalonada
+Volquete
+Granel
+Madera

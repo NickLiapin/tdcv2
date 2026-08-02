@@ -1,0 +1,8 @@
+---
+description: Season (German, capitalised per German orthography)
+locale: de
+---
+Frühling
+Sommer
+Herbst
+Winter

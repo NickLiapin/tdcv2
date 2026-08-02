@@ -1,0 +1,15 @@
+---
+description: Gaming platform (Italian; brand names kept as-is)
+locale: it
+---
+PlayStation 5
+PlayStation 4
+Xbox Series X
+Xbox Series S
+Xbox One
+Nintendo Switch
+PC
+Steam Deck
+Meta Quest
+Mobile
+Browser

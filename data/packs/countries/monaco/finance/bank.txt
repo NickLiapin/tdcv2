@@ -1,0 +1,15 @@
+---
+address: monaco.finance.bank
+description: Banks operating in Monaco
+locale: fr
+---
+CFM Indosuez Wealth
+Compagnie Monégasque de Banque
+BNP Paribas Monaco
+Société Générale Private Banking Monaco
+Barclays Bank Monaco
+EFG Bank Monaco
+Andbank Monaco
+Banque J. Safra Sarasin Monaco
+Crédit Foncier de Monaco
+UBS Monaco

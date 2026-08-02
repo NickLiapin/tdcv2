@@ -1,0 +1,17 @@
+---
+description: Legal case type (Portuguese)
+locale: pt
+---
+Cível
+Penal
+Família
+Insolvência
+Danos pessoais
+Laboral
+Litígio contratual
+Propriedade intelectual
+Imobiliário
+Imigração
+Fiscal
+Administrativo
+Comercial

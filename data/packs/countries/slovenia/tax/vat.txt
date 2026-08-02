@@ -1,0 +1,31 @@
+---
+address: slovenia.tax.vat
+description: Slovenian VAT / ID za DDV (SI + 7-digit base + weighted mod-11 check; redraw when check would be 10)
+generator: tdc
+---
+<sequence name="base"><gen type="regex" value="[0-9]{7}"/></sequence>
+<sequence name="check"><compute>
+  <let name="sum">
+    <reduce>
+      <over><field name="base"/></over>
+      <init><int v="0"/></init>
+      <do><add><acc/>
+        <multiply><current/>
+          <at><in><list v="8,7,6,5,4,3,2"/></in><index><current_index/></index></at>
+        </multiply>
+      </add></do>
+    </reduce>
+  </let>
+  <let name="c"><subtract><int v="11"/><mod><var name="sum"/><int v="11"/></mod></subtract></let>
+  <result>
+    <choose>
+      <when><test><equals><var name="c"/><int v="11"/></equals></test><then><int v="0"/></then></when>
+      <otherwise><var name="c"/></otherwise>
+    </choose>
+  </result>
+</compute></sequence>
+<valid><less_than><to_number><field name="check"/></to_number><int v="10"/></less_than></valid>
+<sequence name="out"><compute>
+  <result><concat><str v="SI"/><field name="base"/><field name="check"/></concat></result>
+</compute></sequence>
+<data>${{out}}</data>

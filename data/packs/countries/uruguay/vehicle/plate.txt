@@ -1,0 +1,10 @@
+---
+address: uruguay.vehicle.plate
+description: Uruguayan Mercosur plate, mandatory since 2016 — three letters and four digits (ABC 1234), where the first letter is the departamento of registration (S Montevideo, A Canelones, B Maldonado …)
+generator: tdc
+locale: es
+---
+<sequence name="dept"><gen type="template" value="uruguay.geo.departmentPlateLetter"/></sequence>
+<sequence name="serie"><gen type="regex" value="[A-Z]{2}"/></sequence>
+<sequence name="number"><gen type="regex" value="[0-9]{4}"/></sequence>
+<data>${{dept}}${{serie}} ${{number}}</data>

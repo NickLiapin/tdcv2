@@ -1,0 +1,19 @@
+---
+description: Payment method (Polish)
+locale: pl
+---
+Karta kredytowa
+Karta debetowa
+BLIK
+PayPal
+Apple Pay
+Google Pay
+Przelew bankowy
+Przelewy24
+Płatność przy odbiorze
+Gotówka
+Karta podarunkowa
+Kryptowaluta
+Raty
+Polecenie zapłaty
+Bon rabatowy

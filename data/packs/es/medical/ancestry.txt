@@ -1,0 +1,16 @@
+---
+description: Genetic ancestry group in Spanish, used as the parent of diagnosisByAncestry. These are ancestry populations as clinical genetics defines them — geographic descent, not social race categories.
+locale: es
+---
+Africana subsahariana
+Norteafricana
+Mediterránea
+Oriente Medio
+Europea del norte
+Europea del este
+Judía asquenazí
+Sur de Asia
+Asiática oriental
+Sudeste asiático
+Indígena americana
+Isleña del Pacífico

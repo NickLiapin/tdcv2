@@ -1,0 +1,22 @@
+---
+description: Employee benefit (Italian)
+locale: it
+---
+Assicurazione sanitaria
+Assicurazione odontoiatrica
+Copertura oculistica
+Fondo pensione
+Ferie retribuite
+Lavoro da remoto
+Orario flessibile
+Piano di stock option
+Assicurazione sulla vita
+Congedo parentale
+Abbonamento in palestra
+Rimborso delle spese di studio
+Contributo per i trasporti
+Programma di benessere aziendale
+Buoni pasto
+Premio annuale
+Permessi personali
+Formazione professionale

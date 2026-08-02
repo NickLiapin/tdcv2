@@ -1,0 +1,359 @@
+<a name="top"></a>
+
+**English** · [Русский](../ru/guides/files-and-csv.md#top) · [Español](../es/guides/files-and-csv.md#top)
+
+← Previous: [No repeats within a row](./distinct.md#top) · **[Contents](../README.md#top)** · Next: [Output formats (CSV, JSON, SQL…)](./output-formats.md#top) →
+
+---
+
+# Reading files & CSV
+
+When your values already live in a file — a list your team maintains, an export, a
+spreadsheet saved as CSV — read them with the [`file`](../generators/file.md#top)
+generator instead of pasting them into the config. This guide walks the common CSV
+workflow end to end: a plain list, a single column, the right delimiter, and keeping a
+record whole. Every attribute is documented in exhaustive detail on the
+[File generator](../generators/file.md#top) page; this page sticks to the job at hand.
+
+> [!NOTE]
+> Example outputs are illustrative — the exact values are random and can differ from one
+> core version to the next. What matters is the shape of each step and the counts.
+
+![](../img/concepts/csv-row-link.svg)
+
+*One CSV read twice, six rows each time.*
+
+- **A** — the source file: four lines, three columns
+- **B** — without row=, every field picks its own line, so the record is assembled from pieces that never belonged together (the gray cells)
+- **C** — with row=, all three fields read the same line, so every record is a real line of the file
+
+## Set-up: the data folder
+
+Every example below reads from a `data/` folder that sits next to the config and is
+passed at run time with `--data-path`. Two files live there — a plain list and a CSV.
+
+`data/cities.txt` (one value per line):
+
+```text
+Chicago
+Austin
+Denver
+Boston
+Seattle
+```
+
+`data/users.csv` (a header row, then records):
+
+```text
+first_name,last_name,email,city
+John,Smith,john.smith@example.com,Austin
+Mary,Johnson,mary.johnson@example.com,Denver
+James,Williams,james.williams@example.com,Boston
+Emma,Brown,emma.brown@example.com,Seattle
+```
+
+Run any config the same way:
+
+```bash
+./run example.tdc --data-path ./data
+```
+
+## A plain list — one line, one value
+
+**Use it when** you have a flat pool of values (cities, product names, tags) that's
+awkward to hard-code into `value="…"`. Point [`src`](../generators/file.md#top) at the
+file and leave [`column`](../generators/file.md#top) off — each non-empty line becomes
+one value:
+
+```xml
+<sequence name="City">
+  <gen type="file" src="@data/cities.txt"/>
+</sequence>
+...
+<data>${{City}}</data>
+```
+
+`./run example.tdc --data-path ./data`
+
+```
+Denver
+Chicago
+Boston
+Denver
+Austin
+```
+
+Lines are chosen uniformly at random, repeats included (`Denver` came up twice). Empty
+lines are skipped. For strict file order instead of random picks, add
+`order="sequential"` — it emits the lines in exactly the order they appear in (see
+[Masks & case](masks-and-case.md#top)).
+
+## A CSV column — one field from a table
+
+**Use it when** the file is a table and you want a single field — say only the email
+addresses. Adding [`column`](../generators/file.md#top) is what switches the generator
+from list mode into CSV mode: the header row is dropped and values come only from
+that column.
+
+### By name
+
+Name the column from the header line:
+
+```xml
+<gen type="file" src="@data/users.csv" column="email"/>
+```
+
+`./run example.tdc --data-path ./data`
+
+```
+john.smith@example.com
+james.williams@example.com
+john.smith@example.com
+mary.johnson@example.com
+john.smith@example.com
+```
+
+The header (`first_name,last_name,email,city`) never appears in the output — TDC
+recognizes it as a header and uses it only to find the column.
+
+### By number (1-based)
+
+Address the column by position instead. `column="2"` is the **second** column
+(`last_name`) — numbering starts at one, so the first column is `column="1"`, never
+`column="0"`. When you address by number, TDC has no header name to match, so add
+[`header="true"`](../generators/file.md#top) to drop the first line:
+
+```xml
+<gen type="file" src="@data/users.csv" column="2" header="true"/>
+```
+
+`./run example.tdc --data-path ./data`
+
+```
+Johnson
+Smith
+Williams
+Smith
+Brown
+```
+
+The same file with `column="3"` reads the third column, `email` — the same data as
+`column="email"`, just addressed by position rather than by name.
+
+### Common mistakes
+
+Off-by-one and delimiter slips fail loudly rather than silently, so they're easy to
+spot:
+
+`./run example.tdc --data-path ./data`
+
+```
+column="0"  ->  error[TDC062]: CSV column "0" was not found in the header row
+column="9"  ->  error[TDC062]: CSV column "9" ... has no values
+```
+
+- `column="0"` isn't a valid index (numbering starts at 1) — it's read as the literal
+  column name `0`, which isn't in the header.
+- A number past the last column (`column="9"` on a four-column file) has no cells to
+  read.
+- If the file's separator isn't a comma, set the delimiter (below) — otherwise the
+  whole line lands in a single cell and no column is ever found.
+
+## The delimiter — commas, semicolons, tabs
+
+**Use it when** the export isn't comma-separated. Spreadsheets often save with a
+semicolon or a tab. If you leave it unset, TDC splits on commas, finds no cells, and
+treats the whole line as one field — so the column is never found. Set
+[`delimiter`](../generators/file.md#top) to match the file. Here are the same users saved
+with semicolons, as `data/users_semicolon.csv`:
+
+```text
+first_name;last_name;email;city
+John;Smith;john.smith@example.com;Austin
+Mary;Johnson;mary.johnson@example.com;Denver
+James;Williams;james.williams@example.com;Boston
+Emma;Brown;emma.brown@example.com;Seattle
+```
+
+Without `delimiter`, TDC assumes a comma and can't find the `email` column:
+
+`./run example.tdc --data-path ./data`
+
+```
+error[TDC062]: file generator: CSV column "email" was not found in the header row
+note: For CSV files, use a header name like column="email" or a 1-based index like column="2".
+```
+
+With `delimiter="semicolon"` (or `delimiter=";"`) the cells split correctly:
+
+```xml
+<gen type="file" src="@data/users_semicolon.csv" column="email" delimiter="semicolon"/>
+```
+
+`./run example.tdc --data-path ./data`
+
+```
+john.smith@example.com
+james.williams@example.com
+john.smith@example.com
+mary.johnson@example.com
+```
+
+`delimiter` accepts a single character or a name alias — `comma` (the default),
+`semicolon`, `pipe`, `tab`. For a tab-separated file (TSV), `delimiter="tab"` and
+`delimiter="\t"` are equivalent. The full alias table is on the
+[File generator](../generators/file.md#top) page.
+
+## Keep a record together — the `row` key
+
+**Use it when** several fields have to come from the **same** CSV line. This is the
+step people miss most often. Independent [`file`](../generators/file.md#top) generators
+each pick their own line, so the record falls apart — the first name from one line, the
+last name from another, the city from a third.
+
+**Without `row`** — three independent generators, so records don't line up (Mary with
+Smith's last name, James in the wrong city):
+
+```xml
+<sequence name="User">
+  <gen name="First" type="file" src="@data/users.csv" column="first_name"/>
+  <gen name="Last"  type="file" src="@data/users.csv" column="last_name"/>
+  <gen name="City"  type="file" src="@data/users.csv" column="city"/>
+</sequence>
+...
+<data>${{User.First}} ${{User.Last}} — ${{User.City}}</data>
+```
+
+`./run example.tdc --data-path ./data`
+
+```
+Mary Smith — Denver
+John Williams — Austin
+Emma Brown — Boston
+James Johnson — Seattle
+John Brown — Austin
+```
+
+**With a shared `row="user"`** — every generator with that key reads the **same** chosen
+line, and each column reads its own cell from it. The records hold together:
+
+```xml
+<sequence name="User">
+  <gen name="First" type="file" src="@data/users.csv" column="first_name" row="user"/>
+  <gen name="Last"  type="file" src="@data/users.csv" column="last_name"  row="user"/>
+  <gen name="City"  type="file" src="@data/users.csv" column="city"       row="user"/>
+</sequence>
+```
+
+`./run example.tdc --data-path ./data`
+
+```
+Mary Johnson — Denver
+James Williams — Boston
+John Smith — Austin
+John Smith — Austin
+Emma Brown — Seattle
+```
+
+Now `first_name`, `last_name`, and `city` always come from the same CSV line — the
+fields can't drift apart. The key can be any non-empty string (`row="user"`), and
+generators link up when they share the same `row`, `src`, `delimiter`, and header mode.
+This works on **any** engine (the default is streaming, so memory doesn't grow with the
+number of rows).
+
+### Weighted rows — draw a line by frequency
+
+**Use it when** the linked line should be picked by a real frequency rather than
+uniformly — an item at its actual sales rate, with its own price and category coming
+along for the ride. Add [`weight="column"`](../generators/file.md#top) to one field of the
+group and the line is drawn by a weighted quota from that column (exact, like a
+[`percent`](../generators/text.md#top) split), while the other fields still read from the
+same chosen line. Say `data/catalog.csv` looks like this:
+
+```text
+name,category,price,sales
+Pen,Office,1.10,500
+Coffee,Drinks,4.50,1200
+Backpack,Bags,45.00,80
+```
+
+```xml
+<sequence name="Item">
+  <gen name="Name"  type="file" src="@data/catalog.csv" column="name"     row="i" weight="sales"/>
+  <gen name="Price" type="file" src="@data/catalog.csv" column="price"    row="i"/>
+  <gen name="Cat"   type="file" src="@data/catalog.csv" column="category" row="i"/>
+</sequence>
+...
+<data>${{Item.Name}} | ${{Item.Cat}} | ${{Item.Price}}</data>
+```
+
+`./run example.tdc --data-path ./data`
+
+```
+Coffee | Drinks | 4.50
+Pen | Office | 1.10
+Coffee | Drinks | 4.50
+```
+
+Coffee (sales 1200) comes up most often and Backpack (sales 80) rarely — and each
+item's price and category always match its own row.
+
+**Engine note.** Without `weight`, a linked group runs on any engine. **With
+`weight`**, the config always runs on the in-memory engine: a streaming engine can't
+weight the line choice without knowing the file's totals first. If you force
+`--engine 2`, TDC tells you so plainly instead of silently emitting incoherent columns.
+See [Coherent & relational data](coherent-data.md#top) for the full picture.
+
+### Limitations (v1)
+
+- `row` works only inside a [`<sequence>`](../core-concepts/sequences.md#top). The output
+  block has no generators, so the question never comes up there.
+- `row` requires [`column`](../generators/file.md#top) — it's a CSV feature, not something
+  a plain text list can use.
+- The same `row` key does **not** link generators that read different sources: TDC keeps
+  a separate row group for each combination of source, delimiter, and header mode.
+  That's not an error, just something to be aware of.
+
+## Writing CSV back out
+
+Reading CSV is half the job — **writing** it safely is the other half. A value with a
+comma or a quote in it would break the row. The [`csv`](masks-and-case.md#top) filter wraps
+a field the way RFC 4180 requires:
+
+```xml
+<data>${{Id}},${{Name | csv}},${{Category}}</data>
+```
+
+`./run example.tdc`
+
+```
+7,"Knife set, 3 pcs",Kitchen
+2,"Coffee ""Arabica"" 250g",Grocery
+```
+
+The comma inside `Knife set, 3 pcs` no longer splits the row, and the inner quotes in
+`Coffee "Arabica" 250g` are doubled. The [`csv`](masks-and-case.md#top) and
+[`sql`](masks-and-case.md#top) escaping filters, and building whole CSV/JSON/SQL files,
+are covered in [Masks & case](masks-and-case.md#top) and
+[Output formats](output-formats.md#top).
+
+## Where files are found
+
+`src="@data/…"` is looked up in the folders passed with `--data-path`; a bare
+`src="names.txt"` is looked up next to the config; `pkg:` package paths and absolute
+paths work too. Files are read as UTF-8, and a path that doesn't resolve stops
+rendering with an error instead of silently producing nothing. The full resolution
+table is on the [File generator](../generators/file.md#top) page.
+
+## See also
+
+- **[File generator](../generators/file.md#top)** — every attribute in exhaustive detail.
+- **[Coherent & relational data](coherent-data.md#top)** — linking related fields and
+  weighted rows.
+- **[Masks & case](masks-and-case.md#top)** — the `csv` / `sql` escaping filters and
+  `order="sequential"`.
+- **[Output formats](output-formats.md#top)** — building the CSV/JSON/SQL around your data.
+
+---
+
+← Previous: [No repeats within a row](./distinct.md#top) · **[Contents](../README.md#top)** · Next: [Output formats (CSV, JSON, SQL…)](./output-formats.md#top) →

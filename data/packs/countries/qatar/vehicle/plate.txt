@@ -1,0 +1,7 @@
+---
+address: qatar.vehicle.plate
+description: Qatari licence plate — up to six digits. Structural.
+generator: tdc
+locale: ar
+---
+<gen type="regex" value="[0-9]{5,6}"/>

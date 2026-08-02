@@ -1,0 +1,12 @@
+---
+description: Annual household income bracket, labelled in Portuguese. Amounts are in USD because no single currency is shared across the Portuguese-speaking world; for local currency use a country pack.
+locale: pt
+---
+Menos de 10 000 USD
+10 000–20 000 USD
+20 000–35 000 USD
+35 000–50 000 USD
+50 000–75 000 USD
+75 000–100 000 USD
+100 000–150 000 USD
+Mais de 150 000 USD

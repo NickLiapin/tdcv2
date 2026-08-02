@@ -1,0 +1,59 @@
+---
+description: Business buzz verb (Polish, infinitive)
+locale: pl
+---
+wykorzystywać
+optymalizować
+usprawniać
+orkiestrować
+wzmacniać
+umożliwiać
+skalować
+transformować
+przełamywać schematy
+wprowadzać innowacje
+iterować
+integrować
+wdrażać
+odblokowywać
+przyspieszać
+zwielokrotniać
+projektować
+benchmarkować
+rozwijać
+napędzać
+ewoluować
+ułatwiać
+generować
+motywować
+monetyzować
+operacjonalizować
+redefiniować
+przewartościowywać
+rewolucjonizować
+przewodzić
+standaryzować
+migrować
+ujednolicać
+maksymalizować
+minimalizować
+konsolidować
+synergizować
+cyfryzować
+automatyzować
+zlecać na zewnątrz
+internalizować
+segmentować
+priorytetyzować
+dopasowywać
+artykułować
+kapitalizować
+dynamizować
+budować lojalność
+pozycjonować
+potęgować
+zwiększać rentowność
+systematyzować
+profesjonalizować
+uwidaczniać
+certyfikować

@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "cases": [
+    {
+      "name": "gen-loose-in-env",
+      "demonstrates": "TDC013",
+      "description": "A <gen> directly in <env> has no sequence to belong to",
+      "config": "<tdc><env count=\"2\" seed=\"s\"><gen type=\"text\" value=\"a,b\"/></env><block><line><data>x</data></line></block></tdc>",
+      "expected": ["error TDC013 1:29"]
+    },
+    {
+      "name": "gen-in-a-line",
+      "demonstrates": "TDC131",
+      "description": "A <gen> in a <line> — the block is formatting only",
+      "config": "<tdc><env count=\"2\" seed=\"s\"></env><block><line><gen type=\"text\" value=\"a,b\"/></line></block></tdc>",
+      "expected": ["error TDC131 1:48"]
+    },
+    {
+      "name": "switch-in-a-line",
+      "demonstrates": "TDC132",
+      "description": "A <switch> belongs in <env>, not in a line",
+      "config": "<tdc><env count=\"2\" seed=\"s\"></env><block><line><switch name=\"S\" on=\"G\"><map>a:1</map></switch></line></block></tdc>",
+      "expected": ["error TDC132 1:48"]
+    }
+  ]
+}

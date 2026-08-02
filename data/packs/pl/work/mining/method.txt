@@ -1,0 +1,12 @@
+---
+description: Mining method (Polish)
+locale: pl
+---
+Odkrywkowa
+Podziemna
+Pasowa
+Aluwialna
+Usuwanie wierzchowiny
+Szybowa
+Sztolniowa
+Ścianowa

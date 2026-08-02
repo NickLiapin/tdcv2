@@ -1,0 +1,35 @@
+---
+address: cuba.geo.streetNamed
+description: Bare Cuban street names (Havana thoroughfares and national figures); cuba.geo.streetName prepends a type
+locale: es
+---
+Malecón
+Obispo
+San Rafael
+Neptuno
+Galiano
+Reina
+Belascoaín
+Infanta
+Línea
+Prado
+Monte
+Egido
+Muralla
+Mercaderes
+Independencia
+Martí
+Maceo
+Céspedes
+Aguilera
+Enramadas
+Zanja
+Dragones
+Amistad
+Consulado
+Industria
+Aguacate
+Compostela
+Cuba
+Habana
+Lamparilla

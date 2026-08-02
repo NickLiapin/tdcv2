@@ -1,0 +1,7 @@
+---
+address: luxembourg.geo.postalCode
+description: Luxembourg postal code — 4 digits (typically written L-XXXX)
+generator: tdc
+locale: fr
+---
+<gen type="regex" value="[1-9][0-9]{3}"/>

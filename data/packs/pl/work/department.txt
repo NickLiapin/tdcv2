@@ -1,0 +1,26 @@
+---
+description: Company department / function (Polish)
+locale: pl
+---
+Inżynieria
+Produkt
+Projektowanie
+Sprzedaż
+Marketing
+Finanse
+Księgowość
+Zasoby ludzkie
+Operacje
+Obsługa prawna
+Obsługa klienta
+Technologie informacyjne
+Badania i rozwój
+Zakupy
+Kontrola jakości
+Logistyka
+Administracja
+Utrzymanie ruchu
+Bezpieczeństwo
+Zgodność
+Komunikacja
+Szkolenia

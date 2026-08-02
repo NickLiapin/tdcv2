@@ -1,0 +1,20 @@
+---
+description: Room type (Spanish)
+locale: es
+---
+Dormitorio
+Baño
+Cocina
+Sala de estar
+Comedor
+Oficina
+Sótano
+Ático
+Garaje
+Lavandería
+Habitación de huéspedes
+Despensa
+Vestíbulo
+Estudio
+Patio
+Terraza

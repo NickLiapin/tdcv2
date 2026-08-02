@@ -1,0 +1,33 @@
+---
+address: peru.sport.team
+description: Peruvian football club — the eighteen clubs of the Liga 1 2026 season followed by historic first-division clubs now playing in the Liga 2
+locale: es
+---
+Universitario de Deportes
+Alianza Lima
+Sporting Cristal
+Cusco FC
+FBC Melgar
+Cienciano
+Deportivo Garcilaso
+Alianza Atlético
+Sport Huancayo
+Atlético Grau
+Los Chankas
+ADT de Tarma
+Comerciantes Unidos
+Sport Boys
+UTC de Cajamarca
+Juan Pablo II College
+FC Cajamarca
+Deportivo Moquegua
+Deportivo Municipal
+Carlos A. Mannucci
+Unión Comercio
+Juan Aurich
+Alianza Universidad
+León de Huánuco
+Sport Áncash
+Deportivo Binacional
+Academia Cantolao
+Club Universidad San Martín

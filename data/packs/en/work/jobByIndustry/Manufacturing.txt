@@ -1,0 +1,10 @@
+---
+description: Jobs in Manufacturing
+locale: en
+---
+Machinist
+Welder
+Quality Inspector
+Production Supervisor
+Assembler
+Millwright

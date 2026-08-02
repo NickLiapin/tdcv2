@@ -1,0 +1,7 @@
+---
+address: liechtenstein.vehicle.plate
+description: Liechtenstein vehicle plate — the country code FL followed by up to five digits.
+generator: tdc
+locale: de
+---
+<gen type="regex" value="FL [1-9][0-9]{1,4}"/>

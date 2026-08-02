@@ -1,0 +1,33 @@
+---
+address: colombia.finance.bankCode
+description: Código de compensación of the entity (Banco de la República CEDEC/CENIT, the same number ACH Colombia uses), written 3 digits; same order as colombia.finance.bank
+---
+001
+002
+006
+007
+009
+012
+013
+019
+023
+032
+040
+047
+051
+052
+053
+058
+059
+060
+061
+062
+063
+065
+066
+067
+069
+070
+073
+507
+551

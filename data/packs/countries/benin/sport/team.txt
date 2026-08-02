@@ -1,0 +1,17 @@
+---
+address: benin.sport.team
+description: Beninese first-division football clubs
+locale: fr
+---
+Buffles du Borgou
+ASVO Cotonou
+Dragons de l'Ouémé
+Requins de l'Atlantique
+AS Cotonou
+Coton FC d'Ouidah
+Béké FC
+Dadjè FC
+Loto-Popo FC
+Ayéma FC
+Énergie FC
+JS Pobè

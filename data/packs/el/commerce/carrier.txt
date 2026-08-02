@@ -1,0 +1,18 @@
+---
+description: Parcel carriers commonly used in Greece, including the national post and the main domestic couriers
+locale: el
+---
+ΕΛΤΑ
+ΕΛΤΑ Courier
+ACS Courier
+Γενική Ταχυδρομική
+Speedex
+Courier Center
+Box Now
+Skroutz Last Mile
+DHL
+UPS
+FedEx
+TNT
+GLS
+DPD

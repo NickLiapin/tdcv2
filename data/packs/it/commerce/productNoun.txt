@@ -1,0 +1,146 @@
+---
+description: Product noun (Italian). Grammatical gender varies, so compose adjectives carefully.
+locale: it
+---
+Sedia
+Tavolo
+Scrivania
+Divano
+Poltrona
+Libreria
+Armadio
+Cassettiera
+Materasso
+Cuscino
+Coperta
+Lenzuola
+Asciugamani
+Tende
+Tappeto
+Specchio
+Lampada
+Orologio
+Vaso
+Quadro
+Fioriera
+Computer
+Computer desktop
+Portatile
+Tablet
+Telefono
+Tastiera
+Mouse
+Monitor
+Stampante
+Fotocamera
+Cuffie
+Altoparlante
+Caricabatterie
+Batteria
+Cavo
+Adattatore
+Disco rigido
+Chiavetta USB
+Router
+Televisore
+Console
+Telecomando
+Bicicletta
+Monopattino
+Casco
+Pallone
+Racchetta
+Guanti
+Zaino
+Valigia
+Borsa
+Portafoglio
+Cintura
+Berretto
+Cappello
+Sciarpa
+Camicia
+Maglietta
+Pantaloni
+Jeans
+Gonna
+Vestito
+Giacca
+Cappotto
+Maglione
+Felpa
+Calzini
+Scarpe
+Scarpe da ginnastica
+Stivali
+Sandali
+Occhiali da sole
+Ombrello
+Orologio da polso
+Collana
+Bracciale
+Anello
+Orecchini
+Profumo
+Sapone
+Shampoo
+Crema
+Spazzola
+Asciugacapelli
+Rasoio
+Thermos
+Bottiglia
+Tazza
+Bicchiere
+Piatto
+Coltello
+Forchetta
+Cucchiaio
+Padella
+Pentola
+Tagliere
+Frullatore
+Centrifuga
+Macchina da caffè
+Tostapane
+Bollitore
+Forno a microonde
+Frigorifero
+Lavatrice
+Aspirapolvere
+Ventilatore
+Stufa
+Ferro da stiro
+Cesto
+Scatola
+Tenda da campeggio
+Sacco a pelo
+Torcia
+Martello
+Cacciavite
+Trapano
+Chiave inglese
+Scala
+Tubo da giardino
+Annaffiatoio
+Tosaerba
+Formaggio
+Pane
+Olio
+Caffè
+Tè
+Cioccolato
+Miele
+Riso
+Pasta
+Pizza
+Insalata
+Biscotti
+Succo di frutta
+Vino
+Birra
+Quaderno
+Penna
+Matita
+Zaino scolastico
+Calcolatrice

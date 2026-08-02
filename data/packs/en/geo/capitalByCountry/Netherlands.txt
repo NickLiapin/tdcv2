@@ -1,0 +1,5 @@
+---
+description: Capital of Netherlands
+locale: en
+---
+Amsterdam

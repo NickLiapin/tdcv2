@@ -1,0 +1,6 @@
+---
+address: bolivia.phone
+description: Bolivia mobile phone in E.164 form (+591 followed by 8 digits) — every Bolivian mobile number is eight digits and begins with 6 or 7
+generator: tdc
+---
+<gen type="regex" value="\+591[67][0-9]{7}"/>

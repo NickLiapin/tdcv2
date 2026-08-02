@@ -1,0 +1,14 @@
+---
+description: Conditions markedly more frequent in people of East Asian ancestry. A prevalence signal, not an exclusive one.
+locale: en
+---
+Alpha-Thalassemia
+Aldehyde Dehydrogenase 2 Deficiency
+Lactase Non-Persistence
+Nasopharyngeal Carcinoma
+Gastric Cancer
+Primary Angle-Closure Glaucoma
+Kawasaki Disease
+Moyamoya Disease
+Carbamazepine Hypersensitivity
+Pathological Myopia

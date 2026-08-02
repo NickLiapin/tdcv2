@@ -1,0 +1,10 @@
+---
+description: Diagnoses seen in Cardiology
+locale: en
+---
+Hypertension
+Coronary Artery Disease
+Atrial Fibrillation
+Congestive Heart Failure
+Myocardial Infarction
+Hyperlipidemia

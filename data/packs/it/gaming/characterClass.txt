@@ -1,0 +1,28 @@
+---
+description: RPG character class (Italian)
+locale: it
+---
+Guerriero
+Mago
+Ladro
+Paladino
+Cacciatore
+Sacerdote
+Stregone
+Druido
+Monaco
+Sciamano
+Cavaliere della Morte
+Cacciatore di demoni
+Barbaro
+Negromante
+Bardo
+Assassino
+Chierico
+Incantatore
+Ranger
+Templare
+Berserker
+Evocatore
+Alchimista
+Ingegnere

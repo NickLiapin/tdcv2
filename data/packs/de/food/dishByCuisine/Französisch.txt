@@ -1,0 +1,16 @@
+---
+description: Dishes of French cuisine (German)
+locale: de
+---
+Coq au vin
+Boeuf Bourguignon
+Ratatouille
+Croissant
+Quiche Lorraine
+Bouillabaisse
+Crêpes
+Cassoulet
+Zwiebelsuppe
+Crème brûlée
+Tarte Tatin
+Croque Monsieur

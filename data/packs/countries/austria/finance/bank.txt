@@ -1,0 +1,19 @@
+---
+address: austria.finance.bank
+description: Major banks of Austria (German names)
+locale: de
+---
+Erste Bank
+Raiffeisen Bank International
+Bank Austria
+BAWAG P.S.K.
+Oberbank
+Hypo Vorarlberg
+Volksbank Wien
+Sparkasse Oberösterreich
+Steiermärkische Sparkasse
+Raiffeisenlandesbank Niederösterreich-Wien
+Bank für Tirol und Vorarlberg
+Kärntner Sparkasse
+Addiko Bank
+Bank99

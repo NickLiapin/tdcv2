@@ -1,0 +1,6 @@
+---
+address: comoros.phone
+description: Comorian mobile phone in E.164 form (+269 3XXXXXX)
+generator: tdc
+---
+<gen type="regex" value="\+2693[0-9]{6}"/>

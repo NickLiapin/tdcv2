@@ -1,0 +1,10 @@
+---
+address: mauritania.education.university
+description: Universities of Mauritania (Arabic)
+locale: ar
+---
+جامعة نواكشوط العصرية
+جامعة العلوم الإسلامية بلعيون
+المعهد العالي للدراسات والبحوث الإسلامية
+المدرسة العليا متعددة التقنيات
+المعهد العالي للمحاسبة وإدارة المؤسسات

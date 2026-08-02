@@ -1,0 +1,9 @@
+---
+description: Positions in Basketball (Arabic)
+locale: ar
+---
+صانع ألعاب
+حارس هجومي
+جناح صغير
+جناح قوي
+محور

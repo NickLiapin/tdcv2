@@ -1,0 +1,20 @@
+---
+description: Horse breed (German)
+locale: de
+---
+Araber
+Englisches Vollblut
+Mustang
+Clydesdale
+Appaloosa
+Quarter Horse
+Friese
+Shire Horse
+Andalusier
+Morgan
+Palomino
+Percheron
+Shetlandpony
+Lusitano
+Criollo
+Haflinger

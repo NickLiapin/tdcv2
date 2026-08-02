@@ -1,0 +1,58 @@
+---
+description: Colour as written on a Spanish product listing (masculine singular, noun-modifier forms kept invariable)
+locale: es
+---
+Negro
+Blanco
+Gris
+Gris grafito
+Gris perla
+Plata
+Dorado
+Bronce
+Cobre
+Rojo
+Rojo burdeos
+Granate
+Vino
+Coral
+Rosa
+Rosa palo
+Fucsia
+Magenta
+Naranja
+Terracota
+Salmón
+Amarillo
+Mostaza
+Oro viejo
+Verde
+Verde oliva
+Verde menta
+Verde esmeralda
+Verde militar
+Turquesa
+Azul
+Azul marino
+Azul cielo
+Azul petróleo
+Celeste
+Índigo
+Morado
+Violeta
+Lila
+Lavanda
+Marrón
+Chocolate
+Camel
+Beige
+Crema
+Marfil
+Arena
+Taupe
+Antracita
+Transparente
+Multicolor
+Estampado
+Bicolor
+Natural

@@ -1,0 +1,35 @@
+---
+address: france.finance.bank
+description: Retail and commercial banks operating in France
+locale: fr
+---
+BNP Paribas
+Crédit Agricole
+Société Générale
+Groupe BPCE
+Banque Populaire
+Caisse d'Épargne
+Crédit Mutuel
+La Banque Postale
+LCL
+Crédit du Nord
+CIC
+HSBC France
+Boursorama Banque
+Hello bank!
+Fortuneo
+Monabanq
+BforBank
+ING
+AXA Banque
+Banque Palatine
+Crédit Coopératif
+Natixis
+Nickel
+Revolut
+N26
+Cetelem
+Cofidis
+Franfinance
+Oney
+Milleis Banque

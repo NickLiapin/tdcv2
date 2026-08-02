@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 356" width="680" height="356" font-family="system-ui, -apple-system, Segoe UI, Roboto, sans-serif">
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+<rect x="96" y="51" width="92" height="26" rx="6" fill="#e0662b" opacity="0.85"/>
+<text x="142.0" y="69.0" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">0</text>
+<path d="M194 64 C 248 64, 340 47, 392 47" fill="none" stroke="#94a3b8" stroke-width="1.4" opacity="0.75" marker-end="url(#a)"/>
+<rect x="400" y="34" width="92" height="26" rx="6" fill="#2f9e63" opacity="0.85"/>
+<text x="446.0" y="52.0" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">728</text>
+<text x="504.0" y="52.0" text-anchor="start" font-size="12" font-weight="700" fill="#e0662b">0</text>
+<path d="M194 64 C 248 64, 340 81, 392 81" fill="none" stroke="#94a3b8" stroke-width="1.4" opacity="0.75" marker-end="url(#a)"/>
+<rect x="400" y="68" width="92" height="26" rx="6" fill="#2f9e63" opacity="0.85"/>
+<text x="446.0" y="86.0" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">521</text>
+<text x="504.0" y="86.0" text-anchor="start" font-size="12" font-weight="700" fill="#e0662b">0</text>
+<rect x="96" y="112" width="92" height="26" rx="6" fill="#e0662b" opacity="0.85"/>
+<text x="142.0" y="130.0" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">1</text>
+<path d="M194 125 C 248 125, 340 125, 392 125" fill="none" stroke="#94a3b8" stroke-width="1.4" opacity="0.75" marker-end="url(#a)"/>
+<rect x="400" y="112" width="92" height="26" rx="6" fill="#2f9e63" opacity="0.85"/>
+<text x="446.0" y="130.0" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">912</text>
+<text x="504.0" y="130.0" text-anchor="start" font-size="12" font-weight="700" fill="#e0662b">1</text>
+<rect x="96" y="173" width="92" height="26" rx="6" fill="#e0662b" opacity="0.85"/>
+<text x="142.0" y="191.0" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">2</text>
+<path d="M194 186 C 248 186, 340 169, 392 169" fill="none" stroke="#94a3b8" stroke-width="1.4" opacity="0.75" marker-end="url(#a)"/>
+<rect x="400" y="156" width="92" height="26" rx="6" fill="#2f9e63" opacity="0.85"/>
+<text x="446.0" y="174.0" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">390</text>
+<text x="504.0" y="174.0" text-anchor="start" font-size="12" font-weight="700" fill="#e0662b">2</text>
+<path d="M194 186 C 248 186, 340 203, 392 203" fill="none" stroke="#94a3b8" stroke-width="1.4" opacity="0.75" marker-end="url(#a)"/>
+<rect x="400" y="190" width="92" height="26" rx="6" fill="#2f9e63" opacity="0.85"/>
+<text x="446.0" y="208.0" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">840</text>
+<text x="504.0" y="208.0" text-anchor="start" font-size="12" font-weight="700" fill="#e0662b">2</text>
+<rect x="96" y="268" width="92" height="26" rx="6" fill="#e0662b" opacity="0.85"/>
+<text x="142.0" y="286.0" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">3</text>
+<path d="M194 281 C 248 281, 340 247, 392 247" fill="none" stroke="#94a3b8" stroke-width="1.4" opacity="0.75" marker-end="url(#a)"/>
+<rect x="400" y="234" width="92" height="26" rx="6" fill="#2f9e63" opacity="0.85"/>
+<text x="446.0" y="252.0" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">939</text>
+<text x="504.0" y="252.0" text-anchor="start" font-size="12" font-weight="700" fill="#e0662b">3</text>
+<path d="M194 281 C 248 281, 340 281, 392 281" fill="none" stroke="#94a3b8" stroke-width="1.4" opacity="0.75" marker-end="url(#a)"/>
+<rect x="400" y="268" width="92" height="26" rx="6" fill="#2f9e63" opacity="0.85"/>
+<text x="446.0" y="286.0" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">399</text>
+<text x="504.0" y="286.0" text-anchor="start" font-size="12" font-weight="700" fill="#e0662b">3</text>
+<path d="M194 281 C 248 281, 340 315, 392 315" fill="none" stroke="#94a3b8" stroke-width="1.4" opacity="0.75" marker-end="url(#a)"/>
+<rect x="400" y="302" width="92" height="26" rx="6" fill="#2f9e63" opacity="0.85"/>
+<text x="446.0" y="320.0" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">633</text>
+<text x="504.0" y="320.0" text-anchor="start" font-size="12" font-weight="700" fill="#e0662b">3</text>
+<circle cx="70.0" cy="47.0" r="9.5" fill="#3b82f6"/><text x="70.0" y="51.0" text-anchor="middle" font-size="12" font-weight="700" fill="#ffffff">A</text>
+<circle cx="374.0" cy="47.0" r="9.5" fill="#3b82f6"/><text x="374.0" y="51.0" text-anchor="middle" font-size="12" font-weight="700" fill="#ffffff">B</text>
+</svg>

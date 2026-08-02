@@ -1,0 +1,20 @@
+---
+address: finland.holiday
+description: Public holidays in Finland (Finnish names)
+locale: fi
+---
+Uudenvuodenpäivä
+Loppiainen
+Pitkäperjantai
+Pääsiäispäivä
+Toinen pääsiäispäivä
+Vappu
+Helatorstai
+Helluntaipäivä
+Juhannusaatto
+Juhannuspäivä
+Pyhäinpäivä
+Itsenäisyyspäivä
+Jouluaatto
+Joulupäivä
+Tapaninpäivä

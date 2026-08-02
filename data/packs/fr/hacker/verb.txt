@@ -1,0 +1,22 @@
+---
+description: Tech verb, infinitive (French)
+locale: fr
+---
+sauvegarder
+contourner
+pirater
+compiler
+chiffrer
+déchiffrer
+indexer
+analyser
+router
+synchroniser
+redémarrer
+déployer
+réinitialiser
+surcharger
+intercepter
+transférer
+programmer
+déboguer

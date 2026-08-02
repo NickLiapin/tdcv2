@@ -1,0 +1,20 @@
+---
+address: macau.holiday
+description: Public holidays in Macau (Portuguese names) — a mix of Chinese festivals, Catholic feasts and civic days
+locale: pt
+---
+Ano Novo
+Ano Novo Chinês
+Dia de Ching Ming
+Sexta-feira Santa
+Dia do Trabalhador
+Dia do Aniversário de Buda
+Festival do Barco-Dragão
+Festival do Meio-Outono
+Dia Nacional da República Popular da China
+Dia de Chong Yeung
+Dia de Finados
+Imaculada Conceição
+Dia do Solstício de Inverno
+Natal
+Dia do Estabelecimento da Região Administrativa Especial de Macau

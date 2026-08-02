@@ -1,0 +1,7 @@
+---
+address: palestine.docs.idNumber
+description: Palestinian ID number (رقم الهوية) — 9 digits. Structural; no public check digit.
+generator: tdc
+locale: ar
+---
+<gen type="regex" value="[0-9]{9}"/>

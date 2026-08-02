@@ -1,0 +1,16 @@
+---
+description: Genetic ancestry group in Arabic, used as the parent of diagnosisByAncestry. These are ancestry populations as clinical genetics defines them — geographic descent, not social race categories.
+locale: ar
+---
+أفريقيا جنوب الصحراء
+شمال أفريقيا
+البحر الأبيض المتوسط
+الشرق الأوسط
+شمال أوروبا
+شرق أوروبا
+اليهود الأشكناز
+جنوب آسيا
+شرق آسيا
+جنوب شرق آسيا
+الشعوب الأصلية في الأمريكتين
+جزر المحيط الهادئ

@@ -1,0 +1,9 @@
+---
+description: Personal pronoun (Russian)
+---
+он
+она
+они
+он/его
+она/её
+они/их

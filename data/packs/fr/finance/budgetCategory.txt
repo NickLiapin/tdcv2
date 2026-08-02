@@ -1,0 +1,26 @@
+---
+description: Budget / spending category (French)
+locale: fr
+---
+Loyer
+Crédit immobilier
+Alimentation
+Transport
+Carburant
+Énergie
+Électricité
+Eau
+Internet
+Téléphone
+Assurance
+Santé
+Loisirs
+Vêtements
+Éducation
+Épargne
+Impôts
+Restaurant
+Voyages
+Abonnements
+Entretien
+Divers

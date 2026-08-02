@@ -1,0 +1,34 @@
+---
+description: Hashtag word in German (prefix with # in a template)
+locale: de
+---
+Liebe
+Glück
+Schönheit
+Mode
+Natur
+Kunst
+Reisen
+Essen
+Sport
+Motivation
+Stil
+Sonnenuntergang
+Trend
+Alltag
+Familie
+Sommer
+Fitness
+Leben
+Inspiration
+Erinnerungen
+Fotografie
+Musik
+Wohlbefinden
+Freundschaft
+Sonntag
+Kaffee
+Katzen
+Hunde
+Lesen
+Freitag

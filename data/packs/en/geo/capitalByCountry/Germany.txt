@@ -1,0 +1,5 @@
+---
+description: Capital of Germany
+locale: en
+---
+Berlin

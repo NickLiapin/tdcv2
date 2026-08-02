@@ -1,0 +1,16 @@
+---
+description: Zodiac sign (German)
+locale: de
+---
+Widder
+Stier
+Zwillinge
+Krebs
+Löwe
+Jungfrau
+Waage
+Skorpion
+Schütze
+Steinbock
+Wassermann
+Fische

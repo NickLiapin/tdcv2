@@ -1,0 +1,30 @@
+---
+description: Medical diagnoses in German (male-specific + common)
+locale: de
+---
+Varikozele
+Kryptorchismus
+Phimose
+Prostatitis
+Benigne Prostatahyperplasie
+Hydrozele
+Orchitis
+Epididymitis
+Prostatakrebs
+Hodenkrebs
+Chronische Pankreatitis
+Chlamydieninfektion
+Chronische Arthritis
+Chronische Gastritis
+Arterielle Hypertonie
+Diabetes mellitus Typ 2
+Asthma bronchiale
+Chronische Bronchitis
+Migräne
+Eisenmangelanämie
+Hypothyreose
+Nierensteine
+Leistenbruch
+Rektumkarzinom
+Zentralarterienverschluss der Netzhaut
+Chronische Rhinosinusitis

@@ -1,0 +1,18 @@
+---
+description: Insurance type (Portuguese)
+locale: pt
+---
+Saúde
+Automóvel
+Habitação
+Vida
+Inquilino
+Viagem
+Animais de estimação
+Invalidez
+Dentário
+Visão
+Responsabilidade civil
+Acidentes pessoais
+Desemprego
+Agrícola

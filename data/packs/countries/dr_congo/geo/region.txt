@@ -1,0 +1,31 @@
+---
+address: dr_congo.geo.region
+description: Provinces of the Democratic Republic of the Congo
+locale: fr
+---
+Kinshasa
+Kongo-Central
+Kwango
+Kwilu
+Mai-Ndombe
+Kasaï
+Kasaï-Central
+Kasaï-Oriental
+Lomami
+Sankuru
+Maniema
+Sud-Kivu
+Nord-Kivu
+Ituri
+Haut-Uélé
+Bas-Uélé
+Tshopo
+Mongala
+Nord-Ubangi
+Sud-Ubangi
+Équateur
+Tshuapa
+Tanganyika
+Haut-Lomami
+Lualaba
+Haut-Katanga

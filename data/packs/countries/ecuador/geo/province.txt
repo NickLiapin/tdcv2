@@ -1,0 +1,29 @@
+---
+address: ecuador.geo.province
+description: Ecuadorian province — the 24 provincias in official code order (01 Azuay … 24 Santa Elena); same order as ecuador.geo.provinceCode / provinceIso / provinceCapital
+locale: es
+---
+Azuay
+Bolívar
+Cañar
+Carchi
+Cotopaxi
+Chimborazo
+El Oro
+Esmeraldas
+Guayas
+Imbabura
+Loja
+Los Ríos
+Manabí
+Morona Santiago
+Napo
+Pastaza
+Pichincha
+Tungurahua
+Zamora Chinchipe
+Galápagos
+Sucumbíos
+Orellana
+Santo Domingo de los Tsáchilas
+Santa Elena

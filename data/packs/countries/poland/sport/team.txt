@@ -1,0 +1,29 @@
+---
+address: poland.sport.team
+description: Ekstraklasa and I liga football clubs (Polish names)
+locale: pl
+---
+Legia Warszawa
+Lech Poznań
+Wisła Kraków
+Cracovia
+Górnik Zabrze
+Śląsk Wrocław
+Pogoń Szczecin
+Jagiellonia Białystok
+Raków Częstochowa
+Piast Gliwice
+Zagłębie Lubin
+Widzew Łódź
+Korona Kielce
+Motor Lublin
+Radomiak Radom
+Stal Mielec
+Puszcza Niepołomice
+GKS Katowice
+Arka Gdynia
+Ruch Chorzów
+Lechia Gdańsk
+Odra Opole
+Wisła Płock
+Bruk-Bet Termalica

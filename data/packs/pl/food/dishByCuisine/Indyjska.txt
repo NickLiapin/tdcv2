@@ -1,0 +1,12 @@
+---
+description: Dishes of Indian cuisine (Polish)
+locale: pl
+---
+Kurczak maślany
+Biryani
+Tikka masala
+Samosa
+Dal makhani
+Chlebek naan
+Palak paneer
+Rogan josh

@@ -1,0 +1,21 @@
+---
+description: Bicycle type (Spanish)
+locale: es
+---
+Bicicleta de carretera
+Bicicleta de montaña
+Bicicleta híbrida
+Bicicleta de paseo
+Bicicleta de gravel
+Bicicleta BMX
+Bicicleta eléctrica
+Bicicleta plegable
+Bicicleta de cicloturismo
+Bicicleta de ciclocrós
+Bicicleta de pista
+Bicicleta reclinada
+Bicicleta de carga
+Bicicleta de descenso
+Bicicleta infantil
+Triciclo
+Tándem

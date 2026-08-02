@@ -1,0 +1,13 @@
+---
+address: oman.holiday
+description: Public holidays in Oman (Arabic)
+locale: ar
+---
+رأس السنة الميلادية
+العيد الوطني
+يوم النهضة
+الإسراء والمعراج
+عيد الفطر
+عيد الأضحى
+رأس السنة الهجرية
+المولد النبوي

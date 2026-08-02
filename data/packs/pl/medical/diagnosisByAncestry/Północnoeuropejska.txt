@@ -1,0 +1,14 @@
+---
+description: Conditions markedly more frequent in people of Northern European ancestry, in Polish. A prevalence signal, not an exclusive one.
+locale: pl
+---
+Mukowiscydoza
+Hemochromatoza dziedziczna
+Niedobór alfa-1-antytrypsyny
+Fenyloketonuria
+Celiakia
+Stwardnienie rozsiane
+Cukrzyca typu 1
+Przykurcz Dupuytrena
+Rak podstawnokomórkowy skóry
+Przetrwała aktywność laktazy

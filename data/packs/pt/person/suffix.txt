@@ -1,0 +1,28 @@
+---
+description: Name / academic suffix (Portuguese)
+locale: pt
+---
+Jr.
+Júnior
+Filho
+Neto
+Pai
+II
+III
+IV
+V
+Ph.D.
+M.Sc.
+MBA
+Dr.
+Dra.
+Eng.
+Arq.
+Adv.
+Vet.
+Enf.
+Farm.
+Psic.
+Odont.
+Nut.
+Econ.

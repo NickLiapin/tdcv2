@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Orthopaedics (German)
+locale: de
+---
+Arthrose
+Rheumatoide Arthritis
+Bandscheibenvorfall
+Karpaltunnelsyndrom
+Ischias
+Rotatorenmanschettenriss
+Kreuzbandriss
+Meniskusriss
+Schulterimpingement
+Fersensporn

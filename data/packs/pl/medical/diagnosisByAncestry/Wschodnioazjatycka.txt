@@ -1,0 +1,14 @@
+---
+description: Conditions markedly more frequent in people of East Asian ancestry, in Polish. A prevalence signal, not an exclusive one.
+locale: pl
+---
+Alfa-talasemia
+Niedobór dehydrogenazy aldehydowej 2
+Hipolaktazja typu dorosłych
+Rak nosogardła
+Rak żołądka
+Jaskra pierwotna zamkniętego kąta
+Choroba Kawasakiego
+Choroba moyamoya
+Nadwrażliwość na karbamazepinę
+Krótkowzroczność patologiczna

@@ -1,0 +1,13 @@
+---
+address: new_zealand.geo.island
+description: New Zealand island — the two main islands and the largest named offshore islands
+locale: en
+---
+North Island
+South Island
+Stewart Island
+Waiheke Island
+Great Barrier Island
+Chatham Island
+D'Urville Island
+Kawau Island

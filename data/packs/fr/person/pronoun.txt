@@ -1,0 +1,10 @@
+---
+description: Personal pronoun set (French)
+locale: fr
+---
+il
+elle
+iel
+il/lui
+elle/elle
+iel/ellui

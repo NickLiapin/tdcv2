@@ -1,0 +1,23 @@
+---
+description: Mined mineral / commodity (Italian)
+locale: it
+---
+Carbone
+Rame
+Oro
+Argento
+Minerale di ferro
+Zinco
+Piombo
+Bauxite
+Calcare
+Nichel
+Uranio
+Potassa
+Fosfato
+Litio
+Cobalto
+Gesso
+Sale
+Stagno
+Molibdeno

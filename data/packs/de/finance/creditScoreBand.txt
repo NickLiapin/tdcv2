@@ -1,0 +1,9 @@
+---
+description: Credit score band (German)
+locale: de
+---
+Schlecht
+Ausreichend
+Gut
+Sehr gut
+Ausgezeichnet

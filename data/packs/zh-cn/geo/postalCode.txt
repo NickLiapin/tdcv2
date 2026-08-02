@@ -1,0 +1,7 @@
+---
+address: zh-cn.geo.postalCode
+description: Chinese 6-digit postal code (structural — the assigned per-area ranges are not fully modelled)
+generator: tdc
+locale: zh-cn
+---
+<gen type="regex" value="[1-8][0-9]{5}"/>

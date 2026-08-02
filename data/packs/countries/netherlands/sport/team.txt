@@ -1,0 +1,25 @@
+---
+address: netherlands.sport.team
+description: Eredivisie football clubs (Dutch names)
+locale: nl
+---
+Ajax
+PSV
+Feyenoord
+AZ
+FC Twente
+FC Utrecht
+Vitesse
+SC Heerenveen
+FC Groningen
+NEC
+Sparta Rotterdam
+Go Ahead Eagles
+Fortuna Sittard
+PEC Zwolle
+Willem II
+RKC Waalwijk
+Heracles Almelo
+NAC Breda
+Excelsior
+Almere City

@@ -1,0 +1,11 @@
+---
+address: madagascar.geo.region
+description: Former provinces of Madagascar
+locale: fr
+---
+Antananarivo
+Antsiranana
+Fianarantsoa
+Mahajanga
+Toamasina
+Toliara

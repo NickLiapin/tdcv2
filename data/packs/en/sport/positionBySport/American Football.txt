@@ -1,0 +1,10 @@
+---
+description: Positions in American Football
+locale: en
+---
+Quarterback
+Running Back
+Wide Receiver
+Tight End
+Linebacker
+Cornerback

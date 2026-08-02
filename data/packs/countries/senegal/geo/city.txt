@@ -1,0 +1,31 @@
+---
+address: senegal.geo.city
+description: Cities and larger towns of Senegal
+locale: fr
+---
+Dakar
+Touba
+Thiès
+Rufisque
+Kaolack
+Mbour
+Saint-Louis
+Ziguinchor
+Diourbel
+Louga
+Tambacounda
+Mbacké
+Kolda
+Richard-Toll
+Joal-Fadiouth
+Tivaouane
+Dahra
+Bignona
+Kaffrine
+Fatick
+Matam
+Kédougou
+Sédhiou
+Pikine
+Guédiawaye
+Bargny

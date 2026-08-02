@@ -1,0 +1,7 @@
+---
+address: cuba.phone
+description: Cuban mobile phone in E.164 form (+53 5XXXXXXX — ETECSA mobile prefix 5)
+generator: tdc
+locale: es
+---
+<gen type="regex" value="\+535[0-9]{7}"/>

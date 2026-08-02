@@ -1,0 +1,32 @@
+---
+description: Tech adjective (German)
+locale: de
+---
+digital
+virtuell
+primär
+sekundär
+redundant
+drahtlos
+optisch
+neuronal
+haptisch
+plattformübergreifend
+verteilt
+verschlüsselt
+entfernt
+mobil
+integriert
+skalierbar
+asynchron
+bidirektional
+quelloffen
+modular
+ausfallsicher
+echtzeitfähig
+hochverfügbar
+adaptiv
+autonom
+vernetzt
+cloudbasiert
+leistungsstark

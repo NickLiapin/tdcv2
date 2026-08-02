@@ -1,0 +1,13 @@
+---
+description: Dishes of Italian cuisine (Spanish)
+locale: es
+---
+Pizza margarita
+Espaguetis a la carbonara
+Lasaña
+Risotto
+Osobuco
+Tiramisú
+Ñoquis
+Minestrone
+Fetuchini alfredo

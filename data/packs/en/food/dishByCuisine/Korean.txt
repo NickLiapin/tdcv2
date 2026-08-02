@@ -1,0 +1,11 @@
+---
+description: Dishes of Korean cuisine
+locale: en
+---
+Bibimbap
+Bulgogi
+Kimchi Stew
+Japchae
+Tteokbokki
+Korean Fried Chicken
+Galbi

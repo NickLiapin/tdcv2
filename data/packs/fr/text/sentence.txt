@@ -1,0 +1,14 @@
+---
+description: Filler sentence (original neutral French prose, no country-specific vocabulary)
+locale: fr
+---
+Le matin était calme et la ville dormait encore sous une brume légère.
+Il ouvrit la fenêtre et respira l'air froid du jour qui commençait.
+Le chemin se perdait au loin, entre les collines et les champs de blé.
+Elle posa son livre sur la table et regarda la pluie tomber.
+La lumière du soir glissait doucement sur les toits du quartier.
+Personne ne savait encore ce que cette journée allait apporter.
+Le train quitta la gare sans se presser et prit peu à peu de la vitesse.
+Un vieux chien traversa la rue vide avant de disparaître dans une cour.
+Les mots restaient là, suspendus, comme s'ils attendaient une réponse.
+Au bout du sentier, la mer apparut soudain, immense et grise.

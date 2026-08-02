@@ -1,0 +1,42 @@
+---
+description: Animal, general (Polish)
+locale: pl
+---
+Pies
+Kot
+Słoń
+Lew
+Tygrys
+Niedźwiedź
+Wilk
+Lis
+Jeleń
+Królik
+Koń
+Krowa
+Owca
+Koza
+Świnia
+Małpa
+Żyrafa
+Zebra
+Kangur
+Panda
+Koala
+Wydra
+Delfin
+Wieloryb
+Foka
+Jeż
+Wiewiórka
+Szop pracz
+Łoś
+Żubr
+Jaguar
+Lama
+Puma
+Wielbłąd
+Nosorożec
+Hipopotam
+Krokodyl
+Nietoperz

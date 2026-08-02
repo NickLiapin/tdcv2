@@ -1,0 +1,9 @@
+---
+address: equatorial_guinea.finance.accountType
+description: Bank account type as named on an Equatoguinean account (CEMAC / BEAC banking, in Spanish)
+locale: es
+---
+Cuenta Corriente
+Cuenta de Ahorro
+Cuenta a Plazo
+Cuenta en Divisas

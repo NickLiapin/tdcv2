@@ -1,0 +1,41 @@
+---
+description: Tech noun (Spanish)
+locale: es
+---
+controlador
+protocolo
+ancho de banda
+panel
+microchip
+programa
+puerto
+tarjeta
+matriz
+interfaz
+sistema
+sensor
+cortafuegos
+disco duro
+píxel
+alarma
+flujo de datos
+monitor
+aplicación
+transmisor
+bus
+circuito
+condensador
+base de datos
+canalización
+servidor
+enrutador
+conmutador
+memoria caché
+núcleo
+biblioteca
+complemento
+contenedor
+copia de seguridad
+red neuronal
+clave de cifrado
+paquete de red

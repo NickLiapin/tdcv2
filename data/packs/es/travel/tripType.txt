@@ -1,0 +1,24 @@
+---
+description: Trip type (Spanish)
+locale: es
+---
+Negocios
+Ocio
+Vacaciones familiares
+Luna de miel
+Aventura
+Viaje por carretera
+Crucero
+Mochilero
+Escapada urbana
+Vacaciones en la playa
+Viaje en grupo
+Viaje en solitario
+Turismo cultural
+Ecoturismo
+Peregrinación
+Viaje de estudios
+Turismo gastronómico
+Viaje de esquí
+Visita a familiares
+Congreso o feria

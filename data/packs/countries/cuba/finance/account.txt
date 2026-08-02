@@ -1,0 +1,7 @@
+---
+address: cuba.finance.account
+description: Cuban bank account number (structural — no public IBAN or national check-digit standard)
+generator: tdc
+locale: es
+---
+<gen type="regex" value="[0-9]{16}"/>

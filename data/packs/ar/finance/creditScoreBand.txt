@@ -1,0 +1,10 @@
+---
+description: Credit score band (Arabic)
+locale: ar
+---
+ضعيف
+مقبول
+متوسط
+جيد
+جيد جداً
+ممتاز

@@ -1,0 +1,106 @@
+---
+address: venezuela.geo.municipality
+description: Venezuelan municipio (second-level division); a curated set of real municipios drawn from every state
+locale: es
+---
+Libertador
+Sucre
+Baruta
+Chacao
+El Hatillo
+Guaicaipuro
+Plaza
+Zamora
+Cristóbal Rojas
+Los Salias
+Carrizal
+Paz Castillo
+Acevedo
+Brión
+Lander
+Independencia
+Maracaibo
+San Francisco
+Cabimas
+Lagunillas
+Mara
+Machiques de Perijá
+Jesús Enrique Lossada
+La Cañada de Urdaneta
+Rosario de Perijá
+Iribarren
+Palavecino
+Torres
+Morán
+Jiménez
+Crespo
+Girardot
+Mario Briceño Iragorry
+Santiago Mariño
+José Félix Ribas
+Francisco Linares Alcántara
+Valencia
+Puerto Cabello
+Naguanagua
+San Diego
+Los Guayos
+Guacara
+Carlos Arvelo
+Diego Ibarra
+Juan José Mora
+Caroní
+Heres
+Piar
+Sifontes
+Gran Sabana
+Sotillo
+Simón Rodríguez
+Freites
+Cárdenas
+Guásimos
+Junín
+Pedro María Ureña
+Córdoba
+Ayacucho
+Cedeño
+Acosta
+Caripe
+Bermúdez
+Arismendi
+Mariño
+Montes
+Ribero
+Carirubana
+Los Taques
+Colina
+Silva
+Pedraza
+Rojas
+Obispos
+Páez
+Esteller
+Ospino
+Turén
+Peña
+Cocorote
+Bruzual
+Infante
+Mellado
+Ribas
+Pampán
+Carache
+Motatán
+Campo Elías
+Alberto Adriani
+Rangel
+Maneiro
+Marcano
+Antolín del Campo
+Díaz
+Tubores
+Atures
+Autana
+Achaguas
+Biruaca
+Casacoima
+Antonio Díaz

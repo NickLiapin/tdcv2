@@ -1,0 +1,22 @@
+---
+description: Cat breed (Italian)
+locale: it
+---
+Persiano
+Maine Coon
+Siamese
+Ragdoll
+Bengala
+Sphynx
+British Shorthair
+Abissino
+Scottish Fold
+Norvegese delle foreste
+Blu di Russia
+Sacro di Birmania
+American Shorthair
+Devon Rex
+Burmese
+Angora turco
+Somalo
+Manx

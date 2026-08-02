@@ -1,0 +1,19 @@
+---
+address: qatar.geo.city
+description: Cities and towns of Qatar (Arabic)
+locale: ar
+---
+الدوحة
+الريان
+الوكرة
+أم صلال
+الخور
+دخان
+مسيعيد
+الشمال
+لوسيل
+الشيحانية
+الذخيرة
+الغويرية
+أم باب
+الجميلية

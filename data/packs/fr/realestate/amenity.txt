@@ -1,0 +1,28 @@
+---
+description: Property amenity / feature (French)
+locale: fr
+---
+Ascenseur
+Balcon
+Terrasse
+Jardin
+Piscine
+Garage
+Parking
+Cave
+Cheminée
+Climatisation
+Chauffage central
+Interphone
+Digicode
+Gardien
+Fibre optique
+Double vitrage
+Cuisine équipée
+Dressing
+Buanderie
+Local à vélos
+Vue mer
+Vue dégagée
+Exposition sud
+Alarme

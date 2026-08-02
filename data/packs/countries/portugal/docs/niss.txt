@@ -1,0 +1,21 @@
+---
+address: portugal.docs.niss
+description: Portuguese social security number (NISS / Número de Identificação de Segurança Social) — 11 digits: a leading 1 (person) or 2 (employer) + 9 digits + a weighted mod-10 check digit.
+generator: tdc
+locale: pt
+---
+<sequence name="first"><gen type="text" value="1,2"/></sequence>
+<sequence name="body"><gen type="regex" value="[0-9]{9}"/></sequence>
+<sequence name="niss"><compute>
+  <let name="base"><concat><field name="first"/><field name="body"/></concat></let>
+  <let name="sum"><reduce>
+    <over><var name="base"/></over>
+    <init><int v="0"/></init>
+    <do><add><acc/><multiply><current/>
+      <at><in><list v="29,23,19,17,13,11,7,5,3,2"/></in><index><current_index/></index></at>
+    </multiply></add></do>
+  </reduce></let>
+  <let name="check"><subtract><int v="9"/><mod><var name="sum"/><int v="10"/></mod></subtract></let>
+  <result><concat><field name="first"/><field name="body"/><var name="check"/></concat></result>
+</compute></sequence>
+<data>${{niss}}</data>

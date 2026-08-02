@@ -1,0 +1,30 @@
+---
+description: Medical diagnoses in Portuguese (male-specific + common)
+locale: pt
+---
+Varicocele
+Criptorquidia
+Fimose
+Adenoma da próstata
+Prostatite
+Hiperplasia prostática benigna
+Hidrocele
+Orquite
+Epididimite
+Cancro da próstata
+Cancro testicular
+Pancreatite crónica
+Clamídia
+Artrite crónica
+Gastrite crónica
+Hipertensão arterial
+Diabetes mellitus tipo 2
+Asma brônquica
+Bronquite crónica
+Enxaqueca
+Anemia ferropénica
+Hipotiroidismo
+Cálculos renais
+Hérnia inguinal
+Cancro do reto
+Embolia da artéria central da retina

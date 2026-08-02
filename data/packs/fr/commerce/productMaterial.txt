@@ -1,0 +1,54 @@
+---
+description: Product material (French)
+locale: fr
+---
+acier
+acier inoxydable
+fer
+aluminium
+cuivre
+laiton
+bronze
+zinc
+titane
+bois
+chêne
+hêtre
+noyer
+pin
+bambou
+rotin
+osier
+liège
+cuir
+similicuir
+daim
+coton
+lin
+laine
+soie
+cachemire
+velours
+polyester
+nylon
+polyamide
+élasthanne
+plastique
+polypropylène
+verre
+cristal
+céramique
+porcelaine
+faïence
+grès
+marbre
+granit
+ardoise
+béton
+silicone
+caoutchouc
+latex
+carbone
+fibre de verre
+feutre
+jute

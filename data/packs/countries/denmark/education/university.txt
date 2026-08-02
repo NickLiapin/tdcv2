@@ -1,0 +1,14 @@
+---
+address: denmark.education.university
+description: Universities and higher-education institutions of Denmark (Danish names)
+locale: da
+---
+Københavns Universitet
+Aarhus Universitet
+Syddansk Universitet
+Aalborg Universitet
+Danmarks Tekniske Universitet
+Roskilde Universitet
+Copenhagen Business School
+IT-Universitetet i København
+Det Kongelige Danske Kunstakademi

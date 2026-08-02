@@ -1,0 +1,29 @@
+---
+address: venezuela.geo.state
+description: Venezuelan federal entity (23 states + the Distrito Capital), alphabetical; La Guaira is the state formerly named Vargas
+locale: es
+---
+Amazonas
+Anzoátegui
+Apure
+Aragua
+Barinas
+Bolívar
+Carabobo
+Cojedes
+Delta Amacuro
+Distrito Capital
+Falcón
+Guárico
+La Guaira
+Lara
+Mérida
+Miranda
+Monagas
+Nueva Esparta
+Portuguesa
+Sucre
+Táchira
+Trujillo
+Yaracuy
+Zulia

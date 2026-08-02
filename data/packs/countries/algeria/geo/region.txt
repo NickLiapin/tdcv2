@@ -1,0 +1,25 @@
+---
+address: algeria.geo.region
+description: Selected provinces (wilayas) of Algeria (Arabic)
+locale: ar
+---
+الجزائر
+وهران
+قسنطينة
+عنابة
+البليدة
+سطيف
+باتنة
+تيزي وزو
+بجاية
+سيدي بلعباس
+بسكرة
+تلمسان
+ورقلة
+مستغانم
+تبسة
+الشلف
+الجلفة
+سكيكدة
+غرداية
+الأغواط

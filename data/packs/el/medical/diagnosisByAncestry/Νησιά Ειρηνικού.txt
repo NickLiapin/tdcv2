@@ -1,0 +1,10 @@
+---
+description: Conditions markedly more frequent in people of Pacific Islander ancestry, given in Greek. A prevalence signal, not an exclusive one.
+locale: el
+---
+Σακχαρώδης διαβήτης τύπου 2
+Υπέρταση σχετιζόμενη με την παχυσαρκία
+Ουρική αρθρίτιδα
+Ρευματική καρδιοπάθεια
+Χρόνια νεφρική νόσος
+Υπερουριχαιμία

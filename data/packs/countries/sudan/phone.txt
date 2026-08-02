@@ -1,0 +1,6 @@
+---
+address: sudan.phone
+description: Sudanese mobile phone in E.164 form (+249 9XXXXXXXX)
+generator: tdc
+---
+<gen type="regex" value="\+2499[0-9]{8}"/>

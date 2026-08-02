@@ -1,0 +1,5 @@
+---
+description: Currency of Ireland
+locale: en
+---
+Euro

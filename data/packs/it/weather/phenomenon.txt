@@ -1,0 +1,19 @@
+---
+description: Weather phenomenon (Italian)
+locale: it
+---
+Uragano
+Tornado
+Bufera di neve
+Ondata di caldo
+Ondata di freddo
+Alluvione
+Siccità
+Monsone
+Tempesta di sabbia
+Tempesta di ghiaccio
+Incendio boschivo
+Ciclone
+Gelata
+Grandinata
+Mareggiata

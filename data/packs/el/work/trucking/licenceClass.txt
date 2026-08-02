@@ -1,0 +1,11 @@
+---
+description: Driving licence category for trucks as issued in Greece (Β / Γ / Δ series plus the ΠΕΙ professional certificate)
+locale: el
+---
+Κατηγορία Β
+Κατηγορία ΒΕ
+Κατηγορία Γ1
+Κατηγορία Γ
+Κατηγορία ΓΕ
+Κατηγορία Δ
+ΠΕΙ

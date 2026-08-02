@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 278" width="680" height="278" font-family="system-ui, -apple-system, Segoe UI, Roboto, sans-serif">
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+<rect x="90" y="46" width="68" height="30" rx="6" fill="#e0662b" opacity="0.85"/><text x="124.0" y="66.0" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">C</text>
+<rect x="190" y="46" width="68" height="30" rx="6" fill="#2f9e63" opacity="0.85"/><text x="224.0" y="66.0" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">6</text>
+<rect x="290" y="46" width="68" height="30" rx="6" fill="#8b5cf6" opacity="0.85"/><text x="324.0" y="66.0" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">Y</text>
+<rect x="90" y="82" width="68" height="30" rx="6" fill="#e0662b" opacity="0.85"/><text x="124.0" y="102.0" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">A</text>
+<rect x="190" y="82" width="68" height="30" rx="6" fill="#2f9e63" opacity="0.85"/><text x="224.0" y="102.0" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">1</text>
+<rect x="290" y="82" width="68" height="30" rx="6" fill="#8b5cf6" opacity="0.85"/><text x="324.0" y="102.0" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">Y</text>
+<rect x="90" y="118" width="68" height="30" rx="6" fill="#e0662b" opacity="0.85"/><text x="124.0" y="138.0" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">B</text>
+<rect x="190" y="118" width="68" height="30" rx="6" fill="#2f9e63" opacity="0.85"/><text x="224.0" y="138.0" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">9</text>
+<rect x="290" y="118" width="68" height="30" rx="6" fill="#8b5cf6" opacity="0.85"/><text x="324.0" y="138.0" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">X</text>
+<rect x="90" y="154" width="68" height="30" rx="6" fill="#e0662b" opacity="0.85"/><text x="124.0" y="174.0" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">B</text>
+<rect x="190" y="154" width="68" height="30" rx="6" fill="#2f9e63" opacity="0.85"/><text x="224.0" y="174.0" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">4</text>
+<rect x="290" y="154" width="68" height="30" rx="6" fill="#8b5cf6" opacity="0.85"/><text x="324.0" y="174.0" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">X</text>
+<rect x="90" y="190" width="68" height="30" rx="6" fill="#e0662b" opacity="0.85"/><text x="124.0" y="210.0" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">A</text>
+<rect x="190" y="190" width="68" height="30" rx="6" fill="#2f9e63" opacity="0.85"/><text x="224.0" y="210.0" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">1</text>
+<rect x="290" y="190" width="68" height="30" rx="6" fill="#8b5cf6" opacity="0.85"/><text x="324.0" y="210.0" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">Y</text>
+<rect x="90" y="226" width="68" height="30" rx="6" fill="#e0662b" opacity="0.85"/><text x="124.0" y="246.0" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">C</text>
+<rect x="190" y="226" width="68" height="30" rx="6" fill="#2f9e63" opacity="0.85"/><text x="224.0" y="246.0" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">5</text>
+<rect x="290" y="226" width="68" height="30" rx="6" fill="#8b5cf6" opacity="0.85"/><text x="324.0" y="246.0" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">X</text>
+<circle cx="124.0" cy="28.0" r="9.5" fill="#3b82f6"/><text x="124.0" y="32.0" text-anchor="middle" font-size="12" font-weight="700" fill="#ffffff">A</text>
+<circle cx="224.0" cy="28.0" r="9.5" fill="#3b82f6"/><text x="224.0" y="32.0" text-anchor="middle" font-size="12" font-weight="700" fill="#ffffff">B</text>
+<circle cx="324.0" cy="28.0" r="9.5" fill="#3b82f6"/><text x="324.0" y="32.0" text-anchor="middle" font-size="12" font-weight="700" fill="#ffffff">C</text>
+<rect x="82" y="113" width="284" height="40" rx="9" fill="none" stroke="#3b82f6" stroke-width="2"/>
+<line x1="372" y1="133" x2="470" y2="133" stroke="#94a3b8" stroke-width="1.6" marker-end="url(#a)"/>
+<rect x="482" y="118" width="150" height="30" rx="6" fill="#3b82f6" opacity="0.22"/><text x="557.0" y="138.0" text-anchor="middle" font-size="13" font-weight="700" fill="#94a3b8">B 9 X</text>
+<circle cx="560.0" cy="94.0" r="9.5" fill="#3b82f6"/><text x="560.0" y="98.0" text-anchor="middle" font-size="12" font-weight="700" fill="#ffffff">D</text>
+</svg>

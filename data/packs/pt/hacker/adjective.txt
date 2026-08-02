@@ -1,0 +1,32 @@
+---
+description: Tech adjective (Portuguese)
+locale: pt
+---
+auxiliar
+primário
+secundário
+digital
+virtual
+redundante
+sem fios
+ótico
+neuronal
+háptico
+multiplataforma
+distribuído
+encriptado
+remoto
+móvel
+integrado
+escalável
+assíncrono
+bidirecional
+de código aberto
+de estado sólido
+de alta velocidade
+de alto desempenho
+na nuvem
+online
+offline
+de 64 bits
+de 8 bits

@@ -1,0 +1,16 @@
+---
+address: belgium.education.university
+description: Belgian universities
+locale: fr
+---
+Université libre de Bruxelles
+UCLouvain
+KU Leuven
+Université de Liège
+Universiteit Gent
+Université de Namur
+Université de Mons
+Vrije Universiteit Brussel
+Universiteit Antwerpen
+Université Saint-Louis - Bruxelles
+Universiteit Hasselt

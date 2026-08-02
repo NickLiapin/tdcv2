@@ -1,0 +1,19 @@
+---
+description: Payment method (Spanish)
+locale: es
+---
+Tarjeta de crédito
+Tarjeta de débito
+PayPal
+Apple Pay
+Google Pay
+Transferencia bancaria
+Contra reembolso
+Efectivo
+Tarjeta regalo
+Criptomoneda
+Pago a plazos
+Domiciliación bancaria
+Cheque
+Vale de descuento
+Monedero electrónico

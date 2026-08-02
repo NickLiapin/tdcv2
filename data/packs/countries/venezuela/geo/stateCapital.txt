@@ -1,0 +1,29 @@
+---
+address: venezuela.geo.stateCapital
+description: Capital city of the federal entity; same order as venezuela.geo.state
+locale: es
+---
+Puerto Ayacucho
+Barcelona
+San Fernando de Apure
+Maracay
+Barinas
+Ciudad Bolívar
+Valencia
+San Carlos
+Tucupita
+Caracas
+Coro
+San Juan de los Morros
+La Guaira
+Barquisimeto
+Mérida
+Los Teques
+Maturín
+La Asunción
+Guanare
+Cumaná
+San Cristóbal
+Trujillo
+San Felipe
+Maracaibo

@@ -1,0 +1,10 @@
+---
+description: Book format
+locale: en
+---
+Hardcover
+Paperback
+E-book
+Audiobook
+Mass Market Paperback
+Library Binding

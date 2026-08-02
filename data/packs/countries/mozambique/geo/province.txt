@@ -1,0 +1,16 @@
+---
+address: mozambique.geo.province
+description: The eleven provinces of Mozambique, including the province-level Maputo City (the "state" equivalent)
+locale: pt
+---
+Cabo Delgado
+Gaza
+Inhambane
+Manica
+Maputo
+Cidade de Maputo
+Nampula
+Niassa
+Sofala
+Tete
+Zambézia

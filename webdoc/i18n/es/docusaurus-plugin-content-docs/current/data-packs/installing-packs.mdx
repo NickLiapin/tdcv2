@@ -1,0 +1,308 @@
+---
+title: Instalar paquetes de datos
+sidebar_position: 2
+---
+
+import Terminal from '@site/src/components/Terminal';
+
+# Instalar paquetes: `init` y `pack`
+
+Los nombres, las ciudades, los estados, las empresas y demás listas son
+[**paquetes de datos**](overview.mdx). Se distribuyen **aparte del motor**, así que
+actualizar la biblioteca nunca sobrescribe sus datos y los conjuntos pesados no inflan
+cada instalación. Un conjunto razonable por omisión viene incluido en la caja (por
+ejemplo, los 1000 nombres de pila más frecuentes); los conjuntos completos y los
+adicionales se descargan cuando hacen falta, con `tdcv2 pack`.
+
+Todo el flujo son dos comandos:
+
+1. `tdcv2 init` una sola vez: define **dónde** van los datos y cuál es el locale por
+   omisión.
+2. `tdcv2 pack add …`: descarga los conjuntos que realmente necesita.
+
+`init` va primero porque responde una pregunta que `pack` no puede resolver: cuál carpeta
+es *suya*. Los packs a propósito no viven dentro de la biblioteca instalada: si vivieran
+ahí, cada `npm update`, cada `pip install -U` o cada actualización de dependencias
+borraría un gigabyte de datos que usted eligió. `init` anota una carpeta que pertenece a
+su proyecto, y todas las implementaciones leen ese mismo archivo, así que un pack
+descargado una vez lo encuentran todas.
+
+Si se salta `init`, `pack` no tiene dónde poner nada, y lo dice en vez de adivinar:
+
+<Terminal title="tdcv2 pack list (todavía sin config)">
+{`tdcv2: no pack store configured — run \`tdcv2 init\` first`}
+</Terminal>
+
+:::tip[Los mismos comandos en cualquier lenguaje]
+`init` y `pack` existen en todas las implementaciones, no solo en la de Node. Los
+comandos, su salida y el archivo de configuración que escriben son idénticos — lo
+sostiene una fixture de pruebas compartida contra la que las cinco se comparan byte a
+byte. Lo único que cambia es cómo se invocan.
+
+```bash
+npx tdcv2 init                              # Node
+tdcv2 init                                  # Python, Rust o C#, una vez instalado
+java -jar tdcv2-cli.jar init                # Java
+```
+
+Un proyecto configurado por una de ellas está listo para las otras cuatro — mismo config,
+mismo almacén, mismo registro.
+:::
+
+> Las salidas de ejemplo de abajo son ilustrativas: la cantidad exacta de archivos, los
+> tamaños y las rutas dependen de su máquina y de la versión del núcleo, pero la forma se
+> mantiene.
+
+## `tdcv2 init` — preparar un proyecto
+
+`init` escribe un archivo de configuración para que nunca tenga que editar JSON a mano.
+En una terminal interactiva corre un asistente breve (dónde guardar la configuración,
+dónde descargar los paquetes, cuál es el locale por omisión). En un script o en CI, pase
+banderas para que nada se quede esperando una respuesta.
+
+```bash
+tdcv2 init            # pregunta y luego escribe
+```
+
+<Terminal title="tdcv2 init">
+{`Wrote project config: /path/to/project/tdcv2.config.json
+  data packs → /path/to/project/tdcv2-packs
+  locale     → en
+
+Next: run \`tdcv2 pack\` to download data packs into that folder.`}
+</Terminal>
+
+Úselo una vez por proyecto, antes de su primer `tdcv2 pack add`. Cada bandera de abajo
+cubre un caso donde el asistente le estorbaría.
+
+### `--yes` / `-y` — sin preguntas
+
+Se salta todas las preguntas y acepta los valores por omisión (configuración local al
+proyecto, `./tdcv2-packs`, `en`). Es la bandera para CI y para scripts, donde no hay
+nadie que le conteste al asistente.
+
+```bash
+tdcv2 init --yes
+```
+
+<Terminal title="tdcv2 init --yes">
+{`Wrote project config: /path/to/project/tdcv2.config.json
+  data packs → /path/to/project/tdcv2-packs
+  locale     → en`}
+</Terminal>
+
+### `--global` / `-g` — una sola configuración para todos los proyectos
+
+Escribe la configuración en su carpeta personal (`~/.config/tdcv2`) en vez de la carpeta
+actual. Úselo cuando quiera un único almacén de datos compartido, del que lea cada
+proyecto de la máquina, en lugar de una carpeta `tdcv2-packs` por repositorio.
+
+```bash
+tdcv2 init --global
+```
+
+<Terminal title="tdcv2 init --global">
+{`Wrote global config: /Users/you/.config/tdcv2/tdcv2.config.json
+  data packs → /Users/you/.config/tdcv2/tdcv2-packs
+  locale     → en`}
+</Terminal>
+
+### `--force` / `-f` — sobrescribir una configuración existente
+
+Por omisión, `init` se niega a pisar una configuración que ya está ahí. Pase `--force`
+cuando quiera reiniciarla a propósito: por ejemplo, para cambiar la carpeta de paquetes o
+para empezar de cero.
+
+<Terminal title="tdcv2 init (la configuración ya existe)">
+{`Config already exists: /path/to/project/tdcv2.config.json
+Nothing written. Re-run with --force to overwrite.`}
+</Terminal>
+
+### `--locale <loc>` — elegir el locale por omisión
+
+Fija el valor `locale` en la configuración, para que no tenga que nombrar un locale en
+cada generación. `en` es el valor integrado por omisión; pase otro código para volverlo
+el valor por omisión del proyecto.
+
+```bash
+tdcv2 init --yes --locale en
+```
+
+### `--data-path <dir>` — elegir la carpeta de paquetes
+
+Fija adónde descarga `pack add` (el `packStore`, más abajo). Apúntelo a una unidad
+compartida o a una ruta fuera del repositorio cuando no quiera que los paquetes vivan
+junto a su código fuente.
+
+```bash
+tdcv2 init --yes --data-path ../shared-tdc-packs
+```
+
+## El archivo `tdcv2.config.json`
+
+`init` escribe un archivo pequeño como este:
+
+```json
+{
+  "packStore": "./tdcv2-packs",
+  "locale": "en"
+}
+```
+
+- **`packStore`** — adónde descarga `pack`. La carpeta en sí **no** se escanea como
+  datos; al instalar, `pack` registra en `dataPaths` las raíces de paquete concretas.
+- **`locale`** — el locale por omisión (lo fija la bandera `--locale`, arriba).
+- **`dataPaths`** — las carpetas que el motor sí escanea en busca de paquetes. `pack add`
+  las llena por usted, y usted puede agregar aquí sus propias carpetas para apuntar el
+  motor a [paquetes que escribió usted mismo](writing-your-own.mdx).
+
+La configuración se busca subiendo **hacia arriba** desde la carpeta actual (igual que
+las herramientas localizan `tsconfig.json`). Cuando varias fuentes definen lo mismo, la
+prioridad va de menor a mayor:
+
+```
+paquetes integrados  <  configuración global (~/.config/tdcv2)  <  tdcv2.config.json del proyecto  <  bandera --data-path
+```
+
+Las rutas dentro del archivo se resuelven **relativas al archivo mismo**, no a su carpeta
+de trabajo actual, así que una configuración puede mudarse junto con su proyecto.
+
+## `tdcv2 pack` — descargar y quitar conjuntos
+
+Sin argumentos y en una terminal, `pack` abre un menú: explorar e instalar, ver qué está
+instalado, quitar, salir. En un script, manéjelo con subcomandos:
+
+```bash
+tdcv2 pack list              # qué hay en el registro
+tdcv2 pack add en usa        # descarga y conecta
+tdcv2 pack remove usa        # quita
+```
+
+Cualquier subcomando acepta además **`--registry <url-base>`**, que apunta `pack` a un
+catálogo distinto del público. Por omisión se usa el registro propio del proyecto:
+
+```bash
+tdcv2 pack list --registry https://packs.example.internal/tdc
+tdcv2 pack add en --registry=https://packs.example.internal/tdc
+```
+
+Sirve para un espejo interno de la empresa o una copia en un entorno aislado. La URL es
+una base — `pack` añade por su cuenta las rutas del índice y de los archivos — y una
+barra final se ignora. La verificación `sha256` sigue en pie: un espejo que sirva bytes
+alterados falla al instalar igual que fallaría el público.
+
+### `pack list` — ver el catálogo
+
+Imprime el registro y marca lo que ya tiene instalado, con el tamaño de descarga de cada
+conjunto.
+
+<Terminal title="tdcv2 pack list">
+{`Available data packs:
+
+  common       ✓ installed   Common (locale-agnostic) (0.0 MB)
+  en                         English (language) (0.1 MB)
+  usa                        United States (country) (0.0 MB)`}
+</Terminal>
+
+Úselo para revisar qué necesita una dirección antes de generar, y para confirmar que un
+conjunto aterrizó después de `pack add`.
+
+### `pack add <id…>` — descargar y registrar
+
+`pack add` descarga el zip del conjunto, verifica su `sha256` (una descarga alterada o
+corrupta no se instala), lo desempaqueta y **registra** la carpeta en su configuración,
+de modo que los datos quedan vivos en sus direcciones con puntos de inmediato, sin ningún
+paso extra de conexión.
+
+```bash
+tdcv2 pack add en
+```
+
+<Terminal title="tdcv2 pack add en">
+{`Installed en: 30 files → /path/to/project/tdcv2-packs/en
+  registered ./tdcv2-packs/en/packs in /path/to/project/tdcv2.config.json`}
+</Terminal>
+
+Puede instalar varios conjuntos en una sola llamada —`tdcv2 pack add common en usa`—, que
+es la manera normal de armar un locale (vea
+[paquetes puros por eje](#los-paquetes-son-puros-por-eje), abajo).
+
+### `pack remove <id…>` — borrar y quitar del registro
+
+`pack remove` borra la carpeta del conjunto y elimina su entrada de `dataPaths`, de modo
+que el motor deja de escanearla.
+
+```bash
+tdcv2 pack remove usa
+```
+
+<Terminal title="tdcv2 pack remove usa">
+{`Removed usa (/path/to/project/tdcv2-packs/usa)
+  unregistered from /path/to/project/tdcv2.config.json`}
+</Terminal>
+
+Quitar un conjunto es seguro: el
+[conjunto integrado por omisión](#el-conjunto-integrado-frente-al-descargado) vuelve solo
+en esas direcciones.
+
+## Los paquetes son puros por eje
+
+Los paquetes están organizados por un **solo eje** —un idioma, un país, o el conjunto
+`common`, independiente del locale— y se **combinan**. Los datos del inglés de Estados
+Unidos no son un paquete monolítico; son tres capas apiladas:
+
+```bash
+tdcv2 pack add common en usa
+```
+
+<Terminal title="tdcv2 pack add common en usa">
+{`Installed common: 145 files → /path/to/project/tdcv2-packs/common
+  registered ./tdcv2-packs/common/packs in /path/to/project/tdcv2.config.json
+Installed en: 324 files → /path/to/project/tdcv2-packs/en
+  registered ./tdcv2-packs/en/packs in /path/to/project/tdcv2.config.json
+Installed usa: 22 files → /path/to/project/tdcv2-packs/usa
+  registered ./tdcv2-packs/usa/packs in /path/to/project/tdcv2.config.json`}
+</Terminal>
+
+Queda un config que nombra las tres, en el orden en que se apilan:
+
+```json
+{
+  "packStore": "./tdcv2-packs",
+  "locale": "en",
+  "dataPaths": [
+    "./tdcv2-packs/common/packs",
+    "./tdcv2-packs/en/packs",
+    "./tdcv2-packs/usa/packs"
+  ]
+}
+```
+
+Esto no es una rareza del formato de archivo: refleja que el idioma y el país son
+genuinamente independientes. El inglés lo comparten Estados Unidos, el Reino Unido y
+Canadá, así que se descarga una sola vez como `en`; los datos específicos del país (los
+estados de EE. UU., los códigos de área de EE. UU.) viven en `usa`. Combínelos como
+quiera para armar el locale que necesite.
+
+## El conjunto integrado frente al descargado
+
+El conjunto integrado por omisión (el que viene dentro del paquete) es la **capa más
+baja** y siempre está presente. Un conjunto descargado se coloca **encima** y **oculta**
+esas mismas direcciones sin borrar nada de lo que hay debajo. De ahí se siguen dos
+consecuencias:
+
+- instale un conjunto completo → **anula** al de por omisión en esas direcciones;
+- `pack remove` → el de por omisión **reaparece** solo. Ningún hueco en sus datos.
+
+Así que tanto descargar como quitar son operaciones seguras: el conjunto base nunca se
+borra de verdad, solo queda oculto temporalmente mientras un conjunto más rico se apoya
+encima.
+
+## Vea también
+
+- **[Descripción general de los paquetes de datos](overview.mdx)** — qué es un paquete y
+  cómo funcionan las direcciones con puntos.
+- **[Cree su propio paquete](writing-your-own.mdx)** — el formato del archivo de paquete
+  y las reglas de las direcciones.
+- **[Referencia del CLI](../reference/cli.mdx)** — la referencia completa de la línea de
+  comandos.

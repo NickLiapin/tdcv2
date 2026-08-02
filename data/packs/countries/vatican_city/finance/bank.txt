@@ -1,0 +1,8 @@
+---
+address: vatican_city.finance.bank
+description: Financial institutions of Vatican City (Italian names)
+locale: it
+---
+Istituto per le Opere di Religione
+Amministrazione del Patrimonio della Sede Apostolica
+Autorità di Supervisione e Informazione Finanziaria

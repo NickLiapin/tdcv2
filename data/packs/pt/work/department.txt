@@ -1,0 +1,26 @@
+---
+description: Company department / function (Portuguese)
+locale: pt
+---
+Engenharia
+Produto
+Design
+Vendas
+Marketing
+Finanças
+Contabilidade
+Recursos Humanos
+Operações
+Jurídico
+Atendimento ao Cliente
+Tecnologia da Informação
+Pesquisa e Desenvolvimento
+Compras
+Controle de Qualidade
+Logística
+Administração
+Manutenção
+Segurança
+Conformidade
+Comunicação
+Treinamento

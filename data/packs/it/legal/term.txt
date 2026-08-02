@@ -1,0 +1,23 @@
+---
+description: Legal term (Italian)
+locale: it
+---
+Attore
+Convenuto
+Citazione in giudizio
+Dichiarazione giurata
+Deposizione
+Testimonianza
+Provvedimento cautelare
+Sentenza
+Accordo transattivo
+Contenzioso
+Udienza preliminare
+Giurisdizione
+Appello
+Pubblico ministero
+Avvocato difensore
+Prova
+Ricorso
+Notifica
+Procura notarile

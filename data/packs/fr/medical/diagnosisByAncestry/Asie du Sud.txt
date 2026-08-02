@@ -1,0 +1,12 @@
+---
+description: Conditions in French markedly more frequent in people of South Asian ancestry. A prevalence signal, not an exclusive one.
+locale: fr
+---
+Diabète de type 2 précoce
+Coronaropathie précoce
+Obésité abdominale à indice de masse corporelle normal
+Carence en vitamine D
+Trait bêta-thalassémique
+Syndrome métabolique
+Déficit en glucose-6-phosphate déshydrogénase
+Cardiopathie rhumatismale

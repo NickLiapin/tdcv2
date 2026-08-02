@@ -1,0 +1,26 @@
+---
+address: canada.geo.streetName
+description: Canadian street name with its type — mostly a name plus Street / Avenue / Road / Drive / etc.; about one in five is a numbered grid street (17 Avenue, 124 Street) as used in the western cities, and a few carry a cardinal direction
+generator: tdc
+---
+<sequence name="mode"><gen type="number" value="1..10"/></sequence>
+<sequence name="type"><gen type="text" value="Street,Street,Street,Avenue,Avenue,Road,Drive,Boulevard,Crescent,Court,Place,Lane,Way,Trail,Terrace,Close,Gate,Circle,Grove,Parkway"/></sequence>
+<sequence name="gridType"><gen type="text" value="Avenue,Street"/></sequence>
+<sequence name="n"><gen type="number" value="1..200"/></sequence>
+<sequence name="dir"><gen type="text" value="North,South,East,West,NW,NE,SW,SE"/></sequence>
+<sequence name="named"><gen type="template" value="canada.geo.streetNamed"/></sequence>
+<sequence name="street"><compute>
+  <result>
+    <choose>
+      <!-- Numbered western grid: "17 Avenue", "124 Street". -->
+      <when><test><greater_than><to_number><field name="mode"/></to_number><int v="8"/></greater_than></test>
+        <then><concat><field name="n"/><str v=" "/><field name="gridType"/></concat></then></when>
+      <!-- Named artery with a cardinal: "King Street West". -->
+      <when><test><equals><to_number><field name="mode"/></to_number><int v="8"/></equals></test>
+        <then><concat><field name="named"/><str v=" "/><field name="type"/><str v=" "/><field name="dir"/></concat></then></when>
+      <!-- Named street with its type: "Maple Drive". -->
+      <otherwise><concat><field name="named"/><str v=" "/><field name="type"/></concat></otherwise>
+    </choose>
+  </result>
+</compute></sequence>
+<data>${{street}}</data>

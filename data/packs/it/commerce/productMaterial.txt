@@ -1,0 +1,62 @@
+---
+description: Product material (Italian), as a noun — compose with "in" or "di" ("tavolo in rovere", "sedia in acciaio inossidabile")
+locale: it
+---
+acciaio
+acciaio inossidabile
+ferro
+alluminio
+rame
+ottone
+bronzo
+titanio
+zinco
+legno
+rovere
+noce
+pino
+faggio
+cedro
+mogano
+bambù
+vimini
+rattan
+sughero
+plastica
+policarbonato
+poliestere
+nylon
+acrilico
+resina
+silicone
+caucciù
+gomma
+gommapiuma
+cotone
+lino
+lana
+seta
+pelle
+similpelle
+camoscio
+feltro
+tela
+denim
+vetro
+cristallo
+ceramica
+porcellana
+gres
+marmo
+granito
+ardesia
+calcestruzzo
+pietra
+carta
+cartone
+fibra di carbonio
+fibra di vetro
+neoprene
+velluto
+iuta
+canapa

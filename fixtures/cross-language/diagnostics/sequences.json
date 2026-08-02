@@ -1,0 +1,89 @@
+{
+  "schemaVersion": 1,
+  "cases": [
+    {
+      "name": "sequence-without-name",
+      "demonstrates": "TDC030",
+      "description": "A sequence with no name cannot be referenced",
+      "config": "<tdc><env count=\"2\" seed=\"s\"><sequence><gen type=\"text\" value=\"a,b\"/></sequence></env><block><line><data>x</data></line></block></tdc>",
+      "expected": ["error TDC030 1:29"]
+    },
+    {
+      "name": "duplicate-sequence-name",
+      "demonstrates": "TDC032",
+      "description": "Two sequences claiming one name",
+      "config": "<tdc><env count=\"2\" seed=\"s\"><sequence name=\"G\"><gen type=\"text\" value=\"a,b\"/></sequence><sequence name=\"G\"><gen type=\"text\" value=\"a,b\"/></sequence></env><block><line><data>x</data></line></block></tdc>",
+      "expected": ["error TDC032 1:105"]
+    },
+    {
+      "name": "parent-not-declared-first",
+      "demonstrates": "TDC035",
+      "description": "A parent named before it is declared — order decides who can filter whom",
+      "config": "<tdc><env count=\"2\" seed=\"s\"><sequence name=\"C\" parent=\"Nope\"><gen type=\"text\" value=\"a\"/></sequence></env><block><line><data>x</data></line></block></tdc>",
+      "expected": ["error TDC035 1:56"]
+    },
+    {
+      "name": "gen-without-type",
+      "demonstrates": "TDC040",
+      "description": "A <gen> with no type at all",
+      "config": "<tdc><env count=\"2\" seed=\"s\"><sequence name=\"G\"><gen value=\"a,b\"/></sequence></env><block><line><data>x</data></line></block></tdc>",
+      "expected": ["error TDC040 1:48"]
+    },
+    {
+      "name": "unknown-gen-type",
+      "demonstrates": "TDC041",
+      "description": "A generator type that does not exist",
+      "config": "<tdc><env count=\"2\" seed=\"s\"><sequence name=\"G\"><gen type=\"nosuchtype\" value=\"a\"/></sequence></env><block><line><data>x</data></line></block></tdc>",
+      "expected": ["error TDC041 1:59"]
+    },
+    {
+      "name": "text-without-value",
+      "demonstrates": "TDC050",
+      "description": "A text generator with nothing to pick from",
+      "config": "<tdc><env count=\"2\" seed=\"s\"><sequence name=\"G\"><gen type=\"text\"/></sequence></env><block><line><data>x</data></line></block></tdc>",
+      "expected": ["error TDC050 1:48"]
+    },
+    {
+      "name": "uniq-on-a-computed-sequence",
+      "demonstrates": "TDC218",
+      "description": "uniq= on a sequence whose value is derived, not drawn: it used to be accepted and then silently ignored, so the config claimed a unique column and the data disagreed without a word",
+      "config": "<tdc><env count=\"3\" seed=\"s\"><sequence name=\"A\"><gen type=\"number\" value=\"1..9\"/></sequence><sequence name=\"B\" uniq=\"true\"><compute><result><concat><field name=\"A\"/><str v=\"x\"/></concat></result></compute></sequence></env><block><line><data>${{B}}</data></line></block></tdc>",
+      "expected": ["error TDC218 1:117"]
+    },
+    {
+      "name": "uniq-on-a-conditional-sequence",
+      "demonstrates": "TDC218",
+      "description": "the same for `<gen if=…>` branches: a per-row pick among branches is not a draw from one pool, so there is nothing to draw without replacement",
+      "config": "<tdc><env count=\"3\" seed=\"s\"><sequence name=\"A\"><gen type=\"number\" value=\"1..9\"/></sequence><sequence name=\"B\" uniq=\"true\"><gen type=\"text\" value=\"x\" if=\"A == 5\"/><gen type=\"text\" value=\"y\"/></sequence></env><block><line><data>${{B}}</data></line></block></tdc>",
+      "expected": ["error TDC218 1:117"]
+    },
+    {
+      "name": "compute-beside-a-gen-in-one-sequence",
+      "demonstrates": "TDC219",
+      "description": "Two producers in one <sequence>. It used to be accepted and half of it silently dropped — and the implementations did not agree on which half: the reference kept the <gen>, the four ports kept the <compute>. Same config, different data.",
+      "config": "<tdc><env count=\"2\" seed=\"s\"><sequence name=\"Q\"><gen type=\"number\" value=\"1..3\"/><compute><result><str v=\"X\"/></result></compute></sequence></env><block><line><data>${{Q}}</data></line></block></tdc>",
+      "expected": ["error TDC219 1:81"]
+    },
+    {
+      "name": "uniq-on-a-composed-value-of-two-drawn-parts",
+      "demonstrates": "TDC220",
+      "description": "A composed value joining two drawn parts. One drawn part plus constants is honoured — appending a constant cannot make two draws collide — but two parts have no fixed width, so a unique set of parts is not a unique join: 9+15 and 91+5 are the same three characters.",
+      "config": "<tdc><env count=\"4\" seed=\"s\"><sequence name=\"X\" uniq=\"true\"><gen type=\"number\" value=\"1..4\"/><gen type=\"text\" value=\"p,q\"/></sequence></env><block><line><data>${{X}}</data></line></block></tdc>",
+      "expected": ["error TDC220 1:54"]
+    },
+    {
+      "name": "compound-sequence-inside-a-config-level-uniq",
+      "demonstrates": "TDC129",
+      "description": "A group rearranges whole columns between rows, so every member must own exactly one value. A compound sequence owns a field per <gen name>, and there is no single column to move — the rule is documented, but nothing held the five implementations to it until this case.",
+      "config": "<tdc><env count=\"4\" seed=\"c\" local=\"en\"><uniq><sequence name=\"D\"><gen name=\"F\" type=\"text\" value=\"a,b,c,d\"/><gen name=\"L\" type=\"text\" value=\"p,q,r,s\"/></sequence><sequence name=\"R\"><gen type=\"number\" value=\"1..9\"/></sequence></uniq></env><block><line><data>${{D.F}} ${{R}}</data></line></block></tdc>",
+      "expected": ["error TDC129 1:46"]
+    },
+    {
+      "name": "uniq-group-with-a-single-member",
+      "demonstrates": "TDC221",
+      "description": "A group constrains its members against each other, so one member constrains nothing. It used to be dropped in silence: check reported the config valid and the run drew repeats. A warning, not an error — the config still runs, it just does not do what it was written for.",
+      "config": "<tdc><env count=\"5\" seed=\"one\" local=\"en\"><uniq><sequence name=\"S\"><gen type=\"number\" value=\"1..3\"/></sequence></uniq></env><block><line><data>${{S}}</data></line></block></tdc>",
+      "expected": ["warning TDC221 1:42"]
+    }
+  ]
+}

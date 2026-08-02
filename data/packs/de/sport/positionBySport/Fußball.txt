@@ -1,0 +1,15 @@
+---
+description: Positions in association football (German)
+locale: de
+---
+Torwart
+Innenverteidiger
+Rechtsverteidiger
+Linksverteidiger
+Defensives Mittelfeld
+Zentrales Mittelfeld
+Offensives Mittelfeld
+Rechtsaußen
+Linksaußen
+Stürmer
+Mittelstürmer

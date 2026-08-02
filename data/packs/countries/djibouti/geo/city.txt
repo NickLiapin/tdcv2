@@ -1,0 +1,19 @@
+---
+address: djibouti.geo.city
+description: Cities and towns of Djibouti
+locale: fr
+---
+Djibouti
+Ali Sabieh
+Tadjourah
+Obock
+Dikhil
+Arta
+Holhol
+Dorra
+Galafi
+Yoboki
+Loyada
+Goubetto
+As Eyla
+Balho

@@ -1,0 +1,9 @@
+---
+description: Credit score band (Spanish)
+locale: es
+---
+Malo
+Regular
+Bueno
+Muy bueno
+Excelente

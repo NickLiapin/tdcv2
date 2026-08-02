@@ -1,0 +1,16 @@
+---
+description: Listing status (Portuguese)
+locale: pt
+---
+À venda
+Para arrendar
+Pendente
+Vendido
+Sob contrato
+Fora do mercado
+Em breve
+Execução hipotecária
+Construção nova
+Preço reduzido
+Reservado
+Arrendado

@@ -1,0 +1,17 @@
+---
+description: Social content type (German)
+locale: de
+---
+Beitrag
+Kommentar
+Antwort
+Story
+Reel
+Umfrage
+Livestream
+Geteilter Beitrag
+Thread
+Erwähnung
+Direktnachricht
+Kurzvideo
+Fotoalbum

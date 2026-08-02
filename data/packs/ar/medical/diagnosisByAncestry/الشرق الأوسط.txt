@@ -1,0 +1,10 @@
+---
+description: Conditions in Arabic markedly more frequent in people of Middle Eastern ancestry. A prevalence signal, not an exclusive one.
+locale: ar
+---
+حمى البحر الأبيض المتوسط العائلية
+الثلاسيميا بيتا
+نقص إنزيم غلوكوز 6 فوسفات ديهيدروجيناز
+داء بهجت
+نقص فيتامين د
+سمة الخلية المنجلية

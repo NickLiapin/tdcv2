@@ -1,0 +1,15 @@
+---
+address: mali.holiday
+description: Public holidays in Mali (French names; civil, Christian and Muslim)
+locale: fr
+---
+Jour de l'An
+Fête de l'Armée
+Fête du Travail
+Journée de l'Afrique
+Fête de l'Indépendance
+Noël
+Aïd el-Fitr
+Aïd el-Kébir
+Maouloud
+Baptême du Prophète

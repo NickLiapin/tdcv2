@@ -1,0 +1,24 @@
+---
+description: Kind of animal (French)
+locale: fr
+---
+Chien
+Chat
+Oiseau
+Poisson
+Cheval
+Lapin
+Hamster
+Cochon d'Inde
+Tortue
+Serpent
+Furet
+Souris
+Perroquet
+Vache
+Mouton
+Chèvre
+Cochon
+Poule
+Canard
+Âne

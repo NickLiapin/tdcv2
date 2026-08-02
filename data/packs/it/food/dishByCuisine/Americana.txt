@@ -1,0 +1,13 @@
+---
+description: Dishes of American cuisine (Italian)
+locale: it
+---
+Cheeseburger
+Costine alla barbecue
+Maccheroni al formaggio
+Alette di pollo Buffalo
+Zuppa di vongole
+Torta di mele
+Pane di mais
+Hot dog
+Pollo fritto

@@ -1,0 +1,30 @@
+---
+description: Book genre (Italian)
+locale: it
+---
+Narrativa
+Saggistica
+Giallo
+Thriller
+Rosa
+Fantascienza
+Fantasy
+Horror
+Biografia
+Storia
+Crescita personale
+Poesia
+Narrativa per ragazzi
+Romanzo storico
+Noir
+Avventura
+Memorie
+Filosofia
+Viaggi
+Libro di cucina
+Graphic novel
+Distopia
+Saggio
+Racconto
+Realismo magico
+Libri per bambini

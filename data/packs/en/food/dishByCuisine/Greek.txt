@@ -1,0 +1,11 @@
+---
+description: Dishes of Greek cuisine
+locale: en
+---
+Moussaka
+Souvlaki
+Gyro
+Greek Salad
+Spanakopita
+Baklava
+Tzatziki

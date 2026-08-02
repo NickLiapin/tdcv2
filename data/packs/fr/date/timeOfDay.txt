@@ -1,0 +1,12 @@
+---
+description: Time of day (French)
+locale: fr
+---
+matin
+midi
+après-midi
+soir
+nuit
+minuit
+aube
+crépuscule

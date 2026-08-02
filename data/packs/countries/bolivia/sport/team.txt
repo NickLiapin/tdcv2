@@ -1,0 +1,30 @@
+---
+address: bolivia.sport.team
+description: Bolivian football club — the sixteen clubs of the 2026 División Profesional followed by historic first-division clubs now playing in lower divisions
+locale: es
+---
+Club Bolívar
+The Strongest
+Club Always Ready
+Club ABB
+Oriente Petrolero
+Club Blooming
+Club Deportivo Aurora
+Club Deportivo Guabirá
+Club Independiente Petrolero
+Nacional Potosí
+Club Real Potosí
+Club Deportivo Real Tomayapo
+Club Deportivo San Antonio Bulo Bulo
+Real Oruro
+Universitario de Vinto
+Gualberto Villarroel San José
+Club Jorge Wilstermann
+Club San José
+Real Santa Cruz
+Sport Boys Warnes
+Club Destroyers
+Universitario de Sucre
+Club Petrolero
+Club Chaco Petrolero
+Club Stormers San Lorenzo

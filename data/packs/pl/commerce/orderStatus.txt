@@ -1,0 +1,18 @@
+---
+description: Order status (Polish)
+locale: pl
+---
+Oczekujące
+W trakcie realizacji
+Potwierdzone
+Przygotowanie do wysyłki
+Wysłane
+W doręczeniu
+Dostarczone
+Anulowane
+Zwrócone
+Zwrot środków
+Wstrzymane
+Oczekuje na płatność
+Brak na stanie
+Nieudane

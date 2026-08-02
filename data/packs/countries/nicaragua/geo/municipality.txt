@@ -1,0 +1,142 @@
+---
+address: nicaragua.geo.municipality
+description: Nicaraguan municipio (second-level division) — a broad selection covering every departamento and both autonomous regions
+locale: es
+---
+Managua
+Ciudad Sandino
+Tipitapa
+El Crucero
+San Rafael del Sur
+Ticuantepe
+Villa El Carmen
+Mateare
+San Francisco Libre
+León
+La Paz Centro
+Nagarote
+Telica
+Quezalguaque
+El Sauce
+Achuapa
+Santa Rosa del Peñón
+El Jicaral
+Chinandega
+El Viejo
+Corinto
+Chichigalpa
+El Realejo
+Puerto Morazán
+Somotillo
+Villanueva
+Cinco Pinos
+San Pedro del Norte
+Santo Tomás del Norte
+El Tránsito
+Posoltega
+Estelí
+Condega
+Pueblo Nuevo
+La Trinidad
+San Juan de Limay
+San Nicolás
+Somoto
+Palacagüina
+Yalagüina
+Totogalpa
+Telpaneca
+San Lucas
+Las Sabanas
+San José de Cusmapa
+Ocotal
+Jalapa
+Quilalí
+Wiwilí de Nueva Segovia
+El Jícaro
+Mozonte
+Dipilto
+Macuelizo
+Santa María
+Ciudad Antigua
+Masaya
+Nindirí
+Masatepe
+Nandasmo
+Catarina
+San Juan de Oriente
+Niquinohomo
+Tisma
+La Concepción
+Granada
+Diriá
+Diriomo
+Nandaime
+Jinotepe
+Diriamba
+San Marcos
+Dolores
+El Rosario
+La Paz de Carazo
+Santa Teresa
+La Conquista
+Rivas
+San Jorge
+Buenos Aires
+Potosí
+Belén
+Tola
+San Juan del Sur
+Cárdenas
+Altagracia
+Moyogalpa
+Boaco
+Camoapa
+San Lorenzo
+Teustepe
+Santa Lucía
+San José de los Remates
+Juigalpa
+Acoyapa
+Santo Tomás
+Villa Sandino
+El Coral
+Comalapa
+San Pedro de Lóvago
+Matagalpa
+Sébaco
+Ciudad Darío
+San Ramón
+Matiguás
+Río Blanco
+Muy Muy
+Esquipulas
+San Isidro
+Terrabona
+Jinotega
+San Rafael del Norte
+La Concordia
+San Sebastián de Yalí
+Santa María de Pantasma
+Wiwilí de Jinotega
+El Cuá
+Bilwi
+Waspán
+Rosita
+Bonanza
+Siuna
+Mulukukú
+Prinzapolka
+Bluefields
+Corn Island
+Laguna de Perlas
+Kukra Hill
+El Rama
+Nueva Guinea
+Muelle de los Bueyes
+El Tortuguero
+San Carlos
+El Castillo
+San Miguelito
+Morrito
+El Almendro
+San Juan de Nicaragua

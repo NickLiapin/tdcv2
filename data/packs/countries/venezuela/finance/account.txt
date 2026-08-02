@@ -1,0 +1,11 @@
+---
+address: venezuela.finance.account
+description: Venezuelan bank account number — 20 digits (4-digit SUDEBAN bank code + 4-digit branch + 2 control digits + 10-digit account). STRUCTURAL ONLY — the 2 control digits are random; the national verification algorithm is not published, so they are not validated
+generator: tdc
+locale: es
+---
+<sequence name="bank"><gen type="template" value="venezuela.finance.bankCode"/></sequence>
+<sequence name="branch"><gen type="regex" value="[0-9]{4}"/></sequence>
+<sequence name="control"><gen type="regex" value="[0-9]{2}"/></sequence>
+<sequence name="account"><gen type="regex" value="[0-9]{10}"/></sequence>
+<data>${{bank}}${{branch}}${{control}}${{account}}</data>

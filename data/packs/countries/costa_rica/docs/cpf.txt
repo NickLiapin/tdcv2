@@ -1,0 +1,10 @@
+---
+address: costa_rica.docs.cpf
+description: Costa Rican fisica id (10 digits starting with 0, no check digit)
+generator: tdc
+---
+<sequence name="body"><gen type="regex" value="0[1-9][0-9]{8}"/></sequence>
+<sequence name="out"><compute>
+  <result><pad width="10"><field name="body"/></pad></result>
+</compute></sequence>
+<data>${{out}}</data>

@@ -1,0 +1,13 @@
+---
+address: liechtenstein.finance.bank
+description: Banks of Liechtenstein (German names)
+locale: de
+---
+Liechtensteinische Landesbank
+LGT Bank
+VP Bank
+Kaiser Partner Privatbank
+Bank Frick
+Neue Bank
+Bendura Bank
+Sigma Bank

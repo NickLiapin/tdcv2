@@ -1,0 +1,12 @@
+---
+address: costa_rica.geo.province
+description: Costa Rican provincia — the 7 provinces in official (province-code) order 1-7; same order as costa_rica.geo.provinceCode and costa_rica.geo.provinceIso
+locale: es
+---
+San José
+Alajuela
+Cartago
+Heredia
+Guanacaste
+Puntarenas
+Limón

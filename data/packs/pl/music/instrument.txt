@@ -1,0 +1,35 @@
+---
+description: Musical instrument (Polish)
+locale: pl
+---
+Gitara
+Fortepian
+Skrzypce
+Perkusja
+Gitara basowa
+Saksofon
+Trąbka
+Flet
+Wiolonczela
+Klarnet
+Puzon
+Harfa
+Ukulele
+Banjo
+Akordeon
+Keyboard
+Obój
+Kontrabas
+Harmonijka ustna
+Ksylofon
+Gitara klasyczna
+Pianino
+Altówka
+Organy
+Cymbały
+Dudy
+Lira korbowa
+Bębenek
+Fujarka
+Trombita
+Tamburyn

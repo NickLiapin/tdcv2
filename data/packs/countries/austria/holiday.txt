@@ -1,0 +1,22 @@
+---
+address: austria.holiday
+description: Public holidays in Austria (German names)
+locale: de
+---
+Neujahr
+Heilige Drei Könige
+Ostersonntag
+Ostermontag
+Staatsfeiertag
+Christi Himmelfahrt
+Pfingstsonntag
+Pfingstmontag
+Fronleichnam
+Mariä Himmelfahrt
+Nationalfeiertag
+Allerheiligen
+Mariä Empfängnis
+Heiliger Abend
+Christtag
+Stefanitag
+Silvester

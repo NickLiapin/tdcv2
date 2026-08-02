@@ -1,0 +1,34 @@
+---
+description: Vegetable (Polish)
+locale: pl
+---
+Marchew
+Brokuł
+Szpinak
+Ziemniak
+Ogórek
+Sałata
+Cebula
+Papryka
+Cukinia
+Kalafior
+Groszek
+Kukurydza
+Szparag
+Bakłażan
+Jarmuż
+Kapusta
+Seler naciowy
+Pieczarka
+Batat
+Burak
+Rzodkiewka
+Dynia
+Boćwina
+Karczoch
+Por
+Rzepa
+Pomidor
+Rukiew wodna
+Szczypiorek
+Czosnek

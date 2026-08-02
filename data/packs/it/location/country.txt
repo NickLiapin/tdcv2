@@ -1,0 +1,237 @@
+---
+description: Country and territory names (Italian)
+locale: it
+---
+Afghanistan
+Albania
+Germania
+Andorra
+Angola
+Anguilla
+Antartide
+Antigua e Barbuda
+Arabia Saudita
+Algeria
+Argentina
+Armenia
+Aruba
+Australia
+Austria
+Azerbaigian
+Bahamas
+Bangladesh
+Barbados
+Bahrein
+Belgio
+Belize
+Benin
+Bermuda
+Bielorussia
+Bolivia
+Bosnia ed Erzegovina
+Botswana
+Brasile
+Brunei
+Bulgaria
+Burkina Faso
+Burundi
+Bhutan
+Capo Verde
+Cambogia
+Camerun
+Canada
+Qatar
+Ciad
+Cechia
+Cile
+Cina
+Cipro
+Città del Vaticano
+Colombia
+Comore
+Corea del Nord
+Corea del Sud
+Costa d'Avorio
+Costa Rica
+Croazia
+Cuba
+Curaçao
+Danimarca
+Dominica
+Ecuador
+Egitto
+El Salvador
+Emirati Arabi Uniti
+Eritrea
+Slovacchia
+Slovenia
+Spagna
+Stati Uniti
+Estonia
+Eswatini
+Etiopia
+Filippine
+Finlandia
+Figi
+Francia
+Gabon
+Gambia
+Georgia
+Ghana
+Gibilterra
+Grenada
+Grecia
+Groenlandia
+Guadalupa
+Guam
+Guatemala
+Guyana francese
+Guinea
+Guinea-Bissau
+Guinea Equatoriale
+Guyana
+Haiti
+Honduras
+Hong Kong
+Ungheria
+India
+Indonesia
+Iraq
+Iran
+Irlanda
+Isola di Natale
+Islanda
+Isole Cayman
+Isole Cocos
+Isole Cook
+Isole Faroe
+Isole Falkland
+Isole Marianne Settentrionali
+Isole Marshall
+Isole Pitcairn
+Isole Salomone
+Isole Turks e Caicos
+Isole Vergini Britanniche
+Isole Vergini Americane
+Israele
+Italia
+Giamaica
+Giappone
+Giordania
+Kazakistan
+Kenya
+Kirghizistan
+Kiribati
+Kosovo
+Kuwait
+Laos
+Lesotho
+Lettonia
+Libano
+Liberia
+Libia
+Liechtenstein
+Lituania
+Lussemburgo
+Macao
+Macedonia del Nord
+Madagascar
+Malaysia
+Malawi
+Maldive
+Mali
+Malta
+Marocco
+Martinica
+Mauritius
+Mauritania
+Mayotte
+Messico
+Micronesia
+Moldavia
+Monaco
+Mongolia
+Montenegro
+Montserrat
+Mozambico
+Myanmar
+Namibia
+Nauru
+Nepal
+Nicaragua
+Niger
+Nigeria
+Niue
+Norvegia
+Nuova Caledonia
+Nuova Zelanda
+Oman
+Paesi Bassi
+Pakistan
+Palau
+Palestina
+Panama
+Papua Nuova Guinea
+Paraguay
+Perù
+Polinesia francese
+Polonia
+Portogallo
+Porto Rico
+Regno Unito
+Repubblica Centrafricana
+Repubblica del Congo
+Repubblica Democratica del Congo
+Repubblica Dominicana
+Riunione
+Ruanda
+Romania
+Russia
+Sahara Occidentale
+Samoa
+Samoa Americane
+Saint Kitts e Nevis
+San Marino
+Saint Vincent e Grenadine
+Santa Lucia
+São Tomé e Príncipe
+Senegal
+Serbia
+Seychelles
+Sierra Leone
+Singapore
+Siria
+Somalia
+Sri Lanka
+Sudafrica
+Sudan
+Sudan del Sud
+Svezia
+Svizzera
+Suriname
+Thailandia
+Taiwan
+Tanzania
+Tagikistan
+Terre Australi e Antartiche Francesi
+Timor Est
+Togo
+Tokelau
+Tonga
+Trinidad e Tobago
+Tunisia
+Turkmenistan
+Turchia
+Tuvalu
+Ucraina
+Uganda
+Uruguay
+Uzbekistan
+Vanuatu
+Venezuela
+Vietnam
+Wallis e Futuna
+Yemen
+Gibuti
+Zambia
+Zimbabwe

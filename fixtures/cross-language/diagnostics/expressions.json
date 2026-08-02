@@ -1,0 +1,12 @@
+{
+  "schemaVersion": 1,
+  "cases": [
+    {
+      "name": "each-names-nothing",
+      "demonstrates": "TDC206",
+      "description": "each=\"\" names no sequence",
+      "config": "<tdc><env count=\"2\" seed=\"s\"><sequence name=\"G\"><gen type=\"text\" value=\"a,b\"/></sequence></env><block><line each=\"\"><data>x</data></line></block></tdc>",
+      "expected": ["error TDC206 1:114"]
+    }
+  ]
+}

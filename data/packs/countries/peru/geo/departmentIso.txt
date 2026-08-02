@@ -1,0 +1,29 @@
+---
+address: peru.geo.departmentIso
+description: ISO 3166-2:PE subdivision code without the "PE-" prefix; same order as peru.geo.department. Callao is PE-CAL. ISO also defines PE-LMA for the Municipalidad Metropolitana de Lima, which is a province rather than a department and is therefore not listed here.
+---
+AMA
+ANC
+APU
+ARE
+AYA
+CAJ
+CAL
+CUS
+HUV
+HUC
+ICA
+JUN
+LAL
+LAM
+LIM
+LOR
+MDD
+MOQ
+PAS
+PIU
+PUN
+SAM
+TAC
+TUM
+UCA

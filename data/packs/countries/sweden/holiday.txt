@@ -1,0 +1,21 @@
+---
+address: sweden.holiday
+description: Public holidays and major observed days in Sweden (Swedish names)
+locale: sv
+---
+Nyårsdagen
+Trettondedag jul
+Långfredagen
+Påskdagen
+Annandag påsk
+Första maj
+Kristi himmelsfärdsdag
+Pingstdagen
+Sveriges nationaldag
+Midsommarafton
+Midsommardagen
+Alla helgons dag
+Julafton
+Juldagen
+Annandag jul
+Nyårsafton

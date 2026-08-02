@@ -1,0 +1,27 @@
+---
+description: Italian address unit / interior designator (abbreviated forms used before a number)
+locale: it
+---
+Int.
+Sc.
+Piano
+Palazzina
+Edif.
+Blocco
+Torre
+Lotto
+Uff.
+Appto.
+App.
+Villetta
+Box
+Cantina
+Magazzino
+Locale
+Stanza
+Suite
+Ingresso
+Corpo
+Km.
+Civ.
+Fraz.

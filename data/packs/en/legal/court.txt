@@ -1,0 +1,12 @@
+---
+description: Court type
+locale: en
+---
+Supreme Court
+Court of Appeals
+District Court
+Circuit Court
+Family Court
+Small Claims Court
+Bankruptcy Court
+Municipal Court

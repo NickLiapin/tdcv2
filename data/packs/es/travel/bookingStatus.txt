@@ -1,0 +1,15 @@
+---
+description: Booking status (Spanish, agrees with "reserva")
+locale: es
+---
+Confirmada
+Pendiente
+Cancelada
+En espera
+Entrada registrada
+Salida registrada
+No se presentó
+Modificada
+Reembolsada
+Caducada
+Garantizada

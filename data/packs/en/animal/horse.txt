@@ -1,0 +1,17 @@
+---
+description: Horse breed
+locale: en
+---
+Arabian
+Thoroughbred
+Mustang
+Clydesdale
+Appaloosa
+Quarter Horse
+Friesian
+Shire
+Andalusian
+Morgan
+Palomino
+Percheron
+Shetland Pony

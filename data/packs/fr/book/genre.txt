@@ -1,0 +1,28 @@
+---
+description: Book genre (French)
+locale: fr
+---
+Roman
+Policier
+Thriller
+Science-fiction
+Fantasy
+Romance
+Biographie
+Autobiographie
+Essai
+Poésie
+Théâtre
+Bande dessinée
+Manga
+Conte
+Nouvelle
+Roman historique
+Aventure
+Horreur
+Jeunesse
+Développement personnel
+Cuisine
+Récit de voyage
+Philosophie
+Terroir

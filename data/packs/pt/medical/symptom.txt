@@ -1,0 +1,42 @@
+---
+description: Common symptoms / complaints (Portuguese)
+locale: pt
+---
+Febre
+Dor de cabeça
+Fadiga
+Náuseas
+Vômito
+Diarreia
+Prisão de ventre
+Dor abdominal
+Dor no peito
+Falta de ar
+Tosse
+Dor de garganta
+Coriza
+Congestão nasal
+Tontura
+Visão embaçada
+Dor muscular
+Dor nas articulações
+Dor lombar
+Erupção cutânea
+Coceira
+Inchaço
+Dormência
+Formigamento
+Palpitações
+Perda de apetite
+Perda de peso involuntária
+Suores noturnos
+Calafrios
+Espirros
+Azia
+Distensão abdominal
+Cãibras
+Fraqueza
+Confusão mental
+Insônia
+Zumbido no ouvido
+Sangramento nasal

@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "cases": [
+    {
+      "name": "underscore-name",
+      "demonstrates": "TDC031",
+      "description": "A name starting with _ is reserved for builtins",
+      "config": "<tdc><env count=\"2\" seed=\"s\"><sequence name=\"_mine\"><gen type=\"text\" value=\"a\"/></sequence></env><block><line><data>x</data></line></block></tdc>",
+      "expected": ["error TDC031 1:45"]
+    },
+    {
+      "name": "builtin-collision",
+      "demonstrates": "TDC033",
+      "description": "A name that collides with a builtin",
+      "config": "<tdc><env count=\"2\" seed=\"s\"><sequence name=\"_count\"><gen type=\"text\" value=\"a\"/></sequence></env><block><line><data>x</data></line></block></tdc>",
+      "expected": ["error TDC033 1:45"]
+    },
+    {
+      "name": "invalid-parent-reference",
+      "demonstrates": "TDC034",
+      "description": "A parent reference with no name before the dot",
+      "config": "<tdc><env count=\"2\" seed=\"s\"><sequence name=\"A\"><gen type=\"text\" value=\"a\"/></sequence><sequence name=\"B\" parent=\".Value\"><gen type=\"text\" value=\"b\"/></sequence></env><block><line><data>x</data></line></block></tdc>",
+      "expected": ["error TDC034 1:114"]
+    },
+    {
+      "name": "sequence-without-gen",
+      "demonstrates": "TDC036",
+      "description": "A sequence with nothing to generate from",
+      "config": "<tdc><env count=\"2\" seed=\"s\"><sequence name=\"G\"></sequence></env><block><line><data>x</data></line></block></tdc>",
+      "expected": ["error TDC036 1:29"]
+    }
+  ]
+}

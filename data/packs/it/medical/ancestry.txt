@@ -1,0 +1,16 @@
+---
+description: Genetic ancestry group in Italian, used as the parent of diagnosisByAncestry. These are ancestry populations as clinical genetics defines them — geographic descent, not social race categories.
+locale: it
+---
+Africana subsahariana
+Nordafricana
+Mediterranea
+Mediorientale
+Nordeuropea
+Est-europea
+Ebraica ashkenazita
+Sud-asiatica
+Est-asiatica
+Sud-est asiatica
+Indigena americana
+Isolana del Pacifico

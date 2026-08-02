@@ -1,0 +1,544 @@
+---
+title: Salidas grandes y streaming
+sidebar_position: 11
+---
+
+import Figure from '@site/src/components/Figure';
+import Legend from '@site/src/components/Legend';
+
+import Terminal from '@site/src/components/Terminal';
+
+# Salidas grandes y streaming
+
+**Por omisión, TDC genera directo a disco** y funciona a cualquier tamaño — hasta miles de
+millones de filas. La memoria **no** crece con la cantidad de filas: cada fila se calcula
+al vuelo a partir de su número, no se guarda en un arreglo. Sin preparación especial —
+así es simplemente como funciona una corrida normal.
+
+Las salidas de ejemplo de esta página son ilustrativas y pueden variar entre versiones del
+core; donde la página hace una afirmación numérica («exactamente 70/30», «128 MB planos»),
+observe la forma del resultado, no los bytes exactos.
+
+<Figure
+  src="/img/guides/streaming.svg"
+  alt=""
+  caption="La memoria frente a las filas producidas. Es un esquema, no una medición — lo que importa es la forma de cada curva, no su altura."
+/>
+
+<Legend items={[["A", "guardar cada fila en memoria: el costo crece con la corrida"], ["B", "streaming: una ventana a la vez, así que el costo se mantiene plano por larga que sea la corrida"]]} />
+
+## Dos motores de disco, elegidos por usted
+
+Dentro de «disco» hay dos motores, y TDC elige el correcto **a partir de su
+configuración**:
+
+- **El motor rápido de streaming** — se usa para casi todo. Es perezoso, multihilo (vea
+  [`--jobs`](../reference/cli.mdx)), con memoria O(cantidad de campos). Porcentajes
+  exactos, unicidad, dependencias [`parent`](hierarchical-dependencies.mdx),
+  [`<mix>`](../reference/tags.mdx), [`<distinct>`](../constructs/unique-values.mdx) — todo al vuelo.
+- **El motor exacto en disco** — se enciende solo para los casos de unicidad que el motor
+  de streaming no puede resolver al vuelo: `percent` **y** `uniq` sobre las mismas
+  columnas, o `uniq` sobre campos no textuales (números, fechas, plantillas). Garantiza el
+  resultado de forma exacta y su memoria se mantiene acotada — pero lo paga revisando los
+  datos con un ordenamiento externo y una pasada de reparación, y **esa revisión se vuelve
+  drásticamente más lenta a medida que crece el número de filas** (vea la advertencia
+  abajo).
+
+No hace falta saber cuál corre. La elección es **determinista — se basa en la
+configuración, no en el hardware** — así que la misma configuración da el mismo resultado
+en cualquier máquina (la reproducibilidad entre máquinas es una garantía central de TDC).
+
+:::danger[`uniq` sobre una salida enorme es LENTO — y `uniq` + `percent` es lo más lento que hace TDC]
+Garantizar que **ninguna fila se repita** en un archivo enorme es fundamentalmente caro:
+el motor exacto genera, luego **ordena toda la salida y repara cada colisión**, y ese
+trabajo crece **más rápido que linealmente** con el número de filas. Cientos de miles de
+filas únicas ya tardan **minutos**; los millones pueden correr **horas o más**. La memoria
+se mantiene plana — **el tiempo no**.
+
+**El peor caso, por lejos, es `uniq` y `percent` sobre las mismas columnas.** Acertar
+proporciones exactas *y* no repetir a la vez es un problema de acomodo con restricciones
+encima del ordenamiento, así que es dramáticamente más lento otra vez: una corrida que
+sería rápida sin uno de los dos puede tardar un tiempo irrazonable con ambos. Si puede
+soltar la exactitud (deje que las proporciones sean aproximadas) o la unicidad, hágalo.
+
+Para unicidad a escala, prefiera lo que es barato **por construcción**: un
+[contador](../generators/counters.mdx), o un rango [`number`](../generators/number.mdx) lo
+bastante amplio como para que una colisión sea prácticamente imposible. Reserve
+`uniq="true"` — y sobre todo `uniq` + `percent` — para los tamaños donde pueda permitirse
+la espera. Una corrida normal (sin `uniq`) de cualquier tamaño sigue siendo rápida.
+:::
+
+:::note[Escotillas de escape avanzadas]
+El viejo `mode="disk"` ahora es el valor por omisión — no hace falta ninguna bandera.
+`mode="memory"` corre un motor **pequeño** en RAM (exacto, pero que no escala) — el mismo
+que está detrás de la API de objetos
+([`toArray`/`iterate`/`getAt`](../bindings/typescript.mdx)). Fuerce un motor específico con
+[`--engine 1|2|3`](../reference/cli.mdx); `--stream` es un alias heredado del motor rápido
+de streaming.
+:::
+
+## Mil millones de filas
+
+```xml
+<env count="1000000000" seed="s">
+  <sequence name="Gender"><gen type="text" value="M,F" percent="70,30"/></sequence>
+  <sequence name="Id"><gen type="increment" value="1"/></sequence>
+</env>
+```
+
+Estas son las primeras ocho filas de esa corrida:
+
+<Terminal title="./run big.tdc   (primeras 8 filas de los mil millones)">
+{`M,1
+F,2
+M,3
+M,4
+F,5
+M,6
+M,7
+M,8`}
+</Terminal>
+
+:::warning[No reduzca `count` para previsualizar una corrida que usa `percent`]
+Cambie `count="1000000000"` por `count="8"` para verlo rápido y obtendrá **filas
+distintas**: `M M M M M M F F`, no las ocho de arriba. `percent` es una cuota exacta
+repartida sobre el `count` **completo**, así que reducir la corrida vuelve a repartir la
+columna entera; la corrida pequeña no es el comienzo de la grande. Seis M y dos F son
+exactamente 70/30 de ocho, y ese es el punto: la cuota se respeta en cualquier tamaño, y
+por eso mismo no puede ser además un prefijo. Lo mismo con `uniq` y con un pack
+ponderado — vea [Determinismo y proporciones](../core-concepts/determinism.mdx), la
+sección sobre los diseños que abarcan toda la ejecución. Un `count` pequeño es la forma
+correcta de comprobar la **forma** (el formato, las proporciones, que los campos
+concuerden) y la forma incorrecta de predecir qué valor caerá en la fila 5 de la corrida
+real.
+:::
+
+Aquí TDC usa el motor rápido de streaming (no hay uniq pesado). **No** materializa un
+registro — el valor de cada fila se calcula a partir de su número, así que la memoria es
+**O(campos)**, no O(filas), y los porcentajes se mantienen **exactos** (precisamente
+70/30, sin ningún arreglo guardado). El resultado es determinista.
+
+**El motor rápido resuelve casi todo:** [`<sequence>`](../core-concepts/sequences.mdx)
+simples y compuestas, generadores independientes
+([`text`](../generators/text.mdx), [`number`](../generators/number.mdx),
+[`date`](../generators/date.mdx), [`regex`](../generators/regex.mdx),
+[`symbol`](../generators/symbol.mdx), [`template`](../generators/template.mdx)),
+[`percent`](../reference/attributes.mdx) exacto, [contadores](../generators/counters.mdx),
+los [integrados](../reference/builtins.mdx) (`_count`/`_first`/`_last`/`_total`),
+dependencias [`parent`](hierarchical-dependencies.mdx) (a cualquier profundidad),
+[`uniq="true"`](../constructs/unique-values.mdx) sobre una lista de texto finita y el
+[`<uniq>`](../constructs/unique-values.mdx) a nivel de env,
+[`<distinct>`](../constructs/unique-values.mdx) y [`<mix>`](../reference/tags.mdx) — todo al vuelo,
+exacto y en paralelo. Lo que le pasa al motor exacto es la unicidad que no puede resolver
+en una pasada: `percent` + `uniq` sobre las **mismas** columnas, y `uniq` sobre campos no
+textuales (números, fechas, plantillas). Así que una corrida normal cubre **cualquier**
+configuración; los casos de unicidad delegados también son correctos, solo que más lentos
+— y en salidas enormes, mucho más lentos (vea la advertencia arriba).
+
+(En el motor rápido, `parent` funciona solo cuando el padre es una secuencia con una lista
+finita de valores — una secuencia [`text`](../generators/text.mdx). Heredar de un rango
+numérico manda la configuración al motor exacto.)
+
+### Dependencias parent en el stream
+
+Una secuencia hija con [`parent="Parent.Value"`](hierarchical-dependencies.mdx) está activa
+exactamente en las filas donde el padre produjo ese valor, y sus porcentajes son **exactos
+dentro del subconjunto**. El anidamiento llega a cualquier profundidad (padre → hijo →
+nieto).
+
+```xml
+<env count="1000" seed="s">
+  <sequence name="Gender"><gen type="text" value="M,F" percent="70,30"/></sequence>
+  <sequence name="Male" parent="Gender.M"><gen type="text" value="Juan,Carlos,Miguel" percent="50,30,20"/></sequence>
+  <sequence name="Female" parent="Gender.F"><gen type="text" value="María,Elena" percent="60,40"/></sequence>
+</env>
+```
+
+En las filas `M` se llena el campo `Male`; en las filas `F`, el campo `Female`. Las
+primeras 6 de 1000 filas:
+
+<Terminal title="./run parent.tdc   (primeras 6 de 1000)">
+{`F,,María
+M,Carlos,
+F,,Elena
+F,,María
+F,,María
+F,,María`}
+</Terminal>
+
+La distribución es exacta en todos los niveles — sin arreglos, cada fila calculada a partir
+de su número:
+
+<Terminal title="./run parent.tdc   (conteos sobre 1000 filas)">
+{`Gender  M         700
+Gender  F         300
+Male    Juan      350
+Male    Carlos    210
+Male    Miguel    140
+Female  María     180
+Female  Elena     120`}
+</Terminal>
+
+Exactamente 700 `M` y 300 `F`; dentro de los 700 hombres, exactamente 350/210/140 (50/30/20
+de 700), y dentro de las 300 mujeres, exactamente 180/120 (60/40 de 300). En las filas
+«ajenas» el campo hijo queda en blanco — `Male` está vacío en las filas femeninas, y
+`Female` en las masculinas.
+
+### Unicidad por construcción (`uniq`)
+
+[`uniq="true"`](../constructs/unique-values.mdx) en una secuencia compuesta hace que la **tupla de todos
+sus campos sea única en todo el conjunto de datos** — sin guardar lo que ya se generó. La
+combinación de campos se trata como un solo número en un sistema de base mixta, y una
+permutación especial («una lotería sin tómbola») le entrega a cada fila su **propio**
+número de combinación, así que no hay repeticiones por construcción.
+
+```xml
+<env count="6" seed="s">
+  <sequence name="Combo" uniq="true">
+    <gen name="Letter" type="text" value="A,B,C"/>
+    <gen name="Digit" type="text" value="1,2"/>
+  </sequence>
+</env>
+```
+
+Las 6 filas son distintas — ese es el espacio completo de `3 × 2`:
+
+<Terminal title="./run uniq.tdc   (las 6 filas)">
+{`C,2
+A,1
+B,2
+A,2
+C,1
+B,1`}
+</Terminal>
+
+Lo mismo vale para el [`<uniq>`](../constructs/unique-values.mdx) a nivel de env, donde la tupla única se
+construye a partir de secuencias **separadas** en vez de campos de una sola:
+
+```xml
+<env count="6" seed="s">
+  <uniq>
+    <sequence name="A"><gen type="text" value="x,y,z"/></sequence>
+    <sequence name="B"><gen type="text" value="m,n"/></sequence>
+  </uniq>
+</env>
+```
+
+<Terminal title="./run env-uniq.tdc   (las 6 combinaciones de 3 x 2)">
+{`z,n
+x,n
+x,m
+y,n
+y,m
+z,m`}
+</Terminal>
+
+Como la unicidad es matemática y no contabilidad, esto escala hasta un archivo de un
+terabyte sin costo de memoria — no hay nada contra qué comparar. **Límites del `uniq`
+rápido:** solo campos/secuencias [`text`](../generators/text.mdx), uniformes (sin `percent`
+en esas columnas) y a lo más `2^52` combinaciones.
+
+**La capacidad se revisa antes de que empiece la corrida.** Si pide más filas únicas de
+las que puede sostener el espacio de combinaciones, TDC falla de inmediato con un error
+claro — no ocho horas después, a media escritura del archivo:
+
+<Terminal title="./run oversized-uniq.tdc">
+{`tdc: stream mode: uniq "K" is infeasible — only 1000000 distinct
+combinations exist, but 5000000000 unique rows were requested.`}
+</Terminal>
+
+### `<mix>` en el stream
+
+[`<mix>`](../reference/tags.mdx) elige un case para cada fila por **porcentaje exacto** (la
+misma matemática que `percent`) y luego arma el cuerpo del case: texto, generadores y
+**`<mix>` anidados** a cualquier profundidad. Un generador o un `<mix>` anidado dentro de un
+case corre **sobre el subconjunto de filas de ese case** — su contador cuenta dentro del
+case, y los porcentajes anidados son exactos dentro del subconjunto.
+
+```xml
+<env count="1000" seed="s">
+  <mix name="Status" percent="20,50,30">
+    <case><data>new</data></case>
+    <case><data>active-</data><gen type="number" value="1..3"/></case>
+    <case><data>closed</data></case>
+  </mix>
+</env>
+```
+
+Las primeras 6 de 1000 filas:
+
+<Terminal title="./run mix.tdc   (primeras 6 de 1000)">
+{`active-1
+new
+active-3
+closed
+active-1
+closed`}
+</Terminal>
+
+Sobre 1000 filas el reparto es exacto: 200 `new`, 500 `active-N`, 300 `closed`. `<mix>`
+también se compone con [`parent`](hierarchical-dependencies.mdx) — y entonces está activo
+solo en las filas del padre.
+
+## Por qué el motor rápido no combina `percent` + `uniq`
+
+La unicidad por construcción y el porcentaje exacto por construcción son dos trucos
+**distintos**, y al vuelo (sin guardar lo que ya se generó) no se combinan — hacer ambos a
+la vez es o materialización total o un problema NP-difícil. Así que para esa única
+combinación TDC usa el **motor exacto en disco**, que retiene los datos y los permuta,
+verificando contra el conjunto completo. Es más lento, pero hace ambas cosas de forma
+exacta, a cualquier tamaño. El cambio es **automático** — no hay que activarlo.
+
+## Paralelismo — automático
+
+La generación está **limitada por CPU**, no por disco (escribir es mucho más rápido que
+calcular filas), y las filas del motor de streaming son independientes (cada una sale de su
+propio número), así que TDC las calcula en varios núcleos — gratis, por arquitectura.
+
+**Usted no configura nada.** Si la configuración es divisible (motor rápido, sin
+generadores integrados en línea) y el archivo es lo bastante grande, TDC usa
+`núcleos − 1` (7 en una máquina de 8 núcleos); si no, corre calladamente en un solo núcleo:
+
+```bash
+npx tdcv2 customers.tdc -o customers.csv
+```
+
+El resultado es **idéntico byte por byte sin importar la cantidad de núcleos** (con el
+mismo seed): cada núcleo calcula un rango contiguo de filas hacia un archivo temporal, y
+luego se concatenan estrictamente en orden. La cantidad de hilos es solo cuestión de
+velocidad — nunca afecta los datos.
+
+Una medición — 1 000 000 de filas, seis campos (un contador, dos nombres de plantilla, una
+columna con `percent`, una distribución normal y una fecha), un archivo de 74 MB, en una
+máquina de 12 núcleos:
+
+| `--jobs`      | tiempo | aceleración |
+| :------------ | -----: | ----------: |
+| 1             | 6.93 s |          ×1 |
+| 2             | 4.04 s |        ×1.7 |
+| 4             | 2.27 s |        ×3.1 |
+| 8             | 1.57 s |    **×4.4** |
+| 12            | 1.72 s |        ×4.0 |
+| auto          | 1.69 s |        ×4.1 |
+
+Dos lecciones. **Más hilos no siempre es más rápido:** doce hilos en doce núcleos pierden
+contra ocho — se pelean por los mismos núcleos y el mismo disco. Y **por lo general no hay
+nada que ajustar:** auto toma `núcleos − 1` y se queda a ~8 % del mejor resultado, lo cual
+no vale el alboroto.
+
+La aceleración depende de qué tan cara sea una fila. En una configuración de verdad barata
+(dos campos, un contador y `M,F`) la ganancia es de apenas ~×1.6 — levantar hilos cuesta
+tiempo, y en trabajo liviano ese costo se come casi toda la ganancia. Una cifra de
+aceleración sin su configuración al lado no significa nada.
+
+Ajústelo a mano con [`--jobs N`](../reference/cli.mdx) si quiere (`--jobs 1` fuerza un solo
+hilo); la salida es idéntica de cualquier forma:
+
+```bash
+npx tdcv2 customers.tdc --jobs 8 -o customers.csv
+```
+
+Cuando el paralelismo **no** entra en acción, auto se queda callado, pero si pidió `--jobs`
+explícitamente TDC le dice por qué — por ejemplo, una configuración en el motor **exacto**
+(`percent` + `uniq` juntos corre en un solo hilo). La salida es correcta de cualquier
+forma.
+
+## El motor se elige por su configuración, no por su hardware
+
+Cuál motor corre (el rápido o el exacto) lo decide TDC **por el contenido de la
+configuración**, nunca por la máquina. Esto importa: si la elección dependiera de «cuánta
+RAM hay libre en este momento», entonces **la misma configuración con el mismo seed podría
+producir datos distintos en computadoras distintas** — y la reproducibilidad entre máquinas
+es la garantía central de TDC. Como el ruteo depende solo de la configuración, una
+configuración siempre toma un motor y da un resultado en todas partes.
+
+La estimación de memoria (`preflight()`, abajo) es solo un **consejo**; no cambia nada ni
+altera la salida. Para forzar un motor específico use
+[`--engine 1|2|3`](../reference/cli.mdx) (avanzado); `mode="memory"` es el motor pequeño en
+RAM para conjuntos de datos chicos.
+
+El mismo forzado existe **dentro del config**, como `engine` en `<env>`: la bandera sin
+línea de comandos:
+
+```xml
+<env count="1000" seed="s" engine="1">
+```
+
+`1` es en memoria, `2` en flujo, `3` exacto en disco; cualquier otro valor es un error.
+Prefiera `mode="memory"` / `mode="disk"`, que dicen qué quiere en lugar de qué
+implementación se lo da: los números de motor son una salida de emergencia para
+reproducir un comportamiento concreto, y un config clavado a un motor no se beneficiará
+de un mejor enrutado más adelante. Si están los dos, `engine` gana sobre `mode`; un
+`--engine` o `--mode` en la línea de comandos gana sobre cualquiera de ellos.
+
+## Métodos terminales (la biblioteca)
+
+La salida de texto (`toString`/`toIterator`/`toStream`/`writeFile`/CLI) pasa por disco y
+**no** materializa un registro — O(campos). Los métodos de objetos
+(`toArray`/`iterate`/`getAt`) devuelven objetos de JS a través del motor pequeño en RAM,
+así que retienen datos en memoria (algo razonable para los conjuntos chicos para los que
+existe la API de objetos).
+
+| Método         | Salida de texto        | Memoria                | Sirve para                        |
+| :------------- | :--------------------- | :--------------------- | :-------------------------------- |
+| `toString()`   | recolectada completa   | O(campos) + texto completo | resultados chicos / medianos  |
+| `toIterator()` | una fila a la vez      | O(campos)              | resultados de texto grandes, fila por fila |
+| `toStream()`   | `Readable` de Node     | O(campos)              | canalizar a un archivo / HTTP / un archivador |
+| `writeFile()`  | por trozos a un archivo | O(campos)             | la salida más simple para un archivo grande |
+| CLI            | por trozos             | O(campos)              | la línea de comandos              |
+| `toArray()`    | filas como objetos, completas | materializadas en RAM | fixtures de objetos chicas / medianas |
+| `iterate()`    | filas como objetos, una por una | materializadas en RAM | salida de objetos, una fila a la vez |
+| `getAt(index)` | una fila como objeto   | materializada por llamada | acceso puntual, no masivo      |
+
+Para archivos grandes, use la CLI, `writeFile()`, `toIterator()` o `toStream()`:
+
+```ts
+const tdc = new TDC({ configFile: "./customers.tdc" });
+tdc.writeFile("./customers.csv");
+```
+
+O mediante un stream:
+
+```ts
+import { createWriteStream } from "node:fs";
+
+tdc.toStream().pipe(createWriteStream("./customers.csv"));
+```
+
+### Prueba: medio millón de filas, la memoria se mantiene plana
+
+Las palabras bonitas sobre «O(campos)» valen más con números reales. Tome una configuración
+de 500 000 filas y ejecute los terminales.
+
+**`writeFile()` — un archivo en disco.** Escribe por trozos conforme genera:
+
+<Terminal title="node writeFile.js   (500 000 filas)">
+{`bytes: 4388895        // ~4.4 MB, 500,000 rows
+M,1
+M,2
+M,3`}
+</Terminal>
+
+**`toIterator()` — recorrer todas las filas, y la memoria no se mueve.** Muestreando el RSS
+del proceso en puntos de control conforme crece la cantidad de filas:
+
+<Terminal title="node measure.js">
+{`rows=100000  RSS=128 MB
+rows=200000  RSS=128 MB
+rows=300000  RSS=128 MB
+rows=400000  RSS=128 MB
+rows=500000  RSS=128 MB`}
+</Terminal>
+
+La línea es **plana** — 128 MB con 100 000 filas y los mismos 128 MB con 500 000. Fíjese en
+lo plano, no en el número absoluto (el RSS depende de la máquina y la versión de Node —
+esto fue en una Apple M2 Max con Node 20); la línea es plana en todos lados.
+
+**`toStream()` es igual a `writeFile()` byte por byte.** Ambos toman el mismo camino de
+streaming:
+
+```ts
+new TDC({ configFile: "./customers.tdc" })
+  .toStream()
+  .pipe(createWriteStream("out2.csv"));
+// md5(out2.csv) === md5(out.csv)  →  true
+```
+
+## `preflight()` — una estimación del riesgo de memoria
+
+`preflight()` estima el riesgo de memoria antes de generar, comparando la estimación con la
+RAM **total** de la máquina (no con la «libre en este momento» — el sistema operativo le
+entrega memoria a un proceso bajo demanda, así que una cifra de libre instantáneo es
+engañosa).
+
+```ts
+const diagnostic = tdc.preflight();
+```
+
+En una corrida normal (a disco) ni siquiera medio millón de filas representa riesgo —
+`preflight()` devuelve `undefined`. Solo advierte cuando hay un `mode="memory"` explícito
+con un `count` grande, donde los datos sí se materializan de verdad:
+
+```ts
+// disk (default), 500,000 rows:
+new TDC({ configFile: "./customers.tdc" }).preflight();
+//  →  undefined
+
+// mode="memory", 50,000,000 rows — returns a Diagnostic:
+const d = new TDC({
+  configFile: "./customers.tdc",
+  mode: "memory",
+  count: 50_000_000,
+}).preflight();
+```
+
+<Terminal title="node preflight.js">
+{`d.severity  warning
+d.code      TDC200
+d.message   estimated memory need (~20981 MB) is a large share of this
+            machine's RAM (32768 MB) — may lean on swap and slow down
+d.hint      This will still run; for very large datasets mode="disk"
+            keeps memory flat regardless of count.`}
+</Terminal>
+
+Así que en una corrida ordinaria a disco preflight prácticamente nunca se dispara: el motor
+de streaming retiene O(campos), no O(filas), así que mil millones de filas pasan tan
+tranquilas — para eso está hecho. La estimación es solo un **consejo**; no cambia de motor
+ni altera la salida.
+
+Si sabe que va a consumir la salida del streaming con `toString()`, nombre el escenario
+explícitamente:
+
+```ts
+const diagnostic = tdc.preflight({ output: "streaming" });
+```
+
+## Qué se materializa en RAM
+
+El motor de streaming (a disco) no guarda nada extra en memoria. La materialización ocurre
+solo en el **motor pequeño en RAM** — la API de objetos (`toArray`/`iterate`/`getAt`) y un
+`mode="memory"` explícito. Ahí retiene, de entrada:
+
+- los integrados `_count`, `_first`, `_last`, `_total`;
+- cada `<sequence>` simple;
+- cada campo de una secuencia compuesta;
+- los arreglos de valores filtrados por parent, o `undefined`;
+- los planes de enlace de filas CSV para datos externos enlazados.
+
+Una estimación gruesa: `count × cantidad_de_ranuras_de_secuencia`. Por ejemplo, esta
+secuencia compuesta:
+
+```xml
+<sequence name="Person">
+  <gen name="FirstName" type="template" value="person.female.firstName"/>
+  <gen name="LastName" type="template" value="person.lastName"/>
+</sequence>
+```
+
+<Terminal title="./run person.tdc   (${{Person.FirstName}} ${{Person.LastName}})">
+{`Salomé Zambrano
+Salomé Juárez
+Sol Miranda
+Olivia Rodas
+Úrsula López`}
+</Terminal>
+
+ocupa dos ranuras de secuencia: `Person.FirstName` y `Person.LastName`.
+
+## Reglas prácticas
+
+- Para un archivo de cualquier tamaño, simplemente use `writeFile()` o la CLI — a disco por
+  omisión, y la memoria no crece con las filas.
+- Para acelerar muchas filas, agregue [`--jobs N`](../reference/cli.mdx) (en el motor
+  rápido).
+- `toString()` es cómodo para pruebas y resultados chicos, pero junta todo el texto en una
+  sola cadena — no sirve para archivos grandes.
+- `toArray()`/`iterate()`/`getAt()` materializan filas como objetos en RAM, así que no
+  reemplazan la salida de archivos por streaming — son para conjuntos chicos.
+
+## Vea también
+
+- **[CLI](../reference/cli.mdx)** — `--jobs`, `--mode`, `--engine`.
+- **[Valores únicos](../constructs/unique-values.mdx)** — `uniq`, `<uniq>` y `<distinct>` a fondo.
+- **[Dependencias jerárquicas](hierarchical-dependencies.mdx)** — `parent` a fondo.
+- **[Bindings de lenguajes](../bindings/typescript.mdx)** — la API de la biblioteca completa.

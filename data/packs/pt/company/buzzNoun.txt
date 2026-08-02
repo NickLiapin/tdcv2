@@ -1,0 +1,64 @@
+---
+description: Business buzz noun (Portuguese)
+locale: pt
+---
+sinergia
+paradigma
+ecossistema
+framework
+fluxo de trabalho
+arquitetura
+infraestrutura
+plataforma
+solução
+estratégia
+roteiro
+iniciativa
+metodologia
+alinhamento
+alavancagem
+desempenho
+entregável
+ponto de contato
+referência
+marco
+engajamento
+orquestração
+integração
+migração
+transformação
+otimização
+escalabilidade
+interoperabilidade
+governança
+conformidade
+resiliência
+observabilidade
+telemetria
+cadência
+vertical
+canal
+alavanca
+valor agregado
+proposta de valor
+vantagem competitiva
+participação de mercado
+segmento
+nicho
+carteira
+portfólio
+investimento
+retorno
+produtividade
+eficiência
+inovação
+disrupção
+digitalização
+automação
+análise de dados
+inteligência de negócios
+experiência do cliente
+ciclo de vida
+tempo de lançamento
+economia de escala
+melhoria contínua

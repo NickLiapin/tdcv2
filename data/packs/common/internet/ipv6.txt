@@ -1,0 +1,6 @@
+---
+address: common.internet.ipv6
+description: IPv6 in the 2001:db8::/32 documentation range
+generator: tdc
+---
+<gen type="regex" value="2001:db8(?::[0-9a-f]{1,4}){6}" regex_max_length="40"/>

@@ -1,0 +1,14 @@
+---
+description: French driving licence class for professional driving (French)
+locale: fr
+---
+B
+C1
+C
+C1E
+CE
+D1
+D
+D1E
+DE
+BE

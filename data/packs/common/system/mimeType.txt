@@ -1,0 +1,23 @@
+---
+description: MIME type
+---
+application/json
+text/html
+text/plain
+text/css
+application/javascript
+image/png
+image/jpeg
+image/gif
+image/svg+xml
+image/webp
+application/pdf
+application/zip
+application/xml
+text/csv
+audio/mpeg
+video/mp4
+application/octet-stream
+font/woff2
+application/x-www-form-urlencoded
+multipart/form-data

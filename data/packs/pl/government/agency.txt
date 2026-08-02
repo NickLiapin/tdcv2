@@ -1,0 +1,27 @@
+---
+description: Government body (Polish ministries and public offices)
+locale: pl
+---
+Ministerstwo Zdrowia
+Ministerstwo Edukacji Narodowej
+Ministerstwo Infrastruktury
+Ministerstwo Finansów
+Ministerstwo Sprawiedliwości
+Ministerstwo Rodziny i Polityki Społecznej
+Ministerstwo Obrony Narodowej
+Ministerstwo Spraw Wewnętrznych i Administracji
+Ministerstwo Spraw Zagranicznych
+Ministerstwo Rolnictwa i Rozwoju Wsi
+Ministerstwo Klimatu i Środowiska
+Ministerstwo Rozwoju i Technologii
+Ministerstwo Kultury i Dziedzictwa Narodowego
+Urząd Skarbowy
+Zakład Ubezpieczeń Społecznych
+Narodowy Fundusz Zdrowia
+Kasa Rolniczego Ubezpieczenia Społecznego
+Główny Urząd Statystyczny
+Urząd Stanu Cywilnego
+Urząd Miasta
+Urząd Wojewódzki
+Powiatowy Urząd Pracy
+Straż Miejska

@@ -1,0 +1,34 @@
+---
+description: Language name (French)
+locale: fr
+---
+Français
+Anglais
+Espagnol
+Portugais
+Italien
+Allemand
+Néerlandais
+Arabe
+Chinois
+Japonais
+Coréen
+Russe
+Polonais
+Roumain
+Grec
+Turc
+Suédois
+Norvégien
+Danois
+Finnois
+Hébreu
+Hindi
+Vietnamien
+Thaï
+Wolof
+Créole
+Occitan
+Breton
+Basque
+Corse

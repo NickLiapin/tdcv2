@@ -1,0 +1,70 @@
+---
+address: honduras.geo.streetNamed
+description: Common Honduran street or boulevard name, bare (without the Avenida / Calle / Bulevar prefix)
+locale: es
+---
+Morazán
+Suyapa
+Los Próceres
+Fuerzas Armadas
+Centroamérica
+Juan Pablo II
+Kuwait
+La Hacienda
+La Paz
+Cervantes
+Circunvalación
+Los Dolores
+Junín
+República de Chile
+República de Panamá
+Comunidad Económica Europea
+Francisco Morazán
+José Cecilio del Valle
+Dionisio de Herrera
+José Trinidad Cabañas
+Marco Aurelio Soto
+Ramón Rosa
+Policarpo Bonilla
+Manuel Bonilla
+Tiburcio Carías Andino
+Juan Ramón Molina
+Froylán Turcios
+Rafael Heliodoro Valle
+Visitación Padilla
+Clementina Suárez
+Lempira
+Cristóbal Colón
+Máximo Jerez
+Miguel Paz Barahona
+Vicente Cáceres
+Jerónimo de la Cueva
+Paulino Valladares
+Gutemberg
+Finlay
+Colón
+Palmira
+La Isla
+La Leona
+El Obelisco
+Los Laureles
+La Reforma
+Miraflores
+El Prado
+Las Colinas
+La Granja
+Toncontín
+El Pedregal
+Loarque
+Kennedy
+Miramontes
+La Campaña
+Río de Piedras
+Bella Vista
+Buenos Aires
+Independencia
+15 de Septiembre
+3 de Octubre
+21 de Octubre
+1 de Mayo
+12 de Octubre

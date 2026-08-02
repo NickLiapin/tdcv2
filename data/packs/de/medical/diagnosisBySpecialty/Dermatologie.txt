@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Dermatology (German)
+locale: de
+---
+Schuppenflechte
+Neurodermitis
+Akne vulgaris
+Melanom
+Rosazea
+Kontaktekzem
+Gürtelrose
+Nesselsucht
+Basalzellkarzinom
+Vitiligo

@@ -1,0 +1,11 @@
+---
+description: Conditions in Arabic markedly more frequent in people of Southeast Asian ancestry. A prevalence signal, not an exclusive one.
+locale: ar
+---
+داء الهيموغلوبين إي
+الثلاسيميا ألفا
+نقص إنزيم غلوكوز 6 فوسفات ديهيدروجيناز
+سرطان البلعوم الأنفي
+الثلاسيميا بيتا
+متلازمة بروغادا
+عدم استمرار إنتاج إنزيم اللاكتاز

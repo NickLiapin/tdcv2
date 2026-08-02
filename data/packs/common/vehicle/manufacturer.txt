@@ -1,0 +1,41 @@
+---
+description: Car manufacturer / brand
+locale: en
+---
+Toyota
+Ford
+Honda
+Chevrolet
+Nissan
+BMW
+Mercedes-Benz
+Audi
+Volkswagen
+Hyundai
+Kia
+Subaru
+Mazda
+Jeep
+Tesla
+Volvo
+Lexus
+Porsche
+Jaguar
+Land Rover
+Chrysler
+Dodge
+GMC
+Ram
+Buick
+Cadillac
+Mitsubishi
+Fiat
+Peugeot
+Renault
+Skoda
+Mini
+Ferrari
+Lamborghini
+Bentley
+Acura
+Infiniti

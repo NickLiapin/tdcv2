@@ -1,0 +1,6 @@
+---
+address: russia.phone
+description: Russia mobile phone in E.164 form (+7 9XXXXXXXXX)
+generator: tdc
+---
+<gen type="regex" value="\+79[0-9]{9}"/>

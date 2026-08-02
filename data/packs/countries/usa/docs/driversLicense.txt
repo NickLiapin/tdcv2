@@ -1,0 +1,7 @@
+---
+address: usa.docs.driversLicense
+description: US driver-license number — generic structural format (1 letter + 7 digits). Real formats are set per state and vary widely (some are all-digit, some letter-prefixed, some longer); this is a plausible generic layout only, with no check digit.
+generator: tdc
+locale: en
+---
+<gen type="regex" value="[A-Z][0-9]{7}"/>

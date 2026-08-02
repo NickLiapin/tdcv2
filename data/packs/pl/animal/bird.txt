@@ -1,0 +1,34 @@
+---
+description: Bird (Polish)
+locale: pl
+---
+Wróbel
+Rudzik
+Orzeł
+Sokół
+Sowa
+Papuga
+Pingwin
+Pustułka
+Kardynał
+Sójka
+Koliber
+Dzięcioł
+Pelikan
+Flaming
+Łabędź
+Kruk
+Wrona
+Szczygieł
+Czapla
+Zimorodek
+Mewa
+Gołąb
+Jaskółka
+Słowik
+Kondor
+Tukan
+Struś
+Bocian
+Płomykówka
+Kwezal

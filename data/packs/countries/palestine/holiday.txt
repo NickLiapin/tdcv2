@@ -1,0 +1,14 @@
+---
+address: palestine.holiday
+description: Public holidays in Palestine (Arabic)
+locale: ar
+---
+رأس السنة الميلادية
+عيد الفصح
+عيد العمال
+عيد الفطر
+عيد الأضحى
+رأس السنة الهجرية
+المولد النبوي
+عيد الميلاد
+يوم الاستقلال

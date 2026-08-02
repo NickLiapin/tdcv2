@@ -1,0 +1,4 @@
+---
+description: Ticker for Litecoin
+---
+LTC

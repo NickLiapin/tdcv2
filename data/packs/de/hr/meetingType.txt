@@ -1,0 +1,16 @@
+---
+description: Meeting type (German)
+locale: de
+---
+Tägliches Standup
+Einzelgespräch
+Vollversammlung
+Retrospektive
+Sprint-Planung
+Kick-off-Meeting
+Abstimmungsrunde
+Review
+Workshop
+Brainstorming
+Folgetermin
+Post-Mortem-Analyse

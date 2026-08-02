@@ -1,0 +1,7 @@
+---
+address: tajikistan.vehicle.plate
+description: Tajikistani vehicle plate — 2-digit region code + 2 letters + 3 digits + 2 letters (e.g. 01 AB 123 CD). Approximate current format.
+generator: tdc
+locale: ru
+---
+<gen type="regex" value="(0[1-9]|1[0-2]) [A-Z]{2} [0-9]{3} [A-Z]{2}"/>

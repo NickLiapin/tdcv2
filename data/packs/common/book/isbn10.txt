@@ -1,0 +1,25 @@
+---
+address: common.book.isbn10
+description: ISBN-10 (9 digits + mod-11 check, 10 -> X)
+generator: tdc
+---
+<sequence name="payload"><gen type="regex" value="[0-9]{9}"/></sequence>
+<sequence name="isbn"><compute>
+  <let name="sum">
+    <reduce>
+      <over><field name="payload"/></over>
+      <init><int v="0"/></init>
+      <do><add><acc/>
+        <multiply><current/><subtract><int v="10"/><current_index/></subtract></multiply>
+      </add></do>
+    </reduce>
+  </let>
+  <let name="c"><mod><subtract><int v="11"/><mod><var name="sum"/><int v="11"/></mod></subtract><int v="11"/></mod></let>
+  <result><concat><field name="payload"/>
+    <choose>
+      <when><test><equals><var name="c"/><int v="10"/></equals></test><then><str v="X"/></then></when>
+      <otherwise><var name="c"/></otherwise>
+    </choose>
+  </concat></result>
+</compute></sequence>
+<data>${{isbn}}</data>

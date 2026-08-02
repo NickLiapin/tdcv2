@@ -1,0 +1,7 @@
+---
+address: panama.vehicle.plate
+description: Panamanian licence plate — the current private-vehicle serial has been two letters followed by four digits (AB1234) since 2013, replacing the earlier all-numeric plates (six digits, still seen in circulation). Reserved leading letters mark special service (M motorcycle, T taxi, B bus, G government, CD diplomatic)
+generator: tdc
+locale: es
+---
+<gen type="regex" value="([A-Z]{2}[0-9]{4}|[A-Z]{2}[0-9]{4}|[A-Z]{2}[0-9]{4}|[0-9]{6})"/>

@@ -1,0 +1,13 @@
+---
+address: ireland.geo.eircode
+description: Irish Eircode — 7 chars, "A65 F4E2" style: a real routing key (3) + space + a 4-char unique identifier drawn from the reduced Eircode alphabet 0-9ACDEFHKNPRTVWXY
+generator: tdc
+locale: en
+---
+<!-- Routing key: real An Post routing keys (Dublin postal districts plus one
+     per major provincial town). D6W is the sole letter-bearing exception. -->
+<sequence name="rk"><gen type="text" value="D01,D02,D03,D04,D05,D06,D6W,D07,D08,D09,D10,D11,D12,D13,D14,D15,D16,D17,D18,D20,D22,D24,A91,A92,C15,E45,F23,F31,F42,F91,F92,H12,H18,H91,K78,N37,N39,N91,P31,P51,P56,P61,P72,P81,R14,R32,R35,R93,R95,T12,T23,V14,V15,V92,V94,V95,W12,W91,X35,X42,X91,Y14,Y21,Y35"/></sequence>
+<!-- Unique identifier: 4 chars from the Eircode-approved set (letters that can
+     be confused with digits — B G I J L M O Q S U Z — are excluded). -->
+<sequence name="uid"><gen type="regex" value="[0-9ACDEFHKNPRTVWXY]{4}"/></sequence>
+<data>${{rk}} ${{uid}}</data>

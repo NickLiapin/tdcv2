@@ -1,0 +1,1004 @@
+---
+description: US city weighted by population (US Census 2023, top 1000)
+weighted: true
+---
+New York,8258035
+Los Angeles,3820914
+Chicago,2664452
+Houston,2314157
+Phoenix,1650070
+Philadelphia,1550542
+San Antonio,1495295
+San Diego,1388320
+Dallas,1302868
+Jacksonville,985843
+Austin,979882
+Fort Worth,978468
+San Jose,969655
+Columbus,913175
+Charlotte,911311
+Indianapolis city,879293
+San Francisco,808988
+Seattle,755078
+Denver,716577
+Oklahoma City,702767
+Nashville-Davidson metropolitan government,687788
+Washington,678972
+El Paso,678958
+Las Vegas,660929
+Boston,653833
+Detroit,633218
+Portland,630498
+Louisville/Jefferson County metro government,622981
+Memphis,618639
+Baltimore,565239
+Milwaukee,561385
+Albuquerque,560274
+Tucson,547239
+Fresno,545716
+Sacramento,526384
+Mesa,511648
+Atlanta,510823
+Kansas City,510704
+Colorado Springs,488664
+Omaha,483335
+Raleigh,482295
+Miami,455924
+Virginia Beach,453649
+Long Beach,449468
+Oakland,436504
+Minneapolis,425115
+Bakersfield,413381
+Tulsa,411894
+Tampa,403364
+Arlington,398431
+Wichita,396119
+Aurora,395052
+New Orleans,364136
+Cleveland,362656
+Urban Honolulu,341778
+Anaheim,340512
+Henderson,337305
+Orlando,320742
+Lexington-Fayette,320154
+Stockton,319543
+Riverside,318858
+Corpus Christi,316595
+Irvine,314621
+Cincinnati,311097
+Santa Ana,310539
+Newark,304960
+St. Paul,303820
+Pittsburgh,303255
+Greensboro,302296
+Durham,296186
+Lincoln,294757
+Jersey City,291657
+Plano,290190
+Anchorage,286075
+North Las Vegas,284771
+St. Louis,281754
+Madison,280305
+Chandler,280167
+Gilbert,275411
+Reno,274915
+Buffalo,274678
+Chula Vista,274333
+Fort Wayne,269994
+Lubbock,266878
+Toledo,265304
+St. Petersburg,263553
+Laredo,257602
+Irving,254373
+Chesapeake,253886
+Glendale,253855
+Winston-Salem,252975
+Port St. Lucie,245021
+Scottsdale,244394
+Garland,243470
+Boise City,235421
+Norfolk,230930
+Spokane,229447
+Richmond,229247
+Fremont,226208
+Huntsville,225564
+Frisco,225007
+Cape Coral,224455
+Santa Clarita,224028
+San Bernardino,223728
+Tacoma,222906
+Hialeah,221300
+Baton Rouge,219573
+Modesto,218915
+Fontana,215465
+McKinney,213509
+Moreno Valley,212392
+Des Moines,210381
+Fayetteville,209749
+Salt Lake City,209593
+Yonkers,207657
+Worcester,207621
+Rochester,207274
+Sioux Falls,206410
+Little Rock,203842
+Amarillo,202408
+Tallahassee,202221
+Grand Prairie,202134
+Columbus,201877
+Augusta-Richmond County consolidated government,200884
+Peoria,198750
+Oxnard,198488
+Knoxville,198162
+Overland Park,197089
+Birmingham,196644
+Grand Rapids,196608
+Vancouver,196442
+Montgomery,195287
+Huntington Beach,192129
+Providence,190792
+Brownsville,190158
+Tempe,189834
+Akron,188701
+Glendale,187050
+Chattanooga,187030
+Fort Lauderdale,184255
+Newport News,183118
+Mobile,182595
+Ontario,182457
+Clarksville,180716
+Cary,180010
+Elk Grove,178444
+Shreveport,177959
+Eugene,177899
+Aurora,177563
+Salem,177432
+Santa Rosa,175845
+Rancho Cucamonga,174405
+Pembroke Pines,171119
+Fort Collins,170376
+Springfield,170188
+Oceanside,170020
+Garden Grove,168234
+Lancaster,166236
+Murfreesboro,165430
+Palmdale,161404
+Corona,160238
+Killeen,159643
+Salinas,159506
+Roseville,159135
+Denton,158349
+Surprise,158285
+Macon-Bibb County,156512
+Paterson,156452
+Lakewood,155961
+Hayward,155675
+Charleston,155369
+Alexandria,155230
+Hollywood,153859
+Springfield,153672
+Kansas City,152933
+Sunnyvale,151967
+Bellevue,151574
+Joliet,150489
+Naperville,150245
+Escondido,148122
+Bridgeport,148028
+Savannah,147748
+Olathe,147461
+Mesquite,147317
+Pasadena,146716
+McAllen,146593
+Rockford,146120
+Gainesville,145812
+Syracuse,145560
+Pomona,145502
+Visalia,144998
+Thornton,144922
+Waco,144816
+Jackson,143709
+Columbia,142416
+Fullerton,139250
+Torrance,139224
+Victorville,138869
+Midland,138397
+Orange,138337
+Miramar,138319
+Hampton,137098
+Warren,136655
+Stamford,136226
+Cedar Rapids,135958
+Elizabeth,135829
+Palm Bay,135566
+Dayton,135512
+New Haven,135319
+Coral Springs,134906
+Meridian,134801
+West Valley City,134470
+Pasadena,133560
+Lewisville,133553
+Kent,133378
+Sterling Heights,133306
+Fargo,133188
+Carrollton,132918
+Santa Clara,131062
+Round Rock,130406
+Norman,130046
+Columbia,129330
+Abilene,129043
+Athens-Clarke County unified government,128628
+Pearland,127736
+Clovis,125826
+Topeka,125475
+College Station,125192
+Simi Valley,125113
+Allentown,124880
+West Palm Beach,124130
+Thousand Oaks,123463
+Vallejo,122807
+Wilmington,122698
+Rochester,122413
+Concord,122315
+Lakeland,122264
+North Charleston,121469
+Lafayette,121467
+Arvada,121414
+Independence,120922
+Billings,120864
+Fairfield,120768
+Hartford,119669
+Ann Arbor,119381
+Broken Arrow,119194
+Berkeley,118962
+Cambridge,118214
+Richardson,117435
+Antioch,117096
+High Point,116926
+Clearwater,116850
+League City,116320
+Odessa,115743
+Manchester,115474
+Evansville,115332
+Waterbury,114990
+West Jordan,114908
+Las Cruces,114892
+Westminster,114875
+Lowell,114296
+Nampa,114268
+Richmond,114106
+Pompano Beach,113619
+Carlsbad,113495
+Menifee,113433
+Provo,113343
+Elgin,113310
+Greeley,112609
+Springfield,112544
+Beaumont,112193
+Lansing,112115
+Murrieta,111878
+Goodyear,111805
+Allen,111620
+Tuscaloosa,111338
+Everett,111180
+Pueblo,111077
+New Braunfels,110958
+South Fulton,110920
+Miami Gardens,110717
+Gresham,110685
+Temecula,110682
+Rio Rancho,110660
+Peoria,110460
+Tyler,110327
+Sparks,110323
+Concord,110119
+Santa Maria,109987
+San Buenaventura,109058
+Buckeye,108909
+Downey,108816
+Sugar Land,108515
+Costa Mesa,108354
+Conroe,108248
+Spokane Valley,108235
+Davie,107799
+Hillsboro,107730
+Jurupa Valley,107321
+Centennial,106883
+Boulder,105898
+Dearborn,105811
+Edinburg,105799
+Sandy Springs,105793
+Green Bay,105744
+West Covina,105617
+Brockton,104890
+St. George,104578
+Bend,104557
+Renton,104491
+Lee's Summit,104184
+Fishers,104094
+El Monte,103794
+South Bend,103395
+Rialto,103391
+El Cajon,102991
+Inglewood,102865
+Burbank,102755
+Wichita Falls,102691
+Vacaville,102526
+Carmel,102296
+Palm Coast,102113
+Fayetteville,101680
+Quincy,101597
+San Mateo,101327
+Chico,101301
+Lynn,101241
+Albany,101228
+Yuma,100858
+New Bedford,100695
+Suffolk,100659
+Hesperia,100633
+Davenport,100354
+Boca Raton,99974
+Daly City,99833
+San Angelo,99262
+Deltona,98739
+Longmont,98630
+Vista,98344
+Kenosha,98211
+Edmond,98103
+Norwalk,98078
+Tracy,98010
+Federal Way,97701
+Fort Myers,97372
+Roanoke,97171
+Beaverton,96945
+Sunrise,96808
+Portsmouth,96793
+Yakima,96750
+Plantation,96548
+Georgetown,96312
+Lawrence,96207
+Orem,95519
+Mount Pleasant,95232
+Asheville,95056
+Reading,94903
+Bellingham,94720
+San Marcos,94188
+O'Fallon,94074
+Fall River,93840
+Merced,93692
+Avondale,93545
+Chino,93114
+Temple,93095
+Indio,93057
+Erie,92957
+Redding,92727
+Norwalk,92458
+Hoover,92448
+Hemet,92368
+Livonia,92185
+Sandy,91943
+Roswell,91706
+Kirkland,91194
+Carson,91139
+Manteca,91059
+Nashua,91003
+Compton,90986
+Mission Viejo,90624
+Lawton,90245
+Lehi,90227
+South Gate,90070
+Greenville,90053
+Santa Monica,89922
+Fort Smith,89770
+Trenton,89620
+Bryan,89615
+Champaign,89189
+Santa Fe,89167
+North Port,88934
+Westminster,88729
+Franklin,88558
+Clifton,88461
+Newton,88415
+Springdale,88224
+Lawrence,88172
+Duluth,87680
+Waukegan,87642
+Bloomington,87398
+Troy,87339
+Deerfield Beach,87325
+Mission,87292
+Ogden,87267
+Melbourne,86960
+Santa Barbara,86499
+Citrus Heights,86239
+Danbury,86124
+Lake Forest,85840
+Frederick,85793
+San Leandro,85784
+Sioux City,85727
+Kennewick,85158
+Medford,85098
+San Ramon,84929
+Folsom,84782
+Warner Robins,84537
+South Jordan,84528
+Whittier,84143
+Baytown,84067
+Gastonia,83942
+Auburn,83870
+New Rochelle,83742
+Layton,83516
+Hawthorne,83364
+Longview,83236
+Warwick,82999
+Livermore,82908
+Newport Beach,82637
+Cranston,82635
+Rancho Cordova,82605
+Westland,82574
+Farmington Hills,82528
+Daytona Beach,82485
+Largo,82248
+Auburn,82025
+Brooklyn Park,82017
+Buena Park,81958
+Mountain View,81785
+Homestead,81659
+Castle Rock,81415
+Kissimmee,81269
+Boynton Beach,81267
+Johns Creek,81108
+Cicero,81004
+Redwood City,80996
+Jonesboro,80650
+Perris,80603
+Pharr,80410
+Somerville,80407
+Redmond,80280
+Leander,80067
+Pasco,80038
+Alhambra,79776
+Flint,79661
+Lake Charles,79633
+Miami Beach,79607
+Woodbury,79538
+Lynchburg,79535
+Flower Mound,79445
+Rapid City,79404
+Doral,79359
+Loveland,79352
+Parma,78951
+Bloomington,78840
+Upland,78699
+Bloomington,78587
+Mansfield,78542
+Bethlehem,78300
+Lakewood,78135
+Missoula,77757
+Tustin,77704
+Plymouth,77648
+Cedar Park,77516
+Napa,77492
+Wyoming,77451
+Milpitas,77321
+Chino Hills,77212
+Broomfield,76860
+Missouri City,76773
+Racine,76602
+Flagstaff,76586
+Queen Creek,76570
+Lakeville,76243
+Bowling Green,76212
+Hammond,76193
+Rochester Hills,76002
+Scranton,75805
+Pittsburg,75803
+Schaumburg,75750
+Southfield,75687
+Iowa City,75678
+Rock Hill,75654
+Alameda,75353
+Pawtucket,75321
+Bellflower,75122
+Bismarck,75092
+Evanston,75070
+Apple Valley,75036
+Appleton,74719
+Pleasanton,74653
+Arlington Heights,74495
+Ankeny,74458
+Bolingbrook,74088
+New Britain,74080
+Rogers,74035
+Lauderhill,73974
+Noblesville,73916
+Blaine,73774
+Rocklin,73472
+Johnson City,73337
+Kalamazoo,73126
+Lake Elsinore,73028
+Marysville,72916
+Jacksonville,72879
+Greenville,72824
+Gulfport,72823
+Redlands,72556
+Tamarac,72372
+Apex,72225
+West Des Moines,72205
+Turlock,72100
+Framingham,71875
+St. Charles,71800
+Wilmington,71675
+San Marcos,71569
+Harlingen,71510
+Maple Grove,71288
+Dothan,71258
+Lafayette,71216
+Mount Vernon,71168
+Camden,71100
+Tulare,71092
+Maricopa,71022
+St. Cloud,71013
+North Richland Hills,70658
+St. Joseph,70634
+Eau Claire,70542
+Eastvale,70510
+Waukesha,70446
+Bayonne,70300
+Conway,69580
+Gaithersburg,69563
+East Orange,69556
+Camarillo,69514
+Shawnee,69417
+Grand Junction,69412
+Canton,69197
+Walnut Creek,69152
+Dublin,69128
+Portland,69104
+Passaic,68903
+Baldwin Park,68806
+Decatur,68670
+Yuba City,68666
+Schenectady,68544
+Ocala,68426
+Caldwell,68336
+Jackson,68264
+Commerce City,68245
+Weston,68181
+Madera,68079
+Idaho Falls,68001
+Redondo Beach,67749
+Lodi,67679
+Gary,67652
+Delray Beach,67536
+Haverhill,67415
+Eagan,67396
+Rockville,67297
+Alpharetta,67056
+Albany,66877
+Rowlett,66813
+Waterloo,66606
+St. Cloud,66448
+Novi,66314
+Greenwood,66296
+Oshkosh,66184
+Yorba Linda,66147
+Janesville,66102
+Port Orange,65966
+Palo Alto,65882
+Davis,65832
+Victoria,65800
+Ames,65686
+Union City,65414
+Sanford,65394
+Lorain,65337
+Pflugerville,65301
+Cheyenne,65168
+Malden,65133
+Brentwood,65126
+Sammamish,65116
+Muncie,65081
+Skokie,64937
+Palatine,64869
+Burnsville,64772
+Huntersville,64688
+North Little Rock,64531
+Waltham,64477
+Union City,64462
+Bellevue,63922
+Richland,63757
+Casa Grande,63743
+Hendersonville,63618
+Utica,63607
+Moore,63470
+Coon Rapids,63377
+Kenner,63333
+Lynwood,63234
+South San Francisco,63123
+Hamilton,62997
+Laguna Niguel,62899
+Porterville,62876
+Marietta,62769
+Parker,62743
+Bossier City,62738
+Kyle,62548
+Council Bluffs,62399
+San Clemente,62313
+Lakewood,62303
+Millcreek,62205
+Eden Prairie,62166
+Chapel Hill,62043
+Pontiac,61689
+Wellington,61634
+Bristol,61601
+Santa Cruz,61501
+Shoreline,61353
+Jupiter,61291
+White Plains,61288
+Taylor,61241
+Palm Beach Gardens,61146
+Woodland,61123
+Corvallis,61087
+Springfield,61085
+Wylie,61078
+La Habra,60991
+Dearborn Heights,60872
+Madison,60854
+Encinitas,60841
+Vineland,60797
+Stonecrest,60677
+Blue Springs,60539
+La Mesa,60537
+Great Falls,60422
+Taunton,60412
+Owensboro,60140
+Meriden,60111
+Herriman,60049
+Burlington,60032
+Montebello,60015
+Hanford,59938
+Kokomo,59890
+Euless,59686
+San Rafael,59555
+Santee,59478
+Bentonville,59471
+St. Peters,59413
+Kannapolis,59321
+Lake Havasu City,59257
+Pico Rivera,59189
+Weymouth Town,59114
+Apopka,59113
+Youngstown,59108
+North Miami,59008
+Grand Forks,58921
+Dubuque,58877
+West Allis,58874
+Petaluma,58800
+Medford,58744
+Casper,58720
+Margate,58593
+Lenexa,58536
+Terre Haute,58502
+Little Elm,58496
+Beaumont,58463
+Marana,58430
+Gardena,58377
+Lacey,58326
+Decatur,58321
+Gilroy,58250
+Hempstead,58225
+Midwest City,58086
+Springfield,58082
+Pocatello,58064
+Carson,58036
+Des Plaines,58010
+Revere,57954
+Brookhaven,57945
+Monterey Park,57877
+Westfield,57746
+Coconut Creek,57694
+Spring Hill,57637
+Sarasota,57602
+St. Clair Shores,57548
+Royal Oak,57452
+Smyrna,57418
+Bozeman,57305
+Cupertino,57285
+Bowie,57254
+Lancaster,57153
+Winter Haven,57109
+Taylorsville,57098
+Bradenton,57076
+Orland Park,57074
+Albany,57053
+Hoboken,57010
+Eagle Mountain,56932
+Coeur d'Alene,56894
+Kettering,56876
+Southaven,56851
+Kingsport,56704
+Texas City,56609
+Smyrna,56566
+Bonita Springs,56229
+Highland,56202
+Bartlett,56030
+New Brunswick,55846
+West Sacramento,55842
+DeSoto,55740
+Oak Lawn,55734
+Olympia,55733
+Tigard,55590
+Port Arthur,55547
+Fountain Valley,55468
+San Jacinto,55440
+Apple Valley,55336
+Logan,55250
+Perth Amboy,55249
+National City,55236
+Burleson,55220
+Anderson,55199
+Valdosta,55025
+Twin Falls,54943
+Chicopee,54838
+West Haven,54790
+Plainfield,54670
+Lincoln,54538
+Berwyn,54414
+Wake Forest,54337
+Mount Prospect,54298
+Rocky Mount,54245
+Arcadia,54157
+Peabody,54056
+Kentwood,53987
+Yucaipa,53947
+Tinley Park,53886
+Pensacola,53724
+Mooresville,53721
+Manhattan,53682
+Elkhart,53484
+Pinellas Park,53456
+Methuen Town,53455
+Colton,53357
+Edina,53348
+Galveston,53237
+Elyria,53117
+Joplin,53095
+Wheaton,52938
+Rockwall,52918
+Grand Island,52622
+Normal,52618
+Saratoga Springs,52532
+Minnetonka,52463
+Cathedral City,52356
+Placentia,52192
+Battle Creek,52175
+Oak Park,52055
+Diamond Bar,52041
+Palm Desert,51951
+Huntington Park,51942
+Summerville,51884
+Novato,51722
+Dunwoody,51713
+Columbus,51522
+Delano,51500
+Middletown,51478
+La Crosse,51327
+Collierville,51317
+Jeffersonville,51235
+Florissant,51128
+Harrisonburg,51082
+Paramount,51072
+Newark,51046
+Grapevine,50928
+Watsonville,50867
+Mishawaka,50842
+West New York,50754
+Cuyahoga Falls,50742
+Burien,50730
+Troy,50607
+Enid,50577
+Milford city,50421
+Gallatin,50355
+Everett,50318
+Aliso Viejo,50263
+Bothell,50213
+Hoffman Estates,50179
+Prescott Valley,50045
+Harrisburg,50012
+Glendora,49934
+Barnstable Town,49709
+Downers Grove,49706
+St. Louis Park,49697
+Sheboygan,49686
+Titusville,49680
+Draper,49602
+Murray,49553
+Stillwater,49525
+Fort Pierce,49374
+Lakewood,49337
+Leesburg,49312
+Rosemead,49305
+Portage,49302
+Ocoee,49261
+Goose Creek,49249
+San Luis Obispo,49244
+Lawrence,49235
+Chesterfield,49166
+Cleveland,49086
+Dublin,48923
+Cypress,48782
+Covina,48728
+Clermont,48621
+Los Banos,48553
+Huntsville,48552
+East Lansing,48528
+Brea,48479
+Hattiesburg,48414
+Cedar Hill,48411
+Ceres,48397
+Bedford,48370
+Coral Gables,48353
+Oro Valley,48311
+Azusa,48272
+Biloxi,48235
+Euclid,48212
+Lebanon,48112
+Poway,48051
+Middletown,47984
+Wilson,47833
+Prescott,47757
+Mansfield,47711
+Niagara Falls,47599
+Wentzville,47497
+Sherman,47473
+Plainfield,47448
+Columbia,47445
+Minot,47373
+Winter Garden,47294
+Gainesville,47265
+Waxahachie,47201
+Beavercreek,47193
+Shakopee,47158
+Roswell,47109
+Wauwatosa,47038
+Olive Branch,47029
+Newark,46929
+Mentor,46929
+Glenview,46904
+East Providence,46900
+Charleston,46838
+Cerritos,46797
+Urbandale,46729
+Binghamton,46727
+Roseville,46666
+Attleboro,46654
+Monroe,46616
+Keller,46316
+Holly Springs,46271
+Farmington,46237
+Rancho Santa Margarita,46182
+Salina,45792
+Oakley,45761
+Mankato,45742
+Hackensack,45736
+Spanish Fork,45557
+Strongsville,45511
+La Mirada,45505
+Sayreville,45496
+Blacksburg,45485
+The Colony,45471
+Bremerton,45450
+Elmhurst,45336
+Huntington,45325
+Haltom City,45290
+Brentwood,45265
+Altamonte Springs,45257
+Palm Springs,45218
+Moorhead,45202
+Delaware,45158
+Charlottesville,44983
+Newnan,44940
+York,44867
+Riverton,44854
+West Lafayette,44829
+Post Falls,44798
+North Lauderdale,44784
+Salem,44744
+Hollister,44658
+Concord,44629
+Rohnert Park,44546
+Burlington,44528
+Morgan Hill,44478
+Littleton,44451
+Fairfield,44447
+Sierra Vista,44431
+Hickory,44415
+Greer,44387
+Fond du Lac,44300
+Ormond Beach,44277
+Wilkes-Barre,44254
+Bountiful,44144
+Oakland Park,44105
+Greenacres,44103
+Linden,43950
+Cleveland Heights,43908
+Lynnwood,43867
+Fuquay-Varina,43817
+Lombard,43779
+El Centro,43772
+Cutler Bay,43762
+Freeport,43756
+Leominster,43627
+Coachella,43590
+Hagerstown,43553
+Alexandria,43466
+Lake Worth Beach,43346
+Celina,43317
+Huber Heights,43313
+Bullhead City,43302
+Schertz,43239
+Saginaw,43185
+Woonsocket,43135
+Pittsfield,43076
+Weslaco,43053
+Lompoc,43045
+DeLand,43009
+Danville,42999
+Mount Juliet,42912
+Indian Trail,42854
+North Miami Beach,42789
+Altoona,42788
+Grove City,42782
+Sumter,42766
+Edmonds,42701
+Manassas,42696
+Midland,42663
+Fulshear,42616
+Jefferson City,42552
+Buffalo Grove,42482
+Brighton,42477
+Florence,42437
+Beverly,42318
+Marion,42213
+Puyallup,42179
+Shelton,42144
+Peachtree Corners,42136
+Cottage Grove,42056
+Moline,41965
+Brookfield,41884
+Kiryas Joel,41857
+Danville,41837
+Campbell,41700
+Prosper,41660
+Woburn,41647
+Fitchburg,41579
+Hallandale Beach,41547
+Lancaster,41422
+Coppell,41404
+Milton,41383
+Midlothian,41352
+San Bruno,41327
+Oviedo,41231
+Reynoldsburg,41220
+Marlborough,41179
+Owasso,41162
+Apache Junction,41153
+Rosenberg,41104
+Covington,40972
+Romeoville,40955
+Crystal Lake,40861
+Friendswood,40826
+Cedar Falls,40737
+Belleville,40726
+State College,40687
+Florence,40609
+Plant City,40571
+Annapolis,40552
+Lake Stevens,40521
+Westfield,40509
+Cape Girardeau,40508
+West Fargo,40400
+Windsor,40349
+Amherst Town,40277
+Germantown,40267
+New Berlin,40260
+Lancaster,40215
+DeKalb,40211

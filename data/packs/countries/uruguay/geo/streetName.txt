@@ -1,0 +1,9 @@
+---
+address: uruguay.geo.streetName
+description: Uruguayan street with its tipo de vía — uruguay.geo.streetType + uruguay.geo.streetNamed (e.g. "Avenida 18 de Julio", "Bulevar Artigas", "Camino Maldonado")
+generator: tdc
+locale: es
+---
+<sequence name="type"><gen type="template" value="uruguay.geo.streetType"/></sequence>
+<sequence name="named"><gen type="template" value="uruguay.geo.streetNamed"/></sequence>
+<data>${{type}} ${{named}}</data>

@@ -1,0 +1,24 @@
+---
+description: Trip type (Portuguese)
+locale: pt
+---
+Negócios
+Lazer
+Férias em família
+Lua de mel
+Aventura
+Viagem de carro
+Cruzeiro
+Viagem de mochila
+Escapadela urbana
+Férias na praia
+Viagem em grupo
+Viagem a solo
+Turismo cultural
+Ecoturismo
+Peregrinação
+Viagem de estudo
+Turismo gastronómico
+Viagem de esqui
+Visita a familiares
+Congresso ou feira

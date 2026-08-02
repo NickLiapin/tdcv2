@@ -1,0 +1,17 @@
+---
+address: united_kingdom.holiday
+description: UK bank and public holiday — the days observed across the United Kingdom plus the nation-specific bank holidays of Scotland and Northern Ireland
+locale: en
+---
+New Year's Day
+2 January
+St Patrick's Day
+Good Friday
+Easter Monday
+Early May Bank Holiday
+Spring Bank Holiday
+Battle of the Boyne (Orangemen's Day)
+Summer Bank Holiday
+St Andrew's Day
+Christmas Day
+Boxing Day

@@ -1,0 +1,11 @@
+---
+address: comoros.finance.bank
+description: Banks operating in the Comoros (Arabic)
+locale: ar
+---
+بنك جزر القمر المركزي
+بنك الصناعة والتجارة
+البنك الفيدرالي للتنمية
+بنك التنمية القمري
+إكسيم بنك القمري
+بنك البريد

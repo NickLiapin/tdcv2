@@ -1,0 +1,22 @@
+---
+address: dominican_republic.tax.rnc
+description: Dominican RNC (8-digit body + weighted mod-11 check, ((10 - sum%11) % 9) + 1)
+generator: tdc
+---
+<sequence name="body"><gen type="regex" value="[1-9][0-9]{7}"/></sequence>
+<sequence name="rnc"><compute>
+  <let name="sum">
+    <reduce>
+      <over><field name="body"/></over>
+      <init><int v="0"/></init>
+      <do><add><acc/>
+        <multiply><current/>
+          <at><in><list v="7,9,8,6,5,4,3,2"/></in><index><current_index/></index></at>
+        </multiply>
+      </add></do>
+    </reduce>
+  </let>
+  <let name="check"><add><mod><subtract><int v="10"/><mod><var name="sum"/><int v="11"/></mod></subtract><int v="9"/></mod><int v="1"/></add></let>
+  <result><concat><field name="body"/><var name="check"/></concat></result>
+</compute></sequence>
+<data>${{rnc}}</data>

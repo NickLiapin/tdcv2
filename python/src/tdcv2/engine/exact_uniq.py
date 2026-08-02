@@ -1,0 +1,326 @@
+"""Exact percentages and uniqueness at the same time, past the size of memory.
+
+The streaming engine can give unique combinations, but only uniform ones: its mixed-radix index
+spreads rows evenly over the combination space by construction. It can give exact percentages too.
+It cannot give both, because the arrangement that satisfies one is not free to satisfy the other.
+The in-memory engine does both by holding the whole table and repairing collisions, which is
+precisely what stops working at scale.
+
+So: build each column with its exact quota the seekable way, then ask whether the tuples happen to
+be distinct — a question a sort on disk can answer with bounded memory. Usually they are, because a
+run of a million rows over a space of billions collides by birthday odds, which is to say rarely.
+Then nothing more is needed and the whole run stays flat in memory.
+
+When there ARE collisions there are few of them, so they can be repaired in RAM: gather the
+colliding rows plus enough neighbours to give them somewhere to move, learn which tuples already
+exist inside that small value space, and rearrange the pool to avoid them. Only the pool's rows
+move, and only among the pool's own values, so every column's totals come out exactly as declared.
+A pool too tight to solve hands the config back to the in-memory engine rather than shipping data
+that is nearly unique.
+"""
+
+from __future__ import annotations
+
+from collections.abc import Callable, Iterator
+from dataclasses import dataclass
+from pathlib import Path
+
+from ..distribution import hamilton
+from ..prng import permute
+from ..prng.prng import create
+from ..sequence import uniq as uniq_lib
+from . import external_sort
+
+# Separates a tuple's columns. Control characters cannot appear in a generated value.
+JOIN = "\x01"
+
+# Separates a key from its row index in a sortable record. NUL sorts below everything.
+SEP = "\x00"
+
+# Enough digits for any run: the index is padded so byte order is also numeric order.
+INDEX_WIDTH = 16
+
+# The pool repair is quadratic; past this many collisions, the config is pathological.
+MAX_REPAIR_ROWS = 20_000
+
+# Sweeps of swap repair before the pool is judged unsolvable.
+MAX_SWEEPS = 32
+
+
+class RepairNeededError(RuntimeError):
+    """The exact construction collided and the bounded repair could not place every row."""
+
+    def __init__(self, collisions: int, label: str) -> None:
+        super().__init__(
+            f"Engine 3: uniq {label} is too tight for the bounded-memory repair "
+            f"({collisions} row(s) couldn't be placed) — using the in-memory engine instead."
+        )
+
+
+@dataclass(frozen=True, slots=True)
+class Field:
+    """One uniq column: where it lands in the registry, its values, and their shares."""
+
+    id: str
+    values: list[str]
+    percents: list[float]
+
+
+Resolver = Callable[[int], str]
+
+
+def arrange(
+    fields: list[Field], count: int, seed: str, label: str, tmp_dir: Path | None = None
+) -> dict[str, Resolver]:
+    """The uniq columns built with exact shares, and their tuples verified really distinct."""
+    counts = [
+        hamilton.counts_per_value(count, f.percents, create(f"{seed}|{f.id}|pct")) for f in fields
+    ]
+
+    upper = uniq_lib.upper_bound(counts)
+    if count > upper:
+        raise RuntimeError(
+            f"uniq {label} is infeasible — its data supports at most {upper} distinct rows, but "
+            f"{count} were requested. Widen a column's values or lower count."
+        )
+
+    resolvers: list[Resolver] = []
+    for j, f in enumerate(fields):
+        cum_hi = _cumulative(counts[j])
+        key = permute.key(seed, f.id)
+        values = f.values
+        resolvers.append(
+            lambda row, cum_hi=cum_hi, key=key, values=values: values[
+                _run_for(cum_hi, permute.permute(row, count, key))
+            ]
+        )
+
+    # If any column uses each of its values at most once, the tuple is unique by that column
+    # alone. Worth checking: it turns the whole verification pass into an inspection of a handful
+    # of integers, and a serial-number column makes it true.
+    for column_counts in counts:
+        if all(c <= 1 for c in column_counts):
+            return _registry(fields, resolvers)
+
+    return _repair(fields, resolvers, count, label, tmp_dir)
+
+
+def _registry(fields: list[Field], resolvers: list[Resolver]) -> dict[str, Resolver]:
+    return {f.id: resolvers[j] for j, f in enumerate(fields)}
+
+
+def _repair(
+    fields: list[Field],
+    resolvers: list[Resolver],
+    count: int,
+    label: str,
+    tmp_dir: Path | None,
+) -> dict[str, Resolver]:
+    """Verified, and whatever the construction left colliding repaired.
+
+    The repair moves a small pool of rows and nothing else. That is what keeps the percentages
+    exact: a value only ever changes hands between two rows of the pool, so every column ends the
+    pass with the multiset it started with.
+    """
+    # The first row of every colliding group stays; the rest have to move.
+    excess: list[int] = []
+    for group in _duplicate_groups(resolvers, count, tmp_dir):
+        excess.extend(group[1:])
+    if not excess:
+        return _registry(fields, resolvers)
+    if len(excess) > MAX_REPAIR_ROWS:
+        raise RepairNeededError(len(excess), label)
+
+    # The colliding rows on their own often lack the variety to move — a lone duplicate can only
+    # re-form the tuple it already has. So the pool takes in donor rows sampled across the run,
+    # which gives the arrangement room without letting any value leave the pool.
+    donor_target = min(count - len(excess), 8 * len(excess) + 24)
+    in_pool = set(excess)
+    pool = list(excess)
+    if donor_target > 0:
+        stride = max(1, count // donor_target)
+        for i in range(0, count, stride):
+            if len(pool) - len(excess) >= donor_target:
+                break
+            if i not in in_pool:
+                in_pool.add(i)
+                pool.append(i)
+    pool.sort()
+
+    k = len(resolvers)
+    pool_columns = [[resolvers[j](row) for row in pool] for j in range(k)]
+    pool_space = [set(column) for column in pool_columns]
+
+    # The only tuples a rearranged pool row could collide with are the ones already present whose
+    # every value lies inside the pool's own value space. One pass finds them.
+    forbidden: set[str] = set()
+    for i in range(count):
+        if i in in_pool:
+            continue
+        tuple_values = []
+        in_space = True
+        for j in range(k):
+            value = resolvers[j](i)
+            if value not in pool_space[j]:
+                in_space = False
+                break
+            tuple_values.append(value)
+        if in_space:
+            forbidden.add(JOIN.join(tuple_values))
+
+    arranged = _arrange_avoiding(pool_columns, forbidden, len(pool))
+    if arranged is None:
+        raise RepairNeededError(len(excess), label)
+
+    override = {pool[m]: [column[m] for column in arranged] for m in range(len(pool))}
+
+    out: dict[str, Resolver] = {}
+    for j, f in enumerate(fields):
+        base = resolvers[j]
+        out[f.id] = lambda row, column=j, base=base: (
+            override[row][column] if row in override else base(row)
+        )
+    return out
+
+
+def _duplicate_groups(
+    resolvers: list[Resolver], count: int, tmp_dir: Path | None
+) -> Iterator[list[int]]:
+    """The groups of rows whose tuples are identical, in bounded memory.
+
+    Sorting is what makes this affordable: equal keys end up adjacent, so the scan holds one group
+    rather than a set of every tuple seen. The row index is padded to a fixed width and appended
+    after a NUL, which makes plain byte order the same as ordering by key and then by row — no
+    record has to be parsed to be compared.
+    """
+
+    def records() -> Iterator[str]:
+        for row in range(count):
+            key = JOIN.join(resolver(row) for resolver in resolvers)
+            yield f"{key}{SEP}{row:0{INDEX_WIDTH}d}"
+
+    current_key: str | None = None
+    group: list[int] = []
+    for record in external_sort.sort(records(), 0, tmp_dir):
+        split = record.rfind(SEP)
+        key = record[:split]
+        index = int(record[split + 1 :])
+        if key != current_key:
+            if len(group) >= 2:
+                yield group
+            group = []
+            current_key = key
+        group.append(index)
+    if len(group) >= 2:
+        yield group
+
+
+def _arrange_avoiding(
+    columns: list[list[str]], forbidden: set[str], size: int
+) -> list[list[str]] | None:
+    """The pool's columns rearranged so its tuples are distinct and none is already taken.
+
+    Each column is permuted WITHIN itself, never added to or taken from, so the pool's totals
+    survive the pass. What changes is which values meet each other.
+    """
+    k = len(columns)
+    if size == 0 or k == 0:
+        return list(columns)
+
+    arranged = uniq_lib.arrange(columns).columns
+    rows = [[column[i] for column in arranged] for i in range(size)]
+
+    for _ in range(MAX_SWEEPS):
+        tally: dict[str, int] = {}
+        for row in rows:
+            key = JOIN.join(row)
+            tally[key] = tally.get(key, 0) + 1
+        improved = False
+
+        for i in range(size):
+            ri = rows[i]
+            key_i = JOIN.join(ri)
+            if tally.get(key_i, 0) <= 1 and key_i not in forbidden:
+                continue
+            done = False
+            for col in range(k):
+                if done:
+                    break
+                for j in range(size):
+                    rj = rows[j]
+                    if j == i or ri[col] == rj[col]:
+                        continue
+                    ni = list(ri)
+                    nj = list(rj)
+                    ni[col] = rj[col]
+                    nj[col] = ri[col]
+                    key_j = JOIN.join(rj)
+                    new_i = JOIN.join(ni)
+                    new_j = JOIN.join(nj)
+
+                    # Row i is known bad — that is why a partner is being looked for at all.
+                    before = 1 + (1 if _is_bad(tally, forbidden, key_j) else 0)
+                    # A swap moves two rows, so only four tallies can change. Computing the delta
+                    # beats copying the whole table inside the innermost loop, which is what makes
+                    # a large pool finish rather than hang.
+                    bad_i = _is_bad_after(tally, forbidden, new_i, key_i, key_j, new_i, new_j)
+                    bad_j = _is_bad_after(tally, forbidden, new_j, key_i, key_j, new_i, new_j)
+                    after = (1 if bad_i else 0) + (1 if bad_j else 0)
+                    if after < before:
+                        rows[i] = ni
+                        rows[j] = nj
+                        tally[key_i] = tally.get(key_i, 0) - 1
+                        tally[key_j] = tally.get(key_j, 0) - 1
+                        tally[new_i] = tally.get(new_i, 0) + 1
+                        tally[new_j] = tally.get(new_j, 0) + 1
+                        improved = True
+                        done = True
+                        break
+        if not improved:
+            break
+
+    final: dict[str, int] = {}
+    for row in rows:
+        key = JOIN.join(row)
+        final[key] = final.get(key, 0) + 1
+    for row in rows:
+        if _is_bad(final, forbidden, JOIN.join(row)):
+            return None
+
+    return [[row[j] for row in rows] for j in range(k)]
+
+
+def _is_bad(tally: dict[str, int], forbidden: set[str], key: str) -> bool:
+    return tally.get(key, 0) > 1 or key in forbidden
+
+
+def _is_bad_after(tally, forbidden, key, old_i, old_j, new_i, new_j) -> bool:
+    """The verdict on ``key`` as it would stand after the two rows swapped."""
+    after = (
+        tally.get(key, 0)
+        + (1 if key == new_i else 0)
+        + (1 if key == new_j else 0)
+        - (1 if key == old_i else 0)
+        - (1 if key == old_j else 0)
+    )
+    return after > 1 or key in forbidden
+
+
+def _cumulative(counts: list[int]) -> list[int]:
+    out = []
+    acc = 0
+    for c in counts:
+        acc += c
+        out.append(acc)
+    return out
+
+
+def _run_for(cum_hi: list[int], slot: int) -> int:
+    lo, hi = 0, len(cum_hi) - 1
+    while lo < hi:
+        mid = (lo + hi) >> 1
+        if slot < cum_hi[mid]:
+            hi = mid
+        else:
+            lo = mid + 1
+    return lo

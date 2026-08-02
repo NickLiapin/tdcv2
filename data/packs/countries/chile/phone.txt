@@ -1,0 +1,6 @@
+---
+address: chile.phone
+description: Chilean phone in E.164 form — mobiles are +56 9 plus eight digits, Santiago landlines are +56 2 2 plus seven. Mobiles dominate, so they are drawn three times as often
+generator: tdc
+---
+<gen type="regex" value="(\+569[3-9][0-9]{7}|\+569[3-9][0-9]{7}|\+569[3-9][0-9]{7}|\+5622[0-9]{7})"/>

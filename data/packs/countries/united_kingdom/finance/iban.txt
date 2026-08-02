@@ -1,0 +1,34 @@
+---
+address: united_kingdom.finance.iban
+description: UK IBAN — 22 chars: "GB" + 2 ISO 7064 mod-97-10 check digits + a real 4-letter bank code + 6-digit sort code + 8-digit account number. The bank code is genuine; the sort code and account are structural, so only the IBAN check digits are computed.
+generator: tdc
+---
+<sequence name="bankcode"><gen type="template" value="united_kingdom.finance.bankCode"/></sequence>
+<sequence name="sort"><gen type="regex" value="[0-9]{6}"/></sequence>
+<sequence name="account"><gen type="regex" value="[0-9]{8}"/></sequence>
+<sequence name="iban"><compute>
+  <!-- BBAN = bank code (4 letters) + sort code (6) + account (8) = 18 chars. -->
+  <let name="bban"><concat><field name="bankcode"/><field name="sort"/><field name="account"/></concat></let>
+  <!-- ISO 13616: move the country code and a "00" placeholder to the end. -->
+  <let name="rearranged"><concat><var name="bban"/><str v="GB"/><str v="00"/></concat></let>
+  <!-- Letters become their base-36 value (G -> 16, B -> 11); digits stay. -->
+  <let name="digits">
+    <join>
+      <each>
+        <over><var name="rearranged"/></over>
+        <do><encode as="base36"><current/></encode></do>
+      </each>
+    </join>
+  </let>
+  <!-- Horner fold mod 97, so the long value never has to exist as one number. -->
+  <let name="rem">
+    <reduce>
+      <over><var name="digits"/></over>
+      <init><int v="0"/></init>
+      <do><mod><add><multiply><acc/><int v="10"/></multiply><current/></add><int v="97"/></mod></do>
+    </reduce>
+  </let>
+  <let name="check"><pad width="2" fill="0"><subtract><int v="98"/><var name="rem"/></subtract></pad></let>
+  <result><concat><str v="GB"/><var name="check"/><var name="bban"/></concat></result>
+</compute></sequence>
+<data>${{iban}}</data>

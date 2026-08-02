@@ -1,0 +1,45 @@
+---
+description: Unit of measurement (SI + imperial)
+---
+meter
+kilometer
+centimeter
+millimeter
+mile
+yard
+foot
+inch
+kilogram
+gram
+milligram
+pound
+ounce
+tonne
+liter
+milliliter
+gallon
+quart
+pint
+fluid ounce
+second
+minute
+hour
+celsius
+fahrenheit
+kelvin
+pascal
+bar
+newton
+joule
+watt
+kilowatt
+volt
+ampere
+ohm
+hertz
+mole
+candela
+square meter
+cubic meter
+knot
+horsepower

@@ -1,0 +1,9 @@
+---
+address: bolivia.finance.accountType
+description: Bolivian bank account type as named on a transfer form
+locale: es
+---
+Caja de Ahorro
+Cuenta Corriente
+Depósito a Plazo Fijo
+Cuenta Básica

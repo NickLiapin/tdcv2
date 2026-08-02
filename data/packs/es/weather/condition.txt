@@ -1,0 +1,20 @@
+---
+description: Weather condition (Spanish)
+locale: es
+---
+Soleado
+Parcialmente nublado
+Nublado
+Cubierto
+Lluvioso
+Llovizna
+Tormenta eléctrica
+Nevado
+Aguanieve
+Neblina
+Ventoso
+Bruma
+Despejado
+Granizo
+Chubascos
+Húmedo

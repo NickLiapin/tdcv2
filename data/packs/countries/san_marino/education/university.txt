@@ -1,0 +1,9 @@
+---
+address: san_marino.education.university
+description: Higher-education institutions of San Marino (Italian names)
+locale: it
+---
+Università degli Studi della Repubblica di San Marino
+Scuola Superiore di Studi Storici
+Istituto Giuridico Sammarinese
+Centro di Formazione Professionale

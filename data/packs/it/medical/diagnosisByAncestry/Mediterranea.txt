@@ -1,0 +1,11 @@
+---
+description: Conditions markedly more frequent in people of Mediterranean ancestry, in Italian. A prevalence signal, not an exclusive one.
+locale: it
+---
+Beta-talassemia
+Beta-talassemia eterozigote
+Deficit di glucosio-6-fosfato deidrogenasi
+Febbre mediterranea familiare
+Malattia di Behçet
+Alfa-talassemia
+Favismo

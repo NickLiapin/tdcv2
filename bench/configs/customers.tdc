@@ -1,0 +1,22 @@
+<!-- The benchmark config. One file, read by all three implementations.
+
+     Six fields chosen to exercise different costs rather than to look realistic: a positional
+     counter, a weighted pick from a data pack, an exact percent split, a number with decimals,
+     an ISO date, and a value assembled from two others. Nothing here is exotic — a config made
+     only of counters would measure the loop and not the generators.
+
+     COUNT and ENGINE are placeholders the harness substitutes, so every language runs the same
+     bytes. -->
+<tdc>
+  <env count="__COUNT__" seed="bench" local="en" engine="__ENGINE__">
+    <sequence name="Id"><gen type="increment" value="1"/></sequence>
+    <sequence name="First"><gen type="template" value="person.male.firstName"/></sequence>
+    <sequence name="Last"><gen type="template" value="person.lastName"/></sequence>
+    <sequence name="Status"><gen type="text" value="active,trial,closed" percent="70,20,10"/></sequence>
+    <sequence name="Balance"><gen type="number" value="0..99999" decimals="2"/></sequence>
+    <sequence name="Joined"><gen type="date" range="2015-01-01..2025-12-31" format="YYYY-MM-DD"/></sequence>
+  </env>
+  <block>
+    <line><data>${{Id}},${{First}} ${{Last}},${{Status}},${{Balance}},${{Joined}},${{First|lower}}.${{Last|lower}}@example.com</data></line>
+  </block>
+</tdc>

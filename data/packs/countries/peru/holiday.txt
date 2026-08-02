@@ -1,0 +1,33 @@
+---
+address: peru.holiday
+description: Peruvian holiday — the sixteen feriados nacionales set by D.L. 713 and its amendments, followed by the widely observed civic and religious dates that are not statutory days of rest
+locale: es
+---
+Año Nuevo
+Jueves Santo
+Viernes Santo
+Día del Trabajo
+Batalla de Arica y Día de la Bandera
+San Pedro y San Pablo
+Día de la Fuerza Aérea del Perú
+Fiestas Patrias
+Día de la Independencia
+Batalla de Junín
+Santa Rosa de Lima
+Combate de Angamos
+Día de Todos los Santos
+Inmaculada Concepción
+Batalla de Ayacucho
+Navidad
+Carnaval
+Domingo de Ramos
+Domingo de Resurrección
+Día de la Madre
+Día del Padre
+Inti Raymi
+Día del Campesino
+Día de Santiago Apóstol
+Señor de los Milagros
+Día de la Canción Criolla
+Día de los Difuntos
+Nochebuena

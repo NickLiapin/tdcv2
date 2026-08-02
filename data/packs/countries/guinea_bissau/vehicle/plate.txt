@@ -1,0 +1,7 @@
+---
+address: guinea_bissau.vehicle.plate
+description: Guinea-Bissau vehicle plate in the 00-00-AA form (two digits, two digits, two letters).
+generator: tdc
+locale: pt
+---
+<gen type="regex" value="[0-9]{2}-[0-9]{2}-[A-Z]{2}"/>

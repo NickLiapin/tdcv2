@@ -1,0 +1,17 @@
+---
+address: guinea.finance.bank
+description: Banks operating in Guinea
+locale: fr
+---
+Ecobank
+BICIGUI
+Société Générale Guinée
+UBA
+Orabank
+BSIC
+Banque Populaire Maroco-Guinéenne
+FIBank
+Afriland First Bank
+Vista Bank
+Skye Bank Guinée
+Nimba Bank

@@ -1,0 +1,32 @@
+---
+description: Tech verb, infinitive (Portuguese)
+locale: pt
+---
+fazer backup
+contornar
+hackear
+anular
+comprimir
+copiar
+navegar
+indexar
+conectar
+gerar
+quantificar
+calcular
+sintetizar
+introduzir
+transmitir
+programar
+reiniciar
+analisar
+encriptar
+desencriptar
+implementar
+compilar
+depurar
+otimizar
+sincronizar
+virtualizar
+encaminhar
+monitorizar

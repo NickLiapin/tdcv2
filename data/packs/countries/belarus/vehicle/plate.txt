@@ -1,0 +1,7 @@
+---
+address: belarus.vehicle.plate
+description: Belarusian vehicle plate — 4 digits + 2 letters + region digit (e.g. 1234 AB-7). Latin-like Cyrillic letter set.
+generator: tdc
+locale: ru
+---
+<gen type="regex" value="[0-9]{4} [ABEIKMHOPCTX]{2}-[1-7]"/>

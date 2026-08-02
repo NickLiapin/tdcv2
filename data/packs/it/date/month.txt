@@ -1,0 +1,16 @@
+---
+description: Month name (Italian, lowercase per Italian orthography)
+locale: it
+---
+gennaio
+febbraio
+marzo
+aprile
+maggio
+giugno
+luglio
+agosto
+settembre
+ottobre
+novembre
+dicembre

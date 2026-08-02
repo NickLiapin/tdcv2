@@ -1,0 +1,16 @@
+---
+description: Jobs in Finance (Polish)
+locale: pl
+---
+Analityk finansowy
+Księgowy
+Główny księgowy
+Audytor wewnętrzny
+Aktuariusz
+Doradca kredytowy
+Doradca podatkowy
+Makler giełdowy
+Specjalista ds. ryzyka
+Kontroler finansowy
+Kasjer bankowy
+Analityk inwestycyjny

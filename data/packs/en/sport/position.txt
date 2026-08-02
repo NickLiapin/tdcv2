@@ -1,0 +1,22 @@
+---
+description: Playing position (mixed sports)
+locale: en
+---
+Goalkeeper
+Defender
+Midfielder
+Forward
+Striker
+Winger
+Quarterback
+Running Back
+Wide Receiver
+Linebacker
+Pitcher
+Catcher
+Shortstop
+Point Guard
+Shooting Guard
+Center
+Power Forward
+Goaltender

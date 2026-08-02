@@ -1,0 +1,35 @@
+---
+address: portugal.finance.iban
+description: Portuguese IBAN — 25 chars: PT + 2 ISO 7064 check digits + 21-digit BBAN (4-digit bank + 4-digit branch + 11-digit account + a 2-digit national NIB check, itself ISO 7064 MOD 97-10).
+generator: tdc
+locale: pt
+---
+<sequence name="bank"><gen type="regex" value="[0-9]{4}"/></sequence>
+<sequence name="branch"><gen type="regex" value="[0-9]{4}"/></sequence>
+<sequence name="account"><gen type="regex" value="[0-9]{11}"/></sequence>
+<sequence name="iban"><compute>
+  <let name="prefix"><concat><field name="bank"/><field name="branch"/><field name="account"/></concat></let>
+  <!-- National NIB check digits: ISO 7064 MOD 97-10 over the 19-digit prefix. -->
+  <let name="prefix00"><concat><var name="prefix"/><str v="00"/></concat></let>
+  <let name="remN"><reduce>
+    <over><var name="prefix00"/></over>
+    <init><int v="0"/></init>
+    <do><mod><add><multiply><acc/><int v="10"/></multiply><current/></add><int v="97"/></mod></do>
+  </reduce></let>
+  <let name="nib"><pad width="2" fill="0"><subtract><int v="98"/><var name="remN"/></subtract></pad></let>
+  <let name="bban"><concat><var name="prefix"/><var name="nib"/></concat></let>
+  <!-- Outer IBAN check digits over BBAN + "PT00". -->
+  <let name="rearranged"><concat><var name="bban"/><str v="PT"/><str v="00"/></concat></let>
+  <let name="digits"><join><each>
+    <over><var name="rearranged"/></over>
+    <do><encode as="base36"><current/></encode></do>
+  </each></join></let>
+  <let name="remO"><reduce>
+    <over><var name="digits"/></over>
+    <init><int v="0"/></init>
+    <do><mod><add><multiply><acc/><int v="10"/></multiply><current/></add><int v="97"/></mod></do>
+  </reduce></let>
+  <let name="check"><pad width="2" fill="0"><subtract><int v="98"/><var name="remO"/></subtract></pad></let>
+  <result><concat><str v="PT"/><var name="check"/><var name="bban"/></concat></result>
+</compute></sequence>
+<data>${{iban}}</data>

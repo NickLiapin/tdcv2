@@ -1,0 +1,16 @@
+---
+description: Dishes of Lebanese cuisine (French)
+locale: fr
+---
+Houmous
+Taboulé
+Falafel
+Chawarma
+Baba ganousch
+Kebbé
+Fattouche
+Manakish
+Moutabal
+Mezzé
+Labné
+Fatayer

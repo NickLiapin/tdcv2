@@ -1,0 +1,7 @@
+---
+address: mali.vehicle.plate
+description: Malian licence plate — structural layout of two letters, four digits and two letters (e.g. BA-1234-MD)
+generator: tdc
+locale: fr
+---
+<gen type="regex" value="[A-Z]{2}-[0-9]{4}-[A-Z]{2}"/>

@@ -1,0 +1,12 @@
+---
+description: Personal pronoun set (Polish)
+locale: pl
+---
+on
+ona
+ono
+on/jego
+ona/jej
+ono/jego
+on/ona
+ona/ono

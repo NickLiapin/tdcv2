@@ -1,0 +1,8 @@
+---
+description: Season (Italian, lowercase per Italian orthography)
+locale: it
+---
+primavera
+estate
+autunno
+inverno

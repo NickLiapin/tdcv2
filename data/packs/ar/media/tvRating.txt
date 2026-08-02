@@ -1,0 +1,12 @@
+---
+description: Audiovisual content rating (Arabic)
+locale: ar
+---
+للجميع
++7
++13
++16
++18
+عائلي
+إرشاد أبوي
+مخصص للكبار

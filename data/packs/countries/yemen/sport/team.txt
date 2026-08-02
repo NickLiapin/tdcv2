@@ -1,0 +1,17 @@
+---
+address: yemen.sport.team
+description: Yemeni League football clubs (Arabic)
+locale: ar
+---
+الأهلي صنعاء
+الوحدة صنعاء
+شعب إب
+اليرموك
+شعب حضرموت
+التلال
+الشعلة
+وحدة عدن
+الصقر
+أهلي تعز
+شمسان
+الهلال الحديدة

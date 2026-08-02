@@ -1,0 +1,10 @@
+---
+description: German full male name — a single given name and a single surname (Matthias Schäfer). German names carry one surname, unlike the two-surname Spanish form.
+generator: tdc
+locale: de
+---
+<sequence name="p">
+  <gen name="f" type="template" value="de.person.male.firstName"/>
+  <gen name="l" type="template" value="de.person.lastName"/>
+</sequence>
+<data>${{p.f}} ${{p.l}}</data>

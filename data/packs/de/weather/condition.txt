@@ -1,0 +1,20 @@
+---
+description: Weather condition (German)
+locale: de
+---
+Sonnig
+Teilweise bewölkt
+Bewölkt
+Bedeckt
+Regnerisch
+Nieselregen
+Gewitter
+Schneefall
+Schneeregen
+Nebel
+Windig
+Dunst
+Klar
+Hagel
+Schauer
+Schwül

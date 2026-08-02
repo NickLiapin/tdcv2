@@ -1,0 +1,17 @@
+---
+address: cameroon.sport.team
+description: Cameroonian Elite One football clubs
+locale: fr
+---
+Coton Sport de Garoua
+Union de Douala
+Canon Yaoundé
+Tonnerre Yaoundé
+PWD Bamenda
+Yong Sports Academy
+UMS de Loum
+Fovu Baham
+APEJES Academy
+Dynamo de Douala
+Les Astres de Douala
+Fauve Azur Elite

@@ -1,0 +1,16 @@
+---
+description: Gaming platform (French)
+locale: fr
+---
+PC
+PlayStation 5
+Xbox Series X
+Nintendo Switch
+PlayStation 4
+Xbox One
+Steam Deck
+Mobile
+Nintendo Switch 2
+Cloud gaming
+Mac
+Rétro

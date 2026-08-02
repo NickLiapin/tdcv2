@@ -1,0 +1,9 @@
+---
+description: Models of Tesla
+locale: en
+---
+Model 3
+Model S
+Model X
+Model Y
+Cybertruck

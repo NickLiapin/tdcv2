@@ -1,0 +1,14 @@
+---
+description: Competitive rank tier (Italian)
+locale: it
+---
+Ferro
+Bronzo
+Argento
+Oro
+Platino
+Smeraldo
+Diamante
+Maestro
+Gran maestro
+Sfidante

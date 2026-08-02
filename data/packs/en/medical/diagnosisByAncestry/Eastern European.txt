@@ -1,0 +1,10 @@
+---
+description: Conditions markedly more frequent in people of Eastern European ancestry. A prevalence signal, not an exclusive one.
+locale: en
+---
+Hereditary Hemochromatosis
+Phenylketonuria
+Familial Hypercholesterolemia
+Alcohol-Related Liver Disease
+Cystic Fibrosis
+Wilson Disease

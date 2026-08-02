@@ -1,0 +1,15 @@
+---
+description: Social reaction (German)
+locale: de
+---
+Gefällt mir
+Liebe
+Haha
+Wow
+Traurig
+Wütend
+Umarmung
+Feiern
+Unterstützen
+Aufschlussreich
+Neugierig

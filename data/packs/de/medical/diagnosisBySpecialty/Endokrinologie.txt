@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Endocrinology (German)
+locale: de
+---
+Diabetes mellitus Typ 2
+Diabetes mellitus Typ 1
+Schilddrüsenunterfunktion
+Schilddrüsenüberfunktion
+Osteoporose
+Cushing-Syndrom
+Polyzystisches Ovarialsyndrom
+Hashimoto-Thyreoiditis
+Nebenniereninsuffizienz
+Akromegalie

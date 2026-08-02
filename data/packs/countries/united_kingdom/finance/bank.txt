@@ -1,0 +1,24 @@
+---
+address: united_kingdom.finance.bank
+description: UK bank or licensed deposit-taker; same order as united_kingdom.finance.bankCode
+---
+Barclays Bank
+HSBC UK
+Lloyds Bank
+NatWest
+Santander UK
+Halifax
+Bank of Scotland
+Royal Bank of Scotland
+Nationwide Building Society
+TSB Bank
+The Co-operative Bank
+Clydesdale Bank
+Coutts
+Metro Bank
+Monzo Bank
+Starling Bank
+Standard Chartered
+Svenska Handelsbanken
+Danske Bank
+Ulster Bank

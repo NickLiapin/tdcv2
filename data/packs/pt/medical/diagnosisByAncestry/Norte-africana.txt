@@ -1,0 +1,10 @@
+---
+description: Conditions markedly more frequent in people of North African ancestry, in Portuguese. A prevalence signal, not an exclusive one.
+locale: pt
+---
+Deficiência de glicose-6-fosfato desidrogenase
+Traço de beta-talassemia
+Febre familiar do Mediterrâneo
+Doença de Behçet
+Não persistência da lactase
+Xeroderma pigmentoso

@@ -1,0 +1,6 @@
+---
+description: Models of Rivian
+locale: en
+---
+R1T
+R1S

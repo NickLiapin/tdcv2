@@ -1,0 +1,14 @@
+---
+address: mozambique.holiday
+description: Public holidays in Mozambique (Portuguese names)
+locale: pt
+---
+Dia da Confraternização Universal
+Dia dos Heróis Moçambicanos
+Dia da Mulher Moçambicana
+Dia do Trabalhador
+Dia da Independência Nacional
+Dia da Vitória
+Dia das Forças Armadas
+Dia da Paz e Reconciliação
+Dia da Família

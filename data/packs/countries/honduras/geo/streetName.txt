@@ -1,0 +1,22 @@
+---
+address: honduras.geo.streetName
+description: Honduran street name — mostly named (Bulevar Morazán, Avenida La Paz), some the San Pedro Sula numbered grid with a cardinal sector (3 Avenida NO, 6 Calle SO)
+generator: tdc
+locale: es
+---
+<sequence name="mode"><gen type="number" value="1..10"/></sequence>
+<sequence name="type"><gen type="text" value="Avenida,Avenida,Avenida,Calle,Calle,Calle,Bulevar,Bulevar,Callejón,Circuito"/></sequence>
+<sequence name="named"><gen type="template" value="honduras.geo.streetNamed"/></sequence>
+<sequence name="n"><gen type="number" value="1..33"/></sequence>
+<sequence name="grid"><gen type="text" value="Avenida,Calle"/></sequence>
+<sequence name="sector"><gen type="text" value="NO,NE,SO,SE"/></sequence>
+<sequence name="street"><compute>
+  <result>
+    <choose>
+      <when><test><greater_than><to_number><field name="mode"/></to_number><int v="7"/></greater_than></test>
+        <then><concat><field name="n"/><str v=" "/><field name="grid"/><str v=" "/><field name="sector"/></concat></then></when>
+      <otherwise><concat><field name="type"/><str v=" "/><field name="named"/></concat></otherwise>
+    </choose>
+  </result>
+</compute></sequence>
+<data>${{street}}</data>

@@ -1,0 +1,15 @@
+---
+description: Hiring / interview stage (Portuguese)
+locale: pt
+---
+Triagem de currículo
+Entrevista por telefone
+Entrevista técnica
+Entrevista presencial
+Entrevista com banca
+Rodada final
+Verificação de referências
+Proposta
+Rejeitado
+Contratado
+Retirado

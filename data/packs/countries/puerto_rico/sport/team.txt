@@ -1,0 +1,18 @@
+---
+address: puerto_rico.sport.team
+description: Puerto Rican professional sports club — Liga de Béisbol Profesional Roberto Clemente (LBPRC, winter baseball) and Baloncesto Superior Nacional (BSN, basketball). Several city franchises field teams in both leagues
+locale: es
+---
+Cangrejeros de Santurce
+Criollos de Caguas
+Indios de Mayagüez
+Gigantes de Carolina
+Leones de Ponce
+Senadores de San Juan
+Vaqueros de Bayamón
+Atléticos de San Germán
+Piratas de Quebradillas
+Capitanes de Arecibo
+Mets de Guaynabo
+Osos de Manatí
+Santeros de Aguada

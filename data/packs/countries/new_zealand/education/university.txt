@@ -1,0 +1,29 @@
+---
+address: new_zealand.education.university
+description: New Zealand tertiary institution — the eight universities first, then the three wānanga and the major institutes of technology / polytechnics
+locale: en
+---
+University of Auckland
+Auckland University of Technology
+University of Waikato
+Massey University
+Victoria University of Wellington
+University of Canterbury
+Lincoln University
+University of Otago
+Te Wānanga o Aotearoa
+Te Whare Wānanga o Awanuiārangi
+Te Wānanga o Raukawa
+Ara Institute of Canterbury
+Otago Polytechnic
+Unitec Institute of Technology
+Manukau Institute of Technology
+Wellington Institute of Technology
+Nelson Marlborough Institute of Technology
+Eastern Institute of Technology
+Universal College of Learning
+Waikato Institute of Technology
+Southern Institute of Technology
+Toi Ohomai Institute of Technology
+Whitireia New Zealand
+Open Polytechnic of New Zealand

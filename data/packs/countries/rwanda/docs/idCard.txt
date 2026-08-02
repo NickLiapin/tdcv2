@@ -1,0 +1,7 @@
+---
+address: rwanda.docs.idCard
+description: Rwandan national ID number — 16 digits. Structural; no public check digit.
+generator: tdc
+locale: fr
+---
+<gen type="regex" value="1[0-9]{15}"/>

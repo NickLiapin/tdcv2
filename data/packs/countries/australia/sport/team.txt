@@ -1,0 +1,40 @@
+---
+address: australia.sport.team
+description: Australian professional sports club — the 18 AFL (Australian Football League) clubs and the 17 NRL (National Rugby League) clubs
+locale: en
+---
+Adelaide Crows
+Brisbane Lions
+Carlton Football Club
+Collingwood Football Club
+Essendon Football Club
+Fremantle Dockers
+Geelong Cats
+Gold Coast Suns
+Greater Western Sydney Giants
+Hawthorn Football Club
+Melbourne Football Club
+North Melbourne Football Club
+Port Adelaide Football Club
+Richmond Football Club
+St Kilda Football Club
+Sydney Swans
+West Coast Eagles
+Western Bulldogs
+Brisbane Broncos
+Canberra Raiders
+Canterbury-Bankstown Bulldogs
+Cronulla-Sutherland Sharks
+Dolphins
+Gold Coast Titans
+Manly-Warringah Sea Eagles
+Melbourne Storm
+Newcastle Knights
+New Zealand Warriors
+North Queensland Cowboys
+Parramatta Eels
+Penrith Panthers
+South Sydney Rabbitohs
+St George Illawarra Dragons
+Sydney Roosters
+Wests Tigers

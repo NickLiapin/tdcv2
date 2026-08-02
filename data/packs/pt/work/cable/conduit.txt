@@ -1,0 +1,11 @@
+---
+description: Conduit / installation method for cable runs (Portuguese)
+locale: pt
+---
+PVC
+Aço rígido
+Polietileno de alta densidade
+Enterramento direto
+Eletroduto interno
+Calha para cabos
+Cabo mensageiro aéreo

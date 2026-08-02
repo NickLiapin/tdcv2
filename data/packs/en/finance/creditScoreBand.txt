@@ -1,0 +1,9 @@
+---
+description: Credit score band
+locale: en
+---
+Poor
+Fair
+Good
+Very Good
+Excellent

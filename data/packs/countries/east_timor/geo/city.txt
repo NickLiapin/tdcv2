@@ -1,0 +1,23 @@
+---
+address: east_timor.geo.city
+description: Cities and towns of Timor-Leste (Portuguese names)
+locale: pt
+---
+Díli
+Baucau
+Maliana
+Suai
+Liquiçá
+Aileu
+Ainaro
+Ermera
+Gleno
+Lospalos
+Manatuto
+Same
+Pante Macassar
+Viqueque
+Bobonaro
+Venilale
+Lolotoe
+Atsabe

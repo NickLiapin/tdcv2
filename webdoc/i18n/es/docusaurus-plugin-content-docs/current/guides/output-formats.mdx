@@ -1,0 +1,515 @@
+---
+title: Formatos de salida (CSV, JSON, SQL…)
+sidebar_position: 5
+---
+
+import Terminal from '@site/src/components/Terminal';
+
+# Formatos de salida (CSV, JSON, SQL…)
+
+TDC no tiene una lista fija de exportadores, y eso es deliberado. El
+[bloque de salida](../core-concepts/output-formatting.mdx) arma **texto** —
+[`<before>`](../core-concepts/output-formatting.mdx) / [`<after>`](../core-concepts/output-formatting.mdx)
+envuelven la corrida entera, [`<block>`](../core-concepts/output-formatting.mdx) es un registro y
+[`<data>`](../core-concepts/output-formatting.mdx) es el texto crudo — así que el mismo motor
+produce CSV, JSON, SQL, YAML, NDJSON o cualquier otra cosa hecha de caracteres.
+
+El precio de esa libertad es que **usted** se hace cargo de las reglas de sintaxis del
+formato. TDC no sabe que está construyendo JSON, así que no va a agregar una coma, una
+comilla ni un `null` por su cuenta — y tampoco los va a agregar donde no los quiere. Esta
+guía recorre los tres formatos más comunes y los puntos exactos en que cada uno se rompe,
+y luego muestra cómo construir cualquier otra forma.
+
+:::note
+Las salidas de ejemplo de abajo son ilustrativas — los valores exactos pueden variar
+según la versión del core y el seed. Lo que importa es la **forma** de cada formato, no
+los nombres o números concretos. Verifique un archivo generado con un parser de verdad
+(`python -m json.tool`, `sqlite3`, un lector de CSV), nunca a ojo — cada ruptura de las
+que siguen se ve bien a primera vista.
+:::
+
+## CSV
+
+CSV es el destino más amable: un encabezado una vez y luego una fila por registro. Dos
+cosas muerden: dónde va el encabezado y cualquier valor que contenga el delimitador o una
+comilla.
+
+### El encabezado — una sola vez, con `<before>`
+
+Un encabezado pertenece a [`<before>`](../core-concepts/output-formatting.mdx): se imprime
+exactamente una vez, arriba de todos los registros, sin importar si `count` es 3 o 3
+millones.
+
+```xml
+<tdc>
+    <env count="3" seed="demo">
+        <before><line><data>id,name,category</data></line></before>
+        <sequence name="Id"><gen type="increment" value="1"/></sequence>
+        <sequence name="Name"><gen type="text" value="Bolígrafo,Taza,Cuaderno"/></sequence>
+        <sequence name="Cat"><gen type="text" value="Oficina,Cocina,Oficina"/></sequence>
+    </env>
+    <block>
+        <line><data>${{Id}},${{Name}},${{Cat}}</data></line>
+    </block>
+</tdc>
+```
+
+<Terminal title="./run out.tdc -o out.csv">
+{`id,name,category
+1,Cuaderno,Oficina
+2,Taza,Oficina
+3,Bolígrafo,Cocina`}
+</Terminal>
+
+Poner el encabezado en `<block>` lo repetiría en cada fila; ponerlo en `<before>` lo
+imprime una vez. Use `<after>` de la misma forma para una línea de resumen al final o un
+marcador de cierre.
+
+### `csv` — un valor con una coma o una comilla
+
+**Problema.** Un nombre de producto como `Juego de cuchillos, 3 pzas` contiene el separador de
+campos. Escrito tal cual, esa coma se vuelve un **corte de columna**: la fila gana un
+campo extra, las categorías se deslizan hacia los precios y — lo peor de todo — el
+archivo igual se abre sin error. El daño solo aparece cuando un programa lo vuelve a
+leer.
+
+```xml
+<block>
+    <line><data>${{Id}},${{Name}},${{Cat}},${{Price}}</data></line>
+</block>
+```
+
+<Terminal title="./run out.tdc (una coma dentro de un valor)">
+{`# a la vista se ve bien:
+7,Juego de cuchillos, 3 pzas,Cocina,32.00
+
+# lo que en realidad ve un lector de CSV — 5 campos, no 4:
+7 | Juego de cuchillos |  3 pzas | Cocina | 32.00`}
+</Terminal>
+
+**Herramienta.** El filtro [`csv`](masks-and-case.mdx) envuelve un campo entre comillas
+cuando las necesita y duplica cualquier comilla interna — exactamente lo que pide el RFC
+4180. Póngalo en **cada** campo de texto que venga de fuera de su configuración:
+
+```xml
+<block>
+    <line><data>${{Id}},${{Name | csv}},${{Cat}},${{Price}}</data></line>
+</block>
+```
+
+<Terminal title="./run out.tdc -o out.csv">
+{`id,name,category,price
+7,"Juego de cuchillos, 3 pzas",Cocina,32.00
+8,"Café ""Arábica"" 250 g",Alimentación,5.40
+9,"Taza",Cocina,4.10`}
+</Terminal>
+
+Ahora las comas y las comillas viven a salvo dentro de campos entrecomillados; un lector
+obtiene cuatro columnas en cada fila. **Conviene usarlo cuando** cualquier valor pudiera
+llevar una coma, una comilla o un salto de línea — lo cual es casi siempre cierto para
+nombres, títulos y direcciones sacados de un
+[archivo de datos](files-and-csv.mdx) real.
+
+### Un delimitador distinto
+
+El separador es apenas un carácter que usted escribe. ¿Quiere punto y coma (algo común
+cuando un valor ya trae comas) o tabuladores? Cambie el texto literal en `<data>` y en el
+encabezado para que coincidan — no hay ningún modo que activar.
+
+```xml
+<env count="3" seed="demo">
+    <before><line><data>id;name;category</data></line></before>
+    <!-- las secuencias Id / Name / Cat, sin cambios -->
+</env>
+<block><line><data>${{Id}};${{Name}};${{Cat}}</data></line></block>
+```
+
+<Terminal title="./run out.tdc -o out.csv (delimitado con punto y coma)">
+{`id;name;category
+1;Cuaderno;Oficina
+2;Taza;Oficina
+3;Bolígrafo;Cocina`}
+</Terminal>
+
+(El atributo [`delimiter`](files-and-csv.mdx) es otra cosa — le dice al generador
+[`file`](../generators/file.mdx) cómo **leer** un CSV de entrada. Del lado de la salida
+uno simplemente escribe el carácter que quiere.)
+
+## JSON
+
+JSON tampoco tiene un «modo» en TDC — es texto, igual que el CSV. Pero tiene cuatro reglas
+de sintaxis que un ensamblador de texto plano violará con toda tranquilidad. Aquí están
+las cuatro, y el arreglo de cada una.
+
+### Un arreglo sin coma final
+
+**Problema.** Tres objetos no son JSON hasta que algo los une en un arreglo. El
+movimiento obvio — una coma al final de cada objeto — pone una coma **también después del
+último**, y todo parser lo rechaza:
+
+<Terminal title="python -m json.tool users.json">
+{`  "age": 21
+},
+]
+JSONDecodeError: Expecting value: line 17 column 1`}
+</Terminal>
+
+**Dos arreglos limpios.**
+
+El primero usa una pieza condicional. Un segundo
+[`<data if="!_last">`](../core-concepts/output-formatting.mdx) imprime una coma en cada
+registro **menos** en el último — `_last` es la bandera integrada de «registro final» —
+así que el JSON cierra bien:
+
+```xml
+<tdc>
+    <env count="3" seed="demo" local="es">
+        <before><line><data>[</data></line></before>
+        <after><line><data>]</data></line></after>
+        <sequence name="Id"><gen type="increment" value="1"/></sequence>
+        <sequence name="Name"><gen type="template" value="person.male.firstName"/></sequence>
+    </env>
+    <block>
+        <line><data>  {"id": ${{Id}}, "name": "${{Name}}"}</data><data if="!_last">,</data></line>
+    </block>
+</tdc>
+```
+
+<Terminal title="./run out.tdc -o out.json">
+{`[
+  {"id": 1, "name": "Raimundo"},
+  {"id": 2, "name": "Marcial"},
+  {"id": 3, "name": "Aurelio"}
+]`}
+</Terminal>
+
+El segundo es una fixture dedicada. [`<delimiter_block>`](../core-concepts/output-formatting.mdx)
+imprime su texto **entre** registros — `count - 1` veces, nunca después del último — que
+es precisamente «una coma entre elementos de un arreglo»:
+
+```xml
+<env count="3" seed="demo" local="es">
+    <before><line><data>[</data></line></before>
+    <delimiter_block><line><data>,</data></line></delimiter_block>
+    <after><line><data>]</data></line></after>
+    ...
+</env>
+```
+
+Use `if="!_last"` cuando la coma viaja en la misma línea que el objeto; eche mano de
+`<delimiter_block>` cuando un registro abarca varias líneas y el separador quiere su
+propia línea. Una coma sola en una línea se ve rara pero es JSON válido — los saltos de
+línea entre elementos de un arreglo no significan nada. Pase el archivo por `jq .` si lo
+quiere bonito.
+
+### Las comillas las pone usted
+
+Note las comillas de arriba: `"${{Name}}"` las tiene, `${{Id}}` no. TDC no sabe nada de
+los tipos de JSON — usted coloca las comillas, y eso es justamente lo que mantiene un
+número como número y una cadena como cadena.
+
+```xml
+<line><data>  "id": ${{Id}}, "zip": "${{Zip}}", "age": ${{Age}}</data></line>
+```
+
+<Terminal title="./run out.tdc">
+{`  "id": 1, "zip": "06370", "age": 79`}
+</Terminal>
+
+`zip` va entrecomillado a propósito: un código postal no es un número (nunca se hace
+aritmética con él, y un cero inicial desaparecería). `id` y `age` quedan sin comillas para
+que se lean como enteros.
+
+### Anidar es solo poner más líneas
+
+Un objeto anidado no necesita sintaxis especial — son unas cuantas líneas `<data>` más,
+con las llaves y la sangría correctas:
+
+```xml
+<line><data>  "address": {</data></line>
+<line><data>    "city": "${{City}}",</data></line>
+<line><data>    "zip": "${{Zip}}"</data></line>
+<line><data>  },</data></line>
+```
+
+<Terminal title="./run out.tdc">
+{`  "address": {
+    "city": "Cuauhtémoc",
+    "zip": "06370"
+  },`}
+</Terminal>
+
+### Un arreglo dentro de un objeto
+
+Varios valores en un mismo campo vienen de [`repeat`](../reference/attributes.mdx), y
+[`separator`](../reference/attributes.mdx) es lo que va entre ellos. JSON quiere `", "` —
+**con las comillas** — y aquí se topa uno con un muro: la gramática no deja poner una `"`
+dentro del valor de un atributo, y `&quot;` pasa tal cual, literal.
+
+La salida: separe con un carácter neutro que los valores nunca contengan y luego
+conviértalo en JSON con el filtro [`replace`](masks-and-case.mdx), donde las comillas
+**sí** se permiten:
+
+```xml
+<sequence name="Tags">
+    <gen type="text" value="oferta,nuevo,regalo,vip" repeat="1..3" separator="~"/>
+</sequence>
+```
+
+```xml
+<line><data>  "tags": ["${{Tags | replace:~,", "}}"],</data></line>
+```
+
+<Terminal title="./run out.tdc">
+{`  "tags": ["vip", "nuevo", "regalo"],
+  "tags": ["regalo"],
+  "tags": ["oferta", "oferta"]`}
+</Terminal>
+
+Para un arreglo de **números** nada de esto aplica — no hay comillas, así que
+`separator=","` basta por sí solo. Y note que [`repeat`](../reference/attributes.mdx) saca
+cada valor de forma independiente, así que una etiqueta puede aparecer dos veces en una
+fila; si eso no se quiere, fije un conjunto con [`<mix>`](../reference/tags.mdx) en su
+lugar.
+
+### `null` es una palabra, no un vacío
+
+**Problema.** Para un campo opcional, [`missing`](../reference/attributes.mdx) es lo
+natural a lo que uno echa mano — pero `missing` produce un valor **vacío**, y en JSON no
+existe tal cosa como el vacío:
+
+```xml
+<gen type="number" value="1..100" missing="0.5"/>
+```
+
+<Terminal title="python -m json.tool users.json">
+{`{"id": 1, "score": }
+JSONDecodeError: Expecting value: line 1 column 20`}
+</Terminal>
+
+(En CSV ese mismo vacío es lo correcto — una celda vacía significa «sin valor». Los
+formatos difieren.)
+
+**Herramienta.** Escriba la palabra literal `null` como una rama de un
+[`<mix>`](../reference/tags.mdx), lo cual además hace que la proporción sea **exacta** —
+en 50 000 filas se obtienen precisamente 10 000 nulls, no «como un 20 %»:
+
+```xml
+<mix name="Score" percent="80,20">
+    <case><gen type="number" value="1..100"/></case>
+    <case><data>null</data></case>
+</mix>
+```
+
+<Terminal title="./run out.tdc">
+{`{"id": 1, "score": 56}
+{"id": 2, "score": null}
+{"id": 3, "score": 12}`}
+</Terminal>
+
+### Una comilla que viene de datos externos
+
+La última ruptura viene de valores que usted no controla — un nombre sacado de un
+[archivo](files-and-csv.mdx). Un producto llamado `Café "Arábica" 250 g` cae en la cadena
+tal cual, y la segunda comilla la cierra antes de tiempo:
+
+<Terminal title="python -m json.tool products.json">
+{`{"name": "Café "Arábica" 250 g"}
+JSONDecodeError: Expecting ',' delimiter`}
+</Terminal>
+
+El estándar JSON escapa una comilla interna con una barra invertida. El mismo filtro
+[`replace`](masks-and-case.mdx) lo hace — este es el único lugar donde usted escribe la
+barra invertida a mano:
+
+```xml
+<data>{"name": "${{Name | replace:",\"}}"}</data>
+```
+
+<Terminal title="./run out.tdc">
+{`{"name": "Café \\"Arábica\\" 250 g"}`}
+</Terminal>
+
+Eso se vuelve a parsear como la cadena original, con las comillas intactas.
+
+:::note
+Si sus datos también pudieran contener una barra invertida literal, duplique la barra
+**primero** (una pasada de `replace` de `\` → `\\`) y después escape las comillas — de lo
+contrario la segunda pasada estropea los escapes que acaba de agregar la primera.
+:::
+
+### Muchos registros: NDJSON
+
+Un arreglo tiene un techo: para leer un objeto, un parser tiene que cargar el **archivo
+entero**, así que un millón de registros significa gigabytes en memoria. La respuesta de
+la industria es **NDJSON** — un objeto por línea, sin envoltorio y sin comas. pandas,
+ClickHouse, BigQuery y `jq` lo leen todos.
+
+Basta con quitar las tres fixtures y doblar cada registro en una sola línea:
+
+```xml
+<block><line>
+    <data>{"id": ${{Id}}, "name": "${{Name}}", "city": "${{City}}", "score": ${{Score}}}</data>
+</line></block>
+```
+
+<Terminal title="./run out.tdc -o out.ndjson">
+{`{"id": 1, "name": "Raimundo", "city": "Zacatepec", "score": 74}
+{"id": 2, "name": "Marcial", "city": "Ixtapaluca", "score": null}
+{"id": 3, "name": "Aurelio", "city": "Linares", "score": 2}`}
+</Terminal>
+
+Un consumidor lo lee línea por línea, necesitando memoria para un solo registro en vez de
+para el archivo completo — el formato de elección pasados unos cientos de miles de filas.
+Vea [Salidas grandes y streaming](large-outputs.mdx) para saber cómo TDC las produce en
+disco sin mantener el archivo en memoria.
+
+## SQL
+
+Para SQL uno emite sentencias que una base de datos ejecuta directamente — TDC no se
+conecta a nada, escribe un **archivo de comandos** que se carga con `sqlite3`, `psql` o
+una migración. Dos preocupaciones de formato: escapar los apóstrofos y envolver la corrida
+en el esquema y una transacción.
+
+### `sql` — un apóstrofo en un valor
+
+**Problema.** En SQL un literal de cadena va delimitado por comillas simples, así que un
+apellido como `O'Brien` cierra la cadena antes de tiempo y la sentencia no corre:
+
+<Terminal title="sqlite3 shop.db < out.sql">
+{`INSERT INTO users (id, last) VALUES (2, 'O'Brien');
+Error: near "Brien": syntax error`}
+</Terminal>
+
+**Herramienta.** El filtro [`sql`](masks-and-case.mdx) duplica el apóstrofo, que es como
+SQL lo escapa dentro de un literal:
+
+```xml
+<tdc>
+    <env count="3" seed="demo">
+        <sequence name="Id"><gen type="increment" value="1"/></sequence>
+        <sequence name="Last"><gen type="text" value="Sarmiento,O'Brien,Valdés" order="sequential"/></sequence>
+    </env>
+    <block>
+        <line><data>INSERT INTO users (id, last) VALUES (${{Id}}, '${{Last | sql}}');</data></line>
+    </block>
+</tdc>
+```
+
+<Terminal title="./run out.tdc -o out.sql">
+{`INSERT INTO users (id, last) VALUES (1, 'Sarmiento');
+INSERT INTO users (id, last) VALUES (2, 'O''Brien');
+INSERT INTO users (id, last) VALUES (3, 'Valdés');`}
+</Terminal>
+
+`'O''Brien'` se carga de vuelta como `O'Brien`. Da la casualidad de que los packs de datos
+de fábrica no traen apóstrofos, pero en cuanto se conecta la lista de nombres **propia**
+aparecen — los nombres irlandeses e italianos están llenos de ellos — así que ponga `sql`
+en cada campo de texto que vaya rumbo a una sentencia. No cuesta nada y evita una
+importación fallida más adelante.
+
+### Primero el esquema, después los datos — `<before>` / `<after>`
+
+El `CREATE TABLE` se ejecuta una sola vez, así que pertenece a
+[`<before>`](../core-concepts/output-formatting.mdx), que se imprime antes de todas las
+filas:
+
+```xml
+<env count="3" seed="shop" local="es">
+    <before>
+        <line><data>CREATE TABLE customers (</data></line>
+        <line><data>  id    INTEGER PRIMARY KEY,</data></line>
+        <line><data>  name  TEXT NOT NULL,</data></line>
+        <line><data>  city  TEXT NOT NULL</data></line>
+        <line><data>);</data></line>
+    </before>
+    <sequence name="Id"><gen type="increment" value="1"/></sequence>
+    <sequence name="First"><gen type="template" value="person.male.firstName"/></sequence>
+    <sequence name="Last"><gen type="template" value="person.lastName"/></sequence>
+    <sequence name="City"><gen type="text" value="Guadalajara,Monterrey,Mérida" percent="50,30,20"/></sequence>
+</env>
+<block><line>
+    <data>INSERT INTO customers VALUES (${{Id}}, '${{First}} ${{Last | sql}}', '${{City}}');</data>
+</line></block>
+```
+
+<Terminal title="./run out.tdc -o shop.sql">
+{`CREATE TABLE customers (
+  id    INTEGER PRIMARY KEY,
+  name  TEXT NOT NULL,
+  city  TEXT NOT NULL
+);
+INSERT INTO customers VALUES (1, 'Rolando Núñez', 'Mérida');
+INSERT INTO customers VALUES (2, 'Josué Ornelas', 'Monterrey');
+INSERT INTO customers VALUES (3, 'Lucio Aldana', 'Guadalajara');`}
+</Terminal>
+
+### Envuélvalo en una sola transacción
+
+Mil `INSERT` pelados son mil transacciones — lento. Envuelva la corrida en
+`BEGIN` / `COMMIT` para que cargue como una sola, agregando una línea a cada fixture:
+
+```xml
+<env count="3" seed="demo">
+    <before>… esquema …<line><data>BEGIN;</data></line></before>
+    <after><line><data>COMMIT;</data></line></after>
+    <!-- las secuencias, sin cambios -->
+</env>
+```
+
+Y luego se carga:
+
+<Terminal title="sqlite3 shop.db < shop.sql">
+{`# SQLite
+sqlite3 shop.db < shop.sql
+
+# PostgreSQL — el mismo archivo
+psql -f shop.sql`}
+</Terminal>
+
+Para tablas relacionadas — pedidos que referencian clientes existentes, con la llave
+foránea siempre válida — genere una línea por elemento de la lista con
+[`each`](../reference/attributes.mdx); vea
+[Datos coherentes y relacionales](coherent-data.mdx) para el patrón completo.
+
+## Cualquier otra cosa
+
+Las mismas tres piezas construyen cualquier forma de texto — usted controla cada carácter:
+
+- **YAML** — un `- ` antes de cada elemento de lista, sangría de dos espacios para anidar.
+- **Una tabla de Markdown** — un encabezado delimitado por `|` más una regla `|---|` en
+  `<before>`, y filas con `|` en `<block>`.
+- **Un reporte de ancho fijo** — rellene los campos hasta un ancho fijo con los filtros
+  [`mask`](masks-and-case.mdx) / slice y alinee las columnas.
+
+```xml
+<env count="3" seed="demo">
+    <before>
+        <line><data>| id | name  | city    |</data></line>
+        <line><data>|----|-------|---------|</data></line>
+    </before>
+    <!-- las secuencias, sin cambios -->
+</env>
+<block><line><data>| ${{Id}} | ${{Name}} | ${{City}} |</data></line></block>
+```
+
+<Terminal title="./run out.tdc (tabla de Markdown)">
+{`| id | name  | city    |
+|----|-------|---------|
+| 1 | Raimundo | Monterrey |
+| 2 | Marcial | Mérida |`}
+</Terminal>
+
+TDC solo rellena los valores — el formato es el que usted haya escrito.
+
+## Vea también
+
+- **[Salida y formato](../core-concepts/output-formatting.mdx)** — `<block>`, `<line>`,
+  `<data>`, las fixtures y la condición `if`.
+- **[Máscaras y mayúsculas](masks-and-case.mdx)** — los filtros de escape `csv` / `sql` /
+  `replace` completos.
+- **[Leer archivos y CSV](files-and-csv.mdx)** — cómo traer sus propios valores desde un
+  archivo con el generador [`file`](../generators/file.mdx).
+- **[Datos coherentes y relacionales](coherent-data.mdx)** — tablas relacionadas, llaves
+  foráneas y los atributos `each` / `weight` / `row`.
+- **[Salidas grandes y streaming](large-outputs.mdx)** — millones de filas y NDJSON en disco.

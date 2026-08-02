@@ -1,0 +1,14 @@
+---
+description: Positions in rugby union (German)
+locale: de
+---
+Pfeiler
+Hakler
+Zweite Reihe
+Dritte Reihe
+Nummer acht
+Gedrängehalb
+Verbinder
+Innendreiviertel
+Außendreiviertel
+Schlussmann

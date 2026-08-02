@@ -1,0 +1,27 @@
+---
+description: Government body (Italian public administration)
+locale: it
+---
+Agenzia delle Entrate
+Agenzia delle Dogane e dei Monopoli
+INPS
+INAIL
+ISTAT
+Comune
+Prefettura
+Questura
+Motorizzazione Civile
+Camera di Commercio
+ASL
+Ministero della Salute
+Ministero dell'Istruzione e del Merito
+Ministero delle Infrastrutture e dei Trasporti
+Ministero dell'Economia e delle Finanze
+Ministero della Giustizia
+Ministero del Lavoro e delle Politiche Sociali
+Ministero della Difesa
+Ministero dell'Interno
+Ministero degli Affari Esteri
+Ministero dell'Agricoltura
+Ministero dell'Ambiente e della Sicurezza Energetica
+Ministero della Cultura

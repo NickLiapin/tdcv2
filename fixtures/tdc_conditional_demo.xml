@@ -1,0 +1,23 @@
+<tdc version="0.01" comment="Conditional rendering demo: if-attribute + counter + age gating">
+    <env count="20" seed="cond-demo" inject="${{%}}" local="en">
+        <sequence name="UID">
+            <gen type="increment" value="1000" step="1"/>
+        </sequence>
+        <sequence name="Gender">
+            <gen type="text" value="Male,Female" percent="50,50"/>
+        </sequence>
+        <sequence name="Age">
+            <gen type="number" value="10..80"/>
+        </sequence>
+        <before>
+            <line>
+                <data>UID,Gender,Age</data>
+            </line>
+        </before>
+    </env>
+    <block>
+        <line if="Age >= 18">
+            <data>${{UID}},${{Gender}},${{Age}}</data>
+        </line>
+    </block>
+</tdc>

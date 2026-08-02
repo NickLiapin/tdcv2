@@ -1,0 +1,19 @@
+---
+description: Venue type (French)
+locale: fr
+---
+Salle de réception
+Palais des congrès
+Stade
+Salle des fêtes
+Château
+Domaine
+Théâtre
+Hôtel
+Restaurant
+Chapiteau
+Salle de concert
+Auditorium
+Parc des expositions
+Péniche
+Salle polyvalente

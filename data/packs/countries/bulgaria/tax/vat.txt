@@ -1,0 +1,6 @@
+---
+address: bulgaria.tax.vat
+description: Bulgarian VAT (BG + 9 or 10 digits, no checksum)
+generator: tdc
+---
+<gen type="regex" value="BG[0-9]{9}[0-9]?"/>

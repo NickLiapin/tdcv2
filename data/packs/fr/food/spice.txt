@@ -1,0 +1,34 @@
+---
+description: Spice / herb (French)
+locale: fr
+---
+Sel
+Poivre
+Paprika
+Cumin
+Curcuma
+Cannelle
+Muscade
+Gingembre
+Coriandre
+Basilic
+Thym
+Romarin
+Origan
+Persil
+Ciboulette
+Estragon
+Laurier
+Safran
+Piment
+Curry
+Vanille
+Clou de girofle
+Anis
+Cardamome
+Aneth
+Menthe
+Sauge
+Herbes de Provence
+Quatre-épices
+Fenouil

@@ -1,0 +1,7 @@
+---
+address: senegal.vehicle.plate
+description: Senegalese licence plate — a region-based layout of two letters, four digits and a letter (e.g. DK-1234-A). Structural.
+generator: tdc
+locale: fr
+---
+<gen type="regex" value="[A-Z]{2}-[0-9]{4}-[A-Z]"/>

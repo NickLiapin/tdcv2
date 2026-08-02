@@ -1,0 +1,27 @@
+---
+description: Government body type (generic Portuguese, not a specific country's ministry)
+locale: pt
+---
+Ministério da Saúde
+Ministério da Educação
+Ministério dos Transportes
+Ministério das Finanças
+Ministério da Justiça
+Ministério do Trabalho
+Ministério da Defesa
+Ministério da Administração Interna
+Ministério dos Negócios Estrangeiros
+Ministério da Agricultura
+Ministério do Ambiente
+Ministério da Economia
+Ministério da Cultura
+Ministério da Habitação
+Ministério da Energia
+Ministério do Turismo
+Autoridade Tributária
+Registo Civil
+Instituto de Segurança Social
+Serviço de Estrangeiros e Fronteiras
+Instituto Nacional de Estatística
+Provedoria de Justiça
+Tribunal de Contas

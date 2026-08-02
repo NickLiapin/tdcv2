@@ -1,0 +1,16 @@
+---
+address: rwanda.finance.bank
+description: Banks operating in Rwanda
+locale: fr
+---
+Bank of Kigali
+I&M Bank Rwanda
+Banque Populaire du Rwanda
+Ecobank
+Access Bank
+Equity Bank
+GT Bank
+Cogebanque
+Banque Rwandaise de Développement
+Urwego Bank
+NCBA Bank Rwanda

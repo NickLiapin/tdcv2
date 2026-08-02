@@ -1,0 +1,28 @@
+---
+description: Company legal / name suffix used in Italy (S.r.l., S.p.A., S.a.s., S.n.c.); S.A. is the San Marino form
+locale: it
+---
+S.r.l.
+S.p.A.
+S.a.s.
+S.n.c.
+S.r.l.s.
+S.c.a.r.l.
+S.S.
+Ditta individuale
+S.A.
+Onlus
+Impresa sociale
+Società cooperativa
+Consorzio
+Gruppo
+Holding
+Fondazione
+Associazione
+Studio associato
+e Figli
+e Fratelli
+e Associati
+e C.
+Industrie
+Servizi

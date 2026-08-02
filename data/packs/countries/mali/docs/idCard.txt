@@ -1,0 +1,7 @@
+---
+address: mali.docs.idCard
+description: Malian national ID number (NINA) — 14 digits. Structural; no public check digit.
+generator: tdc
+locale: fr
+---
+<gen type="regex" value="[0-9]{14}"/>

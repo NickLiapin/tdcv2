@@ -1,0 +1,11 @@
+---
+address: puerto_rico.finance.accountType
+description: Puerto Rican bank account type as named on a transfer or deposit form (US banking in Spanish)
+locale: es
+---
+Cuenta de Cheques
+Cuenta de Ahorros
+Cuenta de Mercado Monetario
+Certificado de Depósito
+Cuenta de Reserva
+Cuenta Comercial

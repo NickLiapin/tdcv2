@@ -1,0 +1,12 @@
+---
+description: Conditions markedly more frequent in people of South Asian ancestry, in Spanish. A prevalence signal, not an exclusive one.
+locale: es
+---
+Diabetes mellitus tipo 2 de inicio temprano
+Enfermedad coronaria prematura
+Obesidad central con índice de masa corporal normal
+Deficiencia de vitamina D
+Rasgo de beta-talasemia
+Síndrome metabólico
+Deficiencia de glucosa-6-fosfato deshidrogenasa
+Cardiopatía reumática

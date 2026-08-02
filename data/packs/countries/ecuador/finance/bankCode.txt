@@ -1,0 +1,17 @@
+---
+address: ecuador.finance.bankCode
+description: Ecuadorian institution code as used in the Banco Central del Ecuador interbank payment system (SPI), 4 digits; same order as ecuador.finance.bank
+---
+0010
+0017
+0025
+0029
+0030
+0032
+0035
+0036
+0037
+0042
+0059
+0060
+0066

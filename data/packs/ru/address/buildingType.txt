@@ -1,0 +1,8 @@
+---
+description: Russian address building qualifier (корпус, строение, …)
+---
+к.
+стр.
+вл.
+лит.
+блок

@@ -1,0 +1,11 @@
+---
+address: peru.finance.cci
+description: Peru CCI (Código de Cuenta Interbancario) — 20 digits: a 3-digit BCRP institution code + a 3-digit office code + a 12-digit account number + 2 control digits. STRUCTURAL ONLY for the last two digits: the CCE has never published the control-digit formula, so this pack emits the correct shape and a real institution code but the trailing pair is not a computed checksum and will not pass a bank's own validation.
+generator: tdc
+---
+<sequence name="bank"><gen type="template" value="peru.finance.bankCode"/></sequence>
+<sequence name="office"><gen type="regex" value="[0-9]{3}"/></sequence>
+<sequence name="account"><gen type="regex" value="[0-9]{12}"/></sequence>
+<!-- Not a checksum — see the description. -->
+<sequence name="control"><gen type="regex" value="[0-9]{2}"/></sequence>
+<data>${{bank}}${{office}}${{account}}${{control}}</data>

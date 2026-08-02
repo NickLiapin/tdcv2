@@ -1,0 +1,10 @@
+---
+description: Diagnoses seen in Gastroenterología
+locale: es
+---
+Enfermedad por reflujo gastroesofágico
+Enfermedad de Crohn
+Colitis ulcerosa
+Úlcera péptica
+Síndrome de intestino irritable
+Cirrosis hepática

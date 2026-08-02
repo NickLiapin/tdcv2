@@ -1,0 +1,7 @@
+---
+address: italy.geo.cap
+description: Italian postal code (CAP) — five digits
+generator: tdc
+locale: it
+---
+<gen type="regex" value="[0-9]{5}"/>

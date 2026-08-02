@@ -1,0 +1,13 @@
+---
+description: Dishes of Italian cuisine (Polish)
+locale: pl
+---
+Pizza margherita
+Spaghetti carbonara
+Lasagne
+Risotto
+Ossobuco
+Tiramisu
+Gnocchi
+Minestrone
+Fettuccine Alfredo

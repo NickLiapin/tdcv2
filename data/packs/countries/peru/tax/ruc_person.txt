@@ -1,0 +1,33 @@
+---
+address: peru.tax.ruc_person
+description: Peru RUC of a persona natural — prefix 10 + the holder's 8-digit DNI + the mod-11 check digit (weights 5,4,3,2,7,6,5,4,3,2). Pass dni="12345678" to bind it to a DNI you already generated.
+generator: tdc
+---
+<!-- For a persona natural the eight middle digits ARE the DNI, which is why a
+     RUC 10 and its owner's DNI can always be read off each other. -->
+<sequence name="prefix"><gen type="text" value="10"/></sequence>
+<sequence name="dni"><gen type="regex" value="[0-9]{8}"/></sequence>
+<sequence name="ruc"><compute>
+  <let name="payload"><concat><field name="prefix"/><field name="dni"/></concat></let>
+  <let name="sum">
+    <reduce>
+      <over><var name="payload"/></over>
+      <init><int v="0"/></init>
+      <do><add><acc/>
+        <multiply><current/>
+          <at><in><list v="5,4,3,2,7,6,5,4,3,2"/></in><index><current_index/></index></at>
+        </multiply>
+      </add></do>
+    </reduce>
+  </let>
+  <let name="raw"><subtract><int v="11"/><mod><var name="sum"/><int v="11"/></mod></subtract></let>
+  <let name="check">
+    <choose>
+      <when><test><equals><var name="raw"/><int v="10"/></equals></test><then><int v="0"/></then></when>
+      <when><test><equals><var name="raw"/><int v="11"/></equals></test><then><int v="1"/></then></when>
+      <otherwise><var name="raw"/></otherwise>
+    </choose>
+  </let>
+  <result><concat><var name="payload"/><var name="check"/></concat></result>
+</compute></sequence>
+<data>${{ruc}}</data>

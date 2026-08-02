@@ -1,0 +1,17 @@
+---
+address: togo.holiday
+description: Public holidays in Togo (French names; civil, Christian and Muslim)
+locale: fr
+---
+Jour de l'An
+Fête de la Libération nationale
+Fête de l'Indépendance
+Fête du Travail
+Ascension
+Lundi de Pentecôte
+Jour des Martyrs
+Assomption
+Toussaint
+Noël
+Aïd el-Fitr
+Aïd el-Kébir

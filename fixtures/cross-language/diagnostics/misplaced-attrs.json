@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "cases": [
+    {
+      "name": "parent-on-a-gen-instead-of-its-sequence",
+      "demonstrates": "TDC015",
+      "description": "parent= is read on <sequence> and <mix> and nowhere else. Accepting it on a <gen> made a config that plainly says \"only build this where a == A\" produce the value on every row, with nothing said. Refused, so the reader is pointed at the tag that reads it.",
+      "config": "<tdc><env count=\"2\" seed=\"s\" local=\"en\"><sequence name=\"a\"><gen type=\"text\" value=\"A,B\"/></sequence><sequence name=\"b\"><gen type=\"text\" value=\"x\" parent=\"a.A\"/></sequence></env><block><line><data>${{a}}${{b}}</data></line></block></tdc>",
+      "expected": ["error TDC015 1:154"]
+    },
+    {
+      "name": "percent-on-a-switch-instead-of-a-mix",
+      "demonstrates": "TDC015",
+      "description": "A <switch> chooses its case from the value of on=, and <case> requires is= (TDC137), so there is no split for percent= to describe. It belongs to <mix>. It was on the accepted list and read by nobody.",
+      "config": "<tdc><env count=\"2\" seed=\"s\" local=\"en\"><sequence name=\"g\"><gen type=\"text\" value=\"M,F\"/></sequence><switch name=\"s\" on=\"g\" percent=\"80\"><case is=\"M\"><data>m</data></case><case is=\"F\"><data>f</data></case></switch></env><block><line><data>${{s}}</data></line></block></tdc>",
+      "expected": ["error TDC015 1:133"]
+    },
+    {
+      "name": "env-and-tdc-attributes-written-on-a-gen",
+      "demonstrates": "TDC015",
+      "description": "seed, engine, version and inject belong to <env> or <tdc>. The four ports kept ONE flat union of every attribute name in the language and used it to judge a <gen>, so all four passed this config while the reference refused it — the same input, a different answer, depending on which implementation you happened to run.",
+      "config": "<tdc><env count=\"2\" seed=\"s\" local=\"en\"><sequence name=\"a\"><gen type=\"text\" value=\"A,B\" seed=\"nope\" engine=\"2\"/></sequence></env><block><line><data>${{a}}</data></line></block></tdc>",
+      "expected": ["error TDC015 1:94", "error TDC015 1:108"]
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+---
+address: germany.docs.taxId
+description: German tax identification number (Steuerliche Identifikationsnummer) — 11 digits: a 10-digit base that never starts with 0, plus an ISO 7064 MOD 11,10 check digit. The check digit is computed exactly; the additional legal constraint that exactly one digit repeats within the base is not enforced.
+generator: tdc
+locale: de
+---
+<sequence name="base"><gen type="regex" value="[1-9][0-9]{9}"/></sequence>
+<sequence name="taxId"><compute>
+  <!-- ISO 7064 MOD 11,10: a running product folded over the base digits. -->
+  <let name="product">
+    <reduce>
+      <over><field name="base"/></over>
+      <init><int v="10"/></init>
+      <do>
+        <let name="s"><mod><add><current/><acc/></add><int v="10"/></mod></let>
+        <mod>
+          <multiply><int v="2"/>
+            <choose>
+              <when><test><equals><var name="s"/><int v="0"/></equals></test><then><int v="10"/></then></when>
+              <otherwise><var name="s"/></otherwise>
+            </choose>
+          </multiply>
+          <int v="11"/>
+        </mod>
+      </do>
+    </reduce>
+  </let>
+  <let name="check"><mod><subtract><int v="11"/><var name="product"/></subtract><int v="10"/></mod></let>
+  <result><concat><field name="base"/><var name="check"/></concat></result>
+</compute></sequence>
+<data>${{taxId}}</data>

@@ -1,0 +1,19 @@
+---
+address: ivory_coast.finance.bank
+description: Banks operating in Côte d'Ivoire
+locale: fr
+---
+Société Générale Côte d'Ivoire
+Ecobank
+BICICI
+NSIA Banque
+SIB
+Bank of Africa
+UBA
+Coris Bank
+Orabank
+Banque Nationale d'Investissement
+BGFIBank
+Bridge Bank
+Versus Bank
+Banque Atlantique

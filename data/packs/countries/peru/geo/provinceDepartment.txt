@@ -1,0 +1,201 @@
+---
+address: peru.geo.provinceDepartment
+description: The departamento each entry of peru.geo.province belongs to; same order as peru.geo.province, so the two lists pair a province with its department
+locale: es
+---
+Amazonas
+Amazonas
+Amazonas
+Amazonas
+Amazonas
+Amazonas
+Amazonas
+Áncash
+Áncash
+Áncash
+Áncash
+Áncash
+Áncash
+Áncash
+Áncash
+Áncash
+Áncash
+Áncash
+Áncash
+Áncash
+Áncash
+Áncash
+Áncash
+Áncash
+Áncash
+Áncash
+Áncash
+Apurímac
+Apurímac
+Apurímac
+Apurímac
+Apurímac
+Apurímac
+Apurímac
+Arequipa
+Arequipa
+Arequipa
+Arequipa
+Arequipa
+Arequipa
+Arequipa
+Arequipa
+Ayacucho
+Ayacucho
+Ayacucho
+Ayacucho
+Ayacucho
+Ayacucho
+Ayacucho
+Ayacucho
+Ayacucho
+Ayacucho
+Ayacucho
+Cajamarca
+Cajamarca
+Cajamarca
+Cajamarca
+Cajamarca
+Cajamarca
+Cajamarca
+Cajamarca
+Cajamarca
+Cajamarca
+Cajamarca
+Cajamarca
+Cajamarca
+Callao
+Cusco
+Cusco
+Cusco
+Cusco
+Cusco
+Cusco
+Cusco
+Cusco
+Cusco
+Cusco
+Cusco
+Cusco
+Cusco
+Huancavelica
+Huancavelica
+Huancavelica
+Huancavelica
+Huancavelica
+Huancavelica
+Huancavelica
+Huánuco
+Huánuco
+Huánuco
+Huánuco
+Huánuco
+Huánuco
+Huánuco
+Huánuco
+Huánuco
+Huánuco
+Huánuco
+Ica
+Ica
+Ica
+Ica
+Ica
+Junín
+Junín
+Junín
+Junín
+Junín
+Junín
+Junín
+Junín
+Junín
+La Libertad
+La Libertad
+La Libertad
+La Libertad
+La Libertad
+La Libertad
+La Libertad
+La Libertad
+La Libertad
+La Libertad
+La Libertad
+La Libertad
+Lambayeque
+Lambayeque
+Lambayeque
+Lima
+Lima
+Lima
+Lima
+Lima
+Lima
+Lima
+Lima
+Lima
+Lima
+Loreto
+Loreto
+Loreto
+Loreto
+Loreto
+Loreto
+Loreto
+Loreto
+Madre de Dios
+Madre de Dios
+Madre de Dios
+Moquegua
+Moquegua
+Moquegua
+Pasco
+Pasco
+Pasco
+Piura
+Piura
+Piura
+Piura
+Piura
+Piura
+Piura
+Piura
+Puno
+Puno
+Puno
+Puno
+Puno
+Puno
+Puno
+Puno
+Puno
+Puno
+Puno
+Puno
+Puno
+San Martín
+San Martín
+San Martín
+San Martín
+San Martín
+San Martín
+San Martín
+San Martín
+San Martín
+San Martín
+Tacna
+Tacna
+Tacna
+Tacna
+Tumbes
+Tumbes
+Tumbes
+Ucayali
+Ucayali
+Ucayali
+Ucayali

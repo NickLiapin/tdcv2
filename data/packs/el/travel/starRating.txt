@@ -1,0 +1,9 @@
+---
+description: Hotel star rating (Greek)
+locale: el
+---
+1 αστέρι
+2 αστέρια
+3 αστέρια
+4 αστέρια
+5 αστέρια

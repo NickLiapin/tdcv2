@@ -1,0 +1,7 @@
+---
+address: spain.vehicle.plate
+description: Spanish licence plate in the national format in force since 18 September 2000 — four digits then three consonants, written "1234 BCD". The five vowels are excluded to avoid words, and Ñ and Q are excluded for confusion with N and 0; the remaining alphabet is BCDFGHJKLMNPRSTVWXYZ. The first letter is limited to B-N, the range the DGT has actually issued so far.
+generator: tdc
+locale: es
+---
+<gen type="regex" value="[0-9]{4} [BCDFGHJKLMN][BCDFGHJKLMNPRSTVWXYZ]{2}"/>

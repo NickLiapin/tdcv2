@@ -1,0 +1,9 @@
+---
+description: Positions in volleyball (Portuguese)
+locale: pt
+---
+Levantador
+Ponteiro
+Central
+Oposto
+Líbero

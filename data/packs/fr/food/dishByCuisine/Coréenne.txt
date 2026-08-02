@@ -1,0 +1,16 @@
+---
+description: Dishes of Korean cuisine (French)
+locale: fr
+---
+Bibimbap
+Kimchi
+Bulgogi
+Tteokbokki
+Japchae
+Barbecue coréen
+Ramyeon
+Mandu
+Galbi
+Kimbap
+Sundubu-jjigae
+Poulet frit coréen

@@ -1,0 +1,35 @@
+---
+description: Vegetable (Portuguese)
+locale: pt
+---
+Cenoura
+Brócolos
+Espinafre
+Batata
+Pepino
+Alface
+Cebola
+Pimento
+Courgette
+Abobrinha
+Couve-flor
+Ervilha
+Milho
+Espargos
+Beringela
+Couve frisada
+Repolho
+Aipo
+Cogumelo
+Batata-doce
+Beterraba
+Rabanete
+Abóbora
+Acelga
+Alcachofra
+Alho-francês
+Nabo
+Tomate
+Agrião
+Cebolinho
+Alho

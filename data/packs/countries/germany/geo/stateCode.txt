@@ -1,0 +1,21 @@
+---
+address: germany.geo.stateCode
+description: Two-letter abbreviations of the German federal states, in the same order as germany.geo.state
+locale: de
+---
+BW
+BY
+BE
+BB
+HB
+HH
+HE
+MV
+NI
+NW
+RP
+SL
+SN
+ST
+SH
+TH

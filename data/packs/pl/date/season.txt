@@ -1,0 +1,8 @@
+---
+description: Season (Polish, lowercase per Polish orthography)
+locale: pl
+---
+wiosna
+lato
+jesień
+zima

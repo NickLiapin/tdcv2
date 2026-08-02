@@ -1,0 +1,19 @@
+---
+description: Jobs in Finance (French)
+locale: fr
+---
+Analyste financier
+Comptable
+Contrôleur de gestion
+Auditeur
+Conseiller bancaire
+Trader
+Gestionnaire de patrimoine
+Actuaire
+Directeur financier
+Chargé de clientèle
+Risk manager
+Analyste crédit
+Expert-comptable
+Courtier
+Trésorier

@@ -1,0 +1,27 @@
+---
+address: equatorial_guinea.finance.account
+description: Equatorial Guinea bank account in the CEMAC / BEAC RIB layout — 23 digits: 5-digit code banque + 5-digit code guichet (agencia) + 11-digit numéro de compte + 2-digit clé RIB. The clé is a REAL mod-97 check (key = 97 − ((89·banque + 15·guichet + 3·compte) mod 97)), the same one the franc zone inherited from France, so it validates. STRUCTURAL note: the bank and branch codes are random — BEAC does not publish the per-institution codes — and Equatorial Guinea is not in the IBAN registry, so there is no GQ IBAN
+generator: tdc
+---
+<sequence name="bank"><gen type="regex" value="[0-9]{5}"/></sequence>
+<sequence name="branch"><gen type="regex" value="[0-9]{5}"/></sequence>
+<sequence name="account"><gen type="regex" value="[0-9]{11}"/></sequence>
+<sequence name="rib"><compute>
+  <let name="nb"><to_number><field name="bank"/></to_number></let>
+  <let name="ng"><to_number><field name="branch"/></to_number></let>
+  <let name="nc"><to_number><field name="account"/></to_number></let>
+  <!-- Weighted sum of the three fields; the clé makes the whole thing ≡ 0 (mod 97). -->
+  <let name="sum">
+    <add>
+      <add><multiply><int v="89"/><var name="nb"/></multiply><multiply><int v="15"/><var name="ng"/></multiply></add>
+      <multiply><int v="3"/><var name="nc"/></multiply>
+    </add>
+  </let>
+  <!-- key = 97 - (sum mod 97); ranges 1..97, so it is never "00". -->
+  <let name="key"><subtract><int v="97"/><mod><var name="sum"/><int v="97"/></mod></subtract></let>
+  <result><concat>
+    <field name="bank"/><field name="branch"/><field name="account"/>
+    <pad width="2"><var name="key"/></pad>
+  </concat></result>
+</compute></sequence>
+<data>${{rib}}</data>

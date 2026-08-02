@@ -1,0 +1,6 @@
+---
+address: paraguay.phone
+description: Paraguayan mobile phone in E.164 form — +595 then the nine-digit national number, which always starts 9 and whose second digit is the operator block 6-9 (96 Vox, 97 Personal, 98 Tigo, 99 Claro; portability means the block no longer guarantees the carrier)
+generator: tdc
+---
+<gen type="regex" value="\+5959[6-9][0-9]{7}"/>

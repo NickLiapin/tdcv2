@@ -1,0 +1,20 @@
+---
+address: mexico.phone
+description: Mexico phone in E.164 form — +52, a LADA area code drawn from mexico.phoneAreaCode, then the subscriber number. The national significant number is always 10 digits, so a two-digit LADA is followed by 8 digits and a three-digit one by 7.
+generator: tdc
+locale: es
+---
+<sequence name="area"><gen type="template" value="mexico.phoneAreaCode"/></sequence>
+<sequence name="sub8"><gen type="regex" value="[1-9][0-9]{7}"/></sequence>
+<sequence name="sub7"><gen type="regex" value="[1-9][0-9]{6}"/></sequence>
+<sequence name="number"><compute>
+  <let name="len"><length><field name="area"/></length></let>
+  <result><concat>
+    <str v="+52"/><field name="area"/>
+    <choose>
+      <when><test><equals><var name="len"/><int v="2"/></equals></test><then><field name="sub8"/></then></when>
+      <otherwise><field name="sub7"/></otherwise>
+    </choose>
+  </concat></result>
+</compute></sequence>
+<data>${{number}}</data>

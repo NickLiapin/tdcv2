@@ -1,0 +1,25 @@
+---
+address: equatorial_guinea.geo.streetNamed
+description: Name for an Equatoguinean thoroughfare, given bare so a type (Calle / Avenida / Paseo) can be prefixed. STRUCTURAL / illustrative: a few are documented Malabo and Bata streets (de la Independencia, Acacio Mañé, Abilio Balboa, Mbogo Nsogo, the streets named after African countries), the rest are national figures and civic dates of the kind used in the country's street naming — this is not an official street registry
+locale: es
+---
+de la Independencia
+de la Libertad
+de la Unidad Nacional
+de la Constitución
+Acacio Mañé
+Enrique Nvó
+Abilio Balboa
+Mbogo Nsogo
+Patricio Lumumba
+Kenia
+Nigeria
+Camerún
+Gabón
+de España
+3 de Agosto
+12 de Octubre
+del Aeropuerto
+del Puerto
+de Malabo
+de Bata

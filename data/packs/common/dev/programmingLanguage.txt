@@ -1,0 +1,37 @@
+---
+description: Programming language
+---
+Python
+JavaScript
+TypeScript
+Java
+C
+C++
+C#
+Go
+Rust
+Ruby
+PHP
+Swift
+Kotlin
+Scala
+Perl
+Haskell
+Elixir
+Clojure
+R
+MATLAB
+Dart
+Lua
+Objective-C
+Shell
+SQL
+Julia
+F#
+Groovy
+Erlang
+COBOL
+Fortran
+Visual Basic
+Assembly
+Zig

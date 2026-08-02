@@ -1,0 +1,39 @@
+---
+address: greece.docs.amka
+description: Greek social-security number (ΑΜΚΑ) — 11 digits: the birth date as DDMMYY plus a 5-digit serial whose final digit is a Luhn check over the preceding 10 digits.
+generator: tdc
+locale: el
+---
+<sequence name="dob"><gen type="date" from="1930-01-01" to="2012-12-31" format="DDMMYY"/></sequence>
+<sequence name="serial"><gen type="regex" value="[0-9]{4}"/></sequence>
+<sequence name="amka"><compute>
+  <let name="base"><concat><field name="dob"/><field name="serial"/></concat></let>
+  <!-- Luhn: double the positions whose index parity matches (length + 1), so
+       the appended check lands on a non-doubled slot. -->
+  <let name="sum"><reduce>
+    <over><var name="base"/></over>
+    <init><int v="0"/></init>
+    <do><add><acc/>
+      <choose>
+        <when>
+          <test><equals>
+            <mod><current_index/><int v="2"/></mod>
+            <mod><add><length><var name="base"/></length><int v="1"/></add><int v="2"/></mod>
+          </equals></test>
+          <then>
+            <let name="d"><multiply><current/><int v="2"/></multiply></let>
+            <choose>
+              <when><test><greater_than><var name="d"/><int v="9"/></greater_than></test>
+                    <then><subtract><var name="d"/><int v="9"/></subtract></then></when>
+              <otherwise><var name="d"/></otherwise>
+            </choose>
+          </then>
+        </when>
+        <otherwise><current/></otherwise>
+      </choose>
+    </add></do>
+  </reduce></let>
+  <let name="check"><mod><subtract><int v="10"/><mod><var name="sum"/><int v="10"/></mod></subtract><int v="10"/></mod></let>
+  <result><concat><var name="base"/><var name="check"/></concat></result>
+</compute></sequence>
+<data>${{amka}}</data>

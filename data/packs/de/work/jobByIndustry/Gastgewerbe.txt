@@ -1,0 +1,16 @@
+---
+description: Jobs in Hospitality (German)
+locale: de
+---
+Küchenchef
+Souschef
+Koch
+Kellner
+Barkeeper
+Sommelier
+Hotelmanager
+Hotelrezeptionist
+Concierge
+Eventmanager
+Restaurantleiter
+Konditor

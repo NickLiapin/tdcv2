@@ -1,0 +1,14 @@
+---
+description: Competitive rank tier (Polish)
+locale: pl
+---
+Żelazo
+Brąz
+Srebro
+Złoto
+Platyna
+Szmaragd
+Diament
+Mistrz
+Arcymistrz
+Pretendent

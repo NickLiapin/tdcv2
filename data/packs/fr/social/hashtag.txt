@@ -1,0 +1,28 @@
+---
+description: Popular French hashtag (French)
+locale: fr
+---
+#BonPlan
+#FaitMaison
+#Voyage
+#Mode
+#Beauté
+#Cuisine
+#Sport
+#Musique
+#Cinéma
+#Livre
+#Nature
+#Photo
+#Fitness
+#Motivation
+#Bio
+#Vegan
+#ZéroDéchet
+#FrenchTech
+#Paris
+#TeamFrance
+#Inspiration
+#Bricolage
+#Jardinage
+#BienÊtre

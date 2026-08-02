@@ -1,0 +1,50 @@
+---
+description: Professional skill (French; technology names kept in their usual form)
+locale: fr
+---
+Python
+JavaScript
+SQL
+Java
+C++
+React
+Node.js
+Docker
+Kubernetes
+AWS
+Git
+TypeScript
+Excel
+Gestion de projet
+Communication
+Anglais
+Comptabilité
+Vente
+Négociation
+Rédaction
+Design graphique
+SEO
+Photoshop
+Analyse de données
+Marketing digital
+Leadership
+Travail en équipe
+Résolution de problèmes
+Gestion du temps
+Service client
+Comptabilité analytique
+Modélisation financière
+Prise de parole en public
+Langage C
+Linux
+Machine learning
+Cybersécurité
+Base de données
+Automatisation
+Rédaction technique
+Traduction
+Montage vidéo
+UX/UI
+Scrum
+Gestion budgétaire
+Recrutement

@@ -1,0 +1,11 @@
+---
+address: new_zealand.finance.account
+description: New Zealand bank account number in the standard BB-bbbb-AAAAAAA-SSS form — 2-digit bank prefix (a real Payments NZ code), 4-digit branch, 7-digit account body, 2-3 digit suffix. STRUCTURAL ONLY: the bank+branch+body carries a per-bank modulus check whose weights are not public, so the branch, body and suffix here are the right shape but not a validated combination.
+generator: tdc
+locale: en
+---
+<sequence name="bank"><gen type="template" value="new_zealand.finance.bankCode"/></sequence>
+<sequence name="branch"><gen type="regex" value="[0-9]{4}"/></sequence>
+<sequence name="body"><gen type="regex" value="[0-9]{7}"/></sequence>
+<sequence name="suffix"><gen type="regex" value="[0-9]{2,3}"/></sequence>
+<data>${{bank}}-${{branch}}-${{body}}-${{suffix}}</data>

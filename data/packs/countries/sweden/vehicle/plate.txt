@@ -1,0 +1,7 @@
+---
+address: sweden.vehicle.plate
+description: Swedish vehicle plate in the newer three-letters + two-digits + one-letter form (e.g. ABC 12A) — structurally correct, the letters are not filtered against reserved combinations.
+generator: tdc
+locale: sv
+---
+<gen type="regex" value="[A-Z]{3} [0-9]{2}[A-Z]"/>

@@ -1,0 +1,9 @@
+---
+description: Positions in basketball (Spanish)
+locale: es
+---
+Base
+Escolta
+Alero
+Ala-pívot
+Pívot

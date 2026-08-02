@@ -1,0 +1,9 @@
+---
+address: zh-cn.finance.accountType
+description: Chinese bank account types
+locale: zh-cn
+---
+储蓄卡
+信用卡
+活期存款
+定期存款

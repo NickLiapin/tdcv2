@@ -1,0 +1,26 @@
+---
+description: Property amenity (German)
+locale: de
+---
+Schwimmbad
+Garage
+Kamin
+Zentrale Klimaanlage
+Parkettboden
+Ankleidezimmer
+Balkon
+Garten
+Fitnessraum
+Aufzug
+Stellplatz
+Geschirrspüler
+Waschküche
+Haustiere erlaubt
+Alarmanlage
+Solaranlage
+Terrasse
+Keller
+Concierge-Service
+Grillplatz
+Möbliert
+Fußbodenheizung

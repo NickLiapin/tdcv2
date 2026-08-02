@@ -1,0 +1,6 @@
+---
+address: somalia.phone
+description: Somali mobile phone in E.164 form (+252 6[1-9]XXXXXX)
+generator: tdc
+---
+<gen type="regex" value="\+2526[1-9][0-9]{6}"/>

@@ -1,0 +1,6 @@
+---
+description: Russian driving licence category for trucks
+---
+Категория C
+Категория CE
+Категория C1

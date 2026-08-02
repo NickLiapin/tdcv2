@@ -1,0 +1,12 @@
+---
+description: Mining method (Spanish)
+locale: es
+---
+A cielo abierto
+Subterránea
+Por franjas
+Aluvial
+Remoción de cumbres
+Por pozo vertical
+Por socavón
+Tajo largo

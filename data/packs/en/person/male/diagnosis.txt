@@ -1,0 +1,14 @@
+---
+description: Medical diagnoses (male + common)
+locale: en
+---
+Varicocele
+Cryptorchism
+Phimosis
+Prostate adenoma
+Prostatitis
+Chronic pancreatitis
+Chlamydia
+Chronic arthritis
+Central retinal artery embolism
+Rectal cancer

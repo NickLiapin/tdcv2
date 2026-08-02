@@ -1,0 +1,24 @@
+---
+description: Video game character class (French)
+locale: fr
+---
+Guerrier
+Mage
+Voleur
+Archer
+Paladin
+Prêtre
+Barbare
+Assassin
+Nécromancien
+Druide
+Chasseur
+Sorcier
+Chevalier
+Moine
+Berserker
+Invocateur
+Éclaireur
+Templier
+Rôdeur
+Enchanteur

@@ -1,0 +1,15 @@
+---
+address: sao_tome_and_principe.holiday
+description: Public holidays of São Tomé and Príncipe (Portuguese names)
+locale: pt
+---
+Ano Novo
+Dia do Rei Amador
+Dia dos Mártires da Liberdade
+Dia do Trabalhador
+Dia da Independência
+Dia das Forças Armadas
+Dia da Reforma Agrária
+Proclamação da República
+Dia de São Tomé
+Natal

@@ -1,0 +1,30 @@
+---
+description: Medical diagnosis in German that requires female anatomy - it cannot occur in a male patient. Draw from this list only for female rows; general conditions live in medical/diagnosis.
+locale: de
+---
+Endometriose
+Polyzystisches Ovarialsyndrom
+Uterusmyome
+Ovarialzyste
+Ovarialkarzinom
+Zervixkarzinom
+Zervikale Dysplasie
+Zervizitis
+Endometritis
+Endometriumkarzinom
+Adnexitis
+Bakterielle Vaginose
+Vulvovaginalkandidose
+Menorrhagie
+Dysmenorrhoe
+Amenorrhoe
+Präeklampsie
+Gestationsdiabetes
+Hyperemesis gravidarum
+Extrauteringravidität
+Postpartale Blutung
+Mastitis
+Fibrozystische Mastopathie
+Klimakterisches Syndrom
+Prämenstruelle dysphorische Störung
+Uterusprolaps

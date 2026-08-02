@@ -1,0 +1,23 @@
+---
+description: Property type (Portuguese)
+locale: pt
+---
+Moradia unifamiliar
+Apartamento
+Condomínio
+Moradia geminada
+Dúplex
+Prédio multifamiliar
+Vivenda
+Bangaló
+Cabana
+Loft
+Estúdio
+Cobertura
+Casa móvel
+Rancho
+Mansão
+Casa de campo
+Quinta
+Terreno
+Loja comercial

@@ -1,0 +1,14 @@
+---
+address: cuba.holiday
+description: Cuban public holidays (días feriados)
+locale: es
+---
+Triunfo de la Revolución
+Día de la Victoria
+Viernes Santo
+Día Internacional de los Trabajadores
+Conmemoración del Asalto al Cuartel Moncada
+Día de la Rebeldía Nacional
+Inicio de las Guerras de Independencia
+Navidad
+Fin de Año

@@ -1,0 +1,34 @@
+---
+description: Hashtag word in Spanish (prefix with # in a template)
+locale: es
+---
+amor
+felicidad
+belleza
+moda
+naturaleza
+arte
+viajes
+comida
+deporte
+motivación
+estilo
+atardecer
+tendencia
+parati
+familia
+verano
+fitness
+vida
+inspiración
+recuerdos
+fotografía
+música
+bienestar
+amistad
+domingo
+café
+gatos
+perros
+lectura
+viernes

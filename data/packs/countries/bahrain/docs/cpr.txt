@@ -1,0 +1,7 @@
+---
+address: bahrain.docs.cpr
+description: Bahrain personal number (CPR) — 9 digits: 2-digit birth year + 7 digits including a check. Structural; no public check algorithm.
+generator: tdc
+locale: ar
+---
+<gen type="regex" value="[0-9]{9}"/>

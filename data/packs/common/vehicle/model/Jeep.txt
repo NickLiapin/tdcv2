@@ -1,0 +1,12 @@
+---
+description: Models of Jeep
+locale: en
+---
+Wrangler
+Grand Cherokee
+Cherokee
+Compass
+Gladiator
+Renegade
+Wagoneer
+Grand Wagoneer

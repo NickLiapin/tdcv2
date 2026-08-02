@@ -1,0 +1,7 @@
+---
+address: vatican_city.vehicle.plate
+description: Vatican vehicle plate — the SCV prefix (Stato della Città del Vaticano) followed by up to five digits.
+generator: tdc
+locale: it
+---
+<gen type="regex" value="SCV [1-9][0-9]{2,4}"/>

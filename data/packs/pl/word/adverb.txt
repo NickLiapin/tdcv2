@@ -1,0 +1,36 @@
+---
+description: Common adverb (Polish)
+locale: pl
+---
+szybko
+powoli
+ostrożnie
+łatwo
+cicho
+głośno
+zawsze
+nigdy
+często
+czasami
+rzadko
+nagle
+delikatnie
+wyraźnie
+po prostu
+prawie
+w pełni
+ledwo
+przeważnie
+naprawdę
+głęboko
+szeroko
+swobodnie
+śmiało
+stanowczo
+chętnie
+uprzejmie
+wkrótce
+późno
+wcześnie
+może
+wciąż

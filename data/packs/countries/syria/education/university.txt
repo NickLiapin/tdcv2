@@ -1,0 +1,15 @@
+---
+address: syria.education.university
+description: Universities of Syria (Arabic)
+locale: ar
+---
+جامعة دمشق
+جامعة حلب
+جامعة تشرين
+جامعة البعث
+جامعة الفرات
+الجامعة الافتراضية السورية
+جامعة حماة
+جامعة طرطوس
+جامعة الوادي الدولية
+الجامعة العربية الدولية

@@ -1,0 +1,7 @@
+---
+address: monaco.vehicle.plate
+description: Monaco licence plate — a numeric series of up to four digits, optionally a leading letter series. Structural.
+generator: tdc
+locale: fr
+---
+<gen type="regex" value="[A-Z]?[0-9]{3,4}"/>

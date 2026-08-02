@@ -1,0 +1,14 @@
+---
+address: south_africa.geo.provinceCode
+description: ISO 3166-2:ZA province code, index-aligned with south_africa.geo.province
+locale: en
+---
+GP
+WC
+KZN
+EC
+LP
+MP
+NW
+FS
+NC

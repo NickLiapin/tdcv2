@@ -1,0 +1,93 @@
+---
+title: C#
+sidebar_position: 4
+---
+
+# C#
+
+El paquete de .NET lee **la misma configuración `.tdc`** y, con el mismo seed, produce
+**la misma salida** que las implementaciones de TypeScript, Python, Java y Rust: byte a byte,
+en los tres motores y en Parquet.
+
+Dos paquetes: la biblioteca y la línea de comandos como `dotnet tool`.
+
+## Cómo obtenerlo
+
+:::note[Antes del lanzamiento]
+Todavía no está en NuGet — `dotnet add package Tdcv2` no lo encontrará. Compílelo desde
+el repositorio:
+
+```bash
+cd csharp && dotnet build
+dotnet run --project Tdcv2.Cli.Tool -- demo.tdc
+```
+
+Tras el lanzamiento será `dotnet add package Tdcv2` más
+`dotnet tool install -g Tdcv2.Cli`; vea
+[Instalación](../getting-started/installation.mdx).
+:::
+
+## Cómo usarlo
+
+```csharp
+using Tdcv2;
+
+var data = new Tdc("users.tdc");
+Console.WriteLine(data);
+
+foreach (Tdc.Row row in data.Rows())
+{
+    Console.WriteLine(row["Gender"]);
+}
+
+data.WriteFile("users.csv");
+```
+
+## Filas, no texto
+
+La fila es la razón para usar la biblioteca en vez de la línea de comandos. Una prueba
+que afirma sobre `row["Gender"]` dice lo que quiere decir; la misma prueba analizando el
+CSV de vuelta desde un texto gasta la mayor parte de sus líneas en el análisis.
+
+La salida de texto y la de filas leen los mismos valores generados, así que nunca pueden
+discrepar. La vista por filas ignora `<block>` y los envoltorios de texto por completo: eso describe
+un formato de archivo, y una fila no tiene formato.
+
+```csharp
+var data = new Tdc(new Tdc.Options
+{
+    ConfigFile = "users.tdc",
+    Count = 100,        // sustituye lo declarado en <env>
+    SeedValue = "test", // fija la ejecución
+});
+
+Tdc.Row first = data[0];
+Console.WriteLine(first["Address.city"]);          // un campo de la secuencia compuesta
+Console.WriteLine(first.Nested()["Address"]);      // o la dirección entera de una vez
+```
+
+Una secuencia que no aplica a la fila devuelve `null`, nunca `""`. Una columna declarada
+`parent="Gender.Male"` no tiene valor en una fila femenina, y una cadena vacía afirmaría
+que sí lo tiene y que da la casualidad de que está vacío.
+
+## Opciones
+
+| | |
+| --- | --- |
+| `ConfigFile` / `ConfigString` | Exactamente uno de los dos |
+| `Count`, `SeedValue`, `Locale` | Sustituyen lo declarado en `<env>` |
+| `NowMillis` | Fija el reloj, para que una prueba con fechas no caduque de un día a otro |
+| `PacksDir`, `DataPaths` | Dónde se buscan los packs y las fuentes `@data/…` |
+| `BaseDir` | Respecto a qué se resuelve un `src=` relativo |
+
+`Diagnostics` lleva todo aquello de lo que se advirtió a la configuración sin rechazarla;
+los errores se lanzan desde el constructor, así que lo que quede ahí vale la pena decirlo
+y no vale la pena detenerse por ello. `SeedInfo` indica si el seed se generó: una
+ejecución sin seed no es reproducible, que casi nunca es lo que se quería.
+
+## Requisitos
+
+.NET **6.0** o posterior. En el [README de C#](https://github.com/NickLiapin/tdc-v2/tree/main/csharp)
+están los lugares donde .NET exigió cuidado y la JVM no —desbordamiento, desplazamientos,
+orden de bytes, mayúsculas y datos de locale—, cada uno de los cuales habría cambiado los
+bytes.

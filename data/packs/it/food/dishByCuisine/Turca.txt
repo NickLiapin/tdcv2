@@ -1,0 +1,13 @@
+---
+description: Dishes of Turkish cuisine (Italian)
+locale: it
+---
+Kebab
+Baklava
+Meze
+Lahmacun
+Dolma
+Köfte
+Pide
+Börek
+Menemen

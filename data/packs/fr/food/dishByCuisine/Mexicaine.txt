@@ -1,0 +1,16 @@
+---
+description: Dishes of Mexican cuisine (French)
+locale: fr
+---
+Tacos
+Guacamole
+Quesadilla
+Enchiladas
+Burrito
+Fajitas
+Nachos
+Chili con carne
+Tamales
+Ceviche
+Tostada
+Mole

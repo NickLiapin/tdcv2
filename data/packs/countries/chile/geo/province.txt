@@ -1,0 +1,61 @@
+---
+address: chile.geo.province
+description: Chilean provincia — the second administrative level, all 56, grouped by región from north to south
+locale: es
+---
+Arica
+Parinacota
+Iquique
+Tamarugal
+Antofagasta
+El Loa
+Tocopilla
+Copiapó
+Chañaral
+Huasco
+Elqui
+Choapa
+Limarí
+Valparaíso
+Isla de Pascua
+Los Andes
+Marga Marga
+Petorca
+Quillota
+San Antonio
+San Felipe de Aconcagua
+Santiago
+Chacabuco
+Cordillera
+Maipo
+Melipilla
+Talagante
+Cachapoal
+Cardenal Caro
+Colchagua
+Talca
+Cauquenes
+Curicó
+Linares
+Diguillín
+Itata
+Punilla
+Concepción
+Arauco
+Biobío
+Cautín
+Malleco
+Valdivia
+Ranco
+Llanquihue
+Chiloé
+Osorno
+Palena
+Coyhaique
+Aysén
+Capitán Prat
+General Carrera
+Magallanes
+Antártica Chilena
+Tierra del Fuego
+Última Esperanza

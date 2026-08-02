@@ -1,0 +1,16 @@
+---
+description: Loan type (French)
+locale: fr
+---
+Immobilier
+Automobile
+Personnel
+Étudiant
+Travaux
+Consommation
+Professionnel
+Relais
+Renouvelable
+Rachat de crédit
+Prêt à taux zéro
+Microcrédit

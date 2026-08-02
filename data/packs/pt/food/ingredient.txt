@@ -1,0 +1,44 @@
+---
+description: Cooking ingredient (Portuguese)
+locale: pt
+---
+Farinha
+Açúcar
+Sal
+Manteiga
+Ovos
+Leite
+Cebola
+Alho
+Tomate
+Peito de frango
+Arroz
+Queijo
+Azeite
+Pimenta-do-reino
+Cenoura
+Batata
+Pimento
+Carne picada
+Pão ralado
+Limão
+Mel
+Fermento
+Natas
+Espinafre
+Vinagre
+Caldo de galinha
+Feijão
+Lentilhas
+Massa
+Atum
+Iogurte
+Queijo ralado
+Salsa
+Óleo vegetal
+Molho de tomate
+Maisena
+Vinho branco
+Amêndoas
+Noz
+Chocolate

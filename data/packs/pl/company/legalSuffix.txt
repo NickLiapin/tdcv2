@@ -1,0 +1,45 @@
+---
+description: Company legal / name suffix used in Poland (sp. z o.o., S.A., sp.k., sp.j., P.S.A.)
+locale: pl
+---
+sp. z o.o.
+S.A.
+sp.k.
+sp.j.
+sp. z o.o. sp.k.
+S.K.A.
+P.S.A.
+spółka cywilna
+jednoosobowa działalność gospodarcza
+fundacja
+stowarzyszenie
+spółdzielnia
+Spółka
+Grupa
+Grupa Kapitałowa
+Holding
+Konsorcjum
+i Wspólnicy
+i Synowie
+Bracia
+Przedsiębiorstwo
+Zakład
+Zakłady
+Wytwórnia
+Kombinat
+Usługi
+Rozwiązania
+Systemy
+Technologie
+Serwis
+Handel
+Dystrybucja
+Inwestycje
+Laboratoria
+Doradztwo
+Konsultanci
+Centrum
+Agencja
+Biuro
+Instytut
+Polska

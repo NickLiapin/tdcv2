@@ -1,0 +1,12 @@
+---
+description: Dishes of Mexican cuisine
+locale: en
+---
+Tacos
+Burrito
+Enchiladas
+Quesadilla
+Guacamole
+Tamales
+Chiles Rellenos
+Pozole

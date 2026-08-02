@@ -1,0 +1,57 @@
+---
+description: Product adjective (Portuguese), masculine singular base form — Portuguese adjectives follow the noun ("Poltrona dobrável"). Many entries here are gender-invariant (-e, -al, -vel endings) and fit any noun; the -o forms need a feminine variant to agree.
+locale: pt
+---
+elegante
+portátil
+versátil
+resistente
+impermeável
+inteligente
+artesanal
+funcional
+ergonômico
+dobrável
+ajustável
+recarregável
+sem fio
+leve
+compacto
+durável
+reversível
+antiderrapante
+respirável
+isolante
+reciclável
+sustentável
+ecológico
+premium
+clássico
+moderno
+minimalista
+rústico
+vintage
+industrial
+esportivo
+multifuncional
+empilhável
+desmontável
+lavável
+antibacteriano
+antimanchas
+térmico
+acolchoado
+reforçado
+silencioso
+automático
+programável
+compatível
+universal
+profissional
+econômico
+feito à mão
+de luxo
+de design
+de alta qualidade
+sem marca
+edição limitada

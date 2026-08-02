@@ -1,0 +1,5 @@
+---
+description: Capital of Ireland
+locale: en
+---
+Dublin

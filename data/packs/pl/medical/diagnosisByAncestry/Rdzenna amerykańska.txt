@@ -1,0 +1,10 @@
+---
+description: Conditions markedly more frequent in people of Indigenous American ancestry, in Polish. A prevalence signal, not an exclusive one.
+locale: pl
+---
+Cukrzyca typu 2
+Kamica żółciowa
+Nefropatia cukrzycowa
+Reumatoidalne zapalenie stawów
+Niealkoholowa stłuszczeniowa choroba wątroby
+Zespół metaboliczny

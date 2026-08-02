@@ -1,0 +1,12 @@
+---
+description: Mining method
+locale: en
+---
+Open-Pit
+Underground
+Strip
+Placer
+Mountaintop Removal
+Shaft
+Drift
+Longwall

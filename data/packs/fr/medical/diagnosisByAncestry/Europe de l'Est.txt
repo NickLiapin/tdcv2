@@ -1,0 +1,10 @@
+---
+description: Conditions in French markedly more frequent in people of Eastern European ancestry. A prevalence signal, not an exclusive one.
+locale: fr
+---
+Hémochromatose héréditaire
+Phénylcétonurie
+Hypercholestérolémie familiale
+Maladie alcoolique du foie
+Mucoviscidose
+Maladie de Wilson

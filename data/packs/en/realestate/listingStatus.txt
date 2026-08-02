@@ -1,0 +1,14 @@
+---
+description: Listing status
+locale: en
+---
+For Sale
+For Rent
+Pending
+Sold
+Under Contract
+Off Market
+Coming Soon
+Foreclosure
+New Construction
+Price Reduced

@@ -1,0 +1,15 @@
+---
+description: Positions in American football (Portuguese)
+locale: pt
+---
+Quarterback
+Running back
+Wide receiver
+Tight end
+Linha ofensiva
+Linha defensiva
+Linebacker
+Cornerback
+Safety
+Kicker
+Punter

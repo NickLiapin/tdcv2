@@ -1,0 +1,8 @@
+---
+address: comoros.geo.region
+description: Islands of the Comoros (Arabic)
+locale: ar
+---
+القمر الكبرى
+أنجوان
+موهيلي

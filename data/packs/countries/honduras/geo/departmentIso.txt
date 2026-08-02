@@ -1,0 +1,23 @@
+---
+address: honduras.geo.departmentIso
+description: ISO 3166-2:HN subdivision code for the departamento; same order as honduras.geo.department
+locale: es
+---
+HN-AT
+HN-CL
+HN-CM
+HN-CP
+HN-CR
+HN-CH
+HN-EP
+HN-FM
+HN-GD
+HN-IN
+HN-IB
+HN-LP
+HN-LE
+HN-OC
+HN-OL
+HN-SB
+HN-VA
+HN-YO

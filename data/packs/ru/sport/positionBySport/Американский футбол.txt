@@ -1,0 +1,9 @@
+---
+description: Positions in American Football
+---
+Квотербек
+Раннинбек
+Ресивер
+Тайт-энд
+Лайнбекер
+Корнербек

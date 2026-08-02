@@ -1,0 +1,70 @@
+---
+address: colombia.education.university
+description: Colombian university or higher-education institution recognised by the Ministerio de Educación Nacional (public and private)
+locale: es
+---
+Universidad Nacional de Colombia
+Universidad de los Andes
+Pontificia Universidad Javeriana
+Universidad de Antioquia
+Universidad del Valle
+Universidad del Rosario
+Universidad Externado de Colombia
+Universidad EAFIT
+Universidad Industrial de Santander
+Universidad del Norte
+Universidad Pontificia Bolivariana
+Universidad de La Sabana
+Universidad Tecnológica de Pereira
+Universidad de Caldas
+Universidad de Cartagena
+Universidad del Atlántico
+Universidad de Nariño
+Universidad del Cauca
+Universidad de Córdoba
+Universidad del Magdalena
+Universidad Pedagógica y Tecnológica de Colombia
+Universidad Pedagógica Nacional
+Universidad Distrital Francisco José de Caldas
+Universidad Militar Nueva Granada
+Universidad Nacional Abierta y a Distancia
+Universidad Santo Tomás
+Universidad de Medellín
+Universidad Autónoma de Occidente
+Universidad Icesi
+Universidad Sergio Arboleda
+Universidad Central
+Universidad de La Salle
+Universidad El Bosque
+Universidad Libre
+Universidad Autónoma de Bucaramanga
+Universidad de Ibagué
+Universidad Surcolombiana
+Universidad de los Llanos
+Universidad de Pamplona
+Universidad Francisco de Paula Santander
+Universidad Tecnológica del Chocó Diego Luis Córdoba
+Universidad de la Amazonia
+Universidad Popular del Cesar
+Universidad de Sucre
+Universidad del Quindío
+Universidad de Cundinamarca
+Universidad Católica de Colombia
+Universidad de Bogotá Jorge Tadeo Lozano
+Universidad EAN
+Universidad CES
+Universidad Simón Bolívar
+Universidad Metropolitana
+Escuela Colombiana de Ingeniería Julio Garavito
+Universidad Antonio Nariño
+Universidad Manuela Beltrán
+Universidad Cooperativa de Colombia
+Corporación Universitaria Minuto de Dios
+Universidad Autónoma de Manizales
+Universidad de La Guajira
+Universidad Autónoma del Caribe
+Universidad Mariana
+Universidad Santiago de Cali
+Universidad de San Buenaventura
+Universidad Konrad Lorenz
+Colegio de Estudios Superiores de Administración

@@ -1,0 +1,15 @@
+---
+description: Employment / contract type (Spanish)
+locale: es
+---
+Tiempo completo
+Medio tiempo
+Contrato
+Temporal
+Prácticas
+Freelance
+Por temporada
+Por horas
+Aprendizaje
+Indefinido
+Por obra

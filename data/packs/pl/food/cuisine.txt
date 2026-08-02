@@ -1,0 +1,21 @@
+---
+description: Cuisine (Polish). Each value has a dishByCuisine child file.
+locale: pl
+---
+Włoska
+Japońska
+Meksykańska
+Chińska
+Indyjska
+Francuska
+Tajska
+Grecka
+Hiszpańska
+Amerykańska
+Koreańska
+Wietnamska
+Turecka
+Libańska
+Peruwiańska
+Argentyńska
+Polska

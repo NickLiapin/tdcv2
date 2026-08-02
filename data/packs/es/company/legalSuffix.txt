@@ -1,0 +1,46 @@
+---
+description: Company legal / name suffix used in the Spanish-speaking world (S.A., S.L., S.A. de C.V., S.A.S., S. de R.L.)
+locale: es
+---
+S.A.
+S.L.
+S.L.U.
+S.A.U.
+S.C.
+S.C.P.
+S. en C.
+S.A.S.
+S.A. de C.V.
+S. de R.L.
+S. de R.L. de C.V.
+S.A.P.I. de C.V.
+S.R.L.
+S.A.C.
+E.I.R.L.
+C.A.
+S.p.A.
+Ltda.
+Cía.
+y Cía.
+e Hijos
+y Asociados
+Hermanos
+Grupo
+Holding
+Corporación
+Consorcio
+Compañía
+Sociedad
+Cooperativa
+Asociados
+Consultores
+Servicios
+Soluciones
+Sistemas
+Tecnologías
+Industrias
+Internacional
+Inversiones
+Distribuciones
+Comercializadora
+Laboratorios

@@ -1,0 +1,19 @@
+---
+address: canada.holiday
+description: Canadian public holiday — the federal statutory holidays plus the most widely observed provincial ones (Family Day, Saint-Jean-Baptiste Day, Civic Holiday)
+locale: en
+---
+New Year's Day
+Family Day
+Good Friday
+Easter Monday
+Victoria Day
+Saint-Jean-Baptiste Day
+Canada Day
+Civic Holiday
+Labour Day
+National Day for Truth and Reconciliation
+Thanksgiving
+Remembrance Day
+Christmas Day
+Boxing Day

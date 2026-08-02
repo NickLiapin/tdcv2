@@ -1,0 +1,16 @@
+---
+description: Conditions markedly more frequent in people of Sub-Saharan African ancestry, in Italian. A prevalence signal, not an exclusive one — anyone can have these, and most patients of this ancestry have none of them.
+locale: it
+---
+Anemia falciforme
+Tratto falcemico
+Deficit di glucosio-6-fosfato deidrogenasi
+Nefropatia associata ad APOL1
+Cicatrici cheloidee
+Sarcoidosi
+Nefroangiosclerosi ipertensiva
+Fibromi uterini
+Neutropenia etnica benigna
+Ipolattasia dell'adulto
+Pseudofollicolite della barba
+Vitiligine

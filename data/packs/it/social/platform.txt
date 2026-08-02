@@ -1,0 +1,21 @@
+---
+description: Social platform popular in Italy (Italian)
+locale: it
+---
+WhatsApp
+Facebook
+Instagram
+TikTok
+YouTube
+X
+LinkedIn
+Telegram
+Snapchat
+Pinterest
+Reddit
+Twitch
+Discord
+Threads
+BeReal
+Mastodon
+Tumblr

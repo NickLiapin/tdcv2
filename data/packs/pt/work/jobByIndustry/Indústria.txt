@@ -1,0 +1,12 @@
+---
+description: Jobs in Manufacturing (Portuguese)
+locale: pt
+---
+Torneiro mecânico
+Soldador
+Inspetor de qualidade
+Supervisor de produção
+Montador
+Mecânico industrial
+Operador de máquinas
+Auxiliar de produção

@@ -1,0 +1,7 @@
+---
+address: ireland.docs.passport
+description: Irish passport number — 2 letters followed by 7 digits (current machine-readable format). STRUCTURAL ONLY: the passport number carries no publicly documented check digit
+generator: tdc
+locale: en
+---
+<gen type="regex" value="[A-Z]{2}[0-9]{7}"/>

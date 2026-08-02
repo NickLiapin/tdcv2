@@ -1,0 +1,18 @@
+---
+description: Aircraft type (manufacturer designations, used unchanged in French)
+locale: fr
+---
+Airbus A319
+Airbus A320
+Airbus A320neo
+Airbus A321
+Airbus A330
+Airbus A350
+Airbus A380
+Boeing 737
+Boeing 777
+Boeing 787
+Boeing 747
+Embraer E190
+ATR 72
+Bombardier CRJ

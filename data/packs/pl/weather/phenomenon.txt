@@ -1,0 +1,19 @@
+---
+description: Weather phenomenon (Polish)
+locale: pl
+---
+Huragan
+Tornado
+Zamieć śnieżna
+Fala upałów
+Fala mrozów
+Powódź
+Susza
+Monsun
+Burza piaskowa
+Marznący deszcz
+Pożar lasu
+Cyklon
+Przymrozek
+Gradobicie
+Sztorm

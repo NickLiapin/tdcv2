@@ -1,0 +1,11 @@
+---
+description: Conduit / installation method for cable runs (Spanish)
+locale: es
+---
+PVC
+Acero rígido
+Polietileno de alta densidad
+Enterrado directo
+Ducto interior
+Bandeja portacables
+Mensajero aéreo

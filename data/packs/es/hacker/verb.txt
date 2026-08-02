@@ -1,0 +1,32 @@
+---
+description: Tech verb, infinitive (Spanish)
+locale: es
+---
+respaldar
+eludir
+hackear
+anular
+comprimir
+copiar
+navegar
+indexar
+conectar
+generar
+cuantificar
+calcular
+sintetizar
+introducir
+transmitir
+programar
+reiniciar
+analizar
+cifrar
+descifrar
+desplegar
+compilar
+depurar
+optimizar
+sincronizar
+virtualizar
+enrutar
+monitorizar

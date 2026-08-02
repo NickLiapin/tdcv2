@@ -1,0 +1,13 @@
+---
+description: Dishes of Korean cuisine (Italian)
+locale: it
+---
+Bibimbap
+Bulgogi
+Stufato di kimchi
+Japchae
+Tteokbokki
+Pollo fritto coreano
+Galbi
+Kimchi
+Sundubu jjigae

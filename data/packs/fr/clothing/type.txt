@@ -1,0 +1,40 @@
+---
+description: Clothing item (French)
+locale: fr
+---
+Robe
+Jupe
+Pantalon
+Jean
+Chemise
+Chemisier
+T-shirt
+Pull
+Gilet
+Veste
+Manteau
+Blouson
+Doudoune
+Imperméable
+Short
+Costume
+Tailleur
+Sweat
+Débardeur
+Legging
+Combinaison
+Chaussettes
+Écharpe
+Gants
+Bonnet
+Casquette
+Ceinture
+Cravate
+Maillot de bain
+Chaussures
+Bottes
+Baskets
+Sandales
+Escarpins
+Pyjama
+Peignoir

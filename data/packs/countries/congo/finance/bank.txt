@@ -1,0 +1,15 @@
+---
+address: congo.finance.bank
+description: Banks operating in the Republic of the Congo
+locale: fr
+---
+BGFIBank
+La Congolaise de Banque
+Ecobank
+Crédit du Congo
+Banque Commerciale Internationale
+UBA
+BSCA Bank
+BESCO
+Banque Postale du Congo
+Banque Sino-Congolaise pour l'Afrique

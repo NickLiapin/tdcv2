@@ -1,0 +1,17 @@
+---
+address: australia.holiday
+description: Australian public holiday — the nationally observed days plus widely observed dates that are gazetted holidays in most states and territories
+locale: en
+---
+New Year's Day
+Australia Day
+Good Friday
+Easter Saturday
+Easter Sunday
+Easter Monday
+Anzac Day
+King's Birthday
+Labour Day
+Melbourne Cup Day
+Christmas Day
+Boxing Day

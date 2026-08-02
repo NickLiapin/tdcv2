@@ -1,0 +1,10 @@
+---
+address: luxembourg.education.university
+description: Higher-education institutions in Luxembourg
+locale: fr
+---
+Université du Luxembourg
+Luxembourg School of Business
+Sacred Heart University Luxembourg
+LUNEX University
+Miami University Luxembourg

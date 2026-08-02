@@ -1,0 +1,32 @@
+---
+description: Tree (Spanish)
+locale: es
+---
+Roble
+Arce
+Pino
+Abedul
+Cedro
+Sauce
+Secuoya
+Abeto rojo
+Olmo
+Fresno
+Haya
+Cerezo
+Nogal
+Álamo
+Ciprés
+Abeto
+Sicomoro
+Álamo temblón
+Magnolia
+Cornejo
+Encina
+Olivo
+Naranjo
+Eucalipto
+Castaño
+Palmera
+Ceiba
+Alcornoque

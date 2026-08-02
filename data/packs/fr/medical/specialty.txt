@@ -1,0 +1,32 @@
+---
+description: Medical specialty (French)
+locale: fr
+---
+Cardiologie
+Neurologie
+Oncologie
+Dermatologie
+Gastroentérologie
+Endocrinologie
+Pneumologie
+Orthopédie
+Psychiatrie
+Néphrologie
+Pédiatrie
+Gynécologie
+Ophtalmologie
+Oto-rhino-laryngologie
+Rhumatologie
+Urologie
+Radiologie
+Anesthésie-réanimation
+Médecine générale
+Chirurgie générale
+Gériatrie
+Hématologie
+Immunologie
+Maladies infectieuses
+Médecine du travail
+Médecine d'urgence
+Allergologie
+Néonatologie

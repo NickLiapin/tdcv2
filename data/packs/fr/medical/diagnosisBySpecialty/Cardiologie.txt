@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Cardiology (French)
+locale: fr
+---
+Hypertension artérielle
+Maladie coronarienne
+Fibrillation auriculaire
+Insuffisance cardiaque
+Infarctus du myocarde
+Hyperlipidémie
+Péricardite
+Endocardite
+Valvulopathie
+Angine de poitrine

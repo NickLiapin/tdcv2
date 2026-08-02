@@ -1,0 +1,16 @@
+---
+description: Listing status (German)
+locale: de
+---
+Zum Verkauf
+Zu vermieten
+Ausstehend
+Verkauft
+Unter Vertrag
+Vom Markt genommen
+Demnächst verfügbar
+Zwangsversteigerung
+Neubau
+Preis reduziert
+Reserviert
+Vermietet

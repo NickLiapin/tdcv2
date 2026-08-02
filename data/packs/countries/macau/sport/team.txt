@@ -1,0 +1,17 @@
+---
+address: macau.sport.team
+description: Macau football clubs (Liga de Elite), Portuguese names where they exist
+locale: pt
+---
+Chao Pak Kei
+Benfica de Macau
+Sporting Clube de Macau
+Monte Carlo
+Ka I
+Lam Pak
+Hang Sai
+Cheng Fung
+Polícia de Segurança Pública
+Tim Iec
+Kuan Tai
+Alfândega

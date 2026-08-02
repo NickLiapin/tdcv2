@@ -1,0 +1,24 @@
+---
+description: Insect (Portuguese)
+locale: pt
+---
+Formiga
+Abelha
+Borboleta
+Escaravelho
+Libélula
+Gafanhoto
+Joaninha
+Traça
+Grilo
+Vespa
+Pirilampo
+Louva-a-deus
+Cigarra
+Térmita
+Mosquito
+Mosca
+Barata
+Pulga
+Centopeia
+Percevejo

@@ -1,0 +1,16 @@
+---
+description: Dishes of Turkish cuisine (Arabic)
+locale: ar
+---
+كباب
+دونر
+بقلاوة
+كفتة
+بوريك
+لحم بعجين
+بيدا
+دولمة
+مننمن
+مانتي
+إسكندر كباب
+سيميت

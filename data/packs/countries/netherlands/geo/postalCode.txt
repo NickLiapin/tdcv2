@@ -1,0 +1,7 @@
+---
+address: netherlands.geo.postalCode
+description: Dutch postal code (postcode) — four digits from 1000 upwards, a space, then two uppercase letters (e.g. 1234 AB). Structural only: real PostNL codes leave a few letter pairs unused, which this pattern does not model.
+generator: tdc
+locale: nl
+---
+<gen type="regex" value="[1-9][0-9]{3} [A-Z]{2}"/>

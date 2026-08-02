@@ -1,0 +1,19 @@
+---
+address: senegal.geo.region
+description: Regions of Senegal
+locale: fr
+---
+Dakar
+Thiès
+Diourbel
+Fatick
+Kaolack
+Kaffrine
+Kolda
+Sédhiou
+Ziguinchor
+Tambacounda
+Kédougou
+Matam
+Louga
+Saint-Louis

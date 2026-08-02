@@ -1,0 +1,10 @@
+---
+description: Diagnoses seen in Gastroenterology
+locale: en
+---
+Gastroesophageal Reflux Disease
+Crohn Disease
+Ulcerative Colitis
+Peptic Ulcer Disease
+Irritable Bowel Syndrome
+Hepatic Cirrhosis

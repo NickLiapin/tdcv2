@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+# TDC — run one config, one command.
+#
+#   ./run path/to/file.tdc
+#
+# The output goes straight to the terminal. Nothing is written to disk; for a
+# file, use the CLI directly: node typescript/dist/cli/main.js <file> -o out.csv
+
+set -euo pipefail
+DIR="$(cd "$(dirname "$0")" && pwd)"
+CLI="$DIR/typescript/dist/cli/main.js"
+
+if [ $# -lt 1 ]; then
+  echo "usage: ./run <file.tdc>" >&2
+  exit 2
+fi
+FILE="$1"
+
+if [ ! -f "$CLI" ]; then
+  echo "The engine is not built. Build it once:" >&2
+  echo "  (cd \"$DIR/typescript\" && npm install && npm run build)" >&2
+  exit 1
+fi
+if [ ! -f "$FILE" ]; then
+  echo "No such file: $FILE" >&2
+  exit 1
+fi
+
+echo "▶ $FILE"
+echo "-------------------------------------------------"
+node "$CLI" "$FILE"

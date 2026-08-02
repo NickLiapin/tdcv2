@@ -1,0 +1,12 @@
+---
+description: Web browser
+---
+Chrome
+Firefox
+Safari
+Edge
+Opera
+Brave
+Vivaldi
+Samsung Internet
+DuckDuckGo

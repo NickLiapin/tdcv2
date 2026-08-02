@@ -1,0 +1,16 @@
+---
+description: Property listing status (French)
+locale: fr
+---
+À vendre
+À louer
+Sous compromis
+Vendu
+Loué
+Sous offre
+Nouveau
+Baisse de prix
+Retiré de la vente
+En négociation
+Réservé
+Disponible

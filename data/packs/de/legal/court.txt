@@ -1,0 +1,18 @@
+---
+description: Court type (courts of the German-speaking world)
+locale: de
+---
+Amtsgericht
+Landgericht
+Oberlandesgericht
+Bundesgerichtshof
+Bundesverfassungsgericht
+Arbeitsgericht
+Landesarbeitsgericht
+Sozialgericht
+Verwaltungsgericht
+Oberverwaltungsgericht
+Finanzgericht
+Bundesfinanzhof
+Bundesverwaltungsgericht
+Bundesarbeitsgericht

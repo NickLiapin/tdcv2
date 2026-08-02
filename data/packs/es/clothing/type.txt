@@ -1,0 +1,30 @@
+---
+description: Garment type (Spanish)
+locale: es
+---
+Camiseta
+Jeans
+Vestido
+Chaqueta
+Suéter
+Falda
+Pantalón corto
+Sudadera con capucha
+Blusa
+Traje
+Abrigo
+Zapatillas deportivas
+Botas
+Sombrero
+Bufanda
+Camisa
+Pantalón
+Chaleco
+Impermeable
+Pijama
+Calcetines
+Cinturón
+Gorra
+Sandalias
+Guantes
+Corbata

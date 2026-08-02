@@ -1,0 +1,13 @@
+---
+address: somalia.education.university
+description: Universities of Somalia (Arabic)
+locale: ar
+---
+الجامعة الوطنية الصومالية
+جامعة مقديشو
+جامعة بنادر
+جامعة سيماد
+جامعة هرجيسا
+جامعة بوصاصو
+جامعة أميود
+جامعة جوهر

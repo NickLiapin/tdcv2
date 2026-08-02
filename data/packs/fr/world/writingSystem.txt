@@ -1,0 +1,17 @@
+---
+description: Writing system (French)
+locale: fr
+---
+Alphabet latin
+Alphabet cyrillique
+Alphabet grec
+Alphabet arabe
+Alphabet hébreu
+Sinogrammes
+Hiragana
+Katakana
+Hangûl
+Devanagari
+Alphabet géorgien
+Alphabet arménien
+Alphabet thaï

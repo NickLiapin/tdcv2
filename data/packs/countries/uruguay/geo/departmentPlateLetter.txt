@@ -1,0 +1,23 @@
+---
+address: uruguay.geo.departmentPlateLetter
+description: First letter of a Uruguayan Mercosur plate — the departamento that registered the vehicle, assigned counter-clockwise around the country from Canelones (A) to Montevideo (S); same order as uruguay.geo.department
+---
+G
+A
+E
+L
+Q
+N
+O
+P
+B
+S
+I
+J
+F
+C
+H
+M
+K
+R
+D

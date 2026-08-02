@@ -1,0 +1,16 @@
+---
+address: belgium.holiday
+description: Belgian public holidays (French names)
+locale: fr
+---
+Jour de l'An
+Lundi de Pâques
+Fête du Travail
+Ascension
+Lundi de Pentecôte
+Fête nationale
+Assomption
+Toussaint
+Armistice
+Noël
+Fête de la Communauté française

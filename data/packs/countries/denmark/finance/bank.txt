@@ -1,0 +1,17 @@
+---
+address: denmark.finance.bank
+description: Major banks of Denmark (Danish names)
+locale: da
+---
+Danske Bank
+Nordea Danmark
+Jyske Bank
+Sydbank
+Spar Nord Bank
+Arbejdernes Landsbank
+Nykredit Bank
+Ringkjøbing Landbobank
+Lån & Spar Bank
+Vestjysk Bank
+Saxo Bank
+Danmarks Nationalbank

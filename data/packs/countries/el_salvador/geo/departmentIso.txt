@@ -1,0 +1,18 @@
+---
+address: el_salvador.geo.departmentIso
+description: ISO 3166-2:SV subdivision code without the SV- prefix; same order as el_salvador.geo.department
+---
+AH
+SA
+SO
+CH
+LI
+SS
+CU
+PA
+CA
+SV
+US
+SM
+MO
+UN

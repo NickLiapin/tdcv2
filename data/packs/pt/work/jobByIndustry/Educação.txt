@@ -1,0 +1,12 @@
+---
+description: Jobs in Education (Portuguese)
+locale: pt
+---
+Professor do ensino fundamental
+Professor universitário
+Orientador educacional
+Bibliotecário
+Auxiliar de ensino
+Diretor de escola
+Professor do ensino médio
+Educador infantil

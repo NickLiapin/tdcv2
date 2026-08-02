@@ -1,0 +1,237 @@
+---
+description: Country and territory names (Spanish)
+locale: es
+---
+Afganistán
+Albania
+Alemania
+Andorra
+Angola
+Anguila
+Antártida
+Antigua y Barbuda
+Arabia Saudita
+Argelia
+Argentina
+Armenia
+Aruba
+Australia
+Austria
+Azerbaiyán
+Bahamas
+Bangladés
+Barbados
+Baréin
+Bélgica
+Belice
+Benín
+Bermudas
+Bielorrusia
+Bolivia
+Bosnia y Herzegovina
+Botsuana
+Brasil
+Brunéi
+Bulgaria
+Burkina Faso
+Burundi
+Bután
+Cabo Verde
+Camboya
+Camerún
+Canadá
+Catar
+Chad
+Chequia
+Chile
+China
+Chipre
+Ciudad del Vaticano
+Colombia
+Comoras
+Corea del Norte
+Corea del Sur
+Costa de Marfil
+Costa Rica
+Croacia
+Cuba
+Curazao
+Dinamarca
+Dominica
+Ecuador
+Egipto
+El Salvador
+Emiratos Árabes Unidos
+Eritrea
+Eslovaquia
+Eslovenia
+España
+Estados Unidos
+Estonia
+Esuatini
+Etiopía
+Filipinas
+Finlandia
+Fiyi
+Francia
+Gabón
+Gambia
+Georgia
+Ghana
+Gibraltar
+Granada
+Grecia
+Groenlandia
+Guadalupe
+Guam
+Guatemala
+Guayana Francesa
+Guinea
+Guinea-Bisáu
+Guinea Ecuatorial
+Guyana
+Haití
+Honduras
+Hong Kong
+Hungría
+India
+Indonesia
+Irak
+Irán
+Irlanda
+Isla de Navidad
+Islandia
+Islas Caimán
+Islas Cocos
+Islas Cook
+Islas Feroe
+Islas Malvinas
+Islas Marianas del Norte
+Islas Marshall
+Islas Pitcairn
+Islas Salomón
+Islas Turcas y Caicos
+Islas Vírgenes Británicas
+Islas Vírgenes de los Estados Unidos
+Israel
+Italia
+Jamaica
+Japón
+Jordania
+Kazajistán
+Kenia
+Kirguistán
+Kiribati
+Kosovo
+Kuwait
+Laos
+Lesoto
+Letonia
+Líbano
+Liberia
+Libia
+Liechtenstein
+Lituania
+Luxemburgo
+Macao
+Macedonia del Norte
+Madagascar
+Malasia
+Malaui
+Maldivas
+Malí
+Malta
+Marruecos
+Martinica
+Mauricio
+Mauritania
+Mayotte
+México
+Micronesia
+Moldavia
+Mónaco
+Mongolia
+Montenegro
+Montserrat
+Mozambique
+Myanmar
+Namibia
+Nauru
+Nepal
+Nicaragua
+Níger
+Nigeria
+Niue
+Noruega
+Nueva Caledonia
+Nueva Zelanda
+Omán
+Países Bajos
+Pakistán
+Palaos
+Palestina
+Panamá
+Papúa Nueva Guinea
+Paraguay
+Perú
+Polinesia Francesa
+Polonia
+Portugal
+Puerto Rico
+Reino Unido
+República Centroafricana
+República del Congo
+República Democrática del Congo
+República Dominicana
+Reunión
+Ruanda
+Rumania
+Rusia
+Sáhara Occidental
+Samoa
+Samoa Americana
+San Cristóbal y Nieves
+San Marino
+San Vicente y las Granadinas
+Santa Lucía
+Santo Tomé y Príncipe
+Senegal
+Serbia
+Seychelles
+Sierra Leona
+Singapur
+Siria
+Somalia
+Sri Lanka
+Sudáfrica
+Sudán
+Sudán del Sur
+Suecia
+Suiza
+Surinam
+Tailandia
+Taiwán
+Tanzania
+Tayikistán
+Territorios Australes Franceses
+Timor Oriental
+Togo
+Tokelau
+Tonga
+Trinidad y Tobago
+Túnez
+Turkmenistán
+Turquía
+Tuvalu
+Ucrania
+Uganda
+Uruguay
+Uzbekistán
+Vanuatu
+Venezuela
+Vietnam
+Wallis y Futuna
+Yemen
+Yibuti
+Zambia
+Zimbabue

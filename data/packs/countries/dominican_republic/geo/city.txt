@@ -1,0 +1,109 @@
+---
+address: dominican_republic.geo.city
+description: Dominican Republic city or notable urban locality (real towns and municipal seats)
+---
+Santo Domingo
+Santiago de los Caballeros
+Santo Domingo Este
+Santo Domingo Oeste
+Santo Domingo Norte
+Los Alcarrizos
+San Cristóbal
+Puerto Plata
+La Romana
+San Pedro de Macorís
+San Francisco de Macorís
+Higüey
+Concepción de La Vega
+Bonao
+Moca
+Baní
+Barahona
+Bajos de Haina
+Boca Chica
+Villa Altagracia
+Nagua
+Cotuí
+Azua de Compostela
+San Juan de la Maguana
+Mao
+Punta Cana
+Bávaro
+Constanza
+Jarabacoa
+Dajabón
+Montecristi
+Sabaneta
+Neiba
+Jimaní
+Pedernales
+El Seibo
+Hato Mayor del Rey
+Sabana de la Mar
+Miches
+Santa Bárbara de Samaná
+Las Terrenas
+Sánchez
+Villa González
+Tamboril
+Esperanza
+Navarrete
+Comendador
+Salcedo
+Tenares
+Villa Tapia
+Monte Plata
+Bayaguana
+Yamasá
+San José de Ocoa
+Fantino
+Cevicos
+Nizao
+Villa Jaragua
+Duvergé
+Cabral
+Enriquillo
+Paraíso
+Cabrera
+Río San Juan
+Villa Riva
+Pimentel
+San José de las Matas
+Jánico
+Villa Vásquez
+Guayubín
+Loma de Cabrera
+Las Matas de Farfán
+El Cercado
+Padre Las Casas
+Estebanía
+Yaguate
+Sabana Grande de Boyá
+Villa Hermosa
+Consuelo
+Quisqueya
+Guaymate
+Los Llanos
+Ramón Santana
+Castañuelas
+Imbert
+Sosúa
+Cabarete
+Luperón
+Altamira
+Villa Isabela
+Restauración
+Partido
+Hondo Valle
+Vallejuelo
+Peralta
+Tábara Arriba
+Pueblo Viejo
+Sabana Yegua
+Guayabal
+Postrer Río
+Villa Central
+Los Cacaos
+Cambita Garabitos
+El Factor
+Arenoso

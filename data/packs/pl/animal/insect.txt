@@ -1,0 +1,24 @@
+---
+description: Insect (Polish)
+locale: pl
+---
+Mrówka
+Pszczoła
+Motyl
+Chrząszcz
+Ważka
+Konik polny
+Biedronka
+Ćma
+Świerszcz
+Osa
+Świetlik
+Modliszka
+Cykada
+Termit
+Komar
+Mucha
+Karaluch
+Pchła
+Stonoga
+Pluskwa

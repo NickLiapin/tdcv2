@@ -1,0 +1,13 @@
+---
+description: Arabic full male name — given name + father's given name + family name (محمد أحمد الخالدي), the traditional three-part form.
+generator: tdc
+locale: ar
+---
+<sequence name="p">
+  <distinct>
+    <gen name="f" type="template" value="ar.person.male.firstName"/>
+    <gen name="father" type="template" value="ar.person.male.firstName"/>
+  </distinct>
+  <gen name="l" type="template" value="ar.person.lastName"/>
+</sequence>
+<data>${{p.f}} ${{p.father}} ${{p.l}}</data>

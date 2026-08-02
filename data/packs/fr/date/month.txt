@@ -1,0 +1,16 @@
+---
+description: Month name (French, lowercase per French orthography)
+locale: fr
+---
+janvier
+février
+mars
+avril
+mai
+juin
+juillet
+août
+septembre
+octobre
+novembre
+décembre

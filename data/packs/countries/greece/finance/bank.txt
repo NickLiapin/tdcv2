@@ -1,0 +1,14 @@
+---
+address: greece.finance.bank
+description: Major banks of Greece (Greek names; brands that are genuinely Latin in Greek usage are kept Latin)
+locale: el
+---
+Εθνική Τράπεζα της Ελλάδος
+Alpha Bank
+Eurobank
+Τράπεζα Πειραιώς
+Attica Bank
+Τράπεζα Ηπείρου
+Optima Bank
+Παγκρήτια Τράπεζα
+Τράπεζα της Ελλάδος

@@ -1,0 +1,12 @@
+---
+description: Cable conduit / raceway (Arabic)
+locale: ar
+---
+مجرى
+غلاف
+مسار كابلات
+أنبوب
+قناة
+مجرى أرضي
+أنبوب مدفون
+مجرى حائطي

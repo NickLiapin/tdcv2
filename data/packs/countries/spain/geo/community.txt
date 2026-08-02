@@ -1,0 +1,22 @@
+---
+address: spain.geo.community
+description: Spanish comunidad autónoma — the 17 autonomous communities in INE code order; same order as spain.geo.communityCode and spain.geo.communityIso (Ceuta and Melilla are ciudades autónomas, not communities, and are excluded)
+locale: es
+---
+Andalucía
+Aragón
+Principado de Asturias
+Illes Balears
+Canarias
+Cantabria
+Castilla y León
+Castilla-La Mancha
+Cataluña
+Comunitat Valenciana
+Extremadura
+Galicia
+Comunidad de Madrid
+Región de Murcia
+Comunidad Foral de Navarra
+País Vasco
+La Rioja

@@ -1,0 +1,17 @@
+---
+description: Grade / mark on the Italian scales (university 18-30 e lode, maturità 60-100)
+locale: it
+---
+30 e lode
+30
+28
+25
+22
+18
+100 e lode
+100
+90
+80
+70
+60
+Respinto

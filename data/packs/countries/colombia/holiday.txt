@@ -1,0 +1,23 @@
+---
+address: colombia.holiday
+description: Colombian festivo — all 18 statutory public holidays, in calendar order. Ten of them are moved to the following Monday by the Ley Emiliani (Ley 51 de 1983); see colombia.holidayRule for which
+locale: es
+---
+Año Nuevo
+Día de los Reyes Magos
+Día de San José
+Jueves Santo
+Viernes Santo
+Día del Trabajo
+Ascensión del Señor
+Corpus Christi
+Sagrado Corazón de Jesús
+San Pedro y San Pablo
+Día de la Independencia
+Batalla de Boyacá
+La Asunción de la Virgen
+Día de la Diversidad Étnica y Cultural
+Día de Todos los Santos
+Independencia de Cartagena
+Día de la Inmaculada Concepción
+Navidad

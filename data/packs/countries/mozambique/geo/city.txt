@@ -1,0 +1,35 @@
+---
+address: mozambique.geo.city
+description: Cities and towns of Mozambique (Portuguese names)
+locale: pt
+---
+Maputo
+Matola
+Nampula
+Beira
+Chimoio
+Nacala
+Quelimane
+Tete
+Xai-Xai
+Lichinga
+Pemba
+Gurué
+Maxixe
+Angoche
+Inhambane
+Cuamba
+Montepuez
+Dondo
+Chókwè
+Mocuba
+Manica
+Vilankulo
+Moatize
+Ilha de Moçambique
+Milange
+Marromeu
+Catandica
+Namaacha
+Boane
+Ressano Garcia

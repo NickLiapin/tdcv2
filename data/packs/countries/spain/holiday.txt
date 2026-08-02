@@ -1,0 +1,39 @@
+---
+address: spain.holiday
+description: Spanish public holiday — the fiestas laborales of the national calendar (Estatuto de los Trabajadores art. 37.2) followed by the días de la comunidad and the regional fiestas most often declared by the autonomous communities
+locale: es
+---
+Año Nuevo
+Epifanía del Señor
+Jueves Santo
+Viernes Santo
+Lunes de Pascua
+Fiesta del Trabajo
+Asunción de la Virgen
+Fiesta Nacional de España
+Todos los Santos
+Día de la Constitución Española
+Inmaculada Concepción
+Natividad del Señor
+San José
+Santiago Apóstol
+San Esteban
+Día de Andalucía
+Día de las Illes Balears
+San Jorge, Día de Aragón
+Día de Castilla y León
+Fiesta de la Comunidad de Madrid
+Día de Canarias
+Día de Castilla-La Mancha
+Día de la Región de Murcia
+Día de La Rioja
+Día Nacional de Galicia
+Día de Asturias
+Día de Extremadura
+Diada Nacional de Catalunya
+Día de Cantabria
+Día de la Comunitat Valenciana
+Día del País Vasco
+Día de Navarra
+Nochebuena
+Nochevieja

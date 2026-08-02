@@ -1,0 +1,24 @@
+---
+address: finland.geo.region
+description: The 19 regions (maakunta) of Finland
+locale: fi
+---
+Uusimaa
+Varsinais-Suomi
+Satakunta
+Kanta-Häme
+Pirkanmaa
+Päijät-Häme
+Kymenlaakso
+Etelä-Karjala
+Etelä-Savo
+Pohjois-Savo
+Pohjois-Karjala
+Keski-Suomi
+Etelä-Pohjanmaa
+Pohjanmaa
+Keski-Pohjanmaa
+Pohjois-Pohjanmaa
+Kainuu
+Lappi
+Ahvenanmaa

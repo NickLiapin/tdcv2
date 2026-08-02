@@ -1,0 +1,7 @@
+---
+address: france.vehicle.plate
+description: French licence plate — the nationwide SIV layout AA-123-AA (2 letters, 3 digits, 2 letters). Structural; the real system excludes a few letter combinations.
+generator: tdc
+locale: fr
+---
+<gen type="regex" value="[A-Z]{2}-[0-9]{3}-[A-Z]{2}"/>

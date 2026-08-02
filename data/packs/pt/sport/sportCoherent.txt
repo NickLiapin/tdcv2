@@ -1,0 +1,12 @@
+---
+description: Sport that has a coherent position list (Portuguese)
+locale: pt
+---
+Futebol
+Basquete
+Vôlei
+Handebol
+Beisebol
+Rugby
+Futebol americano
+Hóquei no gelo

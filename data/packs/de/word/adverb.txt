@@ -1,0 +1,36 @@
+---
+description: Common adverb (German, lowercase)
+locale: de
+---
+schnell
+langsam
+sorgfältig
+leicht
+leise
+laut
+immer
+nie
+oft
+manchmal
+selten
+plötzlich
+sanft
+deutlich
+einfach
+fast
+völlig
+kaum
+meistens
+wirklich
+tief
+weithin
+frei
+mutig
+fest
+gern
+freundlich
+bald
+spät
+früh
+vielleicht
+noch

@@ -1,0 +1,34 @@
+---
+description: Bird (Portuguese)
+locale: pt
+---
+Pardal
+Pisco-de-peito-ruivo
+Águia
+Falcão
+Mocho
+Papagaio
+Pinguim
+Peneireiro
+Cardeal
+Gaio
+Beija-flor
+Pica-pau
+Pelicano
+Flamingo
+Cisne
+Corvo
+Gralha
+Pintassilgo
+Garça
+Martim-pescador
+Gaivota
+Pomba
+Andorinha
+Rouxinol
+Condor
+Tucano
+Avestruz
+Cegonha
+Coruja
+Quetzal

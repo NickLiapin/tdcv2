@@ -1,0 +1,19 @@
+---
+address: kuwait.sport.team
+description: Kuwait Premier League football clubs (Arabic)
+locale: ar
+---
+القادسية
+الكويت
+العربي
+كاظمة
+السالمية
+النصر
+الجهراء
+الفحيحيل
+خيطان
+اليرموك
+برقان
+الشباب
+الصليبيخات
+الساحل

@@ -1,0 +1,7 @@
+---
+address: senegal.docs.idCard
+description: Senegalese national identity number (numéro d'identification national, CNI/NIN) — 13 digits. Structural; no public check digit.
+generator: tdc
+locale: fr
+---
+<gen type="regex" value="[12][0-9]{12}"/>

@@ -1,0 +1,19 @@
+---
+address: ivory_coast.holiday
+description: Public holidays in Côte d'Ivoire (French names; civil, Christian and Muslim)
+locale: fr
+---
+Jour de l'An
+Lundi de Pâques
+Fête du Travail
+Ascension
+Lundi de Pentecôte
+Fête nationale
+Assomption
+Journée nationale de la paix
+Toussaint
+Noël
+Aïd el-Fitr
+Aïd el-Kébir
+Maouloud
+Lendemain de la Nuit du Destin

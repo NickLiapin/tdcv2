@@ -1,0 +1,13 @@
+---
+description: Dishes of Turkish cuisine (Greek)
+locale: el
+---
+Κεμπάπ
+Μπακλαβάς
+Μεζές
+Λαχματζούν
+Ντολμάς
+Κιοφτές
+Πίντε
+Ιμάμ μπαϊλντί
+Μαντί

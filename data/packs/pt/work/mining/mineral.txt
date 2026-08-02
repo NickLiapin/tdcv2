@@ -1,0 +1,23 @@
+---
+description: Mined mineral / commodity (Portuguese)
+locale: pt
+---
+Carvão
+Cobre
+Ouro
+Prata
+Minério de ferro
+Zinco
+Chumbo
+Bauxita
+Calcário
+Níquel
+Urânio
+Potássio
+Fosfato
+Lítio
+Cobalto
+Gesso
+Sal
+Estanho
+Molibdênio

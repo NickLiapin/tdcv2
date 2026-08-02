@@ -1,0 +1,12 @@
+---
+address: cuba.geo.streetName
+description: A Cuban street — a type word (Calle, Avenida…) plus a named street
+generator: tdc
+locale: es
+---
+<sequence name="type"><gen type="text" value="Calle,Avenida,Callejón,Paseo,Calzada de"/></sequence>
+<sequence name="named"><gen type="template" value="cuba.geo.streetNamed"/></sequence>
+<sequence name="street"><compute>
+  <result><concat><field name="type"/><str v=" "/><field name="named"/></concat></result>
+</compute></sequence>
+<data>${{street}}</data>

@@ -1,0 +1,33 @@
+---
+address: france.docs.nir
+description: French NIR / numero de securite sociale — 15 chars sex (1 M / 2 F) plus 2-digit birth year plus 2-digit birth month plus 2-digit department plus 3-digit commune plus 3-digit order number plus 2-digit control key = 97 minus (the 13-digit body mod 97).
+generator: tdc
+---
+<sequence name="sex"><gen type="text" value="1,2"/></sequence>
+<sequence name="year"><gen type="regex" value="[0-9]{2}"/></sequence>
+<sequence name="month"><gen type="number" value="1..12" length="2" first_zero="true"/></sequence>
+<!-- Department of birth, kept numeric 01-95 so the whole body is digits; the
+     Corsica codes 2A/2B are intentionally not emitted. -->
+<sequence name="dept"><gen type="number" value="1..95" length="2" first_zero="true"/></sequence>
+<sequence name="commune"><gen type="regex" value="[0-9]{3}"/></sequence>
+<sequence name="order"><gen type="regex" value="[0-9]{3}"/></sequence>
+<sequence name="nir"><compute>
+  <let name="body"><concat>
+    <field name="sex"/><field name="year"/><field name="month"/>
+    <field name="dept"/><field name="commune"/><field name="order"/>
+  </concat></let>
+  <!-- Control key = 97 - (body mod 97). Horner fold keeps the 13-digit body
+       from ever becoming one number; a remainder of 0 yields the key 97. -->
+  <let name="rem"><reduce>
+    <over><var name="body"/></over>
+    <init><int v="0"/></init>
+    <do><mod><add><multiply><acc/><int v="10"/></multiply><current/></add><int v="97"/></mod></do>
+  </reduce></let>
+  <let name="ctrl"><subtract><int v="97"/><var name="rem"/></subtract></let>
+  <result><concat>
+    <field name="sex"/><field name="year"/><field name="month"/>
+    <field name="dept"/><field name="commune"/><field name="order"/>
+    <pad width="2" fill="0"><var name="ctrl"/></pad>
+  </concat></result>
+</compute></sequence>
+<data>${{nir}}</data>

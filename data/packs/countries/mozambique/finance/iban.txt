@@ -1,0 +1,30 @@
+---
+address: mozambique.finance.iban
+description: Mozambican IBAN — 25 chars: MZ + 2 ISO 7064 mod-97-10 check digits + 21-digit BBAN (4-digit bank code + 4-digit branch code + 11-digit account + 2-digit national check). The national 2-digit check is emitted as plain digits because its algorithm is not published; the IBAN check digits are computed exactly.
+generator: tdc
+locale: pt
+---
+<sequence name="bank"><gen type="regex" value="[0-9]{4}"/></sequence>
+<sequence name="branch"><gen type="regex" value="[0-9]{4}"/></sequence>
+<sequence name="account"><gen type="regex" value="[0-9]{11}"/></sequence>
+<sequence name="natcheck"><gen type="regex" value="[0-9]{2}"/></sequence>
+<sequence name="iban"><compute>
+  <!-- ISO 13616: move "MZ00" to the end, expand letters to their base-36 value
+       (M -> 22, Z -> 35), Horner-fold mod 97, check = 98 - remainder. -->
+  <let name="bban"><concat>
+    <field name="bank"/><field name="branch"/><field name="account"/><field name="natcheck"/>
+  </concat></let>
+  <let name="rearranged"><concat><var name="bban"/><str v="MZ"/><str v="00"/></concat></let>
+  <let name="digits"><join><each>
+    <over><var name="rearranged"/></over>
+    <do><encode as="base36"><current/></encode></do>
+  </each></join></let>
+  <let name="rem"><reduce>
+    <over><var name="digits"/></over>
+    <init><int v="0"/></init>
+    <do><mod><add><multiply><acc/><int v="10"/></multiply><current/></add><int v="97"/></mod></do>
+  </reduce></let>
+  <let name="check"><pad width="2" fill="0"><subtract><int v="98"/><var name="rem"/></subtract></pad></let>
+  <result><concat><str v="MZ"/><var name="check"/><var name="bban"/></concat></result>
+</compute></sequence>
+<data>${{iban}}</data>

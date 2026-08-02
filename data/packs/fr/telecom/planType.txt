@@ -1,0 +1,13 @@
+---
+description: Mobile plan type (French)
+locale: fr
+---
+Prépayé
+Forfait
+Forfait bloqué
+Forfait sans engagement
+Forfait avec engagement
+Carte prépayée
+Forfait famille
+Forfait illimité
+Forfait à la carte

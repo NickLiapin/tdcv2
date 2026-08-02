@@ -1,0 +1,9 @@
+---
+address: brazil.phone
+description: Brazil mobile phone in E.164 form — +55, a two-digit area code (DDD) drawn from brazil.phoneAreaCode, the mobile marker 9 and an 8-digit subscriber number (+55 11 9XXXX-XXXX).
+generator: tdc
+locale: pt
+---
+<sequence name="ddd"><gen type="template" value="brazil.phoneAreaCode"/></sequence>
+<sequence name="sub"><gen type="regex" value="[0-9]{8}"/></sequence>
+<data>+55${{ddd}}9${{sub}}</data>

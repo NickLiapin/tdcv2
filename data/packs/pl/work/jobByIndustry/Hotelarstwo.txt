@@ -1,0 +1,16 @@
+---
+description: Jobs in Hospitality (Polish)
+locale: pl
+---
+Szef kuchni
+Zastępca szefa kuchni
+Kucharz
+Kelner
+Barman
+Barista
+Recepcjonista hotelowy
+Menedżer hotelu
+Konsjerż
+Pokojowa
+Koordynator wydarzeń
+Przewodnik turystyczny

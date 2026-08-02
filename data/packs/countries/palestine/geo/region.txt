@@ -1,0 +1,21 @@
+---
+address: palestine.geo.region
+description: Governorates of Palestine (Arabic)
+locale: ar
+---
+القدس
+رام الله والبيرة
+بيت لحم
+الخليل
+أريحا والأغوار
+نابلس
+جنين
+طولكرم
+قلقيلية
+سلفيت
+طوباس
+غزة
+شمال غزة
+دير البلح
+خان يونس
+رفح

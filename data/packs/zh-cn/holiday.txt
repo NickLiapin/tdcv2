@@ -1,0 +1,12 @@
+---
+address: zh-cn.holiday
+description: Chinese public holidays
+locale: zh-cn
+---
+元旦
+春节
+清明节
+劳动节
+端午节
+中秋节
+国庆节

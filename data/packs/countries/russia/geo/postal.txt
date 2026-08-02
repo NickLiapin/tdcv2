@@ -1,0 +1,6 @@
+---
+address: russia.geo.postal
+description: Russian postal index — 6 digits, real range (101000–692999)
+generator: tdc
+---
+<gen type="number" value="101000..692999" length="6"/>

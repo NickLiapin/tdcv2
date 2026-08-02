@@ -1,0 +1,7 @@
+---
+address: oman.docs.civilId
+description: Omani civil number (الرقم المدني) — 8 digits. Structural; no public check digit.
+generator: tdc
+locale: ar
+---
+<gen type="regex" value="[0-9]{8}"/>

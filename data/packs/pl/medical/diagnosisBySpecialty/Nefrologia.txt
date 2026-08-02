@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Nephrology (Polish)
+locale: pl
+---
+Przewlekła choroba nerek
+Kamica nerkowa
+Kłębuszkowe zapalenie nerek
+Ostre uszkodzenie nerek
+Wielotorbielowate zwyrodnienie nerek
+Zespół nerczycowy
+Odmiedniczkowe zapalenie nerek
+Nefropatia cukrzycowa
+Nadciśnienie nerkopochodne
+Schyłkowa niewydolność nerek

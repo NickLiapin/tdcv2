@@ -1,0 +1,17 @@
+---
+description: Hotel room type
+locale: en
+---
+Standard
+Deluxe
+Suite
+Single
+Double
+Twin
+King
+Queen
+Studio
+Family Room
+Presidential Suite
+Junior Suite
+Accessible

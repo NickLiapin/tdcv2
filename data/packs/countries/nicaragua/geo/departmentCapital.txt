@@ -1,0 +1,22 @@
+---
+address: nicaragua.geo.departmentCapital
+description: Cabecera departamental (departmental seat); for the two autonomous regions the regional seat; same order as nicaragua.geo.department
+locale: es
+---
+Managua
+León
+Chinandega
+Estelí
+Somoto
+Ocotal
+Masaya
+Granada
+Jinotepe
+Rivas
+Boaco
+Juigalpa
+Matagalpa
+Jinotega
+Bilwi
+Bluefields
+San Carlos

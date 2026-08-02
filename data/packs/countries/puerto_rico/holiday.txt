@@ -1,0 +1,29 @@
+---
+address: puerto_rico.holiday
+description: Puerto Rican public holiday — the US federal holidays observed on the island plus the statutory Puerto Rico-specific days (Art. 2.05, Ley Núm. 26-2017) and widely observed próceres commemorations
+locale: es
+---
+Año Nuevo
+Día de Reyes
+Natalicio de Eugenio María de Hostos
+Natalicio del Dr. Martin Luther King, Jr.
+Natalicio de George Washington
+Día de los Presidentes
+Natalicio de Luis Muñoz Marín
+Día de la Ciudadanía Americana
+Día de la Abolición de la Esclavitud
+Natalicio de José de Diego
+Viernes Santo
+Día de la Recordación
+Natalicio de Luis Muñoz Rivera
+Día de la Independencia de los Estados Unidos
+Día de la Constitución de Puerto Rico
+Natalicio de José Celso Barbosa
+Día del Trabajo
+Día de la Raza
+Día del Veterano
+Día del Descubrimiento de Puerto Rico
+Día de la Puertorriqueñidad
+Día de Acción de Gracias
+Nochebuena
+Día de Navidad

@@ -1,0 +1,29 @@
+---
+description: Product review title (Spanish)
+locale: es
+---
+¡Excelente producto!
+Muy recomendable
+No vale lo que cuesta
+Superó mis expectativas
+Simplemente aceptable
+Lo volvería a comprar
+Decepcionante
+Calidad excelente
+Se rompió enseguida
+Perfecto para el precio
+Mejor de lo esperado
+No lo recomiendo
+¡Me encanta!
+Un poco caro
+Tal y como se describe
+Cumple su función
+Buena relación calidad-precio
+Llegó antes de lo previsto
+Materiales de mala calidad
+Justo lo que buscaba
+Instrucciones confusas
+Muy fácil de usar
+No es lo que esperaba
+Repetiré sin duda
+Servicio impecable

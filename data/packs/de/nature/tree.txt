@@ -1,0 +1,32 @@
+---
+description: Tree (German)
+locale: de
+---
+Eiche
+Ahorn
+Kiefer
+Birke
+Zeder
+Weide
+Mammutbaum
+Fichte
+Ulme
+Esche
+Buche
+Kirschbaum
+Walnussbaum
+Pappel
+Zypresse
+Tanne
+Bergahorn
+Zitterpappel
+Magnolie
+Hartriegel
+Steineiche
+Olivenbaum
+Orangenbaum
+Eukalyptus
+Kastanie
+Palme
+Linde
+Korkeiche

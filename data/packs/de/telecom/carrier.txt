@@ -1,0 +1,30 @@
+---
+description: Mobile carrier (brands across the German-speaking world and international)
+locale: de
+---
+Telekom
+Vodafone
+O2
+1&1
+congstar
+Blau
+Otelo
+Klarmobil
+Fraenk
+Aldi Talk
+Lidl Connect
+Freenet Mobile
+Mobilcom-Debitel
+A1
+Magenta
+Drei
+HoT
+Yesss
+Swisscom
+Sunrise
+Salt
+Wingo
+Yallo
+M-Budget Mobile
+Lycamobile
+Lebara

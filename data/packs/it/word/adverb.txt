@@ -1,0 +1,36 @@
+---
+description: Common adverb (Italian)
+locale: it
+---
+rapidamente
+lentamente
+attentamente
+facilmente
+silenziosamente
+rumorosamente
+sempre
+mai
+spesso
+a volte
+raramente
+improvvisamente
+dolcemente
+chiaramente
+semplicemente
+quasi
+pienamente
+appena
+principalmente
+veramente
+profondamente
+ampiamente
+liberamente
+audacemente
+fermamente
+volentieri
+gentilmente
+presto
+tardi
+di buon'ora
+forse
+ancora

@@ -1,0 +1,18 @@
+---
+description: Academic degree
+locale: en
+---
+High School Diploma
+Associate of Arts
+Associate of Science
+Bachelor of Arts
+Bachelor of Science
+Bachelor of Engineering
+Bachelor of Fine Arts
+Master of Arts
+Master of Science
+Master of Business Administration
+Doctor of Philosophy
+Juris Doctor
+Doctor of Medicine
+Doctor of Education

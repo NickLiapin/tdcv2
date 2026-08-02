@@ -1,0 +1,40 @@
+<tdc version="0.01" comment="TXT template">
+    <env count="10" seed="674teyer74yTRGY7" inject="${{%}}" local="en">
+        <sequence name="FirstName"><gen type="template" value="person.male.firstName"/></sequence>
+        <sequence name="LastName"><gen type="template" value="person.lastName"/></sequence>
+        <sequence name="BDay"><gen type="template" value="person.b_day" oldest="70" youngest="14" format="LL" local="en"/></sequence>
+        <sequence name="Diagnosis"><gen type="template" value="person.male.diagnosis"/></sequence>
+        <before>
+            <line>
+                <data>                          Test document</data>
+            </line>
+            <line>
+                <data>=========================================================================</data>
+            </line>
+        </before>
+        <after>
+            <line>
+                <data>=========================================================================</data>
+            </line>
+        </after>
+        <delimiter_block>
+            <line>
+                <data>=========================================================================</data>
+            </line>
+        </delimiter_block>
+    </env>
+    <block>
+        <line>
+            <data>|| ${{FirstName}}</data>
+        </line>
+        <line>
+            <data>|| ${{LastName}}</data>
+        </line>
+        <line>
+            <data>|| ${{BDay}}</data>
+        </line>
+        <line>
+            <data>|| ${{Diagnosis}}</data>
+        </line>
+    </block>
+</tdc>

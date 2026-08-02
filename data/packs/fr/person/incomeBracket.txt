@@ -1,0 +1,12 @@
+---
+description: Annual household income bracket, labelled in French. Amounts are in euros, the currency of most French-speaking Europe; for another currency use a country pack.
+locale: fr
+---
+Moins de 10 000 EUR
+10 000–20 000 EUR
+20 000–35 000 EUR
+35 000–50 000 EUR
+50 000–75 000 EUR
+75 000–100 000 EUR
+100 000–150 000 EUR
+Plus de 150 000 EUR

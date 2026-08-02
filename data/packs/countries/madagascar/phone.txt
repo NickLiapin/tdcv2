@@ -1,0 +1,6 @@
+---
+address: madagascar.phone
+description: Malagasy mobile phone in E.164 form (+261 3[2-49]XXXXXX)
+generator: tdc
+---
+<gen type="regex" value="\+2613[2-49][0-9]{6}"/>

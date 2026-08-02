@@ -1,0 +1,6 @@
+---
+address: el_salvador.finance.account
+description: Salvadoran bank account number — 10 to 12 digits. STRUCTURAL ONLY: El Salvador has no IBAN and no national account-number standard, each bank sets its own length and internal check, and none is published, so nothing here can be validated. Balances are in US dollars
+generator: tdc
+---
+<gen type="regex" value="[0-9]{10,12}"/>

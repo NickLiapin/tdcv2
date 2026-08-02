@@ -1,0 +1,34 @@
+---
+description: Unit of measure for products (Portuguese)
+locale: pt
+---
+unidade
+caixa
+pacote
+pack
+dúzia
+par
+jogo
+rolo
+volume
+fardo
+quilograma
+grama
+tonelada
+litro
+mililitro
+metro
+centímetro
+metro quadrado
+metro cúbico
+sacola
+bandeja
+lata
+garrafa
+frasco
+tubo
+saco
+palete
+envelope
+kit
+lote

@@ -1,0 +1,17 @@
+---
+address: angola.education.university
+description: Universities and higher-education institutions of Angola (Portuguese names)
+locale: pt
+---
+Universidade Agostinho Neto
+Universidade Katyavala Bwila
+Universidade José Eduardo dos Santos
+Universidade Mandume ya Ndemufayo
+Universidade Lueji A'Nkonde
+Universidade Kimpa Vita
+Universidade Óscar Ribas
+Universidade Metodista de Angola
+Universidade Católica de Angola
+Universidade Jean Piaget de Angola
+Universidade Privada de Angola
+Instituto Superior Politécnico de Tecnologias e Ciências

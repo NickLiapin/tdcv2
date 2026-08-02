@@ -1,0 +1,6 @@
+---
+address: common.id.object_id
+description: MongoDB ObjectId (24 lowercase hex chars)
+generator: tdc
+---
+<gen type="regex" value="[0-9a-f]{24}"/>

@@ -1,0 +1,7 @@
+---
+address: tajikistan.docs.inn
+description: Tajikistani taxpayer number (ИНН) — 9 digits, first digit is the taxpayer category. Structure only; the official control algorithm is not published.
+generator: tdc
+locale: ru
+---
+<gen type="regex" value="[1-8][0-9]{8}"/>

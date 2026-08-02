@@ -1,0 +1,16 @@
+---
+description: Dishes of American cuisine (German)
+locale: de
+---
+Cheeseburger
+Barbecue-Rippchen
+Makkaroni mit Käse
+Buffalo Wings
+Muschelsuppe
+Apfelkuchen
+Maisbrot
+Hot Dog
+Pfannkuchen mit Ahornsirup
+Caesar Salat
+Südstaaten-Brathähnchen
+Truthahnbraten

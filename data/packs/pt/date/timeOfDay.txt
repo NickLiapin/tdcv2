@@ -1,0 +1,12 @@
+---
+description: Time of day (Portuguese)
+locale: pt
+---
+manhã
+meio-dia
+tarde
+entardecer
+noite
+meia-noite
+madrugada
+amanhecer

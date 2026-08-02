@@ -1,0 +1,95 @@
+---
+address: ecuador.geo.streetNamed
+description: Common Ecuadorian street name, bare (without the Calle / Avenida prefix) — próceres, patriotic dates, provinces and the well-known avenues of Quito, Guayaquil and Cuenca
+locale: es
+---
+Amazonas
+9 de Octubre
+10 de Agosto
+6 de Diciembre
+12 de Octubre
+24 de Mayo
+Eloy Alfaro
+Simón Bolívar
+Antonio José de Sucre
+Sucre
+Mariscal Sucre
+Gran Colombia
+García Moreno
+Vicente Rocafuerte
+Rocafuerte
+Juan Montalvo
+Juan León Mera
+Reina Victoria
+Naciones Unidas
+De los Shyris
+La Prensa
+República
+República del Salvador
+Portugal
+Colón
+Patria
+Veintimilla
+Cordero
+Roca
+Foch
+Diego de Almagro
+Isabel la Católica
+González Suárez
+Francisco de Orellana
+Carlos Julio Arosemena
+Juan Tanca Marengo
+Benjamín Carrión
+Los Granados
+Gaspar de Villarroel
+El Inca
+Pedro Vicente Maldonado
+Rumiñahui
+Atahualpa
+Manuela Cañizares
+Manuela Sáenz
+Espejo
+Flores
+Chile
+Venezuela
+Guayaquil
+Bolivia
+Manabí
+Los Ríos
+Chimborazo
+Tungurahua
+Cotopaxi
+Imbabura
+Loja
+Cuenca
+Quito
+Pichincha
+Boyacá
+Junín
+Luque
+Aguirre
+Vélez
+Baquerizo Moreno
+Córdova
+Panamá
+Urdaneta
+Ximena
+Lorenzo de Garaicoa
+Tulcán
+Esmeraldas
+Padre Aguirre
+Presidente Córdova
+Benigno Malo
+Remigio Crespo
+Fray Vicente Solano
+Huayna Cápac
+Ordóñez Lasso
+Las Américas
+Abdón Calderón
+Mariana de Jesús
+18 de Septiembre
+Bolívar
+Olmedo
+Pedro Carbo
+Malecón
+Portete

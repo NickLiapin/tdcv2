@@ -1,0 +1,9 @@
+---
+description: Positions in ice hockey (Greek)
+locale: el
+---
+Τερματοφύλακας
+Αμυντικός
+Σέντερ
+Αριστερός ακραίος
+Δεξιός ακραίος

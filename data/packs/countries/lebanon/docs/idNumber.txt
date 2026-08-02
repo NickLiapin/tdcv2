@@ -1,0 +1,7 @@
+---
+address: lebanon.docs.idNumber
+description: Lebanese personal register number (رقم السجل) — 10 digits. Structural; no public check digit.
+generator: tdc
+locale: ar
+---
+<gen type="regex" value="[0-9]{10}"/>

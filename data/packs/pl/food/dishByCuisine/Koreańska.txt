@@ -1,0 +1,12 @@
+---
+description: Dishes of Korean cuisine (Polish)
+locale: pl
+---
+Bibimbap
+Bulgogi
+Gulasz z kimchi
+Japchae
+Tteokbokki
+Koreański smażony kurczak
+Galbi
+Kimchi

@@ -1,0 +1,6 @@
+---
+address: denmark.tax.vat
+description: Danish VAT / CVR (DK + 8 digits, no checksum)
+generator: tdc
+---
+<gen type="regex" value="DK[0-9]{8}"/>

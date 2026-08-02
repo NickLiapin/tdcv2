@@ -1,0 +1,11 @@
+---
+address: djibouti.geo.region
+description: Regions of Djibouti (plus the capital)
+locale: fr
+---
+Djibouti
+Ali Sabieh
+Dikhil
+Tadjourah
+Obock
+Arta

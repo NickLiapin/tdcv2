@@ -1,0 +1,12 @@
+---
+description: Dishes of Argentine cuisine (Polish)
+locale: pl
+---
+Asado
+Empanadas
+Milanesa a la napolitana
+Choripan
+Locro
+Provoleta
+Dulce de leche
+Matambre

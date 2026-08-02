@@ -1,0 +1,10 @@
+---
+address: guatemala.geo.zip
+description: Guatemalan código postal — 5 digits; the first two are the real department code (01-22) and the last three locate the municipality and its zona. Central Guatemala City runs 01001-01025, one code per zona
+generator: tdc
+---
+<!-- Department block: the same 01-22 codes as guatemala.geo.departmentCode. -->
+<sequence name="department"><gen type="template" value="guatemala.geo.departmentCode"/></sequence>
+<!-- Municipality/zona locator 001-999. -->
+<sequence name="tail"><gen type="number" value="1..999" length="3" first_zero="true"/></sequence>
+<data>${{department}}${{tail}}</data>

@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "cases": [
+    {
+      "name": "invalid-number-range",
+      "demonstrates": "TDC081",
+      "description": "A range that is not a range",
+      "config": "<tdc><env count=\"2\" seed=\"s\"><sequence name=\"G\"><gen type=\"number\" value=\"5..1\"/></sequence></env><block><line><data>x</data></line></block></tdc>",
+      "expected": ["error TDC081 1:74"]
+    },
+    {
+      "name": "invalid-first-zero",
+      "demonstrates": "TDC082",
+      "description": "first_zero that is neither true nor false",
+      "config": "<tdc><env count=\"2\" seed=\"s\"><sequence name=\"G\"><gen type=\"number\" length=\"4\" first_zero=\"maybe\"/></sequence></env><block><line><data>x</data></line></block></tdc>",
+      "expected": ["error TDC082 1:90"]
+    },
+    {
+      "name": "invalid-length",
+      "demonstrates": "TDC083",
+      "description": "A length that is not a positive integer",
+      "config": "<tdc><env count=\"2\" seed=\"s\"><sequence name=\"G\"><gen type=\"number\" length=\"-2\"/></sequence></env><block><line><data>x</data></line></block></tdc>",
+      "expected": ["error TDC083 1:75"]
+    },
+    {
+      "name": "include-without-range",
+      "demonstrates": "TDC087",
+      "description": "include/exclude need a numeric range to work on",
+      "config": "<tdc><env count=\"2\" seed=\"s\"><sequence name=\"G\"><gen type=\"number\" length=\"3\" include=\"5\"/></sequence></env><block><line><data>x</data></line></block></tdc>",
+      "expected": ["error TDC087 1:48"]
+    },
+    {
+      "name": "distribution-with-range",
+      "demonstrates": "TDC088",
+      "description": "A distribution and a range contradict each other",
+      "config": "<tdc><env count=\"2\" seed=\"s\"><sequence name=\"G\"><gen type=\"number\" value=\"1..9\" distribution=\"normal\" mean=\"5\" sd=\"1\"/></sequence></env><block><line><data>x</data></line></block></tdc>",
+      "expected": ["error TDC088 1:74"]
+    }
+  ]
+}

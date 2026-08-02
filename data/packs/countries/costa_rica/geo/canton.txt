@@ -1,0 +1,88 @@
+---
+address: costa_rica.geo.canton
+description: Costa Rican cantón (second-level division) — real cantons across all 7 provinces
+locale: es
+---
+San José
+Escazú
+Desamparados
+Puriscal
+Tarrazú
+Aserrí
+Mora
+Goicoechea
+Santa Ana
+Alajuelita
+Vázquez de Coronado
+Acosta
+Tibás
+Moravia
+Montes de Oca
+Turrubares
+Dota
+Curridabat
+Pérez Zeledón
+León Cortés Castro
+Alajuela
+San Ramón
+Grecia
+San Mateo
+Atenas
+Naranjo
+Palmares
+Poás
+Orotina
+San Carlos
+Zarcero
+Sarchí
+Upala
+Los Chiles
+Guatuso
+Río Cuarto
+Cartago
+Paraíso
+La Unión
+Jiménez
+Turrialba
+Alvarado
+Oreamuno
+El Guarco
+Heredia
+Barva
+Santo Domingo
+Santa Bárbara
+San Rafael
+San Isidro
+Belén
+Flores
+San Pablo
+Sarapiquí
+Liberia
+Nicoya
+Santa Cruz
+Bagaces
+Carrillo
+Cañas
+Abangares
+Tilarán
+Nandayure
+La Cruz
+Hojancha
+Puntarenas
+Esparza
+Buenos Aires
+Montes de Oro
+Osa
+Quepos
+Golfito
+Coto Brus
+Parrita
+Corredores
+Garabito
+Monteverde
+Limón
+Pococí
+Siquirres
+Talamanca
+Matina
+Guácimo

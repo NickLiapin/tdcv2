@@ -1,0 +1,22 @@
+---
+description: Event type (Spanish)
+locale: es
+---
+Conferencia
+Congreso
+Boda
+Concierto
+Festival
+Taller
+Seminario
+Seminario web
+Feria comercial
+Exposición
+Recaudación de fondos
+Encuentro profesional
+Lanzamiento de producto
+Gala
+Cumpleaños
+Graduación
+Bautizo
+Aniversario

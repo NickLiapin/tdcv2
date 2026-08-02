@@ -1,0 +1,14 @@
+---
+description: Payment status (Italian)
+locale: it
+---
+In attesa
+Autorizzato
+Pagato
+Non riuscito
+Rimborsato
+Rimborsato parzialmente
+Storno
+Annullato
+Rifiutato
+In verifica

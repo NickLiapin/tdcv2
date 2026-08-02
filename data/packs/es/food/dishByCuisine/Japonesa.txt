@@ -1,0 +1,13 @@
+---
+description: Dishes of Japanese cuisine (Spanish)
+locale: es
+---
+Sushi
+Ramen
+Tempura
+Udon
+Pollo teriyaki
+Sopa de miso
+Curry katsu
+Onigiri
+Sashimi

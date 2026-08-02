@@ -1,0 +1,21 @@
+---
+description: Official document type (German)
+locale: de
+---
+Reisepass
+Geburtsurkunde
+Eheurkunde
+Sterbeurkunde
+Führerschein
+Personalausweis
+Aufenthaltstitel
+Wählerverzeichnis
+Steuererklärung
+Baugenehmigung
+Gewerbeschein
+Visum
+Meldebescheinigung
+Wohnsitznachweis
+Steueridentifikationsnummer
+Abschlusszeugnis
+Führungszeugnis

@@ -1,0 +1,45 @@
+---
+address: australia.education.university
+description: Australian university (accredited higher-education provider)
+locale: en
+---
+University of Melbourne
+University of Sydney
+Australian National University
+University of New South Wales
+Monash University
+University of Queensland
+University of Western Australia
+University of Adelaide
+University of Technology Sydney
+Macquarie University
+RMIT University
+Queensland University of Technology
+Curtin University
+Deakin University
+Griffith University
+La Trobe University
+University of Wollongong
+University of Newcastle
+University of South Australia
+Flinders University
+University of Tasmania
+James Cook University
+Swinburne University of Technology
+Western Sydney University
+Charles Sturt University
+Edith Cowan University
+Murdoch University
+University of Canberra
+Bond University
+Australian Catholic University
+Victoria University
+University of New England
+Southern Cross University
+Central Queensland University
+University of Southern Queensland
+Charles Darwin University
+Federation University Australia
+Torrens University Australia
+University of the Sunshine Coast
+University of Notre Dame Australia

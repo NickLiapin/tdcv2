@@ -1,0 +1,52 @@
+---
+description: Car brand, weighted by real-world prevalence (Toyota common, Maybach rare)
+locale: en
+weighted: true
+---
+Toyota,2100
+Ford,1800
+Chevrolet,1700
+Honda,1300
+Nissan,850
+Hyundai,800
+Kia,780
+Jeep,700
+Tesla,650
+Subaru,630
+Ram,560
+GMC,550
+BMW,360
+Mercedes-Benz,350
+Mazda,340
+Lexus,340
+Volkswagen,330
+Audi,230
+Dodge,190
+Buick,160
+Acura,150
+Cadillac,130
+Volvo,130
+Chrysler,120
+Mitsubishi,100
+Land Rover,95
+Lincoln,90
+Porsche,75
+Genesis,70
+Infiniti,60
+Rivian,50
+Mini,30
+Jaguar,20
+Polestar,20
+Alfa Romeo,9
+Lucid,8
+Maserati,6
+Fiat,4
+Bentley,4
+Ferrari,3
+Lamborghini,3
+Aston Martin,2
+McLaren,1
+Rolls-Royce,1
+Bugatti,1
+Lotus,1
+Maybach,1

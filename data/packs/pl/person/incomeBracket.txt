@@ -1,0 +1,12 @@
+---
+description: Annual household income bracket, labelled in Polish. Amounts are in PLN, the currency of Poland, the only country where Polish is the official language.
+locale: pl
+---
+Poniżej 30 000 PLN
+30 000–50 000 PLN
+50 000–75 000 PLN
+75 000–100 000 PLN
+100 000–150 000 PLN
+150 000–200 000 PLN
+200 000–300 000 PLN
+Powyżej 300 000 PLN

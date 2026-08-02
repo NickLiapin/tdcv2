@@ -1,0 +1,17 @@
+---
+address: gabon.sport.team
+description: Gabonese first-division football clubs
+locale: fr
+---
+FC 105 Libreville
+AS Mangasport
+Missile FC
+CF Mounana
+USM Libreville
+Stade Mandji
+AO CMS
+Bouenguidi Sports
+Akanda FC
+AS Pélican
+Sapins FC
+Cercle Mbéri Sportif

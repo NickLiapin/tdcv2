@@ -1,0 +1,21 @@
+---
+address: sweden.education.university
+description: Universities and university colleges of Sweden (Swedish names)
+locale: sv
+---
+Uppsala universitet
+Lunds universitet
+Stockholms universitet
+Göteborgs universitet
+Kungliga Tekniska högskolan
+Chalmers tekniska högskola
+Karolinska Institutet
+Linköpings universitet
+Umeå universitet
+Sveriges lantbruksuniversitet
+Handelshögskolan i Stockholm
+Luleå tekniska universitet
+Örebro universitet
+Linnéuniversitetet
+Karlstads universitet
+Mittuniversitetet

@@ -1,0 +1,16 @@
+---
+description: Recruitment interview stage (French)
+locale: fr
+---
+Candidature
+Présélection téléphonique
+Entretien RH
+Entretien technique
+Test technique
+Étude de cas
+Entretien avec le manager
+Entretien final
+Proposition d'embauche
+Prise de références
+Assessment center
+Entretien de personnalité

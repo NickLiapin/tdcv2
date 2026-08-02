@@ -1,0 +1,39 @@
+---
+description: Common symptoms / complaints
+locale: en
+---
+Fever
+Headache
+Fatigue
+Nausea
+Vomiting
+Diarrhea
+Constipation
+Abdominal Pain
+Chest Pain
+Shortness of Breath
+Cough
+Sore Throat
+Runny Nose
+Nasal Congestion
+Dizziness
+Blurred Vision
+Muscle Ache
+Joint Pain
+Lower Back Pain
+Skin Rash
+Itching
+Swelling
+Numbness
+Tingling
+Palpitations
+Loss of Appetite
+Unintended Weight Loss
+Night Sweats
+Chills
+Sneezing
+Heartburn
+Bloating
+Cramping
+Weakness
+Confusion

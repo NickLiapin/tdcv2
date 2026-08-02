@@ -1,0 +1,10 @@
+---
+description: Jobs in Legal
+locale: en
+---
+Lawyer
+Paralegal
+Judge
+Legal Secretary
+Compliance Officer
+Court Clerk

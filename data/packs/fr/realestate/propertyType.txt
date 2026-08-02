@@ -1,0 +1,28 @@
+---
+description: Property type (French)
+locale: fr
+---
+Appartement
+Maison
+Studio
+Villa
+Loft
+Duplex
+Triplex
+Château
+Ferme
+Immeuble
+Local commercial
+Bureau
+Terrain
+Parking
+Garage
+Chalet
+Péniche
+Hôtel particulier
+Maison de ville
+Longère
+Mas
+Gîte
+Rez-de-jardin
+Combles

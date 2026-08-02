@@ -1,0 +1,64 @@
+---
+title: Tags
+sidebar_position: 2
+---
+
+# Tags reference
+
+Every tag in the TDC DSL, and where each one is covered in depth.
+
+## Structure
+
+| Tag                 | What it is                                     | See                                                |
+| :------------------ | :--------------------------------------------- | :------------------------------------------------- |
+| `<!--…-->`          | A comment                                      | —                                                  |
+| `<tdc>`             | The root element                               | [Configuration](../core-concepts/configuration.mdx) |
+| `<env>`             | The environment: parameters, sequences, fixtures | [Configuration](../core-concepts/configuration.mdx) |
+| `<sequence>`        | A named sequence declaration                   | [Sequences](../core-concepts/sequences.mdx)        |
+| `<gen>`             | A data generator                               | [Generators](../generators/overview.mdx)           |
+| `<data>`            | Inside a `<sequence>`: literal text joined into the sequence's value, or — with a `name` — a constant field | [Sequences](../core-concepts/sequences.mdx#a-composed-sequence) |
+| `<compute>`         | A computed value                               | [Compute Language](../compute/overview.mdx)        |
+
+## Output layout
+
+| Tag                 | What it is                                     | See                                                |
+| :------------------ | :--------------------------------------------- | :------------------------------------------------- |
+| `<block>`           | The layout of one output record                | [Output & formatting](../core-concepts/output-formatting.mdx) |
+| `<line>`            | One line inside a record                       | [Output & formatting](../core-concepts/output-formatting.mdx) |
+| `<data>`            | Inside a `<line>`: literal text with interpolation | [Output & formatting](../core-concepts/output-formatting.mdx) |
+| `<before>` / `<after>` | Text before / after the whole run           | [Output & formatting](../core-concepts/output-formatting.mdx) |
+| `<before_block>` / `<after_block>` / `<delimiter_block>` | Text around / between records | [Output & formatting](../core-concepts/output-formatting.mdx) |
+| `<before_line>` / `<after_line>` / `<delimiter_line>` | Text around / between lines    | [Output & formatting](../core-concepts/output-formatting.mdx) |
+
+## Distributions and choice
+
+| Tag                 | What it is                                              | See                                                |
+| :------------------ | :----------------------------------------------------- | :------------------------------------------------- |
+| `<mix>`             | A distribution: a value split by exact percentages     | [Distributions (mix)](../constructs/mix.mdx)           |
+| `<switch>`          | A lookup table: a value picked by key                  | [Lookup tables (switch)](../constructs/switch.mdx)     |
+| `<map>`             | A compact `KEY:VALUE` table inside `<switch>`          | [Lookup tables (switch)](../constructs/switch.mdx)     |
+| `<case>`            | One branch inside `<mix>` or `<switch>`                | [Distributions (mix)](../constructs/mix.mdx) · [Lookup tables (switch)](../constructs/switch.mdx) |
+| `<default>`         | The "else" branch inside `<switch>`                    | [Lookup tables (switch)](../constructs/switch.mdx)     |
+
+## Whole records
+
+| Tag                 | What it is                                              | See                                                |
+| :------------------ | :----------------------------------------------------- | :------------------------------------------------- |
+| `<pool>`            | A small table built before the rows; a row draws one whole member from it | [Coherent records (pool)](../pools/overview.mdx) |
+
+## Uniqueness
+
+| Tag                 | What it is                                              | See                                       |
+| :------------------ | :----------------------------------------------------- | :---------------------------------------- |
+| `<distinct>`        | Fields or sequences that must differ within one row     | [No repeats within a row](../guides/distinct.mdx) |
+| `<uniq>`            | A combination of sequences that must be unique across all rows | [Unique values](../constructs/unique-values.mdx) |
+
+`<data>` is listed twice because it reads two ways. Inside a `<line>` it is output:
+literal text with `${{…}}` interpolated into it. Inside a `<sequence>` it is data:
+bare, it is the glue between the generators of a
+[composed sequence](../core-concepts/sequences.mdx#a-composed-sequence); with a
+`name`, it is a [constant field](../core-concepts/sequences.mdx#a-constant-field) and
+the only field that costs no draw.
+
+Compute tags (the ones that go inside `<compute>`) have their own list in the
+[Compute functions reference](compute.mdx).

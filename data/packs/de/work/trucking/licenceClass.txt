@@ -1,0 +1,11 @@
+---
+description: Driving licence category for trucks (German convention: EU classes B / C / D series)
+locale: de
+---
+Klasse B
+Klasse BE
+Klasse C1
+Klasse C1E
+Klasse C
+Klasse CE
+Klasse D

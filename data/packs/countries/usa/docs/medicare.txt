@@ -1,0 +1,10 @@
+---
+address: usa.docs.medicare
+description: US Medicare Beneficiary Identifier (MBI) — 11 characters in the CMS pattern C-A-AN-N-A-AN-N-A-A-N-N. The letters S, L, O, I, B and Z are never used (to avoid confusion with digits). Structural only; the MBI carries no public check digit.
+generator: tdc
+locale: en
+---
+<!-- Positions (CMS): 1 numeric 1-9; 2 alpha; 3 alphanumeric; 4 numeric;
+     5 alpha; 6 alphanumeric; 7 numeric; 8 alpha; 9 alpha; 10 numeric;
+     11 numeric. Alpha set excludes S,L,O,I,B,Z. -->
+<gen type="regex" value="[1-9][ACDEFGHJKMNPQRTUVWXY][0-9ACDEFGHJKMNPQRTUVWXY][0-9][ACDEFGHJKMNPQRTUVWXY][0-9ACDEFGHJKMNPQRTUVWXY][0-9][ACDEFGHJKMNPQRTUVWXY][ACDEFGHJKMNPQRTUVWXY][0-9][0-9]"/>

@@ -1,0 +1,38 @@
+---
+description: Common generic drug names
+locale: en
+---
+Acetaminophen
+Ibuprofen
+Aspirin
+Amoxicillin
+Azithromycin
+Lisinopril
+Metformin
+Atorvastatin
+Amlodipine
+Omeprazole
+Levothyroxine
+Albuterol
+Metoprolol
+Losartan
+Gabapentin
+Hydrochlorothiazide
+Sertraline
+Prednisone
+Warfarin
+Furosemide
+Ciprofloxacin
+Doxycycline
+Fluoxetine
+Citalopram
+Pantoprazole
+Simvastatin
+Montelukast
+Tramadol
+Naproxen
+Amoxicillin-Clavulanate
+Insulin Glargine
+Escitalopram
+Duloxetine
+Clopidogrel

@@ -1,0 +1,19 @@
+---
+description: Type of workplace meeting (French)
+locale: fr
+---
+Réunion d'équipe
+Point individuel
+Comité de direction
+Réunion client
+Atelier
+Brainstorming
+Rétrospective
+Réunion quotidienne
+Formation
+Entretien annuel
+Séminaire
+Webinaire
+Réunion de lancement
+Revue de projet
+Comité de pilotage

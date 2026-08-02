@@ -1,0 +1,252 @@
+---
+address: argentina.geo.city
+description: Argentine city or locality (real INDEC localidades, all 24 jurisdictions)
+locale: es
+---
+Buenos Aires
+La Plata
+Mar del Plata
+Bahía Blanca
+Tandil
+Olavarría
+Necochea
+Pergamino
+Junín
+San Nicolás de los Arroyos
+Zárate
+Campana
+Luján
+Mercedes
+Chivilcoy
+Azul
+Chascomús
+Dolores
+Balcarce
+Tres Arroyos
+Pehuajó
+Trenque Lauquen
+Bragado
+Lincoln
+Coronel Suárez
+Punta Alta
+Miramar
+Villa Gesell
+Pinamar
+San Clemente del Tuyú
+San Antonio de Areco
+Cañuelas
+Avellaneda
+Lanús
+Quilmes
+Lomas de Zamora
+Banfield
+Berazategui
+Florencio Varela
+San Justo
+Morón
+Ramos Mejía
+Haedo
+Ituzaingó
+Castelar
+Merlo
+Moreno
+San Miguel
+José C. Paz
+Los Polvorines
+Tigre
+San Fernando
+San Isidro
+Vicente López
+Olivos
+Martínez
+Boulogne
+Villa Ballester
+Caseros
+Ciudadela
+General San Martín
+Belén de Escobar
+Garín
+Pilar
+Del Viso
+Ezeiza
+Monte Grande
+Adrogué
+Burzaco
+Longchamps
+Bernal
+Don Torcuato
+Grand Bourg
+Rafael Calzada
+Córdoba
+Río Cuarto
+Villa María
+San Francisco
+Villa Carlos Paz
+Alta Gracia
+Río Tercero
+Jesús María
+Cosquín
+La Falda
+Villa Dolores
+Bell Ville
+Marcos Juárez
+Cruz del Eje
+Arroyito
+Río Segundo
+Deán Funes
+Villa Allende
+Rosario
+Santa Fe
+Rafaela
+Venado Tuerto
+Reconquista
+Villa Gobernador Gálvez
+San Lorenzo
+Esperanza
+Cañada de Gómez
+Casilda
+Sunchales
+Firmat
+Funes
+Granadero Baigorria
+Santo Tomé
+Mendoza
+San Rafael
+Godoy Cruz
+Guaymallén
+Las Heras
+Maipú
+Luján de Cuyo
+Tunuyán
+General Alvear
+Malargüe
+San Miguel de Tucumán
+Yerba Buena
+Tafí Viejo
+Concepción
+Banda del Río Salí
+Aguilares
+Monteros
+Salta
+San Ramón de la Nueva Orán
+Tartagal
+General Güemes
+San José de Metán
+Cafayate
+Rosario de la Frontera
+San Salvador de Jujuy
+Palpalá
+Libertador General San Martín
+San Pedro de Jujuy
+Perico
+Humahuaca
+Tilcara
+La Quiaca
+Paraná
+Concordia
+Gualeguaychú
+Concepción del Uruguay
+Gualeguay
+Victoria
+Villaguay
+La Paz
+Colón
+Chajarí
+Corrientes
+Goya
+Paso de los Libres
+Curuzú Cuatiá
+Bella Vista
+Esquina
+Monte Caseros
+Resistencia
+Presidencia Roque Sáenz Peña
+Villa Ángela
+Charata
+Juan José Castelli
+Barranqueras
+Fontana
+Formosa
+Clorinda
+Pirané
+El Colorado
+Posadas
+Oberá
+Eldorado
+Puerto Iguazú
+Apóstoles
+Leandro N. Alem
+Jardín América
+Montecarlo
+Puerto Rico
+Santiago del Estero
+La Banda
+Termas de Río Hondo
+Añatuya
+Frías
+Fernández
+San Fernando del Valle de Catamarca
+Andalgalá
+Belén
+Tinogasta
+Santa María
+La Rioja
+Chilecito
+Chamical
+Aimogasta
+San Juan
+Chimbas
+Rivadavia
+Pocito
+Caucete
+San José de Jáchal
+Calingasta
+San Luis
+Villa Mercedes
+La Punta
+Justo Daract
+Concarán
+Santa Rosa
+General Pico
+Toay
+General Acha
+Realicó
+Neuquén
+San Martín de los Andes
+Zapala
+Plottier
+Centenario
+Cutral Có
+Villa La Angostura
+Junín de los Andes
+Rincón de los Sauces
+Chos Malal
+Viedma
+San Carlos de Bariloche
+General Roca
+Cipolletti
+Villa Regina
+Allen
+Cinco Saltos
+Choele Choel
+El Bolsón
+Catriel
+Rawson
+Trelew
+Comodoro Rivadavia
+Puerto Madryn
+Esquel
+Sarmiento
+Gaiman
+Rada Tilly
+Río Gallegos
+Caleta Olivia
+El Calafate
+Pico Truncado
+Puerto Deseado
+Río Turbio
+Puerto San Julián
+Perito Moreno
+Ushuaia
+Río Grande
+Tolhuin

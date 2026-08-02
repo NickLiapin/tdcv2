@@ -1,0 +1,16 @@
+---
+description: Genetic ancestry group (Russian), used as the parent of diagnosisByAncestry. These are ancestry populations as clinical genetics defines them — geographic descent, not social race categories.
+locale: ru
+---
+Африка южнее Сахары
+Северная Африка
+Средиземноморье
+Ближний Восток
+Северная Европа
+Восточная Европа
+Ашкеназские евреи
+Южная Азия
+Восточная Азия
+Юго-Восточная Азия
+Коренные народы Америки
+Народы Океании

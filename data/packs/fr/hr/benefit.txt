@@ -1,0 +1,26 @@
+---
+description: Employee benefit (French)
+locale: fr
+---
+Mutuelle d'entreprise
+Prévoyance
+Tickets restaurant
+Chèques-vacances
+Épargne salariale
+Participation
+Intéressement
+Plan d'épargne entreprise
+RTT
+Télétravail
+Congés payés
+Comité social et économique
+Formation professionnelle
+Voiture de fonction
+Téléphone professionnel
+Prime d'ancienneté
+Treizième mois
+Retraite complémentaire
+Chèques cadeaux
+Crèche d'entreprise
+Abonnement transport remboursé
+Salle de sport

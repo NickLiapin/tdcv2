@@ -1,0 +1,12 @@
+---
+description: Deployment environment
+---
+development
+staging
+production
+testing
+qa
+sandbox
+local
+preview
+integration

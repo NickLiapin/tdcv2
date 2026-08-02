@@ -1,0 +1,32 @@
+---
+description: Tech verb, present participle (German)
+locale: de
+---
+sichernd
+umgehend
+hackend
+überschreibend
+komprimierend
+kopierend
+navigierend
+indexierend
+verbindend
+generierend
+quantifizierend
+berechnend
+synthetisierend
+eingebend
+übertragend
+programmierend
+neustartend
+analysierend
+verschlüsselnd
+entschlüsselnd
+bereitstellend
+kompilierend
+debuggend
+optimierend
+synchronisierend
+virtualisierend
+routend
+überwachend

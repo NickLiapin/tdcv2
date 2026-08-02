@@ -1,0 +1,41 @@
+---
+description: Tech noun (Portuguese)
+locale: pt
+---
+controlador
+protocolo
+largura de banda
+painel
+microchip
+programa
+porta
+placa
+matriz
+interface
+sistema
+sensor
+firewall
+disco rígido
+pixel
+alarme
+fluxo de dados
+monitor
+aplicação
+transmissor
+barramento
+circuito
+condensador
+base de dados
+pipeline
+servidor
+router
+comutador
+memória cache
+núcleo
+biblioteca
+plugin
+contentor
+cópia de segurança
+rede neuronal
+chave de encriptação
+pacote de rede

@@ -1,0 +1,19 @@
+---
+description: Vehicle body type (French)
+locale: fr
+---
+Berline
+Coupé
+Citadine
+Break
+SUV
+Monospace
+Cabriolet
+Ludospace
+4x4
+Pick-up
+Utilitaire
+Compacte
+Familiale
+Crossover
+Fourgon

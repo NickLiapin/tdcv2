@@ -1,0 +1,18 @@
+---
+address: syria.sport.team
+description: Syrian Premier League football clubs (Arabic)
+locale: ar
+---
+الجيش
+الوحدة
+الاتحاد
+تشرين
+الكرامة
+الحرية
+الفتوة
+الوثبة
+حطين
+النواعير
+الطليعة
+الساحل
+جبلة

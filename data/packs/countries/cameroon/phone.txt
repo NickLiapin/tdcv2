@@ -1,0 +1,6 @@
+---
+address: cameroon.phone
+description: Cameroonian mobile phone in E.164 form (+237 6XXXXXXXX)
+generator: tdc
+---
+<gen type="regex" value="\+2376[5-9][0-9]{7}"/>

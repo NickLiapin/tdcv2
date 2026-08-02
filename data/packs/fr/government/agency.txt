@@ -1,0 +1,20 @@
+---
+description: Government body type (French)
+locale: fr
+---
+Ministère de la Santé
+Ministère de l'Éducation nationale
+Ministère des Transports
+Ministère de l'Intérieur
+Ministère de la Justice
+Ministère de l'Économie
+Ministère des Affaires étrangères
+Ministère du Travail
+Ministère des Armées
+Ministère de la Culture
+Ministère de l'Agriculture
+Préfecture
+Mairie
+Conseil régional
+Conseil départemental
+Trésor public

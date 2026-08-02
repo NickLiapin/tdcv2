@@ -1,0 +1,81 @@
+---
+description: Common medical diagnoses / conditions (general Spanish medical vocabulary)
+locale: es
+---
+Hipertensión arterial
+Diabetes mellitus tipo 2
+Asma
+Bronquitis aguda
+Influenza
+Migraña
+Trastorno de ansiedad generalizada
+Trastorno depresivo mayor
+Artrosis
+Artritis reumatoide
+Enfermedad por reflujo gastroesofágico
+Anemia ferropénica
+Hipotiroidismo
+Infección de vías urinarias
+Neumonía
+Enfermedad renal crónica
+Enfermedad coronaria
+Fibrilación auricular
+Insuficiencia cardíaca congestiva
+Accidente cerebrovascular isquémico
+Epilepsia
+Enfermedad de Parkinson
+Enfermedad de Alzheimer
+Esclerosis múltiple
+Psoriasis
+Dermatitis atópica
+Rinitis alérgica
+Sinusitis crónica
+Otitis media
+Conjuntivitis
+Catarata
+Glaucoma
+Apendicitis
+Colecistitis
+Diverticulitis
+Síndrome de intestino irritable
+Enfermedad de Crohn
+Colitis ulcerosa
+Hepatitis B crónica
+Cirrosis hepática
+Pancreatitis aguda
+Gota
+Osteoporosis
+Fibromialgia
+Ciática
+Hernia discal
+Síndrome del túnel carpiano
+Tendinitis
+Enfermedad pulmonar obstructiva crónica
+Tuberculosis
+Leucemia
+Linfoma
+Melanoma
+Hiperlipidemia
+Obesidad
+Apnea obstructiva del sueño
+Insomnio
+Trastorno bipolar
+Trastorno por déficit de atención e hiperactividad
+Enfermedad celíaca
+Lupus eritematoso sistémico
+Vértigo
+Acúfenos
+Hemorroides
+Várices
+Trombosis venosa profunda
+Embolia pulmonar
+Litiasis renal
+Anemia
+Hipertiroidismo
+Úlcera péptica
+Gastritis
+Celulitis infecciosa
+Sepsis
+Cáncer de mama
+Gastroenteritis aguda
+Deficiencia de vitamina D

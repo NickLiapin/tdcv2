@@ -1,0 +1,10 @@
+---
+description: Conditions markedly more frequent in people of Indigenous American ancestry, in Italian. A prevalence signal, not an exclusive one.
+locale: it
+---
+Diabete mellito di tipo 2
+Calcolosi biliare
+Nefropatia diabetica
+Artrite reumatoide
+Steatosi epatica non alcolica
+Sindrome metabolica

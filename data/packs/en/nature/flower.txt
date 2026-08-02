@@ -1,0 +1,24 @@
+---
+description: Flower
+locale: en
+---
+Rose
+Tulip
+Daisy
+Sunflower
+Lily
+Orchid
+Daffodil
+Marigold
+Lavender
+Iris
+Peony
+Carnation
+Chrysanthemum
+Poppy
+Violet
+Jasmine
+Hibiscus
+Lotus
+Dahlia
+Begonia

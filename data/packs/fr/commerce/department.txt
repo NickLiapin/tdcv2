@@ -1,0 +1,38 @@
+---
+description: Store / catalogue department (French)
+locale: fr
+---
+Livres
+Films
+Musique
+Jeux vidéo
+Électronique
+Informatique
+Téléphonie
+Électroménager
+Maison
+Décoration
+Jardin
+Bricolage
+Mode femme
+Mode homme
+Chaussures
+Bagagerie
+Beauté
+Parfumerie
+Santé
+Sport
+Jouets
+Puériculture
+Animalerie
+Épicerie
+Vins et spiritueux
+Auto et moto
+Papeterie
+Instruments de musique
+Loisirs créatifs
+Mobilier
+Luminaire
+High-tech
+Montres et bijoux
+Alimentation bio

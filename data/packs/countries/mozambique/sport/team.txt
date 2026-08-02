@@ -1,0 +1,18 @@
+---
+address: mozambique.sport.team
+description: Moçambola football clubs (Portuguese names)
+locale: pt
+---
+Costa do Sol
+Ferroviário de Maputo
+Liga Desportiva de Maputo
+Desportivo de Maputo
+Ferroviário da Beira
+Textáfrica
+União Desportiva do Songo
+Black Bulls
+Ferroviário de Nampula
+Chibuto
+Matchedje de Maputo
+Incomáti
+Ferroviário de Lichinga

@@ -1,0 +1,7 @@
+---
+address: cape_verde.docs.nif
+description: Cape Verdean taxpayer number (NIF / Número de Identificação Fiscal) — 9 digits with a non-zero leading digit. Structure only; the official check algorithm is not published.
+generator: tdc
+locale: pt
+---
+<gen type="regex" value="[1-9][0-9]{8}"/>

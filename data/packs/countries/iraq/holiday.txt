@@ -1,0 +1,15 @@
+---
+address: iraq.holiday
+description: Public holidays in Iraq (Arabic)
+locale: ar
+---
+رأس السنة الميلادية
+عيد الجيش
+عيد نوروز
+عيد العمال
+عيد الفطر
+عيد الأضحى
+رأس السنة الهجرية
+عاشوراء
+المولد النبوي
+اليوم الوطني

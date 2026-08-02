@@ -1,0 +1,20 @@
+---
+description: Hotel amenity
+locale: en
+---
+Free Wi-Fi
+Pool
+Spa
+Fitness Center
+Restaurant
+Bar
+Room Service
+Airport Shuttle
+Free Breakfast
+Parking
+Pet-Friendly
+Business Center
+Concierge
+Laundry Service
+Hot Tub
+Rooftop Terrace

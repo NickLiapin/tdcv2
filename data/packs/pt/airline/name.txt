@@ -1,0 +1,54 @@
+---
+description: Airline (carriers of the Portuguese-speaking world and major international ones)
+locale: pt
+---
+TAP Air Portugal
+SATA Air Açores
+Azores Airlines
+euroAtlantic Airways
+Hi Fly
+White Airways
+Sevenair
+LATAM Brasil
+GOL Linhas Aéreas
+Azul Linhas Aéreas
+VoePass Linhas Aéreas
+TAAG Angola Airlines
+LAM - Linhas Aéreas de Moçambique
+Cabo Verde Airlines
+STP Airways
+Bestfly
+American Airlines
+United Airlines
+Delta Air Lines
+JetBlue Airways
+Southwest Airlines
+Air Canada
+British Airways
+Lufthansa
+Air France
+KLM
+Swiss International Air Lines
+Iberia
+Iberia Express
+Air Europa
+Vueling
+Ryanair
+easyJet
+ITA Airways
+Turkish Airlines
+Emirates
+Qatar Airways
+Etihad Airways
+Singapore Airlines
+Qantas
+Ethiopian Airlines
+Royal Air Maroc
+Avianca
+Copa Airlines
+Aeroméxico
+Aerolíneas Argentinas
+Cathay Pacific
+ANA All Nippon Airways
+Japan Airlines
+Korean Air

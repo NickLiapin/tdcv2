@@ -1,0 +1,69 @@
+---
+address: peru.education.university
+description: Peruvian university licensed by SUNEDU — the national (public) and private universities, largest and oldest first
+locale: es
+---
+Universidad Nacional Mayor de San Marcos
+Pontificia Universidad Católica del Perú
+Universidad Nacional de Ingeniería
+Universidad Nacional Agraria La Molina
+Universidad Peruana Cayetano Heredia
+Universidad Nacional Federico Villarreal
+Universidad Nacional del Callao
+Universidad del Pacífico
+Universidad de Lima
+Universidad de Piura
+Universidad Peruana de Ciencias Aplicadas
+Universidad ESAN
+Universidad San Ignacio de Loyola
+Universidad Ricardo Palma
+Universidad de San Martín de Porres
+Universidad Femenina del Sagrado Corazón
+Universidad Científica del Sur
+Universidad Tecnológica del Perú
+Universidad Privada del Norte
+Universidad César Vallejo
+Universidad Continental
+Universidad Peruana Unión
+Universidad Antonio Ruiz de Montoya
+Universidad Católica Sedes Sapientiae
+Universidad Nacional Tecnológica de Lima Sur
+Universidad Nacional de San Antonio Abad del Cusco
+Universidad Nacional de San Agustín de Arequipa
+Universidad Católica de Santa María
+Universidad Católica San Pablo
+Universidad Nacional de Trujillo
+Universidad Privada Antenor Orrego
+Universidad Nacional Pedro Ruiz Gallo
+Universidad Católica Santo Toribio de Mogrovejo
+Universidad Nacional de Piura
+Universidad Nacional de Frontera
+Universidad Nacional de Cajamarca
+Universidad Nacional Autónoma de Chota
+Universidad Nacional de Jaén
+Universidad Nacional del Centro del Perú
+Universidad Nacional del Altiplano
+Universidad Nacional de Juliaca
+Universidad Nacional de San Cristóbal de Huamanga
+Universidad Nacional Santiago Antúnez de Mayolo
+Universidad Nacional Hermilio Valdizán
+Universidad Nacional Agraria de la Selva
+Universidad Nacional Jorge Basadre Grohmann
+Universidad Nacional de la Amazonía Peruana
+Universidad Nacional de Ucayali
+Universidad Nacional Intercultural de la Amazonía
+Universidad Nacional San Luis Gonzaga
+Universidad Nacional José Faustino Sánchez Carrión
+Universidad Nacional Daniel Alcides Carrión
+Universidad Nacional de Huancavelica
+Universidad Nacional Micaela Bastidas de Apurímac
+Universidad Nacional José María Arguedas
+Universidad Nacional Toribio Rodríguez de Mendoza de Amazonas
+Universidad Nacional de San Martín
+Universidad Nacional de Moquegua
+Universidad Nacional de Tumbes
+Universidad Nacional Amazónica de Madre de Dios
+Universidad Nacional de Barranca
+Universidad Nacional de Cañete
+Universidad Nacional Autónoma de Alto Amazonas
+Universidad Nacional Autónoma de Huanta

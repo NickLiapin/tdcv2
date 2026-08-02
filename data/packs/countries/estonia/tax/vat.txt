@@ -1,0 +1,6 @@
+---
+address: estonia.tax.vat
+description: Estonian VAT / KMKR (EE + 9 digits, no checksum)
+generator: tdc
+---
+<gen type="regex" value="EE[0-9]{9}"/>

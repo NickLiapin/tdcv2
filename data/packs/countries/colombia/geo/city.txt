@@ -1,0 +1,135 @@
+---
+address: colombia.geo.city
+description: Colombian city — municipal cabeceras with a substantial urban population, largest first
+locale: es
+---
+Bogotá
+Medellín
+Cali
+Barranquilla
+Cartagena
+Soacha
+Cúcuta
+Soledad
+Bucaramanga
+Bello
+Valledupar
+Villavicencio
+Santa Marta
+Ibagué
+Montería
+Pereira
+Manizales
+Pasto
+Neiva
+Palmira
+Buenaventura
+Armenia
+Floridablanca
+Sincelejo
+Itagüí
+Tumaco
+Envigado
+Dosquebradas
+Tuluá
+Barrancabermeja
+Riohacha
+Uribia
+Maicao
+Piedecuesta
+Tunja
+Yopal
+Florencia
+Girón
+Facatativá
+Jamundí
+Fusagasugá
+Mosquera
+Chía
+Zipaquirá
+Rionegro
+Malambo
+Magangué
+Madrid
+Cartago
+Turbo
+Quibdó
+Apartadó
+Sogamoso
+Ocaña
+Pitalito
+Buga
+Duitama
+Ciénaga
+Aguachica
+Girardot
+Lorica
+Turbaco
+Ipiales
+Funza
+Santander de Quilichao
+Villa del Rosario
+Sahagún
+Yumbo
+Cereté
+Sabanalarga
+Cajicá
+Arauca
+Caucasia
+Los Patios
+Manaure
+Tierralta
+Candelaria
+Acacías
+Sabaneta
+Montelíbano
+Caldas
+Copacabana
+Cumaribo
+Santa Rosa de Cabal
+La Estrella
+Calarcá
+Zona Bananera
+Arjona
+La Dorada
+Garzón
+El Carmen de Bolívar
+Corozal
+Fundación
+Granada
+El Banco
+La Ceja
+Espinal
+Marinilla
+Puerto Asís
+Baranoa
+Galapa
+Villamaría
+Agustín Codazzi
+Plato
+Planeta Rica
+Saravena
+El Carmen de Viboral
+La Plata
+Chigorodó
+San Marcos
+Ciénaga de Oro
+Mocoa
+San Gil
+Guarne
+Tibú
+San José del Guaviare
+San Andrés
+Florida
+Chiquinquirá
+Arauquita
+El Cerrito
+Girardota
+Barbosa
+Barbacoas
+El Bagre
+Tuchín
+Puerto Colombia
+Pamplona
+El Tambo
+San Vicente del Caguán

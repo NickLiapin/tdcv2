@@ -1,0 +1,42 @@
+---
+description: Common symptoms / complaints (Italian)
+locale: it
+---
+Febbre
+Mal di testa
+Stanchezza
+Nausea
+Vomito
+Diarrea
+Stitichezza
+Dolore addominale
+Dolore toracico
+Difficoltà respiratoria
+Tosse
+Mal di gola
+Naso che cola
+Congestione nasale
+Capogiro
+Vista offuscata
+Dolore muscolare
+Dolore articolare
+Mal di schiena
+Eruzione cutanea
+Prurito
+Gonfiore
+Intorpidimento
+Formicolio
+Palpitazioni
+Perdita di appetito
+Perdita di peso involontaria
+Sudorazione notturna
+Brividi
+Starnuti
+Bruciore di stomaco
+Gonfiore addominale
+Crampi
+Debolezza
+Confusione
+Insonnia
+Ronzio alle orecchie
+Sangue dal naso

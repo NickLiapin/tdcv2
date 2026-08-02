@@ -1,0 +1,34 @@
+---
+description: Hashtag word in Italian (prefix with # in a template)
+locale: it
+---
+amore
+felicità
+bellezza
+moda
+natura
+arte
+viaggi
+cibo
+sport
+motivazione
+stile
+tramonto
+tendenza
+perte
+famiglia
+estate
+fitness
+vita
+ispirazione
+ricordi
+fotografia
+musica
+benessere
+amicizia
+domenica
+caffè
+gatti
+cani
+lettura
+venerdì

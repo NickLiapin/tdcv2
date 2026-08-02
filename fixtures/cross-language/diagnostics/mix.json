@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "cases": [
+    {
+      "name": "mix-without-cases",
+      "demonstrates": "TDC120",
+      "description": "A mix with nothing to mix",
+      "config": "<tdc><env count=\"2\" seed=\"s\"><mix name=\"M\" percent=\"50,50\"></mix></env><block><line><data>x</data></line></block></tdc>",
+      "expected": ["error TDC120 1:29"]
+    },
+    {
+      "name": "unknown-mix-child",
+      "demonstrates": "TDC124",
+      "description": "A tag inside <mix> that is not a case",
+      "config": "<tdc><env count=\"2\" seed=\"s\"><mix name=\"M\"><nonsense/></mix></env><block><line><data>x</data></line></block></tdc>",
+      "expected": ["error TDC124 1:43", "error TDC120 1:29"]
+    },
+    {
+      "name": "flag-without-anomaly",
+      "demonstrates": "TDC202",
+      "description": "flag= with no case marked anomalous",
+      "config": "<tdc><env count=\"2\" seed=\"s\"><mix name=\"M\" percent=\"50,50\" flag=\"F\"><case><data>a</data></case><case><data>b</data></case></mix></env><block><line><data>x</data></line></block></tdc>",
+      "expected": ["error TDC202 1:65"]
+    }
+  ]
+}

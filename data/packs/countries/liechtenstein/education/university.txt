@@ -1,0 +1,9 @@
+---
+address: liechtenstein.education.university
+description: Higher-education institutions of Liechtenstein (German names)
+locale: de
+---
+Universität Liechtenstein
+Private Universität im Fürstentum Liechtenstein
+Internationale Akademie für Philosophie
+Liechtenstein-Institut

@@ -1,0 +1,26 @@
+---
+description: Company department / function (Spanish)
+locale: es
+---
+Ingeniería
+Producto
+Diseño
+Ventas
+Marketing
+Finanzas
+Contabilidad
+Recursos Humanos
+Operaciones
+Legal
+Atención al Cliente
+Tecnología de la Información
+Investigación y Desarrollo
+Compras
+Control de Calidad
+Logística
+Administración
+Mantenimiento
+Seguridad
+Cumplimiento
+Comunicación
+Formación

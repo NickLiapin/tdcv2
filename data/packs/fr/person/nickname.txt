@@ -1,0 +1,34 @@
+---
+description: Common French hypocoristic / informal nickname (Sébastien -> Seb, Emmanuel -> Manu)
+locale: fr
+---
+Seb
+Manu
+Flo
+Alex
+Nico
+Fred
+Steph
+Chris
+Juju
+Dédé
+Riri
+Fifi
+Loulou
+Momo
+Toto
+Nono
+Titi
+Mimi
+Lulu
+Coco
+Bébé
+Doudou
+Jojo
+Popo
+Zaza
+Kiki
+Gégé
+Pilou
+Ninou
+Bibi

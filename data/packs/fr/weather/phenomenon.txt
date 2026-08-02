@@ -1,0 +1,26 @@
+---
+description: Weather / natural phenomenon (French)
+locale: fr
+---
+Orage
+Tempête
+Ouragan
+Tornade
+Tsunami
+Inondation
+Sécheresse
+Canicule
+Vague de froid
+Blizzard
+Avalanche
+Brouillard
+Arc-en-ciel
+Aurore boréale
+Éclair
+Tonnerre
+Grêle
+Verglas
+Mousson
+Cyclone
+Typhon
+Raz-de-marée

@@ -1,0 +1,21 @@
+---
+description: Official document type (Polish)
+locale: pl
+---
+Paszport
+Akt urodzenia
+Akt małżeństwa
+Akt zgonu
+Prawo jazdy
+Dowód osobisty
+Karta pobytu
+Zaświadczenie o prawie do głosowania
+Zeznanie podatkowe
+Pozwolenie na budowę
+Koncesja na działalność gospodarczą
+Wiza
+Zaświadczenie o zameldowaniu
+Potwierdzenie adresu zamieszkania
+Numer identyfikacji podatkowej
+Świadectwo ukończenia szkoły
+Zaświadczenie o niekaralności

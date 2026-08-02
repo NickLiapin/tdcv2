@@ -1,0 +1,400 @@
+<a name="top"></a>
+
+[English](../../core-concepts/configuration.md#top) · [Русский](../../ru/core-concepts/configuration.md#top) · **Español**
+
+← Anterior: [Su primer conjunto de datos](../getting-started/first-data.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Secuencias](./sequences.md#top) →
+
+---
+
+# Estructura de la configuración
+
+Toda configuración de TDC es un único elemento raíz [`<tdc>`](../reference/tags.md#top).
+Dentro de él viven dos cosas: un [`<env>`](../reference/tags.md#top) opcional (parámetros de
+generación, [secuencias](sequences.md#top) y fixtures) y un
+[`<block>`](output-formatting.md#top) **obligatorio** (el diseño de cada registro de salida).
+
+```xml
+<tdc version="0.1.0" comment="configuración de demostración">
+    <env count="5" seed="demo">
+        <sequence name="Id">
+            <gen type="increment" value="1"/>
+        </sequence>
+    </env>
+    <block>
+        <line><data>id=${{Id}}</data></line>
+    </block>
+</tdc>
+```
+
+`./run demo.tdc`
+
+```
+id=1
+id=2
+id=3
+id=4
+id=5
+```
+
+El `<block>` se ejecutó exactamente `count="5"` veces; en cada iteración `${{Id}}` tomó
+el siguiente valor de la [secuencia](sequences.md#top) `Id`.
+
+> [!NOTE]
+> **Los resultados son ilustrativos**
+>
+> Las salidas de terminal de esta página son ejemplos: los valores exactos pueden variar
+> según la versión del núcleo. Lo estable es la forma: un `seed` fijo reproduce los mismos
+> registros byte por byte (vea [Determinismo](determinism.md#top)).
+
+## `<tdc>` — la raíz
+
+Hay exactamente un `<tdc>`, y solo como raíz. Un documento sin raíz `<tdc>` falla con
+`error[TDC001]: document has no <tdc> root element`. Contiene un `<env>` opcional
+(descrito más abajo) y un [`<block>`](output-formatting.md#top) obligatorio.
+
+| Atributo           | Obligatorio | Qué hace                                              |
+| :----------------- | :---------- | :---------------------------------------------------- |
+| `version` / `v`    | no          | Versión mínima del DSL que necesita el archivo        |
+| `regex_max_length` | no          | Límite global de longitud para [`type="regex"`](../generators/regex.md#top) |
+| `comment`          | no          | Comentario libre, ignorado por el motor               |
+
+### `version` (alias `v`)
+
+Declara la versión mínima del DSL de la que depende el archivo. Si `version` —o su alias
+corto `v`— es mayor que la versión del motor en ejecución, el archivo se rechaza de
+inmediato: un DSL más nuevo puede usar [generadores](../generators/overview.md#top),
+condiciones o sintaxis que el motor viejo no entiende, y producir datos incorrectos en
+silencio sería peor que detenerse. Se usa cuando una configuración depende de una función
+agregada en una versión específica y conviene obtener una falla clara en un motor
+desactualizado en lugar de una confusa.
+
+<!-- doc-check: skip the error's location line embeds a machine temp path -->
+```xml
+<tdc version="9.9.9">
+    <block><line><data>hello</data></line></block>
+</tdc>
+```
+
+`./run future.tdc`
+
+```
+error[TDC005]: TDC document version "9.9.9" is newer than this runtime (0.1.0)
+note: Update TDC before processing this file; newer DSL features may not exist in this runtime.
+```
+
+Omitir la versión sigue permitido, por compatibilidad con configuraciones antiguas.
+
+### `regex_max_length`
+
+Un techo global (por omisión **32**) para la longitud que puede alcanzar cualquier
+resultado de [`type="regex"`](../generators/regex.md#top). Un patrón que pudiera excederlo se
+rechaza **antes** de generar, de modo que un cuantificador desbocado no pueda producir en
+silencio un megabyte por fila. Conviene ponerlo en `<tdc>` cuando varios patrones largos
+comparten una misma configuración y se quiere un único lugar donde subir el techo.
+
+```xml
+<tdc regex_max_length="64">
+    <env count="3" seed="demo">
+        <sequence name="Token"><gen type="regex" value="[A-Z0-9]{40}"/></sequence>
+    </env>
+    <block>
+        <line><data>${{Token}}</data></line>
+    </block>
+</tdc>
+```
+
+`./run token.tdc`
+
+```
+MURI40FXS16A2ABROOBQFGMSDBLWP3TCDTA16VVK
+NPJ3PVSU1NGARTRDQHT92IHGWJZVUST4531IOEAW
+66WWVKTAA2XWUQJBJA8P0SNZ6W3Q75R3CP12JIXW
+```
+
+Sin el techo elevado, el mismo patrón falla antes de generar una sola fila — el techo
+por defecto es 32:
+
+`./run token.tdc   (sin regex_max_length)`
+
+```
+error[TDC097]: invalid regex generator pattern: regex can produce 40 characters, which exceeds regex_max_length=32
+ --> token.tdc:3:57
+  |
+3 |         <sequence name="Token"><gen type="regex" value="[A-Z0-9]{40}"/></sequence>
+  |                                                         ^^^^^^^^^^^^
+  |
+note: Use finite regex: bounded quantifiers such as {n} or {n,m}; unbounded *, +, and {n,} are rejected.
+
+aborted: 1 error
+```
+
+La protección solo permite que un resultado ya finito sea más largo; nunca vuelve finito
+un patrón infinito. El tratamiento completo está en la página del
+[generador regex](../generators/regex.md#top).
+
+### `comment`
+
+Una nota libre para quien lea la configuración. El motor la ignora por completo: nunca
+aparece en la salida. Se usa para registrar para qué sirve un archivo o quién lo mantiene.
+
+```xml
+<tdc comment="cuentas iniciales para la importación a staging">
+    <env count="2" seed="demo">
+        <sequence name="Id"><gen type="increment" value="100"/></sequence>
+    </env>
+    <block><line><data>acct-${{Id}}</data></line></block>
+</tdc>
+```
+
+`./run accounts.tdc`
+
+```
+acct-100
+acct-101
+```
+
+### El `<block>` es obligatorio
+
+`<block>` describe el diseño de un registro y es el único hijo del que `<tdc>` no puede
+prescindir. Una configuración con `<env>` pero sin `<block>` no tiene nada que renderizar:
+
+`./run no-block.tdc`
+
+```
+error[TDC002]: <tdc> has no <block> child — nothing to render
+```
+
+## `<env>` — parámetros, secuencias, fixtures
+
+`<env>` (abreviatura de _environment_, entorno) contiene los parámetros de generación, las
+declaraciones de [secuencias](sequences.md#top) y las fixtures: texto que se imprime antes,
+después o entre registros. Es opcional: si solo se necesita repetir una línea fija `count`
+veces, se puede omitir. Pero en cuanto hacen falta secuencias, parámetros o fixtures,
+todos viven aquí.
+
+| Atributo  | Por omisión | Qué define                                               |
+| :-------- | :---------- | :------------------------------------------------------- |
+| `count`   | `10`        | Cuántos registros generar                                |
+| `seed`    | aleatorio   | Seed del generador de números aleatorios                 |
+| `local`   | `en`        | Locale para los datos de [`type="template"`](../generators/template.md#top) |
+| `inject`  | `${{%}}`    | El patrón de interpolación de valores                    |
+| `comment` | —           | Comentario libre, ignorado por el motor                  |
+
+> [!NOTE]
+> **Lo que se pasa por CLI manda**
+>
+> `--count`, `--seed` y `--locale` en la línea de comandos tienen prioridad sobre los
+> valores de `<env>`, así que un mismo archivo puede producir volúmenes de datos distintos.
+> Vea la [referencia de CLI](../reference/cli.md#top).
+
+### `count`
+
+Cuántas veces se renderiza el [`<block>`](output-formatting.md#top): un registro por
+iteración. Por omisión vale **10**. Se ajusta para definir el tamaño de un conjunto de
+datos, y se puede sobrescribir por ejecución con `--count` cuando se quiere una prueba
+rápida de 3 filas a partir de una configuración que normalmente produce miles.
+
+```xml
+<env count="3" seed="demo">
+    <sequence name="Id"><gen type="increment" value="1"/></sequence>
+</env>
+```
+
+`./run ids.tdc`
+
+```
+id=1
+id=2
+id=3
+```
+
+Para la mayoría de los generadores, una ejecución corta es un prefijo honesto de una
+larga: las tres primeras filas de `count="3"` coinciden con las tres primeras de
+`count="1000"`. Las excepciones (los diseños de proporción exacta y de unicidad) se cubren
+en [Determinismo y proporciones](determinism.md#top).
+
+### `seed`
+
+Fija el generador de números aleatorios para que la configuración sea **reproducible**: el
+mismo seed y la misma configuración siempre producen exactamente los mismos registros. Se
+usa siempre que un conjunto de datos deba ser estable: una prueba de snapshot, una fixture
+compartida, la reproducción de un bug. Si se omite, cada ejecución es nueva y se pierde la
+posibilidad de reproducir una salida concreta.
+
+```xml
+<env count="3" seed="demo" local="en">
+    <sequence name="Name"><gen type="template" value="person.male.firstName"/></sequence>
+</env>
+```
+
+Ejecútelo dos veces: idéntico byte por byte.
+
+`./run names.tdc   (run 1  |  run 2)`
+
+```
+James      James
+Robert     Robert
+Michael    Michael
+```
+
+Cambie el seed para obtener un conjunto distinto pero igual de estable. La historia
+completa, incluida la garantía entre lenguajes, está en
+[Determinismo y proporciones](determinism.md#top).
+
+### `local` — el locale de los datos
+
+Define el locale que usa el generador [`template`](../generators/template.md#top) al resolver
+nombres, ciudades y otros datos localizados. Por omisión es **en**, así que los ejemplos
+anteriores producen nombres en inglés sin configuración adicional.
+
+```xml
+<env count="3" seed="demo" local="en">
+    <sequence name="Name"><gen type="template" value="person.male.firstName"/></sequence>
+</env>
+```
+
+`./run names.tdc  (local=en)`
+
+```
+James
+Robert
+Michael
+```
+
+Cambiar el locale es lo que hace que el mismo diseño produzca datos en otro idioma: una
+demostración de localización. Con `local="es"` la configuración idéntica toma los datos
+del paquete de nombres en español:
+
+`./run names.tdc  (local=es)`
+
+```
+Raimundo
+Marcial
+Aurelio
+```
+
+Solo cambian los *datos*: la estructura, el comportamiento del seed y todo lo demás siguen
+igual. Qué locales están disponibles depende de los
+[paquetes de datos](../data-packs/overview.md#top) instalados.
+
+### `inject` — el marcador de interpolación
+
+Define el token que marca una sustitución de valor dentro de
+[`<data>`](output-formatting.md#top). Por omisión es `${{%}}`, donde `%` representa el nombre
+de la secuencia. Conviene cambiarlo cuando la salida debe contener un `${{...}}` literal
+—al generar una configuración de CI, una plantilla de Handlebars u otro archivo TDC— para
+que sus marcadores no choquen con los del destino. La cadena debe contener exactamente
+un `%`.
+
+```xml
+<env count="2" seed="demo" inject="[%]">
+    <sequence name="Id"><gen type="increment" value="1"/></sequence>
+</env>
+<block>
+    <line><data>id=[Id]</data></line>
+</block>
+```
+
+`./run bracket.tdc`
+
+```
+id=1
+id=2
+```
+
+Solo cambia la sintaxis de sustitución, no los datos. Hay más sobre interpolación en
+[Salida y formato](output-formatting.md#top).
+
+### `comment`
+
+Igual que en `<tdc>`: una nota libre que el motor ignora. Es cómoda para anotar por qué se
+eligió cierto `seed` o cierto `count`, justo donde viven los parámetros.
+
+### Secuencias
+
+`<env>` es donde van las declaraciones de [`<sequence>`](sequences.md#top): cada una es una
+columna nombrada de valores que alimenta al bloque de salida. Tienen su propia página:
+**[Secuencias](sequences.md#top)**.
+
+### Fixtures — texto alrededor de los registros
+
+Las fixtures son espacios de texto que se imprimen alrededor de los registros generados:
+encabezados, separadores y envolturas por línea. Permiten que una sola configuración emita
+un archivo completo —un arreglo JSON con sus `[` y `]`, un CSV con su fila de
+encabezado— y no solo los registros pelados.
+
+| Fixture              | Imprime                                    |
+| :------------------- | :----------------------------------------- |
+| `<before>`           | Una vez, antes de toda la ejecución        |
+| `<after>`            | Una vez, después de toda la ejecución      |
+| `<before_block>`     | Antes de cada registro                     |
+| `<after_block>`      | Después de cada registro                   |
+| `<delimiter_block>`  | Entre registros (no después del último)    |
+| `<before_line>`      | Antes de cada línea de un registro         |
+| `<after_line>`       | Después de cada línea de un registro       |
+| `<delimiter_line>`   | Entre las líneas de un registro            |
+
+```xml
+<tdc>
+    <env count="3" seed="demo">
+        <before><line><data>[</data></line></before>
+        <after><line><data>]</data></line></after>
+        <delimiter_block><line><data>,</data></line></delimiter_block>
+        <sequence name="Id"><gen type="increment" value="1"/></sequence>
+    </env>
+    <block>
+        <line><data>  {"id": ${{Id}}}</data></line>
+    </block>
+</tdc>
+```
+
+`./run array.tdc`
+
+```
+[
+  {"id": 1}
+,
+  {"id": 2}
+,
+  {"id": 3}
+]
+```
+
+El `[` y el `]` se imprimieron una sola vez cada uno, y la coma quedó **entre** registros
+pero no después del último: JSON válido. Una advertencia: **la interpolación no se ejecuta
+en las fixtures**, porque quedan fuera de la iteración por registro, así que un `${{...}}`
+dentro de una fixture no se sustituye. Los detalles del lado del registro están en
+[Salida y formato](output-formatting.md#top).
+
+### El orden de declaración importa
+
+Una [secuencia](sequences.md#top) hija —una que tiene `parent="…"`— debe declararse
+**después** de su padre en `<env>`. El motor resuelve las dependencias de arriba hacia
+abajo, así que una hija que aparece primero no tiene padre contra el cual filtrar. El
+modelo completo está en
+**[Dependencias jerárquicas](../guides/hierarchical-dependencies.md#top)**.
+
+### `<env>` no puede autocerrarse
+
+Escribir `<env … />` es el error `TDC014`:
+
+`./run selfclose.tdc`
+
+```
+error[TDC014]: <env> must not be self-closing — write <env> ... </env>
+```
+
+Es una protección contra un bug de datos silencioso: un `<env>` autocerrado descartaba
+tanto `count` como `seed`, de modo que una configuración que pedía tres registros con seed
+producía calladamente diez con un seed aleatorio. Use siempre la forma completa
+`<env> … </env>`.
+
+## Siguiente
+
+- **[Secuencias](sequences.md#top)** — declarar las columnas de sus datos.
+- **[Salida y formato](output-formatting.md#top)** — `<block>`, `<line>`, `<data>` y `${{…}}`.
+- **[Determinismo y proporciones](determinism.md#top)** — `seed`, `count` y `percent`.
+
+---
+
+← Anterior: [Su primer conjunto de datos](../getting-started/first-data.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Secuencias](./sequences.md#top) →

@@ -1,0 +1,7 @@
+---
+address: south_africa.phone
+description: South African mobile phone in E.164 form (+27 6/7/8 + 8 digits)
+generator: tdc
+locale: en
+---
+<gen type="regex" value="\+27[678][0-9]{8}"/>

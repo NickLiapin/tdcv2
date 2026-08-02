@@ -1,0 +1,21 @@
+---
+description: Official document type (Italian)
+locale: it
+---
+Passaporto
+Certificato di nascita
+Certificato di matrimonio
+Certificato di morte
+Patente di guida
+Carta d'identità
+Codice fiscale
+Tessera elettorale
+Dichiarazione dei redditi
+Permesso di costruire
+Licenza commerciale
+Visto
+Certificato di residenza
+Attestazione di domicilio
+Partita IVA
+Certificato di studi
+Certificato del casellario giudiziale

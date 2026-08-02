@@ -1,0 +1,11 @@
+---
+description: Trucking route type (Polish)
+locale: pl
+---
+Dalekobieżna
+Międzymiastowa
+Regionalna
+Lokalna
+Dedykowana
+Dwuosobowa obsada
+Ostatnia mila

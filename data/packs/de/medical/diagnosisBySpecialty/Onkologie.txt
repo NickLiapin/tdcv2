@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Oncology (German)
+locale: de
+---
+Brustkrebs
+Lungenkrebs
+Darmkrebs
+Prostatakrebs
+Leukämie
+Lymphom
+Melanom
+Magenkrebs
+Bauchspeicheldrüsenkrebs
+Nierenzellkarzinom

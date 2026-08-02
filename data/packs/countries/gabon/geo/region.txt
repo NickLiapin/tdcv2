@@ -1,0 +1,14 @@
+---
+address: gabon.geo.region
+description: Provinces of Gabon
+locale: fr
+---
+Estuaire
+Haut-Ogooué
+Moyen-Ogooué
+Ngounié
+Nyanga
+Ogooué-Ivindo
+Ogooué-Lolo
+Ogooué-Maritime
+Woleu-Ntem

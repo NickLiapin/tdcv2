@@ -1,0 +1,15 @@
+---
+address: chile.geo.postalCode
+description: Chilean código postal — 7 digits: the first three are a real Correos de Chile comuna code, the last four the manzana (block) inside it
+generator: tdc
+---
+<sequence name="comuna"><gen type="template" value="chile.geo.comunaPostalCode"/></sequence>
+<sequence name="manzana"><gen type="regex" value="[0-9]{4}"/></sequence>
+<sequence name="code"><compute>
+  <!-- Keep the real 3-digit comuna prefix, replace the block part. -->
+  <result><concat>
+    <slice from="0" to="3"><field name="comuna"/></slice>
+    <field name="manzana"/>
+  </concat></result>
+</compute></sequence>
+<data>${{code}}</data>

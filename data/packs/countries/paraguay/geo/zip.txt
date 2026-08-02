@@ -1,0 +1,6 @@
+---
+address: paraguay.geo.zip
+description: Paraguayan código postal in the traditional 4-digit form (NNNN, e.g. Asunción centre 1001, San Lorenzo 2160, Encarnación 6000). STRUCTURAL ONLY — Correo Paraguayo has since layered a 6-digit scheme on top, and the 4-digit codes were never published as a full validatable table, so this emits a plausible 1000-9999 code, not a looked-up one
+generator: tdc
+---
+<gen type="regex" value="[1-9][0-9]{3}"/>

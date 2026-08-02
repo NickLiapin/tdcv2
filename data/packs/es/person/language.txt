@@ -1,0 +1,44 @@
+---
+description: Language name (Spanish)
+locale: es
+---
+Español
+Inglés
+Portugués
+Francés
+Italiano
+Alemán
+Catalán
+Gallego
+Euskera
+Valenciano
+Quechua
+Guaraní
+Aimara
+Náhuatl
+Maya
+Mapudungun
+Zapoteco
+Mixteco
+Chino mandarín
+Hindi
+Árabe
+Ruso
+Japonés
+Coreano
+Neerlandés
+Sueco
+Noruego
+Danés
+Polaco
+Rumano
+Griego
+Turco
+Hebreo
+Vietnamita
+Tailandés
+Indonesio
+Suajili
+Persa
+Ucraniano
+Checo

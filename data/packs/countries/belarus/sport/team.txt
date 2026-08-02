@@ -1,0 +1,20 @@
+---
+address: belarus.sport.team
+description: Belarusian Premier League football clubs (Russian names)
+locale: ru
+---
+БАТЭ
+Динамо-Минск
+Шахтёр Солигорск
+Динамо-Брест
+Неман
+Славия-Мозырь
+Торпедо-БелАЗ
+Гомель
+Витебск
+Ислочь
+Энергетик-БГУ
+Нафтан
+Городея
+Слуцк
+Смолевичи

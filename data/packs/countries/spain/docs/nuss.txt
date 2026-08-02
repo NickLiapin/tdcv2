@@ -1,0 +1,35 @@
+---
+address: spain.docs.nuss
+description: Spanish Número de Afiliación a la Seguridad Social (NUSS/NAF) — 12 digits: 2-digit province of assignment + 8-digit sequential number + 2 control digits. The control is the remainder mod 97 of province·10^8 + sequential, or of province·10^7 + sequential when the sequential number is below 10 000 000.
+generator: tdc
+---
+<!-- Province where the number was assigned; the TGSS uses the INE codes. -->
+<sequence name="province"><gen type="template" value="spain.geo.provinceCode"/></sequence>
+<sequence name="serial"><gen type="regex" value="[0-9]{8}"/></sequence>
+<sequence name="nuss"><compute>
+  <!-- A sequential number below 10 000 000 is weighted by 10^7 rather than
+       10^8, i.e. its leading zero is dropped before the province is glued on;
+       above that the two blocks are simply concatenated. -->
+  <let name="base">
+    <choose>
+      <when>
+        <test><less_than><to_number><field name="serial"/></to_number><int v="10000000"/></less_than></test>
+        <then><concat><field name="province"/><slice from="1" to="8"><field name="serial"/></slice></concat></then>
+      </when>
+      <otherwise><concat><field name="province"/><field name="serial"/></concat></otherwise>
+    </choose>
+  </let>
+  <!-- Horner fold mod 97 over the digits. -->
+  <let name="rem">
+    <reduce>
+      <over><var name="base"/></over>
+      <init><int v="0"/></init>
+      <do><mod><add><multiply><acc/><int v="10"/></multiply><current/></add><int v="97"/></mod></do>
+    </reduce>
+  </let>
+  <result><concat>
+    <field name="province"/><field name="serial"/>
+    <pad width="2" fill="0"><var name="rem"/></pad>
+  </concat></result>
+</compute></sequence>
+<data>${{nuss}}</data>

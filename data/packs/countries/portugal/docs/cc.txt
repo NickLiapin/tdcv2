@@ -1,0 +1,7 @@
+---
+address: portugal.docs.cc
+description: Portuguese Citizen Card number (Cartão de Cidadão) — 8 digits + a check digit + 2 letters + a version check digit. Structure only; the official check algorithm is not reproduced here.
+generator: tdc
+locale: pt
+---
+<gen type="regex" value="[0-9]{8} [0-9] [A-Z]{2}[0-9]"/>

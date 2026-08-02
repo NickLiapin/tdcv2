@@ -1,0 +1,12 @@
+---
+description: Book format (Portuguese)
+locale: pt
+---
+Capa dura
+Capa mole
+Livro eletrônico
+Audiolivro
+Edição de bolso
+Edição brochada
+Edição ilustrada
+Edição de biblioteca

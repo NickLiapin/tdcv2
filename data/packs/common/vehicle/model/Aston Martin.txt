@@ -1,0 +1,8 @@
+---
+description: Models of Aston Martin
+locale: en
+---
+Vantage
+DB12
+DBX
+DBS

@@ -1,0 +1,10 @@
+---
+description: Conditions markedly more frequent in people of North African ancestry. A prevalence signal, not an exclusive one.
+locale: en
+---
+Glucose-6-Phosphate Dehydrogenase Deficiency
+Beta-Thalassemia Trait
+Familial Mediterranean Fever
+Behçet Disease
+Lactase Non-Persistence
+Xeroderma Pigmentosum

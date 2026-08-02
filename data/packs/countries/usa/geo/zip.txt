@@ -1,0 +1,6 @@
+---
+address: usa.geo.zip
+description: US ZIP code — 5 digits, real range (00501–99950), leading zeros kept
+generator: tdc
+---
+<gen type="number" value="501..99950" length="5" first_zero="true"/>

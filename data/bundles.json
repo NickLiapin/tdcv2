@@ -1,0 +1,954 @@
+{
+  "$comment": "Source manifest for the downloadable data-pack bundles. Language, country and 'common' are INDEPENDENT axes and compose — US English data = common + en + usa; Canadian French = common + fr + canada. Each bundle therefore names exactly ONE axis; never a language-country mash like 'en-us'. `scripts/build-data-packs.mjs` turns this into build/data-packs/ (zips + an index.json with computed sha256). `packs` paths are relative to this file's directory (data/).",
+  "bundles": [
+    {
+      "id": "common",
+      "name": "Common (locale-agnostic)",
+      "description": "Generators bound to neither a language nor a country: uuid, hashes, ISBN/ISSN, GTIN/UPC/EAN, card PANs, MRZ, IPv4/IPv6/MAC, semver, and more.",
+      "packs": ["packs/common"]
+    },
+    {
+      "id": "ar",
+      "name": "Arabic (language)",
+      "description": "Content bound to the Arabic language rather than to any one country: address, airline, animal, book, clothing, color, commerce, company, date, education, event, finance, and 23 more.",
+      "locale": "ar",
+      "packs": ["packs/ar"]
+    },
+    {
+      "id": "de",
+      "name": "German (language)",
+      "description": "Content bound to the German language rather than to any one country: address, airline, animal, book, clothing, color, commerce, company, date, education, event, finance, and 23 more.",
+      "locale": "de",
+      "packs": ["packs/de"]
+    },
+    {
+      "id": "el",
+      "name": "Greek (language)",
+      "description": "Content bound to the Greek language rather than to any one country: address, airline, animal, book, clothing, color, commerce, company, date, education, event, finance, and 23 more.",
+      "locale": "el",
+      "packs": ["packs/el"]
+    },
+    {
+      "id": "en",
+      "name": "English (language)",
+      "description": "Content bound to the English language, not to any one country: given names and surnames (US-frequency-weighted), gender words, country names. Shared by every English-speaking locale (USA, UK, Canada, Australia, …).",
+      "locale": "en",
+      "packs": ["packs/en"]
+    },
+    {
+      "id": "es",
+      "name": "Spanish (language)",
+      "description": "Content bound to the Spanish language, not to any one country: given names and the paternal+maternal surname pair, address wording, company legal forms, commerce and everyday vocabulary. Shared by every Spanish-speaking locale (Mexico, Argentina, Spain, Colombia, …).",
+      "locale": "es",
+      "packs": ["packs/es"]
+    },
+    {
+      "id": "fr",
+      "name": "French (language)",
+      "description": "Content bound to the French language rather than to any one country: address, airline, animal, book, clothing, color, commerce, company, date, education, event, finance, and 23 more.",
+      "locale": "fr",
+      "packs": ["packs/fr"]
+    },
+    {
+      "id": "it",
+      "name": "Italian (language)",
+      "description": "Content bound to the Italian language rather than to any one country: address, airline, animal, book, clothing, color, commerce, company, date, education, event, finance, and 23 more.",
+      "locale": "it",
+      "packs": ["packs/it"]
+    },
+    {
+      "id": "pl",
+      "name": "Polish (language)",
+      "description": "Content bound to the Polish language rather than to any one country: address, airline, animal, book, clothing, color, commerce, company, date, education, event, finance, and 23 more.",
+      "locale": "pl",
+      "packs": ["packs/pl"]
+    },
+    {
+      "id": "pt",
+      "name": "Portuguese (language)",
+      "description": "Content bound to the Portuguese language rather than to any one country: address, airline, animal, book, clothing, color, commerce, company, date, education, event, finance, and 23 more.",
+      "locale": "pt",
+      "packs": ["packs/pt"]
+    },
+    {
+      "id": "ru",
+      "name": "Russian (language)",
+      "description": "Content bound to the Russian language: given names, gendered surnames and patronymics, gender words, months and weekdays, colors, country names. Shared by every Russian-speaking locale.",
+      "locale": "ru",
+      "packs": ["packs/ru"]
+    },
+    {
+      "id": "algeria",
+      "name": "Algeria (country)",
+      "description": "Data specific to Algeria: docs, education, finance, geo, holiday, phone, sport, vehicle.",
+      "country": "algeria",
+      "regions": ["africa"],
+      "point": [3, 28],
+      "packs": ["packs/countries/algeria"]
+    },
+    {
+      "id": "angola",
+      "name": "Angola (country)",
+      "description": "Data specific to Angola: docs, education, finance, geo, holiday, phone, sport, vehicle.",
+      "country": "angola",
+      "regions": ["africa"],
+      "point": [17, -12],
+      "packs": ["packs/countries/angola"]
+    },
+    {
+      "id": "argentina",
+      "name": "Argentina (country)",
+      "description": "Data specific to Argentina: CUIT and CUIL, the CBU with both of its check digits, the 23 provinces and CABA with ISO codes, the CPA postal format whose leading letter is the province, cities, banks with their BCRA codes, universities, Primera División clubs, holidays and the Mercosur plate.",
+      "country": "argentina",
+      "regions": ["south"],
+      "point": [-64, -34],
+      "packs": ["packs/countries/argentina"]
+    },
+    {
+      "id": "australia",
+      "name": "Australia (country)",
+      "description": "Data specific to Australia: docs, education, finance, geo, holiday, phone, sport, tax, vehicle.",
+      "country": "australia",
+      "regions": ["oceania"],
+      "point": [134, -25],
+      "packs": ["packs/countries/australia"]
+    },
+    {
+      "id": "austria",
+      "name": "Austria (country)",
+      "description": "Data specific to Austria: education, finance, geo, holiday, phone, sport, tax, vehicle.",
+      "country": "austria",
+      "regions": ["europe"],
+      "point": [14, 47.5],
+      "packs": ["packs/countries/austria"]
+    },
+    {
+      "id": "bahrain",
+      "name": "Bahrain (country)",
+      "description": "Data specific to Bahrain: docs, education, finance, geo, holiday, phone, sport, vehicle.",
+      "country": "bahrain",
+      "regions": ["asia"],
+      "point": [50.5, 26],
+      "packs": ["packs/countries/bahrain"]
+    },
+    {
+      "id": "belarus",
+      "name": "Belarus (country)",
+      "description": "Data specific to Belarus: docs, education, finance, geo, holiday, phone, sport, vehicle.",
+      "country": "belarus",
+      "regions": ["europe"],
+      "point": [28, 53.5],
+      "packs": ["packs/countries/belarus"]
+    },
+    {
+      "id": "belgium",
+      "name": "Belgium (country)",
+      "description": "Data specific to Belgium: docs, education, finance, geo, holiday, phone, sport, tax, vehicle.",
+      "country": "belgium",
+      "regions": ["europe"],
+      "point": [4.5, 50.5],
+      "packs": ["packs/countries/belgium"]
+    },
+    {
+      "id": "benin",
+      "name": "Benin (country)",
+      "description": "Data specific to Benin: docs, education, finance, geo, holiday, phone, sport, vehicle.",
+      "country": "benin",
+      "regions": ["africa"],
+      "point": [2.3, 9.5],
+      "packs": ["packs/countries/benin"]
+    },
+    {
+      "id": "bolivia",
+      "name": "Bolivia (country)",
+      "description": "Data specific to Bolivia: docs, education, finance, geo, holiday, phone, sport, tax, vehicle.",
+      "country": "bolivia",
+      "regions": ["south"],
+      "point": [-64, -17],
+      "packs": ["packs/countries/bolivia"]
+    },
+    {
+      "id": "brazil",
+      "name": "Brazil (country)",
+      "description": "Data specific to Brazil: docs, education, finance, geo, holiday, phone, phoneAreaCode, sport, tax, vehicle.",
+      "country": "brazil",
+      "regions": ["south"],
+      "point": [-52, -10],
+      "packs": ["packs/countries/brazil"]
+    },
+    {
+      "id": "burkina_faso",
+      "name": "Burkina Faso (country)",
+      "description": "Data specific to Burkina Faso: docs, education, finance, geo, holiday, phone, sport, vehicle.",
+      "country": "burkina_faso",
+      "regions": ["africa"],
+      "point": [-1.7, 12.3],
+      "packs": ["packs/countries/burkina_faso"]
+    },
+    {
+      "id": "cameroon",
+      "name": "Cameroon (country)",
+      "description": "Data specific to Cameroon: docs, education, finance, geo, holiday, phone, sport, vehicle.",
+      "country": "cameroon",
+      "regions": ["africa"],
+      "point": [12.5, 6],
+      "packs": ["packs/countries/cameroon"]
+    },
+    {
+      "id": "canada",
+      "name": "Canada (country)",
+      "description": "Data specific to Canada: docs, education, finance, geo, holiday, phone, sport, tax, vehicle.",
+      "country": "canada",
+      "regions": ["north"],
+      "point": [-106, 58],
+      "packs": ["packs/countries/canada"]
+    },
+    {
+      "id": "cape_verde",
+      "name": "Cape Verde (country)",
+      "description": "Data specific to Cape Verde: docs, education, finance, geo, holiday, phone, sport.",
+      "country": "cape_verde",
+      "regions": ["africa"],
+      "point": [-24, 16],
+      "packs": ["packs/countries/cape_verde"]
+    },
+    {
+      "id": "chad",
+      "name": "Chad (country)",
+      "description": "Data specific to Chad: docs, education, finance, geo, holiday, phone, sport, vehicle.",
+      "country": "chad",
+      "regions": ["africa"],
+      "point": [19, 15],
+      "packs": ["packs/countries/chad"]
+    },
+    {
+      "id": "chile",
+      "name": "Chile (country)",
+      "description": "Data specific to Chile: RUT and RUN with the módulo-11 check character including K, the 16 regions with their roman, ISO and CUT codes, 345 comunas with their Correos de Chile codes, cities, banks with CMF codes, universities, Primera División clubs, holidays and the post-2007 plate alphabet.",
+      "country": "chile",
+      "regions": ["south"],
+      "point": [-71, -35],
+      "packs": ["packs/countries/chile"]
+    },
+    {
+      "id": "colombia",
+      "name": "Colombia (country)",
+      "description": "Data specific to Colombia: NIT with its mod-11 check digit, cédulas, the 32 departments and Bogotá with DANE and ISO codes, municipalities, postal codes drawn from the real department blocks, banks with their Banco de la República codes, universities, Categoría Primera A clubs, the holidays and which of them the Ley Emiliani moves to Monday, and the plate formats.",
+      "country": "colombia",
+      "regions": ["south"],
+      "point": [-73, 4],
+      "packs": ["packs/countries/colombia"]
+    },
+    {
+      "id": "comoros",
+      "name": "Comoros (country)",
+      "description": "Data specific to Comoros: education, finance, geo, holiday, phone.",
+      "country": "comoros",
+      "regions": ["africa"],
+      "point": [43.3, -11.7],
+      "packs": ["packs/countries/comoros"]
+    },
+    {
+      "id": "congo",
+      "name": "Congo (country)",
+      "description": "Data specific to Congo: docs, education, finance, geo, holiday, phone, sport, vehicle.",
+      "country": "congo",
+      "regions": ["africa"],
+      "point": [15.5, -1],
+      "packs": ["packs/countries/congo"]
+    },
+    {
+      "id": "costa_rica",
+      "name": "Costa Rica (country)",
+      "description": "Data specific to Costa Rica: docs, education, finance, geo, holiday, phone, sport, tax, vehicle.",
+      "country": "costa_rica",
+      "regions": ["north"],
+      "point": [-84, 10],
+      "packs": ["packs/countries/costa_rica"]
+    },
+    {
+      "id": "cuba",
+      "name": "Cuba (country)",
+      "description": "Data specific to Cuba: docs, education, finance, geo, holiday, phone, sport, vehicle.",
+      "country": "cuba",
+      "regions": ["north"],
+      "point": [-79, 21.5],
+      "packs": ["packs/countries/cuba"]
+    },
+    {
+      "id": "denmark",
+      "name": "Denmark (country)",
+      "description": "Data specific to Denmark: docs, education, finance, geo, holiday, phone, sport, tax, vehicle.",
+      "country": "denmark",
+      "regions": ["europe"],
+      "point": [10, 56],
+      "packs": ["packs/countries/denmark"]
+    },
+    {
+      "id": "djibouti",
+      "name": "Djibouti (country)",
+      "description": "Data specific to Djibouti: docs, education, finance, geo, holiday, phone, sport, vehicle.",
+      "country": "djibouti",
+      "regions": ["africa"],
+      "point": [42.6, 11.6],
+      "packs": ["packs/countries/djibouti"]
+    },
+    {
+      "id": "dominican_republic",
+      "name": "Dominican Republic (country)",
+      "description": "Data specific to Dominican Republic: docs, education, finance, geo, holiday, phone, sport, tax, vehicle.",
+      "country": "dominican_republic",
+      "regions": ["north"],
+      "point": [-70.7, 19],
+      "packs": ["packs/countries/dominican_republic"]
+    },
+    {
+      "id": "dr_congo",
+      "name": "Dr Congo (country)",
+      "description": "Data specific to Dr Congo: docs, education, finance, geo, holiday, phone, sport, vehicle.",
+      "country": "dr_congo",
+      "regions": ["africa"],
+      "point": [23, -3],
+      "packs": ["packs/countries/dr_congo"]
+    },
+    {
+      "id": "east_timor",
+      "name": "East Timor (country)",
+      "description": "Data specific to East Timor: docs, education, finance, geo, holiday, phone, sport.",
+      "country": "east_timor",
+      "regions": ["asia"],
+      "point": [125.7, -8.8],
+      "packs": ["packs/countries/east_timor"]
+    },
+    {
+      "id": "ecuador",
+      "name": "Ecuador (country)",
+      "description": "Data specific to Ecuador: docs, education, finance, geo, holiday, phone, sport, tax, vehicle.",
+      "country": "ecuador",
+      "regions": ["south"],
+      "point": [-78.5, -1.5],
+      "packs": ["packs/countries/ecuador"]
+    },
+    {
+      "id": "egypt",
+      "name": "Egypt (country)",
+      "description": "Data specific to Egypt: docs, education, finance, geo, holiday, phone, sport, vehicle.",
+      "country": "egypt",
+      "regions": ["africa"],
+      "point": [30, 27],
+      "packs": ["packs/countries/egypt"]
+    },
+    {
+      "id": "el_salvador",
+      "name": "El Salvador (country)",
+      "description": "Data specific to El Salvador: docs, education, finance, geo, holiday, phone, sport, tax, vehicle.",
+      "country": "el_salvador",
+      "regions": ["north"],
+      "point": [-88.9, 13.8],
+      "packs": ["packs/countries/el_salvador"]
+    },
+    {
+      "id": "equatorial_guinea",
+      "name": "Equatorial Guinea (country)",
+      "description": "Data specific to Equatorial Guinea: docs, education, finance, geo, holiday, phone, sport, vehicle.",
+      "country": "equatorial_guinea",
+      "regions": ["africa"],
+      "point": [10.5, 1.6],
+      "packs": ["packs/countries/equatorial_guinea"]
+    },
+    {
+      "id": "finland",
+      "name": "Finland (country)",
+      "description": "Data specific to Finland: docs, education, finance, geo, holiday, phone, sport, tax, vehicle.",
+      "country": "finland",
+      "regions": ["europe"],
+      "point": [26, 64],
+      "packs": ["packs/countries/finland"]
+    },
+    {
+      "id": "france",
+      "name": "France (country)",
+      "description": "Data specific to France: docs, education, finance, geo, holiday, phone, sport, tax, vehicle.",
+      "country": "france",
+      "regions": ["europe"],
+      "point": [2.5, 46.5],
+      "packs": ["packs/countries/france"]
+    },
+    {
+      "id": "gabon",
+      "name": "Gabon (country)",
+      "description": "Data specific to Gabon: docs, education, finance, geo, holiday, phone, sport, vehicle.",
+      "country": "gabon",
+      "regions": ["africa"],
+      "point": [11.8, -0.8],
+      "packs": ["packs/countries/gabon"]
+    },
+    {
+      "id": "germany",
+      "name": "Germany (country)",
+      "description": "Data specific to Germany: docs, education, finance, geo, holiday, phone, sport, tax, vehicle.",
+      "country": "germany",
+      "regions": ["europe"],
+      "point": [10.4, 51],
+      "packs": ["packs/countries/germany"]
+    },
+    {
+      "id": "greece",
+      "name": "Greece (country)",
+      "description": "Data specific to Greece: docs, education, finance, geo, holiday, phone, sport, tax, vehicle.",
+      "country": "greece",
+      "regions": ["europe"],
+      "point": [22, 39],
+      "packs": ["packs/countries/greece"]
+    },
+    {
+      "id": "guatemala",
+      "name": "Guatemala (country)",
+      "description": "Data specific to Guatemala: docs, education, finance, geo, holiday, phone, sport, tax, vehicle.",
+      "country": "guatemala",
+      "regions": ["north"],
+      "point": [-90.4, 15.7],
+      "packs": ["packs/countries/guatemala"]
+    },
+    {
+      "id": "guinea",
+      "name": "Guinea (country)",
+      "description": "Data specific to Guinea: docs, education, finance, geo, holiday, phone, sport, vehicle.",
+      "country": "guinea",
+      "regions": ["africa"],
+      "point": [-11, 10.5],
+      "packs": ["packs/countries/guinea"]
+    },
+    {
+      "id": "guinea_bissau",
+      "name": "Guinea Bissau (country)",
+      "description": "Data specific to Guinea Bissau: docs, education, finance, geo, holiday, phone, sport, vehicle.",
+      "country": "guinea_bissau",
+      "regions": ["africa"],
+      "point": [-15, 12],
+      "packs": ["packs/countries/guinea_bissau"]
+    },
+    {
+      "id": "haiti",
+      "name": "Haiti (country)",
+      "description": "Data specific to Haiti: docs, education, finance, geo, holiday, phone, sport, vehicle.",
+      "country": "haiti",
+      "regions": ["north"],
+      "point": [-72.5, 19],
+      "packs": ["packs/countries/haiti"]
+    },
+    {
+      "id": "honduras",
+      "name": "Honduras (country)",
+      "description": "Data specific to Honduras: docs, education, finance, geo, holiday, phone, sport, tax, vehicle.",
+      "country": "honduras",
+      "regions": ["north"],
+      "point": [-86.5, 14.8],
+      "packs": ["packs/countries/honduras"]
+    },
+    {
+      "id": "iraq",
+      "name": "Iraq (country)",
+      "description": "Data specific to Iraq: docs, education, finance, geo, holiday, phone, sport, vehicle.",
+      "country": "iraq",
+      "regions": ["asia"],
+      "point": [43.7, 33],
+      "packs": ["packs/countries/iraq"]
+    },
+    {
+      "id": "ireland",
+      "name": "Ireland (country)",
+      "description": "Data specific to Ireland: docs, education, finance, geo, holiday, phone, sport, tax, vehicle.",
+      "country": "ireland",
+      "regions": ["europe"],
+      "point": [-8, 53.3],
+      "packs": ["packs/countries/ireland"]
+    },
+    {
+      "id": "italy",
+      "name": "Italy (country)",
+      "description": "Data specific to Italy: docs, education, finance, geo, holiday, phone, sport, tax, vehicle.",
+      "country": "italy",
+      "regions": ["europe"],
+      "point": [12.5, 42.8],
+      "packs": ["packs/countries/italy"]
+    },
+    {
+      "id": "ivory_coast",
+      "name": "Ivory Coast (country)",
+      "description": "Data specific to Ivory Coast: docs, education, finance, geo, holiday, phone, sport, vehicle.",
+      "country": "ivory_coast",
+      "regions": ["africa"],
+      "point": [-5.5, 7.6],
+      "packs": ["packs/countries/ivory_coast"]
+    },
+    {
+      "id": "jordan",
+      "name": "Jordan (country)",
+      "description": "Data specific to Jordan: docs, education, finance, geo, holiday, phone, sport, vehicle.",
+      "country": "jordan",
+      "regions": ["asia"],
+      "point": [36.5, 31],
+      "packs": ["packs/countries/jordan"]
+    },
+    {
+      "id": "kazakhstan",
+      "name": "Kazakhstan (country)",
+      "description": "Data specific to Kazakhstan: docs, education, finance, geo, holiday, phone, sport, vehicle.",
+      "country": "kazakhstan",
+      "regions": ["asia"],
+      "point": [67, 48],
+      "packs": ["packs/countries/kazakhstan"]
+    },
+    {
+      "id": "kuwait",
+      "name": "Kuwait (country)",
+      "description": "Data specific to Kuwait: docs, education, finance, geo, holiday, phone, sport, vehicle.",
+      "country": "kuwait",
+      "regions": ["asia"],
+      "point": [47.6, 29.3],
+      "packs": ["packs/countries/kuwait"]
+    },
+    {
+      "id": "kyrgyzstan",
+      "name": "Kyrgyzstan (country)",
+      "description": "Data specific to Kyrgyzstan: docs, education, finance, geo, holiday, phone, sport, vehicle.",
+      "country": "kyrgyzstan",
+      "regions": ["asia"],
+      "point": [74.5, 41.3],
+      "packs": ["packs/countries/kyrgyzstan"]
+    },
+    {
+      "id": "lebanon",
+      "name": "Lebanon (country)",
+      "description": "Data specific to Lebanon: docs, education, finance, geo, holiday, phone, sport, vehicle.",
+      "country": "lebanon",
+      "regions": ["asia"],
+      "point": [35.9, 33.9],
+      "packs": ["packs/countries/lebanon"]
+    },
+    {
+      "id": "libya",
+      "name": "Libya (country)",
+      "description": "Data specific to Libya: docs, education, finance, geo, holiday, phone, sport, vehicle.",
+      "country": "libya",
+      "regions": ["africa"],
+      "point": [17, 27],
+      "packs": ["packs/countries/libya"]
+    },
+    {
+      "id": "liechtenstein",
+      "name": "Liechtenstein (country)",
+      "description": "Data specific to Liechtenstein: education, finance, geo, holiday, phone, sport, vehicle.",
+      "country": "liechtenstein",
+      "regions": ["europe"],
+      "point": [9.55, 47.15],
+      "packs": ["packs/countries/liechtenstein"]
+    },
+    {
+      "id": "luxembourg",
+      "name": "Luxembourg (country)",
+      "description": "Data specific to Luxembourg: docs, education, finance, geo, holiday, phone, sport, tax, vehicle.",
+      "country": "luxembourg",
+      "regions": ["europe"],
+      "point": [6.1, 49.8],
+      "packs": ["packs/countries/luxembourg"]
+    },
+    {
+      "id": "macau",
+      "name": "Macau (country)",
+      "description": "Data specific to Macau: docs, education, finance, geo, holiday, phone, sport, vehicle.",
+      "country": "macau",
+      "regions": ["asia"],
+      "point": [113.55, 22.2],
+      "packs": ["packs/countries/macau"]
+    },
+    {
+      "id": "madagascar",
+      "name": "Madagascar (country)",
+      "description": "Data specific to Madagascar: docs, education, finance, geo, holiday, phone, sport, vehicle.",
+      "country": "madagascar",
+      "regions": ["africa"],
+      "point": [46.8, -19],
+      "packs": ["packs/countries/madagascar"]
+    },
+    {
+      "id": "mali",
+      "name": "Mali (country)",
+      "description": "Data specific to Mali: docs, education, finance, geo, holiday, phone, sport, vehicle.",
+      "country": "mali",
+      "regions": ["africa"],
+      "point": [-3, 17.5],
+      "packs": ["packs/countries/mali"]
+    },
+    {
+      "id": "mauritania",
+      "name": "Mauritania (country)",
+      "description": "Data specific to Mauritania: docs, education, finance, geo, holiday, phone, sport.",
+      "country": "mauritania",
+      "regions": ["africa"],
+      "point": [-10.5, 20.5],
+      "packs": ["packs/countries/mauritania"]
+    },
+    {
+      "id": "mexico",
+      "name": "Mexico (country)",
+      "description": "Data specific to Mexico regardless of the language it is written in: CURP, RFC, NSS and clave de elector with real check digits, CLABE with its Banxico bank codes, states and their INEGI/ISO/RENAPO codes, municipalities, cities, postal codes, universities, holidays, sports teams, plates and the SAT tax regimes.",
+      "country": "mexico",
+      "regions": ["north"],
+      "point": [-102, 23.5],
+      "packs": ["packs/countries/mexico"]
+    },
+    {
+      "id": "monaco",
+      "name": "Monaco (country)",
+      "description": "Data specific to Monaco: education, finance, geo, holiday, phone, sport, vehicle.",
+      "country": "monaco",
+      "regions": ["europe"],
+      "point": [7.42, 43.74],
+      "packs": ["packs/countries/monaco"]
+    },
+    {
+      "id": "morocco",
+      "name": "Morocco (country)",
+      "description": "Data specific to Morocco: docs, education, finance, geo, holiday, phone, sport, vehicle.",
+      "country": "morocco",
+      "regions": ["africa"],
+      "point": [-6, 32],
+      "packs": ["packs/countries/morocco"]
+    },
+    {
+      "id": "mozambique",
+      "name": "Mozambique (country)",
+      "description": "Data specific to Mozambique: docs, education, finance, geo, holiday, phone, sport, vehicle.",
+      "country": "mozambique",
+      "regions": ["africa"],
+      "point": [35.5, -18],
+      "packs": ["packs/countries/mozambique"]
+    },
+    {
+      "id": "netherlands",
+      "name": "Netherlands (country)",
+      "description": "Data specific to Netherlands: docs, education, finance, geo, holiday, phone, sport, tax, vehicle.",
+      "country": "netherlands",
+      "regions": ["europe"],
+      "point": [5.5, 52.2],
+      "packs": ["packs/countries/netherlands"]
+    },
+    {
+      "id": "new_zealand",
+      "name": "New Zealand (country)",
+      "description": "Data specific to New Zealand: docs, education, finance, geo, holiday, phone, sport, tax, vehicle.",
+      "country": "new_zealand",
+      "regions": ["oceania"],
+      "point": [172, -41],
+      "packs": ["packs/countries/new_zealand"]
+    },
+    {
+      "id": "nicaragua",
+      "name": "Nicaragua (country)",
+      "description": "Data specific to Nicaragua: docs, education, finance, geo, holiday, phone, sport, tax, vehicle.",
+      "country": "nicaragua",
+      "regions": ["north"],
+      "point": [-85.2, 12.9],
+      "packs": ["packs/countries/nicaragua"]
+    },
+    {
+      "id": "niger",
+      "name": "Niger (country)",
+      "description": "Data specific to Niger: docs, education, finance, geo, holiday, phone, sport, vehicle.",
+      "country": "niger",
+      "regions": ["africa"],
+      "point": [9, 17.5],
+      "packs": ["packs/countries/niger"]
+    },
+    {
+      "id": "oman",
+      "name": "Oman (country)",
+      "description": "Data specific to Oman: docs, education, finance, geo, holiday, phone, sport, vehicle.",
+      "country": "oman",
+      "regions": ["asia"],
+      "point": [56, 21],
+      "packs": ["packs/countries/oman"]
+    },
+    {
+      "id": "palestine",
+      "name": "Palestine (country)",
+      "description": "Data specific to Palestine: docs, education, finance, geo, holiday, phone, sport, vehicle.",
+      "country": "palestine",
+      "regions": ["asia"],
+      "point": [35.2, 31.9],
+      "packs": ["packs/countries/palestine"]
+    },
+    {
+      "id": "panama",
+      "name": "Panama (country)",
+      "description": "Data specific to Panama: docs, education, finance, geo, holiday, phone, sport, tax, vehicle.",
+      "country": "panama",
+      "regions": ["north"],
+      "point": [-80.1, 8.5],
+      "packs": ["packs/countries/panama"]
+    },
+    {
+      "id": "paraguay",
+      "name": "Paraguay (country)",
+      "description": "Data specific to Paraguay: docs, education, finance, geo, holiday, phone, sport, tax, vehicle.",
+      "country": "paraguay",
+      "regions": ["south"],
+      "point": [-58, -23.4],
+      "packs": ["packs/countries/paraguay"]
+    },
+    {
+      "id": "peru",
+      "name": "Peru (country)",
+      "description": "Data specific to Peru: RUC with its weighted mod-11 check digit, DNI, the 25 first-level units with INEI ubigeo and ISO codes, all 196 provinces, cities, banks with BCRP codes, the CCI account shape, universities, Liga 1 clubs, holidays and the MTC plate layouts.",
+      "country": "peru",
+      "regions": ["south"],
+      "point": [-75, -9.2],
+      "packs": ["packs/countries/peru"]
+    },
+    {
+      "id": "poland",
+      "name": "Poland (country)",
+      "description": "Data specific to Poland: docs, education, finance, geo, holiday, phone, sport, tax, vehicle.",
+      "country": "poland",
+      "regions": ["europe"],
+      "point": [19.4, 52],
+      "packs": ["packs/countries/poland"]
+    },
+    {
+      "id": "portugal",
+      "name": "Portugal (country)",
+      "description": "Data specific to Portugal: docs, education, finance, geo, holiday, phone, sport, tax, vehicle.",
+      "country": "portugal",
+      "regions": ["europe"],
+      "point": [-8.2, 39.5],
+      "packs": ["packs/countries/portugal"]
+    },
+    {
+      "id": "puerto_rico",
+      "name": "Puerto Rico (country)",
+      "description": "Data specific to Puerto Rico: docs, education, finance, geo, holiday, phone, sport, tax, vehicle.",
+      "country": "puerto_rico",
+      "regions": ["north"],
+      "point": [-66.5, 18.2],
+      "packs": ["packs/countries/puerto_rico"]
+    },
+    {
+      "id": "qatar",
+      "name": "Qatar (country)",
+      "description": "Data specific to Qatar: docs, education, finance, geo, holiday, phone, sport, vehicle.",
+      "country": "qatar",
+      "regions": ["asia"],
+      "point": [51.2, 25.3],
+      "packs": ["packs/countries/qatar"]
+    },
+    {
+      "id": "russia",
+      "name": "Russia (country)",
+      "description": "Data specific to Russia regardless of language: cities and federal subjects, street names, universities, holidays, sports clubs. INN/SNILS/OGRN/KPP, bank BIK/account, license plate and phone are built-in checksum generators (russia.*).",
+      "country": "russia",
+      "regions": ["europe", "asia"],
+      "point": [60, 60],
+      "packs": ["packs/countries/russia"]
+    },
+    {
+      "id": "rwanda",
+      "name": "Rwanda (country)",
+      "description": "Data specific to Rwanda: docs, education, finance, geo, holiday, phone, sport, vehicle.",
+      "country": "rwanda",
+      "regions": ["africa"],
+      "point": [29.9, -2],
+      "packs": ["packs/countries/rwanda"]
+    },
+    {
+      "id": "san_marino",
+      "name": "San Marino (country)",
+      "description": "Data specific to San Marino: docs, education, finance, geo, holiday, phone, sport, vehicle.",
+      "country": "san_marino",
+      "regions": ["europe"],
+      "point": [12.46, 43.94],
+      "packs": ["packs/countries/san_marino"]
+    },
+    {
+      "id": "sao_tome_and_principe",
+      "name": "Sao Tome And Principe (country)",
+      "description": "Data specific to Sao Tome And Principe: docs, education, finance, geo, holiday, phone, sport.",
+      "country": "sao_tome_and_principe",
+      "regions": ["africa"],
+      "point": [6.6, 0.2],
+      "packs": ["packs/countries/sao_tome_and_principe"]
+    },
+    {
+      "id": "saudi_arabia",
+      "name": "Saudi Arabia (country)",
+      "description": "Data specific to Saudi Arabia: docs, education, finance, geo, holiday, phone, sport, tax, vehicle.",
+      "country": "saudi_arabia",
+      "regions": ["asia"],
+      "point": [45, 24],
+      "packs": ["packs/countries/saudi_arabia"]
+    },
+    {
+      "id": "senegal",
+      "name": "Senegal (country)",
+      "description": "Data specific to Senegal: docs, education, finance, geo, holiday, phone, sport, vehicle.",
+      "country": "senegal",
+      "regions": ["africa"],
+      "point": [-14.5, 14.5],
+      "packs": ["packs/countries/senegal"]
+    },
+    {
+      "id": "somalia",
+      "name": "Somalia (country)",
+      "description": "Data specific to Somalia: education, finance, geo, holiday, phone, sport.",
+      "country": "somalia",
+      "regions": ["africa"],
+      "point": [46, 5.5],
+      "packs": ["packs/countries/somalia"]
+    },
+    {
+      "id": "south_africa",
+      "name": "South Africa (country)",
+      "description": "Data specific to South Africa: docs, education, finance, geo, holiday, phone, sport, tax, vehicle.",
+      "country": "south_africa",
+      "regions": ["africa"],
+      "point": [25, -29],
+      "packs": ["packs/countries/south_africa"]
+    },
+    {
+      "id": "spain",
+      "name": "Spain (country)",
+      "description": "Data specific to Spain: DNI, NIE, CIF and NIF, the CCC and its ES IBAN, the social-security NUSS, the 17 autonomous communities and 50 provinces with their INE and ISO codes, municipalities, postal codes that encode the province, universities, LaLiga and Segunda clubs, holidays and the current plate format.",
+      "country": "spain",
+      "regions": ["europe"],
+      "point": [-3.7, 40.2],
+      "packs": ["packs/countries/spain"]
+    },
+    {
+      "id": "sudan",
+      "name": "Sudan (country)",
+      "description": "Data specific to Sudan: docs, education, finance, geo, holiday, phone, sport, vehicle.",
+      "country": "sudan",
+      "regions": ["africa"],
+      "point": [30, 15.5],
+      "packs": ["packs/countries/sudan"]
+    },
+    {
+      "id": "sweden",
+      "name": "Sweden (country)",
+      "description": "Data specific to Sweden: docs, education, finance, geo, holiday, phone, sport, tax, vehicle.",
+      "country": "sweden",
+      "regions": ["europe"],
+      "point": [15, 62],
+      "packs": ["packs/countries/sweden"]
+    },
+    {
+      "id": "switzerland",
+      "name": "Switzerland (country)",
+      "description": "Data specific to Switzerland: docs, education, finance, geo, holiday, phone, sport, vehicle.",
+      "country": "switzerland",
+      "regions": ["europe"],
+      "point": [8.2, 46.8],
+      "packs": ["packs/countries/switzerland"]
+    },
+    {
+      "id": "syria",
+      "name": "Syria (country)",
+      "description": "Data specific to Syria: docs, education, finance, geo, holiday, phone, sport, vehicle.",
+      "country": "syria",
+      "regions": ["asia"],
+      "point": [38, 35],
+      "packs": ["packs/countries/syria"]
+    },
+    {
+      "id": "tajikistan",
+      "name": "Tajikistan (country)",
+      "description": "Data specific to Tajikistan: docs, education, finance, geo, holiday, phone, sport, vehicle.",
+      "country": "tajikistan",
+      "regions": ["asia"],
+      "point": [71, 38.8],
+      "packs": ["packs/countries/tajikistan"]
+    },
+    {
+      "id": "togo",
+      "name": "Togo (country)",
+      "description": "Data specific to Togo: docs, education, finance, geo, holiday, phone, sport, vehicle.",
+      "country": "togo",
+      "regions": ["africa"],
+      "point": [1, 8.6],
+      "packs": ["packs/countries/togo"]
+    },
+    {
+      "id": "tunisia",
+      "name": "Tunisia (country)",
+      "description": "Data specific to Tunisia: docs, education, finance, geo, holiday, phone, sport, vehicle.",
+      "country": "tunisia",
+      "regions": ["africa"],
+      "point": [9.5, 34],
+      "packs": ["packs/countries/tunisia"]
+    },
+    {
+      "id": "uae",
+      "name": "Uae (country)",
+      "description": "Data specific to Uae: docs, education, finance, geo, holiday, phone, sport, vehicle.",
+      "country": "uae",
+      "regions": ["asia"],
+      "point": [54, 24],
+      "packs": ["packs/countries/uae"]
+    },
+    {
+      "id": "united_kingdom",
+      "name": "United Kingdom (country)",
+      "description": "Data specific to United Kingdom: docs, education, finance, geo, holiday, phone, sport, tax, vehicle.",
+      "country": "united_kingdom",
+      "regions": ["europe"],
+      "point": [-2, 54],
+      "packs": ["packs/countries/united_kingdom"]
+    },
+    {
+      "id": "uruguay",
+      "name": "Uruguay (country)",
+      "description": "Data specific to Uruguay: the cédula de identidad and RUT with their check digits, the 19 departments with ISO codes, cities, the whole banking sector with BCU numbers, universities, Primera División clubs, holidays and the Mercosur plate whose first letter is the registering department.",
+      "country": "uruguay",
+      "regions": ["south"],
+      "point": [-56, -32.8],
+      "packs": ["packs/countries/uruguay"]
+    },
+    {
+      "id": "usa",
+      "name": "Usa (country)",
+      "description": "Data specific to the USA regardless of the language it is written in: SSN/ITIN/EIN, ZIP codes, states, street names, ABA routing numbers, phone format, license plates.",
+      "country": "usa",
+      "regions": ["north"],
+      "point": [-98, 39],
+      "packs": ["packs/countries/usa"]
+    },
+    {
+      "id": "vatican_city",
+      "name": "Vatican City (country)",
+      "description": "Data specific to Vatican City: education, finance, geo, holiday, phone, sport, vehicle.",
+      "country": "vatican_city",
+      "regions": ["europe"],
+      "point": [12.45, 41.9],
+      "packs": ["packs/countries/vatican_city"]
+    },
+    {
+      "id": "venezuela",
+      "name": "Venezuela (country)",
+      "description": "Data specific to Venezuela: docs, education, finance, geo, holiday, phone, sport, tax, vehicle.",
+      "country": "venezuela",
+      "regions": ["south"],
+      "point": [-66, 7],
+      "packs": ["packs/countries/venezuela"]
+    },
+    {
+      "id": "yemen",
+      "name": "Yemen (country)",
+      "description": "Data specific to Yemen: docs, education, finance, geo, holiday, phone, sport.",
+      "country": "yemen",
+      "regions": ["asia"],
+      "point": [47, 15.5],
+      "packs": ["packs/countries/yemen"]
+    }
+  ]
+}

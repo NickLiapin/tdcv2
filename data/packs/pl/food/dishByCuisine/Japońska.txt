@@ -1,0 +1,13 @@
+---
+description: Dishes of Japanese cuisine (Polish)
+locale: pl
+---
+Sushi
+Ramen
+Tempura
+Udon
+Kurczak teriyaki
+Zupa miso
+Curry katsu
+Onigiri
+Sashimi

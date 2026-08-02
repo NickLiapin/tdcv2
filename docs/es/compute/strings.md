@@ -1,0 +1,477 @@
+<a name="top"></a>
+
+[English](../../compute/strings.md#top) · [Русский](../../ru/compute/strings.md#top) · **Español**
+
+← Anterior: [Listas e iteración](./lists.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Condicionales](./conditionals.md#top) →
+
+---
+
+# Strings y formato
+
+Estas etiquetas le dan forma a un **string** como un paso dentro de un cálculo. Viven
+dentro de [`<compute>`](overview.md#top), junto a [`<gen>`](../generators/overview.md#top) en
+una [`<sequence>`](../core-concepts/sequences.md#top), y leen otras secuencias con
+[`<field name="…"/>`](overview.md#top) — los mismos nombres que usaría en
+[`${{…}}`](../core-concepts/output-formatting.md#top).
+
+La mayoría de ellas (`mask`, `case`, `slice`, `replace`, `trim`, `group`) también están
+disponibles por otras dos vías: como atributo de [`<gen>`](../generators/overview.md#top)
+(`mask=` / `case=`) y como filtro de interpolación (`${{X | mask:…}}`). La guía
+[Máscaras y mayúsculas](../guides/masks-and-case.md#top) muestra esas rutas con salidas
+resueltas. Eche mano de la **etiqueta de compute** cuando el formato sea un paso dentro de
+un cálculo — por ejemplo, enmascarar un número y *después* ponerlo en mayúsculas antes de
+agregarle un dígito verificador. `<concat>`, `<str>` y `<pad>` existen **solo** como
+etiquetas de compute.
+
+> [!NOTE]
+> Las salidas de ejemplo de esta página son ilustrativas — los valores exactos pueden variar
+> según la versión del núcleo. Lo que importa es la forma de cada transformación. Los
+> ejemplos usan `order="sequential"` para que los valores de entrada se mantengan estables y
+> se repitan en orden.
+
+## Construcción y mayúsculas
+
+### `<concat>` — pegar partes en un string
+
+**Toma** cualquier cantidad de valores → **da** un string. Un número se vuelve sus dígitos en el camino.
+
+`<concat>` convierte cada hijo a string y los une **en orden y sin separador**. A
+diferencia de [`<add>`](arithmetic.md#top), esta es una operación de **strings**: `<concat>`
+de `"12"` y `"3"` da `"123"`, no `15`. Un hijo entero se escribe con sus dígitos
+decimales; un hijo de tipo **lista** primero hay que convertirlo en string con
+[`<join>`](lists.md#top).
+
+**Úselo cuando** arme un identificador a partir de piezas: un prefijo, un campo y un
+dígito verificador calculado.
+
+```xml
+<sequence name="Num"><gen type="number" value="100..999"/></sequence>
+<sequence name="Year"><gen type="number" value="20..24"/></sequence>
+<sequence name="Code">
+  <compute><result>
+    <concat><str v="ORD-"/><field name="Year"/><str v="-"/><field name="Num"/></concat>
+  </result></compute>
+</sequence>
+...
+<data>${{Code}}</data>
+```
+
+`./run order-code.tdc`
+
+```
+ORD-24-692
+ORD-21-695
+ORD-23-979
+ORD-24-326
+ORD-24-587
+```
+
+No hay separador integrado — los guiones son sus propios hijos `<str v="-"/>`. Agregar un
+dígito verificador calculado es el mismo movimiento: nombre el residuo con
+[`<let>`](overview.md#top) y luego péguelo (el entero se vuelve texto automáticamente).
+
+```xml
+<sequence name="Base"><gen type="number" value="1000..9999"/></sequence>
+<sequence name="Full">
+  <compute>
+    <let name="c"><mod><to_number><field name="Base"/></to_number><int v="7"/></mod></let>
+    <result><concat><field name="Base"/><str v="-"/><var name="c"/></concat></result>
+  </compute>
+</sequence>
+...
+<data>${{Full}}</data>
+```
+
+`./run check-digit.tdc`
+
+```
+5962-5
+4783-2
+6257-6
+2280-5
+6591-4
+```
+
+### `<str>` — un literal de string
+
+**Toma** nada; el texto vive en `v=` → **da** un string.
+
+`<str v="…"/>` es un string literal; el texto va en el atributo `v` (en TDC, las etiquetas
+no pueden contener texto entre `<tag>` y `</tag>`).
+
+**Úselo cuando** necesite un prefijo fijo, un separador dentro de `<concat>`, o caracteres
+de relleno — por ejemplo el `<str v="  "/>` que finge los espacios sobrantes en el ejemplo
+de `<trim>` de más abajo.
+
+### `<upper>` / `<lower>` / `<capitalize>` / `<title>` — mayúsculas y minúsculas
+
+**Toma** un string → **da** un string del mismo largo.
+
+Cuatro transformaciones de mayúsculas y minúsculas, cada una con un hijo de tipo string:
+
+| Etiqueta       | Hace                                                              |
+| :------------- | :---------------------------------------------------------------- |
+| `<upper>`      | TODO EN MAYÚSCULAS                                                |
+| `<lower>`      | todo en minúsculas                                                |
+| `<capitalize>` | **solo la primera** letra en mayúscula, el resto tal cual         |
+| `<title>`      | la primera letra de **cada palabra** en mayúscula, el resto tal cual |
+
+**Úselas cuando** los datos lleguen con mayúsculas y minúsculas mezcladas (distintas
+fuentes, importaciones) y necesite una sola forma consistente. El mismo string a través de
+las cuatro:
+
+```xml
+<sequence name="W"><gen type="text" value="iPhone FUNDA,maría JIMÉNEZ,ANA de la torre" order="sequential"/></sequence>
+<sequence name="U"><compute><result><upper><field name="W"/></upper></result></compute></sequence>
+<sequence name="L"><compute><result><lower><field name="W"/></lower></result></compute></sequence>
+<sequence name="C"><compute><result><capitalize><field name="W"/></capitalize></result></compute></sequence>
+<sequence name="T"><compute><result><title><field name="W"/></title></result></compute></sequence>
+...
+<data>${{W}}  ->  upper=${{U}} | lower=${{L}} | capitalize=${{C}} | title=${{T}}</data>
+```
+
+`./run case.tdc`
+
+```
+iPhone FUNDA     ->  upper=IPHONE FUNDA | lower=iphone funda | capitalize=IPhone FUNDA | title=IPhone FUNDA
+maría JIMÉNEZ    ->  upper=MARÍA JIMÉNEZ | lower=maría jiménez | capitalize=María JIMÉNEZ | title=María JIMÉNEZ
+ANA de la torre  ->  upper=ANA DE LA TORRE | lower=ana de la torre | capitalize=ANA de la torre | title=ANA De La Torre
+```
+
+`capitalize` toca únicamente el primerísimo carácter (`ANA de la torre` se queda casi igual
+— su primera `A` ya está en mayúscula), mientras que `title` levanta la primera letra de
+**cada** palabra (`de` → `De`, `torre` → `Torre`). `upper` / `lower` cambian todo. Las
+letras acentuadas se transforman igual que las demás: `É` ↔ `é`, `Í` ↔ `í`.
+
+## Reestructuración
+
+Estas cinco etiquetas reacomodan los caracteres de un string. Todas están disponibles
+también como filtros `${{X | …}}` (vea [Máscaras y mayúsculas](../guides/masks-and-case.md#top));
+la forma de etiqueta de compute que se muestra aquí es la que se usa cuando el reacomodo es
+un paso dentro de un cálculo.
+
+### `<mask>` — dividir y reacomodar según un patrón
+
+**Toma** un string más `pattern=` → **da** un string. No se inventa nada: cada carácter del resultado o vino de la entrada o es un literal del patrón.
+
+`<mask pattern="…">` reconstruye un string según un patrón posicional: corre de izquierda
+a derecha, cada **ranura** se come un pedazo de la entrada, y todo lo demás se imprime
+como literal.
+
+| Ranura           | Toma de la entrada                                              |
+| :--------------- | :--------------------------------------------------------------- |
+| `x`              | un carácter                                                      |
+| `w`              | una palabra (letras hasta un espacio) y **se traga un** espacio  |
+| `*`              | toda la entrada restante                                         |
+| `\`              | escapa el siguiente carácter (`\x` → una `x` literal)            |
+| cualquier otra cosa | un literal: guion, punto, espacio, corchetes — se imprime tal cual |
+
+`pattern` es el único atributo (y es obligatorio). Una máscara es **tolerante y nunca
+falla**: si `x` / `w` se pasan del final de la entrada no imprimen nada, y cualquier cola
+sobrante se descarta a menos que un `*` la recoja.
+
+**Úselo cuando** un valor llegue como un solo string pegado y usted necesite grupos y
+separadores — un número de seguro social, un número de tarjeta, un teléfono. Los mismos
+dígitos bajo un patrón:
+
+```xml
+<sequence name="Raw"><gen type="text" value="378984323,889735724,852139753,263243158" order="sequential"/></sequence>
+<sequence name="Masked">
+  <compute><result><mask pattern="xxx-xx-xxxx"><field name="Raw"/></mask></result></compute>
+</sequence>
+...
+<data>${{Raw}}  ->  ${{Masked}}</data>
+```
+
+`./run mask-ssn.tdc`
+
+```
+378984323  ->  378-98-4323
+889735724  ->  889-73-5724
+852139753  ->  852-13-9753
+263243158  ->  263-24-3158
+```
+
+Cada `x` toma un carácter; `-` y el espacio son literales — el patrón se lee
+`xxx-xx-xxxx`.
+
+**La ranura `w` — trabajar por palabras.** `w` agarra una palabra y se traga el espacio
+que va después, así que no queda ninguna sangría suelta:
+
+```xml
+<sequence name="Full"><gen type="text" value="juan miguel molina,maría jimena rojas,ana de la torre" order="sequential"/></sequence>
+<sequence name="First">
+  <compute><result><mask pattern="w: *"><field name="Full"/></mask></result></compute>
+</sequence>
+...
+<data>${{Full}}  ->  ${{First}}</data>
+```
+
+`./run mask-word.tdc`
+
+```
+juan miguel molina  ->  juan: miguel molina
+maría jimena rojas  ->  maría: jimena rojas
+ana de la torre     ->  ana: de la torre
+```
+
+La primera `w` toma `juan` y se come el espacio que le sigue, se imprime el literal `: `,
+y `*` barre con el resto. No hay espacio antes del `:` — la `w` se lo tragó.
+
+**Escapar — una `w` literal.** Para imprimir un carácter de ranura tal cual, escápelo con
+`\`:
+
+```xml
+<sequence name="Num"><gen type="text" value="1234,5678,9012" order="sequential"/></sequence>
+<sequence name="Tagged">
+  <compute><result><mask pattern="\w-xxxx"><field name="Num"/></mask></result></compute>
+</sequence>
+...
+<data>${{Num}}  ->  ${{Tagged}}</data>
+```
+
+`./run mask-escape.tdc`
+
+```
+1234  ->  w-1234
+5678  ->  w-5678
+9012  ->  w-9012
+```
+
+`\w` es la letra `w` literal (no una ranura), luego el `-` literal, y luego cuatro `x`
+toman cuatro caracteres.
+
+### `<slice>` — substring por índices
+
+**Toma** un string más `from=` y un `to=` opcional → **da** un string. La cuenta empieza en 0, un `from` negativo cuenta desde el final, y un rango más allá del final da un string vacío en vez de un error.
+
+`<slice from="…" to="…">` corta un substring sobre el rango semiabierto `[from, to)`: el
+carácter en `from` se incluye, el carácter en `to` no — así que la longitud es
+`to − from`. Los índices **empiezan en cero** y se cuentan en **puntos de código** (de modo
+que Unicode se corta por letras, no por bytes).
+
+| Atributo  | Obligatorio | Define                                                     |
+| :-------- | :---------- | :---------------------------------------------------------- |
+| `from`    | sí          | índice del primer carácter (empieza en cero), incluido      |
+| `to`      | no          | índice justo después del último carácter; si se omite → hasta el final |
+
+**Úselo cuando** necesite una parte fija de un valor — el año o el mes de una fecha, el
+prefijo de un código, los últimos caracteres de un identificador.
+
+```xml
+<sequence name="D"><gen type="text" value="2020-05-14,2022-11-03,2020-01-30,2021-07-19" order="sequential"/></sequence>
+<sequence name="Year"><compute><result><slice from="0" to="4"><field name="D"/></slice></result></compute></sequence>
+<sequence name="Month"><compute><result><slice from="5" to="7"><field name="D"/></slice></result></compute></sequence>
+<sequence name="Tail"><compute><result><slice from="5"><field name="D"/></slice></result></compute></sequence>
+...
+<data>${{D}}  ->  year=${{Year}} | month=${{Month}} | tail=${{Tail}}</data>
+```
+
+`./run slice.tdc`
+
+```
+2020-05-14  ->  year=2020 | month=05 | tail=05-14
+2022-11-03  ->  year=2022 | month=11 | tail=11-03
+2020-01-30  ->  year=2020 | month=01 | tail=01-30
+2021-07-19  ->  year=2021 | month=07 | tail=07-19
+```
+
+`from=0 to=4` toma los caracteres 0–3 (el año); `from=5 to=7` toma 5–6 (el mes — el guion
+en el índice 4 no se incluye); `from=5` sin `to` corre del índice 5 hasta el final.
+
+### `<replace>` — reemplazar todas las apariciones
+
+**Toma** un string más `from=` y `to=` → **da** un string. `from=` se compara **literalmente**, no como expresión regular, y se reemplazan **todas** las apariciones.
+
+`<replace from="…" to="…">` reemplaza **todas** las apariciones del substring literal
+`from` por `to`. Ambos son strings simples, no expresiones regulares — lo que usted
+escriba se busca tal cual. Si `from` está vacío, o no se encuentra, el string se devuelve
+sin cambios.
+
+| Atributo  | Obligatorio | Define                            |
+| :-------- | :---------- | :-------------------------------- |
+| `from`    | sí          | qué buscar (literal)              |
+| `to`      | sí          | con qué reemplazarlo              |
+
+**Úselo cuando** necesite cambiar un separador (guion → diagonal en una fecha) o quitar un
+carácter por completo (`to=""` elimina cada coincidencia):
+
+```xml
+<sequence name="D"><gen type="text" value="2020-05-14,2022-11-03,2020-01-30,2021-07-19" order="sequential"/></sequence>
+<sequence name="Slashed"><compute><result><replace from="-" to="/"><field name="D"/></replace></result></compute></sequence>
+<sequence name="Bare"><compute><result><replace from="-" to=""><field name="D"/></replace></result></compute></sequence>
+...
+<data>${{D}}  ->  slash=${{Slashed}} | bare=${{Bare}}</data>
+```
+
+`./run replace.tdc`
+
+```
+2020-05-14  ->  slash=2020/05/14 | bare=20200514
+2022-11-03  ->  slash=2022/11/03 | bare=20221103
+2020-01-30  ->  slash=2020/01/30 | bare=20200130
+2021-07-19  ->  slash=2021/07/19 | bare=20210719
+```
+
+Se reemplazan **los dos** guiones, no solo el primero. Para reemplazar por posición en vez
+de por substring, use [`<mask>`](#reestructuración).
+
+### `<trim>` — quitar los espacios de las orillas
+
+**Toma** un string → **da** un string. Solo se tocan las orillas; los espacios de adentro se quedan.
+
+`<trim>` quita los espacios en blanco de **ambas orillas** de un string. Los espacios
+interiores se quedan intactos. No toma atributos.
+
+**Úselo cuando** los valores de un archivo o un CSV traigan espacios sobrantes en las
+orillas. Aquí los espacios se agregan a propósito (imitando datos de origen sucios) y los
+corchetes solo sirven para hacerlos visibles:
+
+```xml
+<sequence name="City"><gen type="text" value="Monterrey,Bogotá,Sevilla" order="sequential"/></sequence>
+<sequence name="Padded">
+  <compute><result><concat><str v="  "/><field name="City"/><str v="   "/></concat></result></compute>
+</sequence>
+<sequence name="Clean">
+  <compute><result><trim><field name="Padded"/></trim></result></compute>
+</sequence>
+...
+<data>[${{Padded}}]  ->  [${{Clean}}]</data>
+```
+
+`./run trim.tdc`
+
+```
+[  Monterrey   ]  ->  [Monterrey]
+[  Bogotá   ]  ->  [Bogotá]
+[  Sevilla   ]  ->  [Sevilla]
+```
+
+### `<group>` — agrupar caracteres desde la derecha
+
+**Toma** un string más `size=` y `sep=` → **da** un string. La agrupación va de derecha a izquierda, así que el grupo corto queda a la izquierda, como se escribe el dinero.
+
+`<group size="…" sep="…">` parte un string en grupos de `size` caracteres e inserta `sep`
+entre ellos. La agrupación corre **de derecha a izquierda**, así que el grupo corto
+(incompleto) queda a la **izquierda**, igual que con los separadores de miles. Un string
+más corto que un grupo se devuelve sin cambios (no se agrega separador).
+
+| Atributo  | Obligatorio | Por omisión | Define                        |
+| :-------- | :---------- | :---------- | :---------------------------- |
+| `size`    | no          | `3`         | tamaño del grupo (caracteres) |
+| `sep`     | no          | espacio `" "` | separador entre grupos      |
+
+**Úselo cuando** un número largo sea ilegible — dígitos de miles, bloques de una tarjeta,
+códigos largos:
+
+```xml
+<sequence name="N"><gen type="text" value="1234567,42,1000000,89150000" order="sequential"/></sequence>
+<sequence name="G3"><compute><result><group size="3"><field name="N"/></group></result></compute></sequence>
+<sequence name="G3d"><compute><result><group size="3" sep="-"><field name="N"/></group></result></compute></sequence>
+<sequence name="G4"><compute><result><group size="4"><field name="N"/></group></result></compute></sequence>
+...
+<data>${{N}}  ->  group3=${{G3}} | group3,-=${{G3d}} | group4=${{G4}}</data>
+```
+
+`./run group.tdc`
+
+```
+1234567   ->  group3=1 234 567 | group3,-=1-234-567 | group4=123 4567
+42        ->  group3=42 | group3,-=42 | group4=42
+1000000   ->  group3=1 000 000 | group3,-=1-000-000 | group4=100 0000
+89150000  ->  group3=89 150 000 | group3,-=89-150-000 | group4=8915 0000
+```
+
+Como la agrupación corre desde la derecha, `1234567` se parte como `1 234 567` — el `1`
+sobrante se queda a la izquierda. `group size="3"` da miles (con el separador de espacio
+por omisión), `sep="-"` define su propio separador, y `size="4"` se lee como bloques de
+tarjeta. Un `42` corto es más chico que un grupo, así que regresa tal cual. Para agrupar
+desde la **izquierda** o por posición, use [`<mask>`](#reestructuración).
+
+### `<pad>` — rellenar a la izquierda hasta un ancho fijo
+
+**Toma** un valor más `width=` y `fill=` → **da** un string. `width` es un mínimo: un valor que ya mide eso o más pasa intacto, nunca se recorta.
+
+`<pad width="…" fill="…">` convierte su hijo a string y le antepone `fill` por la
+**izquierda** hasta que el string alcanza `width`. Se comporta como `padStart`: si el
+string **ya mide al menos** `width`, se devuelve sin cambios — **no** hay truncamiento.
+
+| Atributo  | Por omisión | Define                                          |
+| :-------- | :---------- | :---------------------------------------------- |
+| `width`   | —           | ancho objetivo del string                       |
+| `fill`    | `"0"`       | el carácter que se antepone por la izquierda    |
+
+**Úselo cuando** un identificador necesite un ancho fijo — un número de control, un código
+de artículo, un dígito verificador que debe ocupar dos lugares (`09`). Ceros a la
+izquierda hasta un ancho de 6:
+
+```xml
+<sequence name="Id"><gen type="number" value="1..9999"/></sequence>
+<sequence name="Padded"><compute><result><pad width="6"><field name="Id"/></pad></result></compute></sequence>
+...
+<data>${{Id}}  ->  ${{Padded}}</data>
+```
+
+`./run pad.tdc`
+
+```
+1401  ->  001401
+3593  ->  003593
+7646  ->  007646
+6755  ->  006755
+4701  ->  004701
+```
+
+`fill` puede ser cualquier carácter, y un valor más largo que `width` se deja en paz:
+
+```xml
+<sequence name="P1"><compute><result><pad width="6"><str v="42"/></pad></result></compute></sequence>
+<sequence name="P2"><compute><result><pad width="6" fill="*"><str v="42"/></pad></result></compute></sequence>
+<sequence name="P3"><compute><result><pad width="4"><str v="1234567"/></pad></result></compute></sequence>
+...
+<data>zero=${{P1}} | fill*=${{P2}} | over=${{P3}}</data>
+```
+
+`./run pad-variants.tdc`
+
+```
+zero=000042 | fill*=****42 | over=1234567
+```
+
+`"42"` se rellena a un ancho de 6 con ceros o con asteriscos; `"1234567"` ya es más largo
+que `4`, así que pasa de largo — **sin truncamiento**. A diferencia de `mask` / `case` /
+`slice` / `group`, `<pad>` **no** tiene forma de filtro **ni** atributo de `<gen>` —
+funciona únicamente como etiqueta de compute.
+
+## El mismo comportamiento, de tres maneras
+
+El formato está disponible como etiqueta de compute, como atributo de
+[`<gen>`](../generators/overview.md#top) (`mask=` / `case=`) y como filtro de interpolación
+(`${{X | mask:…}}`) — con el mismo resultado. La guía
+[Máscaras y mayúsculas](../guides/masks-and-case.md#top) muestra cada ruta con salida real.
+Dónde vive cada etiqueta:
+
+| Operación                        | Filtro `${{X\|…}}` | Atributo de `<gen>` | Etiqueta de `<compute>`           |
+| :------------------------------- | :----------------: | :-----------------: | :-------------------------------- |
+| caso (`upper`…`title`)           | sí                 | `case=`             | [`<upper>` …](#construcción-y-mayúsculas) |
+| `mask`                           | sí                 | `mask=`             | [`<mask>`](#reestructuración)     |
+| `slice` / `replace` / `trim` / `group` | sí           | —                   | [`<slice>` …](#reestructuración)  |
+| `concat` / `str` / `pad`         | —                  | —                   | esta página (solo compute)        |
+
+Eche mano de la etiqueta de compute cuando el formato sea un **paso dentro de un
+cálculo**; eche mano del atributo o del filtro para un valor sencillo.
+
+## Vea también
+
+- **[Máscaras y mayúsculas](../guides/masks-and-case.md#top)** — las mismas operaciones como
+  filtros `${{X|…}}` y atributos de `<gen>`, con salidas resueltas.
+- **[Descripción general de compute](overview.md#top)** — cómo encajan `<compute>`, `<let>` y
+  `<field>`.
+- **[Aritmética](arithmetic.md#top)** — `<to_number>` / `<encode>` para pasar de texto a
+  números.
+- **[Listas e iteración](lists.md#top)** — `<join>` para convertir una lista en un string
+  antes de `<concat>`.
+
+---
+
+← Anterior: [Listas e iteración](./lists.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Condicionales](./conditionals.md#top) →

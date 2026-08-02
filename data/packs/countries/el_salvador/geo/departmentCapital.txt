@@ -1,0 +1,18 @@
+---
+address: el_salvador.geo.departmentCapital
+description: Capital (cabecera departamental) of each Salvadoran department; same order as el_salvador.geo.department
+---
+Ahuachapán
+Santa Ana
+Sonsonate
+Chalatenango
+Santa Tecla
+San Salvador
+Cojutepeque
+Zacatecoluca
+Sensuntepeque
+San Vicente
+Usulután
+San Miguel
+San Francisco Gotera
+La Unión

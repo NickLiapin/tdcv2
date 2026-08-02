@@ -1,0 +1,9 @@
+---
+description: Hotel star rating (Polish)
+locale: pl
+---
+1 gwiazdka
+2 gwiazdki
+3 gwiazdki
+4 gwiazdki
+5 gwiazdek

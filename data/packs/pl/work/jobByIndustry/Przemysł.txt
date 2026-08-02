@@ -1,0 +1,16 @@
+---
+description: Jobs in Manufacturing (Polish)
+locale: pl
+---
+Operator maszyn CNC
+Spawacz
+Tokarz
+Frezer
+Kontroler jakości
+Kierownik produkcji
+Monter
+Mechanik utrzymania ruchu
+Technolog produkcji
+Operator linii produkcyjnej
+Brygadzista
+Magazynier

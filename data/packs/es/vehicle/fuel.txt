@@ -1,0 +1,14 @@
+---
+description: Fuel type (Spanish)
+locale: es
+---
+Gasolina
+Diésel
+Eléctrico
+Híbrido
+Híbrido enchufable
+Hidrógeno
+Etanol
+Gas natural comprimido
+Gas licuado de petróleo
+Biodiésel

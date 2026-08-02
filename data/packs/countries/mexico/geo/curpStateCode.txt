@@ -1,0 +1,37 @@
+---
+address: mexico.geo.curpStateCode
+description: RENAPO 2-letter entity code used inside a CURP — the 32 federal entities in the same order as mexico.geo.state, plus NE (nacido en el extranjero)
+---
+AS
+BC
+BS
+CC
+CL
+CM
+CS
+CH
+DF
+DG
+GT
+GR
+HG
+JC
+MC
+MN
+MS
+NT
+NL
+OC
+PL
+QT
+QR
+SP
+SL
+SR
+TC
+TS
+TL
+VZ
+YN
+ZS
+NE

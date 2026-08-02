@@ -1,0 +1,21 @@
+---
+description: French thoroughfare type — goes BEFORE the street name (Rue de la Paix, Avenue Victor Hugo)
+locale: fr
+---
+Rue
+Avenue
+Boulevard
+Place
+Impasse
+Allée
+Chemin
+Quai
+Cours
+Passage
+Route
+Voie
+Square
+Rond-point
+Sentier
+Villa
+Esplanade

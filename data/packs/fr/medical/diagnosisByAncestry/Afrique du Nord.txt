@@ -1,0 +1,10 @@
+---
+description: Conditions in French markedly more frequent in people of North African ancestry. A prevalence signal, not an exclusive one.
+locale: fr
+---
+Déficit en glucose-6-phosphate déshydrogénase
+Trait bêta-thalassémique
+Fièvre méditerranéenne familiale
+Maladie de Behçet
+Non-persistance de la lactase
+Xeroderma pigmentosum

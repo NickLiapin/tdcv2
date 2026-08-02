@@ -1,0 +1,132 @@
+---
+address: uruguay.geo.city
+description: Uruguayan city or town — real localities, departmental capitals first and then the larger interior towns, roughly in descending size order
+locale: es
+---
+Montevideo
+Salto
+Ciudad de la Costa
+Paysandú
+Las Piedras
+Rivera
+Maldonado
+Tacuarembó
+Melo
+Mercedes
+Artigas
+Minas
+San José de Mayo
+Durazno
+Florida
+Barros Blancos
+Ciudad del Plata
+San Carlos
+Pando
+Fray Bentos
+Colonia del Sacramento
+Trinidad
+Rocha
+Treinta y Tres
+Punta del Este
+Progreso
+La Paz
+Young
+Dolores
+Bella Unión
+Sarandí Grande
+Rosario
+Carmelo
+Nueva Helvecia
+Juan Lacaze
+Paso de los Toros
+Canelones
+Santa Lucía
+Libertad
+Toledo
+Sauce
+Piriápolis
+San Ramón
+Vergara
+Río Branco
+Chuy
+Castillos
+Lascano
+Aiguá
+Guichón
+Tranqueras
+Vichadero
+Santa Clara de Olimar
+José Pedro Varela
+Cardona
+Palmitas
+Nueva Palmira
+Tarariras
+Ombúes de Lavalle
+Florencio Sánchez
+Migues
+Tala
+Empalme Olmos
+Salinas
+Atlántida
+Parque del Plata
+La Floresta
+Ecilda Paullier
+Rodríguez
+Baltasar Brum
+Tomás Gomensoro
+Constitución
+Belén
+San Gregorio de Polanco
+Curtina
+Aceguá
+Isidoro Noblía
+Fraile Muerto
+Cerro Chato
+Sarandí del Yí
+Villa del Carmen
+Blanquillo
+Ismael Cortinas
+Nico Pérez
+Batlle y Ordóñez
+Solís de Mataojo
+Pan de Azúcar
+Garzón
+La Paloma
+Velázquez
+Cebollatí
+Paso de los Mellizos
+Nuevo Berlín
+San Javier
+Quebracho
+Porvenir
+Chapicuy
+Termas del Daymán
+Villa Constitución
+Colonia Valdense
+Colonia Suiza
+Conchillas
+Riachuelo
+Santa Ana
+Villa Soriano
+Agraciada
+Delta del Tigre
+Puntas de Valdez
+Playa Pascual
+Joaquín Suárez
+Santa Rosa
+San Bautista
+San Antonio
+Casupá
+Cerro Colorado
+25 de Mayo
+25 de Agosto
+Fray Marcos
+Paso Carrasco
+Colonia Nicolich
+Solymar
+Lagomar
+Shangrilá
+El Pinar
+Neptunia
+Marindia
+Villa Argentina

@@ -1,0 +1,14 @@
+---
+description: Conditions in French markedly more frequent in people of Northern European ancestry. A prevalence signal, not an exclusive one.
+locale: fr
+---
+Mucoviscidose
+Hémochromatose héréditaire
+Déficit en alpha-1 antitrypsine
+Phénylcétonurie
+Maladie cœliaque
+Sclérose en plaques
+Diabète de type 1
+Maladie de Dupuytren
+Carcinome basocellulaire
+Persistance de la lactase

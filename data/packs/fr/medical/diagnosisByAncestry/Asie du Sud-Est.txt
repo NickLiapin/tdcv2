@@ -1,0 +1,11 @@
+---
+description: Conditions in French markedly more frequent in people of Southeast Asian ancestry. A prevalence signal, not an exclusive one.
+locale: fr
+---
+Hémoglobinose E
+Alpha-thalassémie
+Déficit en glucose-6-phosphate déshydrogénase
+Carcinome du nasopharynx
+Bêta-thalassémie
+Syndrome de Brugada
+Non-persistance de la lactase

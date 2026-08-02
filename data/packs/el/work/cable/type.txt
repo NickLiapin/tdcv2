@@ -1,0 +1,13 @@
+---
+description: Cable type (telecom / networking) (Greek)
+locale: el
+---
+Οπτική ίνα
+Ομοαξονικό
+Συνεστραμμένο ζεύγος
+Cat5e
+Cat6
+Cat6a
+Ethernet
+Εναέριο
+Υπόγειο

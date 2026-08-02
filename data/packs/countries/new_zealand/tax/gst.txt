@@ -1,0 +1,8 @@
+---
+address: new_zealand.tax.gst
+description: New Zealand GST registration number — in New Zealand a business registers for GST under its IRD number, so a GST number IS an IRD number (9 digits, mod-11 checked). This aliases new_zealand.docs.ird.
+generator: tdc
+locale: en
+---
+<sequence name="gst"><gen type="template" value="new_zealand.docs.ird"/></sequence>
+<data>${{gst}}</data>

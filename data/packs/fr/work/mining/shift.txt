@@ -1,0 +1,12 @@
+---
+description: Work shift (French)
+locale: fr
+---
+Matin
+Après-midi
+Nuit
+Journée
+Poste 3x8
+Poste 2x8
+Roulement
+Week-end

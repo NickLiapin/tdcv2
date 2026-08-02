@@ -1,0 +1,13 @@
+---
+address: bahrain.education.university
+description: Universities of Bahrain (Arabic)
+locale: ar
+---
+جامعة البحرين
+الجامعة الأهلية
+جامعة الخليج العربي
+بوليتكنك البحرين
+الجامعة الملكية للبنات
+كلية البحرين للمعلمين
+جامعة العلوم التطبيقية
+كلية الخليج الجامعية

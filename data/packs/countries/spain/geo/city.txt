@@ -1,0 +1,232 @@
+---
+address: spain.geo.city
+description: Spanish municipio — real municipalities, roughly in descending population order (INE padrón)
+locale: es
+---
+Madrid
+Barcelona
+Valencia
+Sevilla
+Zaragoza
+Málaga
+Murcia
+Palma
+Las Palmas de Gran Canaria
+Alicante
+Bilbao
+Córdoba
+Valladolid
+Vitoria-Gasteiz
+A Coruña
+Granada
+Elche
+Oviedo
+Badalona
+Cartagena
+Terrassa
+Jerez de la Frontera
+Sabadell
+Santa Cruz de Tenerife
+Móstoles
+Alcalá de Henares
+Pamplona
+Fuenlabrada
+Almería
+San Sebastián
+Leganés
+Santander
+Burgos
+Castellón de la Plana
+Getafe
+Albacete
+Alcorcón
+San Cristóbal de La Laguna
+Logroño
+Badajoz
+Salamanca
+Huelva
+Marbella
+Lleida
+Tarragona
+Dos Hermanas
+Torrejón de Ardoz
+Parla
+Mataró
+Algeciras
+León
+Cádiz
+Jaén
+Ourense
+Reus
+Telde
+Barakaldo
+Santiago de Compostela
+Lugo
+San Fernando
+Girona
+Cáceres
+Lorca
+Coslada
+Talavera de la Reina
+El Puerto de Santa María
+Cornellà de Llobregat
+Avilés
+Palencia
+Guadalajara
+Toledo
+Pontevedra
+Ciudad Real
+Zamora
+Manresa
+Torrevieja
+Chiclana de la Frontera
+Roquetas de Mar
+Rubí
+Benidorm
+Alcalá de Guadaíra
+Ferrol
+Vigo
+Gijón
+Elda
+Mérida
+Cuenca
+Segovia
+Ávila
+Soria
+Teruel
+Huesca
+Melilla
+Ceuta
+Arrecife
+Puerto del Rosario
+Ibiza
+Mahón
+Sant Cugat del Vallès
+Vilanova i la Geltrú
+Granollers
+Igualada
+Vic
+Figueres
+Blanes
+Lloret de Mar
+Salou
+Cambrils
+Tortosa
+El Vendrell
+Sitges
+Castelldefels
+Gavà
+Viladecans
+El Prat de Llobregat
+Sant Boi de Llobregat
+L'Hospitalet de Llobregat
+Santa Coloma de Gramenet
+Cerdanyola del Vallès
+Mollet del Vallès
+Sant Feliu de Llobregat
+Esplugues de Llobregat
+Alcoy
+Torrent
+Gandía
+Sagunto
+Paterna
+Mislata
+Burjassot
+Xàtiva
+Ontinyent
+Dénia
+Xàbia
+Villena
+Petrer
+Novelda
+Orihuela
+Alzira
+Vila-real
+Vinaròs
+Requena
+Utiel
+Antequera
+Ronda
+Estepona
+Fuengirola
+Torremolinos
+Benalmádena
+Vélez-Málaga
+Mijas
+Motril
+Baza
+Guadix
+Loja
+Écija
+Utrera
+Carmona
+Morón de la Frontera
+Lebrija
+Osuna
+Andújar
+Linares
+Úbeda
+Baeza
+Martos
+Puertollano
+Tomelloso
+Alcázar de San Juan
+Valdepeñas
+Manzanares
+Almansa
+Villarrobledo
+Hellín
+Aranda de Duero
+Miranda de Ebro
+Ponferrada
+Astorga
+Benavente
+Medina del Campo
+Laguna de Duero
+Arévalo
+Béjar
+Plasencia
+Don Benito
+Villanueva de la Serena
+Almendralejo
+Zafra
+Mieres
+Langreo
+Siero
+Llanes
+Torrelavega
+Castro-Urdiales
+Laredo
+Irún
+Errenteria
+Eibar
+Getxo
+Portugalete
+Santurtzi
+Basauri
+Durango
+Amorebieta-Etxano
+Tudela
+Estella
+Tafalla
+Calahorra
+Arnedo
+Haro
+Calatayud
+Ejea de los Caballeros
+Utebo
+Monzón
+Barbastro
+Jaca
+Alcañiz
+Vilagarcía de Arousa
+Redondela
+Cangas
+Marín
+Narón
+Ribeira
+Carballo
+Monforte de Lemos
+Vilalba
+Verín
+O Barco de Valdeorras

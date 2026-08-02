@@ -1,0 +1,16 @@
+---
+address: gabon.holiday
+description: Public holidays in Gabon (French names; civil, Christian and Muslim)
+locale: fr
+---
+Jour de l'An
+Lundi de Pâques
+Fête du Travail
+Ascension
+Lundi de Pentecôte
+Fête de l'Indépendance
+Assomption
+Toussaint
+Noël
+Aïd el-Fitr
+Aïd el-Kébir

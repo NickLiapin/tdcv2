@@ -1,0 +1,11 @@
+---
+address: cape_verde.education.university
+description: Universities and higher-education institutions of Cape Verde (Portuguese names)
+locale: pt
+---
+Universidade de Cabo Verde
+Universidade Jean Piaget de Cabo Verde
+Universidade Lusófona de Cabo Verde
+Universidade do Mindelo
+Instituto Superior de Ciências Económicas e Empresariais
+Universidade Intercontinental de Cabo Verde

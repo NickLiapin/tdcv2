@@ -1,0 +1,11 @@
+---
+description: Trucking route type
+locale: en
+---
+Over-the-Road
+Long-Haul
+Regional
+Local
+Dedicated
+Team
+Last-Mile

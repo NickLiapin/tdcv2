@@ -1,0 +1,10 @@
+---
+description: Jobs in Retail
+locale: en
+---
+Store Manager
+Cashier
+Retail Associate
+Merchandiser
+Loss Prevention Officer
+Buyer

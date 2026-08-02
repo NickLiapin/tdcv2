@@ -1,0 +1,30 @@
+---
+description: Book genre (Polish)
+locale: pl
+---
+Fikcja literacka
+Literatura faktu
+Kryminał
+Thriller
+Romans
+Fantastyka naukowa
+Fantasy
+Horror
+Biografia
+Historia
+Poradnik
+Poezja
+Literatura młodzieżowa
+Powieść historyczna
+Czarny kryminał
+Powieść przygodowa
+Wspomnienia
+Filozofia
+Literatura podróżnicza
+Książka kucharska
+Powieść graficzna
+Dystopia
+Esej
+Opowiadanie
+Realizm magiczny
+Literatura dziecięca

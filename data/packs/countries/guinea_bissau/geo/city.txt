@@ -1,0 +1,23 @@
+---
+address: guinea_bissau.geo.city
+description: Cities and towns of Guinea-Bissau (Portuguese names)
+locale: pt
+---
+Bissau
+Bafatá
+Gabú
+Canchungo
+Mansôa
+Buba
+Catió
+Farim
+Quinhámel
+Bolama
+Bubaque
+Cacheu
+São Domingos
+Fulacunda
+Empada
+Bissorã
+Bigene
+Contuboel

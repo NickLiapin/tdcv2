@@ -1,0 +1,17 @@
+---
+address: lebanon.sport.team
+description: Lebanese Premier League football clubs (Arabic)
+locale: ar
+---
+النجمة
+الأنصار
+العهد
+الصفاء
+الحكمة
+السلام زغرتا
+طرابلس
+شباب الساحل
+النبي شيت
+الإخاء الأهلي عاليه
+بيروت
+البرج

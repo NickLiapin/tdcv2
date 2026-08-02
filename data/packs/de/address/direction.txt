@@ -1,0 +1,19 @@
+---
+description: Directional qualifier appended to a German street name or district (Ringstraße Nord, Bahnhofstraße West)
+locale: de
+---
+Nord
+Süd
+Ost
+West
+Nordost
+Nordwest
+Südost
+Südwest
+Mitte
+Norden
+Süden
+Osten
+Westen
+Zentrum
+Innenstadt

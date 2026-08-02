@@ -1,0 +1,13 @@
+---
+description: Payment status
+locale: en
+---
+Pending
+Authorized
+Paid
+Failed
+Refunded
+Partially Refunded
+Chargeback
+Voided
+Declined

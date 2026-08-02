@@ -1,0 +1,7 @@
+---
+address: qatar.docs.qid
+description: Qatar ID (الرقم الشخصي) — 11 digits: a leading 2 or 3 (century of birth) + 10 digits. Structural; no public check digit.
+generator: tdc
+locale: ar
+---
+<gen type="regex" value="[23][0-9]{10}"/>

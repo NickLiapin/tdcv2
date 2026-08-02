@@ -1,0 +1,10 @@
+---
+description: Conditions markedly more frequent in people of Eastern European ancestry, in Italian. A prevalence signal, not an exclusive one.
+locale: it
+---
+Emocromatosi ereditaria
+Fenilchetonuria
+Ipercolesterolemia familiare
+Epatopatia alcolica
+Fibrosi cistica
+Malattia di Wilson

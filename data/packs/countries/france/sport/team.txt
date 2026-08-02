@@ -1,0 +1,35 @@
+---
+address: france.sport.team
+description: French top-flight and historic football clubs (Ligue 1 and Ligue 2)
+locale: fr
+---
+Paris Saint-Germain
+Olympique de Marseille
+Olympique Lyonnais
+AS Monaco
+LOSC Lille
+Stade Rennais
+OGC Nice
+RC Lens
+Stade de Reims
+Montpellier HSC
+FC Nantes
+Toulouse FC
+RC Strasbourg
+Stade Brestois
+Le Havre AC
+FC Lorient
+AJ Auxerre
+Angers SCO
+AS Saint-Étienne
+FC Metz
+Clermont Foot
+Girondins de Bordeaux
+En Avant Guingamp
+Paris FC
+SC Bastia
+Grenoble Foot
+Valenciennes FC
+AC Ajaccio
+Nîmes Olympique
+ESTAC Troyes

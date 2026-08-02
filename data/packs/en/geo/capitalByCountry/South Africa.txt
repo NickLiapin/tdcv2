@@ -1,0 +1,5 @@
+---
+description: Capital of South Africa
+locale: en
+---
+Pretoria

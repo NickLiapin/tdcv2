@@ -1,0 +1,59 @@
+---
+description: Business buzz adjective (Polish, for catch-phrases). Masculine singular base form.
+locale: pl
+---
+skalowalny
+zwinny
+kompleksowy
+niezawodny
+zintegrowany
+rozproszony
+zoptymalizowany
+bezpieczny
+inteligentny
+zautomatyzowany
+ujednolicony
+wspierający współpracę
+innowacyjny
+przełomowy
+modułowy
+gotowy do wdrożenia
+zrównoważony
+proaktywny
+adaptacyjny
+elastyczny
+odporny
+rozszerzalny
+konfigurowalny
+strategiczny
+przekrojowy
+holistyczny
+omnikanałowy
+wielokanałowy
+spersonalizowany
+zorientowany na klienta
+oparty na danych
+nowej generacji
+działający w czasie rzeczywistym
+wieloplatformowy
+o znaczeniu krytycznym
+o dużym oddziaływaniu
+wysokowydajny
+o wysokiej wartości dodanej
+szyty na miarę
+bezproblemowy
+natywny dla chmury
+gotowy na przyszłość
+światowej klasy
+wiodący na rynku
+certyfikowany
+atestowany
+interoperacyjny
+identyfikowalny
+audytowalny
+przejrzysty
+wydajny
+rentowny
+konkurencyjny
+wielojęzyczny
+mobilny

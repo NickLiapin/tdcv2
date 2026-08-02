@@ -1,0 +1,19 @@
+---
+address: kazakhstan.finance.bank
+description: Major banks of Kazakhstan (Russian names)
+locale: ru
+---
+Народный банк Казахстана
+Kaspi Bank
+Банк ЦентрКредит
+ForteBank
+Jusan Bank
+Евразийский банк
+Банк RBK
+Bank Freedom Finance
+Altyn Bank
+Home Credit Bank
+Нурбанк
+Bereke Bank
+ВТБ Банк (Казахстан)
+Ситибанк Казахстан

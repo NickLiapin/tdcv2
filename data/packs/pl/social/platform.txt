@@ -1,0 +1,21 @@
+---
+description: Social platform popular in Poland
+locale: pl
+---
+WhatsApp
+Facebook
+Instagram
+TikTok
+YouTube
+X
+LinkedIn
+Telegram
+Snapchat
+Pinterest
+Reddit
+Twitch
+Discord
+Threads
+Messenger
+Mastodon
+Wykop

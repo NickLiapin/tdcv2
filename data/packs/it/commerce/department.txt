@@ -1,0 +1,54 @@
+---
+description: Store department / category (Italian)
+locale: it
+---
+Libri
+Film
+Musica
+Videogiochi
+Elettronica
+Informatica
+Telefonia
+Casa
+Giardino
+Utensili
+Ferramenta
+Supermercato
+Alimentari
+Bevande
+Salute
+Farmacia
+Bellezza
+Profumeria
+Giocattoli
+Bambino
+Neonato
+Abbigliamento
+Calzature
+Gioielleria
+Orologeria
+Accessori
+Sport
+Aria aperta
+Auto
+Moto
+Industriale
+Ufficio
+Cartoleria
+Animali domestici
+Mobili
+Decorazione
+Elettrodomestici
+Illuminazione
+Tessili per la casa
+Casalinghi
+Fai da te
+Edilizia
+Fotografia
+Strumenti musicali
+Valigeria
+Ottica
+Pulizia
+Regali
+Arte e hobby creativi
+Nautica

@@ -1,0 +1,40 @@
+---
+address: sweden.docs.personnummer
+description: Swedish personal identity number (personnummer) — 10 digits YYMMDDNNNC: a birth date, a 3-digit birth number and a Luhn check digit computed over the first nine digits.
+generator: tdc
+locale: sv
+---
+<sequence name="birth"><gen type="regex" value="(0[0-9]|[4-9][0-9])(0[1-9]|1[0-2])(0[1-9]|1[0-9]|2[0-8])"/></sequence>
+<sequence name="birthno"><gen type="regex" value="[0-9]{3}"/></sequence>
+<sequence name="pnr"><compute>
+  <let name="base"><concat><field name="birth"/><field name="birthno"/></concat></let>
+  <!-- Luhn: double the positions whose index parity matches (length + 1), so
+       the appended check lands on a non-doubled slot. With a 9-digit base that
+       doubles the first digit and every second one after it. -->
+  <let name="sum"><reduce>
+    <over><var name="base"/></over>
+    <init><int v="0"/></init>
+    <do><add><acc/>
+      <choose>
+        <when>
+          <test><equals>
+            <mod><current_index/><int v="2"/></mod>
+            <mod><add><length><var name="base"/></length><int v="1"/></add><int v="2"/></mod>
+          </equals></test>
+          <then>
+            <let name="d"><multiply><current/><int v="2"/></multiply></let>
+            <choose>
+              <when><test><greater_than><var name="d"/><int v="9"/></greater_than></test>
+                    <then><subtract><var name="d"/><int v="9"/></subtract></then></when>
+              <otherwise><var name="d"/></otherwise>
+            </choose>
+          </then>
+        </when>
+        <otherwise><current/></otherwise>
+      </choose>
+    </add></do>
+  </reduce></let>
+  <let name="check"><mod><subtract><int v="10"/><mod><var name="sum"/><int v="10"/></mod></subtract><int v="10"/></mod></let>
+  <result><concat><field name="birth"/><field name="birthno"/><var name="check"/></concat></result>
+</compute></sequence>
+<data>${{pnr}}</data>

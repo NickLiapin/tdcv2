@@ -1,0 +1,49 @@
+---
+address: denmark.geo.city
+description: Cities and towns of Denmark, roughly ordered by population
+locale: da
+---
+København
+Aarhus
+Odense
+Aalborg
+Esbjerg
+Randers
+Kolding
+Horsens
+Vejle
+Roskilde
+Herning
+Helsingør
+Silkeborg
+Næstved
+Fredericia
+Viborg
+Køge
+Holstebro
+Slagelse
+Taastrup
+Hillerød
+Sønderborg
+Svendborg
+Holbæk
+Hjørring
+Frederikshavn
+Skive
+Ringsted
+Nykøbing Falster
+Haderslev
+Frederiksberg
+Rønne
+Kalundborg
+Nyborg
+Aabenraa
+Varde
+Grenaa
+Thisted
+Middelfart
+Skanderborg
+Vordingborg
+Struer
+Ribe
+Nakskov

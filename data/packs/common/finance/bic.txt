@@ -1,0 +1,6 @@
+---
+address: common.finance.bic
+description: SWIFT/BIC-11 (4 letters + country + 2 location + 3 branch)
+generator: tdc
+---
+<gen type="regex" value="[A-Z]{4}(?:DE|ES|FR|GB|IT|NL|PL|PT|US)[A-Z0-9]{2}[A-Z0-9]{3}"/>

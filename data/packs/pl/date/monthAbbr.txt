@@ -1,0 +1,16 @@
+---
+description: Month abbreviation (Polish)
+locale: pl
+---
+sty
+lut
+mar
+kwi
+maj
+cze
+lip
+sie
+wrz
+paź
+lis
+gru

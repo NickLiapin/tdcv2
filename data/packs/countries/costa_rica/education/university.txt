@@ -1,0 +1,31 @@
+---
+address: costa_rica.education.university
+description: Costa Rican university or higher-education institution (public and private)
+locale: es
+---
+Universidad de Costa Rica
+Instituto Tecnológico de Costa Rica
+Universidad Nacional
+Universidad Estatal a Distancia
+Universidad Técnica Nacional
+Universidad Latina de Costa Rica
+Universidad Autónoma de Centro América
+Universidad Latinoamericana de Ciencia y Tecnología
+Universidad Fidélitas
+Universidad Hispanoamericana
+Universidad Veritas
+Universidad Internacional de las Américas
+Universidad de Ciencias Médicas
+Universidad Santa Paula
+Universidad Católica de Costa Rica
+Universidad Central
+Universidad de Iberoamérica
+Universidad Americana
+Universidad San Marcos
+Universidad Internacional San Isidro Labrador
+Universidad Castro Carazo
+Universidad Adventista de Centroamérica
+Universidad EARTH
+Universidad para la Cooperación Internacional
+Universidad Invenio
+INCAE Business School

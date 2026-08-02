@@ -1,0 +1,17 @@
+---
+address: libya.sport.team
+description: Libyan Premier League football clubs (Arabic)
+locale: ar
+---
+الأهلي طرابلس
+الاتحاد
+الأهلي بنغازي
+النصر
+الأولمبي
+السويحلي
+المدينة
+أبو سليم
+الهلال
+الأخضر
+التحدي
+الوحدة

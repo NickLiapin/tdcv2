@@ -1,0 +1,9 @@
+---
+address: australia.geo.streetName
+description: Australian street name with its thoroughfare type (e.g. George Street, Wattle Avenue); type weighted toward Street / Road / Avenue as in real address data
+generator: tdc
+locale: en
+---
+<sequence name="named"><gen type="template" value="australia.geo.streetNamed"/></sequence>
+<sequence name="type"><gen type="text" value="Street,Street,Street,Street,Street,Road,Road,Road,Avenue,Avenue,Drive,Drive,Court,Place,Lane,Crescent,Parade,Terrace,Close,Way,Boulevard,Circuit,Grove,Esplanade"/></sequence>
+<data>${{named}} ${{type}}</data>

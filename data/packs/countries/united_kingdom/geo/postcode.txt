@@ -1,0 +1,11 @@
+---
+address: united_kingdom.geo.postcode
+description: UK postcode — a real postcode area + district number, a space, then the inward code (one digit + two letters). Like the Mexican zip, the geographic head (the area) is real while the district and inward parts are plausible fill; the inward pair excludes C,I,K,M,O,V per Royal Mail rules. The central-London sub-district-letter forms (SW1A, EC1A) are not modelled.
+generator: tdc
+---
+<sequence name="area"><gen type="template" value="united_kingdom.geo.postcodeArea"/></sequence>
+<!-- District 1-99: no leading zero, matching real outward codes. -->
+<sequence name="district"><gen type="regex" value="[1-9][0-9]?"/></sequence>
+<!-- Inward code: a digit then two letters, none from the excluded set C,I,K,M,O,V. -->
+<sequence name="inward"><gen type="regex" value="[0-9][ABD-HJLNP-UW-Z]{2}"/></sequence>
+<data>${{area}}${{district}} ${{inward}}</data>

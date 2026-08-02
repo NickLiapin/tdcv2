@@ -1,0 +1,19 @@
+---
+description: Video game genre
+locale: en
+---
+Action
+Adventure
+Role-Playing
+Strategy
+Simulation
+Sports
+Puzzle
+Shooter
+Platformer
+Racing
+Fighting
+Survival
+Sandbox
+MMORPG
+Roguelike

@@ -1,0 +1,800 @@
+---
+title: Listas e iteración
+sidebar_position: 3
+---
+
+import Figure from '@site/src/components/Figure';
+import Legend from '@site/src/components/Legend';
+
+import Terminal from '@site/src/components/Terminal';
+
+# Listas e iteración
+
+`list` es el tercer tipo de valor del lenguaje compute, junto a `int` y `str`. Se
+construye con [`<list>`](#list--una-lista-literal-de-valores), se recorre con
+[`<each>`](#each--mapear-sobre-una-lista) o
+[`<reduce>`](#reduce--plegar-a-un-solo-valor), y se vuelve a convertir en un valor con
+[`<join>`](#join--de-lista-a-string), [`<at>`](#at--indexar-una-lista) o
+[`<length>`](#length--medir-un-string-o-una-lista).
+
+Dos reglas le dan forma a todo lo de esta página:
+
+- **Una lista nunca puede salir sola de `<compute>`.** El valor de una secuencia es un
+  string, así que una lista pelada tiene que plegarse primero — con `<join>` (a un
+  string), `<reduce>` (a un solo valor) o `<at>` (un elemento). Por eso `<each>` casi
+  siempre trae un `<join>` o un `<reduce>` alrededor.
+- **Un string se recorre carácter a carácter.** Un
+  [`<field name="Base"/>`](../core-concepts/sequences.mdx) que contiene `"5120"` se
+  recorre como `5, 1, 2, 0`, y cada dígito suelto se convierte solo a `int` para la
+  aritmética. Eso es lo que hace expresables aquí las sumas de verificación, que van
+  recorriendo un valor dígito por dígito. Las letras se recorren igual: `"abc"` da
+  `a, b, c`.
+
+Como cada ciclo corre sobre un string o una lista finita, el lenguaje siempre termina: no
+hay ciclos sin cota.
+
+## De dónde sale una lista
+
+Hay tres fuentes, y solo tres. Toda lista de esta página es una de ellas.
+
+1. **Escrita a mano** — `<list v="10,20,30"/>`.
+2. **Un string, recorrido carácter a carácter** — donde se espera una lista, un string
+   ocupa su lugar como la lista de sus caracteres. Esta es la que sorprende: en la
+   configuración no dice "divide" en ninguna parte, la ranura `<over>` simplemente acepta
+   un string.
+3. **El resultado de `<each>`** — lista que entra, lista que sale.
+
+Las tres en una configuración:
+
+```xml
+<tdc>
+    <env count="1" seed="src" local="en">
+        <sequence name="Code"><gen type="text" value="4816"/></sequence>
+
+        <sequence name="FromLiteral">
+            <compute><result><join sep="-"><in><list v="10,20,30"/></in></join></result></compute>
+        </sequence>
+
+        <sequence name="FromString">
+            <compute><result><join sep="-"><in>
+                <each><over><field name="Code"/></over><do><current/></do></each>
+            </in></join></result></compute>
+        </sequence>
+
+        <sequence name="FromEach">
+            <compute><result><join sep="-"><in>
+                <each><over><list v="1,2,3"/></over><do><multiply><current/><int v="10"/></multiply></do></each>
+            </in></join></result></compute>
+        </sequence>
+    </env>
+    <block><line><data>literal: ${{FromLiteral}} | string: ${{FromString}} | each: ${{FromEach}}</data></line></block>
+</tdc>
+```
+
+<Terminal title="./run sources.tdc">
+{`literal: 10-20-30 | string: 4-8-1-6 | each: 10-20-30`}
+</Terminal>
+
+La columna interesante es la del medio: `Code` es el string `4816`, y `<over>` le entregó
+a `<each>` cuatro caracteres sueltos.
+
+| Etiqueta                                   | Qué hace                                                  |
+| :----------------------------------------- | :-------------------------------------------------------- |
+| [`<list>`](#list--una-lista-literal-de-valores) | una lista literal: `<list v="2,4,10"/>` o armada con hijos |
+| [`<each>`](#each--mapear-sobre-una-lista)  | aplica un cuerpo a cada elemento → una lista nueva        |
+| [`<reduce>`](#reduce--plegar-a-un-solo-valor) | pliega una lista a un solo valor, a través de un acumulador |
+| [`<join>`](#join--de-lista-a-string)       | una lista → un string (atributo `sep`)                    |
+| [`<at>`](#at--indexar-una-lista)           | un elemento por índice (atributo `default` si queda fuera de rango) |
+| [`<length>`](#length--medir-un-string-o-una-lista) | la longitud de un string o de una lista           |
+
+Las salidas de ejemplo de esta página son ilustrativas — los valores exactos dependen del
+seed y de la versión del núcleo, pero cada valor derivado se calcula exactamente a partir
+de la entrada que aparece a su lado.
+
+## `<list>` — una lista literal de valores
+
+**Toma** `v=` con **enteros** separados por comas, o expresiones hijas → **da** una lista. Las letras en `v=` se rechazan: `<list v="a,b"/>` falla con `"a" is not an integer`. Para una lista de palabras, constrúyala con hijos `<str>`.
+
+`<list>` es el literal de lista. Viene en dos formas:
+
+- **Forma corta** — enteros separados por comas en el atributo `v`: `<list v="2,4,10"/>`.
+  Los espacios alrededor se recortan y las piezas vacías se descartan (`" 2, ,4 "` →
+  `2,4`); una pieza que no sea entero es un error.
+- **Forma con hijos** — `<list>` con etiquetas de expresión anidadas recolecta sus
+  valores: `<list><int v="1"/><str v="a"/><field name="X"/></list>`. Así es como una
+  lista puede contener strings y no solo números.
+
+Use la forma corta para una tabla de búsqueda fija (los pesos de una suma de
+verificación); use la forma con hijos para juntar varios campos o piezas calculadas antes
+de plegarlos.
+
+### De expresiones → a un string
+
+La forma con hijos junta dos campos en una lista, y
+[`<join>`](#join--de-lista-a-string) la convierte en texto (la lista misma no puede ser el
+resultado — solo el string ya unido):
+
+```xml
+<sequence name="A"><gen type="number" value="1..9"/></sequence>
+<sequence name="B"><gen type="number" value="1..9"/></sequence>
+<sequence name="Pair">
+  <compute>
+    <result>
+      <join sep=",">
+        <list>
+          <field name="A"/>
+          <field name="B"/>
+        </list>
+      </join>
+    </result>
+  </compute>
+</sequence>
+```
+
+Cada línea es `${{Pair}}`:
+
+<Terminal title="./run pair.tdc">
+{`1,8
+7,3
+6,8
+5,2
+5,5`}
+</Terminal>
+
+### Como tabla de pesos
+
+La forma corta es una tabla fija que comparten todas las filas;
+[`<at>`](#at--indexar-una-lista) saca un elemento por posición:
+
+```xml
+<sequence name="Idx"><gen type="number" value="0..4"/></sequence>
+<sequence name="Weight">
+  <compute>
+    <result>
+      <at>
+        <in><list v="7,3,1,9,5"/></in>
+        <index><field name="Idx"/></index>
+      </at>
+    </result>
+  </compute>
+</sequence>
+```
+
+Cada línea es `idx ${{Idx}} -> peso ${{Weight}}`:
+
+<Terminal title="./run weight.tdc">
+{`idx 1 -> peso 3
+idx 0 -> peso 7
+idx 0 -> peso 7
+idx 3 -> peso 9
+idx 1 -> peso 3`}
+</Terminal>
+
+La lista `7,3,1,9,5` es idéntica para todas las filas; lo único que cambia es el índice.
+
+## `<each>` — mapear sobre una lista
+
+<Figure
+  src="/img/compute/each.svg"
+  alt=""
+  caption="Un solo <do>, ejecutado una vez por elemento: cuatro entran, cuatro salen."
+/>
+
+<Legend items={[["A", "la lista que recorre <over> — un elemento por columna"], ["B", "la expresión <do>, la misma en cada paso; en línea discontinua porque es una etiqueta y no cuatro"], ["C", "la lista que devuelve <each>, en el mismo orden"]]} />
+
+**Toma** las ranuras `<over>` (la lista) y `<do>` (qué hacer con un elemento) → **da** una **lista**, no un string. Por eso casi siempre lleva un `<join>` o un `<reduce>` alrededor: poner el resultado directo en un string falla con `cannot use a list where a string is expected`.
+
+`<each>` recorre una colección, aplica el cuerpo `<do>` a **cada** elemento y junta los
+resultados en una **lista nueva del mismo largo** — el «map» del lenguaje compute.
+
+- Toma dos envoltorios: `<over>` (qué iterar) y `<do>` (qué calcular). Si falta un
+  envoltorio, es un error de árbol (`TDC187`).
+- Dentro de `<do>`, `<current/>` es el elemento y `<current_index/>` es su posición
+  empezando en cero.
+- La colección es un **string** (cada elemento es un string de un carácter; un dígito
+  suelto se convierte solo a `int` para la aritmética) o una **lista**.
+- La salida es **siempre una lista**, así que antes de que salga de `<compute>` hay que
+  plegarla con [`<reduce>`](#reduce--plegar-a-un-solo-valor) o convertirla en texto con
+  [`<join>`](#join--de-lista-a-string).
+
+`<each>` no toma atributos — todo se define con `<over>` y `<do>`.
+
+### Desplazar cada dígito
+
+Súmele uno a cada dígito y tómelo mod 10 (para que el `9` dé la vuelta a `0`), y luego
+pegue los dígitos de nuevo con [`<join>`](#join--de-lista-a-string):
+
+```xml
+<sequence name="Pin"><gen type="number" value="1000..9999"/></sequence>
+<sequence name="Shift">
+  <compute>
+    <result>
+      <join sep="">
+        <each>
+          <over><field name="Pin"/></over>
+          <do><mod><add><current/><int v="1"/></add><int v="10"/></mod></do>
+        </each>
+      </join>
+    </result>
+  </compute>
+</sequence>
+```
+
+Cada línea es `${{Pin}} -> ${{Shift}}`:
+
+<Terminal title="./run shift.tdc">
+{`3115 -> 4226
+9917 -> 0028
+5120 -> 6231
+5815 -> 6926
+9444 -> 0555`}
+</Terminal>
+
+`Pin` se recorre carácter por carácter: cada dígito es un string de un carácter, así que
+[`<add>`](arithmetic.mdx) lo acepta sin [`<to_number>`](arithmetic.mdx).
+[`<mod>`](arithmetic.mdx) con `10` mantiene el resultado en un solo dígito. `<each>`
+entrega la lista de dígitos desplazados, y `<join sep="">` los concatena sin separador.
+
+### Etiquetar cada elemento con su índice
+
+Dentro de `<do>`, `<current_index/>` da la posición del elemento. Arme piezas
+`índice:carácter` y únalas con un espacio:
+
+```xml
+<sequence name="Base"><gen type="number" value="100..900"/></sequence>
+<sequence name="Labeled">
+  <compute>
+    <result>
+      <join sep=" ">
+        <each>
+          <over><field name="Base"/></over>
+          <do><concat><current_index/><str v=":"/><current/></concat></do>
+        </each>
+      </join>
+    </result>
+  </compute>
+</sequence>
+```
+
+Cada línea es `${{Base}} -> ${{Labeled}}`:
+
+<Terminal title="./run labeled.tdc">
+{`541 -> 0:5 1:4 2:1
+436 -> 0:4 1:3 2:6
+567 -> 0:5 1:6 2:7
+214 -> 0:2 1:1 2:4
+597 -> 0:5 1:9 2:7`}
+</Terminal>
+
+**Úselo cuando** necesite una transformación por elemento — desplazar o enmascarar cada
+dígito, codificar cada carácter con [`<encode>`](arithmetic.mdx), o armar la lista de
+términos que una suma de verificación va a sumar después.
+
+## `<reduce>` — plegar a un solo valor
+
+**Toma** las ranuras `<over>`, `<init>` y `<do>` → **da** un solo valor.
+
+### Las cuatro partes, como una alcancía
+
+Usted camina junto a un estante con un frasco en la mano. En cada paso mira el objeto que
+tiene y decide qué va al frasco. Cuando la lista termina, el frasco es la respuesta.
+
+| Etiqueta | En versión frasco | Qué guarda |
+| :--- | :--- | :--- |
+| `<init>` | qué hay en el frasco antes de empezar | el valor inicial |
+| `<over>` | el estante que recorre | la lista o el string |
+| `<do>` | qué hace en cada paso | una expresión, evaluada una vez por elemento |
+| `<acc>` | qué hay en el frasco ahora mismo | lo que `<do>` produjo la vez anterior |
+| `<current>` | el objeto que tiene en la mano | el elemento de este paso |
+| `<current_index>` | qué paso es, contando desde 0 | un número |
+
+`<over>`, `<init>` y `<do>` son ranuras: tres trabajos distintos, tres nombres distintos.
+El orden entre ellas en el archivo no importa; omitir una sí — las tres son obligatorias.
+
+<Figure
+  src="/img/compute/studio-reduce-light.png"
+  srcDark="/img/compute/studio-reduce.png"
+  alt=""
+  frame
+  zoom
+  caption="El mismo plegado en el canvas de Studio — las tres ranuras cuelgan del propio plegado, y el acumulador y el elemento actual llegan como contexto del recorrido."
+/>
+
+### Paso a paso
+
+<Figure
+  src="/img/compute/reduce.svg"
+  alt=""
+  caption="Sumando los dígitos de 4816. El frasco pasa de un paso al siguiente; el dígito de arriba se le suma."
+/>
+
+<Legend items={[["A", "los caracteres que recorre <over> — uno por paso, con el número de paso debajo"], ["B", "lo que <init> pone en el frasco antes del primer paso; en línea discontinua porque es un valor inicial y no un paso"], ["C", "el frasco después de cada paso — esto es lo que lee <acc/> en el siguiente"], ["D", "el frasco tras el último paso, que es lo que devuelve <reduce>"]]} />
+
+Sumando los dígitos de `4816`:
+
+```xml
+<tdc>
+    <env count="1" seed="r" local="en">
+        <sequence name="Code"><gen type="text" value="4816"/></sequence>
+        <sequence name="Sum">
+            <compute>
+                <result>
+                    <reduce>
+                        <over><field name="Code"/></over>
+                        <init><int v="0"/></init>
+                        <do><add><acc/><current/></add></do>
+                    </reduce>
+                </result>
+            </compute>
+        </sequence>
+    </env>
+    <block><line><data>${{Code}} → ${{Sum}}</data></line></block>
+</tdc>
+```
+
+<Terminal title="./run sum.tdc">
+{`4816 → 19`}
+</Terminal>
+
+Cuatro pasos, una fila cada uno. El `acc` antes de un paso es lo que devolvió el paso
+anterior; `<init>` aporta el primero de todos.
+
+| Paso | `<current_index/>` | `<current/>` | `<acc/>` antes | `<do>` calcula | `<acc/>` después |
+| ---: | ---: | ---: | ---: | :--- | ---: |
+| 1 | 0 | 4 | 0 | 0 + 4 | 4 |
+| 2 | 1 | 8 | 4 | 4 + 8 | 12 |
+| 3 | 2 | 1 | 12 | 12 + 1 | 13 |
+| 4 | 3 | 6 | 13 | 13 + 6 | 19 |
+
+El frasco tras el último paso — `19` — es lo que `<reduce>` devuelve.
+
+`<reduce>` recorre una colección y la **pliega** en un solo valor: siembra un acumulador y
+luego lo recalcula en cada elemento. A diferencia de
+[`<each>`](#each--mapear-sobre-una-lista), que devuelve una lista, `<reduce>` devuelve
+**un** valor (un `int` o un `str`) que puede salir directo de `<compute>`. Así se
+construyen las sumas de verificación: el dígito de Luhn de una tarjeta, el dígito
+ponderado mod-11 de una identificación, el mod-97 de un IBAN.
+
+- Toma tres envoltorios: `<over>` (la colección), `<init>` (el valor inicial del
+  acumulador) y `<do>` (el cuerpo por elemento). Si falta un envoltorio, es un error de
+  árbol (`TDC187`).
+- Dentro de `<do>` tiene `<acc/>` (lo acumulado hasta ahora), `<current/>` (el elemento) y
+  `<current_index/>` (su posición empezando en cero).
+- La colección es un **string** (recorrido carácter por carácter; un dígito suelto se
+  convierte solo) o una **lista**.
+- El acumulador no se limita a una suma — puede llevar un máximo, un producto, incluso un
+  string. Es lo que usted vuelva a poner en `<acc/>` en cada paso.
+
+`<reduce>` no toma atributos — todo se define con `<over>`, `<init>` y `<do>`.
+
+### Sumar los dígitos
+
+El caso más común: empezar en `0` y agregar cada dígito al acumulador:
+
+```xml
+<sequence name="Pin"><gen type="number" value="1000..9999"/></sequence>
+<sequence name="DigitSum">
+  <compute>
+    <result>
+      <reduce>
+        <over><field name="Pin"/></over>
+        <init><int v="0"/></init>
+        <do><add><acc/><current/></add></do>
+      </reduce>
+    </result>
+  </compute>
+</sequence>
+```
+
+Cada línea es `${{Pin}} -> suma ${{DigitSum}}`:
+
+<Terminal title="./run digitsum.tdc">
+{`3115 -> suma 10
+9917 -> suma 26
+5120 -> suma 8
+5815 -> suma 19
+9444 -> suma 21`}
+</Terminal>
+
+`3 + 1 + 1 + 5 = 10`, `9 + 9 + 1 + 7 = 26`. Cada dígito llega como un string de un
+carácter y se convierte solo a número, así que no hace falta `<to_number>`.
+
+### Un dígito verificador ponderado
+
+El caso estelar, y el patrón que cierra muchos números de cuenta y de identificación
+nacional. Cada posición tiene su propio peso; saque el peso por índice con
+[`<at>`](#at--indexar-una-lista), multiplíquelo por el dígito, sume todo, y luego convierta
+la suma en un dígito verificador con un doble [`<mod>`](arithmetic.mdx) (`% 11`, luego
+`% 10`) y péguelo a la base con [`<concat>`](strings.mdx):
+
+```xml
+<sequence name="Base"><gen type="number" value="100000000..999999999"/></sequence>
+<sequence name="Account">
+  <compute>
+    <let name="check">
+      <mod><mod>
+        <reduce>
+          <over><field name="Base"/></over>
+          <init><int v="0"/></init>
+          <do><add><acc/><multiply><current/>
+            <at><in><list v="2,4,10,3,5,9,4,6,8"/></in><index><current_index/></index></at>
+          </multiply></add></do>
+        </reduce>
+        <int v="11"/></mod><int v="10"/></mod>
+    </let>
+    <result><concat><field name="Base"/><var name="check"/></concat></result>
+  </compute>
+</sequence>
+```
+
+Cada línea es `${{Base}} -> ${{Account}}`:
+
+<Terminal title="./run account.tdc">
+{`596215738 -> 5962157388
+478374300 -> 4783743000
+625770577 -> 6257705772
+228098087 -> 2280980875
+659123186 -> 6591231869`}
+</Terminal>
+
+`<reduce>` acumula la suma ponderada: `<current_index/>` selecciona el peso de
+`2,4,10,…`, `<multiply>` escala el dígito, y `<add>` lo pliega dentro de `<acc/>`. La suma
+se vuelve un dígito verificador, y `<concat>` lo agrega a la base — un número de diez
+dígitos correcto.
+
+### Un acumulador que no es una suma
+
+El acumulador guarda el dígito más grande visto hasta ahora; cada paso usa
+[`<choose>`](conditionals.mdx) para quedarse con el mayor, el dígito o el acumulador:
+
+```xml
+<sequence name="Pin"><gen type="number" value="1000..9999"/></sequence>
+<sequence name="MaxDigit">
+  <compute>
+    <result>
+      <reduce>
+        <over><field name="Pin"/></over>
+        <init><int v="0"/></init>
+        <do>
+          <choose>
+            <when><test><greater_than><current/><acc/></greater_than></test>
+                  <then><current/></then></when>
+            <otherwise><acc/></otherwise>
+          </choose>
+        </do>
+      </reduce>
+    </result>
+  </compute>
+</sequence>
+```
+
+Cada línea es `${{Pin}} -> máx ${{MaxDigit}}`:
+
+<Terminal title="./run maxdigit.tdc">
+{`3115 -> máx 5
+9917 -> máx 9
+5120 -> máx 5
+5815 -> máx 8
+9444 -> máx 9`}
+</Terminal>
+
+Empezar en `0` funciona porque los dígitos no son negativos. En cada paso compara
+`<current/>` contra `<acc/>` y se queda con el mayor — prueba de que `<reduce>` calcula
+más que sumas.
+
+**Úselo cuando** necesite un solo valor a partir de una lista: una suma de verificación,
+un total, un producto, un máximo o un mínimo corriendo. Cuando lo que quiera sea una
+**lista** de resultados, use [`<each>`](#each--mapear-sobre-una-lista).
+
+## `<join>` — de lista a string
+
+**Toma** la ranura `<in>` (la lista) y `sep=` → **da** un string. Sin `sep=` los elementos se pegan sin nada en medio.
+
+`<join>` convierte una **lista** en un **string**: pasa cada elemento a texto y los une
+con el separador `sep`. Es la vía principal para **dejar salir una lista de
+`<compute>`** — una lista pelada no puede volverse el valor de una secuencia, pero después
+de `<join>` es un string común y corriente. Muy seguido va justo después de
+[`<each>`](#each--mapear-sobre-una-lista).
+
+- Cada elemento se pasa a texto: un número se vuelve su forma decimal, un string se queda
+  igual.
+- La entrada **debe ser una lista** — un número o un string suelto es un error.
+
+| Atributo  | Obligatorio | Por omisión  | Qué define                              |
+| :-------- | :---------- | :----------- | :-------------------------------------- |
+| `sep`     | no          | `""` (vacío) | el separador que se pone entre elementos |
+
+### Armar un valor compuesto
+
+Ponga tres números en una [`<list>`](#list--una-lista-literal-de-valores) y únalos con
+puntos para formar `major.minor.patch`. Los valores de los campos son strings, así que
+envuélvalos en [`<to_number>`](arithmetic.mdx) para que la lista sea numérica:
+
+```xml
+<sequence name="A"><gen type="number" value="10..99"/></sequence>
+<sequence name="B"><gen type="number" value="10..99"/></sequence>
+<sequence name="C"><gen type="number" value="10..99"/></sequence>
+<sequence name="Ver">
+  <compute>
+    <result>
+      <join sep=".">
+        <list>
+          <to_number><field name="A"/></to_number>
+          <to_number><field name="B"/></to_number>
+          <to_number><field name="C"/></to_number>
+        </list>
+      </join>
+    </result>
+  </compute>
+</sequence>
+```
+
+Cada línea es `${{Ver}}`:
+
+<Terminal title="./run version.tdc">
+{`10.83.55
+73.32.50
+67.82.98
+59.29.97
+56.58.26`}
+</Terminal>
+
+### Separar los dígitos (`<join>` después de `<each>`)
+
+La pareja de siempre: [`<each>`](#each--mapear-sobre-una-lista) convierte un string en la
+lista de sus caracteres, y `<join>` los vuelve a armar — ahora con un separador:
+
+```xml
+<sequence name="Card"><gen type="number" value="10000000..99999999"/></sequence>
+<sequence name="Spaced">
+  <compute>
+    <result>
+      <join sep=" ">
+        <each>
+          <over><field name="Card"/></over>
+          <do><current/></do>
+        </each>
+      </join>
+    </result>
+  </compute>
+</sequence>
+```
+
+Cada línea es `${{Card}} -> ${{Spaced}}`:
+
+<Terminal title="./run spaced.tdc">
+{`76899955 -> 7 6 8 9 9 9 5 5
+96915004 -> 9 6 9 1 5 0 0 4
+71643027 -> 7 1 6 4 3 0 2 7
+27885493 -> 2 7 8 8 5 4 9 3
+46564820 -> 4 6 5 6 4 8 2 0`}
+</Terminal>
+
+**Úselo cuando** vaya a soltar una lista fuera de `<compute>` (casi siempre después de
+`<each>`), o cuando arme un valor compuesto — una versión, una ruta, unas coordenadas.
+Para agrupar de derecha a izquierda un solo string con un tamaño fijo,
+[`<group>`](strings.mdx) es más sencillo; `<join>` une elementos de una lista.
+
+## `<at>` — indexar una lista
+
+**Toma** las ranuras `<in>` (la lista) y `<index>` (un número, contando desde 0) → **da** un elemento. Un índice pasado el final es un error salvo que haya un valor por defecto.
+
+`<at>` saca un elemento de una lista por su posición, que **empieza en cero**. Es ideal
+para **tablas de búsqueda**: índice → valor listo (un peso de suma de verificación, el
+nombre de una región, una tasa de impuesto).
+
+- Toma dos envoltorios: `<in>` (cuál lista) y `<index>` (cuál posición). Si falta un
+  envoltorio, es un error de árbol (`TDC187`).
+- El índice se convierte a `int`: un string de un dígito (un campo que contiene `"3"`)
+  funciona tal cual; a un string de varios dígitos envuélvalo primero en
+  [`<to_number>`](arithmetic.mdx).
+- `<in>` debe ser una **lista** ([`<list>`](#list--una-lista-literal-de-valores) o el
+  resultado de [`<each>`](#each--mapear-sobre-una-lista)).
+- **Fuera de rango:** si el atributo `default` está definido, se devuelve ese valor; sin
+  `default`, es un error. Así es como una tabla obtiene un valor de respaldo.
+
+| Atributo  | Obligatorio | Por omisión | Qué define                                            |
+| :-------- | :---------- | :---------- | :---------------------------------------------------- |
+| `default` | no          | —           | el entero que se devuelve cuando el índice queda fuera de rango |
+
+### Una tabla de búsqueda
+
+Una lista de nombres y un índice que viene de un campo. `Idx` es un solo dígito `0..4`,
+así que no necesita [`<to_number>`](arithmetic.mdx):
+
+```xml
+<sequence name="Idx"><gen type="number" value="0..4"/></sequence>
+<sequence name="City">
+  <compute>
+    <result>
+      <at>
+        <in><list>
+          <str v="New York"/>
+          <str v="Chicago"/>
+          <str v="Houston"/>
+          <str v="Phoenix"/>
+          <str v="Denver"/>
+        </list></in>
+        <index><field name="Idx"/></index>
+      </at>
+    </result>
+  </compute>
+</sequence>
+```
+
+Cada línea es `${{Idx}} -> ${{City}}`:
+
+<Terminal title="./run city.tdc">
+{`1 -> Chicago
+0 -> New York
+0 -> New York
+3 -> Phoenix
+1 -> Chicago`}
+</Terminal>
+
+La lista de strings se arma con la forma con hijos de
+[`<list>`](#list--una-lista-literal-de-valores); `<at>` toma el elemento en `Idx` — una
+tabla de sustitución.
+
+### Un respaldo para el acceso fuera de rango
+
+La lista tiene tres precios (posiciones `0..2`), pero el índice viene de `0..6`. Para
+`3..6` no hay elemento, así que entra `default="0"`:
+
+```xml
+<sequence name="Idx"><gen type="number" value="0..6"/></sequence>
+<sequence name="Price">
+  <compute>
+    <result>
+      <at default="0">
+        <in><list v="100,200,300"/></in>
+        <index><field name="Idx"/></index>
+      </at>
+    </result>
+  </compute>
+</sequence>
+```
+
+Cada línea es `idx ${{Idx}} -> ${{Price}}`:
+
+<Terminal title="./run price.tdc">
+{`idx 2 -> 300
+idx 0 -> 100
+idx 0 -> 100
+idx 4 -> 0
+idx 1 -> 200
+idx 1 -> 200`}
+</Terminal>
+
+Los índices `0..2` dan con un precio; `idx 4` se pasa del final, así que en vez de un
+error devuelve `default`, o sea `0`. Sin `default`, esa fila fallaría al momento de
+generar.
+
+**Úselo cuando** necesite una tabla de búsqueda (un peso de suma de verificación por
+posición, un código, una tasa por nivel) o un acceso indexado seguro donde `default`
+reemplaza «no existe ese elemento» con un valor razonable.
+
+## `<length>` — medir un string o una lista
+
+**Toma** un string o una lista → **da** un número: caracteres en un string, elementos en una lista. Cuenta caracteres, no bytes — `👍ab` son 3.
+
+`<length>` devuelve una **longitud**: la cantidad de caracteres si contiene un string, la
+cantidad de elementos si contiene una lista. El resultado siempre es un `int`, así que
+puede seguir calculando con él: comparar, dividir, rellenar.
+
+- `<length>STRING</length>` — la cuenta de caracteres (puntos de código) del string.
+- `<length>LIST</length>` — la cuenta de elementos de la lista (por ejemplo, el resultado
+  de [`<each>`](#each--mapear-sobre-una-lista)).
+- La entrada debe ser un string o una lista — un número es un error.
+
+`<length>` no toma atributos — mide a su único hijo.
+
+### Caracteres de un string
+
+El valor del campo es un string, y `<length>` cuenta sus caracteres:
+
+```xml
+<sequence name="City"><gen type="text" value="Reno,Boston,Ada,Sacramento,Chicago"/></sequence>
+<sequence name="Len">
+  <compute>
+    <result>
+      <length><field name="City"/></length>
+    </result>
+  </compute>
+</sequence>
+```
+
+Cada línea es `${{City}} -> ${{Len}} letras`:
+
+<Terminal title="./run length.tdc">
+{`Boston     -> 6 letras
+Reno       -> 4 letras
+Ada        -> 3 letras
+Sacramento -> 10 letras
+Chicago    -> 7 letras`}
+</Terminal>
+
+Cada carácter es un punto de código, así que `Sacramento` da `10`.
+
+### La longitud como denominador
+
+Un caso realista: dividir la suma de dígitos que viene de
+[`<reduce>`](#reduce--plegar-a-un-solo-valor) entre la cantidad de dígitos — `<length>`
+aporta el denominador. [`<divide>`](arithmetic.mdx) es división entera (redondea hacia
+abajo):
+
+```xml
+<sequence name="Pin"><gen type="number" value="1000..9999"/></sequence>
+<sequence name="Avg">
+  <compute>
+    <result>
+      <divide>
+        <reduce>
+          <over><field name="Pin"/></over>
+          <init><int v="0"/></init>
+          <do><add><acc/><current/></add></do>
+        </reduce>
+        <length><field name="Pin"/></length>
+      </divide>
+    </result>
+  </compute>
+</sequence>
+```
+
+Cada línea es `${{Pin}} -> prom ${{Avg}}`:
+
+<Terminal title="./run avg.tdc">
+{`3115 -> prom 2
+9917 -> prom 6
+5120 -> prom 2
+5815 -> prom 4
+9444 -> prom 5`}
+</Terminal>
+
+Para `3115`: suma `10`, longitud `4`, `10 / 4 = 2` (la parte fraccionaria se descarta).
+
+### Elementos de una lista
+
+`<length>` también mide listas. [`<each>`](#each--mapear-sobre-una-lista) convierte un
+string en la lista de sus caracteres, y `<length>` cuenta cuántos produjo:
+
+```xml
+<sequence name="Num"><gen type="number" value="[1..9],[10..99],[1000..99999]"/></sequence>
+<sequence name="Count">
+  <compute>
+    <result>
+      <length>
+        <each>
+          <over><field name="Num"/></over>
+          <do><current/></do>
+        </each>
+      </length>
+    </result>
+  </compute>
+</sequence>
+```
+
+Cada línea es `${{Num}} -> ${{Count}} elementos`:
+
+<Terminal title="./run count.tdc">
+{`79 -> 2 elementos
+67 -> 2 elementos
+30181 -> 5 elementos
+8 -> 1 elementos
+90 -> 2 elementos`}
+</Terminal>
+
+`<each>` devuelve la lista de caracteres y `<length>` cuenta sus elementos — aquí eso
+equivale a la cantidad de dígitos de la entrada.
+
+**Úselo cuando** la forma de un algoritmo dependa del tamaño de la entrada: pesos que
+dependen de la longitud, un promedio o una razón, o una revisión que compara la longitud
+contra un objetivo con [`<choose>`](conditionals.mdx).
+
+## Vea también
+
+- **[Aritmética](arithmetic.mdx)** — las operaciones enteras con las que pliega e indexa.
+- **[Strings y formato](strings.mdx)** — `<concat>`, `<group>` y todo lo demás.
+- **[Condicionales](conditionals.mdx)** — `<choose>` y los predicados usados arriba.
+- **[Descripción general de compute](overview.mdx)** — `<reduce>` dentro de una suma de verificación completa.
+- **[Referencia de funciones de compute](../reference/compute.mdx)** — el catálogo alfabético completo.

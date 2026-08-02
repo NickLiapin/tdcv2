@@ -1,0 +1,10 @@
+---
+address: colombia.finance.accountType
+description: Colombian bank account type as named on a transfer form
+locale: es
+---
+Cuenta de Ahorros
+Cuenta Corriente
+Cuenta de Ahorro de Trámite Simplificado
+Depósito de Bajo Monto
+Cuenta AFC

@@ -1,0 +1,18 @@
+---
+address: netherlands.holiday
+description: Public holidays and widely observed feast days in the Netherlands (Dutch names)
+locale: nl
+---
+Nieuwjaarsdag
+Goede Vrijdag
+Eerste Paasdag
+Tweede Paasdag
+Koningsdag
+Bevrijdingsdag
+Hemelvaartsdag
+Eerste Pinksterdag
+Tweede Pinksterdag
+Sinterklaas
+Eerste Kerstdag
+Tweede Kerstdag
+Oudejaarsdag

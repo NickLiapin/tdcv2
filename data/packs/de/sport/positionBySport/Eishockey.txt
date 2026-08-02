@@ -1,0 +1,9 @@
+---
+description: Positions in ice hockey (German)
+locale: de
+---
+Torwart
+Verteidiger
+Center
+Linker Flügel
+Rechter Flügel

@@ -1,0 +1,10 @@
+---
+address: austria.vehicle.plate
+description: Austrian vehicle plate — a real district code, then three or four digits and one or two letters (W 1234 AB).
+generator: tdc
+locale: de
+---
+<sequence name="district"><gen type="text" value="W,G,L,S,I,K,VI,WE,P,DO,SR,WN,FK,B,LI,WO,LE,KR,TR,AM,KU,MD,BR,E,BL,GU,SP,ZE,SW,HA"/></sequence>
+<sequence name="digits"><gen type="regex" value="[1-9][0-9]{2,3}"/></sequence>
+<sequence name="letters"><gen type="regex" value="[A-Z]{1,2}"/></sequence>
+<data>${{district}} ${{digits}} ${{letters}}</data>

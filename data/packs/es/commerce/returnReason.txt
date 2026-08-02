@@ -1,0 +1,19 @@
+---
+description: Order return reason (Spanish)
+locale: es
+---
+Llegó dañado
+Artículo equivocado
+No coincide con la descripción
+Talla incorrecta
+Cambié de opinión
+Encontré mejor precio
+Defectuoso de fábrica
+Faltan piezas
+Entrega tardía
+Ya no lo necesito
+Pedido por error
+Calidad inferior a la esperada
+Color diferente al mostrado
+No es compatible
+Producto duplicado

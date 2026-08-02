@@ -1,0 +1,16 @@
+---
+description: Streaming platform available across Portuguese-speaking markets
+locale: pt
+---
+Netflix
+Disney+
+Amazon Prime Video
+Max
+Apple TV+
+Paramount+
+YouTube
+Globoplay
+Crunchyroll
+Pluto TV
+Spotify
+Twitch

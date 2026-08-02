@@ -1,0 +1,15 @@
+---
+description: Unix directory path
+---
+/usr/local/bin
+/etc/nginx
+/var/log
+/opt/app
+/home/user
+/tmp
+/var/www/html
+/usr/share
+/etc/systemd/system
+/mnt/data
+/srv/http
+/opt/data/backups

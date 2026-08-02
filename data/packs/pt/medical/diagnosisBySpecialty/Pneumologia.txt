@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Pulmonology (Portuguese)
+locale: pt
+---
+Asma
+Doença pulmonar obstrutiva crônica
+Pneumonia
+Embolia pulmonar
+Tuberculose
+Apneia do sono
+Bronquite crônica
+Fibrose pulmonar
+Câncer de pulmão
+Derrame pleural

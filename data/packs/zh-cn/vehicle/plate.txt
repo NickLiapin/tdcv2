@@ -1,0 +1,7 @@
+---
+address: zh-cn.vehicle.plate
+description: Chinese licence plate — province abbreviation + issuing-authority letter + 5 alphanumerics (e.g. 京A12345)
+generator: tdc
+locale: zh-cn
+---
+<gen type="regex" value="(京|津|冀|晋|蒙|辽|吉|黑|沪|苏|浙|皖|闽|赣|鲁|豫|鄂|湘|粤|桂|琼|渝|川|贵|云|藏|陕|甘|青|宁|新)[A-HJ-NP-Z][A-HJ-NP-Z0-9]{5}"/>

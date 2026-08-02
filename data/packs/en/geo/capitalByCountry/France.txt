@@ -1,0 +1,5 @@
+---
+description: Capital of France
+locale: en
+---
+Paris

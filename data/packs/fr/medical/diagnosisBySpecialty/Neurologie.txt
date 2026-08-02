@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Neurology (French)
+locale: fr
+---
+Accident vasculaire cérébral
+Épilepsie
+Migraine
+Maladie de Parkinson
+Sclérose en plaques
+Maladie d'Alzheimer
+Neuropathie périphérique
+Méningite
+Céphalée de tension
+Névralgie

@@ -1,0 +1,11 @@
+---
+description: Trucking route type (Italian)
+locale: it
+---
+Lunga distanza
+Interurbana
+Regionale
+Locale
+Dedicata
+In doppio equipaggio
+Ultimo miglio

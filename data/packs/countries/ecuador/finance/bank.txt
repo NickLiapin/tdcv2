@@ -1,0 +1,17 @@
+---
+address: ecuador.finance.bank
+description: Ecuadorian bank supervised by the Superintendencia de Bancos; same order as ecuador.finance.bankCode
+---
+Banco Pichincha
+Banco de Guayaquil
+Banco de Machala
+Banco de Loja
+Banco del Pacífico
+Banco Internacional
+Banco del Austro
+Produbanco
+Banco Bolivariano
+Banco General Rumiñahui
+Banco Solidario
+Banco ProCredit
+BanEcuador

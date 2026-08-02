@@ -1,0 +1,10 @@
+---
+description: Conditions markedly more frequent in people of Indigenous American ancestry (Russian). A prevalence signal, not an exclusive one.
+locale: ru
+---
+Сахарный диабет 2 типа
+Желчнокаменная болезнь
+Диабетическая нефропатия
+Ревматоидный артрит
+Неалкогольная жировая болезнь печени
+Метаболический синдром

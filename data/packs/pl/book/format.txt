@@ -1,0 +1,12 @@
+---
+description: Book format (Polish)
+locale: pl
+---
+Twarda oprawa
+Miękka oprawa
+Książka elektroniczna
+Audiobook
+Wydanie kieszonkowe
+Oprawa broszurowa
+Wydanie ilustrowane
+Wydanie biblioteczne

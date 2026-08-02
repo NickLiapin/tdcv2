@@ -1,0 +1,7 @@
+---
+address: mozambique.vehicle.plate
+description: Mozambican vehicle plate in the common provincial 000-AA-AA form (three digits, two letters, two letters).
+generator: tdc
+locale: pt
+---
+<gen type="regex" value="[0-9]{3}-[A-Z]{2}-[A-Z]{2}"/>

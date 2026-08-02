@@ -1,0 +1,12 @@
+---
+address: mauritania.holiday
+description: Public holidays in Mauritania (Arabic)
+locale: ar
+---
+رأس السنة الميلادية
+عيد الشغل
+عيد الاستقلال
+عيد الفطر
+عيد الأضحى
+رأس السنة الهجرية
+المولد النبوي

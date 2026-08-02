@@ -1,0 +1,16 @@
+---
+description: Jobs in Retail (German)
+locale: de
+---
+Filialleiter
+Kassierer
+Verkäufer
+Regalauffüller
+Ladendetektiv
+Warengruppenmanager
+Einkäufer
+Kundenberater
+Lagerist
+Bezirksleiter
+Fachverkäufer
+Schaufensterdekorateur

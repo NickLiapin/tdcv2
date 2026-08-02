@@ -1,0 +1,9 @@
+---
+address: common.internet.url
+description: Safe URL — scheme://safe-domain/slug (scheme defaults to https)
+generator: tdc
+---
+<sequence name="scheme"><gen type="text" value="https"/></sequence>
+<sequence name="domain"><gen type="template" value="common.internet.domain"/></sequence>
+<sequence name="slug"><gen type="template" value="common.internet.slug"/></sequence>
+<data>${{scheme}}://${{domain}}/${{slug}}</data>

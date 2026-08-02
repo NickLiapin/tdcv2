@@ -1,0 +1,39 @@
+---
+description: Music genre (Portuguese, including Lusophone genres)
+locale: pt
+---
+Rock
+Pop
+Jazz
+Clássica
+Hip hop
+Country
+Eletrônica
+Blues
+Reggae
+Heavy metal
+Folclore
+R&B
+Soul
+Funk
+Punk
+Disco
+House
+Techno
+Indie
+Gospel
+Ambiente
+Ska
+Fado
+Samba
+Bossa nova
+MPB
+Forró
+Sertanejo
+Pagode
+Funk carioca
+Axé
+Kizomba
+Semba
+Trap
+Bolero

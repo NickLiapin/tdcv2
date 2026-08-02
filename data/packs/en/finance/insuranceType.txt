@@ -1,0 +1,16 @@
+---
+description: Insurance type
+locale: en
+---
+Health
+Auto
+Home
+Life
+Renters
+Travel
+Pet
+Disability
+Dental
+Vision
+Liability
+Umbrella

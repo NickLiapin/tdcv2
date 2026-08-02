@@ -1,0 +1,7 @@
+---
+address: benin.docs.idCard
+description: Beninese personal identification number (NPI) — 10 digits. Structural; no public check digit.
+generator: tdc
+locale: fr
+---
+<gen type="regex" value="[0-9]{10}"/>

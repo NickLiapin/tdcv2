@@ -1,0 +1,24 @@
+---
+description: Medical diagnosis in Arabic that requires male anatomy — it cannot occur in a female patient. Draw from this list only for male rows; general conditions live in medical/diagnosis.
+locale: ar
+---
+تضخم البروستاتا الحميد
+التهاب البروستاتا
+سرطان البروستاتا
+سرطان الخصية
+التواء الخصية
+دوالي الخصية
+القيلة المائية
+التهاب البربخ
+الخصية المعلقة
+تضيق القلفة
+التهاب الحشفة
+ضعف الانتصاب
+داء بيروني
+العقم الذكري
+التثدي عند الرجال
+قصور الغدد التناسلية الذكرية
+القساح
+القيلة المنوية
+الصلع الذكري النمطي
+الفتق الصفني

@@ -1,0 +1,6 @@
+---
+address: iraq.phone
+description: Iraqi mobile phone in E.164 form (+964 7[3-9]XXXXXXXX)
+generator: tdc
+---
+<gen type="regex" value="\+9647[3-9][0-9]{8}"/>

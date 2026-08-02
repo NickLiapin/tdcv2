@@ -1,0 +1,45 @@
+---
+description: Common generic drug names (German INN)
+locale: de
+---
+Paracetamol
+Ibuprofen
+Acetylsalicylsäure
+Amoxicillin
+Amoxicillin mit Clavulansäure
+Azithromycin
+Ciprofloxacin
+Doxycyclin
+Lisinopril
+Enalapril
+Losartan
+Amlodipin
+Metoprolol
+Hydrochlorothiazid
+Furosemid
+Spironolacton
+Metformin
+Glibenclamid
+Insulin glargin
+Atorvastatin
+Simvastatin
+Omeprazol
+Pantoprazol
+Levothyroxin
+Salbutamol
+Montelukast
+Prednisolon
+Dexamethason
+Loratadin
+Gabapentin
+Sertralin
+Fluoxetin
+Escitalopram
+Citalopram
+Duloxetin
+Phenprocoumon
+Clopidogrel
+Tramadol
+Naproxen
+Diclofenac
+Allopurinol

@@ -1,0 +1,6 @@
+---
+address: united_kingdom.finance.account
+description: UK bank account number — the standard 8 digits. STRUCTURAL ONLY — validation depends on the bank-specific modulus rule keyed by the sort code, which is not applied here.
+generator: tdc
+---
+<gen type="regex" value="[0-9]{8}"/>

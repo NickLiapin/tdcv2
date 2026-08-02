@@ -1,0 +1,10 @@
+---
+description: Positions in Soccer
+locale: en
+---
+Goalkeeper
+Center Back
+Full Back
+Defensive Midfielder
+Winger
+Striker

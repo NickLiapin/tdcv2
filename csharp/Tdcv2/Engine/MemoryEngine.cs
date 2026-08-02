@@ -1,0 +1,2168 @@
+using System.Globalization;
+using System.Text;
+using Tdcv2.Date;
+using Tdcv2.Distribution;
+using Tdcv2.Expr;
+// `Tdcv2.Distribution` is the namespace apportionment lives in and `Distribution` is the class of
+// named statistical distributions. Both names are right where they are; the alias keeps the two
+// apart at this one call site rather than renaming either to avoid a collision.
+using Distributions = Tdcv2.Stats.Distribution;
+using Tdcv2.Format;
+using Tdcv2.Generators;
+using Tdcv2.Model;
+using Tdcv2.Packs;
+using Tdcv2.Parser;
+using Tdcv2.Prng;
+using Tdcv2.Sequence;
+
+namespace Tdcv2.Engine;
+
+/// <summary>
+/// The in-memory engine: every column materialised, then the block rendered row by row.
+/// </summary>
+/// <remarks>
+/// <para>
+/// One generator walks from the start of the seed, column by column in declaration order. That
+/// order is the whole contract — a column drawing one value more or fewer than the reference
+/// shifts every column after it, so the output is either identical or wrong, never nearly right.
+/// </para>
+/// <para>
+/// What this port does not handle yet REFUSES rather than approximates. Compounds, conditionals,
+/// mixes, switches, computes, parents, uniq and distinct all change what a column contains; a
+/// port that ignored one would produce a plausible column that answers a different question,
+/// which is the failure this project is built to prevent. <see cref="NotSupportedException"/> is
+/// the honest answer until each is ported.
+/// </para>
+/// </remarks>
+public static class MemoryEngine
+{
+    /// <summary>
+    /// What every generator needs beyond its own attributes: the document it belongs to and the
+    /// packs it may read.
+    /// </summary>
+    /// <remarks>
+    /// One object rather than two more parameters on six signatures. Both travel together
+    /// everywhere and neither means anything without the other.
+    /// </remarks>
+    internal readonly record struct Ctx(
+        Config Config, DataPacks Packs, long NowMillis, string? BaseDir,
+        Dictionary<string, RowLinkPlan> RowLinks)
+    {
+        internal int RegexMax => Config.RegexMaxLength;
+
+        internal string? Locale => Config.Locale;
+    }
+
+    public static string Render(Config config) => Render(config, null, null, null);
+
+    /// <summary>
+    /// The same, reading packs and files from where the caller names and against a clock it pins.
+    /// </summary>
+    /// <remarks>
+    /// The clock is a parameter because <c>value="today"</c> reads it, and a test that could not fix
+    /// it would pass today and fail tomorrow. <paramref name="baseDir"/> is the config file's own
+    /// folder, which is what a relative <c>src=</c> is relative to — not the process's working
+    /// directory, or the same config would work from one shell and fail from another.
+    /// </remarks>
+    public static string Render(
+        Config config, DataPacks? packs, long? nowMillis = null, string? baseDir = null) =>
+        Run(config, packs, nowMillis, baseDir).Text();
+
+    /// <summary>
+    /// The same run, as something a caller can read rows out of as well as text.
+    /// </summary>
+    /// <remarks>
+    /// Both views read the very same generated values, so the two can never disagree. The row view
+    /// ignores <c>&lt;block&gt;</c> and the wrappers entirely — those describe a file format, and a
+    /// row has no format.
+    /// </remarks>
+    public static IRowSource Run(
+        Config config, DataPacks? packs, long? nowMillis = null, string? baseDir = null)
+    {
+        IReadOnlyDictionary<string, string[]> columns = BuildColumns(new Ctx(
+            config,
+            packs ?? DataPacks.Discover(),
+            nowMillis ?? DateTimeOffset.UtcNow.ToUnixTimeMilliseconds(),
+            baseDir,
+            // Shared across the whole render: two sequences naming one row key must land on the
+            // same rows, whichever of them reaches the key first.
+            new Dictionary<string, RowLinkPlan>(StringComparer.Ordinal)));
+
+        return new MaterializedRows(config, columns);
+    }
+
+    /// <summary>Every column already built; text is rendered on demand from those same values.</summary>
+    private sealed class MaterializedRows : IRowSource
+    {
+        private readonly Config _config;
+        private readonly IReadOnlyDictionary<string, string[]> _columns;
+
+        internal MaterializedRows(Config config, IReadOnlyDictionary<string, string[]> columns)
+        {
+            _config = config;
+            _columns = columns;
+            SequenceNames = columns.Keys
+                .Where(name => !name.StartsWith('_'))
+                .ToArray();
+        }
+
+        public int Count => _config.Count;
+
+        public IReadOnlyList<string> SequenceNames { get; }
+
+        public string? Value(string column, int row) =>
+            _columns.TryGetValue(column, out string[]? values) && row >= 0 && row < values.Length
+                ? values[row]
+                : null;
+
+        public string Text() => Emit(_config, _columns);
+
+        public void WriteTo(TextWriter output) => output.Write(Text());
+    }
+
+    private static string Emit(
+        Config config, IReadOnlyDictionary<string, string[]> columns)
+    {
+        Fixtures fx = config.Fixtures;
+        IReadOnlyDictionary<string, Repeat.Spec> eachInfo = EachInfo(config);
+        var result = new StringBuilder();
+
+        Emit(result, eachInfo, fx.Before, columns, 0, config.Inject);
+        for (int row = 0; row < config.Count; row++)
+        {
+            Emit(result, eachInfo, fx.BeforeBlock, columns, row, config.Inject);
+
+            // Drop the suppressed lines first. A delimiter belongs between the lines that
+            // survive, so deciding that up front is what keeps a separator off the last one.
+            var active = new List<Line>();
+            foreach (Line line in config.Block)
+            {
+                if (line.IfExpr is null || Condition(line.IfExpr, columns, row))
+                {
+                    active.Add(line);
+                }
+            }
+
+            for (int i = 0; i < active.Count; i++)
+            {
+                Emit(result, eachInfo, fx.BeforeLine, columns, row, config.Inject);
+                result.Append(RenderLine(active[i], columns, row, config.Inject, eachInfo));
+                Emit(result, eachInfo, fx.AfterLine, columns, row, config.Inject);
+                if (i < active.Count - 1)
+                {
+                    Emit(result, eachInfo, fx.DelimiterLine, columns, row, config.Inject);
+                }
+            }
+
+            Emit(result, eachInfo, fx.AfterBlock, columns, row, config.Inject);
+            if (row < config.Count - 1)
+            {
+                Emit(result, eachInfo, fx.DelimiterBlock, columns, row, config.Inject);
+            }
+        }
+
+        Emit(result, eachInfo, fx.After, columns, Math.Max(0, config.Count - 1), config.Inject);
+        return result.ToString();
+    }
+
+    /// <summary>
+    /// Compute every <c>&lt;pool&gt;</c> declared in the config, once, before any row exists.
+    ///
+    /// A pool is built by the ORDINARY column machinery with <c>Count</c> set to the member count
+    /// instead of the row count — which is the whole reason a <c>&lt;uniq&gt;</c>, a
+    /// <c>&lt;mix&gt;</c>, an <c>if=</c> or a <c>parent=</c> inside a pool behaves exactly as it
+    /// does outside one, with nothing here to make it so.
+    /// </summary>
+    /// <summary>
+    /// Publish a running total.
+    ///
+    /// Reads its source out of the columns rather than drawing anything: a running total
+    /// consumes no randomness at all, which is why adding one leaves every other column
+    /// exactly where it was.
+    /// </summary>
+    private static void RunningColumn(
+        SequenceSpec spec, Dictionary<string, string?[]> columns, int count)
+    {
+        IReadOnlyDictionary<string, string> attrs = spec.Gen!.Attrs;
+        string of = (attrs.GetValueOrDefault("of") ?? "").Trim();
+        string? op = Accumulate.Read(attrs);
+        if (op is null || !columns.TryGetValue(of, out string?[]? source))
+        {
+            return; // the validator reports both
+        }
+
+        string resetName = (attrs.GetValueOrDefault("reset") ?? "").Trim();
+        string?[]? resetAt = resetName.Length == 0
+            ? null
+            : columns.GetValueOrDefault(resetName);
+        string baseText = (attrs.GetValueOrDefault("base") ?? "").Trim();
+        columns[spec.Name] = Accumulate.ApplyColumn(
+            source.Take(count).ToArray(), op, baseText.Length == 0 ? null : baseText, resetAt);
+    }
+
+    internal static IReadOnlyDictionary<string, PoolTable> BuildPoolTables(Ctx ctx)
+    {
+        var tables = new Dictionary<string, PoolTable>(StringComparer.Ordinal);
+        foreach (PoolSpec spec in ctx.Config.Pools)
+        {
+            if (string.IsNullOrEmpty(spec.Name) || spec.Count < 1)
+            {
+                continue; // the validator already said so
+            }
+
+            var inner = new Config(
+                spec.Count,
+                Pool.PoolSeed(ctx.Config.Seed, spec.Name),
+                ctx.Config.Locale,
+                ctx.Config.Inject,
+                ctx.Config.RegexMaxLength,
+                spec.Sequences,
+                ctx.Config.Block,
+                ctx.Config.Fixtures,
+                ctx.Config.Mode,
+                ctx.Config.Engine,
+                spec.UniqGroups,
+                spec.DistinctGroups);
+            // The pools already built — so a MEMBER can reference one, exactly as a row does.
+            // Declaration order is the whole cycle check: a pool sees only the pools above it.
+            IReadOnlyDictionary<string, string[]> built = BuildColumns(
+                new Ctx(
+                    inner,
+                    ctx.Packs,
+                    ctx.NowMillis,
+                    ctx.BaseDir,
+                    new Dictionary<string, RowLinkPlan>(StringComparer.Ordinal)),
+                tables);
+
+            var fields = new List<string>();
+            var columns = new Dictionary<string, IReadOnlyList<string>>(StringComparer.Ordinal);
+            foreach (SequenceSpec member in spec.Sequences)
+            {
+                // A member that references another pool publishes ONLY `name.field` — a record
+                // has no value of its own — which is why the dotted keys are matched here too.
+                foreach (KeyValuePair<string, string[]> pair in built)
+                {
+                    if (pair.Key != member.Name
+                        && !pair.Key.StartsWith(member.Name + ".", StringComparison.Ordinal))
+                    {
+                        continue;
+                    }
+
+                    fields.Add(pair.Key);
+                    columns[pair.Key] = pair.Value.Select(v => v ?? "").ToArray();
+                }
+            }
+
+            tables[spec.Name] = new PoolTable(spec.Name, spec.Count, fields, columns);
+        }
+
+        return tables;
+    }
+
+    /// <summary>
+    /// Publish one member of a pool per row, under <c>Ref.field</c> for every field it has.
+    ///
+    /// One pick per ROW, shared by every field: that is what makes the first name and the last
+    /// name in a row belong to the same doctor. Not one pick per field, which is exactly how
+    /// "Дмитрий Иванова" would get out.
+    /// </summary>
+    private static void PoolReference(
+        SequenceSpec spec,
+        Dictionary<string, string[]> columns,
+        bool[] mask,
+        int count,
+        IReadOnlyDictionary<string, PoolTable> tables,
+        string seed)
+    {
+        string poolName = (spec.Gen!.Attr("value") ?? "").Trim();
+        if (!tables.TryGetValue(poolName, out PoolTable? table) || table.Count < 1)
+        {
+            return; // unknown pool — the validator reports it
+        }
+
+        string expression = (spec.Gen.Attr("filter") ?? "").Trim();
+        (string Field, string Column)? equality = expression.Length == 0
+            ? null
+            : Pool.ParseEqualityFilter(expression, table, columns.ContainsKey);
+        Dictionary<string, List<int>>? buckets =
+            equality is null ? null : Pool.BucketByField(table, equality.Value.Field);
+
+        var members = new int[count];
+        for (int row = 0; row < count; row++)
+        {
+            if (!mask[row])
+            {
+                members[row] = -1;
+                continue;
+            }
+
+            if (expression.Length == 0)
+            {
+                members[row] = Pool.PickMember(seed, spec.Name, table, row);
+                continue;
+            }
+
+            List<int> eligible;
+            string detail = "";
+            if (equality is not null && buckets is not null)
+            {
+                string wanted = columns.TryGetValue(equality.Value.Column, out string[]? driver)
+                    ? driver[row] ?? ""
+                    : "";
+                eligible = buckets.TryGetValue(wanted, out List<int>? found)
+                    ? found
+                    : new List<int>();
+                detail = $" ({equality.Value.Column}=\"{wanted}\")";
+            }
+            else
+            {
+                eligible = new List<int>();
+                for (int m = 0; m < table.Count; m++)
+                {
+                    if (Evaluate.AsCondition(expression, new MemberScope(columns, table, m, row)))
+                    {
+                        eligible.Add(m);
+                    }
+                }
+            }
+
+            if (eligible.Count == 0)
+            {
+                throw new InvalidOperationException(
+                    Pool.NoCandidateMessage(poolName, expression, row, detail));
+            }
+
+            int slot = Seekable.NextInt(
+                seed, Pool.RefStream(spec.Name), row, eligible.Count);
+            members[row] = eligible[slot];
+        }
+
+        foreach (string field in table.Fields)
+        {
+            IReadOnlyList<string> column =
+                table.Columns.TryGetValue(field, out IReadOnlyList<string>? c)
+                    ? c
+                    : Array.Empty<string>();
+            var values = new string[count];
+            for (int row = 0; row < count; row++)
+            {
+                int m = members[row];
+                values[row] = m < 0 ? null! : (m < column.Count ? column[m] : "");
+            }
+
+            columns[spec.Name + "." + field] = values;
+        }
+    }
+
+    /// <summary>
+    /// A candidate member's fields first, then the row's columns.
+    ///
+    /// A qualified <c>Pool.field</c> always means the member's field. A name that is both a field
+    /// and a column is refused by the validator, so this never has to guess.
+    /// </summary>
+    private sealed class MemberScope : Evaluate.IScope
+    {
+        private readonly Dictionary<string, string[]> columns;
+        private readonly PoolTable table;
+        private readonly int member;
+        private readonly int row;
+
+        public MemberScope(
+            Dictionary<string, string[]> columns,
+            PoolTable table,
+            int member,
+            int row)
+        {
+            this.columns = columns;
+            this.table = table;
+            this.member = member;
+            this.row = row;
+        }
+
+        public bool Has(string name) => Field(name) is not null || this.columns.ContainsKey(name);
+
+        public string Value(string name)
+        {
+            string? found = this.Field(name);
+            if (found is not null)
+            {
+                return found;
+            }
+
+            return this.columns.TryGetValue(name, out string[]? column)
+                ? column[this.row] ?? ""
+                : "";
+        }
+
+        private string? Field(string name)
+        {
+            string prefix = this.table.Name + ".";
+            string key = name.StartsWith(prefix, StringComparison.Ordinal)
+                ? name.Substring(prefix.Length)
+                : name;
+            return this.table.Columns.TryGetValue(key, out IReadOnlyList<string>? column)
+                ? (this.member < column.Count ? column[this.member] : "")
+                : null;
+        }
+    }
+
+    private static IReadOnlyDictionary<string, string[]> BuildColumns(Ctx ctx) =>
+        BuildColumns(ctx, null);
+
+    /// <summary>
+    /// The same, with the pools already built handed in — which is how a POOL body is
+    /// materialised, so that one of its members can draw from a pool declared above it.
+    /// </summary>
+    private static IReadOnlyDictionary<string, string[]> BuildColumns(
+        Ctx ctx, IReadOnlyDictionary<string, PoolTable>? prebuilt)
+    {
+        Config config = ctx.Config;
+        int count = config.Count;
+        var columns = new Dictionary<string, string[]>();
+
+        // Built-ins first. They are positional, consume no randomness, and are therefore
+        // identical for a given count no matter what else the config does.
+        var counts = new string[count];
+        var first = new string[count];
+        var last = new string[count];
+        var total = new string[count];
+        for (int i = 0; i < count; i++)
+        {
+            counts[i] = (i + 1).ToString(CultureInfo.InvariantCulture);
+            first[i] = i == 0 ? "true" : "false";
+            last[i] = i == count - 1 ? "true" : "false";
+            total[i] = count.ToString(CultureInfo.InvariantCulture);
+        }
+
+        columns["_count"] = counts;
+        columns["_first"] = first;
+        columns["_last"] = last;
+        columns["_total"] = total;
+
+        Sfc32 prng = Prng.Prng.Create(config.Seed);
+
+        // Pools first, and off a DERIVED seed. A pool must be invisible to every column it does
+        // not feed: adding one leaves the ids, the ages and the names exactly where they were, so
+        // an old snapshot still matches.
+        IReadOnlyDictionary<string, PoolTable> tables = prebuilt ?? BuildPoolTables(ctx);
+
+        foreach (SequenceSpec spec in config.Sequences)
+        {
+            bool[] mask = ParentMask(spec, columns, count);
+            int applicable = mask.Count(on => on);
+
+            // A reference to a <pool>: this row gets one member, and every field of that member
+            // is published under `Ref.field`. Resolved HERE, in declaration order, so a later
+            // `<switch on="Doc.city">` finds the field already registered.
+            if (spec.Gen is not null && spec.Gen.Type == "pool")
+            {
+                PoolReference(spec, columns, mask, count, tables, config.Seed);
+                continue;
+            }
+
+            // A running total down a column. Resolved HERE, in declaration order, so it reads
+            // a column that already exists — which is also why `of=` must name a sequence
+            // declared above it.
+            if (spec.Gen is not null && spec.Gen.Type == "running")
+            {
+                RunningColumn(spec, columns, count);
+                continue;
+            }
+
+            // Named one by one rather than as "that shape": each is a separate piece of work,
+            // and a single message would hide which one is actually holding a config up.
+            if (spec.IsComputed)
+            {
+                // Derived, not drawn: it reads the columns already built and takes no randomness,
+                // which is why declaration order alone decides what it can see.
+                var derived = new string[count];
+                for (int i = 0; i < count; i++)
+                {
+                    derived[i] = ComputeRow(spec, columns, i);
+                }
+
+                columns[spec.Name] = derived;
+                continue;
+            }
+
+            if (spec.IsConditional)
+            {
+                columns[spec.Name] = Conditional(spec, count, prng, columns, ctx);
+                continue;
+            }
+
+            if (spec.IsMix)
+            {
+                var flags = new bool[applicable];
+                columns[spec.Name] =
+                    Spread(mask, MixValues(spec.Mix!, applicable, prng, flags, ctx), count);
+
+                string? flagName = spec.Mix!.Flag;
+                if (!string.IsNullOrWhiteSpace(flagName))
+                {
+                    // The ground-truth companion: which rows took a case declared anomalous. It
+                    // shares the parent mask, so the label is absent exactly where the value is.
+                    columns[flagName] = Spread(
+                        mask, flags.Select(on => on ? "true" : "false").ToList(), count);
+                }
+
+                continue;
+            }
+
+            if (spec.IsSwitch)
+            {
+                columns[spec.Name] = SwitchValues(spec.SwitchSpec!, count, prng, columns, ctx);
+                continue;
+            }
+
+            if (spec.IsComposed)
+            {
+                // The body in declaration order — one pass, because the order the gens draw in is
+                // part of the contract and taking the named ones first would shift every column
+                // after this sequence.
+                var composed = new string[applicable];
+                Array.Fill(composed, "");
+                var built = new Dictionary<string, List<string>>(StringComparer.Ordinal);
+
+                // `uniq="true"` on a composed value. A concatenation is unique exactly when the
+                // join is injective — true when ONE part is drawn and the rest are constants,
+                // because appending a constant cannot make two different draws collide. Two drawn
+                // parts is the variable-width trap and the validator refuses it (TDC220), so this
+                // stays null there.
+                List<Item> drawnParts = spec.Items!
+                    .Where(i => i.Gen is not null && i.Field is null).ToList();
+                Item? uniqPart = spec.Uniq && drawnParts.Count == 1 ? drawnParts[0] : null;
+
+                foreach (Item item in spec.Items!)
+                {
+                    if (item.ConstantName is not null)
+                    {
+                        // A constant costs no draw at all — that is the whole reason it exists
+                        // rather than a one-value generator.
+                        built[item.ConstantName] =
+                            Enumerable.Repeat(item.Text ?? "", applicable).ToList();
+                        continue;
+                    }
+
+                    if (item.Text is not null)
+                    {
+                        for (int i = 0; i < applicable; i++)
+                        {
+                            composed[i] += item.Text;
+                        }
+
+                        continue;
+                    }
+
+                    if (item.Field is not null)
+                    {
+                        built[item.Field.Name] = applicable == 0
+                            ? new List<string>()
+                            : Finish(
+                                Generate(item.Field.Gen, applicable, prng, ctx),
+                                item.Field.Gen.Attrs, prng).ToList();
+                        continue;
+                    }
+
+                    IReadOnlyList<string> drawn;
+                    if (applicable == 0)
+                    {
+                        drawn = Array.Empty<string>();
+                    }
+                    else if (ReferenceEquals(item, uniqPart))
+                    {
+                        drawn = UniqSimple.Build(
+                            spec.Name, item.Gen!, applicable, prng, ctx.Packs,
+                            ctx.Config.Locale, ctx.BaseDir);
+                    }
+                    else
+                    {
+                        drawn = Finish(
+                            Generate(item.Gen!, applicable, prng, ctx), item.Gen!.Attrs, prng);
+                    }
+                    for (int i = 0; i < applicable; i++)
+                    {
+                        composed[i] += drawn[i];
+                    }
+                }
+
+                if (spec.DistinctGroups is not null)
+                {
+                    // The groups name FIELDS, and a composed body carries its fields in `Items` —
+                    // so the constraint is checked against a spec that spells them out.
+                    EnforceDistinct(
+                        spec with { Fields = FieldsOf(spec.Items!) }, built, applicable, prng, ctx);
+                }
+
+                // Only when something unnamed actually composed it. A body of nothing but named
+                // items has no value of its own, and ${{Name}} stays the literal marker that says
+                // you meant a field.
+                if (ComposesOwnValue(spec.Items!))
+                {
+                    columns[spec.Name] = Spread(mask, composed, count);
+                }
+
+                foreach (KeyValuePair<string, List<string>> entry in built)
+                {
+                    columns[spec.Name + "." + entry.Key] = Spread(mask, entry.Value, count);
+                }
+
+                continue;
+            }
+
+            if (spec.IsCompound)
+            {
+                // Every field draws from the SHARED stream, in declaration order. That is what
+                // keeps a compound coherent: the city and the postcode of one generated address
+                // belong to the same row, not to two independent ones. Interleaving them
+                // differently would still produce plausible values and pair the wrong ones.
+                var produced = new Dictionary<string, List<string>>(StringComparer.Ordinal);
+                foreach (Field field in spec.Fields!)
+                {
+                    produced[field.Name] = applicable == 0
+                        ? new List<string>()
+                        : Finish(
+                            Generate(field.Gen, applicable, prng, ctx), field.Gen.Attrs, prng)
+                            .ToList();
+                }
+
+                if (spec.DistinctGroups is not null)
+                {
+                    EnforceDistinct(spec, produced, applicable, prng, ctx);
+                }
+
+                if (spec.Uniq)
+                {
+                    EnforceUniqRedrawing(spec, produced, applicable, prng, ctx);
+                }
+
+                foreach (Field field in spec.Fields!)
+                {
+                    columns[spec.Name + "." + field.Name] =
+                        Spread(mask, produced[field.Name], count);
+                }
+
+                continue;
+            }
+
+            // `common.vehicle.model.${{Brand}}` — the pack to draw from is decided by another
+            // column, so the address is not known until the row is. Built here rather than in the
+            // generator, because this is the only place the sibling columns exist.
+            if (spec.Gen!.Type == "template" && (spec.Gen.Attr("value") ?? "").Contains("${{"))
+            {
+                columns[spec.Name] =
+                    Spread(mask, DynamicTemplate(spec.Gen, mask, columns, prng, ctx), count);
+                continue;
+            }
+
+            // A single column cannot be both proportional and unique, so — unlike the
+            // compound path, which only rearranges — uniq changes the draw: without
+            // replacement, one PRNG draw per pick (UniqSimple).
+            if (spec.Uniq && spec.Gen!.Type is not ("increment" or "decrement"))
+            {
+                IReadOnlyList<string> unique =
+                    applicable == 0
+                        ? Array.Empty<string>()
+                        : UniqSimple.Build(
+                            spec.Name, spec.Gen, applicable, prng, ctx.Packs,
+                            ctx.Config.Locale, ctx.BaseDir);
+                columns[spec.Name] = Spread(mask, unique, count);
+                continue;
+            }
+
+            var anomalyFlags = new bool[applicable];
+            Repeat.Spec? repeat = Repeat.Parse(spec.Gen!.Attrs);
+            IReadOnlyList<string> values;
+            if (applicable == 0)
+            {
+                values = Array.Empty<string>();
+            }
+            else if (repeat is { } r)
+            {
+                // The per-value passes run INSIDE, on the flat slot buffer, so anomaly, missing and
+                // formatting come out per element of the list rather than over the joined cell.
+                Gen element = new(spec.Gen.Type, Repeat.Without(spec.Gen.Attrs));
+                values = Repeat.Build(
+                    r, applicable, prng,
+                    slots => Finish(
+                        Generate(element, slots, prng, ctx), spec.Gen.Attrs, prng,
+                        new bool[slots]));
+            }
+            else
+            {
+                values = Finish(
+                    Generate(spec.Gen!, applicable, prng, ctx), spec.Gen!.Attrs, prng,
+                    anomalyFlags);
+            }
+
+            columns[spec.Name] = Spread(mask, values, count);
+
+            string? anomalyFlagName = spec.Gen!.Attrs.GetValueOrDefault("anomaly_flag");
+            if (!string.IsNullOrWhiteSpace(anomalyFlagName))
+            {
+                // The ground-truth companion: which rows the run chose to spike. It shares the
+                // parent mask, so the label is absent exactly where the value is — a detector
+                // trained on this cannot learn from a label the data never had.
+                columns[anomalyFlagName] = Spread(
+                    mask, anomalyFlags.Select(on => on ? "true" : "false").ToList(), count);
+            }
+        }
+
+        // Both run over finished columns: a group's members must all exist before the constraint
+        // between them means anything.
+        EnforceEnvDistinct(ctx, columns, count, prng);
+        EnforceEnvUniq(ctx, columns, count);
+        ResolveHttp(ctx, columns, count);
+        return columns;
+    }
+
+    /// <summary>
+    /// One generator's values.
+    /// </summary>
+    /// <remarks>
+    /// Shared with the streaming engine, which calls it with a count of one and a generator private
+    /// to the row. Two copies of this dispatch would be two places for the languages to drift apart
+    /// from each other and from themselves.
+    /// </remarks>
+    internal static IReadOnlyList<string> Generate(Gen gen, int count, Sfc32 prng, Ctx ctx)
+    {
+        switch (gen.Type)
+        {
+            case "text":
+            {
+                IReadOnlyList<string> list = SplitText(gen.Attr("value") ?? "");
+                if (gen.Attrs.GetValueOrDefault("order") == "sequential")
+                {
+                    bool cycle = gen.Attrs.GetValueOrDefault("cycle") != "false";
+                    var walked = new List<string>(count);
+                    for (int i = 0; i < count; i++)
+                    {
+                        walked.Add(PickSequential(list, i, cycle));
+                    }
+
+                    return walked;
+                }
+
+                string percent = gen.Attr("percent") ?? "";
+                if (percent.Length > 0)
+                {
+                    // Through the shared mask reader, so a partial mask like percent="50" over
+                    // three values splits the remainder instead of throwing on the blanks.
+                    return Hamilton.Distribute(
+                        count, list, PercentMask.Expand(percent, list.Count), prng);
+                }
+
+                var picked = new List<string>(count);
+                for (int i = 0; i < count; i++)
+                {
+                    picked.Add(list[(int)Math.Floor(prng.Next() * list.Count)]);
+                }
+
+                return picked;
+            }
+
+            case "number":
+                return gen.Attrs.ContainsKey("distribution")
+                    ? Distribute(gen.Attrs, count, prng)
+                    : NumberGen.Generate(gen.Attrs, count, prng);
+            case "pattern":
+                return Pattern.PatternGen.Generate(
+                    gen.Attrs, count, prng, ctx.BaseDir, ctx.Packs.DataRoots);
+            case "regex":
+                return RegexGen.Generate(gen.Attrs, count, ctx.RegexMax, prng);
+            case "advanced_regex":
+                return AdvancedRegexGen.Generate(gen.Attrs, count, ctx.RegexMax, prng);
+            case "symbol":
+                return SymbolGen.Generate(gen.Attrs, count, prng);
+            case "http":
+            {
+                // Filled in a second pass, after every ordinary column exists: an http gen may read
+                // another sequence through in=, and that sequence has to be there first.
+                return Enumerable.Repeat("", count).ToArray();
+            }
+
+            case "template":
+                return Template(gen, count, prng, ctx);
+            case "date":
+                return DateGen.Generate(gen.Attrs, ctx.Locale, ctx.NowMillis, count, prng);
+            case "timeseries":
+                return Stats.Timeseries.Generate(gen.Attrs, count, prng);
+            case "file":
+            {
+                if (gen.Attrs.GetValueOrDefault("order") == "sequential")
+                {
+                    IReadOnlyList<string> rows =
+                        FileGen.Load(gen.Attrs, ctx.BaseDir, ctx.Packs.DataRoots);
+                    bool cycle = gen.Attrs.GetValueOrDefault("cycle") != "false";
+                    var walked = new List<string>(count);
+                    for (int i = 0; i < count; i++)
+                    {
+                        walked.Add(PickSequential(rows, i, cycle));
+                    }
+
+                    return walked;
+                }
+
+                string? rowKey = gen.Attrs.GetValueOrDefault("row")?.Trim();
+                if (!string.IsNullOrEmpty(rowKey))
+                {
+                    return LinkedFileValues(rowKey, gen.Attrs, count, prng, ctx);
+                }
+
+                FileGen.Weighted? weighted =
+                    FileGen.LoadWeighted(gen.Attrs, ctx.BaseDir, ctx.Packs.DataRoots);
+                if (weighted is not null)
+                {
+                    // A weight is a raw count, honoured exactly: 20000 and 10000 over 30000 rows
+                    // give precisely those, not "about twice as many".
+                    return Hamilton.Distribute(
+                        count, weighted.Values, weighted.Percents, prng);
+                }
+
+                return FileGen.Generate(
+                    gen.Attrs, count, ctx.BaseDir, prng, ctx.Packs.DataRoots);
+            }
+            case "increment":
+                return Counter.Generate(gen.Attrs, count, ascending: true);
+            case "decrement":
+                return Counter.Generate(gen.Attrs, count, ascending: false);
+            default:
+                throw new NotSupportedException(
+                    $"generator type \"{gen.Type}\" is not ported to C# yet");
+        }
+    }
+
+    /// <summary>
+    /// <c>&lt;gen type="template" value="person.lastName"/&gt;</c> — a value out of a data pack.
+    /// </summary>
+    /// <remarks>
+    /// Three kinds of pack answer to the same tag. A plain list is drawn from uniformly. A weighted
+    /// list is laid out <em>exactly</em> rather than sampled — the counts in the file are
+    /// proportions the run has to hit, so 30,000 rows from the census file hold precisely as many
+    /// Smiths as the census says. And a pack marked <c>generator: tdc</c> ships a rule instead of
+    /// values, because nobody can list every UUID.
+    /// </remarks>
+    private static IReadOnlyList<string> Template(Gen gen, int count, Sfc32 prng, Ctx ctx)
+    {
+        string path = gen.Attr("value") ?? "";
+
+        // Two template paths are generators rather than packs, resolved before the registry is
+        // consulted — which is why no pack file is named after either of them.
+        if (path == "person.b_day")
+        {
+            var born = new List<string>(count);
+            for (int i = 0; i < count; i++)
+            {
+                born.Add(DateGen.BirthDay(gen.Attrs, ctx.Locale, ctx.NowMillis, prng));
+            }
+
+            return born;
+        }
+
+        if (path == "date.range")
+        {
+            return DateGen.LegacyRange(gen.Attrs, ctx.Locale, ctx.NowMillis, count, prng);
+        }
+
+        DataPacks.Entry entry = ctx.Packs.Load(path, ctx.Locale);
+
+        if (entry.IsGenerator)
+        {
+            return PackGenerator(entry, path, count, prng, ctx);
+        }
+
+        if (entry.Weighted)
+        {
+            // The same path percent= takes: an exact apportionment, not a biased draw.
+            return Hamilton.Distribute(count, entry.Values, entry.Percents!, prng);
+        }
+
+        var picked = new List<string>(count);
+        for (int i = 0; i < count; i++)
+        {
+            picked.Add(entry.Values[(int)Math.Floor(prng.Next() * entry.Values.Count)]);
+        }
+
+        return picked;
+    }
+
+    private static string ComputeRow(
+        SequenceSpec spec, IReadOnlyDictionary<string, string[]> columns, int row) =>
+        Tdcv2.Compute.Compute.Evaluate(
+            (TDCParser.OpenCloseElementContext)spec.Compute!,
+            Tdcv2.Compute.Compute.FieldsOf(
+                name => columns.TryGetValue(name, out string[]? column) ? column[row] : null));
+
+
+
+
+    // ── row-linked files ─────────────────────────────────────────────────────────────────────
+
+    /// <summary>One row link's plan: which row of the file each record reads.</summary>
+    internal sealed record RowLinkPlan(string SourceKey, IReadOnlyList<int> Indexes);
+
+    /// <summary>
+    /// <c>row="key"</c> — every sequence on the same key reads the same row of the file.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// The first sequence to use a key draws the plan — one row index per record — and every later
+    /// one follows it. That is the whole point: a city and its postcode taken from one real record
+    /// are consistent, where two independent draws produce a pairing no validator would accept.
+    /// </para>
+    /// <para>
+    /// Because only the first draws, adding a second field to an existing link consumes no further
+    /// randomness and leaves every other column exactly where it was.
+    /// </para>
+    /// </remarks>
+    /// <summary>The named <c>&lt;gen&gt;</c> fields of a composed body, in order.</summary>
+    internal static IReadOnlyList<Field> FieldsOf(IReadOnlyList<Item> items) =>
+        items.Where(item => item.Field is not null).Select(item => item.Field!).ToList();
+
+    /// <summary>Whether a composed body builds a value of its own.</summary>
+    /// <remarks>A body of nothing but named items — fields and constants — has none.</remarks>
+    internal static bool ComposesOwnValue(IReadOnlyList<Item> items) =>
+        items.Any(item => item.ConstantName is null && (item.Gen is not null || item.Text is not null));
+
+    private static IReadOnlyList<string> LinkedFileValues(
+        string rowKey, IReadOnlyDictionary<string, string> attrs, int count, Sfc32 prng, Ctx ctx)
+    {
+        FileGen.RowSource source = FileGen.LoadRows(attrs, ctx.BaseDir, ctx.Packs.DataRoots);
+
+        if (!ctx.RowLinks.TryGetValue(rowKey, out RowLinkPlan? plan))
+        {
+            var indexes = new List<int>(count);
+            FileGen.Weighted? weighted = FileGen.WeightedRows(attrs, source);
+            if (weighted is not null)
+            {
+                // With weight=, the shared rows follow the file's counts exactly; every linked
+                // field then reads those same rows.
+                foreach (string index in
+                         Hamilton.Distribute(count, weighted.Values, weighted.Percents, prng))
+                {
+                    indexes.Add(int.Parse(index, CultureInfo.InvariantCulture));
+                }
+            }
+            else
+            {
+                for (int i = 0; i < count; i++)
+                {
+                    indexes.Add(Rand.NextInt(prng, 0, source.Rows.Count));
+                }
+            }
+
+            plan = new RowLinkPlan(source.SourceKey, indexes);
+            ctx.RowLinks[rowKey] = plan;
+        }
+        else
+        {
+            if (plan.SourceKey != source.SourceKey)
+            {
+                throw new InvalidOperationException(
+                    $"sequence: row link \"{rowKey}\" cannot mix different file sources");
+            }
+
+            if (plan.Indexes.Count != count)
+            {
+                throw new InvalidOperationException(
+                    $"sequence: row link \"{rowKey}\" cannot be reused with a different row count");
+            }
+        }
+
+        return plan.Indexes.Select(index => FileGen.CellAt(source, index)).ToArray();
+    }
+
+    // ── http ─────────────────────────────────────────────────────────────────────────────────
+
+    /// <summary>
+    /// The second pass: fill every http column now that the ordinary ones exist.
+    /// </summary>
+    /// <remarks>
+    /// It cannot happen in declaration order, because <c>in=</c> may name a sequence and one batch
+    /// carries the whole column — the input has to be complete before the call goes out. A batch
+    /// rather than a call per row is the difference between a handful of requests and a million.
+    /// </remarks>
+    private static void ResolveHttp(
+        Ctx ctx, IReadOnlyDictionary<string, string[]> columns, int count)
+    {
+        foreach (SequenceSpec spec in ctx.Config.Sequences)
+        {
+            if (spec.Gen is null || spec.Gen.Type != "http")
+            {
+                continue;
+            }
+
+            IReadOnlyDictionary<string, string> attrs = spec.Gen.Attrs;
+            IReadOnlyList<string>? inputs = null;
+            string? inName = attrs.GetValueOrDefault("in");
+            if (!string.IsNullOrWhiteSpace(inName))
+            {
+                columns.TryGetValue(inName, out string[]? column);
+                inputs = Enumerable.Range(0, count)
+                    .Select(i => column is null ? "" : column[i] ?? "")
+                    .ToArray();
+            }
+
+            IReadOnlyList<string> values;
+            try
+            {
+                values = HttpGen.Fetch(
+                    attrs.GetValueOrDefault("src", ""),
+                    count,
+                    inputs,
+                    HttpGen.SeedFor(ctx.Config.Seed, spec.Name),
+                    HttpGen.OnError(attrs),
+                    HttpGen.TimeoutMs(attrs.GetValueOrDefault("timeout")));
+            }
+            catch (HttpGen.ServiceException e)
+            {
+                throw new InvalidOperationException(
+                    $"http service for sequence \"{spec.Name}\" at {e.Url} {e.Message}", e);
+            }
+
+            if (columns.TryGetValue(spec.Name, out string[]? target))
+            {
+                for (int i = 0; i < count && i < values.Count; i++)
+                {
+                    target[i] = values[i];
+                }
+            }
+        }
+    }
+
+    // ── parent= ──────────────────────────────────────────────────────────────────────────────
+
+    /// <summary>Which rows a column applies to.</summary>
+    private static bool[] ParentMask(
+        SequenceSpec spec, IReadOnlyDictionary<string, string[]> columns, int count)
+    {
+        var mask = new bool[count];
+        if (spec.Parent is null)
+        {
+            Array.Fill(mask, true);
+            return mask;
+        }
+
+        int dot = spec.Parent.IndexOf('.');
+        string parentName = dot < 0 ? spec.Parent : spec.Parent[..dot];
+        string? parentValue = dot < 0 ? null : spec.Parent[(dot + 1)..];
+
+        if (!columns.TryGetValue(parentName, out string[]? parent))
+        {
+            throw new ArgumentException(
+                $"sequence \"{spec.Name}\" references unknown parent \"{parentName}\". Parent "
+                + "sequences must be declared before their children.");
+        }
+
+        for (int i = 0; i < count; i++)
+        {
+            mask[i] = parentValue is null ? parent[i] is not null : parentValue == parent[i];
+        }
+
+        return mask;
+    }
+
+    /// <summary>
+    /// Lay dense produced values back over the full row range, leaving filtered rows null.
+    /// </summary>
+    /// <remarks>
+    /// A null means "this row is outside the column's parent filter", which renders as empty rather
+    /// than as a neighbour's value shifted up — the failure a dense array would produce silently.
+    /// </remarks>
+    private static string[] Spread(bool[] mask, IReadOnlyList<string> produced, int count)
+    {
+        var values = new string[count];
+        int next = 0;
+        for (int i = 0; i < count; i++)
+        {
+            if (mask[i])
+            {
+                values[i] = next < produced.Count ? produced[next] : null!;
+                next++;
+            }
+        }
+
+        return values;
+    }
+
+    /// <summary>
+    /// A template whose address names another column.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// The row decides where its value comes from: a car's model list depends on its make, a
+    /// region's cities on its country. That is the difference between data that is merely plausible
+    /// per column and data that holds together across a record.
+    /// </para>
+    /// <para>
+    /// One row at a time, necessarily — the address changes with it — and only on the rows the
+    /// parent selected, so a filtered-out row draws nothing rather than drawing from whatever
+    /// address an empty interpolation happens to produce.
+    /// </para>
+    /// </remarks>
+    private static List<string> DynamicTemplate(
+        Gen gen, bool[] mask, IReadOnlyDictionary<string, string[]> columns, Sfc32 prng, Ctx ctx)
+    {
+        string template = gen.Attr("value") ?? "";
+        string? locale = gen.Attrs.GetValueOrDefault("local");
+        if (string.IsNullOrWhiteSpace(locale))
+        {
+            locale = ctx.Locale;
+        }
+
+        var result = new List<string>();
+        for (int row = 0; row < mask.Length; row++)
+        {
+            if (!mask[row])
+            {
+                continue;
+            }
+
+            string address = Interpolate.Apply(
+                template, ctx.Config.Inject, new RowLookup(columns, row));
+            var attrs = new Dictionary<string, string>(gen.Attrs, StringComparer.Ordinal)
+            {
+                ["value"] = address,
+                ["local"] = locale ?? "",
+            };
+            IReadOnlyList<string> built = Template(
+                new Gen("template", attrs), 1, prng, ctx with { Config = ctx.Config });
+            result.Add(built.Count == 0 ? "" : built[0]);
+        }
+
+        return result;
+    }
+
+    // ── uniq and distinct ────────────────────────────────────────────────────────────────────
+
+    /// <summary>How many redraws a <c>&lt;distinct&gt;</c> field gets before its source is called too small.</summary>
+    private const int DistinctFuse = 100;
+
+    /// <summary>How many independent redraws before a <c>uniq=</c> config is declared impossible.</summary>
+    private const int UniqRedrawAttempts = 8;
+
+    /// <summary>
+    /// <c>&lt;distinct&gt;</c> — fields inside one group must differ from each other within a row.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Redraw on collision, field by field, in declaration order. A person's city of birth and city
+    /// of residence come from the same list and are usually different; without this they coincide
+    /// about as often as the list is short.
+    /// </para>
+    /// <para>
+    /// Redrawing appends to the stream, so the result stays deterministic. The fuse is there because
+    /// a one-value list can never satisfy two fields, and spinning forever would say far less than
+    /// naming the problem.
+    /// </para>
+    /// </remarks>
+    private static void EnforceDistinct(
+        SequenceSpec spec, Dictionary<string, List<string>> produced, int count,
+        Sfc32 prng, Ctx ctx)
+    {
+        var genByField = spec.Fields!.ToDictionary(f => f.Name, f => f.Gen, StringComparer.Ordinal);
+
+        foreach (IReadOnlyList<string> group in spec.DistinctGroups!)
+        {
+            List<string> fields = group
+                .Where(name => produced.ContainsKey(name) && genByField.ContainsKey(name))
+                .ToList();
+            if (fields.Count < 2)
+            {
+                continue;
+            }
+
+            for (int i = 0; i < count; i++)
+            {
+                var seen = new HashSet<string>(StringComparer.Ordinal);
+                foreach (string fieldName in fields)
+                {
+                    List<string> values = produced[fieldName];
+                    Gen gen = genByField[fieldName];
+                    string value = values[i];
+                    int attempts = 0;
+                    while (seen.Contains(value))
+                    {
+                        if (attempts >= DistinctFuse)
+                        {
+                            throw new InvalidOperationException(
+                                $"<distinct> in sequence \"{spec.Name}\": could not find a value "
+                                + $"for field \"{fieldName}\" different from the others after "
+                                + $"{DistinctFuse} attempts — its source likely has too few "
+                                + "distinct values.");
+                        }
+
+                        attempts++;
+                        value = Generate(gen, 1, prng, ctx)[0];
+                    }
+
+                    values[i] = value;
+                    seen.Add(value);
+                }
+            }
+        }
+    }
+
+    /// <summary>Thrown by the arranger alone, so the retry below can tell it from a real failure.</summary>
+    private sealed class UniqInfeasible : Exception
+    {
+        internal readonly int Achievable;
+
+        internal UniqInfeasible(int achievable)
+            : base("uniq is infeasible") => Achievable = achievable;
+    }
+
+    /// <summary>
+    /// <c>uniq="true"</c> — no two rows carry the same tuple.
+    /// </summary>
+    /// <remarks>
+    /// The values are only rearranged, never replaced, so a declared <c>percent=</c> share comes
+    /// through untouched. Uniqueness and an exact distribution are not a trade here. Checked before
+    /// any output: a cheap upper bound first, then the builder's own answer.
+    /// </remarks>
+    private static void ArrangeUnique(
+        SequenceSpec spec, Dictionary<string, List<string>> produced, int count)
+    {
+        var columns = new List<IReadOnlyList<string>>();
+        var columnCounts = new List<IReadOnlyList<int>>();
+        foreach (Field field in spec.Fields!)
+        {
+            List<string> column = produced[field.Name];
+            columns.Add(column);
+            columnCounts.Add(Uniq.ValueCounts(column));
+        }
+
+        // The cheap bound first: it cannot be reached, so there is no point building anything.
+        int upper = Uniq.UpperBound(columnCounts);
+        if (count > upper)
+        {
+            throw new UniqInfeasible(upper);
+        }
+
+        Uniq.Arrangement arranged = Uniq.Arrange(columns);
+        if (arranged.Distinct < count)
+        {
+            throw new UniqInfeasible(arranged.Distinct);
+        }
+
+        for (int i = 0; i < spec.Fields.Count; i++)
+        {
+            produced[spec.Fields[i].Name] = arranged.Columns[i];
+        }
+    }
+
+    /// <summary>
+    /// <c>uniq="true"</c>, and a fresh draw when the first one happened to be unarrangeable.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// The arranger may only rearrange what was drawn — that is what keeps <c>percent=</c> exact.
+    /// But when nothing pins the proportions, a lopsided draw is an accident of sampling rather than
+    /// something to protect, and refusing the whole run over it blames the value lists for a problem
+    /// they do not have: four values by eight values over twenty rows has thirty-two combinations,
+    /// and a draw of 7/6/3/4 would report "at most 19".
+    /// </para>
+    /// <para>
+    /// This runs only where the arranger threw, so no config that works today shifts by a byte — a
+    /// successful run consumes exactly the draws it always did.
+    /// </para>
+    /// <para>
+    /// When the columns come from an exact quota, a redraw returns the same multiset in a different
+    /// order and cannot help. That is detected after one attempt and reported as what it is, rather
+    /// than retried seven more times for nothing.
+    /// </para>
+    /// </remarks>
+    private static void EnforceUniqRedrawing(
+        SequenceSpec spec, Dictionary<string, List<string>> produced, int count, Sfc32 prng,
+        Ctx ctx)
+    {
+        try
+        {
+            ArrangeUnique(spec, produced, count);
+            return;
+        }
+        catch (UniqInfeasible)
+        {
+            // Fall through to the redraw.
+        }
+
+        string firstSignature = UniqSignature(spec, produced);
+        int best = 0;
+        for (int attempt = 0; attempt < UniqRedrawAttempts; attempt++)
+        {
+            foreach (Field field in spec.Fields!)
+            {
+                produced[field.Name] = Finish(
+                    Generate(field.Gen, count, prng, ctx), field.Gen.Attrs, prng).ToList();
+            }
+
+            // The same value frequencies mean the draw is quota-fixed: every further attempt would
+            // produce this multiset again.
+            bool quotaFixed = attempt == 0 && UniqSignature(spec, produced) == firstSignature;
+            try
+            {
+                ArrangeUnique(spec, produced, count);
+                return;
+            }
+            catch (UniqInfeasible e)
+            {
+                best = Math.Max(best, e.Achievable);
+                if (quotaFixed)
+                {
+                    throw new InvalidOperationException(
+                        $"uniq: sequence \"{spec.Name}\" cannot produce {count} unique "
+                        + "combinations. Its values are drawn to an exact share (percent=, or a "
+                        + "weighted pack), so their proportions are fixed by the config, and those "
+                        + $"proportions allow at most {e.Achievable} distinct rows. Add more values "
+                        + "to a field (more distinct names, wider ranges…), relax the share, or "
+                        + "lower the count.");
+                }
+            }
+        }
+
+        throw new InvalidOperationException(
+            $"uniq: sequence \"{spec.Name}\" cannot produce {count} unique combinations — "
+            + $"{UniqRedrawAttempts} independent draws each topped out around {best} distinct rows. "
+            + "Its fields do not hold enough distinct values between them. Add more values to a "
+            + "field (more distinct names, wider ranges…) or lower the count.");
+    }
+
+    /// <summary>Per field, its value frequencies sorted — what changes when a draw is not quota-fixed.</summary>
+    private static string UniqSignature(
+        SequenceSpec spec, Dictionary<string, List<string>> produced) =>
+        string.Join(
+            "|",
+            spec.Fields!.Select(f =>
+            {
+                List<int> counts = Uniq.ValueCounts(produced[f.Name]);
+                counts.Sort();
+                return string.Join(",", counts);
+            }));
+
+    /// <summary>
+    /// Env-level <c>&lt;distinct&gt;</c>: the wrapped sequences differ from each other on every row.
+    /// </summary>
+    private static void EnforceEnvDistinct(
+        Ctx ctx, IReadOnlyDictionary<string, string[]> columns, int count, Sfc32 prng)
+    {
+        if (ctx.Config.EnvDistinctGroups.Count == 0)
+        {
+            return;
+        }
+
+        var byName = ctx.Config.Sequences.ToDictionary(s => s.Name, StringComparer.Ordinal);
+
+        foreach (IReadOnlyList<string> group in ctx.Config.EnvDistinctGroups)
+        {
+            List<string> members = ScalarMembers(group, byName, columns);
+            if (members.Count < 2)
+            {
+                continue;
+            }
+
+            for (int i = 0; i < count; i++)
+            {
+                var seen = new HashSet<string>(StringComparer.Ordinal);
+                foreach (string name in members)
+                {
+                    string[] values = columns[name];
+                    string value = values[i];
+                    int attempts = 0;
+                    while (seen.Contains(value))
+                    {
+                        if (attempts >= DistinctFuse)
+                        {
+                            throw new InvalidOperationException(
+                                "<distinct> across sequences: could not find a value for sequence "
+                                + $"\"{name}\" different from the others after {DistinctFuse} "
+                                + "attempts — its source likely has too few distinct values.");
+                        }
+
+                        attempts++;
+                        value = OneScalar(byName[name], prng, ctx);
+                    }
+
+                    values[i] = value;
+                    seen.Add(value);
+                }
+            }
+        }
+    }
+
+    /// <summary>
+    /// Env-level <c>&lt;uniq&gt;</c>: the tuple of the wrapped sequences is unique across the run.
+    /// </summary>
+    /// <remarks>
+    /// The values are already drawn, so this rearranges rather than redraws — each column keeps the
+    /// multiset it produced and only the pairings change. That is what keeps a weighted member's
+    /// proportions intact while the combinations become distinct.
+    /// </remarks>
+    private static void EnforceEnvUniq(
+        Ctx ctx, IReadOnlyDictionary<string, string[]> columns, int count)
+    {
+        if (ctx.Config.EnvUniqGroups.Count == 0)
+        {
+            return;
+        }
+
+        var byName = ctx.Config.Sequences.ToDictionary(s => s.Name, StringComparer.Ordinal);
+
+        foreach (IReadOnlyList<string> group in ctx.Config.EnvUniqGroups)
+        {
+            List<string> members = ScalarMembers(group, byName, columns);
+            if (members.Count < 2)
+            {
+                continue;
+            }
+
+            // Only the rows where every member has a value: a row one member skips has no tuple to
+            // make unique, and forcing one would invent a value the config never asked for.
+            var rows = new List<int>();
+            for (int i = 0; i < count; i++)
+            {
+                if (members.All(name => columns[name][i] is not null))
+                {
+                    rows.Add(i);
+                }
+            }
+
+            if (rows.Count == 0)
+            {
+                continue;
+            }
+
+            string label = string.Join(" × ", members);
+            var byRow = new Dictionary<int, string[]>();
+
+            foreach (List<int> block in PartitionRows(rows, SubjectsOf(members, byName), columns))
+            {
+                var grid = new List<IReadOnlyList<string>>();
+                var counts = new List<IReadOnlyList<int>>();
+                foreach (string name in members)
+                {
+                    List<string> column = block.Select(row => columns[name][row]).ToList();
+                    grid.Add(column);
+                    counts.Add(Uniq.ValueCounts(column));
+                }
+
+                int upper = Uniq.UpperBound(counts);
+                if (block.Count > upper)
+                {
+                    throw new InvalidOperationException(UniqGroupMessage(label, rows.Count, upper));
+                }
+
+                Uniq.Arrangement arranged = Uniq.Arrange(grid);
+                if (arranged.Distinct < block.Count)
+                {
+                    throw new InvalidOperationException(
+                        UniqGroupMessage(label, rows.Count, arranged.Distinct));
+                }
+
+                for (int k = 0; k < block.Count; k++)
+                {
+                    var tuple = new string[members.Count];
+                    for (int m = 0; m < members.Count; m++)
+                    {
+                        tuple[m] = arranged.Columns[m][k];
+                    }
+
+                    byRow[block[k]] = tuple;
+                }
+            }
+
+            // Blocks are made unique on their own; two of them could still meet on the same tuple
+            // when the subjects share a value (a name in both lists). Rare, but silence here would
+            // be a broken promise, so it is counted and refused.
+            var seen = new HashSet<string>(
+                rows.Select(row => string.Join("\u0000", byRow[row])), StringComparer.Ordinal);
+            if (seen.Count < rows.Count)
+            {
+                throw new InvalidOperationException(
+                    UniqGroupMessage(label, rows.Count, seen.Count));
+            }
+
+            for (int m = 0; m < members.Count; m++)
+            {
+                string[] values = columns[members[m]];
+                foreach (int row in rows)
+                {
+                    values[row] = byRow[row][m];
+                }
+            }
+        }
+    }
+
+    private static string UniqGroupMessage(string label, int need, int available) =>
+        $"uniq: group \"{label}\" cannot produce {need} unique combinations — the values drawn for "
+        + $"these sequences allow at most {available} distinct rows. Add more values to a member "
+        + "(more distinct names, wider ranges…) or lower the count.";
+
+    /// <summary>
+    /// The subjects the group's <c>&lt;switch&gt;</c> members are keyed by, in order, without
+    /// repeats. Empty when no member is a switch, which is the ordinary case and leaves the
+    /// behaviour exactly as it was.
+    /// </summary>
+    private static List<string> SubjectsOf(
+        List<string> members, IReadOnlyDictionary<string, SequenceSpec> byName)
+    {
+        var subjects = new List<string>();
+        foreach (string name in members)
+        {
+            if (byName.TryGetValue(name, out SequenceSpec? spec)
+                && spec.SwitchSpec is not null
+                && !subjects.Contains(spec.SwitchSpec.On, StringComparer.Ordinal))
+            {
+                subjects.Add(spec.SwitchSpec.On);
+            }
+        }
+
+        return subjects;
+    }
+
+    /// <summary>
+    /// Split the rows into blocks that may be shuffled among themselves. With no switch member
+    /// there is one block holding every row — the old behaviour, bit for bit. With one, rows are
+    /// grouped by the value of its subject, so male rows only ever trade with male rows.
+    /// </summary>
+    private static List<List<int>> PartitionRows(
+        List<int> rows, List<string> subjects, IReadOnlyDictionary<string, string[]> columns)
+    {
+        if (subjects.Count == 0)
+        {
+            return new List<List<int>> { rows };
+        }
+
+        var blocks = new Dictionary<string, List<int>>(StringComparer.Ordinal);
+        var order = new List<string>();
+        foreach (int row in rows)
+        {
+            string key = string.Join(
+                "\u0000",
+                subjects.Select(s => columns.TryGetValue(s, out string[]? c) ? c[row] : string.Empty));
+            if (!blocks.TryGetValue(key, out List<int>? block))
+            {
+                block = new List<int>();
+                blocks[key] = block;
+                order.Add(key);
+            }
+
+            block.Add(row);
+        }
+
+        return order.Select(k => blocks[k]).ToList();
+    }
+
+    private static List<string> ScalarMembers(
+        IReadOnlyList<string> group, IReadOnlyDictionary<string, SequenceSpec> byName,
+        IReadOnlyDictionary<string, string[]> columns) =>
+        group
+            .Where(name =>
+                byName.TryGetValue(name, out SequenceSpec? spec)
+                && (spec.Gen is not null || spec.IsMix || spec.IsSwitch)
+                && columns.ContainsKey(name))
+            .ToList();
+
+    /// <summary>One fresh value from a sequence — what a <c>&lt;distinct&gt;</c> collision redraws.</summary>
+    private static string OneScalar(SequenceSpec spec, Sfc32 prng, Ctx ctx)
+    {
+        if (spec.Gen is not null)
+        {
+            IReadOnlyList<string> built =
+                Finish(Generate(spec.Gen, 1, prng, ctx), spec.Gen.Attrs, prng);
+            return built.Count == 0 ? "" : built[0];
+        }
+
+        if (spec.IsMix)
+        {
+            IReadOnlyList<string> built = MixValues(spec.Mix!, 1, prng, new bool[1], ctx);
+            return built.Count == 0 ? "" : built[0];
+        }
+
+        return "";
+    }
+
+    /// <summary>Pack bodies parse once per address and are then reused; a pack does not change mid-run.</summary>
+    private static readonly Dictionary<string, object> PackBodies = new(StringComparer.Ordinal);
+
+    /// <summary>
+    /// A pack that ships a rule rather than a list.
+    /// </summary>
+    /// <remarks>
+    /// Only the lone-<c>&lt;gen&gt;</c> shape is ported. The composed shape — local sequences
+    /// feeding an output template, which is how an identifier with a check digit is written as
+    /// editable data — needs the compute layer, and refuses by name until that is here.
+    /// </remarks>
+    private static IReadOnlyList<string> PackGenerator(
+        DataPacks.Entry entry, string path, int count, Sfc32 prng, Ctx ctx)
+    {
+        object body;
+        lock (PackBodies)
+        {
+            if (!PackBodies.TryGetValue(path, out body!))
+            {
+                string source = entry.Generator!;
+                // A body holding <sequence> or <data> is composed; anything else is a lone <gen>.
+                body = source.Contains("<sequence") || source.Contains("<data")
+                    ? ConfigBuilder.ParsePackBody(source)
+                    : ConfigBuilder.ParseGenTag(source);
+                PackBodies[path] = body;
+            }
+        }
+
+        if (body is Gen packGen)
+        {
+            return Generate(packGen, count, prng, ctx);
+        }
+
+        var pack = (ConfigBuilder.PackGenerator)body;
+        var local = new Dictionary<string, string[]>(StringComparer.Ordinal);
+        foreach (SequenceSpec spec in pack.Sequences)
+        {
+            local[spec.Name] = MaterializeLocal(spec, count, prng, ctx, local);
+        }
+
+        if (pack.Validate is not null)
+        {
+            EnforceValid(pack, local, count, prng, ctx);
+        }
+
+        var rendered = new List<string>(count);
+        for (int row = 0; row < count; row++)
+        {
+            rendered.Add(Interpolate.Apply(pack.Output, ctx.Config.Inject, new RowLookup(local, row)));
+        }
+
+        return rendered;
+    }
+
+    /// <summary>One local sequence of a pack body: a computed value, or an ordinary generated column.</summary>
+    private static string[] MaterializeLocal(
+        SequenceSpec spec, int count, Sfc32 prng, Ctx ctx,
+        IReadOnlyDictionary<string, string[]> local)
+    {
+        if (spec.IsComputed)
+        {
+            var values = new string[count];
+            for (int i = 0; i < count; i++)
+            {
+                values[i] = ComputeRow(spec, local, i);
+            }
+
+            return values;
+        }
+
+        IReadOnlyList<string> produced = Generate(spec.Gen!, count, prng, ctx);
+        return Finish(produced, spec.Gen!.Attrs, prng).ToArray();
+    }
+
+    /// <summary>How many redraws a <c>&lt;valid&gt;</c> constraint gets before the pack is called impossible.</summary>
+    private const int ValidFuse = 100;
+
+    /// <summary>
+    /// Reject and redraw until the pack's <c>&lt;valid&gt;</c> predicate holds.
+    /// </summary>
+    /// <remarks>
+    /// Some identifiers have combinations that were never issued — a region code that does not
+    /// exist, a date inside a national ID that never happened. Redrawing appends to the stream, so
+    /// the result stays deterministic; the fuse is there because a constraint no draw can satisfy
+    /// would otherwise hang the run rather than report itself.
+    /// </remarks>
+    private static void EnforceValid(
+        ConfigBuilder.PackGenerator pack, Dictionary<string, string[]> local, int count,
+        Sfc32 prng, Ctx ctx)
+    {
+        for (int row = 0; row < count; row++)
+        {
+            int attempts = 0;
+            while (!Holds(pack, local, row))
+            {
+                if (++attempts > ValidFuse)
+                {
+                    throw new InvalidOperationException(
+                        $"pack generator: <valid> still fails after {ValidFuse} attempts — the "
+                        + "constraint may be impossible");
+                }
+
+                foreach (SequenceSpec spec in pack.Sequences)
+                {
+                    local[spec.Name][row] = spec.IsComputed
+                        ? ComputeRow(spec, local, row)
+                        : MaterializeLocal(spec, 1, prng, ctx, local)[0];
+                }
+            }
+        }
+    }
+
+    private static bool Holds(
+        ConfigBuilder.PackGenerator pack, IReadOnlyDictionary<string, string[]> local, int row) =>
+        Tdcv2.Compute.Compute.EvaluatePredicate(
+            pack.Validate!,
+            Tdcv2.Compute.Compute.FieldsOf(
+                name => local.TryGetValue(name, out string[]? column) ? column[row] : null));
+
+    /// <summary>
+    /// A conditional sequence: the first branch whose condition holds wins.
+    /// </summary>
+    /// <remarks>
+    /// Every branch is generated in full, for every row, even though at most one value survives on
+    /// each. That is not waste to be optimised away — the draws a branch takes are part of the
+    /// stream, so generating only the winning branch would make the whole run depend on which
+    /// branch happened to win, and two engines would stop agreeing.
+    /// </remarks>
+    private static string[] Conditional(
+        SequenceSpec spec, int count, Sfc32 prng, IReadOnlyDictionary<string, string[]> columns,
+        Ctx ctx)
+    {
+        if (count == 0)
+        {
+            return Array.Empty<string>();
+        }
+
+        var built = new List<IReadOnlyList<string>>();
+        foreach (Branch branch in spec.Branches!)
+        {
+            built.Add(Finish(Generate(branch.Gen, count, prng, ctx), branch.Gen.Attrs, prng));
+        }
+
+        var result = new string[count];
+        for (int i = 0; i < count; i++)
+        {
+            string? picked = null;
+            for (int b = 0; b < spec.Branches.Count; b++)
+            {
+                string? condition = spec.Branches[b].IfExpr;
+                if (condition is null || Condition(condition, columns, i))
+                {
+                    picked = built[b][i];
+                    break;
+                }
+            }
+
+            result[i] = picked!;
+        }
+
+        return result;
+    }
+
+    /// <summary>
+    /// Evaluate an <c>if</c> against one row.
+    /// </summary>
+    /// <remarks>
+    /// A column that has no value on this row reads as empty rather than as missing, so a
+    /// condition on a child column is false on the rows its parent did not select — which is what
+    /// a config expects when it asks about a field that only some records have.
+    /// </remarks>
+    private static bool Condition(
+        string expression, IReadOnlyDictionary<string, string[]> columns, int row) =>
+        Evaluate.AsCondition(expression, new RowScope(columns, row));
+
+    private sealed class RowScope : Evaluate.IScope
+    {
+        private readonly IReadOnlyDictionary<string, string[]> _columns;
+        private readonly int _row;
+
+        internal RowScope(IReadOnlyDictionary<string, string[]> columns, int row)
+        {
+            _columns = columns;
+            _row = row;
+        }
+
+        public bool Has(string name) => _columns.ContainsKey(name);
+
+        public string Value(string name) =>
+            _columns.TryGetValue(name, out string[]? column) && _row < column.Length
+                ? column[_row] ?? ""
+                : "";
+    }
+
+    /// <summary>
+    /// A <c>&lt;mix&gt;</c>: several ways to build one value, apportioned exactly over the run.
+    /// </summary>
+    /// <remarks>
+    /// Which rows take which case is decided first, by the same apportionment percent= uses, and
+    /// each case then builds values only for the rows that chose it. Building every case for
+    /// every row would be simpler and would take a different number of draws.
+    /// </remarks>
+    private static IReadOnlyList<string> MixValues(
+        Mix mix, int count, Sfc32 prng, bool[]? flags, Ctx ctx)
+    {
+        IReadOnlyList<Case> cases = mix.Cases;
+        if (cases.Count == 0)
+        {
+            return Enumerable.Repeat("", count).ToArray();
+        }
+
+        double[] percents;
+        if (string.IsNullOrWhiteSpace(mix.Percent))
+        {
+            percents = Enumerable.Repeat(100.0 / cases.Count, cases.Count).ToArray();
+        }
+        else
+        {
+            percents = PercentMask.Expand(mix.Percent!, cases.Count);
+        }
+
+        IReadOnlyList<int> selected = Hamilton.Distribute(
+            count, Enumerable.Range(0, cases.Count).ToArray(), percents, prng);
+
+        var result = new string[count];
+        for (int i = 0; i < count; i++)
+        {
+            result[i] = "";
+            if (flags is not null)
+            {
+                flags[i] = cases[selected[i]].Anomaly;
+            }
+        }
+
+        for (int c = 0; c < cases.Count; c++)
+        {
+            var rows = new List<int>();
+            for (int i = 0; i < count; i++)
+            {
+                if (selected[i] == c)
+                {
+                    rows.Add(i);
+                }
+            }
+
+            if (rows.Count == 0)
+            {
+                continue;
+            }
+
+            IReadOnlyList<string> values = CaseValues(cases[c], rows.Count, prng, ctx);
+            for (int i = 0; i < rows.Count; i++)
+            {
+                result[rows[i]] = values[i];
+            }
+        }
+
+        return result;
+    }
+
+    /// <summary>A case body: its pieces concatenated, each built for the rows that chose it.</summary>
+    private static IReadOnlyList<string> CaseValues(
+        Case caseSpec, int count, Sfc32 prng, Ctx ctx)
+    {
+        var parts = new System.Text.StringBuilder[count];
+        for (int i = 0; i < count; i++)
+        {
+            parts[i] = new System.Text.StringBuilder();
+        }
+
+        foreach (CasePart part in caseSpec.Parts)
+        {
+            IReadOnlyList<string> values;
+            if (part.Text is not null)
+            {
+                values = Enumerable.Repeat(part.Text, count).ToArray();
+            }
+            else if (part.Gen is not null)
+            {
+                values = Generate(part.Gen, count, prng, ctx);
+            }
+            else
+            {
+                values = MixValues(part.Mix!, count, prng, null, ctx);
+            }
+
+            for (int i = 0; i < count; i++)
+            {
+                parts[i].Append(values[i]);
+            }
+        }
+
+        return parts.Select(b => b.ToString()).ToArray();
+    }
+
+    /// <summary>
+    /// A switch: look the subject's value up in the table.
+    /// </summary>
+    /// <remarks>
+    /// Built over every row rather than only the matching ones, because a case may hold a
+    /// generator and its draws are part of the stream whether or not that key came up. A row with
+    /// no match and no default is empty — which is a value, not a failure: a country with no
+    /// currency listed simply has none here.
+    /// </remarks>
+    private static string[] SwitchValues(
+        Switch spec, int count, Sfc32 prng, IReadOnlyDictionary<string, string[]> columns,
+        Ctx ctx)
+    {
+        var built = new List<IReadOnlyList<string>>(spec.Entries.Count);
+        foreach (SwitchEntry entry in spec.Entries)
+        {
+            built.Add(CaseValues(entry.Value, count, prng, ctx));
+        }
+
+        IReadOnlyList<string>? fallback =
+            spec.Fallback is null ? null : CaseValues(spec.Fallback, count, prng, ctx);
+
+        columns.TryGetValue(spec.On, out string[]? subject);
+        var result = new string[count];
+        for (int i = 0; i < count; i++)
+        {
+            string key = subject is null ? "" : subject[i] ?? "";
+            string? picked = null;
+            for (int e = 0; e < spec.Entries.Count; e++)
+            {
+                if (spec.Entries[e].Keys.Contains(key))
+                {
+                    picked = built[e][i];
+                    break;
+                }
+            }
+
+            result[i] = picked ?? (fallback is not null ? fallback[i] : null!);
+        }
+
+        return result;
+    }
+
+    /// <summary>
+    /// A column drawn from a named distribution.
+    /// </summary>
+    /// <remarks>
+    /// Every row takes the SAME number of uniforms, however the distribution is shaped. That is
+    /// not an implementation detail: a variable draw count would make a row depend on the rows
+    /// before it, and the streaming engines could not then compute row nine million on its own.
+    /// </remarks>
+    private static IReadOnlyList<string> Distribute(
+        IReadOnlyDictionary<string, string> attrs, int count, Sfc32 prng)
+    {
+        Distributions.Spec spec = Distributions.Parse(attrs);
+        var result = new List<string>(count);
+        for (int i = 0; i < count; i++)
+        {
+            var uniforms = new double[spec.Draws];
+            for (int d = 0; d < spec.Draws; d++)
+            {
+                uniforms[d] = Seekable.OpenUnit(prng.Next());
+            }
+
+            result.Add(Distributions.Format(Distributions.Sample(spec, uniforms), spec));
+        }
+
+        return result;
+    }
+
+    /// <summary>What a finished value still goes through: the mask and the case transform.</summary>
+    /// <summary>
+    /// The passes that run over a finished column, in this order: outliers, then blanks, then
+    /// formatting.
+    /// </summary>
+    /// <remarks>
+    /// The order is the contract. Spiking after blanking would multiply an empty string, and
+    /// formatting before either would format a value that is about to be replaced.
+    /// </remarks>
+    internal static IReadOnlyList<string> Finish(
+        IReadOnlyList<string> values, IReadOnlyDictionary<string, string> attrs, Sfc32 prng,
+        bool[]? anomalyFlags = null)
+    {
+        var result = new List<string>(values);
+
+        Imperfections.Anomaly? anomaly = Imperfections.ParseAnomaly(attrs);
+        if (anomaly is not null)
+        {
+            Imperfections.ApplyAnomaly(result, anomaly.Value, prng, anomalyFlags);
+        }
+
+        Imperfections.Missing? missing = Imperfections.ParseMissing(attrs);
+        if (missing is not null)
+        {
+            Imperfections.ApplyMissing(result, missing.Value, prng);
+        }
+
+        string? mask = attrs.GetValueOrDefault("mask");
+        string? kase = attrs.GetValueOrDefault("case");
+        if (mask is null && kase is null)
+        {
+            return result;
+        }
+
+        for (int i = 0; i < result.Count; i++)
+        {
+            string v = mask is null ? result[i] : Mask.Apply(mask, result[i]);
+            result[i] = kase is null ? v : Transforms.ApplyCase(kase, v);
+        }
+
+        return result;
+    }
+
+    /// <summary>
+    /// Element <c>index mod N</c>, or a refusal once the data runs out under <c>cycle="false"</c>.
+    /// </summary>
+    /// <remarks>
+    /// Looping is the default because a short list walked over many rows is the ordinary case —
+    /// twelve months across a year of daily records. <c>cycle="false"</c> is for when running out is
+    /// a mistake worth hearing about rather than something to paper over by starting again.
+    /// </remarks>
+    internal static string PickSequential(IReadOnlyList<string> list, int index, bool cycle)
+    {
+        if (list.Count == 0)
+        {
+            return "";
+        }
+
+        if (!cycle && index >= list.Count)
+        {
+            throw new InvalidOperationException(
+                $"order=\"sequential\" cycle=\"false\": only {list.Count} values for "
+                + $"{index + 1} rows");
+        }
+
+        return list[index % list.Count];
+    }
+
+    internal static IReadOnlyList<string> SplitText(string value) =>
+        value.Split(',').Select(p => p.Trim()).ToArray();
+
+    private static void Emit(
+        StringBuilder to, IReadOnlyDictionary<string, Repeat.Spec> eachInfo,
+        IReadOnlyList<Line> lines,
+        IReadOnlyDictionary<string, string[]> columns, int row, string? inject)
+    {
+        foreach (Line line in lines)
+        {
+            to.Append(RenderLine(line, columns, row, inject, eachInfo));
+        }
+    }
+
+    /// <summary>
+    /// One line — or, with <c>each="NAME"</c>, one line per element of that list.
+    /// </summary>
+    /// <remarks>
+    /// Returns the text with its newline already attached, because a line with <c>each</c> may
+    /// produce several and a list with nothing in it must produce none at all: a customer with no
+    /// orders leaves no blank row behind.
+    /// </remarks>
+    private static string RenderLine(
+        Line line, IReadOnlyDictionary<string, string[]> columns, int row, string? inject,
+        IReadOnlyDictionary<string, Repeat.Spec> eachInfo)
+    {
+        var text = new StringBuilder();
+        foreach (DataPart part in line.Parts)
+        {
+            if (part.IfExpr is null || Condition(part.IfExpr, columns, row))
+            {
+                text.Append(part.Text);
+            }
+        }
+
+        string template = text.ToString();
+        string? listName = line.Each?.Trim();
+        if (string.IsNullOrEmpty(listName))
+        {
+            return Interpolate.Apply(template, inject, new RowLookup(columns, row)) + "\n";
+        }
+
+        Repeat.Spec? spec = eachInfo.TryGetValue(listName, out Repeat.Spec found) ? found : null;
+        string cell = columns.TryGetValue(listName, out string[]? column) && column[row] is not null
+            ? column[row]
+            : "";
+        IReadOnlyList<string> elements =
+            Repeat.Split(cell, spec?.Separator ?? Repeat.DefaultSeparator);
+
+        // Lanes: two repeating sequences write into the same child table, so each gets its own
+        // slice of every card's key block rather than sharing one counter.
+        int lane = 0;
+        int stride = 0;
+        foreach (KeyValuePair<string, Repeat.Spec> entry in eachInfo)
+        {
+            if (entry.Key == listName)
+            {
+                lane = stride;
+            }
+
+            stride += entry.Value.Max;
+        }
+
+        if (stride == 0)
+        {
+            stride = elements.Count;
+        }
+
+        var result = new StringBuilder();
+        for (int k = 0; k < elements.Count; k++)
+        {
+            result
+                .Append(Interpolate.Apply(
+                    template, inject,
+                    new ElementLookup(columns, row, listName, elements[k], k + 1, lane, stride)))
+                .Append('\n');
+        }
+
+        return result.ToString();
+    }
+
+    /// <summary>
+    /// The repeating sequences, indexed by name.
+    /// </summary>
+    /// <remarks>A name that is not here is not a list, so <c>each=</c> on it walks nothing.</remarks>
+    private static IReadOnlyDictionary<string, Repeat.Spec> EachInfo(Config config)
+    {
+        var result = new Dictionary<string, Repeat.Spec>(StringComparer.Ordinal);
+        foreach (SequenceSpec spec in config.Sequences)
+        {
+            if (spec.Gen is not null && Repeat.Parse(spec.Gen.Attrs) is { } repeat)
+            {
+                result[spec.Name] = repeat;
+            }
+        }
+
+        return result;
+    }
+
+    /// <summary>
+    /// The row's view with one element of a list substituted for the list itself, plus the two
+    /// positional built-ins <c>_item</c> and <c>_item_id</c>.
+    /// </summary>
+    /// <remarks>
+    /// Shallow on purpose: every other column still resolves per record, which is exactly what makes
+    /// a foreign key on the repeated line point at the right parent on every emitted row.
+    /// </remarks>
+    private sealed class ElementLookup : Interpolate.ILookup
+    {
+        private readonly RowLookup _base;
+        private readonly Dictionary<string, string> _overlay;
+
+        internal ElementLookup(
+            IReadOnlyDictionary<string, string[]> columns, int row, string listName, string element,
+            int position, int lane, int stride)
+        {
+            _base = new RowLookup(columns, row);
+            _overlay = new Dictionary<string, string>(StringComparer.Ordinal)
+            {
+                [listName] = element,
+                ["_item"] = position.ToString(CultureInfo.InvariantCulture),
+                ["_item_id"] = Repeat.ItemKey(row + 1, position, lane, stride)
+                    .ToString(CultureInfo.InvariantCulture),
+            };
+        }
+
+        public bool Has(string name) => _overlay.ContainsKey(name) || _base.Has(name);
+
+        public string Value(string name) =>
+            _overlay.TryGetValue(name, out string? v) ? v : _base.Value(name);
+    }
+
+    private sealed class RowLookup : Interpolate.ILookup
+    {
+        private readonly IReadOnlyDictionary<string, string[]> _columns;
+        private readonly int _row;
+
+        internal RowLookup(IReadOnlyDictionary<string, string[]> columns, int row)
+        {
+            _columns = columns;
+            _row = row;
+        }
+
+        public bool Has(string name) => _columns.ContainsKey(name);
+
+        public string Value(string name)
+        {
+            string[] column = _columns[name];
+            return _row < column.Length ? column[_row] : "";
+        }
+    }
+}

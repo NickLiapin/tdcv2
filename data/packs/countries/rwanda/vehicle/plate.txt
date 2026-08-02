@@ -1,0 +1,7 @@
+---
+address: rwanda.vehicle.plate
+description: Rwandan licence plate — structural layout of three letters, three digits and a letter (e.g. RAA-123-A)
+generator: tdc
+locale: fr
+---
+<gen type="regex" value="R[A-Z]{2}-[0-9]{3}-[A-Z]"/>

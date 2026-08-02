@@ -1,0 +1,23 @@
+---
+address: colombia.holidayRule
+description: How each Colombian holiday is dated — fijo (falls on its own date), lunes (fixed date moved to the next Monday by the Ley Emiliani), pascua (counted from Easter, not moved), pascua+lunes (counted from Easter and then moved to a Monday); same order as colombia.holiday
+locale: es
+---
+fijo
+lunes
+lunes
+pascua
+pascua
+fijo
+pascua+lunes
+pascua+lunes
+pascua+lunes
+lunes
+fijo
+fijo
+lunes
+lunes
+lunes
+lunes
+fijo
+fijo

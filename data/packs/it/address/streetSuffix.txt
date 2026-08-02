@@ -1,0 +1,44 @@
+---
+description: Italian thoroughfare type — goes BEFORE the street name (Via Roma, Piazza del Popolo, Corso Vittorio Emanuele II)
+locale: it
+---
+Via
+Viale
+Corso
+Piazza
+Piazzale
+Piazzetta
+Largo
+Vicolo
+Lungomare
+Lungofiume
+Lungolago
+Strada
+Stradone
+Strada statale
+Strada provinciale
+Contrada
+Borgo
+Calle
+Campo
+Circonvallazione
+Galleria
+Passaggio
+Passeggiata
+Rampa
+Riviera
+Salita
+Discesa
+Traversa
+Vialetto
+Autostrada
+Tangenziale
+Raccordo
+Ponte
+Molo
+Banchina
+Parco
+Giardini
+Cortile
+Sentiero
+Scalinata

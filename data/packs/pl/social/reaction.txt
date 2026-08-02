@@ -1,0 +1,15 @@
+---
+description: Social reaction (Polish)
+locale: pl
+---
+Lubię to
+Super
+Ha ha
+Wow
+Przykro mi
+Wrr
+Trzymaj się
+Świętuję
+Wspieram
+Ciekawe
+Zaskakujące

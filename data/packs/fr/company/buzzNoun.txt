@@ -1,0 +1,52 @@
+---
+description: Business buzz noun (French)
+locale: fr
+---
+synergie
+paradigme
+écosystème
+levier
+valeur
+croissance
+innovation
+transformation
+stratégie
+vision
+mission
+feuille de route
+pipeline
+momentum
+disruption
+agilité
+performance
+excellence
+proposition de valeur
+avantage concurrentiel
+retour sur investissement
+part de marché
+expérience client
+parcours client
+chaîne de valeur
+effet de réseau
+économie d'échelle
+transformation digitale
+intelligence collective
+capital humain
+gouvernance
+conformité
+résilience
+scalabilité
+optimisation
+efficience
+productivité
+rentabilité
+différenciation
+positionnement
+segmentation
+fidélisation
+acquisition
+rétention
+conversion
+engagement
+notoriété
+réputation

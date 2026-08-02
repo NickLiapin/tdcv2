@@ -1,0 +1,25 @@
+---
+description: World religion (Italian)
+locale: it
+---
+Cristianesimo
+Cattolicesimo
+Protestantesimo
+Ortodossia
+Islam
+Induismo
+Buddismo
+Ebraismo
+Sikhismo
+Giainismo
+Fede bahá'í
+Shintoismo
+Taoismo
+Confucianesimo
+Zoroastrismo
+Santeria
+Spiritismo
+Animismo
+Ateismo
+Agnosticismo
+Nessuna religione

@@ -1,0 +1,23 @@
+---
+description: Property type (Polish)
+locale: pl
+---
+Dom jednorodzinny
+Mieszkanie
+Apartament
+Dom szeregowy
+Dom bliźniaczy
+Kamienica
+Willa
+Bungalow
+Domek letniskowy
+Loft
+Kawalerka
+Poddasze
+Dom mobilny
+Dworek
+Rezydencja
+Dom wiejski
+Gospodarstwo rolne
+Działka
+Lokal użytkowy

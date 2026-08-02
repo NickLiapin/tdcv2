@@ -1,0 +1,18 @@
+---
+description: Dishes of Italian cuisine (Italian)
+locale: it
+---
+Spaghetti alla carbonara
+Lasagne alla bolognese
+Risotto alla milanese
+Ossobuco
+Cacio e pepe
+Amatriciana
+Parmigiana di melanzane
+Saltimbocca alla romana
+Vitello tonnato
+Pizza margherita
+Ribollita
+Arancini
+Polenta
+Tiramisù

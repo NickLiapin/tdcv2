@@ -1,0 +1,17 @@
+---
+description: Legal case type (Spanish)
+locale: es
+---
+Civil
+Penal
+Familiar
+Quiebra
+Daños personales
+Laboral
+Controversia contractual
+Propiedad intelectual
+Inmobiliario
+Migratorio
+Fiscal
+Administrativo
+Mercantil

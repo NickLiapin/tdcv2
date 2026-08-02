@@ -1,0 +1,6 @@
+---
+address: canada.tax.bn
+description: Canadian Business Number (9 digits, no checksum)
+generator: tdc
+---
+<gen type="regex" value="[0-9]{9}"/>

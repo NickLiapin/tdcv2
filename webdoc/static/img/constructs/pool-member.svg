@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 318" width="680" height="318" font-family="system-ui, -apple-system, Segoe UI, Roboto, sans-serif">
+<rect x="40" y="108" width="102" height="26" rx="5" fill="#e0662b" opacity="0.16"/>
+<rect x="40" y="108" width="102" height="26" rx="5" fill="none" stroke="#e0662b" opacity="0.75"/>
+<line x1="86" y1="112" x2="86" y2="130" stroke="#e0662b" opacity="0.45"/>
+<text x="63.0" y="125.0" text-anchor="middle" font-size="11" font-weight="600" fill="#e0662b">B</text>
+<text x="114.0" y="125.0" text-anchor="middle" font-size="11" font-weight="600" fill="#e0662b">20</text>
+<rect x="40" y="140" width="102" height="26" rx="5" fill="#2f9e63" opacity="0.16"/>
+<rect x="40" y="140" width="102" height="26" rx="5" fill="none" stroke="#2f9e63" opacity="0.75"/>
+<line x1="86" y1="144" x2="86" y2="162" stroke="#2f9e63" opacity="0.45"/>
+<text x="63.0" y="157.0" text-anchor="middle" font-size="11" font-weight="600" fill="#2f9e63">D</text>
+<text x="114.0" y="157.0" text-anchor="middle" font-size="11" font-weight="600" fill="#2f9e63">45</text>
+<rect x="40" y="172" width="102" height="26" rx="5" fill="#3b82f6" opacity="0.16"/>
+<rect x="40" y="172" width="102" height="26" rx="5" fill="none" stroke="#3b82f6" opacity="0.75"/>
+<line x1="86" y1="176" x2="86" y2="194" stroke="#3b82f6" opacity="0.45"/>
+<text x="63.0" y="189.0" text-anchor="middle" font-size="11" font-weight="600" fill="#3b82f6">C</text>
+<text x="114.0" y="189.0" text-anchor="middle" font-size="11" font-weight="600" fill="#3b82f6">68</text>
+<rect x="40" y="204" width="102" height="26" rx="5" fill="#8b5cf6" opacity="0.16"/>
+<rect x="40" y="204" width="102" height="26" rx="5" fill="none" stroke="#8b5cf6" opacity="0.75"/>
+<line x1="86" y1="208" x2="86" y2="226" stroke="#8b5cf6" opacity="0.45"/>
+<text x="63.0" y="221.0" text-anchor="middle" font-size="11" font-weight="600" fill="#8b5cf6">A</text>
+<text x="114.0" y="221.0" text-anchor="middle" font-size="11" font-weight="600" fill="#8b5cf6">36</text>
+<rect x="430" y="44" width="102" height="26" rx="5" fill="#8b5cf6" opacity="0.16"/>
+<rect x="430" y="44" width="102" height="26" rx="5" fill="none" stroke="#8b5cf6" opacity="0.75"/>
+<line x1="476" y1="48" x2="476" y2="66" stroke="#8b5cf6" opacity="0.45"/>
+<text x="453.0" y="61.0" text-anchor="middle" font-size="11" font-weight="600" fill="#8b5cf6">A</text>
+<text x="504.0" y="61.0" text-anchor="middle" font-size="11" font-weight="600" fill="#8b5cf6">36</text>
+<path d="M142,217.0 C286,217.0 286,57.0 430,57.0" fill="none" stroke="#8b5cf6" stroke-width="1.4" opacity="0.55"/>
+<rect x="430" y="76" width="102" height="26" rx="5" fill="#e0662b" opacity="0.16"/>
+<rect x="430" y="76" width="102" height="26" rx="5" fill="none" stroke="#e0662b" opacity="0.75"/>
+<line x1="476" y1="80" x2="476" y2="98" stroke="#e0662b" opacity="0.45"/>
+<text x="453.0" y="93.0" text-anchor="middle" font-size="11" font-weight="600" fill="#e0662b">B</text>
+<text x="504.0" y="93.0" text-anchor="middle" font-size="11" font-weight="600" fill="#e0662b">20</text>
+<path d="M142,121.0 C286,121.0 286,89.0 430,89.0" fill="none" stroke="#e0662b" stroke-width="1.4" opacity="0.55"/>
+<rect x="430" y="108" width="102" height="26" rx="5" fill="#2f9e63" opacity="0.16"/>
+<rect x="430" y="108" width="102" height="26" rx="5" fill="none" stroke="#2f9e63" opacity="0.75"/>
+<line x1="476" y1="112" x2="476" y2="130" stroke="#2f9e63" opacity="0.45"/>
+<text x="453.0" y="125.0" text-anchor="middle" font-size="11" font-weight="600" fill="#2f9e63">D</text>
+<text x="504.0" y="125.0" text-anchor="middle" font-size="11" font-weight="600" fill="#2f9e63">45</text>
+<path d="M142,153.0 C286,153.0 286,121.0 430,121.0" fill="none" stroke="#2f9e63" stroke-width="1.4" opacity="0.55"/>
+<rect x="430" y="140" width="102" height="26" rx="5" fill="#e0662b" opacity="0.16"/>
+<rect x="430" y="140" width="102" height="26" rx="5" fill="none" stroke="#e0662b" opacity="0.75"/>
+<line x1="476" y1="144" x2="476" y2="162" stroke="#e0662b" opacity="0.45"/>
+<text x="453.0" y="157.0" text-anchor="middle" font-size="11" font-weight="600" fill="#e0662b">B</text>
+<text x="504.0" y="157.0" text-anchor="middle" font-size="11" font-weight="600" fill="#e0662b">20</text>
+<path d="M142,121.0 C286,121.0 286,153.0 430,153.0" fill="none" stroke="#e0662b" stroke-width="1.4" opacity="0.55"/>
+<rect x="430" y="172" width="102" height="26" rx="5" fill="#3b82f6" opacity="0.16"/>
+<rect x="430" y="172" width="102" height="26" rx="5" fill="none" stroke="#3b82f6" opacity="0.75"/>
+<line x1="476" y1="176" x2="476" y2="194" stroke="#3b82f6" opacity="0.45"/>
+<text x="453.0" y="189.0" text-anchor="middle" font-size="11" font-weight="600" fill="#3b82f6">C</text>
+<text x="504.0" y="189.0" text-anchor="middle" font-size="11" font-weight="600" fill="#3b82f6">68</text>
+<path d="M142,185.0 C286,185.0 286,185.0 430,185.0" fill="none" stroke="#3b82f6" stroke-width="1.4" opacity="0.55"/>
+<rect x="430" y="204" width="102" height="26" rx="5" fill="#2f9e63" opacity="0.16"/>
+<rect x="430" y="204" width="102" height="26" rx="5" fill="none" stroke="#2f9e63" opacity="0.75"/>
+<line x1="476" y1="208" x2="476" y2="226" stroke="#2f9e63" opacity="0.45"/>
+<text x="453.0" y="221.0" text-anchor="middle" font-size="11" font-weight="600" fill="#2f9e63">D</text>
+<text x="504.0" y="221.0" text-anchor="middle" font-size="11" font-weight="600" fill="#2f9e63">45</text>
+<path d="M142,153.0 C286,153.0 286,217.0 430,217.0" fill="none" stroke="#2f9e63" stroke-width="1.4" opacity="0.55"/>
+<rect x="430" y="236" width="102" height="26" rx="5" fill="#3b82f6" opacity="0.16"/>
+<rect x="430" y="236" width="102" height="26" rx="5" fill="none" stroke="#3b82f6" opacity="0.75"/>
+<line x1="476" y1="240" x2="476" y2="258" stroke="#3b82f6" opacity="0.45"/>
+<text x="453.0" y="253.0" text-anchor="middle" font-size="11" font-weight="600" fill="#3b82f6">C</text>
+<text x="504.0" y="253.0" text-anchor="middle" font-size="11" font-weight="600" fill="#3b82f6">68</text>
+<path d="M142,185.0 C286,185.0 286,249.0 430,249.0" fill="none" stroke="#3b82f6" stroke-width="1.4" opacity="0.55"/>
+<rect x="430" y="268" width="102" height="26" rx="5" fill="#2f9e63" opacity="0.16"/>
+<rect x="430" y="268" width="102" height="26" rx="5" fill="none" stroke="#2f9e63" opacity="0.75"/>
+<line x1="476" y1="272" x2="476" y2="290" stroke="#2f9e63" opacity="0.45"/>
+<text x="453.0" y="285.0" text-anchor="middle" font-size="11" font-weight="600" fill="#2f9e63">D</text>
+<text x="504.0" y="285.0" text-anchor="middle" font-size="11" font-weight="600" fill="#2f9e63">45</text>
+<path d="M142,153.0 C286,153.0 286,281.0 430,281.0" fill="none" stroke="#2f9e63" stroke-width="1.4" opacity="0.55"/>
+<circle cx="91.0" cy="88.0" r="9.5" fill="#94a3b8"/><text x="91.0" y="92.0" text-anchor="middle" font-size="12" font-weight="700" fill="#ffffff">A</text>
+<circle cx="481.0" cy="24.0" r="9.5" fill="#94a3b8"/><text x="481.0" y="28.0" text-anchor="middle" font-size="12" font-weight="700" fill="#ffffff">B</text>
+<circle cx="286.0" cy="284.0" r="9.5" fill="#94a3b8"/><text x="286.0" y="288.0" text-anchor="middle" font-size="12" font-weight="700" fill="#ffffff">C</text>
+</svg>

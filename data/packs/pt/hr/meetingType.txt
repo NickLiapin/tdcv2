@@ -1,0 +1,16 @@
+---
+description: Meeting type (Portuguese)
+locale: pt
+---
+Reunião diária
+Reunião individual
+Reunião geral
+Retrospectiva
+Planejamento de sprint
+Reunião de abertura
+Sincronização
+Revisão
+Workshop
+Brainstorming
+Acompanhamento
+Análise post-mortem

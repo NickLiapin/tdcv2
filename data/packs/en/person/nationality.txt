@@ -1,0 +1,29 @@
+---
+description: Nationality / demonym
+locale: en
+---
+American
+British
+Canadian
+Australian
+Irish
+French
+German
+Italian
+Spanish
+Mexican
+Brazilian
+Japanese
+Chinese
+Indian
+Russian
+Dutch
+Swedish
+Norwegian
+Nigerian
+Egyptian
+Argentine
+Korean
+Turkish
+Polish
+Greek

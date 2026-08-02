@@ -1,0 +1,16 @@
+---
+description: Portuguese full male name — two given names + maternal and paternal surname (Rodrigo Fernando Rodrigues Silva).
+generator: tdc
+locale: pt
+---
+<sequence name="p">
+  <distinct>
+    <gen name="f1" type="template" value="pt.person.male.firstName"/>
+    <gen name="f2" type="template" value="pt.person.male.firstName"/>
+  </distinct>
+  <distinct>
+    <gen name="l1" type="template" value="pt.person.lastName"/>
+    <gen name="l2" type="template" value="pt.person.lastName"/>
+  </distinct>
+</sequence>
+<data>${{p.f1}} ${{p.f2}} ${{p.l1}} ${{p.l2}}</data>

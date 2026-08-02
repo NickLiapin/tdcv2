@@ -1,0 +1,15 @@
+---
+address: finland.finance.bank
+description: Major banks of Finland (Finnish names)
+locale: fi
+---
+Nordea
+OP Ryhmä
+Danske Bank Suomi
+Säästöpankki
+POP Pankki
+Aktia
+S-Pankki
+Ålandsbanken
+Oma Säästöpankki
+Handelsbanken Suomi

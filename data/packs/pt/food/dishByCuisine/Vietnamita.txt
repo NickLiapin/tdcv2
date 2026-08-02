@@ -1,0 +1,12 @@
+---
+description: Dishes of Vietnamese cuisine (Portuguese)
+locale: pt
+---
+Pho
+Banh mi
+Rolinhos vietnamitas
+Bun cha
+Com tam
+Café vietnamita
+Bún bò Huế
+Cao lầu

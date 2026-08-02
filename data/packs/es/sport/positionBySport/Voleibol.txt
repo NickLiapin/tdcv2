@@ -1,0 +1,9 @@
+---
+description: Positions in volleyball (Spanish)
+locale: es
+---
+Colocador
+Atacante exterior
+Central
+Opuesto
+Líbero

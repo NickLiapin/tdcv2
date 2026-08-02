@@ -1,0 +1,63 @@
+---
+address: mexico.sport.team
+description: Mexican professional sports club — Liga MX (football), LMB / LMP (baseball), LNBP (basketball)
+locale: es
+---
+Club América
+Club Deportivo Guadalajara
+Cruz Azul
+Club Universidad Nacional
+Tigres UANL
+Club de Fútbol Monterrey
+Deportivo Toluca
+Club Santos Laguna
+Club León
+Club de Fútbol Pachuca
+Club Atlas
+Club Necaxa
+Club Puebla
+Querétaro Fútbol Club
+Club Tijuana Xoloitzcuintles
+Mazatlán Fútbol Club
+Club Atlético de San Luis
+Fútbol Club Juárez
+Atlético Morelia
+Club Deportivo Tapatío
+Dorados de Sinaloa
+Venados Fútbol Club
+Leones Negros de la Universidad de Guadalajara
+Cimarrones de Sonora
+Correcaminos UAT
+Alebrijes de Oaxaca
+Diablos Rojos del México
+Sultanes de Monterrey
+Leones de Yucatán
+Tigres de Quintana Roo
+Pericos de Puebla
+Guerreros de Oaxaca
+Acereros de Monclova
+Saraperos de Saltillo
+Bravos de León
+Piratas de Campeche
+Olmecas de Tabasco
+El Águila de Veracruz
+Rieleros de Aguascalientes
+Algodoneros Unión Laguna
+Charros de Jalisco
+Naranjeros de Hermosillo
+Tomateros de Culiacán
+Venados de Mazatlán
+Águilas de Mexicali
+Yaquis de Ciudad Obregón
+Algodoneros de Guasave
+Mayos de Navojoa
+Cañeros de Los Mochis
+Fuerza Regia de Monterrey
+Capitanes de Ciudad de México
+Astros de Jalisco
+Halcones de Xalapa
+Soles de Mexicali
+Libertadores de Querétaro
+Panteras de Aguascalientes
+Abejas de León
+Plateros de Fresnillo

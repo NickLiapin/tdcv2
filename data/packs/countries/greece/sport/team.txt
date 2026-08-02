@@ -1,0 +1,19 @@
+---
+address: greece.sport.team
+description: Super League football clubs of Greece (Greek names)
+locale: el
+---
+Ολυμπιακός
+Παναθηναϊκός
+ΑΕΚ Αθηνών
+ΠΑΟΚ
+Άρης
+Ατρόμητος
+ΟΦΗ
+Παναιτωλικός
+Βόλος
+Αστέρας Τρίπολης
+Λαμία
+Κηφισιά
+Λεβαδειακός
+Πανσερραϊκός

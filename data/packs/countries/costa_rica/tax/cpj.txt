@@ -1,0 +1,7 @@
+---
+address: costa_rica.tax.cpj
+description: Costa Rican juridica id (class digit + class-specific type + 6-digit serial, no check digit)
+generator: tdc
+---
+<sequence name="body"><gen type="regex" value="(2(100|200|300|400)|3(002|003|004|005|006|007|008|009|010|011|012|013|014|101|102|103|104|105|106|107|108|109|110)|4000|5001)[0-9]{6}"/></sequence>
+<data>${{body}}</data>

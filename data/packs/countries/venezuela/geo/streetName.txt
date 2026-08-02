@@ -1,0 +1,20 @@
+---
+address: venezuela.geo.streetName
+description: Venezuelan street with its vialidad type — mostly named avenues and calles (Avenida Bolívar), with a share of numbered streets (Calle 5) as found in urban grids
+generator: tdc
+locale: es
+---
+<sequence name="mode"><gen type="number" value="1..10"/></sequence>
+<sequence name="type"><gen type="text" value="Avenida,Avenida,Avenida,Calle,Calle,Calle,Carrera,Callejón,Transversal,Prolongación,Vereda"/></sequence>
+<sequence name="n"><gen type="number" value="1..120"/></sequence>
+<sequence name="named"><gen type="template" value="venezuela.geo.streetNamed"/></sequence>
+<sequence name="street"><compute>
+  <result>
+    <choose>
+      <when><test><greater_than><to_number><field name="mode"/></to_number><int v="7"/></greater_than></test>
+        <then><concat><str v="Calle"/><str v=" "/><field name="n"/></concat></then></when>
+      <otherwise><concat><field name="type"/><str v=" "/><field name="named"/></concat></otherwise>
+    </choose>
+  </result>
+</compute></sequence>
+<data>${{street}}</data>

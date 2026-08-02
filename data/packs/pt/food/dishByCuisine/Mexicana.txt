@@ -1,0 +1,13 @@
+---
+description: Dishes of Mexican cuisine (Portuguese)
+locale: pt
+---
+Tacos
+Burrito
+Enchiladas
+Quesadilla
+Guacamole
+Tamales
+Chiles rellenos
+Pozole
+Mole poblano

@@ -1,0 +1,10 @@
+---
+description: Conditions markedly more frequent in people of Middle Eastern ancestry, given in Greek. A prevalence signal, not an exclusive one.
+locale: el
+---
+Οικογενής μεσογειακός πυρετός
+Βήτα-θαλασσαιμία
+Ανεπάρκεια αφυδρογονάσης της 6-φωσφορικής γλυκόζης
+Νόσος Μπεχτσέτ
+Ανεπάρκεια βιταμίνης D
+Στίγμα δρεπανοκυτταρικής αναιμίας

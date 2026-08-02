@@ -1,0 +1,19 @@
+---
+description: Directional qualifier appended to a Portuguese street or avenue (Asa Norte, Avenida Leste)
+locale: pt
+---
+Norte
+Sul
+Leste
+Oeste
+Nascente
+Poente
+Oriental
+Ocidental
+Nordeste
+Noroeste
+Sudeste
+Sudoeste
+Setentrional
+Meridional
+Centro

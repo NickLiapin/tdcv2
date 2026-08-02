@@ -1,0 +1,15 @@
+---
+description: Shipping status (Spanish)
+locale: es
+---
+Etiqueta creada
+En tránsito
+En reparto
+Entregado
+Incidencia
+Devuelto al remitente
+Pendiente de recogida
+Retrasado
+En aduana
+Dirección incorrecta
+Intento de entrega fallido

@@ -1,0 +1,20 @@
+---
+description: Venue type (Spanish)
+locale: es
+---
+Salón de hotel
+Centro de convenciones
+Estadio
+Teatro
+Salón de banquetes
+Terraza
+Jardín
+Nave industrial
+Auditorio
+Discoteca
+Sala de juntas
+Hacienda
+Viñedo
+Playa
+Museo
+Centro cultural

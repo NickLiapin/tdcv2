@@ -1,0 +1,18 @@
+---
+address: brazil.holiday
+description: Public holidays in Brazil (Portuguese names)
+locale: pt
+---
+Confraternização Universal
+Carnaval
+Sexta-feira Santa
+Páscoa
+Tiradentes
+Dia do Trabalho
+Corpus Christi
+Independência do Brasil
+Nossa Senhora Aparecida
+Dia de Finados
+Proclamação da República
+Dia da Consciência Negra
+Natal

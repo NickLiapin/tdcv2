@@ -1,0 +1,9 @@
+---
+description: Positions in volleyball (German)
+locale: de
+---
+Zuspieler
+Außenangreifer
+Mittelblocker
+Diagonalangreifer
+Libero

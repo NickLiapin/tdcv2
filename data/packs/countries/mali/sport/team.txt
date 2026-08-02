@@ -1,0 +1,17 @@
+---
+address: mali.sport.team
+description: Malian first-division football clubs
+locale: fr
+---
+Stade Malien
+Djoliba AC
+AS Real Bamako
+AS Bamako
+Club Olympique de Bamako
+USFAS Bamako
+Onze Créateurs de Niaréla
+AS Police
+CS Duguwolofila
+Binga FC
+AS Nianan
+LCB Niaréla

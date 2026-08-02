@@ -1,0 +1,14 @@
+---
+description: Positions in baseball (Portuguese)
+locale: pt
+---
+Arremessador
+Receptor
+Primeira base
+Segunda base
+Terceira base
+Interbases
+Jardineiro esquerdo
+Jardineiro central
+Jardineiro direito
+Rebatedor designado

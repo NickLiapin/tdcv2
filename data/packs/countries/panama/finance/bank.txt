@@ -1,0 +1,38 @@
+---
+address: panama.finance.bank
+description: Panamanian bank or licensed institution participating in the Telered ACH network, ordered by ACH transit code; same order as panama.finance.bankCode
+---
+Banco Nacional de Panamá
+Banistmo
+Citibank
+Banco General
+Banco Davivienda (Panamá)
+Multibank
+Towerbank
+Scotiabank
+BICSA
+Caja de Ahorros
+Banco del Pacífico
+Metrobank
+Banco Aliado
+Credicorp Bank
+Global Bank
+Bank of China
+Canal Bank
+BAC Credomatic
+BCT Bank
+MMG Bank
+St. Georges Bank
+Banco Azteca
+Banco Pichincha Panamá
+Banco Delta
+Banco Lafise Panamá
+Banesco
+Banisi
+Mercantil Banco
+Prival Bank
+Banco La Hipotecaria
+Unibank
+Banco Ficohsa Panamá
+Bancolombia
+Bi Bank

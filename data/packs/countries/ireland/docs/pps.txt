@@ -1,0 +1,27 @@
+---
+address: ireland.docs.pps
+description: Irish Personal Public Service Number (PPSN) — 7 digits + a mod-23 check letter. The letter indexes the alphabet "WABCDEFGHIJKLMNOPQRSTUV" by (weighted digit sum mod 23), with digit weights 8,7,6,5,4,3,2. This emits the modern 8-character form, so the optional 9th-character contribution is zero.
+generator: tdc
+locale: en
+---
+<sequence name="number"><gen type="regex" value="[0-9]{7}"/></sequence>
+<sequence name="pps"><compute>
+  <!-- Weighted sum: leftmost digit x 8 down to the seventh digit x 2. -->
+  <let name="sum"><reduce>
+    <over><field name="number"/></over>
+    <init><int v="0"/></init>
+    <do><add><acc/>
+      <multiply><current/>
+        <at><in><list v="8,7,6,5,4,3,2"/></in><index><current_index/></index></at>
+      </multiply>
+    </add></do>
+  </reduce></let>
+  <let name="idx"><mod><var name="sum"/><int v="23"/></mod></let>
+  <!-- Index 0 -> "W", 1 -> "A", ... 22 -> "V". -->
+  <let name="letter">
+    <at><in><list><str v="W"/><str v="A"/><str v="B"/><str v="C"/><str v="D"/><str v="E"/><str v="F"/><str v="G"/><str v="H"/><str v="I"/><str v="J"/><str v="K"/><str v="L"/><str v="M"/><str v="N"/><str v="O"/><str v="P"/><str v="Q"/><str v="R"/><str v="S"/><str v="T"/><str v="U"/><str v="V"/></list></in>
+      <index><var name="idx"/></index></at>
+  </let>
+  <result><concat><field name="number"/><var name="letter"/></concat></result>
+</compute></sequence>
+<data>${{pps}}</data>

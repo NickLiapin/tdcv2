@@ -1,0 +1,16 @@
+---
+description: Weather phenomenon
+locale: en
+---
+Hurricane
+Tornado
+Blizzard
+Heatwave
+Cold Snap
+Flood
+Drought
+Monsoon
+Dust Storm
+Ice Storm
+Wildfire
+Cyclone

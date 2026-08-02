@@ -1,0 +1,15 @@
+---
+address: bahrain.finance.bank
+description: Banks operating in Bahrain (Arabic)
+locale: ar
+---
+بنك البحرين الوطني
+بنك البحرين والكويت
+مصرف السلام
+بيت التمويل الخليجي
+البنك الأهلي المتحد
+بنك الإثمار
+بنك البحرين الإسلامي
+بنك ABC
+بنك الخليج المتحد
+بنك بي إم آي

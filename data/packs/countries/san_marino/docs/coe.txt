@@ -1,0 +1,7 @@
+---
+address: san_marino.docs.coe
+description: San Marino economic operator code (Codice Operatore Economico, COE) — five digits. Structure only; the official check algorithm is not published.
+generator: tdc
+locale: it
+---
+<gen type="regex" value="[0-9]{5}"/>

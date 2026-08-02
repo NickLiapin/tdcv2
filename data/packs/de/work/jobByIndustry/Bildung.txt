@@ -1,0 +1,16 @@
+---
+description: Jobs in Education (German)
+locale: de
+---
+Grundschullehrer
+Hochschulprofessor
+Beratungslehrer
+Bibliothekar
+Lehrassistent
+Schulleiter
+Gymnasiallehrer
+Erzieher
+Sonderpädagoge
+Nachhilfelehrer
+Fachlehrer
+Studienrat

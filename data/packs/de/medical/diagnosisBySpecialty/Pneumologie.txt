@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Pulmonology (German)
+locale: de
+---
+Asthma bronchiale
+Chronisch obstruktive Lungenerkrankung
+Lungenentzündung
+Lungenembolie
+Tuberkulose
+Schlafapnoe
+Lungenfibrose
+Sarkoidose
+Bronchiektasen
+Pleuraerguss

@@ -1,0 +1,18 @@
+---
+address: lebanon.holiday
+description: Public holidays in Lebanon (Arabic; civil, Christian and Muslim)
+locale: ar
+---
+رأس السنة الميلادية
+عيد مار مارون
+عيد العمال
+عيد الفصح
+عيد الشهداء
+عيد المقاومة والتحرير
+عيد الاستقلال
+عيد الفطر
+عيد الأضحى
+رأس السنة الهجرية
+المولد النبوي
+عاشوراء
+عيد الميلاد

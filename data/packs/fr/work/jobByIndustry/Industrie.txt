@@ -1,0 +1,19 @@
+---
+description: Jobs in Manufacturing (French)
+locale: fr
+---
+Opérateur de production
+Technicien de maintenance
+Ingénieur qualité
+Chef d'atelier
+Soudeur
+Régleur
+Cariste
+Responsable de production
+Automaticien
+Contrôleur qualité
+Agent de fabrication
+Ajusteur-monteur
+Chaudronnier
+Usineur
+Responsable méthodes

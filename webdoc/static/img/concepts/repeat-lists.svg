@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 338" width="680" height="338" font-family="system-ui, -apple-system, Segoe UI, Roboto, sans-serif">
+<rect x="60" y="34" width="30" height="28" rx="6" fill="#2f9e63" opacity="0.85"/><text x="75.0" y="53.0" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">D</text>
+<rect x="60" y="67" width="30" height="28" rx="6" fill="#2f9e63" opacity="0.85"/><text x="75.0" y="86.0" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">C</text>
+<rect x="60" y="100" width="30" height="28" rx="6" fill="#2f9e63" opacity="0.85"/><text x="75.0" y="119.0" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">D</text>
+<rect x="60" y="133" width="30" height="28" rx="6" fill="#2f9e63" opacity="0.85"/><text x="75.0" y="152.0" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">C</text>
+<rect x="95" y="133" width="30" height="28" rx="6" fill="#2f9e63" opacity="0.85"/><text x="110.0" y="152.0" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">B</text>
+<rect x="60" y="166" width="30" height="28" rx="6" fill="#2f9e63" opacity="0.85"/><text x="75.0" y="185.0" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">B</text>
+<rect x="95" y="166" width="30" height="28" rx="6" fill="#2f9e63" opacity="0.85"/><text x="110.0" y="185.0" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">D</text>
+<rect x="130" y="166" width="30" height="28" rx="6" fill="#2f9e63" opacity="0.85"/><text x="145.0" y="185.0" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">A</text>
+<rect x="165" y="166" width="30" height="28" rx="6" fill="#2f9e63" opacity="0.85"/><text x="180.0" y="185.0" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">D</text>
+<rect x="60" y="199" width="30" height="28" rx="6" fill="#2f9e63" opacity="0.85"/><text x="75.0" y="218.0" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">C</text>
+<rect x="95" y="199" width="30" height="28" rx="6" fill="#2f9e63" opacity="0.85"/><text x="110.0" y="218.0" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">D</text>
+<rect x="130" y="199" width="30" height="28" rx="6" fill="#2f9e63" opacity="0.85"/><text x="145.0" y="218.0" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">C</text>
+<rect x="60" y="232" width="30" height="28" rx="6" fill="#2f9e63" opacity="0.85"/><text x="75.0" y="251.0" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">B</text>
+<rect x="95" y="232" width="30" height="28" rx="6" fill="#2f9e63" opacity="0.85"/><text x="110.0" y="251.0" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">C</text>
+<rect x="130" y="232" width="30" height="28" rx="6" fill="#2f9e63" opacity="0.85"/><text x="145.0" y="251.0" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">C</text>
+<rect x="60" y="265" width="30" height="28" rx="6" fill="#2f9e63" opacity="0.85"/><text x="75.0" y="284.0" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">A</text>
+<rect x="95" y="265" width="30" height="28" rx="6" fill="#2f9e63" opacity="0.85"/><text x="110.0" y="284.0" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">A</text>
+<circle cx="36.0" cy="166.0" r="9.5" fill="#3b82f6"/><text x="36.0" y="170.0" text-anchor="middle" font-size="12" font-weight="700" fill="#ffffff">A</text>
+<rect x="314" y="70.4" width="52" height="189.6" rx="4" fill="#2f9e63" opacity="0.8"/>
+<text x="340.0" y="64.4" text-anchor="middle" font-size="11" font-weight="400" fill="#94a3b8">500</text>
+<text x="340.0" y="278.0" text-anchor="middle" font-size="13" font-weight="700" fill="#94a3b8">1</text>
+<rect x="394" y="70.4" width="52" height="189.6" rx="4" fill="#2f9e63" opacity="0.8"/>
+<text x="420.0" y="64.4" text-anchor="middle" font-size="11" font-weight="400" fill="#94a3b8">500</text>
+<text x="420.0" y="278.0" text-anchor="middle" font-size="13" font-weight="700" fill="#94a3b8">2</text>
+<rect x="474" y="70.4" width="52" height="189.6" rx="4" fill="#2f9e63" opacity="0.8"/>
+<text x="500.0" y="64.4" text-anchor="middle" font-size="11" font-weight="400" fill="#94a3b8">500</text>
+<text x="500.0" y="278.0" text-anchor="middle" font-size="13" font-weight="700" fill="#94a3b8">3</text>
+<rect x="554" y="70.4" width="52" height="189.6" rx="4" fill="#2f9e63" opacity="0.8"/>
+<text x="580.0" y="64.4" text-anchor="middle" font-size="11" font-weight="400" fill="#94a3b8">500</text>
+<text x="580.0" y="278.0" text-anchor="middle" font-size="13" font-weight="700" fill="#94a3b8">4</text>
+<line x1="300" y1="260" x2="620" y2="260" stroke="#94a3b8" opacity="0.55"/>
+<circle cx="280.0" cy="151.0" r="9.5" fill="#3b82f6"/><text x="280.0" y="155.0" text-anchor="middle" font-size="12" font-weight="700" fill="#ffffff">B</text>
+<text x="300.0" y="34.0" text-anchor="start" font-size="11" font-weight="400" fill="#94a3b8">n = 2000</text>
+</svg>

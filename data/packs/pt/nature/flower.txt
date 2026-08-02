@@ -1,0 +1,32 @@
+---
+description: Flower (Portuguese)
+locale: pt
+---
+Rosa
+Tulipa
+Margarida
+Girassol
+Lírio
+Orquídea
+Narciso
+Calêndula
+Lavanda
+Íris
+Peónia
+Cravo
+Crisântemo
+Papoila
+Violeta
+Jasmim
+Hibisco
+Lótus
+Dália
+Begónia
+Açucena
+Gardénia
+Camélia
+Petúnia
+Gerânio
+Buganvília
+Miosótis
+Azálea

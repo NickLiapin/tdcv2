@@ -1,0 +1,16 @@
+---
+description: Dishes of Argentine cuisine (German)
+locale: de
+---
+Asado
+Empanadas
+Milanesa a la napolitana
+Choripán
+Locro
+Provoleta
+Dulce de leche
+Matambre
+Chimichurri
+Alfajores
+Humita
+Puchero

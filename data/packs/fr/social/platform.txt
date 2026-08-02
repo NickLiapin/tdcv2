@@ -1,0 +1,20 @@
+---
+description: Social media platform (French)
+locale: fr
+---
+Facebook
+Instagram
+X
+TikTok
+Snapchat
+LinkedIn
+YouTube
+Pinterest
+Reddit
+WhatsApp
+Twitch
+Discord
+Threads
+BeReal
+Telegram
+Mastodon

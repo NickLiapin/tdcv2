@@ -1,0 +1,1275 @@
+/**
+ * Sequence materialization.
+ *
+ * `buildSequences` consumes the ordered list of sequence specs declared
+ * in the DSL `<env>` and produces a registry mapping each sequence name
+ * to its materialized per-cell values. Parent-constrained sequences are
+ * computed only over the subset of rows where the parent produced the
+ * declared value; remaining rows get `undefined`. Percentages inside
+ * child `<gen>` are evaluated over the constrained subset, not the
+ * total `count` — this is the core of the "ierarchical probabilistic
+ * dependencies" moat (docs/vision/02-sequences.md).
+ *
+ * The registry is also seeded with the built-in `_count` sequence
+ * (1-based iteration index, one entry per row) for interpolation.
+ *
+ * Ordering: specs are processed in declaration order. A child sequence
+ * whose `parent` references a later-declared sequence throws at the
+ * dependency-lookup step — cycles and forward references are not
+ * supported in this phase.
+ */
+
+import type { GeneratorBody } from '../data-pack/generator.js';
+import { resolvePackAddress } from '../data-pack/index.js';
+import type { PackRegistry } from '../data-pack/index.js';
+import { interpolate } from '../processor/interpolate.js';
+import { distributeByPercent } from '../distribution/hamilton.js';
+import { expandPercentMask } from '../distribution/percent-mask.js';
+import { resolveExistingDataSourcePath, type DataSourceOptions } from '../data-source/index.js';
+import { advancedRegexGenerator } from '../generators/advanced-regex.js';
+import { decrementGenerator, incrementGenerator } from '../generators/counter.js';
+import { dateGenerator } from '../generators/date.js';
+import { loadCsvColumnFile, loadListFile } from '../generators/file.js';
+import { formatSample, parseDistribution, sampleDistribution } from '../generators/distribution.js';
+import { readFileSync } from 'node:fs';
+
+import { applyAnomaly, parseAnomaly } from '../generators/anomaly.js';
+import { applyMissing, parseMissing } from '../generators/missing.js';
+import { numberGenerator } from '../generators/number.js';
+import {
+  corridorFromAttrs,
+  parsePoints,
+  type PatternGen,
+  asDensity,
+  parseMode,
+  patternFromEnvelope,
+  patternGenDraws,
+  patternGenValue,
+  rasterPatternGen,
+  signalCurveFromAttrs,
+  spreadFromAttrs,
+} from '../generators/pattern.js';
+import { svgEnvelope } from '../generators/svg-path.js';
+import { decodePng, isPng } from '../generators/png.js';
+import { regexGenerator } from '../generators/regex.js';
+import { symbolGenerator } from '../generators/symbol.js';
+import { textUniform } from '../generators/text.js';
+import {
+  formatTimeseries,
+  parseTimeseries,
+  standardNormal,
+  timeseriesHasNoise,
+  timeseriesValueAt,
+} from '../generators/timeseries.js';
+import { resolveTemplate } from '../templates/resolver.js';
+import { isDynamicTemplateValue } from '../validator/known.js';
+import { buildDynamicTemplateValues } from './dynamic-template.js';
+import { StreamUnsupportedError } from './stream-build.js';
+import { openUnit } from '../prng/seekable.js';
+import { evaluateIf } from '../expr/evaluate.js';
+
+import { evaluateCompute, evaluateComputePredicate } from '../compute/index.js';
+import { genFormatter } from '../format/transforms.js';
+import type { OpenCloseElementContext } from '../generated/TDCParser.js';
+import type { AttrMap } from '../processor/attrs.js';
+
+import type {
+  CaseSpec,
+  CondBranch,
+  GenSpec,
+  Sequence,
+  SequenceRegistry,
+  SequenceSpec,
+  MixSpec,
+  SwitchSpec,
+} from './types.js';
+import { sequenceValueAt } from './types.js';
+import { composesOwnValue, drawComposed, uniqDrawPart } from './composed.js';
+import { materializeCompute } from './compute-sequence.js';
+import { assembleValues, computeParentMask } from './assemble.js';
+import type { LinkedFileRowPlan, SequenceBuildContext } from './context.js';
+import { buildUniqueValues } from './uniq-simple.js';
+import { buildFileValues } from './file-values.js';
+import { buildRepeatedValues, parseRepeat } from './repeat.js';
+import { enforceUniqRedrawing } from './enforce-uniq.js';
+import { enforceEnvUniq, isScalarSpec } from './env-groups.js';
+import { poolRefName, type PoolTables } from './pool.js';
+import { registerPoolRef } from './pool-ref.js';
+import { registerRunning } from './running.js';
+
+export interface SequenceBuildOptions {
+  readonly regexMaxLength?: number | undefined;
+  /**
+   * Pools already computed for this run, by name — see `pool-build.ts`. A
+   * `<gen type="pool">` reads a member out of one of these instead of drawing a
+   * value of its own.
+   */
+  readonly pools?: PoolTables | undefined;
+  /**
+   * The run's seed, needed only to pick a member per row. A reference draws
+   * from its own derived stream, so the pick must be reproducible from the seed
+   * rather than from wherever the main generator happens to have got to.
+   */
+  readonly seed?: string | undefined;
+  readonly dataSources?: DataSourceOptions | undefined;
+  readonly packs?: PackRegistry | undefined;
+  /**
+   * Config-level `<distinct>` groups: each inner array holds the names of
+   * scalar sequences that must produce different values from each other
+   * within one row. Enforced after all sequences materialise.
+   */
+  readonly envDistinctGroups?: readonly (readonly string[])[] | undefined;
+  /**
+   * Config-level `<uniq>` groups: each inner array holds the names of scalar
+   * sequences whose combined TUPLE must be unique across all rows. Enforced
+   * after all sequences materialise.
+   */
+  readonly envUniqGroups?: readonly (readonly string[])[] | undefined;
+  /**
+   * Parameter overrides for a pack generator body: a local `<sequence>` whose
+   * name matches a key is materialized as that constant value for every row,
+   * instead of running its own spec. This is how a calling
+   * `<gen type="template" value="…" p="v">` passes `p="v"` into the generator —
+   * the pack author declares `<sequence name="p">…default…</sequence>` and the
+   * caller value wins. Only set by `runGenerator`; top-level configs never pass
+   * it, so their sequences are unaffected.
+   */
+  readonly overrides?: Readonly<Record<string, string>> | undefined;
+  /**
+   * Set by the async render path. Lets a `type="http"` generator produce a
+   * placeholder column to be filled by an async post-pass; absent, it refuses to
+   * render synchronously. See {@link SequenceBuildContext.httpDeferred}.
+   */
+  readonly httpDeferred?: boolean | undefined;
+}
+
+/**
+ * Execute a data-pack generator body and return `count` values.
+ *
+ * - `single` → run the one primitive `<gen>` spec.
+ * - `composed` → materialise the local sequences over `count` (so exact
+ *   percentages, shuffle and determinism apply), then interpolate the
+ *   `<data>` output template per row.
+ *
+ * Deterministic on the shared prng. Used from both the inline (render)
+ * path and the sequence path.
+ */
+/**
+ * Control attributes on a `<gen type="template">` that steer the call itself
+ * rather than parameterize the pack generator. Everything else is a parameter
+ * that may override a same-named local sequence (spec §4.1).
+ */
+const RESERVED_TEMPLATE_ATTRS = new Set([
+  'type',
+  'value',
+  'local',
+  'name',
+  'if',
+  'comment',
+  'anomaly',
+  'anomaly_factor',
+  'anomaly_flag',
+  'missing',
+  'missing_as',
+  'mask',
+  'case',
+  'order',
+  'cycle',
+]);
+
+/** Extract caller parameters (non-reserved attrs) as sequence overrides. */
+export function paramOverrides(attrs: AttrMap): Record<string, string> {
+  const out: Record<string, string> = {};
+  for (const [key, value] of Object.entries(attrs)) {
+    if (!RESERVED_TEMPLATE_ATTRS.has(key)) out[key] = value;
+  }
+  return out;
+}
+
+export function runGenerator(
+  body: GeneratorBody,
+  count: number,
+  prng: () => number,
+  locale: string,
+  now: number,
+  options: SequenceBuildOptions = {},
+): string[] {
+  if (body.kind === 'single') {
+    return buildGenValues(body.gen, count, prng, locale, now, {
+      regexMaxLength: options.regexMaxLength,
+      dataSources: options.dataSources ?? {},
+      packs: options.packs,
+      fileRowLinks: new Map<string, LinkedFileRowPlan>(),
+    });
+  }
+
+  const registry = buildSequences(body.sequences, count, prng, locale, now, options);
+  if (body.validate) {
+    enforceValid(body.validate, body.sequences, registry, count, prng, locale, now, options);
+  }
+  const out: string[] = new Array<string>(count);
+  for (let i = 0; i < count; i++) {
+    out[i] = interpolate(body.output, body.inject, i, registry);
+  }
+  return out;
+}
+
+/** Fuse for reject-and-retry redraws before a generator is declared infeasible. */
+const VALID_FUSE = 100;
+
+/**
+ * Reject-and-retry (migration spec §4.2). For each row whose `<valid>` predicate
+ * is false, redraw the base sequences (simple `<gen>` producers) from the PRNG
+ * and re-evaluate the compute sequences, up to `VALID_FUSE` attempts. Redraws
+ * append to the PRNG stream, so the result stays deterministic. Overridden
+ * (constant) sequences are never redrawn.
+ */
+function enforceValid(
+  validEl: OpenCloseElementContext,
+  specs: readonly SequenceSpec[],
+  registry: Record<string, Sequence>,
+  count: number,
+  prng: () => number,
+  locale: string,
+  now: number,
+  options: SequenceBuildOptions,
+): void {
+  const ctx = streamCtx(options);
+  const holds = (i: number): boolean =>
+    evaluateComputePredicate(validEl, (name) => {
+      const seq = registry[name];
+      return seq ? sequenceValueAt(seq, i) : undefined;
+    });
+
+  for (let i = 0; i < count; i++) {
+    let attempts = 0;
+    while (!holds(i)) {
+      if (attempts >= VALID_FUSE) {
+        throw new Error(
+          `pack generator <valid> constraint could not be satisfied for row ${String(i)} after ` +
+            `${String(VALID_FUSE)} attempts — the base cannot produce a valid value`,
+        );
+      }
+      attempts += 1;
+      // Redraw base sequences (skip overrides and compute — recomputed below).
+      for (const spec of specs) {
+        if (options.overrides?.[spec.name] !== undefined || spec.compute) continue;
+        if (!spec.gen) {
+          throw new Error(
+            `pack generator <valid> requires simple <gen> base sequences; ` +
+              `sequence "${spec.name}" is not supported`,
+          );
+        }
+        const seq = registry[spec.name];
+        if (seq)
+          (seq.values as (string | undefined)[])[i] = buildGenValues(
+            spec.gen,
+            1,
+            prng,
+            locale,
+            now,
+            ctx,
+          )[0];
+      }
+      // Recompute derived sequences for this row, in declaration order.
+      for (const spec of specs) {
+        if (!spec.compute) continue;
+        const seq = registry[spec.name];
+        if (seq) {
+          (seq.values as (string | undefined)[])[i] = evaluateCompute(spec.compute.node, (name) => {
+            const s = registry[name];
+            return s ? sequenceValueAt(s, i) : undefined;
+          });
+        }
+      }
+    }
+  }
+}
+
+export function buildSequences(
+  specs: readonly SequenceSpec[],
+  count: number,
+  prng: () => number,
+  locale: string,
+  now: number,
+  options: SequenceBuildOptions = {},
+): SequenceRegistry {
+  const ctx: SequenceBuildContext = {
+    regexMaxLength: options.regexMaxLength,
+    dataSources: options.dataSources ?? {},
+    packs: options.packs,
+    fileRowLinks: new Map<string, LinkedFileRowPlan>(),
+    httpDeferred: options.httpDeferred,
+  };
+
+  // Built-in positional sequences. All deterministic by iteration index,
+  // so they consume zero prng state and always produce the same values
+  // for a given `count`.
+  //
+  // `_first` and `_last` store literal "true" / "false" strings. The
+  // expression evaluator treats the string "false" (and the empty
+  // string) as falsy, so `<data if="!_last">` still reads naturally
+  // while `${{_last}}` interpolates as the human-readable word "false"
+  // — useful when the user wants a literal boolean in the output,
+  // e.g. `"isLast": ${{_last}}` in JSON.
+  //
+  // `_total` is the numeric total card count (as a string), repeated
+  // on every row. It exists for callers who prefer explicit numeric
+  // comparisons like `<data if="_count == _total">`, as an alternative
+  // to the boolean `_last`.
+  const registry: Record<string, Sequence> = {
+    _count: {
+      name: '_count',
+      values: Array.from({ length: count }, (_, i) => String(i + 1)),
+    },
+    _first: {
+      name: '_first',
+      values: Array.from({ length: count }, (_, i) => (i === 0 ? 'true' : 'false')),
+    },
+    _last: {
+      name: '_last',
+      values: Array.from({ length: count }, (_, i) => (i === count - 1 ? 'true' : 'false')),
+    },
+    _total: {
+      name: '_total',
+      values: new Array<string>(count).fill(String(count)),
+    },
+  };
+
+  for (const spec of specs) {
+    // Parameter override (pack generators): a caller attribute whose name
+    // matches this local sequence replaces it with a constant column. Consumes
+    // no PRNG, so the rest of the body's deterministic stream is unchanged.
+    const override = options.overrides?.[spec.name];
+    if (override !== undefined) {
+      registry[spec.name] = { name: spec.name, values: new Array<string>(count).fill(override) };
+      continue;
+    }
+    // A reference to a <pool>: this row gets one member, and every field of
+    // that member is published under `Ref.field`. Resolved HERE, in declaration
+    // order, rather than in a pass afterwards — a later `<switch on="Doc.city">`
+    // has to find the field already registered, exactly as it would find a
+    // field of a compound declared above it.
+    const refPool = poolRefName(spec);
+    if (refPool !== undefined) {
+      registerPoolRef(spec, refPool, registry, count, options.pools, options.seed ?? '');
+      continue;
+    }
+    // A running total down a column. Resolved HERE, in declaration order, so it
+    // reads a column that already exists — which is also why `of=` must name a
+    // sequence declared above it.
+    if (spec.gen?.type === 'running') {
+      registerRunning(spec, registry, count);
+      continue;
+    }
+    if (spec.items) {
+      // Composed sequence: the body in declaration order — unnamed gens and
+      // literals build the value, named ones stay fields. The order is owned by
+      // `drawComposed`; the draw itself is still this engine's.
+      const mask = computeParentMask(spec, registry, count);
+      const applicableCount = mask.filter(Boolean).length;
+      const uniqPart = uniqDrawPart(spec.items, spec.uniq === true);
+      const { composed, fields: produced } = drawComposed(spec.items, applicableCount, (item, n) =>
+        item === uniqPart
+          ? buildUniqueValues(spec.name, item.gen, n, prng, locale, ctx)
+          : buildGenValues(item.gen, n, prng, locale, now, ctx),
+      );
+
+      if (spec.distinctGroups && applicableCount > 0) {
+        enforceDistinct(spec, produced, applicableCount, prng, locale, now, ctx);
+      }
+
+      if (composesOwnValue(spec.items)) {
+        registry[spec.name] = assembleValues(spec.name, mask, composed, count);
+      }
+      for (const [fieldName, values] of produced) {
+        registry[`${spec.name}.${fieldName}`] = assembleValues(
+          `${spec.name}.${fieldName}`,
+          mask,
+          values,
+          count,
+        );
+      }
+      continue;
+    }
+    if (spec.gens) {
+      // Compound sequence: each field registers under the dotted key
+      // `${name}.${fieldName}`. All fields share the same parent mask
+      // — compute it once, then materialize each field against that
+      // mask using the shared PRNG stream (in declaration order).
+      const mask = computeParentMask(spec, registry, count);
+      const applicableCount = mask.filter(Boolean).length;
+      const produced = new Map<string, string[]>();
+      for (const field of spec.gens) {
+        produced.set(
+          field.name,
+          applicableCount === 0
+            ? []
+            : buildGenValues(field.gen, applicableCount, prng, locale, now, ctx),
+        );
+      }
+      // `<distinct>` groups: repair collisions per row (see enforceDistinct).
+      // Runs after all initial draws so the base PRNG stream is unchanged.
+      if (spec.distinctGroups && applicableCount > 0) {
+        enforceDistinct(spec, produced, applicableCount, prng, locale, now, ctx);
+      }
+      // `uniq="true"`: rearrange the field columns so every row's tuple is
+      // unique across the dataset. Errors before output if infeasible.
+      if (spec.uniq && applicableCount > 0) {
+        enforceUniqRedrawing(spec, produced, applicableCount, (gen, n) =>
+          buildGenValues(gen, n, prng, locale, now, ctx),
+        );
+      }
+      for (const field of spec.gens) {
+        registry[`${spec.name}.${field.name}`] = assembleValues(
+          `${spec.name}.${field.name}`,
+          mask,
+          produced.get(field.name) ?? [],
+          count,
+        );
+      }
+      continue;
+    }
+    if (spec.conditional) {
+      registry[spec.name] = materializeConditional(
+        spec,
+        spec.conditional,
+        registry,
+        count,
+        prng,
+        locale,
+        now,
+        ctx,
+      );
+      continue;
+    }
+    if (spec.compute) {
+      registry[spec.name] = materializeCompute(spec, spec.compute, registry, count);
+      continue;
+    }
+    if (spec.switchSpec) {
+      registry[spec.name] = materializeSwitch(
+        spec,
+        spec.switchSpec,
+        registry,
+        count,
+        prng,
+        locale,
+        now,
+        ctx,
+      );
+      continue;
+    }
+    if (spec.gen) {
+      const flagName = spec.gen.attrs['anomaly_flag'];
+      if (flagName) {
+        // A value gen with `anomaly_flag`: build the value column while recording
+        // the per-row anomaly selection, then register a companion "true"/"false"
+        // sequence masked identically (undefined on parent-filtered rows).
+        const mask = computeParentMask(spec, registry, count);
+        const applicableCount = mask.filter(Boolean).length;
+        const flags: string[] = [];
+        const produced =
+          applicableCount === 0
+            ? []
+            : buildGenValues(spec.gen, applicableCount, prng, locale, now, ctx, flags);
+        registry[spec.name] = assembleValues(spec.name, mask, produced, count);
+        registry[flagName] = assembleValues(flagName, mask, flags, count);
+      } else {
+        registry[spec.name] = materializeSimple(
+          spec,
+          spec.gen,
+          registry,
+          count,
+          prng,
+          locale,
+          now,
+          ctx,
+        );
+      }
+      continue;
+    }
+    if (spec.mixSpec) {
+      const { sequence, flag } = materializeMixSequence(
+        spec,
+        spec.mixSpec,
+        registry,
+        count,
+        prng,
+        locale,
+        now,
+        ctx,
+      );
+      registry[spec.name] = sequence;
+      if (flag) registry[flag.name] = flag.sequence;
+    }
+  }
+
+  // Config-level `<distinct>` groups: repair collisions BETWEEN whole
+  // sequences per row. Runs after all sequences materialise, so the base
+  // PRNG stream is unchanged (repair draws are appended).
+  if (options.envDistinctGroups && options.envDistinctGroups.length > 0) {
+    enforceEnvDistinct(options.envDistinctGroups, specs, registry, count, prng, locale, now, ctx);
+  }
+  // Config-level `<uniq>` groups: rearrange the grouped scalar sequences so
+  // their combined tuple is unique across rows. After distinct so both hold.
+  if (options.envUniqGroups && options.envUniqGroups.length > 0) {
+    enforceEnvUniq(options.envUniqGroups, specs, registry, count);
+  }
+  return registry;
+}
+
+/**
+ * Enforce config-level `<distinct>` groups. Each group names scalar
+ * sequences whose values must differ from each other within one row. For
+ * each group and applicable row, walk the group's sequences in declaration
+ * order; a value that collides with an already-accepted one is redrawn
+ * (one fresh scalar from that sequence's own gen/switch on the shared PRNG)
+ * until it differs. Rows where a sequence produced `undefined` (filtered
+ * out by a parent) are skipped for that sequence.
+ *
+ * Only scalar sequences (simple `<gen>` or `<mix>`) participate;
+ * compound sequences have no single value and are excluded (the validator
+ * rejects them in a group). Deterministic and fuse-bounded like the
+ * field-level repair (see enforceDistinct).
+ */
+function enforceEnvDistinct(
+  groups: readonly (readonly string[])[],
+  specs: readonly SequenceSpec[],
+  registry: Record<string, Sequence>,
+  count: number,
+  prng: () => number,
+  locale: string,
+  now: number,
+  ctx: SequenceBuildContext,
+): void {
+  const specByName = new Map<string, SequenceSpec>();
+  for (const spec of specs) specByName.set(spec.name, spec);
+
+  for (const group of groups) {
+    const members = group.filter((name) => {
+      const spec = specByName.get(name);
+      return spec !== undefined && isScalarSpec(spec) && registry[name] !== undefined;
+    });
+    if (members.length < 2) continue;
+
+    // Mutable working copies of each member's values.
+    const arrays = new Map<string, (string | undefined)[]>();
+    for (const name of members) arrays.set(name, [...(registry[name]?.values ?? [])]);
+
+    for (let i = 0; i < count; i++) {
+      const seen = new Set<string>();
+      for (const name of members) {
+        const values = arrays.get(name);
+        if (!values) continue;
+        let value = values[i];
+        if (value === undefined) continue; // filtered-out row for this sequence
+        let attempts = 0;
+        while (seen.has(value)) {
+          if (attempts >= DISTINCT_FUSE) {
+            throw new Error(
+              `<distinct> across sequences: could not find a value for sequence ` +
+                `"${name}" different from the others after ${String(DISTINCT_FUSE)} attempts — ` +
+                'its source likely has too few distinct values.',
+            );
+          }
+          attempts += 1;
+          // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+          value = produceOneScalar(specByName.get(name)!, prng, locale, now, ctx);
+        }
+        values[i] = value;
+        seen.add(value);
+      }
+    }
+
+    for (const name of members) {
+      registry[name] = { name, values: arrays.get(name) ?? [] };
+    }
+  }
+}
+
+/** Draw one fresh scalar value from a simple or switch sequence spec. */
+function produceOneScalar(
+  spec: SequenceSpec,
+  prng: () => number,
+  locale: string,
+  now: number,
+  ctx: SequenceBuildContext,
+): string {
+  if (spec.gen) return buildGenValues(spec.gen, 1, prng, locale, now, ctx)[0] ?? '';
+  if (spec.mixSpec) return buildMixValues(spec.mixSpec, 1, prng, locale, now, ctx)[0] ?? '';
+  return '';
+}
+
+/**
+ * Switch sequence (in-memory / Engine 1): build each entry's value-producer
+ * over all rows, then per row look the subject sequence's value up in the
+ * entries' keys — the FIRST entry whose keys contain it wins. No match → the
+ * `<default>` value (if any), else empty. Like the conditional sequence, each
+ * entry is built over the full row count; the subject just selects which
+ * entry's value is used for the row.
+ */
+function materializeSwitch(
+  spec: SequenceSpec,
+  switchSpec: SwitchSpec,
+  registry: SequenceRegistry,
+  count: number,
+  prng: () => number,
+  locale: string,
+  now: number,
+  ctx: SequenceBuildContext,
+): Sequence {
+  const built = switchSpec.entries.map((e) => ({
+    keys: e.keys,
+    values: buildCaseValues(e.value, count, prng, locale, now, ctx),
+  }));
+  const fallback = switchSpec.fallback
+    ? buildCaseValues(switchSpec.fallback, count, prng, locale, now, ctx)
+    : undefined;
+  const subject = registry[switchSpec.on];
+
+  const values = new Array<string | undefined>(count);
+  for (let i = 0; i < count; i++) {
+    const key = subject ? (sequenceValueAt(subject, i) ?? '') : '';
+    let picked: string | undefined;
+    for (const e of built) {
+      if (e.keys.includes(key)) {
+        picked = e.values[i];
+        break;
+      }
+    }
+    if (picked === undefined && fallback) picked = fallback[i];
+    values[i] = picked;
+  }
+  return { name: spec.name, values };
+}
+
+/**
+ * Conditional sequence (in-memory / Engine 1): materialize each branch's gen
+ * over all rows, then per row pick the FIRST branch whose `if` is truthy (or a
+ * fallback branch with no `if`). None match → the row is empty. Conditions are
+ * evaluated against the registry, which already holds earlier-declared
+ * sequences (parent-before-child order).
+ */
+function materializeConditional(
+  spec: SequenceSpec,
+  branches: readonly CondBranch[],
+  registry: SequenceRegistry,
+  count: number,
+  prng: () => number,
+  locale: string,
+  now: number,
+  ctx: SequenceBuildContext,
+): Sequence {
+  const built = branches.map((b) => ({
+    cond: b.cond,
+    values: buildGenValues(b.gen, count, prng, locale, now, ctx),
+  }));
+  const values = new Array<string | undefined>(count);
+  for (let i = 0; i < count; i++) {
+    let picked: string | undefined;
+    for (const b of built) {
+      if (b.cond === undefined || evaluateIf(b.cond, registry, i)) {
+        picked = b.values[i];
+        break;
+      }
+    }
+    values[i] = picked;
+  }
+  return { name: spec.name, values };
+}
+
+function materializeSimple(
+  spec: SequenceSpec,
+  gen: GenSpec,
+  registry: SequenceRegistry,
+  count: number,
+  prng: () => number,
+  locale: string,
+  now: number,
+  ctx: SequenceBuildContext,
+): Sequence {
+  const mask = computeParentMask(spec, registry, count);
+  const applicableCount = mask.filter(Boolean).length;
+
+  // A template whose `value` interpolates a sibling field (`common.vehicle.model.${{Brand}}`)
+  // resolves its address per row from the registry — the child pack is the one the
+  // parent named on that row. Engine-1 only; streaming defers it (see render.ts).
+  if (gen.type === 'template' && isDynamicTemplateValue(gen.attrs['value'] ?? '')) {
+    const produced = buildDynamicTemplateValues(gen, mask, registry, prng, locale, now, ctx);
+    return assembleValues(spec.name, mask, produced, count);
+  }
+
+  // `uniq="true"` on a simple sequence: a draw WITHOUT REPLACEMENT. A single
+  // column has no room to be both proportional and unique, so — unlike the
+  // compound path, which only rearranges — uniq changes the draw here.
+  // `increment`/`decrement` are unique by construction and keep their build.
+  if (spec.uniq === true && gen.type !== 'increment' && gen.type !== 'decrement') {
+    const produced =
+      applicableCount === 0
+        ? []
+        : buildUniqueValues(spec.name, gen, applicableCount, prng, locale, ctx);
+    return assembleValues(spec.name, mask, produced, count);
+  }
+
+  const produced =
+    applicableCount === 0 ? [] : buildGenValues(gen, applicableCount, prng, locale, now, ctx);
+
+  return assembleValues(spec.name, mask, produced, count);
+}
+
+/**
+ * Materialize a `<mix>` sequence, plus — when it declares `flag="NAME"` — the
+ * ground-truth companion column marking rows that chose an `anomaly="true"`
+ * branch. Both share one mask, so the label is `undefined` on exactly the rows
+ * the value is.
+ */
+function materializeMixSequence(
+  spec: SequenceSpec,
+  mixSpec: MixSpec,
+  registry: SequenceRegistry,
+  count: number,
+  prng: () => number,
+  locale: string,
+  now: number,
+  ctx: SequenceBuildContext,
+): { sequence: Sequence; flag?: { name: string; sequence: Sequence } } {
+  const mask = computeParentMask(spec, registry, count);
+  const applicableCount = mask.filter(Boolean).length;
+  const flagName = mixSpec.attrs['flag'];
+  const flags: boolean[] | undefined = flagName ? [] : undefined;
+
+  const produced =
+    applicableCount === 0
+      ? []
+      : buildMixValues(mixSpec, applicableCount, prng, locale, now, ctx, flags);
+
+  const sequence = assembleValues(spec.name, mask, produced, count);
+  if (flagName === undefined || flags === undefined) return { sequence };
+  return {
+    sequence,
+    flag: {
+      name: flagName,
+      sequence: assembleValues(
+        flagName,
+        mask,
+        flags.map((b) => (b ? 'true' : 'false')),
+        count,
+      ),
+    },
+  };
+}
+
+/**
+ * Maximum redraws for a single `<distinct>` field before giving up. A
+ * high bound so legitimate small pools still resolve, but finite so an
+ * impossible constraint (e.g. a 1-value source in a 2-field group) fails
+ * fast with a clear error instead of hanging.
+ */
+const DISTINCT_FUSE = 1000;
+
+/**
+ * Enforce `<distinct>` groups on a compound sequence's materialized fields.
+ *
+ * For each group and each applicable row, walk the group's fields in
+ * declaration order: the first is accepted as-is; each subsequent field
+ * whose value already appeared in that row's group is redrawn (one fresh
+ * draw from its own `<gen>` on the shared PRNG) until it differs. Mutates
+ * the arrays in `produced` in place.
+ *
+ * Deterministic: row order and field order are fixed, and repair draws are
+ * appended after the initial stream, so output is reproducible. Throws a
+ * clear error if a field cannot be made distinct within the fuse.
+ */
+function enforceDistinct(
+  spec: SequenceSpec,
+  produced: Map<string, string[]>,
+  applicableCount: number,
+  prng: () => number,
+  locale: string,
+  now: number,
+  ctx: SequenceBuildContext,
+): void {
+  const genByField = new Map<string, GenSpec>();
+  for (const field of spec.gens ?? []) genByField.set(field.name, field.gen);
+
+  for (const group of spec.distinctGroups ?? []) {
+    const fields = group.filter((f) => produced.has(f) && genByField.has(f));
+    if (fields.length < 2) continue;
+
+    for (let i = 0; i < applicableCount; i++) {
+      const seen = new Set<string>();
+      for (const fieldName of fields) {
+        const values = produced.get(fieldName);
+        const gen = genByField.get(fieldName);
+        if (!values || !gen) continue;
+        let value = values[i] ?? '';
+        let attempts = 0;
+        while (seen.has(value)) {
+          if (attempts >= DISTINCT_FUSE) {
+            throw new Error(
+              `<distinct> in sequence "${spec.name}": could not find a value for field ` +
+                `"${fieldName}" different from the others after ${String(DISTINCT_FUSE)} attempts — ` +
+                'its source likely has too few distinct values.',
+            );
+          }
+          attempts += 1;
+          value = buildGenValues(gen, 1, prng, locale, now, ctx)[0] ?? '';
+        }
+        values[i] = value;
+        seen.add(value);
+      }
+    }
+  }
+}
+
+/**
+ * The generator context is invariant per render (it depends only on `options`),
+ * but the streaming path calls `resolveGenValueAt` once PER ROW per field —
+ * allocating a fresh context + `Map` each time was pure GC pressure. Cache it
+ * by the `options` object (stable across a render). `fileRowLinks` is shared
+ * across the render, matching Engine 1's single shared context.
+ */
+const streamCtxCache = new WeakMap<SequenceBuildOptions, SequenceBuildContext>();
+
+export function streamCtx(options: SequenceBuildOptions): SequenceBuildContext {
+  const cached = streamCtxCache.get(options);
+  if (cached) return cached;
+  const ctx: SequenceBuildContext = {
+    regexMaxLength: options.regexMaxLength,
+    dataSources: options.dataSources ?? {},
+    packs: options.packs,
+    fileRowLinks: new Map<string, LinkedFileRowPlan>(),
+    perRow: true,
+  };
+  streamCtxCache.set(options, ctx);
+  return ctx;
+}
+
+/**
+ * Produce `count` values for a gen, then apply `anomaly` and `missing` (MCAR)
+ * if set — one extra PRNG draw per row, so it's deterministic. This is the
+ * in-memory (Engine 1) path; independent gens in streaming reach it via
+ * `resolveGenValueAt`, while the inline-built streaming types (text, counters,
+ * timeseries, pattern) apply the same two modifiers seekably in stream-build.ts
+ * (`missingAnomalyMod`).
+ */
+export function buildGenValues(
+  gen: GenSpec,
+  count: number,
+  prng: () => number,
+  locale: string,
+  now: number,
+  ctx: SequenceBuildContext,
+  flagTextOut?: string[],
+): string[] {
+  const repeat = parseRepeat(gen.attrs);
+  if (!repeat) {
+    const flags: boolean[] | undefined = flagTextOut ? [] : undefined;
+    const out = buildGenValuesOnce(gen, count, prng, locale, now, ctx, flags);
+    if (flagTextOut && flags) {
+      for (let i = 0; i < count; i++) flagTextOut[i] = flags[i] === true ? 'true' : 'false';
+    }
+    return out;
+  }
+
+  return buildRepeatedValues(
+    repeat,
+    count,
+    prng,
+    (n, flagsOut) => buildGenValuesOnce(gen, n, prng, locale, now, ctx, flagsOut),
+    flagTextOut,
+  );
+}
+
+function buildGenValuesOnce(
+  gen: GenSpec,
+  count: number,
+  prng: () => number,
+  locale: string,
+  now: number,
+  ctx: SequenceBuildContext,
+  anomalyFlagsOut?: boolean[],
+): string[] {
+  const values = buildGenValuesRaw(gen, count, prng, locale, now, ctx);
+  const anomaly = parseAnomaly(gen.attrs);
+  const spiked = anomaly ? applyAnomaly(values, anomaly, prng, anomalyFlagsOut) : values;
+  const missing = parseMissing(gen.attrs);
+  const withMissing = missing ? applyMissing(spiked, missing, prng) : spiked;
+  // Output formatting: `mask=`/`case=` post-process each value (mask then case).
+  const fmt = genFormatter(gen.attrs['mask'], gen.attrs['case']);
+  return fmt ? withMissing.map((v) => fmt(v)) : withMissing;
+}
+
+/**
+ * The ordered value list of a list-backed generator, for `order="sequential"`:
+ * `text` splits its `value`, `file` loads its lines (or a CSV column) as-is.
+ */
+export function sequentialList(gen: GenSpec, dataSources: DataSourceOptions): string[] {
+  if (gen.type === 'file') {
+    const resolved = resolveExistingDataSourcePath(gen.attrs['src'] ?? '', dataSources).path;
+    const column = gen.attrs['column'];
+    const options = { column, header: gen.attrs['header'], delimiter: gen.attrs['delimiter'] };
+    return column && column.trim().length > 0
+      ? loadCsvColumnFile(resolved, options)
+      : loadListFile(resolved);
+  }
+  return (gen.attrs['value'] ?? '').split(',').map((s) => s.trim());
+}
+
+/** Pick element `index mod N` (loop), or error past the end when `cycle=false`. */
+export function pickSequential(list: readonly string[], index: number, cycle: boolean): string {
+  if (list.length === 0) return '';
+  if (!cycle && index >= list.length) {
+    throw new Error(
+      `order="sequential" cycle="false": only ${String(list.length)} values for ${String(index + 1)} rows`,
+    );
+  }
+  return list[index % list.length] ?? '';
+}
+
+function buildGenValuesRaw(
+  gen: GenSpec,
+  count: number,
+  prng: () => number,
+  locale: string,
+  now: number,
+  ctx: SequenceBuildContext,
+): string[] {
+  // order="sequential": emit list/file values in order (looping), ignoring the
+  // random pick and any `percent`. Row i → element i mod N.
+  if ((gen.type === 'text' || gen.type === 'file') && gen.attrs['order'] === 'sequential') {
+    const list = sequentialList(gen, ctx.dataSources);
+    const cycle = gen.attrs['cycle'] !== 'false';
+    return Array.from({ length: count }, (_, i) => pickSequential(list, i, cycle));
+  }
+  switch (gen.type) {
+    case 'text': {
+      const valueAttr = gen.attrs['value'] ?? '';
+      const values = valueAttr.split(',').map((s) => s.trim());
+      const percentAttr = gen.attrs['percent'];
+      if (percentAttr) {
+        const percents = expandPercentMask(percentAttr, values.length);
+        return distributeByPercent({ count, values, percents, prng }).slice();
+      }
+      return textUniform(values)(count, prng).slice();
+    }
+    case 'file': {
+      return buildFileValues(gen, count, prng, ctx);
+    }
+    case 'template': {
+      const path = gen.attrs['value'] ?? '';
+      // A `${{Field}}`-interpolated address is resolved per row by the in-memory
+      // engine (materializeSimple). Reaching HERE means a lazy/exact path tried to
+      // resolve it statically — defer so the caller falls back to Engine 1.
+      if (isDynamicTemplateValue(path)) {
+        throw new StreamUnsupportedError(
+          `template value "${path}" interpolates a field; the in-memory engine resolves it per row`,
+        );
+      }
+      // Soft/hard locale resolution: a bare address is relative to the
+      // (gen or env) locale; a locale-prefixed address is absolute. Data-pack
+      // addresses take precedence over builtin template paths. A pack
+      // GENERATOR runs its stored <gen> spec; a pack DATA list is a uniform pick.
+      const packEntry = ctx.packs?.get(resolvePackAddress(path, gen.attrs['local'] ?? locale));
+      if (packEntry?.generator) {
+        // A share inside the pack is apportioned over the column. Row at a time,
+        // the quota would be computed over one row and every row would go to the
+        // largest share — wrong, and silently so. Engine selection routes such a
+        // config to the in-memory engine; this is the backstop for a forced one.
+        if (ctx.perRow && packEntry.needsWholeColumn === true) {
+          throw new StreamUnsupportedError(
+            `pack generator "${path}" declares a share (percent=) — its quota is ` +
+              'apportioned across the whole column, which the streaming engines cannot ' +
+              'do row by row. Use mode="memory" or omit the engine override.',
+          );
+        }
+        return runGenerator(packEntry.generator, count, prng, locale, now, {
+          regexMaxLength: ctx.regexMaxLength,
+          dataSources: ctx.dataSources,
+          packs: ctx.packs,
+          overrides: paramOverrides(gen.attrs),
+        }).slice();
+      }
+      if (packEntry?.values) {
+        // A WEIGHTED pack is drawn to an exact Hamilton quota — the same path
+        // `percent=` and `weight=` use — so `Smith` gets its Census share, not
+        // a uniform one. A plain pack stays a uniform pick.
+        return packEntry.percents
+          ? distributeByPercent({
+              count,
+              values: [...packEntry.values],
+              percents: [...packEntry.percents],
+              prng,
+            })
+          : textUniform(packEntry.values)(count, prng).slice();
+      }
+      const source = resolveTemplate(path);
+      if (!source) {
+        throw new Error(`sequence: unknown template path "${path}"`);
+      }
+      const out: string[] = [];
+      for (let i = 0; i < count; i++) {
+        out.push(source(prng, gen.attrs, locale, now));
+      }
+      return out;
+    }
+    case 'number': {
+      const distAttr = gen.attrs['distribution'];
+      if (distAttr !== undefined && distAttr.trim() !== '') {
+        // Distribution mode: each row draws a FIXED number of uniforms from the
+        // (sequential, in-memory) PRNG, so it stays deterministic; the streaming
+        // engine supplies the same shape of draws seekably.
+        const spec = parseDistribution(gen.attrs);
+        const out = new Array<string>(count);
+        for (let i = 0; i < count; i++) {
+          const uniforms = new Array<number>(spec.draws);
+          for (let d = 0; d < spec.draws; d++) uniforms[d] = openUnit(prng());
+          out[i] = formatSample(sampleDistribution(spec, uniforms), spec);
+        }
+        return out;
+      }
+      const lengthAttr = gen.attrs['length'];
+      const firstZeroAttr = gen.attrs['first_zero'];
+      const numGen = numberGenerator({
+        range: gen.attrs['value'],
+        length: lengthAttr,
+        percent: gen.attrs['percent'],
+        firstZero: firstZeroAttr === undefined ? undefined : firstZeroAttr !== 'false',
+        include: gen.attrs['include'],
+        exclude: gen.attrs['exclude'],
+        decimals: gen.attrs['decimals'],
+      });
+      return numGen(count, prng).slice();
+    }
+    case 'regex': {
+      const regexGen = regexGenerator({
+        pattern: gen.attrs['value'] ?? '',
+        regexMaxLength: gen.attrs['regex_max_length'] ?? ctx.regexMaxLength,
+      });
+      return regexGen(count, prng).slice();
+    }
+    case 'advanced_regex': {
+      const advancedRegexGen = advancedRegexGenerator({
+        pattern: gen.attrs['value'] ?? '',
+        regexMaxLength: gen.attrs['regex_max_length'] ?? ctx.regexMaxLength,
+      });
+      return advancedRegexGen(count, prng).slice();
+    }
+    case 'symbol': {
+      const symGen = symbolGenerator({
+        alphabet: gen.attrs['alphabet'],
+        value: gen.attrs['value'],
+        include: gen.attrs['include'],
+        exclude: gen.attrs['exclude'],
+        length: gen.attrs['length'],
+      });
+      return symGen(count, prng).slice();
+    }
+    case 'date': {
+      const dGen = dateGenerator(
+        {
+          value: gen.attrs['value'],
+          from: gen.attrs['from'],
+          to: gen.attrs['to'],
+          range: gen.attrs['range'],
+          format: gen.attrs['format'],
+          local: gen.attrs['local'],
+          oldest: gen.attrs['oldest'],
+          youngest: gen.attrs['youngest'],
+          precision: gen.attrs['precision'],
+        },
+        locale,
+        now,
+      );
+      return dGen(count, prng).slice();
+    }
+    case 'increment':
+    case 'decrement': {
+      const start = gen.attrs['value'] === undefined ? undefined : Number(gen.attrs['value']);
+      const step = gen.attrs['step'] === undefined ? undefined : Number(gen.attrs['step']);
+      const cGen =
+        gen.type === 'increment'
+          ? incrementGenerator({ start, step })
+          : decrementGenerator({ start, step });
+      return cGen(count, prng).slice();
+    }
+    case 'timeseries': {
+      // Index-dependent (like counters): value(i) uses the row index; noise is a
+      // per-row standard-normal draw (2 uniforms) when present.
+      const spec = parseTimeseries(gen.attrs);
+      const noisy = timeseriesHasNoise(spec);
+      const out = new Array<string>(count);
+      for (let i = 0; i < count; i++) {
+        const z = noisy ? standardNormal(openUnit(prng()), openUnit(prng())) : 0;
+        out[i] = formatTimeseries(timeseriesValueAt(spec, i, z), spec.decimals);
+      }
+      return out;
+    }
+    case 'pattern': {
+      // A drawn curve stretched over the cards: card i reads it at t = i/(count−1).
+      // Signal = deterministic; corridor = one uniform per card (random in band).
+      // Index-dependent (like counters) — streaming special-cases it too.
+      const pg = patternGenForGen(gen, ctx.dataSources);
+      const draws = patternGenDraws(pg);
+      const out = new Array<string>(count);
+      const denom = count > 1 ? count - 1 : 1;
+      for (let i = 0; i < count; i++) {
+        out[i] = patternGenValue(pg, i / denom, draws ? openUnit(prng()) : 0, 1 / denom);
+      }
+      return out;
+    }
+    case 'http': {
+      // A network-backed generator. It cannot run inside this synchronous
+      // builder, so the async render path sets `httpDeferred` and fills the
+      // column in a post-pass (resolveHttpSequences). Off that path it refuses,
+      // rather than hand back a column of silent placeholders.
+      if (ctx.httpDeferred !== true) {
+        throw new Error(
+          'gen type "http" makes a network call and cannot be rendered synchronously — ' +
+            'use the CLI, or the async render path (renderAsync / toStringAsync).',
+        );
+      }
+      return new Array<string>(count).fill('');
+    }
+    default:
+      throw new Error(`sequence: gen type "${gen.type}" not yet supported`);
+  }
+}
+
+/** Pattern gens are stable per render; cache so an `src` SVG file is read once. */
+const patternGenCache = new WeakMap<GenSpec, PatternGen>();
+
+/**
+ * Resolve a pattern gen (cached per render). `upper` (± `lower`) → corridor;
+ * otherwise `points`/`src` → a single-curve signal.
+ */
+export function patternGenForGen(gen: GenSpec, dataSources: DataSourceOptions): PatternGen {
+  const cached = patternGenCache.get(gen);
+  if (cached) return cached;
+  const pg = readPatternGen(gen, dataSources);
+  // `mode="density"` asks a different question of the SAME drawing (how often a
+  // value occurs, instead of which card gets it), so it is applied once here,
+  // after whichever reader produced the curve.
+  const out = parseMode(gen.attrs['mode']) === 'density' ? asDensity(pg) : pg;
+  patternGenCache.set(gen, out);
+  return out;
+}
+
+function readPatternGen(gen: GenSpec, dataSources: DataSourceOptions): PatternGen {
+  const upperRaw = gen.attrs['upper'];
+  let pg: PatternGen;
+  if (upperRaw !== undefined && upperRaw.trim() !== '') {
+    const lowerRaw = gen.attrs['lower'];
+    const lowerPts =
+      lowerRaw !== undefined && lowerRaw.trim() !== '' ? parsePoints(lowerRaw) : undefined;
+    pg = {
+      kind: 'corridor',
+      corridor: corridorFromAttrs(gen.attrs, parsePoints(upperRaw), lowerPts),
+      spread: spreadFromAttrs(gen.attrs),
+    };
+  } else {
+    const pointsRaw = gen.attrs['points'];
+    let points: readonly (readonly [number, number])[];
+    if (pointsRaw !== undefined && pointsRaw.trim() !== '') {
+      points = parsePoints(pointsRaw);
+    } else {
+      const src = gen.attrs['src'];
+      if (src === undefined || src.trim() === '') {
+        throw new Error(
+          'sequence: <gen type="pattern"> needs "points"/"src", or "upper"[/"lower"]',
+        );
+      }
+      const path = resolveExistingDataSourcePath(src, dataSources).path;
+      const bytes = readFileSync(path);
+      if (isPng(bytes)) return rasterPatternGen(decodePng(bytes), gen.attrs);
+      // A vector file is measured exactly like a picture: highest and lowest
+      // point at each position. One stroke → exact values; two strokes or a
+      // closed outline → a band, and a file may switch from one to the other.
+      const env = svgEnvelope(bytes.toString('utf8'));
+      return patternFromEnvelope(env.top, env.bottom, gen.attrs);
+    }
+    pg = {
+      kind: 'signal',
+      curve: signalCurveFromAttrs(gen.attrs, points),
+      spread: spreadFromAttrs(gen.attrs),
+    };
+  }
+  return pg;
+}
+
+/**
+ * `flagsOut`, when given, records for each row whether the case selected for it
+ * carries `anomaly="true"` — the ground-truth label behind `<mix flag="NAME">`.
+ * It reflects the SELECTION, so the label and the value can never disagree.
+ */
+function buildMixValues(
+  mixSpec: MixSpec,
+  count: number,
+  prng: () => number,
+  locale: string,
+  now: number,
+  ctx: SequenceBuildContext,
+  flagsOut?: boolean[],
+): string[] {
+  if (count === 0) return [];
+  const cases = mixSpec.cases;
+  if (cases.length === 0) {
+    if (flagsOut) for (let i = 0; i < count; i++) flagsOut[i] = false;
+    return new Array<string>(count).fill('');
+  }
+
+  const percentAttr = mixSpec.attrs['percent'];
+  const percents =
+    percentAttr === undefined
+      ? new Array<number>(cases.length).fill(100 / cases.length)
+      : expandPercentMask(percentAttr, cases.length);
+
+  const selectedCases = distributeByPercent({ count, values: cases, percents, prng });
+  const out: string[] = new Array<string>(count).fill('');
+  if (flagsOut) {
+    for (let i = 0; i < count; i++) flagsOut[i] = selectedCases[i]?.anomaly === true;
+  }
+
+  for (const currentCase of cases) {
+    const indexes: number[] = [];
+    for (let i = 0; i < selectedCases.length; i++) {
+      if (selectedCases[i] === currentCase) indexes.push(i);
+    }
+    if (indexes.length === 0) continue;
+
+    const caseValues = buildCaseValues(currentCase, indexes.length, prng, locale, now, ctx);
+    for (let i = 0; i < indexes.length; i++) {
+      const targetIndex = indexes[i];
+      if (targetIndex !== undefined) out[targetIndex] = caseValues[i] ?? '';
+    }
+  }
+
+  return out;
+}
+
+function buildCaseValues(
+  caseSpec: CaseSpec,
+  count: number,
+  prng: () => number,
+  locale: string,
+  now: number,
+  ctx: SequenceBuildContext,
+): string[] {
+  const out: string[] = new Array<string>(count).fill('');
+  for (const part of caseSpec.parts) {
+    let values: readonly string[];
+    if (part.kind === 'data') {
+      values = new Array<string>(count).fill(part.text);
+    } else if (part.kind === 'gen') {
+      values = buildGenValues(part.gen, count, prng, locale, now, ctx);
+    } else {
+      values = buildMixValues(part.mixSpec, count, prng, locale, now, ctx);
+    }
+
+    for (let i = 0; i < count; i++) {
+      out[i] = `${out[i] ?? ''}${values[i] ?? ''}`;
+    }
+  }
+  return out;
+}

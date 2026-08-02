@@ -1,0 +1,93 @@
+---
+description: Job title (French)
+locale: fr
+---
+Ingénieur logiciel
+Ingénieur logiciel senior
+Analyste de données
+Data scientist
+Ingénieur DevOps
+Chef de produit
+Designer UX
+Ingénieur qualité
+Administrateur système
+Développeur web
+Développeur back-end
+Développeur front-end
+Architecte logiciel
+Directeur technique
+Responsable marketing
+Chargé de communication
+Commercial
+Responsable des ventes
+Comptable
+Contrôleur de gestion
+Directeur financier
+Responsable des ressources humaines
+Juriste
+Avocat
+Médecin généraliste
+Infirmier
+Pharmacien
+Enseignant
+Professeur des universités
+Chercheur
+Architecte
+Ingénieur civil
+Électricien
+Plombier
+Menuisier
+Maçon
+Chef de projet
+Consultant
+Auditeur
+Analyste financier
+Chargé de clientèle
+Assistant administratif
+Secrétaire
+Réceptionniste
+Serveur
+Cuisinier
+Chef de cuisine
+Boulanger
+Pâtissier
+Coiffeur
+Esthéticienne
+Vendeur
+Caissier
+Magasinier
+Chauffeur routier
+Livreur
+Conducteur de train
+Pilote de ligne
+Agent de sécurité
+Sapeur-pompier
+Policier
+Gendarme
+Journaliste
+Rédacteur
+Traducteur
+Graphiste
+Photographe
+Architecte d'intérieur
+Technicien de maintenance
+Ingénieur mécanique
+Ingénieur aéronautique
+Biologiste
+Chimiste
+Vétérinaire
+Kinésithérapeute
+Dentiste
+Sage-femme
+Notaire
+Expert-comptable
+Directeur général
+Assistant de direction
+Community manager
+Ingénieur réseau
+Technicien informatique
+Responsable logistique
+Agent immobilier
+Électronicien
+Chargé de recrutement
+Chef de rayon

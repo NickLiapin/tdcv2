@@ -1,0 +1,13 @@
+---
+description: Dishes of Mexican cuisine (Polish)
+locale: pl
+---
+Tacos
+Burrito
+Enchiladas
+Quesadilla
+Guacamole
+Tamales
+Faszerowane papryczki chili
+Pozole
+Mole poblano

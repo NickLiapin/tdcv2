@@ -1,0 +1,11 @@
+---
+description: Clothing size (international letters)
+---
+XXS
+XS
+S
+M
+L
+XL
+XXL
+XXXL

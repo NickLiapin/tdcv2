@@ -1,0 +1,11 @@
+---
+description: Jobs in Technology (Spanish)
+locale: es
+---
+Ingeniero de software
+Científico de datos
+Ingeniero DevOps
+Gerente de producto
+Diseñador UX
+Ingeniero de calidad
+Administrador de sistemas

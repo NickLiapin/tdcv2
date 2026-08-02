@@ -1,0 +1,15 @@
+---
+description: Positions in association football (Polish)
+locale: pl
+---
+Bramkarz
+Środkowy obrońca
+Prawy obrońca
+Lewy obrońca
+Defensywny pomocnik
+Środkowy pomocnik
+Ofensywny pomocnik
+Prawy skrzydłowy
+Lewy skrzydłowy
+Napastnik
+Środkowy napastnik

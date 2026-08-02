@@ -1,0 +1,10 @@
+---
+description: Conditions markedly more frequent in people of Middle Eastern ancestry, in Italian. A prevalence signal, not an exclusive one.
+locale: it
+---
+Febbre mediterranea familiare
+Beta-talassemia
+Deficit di glucosio-6-fosfato deidrogenasi
+Malattia di Behçet
+Ipovitaminosi D
+Tratto falcemico

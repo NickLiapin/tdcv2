@@ -1,0 +1,21 @@
+---
+address: nicaragua.geo.departmentIso
+description: ISO 3166-2:NI subdivision code without the NI- prefix; same order as nicaragua.geo.department
+---
+MN
+LE
+CI
+ES
+MD
+NS
+MS
+GR
+CA
+RI
+BO
+CO
+MT
+JI
+AN
+AS
+SJ

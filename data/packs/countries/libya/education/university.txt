@@ -1,0 +1,15 @@
+---
+address: libya.education.university
+description: Universities of Libya (Arabic)
+locale: ar
+---
+جامعة طرابلس
+جامعة بنغازي
+جامعة مصراتة
+جامعة سبها
+جامعة عمر المختار
+جامعة الزاوية
+جامعة سرت
+الجامعة الأسمرية الإسلامية
+جامعة الجبل الغربي
+جامعة طبرق

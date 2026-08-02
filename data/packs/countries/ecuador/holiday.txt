@@ -1,0 +1,27 @@
+---
+address: ecuador.holiday
+description: Ecuadorian holiday — the national feriados set by the Ley Orgánica de Feriados, followed by widely observed civic and religious dates that are not statutory days of rest
+locale: es
+---
+Año Nuevo
+Carnaval
+Viernes Santo
+Día del Trabajo
+Batalla del Pichincha
+Primer Grito de Independencia
+Independencia de Guayaquil
+Día de los Difuntos
+Independencia de Cuenca
+Navidad
+Lunes de Carnaval
+Martes de Carnaval
+Jueves Santo
+Domingo de Resurrección
+Día de la Madre
+Día del Padre
+Día de la Interculturalidad y la Plurinacionalidad
+Fundación de Quito
+Fundación de Guayaquil
+Nochebuena
+Día de los Inocentes
+Fin de Año

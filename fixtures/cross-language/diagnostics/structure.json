@@ -1,0 +1,89 @@
+{
+  "schemaVersion": 1,
+  "cases": [
+    {
+      "name": "no-tdc-root",
+      "demonstrates": "TDC001",
+      "description": "A document with no <tdc> at all",
+      "config": "<!-- nothing here -->",
+      "expected": ["error TDC001 1:0"]
+    },
+    {
+      "name": "no-block",
+      "demonstrates": "TDC002",
+      "description": "A <tdc> with nothing to render",
+      "config": "<tdc><env count=\"3\"></env></tdc>",
+      "expected": ["error TDC002 1:0"]
+    },
+    {
+      "name": "both-version-attributes",
+      "demonstrates": "TDC003",
+      "description": "version= and v= together",
+      "config": "<tdc version=\"0.1\" v=\"0.1\"><block><line><data>x</data></line></block></tdc>",
+      "expected": ["error TDC003 1:0"]
+    },
+    {
+      "name": "malformed-version",
+      "demonstrates": "TDC004",
+      "description": "A version that is not a version",
+      "config": "<tdc version=\"0.1-beta\"><block><line><data>x</data></line></block></tdc>",
+      "expected": ["error TDC004 1:14"]
+    },
+    {
+      "name": "future-version",
+      "demonstrates": "TDC005",
+      "description": "A document newer than the runtime reading it",
+      "config": "<tdc version=\"0.2\"><block><line><data>x</data></line></block></tdc>",
+      "expected": ["error TDC005 1:14"]
+    },
+    {
+      "name": "bad-regex-max-length",
+      "demonstrates": "TDC096",
+      "description": "regex_max_length that is not a number",
+      "config": "<tdc regex_max_length=\"bad\"><block><line><data>x</data></line></block></tdc>",
+      "expected": ["error TDC096 1:23"]
+    },
+    {
+      "name": "inline-row-linked-file",
+      "demonstrates": "TDC131",
+      "description": "A row-linked file gen inline in a line — refused before it could reach the render path",
+      "config": "<tdc><env count=\"2\" seed=\"s\"><sequence name=\"A\"><gen type=\"text\" value=\"a\"/></sequence></env><block><line><gen type=\"file\" src=\"x.csv\" row=\"k\"/></line></block></tdc>",
+      "expected": ["error TDC131 1:106"]
+    },
+    {
+      "name": "inline-weighted-advanced-regex",
+      "demonstrates": "TDC131",
+      "description": "A weighted advanced_regex inline in a line — likewise refused first",
+      "config": "<tdc><env count=\"2\" seed=\"s\"><sequence name=\"A\"><gen type=\"text\" value=\"a\"/></sequence></env><block><line><gen type=\"advanced_regex\" value=\"(?%{70:A;30:B})\"/></line></block></tdc>",
+      "expected": ["error TDC131 1:106"]
+    },
+    {
+      "name": "inline-counter-bad-value",
+      "demonstrates": "TDC131",
+      "description": "An inline counter with a non-numeric start — refused for being inline at all",
+      "config": "<tdc><env count=\"2\" seed=\"s\"><sequence name=\"A\"><gen type=\"text\" value=\"a\"/></sequence></env><block><line><gen type=\"increment\" value=\"one\"/></line></block></tdc>",
+      "expected": ["error TDC131 1:106"]
+    },
+    {
+      "name": "unknown-tag-in-env",
+      "demonstrates": "TDC010",
+      "description": "A tag nobody has heard of — a typo, not a misplacement",
+      "config": "<tdc><env><fooinstead></fooinstead></env><block><line><data>x</data></line></block></tdc>",
+      "expected": ["error TDC010 1:10"]
+    },
+    {
+      "name": "known-construct-in-the-wrong-place",
+      "demonstrates": "TDC013",
+      "description": "A <case> outside the <mix> it belongs to — the fix is to move it, not to spell it",
+      "config": "<tdc><env count=\"2\" seed=\"s\"><case><data>a</data></case></env><block><line><data>x</data></line></block></tdc>",
+      "expected": ["error TDC013 1:29"]
+    },
+    {
+      "name": "element-nesting-past-the-ceiling",
+      "demonstrates": "PARSE",
+      "description": "80 nested elements — parsing recurses per level, so a runaway document is refused at 64, not parsed until the stack gives out",
+      "config": "<tdc version=\"0.01\"><env count=\"1\" seed=\"s\" local=\"en\"><sequence name=\"A\"><sequence name=\"A\"><sequence name=\"A\"><sequence name=\"A\"><sequence name=\"A\"><sequence name=\"A\"><sequence name=\"A\"><sequence name=\"A\"><sequence name=\"A\"><sequence name=\"A\"><sequence name=\"A\"><sequence name=\"A\"><sequence name=\"A\"><sequence name=\"A\"><sequence name=\"A\"><sequence name=\"A\"><sequence name=\"A\"><sequence name=\"A\"><sequence name=\"A\"><sequence name=\"A\"><sequence name=\"A\"><sequence name=\"A\"><sequence name=\"A\"><sequence name=\"A\"><sequence name=\"A\"><sequence name=\"A\"><sequence name=\"A\"><sequence name=\"A\"><sequence name=\"A\"><sequence name=\"A\"><sequence name=\"A\"><sequence name=\"A\"><sequence name=\"A\"><sequence name=\"A\"><sequence name=\"A\"><sequence name=\"A\"><sequence name=\"A\"><sequence name=\"A\"><sequence name=\"A\"><sequence name=\"A\"><sequence name=\"A\"><sequence name=\"A\"><sequence name=\"A\"><sequence name=\"A\"><sequence name=\"A\"><sequence name=\"A\"><sequence name=\"A\"><sequence name=\"A\"><sequence name=\"A\"><sequence name=\"A\"><sequence name=\"A\"><sequence name=\"A\"><sequence name=\"A\"><sequence name=\"A\"><sequence name=\"A\"><sequence name=\"A\"><sequence name=\"A\"><sequence name=\"A\"><sequence name=\"A\"><sequence name=\"A\"><sequence name=\"A\"><sequence name=\"A\"><sequence name=\"A\"><sequence name=\"A\"><sequence name=\"A\"><sequence name=\"A\"><sequence name=\"A\"><sequence name=\"A\"><sequence name=\"A\"><sequence name=\"A\"><sequence name=\"A\"><sequence name=\"A\"><sequence name=\"A\"><sequence name=\"A\"><sequence name=\"A\"><sequence name=\"A\"><sequence name=\"A\"><gen type=\"text\" value=\"x\"/></sequence></sequence></sequence></sequence></sequence></sequence></sequence></sequence></sequence></sequence></sequence></sequence></sequence></sequence></sequence></sequence></sequence></sequence></sequence></sequence></sequence></sequence></sequence></sequence></sequence></sequence></sequence></sequence></sequence></sequence></sequence></sequence></sequence></sequence></sequence></sequence></sequence></sequence></sequence></sequence></sequence></sequence></sequence></sequence></sequence></sequence></sequence></sequence></sequence></sequence></sequence></sequence></sequence></sequence></sequence></sequence></sequence></sequence></sequence></sequence></sequence></sequence></sequence></sequence></sequence></sequence></sequence></sequence></sequence></sequence></sequence></sequence></sequence></sequence></sequence></sequence></sequence></env><block><line><data>ok</data></line></block></tdc>",
+      "expected": ["error PARSE 1:1233"]
+    }
+  ]
+}

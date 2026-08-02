@@ -1,0 +1,8 @@
+---
+description: Positions in Cricket
+---
+Боулер
+Бэтсмен
+Уикет-кипер
+Филдер
+Олраундер

@@ -1,0 +1,24 @@
+---
+description: Tree
+locale: en
+---
+Oak
+Maple
+Pine
+Birch
+Cedar
+Willow
+Redwood
+Spruce
+Elm
+Ash
+Beech
+Cherry
+Walnut
+Poplar
+Cypress
+Fir
+Sycamore
+Aspen
+Magnolia
+Dogwood

@@ -1,0 +1,7 @@
+---
+address: portugal.phone
+description: Portugal mobile phone in E.164 form (+351, mobile prefixes 91/92/93/96)
+generator: tdc
+locale: pt
+---
+<gen type="regex" value="\+3519[1236][0-9]{7}"/>

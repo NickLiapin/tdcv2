@@ -1,0 +1,13 @@
+---
+address: senegal.education.university
+description: Universities of Senegal
+locale: fr
+---
+Université Cheikh Anta Diop
+Université Gaston Berger
+Université Assane Seck de Ziguinchor
+Université de Thiès
+Université Alioune Diop de Bambey
+Université virtuelle du Sénégal
+Université du Sine Saloum El-Hâdj Ibrahima Niass
+Université Amadou Mahtar Mbow

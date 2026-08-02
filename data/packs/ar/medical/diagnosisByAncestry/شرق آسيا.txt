@@ -1,0 +1,14 @@
+---
+description: Conditions in Arabic markedly more frequent in people of East Asian ancestry. A prevalence signal, not an exclusive one.
+locale: ar
+---
+الثلاسيميا ألفا
+نقص إنزيم ألدهيد ديهيدروجيناز 2
+عدم استمرار إنتاج إنزيم اللاكتاز
+سرطان البلعوم الأنفي
+سرطان المعدة
+الزرق الأولي مغلق الزاوية
+داء كاواساكي
+داء مويامويا
+فرط الحساسية للكاربامازيبين
+قصر النظر المرضي

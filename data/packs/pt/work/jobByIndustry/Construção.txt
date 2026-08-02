@@ -1,0 +1,13 @@
+---
+description: Jobs in Construction (Portuguese)
+locale: pt
+---
+Eletricista
+Encanador
+Carpinteiro
+Mestre de obras
+Operador de máquinas pesadas
+Topógrafo
+Pedreiro
+Pintor
+Operário da construção civil

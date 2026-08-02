@@ -1,0 +1,23 @@
+---
+address: honduras.geo.departmentCapital
+description: Cabecera departamental (capital) of the departamento; same order as honduras.geo.department
+locale: es
+---
+La Ceiba
+Trujillo
+Comayagua
+Santa Rosa de Copán
+San Pedro Sula
+Choluteca
+Yuscarán
+Tegucigalpa
+Puerto Lempira
+La Esperanza
+Roatán
+La Paz
+Gracias
+Nueva Ocotepeque
+Juticalpa
+Santa Bárbara
+Nacaome
+Yoro

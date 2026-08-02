@@ -1,0 +1,84 @@
+---
+address: france.geo.city
+description: French cities and larger towns, roughly by population
+locale: fr
+---
+Paris
+Marseille
+Lyon
+Toulouse
+Nice
+Nantes
+Montpellier
+Strasbourg
+Bordeaux
+Lille
+Rennes
+Reims
+Le Havre
+Saint-Étienne
+Toulon
+Grenoble
+Dijon
+Angers
+Nîmes
+Villeurbanne
+Clermont-Ferrand
+Le Mans
+Aix-en-Provence
+Brest
+Tours
+Amiens
+Limoges
+Annecy
+Perpignan
+Boulogne-Billancourt
+Metz
+Besançon
+Orléans
+Rouen
+Mulhouse
+Caen
+Nancy
+Argenteuil
+Montreuil
+Roubaix
+Tourcoing
+Nanterre
+Avignon
+Vitry-sur-Seine
+Créteil
+Dunkerque
+Poitiers
+Asnières-sur-Seine
+Versailles
+Colombes
+Aulnay-sous-Bois
+Saint-Denis
+Courbevoie
+Cherbourg
+La Rochelle
+Pau
+Calais
+Antibes
+Béziers
+Bourges
+La Seyne-sur-Mer
+Colmar
+Valence
+Quimper
+Troyes
+Neuilly-sur-Seine
+Chambéry
+Niort
+Lorient
+Sarcelles
+Villejuif
+Saint-Nazaire
+Hyères
+Beauvais
+Cannes
+Arras
+Mérignac
+Ajaccio
+Bastia

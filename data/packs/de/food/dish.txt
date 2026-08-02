@@ -1,0 +1,44 @@
+---
+description: Dish (German)
+locale: de
+---
+Pizza
+Sushi
+Tacos
+Cheeseburger
+Spaghetti Carbonara
+Ramen
+Hähnchencurry
+Rindersteak vom Grill
+Caesar Salat
+Club Sandwich
+Lasagne
+Pilzrisotto
+Paella
+Empanadas
+Pad Thai
+Fisch mit Pommes frites
+Rindergulasch
+Burrito
+Gnocchi
+Gebratener Reis
+Ceviche
+Wiener Schnitzel
+Enchiladas
+Hühnersuppe
+Reis mit Hähnchen
+Spanische Tortilla
+Chicken Tikka Masala
+Gazpacho
+Rinderrouladen
+Linseneintopf
+Kroketten
+Cannelloni
+Frikadellen
+Griechischer Salat
+Quesadilla
+Tomatensuppe
+Hackbraten
+Brathähnchen
+Fischsuppe
+Gefüllte Auberginen

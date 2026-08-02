@@ -1,0 +1,39 @@
+---
+description: Playing position, mixed sports (Spanish)
+locale: es
+---
+Portero
+Defensa central
+Lateral
+Mediocentro
+Centrocampista
+Extremo
+Delantero centro
+Mediapunta
+Base
+Escolta
+Alero
+Ala-pívot
+Pívot
+Lanzador
+Receptor
+Campocorto
+Primera base
+Jardinero central
+Bateador designado
+Colocador
+Líbero
+Central
+Opuesto
+Pilar
+Talonador
+Medio melé
+Apertura
+Zaguero
+Mariscal de campo
+Corredor
+Receptor abierto
+Apoyador
+Esquinero
+Ala izquierda
+Ala derecha

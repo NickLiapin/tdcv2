@@ -1,0 +1,10 @@
+---
+description: Conditions markedly more frequent in people of Indigenous American ancestry. A prevalence signal, not an exclusive one.
+locale: en
+---
+Type 2 Diabetes Mellitus
+Gallstone Disease
+Diabetic Nephropathy
+Rheumatoid Arthritis
+Non-Alcoholic Fatty Liver Disease
+Metabolic Syndrome

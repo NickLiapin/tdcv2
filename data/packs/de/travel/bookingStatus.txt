@@ -1,0 +1,15 @@
+---
+description: Booking status (German, agrees with "Buchung")
+locale: de
+---
+Bestätigt
+Ausstehend
+Storniert
+Auf Warteliste
+Eingecheckt
+Ausgecheckt
+Nicht erschienen
+Geändert
+Erstattet
+Abgelaufen
+Garantiert

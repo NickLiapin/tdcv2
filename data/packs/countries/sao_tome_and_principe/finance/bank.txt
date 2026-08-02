@@ -1,0 +1,12 @@
+---
+address: sao_tome_and_principe.finance.bank
+description: Banks operating in São Tomé and Príncipe (Portuguese names)
+locale: pt
+---
+Banco Internacional de São Tomé e Príncipe
+Banco Central de São Tomé e Príncipe
+Afriland First Bank STP
+Banco de São Tomé e Príncipe
+Ecobank São Tomé e Príncipe
+Energy Bank São Tomé e Príncipe
+Banco Privado de São Tomé e Príncipe

@@ -1,0 +1,9 @@
+---
+description: Hotel star rating (German)
+locale: de
+---
+1 Stern
+2 Sterne
+3 Sterne
+4 Sterne
+5 Sterne

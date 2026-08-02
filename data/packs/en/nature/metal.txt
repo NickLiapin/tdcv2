@@ -1,0 +1,22 @@
+---
+description: Metal
+locale: en
+---
+Gold
+Silver
+Platinum
+Copper
+Iron
+Aluminum
+Titanium
+Zinc
+Nickel
+Lead
+Tin
+Bronze
+Brass
+Steel
+Palladium
+Cobalt
+Chromium
+Tungsten

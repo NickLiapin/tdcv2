@@ -1,0 +1,6 @@
+---
+address: common.internet.slug
+description: URL slug — 2 to 4 lowercase words joined by hyphens
+generator: tdc
+---
+<gen type="regex" value="(?:alpha|atlas|demo|fixture|sample|sandbox|synthetic|test)(?:-(?:alpha|atlas|demo|fixture|sample|sandbox|synthetic|test)){1,3}" regex_max_length="48"/>

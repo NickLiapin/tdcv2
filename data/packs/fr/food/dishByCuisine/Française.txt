@@ -1,0 +1,16 @@
+---
+description: Dishes of French cuisine (French)
+locale: fr
+---
+Coq au vin
+Bœuf bourguignon
+Ratatouille
+Croissant
+Quiche lorraine
+Bouillabaisse
+Crêpes
+Cassoulet
+Soupe à l'oignon
+Blanquette de veau
+Confit de canard
+Gratin dauphinois

@@ -1,0 +1,12 @@
+---
+description: Conditions markedly more frequent in people of South Asian ancestry, given in German. A prevalence signal, not an exclusive one.
+locale: de
+---
+Früh einsetzender Diabetes mellitus Typ 2
+Vorzeitige koronare Herzkrankheit
+Abdominelle Adipositas bei normalem Body-Mass-Index
+Vitamin-D-Mangel
+Beta-Thalassaemia minor
+Metabolisches Syndrom
+Glukose-6-Phosphat-Dehydrogenase-Mangel
+Rheumatische Herzkrankheit

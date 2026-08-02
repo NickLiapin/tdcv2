@@ -1,0 +1,13 @@
+---
+address: ivory_coast.education.university
+description: Universities of Côte d'Ivoire
+locale: fr
+---
+Université Félix Houphouët-Boigny
+Université Nangui Abrogoua
+Université Alassane Ouattara
+Université Jean Lorougnon Guédé
+Université Péléforo Gon Coulibaly
+Institut National Polytechnique Félix Houphouët-Boigny
+Université Virtuelle de Côte d'Ivoire
+Université de San Pédro

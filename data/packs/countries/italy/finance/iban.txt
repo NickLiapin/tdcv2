@@ -1,0 +1,46 @@
+---
+address: italy.finance.iban
+description: Italian IBAN — 27 chars: IT + 2 ISO 7064 check digits + the national CIN check letter + 5-digit ABI bank code + 5-digit CAB branch code + 12-char account number. Both the CIN and the ISO 7064 check digits are computed.
+generator: tdc
+locale: it
+---
+<sequence name="abi"><gen type="regex" value="[0-9]{5}"/></sequence>
+<sequence name="cab"><gen type="regex" value="[0-9]{5}"/></sequence>
+<sequence name="account"><gen type="regex" value="[0-9]{12}"/></sequence>
+<sequence name="iban"><compute>
+  <!-- National CIN check letter: the same odd/even tables as the codice fiscale,
+       folded over ABI + CAB + account, then mapped to a letter. -->
+  <let name="body"><concat><field name="abi"/><field name="cab"/><field name="account"/></concat></let>
+  <let name="cinSum"><reduce>
+    <over><var name="body"/></over>
+    <init><int v="0"/></init>
+    <do><add><acc/>
+      <choose>
+        <when>
+          <test><equals><mod><current_index/><int v="2"/></mod><int v="0"/></equals></test>
+          <then><at><in><list v="1,0,5,7,9,13,15,17,19,21,1,0,5,7,9,13,15,17,19,21,2,4,18,20,11,3,6,8,12,14,16,10,22,25,24,23"/></in><index><to_number><encode as="base36"><current/></encode></to_number></index></at></then>
+        </when>
+        <otherwise><at><in><list v="0,1,2,3,4,5,6,7,8,9,0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25"/></in><index><to_number><encode as="base36"><current/></encode></to_number></index></at></otherwise>
+      </choose>
+    </add></do>
+  </reduce></let>
+  <!-- The remainder maps to the CIN letter through a list of <str> children. -->
+  <let name="cin"><at>
+    <in><list><str v="A"/><str v="B"/><str v="C"/><str v="D"/><str v="E"/><str v="F"/><str v="G"/><str v="H"/><str v="I"/><str v="J"/><str v="K"/><str v="L"/><str v="M"/><str v="N"/><str v="O"/><str v="P"/><str v="Q"/><str v="R"/><str v="S"/><str v="T"/><str v="U"/><str v="V"/><str v="W"/><str v="X"/><str v="Y"/><str v="Z"/></list></in>
+    <index><mod><var name="cinSum"/><int v="26"/></mod></index>
+  </at></let>
+  <let name="bban"><concat><var name="cin"/><var name="body"/></concat></let>
+  <let name="rearranged"><concat><var name="bban"/><str v="IT"/><str v="00"/></concat></let>
+  <let name="digits"><join><each>
+    <over><var name="rearranged"/></over>
+    <do><encode as="base36"><current/></encode></do>
+  </each></join></let>
+  <let name="rem"><reduce>
+    <over><var name="digits"/></over>
+    <init><int v="0"/></init>
+    <do><mod><add><multiply><acc/><int v="10"/></multiply><current/></add><int v="97"/></mod></do>
+  </reduce></let>
+  <let name="check"><pad width="2" fill="0"><subtract><int v="98"/><var name="rem"/></subtract></pad></let>
+  <result><concat><str v="IT"/><var name="check"/><var name="bban"/></concat></result>
+</compute></sequence>
+<data>${{iban}}</data>

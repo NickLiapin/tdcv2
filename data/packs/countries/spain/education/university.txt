@@ -1,0 +1,81 @@
+---
+address: spain.education.university
+description: Spanish university — real institutions listed in the Registro de Universidades, Centros y Títulos (public first, then private), in their official name form
+---
+Universidad Complutense de Madrid
+Universidad Autónoma de Madrid
+Universidad Politécnica de Madrid
+Universidad Carlos III de Madrid
+Universidad Rey Juan Carlos
+Universidad de Alcalá
+Universidad Nacional de Educación a Distancia
+Universitat de Barcelona
+Universitat Autònoma de Barcelona
+Universitat Politècnica de Catalunya
+Universitat Pompeu Fabra
+Universitat de Girona
+Universitat de Lleida
+Universitat Rovira i Virgili
+Universitat Oberta de Catalunya
+Universitat de València
+Universitat Politècnica de València
+Universitat Jaume I
+Universitat d'Alacant
+Universidad Miguel Hernández de Elche
+Universidad de Sevilla
+Universidad de Granada
+Universidad de Málaga
+Universidad de Córdoba
+Universidad de Cádiz
+Universidad de Huelva
+Universidad de Jaén
+Universidad de Almería
+Universidad Pablo de Olavide
+Universidad Internacional de Andalucía
+Universidad de Zaragoza
+Universidad de Oviedo
+Universidad de Cantabria
+Universidad de La Rioja
+Universidad de Salamanca
+Universidad de Valladolid
+Universidad de León
+Universidad de Burgos
+Universidad de Castilla-La Mancha
+Universidad de Extremadura
+Universidade de Santiago de Compostela
+Universidade da Coruña
+Universidade de Vigo
+Universidad del País Vasco
+Universidad Pública de Navarra
+Universidad de Murcia
+Universidad Politécnica de Cartagena
+Universitat de les Illes Balears
+Universidad de La Laguna
+Universidad de Las Palmas de Gran Canaria
+Universidad Internacional Menéndez Pelayo
+Universidad de Navarra
+Universidad Pontificia Comillas
+Universidad Pontificia de Salamanca
+Universidad de Deusto
+Mondragon Unibertsitatea
+Universidad CEU San Pablo
+Universidad CEU Cardenal Herrera
+Universitat Abat Oliba CEU
+Universitat Ramon Llull
+Universitat Internacional de Catalunya
+Universitat de Vic - Universitat Central de Catalunya
+Universidad Europea de Madrid
+Universidad Europea de Valencia
+Universidad Europea del Atlántico
+Universidad Alfonso X el Sabio
+Universidad Antonio de Nebrija
+Universidad Camilo José Cela
+Universidad Francisco de Vitoria
+Universidad Internacional de La Rioja
+Universidad a Distancia de Madrid
+Universidad Isabel I
+Universidad Católica de Valencia San Vicente Mártir
+Universidad Católica San Antonio de Murcia
+Universidad Loyola Andalucía
+Universidad San Jorge
+IE University

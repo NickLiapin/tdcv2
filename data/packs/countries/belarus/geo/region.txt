@@ -1,0 +1,12 @@
+---
+address: belarus.geo.region
+description: Regions of Belarus — six oblasts plus the capital city (the "state" equivalent)
+locale: ru
+---
+Брестская область
+Витебская область
+Гомельская область
+Гродненская область
+Минская область
+Могилёвская область
+город Минск

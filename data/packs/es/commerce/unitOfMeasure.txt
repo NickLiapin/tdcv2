@@ -1,0 +1,34 @@
+---
+description: Unit of measure for products (Spanish)
+locale: es
+---
+unidad
+caja
+paquete
+pack
+docena
+par
+juego
+rollo
+bulto
+fardo
+kilogramo
+gramo
+tonelada
+litro
+mililitro
+metro
+centímetro
+metro cuadrado
+metro cúbico
+bolsa
+bandeja
+lata
+botella
+frasco
+tubo
+saco
+palé
+sobre
+kit
+lote

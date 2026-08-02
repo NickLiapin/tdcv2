@@ -1,0 +1,7 @@
+---
+address: dr_congo.docs.idCard
+description: DR Congo national ID number — 12 digits. Structural; no public check digit.
+generator: tdc
+locale: fr
+---
+<gen type="regex" value="[0-9]{12}"/>

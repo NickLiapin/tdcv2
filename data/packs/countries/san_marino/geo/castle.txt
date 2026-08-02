@@ -1,0 +1,14 @@
+---
+address: san_marino.geo.castle
+description: The nine municipalities (castelli) of San Marino
+locale: it
+---
+Città di San Marino
+Serravalle
+Borgo Maggiore
+Domagnano
+Fiorentino
+Acquaviva
+Faetano
+Montegiardino
+Chiesanuova

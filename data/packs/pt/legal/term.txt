@@ -1,0 +1,23 @@
+---
+description: Legal term (Portuguese)
+locale: pt
+---
+Autor
+Réu
+Citação judicial
+Declaração sob juramento
+Depoimento
+Testemunho
+Medida cautelar
+Sentença
+Acordo conciliatório
+Litígio
+Audiência inicial
+Jurisdição
+Recurso de apelação
+Procurador
+Advogado de defesa
+Prova
+Mandado de segurança
+Notificação
+Procuração

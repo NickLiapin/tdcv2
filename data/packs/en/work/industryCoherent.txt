@@ -1,0 +1,14 @@
+---
+description: Industry (has a coherent job list)
+locale: en
+---
+Technology
+Healthcare
+Finance
+Construction
+Education
+Hospitality
+Manufacturing
+Retail
+Transportation
+Legal

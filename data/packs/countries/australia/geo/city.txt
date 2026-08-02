@@ -1,0 +1,91 @@
+---
+address: australia.geo.city
+description: Australian city or major urban centre (capitals plus significant regional cities)
+locale: en
+---
+Sydney
+Melbourne
+Brisbane
+Perth
+Adelaide
+Gold Coast
+Canberra
+Newcastle
+Wollongong
+Sunshine Coast
+Hobart
+Geelong
+Townsville
+Cairns
+Darwin
+Toowoomba
+Ballarat
+Bendigo
+Launceston
+Mackay
+Rockhampton
+Bundaberg
+Bunbury
+Wagga Wagga
+Hervey Bay
+Mildura
+Shepparton
+Port Macquarie
+Gladstone
+Tamworth
+Traralgon
+Orange
+Dubbo
+Geraldton
+Bathurst
+Nowra
+Warrnambool
+Albany
+Kalgoorlie
+Devonport
+Mount Gambier
+Lismore
+Alice Springs
+Coffs Harbour
+Wodonga
+Albury
+Maitland
+Rockingham
+Mandurah
+Bowral
+Busselton
+Armidale
+Goulburn
+Gympie
+Whyalla
+Port Augusta
+Port Lincoln
+Broken Hill
+Griffith
+Kempsey
+Taree
+Grafton
+Ballina
+Yeppoon
+Emerald
+Charters Towers
+Katherine
+Palmerston
+Broome
+Karratha
+Port Hedland
+Burnie
+Ulverstone
+Queanbeyan
+Nelson Bay
+Batemans Bay
+Warwick
+Roma
+Cessnock
+Horsham
+Sale
+Bairnsdale
+Colac
+Portland
+Swan Hill
+Echuca

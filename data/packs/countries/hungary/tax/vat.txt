@@ -1,0 +1,22 @@
+---
+address: hungary.tax.vat
+description: Hungarian VAT / ANUM (HU + 7-digit base + weighted mod-10 check)
+generator: tdc
+---
+<sequence name="base"><gen type="regex" value="[0-9]{7}"/></sequence>
+<sequence name="vat"><compute>
+  <let name="sum">
+    <reduce>
+      <over><field name="base"/></over>
+      <init><int v="0"/></init>
+      <do><add><acc/>
+        <multiply><current/>
+          <at><in><list v="9,7,3,1,9,7,3"/></in><index><current_index/></index></at>
+        </multiply>
+      </add></do>
+    </reduce>
+  </let>
+  <let name="check"><mod><subtract><int v="10"/><mod><var name="sum"/><int v="10"/></mod></subtract><int v="10"/></mod></let>
+  <result><concat><str v="HU"/><field name="base"/><var name="check"/></concat></result>
+</compute></sequence>
+<data>${{vat}}</data>

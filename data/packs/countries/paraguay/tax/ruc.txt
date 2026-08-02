@@ -1,0 +1,32 @@
+---
+address: paraguay.tax.ruc
+description: Paraguay RUC (person 7-digit or org 8-digit body + cycling-weight mod-11 check)
+generator: tdc
+---
+<sequence name="body"><gen type="regex" value="([1-9][0-9]{6}|[89][0-9]{7})"/></sequence>
+<sequence name="ruc"><compute>
+  <let name="len"><length><field name="body"/></length></let>
+  <let name="sum">
+    <reduce>
+      <over><field name="body"/></over>
+      <init><int v="0"/></init>
+      <do><add><acc/>
+        <multiply><current/>
+          <add><int v="2"/>
+            <mod><subtract><subtract><var name="len"/><int v="1"/></subtract><current_index/></subtract><int v="10"/></mod>
+          </add>
+        </multiply>
+      </add></do>
+    </reduce>
+  </let>
+  <let name="rem"><mod><var name="sum"/><int v="11"/></mod></let>
+  <let name="check">
+    <choose>
+      <when><test><greater_than><var name="rem"/><int v="1"/></greater_than></test>
+        <then><subtract><int v="11"/><var name="rem"/></subtract></then></when>
+      <otherwise><int v="0"/></otherwise>
+    </choose>
+  </let>
+  <result><concat><field name="body"/><var name="check"/></concat></result>
+</compute></sequence>
+<data>${{ruc}}</data>

@@ -1,0 +1,22 @@
+---
+description: Academic degree / qualification level (German-speaking system)
+locale: de
+---
+Grundschulabschluss
+Hauptschulabschluss
+Mittlere Reife
+Fachhochschulreife
+Abitur
+Berufsausbildung
+Staatlich geprüfter Techniker
+Meisterbrief
+Bachelor of Arts
+Bachelor of Science
+Bachelor of Engineering
+Master of Arts
+Master of Science
+Master of Business Administration
+Diplom
+Magister
+Staatsexamen
+Promotion

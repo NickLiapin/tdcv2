@@ -1,0 +1,12 @@
+---
+description: Dishes of Vietnamese cuisine (Greek)
+locale: el
+---
+Φο
+Μπαν μι
+Βιετναμέζικα ρολά
+Μπουν τσα
+Κομ τάμ
+Βιετναμέζικος καφές
+Γκόι κουόν
+Μπο κχο

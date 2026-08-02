@@ -1,0 +1,16 @@
+---
+description: Book format (French)
+locale: fr
+---
+Broché
+Relié
+Poche
+Grand format
+Livre audio
+Ebook
+Livre numérique
+Beau livre
+Édition collector
+PDF
+EPUB
+Livre-CD

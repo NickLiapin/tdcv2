@@ -1,0 +1,77 @@
+---
+address: el_salvador.geo.streetNamed
+description: Common Salvadoran street name, bare (without the Calle / Avenida / Boulevard prefix) — próceres, civic dates and well-known San Salvador thoroughfares
+---
+José Matías Delgado
+Manuel José Arce
+Gerardo Barrios
+Francisco Morazán
+Francisco Gavidia
+Rubén Darío
+Roosevelt
+Juan Pablo II
+Monseñor Romero
+Óscar Arnulfo Romero
+Manuel Enrique Araujo
+Alberto Masferrer
+Independencia
+España
+Cuscatlán
+Los Próceres
+Constitución
+Los Héroes
+Venezuela
+Universitaria
+Olímpica
+La Revolución
+La Reforma
+San Antonio Abad
+San Jacinto
+San José
+San Miguelito
+Santa Elena
+Modelo
+Miralvalle
+General Escalón
+David J. Guzmán
+Napoleón Viera Altamirano
+Juan Manuel Rodríguez
+Nicolás Aguilar
+Domingo Antonio de Lara
+Antonio José Cañas
+Pedro Pablo Castillo
+Fernando de la Vega
+Manuel Gallardo
+5 de Noviembre
+15 de Septiembre
+El Progreso
+El Trébol
+Los Andes
+Los Pinos
+Las Palmeras
+Las Magnolias
+Los Almendros
+El Carmen
+Concepción
+Guadalupe
+El Rosario
+La Esperanza
+La Libertad
+La Paz
+Zacamil
+Buenos Aires
+La Rábida
+La Sultana
+El Roble
+Las Mercedes
+Santa Lucía
+San Benito
+La Mascota
+Sisimiles
+Bernal
+Toluca
+Atlacatl
+Nahuat
+Cuscatancingo
+Ilopango
+Izalco

@@ -1,0 +1,26 @@
+---
+description: Mined mineral or ore (French)
+locale: fr
+---
+Charbon
+Cuivre
+Or
+Argent
+Minerai de fer
+Bauxite
+Zinc
+Plomb
+Nickel
+Étain
+Uranium
+Lithium
+Cobalt
+Manganèse
+Potasse
+Sel
+Phosphate
+Gypse
+Kaolin
+Tungstène
+Bismuth
+Diamant

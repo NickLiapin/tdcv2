@@ -1,0 +1,7 @@
+---
+address: france.docs.cni
+description: French national identity card (carte nationale d'identité) number — 12 digits. Structural only; no public check digit.
+generator: tdc
+locale: fr
+---
+<gen type="regex" value="[0-9]{12}"/>

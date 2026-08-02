@@ -1,0 +1,35 @@
+---
+description: Spice / herb (German)
+locale: de
+---
+Zimt
+Kreuzkümmel
+Paprikapulver
+Kurkuma
+Ingwer
+Muskatnuss
+Oregano
+Basilikum
+Thymian
+Rosmarin
+Kardamom
+Koriander
+Chilipulver
+Gewürznelke
+Safran
+Lorbeerblatt
+Dill
+Salbei
+Petersilie
+Minze
+Anis
+Weißer Pfeffer
+Cayennepfeffer
+Senfkörner
+Estragon
+Fenchel
+Pfefferminze
+Vanille
+Sesam
+Wacholderbeere
+Majoran

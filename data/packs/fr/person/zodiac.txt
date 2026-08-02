@@ -1,0 +1,16 @@
+---
+description: Zodiac sign (French)
+locale: fr
+---
+Bélier
+Taureau
+Gémeaux
+Cancer
+Lion
+Vierge
+Balance
+Scorpion
+Sagittaire
+Capricorne
+Verseau
+Poissons

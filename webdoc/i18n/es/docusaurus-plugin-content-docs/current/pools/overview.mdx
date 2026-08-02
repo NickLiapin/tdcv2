@@ -1,0 +1,253 @@
+---
+title: Resumen
+sidebar_position: 1
+---
+
+import Figure from '@site/src/components/Figure';
+import Legend from '@site/src/components/Legend';
+
+import Terminal from '@site/src/components/Terminal';
+
+# Pools — una fila que se refiere a un registro entero
+
+Un [generador](../generators/overview.mdx) produce un valor. Una
+[secuencia](../core-concepts/sequences.mdx) es una columna de esos valores. Eso cubre casi
+todo lo que una configuración necesita — y luego choca con un muro.
+
+Dos mil pacientes son atendidos por treinta médicos. Cada fila de paciente necesita el
+nombre, el apellido y el consultorio del médico. Tres secuencias en paralelo dan tres
+sorteos independientes, así que una fila acaba con el nombre de un médico junto al
+consultorio de otro. Los datos parecen plausibles y son un disparate:
+`Dr. John Williams, room 118`, donde ese médico no existe.
+
+La idea que falta es que **un médico no es un valor, es un registro** — y treinta de ellos
+existen antes de que exista el primer paciente. `<pool>` es esa tabla.
+
+```xml
+<tdc>
+  <env count="8" seed="clinic" local="en">
+    <pool name="Doctors" count="4">
+      <sequence name="firstName"><gen type="template" value="person.male.firstName"/></sequence>
+      <sequence name="lastName"><gen type="template" value="person.lastName"/></sequence>
+      <sequence name="room"><gen type="number" value="100..199"/></sequence>
+    </pool>
+
+    <sequence name="Patient"><gen type="template" value="person.female.firstName"/></sequence>
+    <sequence name="Seen"><gen type="pool" value="Doctors"/></sequence>
+  </env>
+  <block>
+    <line><data>${{Patient}} -> Dr. ${{Seen.firstName}} ${{Seen.lastName}}, room ${{Seen.room}}</data></line>
+  </block>
+</tdc>
+```
+
+<Terminal title="./run clinic.tdc">
+{`Barbara -> Dr. John Brown, room 167
+Mary -> Dr. James Smith, room 197
+Margaret -> Dr. Michael Johnson, room 123
+Jennifer -> Dr. Robert Williams, room 118
+Elizabeth -> Dr. James Smith, room 197
+Patricia -> Dr. James Smith, room 197
+Susan -> Dr. Robert Williams, room 118
+Linda -> Dr. John Brown, room 167`}
+</Terminal>
+
+:::note[La salida es ilustrativa]
+Los valores vienen de un `seed` fijo, así que son reproducibles, pero las cadenas exactas
+pueden cambiar entre versiones del núcleo. Tómalos como ejemplo de *forma*, no como
+garantía.
+:::
+
+Cuatro médicos atienden a ocho pacientes, y los tres campos de cada médico se mantienen
+juntos. James Smith está en el consultorio 197 en todas las filas donde aparece, porque la
+fila eligió a **Smith** — no «un nombre, un apellido y un consultorio».
+
+<Figure
+  src="/img/constructs/pool-member.svg"
+  alt=""
+  caption="Cuatro miembros, ocho filas. Cada fila toma una línea entera de la tabla."
+/>
+
+<Legend items={[["A", "el pool: cuatro miembros, construidos una vez antes de la ejecución"], ["B", "las filas generadas"], ["C", "una elección por fila — las dos celdas de una fila vienen siempre del mismo miembro"]]} />
+
+## Pasan dos cosas, en este orden
+
+1. **Se construye el pool.** Antes de que exista ninguna fila, TDC materializa `count`
+   miembros. Esto ocurre una vez, tanto si la ejecución tiene 8 filas como 8 mil millones.
+2. **Cada fila toma un miembro.** Un `<gen type="pool">` le da a su secuencia un miembro
+   entero por fila, y publica todos sus campos bajo `Ref.campo`.
+
+Todo lo demás en esta página se sigue de esas dos frases.
+
+## De un vistazo
+
+`<pool>` vive **directamente en [`<env>`](../core-concepts/configuration.mdx)**, junto a
+`<sequence>`. Nunca se lee directamente: una secuencia sortea de él.
+
+| En `<pool>` | Obligatorio | Qué hace                                       |
+| :---------- | :---------- | :---------------------------------------------- |
+| `name`      | sí          | El nombre que un `<gen type="pool">` indica en `value` |
+| `count`     | sí          | Cuántos miembros tiene la tabla                 |
+| `comment`   | no          | Nota libre                                      |
+
+| En `<gen type="pool">` | Obligatorio | Qué hace                                      |
+| :--------------------- | :---------- | :---------------------------------------------- |
+| `value`                | sí          | De qué pool sortear                              |
+| `filter`               | no          | De qué miembros puede sortear esta fila — [Acotar](filter.mdx) |
+| `if`                   | no          | Si esta fila recibe un miembro siquiera — [Acotar](filter.mdx#filter-no-es-if) |
+
+## Un pool es un `<env>` en miniatura
+
+Esta es la decisión de diseño que conviene conocer, porque responde la mayoría de las
+preguntas antes de hacerlas. El cuerpo de un pool se construye con la misma maquinaria que
+el `<env>` de una configuración, con el **número de miembros** en lugar del de filas.
+
+Así que todo lo que ya sabes sigue aplicando dentro de un pool:
+
+| Dentro de un pool | Significa |
+| :---------------- | :-------- |
+| `<sequence>` | un campo de cada miembro |
+| [`<mix>`](../constructs/mix.mdx) | un campo repartido por `percent` exacto — entre los MIEMBROS |
+| [`<switch>`](../constructs/switch.mdx) | un campo derivado de otro campo del mismo miembro |
+| [`<uniq>`](../constructs/unique-values.mdx) · `uniq="true"` | miembros que deben diferir entre sí |
+| `<distinct>` | dos campos de un miembro que deben diferir |
+| `if=` | un campo que solo tienen algunos miembros |
+| `parent=` | un campo construido sobre los miembros que otro campo seleccionó |
+| `<compute>` | un campo calculado a partir de los otros campos del miembro |
+
+Lo que un pool **no** puede contener es salida: ni `<block>` ni etiquetas de formato. Un
+pool es una tabla que otras columnas leen, no algo que se escriba en un archivo. Tampoco
+puede contener otro `<pool>`: los pools siguen siendo tablas planas, y uno
+[apunta a otro](linking.mdx) en vez de anidarse.
+
+## Dos nombres y un punto
+
+El pool tiene `name`; la secuencia que sortea de él, también. Son cosas distintas:
+
+```xml
+<pool name="Doctors" count="4"> … </pool>
+
+<sequence name="Seen"><gen type="pool" value="Doctors"/></sequence>
+```
+
+- `Doctors` es la **tabla**. Nada en `<block>` se refiere a ella.
+- `Seen` es la **columna** que contiene un médico por fila. Sus campos se leen como
+  `${{Seen.firstName}}`.
+
+Dos secuencias pueden sortear del mismo pool, y eligen de forma independiente: `Seen` y
+`Referred` serían dos médicos distintos en la misma fila, que suele ser el objetivo.
+
+Leer la referencia sin un campo se rechaza, porque no hay nada que imprimir:
+
+<Terminal title="./run clinic.tdc">
+{`error[TDC229]: "Seen" draws a whole member from a pool — it has no value of its own to print
+ --> clinic.tdc:8:16
+  |
+8 |   <block><line><data>\${{Seen}}</data></line></block>
+  |                ^^^^^^^^^^^^^^^^^^^^^^
+  |
+note: Read a field: \${{Seen.name}}.`}
+</Terminal>
+
+## Una elección por fila
+
+Una secuencia tiene un valor por fila. Una referencia a un pool es una secuencia, así que
+tiene **un miembro** por fila, y todos los `${{Seen.…}}` de esa fila leen el mismo.
+
+Esa única regla es para lo que existe la construcción. También es la razón por la que
+«Dmitri Ivánova» — un nombre masculino con un apellido femenino — no es algo que un pool
+pueda producir: el género, el nombre y el apellido son campos de un miembro, y la fila que
+tomó al miembro se los llevó los tres.
+
+La elección es **uniforme entre los miembros** — un sorteo, no un cuadrante, porque nadie
+declaró una proporción; ver [proporciones declaradas o un sorteo](../generators/overview.mdx#proporciones-declaradas-o-un-sorteo-de-una-fuente).
+También es [direccionable](../core-concepts/determinism.mdx): la fila 900.000.000 encuentra a su
+médico sin que las 899.999.999 anteriores hayan existido nunca. Por eso un pool cuesta lo
+mismo en todos los motores.
+
+## Proporciones dentro del pool
+
+Como el pool se construye con la maquinaria de siempre, `percent` funciona dentro
+exactamente igual que en el nivel superior. El treinta por ciento de los médicos son
+cirujanos:
+
+```xml
+<pool name="Doctors" count="10">
+  <mix name="role" percent="30,70">
+    <case><gen type="text" value="surgeon"/></case>
+    <case><gen type="text" value="therapist"/></case>
+  </mix>
+  <sequence name="name"><gen type="template" value="person.lastName"/></sequence>
+</pool>
+```
+
+La proporción se aplica a los **diez miembros**, no a las filas. Tres médicos son
+cirujanos; con qué frecuencia se les visita depende de cómo sorteen las filas — y de
+[`filter`](filter.mdx), que es lo que convierte «tres de los médicos son cirujanos» en
+«los pacientes que necesitan un cirujano reciben uno».
+
+## Miembros que difieren entre sí
+
+`uniq` dentro de un pool significa lo mismo que fuera: dos miembros no comparten el valor.
+
+```xml
+<pool name="Rooms" count="6">
+  <sequence name="number" uniq="true"><gen type="number" value="100..199"/></sequence>
+</pool>
+```
+
+Seis números de consultorio distintos, sorteados sin reemplazo. Un pool cuyos miembros
+pretenden ser *cosas diferentes* suele querer esto en al menos un campo — si no, dos
+miembros pueden salir idénticos y una fila no puede distinguirlos.
+
+## La semilla propia del pool
+
+Un pool **no** se sortea del flujo principal de la ejecución. Deriva una semilla propia:
+
+```
+<la semilla de la ejecución> + "#pool:" + <el nombre del pool>
+```
+
+Un pool llamado `Doctors` en una ejecución con `seed="main"` se construye a partir de
+`main#pool:Doctors`. `<pool>` no tiene atributo `seed` — la derivación es todo el
+mecanismo, y escribir uno se reporta (`TDC015`).
+
+**Por qué se deriva en vez de tomarse.** Si el pool sorteara del flujo principal, añadir
+uno desplazaría **todas las columnas declaradas debajo**: los id se quedarían y las
+edades, los nombres y las fechas se moverían, y la instantánea de ayer dejaría de
+coincidir por un motivo invisible en el diff. Una semilla derivada hace que un pool sea
+invisible para todo lo que no alimenta.
+
+Dos consecuencias que conviene conocer:
+
+- Cambia la `seed` de la ejecución y el pool cambia con ella. Ese es el objetivo: un solo
+  número sigue reproduciendo la ejecución entera.
+- **Renombrar un pool cambia sus miembros**, porque el nombre forma parte de la semilla
+  derivada. Renombrar no es cosmético; si importan los miembros exactos, deja el nombre
+  como está.
+
+## Tamaño
+
+Un pool se mantiene en memoria durante toda la ejecución — eso es lo que hace que la
+consulta desde una fila salga gratis. Medido en la implementación de referencia, un miembro
+con cuatro campos cuesta unos 320 bytes.
+
+| Miembros | Aproximadamente | Qué pasa |
+| :------- | :-------------- | :-------- |
+| hasta 100.000 | hasta ~29 MB | nada; se ejecuta |
+| más de 100.000 | | `TDC234`, una advertencia |
+| más de 1.000.000 | más de ~290 MB | `TDC235`, rechazado |
+
+Los dos mensajes acaban igual, porque la causa suele ser la misma: si querías decir el
+número de **filas**, eso es `count` en `<env>`.
+
+El techo es de la tabla, no de la ejecución. Un pool de treinta médicos atiende mil
+millones de filas de pacientes al mismo coste que mil, y funciona en todos los
+[motores](../guides/large-outputs.mdx).
+
+## Adónde ir ahora
+
+- [Acotar con `filter`](filter.mdx) — de qué miembros puede sortear una fila, y en qué se
+  diferencia de `if`
+- [Enlazar pools entre sí](linking.mdx) — varios pools, un pool que sortea de otro pool, y
+  cadenas de tres niveles

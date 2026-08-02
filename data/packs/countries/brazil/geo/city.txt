@@ -1,0 +1,52 @@
+---
+address: brazil.geo.city
+description: Cities of Brazil, roughly ordered by population
+locale: pt
+---
+São Paulo
+Rio de Janeiro
+Brasília
+Fortaleza
+Salvador
+Belo Horizonte
+Manaus
+Curitiba
+Recife
+Goiânia
+Belém
+Porto Alegre
+Guarulhos
+Campinas
+São Luís
+São Gonçalo
+Maceió
+Duque de Caxias
+Campo Grande
+Natal
+Teresina
+São Bernardo do Campo
+Nova Iguaçu
+João Pessoa
+Santo André
+Osasco
+Jaboatão dos Guararapes
+São José dos Campos
+Ribeirão Preto
+Uberlândia
+Sorocaba
+Contagem
+Aracaju
+Feira de Santana
+Cuiabá
+Joinville
+Juiz de Fora
+Londrina
+Niterói
+Florianópolis
+Vitória
+Porto Velho
+Macapá
+Rio Branco
+Boa Vista
+Palmas
+Caxias do Sul

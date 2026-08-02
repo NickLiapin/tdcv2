@@ -1,0 +1,6 @@
+---
+address: chile.finance.account
+description: Chilean bank account number — 8 to 12 digits. STRUCTURAL ONLY: Chile has no IBAN and no national account-number standard, each bank numbers accounts its own way and publishes no check digit, so nothing here can be validated
+generator: tdc
+---
+<gen type="regex" value="[0-9]{8,12}"/>

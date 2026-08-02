@@ -1,0 +1,9 @@
+---
+description: Hotel star rating (Italian)
+locale: it
+---
+1 stella
+2 stelle
+3 stelle
+4 stelle
+5 stelle

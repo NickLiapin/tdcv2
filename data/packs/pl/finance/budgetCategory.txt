@@ -1,0 +1,24 @@
+---
+description: Budget / spending category (Polish)
+locale: pl
+---
+Czynsz
+Kredyt hipoteczny
+Zakupy spożywcze
+Media
+Transport
+Rozrywka
+Zdrowie
+Ubezpieczenia
+Restauracje
+Oszczędności
+Subskrypcje
+Podróże
+Edukacja
+Odzież
+Prezenty
+Opieka nad dziećmi
+Spłata długów
+Zwierzęta domowe
+Telefon i internet
+Podatki

@@ -1,0 +1,21 @@
+---
+description: Bicycle type (German)
+locale: de
+---
+Rennrad
+Mountainbike
+Trekkingrad
+Cityrad
+Gravelbike
+BMX-Rad
+E-Bike
+Faltrad
+Reiserad
+Cyclocrossrad
+Bahnrad
+Liegerad
+Lastenrad
+Downhillbike
+Kinderfahrrad
+Dreirad
+Tandem

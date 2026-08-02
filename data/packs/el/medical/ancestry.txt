@@ -1,0 +1,16 @@
+---
+description: Genetic ancestry group (Greek), used as the parent of diagnosisByAncestry. These are ancestry populations as clinical genetics defines them — geographic descent, not social race categories.
+locale: el
+---
+Υποσαχάρια Αφρική
+Βόρεια Αφρική
+Μεσόγειος
+Μέση Ανατολή
+Βόρεια Ευρώπη
+Ανατολική Ευρώπη
+Ασκενάζι Εβραίοι
+Νότια Ασία
+Ανατολική Ασία
+Νοτιοανατολική Ασία
+Ιθαγενείς Αμερικής
+Νησιά Ειρηνικού

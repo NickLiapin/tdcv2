@@ -1,0 +1,9 @@
+---
+description: Positions in ice hockey (Italian)
+locale: it
+---
+Portiere
+Difensore
+Centro
+Ala sinistra
+Ala destra

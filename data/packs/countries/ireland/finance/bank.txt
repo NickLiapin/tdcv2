@@ -1,0 +1,12 @@
+---
+address: ireland.finance.bank
+description: Irish credit institution; same order as ireland.finance.bankCode
+locale: en
+---
+Allied Irish Banks
+Bank of Ireland
+Permanent TSB
+Ulster Bank Ireland
+EBS
+Citibank Europe
+Barclays Bank Ireland

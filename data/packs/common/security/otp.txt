@@ -1,0 +1,6 @@
+---
+address: common.security.otp
+description: Numeric one-time passcode (default 6 digits)
+generator: tdc
+---
+<gen type="regex" value="[0-9]{6}"/>

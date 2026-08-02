@@ -1,0 +1,10 @@
+---
+description: Diagnoses seen in Cardiología
+locale: es
+---
+Hipertensión arterial
+Enfermedad coronaria
+Fibrilación auricular
+Insuficiencia cardíaca congestiva
+Infarto agudo de miocardio
+Hiperlipidemia

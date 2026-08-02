@@ -1,0 +1,15 @@
+---
+description: Venue type
+locale: en
+---
+Hotel Ballroom
+Convention Center
+Stadium
+Theater
+Banquet Hall
+Rooftop
+Garden
+Warehouse
+Auditorium
+Nightclub
+Conference Room

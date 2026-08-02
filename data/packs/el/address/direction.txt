@@ -1,0 +1,17 @@
+---
+description: Directional qualifier used in Greek place and street naming (Άνω Πατήσια, Βόρεια Κηφισιά)
+locale: el
+---
+Βόρεια
+Νότια
+Ανατολικά
+Δυτικά
+Βορειοανατολικά
+Βορειοδυτικά
+Νοτιοανατολικά
+Νοτιοδυτικά
+Κέντρο
+Άνω
+Κάτω
+Μέσα
+Έξω

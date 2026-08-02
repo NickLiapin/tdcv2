@@ -1,0 +1,6 @@
+---
+address: uruguay.phone
+description: Uruguay mobile phone in E.164 form (+598 9XXXXXXX) — mobiles are dialled 09X XXX XXX inside the country, so the national number is nine digits and the E.164 subscriber part eight
+generator: tdc
+---
+<gen type="regex" value="\+5989[0-9]{7}"/>

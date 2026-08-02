@@ -1,0 +1,7 @@
+---
+address: lebanon.vehicle.plate
+description: Lebanese licence plate — an Arabic letter and up to six digits. Structural.
+generator: tdc
+locale: ar
+---
+<gen type="regex" value="[أ-ي]/[0-9]{1,6}"/>

@@ -1,0 +1,23 @@
+---
+address: paraguay.geo.departmentCapital
+description: Capital of the departamento (Asunción is its own capital); same order as paraguay.geo.department
+locale: es
+---
+Asunción
+Concepción
+San Pedro de Ycuamandiyú
+Caacupé
+Villarrica
+Coronel Oviedo
+Caazapá
+Encarnación
+San Juan Bautista
+Paraguarí
+Ciudad del Este
+Areguá
+Pilar
+Pedro Juan Caballero
+Salto del Guairá
+Villa Hayes
+Filadelfia
+Fuerte Olimpo

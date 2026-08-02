@@ -1,0 +1,12 @@
+---
+description: Jobs in Retail (Portuguese)
+locale: pt
+---
+Gerente de loja
+Caixa
+Vendedor
+Repositor
+Encarregado de prevenção de perdas
+Comprador
+Atendente de loja
+Fiscal de loja

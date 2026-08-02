@@ -1,0 +1,10 @@
+---
+description: Jobs in Finance (Spanish)
+locale: es
+---
+Analista financiero
+Contador
+Banquero de inversión
+Auditor
+Actuario
+Asesor de créditos

@@ -1,0 +1,40 @@
+---
+description: Medical specialties (Italian)
+locale: it
+---
+Cardiologia
+Dermatologia
+Endocrinologia
+Gastroenterologia
+Neurologia
+Oncologia
+Oftalmologia
+Ortopedia
+Traumatologia
+Pediatria
+Psichiatria
+Pneumologia
+Radiologia
+Reumatologia
+Urologia
+Nefrologia
+Ematologia
+Immunologia
+Allergologia
+Anestesiologia
+Medicina d'urgenza
+Medicina di famiglia
+Medicina interna
+Ginecologia e ostetricia
+Otorinolaringoiatria
+Anatomia patologica
+Chirurgia generale
+Chirurgia plastica
+Chirurgia vascolare
+Cardiochirurgia
+Malattie infettive
+Geriatria
+Neonatologia
+Medicina fisica e riabilitativa
+Medicina nucleare
+Nutrizione clinica

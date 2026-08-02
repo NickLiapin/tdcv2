@@ -1,0 +1,24 @@
+---
+description: Language spoken
+locale: en
+---
+English
+Spanish
+Mandarin
+Hindi
+Arabic
+French
+Portuguese
+Russian
+German
+Japanese
+Korean
+Italian
+Dutch
+Turkish
+Polish
+Vietnamese
+Thai
+Swedish
+Greek
+Hebrew

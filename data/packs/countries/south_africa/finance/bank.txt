@@ -1,0 +1,15 @@
+---
+address: south_africa.finance.bank
+description: South African banks; same order as south_africa.finance.branchCode
+locale: en
+---
+Standard Bank
+Absa
+First National Bank
+Nedbank
+Capitec Bank
+Investec
+African Bank
+Bidvest Bank
+TymeBank
+Discovery Bank

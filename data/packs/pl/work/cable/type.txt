@@ -1,0 +1,13 @@
+---
+description: Cable type (telecom / networking) (Polish)
+locale: pl
+---
+Światłowód
+Koncentryczny
+Skrętka
+Cat5e
+Cat6
+Cat6a
+Ethernet
+Napowietrzny
+Podziemny

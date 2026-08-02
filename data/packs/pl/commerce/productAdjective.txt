@@ -1,0 +1,58 @@
+---
+description: Product adjective (Polish), masculine singular base form - Polish adjectives usually precede the noun ("skladany fotel"). Feminine and neuter nouns need an agreeing form.
+locale: pl
+---
+elegancki
+przenośny
+wszechstronny
+wytrzymały
+wodoodporny
+inteligentny
+rękodzielniczy
+funkcjonalny
+ergonomiczny
+składany
+regulowany
+akumulatorowy
+bezprzewodowy
+lekki
+kompaktowy
+trwały
+dwustronny
+antypoślizgowy
+oddychający
+izolacyjny
+z recyklingu
+ekologiczny
+zrównoważony
+premium
+klasyczny
+nowoczesny
+minimalistyczny
+rustykalny
+w stylu vintage
+industrialny
+sportowy
+wielofunkcyjny
+sztaplowalny
+demontowalny
+łatwy w praniu
+antybakteryjny
+odporny na plamy
+termiczny
+pikowany
+wzmocniony
+cichy
+automatyczny
+programowalny
+kompatybilny
+uniwersalny
+profesjonalny
+ekonomiczny
+ręcznie robiony
+luksusowy
+designerski
+z najwyższej półki
+bez marki
+edycja limitowana
+energooszczędny

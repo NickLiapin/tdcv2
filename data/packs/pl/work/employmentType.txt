@@ -1,0 +1,15 @@
+---
+description: Employment / contract type (Polish)
+locale: pl
+---
+Pełny etat
+Niepełny etat
+Umowa zlecenie
+Umowa o dzieło
+Praca tymczasowa
+Staż
+Praktyki
+Samozatrudnienie
+Praca sezonowa
+Umowa na czas nieokreślony
+Umowa na czas określony

@@ -1,0 +1,14 @@
+---
+description: Medical specialty (has a coherent diagnosis list)
+locale: pl
+---
+Kardiologia
+Neurologia
+Onkologia
+Dermatologia
+Gastroenterologia
+Endokrynologia
+Pulmonologia
+Ortopedia
+Psychiatria
+Nefrologia

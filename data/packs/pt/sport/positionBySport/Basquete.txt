@@ -1,0 +1,9 @@
+---
+description: Positions in basketball (Portuguese)
+locale: pt
+---
+Armador
+Ala-armador
+Ala
+Ala-pivô
+Pivô

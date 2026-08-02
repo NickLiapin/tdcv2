@@ -1,0 +1,10 @@
+---
+address: colombia.geo.postalCode
+description: Colombian código postal — 6 digits: the first two are the real DANE departamento code, the next two the zona de encaminamiento (00 is reserved for the departmental capital, 01-89 for the rest) and the last two the distrito postal
+generator: tdc
+---
+<sequence name="dept"><gen type="template" value="colombia.geo.departmentCode"/></sequence>
+<!-- Encaminamiento zone 00-89, then the postal district 00-99. -->
+<sequence name="zone"><gen type="regex" value="[0-8][0-9]"/></sequence>
+<sequence name="district"><gen type="regex" value="[0-9]{2}"/></sequence>
+<data>${{dept}}${{zone}}${{district}}</data>

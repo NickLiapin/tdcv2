@@ -1,0 +1,16 @@
+---
+description: Genetic ancestry group in Portuguese, used as the parent of diagnosisByAncestry. These are ancestry populations as clinical genetics defines them — geographic descent, not social race categories.
+locale: pt
+---
+Africana subsariana
+Norte-africana
+Mediterrânea
+Médio-oriental
+Europeia do norte
+Europeia do leste
+Judaica asquenaze
+Asiática do sul
+Asiática oriental
+Asiática do sudeste
+Indígena americana
+Insular do Pacífico

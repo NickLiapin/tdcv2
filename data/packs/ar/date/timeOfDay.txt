@@ -1,0 +1,12 @@
+---
+description: Time of day (Arabic)
+locale: ar
+---
+صباح
+ظهر
+عصر
+مساء
+ليل
+فجر
+منتصف الليل
+غروب

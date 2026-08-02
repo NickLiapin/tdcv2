@@ -1,0 +1,572 @@
+---
+title: Condicionales
+sidebar_position: 5
+---
+
+import Figure from '@site/src/components/Figure';
+import Legend from '@site/src/components/Legend';
+
+import Terminal from '@site/src/components/Terminal';
+
+# Condicionales
+
+Los algoritmos de suma de verificación se ramifican: «si el dígito duplicado pasa de 9,
+réstele 9» (Luhn), «si el residuo es 10, use 0» (mod-11). La clasificación por rangos
+también se ramifica: «menos de 30 es bajo, menos de 80 es medio, y si no, alto».
+[`<compute>`](overview.mdx) expresa cada uno de estos casos con una sola etiqueta
+condicional, `<choose>`, y un puñado de predicados de sí/no.
+
+`<choose>` es la misma idea condicional que la etiqueta de nivel superior `<switch>`, pero
+mientras `<switch>` es una simple tabla de búsqueda de clave a valor, `<choose>` calcula un
+valor **dentro** de `<compute>` y puede probar cualquier condición — una comparación, un
+residuo, «¿esto es un dígito?» — y no solo si una clave coincidió.
+
+## La forma
+
+| Etiqueta      | Qué hace                                                        |
+| :------------ | :-------------------------------------------------------------- |
+| `<choose>`    | el primer `<when>` cuyo `<test>` sea verdadero; si no, `<otherwise>` |
+| `<when>`      | una rama: un predicado `<test>` y un valor `<then>`             |
+| `<test>`      | contiene exactamente un predicado, entrega un sí/no             |
+| `<then>`      | el valor que se devuelve cuando el `<test>` de esa rama es verdadero |
+| `<otherwise>` | la rama «si no» — **obligatoria**                               |
+
+Los predicados viven **solo** dentro de `<test>` y devuelven sí/no (nunca un valor):
+
+| Predicado         | Verdadero cuando                    |
+| :---------------- | :---------------------------------- |
+| `<equals>`        | dos enteros son iguales             |
+| `<greater_than>`  | A &gt; B (estricto)                 |
+| `<less_than>`     | A &lt; B (estricto)                 |
+| `<is_digit>`      | un carácter es un dígito `0`–`9`    |
+
+En el lenguaje no hay un tipo booleano independiente: un sí/no solo existe mientras dura un
+`<test>`. El valor de una rama siempre sale de `<then>` o de `<otherwise>`.
+
+## `<choose>` — elegir la primera rama que coincida
+
+**Toma** una o más ramas `<when>` más un `<otherwise>` → **da** el valor de la primera rama cuya prueba se cumple. Las ramas se prueban en el orden del documento, así que el orden es una decisión, no una formalidad.
+
+<Figure
+  src="/img/compute/choose.svg"
+  alt=""
+  caption="Con 7, la primera prueba se cumple; a las ramas de abajo nunca se llega."
+/>
+
+<Legend items={[["A", "el valor sobre el que se pregunta a las ramas"], ["B", "las pruebas, en el orden en que están escritas"], ["C", "el valor de la primera rama que se cumplió — a las tenues nunca se llega"]]} />
+
+`<choose>` recorre sus hijos `<when>` **de arriba abajo** y devuelve el `<then>` del
+primero cuyo `<test>` sea verdadero. Si ninguno coincide, devuelve `<otherwise>`. Gana la
+primera coincidencia, así que el orden de las ramas importa, y `<otherwise>` es
+obligatorio: un `<choose>` siempre debe poder producir un valor.
+
+`<choose>` no toma atributos; todo se expresa a través de sus ramas `<when>` y del
+`<otherwise>` obligatorio.
+
+### Ejemplo — el «restar 9» de Luhn
+
+El paso clásico de Luhn: duplicar cada dígito y, si el resultado pasa de 9, restarle 9.
+Aquí [`<each>`](lists.mdx) recorre los dígitos, [`<current/>`](lists.mdx) es el dígito que
+se está procesando, y `<choose>` decide si la resta aplica.
+
+```xml
+<sequence name="Num"><gen type="number" value="100000..999999"/></sequence>
+<sequence name="Doubled">
+  <compute>
+    <result>
+      <join sep=" ">
+        <each>
+          <over><field name="Num"/></over>
+          <do>
+            <let name="x"><multiply><current/><int v="2"/></multiply></let>
+            <choose>
+              <when>
+                <test><greater_than><var name="x"/><int v="9"/></greater_than></test>
+                <then><subtract><var name="x"/><int v="9"/></subtract></then>
+              </when>
+              <otherwise><var name="x"/></otherwise>
+            </choose>
+          </do>
+        </each>
+      </join>
+    </result>
+  </compute>
+</sequence>
+```
+
+<Terminal title="./run luhn.tdc">
+{`692481 -> 3 9 4 8 7 2
+730544 -> 5 6 0 1 8 8
+815209 -> 7 2 1 4 0 9
+428170 -> 8 4 7 2 5 0
+903622 -> 9 0 6 3 4 4`}
+</Terminal>
+
+Las salidas de ejemplo de esta página son ilustrativas — los valores exactos dependen del
+seed y de la versión del núcleo. Para `692481`: `6*2=12` pasa de 9, así que `12-9=3`;
+`2*2=4` no pasa, así que se queda en `4`; y así sucesivamente. La rama `<otherwise>` lleva
+el caso ordinario, cuando el `<test>` no se disparó.
+
+<Figure
+  src="/img/compute/studio-choose-light.png"
+  srcDark="/img/compute/studio-choose.png"
+  alt=""
+  frame
+  zoom
+  caption="La misma bifurcación en el canvas de Studio — los números en las conexiones son el orden en que se prueban las ramas, y la cola es la rama tres."
+/>
+
+### Ejemplo — rangos (el orden de las ramas importa)
+
+Varias ramas `<when>` seguidas se leen como una escalera de «if … else if …». Como gana la
+primera coincidencia, los umbrales se escriben en orden ascendente para que cada rama solo
+tenga que descartar las de arriba. El valor de la secuencia es un string, así que se
+envuelve una vez en [`<to_number>`](arithmetic.mdx) mediante [`<let>`](overview.mdx) para
+compararlo como entero.
+
+```xml
+<sequence name="Score"><gen type="number" value="0..100"/></sequence>
+<sequence name="Grade">
+  <compute>
+    <let name="s"><to_number><field name="Score"/></to_number></let>
+    <result>
+      <choose>
+        <when>
+          <test><less_than><var name="s"/><int v="30"/></less_than></test>
+          <then><str v="low"/></then>
+        </when>
+        <when>
+          <test><less_than><var name="s"/><int v="80"/></less_than></test>
+          <then><str v="mid"/></then>
+        </when>
+        <otherwise><str v="high"/></otherwise>
+      </choose>
+    </result>
+  </compute>
+</sequence>
+```
+
+<Terminal title="./run grade.tdc">
+{`96  -> high
+25  -> low
+58  -> mid
+34  -> mid
+7   -> low
+`}
+</Terminal>
+
+`25` es menor que 30, así que toma `low`. `34` no es menor que 30 pero sí menor que 80, así
+que gana la segunda rama con `mid`. `96` pasa todos los umbrales, así que se dispara
+`<otherwise>` con `high`.
+
+### `<otherwise>` es obligatorio — error `TDC184`
+
+Un solo `<otherwise>` cierra todo el `<choose>`, no cada `<when>`. Es la única cola que corre cuando ninguna rama coincidió, y omitirlo es un error en vez de un resultado vacío — un config que en silencio no produce nada para las filas en las que nadie pensó es justamente la falla que esto se niega a permitir.
+
+Quite el `<otherwise>` y el config no va a cargar. El motor no puede demostrar que siempre
+va a coincidir alguna rama, y sin embargo un `<choose>` siempre debe entregar un valor, así
+que rechaza el árbol **antes** de la corrida:
+
+```xml
+<choose>
+  <when>
+    <test><greater_than><to_number><field name="D"/></to_number><int v="5"/></greater_than></test>
+    <then><str v="big"/></then>
+  </when>
+</choose>
+```
+
+<Terminal title="./run no-otherwise.tdc">
+{`error[TDC184]: <choose> requires an <otherwise> branch`}
+</Terminal>
+
+Agregue un `<otherwise>` con un valor de respaldo y carga sin problema. Esta es una de las
+revisiones de árbol en tiempo de compilación (`TDC180`–`TDC187`) que atrapan errores
+estructurales antes de que se genere cualquier dato.
+
+## `<when>` — una rama
+
+**Toma** las ranuras `<test>` (la condición) y `<then>` (el valor) → **no da nada por sí solo**. Un `<when>` existe solo dentro de un `<choose>`, y necesita las dos ranuras.
+
+Un `<when>` es una sola rama de un `<choose>`: una condición emparejada con un valor. Tiene
+exactamente dos hijos — `<test>` (la condición) y `<then>` (el valor que se devuelve cuando
+la condición se cumple). Los dos son obligatorios; omitir cualquiera es el error `TDC187`.
+Un `<choose>` puede llevar tantas ramas `<when>` como quiera, y se revisan en orden.
+
+Nunca se escribe un `<when>` por su cuenta — siempre va dentro de un `<choose>`, junto a
+sus hermanas y al `<otherwise>` obligatorio.
+
+### Ejemplo — un umbral sobre la suma de dígitos
+
+Una sola rama: «si la suma de dígitos pasa de 18, alto; si no, bajo». Un
+[`<reduce>`](lists.mdx) suma los dígitos, y el único `<when>` dentro del `<choose>` elige
+la respuesta.
+
+```xml
+<sequence name="Pin"><gen type="number" value="1000..9999"/></sequence>
+<sequence name="Sum">
+  <compute>
+    <result>
+      <reduce>
+        <over><field name="Pin"/></over>
+        <init><int v="0"/></init>
+        <do><add><acc/><current/></add></do>
+      </reduce>
+    </result>
+  </compute>
+</sequence>
+<sequence name="Bucket">
+  <compute>
+    <result>
+      <choose>
+        <when>
+          <test><greater_than><to_number><field name="Sum"/></to_number><int v="18"/></greater_than></test>
+          <then><str v="high"/></then>
+        </when>
+        <otherwise><str v="low"/></otherwise>
+      </choose>
+    </result>
+  </compute>
+</sequence>
+```
+
+<Terminal title="./run bucket.tdc">
+{`3115  sum=10  -> low
+9917  sum=26  -> high
+5120  sum=8   -> low
+5815  sum=19  -> high
+9444  sum=21  -> high`}
+</Terminal>
+
+El `<test>` revisa `sum > 18` y `<then>` devuelve `high`. Donde la suma es 18 o menos
+(`10`, `8`), el `<when>` no se dispara y `<otherwise>` responde con `low`.
+
+## `<test>` — la ranura de la condición
+
+**Toma** un predicado → **da** verdadero o falso al `<when>` que lo rodea. En el lenguaje no hay booleanos como valores: un predicado puede aparecer aquí y en ningún otro lado.
+
+Un `<test>` es la «ranura de la condición» de un `<when>`. Contiene **exactamente un
+predicado** y lo convierte en el sí/no que `<choose>` usa para decidir si toma la rama. No
+calcula un número ni un string — nombra la parte de un `<when>` donde vive la condición (la
+otra parte es `<then>`, el valor). Un `<test>` se escribe primero, antes de `<then>`, y es
+obligatorio dentro de un `<when>` (si no, `TDC187`).
+
+Los predicados funcionan **solo** dentro de un `<test>` — usados en cualquier otro lado son
+inválidos, porque producen un sí/no en lugar de un valor.
+
+### Ejemplo — paridad mediante el residuo
+
+Aquí el `<test>` contiene un predicado `<equals>`: «el residuo de dividir entre 2 es 0». Si
+es así, el número es par.
+
+```xml
+<sequence name="N"><gen type="number" value="1000..9999"/></sequence>
+<sequence name="Parity">
+  <compute>
+    <result>
+      <choose>
+        <when>
+          <test>
+            <equals>
+              <mod><to_number><field name="N"/></to_number><int v="2"/></mod>
+              <int v="0"/>
+            </equals>
+          </test>
+          <then><str v="even"/></then>
+        </when>
+        <otherwise><str v="odd"/></otherwise>
+      </choose>
+    </result>
+  </compute>
+</sequence>
+```
+
+<Terminal title="./run parity.tdc">
+{`8452  -> even
+9083  -> odd
+4216  -> even
+5734  -> even
+3005  -> odd`}
+</Terminal>
+
+Dentro del `<test>` hay un solo predicado, `<equals>`. Compara el residuo de
+[`<mod>`](arithmetic.mdx) contra cero y entrega un sí/no; `3005` es impar (residuo 1), así
+que se dispara `<otherwise>`.
+
+Las ranuras envoltorio (`<test>`, `<then>`, y los envoltorios de iteración `<over>` /
+`<do>` / `<init>` / `<in>` / `<index>`) existen para que una etiqueta con varias partes
+pueda nombrar cada parte de forma explícita en lugar de adivinarla por el orden de los
+hijos.
+
+## Los predicados
+
+Todo predicado devuelve sí/no y solo es válido dentro de un `<test>` (o de un `<valid>`,
+más abajo). Los cuatro toman operandos enteros; se acepta un carácter donde se entiende su
+valor como dígito.
+
+### `<equals>` — dos enteros son iguales
+
+**Toma** dos valores → **da** verdadero o falso. La comparación es laxa entre tipos: `5` y `"5"` son iguales.
+
+Verdadero cuando sus dos hijos se evalúan al mismo entero. Es el bloque de construcción
+para «¿el residuo es cero?», «¿coincidió el dígito verificador?», «¿esto es exactamente
+N?».
+
+```xml
+<sequence name="V"><gen type="number" value="1..1000"/></sequence>
+<sequence name="Kind">
+  <compute>
+    <result>
+      <choose>
+        <when>
+          <test><equals><mod><to_number><field name="V"/></to_number><int v="10"/></mod><int v="0"/></equals></test>
+          <then><str v="round"/></then>
+        </when>
+        <otherwise><str v="other"/></otherwise>
+      </choose>
+    </result>
+  </compute>
+</sequence>
+```
+
+<Terminal title="./run equals.tdc">
+{`40   -> round
+417  -> other
+250  -> round
+83   -> other
+900  -> round`}
+</Terminal>
+
+**Úselo cuando** un valor deba coincidir exactamente con un objetivo — una suma de
+verificación que cuadra, una clave de categoría exacta, un múltiplo de alguna base.
+
+### `<greater_than>` — `A > B` estricto
+
+**Toma** dos números → **da** verdadero o falso. Estricto: los valores iguales dan falso.
+
+Verdadero cuando el primer hijo es estrictamente mayor que el segundo (`A > B`, no `>=`).
+Esta es la prueba de «pasa de 9» de Luhn, y cualquier rama de «por encima de un umbral».
+
+```xml
+<sequence name="M"><gen type="number" value="1..1000"/></sequence>
+<sequence name="Level">
+  <compute>
+    <result>
+      <choose>
+        <when>
+          <test><greater_than><to_number><field name="M"/></to_number><int v="500"/></greater_than></test>
+          <then><str v="high"/></then>
+        </when>
+        <otherwise><str v="low"/></otherwise>
+      </choose>
+    </result>
+  </compute>
+</sequence>
+```
+
+<Terminal title="./run greater.tdc">
+{`742  -> high
+318  -> low
+906  -> high
+88   -> low
+651  -> high`}
+</Terminal>
+
+**Úselo cuando** una rama deba dispararse por encima de un corte. Como es estricto, el
+valor del corte mismo cae en la siguiente rama — elija `>` o `<` a propósito en las
+fronteras.
+
+### `<less_than>` — `A < B` estricto
+
+**Toma** dos números → **da** verdadero o falso. Estricto: los valores iguales dan falso.
+
+Verdadero cuando el primer hijo es estrictamente menor que el segundo (`A < B`). Es la
+forma natural de escribir escaleras de umbrales ascendentes, y la guardia que usa la
+revisión `<valid>` de mod-11 de más abajo.
+
+```xml
+<sequence name="K"><gen type="number" value="0..99"/></sequence>
+<sequence name="Width">
+  <compute>
+    <result>
+      <choose>
+        <when>
+          <test><less_than><to_number><field name="K"/></to_number><int v="10"/></less_than></test>
+          <then><str v="single"/></then>
+        </when>
+        <otherwise><str v="double"/></otherwise>
+      </choose>
+    </result>
+  </compute>
+</sequence>
+```
+
+<Terminal title="./run less.tdc">
+{`7   -> single
+42  -> double
+3   -> single
+88  -> double
+15  -> double`}
+</Terminal>
+
+**Úselo cuando** una rama deba dispararse por debajo de un corte, o cuando esté armando una
+escalera de rangos de `low → high` (vea el ejemplo de calificaciones de más arriba).
+
+### `<is_digit>` — un carácter es `0`–`9`
+
+**Toma** un string de **un solo carácter** → **da** verdadero o falso. Un string más largo da falso, así que `"12"` no pasa.
+
+Verdadero cuando su argumento de un solo carácter es un dígito decimal. Útil al clasificar
+los caracteres de un código alfanumérico mixto. Aquí [`<slice>`](strings.mdx) toma el
+primer carácter e `<is_digit>` lo evalúa.
+
+```xml
+<sequence name="Code"><gen type="regex" value="[A-Z0-9]{5}"/></sequence>
+<sequence name="First">
+  <compute>
+    <result>
+      <choose>
+        <when>
+          <test><is_digit><slice from="0" to="1"><field name="Code"/></slice></is_digit></test>
+          <then><str v="numeric-first"/></then>
+        </when>
+        <otherwise><str v="alpha-first"/></otherwise>
+      </choose>
+    </result>
+  </compute>
+</sequence>
+```
+
+<Terminal title="./run isdigit.tdc">
+{`7F2QK  -> numeric-first
+KP83M  -> alpha-first
+90ZTR  -> numeric-first
+BQ4L1  -> alpha-first
+5MHW2  -> numeric-first`}
+</Terminal>
+
+**Úselo cuando** una regla dependa de si un carácter es un dígito — validar un símbolo
+inicial, separar letras de números, o condicionar una rama por carácter.
+
+## `<valid>` — rechazar y reintentar
+
+`<valid>` es una revisión de **rechazar y reintentar** que se usa en los
+[packs](../data-packs/writing-your-own.mdx) de generadores. Contiene **un predicado**;
+después de que un pack produjo sus valores base, el motor revisa el predicado y, si es
+**falso**, regenera la base y vuelve a intentar — repitiendo hasta que el resultado pase
+(con un tope de seguridad para que una condición imposible falle limpiamente en lugar de
+ciclarse para siempre). Los predicados son los mismos cuatro de `<choose>`.
+
+A diferencia de `<choose>`, `<valid>` se escribe **junto a** los generadores del pack y su
+salida `<data>`, no dentro de un `<compute>`. Es parte de la mecánica de los packs, así que
+no aparece en un config ordinario — ahí el valor se deriva con una fórmula y nunca se
+vuelve a sortear.
+
+`<valid>` no toma atributos; la condición es su único predicado hijo.
+
+### Ejemplo — quedarse solo con los números pares
+
+Un pack pequeño y autocontenido: genera un número en `10..99`, calcula su residuo mod 2, y
+usa `<valid>` para **rechazar los impares**. A la salida solo llegan los pares.
+
+```xml
+---
+address: common.demo.even_only
+description: demo — solo números pares (los impares se rechazan con <valid>)
+generator: tdc
+---
+<sequence name="base"><gen type="number" value="10..99"/></sequence>
+<sequence name="rest"><compute><result>
+  <mod><to_number><field name="base"/></to_number><int v="2"/></mod>
+</result></compute></sequence>
+<valid><equals><field name="rest"/><int v="0"/></equals></valid>
+<data>${{base}}</data>
+```
+
+Se llama como `<gen type="template" value="common.demo.even_only"/>`:
+
+<Terminal title="./run even.tdc">
+{`84
+90
+42
+26
+30
+46
+90
+46`}
+</Terminal>
+
+El rango `10..99` produce números pares e impares, pero `<valid>` deja pasar solo las filas
+donde `rest == 0`. No aparece ningún impar — el motor volvió a sortear la base hasta que
+salió uno par.
+
+### Ejemplo — un ISBN-10 cuyo dígito verificador se mantiene numérico
+
+Un valor de control 10 en un ISBN-10 normalmente se escribe con la letra `X`. Si un campo
+debe quedarse puramente numérico, esas filas hay que descartarlas. Este pack calcula la
+revisión ponderada mod-11 y exige que sea **menor que 10**; cualquier otra cosa se
+regenera. Esta es la misma garantía que dan los packs de ISBN integrados.
+
+```xml
+<sequence name="base"><gen type="regex" value="[0-9]{9}"/></sequence>
+<sequence name="check"><compute><result>
+  <mod>
+    <subtract>
+      <int v="11"/>
+      <mod>
+        <reduce>
+          <over><field name="base"/></over>
+          <init><int v="0"/></init>
+          <do><add><acc/><multiply><current/>
+            <at><in><list v="10,9,8,7,6,5,4,3,2"/></in><index><current_index/></index></at>
+          </multiply></add></do>
+        </reduce>
+        <int v="11"/>
+      </mod>
+    </subtract>
+    <int v="11"/>
+  </mod>
+</result></compute></sequence>
+<valid><less_than><to_number><field name="check"/></to_number><int v="10"/></less_than></valid>
+<data>${{base}}${{check}}</data>
+```
+
+<Terminal title="./run isbn.tdc">
+{`4188261811
+8761685496
+2444206142
+8745782784
+0357781341`}
+</Terminal>
+
+Cada valor emitido son diez dígitos limpios: a lo largo de miles de filas ninguna tiene un
+valor de control de 10, porque `<valid>` rechaza esas bases y vuelve a sortear.
+
+**Úselo cuando** un valor correcto pueda aun así ser *inválido* para el dominio — un dígito
+verificador prohibido, un rango no emitido — y quiera que el pack garantice solo filas
+buenas sin complicar la fórmula.
+
+## Errores y límites
+
+- **`TDC184`** — un `<choose>` sin `<otherwise>`. Todo `<choose>` debe poder devolver un
+  valor, así que el «si no» faltante se detecta antes de la corrida.
+- **`TDC187`** — un `<when>` al que le falta su `<test>` o su `<then>` (o una ranura
+  envoltorio que quedó vacía). Cada rama necesita tanto una condición como un valor.
+- Los predicados son válidos **solo** dentro de un `<test>` o de un `<valid>`; no hay
+  ningún valor booleano en ninguna otra parte del lenguaje.
+- Las comparaciones son sobre **enteros** — un string numérico se convierte primero con
+  [`<to_number>`](arithmetic.mdx) (como en los ejemplos de calificaciones y de paridad). No
+  hay números con decimales.
+- `<greater_than>` y `<less_than>` son **estrictos**: el valor de la frontera cae hacia la
+  siguiente rama. Elija el operador pensando en la frontera.
+
+## Vea también
+
+- **[Descripción general de compute](overview.mdx)** — dónde encajan los condicionales
+  dentro de una suma de verificación completa.
+- **[Aritmética](arithmetic.mdx)** — el `<mod>`, el `<subtract>` y el `<to_number>` usados
+  en las pruebas de arriba.
+- **[Listas e iteración](lists.mdx)** — `<each>` y `<reduce>`, los ciclos dentro de los que
+  corre un `<choose>` por dígito.
+- **[Referencia de funciones de compute](../reference/compute.mdx)** — el catálogo completo
+  de etiquetas.

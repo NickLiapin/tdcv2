@@ -1,0 +1,6 @@
+---
+address: canada.finance.account
+description: Canadian bank account number — 7 to 12 digits. STRUCTURAL ONLY: Canada has no national account-number standard and no public check rule, each institution sets its own length, so nothing here can be validated.
+generator: tdc
+---
+<gen type="regex" value="[0-9]{7,12}"/>

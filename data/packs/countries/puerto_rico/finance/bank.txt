@@ -1,0 +1,17 @@
+---
+address: puerto_rico.finance.bank
+description: Bank or licensed deposit institution operating in Puerto Rico. After the 2010–2020 consolidation the island has three primary commercial banks (Popular, FirstBank, Oriental); the list also carries the government development bank, the cooperatives' central bank and major cooperativas de ahorro y crédito. The currency is the US dollar
+locale: es
+---
+Banco Popular de Puerto Rico
+FirstBank Puerto Rico
+Oriental Bank
+Citibank
+Banco de Desarrollo Económico para Puerto Rico
+Banco Cooperativo de Puerto Rico
+Cooperativa de Ahorro y Crédito de Arecibo
+Cooperativa de Ahorro y Crédito Jesús Obrero
+Cooperativa de Ahorro y Crédito Vegabajeña
+Cooperativa de Ahorro y Crédito de Rincón
+Cooperativa de Ahorro y Crédito Roosevelt Roads
+Cooperativa de Ahorro y Crédito de Lares y Región Central

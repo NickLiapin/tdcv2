@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Gastroenterology (French)
+locale: fr
+---
+Reflux gastro-œsophagien
+Ulcère gastrique
+Maladie de Crohn
+Rectocolite hémorragique
+Syndrome de l'intestin irritable
+Hépatite
+Cirrhose
+Pancréatite
+Calculs biliaires
+Gastrite

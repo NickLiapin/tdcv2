@@ -1,0 +1,30 @@
+---
+address: ireland.education.university
+description: Irish university or higher-education institution
+locale: en
+---
+Trinity College Dublin
+University College Dublin
+University College Cork
+University of Galway
+University of Limerick
+Dublin City University
+Maynooth University
+Technological University Dublin
+Munster Technological University
+Atlantic Technological University
+Technological University of the Shannon
+South East Technological University
+Royal College of Surgeons in Ireland
+Dundalk Institute of Technology
+Institute of Art, Design and Technology
+National College of Art and Design
+Mary Immaculate College
+Marino Institute of Education
+National College of Ireland
+Griffith College
+Dublin Business School
+Dublin Institute for Advanced Studies
+National University of Ireland
+Hibernia College
+Shannon College of Hotel Management

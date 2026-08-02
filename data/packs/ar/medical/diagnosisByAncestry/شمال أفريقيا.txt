@@ -1,0 +1,10 @@
+---
+description: Conditions in Arabic markedly more frequent in people of North African ancestry. A prevalence signal, not an exclusive one.
+locale: ar
+---
+نقص إنزيم غلوكوز 6 فوسفات ديهيدروجيناز
+سمة الثلاسيميا بيتا
+حمى البحر الأبيض المتوسط العائلية
+داء بهجت
+عدم استمرار إنتاج إنزيم اللاكتاز
+جفاف الجلد المصطبغ

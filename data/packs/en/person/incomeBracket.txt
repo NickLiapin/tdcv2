@@ -1,0 +1,11 @@
+---
+description: Household income bracket (USD)
+locale: en
+---
+Under $25k
+$25k-$50k
+$50k-$75k
+$75k-$100k
+$100k-$150k
+$150k-$250k
+Over $250k

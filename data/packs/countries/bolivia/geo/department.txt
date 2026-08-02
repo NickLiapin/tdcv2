@@ -1,0 +1,14 @@
+---
+address: bolivia.geo.department
+description: Bolivian first-level division — the 9 departamentos, in INE order (1 Chuquisaca … 9 Pando); same order as bolivia.geo.departmentCode / departmentIso / departmentAbbr / departmentCapital
+locale: es
+---
+Chuquisaca
+La Paz
+Cochabamba
+Oruro
+Potosí
+Tarija
+Santa Cruz
+Beni
+Pando

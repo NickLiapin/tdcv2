@@ -1,0 +1,6 @@
+---
+address: common.internet.mac
+description: MAC address — six colon-separated lowercase hex octets
+generator: tdc
+---
+<gen type="regex" value="[0-9a-f]{2}:[0-9a-f]{2}:[0-9a-f]{2}:[0-9a-f]{2}:[0-9a-f]{2}:[0-9a-f]{2}"/>

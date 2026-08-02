@@ -1,0 +1,24 @@
+---
+description: Hotel amenity (French)
+locale: fr
+---
+Wi-Fi gratuit
+Piscine
+Spa
+Salle de sport
+Restaurant
+Bar
+Petit-déjeuner inclus
+Parking
+Navette aéroport
+Climatisation
+Service en chambre
+Blanchisserie
+Réception 24h/24
+Animaux acceptés
+Salle de réunion
+Sauna
+Jacuzzi
+Plage privée
+Coffre-fort
+Bornes de recharge

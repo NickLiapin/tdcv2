@@ -1,0 +1,24 @@
+---
+address: nicaragua.holiday
+description: Nicaraguan public holiday — the mandatory national feriados (with right to rest and pay) plus widely observed civic and religious dates; the Santo Domingo de Guzmán days are the Managua patron-saint festivities
+locale: es
+---
+Año Nuevo
+Día del Nacimiento de Rubén Darío
+Día Nacional de la Reconciliación y la Paz
+Día de Augusto César Sandino
+Jueves Santo
+Viernes Santo
+Día del Trabajo
+Día de la Madre
+Día de la Revolución
+Traída de Santo Domingo de Guzmán
+Dejada de Santo Domingo de Guzmán
+Batalla de San Jacinto
+Día de la Independencia
+Día del Comandante Carlos Fonseca
+Día de los Difuntos
+La Gritería
+Día de la Inmaculada Concepción
+Nochebuena
+Navidad

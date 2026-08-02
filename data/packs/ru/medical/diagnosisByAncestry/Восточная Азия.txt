@@ -1,0 +1,14 @@
+---
+description: Conditions markedly more frequent in people of East Asian ancestry (Russian). A prevalence signal, not an exclusive one.
+locale: ru
+---
+Альфа-талассемия
+Дефицит альдегиддегидрогеназы 2
+Лактазная недостаточность взрослого типа
+Рак носоглотки
+Рак желудка
+Первичная закрытоугольная глаукома
+Болезнь Кавасаки
+Болезнь мойя-мойя
+Гиперчувствительность к карбамазепину
+Патологическая миопия

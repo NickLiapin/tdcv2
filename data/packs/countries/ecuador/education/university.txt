@@ -1,0 +1,54 @@
+---
+address: ecuador.education.university
+description: Ecuadorian university or higher-education institution (public and private)
+---
+Universidad Central del Ecuador
+Escuela Politécnica Nacional
+Universidad San Francisco de Quito
+Pontificia Universidad Católica del Ecuador
+Escuela Superior Politécnica del Litoral
+Universidad de Guayaquil
+Universidad de Cuenca
+Universidad de las Fuerzas Armadas ESPE
+Universidad Técnica Particular de Loja
+Universidad Nacional de Loja
+Universidad Andina Simón Bolívar
+Escuela Superior Politécnica de Chimborazo
+Universidad Politécnica Salesiana
+Universidad del Azuay
+Universidad Católica de Santiago de Guayaquil
+Universidad Espíritu Santo
+Universidad de las Américas
+Universidad Internacional del Ecuador
+Universidad UTE
+Universidad Técnica de Ambato
+Universidad Técnica del Norte
+Universidad Técnica de Machala
+Universidad Técnica de Manabí
+Universidad Técnica de Cotopaxi
+Universidad Técnica Estatal de Quevedo
+Universidad Técnica de Babahoyo
+Universidad Estatal de Milagro
+Universidad Estatal de Bolívar
+Universidad Estatal Amazónica
+Universidad Estatal del Sur de Manabí
+Universidad Estatal Península de Santa Elena
+Universidad Nacional de Chimborazo
+Universidad Laica Eloy Alfaro de Manabí
+Universidad Laica Vicente Rocafuerte de Guayaquil
+Universidad Agraria del Ecuador
+Universidad Politécnica Estatal del Carchi
+Universidad de Investigación de Tecnología Experimental Yachay
+Universidad Regional Amazónica Ikiam
+Universidad de las Artes
+Universidad Nacional de Educación
+Escuela Superior Politécnica Agropecuaria de Manabí
+Universidad Tecnológica Indoamérica
+Universidad Metropolitana
+Universidad Iberoamericana del Ecuador
+Universidad Internacional SEK
+Universidad Casa Grande
+Universidad de los Hemisferios
+Universidad del Pacífico
+Facultad Latinoamericana de Ciencias Sociales
+Instituto de Altos Estudios Nacionales

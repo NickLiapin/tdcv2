@@ -1,0 +1,17 @@
+---
+description: Truck cargo / trailer type (US freight)
+locale: en
+---
+Dry Van
+Refrigerated
+Flatbed
+Tanker
+Livestock
+Hazmat
+Intermodal Container
+Auto Carrier
+Lowboy
+Step Deck
+Dump
+Bulk
+Logging

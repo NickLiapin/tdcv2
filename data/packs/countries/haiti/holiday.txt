@@ -1,0 +1,17 @@
+---
+address: haiti.holiday
+description: Public holidays in Haiti (French names)
+locale: fr
+---
+Fête de l'Indépendance
+Jour des Aïeux
+Mardi gras
+Vendredi saint
+Fête du Travail et de l'Agriculture
+Fête du Drapeau
+Assomption
+Mort de Dessalines
+Toussaint
+Jour des Morts
+Bataille de Vertières
+Noël

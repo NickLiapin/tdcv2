@@ -1,0 +1,44 @@
+---
+description: Cooking ingredient (Italian)
+locale: it
+---
+Farina
+Zucchero
+Sale
+Burro
+Uova
+Latte
+Cipolla
+Aglio
+Pomodoro
+Petto di pollo
+Riso
+Formaggio
+Olio d'oliva
+Pepe nero
+Carota
+Patata
+Peperone
+Carne macinata
+Pangrattato
+Limone
+Miele
+Lievito
+Panna
+Spinaci
+Aceto
+Brodo di pollo
+Fagioli
+Lenticchie
+Pasta
+Tonno
+Yogurt
+Formaggio grattugiato
+Prezzemolo
+Olio di semi
+Passata di pomodoro
+Amido di mais
+Vino bianco
+Mandorle
+Noci
+Cioccolato

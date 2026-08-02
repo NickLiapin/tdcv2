@@ -1,0 +1,16 @@
+---
+description: Dishes of Spanish cuisine (German)
+locale: de
+---
+Paella
+Tapas
+Gazpacho
+Spanische Tortilla
+Churros
+Patatas bravas
+Iberischer Schinken
+Pulpo a la gallega
+Fabada asturiana
+Salmorejo
+Gambas al ajillo
+Crema catalana

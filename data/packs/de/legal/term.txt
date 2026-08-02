@@ -1,0 +1,23 @@
+---
+description: Legal term (German)
+locale: de
+---
+Kläger
+Beklagter
+Ladung
+Eidesstattliche Versicherung
+Zeugenvernehmung
+Zeugenaussage
+Einstweilige Verfügung
+Urteil
+Vergleich
+Rechtsstreit
+Güteverhandlung
+Zuständigkeit
+Berufung
+Staatsanwalt
+Strafverteidiger
+Beweismittel
+Verfassungsbeschwerde
+Zustellung
+Vollmacht

@@ -1,0 +1,6 @@
+---
+address: common.id.nanoid
+description: Nano ID (21 chars, URL-safe alphabet A-Za-z0-9_-)
+generator: tdc
+---
+<gen type="regex" value="[0-9A-Za-z_-]{21}"/>

@@ -1,0 +1,18 @@
+---
+description: Court type (generic Spanish, not a specific country's court)
+locale: es
+---
+Corte Suprema
+Tribunal Supremo
+Tribunal Constitucional
+Tribunal de Apelaciones
+Juzgado de Primera Instancia
+Juzgado de lo Civil
+Juzgado de lo Penal
+Juzgado de Familia
+Juzgado de lo Laboral
+Juzgado de lo Mercantil
+Juzgado de Paz
+Juzgado Municipal
+Tribunal Administrativo
+Tribunal Electoral

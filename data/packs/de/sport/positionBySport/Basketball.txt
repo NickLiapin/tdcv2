@@ -1,0 +1,9 @@
+---
+description: Positions in basketball (German)
+locale: de
+---
+Aufbauspieler
+Shooting Guard
+Small Forward
+Power Forward
+Center

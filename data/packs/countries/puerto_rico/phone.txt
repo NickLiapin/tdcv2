@@ -1,0 +1,6 @@
+---
+address: puerto_rico.phone
+description: Puerto Rico phone in E.164 form — US +1 with the island's two area codes 787 and 939, then a 7-digit local number whose central-office code cannot start with 0 or 1
+generator: tdc
+---
+<gen type="regex" value="\+1(?:787|939)[2-9][0-9]{6}"/>

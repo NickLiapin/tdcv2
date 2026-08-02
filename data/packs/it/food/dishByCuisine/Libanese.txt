@@ -1,0 +1,12 @@
+---
+description: Dishes of Lebanese cuisine (Italian)
+locale: it
+---
+Hummus
+Falafel
+Shawarma
+Tabbouleh
+Kibbeh
+Fattoush
+Manakish
+Baba ganoush

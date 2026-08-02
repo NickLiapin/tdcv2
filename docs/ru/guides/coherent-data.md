@@ -1,0 +1,191 @@
+<a name="top"></a>
+
+[English](../../guides/coherent-data.md#top) · **Русский** · [Español](../../es/guides/coherent-data.md#top)
+
+← Назад: [Иерархические зависимости](./hierarchical-dependencies.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Без повторов в строке (distinct)](./distinct.md#top) →
+
+---
+
+# Связные и реляционные данные
+
+Обычные fake-генераторы заполняют поля независимо, и получаются невозможные пары:
+марка `Fiat` с моделью `Altima` (это модель Nissan), город из одного региона с
+индексом из другого. TDC умеет иначе.
+
+Приём простой: **адрес шаблона может подставлять значение другого поля**.
+Родитель называет файл, из которого берётся потомок:
+
+```text
+value="common.vehicle.model.${{Brand}}"
+```
+
+Выпал бренд `Fiat` → адрес превращается в `common.vehicle.model.Fiat`, и модель берётся
+**именно из файла Fiat**. Никаких «Fiat Altima».
+
+> [!NOTE]
+> **Вывод иллюстративен**
+>
+> Значения ниже получены с фиксированным `seed`, поэтому воспроизводимы, но точные
+> строки и пропорции могут отличаться между версиями ядра. Считайте их примерами
+> *формы*, а не гарантией.
+
+## Как это выглядит
+
+Две [последовательности](../core-concepts/sequences.md#top): бренд и модель. Модель
+объявляет [`parent="Brand"`](../core-concepts/sequences.md#top) (чтобы видеть выпавший
+бренд) и подставляет его в адрес [`template`](../generators/template.md#top) через
+`${{Brand}}`:
+
+```xml
+<tdc>
+  <env count="5" seed="showroom" local="en">
+    <sequence name="Brand"><gen type="template" value="common.vehicle.brand"/></sequence>
+    <sequence name="Model" parent="Brand"><gen type="template" value="common.vehicle.model.${{Brand}}"/></sequence>
+  </env>
+  <block><line><data>${{Brand}} ${{Model}}</data></line></block>
+</tdc>
+```
+
+`./run showroom.tdc`
+
+```
+Honda Passport
+Nissan Ariya
+Chevrolet Blazer
+Toyota RAV4
+Ford Maverick
+```
+
+Каждая модель принадлежит своему бренду. Причём `common.vehicle.brand` — **взвешенный**
+пакет (Toyota частая, Maybach редкий), так что и марки выпадают в реальных
+пропорциях — вы получаете и связные пары, *и* правдоподобный срез рынка в одном
+конфиге.
+
+## Один потомок на родителя — кухня и её блюдо
+
+Та же форма работает для любой пары «родитель/потомок». Кухня тянет своё блюдо
+(`food.cuisine` → `food.dishByCuisine.<кухня>`). **Используйте это, когда** два
+поля выглядели бы абсурдно, выпав независимо — «корейский фалафель» никого не
+убедит:
+
+```xml
+<sequence name="Cuisine"><gen type="template" value="food.cuisine"/></sequence>
+<sequence name="Dish" parent="Cuisine"><gen type="template" value="food.dishByCuisine.${{Cuisine}}"/></sequence>
+```
+
+`./run menu.tdc`
+
+```
+Lebanese: Falafel
+Korean: Bulgogi
+Indian: Rogan Josh
+Chinese: Peking Duck
+Greek: Souvlaki
+```
+
+## Один родитель, несколько связанных потомков
+
+Один родитель может кормить **сразу несколько** потомков. Каждый потомок
+подставляет одно и то же значение родителя в свой адрес, так что все поля строки
+остаются согласованными между собой. Здесь страна (взвешенная по населению) тянет
+и столицу, и валюту:
+
+```xml
+<sequence name="Country"><gen type="template" value="geo.country"/></sequence>
+<sequence name="Capital" parent="Country"><gen type="template" value="geo.capitalByCountry.${{Country}}"/></sequence>
+<sequence name="Currency" parent="Country"><gen type="template" value="geo.currencyByCountry.${{Country}}"/></sequence>
+```
+
+`./run atlas.tdc`
+
+```
+China — Beijing — Renminbi
+United States — Washington — US Dollar
+India — New Delhi — Indian Rupee
+Indonesia — Jakarta — Rupiah
+China — Beijing — Renminbi
+```
+
+**Используйте это, когда** несколько полей зависят от одного ключа: части адреса,
+привязанные к региону; детали товара, привязанные к категории; данные
+подразделения, привязанные к отделу. Объявите каждого потомка с одним и тем же
+`parent`, и все они прочитают одно выбранное значение.
+
+## Как устроены данные
+
+Родитель — обычный список; у каждого его значения есть **свой файл-потомок**,
+названный ровно этим значением:
+
+```text
+data/packs/common/vehicle/
+  brand.txt                 # список брендов (родитель)
+  model/
+    Toyota.txt              # модели Toyota
+    Fiat.txt                # модели Fiat
+    Mercedes-Benz.txt       # имена с дефисом и пробелом тоже работают
+```
+
+Адрес файла — путь через точку: `model/Fiat.txt` → `common.vehicle.model.Fiat`. В
+шаблоне `${{Brand}}` подставляет имя файла, и TDC находит нужный список. Чтобы
+добавить бренд, положите `model/НовыйБренд.txt` и допишите строку в `brand.txt`.
+Готовые связные наборы поставляются для марок авто, `food.cuisine`,
+`medical.specialtyCoherent`, `work.industryCoherent`,
+`common.dev.languageCoherent`, `sport.sportCoherent` и `geo.country`.
+
+## Что важно помнить
+
+- **Родитель объявляется раньше потомка** — TDC материализует
+  [последовательности](../core-concepts/sequences.md#top) сверху вниз, поэтому
+  `${{Brand}}` берёт уже посчитанное значение. Потомок, подставляющий поле,
+  объявленное *ниже* себя, не найдёт что читать.
+- **`parent="Brand"`** связывает потомка с родителем и задаёт порядок. Для простой
+  подстановки этого достаточно; более строгий отбор по *конкретному* значению
+  (`parent="Brand.Fiat"`) описан в
+  [Иерархических зависимостях](hierarchical-dependencies.md#top).
+- **У каждого значения родителя должен быть свой файл-потомок**, иначе адрес не
+  найдётся и будет ошибка. Поэтому список-родитель обычно содержит ровно те
+  значения, для которых файлы есть (как `common.vehicle.brand`).
+- **Движок.** Такой конфиг всегда считает in-memory движок (единственный, кто
+  умеет разрешать адрес по строке). Это про реалистичную связность, а не про
+  потоковую генерацию гигабайтов — про поток см.
+  [Большие выгрузки](large-outputs.md#top).
+
+## CSV-родственник — `row` + `weight`
+
+Когда связанные поля лежат в одном **CSV**, а не в отдельных файлах на каждое
+значение, свяжите их через [`row`](../generators/file.md#top): несколько генераторов
+[`file`](../generators/file.md#top) с одинаковым `row` читают **одну и ту же строку**
+на запись, так что поля остаются в пределах одной строки настоящих данных.
+Добавьте `weight` к одному из них, чтобы тянуть строку по её реальной частоте:
+
+```xml
+<sequence name="Place">
+  <gen name="City"   type="file" src="cities.csv" column="city"   row="loc" weight="population"/>
+  <gen name="Region" type="file" src="cities.csv" column="region" row="loc"/>
+</sequence>
+```
+
+`./run cities.tdc`
+
+```
+Москва, Московская обл.
+Казань, Татарстан
+Новосибирск, Новосибирская обл.
+Москва, Московская обл.
+Екатеринбург, Свердловская обл.
+```
+
+Поскольку оба генератора делят `row="loc"`, город и его регион никогда не
+расходятся по разным записям; `weight="population"` у города делает так, что
+крупные пункты выпадают чаще. Подробности — в
+[Генераторе file](../generators/file.md#top).
+
+## Смотрите также
+
+- **[Иерархические зависимости](hierarchical-dependencies.md#top)** — фильтрация потомка по конкретному значению родителя.
+- **[Последовательности](../core-concepts/sequences.md#top)** — объявление полей и связь `parent`.
+- Генераторы **[Template](../generators/template.md#top)** и **[File](../generators/file.md#top)**.
+
+---
+
+← Назад: [Иерархические зависимости](./hierarchical-dependencies.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Без повторов в строке (distinct)](./distinct.md#top) →

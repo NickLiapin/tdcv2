@@ -1,0 +1,25 @@
+---
+address: niger.geo.city
+description: Cities and larger towns of Niger
+locale: fr
+---
+Niamey
+Zinder
+Maradi
+Agadez
+Tahoua
+Dosso
+Birni-N'Konni
+Tessaoua
+Gaya
+Arlit
+Tillabéri
+Diffa
+Dogondoutchi
+Madaoua
+Mirriah
+Ayorou
+Téra
+Filingué
+Illéla
+Magaria

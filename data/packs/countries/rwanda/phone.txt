@@ -1,0 +1,6 @@
+---
+address: rwanda.phone
+description: Rwandan mobile phone in E.164 form (+250 7[238]XXXXXXX)
+generator: tdc
+---
+<gen type="regex" value="\+2507[238][0-9]{7}"/>

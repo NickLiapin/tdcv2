@@ -1,0 +1,45 @@
+---
+description: Language name (Italian)
+locale: it
+---
+Italiano
+Inglese
+Francese
+Spagnolo
+Tedesco
+Portoghese
+Russo
+Cinese mandarino
+Arabo
+Giapponese
+Coreano
+Hindi
+Olandese
+Svedese
+Norvegese
+Danese
+Finlandese
+Polacco
+Rumeno
+Greco
+Turco
+Ebraico
+Vietnamita
+Thailandese
+Indonesiano
+Swahili
+Persiano
+Ucraino
+Ceco
+Ungherese
+Bulgaro
+Croato
+Serbo
+Sloveno
+Slovacco
+Albanese
+Catalano
+Sardo
+Friulano
+Napoletano
+Siciliano

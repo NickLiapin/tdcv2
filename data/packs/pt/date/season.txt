@@ -1,0 +1,8 @@
+---
+description: Season (Portuguese)
+locale: pt
+---
+Primavera
+Verão
+Outono
+Inverno

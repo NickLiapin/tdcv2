@@ -1,0 +1,9 @@
+---
+address: panama.sport.teamBaseball
+description: Panamanian professional baseball club — the franchises of the Liga Profesional de Béisbol de Panamá (Probeis). Baseball is Panama's other major spectator sport alongside football
+locale: es
+---
+Águilas Metropolitanas
+Federales de Chiriquí
+Atlánticos de Bocas del Toro y Colón
+Nacionales de Panamá

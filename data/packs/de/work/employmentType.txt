@@ -1,0 +1,15 @@
+---
+description: Employment / contract type (German)
+locale: de
+---
+Vollzeit
+Teilzeit
+Werkvertrag
+Befristet
+Unbefristet
+Praktikum
+Freiberuflich
+Saisonarbeit
+Aushilfe
+Ausbildung
+Werkstudent

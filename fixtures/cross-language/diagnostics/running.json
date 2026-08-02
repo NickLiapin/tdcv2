@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "cases": [
+    {
+      "name": "a-running-total-that-does-not-say-what-to-add-up",
+      "demonstrates": "TDC239",
+      "description": "A running total reads another column and draws nothing of its own, so of= is not optional.",
+      "config": "<tdc><env count=\"3\" seed=\"s\" local=\"en\"><sequence name=\"Op\"><gen type=\"number\" value=\"1..9\"/></sequence><sequence name=\"B\"><gen type=\"running\" accumulate=\"sum\"/></sequence></env><block><line><data>${{B}}</data></line></block></tdc>",
+      "expected": ["error TDC239 1:123"]
+    },
+    {
+      "name": "a-running-total-reading-a-column-declared-below-it",
+      "demonstrates": "TDC240",
+      "description": "The total is built in declaration order out of a column that already exists — the same rule parent= follows, and for the same reason.",
+      "config": "<tdc><env count=\"3\" seed=\"s\" local=\"en\"><sequence name=\"B\"><gen type=\"running\" of=\"Op\" accumulate=\"sum\"/></sequence><sequence name=\"Op\"><gen type=\"number\" value=\"1..9\"/></sequence></env><block><line><data>${{B}}</data></line></block></tdc>",
+      "expected": ["error TDC240 1:83"]
+    }
+  ]
+}

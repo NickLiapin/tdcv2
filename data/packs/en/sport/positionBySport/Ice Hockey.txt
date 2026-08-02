@@ -1,0 +1,9 @@
+---
+description: Positions in Ice Hockey
+locale: en
+---
+Goaltender
+Defenseman
+Center
+Left Wing
+Right Wing

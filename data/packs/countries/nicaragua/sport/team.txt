@@ -1,0 +1,36 @@
+---
+address: nicaragua.sport.team
+description: Nicaraguan sports club — baseball is the national sport: the professional ABPN teams and the departmental sides of the Campeonato Germán Pomares, followed by the Liga Primera football clubs
+locale: es
+---
+Indios del Bóer
+Tigres de Chinandega
+Gigantes de Rivas
+Leones de León
+Tren del Norte
+Dantos de Managua
+Brumas de Jinotega
+Cafetaleros de Carazo
+Cañoneros de Madriz
+Caribe Norte
+Caribe Sur
+Defensores de Río San Juan
+Tabacaleros de Estelí
+Fieras del San Fernando
+Frente Sur de Rivas
+Indígenas de Matagalpa
+Guerreros de Nueva Segovia
+Productores de Boaco
+Tiburones de Granada
+Toros de Chontales
+Mineros del Caribe
+Real Estelí Fútbol Club
+Diriangén Fútbol Club
+Managua Fútbol Club
+Club Deportivo Walter Ferretti
+Matagalpa Fútbol Club
+Club Sport Sébaco
+Real Madriz Fútbol Club
+UNAN Managua
+ART Municipal Jalapa
+Rancho Santana Fútbol Club

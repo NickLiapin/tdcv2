@@ -1,0 +1,232 @@
+<a name="top"></a>
+
+[English](../../guides/missing-data.md#top) · [Русский](../../ru/guides/missing-data.md#top) · **Español**
+
+← Anterior: [Anomalías y valores atípicos](./anomalies.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Salida tipada y Parquet](./typed-output-parquet.md#top) →
+
+---
+
+# Datos faltantes — `missing`
+
+**Se usa cuando** necesita probar cómo aguanta su código los huecos. Los datos reales
+casi nunca están completos: un teléfono que nunca se capturó, un ingreso que se perdió,
+un campo simplemente en blanco. Si solo prueba con filas «perfectas», el primer null en
+producción rompe todo. El atributo `missing` mezcla vacíos **a propósito** para que
+usted vea la falla antes que sus usuarios.
+
+`missing` es un atributo transversal: funciona en **cualquier**
+[`<gen>`](../generators/overview.md#top), sea lo que sea lo que genere.
+
+Las salidas de ejemplo de abajo son ilustrativas: las filas exactas que produce un
+`seed` dado pueden cambiar entre versiones del core, pero el comportamiento que el
+atributo garantiza no cambia.
+
+![](../../img/guides/anomalies-missing.svg)
+
+*El mismo generador, 80 filas, con cada modificador encendido por turnos.*
+
+- **A** — la serie limpia
+- **B** — con anomaly= — los puntos marcados son los valores atípicos inyectados
+- **C** — con missing= — las marcas de abajo son filas que no produjeron ningún valor
+
+## Cómo activarlo
+
+Ponga `missing="p"` en un `<gen>`, donde `p` es una fracción de `0` a `1` — la
+proporción de valores que quedan vacíos:
+
+```xml
+<gen type="number" value="30000..90000" missing="0.3"/>
+```
+
+Alrededor del 30% de los ingresos sale vacío; el resto son números ordinarios.
+
+Cada valor se descarta de forma **independiente** con esa probabilidad. En estadística
+esto se llama **MCAR** — Missing Completely At Random, «faltantes completamente al
+azar» — los huecos caen sin ninguna relación con otro campo ni con el valor mismo.
+
+Por omisión, un valor faltante es un **string vacío**. ¿Quiere su propio marcador
+(`NULL`, `NA`, `—`)? Use `missing_as` — [vea abajo](#un-marcador-visible--missing_as).
+
+## Antes y después — qué cambia realmente un vacío
+
+**El problema.** Hasta que no vea el mismo campo «entero» y «agujerado» uno junto al
+otro, es difícil saber qué está pasando: qué valor se perdió y cuál nunca estuvo ahí.
+
+**La herramienta.** Tome una lista de ciudades y arme **dos** columnas a partir de ella:
+`Full` tal cual, y `Holey` — la misma lista con `missing`.
+[`order="sequential"`](masks-and-case.md#top) recorre la lista estrictamente en orden, así
+que las dos columnas se alinean fila por fila y usted ve exactamente qué se cayó:
+
+```xml
+<env count="8" seed="demo">
+  <sequence name="Full"> <gen type="text" value="Toluca,Mérida,Colima,Puebla,Durango,Morelia,Tijuana,Cancún" order="sequential"/></sequence>
+  <sequence name="Holey"><gen type="text" value="Toluca,Mérida,Colima,Puebla,Durango,Morelia,Tijuana,Cancún" order="sequential" missing="0.4"/></sequence>
+</env>
+...
+<data>full=${{Full}} | holey=${{Holey}}</data>
+```
+
+`./run cities.tdc (count=8, seed=demo)`
+
+```
+full=Toluca | holey=Toluca
+full=Mérida | holey=Mérida
+full=Colima | holey=
+full=Puebla | holey=
+full=Durango | holey=Durango
+full=Morelia | holey=Morelia
+full=Tijuana | holey=Tijuana
+full=Cancún | holey=Cancún
+```
+
+A la izquierda todo está en su lugar; a la derecha **las mismas** filas, pero `Colima` y
+`Puebla` desaparecieron. El valor no se cambió por otro ni se recorrió hacia arriba:
+simplemente quedó vacío. (En 8 filas con `missing="0.4"` se cayeron dos — la proporción
+es aleatoria, y en una muestra chica la dispersión es amplia.)
+
+## Un marcador visible — `missing_as`
+
+**El problema.** Un string vacío es invisible en una exportación: en un CSV es nada más
+«nada entre dos comas», y a simple vista no se distingue un vacío de un valor corto. Los
+datasets reales suelen señalar el hueco de forma explícita — `NULL`, `NA`, `—`.
+
+**La herramienta.** `missing_as="marcador"` imprime su texto donde iría el vacío. Las
+filas que se pierden son **las mismas** (las elige el `seed` y el nombre de la columna,
+no el marcador); lo único que cambia es qué queda parado en el hueco:
+
+```xml
+<sequence name="Holey">
+  <gen type="text" value="Toluca,Mérida,Colima,Puebla,Durango,Morelia,Tijuana,Cancún"
+       order="sequential" missing="0.4" missing_as="NULL"/>
+</sequence>
+```
+
+`./run cities.tdc (missing_as=NULL)`
+
+```
+full=Toluca | holey=Toluca
+full=Mérida | holey=Mérida
+full=Colima | holey=NULL
+full=Puebla | holey=NULL
+full=Durango | holey=Durango
+full=Morelia | holey=Morelia
+full=Tijuana | holey=Tijuana
+full=Cancún | holey=Cancún
+```
+
+Los huecos están en las mismas filas 3 y 4 que antes, pero ahora se **ven**. Ponga
+`missing_as="—"` o `missing_as="NA"` y obtiene su propio marcador en los mismos lugares.
+
+## Cuántos huecos — variando la tasa
+
+**El problema.** Usted quiere saber cómo se comporta el sistema con vacíos «raros» y con
+vacíos «frecuentes». Una sola tasa no se lo muestra.
+
+**La herramienta.** Cambie solo `missing` y deje todo lo demás igual. `X` es un valor
+presente, `[]` es un hueco. Tres columnas, 20 filas:
+
+```xml
+<env count="20" seed="demo">
+  <sequence name="A"><gen type="text" value="X" order="sequential" missing="0.1"/></sequence>
+  <sequence name="B"><gen type="text" value="X" order="sequential" missing="0.3"/></sequence>
+  <sequence name="C"><gen type="text" value="X" order="sequential" missing="0.6"/></sequence>
+</env>
+...
+<data>0.1:[${{A}}]  0.3:[${{B}}]  0.6:[${{C}}]</data>
+```
+
+`./run rates.tdc (count=20, seed=demo)`
+
+```
+0.1:[X]  0.3:[X]  0.6:[]
+0.1:[X]  0.3:[]  0.6:[X]
+0.1:[X]  0.3:[X]  0.6:[X]
+0.1:[X]  0.3:[]  0.6:[X]
+0.1:[X]  0.3:[]  0.6:[]
+0.1:[X]  0.3:[]  0.6:[X]
+0.1:[X]  0.3:[X]  0.6:[]
+0.1:[]  0.3:[X]  0.6:[]
+0.1:[X]  0.3:[X]  0.6:[]
+0.1:[X]  0.3:[X]  0.6:[X]
+0.1:[]  0.3:[X]  0.6:[X]
+0.1:[X]  0.3:[X]  0.6:[X]
+0.1:[X]  0.3:[X]  0.6:[]
+0.1:[X]  0.3:[X]  0.6:[]
+0.1:[X]  0.3:[]  0.6:[]
+0.1:[X]  0.3:[X]  0.6:[]
+0.1:[X]  0.3:[X]  0.6:[X]
+0.1:[X]  0.3:[X]  0.6:[X]
+0.1:[X]  0.3:[X]  0.6:[]
+0.1:[X]  0.3:[X]  0.6:[X]
+```
+
+Cuente los `[]` vacíos de cada columna: `0.1` → 2 huecos de 20, `0.3` → 5, `0.6` → 10.
+Suba la tasa y los huecos se multiplican. No va a obtener exactamente 2 / 6 / 12: como
+cada valor se descarta de forma independiente, el conteo sobre 20 filas ronda la cifra
+esperada.
+
+## Faltantes en varios campos
+
+`missing` **se combina con cualquier cosa**: un rango simple, un
+[`template`](../generators/template.md#top), un patrón
+[`regex`](../generators/regex.md#top), una distribución estadística. Aquí hay un registro
+armado con tres campos: un nombre (sin vacíos), un teléfono (`missing="0.3"`, marcador
+`N/A`) y un ingreso (`missing="0.25"`, con el marcador vacío por omisión):
+
+```xml
+<env count="8" seed="falta" local="es">
+  <sequence name="Name">   <gen type="template" value="person.male.firstName"/></sequence>
+  <sequence name="Phone">  <gen type="regex" value="\+52 55 [0-9]{4}-[0-9]{4}" missing="0.3" missing_as="N/A"/></sequence>
+  <sequence name="Income"> <gen type="number" value="30000..90000" missing="0.25"/></sequence>
+</env>
+...
+<data>${{Name}} | phone: ${{Phone}} | income: ${{Income}}</data>
+```
+
+`./run record.tdc (count=8, seed=falta)`
+
+```
+Gilberto | phone: +52 55 0799-7766 | income:
+Manuel | phone: N/A | income: 70687
+Roberto | phone: N/A | income: 74842
+Emiliano | phone: +52 55 3252-0924 | income:
+Ángel | phone: +52 55 6794-5318 | income:
+Ubaldo | phone: +52 55 5344-1029 | income: 55652
+Cornelio | phone: +52 55 1697-4757 | income: 45147
+Amado | phone: +52 55 5547-3053 | income: 47706
+```
+
+Las filas 2 y 3 traen `N/A` en el teléfono; las filas 1, 4 y 5 tienen el ingreso vacío (el
+marcador por omisión no es nada en absoluto). Los vacíos de los dos campos son
+**independientes**: un hueco en una columna no dice nada sobre la otra.
+
+## Detalles
+
+- **Determinista.** El mismo `seed` produce los mismos vacíos — vea [Determinismo y
+  proporciones](../core-concepts/determinism.md#top). Un dataset «agujerado» se reproduce
+  byte por byte, corrida tras corrida.
+- **Los dos motores, cualquier volumen.** Los vacíos se deciden por número de fila, así
+  que la memoria no crece con el dataset — vea [Salidas grandes y
+  streaming](large-outputs.md#top).
+- **`missing="0"`** significa que no hay ningún vacío — exactamente como si el atributo
+  no estuviera.
+
+> [!NOTE]
+> **Lo que viene**
+>
+> Hoy solo está implementado **MCAR**: los vacíos son igual de probables e independientes
+> de todo lo demás. En la hoja de ruta están **MAR / MNAR** — donde la probabilidad de un
+> hueco depende de otro campo, o del valor mismo.
+
+## Vea también
+
+- **[Secuencias](../core-concepts/sequences.md#top)** — las columnas a las que les está
+  haciendo huecos, y cómo `${{Name}}` las lee.
+- **[Text](../generators/text.md#top)** y **[Number](../generators/number.md#top)** — los
+  generadores usados en los ejemplos de arriba.
+- **[Máscaras y mayúsculas](masks-and-case.md#top)** — `order="sequential"` y los demás
+  atributos transversales de los generadores.
+
+---
+
+← Anterior: [Anomalías y valores atípicos](./anomalies.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Salida tipada y Parquet](./typed-output-parquet.md#top) →

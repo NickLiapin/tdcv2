@@ -1,0 +1,42 @@
+---
+description: Leading element of a Spanish place name (San Juan, Villa Nueva, Puerto Real). Combine with a real toponym; it does not by itself name a real city.
+locale: es
+---
+San
+Santa
+Santo
+Villa
+Villanueva de
+Puerto
+Ciudad
+Nueva
+Nuevo
+Valle de
+Villa de
+Río
+Sierra
+Punta
+Bahía
+Costa
+Alto
+Alta
+Monte
+Campo
+Cerro
+Laguna
+Isla
+Playa
+Vega de
+Peña
+Fuente de
+Torre de
+Castillo de
+Puente de
+Paso de
+Llano
+Colonia
+Barrio
+El
+La
+Los
+Las

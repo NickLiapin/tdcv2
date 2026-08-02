@@ -1,0 +1,9 @@
+---
+description: Positions in ice hockey (Polish)
+locale: pl
+---
+Bramkarz
+Obrońca
+Środkowy napastnik
+Lewoskrzydłowy
+Prawoskrzydłowy

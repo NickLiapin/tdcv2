@@ -1,0 +1,237 @@
+---
+description: Country and territory names (German)
+locale: de
+---
+Afghanistan
+Albanien
+Deutschland
+Andorra
+Angola
+Anguilla
+Antarktis
+Antigua und Barbuda
+Saudi-Arabien
+Algerien
+Argentinien
+Armenien
+Aruba
+Australien
+Österreich
+Aserbaidschan
+Bahamas
+Bangladesch
+Barbados
+Bahrain
+Belgien
+Belize
+Benin
+Bermuda
+Belarus
+Bolivien
+Bosnien und Herzegowina
+Botswana
+Brasilien
+Brunei
+Bulgarien
+Burkina Faso
+Burundi
+Bhutan
+Kap Verde
+Kambodscha
+Kamerun
+Kanada
+Katar
+Tschad
+Tschechien
+Chile
+China
+Zypern
+Vatikanstadt
+Kolumbien
+Komoren
+Nordkorea
+Südkorea
+Elfenbeinküste
+Costa Rica
+Kroatien
+Kuba
+Curaçao
+Dänemark
+Dominica
+Ecuador
+Ägypten
+El Salvador
+Vereinigte Arabische Emirate
+Eritrea
+Slowakei
+Slowenien
+Spanien
+Vereinigte Staaten
+Estland
+Eswatini
+Äthiopien
+Philippinen
+Finnland
+Fidschi
+Frankreich
+Gabun
+Gambia
+Georgien
+Ghana
+Gibraltar
+Grenada
+Griechenland
+Grönland
+Guadeloupe
+Guam
+Guatemala
+Französisch-Guayana
+Guinea
+Guinea-Bissau
+Äquatorialguinea
+Guyana
+Haiti
+Honduras
+Hongkong
+Ungarn
+Indien
+Indonesien
+Irak
+Iran
+Irland
+Weihnachtsinsel
+Island
+Kaimaninseln
+Kokosinseln
+Cookinseln
+Färöer
+Falklandinseln
+Nördliche Marianen
+Marshallinseln
+Pitcairninseln
+Salomonen
+Turks- und Caicosinseln
+Britische Jungferninseln
+Amerikanische Jungferninseln
+Israel
+Italien
+Jamaika
+Japan
+Jordanien
+Kasachstan
+Kenia
+Kirgisistan
+Kiribati
+Kosovo
+Kuwait
+Laos
+Lesotho
+Lettland
+Libanon
+Liberia
+Libyen
+Liechtenstein
+Litauen
+Luxemburg
+Macau
+Nordmazedonien
+Madagaskar
+Malaysia
+Malawi
+Malediven
+Mali
+Malta
+Marokko
+Martinique
+Mauritius
+Mauretanien
+Mayotte
+Mexiko
+Mikronesien
+Moldau
+Monaco
+Mongolei
+Montenegro
+Montserrat
+Mosambik
+Myanmar
+Namibia
+Nauru
+Nepal
+Nicaragua
+Niger
+Nigeria
+Niue
+Norwegen
+Neukaledonien
+Neuseeland
+Oman
+Niederlande
+Pakistan
+Palau
+Palästina
+Panama
+Papua-Neuguinea
+Paraguay
+Peru
+Französisch-Polynesien
+Polen
+Portugal
+Puerto Rico
+Vereinigtes Königreich
+Zentralafrikanische Republik
+Republik Kongo
+Demokratische Republik Kongo
+Dominikanische Republik
+Réunion
+Ruanda
+Rumänien
+Russland
+Westsahara
+Samoa
+Amerikanisch-Samoa
+St. Kitts und Nevis
+San Marino
+St. Vincent und die Grenadinen
+St. Lucia
+São Tomé und Príncipe
+Senegal
+Serbien
+Seychellen
+Sierra Leone
+Singapur
+Syrien
+Somalia
+Sri Lanka
+Südafrika
+Sudan
+Südsudan
+Schweden
+Schweiz
+Suriname
+Thailand
+Taiwan
+Tansania
+Tadschikistan
+Französische Südgebiete
+Osttimor
+Togo
+Tokelau
+Tonga
+Trinidad und Tobago
+Tunesien
+Turkmenistan
+Türkei
+Tuvalu
+Ukraine
+Uganda
+Uruguay
+Usbekistan
+Vanuatu
+Venezuela
+Vietnam
+Wallis und Futuna
+Jemen
+Dschibuti
+Sambia
+Simbabwe

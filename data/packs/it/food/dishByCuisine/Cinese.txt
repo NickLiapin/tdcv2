@@ -1,0 +1,14 @@
+---
+description: Dishes of Chinese cuisine (Italian)
+locale: it
+---
+Pollo kung pao
+Riso fritto
+Chow mein
+Maiale in agrodolce
+Tofu mapo
+Anatra laccata alla pechinese
+Zuppa wonton
+Involtini primavera
+Ravioli al vapore
+Manzo con broccoli

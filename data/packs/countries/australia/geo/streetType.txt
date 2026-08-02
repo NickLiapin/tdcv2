@@ -1,0 +1,29 @@
+---
+address: australia.geo.streetType
+description: Australian street type (thoroughfare suffix) as used in addresses
+locale: en
+---
+Street
+Road
+Avenue
+Drive
+Court
+Place
+Lane
+Way
+Close
+Crescent
+Parade
+Terrace
+Boulevard
+Highway
+Circuit
+Grove
+Rise
+Esplanade
+Square
+Walk
+Mews
+Row
+Gardens
+Loop

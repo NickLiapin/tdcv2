@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "algorithm": "Hamilton exact counts + deterministic shuffle",
+  "vectors": [
+    {
+      "name": "gender-100-42-58",
+      "seed": "674teyer74yTRGY7",
+      "count": 100,
+      "values": ["M", "W"],
+      "percents": [42, 58],
+      "expectedPrefix": [
+        "M",
+        "M",
+        "M",
+        "M",
+        "W",
+        "W",
+        "M",
+        "M",
+        "W",
+        "M",
+        "M",
+        "M",
+        "W",
+        "W",
+        "W",
+        "M",
+        "W",
+        "M",
+        "M",
+        "W"
+      ],
+      "expectedCounts": {
+        "M": 42,
+        "W": 58
+      }
+    },
+    {
+      "name": "xyz-10-30-50-20",
+      "seed": "674teyer74yTRGY7",
+      "count": 10,
+      "values": ["X", "Y", "Z"],
+      "percents": [30, 50, 20],
+      "expected": ["Y", "X", "X", "Z", "Z", "Y", "Y", "Y", "X", "Y"]
+    },
+    {
+      "name": "abc-7-fractional",
+      "seed": "hello",
+      "count": 7,
+      "values": ["A", "B", "C"],
+      "percents": [33.33, 33.33, 33.34],
+      "expected": ["A", "A", "B", "B", "C", "C", "C"]
+    }
+  ]
+}

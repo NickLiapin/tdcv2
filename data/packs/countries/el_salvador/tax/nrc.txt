@@ -1,0 +1,9 @@
+---
+address: el_salvador.tax.nrc
+description: El Salvador NRC (Número de Registro de Contribuyente) — the VAT/IVA registration number the Ministerio de Hacienda assigns, written as a serial and a trailing check digit after a hyphen (e.g. 123456-7). Lengths vary. STRUCTURAL ONLY: the check-digit algorithm is not published, so the trailing digit is random here and not a computed checksum
+generator: tdc
+---
+<sequence name="serial"><gen type="regex" value="[0-9]{4,7}"/></sequence>
+<!-- Not a checksum — see the description. -->
+<sequence name="check"><gen type="regex" value="[0-9]"/></sequence>
+<data>${{serial}}-${{check}}</data>

@@ -1,0 +1,33 @@
+---
+address: germany.sport.team
+description: Bundesliga and 2. Bundesliga football clubs (German names)
+locale: de
+---
+FC Bayern München
+Borussia Dortmund
+RB Leipzig
+Bayer 04 Leverkusen
+Eintracht Frankfurt
+VfB Stuttgart
+Borussia Mönchengladbach
+VfL Wolfsburg
+SC Freiburg
+1. FC Union Berlin
+TSG 1899 Hoffenheim
+1. FSV Mainz 05
+FC Augsburg
+Werder Bremen
+VfL Bochum
+1. FC Heidenheim
+Holstein Kiel
+FC St. Pauli
+Hamburger SV
+1. FC Köln
+Hertha BSC
+Fortuna Düsseldorf
+Schalke 04
+1. FC Nürnberg
+Hannover 96
+Karlsruher SC
+SV Darmstadt 98
+Greuther Fürth

@@ -1,0 +1,18 @@
+---
+description: Insurance type (Spanish)
+locale: es
+---
+Salud
+Automóvil
+Hogar
+Vida
+Inquilino
+Viaje
+Mascotas
+Invalidez
+Dental
+Visión
+Responsabilidad civil
+Accidentes personales
+Desempleo
+Agrícola

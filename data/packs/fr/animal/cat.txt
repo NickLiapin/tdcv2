@@ -1,0 +1,28 @@
+---
+description: Cat breed (French)
+locale: fr
+---
+Persan
+Siamois
+Maine Coon
+Bengal
+British Shorthair
+Chartreux
+Sphynx
+Ragdoll
+Abyssin
+Sacré de Birmanie
+Norvégien
+Européen
+Angora turc
+Bleu russe
+Savannah
+Scottish Fold
+Devon Rex
+Somali
+Oriental
+Chat de gouttière
+Bombay
+Mau égyptien
+Cornish Rex
+Turc de Van

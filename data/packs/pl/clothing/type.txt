@@ -1,0 +1,30 @@
+---
+description: Garment type (Polish)
+locale: pl
+---
+Koszulka
+Dżinsy
+Sukienka
+Kurtka
+Sweter
+Spódnica
+Szorty
+Bluza z kapturem
+Bluzka
+Garnitur
+Płaszcz
+Trampki
+Kozaki
+Kapelusz
+Szalik
+Koszula
+Spodnie
+Kamizelka
+Płaszcz przeciwdeszczowy
+Piżama
+Skarpetki
+Pasek
+Czapka
+Sandały
+Rękawiczki
+Krawat

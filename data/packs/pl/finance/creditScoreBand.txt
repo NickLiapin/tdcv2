@@ -1,0 +1,9 @@
+---
+description: Credit score band (Polish)
+locale: pl
+---
+Zły
+Przeciętny
+Dobry
+Bardzo dobry
+Doskonały

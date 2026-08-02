@@ -1,0 +1,14 @@
+---
+address: bolivia.geo.departmentCapital
+description: Capital of each departamento; same order as bolivia.geo.department. Sucre is the capital of Chuquisaca (and the constitutional capital of Bolivia); La Paz is the seat of government
+locale: es
+---
+Sucre
+La Paz
+Cochabamba
+Oruro
+Potosí
+Tarija
+Santa Cruz de la Sierra
+Trinidad
+Cobija

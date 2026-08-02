@@ -1,0 +1,4 @@
+---
+description: Currency of Франция
+---
+Евро

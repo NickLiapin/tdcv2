@@ -1,0 +1,6 @@
+---
+address: palestine.phone
+description: Palestinian mobile phone in E.164 form (+970 5[69]XXXXXXX)
+generator: tdc
+---
+<gen type="regex" value="\+9705[69][0-9]{7}"/>

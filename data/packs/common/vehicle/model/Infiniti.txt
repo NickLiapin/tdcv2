@@ -1,0 +1,10 @@
+---
+description: Models of Infiniti
+locale: en
+---
+Q50
+Q60
+QX50
+QX55
+QX60
+QX80

@@ -1,0 +1,5 @@
+---
+description: Currency code of United States
+locale: en
+---
+USD

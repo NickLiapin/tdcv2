@@ -1,0 +1,23 @@
+---
+description: Movie genre (Polish)
+locale: pl
+---
+Akcja
+Komedia
+Dramat
+Horror
+Thriller
+Romans
+Fantastyka naukowa
+Fantasy
+Dokumentalny
+Animacja
+Przygodowy
+Kryminalny
+Tajemnica
+Western
+Musical
+Wojenny
+Biograficzny
+Czarny kryminał
+Komedia romantyczna

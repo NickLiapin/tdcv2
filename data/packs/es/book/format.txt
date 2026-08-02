@@ -1,0 +1,12 @@
+---
+description: Book format (Spanish)
+locale: es
+---
+Tapa dura
+Tapa blanda
+Libro electrónico
+Audiolibro
+Edición de bolsillo
+Encuadernación en rústica
+Edición ilustrada
+Edición de biblioteca

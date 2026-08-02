@@ -1,0 +1,16 @@
+---
+description: Mobile carrier
+locale: en
+---
+Verizon
+AT&T
+T-Mobile
+Vodafone
+Orange
+O2
+EE
+Telefonica
+Deutsche Telekom
+Airtel
+Jio
+China Mobile

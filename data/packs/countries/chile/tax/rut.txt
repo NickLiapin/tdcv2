@@ -1,0 +1,38 @@
+---
+address: chile.tax.rut
+description: Chilean RUT (Rol Único Tributario) — the same number as the RUN and the same check character: a 7-8 digit body plus the módulo 11 digit with cyclic weights 2,3,4,5,6,7 right to left, where a remainder of 1 prints as K (real example: 60.803.000-K, Servicio de Impuestos Internos). Companies are issued bodies in the 60-99 million range
+generator: tdc
+---
+<sequence name="body"><gen type="regex" value="[1-9][0-9]{6,7}"/></sequence>
+<sequence name="rut"><compute>
+  <let name="len"><length><field name="body"/></length></let>
+  <!-- Módulo 11: walking right to left the weights cycle 2,3,4,5,6,7,2,3,...
+       Index i from the left sits (len-1-i) places from the right, so its
+       weight is 2 + ((len-1-i) mod 6). -->
+  <let name="sum">
+    <reduce>
+      <over><field name="body"/></over>
+      <init><int v="0"/></init>
+      <do><add><acc/>
+        <multiply><current/>
+          <add><int v="2"/>
+            <mod>
+              <subtract><var name="len"/><int v="1"/><current_index/></subtract>
+              <int v="6"/>
+            </mod>
+          </add>
+        </multiply>
+      </add></do>
+    </reduce>
+  </let>
+  <!-- 11 - (sum mod 11), folded so 11 becomes 0; a remainder of 1 leaves 10,
+       which prints as K. Roughly one RUT in eleven ends in K. -->
+  <let name="c"><mod><subtract><int v="11"/><mod><var name="sum"/><int v="11"/></mod></subtract><int v="11"/></mod></let>
+  <result>
+    <choose>
+      <when><test><equals><var name="c"/><int v="10"/></equals></test><then><str v="K"/></then></when>
+      <otherwise><var name="c"/></otherwise>
+    </choose>
+  </result>
+</compute></sequence>
+<data>${{body}}${{rut}}</data>

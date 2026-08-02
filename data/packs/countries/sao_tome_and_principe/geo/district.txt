@@ -1,0 +1,12 @@
+---
+address: sao_tome_and_principe.geo.district
+description: The seven districts of São Tomé and Príncipe; Pagué is the sole district of the Autonomous Region of Príncipe
+locale: pt
+---
+Água Grande
+Cantagalo
+Caué
+Lembá
+Lobata
+Mé-Zóchi
+Pagué

@@ -1,0 +1,13 @@
+---
+description: Cable type (telecom / networking) (Portuguese)
+locale: pt
+---
+Fibra óptica
+Coaxial
+Par trançado
+Cat5e
+Cat6
+Cat6a
+Ethernet
+Aéreo
+Subterrâneo

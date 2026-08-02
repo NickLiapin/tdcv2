@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Oncology (French)
+locale: fr
+---
+Cancer du sein
+Cancer du poumon
+Cancer colorectal
+Cancer de la prostate
+Leucémie
+Lymphome
+Mélanome
+Cancer du pancréas
+Cancer de l'estomac
+Cancer de la vessie

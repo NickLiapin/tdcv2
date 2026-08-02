@@ -1,0 +1,17 @@
+---
+address: sweden.finance.bank
+description: Major banks operating in Sweden (Swedish names)
+locale: sv
+---
+Swedbank
+Handelsbanken
+SEB
+Nordea
+Danske Bank Sverige
+Länsförsäkringar Bank
+ICA Banken
+Skandiabanken
+SBAB
+Avanza
+Nordnet
+Marginalen Bank

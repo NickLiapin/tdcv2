@@ -1,0 +1,18 @@
+---
+address: saudi_arabia.geo.region
+description: Regions (provinces) of Saudi Arabia (Arabic)
+locale: ar
+---
+الرياض
+مكة المكرمة
+المدينة المنورة
+القصيم
+المنطقة الشرقية
+عسير
+تبوك
+حائل
+الحدود الشمالية
+جازان
+نجران
+الباحة
+الجوف

@@ -1,0 +1,22 @@
+---
+description: Tech verb, present participle (French)
+locale: fr
+---
+sauvegardant
+contournant
+piratant
+compilant
+chiffrant
+déchiffrant
+indexant
+analysant
+routant
+synchronisant
+redémarrant
+déployant
+réinitialisant
+surchargeant
+interceptant
+transférant
+programmant
+déboguant

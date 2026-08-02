@@ -1,0 +1,11 @@
+---
+description: Blood type (ABO / Rh)
+---
+A+
+A−
+B+
+B−
+AB+
+AB−
+O+
+O−

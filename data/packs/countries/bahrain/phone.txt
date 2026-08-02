@@ -1,0 +1,6 @@
+---
+address: bahrain.phone
+description: Bahraini mobile phone in E.164 form (+973 3XXXXXXX)
+generator: tdc
+---
+<gen type="regex" value="\+9733[0-9]{7}"/>

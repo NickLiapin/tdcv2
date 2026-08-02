@@ -1,0 +1,15 @@
+---
+description: Shipping status (Italian)
+locale: it
+---
+Etichetta creata
+In transito
+In consegna
+Consegnato
+Anomalia
+Restituito al mittente
+In attesa di ritiro
+In ritardo
+In dogana
+Indirizzo errato
+Tentativo di consegna fallito

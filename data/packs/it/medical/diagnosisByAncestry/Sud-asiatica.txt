@@ -1,0 +1,12 @@
+---
+description: Conditions markedly more frequent in people of South Asian ancestry, in Italian. A prevalence signal, not an exclusive one.
+locale: it
+---
+Diabete mellito di tipo 2 a esordio precoce
+Cardiopatia ischemica precoce
+Obesità centrale con indice di massa corporea normale
+Ipovitaminosi D
+Beta-talassemia eterozigote
+Sindrome metabolica
+Deficit di glucosio-6-fosfato deidrogenasi
+Cardiopatia reumatica

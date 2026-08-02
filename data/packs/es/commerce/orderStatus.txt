@@ -1,0 +1,18 @@
+---
+description: Order status (Spanish)
+locale: es
+---
+Pendiente
+En proceso
+Confirmado
+Preparando envío
+Enviado
+En reparto
+Entregado
+Cancelado
+Devuelto
+Reembolsado
+En espera
+Pendiente de pago
+Sin existencias
+Fallido

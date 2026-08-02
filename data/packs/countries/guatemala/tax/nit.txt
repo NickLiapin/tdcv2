@@ -1,0 +1,7 @@
+---
+address: guatemala.tax.nit
+description: Guatemala NIT (13-digit body, same shape as CUI, no check digit)
+generator: tdc
+---
+<sequence name="body"><gen type="regex" value="[0-9]{9}(0[1-9]|1[0-9]|2[0-2])(0[1-9]|[1-9][0-9])"/></sequence>
+<data>${{body}}</data>

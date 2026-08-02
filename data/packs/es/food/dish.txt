@@ -1,0 +1,44 @@
+---
+description: Dish (Spanish)
+locale: es
+---
+Pizza
+Sushi
+Tacos
+Hamburguesa con queso
+Espaguetis a la carbonara
+Ramen
+Pollo al curry
+Bistec a la parrilla
+Ensalada césar
+Sándwich club
+Lasaña
+Risotto de champiñones
+Paella
+Empanadas
+Pad thai
+Pescado frito con papas
+Estofado de carne
+Burrito
+Ñoquis
+Arroz frito
+Ceviche
+Asado
+Enchiladas
+Sopa de pollo
+Arroz con pollo
+Tortilla española
+Pollo tikka masala
+Gazpacho
+Milanesa
+Guiso de lentejas
+Croquetas
+Canelones
+Albóndigas
+Ensalada griega
+Quesadilla
+Sopa de tomate
+Pastel de carne
+Pollo asado
+Sopa de mariscos
+Berenjenas rellenas

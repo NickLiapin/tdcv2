@@ -1,0 +1,16 @@
+---
+address: cape_verde.holiday
+description: Public holidays in Cape Verde (Portuguese names)
+locale: pt
+---
+Ano Novo
+Dia da Democracia
+Dia dos Heróis Nacionais
+Carnaval
+Sexta-feira Santa
+Dia do Trabalhador
+Dia da Criança
+Dia da Independência Nacional
+Dia da Assunção
+Dia de Todos os Santos
+Natal

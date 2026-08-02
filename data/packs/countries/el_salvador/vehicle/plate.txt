@@ -1,0 +1,7 @@
+---
+address: el_salvador.vehicle.plate
+description: Salvadoran licence plate (2011 format, valid through 2027) — a category letter and six digits split 3-3, e.g. P123-456. P particular dominates; A alquiler (taxi), C carga, M motocicleta, AB autobús also occur
+generator: tdc
+locale: es
+---
+<gen type="regex" value="(P[0-9]{3}-[0-9]{3}|P[0-9]{3}-[0-9]{3}|P[0-9]{3}-[0-9]{3}|A[0-9]{3}-[0-9]{3}|C[0-9]{3}-[0-9]{3}|M[0-9]{3}-[0-9]{3}|AB[0-9]{3}-[0-9]{3})"/>

@@ -1,0 +1,16 @@
+---
+description: Meeting type (Italian)
+locale: it
+---
+Riunione giornaliera
+Colloquio individuale
+Assemblea aziendale
+Retrospettiva
+Pianificazione dello sprint
+Riunione di avvio
+Allineamento
+Revisione
+Laboratorio
+Sessione di brainstorming
+Riunione di aggiornamento
+Analisi post mortem

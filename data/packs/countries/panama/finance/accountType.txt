@@ -1,0 +1,9 @@
+---
+address: panama.finance.accountType
+description: Panamanian bank account type as named on a transfer or deposit form
+locale: es
+---
+Cuenta de Ahorros
+Cuenta Corriente
+Cuenta de Ahorro Básica
+Depósito a Plazo Fijo

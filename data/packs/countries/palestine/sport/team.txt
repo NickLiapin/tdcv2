@@ -1,0 +1,17 @@
+---
+address: palestine.sport.team
+description: Palestinian Premier League football clubs (Arabic)
+locale: ar
+---
+خدمات رفح
+شباب الخليل
+هلال القدس
+مركز بلاطة
+شباب الظاهرية
+الأمعري
+ثقافي طولكرم
+مركز طولكرم
+جبل المكبر
+الوحدة
+شباب الأمعري
+اتحاد الشجاعية

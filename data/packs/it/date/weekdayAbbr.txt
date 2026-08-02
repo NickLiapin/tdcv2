@@ -1,0 +1,11 @@
+---
+description: Weekday abbreviation (Italian)
+locale: it
+---
+lun
+mar
+mer
+gio
+ven
+sab
+dom

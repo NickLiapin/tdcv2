@@ -1,0 +1,34 @@
+---
+description: Bird (Italian)
+locale: it
+---
+Passero
+Pettirosso
+Aquila
+Falco
+Gufo
+Pappagallo
+Pinguino
+Gheppio
+Cardinale
+Ghiandaia
+Colibrì
+Picchio
+Pellicano
+Fenicottero
+Cigno
+Corvo imperiale
+Cornacchia
+Cardellino
+Airone
+Martin pescatore
+Gabbiano
+Colombo
+Rondine
+Usignolo
+Condor
+Tucano
+Struzzo
+Cicogna
+Barbagianni
+Quetzal

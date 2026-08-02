@@ -1,0 +1,37 @@
+---
+address: peru.tax.ruc
+description: Peru RUC — 11 digits: a 2-digit tipo de contribuyente prefix (10 persona natural, 20 persona jurídica, 15/17 for holders identified by a document other than the DNI), an 8-digit body (the DNI itself when the prefix is 10, a SUNAT serial otherwise) and a mod-11 check digit over the weights 5,4,3,2,7,6,5,4,3,2 (remainder mapped 10→0, 11→1)
+generator: tdc
+---
+<!-- Tipo de contribuyente. 10 and 20 carry almost every real RUC; 15 and 17
+     are issued to holders identified by a carné de extranjería or a similar
+     document instead of a DNI. -->
+<sequence name="prefix"><gen type="text" value="10,10,10,20,20,20,15,17"/></sequence>
+<sequence name="body"><gen type="regex" value="[0-9]{8}"/></sequence>
+<sequence name="ruc"><compute>
+  <let name="payload"><concat><field name="prefix"/><field name="body"/></concat></let>
+  <!-- SUNAT weights, applied left to right across the 10-digit payload. -->
+  <let name="sum">
+    <reduce>
+      <over><var name="payload"/></over>
+      <init><int v="0"/></init>
+      <do><add><acc/>
+        <multiply><current/>
+          <at><in><list v="5,4,3,2,7,6,5,4,3,2"/></in><index><current_index/></index></at>
+        </multiply>
+      </add></do>
+    </reduce>
+  </let>
+  <let name="raw"><subtract><int v="11"/><mod><var name="sum"/><int v="11"/></mod></subtract></let>
+  <!-- Both out-of-range remainders fold back into a single digit: 10 -> 0
+       (SUNAT's own RUC 20131257750 is this case), 11 -> 1. -->
+  <let name="check">
+    <choose>
+      <when><test><equals><var name="raw"/><int v="10"/></equals></test><then><int v="0"/></then></when>
+      <when><test><equals><var name="raw"/><int v="11"/></equals></test><then><int v="1"/></then></when>
+      <otherwise><var name="raw"/></otherwise>
+    </choose>
+  </let>
+  <result><concat><var name="payload"/><var name="check"/></concat></result>
+</compute></sequence>
+<data>${{ruc}}</data>

@@ -1,0 +1,7 @@
+---
+address: south_africa.tax.taxRef
+description: SARS tax reference number — 10 digits, first digit 0/1/2/3/9 (check-digit algorithm not public, so none is computed)
+generator: tdc
+locale: en
+---
+<gen type="regex" value="[01239][0-9]{9}"/>

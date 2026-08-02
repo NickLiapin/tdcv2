@@ -1,0 +1,21 @@
+---
+address: costa_rica.geo.streetName
+description: Costa Rican street name — mostly the numbered San José-style grid (Calle 5, Avenida 10) with the rest named (Avenida Juan Santamaría, Bulevar Rohrmoser)
+generator: tdc
+locale: es
+---
+<sequence name="mode"><gen type="number" value="1..10"/></sequence>
+<sequence name="gridType"><gen type="text" value="Calle,Avenida"/></sequence>
+<sequence name="type"><gen type="text" value="Avenida,Avenida,Calle,Calle,Bulevar,Paseo,Autopista,Carretera,Diagonal"/></sequence>
+<sequence name="n"><gen type="number" value="1..40"/></sequence>
+<sequence name="named"><gen type="template" value="costa_rica.geo.streetNamed"/></sequence>
+<sequence name="street"><compute>
+  <result>
+    <choose>
+      <when><test><greater_than><to_number><field name="mode"/></to_number><int v="5"/></greater_than></test>
+        <then><concat><field name="gridType"/><str v=" "/><field name="n"/></concat></then></when>
+      <otherwise><concat><field name="type"/><str v=" "/><field name="named"/></concat></otherwise>
+    </choose>
+  </result>
+</compute></sequence>
+<data>${{street}}</data>

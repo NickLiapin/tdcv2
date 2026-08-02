@@ -1,0 +1,11 @@
+---
+description: Conditions markedly more frequent in people of Mediterranean ancestry, in Spanish. A prevalence signal, not an exclusive one.
+locale: es
+---
+Beta-talasemia
+Rasgo de beta-talasemia
+Deficiencia de glucosa-6-fosfato deshidrogenasa
+Fiebre mediterránea familiar
+Enfermedad de Behçet
+Alfa-talasemia
+Favismo

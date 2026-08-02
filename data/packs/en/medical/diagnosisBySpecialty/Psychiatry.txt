@@ -1,0 +1,10 @@
+---
+description: Diagnoses seen in Psychiatry
+locale: en
+---
+Major Depressive Disorder
+Generalized Anxiety Disorder
+Bipolar Disorder
+Schizophrenia
+PTSD
+ADHD

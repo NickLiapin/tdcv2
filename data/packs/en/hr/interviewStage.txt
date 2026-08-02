@@ -1,0 +1,15 @@
+---
+description: Hiring / interview stage
+locale: en
+---
+Application Review
+Phone Screen
+Technical Interview
+Onsite Interview
+Panel Interview
+Final Round
+Reference Check
+Offer
+Rejected
+Hired
+Withdrawn

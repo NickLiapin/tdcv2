@@ -1,0 +1,20 @@
+---
+address: san_marino.holiday
+description: Public holidays in San Marino (Italian names)
+locale: it
+---
+Capodanno
+Epifania
+Festa di Sant'Agata
+Anniversario dell'Arengo
+Lunedì dell'Angelo
+Festa dei Lavoratori
+Corpus Domini
+Anniversario della Caduta del Fascismo
+Ferragosto
+San Marino e Fondazione della Repubblica
+Ognissanti
+Commemorazione dei defunti
+Immacolata Concezione
+Natale
+Santo Stefano

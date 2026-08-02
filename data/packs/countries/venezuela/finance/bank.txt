@@ -1,0 +1,30 @@
+---
+address: venezuela.finance.bank
+description: Venezuelan bank (banco universal supervised by SUDEBAN); same order as venezuela.finance.bankCode
+locale: es
+---
+Banco de Venezuela
+Banco Venezolano de Crédito
+Mercantil Banco
+BBVA Provincial
+Bancaribe
+Banco Exterior
+Banco Caroní
+Banesco
+Banco Sofitasa
+Banco Plaza
+Bangente
+Banco Fondo Común
+100% Banco
+DelSur Banco Universal
+Banco del Tesoro
+Banco Agrícola de Venezuela
+Bancrecer
+Mi Banco
+Banco Activo
+Bancamiga
+Banco Internacional de Desarrollo
+Banplus
+Banco Bicentenario del Pueblo
+Banco de la Fuerza Armada Nacional Bolivariana
+Banco Nacional de Crédito

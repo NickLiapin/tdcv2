@@ -1,0 +1,9 @@
+---
+address: monaco.education.university
+description: Higher-education institutions in Monaco
+locale: fr
+---
+International University of Monaco
+Monaco Business School
+Institut de Formation en Soins Infirmiers de Monaco
+Académie de Musique Rainier III

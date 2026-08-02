@@ -1,0 +1,12 @@
+---
+description: Dishes of Chinese cuisine (Spanish)
+locale: es
+---
+Pollo kung pao
+Arroz frito
+Chow mein
+Cerdo agridulce
+Tofu mapo
+Pato laqueado
+Sopa wantán
+Rollitos de primavera

@@ -1,0 +1,22 @@
+---
+description: Employee benefit (German)
+locale: de
+---
+Krankenversicherung
+Zahnzusatzversicherung
+Sehhilfenzuschuss
+Betriebliche Altersvorsorge
+Bezahlter Urlaub
+Homeoffice
+Gleitzeit
+Aktienoptionen
+Lebensversicherung
+Elternzeit
+Fitnessstudio-Mitgliedschaft
+Weiterbildungszuschuss
+Fahrtkostenzuschuss
+Gesundheitsprogramm
+Essensgutscheine
+Jahresbonus
+Sonderurlaubstage
+Schulungen

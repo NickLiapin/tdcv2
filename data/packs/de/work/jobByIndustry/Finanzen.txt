@@ -1,0 +1,16 @@
+---
+description: Jobs in Finance (German)
+locale: de
+---
+Finanzanalyst
+Buchhalter
+Investmentbanker
+Wirtschaftsprüfer
+Aktuar
+Kreditsachbearbeiter
+Steuerberater
+Vermögensberater
+Risikomanager
+Bankkaufmann
+Controller
+Portfoliomanager

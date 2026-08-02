@@ -1,0 +1,11 @@
+# Build artifacts
+dist/
+coverage/
+.tsbuildinfo
+*.tsbuildinfo
+
+# ANTLR-generated TypeScript; formatted by the generator, not by us.
+src/generated/
+
+# Dependencies
+node_modules/

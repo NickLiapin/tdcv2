@@ -1,0 +1,23 @@
+---
+description: Legal term (Polish)
+locale: pl
+---
+Powód
+Pozwany
+Wezwanie do sądu
+Oświadczenie pod przysięgą
+Zeznanie świadka
+Zeznanie
+Zabezpieczenie roszczenia
+Wyrok
+Ugoda
+Postępowanie sądowe
+Rozprawa wstępna
+Jurysdykcja
+Apelacja
+Prokurator
+Obrońca
+Dowód
+Skarga konstytucyjna
+Doręczenie pisma
+Pełnomocnictwo notarialne

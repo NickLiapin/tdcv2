@@ -1,0 +1,15 @@
+---
+address: chad.holiday
+description: Public holidays in Chad (French names; civil, Christian and Muslim)
+locale: fr
+---
+Jour de l'An
+Journée internationale de la femme
+Fête du Travail
+Fête de l'Indépendance
+Proclamation de la République
+Journée de la Liberté et de la Démocratie
+Noël
+Aïd el-Fitr
+Aïd el-Kébir
+Maouloud

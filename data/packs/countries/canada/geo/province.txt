@@ -1,0 +1,17 @@
+---
+address: canada.geo.province
+description: Canadian province or territory (the 10 provinces alphabetically, then the 3 territories); same order as canada.geo.provinceCode
+---
+Alberta
+British Columbia
+Manitoba
+New Brunswick
+Newfoundland and Labrador
+Nova Scotia
+Ontario
+Prince Edward Island
+Quebec
+Saskatchewan
+Northwest Territories
+Nunavut
+Yukon

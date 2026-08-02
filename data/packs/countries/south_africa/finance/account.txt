@@ -1,0 +1,7 @@
+---
+address: south_africa.finance.account
+description: South African bank account number (structural — 9-11 digits, no public check standard)
+generator: tdc
+locale: en
+---
+<gen type="regex" value="[0-9]{9,11}"/>

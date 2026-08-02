@@ -1,0 +1,334 @@
+/**
+ * Parallel generation (`--jobs`).
+ *
+ * Pure logic (partitioning, the "can we split this?" check) is unit-tested
+ * directly. The full worker path — real threads, temp files, ordered
+ * concatenation — is covered by an end-to-end test that builds the CLI and
+ * runs it, asserting the parallel output is byte-identical to `--jobs 1`.
+ */
+
+import { execFileSync } from 'node:child_process';
+import { mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
+import { tmpdir } from 'node:os';
+import { dirname, join, resolve } from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+import { parquetMetadata, parquetReadObjects } from 'hyparquet';
+import { afterAll, beforeAll, describe, expect, it } from 'vitest';
+
+import {
+  AUTO_JOBS_MIN_ROWS,
+  parallelBlockReason,
+  partitionRows,
+  resolveJobCount,
+} from '../../src/cli/parallel.js';
+
+describe('resolveJobCount — auto thread count', () => {
+  const auto = (over: Partial<Parameters<typeof resolveJobCount>[0]>): number =>
+    resolveJobCount({
+      explicit: undefined,
+      canParallelize: true,
+      count: 1_000_000,
+      cores: 8,
+      ...over,
+    });
+
+  it('an explicit --jobs value is used verbatim (user override wins)', () => {
+    expect(resolveJobCount({ explicit: 4, canParallelize: true, count: 1_000_000, cores: 8 })).toBe(
+      4,
+    );
+    // ...even below the auto threshold or on a non-parallelizable config —
+    // the caller decides whether an explicit request is actually runnable.
+    expect(resolveJobCount({ explicit: 6, canParallelize: false, count: 10, cores: 8 })).toBe(6);
+    // explicit --jobs 1 forces single-threaded.
+    expect(resolveJobCount({ explicit: 1, canParallelize: true, count: 1_000_000, cores: 8 })).toBe(
+      1,
+    );
+  });
+
+  it('auto uses cores-1 when the config parallelizes and the file is big enough', () => {
+    expect(auto({ cores: 8 })).toBe(7);
+    expect(auto({ cores: 4 })).toBe(3);
+  });
+
+  it('auto stays single-threaded when the config cannot be split', () => {
+    expect(auto({ canParallelize: false })).toBe(1);
+  });
+
+  it('auto stays single-threaded below the row threshold (overhead not worth it)', () => {
+    expect(auto({ count: AUTO_JOBS_MIN_ROWS - 1 })).toBe(1);
+    // exactly at the threshold, it parallelizes.
+    expect(auto({ count: AUTO_JOBS_MIN_ROWS })).toBe(7);
+  });
+
+  it('auto never drops below 1 on 1- or 2-core machines', () => {
+    expect(auto({ cores: 1 })).toBe(1); // cores-1 = 0 → clamp to 1
+    expect(auto({ cores: 2 })).toBe(1); // cores-1 = 1 → single anyway
+  });
+});
+
+describe('partitionRows', () => {
+  const covers = (count: number, jobs: number): void => {
+    const ranges = partitionRows(count, jobs);
+    // Contiguous and covering [0, count) with no gaps or overlaps.
+    let prev = 0;
+    for (const [a, b] of ranges) {
+      expect(a).toBe(prev);
+      expect(b).toBeGreaterThanOrEqual(a);
+      prev = b;
+    }
+    expect(prev).toBe(count);
+    // Balanced: lengths differ by at most 1.
+    const lens = ranges.map(([a, b]) => b - a);
+    expect(Math.max(...lens) - Math.min(...lens)).toBeLessThanOrEqual(1);
+  };
+
+  it('splits evenly and covers the whole range', () => {
+    covers(100, 4);
+    covers(10, 3); // 4,3,3
+    covers(7, 7);
+    covers(1000003, 12);
+  });
+
+  it('never makes more ranges than rows', () => {
+    expect(partitionRows(5, 8)).toHaveLength(5);
+    expect(partitionRows(1, 4)).toHaveLength(1);
+  });
+
+  it('count=0 yields a single empty range', () => {
+    expect(partitionRows(0, 4)).toEqual([[0, 0]]);
+  });
+});
+
+describe('parallelBlockReason', () => {
+  const wrap = (envExtra: string, blockBody: string): string =>
+    `<tdc><env count="4" seed="s" inject="\${{%}}" mode="stream">${envExtra}</env><block><line>${blockBody}</line></block></tdc>`;
+
+  it('allows a sequence-only config', () => {
+    const src = wrap(
+      '<sequence name="G"><gen type="text" value="M,F"/></sequence>',
+      '<data>${{G}}</data>',
+    );
+    expect(parallelBlockReason(src)).toBeUndefined();
+  });
+
+  it('blocks an inline <gen> in a block line', () => {
+    const src = wrap('', '<gen type="number" value="1..9"/>');
+    expect(parallelBlockReason(src)).toMatch(/inline <gen>/i);
+  });
+});
+
+describe('--jobs end-to-end (real worker threads)', () => {
+  const here = dirname(fileURLToPath(import.meta.url));
+  const pkgRoot = resolve(here, '../..');
+  const distMain = join(pkgRoot, 'dist', 'cli', 'main.js');
+  let dir = '';
+
+  // count < capacity (10³ = 1000) so uniq is feasible and keys stay dense —
+  // a good stress for uniqueness across worker range boundaries.
+  const CONFIG = `<tdc>
+    <env count="900" seed="par-e2e" inject="\${{%}}" mode="stream">
+      <before><line><data>HEAD</data></line></before>
+      <after><line><data>TAIL</data></line></after>
+      <sequence name="G"><gen type="text" value="M,F" percent="70,30"/></sequence>
+      <sequence name="Id"><gen type="increment" value="1"/></sequence>
+      <sequence name="K" uniq="true">
+        <gen name="a" type="text" value="a0,a1,a2,a3,a4,a5,a6,a7,a8,a9"/>
+        <gen name="b" type="text" value="b0,b1,b2,b3,b4,b5,b6,b7,b8,b9"/>
+        <gen name="c" type="text" value="c0,c1,c2,c3,c4,c5,c6,c7,c8,c9"/>
+      </sequence>
+    </env>
+    <block><line><data>\${{Id}},\${{G}},\${{K.a}}\${{K.b}}\${{K.c}}</data></line></block>
+  </tdc>`;
+
+  /**
+   * Run the CLI and, on failure, surface WHAT went wrong.
+   *
+   * These cases spawn real worker threads while the rest of the suite runs, so
+   * they are the ones most likely to hit resource limits. With `stdio: 'ignore'`
+   * a failure reported only "Command failed" — indistinguishable from a genuine
+   * regression, which is how the same flake ate four debugging detours in one
+   * evening. Capturing stderr costs nothing and makes the next failure readable.
+   */
+  function runCli(args: readonly string[]): void {
+    try {
+      execFileSync('node', [...args], { stdio: ['ignore', 'ignore', 'pipe'] });
+    } catch (err) {
+      const e = err as { stderr?: Buffer | string; message?: string };
+      const stderr = typeof e.stderr === 'string' ? e.stderr : (e.stderr?.toString() ?? '');
+      throw new Error(
+        `${e.message ?? 'CLI failed'}\n--- stderr ---\n${stderr.trim() || '(empty)'}`,
+      );
+    }
+  }
+
+  beforeAll(() => {
+    // Build once so the compiled worker (dist/cli/render-worker.js) exists.
+    execFileSync('npm', ['run', 'build'], { cwd: pkgRoot, stdio: 'ignore' });
+    dir = mkdtempSync(join(tmpdir(), 'tdc-par-e2e-'));
+  }, 120_000);
+
+  const run = (jobs: number): string => {
+    const cfg = join(dir, 'c.tdc');
+    const out = join(dir, `out-${String(jobs)}.csv`);
+    writeFileSync(cfg, CONFIG);
+    runCli([distMain, cfg, '--jobs', String(jobs), '-o', out]);
+    return readFileSync(out, 'utf8');
+  };
+
+  it('parallel output is byte-identical to single-threaded', () => {
+    const single = run(1);
+    expect(run(4)).toBe(single);
+    expect(run(7)).toBe(single); // job count must not change output
+    // Sanity: fixtures present, all rows there, uniq keys distinct.
+    const lines = single.split('\n').filter(Boolean);
+    expect(lines[0]).toBe('HEAD');
+    expect(lines[lines.length - 1]).toBe('TAIL');
+    const keys = lines.slice(1, -1).map((l) => l.split(',')[2]);
+    expect(new Set(keys).size).toBe(keys.length); // uniq held across the whole file
+  });
+
+  /**
+   * `repeat` spends one draw on the row's length and then a FIXED budget of
+   * element draws, so a row never depends on how long its predecessors turned
+   * out to be. If that budget slipped, rows would desynchronise across worker
+   * boundaries and this test would catch it — the whole reason the feature is
+   * built that way rather than drawing exactly N.
+   */
+  it('a repeating gen survives being split across workers', () => {
+    const cfg = join(dir, 'rep.tdc');
+    const write = (jobs: number): string => {
+      const out = join(dir, `rep-${String(jobs)}.csv`);
+      writeFileSync(
+        cfg,
+        `<tdc><env count="20000" seed="rep-par" inject="\${{%}}" mode="stream">` +
+          // No `missing` here on purpose: a blanked element and an empty list
+          // are the same "" in text, which would make the alignment assertion
+          // below ambiguous. Per-element `missing` is covered in
+          // test/processor/repeat-values.test.ts against a fixed repeat.
+          `<sequence name="V"><gen type="number" value="10..99" repeat="0..5" ` +
+          `anomaly="0.05" anomaly_flag="Bad"/></sequence>` +
+          `</env><block><line><data>\${{V}};\${{Bad}}</data></line></block></tdc>`,
+      );
+      runCli([distMain, cfg, '--jobs', String(jobs), '-o', out]);
+      return readFileSync(out, 'utf8');
+    };
+    const single = write(1);
+    expect(write(4)).toBe(single);
+    expect(write(7)).toBe(single);
+
+    const rows = single.split('\n').filter(Boolean);
+    expect(rows).toHaveLength(20000);
+    // The label must stay element-aligned with the values on every single row.
+    for (const row of rows) {
+      const [values, flags] = row.split(';');
+      const v = (values ?? '').split(',').filter((s) => s !== '');
+      const f = (flags ?? '').split(',').filter((s) => s !== '');
+      expect(f.length, row).toBe((values ?? '') === '' ? 0 : (values ?? '').split(',').length);
+      expect(
+        v.every((x) => /^\d+$/.test(x)),
+        row,
+      ).toBe(true);
+    }
+    expect(
+      rows.some((r) => r.startsWith(';')),
+      'repeat="0.." must yield empty rows',
+    ).toBe(true);
+  }, 120_000);
+
+  /**
+   * A .parquet output must never take the TEXT parallel path — shards of
+   * rendered text cannot be concatenated into a structured container. This
+   * regressed once: the CLI auto-parallelised a big config and wrote plain
+   * text into a .parquet file. It now has its own coordinator (splitting row
+   * groups, see the test below), and this guards the plain auto-run.
+   */
+  it('an auto-parallelised .parquet run is still a valid parquet file', async () => {
+    const cfg = join(dir, 'pq.tdc');
+    const out = join(dir, 'out.parquet');
+    // Above AUTO_JOBS_MIN_ROWS, so the CLI would otherwise auto-parallelise,
+    // and above one row group, so the multi-group path is exercised too.
+    writeFileSync(
+      cfg,
+      `<tdc><env count="120000" seed="pq" inject="\${{%}}" mode="stream">` +
+        `<sequence name="Id"><gen type="increment" value="1"/></sequence>` +
+        `<sequence name="V"><gen type="number" value="1..1000" missing="0.1"/></sequence>` +
+        `</env><block><line>` +
+        `<data name="id">\${{Id}}</data><data name="v">\${{V}}</data>` +
+        `</line></block></tdc>`,
+    );
+    runCli([distMain, cfg, '-o', out]);
+
+    const buf = readFileSync(out);
+    expect(buf.subarray(0, 4).toString('latin1')).toBe('PAR1');
+    expect(buf.subarray(-4).toString('latin1')).toBe('PAR1');
+
+    const ab = buf.buffer.slice(buf.byteOffset, buf.byteOffset + buf.byteLength);
+    const meta = parquetMetadata(ab);
+    expect(Number(meta.num_rows)).toBe(120000);
+    expect(meta.row_groups.length).toBeGreaterThan(1); // several row groups
+    const rows = (await parquetReadObjects({
+      file: { byteLength: ab.byteLength, slice: (s: number, e?: number) => ab.slice(s, e) },
+    })) as Record<string, unknown>[];
+    expect(rows).toHaveLength(120000);
+    expect(rows[0]?.['id']).toBe(1n);
+    expect(rows.some((r) => r['v'] === null)).toBe(true); // missing= became real NULLs
+  }, 120_000);
+
+  /**
+   * Parquet across workers.
+   *
+   * A row group's bytes are position-independent — page headers carry sizes and
+   * every offset lives in the footer — so workers build whole groups and the
+   * coordinator lays them end to end with one corrected footer. The split is by
+   * GROUP: cutting mid-group would produce groups a single-threaded run never
+   * makes, and the outputs would stop matching.
+   */
+  it('a .parquet output is byte-identical across worker counts', async () => {
+    const cfg = join(dir, 'pqpar.tdc');
+    const write = (jobs: number): Buffer => {
+      const out = join(dir, `pqpar-${String(jobs)}.parquet`);
+      writeFileSync(
+        cfg,
+        `<tdc><env count="130000" seed="pqpar" inject="\${{%}}" mode="stream">` +
+          `<sequence name="Id"><gen type="increment" value="1"/></sequence>` +
+          `<sequence name="C"><gen type="text" value="Moscow,Paris,Berlin" percent="50,30,20"/></sequence>` +
+          `<sequence name="V"><gen type="number" value="1..1000" missing="0.1"/></sequence>` +
+          `<sequence name="T"><gen type="number" value="1..9" repeat="0..3"/></sequence>` +
+          `</env><block><line>` +
+          `<data name="id">\${{Id}}</data><data name="c">\${{C}}</data>` +
+          `<data name="v">\${{V}}</data><data name="t">\${{T}}</data>` +
+          `</line></block></tdc>`,
+      );
+      runCli([distMain, cfg, '--jobs', String(jobs), '-o', out]);
+      return readFileSync(out);
+    };
+
+    const single = write(1);
+    expect(write(3)).toEqual(single);
+    expect(write(8)).toEqual(single);
+
+    // And the parallel file is a real, readable parquet — not merely identical
+    // to another file we also produced.
+    const buf = write(4);
+    const ab = buf.buffer.slice(buf.byteOffset, buf.byteOffset + buf.byteLength) as ArrayBuffer;
+    const meta = parquetMetadata(ab);
+    expect(Number(meta.num_rows)).toBe(130000);
+    expect(meta.row_groups.length).toBe(3); // 130k over 50k-row groups
+    const rows = (await parquetReadObjects({
+      file: { byteLength: ab.byteLength, slice: (s: number, e?: number) => ab.slice(s, e) },
+    })) as Record<string, unknown>[];
+    expect(rows).toHaveLength(130000);
+    // Row ORDER must survive the split, or the groups were reassembled wrong.
+    expect(Number(rows[0]?.['id'])).toBe(1);
+    expect(Number(rows[49_999]?.['id'])).toBe(50_000);
+    expect(Number(rows[50_000]?.['id'])).toBe(50_001); // first row of group 2
+    expect(Number(rows[129_999]?.['id'])).toBe(130_000);
+    expect(rows.some((r) => r['v'] === null)).toBe(true);
+    expect(rows.every((r) => Array.isArray(r['t']))).toBe(true);
+  }, 180_000);
+
+  afterAll(() => {
+    if (dir) rmSync(dir, { recursive: true, force: true });
+  });
+});

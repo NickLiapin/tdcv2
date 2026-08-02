@@ -1,0 +1,19 @@
+---
+description: Jobs in Technology (French)
+locale: fr
+---
+Ingénieur logiciel
+Data scientist
+Ingénieur DevOps
+Chef de produit
+Designer UX
+Ingénieur qualité
+Administrateur système
+Développeur web
+Architecte logiciel
+Ingénieur réseau
+Analyste cybersécurité
+Technicien support
+Responsable informatique
+Développeur mobile
+Ingénieur en intelligence artificielle

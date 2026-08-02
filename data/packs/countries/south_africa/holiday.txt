@@ -1,0 +1,17 @@
+---
+address: south_africa.holiday
+description: South African public holidays
+locale: en
+---
+New Year's Day
+Human Rights Day
+Good Friday
+Family Day
+Freedom Day
+Workers' Day
+Youth Day
+National Women's Day
+Heritage Day
+Day of Reconciliation
+Christmas Day
+Day of Goodwill

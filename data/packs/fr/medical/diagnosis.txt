@@ -1,0 +1,39 @@
+---
+description: Common medical diagnosis (French)
+locale: fr
+---
+Hypertension artérielle
+Diabète de type 2
+Asthme
+Bronchite
+Grippe
+Angine
+Otite
+Sinusite
+Migraine
+Lombalgie
+Arthrose
+Gastro-entérite
+Reflux gastro-œsophagien
+Anémie ferriprive
+Hypothyroïdie
+Eczéma
+Psoriasis
+Dépression
+Trouble anxieux
+Insomnie
+Rhinite allergique
+Conjonctivite
+Infection urinaire
+Cystite
+Tendinite
+Entorse
+Fracture
+Hypercholestérolémie
+Goutte
+Ostéoporose
+Bronchite chronique
+Pneumonie
+Colopathie fonctionnelle
+Hernie discale
+Zona

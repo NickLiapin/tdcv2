@@ -1,0 +1,35 @@
+---
+description: Musical instrument (Italian)
+locale: it
+---
+Chitarra
+Pianoforte
+Violino
+Batteria
+Basso elettrico
+Sassofono
+Tromba
+Flauto
+Violoncello
+Clarinetto
+Trombone
+Arpa
+Ukulele
+Banjo
+Fisarmonica
+Tastiera
+Oboe
+Contrabbasso
+Armonica a bocca
+Xilofono
+Chitarra classica
+Mandolino
+Organetto
+Zampogna
+Tamburello
+Organo
+Viola
+Corno francese
+Percussioni
+Sintetizzatore
+Liuto

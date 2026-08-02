@@ -1,0 +1,10 @@
+---
+description: Conditions markedly more frequent in people of North African ancestry, given in German. A prevalence signal, not an exclusive one.
+locale: de
+---
+Glukose-6-Phosphat-Dehydrogenase-Mangel
+Beta-Thalassaemia minor
+Familiäres Mittelmeerfieber
+Morbus Behçet
+Laktase-Nonpersistenz
+Xeroderma pigmentosum

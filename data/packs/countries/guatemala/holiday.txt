@@ -1,0 +1,22 @@
+---
+address: guatemala.holiday
+description: Guatemalan public holiday — the statutory días de asueto of the Código de Trabajo (art. 127) plus widely observed civic and religious dates; the Virgen de la Asunción is a local holiday of Guatemala City
+locale: es
+---
+Año Nuevo
+Jueves Santo
+Viernes Santo
+Sábado de Gloria
+Día del Trabajo
+Día de la Madre
+Día del Ejército
+Día de la Independencia
+Día de la Revolución
+Día de Todos los Santos
+Día de los Santos Difuntos
+Quema del Diablo
+Día de la Virgen de Concepción
+Nochebuena
+Navidad
+Fin de Año
+Día de la Virgen de la Asunción

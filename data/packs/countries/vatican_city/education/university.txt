@@ -1,0 +1,16 @@
+---
+address: vatican_city.education.university
+description: Pontifical universities and academies of the Holy See (Italian names)
+locale: it
+---
+Pontificia Università Gregoriana
+Pontificio Istituto Biblico
+Pontificia Università Lateranense
+Pontificia Università Urbaniana
+Pontificia Università della Santa Croce
+Pontificia Università San Tommaso d'Aquino
+Pontificio Istituto Orientale
+Pontificia Accademia Ecclesiastica
+Pontificia Accademia delle Scienze
+Pontificio Istituto di Archeologia Cristiana
+Pontificio Istituto di Musica Sacra

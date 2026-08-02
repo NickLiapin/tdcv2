@@ -1,0 +1,7 @@
+---
+address: sweden.phone
+description: Swedish mobile phone in E.164 form (+467X XXXXXXX)
+generator: tdc
+locale: sv
+---
+<gen type="regex" value="\+467[0236][0-9]{7}"/>

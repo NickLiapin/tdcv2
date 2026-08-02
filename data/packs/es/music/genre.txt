@@ -1,0 +1,39 @@
+---
+description: Music genre (Spanish, including Latin genres)
+locale: es
+---
+Rock
+Pop
+Jazz
+Clásica
+Hip hop
+Country
+Electrónica
+Blues
+Reggae
+Heavy metal
+Folclore
+R&B
+Soul
+Funk
+Punk
+Disco
+House
+Techno
+Indie
+Góspel
+Ambiental
+Ska
+Salsa
+Merengue
+Bachata
+Cumbia
+Reguetón
+Tango
+Flamenco
+Bolero
+Ranchera
+Vallenato
+Son
+Balada
+Trap latino

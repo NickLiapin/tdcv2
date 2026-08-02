@@ -1,0 +1,16 @@
+---
+address: cameroon.holiday
+description: Public holidays in Cameroon (French names; civil, Christian and Muslim)
+locale: fr
+---
+Jour de l'An
+Fête de la Jeunesse
+Vendredi saint
+Fête du Travail
+Fête nationale
+Ascension
+Assomption
+Fête de l'Unité
+Noël
+Aïd el-Fitr
+Aïd el-Kébir

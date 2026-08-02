@@ -1,0 +1,12 @@
+---
+address: nicaragua.finance.bank
+description: Nicaraguan commercial bank supervised by the SIBOIF; same order as nicaragua.finance.bankCode. The state development bank (Banco Produzcamos) is omitted as it is not a retail deposit bank
+locale: es
+---
+Banco de la Producción
+Banco LAFISE Bancentro
+Banco de América Central
+Banco de Finanzas
+Banco Ficohsa Nicaragua
+Banco Avanz
+Banco Atlántida Nicaragua

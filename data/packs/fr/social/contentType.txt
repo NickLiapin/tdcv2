@@ -1,0 +1,20 @@
+---
+description: Social media content type (French)
+locale: fr
+---
+Publication
+Story
+Réel
+Vidéo
+Photo
+Sondage
+Direct
+Article
+Commentaire
+Partage
+Message privé
+Épingle
+Podcast
+Carrousel
+Miniature
+Short

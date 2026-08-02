@@ -1,0 +1,9 @@
+---
+address: bahrain.geo.region
+description: Governorates of Bahrain (Arabic)
+locale: ar
+---
+العاصمة
+المحرق
+الشمالية
+الجنوبية

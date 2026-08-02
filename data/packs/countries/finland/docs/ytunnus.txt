@@ -1,0 +1,51 @@
+---
+address: finland.docs.ytunnus
+description: Finnish business ID (Y-tunnus) — 7 digits, a hyphen and a weighted mod-11 check digit (weights 7,9,10,5,8,4,2; remainder 0 gives check 0, otherwise check = 11 - remainder). A remainder of 1 is never issued, so the last base digit is bumped and the check recomputed.
+generator: tdc
+locale: fi
+---
+<sequence name="base"><gen type="regex" value="[0-9]{7}"/></sequence>
+<sequence name="ytunnus"><compute>
+  <!-- First pass over the drawn base: a remainder of 1 marks an ID that is never issued. -->
+  <let name="sum1"><reduce>
+    <over><field name="base"/></over>
+    <init><int v="0"/></init>
+    <do><add><acc/>
+      <multiply><current/>
+        <at><in><list v="7,9,10,5,8,4,2"/></in><index><current_index/></index></at>
+      </multiply>
+    </add></do>
+  </reduce></let>
+  <let name="rem1"><mod><var name="sum1"/><int v="11"/></mod></let>
+  <!-- Bumped variant: last digit + 1 (wrapping 9 to 0). Its own remainder is never 1 again,
+       because the last digit carries weight 2 and the shift moves the remainder by 2 or -18. -->
+  <let name="bumped"><concat>
+    <slice from="0" to="6"><field name="base"/></slice>
+    <mod><add><to_number><slice from="6" to="7"><field name="base"/></slice></to_number><int v="1"/></add><int v="10"/></mod>
+  </concat></let>
+  <let name="digits">
+    <choose>
+      <when><test><equals><var name="rem1"/><int v="1"/></equals></test><then><var name="bumped"/></then></when>
+      <otherwise><field name="base"/></otherwise>
+    </choose>
+  </let>
+  <!-- Weighted sum of the digits that will actually be printed. -->
+  <let name="sum"><reduce>
+    <over><var name="digits"/></over>
+    <init><int v="0"/></init>
+    <do><add><acc/>
+      <multiply><current/>
+        <at><in><list v="7,9,10,5,8,4,2"/></in><index><current_index/></index></at>
+      </multiply>
+    </add></do>
+  </reduce></let>
+  <let name="rem"><mod><var name="sum"/><int v="11"/></mod></let>
+  <let name="check">
+    <choose>
+      <when><test><equals><var name="rem"/><int v="0"/></equals></test><then><int v="0"/></then></when>
+      <otherwise><subtract><int v="11"/><var name="rem"/></subtract></otherwise>
+    </choose>
+  </let>
+  <result><concat><var name="digits"/><str v="-"/><var name="check"/></concat></result>
+</compute></sequence>
+<data>${{ytunnus}}</data>

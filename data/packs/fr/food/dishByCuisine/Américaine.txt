@@ -1,0 +1,16 @@
+---
+description: Dishes of American cuisine (French)
+locale: fr
+---
+Hamburger
+Hot-dog
+Cheesecake
+Barbecue
+Mac and cheese
+Poulet frit
+Pancakes
+Travers de porc
+Coleslaw
+Brownie
+Clam chowder
+Buffalo wings

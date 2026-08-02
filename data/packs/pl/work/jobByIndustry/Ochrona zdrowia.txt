@@ -1,0 +1,16 @@
+---
+description: Jobs in Healthcare (Polish)
+locale: pl
+---
+Pielęgniarka
+Lekarz rodzinny
+Chirurg
+Farmaceuta
+Fizjoterapeuta
+Ratownik medyczny
+Technik radiolog
+Położna
+Diagnosta laboratoryjny
+Opiekun medyczny
+Dietetyk
+Psycholog kliniczny

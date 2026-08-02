@@ -1,0 +1,20 @@
+---
+address: poland.holiday
+description: Public holidays in Poland (Polish names)
+locale: pl
+---
+Nowy Rok
+Święto Trzech Króli
+Niedziela Wielkanocna
+Poniedziałek Wielkanocny
+Święto Pracy
+Święto Konstytucji 3 Maja
+Zielone Świątki
+Boże Ciało
+Wniebowzięcie Najświętszej Maryi Panny
+Wszystkich Świętych
+Narodowe Święto Niepodległości
+Wigilia Bożego Narodzenia
+Boże Narodzenie
+Drugi dzień Bożego Narodzenia
+Sylwester

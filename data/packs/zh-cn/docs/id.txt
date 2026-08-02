@@ -1,0 +1,66 @@
+---
+address: zh-cn.docs.id
+description: Chinese Resident Identity Card (居民身份证) — 18 chars: 6-digit region code + 8-digit birth date + 3-digit sequence + ISO 7064 MOD 11-2 check (last char may be X)
+generator: tdc
+locale: zh-cn
+---
+<sequence name="region"><gen type="regex" value="(11|12|13|14|15|21|22|23|31|32|33|34|35|36|37|41|42|43|44|45|46|50|51|52|53|54|61|62|63|64|65)[0-9]{4}"/></sequence>
+<sequence name="born"><gen type="date" from="1950-01-01" to="2007-12-31" format="YYYYMMDD"/></sequence>
+<sequence name="seq"><gen type="regex" value="[0-9]{3}"/></sequence>
+<sequence name="base"><compute>
+  <result><concat><field name="region"/><field name="born"/><field name="seq"/></concat></result>
+</compute></sequence>
+<sequence name="id"><compute>
+  <!-- Weighted sum over the 17 base digits; weight[i] = 2^(17-i) mod 11. -->
+  <let name="sum">
+    <reduce>
+      <over><field name="base"/></over>
+      <init><int v="0"/></init>
+      <do>
+        <add><acc/>
+          <multiply>
+            <to_number><current/></to_number>
+            <choose>
+              <when><test><equals><current_index/><int v="0"/></equals></test><then><int v="7"/></then></when>
+              <when><test><equals><current_index/><int v="1"/></equals></test><then><int v="9"/></then></when>
+              <when><test><equals><current_index/><int v="2"/></equals></test><then><int v="10"/></then></when>
+              <when><test><equals><current_index/><int v="3"/></equals></test><then><int v="5"/></then></when>
+              <when><test><equals><current_index/><int v="4"/></equals></test><then><int v="8"/></then></when>
+              <when><test><equals><current_index/><int v="5"/></equals></test><then><int v="4"/></then></when>
+              <when><test><equals><current_index/><int v="6"/></equals></test><then><int v="2"/></then></when>
+              <when><test><equals><current_index/><int v="7"/></equals></test><then><int v="1"/></then></when>
+              <when><test><equals><current_index/><int v="8"/></equals></test><then><int v="6"/></then></when>
+              <when><test><equals><current_index/><int v="9"/></equals></test><then><int v="3"/></then></when>
+              <when><test><equals><current_index/><int v="10"/></equals></test><then><int v="7"/></then></when>
+              <when><test><equals><current_index/><int v="11"/></equals></test><then><int v="9"/></then></when>
+              <when><test><equals><current_index/><int v="12"/></equals></test><then><int v="10"/></then></when>
+              <when><test><equals><current_index/><int v="13"/></equals></test><then><int v="5"/></then></when>
+              <when><test><equals><current_index/><int v="14"/></equals></test><then><int v="8"/></then></when>
+              <when><test><equals><current_index/><int v="15"/></equals></test><then><int v="4"/></then></when>
+              <otherwise><int v="2"/></otherwise>
+            </choose>
+          </multiply>
+        </add>
+      </do>
+    </reduce>
+  </let>
+  <let name="rem"><mod><var name="sum"/><int v="11"/></mod></let>
+  <!-- check char = "10X98765432"[rem] -->
+  <let name="check">
+    <choose>
+      <when><test><equals><var name="rem"/><int v="0"/></equals></test><then><str v="1"/></then></when>
+      <when><test><equals><var name="rem"/><int v="1"/></equals></test><then><str v="0"/></then></when>
+      <when><test><equals><var name="rem"/><int v="2"/></equals></test><then><str v="X"/></then></when>
+      <when><test><equals><var name="rem"/><int v="3"/></equals></test><then><str v="9"/></then></when>
+      <when><test><equals><var name="rem"/><int v="4"/></equals></test><then><str v="8"/></then></when>
+      <when><test><equals><var name="rem"/><int v="5"/></equals></test><then><str v="7"/></then></when>
+      <when><test><equals><var name="rem"/><int v="6"/></equals></test><then><str v="6"/></then></when>
+      <when><test><equals><var name="rem"/><int v="7"/></equals></test><then><str v="5"/></then></when>
+      <when><test><equals><var name="rem"/><int v="8"/></equals></test><then><str v="4"/></then></when>
+      <when><test><equals><var name="rem"/><int v="9"/></equals></test><then><str v="3"/></then></when>
+      <otherwise><str v="2"/></otherwise>
+    </choose>
+  </let>
+  <result><concat><field name="base"/><var name="check"/></concat></result>
+</compute></sequence>
+<data>${{id}}</data>

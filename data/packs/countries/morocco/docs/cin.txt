@@ -1,0 +1,7 @@
+---
+address: morocco.docs.cin
+description: Moroccan national ID (CIN / البطاقة الوطنية) — 1–2 letters followed by 6 digits (e.g. AB123456). Structural; no public check digit.
+generator: tdc
+locale: ar
+---
+<gen type="regex" value="[A-Z]{1,2}[0-9]{6}"/>

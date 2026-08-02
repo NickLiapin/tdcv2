@@ -1,0 +1,16 @@
+---
+description: Jobs in Education (Polish)
+locale: pl
+---
+Nauczyciel szkoły podstawowej
+Nauczyciel szkoły średniej
+Wykładowca akademicki
+Pedagog szkolny
+Bibliotekarz
+Asystent nauczyciela
+Dyrektor szkoły
+Nauczyciel wychowania przedszkolnego
+Pedagog specjalny
+Logopeda
+Korepetytor
+Metodyk nauczania

@@ -1,0 +1,19 @@
+---
+description: Trucking cargo type (French)
+locale: fr
+---
+Fourgon sec
+Réfrigéré
+Plateau
+Citerne
+Bétaillère
+Benne
+Porte-conteneurs
+Porte-voitures
+Frigorifique
+Bâché
+Savoyarde
+Fourgon capitonné
+Plateau surbaissé
+Grumier
+Matières dangereuses

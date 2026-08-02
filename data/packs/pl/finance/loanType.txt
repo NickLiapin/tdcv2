@@ -1,0 +1,14 @@
+---
+description: Loan type (Polish)
+locale: pl
+---
+Hipoteczny
+Samochodowy
+Gotówkowy
+Studencki
+Pod zastaw nieruchomości
+Firmowy
+Linia kredytowa
+Konsolidacyjny
+Lombardowy
+Mikropożyczka

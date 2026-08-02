@@ -1,0 +1,14 @@
+---
+address: djibouti.holiday
+description: Public holidays in Djibouti (French names; civil and Muslim)
+locale: fr
+---
+Jour de l'An
+Fête du Travail
+Fête de l'Indépendance
+Noël
+Aïd el-Fitr
+Aïd el-Kébir
+Maouloud
+Al-Isra wal-Miraj
+Nouvel An musulman

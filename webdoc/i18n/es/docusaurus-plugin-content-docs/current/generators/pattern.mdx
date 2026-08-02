@@ -1,0 +1,595 @@
+---
+title: Pattern (dibujo)
+sidebar_position: 12
+---
+
+import Terminal from '@site/src/components/Terminal';
+import Figure from '@site/src/components/Figure';
+import Legend from '@site/src/components/Legend';
+
+# El generador `pattern`
+
+**Se usa cuando** una señal tiene una forma que no se puede describir con una fórmula
+— demanda por hora, una onda demográfica, la captura de pantalla de un gráfico
+bursátil, cualquier línea «serpenteante». Usted **dibuja la figura**, y su forma se
+**estira a lo largo de todas las filas**: el eje horizontal es el número de fila (de
+la primera a la última) y el eje vertical es el valor. El dibujo puede ser diminuto;
+las filas pueden contarse por millones.
+
+Nada se pre-renderiza a un archivo. La figura se lee **cuando arranca la corrida** y
+cada fila calcula su propio punto sobre ella, así que un millón de filas no cuesta más
+memoria que diez.
+
+Las salidas de ejemplo de abajo son ilustrativas y pueden variar un poco según la
+versión del núcleo; lo que se garantiza es la _forma_.
+
+## Por qué dibujar una forma en vez de elegir una distribución
+
+Las distribuciones ya hechas (`normal`, `poisson`, …) tienen una forma **fija**: una
+campana, una cola que decae. Una señal real muchas veces necesita una forma que no
+está en esa lista: dos jorobas donde la **de la derecha es más alta**, una meseta con
+un pico al final, demanda que sube hacia el mediodía y cae de noche. De `normal` no se
+sacan «dos jorobas de distinta altura». `pattern` quita ese límite: usted dibuja la
+silueta y ella se estira sobre las filas tal cual.
+
+## Cómo se activa
+
+Cada [`<gen>`](../reference/generators.mdx) con `type="pattern"` toma exactamente
+**una** fuente de forma. La normal es un **archivo**: dibuje en cualquier editor o
+tome la captura de un gráfico, y entrégueselo:
+
+```xml
+<!-- un dibujo hecho por usted: SVG o PNG -->
+<gen type="pattern" src="chart.svg" y_range="0..40"/>
+```
+
+Para una forma lo bastante simple como para teclearla, el mismo generador acepta
+puntos en línea: una sola línea con `points`, o una banda con `upper` / `lower`:
+
+```xml
+<gen type="pattern" points="0,5  20,40  40,8  60,45  80,15  100,5" y_range="0..40"/>
+<gen type="pattern" upper="0,20 50,40 100,20" lower="0,5 50,10 100,5" y_range="0..40"/>
+```
+
+| Atributo          | Qué define                                                                     |
+| :---------------- | :----------------------------------------------------------------------------- |
+| `src`             | Un archivo **SVG** o **PNG** — la forma habitual de dar la figura               |
+| `points`          | Pares `x,y` tecleados en el config en vez de un archivo: `x` a lo ancho, `y` la altura |
+| `upper` / `lower` | Dos curvas de borde tecleadas en el config — un [corredor](#el-dibujo-se-lee-columna-por-columna) |
+| `mode`            | `signal` (por omisión) — una trayectoria; `density` — una [distribución](#mode--las-dos-preguntas-que-se-le-pueden-hacer-a-un-dibujo) |
+| `y_range`         | `min..max` — el rango de los valores que se obtienen; el dibujo se estira dentro de él |
+| `interp`          | `linear` (por omisión) / `smooth` / `step` — el comportamiento de la línea entre puntos |
+| `spread`          | Dispersa cada fila en ±N, en unidades de `y_range` (por omisión `0` — línea exacta) |
+| `ink_threshold`   | `0..1` — qué tan oscuro debe ser un píxel del PNG para contar como tinta (por omisión `0.5`) |
+| `decimals`        | Dígitos después del punto decimal (por omisión `0`)                             |
+
+## `src` — la figura es el config
+
+Se leen dos formatos, y los dos terminan siendo internamente lo mismo: un contorno
+vectorial.
+
+- **SVG** — se lee por su geometría real: `<path>`, `<polyline>`, `<line>`,
+  `<rect>`, `<circle>`, `<ellipse>`. Las curvas de Bézier y los arcos se recorren tal
+  como están dibujados, y el `transform` de una figura o de cualquier `<g>` que la
+  contenga se aplica. Dibuje en Illustrator, Figma, Inkscape o a mano — exporte y
+  listo.
+- **PNG con fondo transparente** — los píxeles dibujados son la forma y la
+  transparencia es espacio vacío. Así se ve una captura recortada a un gráfico, o un
+  trazo de pincel exportado desde cualquier editor de mapa de bits. Un PNG que en
+  cambio tiene fondo sólido cae en la regla de respaldo: los píxeles oscuros son
+  tinta, los claros son fondo, y `ink_threshold` mueve el umbral.
+
+En un SVG el eje `y` crece **hacia abajo**, tal como lo guarda cualquier programa de
+dibujo. TDC lo voltea, así que «más arriba en la pantalla» siempre significa «valor
+más grande».
+
+### Un ejemplo completo, de punta a punta
+
+Este es un archivo real — 240×140 píxeles, un trazo sobre fondo transparente y nada
+más. Sin ejes, sin etiquetas, sin marco: todo lo opaco del archivo se lee como parte
+del dibujo.
+
+<Figure
+  src="/img/pattern/line-input.png"
+  panel
+  alt="line-input.png — un solo trazo ondulado sobre transparencia"
+  caption="line-input.png — el archivo completo. La tarjeta blanca está aquí nada más para que se vea; el archivo en sí no tiene fondo."
+/>
+
+```xml
+<gen type="pattern" src="line-input.png" y_range="0..100"/>
+```
+
+Córralo con 40 filas y grafique el resultado contra el dibujo. Los puntos verdes son
+los valores generados; la línea naranja es la figura:
+
+<Figure
+  src="/img/pattern/signal.svg"
+  alt="Los valores generados caen exactamente sobre la curva dibujada"
+  caption="Cada fila cae exactamente sobre el trazo — una línea sola no carga ninguna aleatoriedad."
+/>
+
+<Legend
+  items={[["drawn", "la línea dibujada en el archivo"], ["made", "valores generados (40 filas)"]]}
+/>
+
+La figura mide 240 px de ancho y la corrida tiene 40 filas, pero ninguno de los dos
+números tiene que coincidir con el otro: pida 40 filas o 4 000 000 y el mismo dibujo
+se estira sobre ellas.
+
+### Lo mismo, desde un archivo vectorial
+
+Un SVG no se aproxima. Este trae una sola curva de Bézier cúbica dentro de un `<g>`
+que voltea el eje y — las dos cosas que un programa de dibujo emite todo el tiempo:
+
+<Figure
+  src="/img/pattern/curve-input.svg"
+  panel
+  alt="curve-input.svg — una curva de Bézier cúbica dentro de un transform que voltea el eje"
+  caption="curve-input.svg — un path, un transform."
+/>
+
+<Figure
+  src="/img/pattern/svg.svg"
+  alt="Los valores generados siguen la Bézier con exactitud, con el transform aplicado"
+  caption="La curva se recorre tal como está dibujada: la Bézier se camina, el transform se aplica, el eje y se voltea de regreso."
+/>
+
+<Legend
+  items={[["drawn", "la Bézier del archivo, con su transform aplicado"], ["made", "valores generados (40 filas)"]]}
+/>
+
+## El dibujo se lee columna por columna
+
+TDC nunca adivina si su figura es «una línea» o «una banda». **Mide**, y la medición
+responde la pregunta sola.
+
+Para cada columna del dibujo toma dos lecturas: **de arriba hacia abajo** hasta la
+primera marca que encuentra, y **de abajo hacia arriba** hasta la primera marca que
+encuentra.
+
+<Figure
+  src="/img/pattern/measure.svg"
+  alt="Dos lecturas por columna: si se juntan en un píxel el valor es exacto, si quedan separadas hay banda"
+  caption="Las mismas dos lecturas, sobre una línea sola y sobre una banda. No se inspecciona nada más."
+/>
+
+<Legend
+  items={[["A", "las lecturas se juntan en un píxel — el valor es exacto"], ["B", "las lecturas quedan separadas — el valor es aleatorio entre ellas"], ["mark", "las lecturas mismas: de arriba hacia abajo y de abajo hacia arriba"]]}
+/>
+
+- Las dos lecturas caen en el **mismo** lugar → esa columna es un **punto exacto** del
+  gráfico. Cada fila que caiga ahí recibe ese único valor, sin ninguna aleatoriedad.
+- Las lecturas caen **separadas** → esa columna es una **banda**. Una fila que caiga
+  ahí recibe un valor aleatorio entre los dos bordes, fijado por el
+  [`seed`](../core-concepts/determinism.mdx).
+
+Por eso una figura con dos trazos es un **corredor**, y cada fila toma un valor
+aleatorio entre ellos. Aquí está el archivo de entrada y 300 filas generadas a partir
+de él:
+
+<Figure
+  src="/img/pattern/tunnel-input.png"
+  panel
+  alt="tunnel-input.png — dos trazos que forman una banda"
+  caption="tunnel-input.png — dos trazos, nada más."
+/>
+
+<Figure
+  src="/img/pattern/tunnel.svg"
+  alt="300 valores generados dispersos dentro de la banda dibujada"
+  caption="Todos los valores caen dentro de la banda. Donde la banda es ancha la dispersión es ancha; donde se angosta, también se angostan los datos."
+/>
+
+<Legend
+  items={[["band", "la banda dibujada en el archivo"], ["made", "valores generados (300 filas)"], ["A", "una columna: el valor se toma entre sus bordes"]]}
+/>
+
+Dos consecuencias que vale la pena conocer:
+
+- **Una misma figura puede ser las dos cosas.** Una línea que va sola y luego se
+  bifurca en dos ramas da valores exactos mientras es una sola y aleatorios en cuanto
+  se abre — sin ningún atributo, sin elegir modo.
+- **Todo lo cerrado es un corredor.** Dibuje un coche, una hoja, una mancha: tiene un
+  borde superior y un borde inferior, así que se lee como una banda entre ellos. No es
+  una figura retórica — aquí hay un coche:
+
+<Figure
+  src="/img/pattern/car-input.png"
+  panel
+  alt="car-input.png — una silueta de coche rellena"
+  caption="car-input.png — una silueta, pintada de un solo color."
+/>
+
+<Figure
+  src="/img/pattern/car.svg"
+  alt="Los valores generados llenan la silueta del coche"
+  caption="Los valores llenan la carrocería entre su borde superior y su borde inferior — y donde el dibujo es una sola línea (el suelo antes y después del coche), se colapsan en un único valor exacto."
+/>
+
+<Legend
+  items={[["band", "el coche dibujado"], ["made", "valores generados (300 filas)"], ["A", "una rueda baja el borde inferior de la carrocería"], ["B", "el suelo antes y después del coche es una sola línea, así que los valores son exactos"]]}
+/>
+
+Aquí hay una línea que va plana y luego se bifurca: una rama hacia arriba, otra hacia
+abajo:
+
+<Figure
+  src="/img/pattern/split-input.png"
+  panel
+  alt="split-input.png — una línea que a la mitad se bifurca en dos ramas"
+  caption="split-input.png — un solo trazo que se vuelve dos."
+/>
+
+<Figure
+  src="/img/pattern/split.svg"
+  alt="Valores exactos antes de la bifurcación, valores aleatorios dentro de la banda después"
+  caption="Antes de la bifurcación cada fila recibe el mismo valor exacto; después, uno aleatorio dentro de la banda que se abre."
+/>
+
+<Legend
+  items={[["drawn", "las líneas del archivo"], ["made", "valores generados (60 filas)"], ["A", "aquí la línea se bifurca"], ["B", "antes de la bifurcación — el mismo valor exacto siempre"], ["C", "después — aleatorio dentro de la banda que se abre"]]}
+/>
+
+La misma corrida con dos seeds distintos lo muestra sin rodeos: la primera mitad es
+idéntica, la segunda no:
+
+<Terminal title="./run split.tdc (11 filas, dos seeds)">
+{`seed A:  50  50  50  50  50  50  44  47  66  18  45
+seed B:  50  50  50  50  50  51  57  61  60  81  35`}
+</Terminal>
+
+## `y_range` — fijar la escala vertical
+
+Un dibujo es un pseudográfico **sin escala propia**: `y_range="min..max"` dice qué
+significan su base y su tope. El punto más bajo se mapea a `min`, el más alto a `max`,
+y todo lo de en medio se estira linealmente. Úselo siempre que los números que quiere
+no coincidan con las coordenadas propias de la figura — incluidas salidas **con signo**
+o **fraccionarias**.
+
+```xml
+<gen type="pattern" src="chart.svg" y_range="0..40"/>
+<gen type="pattern" src="chart.svg" y_range="-2..2"/>
+```
+
+Sin `y_range` se usan los números `y` crudos tal cual. Combínelo con `decimals` cuando
+necesite valores continuos en vez de enteros redondeados.
+
+<Figure
+  src="/img/pattern/yrange.svg"
+  alt="El mismo triángulo bajo tres ajustes distintos de y_range"
+  caption="Un dibujo, tres escalas. La forma es idéntica; lo único que cambia son los números del eje."
+/>
+
+<Legend
+  items={[["drawn", "el mismo triángulo dibujado"], ["made", "valores generados (25 filas)"]]}
+/>
+
+`y_range` siempre significa **el rango de los valores que se obtienen**. En
+`mode="density"` el eje de los valores es el ancho del dibujo y no su altura, así que
+ahí el rango se estira sobre la figura de izquierda a derecha — el atributo conserva su
+significado aunque cambie el eje.
+
+## `decimals` — dígitos después del punto
+
+`decimals` define cuántos dígitos fraccionarios conserva cada valor (por omisión `0`,
+es decir, enteros). Échele mano cuando la curva alimenta un precio, una temperatura o
+cualquier magnitud medida donde redondear a enteros aplanaría la forma.
+
+```xml
+<gen type="pattern" points="0,0 50,100 100,0" y_range="-1..1" decimals="2"/>
+```
+
+<Terminal title="./run decimals.tdc (11 filas)">
+{`-1.00   -0.60   -0.20   0.20   0.60   1.00   0.60   0.20   -0.20   -0.60   -1.00`}
+</Terminal>
+
+## Estiramiento — el dibujo casi nunca tiene tantos puntos como filas hay
+
+La fila `i` de `count` lee el dibujo en `t = i / (count − 1)`. El ancho del dibujo se
+reparte sobre toda la corrida, así que los dos lados del desajuste se tratan distinto:
+
+**Menos filas que detalle dibujado → promediado.** Una fila no muestrea un solo punto:
+cubre una **rebanada** del dibujo tan ancha como la porción que le toca, y reporta el
+promedio de esa rebanada. Un zigzag de 200 dientes entre 0 y 100 exprimido en 5 filas
+da la media de los dientes, no el diente que casualmente quedó bajo un punto de
+muestreo:
+
+<Terminal title="./run saw.tdc (200 dientes en 5 filas)">
+{`50.2   50.1   50.0   49.9   49.8`}
+</Terminal>
+
+Amplíe la misma corrida a 400 filas y los dientes vuelven, porque ahora cada fila es lo
+bastante angosta como para verlos: `100  50  13  50  87  51  13  49  87 …`
+
+<Figure
+  src="/img/pattern/saw.svg"
+  alt="Un zigzag leído con 300 filas y con 6 filas"
+  caption="El mismo zigzag. Con filas de sobra, los dientes se notan; con seis filas, cada una reporta la media de todo lo que cubre en vez del diente que quedó debajo."
+/>
+
+<Legend
+  items={[["drawn", "el zigzag dibujado"], ["made", "valores generados"], ["A", "300 filas — los dientes se notan"], ["B", "6 filas — cada una reporta la media de la rebanada que cubre"]]}
+/>
+
+**Más filas que puntos dibujados → interpolación**, y ahí es donde entra `interp`.
+
+## `interp` — cómo se comporta la línea entre dos puntos dibujados
+
+Entre dos puntos dibujados lejos uno del otro pueden caber miles de filas. Librado a
+su suerte, un segmento recto sube exactamente lo mismo en cada fila: matemáticamente
+correcto y visiblemente sintético. `interp` elige el comportamiento:
+
+| Valor                  | Qué hace                                                              |
+| :--------------------- | :--------------------------------------------------------------------- |
+| `linear` (por omisión) | Segmentos rectos — ritmo constante entre dos puntos                     |
+| `smooth`               | Una curva por los puntos que **entra y sale suave**, sin pasarse nunca  |
+| `step`                 | Sostiene el valor de cada punto hasta el siguiente — una escalera       |
+
+`smooth` usa una cúbica monótona: redondea las esquinas y varía el ritmo, pero nunca
+puede llevar la línea por encima ni por debajo de los valores que usted realmente
+dibujó, así que de un recodo no sale ningún pico fantasma. El mismo dibujo de tres
+puntos sobre 11 filas:
+
+<Terminal title="./run kink.tdc (11 filas, tres modos)">
+{`linear:  0   8  16  24  32  41  52  64  76  88  100
+smooth:  0   8  15  23  31  40  50  62  75  88  100
+step:    0   0   0   0   0  30  40  40  40  40   40`}
+</Terminal>
+
+En un dibujo con esquinas de verdad los tres se distinguen sin duda — la línea
+punteada es lo que se dibujó, los puntos son lo que salió:
+
+<Figure
+  src="/img/pattern/interp.svg"
+  alt="linear sigue la polilínea, smooth redondea las esquinas, step sostiene cada valor"
+  caption="linear va exactamente sobre la polilínea; smooth redondea cada esquina sin salirse jamás del rango dibujado; step sostiene cada punto hasta el siguiente."
+/>
+
+<Legend
+  items={[["dash", "lo que se dibujó: una polilínea por cinco puntos"], ["made", "valores generados (41 filas)"]]}
+/>
+
+Mire el tamaño de los pasos: `linear` repite `8, 8, 8, 8` — perfectamente predecible.
+`smooth` va `8, 7, 8, 8, 9, 10, 12, 13` — sale del punto con suavidad, acelera y llega
+con suavidad.
+
+## `spread` — convertir una línea en un túnel
+
+`spread="N"` dispersa cada fila en **±N**, en las unidades de su `y_range`. Por
+defecto `0`: la línea es exacta y 100% predecible. Póngale un valor y la línea
+dibujada se vuelve el **centro de una banda** — así no hace falta dibujar los dos
+bordes de un corredor nada más para tener algo de bamboleo.
+
+Sigue la escala que usted declaró: con `y_range="0..100"` un spread de `1` es un punto
+de ruido; con `y_range="0..1"` habría que escribir `spread="0.001"` para el mismo
+efecto relativo.
+
+```xml
+<gen type="pattern" src="ramp.svg" y_range="0..100" spread="5"/>
+```
+
+<Terminal title="./run ramp.tdc (11 filas)">
+{`spread 0, seed A:   0  10  20  30  40  50  60  70  80  90  100
+spread 5, seed A:   5  13  16  29  37  52  57  69  83  86   99
+spread 5, seed B:   5  11  21  26  45  53  64  73  82  94   99`}
+</Terminal>
+
+El mismo trazo único de `line-input.png`, esta vez con `spread="6"`:
+
+<Figure
+  src="/img/pattern/spread.svg"
+  alt="La línea dibujada con una banda de ±6 alrededor y los valores generados dispersos adentro"
+  caption="Una línea dibujada, y un túnel que usted nunca dibujó. La forma queda intacta; cada fila simplemente se posa en algún lugar dentro de ±6 de ella."
+/>
+
+<Legend
+  items={[["dash", "la línea dibujada — el centro"], ["band", "el corredor de ±6 que usted nunca dibujó"], ["made", "valores generados (60 filas)"]]}
+/>
+
+La tendencia queda intacta; cada fila simplemente se posa en algún lugar dentro de ±5
+de ella. Igual que con el corredor, la dispersión es **determinista**: el mismo seed
+la reproduce exactamente. `spread` también funciona sobre un dibujo que ya es una
+banda: la ensancha `N` de cada lado.
+
+## `ink_threshold` — el umbral oscuro/claro para PNG
+
+Cuando un PNG tiene fondo sólido, la tinta se decide por oscuridad. `ink_threshold`
+define qué tan oscuro debe ser un píxel para contar, en una escala `0..1` (por omisión
+`0.5`). Bájelo hacia `0` para recoger bordes tenues y suavizados; súbalo hacia `1`
+para ignorar el gris y quedarse solo con los trazos casi negros. No tiene efecto en un
+PNG dibujado sobre transparencia, donde el canal alfa ya dice qué está dibujado.
+
+```xml
+<gen type="pattern" src="faint-curve.png" ink_threshold="0.3" y_range="0..100"/>
+```
+
+Este archivo tiene dos trazos sobre un lienzo blanco — uno negro y uno gris claro — y
+el umbral decide si el gris existe:
+
+<Figure
+  src="/img/pattern/threshold-input.png"
+  panel
+  alt="threshold-input.png — un trazo negro y un trazo gris sobre blanco"
+  caption="threshold-input.png — dos trazos sobre un lienzo opaco."
+/>
+
+<Figure
+  src="/img/pattern/threshold.svg"
+  alt="Con 0.5 solo se lee el trazo negro; con 0.8 se leen los dos y aparece un corredor"
+  caption="Con el umbral por omisión el trazo gris es fondo y la lectura es una sola línea exacta. Suba el umbral y el gris también cuenta como tinta — ahora hay dos bordes, así que los valores salen aleatorios entre ellos."
+/>
+
+<Legend
+  items={[["drawn", "el trazo negro"], ["faint", "el trazo gris claro"], ["made", "valores generados (60 filas)"]]}
+/>
+
+## La señal es una trayectoria, no un histograma
+
+El valor de una fila es la altura de la curva **en su posición dentro del orden**. Así
+que los números salen **a lo largo** de la curva, como el rastro de una pluma: una
+**trayectoria**, no «un montón de valores». Si tomara esos mismos números y, ignorando
+su orden, armara un **histograma** (con qué frecuencia aparece cada valor), **no**
+reproduciría la forma de la curva. Este es el histograma real de un dibujo de dos
+jorobas sobre 300 filas:
+
+<Terminal title="./run humps.tdc --count 300 | histogram">
+{`0  | ################################## 29
+3  | ######################################## 34
+7  | ######################################## 34
+10 | #################################### 31
+13 | ######################### 21
+17 | ########################## 22
+20 | ################################# 28
+23 | ########################## 22
+27 | ######################### 21
+30 | ################################## 29
+33 | ################### 16
+37 | ############### 13`}
+</Terminal>
+
+Ni rastro de las dos jorobas — el histograma es casi plano. Eso no es un error: la
+señal **pasa por** cada altura más o menos con la misma frecuencia, así que el montón
+de sus valores no se parece al dibujo. Cuando lo que quiere es que el dibujo defina la
+**frecuencia**, esa es la otra lectura: `mode="density"`, más abajo.
+
+## `mode` — las dos preguntas que se le pueden hacer a un dibujo
+
+La misma figura responde dos preguntas distintas, y `mode` elige cuál:
+
+| Modo                    | La pregunta                                    | Qué sale                                                                     |
+| :---------------------- | :--------------------------------------------- | :--------------------------------------------------------------------------- |
+| `signal` (por omisión)  | ¿qué valor recibe **esta fila**?               | `0, 20, 40, 70, 90, 100, 90, 70, 40, 20, 0` — camina a lo largo de la línea, en orden |
+| `density`               | ¿con qué **frecuencia** aparece este valor?    | un montón de números agrupados alrededor de la joroba dibujada, en orden aleatorio |
+
+En `density` los ejes intercambian significado: el eje horizontal es el **valor**, y
+la altura de la curva es **con qué frecuencia** ocurre ese valor. Dibuje una joroba en
+el medio y la mayoría de los números caerá en el medio; dibuje dos jorobas de distinta
+altura y la más alta se lleva proporcionalmente más. Es «dibuje su propia
+probabilidad» en lugar de elegir `normal` / `poisson` de una lista.
+
+```xml
+<!-- un triángulo parado entre x=25 y x=75 -->
+<gen type="pattern" points="0,0 25,0 50,100 75,0 100,0" y_range="0..100" mode="density"/>
+```
+
+<Terminal title="./run density.tdc --count 6000 | histogram">
+{`  0- 9 |
+ 10-19 |
+ 20-29 | ## 85
+ 30-39 | ########################### 901
+ 40-49 | ########################################################## 1911
+ 50-59 | ############################################################ 1955
+ 60-69 | ############################## 978
+ 70-79 | ##### 170
+ 80-89 |
+ 90-99 |`}
+</Terminal>
+
+Los valores mismos salen revueltos — `60 57 36 49 48 40 67 53 …` — porque una
+distribución no tiene orden. Y fuera de `25..75` no aparece nada: ahí el dibujo es
+plano, y un tramo plano significa «nunca».
+
+Lo mismo, pero con una figura en vez de puntos tecleados. Aquí hay una joroba dibujada
+como forma rellena:
+
+<Figure
+  src="/img/pattern/hump-input.png"
+  panel
+  alt="hump-input.png — una joroba rellena con forma de campana"
+  caption="hump-input.png — una joroba pintada con pincel, guardada sobre transparencia."
+/>
+
+```xml
+<gen type="pattern" src="hump-input.png" y_range="0..100" mode="density"/>
+```
+
+Genere 6000 filas a partir de ella y cuente con qué frecuencia salió cada valor:
+
+<Figure
+  src="/img/pattern/density.svg"
+  alt="Arriba la joroba dibujada, abajo el histograma de los valores generados, alineados sobre el mismo eje de valores"
+  caption="Arriba: lo que se dibujó. Abajo: con qué frecuencia salió realmente cada valor. El eje horizontal es el mismo en ambos — y es el valor, no el número de fila."
+/>
+
+<Legend
+  items={[["A", "lo que está dibujado en el archivo"], ["B", "histograma de 6000 valores generados"], ["C", "la altura del dibujo aquí = con qué frecuencia sale ese valor"]]}
+/>
+
+En eso consiste toda la idea: la silueta que usted pinta se vuelve el histograma de
+los datos. En ningún lado se eligió una fórmula.
+
+Y la altura es proporcional, no solo posicional: dibuje una joroba del doble de alto
+que la otra y se lleva alrededor del doble de los valores:
+
+<Figure
+  src="/img/pattern/density2.svg"
+  alt="Dos jorobas de distinta altura, y el histograma correspondiente"
+  caption="Dos jorobas, la derecha del doble de alto. El histograma de abajo reproduce ambas, en proporción."
+/>
+
+<Legend
+  items={[["A", "lo que está dibujado: dos jorobas de distinta altura"], ["B", "histograma de 6000 valores generados"], ["C", "la joroba izquierda"], ["D", "la derecha, del doble de alto — y con el doble de valores"]]}
+/>
+
+Cosas que vale la pena saber sobre `density`:
+
+- **El cero es el piso de la figura.** Para un PNG es el borde inferior de la imagen;
+  para un SVG o para puntos en el config es el punto más bajo del dibujo. Donde la
+  curva esté en su punto más bajo, ese valor no ocurre nunca — así que baje su curva
+  hasta la base en los extremos del rango que quiere.
+- **De una banda se toma el borde superior.** Si el dibujo es un corredor, es el
+  contorno lo que da forma a la distribución.
+- **`interp` sigue aplicando** — `smooth` da una distribución redondeada en vez de una
+  poligonal.
+- **`spread` se rechaza aquí.** El dibujo ya es la dispersión, así que combinar las dos
+  cosas es un error y no una función.
+- **Un dibujo plano significa «me da igual»** y da una dispersión uniforme sobre el
+  rango, en vez de un error.
+- **Determinista y transmisible por streaming**, como todo lo demás: el mismo seed
+  reproduce el mismo montón, con cualquier cantidad de filas.
+
+## Detalles
+
+- **Determinista:** donde el dibujo es una línea sola, el valor de una fila es
+  simplemente la altura ahí (nada de aleatoriedad); donde es una banda — o donde está
+  puesto `spread` — la dispersión queda fijada por el
+  [`seed`](../core-concepts/determinism.mdx). Mismo seed y mismo config → mismo
+  resultado.
+- **Cualquier tamaño, cualquier motor:** cada fila se calcula a partir de su propio
+  número, así que la memoria no crece. Un millón de filas a partir de un dibujo chico
+  va bien en los [motores de streaming](../guides/large-outputs.mdx).
+- **El archivo se lee una sola vez,** al inicio de la corrida, y se convierte en
+  geometría — el costo no escala con la cantidad de filas.
+
+## Compruébelo a mano
+
+Unas cuantas líneas sueltas para construir intuición:
+
+- `points="0,0 50,100 100,0"` — un triángulo: los valores suben hasta el medio y caen.
+- `points="0,10 90,10 100,100"` — una línea plana con un pico solo en el último 10% de las filas.
+- `upper="0,0 50,40 100,0"` — una banda: aleatorio desde `0` hasta un pico central.
+- `src="chart.png" y_range="0..100"` — una forma dibujada se vuelve datos a lo largo de su contorno.
+- agréguele `spread="2"` a cualquiera de ellas — la misma forma, ahora con bamboleo.
+- agréguele `mode="density"` en cambio — la misma forma ahora decide **con qué
+  frecuencia** sale cada valor.
+
+El caso del pico deja obvia la idea de «posición = número de fila»:
+
+<Terminal title="./run spike.tdc (20 filas)">
+{`filas 1–18: 10   (el tramo plano)
+fila 19: 55      (subiendo)
+fila 20: 100     (el pico)`}
+</Terminal>
+
+:::note[Más adelante]
+Una herramienta de dibujo en el navegador que exporte justamente estos archivos
+SVG/PNG — para bosquejar una curva con el mouse en lugar de abrir un editor.
+:::
+
+## Vea también
+
+- **[Series de tiempo](timeseries.mdx)** — cuando la forma es tendencia + estación + ruido.
+- **[Number](number.mdx)** — para rangos y enteros aleatorios simples.
+- **[Determinismo y proporciones](../core-concepts/determinism.mdx)** — cómo el `seed` fija la dispersión.
+- **[Salidas grandes y streaming](../guides/large-outputs.mdx)** — millones de filas a partir de un dibujo chico.

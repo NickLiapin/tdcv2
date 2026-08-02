@@ -1,0 +1,13 @@
+---
+description: Cable type (telecom / networking) (Italian)
+locale: it
+---
+Fibra ottica
+Coassiale
+Doppino intrecciato
+Cat5e
+Cat6
+Cat6a
+Ethernet
+Aereo
+Interrato

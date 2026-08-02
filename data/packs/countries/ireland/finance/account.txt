@@ -1,0 +1,7 @@
+---
+address: ireland.finance.account
+description: Irish bank account number — 8 digits. STRUCTURAL ONLY: there is no national account-number check standard
+generator: tdc
+locale: en
+---
+<gen type="regex" value="[0-9]{8}"/>

@@ -1,0 +1,20 @@
+---
+address: el_salvador.docs.dui
+description: El Salvador DUI (8-digit body + weighted mod-10 check digit)
+generator: tdc
+---
+<sequence name="body"><gen type="regex" value="[0-9]{8}"/></sequence>
+<sequence name="dui"><compute>
+  <let name="sum">
+    <reduce>
+      <over><field name="body"/></over>
+      <init><int v="0"/></init>
+      <do><add><acc/>
+        <multiply><current/><subtract><int v="9"/><current_index/></subtract></multiply>
+      </add></do>
+    </reduce>
+  </let>
+  <let name="check"><mod><subtract><int v="10"/><mod><var name="sum"/><int v="10"/></mod></subtract><int v="10"/></mod></let>
+  <result><concat><field name="body"/><var name="check"/></concat></result>
+</compute></sequence>
+<data>${{dui}}</data>

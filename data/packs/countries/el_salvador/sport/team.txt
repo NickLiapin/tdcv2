@@ -1,0 +1,27 @@
+---
+address: el_salvador.sport.team
+description: Salvadoran professional football club — Primera División sides plus historic and lower-division clubs
+locale: es
+---
+Alianza Fútbol Club
+Club Deportivo FAS
+Club Deportivo Águila
+Asociación Deportiva Isidro Metapán
+Club Deportivo Luis Ángel Firpo
+Once Deportivo de Ahuachapán
+Club Deportivo Municipal Limeño
+Club Deportivo Platense
+Club Deportivo Dragón
+Club Deportivo Fuerte San Francisco
+Club Deportivo Cacahuatique
+Jocoro Fútbol Club
+Santa Tecla Fútbol Club
+Club Deportivo Atlético Marte
+Club Deportivo Chalatenango
+Club Deportivo Sonsonate
+Club Deportivo Vista Hermosa
+Club Deportivo Audaz
+Independiente Nacional 1906
+Alacranes del Norte
+Club Deportivo Brujos de Izalco
+Asociación Deportiva Universidad de El Salvador

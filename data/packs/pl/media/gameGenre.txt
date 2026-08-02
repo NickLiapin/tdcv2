@@ -1,0 +1,21 @@
+---
+description: Video game genre (Polish)
+locale: pl
+---
+Akcja
+Przygodowa
+RPG
+Strategia
+Symulacja
+Sportowa
+Logiczna
+Strzelanka
+Platformówka
+Wyścigi
+Bijatyka
+Survival
+Otwarty świat
+MMORPG
+Roguelike
+Horror
+Muzyczna

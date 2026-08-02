@@ -1,0 +1,10 @@
+---
+description: Greek full female name — a single given name and a single surname (Ελένη Παπαδοπούλου). Greek names carry one surname, unlike the two-surname Spanish form. The surname comes from the feminine list, so it reads as the genitive form Greek requires for a woman (Παπαδόπουλος -> Παπαδοπούλου).
+generator: tdc
+locale: el
+---
+<sequence name="p">
+  <gen name="f" type="template" value="el.person.female.firstName"/>
+  <gen name="l" type="template" value="el.person.female.lastName"/>
+</sequence>
+<data>${{p.f}} ${{p.l}}</data>

@@ -1,0 +1,6 @@
+---
+address: puerto_rico.finance.account
+description: Puerto Rican bank account number — 9 to 12 digits. STRUCTURAL ONLY: PR banks operate on the US system (no IBAN); each bank sets its own account-number length and publishes no check rule, so nothing here can be validated
+generator: tdc
+---
+<gen type="regex" value="[0-9]{9,12}"/>

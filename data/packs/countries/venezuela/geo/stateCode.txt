@@ -1,0 +1,29 @@
+---
+address: venezuela.geo.stateCode
+description: ISO 3166-2:VE subdivision code (letter part, without the VE- prefix); same order as venezuela.geo.state
+locale: es
+---
+Z
+B
+C
+D
+E
+F
+G
+H
+Y
+A
+I
+J
+X
+K
+L
+M
+N
+O
+P
+R
+S
+T
+U
+V

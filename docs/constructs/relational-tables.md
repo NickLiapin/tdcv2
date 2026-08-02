@@ -1,0 +1,254 @@
+<a name="top"></a>
+
+**English** · [Русский](../ru/constructs/relational-tables.md#top) · [Español](../es/constructs/relational-tables.md#top)
+
+← Previous: [Multiple values in a cell (repeat)](./multiple-values.md#top) · **[Contents](../README.md#top)** · Next: [Uniqueness (uniq, distinct)](./unique-values.md#top) →
+
+---
+
+# Relational tables with `each`
+
+**Use it when** one record really stands for **several rows** — a customer with a
+handful of orders, an invoice with line items, a post with tags — and you want them
+as separate rows in a child table, each carrying a foreign key back to the parent,
+all from a single config.
+
+The [`each`](../reference/attributes.md#top) attribute repeats a
+[`<line>`](../core-concepts/output-formatting.md#top) once per element of a list. One
+record turns into **N output rows** — a normalized table ready for a database.
+
+> [!NOTE]
+> Example outputs below are illustrative. The exact *values* a generator emits can
+> shift between core versions and seeds; the **counts** and the **structural rules**
+> (which rows appear, which stay empty, that keys are unique) are what the feature
+> guarantees.
+
+![](../img/guides/relational.svg)
+
+*One run, four parents and their children, exactly as the rows come out.*
+
+- **A** — the parent rows, each with its own key
+- **B** — the child rows — every one of them carries its parent key, so nothing is orphaned
+
+## At a glance
+
+| Where           | What                                                                 |
+| :-------------- | :------------------------------------------------------------------ |
+| Applies on      | [`<line>`](../core-concepts/output-formatting.md#top)                  |
+| Value           | The **name** of a sequence whose generator has [`repeat`](../reference/attributes.md#top) |
+| Effect          | The line is emitted once per element of that list                   |
+
+The target sequence **must** carry [`repeat`](../reference/attributes.md#top) — that's
+what makes it a list to iterate over. Point `each` at anything else and TDC tells you
+why (see the last section below).
+
+## The problem: a list crammed into one record
+
+A customer placed three orders. On the record they sit as a list:
+
+```
+1;VIP;8648,7170,7063
+```
+
+That's no good for a database. You need an `orders` table where **each order is its
+own row**, linked back to the customer. One record has to produce three rows — not one
+row with a list in it.
+
+## The tool
+
+Give the orders their own [`repeat`](../reference/attributes.md#top) list, then put
+`each` on the order line so it fires once per order:
+
+```xml
+<env count="4" seed="each-demo" inject="${{%}}">
+    <sequence name="Id"><gen type="increment" value="1"/></sequence>
+    <sequence name="Name"><gen type="template" value="person.male.firstName"/></sequence>
+    <sequence name="Tier"><gen type="text" value="VIP,standard" percent="50,50"/></sequence>
+    <sequence name="VipOrders" parent="Tier.VIP">
+        <gen type="number" value="1000..9999" repeat="2..3"/>
+    </sequence>
+    <sequence name="StdOrders" parent="Tier.standard">
+        <gen type="number" value="100..999" repeat="0..2"/>
+    </sequence>
+</env>
+<block>
+    <line><data>INSERT INTO customers VALUES (${{Id}}, '${{Name}}', '${{Tier}}');</data></line>
+    <line each="VipOrders"><data>INSERT INTO orders VALUES (${{_item_id}}, ${{Id}}, ${{VipOrders}});</data></line>
+    <line each="StdOrders"><data>INSERT INTO orders VALUES (${{_item_id}}, ${{Id}}, ${{StdOrders}});</data></line>
+</block>
+```
+
+## What you get
+
+`./run each-demo.tdc`
+
+```
+INSERT INTO customers VALUES (1, 'James', 'standard');
+INSERT INTO orders VALUES (4, 1, 433);
+INSERT INTO orders VALUES (5, 1, 474);
+INSERT INTO customers VALUES (2, 'Robert', 'standard');
+INSERT INTO customers VALUES (3, 'William', 'VIP');
+INSERT INTO orders VALUES (11, 3, 2460);
+INSERT INTO orders VALUES (12, 3, 5137);
+INSERT INTO orders VALUES (13, 3, 7717);
+INSERT INTO customers VALUES (4, 'Michael', 'VIP');
+INSERT INTO orders VALUES (16, 4, 5249);
+INSERT INTO orders VALUES (17, 4, 2324);
+```
+
+The order line is written **once** in the config, yet it prints as many times as the
+customer has orders. Customer 2 (`Robert`) drew **zero** orders, so there are no
+order rows for him at all and no empty placeholder left behind. The two `VIP`
+customers draw from `VipOrders` and the standard customers from `StdOrders`, and each
+row iterates the right list because
+[`parent`](../guides/hierarchical-dependencies.md#top) already settled which list is
+active.
+
+**Why/when:** this is the one-config way to emit a parent table and its child table
+together, correctly linked — no post-processing, no second run, no scripting to
+explode the list.
+
+## What's visible inside an `each` line
+
+Inside a line that carries `each`, the iterated sequence name refers to the **current
+element**, and two extra built-ins become available:
+
+| Token            | What it means                                                            |
+| :--------------- | :----------------------------------------------------------------------- |
+| `${{VipOrders}}` | the **current** element. Outside the `each` line, the same name is the whole joined list |
+| `${{_item}}`     | position within the record: `1`, `2`, `3`                                  |
+| `${{_item_id}}`  | a global, unique number across the whole run — your primary key           |
+| everything else  | as usual: `${{Id}}`, [`${{_count}}`](../reference/builtins.md#top), any other sequence |
+
+This is exactly why the foreign key works: `${{Id}}` still means the **customer** on
+every order row, not the element. If iterating rebound `Id` to the element, every order
+would point at the wrong customer. The parent's columns stay fixed; only the iterated
+name and `_item` / `_item_id` advance.
+
+## About the order numbers
+
+Look at the primary keys: `4, 5`, then `11, 12, 13`, then `16, 17`. They **rise**, but
+with gaps.
+
+That's deliberate. `_item_id` is computed from the record's number, so a row can be
+produced **without knowing its neighbors** — which is what keeps
+[`--jobs`](../guides/large-outputs.md#top) parallelism byte-for-byte identical to a single-threaded
+run. The price is a gap wherever a record has fewer orders than the maximum. For a primary
+key that's perfectly fine — real databases rarely have gap-free IDs either.
+
+Uniqueness is still ironclad, including across **multiple** lists — `StdOrders` uses
+`4, 5` while `VipOrders` uses `11, 12, 13`, and the two ranges never collide. In a
+larger check, 2000 records produced 3501 orders with 3501 distinct keys, and zero orders
+pointing at a nonexistent customer.
+
+**Why/when:** trust `_item_id` as a stable, unique, parallel-safe surrogate key.
+Reach for `_item` instead when you want a per-record sequence number (`1, 2, 3` that
+restarts on every parent).
+
+## A lifecycle, not just a list
+
+The list `each` walks does not have to be a bag of unrelated values. If it is written in
+order, the rows come out in order — which is how you generate a **history**: an order
+that goes `created → paid → shipped → delivered`, one row per step, and never a step out
+of sequence.
+
+Two pieces do it. [`order="sequential"`](../reference/attributes.md#top) makes the `repeat`
+list walk the values in the order they are written instead of drawing them, and
+[`parent`](../guides/hierarchical-dependencies.md#top) picks which path this record takes:
+
+```xml
+<env count="5" seed="lifecycle" local="en">
+    <sequence name="OrderId"><gen type="increment" value="1000"/></sequence>
+
+    <mix name="Outcome" percent="60,25,15">
+        <case><gen type="text" value="delivered"/></case>
+        <case><gen type="text" value="refunded"/></case>
+        <case><gen type="text" value="cancelled"/></case>
+    </mix>
+
+    <sequence name="Happy" parent="Outcome.delivered">
+        <gen type="text" value="created,paid,shipped,delivered" repeat="4" order="sequential" cycle="true"/>
+    </sequence>
+    <sequence name="Refund" parent="Outcome.refunded">
+        <gen type="text" value="created,paid,refunded" repeat="3" order="sequential" cycle="true"/>
+    </sequence>
+    <sequence name="Cancel" parent="Outcome.cancelled">
+        <gen type="text" value="created,cancelled" repeat="2" order="sequential" cycle="true"/>
+    </sequence>
+</env>
+<block>
+    <line each="Happy"><data>${{OrderId}},${{_item}},${{Happy}}</data></line>
+    <line each="Refund"><data>${{OrderId}},${{_item}},${{Refund}}</data></line>
+    <line each="Cancel"><data>${{OrderId}},${{_item}},${{Cancel}}</data></line>
+</block>
+```
+
+`./run lifecycle.tdc`
+
+```
+1000,1,created
+1000,2,paid
+1000,3,shipped
+1000,4,delivered
+1001,1,created
+1001,2,paid
+1001,3,shipped
+1001,4,delivered
+1002,1,created
+1002,2,paid
+1002,3,shipped
+1002,4,delivered
+1003,1,created
+1003,2,cancelled
+1004,1,created
+1004,2,paid
+1004,3,refunded
+```
+
+Every order takes a **legal** path — a shipped order was paid first, a cancelled one
+never shipped — and the outcomes land in the exact proportions `<mix>` declared. Only
+one of the three lines fires per record, because `parent` leaves the other two empty.
+
+**Why it is built this way.** A status column that changed by "looking at the previous
+row" would force the run to be computed in order, from the first row. Choosing a whole
+path up front and unrolling it keeps every record independent — so this works on the
+streaming engines and in parallel, unchanged.
+
+The same shape covers anything with a fixed vocabulary of steps: a support ticket
+(`open → assigned → resolved`), a delivery, a moderation queue, an onboarding funnel.
+
+## Where it won't work
+
+`each` is strict about what it can iterate, and fails loudly rather than guessing:
+
+| What                                             | Why                                                                       | Error     |
+| :----------------------------------------------- | :------------------------------------------------------------------------ | :-------- |
+| `each` on a sequence with **no** [`repeat`](../reference/attributes.md#top) | there's nothing to iterate over                          | `TDC207`  |
+| `each` on a name that doesn't exist              | the sequence is undeclared                                                | `TDC206`  |
+| `<data name="…">` inside an `each` line          | a named `<data>` is a **column** for Parquet, and Parquet collects columns per record, not per iterated row | `TDC209`  |
+
+`./run broken.tdc  (each on a non-list)`
+
+```
+error[TDC207]: sequence "Tier" has no repeat, so each has nothing to iterate
+note: add repeat="…" to its generator, or point each at a list sequence
+```
+
+For **Parquet** output you don't need `each` at all: a
+[`repeat`](../reference/attributes.md#top) list stays a real list inside the column,
+which is already the right shape for a columnar file. `each` is the tool for **text**
+formats — SQL, CSV, JSON lines — where one record must become several physical rows.
+
+## See also
+
+- **[Hierarchical dependencies](../guides/hierarchical-dependencies.md#top)** — [`parent`](../reference/attributes.md#top),
+  which decides *which* list is active on each row.
+- **[Coherent & relational data](../guides/coherent-data.md#top)** — the other way to relate tables,
+  by shared parent lookup.
+- **[`repeat` / `separator`](../reference/attributes.md#top)** — how a sequence becomes a
+  list in the first place.
+- **[Builtins](../reference/builtins.md#top)** — `_item`, `_item_id`, `_count` and friends.
+
+---
+
+← Previous: [Multiple values in a cell (repeat)](./multiple-values.md#top) · **[Contents](../README.md#top)** · Next: [Uniqueness (uniq, distinct)](./unique-values.md#top) →

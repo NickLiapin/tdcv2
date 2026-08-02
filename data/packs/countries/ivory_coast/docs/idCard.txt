@@ -1,0 +1,7 @@
+---
+address: ivory_coast.docs.idCard
+description: Ivorian national identity number (CNI) — 11 digits. Structural; no public check digit.
+generator: tdc
+locale: fr
+---
+<gen type="regex" value="[0-9]{11}"/>

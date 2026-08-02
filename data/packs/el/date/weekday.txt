@@ -1,0 +1,11 @@
+---
+description: Weekday name (Greek, Monday first)
+locale: el
+---
+Δευτέρα
+Τρίτη
+Τετάρτη
+Πέμπτη
+Παρασκευή
+Σάββατο
+Κυριακή

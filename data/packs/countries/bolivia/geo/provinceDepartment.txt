@@ -1,0 +1,117 @@
+---
+address: bolivia.geo.provinceDepartment
+description: The departamento each entry of bolivia.geo.province belongs to; same order as bolivia.geo.province, so the two lists pair a province with its department
+locale: es
+---
+Chuquisaca
+Chuquisaca
+Chuquisaca
+Chuquisaca
+Chuquisaca
+Chuquisaca
+Chuquisaca
+Chuquisaca
+Chuquisaca
+Chuquisaca
+La Paz
+La Paz
+La Paz
+La Paz
+La Paz
+La Paz
+La Paz
+La Paz
+La Paz
+La Paz
+La Paz
+La Paz
+La Paz
+La Paz
+La Paz
+La Paz
+La Paz
+La Paz
+La Paz
+La Paz
+Cochabamba
+Cochabamba
+Cochabamba
+Cochabamba
+Cochabamba
+Cochabamba
+Cochabamba
+Cochabamba
+Cochabamba
+Cochabamba
+Cochabamba
+Cochabamba
+Cochabamba
+Cochabamba
+Cochabamba
+Cochabamba
+Oruro
+Oruro
+Oruro
+Oruro
+Oruro
+Oruro
+Oruro
+Oruro
+Oruro
+Oruro
+Oruro
+Oruro
+Oruro
+Oruro
+Oruro
+Oruro
+Potosí
+Potosí
+Potosí
+Potosí
+Potosí
+Potosí
+Potosí
+Potosí
+Potosí
+Potosí
+Potosí
+Potosí
+Potosí
+Potosí
+Potosí
+Potosí
+Tarija
+Tarija
+Tarija
+Tarija
+Tarija
+Tarija
+Santa Cruz
+Santa Cruz
+Santa Cruz
+Santa Cruz
+Santa Cruz
+Santa Cruz
+Santa Cruz
+Santa Cruz
+Santa Cruz
+Santa Cruz
+Santa Cruz
+Santa Cruz
+Santa Cruz
+Santa Cruz
+Santa Cruz
+Beni
+Beni
+Beni
+Beni
+Beni
+Beni
+Beni
+Beni
+Pando
+Pando
+Pando
+Pando
+Pando

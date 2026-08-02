@@ -1,0 +1,37 @@
+---
+address: nicaragua.education.university
+description: Nicaraguan university or higher-education institution (public and private), including CNU member universities
+locale: es
+---
+Universidad Nacional Autónoma de Nicaragua, Managua
+Universidad Nacional Autónoma de Nicaragua, León
+Universidad Centroamericana
+Universidad Americana
+Universidad Nacional de Ingeniería
+Universidad Nacional Agraria
+Universidad Politécnica de Nicaragua
+Universidad Católica Redemptoris Mater
+Universidad de las Regiones Autónomas de la Costa Caribe Nicaragüense
+Bluefields Indian and Caribbean University
+Universidad Nacional Autónoma de Nicaragua
+Universidad de Ciencias Comerciales
+Universidad Thomas More
+Universidad del Valle
+Universidad Iberoamericana de Ciencia y Tecnología
+Universidad Nicaragüense de Ciencia y Tecnología
+Universidad Central de Nicaragua
+Universidad Martín Lutero
+Universidad Paulo Freire
+Universidad Popular de Nicaragua
+Universidad Hispanoamericana
+Universidad de Managua
+Universidad Evangélica Nicaragüense Martín Luther King
+Universidad Internacional Antonio de Valdivieso
+Universidad Católica del Trópico Seco
+Universidad Nacional Multidisciplinaria de Estelí
+Universidad Nacional de Tecnología y Comercio
+Keiser University Latin American Campus
+Ave Maria University
+Universidad Autónoma de Chinandega
+Universidad del Norte de Nicaragua
+Universidad Metropolitana

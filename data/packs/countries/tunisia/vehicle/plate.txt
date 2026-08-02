@@ -1,0 +1,7 @@
+---
+address: tunisia.vehicle.plate
+description: Tunisian licence plate — a serial, the word تونس and a series number (e.g. 1234 تونس 56). Structural.
+generator: tdc
+locale: ar
+---
+<gen type="regex" value="[0-9]{1,4} تونس [0-9]{1,3}"/>

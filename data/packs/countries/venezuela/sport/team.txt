@@ -1,0 +1,13 @@
+---
+address: venezuela.sport.team
+description: Venezuelan professional baseball club — the eight teams of the Liga Venezolana de Béisbol Profesional (LVBP), the country's premier sport
+locale: es
+---
+Leones del Caracas
+Navegantes del Magallanes
+Tigres de Aragua
+Cardenales de Lara
+Águilas del Zulia
+Caribes de Anzoátegui
+Tiburones de La Guaira
+Bravos de Margarita

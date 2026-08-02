@@ -1,0 +1,21 @@
+---
+address: chile.holiday
+description: Chilean feriado legal — the statutory public holidays; Independencia and Glorias del Ejército together make the Fiestas Patrias
+locale: es
+---
+Año Nuevo
+Viernes Santo
+Sábado Santo
+Día Nacional del Trabajo
+Día de las Glorias Navales
+Día Nacional de los Pueblos Indígenas
+San Pedro y San Pablo
+Día de la Virgen del Carmen
+Asunción de la Virgen
+Independencia Nacional
+Día de las Glorias del Ejército
+Encuentro de Dos Mundos
+Día de las Iglesias Evangélicas y Protestantes
+Día de Todos los Santos
+Inmaculada Concepción
+Navidad

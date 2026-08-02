@@ -1,0 +1,115 @@
+---
+address: guatemala.geo.municipality
+description: Guatemalan municipio (second-level division; real municipalities drawn from across the 22 departments)
+locale: es
+---
+San Raymundo
+San Pedro Ayampuc
+San José del Golfo
+Chuarrancho
+San Agustín Acasaguastlán
+Morazán
+Sansare
+Sanarate
+Alotenango
+Santa María de Jesús
+San Antonio Aguas Calientes
+Pastores
+Magdalena Milpas Altas
+Santo Domingo Xenacoj
+Zaragoza
+El Tejar
+Patzicía
+Acatenango
+Parramos
+Santa Cruz Balanyá
+San Pedro Yepocapa
+Iztapa
+San José
+Masagua
+Siquinalá
+Sipacate
+Guanagazapa
+Oratorio
+Nueva Santa Rosa
+Casillas
+Guazacapán
+Pueblo Nuevo Viñas
+San Lucas Tolimán
+Santa Catarina Palopó
+San Antonio Palopó
+San Juan La Laguna
+San Andrés Semetabaj
+San Andrés Xecul
+Santa María Chiquimula
+San Bartolo
+Salcajá
+Olintepeque
+Cantel
+Zunil
+Almolonga
+La Esperanza
+San Juan Ostuncalco
+Colomba
+San Antonio Suchitepéquez
+Santo Domingo Suchitepéquez
+Patulul
+Samayac
+Río Bravo
+San Sebastián
+Champerico
+El Asintal
+Nuevo San Carlos
+Tajumulco
+Tacaná
+Comitancillo
+Ixchiguán
+El Tumbador
+Ocós
+San Pablo
+Sibinal
+San Pedro Necta
+Jacaltenango
+Todos Santos Cuchumatán
+Aguacatán
+Cuilco
+Nentón
+San Mateo Ixtatán
+Colotenango
+Chajul
+San Juan Cotzal
+Uspantán
+Sacapulas
+Joyabaj
+Zacualpa
+Cunén
+Cubulco
+San Miguel Chicaj
+Purulhá
+San Cristóbal Verapaz
+Tactic
+Panzós
+Santa María Cahabón
+Lanquín
+Fray Bartolomé de las Casas
+Sayaxché
+Dolores
+San Luis
+San Andrés
+Teculután
+Cabañas
+La Unión
+Quezaltepeque
+Olopa
+Ipala
+Concepción Las Minas
+San Juan Ermita
+San Luis Jilotepeque
+Monjas
+San Carlos Alzatate
+Jalpatagua
+Moyuta
+Comapa
+Agua Blanca
+Atescatempa
+Quesada

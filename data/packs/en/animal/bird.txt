@@ -1,0 +1,24 @@
+---
+description: Bird
+locale: en
+---
+Sparrow
+Robin
+Eagle
+Hawk
+Owl
+Parrot
+Penguin
+Falcon
+Cardinal
+Blue Jay
+Hummingbird
+Woodpecker
+Pelican
+Flamingo
+Swan
+Crow
+Raven
+Finch
+Heron
+Kingfisher

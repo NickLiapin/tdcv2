@@ -1,0 +1,55 @@
+---
+address: italy.geo.city
+description: Cities of Italy, roughly ordered by population
+locale: it
+---
+Roma
+Milano
+Napoli
+Torino
+Palermo
+Genova
+Bologna
+Firenze
+Bari
+Catania
+Venezia
+Verona
+Messina
+Padova
+Trieste
+Brescia
+Parma
+Taranto
+Prato
+Modena
+Reggio Calabria
+Reggio Emilia
+Perugia
+Ravenna
+Livorno
+Rimini
+Cagliari
+Foggia
+Ferrara
+Salerno
+Latina
+Giugliano in Campania
+Monza
+Sassari
+Bergamo
+Pescara
+Trento
+Forlì
+Siracusa
+Vicenza
+Terni
+Bolzano
+Novara
+Piacenza
+Ancona
+Andria
+Udine
+Arezzo
+Cesena
+Lecce

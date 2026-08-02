@@ -1,0 +1,7 @@
+---
+address: new_zealand.finance.bankCode
+description: New Zealand bank prefix — the two-digit bank identifier that opens an account number (Payments NZ register); same order as new_zealand.finance.bank
+generator: tdc
+locale: en
+---
+<gen type="text" value="01,02,03,05,08,10,12,15,30,31,38,88"/>

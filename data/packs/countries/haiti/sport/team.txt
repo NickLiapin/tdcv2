@@ -1,0 +1,17 @@
+---
+address: haiti.sport.team
+description: Haitian first-division football clubs
+locale: fr
+---
+Violette AC
+Racing Club Haïtien
+Don Bosco
+Cavaly
+Baltimore SC
+Real Hope
+Arcahaie FC
+América des Cayes
+Mirebalais FC
+Ouanaminthe FC
+Triomphe AC
+Juventus des Cayes

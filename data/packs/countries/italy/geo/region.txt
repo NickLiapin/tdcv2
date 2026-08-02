@@ -1,0 +1,25 @@
+---
+address: italy.geo.region
+description: The 20 regions of Italy (regioni), including the five with special statute
+locale: it
+---
+Abruzzo
+Basilicata
+Calabria
+Campania
+Emilia-Romagna
+Friuli-Venezia Giulia
+Lazio
+Liguria
+Lombardia
+Marche
+Molise
+Piemonte
+Puglia
+Sardegna
+Sicilia
+Toscana
+Trentino-Alto Adige
+Umbria
+Valle d'Aosta
+Veneto

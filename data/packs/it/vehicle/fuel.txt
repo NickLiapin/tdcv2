@@ -1,0 +1,14 @@
+---
+description: Fuel type (Italian)
+locale: it
+---
+Benzina
+Diesel
+Elettrico
+Ibrido
+Ibrido plug-in
+Idrogeno
+Etanolo
+Metano
+GPL
+Biodiesel

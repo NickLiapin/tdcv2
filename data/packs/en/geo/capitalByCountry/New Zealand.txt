@@ -1,0 +1,5 @@
+---
+description: Capital of New Zealand
+locale: en
+---
+Wellington

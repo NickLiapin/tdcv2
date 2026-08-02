@@ -1,0 +1,14 @@
+---
+description: Jobs in Technology (Portuguese)
+locale: pt
+---
+Engenheiro de software
+Cientista de dados
+Engenheiro DevOps
+Gerente de produto
+Designer UX
+Engenheiro de qualidade
+Administrador de sistemas
+Desenvolvedor backend
+Engenheiro de dados
+Analista de segurança da informação

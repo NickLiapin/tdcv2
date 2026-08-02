@@ -1,0 +1,7 @@
+---
+address: ireland.phone
+description: Irish mobile phone in E.164 form (+353 8X XXXXXXX) — mobile prefixes 083/085/086/087/089 then seven digits
+generator: tdc
+locale: en
+---
+<gen type="regex" value="\+3538[35679][0-9]{7}"/>

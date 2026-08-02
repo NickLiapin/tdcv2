@@ -1,0 +1,6 @@
+---
+address: togo.phone
+description: Togolese mobile phone in E.164 form (+228 [79]XXXXXXX)
+generator: tdc
+---
+<gen type="regex" value="\+228[79][0-9]{7}"/>

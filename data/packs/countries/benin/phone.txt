@@ -1,0 +1,6 @@
+---
+address: benin.phone
+description: Beninese mobile phone in E.164 form (+229 01XXXXXXXX, 10-digit national number)
+generator: tdc
+---
+<gen type="regex" value="\+22901[0-9]{8}"/>

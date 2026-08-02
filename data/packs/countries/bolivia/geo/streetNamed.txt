@@ -1,0 +1,111 @@
+---
+address: bolivia.geo.streetNamed
+description: Common Bolivian street name, bare (without the Avenida / Calle / Pasaje prefix) — independence heroes, civic dates, departments and geography
+locale: es
+---
+Simón Bolívar
+Antonio José de Sucre
+Andrés de Santa Cruz
+Pedro Domingo Murillo
+Eduardo Abaroa
+Juana Azurduy de Padilla
+Ignacio Warnes
+José Ballivián
+Aniceto Arce
+Gualberto Villarroel
+Germán Busch
+Bautista Saavedra
+Mariscal Santa Cruz
+Franz Tamayo
+Tomás Frías
+Manuel Isidoro Belzu
+José Manuel Pando
+Hernando Siles
+Villazón
+Camacho
+Colón
+Comercio
+Ayacucho
+Junín
+Bolívar
+Sucre
+Potosí
+Cochabamba
+Oruro
+Chuquisaca
+Tarija
+Beni
+Pando
+Litoral
+Ballivián
+Heroínas
+Aroma
+América
+Las Américas
+Libertad
+Independencia
+Bolivia
+Uruguay
+Brasil
+Argentina
+Perú
+Paraguay
+México
+España
+Illimani
+Sajama
+Tunari
+Illampu
+Sagárnaga
+Cristo Redentor
+Monseñor Rivero
+Roca y Coronado
+Irala
+Grigotá
+Cañoto
+El Trompillo
+Doble Vía La Guardia
+Alemana
+Banzer
+Cañada Strongest
+Montes
+Arce
+Busch
+6 de Agosto
+16 de Julio
+25 de Mayo
+24 de Septiembre
+14 de Septiembre
+10 de Noviembre
+1 de Mayo
+23 de Marzo
+20 de Octubre
+21 de Junio
+15 de Abril
+11 de Octubre
+27 de Mayo
+2 de Febrero
+9 de Abril
+Loa
+Uyuni
+Colquiri
+Villarroel
+Max Paredes
+Buenos Aires
+Tumusla
+Yanacocha
+Genaro Sanjinés
+Mercado
+Socabaya
+Almirante Grau
+República
+Nataniel Aguirre
+San Martín
+Jordán
+Baptista
+Lanza
+Antezana
+La Paz
+Ecuador
+Colombia
+Venezuela

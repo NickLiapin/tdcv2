@@ -1,0 +1,10 @@
+---
+address: equatorial_guinea.finance.bank
+description: Bank licensed in Equatorial Guinea. The country is part of the CEMAC monetary zone; the central bank is the BEAC (Banque des États de l'Afrique Centrale) and the currency is the Central African CFA franc (XAF)
+locale: es
+---
+Banco Nacional de Guinea Ecuatorial (BANGE)
+CCEI Bank GE
+BGFIBank Guinée Équatoriale
+Ecobank Guinea Ecuatorial
+Commercial Bank Guinea Ecuatorial (CBGE)

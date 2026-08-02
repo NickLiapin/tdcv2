@@ -1,0 +1,251 @@
+---
+title: Overview
+sidebar_position: 1
+---
+
+import Figure from '@site/src/components/Figure';
+import Legend from '@site/src/components/Legend';
+
+import Terminal from '@site/src/components/Terminal';
+
+# Pools — a row that references a whole record
+
+A [generator](../generators/overview.mdx) produces a value. A
+[sequence](../core-concepts/sequences.mdx) is a column of those values. That covers most
+of what a config needs — and then it runs into a wall.
+
+Two thousand patients are seen by thirty doctors. Each patient row needs the doctor's
+first name, last name, and room number. Three sequences side by side give you three
+independent draws, so a row ends up with one doctor's first name next to another
+doctor's room. The data looks plausible and is nonsense: `Dr. John Williams, room 118`
+where no such doctor exists.
+
+The missing idea is that **a doctor is not a value, he is a record** — and thirty of
+them exist before the first patient does. `<pool>` is that table.
+
+```xml
+<tdc>
+  <env count="8" seed="clinic" local="en">
+    <pool name="Doctors" count="4">
+      <sequence name="firstName"><gen type="template" value="person.male.firstName"/></sequence>
+      <sequence name="lastName"><gen type="template" value="person.lastName"/></sequence>
+      <sequence name="room"><gen type="number" value="100..199"/></sequence>
+    </pool>
+
+    <sequence name="Patient"><gen type="template" value="person.female.firstName"/></sequence>
+    <sequence name="Seen"><gen type="pool" value="Doctors"/></sequence>
+  </env>
+  <block>
+    <line><data>${{Patient}} -> Dr. ${{Seen.firstName}} ${{Seen.lastName}}, room ${{Seen.room}}</data></line>
+  </block>
+</tdc>
+```
+
+<Terminal title="./run clinic.tdc">
+{`Barbara -> Dr. John Brown, room 167
+Mary -> Dr. James Smith, room 197
+Margaret -> Dr. Michael Johnson, room 123
+Jennifer -> Dr. Robert Williams, room 118
+Elizabeth -> Dr. James Smith, room 197
+Patricia -> Dr. James Smith, room 197
+Susan -> Dr. Robert Williams, room 118
+Linda -> Dr. John Brown, room 167`}
+</Terminal>
+
+:::note[Outputs are illustrative]
+The values come from a fixed `seed`, so they're reproducible, but exact strings can
+differ between core versions. Treat them as examples of *shape*, not guarantees.
+:::
+
+Four doctors serve eight patients, and each doctor's three fields stay glued together.
+James Smith is in room 197 on every row where he appears, because the row picked
+**Smith** — not "a first name, a last name, and a room".
+
+<Figure
+  src="/img/constructs/pool-member.svg"
+  alt=""
+  caption="Four members, eight rows. Every row takes one whole line of the table."
+/>
+
+<Legend items={[["A", "the pool: four members, built once before the run"], ["B", "the generated rows"], ["C", "one pick per row — both cells of a row always come from the same member"]]} />
+
+## Two things happen, in this order
+
+1. **The pool is built.** Before any row exists, TDC materializes `count` members. This
+   happens once, whether the run is 8 rows or 8 billion.
+2. **Each row draws one member.** A `<gen type="pool">` gives its sequence one whole
+   member per row, and publishes every field of that member under `Ref.field`.
+
+Everything else on this page follows from those two sentences.
+
+## At a glance
+
+`<pool>` lives **directly in [`<env>`](../core-concepts/configuration.mdx)**, beside
+`<sequence>`. It is never read directly; a sequence draws from it.
+
+| On `<pool>` | Required | What it does                                    |
+| :---------- | :------- | :----------------------------------------------- |
+| `name`      | yes      | The name a `<gen type="pool">` names in `value`  |
+| `count`     | yes      | How many members the table holds                 |
+| `comment`   | no       | Free-text note                                   |
+
+| On `<gen type="pool">` | Required | What it does                                          |
+| :--------------------- | :------- | :------------------------------------------------------ |
+| `value`                | yes      | The pool to draw from                                    |
+| `filter`               | no       | Which members this row may draw from — [Narrowing](filter.mdx) |
+| `if`                   | no       | Whether this row gets a member at all — [Narrowing](filter.mdx#filter-is-not-if) |
+
+## A pool is a miniature `<env>`
+
+This is the design decision worth knowing, because it answers most questions before you
+ask them. A pool's body is built by the same machinery a config's `<env>` is built by,
+with the **member count** standing in for the row count.
+
+So everything you already know still applies inside a pool:
+
+| Inside a pool | Means |
+| :------------ | :---- |
+| `<sequence>` | a field of each member |
+| [`<mix>`](../constructs/mix.mdx) | a field split by exact `percent` — across the MEMBERS |
+| [`<switch>`](../constructs/switch.mdx) | a field derived from another field of the same member |
+| [`<uniq>`](../constructs/unique-values.mdx) · `uniq="true"` | members that must differ from one another |
+| `<distinct>` | two fields of one member that must differ |
+| `if=` | a field only some members have |
+| `parent=` | a field built over the members another field selected |
+| `<compute>` | a field calculated from the member's other fields |
+
+What a pool may **not** hold is output: no `<block>`, and no fixture tags. A pool is a
+table other columns read, not something written to a file. It also may not contain
+another `<pool>` — pools stay flat tables, and one
+[points at another](linking.mdx) instead of nesting.
+
+## Two names, one dot
+
+The pool has a `name`; so does the sequence that draws from it. They are different
+things:
+
+```xml
+<pool name="Doctors" count="4"> … </pool>
+
+<sequence name="Seen"><gen type="pool" value="Doctors"/></sequence>
+```
+
+- `Doctors` is the **table**. Nothing in `<block>` refers to it.
+- `Seen` is the **column** that holds one doctor per row. You read its fields as
+  `${{Seen.firstName}}`.
+
+Two sequences may draw from the same pool, and they pick independently — `Seen` and
+`Referred` would be two different doctors on the same row, which is usually the point.
+
+Reading the reference without a field is refused, because there is nothing to print:
+
+<Terminal title="./run clinic.tdc">
+{`error[TDC229]: "Seen" draws a whole member from a pool — it has no value of its own to print
+ --> clinic.tdc:8:16
+  |
+8 |   <block><line><data>\${{Seen}}</data></line></block>
+  |                ^^^^^^^^^^^^^^^^^^^^^^
+  |
+note: Read a field: \${{Seen.name}}.`}
+</Terminal>
+
+## One pick per row
+
+A sequence holds one value per row. A pool reference is a sequence, so it holds **one
+member** per row — and every `${{Seen.…}}` in that row reads the same one.
+
+That single rule is what the construct is for. It is also why "Dmitry Ivanova" — a male
+first name with a female surname — is not something a pool can produce: the gender, the
+first name, and the last name are fields of one member, and a row that took the member
+took all three.
+
+The pick is **uniform over the members** — a draw, not a rota, because nobody declared a
+proportion; see [declared shares or a draw](../generators/overview.mdx#declared-shares-or-a-draw-from-a-source).
+It is also [seekable](../core-concepts/determinism.mdx):
+row 900,000,000 finds its doctor without the 899,999,999 rows before it ever existing.
+That is why a pool costs the same on every engine.
+
+## Proportions inside the pool
+
+Because the pool is built by the ordinary machinery, `percent` works inside it exactly
+as it does at the top level. Thirty percent of the doctors are surgeons:
+
+```xml
+<pool name="Doctors" count="10">
+  <mix name="role" percent="30,70">
+    <case><gen type="text" value="surgeon"/></case>
+    <case><gen type="text" value="therapist"/></case>
+  </mix>
+  <sequence name="name"><gen type="template" value="person.lastName"/></sequence>
+</pool>
+```
+
+The share applies to the **ten members**, not to the rows. Three doctors are surgeons;
+how often those three are seen depends on how the rows draw — and on
+[`filter`](filter.mdx), which is what turns "three of the doctors are surgeons" into
+"patients who need a surgeon get one".
+
+## Members that differ from one another
+
+`uniq` inside a pool means what it means outside: no two members share the value.
+
+```xml
+<pool name="Rooms" count="6">
+  <sequence name="number" uniq="true"><gen type="number" value="100..199"/></sequence>
+</pool>
+```
+
+Six distinct room numbers, drawn without replacement. A pool whose members are meant to
+be *different things* usually wants this on at least one field — otherwise two members
+can come out identical, and a row cannot tell them apart.
+
+## The pool's own seed
+
+A pool is **not** drawn from the run's main stream. It derives a seed of its own:
+
+```
+<the run's seed> + "#pool:" + <the pool's name>
+```
+
+A pool named `Doctors` in a run seeded `main` is built from `main#pool:Doctors`. There is
+no `seed` attribute on `<pool>` — the derivation is the whole mechanism, and writing one
+is reported (`TDC015`).
+
+**Why it is derived rather than taken.** If the pool drew from the main stream, adding one
+to a config would shift **every column declared below it**: the ids would stay and the
+ages, names and dates would all move, and yesterday's snapshot would stop matching for a
+reason invisible in the diff. A derived seed makes a pool invisible to everything it does
+not feed.
+
+Two consequences worth knowing:
+
+- Change the run's `seed` and the pool changes with it. That is the point — one number
+  still reproduces the whole run.
+- **Renaming a pool changes its members**, because the name is part of the derived seed.
+  Renaming is not cosmetic; if the exact members matter, leave the name alone.
+
+## Size
+
+A pool is held in memory for the whole run — that is what makes a row's lookup free.
+Measured on the reference implementation, a member with four fields costs about
+320 bytes.
+
+| Members | Roughly | What happens |
+| :------ | :------ | :------------ |
+| up to 100,000 | up to ~29 MB | nothing; it runs |
+| over 100,000 | | `TDC234`, a warning |
+| over 1,000,000 | over ~290 MB | `TDC235`, refused |
+
+Both messages end the same way, because it is the usual cause: if you meant the number
+of **rows**, that is `count` on `<env>`.
+
+The ceiling is about the table, not the run. A pool of thirty doctors serves a billion
+patient rows at the same cost as a thousand, and works on every
+[engine](../guides/large-outputs.mdx).
+
+## Where to go next
+
+- [Narrowing with `filter`](filter.mdx) — which members a row may draw from, and how
+  that differs from `if`
+- [Linking pools together](linking.mdx) — several pools, a pool that draws from a pool,
+  and chains that run three deep

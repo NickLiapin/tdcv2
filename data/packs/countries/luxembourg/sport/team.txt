@@ -1,0 +1,17 @@
+---
+address: luxembourg.sport.team
+description: Luxembourg National Division football clubs
+locale: fr
+---
+F91 Dudelange
+Fola Esch
+Progrès Niederkorn
+Racing Union Luxembourg
+Swift Hesperange
+Differdange 03
+Jeunesse Esch
+UNA Strassen
+Victoria Rosport
+US Mondorf-les-Bains
+FC Rodange 91
+Etzella Ettelbruck

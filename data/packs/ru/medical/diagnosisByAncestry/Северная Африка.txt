@@ -1,0 +1,10 @@
+---
+description: Conditions markedly more frequent in people of North African ancestry (Russian). A prevalence signal, not an exclusive one.
+locale: ru
+---
+Дефицит глюкозо-6-фосфатдегидрогеназы
+Малая бета-талассемия
+Семейная средиземноморская лихорадка
+Болезнь Бехчета
+Лактазная недостаточность взрослого типа
+Пигментная ксеродерма

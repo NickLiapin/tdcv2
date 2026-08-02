@@ -1,0 +1,26 @@
+---
+description: Property amenity (Italian)
+locale: it
+---
+Piscina
+Garage
+Camino
+Aria condizionata centralizzata
+Pavimenti in legno
+Cabina armadio
+Balcone
+Giardino
+Palestra
+Ascensore
+Posto auto
+Lavastoviglie
+Lavanderia
+Animali ammessi
+Sistema di sicurezza
+Pannelli solari
+Terrazza
+Cantina
+Portineria
+Zona barbecue
+Arredato
+Riscaldamento

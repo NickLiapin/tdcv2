@@ -1,0 +1,12 @@
+---
+description: Name / academic suffix (French)
+locale: fr
+---
+Jr.
+Fils
+Père
+II
+III
+IV
+Ph.D.
+M.D.

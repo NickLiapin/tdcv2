@@ -1,0 +1,8 @@
+---
+description: Frameworks for Java
+---
+Spring Boot
+Hibernate
+Quarkus
+Micronaut
+Struts

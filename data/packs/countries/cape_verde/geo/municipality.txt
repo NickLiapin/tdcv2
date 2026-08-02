@@ -1,0 +1,27 @@
+---
+address: cape_verde.geo.municipality
+description: The 22 municipalities (concelhos) of Cape Verde (Portuguese names)
+locale: pt
+---
+Praia
+Ribeira Grande de Santiago
+São Domingos
+Santa Cruz
+Santa Catarina
+São Salvador do Mundo
+São Lourenço dos Órgãos
+São Miguel
+Tarrafal
+São Vicente
+Ribeira Grande
+Paul
+Porto Novo
+São Filipe
+Santa Catarina do Fogo
+Mosteiros
+Brava
+Sal
+Boa Vista
+Maio
+Ribeira Brava
+Tarrafal de São Nicolau

@@ -1,0 +1,17 @@
+---
+description: Legal case type (Polish)
+locale: pl
+---
+Cywilna
+Karna
+Rodzinna
+Upadłościowa
+Odszkodowawcza
+Pracownicza
+Spór umowny
+Własność intelektualna
+Nieruchomości
+Imigracyjna
+Podatkowa
+Administracyjna
+Gospodarcza

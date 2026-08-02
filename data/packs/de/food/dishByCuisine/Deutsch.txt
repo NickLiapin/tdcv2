@@ -1,0 +1,18 @@
+---
+description: Dishes of German cuisine (German)
+locale: de
+---
+Wiener Schnitzel
+Sauerbraten
+Bratwurst
+Rinderrouladen
+Kartoffelsalat
+Spätzle
+Maultaschen
+Currywurst
+Eisbein
+Königsberger Klopse
+Labskaus
+Schweinshaxe
+Kassler
+Rotkohl

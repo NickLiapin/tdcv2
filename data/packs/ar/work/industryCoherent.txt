@@ -1,0 +1,14 @@
+---
+description: Industry that has a coherent job list (jobByIndustry child)
+locale: ar
+---
+التكنولوجيا
+الصحة
+المالية
+البناء
+التعليم
+الضيافة
+التصنيع
+التجزئة
+النقل
+القانون

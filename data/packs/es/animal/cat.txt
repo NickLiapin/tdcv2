@@ -1,0 +1,22 @@
+---
+description: Cat breed (Spanish)
+locale: es
+---
+Persa
+Maine Coon
+Siamés
+Ragdoll
+Bengalí
+Sphynx
+Británico de pelo corto
+Abisinio
+Scottish Fold
+Bosque de Noruega
+Azul ruso
+Birmano sagrado
+Americano de pelo corto
+Devon Rex
+Burmés
+Angora turco
+Somalí
+Manx

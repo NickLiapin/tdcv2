@@ -1,0 +1,16 @@
+---
+description: Jobs in Transportation (German)
+locale: de
+---
+Lkw-Fahrer
+Logistikkoordinator
+Fluglotse
+Disponent
+Verkehrspilot
+Lagerarbeiter
+Busfahrer
+Lokführer
+Speditionskaufmann
+Staplerfahrer
+Kurierfahrer
+Flugbegleiter

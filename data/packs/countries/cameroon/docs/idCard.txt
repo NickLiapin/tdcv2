@@ -1,0 +1,7 @@
+---
+address: cameroon.docs.idCard
+description: Cameroonian national ID number (CNI) — 9 digits. Structural; no public check digit.
+generator: tdc
+locale: fr
+---
+<gen type="regex" value="[0-9]{9}"/>

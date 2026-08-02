@@ -1,0 +1,5 @@
+---
+description: Currency code of France
+locale: en
+---
+EUR

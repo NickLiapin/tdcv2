@@ -1,0 +1,15 @@
+---
+description: Booking status (Polish, agrees with "rezerwacja")
+locale: pl
+---
+Potwierdzona
+Oczekująca
+Anulowana
+Na liście rezerwowej
+Zameldowana
+Wymeldowana
+Niewykorzystana
+Zmieniona
+Zwrócona
+Wygasła
+Gwarantowana

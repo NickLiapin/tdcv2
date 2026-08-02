@@ -1,0 +1,17 @@
+---
+address: paraguay.finance.bankCode
+description: SWIFT/BIC code of the bank — the identifier the BCP uses to name each participant in the SIPAP payment system, since Paraguay publishes no separate numeric bank-clearing code; 8-character primary-office form; same order as paraguay.finance.bank
+---
+BNFAPYPA
+BCNAPYPA
+UBBRPYPX
+BSUDPYPX
+BGNBPYPX
+FAMIPYPA
+BNITPYPA
+AMAMPYPA
+VISCPYPA
+BCOPPYPA
+BRASPYPX
+NACNPYPA
+CITIPYP1

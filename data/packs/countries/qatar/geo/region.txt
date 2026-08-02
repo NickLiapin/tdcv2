@@ -1,0 +1,13 @@
+---
+address: qatar.geo.region
+description: Municipalities of Qatar (Arabic)
+locale: ar
+---
+الدوحة
+الريان
+الوكرة
+أم صلال
+الخور والذخيرة
+الشمال
+الظعاين
+الشيحانية

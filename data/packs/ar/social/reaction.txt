@@ -1,0 +1,16 @@
+---
+description: Social media reaction (Arabic)
+locale: ar
+---
+إعجاب
+حب
+هاها
+واو
+حزين
+غاضب
+دعم
+تصفيق
+إبهام لأعلى
+قلب
+نار
+تهنئة

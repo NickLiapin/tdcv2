@@ -1,0 +1,14 @@
+---
+description: Dishes of French cuisine (Italian)
+locale: it
+---
+Coq au vin
+Manzo alla borgognona
+Ratatouille
+Croissant
+Quiche lorraine
+Bouillabaisse
+Crêpes
+Cassoulet
+Zuppa di cipolle
+Confit d'anatra

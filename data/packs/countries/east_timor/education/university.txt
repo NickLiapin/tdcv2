@@ -1,0 +1,12 @@
+---
+address: east_timor.education.university
+description: Universities and higher-education institutions of Timor-Leste (Portuguese names)
+locale: pt
+---
+Universidade Nacional Timor Lorosa'e
+Universidade da Paz
+Instituto Superior Cristal
+Universidade Oriental Timor Lorosa'e
+Universidade Dili
+Instituto Politécnico de Betano
+Universidade Católica Timorense São João Paulo II

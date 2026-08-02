@@ -1,0 +1,81 @@
+---
+address: panama.geo.city
+description: Panamanian city or cabecera (real localities and district seats across the ten provinces and the comarcas)
+locale: es
+---
+Ciudad de Panamá
+San Miguelito
+Tocumen
+Las Cumbres
+Pacora
+Chilibre
+Alcalde Díaz
+Arraiján
+La Chorrera
+Vista Alegre
+Nuevo Arraiján
+Colón
+Sabanitas
+Cristóbal
+Portobelo
+Nombre de Dios
+Miguel de la Borda
+David
+Santiago de Veraguas
+Chitré
+Los Santos
+Las Tablas
+Guararé
+Pedasí
+Macaracas
+Ocú
+Pesé
+Parita
+Penonomé
+Aguadulce
+Antón
+Natá
+La Pintada
+Olá
+Changuinola
+Almirante
+Bocas del Toro
+Chiriquí Grande
+Boquete
+Bugaba
+Concepción
+Volcán
+Puerto Armuelles
+Alanje
+Dolega
+Gualaca
+Boquerón
+La Concepción
+Tolé
+San Félix
+Remedios
+La Palma
+Metetí
+Yaviza
+El Real de Santa María
+Soná
+Atalaya
+Montijo
+Cañazas
+Las Palmas
+Santa Fe
+Calobre
+San Francisco
+Río de Jesús
+Río Sereno
+Divisa
+Guabito
+Puerto Caimito
+Capira
+Chame
+Bejuco
+San Carlos
+Chepo
+Chimán
+El Coco
+Nueva Gorgona

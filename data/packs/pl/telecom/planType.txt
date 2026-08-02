@@ -1,0 +1,16 @@
+---
+description: Mobile plan type (Polish)
+locale: pl
+---
+Na kartę
+Abonament
+Bez limitu
+Plan rodzinny
+Plan firmowy
+Płatność za wykorzystanie
+Tylko dane
+Plan współdzielony
+Taryfa jednolita
+Mix
+Plan łączony
+Doładowanie

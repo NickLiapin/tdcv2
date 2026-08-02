@@ -1,0 +1,17 @@
+---
+address: burkina_faso.sport.team
+description: Burkinabè first-division football clubs
+locale: fr
+---
+Rahimo FC
+ASFA-Yennenga
+Étoile Filante de Ouagadougou
+Rail Club du Kadiogo
+Salitas FC
+Majestic SC
+USFA
+AS SONABEL
+Union Sportive de Ouagadougou
+KOZAF
+Vitesse FC
+AS Douanes

@@ -1,0 +1,31 @@
+---
+description: US professional sports team
+---
+Los Angeles Lakers
+Boston Celtics
+Golden State Warriors
+Chicago Bulls
+Miami Heat
+New York Knicks
+New York Yankees
+Los Angeles Dodgers
+Boston Red Sox
+Chicago Cubs
+Dallas Cowboys
+New England Patriots
+Green Bay Packers
+Kansas City Chiefs
+San Francisco 49ers
+Pittsburgh Steelers
+Philadelphia Eagles
+Buffalo Bills
+Tampa Bay Buccaneers
+Denver Broncos
+Seattle Seahawks
+Las Vegas Raiders
+Detroit Lions
+Toronto Raptors
+Milwaukee Bucks
+Houston Astros
+Atlanta Braves
+New York Mets

@@ -1,0 +1,60 @@
+---
+address: united_kingdom.sport.team
+description: UK professional football club — the Premier League, notable English clubs, and the leading Scottish, Welsh and Northern Irish sides
+locale: en
+---
+Arsenal
+Aston Villa
+Bournemouth
+Brentford
+Brighton & Hove Albion
+Chelsea
+Crystal Palace
+Everton
+Fulham
+Ipswich Town
+Leicester City
+Liverpool
+Manchester City
+Manchester United
+Newcastle United
+Nottingham Forest
+Southampton
+Tottenham Hotspur
+West Ham United
+Wolverhampton Wanderers
+Leeds United
+Sheffield United
+Sheffield Wednesday
+West Bromwich Albion
+Sunderland
+Middlesbrough
+Norwich City
+Watford
+Burnley
+Coventry City
+Stoke City
+Derby County
+Blackburn Rovers
+Bolton Wanderers
+Portsmouth
+Charlton Athletic
+Queens Park Rangers
+Preston North End
+Bristol City
+Cardiff City
+Swansea City
+Wrexham
+Celtic
+Rangers
+Aberdeen
+Heart of Midlothian
+Hibernian
+Dundee United
+Motherwell
+Kilmarnock
+St Mirren
+Linfield
+Glentoran
+Cliftonville
+Crusaders

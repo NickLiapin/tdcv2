@@ -1,0 +1,12 @@
+---
+description: Time of day (Polish)
+locale: pl
+---
+rano
+południe
+popołudnie
+zmierzch
+wieczór
+noc
+północ
+świt

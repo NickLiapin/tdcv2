@@ -1,0 +1,39 @@
+---
+description: Playing position, mixed sports (Polish)
+locale: pl
+---
+Bramkarz
+Środkowy obrońca
+Boczny obrońca
+Defensywny pomocnik
+Środkowy pomocnik
+Skrzydłowy
+Napastnik
+Ofensywny pomocnik
+Rozgrywający
+Rzucający obrońca
+Niski skrzydłowy
+Silny skrzydłowy
+Środkowy
+Miotacz
+Łapacz
+Łącznik
+Pierwszobazowy
+Zapolowy środkowy
+Odbijający wyznaczony
+Przyjmujący
+Libero
+Środkowy bloku
+Atakujący
+Młynarz
+Hakier
+Łącznik młyna
+Łącznik ataku
+Zamykający
+Quarterback
+Running back
+Wide receiver
+Linebacker
+Cornerback
+Lewoskrzydłowy
+Prawoskrzydłowy

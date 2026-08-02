@@ -1,0 +1,14 @@
+---
+description: Conditions in French markedly more frequent in people of East Asian ancestry. A prevalence signal, not an exclusive one.
+locale: fr
+---
+Alpha-thalassémie
+Déficit en aldéhyde déshydrogénase 2
+Non-persistance de la lactase
+Carcinome du nasopharynx
+Cancer de l'estomac
+Glaucome primitif par fermeture de l'angle
+Maladie de Kawasaki
+Maladie de Moyamoya
+Hypersensibilité à la carbamazépine
+Myopie pathologique

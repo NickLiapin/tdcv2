@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Dermatology (Italian)
+locale: it
+---
+Psoriasi
+Dermatite atopica
+Acne volgare
+Melanoma
+Rosacea
+Dermatite da contatto
+Herpes zoster
+Orticaria
+Carcinoma basocellulare
+Vitiligine

@@ -1,0 +1,9 @@
+---
+description: Positions in basketball (Polish)
+locale: pl
+---
+Rozgrywający
+Rzucający obrońca
+Niski skrzydłowy
+Silny skrzydłowy
+Środkowy

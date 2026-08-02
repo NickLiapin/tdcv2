@@ -1,0 +1,21 @@
+---
+description: Property type
+locale: en
+---
+Single-Family Home
+Condo
+Townhouse
+Apartment
+Duplex
+Multi-Family
+Villa
+Bungalow
+Cottage
+Loft
+Studio
+Penthouse
+Mobile Home
+Ranch
+Cabin
+Mansion
+Farmhouse

@@ -1,0 +1,11 @@
+---
+address: costa_rica.geo.provinceCode
+description: Costa Rican province number (1-7) — the first digit of every cédula de identidad and the first digit of every 5-digit postal code; same order as costa_rica.geo.province
+---
+1
+2
+3
+4
+5
+6
+7

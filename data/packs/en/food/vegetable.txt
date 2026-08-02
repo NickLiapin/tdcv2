@@ -1,0 +1,26 @@
+---
+description: Vegetable
+locale: en
+---
+Carrot
+Broccoli
+Spinach
+Potato
+Cucumber
+Lettuce
+Onion
+Bell Pepper
+Zucchini
+Cauliflower
+Green Bean
+Pea
+Corn
+Asparagus
+Eggplant
+Kale
+Cabbage
+Celery
+Mushroom
+Sweet Potato
+Beet
+Radish

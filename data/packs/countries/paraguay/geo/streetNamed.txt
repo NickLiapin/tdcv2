@@ -1,0 +1,78 @@
+---
+address: paraguay.geo.streetNamed
+description: Common Paraguayan street name, bare (without the Calle / Avenida / Avda. prefix) — national heroes, independence dates, War-of-the-Triple-Alliance battles and neighbouring countries, as seen on Asunción-area signage
+locale: es
+---
+Mariscal Estigarribia
+Mariscal López
+Mariscal Francisco Solano López
+Carlos Antonio López
+Rodríguez de Francia
+Bernardino Caballero
+General Díaz
+General Genes
+General Santos
+Eligio Ayala
+Eusebio Ayala
+Fulgencio Yegros
+Pedro Juan Caballero
+Manuel Gondra
+José Berges
+Cerro Corá
+Palma
+Estrella
+Estados Unidos
+Independencia Nacional
+14 de Mayo
+15 de Agosto
+25 de Mayo
+12 de Junio
+Próceres de Mayo
+Colón
+Chile
+Brasil
+Argentina
+Perú
+Paraguarí
+Iturbe
+Antequera
+Azara
+Tacuary
+Humaitá
+Curupayty
+Piribebuy
+Boquerón
+Nanawa
+Teniente Fariña
+Capitán Bado
+Comuneros
+Defensa Nacional
+De la Victoria
+Guaraní
+San Martín
+Sacramento
+República Argentina
+República de Colombia
+Choferes del Chaco
+Aviadores del Chaco
+Santa Teresa
+España
+Molas López
+Denis Roa
+Félix Bogado
+Juan de Salazar
+Ygatimí
+Manduvirá
+Herrera
+Tte. Rojas Silva
+Dr. Hassler
+Dr. Bestard
+Cruz del Chaco
+San Roque González de Santa Cruz
+Kubitschek
+Del Maestro
+Última Hora
+Yegros
+Villa Morra
+Mburucuyá
+Kurupayty

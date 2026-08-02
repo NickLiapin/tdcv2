@@ -1,0 +1,19 @@
+---
+description: Jobs in Legal (Italian)
+locale: it
+---
+Avvocato
+Assistente legale
+Giudice
+Cancelliere
+Responsabile della conformità
+Notaio
+Pubblico ministero
+Praticante avvocato
+Consulente legale d'impresa
+Mediatore civile
+Esperto di proprietà intellettuale
+Investigatore legale
+Segretario di studio legale
+Responsabile della protezione dei dati
+Ufficiale giudiziario

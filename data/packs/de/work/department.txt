@@ -1,0 +1,26 @@
+---
+description: Company department / function (German)
+locale: de
+---
+Entwicklung
+Produktmanagement
+Design
+Vertrieb
+Marketing
+Finanzen
+Buchhaltung
+Personalwesen
+Betrieb
+Recht
+Kundenservice
+Informationstechnologie
+Forschung und Entwicklung
+Einkauf
+Qualitätssicherung
+Logistik
+Verwaltung
+Instandhaltung
+Arbeitssicherheit
+Compliance
+Unternehmenskommunikation
+Weiterbildung

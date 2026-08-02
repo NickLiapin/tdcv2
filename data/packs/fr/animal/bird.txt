@@ -1,0 +1,44 @@
+---
+description: Bird (French)
+locale: fr
+---
+Moineau
+Merle
+Rouge-gorge
+Mésange
+Pigeon
+Corbeau
+Corneille
+Pie
+Hirondelle
+Aigle
+Faucon
+Buse
+Chouette
+Hibou
+Cygne
+Canard
+Oie
+Héron
+Cigogne
+Flamant rose
+Perroquet
+Perruche
+Colombe
+Pinson
+Chardonneret
+Rossignol
+Coucou
+Pivert
+Martin-pêcheur
+Mouette
+Goéland
+Pélican
+Autruche
+Paon
+Faisan
+Perdrix
+Caille
+Grue
+Coq
+Canari

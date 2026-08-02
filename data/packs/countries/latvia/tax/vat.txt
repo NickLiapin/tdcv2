@@ -1,0 +1,6 @@
+---
+address: latvia.tax.vat
+description: Latvian VAT / PVN (LV + 11 digits, no checksum)
+generator: tdc
+---
+<gen type="regex" value="LV[0-9]{11}"/>

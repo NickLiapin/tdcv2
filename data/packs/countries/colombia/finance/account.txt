@@ -1,0 +1,6 @@
+---
+address: colombia.finance.account
+description: Colombian bank account number — 10 to 17 digits. STRUCTURAL ONLY: Colombia has no IBAN and no national account-number standard, each bank sets its own length and check rule and publishes none, so nothing here can be validated
+generator: tdc
+---
+<gen type="regex" value="[0-9]{10,17}"/>

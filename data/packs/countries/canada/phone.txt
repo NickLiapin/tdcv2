@@ -1,0 +1,6 @@
+---
+address: canada.phone
+description: Canada phone in E.164 form (area 613, fictional 555 exchange)
+generator: tdc
+---
+<gen type="regex" value="\+1613555[0-9]{4}"/>

@@ -1,0 +1,48 @@
+---
+description: Common verb (Polish, infinitive)
+locale: pl
+---
+być
+znajdować się
+mieć
+robić
+mówić
+otrzymywać
+iść
+wiedzieć
+brać
+widzieć
+przychodzić
+myśleć
+patrzeć
+chcieć
+dawać
+używać
+znajdować
+opowiadać
+pytać
+pracować
+czuć
+próbować
+zostawiać
+dzwonić
+budować
+ruszać
+grać
+biegać
+przynosić
+zaczynać
+pisać
+trzymać
+nieść
+przechowywać
+otwierać
+spacerować
+uczyć się
+rosnąć
+oferować
+pamiętać
+żyć
+rozmawiać
+jeść
+pić

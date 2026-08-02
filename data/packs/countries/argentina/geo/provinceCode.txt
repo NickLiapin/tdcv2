@@ -1,0 +1,28 @@
+---
+address: argentina.geo.provinceCode
+description: ISO 3166-2:AR subdivision letter (the code without the "AR-" prefix) — also the leading letter of the CPA postal code and of the pre-1995 licence plate; same order as argentina.geo.province
+---
+B
+K
+H
+U
+C
+X
+W
+E
+P
+Y
+L
+F
+M
+N
+Q
+R
+A
+J
+D
+Z
+S
+G
+V
+T

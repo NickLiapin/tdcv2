@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 210" width="780" height="210" font-family="system-ui, -apple-system, Segoe UI, Roboto, sans-serif">
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#3b82f6"/></marker></defs>
+<circle cx="22.0" cy="103.0" r="9.5" fill="#e0662b"/><text x="22.0" y="107.0" text-anchor="middle" font-size="12" font-weight="700" fill="#ffffff">A</text>
+<rect x="46" y="16" width="96" height="34" rx="5" fill="none" stroke="#e0662b" stroke-width="1.5"/><text x="94.0" y="37.3" text-anchor="middle" font-size="13" font-weight="600" fill="#e0662b">James</text>
+<rect x="46" y="156" width="96" height="34" rx="5" fill="none" stroke="#e0662b" stroke-width="1.5"/><text x="94.0" y="177.3" text-anchor="middle" font-size="13" font-weight="600" fill="#e0662b">Williams</text>
+<circle cx="372.0" cy="62.0" r="9.5" fill="#3b82f6"/><text x="372.0" y="66.0" text-anchor="middle" font-size="12" font-weight="700" fill="#ffffff">B</text>
+<rect x="186" y="16" width="96" height="34" rx="5" fill="none" stroke="#3b82f6" stroke-width="1.5"/><text x="234.0" y="37.0" text-anchor="middle" font-size="12" font-weight="600" fill="#3b82f6">&lt;slice&gt;</text>
+<rect x="336" y="86" width="104" height="34" rx="5" fill="none" stroke="#3b82f6" stroke-width="1.5"/><text x="388.0" y="107.0" text-anchor="middle" font-size="12" font-weight="600" fill="#3b82f6">&lt;concat&gt;</text>
+<rect x="486" y="86" width="96" height="34" rx="5" fill="none" stroke="#3b82f6" stroke-width="1.5"/><text x="534.0" y="107.0" text-anchor="middle" font-size="12" font-weight="600" fill="#3b82f6">&lt;lower&gt;</text>
+<circle cx="690.0" cy="62.0" r="9.5" fill="#2f9e63"/><text x="690.0" y="66.0" text-anchor="middle" font-size="12" font-weight="700" fill="#ffffff">C</text>
+<rect x="630" y="86" width="120" height="34" rx="5" fill="none" stroke="#2f9e63" stroke-width="1.5"/><text x="690.0" y="107.3" text-anchor="middle" font-size="13" font-weight="600" fill="#2f9e63">jwilliams</text>
+<line x1="142" y1="33" x2="182" y2="33" stroke="#3b82f6" stroke-width="1.6" marker-end="url(#a)"/>
+<line x1="282" y1="33" x2="332" y2="98" stroke="#3b82f6" stroke-width="1.6" marker-end="url(#a)"/>
+<line x1="142" y1="173" x2="332" y2="112" stroke="#3b82f6" stroke-width="1.6" marker-end="url(#a)"/>
+<line x1="440" y1="103" x2="482" y2="103" stroke="#3b82f6" stroke-width="1.6" marker-end="url(#a)"/>
+<line x1="582" y1="103" x2="626" y2="103" stroke="#3b82f6" stroke-width="1.6" marker-end="url(#a)"/>
+</svg>

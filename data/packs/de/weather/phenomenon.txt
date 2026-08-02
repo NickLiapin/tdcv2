@@ -1,0 +1,19 @@
+---
+description: Weather phenomenon (German)
+locale: de
+---
+Hurrikan
+Tornado
+Schneesturm
+Hitzewelle
+Kältewelle
+Überschwemmung
+Dürre
+Monsun
+Sandsturm
+Eisregen
+Waldbrand
+Zyklon
+Frost
+Hagelsturm
+Sturmflut

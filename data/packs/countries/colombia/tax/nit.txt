@@ -1,0 +1,35 @@
+---
+address: colombia.tax.nit
+description: Colombian NIT (Número de Identificación Tributaria) — a 9-digit body plus a mod-11 dígito de verificación from the weight series 3,7,13,17,19,23,29,37,41,43,47,53,59,67,71 applied right to left, where remainders 0 and 1 stand as they are and any other remainder r becomes 11-r (real example: 890903938-8, Bancolombia). Companies are issued bodies starting 8 or 9
+generator: tdc
+---
+<sequence name="body"><gen type="regex" value="[1-9][0-9]{8}"/></sequence>
+<sequence name="dv"><compute>
+  <!-- Weights 3,7,13,17,19,23,29,37,41,43,47,53,59,67,71 are applied from the
+       RIGHT: the last digit of the body takes 3, the one before it 7, and so
+       on, so a 9-digit NIT never reaches past 41. -->
+  <let name="sum">
+    <reduce>
+      <over><field name="body"/></over>
+      <init><int v="0"/></init>
+      <do><add><acc/>
+        <multiply><current/>
+          <at>
+            <in><list v="3,7,13,17,19,23,29,37,41,43,47,53,59,67,71"/></in>
+            <index><subtract><length><field name="body"/></length><int v="1"/><current_index/></subtract></index>
+          </at>
+        </multiply>
+      </add></do>
+    </reduce>
+  </let>
+  <let name="r"><mod><var name="sum"/><int v="11"/></mod></let>
+  <!-- Remainders 0 and 1 are the check digit as they stand; every other
+       remainder r becomes 11 - r. -->
+  <result>
+    <choose>
+      <when><test><less_than><var name="r"/><int v="2"/></less_than></test><then><var name="r"/></then></when>
+      <otherwise><subtract><int v="11"/><var name="r"/></subtract></otherwise>
+    </choose>
+  </result>
+</compute></sequence>
+<data>${{body}}${{dv}}</data>

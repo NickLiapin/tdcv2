@@ -1,0 +1,16 @@
+---
+description: Mobile plan type (Portuguese)
+locale: pt
+---
+Pré-pago
+Pós-pago
+Ilimitado
+Plano familiar
+Plano empresarial
+Pagamento por utilização
+Apenas dados
+Plano partilhado
+Tarifa fixa
+Plano controlado
+Plano combinado
+Recarga

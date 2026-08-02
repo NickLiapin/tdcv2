@@ -1,0 +1,18 @@
+---
+description: Mobile carrier operating in France (French)
+locale: fr
+---
+Orange
+SFR
+Bouygues Telecom
+Free
+Sosh
+RED by SFR
+B&You
+Free Mobile
+La Poste Mobile
+Prixtel
+NRJ Mobile
+Lebara
+Lycamobile
+Coriolis

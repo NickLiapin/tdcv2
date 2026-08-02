@@ -1,0 +1,17 @@
+---
+address: angola.sport.team
+description: Girabola football clubs of Angola (Portuguese names)
+locale: pt
+---
+Petro de Luanda
+Primeiro de Agosto
+Sagrada Esperança
+Interclube
+Recreativo do Libolo
+Progresso do Sambizanga
+Académica do Lobito
+Bravos do Maquis
+Desportivo da Huíla
+Wiliete
+Cuando Cubango FC
+Kabuscorp

@@ -1,0 +1,49 @@
+---
+address: common.vehicle.vin
+description: Vehicle Identification Number (ISO 3779, 17 chars, weighted mod-11 check; 10 renders as X)
+generator: tdc
+---
+<sequence name="wmivds"><gen type="regex" value="[A-HJ-NPR-Z0-9]{8}"/></sequence>
+<sequence name="year"><gen type="regex" value="[A-HJ-NPR-TV-Y1-9]"/></sequence>
+<sequence name="plant"><gen type="regex" value="[A-HJ-NPR-Z0-9]"/></sequence>
+<sequence name="serial"><gen type="regex" value="[0-9]{6}"/></sequence>
+<sequence name="vin"><compute>
+  <!-- Assemble the 17-char VIN with a placeholder '0' at position 8 (the check digit slot). -->
+  <let name="body"><concat><field name="wmivds"/><str v="0"/><field name="year"/><field name="plant"/><field name="serial"/></concat></let>
+  <!-- Weighted mod-11 with ISO 3779 transliteration. Letter value table indexed A..Z (0..25);
+       digits map to themselves. Position weights sum against [8,7,6,5,4,3,2,10,0,9,8,7,6,5,4,3,2]. -->
+  <let name="sum"><reduce>
+    <over><var name="body"/></over>
+    <init><int v="0"/></init>
+    <do><add><acc/>
+      <multiply>
+        <choose>
+          <when><test><is_digit><current/></is_digit></test><then><current/></then></when>
+          <otherwise>
+            <at><in><list v="1,2,3,4,5,6,7,8,0,1,2,3,4,5,0,7,0,9,2,3,4,5,6,7,8,9"/></in>
+              <index><subtract><to_number><encode as="unicode"><current/></encode></to_number><int v="65"/></subtract></index></at>
+          </otherwise>
+        </choose>
+        <at><in><list v="8,7,6,5,4,3,2,10,0,9,8,7,6,5,4,3,2"/></in><index><current_index/></index></at>
+      </multiply>
+    </add></do>
+  </reduce></let>
+  <let name="rem"><mod><var name="sum"/><int v="11"/></mod></let>
+  <let name="check">
+    <choose>
+      <when><test><equals><var name="rem"/><int v="10"/></equals></test><then><str v="X"/></then></when>
+      <otherwise><var name="rem"/></otherwise>
+    </choose>
+  </let>
+  <!-- Replace the position-8 placeholder with the computed check character. -->
+  <result><join sep=""><each>
+    <over><var name="body"/></over>
+    <do>
+      <choose>
+        <when><test><equals><current_index/><int v="8"/></equals></test><then><var name="check"/></then></when>
+        <otherwise><current/></otherwise>
+      </choose>
+    </do>
+  </each></join></result>
+</compute></sequence>
+<data>${{vin}}</data>

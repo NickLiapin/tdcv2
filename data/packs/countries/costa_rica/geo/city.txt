@@ -1,0 +1,81 @@
+---
+address: costa_rica.geo.city
+description: Costa Rican city or town (real localities — cantonal heads and other populated places)
+locale: es
+---
+San José
+Alajuela
+Cartago
+Heredia
+Liberia
+Puntarenas
+Limón
+Desamparados
+San Isidro de El General
+Escazú
+Santa Ana
+Curridabat
+Tibás
+Moravia
+San Vicente de Moravia
+Goicoechea
+Guadalupe
+Alajuelita
+San Pedro
+Sabanilla
+San Rafael de Escazú
+Ciudad Quesada
+San Ramón
+Grecia
+Naranjo
+Palmares
+Atenas
+Poás
+Orotina
+Sarchí
+Zarcero
+Upala
+Los Chiles
+Turrialba
+Paraíso
+La Unión
+Tres Ríos
+Oreamuno
+El Guarco
+Tejar
+Barva
+Santo Domingo
+Santa Bárbara
+San Rafael
+San Joaquín
+Belén
+San Antonio de Belén
+San Pablo
+Puerto Viejo de Sarapiquí
+Nicoya
+Santa Cruz
+Cañas
+Bagaces
+Filadelfia
+Tilarán
+La Cruz
+Hojancha
+Esparza
+Quepos
+Jacó
+Golfito
+Ciudad Neily
+San Vito
+Buenos Aires
+Corredores
+Parrita
+Miramar
+Puerto Jiménez
+Guápiles
+Siquirres
+Puerto Viejo de Talamanca
+Cahuita
+Bribrí
+Matina
+Guácimo
+Batán

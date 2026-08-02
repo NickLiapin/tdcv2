@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 270" width="680" height="270" font-family="system-ui, -apple-system, Segoe UI, Roboto, sans-serif">
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+<rect x="190" y="40" width="320" height="46" rx="8" fill="#3b82f6" opacity="0.18"/>
+<rect x="190" y="40" width="320" height="46" rx="8" fill="none" stroke="#3b82f6" opacity="0.6"/>
+<text x="206.0" y="68.0" text-anchor="start" font-size="13" font-weight="700" fill="#3b82f6">common</text>
+<circle cx="164.0" cy="63.0" r="9.5" fill="#3b82f6"/><text x="164.0" y="67.0" text-anchor="middle" font-size="12" font-weight="700" fill="#ffffff">A</text>
+<rect x="190" y="98" width="320" height="46" rx="8" fill="#e0662b" opacity="0.18"/>
+<rect x="190" y="98" width="320" height="46" rx="8" fill="none" stroke="#e0662b" opacity="0.6"/>
+<text x="206.0" y="126.0" text-anchor="start" font-size="13" font-weight="700" fill="#e0662b">en / ru / es …</text>
+<circle cx="164.0" cy="121.0" r="9.5" fill="#3b82f6"/><text x="164.0" y="125.0" text-anchor="middle" font-size="12" font-weight="700" fill="#ffffff">B</text>
+<rect x="190" y="156" width="320" height="46" rx="8" fill="#2f9e63" opacity="0.18"/>
+<rect x="190" y="156" width="320" height="46" rx="8" fill="none" stroke="#2f9e63" opacity="0.6"/>
+<text x="206.0" y="184.0" text-anchor="start" font-size="13" font-weight="700" fill="#2f9e63">usa / russia …</text>
+<circle cx="164.0" cy="179.0" r="9.5" fill="#3b82f6"/><text x="164.0" y="183.0" text-anchor="middle" font-size="12" font-weight="700" fill="#ffffff">C</text>
+<text x="190.0" y="245.0" text-anchor="start" font-size="13" font-weight="700" fill="#94a3b8">person.male.firstName</text>
+<circle cx="164.0" cy="240.0" r="9.5" fill="#3b82f6"/><text x="164.0" y="244.0" text-anchor="middle" font-size="12" font-weight="700" fill="#ffffff">D</text>
+<path d="M130 240 C 80 240, 80 63, 138 63" fill="none" stroke="#94a3b8" stroke-width="1.4" opacity="0.7" marker-end="url(#a)"/>
+<path d="M130 240 C 80 240, 80 121, 138 121" fill="none" stroke="#94a3b8" stroke-width="1.4" opacity="0.7" marker-end="url(#a)"/>
+<path d="M130 240 C 80 240, 80 179, 138 179" fill="none" stroke="#94a3b8" stroke-width="1.4" opacity="0.7" marker-end="url(#a)"/>
+</svg>

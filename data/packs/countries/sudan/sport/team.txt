@@ -1,0 +1,17 @@
+---
+address: sudan.sport.team
+description: Sudanese Premier League football clubs (Arabic)
+locale: ar
+---
+الهلال
+المريخ
+الأهلي الخرطوم
+هلال كادوقلي
+الأمل عطبرة
+الموردة
+الخرطوم الوطني
+حي العرب بورتسودان
+الرابطة كوستي
+الهلال الأبيض
+المريخ الفاشر
+الأهلي مدني

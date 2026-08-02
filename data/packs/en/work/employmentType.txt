@@ -1,0 +1,13 @@
+---
+description: Employment / contract type
+locale: en
+---
+Full-time
+Part-time
+Contract
+Temporary
+Internship
+Freelance
+Seasonal
+Per Diem
+Apprenticeship

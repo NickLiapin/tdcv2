@@ -1,0 +1,343 @@
+---
+title: Descripción general
+sidebar_position: 1
+---
+
+import Figure from '@site/src/components/Figure';
+import Legend from '@site/src/components/Legend';
+
+import Terminal from '@site/src/components/Terminal';
+
+# Paquetes de datos
+
+Un **paquete de datos** (data pack) es un archivo autodescriptivo con una lista de
+valores (nombres de pila, apellidos, colores, lo que sea) que TDC recoge automáticamente
+y expone en una **dirección con puntos** corta. Se agregan datos nuevos **sin tocar el
+código**: basta con dejar un archivo en una carpeta de datos.
+
+> Las salidas de ejemplo de abajo son ilustrativas: los valores exactos pueden cambiar
+> entre versiones del núcleo, pero la forma y las proporciones se mantienen.
+
+<Figure
+  src="/img/concepts/pack-axes.svg"
+  alt=""
+  caption="Tres ejes independientes y una dirección que alcanza a todos ellos."
+/>
+
+<Legend items={[["A", "datos internacionales, iguales en cualquier locale"], ["B", "el eje del idioma: cómo se escriben los nombres y las palabras"], ["C", "el eje del país: lo que es específico de un solo país"], ["D", "una dirección — cuál conjunto la responde depende de la ejecución, no de la dirección"]]} />
+
+## Las reglas
+
+- **Un archivo = una lista homogénea = una dirección.** Los nombres de pila masculinos y
+  los femeninos son listas distintas, cada una en su propio archivo.
+- **Solo datos y generadores declarativos: nada de código ejecutable.** Un paquete es o
+  bien un «tome un valor de una lista», o bien un generador escrito en el DSL propio de
+  TDC (vea [Cree su propio paquete](writing-your-own.mdx)). Nada de código arbitrario:
+  eso conserva la garantía de TDC de dar el mismo resultado en todos los lenguajes y hace
+  que los paquetes de terceros sean seguros de descargar y ejecutar.
+- **UTF-8 simple, un valor por línea.** La extensión no importa (`.txt`, `.csv`, o
+  ninguna).
+
+## Cómo se forma la dirección
+
+Hay dos maneras, y se combinan.
+
+### A partir de la estructura de carpetas (por omisión)
+
+La dirección es la ruta del archivo relativa a la carpeta de datos, sin la extensión:
+
+```text
+data/packs/en/person/male/firstName.txt   →   en.person.male.firstName
+data/packs/es/person/lastName.txt         →   es.person.lastName
+```
+
+Los nombres de las carpetas se convierten en los segmentos separados por puntos. No hay
+nada que declarar: la ubicación **es** la dirección. Use esto para todo lo que quepa en
+un árbol de carpetas ordenado; para la mayoría de los paquetes no hace falta más.
+
+### A partir de un encabezado (anulación)
+
+Si un archivo queda suelto, o necesita una dirección que no coincide con su carpeta,
+ponga un **encabezado** al principio, delimitado por líneas `---`:
+
+```text
+---
+description: Nombres de colores
+address: common.color.name
+---
+chrome
+plasma-blue
+void-black
+```
+
+Entonces TDC usa `address:` en lugar de la ruta. El primer segmento debe seguir siendo un
+código de locale o `common`. Use esto cuando la dirección y la distribución en disco no
+puedan coincidir: un archivo compartido, una lista de terceros, un paquete generado.
+
+### Campos del encabezado
+
+Todos los campos del encabezado son opcionales. Los que forman la dirección o indican su
+origen se explican abajo; los campos que cambian la manera de leer el cuerpo (listas
+ponderadas, archivos externos, generadores) tienen sus propios ejemplos resueltos en
+[Cree su propio paquete](writing-your-own.mdx).
+
+| Campo         | Significado                                                     | Dónde se explica                    |
+| :------------ | :-------------------------------------------------------------- | :---------------------------------- |
+| `description` | Una descripción para humanos: «qué es esto»                     | abajo                               |
+| `address`     | Una dirección explícita, que anula la calculada a partir de la ruta | abajo                           |
+| `locale`      | En qué idioma habla el paquete (`en`, `es`, `fr`…)              | abajo                               |
+| `file`        | Apuntar a un archivo de datos externo en vez de un cuerpo integrado | abajo                           |
+| `column`      | Con `file`: tomar una columna con nombre o número de un CSV     | abajo                               |
+| `delimiter`   | El separador de columnas o valores (por omisión `,`)            | abajo                               |
+| `weight`      | Hacer ponderado el paquete: la columna de frecuencia            | [Cree su propio paquete](writing-your-own.mdx) |
+| `weighted`    | `true` — el cuerpo son líneas `valor,peso`                      | [Cree su propio paquete](writing-your-own.mdx) |
+| `generator`   | `tdc` — el cuerpo es un `<gen>`, no una lista                   | [Cree su propio paquete](writing-your-own.mdx) |
+| `inject`      | Un marcador de interpolación propio para un generador           | [Cree su propio paquete](writing-your-own.mdx) |
+
+#### `description` — metadatos
+
+Texto libre que describe el paquete. No afecta la salida: está ahí para las personas y
+para el autocompletado del editor que lo leerá más adelante (vea
+[Lo que aún no existe](#lo-que-aún-no-existe)). Manténgalo corto: «nombres de ciudades de
+México», «códigos de estado HTTP».
+
+#### `address:` — anular la ruta calculada
+
+`address:` reemplaza la dirección derivada de la ruta. El archivo de abajo está suelto y
+aun así se resuelve en `common.color.name`:
+
+```text
+---
+address: common.color.name
+---
+chrome
+plasma-blue
+void-black
+```
+
+```xml
+<gen type="template" value="common.color.name"/>
+```
+
+<Terminal title="./run colors.tdc (4 filas)">
+{`plasma-blue
+void-black
+chrome
+plasma-blue`}
+</Terminal>
+
+Recurra a esto cuando un archivo no pueda estar donde su dirección dice que debería: una
+lista compartida, o un paquete que no acomodó usted mismo. El paquete de México que trae
+TDC hace justo eso: los archivos viven en `data/packs/countries/mexico/geo/`, pero cada
+uno declara `address: mexico.geo.city`, `address: mexico.geo.state`, y así, para que el
+prefijo del país quede limpio en la dirección.
+
+#### `locale:` — en qué idioma habla el paquete
+
+`locale:` marca el idioma del paquete para que la resolución sensible al locale pueda
+encontrarlo. La misma ruta lógica se resuelve en datos distintos según el locale:
+`person.lastName` da apellidos ingleses bajo el `en` por omisión, y
+`es.person.lastName` da apellidos españoles.
+
+```xml
+<gen type="template" value="person.lastName"/>
+```
+
+<Terminal title="./run last-en.tdc (4 filas)">
+{`Smith
+Johnson
+Williams
+Brown`}
+</Terminal>
+
+```xml
+<gen type="template" value="es.person.lastName"/>
+```
+
+<Terminal title="./run last-es.tdc (4 filas)">
+{`Ovalle
+Acosta
+Olivera
+Carrillo`}
+</Terminal>
+
+Póngalo cuando los datos del paquete dependan del idioma y su dirección todavía no lleve
+el segmento del locale. Vea el generador [`template`](../generators/template.mdx) para
+saber cómo se reparte la misma ruta entre locales.
+
+`locale:` además **aporta el segmento que le falta a la ruta**. Un archivo dejado
+directamente en su propia carpeta — sin un árbol de locales por encima — deriva la
+dirección `gadget`, que no empieza por ningún locale y por tanto no pertenece a ninguna
+parte. Su propia cabecera lo resuelve:
+
+```text
+---
+description: mi propia lista
+locale: en
+---
+Blender
+Grinder
+```
+
+```xml
+<gen type="template" value="gadget"/>
+```
+
+El paquete queda registrado en `en.gadget`, y `value="gadget"` bajo `en` lo encuentra.
+Así, un archivo llega a su dirección por una de tres vías: `address:` si la cabecera la
+nombra, si no la **ruta** en disco, y `locale:` completa el locale cuando la ruta sola
+deja la dirección sin sitio. Las tres funcionan igual en todas las implementaciones.
+
+Un archivo que no llega por ninguna — tiene cabecera, pero ni `address:` ni `locale:`, y
+una ruta cuyo primer segmento no es un locale, un país ni `common` — no es direccionable
+y se omite. La CLI lo dice al cargar con una advertencia `TDC171`, en vez de dejarlo
+desaparecer.
+
+#### Un archivo externo como cuerpo — `file:`, `column:`, `delimiter:`
+
+En lugar de un cuerpo integrado, un encabezado puede apuntar a un archivo existente:
+práctico para listas grandes, o para reutilizar un CSV que ya tiene. `file:` es la ruta
+(relativa al archivo del paquete), `column:` elige una columna por nombre o por número, y
+`delimiter:` fija el separador (un carácter o un alias: `tab`, `semicolon`, `pipe`).
+
+```text
+---
+description: Nombres de ciudades de México
+file: ../../sources/mx/cities.csv
+column: name
+delimiter: ,
+---
+```
+
+```xml
+<gen type="template" value="mexico.city.name"/>
+```
+
+<Terminal title="./run cities.tdc (4 filas)">
+{`Mérida
+Puebla
+Querétaro
+Querétaro`}
+</Terminal>
+
+El paquete no tiene valores integrados: el cuerpo **es** la columna con ese nombre dentro
+del CSV. Esos mismos tres campos también sostienen una lista **ponderada**; esa variante
+se explica en [Cree su propio paquete](writing-your-own.mdx).
+
+## Cómo usar una dirección
+
+Llame a una dirección como a cualquier generador
+[`template`](../generators/template.mdx). Traiga las partes que quiera a
+[secuencias](../core-concepts/sequences.mdx) con nombre y ármelas en el `.tdc`:
+
+```xml
+<tdc>
+    <env count="4" seed="demo">
+        <sequence name="First"><gen type="template" value="person.male.firstName"/></sequence>
+        <sequence name="Last"><gen type="template" value="person.lastName"/></sequence>
+    </env>
+    <block><line><data>${{First}} ${{Last}}</data></line></block>
+</tdc>
+```
+
+<Terminal title="./run people.tdc (4 filas)">
+{`Michael Johnson
+Robert Brown
+James Smith
+John Williams`}
+</Terminal>
+
+La dirección `person.lastName` es simplemente el archivo `en/person/lastName.txt` dentro
+de la carpeta de datos; llamar a un generador `template` sobre ella devuelve valores de
+esa lista.
+
+### La forma del registro la arma usted
+
+El paquete le da las partes; la **forma** del registro la construye usted en el `.tdc`.
+Un «First Last» inglés y un «First Last1 Last2» español son solo arreglos distintos del
+mismo tipo de paquete:
+
+```xml
+<tdc>
+    <env count="4" seed="es98">
+        <sequence name="First"><gen type="template" value="es.person.male.firstName"/></sequence>
+        <sequence name="Last1"><gen type="template" value="es.person.lastName"/></sequence>
+        <sequence name="Last2"><gen type="template" value="es.person.lastName"/></sequence>
+    </env>
+    <block><line><data>${{First}} ${{Last1}} ${{Last2}}</data></line></block>
+</tdc>
+```
+
+<Terminal title="./run es-people.tdc (4 filas)">
+{`Sebastián Castañeda Guerrero
+Fulgencio Ovalle Escobar
+Plácido Velasco Portela
+Edmundo Cárdenas Cárdenas`}
+</Terminal>
+
+La última fila saca **el mismo** apellido dos veces (`Cárdenas Cárdenas`): `Last1` y
+`Last2` son dos extracciones independientes de una sola lista, sin ninguna prohibición
+integrada contra la coincidencia. Cuando dos campos de una fila tienen que diferir,
+envuélvalos en [`<distinct>`](../constructs/unique-values.mdx); la mecánica se explica en
+[Cree su propio paquete](writing-your-own.mdx).
+
+## Más que listas
+
+Un paquete no se limita a una lista plana. También puede ser:
+
+- una lista **ponderada** — la frecuencia real de un valor, repartida con exactitud por
+  el mismo método de Hamilton que usa [`percent`](../generators/text.mdx);
+- un pequeño **generador** en el DSL — una plantilla de
+  [`regex`](../generators/regex.mdx), un nombre armado a partir de listas vecinas, o un
+  [`<mix>`](../reference/tags.mdx) que reparte por porcentaje exacto.
+
+Por convención, los archivos de generador usan la extensión `.tdc` (los datos simples se
+quedan en `.txt`) para que sea fácil distinguirlos. Ambos tipos son seguros de distribuir
+y descargar —un generador es un DSL analizado y aislado, nunca código arbitrario— y
+ambos se explican de principio a fin en
+[Cree su propio paquete](writing-your-own.mdx).
+
+## Dónde viven los paquetes
+
+- El **conjunto integrado** viene en el repositorio, bajo `data/packs/`, y se escanea
+  automáticamente al arrancar.
+- **Sus propias carpetas** se agregan con la bandera de CLI `--data-path <carpeta>`
+  (repetible), o con `dataPaths` de la biblioteca. Vea
+  [Instalar paquetes de datos](installing-packs.mdx) para el flujo `tdcv2 init` /
+  `tdcv2 pack`.
+
+## Errores
+
+Los problemas se detectan al cargar, **antes** de que corra cualquier generación:
+
+- **Dos archivos que reclaman una misma dirección** → `TDC170`, nombrando ambos
+  archivos. Renombre o mueva uno.
+- **Un archivo de paquete que no llega a ninguna dirección** — tiene cabecera, pero nada
+  le da como primer segmento un locale, un país o `common` → `TDC171`, una advertencia
+  que nombra el archivo. Añada `address:` o `locale:`, o muévalo bajo una carpeta de
+  locale.
+- **Un error de tecleo en una dirección** dentro de la configuración
+  (`value="person.male.firstNam"`) → `TDC071`, `unknown template path`.
+
+<Terminal title="./run typo.tdc">
+{`TDC071: unknown template path 'person.male.firstNam'
+  did you mean 'person.male.firstName'?`}
+</Terminal>
+
+Los archivos ocultos (los que empiezan con `.`), y `README` / `LICENSE` / `CHANGELOG`,
+son ignorados por el escáner.
+
+## Lo que aún no existe
+
+- **Autocompletado de direcciones** en el editor (impulsado por los encabezados
+  `description:`) — es lo siguiente.
+- Un **manifiesto por lote** para una carpeta entera (licencia, autor, versión) — más
+  adelante.
+
+## Vea también
+
+- **[Instalar paquetes de datos](installing-packs.mdx)** — `tdcv2 init` y `tdcv2 pack`.
+- **[Cree su propio paquete](writing-your-own.mdx)** — encabezados, generadores,
+  paquetes ponderados.
+- **[El generador `template`](../generators/template.mdx)** — llamar direcciones y
+  resolución por locale.

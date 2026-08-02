@@ -1,0 +1,108 @@
+---
+address: bolivia.geo.city
+description: Bolivian city — real urban centres (department capitals plus the larger provincial towns), roughly in descending size order
+locale: es
+---
+Santa Cruz de la Sierra
+El Alto
+La Paz
+Cochabamba
+Oruro
+Sucre
+Tarija
+Potosí
+Sacaba
+Quillacollo
+Montero
+Trinidad
+Yacuíba
+Riberalta
+Warnes
+La Guardia
+Cobija
+Viacha
+Villa Montes
+Camiri
+Tupiza
+Villazón
+Bermejo
+Cotoca
+Colcapirhua
+Tiquipaya
+Guayaramerín
+Llallagua
+Huanuni
+Villa Tunari
+Punata
+Cliza
+Vinto
+Achacachi
+Patacamaya
+Caranavi
+Coroico
+Copacabana
+Uyuni
+Challapata
+San Ignacio de Velasco
+San Julián
+Portachuelo
+Mineros
+Pailón
+San José de Chiquitos
+Roboré
+Puerto Suárez
+Ascensión de Guarayos
+Yapacaní
+Buena Vista
+Samaipata
+Vallegrande
+Comarapa
+Aiquile
+Mizque
+Totora
+Entre Ríos
+Padcaya
+Villa Serrano
+Monteagudo
+Padilla
+Camargo
+Betanzos
+Cotagaita
+Atocha
+Colquechaca
+Sica Sica
+Guaqui
+Desaguadero
+Laja
+Pucarani
+Coripata
+San Borja
+Rurrenabaque
+Reyes
+Magdalena
+San Ignacio de Moxos
+Puerto Villarroel
+Shinahota
+Chimoré
+Ivirgarzama
+Sipe Sipe
+Capinota
+Tarata
+Arani
+Colomi
+Machacamarca
+Poopó
+Eucaliptus
+Turco
+Sabaya
+Llica
+Tarabuco
+Zudáñez
+Villa Abecia
+Puerto Quijarro
+Cuevo
+Charagua
+Concepción
+San Matías
+El Torno
+Okinawa Uno

@@ -1,0 +1,40 @@
+---
+address: finland.docs.hetu
+description: Finnish personal identity code (henkilötunnus) — DDMMYY + a century marker (- for the 1900s, A for the 2000s) + a 3-digit individual number in 002-899 (900+ is reserved for temporary codes) + a check character. The birth date, the century marker and the check character are authentic; the individual number is drawn at random and carries no sex convention beyond its parity.
+generator: tdc
+locale: fi
+---
+<sequence name="dob"><gen type="date" from="1900-01-01" to="2015-12-31" format="YYYYMMDD"/></sequence>
+<sequence name="individual"><gen type="regex" value="(00[2-9]|0[1-9][0-9]|[1-8][0-9]{2})"/></sequence>
+<sequence name="hetu"><compute>
+  <!-- The drawn calendar date arrives as YYYYMMDD; the code writes it DDMMYY. -->
+  <let name="year"><to_number><slice from="0" to="4"><field name="dob"/></slice></to_number></let>
+  <let name="ddmmyy"><concat>
+    <slice from="6" to="8"><field name="dob"/></slice>
+    <slice from="4" to="6"><field name="dob"/></slice>
+    <slice from="2" to="4"><field name="dob"/></slice>
+  </concat></let>
+  <!-- Century marker: + = 1800s, - = 1900s, A = 2000s. Only - and A are produced. -->
+  <let name="century">
+    <choose>
+      <when><test><greater_than><var name="year"/><int v="1999"/></greater_than></test><then><str v="A"/></then></when>
+      <otherwise><str v="-"/></otherwise>
+    </choose>
+  </let>
+  <!-- The check reads DDMMYY and the individual number as one 9-digit number. -->
+  <let name="body"><concat><var name="ddmmyy"/><field name="individual"/></concat></let>
+  <!-- Horner fold: rem = (rem * 10 + digit) mod 31, so the 9-digit value never overflows. -->
+  <let name="rem"><reduce>
+    <over><var name="body"/></over>
+    <init><int v="0"/></init>
+    <do><mod><add><multiply><acc/><int v="10"/></multiply><current/></add><int v="31"/></mod></do>
+  </reduce></let>
+  <!-- The remainder maps to its character through the 31-symbol table
+       0123456789ABCDEFHJKLMNPRSTUVWXY (G, I, O and Q are left out). -->
+  <let name="check"><at>
+    <in><list><str v="0"/><str v="1"/><str v="2"/><str v="3"/><str v="4"/><str v="5"/><str v="6"/><str v="7"/><str v="8"/><str v="9"/><str v="A"/><str v="B"/><str v="C"/><str v="D"/><str v="E"/><str v="F"/><str v="H"/><str v="J"/><str v="K"/><str v="L"/><str v="M"/><str v="N"/><str v="P"/><str v="R"/><str v="S"/><str v="T"/><str v="U"/><str v="V"/><str v="W"/><str v="X"/><str v="Y"/></list></in>
+    <index><var name="rem"/></index>
+  </at></let>
+  <result><concat><var name="ddmmyy"/><var name="century"/><field name="individual"/><var name="check"/></concat></result>
+</compute></sequence>
+<data>${{hetu}}</data>

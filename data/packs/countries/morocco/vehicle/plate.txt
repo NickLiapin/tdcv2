@@ -1,0 +1,7 @@
+---
+address: morocco.vehicle.plate
+description: Moroccan licence plate — digits, an Arabic letter and a region number (e.g. 12345-أ-6). Structural.
+generator: tdc
+locale: ar
+---
+<gen type="regex" value="[0-9]{1,5}-[أ-ي]-[0-9]{1,2}"/>

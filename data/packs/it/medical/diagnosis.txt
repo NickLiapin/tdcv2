@@ -1,0 +1,81 @@
+---
+description: Medical diagnosis in Italian that can occur in any patient — no sex or ancestry restriction. Sex-specific conditions live in diagnosisMale/diagnosisFemale; ancestry-linked ones in diagnosisByAncestry.
+locale: it
+---
+Ipertensione arteriosa
+Diabete mellito di tipo 2
+Asma
+Bronchite acuta
+Influenza
+Emicrania
+Disturbo d'ansia generalizzato
+Disturbo depressivo maggiore
+Artrosi
+Artrite reumatoide
+Malattia da reflusso gastroesofageo
+Anemia sideropenica
+Ipotiroidismo
+Infezione delle vie urinarie
+Polmonite
+Insufficienza renale cronica
+Cardiopatia ischemica
+Fibrillazione atriale
+Scompenso cardiaco congestizio
+Ictus ischemico
+Epilessia
+Malattia di Parkinson
+Malattia di Alzheimer
+Sclerosi multipla
+Psoriasi
+Dermatite atopica
+Rinite allergica
+Sinusite cronica
+Otite media
+Congiuntivite
+Cataratta
+Glaucoma
+Appendicite
+Colecistite
+Diverticolite
+Sindrome dell'intestino irritabile
+Malattia di Crohn
+Colite ulcerosa
+Epatite B cronica
+Cirrosi epatica
+Pancreatite acuta
+Gotta
+Osteoporosi
+Fibromialgia
+Sciatica
+Ernia del disco
+Sindrome del tunnel carpale
+Tendinite
+Broncopneumopatia cronica ostruttiva
+Tubercolosi
+Leucemia
+Linfoma
+Melanoma
+Iperlipidemia
+Obesità
+Apnea ostruttiva del sonno
+Insonnia
+Disturbo bipolare
+Disturbo da deficit di attenzione e iperattività
+Celiachia
+Lupus eritematoso sistemico
+Vertigine
+Acufeni
+Emorroidi
+Vene varicose
+Trombosi venosa profonda
+Embolia polmonare
+Calcolosi renale
+Anemia
+Ipertiroidismo
+Ulcera peptica
+Gastrite
+Cellulite infettiva
+Sepsi
+Gastroenterite acuta
+Ipovitaminosi D
+Insufficienza venosa cronica

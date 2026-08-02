@@ -1,0 +1,24 @@
+---
+description: Medical diagnosis in Spanish that requires male anatomy — it cannot occur in a female patient. Draw from this list only for male rows; general conditions live in medical/diagnosis.
+locale: es
+---
+Hiperplasia prostática benigna
+Prostatitis
+Cáncer de próstata
+Cáncer de testículo
+Torsión testicular
+Varicocele
+Hidrocele
+Epididimitis
+Criptorquidia
+Fimosis
+Balanitis
+Disfunción eréctil
+Enfermedad de Peyronie
+Infertilidad por factor masculino
+Ginecomastia
+Hipogonadismo masculino
+Priapismo
+Espermatocele
+Alopecia androgenética masculina
+Hernia escrotal

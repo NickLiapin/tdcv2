@@ -1,0 +1,30 @@
+---
+description: Garment type (German)
+locale: de
+---
+T-Shirt
+Jeans
+Kleid
+Jacke
+Pullover
+Rock
+Shorts
+Kapuzenpullover
+Bluse
+Anzug
+Mantel
+Turnschuhe
+Stiefel
+Hut
+Schal
+Hemd
+Hose
+Weste
+Regenmantel
+Schlafanzug
+Socken
+Gürtel
+Mütze
+Sandalen
+Handschuhe
+Krawatte

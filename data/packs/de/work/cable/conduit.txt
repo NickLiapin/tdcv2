@@ -1,0 +1,11 @@
+---
+description: Conduit / installation method for cable runs (German)
+locale: de
+---
+PVC-Rohr
+Stahlpanzerrohr
+HDPE-Kabelschutzrohr
+Direkterdverlegung
+Innenraumkanal
+Kabelrinne
+Tragseil-Freileitung

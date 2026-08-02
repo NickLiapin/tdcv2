@@ -1,0 +1,7 @@
+---
+address: palestine.vehicle.plate
+description: Palestinian licence plate — a digit, a dash and five digits (e.g. 1-23456). Structural.
+generator: tdc
+locale: ar
+---
+<gen type="regex" value="[0-9]-[0-9]{5}"/>

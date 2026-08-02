@@ -1,0 +1,16 @@
+---
+address: ireland.holiday
+description: Irish public holiday — the ten statutory public holidays plus widely observed dates (Good Friday)
+locale: en
+---
+New Year's Day
+St Brigid's Day
+St Patrick's Day
+Good Friday
+Easter Monday
+May Day
+June Bank Holiday
+August Bank Holiday
+October Bank Holiday
+Christmas Day
+St Stephen's Day

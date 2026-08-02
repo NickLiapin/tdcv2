@@ -1,0 +1,11 @@
+---
+description: Weekday abbreviation
+locale: en
+---
+Mon
+Tue
+Wed
+Thu
+Fri
+Sat
+Sun

@@ -1,0 +1,166 @@
+---
+address: peru.geo.city
+description: Peruvian city — real urban centres (department and province capitals plus the larger district capitals), roughly in descending size order
+locale: es
+---
+Lima
+Arequipa
+Trujillo
+Chiclayo
+Piura
+Iquitos
+Cusco
+Huancayo
+Chimbote
+Tacna
+Juliaca
+Ica
+Sullana
+Ayacucho
+Cajamarca
+Pucallpa
+Puno
+Huánuco
+Tarapoto
+Puerto Maldonado
+Tumbes
+Talara
+Jaén
+Huaraz
+Moquegua
+Ilo
+Cerro de Pasco
+Abancay
+Huancavelica
+Moyobamba
+Chachapoyas
+Callao
+Barranca
+Huaral
+Huacho
+San Vicente de Cañete
+Chincha Alta
+Pisco
+Nasca
+Palpa
+Paita
+Sechura
+Catacaos
+Chulucanas
+Ayabaca
+Huancabamba
+Ferreñafe
+Lambayeque
+Motupe
+Olmos
+Monsefú
+Pimentel
+Tumán
+Pomalca
+Pacasmayo
+Chepén
+Guadalupe
+San Pedro de Lloc
+Virú
+Otuzco
+Huamachuco
+Santiago de Chuco
+Cascas
+Laredo
+Moche
+Salaverry
+Casma
+Huarmey
+Caraz
+Yungay
+Carhuaz
+Recuay
+Huari
+Pomabamba
+Sihuas
+Chancay
+Supe
+Paramonga
+Mala
+Chilca
+Matucana
+Canta
+Tarma
+Jauja
+Concepción
+La Oroya
+Junín
+Satipo
+La Merced
+San Ramón
+Pichanaqui
+Chupaca
+Oxapampa
+Villa Rica
+Tingo María
+Aucayacu
+Ambo
+La Unión
+Bagua
+Bagua Grande
+Rioja
+Nueva Cajamarca
+Lamas
+Juanjuí
+Tocache
+Saposoa
+Picota
+Bellavista
+Yurimaguas
+Nauta
+Requena
+Contamana
+Caballococha
+Atalaya
+Aguaytía
+Sicuani
+Quillabamba
+Espinar
+Urubamba
+Calca
+Anta
+Paucartambo
+Andahuaylas
+Chalhuanca
+Chincheros
+Camaná
+Mollendo
+Chivay
+Aplao
+Caravelí
+Cotahuasi
+Ilave
+Ayaviri
+Azángaro
+Yunguyo
+Desaguadero
+Huancané
+Putina
+Macusani
+Lampa
+Tarata
+Candarave
+Zarumilla
+Aguas Verdes
+Huanta
+Puquio
+Coracora
+Cangallo
+Bambamarca
+Chota
+Cutervo
+Celendín
+Contumazá
+San Ignacio
+San Marcos
+Cajabamba
+Santa Cruz
+Acobamba
+Churcampa
+Pampas
+Castrovirreyna

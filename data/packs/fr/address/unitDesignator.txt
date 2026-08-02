@@ -1,0 +1,15 @@
+---
+description: French address unit / interior designator (abbreviated forms used before a number or letter)
+locale: fr
+---
+Apt
+Bât.
+Esc.
+Ét.
+Porte
+Rés.
+Appartement
+Bâtiment
+Escalier
+Étage
+Boîte

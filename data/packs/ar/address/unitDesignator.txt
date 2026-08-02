@@ -1,0 +1,14 @@
+---
+description: Arabic address unit / interior designator (used before a number)
+locale: ar
+---
+شقة
+مبنى
+دور
+مكتب
+وحدة
+محل
+بوابة
+عمارة
+مدخل
+جناح

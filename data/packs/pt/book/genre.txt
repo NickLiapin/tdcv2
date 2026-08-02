@@ -1,0 +1,30 @@
+---
+description: Book genre (Portuguese)
+locale: pt
+---
+Ficção
+Não ficção
+Mistério
+Suspense
+Romance
+Ficção científica
+Fantasia
+Terror
+Biografia
+História
+Autoajuda
+Poesia
+Literatura juvenil
+Romance histórico
+Romance policial
+Aventura
+Memórias
+Filosofia
+Viagens
+Livro de culinária
+Romance gráfico
+Distopia
+Ensaio
+Conto
+Realismo mágico
+Infantil

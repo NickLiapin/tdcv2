@@ -1,0 +1,6 @@
+---
+address: canada.geo.postalCode
+description: Canadian postal code — ANA NAN with a space (A1A 1A1). The first letter is a real forward-sortation-area district (A Newfoundland and Labrador, B Nova Scotia, C Prince Edward Island, E New Brunswick, G/H/J Quebec, K/L/M/N/P Ontario, R Manitoba, S Saskatchewan, T Alberta, V British Columbia, X the northern territories, Y Yukon; the letters D F I O Q U never appear and W Z never lead). Digits and the remaining letters are random.
+generator: tdc
+---
+<gen type="regex" value="[ABCEGHJKLMNPRSTVXY][0-9][ABCEGHJKLMNPRSTVWXYZ] [0-9][ABCEGHJKLMNPRSTVWXYZ][0-9]"/>

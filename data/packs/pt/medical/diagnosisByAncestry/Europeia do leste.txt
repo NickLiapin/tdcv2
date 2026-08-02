@@ -1,0 +1,10 @@
+---
+description: Conditions markedly more frequent in people of Eastern European ancestry, in Portuguese. A prevalence signal, not an exclusive one.
+locale: pt
+---
+Hemocromatose hereditária
+Fenilcetonúria
+Hipercolesterolemia familiar
+Doença hepática alcoólica
+Fibrose cística
+Doença de Wilson

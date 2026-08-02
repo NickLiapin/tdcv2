@@ -1,0 +1,7 @@
+---
+address: egypt.geo.postalCode
+description: Egyptian postal code — 5 digits
+generator: tdc
+locale: ar
+---
+<gen type="regex" value="[1-9][0-9]{4}"/>

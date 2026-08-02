@@ -1,0 +1,45 @@
+---
+description: Common generic drug names (Polish INN)
+locale: pl
+---
+Paracetamol
+Ibuprofen
+Kwas acetylosalicylowy
+Amoksycylina
+Amoksycylina z kwasem klawulanowym
+Azytromycyna
+Cyprofloksacyna
+Doksycyklina
+Lizynopryl
+Enalapryl
+Losartan
+Amlodypina
+Metoprolol
+Hydrochlorotiazyd
+Furosemid
+Spironolakton
+Metformina
+Glibenklamid
+Insulina glargine
+Atorwastatyna
+Simwastatyna
+Omeprazol
+Pantoprazol
+Lewotyroksyna
+Salbutamol
+Montelukast
+Prednizon
+Deksametazon
+Loratadyna
+Gabapentyna
+Sertralina
+Fluoksetyna
+Escytalopram
+Citalopram
+Duloksetyna
+Warfaryna
+Klopidogrel
+Tramadol
+Naproksen
+Diklofenak
+Allopurynol

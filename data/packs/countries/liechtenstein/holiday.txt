@@ -1,0 +1,25 @@
+---
+address: liechtenstein.holiday
+description: Public holidays in Liechtenstein (German names)
+locale: de
+---
+Neujahr
+Heilige Drei Könige
+Mariä Lichtmess
+Fasnachtsdienstag
+Josefstag
+Karfreitag
+Ostersonntag
+Ostermontag
+Tag der Arbeit
+Christi Himmelfahrt
+Pfingstmontag
+Fronleichnam
+Staatsfeiertag
+Mariä Himmelfahrt
+Mariä Geburt
+Allerheiligen
+Mariä Empfängnis
+Heiliger Abend
+Weihnachten
+Stephanstag

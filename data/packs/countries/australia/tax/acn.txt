@@ -1,0 +1,27 @@
+---
+address: australia.tax.acn
+description: Australian Company Number (ACN) — 9 digits carrying the ASIC check. Apply weights 8,7,6,5,4,3,2,1 to the first eight digits, take the weighted sum mod 10, and the ninth (check) digit is the complement (10 - remainder) mod 10 (real ASIC examples: 000 000 019, 004 085 616). Built by drawing 8 digits and computing the ninth
+generator: tdc
+locale: en
+---
+<!-- Positions 1-8, freely drawn; weights 8,7,6,5,4,3,2,1. -->
+<sequence name="body"><gen type="regex" value="[0-9]{8}"/></sequence>
+<sequence name="check"><compute>
+  <let name="sum">
+    <reduce>
+      <over><field name="body"/></over>
+      <init><int v="0"/></init>
+      <do><add><acc/>
+        <multiply><current/>
+          <at><in><list v="8,7,6,5,4,3,2,1"/></in><index><current_index/></index></at>
+        </multiply>
+      </add></do>
+    </reduce>
+  </let>
+  <!-- Complement of the last digit of the sum; a remainder of 0 yields 0. -->
+  <result><mod><subtract><int v="10"/><mod><var name="sum"/><int v="10"/></mod></subtract><int v="10"/></mod></result>
+</compute></sequence>
+<sequence name="acn"><compute>
+  <result><concat><field name="body"/><field name="check"/></concat></result>
+</compute></sequence>
+<data>${{acn}}</data>

@@ -1,0 +1,34 @@
+---
+description: Spice / herb (Portuguese)
+locale: pt
+---
+Canela
+Cominho
+Páprica
+Cúrcuma
+Gengibre
+Noz-moscada
+Orégãos
+Manjericão
+Tomilho
+Alecrim
+Cardamomo
+Coentros
+Pimenta em pó
+Cravo-da-índia
+Açafrão
+Folha de louro
+Endro
+Salva
+Salsa
+Menta
+Anis
+Pimenta branca
+Pimenta-caiena
+Semente de mostarda
+Estragão
+Funcho
+Hortelã
+Urucum
+Baunilha
+Sésamo

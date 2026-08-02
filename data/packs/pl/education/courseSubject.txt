@@ -1,0 +1,24 @@
+---
+description: School subject (Polish)
+locale: pl
+---
+Matematyka
+Fizyka
+Chemia
+Biologia
+Informatyka
+Historia
+Geografia
+Język polski
+Plastyka
+Muzyka
+Wychowanie fizyczne
+Ekonomia
+Filozofia
+Psychologia
+Język obcy
+Statystyka
+Przyroda
+Wiedza o społeczeństwie
+Edukacja obywatelska
+Technika

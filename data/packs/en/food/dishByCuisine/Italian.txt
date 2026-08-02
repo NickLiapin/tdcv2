@@ -1,0 +1,12 @@
+---
+description: Dishes of Italian cuisine
+locale: en
+---
+Margherita Pizza
+Spaghetti Carbonara
+Lasagna
+Risotto
+Osso Buco
+Tiramisu
+Gnocchi
+Minestrone

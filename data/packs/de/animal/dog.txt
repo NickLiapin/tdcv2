@@ -1,0 +1,29 @@
+---
+description: Dog breed (German)
+locale: de
+---
+Labrador Retriever
+Deutscher Schäferhund
+Golden Retriever
+Französische Bulldogge
+Englische Bulldogge
+Pudel
+Beagle
+Rottweiler
+Dackel
+Boxer
+Siberian Husky
+Deutsche Dogge
+Dobermann
+Australian Shepherd
+Border Collie
+Chihuahua
+Shih Tzu
+Zwergspitz
+Corgi
+Berner Sennenhund
+Windhund
+Mastiff
+Bullterrier
+Bernhardiner
+Dalmatiner

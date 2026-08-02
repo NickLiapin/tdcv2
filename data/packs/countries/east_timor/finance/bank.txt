@@ -1,0 +1,12 @@
+---
+address: east_timor.finance.bank
+description: Banks operating in Timor-Leste (Portuguese names where official)
+locale: pt
+---
+Banco Nacional de Comércio de Timor-Leste
+Banco Nacional Ultramarino
+Banco Central de Timor-Leste
+ANZ Timor-Leste
+Bank Mandiri Timor-Leste
+BRI Timor-Leste
+Kaebauk Investimentu no Finansas

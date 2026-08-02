@@ -1,0 +1,32 @@
+---
+description: Field of study / major (Spanish)
+locale: es
+---
+Ciencias de la Computación
+Administración de Empresas
+Psicología
+Biología
+Ingeniería Mecánica
+Ingeniería Eléctrica
+Ingeniería Civil
+Economía
+Ciencias Políticas
+Literatura
+Enfermería
+Química
+Matemáticas
+Historia
+Marketing
+Finanzas
+Comunicación
+Sociología
+Física
+Diseño Gráfico
+Ciencia de Datos
+Ciencias Ambientales
+Derecho
+Medicina
+Arquitectura
+Contabilidad
+Pedagogía
+Filosofía

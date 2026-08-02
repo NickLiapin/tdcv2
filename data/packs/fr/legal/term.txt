@@ -1,0 +1,22 @@
+---
+description: Legal term (French)
+locale: fr
+---
+Demandeur
+Défendeur
+Assignation
+Plaignant
+Prévenu
+Accusé
+Témoin
+Avocat
+Juge
+Verdict
+Jugement
+Appel
+Pourvoi
+Audience
+Réquisitoire
+Plaidoirie
+Ordonnance
+Citation à comparaître

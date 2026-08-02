@@ -1,0 +1,52 @@
+---
+address: russia.bank.correspondent_account
+description: Russian correspondent account (20 digits, embeds the BIK tail, cross-field mod-10 control key)
+generator: tdc
+---
+<sequence name="bik"><gen type="regex" value="04[0-9]{7}"/></sequence>
+<sequence name="prefix"><gen type="text" value="30101"/></sequence>
+<sequence name="currency"><gen type="text" value="810"/></sequence>
+<sequence name="body"><gen type="regex" value="[0-9]{8}"/></sequence>
+<sequence name="account"><compute>
+  <let name="bchars"><each><over><field name="bik"/></over><do><current/></do></each></let>
+  <!-- Correspondent account embeds the BIK's last three digits at its tail. -->
+  <let name="biktail"><concat>
+    <at><in><var name="bchars"/></in><index><int v="6"/></index></at>
+    <at><in><var name="bchars"/></in><index><int v="7"/></index></at>
+    <at><in><var name="bchars"/></in><index><int v="8"/></index></at>
+  </concat></let>
+  <!-- 20-char account with a '0' placeholder at index 8 (the control-key slot). -->
+  <let name="acct"><concat><field name="prefix"/><field name="currency"/><str v="0"/><field name="body"/><var name="biktail"/></concat></let>
+  <!-- Control key is computed over ('0' + BIK digits 4..5) + account body. -->
+  <let name="bikpart"><concat><str v="0"/>
+    <at><in><var name="bchars"/></in><index><int v="4"/></index></at>
+    <at><in><var name="bchars"/></in><index><int v="5"/></index></at>
+  </concat></let>
+  <let name="source"><concat><var name="bikpart"/><var name="acct"/></concat></let>
+  <let name="sum"><reduce>
+    <over><var name="source"/></over>
+    <init><int v="0"/></init>
+    <do><add><acc/>
+      <mod>
+        <multiply><current/>
+          <at><in><list v="7,1,3"/></in><index><mod><current_index/><int v="3"/></mod></index></at>
+        </multiply>
+        <int v="10"/>
+      </mod>
+    </add></do>
+  </reduce></let>
+  <let name="key"><mod>
+    <multiply><subtract><int v="10"/><mod><var name="sum"/><int v="10"/></mod></subtract><int v="7"/></multiply>
+    <int v="10"/>
+  </mod></let>
+  <result><join sep=""><each>
+    <over><var name="acct"/></over>
+    <do>
+      <choose>
+        <when><test><equals><current_index/><int v="8"/></equals></test><then><var name="key"/></then></when>
+        <otherwise><current/></otherwise>
+      </choose>
+    </do>
+  </each></join></result>
+</compute></sequence>
+<data>${{account}}</data>

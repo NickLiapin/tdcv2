@@ -1,0 +1,15 @@
+---
+address: guinea_bissau.holiday
+description: Public holidays in Guinea-Bissau (Portuguese names)
+locale: pt
+---
+Ano Novo
+Dia da Morte de Amílcar Cabral
+Dia Nacional dos Heróis
+Dia da Mulher
+Dia do Trabalhador
+Dia dos Mártires da Colonização
+Dia da Independência Nacional
+Natal
+Tabaski
+Ramadã

@@ -1,0 +1,12 @@
+{
+  "schemaVersion": 1,
+  "cases": [
+    {
+      "name": "duplicate-field-name",
+      "demonstrates": "TDC111",
+      "description": "Two fields of one compound claiming a name",
+      "config": "<tdc><env count=\"2\" seed=\"s\"><sequence name=\"P\"><gen name=\"A\" type=\"text\" value=\"a\"/><gen name=\"A\" type=\"text\" value=\"b\"/></sequence></env><block><line><data>x</data></line></block></tdc>",
+      "expected": ["error TDC111 1:96"]
+    }
+  ]
+}

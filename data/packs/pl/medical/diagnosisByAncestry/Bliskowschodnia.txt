@@ -1,0 +1,10 @@
+---
+description: Conditions markedly more frequent in people of Middle Eastern ancestry, in Polish. A prevalence signal, not an exclusive one.
+locale: pl
+---
+Rodzinna gorączka śródziemnomorska
+Beta-talasemia
+Niedobór dehydrogenazy glukozo-6-fosforanowej
+Choroba Behçeta
+Niedobór witaminy D
+Cecha sierpowatokrwinkowa

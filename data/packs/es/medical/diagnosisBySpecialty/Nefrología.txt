@@ -1,0 +1,9 @@
+---
+description: Diagnoses seen in Nefrología
+locale: es
+---
+Enfermedad renal crónica
+Litiasis renal
+Glomerulonefritis
+Lesión renal aguda
+Enfermedad renal poliquística

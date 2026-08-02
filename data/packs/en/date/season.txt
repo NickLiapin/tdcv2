@@ -1,0 +1,8 @@
+---
+description: Season
+locale: en
+---
+Spring
+Summer
+Autumn
+Winter

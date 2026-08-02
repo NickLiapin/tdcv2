@@ -1,0 +1,7 @@
+---
+address: chile.vehicle.plate
+description: Chilean placa patente única — since September 2007 four letters plus two digits (BBBB10 onwards). Only 18 letters are used: the five vowels are excluded so no word can form, and M, N, Ñ and Q are excluded for looking like each other or like 0. The number block runs 10-99, so it never starts with 0. The legacy two-letter + four-digit series issued until 2007 is still on the road and is generated too
+generator: tdc
+locale: es
+---
+<gen type="regex" value="([BCDFGHJKLPRSTVWXYZ]{4}[1-9][0-9]|[BCDFGHJKLPRSTVWXYZ]{4}[1-9][0-9]|[BCDFGHJKLPRSTVWXYZ]{4}[1-9][0-9]|[A-Z]{2}[0-9]{4})"/>

@@ -1,0 +1,22 @@
+---
+description: Fish
+locale: en
+---
+Salmon
+Tuna
+Trout
+Bass
+Cod
+Catfish
+Goldfish
+Clownfish
+Guppy
+Mackerel
+Halibut
+Snapper
+Swordfish
+Marlin
+Angelfish
+Betta
+Carp
+Perch

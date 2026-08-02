@@ -1,0 +1,16 @@
+---
+description: Spanish full male name — two given names + paternal and maternal surname (Rodrigo Fernando Rodríguez Vázquez).
+generator: tdc
+locale: es
+---
+<sequence name="p">
+  <distinct>
+    <gen name="f1" type="template" value="es.person.male.firstName"/>
+    <gen name="f2" type="template" value="es.person.male.firstName"/>
+  </distinct>
+  <distinct>
+    <gen name="l1" type="template" value="es.person.lastName"/>
+    <gen name="l2" type="template" value="es.person.lastName"/>
+  </distinct>
+</sequence>
+<data>${{p.f1}} ${{p.f2}} ${{p.l1}} ${{p.l2}}</data>

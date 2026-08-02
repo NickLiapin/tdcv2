@@ -1,0 +1,7 @@
+---
+address: belarus.phone
+description: Belarus mobile phone in E.164 form (+375, operator codes 25/29/33/44)
+generator: tdc
+locale: ru
+---
+<gen type="regex" value="\+375(25|29|33|44)[0-9]{7}"/>

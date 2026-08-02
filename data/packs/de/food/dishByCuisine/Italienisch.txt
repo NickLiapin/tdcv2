@@ -1,0 +1,16 @@
+---
+description: Dishes of Italian cuisine (German)
+locale: de
+---
+Pizza Margherita
+Spaghetti Carbonara
+Lasagne
+Risotto
+Ossobuco
+Tiramisu
+Gnocchi
+Minestrone
+Fettuccine Alfredo
+Saltimbocca
+Bruschetta
+Panna cotta

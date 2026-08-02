@@ -1,0 +1,24 @@
+---
+description: Medical diagnosis in French that requires male anatomy — it cannot occur in a female patient. Draw from this list only for male rows; general conditions live in medical/diagnosis.
+locale: fr
+---
+Hypertrophie bénigne de la prostate
+Prostatite
+Cancer de la prostate
+Cancer du testicule
+Torsion du testicule
+Varicocèle
+Hydrocèle
+Épididymite
+Cryptorchidie
+Phimosis
+Balanite
+Dysfonction érectile
+Maladie de Lapeyronie
+Infertilité masculine
+Gynécomastie
+Hypogonadisme masculin
+Priapisme
+Spermatocèle
+Alopécie androgénétique masculine
+Hernie inguino-scrotale

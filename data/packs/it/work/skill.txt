@@ -1,0 +1,46 @@
+---
+description: Professional skill (technical, trade and soft), for skill lists and profiles (Italian)
+locale: it
+---
+Python
+JavaScript
+SQL
+Java
+C++
+Cloud computing
+Apprendimento automatico
+Analisi dei dati
+Gestione dei progetti
+Metodologie agili
+Parlare in pubblico
+Scrittura tecnica
+Assistenza clienti
+Vendite
+Contabilità
+Modellazione finanziaria
+Progettazione assistita da computer
+Modellazione 3D
+Progettazione grafica
+Scrittura pubblicitaria
+Saldatura
+Impiantistica elettrica
+Idraulica
+Falegnameria
+Lettura di disegni tecnici
+Lavorazione meccanica
+Uso del carrello elevatore
+Conduzione di macchine pesanti
+Guida professionale
+Primo soccorso
+Rianimazione cardiopolmonare
+Manipolazione degli alimenti
+Inglese
+Francese
+Tedesco
+Spagnolo
+Negoziazione
+Gestione del team
+Gestione del tempo
+Risoluzione dei problemi
+Lavoro di squadra
+Fogli di calcolo

@@ -1,0 +1,42 @@
+---
+description: Common symptoms / complaints (Polish)
+locale: pl
+---
+Gorączka
+Ból głowy
+Zmęczenie
+Nudności
+Wymioty
+Biegunka
+Zaparcia
+Ból brzucha
+Ból w klatce piersiowej
+Duszność
+Kaszel
+Ból gardła
+Katar
+Zatkany nos
+Zawroty głowy
+Niewyraźne widzenie
+Ból mięśni
+Ból stawów
+Ból krzyża
+Wysypka skórna
+Świąd
+Obrzęk
+Drętwienie
+Mrowienie
+Kołatanie serca
+Utrata apetytu
+Niezamierzona utrata masy ciała
+Nocne poty
+Dreszcze
+Kichanie
+Zgaga
+Wzdęcia
+Skurcze mięśni
+Osłabienie
+Splątanie
+Bezsenność
+Szum w uszach
+Krwawienie z nosa

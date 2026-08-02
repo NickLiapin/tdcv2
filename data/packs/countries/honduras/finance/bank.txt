@@ -1,0 +1,19 @@
+---
+address: honduras.finance.bank
+description: Honduran commercial bank (banco comercial supervised by the CNBS); same order as honduras.finance.bankSwift
+locale: es
+---
+Banco Atlántida
+Banco de Occidente
+Banco Ficohsa
+BAC Honduras
+Banpaís
+Banhcafé
+Ficensa
+Banco Lafise Honduras
+Banco Davivienda Honduras
+Banco Promérica
+Banrural
+Banco Azteca de Honduras
+Banco Popular
+Banco de los Trabajadores

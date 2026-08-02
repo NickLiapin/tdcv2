@@ -1,0 +1,47 @@
+---
+address: brazil.tax.cpf
+description: Brazilian CPF (9-digit base + two mod-11 check digits)
+generator: tdc
+---
+<sequence name="base"><gen type="regex" value="[0-9]{9}"/></sequence>
+<sequence name="cpf"><compute>
+  <let name="d1">
+    <let name="s1">
+      <reduce>
+        <over><field name="base"/></over>
+        <init><int v="0"/></init>
+        <do><add><acc/>
+          <multiply><current/>
+            <at><in><list v="10,9,8,7,6,5,4,3,2"/></in><index><current_index/></index></at>
+          </multiply>
+        </add></do>
+      </reduce>
+    </let>
+    <let name="r1"><mod><var name="s1"/><int v="11"/></mod></let>
+    <choose>
+      <when><test><less_than><var name="r1"/><int v="2"/></less_than></test><then><int v="0"/></then></when>
+      <otherwise><subtract><int v="11"/><var name="r1"/></subtract></otherwise>
+    </choose>
+  </let>
+  <let name="base2"><concat><field name="base"/><var name="d1"/></concat></let>
+  <let name="d2">
+    <let name="s2">
+      <reduce>
+        <over><var name="base2"/></over>
+        <init><int v="0"/></init>
+        <do><add><acc/>
+          <multiply><current/>
+            <at><in><list v="11,10,9,8,7,6,5,4,3,2"/></in><index><current_index/></index></at>
+          </multiply>
+        </add></do>
+      </reduce>
+    </let>
+    <let name="r2"><mod><var name="s2"/><int v="11"/></mod></let>
+    <choose>
+      <when><test><less_than><var name="r2"/><int v="2"/></less_than></test><then><int v="0"/></then></when>
+      <otherwise><subtract><int v="11"/><var name="r2"/></subtract></otherwise>
+    </choose>
+  </let>
+  <result><concat><field name="base"/><var name="d1"/><var name="d2"/></concat></result>
+</compute></sequence>
+<data>${{cpf}}</data>

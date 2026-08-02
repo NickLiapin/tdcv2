@@ -1,0 +1,51 @@
+{
+  "name": "tdc-monorepo",
+  "version": "0.0.0",
+  "private": true,
+  "description": "TDC monorepo root — coordinates TypeScript (v1.0), Python (v2.0), and Java (v3.0) implementations of The Data Constructor.",
+  "license": "MIT",
+  "author": "Nick Liapin",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/NickLiapin/tdc-v2.git"
+  },
+  "workspaces": [
+    "typescript"
+  ],
+  "scripts": {
+    "prepare": "husky",
+    "test": "npm run test --workspaces --if-present",
+    "lint": "npm run lint --workspaces --if-present",
+    "typecheck": "npm run typecheck --workspaces --if-present",
+    "build": "npm run build --workspaces --if-present",
+    "review": "npm --prefix webdoc run review",
+    "docs:export": "npm --prefix webdoc run docs:export",
+    "docs:check": "npm --prefix webdoc run docs:check",
+    "check": "npm run check --workspaces --if-present && npm run docs:check",
+    "parity": "node scripts/five-ways.mjs",
+    "csharp:generate": "antlr-ng -D language=CSharp -o csharp/Tdcv2/Generated grammar/TDCLexer.g4 grammar/TDCParser.g4",
+    "fixtures:filters": "node typescript/scripts/filter-vectors.mjs"
+  },
+  "devDependencies": {
+    "husky": "^9.1.6",
+    "lint-staged": "^15.2.10"
+  },
+  "lint-staged": {
+    "typescript/**/*.{ts,mts,cts}": [
+      "prettier --write",
+      "eslint --fix --config typescript/eslint.config.mjs"
+    ],
+    "typescript/**/*.{json,md,yml,yaml}": [
+      "prettier --write --embedded-language-formatting=off"
+    ],
+    "editor/**/*.{json,md}": [
+      "prettier --write --embedded-language-formatting=off"
+    ],
+    "*.{md,json,yml,yaml}": [
+      "prettier --write --embedded-language-formatting=off"
+    ]
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}

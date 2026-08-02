@@ -1,0 +1,28 @@
+---
+description: School / university course subject (French)
+locale: fr
+---
+Mathématiques
+Physique
+Chimie
+Biologie
+Sciences de la vie et de la Terre
+Informatique
+Histoire
+Géographie
+Français
+Philosophie
+Économie
+Sciences économiques et sociales
+Droit
+Anglais
+Espagnol
+Allemand
+Histoire de l'art
+Musique
+Arts plastiques
+Éducation physique et sportive
+Technologie
+Sciences politiques
+Latin
+Grec ancien

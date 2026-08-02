@@ -1,0 +1,40 @@
+---
+address: belgium.finance.iban
+description: Belgian IBAN — 16 chars: BE + 2 ISO 7064 check digits + 12-digit BBAN (3-digit bank code + 7-digit account + 2-digit national check = the 10-digit base mod 97, with 0 written as 97). The national check and the IBAN check are two different mod-97 algorithms; both are computed here.
+generator: tdc
+---
+<sequence name="bank"><gen type="regex" value="[0-9]{3}"/></sequence>
+<sequence name="account"><gen type="regex" value="[0-9]{7}"/></sequence>
+<sequence name="bban"><compute>
+  <let name="body"><concat><field name="bank"/><field name="account"/></concat></let>
+  <let name="rem"><reduce>
+    <over><var name="body"/></over>
+    <init><int v="0"/></init>
+    <do><mod><add><multiply><acc/><int v="10"/></multiply><current/></add><int v="97"/></mod></do>
+  </reduce></let>
+  <let name="natcheck">
+    <choose>
+      <when><test><equals><var name="rem"/><int v="0"/></equals></test><then><int v="97"/></then></when>
+      <otherwise><var name="rem"/></otherwise>
+    </choose>
+  </let>
+  <result><concat>
+    <field name="bank"/><field name="account"/>
+    <pad width="2" fill="0"><var name="natcheck"/></pad>
+  </concat></result>
+</compute></sequence>
+<sequence name="iban"><compute>
+  <let name="rearranged"><concat><field name="bban"/><str v="BE"/><str v="00"/></concat></let>
+  <let name="digits"><join><each>
+    <over><var name="rearranged"/></over>
+    <do><encode as="base36"><current/></encode></do>
+  </each></join></let>
+  <let name="rem"><reduce>
+    <over><var name="digits"/></over>
+    <init><int v="0"/></init>
+    <do><mod><add><multiply><acc/><int v="10"/></multiply><current/></add><int v="97"/></mod></do>
+  </reduce></let>
+  <let name="check"><pad width="2" fill="0"><subtract><int v="98"/><var name="rem"/></subtract></pad></let>
+  <result><concat><str v="BE"/><var name="check"/><field name="bban"/></concat></result>
+</compute></sequence>
+<data>${{iban}}</data>

@@ -1,0 +1,10 @@
+---
+description: Conditions markedly more frequent in people of Pacific Islander ancestry, in Italian. A prevalence signal, not an exclusive one.
+locale: it
+---
+Diabete mellito di tipo 2
+Ipertensione arteriosa associata a obesità
+Gotta
+Cardiopatia reumatica
+Insufficienza renale cronica
+Iperuricemia

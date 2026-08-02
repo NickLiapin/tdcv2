@@ -1,0 +1,36 @@
+---
+description: Building type (Italian)
+locale: it
+---
+Casa
+Appartamento
+Villa
+Palazzo
+Ufficio
+Magazzino
+Deposito
+Negozio
+Fabbrica
+Capannone industriale
+Ospedale
+Clinica
+Scuola
+Liceo
+Università
+Albergo
+Ristorante
+Centro commerciale
+Stadio
+Biblioteca
+Chiesa
+Museo
+Teatro
+Villetta a schiera
+Casale
+Baita
+Masseria
+Cascina
+Torre
+Condominio
+Residence
+Parcheggio

@@ -1,0 +1,16 @@
+---
+address: mali.geo.region
+description: Regions of Mali (plus the District of Bamako)
+locale: fr
+---
+Kayes
+Koulikoro
+Sikasso
+Ségou
+Mopti
+Tombouctou
+Gao
+Kidal
+Ménaka
+Taoudénit
+District de Bamako

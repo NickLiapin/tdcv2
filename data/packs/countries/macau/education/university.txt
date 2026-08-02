@@ -1,0 +1,14 @@
+---
+address: macau.education.university
+description: Universities and higher-education institutions of Macau (Portuguese names)
+locale: pt
+---
+Universidade de Macau
+Universidade Politécnica de Macau
+Universidade de Ciência e Tecnologia de Macau
+Universidade de São José
+Universidade da Cidade de Macau
+Instituto de Formação Turística de Macau
+Instituto Politécnico de Macau
+Academia Jing Hu de Macau
+Instituto de Enfermagem Kiang Wu de Macau

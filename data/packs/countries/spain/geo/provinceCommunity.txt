@@ -1,0 +1,55 @@
+---
+address: spain.geo.provinceCommunity
+description: Autonomous community each province belongs to; same order as spain.geo.province, so index N gives the community of province N
+locale: es
+---
+País Vasco
+Castilla-La Mancha
+Comunitat Valenciana
+Andalucía
+Castilla y León
+Extremadura
+Illes Balears
+Cataluña
+Castilla y León
+Extremadura
+Andalucía
+Comunitat Valenciana
+Castilla-La Mancha
+Andalucía
+Galicia
+Castilla-La Mancha
+Cataluña
+Andalucía
+Castilla-La Mancha
+País Vasco
+Andalucía
+Aragón
+Andalucía
+Castilla y León
+Cataluña
+La Rioja
+Galicia
+Comunidad de Madrid
+Andalucía
+Región de Murcia
+Comunidad Foral de Navarra
+Galicia
+Principado de Asturias
+Castilla y León
+Canarias
+Galicia
+Castilla y León
+Canarias
+Cantabria
+Castilla y León
+Andalucía
+Castilla y León
+Cataluña
+Aragón
+Castilla-La Mancha
+Comunitat Valenciana
+Castilla y León
+País Vasco
+Castilla y León
+Aragón

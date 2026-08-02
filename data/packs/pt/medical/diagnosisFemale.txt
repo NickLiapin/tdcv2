@@ -1,0 +1,30 @@
+---
+description: Medical diagnosis in Portuguese that requires female anatomy — it cannot occur in a male patient. Draw from this list only for female rows; general conditions live in medical/diagnosis.
+locale: pt
+---
+Endometriose
+Síndrome dos ovários policísticos
+Miomas uterinos
+Cisto ovariano
+Câncer de ovário
+Câncer do colo do útero
+Displasia cervical
+Cervicite
+Endometrite
+Câncer de endométrio
+Doença inflamatória pélvica
+Vaginose bacteriana
+Candidíase vulvovaginal
+Menorragia
+Dismenorreia
+Amenorreia
+Pré-eclâmpsia
+Diabetes mellitus gestacional
+Hiperêmese gravídica
+Gravidez ectópica
+Hemorragia pós-parto
+Mastite
+Alteração fibrocística da mama
+Síndrome climatérica
+Transtorno disfórico pré-menstrual
+Prolapso uterino

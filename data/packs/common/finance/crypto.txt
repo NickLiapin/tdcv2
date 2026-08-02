@@ -1,0 +1,18 @@
+---
+description: Cryptocurrency name
+---
+Bitcoin
+Ethereum
+Tether
+Solana
+Cardano
+Ripple
+Polkadot
+Dogecoin
+Litecoin
+Chainlink
+Polygon
+Avalanche
+Stellar
+Monero
+Cosmos

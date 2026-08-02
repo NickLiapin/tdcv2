@@ -1,0 +1,15 @@
+---
+address: uruguay.finance.bankCode
+description: BCU 3-digit número de institución, as published for the Sistema de Pagos en Moneda Local; same order as uruguay.finance.bank
+---
+001
+110
+113
+128
+137
+153
+157
+162
+205
+246
+361

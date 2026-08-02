@@ -1,0 +1,29 @@
+---
+description: Fish (Italian)
+locale: it
+---
+Salmone
+Tonno
+Trota
+Branzino
+Merluzzo
+Pesce gatto
+Pesce rosso
+Pesce pagliaccio
+Guppy
+Sgombro
+Ippoglosso
+Dentice
+Pesce spada
+Marlin
+Pesce angelo
+Betta
+Carpa
+Persico
+Sardina
+Acciuga
+Nasello
+Ombrina
+Tilapia
+Orata
+Rombo

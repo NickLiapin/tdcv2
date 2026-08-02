@@ -1,0 +1,16 @@
+---
+description: Dishes of Greek cuisine (German)
+locale: de
+---
+Moussaka
+Souvlaki
+Gyros
+Griechischer Salat
+Spanakopita
+Baklava
+Tzatziki
+Dolmades
+Pastitsio
+Saganaki
+Kleftiko
+Avgolemono-Suppe

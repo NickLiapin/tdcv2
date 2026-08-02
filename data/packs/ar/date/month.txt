@@ -1,0 +1,16 @@
+---
+description: Month name (Arabic, Gregorian form used across the Arab world)
+locale: ar
+---
+يناير
+فبراير
+مارس
+أبريل
+مايو
+يونيو
+يوليو
+أغسطس
+سبتمبر
+أكتوبر
+نوفمبر
+ديسمبر

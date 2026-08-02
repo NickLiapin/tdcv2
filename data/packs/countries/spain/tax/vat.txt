@@ -1,0 +1,7 @@
+---
+address: spain.tax.vat
+description: Spanish VAT (ES + CIF)
+generator: tdc
+---
+<sequence name="cif"><gen type="template" value="spain.tax.cif"/></sequence>
+<data>ES${{cif}}</data>

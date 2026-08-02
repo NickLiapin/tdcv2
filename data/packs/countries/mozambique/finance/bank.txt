@@ -1,0 +1,17 @@
+---
+address: mozambique.finance.bank
+description: Major banks of Mozambique (Portuguese names)
+locale: pt
+---
+Banco Comercial e de Investimentos
+Millennium bim
+Standard Bank Moçambique
+Absa Bank Moçambique
+Banco Único
+Moza Banco
+FNB Moçambique
+Banco Terra
+Ecobank Moçambique
+Access Bank Moçambique
+Letshego Bank
+Socremo

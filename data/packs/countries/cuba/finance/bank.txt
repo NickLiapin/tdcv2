@@ -1,0 +1,13 @@
+---
+address: cuba.finance.bank
+description: Cuban banks. Currency is the peso cubano (CUP).
+locale: es
+---
+Banco Central de Cuba
+Banco Popular de Ahorro
+Banco Metropolitano
+Banco de Crédito y Comercio
+Banco Financiero Internacional
+Banco Exterior de Cuba
+Banco Nacional de Cuba
+Banco de Inversiones

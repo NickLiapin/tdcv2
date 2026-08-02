@@ -1,0 +1,26 @@
+---
+description: Property amenity (Portuguese)
+locale: pt
+---
+Piscina
+Garagem
+Lareira
+Ar condicionado central
+Pisos de madeira
+Closet
+Varanda
+Jardim
+Ginásio
+Elevador
+Estacionamento
+Máquina de lavar loiça
+Lavandaria
+Aceita animais de estimação
+Sistema de segurança
+Painéis solares
+Terraço
+Cave
+Portaria
+Zona de churrasco
+Mobilado
+Aquecimento

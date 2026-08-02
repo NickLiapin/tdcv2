@@ -1,0 +1,9 @@
+---
+description: Work shift (Italian)
+locale: it
+---
+Diurno
+Notturno
+Pomeridiano
+A rotazione
+Primo mattino

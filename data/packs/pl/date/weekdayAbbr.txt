@@ -1,0 +1,11 @@
+---
+description: Weekday abbreviation (Polish)
+locale: pl
+---
+pn
+wt
+śr
+cz
+pt
+sb
+nd

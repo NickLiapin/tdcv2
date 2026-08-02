@@ -1,0 +1,20 @@
+---
+description: Video game genre (Portuguese)
+locale: pt
+---
+Ação
+Aventura
+RPG
+Estratégia
+Simulação
+Esportes
+Quebra-cabeça
+Tiro
+Plataforma
+Corrida
+Luta
+Sobrevivência
+Mundo aberto
+MMORPG
+Roguelike
+Terror

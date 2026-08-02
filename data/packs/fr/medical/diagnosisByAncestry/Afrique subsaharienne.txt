@@ -1,0 +1,16 @@
+---
+description: Conditions in French markedly more frequent in people of Sub-Saharan African ancestry. A prevalence signal, not an exclusive one — anyone can have these, and most patients of this ancestry have none of them.
+locale: fr
+---
+Drépanocytose
+Trait drépanocytaire
+Déficit en glucose-6-phosphate déshydrogénase
+Néphropathie associée à APOL1
+Cicatrices chéloïdiennes
+Sarcoïdose
+Néphroangiosclérose hypertensive
+Fibromes utérins
+Neutropénie ethnique bénigne
+Non-persistance de la lactase
+Pseudofolliculite de la barbe
+Vitiligo

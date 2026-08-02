@@ -1,0 +1,28 @@
+---
+description: Vehicle body type (Portuguese)
+locale: pt
+---
+Sedan
+Cupé
+Hatchback
+SUV
+Crossover
+Todo-o-terreno
+Descapotável
+Monovolume
+Carrinha
+Pick-up
+Pick-up de cabine dupla
+Carrinha comercial
+Furgão
+Desportivo
+Roadster
+Utilitário
+Veículo de luxo
+Limusina
+Miniautocarro
+Autocarro
+Ônibus
+Camião
+Caminhão
+Motocicleta

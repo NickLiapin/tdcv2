@@ -1,0 +1,18 @@
+---
+description: Vehicle body type
+locale: en
+---
+Sedan
+Coupe
+Hatchback
+SUV
+Crossover
+Convertible
+Minivan
+Wagon
+Pickup Truck
+Roadster
+Van
+Off-Road
+Sports Car
+Luxury Car

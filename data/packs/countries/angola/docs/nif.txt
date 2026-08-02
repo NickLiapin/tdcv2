@@ -1,0 +1,7 @@
+---
+address: angola.docs.nif
+description: Angolan taxpayer number (NIF / Número de Identificação Fiscal). For an individual it is the identity-card number — 9 digits, 2 letters and 3 digits (e.g. 004512345LA042). Structure only; the official check algorithm is not published.
+generator: tdc
+locale: pt
+---
+<gen type="regex" value="[0-9]{9}[A-Z]{2}[0-9]{3}"/>

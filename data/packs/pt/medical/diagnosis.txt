@@ -1,0 +1,81 @@
+---
+description: Common medical diagnoses / conditions (general Portuguese medical vocabulary)
+locale: pt
+---
+Hipertensão arterial
+Diabetes mellitus tipo 2
+Asma
+Bronquite aguda
+Gripe
+Enxaqueca
+Transtorno de ansiedade generalizada
+Transtorno depressivo maior
+Artrose
+Artrite reumatoide
+Doença do refluxo gastroesofágico
+Anemia ferropriva
+Hipotireoidismo
+Infecção urinária
+Pneumonia
+Doença renal crônica
+Doença arterial coronariana
+Fibrilação atrial
+Insuficiência cardíaca congestiva
+Acidente vascular cerebral isquêmico
+Epilepsia
+Doença de Parkinson
+Doença de Alzheimer
+Esclerose múltipla
+Psoríase
+Dermatite atópica
+Rinite alérgica
+Sinusite crônica
+Otite média
+Conjuntivite
+Catarata
+Glaucoma
+Apendicite
+Colecistite
+Diverticulite
+Síndrome do intestino irritável
+Doença de Crohn
+Colite ulcerativa
+Hepatite B crônica
+Cirrose hepática
+Pancreatite aguda
+Gota
+Osteoporose
+Fibromialgia
+Ciática
+Hérnia de disco
+Síndrome do túnel do carpo
+Tendinite
+Doença pulmonar obstrutiva crônica
+Tuberculose
+Leucemia
+Linfoma
+Melanoma
+Hiperlipidemia
+Obesidade
+Apneia obstrutiva do sono
+Insônia
+Transtorno bipolar
+Transtorno do déficit de atenção e hiperatividade
+Doença celíaca
+Lúpus eritematoso sistêmico
+Vertigem
+Zumbido no ouvido
+Hemorroidas
+Varizes
+Trombose venosa profunda
+Embolia pulmonar
+Cálculo renal
+Anemia
+Hipertireoidismo
+Úlcera péptica
+Gastrite
+Celulite infecciosa
+Sepse
+Câncer de mama
+Gastroenterite aguda
+Deficiência de vitamina D

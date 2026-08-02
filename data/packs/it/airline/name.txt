@@ -1,0 +1,54 @@
+---
+description: Airline (Italian carriers and major international ones)
+locale: it
+---
+ITA Airways
+Aeroitalia
+Neos
+Air Dolomiti
+Sky Alps
+Luke Air
+AlbaStar
+Poste Air Cargo
+Ryanair
+easyJet
+Wizz Air
+Vueling
+Volotea
+Lufthansa
+Air France
+KLM
+British Airways
+Iberia
+Swiss International Air Lines
+Austrian Airlines
+Brussels Airlines
+TAP Air Portugal
+Aegean Airlines
+Finnair
+SAS Scandinavian Airlines
+LOT Polish Airlines
+Air Serbia
+Croatia Airlines
+Turkish Airlines
+Pegasus Airlines
+Emirates
+Qatar Airways
+Etihad Airways
+Saudia
+EgyptAir
+Royal Air Maroc
+Tunisair
+Ethiopian Airlines
+Kenya Airways
+South African Airways
+American Airlines
+United Airlines
+Delta Air Lines
+Air Canada
+LATAM Airlines
+Avianca
+Aeroméxico
+Singapore Airlines
+Qantas
+Japan Airlines

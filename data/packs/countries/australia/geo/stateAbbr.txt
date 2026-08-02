@@ -1,0 +1,13 @@
+---
+address: australia.geo.stateAbbr
+description: Australian state or territory abbreviation as used in postal addresses; same order as australia.geo.state
+locale: en
+---
+NSW
+VIC
+QLD
+SA
+WA
+TAS
+NT
+ACT

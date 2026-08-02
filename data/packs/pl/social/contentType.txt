@@ -1,0 +1,17 @@
+---
+description: Social content type (Polish)
+locale: pl
+---
+Post
+Komentarz
+Odpowiedź
+Relacja
+Rolka
+Ankieta
+Transmisja na żywo
+Udostępnienie
+Wątek
+Wzmianka
+Wiadomość prywatna
+Krótki film
+Album zdjęć

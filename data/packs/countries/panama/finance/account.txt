@@ -1,0 +1,6 @@
+---
+address: panama.finance.account
+description: Panamanian bank account number — 8 to 16 digits. STRUCTURAL ONLY: Panama has no IBAN and no national account-number standard, each bank sets its own length and publishes no check rule, so nothing here can be validated. Panama's currency is the balboa (PAB), pegged 1:1 to and circulating as the US dollar, so account balances are in effect US dollars.
+generator: tdc
+---
+<gen type="regex" value="[0-9]{8,16}"/>

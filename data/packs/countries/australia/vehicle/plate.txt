@@ -1,0 +1,7 @@
+---
+address: australia.vehicle.plate
+description: Australian licence plate — current standard passenger format per jurisdiction (NSW ABC12D, VIC 1AB2CD, QLD 123ABC, SA S123ABC, WA 1ABC234, TAS A12AB, NT AB12CD, ACT YAB12C), emitted without the separator dot. Serial letters exclude I and O to avoid confusion with 1 and 0, as the issuing authorities do
+generator: tdc
+locale: en
+---
+<gen type="regex" value="([A-HJ-NP-Z]{3}[0-9]{2}[A-HJ-NP-Z]|[0-9][A-HJ-NP-Z]{2}[0-9][A-HJ-NP-Z]{2}|[0-9]{3}[A-HJ-NP-Z]{3}|S[0-9]{3}[A-HJ-NP-Z]{3}|1[A-HJ-NP-Z]{3}[0-9]{3}|[A-HJ-NP-Z][0-9]{2}[A-HJ-NP-Z]{2}|[A-HJ-NP-Z]{2}[0-9]{2}[A-HJ-NP-Z]{2}|Y[A-HJ-NP-Z]{2}[0-9]{2}[A-HJ-NP-Z])"/>

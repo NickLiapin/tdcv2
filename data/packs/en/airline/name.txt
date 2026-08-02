@@ -1,0 +1,32 @@
+---
+description: Airline name
+locale: en
+---
+Delta Air Lines
+United Airlines
+American Airlines
+Southwest Airlines
+JetBlue Airways
+Alaska Airlines
+Spirit Airlines
+Frontier Airlines
+Hawaiian Airlines
+British Airways
+Lufthansa
+Air France
+KLM
+Ryanair
+easyJet
+Turkish Airlines
+Emirates
+Qatar Airways
+Etihad Airways
+Singapore Airlines
+Cathay Pacific
+Qantas
+ANA
+Japan Airlines
+Air Canada
+Iberia
+Aeroflot
+LATAM

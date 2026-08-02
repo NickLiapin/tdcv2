@@ -1,0 +1,81 @@
+---
+description: Hobby / interest (Italian)
+locale: it
+---
+Lettura
+Escursionismo
+Fotografia
+Cucina
+Giardinaggio
+Pittura
+Ciclismo
+Videogiochi
+Yoga
+Viaggiare
+Pesca
+Maglia
+Corsa
+Pasticceria
+Falegnameria
+Scacchi
+Ballo
+Surf
+Campeggio
+Birdwatching
+Ceramica
+Astronomia
+Nuoto
+Arrampicata
+Immersioni subacquee
+Musica
+Chitarra
+Pianoforte
+Canto
+Teatro
+Scrittura
+Collezionismo
+Numismatica
+Filatelia
+Modellismo
+Cucito
+Ricamo
+Disegno
+Calligrafia
+Meditazione
+Arti marziali
+Pugilato
+Pattinaggio
+Sci
+Equitazione
+Vela
+Kayak
+Golf
+Tennis
+Calcio
+Pallacanestro
+Pallavolo
+Palestra
+Crossfit
+Pilates
+Puzzle
+Giochi da tavolo
+Programmazione
+Robotica
+Stampa 3D
+Enologia
+Degustazione di caffè
+Cinema
+Podcast
+Genealogia
+Volontariato
+Apicoltura
+Orto urbano
+Bonsai
+Acquariofilia
+Astrofotografia
+Paracadutismo
+Parapendio
+Speleologia
+Orientamento
+Geocaching
+Motociclismo

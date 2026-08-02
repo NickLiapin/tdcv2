@@ -1,0 +1,10 @@
+---
+description: Jobs in Technology
+locale: en
+---
+Software Engineer
+Data Scientist
+DevOps Engineer
+Product Manager
+UX Designer
+QA Engineer

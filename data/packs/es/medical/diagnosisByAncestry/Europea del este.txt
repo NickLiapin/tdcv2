@@ -1,0 +1,10 @@
+---
+description: Conditions markedly more frequent in people of Eastern European ancestry, in Spanish. A prevalence signal, not an exclusive one.
+locale: es
+---
+Hemocromatosis hereditaria
+Fenilcetonuria
+Hipercolesterolemia familiar
+Hepatopatía alcohólica
+Fibrosis quística
+Enfermedad de Wilson

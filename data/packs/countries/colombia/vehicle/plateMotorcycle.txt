@@ -1,0 +1,6 @@
+---
+address: colombia.vehicle.plateMotorcycle
+description: Colombian motorcycle placa — three letters, two digits and a final letter (ABC12D), the series in issue since the three-letter/two-digit stock ran out
+generator: tdc
+---
+<gen type="regex" value="[A-Z]{3}[0-9]{2}[A-Z]"/>

@@ -1,0 +1,10 @@
+---
+address: guinea_bissau.education.university
+description: Universities and higher-education institutions of Guinea-Bissau (Portuguese names)
+locale: pt
+---
+Universidade Amílcar Cabral
+Universidade Lusófona da Guiné
+Universidade Colinas de Boé
+Escola Nacional de Saúde
+Faculdade de Direito de Bissau

@@ -1,0 +1,27 @@
+---
+description: Portuguese address unit / interior designator (abbreviated forms used before a number)
+locale: pt
+---
+Apto.
+Bl.
+Bloco
+Torre
+Andar
+Piso
+Sala
+Lj.
+Loja
+Casa
+Lote
+Qd.
+Cj.
+Ed.
+Esc.
+Cobertura
+Fração
+Porta
+Escada
+R/C
+Cave
+Fundos
+Km.

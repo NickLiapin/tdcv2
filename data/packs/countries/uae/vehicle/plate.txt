@@ -1,0 +1,7 @@
+---
+address: uae.vehicle.plate
+description: UAE licence plate — an emirate letter code and up to five digits (e.g. A 12345). Structural.
+generator: tdc
+locale: ar
+---
+<gen type="regex" value="[A-Z] [0-9]{1,5}"/>

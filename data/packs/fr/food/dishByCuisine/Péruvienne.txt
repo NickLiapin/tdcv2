@@ -1,0 +1,16 @@
+---
+description: Dishes of Peruvian cuisine (French)
+locale: fr
+---
+Ceviche
+Lomo saltado
+Ají de gallina
+Causa
+Anticuchos
+Papa a la huancaína
+Rocoto relleno
+Pollo a la brasa
+Tiradito
+Suspiro limeño
+Arroz con pollo
+Seco de cordero

@@ -1,0 +1,25 @@
+---
+description: World religion (German)
+locale: de
+---
+Christentum
+Katholizismus
+Protestantismus
+Orthodoxie
+Islam
+Hinduismus
+Buddhismus
+Judentum
+Sikhismus
+Jainismus
+Bahaitum
+Shintoismus
+Daoismus
+Konfuzianismus
+Zoroastrismus
+Santería
+Spiritismus
+Animismus
+Atheismus
+Agnostizismus
+Konfessionslos

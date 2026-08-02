@@ -1,0 +1,60 @@
+---
+address: mexico.docs.curp
+description: Mexico CURP — 18 chars (4 name letters + YYMMDD + H/M + 2-letter RENAPO entity code + 3 internal consonants + homoclave + mod-10 check digit weighted 18..2)
+generator: tdc
+---
+<!-- 1-4: initial + first internal vowel of the first surname, initial of the
+     second surname, initial of the given name. -->
+<sequence name="letters"><gen type="regex" value="[A-Z][AEIOU][A-Z]{2}"/></sequence>
+<!-- Full birth date; the century decides how the homoclave slot is filled. -->
+<sequence name="birth"><gen type="date" from="1930-01-01" to="2015-12-31" format="YYYYMMDD"/></sequence>
+<sequence name="sex"><gen type="text" value="H,M"/></sequence>
+<sequence name="entity"><gen type="template" value="mexico.geo.curpStateCode"/></sequence>
+<!-- 14-16: first internal consonant of each of the three name parts. -->
+<sequence name="cons"><gen type="regex" value="[BCDFGHJKLMNPQRSTVWXYZ]{3}"/></sequence>
+<sequence name="homoDigit"><gen type="regex" value="[0-9]"/></sequence>
+<sequence name="homoLetter"><gen type="regex" value="[A-Z]"/></sequence>
+<sequence name="curp"><compute>
+  <let name="century"><slice from="0" to="2"><field name="birth"/></slice></let>
+  <let name="yymmdd"><slice from="2" to="8"><field name="birth"/></slice></let>
+  <!-- RENAPO differentiator: a digit for people born in the 1900s, a letter
+       for people born from 2000 on. -->
+  <let name="homo">
+    <choose>
+      <when><test><equals><to_number><var name="century"/></to_number><int v="20"/></equals></test>
+        <then><field name="homoLetter"/></then></when>
+      <otherwise><field name="homoDigit"/></otherwise>
+    </choose>
+  </let>
+  <let name="base"><concat>
+    <field name="letters"/><var name="yymmdd"/><field name="sex"/>
+    <field name="entity"/><field name="cons"/><var name="homo"/>
+  </concat></let>
+  <!-- Check digit: sum over the 17 chars of value(char) * (18 - index), mod 10,
+       subtracted from 10. Official alphabet is 0-9 A-Z with Ñ inserted between
+       N and O, so values are the base-36 digit value, +1 once past N (23).
+       Ñ itself is 24; the pack never emits it. -->
+  <let name="sum">
+    <reduce>
+      <over><var name="base"/></over>
+      <init><int v="0"/></init>
+      <do>
+        <add><acc/>
+          <multiply>
+            <choose>
+              <when><test><greater_than><to_number><encode as="base36"><current/></encode></to_number><int v="23"/></greater_than></test>
+                <then><add><to_number><encode as="base36"><current/></encode></to_number><int v="1"/></add></then></when>
+              <otherwise><to_number><encode as="base36"><current/></encode></to_number></otherwise>
+            </choose>
+            <subtract><int v="18"/><current_index/></subtract>
+          </multiply>
+        </add>
+      </do>
+    </reduce>
+  </let>
+  <let name="check">
+    <mod><subtract><int v="10"/><mod><var name="sum"/><int v="10"/></mod></subtract><int v="10"/></mod>
+  </let>
+  <result><concat><var name="base"/><var name="check"/></concat></result>
+</compute></sequence>
+<data>${{curp}}</data>

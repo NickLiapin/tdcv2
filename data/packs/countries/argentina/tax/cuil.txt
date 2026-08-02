@@ -1,0 +1,32 @@
+---
+address: argentina.tax.cuil
+description: Argentine CUIL (Clave Única de Identificación Laboral) — the ANSES form of the CUIT, issued only to personas físicas: prefix 20 (varón), 27 (mujer) or 23/24 (disambiguation), the 8-digit DNI, and the same mod-11 check digit over the weights 5,4,3,2,7,6,5,4,3,2. A person's CUIL and CUIT are the same 11 digits. Pass prefix="27" to pin one.
+generator: tdc
+---
+<sequence name="prefix"><gen type="text" value="20,23,24,27"/></sequence>
+<sequence name="dni"><gen type="regex" value="[1-9][0-9]{7}"/></sequence>
+<sequence name="cuil"><compute>
+  <let name="payload"><concat><field name="prefix"/><field name="dni"/></concat></let>
+  <let name="sum">
+    <reduce>
+      <over><var name="payload"/></over>
+      <init><int v="0"/></init>
+      <do><add><acc/>
+        <multiply><current/>
+          <at><in><list v="5,4,3,2,7,6,5,4,3,2"/></in><index><current_index/></index></at>
+        </multiply>
+      </add></do>
+    </reduce>
+  </let>
+  <let name="r"><mod><var name="sum"/><int v="11"/></mod></let>
+  <!-- verificador = 11 - r, folded: 11 -> 0, 10 -> 9. -->
+  <let name="check">
+    <choose>
+      <when><test><equals><var name="r"/><int v="0"/></equals></test><then><int v="0"/></then></when>
+      <when><test><equals><var name="r"/><int v="1"/></equals></test><then><int v="9"/></then></when>
+      <otherwise><subtract><int v="11"/><var name="r"/></subtract></otherwise>
+    </choose>
+  </let>
+  <result><concat><var name="payload"/><var name="check"/></concat></result>
+</compute></sequence>
+<data>${{cuil}}</data>

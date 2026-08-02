@@ -1,0 +1,13 @@
+---
+address: equatorial_guinea.geo.province
+description: Equatorial Guinea first-level division — the 8 provincias, in ISO 3166-2 code order; same order as equatorial_guinea.geo.provinceCapital / provinceIso / provinceRegion
+locale: es
+---
+Annobón
+Bioko Norte
+Bioko Sur
+Centro Sur
+Djibloho
+Kié-Ntem
+Litoral
+Wele-Nzas

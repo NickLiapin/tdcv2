@@ -1,0 +1,11 @@
+---
+description: Dishes of Lebanese cuisine (Spanish)
+locale: es
+---
+Hummus
+Falafel
+Shawarma
+Tabulé
+Kibbeh
+Fatush
+Manaquish

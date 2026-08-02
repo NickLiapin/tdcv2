@@ -1,0 +1,221 @@
+---
+description: Portuguese job titles across sectors (tech, healthcare, trades, transport, business, service, public). Pan-Lusophone wording.
+locale: pt
+---
+Engenheiro de software
+Engenheiro de software sênior
+Analista de dados
+Cientista de dados
+Engenheiro DevOps
+Engenheiro de confiabilidade de sistemas
+Engenheiro de qualidade
+Gerente de produto
+Designer UX
+Designer UI
+Administrador de sistemas
+Engenheiro de redes
+Administrador de banco de dados
+Analista de segurança da informação
+Arquiteto de nuvem
+Desenvolvedor mobile
+Desenvolvedor frontend
+Desenvolvedor backend
+Engenheiro de aprendizado de máquina
+Especialista em suporte técnico
+Programador web
+Analista de sistemas
+Engenheiro de dados
+Enfermeiro
+Enfermeiro especialista
+Clínico geral
+Cirurgião
+Anestesiologista
+Pediatra
+Farmacêutico
+Paramédico
+Técnico em emergências médicas
+Fisioterapeuta
+Terapeuta ocupacional
+Higienista dental
+Dentista
+Técnico em radiologia
+Auxiliar médico
+Flebotomista
+Terapeuta respiratório
+Optometrista
+Veterinário
+Auxiliar de enfermagem
+Ginecologista
+Cardiologista
+Psicólogo
+Psiquiatra
+Nutricionista
+Eletricista
+Encanador
+Soldador
+Carpinteiro
+Técnico em climatização
+Torneiro mecânico
+Mecânico industrial
+Instalador de tubulações
+Funileiro
+Ferreiro
+Pedreiro
+Telhadista
+Pintor
+Instalador de gesso acartonado
+Mecânico automotivo
+Mecânico diesel
+Mecânico de aeronaves
+Chaveiro
+Vidraceiro
+Gesseiro
+Técnico em refrigeração
+Técnico de elevadores
+Mineiro
+Mineiro de subsolo
+Operador de perfuração
+Operador de máquinas pesadas
+Operador de guindaste
+Operador de escavadeira
+Técnico em detonação
+Topógrafo de minas
+Trabalhador de pedreira
+Motorista de caminhão
+Motorista de longa distância
+Entregador
+Motorista de ônibus
+Operador de empilhadeira
+Operador de armazém
+Coordenador de logística
+Despachante
+Agente de carga
+Controlador de tráfego aéreo
+Piloto comercial
+Comissário de bordo
+Capitão de navio
+Maquinista de trem
+Mensageiro
+Taxista
+Instalador de linhas elétricas
+Técnico em telecomunicações
+Emendador de cabos
+Técnico em fibra óptica
+Operador de usina elétrica
+Operador de estação de tratamento de água
+Técnico de turbinas eólicas
+Instalador de painéis solares
+Técnico de gás
+Leiturista de medidores
+Contador
+Auxiliar contábil
+Analista financeiro
+Auditor
+Atuário
+Consultor tributário
+Representante de vendas
+Executivo de contas
+Gerente de marketing
+Especialista em marketing
+Gerente de marca
+Especialista em recursos humanos
+Recrutador
+Gerente de operações
+Gerente de projetos
+Analista de negócios
+Assistente executivo
+Gerente de escritório
+Recepcionista
+Auxiliar administrativo
+Especialista em compras
+Economista
+Corretor de seguros
+Corretor de imóveis
+Corretor de valores
+Chef
+Subchef
+Cozinheiro
+Padeiro
+Confeiteiro
+Barman
+Barista
+Garçom
+Anfitrião
+Lavador de pratos
+Gerente de hotel
+Auxiliar de limpeza
+Concierge
+Recepcionista de hotel
+Coordenador de eventos
+Guia de turismo
+Vendedor
+Gerente de loja
+Caixa
+Repositor
+Encarregado de prevenção de perdas
+Comprador
+Representante de atendimento ao cliente
+Atendente de call center
+Vigilante
+Jardineiro
+Professor do ensino fundamental
+Professor do ensino médio
+Professor de educação especial
+Professor universitário
+Pesquisador
+Auxiliar de ensino
+Orientador educacional
+Bibliotecário
+Diretor de escola
+Tutor
+Educador infantil
+Policial
+Bombeiro
+Detetive
+Agente penitenciário
+Agente aduaneiro
+Assistente social
+Gestor de casos
+Carteiro
+Funcionário dos correios
+Coletor de lixo
+Militar
+Juiz
+Promotor de justiça
+Tabelião
+Advogado
+Assistente jurídico
+Escrivão judicial
+Designer gráfico
+Fotógrafo
+Cinegrafista
+Redator publicitário
+Redator de conteúdo
+Jornalista
+Editor
+Arquiteto
+Designer de interiores
+Engenheiro civil
+Engenheiro mecânico
+Engenheiro eletricista
+Engenheiro químico
+Engenheiro de produção
+Tradutor
+Intérprete
+Músico
+Ator
+Agricultor
+Pecuarista
+Trabalhador rural
+Paisagista
+Arborista
+Pescador
+Lenhador
+Apicultor
+Viticultor
+Operário da construção civil
+Mestre de obras
+Topógrafo
+Fiscal de obras
+Trabalhador de demolição
+Carpinteiro de formas

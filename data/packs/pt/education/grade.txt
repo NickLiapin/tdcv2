@@ -1,0 +1,17 @@
+---
+description: Grade / mark (qualitative Portuguese scale)
+locale: pt
+---
+Com Distinção e Louvor
+Excelente
+Ótimo
+Muito Bom
+Bom
+Satisfatório
+Suficiente
+Regular
+Insuficiente
+Fraco
+Sofrível
+Deficiente
+Reprovado

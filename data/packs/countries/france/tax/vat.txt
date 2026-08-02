@@ -1,0 +1,39 @@
+---
+address: france.tax.vat
+description: French VAT (FR + mod-97 key + valid Luhn SIREN)
+generator: tdc
+---
+<sequence name="sbase"><gen type="regex" value="[0-9]{8}"/></sequence>
+<sequence name="vat"><compute>
+  <let name="sum">
+    <reduce>
+      <over><field name="sbase"/></over>
+      <init><int v="0"/></init>
+      <do><add><acc/>
+        <choose>
+          <when>
+            <test><equals>
+              <mod><current_index/><int v="2"/></mod>
+              <mod><add><length><field name="sbase"/></length><int v="1"/></add><int v="2"/></mod>
+            </equals></test>
+            <then>
+              <let name="d"><multiply><current/><int v="2"/></multiply></let>
+              <choose>
+                <when><test><greater_than><var name="d"/><int v="9"/></greater_than></test>
+                      <then><subtract><var name="d"/><int v="9"/></subtract></then></when>
+                <otherwise><var name="d"/></otherwise>
+              </choose>
+            </then>
+          </when>
+          <otherwise><current/></otherwise>
+        </choose>
+      </add></do>
+    </reduce>
+  </let>
+  <let name="scheck"><mod><subtract><int v="10"/><mod><var name="sum"/><int v="10"/></mod></subtract><int v="10"/></mod></let>
+  <let name="siren"><concat><field name="sbase"/><var name="scheck"/></concat></let>
+  <let name="rem"><mod><to_number><var name="siren"/></to_number><int v="97"/></mod></let>
+  <let name="key"><mod><add><int v="12"/><multiply><int v="3"/><var name="rem"/></multiply></add><int v="97"/></mod></let>
+  <result><concat><str v="FR"/><pad width="2"><var name="key"/></pad><var name="siren"/></concat></result>
+</compute></sequence>
+<data>${{vat}}</data>

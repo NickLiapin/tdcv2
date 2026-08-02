@@ -1,0 +1,32 @@
+---
+description: Flower (Spanish)
+locale: es
+---
+Rosa
+Tulipán
+Margarita
+Girasol
+Lirio
+Orquídea
+Narciso
+Caléndula
+Lavanda
+Iris
+Peonía
+Clavel
+Crisantemo
+Amapola
+Violeta
+Jazmín
+Hibisco
+Loto
+Dalia
+Begonia
+Azucena
+Gardenia
+Camelia
+Petunia
+Geranio
+Buganvilla
+Nomeolvides
+Azalea

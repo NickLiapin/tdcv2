@@ -1,0 +1,11 @@
+---
+description: Conditions markedly more frequent in people of Mediterranean ancestry, in Portuguese. A prevalence signal, not an exclusive one.
+locale: pt
+---
+Beta-talassemia
+Traço de beta-talassemia
+Deficiência de glicose-6-fosfato desidrogenase
+Febre familiar do Mediterrâneo
+Doença de Behçet
+Alfa-talassemia
+Favismo

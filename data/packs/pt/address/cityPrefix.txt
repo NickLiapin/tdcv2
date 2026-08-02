@@ -1,0 +1,42 @@
+---
+description: Leading element of a Portuguese place name (São João, Vila Nova, Porto Real). Combine with a real toponym; it does not by itself name a real city.
+locale: pt
+---
+São
+Santa
+Santo
+Vila
+Vila Nova de
+Porto
+Cidade
+Nova
+Novo
+Vale de
+Vila de
+Rio
+Serra
+Ponta
+Baía
+Costa
+Alto
+Alta
+Monte
+Campo
+Morro
+Lagoa
+Ilha
+Praia
+Veiga de
+Penha
+Fonte de
+Torre de
+Castelo de
+Ponte de
+Passo de
+Chã
+Colônia
+Bairro
+O
+A
+Os
+As

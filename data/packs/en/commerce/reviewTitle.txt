@@ -1,0 +1,19 @@
+---
+description: Product review title
+locale: en
+---
+Great product!
+Highly recommend
+Not worth it
+Exceeded expectations
+Just okay
+Would buy again
+Disappointed
+Excellent quality
+Broke too soon
+Perfect for the price
+Better than expected
+Do not recommend
+Love it!
+A bit overpriced
+Exactly as described

@@ -1,0 +1,14 @@
+---
+description: Positions in American football (Arabic)
+locale: ar
+---
+كوارتربك
+رانينغ باك
+وايد ريسيفر
+تايت إند
+لاينمان هجومي
+لاينباكر
+كورنر باك
+سيفتي
+لاينمان دفاعي
+راكل
