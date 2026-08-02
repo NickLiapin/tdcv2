@@ -36,7 +36,7 @@ from ..prng import permute, rand, seekable
 from ..prng.prng import Sfc32, create
 from ..prng.seekable import open_unit
 
-from . import per_row
+from . import per_row, repeat_keyed
 from ..sequence import pool as pool_mod
 from ..sequence import uniq as uniq_lib
 from ..sequence import uniq_simple
@@ -358,7 +358,9 @@ def _build_columns(
             _mix_column(spec, columns, rows, applicable, count, run)
             continue
         if spec.is_switch:
-            columns[spec.name or ""] = _switch_values(spec.switch_spec, count, run, columns)
+            columns[spec.name or ""] = _switch_values(
+                spec.switch_spec, count, run, columns, spec.name or ""
+            )
             continue
         if spec.is_computed:
             # Derived, not drawn: no PRNG at all. A check digit is a function of the values
@@ -460,14 +462,7 @@ def _composed(spec: SequenceSpec, columns, rows: list[int], applicable: int, cou
         elif item is uniq_part:
             values = uniq_simple.build_unique_values(spec.name or "", gen, applicable, run)
         else:
-            values = _finish(
-                _generate(gen, applicable, part_run),
-                gen.attrs,
-                part_run.prng,
-                [False] * applicable,
-                part_run,
-                gen.type,
-            )
+            values = _column_values(gen, applicable, part_run)
         if item.field is not None:
             produced[item.field.name] = values
             continue
@@ -478,7 +473,7 @@ def _composed(spec: SequenceSpec, columns, rows: list[int], applicable: int, cou
         # The groups name FIELDS, and a composed body carries its fields in `items` — so the
         # constraint is checked against a spec that spells them out.
         fields = [item.field for item in spec.items if item.field is not None]
-        _enforce_distinct(replace(spec, fields=fields), produced, applicable, run)
+        _enforce_distinct(replace(spec, fields=fields), produced, applicable, run, rows)
 
     if composes_own_value(spec.items):
         columns[spec.name] = _spread(rows, composed, count)
@@ -499,18 +494,11 @@ def _compound(spec: SequenceSpec, columns, rows: list[int], applicable: int, cou
         produced[f.name] = (
             []
             if applicable == 0
-            else _finish(
-                _generate(f.gen, applicable, field_run),
-                f.gen.attrs,
-                field_run.prng,
-                [False] * applicable,
-                field_run,
-                f.gen.type,
-            )
+            else _column_values(f.gen, applicable, field_run)
         )
 
     if applicable > 0 and spec.distinct_groups is not None:
-        _enforce_distinct(spec, produced, applicable, run)
+        _enforce_distinct(spec, produced, applicable, run, rows)
     if applicable > 0 and spec.uniq:
         _enforce_uniq(spec, produced, applicable, run)
 
@@ -543,8 +531,44 @@ def _plain_column(
     repeat = repeat_gen.parse(spec.gen.attrs)
     run = per_row.with_rows(run, spec.name or "", rows)
 
+    key_pair = per_row.keyed(run)
+    flag_name = spec.gen.attrs.get("anomaly_flag")
+    repeat_flags: list[str] | None = (
+        [] if repeat is not None and flag_name and flag_name.strip() else None
+    )
+
     if applicable == 0:
         produced: list[str] = []
+    elif repeat is not None and key_pair is not None:
+        seed, stream_id = key_pair
+        # A listed column lays every element of every row out at once and reads the slots the
+        # length plan gave the row; anything drawn takes one sub-stream per element. Which of
+        # the two is the streaming engine's own split.
+        listed = per_row.listed_values(spec.gen, run)
+        if listed is not None:
+            values, percents = listed
+            produced = repeat_keyed.build_layout(
+                repeat,
+                values,
+                percents,
+                applicable,
+                run,
+                seed,
+                stream_id,
+                _element_modifier(spec.gen, repeat, seed, stream_id),
+            )
+        else:
+            produced = repeat_keyed.build_draws(
+                repeat,
+                applicable,
+                run,
+                seed,
+                stream_id,
+                _generate,
+                _finish,
+                repeat_flags,
+                gen=spec.gen,
+            )
     elif repeat is not None:
         # The per-value passes run inside, on the flat slot buffer, so anomaly, missing and
         # formatting come out per element of the list rather than over the joined cell.
@@ -557,23 +581,57 @@ def _plain_column(
             ),
         )
     else:
-        produced = _finish(
-            _generate(spec.gen, applicable, run),
-            spec.gen.attrs,
-            run.prng,
-            anomaly_flags,
-            run,
-            spec.gen.type,
-        )
+        produced = _column_values(spec.gen, applicable, run, anomaly_flags)
 
     columns[spec.name or ""] = _spread(rows, produced, count)
 
-    flag_name = spec.gen.attrs.get("anomaly_flag")
     if flag_name and flag_name.strip():
         # Which rows the run chose to spike. It shares the parent mask, so the label is absent on
         # exactly the rows the value is absent from — a detector trained on this cannot learn
-        # from a label the data never had.
-        columns[flag_name] = _spread(rows, [str(on).lower() for on in anomaly_flags], count)
+        # from a label the data never had. With `repeat` the label is a LIST parallel to the
+        # values, saying which element spiked rather than merely that one did.
+        labels = repeat_flags if repeat_flags is not None else [str(on).lower() for on in anomaly_flags]
+        columns[flag_name] = _spread(rows, labels, count)
+
+
+def _element_modifier(gen: Gen, spec, seed: str, stream_id: str):
+    """``anomaly=``, ``missing=`` and the formatting layer for ONE element of a repeating
+    listed column.
+
+    The two probability draws come off the row's ``#anom`` and ``#miss`` streams with a budget
+    of the row's maximum length, so element k always gets the same uniform however long its
+    row turned out to be.
+    """
+    anomaly = imperfections.parse_anomaly(gen.attrs)
+    missing = imperfections.parse_missing(gen.attrs)
+    mask_attr = gen.attrs.get("mask")
+    case_name = gen.attrs.get("case")
+    has_anomaly = anomaly is not None and anomaly.probability > 0
+    has_missing = missing is not None and missing.probability > 0
+    has_format = mask_attr is not None or (case_name is not None and is_case_transform(case_name))
+    if not has_anomaly and not has_missing and not has_format:
+        return None
+
+    anom_at = (
+        repeat_keyed.element_uniforms(seed, stream_id, "#anom", spec.max) if has_anomaly else None
+    )
+    miss_at = (
+        repeat_keyed.element_uniforms(seed, stream_id, "#miss", spec.max) if has_missing else None
+    )
+
+    def modify(row: int, value: str, k: int) -> str:
+        out = value
+        if anomaly is not None and anom_at is not None and anom_at(row, k) < anomaly.probability:
+            out = imperfections.spike(out, anomaly.factor)
+        if missing is not None and miss_at is not None and miss_at(row, k) < missing.probability:
+            out = missing.token
+        if mask_attr is not None:
+            out = apply_mask(mask_attr, out)
+        if case_name is not None and is_case_transform(case_name):
+            out = apply_case(case_name, out)
+        return out
+
+    return modify
 
 
 def _parent_mask(spec: SequenceSpec, columns, count: int) -> list[bool]:
@@ -789,14 +847,14 @@ def _case_values(case, count: int, run: _Run) -> list[str]:
         if part.text is not None:
             values = [part.text] * count
         elif part.gen is not None:
-            values = _generate(part.gen, count, part_run)
+            values = _column_values(part.gen, count, part_run)
         else:
             values = _mix_values(part.mix, count, part_run, None)
         out = [out[i] + values[i] for i in range(count)]
     return out
 
 
-def _switch_values(spec, count: int, run: _Run, columns) -> list[str | None]:
+def _switch_values(spec, count: int, run: _Run, columns, name: str) -> list[str | None]:
     """A switch: the subject's value looked up in the table.
 
     Built over EVERY row rather than only the matching ones, because a case may hold a generator
@@ -804,8 +862,19 @@ def _switch_values(spec, count: int, run: _Run, columns) -> list[str | None]:
     no default is empty — which is a value, not a failure: a country with no currency listed
     simply has none here.
     """
-    built = [_case_values(entry.value, count, run) for entry in spec.entries]
-    fallback = None if spec.fallback is None else _case_values(spec.fallback, count, run)
+    # Every entry resolves over the WHOLE run, not over the rows that chose it — the streaming
+    # engine builds them that way so a lookup stays O(1), and the stream names have to match it
+    # entry for entry.
+    def named(stream_id: str) -> _Run:
+        return replace(run, stream_id=stream_id)
+
+    built = [
+        _case_values(entry.value, count, named(f"{name}#sw{e}"))
+        for e, entry in enumerate(spec.entries)
+    ]
+    fallback = (
+        None if spec.fallback is None else _case_values(spec.fallback, count, named(f"{name}#swdef"))
+    )
 
     subject = columns.get(spec.on)
     out: list[str | None] = [None] * count
@@ -852,7 +921,9 @@ def _conditional(spec: SequenceSpec, count: int, run: _Run, columns) -> list[str
 # ── distinct and uniq ───────────────────────────────────────────────────────────────────────
 
 
-def _enforce_distinct(spec: SequenceSpec, produced, count: int, run: _Run) -> None:
+def _enforce_distinct(
+    spec: SequenceSpec, produced, count: int, run: _Run, rows: list[int] | None = None
+) -> None:
     """``<distinct>`` — fields inside one group must differ from each other within a row.
 
     Redraw on collision, field by field, in declaration order. A person's city of birth and city
@@ -865,6 +936,8 @@ def _enforce_distinct(spec: SequenceSpec, produced, count: int, run: _Run) -> No
     """
     assert spec.fields is not None
     gen_by_field = {f.name: f.gen for f in spec.fields}
+    seed = run.config.seed
+    redraw_run = per_row.redraw(run)
 
     for group in spec.distinct_groups or []:
         fields = [name for name in group if name in produced and name in gen_by_field]
@@ -872,6 +945,7 @@ def _enforce_distinct(spec: SequenceSpec, produced, count: int, run: _Run) -> No
             continue
 
         for i in range(count):
+            row = rows[i] if rows is not None and i < len(rows) else i
             seen: set[str] = set()
             for field_name in fields:
                 values = produced[field_name]
@@ -887,7 +961,16 @@ def _enforce_distinct(spec: SequenceSpec, produced, count: int, run: _Run) -> No
                             "values."
                         )
                     attempts += 1
-                    value = _generate(gen, 1, run)[0]
+                    # Each attempt has a stream of its own, named for the field and the attempt
+                    # number — the same names the streaming engine redraws under, so both
+                    # engines land on the same replacement.
+                    one = replace(
+                        redraw_run,
+                        prng=seekable.generator(
+                            seed, f"{spec.name}.{field_name}#d{attempts}", row
+                        ),
+                    )
+                    value = _generate(gen, 1, one)[0]
                 values[i] = value
                 seen.add(value)
 
@@ -903,6 +986,23 @@ class _UniqInfeasibleError(Exception):
 def _arrange_unique(spec: SequenceSpec, produced, count: int) -> None:
     assert spec.fields is not None
     columns = [produced[f.name] for f in spec.fields]
+
+    # Already unique as drawn? Then there is nothing to rearrange, and moving values anyway
+    # would only make this engine disagree with the exact one, which checks the same thing
+    # first and leaves a passing draw untouched. Cheap enough to always ask: one pass, one set.
+    # NUL joins the tuple because a generated value cannot contain it, so no two different
+    # tuples can join into the same key.
+    seen: set[str] = set()
+    collided = False
+    for i in range(count):
+        key = "\0".join(c[i] if i < len(c) else "" for c in columns)
+        if key in seen:
+            collided = True
+            break
+        seen.add(key)
+    if not collided:
+        return
+
     column_counts = [uniq_lib.value_counts(c) for c in columns]
 
     # The cheap bound first: it cannot be reached, so there is no point building anything.
@@ -996,6 +1096,8 @@ def _enforce_env_distinct(config: Config, columns, count: int, run: _Run) -> Non
     planning the whole group together — would tie sequences that are otherwise independent.
     """
     by_name = {spec.name: spec for spec in config.sequences}
+    seed = config.seed
+    redraw_run = per_row.redraw(run)
 
     for group in config.env_distinct_groups:
         members = _scalar_members(group, by_name, columns)
@@ -1017,7 +1119,13 @@ def _enforce_env_distinct(config: Config, columns, count: int, run: _Run) -> Non
                             "— its source likely has too few distinct values."
                         )
                     attempts += 1
-                    value = _one_scalar(by_name[name], run)
+                    # Named for the sequence and the attempt, exactly as the streaming engine
+                    # names it, so the replacement is the same value on both engines.
+                    one = replace(
+                        redraw_run,
+                        prng=seekable.generator(seed, f"{name}#ed{attempts}", i),
+                    )
+                    value = _one_scalar(by_name[name], one)
                 values[i] = value
                 seen.append(value)
 
@@ -1136,6 +1244,34 @@ def _one_scalar(spec: SequenceSpec, run: _Run) -> str:
 # ── generating ──────────────────────────────────────────────────────────────────────────────
 
 
+def _column_values(
+    gen: Gen, count: int, run: _Run, anomaly_flags: list[bool] | None = None
+) -> list[str]:
+    """One generator's finished values for a whole column.
+
+    Row by row when the generator allows it, off the very stream the streaming engine uses, so
+    the two produce the same bytes from one seed. The modifiers are applied INSIDE that loop,
+    with the row's own generator — `anomaly=` on a per-row type spends a draw from the row's
+    stream, not from a column-wide one, and applying them afterwards would spend the wrong
+    draws in the wrong order.
+
+    Anything else keeps the older shape: generate the column, then finish it.
+    """
+    flags = anomaly_flags if anomaly_flags is not None else [False] * count
+    if not per_row.per_row_buildable(gen, count, run):
+        return _finish(_generate(gen, count, run), gen.attrs, run.prng, flags, run, gen.type)
+
+    seed, stream_id = per_row.keyed(run)  # type: ignore[misc]
+    out: list[str] = []
+    for i in range(count):
+        row = per_row.absolute_row(run, i)
+        one = replace(run, prng=seekable.generator(seed, stream_id, row))
+        single = [False]
+        out.append(_finish(_generate(gen, 1, one), gen.attrs, one.prng, single)[0])
+        flags[i] = single[0]
+    return out
+
+
 def _generate(gen: Gen, count: int, run: _Run) -> list[str]:
     """One generator's values.
 
@@ -1153,15 +1289,6 @@ def _generate(gen: Gen, count: int, run: _Run) -> list[str]:
     # generator seeded from `(seed, stream_id, row)` — so there is no second implementation to
     # keep in step, only the same one called the same way. The recursive call has count = 1,
     # which the guard refuses, and that is what stops this from looping.
-    if per_row.per_row_buildable(gen, count, run):
-        seed, stream_id = per_row.keyed(run)  # type: ignore[misc]
-        out: list[str] = []
-        for i in range(count):
-            row = per_row.absolute_row(run, i)
-            one = replace(run, prng=seekable.generator(seed, stream_id, row))
-            out.append(_generate(gen, 1, one)[0])
-        return out
-
     # order="sequential" comes before everything else: it replaces the draw entirely, so the
     # percent= and the random pick below never happen. Row i is element i mod N.
     #
@@ -1242,7 +1369,14 @@ def _generate(gen: Gen, count: int, run: _Run) -> list[str]:
             return _run_pack_generator(entry, path, count, run)
         if entry.weighted:
             # A weighted pack is laid out exactly, not sampled: the counts in the file are
-            # proportions the run has to hit, which is the same path percent= takes.
+            # proportions the run has to hit, which is the same path percent= takes — and laid
+            # out the way the streaming engine lays it out, so `Smith` gets its Census share on
+            # the same rows on every engine.
+            exact = per_row.exact_text_layout(
+                entry.values, None, count, run, entry.percents or []
+            )
+            if exact is not None:
+                return exact
             return hamilton.distribute(count, entry.values, entry.percents or [], prng)
         values = entry.values
         percent = ""
@@ -1393,6 +1527,11 @@ def _trim_to_none(value: str | None) -> str | None:
 
 
 def _run_pack_generator(entry, path: str, count: int, run: _Run) -> list[str]:
+    # A pack body is a NESTED build with no column of its own: its local sequences draw off the
+    # prng it was handed, in order, exactly as they always did. Leaving the caller's stream name
+    # on the run would let each of them key itself independently, and an identifier assembled
+    # from several of them would come out of a different set of digits.
+    run = per_row.redraw(run)
     body = _PACK_BODIES.get(path)
     if body is None:
         source = entry.generator

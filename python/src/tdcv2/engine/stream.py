@@ -1047,49 +1047,26 @@ class StreamEngine:
     def _build_uniq(self, spec: SequenceSpec) -> None:
         """``uniq="true"``: no two records share the same combination.
 
-        The in-memory engine draws and then repairs collisions, which needs to see every row. Here
-        the combination space is treated as a NUMBER instead: the fields are the digits of a
-        mixed-radix counter, and the permutation turns row ``i`` into a distinct index in it. No
-        two rows can collide because no two indices can, and nothing has to be remembered.
-
-        The price is that the combinations come out uniform. Exact percentages and uniqueness at
-        the same time need the whole column, so a percent-weighted uniq is refused here rather than
-        quietly delivered as an even split.
+        A group REARRANGES whole columns so each keeps its multiset — a promise about the
+        finished column, which no engine can keep a row at a time. This one could only offer
+        something else (a mixed-radix bijection over the combination space, uniform over
+        combinations, ignoring the values actually drawn), and one seed would then mean two
+        datasets. It says so instead. The router sends every uniq to the exact engine; this is
+        the backstop for a forced one.
         """
-        if not spec.is_compound or not spec.fields:
-            raise UnsupportedError(
-                f'uniq on a simple sequence (a whole-column draw) ("{spec.name}")'
-            )
-        if _trim_to_none(spec.parent) is not None:
-            raise UnsupportedError(f'uniq combined with a parent ("{spec.name}")')
         if self.exact_uniq:
             self._build_exact_uniq(spec)
             return
-
-        ids = [f"{spec.name}.{f.name}" for f in spec.fields]
-        pools = [self._uniq_pool(f.gen, f'"{spec.name}.{f.name}"') for f in spec.fields]
-        self._mixed_radix(ids, pools, f"{spec.name}#uniq", f'"{spec.name}"')
+        raise UnsupportedError(f'uniq (a whole-column rearrangement) ("{spec.name}")')
 
     def _build_env_uniq(self, group: list[str], by_name) -> set[str]:
         """Env-level ``<uniq>``: the tuple of several sequences is unique across the run.
 
-        Built exactly like a compound's ``uniq``, only the digits live in separate sequences. The
-        members cannot be drawn independently and then reconciled — that is the whole-column repair
-        this engine exists to avoid — so they are built together from one index.
+        As with a sequence's own ``uniq``: a group rearranges finished columns, so it belongs to
+        the exact engine and this one refuses rather than answer differently.
         """
-        pools = []
-        for name in group:
-            member = by_name.get(name)
-            if member is None:
-                raise UnsupportedError(f'<uniq> member "{name}" (no such sequence)')
-            if _trim_to_none(member.parent) is not None:
-                raise UnsupportedError(f'<uniq> member "{name}" with a parent')
-            if member.gen is None:
-                raise UnsupportedError(f'<uniq> member "{name}" (must be a simple text sequence)')
-            pools.append(self._uniq_pool(member.gen, f'"{name}"'))
-        label = "<" + " × ".join(group) + ">"
-        self._mixed_radix(list(group), pools, "#uniq#" + ",".join(group), label)
-        return set(group)
+        label = " × ".join(group)
+        raise UnsupportedError(f"<uniq> across sequences (a whole-column rearrangement) ({label})")
 
     def _mixed_radix(self, ids: list[str], pools: list[list[str]], key_id: str, label: str) -> None:
         """The columns laid out as the digits of one number, row ``i`` given a distinct value of it.
@@ -1131,7 +1108,15 @@ class StreamEngine:
         # Imported here: the exact engine and this one refer to each other.
         from .exact_uniq import Field, arrange
 
-        assert spec.fields is not None
+        # A simple uniq is a draw WITHOUT REPLACEMENT over the whole column, not an arrangement
+        # of fields — state neither disk engine holds. Refused so the caller falls back to the
+        # in-memory engine, which is where that draw lives.
+        if not spec.is_compound or not spec.fields:
+            raise UnsupportedError(
+                f'uniq on a simple sequence (a whole-column draw) ("{spec.name}")'
+            )
+        if _trim_to_none(spec.parent) is not None:
+            raise UnsupportedError(f'uniq combined with a parent ("{spec.name}")')
         fields = []
         for f in spec.fields:
             gen = f.gen

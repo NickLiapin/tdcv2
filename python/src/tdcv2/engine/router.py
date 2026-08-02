@@ -88,20 +88,23 @@ def resolve(config: Config, packs: DataPacks | None = None) -> int:
 def needs_exact(config: Config) -> bool:
     """Whether disk mode needs the exact engine rather than the streaming one.
 
-    Everything here is a case where a per-row answer and a whole-column answer differ: exact
-    percentages combined with uniqueness, a uniq field that is not a finite list, a child of a
-    parent whose values are not a finite list, a weighted choice inside a pattern. Ordinary exact
-    percentages, uniform uniqueness, switch, distinct and text parent-child all stream.
+    Everything here is a case where a per-row answer and a whole-column answer differ: ANY
+    uniqueness, a child of a parent whose values are not a finite list, a weighted choice inside
+    a pattern. Ordinary exact percentages, switch, distinct and text parent-child all stream.
+
+    ``uniq`` is here in full, and that is a deliberate cost. A group REARRANGES the columns it
+    covers — every column keeps its multiset, so every declared share survives — and that cannot
+    be decided a row at a time. The streaming engine could only offer a different answer, and two
+    answers from one seed is the thing this whole design exists to prevent.
     """
     by_name = {spec.name: spec for spec in config.sequences}
 
+    if config.env_uniq_groups:
+        return True
+
     for spec in config.sequences:
         if spec.uniq:
-            if _trim_to_none(spec.parent) is not None:
-                return True
-            for f in _fields_of(spec):
-                if f.gen.type != "text" or _has_percent(f.gen):
-                    return True
+            return True
         if spec.gen is not None and _is_weighted_advanced_regex(spec.gen):
             return True
         for f in _fields_of(spec):
