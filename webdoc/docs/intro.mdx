@@ -200,6 +200,9 @@ byte-for-byte match with the output shown above.
 - **[Large datasets](guides/large-outputs.mdx).** Stream millions of rows without holding
   the entire dataset in memory.
 
+- **[One value, without a config](core-concepts/quick-api.mdx).** `tdc.person.lastName()`
+  — the job a faker does, answered from the same packs a config draws on. Node.js only.
+
 - **[Locale and country packs](data-packs/overview.mdx).** Generate data for people,
   places, medical records, and documents in ten languages. Country packs also support
   national ID formats for more than ninety countries, with the appropriate check-digit
@@ -241,10 +244,11 @@ for (const user of users) {
 
 ## When not to use TDC
 
-- **You need a single random value in one test.** Tools like Faker require less setup.
-  TDC becomes useful when the fields of an entire record need to remain consistent. (For
-  the occasional loose value from TDC's own packs, there is
-  [the one-value API](core-concepts/quick-api.mdx).)
+- **Loose values are all you will ever need.** TDC answers those too —
+  `tdc.person.lastName()`, no config and no file, through
+  [the one-value API](core-concepts/quick-api.mdx) — but a dedicated faker carries a
+  larger ready-made catalogue in the box, where TDC ships a starter set and downloads the
+  rest. TDC earns its keep when the fields of a record have to agree with each other.
 
 - **You need a synthetic copy of a production database.** TDC invents plausible data; it
   does not learn the joint distribution of your production tables. That is a different

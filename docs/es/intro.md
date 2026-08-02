@@ -199,6 +199,10 @@ coincidencia byte por byte con la salida de arriba.
 - **[Conjuntos grandes](guides/large-outputs.md#top).** Transmita millones de filas sin
   mantener todo el conjunto en memoria.
 
+- **[Un valor sin configuración](core-concepts/quick-api.md#top).** `tdc.person.lastName()`:
+  el trabajo que hace un faker, respondido desde los mismos paquetes que usa una
+  configuración. Solo Node.js.
+
 - **[Paquetes de locale y de país](data-packs/overview.md#top).** Genere datos de personas,
   lugares, registros médicos y documentos en diez idiomas. Los paquetes de país también
   cubren formatos de identificación nacional de más de noventa países, con la regla de
@@ -241,10 +245,12 @@ for (const user of users) {
 
 ## Cuándo no usar TDC
 
-- **Necesita un solo valor aleatorio en una prueba.** Herramientas como Faker requieren
-  menos preparación. TDC resulta útil cuando los campos de un registro entero deben
-  mantenerse coherentes. (Para el valor suelto ocasional desde los propios paquetes de
-  TDC, existe [el API de un valor](core-concepts/quick-api.md#top).)
+- **Los valores sueltos son todo lo que va a necesitar.** TDC también los responde
+  —`tdc.person.lastName()`, sin configuración ni archivo, con
+  [el API de un valor](core-concepts/quick-api.md#top)—, pero un faker dedicado trae un
+  catálogo listo más grande de fábrica, mientras que TDC incluye un juego inicial y
+  descarga el resto. TDC se gana su sitio cuando los campos de un registro tienen que
+  concordar entre sí.
 
 - **Necesita una copia sintética de una base de producción.** TDC inventa datos
   plausibles; no aprende la distribución conjunta de sus tablas de producción. Ese es otro
