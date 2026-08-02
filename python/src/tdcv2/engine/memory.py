@@ -32,9 +32,11 @@ from ..model.config import Config, Gen, Item, Line, SequenceSpec
 from ..packs import DataPacks
 from ..parser import config_builder
 from ..pattern import gen as patterns
-from ..prng import rand, seekable
+from ..prng import permute, rand, seekable
 from ..prng.prng import Sfc32, create
 from ..prng.seekable import open_unit
+
+from . import per_row
 from ..sequence import pool as pool_mod
 from ..sequence import uniq as uniq_lib
 from ..sequence import uniq_simple
@@ -99,6 +101,16 @@ class _Run:
     # Row links are shared across the whole render: two sequences naming one key must land on the
     # same rows, whichever sequence reaches it first.
     row_links: dict[str, tuple[str, list[int]]] = field(default_factory=dict)
+    # The column being built, as the registry keys it — `Name`, or `Name.field` for a compound
+    # field. It is the stream name the per-row derivation hashes, and it must be the SAME string
+    # the streaming engine passes, or the two key their randomness differently.
+    stream_id: str | None = None
+    # The ABSOLUTE row each drawn position belongs to, when the column does not cover every row.
+    # See `per_row.for_stream` for why a parented column needs it.
+    rows: list[int] | None = None
+    # The exact layout each finished column got, by column name. Shared by reference across every
+    # derived run, so a column declared later can see one built earlier.
+    layouts: dict[str, per_row.ExactLayout] | None = None
 
 
 def render(config: Config, packs: DataPacks, now_millis: int, base_dir: Path | None = None) -> str:
@@ -304,7 +316,7 @@ def _build_columns(
     columns["_last"] = ["true" if i == count - 1 else "false" for i in range(count)]
     columns["_total"] = [str(count)] * count
 
-    run = _Run(config, packs, now_millis, base_dir, create(config.seed))
+    run = _Run(config, packs, now_millis, base_dir, create(config.seed), layouts={})
 
     # Pools first, and off a DERIVED seed. A pool must be invisible to every column it does not
     # feed: adding one to a config leaves the ids, the ages and the names exactly where they
@@ -317,7 +329,10 @@ def _build_columns(
 
     for spec in config.sequences:
         mask = _parent_mask(spec, columns, count)
-        applicable = sum(1 for on in mask if on)
+        # In the order the column BUILDS them, which for a child is its rank inside the
+        # parent's exact layout rather than plain row order.
+        rows = per_row.ordered_rows(spec, mask, run.layouts)
+        applicable = len(rows)
 
         # A reference to a <pool>: this row gets one member, and every field of that member is
         # published under `Ref.field`. Resolved HERE, in declaration order, so a later
@@ -333,14 +348,14 @@ def _build_columns(
             continue
 
         if spec.is_composed:
-            _composed(spec, columns, mask, applicable, count, run)
+            _composed(spec, columns, rows, applicable, count, run)
             continue
 
         if spec.is_compound:
-            _compound(spec, columns, mask, applicable, count, run)
+            _compound(spec, columns, rows, applicable, count, run)
             continue
         if spec.is_mix:
-            _mix_column(spec, columns, mask, applicable, count, run)
+            _mix_column(spec, columns, rows, applicable, count, run)
             continue
         if spec.is_switch:
             columns[spec.name or ""] = _switch_values(spec.switch_spec, count, run, columns)
@@ -366,7 +381,7 @@ def _build_columns(
             # column, so the address is not known until the row is. Built here rather than in the
             # generator, because this is the only place the sibling columns exist.
             columns[spec.name or ""] = _spread(
-                mask, _dynamic_template(spec.gen, mask, columns, run), count
+                rows, _dynamic_template(spec.gen, rows, columns, run), count
             )
             continue
 
@@ -379,10 +394,10 @@ def _build_columns(
                 if applicable == 0
                 else uniq_simple.build_unique_values(spec.name or "", spec.gen, applicable, run)
             )
-            columns[spec.name or ""] = _spread(mask, produced, count)
+            columns[spec.name or ""] = _spread(rows, produced, count)
             continue
 
-        _plain_column(spec, columns, mask, applicable, count, run)
+        _plain_column(spec, columns, rows, applicable, count, run)
 
     _enforce_env_distinct(config, columns, count, run)
     _enforce_env_uniq(config, columns, count)
@@ -400,7 +415,7 @@ def composes_own_value(items: list[Item]) -> bool:
                for item in items)
 
 
-def _composed(spec: SequenceSpec, columns, mask, applicable: int, count: int, run: _Run) -> None:
+def _composed(spec: SequenceSpec, columns, rows: list[int], applicable: int, count: int, run: _Run) -> None:
     """The body in declaration order: unnamed items build the value, named ones are fields.
 
     One pass, because the order the gens draw in is part of the contract and taking the named ones
@@ -417,6 +432,11 @@ def _composed(spec: SequenceSpec, columns, mask, applicable: int, count: int, ru
     drawn_parts = [i for i in spec.items if i.gen is not None and i.field is None]
     uniq_part = drawn_parts[0] if spec.uniq and len(drawn_parts) == 1 else None
 
+    # The stream names must be the ones the streaming engine gives the same body: a named field
+    # is `Name.field`, an unnamed part is `Name#pN` counted among the unnamed ones only.
+    # Numbering them any other way keys the same cell differently in the two engines.
+    unnamed = 0
+
     for item in spec.items:
         if item.constant_name is not None:
             # A constant costs no draw at all — that is the whole reason it exists rather than a
@@ -429,13 +449,24 @@ def _composed(spec: SequenceSpec, columns, mask, applicable: int, count: int, ru
             continue
         gen = item.field.gen if item.field is not None else item.gen
         assert gen is not None
+        if item.field is not None:
+            part_id = f"{spec.name}.{item.field.name}"
+        else:
+            part_id = f"{spec.name}#p{unnamed}"
+            unnamed += 1
+        part_run = per_row.with_rows(run, part_id, rows)
         if applicable == 0:
             values: list[str] = []
         elif item is uniq_part:
             values = uniq_simple.build_unique_values(spec.name or "", gen, applicable, run)
         else:
             values = _finish(
-                _generate(gen, applicable, run), gen.attrs, run.prng, [False] * applicable
+                _generate(gen, applicable, part_run),
+                gen.attrs,
+                part_run.prng,
+                [False] * applicable,
+                part_run,
+                gen.type,
             )
         if item.field is not None:
             produced[item.field.name] = values
@@ -450,12 +481,12 @@ def _composed(spec: SequenceSpec, columns, mask, applicable: int, count: int, ru
         _enforce_distinct(replace(spec, fields=fields), produced, applicable, run)
 
     if composes_own_value(spec.items):
-        columns[spec.name] = _spread(mask, composed, count)
+        columns[spec.name] = _spread(rows, composed, count)
     for field_name, values in produced.items():
-        columns[f"{spec.name}.{field_name}"] = _spread(mask, values, count)
+        columns[f"{spec.name}.{field_name}"] = _spread(rows, values, count)
 
 
-def _compound(spec: SequenceSpec, columns, mask, applicable: int, count: int, run: _Run) -> None:
+def _compound(spec: SequenceSpec, columns, rows: list[int], applicable: int, count: int, run: _Run) -> None:
     """Every field shares the parent mask and draws from the shared stream in declaration order.
 
     That is what keeps a compound coherent: the city and the postcode of one generated address
@@ -464,11 +495,17 @@ def _compound(spec: SequenceSpec, columns, mask, applicable: int, count: int, ru
     assert spec.fields is not None
     produced: dict[str, list[str]] = {}
     for f in spec.fields:
+        field_run = per_row.with_rows(run, f"{spec.name}.{f.name}", rows)
         produced[f.name] = (
             []
             if applicable == 0
             else _finish(
-                _generate(f.gen, applicable, run), f.gen.attrs, run.prng, [False] * applicable
+                _generate(f.gen, applicable, field_run),
+                f.gen.attrs,
+                field_run.prng,
+                [False] * applicable,
+                field_run,
+                f.gen.type,
             )
         )
 
@@ -478,28 +515,33 @@ def _compound(spec: SequenceSpec, columns, mask, applicable: int, count: int, ru
         _enforce_uniq(spec, produced, applicable, run)
 
     for f in spec.fields:
-        columns[f"{spec.name}.{f.name}"] = _spread(mask, produced[f.name], count)
+        columns[f"{spec.name}.{f.name}"] = _spread(rows, produced[f.name], count)
 
 
-def _mix_column(spec: SequenceSpec, columns, mask, applicable: int, count: int, run: _Run) -> None:
+def _mix_column(spec: SequenceSpec, columns, rows: list[int], applicable: int, count: int, run: _Run) -> None:
     assert spec.mix is not None
     flags = [False] * applicable
-    produced = [] if applicable == 0 else _mix_values(spec.mix, applicable, run, flags)
-    columns[spec.name or ""] = _spread(mask, produced, count)
+    # The '#switch' suffix is a stable historical PRNG key — the streaming engine uses it
+    # verbatim so a <mix> keeps the values of the <switch> it replaced. Both must spell it the
+    # same way.
+    mix_run = per_row.with_rows(run, f'{spec.name}#switch', rows)
+    produced = [] if applicable == 0 else _mix_values(spec.mix, applicable, mix_run, flags)
+    columns[spec.name or ""] = _spread(rows, produced, count)
 
     flag_name = spec.mix.flag
     if flag_name and flag_name.strip():
         # The ground-truth companion: which rows took a case declared anomalous. It shares the
         # parent mask, so the label is absent exactly where the value is.
-        columns[flag_name] = _spread(mask, [str(on).lower() for on in flags], count)
+        columns[flag_name] = _spread(rows, [str(on).lower() for on in flags], count)
 
 
 def _plain_column(
-    spec: SequenceSpec, columns, mask, applicable: int, count: int, run: _Run
+    spec: SequenceSpec, columns, rows: list[int], applicable: int, count: int, run: _Run
 ) -> None:
     assert spec.gen is not None
     anomaly_flags = [False] * applicable
     repeat = repeat_gen.parse(spec.gen.attrs)
+    run = per_row.with_rows(run, spec.name or "", rows)
 
     if applicable == 0:
         produced: list[str] = []
@@ -516,17 +558,22 @@ def _plain_column(
         )
     else:
         produced = _finish(
-            _generate(spec.gen, applicable, run), spec.gen.attrs, run.prng, anomaly_flags
+            _generate(spec.gen, applicable, run),
+            spec.gen.attrs,
+            run.prng,
+            anomaly_flags,
+            run,
+            spec.gen.type,
         )
 
-    columns[spec.name or ""] = _spread(mask, produced, count)
+    columns[spec.name or ""] = _spread(rows, produced, count)
 
     flag_name = spec.gen.attrs.get("anomaly_flag")
     if flag_name and flag_name.strip():
         # Which rows the run chose to spike. It shares the parent mask, so the label is absent on
         # exactly the rows the value is absent from — a detector trained on this cannot learn
         # from a label the data never had.
-        columns[flag_name] = _spread(mask, [str(on).lower() for on in anomaly_flags], count)
+        columns[flag_name] = _spread(rows, [str(on).lower() for on in anomaly_flags], count)
 
 
 def _parent_mask(spec: SequenceSpec, columns, count: int) -> list[bool]:
@@ -548,7 +595,7 @@ def _parent_mask(spec: SequenceSpec, columns, count: int) -> list[bool]:
     return [parent[i] == parent_value for i in range(count)]
 
 
-def _dynamic_template(gen: Gen, mask: list[bool], columns, run: _Run) -> list[str]:
+def _dynamic_template(gen: Gen, rows: list[int], columns, run: _Run) -> list[str]:
     """A template whose address names another column.
 
     The row decides where its value comes from: a car's model list depends on its make, a
@@ -563,9 +610,7 @@ def _dynamic_template(gen: Gen, mask: list[bool], columns, run: _Run) -> list[st
     locale = gen.attrs.get("local") or run.config.locale
 
     out: list[str] = []
-    for row in range(len(mask)):
-        if not mask[row]:
-            continue
+    for row in rows:
         address = interpolate.apply(template, run.config.inject, _row_lookup(columns, row))
         resolved = Gen("template", {**gen.attrs, "value": address, "local": locale})
         built = _generate(resolved, 1, run)
@@ -573,14 +618,16 @@ def _dynamic_template(gen: Gen, mask: list[bool], columns, run: _Run) -> list[st
     return out
 
 
-def _spread(mask: list[bool], produced: list[str], count: int) -> list[str | None]:
-    """Dense produced values laid back over the full row range, filtered rows left absent."""
+def _spread(rows: list[int], produced: list[str], count: int) -> list[str | None]:
+    """Dense produced values laid back over the full row range, filtered rows left absent.
+
+    Placed by the ROW LIST rather than by walking a mask, because a child does not build its
+    rows in row order: its position inside the parent's subset is its RANK in the parent's
+    exact layout. See ``per_row.ordered_rows``.
+    """
     values: list[str | None] = [None] * count
-    following = 0
-    for i in range(count):
-        if mask[i]:
-            values[i] = produced[following] if following < len(produced) else None
-            following += 1
+    for i, row in enumerate(rows):
+        values[row] = produced[i] if i < len(produced) else None
     return values
 
 
@@ -588,21 +635,41 @@ def _spread(mask: list[bool], produced: list[str], count: int) -> list[str | Non
 
 
 def _finish(
-    values: list[str], attrs: dict[str, str], prng: Sfc32, anomaly_flags: list[bool]
+    values: list[str],
+    attrs: dict[str, str],
+    prng: Sfc32,
+    anomaly_flags: list[bool],
+    run: _Run | None = None,
+    gen_type: str | None = None,
 ) -> list[str]:
     """Outliers, then blanks, then formatting — and the order is the contract.
 
     Spiking after blanking would multiply an empty string, and formatting before either would
     format a value that is about to be replaced.
+
+    The INLINE types never reach the per-row path — their value follows the position — so their
+    two modifier draws are keyed here, on the same `#anom` and `#miss` streams the streaming
+    engine uses. Every other type got there through a seekable generator already and must keep
+    drawing off it in order.
     """
     out = list(values)
 
+    key_pair = per_row.keyed(run) if run is not None and gen_type in per_row.INLINE_ANOMALY_TYPES else None
+
+    def draw_on(purpose: str):
+        if key_pair is None:
+            return lambda _i: prng.next()
+        seed, stream_id = key_pair
+        return lambda i: seekable.uniforms(
+            seed, f"{stream_id}{purpose}", per_row.absolute_row(run, i), 1
+        )[0]
+
     anomaly = imperfections.parse_anomaly(attrs)
     if anomaly is not None:
-        imperfections.apply_anomaly(out, anomaly, prng, anomaly_flags)
+        imperfections.apply_anomaly(out, anomaly, draw_on("#anom"), anomaly_flags)
     missing = imperfections.parse_missing(attrs)
     if missing is not None:
-        imperfections.apply_missing(out, missing, prng)
+        imperfections.apply_missing(out, missing, draw_on("#miss"))
 
     mask = attrs.get("mask")
     if mask is not None:
@@ -617,12 +684,22 @@ def _finish(
 
 
 def _mix_values(mix, count: int, run: _Run, flags: list[bool] | None) -> list[str]:
-    """A mix: the cases apportioned exactly over the rows, then each case fills its own.
+    """A mix: the case chosen by an exact percentage layout, then that case's body assembled.
 
-    Grouping the rows by case BEFORE generating is what makes a nested mix mean what it says. The
-    inner percentages then apply to the subset the outer case selected, so "20% of the readings
-    are faulty, and half of those are out of range" comes out as ten per cent of everything rather
-    than as two independent coin flips.
+    The mirror of the streaming engine's, and deliberately so — both halves are keyed by
+    ``(seed, stream_id)``, so the two engines put the same case on the same row and draw the
+    same body for it.
+
+    The thing to keep straight is which index is which. A row has three numbers here: its
+    POSITION in the mix's domain, its SLOT (``permute(position)``, which the case quotas are
+    cut from), and its ROW, the absolute index a per-row draw keys on. A case's body sees a
+    domain of its own where position runs 0..quota-1 in SLOT order, not in row order — which
+    is exactly what the streaming engine hands it.
+
+    Grouping the rows by case BEFORE generating is what makes a nested mix mean what it says.
+    The inner percentages then apply to the subset the outer case selected, so "20% of the
+    readings are faulty, and half of those are out of range" comes out as ten per cent of
+    everything rather than as two independent coin flips.
     """
     cases = mix.cases
     if not cases:
@@ -633,33 +710,88 @@ def _mix_values(mix, count: int, run: _Run, flags: list[bool] | None) -> list[st
     else:
         percents = percent_mask.expand(mix.percent, len(cases))
 
-    selected = hamilton.distribute(count, list(range(len(cases))), percents, run.prng)
+    key_pair = per_row.keyed(run)
+    if key_pair is None:
+        # An inline mix inside a pack generator body: nothing to key by, so the older
+        # arrangement stands.
+        selected = hamilton.distribute(count, list(range(len(cases))), percents, run.prng)
+        out = [""] * count
+        if flags is not None:
+            for i in range(count):
+                flags[i] = cases[selected[i]].anomaly
+        for c, case in enumerate(cases):
+            rows = [i for i in range(count) if selected[i] == c]
+            if not rows:
+                continue
+            values = _case_values(case, len(rows), run)
+            for i, row in enumerate(rows):
+                out[row] = values[i]
+        return out
+
+    seed, stream_id = key_pair
+    counts = hamilton.counts_per_value(count, percents, create(f"{seed}|{stream_id}|pct"))
+    layout_key = permute.key(seed, stream_id)
+
+    # Case c owns slots [cum_lo[c], cum_lo[c] + counts[c]).
+    cum_lo: list[int] = []
+    acc = 0
+    for c in counts:
+        cum_lo.append(acc)
+        acc += c
+
+    # The permutation both ways. The streaming engine asks "which slot is this row?"; building a
+    # case's body needs the reverse, "which row holds slot s?".
+    slot_of = [0] * count
+    position_of_slot = [0] * count
+    for i in range(count):
+        slot = permute.permute(i, count, layout_key)
+        slot_of[i] = slot
+        position_of_slot[slot] = i
+
+    def case_of_slot(slot: int) -> int:
+        for c in range(len(counts)):
+            if slot < cum_lo[c] + counts[c]:
+                return c
+        return len(counts) - 1
 
     out = [""] * count
-    if flags is not None:
-        for i in range(count):
-            flags[i] = cases[selected[i]].anomaly
-
     for c, case in enumerate(cases):
-        rows = [i for i in range(count) if selected[i] == c]
-        if not rows:
+        quota = counts[c]
+        if quota == 0:
             continue
-        values = _case_values(case, len(rows), run)
-        for i, row in enumerate(rows):
-            out[row] = values[i]
+        lo = cum_lo[c]
+        positions = [position_of_slot[lo + local] for local in range(quota)]
+        rows = [per_row.absolute_row(run, p) for p in positions]
+        values = _case_values(case, quota, per_row.with_rows(run, f"{stream_id}#c{c}", rows))
+        for local, position in enumerate(positions):
+            out[position] = values[local]
+
+    if flags is not None:
+        # The label reads the same slot->case mapping the value did, so the two cannot disagree
+        # on a row — that is the point of a ground-truth column.
+        for i in range(count):
+            flags[i] = cases[case_of_slot(slot_of[i])].anomaly
     return out
 
 
 def _case_values(case, count: int, run: _Run) -> list[str]:
-    """A case body: its pieces concatenated, each built for the rows that chose this case."""
+    """A case body: its pieces concatenated, each built for the rows that chose this case.
+
+    Parts are numbered among ALL of them, literals included — the streaming engine numbers
+    them off the same list, and a different count here would key the same part under a
+    different name.
+    """
     out = [""] * count
-    for part in case.parts:
+    for p, part in enumerate(case.parts):
+        part_run = (
+            run if run.stream_id is None else replace(run, stream_id=f"{run.stream_id}#p{p}")
+        )
         if part.text is not None:
             values = [part.text] * count
         elif part.gen is not None:
-            values = _generate(part.gen, count, run)
+            values = _generate(part.gen, count, part_run)
         else:
-            values = _mix_values(part.mix, count, run, None)
+            values = _mix_values(part.mix, count, part_run, None)
         out = [out[i] + values[i] for i in range(count)]
     return out
 
@@ -1016,6 +1148,20 @@ def _generate(gen: Gen, count: int, run: _Run) -> list[str]:
     prng = run.prng
     attrs = gen.attrs
 
+    # Row by row, off the very stream the streaming engine uses, so the two engines produce the
+    # same bytes from one seed. That engine already calls THIS function that way — one row, a
+    # generator seeded from `(seed, stream_id, row)` — so there is no second implementation to
+    # keep in step, only the same one called the same way. The recursive call has count = 1,
+    # which the guard refuses, and that is what stops this from looping.
+    if per_row.per_row_buildable(gen, count, run):
+        seed, stream_id = per_row.keyed(run)  # type: ignore[misc]
+        out: list[str] = []
+        for i in range(count):
+            row = per_row.absolute_row(run, i)
+            one = replace(run, prng=seekable.generator(seed, stream_id, row))
+            out.append(_generate(gen, 1, one)[0])
+        return out
+
     # order="sequential" comes before everything else: it replaces the draw entirely, so the
     # percent= and the random pick below never happen. Row i is element i mod N.
     #
@@ -1040,7 +1186,7 @@ def _generate(gen: Gen, count: int, run: _Run) -> list[str]:
             return _distribute(attrs, count, prng)
         return number.generate(attrs, count, prng)
     if gen.type == "timeseries":
-        return _timeseries(attrs, count, prng)
+        return _timeseries(attrs, count, run)
     if gen.type == "file":
         row_key = _trim_to_none(attrs.get("row"))
         if row_key is not None:
@@ -1048,7 +1194,13 @@ def _generate(gen: Gen, count: int, run: _Run) -> list[str]:
         weighted = file_gen.load_weighted(attrs, run.base_dir, run.packs.data_roots)
         if weighted is not None:
             # The same apportionment percent= uses, so the file's counts come out exact rather
-            # than approximate.
+            # than approximate — and laid out the way the streaming engine lays it out, so a
+            # weighted file column reads the same on every engine.
+            exact = per_row.exact_text_layout(
+                weighted.values, None, count, run, weighted.percents
+            )
+            if exact is not None:
+                return exact
             return hamilton.distribute(count, weighted.values, weighted.percents, prng)
         return file_gen.generate(attrs, count, run.base_dir, prng, run.packs.data_roots)
     if gen.type == "pattern":
@@ -1097,6 +1249,13 @@ def _generate(gen: Gen, count: int, run: _Run) -> list[str]:
     else:
         raise EngineError(f'generator type "{gen.type}" is not ported yet')
 
+    # The streaming engine has NO separate uniform path: no `percent=` simply means equal
+    # shares, and either way it lays the values out exactly over the column and then permutes.
+    # Doing the same here is what makes a listed column come out the same on every engine — one
+    # mechanism, not a random pick plus a quota plan.
+    exact = per_row.exact_text_layout(values, percent or None, count, run)
+    if exact is not None:
+        return exact
     if not percent:
         return [values[math.floor(prng.next() * len(values))] for _ in range(count)]
     # Through the shared mask reader, so a partial mask like percent="50" over three values
@@ -1119,15 +1278,23 @@ def _distribute(attrs: dict[str, str], count: int, prng: Sfc32) -> list[str]:
     return out
 
 
-def _timeseries(attrs: dict[str, str], count: int, prng: Sfc32) -> list[str]:
+def _timeseries(attrs: dict[str, str], count: int, run: _Run) -> list[str]:
     spec = timeseries.parse(attrs)
+    key_pair = per_row.keyed(run)
     out = []
     for i in range(count):
-        z = (
-            timeseries.standard_normal(open_unit(prng.next()), open_unit(prng.next()))
-            if spec.has_noise()
-            else 0.0
-        )
+        z = 0.0
+        if spec.has_noise():
+            # The value follows the position; the noise follows the row, on the dedicated ':ts'
+            # stream the streaming engine uses. Same two names, same two uniforms, same series.
+            if key_pair is not None:
+                seed, stream_id = key_pair
+                u1, u2 = seekable.uniforms(
+                    seed, f"{stream_id}:ts", per_row.absolute_row(run, i), 2
+                )
+            else:
+                u1, u2 = open_unit(run.prng.next()), open_unit(run.prng.next())
+            z = timeseries.standard_normal(u1, u2)
         out.append(timeseries.format_value(timeseries.value_at(spec, i, z), spec.decimals))
     return out
 
@@ -1136,12 +1303,19 @@ def _pattern(attrs: dict[str, str], count: int, run: _Run) -> list[str]:
     resolved = patterns.of(attrs, run.base_dir, run.packs.data_roots)
     draws = patterns.draws(resolved)
     denom = count - 1 if count > 1 else 1
-    return [
-        patterns.value_at(
-            resolved, i / denom, open_unit(run.prng.next()) if draws else 0.0, 1 / denom
-        )
-        for i in range(count)
-    ]
+    key_pair = per_row.keyed(run)
+
+    def band(i: int) -> float:
+        # As with timeseries: the curve is read at the position, the one draw inside the band is
+        # keyed by the row on the streaming engine's ':pat' stream.
+        if not draws:
+            return 0.0
+        if key_pair is None:
+            return open_unit(run.prng.next())
+        seed, stream_id = key_pair
+        return seekable.uniforms(seed, f"{stream_id}:pat", per_row.absolute_row(run, i), 1)[0]
+
+    return [patterns.value_at(resolved, i / denom, band(i), 1 / denom) for i in range(count)]
 
 
 def _linked_file_values(row_key: str, attrs: dict[str, str], count: int, run: _Run) -> list[str]:

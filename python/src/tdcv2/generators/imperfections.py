@@ -11,6 +11,8 @@ a value about to be replaced.
 
 from __future__ import annotations
 
+from collections.abc import Callable
+
 import math
 from dataclasses import dataclass
 
@@ -61,30 +63,40 @@ def parse_anomaly(attrs: dict[str, str]) -> Anomaly | None:
     return Anomaly(p, factor)
 
 
-def apply_missing(values: list[str], spec: Missing, prng: Sfc32) -> None:
+def apply_missing(values: list[str], spec: Missing, draw: Callable[[int], float]) -> None:
     """Blank the selected rows, in place.
 
     A draw is taken for every row even at probability zero would be wasteful, so the whole pass
     is skipped instead — which is also what keeps a config without ``missing`` producing the same
     values as one with ``missing="0"``.
+
+    ``draw`` is asked for the uniform OF ROW i rather than for the next one — see
+    ``apply_anomaly`` for why.
     """
     if spec.probability <= 0:
         return
     for i in range(len(values)):
-        if prng.next() < spec.probability:
+        if draw(i) < spec.probability:
             values[i] = spec.token
 
 
 def apply_anomaly(
-    values: list[str], spec: Anomaly, prng: Sfc32, flags: list[bool] | None = None
+    values: list[str],
+    spec: Anomaly,
+    draw: Callable[[int], float],
+    flags: list[bool] | None = None,
 ) -> None:
     """Spike the selected rows, recording which ones — the flag is ground truth for a detector.
 
     A draw is taken for EVERY row, even at probability zero, because the flag column has to be
     the same length as the values and the stream has to advance identically either way.
+
+    ``draw`` is asked for the uniform OF ROW i rather than for "the next" one: the streaming
+    engine derives it from the row, and the in-memory engine passes a closure over its own
+    PRNG. Same rows selected either way, and one function serves both.
     """
     for i in range(len(values)):
-        selected = spec.probability > 0 and prng.next() < spec.probability
+        selected = spec.probability > 0 and draw(i) < spec.probability
         if flags is not None:
             flags[i] = selected
         if not selected:
