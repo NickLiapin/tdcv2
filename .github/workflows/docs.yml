@@ -1,0 +1,71 @@
+name: Documentation
+
+# Builds the three-language site from webdoc/ and publishes it to GitHub Pages.
+#
+# The site is built by the same command a developer runs locally
+# (`npm --prefix webdoc run build`), so what goes online is what they saw. The
+# checks run first: a page that links somewhere that does not exist, or a
+# reference missing a row for a name the engine implements, should not reach
+# the public site.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "webdoc/**"
+      - "docs/**"
+      - "package.json"
+      - "package-lock.json"
+      - ".github/workflows/docs.yml"
+  workflow_dispatch:
+
+# One deployment at a time; a newer commit supersedes an older one in flight,
+# but never cancels a deployment that is already writing.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20.x"
+          cache: "npm"
+
+      - name: Install
+        run: npm ci
+
+      - name: Check the docs before publishing them
+        run: npm run docs:check
+
+      - name: Build the site
+        run: npm --prefix webdoc run build
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: webdoc/build
+
+  deploy:
+    name: Deploy
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
