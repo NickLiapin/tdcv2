@@ -92,6 +92,92 @@ public static class Repeat
     /// element here with no extra work. The draw order is fixed: all the length draws first, then
     /// the values. Both engines depend on it staying that way.
     /// </remarks>
+    /// <summary>
+    /// Where each row's values sit in one flat run of slots.
+    /// </summary>
+    /// <remarks>
+    /// The lengths are decided before any value exists, so a row's slice follows from its own
+    /// position rather than from a running total over the rows before it. That is what lets the
+    /// streaming engine answer row nine million without having built the first eight.
+    /// </remarks>
+    public sealed class Plan
+    {
+        private readonly int min;
+        private readonly int[] rowCumLo;
+        private readonly int[] slotOffset;
+
+        internal Plan(int min, int totalSlots, int[] rowCumLo, int[] slotOffset)
+        {
+            this.min = min;
+            this.TotalSlots = totalSlots;
+            this.rowCumLo = rowCumLo;
+            this.slotOffset = slotOffset;
+        }
+
+        public int TotalSlots { get; }
+
+        /// <summary>How many values the row at permuted position <paramref name="p"/> keeps.</summary>
+        public int LengthAt(int p) => this.min + this.GroupOf(p);
+
+        /// <summary>The first slot the row at permuted position <paramref name="p"/> owns.</summary>
+        public int SlotStartAt(int p)
+        {
+            int j = this.GroupOf(p);
+            return this.slotOffset[j] + ((p - this.rowCumLo[j]) * (this.min + j));
+        }
+
+        private int GroupOf(int p)
+        {
+            int lo = 0;
+            int hi = this.rowCumLo.Length - 1;
+            while (lo < hi)
+            {
+                int mid = (lo + hi + 1) / 2;
+                if (p >= this.rowCumLo[mid])
+                {
+                    lo = mid;
+                }
+                else
+                {
+                    hi = mid - 1;
+                }
+            }
+
+            return lo;
+        }
+    }
+
+    /// <summary>
+    /// Lay out the rows whose lengths were apportioned as <paramref name="counts"/>.
+    /// </summary>
+    public static Plan MakePlan(Spec spec, int[] counts)
+    {
+        int groups = Math.Max(1, spec.Max - spec.Min + 1);
+        var rowCumLo = new int[groups];
+        var slotOffset = new int[groups];
+        int rowAcc = 0;
+        int slotAcc = 0;
+        for (int j = 0; j < groups; j++)
+        {
+            rowCumLo[j] = rowAcc;
+            slotOffset[j] = slotAcc;
+            int c = j < counts.Length ? Math.Max(0, counts[j]) : 0;
+            rowAcc += c;
+            slotAcc += c * (spec.Min + j);
+        }
+
+        return new Plan(spec.Min, slotAcc, rowCumLo, slotOffset);
+    }
+
+    /// <summary>
+    /// An even split across the possible lengths — the shares <see cref="MakePlan"/> quotas by.
+    /// </summary>
+    public static double[] LengthPercents(Spec spec)
+    {
+        int groups = Math.Max(1, spec.Max - spec.Min + 1);
+        return Enumerable.Repeat(100.0 / groups, groups).ToArray();
+    }
+
     public static IReadOnlyList<string> Build(
         Spec spec, int count, Sfc32 prng, Func<int, IReadOnlyList<string>> buildFlat)
     {

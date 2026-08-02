@@ -119,31 +119,29 @@ public static class EngineRouter
     /// Whether disk mode needs the exact engine rather than the streaming one.
     /// </summary>
     /// <remarks>
-    /// Everything here is a case where a per-row answer and a whole-column answer differ: exact
-    /// percentages combined with uniqueness, a uniq field that is not a finite list, a child of a
-    /// parent whose values are not a finite list, a weighted choice inside a pattern. Ordinary exact
-    /// percentages, uniform uniqueness, switch, distinct and text parent-child all stream.
+    /// Everything here is a case where a per-row answer and a whole-column answer differ: ANY
+    /// uniqueness, a child of a parent whose values are not a finite list, a weighted choice
+    /// inside a pattern. Ordinary exact percentages, switch, distinct and text parent-child all
+    /// stream.
     /// </remarks>
     public static bool NeedsExact(Config config)
     {
         var byName = config.Sequences.ToDictionary(s => s.Name, StringComparer.Ordinal);
 
+        // A group REARRANGES the columns it covers — every column keeps its multiset, so every
+        // declared share survives — and that cannot be decided a row at a time. The streaming
+        // engine could only offer a different answer, and two answers from one seed is the thing
+        // this whole design exists to prevent.
+        if (config.EnvUniqGroups.Count > 0)
+        {
+            return true;
+        }
+
         foreach (SequenceSpec spec in config.Sequences)
         {
             if (spec.Uniq)
             {
-                if (TrimToNull(spec.Parent) is not null)
-                {
-                    return true;
-                }
-
-                foreach (Field field in FieldsOf(spec))
-                {
-                    if (field.Gen.Type != "text" || HasPercent(field.Gen))
-                    {
-                        return true;
-                    }
-                }
+                return true;
             }
 
             if (spec.Gen is not null && IsWeightedAdvancedRegex(spec.Gen))

@@ -91,8 +91,6 @@ public sealed class StreamEngine
     private const int DistinctFuse = 64;
 
     /// <summary>Beyond this many combinations a uniq index no longer fits a double exactly.</summary>
-    private const double SafeUniqCap = 9007199254740992.0;
-
     private readonly Config _config;
     private readonly DataPacks _packs;
     private readonly long _nowMillis;
@@ -457,34 +455,11 @@ public sealed class StreamEngine
     private IReadOnlySet<string> BuildEnvUniq(
         IReadOnlyList<string> group, IReadOnlyDictionary<string, SequenceSpec> byName)
     {
-        var pools = new List<string>();
-        var values = new List<IReadOnlyList<string>>();
-        foreach (string name in group)
-        {
-            if (!byName.TryGetValue(name, out SequenceSpec? member))
-            {
-                throw new UnsupportedHere($"<uniq> member \"{name}\" (no such sequence)");
-            }
-
-            if (TrimToNull(member.Parent) is not null)
-            {
-                throw new UnsupportedHere($"<uniq> member \"{name}\" with a parent");
-            }
-
-            if (member.Gen is null)
-            {
-                throw new UnsupportedHere(
-                    $"<uniq> member \"{name}\" (must be a simple text sequence)");
-            }
-
-            pools.Add(name);
-            values.Add(UniqPool(member.Gen, $"\"{name}\""));
-        }
-
-        MixedRadix(
-            pools, values, "#uniq#" + string.Join(",", group),
-            "<" + string.Join(" × ", group) + ">");
-        return new HashSet<string>(group, StringComparer.Ordinal);
+        // As with a sequence's own `uniq`: a group rearranges finished columns, so it belongs to
+        // the in-memory engine and both disk engines refuse rather than answer differently.
+        throw new UnsupportedHere(
+            "<uniq> across sequences (a whole-column rearrangement) ("
+            + string.Join(" × ", group) + ")");
     }
 
     /// <summary>
@@ -1541,6 +1516,18 @@ public sealed class StreamEngine
     /// </remarks>
     private void BuildUniq(SequenceSpec spec)
     {
+        if (!_exactUniq)
+        {
+            // A group REARRANGES whole columns so each keeps its multiset — a promise about the
+            // finished column, which no engine can keep a row at a time. This one could only
+            // offer something else (a mixed-radix bijection over the combination space, uniform
+            // over combinations, ignoring the values actually drawn), and one seed would then
+            // mean two datasets. It says so instead. The router sends every uniq to the exact
+            // engine; this is the backstop for a forced one.
+            throw new UnsupportedHere(
+                $"uniq (a whole-column rearrangement) (\"{spec.Name}\")");
+        }
+
         if (!spec.IsCompound || spec.Fields!.Count == 0)
         {
             throw new UnsupportedHere(
@@ -1552,64 +1539,7 @@ public sealed class StreamEngine
             throw new UnsupportedHere($"uniq combined with a parent (\"{spec.Name}\")");
         }
 
-        if (_exactUniq)
-        {
-            BuildExactUniq(spec);
-            return;
-        }
-
-        var ids = new List<string>();
-        var pools = new List<IReadOnlyList<string>>();
-        foreach (Field field in spec.Fields)
-        {
-            ids.Add(spec.Name + "." + field.Name);
-            pools.Add(UniqPool(field.Gen, $"\"{spec.Name}.{field.Name}\""));
-        }
-
-        MixedRadix(ids, pools, spec.Name + "#uniq", $"\"{spec.Name}\"");
-    }
-
-    /// <summary>
-    /// Lay the columns out as the digits of one number, and give row <c>i</c> a distinct value of it.
-    /// </summary>
-    /// <remarks>
-    /// This is the whole trick. Uniqueness stops being something to check and becomes something the
-    /// arithmetic cannot violate: two rows would have to share an index, and the permutation is a
-    /// bijection. Nothing is remembered, so the millionth row costs what the first one did.
-    /// </remarks>
-    private void MixedRadix(
-        IReadOnlyList<string> ids, IReadOnlyList<IReadOnlyList<string>> pools, string keyId,
-        string label)
-    {
-        var prefixes = new long[pools.Count];
-        double capacity = 1;
-        for (int j = 0; j < pools.Count; j++)
-        {
-            prefixes[j] = (long)capacity;
-            capacity *= pools[j].Count;
-            if (capacity > SafeUniqCap)
-            {
-                throw new InvalidOperationException(
-                    $"stream mode: uniq {label} has more than 2^52 possible combinations — too "
-                    + "many to index exactly. Reduce columns/values, or use the in-memory engine.");
-            }
-        }
-
-        if (_count > capacity)
-        {
-            throw new InvalidOperationException(
-                $"stream mode: uniq {label} is infeasible — only {(long)capacity} distinct "
-                + $"combinations exist, but {_count} unique rows were requested.");
-        }
-
-        int total = (int)capacity;
-        int key = Permute.Key(_seed, keyId);
-        for (int j = 0; j < pools.Count; j++)
-        {
-            IReadOnlyList<string> pool = pools[j];
-            long prefix = prefixes[j];
-            Put(ids[j], row => pool[(int)(Permute.Apply(row, total, key) / prefix % pool.Count)]);
-        }
+        BuildExactUniq(spec);
     }
 
     /// <summary>
@@ -1656,37 +1586,6 @@ public sealed class StreamEngine
             ExactUniq.Resolver resolver = entry.Value;
             Put(entry.Key, row => resolver(row));
         }
-    }
-
-    /// <summary>A uniq field's pool: a finite text list, with duplicates dropped and percent refused.</summary>
-    private static IReadOnlyList<string> UniqPool(Gen gen, string label)
-    {
-        if (gen.Type != "text")
-        {
-            throw new UnsupportedHere(
-                $"uniq column {label} of type \"{gen.Type}\" (only text lists)");
-        }
-
-        if (!string.IsNullOrEmpty(gen.Attrs.GetValueOrDefault("percent")))
-        {
-            throw new UnsupportedHere(
-                $"uniq column {label} uses percent — streaming uniq gives UNIFORM distinct "
-                + "combinations only. Exact percentages + uniqueness together need the in-memory "
-                + "engine (run without mode=\"stream\"), or drop percent.");
-        }
-
-        // Deduplicated in first-seen order: a repeated value would make the mixed-radix index map
-        // two combinations onto one, and the column would no longer be unique.
-        List<string> pool = MemoryEngine
-            .SplitText(gen.Attrs.GetValueOrDefault("value", ""))
-            .Distinct(StringComparer.Ordinal)
-            .ToList();
-        if (pool.Count == 0)
-        {
-            throw new UnsupportedHere($"uniq column {label} with an empty value list");
-        }
-
-        return pool;
     }
 
     // ── repeat planning ──────────────────────────────────────────────────────────────────────

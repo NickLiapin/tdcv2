@@ -59,7 +59,7 @@ public class DrawingSourceTest : IDisposable
     public void TwoStrokesAreABandAndATransformIsHonoured()
     {
         File.WriteAllText(Path.Combine(_dir, "band.svg"), BandSvg);
-        Assert.Equal(new[] { "33.4", "49.7", "39.8", "39.8", "69.1", "66.7" }, Read("band.svg"));
+        Assert.Equal(new[] { "76.2", "29.1", "39.0", "84.1", "57.4", "54.0" }, Read("band.svg"));
     }
 
     [Fact]

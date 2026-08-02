@@ -446,10 +446,19 @@ public static class MemoryEngine
         // an old snapshot still matches.
         IReadOnlyDictionary<string, PoolTable> tables = prebuilt ?? BuildPoolTables(ctx);
 
+        // What each finished column's exact layout gave each row, by column name. A child that
+        // filters on one of them is ordered by its RANK there, not by row order.
+        var layouts = new Dictionary<string, PerRow.ExactLayout>(StringComparer.Ordinal);
+
         foreach (SequenceSpec spec in config.Sequences)
         {
             bool[] mask = ParentMask(spec, columns, count);
-            int applicable = mask.Count(on => on);
+
+            // In the order the column BUILDS them, which for a child is its rank inside the
+            // parent's exact layout rather than plain row order.
+            List<int> rows = PerRow.OrderedRows(spec.Parent, mask, layouts);
+            int applicable = rows.Count;
+            PerRow.Stream Named(string id) => new(config.Seed, id, rows);
 
             // A reference to a <pool>: this row gets one member, and every field of that member
             // is published under `Ref.field`. Resolved HERE, in declaration order, so a later
@@ -494,8 +503,13 @@ public static class MemoryEngine
             if (spec.IsMix)
             {
                 var flags = new bool[applicable];
-                columns[spec.Name] =
-                    Spread(mask, MixValues(spec.Mix!, applicable, prng, flags, ctx), count);
+                // The '#switch' suffix is a stable historical key: the streaming engine spells
+                // it that way so a <mix> keeps the values of the <switch> it replaced.
+                columns[spec.Name] = Spread(
+                    rows,
+                    MixValues(
+                        spec.Mix!, applicable, prng, flags, ctx, Named(spec.Name + "#switch")),
+                    count);
 
                 string? flagName = spec.Mix!.Flag;
                 if (!string.IsNullOrWhiteSpace(flagName))
@@ -503,7 +517,7 @@ public static class MemoryEngine
                     // The ground-truth companion: which rows took a case declared anomalous. It
                     // shares the parent mask, so the label is absent exactly where the value is.
                     columns[flagName] = Spread(
-                        mask, flags.Select(on => on ? "true" : "false").ToList(), count);
+                        rows, flags.Select(on => on ? "true" : "false").ToList(), count);
                 }
 
                 continue;
@@ -511,7 +525,8 @@ public static class MemoryEngine
 
             if (spec.IsSwitch)
             {
-                columns[spec.Name] = SwitchValues(spec.SwitchSpec!, count, prng, columns, ctx);
+                columns[spec.Name] =
+                    SwitchValues(spec.SwitchSpec!, count, prng, columns, ctx, spec.Name);
                 continue;
             }
 
@@ -532,6 +547,10 @@ public static class MemoryEngine
                 List<Item> drawnParts = spec.Items!
                     .Where(i => i.Gen is not null && i.Field is null).ToList();
                 Item? uniqPart = spec.Uniq && drawnParts.Count == 1 ? drawnParts[0] : null;
+
+                // Unnamed parts are numbered among ALL parts, literals included, because that is
+                // how the streaming engine numbers them.
+                int unnamed = 0;
 
                 foreach (Item item in spec.Items!)
                 {
@@ -558,11 +577,14 @@ public static class MemoryEngine
                     {
                         built[item.Field.Name] = applicable == 0
                             ? new List<string>()
-                            : Finish(
-                                Generate(item.Field.Gen, applicable, prng, ctx),
-                                item.Field.Gen.Attrs, prng).ToList();
+                            : ColumnValues(
+                                item.Field.Gen, applicable, prng, ctx,
+                                Named($"{spec.Name}.{item.Field.Name}"), null, layouts).ToList();
                         continue;
                     }
+
+                    PerRow.Stream part = Named($"{spec.Name}#p{unnamed}");
+                    unnamed++;
 
                     IReadOnlyList<string> drawn;
                     if (applicable == 0)
@@ -577,8 +599,7 @@ public static class MemoryEngine
                     }
                     else
                     {
-                        drawn = Finish(
-                            Generate(item.Gen!, applicable, prng, ctx), item.Gen!.Attrs, prng);
+                        drawn = ColumnValues(item.Gen!, applicable, prng, ctx, part, null, layouts);
                     }
                     for (int i = 0; i < applicable; i++)
                     {
@@ -591,7 +612,8 @@ public static class MemoryEngine
                     // The groups name FIELDS, and a composed body carries its fields in `Items` —
                     // so the constraint is checked against a spec that spells them out.
                     EnforceDistinct(
-                        spec with { Fields = FieldsOf(spec.Items!) }, built, applicable, prng, ctx);
+                        spec with { Fields = FieldsOf(spec.Items!) }, built, applicable, prng,
+                        ctx, rows);
                 }
 
                 // Only when something unnamed actually composed it. A body of nothing but named
@@ -599,12 +621,12 @@ public static class MemoryEngine
                 // you meant a field.
                 if (ComposesOwnValue(spec.Items!))
                 {
-                    columns[spec.Name] = Spread(mask, composed, count);
+                    columns[spec.Name] = Spread(rows, composed, count);
                 }
 
                 foreach (KeyValuePair<string, List<string>> entry in built)
                 {
-                    columns[spec.Name + "." + entry.Key] = Spread(mask, entry.Value, count);
+                    columns[spec.Name + "." + entry.Key] = Spread(rows, entry.Value, count);
                 }
 
                 continue;
@@ -621,14 +643,14 @@ public static class MemoryEngine
                 {
                     produced[field.Name] = applicable == 0
                         ? new List<string>()
-                        : Finish(
-                            Generate(field.Gen, applicable, prng, ctx), field.Gen.Attrs, prng)
-                            .ToList();
+                        : ColumnValues(
+                            field.Gen, applicable, prng, ctx,
+                            Named($"{spec.Name}.{field.Name}"), null, layouts).ToList();
                 }
 
                 if (spec.DistinctGroups is not null)
                 {
-                    EnforceDistinct(spec, produced, applicable, prng, ctx);
+                    EnforceDistinct(spec, produced, applicable, prng, ctx, rows);
                 }
 
                 if (spec.Uniq)
@@ -639,7 +661,7 @@ public static class MemoryEngine
                 foreach (Field field in spec.Fields!)
                 {
                     columns[spec.Name + "." + field.Name] =
-                        Spread(mask, produced[field.Name], count);
+                        Spread(rows, produced[field.Name], count);
                 }
 
                 continue;
@@ -651,7 +673,7 @@ public static class MemoryEngine
             if (spec.Gen!.Type == "template" && (spec.Gen.Attr("value") ?? "").Contains("${{"))
             {
                 columns[spec.Name] =
-                    Spread(mask, DynamicTemplate(spec.Gen, mask, columns, prng, ctx), count);
+                    Spread(rows, DynamicTemplate(spec.Gen, mask, columns, prng, ctx), count);
                 continue;
             }
 
@@ -666,12 +688,19 @@ public static class MemoryEngine
                         : UniqSimple.Build(
                             spec.Name, spec.Gen, applicable, prng, ctx.Packs,
                             ctx.Config.Locale, ctx.BaseDir);
-                columns[spec.Name] = Spread(mask, unique, count);
+                columns[spec.Name] = Spread(rows, unique, count);
                 continue;
             }
 
             var anomalyFlags = new bool[applicable];
             Repeat.Spec? repeat = Repeat.Parse(spec.Gen!.Attrs);
+            PerRow.Stream stream = Named(spec.Name);
+            string? anomalyFlagName = spec.Gen!.Attrs.GetValueOrDefault("anomaly_flag");
+            bool flagNamed = !string.IsNullOrWhiteSpace(anomalyFlagName);
+
+            // With `repeat` the anomaly label is a LIST parallel to the values, saying which
+            // ELEMENT spiked rather than merely that one did.
+            List<string>? repeatFlags = null;
             IReadOnlyList<string> values;
             if (applicable == 0)
             {
@@ -679,32 +708,50 @@ public static class MemoryEngine
             }
             else if (repeat is { } r)
             {
-                // The per-value passes run INSIDE, on the flat slot buffer, so anomaly, missing and
-                // formatting come out per element of the list rather than over the joined cell.
-                Gen element = new(spec.Gen.Type, Repeat.Without(spec.Gen.Attrs));
-                values = Repeat.Build(
-                    r, applicable, prng,
-                    slots => Finish(
-                        Generate(element, slots, prng, ctx), spec.Gen.Attrs, prng,
-                        new bool[slots]));
+                // A listed column lays every element of every row out at once and reads the slots
+                // the length plan gave the row; anything drawn takes one sub-stream per element.
+                // Which of the two is the streaming engine's own split.
+                (IReadOnlyList<string> Values, double[] Percents)? listed =
+                    ListedValues(spec.Gen, ctx);
+                if (listed is { } l)
+                {
+                    values = RepeatKeyed.BuildLayout(
+                        r, l.Values, l.Percents, applicable, stream,
+                        ElementModifier(spec.Gen, r, stream));
+                }
+                else
+                {
+                    Gen element = new(spec.Gen.Type, Repeat.Without(spec.Gen.Attrs));
+                    repeatFlags = flagNamed ? new List<string>() : null;
+                    values = RepeatKeyed.BuildDraws(
+                        r, applicable, stream,
+                        (_, elementPrng, flag) =>
+                        {
+                            IReadOnlyList<string> done = Finish(
+                                Generate(element, 1, elementPrng, ctx), element.Attrs,
+                                elementPrng, flag);
+                            return done.Count > 0 ? done[0] : "";
+                        },
+                        repeatFlags);
+                }
             }
             else
             {
-                values = Finish(
-                    Generate(spec.Gen!, applicable, prng, ctx), spec.Gen!.Attrs, prng,
-                    anomalyFlags);
+                values = ColumnValues(
+                    spec.Gen!, applicable, prng, ctx, stream, anomalyFlags, layouts);
             }
 
-            columns[spec.Name] = Spread(mask, values, count);
+            columns[spec.Name] = Spread(rows, values, count);
 
-            string? anomalyFlagName = spec.Gen!.Attrs.GetValueOrDefault("anomaly_flag");
-            if (!string.IsNullOrWhiteSpace(anomalyFlagName))
+            if (flagNamed)
             {
                 // The ground-truth companion: which rows the run chose to spike. It shares the
                 // parent mask, so the label is absent exactly where the value is — a detector
                 // trained on this cannot learn from a label the data never had.
-                columns[anomalyFlagName] = Spread(
-                    mask, anomalyFlags.Select(on => on ? "true" : "false").ToList(), count);
+                columns[anomalyFlagName!] = Spread(
+                    rows,
+                    repeatFlags ?? anomalyFlags.Select(on => on ? "true" : "false").ToList(),
+                    count);
             }
         }
 
@@ -1069,17 +1116,13 @@ public static class MemoryEngine
     /// A null means "this row is outside the column's parent filter", which renders as empty rather
     /// than as a neighbour's value shifted up — the failure a dense array would produce silently.
     /// </remarks>
-    private static string[] Spread(bool[] mask, IReadOnlyList<string> produced, int count)
+    private static string[] Spread(
+        IReadOnlyList<int> rows, IReadOnlyList<string> produced, int count)
     {
         var values = new string[count];
-        int next = 0;
-        for (int i = 0; i < count; i++)
+        for (int at = 0; at < rows.Count; at++)
         {
-            if (mask[i])
-            {
-                values[i] = next < produced.Count ? produced[next] : null!;
-                next++;
-            }
+            values[rows[at]] = at < produced.Count ? produced[at] : null!;
         }
 
         return values;
@@ -1158,7 +1201,7 @@ public static class MemoryEngine
     /// </remarks>
     private static void EnforceDistinct(
         SequenceSpec spec, Dictionary<string, List<string>> produced, int count,
-        Sfc32 prng, Ctx ctx)
+        Sfc32 prng, Ctx ctx, IReadOnlyList<int> rows)
     {
         var genByField = spec.Fields!.ToDictionary(f => f.Name, f => f.Gen, StringComparer.Ordinal);
 
@@ -1193,7 +1236,14 @@ public static class MemoryEngine
                         }
 
                         attempts++;
-                        value = Generate(gen, 1, prng, ctx)[0];
+
+                        // Each attempt has a stream of its own, named for the field and the
+                        // attempt number — the same names the streaming engine redraws under,
+                        // so both engines land on the same replacement.
+                        int row = i < rows.Count ? rows[i] : i;
+                        Sfc32 one = Seekable.Generator(
+                            ctx.Config.Seed, $"{spec.Name}.{fieldName}#d{attempts}", row);
+                        value = Generate(gen, 1, one, ctx)[0];
                     }
 
                     values[i] = value;
@@ -1224,11 +1274,32 @@ public static class MemoryEngine
         SequenceSpec spec, Dictionary<string, List<string>> produced, int count)
     {
         var columns = new List<IReadOnlyList<string>>();
-        var columnCounts = new List<IReadOnlyList<int>>();
         foreach (Field field in spec.Fields!)
         {
-            List<string> column = produced[field.Name];
-            columns.Add(column);
+            columns.Add(produced[field.Name]);
+        }
+
+        // Already unique as drawn? Then there is nothing to rearrange, and moving values anyway
+        // would only make this engine disagree with the exact one, which checks the same thing
+        // first and leaves a passing draw untouched. Cheap enough to always ask: one pass, one
+        // set. NUL joins the tuple because a generated value cannot contain it, so no two
+        // different tuples can join into the same key.
+        var seenTuples = new HashSet<string>(StringComparer.Ordinal);
+        bool collided = false;
+        for (int i = 0; i < count && !collided; i++)
+        {
+            collided = !seenTuples.Add(string.Join(
+                '\0', columns.Select(c => i < c.Count ? c[i] : "")));
+        }
+
+        if (!collided)
+        {
+            return;
+        }
+
+        var columnCounts = new List<IReadOnlyList<int>>();
+        foreach (IReadOnlyList<string> column in columns)
+        {
             columnCounts.Add(Uniq.ValueCounts(column));
         }
 
@@ -1379,7 +1450,12 @@ public static class MemoryEngine
                         }
 
                         attempts++;
-                        value = OneScalar(byName[name], prng, ctx);
+
+                        // Named for the sequence and the attempt, exactly as the streaming
+                        // engine names it, so the replacement is the same on both engines.
+                        Sfc32 one = Seekable.Generator(
+                            ctx.Config.Seed, $"{name}#ed{attempts}", i);
+                        value = OneScalar(byName[name], one, ctx);
                     }
 
                     values[i] = value;
@@ -1574,7 +1650,7 @@ public static class MemoryEngine
 
         if (spec.IsMix)
         {
-            IReadOnlyList<string> built = MixValues(spec.Mix!, 1, prng, new bool[1], ctx);
+            IReadOnlyList<string> built = MixValues(spec.Mix!, 1, prng, new bool[1], ctx, null);
             return built.Count == 0 ? "" : built[0];
         }
 
@@ -1784,7 +1860,7 @@ public static class MemoryEngine
     /// every row would be simpler and would take a different number of draws.
     /// </remarks>
     private static IReadOnlyList<string> MixValues(
-        Mix mix, int count, Sfc32 prng, bool[]? flags, Ctx ctx)
+        Mix mix, int count, Sfc32 prng, bool[]? flags, Ctx ctx, PerRow.Stream? stream)
     {
         IReadOnlyList<Case> cases = mix.Cases;
         if (cases.Count == 0)
@@ -1802,39 +1878,121 @@ public static class MemoryEngine
             percents = PercentMask.Expand(mix.Percent!, cases.Count);
         }
 
-        IReadOnlyList<int> selected = Hamilton.Distribute(
-            count, Enumerable.Range(0, cases.Count).ToArray(), percents, prng);
-
         var result = new string[count];
-        for (int i = 0; i < count; i++)
+        Array.Fill(result, "");
+
+        // An inline mix inside a pack generator body has nothing to key by, so the older
+        // arrangement stands there.
+        if (stream is null)
         {
-            result[i] = "";
+            IReadOnlyList<int> selected = Hamilton.Distribute(
+                count, Enumerable.Range(0, cases.Count).ToArray(), percents, prng);
             if (flags is not null)
             {
-                flags[i] = cases[selected[i]].Anomaly;
+                for (int i = 0; i < count; i++)
+                {
+                    flags[i] = cases[selected[i]].Anomaly;
+                }
             }
+
+            for (int c = 0; c < cases.Count; c++)
+            {
+                var taken = new List<int>();
+                for (int i = 0; i < count; i++)
+                {
+                    if (selected[i] == c)
+                    {
+                        taken.Add(i);
+                    }
+                }
+
+                if (taken.Count == 0)
+                {
+                    continue;
+                }
+
+                IReadOnlyList<string> drawn = CaseValues(cases[c], taken.Count, prng, ctx, null);
+                for (int i = 0; i < taken.Count; i++)
+                {
+                    result[taken[i]] = drawn[i];
+                }
+            }
+
+            return result;
+        }
+
+        // Which case a row takes is the same exact layout a weighted list gets: a quota per case,
+        // permuted over the rows. So the choice follows from the row alone, and the shares still
+        // come out to the digit over the whole run.
+        int[] counts = Hamilton.CountsPerValue(
+            count, percents, Prng.Prng.Create($"{stream.Seed}|{stream.Id}|pct"));
+        int layoutKey = Permute.Key(stream.Seed, stream.Id);
+
+        // Case c owns slots [cumLo[c], cumLo[c] + counts[c]).
+        var cumLo = new int[counts.Length];
+        int acc = 0;
+        for (int c = 0; c < counts.Length; c++)
+        {
+            cumLo[c] = acc;
+            acc += counts[c];
+        }
+
+        // The permutation both ways. The streaming engine asks "which slot is this row?";
+        // building a case's body needs the reverse, "which row holds slot s?".
+        var slotOf = new int[count];
+        var positionOfSlot = new int[count];
+        for (int i = 0; i < count; i++)
+        {
+            int slot = Permute.Apply(i, count, layoutKey);
+            slotOf[i] = slot;
+            positionOfSlot[slot] = i;
+        }
+
+        int CaseOfSlot(int slot)
+        {
+            for (int c = 0; c < counts.Length; c++)
+            {
+                if (slot < cumLo[c] + counts[c])
+                {
+                    return c;
+                }
+            }
+
+            return counts.Length - 1;
         }
 
         for (int c = 0; c < cases.Count; c++)
         {
-            var rows = new List<int>();
-            for (int i = 0; i < count; i++)
-            {
-                if (selected[i] == c)
-                {
-                    rows.Add(i);
-                }
-            }
-
-            if (rows.Count == 0)
+            int quota = counts[c];
+            if (quota == 0)
             {
                 continue;
             }
 
-            IReadOnlyList<string> values = CaseValues(cases[c], rows.Count, prng, ctx);
-            for (int i = 0; i < rows.Count; i++)
+            var positions = new int[quota];
+            var caseRows = new int[quota];
+            for (int local = 0; local < quota; local++)
             {
-                result[rows[i]] = values[i];
+                positions[local] = positionOfSlot[cumLo[c] + local];
+                caseRows[local] = stream.RowAt(positions[local]);
+            }
+
+            IReadOnlyList<string> drawn = CaseValues(
+                cases[c], quota, prng, ctx, new PerRow.Stream(
+                    stream.Seed, $"{stream.Id}#c{c}", caseRows));
+            for (int local = 0; local < quota; local++)
+            {
+                result[positions[local]] = drawn[local];
+            }
+        }
+
+        if (flags is not null)
+        {
+            // The label reads the same slot-to-case mapping the value did, so the two cannot
+            // disagree on a row — which is the whole point of a ground-truth column.
+            for (int i = 0; i < count; i++)
+            {
+                flags[i] = cases[CaseOfSlot(slotOf[i])].Anomaly;
             }
         }
 
@@ -1843,7 +2001,7 @@ public static class MemoryEngine
 
     /// <summary>A case body: its pieces concatenated, each built for the rows that chose it.</summary>
     private static IReadOnlyList<string> CaseValues(
-        Case caseSpec, int count, Sfc32 prng, Ctx ctx)
+        Case caseSpec, int count, Sfc32 prng, Ctx ctx, PerRow.Stream? stream)
     {
         var parts = new System.Text.StringBuilder[count];
         for (int i = 0; i < count; i++)
@@ -1851,8 +2009,13 @@ public static class MemoryEngine
             parts[i] = new System.Text.StringBuilder();
         }
 
-        foreach (CasePart part in caseSpec.Parts)
+        // Parts are numbered among ALL of them, literals included: the streaming engine numbers
+        // them off the same list, and a different count here would key the same part under a
+        // different name.
+        for (int p = 0; p < caseSpec.Parts.Count; p++)
         {
+            CasePart part = caseSpec.Parts[p];
+            PerRow.Stream? sub = stream?.Named($"{stream.Id}#p{p}");
             IReadOnlyList<string> values;
             if (part.Text is not null)
             {
@@ -1860,11 +2023,11 @@ public static class MemoryEngine
             }
             else if (part.Gen is not null)
             {
-                values = Generate(part.Gen, count, prng, ctx);
+                values = ColumnValues(part.Gen, count, prng, ctx, sub);
             }
             else
             {
-                values = MixValues(part.Mix!, count, prng, null, ctx);
+                values = MixValues(part.Mix!, count, prng, null, ctx, sub);
             }
 
             for (int i = 0; i < count; i++)
@@ -1887,16 +2050,23 @@ public static class MemoryEngine
     /// </remarks>
     private static string[] SwitchValues(
         Switch spec, int count, Sfc32 prng, IReadOnlyDictionary<string, string[]> columns,
-        Ctx ctx)
+        Ctx ctx, string name)
     {
+        // Every entry resolves over the WHOLE run, not over the rows that chose it — the
+        // streaming engine builds them that way so a lookup stays O(1), and the stream names
+        // have to match it entry for entry.
+        PerRow.Stream Named(string id) => new(ctx.Config.Seed, id, null);
+
         var built = new List<IReadOnlyList<string>>(spec.Entries.Count);
-        foreach (SwitchEntry entry in spec.Entries)
+        for (int e = 0; e < spec.Entries.Count; e++)
         {
-            built.Add(CaseValues(entry.Value, count, prng, ctx));
+            built.Add(CaseValues(
+                spec.Entries[e].Value, count, prng, ctx, Named($"{name}#sw{e}")));
         }
 
-        IReadOnlyList<string>? fallback =
-            spec.Fallback is null ? null : CaseValues(spec.Fallback, count, prng, ctx);
+        IReadOnlyList<string>? fallback = spec.Fallback is null
+            ? null
+            : CaseValues(spec.Fallback, count, prng, ctx, Named($"{name}#swdef"));
 
         columns.TryGetValue(spec.On, out string[]? subject);
         var result = new string[count];
@@ -1955,6 +2125,340 @@ public static class MemoryEngine
     /// The order is the contract. Spiking after blanking would multiply an empty string, and
     /// formatting before either would format a value that is about to be replaced.
     /// </remarks>
+    /// <summary>
+    /// One generator's finished values for a whole column, keyed the way the streaming engine
+    /// keys them.
+    /// </summary>
+    /// <remarks>
+    /// Three shapes, and which one applies is the streaming engine's own split: a LISTED column
+    /// — a <c>text</c> list, a weighted file column, a weighted pack — is laid out exactly over
+    /// the rows and permuted, never picked per row; an independent generator is built ROW BY ROW
+    /// off <c>(seed, streamId, row)</c>, with the modifiers applied inside that loop so
+    /// <c>anomaly=</c> spends the row's own draw; everything else keeps the older shape.
+    /// <para>Without a <paramref name="stream"/> — an inline generator, a nested pack body — all
+    /// three collapse to the last, which is what those callers want.</para>
+    /// </remarks>
+    private static IReadOnlyList<string> ColumnValues(
+        Gen gen,
+        int count,
+        Sfc32 prng,
+        Ctx ctx,
+        PerRow.Stream? stream,
+        bool[]? anomalyFlags = null,
+        Dictionary<string, PerRow.ExactLayout>? layouts = null)
+    {
+        if (stream is null)
+        {
+            return Finish(Generate(gen, count, prng, ctx), gen.Attrs, prng, anomalyFlags);
+        }
+
+        (IReadOnlyList<string> Values, double[] Percents)? listed = ListedValues(gen, ctx);
+        if (listed is { } list)
+        {
+            string[] laid = PerRow.ExactTextLayout(
+                list.Values, list.Percents, count, stream, layouts);
+            return FinishKeyed(laid, gen, prng, anomalyFlags, stream);
+        }
+
+        // Two types the streaming engine builds INLINE: the value follows the position, and only
+        // the one draw that perturbs it is keyed by the row.
+        if (gen.Type == "timeseries")
+        {
+            return FinishKeyed(
+                TimeseriesKeyed(gen.Attrs, count, stream), gen, prng, anomalyFlags, stream);
+        }
+
+        if (gen.Type == "pattern")
+        {
+            return FinishKeyed(
+                PatternKeyed(gen.Attrs, count, ctx, stream), gen, prng, anomalyFlags, stream);
+        }
+
+        // A weighted choice inside an advanced_regex — `(?%{RU:70|US:20|DE:10})` — is a quota
+        // over the column like any other share. Decided one row at a time it awards every row to
+        // the largest share: 100% RU, not 70/20/10.
+        bool weighted = WeightedTemplatePack(gen, ctx) is not null
+            || (gen.Type == "advanced_regex"
+                && AdvancedRegexGen.HasWeightedChoice(gen.Attr("value") ?? ""));
+        if (PerRow.PerRowBuildable(gen, count, weighted, PackNeedsWholeColumn(gen, ctx)))
+        {
+            var built = new List<string>(count);
+            for (int i = 0; i < count; i++)
+            {
+                Sfc32 rowPrng = PerRow.RowGenerator(stream, stream.RowAt(i));
+                var one = new bool[1];
+                IReadOnlyList<string> done = Finish(
+                    Generate(gen, 1, rowPrng, ctx), gen.Attrs, rowPrng, one);
+                built.Add(done.Count > 0 ? done[0] : "");
+                if (anomalyFlags is not null)
+                {
+                    anomalyFlags[i] = one[0];
+                }
+            }
+
+            return built;
+        }
+
+        return FinishKeyed(
+            Generate(gen, count, prng, ctx), gen, prng, anomalyFlags, stream);
+    }
+
+    /// <summary>
+    /// <see cref="Finish"/>, with the two modifier draws taken from the column's own
+    /// <c>#anom</c> and <c>#miss</c> streams when the type is one the streaming engine builds
+    /// inline.
+    /// </summary>
+    private static IReadOnlyList<string> FinishKeyed(
+        IReadOnlyList<string> values,
+        Gen gen,
+        Sfc32 prng,
+        bool[]? anomalyFlags,
+        PerRow.Stream stream) =>
+        PerRow.InlineAnomalyTypes.Contains(gen.Type)
+            ? FinishWith(values, gen.Attrs, prng, anomalyFlags, stream)
+            : Finish(values, gen.Attrs, prng, anomalyFlags);
+
+    /// <summary>
+    /// <see cref="Finish"/>, with the anomaly and missing draws taken from a stream rather than
+    /// in order.
+    /// </summary>
+    private static IReadOnlyList<string> FinishWith(
+        IReadOnlyList<string> values,
+        IReadOnlyDictionary<string, string> attrs,
+        Sfc32 prng,
+        bool[]? anomalyFlags,
+        PerRow.Stream stream)
+    {
+        var result = new List<string>(values);
+
+        Imperfections.Anomaly? anomaly = Imperfections.ParseAnomaly(attrs);
+        if (anomaly is { } a)
+        {
+            for (int i = 0; i < result.Count; i++)
+            {
+                bool selected = a.Probability > 0
+                    && PerRow.PurposeDraw(stream, "#anom", stream.RowAt(i)) < a.Probability;
+                if (anomalyFlags is not null && i < anomalyFlags.Length)
+                {
+                    anomalyFlags[i] = selected;
+                }
+
+                if (selected)
+                {
+                    result[i] = Imperfections.Spike(result[i], a.Factor);
+                }
+            }
+        }
+
+        Imperfections.Missing? missing = Imperfections.ParseMissing(attrs);
+        if (missing is { } m && m.Probability > 0)
+        {
+            for (int i = 0; i < result.Count; i++)
+            {
+                if (PerRow.PurposeDraw(stream, "#miss", stream.RowAt(i)) < m.Probability)
+                {
+                    result[i] = m.Token;
+                }
+            }
+        }
+
+        return FormatValues(result, attrs);
+    }
+
+    /// <summary>
+    /// The value list and the shares a column lays out, when its values are LISTED.
+    /// </summary>
+    private static (IReadOnlyList<string> Values, double[] Percents)? ListedValues(Gen gen, Ctx ctx)
+    {
+        if (gen.Attrs.GetValueOrDefault("order") == "sequential")
+        {
+            return null;
+        }
+
+        if (gen.Attrs.ContainsKey("weight"))
+        {
+            // `row=` links whole rows of the file; the choice is not this column's.
+            if (!string.IsNullOrWhiteSpace(gen.Attrs.GetValueOrDefault("row")))
+            {
+                return null;
+            }
+
+            FileGen.Weighted? weighted =
+                FileGen.LoadWeighted(gen.Attrs, ctx.BaseDir, ctx.Packs.DataRoots);
+            return weighted is null ? null : (weighted.Values, weighted.Percents);
+        }
+
+        (IReadOnlyList<string> Values, double[] Percents)? pack = WeightedTemplatePack(gen, ctx);
+        if (pack is not null)
+        {
+            return pack;
+        }
+
+        if (gen.Type != "text")
+        {
+            return null;
+        }
+
+        IReadOnlyList<string> values = SplitText(gen.Attr("value") ?? "");
+        return (values, PerRow.SharesOf(gen.Attr("percent"), values.Count));
+    }
+
+    /// <summary>
+    /// A <c>&lt;gen type="template"&gt;</c> pointing at a pack that carries its own shares.
+    /// </summary>
+    /// <remarks>
+    /// A synthetic address (<c>person.b_day</c> and its kind) is resolved inside the generator
+    /// and has no pack file behind it, so asking the registry would throw rather than answer.
+    /// </remarks>
+    private static (IReadOnlyList<string> Values, double[] Percents)? WeightedTemplatePack(
+        Gen gen, Ctx ctx)
+    {
+        if (gen.Type != "template")
+        {
+            return null;
+        }
+
+        string path = gen.Attr("value") ?? "";
+        if (path.Length == 0 || !ctx.Packs.Exists(path, ctx.Locale))
+        {
+            return null;
+        }
+
+        DataPacks.Entry entry = ctx.Packs.Load(path, ctx.Locale);
+        return entry.Weighted && entry.Percents is not null
+            ? (entry.Values, entry.Percents)
+            : null;
+    }
+
+    /// <summary>
+    /// Whether a pack GENERATOR apportions a share over the whole column. Its values are
+    /// computed rather than listed, so there is no list to lay out.
+    /// </summary>
+    private static bool PackNeedsWholeColumn(Gen gen, Ctx ctx)
+    {
+        if (gen.Type != "template")
+        {
+            return false;
+        }
+
+        string path = gen.Attr("value") ?? "";
+        return path.Length != 0
+            && ctx.Packs.Exists(path, ctx.Locale)
+            && ctx.Packs.NeedsWholeColumn(path, ctx.Locale);
+    }
+
+    /// <summary>
+    /// <c>&lt;gen type="timeseries" noise=…&gt;</c> keyed by the row.
+    /// </summary>
+    /// <remarks>
+    /// The value follows the POSITION — a series read at a point of the run — while the noise
+    /// follows the ROW, on the dedicated <c>:ts</c> stream the streaming engine uses. Same two
+    /// names, same two uniforms, same series.
+    /// </remarks>
+    private static IReadOnlyList<string> TimeseriesKeyed(
+        IReadOnlyDictionary<string, string> attrs, int count, PerRow.Stream stream)
+    {
+        Stats.Timeseries.Spec spec = Stats.Timeseries.Parse(attrs);
+        bool noisy = spec.HasNoise;
+        var result = new List<string>(count);
+        for (int i = 0; i < count; i++)
+        {
+            double z = 0;
+            if (noisy)
+            {
+                double[] u = Seekable.Uniforms(
+                    stream.Seed, $"{stream.Id}:ts", stream.RowAt(i), 2);
+                z = Stats.Timeseries.StandardNormal(u[0], u[1]);
+            }
+
+            result.Add(Distributions.ToFixed(Stats.Timeseries.ValueAt(spec, i, z), spec.Decimals));
+        }
+
+        return result;
+    }
+
+    /// <summary>
+    /// <c>&lt;gen type="pattern"&gt;</c> keyed by the row.
+    /// </summary>
+    /// <remarks>
+    /// As with timeseries: the curve is read at the POSITION, and the one draw that places the
+    /// value inside its band is keyed by the ROW on the streaming engine's <c>:pat</c> stream.
+    /// </remarks>
+    private static IReadOnlyList<string> PatternKeyed(
+        IReadOnlyDictionary<string, string> attrs, int count, Ctx ctx, PerRow.Stream stream)
+    {
+        Pattern.PatternGen gen = Pattern.PatternGen.Of(attrs, ctx.BaseDir, ctx.Packs.DataRoots);
+        bool draws = gen.Draws;
+        double denom = count > 1 ? count - 1 : 1;
+        var result = new List<string>(count);
+        for (int i = 0; i < count; i++)
+        {
+            double u = draws
+                ? Seekable.Uniforms(stream.Seed, $"{stream.Id}:pat", stream.RowAt(i), 1)[0]
+                : 0;
+            result.Add(gen.ValueAt(i / denom, u, 1 / denom));
+        }
+
+        return result;
+    }
+
+    /// <summary>
+    /// <c>anomaly=</c>, <c>missing=</c> and the formatting layer for ONE element of a repeating
+    /// LISTED column.
+    /// </summary>
+    /// <remarks>
+    /// The two probability draws come off the row's <c>#anom</c> and <c>#miss</c> streams with a
+    /// budget of the row's maximum length, so element k always gets the same uniform however
+    /// long its row turned out to be.
+    /// </remarks>
+    private static Func<int, string, int, string>? ElementModifier(
+        Gen gen, Repeat.Spec spec, PerRow.Stream stream)
+    {
+        Imperfections.Anomaly? anomaly = Imperfections.ParseAnomaly(gen.Attrs);
+        Imperfections.Missing? missing = Imperfections.ParseMissing(gen.Attrs);
+        string? mask = gen.Attrs.GetValueOrDefault("mask");
+        string? kase = gen.Attrs.GetValueOrDefault("case");
+        bool hasAnomaly = anomaly is { Probability: > 0 };
+        bool hasMissing = missing is { Probability: > 0 };
+        bool hasFormat = mask is not null || (kase is not null && Transforms.IsCaseTransform(kase));
+        if (!hasAnomaly && !hasMissing && !hasFormat)
+        {
+            return null;
+        }
+
+        int budget = Math.Max(1, spec.Max);
+        Func<int, int, double>? anomalyAt =
+            hasAnomaly ? RepeatKeyed.ElementUniforms(stream, "#anom", budget) : null;
+        Func<int, int, double>? missingAt =
+            hasMissing ? RepeatKeyed.ElementUniforms(stream, "#miss", budget) : null;
+
+        return (row, value, k) =>
+        {
+            string result = value;
+            if (anomalyAt is not null && anomalyAt(row, k) < anomaly!.Value.Probability)
+            {
+                result = Imperfections.Spike(result, anomaly.Value.Factor);
+            }
+
+            if (missingAt is not null && missingAt(row, k) < missing!.Value.Probability)
+            {
+                result = missing.Value.Token;
+            }
+
+            if (mask is not null)
+            {
+                result = Mask.Apply(mask, result);
+            }
+
+            if (kase is not null && Transforms.IsCaseTransform(kase))
+            {
+                result = Transforms.ApplyCase(kase, result);
+            }
+
+            return result;
+        };
+    }
+
     internal static IReadOnlyList<string> Finish(
         IReadOnlyList<string> values, IReadOnlyDictionary<string, string> attrs, Sfc32 prng,
         bool[]? anomalyFlags = null)
@@ -1973,6 +2477,16 @@ public static class MemoryEngine
             Imperfections.ApplyMissing(result, missing.Value, prng);
         }
 
+        return FormatValues(result, attrs);
+    }
+
+    /// <summary>
+    /// <c>case=</c> and <c>mask=</c>, which reach the same code the <c>|upper</c> and
+    /// <c>|mask:</c> filters do so the three ways of asking cannot drift apart.
+    /// </summary>
+    private static IReadOnlyList<string> FormatValues(
+        List<string> result, IReadOnlyDictionary<string, string> attrs)
+    {
         string? mask = attrs.GetValueOrDefault("mask");
         string? kase = attrs.GetValueOrDefault("case");
         if (mask is null && kase is null)
