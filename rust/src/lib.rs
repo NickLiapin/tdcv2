@@ -29,6 +29,7 @@ pub mod parser;
 pub mod pattern;
 pub mod pretty;
 pub mod prng;
+pub mod quick;
 pub mod sequence;
 pub mod stats;
 pub mod tdc;

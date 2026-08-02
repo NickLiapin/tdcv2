@@ -1,6 +1,6 @@
 {
   "name": "tdcv2",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Deterministic test-data generator: coherent records, exact proportions, and any text format you describe. Same seed, same bytes. Also usable as a faker — one call, one value — from the same data packs.",
   "keywords": [
     "test-data",
@@ -82,12 +82,14 @@
     "format:check": "prettier --check .",
     "pretypecheck": "npm run generate",
     "typecheck": "tsc --noEmit",
-    "check": "npm run lint && npm run typecheck && npm run test && npm run cases && npm run fixtures && npm run diagnostics && npm run engines && npm run parquet && npm run test:pack && npm run packs:ranges && npm run docs:examples && npm run quick:check",
+    "check": "npm run lint && npm run typecheck && npm run test && npm run cases && npm run fixtures && npm run diagnostics && npm run engines && npm run parquet && npm run test:pack && npm run packs:ranges && npm run docs:examples && npm run quick:check && npm run quick:vectors",
     "postpack": "node scripts/bundle-packs.mjs remove",
     "cases": "npx tsx scripts/cross-language-cases.mjs",
     "cases:update": "npx tsx scripts/cross-language-cases.mjs --update",
     "fixtures": "npx tsx scripts/runtime-fixtures.mjs",
     "fixtures:update": "npx tsx scripts/runtime-fixtures.mjs --update",
+    "fixtures:quick": "npm run build && node scripts/quick-vectors.mjs",
+    "quick:vectors": "node scripts/quick-vectors.mjs --check",
     "diagnostics": "npx tsx scripts/cross-language-diagnostics.mjs",
     "diagnostics:update": "npx tsx scripts/cross-language-diagnostics.mjs --update",
     "engines": "npx tsx scripts/cross-language-engines.mjs",

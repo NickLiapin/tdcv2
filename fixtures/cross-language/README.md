@@ -9,6 +9,8 @@ same files and reproduce the same values byte-for-byte.
 - `manifest.json` lists runtime DSL fixtures and their expected output files.
 - `prng-vectors.json` stores the first PRNG values for stable seed strings.
 - `hamilton-vectors.json` stores exact percentage-distribution outputs.
+- `quick-vectors.json` stores the quick API's values — the one-call, no-config
+  surface — including a 600-value draw that crosses the 512-row batch boundary.
 - `runtime/*.tdc` contains focused DSL fixtures for newer runtime features.
 - `expected/*.out` contains byte-exact output for `runtime/*.tdc`.
 
@@ -18,7 +20,11 @@ same files and reproduce the same values byte-for-byte.
 2. Run every Hamilton vector with the listed seed, count, values, and percents.
 3. Render every runtime fixture from `manifest.json` with the listed
    `fixedNow` timestamp.
-4. Treat expected output files as binary text fixtures. Do not trim trailing
+4. Reproduce every quick vector. The batch size, the `#<batch>` derived seed and
+   the shape of the synthesised config are part of the contract, not an
+   implementation detail: a value below 512 can agree while everything after it
+   disagrees, which is why one vector deliberately runs past that line.
+5. Treat expected output files as binary text fixtures. Do not trim trailing
    whitespace or normalize newlines.
 
 If a language cannot pass these fixtures, it is not compatible with the

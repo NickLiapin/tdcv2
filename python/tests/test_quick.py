@@ -9,6 +9,10 @@ running `tdc.seed('demo').locale('en')` against the published npm package.
 
 from __future__ import annotations
 
+import json
+from functools import reduce
+from pathlib import Path
+
 import pytest
 
 from tdcv2 import TdcQuickError, tdc
@@ -168,3 +172,42 @@ class TestTheObjectItself:
         assert roots.isdisjoint(RESERVED_ROOT_NAMES - {"lang", "country"})
         segments = {segment for a in addresses for segment in a.split(".")}
         assert segments.isdisjoint(RESERVED_PATH_NAMES)
+
+
+class TestSharedVectors:
+    """The one file all five implementations answer to.
+
+    The hand-written constants above say what the values are; this says that the
+    OTHER FOUR agree, because every implementation reads this same file. It is
+    generated from the reference, so a change to the batch size, the derived
+    seed, or the synthesised config shows up here in whichever implementation
+    made it — rather than in a user's diff six months later.
+    """
+
+    VECTORS = json.loads(
+        (
+            Path(__file__).resolve().parents[2]
+            / "fixtures"
+            / "cross-language"
+            / "quick-vectors.json"
+        ).read_text(encoding="utf-8")
+    )
+
+    def test_the_batch_size_is_the_declared_one(self) -> None:
+        assert self.VECTORS["batchRows"] == BATCH_ROWS
+
+    def test_every_address_vector(self) -> None:
+        for case in self.VECTORS["addresses"]:
+            # Walked with getattr rather than reaching past the public surface:
+            # this exercises the same path a caller writes by hand.
+            node = reduce(
+                getattr,
+                case["address"].split("."),
+                tdc.seed(case["seed"]).locale(case["locale"]),
+            )
+            assert node.many(case["count"]) == case["expected"], case["address"]
+
+    def test_every_generator_vector(self) -> None:
+        for case in self.VECTORS["generators"]:
+            node = getattr(tdc.seed(case["seed"]).gen, case["type"])
+            assert node.many(case["count"], **case["attrs"]) == case["expected"], case["type"]

@@ -283,6 +283,14 @@ public sealed class DataPacks
             : locale + "." + dottedPath;
     }
 
+    /// <summary>Every address these packs can answer to, in no particular order.</summary>
+    /// <remarks>
+    /// The quick API needs the whole list rather than a yes-or-no about one address: to say "did
+    /// you mean" it has to compare what was typed against all of them. Building the index is the
+    /// cost of the first call only.
+    /// </remarks>
+    public IReadOnlyCollection<string> AddressList() => Addresses().Keys;
+
     /// <summary>Every pack file's address, read from its header — built once, kept.</summary>
     /// <remarks>
     /// A header may carry <c>address:</c> (authoritative) and <c>locale:</c> (used only when the

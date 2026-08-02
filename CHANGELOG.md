@@ -9,7 +9,80 @@ Per-language-implementation changes (TypeScript, Python, Java) are additionally
 tracked in each implementation directory's own `CHANGELOG.md` once they begin to
 publish to their respective package registries.
 
-## [Unreleased]
+## [0.1.3] — 2026-08-02
+
+All five implementations released together at one version number.
+
+### Added
+
+- **The quick API now exists in all five implementations.** It was TypeScript-only,
+  which is why the npm landing page could show a way of working the other four
+  could not: `tdc.person.lastName()` — one call, one value, no config.
+
+  The shape follows what each language can actually do, and only the shape
+  differs:
+
+  ```python
+  tdc.person.lastName()                      # Python  — attribute access
+  ```
+
+  ```csharp
+  tdc.person.lastName();                     // C#      — dynamic
+  ```
+
+  ```java
+  tdc.get("person.lastName");                // Java    — the address as a string
+  ```
+
+  ```rust
+  tdc.get("person.lastName")?;               // Rust    — the address as a string
+  ```
+
+  Java and Rust take the address as a string on purpose. The other shape —
+  `tdc.person().last_name()` — needs a generated method per address, and a
+  generated surface can only ever cover the packs shipped in the artefact. Most
+  packs are downloaded at runtime, so `tdc.lang().ru()` would simply not exist for
+  the pack a user had just installed, while `get("ru.person.lastName")` works the
+  moment the download finishes.
+
+  Underneath they are one implementation, not five: the same synthesised config,
+  the same 512-row batch, the same `#`-derived seed for the batch after it. The
+  same seed and address therefore give the same value everywhere.
+
+- **`quick-vectors.json`** — the shared fixture that holds them to it. One of its
+  cases deliberately draws 600 values, because everything below 512 comes out of a
+  single underlying run: two implementations can agree on all of that while
+  disagreeing completely about what happens when the run is exhausted. Generated
+  by `npm run fixtures:quick`, checked by `npm run check`, read by all five test
+  suites.
+
+- **`DataPacks.addresses()` / `AddressList()` / `addressList()` / `address_list()`**
+  — every address the packs can answer to. The quick API needs the whole list to
+  say "did you mean", not a yes-or-no about one.
+
+### Known
+
+- **Pack parameters are a TypeScript-only feature.** A pack whose body declares a
+  named sequence lets a caller override it —
+  `<gen type="template" value="common.internet.email" domain="example.test"/>`.
+  TypeScript reads the pack's declared parameter names and allows the attribute
+  (`TDC072` when it is not declared); Python, Java, C# and Rust have no such
+  notion and refuse the whole config with `TDC015`. The same `.tdc` file therefore
+  runs in one implementation and fails in four, which is precisely what the shared
+  fixtures exist to prevent — and no shared case covers it. Found while porting the
+  quick API; recorded as a strict `xfail` in `python/tests/test_quick.py` so
+  closing it flips the test green.
+
+### Changed
+
+- **Every package now carries a version and the metadata to publish it.** The C#
+  project had no `PackageId`, version, licence or description at all, so there was
+  nothing for NuGet to show. Rust was at `0.1.0` and Java at `0.1.0-SNAPSHOT`,
+  which Maven Central does not accept.
+
+## [0.1.2] — 2026-08-02
+
+Published to npm and, as the first release there, to PyPI.
 
 ### Added
 
@@ -48,19 +121,6 @@ publish to their respective package registries.
   and comparing the sha256. The numbers need not move in lockstep — a library
   feature in one implementation moves only that one.
 
-### Known
-
-- **Pack parameters are a TypeScript-only feature.** A pack whose body declares a
-  named sequence lets a caller override it —
-  `<gen type="template" value="common.internet.email" domain="example.test"/>`.
-  TypeScript reads the pack's declared parameter names and allows the attribute
-  (`TDC072` when it is not declared); Python, Java, C# and Rust have no such
-  notion and refuse the whole config with `TDC015`. The same `.tdc` file
-  therefore runs in one implementation and fails in four, which is precisely what
-  the shared fixtures exist to prevent — and no shared case covers it. Found
-  while porting the quick API; recorded as a strict `xfail` in
-  `python/tests/test_quick.py` so closing it flips the test green.
-
 ### Fixed
 
 - **`tdcv2 --version` in Python reported a hand-written constant.** It was a
@@ -80,8 +140,6 @@ install`. Its relative links to `../docs/` would have 404'd on pypi.org as
 - **Package metadata written for discovery**, matching what npm carries: a
   description that says what the thing does, 25 keywords, trove classifiers, and
   project URLs for the documentation, the source and the changelog.
-
-## [0.1.2] — 2026-08-02
 
 ### Fixed
 

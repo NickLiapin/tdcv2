@@ -4,7 +4,7 @@ plugins {
 }
 
 group = "io.github.nickliapin"
-version = "0.1.0-SNAPSHOT"
+version = "0.1.3"
 
 repositories {
     mavenCentral()

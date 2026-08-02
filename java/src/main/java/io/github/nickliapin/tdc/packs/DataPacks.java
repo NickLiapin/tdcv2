@@ -290,6 +290,17 @@ public final class DataPacks {
    * country nor a reserved bucket is not addressable and is left out, which is the rule the
    * reference applies.
    */
+  /**
+   * Every address these packs can answer to, in no particular order.
+   *
+   * <p>The quick API needs the whole list rather than a yes-or-no about one address: to say "did
+   * you mean" it has to compare what was typed against all of them. Building the index is the cost
+   * of the first call only.
+   */
+  public java.util.Set<String> addressList() {
+    return java.util.Set.copyOf(addresses().keySet());
+  }
+
   private Map<String, String> addresses() {
     if (addressIndex != null) {
       return addressIndex;

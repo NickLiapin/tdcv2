@@ -7,6 +7,10 @@
  * string.
  */
 
+import { readFileSync } from 'node:fs';
+import { dirname, join } from 'node:path';
+import { fileURLToPath } from 'node:url';
+
 import { describe, expect, it } from 'vitest';
 
 import {
@@ -15,7 +19,7 @@ import {
   TdcQuickError,
   tdc,
 } from '../../src/quick/index.js';
-import { QuickDraw } from '../../src/quick/draw.js';
+import { BATCH_ROWS, QuickDraw } from '../../src/quick/draw.js';
 import { CANONICAL_LOCALES, bundledPacksDir, scanPacks } from '../../src/data-pack/index.js';
 
 describe('quick API', () => {
@@ -187,5 +191,66 @@ describe('quick API', () => {
     );
     const atRoot = [...categories].filter((name) => RESERVED_ROOT_NAMES.has(name));
     expect(atRoot).toEqual([]);
+  });
+});
+
+describe('the shared quick vectors', () => {
+  // The one file all five implementations answer to. The reference generated it,
+  // so this side of the check looks circular — it is not: it catches the case
+  // where the reference itself changes and the fixture is not regenerated, which
+  // would leave four implementations pinned to values this one no longer
+  // produces. Regenerate with `npm run fixtures:quick`.
+  const fixture = JSON.parse(
+    readFileSync(
+      join(
+        dirname(fileURLToPath(import.meta.url)),
+        '..',
+        '..',
+        '..',
+        'fixtures',
+        'cross-language',
+        'quick-vectors.json',
+      ),
+      'utf8',
+    ),
+  ) as {
+    batchRows: number;
+    addresses: {
+      seed: string;
+      locale: string;
+      address: string;
+      count: number;
+      expected: string[];
+    }[];
+    generators: {
+      seed: string;
+      type: string;
+      attrs: Record<string, string>;
+      count: number;
+      expected: string[];
+    }[];
+  };
+
+  it('declares the batch size the fixture was captured at', () => {
+    expect(fixture.batchRows).toBe(BATCH_ROWS);
+  });
+
+  it('reproduces every address vector', () => {
+    for (const testCase of fixture.addresses) {
+      const draw = new QuickDraw(testCase.seed, testCase.locale);
+      const drawn = draw.draw(
+        { type: 'template', attrs: { value: testCase.address } },
+        testCase.count,
+      );
+      expect(drawn, testCase.address).toEqual(testCase.expected);
+    }
+  });
+
+  it('reproduces every generator vector', () => {
+    for (const testCase of fixture.generators) {
+      const draw = new QuickDraw(testCase.seed, undefined);
+      const drawn = draw.draw({ type: testCase.type, attrs: testCase.attrs }, testCase.count);
+      expect(drawn, testCase.type).toEqual(testCase.expected);
+    }
   });
 });

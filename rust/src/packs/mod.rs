@@ -194,6 +194,15 @@ impl DataPacks {
         }
     }
 
+    /// Every address these packs can answer to, in no particular order.
+    ///
+    /// The quick API needs the whole list rather than a yes-or-no about one
+    /// address: to say "did you mean" it has to compare what was typed against
+    /// all of them. Building the index is the cost of the first call only.
+    pub fn address_list(&self) -> Vec<String> {
+        self.addresses().keys().cloned().collect()
+    }
+
     /// Every pack file's address, read from its header — built once, kept.
     ///
     /// A header may carry `address:` (authoritative) and `locale:` (used only

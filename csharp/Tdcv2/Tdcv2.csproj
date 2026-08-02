@@ -9,6 +9,27 @@
     <NoWarn>$(NoWarn);CS3021</NoWarn>
   </PropertyGroup>
 
+  <!-- What NuGet shows and what it installs. Equal version numbers across the five
+       implementations mean the same engine: they are held to one contract by
+       fixtures/cross-language/, so tdcv2 0.1.3 from NuGet and tdcv2 0.1.3 from npm
+       produce the same bytes for the same config and seed. -->
+  <PropertyGroup>
+    <PackageId>Tdcv2</PackageId>
+    <Version>0.1.3</Version>
+    <Authors>Nick Liapin</Authors>
+    <Description>Deterministic test-data generator: coherent records, exact proportions, and any text format you describe. Same seed, same bytes — in C#, TypeScript, Python, Java and Rust alike.</Description>
+    <PackageTags>test-data;mock-data;fake-data;synthetic-data;data-generator;deterministic;fixtures;testing;csv;json;parquet</PackageTags>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://nickliapin.github.io/tdcv2/</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/NickLiapin/tdcv2</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="../README.md" Pack="true" PackagePath="\" />
+  </ItemGroup>
+
   <ItemGroup>
     <PackageReference Include="Antlr4.Runtime.Standard" Version="4.13.1" />
   </ItemGroup>
