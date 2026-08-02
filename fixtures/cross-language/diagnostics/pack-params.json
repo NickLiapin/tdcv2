@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "$comment": "Parameters passed to a data-pack generator. A pack whose body declares <sequence name=\"domain\"> accepts domain=\"…\" from the caller, and the engine replaces that sequence with the constant. This was a reference-only feature: the four ports had no notion of it and refused the whole config with TDC015, so the same .tdc file ran in one implementation and failed in four. Nothing here caught it, which is why these cases exist.",
+  "cases": [
+    {
+      "name": "declared-parameter-is-accepted",
+      "demonstrates": "",
+      "description": "`domain` is a local <sequence> of common.internet.email, so the caller may set it",
+      "config": "<tdc><env count=\"2\" seed=\"s\" local=\"en\"><sequence name=\"E\"><gen type=\"template\" value=\"common.internet.email\" domain=\"example.test\"/></sequence></env><block><line><data>${{E}}</data></line></block></tdc>",
+      "expected": []
+    },
+    {
+      "name": "undeclared-parameter-is-refused",
+      "demonstrates": "TDC072",
+      "description": "A name the pack does not declare would be silently ignored, which is what makes a typo dangerous",
+      "config": "<tdc><env count=\"2\" seed=\"s\" local=\"en\"><sequence name=\"E\"><gen type=\"template\" value=\"common.internet.email\" nosuch=\"x\"/></sequence></env><block><line><data>${{E}}</data></line></block></tdc>",
+      "expected": ["error TDC072 1:118"]
+    },
+    {
+      "name": "a-plain-list-pack-takes-no-parameters",
+      "demonstrates": "TDC072",
+      "description": "person.lastName is a list of values — it has no parameters at all, so the attribute does nothing",
+      "config": "<tdc><env count=\"2\" seed=\"s\" local=\"en\"><sequence name=\"N\"><gen type=\"template\" value=\"person.lastName\" domain=\"x\"/></sequence></env><block><line><data>${{N}}</data></line></block></tdc>",
+      "expected": ["error TDC072 1:112"]
+    }
+  ]
+}

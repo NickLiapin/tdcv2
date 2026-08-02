@@ -8,12 +8,18 @@ name file contains precisely as many Jameses as the census says, not approximate
 
 from __future__ import annotations
 
+import re
 from dataclasses import dataclass
 from pathlib import Path
 
 from . import project_config, source
 from .registry import Registry
 from .source import Source
+
+#: `<sequence name="…">` in a pack generator body — the pack's parameter list. Read by
+#: scanning rather than by parsing: the validator asks before anything is built, and
+#: parsing a pack body there would report a pack author's syntax error at the caller's line.
+_SEQUENCE_NAME = re.compile(r'<sequence\s+[^>]*name\s*=\s*"([^"]+)"')
 
 
 @dataclass(frozen=True, slots=True)
@@ -206,6 +212,31 @@ class DataPacks:
         all of them. Building the index is the cost of the first call only.
         """
         return list(self._addresses())
+
+    def parameter_names(self, dotted_path: str, locale: str) -> set[str] | None:
+        """The parameters a generator pack accepts, or ``None`` when it is not one.
+
+        A pack's parameters ARE its local ``<sequence>`` names: writing
+        ``domain="example.test"`` on the calling ``<gen>`` replaces the sequence called
+        ``domain`` with that constant. A single-``<gen>`` pack declares none, and a
+        plain list of values is not a generator at all — passing anything to either is
+        always a no-op, so both are distinguished from "unknown pack" by returning an
+        empty set rather than ``None``.
+
+        Read by scanning the body for ``<sequence name="…">`` rather than by parsing
+        it: the validator runs before anything is built, and parsing a pack body here
+        would mean reporting a pack author's syntax error at the caller's line.
+        """
+        try:
+            entry = self.load(dotted_path, locale)
+        except Exception:
+            return None
+        if entry.generator is None:
+            # A plain list of values has no parameters at all, which is not the same as
+            # "unknown": an attribute aimed at one does nothing, and an attribute that
+            # does nothing is indistinguishable from a typo.
+            return set()
+        return {m.group(1) for m in _SEQUENCE_NAME.finditer(entry.generator)}
 
     def exists(self, dotted_path: str, locale: str) -> bool:
         """Whether an address resolves, without loading it.

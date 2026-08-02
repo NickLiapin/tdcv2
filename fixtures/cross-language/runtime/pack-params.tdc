@@ -1,0 +1,9 @@
+<tdc>
+    <env count="5" seed="pp" local="en">
+        <sequence name="Email"><gen type="template" value="common.internet.email" domain="example.test"/></sequence>
+        <sequence name="Plain"><gen type="template" value="common.internet.email"/></sequence>
+    </env>
+    <block>
+        <line><data>${{Email}} | ${{Plain}}</data></line>
+    </block>
+</tdc>

@@ -1995,6 +1995,11 @@ public sealed class Validator
         string path = attrs.GetValueOrDefault("value", "").Trim();
         if (!BuiltinTemplateParams.TryGetValue(path, out IReadOnlySet<string>? allowed))
         {
+            if (CheckPackParams(gen, attrs, path))
+            {
+                return;
+            }
+
             foreach (string name in attrs.Keys)
             {
                 if (!GenAttrs.Contains(name))
@@ -2018,6 +2023,60 @@ public sealed class Validator
                 $"\"{path}\" reads only "
                 + string.Join(", ", allowed.OrderBy(a => a, StringComparer.Ordinal)) + ".");
         }
+    }
+
+    /// <summary>
+    /// Attributes on a template <c>&lt;gen&gt;</c> that the target pack CAN act on.
+    /// </summary>
+    /// <remarks>
+    /// A pack whose body declares <c>&lt;sequence name="domain"&gt;</c> accepts
+    /// <c>domain="…"</c> from the caller, and the engine replaces that sequence with the
+    /// constant. So the attribute is neither a typo nor ignored — refusing it, as this used to,
+    /// made a config that runs in the reference fail here.
+    /// <para>
+    /// Returns false — leaving the ordinary check to run — when nothing is known about the pack:
+    /// an unresolvable address, or no registry at all. Guessing there would produce exactly the
+    /// false errors this must not create.
+    /// </para>
+    /// </remarks>
+    private bool CheckPackParams(
+        TDCParser.SelfClosingElementContext gen,
+        IReadOnlyDictionary<string, string> attrs,
+        string path)
+    {
+        if (_packs is null || path.Length == 0)
+        {
+            return false;
+        }
+
+        IReadOnlySet<string>? declared = _packs.ParameterNames(path, _locale);
+        if (declared is null)
+        {
+            return false;
+        }
+
+        foreach (KeyValuePair<string, string> attr in attrs)
+        {
+            if (GenAttrs.Contains(attr.Key) || declared.Contains(attr.Key))
+            {
+                continue;
+            }
+
+            string hint = declared.Count > 0
+                ? "Parameters of this generator: "
+                    + string.Join(", ", declared.OrderBy(n => n, StringComparer.Ordinal)) + "."
+                : "This generator takes no parameters — it produces a fixed shape. "
+                    + $"Value passed: \"{attr.Value}\".";
+            (int line, int column) = At(gen, attr.Key);
+            Error(
+                "TDC072",
+                $"\"{attr.Key}\" is not a parameter of \"{path}\" — it would be ignored",
+                hint,
+                line,
+                column);
+        }
+
+        return true;
     }
 
     private void Ignored(TDCParser.SelfClosingElementContext gen, string name, string why)

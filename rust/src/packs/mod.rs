@@ -194,6 +194,47 @@ impl DataPacks {
         }
     }
 
+    /// The parameters a generator pack accepts, or `None` when it is not one.
+    ///
+    /// A pack's parameters ARE its local `<sequence>` names: writing
+    /// `domain="example.test"` on the calling `<gen>` replaces the sequence
+    /// called `domain` with that constant. A single-`<gen>` pack declares none,
+    /// and a plain list of values is not a generator at all — passing anything
+    /// to either is always a no-op, so both return an empty set rather than
+    /// `None`.
+    ///
+    /// Read by scanning for `<sequence name="…">` rather than by parsing the
+    /// body: the validator asks before anything is built, and parsing here would
+    /// report a pack author's syntax error at the caller's line.
+    pub fn parameter_names(
+        &self,
+        dotted_path: &str,
+        locale: &str,
+    ) -> Option<std::collections::BTreeSet<String>> {
+        let entry = self.load(dotted_path, locale).ok()?;
+        let mut names = std::collections::BTreeSet::new();
+        // A plain list of values has no parameters at all, which is not the same
+        // as "unknown": an attribute aimed at one does nothing, and an attribute
+        // that does nothing is indistinguishable from a typo.
+        let Some(body) = entry.generator.as_ref() else {
+            return Some(names);
+        };
+        let mut rest = body.as_str();
+        while let Some(at) = rest.find("<sequence") {
+            rest = &rest[at + "<sequence".len()..];
+            let Some(end) = rest.find('>') else { break };
+            let tag = &rest[..end];
+            if let Some(name_at) = tag.find("name=\"") {
+                let after = &tag[name_at + 6..];
+                if let Some(close) = after.find('"') {
+                    names.insert(after[..close].to_string());
+                }
+            }
+            rest = &rest[end..];
+        }
+        Some(names)
+    }
+
     /// Every address these packs can answer to, in no particular order.
     ///
     /// The quick API needs the whole list rather than a yes-or-no about one

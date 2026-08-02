@@ -69,10 +69,29 @@ describe('template pack parameters', () => {
     }
   });
 
-  it('says nothing when the pack is not in the registry', () => {
-    // Locale-resolved shapes resolve at render time; guessing here would produce
-    // exactly the false errors this check must never create.
-    expect(codes('<gen type="template" value="person.male.firstName" whatever="x"/>')).toEqual([]);
+  it('checks a locale-relative address too, the way the engine resolves it', () => {
+    // `person.male.firstName` under `en` IS the pack `en.person.male.firstName`.
+    // Looking up only the literal text left every locale-relative address
+    // unchecked, so the same mistake was caught on `common.…` and waved through
+    // here — and the four ports, which resolve the locale, refused what this
+    // accepted.
+    expect(codes('<gen type="template" value="person.male.firstName" whatever="x"/>')).toContain(
+      'TDC072',
+    );
+  });
+
+  it('says nothing about parameters when the address resolves nowhere', () => {
+    // The address itself is the complaint (TDC071); guessing at its parameters
+    // would produce exactly the false errors this check must never create.
+    expect(codes('<gen type="template" value="nosuch.path.at.all" whatever="x"/>')).not.toContain(
+      'TDC072',
+    );
+  });
+
+  it('a plain list of values has no parameters, and says so', () => {
+    // Not a generator at all, so an attribute aimed at one does nothing — which
+    // is indistinguishable from a typo, and is the whole point of the check.
+    expect(codes('<gen type="template" value="person.lastName" domain="x"/>')).toContain('TDC072');
   });
 
   /**

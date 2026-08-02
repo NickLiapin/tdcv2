@@ -1518,6 +1518,9 @@ impl Validator {
             .map(|v| v.trim().to_string())
             .unwrap_or_default();
         let Some(allowed) = tables::lookup(&tables::BUILTIN_TEMPLATE_PARAMS, &path) else {
+            if self.check_pack_params(gen, attrs, &path) {
+                return;
+            }
             for name in attrs.keys() {
                 if !tables::GEN_ATTRS.contains(&name.as_str()) {
                     self.ignored(
@@ -1542,6 +1545,57 @@ impl Validator {
                 &format!("\"{path}\" reads only {}.", sorted(allowed).join(", ")),
             );
         }
+    }
+
+    /// Attributes on a template `<gen>` that the target pack CAN act on.
+    ///
+    /// A pack whose body declares `<sequence name="domain">` accepts
+    /// `domain="…"` from the caller, and the engine replaces that sequence with
+    /// the constant. So the attribute is neither a typo nor ignored — refusing
+    /// it, as this used to, made a config that runs in the reference fail here.
+    ///
+    /// Returns false — leaving the ordinary check to run — when nothing is known
+    /// about the pack: an unresolvable address, or no registry at all. Guessing
+    /// there would produce exactly the false errors this must not create.
+    fn check_pack_params(&mut self, gen: &Element, attrs: &Attrs, path: &str) -> bool {
+        if path.is_empty() {
+            return false;
+        }
+        let locale = self.locale.clone();
+        let Some(packs) = self.packs.as_ref() else {
+            return false;
+        };
+        let Some(declared) = packs.parameter_names(path, &locale) else {
+            return false;
+        };
+
+        let offenders: Vec<(String, String)> = attrs
+            .iter()
+            .filter(|(name, _)| {
+                !tables::GEN_ATTRS.contains(&name.as_str()) && !declared.contains(*name)
+            })
+            .map(|(name, value)| (name.clone(), value.clone()))
+            .collect();
+
+        for (name, value) in offenders {
+            let hint = if declared.is_empty() {
+                format!(
+                    "This generator takes no parameters — it produces a fixed shape. \
+                     Value passed: \"{value}\"."
+                )
+            } else {
+                let names: Vec<&str> = declared.iter().map(String::as_str).collect();
+                format!("Parameters of this generator: {}.", names.join(", "))
+            };
+            let at = gen.at(&name);
+            self.error(
+                "TDC072",
+                format!("\"{name}\" is not a parameter of \"{path}\" — it would be ignored"),
+                &hint,
+                at,
+            );
+        }
+        true
     }
 
     fn ignored(&mut self, gen: &Element, name: &str, why: &str) {

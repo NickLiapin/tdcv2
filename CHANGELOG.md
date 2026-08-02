@@ -60,18 +60,34 @@ All five implementations released together at one version number.
   — every address the packs can answer to. The quick API needs the whole list to
   say "did you mean", not a yes-or-no about one.
 
-### Known
+### Fixed
 
-- **Pack parameters are a TypeScript-only feature.** A pack whose body declares a
-  named sequence lets a caller override it —
-  `<gen type="template" value="common.internet.email" domain="example.test"/>`.
-  TypeScript reads the pack's declared parameter names and allows the attribute
-  (`TDC072` when it is not declared); Python, Java, C# and Rust have no such
-  notion and refuse the whole config with `TDC015`. The same `.tdc` file therefore
-  runs in one implementation and fails in four, which is precisely what the shared
-  fixtures exist to prevent — and no shared case covers it. Found while porting the
-  quick API; recorded as a strict `xfail` in `python/tests/test_quick.py` so
-  closing it flips the test green.
+- **Pack parameters worked only in the reference; they work in all five now.** A
+  pack whose body declares a named sequence lets a caller override it —
+  `<gen type="template" value="common.internet.email" domain="example.test"/>`
+  replaces the pack's own `domain` sequence with that constant. TypeScript read
+  the pack's declared parameter names and allowed the attribute; Python, Java, C#
+  and Rust had no such notion and refused the whole config with `TDC015`, so the
+  same `.tdc` file ran in one implementation and failed in four. Nothing in the
+  shared fixtures covered it, which is why it survived.
+
+  The override draws nothing, so the rest of the pack body's stream is exactly
+  where it would otherwise be — checked by putting a parameterised column and an
+  un-parameterised one side by side and comparing all five outputs byte for byte.
+
+- **Two holes in the reference's own check, found while closing the gap.**
+
+  A parameter aimed at a plain LIST pack was accepted in silence:
+  `<gen type="template" value="person.lastName" domain="x"/>` did nothing at all
+  and said nothing, which is indistinguishable from a typo — the exact failure
+  `TDC072` exists to catch. A list has no parameters, and now says so.
+
+  And only ABSOLUTE addresses were checked. A bare `person.lastName` is read
+  against the active locale, exactly as the engine reads it, so every
+  locale-relative address went unchecked — the same mistake was caught on
+  `common.…` and waved through one line later. Both now behave the same way in
+  all five, with three shared diagnostic cases and a runtime fixture holding them
+  there.
 
 ### Changed
 

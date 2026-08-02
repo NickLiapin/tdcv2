@@ -2272,11 +2272,33 @@ const VALID_FUSE: usize = 100;
 /// — local sequences, an output template, and an optional `<valid>` predicate.
 /// The composed form is how an identifier with a check digit lives as editable
 /// data instead of engine code.
+/// Attributes on a `<gen type="template">` that steer the CALL rather than
+/// parameterise the pack behind it. Everything else may replace a same-named
+/// local sequence in the pack body.
+const RESERVED_TEMPLATE_ATTRS: [&str; 15] = [
+    "type",
+    "value",
+    "local",
+    "name",
+    "if",
+    "comment",
+    "anomaly",
+    "anomaly_factor",
+    "anomaly_flag",
+    "missing",
+    "missing_as",
+    "mask",
+    "case",
+    "order",
+    "cycle",
+];
+
 fn pack_generator(
     body: &str,
     count: usize,
     prng: &mut Sfc32,
     env: &Env,
+    caller: Option<&Gen>,
 ) -> EngineResult<Vec<String>> {
     // A body holding <sequence> or <data> is composed; anything else is a lone
     // <gen>.
@@ -2290,6 +2312,19 @@ fn pack_generator(
         config_builder::parse_pack_body(body).map_err(|e| EngineError::Invalid(e.message))?;
     let mut local: BTreeMap<String, Vec<Option<String>>> = BTreeMap::new();
     for spec in &pack.sequences {
+        // A caller attribute whose name matches this local sequence replaces it
+        // with a constant column: `<gen type="template"
+        // value="common.internet.email" domain="example.test"/>` is how a pack is
+        // parameterised. It draws nothing, so the rest of the body's
+        // deterministic stream is exactly where it would otherwise be.
+        let overridden = caller
+            .filter(|_| !RESERVED_TEMPLATE_ATTRS.contains(&spec.name.as_str()))
+            .and_then(|g| g.attr(&spec.name))
+            .map(str::to_string);
+        if let Some(value) = overridden {
+            local.insert(spec.name.clone(), vec![Some(value); count]);
+            continue;
+        }
         let values = materialize_local(spec, count, prng, env, &local)?;
         local.insert(spec.name.clone(), values);
     }
@@ -2434,7 +2469,7 @@ fn template_values(
     let entry = env.packs.load(path, locale)?;
 
     if let Some(body) = &entry.generator {
-        return pack_generator(body, count, prng, env);
+        return pack_generator(body, count, prng, env, Some(gen));
     }
 
     if let Some(percents) = &entry.percents {

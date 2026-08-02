@@ -96,28 +96,29 @@ class TestGen:
 
 
 class TestParameters:
-    @pytest.mark.xfail(
-        reason="pack parameters are a TypeScript-only feature; this port refuses them (TDC015)",
-        strict=True,
-    )
     def test_a_pack_parameter_reaches_the_generator(self) -> None:
         # `common.internet.email` declares a `domain` sequence in its body, and a
-        # caller may override it. TypeScript reads the pack's declared parameter
-        # names and lets the attribute through; none of the four ports do, so the
-        # SAME CONFIG runs there and is refused here — not only through the quick
-        # API but from a .tdc file as well. Written as a failing test rather than
-        # left out, so closing the gap flips it green and cannot be forgotten.
+        # caller may override it. This was a TypeScript-only feature — the same
+        # config ran there and was refused here with TDC015 — until the four ports
+        # learned to read a pack's declared parameters.
         email = tdc.seed("p").locale("en").common.internet.email(domain="example.test")
         assert email.endswith("@example.test")
 
+    def test_a_parameter_the_pack_does_not_declare_is_still_refused(self) -> None:
+        # The other half: accepting anything at all would make a typo silent, which
+        # is the failure the check exists to prevent.
+        with pytest.raises(Exception) as caught:
+            tdc.seed("p").locale("en").common.internet.email(nosuch="x")
+        assert "TDC072" in str(caught.value) or "not a parameter" in str(caught.value)
+
     def test_the_real_diagnostic_is_not_hidden_behind_an_address_message(self) -> None:
-        # The failure above must arrive as what it is. Rewriting every template
-        # error into "unknown address" produced `unknown address
+        # A failure the address cannot explain must arrive as what it is. Rewriting
+        # every template error into "unknown address" once produced `unknown address
         # "common.internet.email". Did you mean "common.internet.email"?`.
         with pytest.raises(Exception) as caught:
-            tdc.seed("p").locale("en").common.internet.email(domain="example.test")
+            tdc.seed("p").locale("en").common.internet.email(nosuch="x")
         assert "unknown address" not in str(caught.value)
-        assert 'does not read "domain"' in str(caught.value)
+        assert "not a parameter" in str(caught.value)
 
 
 class TestRefusals:

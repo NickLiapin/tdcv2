@@ -915,7 +915,7 @@ public static class MemoryEngine
 
         if (entry.IsGenerator)
         {
-            return PackGenerator(entry, path, count, prng, ctx);
+            return PackGenerator(entry, path, count, prng, ctx, gen.Attrs);
         }
 
         if (entry.Weighted)
@@ -1668,8 +1668,24 @@ public static class MemoryEngine
     /// feeding an output template, which is how an identifier with a check digit is written as
     /// editable data — needs the compute layer, and refuses by name until that is here.
     /// </remarks>
+    /// <summary>
+    /// Attributes on a <c>&lt;gen type="template"&gt;</c> that steer the CALL rather than
+    /// parameterise the pack behind it. Everything else may replace a same-named local sequence.
+    /// </summary>
+    private static readonly IReadOnlySet<string> ReservedTemplateAttrs =
+        new HashSet<string>(StringComparer.Ordinal)
+        {
+            "type", "value", "local", "name", "if", "comment", "anomaly", "anomaly_factor",
+            "anomaly_flag", "missing", "missing_as", "mask", "case", "order", "cycle",
+        };
+
     private static IReadOnlyList<string> PackGenerator(
-        DataPacks.Entry entry, string path, int count, Sfc32 prng, Ctx ctx)
+        DataPacks.Entry entry,
+        string path,
+        int count,
+        Sfc32 prng,
+        Ctx ctx,
+        IReadOnlyDictionary<string, string>? callerAttrs = null)
     {
         object body;
         lock (PackBodies)
@@ -1694,6 +1710,20 @@ public static class MemoryEngine
         var local = new Dictionary<string, string[]>(StringComparer.Ordinal);
         foreach (SequenceSpec spec in pack.Sequences)
         {
+            // A caller attribute whose name matches this local sequence replaces it with a
+            // constant column: `<gen type="template" value="common.internet.email"
+            // domain="example.test"/>` is how a pack is parameterised. It draws nothing, so the
+            // rest of the body's deterministic stream is exactly where it would otherwise be.
+            if (callerAttrs is not null
+                && !ReservedTemplateAttrs.Contains(spec.Name)
+                && callerAttrs.TryGetValue(spec.Name, out string? overridden))
+            {
+                var constant = new string[count];
+                Array.Fill(constant, overridden);
+                local[spec.Name] = constant;
+                continue;
+            }
+
             local[spec.Name] = MaterializeLocal(spec, count, prng, ctx, local);
         }
 

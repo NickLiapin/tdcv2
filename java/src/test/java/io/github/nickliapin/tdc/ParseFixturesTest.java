@@ -85,7 +85,7 @@ class ParseFixturesTest {
     }
     // A tripwire, not a preference: if the contract grows or shrinks, that should be a
     // deliberate edit here rather than a silently smaller test run.
-    assertEquals(9, seen, "the cross-language contract changed size");
+    assertEquals(10, seen, "the cross-language contract changed size");
   }
 
   @Test

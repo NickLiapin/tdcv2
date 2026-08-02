@@ -234,4 +234,4 @@ def test_the_shared_fixtures_still_describe_this_implementation() -> None:
         for p in (shared / "diagnostics").glob("*.json")
     )
     assert cases == 130
-    assert diagnostics == 154
+    assert diagnostics == 157

@@ -606,10 +606,18 @@ export function packParameterNames(packs: PackRegistry): ReadonlyMap<string, Rea
   const out = new Map<string, ReadonlySet<string>>();
   for (const [address, entry] of packs) {
     const body = entry.generator;
-    if (!body) continue;
+    // Every KNOWN address gets an entry, including the plain lists. A list has no
+    // parameters at all, so an attribute aimed at one does nothing — and an
+    // attribute that does nothing is indistinguishable from a typo, which is the
+    // whole reason this check exists. Leaving them out meant `<gen
+    // type="template" value="person.lastName" domain="x"/>` ran without a word
+    // here while the ports refused it.
+    //
+    // An address this run cannot resolve is still absent, and the caller stays
+    // silent about those: guessing there would produce false errors.
     out.set(
       address,
-      body.kind === 'composed' ? new Set(body.sequences.map((s) => s.name)) : new Set<string>(),
+      body?.kind === 'composed' ? new Set(body.sequences.map((s) => s.name)) : new Set<string>(),
     );
   }
   return out;

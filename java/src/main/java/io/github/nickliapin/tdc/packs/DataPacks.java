@@ -291,6 +291,45 @@ public final class DataPacks {
    * reference applies.
    */
   /**
+   * `<sequence name="…">` in a pack generator body — the pack's parameter list.
+   *
+   * <p>Read by scanning rather than by parsing: the validator asks before anything is built, and
+   * parsing a pack body there would report a pack author's syntax error at the caller's line.
+   */
+  private static final java.util.regex.Pattern SEQUENCE_NAME =
+      java.util.regex.Pattern.compile("<sequence\\s+[^>]*name\\s*=\\s*\"([^\"]+)\"");
+
+  /**
+   * The parameters a generator pack accepts, or {@code null} when it is not one.
+   *
+   * <p>A pack's parameters ARE its local {@code <sequence>} names: writing {@code
+   * domain="example.test"} on the calling {@code <gen>} replaces the sequence called {@code
+   * domain} with that constant. A single-{@code <gen>} pack declares none, and a plain list of
+   * values is not a generator at all — passing anything to either is always a no-op, so both
+   * return an empty set rather than {@code null}.
+   */
+  public java.util.Set<String> parameterNames(String dottedPath, String locale) {
+    Entry entry;
+    try {
+      entry = load(dottedPath, locale);
+    } catch (RuntimeException ignored) {
+      return null;
+    }
+    java.util.Set<String> names = new java.util.LinkedHashSet<>();
+    if (entry.generator() == null) {
+      // A plain list of values has no parameters at all, which is not the same as "unknown":
+      // an attribute aimed at one does nothing, and an attribute that does nothing is
+      // indistinguishable from a typo.
+      return names;
+    }
+    java.util.regex.Matcher m = SEQUENCE_NAME.matcher(entry.generator());
+    while (m.find()) {
+      names.add(m.group(1));
+    }
+    return names;
+  }
+
+  /**
    * Every address these packs can answer to, in no particular order.
    *
    * <p>The quick API needs the whole list rather than a yes-or-no about one address: to say "did

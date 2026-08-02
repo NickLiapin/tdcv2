@@ -124,7 +124,7 @@ export function checkGenTemplate(
   }
   checkTemplateLocale(path, attrMap, valueAttr, ctx);
 
-  checkTemplateParams(gen.attr(), attrMap, path, ctx.packParams, ctx.diagnostics);
+  checkTemplateParams(gen.attr(), attrMap, path, ctx.locale, ctx.packParams, ctx.diagnostics);
 
   if (path === 'person.b_day') {
     checkBirthDateTemplate(gen, ctx.diagnostics);

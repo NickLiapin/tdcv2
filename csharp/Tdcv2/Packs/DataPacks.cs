@@ -283,6 +283,52 @@ public sealed class DataPacks
             : locale + "." + dottedPath;
     }
 
+    /// <summary>The parameters a generator pack accepts, or <c>null</c> when it is not one.</summary>
+    /// <remarks>
+    /// A pack's parameters ARE its local <c>&lt;sequence&gt;</c> names: writing
+    /// <c>domain="example.test"</c> on the calling <c>&lt;gen&gt;</c> replaces the sequence called
+    /// <c>domain</c> with that constant. A single-<c>&lt;gen&gt;</c> pack declares none, and a
+    /// plain list of values is not a generator at all — passing anything to either is always a
+    /// no-op, so both return an empty set rather than <c>null</c>.
+    /// <para>
+    /// Read by scanning for <c>&lt;sequence name="…"&gt;</c> rather than by parsing the body: the
+    /// validator asks before anything is built, and parsing here would report a pack author's
+    /// syntax error at the caller's line.
+    /// </para>
+    /// </remarks>
+    public IReadOnlySet<string>? ParameterNames(string dottedPath, string? locale)
+    {
+        Entry entry;
+        try
+        {
+            entry = Load(dottedPath, locale);
+        }
+        catch (Exception)
+        {
+            return null;
+        }
+
+        var names = new HashSet<string>(StringComparer.Ordinal);
+        if (entry.Generator is null)
+        {
+            // A plain list of values has no parameters at all, which is not the same as
+            // "unknown": an attribute aimed at one does nothing, and an attribute that does
+            // nothing is indistinguishable from a typo.
+            return names;
+        }
+
+        foreach (System.Text.RegularExpressions.Match m in SequenceName.Matches(entry.Generator))
+        {
+            names.Add(m.Groups[1].Value);
+        }
+
+        return names;
+    }
+
+    private static readonly System.Text.RegularExpressions.Regex SequenceName =
+        new("<sequence\\s+[^>]*name\\s*=\\s*\"([^\"]+)\"",
+            System.Text.RegularExpressions.RegexOptions.Compiled);
+
     /// <summary>Every address these packs can answer to, in no particular order.</summary>
     /// <remarks>
     /// The quick API needs the whole list rather than a yes-or-no about one address: to say "did

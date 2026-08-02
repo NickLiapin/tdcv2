@@ -35,13 +35,12 @@ from ..pattern import gen as patterns
 from ..prng import permute, rand, seekable
 from ..prng.prng import Sfc32, create
 from ..prng.seekable import open_unit
-
-from . import per_row, repeat_keyed
 from ..sequence import pool as pool_mod
 from ..sequence import uniq as uniq_lib
 from ..sequence import uniq_simple
 from ..stats import distribution as dist
 from ..stats import timeseries
+from . import per_row, repeat_keyed
 
 # How many redraws a <distinct> field gets before its source is called too small.
 DISTINCT_FUSE = 100
@@ -1366,7 +1365,7 @@ def _generate(gen: Gen, count: int, run: _Run) -> list[str]:
             # The pack ships a rule rather than a list. Two shapes: a lone <gen>, or local
             # sequences feeding an output template — which is how an identifier with a check
             # digit is expressed as editable data instead of as engine code.
-            return _run_pack_generator(entry, path, count, run)
+            return _run_pack_generator(entry, path, count, run, attrs)
         if entry.weighted:
             # A weighted pack is laid out exactly, not sampled: the counts in the file are
             # proportions the run has to hit, which is the same path percent= takes — and laid
@@ -1526,7 +1525,38 @@ def _trim_to_none(value: str | None) -> str | None:
 # ── pack generators ─────────────────────────────────────────────────────────────────────────
 
 
-def _run_pack_generator(entry, path: str, count: int, run: _Run) -> list[str]:
+#: Attributes on a `<gen type="template">` that steer the CALL rather than parameterise the
+#: pack behind it. Everything else is a parameter that may replace a same-named local
+#: sequence in the pack body. Kept in step with the reference's RESERVED_TEMPLATE_ATTRS.
+RESERVED_TEMPLATE_ATTRS = frozenset(
+    {
+        "type",
+        "value",
+        "local",
+        "name",
+        "if",
+        "comment",
+        "anomaly",
+        "anomaly_factor",
+        "anomaly_flag",
+        "missing",
+        "missing_as",
+        "mask",
+        "case",
+        "order",
+        "cycle",
+    }
+)
+
+
+def param_overrides(attrs: dict[str, str]) -> dict[str, str]:
+    """The caller's parameters: every attribute that is not a control attribute."""
+    return {k: v for k, v in attrs.items() if k not in RESERVED_TEMPLATE_ATTRS}
+
+
+def _run_pack_generator(
+    entry, path: str, count: int, run: _Run, attrs: dict[str, str] | None = None
+) -> list[str]:
     # A pack body is a NESTED build with no column of its own: its local sequences draw off the
     # prng it was handed, in order, exactly as they always did. Leaving the caller's stream name
     # on the run would let each of them key itself independently, and an identifier assembled
@@ -1546,9 +1576,18 @@ def _run_pack_generator(entry, path: str, count: int, run: _Run) -> list[str]:
     if isinstance(body, Gen):
         return _generate(body, count, run)
 
+    overrides = param_overrides(attrs or {})
     local: dict[str, list[str | None]] = {}
     for spec in body.sequences:
-        local[spec.name or ""] = _materialize_local(spec, count, run, local)
+        name = spec.name or ""
+        # A caller attribute whose name matches this local sequence replaces it with a
+        # constant column: `<gen type="template" value="common.internet.email"
+        # domain="example.test"/>` is how a pack is parameterised. It consumes no prng,
+        # so the rest of the body's deterministic stream is exactly where it would be.
+        if name in overrides:
+            local[name] = [overrides[name]] * count
+            continue
+        local[name] = _materialize_local(spec, count, run, local)
 
     if body.validate is not None:
         _enforce_valid(body, local, count, run)

@@ -72,10 +72,16 @@ export function checkTemplateParams(
   attrs: readonly AttrContext[],
   attrMap: Readonly<Record<string, string>>,
   path: string,
+  locale: string,
   packParams: PackParams | undefined,
   diagnostics: Diagnostic[],
 ): void {
-  const declared = packParams?.get(path);
+  // A bare address is read against the active locale, exactly as the engine reads
+  // it: `person.lastName` under `en` is the pack `en.person.lastName`. Looking up
+  // only the literal text left every locale-relative address unchecked, so the
+  // same mistake was caught on `common.internet.email` and waved through on
+  // `person.lastName`.
+  const declared = packParams?.get(path) ?? packParams?.get(`${locale}.${path}`);
   if (!declared) return;
 
   for (const attr of attrs) {

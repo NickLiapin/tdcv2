@@ -1632,6 +1632,8 @@ class _Validator:
         path = (attrs.get("value") or "").strip()
         allowed = BUILTIN_TEMPLATE_PARAMS.get(path)
         if allowed is None:
+            if self._check_pack_params(gen, attrs, path):
+                return
             for name in attrs:
                 if name not in GEN_ATTRS:
                     self._ignored(
@@ -1645,6 +1647,44 @@ class _Validator:
             if name not in allowed:
                 belongs = ", ".join(sorted(allowed))
                 self._ignored(gen, name, f'"{path}" reads only {belongs}.')
+
+    def _check_pack_params(self, gen, attrs: dict[str, str], path: str) -> bool:
+        """Attributes on a template `<gen>` that the target pack CAN act on.
+
+        A pack whose body declares `<sequence name="domain">` accepts `domain="…"` from
+        the caller, and the engine replaces that sequence with the constant. So the
+        attribute is neither a typo nor ignored — refusing it, as this used to, made a
+        config that runs in the reference fail here.
+
+        Returns False — leaving the ordinary check to run — when nothing is known about
+        the pack: an unresolvable address, or no registry at all. Guessing there would
+        produce exactly the false errors this must not create.
+        """
+        if self.packs is None or not path:
+            return False
+        declared = self.packs.parameter_names(path, self.locale)
+        if declared is None:
+            return False
+
+        for name, value in attrs.items():
+            if name in GEN_ATTRS or name in declared:
+                continue
+            line, column = _at(gen, name)
+            if declared:
+                hint = "Parameters of this generator: " + ", ".join(sorted(declared)) + "."
+            else:
+                hint = (
+                    "This generator takes no parameters — it produces a fixed shape. "
+                    f'Value passed: "{value}".'
+                )
+            self._error(
+                "TDC072",
+                f'"{name}" is not a parameter of "{path}" — it would be ignored',
+                hint,
+                line,
+                column,
+            )
+        return True
 
     def _ignored(self, gen, name: str, why: str) -> None:
         line, column = _at(gen, name)

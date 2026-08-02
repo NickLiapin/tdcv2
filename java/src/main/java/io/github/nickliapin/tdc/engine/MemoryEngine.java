@@ -2007,6 +2007,15 @@ public final class MemoryEngine {
   /** How many redraws a {@code <valid>} constraint gets before the generator is called impossible. */
   private static final int VALID_FUSE = 100;
 
+  /**
+   * Attributes on a {@code <gen type="template">} that steer the CALL rather than parameterise
+   * the pack behind it. Everything else may replace a same-named local sequence.
+   */
+  private static final java.util.Set<String> RESERVED_TEMPLATE_ATTRS =
+      java.util.Set.of(
+          "type", "value", "local", "name", "if", "comment", "anomaly", "anomaly_factor",
+          "anomaly_flag", "missing", "missing_as", "mask", "case", "order", "cycle");
+
   private static List<String> runPackGenerator(
       DataPacks.Entry entry,
       String path,
@@ -2016,7 +2025,8 @@ public final class MemoryEngine {
       Config config,
       long nowMillis,
       Path baseDir,
-      Map<String, RowLinkPlan> rowLinks) {
+      Map<String, RowLinkPlan> rowLinks,
+      Map<String, String> callerAttrs) {
     Object body =
         PACK_BODIES.computeIfAbsent(
             path,
@@ -2035,6 +2045,20 @@ public final class MemoryEngine {
     ConfigBuilder.PackGenerator pack = (ConfigBuilder.PackGenerator) body;
     Map<String, String[]> local = new LinkedHashMap<>();
     for (Config.SequenceSpec spec : pack.sequences()) {
+      // A caller attribute whose name matches this local sequence replaces it with a constant
+      // column: `<gen type="template" value="common.internet.email" domain="example.test"/>` is
+      // how a pack is parameterised. It draws nothing, so the rest of the body's deterministic
+      // stream is exactly where it would otherwise be.
+      String overridden =
+          callerAttrs == null || RESERVED_TEMPLATE_ATTRS.contains(spec.name())
+              ? null
+              : callerAttrs.get(spec.name());
+      if (overridden != null) {
+        String[] constant = new String[count];
+        java.util.Arrays.fill(constant, overridden);
+        local.put(spec.name(), constant);
+        continue;
+      }
       local.put(
           spec.name(),
           materializeLocal(spec, count, prng, packs, config, nowMillis, baseDir, rowLinks, local));
@@ -2421,7 +2445,8 @@ public final class MemoryEngine {
           // The pack ships a rule rather than a list. Two shapes: a lone <gen>, or local
           // sequences feeding an output template — which is how an identifier with a check
           // digit is expressed as editable data instead of as engine code.
-          return runPackGenerator(entry, path, count, prng, packs, config, nowMillis, baseDir, rowLinks);
+          return runPackGenerator(
+              entry, path, count, prng, packs, config, nowMillis, baseDir, rowLinks, gen.attrs());
         }
         if (entry.weighted()) {
           // A weighted pack is laid out exactly, not sampled: the counts in the file are

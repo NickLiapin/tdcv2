@@ -1607,6 +1607,9 @@ public final class Validator {
     String path = attrs.get("value") == null ? "" : attrs.get("value").trim();
     java.util.Set<String> allowed = BUILTIN_TEMPLATE_PARAMS.get(path);
     if (allowed == null) {
+      if (checkPackParams(gen, attrs, path)) {
+        return;
+      }
       for (String name : attrs.keySet()) {
         if (!GEN_ATTRS.contains(name)) {
           ignored(gen, name, "Check the spelling against the generator's attributes.");
@@ -1679,6 +1682,49 @@ public final class Validator {
             + "combination is unique across records. When the parts have fixed widths, a unique "
             + "combination means a unique result.",
         pos[0], pos[1]);
+  }
+
+  /**
+   * Attributes on a template {@code <gen>} that the target pack CAN act on.
+   *
+   * <p>A pack whose body declares {@code <sequence name="domain">} accepts {@code domain="…"}
+   * from the caller, and the engine replaces that sequence with the constant. So the attribute is
+   * neither a typo nor ignored — refusing it, as this used to, made a config that runs in the
+   * reference fail here.
+   *
+   * <p>Returns false — leaving the ordinary check to run — when nothing is known about the pack:
+   * an unresolvable address, or no registry at all. Guessing there would produce exactly the
+   * false errors this must not create.
+   */
+  private boolean checkPackParams(
+      TDCParser.SelfClosingElementContext gen, Map<String, String> attrs, String path) {
+    if (packs == null || path.isEmpty()) {
+      return false;
+    }
+    java.util.Set<String> declared = packs.parameterNames(path, locale);
+    if (declared == null) {
+      return false;
+    }
+    for (Map.Entry<String, String> attr : attrs.entrySet()) {
+      if (GEN_ATTRS.contains(attr.getKey()) || declared.contains(attr.getKey())) {
+        continue;
+      }
+      String hint =
+          declared.isEmpty()
+              ? "This generator takes no parameters — it produces a fixed shape. Value passed: \""
+                  + attr.getValue()
+                  + "\"."
+              : "Parameters of this generator: "
+                  + String.join(", ", new java.util.TreeSet<>(declared))
+                  + ".";
+      error(
+          "TDC072",
+          "\"" + attr.getKey() + "\" is not a parameter of \"" + path + "\" — it would be ignored",
+          hint,
+          at(gen, attr.getKey())[0],
+          at(gen, attr.getKey())[1]);
+    }
+    return true;
   }
 
   private void ignored(TDCParser.SelfClosingElementContext gen, String name, String why) {

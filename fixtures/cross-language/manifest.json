@@ -59,6 +59,12 @@
       "source": "runtime/tdc_generators_core.tdc",
       "expected": "expected/tdc_generators_core.out",
       "description": "Focused fixture for newer deterministic generator primitives"
+    },
+    {
+      "name": "pack_params",
+      "source": "runtime/pack-params.tdc",
+      "expected": "expected/pack-params.out",
+      "description": "A caller parameter replaces a named sequence in a pack generator body; the un-parameterised column proves the override draws nothing"
     }
   ]
 }
