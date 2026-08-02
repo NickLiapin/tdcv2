@@ -90,9 +90,16 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: "20"
+      # Both, and 6.0 is the one that matters: the projects target net6.0 — a
+      # deliberate promise, since that is the oldest runtime still in support when a
+      # consumer picks the package up — and the runner ships no .NET 6 at all. With
+      # only the 7.0 SDK the build succeeded and the test host then refused to start,
+      # which reads as a broken port and is nothing of the kind.
       - uses: actions/setup-dotnet@v4
         with:
-          dotnet-version: "7.0.x"
+          dotnet-version: |
+            6.0.x
+            7.0.x
       - name: Test
         run: node scripts/five-ways.mjs --only csharp
 
