@@ -123,6 +123,15 @@ class TestGenerate:
         assert main(["--version"]) == 0
         assert "tdcv2 " in capsys.readouterr().out
 
+    def test_version_is_the_installed_one(self, capsys) -> None:
+        # Read rather than repeated. A hand-written constant agrees with itself and
+        # with nothing else: bumping pyproject.toml for a release used to leave this
+        # command reporting the old number, with nothing to catch it.
+        from importlib.metadata import version
+
+        assert main(["--version"]) == 0
+        assert capsys.readouterr().out.strip() == f"tdcv2 {version('tdcv2')}"
+
 
 class TestCheck:
     def test_a_valid_config_says_so_on_stderr(self, config: Path, capsys) -> None:

@@ -4,19 +4,79 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "tdcv2"
-version = "0.1.0"
-description = "TDC — The Data Constructor. Deterministic test data from a declarative config."
+# One number across all five implementations, deliberately. They are held to one
+# contract by the fixtures under `fixtures/cross-language/`, so a reader comparing
+# tdcv2 0.1.2 on PyPI with tdcv2 0.1.2 on npm should be able to assume the same
+# engine and the same bytes — which is the whole claim of the project.
+version = "0.1.2"
+description = "Deterministic test-data generator: coherent records, exact proportions, and any text format you describe. Same seed, same bytes — in Python, TypeScript, Java, C# and Rust alike."
 readme = "README.md"
 requires-python = ">=3.10"
 license = { text = "MIT" }
 authors = [{ name = "Nick Liapin" }]
-keywords = ["test-data", "synthetic-data", "data-generation", "deterministic"]
+
+# The terms people actually type when they are looking for this. PyPI's own search
+# leans on the description far more than on these, but the classifiers below and
+# these together are what the package indexes have to go on.
+keywords = [
+    "test-data",
+    "test-data-generator",
+    "mock-data",
+    "fake-data",
+    "fake-data-generator",
+    "synthetic-data",
+    "synthetic-data-generator",
+    "dummy-data",
+    "sample-data",
+    "data-generator",
+    "data-generation",
+    "deterministic",
+    "seeded",
+    "reproducible",
+    "coherent-data",
+    "fixtures",
+    "testing",
+    "csv",
+    "json",
+    "sql",
+    "parquet",
+    "cli",
+    "dsl",
+    "locale",
+    "i18n",
+]
+
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Software Development :: Testing",
+    "Topic :: Software Development :: Testing :: Mocking",
+    "Topic :: Utilities",
+    "Typing :: Typed",
+]
 
 # One runtime dependency, and it is the parser generator's own runtime — the grammar is shared
 # with the other implementations, so the parse tree has to be the same tree. Everything else is
 # written here rather than depended on, which is what keeps the three implementations producing
 # identical bytes: a library that changes its rounding or its compression changes our output.
 dependencies = ["antlr4-python3-runtime==4.13.2"]
+
+# Keep this table last among the [project] keys: in TOML every key below a table
+# header belongs to that table, so a plain key written after it silently becomes
+# `project.urls.<key>` — which is how `dependencies` once ended up in here.
+[project.urls]
+Homepage = "https://nickliapin.github.io/tdcv2/"
+Documentation = "https://nickliapin.github.io/tdcv2/docs/bindings/python"
+Repository = "https://github.com/NickLiapin/tdcv2"
+Changelog = "https://github.com/NickLiapin/tdcv2/blob/main/CHANGELOG.md"
+Issues = "https://github.com/NickLiapin/tdcv2/issues"
 
 [project.optional-dependencies]
 dev = ["pytest>=8", "ruff>=0.6"]

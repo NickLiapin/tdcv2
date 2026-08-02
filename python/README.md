@@ -1,121 +1,106 @@
-# TDC — Python Implementation
+# TDC — The Data Constructor
 
-## Quick start
+Test data that is coherent **inside each record**. In one row, the name matches the
+gender, the city sits in the right country, the diagnosis fits the patient. Run it
+again with the same seed and you get the same rows, byte for byte.
 
-**You need:** **Python 3.10 or newer**, plus **Node** once — the parser is generated from
-the grammar the five implementations share, and the generator runs on Node. A released
-package ships it already generated; a checkout does not.
+An ordinary fake-data library draws every field on its own, so a row is a bag of
+individually plausible values that contradict each other. TDC draws a field from what
+the previous field chose.
 
 ```bash
-node scripts/generate-parsers.mjs --only python
-cd python
-python3 -m venv .venv
-.venv/bin/pip install -e ".[dev]"
+pip install tdcv2
 ```
 
-Then write a config and run it:
+## A first config
 
-```xml title="demo.tdc"
+A config says what the records are; a block says how they should look on the page.
+
+```xml title="people.tdc"
 <tdc>
-  <env count="3" seed="demo" local="en">
-    <sequence name="Id"><gen type="increment" value="1"/></sequence>
-    <sequence name="Name"><gen type="template" value="person.lastName"/></sequence>
-  </env>
-  <block><line><data>${{Id}},${{Name}}</data></line></block>
+    <env count="10" seed="demo" local="en">
+        <sequence name="Gender">
+            <gen type="text" value="Male,Female" percent="60,40"/>
+        </sequence>
+
+        <sequence name="MaleName" parent="Gender.Male">
+            <gen type="template" value="person.male.firstName"/>
+        </sequence>
+        <sequence name="FemaleName" parent="Gender.Female">
+            <gen type="template" value="person.female.firstName"/>
+        </sequence>
+
+        <sequence name="Age"><gen type="number" value="18..65"/></sequence>
+    </env>
+
+    <block>
+        <line><data>${{_count}}. ${{Gender}} — ${{MaleName}}${{FemaleName}}, age ${{Age}}</data></line>
+    </block>
 </tdc>
 ```
 
 ```bash
-.venv/bin/tdcv2 demo.tdc
+tdcv2 people.tdc
 ```
 
-With the virtualenv activated (`source .venv/bin/activate`) it is just
-`tdcv2 demo.tdc`.
-
 ```
-1,Williams
-2,Johnson
-3,Smith
+1. Male — Robert, age 59
+2. Female — Mary, age 18
+3. Male — James, age 53
+...
 ```
 
-The same three names, every time, in every implementation — that is the whole
-point of the `seed`.
+Exactly six men and four women — `percent="60,40"` is apportioned across whole rows by
+the Hamilton method, not approximated by independent coin flips. Every name matches its
+gender, because a female row cannot reach the male list at all. Change the `<block>` and
+the same records come out as CSV, JSON, SQL, YAML or a format you spell out yourself.
 
-### Data packs
-
-A pack is the _data_ — the name lists, cities, streets and locale rules that
-`type="template"` draws from. A starter set ships with the code: `common`, `en`
-and the USA country pack, which is what the example above uses. Everything else
-is downloaded on demand:
-
-```bash
-tdcv2 init                 # write a tdcv2.config.json, once per project
-tdcv2 pack list            # what the registry has
-tdcv2 pack add ru france   # download and wire up
-```
-
-One registry, one `tdcv2.config.json`, one store, shared by all five
-implementations: a pack installed from here is a pack the others find. The full
-story is in [the data-packs guide](../docs/data-packs/installing-packs.md).
-
-Complete. Every cross-language fixture passes: the 104 shared cases through the router and on all
-three engines, the 108 diagnostic cases by code and position, the PRNG and apportionment vectors,
-and the six Parquet files byte for byte.
-
-```bash
-node scripts/generate-parsers.mjs --only python
-cd python
-python -m venv .venv && .venv/bin/pip install -e ".[dev]"
-.venv/bin/pytest                  # 969 tests
-.venv/bin/ruff check src tests
-```
-
-`node ../scripts/five-ways.mjs --only python` does the same and regenerates the parser
-first, which is what CI runs.
-
-## Using it
+## From Python
 
 ```python
 from tdcv2 import TDC
 
-data = TDC("users.tdc")
+data = TDC("people.tdc")
 print(data)                        # the whole run as text
 
 for row in data:
     print(row["Gender"], row["Age"])
 
-data.write_file("users.parquet")   # the extension picks the format
+data.write_file("people.parquet")  # the extension picks the format
 ```
 
-The constructor takes `config_string=` instead of a path, and `count=`, `seed=`, `locale=`, `now=`
-and `engine=` override whatever `<env>` declared. `now=` is the one worth remembering in a test: a
-config with a date generator reads the clock, so pinning it is what makes such a test stable for
-longer than a day.
+The constructor also takes `config_string=` instead of a path, and `count=`, `seed=`,
+`locale=`, `now=` and `engine=` override whatever `<env>` declared. `now=` is the one
+worth remembering in a test: a config with a date generator reads the clock, so pinning
+it is what keeps such a test stable for longer than a day.
 
 ### Large runs
 
 ```python
-data.write_file("users.csv", workers="auto")   # one process per core, bar one
+data.write_file("people.csv", workers="auto")   # one process per core, bar one
 ```
 
-A row is a function of its own index — that is what the streaming engine is built around — so a run
-splits across processes with nothing to coordinate. The output is byte for byte what one process
-writes; on this machine a gigabyte went from 11m37s to 87s across eleven processes.
+A row is a function of its own index — that is what the streaming engine is built
+around — so a run splits across processes with nothing to coordinate. The output is byte
+for byte what one process writes; on one machine a gigabyte went from 11m37s to 87s
+across eleven processes.
 
-You do not need `if __name__ == "__main__":` around the call. Workers are launched as a named module
-rather than through `multiprocessing`, so nothing of yours is re-imported and re-executed.
+You do not need `if __name__ == "__main__":` around the call. Workers are launched as a
+named module rather than through `multiprocessing`, so nothing of yours is re-imported
+and re-executed.
 
-Splitting is skipped, silently and safely, wherever it would not be sound: the in-memory and exact
-engines, a config passed as a string rather than a file, Parquet output, and runs short enough that
-starting processes costs more than the rows do.
+Splitting is skipped, silently and safely, wherever it would not be sound: the in-memory
+and exact engines, a config passed as a string rather than a file, Parquet output, and
+runs short enough that starting processes costs more than the rows do.
 
 ## The command line
 
-`pip install tdcv2` puts `tdcv2` on the PATH — the same four commands as the TypeScript and Java
-CLIs, flag for flag. A Python user should not have to install Node to run a `.tdc` file.
+`pip install tdcv2` puts `tdcv2` on the PATH — the same commands as the TypeScript, Java,
+C# and Rust CLIs, flag for flag. A Python user should not have to install Node to run a
+`.tdc` file.
 
 ```bash
-tdcv2 users.tdc -o users.csv --count 100000 --jobs 8
+tdcv2 people.tdc -o people.csv --count 100000 --jobs 8
 ```
 
 |                                              |                                                                                      |
@@ -128,11 +113,46 @@ tdcv2 users.tdc -o users.csv --count 100000 --jobs 8
 
 `--jobs` is the process split described above, and changes nothing but the wall clock.
 
-A pack installed here is a pack the TypeScript and Java implementations find: one registry, one
-`tdcv2.config.json`, one store. `--registry` accepts an `http`, `https` or `file` address, so an
-offline mirror or a folder on a share works the same way as the public one.
+## Data packs
 
-## What is here
+A pack is the _data_ — the name lists, cities, streets and locale rules that
+`type="template"` draws from. The wheel carries a starter set: `common`, `en` and the USA
+country pack, which is what the example above uses. Ten languages and more than ninety
+country packs — with the right check-digit rule for each national ID format — are
+downloaded on demand:
+
+```bash
+tdcv2 init                 # write a tdcv2.config.json, once per project
+tdcv2 pack list            # what the registry has
+tdcv2 pack add ru france   # download and wire up
+```
+
+Or from code:
+
+```python
+from tdcv2.packs import DataPacks
+
+DataPacks.install(None, "ru", "france")   # downloads, verifies, registers in tdcv2.config.json
+```
+
+One registry, one `tdcv2.config.json`, one store, shared by all five implementations: a
+pack installed from here is a pack the others find. `--registry` accepts an `http`,
+`https` or `file` address, so an offline mirror or a folder on a share works the same way
+as the public one.
+
+## One config, five implementations
+
+TDC exists in TypeScript, Python, Java, C# and Rust. The same config and seed produce the
+same bytes in all five — that is the contract, and a shared fixture suite under
+`fixtures/cross-language/` checks it on every change: the shared cases through the router
+and on all three engines, the diagnostic cases by code and position, the PRNG and
+apportionment vectors, and the Parquet files byte for byte.
+
+It is why this package reimplements what a dependency would otherwise have provided. The
+only runtime dependency is `antlr4-python3-runtime`, and only because the grammar is
+shared with the other implementations and the parse tree has to be the same tree. The
+PRNG, the Snappy encoder, the Parquet writer and the date arithmetic are written here, so
+no library's choice of rounding or compression can change the bytes.
 
 | Module         | What it owns                                                                      |
 | -------------- | --------------------------------------------------------------------------------- |
@@ -146,40 +166,31 @@ offline mirror or a folder on a share works the same way as the public one.
 | `compute`      | The check-digit language, and the `if=` expression language                       |
 | `packs`        | Pack loading, the project cascade, the shared registry client                     |
 | `engine`       | The three engines and the router that picks between them                          |
-| `validator`    | 109 `TDC###` codes, each at the position an editor would underline                |
+| `validator`    | Every `TDC###` code, each at the position an editor would underline               |
 | `output`       | Declared column types and the Parquet writer                                      |
 
-## Data packs
+## Working on the repository
 
-The wheel ships a starter set only — `common`, `en`, and the USA country pack. Everything else
-comes from the shared registry on demand, the same one the command-line tool and the Java library
-read:
+The parser is generated from the shared grammar and the generator runs on Node. A
+released package ships it already generated; a checkout does not.
 
-```python
-from tdcv2.packs import DataPacks
-
-DataPacks.install(None, "ru", "france")   # downloads, verifies, registers in tdcv2.config.json
+```bash
+node scripts/generate-parsers.mjs --only python
+cd python
+python3 -m venv .venv && .venv/bin/pip install -e ".[dev]"
+.venv/bin/pytest                  # 970 tests
+.venv/bin/ruff check src tests
 ```
 
-The starter packs are generated from `../data/packs` at build time by `scripts/bundle_packs.py`;
-they are not committed, because the packs live once.
+`node scripts/five-ways.mjs --only python` does the same and regenerates the parser
+first, which is what CI runs.
 
-## Stack
+## Links
 
-- Python 3.10+
-- One runtime dependency: `antlr4-python3-runtime`, because the grammar is shared with the other
-  implementations and the parse tree has to be the same tree. Everything else — the PRNG, the
-  Snappy encoder, the Parquet writer, the date arithmetic — is written here, so no library's
-  choice of rounding or compression can change the bytes.
-- `pytest` and `ruff`
+- [Documentation](https://nickliapin.github.io/tdcv2/) — the DSL reference, guides and generators
+- [The Python binding](https://nickliapin.github.io/tdcv2/docs/bindings/python)
+- [Source](https://github.com/NickLiapin/tdcv2)
 
-## The promise
+## License
 
-Bit-identical output to the TypeScript reference for the same config and seed. That is what the
-fixtures under `../fixtures/cross-language/` check, and it is why so much of this package
-reimplements what a dependency would otherwise have provided.
-
-## References
-
-- [../docs/bindings/](../docs/bindings/) — how one config runs in three languages
-- [../docs/bindings/python.md](../docs/bindings/python.md) — the Python binding
+MIT

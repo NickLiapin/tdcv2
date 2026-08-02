@@ -23,7 +23,26 @@ from pathlib import Path
 from ..errors import Diagnostic, Severity, TdcError, format_diagnostic, format_diagnostics
 from .args import Options, UsageError, parse
 
-VERSION = "0.1.0"
+
+def _version() -> str:
+    """The installed distribution's version, not a second copy of it.
+
+    A hand-written constant here is a number that agrees with itself and with
+    nothing else: bumping ``pyproject.toml`` for a release left ``tdcv2
+    --version`` reporting the old one, silently. The TypeScript package had
+    exactly this bug and it went unnoticed through a release. The fallback
+    covers running from a source tree that was never installed, where there is
+    no distribution to ask.
+    """
+    from importlib.metadata import PackageNotFoundError, version
+
+    try:
+        return version("tdcv2")
+    except PackageNotFoundError:
+        return "0+unknown"
+
+
+VERSION = _version()
 
 HELP = """tdcv2 — The Data Constructor
 

@@ -9,6 +9,36 @@ Per-language-implementation changes (TypeScript, Python, Java) are additionally
 tracked in each implementation directory's own `CHANGELOG.md` once they begin to
 publish to their respective package registries.
 
+## [Unreleased]
+
+### Added
+
+- **The Python implementation is published to PyPI** as `tdcv2`, at the same
+  version number as the npm package. The five implementations are held to one
+  contract by `fixtures/cross-language/`, so one number across all of them is
+  what lets a reader assume `tdcv2 0.1.2` means the same engine and the same
+  bytes wherever it is installed from.
+
+### Fixed
+
+- **`tdcv2 --version` in Python reported a hand-written constant.** It was a
+  second copy of the number in `pyproject.toml` and agreed with nothing but
+  itself, which is the bug the TypeScript smoke test had and shipped with. It
+  reads the installed distribution's metadata now, and a test compares the two.
+
+### Changed
+
+- **The Python README is a landing page rather than a checkout guide.** PyPI
+  renders it as the project's front page, and it opened with `node
+scripts/generate-parsers.mjs` and an editable install — instructions for
+  someone who cloned the repository, shown to someone who just ran `pip
+install`. Its relative links to `../docs/` would have 404'd on pypi.org as
+  well. Checkout instructions are still there, under their own heading at the
+  end.
+- **Package metadata written for discovery**, matching what npm carries: a
+  description that says what the thing does, 25 keywords, trove classifiers, and
+  project URLs for the documentation, the source and the changelog.
+
 ## [0.1.2] — 2026-08-02
 
 ### Fixed
