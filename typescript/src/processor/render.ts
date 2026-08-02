@@ -402,6 +402,23 @@ const FIXTURE_NAMES = [
  * don't count. Used by the parallel CLI to refuse configs it can't split
  * without changing the output.
  */
+/**
+ * Whether the config asks for uniqueness across the whole run.
+ *
+ * A `uniq="true"` sequence or a `<uniq>` group is a promise about the finished
+ * dataset, not about any one row. A worker rendering rows 0..99 can only make
+ * its own hundred distinct, and four workers would each do that and duplicate
+ * across the boundaries — silently, since every range looks correct on its own.
+ * So `--jobs` refuses rather than split it.
+ */
+export function hasUniqueness(document: DocumentContext): boolean {
+  const tdc = findTdc(document);
+  const env = tdc ? findChildElement(tdc.content(), 'env') : undefined;
+  if (!env) return false;
+  if (extractEnvUniqGroups(env).length > 0) return true;
+  return extractSequenceSpecs(env).some((spec) => spec.uniq === true);
+}
+
 export function hasInlineRenderGenerators(document: DocumentContext): boolean {
   const tdc = findTdc(document);
   if (!tdc) return false;

@@ -20,7 +20,7 @@ import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { Worker } from 'node:worker_threads';
 
-import { hasInlineRenderGenerators } from '../processor/render.js';
+import { hasInlineRenderGenerators, hasUniqueness } from '../processor/render.js';
 import { parseStrict } from '../parser/index.js';
 
 import type { RenderWorkerInput } from './render-worker.js';
@@ -47,8 +47,12 @@ export interface ParallelParams {
  * seekability precondition (no inline render-time generators).
  */
 export function parallelBlockReason(source: string): string | undefined {
-  if (hasInlineRenderGenerators(parseStrict(source))) {
+  const document = parseStrict(source);
+  if (hasInlineRenderGenerators(document)) {
     return 'the config has an inline <gen>/<switch> in a <block>/fixture line (not in a <sequence>), which draws from the sequential render RNG and cannot be split across workers';
+  }
+  if (hasUniqueness(document)) {
+    return 'the config asks for uniqueness (uniq="true", or a <uniq> group), which is a promise about the whole dataset — a worker sees only its own range of rows and could not tell a duplicate outside it from a value it has never seen';
   }
   return undefined;
 }

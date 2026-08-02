@@ -116,6 +116,23 @@ describe('parallelBlockReason', () => {
     const src = wrap('', '<gen type="number" value="1..9"/>');
     expect(parallelBlockReason(src)).toMatch(/inline <gen>/i);
   });
+
+  it('blocks uniqueness — a worker cannot see past its own range', () => {
+    const compound = wrap(
+      '<sequence name="K" uniq="true">' +
+        '<gen name="a" type="text" value="x,y"/><gen name="b" type="text" value="m,n"/>' +
+        '</sequence>',
+      '<data>${{K.a}}${{K.b}}</data>',
+    );
+    expect(parallelBlockReason(compound)).toMatch(/uniqueness/i);
+
+    const group = wrap(
+      '<uniq><sequence name="A"><gen type="text" value="x,y"/></sequence>' +
+        '<sequence name="B"><gen type="text" value="m,n"/></sequence></uniq>',
+      '<data>${{A}}${{B}}</data>',
+    );
+    expect(parallelBlockReason(group)).toMatch(/uniqueness/i);
+  });
 });
 
 describe('--jobs end-to-end (real worker threads)', () => {
@@ -124,15 +141,17 @@ describe('--jobs end-to-end (real worker threads)', () => {
   const distMain = join(pkgRoot, 'dist', 'cli', 'main.js');
   let dir = '';
 
-  // count < capacity (10³ = 1000) so uniq is feasible and keys stay dense —
-  // a good stress for uniqueness across worker range boundaries.
+  // An exact percentage, a counter and a compound — each a different way for a
+  // worker boundary to go wrong. `uniq` used to be here as the uniqueness
+  // stress; it is now refused for parallel writing (see the test below) because
+  // a worker cannot see past its own range.
   const CONFIG = `<tdc>
     <env count="900" seed="par-e2e" inject="\${{%}}" mode="stream">
       <before><line><data>HEAD</data></line></before>
       <after><line><data>TAIL</data></line></after>
       <sequence name="G"><gen type="text" value="M,F" percent="70,30"/></sequence>
       <sequence name="Id"><gen type="increment" value="1"/></sequence>
-      <sequence name="K" uniq="true">
+      <sequence name="K">
         <gen name="a" type="text" value="a0,a1,a2,a3,a4,a5,a6,a7,a8,a9"/>
         <gen name="b" type="text" value="b0,b1,b2,b3,b4,b5,b6,b7,b8,b9"/>
         <gen name="c" type="text" value="c0,c1,c2,c3,c4,c5,c6,c7,c8,c9"/>
@@ -180,12 +199,19 @@ describe('--jobs end-to-end (real worker threads)', () => {
     const single = run(1);
     expect(run(4)).toBe(single);
     expect(run(7)).toBe(single); // job count must not change output
-    // Sanity: fixtures present, all rows there, uniq keys distinct.
+    // Sanity: fixtures present, every row there, the counter unbroken across
+    // the boundaries — a worker that started its own count would show here.
     const lines = single.split('\n').filter(Boolean);
     expect(lines[0]).toBe('HEAD');
     expect(lines[lines.length - 1]).toBe('TAIL');
-    const keys = lines.slice(1, -1).map((l) => l.split(',')[2]);
-    expect(new Set(keys).size).toBe(keys.length); // uniq held across the whole file
+    const rows = lines.slice(1, -1);
+    expect(rows).toHaveLength(900);
+    expect(rows.map((l) => l.split(',')[0])).toEqual(
+      Array.from({ length: 900 }, (_, i) => String(i + 1)),
+    );
+    // And the exact 70/30 survives the split, whole-file.
+    const males = rows.filter((l) => l.split(',')[1] === 'M').length;
+    expect(males).toBe(630);
   });
 
   /**

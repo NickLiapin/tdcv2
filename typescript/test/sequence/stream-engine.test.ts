@@ -80,7 +80,9 @@ describe('Engine 2 — mode="stream"', () => {
       </tdc>`;
     expect(() => render(parseStrict(badParentDsl), { now: NOW })).toThrow(/stream mode/i);
 
-    // percent on a uniq column: streaming uniq is UNIFORM-only.
+    // percent on a uniq column. `uniq` of any shape is refused here now (it
+    // rearranges finished columns), which subsumes the older percent-specific
+    // refusal — so the message to look for is the rearrangement, not percent.
     const pctUniqDsl = `
       <tdc>
         <env count="4" seed="s" inject="\${{%}}" mode="stream">
@@ -91,9 +93,9 @@ describe('Engine 2 — mode="stream"', () => {
         </env>
         <block><line><data>\${{P.a}}\${{P.b}}</data></line></block>
       </tdc>`;
-    expect(() => render(parseStrict(pctUniqDsl), { now: NOW })).toThrow(/percent/i);
+    expect(() => render(parseStrict(pctUniqDsl), { now: NOW })).toThrow(/rearrangement/i);
 
-    // env-level <uniq> with percent on a member: uniform-only in stream mode.
+    // env-level <uniq> with percent on a member: the same refusal.
     const pctEnvUniqDsl = `
       <tdc>
         <env count="4" seed="s" inject="\${{%}}" mode="stream">
@@ -104,7 +106,7 @@ describe('Engine 2 — mode="stream"', () => {
         </env>
         <block><line><data>\${{A}}\${{B}}</data></line></block>
       </tdc>`;
-    expect(() => render(parseStrict(pctEnvUniqDsl), { now: NOW })).toThrow(/percent/i);
+    expect(() => render(parseStrict(pctEnvUniqDsl), { now: NOW })).toThrow(/rearrangement/i);
   });
 
   it('the { stream: true } render option (CLI --stream) forces Engine 2', () => {
@@ -192,7 +194,15 @@ describe('Engine 2 — parent-child in stream mode', () => {
 });
 
 /** Engine 2 — uniq (mixed-radix over a Feistel-permuted combination index). */
-describe('Engine 2 — uniq in stream mode', () => {
+/**
+ * `uniq` belongs to the exact engine.
+ *
+ * A group REARRANGES whole columns so each keeps its multiset — a promise about
+ * the finished column. Engine 2 resolves one row at a time and cannot keep it,
+ * so it refuses rather than answer differently; the router sends every uniq to
+ * Engine 3, which is where the guarantees below are met.
+ */
+describe('uniq — refused by the streaming engine, kept by the exact one', () => {
   const seq = `
     <sequence name="P" uniq="true">
       <gen name="a" type="text" value="x,y,z"/>
@@ -200,14 +210,35 @@ describe('Engine 2 — uniq in stream mode', () => {
     </sequence>`;
   const product = new Set(['xm', 'xn', 'ym', 'yn', 'zm', 'zn']);
 
-  it('gives all-distinct tuples — the full product when count = capacity', () => {
-    const dsl = `
-      <tdc>
-        <env count="6" seed="s" inject="\${{%}}" mode="stream">${seq}</env>
-        <block><line><data>\${{P.a}}\${{P.b}}</data></line></block>
-      </tdc>`;
-    const out = render(parseStrict(dsl), { now: NOW });
-    expect(out).toBe(render(parseStrict(dsl), { now: NOW })); // deterministic
+  const compound = (count: number, mode = ''): string => `
+    <tdc>
+      <env count="${String(count)}" seed="s" inject="\${{%}}" ${mode}>${seq}</env>
+      <block><line><data>\${{P.a}}\${{P.b}}</data></line></block>
+    </tdc>`;
+
+  const envGroup = (count: number, mode = ''): string => `
+    <tdc>
+      <env count="${String(count)}" seed="s" inject="\${{%}}" ${mode}>
+        <uniq>
+          <sequence name="A"><gen type="text" value="x,y,z"/></sequence>
+          <sequence name="B"><gen type="text" value="m,n"/></sequence>
+        </uniq>
+      </env>
+      <block><line><data>\${{A}}\${{B}}</data></line></block>
+    </tdc>`;
+
+  it('mode="stream" refuses, and says what to do instead', () => {
+    expect(() => render(parseStrict(compound(6, 'mode="stream"')), { now: NOW })).toThrow(
+      /rearrangement/i,
+    );
+    expect(() => render(parseStrict(envGroup(6, 'mode="stream"')), { now: NOW })).toThrow(
+      /rearrangement/i,
+    );
+  });
+
+  it('the default routing gives all-distinct tuples — the full product when count = capacity', () => {
+    const out = render(parseStrict(compound(6)), { now: NOW });
+    expect(out).toBe(render(parseStrict(compound(6)), { now: NOW })); // deterministic
 
     const lines = out.split('\n').filter(Boolean);
     expect(lines).toHaveLength(6);
@@ -216,57 +247,29 @@ describe('Engine 2 — uniq in stream mode', () => {
   });
 
   it('count < capacity still yields all-distinct tuples', () => {
-    const dsl = `
-      <tdc>
-        <env count="4" seed="s" inject="\${{%}}" mode="stream">${seq}</env>
-        <block><line><data>\${{P.a}}\${{P.b}}</data></line></block>
-      </tdc>`;
-    const lines = render(parseStrict(dsl), { now: NOW }).split('\n').filter(Boolean);
+    const lines = render(parseStrict(compound(4)), { now: NOW })
+      .split('\n')
+      .filter(Boolean);
     expect(lines).toHaveLength(4);
     expect(new Set(lines).size).toBe(4);
     for (const l of lines) expect(product).toContain(l);
   });
 
   it('errors before rendering when count exceeds capacity (infeasible)', () => {
-    const dsl = `
-      <tdc>
-        <env count="7" seed="s" inject="\${{%}}" mode="stream">${seq}</env>
-        <block><line><data>\${{P.a}}\${{P.b}}</data></line></block>
-      </tdc>`;
     // Only 6 distinct combinations exist; 7 unique rows is impossible.
-    expect(() => render(parseStrict(dsl), { now: NOW })).toThrow(/infeasible|combination/i);
+    expect(() => render(parseStrict(compound(7)), { now: NOW })).toThrow(/infeasible|combination/i);
   });
 
   it('env-level <uniq> (Form B) makes the tuple of separate sequences distinct', () => {
-    const dsl = `
-      <tdc>
-        <env count="6" seed="s" inject="\${{%}}" mode="stream">
-          <uniq>
-            <sequence name="A"><gen type="text" value="x,y,z"/></sequence>
-            <sequence name="B"><gen type="text" value="m,n"/></sequence>
-          </uniq>
-        </env>
-        <block><line><data>\${{A}}\${{B}}</data></line></block>
-      </tdc>`;
-    const out = render(parseStrict(dsl), { now: NOW });
-    expect(out).toBe(render(parseStrict(dsl), { now: NOW })); // deterministic
+    const out = render(parseStrict(envGroup(6)), { now: NOW });
+    expect(out).toBe(render(parseStrict(envGroup(6)), { now: NOW })); // deterministic
     const lines = out.split('\n').filter(Boolean);
     expect(lines).toHaveLength(6);
     expect(new Set(lines)).toEqual(product); // exactly the 3×2 product, no repeats
   });
 
   it('env-level <uniq> also errors before rendering when infeasible', () => {
-    const dsl = `
-      <tdc>
-        <env count="7" seed="s" inject="\${{%}}" mode="stream">
-          <uniq>
-            <sequence name="A"><gen type="text" value="x,y,z"/></sequence>
-            <sequence name="B"><gen type="text" value="m,n"/></sequence>
-          </uniq>
-        </env>
-        <block><line><data>\${{A}}\${{B}}</data></line></block>
-      </tdc>`;
-    expect(() => render(parseStrict(dsl), { now: NOW })).toThrow(/infeasible|combination/i);
+    expect(() => render(parseStrict(envGroup(7)), { now: NOW })).toThrow(/infeasible|combination/i);
   });
 });
 

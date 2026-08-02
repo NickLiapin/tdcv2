@@ -145,9 +145,12 @@ describe('compound sequences — ${{Parent.Field}} access', () => {
     expect(countB).toBe(4);
   });
 
-  it('compound fields consume PRNG in declaration order (deterministic)', () => {
-    // Swapping two fields changes the PRNG consumption order, so the
-    // resulting values should differ even with the same seed.
+  it('a field does not depend on where it was declared', () => {
+    // This used to assert the opposite. Engine 1 threaded one PRNG through the
+    // fields in declaration order, so moving a field changed every field after
+    // it — and the streaming engines, which key each field by its own name, did
+    // not agree with any of it. Now both derive a field from `(seed, "P.A",
+    // row)`, so swapping the two declarations moves nothing.
     const DSL_ORDER_1 = `
       <tdc>
         <env count="2" seed="compound-6" inject="\${{%}}">
@@ -168,13 +171,13 @@ describe('compound sequences — ${{Parent.Field}} access', () => {
         </env>
         <block><line><data>\${{P.A}}|\${{P.B}}</data></line></block>
       </tdc>`;
-    // Declaration-order PRNG consumption is an Engine 1 semantic (it draws
-    // sequentially); Engine 2 keys each field's seekable stream independently, so
-    // reordering wouldn't change output. Pin memory to test the Engine-1 rule.
-    const out1 = render(parseStrict(DSL_ORDER_1), { now: FIXED_NOW, mode: 'memory' });
-    const out2 = render(parseStrict(DSL_ORDER_2), { now: FIXED_NOW, mode: 'memory' });
-    // Same seed, different field order → different output.
-    expect(out1).not.toBe(out2);
+    // Checked on every engine: this is a property of the scheme, not of one
+    // implementation of it.
+    for (const mode of ['memory', 'disk'] as const) {
+      const out1 = render(parseStrict(DSL_ORDER_1), { now: FIXED_NOW, mode });
+      const out2 = render(parseStrict(DSL_ORDER_2), { now: FIXED_NOW, mode });
+      expect(out1).toBe(out2);
+    }
   });
 
   it('same seed + same config reproduces byte-for-byte', () => {

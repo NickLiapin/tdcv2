@@ -63,8 +63,10 @@ describe('engine selection', () => {
     expect(render(parseStrict(NORMAL), { now: NOW, stream: true })).toBe(streamOut);
   });
 
-  it('engine 2 refuses percent+uniq; engine 3 does it exactly (marginals + distinct)', () => {
-    expect(() => render(parseStrict(PERCENT_UNIQ), { now: NOW, engine: 2 })).toThrow(/percent/i);
+  it('engine 2 refuses uniq; engine 3 does it exactly (marginals + distinct)', () => {
+    expect(() => render(parseStrict(PERCENT_UNIQ), { now: NOW, engine: 2 })).toThrow(
+      /rearrangement/i,
+    );
     const out = render(parseStrict(PERCENT_UNIQ), { now: NOW, engine: 3 });
     const lines = out.split('\n').filter(Boolean);
     expect(new Set(lines).size).toBe(8); // all rows distinct
@@ -97,19 +99,23 @@ describe('mode="memory|disk" and disk-mode routing', () => {
     ],
   });
 
-  it('needsExactEngine flags only the hard uniq cases', () => {
-    expect(needsExactEngine([compoundUniq(false)], [])).toBe(false); // uniform uniq → Engine 2
-    expect(needsExactEngine([compoundUniq(true)], [])).toBe(true); // percent+uniq → Engine 3
+  it('needsExactEngine flags every uniq, and nothing that merely looks like one', () => {
+    // Any uniq at all: a group rearranges finished columns, which only the
+    // exact engine can do. Weighted or not, parented or not, same answer.
+    expect(needsExactEngine([compoundUniq(false)], [])).toBe(true);
+    expect(needsExactEngine([compoundUniq(true)], [])).toBe(true);
+    expect(needsExactEngine([{ ...compoundUniq(false), parent: 'G.M' }], [])).toBe(true);
+    expect(needsExactEngine([], [['A', 'B']])).toBe(true); // env-level <uniq>
+    // A plain text column is not a uniq and streams fine.
     expect(
       needsExactEngine([{ name: 'G', gen: { type: 'text', attrs: { value: 'M,F' } } }], []),
     ).toBe(false);
-    // parented uniq → Engine 3
-    expect(needsExactEngine([{ ...compoundUniq(false), parent: 'G.M' }], [])).toBe(true);
   });
 
   it('resolveRenderEngine maps memory→1 and routes disk by the config', () => {
     expect(resolveRenderEngine({ mode: 'memory' }, [], [])).toBe(1);
-    expect(resolveRenderEngine({ mode: 'disk' }, [compoundUniq(false)], [])).toBe(2);
+    expect(resolveRenderEngine({ mode: 'disk' }, [], [])).toBe(2);
+    expect(resolveRenderEngine({ mode: 'disk' }, [compoundUniq(false)], [])).toBe(3);
     expect(resolveRenderEngine({ mode: 'disk' }, [compoundUniq(true)], [])).toBe(3);
     expect(resolveRenderEngine({ forced: 2 }, [compoundUniq(true)], [])).toBe(2); // force wins
   });
