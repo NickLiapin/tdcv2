@@ -48,7 +48,7 @@ automatically, because the extension sits in the repository next to
 3. **Important:** installing from a `.vsix` copies the extension into
    `~/.vscode/extensions/`, so the relative path to the server is lost. Set it
    once in the VS Code settings: `Settings → "tdc.server.path"` → the absolute
-   path to `.../tdc-v2/typescript/dist/lsp/server.js`.
+   path to `.../tdcv2/typescript/dist/lsp/server.js`.
 
 ## Highlighting only, without the server
 

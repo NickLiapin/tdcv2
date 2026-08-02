@@ -8,8 +8,8 @@ import { describe, expect, it } from 'vitest';
 import { parseStrict } from '../../src/parser/index.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-// `/Users/.../tdc-v2/typescript/test/parser/fixtures.test.ts` → fixtures at
-// `/Users/.../tdc-v2/fixtures/`
+// `/Users/.../tdcv2/typescript/test/parser/fixtures.test.ts` → fixtures at
+// `/Users/.../tdcv2/fixtures/`
 const fixturesDir = resolve(__dirname, '../..', '..', 'fixtures');
 
 /**

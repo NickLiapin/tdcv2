@@ -14,13 +14,13 @@
   "author": "Nick Liapin",
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/NickLiapin/tdc-v2.git",
+    "url": "git+https://github.com/NickLiapin/tdcv2.git",
     "directory": "typescript"
   },
   "bugs": {
-    "url": "https://github.com/NickLiapin/tdc-v2/issues"
+    "url": "https://github.com/NickLiapin/tdcv2/issues"
   },
-  "homepage": "https://github.com/NickLiapin/tdc-v2#readme",
+  "homepage": "https://nickliapin.github.io/tdcv2/",
   "type": "module",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -31,8 +31,8 @@
     }
   },
   "bin": {
-    "tdcv2": "./dist/cli/main.js",
-    "tdcv2-lsp": "./dist/lsp/server.js"
+    "tdcv2": "dist/cli/main.js",
+    "tdcv2-lsp": "dist/lsp/server.js"
   },
   "files": [
     "dist",

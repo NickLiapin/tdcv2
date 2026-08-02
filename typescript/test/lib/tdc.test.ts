@@ -130,25 +130,25 @@ describe('TDC class', () => {
   });
 
   it('getAt reads one row without materialising the run before it', () => {
-    // Ten million rows. The object path used to build its own in-memory registry
-    // whatever the router said, so this needed some two gigabytes and a minute to
-    // hand back a single record; through the routed engine it is one row's work.
-    // The ceiling is generous on purpose — this is asserting a change of order,
-    // not a stopwatch reading.
-    const DSL = `<tdc><env count="10000000" seed="wide" local="en">
+    // A million rows, one record read. The object path used to build its own
+    // in-memory registry whatever the router said, which cost about 200 MB here
+    // and two gigabytes at ten million; through the routed engine it is one row's
+    // work. Heap rather than a stopwatch: the difference is three orders of
+    // magnitude either way, and a busy machine cannot make memory look small.
+    const DSL = `<tdc><env count="1000000" seed="wide" local="en">
       <sequence name="Id"><gen type="increment" value="1"/></sequence>
       <sequence name="Age"><gen type="number" value="18..80"/></sequence>
     </env><block><line><data>\${{Id}},\${{Age}}</data></line></block></tdc>`;
     const tdc = new TDC({ configString: DSL, now: FIXED_NOW });
 
-    const started = Date.now();
-    const last = tdc.getAt(9_999_999);
-    expect(Date.now() - started).toBeLessThan(2000);
+    const before = process.memoryUsage().heapUsed;
+    const last = tdc.getAt(999_999);
+    const grewMB = (process.memoryUsage().heapUsed - before) / 1024 / 1024;
 
-    expect(last['Id']).toBe('10000000');
-    // The row is the run's, not a fresh draw: the same index asked twice, and
-    // asked through iterate(), has to agree.
-    expect(tdc.getAt(9_999_999)).toEqual(last);
+    expect(last['Id']).toBe('1000000');
+    expect(grewMB).toBeLessThan(64);
+    // The row is the run's, not a fresh draw: the same index asked twice agrees.
+    expect(tdc.getAt(999_999)).toEqual(last);
   });
 
   it('the object rows follow the engine the router picked', () => {

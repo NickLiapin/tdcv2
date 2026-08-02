@@ -7,7 +7,7 @@
   "author": "Nick Liapin",
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/NickLiapin/tdc-v2.git"
+    "url": "git+https://github.com/NickLiapin/tdcv2.git"
   },
   "workspaces": [
     "typescript"

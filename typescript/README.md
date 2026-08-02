@@ -1,16 +1,67 @@
-# TDC — TypeScript Implementation
+# TDC — The Data Constructor
 
-## Quick start
+> Declarative test-data generator: deterministic, exact proportions, any text
+> format you can describe.
 
-**You need:** **Node.js 20 or newer**. Nothing else.
+You write a short config saying **what** the data is and **how** it should look.
+TDC produces it — as CSV, JSON, SQL, YAML, Markdown, or a format nobody has named
+yet, because the layout is something you spell out rather than something you pick
+off a list.
+
+Three things separate it from a faker.
+
+**It repeats.** The same config and the same seed produce byte-identical output —
+today, next year, on your laptop and on CI. A failing test that depends on
+generated data can be re-run and will fail the same way.
+
+**The proportions are exact, not approximate.** Ask for 30% cancelled orders over
+a thousand rows and you get three hundred, not "about three hundred". The shares
+are apportioned over the whole run and then scattered across it, so the count is
+right and the arrangement still looks like data.
+
+**Records hold together.** A child sequence can be declared against a slice of its
+parent — a distribution that applies only to the rows where the customer is a
+company, say — so the record is coherent rather than a row of independently
+plausible columns.
+
+One more, for the curious: you can hand it an SVG or PNG curve and TDC will use
+the shape as the probability distribution.
+
+## Documentation
+
+📖 **[nickliapin.github.io/tdcv2](https://nickliapin.github.io/tdcv2/docs/intro)**
+— every implemented feature, with search and working examples, in
+[English](https://nickliapin.github.io/tdcv2/docs/intro),
+[Русский](https://nickliapin.github.io/tdcv2/ru/docs/intro) and
+[Español](https://nickliapin.github.io/tdcv2/es/docs/intro).
+
+Source, issues and the other four implementations:
+**[github.com/NickLiapin/tdcv2](https://github.com/NickLiapin/tdcv2)**.
+
+## One config, five implementations
+
+This package is the TypeScript **reference implementation**, and the one that also
+carries the CLI and the language server. The same config runs in Python, Java, C#
+and Rust and produces the same bytes — not "the same kind of data", the same
+bytes. A shared fixture suite holds all five to it on every change: 130 configs
+rendered byte for byte, plus the diagnostics each one reports, the command-line
+contract, and the Parquet output down to the file header. A config written
+against one implementation is a config that runs on any of them.
+
+Use it when the data has to be reproducible across a team, a language boundary, or
+a year.
+
+## Install
 
 ```bash
-cd typescript
-npm install
-npm run build
+npm install -D tdcv2
 ```
 
-Then write a config and run it:
+The `tdcv2` command comes with it, and so does a starter set of data — the
+`common`, `en` and USA packs — which is enough for names, addresses, companies and
+identifiers out of the box.
+
+## A first config
 
 ```xml title="demo.tdc"
 <tdc>
@@ -23,11 +74,8 @@ Then write a config and run it:
 ```
 
 ```bash
-node dist/cli/main.js demo.tdc
+npx tdcv2 demo.tdc
 ```
-
-`npm link` puts it on the PATH as `tdcv2`, after which it is just
-`tdcv2 demo.tdc`.
 
 ```
 1,Williams
@@ -35,41 +83,32 @@ node dist/cli/main.js demo.tdc
 3,Smith
 ```
 
-The same three names, every time, in every implementation — that is the whole
-point of the `seed`.
+The same three names, every time, in every implementation — that is what the
+`seed` buys.
 
 ### Data packs
 
-A pack is the _data_ — the name lists, cities, streets and locale rules that
-`type="template"` draws from. A starter set ships with the code: `common`, `en`
-and the USA country pack, which is what the example above uses. Everything else
-is downloaded on demand:
+A pack is the _data_: the name lists, cities, streets and locale rules that
+`type="template"` draws from. The starter set ships with the package; everything
+else is downloaded when you ask for it.
 
 ```bash
-tdcv2 init                 # write a tdcv2.config.json, once per project
-tdcv2 pack list            # what the registry has
-tdcv2 pack add ru france   # download and wire up
+npx tdcv2 init                 # write a tdcv2.config.json, once per project
+npx tdcv2 pack list            # what the registry has
+npx tdcv2 pack add ru france   # download and wire up
 ```
 
 One registry, one `tdcv2.config.json`, one store, shared by all five
 implementations: a pack installed from here is a pack the others find. The full
-story is in [the data-packs guide](../docs/data-packs/installing-packs.md).
+story is in
+[the data-packs guide](https://nickliapin.github.io/tdcv2/docs/data-packs/installing-packs).
 
-This is the **reference implementation** of TDC, and the one that also carries
-the CLI and the language server. Every design decision is settled here first and
-then ported to Python, Java, C# and Rust, which are held to it by the shared
-fixtures in [`fixtures/cross-language/`](../fixtures/cross-language/README.md).
-
-## Current capabilities
-
-The parser, sequence engine, text renderer, validator, CLI, and `TDC` facade are
-working for the currently documented v0.1.0 feature set. Canonical fixtures in
-`/fixtures/*.xml` render byte-identically to their expected outputs.
+## Using it from code
 
 ### Library API
 
 ```typescript
-import { TDC, tdcv2 } from 'tdcv2';
+import { TDC } from 'tdcv2';
 
 const config = `
 <tdc version="0.1">
@@ -88,38 +127,28 @@ const config = `
 
 const dataset = new TDC({ configString: config });
 
-dataset.toString(); // text output from <block>/<line>/<data>
+dataset.toString(); // "1,Female,1116\n2,Male,2111\n3,Male,1968\n"
 dataset.writeFile('./out.csv');
 dataset.toStream().pipe(fs.createWriteStream('./out.csv'));
-dataset.preflight({ output: 'streaming' }); // estimate large streaming runs
-dataset.toArray(); // object rows from <sequence> declarations
 
+// The rows as objects, ignoring the <block>/<line> layout.
+dataset.toArray(); // [{ Gender: 'Female', Code: '1116' }, …]
 for (const row of dataset.iterate()) {
-  console.log(row.Gender);
+  console.log(row['Gender']);
 }
-
-dataset.getAt(0);
+dataset.getAt(0); // { Gender: 'Female', Code: '1116' }
 ```
 
-For direct one-off values without a DSL document:
+`getAt` reads a single record without building the ones before it, so asking for
+row nine million of a ten-million-row run costs one row's work.
+
+`preflight()` returns a diagnostic when a run looks too large for the way you are
+about to produce it, and `undefined` when it does not — worth checking before a
+big one:
 
 ```typescript
-tdc.gen.woman.firstName();
-tdc.gen.person.firstName({ sex: 'female', locale: 'ru' });
-tdc.gen.num('0-1200');
-tdc.gen.internet.email({ mode: 'safe' });
-
-const seeded = tdc.createGen({ seed: 'unit-test' });
-seeded.id.uuid();
-
-const rowGen = seeded.forRecord('users', 42);
-rowGen.id.uuid();
-rowGen.person.firstName({ sex: 'female' });
-rowGen.finance.iban({ country: 'DE' });
-rowGen.payment.cardPan({ brand: 'visa' });
-rowGen.security.otp({ length: 6 });
-rowGen.docs.us.ssn({ format: 'formatted' });
-rowGen.tax.ru.innPerson({ tax_office: '5001' });
+const warning = dataset.preflight({ output: 'streaming' });
+if (warning) console.warn(warning.message);
 ```
 
 ### CLI
@@ -167,90 +196,56 @@ try {
 }
 ```
 
-## Stack
+## Working on the repository
 
-- **Runtime:** Node.js 20+
-- **Language:** TypeScript 5.6 (strict mode)
-- **Parser:** ANTLR4 via `antlr-ng` (generator) + `antlr4ng` (runtime). Grammar
-  at `../grammar/TDCLexer.g4` and `../grammar/TDCParser.g4`. Generated
-  TypeScript lives in `src/generated/` (gitignored, regenerated
-  deterministically by `npm run generate`).
-- **Test framework:** Vitest 2.1
-- **Linter / formatter:** ESLint 9 (flat config, strictTypeChecked) + Prettier 3.3
-- **Build:** `tsc` with `tsconfig.build.json`
-- **Git hooks:** Husky + lint-staged (configured at repo root)
+Everything above is what the package gives you. This part is for a checkout of
+[the repository](https://github.com/NickLiapin/tdcv2).
 
-## Directory structure
-
-```
-typescript/
-├── src/
-│   ├── generated/           ANTLR-generated parser (gitignored)
-│   ├── parser/              Parser wrappers, error types, error listener
-│   │   ├── parse.ts         Public parse() and parseStrict()
-│   │   ├── errors.ts        TdcParseError, ParserDiagnostic
-│   │   ├── error-listener.ts  ANTLR BaseErrorListener → diagnostic collector
-│   │   └── index.ts         Module public surface
-│   └── index.ts             Package entry point
-├── test/
-│   ├── smoke.test.ts        Package-level smoke
-│   └── parser/
-│       ├── basic.test.ts    Parser unit tests
-│       └── fixtures.test.ts Regression on all /fixtures/*.xml
-├── package.json
-├── tsconfig.json
-├── tsconfig.build.json
-├── eslint.config.mjs
-├── .prettierrc.json
-├── vitest.config.ts
-└── README.md (this file)
+```bash
+git clone https://github.com/NickLiapin/tdcv2.git
+cd tdcv2/typescript
+npm ci
+npm test
 ```
 
-## npm scripts
+The parser is generated from the grammar the five implementations share, so
+`npm test` and `npm run build` regenerate it first — there is no separate step to
+remember. `npm run check` is the gate CI uses: lint, types, the whole suite, the
+shared fixtures, the documented examples, and a coverage floor.
 
-| Script                  | What it does                                                     |
-| ----------------------- | ---------------------------------------------------------------- |
-| `npm run generate`      | Generate parser + lexer TypeScript from `../grammar/*.g4`        |
-| `npm run build`         | Regenerate + compile to `dist/` via `tsc -p tsconfig.build.json` |
-| `npm test`              | Regenerate + run Vitest once                                     |
-| `npm run test:watch`    | Vitest watch mode                                                |
-| `npm run test:coverage` | Run tests with v8 coverage report                                |
-| `npm run typecheck`     | Regenerate + `tsc --noEmit`                                      |
-| `npm run lint`          | ESLint over source and tests                                     |
-| `npm run lint:fix`      | ESLint with --fix                                                |
-| `npm run format`        | Prettier over everything                                         |
-| `npm run format:check`  | Prettier check only                                              |
-| `npm run check`         | lint + typecheck + test (all of the above)                       |
-| `npm run clean`         | Remove dist, coverage, generated                                 |
+| Script                  | What it does                                        |
+| ----------------------- | --------------------------------------------------- |
+| `npm run build`         | Regenerate the parser, compile to `dist/`           |
+| `npm test`              | Regenerate, then run the suite once                 |
+| `npm run test:watch`    | The suite, in watch mode                            |
+| `npm run test:coverage` | The suite with a coverage report                    |
+| `npm run typecheck`     | Types only, no emit                                 |
+| `npm run lint`          | ESLint over source and tests (`lint:fix` to repair) |
+| `npm run format`        | Prettier (`format:check` to check only)             |
+| `npm run check`         | All of the above, plus the fixtures — what CI runs  |
+| `npm run clean`         | Remove `dist`, coverage and the generated parser    |
 
-## Roadmap
+`node ../scripts/five-ways.mjs` runs all five implementations against the shared
+fixtures at once, which is the check that matters when the engine changes.
 
-- Finish v1.0 DSL gaps that are still intentionally deferred (`uniq`, data packs,
-  editor support, release examples).
-- Keep regression fixtures byte-identical as the TypeScript reference evolves.
-- Port the stabilized runtime to Python and Java in later major phases.
+**Built on:** Node.js 20+, TypeScript 5.6 in strict mode, ANTLR4 (`antlr-ng` to
+generate, `antlr4ng` at runtime) over
+[`grammar/`](https://github.com/NickLiapin/tdcv2/tree/main/grammar), Vitest,
+ESLint 9 and Prettier. The PRNG, the Parquet writer, the Snappy encoder and the
+date arithmetic are written here rather than pulled in, because no dependency's
+choice of rounding or compression is allowed to change the bytes.
 
-See the project’s internal notes for the
-complete plan.
+## Links
 
-## Principles
+- [Documentation](https://nickliapin.github.io/tdcv2/docs/intro) — every
+  implemented feature ([ru](https://nickliapin.github.io/tdcv2/ru/docs/intro) ·
+  [es](https://nickliapin.github.io/tdcv2/es/docs/intro))
+- [Every tag the DSL accepts](https://nickliapin.github.io/tdcv2/docs/reference/tags)
+- [The library API](https://nickliapin.github.io/tdcv2/docs/bindings/typescript)
+- [Streaming large outputs](https://nickliapin.github.io/tdcv2/docs/guides/large-outputs)
+- [Repository and issues](https://github.com/NickLiapin/tdcv2)
+- [Security policy](https://github.com/NickLiapin/tdcv2/blob/main/SECURITY.md)
 
-This implementation strictly follows the project-wide rules in
-the project’s internal notes:
+## License
 
-- No source file over 1000 lines (ESLint `max-lines` enforced)
-- Every feature has tests; min 80% coverage on core modules
-- TypeScript strict mode, no `any` without justification
-- Conventional Commits
-- Husky pre-commit: Prettier + ESLint + gitleaks secret scan
-- CI (GitHub Actions) on every push and PR across Node 20.x and 22.x
-- Bit-identical determinism — once Python and Java versions arrive, they must
-  produce identical output on all fixtures
-
-## References
-
-- [../docs/reference/tags.md](../docs/reference/tags.md) — every tag the DSL accepts
-- [../docs/bindings/](../docs/bindings/) — how one config runs in three languages
-- [../docs/bindings/typescript.md](../docs/bindings/typescript.md) — the library API
-- [../docs/ru/](../docs/ru/) — the Russian documentation
-- [../docs/guides/large-outputs.md](../docs/guides/large-outputs.md) — streaming large outputs
+MIT © Nick Liapin

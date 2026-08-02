@@ -93,7 +93,7 @@ ejecución sin seed no es reproducible, que casi nunca es lo que se quería.
 
 ## Requisitos
 
-.NET **6.0** o posterior. En el [README de C#](https://github.com/NickLiapin/tdc-v2/tree/main/csharp)
+.NET **6.0** o posterior. En el [README de C#](https://github.com/NickLiapin/tdcv2/tree/main/csharp)
 están los lugares donde .NET exigió cuidado y la JVM no —desbordamiento, desplazamientos,
 orden de bytes, mayúsculas y datos de locale—, cada uno de los cuales habría cambiado los
 bytes.

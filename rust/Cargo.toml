@@ -5,7 +5,7 @@ edition = "2021"
 rust-version = "1.74"
 description = "TDC — The Data Constructor. Deterministic test data from a declarative config."
 license = "MIT"
-repository = "https://github.com/NickLiapin/tdc-v2"
+repository = "https://github.com/NickLiapin/tdcv2"
 keywords = ["test-data", "synthetic-data", "data-generation", "deterministic"]
 categories = ["development-tools::testing"]
 

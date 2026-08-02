@@ -58,7 +58,7 @@ Data paths also come from tdcv2.config.json (nearest one up from the current
 directory) and the global config — { "dataPaths": [...], "locale": ".." }.
 Order of priority: --data-path > project config > global config > bundled packs.
 
-See https://github.com/NickLiapin/tdc-v2 for the DSL reference.
+See https://github.com/NickLiapin/tdcv2 for the DSL reference.
 
 "#;
 

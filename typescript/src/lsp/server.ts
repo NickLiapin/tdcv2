@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 /**
  * TDC language server entry — the `tdcv2-lsp` bin.
  *
