@@ -55,6 +55,13 @@ jobs:
           fi
           echo "version $declared"
 
+      - name: Generate the parser
+        # `csharp/Tdcv2/Generated/` is not in the repository — it is produced from
+        # the shared grammar, so a checkout has to make it before anything
+        # compiles. The dry run found this: every local build had it lying around
+        # from an earlier `five-ways` run, and a clean clone does not.
+        run: node scripts/generate-parsers.mjs --only csharp
+
       - name: The package must work outside the repository
         # The whole reason this check exists: the .nupkg shipped with 0 data files
         # once, and every one of the 777 tests passed, because every test runs
