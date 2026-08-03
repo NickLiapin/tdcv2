@@ -1683,11 +1683,11 @@ public final class StreamEngine {
     }
     if (!cycle && index >= list.size()) {
       throw new IllegalStateException(
-          "order=\"sequential\" cycle=\"false\": only "
+          "order=\"sequential\" cycle=\"false\": the source has only "
               + list.size()
-              + " values for "
+              + " values, so row "
               + (index + 1)
-              + " rows");
+              + " has none — shorten count= or lengthen the source");
     }
     return list.get(index % list.size());
   }

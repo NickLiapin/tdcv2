@@ -2608,8 +2608,8 @@ public static class MemoryEngine
         if (!cycle && index >= list.Count)
         {
             throw new InvalidOperationException(
-                $"order=\"sequential\" cycle=\"false\": only {list.Count} values for "
-                + $"{index + 1} rows");
+                $"order=\"sequential\" cycle=\"false\": the source has only {list.Count} "
+                + $"values, so row {index + 1} has none — shorten count= or lengthen the source");
         }
 
         return list[index % list.Count];

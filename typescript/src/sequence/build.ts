@@ -1003,8 +1003,13 @@ export function sequentialList(gen: GenSpec, dataSources: DataSourceOptions): st
 export function pickSequential(list: readonly string[], index: number, cycle: boolean): string {
   if (list.length === 0) return '';
   if (!cycle && index >= list.length) {
+    // Say which ROW ran out, not how many rows were asked for: the streaming path
+    // resolves one row at a time and does not know the run's size here. The old
+    // wording read "only 4 values for 5 rows" on a config that said count="6",
+    // so the one number a reader would take to their config was the wrong one.
     throw new Error(
-      `order="sequential" cycle="false": only ${String(list.length)} values for ${String(index + 1)} rows`,
+      `order="sequential" cycle="false": the source has only ${String(list.length)} values, ` +
+        `so row ${String(index + 1)} has none — shorten count= or lengthen the source`,
     );
   }
   return list[index % list.length] ?? '';

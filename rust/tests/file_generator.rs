@@ -95,7 +95,7 @@ fn running_off_the_end_without_cycling_is_an_error_not_a_blank() {
         )
         .expect_err("six rows cannot come from four values");
         assert!(
-            message.contains("only 4 values for 5 rows"),
+            message.contains("only 4 values, so row 5 has none"),
             "engine {engine}: {message}"
         );
     }

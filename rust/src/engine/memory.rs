@@ -2589,7 +2589,8 @@ pub(super) fn pick_sequential(list: &[String], i: usize, cycle: bool) -> EngineR
     }
     if !cycle && i >= list.len() {
         return invalid(&format!(
-            "order=\"sequential\" cycle=\"false\": only {} values for {} rows",
+            "order=\"sequential\" cycle=\"false\": the source has only {} values, so row {} \
+             has none — shorten count= or lengthen the source",
             list.len(),
             i + 1
         ));

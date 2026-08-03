@@ -1551,7 +1551,8 @@ def _pick_sequential(values: list[str], index: int, cycle: bool) -> str:
         return ""
     if not cycle and index >= len(values):
         raise EngineError(
-            f'order="sequential" cycle="false": only {len(values)} values for {index + 1} rows'
+            f'order="sequential" cycle="false": the source has only {len(values)} values, '
+            f"so row {index + 1} has none — shorten count= or lengthen the source"
         )
     return values[index % len(values)]
 

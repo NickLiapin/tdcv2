@@ -62,6 +62,6 @@ class OrderSequentialTest {
                     .toString());
     // The reference's wording, and its arithmetic: three values, and the fourth row is where it
     // ran out.
-    assertTrue(e.getMessage().contains("only 3 values for 4 rows"), e.getMessage());
+    assertTrue(e.getMessage().contains("only 3 values, so row 4 has none"), e.getMessage());
   }
 }

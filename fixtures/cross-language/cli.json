@@ -34,7 +34,8 @@
     "fileByNumber": "<tdc>\n  <env count=\"5\" seed=\"cli-file\" local=\"en\">\n    <sequence name=\"C\"><gen type=\"file\" src=\"people.csv\" column=\"2\" header=\"true\"/></sequence>\n  </env>\n  <block><line><data>${{C}}</data></line></block>\n</tdc>\n",
     "fileRowLink": "<tdc>\n  <env count=\"5\" seed=\"cli-file\" local=\"en\">\n    <sequence name=\"N\"><gen type=\"file\" src=\"people.csv\" column=\"name\" row=\"P\"/></sequence>\n    <sequence name=\"C\"><gen type=\"file\" src=\"people.csv\" column=\"city\" row=\"P\"/></sequence>\n    <sequence name=\"K\"><gen type=\"file\" src=\"people.csv\" column=\"code\" row=\"P\"/></sequence>\n  </env>\n  <block><line><data>${{N}},${{C}},${{K}}</data></line></block>\n</tdc>\n",
     "fileTabbed": "<tdc>\n  <env count=\"4\" seed=\"cli-file\" local=\"en\">\n    <sequence name=\"C\"><gen type=\"file\" src=\"tabbed.tsv\" column=\"city\" delimiter=\"\\t\"/></sequence>\n  </env>\n  <block><line><data>${{C}}</data></line></block>\n</tdc>\n",
-    "fileBadColumn": "<tdc>\n  <env count=\"2\" seed=\"cli-file\" local=\"en\">\n    <sequence name=\"N\"><gen type=\"file\" src=\"people.csv\" column=\"nosuchcolumn\"/></sequence>\n  </env>\n  <block><line><data>${{N}}</data></line></block>\n</tdc>\n"
+    "fileBadColumn": "<tdc>\n  <env count=\"2\" seed=\"cli-file\" local=\"en\">\n    <sequence name=\"N\"><gen type=\"file\" src=\"people.csv\" column=\"nosuchcolumn\"/></sequence>\n  </env>\n  <block><line><data>${{N}}</data></line></block>\n</tdc>\n",
+    "fileNoCycle": "<tdc>\n  <env count=\"5\" seed=\"cli-file\" local=\"en\">\n    <sequence name=\"N\"><gen type=\"file\" src=\"three.txt\" order=\"sequential\" cycle=\"false\"/></sequence>\n  </env>\n  <block><line><data>${{N}}</data></line></block>\n</tdc>\n"
   },
   "cases": [
     {
@@ -970,6 +971,16 @@
       "argv": ["{dir}/a.tdc"],
       "exit": 1,
       "stderrContains": ["error[TDC062]", "nosuchcolumn"]
+    },
+    {
+      "name": "sequential past the end of the source, with cycling off",
+      "files": {
+        "a.tdc": "@fileNoCycle",
+        "three.txt": "one\ntwo\nthree\n"
+      },
+      "argv": ["{dir}/a.tdc"],
+      "exit": 1,
+      "stderrContains": ["only 3 values", "row 4 has none"]
     }
   ],
   "gaps": {
