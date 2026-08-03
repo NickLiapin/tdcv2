@@ -68,6 +68,18 @@ public final class Quick {
   public static final Set<String> RESERVED_ROOT_NAMES =
       Set.of("gen", "seed", "locale", "lang", "country");
 
+  /**
+   * Words the API answers to at EVERY level of an address, so no segment anywhere may be called one
+   * of them. There is exactly one, and a test holds the bundled packs to it.
+   *
+   * <p>Nothing in THIS implementation would break: Java spells an address as a string, so a segment
+   * called {@code many} reaches the data like any other. The packs are shared, though, and in
+   * TypeScript, Python and C# the same segment is a member name that the proxy answers to itself —
+   * {@code tdc.person.many} would draw values rather than walk into the category. The set lives in
+   * all five so that the pack that would break the other three is refused where it is added.
+   */
+  public static final Set<String> RESERVED_PATH_NAMES = Set.of("many");
+
   private static final class Cursor {
     private int batch;
     private Iterator<TDC.Row> rows;
@@ -92,6 +104,18 @@ public final class Quick {
     byte[] bytes = new byte[8];
     new SecureRandom().nextBytes(bytes);
     return new Quick(HexFormat.of().formatHex(bytes), null);
+  }
+
+  /**
+   * The API under a chosen seed, straight away.
+   *
+   * <p>{@code Quick.tdc().seed("demo")} reaches the same place, but only after drawing eight bytes
+   * from a {@link SecureRandom} that the next call discards. Named {@code seeded} rather than
+   * {@code seed} because a static and an instance method cannot share a signature; Rust spells this
+   * {@code Quick::seeded} for the same reason.
+   */
+  public static Quick seeded(String value) {
+    return new Quick(value, null);
   }
 
   /** The same API under a chosen seed. */
@@ -138,9 +162,25 @@ public final class Quick {
     return draw(type, new LinkedHashMap<>(attrs), 1).get(0);
   }
 
+  /**
+   * One value from an engine generator named by its main value alone.
+   *
+   * <p>{@code gen("number", "20..30")} for {@code gen("number", Map.of("value", "20..30"))}, which
+   * is what nearly every call wants — {@code value} is the one attribute most generators have.
+   * TypeScript, Python and C# all read a bare string the same way.
+   */
+  public String gen(String type, String value) {
+    return gen(type, Map.of("value", value));
+  }
+
   /** Several values from one engine generator, continuing the same stream. */
   public List<String> genMany(String type, Map<String, String> attrs, int count) {
     return draw(type, new LinkedHashMap<>(attrs), count);
+  }
+
+  /** Several values from one engine generator named by its main value alone. */
+  public List<String> genMany(String type, String value, int count) {
+    return genMany(type, Map.of("value", value), count);
   }
 
   /**
@@ -211,10 +251,16 @@ public final class Quick {
 
     String missing = uninstalledPack(address, known);
     if (missing != null) {
+      // The command as a JAVA user can run it. Maven puts nothing on the PATH, so the `tdcv2`
+      // the other four implementations name does not exist here until someone aliases it — and
+      // advice that cannot be typed is advice that sends the reader to the README instead. The
+      // aliased spelling stays in the sentence because it is the form the docs and the other
+      // four messages use, and because every implementation's test looks for it.
       return new TdcQuickException(
           "the \"" + missing + "\" pack is not installed, so \"" + address
-              + "\" cannot be drawn. Install it with `tdcv2 pack add " + missing
-              + "` (run `tdcv2 init` once first, to say where packs go).");
+              + "\" cannot be drawn. Install it with `java -jar tdcv2-cli.jar pack add " + missing
+              + "` — or `tdcv2 pack add " + missing + "` if you have aliased the CLI jar — after"
+              + " `java -jar tdcv2-cli.jar init` once, to say where packs go.");
     }
     if (known.contains(address) || known.contains(activeLocale + "." + address)) {
       return error;

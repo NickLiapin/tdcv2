@@ -139,6 +139,9 @@ class QuickTest {
     String message = caught.getMessage();
     assertTrue(message.contains("\"af\" pack is not installed"), message);
     assertTrue(message.contains("tdcv2 pack add af"), message);
+    // Maven puts no `tdcv2` on the PATH, so the advice also has to appear in a form a Java user
+    // can type. The line above is the spelling the other four share and every port asserts.
+    assertTrue(message.contains("java -jar tdcv2-cli.jar pack add af"), message);
     assertFalse(message.contains("Did you mean"), message);
   }
 
@@ -164,6 +167,55 @@ class QuickTest {
       }
       assertFalse(roots.contains(reserved), reserved);
     }
+
+    // And the ones reserved at EVERY level, which is where the shared packs matter most: a
+    // segment called `many` reads fine through Java's string addresses and is unreachable in
+    // TypeScript, Python and C#, where it is the method that draws several values.
+    Set<String> segments = new HashSet<>();
+    for (String address : addresses) {
+      segments.addAll(List.of(address.split("\\.")));
+    }
+    for (String reserved : Quick.RESERVED_PATH_NAMES) {
+      assertFalse(segments.contains(reserved), reserved);
+    }
+  }
+
+  @Test
+  @DisplayName("a pack parameter reaches the generator behind the address")
+  void aPackParameterReachesTheGenerator() {
+    // `common.internet.email` declares a `domain` sequence in its body, and a caller may
+    // override it. The parameter-carrying overloads existed here with nothing holding them:
+    // dropping `params` on the floor would have passed every other test in this file.
+    String one =
+        Quick.seeded("p").locale("en").get("common.internet.email", Map.of("domain", "example.test"));
+    assertTrue(one.endsWith("@example.test"), one);
+
+    List<String> several =
+        Quick.seeded("p")
+            .locale("en")
+            .many("common.internet.email", 3, Map.of("domain", "example.test"));
+    assertEquals(3, several.size());
+    for (String email : several) {
+      assertTrue(email.endsWith("@example.test"), email);
+    }
+  }
+
+  @Test
+  @DisplayName("seeded() is the seed without the throwaway random one")
+  void seededIsAStaticEntryPoint() {
+    assertEquals(
+        Quick.tdc().seed("demo").locale("en").get("person.lastName"),
+        Quick.seeded("demo").locale("en").get("person.lastName"));
+  }
+
+  @Test
+  @DisplayName("a bare string is the value attribute")
+  void aBareStringIsTheValue() {
+    assertEquals(
+        Quick.seeded("demo").gen("number", Map.of("value", "18..80")),
+        Quick.seeded("demo").gen("number", "18..80"));
+    assertEquals(
+        List.of("332", "591", "349", "665"), Quick.seeded("x").genMany("number", "1..1000", 4));
   }
 
   /**

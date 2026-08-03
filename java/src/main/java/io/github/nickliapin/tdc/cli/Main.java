@@ -35,7 +35,15 @@ public final class Main {
 
   private Main() {}
 
-  public static final String VERSION = "0.1.0";
+  /**
+   * The version, taken from the build rather than written down a second time.
+   *
+   * <p>A constant maintained by hand is a number that agrees with itself and with nothing else: a
+   * release bumped the build's version and left this one behind, so {@code tdcv2 --version}
+   * reported a number no artefact ever carried. {@code BuildInfo} is generated from that one
+   * declaration, so the two can no longer disagree.
+   */
+  public static final String VERSION = BuildInfo.VERSION;
 
   private static final String HELP =
       """
@@ -54,8 +62,9 @@ public final class Main {
         --count <n>              Override the count declared in <env>
         --locale <loc>           Override the default locale (default: en)
         --data-path <dir>        Add a data folder for @data/... sources (repeatable)
-        --jobs <n>               Worker threads for a large streaming run. By default TDC
-                                 uses one per core bar one; the count never changes the
+        --jobs <n>               Worker threads for a large streaming run. Needs -o:
+                                 stdout is written by one thread. By default TDC uses
+                                 one per core bar one; the count never changes the
                                  output, only how long it takes.
         --mode <memory|disk>     Advanced. disk (default): bounded memory, scales to
                                  any size — TDC picks the streaming or exact engine
@@ -180,6 +189,16 @@ public final class Main {
         // safe to pick from the hardware, unlike the engine, which follows from the config.
         data.writeFile(Path.of(options.output()), options.jobs() == null ? 0 : options.jobs());
       } else {
+        // A worker owns a RANGE of rows and writes it at a known offset in the file. stdout has
+        // no offsets — it is one stream, in order — so there is nothing for a second worker to
+        // write into. Say so: a flag accepted and quietly dropped teaches the user that they
+        // asked for threads and got them, and they will believe the timing they measure.
+        //
+        // Only for an explicit number ABOVE one, the way the reference does it: `--jobs 1` asks
+        // for the single thread stdout already uses, and has therefore lost nothing.
+        if (options.jobs() != null && options.jobs() > 1) {
+          note("--jobs needs -o and is ignored writing to stdout — running single-threaded.");
+        }
         System.out.print(data);
       }
     } catch (RuntimeException e) {
