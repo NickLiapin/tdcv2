@@ -14,6 +14,7 @@ one implementation and not the other is exactly the divergence this file is mean
 
 from __future__ import annotations
 
+import math
 import re
 from pathlib import Path
 from urllib.parse import urlparse
@@ -33,6 +34,7 @@ from ..generators import file as file_gen
 from ..generators import regex
 from ..output import column_type
 from ..packs import DataPacks
+from ..parser import paired_data
 from ..stats import distribution as dist
 from . import checks
 from .compute_check import ComputeCheck
@@ -242,9 +244,12 @@ class _Validator:
         "locale",
         "packs",
         "pending_expressions",
+        "pending_pool_filters",
+        "pool_field_values",
         "pool_fields",
         "pool_member_nodes",
         "pool_references",
+        "pools_read",
         "repeating_names",
         "valueless_names",
     )
@@ -260,6 +265,10 @@ class _Validator:
         self.declared_order: list[str] = []
         # Field names per <pool>, and the sequences that draw a whole member from one.
         self.pool_fields: dict[str, list[str]] = {}
+        # Of those fields, the ones whose value list the config writes down, and which pools any
+        # reference names at all — TDC225 and TDC231.
+        self.pool_field_values: dict[str, dict[str, list[str]]] = {}
+        self.pools_read: set[str] = set()
         self.pool_references: set[str] = set()
         # Names declared at the TOP level, which is what a filter= may compare against. A pool's
         # members are its own columns and share no namespace with the run's, so a pool holding an
@@ -279,6 +288,10 @@ class _Validator:
         # an each= line are in scope. The names cannot be checked as the walk passes: an
         # expression may name a sequence declared BELOW it, and the run resolves that happily.
         self.pending_expressions: list[tuple[int, str, int, int, bool]] = []
+        # Every filter= seen, held back for the same reason: the column it compares against may
+        # be declared BELOW the reference, and the run resolves that happily.
+        # (at, expression, pool, field, other, line, column)
+        self.pending_pool_filters: list[tuple[int, str, str, str, str, int, int]] = []
 
     def _roots(self) -> list[Path]:
         """The folders a file source may name. Absent packs mean none were configured."""
@@ -322,6 +335,13 @@ class _Validator:
             self._check_env(env)
         if block is not None:
             self._check_block(block)
+
+        # Two second passes, pools before expressions. Both splice their complaints back at the
+        # position the attribute was found, so the report still reads top to bottom; running the
+        # pool pass first is what makes the two independent — an expression's recorded position
+        # is relative to the walk, and re-splicing it after another pass has inserted would need
+        # that pass's shifts as well.
+        self._run_pending_pool_filters()
 
         # Now that every name is known, the expressions can be checked — and each complaint goes
         # back where its attribute was, so the report stays in source order.
@@ -671,6 +691,80 @@ class _Validator:
                 _column(gen),
             )
 
+        # `field == Something` — the one filter shape a check can decide, recognised the same way
+        # the engine's fast path recognises it, by looking at the text rather than a parsed tree,
+        # so what the reader sees and what is checked are the same thing.
+        parts = expression.split("==")
+        if len(parts) != 2:
+            return
+        left, right = parts[0].strip(), parts[1].strip()
+        if not _PLAIN_NAME.fullmatch(left) or not _PLAIN_NAME.fullmatch(right):
+            return
+        left_is_field, right_is_field = left in fields, right in fields
+        # Both sides a field compares the candidate with itself, which is a different mistake.
+        if left_is_field == right_is_field:
+            return
+        field, other = (left, right) if left_is_field else (right, left)
+        self.pending_pool_filters.append(
+            (
+                len(self.diagnostics),
+                expression.strip(),
+                pool_name,
+                field,
+                other,
+                _line(gen),
+                _column(gen),
+            )
+        )
+
+    def _run_pending_pool_filters(self) -> None:
+        """The put-aside filters, decided now that every column is known.
+
+        What can be said before a single value exists: the member's field and the other side of
+        the ``==`` each draw from a set the config writes down, and when those two sets do not
+        overlap the filter can never match — not on some row, on every row. The run already
+        refuses that, on row one, after building the pool; saying it at check time costs nothing
+        and names both lists.
+
+        Only DISJOINT sets are reported. A value that is merely rare is a refusal waiting for the
+        row that draws it, and reporting it here would also refuse ``percent="100,0"``, which
+        never draws that value at all. The run-time message names the value that matched nobody,
+        which is the honest place to say it.
+        """
+        pending, self.pending_pool_filters = self.pending_pool_filters, []
+        shift = 0
+        for at_index, expression, pool_name, field, other, line, column in pending:
+            field_values = self.pool_field_values.get(pool_name, {}).get(field)
+            if not field_values:
+                continue
+            # A name no sequence has is a bare word, and the expression language reads a bare word
+            # as its own text — that is how filter="clinic == North" says "northern only". So it
+            # is a set of exactly one value.
+            is_column = other in self.declared_names
+            other_values = self.finite_values.get(other) if is_column else [other]
+            if not other_values:
+                continue
+            if any(value in field_values for value in other_values):
+                continue
+            listed = ", ".join(field_values)
+            produced = f'"{other}" produces: {", ".join(other_values)}. ' if is_column else ""
+            diagnostic = Diagnostic.error(
+                "TDC225",
+                (
+                    f'filter="{expression}" can never match — no value "{other}" produces is a '
+                    f'"{field}" any member of pool "{pool_name}" could hold'
+                    if is_column
+                    else f'filter="{expression}" can never match — no member of pool '
+                    f'"{pool_name}" holds "{field}" = "{other}"'
+                ),
+                f'"{field}" is drawn from: {listed}. {produced}A filter narrows the members '
+                "a row may draw from, and every row would be left with none.",
+                line,
+                column,
+            )
+            self.diagnostics.insert(at_index + shift, diagnostic)
+            shift += 1
+
     def _collect_pool_fields(self, env) -> None:
         """Field names per pool, gathered before the members are walked.
 
@@ -701,6 +795,79 @@ class _Validator:
                             continue
                         self._add_member_fields(fields, wrapped)
             self.pool_fields[name] = fields
+
+    def _collect_pool_field_values(self, env) -> None:
+        """The values each pool field can hold, where the config says them outright.
+
+        A member whose body is one unnamed ``<gen type="text" value="A,B">`` produces nothing but
+        ``A`` and ``B``, so the set recorded here is a SUPERSET of what the built pool will hold —
+        a pool of two members drawn from three values holds at most two of them. That direction is
+        what TDC225 needs: a value outside the superset can match no member, whatever the draw.
+        """
+        self.pool_field_values = {}
+        for child in _elements(env):
+            open_el = child.openCloseElement()
+            if open_el is None or open_el.name.text != "pool":
+                continue
+            name = _attrs(open_el.attr()).get("name")
+            if not name:
+                continue
+            fields: dict[str, list[str]] = {}
+            for member in _pool_member_nodes(open_el):
+                field = _attrs(member.attr()).get("name")
+                if not field:
+                    continue
+                values = _literal_text_values(member)
+                if values is not None:
+                    fields[field] = values
+            self.pool_field_values[name] = fields
+
+    def _collect_pool_references(self, env) -> None:
+        """Every pool named by a ``<gen type="pool" value="…">``, anywhere under ``<env>``.
+
+        Collected in one descent rather than tallied during the walk, because a reference may
+        stand above the pool it names and TDC231 has to know about it by the time that pool is
+        reached.
+        """
+        self.pools_read = set()
+
+        def descend(node) -> None:
+            for child in _elements(node):
+                gen = child.selfClosingElement() or child.openCloseElement()
+                if gen is None:
+                    continue
+                if gen.name.text == "gen":
+                    attrs = _attrs(gen.attr())
+                    if attrs.get("type") == "pool":
+                        self.pools_read.add((attrs.get("value") or "").strip())
+                    continue
+                if child.openCloseElement() is not None:
+                    descend(gen)
+
+        descend(env)
+
+    def _check_pool_is_read(self, pool) -> None:
+        """A pool nobody draws from.
+
+        A warning rather than an error, on the same reasoning as TDC234: the config runs, and
+        every row is exactly what it would have been. What it costs is the build — a pool is
+        computed in full before the first row and held in memory for the whole run — so an unread
+        ``count="50000"`` is paid for and thrown away. It is also the shape a rename leaves
+        behind, where the reference points at a new pool and the old one sits there looking
+        deliberate.
+        """
+        name = _attrs(pool.attr()).get("name")
+        if name is None or not name.strip() or name in self.pools_read:
+            return
+        self._warn(
+            "TDC231",
+            f'pool "{name}" is never drawn from',
+            "A pool is built in full before the first row and kept in memory for the whole run, "
+            "so an unread one costs its members for nothing. Read it with "
+            f'<gen type="pool" value="{name}"/>, or remove it.',
+            _line(pool),
+            _column(pool),
+        )
 
     def _add_member_fields(self, fields: list[str], node) -> None:
         """What one member contributes to its pool's field list.
@@ -846,6 +1013,8 @@ class _Validator:
         """
         out = []
         self._collect_pool_fields(env)
+        self._collect_pool_field_values(env)
+        self._collect_pool_references(env)
         pools_above: list[str] = []
         for child in _elements(env):
             open_el = child.openCloseElement()
@@ -876,6 +1045,7 @@ class _Validator:
                     )
                 elif declared_pool:
                     pools_above.append(declared_pool)
+                self._check_pool_is_read(open_el)
                 # A pool's members are ITS columns, not the run's: they must see each other while
                 # the pool is walked and be gone afterwards, or a pool holding an `id` collides
                 # with the run's own `id` over a clash that does not exist.
@@ -1145,7 +1315,7 @@ class _Validator:
         composes = False
         for child in _elements(open_el):
             data = child.dataElement()
-            if data is not None and _has_body(data) and data.dataContent().getText().strip():
+            if data is not None and _has_body(data) and _data_text(data).strip():
                 composes = True
                 break
         if gens and len(field_names) == len(gens) and not composes and name is not None:
@@ -1449,6 +1619,7 @@ class _Validator:
         self._check_counter(gen, attrs, type_)
         self._check_date_templates(gen, attrs, type_)
         self._check_case_and_order(gen, attrs)
+        self._check_imperfections(gen, attrs, type_)
 
         if type_ == "text" and attrs.get("percent") is not None:
             line, column = _at(gen, "percent")
@@ -1544,6 +1715,21 @@ class _Validator:
         million-row job has already cost whatever the job cost.
         """
         if type_ not in ("file", "pattern"):
+            return
+        # `src=` is one of three ways to hand a drawing a shape, so its absence is only a mistake
+        # when the other two are absent too — the drawing equivalent of a regex with no pattern,
+        # which TDC095 and TDC128 have always caught before the run.
+        if type_ == "pattern" and not any(
+            (attrs.get(key) or "").strip() for key in ("points", "src", "upper")
+        ):
+            self._error(
+                "TDC244",
+                '<gen type="pattern"> has nothing to draw from',
+                'Give it a shape: points="0,0 1,5 2,3", src="curve.svg" (or a PNG), or '
+                'upper="…" with an optional lower="…" for a band.',
+                _line(gen),
+                _column(gen),
+            )
             return
         src = attrs.get("src")
         if src is None or not src.strip():
@@ -2248,6 +2434,56 @@ class _Validator:
                 column,
             )
 
+    def _check_imperfections(self, gen, attrs: dict[str, str], type_: str | None) -> None:
+        """``missing="p"`` and ``anomaly="p"``: a probability, and something to spend it on.
+
+        Both were parsed only where they are used, deep in the sequence builder, so ``check``
+        called a config valid and the run then stopped on ``anomaly="10x"``. A check that passes
+        what the very next command refuses is worse than no check. The generator keeps its own
+        parse as a backstop, for callers who build a gen through the library without validating.
+
+        The second half is a request that would be honoured and still do nothing. An anomaly
+        multiplies the selected value by ``anomaly_factor``, so a ``value=`` list with no number
+        anywhere in it has nothing to perturb and ten rows come back ordinary with no sign that
+        30% of them were meant to be outliers. Only a ``type="text"`` list is judged: it is the
+        only source whose whole candidate set is written in the config.
+        """
+        for key in ("anomaly", "missing"):
+            raw = attrs.get(key)
+            if raw is None or not raw.strip() or _is_probability(raw):
+                continue
+            line, column = _at(gen, key)
+            self._error(
+                "TDC242",
+                f'{key}="{raw}" is not a probability — it must be a number in [0, 1]',
+                'It is the share of values turned into outliers: anomaly="0.05" spikes one '
+                "value in twenty."
+                if key == "anomaly"
+                else 'It is the share of values blanked: missing="0.1" empties one value in ten.',
+                line,
+                column,
+            )
+
+        raw = attrs.get("anomaly")
+        if raw is None or not _is_probability(raw) or float(raw) == 0.0:
+            return
+        if type_ != "text":
+            return
+        listed = attrs.get("value")
+        if listed is None or not listed.strip():
+            return
+        if any(_is_number(v.strip()) for v in listed.split(",")):
+            return
+        line, column = _at(gen, "anomaly")
+        self._error(
+            "TDC243",
+            f'anomaly="{raw}" has nothing to perturb — no value in "{listed}" is a number',
+            "An anomaly multiplies a numeric value by anomaly_factor, so a list of words comes "
+            "back unchanged. Put the anomaly on a numeric generator, or drop it.",
+            line,
+            column,
+        )
+
     def _check_case_and_order(self, gen, attrs: dict[str, str]) -> None:
         """``case=`` and ``order=`` take one of a short list, and nothing else."""
         transform = attrs.get("case")
@@ -2504,7 +2740,7 @@ class _Validator:
                 # The <data> element, not the <line> around it: several <data> pieces can share a
                 # line, and pointing at the line would name the wrong one whenever they do.
                 self._check_interpolation(
-                    data.dataContent().getText(), data.start.line, data.start.column
+                    _data_text(data), data.start.line, data.start.column
                 )
                 condition = _attrs(data.attr()).get("if")
                 if condition is not None:
@@ -2896,6 +3132,11 @@ def _has_body(data) -> bool:
     return callable(content) and content() is not None
 
 
+def _data_text(data) -> str:
+    """A ``<data>`` body as the user wrote it — the paired-tag pre-pass left a sentinel in it."""
+    return paired_data.restore(data.dataContent().getText())
+
+
 def _line(element) -> int:
     return element.start.line
 
@@ -2913,6 +3154,37 @@ def _find(parent, name: str):
         if open_el is not None and open_el.name.text == name:
             return open_el
     return None
+
+
+_PLAIN_NAME = re.compile(r"[A-Za-z_][A-Za-z0-9_]*")
+
+
+def _literal_text_values(member) -> list[str] | None:
+    """The literal ``value=`` list of a member whose body is a single plain text gen."""
+    gens = []
+    for child in _elements(member):
+        gen = child.selfClosingElement() or child.openCloseElement()
+        if gen is not None and gen.name.text == "gen":
+            gens.append(gen)
+    if len(gens) != 1:
+        return None
+    attrs = _attrs(gens[0].attr())
+    if "name" in attrs:
+        return None
+    return _finite_text_values(attrs)
+
+
+def _is_number(raw: str) -> bool:
+    """True when the text is a finite number — the same test the generators apply."""
+    try:
+        return math.isfinite(float(raw))
+    except ValueError:
+        return False
+
+
+def _is_probability(raw: str) -> bool:
+    """True when the text is a probability the generators will accept."""
+    return _is_number(raw) and 0.0 <= float(raw) <= 1.0
 
 
 def _finite_text_values(attrs: dict[str, str]) -> list[str] | None:

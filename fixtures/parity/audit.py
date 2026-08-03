@@ -80,8 +80,32 @@ CORPUS: dict[str, str] = {
     "http/no-url": sequence('<gen type="http"/>'),
     "http/unusable-url": sequence('<gen type="http" url="notaurl"/>'),
     "pattern/nothing-to-draw": sequence('<gen type="pattern"/>'),
+    "anomaly/not-a-probability": sequence('<gen type="text" value="a,b,c" anomaly="10x"/>'),
+    "missing/probability-above-one": sequence('<gen type="number" value="1..9" missing="2"/>'),
+    "anomaly/nothing-numeric-to-perturb": sequence(
+        '<gen type="text" value="alpha,beta,gamma" anomaly="0.3"/>'
+    ),
+    # pools
+    "pool/nobody-draws-from-it": envelope(
+        '  <pool name="D" count="3"><sequence name="c">'
+        '<gen type="text" value="A,B"/></sequence></pool>',
+        data="x",
+    ),
+    "pool/filter-that-can-never-match": envelope(
+        '  <pool name="D" count="3"><sequence name="c">'
+        '<gen type="text" value="A,B"/></sequence></pool>\n'
+        '  <sequence name="R"><gen type="pool" value="D" filter="c == North"/></sequence>',
+        data="${{R.c}}",
+    ),
     # structure
-    "structure/no-env": "<tdc><block><line><data>x</data></line></block></tdc>\n",
+    # Was "structure/no-env", which reported nothing in all five and was right to: a config
+    # with no <env> runs on the default count and a random seed, so there was nothing to
+    # report and the entry claimed a mistake that is not one. The missing ROOT is, and had
+    # no entry.
+    "structure/no-tdc-root": (
+        '<env count="3" seed="a"><sequence name="X">'
+        '<gen type="text" value="a"/></sequence></env>\n'
+    ),
     "structure/no-block": '<tdc><env count="3" seed="a"/></tdc>\n',
     "structure/duplicate-name": envelope(
         '  <sequence name="X"><gen type="text" value="a"/></sequence>\n'
@@ -101,9 +125,13 @@ CORPUS: dict[str, str] = {
     "structure/unknown-sequence-attribute": envelope(
         '  <sequence name="X" nonsense="1"><gen type="text" value="a"/></sequence>'
     ),
+    # A locale is not a closed list — it is whichever packs are installed — so `local="zzz"`
+    # on a config that consults no pack is not a mistake anyone can name, and the entry used
+    # to sit at (none) claiming otherwise. Where the locale IS consulted the check exists and
+    # is precise: the address is real, this locale does not ship it.
     "structure/unknown-locale": (
         '<tdc><env count="3" seed="a" local="zzz"><sequence name="X">'
-        '<gen type="text" value="a"/></sequence></env>'
+        '<gen type="template" value="person.lastName"/></sequence></env>'
         "<block><line><data>${{X}}</data></line></block></tdc>\n"
     ),
     # constructs
@@ -122,7 +150,10 @@ CORPUS: dict[str, str] = {
         '<gen type="text" value="a"/></sequence></env>'
         '<block><line if="X ??? 1"><data>${{X}}</data></line></block></tdc>\n'
     ),
-    "mask/not-a-mask": sequence('<gen type="text" value="abc" mask="qqq"/>'),
+    # `mask="qqq"` is a perfectly good mask of three literal characters, and the column it
+    # makes is a visible constant rather than a silent no-op — the entry named a mistake the
+    # grammar does not have. A malformed INDEX is the one thing a mask is checked for.
+    "mask/not-a-mask": sequence('<gen type="text" value="abc" mask="x[1-2]"/>'),
     "interpolation/unknown-filter": envelope(
         '  <sequence name="X"><gen type="text" value="a"/></sequence>', data="${{X|nosuchfilter}}"
     ),

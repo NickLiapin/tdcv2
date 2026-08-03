@@ -30,6 +30,7 @@ from dataclasses import dataclass, field
 
 from antlr4 import CommonTokenStream, InputStream
 
+from ..parser import paired_data
 from ..parser.generated.TDCLexer import TDCLexer
 from ..parser.generated.TDCParser import TDCParser
 
@@ -60,7 +61,8 @@ class _Context:
 
 def format_tdc(source: str) -> str:
     """A formatted config, or the source unchanged when it does not parse."""
-    lexer = TDCLexer(InputStream(source))
+    normalized, paired_problems = paired_data.preprocess(source)
+    lexer = TDCLexer(InputStream(normalized))
     lexer.removeErrorListeners()
     tokens = CommonTokenStream(lexer)
     parser = TDCParser(tokens)
@@ -86,7 +88,7 @@ def format_tdc(source: str) -> str:
     parser.addErrorListener(listener)
 
     tree = parser.document()
-    if problems:
+    if problems or paired_problems:
         return source
 
     tokens.fill()
@@ -214,7 +216,7 @@ def _data_string(node) -> str:
         return f"<data{attrs}/>"
     pair = _attr_map(node).get("pair")
     close = f'</data pair="{pair}">' if pair is not None else "</data>"
-    return f"<data{attrs}>{content.getText()}{close}"
+    return f"<data{attrs}>{paired_data.restore(content.getText())}{close}"
 
 
 # ── <map> ───────────────────────────────────────────────────────────────────────────────────

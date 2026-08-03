@@ -32,6 +32,7 @@ pub struct Options {
     pub seed: Option<String>,
     pub count: Option<i32>,
     pub locale: Option<String>,
+    pub now: Option<i64>,
     pub data_paths: Vec<String>,
     pub jobs: Option<i32>,
     pub mode: Option<String>,
@@ -46,6 +47,7 @@ const VALUED: &[&str] = &[
     "--seed",
     "--count",
     "--locale",
+    "--now",
     "--data-path",
     "--jobs",
     "--mode",
@@ -116,6 +118,7 @@ fn store(result: &mut Options, name: &str, value: &str) -> Result<(), UsageError
         "--output" => result.output = Some(value.to_string()),
         "--seed" => result.seed = Some(value.to_string()),
         "--locale" => result.locale = Some(value.to_string()),
+        "--now" => result.now = Some(now_millis(value)?),
         "--data-path" => result.data_paths.push(value.to_string()),
         "--count" => result.count = Some(non_negative(value, "--count")?),
         "--jobs" => result.jobs = Some(positive(value, "--jobs")?),
@@ -143,6 +146,23 @@ fn store(result: &mut Options, name: &str, value: &str) -> Result<(), UsageError
         _ => return usage(format!("unknown option: {name}")),
     }
     Ok(())
+}
+
+/// The clock `--now` pins, in milliseconds since the epoch.
+///
+/// The syntax is the date generator's own — whatever `<gen type="date" value="…">`
+/// accepts is what this accepts, down to the same parser — so the project has one
+/// date syntax rather than two. It carries no zone, so like every date in the
+/// engine it is read as UTC. A value that does not parse is refused rather than
+/// falling back to the real clock, which would hand back the very
+/// irreproducibility the flag exists to remove.
+fn now_millis(value: &str) -> Result<i64, UsageError> {
+    match crate::date::parse::date_time(value) {
+        Ok(parsed) => Ok(crate::date::to_epoch_millis(parsed.value)),
+        Err(_) => usage(format!(
+            "invalid --now \"{value}\" — expected YYYY-MM-DD or YYYY-MM-DDTHH:mm:ss (UTC)"
+        )),
+    }
 }
 
 fn non_negative(value: &str, flag: &str) -> Result<i32, UsageError> {

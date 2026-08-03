@@ -106,8 +106,8 @@ Mujer    40`}
 
 ## Una secuencia compuesta por valor
 
-**Úsala cuando** un valor se arma a partir de varios: un nombre completo a partir del
-nombre, un espacio y el apellido. Deja los `<gen>` **sin nombre** y pon el texto literal
+**Úsela cuando** un valor se arma a partir de varios: un nombre completo a partir del
+nombre, un espacio y el apellido. Deje los `<gen>` **sin nombre** y ponga el texto literal
 entre ellos:
 
 ```xml
@@ -310,7 +310,7 @@ Los campos de una secuencia compuesta se materializan **en orden de declaración
 `<gen>` consume el [PRNG](determinism.mdx) de forma independiente. Eso tiene una
 consecuencia que vale la pena recordar:
 
-**Intercambiar dos etiquetas `<gen name="…">` cambia la salida con el mismo seed.** El
+**Intercambiar dos etiquetas `<gen name="…">` cambia la salida con la misma semilla.** El
 primer campo drena una porción distinta del flujo aleatorio que antes, así que todos los
 campos que vienen después se desplazan.
 
@@ -328,8 +328,8 @@ campos que vienen después se desplazan.
 ```
 
 Si necesita una salida reproducible byte por byte entre ejecuciones, **fije el orden de
-los campos una vez y no reordene** los generadores después de haberse comprometido con un
-seed. Hay más sobre lo que el seed sí garantiza y lo que no en
+los campos una vez y no reordene** los generadores después de haberse comprometido con una
+semilla. Hay más sobre lo que la semilla sí garantiza y lo que no en
 [Determinismo y proporciones](determinism.mdx).
 
 ## Fuentes de valores relacionadas

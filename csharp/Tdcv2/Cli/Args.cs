@@ -1,4 +1,5 @@
 using System.Globalization;
+using Tdcv2.Date;
 
 namespace Tdcv2.Cli;
 
@@ -30,7 +31,7 @@ public static class Args
 
     /// <summary>What the command line asked for, before anything has been read or run.</summary>
     public sealed record Options(
-        string? Input, string? Output, string? Seed, int? Count, string? Locale,
+        string? Input, string? Output, string? Seed, int? Count, string? Locale, long? Now,
         IReadOnlyList<string> DataPaths, int? Jobs, string? Mode, int? Engine, bool Help,
         bool Version);
 
@@ -42,6 +43,7 @@ public static class Args
         internal string? Seed;
         internal int? Count;
         internal string? Locale;
+        internal long? Now;
         internal readonly List<string> DataPaths = new();
         internal int? Jobs;
         internal string? Mode;
@@ -50,7 +52,7 @@ public static class Args
         internal bool Version;
 
         internal Options Build() => new(
-            Input, Output, Seed, Count, Locale, DataPaths, Jobs, Mode, Engine, Help, Version);
+            Input, Output, Seed, Count, Locale, Now, DataPaths, Jobs, Mode, Engine, Help, Version);
     }
 
     /// <summary>The generate command's arguments. Throws <see cref="UsageException"/> with the message to print.</summary>
@@ -125,8 +127,8 @@ public static class Args
     }
 
     private static bool IsValued(string name) => name is
-        "--output" or "--seed" or "--count" or "--locale" or "--data-path" or "--jobs" or "--mode"
-        or "--engine";
+        "--output" or "--seed" or "--count" or "--locale" or "--now" or "--data-path" or "--jobs"
+        or "--mode" or "--engine";
 
     private static void Store(Builder result, string name, string value)
     {
@@ -140,6 +142,9 @@ public static class Args
                 return;
             case "--locale":
                 result.Locale = value;
+                return;
+            case "--now":
+                result.Now = NowMillis(value);
                 return;
             case "--data-path":
                 result.DataPaths.Add(value);
@@ -171,6 +176,28 @@ public static class Args
                 return;
             default:
                 throw new UsageException("unknown option: " + name);
+        }
+    }
+
+    /// <summary>The clock <c>--now</c> pins, in milliseconds since the epoch.</summary>
+    /// <remarks>
+    /// The syntax is the date generator's own — whatever <c>&lt;gen type="date" value="…"&gt;</c>
+    /// accepts is what this accepts, down to the same parser — so the project has one date syntax
+    /// rather than two. It carries no zone, so like every date in the engine it is read as UTC. A
+    /// value that does not parse is refused rather than falling back to the real clock, which would
+    /// hand back the very irreproducibility the flag exists to remove.
+    /// </remarks>
+    private static long NowMillis(string value)
+    {
+        try
+        {
+            // Fully qualified: System.Globalization is in scope here and also has a Calendar.
+            return Tdcv2.Date.Calendar.ToEpochMillis(DateParse.DateTime(value).Value);
+        }
+        catch (ArgumentException)
+        {
+            throw new UsageException(
+                $"invalid --now \"{value}\" — expected YYYY-MM-DD or YYYY-MM-DDTHH:mm:ss (UTC)");
         }
     }
 

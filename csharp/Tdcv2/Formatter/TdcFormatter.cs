@@ -57,7 +57,8 @@ public static class TdcFormatter
     /// <summary>A formatted config, or the source unchanged when it does not parse.</summary>
     public static string Format(string source)
     {
-        var lexer = new TDCLexer(CharStreams.fromString(source));
+        PairedData.Rewrite rewritten = PairedData.Preprocess(source);
+        var lexer = new TDCLexer(CharStreams.fromString(rewritten.Source));
         var tokens = new CommonTokenStream(lexer);
         var parser = new TDCParser(tokens);
 
@@ -69,7 +70,7 @@ public static class TdcFormatter
         parser.AddErrorListener(listener);
 
         TDCParser.DocumentContext tree = parser.document();
-        if (problems.Count > 0)
+        if (problems.Count > 0 || rewritten.Problems.Count > 0)
         {
             return source;
         }
@@ -266,7 +267,8 @@ public static class TdcFormatter
         string close = map.TryGetValue("pair", out string? pair)
             ? "</data pair=\"" + pair + "\">"
             : "</data>";
-        return "<data" + attrs + ">" + body.dataContent().GetText() + close;
+        return "<data" + attrs + ">"
+            + PairedData.Restore(body.dataContent().GetText()) + close;
     }
 
     private static TDCParser.AttrContext[] EmptyAttrs(TDCParser.DataElementContext node) =>

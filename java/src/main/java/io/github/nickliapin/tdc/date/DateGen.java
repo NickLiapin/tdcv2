@@ -181,11 +181,16 @@ public final class DateGen {
           loc);
     }
 
-    // Nothing specified at all: the epoch up to right now.
-    return rangeOf(
-        DateParse.dateTime(DEFAULT_START),
-        new DateParse.Parsed(Calendar.fromEpochMillis(nowMillis), true),
+    // Nothing specified at all: the epoch up to right now. The upper bound carries a time, but the
+    // fallback precision is still whole days — an unbounded generator answers with a date, not a
+    // timestamp at 03:47. Routing this through rangeOf let hasTime pick MILLISECOND, and a
+    // millisecond draw lands a day away from the reference's day draw often enough to fail.
+    return range(
+        DateParse.dateTime(DEFAULT_START).value(),
+        Calendar.fromEpochMillis(nowMillis),
         attrs,
+        true,
+        Precision.DAY,
         format,
         loc);
   }

@@ -39,11 +39,12 @@ note: Declare it in <env>, or set a different inject= pattern if you really want
 Validation runs before generation, so a config with errors produces no data at all rather
 than half a file. Almost every diagnostic here is an **error** and stops the run: if the
 config asked for something it wouldn't actually get, TDC refuses rather than handing back
-data that looks right but isn't. The exceptions are six **warnings** that let the run finish: `TDC136` (a malformed
+data that looks right but isn't. The exceptions are seven **warnings** that let the run finish: `TDC136` (a malformed
 `<map>` row is skipped and the valid rows still apply), `TDC171` (a pack file whose header
 puts it at no address), `TDC200` (a memory estimate that is large but still fits),
 `TDC216` (an expression that is always true or always false), `TDC221` (a `<uniq>` or
-`<distinct>` group with one member, which constrains nothing) and `TDC234` (a pool over
+`<distinct>` group with one member, which constrains nothing), `TDC231` (a `<pool>` nothing
+reads) and `TDC234` (a pool over
 100,000 members). Each says as much in its row below.
 
 The numbers run roughly in the order a config is checked — structure first, then
@@ -122,6 +123,7 @@ classification. Use the groups below.
 | `TDC128` | `type="advanced_regex"` without `value`                                                             | The pattern goes in `value`                                                                                                                                                     |
 | `TDC128` | _(second meaning)_ `default=` or `if=` written on a `<case>`                                        | A `<mix>` picks its case by percentage and a `<switch>` by the `is` key — neither asks a condition. For condition-driven values use a `<sequence>` with `<gen if="…">` branches |
 | `TDC130` | The advanced pattern doesn't parse                                                                  | See [Advanced regex](../generators/advanced-regex.md#top)                                                                                                                          |
+| `TDC244` | `type="pattern"` with no `points`, `src` or `upper`                                                 | A drawing needs a shape to read: `points="0,0 1,5 2,3"`, a file in `src`, or `upper`/`lower` for a band                                                                         |
 
 ## Expressions in `if`
 
@@ -143,19 +145,39 @@ classification. Use the groups below.
 
 See [Coherent records](../pools/overview.md#top).
 
-| Code     | Fires when                                                           | Fix                                                                                                                                                                                    |
-| :------- | :------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `TDC222` | A `<pool>` with no `name`, or with no `count`                        | A pool is read by name and holds a fixed number of members: `<pool name="Doctors" count="30">`                                                                                         |
-| `TDC223` | A `<pool count="…">` that is not a whole number of at least 1        | A pool of nothing has no member to hand out                                                                                                                                            |
-| `TDC224` | `<gen type="pool" value="X">` where no `<pool name="X">` is declared | The message lists the declared pools. Declare it in the same `<env>`                                                                                                                   |
-| `TDC226` | `filter=` reads `Pool.field` and the pool has no such field          | The message lists the pool's fields. An **unqualified** unknown name is left alone — the expression language reads a bare word as a literal                                            |
-| `TDC229` | `${{Ref}}` where `Ref` draws a whole member                          | A member is a record, not a value. Read a field: `${{Ref.lastName}}`                                                                                                                   |
-| `TDC230` | A `<block>`, a fixture tag, or another `<pool>` inside a `<pool>`    | A pool is a table other columns read, not something written to a file, and pools do not nest                                                                                           |
-| `TDC232` | A name in `filter=` that is both a field of the pool and a sequence  | Rename one of them. Qualifying one side does not help — the other name still reads as the member's field, so the test compares a value with itself                                     |
-| `TDC234` | _(warning)_ Over 100,000 members                                     | A pool stays in memory for the whole run — about 320 bytes a member with four fields. If you meant the number of ROWS, that is `count` on `<env>`                                      |
-| `TDC235` | Over 1,000,000 members                                               | Same cause, past the point where it is worth running. Reduce the pool, or move the number to `<env count="…">`                                                                         |
-| `TDC236` | A pool reads a pool declared below it, or itself                     | Pools are built in declaration order, so a pool can only read the pools above it. Move the one it reads up. That order is also why a cycle between pools cannot be written down        |
-| `TDC241` | Two pools declared under one name                                    | A pool is reached by name, so two cannot share one. The second used to replace the first in silence, and the only sign was a `TDC193` in the block about a field that "does not exist" |
+| Code     | Fires when                                                              | Fix                                                                                                                                                                                                                                                       |
+| :------- | :---------------------------------------------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `TDC222` | A `<pool>` with no `name`, or with no `count`                           | A pool is read by name and holds a fixed number of members: `<pool name="Doctors" count="30">`                                                                                                                                                            |
+| `TDC223` | A `<pool count="…">` that is not a whole number of at least 1           | A pool of nothing has no member to hand out                                                                                                                                                                                                               |
+| `TDC224` | `<gen type="pool" value="X">` where no `<pool name="X">` is declared    | The message lists the declared pools. Declare it in the same `<env>`                                                                                                                                                                                      |
+| `TDC225` | `filter="field == X"` where the two sides can never hold a common value | Both lists are written in the config, and they do not meet — so every row is narrowed to no member at all. The message names both. Only a certain contradiction is reported here; a value that merely comes up rarely is refused at the row that draws it |
+| `TDC226` | `filter=` reads `Pool.field` and the pool has no such field             | The message lists the pool's fields. An **unqualified** unknown name is left alone — the expression language reads a bare word as a literal                                                                                                               |
+| `TDC229` | `${{Ref}}` where `Ref` draws a whole member                             | A member is a record, not a value. Read a field: `${{Ref.lastName}}`                                                                                                                                                                                      |
+| `TDC230` | A `<block>`, a fixture tag, or another `<pool>` inside a `<pool>`       | A pool is a table other columns read, not something written to a file, and pools do not nest                                                                                                                                                              |
+| `TDC231` | _(warning)_ A `<pool>` no `<gen type="pool">` reads                     | It is built in full before the first row and kept in memory for the whole run, so an unread one is paid for and thrown away. Read it, or remove it                                                                                                        |
+| `TDC232` | A name in `filter=` that is both a field of the pool and a sequence     | Rename one of them. Qualifying one side does not help — the other name still reads as the member's field, so the test compares a value with itself                                                                                                        |
+| `TDC234` | _(warning)_ Over 100,000 members                                        | A pool stays in memory for the whole run — about 320 bytes a member with four fields. If you meant the number of ROWS, that is `count` on `<env>`                                                                                                         |
+| `TDC235` | Over 1,000,000 members                                                  | Same cause, past the point where it is worth running. Reduce the pool, or move the number to `<env count="…">`                                                                                                                                            |
+| `TDC236` | A pool reads a pool declared below it, or itself                        | Pools are built in declaration order, so a pool can only read the pools above it. Move the one it reads up. That order is also why a cycle between pools cannot be written down                                                                           |
+| `TDC241` | Two pools declared under one name                                       | A pool is reached by name, so two cannot share one. The second used to replace the first in silence, and the only sign was a `TDC193` in the block about a field that "does not exist"                                                                    |
+
+Three numbers in this range were reserved while pools were being designed and will
+stay unused, so the gaps are declared rather than silent:
+
+- **`TDC227`** — `filter=` naming a column that does not exist. A bare word in the
+  expression language has always been a string literal, and that is what
+  `filter="clinic == North"` uses to say "northern only". A typo and a literal are
+  the same thing written down, so the check would put an error on working configs.
+  Where the literal is a certain mistake — no member could ever hold that value —
+  `TDC225` says so instead, without guessing.
+- **`TDC228`** — `${{Pool.field}}` addressing a pool without going through a
+  reference. `TDC193` already reports it as a name that resolves to nothing, and a
+  second code for the same sentence is not worth the number.
+- **`TDC233`** — no candidate passed `filter=` on row N, for expressions richer
+  than a simple equality. That refusal happens and is worth having; it just is not
+  a diagnostic code. It compares against a value that only exists once the row is
+  being built, so it belongs to the run, and the run's message names the row and
+  the value that matched nobody.
 
 ## Running totals
 
@@ -249,6 +271,8 @@ but the combination it asks for can't be carried out.
 | `TDC211` | `weight` is used on a generator other than `file`                | Weights come from a CSV column                                           |
 | `TDC212` | `weight` without `column`                                        | The weights live in a second column, which has to be named               |
 | `TDC213` | `weight` is combined with `order`                                | `order` walks the rows by position; weighting picks them by frequency    |
+| `TDC242` | `anomaly` or `missing` isn't a number in `[0, 1]`                | Both are a SHARE of the values: `anomaly="0.05"`, `missing="0.1"`        |
+| `TDC243` | `anomaly` on a `value` list with no number in it                 | An anomaly multiplies a number, so a list of words comes back unchanged  |
 
 ## See also
 

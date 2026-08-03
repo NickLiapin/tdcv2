@@ -349,7 +349,8 @@ public static class ConfigBuilder
         {
             if (child.dataElement() is TDCParser.DataWithBodyContext body)
             {
-                parts.Add(new CasePart(body.dataContent().GetText(), null, null));
+                parts.Add(new CasePart(
+                    PairedData.Restore(body.dataContent().GetText()), null, null));
                 continue;
             }
 
@@ -488,7 +489,7 @@ public static class ConfigBuilder
             if (child.dataElement() is TDCParser.DataWithBodyContext data)
             {
                 sawData = true;
-                string text = data.dataContent().GetText();
+                string text = PairedData.Restore(data.dataContent().GetText());
                 string? constantName = Attributes(data.attr()).GetValueOrDefault("name");
                 if (!string.IsNullOrEmpty(constantName))
                 {
@@ -643,7 +644,7 @@ public static class ConfigBuilder
                 {
                     IReadOnlyDictionary<string, string> dataAttrs = Attributes(body.attr());
                     parts.Add(new DataPart(
-                        body.dataContent().GetText(),
+                        PairedData.Restore(body.dataContent().GetText()),
                         dataAttrs.GetValueOrDefault("if"),
                         dataAttrs.GetValueOrDefault("name"),
                         dataAttrs.GetValueOrDefault("type")));
@@ -736,7 +737,7 @@ public static class ConfigBuilder
 
             if (child.dataElement() is TDCParser.DataWithBodyContext withBody)
             {
-                output = withBody.dataContent().GetText();
+                output = PairedData.Restore(withBody.dataContent().GetText());
             }
         }
 

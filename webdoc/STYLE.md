@@ -56,6 +56,30 @@ American first reads it as a street. The pack file format has a field literally 
 `address:`, so renaming the idea in prose would put the docs at odds with the format.
 Where both senses meet on one page, say **street address** for the other one.
 
+## The translations
+
+The Russian and Spanish trees hold the same standard, in their own voice. Two rulings are
+fixed, because both had drifted page by page:
+
+**Address the reader formally and never switch.** Russian uses «вы». Spanish uses **usted**
+— `use`, `pase`, `vea`, `escriba`, and `su` for the possessive. A `tú` imperative (`usa`,
+`escribe`, `renombra`, `decláralo`) or a `tú` verb (`tienes`, `quieres`, `obtienes`) is a
+bug, including inside an admonition title or a reference-table cell.
+
+**One word per language for `seed`:**
+
+| English | Russian                           | Spanish                   |
+| ------- | --------------------------------- | ------------------------- |
+| seed    | **сид** (declined: сида, сиде, …) | **la semilla** (feminine) |
+
+Bare `seed` never appears in translated prose. It stays untranslated only where it is
+**code**: the attribute `seed="demo"`, the CLI flag `--seed`, an API member (`seed()`,
+`seedInfo`, `X-TDC-Seed`), anything inside backticks, a fenced block or a `<Terminal>`
+body, and a heading that names the flags rather than the idea — «Переопределение count и
+seed из командной строки», "Sobrescribir count y seed desde la línea de comandos". If a
+sentence would still read correctly with the word in backticks, it is code; if it takes an
+article or an adjective, it is prose.
+
 ## What must not change when editing prose
 
 Fenced code blocks, `<Terminal>` bodies, `<Figure>` `src`, link targets, front matter,

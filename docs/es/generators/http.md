@@ -62,7 +62,7 @@ fuente**, y la cabecera `X-TDC-Count` dice cuántos valores inventar.
 > **Cómo escribir el servicio**
 >
 > Un servicio completo y funcionando — en **Node, Python y Java**, con ambos modos — y cómo
-> hacerlo reproducible a partir del seed, viven en su propia página:
+> hacerlo reproducible a partir de la semilla, viven en su propia página:
 > **[Escribir un generador de servicio](../guides/writing-a-service.md#top)**.
 
 ![](../../img/generators/http-flow.svg)
@@ -331,7 +331,7 @@ sí mismo antes de recurrir a él:
 - **No reproducible.** El servicio decide los valores, así que `seed` no garantiza nada y
   **volver a correr da datos distintos**. Un config que usa `http` nunca se trata como
   reproducible.
-- **El orden sigue al servicio**, no al seed.
+- **El orden sigue al servicio**, no a la semilla.
 - **Local o volúmenes modestos.** Por internet, una corrida grande es una gran cantidad
   de llamadas salientes; esto es para un servicio en su propia máquina, o una corrida que
   usted dimensionó a propósito. No para mil millones de filas contra un endpoint público.

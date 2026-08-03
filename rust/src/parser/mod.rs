@@ -13,6 +13,7 @@
 pub mod ast;
 pub mod config_builder;
 pub mod lexer;
+pub mod paired_data;
 
 use ast::{Attr, Document, Element, Kind};
 use lexer::{Pos, Tok, Token};
@@ -46,16 +47,18 @@ impl ParseResult {
 
 /// Parse a config, collecting syntax errors rather than printing them.
 pub fn parse(source: &str) -> ParseResult {
-    let lexed = lexer::tokenize(&normalize(source));
-    let mut problems: Vec<SyntaxProblem> = lexed
-        .errors
-        .into_iter()
-        .map(|e| SyntaxProblem {
-            line: e.pos.line,
-            column: e.pos.column,
-            message: e.message,
-        })
-        .collect();
+    let rewritten = paired_data::preprocess(source);
+    let lexed = lexer::tokenize(&rewritten.source);
+
+    // Ahead of the lexer's own, because they were found ahead of it: a config
+    // whose paired tags do not line up is misread from that point on, and the
+    // first thing said about it should say why.
+    let mut problems: Vec<SyntaxProblem> = rewritten.problems;
+    problems.extend(lexed.errors.into_iter().map(|e| SyntaxProblem {
+        line: e.pos.line,
+        column: e.pos.column,
+        message: e.message,
+    }));
 
     let mut p = Parser {
         tokens: lexed.tokens,
@@ -69,19 +72,6 @@ pub fn parse(source: &str) -> ParseResult {
     ParseResult { tree, problems }
 }
 
-/// Normalize paired raw text before lexing.
-///
-/// The grammar keeps a single static `</data>` close token, which cannot
-/// express `<data pair="X">…</data pair="X">` where the body may itself contain
-/// a literal `</data>`. The reference rewrites the closing tag before lexing.
-///
-/// Not implemented here, for the same reason it is not implemented in Java or
-/// C#: no fixture in the golden set exercises it, and guessing at the rewrite
-/// would be worse than leaving the gap visible and named.
-fn normalize(source: &str) -> String {
-    source.to_string()
-}
-
 /// A hard ceiling on element nesting. The parser recurses once per nested
 /// element, so input depth IS stack depth: a runaway document must be refused,
 /// not parsed until the stack gives out — which in Rust aborts the process.
@@ -92,8 +82,9 @@ struct Parser<'a> {
     tokens: Vec<Token>,
     at: usize,
     depth: usize,
-    /// Set when the document was refused outright (the nesting ceiling). One
-    /// refusal is the whole story; everything after it would be noise.
+    /// Set when nothing past this point can be judged any more — the nesting
+    /// ceiling, or input that simply ran out. One refusal is the whole story;
+    /// everything after it would be noise.
     gave_up: bool,
     problems: &'a mut Vec<SyntaxProblem>,
 }
@@ -279,7 +270,13 @@ impl Parser<'_> {
         loop {
             match self.peek() {
                 Tok::Eof => {
+                    // Every element still open is unclosed once the input runs
+                    // out, so naming them all says nothing the first one did
+                    // not. The other four report one complaint here; a stack of
+                    // them would be four implementations disagreeing about a
+                    // file none of them can read.
                     self.error(format!("<{name}> is never closed"));
+                    self.gave_up = true;
                     break;
                 }
                 Tok::EndTag(_) => {
@@ -352,6 +349,7 @@ impl Parser<'_> {
                 }
                 Tok::Eof => {
                     self.error(format!("<{name}> is never closed"));
+                    self.gave_up = true;
                     break;
                 }
                 _ => {
@@ -370,7 +368,13 @@ impl Parser<'_> {
             name: name.to_string(),
             attrs,
             children: Vec::new(),
-            text,
+            // Only a `<data>` body can hold the sentinel, and a `<map>` body that
+            // happens to spell it out is text the user typed, not a rewrite.
+            text: if kind == Kind::Data {
+                paired_data::restore(&text)
+            } else {
+                text
+            },
             self_closed: false,
             pos,
             end: self.last_pos(),

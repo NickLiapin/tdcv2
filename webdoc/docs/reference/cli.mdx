@@ -35,6 +35,7 @@ Besides generating, the CLI has `tdcv2 init` and `tdcv2 pack` for setup and data
 | `--seed <seed>`         | Override the `seed` from `<env>`                    |
 | `--count <n>`           | Override the `count` from `<env>`                   |
 | `--locale <loc>`        | Override the locale (default `en`)                  |
+| `--now <date>`          | Pin the clock that `today`, `now` and `b_day` read  |
 | `--data-path <dir>`     | Add a data folder for `@data/…` (repeatable)        |
 | `--jobs <n>`            | Number of worker threads (TDC picks one by default) |
 | `--mode <memory\|disk>` | Engine: `disk` (default) or `memory`                |
@@ -99,6 +100,31 @@ tdcv2 demo.tdc -o out.csv
 
 Template generators (names, cities) default to English; `--locale ru` switches the whole
 file to Russian, field for field.
+
+## `--now` — pin the clock
+
+Some generators read the clock: `value="today"`, `value="now"`, `person.b_day` (an age
+window measured back from today) and a `date` generator given no bounds at all. They are
+meant to — a birthday that tracks today is the point. But it makes the clock a fourth
+input to a run, alongside the config, the seed and the engine, and it is the one you
+cannot write down. The same file with the same seed gives you different rows tomorrow.
+
+`--now` writes it down:
+
+```bash
+tdcv2 people.tdc --seed demo --now 2026-04-23 -o out.csv
+```
+
+Run that in a year and you get the same bytes. Drop the flag and the run reads the real
+clock, which is what you want in production and not what you want in a test.
+
+The value is a date in the same syntax `<gen type="date" value="…">` takes — `2026-04-23`,
+or `2026-04-23T09:30:00` when the hour matters. There is no time zone: every date in TDC
+is UTC. A value TDC cannot read is an error, not a shrug back to the real clock:
+
+```
+tdcv2: invalid --now "yesterday" — expected YYYY-MM-DD or YYYY-MM-DDTHH:mm:ss (UTC)
+```
 
 ## `--data-path` — external data
 

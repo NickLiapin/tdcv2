@@ -13,21 +13,25 @@
       "demonstrates": "TDC223",
       "description": "A pool of zero has no member to hand out, and a count that is not a whole number is not a size at all.",
       "config": "<tdc><env count=\"3\" seed=\"s\" local=\"en\"><pool name=\"D\" count=\"0\"><sequence name=\"c\"><gen type=\"text\" value=\"A,B\"/></sequence></pool></env><block><line><data>x</data></line></block></tdc>",
-      "expected": ["error TDC223 1:40"]
+      "expected": ["error TDC223 1:40", "warning TDC231 1:40"]
     },
     {
       "name": "a-block-cannot-live-inside-a-pool",
       "demonstrates": "TDC230",
       "description": "A pool has no output of its own — it is a table other columns read — so <block> and the fixtures, which describe a FILE, mean nothing inside one. A nested <pool> is refused for a different reason: a pool stays a flat table, and one pool pointing at another says the same thing without making every later feature ask at which depth it applies.",
       "config": "<tdc><env count=\"3\" seed=\"s\" local=\"en\"><pool name=\"D\" count=\"3\"><sequence name=\"c\"><gen type=\"text\" value=\"A,B\"/></sequence><block><line><data>no</data></line></block></pool></env><block><line><data>x</data></line></block></tdc>",
-      "expected": ["error TDC230 1:125"]
+      "expected": ["error TDC230 1:125", "warning TDC231 1:40"]
     },
     {
       "name": "a-pool-reference-to-a-pool-that-is-not-declared",
       "demonstrates": "TDC224",
       "description": "The generator names the pool it draws from, so a name that is not a declared pool has nothing behind it. Reported at the reference, with the declared pools listed. The TDC193 beside it is the knock-on: with no pool there are no fields for R either.",
       "config": "<tdc><env count=\"3\" seed=\"s\" local=\"en\"><pool name=\"D\" count=\"3\"><sequence name=\"c\"><gen type=\"text\" value=\"A,B\"/></sequence></pool><sequence name=\"R\"><gen type=\"pool\" value=\"Doctors\"/></sequence></env><block><line><data>${{R.c}}</data></line></block></tdc>",
-      "expected": ["error TDC224 1:151", "error TDC193 1:215"]
+      "expected": [
+        "warning TDC231 1:40",
+        "error TDC224 1:151",
+        "error TDC193 1:215"
+      ]
     },
     {
       "name": "a-filter-that-reads-a-field-the-pool-has-not-got",
@@ -91,6 +95,34 @@
       "description": "The second pool quietly replaced the first, and the only sign was a TDC193 in the block about a field that \"does not exist\" — sending the reader to look in the wrong place entirely. <sequence> has said this since TDC032; a pool is a declaration too.",
       "config": "<tdc><env count=\"2\" seed=\"s\" local=\"en\"><pool name=\"P\" count=\"2\"><sequence name=\"f\"><gen type=\"text\" value=\"f1,f2\"/></sequence></pool><pool name=\"P\" count=\"2\"><sequence name=\"g\"><gen type=\"text\" value=\"g1,g2\"/></sequence></pool><sequence name=\"c\"><gen type=\"pool\" value=\"P\"/></sequence></env><block><line><data>${{c.g}}</data></line></block></tdc>",
       "expected": ["error TDC241 1:134"]
+    },
+    {
+      "name": "a-pool-nobody-draws-from",
+      "demonstrates": "TDC231",
+      "description": "A pool is built in full before the first row and held for the whole run, so one nothing reads is paid for and thrown away. A warning, not an error, on the same reasoning as TDC234: every row is exactly what it would have been.",
+      "config": "<tdc><env count=\"3\" seed=\"s\" local=\"en\"><pool name=\"D\" count=\"3\"><sequence name=\"c\"><gen type=\"text\" value=\"A,B\"/></sequence></pool></env><block><line><data>x</data></line></block></tdc>",
+      "expected": ["warning TDC231 1:40"]
+    },
+    {
+      "name": "a-filter-comparing-two-lists-that-do-not-overlap",
+      "demonstrates": "TDC225",
+      "description": "The member's field and the column each draw from a list the config writes down, and the two do not meet — so the filter narrows every row to no member at all, not merely some. Only DISJOINT lists are reported: a value that is merely rare is a refusal waiting for the row that draws it, and percent=\"100,0\" may never draw it.",
+      "config": "<tdc><env count=\"3\" seed=\"s\" local=\"en\"><pool name=\"D\" count=\"3\"><sequence name=\"c\"><gen type=\"text\" value=\"A,B\"/></sequence></pool><sequence name=\"W\"><gen type=\"text\" value=\"Y,Z\"/></sequence><sequence name=\"R\"><gen type=\"pool\" value=\"D\" filter=\"c == W\"/></sequence></env><block><line><data>${{R.c}}</data></line></block></tdc>",
+      "expected": ["error TDC225 1:211"]
+    },
+    {
+      "name": "a-filter-against-a-word-no-member-holds",
+      "demonstrates": "TDC225",
+      "description": "A bare word is a literal — that is how filter=\"c == North\" says northern only — so it is a list of exactly one value, and the same disjointness decides it. This is the typo TDC227 was cancelled for: it is not reported as an unknown name, it is reported as a comparison nothing can satisfy.",
+      "config": "<tdc><env count=\"3\" seed=\"s\" local=\"en\"><pool name=\"D\" count=\"3\"><sequence name=\"c\"><gen type=\"text\" value=\"A,B\"/></sequence></pool><sequence name=\"R\"><gen type=\"pool\" value=\"D\" filter=\"c == North\"/></sequence></env><block><line><data>${{R.c}}</data></line></block></tdc>",
+      "expected": ["error TDC225 1:151"]
+    },
+    {
+      "name": "a-filter-whose-lists-do-overlap",
+      "demonstrates": "",
+      "description": "The half of the check that must never fire: the lists meet, so some member matches and nothing is said.",
+      "config": "<tdc><env count=\"3\" seed=\"s\" local=\"en\"><pool name=\"D\" count=\"3\"><sequence name=\"c\"><gen type=\"text\" value=\"A,B\"/></sequence></pool><sequence name=\"W\"><gen type=\"text\" value=\"A,Z\"/></sequence><sequence name=\"R\"><gen type=\"pool\" value=\"D\" filter=\"c == W\"/></sequence></env><block><line><data>${{R.c}}</data></line></block></tdc>",
+      "expected": []
     }
   ]
 }

@@ -205,11 +205,14 @@ public static class DateGen
                 format, loc);
         }
 
-        // Nothing specified at all: the epoch up to right now.
-        return RangeOf(
-            DateParse.DateTime(DefaultStart),
-            new DateParse.Parsed(Calendar.FromEpochMillis(nowMillis), true),
-            attrs, format, loc);
+        // Nothing specified at all: the epoch up to right now. The upper bound carries a time, but
+        // the fallback precision is still whole days — an unbounded generator answers with a date,
+        // not a timestamp at 03:47. Routing this through RangeOf let HasTime pick Millisecond, and
+        // a millisecond draw lands a day away from the reference's day draw often enough to fail.
+        return RangePlan(
+            DateParse.DateTime(DefaultStart).Value,
+            Calendar.FromEpochMillis(nowMillis),
+            attrs, true, Precision.Day, format, loc);
     }
 
     private static Plan Fixed(

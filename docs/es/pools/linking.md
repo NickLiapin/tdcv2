@@ -105,7 +105,7 @@ mismo código, por la misma razón.
 
 ### Hasta qué profundidad llega
 
-Hasta donde la escribas. Cada nivel es un pool corriente que resulta contener una
+Hasta donde la escriba. Cada nivel es un pool corriente que resulta contener una
 referencia, así que `${{Seen.at.region.name}}` no es un caso especial: son tres tablas y dos
 enlaces.
 
@@ -226,18 +226,18 @@ dos veces:
 - El teléfono siempre pertenece a la ciudad nombrada, porque la clínica es un registro que
   el médico lleva consigo.
 
-Añade un cuarto nivel — una región a la que pertenece cada clínica — y la forma de la
+Añada un cuarto nivel — una región a la que pertenece cada clínica — y la forma de la
 configuración no cambia. De eso trata la construcción.
 
 ## Lo que no está soportado
 
 - **Un `<pool>` dentro de un `<pool>`.** Rechazado (`TDC230`). Un pool sigue siendo una
-  tabla plana que podrías imprimir; anidarlo lo convertiría en un árbol, y cada pregunta
+  tabla plana que podría imprimir; anidarlo lo convertiría en un árbol, y cada pregunta
   posterior — unicidad, filtrado, el techo de memoria — tendría que preguntar «¿a qué
   profundidad?». En su lugar, un pool apunta a otro, que es de lo que trata esta página.
 - **Un pool que sortea de un pool por debajo, o de sí mismo.** Rechazado (`TDC236`), como
   arriba.
-- **Pesos en los miembros.** Un pool no tiene peso por miembro. Usa un
+- **Pesos en los miembros.** Un pool no tiene peso por miembro. Use un
   [`<mix>`](../constructs/mix.md#top) dentro del pool — es lo mismo dicho en el idioma que el
   pool ya habla, y es exacto en vez de aproximado.
 - **Una referencia con `parent=` en un motor de streaming.** No se rechaza: la

@@ -35,6 +35,20 @@
       "description": "A distribution and a range contradict each other",
       "config": "<tdc><env count=\"2\" seed=\"s\"><sequence name=\"G\"><gen type=\"number\" value=\"1..9\" distribution=\"normal\" mean=\"5\" sd=\"1\"/></sequence></env><block><line><data>x</data></line></block></tdc>",
       "expected": ["error TDC088 1:74"]
+    },
+    {
+      "name": "a-number-percent-entry-that-is-not-a-number",
+      "demonstrates": "TDC085",
+      "description": "Percent on a number splits the length groups, so every filled position has to be a number to split by.",
+      "config": "<tdc><env count=\"3\" seed=\"s\" local=\"en\"><sequence name=\"X\"><gen type=\"number\" value=\"10..999\" length=\"2,3\" percent=\"abc,50\"/></sequence></env><block><line><data>${{X}}</data></line></block></tdc>",
+      "expected": ["error TDC085 1:116"]
+    },
+    {
+      "name": "number-percentages-that-do-not-add-up",
+      "demonstrates": "TDC086",
+      "description": "The same total the other percent lists are held to: what is left over would have to go somewhere unnamed.",
+      "config": "<tdc><env count=\"3\" seed=\"s\" local=\"en\"><sequence name=\"X\"><gen type=\"number\" value=\"10..999\" length=\"2,3\" percent=\"30,50\"/></sequence></env><block><line><data>${{X}}</data></line></block></tdc>",
+      "expected": ["error TDC086 1:116"]
     }
   ]
 }

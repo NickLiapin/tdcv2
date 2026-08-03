@@ -178,7 +178,7 @@ todos viven aquí.
 | Atributo  | Por omisión | Qué define                                                               |
 | :-------- | :---------- | :----------------------------------------------------------------------- |
 | `count`   | `10`        | Cuántos registros generar                                                |
-| `seed`    | aleatorio   | Seed del generador de números aleatorios                                 |
+| `seed`    | aleatorio   | Semilla del generador de números aleatorios                              |
 | `local`   | `en`        | Locale para los datos de [`type="template"`](../generators/template.md#top) |
 | `inject`  | `${{%}}`    | El patrón de interpolación de valores                                    |
 | `comment` | —           | Comentario libre, ignorado por el motor                                  |
@@ -218,8 +218,8 @@ en [Determinismo y proporciones](determinism.md#top).
 
 ### `seed`
 
-Fija el generador de números aleatorios para que la configuración sea **reproducible**: el
-mismo seed y la misma configuración siempre producen exactamente los mismos registros. Se
+Fija el generador de números aleatorios para que la configuración sea **reproducible**: la
+misma semilla y la misma configuración siempre producen exactamente los mismos registros. Se
 usa siempre que un conjunto de datos deba ser estable: una prueba de snapshot, una fixture
 compartida, la reproducción de un bug. Si se omite, cada ejecución es nueva y se pierde la
 posibilidad de reproducir una salida concreta.
@@ -240,7 +240,7 @@ Robert     Robert
 Michael    Michael
 ```
 
-Cambie el seed para obtener un conjunto distinto pero igual de estable. La historia
+Cambie la semilla para obtener un conjunto distinto pero igual de estable. La historia
 completa, incluida la garantía entre lenguajes, está en
 [Determinismo y proporciones](determinism.md#top).
 
@@ -276,7 +276,7 @@ Marcial
 Aurelio
 ```
 
-Solo cambian los _datos_: la estructura, el comportamiento del seed y todo lo demás siguen
+Solo cambian los _datos_: la estructura, el comportamiento de la semilla y todo lo demás siguen
 igual. Qué locales están disponibles depende de los
 [paquetes de datos](../data-packs/overview.md#top) instalados.
 
@@ -388,8 +388,8 @@ error[TDC014]: <env> must not be self-closing — write <env> ... </env>
 ```
 
 Es una protección contra un bug de datos silencioso: un `<env>` autocerrado descartaba
-tanto `count` como `seed`, de modo que una configuración que pedía tres registros con seed
-producía calladamente diez con un seed aleatorio. Use siempre la forma completa
+tanto `count` como `seed`, de modo que una configuración que pedía tres registros con semilla
+producía calladamente diez con una semilla aleatoria. Use siempre la forma completa
 `<env> … </env>`.
 
 ## Siguiente

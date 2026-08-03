@@ -238,7 +238,7 @@ Kazajistán
 
 El nombre sale en el idioma del locale activo — `Kirguistán` bajo `es`, `Kyrgyzstan`
 bajo `en`, `Киргизия` bajo `ru`. Ojo: las tres listas **no** tienen el mismo largo (241
-países en `en`, 237 en `es`, 115 en `ru`), así que un mismo seed no cae en el mismo país
+países en `en`, 237 en `es`, 115 en `ru`), así que una misma semilla no cae en el mismo país
 en los tres locales; lo que se conserva es la reproducibilidad dentro de cada uno.
 
 > [!NOTE]

@@ -276,7 +276,7 @@ public final class ConfigBuilder {
       }
       TDCParser.DataElementContext data = child.dataElement();
       if (data instanceof TDCParser.DataWithBodyContext withBody) {
-        output = withBody.dataContent().getText();
+        output = PairedData.restore(withBody.dataContent().getText());
       }
     }
     if (output == null) {
@@ -322,7 +322,9 @@ public final class ConfigBuilder {
     for (TDCParser.ElementContext child : element.content().element()) {
       TDCParser.DataElementContext data = child.dataElement();
       if (data instanceof TDCParser.DataWithBodyContext body) {
-        parts.add(new Config.CasePart(body.dataContent().getText(), null, null));
+        parts.add(
+            new Config.CasePart(
+                PairedData.restore(body.dataContent().getText()), null, null));
         continue;
       }
       TDCParser.SelfClosingElementContext self = child.selfClosingElement();
@@ -448,7 +450,7 @@ public final class ConfigBuilder {
     for (TDCParser.ElementContext child : element.content().element()) {
       if (child.dataElement() instanceof TDCParser.DataWithBodyContext data) {
         sawData = true;
-        String text = data.dataContent().getText();
+        String text = PairedData.restore(data.dataContent().getText());
         String constant = attributes(data.attr()).get("name");
         if (constant != null && !constant.isEmpty()) {
           items.add(Config.Item.ofConstant(constant, text));
@@ -600,7 +602,7 @@ public final class ConfigBuilder {
           Map<String, String> dataAttrs = attributes(body.attr());
           parts.add(
               new Config.DataPart(
-                  body.dataContent().getText(),
+                  PairedData.restore(body.dataContent().getText()),
                   dataAttrs.get("if"),
                   dataAttrs.get("name"),
                   dataAttrs.get("type")));

@@ -149,7 +149,7 @@ rango al azar, y luego un número dentro de él.
 
 Cuando da **ambos**, `value` y `length`, `length` funciona como ancho de
 presentación: los números cortos se rellenan con ceros a la izquierda y los más
-largos se imprimen tal cual. Mismo seed, así que los números son idénticos — lo único
+largos se imprimen tal cual. Misma semilla, así que los números son idénticos — lo único
 que cambia es el ancho:
 
 ```xml

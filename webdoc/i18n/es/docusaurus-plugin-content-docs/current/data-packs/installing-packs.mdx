@@ -170,8 +170,30 @@ de trabajo actual, así que una configuración puede mudarse junto con su proyec
 
 ## `tdcv2 pack` — descargar y quitar conjuntos
 
-Sin argumentos y en una terminal, `pack` abre un menú: explorar e instalar, ver qué está
-instalado, quitar, salir. En un script, manéjelo con subcomandos:
+Sin argumentos y en una terminal, `pack` abre un **selector** en vez de volcarle el
+catálogo encima. 108 conjuntos no caben en una pantalla, así que se recorren con la forma
+que tienen:
+
+- **Todo**, o **elegir lo que necesito**: la primera pregunta, antes que ninguna otra.
+- Los idiomas en una sola lista; a los países se llega **por continente**, desde un mapa.
+- `/` busca desde cualquier punto: escriba `braz` y ahí está Brasil, con su continente al
+  lado.
+- <kbd>space</kbd> marca, y sobre un continente se lleva **el continente entero** de una vez.
+- <kbd>backspace</kbd>, <kbd>esc</kbd> o <kbd>←</kbd> retroceden desde cualquier pantalla.
+- **Revisar** enumera la canasta con su tamaño total; <kbd>space</kbd> descarta lo que ya
+  no quiera, <kbd>enter</kbd> aplica. Antes de eso no se descarga nada.
+
+El mapa muestra lo que lleva tomado: el continente bajo el cursor se enciende, y cada país
+elegido prende una chispa donde de verdad está. <kbd>m</kbd> alterna entre las costas a
+secas y la tierra rellena.
+
+Todas las implementaciones abren el mismo selector, y la terminal decide cómo se dibuja:
+medios bloques y color donde los hay, ASCII y un trazo simple donde no (la consola vieja
+de Windows, una tubería, `NO_COLOR`). Los selectores de Java y de Rust necesitan `stty` y
+por eso solo corren en Unix; en Windows imprimen la lista en su lugar, algo que Node,
+Python y C# no tienen que hacer porque sus entornos leen una pulsación por su cuenta.
+
+En un script —o en cualquier sitio sin terminal— manéjelo con subcomandos:
 
 ```bash
 tdcv2 pack list              # qué hay en el registro
@@ -205,6 +227,16 @@ en English (language) (0.1 MB)
 usa United States (country) (0.0 MB)`}
 
 </Terminal>
+
+Las descripciones se pliegan al ancho de su ventana, así que la lista sigue siendo una
+lista por angosta que esté la terminal. En una tubería o con la salida redirigida no hay
+ventana que medir, y las cinco implementaciones asumen 80 columnas — de modo que un
+listado guardado es el mismo archivo lo haya escrito cualquiera de ellas.
+
+El catálogo tiene hoy **108 conjuntos**: `common`, diez idiomas y 97 países. Un idioma o
+un país que no aparezca en la lista todavía no está terminado: una entrada es la promesa
+de que toda dirección bajo ella resuelve, así que una carpeta con un solo archivo no
+recibe una.
 
 Úselo para revisar qué necesita una dirección antes de generar, y para confirmar que un
 conjunto aterrizó después de `pack add`.

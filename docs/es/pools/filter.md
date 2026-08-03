@@ -149,10 +149,10 @@ budget 60 -> Clock at 11
 Nadie compra por encima de su presupuesto, y no hubo que enumerar nada a mano.
 
 > [!WARNING]
-> **Escribe `<=` y `&&` tal cual**
+> **Escriba `<=` y `&&` tal cual**
 >
 > TDC no expande entidades XML. `filter="price &lt;= Budget"` llega al analizador como esos
-> nueve caracteres y falla. Escribe el operador que quieres decir.
+> nueve caracteres y falla. Escriba el operador que quiere decir.
 
 ### Lo que cuesta
 

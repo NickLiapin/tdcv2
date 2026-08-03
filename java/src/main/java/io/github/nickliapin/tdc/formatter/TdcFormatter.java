@@ -1,5 +1,6 @@
 package io.github.nickliapin.tdc.formatter;
 
+import io.github.nickliapin.tdc.parser.PairedData;
 import io.github.nickliapin.tdc.parser.generated.TDCLexer;
 import io.github.nickliapin.tdc.parser.generated.TDCParser;
 import java.util.ArrayList;
@@ -63,7 +64,8 @@ public final class TdcFormatter {
 
   /** A formatted config, or the source unchanged when it does not parse. */
   public static String format(String source) {
-    TDCLexer lexer = new TDCLexer(CharStreams.fromString(source));
+    PairedData.Rewrite rewritten = PairedData.preprocess(source);
+    TDCLexer lexer = new TDCLexer(CharStreams.fromString(rewritten.source()));
     CommonTokenStream tokens = new CommonTokenStream(lexer);
     TDCParser parser = new TDCParser(tokens);
 
@@ -83,7 +85,7 @@ public final class TdcFormatter {
     parser.addErrorListener(fail);
 
     TDCParser.DocumentContext tree = parser.document();
-    if (!problems.isEmpty()) {
+    if (!problems.isEmpty() || !rewritten.problems().isEmpty()) {
       return source;
     }
 
@@ -219,7 +221,7 @@ public final class TdcFormatter {
     }
     String pair = attrMap(node).get("pair");
     String close = pair != null ? "</data pair=\"" + pair + "\">" : "</data>";
-    return "<data" + attrs + ">" + content.getText() + close;
+    return "<data" + attrs + ">" + PairedData.restore(content.getText()) + close;
   }
 
   private static TDCParser.DataContentContext dataContent(TDCParser.DataElementContext node) {

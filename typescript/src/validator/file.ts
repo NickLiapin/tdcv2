@@ -93,22 +93,39 @@ export function checkGenFile(
   }
 }
 
+/** The three ways a `<gen type="pattern">` can be given a shape to read. */
+const DRAWING_SOURCES = ['points', 'src', 'upper'] as const;
+
 /**
  * A drawing's `src=` — the same existence check, without the file generator's
  * own rules about columns and linked rows.
  *
  * Checked before the run rather than during it: a missing picture discovered on
- * row one of a million-row job has already cost whatever the job cost. A pattern
- * with no `src=` is not an error here — it may be drawn with `points=` or
- * `upper=` instead, and the generator says so itself.
+ * row one of a million-row job has already cost whatever the job cost. `src=` is
+ * one of three ways to hand the generator a shape, so its absence is only a
+ * mistake when the other two are absent too — which is TDC244, the drawing
+ * equivalent of a `type="regex"` with no pattern.
  */
 export function checkGenDrawing(
   gen: OpenCloseElementContext | SelfClosingElementContext,
   ctx: FileValidationContext,
 ): void {
   const attrs = gen.attr();
+  const attrMap = extractAttrs(attrs);
+  if (DRAWING_SOURCES.every((name) => (attrMap[name] ?? '').trim() === '')) {
+    ctx.diagnostics.push({
+      severity: 'error',
+      source: 'validator',
+      ...nodeRange(gen),
+      message: '<gen type="pattern"> has nothing to draw from',
+      hint: 'Give it a shape: points="0,0 1,5 2,3", src="curve.svg" (or a PNG), or upper="…" with an optional lower="…" for a band.',
+      code: 'TDC244',
+    });
+    return;
+  }
+
   const srcAttr = findAttr(attrs, 'src');
-  const path = extractAttrs(attrs)['src'] ?? '';
+  const path = attrMap['src'] ?? '';
   if (!srcAttr || path.trim() === '') return;
 
   try {

@@ -94,6 +94,114 @@ function addMemberFields(
 }
 
 /**
+ * The values each pool field can hold, where the config says them outright.
+ *
+ * A member whose body is one unnamed `<gen type="text" value="A,B">` produces
+ * nothing but `A` and `B` — the list is literal, never a file or a pack — so the
+ * set recorded here is a SUPERSET of what the built pool will actually contain
+ * (a pool of two members drawn from three values holds at most two of them).
+ * That direction is what TDC225 needs: a value outside the superset can match no
+ * member, whatever the draw turns out to be.
+ *
+ * `case=`/`mask=` rewrite the value on the way out and `repeat=` makes it a
+ * list, so any of the three and the values stop being knowable — the same rule
+ * the top-level `finiteTextValues` follows, for the same reason.
+ */
+export function collectPoolFieldValues(
+  env: OpenCloseElementContext | undefined,
+): Map<string, Map<string, readonly string[]>> {
+  const byPool = new Map<string, Map<string, readonly string[]>>();
+  if (!env) return byPool;
+  for (const child of contentElements(env.content())) {
+    const k = elementKind(child);
+    if (k?.kind !== 'open' || elementName(k.node) !== 'pool') continue;
+    const poolName = extractAttrs(k.node.attr())['name'];
+    if (!poolName) continue;
+    const fields = new Map<string, readonly string[]>();
+    for (const member of poolMemberNodes(k.node)) {
+      const field = extractAttrs(member.attr())['name'];
+      if (!field) continue;
+      const values = literalTextValues(member);
+      if (values) fields.set(field, values);
+    }
+    byPool.set(poolName, fields);
+  }
+  return byPool;
+}
+
+/** The literal `value=` list of a member whose body is a single plain text gen. */
+function literalTextValues(member: OpenCloseElementContext): readonly string[] | undefined {
+  const gens: Record<string, string | undefined>[] = [];
+  for (const child of contentElements(member.content())) {
+    const k = elementKind(child);
+    if ((k?.kind === 'open' || k?.kind === 'self') && elementName(k.node) === 'gen') {
+      gens.push(extractAttrs(k.node.attr()));
+    }
+  }
+  const attrs = gens.length === 1 ? gens[0] : undefined;
+  if (!attrs) return undefined;
+  if (attrs['type'] !== 'text' || attrs['name'] !== undefined) return undefined;
+  if (attrs['case'] !== undefined || attrs['mask'] !== undefined) return undefined;
+  if (attrs['repeat'] !== undefined) return undefined;
+  const raw = attrs['value'];
+  if (raw === undefined || raw.trim() === '') return undefined;
+  return raw.split(',').map((v) => v.trim());
+}
+
+/**
+ * Every pool named by a `<gen type="pool" value="…">`, anywhere under `<env>`.
+ *
+ * Collected in one descent rather than tallied during the walk because a
+ * reference may stand above the pool it names, and TDC231 has to know about it
+ * by the time that pool is reached.
+ */
+export function collectPoolReferences(env: OpenCloseElementContext | undefined): Set<string> {
+  const named = new Set<string>();
+  if (!env) return named;
+  const descend = (node: OpenCloseElementContext): void => {
+    for (const child of contentElements(node.content())) {
+      const k = elementKind(child);
+      if (k?.kind !== 'open' && k?.kind !== 'self') continue;
+      if (elementName(k.node) === 'gen') {
+        const attrs = extractAttrs(k.node.attr());
+        if (attrs['type'] === 'pool') named.add((attrs['value'] ?? '').trim());
+        continue;
+      }
+      if (k.kind === 'open') descend(k.node);
+    }
+  };
+  descend(env);
+  return named;
+}
+
+/**
+ * A pool nobody draws from.
+ *
+ * A warning rather than an error, on the same reasoning as TDC234: the config
+ * runs, and every row is exactly what it would have been. What it costs is the
+ * build — a pool is computed in full before the first row and held in memory for
+ * the whole run — so an unread `count="50000"` is paid for and thrown away. It is
+ * also the shape a rename leaves behind, where the reference now points at a new
+ * pool and the old one sits there looking deliberate.
+ */
+export function checkPoolIsRead(
+  pool: OpenCloseElementContext,
+  referenced: ReadonlySet<string>,
+  diagnostics: Diagnostic[],
+): void {
+  const name = extractAttrs(pool.attr())['name'];
+  if (name === undefined || name.trim() === '' || referenced.has(name)) return;
+  diagnostics.push({
+    severity: 'warning',
+    source: 'validator',
+    ...nodeRange(pool),
+    message: `pool "${name}" is never drawn from`,
+    hint: `A pool is built in full before the first row and kept in memory for the whole run, so an unread one costs its members for nothing. Read it with <gen type="pool" value="${name}"/>, or remove it.`,
+    code: 'TDC231',
+  });
+}
+
+/**
  * A member that draws from another pool may only name a pool declared ABOVE.
  *
  * The engine builds pools in declaration order, so that is not a style rule: a
@@ -237,6 +345,112 @@ export function checkFilterAmbiguity(
   }
 }
 
+/**
+ * A `filter=` put aside, and where its complaint belongs in the report.
+ *
+ * Held back for the same reason an `if=` is: the column a filter compares
+ * against may be declared BELOW the reference, and the run resolves that
+ * happily. Deciding mid-walk would report a problem the author does not have.
+ */
+export interface PendingPoolFilter {
+  readonly at: number;
+  readonly gen: OpenCloseElementContext | SelfClosingElementContext;
+  readonly expr: string;
+  readonly pool: string;
+  readonly field: string;
+  /** The other side of the `==`: a column name, or a bare word read as a literal. */
+  readonly other: string;
+}
+
+function isPlainName(s: string): boolean {
+  return /^[A-Za-z_][A-Za-z0-9_]*$/.test(s);
+}
+
+/**
+ * Recognise `field == Something`, the one filter shape a check can decide.
+ *
+ * The same shape the engine gives a fast path to, and recognised the same way —
+ * by looking at the text rather than at a parsed tree — so that what the reader
+ * sees and what is checked are the same thing. Anything richer (`price <=
+ * Budget`) compares against a value that only exists once the row is being
+ * built, and stays a run-time refusal.
+ */
+export function pendingFilterFor(
+  gen: OpenCloseElementContext | SelfClosingElementContext,
+  poolFields: readonly string[],
+  at: number,
+): PendingPoolFilter | undefined {
+  const attrs = extractAttrs(gen.attr());
+  const expr = (attrs['filter'] ?? '').trim();
+  if (expr === '') return undefined;
+  const parts = expr.split('==');
+  if (parts.length !== 2) return undefined;
+  const left = (parts[0] ?? '').trim();
+  const right = (parts[1] ?? '').trim();
+  if (!isPlainName(left) || !isPlainName(right)) return undefined;
+  const pool = (attrs['value'] ?? '').trim();
+  const leftIsField = poolFields.includes(left);
+  const rightIsField = poolFields.includes(right);
+  // Both sides a field compares the candidate with itself, which is a different
+  // mistake and not one this check can speak to.
+  if (leftIsField === rightIsField) return undefined;
+  return leftIsField
+    ? { at, gen, expr, pool, field: left, other: right }
+    : { at, gen, expr, pool, field: right, other: left };
+}
+
+/**
+ * The put-aside filters, decided now that every column is known.
+ *
+ * What can be said before a single value exists: the member's field and the
+ * other side of the `==` each draw from a set the config writes down, and when
+ * those two sets do not overlap the filter can never match — not on some row, on
+ * every row. The run already refuses that, on row one, after building the pool;
+ * saying it at check time costs nothing and names both lists.
+ *
+ * Only DISJOINT sets are reported. A value that is merely rare (`Want` produces
+ * `A` and `Z`, members hold `A`) is a refusal waiting for the row that draws
+ * `Z`, and reporting it here would also refuse `percent="100,0"`, which never
+ * draws that value at all. The run-time message names the value that matched
+ * nobody, which is the honest place to say it.
+ */
+export function runPendingPoolFilters(
+  pending: readonly PendingPoolFilter[],
+  diagnostics: Diagnostic[],
+  declared: readonly string[],
+  finiteValues: ReadonlyMap<string, readonly string[]>,
+  poolFieldValues: ReadonlyMap<string, ReadonlyMap<string, readonly string[]>>,
+): void {
+  let shift = 0;
+  for (const item of pending) {
+    const fieldValues = poolFieldValues.get(item.pool)?.get(item.field);
+    if (!fieldValues || fieldValues.length === 0) continue;
+    // A name no sequence has is a bare word, and the expression language reads a
+    // bare word as its own text — that is how `filter="clinic == North"` says
+    // "northern only". So it is a set of exactly one value.
+    const isColumn = declared.includes(item.other);
+    const otherValues = isColumn ? finiteValues.get(item.other) : [item.other];
+    if (!otherValues || otherValues.length === 0) continue;
+    if (otherValues.some((v) => fieldValues.includes(v))) continue;
+
+    const found: Diagnostic = {
+      severity: 'error',
+      source: 'validator',
+      ...nodeRange(item.gen),
+      message: isColumn
+        ? `filter="${item.expr}" can never match — no value "${item.other}" produces is a "${item.field}" any member of pool "${item.pool}" could hold`
+        : `filter="${item.expr}" can never match — no member of pool "${item.pool}" holds "${item.field}" = "${item.other}"`,
+      hint:
+        `"${item.field}" is drawn from: ${fieldValues.join(', ')}. ` +
+        (isColumn ? `"${item.other}" produces: ${otherValues.join(', ')}. ` : '') +
+        'A filter narrows the members a row may draw from, and every row would be left with none.',
+      code: 'TDC225',
+    };
+    diagnostics.splice(item.at + shift, 0, found);
+    shift += 1;
+  }
+}
+
 /** Tags refused inside `<pool>`, with the reason each one is refused. */
 const FORBIDDEN_IN_POOL: Readonly<Record<string, string>> = {
   block: 'a pool has no output of its own — it is a table other columns read',
@@ -331,6 +545,7 @@ export interface PoolRefContext {
   readonly valuelessSequences: string[];
   readonly diagnostics: Diagnostic[];
   readonly poolReferences: string[];
+  readonly pendingPoolFilters: PendingPoolFilter[];
 }
 
 export function registerPoolReference(
@@ -339,6 +554,7 @@ export function registerPoolReference(
   ctx: PoolRefContext,
 ): void {
   const { poolFields, declaredSequences, valuelessSequences, diagnostics, poolReferences } = ctx;
+  const { pendingPoolFilters } = ctx;
   for (const gen of gens) {
     const attrs = extractAttrs(gen.attr());
     if (attrs['type'] !== 'pool') continue;
@@ -361,6 +577,8 @@ export function registerPoolReference(
     }
     const fields = poolFields.get(poolName) ?? [];
     checkFilterAmbiguity(gen, fields, declaredSequences, diagnostics);
+    const pendingFilter = pendingFilterFor(gen, fields, diagnostics.length);
+    if (pendingFilter) pendingPoolFilters.push(pendingFilter);
     for (const field of fields) declaredSequences.push(`${name}.${field}`);
     // The reference itself is a record, not a value: `${{Doctor}}` alone has
     // nothing to print, and TDC229 says so rather than letting it through.

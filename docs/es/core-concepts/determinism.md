@@ -10,9 +10,9 @@
 
 # Determinismo y proporciones
 
-Dos propiedades hacen confiables los datos de TDC: el mismo **seed** reproduce los mismos
+Dos propiedades hacen confiables los datos de TDC: la misma **semilla** reproduce los mismos
 datos byte por byte, y las partes caen en **proporciones exactas**. La promesa es precisa
-sobre lo que tiene que coincidir: la misma configuración, el mismo seed, la misma versión
+sobre lo que tiene que coincidir: la misma configuración, la misma semilla, la misma versión
 del núcleo y el mismo modo de salida. Si cambia cualquiera de esos cuatro, los bytes
 pueden cambiar; el lenguaje desde el que se ejecuta no está en la lista, y por eso las
 cinco implementaciones coinciden. Esta página cubre tres
@@ -28,16 +28,16 @@ registros se obtienen, `seed` decide _cuáles_, y `percent` fija sus proporcione
 
 *Tres ejecuciones de la misma configuración, de 60 filas cada una.*
 
-- **A** — primera ejecución, un seed
-- **B** — segunda ejecución, el mismo seed — idéntica valor por valor
-- **C** — un seed distinto: datos de la misma forma, pero ningún número en común
+- **A** — primera ejecución, una semilla
+- **B** — segunda ejecución, la misma semilla — idéntica valor por valor
+- **C** — una semilla distinta: datos de la misma forma, pero ningún número en común
 
 ## `seed` — aleatoriedad reproducible
 
 Los datos de prueba deben parecer aleatorios pero ser **reproducibles**: si mañana ejecuta
 la misma configuración debe obtener los mismos registros, o si no un reporte de bug y una
 prueba de snapshot no tienen en qué apoyarse. El «azar» a secas no da eso: cada ejecución
-es un conjunto nuevo. `seed` sí: el mismo seed y la misma configuración siempre producen
+es un conjunto nuevo. `seed` sí: la misma semilla y la misma configuración siempre producen
 exactamente la misma salida.
 
 > [!NOTE]
@@ -45,16 +45,16 @@ exactamente la misma salida.
 >
 > TDC tiene tres motores y elige uno según la configuración: el de streaming rápido por
 > omisión, el exacto en disco para la unicidad, y el pequeño en RAM bajo `mode="memory"` y
-> detrás del API de objetos. **Los tres producen los mismos valores con el mismo seed.** El
+> detrás del API de objetos. **Los tres producen los mismos valores con la misma semilla.** El
 > valor de una fila se deriva de `(seed, nombre de la columna, número de fila)`, así que no
 > depende de qué motor lo calculó, ni de lo que sacaron las columnas vecinas, ni de cuántos
 > hilos escribieron el archivo.
 >
 > Conviene decirlo con claridad porque antes no era así: los motores sacaban los valores en
-> distinto orden, y un mismo objeto respondía de forma distinta según llamaras a
+> distinto orden, y un mismo objeto respondía de forma distinta según llamara a
 > `toString()` o a `iterate()`. Ahora coinciden, y cada fixture compartido se comprueba en
 > los tres. Cómo se elige el motor está en [Salidas grandes](../guides/large-outputs.md#top):
-> es cuestión de velocidad y memoria, no de qué datos obtienes.
+> es cuestión de velocidad y memoria, no de qué datos obtiene.
 
 `seed` se define en [`<env>`](configuration.md#top). Su valor es cualquier string (una cadena
 de texto): un hash, una palabra, un número escrito como texto; internamente se normaliza a
@@ -82,12 +82,12 @@ Andre #2771        Andre #2771
 Izaiah #5951       Izaiah #5951
 ```
 
-Nada se corre de lugar. Mismo seed, misma configuración, mismo resultado: eso es
+Nada se corre de lugar. Misma semilla, misma configuración, mismo resultado: eso es
 determinismo.
 
-### Cambie el seed → un conjunto distinto, igual de estable
+### Cambie la semilla → un conjunto distinto, igual de estable
 
-Cambie el seed por otra palabra y obtiene un conjunto _distinto_ que es igual de
+Cambie la semilla por otra palabra y obtiene un conjunto _distinto_ que es igual de
 reproducible. La misma configuración, solo con `seed="alpha"`:
 
 `./run demo.tdc  (seed=alpha)`
@@ -103,7 +103,7 @@ Así es como se mantienen lado a lado varios conjuntos de datos independientes p
 reproducibles: `seed="demo"` para una prueba, `seed="alpha"` para otra, cada uno estable
 entre ejecuciones.
 
-### Quite el seed → algo nuevo cada vez
+### Quite la semilla → algo nuevo cada vez
 
 Sin ningún `seed`, TDC elige uno al azar en cada ejecución y la salida es nueva cada vez.
 Conviene cuando se quieren datos de muestra frescos y no hace falta reproducir una salida
@@ -139,7 +139,7 @@ La propiedad importante: **una ejecución corta es un prefijo honesto de una lar
 mayoría de los generadores —[`number`](../generators/number.md#top), un
 [`template`](../generators/template.md#top) sin ponderar,
 [`counter`](../generators/counters.md#top), [`regex`](../generators/regex.md#top)— calculan el
-valor de cada fila a partir de su **número de fila** y del seed, no del total. Por eso las
+valor de cada fila a partir de su **número de fila** y de la semilla, no del total. Por eso las
 tres primeras filas de `count="3"` son exactamente las tres primeras de `count="6"`:
 
 `./run demo.tdc --count 3   vs   --count 6`
@@ -228,7 +228,7 @@ usted dio. La aleatoriedad queda solo en el _orden_ de las filas.
 </sequence>
 ```
 
-Las primeras filas salen entremezcladas (el orden depende del seed):
+Las primeras filas salen entremezcladas (el orden depende de la semilla):
 
 `./run gender.tdc  —  first rows`
 
@@ -309,7 +309,7 @@ bronze    20
 
 Con un `count` pequeño las partes se redondean, pero su total siempre es igual a `count`.
 Con `percent="50,50"` y `count="3"` obtiene 2 + 1 o 1 + 2 (cuál valor se lleva el extra
-depende del seed), nunca 1 + 1 ni 2 + 2. La proporción se aproxima; el conteo nunca sale
+depende de la semilla), nunca 1 + 1 ni 2 + 2. La proporción se aproxima; el conteo nunca sale
 mal.
 
 ### Dentro de un subconjunto — `percent` con un padre

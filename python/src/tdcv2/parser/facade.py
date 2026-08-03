@@ -16,6 +16,7 @@ from antlr4 import CommonTokenStream, InputStream
 from antlr4.error.ErrorListener import ErrorListener
 from antlr4.tree.Tree import ParseTreeListener
 
+from . import paired_data
 from .generated.TDCLexer import TDCLexer
 from .generated.TDCParser import TDCParser
 
@@ -101,7 +102,12 @@ def parse(source: str) -> Result:
     """Parse a config, collecting syntax errors rather than printing them."""
     collector = _Collector()
 
-    lexer = TDCLexer(InputStream(_normalize(source)))
+    normalized, paired_problems = paired_data.preprocess(source)
+    # Ahead of ANTLR's own, because they were found ahead of it: a config whose paired tags do not
+    # line up is misread from that point on, and the first thing said about it should say why.
+    problems = [SyntaxProblem(line, column, message) for line, column, message in paired_problems]
+
+    lexer = TDCLexer(InputStream(normalized))
     lexer.removeErrorListeners()
     lexer.addErrorListener(collector)
 
@@ -116,22 +122,13 @@ def parse(source: str) -> Result:
         # Past the ceiling there is no tree worth building — parsing it IS the
         # danger. Callers get what garbage input gets: an empty document plus
         # the problem that explains it.
-        problems = list(collector.problems)
+        problems.extend(collector.problems)
         problems.append(SyntaxProblem(refusal.line, refusal.column, str(refusal)))
         return Result(_empty_document(), problems)
-    return Result(tree, list(collector.problems))
+    problems.extend(collector.problems)
+    return Result(tree, problems)
 
 
 def _empty_document() -> TDCParser.DocumentContext:
     """A tree with nothing in it, for when the source is refused mid-parse."""
     return TDCParser(CommonTokenStream(TDCLexer(InputStream("")))).document()
-
-
-def _normalize(source: str) -> str:
-    """Rewrite paired raw text before lexing.
-
-    A hook rather than a transformation today: the grammar keeps one static ``</data>`` close
-    token, and a future paired form would need rewriting here — in every implementation, or they
-    would disagree about any config using it.
-    """
-    return source

@@ -101,12 +101,12 @@ Carlos, edad 53
 
 > [!IMPORTANT]
 > Los nombres y números exactos son ilustrativos: pueden cambiar de una versión del
-> núcleo a otra. Lo que cuenta es que el mismo seed siempre reproduce la misma salida
+> núcleo a otra. Lo que cuenta es que la misma semilla siempre reproduce la misma salida
 > para un núcleo dado.
 
 ### Sobrescribir count y seed desde la línea de comandos
 
-La cantidad de filas y el seed se pueden cambiar sin tocar el archivo. Resulta
+La cantidad de filas y la semilla se pueden cambiar sin tocar el archivo. Resulta
 práctico cuando la configuración está fija (por ejemplo, versionada en un
 repositorio) pero para una corrida puntual se necesita otro volumen u otro sorteo
 aleatorio:
@@ -125,7 +125,7 @@ Elena, edad 22
 Diego, edad 22
 ```
 
-Un seed nuevo da un conjunto distinto, pero igual de reproducible: vuelva a
+Una semilla nueva da un conjunto distinto, pero igual de reproducible: vuelva a
 ejecutar con `--seed alt` y obtendrá otra vez exactamente estas cinco filas. La
 lista completa de banderas está en la [referencia del CLI](../reference/cli.md#top).
 

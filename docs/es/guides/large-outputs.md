@@ -384,8 +384,8 @@ generadores integrados en línea) y el archivo es lo bastante grande, TDC usa
 npx tdcv2 customers.tdc -o customers.csv
 ```
 
-El resultado es **idéntico byte por byte sin importar la cantidad de núcleos** (con el
-mismo seed): cada núcleo calcula un rango contiguo de filas hacia un archivo temporal, y
+El resultado es **idéntico byte por byte sin importar la cantidad de núcleos** (con la
+misma semilla): cada núcleo calcula un rango contiguo de filas hacia un archivo temporal, y
 luego se concatenan estrictamente en orden. La cantidad de hilos es solo cuestión de
 velocidad — nunca afecta los datos.
 
@@ -429,7 +429,7 @@ de fila ponderado — corre en un solo hilo. Auto se queda callado al respecto, 
 
 Cuál de los tres motores corre lo decide TDC **por el contenido de la configuración**,
 nunca por la máquina. Esto importa: si la elección dependiera de «cuánta
-RAM hay libre en este momento», entonces **la misma configuración con el mismo seed podría
+RAM hay libre en este momento», entonces **la misma configuración con la misma semilla podría
 producir datos distintos en computadoras distintas** — y la reproducibilidad entre máquinas
 es la garantía central de TDC. Como el ruteo depende solo de la configuración, una
 configuración siempre toma un motor y da un resultado en todas partes.

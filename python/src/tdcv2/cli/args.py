@@ -13,6 +13,9 @@ from __future__ import annotations
 
 from dataclasses import dataclass, field
 
+from ..date import parse as date_parse
+from ..date import plain
+
 
 class UsageError(ValueError):
     """A command line that cannot be obeyed. Reported, then exit code 2."""
@@ -27,6 +30,7 @@ class Options:
     seed: str | None = None
     count: int | None = None
     locale: str | None = None
+    now: int | None = None
     data_paths: list[str] = field(default_factory=list)
     jobs: int | None = None
     mode: str | None = None
@@ -41,6 +45,7 @@ _VALUED = (
     "--seed",
     "--count",
     "--locale",
+    "--now",
     "--data-path",
     "--jobs",
     "--mode",
@@ -108,6 +113,8 @@ def _store(out: dict[str, object], name: str, value: str) -> None:
         out["seed"] = value
     elif name == "--locale":
         out["locale"] = value
+    elif name == "--now":
+        out["now"] = _now_millis(value)
     elif name == "--data-path":
         paths = out["data_paths"]
         assert isinstance(paths, list)
@@ -127,6 +134,23 @@ def _store(out: dict[str, object], name: str, value: str) -> None:
         if value not in ("memory", "disk"):
             raise UsageError(f'invalid --mode "{value}" — expected "memory" or "disk"')
         out["mode"] = value
+
+
+def _now_millis(value: str) -> int:
+    """The clock `--now` pins, in milliseconds since the epoch.
+
+    The syntax is the date generator's own — whatever ``<gen type="date" value="…">`` accepts is
+    what this accepts, down to the same parser — so the project has one date syntax rather than
+    two. It carries no zone, so like every date in the engine it is read as UTC. A value that does
+    not parse is refused rather than falling back to the real clock, which would hand back the very
+    irreproducibility the flag exists to remove.
+    """
+    try:
+        return plain.to_epoch_millis(date_parse.date_time(value).value)
+    except plain.DateError:
+        raise UsageError(
+            f'invalid --now "{value}" — expected YYYY-MM-DD or YYYY-MM-DDTHH:mm:ss (UTC)'
+        ) from None
 
 
 def _non_negative(value: str, flag: str) -> int:

@@ -23,7 +23,7 @@ en una sola descripción declarativa.
 
 > [!NOTE]
 > Las salidas de ejemplo que siguen son ilustrativas. Los _valores_ exactos que emite un
-> generador pueden cambiar entre versiones del core y entre seeds; lo que la
+> generador pueden cambiar entre versiones del core y entre semillas; lo que la
 > característica garantiza son los **conteos** y las **reglas estructurales** (qué filas
 > se llenan y cuáles quedan vacías).
 
@@ -374,7 +374,7 @@ Lo que eso garantiza por construcción, no por suerte:
 - **Sin ciclos.** Toda flecha apunta a un número menor, así que seguirlas siempre termina.
 - **Una sola raíz.** Solo el registro 1 no tiene padre.
 - **Una forma viva.** El registro 1 tiene aquí tres hijos y el 2 ninguno, porque `Back` se
-  sortea por fila. Amplíalo a `1..20` para un árbol plano y ancho; redúcelo a `1..2` para
+  sortea por fila. Amplíelo a `1..20` para un árbol plano y ancho; redúzcalo a `1..2` para
   uno profundo y estrecho.
 
 La misma columna sirve para un organigrama, un árbol de comentarios, una lista de

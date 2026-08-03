@@ -10,7 +10,7 @@
 
 # Rust
 
-El crate lee la **misma configuración `.tdc`** y, con el mismo seed, produce **la misma
+El crate lee la **misma configuración `.tdc`** y, con la misma semilla, produce **la misma
 salida** que las implementaciones de TypeScript, Python, Java y C#: byte a byte, en los
 tres motores y en Parquet.
 
@@ -89,8 +89,8 @@ afirmaría que sí lo tiene y que resulta estar en blanco.
 Una configuración rechazada vuelve como `TdcError::Refused`, que lleva los diagnósticos **y**
 el fuente al que apuntan, de modo que quien llama puede mostrar la línea con el error en
 lugar de solo citar el mensaje. `diagnostics()` en una corrida exitosa lleva aquello de lo
-que se advirtió sin llegar a rechazar. `seed()` informa si el seed fue inventado: una
-corrida sin seed no es reproducible, que casi nunca es lo que se quería.
+que se advirtió sin llegar a rechazar. `seed()` informa si la semilla fue inventada: una
+corrida sin semilla no es reproducible, que casi nunca es lo que se quería.
 
 ## Sin dependencias
 

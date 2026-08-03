@@ -73,7 +73,15 @@ import { checkGenRegex } from './regex.js';
 import { checkGenSymbol } from './symbol.js';
 import { checkCompute } from './compute.js';
 import { checkGroupSize } from './group-size.js';
-import { collectPoolFields, registerPoolReference } from './pool.js';
+import {
+  checkPoolIsRead,
+  collectPoolFieldValues,
+  collectPoolFields,
+  collectPoolReferences,
+  type PendingPoolFilter,
+  registerPoolReference,
+  runPendingPoolFilters,
+} from './pool.js';
 import {
   checkEnvSequenceGroup,
   checkPoolDeclaration,
@@ -87,6 +95,7 @@ import { checkLineEach } from './each.js';
 import { EACH_BUILTINS } from '../processor/each.js';
 import { checkGenWeight } from './weight.js';
 import { checkGenMask } from './mask.js';
+import { checkGenImperfections } from './imperfections.js';
 import { checkParentRef } from './parent-ref.js';
 import { checkAllUnknownAttrs, checkUnknownAttrs } from './unknown-attrs.js';
 import { checkGenHttp } from './http.js';
@@ -212,6 +221,18 @@ export function validate(tree: DocumentContext, options: ValidationOptions = {})
   if (envEl) checkEnv(envEl, ctx);
   if (blockEl) checkBlock(blockEl, ctx);
 
+  // Two second passes, pools before expressions. Both splice their complaints
+  // back at the position the attribute was found, so the report still reads top
+  // to bottom; running the pool pass first is what makes the two independent —
+  // an expression's recorded position is relative to the walk, and re-splicing
+  // it after another pass has inserted would need that pass's shifts as well.
+  runPendingPoolFilters(
+    ctx.pendingPoolFilters,
+    diags,
+    ctx.declaredSequences,
+    ctx.finiteValues,
+    ctx.poolFieldValues,
+  );
   runPendingExpressions(
     ctx.pendingExpressions,
     diags,
@@ -241,8 +262,14 @@ class Ctx {
    */
   public poolFields: ReadonlyMap<string, readonly string[]> = new Map();
 
+  /** Of those fields, the ones whose value list the config writes down — TDC225. */
+  public poolFieldValues: ReadonlyMap<string, ReadonlyMap<string, readonly string[]>> = new Map();
+
   /** Sequences that draw a whole member from a pool — records, not values. */
   public readonly poolReferences: string[] = [];
+
+  /** Every `filter=` seen, checked once every column it may name is known. */
+  public readonly pendingPoolFilters: PendingPoolFilter[] = [];
 
   /**
    * Every `if=` seen, and where its complaint belongs in the report.
@@ -360,6 +387,8 @@ function checkEnv(envEl: OpenCloseElementContext, ctx: Ctx): void {
   // names, and complaining about an unknown field in that case would report a
   // problem the author does not have.
   ctx.poolFields = collectPoolFields(envEl);
+  ctx.poolFieldValues = collectPoolFieldValues(envEl);
+  const poolsRead = collectPoolReferences(envEl);
 
   // Walk env children: sequences + mix/switch + fixtures.
   const poolsAbove: string[] = [];
@@ -412,6 +441,7 @@ function checkEnv(envEl: OpenCloseElementContext, ctx: Ctx): void {
         memberCheckers(ctx),
         ctx.declaredSequences,
       );
+      checkPoolIsRead(k.node, poolsRead, ctx.diagnostics);
       continue;
     }
 
@@ -725,6 +755,7 @@ function checkGen(gen: OpenCloseElementContext | SelfClosingElementContext, ctx:
   checkGenRepeat(gen, ctx.diagnostics);
   checkGenWeight(gen, ctx.diagnostics);
   checkGenMask(gen, ctx.diagnostics);
+  checkGenImperfections(gen, ctx.diagnostics);
 
   if (!type) {
     ctx.diagnostics.push({

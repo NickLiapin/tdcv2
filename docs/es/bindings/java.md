@@ -10,7 +10,7 @@
 
 # Java
 
-El paquete de Java lee **la misma configuración `.tdc`** y, con el mismo seed, produce
+El paquete de Java lee **la misma configuración `.tdc`** y, con la misma semilla, produce
 **la misma salida** que las implementaciones de TypeScript, Python, C# y Rust: la misma
 garantía entre lenguajes.
 

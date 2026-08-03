@@ -44,7 +44,7 @@ y `)` los convierte en caracteres comunes). El `\+1` es un `+1` literal, y los g
 `[0-9]{…}` son huecos que reciben dígitos aleatorios. La forma es siempre la misma; los
 valores cambian.
 
-Todos los ejemplos de esta página se renderizan con `seed="demo"` — el mismo seed da los
+Todos los ejemplos de esta página se renderizan con `seed="demo"` — la misma semilla da los
 mismos strings. Los valores de salida son ilustrativos; los strings exactos pueden
 cambiar según la versión del core, pero la forma nunca.
 
@@ -172,7 +172,7 @@ A<SP>B<SP>C`}
 ## Clases negadas — `[^…]` `\D` `\W` `\S`
 
 `[^0-9]` y `\D` dan **cualquier carácter ASCII imprimible excepto** los listados. Son
-equivalentes y producen la misma salida con el mismo seed:
+equivalentes y producen la misma salida con la misma semilla:
 
 ```xml
 <gen type="regex" value="[^0-9]{6}"/>

@@ -10,7 +10,7 @@
 
 # C#
 
-El paquete de .NET lee **la misma configuración `.tdc`** y, con el mismo seed, produce
+El paquete de .NET lee **la misma configuración `.tdc`** y, con la misma semilla, produce
 **la misma salida** que las implementaciones de TypeScript, Python, Java y Rust: byte a byte,
 en los tres motores y en Parquet.
 
@@ -91,8 +91,8 @@ que sí lo tiene y que da la casualidad de que está vacío.
 
 `Diagnostics` lleva todo aquello de lo que se advirtió a la configuración sin rechazarla;
 los errores se lanzan desde el constructor, así que lo que quede ahí vale la pena decirlo
-y no vale la pena detenerse por ello. `SeedInfo` indica si el seed se generó: una
-ejecución sin seed no es reproducible, que casi nunca es lo que se quería.
+y no vale la pena detenerse por ello. `SeedInfo` indica si la semilla se generó: una
+ejecución sin semilla no es reproducible, que casi nunca es lo que se quería.
 
 ## Requisitos
 

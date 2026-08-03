@@ -37,6 +37,31 @@
       "now": "2026-04-23T12:00:00Z"
     },
     {
+      "name": "date-now",
+      "description": "now is the run clock to the millisecond, not floored to the day",
+      "config": "<tdc><env count=\"3\" seed=\"unit-test\" local=\"en\" mode=\"memory\"><sequence name=\"V\"><gen type=\"date\" value=\"now\" format=\"ISO_TIME\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
+      "expected": [
+        "2026-04-23T12:00:00",
+        "2026-04-23T12:00:00",
+        "2026-04-23T12:00:00"
+      ],
+      "now": "2026-04-23T12:00:00Z"
+    },
+    {
+      "name": "date-open-ended-range",
+      "description": "a date generator given no bounds runs from 1970-01-01 to the run clock",
+      "config": "<tdc><env count=\"6\" seed=\"unit-test\" local=\"en\" mode=\"memory\"><sequence name=\"V\"><gen type=\"date\" format=\"YYYY-MM-DD\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
+      "expected": [
+        "2003-12-19",
+        "1982-07-01",
+        "2025-05-23",
+        "1982-06-20",
+        "2017-08-05",
+        "2012-11-29"
+      ],
+      "now": "2026-04-23T12:00:00Z"
+    },
+    {
       "name": "date-birth",
       "description": "person.b_day draws a millisecond, not a day",
       "config": "<tdc><env count=\"6\" seed=\"unit-test\" local=\"en\" mode=\"memory\"><sequence name=\"V\"><gen type=\"template\" value=\"person.b_day\" oldest=\"70\" youngest=\"14\" format=\"LL\" local=\"en\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",

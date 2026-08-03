@@ -38,6 +38,7 @@ y los datos — vea [Instalar packs](../data-packs/installing-packs.md#top) — 
 | `--seed <seed>`         | Sobrescribe el `seed` de `<env>`                         |
 | `--count <n>`           | Sobrescribe el `count` de `<env>`                        |
 | `--locale <loc>`        | Sobrescribe el locale (por omisión `en`)                 |
+| `--now <date>`          | Fija el reloj que leen `today`, `now` y `b_day`          |
 | `--data-path <dir>`     | Agrega una carpeta de datos para `@data/…` (repetible)   |
 | `--jobs <n>`            | Cantidad de hilos de trabajo (por omisión lo decide TDC) |
 | `--mode <memory\|disk>` | Motor: `disk` (por omisión) o `memory`                   |
@@ -81,9 +82,9 @@ Id,City,Status
 
 ## `--seed` — cambiar la aleatoriedad
 
-El config trae un seed fijo, pero usted quiere otro conjunto de valores sin tocar el
+El config trae una semilla fija, pero usted quiere otro conjunto de valores sin tocar el
 archivo. `--seed` lo sobrescribe: las columnas de contador (`Id`) y de recorrido cíclico
-(`City`) no dependen del seed, así que solo cambia `Status`.
+(`City`) no dependen de la semilla, así que solo cambia `Status`.
 
 ## `--count` — cuántas filas
 
@@ -104,6 +105,33 @@ tdcv2 demo.tdc -o out.csv
 
 Los generadores de plantilla (nombres, ciudades) usan inglés por omisión; `--locale ru`
 cambia todo el archivo al ruso, posición por posición.
+
+## `--now` — fijar el reloj
+
+Algunos generadores leen el reloj: `value="today"`, `value="now"`, `person.b_day` (una
+ventana de edad medida hacia atrás desde hoy) y un generador `date` al que no se le dieron
+límites. Está pensado así — un cumpleaños que sigue a la fecha de hoy es justamente el
+punto. Pero eso vuelve al reloj una cuarta entrada de la corrida, junto al config, la
+semilla y el motor, y es la única que no se puede anotar. El mismo archivo con la misma
+semilla le da otras filas mañana.
+
+`--now` la anota:
+
+```bash
+tdcv2 people.tdc --seed demo --now 2026-04-23 -o out.csv
+```
+
+Corra eso dentro de un año y obtiene los mismos bytes. Quite la bandera y la corrida lee
+el reloj real, que es lo que quiere en producción y no lo que quiere en una prueba.
+
+El valor es una fecha en la misma sintaxis que toma `<gen type="date" value="…">`:
+`2026-04-23`, o `2026-04-23T09:30:00` cuando importa la hora. No hay zona horaria: toda
+fecha en TDC es UTC. Un valor que TDC no puede leer es un error, no un regreso silencioso
+al reloj real:
+
+```
+tdcv2: invalid --now "yesterday" — expected YYYY-MM-DD or YYYY-MM-DDTHH:mm:ss (UTC)
+```
 
 ## `--data-path` — datos externos
 

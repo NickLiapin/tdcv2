@@ -34,7 +34,7 @@ en una línea — `pd.read_parquet("data.parquet")` — sin nada que reparar des
 
 > [!NOTE]
 > Las salidas de ejemplo de abajo son ilustrativas: los valores exactos pueden cambiar
-> según la versión del core y el seed. Lo que importa es la **forma**: la línea de esquema
+> según la versión del core y la semilla. Lo que importa es la **forma**: la línea de esquema
 > por columna, y dónde aparece un `null` de verdad.
 
 ![](../../img/concepts/parquet-layout.svg)

@@ -105,7 +105,7 @@ Mujer    40
 ```
 
 Exactamente 60 `Hombre` y 40 `Mujer` — no «como 60 %», sino 60. Ese es todo el punto
-de Hamilton: los totales son exactos; solo el orden depende del seed.
+de Hamilton: los totales son exactos; solo el orden depende de la semilla.
 
 ### Proporciones que no dividen parejo
 
@@ -150,7 +150,7 @@ La garantía es «los totales suman `count`», lo cual solo cae en los porcentaj
 exactos cuando `count` se puede repartir así. Con `count="100"` y `percent="50,50"`
 obtiene exactamente 50 y 50. Con `count="3"` y la misma máscara no puede haber dos y
 medio de cada uno, así que Hamilton redondea a `2 + 1` o a `1 + 2` —cuál valor se
-lleva la fila sobrante depende del seed—, pero las dos cantidades **siempre suman 3**.
+lleva la fila sobrante depende de la semilla—, pero las dos cantidades **siempre suman 3**.
 Nunca se descarta ni se duplica una fila.
 
 `./run coin.tdc (value=Heads,Tails percent=50,50 count=3)`

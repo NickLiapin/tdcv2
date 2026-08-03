@@ -84,6 +84,27 @@
       "description": "80 nested elements — parsing recurses per level, so a runaway document is refused at 64, not parsed until the stack gives out",
       "config": "<tdc version=\"0.01\"><env count=\"1\" seed=\"s\" local=\"en\"><sequence name=\"A\"><sequence name=\"A\"><sequence name=\"A\"><sequence name=\"A\"><sequence name=\"A\"><sequence name=\"A\"><sequence name=\"A\"><sequence name=\"A\"><sequence name=\"A\"><sequence name=\"A\"><sequence name=\"A\"><sequence name=\"A\"><sequence name=\"A\"><sequence name=\"A\"><sequence name=\"A\"><sequence name=\"A\"><sequence name=\"A\"><sequence name=\"A\"><sequence name=\"A\"><sequence name=\"A\"><sequence name=\"A\"><sequence name=\"A\"><sequence name=\"A\"><sequence name=\"A\"><sequence name=\"A\"><sequence name=\"A\"><sequence name=\"A\"><sequence name=\"A\"><sequence name=\"A\"><sequence name=\"A\"><sequence name=\"A\"><sequence name=\"A\"><sequence name=\"A\"><sequence name=\"A\"><sequence name=\"A\"><sequence name=\"A\"><sequence name=\"A\"><sequence name=\"A\"><sequence name=\"A\"><sequence name=\"A\"><sequence name=\"A\"><sequence name=\"A\"><sequence name=\"A\"><sequence name=\"A\"><sequence name=\"A\"><sequence name=\"A\"><sequence name=\"A\"><sequence name=\"A\"><sequence name=\"A\"><sequence name=\"A\"><sequence name=\"A\"><sequence name=\"A\"><sequence name=\"A\"><sequence name=\"A\"><sequence name=\"A\"><sequence name=\"A\"><sequence name=\"A\"><sequence name=\"A\"><sequence name=\"A\"><sequence name=\"A\"><sequence name=\"A\"><sequence name=\"A\"><sequence name=\"A\"><sequence name=\"A\"><sequence name=\"A\"><sequence name=\"A\"><sequence name=\"A\"><sequence name=\"A\"><sequence name=\"A\"><sequence name=\"A\"><sequence name=\"A\"><sequence name=\"A\"><sequence name=\"A\"><sequence name=\"A\"><sequence name=\"A\"><sequence name=\"A\"><sequence name=\"A\"><gen type=\"text\" value=\"x\"/></sequence></sequence></sequence></sequence></sequence></sequence></sequence></sequence></sequence></sequence></sequence></sequence></sequence></sequence></sequence></sequence></sequence></sequence></sequence></sequence></sequence></sequence></sequence></sequence></sequence></sequence></sequence></sequence></sequence></sequence></sequence></sequence></sequence></sequence></sequence></sequence></sequence></sequence></sequence></sequence></sequence></sequence></sequence></sequence></sequence></sequence></sequence></sequence></sequence></sequence></sequence></sequence></sequence></sequence></sequence></sequence></sequence></sequence></sequence></sequence></sequence></sequence></sequence></sequence></sequence></sequence></sequence></sequence></sequence></sequence></sequence></sequence></sequence></sequence></sequence></sequence></sequence></env><block><line><data>ok</data></line></block></tdc>",
       "expected": ["error PARSE 1:1233"]
+    },
+    {
+      "name": "paired-data-duplicate-value",
+      "demonstrates": "PARSE",
+      "description": "Two <data pair=\"d\"> in one file — a pair value has to be unique or the second block cannot be told from the first",
+      "config": "<tdc><env count=\"1\" seed=\"s\" local=\"en\"></env><block><line><data pair=\"d\">a</data pair=\"d\"><data pair=\"d\">b</data pair=\"d\"></line></block></tdc>",
+      "expected": ["error PARSE 1:92"]
+    },
+    {
+      "name": "paired-data-closed-with-the-wrong-pair",
+      "demonstrates": "PARSE",
+      "description": "Opened with pair=\"alpha\" and closed with pair=\"beta\" — named, rather than reported as whatever the lexer made of the leftovers",
+      "config": "<tdc><env count=\"1\" seed=\"s\" local=\"en\"></env><block><line><data pair=\"alpha\">x</data pair=\"beta\"></line></block></tdc>",
+      "expected": ["error PARSE 1:79", "error PARSE 1:119"]
+    },
+    {
+      "name": "paired-data-never-closed",
+      "demonstrates": "PARSE",
+      "description": "A pair= opener with no matching closer anywhere: a plain </data> does not close it",
+      "config": "<tdc><env count=\"1\" seed=\"s\" local=\"en\"></env><block><line><data pair=\"alpha\">x</data></line></block></tdc>",
+      "expected": ["error PARSE 1:59"]
     }
   ]
 }

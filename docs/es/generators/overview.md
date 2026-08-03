@@ -31,9 +31,8 @@ closed
 ```
 
 Las salidas de ejemplo de esta página son ilustrativas: los valores exactos dependen
-del seed (la semilla del generador de azar) y pueden cambiar entre versiones del
-núcleo. Lo que sí es estable es la **forma** del resultado: el formato, las
-cantidades y la distribución.
+de la semilla y pueden cambiar entre versiones del núcleo. Lo que sí es estable es la
+**forma** del resultado: el formato, las cantidades y la distribución.
 
 ## Dónde puede vivir un generador
 
@@ -103,11 +102,11 @@ ejemplo `usa.docs.ssn`). El catálogo completo está en las páginas de
 ## Proporciones declaradas, o un sorteo de una fuente
 
 En esa tabla conviven generadores de dos clases, y responden de forma distinta a «¿con qué
-frecuencia aparece cada valor?». Vale la pena saber cuál tienes en la mano.
+frecuencia aparece cada valor?». Vale la pena saber cuál tiene en la mano.
 
-**Declaraste las proporciones — las obtienes exactas.** Donde los valores están escritos
+**Declaró las proporciones — las obtiene exactas.** Donde los valores están escritos
 en la propia configuración, TDC reparte la cuota entre las filas y luego la baraja.
-`percent="30,70"` es 30 y 70, no «más o menos». Si no las indicas, son iguales, y iguales
+`percent="30,70"` es 30 y 70, no «más o menos». Si no las indica, son iguales, y iguales
 también es exacto:
 
 `10 valores sobre 1000 filas`
@@ -118,8 +117,8 @@ text:  100 100 100 100 100 100 100 100 100 100
 
 Eso cubre [`text`](text.md#top), [`number`](number.md#top) y [`<mix>`](../constructs/mix.md#top).
 
-**Apuntaste a una fuente — obtienes un sorteo.** Un [archivo](file.md#top) o un
-[pool](../pools/overview.md#top) es un conjunto en el que metes la mano una vez por fila, de
+**Apuntó a una fuente — obtiene un sorteo.** Un [archivo](file.md#top) o un
+[pool](../pools/overview.md#top) es un conjunto en el que mete la mano una vez por fila, de
 forma independiente. Sobre esas mismas 1000 filas los recuentos caen donde los deja el
 azar:
 
@@ -138,7 +137,7 @@ uso real y no un cuadrante de turnos.
 qué frecuencia se vende cada artículo lo dice en una columna, y
 [`weight="sales"`](../guides/coherent-data.md#top) hace que el sorteo la siga — exacto, como
 `percent`. Ese es el lugar honesto para los números: un catálogo de 3.000 artículos tiene
-sus frecuencias en el archivo, no en tu configuración.
+sus frecuencias en el archivo, no en su configuración.
 
 ## Formato en cualquier generador
 

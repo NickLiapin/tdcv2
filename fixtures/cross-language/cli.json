@@ -25,7 +25,9 @@
     "wideMap": "<tdc><env count=\"4\" seed=\"s\" local=\"en\"><sequence name=\"G\"><gen type=\"text\" value=\"alpha,beta,gamma,delta\"/></sequence><switch name=\"T\" on=\"G\"><map>alpha:The first letter, beta:The second letter, gamma:The third letter, delta:The fourth one</map></switch></env><block><line><data>${{T}}</data></line></block></tdc>\n",
     "declaresLocale": "<tdc><env count=\"2\" seed=\"s\" local=\"zz\">\n  <sequence name=\"N\"><gen type=\"template\" value=\"person.lastName\"/></sequence>\n</env><block><line><data>${{N}}</data></line></block></tdc>\n",
     "fromProjectPack": "<tdc>\n  <env count=\"1\" seed=\"s\" local=\"en\">\n    <sequence name=\"L\"><gen type=\"template\" value=\"person.lastName\"/></sequence>\n  </env>\n  <block><line><data>${{L}}</data></line></block>\n</tdc>\n",
-    "packNoLocale": "<tdc>\n  <env count=\"1\" seed=\"s\">\n    <sequence name=\"L\"><gen type=\"template\" value=\"person.lastName\"/></sequence>\n  </env>\n  <block><line><data>${{L}}</data></line></block>\n</tdc>\n"
+    "packNoLocale": "<tdc>\n  <env count=\"1\" seed=\"s\">\n    <sequence name=\"L\"><gen type=\"template\" value=\"person.lastName\"/></sequence>\n  </env>\n  <block><line><data>${{L}}</data></line></block>\n</tdc>\n",
+    "clockToday": "<tdc><env count=\"2\" seed=\"clock\" local=\"en\" mode=\"memory\"><sequence name=\"D\"><gen type=\"date\" value=\"today\" format=\"ISO\"/></sequence></env><block><line><data>${{D}}</data></line></block></tdc>\n",
+    "clockBirthday": "<tdc><env count=\"3\" seed=\"clock\" local=\"en\" mode=\"memory\"><sequence name=\"B\"><gen type=\"template\" value=\"person.b_day\" oldest=\"60\" youngest=\"18\" format=\"YYYY-MM-DD\"/></sequence></env><block><line><data>${{B}}</data></line></block></tdc>\n"
   },
   "cases": [
     {
@@ -39,6 +41,16 @@
       "argv": ["-h"],
       "exit": 0,
       "stdoutContains": ["Usage"]
+    },
+    {
+      "name": "--help describes --now in the same words everywhere",
+      "argv": ["--help"],
+      "exit": 0,
+      "stdoutContains": [
+        "  --now <date>             Pin the clock date generators read as \"now\" —",
+        "                           YYYY-MM-DD or YYYY-MM-DDTHH:mm:ss, always UTC."
+      ],
+      "note": "The five help texts already differ on --jobs, each describing its own threading. The clock does not vary by implementation, so its wording should not either — and the wrapping is pinned because that is the part that drifts when somebody edits one file."
     },
     {
       "name": "--version prints the declared version",
@@ -89,6 +101,26 @@
       "argv": ["--engine", "9", "a.tdc"],
       "exit": 2,
       "stderrContains": ["invalid --engine \"9\""]
+    },
+    {
+      "name": "a --now the date generator cannot read exits 2",
+      "argv": ["--now", "yesterday", "a.tdc"],
+      "exit": 2,
+      "stderrContains": ["invalid --now \"yesterday\""],
+      "note": "Refused, never quietly replaced by the real clock — a silent fallback would hand back the very irreproducibility the flag exists to remove."
+    },
+    {
+      "name": "a --now carrying a zone suffix exits 2",
+      "argv": ["--now", "2026-04-23T12:00:00Z", "a.tdc"],
+      "exit": 2,
+      "stderrContains": ["invalid --now \"2026-04-23T12:00:00Z\""],
+      "note": "The flag takes exactly what <gen type=\"date\" value=\"…\"> takes, and that syntax carries no zone: every date in the engine is UTC. Accepting a Z here would be a second date syntax for the same project."
+    },
+    {
+      "name": "a missing --now value exits 2 and names the option",
+      "argv": ["--now"],
+      "exit": 2,
+      "stderrContains": ["missing value for --now"]
     },
     {
       "name": "an invalid --mode exits 2",
@@ -152,6 +184,35 @@
       "argv": ["{dir}/a.tdc", "--count", "1"],
       "exit": 0,
       "stdout": "row 1\n"
+    },
+    {
+      "name": "--now is the date every generator reading \"today\" sees",
+      "files": {
+        "a.tdc": "@clockToday"
+      },
+      "argv": ["{dir}/a.tdc", "--now", "2026-04-23"],
+      "exit": 0,
+      "stdout": "2026-04-23\n2026-04-23\n",
+      "note": "Without the flag this case could only assert a shape, because the answer changes at midnight. The wall clock was the fifth input to a run and the only one the command line could not name."
+    },
+    {
+      "name": "--now accepts a time, in the date generator's own syntax",
+      "files": {
+        "a.tdc": "@clockToday"
+      },
+      "argv": ["{dir}/a.tdc", "--now=2026-04-23T12:00:00"],
+      "exit": 0,
+      "stdout": "2026-04-23\n2026-04-23\n"
+    },
+    {
+      "name": "--now makes person.b_day reproduce byte for byte",
+      "files": {
+        "a.tdc": "@clockBirthday"
+      },
+      "argv": ["{dir}/a.tdc", "--now", "2026-04-23"],
+      "exit": 0,
+      "stdout": "2006-03-05\n1991-03-19\n1977-11-29\n",
+      "note": "b_day is a window measured back from now, so these three dates move a day per day without the flag. They are the reason it exists."
     },
     {
       "name": "--data-path makes an @data source resolvable",

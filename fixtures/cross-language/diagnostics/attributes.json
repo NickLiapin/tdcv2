@@ -119,6 +119,13 @@
       "description": "Subscripting in an if expression, which the evaluator does not implement",
       "config": "<tdc><env count=\"2\" seed=\"s\"><sequence name=\"A\"><gen type=\"text\" value=\"a,b\"/></sequence></env><block><line><data if=\"A[0] == 1\">x</data></line></block></tdc>",
       "expected": ["error TDC103 1:118"]
+    },
+    {
+      "name": "repeat-on-a-counter",
+      "demonstrates": "TDC204",
+      "description": "A counter's value follows the row index, and a list of unknown length leaves no index to follow. The message names the type.",
+      "config": "<tdc><env count=\"3\" seed=\"s\" local=\"en\"><sequence name=\"X\"><gen type=\"increment\" value=\"1\" repeat=\"3\"/></sequence></env><block><line><data>${{X}}</data></line></block></tdc>",
+      "expected": ["error TDC204 1:99"]
     }
   ]
 }

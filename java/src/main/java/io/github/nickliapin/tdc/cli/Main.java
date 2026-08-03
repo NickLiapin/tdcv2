@@ -61,6 +61,10 @@ public final class Main {
         --seed <seed>            Override the seed declared in <env>
         --count <n>              Override the count declared in <env>
         --locale <loc>           Override the default locale (default: en)
+        --now <date>             Pin the clock date generators read as "now" —
+                                 YYYY-MM-DD or YYYY-MM-DDTHH:mm:ss, always UTC.
+                                 Without it the run reads the real clock, so a config
+                                 using today / now / b_day cannot be reproduced later
         --data-path <dir>        Add a data folder for @data/... sources (repeatable)
         --jobs <n>               Worker threads for a large streaming run. Needs -o:
                                  stdout is written by one thread. By default TDC uses
@@ -137,6 +141,9 @@ public final class Main {
       }
       if (options.locale() != null) {
         built.locale(options.locale());
+      }
+      if (options.now() != null) {
+        built.now(options.now());
       }
       if (!options.dataPaths().isEmpty()) {
         List<Path> roots = new ArrayList<>();

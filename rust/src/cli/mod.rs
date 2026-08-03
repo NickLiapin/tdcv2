@@ -40,6 +40,10 @@ Options:
   --seed <seed>            Override the seed declared in <env>
   --count <n>              Override the count declared in <env>
   --locale <loc>           Override the default locale (default: en)
+  --now <date>             Pin the clock date generators read as "now" —
+                           YYYY-MM-DD or YYYY-MM-DDTHH:mm:ss, always UTC.
+                           Without it the run reads the real clock, so a config
+                           using today / now / b_day cannot be reproduced later
   --data-path <dir>        Add a data folder for @data/... sources (repeatable)
   --jobs <n>               Accepted and ignored here: this build runs on one
                            thread. The flag never changes the output in any
@@ -118,6 +122,7 @@ fn generate(
         count: options.count,
         seed: options.seed.clone(),
         locale: options.locale.clone(),
+        now_millis: options.now,
         data_paths: options.data_paths.clone(),
         engine: options.engine,
         ..Options::default()

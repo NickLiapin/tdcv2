@@ -13,9 +13,9 @@ El paquete más simple es un archivo plano, un valor por línea, direccionado po
 todo sin tocar el código del motor y todo seguro de compartir, porque un paquete no es
 más que datos o un DSL analizado y aislado.
 
-Las salidas de ejemplo de abajo son **ilustrativas**: los valores exactos dependen del
-seed y pueden cambiar entre versiones del núcleo. Lo que sí está garantizado —el
-determinismo por seed y las proporciones exactas— se señala donde importa.
+Las salidas de ejemplo de abajo son **ilustrativas**: los valores exactos dependen de la
+semilla y pueden cambiar entre versiones del núcleo. Lo que sí está garantizado —el
+determinismo por semilla y las proporciones exactas— se señala donde importa.
 
 ## El encabezado
 
@@ -337,7 +337,7 @@ Josué y Ladislao`}
 </Terminal>
 
 `Saúl y Esteban` está bien; `Saúl y Saúl` nunca aparece. Ante una coincidencia, el
-motor vuelve a extraer uno de los valores, y el determinismo por seed se conserva.
+motor vuelve a extraer uno de los valores, y el determinismo por semilla se conserva.
 Funciona tanto dentro de una [`<sequence>`](../core-concepts/sequences.mdx) (envolviendo
 `<gen>`) como dentro de `<env>` (envolviendo secuencias enteras).
 

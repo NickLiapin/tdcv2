@@ -5,6 +5,7 @@ import io.github.nickliapin.tdc.errors.Diagnostic;
 import io.github.nickliapin.tdc.distribution.PercentMask;
 import io.github.nickliapin.tdc.generators.Accumulate;
 import io.github.nickliapin.tdc.generators.RegexGen;
+import io.github.nickliapin.tdc.parser.PairedData;
 import io.github.nickliapin.tdc.parser.generated.TDCParser;
 import io.github.nickliapin.tdc.sequence.Pool;
 import java.util.ArrayList;
@@ -244,6 +245,12 @@ public final class Validator {
   /** Field names per pool, gathered before the members are walked. */
   private final Map<String, List<String>> poolFields = new LinkedHashMap<>();
 
+  /** Of those fields, the ones whose value list the config writes down — see TDC225. */
+  private final Map<String, Map<String, List<String>>> poolFieldValues = new LinkedHashMap<>();
+
+  /** Every pool a {@code <gen type="pool">} names, gathered before the walk — see TDC231. */
+  private final Set<String> poolsRead = new LinkedHashSet<>();
+
   /** Sequences that draw a whole member: {@code Ref.field} is readable, {@code Ref} is not. */
   private final Set<String> poolReferences = new LinkedHashSet<>();
 
@@ -271,6 +278,17 @@ public final class Validator {
   private record Pending(int at, String expression, int line, int column, boolean each) {}
 
   private final List<Pending> pendingExpressions = new ArrayList<>();
+
+  /**
+   * A {@code filter=} put aside, and where its complaint belongs in the report.
+   *
+   * <p>Held back for the same reason an {@code if=} is: the column a filter compares against may
+   * be declared BELOW the reference, and the run resolves that happily.
+   */
+  private record PendingFilter(
+      int at, String expression, String pool, String field, String other, int line, int column) {}
+
+  private final List<PendingFilter> pendingPoolFilters = new ArrayList<>();
 
   private static final java.util.regex.Pattern INTERPOLATION =
       java.util.regex.Pattern.compile("\\$\\{\\{([^}]+)}}");
@@ -340,6 +358,13 @@ public final class Validator {
     if (block != null) {
       checkBlock(block);
     }
+
+    // Two second passes, pools before expressions. Both splice their complaints back at the
+    // position the attribute was found, so the report still reads top to bottom; running the pool
+    // pass first is what makes the two independent — an expression's recorded position is
+    // relative to the walk, and re-splicing it after another pass has inserted would need that
+    // pass's shifts as well.
+    runPendingPoolFilters();
 
     // Now that every name is known, the expressions can be checked — and each complaint goes back
     // where its attribute was, so the report stays in source order.
@@ -482,6 +507,8 @@ public final class Validator {
     // Pools first, and only their shape: a reference may stand above the pool it names, and
     // complaining about an unknown field in that case would report the wrong problem.
     collectPoolFields(env);
+    collectPoolFieldValues(env);
+    collectPoolReferences(env);
     checkChildren(env.content(), "env", ENV_CHILDREN);
     checkClosedTagAttrs("env", env.attr(), line(env), column(env));
 
@@ -618,6 +645,7 @@ public final class Validator {
             poolsAbove.add(declaredPool);
           }
         }
+        checkPoolIsRead(open);
         out.addAll(poolMembers(open));
       } else if ("uniq".equals(tag) || "distinct".equals(tag)) {
         // A group wrapper is not a declaration either — same gap, same fix.
@@ -711,6 +739,131 @@ public final class Validator {
       }
       poolFields.put(name, fields);
     }
+  }
+
+  /**
+   * The values each pool field can hold, where the config says them outright.
+   *
+   * <p>A member whose body is one unnamed {@code <gen type="text" value="A,B">} produces nothing
+   * but {@code A} and {@code B}, so the set recorded here is a SUPERSET of what the built pool
+   * will hold — a pool of two members drawn from three values holds at most two of them. That
+   * direction is what TDC225 needs: a value outside the superset can match no member, whatever
+   * the draw turns out to be.
+   */
+  private void collectPoolFieldValues(TDCParser.OpenCloseElementContext env) {
+    for (TDCParser.ElementContext child : env.content().element()) {
+      TDCParser.OpenCloseElementContext open = child.openCloseElement();
+      if (open == null || !"pool".equals(open.name.getText())) {
+        continue;
+      }
+      String name = attributes(open.attr()).get("name");
+      if (name == null || name.isBlank()) {
+        continue;
+      }
+      Map<String, List<String>> fields = new LinkedHashMap<>();
+      for (TDCParser.OpenCloseElementContext member : poolMemberNodesOf(open)) {
+        String field = attributes(member.attr()).get("name");
+        if (field == null || field.isBlank()) {
+          continue;
+        }
+        List<String> values = literalTextValues(member);
+        if (values != null) {
+          fields.put(field, values);
+        }
+      }
+      poolFieldValues.put(name, fields);
+    }
+  }
+
+  /** Every declaration inside a pool, flattened, without recording it as a member node. */
+  private List<TDCParser.OpenCloseElementContext> poolMemberNodesOf(
+      TDCParser.OpenCloseElementContext pool) {
+    List<TDCParser.OpenCloseElementContext> out = new ArrayList<>();
+    for (TDCParser.ElementContext member : pool.content().element()) {
+      TDCParser.OpenCloseElementContext inner = member.openCloseElement();
+      if (inner == null) {
+        continue;
+      }
+      String tag = inner.name.getText();
+      if (isDeclarationTag(tag)) {
+        out.add(inner);
+      } else if ("uniq".equals(tag) || "distinct".equals(tag)) {
+        for (TDCParser.ElementContext w : inner.content().element()) {
+          TDCParser.OpenCloseElementContext node = w.openCloseElement();
+          if (node != null && isDeclarationTag(node.name.getText())) {
+            out.add(node);
+          }
+        }
+      }
+    }
+    return out;
+  }
+
+  /** The literal {@code value=} list of a member whose body is a single plain text gen. */
+  private static List<String> literalTextValues(TDCParser.OpenCloseElementContext member) {
+    List<Map<String, String>> gens = new ArrayList<>();
+    for (TDCParser.ElementContext child : member.content().element()) {
+      TDCParser.SelfClosingElementContext self = child.selfClosingElement();
+      TDCParser.OpenCloseElementContext open = child.openCloseElement();
+      String tag = self != null ? self.name.getText() : open == null ? null : open.name.getText();
+      if ("gen".equals(tag)) {
+        gens.add(self != null ? attributes(self.attr()) : attributes(open.attr()));
+      }
+    }
+    if (gens.size() != 1 || gens.get(0).containsKey("name")) {
+      return null;
+    }
+    return finiteTextValues(gens.get(0));
+  }
+
+  /**
+   * Every pool named by a {@code <gen type="pool" value="…">}, anywhere under {@code <env>}.
+   *
+   * <p>Collected in one descent rather than tallied during the walk, because a reference may stand
+   * above the pool it names and TDC231 has to know about it by the time that pool is reached.
+   */
+  private void collectPoolReferences(TDCParser.OpenCloseElementContext node) {
+    for (TDCParser.ElementContext child : node.content().element()) {
+      TDCParser.SelfClosingElementContext self = child.selfClosingElement();
+      TDCParser.OpenCloseElementContext open = child.openCloseElement();
+      String tag = self != null ? self.name.getText() : open == null ? null : open.name.getText();
+      if (tag == null) {
+        continue;
+      }
+      if ("gen".equals(tag)) {
+        Map<String, String> attrs =
+            self != null ? attributes(self.attr()) : attributes(open.attr());
+        if ("pool".equals(attrs.get("type"))) {
+          poolsRead.add(attrs.getOrDefault("value", "").trim());
+        }
+        continue;
+      }
+      if (open != null) {
+        collectPoolReferences(open);
+      }
+    }
+  }
+
+  /**
+   * A pool nobody draws from.
+   *
+   * <p>A warning rather than an error, on the same reasoning as TDC234: the config runs, and every
+   * row is exactly what it would have been. What it costs is the build — a pool is computed in
+   * full before the first row and held in memory for the whole run — so an unread {@code
+   * count="50000"} is paid for and thrown away. It is also the shape a rename leaves behind, where
+   * the reference points at a new pool and the old one sits there looking deliberate.
+   */
+  private void checkPoolIsRead(TDCParser.OpenCloseElementContext pool) {
+    String name = attributes(pool.attr()).get("name");
+    if (name == null || name.isBlank() || poolsRead.contains(name)) {
+      return;
+    }
+    warn("TDC231",
+        "pool \"" + name + "\" is never drawn from",
+        "A pool is built in full before the first row and kept in memory for the whole run, so an "
+            + "unread one costs its members for nothing. Read it with <gen type=\"pool\" value=\""
+            + name + "\"/>, or remove it.",
+        line(pool), column(pool));
   }
 
   /**
@@ -958,6 +1111,87 @@ public final class Validator {
               + "so the test would compare a value with itself.",
           line, column);
     }
+
+    // `field == Something` — the one filter shape a check can decide, recognised the same way the
+    // engine's fast path recognises it, by looking at the text rather than a parsed tree, so what
+    // the reader sees and what is checked are the same thing.
+    String[] sides = expression.split("==", -1);
+    if (sides.length != 2) {
+      return;
+    }
+    String left = sides[0].trim();
+    String right = sides[1].trim();
+    if (!PLAIN_NAME.matcher(left).matches() || !PLAIN_NAME.matcher(right).matches()) {
+      return;
+    }
+    boolean leftIsField = fields.contains(left);
+    boolean rightIsField = fields.contains(right);
+    // Both sides a field compares the candidate with itself, which is a different mistake.
+    if (leftIsField == rightIsField) {
+      return;
+    }
+    pendingPoolFilters.add(new PendingFilter(
+        diagnostics.size(), expression.trim(), poolName,
+        leftIsField ? left : right, leftIsField ? right : left, line, column));
+  }
+
+  /**
+   * The put-aside filters, decided now that every column is known.
+   *
+   * <p>What can be said before a single value exists: the member's field and the other side of the
+   * {@code ==} each draw from a set the config writes down, and when those two sets do not overlap
+   * the filter can never match — not on some row, on every row. The run already refuses that, on
+   * row one, after building the pool; saying it at check time costs nothing and names both lists.
+   *
+   * <p>Only DISJOINT sets are reported. A value that is merely rare is a refusal waiting for the
+   * row that draws it, and reporting it here would also refuse {@code percent="100,0"}, which
+   * never draws that value at all.
+   */
+  private void runPendingPoolFilters() {
+    List<PendingFilter> pending = new ArrayList<>(pendingPoolFilters);
+    pendingPoolFilters.clear();
+    int shift = 0;
+    for (PendingFilter item : pending) {
+      Map<String, List<String>> byField = poolFieldValues.get(item.pool());
+      List<String> fieldValues = byField == null ? null : byField.get(item.field());
+      if (fieldValues == null || fieldValues.isEmpty()) {
+        continue;
+      }
+      // A name no sequence has is a bare word, and the expression language reads a bare word as
+      // its own text — that is how filter="clinic == North" says "northern only". So it is a set
+      // of exactly one value.
+      boolean isColumn = declaredNames.contains(item.other());
+      List<String> otherValues =
+          isColumn ? finiteValues.get(item.other()) : List.of(item.other());
+      if (otherValues == null || otherValues.isEmpty()) {
+        continue;
+      }
+      boolean overlaps = false;
+      for (String value : otherValues) {
+        if (fieldValues.contains(value)) {
+          overlaps = true;
+          break;
+        }
+      }
+      if (overlaps) {
+        continue;
+      }
+      String message = isColumn
+          ? "filter=\"" + item.expression() + "\" can never match — no value \"" + item.other()
+              + "\" produces is a \"" + item.field() + "\" any member of pool \"" + item.pool()
+              + "\" could hold"
+          : "filter=\"" + item.expression() + "\" can never match — no member of pool \""
+              + item.pool() + "\" holds \"" + item.field() + "\" = \"" + item.other() + "\"";
+      String hint = "\"" + item.field() + "\" is drawn from: " + String.join(", ", fieldValues)
+          + ". "
+          + (isColumn ? "\"" + item.other() + "\" produces: " + String.join(", ", otherValues)
+              + ". " : "")
+          + "A filter narrows the members a row may draw from, and every row would be left with "
+          + "none.";
+      diagnostics.add(item.at() + shift,
+          Diagnostic.error("TDC225", message, hint, item.line(), item.column()));
+      shift += 1;
+    }
   }
 
   /**
@@ -1198,7 +1432,7 @@ public final class Validator {
     boolean composes = false;
     for (TDCParser.ElementContext child : open.content().element()) {
       if (child.dataElement() instanceof TDCParser.DataWithBodyContext body
-          && !body.dataContent().getText().isBlank()) {
+          && !PairedData.restore(body.dataContent().getText()).isBlank()) {
         composes = true;
         break;
       }
@@ -1425,6 +1659,7 @@ public final class Validator {
     checkCounter(gen, attrs, type);
     checkDateTemplates(gen, attrs, type);
     checkCaseAndOrder(gen, attrs);
+    checkImperfections(gen, attrs, type);
     if ("text".equals(type) && attrs.get("percent") != null) {
       int values = splitCount(attrs.getOrDefault("value", ""));
       checkPercentMask(attrs.get("percent"), values,
@@ -1506,6 +1741,81 @@ public final class Validator {
   }
 
   /**
+   * {@code missing="p"} and {@code anomaly="p"}: a probability, and something to spend it on.
+   *
+   * <p>Both were parsed only where they are used, deep in the sequence builder, so {@code check}
+   * called a config valid and the run then stopped on {@code anomaly="10x"}. A check that passes
+   * what the very next command refuses is worse than no check. The generator keeps its own parse
+   * as a backstop, for callers who build a gen through the library without validating.
+   *
+   * <p>The second half is a request that would be honoured and still do nothing. An anomaly
+   * multiplies the selected value by {@code anomaly_factor}, so a {@code value=} list with no
+   * number anywhere in it has nothing to perturb and ten rows come back ordinary with no sign
+   * that 30% of them were meant to be outliers. Only a {@code type="text"} list is judged: it is
+   * the only source whose whole candidate set is written in the config.
+   */
+  private void checkImperfections(
+      TDCParser.SelfClosingElementContext gen, Map<String, String> attrs, String type) {
+    for (String key : List.of("anomaly", "missing")) {
+      String raw = attrs.get(key);
+      if (raw == null || raw.isBlank() || isProbability(raw)) {
+        continue;
+      }
+      error("TDC242",
+          key + "=\"" + raw + "\" is not a probability — it must be a number in [0, 1]",
+          "anomaly".equals(key)
+              ? "It is the share of values turned into outliers: anomaly=\"0.05\" spikes one "
+                  + "value in twenty."
+              : "It is the share of values blanked: missing=\"0.1\" empties one value in ten.",
+          at(gen, key)[0], at(gen, key)[1]);
+    }
+
+    String raw = attrs.get("anomaly");
+    if (raw == null || !isProbability(raw) || Double.parseDouble(raw) == 0.0) {
+      return;
+    }
+    if (!"text".equals(type)) {
+      return;
+    }
+    String listed = attrs.get("value");
+    if (listed == null || listed.isBlank()) {
+      return;
+    }
+    for (String piece : listed.split(",", -1)) {
+      if (isNumber(piece.trim())) {
+        return;
+      }
+    }
+    error("TDC243",
+        "anomaly=\"" + raw + "\" has nothing to perturb — no value in \"" + listed
+            + "\" is a number",
+        "An anomaly multiplies a numeric value by anomaly_factor, so a list of words comes back "
+            + "unchanged. Put the anomaly on a numeric generator, or drop it.",
+        at(gen, "anomaly")[0], at(gen, "anomaly")[1]);
+  }
+
+  /** True when the text is a finite number — the same test the generators apply. */
+  private static boolean isNumber(String raw) {
+    if (raw.isEmpty()) {
+      return false;
+    }
+    try {
+      return Double.isFinite(Double.parseDouble(raw));
+    } catch (NumberFormatException e) {
+      return false;
+    }
+  }
+
+  /** True when the text is a probability the generators will accept. */
+  private static boolean isProbability(String raw) {
+    if (!isNumber(raw)) {
+      return false;
+    }
+    double p = Double.parseDouble(raw);
+    return p >= 0.0 && p <= 1.0;
+  }
+
+  /**
    * A {@code src=} that names a file nobody can read.
    *
    * <p>Checked before the run rather than during it: a missing file discovered on row one of a
@@ -1515,6 +1825,27 @@ public final class Validator {
       TDCParser.SelfClosingElementContext gen, Map<String, String> attrs, String type) {
     if (!"file".equals(type) && !"pattern".equals(type)) {
       return;
+    }
+    // `src=` is one of three ways to hand a drawing a shape, so its absence is only a mistake
+    // when the other two are absent too — the drawing equivalent of a regex with no pattern,
+    // which TDC095 and TDC128 have always caught before the run.
+    if ("pattern".equals(type)) {
+      boolean drawable = false;
+      for (String key : List.of("points", "src", "upper")) {
+        String value = attrs.get(key);
+        if (value != null && !value.isBlank()) {
+          drawable = true;
+          break;
+        }
+      }
+      if (!drawable) {
+        error("TDC244",
+            "<gen type=\"pattern\"> has nothing to draw from",
+            "Give it a shape: points=\"0,0 1,5 2,3\", src=\"curve.svg\" (or a PNG), or "
+                + "upper=\"…\" with an optional lower=\"…\" for a band.",
+            line(gen), column(gen));
+        return;
+      }
     }
     String src = attrs.get("src");
     if (src == null || src.isBlank()) {
@@ -2492,7 +2823,7 @@ public final class Validator {
         // The <data> element, not the <line> around it: several <data> pieces can share a
         // line, and pointing at the line would name the wrong one whenever they do.
         checkInterpolation(
-            body.dataContent().getText(),
+            PairedData.restore(body.dataContent().getText()),
             body.getStart().getLine(),
             body.getStart().getCharPositionInLine());
         String condition = attributes(body.attr()).get("if");

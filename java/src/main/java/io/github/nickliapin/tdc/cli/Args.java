@@ -1,5 +1,7 @@
 package io.github.nickliapin.tdc.cli;
 
+import io.github.nickliapin.tdc.date.Calendar;
+import io.github.nickliapin.tdc.date.DateParse;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,6 +36,7 @@ public final class Args {
       String seed,
       Integer count,
       String locale,
+      Long now,
       List<String> dataPaths,
       Integer jobs,
       String mode,
@@ -48,6 +51,7 @@ public final class Args {
     String seed;
     Integer count;
     String locale;
+    Long now;
     final List<String> dataPaths = new ArrayList<>();
     Integer jobs;
     String mode;
@@ -57,7 +61,7 @@ public final class Args {
 
     Options build() {
       return new Options(
-          input, output, seed, count, locale, List.copyOf(dataPaths), jobs, mode, engine, help,
+          input, output, seed, count, locale, now, List.copyOf(dataPaths), jobs, mode, engine, help,
           version);
     }
   }
@@ -111,7 +115,7 @@ public final class Args {
 
   private static boolean isValued(String name) {
     return switch (name) {
-      case "--output", "--seed", "--count", "--locale", "--data-path", "--jobs", "--mode",
+      case "--output", "--seed", "--count", "--locale", "--now", "--data-path", "--jobs", "--mode",
               "--engine" ->
           true;
       default -> false;
@@ -123,6 +127,7 @@ public final class Args {
       case "--output" -> out.output = value;
       case "--seed" -> out.seed = value;
       case "--locale" -> out.locale = value;
+      case "--now" -> out.now = nowMillis(value);
       case "--data-path" -> out.dataPaths.add(value);
       case "--count" -> out.count = nonNegative(value, "--count");
       case "--jobs" -> out.jobs = positive(value, "--jobs");
@@ -143,6 +148,24 @@ public final class Args {
         out.mode = value;
       }
       default -> throw new UsageException("unknown option: " + name);
+    }
+  }
+
+  /**
+   * The clock {@code --now} pins, in milliseconds since the epoch.
+   *
+   * <p>The syntax is the date generator's own — whatever {@code <gen type="date" value="…">}
+   * accepts is what this accepts, down to the same parser — so the project has one date syntax
+   * rather than two. It carries no zone, so like every date in the engine it is read as UTC. A
+   * value that does not parse is refused rather than falling back to the real clock, which would
+   * hand back the very irreproducibility the flag exists to remove.
+   */
+  private static long nowMillis(String value) {
+    try {
+      return Calendar.toEpochMillis(DateParse.dateTime(value).value());
+    } catch (IllegalArgumentException e) {
+      throw new UsageException(
+          "invalid --now \"" + value + "\" — expected YYYY-MM-DD or YYYY-MM-DDTHH:mm:ss (UTC)");
     }
   }
 

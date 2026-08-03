@@ -27,6 +27,7 @@ from ..model.config import (
     Switch,
     SwitchEntry,
 )
+from . import paired_data
 from .generated.TDCParser import TDCParser
 
 DEFAULT_COUNT = 10
@@ -219,7 +220,7 @@ def _sequence(element) -> SequenceSpec:
         data_el = child.dataElement()
         if isinstance(data_el, TDCParser.DataWithBodyContext):
             saw_data = True
-            text = data_el.dataContent().getText()
+            text = paired_data.restore(data_el.dataContent().getText())
             constant = attributes(data_el.attr()).get("name")
             if constant:
                 items.append(Item(text=text, constant_name=constant))
@@ -340,7 +341,7 @@ def _case(element) -> Case:
     for child in element.content().element():
         data = child.dataElement()
         if isinstance(data, TDCParser.DataWithBodyContext):
-            parts.append(CasePart(text=data.dataContent().getText()))
+            parts.append(CasePart(text=paired_data.restore(data.dataContent().getText())))
             continue
         self_el = child.selfClosingElement()
         if self_el is not None and self_el.name.text == "gen":
@@ -420,7 +421,7 @@ def _lines(content) -> list[Line]:
                 data_attrs = attributes(data.attr())
                 parts.append(
                     DataPart(
-                        data.dataContent().getText(),
+                        paired_data.restore(data.dataContent().getText()),
                         data_attrs.get("if"),
                         data_attrs.get("name"),
                         data_attrs.get("type"),
@@ -476,7 +477,7 @@ def parse_pack_body(body: str) -> PackGenerator:
             continue
         data = child.dataElement()
         if isinstance(data, TDCParser.DataWithBodyContext):
-            output = data.dataContent().getText()
+            output = paired_data.restore(data.dataContent().getText())
     if output is None:
         raise ValueError("a composed pack generator needs a <data>...</data> output template")
     return PackGenerator(sequences, output, _find(env.content(), "valid"))

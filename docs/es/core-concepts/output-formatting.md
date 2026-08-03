@@ -18,7 +18,7 @@ condiciones).
 
 > [!NOTE]
 > Las salidas de ejemplo de abajo son ilustrativas: los valores exactos pueden variar según
-> la versión del núcleo y el seed. Lo que importa es la **forma** de cada transformación, no
+> la versión del núcleo y la semilla. Lo que importa es la **forma** de cada transformación, no
 > los nombres o números concretos.
 
 ![](../../img/concepts/output-layout.svg)

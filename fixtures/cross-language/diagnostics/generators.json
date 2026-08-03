@@ -329,6 +329,13 @@
       "description": "A path the en pack ships and ru does not: check used to pass and the run then refused it with \"unknown template path\", which reads as a typo and is not one",
       "config": "<tdc><env count=\"2\" seed=\"s\" local=\"ru\"><sequence name=\"S\"><gen type=\"template\" value=\"clothing.shoeSizeUs\"/></sequence></env><block><line><data>${{S}}</data></line></block></tdc>",
       "expected": ["error TDC217 1:87"]
+    },
+    {
+      "name": "a-drawing-with-nothing-to-draw",
+      "demonstrates": "TDC244",
+      "description": "A pattern reads a shape from points=, from a file in src=, or from upper=/lower=. With none of the three it has nothing to read, and the run stopped on row one where TDC095 and TDC128 stop before it for the two regex types.",
+      "config": "<tdc><env count=\"3\" seed=\"s\" local=\"en\"><sequence name=\"X\"><gen type=\"pattern\"/></sequence></env><block><line><data>${{X}}</data></line></block></tdc>",
+      "expected": ["error TDC244 1:59"]
     }
   ]
 }

@@ -12,7 +12,7 @@
 
 TDC está pensado para cinco ecosistemas — **npm** (Node.js / TypeScript), **pip**
 (Python), **Maven** (Java), **NuGet** (.NET) y **Cargo** (Rust) —, y todos producen
-exactamente la misma salida, byte por byte, a partir de la misma configuración, seed,
+exactamente la misma salida, byte por byte, a partir de la misma configuración, semilla,
 versión y modo de salida (vea
 [Determinismo y proporciones](../core-concepts/determinism.md#top)).
 
@@ -228,11 +228,11 @@ Carlos, edad 53
 > [!IMPORTANT]
 > Los nombres y números exactos son ilustrativos: pueden variar entre versiones del
 > núcleo. Lo importante es que `seed="demo"` vuelve reproducible la ejecución: la
-> misma configuración con el mismo seed reproduce la misma salida siempre.
+> misma configuración con la misma semilla reproduce la misma salida siempre.
 
 Si obtiene tres líneas con la forma `nombre, edad N`, la instalación funciona.
 Confirme la reproducibilidad ejecutándola una segunda vez: las tres filas son
-idénticas. Después cambie la cantidad de filas y el seed desde la línea de
+idénticas. Después cambie la cantidad de filas y la semilla desde la línea de
 comandos, sin tocar el archivo:
 
 ```bash

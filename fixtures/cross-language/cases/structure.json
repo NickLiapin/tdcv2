@@ -209,6 +209,42 @@
         "Female|[]",
         "Male|[-LIT-]"
       ]
+    },
+    {
+      "name": "paired-data-emits-a-literal-close-tag",
+      "description": "pair= makes </data> inside the body text, while ${{…}} in the same body still interpolates",
+      "config": "<tdc><env count=\"2\" seed=\"unit-test\" local=\"en\" mode=\"memory\"><sequence name=\"N\"><gen type=\"increment\" value=\"1\"/></sequence></env><block><line><data pair=\"doc\">row ${{N}} prints <data>x</data></data pair=\"doc\"></line></block></tdc>",
+      "expected": ["row 1 prints <data>x</data>", "row 2 prints <data>x</data>"]
+    },
+    {
+      "name": "paired-data-body-may-close-twice",
+      "description": "Every literal </data> in a paired body survives, not only the first",
+      "config": "<tdc><env count=\"2\" seed=\"unit-test\" local=\"en\" mode=\"memory\"></env><block><line><data pair=\"p\">a</data>b</data>c</data pair=\"p\"></line></block></tdc>",
+      "expected": ["a</data>b</data>c", "a</data>b</data>c"]
+    },
+    {
+      "name": "paired-data-inner-close-keeps-its-own-pair",
+      "description": "A </data pair=\"q\"> inside the body is text: only the matching pair closes the block",
+      "config": "<tdc><env count=\"2\" seed=\"unit-test\" local=\"en\" mode=\"memory\"></env><block><line><data pair=\"p\">a</data pair=\"q\">b</data pair=\"p\"></line></block></tdc>",
+      "expected": ["a</data pair=\"q\">b", "a</data pair=\"q\">b"]
+    },
+    {
+      "name": "paired-data-neighbours-render-unchanged",
+      "description": "Blanking the closing tag holds its place, so the elements after it read the same",
+      "config": "<tdc><env count=\"2\" seed=\"unit-test\" local=\"en\" mode=\"memory\"></env><block><line><data pair=\"a\">1</data></data pair=\"a\"><data>-</data><data pair=\"b\">2</data></data pair=\"b\"></line></block></tdc>",
+      "expected": ["1</data>-2</data>", "1</data>-2</data>"]
+    },
+    {
+      "name": "paired-data-spans-lines",
+      "description": "A paired body carrying line breaks and a closer of its own, on separate lines",
+      "config": "<tdc>\n  <env count=\"2\" seed=\"unit-test\" local=\"en\" mode=\"memory\"></env>\n  <block><line><data pair=\"doc\">first\n</data>\nsecond</data pair=\"doc\"></line></block>\n</tdc>",
+      "expected": ["first", "</data>", "second", "first", "</data>", "second"]
+    },
+    {
+      "name": "paired-data-self-closing-needs-no-closer",
+      "description": "pair= on a self-closing <data/> is inert — nothing to close, nothing to rewrite",
+      "config": "<tdc><env count=\"2\" seed=\"unit-test\" local=\"en\" mode=\"memory\"></env><block><line><data>a</data><data pair=\"x\"/><data>b</data></line></block></tdc>",
+      "expected": ["ab", "ab"]
     }
   ]
 }

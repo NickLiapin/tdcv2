@@ -196,6 +196,44 @@
         "lines": ["2026-04-23", "2026-04-23", "2026-04-23"]
       }
     },
+    "dates/date-now": {
+      "engine2": {
+        "lines": [
+          "2026-04-23T12:00:00",
+          "2026-04-23T12:00:00",
+          "2026-04-23T12:00:00"
+        ]
+      },
+      "engine3": {
+        "lines": [
+          "2026-04-23T12:00:00",
+          "2026-04-23T12:00:00",
+          "2026-04-23T12:00:00"
+        ]
+      }
+    },
+    "dates/date-open-ended-range": {
+      "engine2": {
+        "lines": [
+          "2003-12-19",
+          "1982-07-01",
+          "2025-05-23",
+          "1982-06-20",
+          "2017-08-05",
+          "2012-11-29"
+        ]
+      },
+      "engine3": {
+        "lines": [
+          "2003-12-19",
+          "1982-07-01",
+          "2025-05-23",
+          "1982-06-20",
+          "2017-08-05",
+          "2012-11-29"
+        ]
+      }
+    },
     "dates/date-birth": {
       "engine2": {
         "lines": [
@@ -2005,6 +2043,54 @@
           "Female|[]",
           "Male|[-LIT-]"
         ]
+      }
+    },
+    "structure/paired-data-emits-a-literal-close-tag": {
+      "engine2": {
+        "lines": ["row 1 prints <data>x</data>", "row 2 prints <data>x</data>"]
+      },
+      "engine3": {
+        "lines": ["row 1 prints <data>x</data>", "row 2 prints <data>x</data>"]
+      }
+    },
+    "structure/paired-data-body-may-close-twice": {
+      "engine2": {
+        "lines": ["a</data>b</data>c", "a</data>b</data>c"]
+      },
+      "engine3": {
+        "lines": ["a</data>b</data>c", "a</data>b</data>c"]
+      }
+    },
+    "structure/paired-data-inner-close-keeps-its-own-pair": {
+      "engine2": {
+        "lines": ["a</data pair=\"q\">b", "a</data pair=\"q\">b"]
+      },
+      "engine3": {
+        "lines": ["a</data pair=\"q\">b", "a</data pair=\"q\">b"]
+      }
+    },
+    "structure/paired-data-neighbours-render-unchanged": {
+      "engine2": {
+        "lines": ["1</data>-2</data>", "1</data>-2</data>"]
+      },
+      "engine3": {
+        "lines": ["1</data>-2</data>", "1</data>-2</data>"]
+      }
+    },
+    "structure/paired-data-spans-lines": {
+      "engine2": {
+        "lines": ["first", "</data>", "second", "first", "</data>", "second"]
+      },
+      "engine3": {
+        "lines": ["first", "</data>", "second", "first", "</data>", "second"]
+      }
+    },
+    "structure/paired-data-self-closing-needs-no-closer": {
+      "engine2": {
+        "lines": ["ab", "ab"]
+      },
+      "engine3": {
+        "lines": ["ab", "ab"]
       }
     },
     "uniq-distinct/distinct-pair": {

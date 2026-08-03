@@ -147,7 +147,7 @@ precios, porcentajes o cualquier magnitud medida que se mueve en fracciones:
 
 Los contadores nunca tocan el motor aleatorio, así que la misma configuración produce
 la misma corrida sin importar el [`seed`](../core-concepts/determinism.md#top). Dos
-ejecuciones con seeds distintos dan columnas de contador idénticas byte por byte:
+ejecuciones con semillas distintas dan columnas de contador idénticas byte por byte:
 
 ```xml
 <gen type="increment" value="1" step="10"/>
@@ -183,7 +183,7 @@ un paso distinto de 1.
 
 - [Secuencias](../core-concepts/sequences.md#top) — el contenedor donde viven ambos contadores.
 - [Valores integrados](../reference/builtins.md#top) — `_count`, `_first`, `_last`, `_total`.
-- [Determinismo](../core-concepts/determinism.md#top) — por qué el mismo seed reproduce
+- [Determinismo](../core-concepts/determinism.md#top) — por qué la misma semilla reproduce
   los mismos datos (y por qué los contadores lo ignoran).
 
 ---

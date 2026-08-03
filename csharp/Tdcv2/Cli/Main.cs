@@ -51,6 +51,10 @@ Options:
   --seed <seed>            Override the seed declared in <env>
   --count <n>              Override the count declared in <env>
   --locale <loc>           Override the default locale (default: en)
+  --now <date>             Pin the clock date generators read as ""now"" —
+                           YYYY-MM-DD or YYYY-MM-DDTHH:mm:ss, always UTC.
+                           Without it the run reads the real clock, so a config
+                           using today / now / b_day cannot be reproduced later
   --data-path <dir>        Add a data folder for @data/... sources (repeatable)
   --jobs <n>               Worker threads for a large streaming run. Needs -o:
                            stdout is written by one thread. By default TDC uses
@@ -144,6 +148,7 @@ See https://github.com/NickLiapin/tdcv2 for the DSL reference.
                 Count = options.Count,
                 SeedValue = options.Seed,
                 Locale = options.Locale,
+                NowMillis = options.Now,
                 DataPaths = options.DataPaths,
                 // Either of these outranks what <env> declared: a flag the user typed on this run is
                 // a more recent statement of intent than a line in the file. Which of the two wins

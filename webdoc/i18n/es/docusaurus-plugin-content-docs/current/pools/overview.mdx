@@ -102,7 +102,7 @@ Esta es la decisión de diseño que conviene conocer, porque responde la mayorí
 preguntas antes de hacerlas. El cuerpo de un pool se construye con la misma maquinaria que
 el `<env>` de una configuración, con el **número de miembros** en lugar del de filas.
 
-Así que todo lo que ya sabes sigue aplicando dentro de un pool:
+Así que todo lo que ya sabe sigue aplicando dentro de un pool:
 
 | Dentro de un pool                                           | Significa                                                        |
 | :---------------------------------------------------------- | :--------------------------------------------------------------- |
@@ -220,10 +220,10 @@ invisible para todo lo que no alimenta.
 
 Dos consecuencias que conviene conocer:
 
-- Cambia la `seed` de la ejecución y el pool cambia con ella. Ese es el objetivo: un solo
+- Cambie la `seed` de la ejecución y el pool cambia con ella. Ese es el objetivo: un solo
   número sigue reproduciendo la ejecución entera.
 - **Renombrar un pool cambia sus miembros**, porque el nombre forma parte de la semilla
-  derivada. Renombrar no es cosmético; si importan los miembros exactos, deja el nombre
+  derivada. Renombrar no es cosmético; si importan los miembros exactos, deje el nombre
   como está.
 
 ## Tamaño
@@ -238,7 +238,7 @@ con cuatro campos cuesta unos 320 bytes.
 | más de 100.000   |                 | `TDC234`, una advertencia |
 | más de 1.000.000 | más de ~290 MB  | `TDC235`, rechazado       |
 
-Los dos mensajes acaban igual, porque la causa suele ser la misma: si querías decir el
+Los dos mensajes acaban igual, porque la causa suele ser la misma: si quería decir el
 número de **filas**, eso es `count` en `<env>`.
 
 El techo es de la tabla, no de la ejecución. Un pool de treinta médicos atiende mil

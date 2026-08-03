@@ -21,6 +21,13 @@
       "description": "flag= with no case marked anomalous",
       "config": "<tdc><env count=\"2\" seed=\"s\"><mix name=\"M\" percent=\"50,50\" flag=\"F\"><case><data>a</data></case><case><data>b</data></case></mix></env><block><line><data>x</data></line></block></tdc>",
       "expected": ["error TDC202 1:65"]
+    },
+    {
+      "name": "a-mix-percent-entry-that-is-not-a-number",
+      "demonstrates": "TDC122",
+      "description": "A branch is chosen by its share, and a share that is not a number chooses nothing.",
+      "config": "<tdc><env count=\"3\" seed=\"s\" local=\"en\"><mix name=\"M\" percent=\"abc,50\"><case><gen type=\"text\" value=\"a\"/></case><case><gen type=\"text\" value=\"b\"/></case></mix></env><block><line><data>${{M}}</data></line></block></tdc>",
+      "expected": ["error TDC122 1:63"]
     }
   ]
 }

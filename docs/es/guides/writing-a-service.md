@@ -408,16 +408,16 @@ Cualquiera de los cinco, contra el mismo config:
 ```
 
 `Card` pasó por el manejador — la carga volvió con su dígito de control. `Acct` se inventó
-solo a partir del seed. Cambie el puerto por 5702, 5703, 5704 o 5705 y la salida es carácter por
-carácter la misma.
+solo a partir de la semilla. Cambie el puerto por 5702, 5703, 5704 o 5705 y la salida es
+carácter por carácter la misma.
 
-## Reproducibilidad: para qué sirve el seed
+## Reproducibilidad: para qué sirve la semilla
 
 El generador `http` es el único lugar donde TDC [cede su garantía](../generators/http.md#lo-que-no-promete):
 el servicio decide los valores, así que el motor no puede prometer que volver a correr
 reproduzca. **Su servicio sí puede prometerlo**, y `X-TDC-Seed` es lo que lo hace posible.
 
-La regla cabe en una línea: **derive cada valor del seed, nunca de un reloj ni de un
+La regla cabe en una línea: **derive cada valor de la semilla, nunca de un reloj ni de un
 generador de números aleatorios.**
 
 ```js
@@ -426,7 +426,7 @@ Math.random(); // not
 new Date(); // not
 ```
 
-El seed que envía TDC es estable entre corridas y **distinto para cada secuencia**, así
+La semilla que envía TDC es estable entre corridas y **distinta para cada secuencia**, así
 que dos secuencias `http` apuntadas al mismo servicio nunca reciben el mismo flujo.
 
 Escrito así, la corrida se reproduce:
@@ -484,7 +484,7 @@ comprobación antes de confiar en él.
 
 ### El manejador ya suele ser reproducible
 
-Vale la pena notarlo: `luhn()` nunca toca el seed. Un manejador calcula su respuesta **a
+Vale la pena notarlo: `luhn()` nunca toca la semilla. Un manejador calcula su respuesta **a
 partir del valor que usted le mandó**, así que es una función pura por naturaleza: misma
 entrada, misma salida, en cada corrida. Trabajar por la reproducibilidad le toca solo al
 modo **fuente**.

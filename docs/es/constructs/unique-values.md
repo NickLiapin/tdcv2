@@ -377,9 +377,9 @@ en memoria.
 > ordenamiento, más lento otra vez por un amplio margen. Si una corrida tarda una eternidad,
 > soltar el `percent` o el `uniq` suele ser lo que lo arregla.
 >
-> Para unicidad a gran escala, prefiere las clases baratas por construcción — un
+> Para unicidad a gran escala, prefiera las clases baratas por construcción — un
 > [contador](../generators/counters.md#top) o un rango [`number`](../generators/number.md#top) lo
-> bastante amplio como para que una colisión sea prácticamente imposible — y reserva
+> bastante amplio como para que una colisión sea prácticamente imposible — y reserve
 > `uniq="true"` sobre columnas numéricas/percent para los tamaños donde la revisión
 > exhaustiva valga la espera.
 

@@ -35,8 +35,8 @@ Dos reglas valen para **todos** ellos:
 - **El desbordamiento es un error.** Un desbordamiento de 64 bits se reporta, no se da la
   vuelta en silencio — usted se entera antes de que salgan datos malos.
 
-Las salidas de ejemplo de esta página son ilustrativas: los valores exactos dependen del
-seed y de la versión del núcleo, pero la aritmética mostrada siempre es correcta.
+Las salidas de ejemplo de esta página son ilustrativas: los valores exactos dependen de la
+semilla y de la versión del núcleo, pero la aritmética mostrada siempre es correcta.
 
 ## `<add>`
 

@@ -210,7 +210,7 @@ dígito que vuelve válido al conjunto:
 ```
 
 Las salidas de ejemplo de esta página son ilustrativas — los valores exactos dependen
-del seed y de la versión del núcleo, pero cada línea de arriba es un número de 16
+de la semilla y de la versión del núcleo, pero cada línea de arriba es un número de 16
 dígitos genuinamente válido según Luhn.
 
 Repasando las piezas: [`<reduce>`](lists.md#reduce--plegar-a-un-solo-valor) pliega los

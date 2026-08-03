@@ -89,6 +89,10 @@ struct Validator {
     env_names: BTreeSet<String>,
     /// Field names per `<pool>`, and the sequences that draw a whole member.
     pool_fields: BTreeMap<String, Vec<String>>,
+    /// Of those fields, the ones whose value list the config writes down — TDC225.
+    pool_field_values: BTreeMap<String, BTreeMap<String, Vec<String>>>,
+    /// Every pool a `<gen type="pool">` names, gathered before the walk — TDC231.
+    pools_read: BTreeSet<String>,
     pool_references: BTreeSet<String>,
     /// Of those, the compounds: every `<gen>` named, so the sequence is a group
     /// of fields and produces no value of its own. Which is what `parent=`
@@ -107,6 +111,12 @@ struct Validator {
     /// sequence declared BELOW it, and the run resolves that happily, so
     /// checking mid-walk would invent errors on configs that work.
     pending_expressions: Vec<(usize, String, Pos, bool)>,
+    /// Every `filter=` seen, and where its complaint belongs in the report.
+    ///
+    /// Held back for the same reason an `if=` is: the column a filter compares
+    /// against may be declared BELOW the reference, and the run resolves that
+    /// happily. `(at, expression, pool, field, other, pos)`.
+    pending_pool_filters: Vec<(usize, String, String, String, String, Pos)>,
     /// Those of them that produce a list, which is what `each=` may walk.
     repeating_names: BTreeSet<String>,
 }
@@ -157,6 +167,14 @@ impl Validator {
         if let Some(block) = block {
             self.check_block(block);
         }
+
+        // Two second passes, pools before expressions. Both splice their
+        // complaints back at the position the attribute was found, so the report
+        // still reads top to bottom; running the pool pass first is what makes
+        // the two independent — an expression's recorded position is relative to
+        // the walk, and re-splicing it after another pass has inserted would need
+        // that pass's shifts as well.
+        self.run_pending_pool_filters();
 
         // Now that every name is known, the expressions can be checked — and
         // each complaint goes back where its attribute was, so the report stays
@@ -321,6 +339,8 @@ impl Validator {
         // pool it names, and complaining about an unknown field in that case
         // would report a problem the author does not have.
         self.collect_pool_fields(env);
+        self.collect_pool_field_values(env);
+        self.collect_pool_references(env);
         let mut pools_above: Vec<String> = Vec::new();
         for child in &env.children {
             if child.kind == Kind::OpenClose && child.name == "pool" {
@@ -345,6 +365,7 @@ impl Validator {
                         pools_above.push(name.to_string());
                     }
                 }
+                self.check_pool_is_read(child);
             }
         }
 
@@ -541,6 +562,154 @@ impl Validator {
                 }
             }
             self.pool_fields.insert(name.to_string(), fields);
+        }
+    }
+
+    /// The values each pool field can hold, where the config says them outright.
+    ///
+    /// A member whose body is one unnamed `<gen type="text" value="A,B">`
+    /// produces nothing but `A` and `B`, so the set recorded here is a SUPERSET
+    /// of what the built pool will hold — a pool of two members drawn from three
+    /// values holds at most two of them. That direction is what TDC225 needs: a
+    /// value outside the superset can match no member, whatever the draw.
+    fn collect_pool_field_values(&mut self, env: &Element) {
+        for child in &env.children {
+            if child.kind != Kind::OpenClose || child.name != "pool" {
+                continue;
+            }
+            let Some(name) = child.attr_value("name") else {
+                continue;
+            };
+            let mut fields: BTreeMap<String, Vec<String>> = BTreeMap::new();
+            for member in pool_member_nodes(child) {
+                let Some(field) = member.attr_value("name") else {
+                    continue;
+                };
+                if let Some(values) = literal_text_values(member) {
+                    fields.insert(field.to_string(), values);
+                }
+            }
+            self.pool_field_values.insert(name.to_string(), fields);
+        }
+    }
+
+    /// Every pool named by a `<gen type="pool" value="…">`, anywhere under `<env>`.
+    ///
+    /// Collected in one descent rather than tallied during the walk, because a
+    /// reference may stand above the pool it names and TDC231 has to know about
+    /// it by the time that pool is reached.
+    fn collect_pool_references(&mut self, node: &Element) {
+        for child in &node.children {
+            if child.name == "gen" {
+                if child.attr_value("type") == Some("pool") {
+                    self.pools_read
+                        .insert(child.attr_value("value").unwrap_or("").trim().to_string());
+                }
+                continue;
+            }
+            if child.kind == Kind::OpenClose {
+                self.collect_pool_references(child);
+            }
+        }
+    }
+
+    /// A pool nobody draws from.
+    ///
+    /// A warning rather than an error, on the same reasoning as TDC234: the
+    /// config runs, and every row is exactly what it would have been. What it
+    /// costs is the build — a pool is computed in full before the first row and
+    /// held in memory for the whole run — so an unread `count="50000"` is paid
+    /// for and thrown away. It is also the shape a rename leaves behind, where
+    /// the reference points at a new pool and the old one sits there looking
+    /// deliberate.
+    fn check_pool_is_read(&mut self, pool: &Element) {
+        let Some(name) = pool.attr_value("name").filter(|n| !n.trim().is_empty()) else {
+            return;
+        };
+        if self.pools_read.contains(name) {
+            return;
+        }
+        let name = name.to_string();
+        self.warn(
+            "TDC231",
+            format!("pool \"{name}\" is never drawn from"),
+            &format!(
+                "A pool is built in full before the first row and kept in memory for the \
+                 whole run, so an unread one costs its members for nothing. Read it with \
+                 <gen type=\"pool\" value=\"{name}\"/>, or remove it."
+            ),
+            pool.pos,
+        );
+    }
+
+    /// The put-aside filters, decided now that every column is known.
+    ///
+    /// What can be said before a single value exists: the member's field and the
+    /// other side of the `==` each draw from a set the config writes down, and
+    /// when those two sets do not overlap the filter can never match — not on
+    /// some row, on every row. The run already refuses that, on row one, after
+    /// building the pool; saying it at check time costs nothing and names both
+    /// lists.
+    ///
+    /// Only DISJOINT sets are reported. A value that is merely rare is a refusal
+    /// waiting for the row that draws it, and reporting it here would also refuse
+    /// `percent="100,0"`, which never draws that value at all.
+    fn run_pending_pool_filters(&mut self) {
+        let pending = std::mem::take(&mut self.pending_pool_filters);
+        let mut shift = 0usize;
+        for (at_index, expression, pool, field, other, pos) in pending {
+            let Some(field_values) = self
+                .pool_field_values
+                .get(&pool)
+                .and_then(|byfield| byfield.get(&field))
+                .filter(|values| !values.is_empty())
+                .cloned()
+            else {
+                continue;
+            };
+            // A name no sequence has is a bare word, and the expression language
+            // reads a bare word as its own text — that is how
+            // `filter="clinic == North"` says "northern only". So it is a set of
+            // exactly one value.
+            let is_column = self.declared_names.contains(&other);
+            let other_values = if is_column {
+                self.finite_values.get(&other).cloned()
+            } else {
+                Some(vec![other.clone()])
+            };
+            let Some(other_values) = other_values.filter(|values| !values.is_empty()) else {
+                continue;
+            };
+            if other_values.iter().any(|v| field_values.contains(v)) {
+                continue;
+            }
+
+            let message = if is_column {
+                format!(
+                    "filter=\"{expression}\" can never match — no value \"{other}\" produces \
+                     is a \"{field}\" any member of pool \"{pool}\" could hold"
+                )
+            } else {
+                format!(
+                    "filter=\"{expression}\" can never match — no member of pool \"{pool}\" \
+                     holds \"{field}\" = \"{other}\""
+                )
+            };
+            let produced = if is_column {
+                format!("\"{other}\" produces: {}. ", other_values.join(", "))
+            } else {
+                String::new()
+            };
+            let hint = format!(
+                "\"{field}\" is drawn from: {}. {produced}A filter narrows the members a row \
+                 may draw from, and every row would be left with none.",
+                field_values.join(", ")
+            );
+            self.diagnostics.insert(
+                at_index + shift,
+                Diagnostic::error("TDC225", message, &hint, pos),
+            );
+            shift += 1;
         }
     }
 
@@ -762,6 +931,40 @@ impl Validator {
                 gen.pos,
             );
         }
+
+        // `field == Something` — the one filter shape a check can decide,
+        // recognised the same way the engine's fast path recognises it, by
+        // looking at the text rather than a parsed tree, so what the reader sees
+        // and what is checked are the same thing.
+        let sides: Vec<&str> = expression.split("==").collect();
+        if sides.len() != 2 {
+            return;
+        }
+        let left = sides[0].trim();
+        let right = sides[1].trim();
+        if !is_plain_name(left) || !is_plain_name(right) {
+            return;
+        }
+        let left_is_field = fields.iter().any(|f| f == left);
+        let right_is_field = fields.iter().any(|f| f == right);
+        // Both sides a field compares the candidate with itself, which is a
+        // different mistake and not one this check can speak to.
+        if left_is_field == right_is_field {
+            return;
+        }
+        let (field, other) = if left_is_field {
+            (left, right)
+        } else {
+            (right, left)
+        };
+        self.pending_pool_filters.push((
+            self.diagnostics.len(),
+            expression.trim().to_string(),
+            pool_name.to_string(),
+            field.to_string(),
+            other.to_string(),
+            gen.pos,
+        ));
     }
 
     fn check_group_sizes(&mut self, env: &Element) {
@@ -1225,6 +1428,7 @@ impl Validator {
         self.check_counter(gen, &attrs, gen_type);
         self.check_date_templates(gen, &attrs, gen_type);
         self.check_case_and_order(gen, &attrs);
+        self.check_imperfections(gen, &attrs, gen_type);
 
         if gen_type == Some("text") {
             if let Some(percent) = attrs.get("percent") {
@@ -1363,8 +1567,87 @@ impl Validator {
     ///
     /// Checked before the run rather than during it: a missing file discovered
     /// on row one of a million-row job has already cost whatever the job cost.
+    /// `missing="p"` and `anomaly="p"`: a probability, and something to spend it on.
+    ///
+    /// Both were parsed only where they are used, deep in the sequence builder,
+    /// so `check` called a config valid and the run then stopped on
+    /// `anomaly="10x"`. A check that passes what the very next command refuses is
+    /// worse than no check. The generator keeps its own parse as a backstop, for
+    /// callers who build a gen through the library without validating.
+    ///
+    /// The second half is a request that would be honoured and still do nothing.
+    /// An anomaly multiplies the selected value by `anomaly_factor`, so a
+    /// `value=` list with no number anywhere in it has nothing to perturb and ten
+    /// rows come back ordinary with no sign that 30% of them were meant to be
+    /// outliers. Only a `type="text"` list is judged: it is the only source whose
+    /// whole candidate set is written in the config.
+    fn check_imperfections(&mut self, gen: &Element, attrs: &Attrs, gen_type: Option<&str>) {
+        for key in ["anomaly", "missing"] {
+            let Some(raw) = trim_to_none(attrs.get(key)) else {
+                continue;
+            };
+            if is_probability(raw) {
+                continue;
+            }
+            self.error(
+                "TDC242",
+                format!("{key}=\"{raw}\" is not a probability — it must be a number in [0, 1]"),
+                if key == "anomaly" {
+                    "It is the share of values turned into outliers: anomaly=\"0.05\" spikes \
+                     one value in twenty."
+                } else {
+                    "It is the share of values blanked: missing=\"0.1\" empties one value in ten."
+                },
+                gen.at(key),
+            );
+        }
+
+        if gen_type != Some("text") {
+            return;
+        }
+        let Some(raw) = attrs.get("anomaly").map(String::as_str) else {
+            return;
+        };
+        if !is_probability(raw) || raw.parse::<f64>().unwrap_or(0.0) == 0.0 {
+            return;
+        }
+        let Some(listed) = trim_to_none(attrs.get("value")) else {
+            return;
+        };
+        if listed.split(',').any(|piece| is_number(piece.trim())) {
+            return;
+        }
+        self.error(
+            "TDC243",
+            format!(
+                "anomaly=\"{raw}\" has nothing to perturb — no value in \"{listed}\" is a number"
+            ),
+            "An anomaly multiplies a numeric value by anomaly_factor, so a list of words comes \
+             back unchanged. Put the anomaly on a numeric generator, or drop it.",
+            gen.at("anomaly"),
+        );
+    }
+
     fn check_source(&mut self, gen: &Element, attrs: &Attrs, gen_type: Option<&str>) {
         if gen_type != Some("file") && gen_type != Some("pattern") {
+            return;
+        }
+        // `src=` is one of three ways to hand a drawing a shape, so its absence
+        // is only a mistake when the other two are absent too — the drawing
+        // equivalent of a regex with no pattern, which TDC095 and TDC128 have
+        // always caught before the run.
+        if gen_type == Some("pattern")
+            && ["points", "src", "upper"]
+                .iter()
+                .all(|key| trim_to_none(attrs.get(*key)).is_none())
+        {
+            self.error(
+                "TDC244",
+                "<gen type=\"pattern\"> has nothing to draw from".to_string(),
+                "Give it a shape: points=\"0,0 1,5 2,3\", src=\"curve.svg\" (or a PNG), or \
+                 upper=\"…\" with an optional lower=\"…\" for a band.",
+                gen.pos,
+            );
             return;
         }
         let Some(src) = trim_to_none(attrs.get("src")) else {
@@ -3134,6 +3417,35 @@ fn finite_text_values(gen: &Element) -> Option<Vec<String>> {
     }
     let raw = gen.attr_value("value").filter(|v| !v.trim().is_empty())?;
     Some(raw.split(',').map(|v| v.trim().to_string()).collect())
+}
+
+/// The literal `value=` list of a member whose body is a single plain text gen.
+fn literal_text_values(member: &Element) -> Option<Vec<String>> {
+    let gens: Vec<&Element> = member.children.iter().filter(|c| c.name == "gen").collect();
+    if gens.len() != 1 || gens[0].attr("name").is_some() {
+        return None;
+    }
+    finite_text_values(gens[0])
+}
+
+/// A bare identifier, which is what both sides of a decidable `filter=` must be.
+fn is_plain_name(text: &str) -> bool {
+    let mut chars = text.chars();
+    match chars.next() {
+        Some(c) if c.is_ascii_alphabetic() || c == '_' => {}
+        _ => return false,
+    }
+    chars.all(|c| c.is_ascii_alphanumeric() || c == '_')
+}
+
+/// True when the text is a finite number — the same test the generators apply.
+fn is_number(raw: &str) -> bool {
+    raw.parse::<f64>().map(f64::is_finite).unwrap_or(false)
+}
+
+/// True when the text is a probability the generators will accept.
+fn is_probability(raw: &str) -> bool {
+    matches!(raw.parse::<f64>(), Ok(p) if p.is_finite() && (0.0..=1.0).contains(&p))
 }
 
 /// The most of an attribute value a message will quote. The full text is in

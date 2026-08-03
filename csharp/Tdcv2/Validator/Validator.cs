@@ -257,6 +257,13 @@ public sealed class Validator
     /// <summary>Field names per <c>&lt;pool&gt;</c>, and the sequences drawing a member.</summary>
     private readonly Dictionary<string, List<string>> _poolFields = new(StringComparer.Ordinal);
 
+    /// <summary>Of those fields, the ones whose value list the config writes down — TDC225.</summary>
+    private readonly Dictionary<string, Dictionary<string, List<string>>> _poolFieldValues =
+        new(StringComparer.Ordinal);
+
+    /// <summary>Every pool a <c>&lt;gen type="pool"&gt;</c> names, gathered before the walk.</summary>
+    private readonly HashSet<string> _poolsRead = new(StringComparer.Ordinal);
+
     private readonly HashSet<string> _poolReferences = new(StringComparer.Ordinal);
 
     private readonly HashSet<TDCParser.OpenCloseElementContext> poolMemberNodes = new();
@@ -297,6 +304,16 @@ public sealed class Validator
     /// </remarks>
     private readonly List<(int At, string Expression, int Line, int Column, bool Each)>
         _pendingExpressions = new();
+
+    /// <summary>
+    /// Every <c>filter=</c> seen, and where its complaint belongs in the report.
+    /// </summary>
+    /// <remarks>
+    /// Held back for the same reason an <c>if=</c> is: the column a filter compares against may be
+    /// declared BELOW the reference, and the run resolves that happily.
+    /// </remarks>
+    private readonly List<(int At, string Expression, string Pool, string Field, string Other,
+        int Line, int Column)> _pendingPoolFilters = new();
 
     private Validator(string? baseDir, DataPacks? packs)
     {
@@ -364,6 +381,13 @@ public sealed class Validator
         {
             CheckBlock(block);
         }
+
+        // Two second passes, pools before expressions. Both splice their complaints back at the
+        // position the attribute was found, so the report still reads top to bottom; running the
+        // pool pass first is what makes the two independent — an expression's recorded position is
+        // relative to the walk, and re-splicing it after another pass has inserted would need that
+        // pass's shifts as well.
+        this.RunPendingPoolFilters();
 
         // Now that every name is known, the expressions can be checked — and each complaint goes
         // back where its attribute was, so the report stays in source order.
@@ -538,6 +562,8 @@ public sealed class Validator
         // Pools first, and only their shape: a reference may stand above the pool it names, and
         // complaining about an unknown field in that case would report the wrong problem.
         this.CollectPoolFields(env);
+        this.CollectPoolFieldValues(env);
+        this.CollectPoolReferences(env);
         CheckChildren(env.content(), "env", EnvChildren);
         CheckClosedTagAttrs("env", env.attr(), Line(env), Column(env));
 
@@ -725,6 +751,174 @@ public sealed class Validator
 
             _poolFields[name] = fields;
         }
+    }
+
+    /// <summary>
+    /// The values each pool field can hold, where the config says them outright.
+    /// </summary>
+    /// <remarks>
+    /// A member whose body is one unnamed <c>&lt;gen type="text" value="A,B"&gt;</c> produces
+    /// nothing but <c>A</c> and <c>B</c>, so the set recorded here is a SUPERSET of what the built
+    /// pool will hold — a pool of two members drawn from three values holds at most two of them.
+    /// That direction is what TDC225 needs: a value outside the superset can match no member,
+    /// whatever the draw turns out to be.
+    /// </remarks>
+    private void CollectPoolFieldValues(TDCParser.OpenCloseElementContext env)
+    {
+        foreach (TDCParser.ElementContext child in env.content().element())
+        {
+            TDCParser.OpenCloseElementContext open = child.openCloseElement();
+            if (open is null || open.name.Text != "pool")
+            {
+                continue;
+            }
+
+            string? name = Attributes(open.attr()).GetValueOrDefault("name");
+            if (string.IsNullOrWhiteSpace(name))
+            {
+                continue;
+            }
+
+            var fields = new Dictionary<string, List<string>>(StringComparer.Ordinal);
+            foreach (TDCParser.OpenCloseElementContext member in PoolMemberNodesOf(open))
+            {
+                string? field = Attributes(member.attr()).GetValueOrDefault("name");
+                if (string.IsNullOrWhiteSpace(field))
+                {
+                    continue;
+                }
+
+                List<string>? values = LiteralTextValues(member);
+                if (values is not null)
+                {
+                    fields[field] = values;
+                }
+            }
+
+            _poolFieldValues[name] = fields;
+        }
+    }
+
+    /// <summary>Every declaration inside a pool, flattened out of any group wrapper.</summary>
+    private static List<TDCParser.OpenCloseElementContext> PoolMemberNodesOf(
+        TDCParser.OpenCloseElementContext pool)
+    {
+        var result = new List<TDCParser.OpenCloseElementContext>();
+        foreach (TDCParser.ElementContext member in pool.content().element())
+        {
+            TDCParser.OpenCloseElementContext inner = member.openCloseElement();
+            if (inner is null)
+            {
+                continue;
+            }
+
+            if (inner.name.Text is "sequence" or "mix" or "switch")
+            {
+                result.Add(inner);
+            }
+            else if (inner.name.Text is "uniq" or "distinct")
+            {
+                foreach (TDCParser.ElementContext w in inner.content().element())
+                {
+                    TDCParser.OpenCloseElementContext wrapped = w.openCloseElement();
+                    if (wrapped is not null && wrapped.name.Text is "sequence" or "mix" or "switch")
+                    {
+                        result.Add(wrapped);
+                    }
+                }
+            }
+        }
+
+        return result;
+    }
+
+    /// <summary>The literal <c>value=</c> list of a member whose body is a single plain text gen.</summary>
+    private static List<string>? LiteralTextValues(TDCParser.OpenCloseElementContext member)
+    {
+        var gens = new List<IReadOnlyDictionary<string, string>>();
+        foreach (TDCParser.ElementContext child in member.content().element())
+        {
+            TDCParser.SelfClosingElementContext self = child.selfClosingElement();
+            TDCParser.OpenCloseElementContext open = child.openCloseElement();
+            string? tag = self is not null ? self.name.Text : open?.name.Text;
+            if (tag == "gen")
+            {
+                gens.Add(self is not null ? Attributes(self.attr()) : Attributes(open!.attr()));
+            }
+        }
+
+        if (gens.Count != 1 || gens[0].ContainsKey("name"))
+        {
+            return null;
+        }
+
+        return FiniteTextValues(gens[0]);
+    }
+
+    /// <summary>
+    /// Every pool named by a <c>&lt;gen type="pool" value="…"&gt;</c>, anywhere under
+    /// <c>&lt;env&gt;</c>.
+    /// </summary>
+    /// <remarks>
+    /// Collected in one descent rather than tallied during the walk, because a reference may stand
+    /// above the pool it names and TDC231 has to know about it by the time that pool is reached.
+    /// </remarks>
+    private void CollectPoolReferences(TDCParser.OpenCloseElementContext node)
+    {
+        foreach (TDCParser.ElementContext child in node.content().element())
+        {
+            TDCParser.SelfClosingElementContext self = child.selfClosingElement();
+            TDCParser.OpenCloseElementContext open = child.openCloseElement();
+            string? tag = self is not null ? self.name.Text : open?.name.Text;
+            if (tag is null)
+            {
+                continue;
+            }
+
+            if (tag == "gen")
+            {
+                IReadOnlyDictionary<string, string> attrs =
+                    self is not null ? Attributes(self.attr()) : Attributes(open!.attr());
+                if (attrs.GetValueOrDefault("type") == "pool")
+                {
+                    _poolsRead.Add(attrs.GetValueOrDefault("value", string.Empty).Trim());
+                }
+
+                continue;
+            }
+
+            if (open is not null)
+            {
+                this.CollectPoolReferences(open);
+            }
+        }
+    }
+
+    /// <summary>A pool nobody draws from.</summary>
+    /// <remarks>
+    /// A warning rather than an error, on the same reasoning as TDC234: the config runs, and every
+    /// row is exactly what it would have been. What it costs is the build — a pool is computed in
+    /// full before the first row and held in memory for the whole run — so an unread
+    /// <c>count="50000"</c> is paid for and thrown away. It is also the shape a rename leaves
+    /// behind, where the reference points at a new pool and the old one sits there looking
+    /// deliberate.
+    /// </remarks>
+    private void CheckPoolIsRead(TDCParser.OpenCloseElementContext pool)
+    {
+        string? name = Attributes(pool.attr()).GetValueOrDefault("name");
+        if (string.IsNullOrWhiteSpace(name) || _poolsRead.Contains(name))
+        {
+            return;
+        }
+
+        Warn(
+            "TDC231",
+            $"pool \"{name}\" is never drawn from",
+            "A pool is built in full before the first row and kept in memory for the whole run, so "
+            + "an unread one costs its members for nothing. Read it with "
+            + $"<gen type=\"pool\" value=\"{name}\"/>, or remove it.",
+            Line(pool),
+            Column(pool));
     }
 
     /// <summary>
@@ -1038,6 +1232,107 @@ public sealed class Validator
                 + "compare a value with itself.",
                 line, column);
         }
+
+        // `field == Something` — the one filter shape a check can decide, recognised the same way
+        // the engine's fast path recognises it, by looking at the text rather than a parsed tree,
+        // so what the reader sees and what is checked are the same thing.
+        string[] sides = expression!.Split("==");
+        if (sides.Length != 2)
+        {
+            return;
+        }
+
+        string left = sides[0].Trim();
+        string right = sides[1].Trim();
+        if (!Regex.IsMatch(left, @"^[A-Za-z_][A-Za-z0-9_]*$")
+            || !Regex.IsMatch(right, @"^[A-Za-z_][A-Za-z0-9_]*$"))
+        {
+            return;
+        }
+
+        bool leftIsField = fields.Contains(left);
+        bool rightIsField = fields.Contains(right);
+        // Both sides a field compares the candidate with itself, which is a different mistake.
+        if (leftIsField == rightIsField)
+        {
+            return;
+        }
+
+        _pendingPoolFilters.Add((
+            _diagnostics.Count,
+            expression.Trim(),
+            poolName,
+            leftIsField ? left : right,
+            leftIsField ? right : left,
+            line,
+            column));
+    }
+
+    /// <summary>
+    /// The put-aside filters, decided now that every column is known.
+    /// </summary>
+    /// <remarks>
+    /// What can be said before a single value exists: the member's field and the other side of the
+    /// <c>==</c> each draw from a set the config writes down, and when those two sets do not
+    /// overlap the filter can never match — not on some row, on every row. The run already refuses
+    /// that, on row one, after building the pool; saying it at check time costs nothing.
+    /// Only DISJOINT sets are reported: a value that is merely rare is a refusal waiting for the
+    /// row that draws it, and <c>percent="100,0"</c> may never draw it at all.
+    /// </remarks>
+    private void RunPendingPoolFilters()
+    {
+        var pending = new List<(int At, string Expression, string Pool, string Field, string Other,
+            int Line, int Column)>(_pendingPoolFilters);
+        _pendingPoolFilters.Clear();
+        int shift = 0;
+        foreach ((int at, string expression, string pool, string field, string other, int line,
+            int column) in pending)
+        {
+            if (!_poolFieldValues.TryGetValue(pool, out Dictionary<string, List<string>>? byField)
+                || !byField.TryGetValue(field, out List<string>? fieldValues)
+                || fieldValues.Count == 0)
+            {
+                continue;
+            }
+
+            // A name no sequence has is a bare word, and the expression language reads a bare word
+            // as its own text — that is how filter="clinic == North" says "northern only". So it
+            // is a set of exactly one value.
+            bool isColumn = _declaredNames.Contains(other);
+            List<string>? otherValues = isColumn
+                ? _finiteValues.GetValueOrDefault(other)
+                : new List<string> { other };
+            if (otherValues is null || otherValues.Count == 0)
+            {
+                continue;
+            }
+
+            if (otherValues.Any(fieldValues.Contains))
+            {
+                continue;
+            }
+
+            string message = isColumn
+                ? $"filter=\"{expression}\" can never match — no value \"{other}\" produces is a "
+                    + $"\"{field}\" any member of pool \"{pool}\" could hold"
+                : $"filter=\"{expression}\" can never match — no member of pool \"{pool}\" holds "
+                    + $"\"{field}\" = \"{other}\"";
+            string produced = isColumn
+                ? $"\"{other}\" produces: " + string.Join(", ", otherValues) + ". "
+                : string.Empty;
+            _diagnostics.Insert(
+                at + shift,
+                Diagnostic.Error(
+                    "TDC225",
+                    message,
+                    $"\"{field}\" is drawn from: " + string.Join(", ", fieldValues) + ". "
+                        + produced
+                        + "A filter narrows the members a row may draw from, and every row would "
+                        + "be left with none.",
+                    line,
+                    column));
+            shift += 1;
+        }
     }
 
     private List<TDCParser.OpenCloseElementContext> Declarations(
@@ -1086,6 +1381,8 @@ public sealed class Validator
                 {
                     poolsAbove.Add(declaredPool);
                 }
+
+                this.CheckPoolIsRead(open);
 
                 foreach (TDCParser.ElementContext member in open.content().element())
                 {
@@ -1455,7 +1752,8 @@ public sealed class Validator
         foreach (TDCParser.ElementContext child in open.content().element())
         {
             if (child.dataElement() is TDCParser.DataWithBodyContext literal
-                && !string.IsNullOrWhiteSpace(literal.dataContent().GetText()))
+                && !string.IsNullOrWhiteSpace(
+                    PairedData.Restore(literal.dataContent().GetText())))
             {
                 composes = true;
                 break;
@@ -1757,6 +2055,7 @@ public sealed class Validator
         CheckCounter(gen, attrs, type);
         CheckDateTemplates(gen, attrs, type);
         CheckCaseAndOrder(gen, attrs);
+        this.CheckImperfections(gen, attrs, type);
 
         if (type == "text" && attrs.ContainsKey("percent"))
         {
@@ -1868,12 +2167,113 @@ public sealed class Validator
     /// Checked before the run rather than during it: a missing file discovered on row one of a
     /// million-row job has already cost whatever the job cost.
     /// </remarks>
+    /// <summary>
+    /// <c>missing="p"</c> and <c>anomaly="p"</c>: a probability, and something to spend it on.
+    /// </summary>
+    /// <remarks>
+    /// <para>Both were parsed only where they are used, deep in the sequence builder, so
+    /// <c>check</c> called a config valid and the run then stopped on <c>anomaly="10x"</c>. A check
+    /// that passes what the very next command refuses is worse than no check. The generator keeps
+    /// its own parse as a backstop, for callers who build a gen through the library.</para>
+    /// <para>The second half is a request that would be honoured and still do nothing. An anomaly
+    /// multiplies the selected value by <c>anomaly_factor</c>, so a <c>value=</c> list with no
+    /// number anywhere in it has nothing to perturb and ten rows come back ordinary with no sign
+    /// that 30% of them were meant to be outliers. Only a <c>type="text"</c> list is judged: it is
+    /// the only source whose whole candidate set is written in the config.</para>
+    /// </remarks>
+    private void CheckImperfections(
+        TDCParser.SelfClosingElementContext gen, IReadOnlyDictionary<string, string> attrs,
+        string? type)
+    {
+        foreach (string key in new[] { "anomaly", "missing" })
+        {
+            string? probability = attrs.GetValueOrDefault(key);
+            if (string.IsNullOrWhiteSpace(probability) || IsProbability(probability))
+            {
+                continue;
+            }
+
+            (int line, int column) = At(gen, key);
+            Error(
+                "TDC242",
+                $"{key}=\"{probability}\" is not a probability — it must be a number in [0, 1]",
+                key == "anomaly"
+                    ? "It is the share of values turned into outliers: anomaly=\"0.05\" spikes one "
+                        + "value in twenty."
+                    : "It is the share of values blanked: missing=\"0.1\" empties one value in ten.",
+                line, column);
+        }
+
+        string? raw = attrs.GetValueOrDefault("anomaly");
+        if (raw is null || !IsProbability(raw) || AsNumber(raw) == 0.0)
+        {
+            return;
+        }
+
+        if (type != "text")
+        {
+            return;
+        }
+
+        string? listed = attrs.GetValueOrDefault("value");
+        if (string.IsNullOrWhiteSpace(listed))
+        {
+            return;
+        }
+
+        if (listed.Split(',').Any(piece => IsNumber(piece.Trim())))
+        {
+            return;
+        }
+
+        (int anomalyLine, int anomalyColumn) = At(gen, "anomaly");
+        Error(
+            "TDC243",
+            $"anomaly=\"{raw}\" has nothing to perturb — no value in \"{listed}\" is a number",
+            "An anomaly multiplies a numeric value by anomaly_factor, so a list of words comes "
+            + "back unchanged. Put the anomaly on a numeric generator, or drop it.",
+            anomalyLine, anomalyColumn);
+    }
+
+    /// <summary>The text as a number, or NaN — the same reading the generators apply.</summary>
+    private static double AsNumber(string raw) =>
+        double.TryParse(
+            raw, System.Globalization.NumberStyles.Float,
+            System.Globalization.CultureInfo.InvariantCulture, out double value)
+            ? value
+            : double.NaN;
+
+    private static bool IsNumber(string raw) => double.IsFinite(AsNumber(raw));
+
+    /// <summary>True when the text is a probability the generators will accept.</summary>
+    private static bool IsProbability(string raw)
+    {
+        double p = AsNumber(raw);
+        return double.IsFinite(p) && p >= 0.0 && p <= 1.0;
+    }
+
     private void CheckSource(
         TDCParser.SelfClosingElementContext gen, IReadOnlyDictionary<string, string> attrs,
         string? type)
     {
         if (type is not ("file" or "pattern"))
         {
+            return;
+        }
+
+        // `src=` is one of three ways to hand a drawing a shape, so its absence is only a mistake
+        // when the other two are absent too — the drawing equivalent of a regex with no pattern,
+        // which TDC095 and TDC128 have always caught before the run.
+        if (type == "pattern"
+            && !new[] { "points", "src", "upper" }.Any(
+                key => !string.IsNullOrWhiteSpace(attrs.GetValueOrDefault(key))))
+        {
+            Error(
+                "TDC244",
+                "<gen type=\"pattern\"> has nothing to draw from",
+                "Give it a shape: points=\"0,0 1,5 2,3\", src=\"curve.svg\" (or a PNG), or "
+                + "upper=\"…\" with an optional lower=\"…\" for a band.",
+                Line(gen), Column(gen));
             return;
         }
 
@@ -3151,7 +3551,9 @@ public sealed class Validator
                 // The <data> element, not the <line> around it: several <data> pieces can share a
                 // line, and pointing at the line would name the wrong one whenever they do.
                 CheckInterpolation(
-                    body.dataContent().GetText(), body.Start.Line, body.Start.Column);
+                    PairedData.Restore(body.dataContent().GetText()),
+                    body.Start.Line,
+                    body.Start.Column);
                 if (Attributes(body.attr()).TryGetValue("if", out string? condition))
                 {
                     (int l, int c) = At(body.attr(), "if", Line(line), Column(line));

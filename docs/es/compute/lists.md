@@ -89,8 +89,8 @@ a `<each>` cuatro caracteres sueltos.
 | [`<at>`](#at--indexar-una-lista)                   | un elemento por índice (atributo `default` si queda fuera de rango) |
 | [`<length>`](#length--medir-un-string-o-una-lista) | la longitud de un string o de una lista                             |
 
-Las salidas de ejemplo de esta página son ilustrativas — los valores exactos dependen del
-seed y de la versión del núcleo, pero cada valor derivado se calcula exactamente a partir
+Las salidas de ejemplo de esta página son ilustrativas — los valores exactos dependen de la
+semilla y de la versión del núcleo, pero cada valor derivado se calcula exactamente a partir
 de la entrada que aparece a su lado.
 
 ## `<list>` — una lista literal de valores

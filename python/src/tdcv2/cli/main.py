@@ -58,6 +58,10 @@ Options:
   --seed <seed>            Override the seed declared in <env>
   --count <n>              Override the count declared in <env>
   --locale <loc>           Override the default locale (default: en)
+  --now <date>             Pin the clock date generators read as "now" —
+                           YYYY-MM-DD or YYYY-MM-DDTHH:mm:ss, always UTC.
+                           Without it the run reads the real clock, so a config
+                           using today / now / b_day cannot be reproduced later
   --data-path <dir>        Add a data folder for @data/... sources (repeatable)
   --jobs <n>               Split the run across n processes. Same output either
                            way — a pure speed knob. Needs -o and the streaming
@@ -130,6 +134,7 @@ def _generate(options: Options) -> int:
             count=options.count,
             seed=options.seed,
             locale=options.locale,
+            now=options.now,
             data_paths=[Path(p) for p in options.data_paths] or None,
             engine=options.engine if options.engine is not None else _engine_for(options.mode),
         )

@@ -206,10 +206,10 @@ abajo:
 - **B** — antes de la bifurcación — el mismo valor exacto siempre
 - **C** — después — aleatorio dentro de la banda que se abre
 
-La misma corrida con dos seeds distintos lo muestra sin rodeos: la primera mitad es
+La misma corrida con dos semillas distintas lo muestra sin rodeos: la primera mitad es
 idéntica, la segunda no:
 
-`./run split.tdc (11 filas, dos seeds)`
+`./run split.tdc (11 filas, dos semillas)`
 
 ```
 seed A:  50  50  50  50  50  50  44  47  66  18  45
@@ -364,7 +364,7 @@ El mismo trazo único de `line-input.png`, esta vez con `spread="6"`:
 - **made** — valores generados (60 filas)
 
 La tendencia queda intacta; cada fila simplemente se posa en algún lugar dentro de ±5
-de ella. Igual que con el corredor, la dispersión es **determinista**: el mismo seed
+de ella. Igual que con el corredor, la dispersión es **determinista**: la misma semilla
 la reproduce exactamente. `spread` también funciona sobre un dibujo que ya es una
 banda: la ensancha `N` de cada lado.
 
@@ -515,7 +515,7 @@ Cosas que vale la pena saber sobre `density`:
   cosas es un error y no una función.
 - **Un dibujo plano significa «me da igual»** y da una dispersión uniforme sobre el
   rango, en vez de un error.
-- **Determinista y transmisible por streaming**, como todo lo demás: el mismo seed
+- **Determinista y transmisible por streaming**, como todo lo demás: la misma semilla
   reproduce el mismo montón, con cualquier cantidad de filas.
 
 ## Detalles
@@ -523,7 +523,7 @@ Cosas que vale la pena saber sobre `density`:
 - **Determinista:** donde el dibujo es una línea sola, el valor de una fila es
   simplemente la altura ahí (nada de aleatoriedad); donde es una banda — o donde está
   puesto `spread` — la dispersión queda fijada por el
-  [`seed`](../core-concepts/determinism.md#top). Mismo seed y mismo config → mismo
+  [`seed`](../core-concepts/determinism.md#top). Misma semilla y mismo config → mismo
   resultado.
 - **Cualquier tamaño, cualquier motor:** cada fila se calcula a partir de su propio
   número, así que la memoria no crece. Un millón de filas a partir de un dibujo chico

@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "cases": [
+    {
+      "name": "an-anomaly-share-that-is-not-a-number",
+      "demonstrates": "TDC242",
+      "description": "Both probabilities were parsed only where they are used, so check called this valid and the run then refused it. A check that passes what the next command rejects teaches the reader to distrust it.",
+      "config": "<tdc><env count=\"3\" seed=\"s\" local=\"en\"><sequence name=\"X\"><gen type=\"text\" value=\"a,b,c\" anomaly=\"10x\"/></sequence></env><block><line><data>${{X}}</data></line></block></tdc>",
+      "expected": ["error TDC242 1:99"]
+    },
+    {
+      "name": "an-anomaly-share-above-one",
+      "demonstrates": "TDC242",
+      "description": "A share of values, so 2 is not a bigger request than 1 — it is not a share at all.",
+      "config": "<tdc><env count=\"3\" seed=\"s\" local=\"en\"><sequence name=\"X\"><gen type=\"number\" value=\"1..9\" anomaly=\"2\"/></sequence></env><block><line><data>${{X}}</data></line></block></tdc>",
+      "expected": ["error TDC242 1:100"]
+    },
+    {
+      "name": "a-missing-share-above-one",
+      "demonstrates": "TDC242",
+      "description": "The same range, on the other imperfection wrapper — one code covers both because it is one mistake.",
+      "config": "<tdc><env count=\"3\" seed=\"s\" local=\"en\"><sequence name=\"X\"><gen type=\"number\" value=\"1..9\" missing=\"2\"/></sequence></env><block><line><data>${{X}}</data></line></block></tdc>",
+      "expected": ["error TDC242 1:100"]
+    },
+    {
+      "name": "an-anomaly-on-a-list-with-no-numbers-in-it",
+      "demonstrates": "TDC243",
+      "description": "An anomaly multiplies a numeric value, so a list of words comes back unchanged: the config asks for 30% outliers, gets none, and nothing is said. Refused rather than warned, for the same reason anomaly_flag with no anomaly is refused — there is nothing to act on.",
+      "config": "<tdc><env count=\"3\" seed=\"s\" local=\"en\"><sequence name=\"X\"><gen type=\"text\" value=\"alpha,beta,gamma\" anomaly=\"0.3\"/></sequence></env><block><line><data>${{X}}</data></line></block></tdc>",
+      "expected": ["error TDC243 1:110"]
+    },
+    {
+      "name": "an-anomaly-on-a-list-that-holds-one-number",
+      "demonstrates": "",
+      "description": "One number in the list is enough to perturb, so this is left alone. The half of the check that must never fire: only a list with nothing numeric anywhere in it is refused.",
+      "config": "<tdc><env count=\"3\" seed=\"s\" local=\"en\"><sequence name=\"X\"><gen type=\"text\" value=\"alpha,42,gamma\" anomaly=\"0.3\"/></sequence></env><block><line><data>${{X}}</data></line></block></tdc>",
+      "expected": []
+    }
+  ]
+}

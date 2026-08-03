@@ -234,14 +234,16 @@ fn build_plan(
         ));
     }
 
-    // Nothing specified at all: the epoch up to right now.
-    range_of(
-        parse::date_time(DEFAULT_START)?,
-        parse::Parsed {
-            value: from_epoch_millis(now_millis),
-            has_time: true,
-        },
+    // Nothing specified at all: the epoch up to right now. The upper bound carries
+    // a time, but the fallback precision is still whole days — an unbounded
+    // generator answers with a date, not a timestamp at 03:47. Routing this
+    // through `range_of` let `has_time` pick Millisecond, and a millisecond draw
+    // lands a day away from the reference's day draw often enough to fail.
+    range_plan(
+        parse::date_time(DEFAULT_START)?.value,
+        from_epoch_millis(now_millis),
         precision,
+        Precision::Day,
         format,
         loc,
     )

@@ -102,6 +102,14 @@ public final class TdcParserFacade {
   /** Parse a config, collecting syntax errors rather than printing them. */
   public static Result parse(String source) {
     List<SyntaxProblem> problems = new ArrayList<>();
+
+    PairedData.Rewrite rewritten = PairedData.preprocess(source);
+    // Ahead of ANTLR's own, because they were found ahead of it: a config whose paired tags do not
+    // line up is misread from that point on, and the first thing said about it should say why.
+    for (PairedData.Problem problem : rewritten.problems()) {
+      problems.add(new SyntaxProblem(problem.line(), problem.column(), problem.message()));
+    }
+
     BaseErrorListener collector =
         new BaseErrorListener() {
           @Override
@@ -116,7 +124,7 @@ public final class TdcParserFacade {
           }
         };
 
-    TDCLexer lexer = new TDCLexer(CharStreams.fromString(normalize(source)));
+    TDCLexer lexer = new TDCLexer(CharStreams.fromString(rewritten.source()));
     lexer.removeErrorListeners();
     lexer.addErrorListener(collector);
 
@@ -140,21 +148,5 @@ public final class TdcParserFacade {
   private static TDCParser.DocumentContext emptyDocument() {
     return new TDCParser(new CommonTokenStream(new TDCLexer(CharStreams.fromString(""))))
         .document();
-  }
-
-  /**
-   * Normalize paired raw text before lexing.
-   *
-   * <p>The grammar keeps a single static {@code </data>} close token, which cannot express
-   * {@code <data pair="X">…</data pair="X">} where the body may itself contain a literal
-   * {@code </data>}. The reference implementation rewrites the closing tag before lexing, and
-   * a port has to do the same or the two will disagree on any config using pairs.
-   *
-   * <p>Not yet implemented — no fixture in the golden set uses paired raw text, and guessing
-   * at the rewrite would be worse than leaving it visible. Tracked against the fixtures that
-   * do exercise it.
-   */
-  private static String normalize(String source) {
-    return source;
   }
 }

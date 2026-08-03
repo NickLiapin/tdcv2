@@ -28,6 +28,7 @@ import { availableParallelism } from 'node:os';
 import { resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
+import { parseDateTimeStrict, toEpochMillis } from '../date/index.js';
 import {
   type Diagnostic,
   TdcDiagnosticError,
@@ -48,6 +49,7 @@ interface CliArgs {
   readonly seed: string | undefined;
   readonly count: number | undefined;
   readonly locale: string | undefined;
+  readonly now: number | undefined;
   readonly dataPaths: readonly string[];
   readonly stream: boolean;
   readonly mode: 'memory' | 'disk' | undefined;
@@ -84,6 +86,10 @@ Options:
   --seed <seed>            Override the seed declared in <env>
   --count <n>              Override the count declared in <env>
   --locale <loc>           Override the default locale (default: en)
+  --now <date>             Pin the clock date generators read as "now" —
+                           YYYY-MM-DD or YYYY-MM-DDTHH:mm:ss, always UTC.
+                           Without it the run reads the real clock, so a config
+                           using today / now / b_day cannot be reproduced later
   --data-path <dir>        Add a data folder for @data/... sources (repeatable)
   --jobs <n>               Override the worker-thread count. By default TDC
                            auto-parallelizes big splittable files and stays
@@ -112,6 +118,7 @@ function parseArgs(argv: readonly string[]): CliArgs {
   let seed: string | undefined;
   let count: number | undefined;
   let locale: string | undefined;
+  let now: number | undefined;
   const dataPaths: string[] = [];
   let stream = false;
   let mode: 'memory' | 'disk' | undefined;
@@ -136,6 +143,10 @@ function parseArgs(argv: readonly string[]): CliArgs {
     }
     if (a?.startsWith('--locale=')) {
       locale = optionValue(a.slice('--locale='.length), '--locale');
+      continue;
+    }
+    if (a?.startsWith('--now=')) {
+      now = parseNow(optionValue(a.slice('--now='.length), '--now'));
       continue;
     }
     if (a?.startsWith('--data-path=')) {
@@ -191,6 +202,10 @@ function parseArgs(argv: readonly string[]): CliArgs {
         i += 1;
         locale = requiredNext(argv, i, a);
         break;
+      case '--now':
+        i += 1;
+        now = parseNow(requiredNext(argv, i, a));
+        break;
       case '--data-path':
         i += 1;
         dataPaths.push(requiredNext(argv, i, a));
@@ -218,6 +233,7 @@ function parseArgs(argv: readonly string[]): CliArgs {
     seed,
     count,
     locale,
+    now,
     dataPaths,
     stream,
     mode,
@@ -251,6 +267,26 @@ function parseJobs(value: string): number {
     throw new Error(`invalid --jobs "${value}" — expected a positive integer`);
   }
   return jobs;
+}
+
+/**
+ * The wall clock is the one input to a run that the command line could not name,
+ * which made `today`, `now` and `person.b_day` unreproducible: same config, same
+ * seed, different day, different bytes.
+ *
+ * The syntax is the date generator's own — whatever `<gen type="date" value="…">`
+ * accepts is what this accepts, down to the same parser — so the project has one
+ * date syntax rather than two. It carries no zone, so like every date in the
+ * engine it is read as UTC. A value that does not parse is refused here rather
+ * than falling back to the real clock, which would hand back the very
+ * irreproducibility the flag exists to remove.
+ */
+function parseNow(value: string): number {
+  try {
+    return toEpochMillis(parseDateTimeStrict(value).value);
+  } catch {
+    throw new Error(`invalid --now "${value}" — expected YYYY-MM-DD or YYYY-MM-DDTHH:mm:ss (UTC)`);
+  }
 }
 
 function parseEngine(value: string): 1 | 2 | 3 {
@@ -321,6 +357,7 @@ export async function main(argv: readonly string[]): Promise<number> {
       seed?: string;
       count?: number;
       locale?: string;
+      now?: number;
       dataPaths?: readonly string[];
       stream?: boolean;
       mode?: 'memory' | 'disk';
@@ -329,6 +366,7 @@ export async function main(argv: readonly string[]): Promise<number> {
     if (args.seed !== undefined) opts.seed = args.seed;
     if (args.count !== undefined) opts.count = args.count;
     if (args.locale !== undefined) opts.locale = args.locale;
+    if (args.now !== undefined) opts.now = args.now;
     if (args.dataPaths.length > 0) opts.dataPaths = args.dataPaths;
     if (args.stream) opts.stream = true;
     if (args.mode !== undefined) opts.mode = args.mode;
@@ -606,7 +644,7 @@ async function renderParallel(tdc: TDC, args: CliArgs, jobs: number): Promise<vo
     seed: tdc.seedInfo().seed,
     count: tdc.effectiveCount(),
     locale: args.locale,
-    now: Date.now(),
+    now: args.now ?? Date.now(),
     dataPaths: args.dataPaths.length > 0 ? args.dataPaths : undefined,
     jobs,
   };
@@ -630,10 +668,15 @@ async function renderParallel(tdc: TDC, args: CliArgs, jobs: number): Promise<vo
  */
 async function renderParquetParallel(
   tdc: { source: string; seedInfo(): { seed: string }; effectiveCount(): number },
-  args: { output?: string | undefined; locale?: string | undefined; dataPaths: readonly string[] },
+  args: {
+    output?: string | undefined;
+    locale?: string | undefined;
+    now?: number | undefined;
+    dataPaths: readonly string[];
+  },
   jobs: number,
 ): Promise<void> {
-  const now = Date.now();
+  const now = args.now ?? Date.now();
   const seed = tdc.seedInfo().seed;
   const params = {
     source: tdc.source,

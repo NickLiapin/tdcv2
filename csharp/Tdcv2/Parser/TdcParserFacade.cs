@@ -46,7 +46,17 @@ public static class TdcParserFacade
         var problems = new List<SyntaxProblem>();
         var collector = new Collector(problems);
 
-        var lexer = new TDCLexer(CharStreams.fromString(Normalize(source)));
+        PairedData.Rewrite rewritten = PairedData.Preprocess(source);
+
+        // Ahead of ANTLR's own, because they were found ahead of it: a config whose paired tags do
+        // not line up is misread from that point on, and the first thing said about it should say
+        // why.
+        foreach (PairedData.Problem problem in rewritten.Problems)
+        {
+            problems.Add(new SyntaxProblem(problem.Line, problem.Column, problem.Message));
+        }
+
+        var lexer = new TDCLexer(CharStreams.fromString(rewritten.Source));
         lexer.RemoveErrorListeners();
         lexer.AddErrorListener(collector);
 
@@ -129,22 +139,6 @@ public static class TdcParserFacade
         {
         }
     }
-
-    /// <summary>
-    /// Normalize paired raw text before lexing.
-    /// </summary>
-    /// <remarks>
-    /// The grammar keeps a single static <c>&lt;/data&gt;</c> close token, which cannot express
-    /// <c>&lt;data pair="X"&gt;…&lt;/data pair="X"&gt;</c> where the body may itself contain a
-    /// literal <c>&lt;/data&gt;</c>. The reference rewrites the closing tag before lexing, and a
-    /// port has to do the same or the two disagree on any config using pairs.
-    /// <para>
-    /// Not implemented here for the same reason it is not implemented in Java: no fixture in the
-    /// golden set exercises it, and guessing at the rewrite would be worse than leaving the gap
-    /// visible.
-    /// </para>
-    /// </remarks>
-    private static string Normalize(string source) => source;
 
     /// <summary>Collects what ANTLR would otherwise print and forget.</summary>
     private sealed class Collector : IAntlrErrorListener<IToken>, IAntlrErrorListener<int>
