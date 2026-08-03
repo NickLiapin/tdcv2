@@ -29,7 +29,12 @@
     "clockToday": "<tdc><env count=\"2\" seed=\"clock\" local=\"en\" mode=\"memory\"><sequence name=\"D\"><gen type=\"date\" value=\"today\" format=\"ISO\"/></sequence></env><block><line><data>${{D}}</data></line></block></tdc>\n",
     "clockBirthday": "<tdc><env count=\"3\" seed=\"clock\" local=\"en\" mode=\"memory\"><sequence name=\"B\"><gen type=\"template\" value=\"person.b_day\" oldest=\"60\" youngest=\"18\" format=\"YYYY-MM-DD\"/></sequence></env><block><line><data>${{B}}</data></line></block></tdc>\n",
     "tooBigForMemory": "<tdc>\n  <env count=\"2000000000\" seed=\"s\" local=\"en\" mode=\"memory\">\n    <sequence name=\"A\"><gen type=\"number\" value=\"1..9\"/></sequence>\n    <sequence name=\"B\"><gen type=\"number\" value=\"1..9\"/></sequence>\n  </env>\n  <block><line><data>${{A}},${{B}}</data></line></block>\n</tdc>\n",
-    "strayPack": "<tdc>\n  <env count=\"1\" seed=\"s\" local=\"en\">\n    <sequence name=\"L\"><gen type=\"template\" value=\"stray\"/></sequence>\n  </env>\n  <block><line><data>${{L}}</data></line></block>\n</tdc>\n"
+    "strayPack": "<tdc>\n  <env count=\"1\" seed=\"s\" local=\"en\">\n    <sequence name=\"L\"><gen type=\"template\" value=\"stray\"/></sequence>\n  </env>\n  <block><line><data>${{L}}</data></line></block>\n</tdc>\n",
+    "fileByName": "<tdc>\n  <env count=\"5\" seed=\"cli-file\" local=\"en\">\n    <sequence name=\"N\"><gen type=\"file\" src=\"people.csv\" column=\"name\"/></sequence>\n  </env>\n  <block><line><data>${{N}}</data></line></block>\n</tdc>\n",
+    "fileByNumber": "<tdc>\n  <env count=\"5\" seed=\"cli-file\" local=\"en\">\n    <sequence name=\"C\"><gen type=\"file\" src=\"people.csv\" column=\"2\" header=\"true\"/></sequence>\n  </env>\n  <block><line><data>${{C}}</data></line></block>\n</tdc>\n",
+    "fileRowLink": "<tdc>\n  <env count=\"5\" seed=\"cli-file\" local=\"en\">\n    <sequence name=\"N\"><gen type=\"file\" src=\"people.csv\" column=\"name\" row=\"P\"/></sequence>\n    <sequence name=\"C\"><gen type=\"file\" src=\"people.csv\" column=\"city\" row=\"P\"/></sequence>\n    <sequence name=\"K\"><gen type=\"file\" src=\"people.csv\" column=\"code\" row=\"P\"/></sequence>\n  </env>\n  <block><line><data>${{N}},${{C}},${{K}}</data></line></block>\n</tdc>\n",
+    "fileTabbed": "<tdc>\n  <env count=\"4\" seed=\"cli-file\" local=\"en\">\n    <sequence name=\"C\"><gen type=\"file\" src=\"tabbed.tsv\" column=\"city\" delimiter=\"\\t\"/></sequence>\n  </env>\n  <block><line><data>${{C}}</data></line></block>\n</tdc>\n",
+    "fileBadColumn": "<tdc>\n  <env count=\"2\" seed=\"cli-file\" local=\"en\">\n    <sequence name=\"N\"><gen type=\"file\" src=\"people.csv\" column=\"nosuchcolumn\"/></sequence>\n  </env>\n  <block><line><data>${{N}}</data></line></block>\n</tdc>\n"
   },
   "cases": [
     {
@@ -915,6 +920,56 @@
         "generator has <mix> directly inside <sequence>, which is not allowed",
         "declare it beside the sequences in the pack body"
       ]
+    },
+    {
+      "name": "a CSV column read by name",
+      "files": {
+        "a.tdc": "@fileByName",
+        "people.csv": "name,city,code\nAnn,Oslo,NO\nBob,Lima,PE\nCara,Kyiv,UA\nDmitri,Riga,LV\n"
+      },
+      "argv": ["{dir}/a.tdc"],
+      "exit": 0,
+      "stdout": "Ann\nDmitri\nCara\nCara\nDmitri\n"
+    },
+    {
+      "name": "a CSV column read by 1-based number, header skipped",
+      "files": {
+        "a.tdc": "@fileByNumber",
+        "people.csv": "name,city,code\nAnn,Oslo,NO\nBob,Lima,PE\nCara,Kyiv,UA\nDmitri,Riga,LV\n"
+      },
+      "argv": ["{dir}/a.tdc"],
+      "exit": 0,
+      "stdout": "Riga\nOslo\nRiga\nRiga\nLima\n"
+    },
+    {
+      "name": "row= keeps three columns on the same source line",
+      "files": {
+        "a.tdc": "@fileRowLink",
+        "people.csv": "name,city,code\nAnn,Oslo,NO\nBob,Lima,PE\nCara,Kyiv,UA\nDmitri,Riga,LV\n"
+      },
+      "argv": ["{dir}/a.tdc"],
+      "exit": 0,
+      "stdout": "Bob,Lima,PE\nDmitri,Riga,LV\nBob,Lima,PE\nCara,Kyiv,UA\nCara,Kyiv,UA\n"
+    },
+    {
+      "name": "a tab-delimited source",
+      "files": {
+        "a.tdc": "@fileTabbed",
+        "tabbed.tsv": "name\tcity\nAnn\tOslo\nBob\tLima\nCara\tKyiv\n"
+      },
+      "argv": ["{dir}/a.tdc"],
+      "exit": 0,
+      "stdout": "Kyiv\nOslo\nKyiv\nKyiv\n"
+    },
+    {
+      "name": "a CSV column that is not in the header row",
+      "files": {
+        "a.tdc": "@fileBadColumn",
+        "people.csv": "name,city,code\nAnn,Oslo,NO\nBob,Lima,PE\nCara,Kyiv,UA\nDmitri,Riga,LV\n"
+      },
+      "argv": ["{dir}/a.tdc"],
+      "exit": 1,
+      "stderrContains": ["error[TDC062]", "nosuchcolumn"]
     }
   ],
   "gaps": {

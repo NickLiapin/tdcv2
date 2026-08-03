@@ -26,7 +26,7 @@
  */
 
 import { readFileSync, readdirSync, statSync } from 'node:fs';
-import { dirname, join, resolve } from 'node:path';
+import { dirname, join, resolve, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 import { groups } from './engine-surface.mjs';
@@ -44,9 +44,30 @@ function walk(dir, out = []) {
   return out;
 }
 
-const corpus = walk(FIXTURES)
-  .map((f) => readFileSync(f, 'utf8'))
-  .join('\n');
+const read = (paths) => paths.map((f) => readFileSync(f, 'utf8')).join('\n');
+
+/**
+ * Two corpora, because "exercised" means two different things.
+ *
+ * A config in `diagnostics/` is never run — it is refused, and the file it names
+ * need not exist. So a generator that appears only there has had its REFUSALS
+ * pinned and its VALUES pinned by nothing. That is exactly how `type="file"`
+ * came to be reported as covered while no case ever read a CSV: it was mentioned
+ * four times, in four error cases.
+ *
+ * So each group is checked against the corpus that can actually answer for it —
+ * diagnostic codes against the diagnostics, everything else against the configs
+ * that produce data.
+ */
+const all = walk(FIXTURES);
+const isDiagnostic = (f) => f.includes(`${sep}diagnostics${sep}`);
+const DATA = read(all.filter((f) => !isDiagnostic(f)));
+// A diagnostic is pinned in two places, and both count: `diagnostics/` holds
+// config-to-code cases, and `cli.json` holds the ones only a whole command can
+// raise — a pack that could not be placed, a registry that answered wrongly.
+// Searching only the first reported four codes as uncovered that a CLI case had
+// been pinning all along.
+const CODES = read(all.filter((f) => isDiagnostic(f) || f.endsWith('cli.json')));
 
 const quote = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 
@@ -58,7 +79,7 @@ const quote = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
  * `DD` was. Both spellings are separate tokens with separate behaviour.
  */
 const dateTokensUsed = new Set(
-  [...corpus.matchAll(/format=\\?"([^"\\]*)/g)].flatMap((m) => [
+  [...DATA.matchAll(/format=\\?"([^"\\]*)/g)].flatMap((m) => [
     // `ISO` is one token spelled with three different letters, so the run rule
     // alone splits it into I, S and O and then reports it as never exercised.
     // A whole `format=` value is a token in its own right.
@@ -69,34 +90,30 @@ const dateTokensUsed = new Set(
 
 /** The shape each kind of name takes where a config would use it. */
 const PROBE = {
-  gen: (n) => new RegExp(`type=\\\\?"${quote(n)}\\\\?"`).test(corpus),
-  filter: (n) => new RegExp(`\\|${quote(n)}\\b`).test(corpus),
-  compute: (n) => new RegExp(`<\\\\?/?${quote(n)}[\\s/>\\\\]`).test(corpus),
-  code: (n) => corpus.includes(n),
+  gen: (n) => new RegExp(`type=\\\\?"${quote(n)}\\\\?"`).test(DATA),
+  filter: (n) => new RegExp(`\\|${quote(n)}\\b`).test(DATA),
+  compute: (n) => new RegExp(`<\\\\?/?${quote(n)}[\\s/>\\\\]`).test(DATA),
+  code: (n) => CODES.includes(n),
   date: (n) => dateTokensUsed.has(n),
-  dist: (n) => new RegExp(`distribution=\\\\?"${quote(n)}\\\\?"`).test(corpus),
+  dist: (n) => new RegExp(`distribution=\\\\?"${quote(n)}\\\\?"`).test(DATA),
   // An encoding is named by `<encode as="hex">`, not by an `encoding=` attribute.
   // The first version of this probe looked for the latter and reported all six as
   // uncovered, which would have sent someone to write six cases that already
   // needed writing for a different reason — and taught them not to believe the
   // next report.
-  enc: (n) => new RegExp(`as=\\\\?"${quote(n)}\\\\?"`).test(corpus),
+  enc: (n) => new RegExp(`as=\\\\?"${quote(n)}\\\\?"`).test(DATA),
 };
 
 /**
  * Names a shared case cannot reach, and why.
  *
- * A shared case is a config and the bytes it produces — nothing else. Two
- * diagnostics need a FILE on disk to fire at all, and inventing a fixture format
- * that ships sample files alongside configs would be a large change to the one
- * thing five implementations agree on, to pin two error codes each of them
- * already covers in its own suite. Recorded here so the exemption is a decision
- * with a reason rather than a hole in a checklist.
+ * TDC062 used to be listed here on the grounds that a shared case cannot put a
+ * CSV on disk. That was wrong: `cli.json` cases carry a `files` map and always
+ * could. The exemption had outlived its reason and was quietly protecting a real
+ * gap, which is what every exemption eventually tries to do — so this list is
+ * worth re-reading whenever the fixtures gain a capability.
  */
-const DECLARED_GAPS = new Map([
-  ['TDC062', 'needs a real CSV on disk to have a column= to reject'],
-  ['TDC170', 'needs a malformed data-pack file on disk'],
-]);
+const DECLARED_GAPS = new Map([['TDC170', 'needs a malformed data-pack file on disk']]);
 
 let missingTotal = 0;
 const report = [];

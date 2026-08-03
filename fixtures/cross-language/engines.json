@@ -184,6 +184,14 @@
         "lines": ["65|65|41|101|1000001"]
       }
     },
+    "compute/each-maps-a-list-and-equals-compares": {
+      "engine2": {
+        "lines": ["6,10,16|same"]
+      },
+      "engine3": {
+        "lines": ["6,10,16|same"]
+      }
+    },
     "dates/date-range-day": {
       "engine2": {
         "lines": [

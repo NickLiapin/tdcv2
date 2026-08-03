@@ -84,6 +84,12 @@
       "description": "<encode as=> in all five spellings other than base36: ascii, unicode, hex, octal, binary. The letter A, so the expected values are the same number written five ways.",
       "config": "<tdc><env count=\"1\" seed=\"unit-test\" local=\"en\" mode=\"memory\"><sequence name=\"E\"><compute><result><join sep=\"|\"><list><encode as=\"ascii\"><str v=\"A\"/></encode><encode as=\"unicode\"><str v=\"A\"/></encode><encode as=\"hex\"><str v=\"A\"/></encode><encode as=\"octal\"><str v=\"A\"/></encode><encode as=\"binary\"><str v=\"A\"/></encode></list></join></result></compute></sequence></env><block><line><data>${{E}}</data></line></block></tdc>",
       "expected": ["65|65|41|101|1000001"]
+    },
+    {
+      "name": "each-maps-a-list-and-equals-compares",
+      "description": "<each> over a list with <multiply> in its body, folded by <join>, and <equals> inside a <test>. Both appeared only in diagnostics/ before — their REFUSALS were pinned five ways and their results by nothing. <each> is the map operation the list page is built around, so it is the last one that should have been unpinned.",
+      "config": "<tdc><env count=\"1\" seed=\"unit-test\" local=\"en\" mode=\"memory\"><sequence name=\"Doubled\"><compute><result><join sep=\",\"><each><over><list v=\"3,5,8\"/></over><do><multiply><current/><int v=\"2\"/></multiply></do></each></join></result></compute></sequence><sequence name=\"Eq\"><compute><result><choose><when><test><equals><int v=\"7\"/><int v=\"7\"/></equals></test><then><str v=\"same\"/></then></when><otherwise><str v=\"different\"/></otherwise></choose></result></compute></sequence></env><block><line><data>${{Doubled}}|${{Eq}}</data></line></block></tdc>",
+      "expected": ["6,10,16|same"]
     }
   ]
 }
