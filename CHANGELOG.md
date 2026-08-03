@@ -15,6 +15,34 @@ page — is tracked in that implementation's own changelog:
 
 ## [Unreleased]
 
+## [0.1.6] — 2026-08-03
+
+### Fixed
+
+- **The Rust crate on crates.io carried no data packs.** 0.1.5 went out without the
+  starter set embedded, so `cargo install tdcv2` produced a binary that answered every
+  `type="template"` with "no data packs found" — a release that cannot generate a name.
+  Nothing in the engine was wrong: the packs live once at the repository root and are
+  copied into the crate before packaging, because a published crate has nothing above
+  it. npm does that copy in its `prepack` hook; Cargo has no such hook, so the step is
+  manual, and it was skipped.
+
+  0.1.5 is yanked from crates.io. This release carries the 489 embedded files, verified
+  by unpacking the crate outside the repository, building it cold and running it.
+
+  The four other implementations were unaffected — same version, same bytes, checked
+  from their registries — but they are republished at 0.1.6 so one number keeps meaning
+  one contract.
+
+### Added
+
+- **`./release-check.sh` — one command that decides whether publishing would be honest.**
+  Every existing check reads the working tree; not one of them packages an artefact, so
+  all of them were green while the crate above was broken. The one check that would have
+  caught it was written after this same bug happened once before, and was wired into
+  nothing. It now runs here, along with the version agreement, the five suites, the
+  documentation audit and the other three artefacts.
+
 ## [0.1.5] — 2026-08-03
 
 ### Fixed
