@@ -623,6 +623,40 @@ pub struct PackGenerator {
     pub validate: Option<Element>,
 }
 
+/// Whole-COLUMN declarations, which a pack body cannot honour.
+///
+/// A pack describes how to build ONE value and is asked for one per row. These
+/// two say something about the column as a whole — which values may repeat
+/// across rows, and in what order they come out — and answering that needs the
+/// row count and every other row, neither of which a pack has. Worse, one pack
+/// can be drawn from by several sequences in one config, so there is no single
+/// column for the pack to be speaking about.
+///
+/// `<distinct>` is deliberately NOT here. It reads like a sibling of `uniq=` and
+/// is not one: it constrains fields against each other WITHIN one row, which is
+/// exactly what a pack can answer on its own — and five shipped full-name packs
+/// rely on it to keep a person's two surnames from coming out the same.
+const WHOLE_COLUMN_ATTRS: [&str; 2] = ["uniq", "order"];
+
+/// Why this pack sequence is refused, or `None` when there is nothing wrong.
+fn whole_column_declaration(sequence: &Element) -> Option<String> {
+    let where_ = match sequence.attr_value("name") {
+        Some(name) => format!("<sequence name=\"{name}\">"),
+        None => "<sequence>".to_string(),
+    };
+    for attr in WHOLE_COLUMN_ATTRS {
+        if sequence.attr_value(attr).unwrap_or("").trim().is_empty() {
+            continue;
+        }
+        return Some(format!(
+            "generator declares {attr}= on {where_}, which a pack cannot honour: a pack builds \
+             ONE value and is asked for one per row, while {attr}= is a property of the whole \
+             column. Declare it on the sequence in the config that draws from this pack instead."
+        ));
+    }
+    None
+}
+
 pub fn parse_pack_body(body: &str) -> Result<PackGenerator, BuildError> {
     // Wrapped in a document before parsing, exactly as the reference does, so a
     // pack is written in the same language as a config and read by the same
@@ -651,7 +685,12 @@ pub fn parse_pack_body(body: &str) -> Result<PackGenerator, BuildError> {
             // dropped that column silently, and `${{s}}` reached the output as
             // eight literal characters.
             match child.name.as_str() {
-                "sequence" => sequences.push(sequence(child)?),
+                "sequence" => {
+                    if let Some(refused) = whole_column_declaration(child) {
+                        return err(refused);
+                    }
+                    sequences.push(sequence(child)?);
+                }
                 "mix" => sequences.push(mix_sequence(child)),
                 "switch" => sequences.push(switch_sequence(child)),
                 _ => {}

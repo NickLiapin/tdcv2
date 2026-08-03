@@ -162,3 +162,70 @@ mod embedded {
         assert!(!source.has_country("usa"));
     }
 }
+
+/// Which folder the packs come out of, before any config or command line adds
+/// to it.
+///
+/// One rule in all five implementations: `TDCV2_PACKS`, then the source checkout
+/// this build came from, then the starter set inside the artefact. What is worth
+/// testing here is the middle one — it is the step that used to differ, and the
+/// step that can capture the wrong folder if the marker is dropped.
+mod discovery {
+    use std::fs;
+    use tdcv2::packs::source::source_checkout_packs;
+
+    fn temp_dir(name: &str) -> std::path::PathBuf {
+        // No `tempfile` dependency: this crate has zero, on purpose. The test's
+        // own name keeps two of them apart.
+        let dir = std::env::temp_dir().join(format!("tdc-discovery-{name}"));
+        let _ = fs::remove_dir_all(&dir);
+        fs::create_dir_all(&dir).expect("temp dir");
+        dir
+    }
+
+    #[test]
+    fn finds_the_repository_this_build_came_from() {
+        let found = source_checkout_packs(std::path::Path::new(env!("CARGO_MANIFEST_DIR")));
+        assert_eq!(
+            found,
+            Some(
+                std::path::Path::new(env!("CARGO_MANIFEST_DIR"))
+                    .parent()
+                    .expect("repo root")
+                    .join("data")
+                    .join("packs")
+            )
+        );
+    }
+
+    #[test]
+    fn refuses_a_data_packs_that_is_not_this_repository() {
+        // The point of the marker. Without it an unrelated `data/packs` above an
+        // installed crate would answer, and the same config would then read
+        // different data depending on where the user happened to install it.
+        let root = temp_dir("stranger");
+        fs::create_dir_all(root.join("data").join("packs").join("en")).expect("packs");
+        let deep = root.join("project").join("deep");
+        fs::create_dir_all(&deep).expect("deep");
+
+        assert_eq!(source_checkout_packs(&deep), None);
+
+        let _ = fs::remove_dir_all(&root);
+    }
+
+    #[test]
+    fn accepts_a_checkout_from_any_depth_below_it() {
+        let root = temp_dir("checkout");
+        fs::create_dir_all(root.join("data").join("packs")).expect("packs");
+        fs::create_dir_all(root.join("fixtures").join("cross-language")).expect("marker");
+        let deep = root.join("a").join("b").join("c");
+        fs::create_dir_all(&deep).expect("deep");
+
+        assert_eq!(
+            source_checkout_packs(&deep),
+            Some(root.join("data").join("packs"))
+        );
+
+        let _ = fs::remove_dir_all(&root);
+    }
+}

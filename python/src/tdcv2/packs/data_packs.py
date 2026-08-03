@@ -61,6 +61,15 @@ class Entry:
         return self.generator is not None
 
 
+class DuplicateAddressError(ValueError):
+    """Two files claim one address.
+
+    Its own type because :meth:`DataPacks.exists` has to tell it apart from "no such address":
+    a collision RESOLVES, and reporting it as a misspelling sends the reader hunting for a typo
+    that is not there.
+    """
+
+
 class DataPacks:
     """Where a run's data comes from: the packs, and the folders a file source may name.
 
@@ -89,12 +98,16 @@ class DataPacks:
 
     @staticmethod
     def bundled() -> DataPacks:
-        """The packs the library ships with — the default, and no configuration needed."""
-        return DataPacks(source.Bundled())
+        """The packs a run starts from — the default, and no configuration needed.
+
+        ``TDCV2_PACKS`` if it names a folder, then the source checkout this build came from, then
+        the packs shipped inside the wheel. See :func:`tdcv2.packs.source.discover`.
+        """
+        return DataPacks(source.discover())
 
     @staticmethod
     def for_project(cwd: Path | None = None, extra_roots: list[Path] | None = None) -> DataPacks:
-        """The bundled packs plus whatever ``tdcv2.config.json`` adds, searched from here upward.
+        """The discovered packs plus whatever ``tdcv2.config.json`` adds, searched from here upward.
 
         A pack downloaded into a project belongs to the project, not to whichever runtime happens
         to read it. Honouring the same config file the command-line tool writes is what keeps a
@@ -105,7 +118,8 @@ class DataPacks:
         last, so they shadow both the config's roots and the bundled packs. Something typed for
         this one run should beat something written down for every run.
         """
-        layers: list[Source] = [source.Bundled()]
+        discovered = source.discover()
+        layers: list[Source] = [discovered]
         config = project_config.load(cwd)
         layers.extend(source.Directory(d) for d in config.data_paths if d.is_dir())
         # The pack STORE is not a scan root on its own account. It is scanned when `pack add` has
@@ -118,7 +132,7 @@ class DataPacks:
 
         roots = [*config.data_paths, *(extra_roots or [])]
         if len(layers) == 1:
-            return DataPacks(source.Bundled(), roots)
+            return DataPacks(discovered, roots)
         return DataPacks(source.Layered(layers), roots)
 
     @staticmethod
@@ -169,9 +183,18 @@ class DataPacks:
         else:
             base = (locale + "." + dotted_path).replace(".", "/")
 
-        file = next(
-            (c for c in (base + ext for ext in _PACK_EXTENSIONS) if self.source.has(c)), None
-        )
+        candidates = [c for c in (base + ext for ext in _PACK_EXTENSIONS) if self.source.has(c)]
+        if len(candidates) > 1:
+            # The extension is not part of an address, so two files that differ only by it claim
+            # the SAME one. Picking the first silently would make `thing.tdc` dead weight its
+            # author cannot see — the run keeps working and reads the other file forever.
+            first, second = candidates[0], candidates[1]
+            raise DuplicateAddressError(
+                f'duplicate data-pack address "{self._absolute(dotted_path, locale)}" declared by '
+                f'both "{self.source.locate(second) or second}" and '
+                f'"{self.source.locate(first) or first}" — rename or move one'
+            )
+        file = candidates[0] if candidates else None
         if file is None:
             # The path did not answer, so ask the headers: a file may declare its own
             # ``address:`` and then live anywhere at all — which is how a user keeps a flat
@@ -293,6 +316,11 @@ class DataPacks:
         """
         try:
             self.load(dotted_path, locale)
+        except DuplicateAddressError:
+            # It resolves — twice, which is the complaint. Answering "no" here would report the
+            # collision as a misspelled address and send the reader hunting for a typo that is
+            # not there; saying yes lets the caller load it and get the real message.
+            return True
         except (ValueError, OSError):
             return False
         return True

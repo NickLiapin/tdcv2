@@ -179,7 +179,41 @@ impl DataPacks {
 
     /// Whether an address resolves, without caring what is in it.
     pub fn exists(&self, dotted_path: &str, locale: &str) -> bool {
+        // A duplicate address RESOLVES — twice, which is the whole complaint, and
+        // `load` is what reports it. Answering "no" here would report the
+        // collision as a misspelled address and send the reader hunting for a
+        // typo that is not there.
+        if self.candidates(&self.base_path(dotted_path, locale)).len() > 1 {
+            return true;
+        }
         self.load(dotted_path, locale).is_ok()
+    }
+
+    /// Where this address's files sit, extension aside.
+    fn base_path(&self, dotted_path: &str, locale: &str) -> String {
+        let first = dotted_path.split('.').next().unwrap_or("");
+        if self.source.has_top_level(first) {
+            // A locale or a reserved bucket: the address is already absolute.
+            dotted_path.replace('.', "/")
+        } else if self.source.has_country(first) {
+            // A country: absolute too, but its files live under the countries/
+            // grouping, which is not part of the address anyone writes.
+            format!("countries/{}", dotted_path.replace('.', "/"))
+        } else {
+            // Relative to the active locale, so `person.lastName` under `ru` is
+            // a Russian surname.
+            format!("{locale}.{dotted_path}").replace('.', "/")
+        }
+    }
+
+    /// The files this address's path resolves to, one per extension that exists.
+    /// More than one is a collision, because the extension is not part of an address.
+    fn candidates(&self, base: &str) -> Vec<String> {
+        PACK_EXTENSIONS
+            .iter()
+            .map(|extension| format!("{base}{extension}"))
+            .filter(|candidate| self.source.has(candidate))
+            .collect()
     }
 
     /// Whether a pack generator apportions a share over the whole column.
@@ -221,26 +255,32 @@ impl DataPacks {
             return Ok(cached.clone());
         }
 
-        let first = dotted_path.split('.').next().unwrap_or("");
-        let base = if self.source.has_top_level(first) {
-            // A locale or a reserved bucket: the address is already absolute.
-            dotted_path.replace('.', "/")
-        } else if self.source.has_country(first) {
-            // A country: absolute too, but its files live under the countries/
-            // grouping, which is not part of the address anyone writes.
-            format!("countries/{}", dotted_path.replace('.', "/"))
-        } else {
-            // Relative to the active locale, so `person.lastName` under `ru` is
-            // a Russian surname.
-            format!("{locale}.{dotted_path}").replace('.', "/")
-        };
+        let base = self.base_path(dotted_path, locale);
+        let candidates = self.candidates(&base);
+        if candidates.len() > 1 {
+            // The extension is not part of an address, so two files that differ
+            // only by it claim the SAME one. Picking the first silently would
+            // make the other dead weight its author cannot see — the run keeps
+            // working and reads the same file forever.
+            let first = &candidates[0];
+            let second = &candidates[1];
+            return invalid(&format!(
+                "duplicate data-pack address \"{}\" declared by both \"{}\" and \"{}\" \
+                 — rename or move one",
+                self.absolute_address(dotted_path, locale),
+                self.source.locate(second).unwrap_or_else(|| second.clone()),
+                self.source.locate(first).unwrap_or_else(|| first.clone()),
+            ));
+        }
 
-        let found = PACK_EXTENSIONS.iter().find_map(|extension| {
-            let candidate = format!("{base}{extension}");
-            self.source
-                .read_lines(&candidate)
-                .map(|lines| (candidate, lines))
-        });
+        let found = candidates
+            .into_iter()
+            .next()
+            .and_then(|candidate| {
+                self.source
+                    .read_lines(&candidate)
+                    .map(|lines| (candidate, lines))
+            });
 
         let (file, lines) = match found {
             Some(hit) => hit,

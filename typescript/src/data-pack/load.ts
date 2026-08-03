@@ -20,7 +20,7 @@
  */
 
 import { type Dirent, readFileSync, readdirSync, statSync } from 'node:fs';
-import { dirname, extname, resolve, sep } from 'node:path';
+import { dirname, extname, join, resolve, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 import type { Diagnostic } from '../errors/index.js';
@@ -550,32 +550,66 @@ function packError(message: string, file: string): Diagnostic {
 }
 
 /**
- * Absolute path to the bundled data-pack directory shipped in the repo
- * (`<repo>/data/packs`). Resolved relative to this module so it works
- * from both `src` (tests) and `dist` (built). Returns `undefined` when
- * the directory is absent (e.g. a trimmed published package).
- */
-/**
- * Where the packs that ship WITH the library live.
+ * Where the packs a run starts from live — the same three questions, in the same
+ * order, in all five implementations:
  *
- * Two layouts have to work, and only checking one is what made an installed
- * package unable to generate a single name:
+ *   1. `TDCV2_PACKS`, if it names a directory. Written down by hand, so it wins.
+ *   2. The TDC source checkout this build came from, if there is one — see
+ *      {@link sourceCheckoutPacks}. In a checkout that is the copy every
+ *      implementation reads and the one a contributor edits, so all five see the
+ *      same data rather than five drifting copies.
+ *   3. The starter set shipped inside the package.
+ *
+ * Whatever `tdcv2.config.json` and `--data-path` name is layered on top of the
+ * answer, not instead of it.
+ *
+ * For step 3 two layouts have to work, and checking only one is what once made an
+ * installed package unable to generate a single name:
  *
  *   - **installed** — `<package>/data/packs`, copied in at pack time. From
  *     `dist/data-pack` that is two levels up.
  *   - **in the repo** — `<repo>/data/packs`, three levels up from
  *     `typescript/dist/data-pack` (or `typescript/src/data-pack` under tsx).
  *
- * The installed layout is checked FIRST so a stale copy left inside the package
+ * The installed layout is checked first so a stale copy left inside the package
  * cannot be shadowed by the repo copy, and so the common case costs one stat.
  */
 export function bundledPacksDir(): string | undefined {
+  const fromEnv = process.env['TDCV2_PACKS'];
+  if (fromEnv !== undefined && fromEnv.trim() !== '' && isDirectory(fromEnv)) return fromEnv;
+
   const here = dirname(fileURLToPath(import.meta.url));
+  const checkout = sourceCheckoutPacks(here);
+  if (checkout !== undefined) return checkout;
+
   const candidates = [
     resolve(here, '..', '..', 'data', 'packs'),
     resolve(here, '..', '..', '..', 'data', 'packs'),
   ];
   return candidates.find((c) => isDirectory(c));
+}
+
+/**
+ * `<repo>/data/packs`, if this code is running out of a TDC source checkout.
+ *
+ * Walking up for a bare `data/packs` is not enough: that name is ordinary enough
+ * that an unrelated folder above an installed package could answer, and then the
+ * same config would read different data depending on where the user happened to
+ * install it. A directory only counts when it ALSO holds `fixtures/cross-language`
+ * — the folder that holds the contract all five implementations are tested
+ * against, which exists in this repository and nowhere else.
+ */
+export function sourceCheckoutPacks(startFrom: string): string | undefined {
+  let current = resolve(startFrom);
+  for (;;) {
+    if (isDirectory(join(current, 'fixtures', 'cross-language'))) {
+      const packs = join(current, 'data', 'packs');
+      if (isDirectory(packs)) return packs;
+    }
+    const parent = resolve(current, '..');
+    if (parent === current) return undefined;
+    current = parent;
+  }
 }
 
 let bundledPacksCache: PackRegistry | undefined;

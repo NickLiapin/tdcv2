@@ -271,6 +271,10 @@ public final class ConfigBuilder {
     for (TDCParser.ElementContext child : env.content().element()) {
       TDCParser.OpenCloseElementContext open = child.openCloseElement();
       if (open != null && "sequence".equals(open.name.getText())) {
+        String refused = wholeColumnDeclaration(open);
+        if (refused != null) {
+          throw new IllegalArgumentException(refused);
+        }
         sequences.add(sequence(open));
         continue;
       }
@@ -284,6 +288,45 @@ public final class ConfigBuilder {
           "a composed pack generator needs a <data>...</data> output template");
     }
     return new PackGenerator(sequences, output, findElement(env.content(), "valid"));
+  }
+
+  /**
+   * Whole-COLUMN declarations, which a pack body cannot honour.
+   *
+   * <p>A pack describes how to build ONE value and is asked for one per row. These two say
+   * something about the column as a whole — which values may repeat across rows, and in what order
+   * they come out — and answering that needs the row count and every other row, neither of which a
+   * pack has. Worse, one pack can be drawn from by several sequences in one config, so there is no
+   * single column for the pack to be speaking about.
+   *
+   * <p>{@code <distinct>} is deliberately NOT here. It reads like a sibling of {@code uniq=} and is
+   * not one: it constrains fields against each other WITHIN one row, which is exactly what a pack
+   * can answer on its own — and five shipped full-name packs rely on it to keep a person's two
+   * surnames from coming out the same.
+   */
+  private static final String[] WHOLE_COLUMN_ATTRS = {"uniq", "order"};
+
+  /** Why this pack sequence is refused, or null when there is nothing wrong with it. */
+  private static String wholeColumnDeclaration(TDCParser.OpenCloseElementContext sequence) {
+    Map<String, String> attrs = attributes(sequence.attr());
+    String named = attrs.get("name");
+    String where = named == null ? "<sequence>" : "<sequence name=\"" + named + "\">";
+    for (String attr : WHOLE_COLUMN_ATTRS) {
+      String value = attrs.get(attr);
+      if (value == null || value.isBlank()) {
+        continue;
+      }
+      return "generator declares "
+          + attr
+          + "= on "
+          + where
+          + ", which a pack cannot honour: a pack builds ONE value and is asked for one per row,"
+          + " while "
+          + attr
+          + "= is a property of the whole column. Declare it on the sequence in the config that"
+          + " draws from this pack instead.";
+    }
+    return null;
   }
 
   /** One {@code <gen>} as a body item: a field when named, a drawn part otherwise. */

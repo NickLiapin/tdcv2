@@ -104,4 +104,62 @@ public class EmbeddedPacksTest
         Assert.False(source.HasTopLevel("en"));
         Assert.False(source.HasCountry("usa"));
     }
+
+    /// <summary>
+    /// Which folder the packs come out of, before any config or command line adds to it.
+    /// </summary>
+    /// <remarks>
+    /// One rule in all five implementations: <c>TDCV2_PACKS</c>, then the source checkout this
+    /// build came from, then the starter set inside the artefact. What is worth testing is the
+    /// middle one — the step that used to differ between implementations, and the step that can
+    /// capture the wrong folder if the marker is dropped.
+    /// </remarks>
+    [Fact]
+    public void DiscoveryFindsTheRepositoryThisBuildCameFrom()
+    {
+        string? found = DataPacks.SourceCheckoutPacks(AppContext.BaseDirectory);
+        Assert.NotNull(found);
+        Assert.Equal("packs", Path.GetFileName(found));
+        Assert.Equal("data", Path.GetFileName(Path.GetDirectoryName(found)));
+    }
+
+    [Fact]
+    public void DiscoveryRefusesADataPacksThatIsNotThisRepository()
+    {
+        // The point of the marker. Without it an unrelated data/packs above an installed package
+        // would answer, and the same config would then read different data depending on where the
+        // user happened to install it.
+        string root = Path.Combine(Path.GetTempPath(), "tdc-discovery-stranger");
+        if (Directory.Exists(root))
+        {
+            Directory.Delete(root, recursive: true);
+        }
+
+        Directory.CreateDirectory(Path.Combine(root, "data", "packs", "en"));
+        string deep = Path.Combine(root, "project", "deep");
+        Directory.CreateDirectory(deep);
+
+        Assert.Null(DataPacks.SourceCheckoutPacks(deep));
+
+        Directory.Delete(root, recursive: true);
+    }
+
+    [Fact]
+    public void DiscoveryAcceptsACheckoutFromAnyDepthBelowIt()
+    {
+        string root = Path.Combine(Path.GetTempPath(), "tdc-discovery-checkout");
+        if (Directory.Exists(root))
+        {
+            Directory.Delete(root, recursive: true);
+        }
+
+        Directory.CreateDirectory(Path.Combine(root, "data", "packs"));
+        Directory.CreateDirectory(Path.Combine(root, "fixtures", "cross-language"));
+        string deep = Path.Combine(root, "a", "b", "c");
+        Directory.CreateDirectory(deep);
+
+        Assert.Equal(Path.Combine(root, "data", "packs"), DataPacks.SourceCheckoutPacks(deep));
+
+        Directory.Delete(root, recursive: true);
+    }
 }

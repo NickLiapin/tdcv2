@@ -687,7 +687,9 @@
     {
       "name": "a run too big for this machine's memory is refused before it starts",
       "note": "Two billion records held in RAM is hundreds of gigabytes on any reading of the estimate, so the answer does not depend on the machine running the test — which is what lets this be a shared case at all. The numbers in the message legitimately differ (a JVM reports its heap ceiling, the others the physical total, and a run to stdout is charged for the string it builds while `-o` is not); the code, the refusal and the silent stdout do not. `mode=\"memory\"` is what makes count a memory cost: the streaming engines hold one row.",
-      "files": { "big.tdc": "@tooBigForMemory" },
+      "files": {
+        "big.tdc": "@tooBigForMemory"
+      },
       "argv": ["{dir}/big.tdc"],
       "exit": 1,
       "stdout": "",
@@ -824,6 +826,36 @@
       "stdout": "",
       "stderrContains": [
         "tdcv2: weight= combined with row= needs an exact quota over the whole file; the in-memory engine handles it (run without a forced streaming engine)"
+      ]
+    },
+    {
+      "name": "a pack that declares uniq= is refused, not silently ignored",
+      "note": "uniq= spans the whole column and a pack is asked for one value per row, so a pack cannot honour it. It used to be accepted and ignored, which costs a pack author more time than any error: the file says what they meant and the output does not do it.",
+      "files": {
+        "packs/pl/probe/pair.tdc": "---\ndescription: A pack that asks for something only its caller can decide.\ngenerator: tdc\nlocale: pl\n---\n<sequence name=\"p\" uniq=\"true\">\n  <gen name=\"a\" type=\"template\" value=\"pl.probe.left\"/>\n</sequence>\n<data>${{p.a}}</data>\n",
+        "packs/pl/probe/left.txt": "A\nB\n",
+        "uniq-in-pack.tdc": "<tdc>\n    <env count=\"2\" seed=\"packs\" local=\"pl\">\n        <sequence name=\"P\"><gen type=\"template\" value=\"pl.probe.pair\"/></sequence>\n    </env>\n    <block><line><data>${{P}}</data></line></block>\n</tdc>\n"
+      },
+      "argv": ["{dir}/uniq-in-pack.tdc", "--data-path", "{dir}/packs"],
+      "exit": 1,
+      "stderrContains": [
+        "generator declares uniq= on <sequence name=\"p\">, which a pack cannot honour",
+        "Declare it on the sequence in the config that draws from this pack instead."
+      ]
+    },
+    {
+      "name": "two files claiming one address are refused, not resolved to whichever is first",
+      "note": "The extension is not part of an address, so thing.txt and thing.tdc are the same address. Picking the first would make the other dead weight its author cannot see.",
+      "files": {
+        "packs/pl/dup/thing.txt": "FROM_TXT\n",
+        "packs/pl/dup/thing.tdc": "---\ndescription: The same address as thing.txt — a collision.\ngenerator: tdc\nlocale: pl\n---\n<gen type=\"text\" value=\"FROM_TDC\"/>\n",
+        "dup-address.tdc": "<tdc>\n    <env count=\"1\" seed=\"packs\" local=\"pl\">\n        <sequence name=\"D\"><gen type=\"template\" value=\"pl.dup.thing\"/></sequence>\n    </env>\n    <block><line><data>${{D}}</data></line></block>\n</tdc>\n"
+      },
+      "argv": ["{dir}/dup-address.tdc", "--data-path", "{dir}/packs"],
+      "exit": 1,
+      "stderrContains": [
+        "duplicate data-pack address \"pl.dup.thing\" declared by both",
+        "— rename or move one"
       ]
     }
   ],

@@ -13,6 +13,7 @@ library has business carrying and it keeps growing.
 
 from __future__ import annotations
 
+import os
 from pathlib import Path
 from typing import Protocol
 
@@ -227,3 +228,48 @@ class Layered:
 
     def __str__(self) -> str:
         return ", ".join(str(source) for source in self.sources)
+
+
+#: The folder that makes a directory recognisably THIS repository. Walking up for a bare
+#: ``data/packs`` is not enough: the name is ordinary enough that an unrelated folder above an
+#: installed package could answer, and then the same config would read different data depending on
+#: where the user happened to install it. ``fixtures/cross-language`` holds the contract all five
+#: implementations are tested against, and exists here and nowhere else.
+CHECKOUT_MARKER = ("fixtures", "cross-language")
+
+
+def source_checkout_packs(start_from: Path) -> Path | None:
+    """``<repo>/data/packs``, if this code is running out of a TDC source checkout.
+
+    In a checkout that folder is the copy every implementation reads and the one a contributor
+    edits, so finding it is what keeps all five seeing the same data instead of five copies free to
+    drift. An installed wheel has no repository above it, the walk finds nothing, and the packs
+    inside the wheel answer instead.
+    """
+    current = start_from.resolve()
+    while True:
+        if current.joinpath(*CHECKOUT_MARKER).is_dir():
+            packs = current / "data" / "packs"
+            if packs.is_dir():
+                return packs
+        if current.parent == current:
+            return None
+        current = current.parent
+
+
+def discover() -> Source:
+    """Where a run's packs start from, before any config or command line adds to them.
+
+    The same three questions, in the same order, in all five implementations: ``TDCV2_PACKS`` if it
+    names a folder, then the source checkout this build came from, then the starter set shipped
+    inside the package.
+    """
+    from_env = os.environ.get("TDCV2_PACKS", "").strip()
+    if from_env and Path(from_env).is_dir():
+        return Directory(Path(from_env))
+
+    checkout = source_checkout_packs(Path(__file__))
+    if checkout is not None:
+        return Directory(checkout)
+
+    return Bundled()

@@ -131,6 +131,8 @@ export function parseGeneratorSpec(body: string, inject?: string): GeneratorPars
         error: `inject pattern "${resolvedInject}" has no "%" placeholder — interpolation will never match`,
       };
     }
+    const wholeColumn = firstWholeColumnDeclaration(env);
+    if (wholeColumn !== undefined) return { error: wholeColumn };
     // A `<compute>` sequence carries no <gen> (it derives its value), so it is
     // implicitly allowed here — this is how checksum generators (INN, IBAN,
     // Luhn) live as editable pack data. Its tree is validated at render time by
@@ -185,6 +187,48 @@ export function parseGeneratorSpec(body: string, inject?: string): GeneratorPars
       needsWholeColumn: (attrs['percent'] ?? '').trim() !== '',
     },
   };
+}
+
+/**
+ * Whole-COLUMN declarations, which a pack body cannot honour.
+ *
+ * A pack describes how to build ONE value and is asked for one per row. These
+ * two say something about the column as a whole — which values may repeat across
+ * rows, and in what order they come out — and answering that needs the row count
+ * and every other row, neither of which a pack has. Worse, one pack can be drawn
+ * from by several sequences in one config, so there is no single column for the
+ * pack to be speaking about.
+ *
+ * They were accepted and silently ignored, which is the failure that costs a
+ * pack author the most time: the file says what they meant, the output does not
+ * do it, and nothing anywhere says why. Uniqueness and order belong to the config
+ * drawing from the pack, where `uniq=` and `order=` already work.
+ *
+ * `<distinct>` is deliberately NOT here. It reads like a sibling of `uniq=` and
+ * is not one: it constrains fields against each other WITHIN one row, which is
+ * exactly what a pack can answer on its own — and five shipped full-name packs
+ * rely on it to keep a person's two surnames from coming out the same.
+ */
+const WHOLE_COLUMN_ATTRS: readonly string[] = ['uniq', 'order'];
+
+function firstWholeColumnDeclaration(env: OpenCloseElementContext): string | undefined {
+  for (const el of contentElements(env.content())) {
+    const k = elementKind(el);
+    if (!k || k.kind === 'data' || elementName(k.node) !== 'sequence') continue;
+
+    const attrs = extractAttrs(k.node.attr());
+    const named = attrs['name'];
+    const where = named === undefined ? '<sequence>' : `<sequence name="${named}">`;
+    for (const attr of WHOLE_COLUMN_ATTRS) {
+      if ((attrs[attr] ?? '').trim() === '') continue;
+      return (
+        `generator declares ${attr}= on ${where}, which a pack cannot honour: a pack builds ` +
+        `ONE value and is asked for one per row, while ${attr}= is a property of the whole ` +
+        'column. Declare it on the sequence in the config that draws from this pack instead.'
+      );
+    }
+  }
+  return undefined;
 }
 
 /** Collect all `template` addresses referenced by a set of sequence specs. */

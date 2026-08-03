@@ -422,6 +422,34 @@ Así que tanto descargar como quitar son operaciones seguras: el conjunto base n
 borra de verdad, solo queda oculto temporalmente mientras un conjunto más rico se apoya
 encima.
 
+## De dónde sale la capa base
+
+Esa capa base se busca haciendo tres preguntas en orden: las mismas tres, en el mismo
+orden, en las cinco implementaciones.
+
+| Orden | Dónde                                      | Cuándo responde                                            |
+| :---- | :----------------------------------------- | :--------------------------------------------------------- |
+| 1     | `TDCV2_PACKS`, si nombra una carpeta       | Usted la fijó, así que gana sobre todo lo demás             |
+| 2     | Una copia del código fuente de TDC         | Solo cuando el propio TDC se compiló desde el código        |
+| 3     | El conjunto dentro del paquete instalado   | Lo normal: es lo que usa un paquete instalado               |
+
+El paso 2 existe para quien trabaja sobre TDC mismo: dentro de una copia del repositorio
+las cinco implementaciones leen su `data/packs`, así que ven una sola copia de los datos y
+no cinco que podrían separarse. No puede activarse en un paquete instalado, y a propósito
+no se conforma con cualquier carpeta llamada `data/packs`: la carpeta tiene que ser
+reconociblemente el repositorio de TDC, para que una carpeta suya que comparta el nombre
+nunca se tome por error.
+
+`TDCV2_PACKS` es la vía de escape cuando quiere apuntar las cinco implementaciones a una
+sola carpeta sin tocar ninguna configuración:
+
+```bash
+TDCV2_PACKS=/srv/shared-packs tdcv2 users.tdc
+```
+
+Todo lo que nombren `tdcv2.config.json` y `--data-path` se coloca **encima** de esa
+respuesta, nunca en su lugar.
+
 ## Vea también
 
 - **[Descripción general de los paquetes de datos](overview.md#top)** — qué es un paquete y

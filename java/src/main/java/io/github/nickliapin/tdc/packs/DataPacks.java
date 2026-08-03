@@ -104,9 +104,86 @@ public final class DataPacks {
     this(new PackSource.Directory(root));
   }
 
-  /** The packs the library ships with — the default, and no configuration needed to use it. */
+  /**
+   * The packs a run starts from — the default, and no configuration needed to use it.
+   *
+   * <p>{@code TDCV2_PACKS} if it names a folder, then the source checkout this build came from,
+   * then the starter set inside the jar. See {@link #discover()}.
+   */
   public static DataPacks bundled() {
-    return new DataPacks(new PackSource.Classpath());
+    return new DataPacks(discover());
+  }
+
+  /**
+   * Where a run's packs come from before any config or command line adds to them — the same
+   * three questions, in the same order, in all five implementations.
+   *
+   * <ol>
+   *   <li>{@code TDCV2_PACKS}, if it names a directory. Written down by hand, so it wins.
+   *   <li>The TDC source checkout this build came from, if there is one. In a checkout that is
+   *       the copy every implementation reads and the one a contributor edits, so all five see
+   *       the same data rather than five copies free to drift.
+   *   <li>The starter set inside the jar, which is what a dependency resolved from Maven Central
+   *       has: there is nothing above {@code ~/.m2} to walk up to.
+   * </ol>
+   */
+  static PackSource discover() {
+    String fromEnv = System.getenv("TDCV2_PACKS");
+    if (fromEnv != null && !fromEnv.isBlank() && Files.isDirectory(Path.of(fromEnv))) {
+      return new PackSource.Directory(Path.of(fromEnv));
+    }
+    Path checkout = sourceCheckoutPacks(ownLocation());
+    if (checkout == null) {
+      return new PackSource.Classpath();
+    }
+    // Layered rather than replaced. The classpath is not only this jar's own starter set: any
+    // dependency may carry a pack index, which is how a Java project adds a locale by adding an
+    // artifact instead of running a downloader. Dropping it for the checkout would take that away
+    // from every contributor. The checkout goes on top, so it still wins where both answer.
+    return new PackSource.Layered(
+        List.of(new PackSource.Classpath(), new PackSource.Directory(checkout)));
+  }
+
+  /**
+   * {@code <repo>/data/packs}, if this code is running out of a TDC source checkout.
+   *
+   * <p>Walking up for a bare {@code data/packs} is not enough: the name is ordinary enough that
+   * an unrelated folder above an installed jar could answer, and then the same config would read
+   * different data depending on where the user happened to install it. A directory only counts
+   * when it ALSO holds {@code fixtures/cross-language} — the folder holding the contract all five
+   * implementations are tested against, which exists in this repository and nowhere else.
+   *
+   * @param startFrom where to start walking up from, or {@code null} when it cannot be determined
+   * @return the checkout's pack folder, or {@code null} when this is not a checkout
+   */
+  static Path sourceCheckoutPacks(Path startFrom) {
+    for (Path current = startFrom; current != null; current = current.getParent()) {
+      if (Files.isDirectory(current.resolve("fixtures").resolve("cross-language"))) {
+        Path packs = current.resolve("data").resolve("packs");
+        if (Files.isDirectory(packs)) {
+          return packs;
+        }
+      }
+    }
+    return null;
+  }
+
+  /**
+   * The folder holding this class's own code — a directory of classes in a checkout, the jar file
+   * itself once published. Null when the runtime declines to say, which is not an error: it only
+   * means the checkout question cannot be asked and the jar's own packs answer.
+   */
+  private static Path ownLocation() {
+    try {
+      var source = DataPacks.class.getProtectionDomain().getCodeSource();
+      if (source == null) {
+        return null;
+      }
+      Path location = Path.of(source.getLocation().toURI());
+      return Files.isDirectory(location) ? location : location.getParent();
+    } catch (java.net.URISyntaxException | RuntimeException e) {
+      return null;
+    }
   }
 
   /**
@@ -127,8 +204,9 @@ public final class DataPacks {
    * typed for this one run should beat something written down for every run.
    */
   public static DataPacks forProject(Path cwd, List<Path> extraRoots) {
+    PackSource discovered = discover();
     List<PackSource> layers = new ArrayList<>();
-    layers.add(new PackSource.Classpath());
+    layers.add(discovered);
     ProjectConfig.Resolved config = ProjectConfig.load(cwd);
     for (Path dir : config.dataPaths()) {
       if (Files.isDirectory(dir)) {
@@ -148,7 +226,7 @@ public final class DataPacks {
     List<Path> roots = new ArrayList<>(config.dataPaths());
     roots.addAll(extraRoots);
     return layers.size() == 1
-        ? new DataPacks(new PackSource.Classpath(), roots)
+        ? new DataPacks(discovered, roots)
         : new DataPacks(new PackSource.Layered(layers), roots);
   }
 
@@ -207,6 +285,12 @@ public final class DataPacks {
    * its first row.
    */
   public boolean exists(String dottedPath, String locale) {
+    // A duplicate address RESOLVES — twice, which is the whole complaint, and `load` is what
+    // reports it. Answering "no" here would report the collision as a misspelled address and send
+    // the reader hunting for a typo that is not there.
+    if (candidates(basePath(dottedPath, locale)).size() > 1) {
+      return true;
+    }
     try {
       load(dottedPath, locale);
       return true;
@@ -266,27 +350,25 @@ public final class DataPacks {
       return cached;
     }
 
-    String first = dottedPath.split("\\.", 2)[0];
-    String base;
-    if (source.hasTopLevel(first)) {
-      // A locale or a reserved bucket: the address is already absolute.
-      base = dottedPath.replace('.', '/');
-    } else if (source.hasCountry(first)) {
-      // A country: absolute too, but its files live under the countries/ grouping, which is
-      // not part of the address anyone writes.
-      base = "countries/" + dottedPath.replace('.', '/');
-    } else {
-      // Relative to the active locale, so `person.lastName` under `ru` is a Russian surname.
-      base = (locale + "." + dottedPath).replace('.', '/');
-    }
+    String base = basePath(dottedPath, locale);
 
-    String file = null;
-    for (String extension : PACK_EXTENSIONS) {
-      if (source.has(base + extension)) {
-        file = base + extension;
-        break;
-      }
+    List<String> candidates = candidates(base);
+    if (candidates.size() > 1) {
+      // The extension is not part of an address, so two files that differ only by it claim the
+      // SAME one. Picking the first silently would make the other dead weight its author cannot
+      // see — the run keeps working and reads the same file forever.
+      String firstFile = candidates.get(0);
+      String secondFile = candidates.get(1);
+      throw new IllegalArgumentException(
+          "duplicate data-pack address \""
+              + absoluteAddress(dottedPath, locale)
+              + "\" declared by both \""
+              + locateOr(secondFile)
+              + "\" and \""
+              + locateOr(firstFile)
+              + "\" — rename or move one");
     }
+    String file = candidates.isEmpty() ? null : candidates.get(0);
 
     if (file == null) {
       // The path did not answer, so ask the headers: a file may declare its own `address:` and
@@ -310,6 +392,42 @@ public final class DataPacks {
     Entry entry = parse(source.readLines(file), file);
     cache.put(key, entry);
     return entry;
+  }
+
+  /** Where this address's files sit, extension aside. */
+  private String basePath(String dottedPath, String locale) {
+    String first = dottedPath.split("\\.", 2)[0];
+    if (source.hasTopLevel(first)) {
+      // A locale or a reserved bucket: the address is already absolute.
+      return dottedPath.replace('.', '/');
+    }
+    if (source.hasCountry(first)) {
+      // A country: absolute too, but its files live under the countries/ grouping, which is
+      // not part of the address anyone writes.
+      return "countries/" + dottedPath.replace('.', '/');
+    }
+    // Relative to the active locale, so `person.lastName` under `ru` is a Russian surname.
+    return (locale + "." + dottedPath).replace('.', '/');
+  }
+
+  /**
+   * The files this address's path resolves to, one per extension that exists. More than one is a
+   * collision, because the extension is not part of an address.
+   */
+  private List<String> candidates(String base) {
+    List<String> found = new ArrayList<>();
+    for (String extension : PACK_EXTENSIONS) {
+      if (source.has(base + extension)) {
+        found.add(base + extension);
+      }
+    }
+    return found;
+  }
+
+  /** Where a file is on disk when the source can say, and its relative path when it cannot. */
+  private String locateOr(String relativePath) {
+    String located = source.locate(relativePath);
+    return located == null ? relativePath : located;
   }
 
   /** The address as the index holds it: locale-prefixed unless already absolute. */

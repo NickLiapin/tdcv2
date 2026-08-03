@@ -96,10 +96,9 @@ public sealed class DataPacks
     /// The packs found without being told where they are.
     /// </summary>
     /// <remarks>
-    /// <c>TDCV2_PACKS</c> when it is set, otherwise a <c>packs</c> folder beside the assembly, and
-    /// failing that the repository's own <c>data/packs</c> found by walking upward. The walk is what
-    /// lets the tests here read the very same files the other three implementations read, rather
-    /// than a copy that could drift from them.
+    /// The same three questions, in the same order, in all five implementations:
+    /// <c>TDCV2_PACKS</c> when it names a folder, then the source checkout this build came from
+    /// (see <see cref="SourceCheckoutPacks"/>), then the starter set shipped inside the package.
     /// </remarks>
     public static DataPacks Discover()
     {
@@ -109,28 +108,21 @@ public sealed class DataPacks
             return new DataPacks(fromEnv);
         }
 
+        string? checkout = SourceCheckoutPacks(AppContext.BaseDirectory);
+        if (checkout is not null)
+        {
+            return new DataPacks(checkout);
+        }
+
         string beside = Path.Combine(AppContext.BaseDirectory, "packs");
         if (Directory.Exists(beside))
         {
             return new DataPacks(beside);
         }
 
-        var dir = new DirectoryInfo(AppContext.BaseDirectory);
-        while (dir is not null)
-        {
-            string candidate = Path.Combine(dir.FullName, "data", "packs");
-            if (Directory.Exists(candidate))
-            {
-                return new DataPacks(candidate);
-            }
-
-            dir = dir.Parent;
-        }
-
         // The starter set compiled into this assembly, which is what a package installed from
         // NuGet has: there is nothing above ~/.nuget/packages to walk up to, and without this
-        // every type="template" answered "no data packs found". A folder on disk wins above,
-        // because that is the copy every implementation shares and the one a contributor edits.
+        // every type="template" answered "no data packs found".
         if (!EmbeddedSource.IsEmpty)
         {
             return new DataPacks(new EmbeddedSource());
@@ -138,6 +130,42 @@ public sealed class DataPacks
 
         throw new DirectoryNotFoundException(
             "no data packs found; set TDCV2_PACKS to a pack folder");
+    }
+
+    /// <summary>
+    /// <c>&lt;repo&gt;/data/packs</c>, if this code is running out of a TDC source checkout.
+    /// </summary>
+    /// <remarks>
+    /// In a checkout that folder is the copy every implementation reads and the one a contributor
+    /// edits, so finding it is what keeps all five seeing the same data rather than five copies
+    /// free to drift.
+    /// <para>
+    /// Walking up for a bare <c>data/packs</c> is not enough: the name is ordinary enough that an
+    /// unrelated folder above an installed package could answer, and then the same config would
+    /// read different data depending on where the user happened to install it. A directory only
+    /// counts when it ALSO holds <c>fixtures/cross-language</c> — the folder holding the contract
+    /// all five implementations are tested against, which exists in this repository and nowhere
+    /// else.
+    /// </para>
+    /// </remarks>
+    public static string? SourceCheckoutPacks(string startFrom)
+    {
+        var dir = new DirectoryInfo(startFrom);
+        while (dir is not null)
+        {
+            if (Directory.Exists(Path.Combine(dir.FullName, "fixtures", "cross-language")))
+            {
+                string candidate = Path.Combine(dir.FullName, "data", "packs");
+                if (Directory.Exists(candidate))
+                {
+                    return candidate;
+                }
+            }
+
+            dir = dir.Parent;
+        }
+
+        return null;
     }
 
     /// <summary>
@@ -190,6 +218,14 @@ public sealed class DataPacks
     /// <summary>Whether an address resolves, without loading it.</summary>
     public bool Exists(string dottedPath, string? locale)
     {
+        // A duplicate address RESOLVES — twice, which is the whole complaint, and Load is what
+        // reports it. Answering "no" here would report the collision as a misspelled address and
+        // send the reader hunting for a typo that is not there.
+        if (Candidates(BasePath(dottedPath, locale)).Count > 1)
+        {
+            return true;
+        }
+
         try
         {
             Load(dottedPath, locale);
@@ -200,6 +236,39 @@ public sealed class DataPacks
             return false;
         }
     }
+
+    /// <summary>Where this address's files sit, extension aside.</summary>
+    private string BasePath(string dottedPath, string? locale)
+    {
+        string first = dottedPath.Split('.', 2)[0];
+        if (Source.HasTopLevel(first))
+        {
+            // A locale or a reserved bucket: the address is already absolute.
+            return dottedPath.Replace('.', '/');
+        }
+
+        if (Source.HasCountry(first))
+        {
+            // A country: absolute too, but its files live under the countries/ grouping, which is
+            // not part of the address anyone writes.
+            return "countries/" + dottedPath.Replace('.', '/');
+        }
+
+        // Relative to the active locale, so `person.lastName` under `ru` is a Russian surname.
+        return (locale + "." + dottedPath).Replace('.', '/');
+    }
+
+    /// <summary>
+    /// The files this address's path resolves to, one per extension that exists. More than one is
+    /// a collision, because the extension is not part of an address.
+    /// </summary>
+    private List<string> Candidates(string @base) =>
+        PackExtensions.Select(extension => @base + extension).Where(Source.Has).ToList();
+
+    /// <summary>
+    /// Where a file is on disk when the source can say, and its relative path when it cannot.
+    /// </summary>
+    private string LocateOr(string relativePath) => Source.Locate(relativePath) ?? relativePath;
 
     /// <summary>
     /// Whether a pack generator apportions a share over the whole column.
@@ -270,28 +339,21 @@ public sealed class DataPacks
             return cached;
         }
 
-        string first = dottedPath.Split('.', 2)[0];
-        string @base;
-        if (Source.HasTopLevel(first))
+        string @base = BasePath(dottedPath, locale);
+
+        List<string> candidates = Candidates(@base);
+        if (candidates.Count > 1)
         {
-            // A locale or a reserved bucket: the address is already absolute.
-            @base = dottedPath.Replace('.', '/');
-        }
-        else if (Source.HasCountry(first))
-        {
-            // A country: absolute too, but its files live under the countries/ grouping, which is
-            // not part of the address anyone writes.
-            @base = "countries/" + dottedPath.Replace('.', '/');
-        }
-        else
-        {
-            // Relative to the active locale, so `person.lastName` under `ru` is a Russian surname.
-            @base = (locale + "." + dottedPath).Replace('.', '/');
+            // The extension is not part of an address, so two files that differ only by it claim
+            // the SAME one. Picking the first silently would make the other dead weight its author
+            // cannot see — the run keeps working and reads the same file forever.
+            throw new ArgumentException(
+                $"duplicate data-pack address \"{AbsoluteAddress(dottedPath, locale)}\" declared "
+                    + $"by both \"{LocateOr(candidates[1])}\" and \"{LocateOr(candidates[0])}\""
+                    + " — rename or move one");
         }
 
-        string? file = PackExtensions
-            .Select(extension => @base + extension)
-            .FirstOrDefault(Source.Has);
+        string? file = candidates.Count == 0 ? null : candidates[0];
 
         if (file is null)
         {

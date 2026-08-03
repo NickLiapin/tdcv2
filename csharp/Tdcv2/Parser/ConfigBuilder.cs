@@ -731,6 +731,12 @@ public static class ConfigBuilder
             TDCParser.OpenCloseElementContext open = child.openCloseElement();
             if (open is not null && open.name.Text == "sequence")
             {
+                string? refused = WholeColumnDeclaration(open);
+                if (refused is not null)
+                {
+                    throw new ArgumentException(refused);
+                }
+
                 sequences.Add(Sequence(open));
                 continue;
             }
@@ -748,6 +754,48 @@ public static class ConfigBuilder
         }
 
         return new PackGenerator(sequences, output, FindElement(env.content(), "valid"));
+    }
+
+    /// <summary>
+    /// Whole-COLUMN declarations, which a pack body cannot honour.
+    /// </summary>
+    /// <remarks>
+    /// A pack describes how to build ONE value and is asked for one per row. These two say
+    /// something about the column as a whole — which values may repeat across rows, and in what
+    /// order they come out — and answering that needs the row count and every other row, neither of
+    /// which a pack has. Worse, one pack can be drawn from by several sequences in one config, so
+    /// there is no single column for the pack to be speaking about.
+    /// <para>
+    /// <c>&lt;distinct&gt;</c> is deliberately NOT here. It reads like a sibling of <c>uniq=</c> and
+    /// is not one: it constrains fields against each other WITHIN one row, which is exactly what a
+    /// pack can answer on its own — and five shipped full-name packs rely on it to keep a person's
+    /// two surnames from coming out the same.
+    /// </para>
+    /// </remarks>
+    private static readonly string[] WholeColumnAttrs = { "uniq", "order" };
+
+    /// <summary>Why this pack sequence is refused, or null when there is nothing wrong.</summary>
+    private static string? WholeColumnDeclaration(TDCParser.OpenCloseElementContext sequence)
+    {
+        IReadOnlyDictionary<string, string> attrs = Attributes(sequence.attr());
+        string where = attrs.TryGetValue("name", out string? named)
+            ? $"<sequence name=\"{named}\">"
+            : "<sequence>";
+
+        foreach (string attr in WholeColumnAttrs)
+        {
+            if (!attrs.TryGetValue(attr, out string? value) || value.Trim().Length == 0)
+            {
+                continue;
+            }
+
+            return $"generator declares {attr}= on {where}, which a pack cannot honour: a pack "
+                + $"builds ONE value and is asked for one per row, while {attr}= is a property of "
+                + "the whole column. Declare it on the sequence in the config that draws from this "
+                + "pack instead.";
+        }
+
+        return null;
     }
 
     private static IReadOnlyDictionary<string, string> Attributes(TDCParser.AttrContext[] attrs)

@@ -383,6 +383,34 @@ without deleting anything underneath. Two things follow from that:
 So installing and removing are both safe: the base set is never really deleted, only
 shadowed for as long as a richer set sits above it.
 
+## Where the base layer comes from
+
+That base layer is found by asking three questions in order — the same three, in the same
+order, in all five implementations:
+
+| Order | Where                             | When it answers                                       |
+| :---- | :-------------------------------- | :---------------------------------------------------- |
+| 1     | `TDCV2_PACKS`, if it names a folder | You set it, so it wins over everything else          |
+| 2     | A TDC source checkout             | Only when TDC itself was built from source            |
+| 3     | The set inside the installed package | Normally — this is what an installed package uses   |
+
+Step 2 exists for people working on TDC itself: inside a checkout all five implementations
+read the repository's own `data/packs`, so they see one copy of the data rather than five
+that could drift apart. It cannot fire for an installed package, and it deliberately will
+not settle for any folder named `data/packs` — the folder has to be recognisably the TDC
+repository, so a folder of yours that happens to share the name is never picked up by
+mistake.
+
+`TDCV2_PACKS` is the escape hatch when you want to point every implementation at one folder
+without editing any config:
+
+```bash
+TDCV2_PACKS=/srv/shared-packs tdcv2 users.tdc
+```
+
+Whatever `tdcv2.config.json` and `--data-path` name is layered **on top** of the answer,
+never instead of it.
+
 ## See also
 
 - **[Data packs overview](overview.mdx)** — what a pack is and how dotted addresses work.

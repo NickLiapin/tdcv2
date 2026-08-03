@@ -15,6 +15,37 @@ page — is tracked in that implementation's own changelog:
 
 ## [Unreleased]
 
+### Fixed
+
+- **One rule for where the packs come from, in all five implementations.** A config that
+  lived outside a checkout read Polish names in TypeScript, Rust and C# and was told
+  `pl.person.lastName` did not exist in Python and Java — the same config, five
+  implementations, two answers. Three different rules were in play: three implementations
+  walked up from their own location looking for `data/packs`, two did not look at all, and
+  only two honoured `TDCV2_PACKS`.
+
+  All five now ask the same three questions in the same order: `TDCV2_PACKS` if it names a
+  folder, then the TDC source checkout this build came from, then the starter set inside the
+  package. The middle step no longer settles for any folder called `data/packs` — it has to
+  be recognisably this repository — so a folder of yours that shares the name can never be
+  picked up by accident. [Installing packs](docs/data-packs/installing-packs.md) states the
+  rule; a test in each implementation holds it.
+
+- **`uniq=` and `order=` inside a data pack are refused instead of ignored.** Both describe
+  the whole column — which values may repeat across rows, in what order they come out — and
+  a pack is asked for one value per row, so it has neither the row count nor the other rows
+  to answer with. All five accepted them and did nothing, which costs a pack author more
+  time than any error: the file says what they meant and the output does not do it.
+
+  `<distinct>` is untouched. It reads like a sibling of `uniq=` and is not one — it
+  constrains fields against each other _within_ one row, which a pack can answer on its own,
+  and five shipped full-name packs use it to keep a person's two surnames from matching.
+
+- **Two files claiming one address are refused in all five.** The extension is not part of
+  an address, so `thing.txt` and `thing.tdc` in one folder are the same address. The
+  reference had always said so; the four ports quietly read the `.txt` and left the other
+  file dead weight its author could not see.
+
 ### Removed
 
 - **`src="pkg:…"` on the file and pattern generators.** It read a data file out of

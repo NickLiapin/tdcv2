@@ -298,10 +298,11 @@ impl PackSource for LayeredSource {
     }
 }
 
-/// The repository's own `data/packs`, found by walking upward.
+/// Where a run's packs come from before any config or command line adds to them:
+/// `TDCV2_PACKS` if it names a folder, then the source checkout this build came
+/// from. `None` leaves the starter set compiled into the binary to answer.
 ///
-/// The walk is what lets the tests here read the very same files the other four
-/// implementations read, rather than a copy that could drift from them.
+/// The same two questions, in the same order, in all five implementations.
 pub fn discover_root() -> Option<PathBuf> {
     if let Ok(from_env) = std::env::var("TDCV2_PACKS") {
         let path = PathBuf::from(&from_env);
@@ -310,11 +311,30 @@ pub fn discover_root() -> Option<PathBuf> {
         }
     }
 
-    let mut dir: Option<&Path> = Some(Path::new(env!("CARGO_MANIFEST_DIR")));
+    source_checkout_packs(Path::new(env!("CARGO_MANIFEST_DIR")))
+}
+
+/// `<repo>/data/packs`, if this build came from a TDC source checkout.
+///
+/// In a checkout that folder is the copy every implementation reads and the one a
+/// contributor edits, so finding it is what keeps all five seeing the same data
+/// rather than five copies free to drift.
+///
+/// Walking up for a bare `data/packs` is not enough: the name is ordinary enough
+/// that an unrelated folder above an installed crate could answer, and then the
+/// same config would read different data depending on where the user happened to
+/// install it. A directory only counts when it ALSO holds
+/// `fixtures/cross-language` — the folder holding the contract all five
+/// implementations are tested against, which exists in this repository and
+/// nowhere else.
+pub fn source_checkout_packs(start_from: &Path) -> Option<PathBuf> {
+    let mut dir: Option<&Path> = Some(start_from);
     while let Some(current) = dir {
-        let candidate = current.join("data").join("packs");
-        if candidate.is_dir() {
-            return Some(candidate);
+        if current.join("fixtures").join("cross-language").is_dir() {
+            let candidate = current.join("data").join("packs");
+            if candidate.is_dir() {
+                return Some(candidate);
+            }
         }
         dir = current.parent();
     }

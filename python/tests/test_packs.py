@@ -19,14 +19,17 @@ REPO = Path(__file__).resolve().parents[2]
 
 
 def test_the_starter_set_is_english_common_and_one_country() -> None:
-    packs = DataPacks.bundled()
-    assert packs.source.has_top_level("en")
-    assert packs.source.has_top_level("common")
-    assert packs.source.has_country("usa")
+    # ``source.Bundled`` rather than ``DataPacks.bundled()``: the question here is what the WHEEL
+    # carries, and in a checkout discovery hands back the repository's full ``data/packs`` instead
+    # — which is the whole point of discovery, and would make this assertion untestable.
+    carried = source.Bundled()
+    assert carried.has_top_level("en")
+    assert carried.has_top_level("common")
+    assert carried.has_country("usa")
     # Everything else is downloaded. Bundling the whole catalogue would make every install pay
     # for data almost no run uses, and it grows without bound.
-    assert not packs.source.has_top_level("ru")
-    assert not packs.source.has_country("france")
+    assert not carried.has_top_level("ru")
+    assert not carried.has_country("france")
 
 
 def test_a_bundled_pack_loads_without_any_configuration() -> None:
@@ -300,3 +303,30 @@ def test_layers_are_searched_from_the_top_down(tmp_path: Path) -> None:
     )
     assert layered.read_lines("xx/a.txt")[0] == "high"
     assert layered.read_lines("xx/b.txt")[0] == "only-low"
+
+
+def test_source_checkout_packs_finds_this_repository() -> None:
+    """The port lives in ``python/src/tdcv2/packs``, so the walk has to climb out of the language
+    directory before the marker appears."""
+    found = source.source_checkout_packs(Path(source.__file__))
+    assert found is not None
+    assert found == Path(__file__).resolve().parents[2] / "data" / "packs"
+
+
+def test_source_checkout_packs_refuses_a_stranger(tmp_path: Path) -> None:
+    """The point of the marker. Without it an unrelated ``data/packs`` above an installed wheel
+    would answer, and the same config would then read different data depending on where the user
+    happened to install it."""
+    (tmp_path / "data" / "packs" / "en").mkdir(parents=True)
+    (tmp_path / "project" / "deep").mkdir(parents=True)
+
+    assert source.source_checkout_packs(tmp_path / "project" / "deep") is None
+
+
+def test_source_checkout_packs_accepts_a_checkout_from_any_depth(tmp_path: Path) -> None:
+    (tmp_path / "data" / "packs").mkdir(parents=True)
+    (tmp_path / "fixtures" / "cross-language").mkdir(parents=True)
+    (tmp_path / "a" / "b" / "c").mkdir(parents=True)
+
+    found = source.source_checkout_packs(tmp_path / "a" / "b" / "c")
+    assert found == (tmp_path / "data" / "packs").resolve()

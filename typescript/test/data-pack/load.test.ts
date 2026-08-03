@@ -1,10 +1,11 @@
 import { mkdirSync, mkdtempSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
-import { join } from 'node:path';
+import { fileURLToPath } from 'node:url';
+import { dirname, join, resolve } from 'node:path';
 
 import { describe, expect, it } from 'vitest';
 
-import { pathToAddress, scanPacks } from '../../src/data-pack/load.js';
+import { pathToAddress, scanPacks, sourceCheckoutPacks } from '../../src/data-pack/load.js';
 
 function tmpRoot(prefix: string): string {
   return mkdtempSync(join(tmpdir(), prefix));
@@ -172,5 +173,34 @@ describe('first-segment rule', () => {
     expect(diagnostics).toEqual([]);
     expect(registry.has('common.code.currency')).toBe(true);
     expect(registry.has('es.person.lastName')).toBe(true);
+  });
+});
+
+describe('sourceCheckoutPacks', () => {
+  it('finds the repository this code is running out of', () => {
+    // The reference lives in `typescript/src/data-pack`, so the walk has to climb
+    // out of the language directory before the marker appears.
+    const here = dirname(fileURLToPath(import.meta.url));
+    expect(sourceCheckoutPacks(here)).toBe(resolve(here, '..', '..', '..', 'data', 'packs'));
+  });
+
+  it('refuses a data/packs that is not this repository', () => {
+    // The point of the marker. Without it an unrelated `data/packs` above an
+    // installed package would answer, and the same config would then read
+    // different data depending on where the user happened to install it.
+    const root = tmpRoot('tdc-stranger-');
+    mkdirSync(join(root, 'data', 'packs', 'en'), { recursive: true });
+    mkdirSync(join(root, 'project', 'deep'), { recursive: true });
+
+    expect(sourceCheckoutPacks(join(root, 'project', 'deep'))).toBeUndefined();
+  });
+
+  it('accepts one that is, from any depth below it', () => {
+    const root = tmpRoot('tdc-checkout-');
+    mkdirSync(join(root, 'data', 'packs'), { recursive: true });
+    mkdirSync(join(root, 'fixtures', 'cross-language'), { recursive: true });
+    mkdirSync(join(root, 'a', 'b', 'c'), { recursive: true });
+
+    expect(sourceCheckoutPacks(join(root, 'a', 'b', 'c'))).toBe(join(root, 'data', 'packs'));
   });
 });

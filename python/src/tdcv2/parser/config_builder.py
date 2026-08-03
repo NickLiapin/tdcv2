@@ -473,6 +473,9 @@ def parse_pack_body(body: str) -> PackGenerator:
     for child in env.content().element():
         open_el = child.openCloseElement()
         if open_el is not None and open_el.name.text == "sequence":
+            refused = _whole_column_declaration(open_el)
+            if refused is not None:
+                raise ValueError(refused)
             sequences.append(_sequence(open_el))
             continue
         data = child.dataElement()
@@ -481,6 +484,37 @@ def parse_pack_body(body: str) -> PackGenerator:
     if output is None:
         raise ValueError("a composed pack generator needs a <data>...</data> output template")
     return PackGenerator(sequences, output, _find(env.content(), "valid"))
+
+
+#: Whole-COLUMN declarations, which a pack body cannot honour.
+#:
+#: A pack describes how to build ONE value and is asked for one per row. These two say something
+#: about the column as a whole — which values may repeat across rows, and in what order they come
+#: out — and answering that needs the row count and every other row, neither of which a pack has.
+#: Worse, one pack can be drawn from by several sequences in one config, so there is no single
+#: column for the pack to be speaking about.
+#:
+#: ``<distinct>`` is deliberately NOT here. It reads like a sibling of ``uniq=`` and is not one: it
+#: constrains fields against each other WITHIN one row, which is exactly what a pack can answer on
+#: its own — and five shipped full-name packs rely on it to keep a person's two surnames from
+#: coming out the same.
+WHOLE_COLUMN_ATTRS = ("uniq", "order")
+
+
+def _whole_column_declaration(sequence) -> str | None:
+    """Why this pack sequence is refused, or ``None`` when there is nothing wrong with it."""
+    attrs = attributes(sequence.attr())
+    named = attrs.get("name")
+    where = "<sequence>" if named is None else f'<sequence name="{named}">'
+    for attr in WHOLE_COLUMN_ATTRS:
+        if attrs.get(attr, "").strip() == "":
+            continue
+        return (
+            f"generator declares {attr}= on {where}, which a pack cannot honour: a pack builds "
+            f"ONE value and is asked for one per row, while {attr}= is a property of the whole "
+            "column. Declare it on the sequence in the config that draws from this pack instead."
+        )
+    return None
 
 
 # ── plumbing ────────────────────────────────────────────────────────────────────────────────
