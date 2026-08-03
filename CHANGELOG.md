@@ -41,6 +41,21 @@ page — is tracked in that implementation's own changelog:
   constrains fields against each other _within_ one row, which a pack can answer on its own,
   and five shipped full-name packs use it to keep a person's two surnames from matching.
 
+- **A data pack can no longer reach the network, or the filesystem, in four of five.** A
+  pack body may only use generators that produce a value on their own — `text`, `number`,
+  `regex`, `advanced_regex`, `symbol`, `date`, `increment`, `decrement`, plus `template`
+  inside a `<sequence>`. The reference had always refused the rest by name; the four ports
+  had no such check, so a pack containing `<gen type="http">` exited **0 with an empty
+  line** — the worst shape a failure can take.
+
+  The check walks the parse tree rather than the built model, so a `<gen>` hidden inside a
+  `<mix>` is found too — which the model-walking version would have missed in the ports.
+
+  Two smaller refusals came with it, also missing in the four: a single-`<gen>` body is held
+  to the eight primitive types and the message names them, and a `<gen>` with no `type=`
+  is told exactly that. All four previously answered the second one with an internal "is
+  not ported yet", and C# threw an unhandled exception with a stack trace.
+
 - **Two files claiming one address are refused in all five.** The extension is not part of
   an address, so `thing.txt` and `thing.tdc` in one folder are the same address. The
   reference had always said so; the four ports quietly read the `.txt` and left the other

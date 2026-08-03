@@ -604,6 +604,17 @@ pub fn parse_gen_tag(source: &str) -> Result<Gen, BuildError> {
     }
     for element in &parsed.tree.elements {
         if element.kind == Kind::SelfClosing && element.name == "gen" {
+            let kind = element.attr_value("type").unwrap_or("");
+            if kind.is_empty() {
+                return err("<gen> in a generator body is missing a \"type\" attribute");
+            }
+            if !PRIMITIVE_GENERATOR_TYPES.contains(&kind) {
+                return err(format!(
+                    "generator type \"{kind}\" is not supported as a single-<gen> body \
+                     (supported: {}); to reference data, use <sequence>\u{2026}</sequence> + <data>",
+                    PRIMITIVE_GENERATOR_TYPES.join(", ")
+                ));
+            }
             return Ok(gen_of(element));
         }
     }
@@ -621,6 +632,71 @@ pub struct PackGenerator {
     pub sequences: Vec<SequenceSpec>,
     pub output: String,
     pub validate: Option<Element>,
+}
+
+/// Generator types a pack may use as its whole body.
+///
+/// A pack is a value, so its body may only be something that PRODUCES one on its
+/// own. What is missing from this list is what makes it worth having: `file`
+/// would read a path relative to nothing in particular, `http` would put a
+/// network call behind an address that looks like a word list, and `template`
+/// would let one pack call another and cycle.
+const PRIMITIVE_GENERATOR_TYPES: [&str; 8] = [
+    "text",
+    "number",
+    "regex",
+    "advanced_regex",
+    "symbol",
+    "date",
+    "increment",
+    "decrement",
+];
+
+/// Types allowed for a `<gen>` inside a composed pack's local sequences.
+/// `template` is allowed here and not above: a composed body's whole purpose is
+/// to join values that come from data lists, and a data list is a leaf, so no
+/// cycle is possible through one.
+const COMPOSED_GEN_TYPES: [&str; 9] = [
+    "text",
+    "number",
+    "regex",
+    "advanced_regex",
+    "symbol",
+    "date",
+    "increment",
+    "decrement",
+    "template",
+];
+
+/// The first `<gen>` in this subtree whose type a pack may not use, said as a
+/// refusal.
+///
+/// The parse tree is walked rather than the built spec: a `<mix>` nested inside a
+/// pack's `<sequence>` does not reach the spec here, so walking the spec would
+/// look straight past the one place a network call is easiest to hide.
+fn disallowed_gen_type(element: &Element) -> Option<String> {
+    for node in descendants(element) {
+        if node.name != "gen" {
+            continue;
+        }
+        let kind = node.attr_value("type").unwrap_or("");
+        if !kind.is_empty() && !COMPOSED_GEN_TYPES.contains(&kind) {
+            return Some(format!(
+                "generator uses <gen type=\"{kind}\"> which is not allowed inside a pack generator"
+            ));
+        }
+    }
+    None
+}
+
+/// Every element below this one, depth first.
+fn descendants(element: &Element) -> Vec<&Element> {
+    let mut found = Vec::new();
+    for child in &element.children {
+        found.push(child);
+        found.extend(descendants(child));
+    }
+    found
 }
 
 /// Whole-COLUMN declarations, which a pack body cannot honour.
@@ -687,6 +763,9 @@ pub fn parse_pack_body(body: &str) -> Result<PackGenerator, BuildError> {
             match child.name.as_str() {
                 "sequence" => {
                     if let Some(refused) = whole_column_declaration(child) {
+                        return err(refused);
+                    }
+                    if let Some(refused) = disallowed_gen_type(child) {
                         return err(refused);
                     }
                     sequences.push(sequence(child)?);

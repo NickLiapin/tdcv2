@@ -683,7 +683,22 @@ public static class ConfigBuilder
             if (self is not null && self.name.Text == "gen")
             {
                 IReadOnlyDictionary<string, string> attrs = Attributes(self.attr());
-                return new Gen(attrs.GetValueOrDefault("type", ""), attrs);
+                string type = attrs.GetValueOrDefault("type", "");
+                if (type.Length == 0)
+                {
+                    throw new ArgumentException(
+                        "<gen> in a generator body is missing a \"type\" attribute");
+                }
+
+                if (!PrimitiveGeneratorTypes.Contains(type))
+                {
+                    throw new ArgumentException(
+                        $"generator type \"{type}\" is not supported as a single-<gen> body "
+                            + $"(supported: {string.Join(", ", PrimitiveGeneratorTypes)}); "
+                            + "to reference data, use <sequence>\u2026</sequence> + <data>");
+                }
+
+                return new Gen(type, attrs);
             }
         }
 
@@ -737,6 +752,12 @@ public static class ConfigBuilder
                     throw new ArgumentException(refused);
                 }
 
+                string? badType = DisallowedGenType(open);
+                if (badType is not null)
+                {
+                    throw new ArgumentException(badType);
+                }
+
                 sequences.Add(Sequence(open));
                 continue;
             }
@@ -754,6 +775,91 @@ public static class ConfigBuilder
         }
 
         return new PackGenerator(sequences, output, FindElement(env.content(), "valid"));
+    }
+
+    /// <summary>Generator types a pack may use as its whole body.</summary>
+    /// <remarks>
+    /// A pack is a value, so its body may only be something that PRODUCES one on its own. What is
+    /// missing from this list is what makes it worth having: <c>file</c> would read a path relative
+    /// to nothing in particular, <c>http</c> would put a network call behind an address that looks
+    /// like a word list, and <c>template</c> would let one pack call another and cycle.
+    /// </remarks>
+    private static readonly string[] PrimitiveGeneratorTypes =
+    {
+        "text", "number", "regex", "advanced_regex", "symbol", "date", "increment", "decrement"
+    };
+
+    /// <summary>
+    /// Types allowed for a <c>&lt;gen&gt;</c> inside a composed pack's local sequences.
+    /// </summary>
+    /// <remarks>
+    /// <c>template</c> is allowed here and not above: a composed body's whole purpose is to join
+    /// values that come from data lists, and a data list is a leaf, so no cycle is possible through
+    /// one.
+    /// </remarks>
+    private static readonly string[] ComposedGenTypes =
+    {
+        "text", "number", "regex", "advanced_regex", "symbol", "date", "increment", "decrement",
+        "template"
+    };
+
+    /// <summary>
+    /// The first <c>&lt;gen&gt;</c> in this subtree whose type a pack may not use, said as a
+    /// refusal, or null when every one of them is allowed.
+    /// </summary>
+    /// <remarks>
+    /// The parse tree is walked rather than the built spec: a <c>&lt;mix&gt;</c> nested inside a
+    /// pack's <c>&lt;sequence&gt;</c> does not reach the spec here, so walking the spec would look
+    /// straight past the one place a network call is easiest to hide.
+    /// </remarks>
+    private static string? DisallowedGenType(TDCParser.OpenCloseElementContext element)
+    {
+        foreach ((string name, IReadOnlyDictionary<string, string> attrs) in Descendants(element))
+        {
+            if (name != "gen")
+            {
+                continue;
+            }
+
+            string type = attrs.GetValueOrDefault("type", "");
+            if (type.Length > 0 && !ComposedGenTypes.Contains(type))
+            {
+                return $"generator uses <gen type=\"{type}\"> which is not allowed inside a pack "
+                    + "generator";
+            }
+        }
+
+        return null;
+    }
+
+    /// <summary>Every element below this one, self-closing and paired alike, depth first.</summary>
+    private static List<(string Name, IReadOnlyDictionary<string, string> Attrs)> Descendants(
+        TDCParser.OpenCloseElementContext element)
+    {
+        var found = new List<(string, IReadOnlyDictionary<string, string>)>();
+        if (element.content() is null)
+        {
+            return found;
+        }
+
+        foreach (TDCParser.ElementContext child in element.content().element())
+        {
+            TDCParser.SelfClosingElementContext self = child.selfClosingElement();
+            if (self is not null)
+            {
+                found.Add((self.name.Text, Attributes(self.attr())));
+                continue;
+            }
+
+            TDCParser.OpenCloseElementContext open = child.openCloseElement();
+            if (open is not null)
+            {
+                found.Add((open.name.Text, Attributes(open.attr())));
+                found.AddRange(Descendants(open));
+            }
+        }
+
+        return found;
     }
 
     /// <summary>

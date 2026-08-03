@@ -319,14 +319,35 @@ doble. TDC verifica al cargar que **no haya ciclos** (A → B → A, o una autor
 falla con `generator reference cycle: …` antes de generar, en lugar de recurrir sin fin.
 
 > [!NOTE]
-> **Qué se permite dentro de un generador (hoy)**
+> **Qué se permite dentro de un generador**
 >
-> Las primitivas —[`regex`](../generators/regex.md#top),
-> [`number`](../generators/number.md#top), [`symbol`](../generators/symbol.md#top),
-> [`date`](../generators/date.md#top), [`text`](../generators/text.md#top)—, la distribución
-> [`<mix>`](../reference/tags.md#distribuciones-y-selección) / `percent`, y las
-> referencias por dirección a **listas de datos** y a **otros generadores**. Las
-> correlaciones complejas entre campos van en la configuración, no en el generador de un
+> Ocho tipos de generador producen un valor por sí solos y se permiten en cualquier parte
+> del cuerpo de un paquete: [`text`](../generators/text.md#top),
+> [`number`](../generators/number.md#top), [`regex`](../generators/regex.md#top),
+> [`advanced_regex`](../generators/advanced-regex.md#top),
+> [`symbol`](../generators/symbol.md#top), [`date`](../generators/date.md#top),
+> [`increment`](../generators/counter.md#top) y [`decrement`](../generators/counter.md#top).
+> Dentro de un `<sequence>` también puede usar [`template`](../generators/template.md#top) para
+> traer una lista de datos u otro generador por dirección, junto con la distribución
+> [`<mix>`](../reference/tags.md#distribuciones-y-selección) / `percent`.
+>
+> Cualquier otra cosa se **rechaza por su nombre**: `file` resolvería una ruta relativa a
+> nada en particular, y `http` pondría una llamada de red detrás de una dirección que parece
+> una lista de palabras:
+>
+> ```text
+> generator uses <gen type="http"> which is not allowed inside a pack generator
+> ```
+>
+> `uniq=` y `order=` también se rechazan, aparezcan donde aparezcan en un paquete. Ambos
+> describen **toda la columna** —qué valores pueden repetirse entre filas y en qué orden
+> salen— y a un paquete se le pide un valor por fila, así que no tiene ni el recuento de
+> filas ni las demás filas para responder. Decláre­los en la secuencia de la configuración
+> que sortea del paquete. [`<distinct>`](#distinct--sin-repeticiones-dentro-de-una-fila) es
+> otra cosa y sigue permitido: restringe campos entre sí *dentro* de una fila, algo que un
+> paquete sí puede decidir por su cuenta.
+>
+> Las correlaciones complejas entre campos van en la configuración, no en el generador de un
 > paquete.
 
 ## `<distinct>` — sin repeticiones dentro de una fila

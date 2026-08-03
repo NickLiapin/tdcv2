@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import org.antlr.v4.runtime.ParserRuleContext;
 import org.antlr.v4.runtime.tree.ParseTree;
 
 /** Turns a parse tree into the {@link Config} the engine reads. */
@@ -237,7 +238,20 @@ public final class ConfigBuilder {
       TDCParser.SelfClosingElementContext self = element.selfClosingElement();
       if (self != null && "gen".equals(self.name.getText())) {
         Map<String, String> attrs = attributes(self.attr());
-        return new Config.Gen(attrs.getOrDefault("type", ""), attrs);
+        String type = attrs.getOrDefault("type", "");
+        if (type.isEmpty()) {
+          throw new IllegalArgumentException(
+              "<gen> in a generator body is missing a \"type\" attribute");
+        }
+        if (!List.of(PRIMITIVE_GENERATOR_TYPES).contains(type)) {
+          throw new IllegalArgumentException(
+              "generator type \""
+                  + type
+                  + "\" is not supported as a single-<gen> body (supported: "
+                  + String.join(", ", PRIMITIVE_GENERATOR_TYPES)
+                  + "); to reference data, use <sequence>\u2026</sequence> + <data>");
+        }
+        return new Config.Gen(type, attrs);
       }
     }
     throw new IllegalArgumentException("pack generator body has no <gen> tag: " + source);
@@ -275,6 +289,10 @@ public final class ConfigBuilder {
         if (refused != null) {
           throw new IllegalArgumentException(refused);
         }
+        String badType = disallowedGenType(open);
+        if (badType != null) {
+          throw new IllegalArgumentException(badType);
+        }
         sequences.add(sequence(open));
         continue;
       }
@@ -288,6 +306,88 @@ public final class ConfigBuilder {
           "a composed pack generator needs a <data>...</data> output template");
     }
     return new PackGenerator(sequences, output, findElement(env.content(), "valid"));
+  }
+
+  /**
+   * Generator types a pack may use as its whole body.
+   *
+   * <p>A pack is a value, so its body may only be something that PRODUCES one on its own. What is
+   * missing from this list is what makes it worth having: {@code file} would read a path relative
+   * to nothing in particular, {@code http} would put a network call behind an address that looks
+   * like a word list, and {@code template} would let one pack call another and cycle.
+   */
+  private static final String[] PRIMITIVE_GENERATOR_TYPES = {
+    "text", "number", "regex", "advanced_regex", "symbol", "date", "increment", "decrement"
+  };
+
+  /**
+   * Types allowed for a {@code <gen>} inside a composed pack's local sequences. {@code template} is
+   * allowed here and not above: a composed body's whole purpose is to join values that come from
+   * data lists, and a data list is a leaf, so no cycle is possible through one.
+   */
+  private static final List<String> COMPOSED_GEN_TYPES =
+      List.of(
+          "text",
+          "number",
+          "regex",
+          "advanced_regex",
+          "symbol",
+          "date",
+          "increment",
+          "decrement",
+          "template");
+
+  /**
+   * The first {@code <gen>} in this subtree whose type a pack may not use, said as a refusal, or
+   * null when every one of them is allowed.
+   *
+   * <p>The parse tree is walked rather than the built spec: a {@code <mix>} nested inside a pack's
+   * {@code <sequence>} does not reach the spec here, so walking the spec would look straight past
+   * the one place a network call is easiest to hide.
+   */
+  private static String disallowedGenType(TDCParser.OpenCloseElementContext element) {
+    for (ParserRuleContext node : descendants(element)) {
+      String name;
+      Map<String, String> attrs;
+      if (node instanceof TDCParser.SelfClosingElementContext self) {
+        name = self.name.getText();
+        attrs = attributes(self.attr());
+      } else if (node instanceof TDCParser.OpenCloseElementContext open) {
+        name = open.name.getText();
+        attrs = attributes(open.attr());
+      } else {
+        continue;
+      }
+      if (!"gen".equals(name)) {
+        continue;
+      }
+      String type = attrs.getOrDefault("type", "");
+      if (!type.isEmpty() && !COMPOSED_GEN_TYPES.contains(type)) {
+        return "generator uses <gen type=\"" + type + "\"> which is not allowed inside a pack generator";
+      }
+    }
+    return null;
+  }
+
+  /** Every element below this one, self-closing and paired alike, depth first. */
+  private static List<ParserRuleContext> descendants(TDCParser.OpenCloseElementContext element) {
+    List<ParserRuleContext> found = new ArrayList<>();
+    if (element.content() == null) {
+      return found;
+    }
+    for (TDCParser.ElementContext child : element.content().element()) {
+      TDCParser.SelfClosingElementContext self = child.selfClosingElement();
+      if (self != null) {
+        found.add(self);
+        continue;
+      }
+      TDCParser.OpenCloseElementContext open = child.openCloseElement();
+      if (open != null) {
+        found.add(open);
+        found.addAll(descendants(open));
+      }
+    }
+    return found;
   }
 
   /**

@@ -305,14 +305,34 @@ load time that there's **no cycle** (A → B → A, or a self-reference) and fai
 `generator reference cycle: …` before generation starts, rather than recursing forever.
 
 > [!NOTE]
-> **What's allowed inside a generator (today)**
+> **What's allowed inside a generator**
 >
-> Primitives — [`regex`](../generators/regex.md#top), [`number`](../generators/number.md#top),
+> Eight generator types produce a value on their own and are allowed anywhere in a pack
+> body: [`text`](../generators/text.md#top), [`number`](../generators/number.md#top),
+> [`regex`](../generators/regex.md#top),
+> [`advanced_regex`](../generators/advanced-regex.md#top),
 > [`symbol`](../generators/symbol.md#top), [`date`](../generators/date.md#top),
-> [`text`](../generators/text.md#top) — the
-> [`<mix>`](../reference/tags.md#distributions-and-choice) / `percent` distribution, and
-> references to **data lists** and **other generators** by address. Complex correlations
-> between fields belong in the config, not in a pack generator.
+> [`increment`](../generators/counter.md#top) and [`decrement`](../generators/counter.md#top).
+> Inside a `<sequence>` you may also use [`template`](../generators/template.md#top) to pull
+> in a data list or another generator by address, along with the
+> [`<mix>`](../reference/tags.md#distributions-and-choice) / `percent` distribution.
+>
+> Anything else is **refused by name** — `file` would resolve a path relative to nothing
+> in particular, and `http` would put a network call behind an address that looks like a
+> word list:
+>
+> ```text
+> generator uses <gen type="http"> which is not allowed inside a pack generator
+> ```
+>
+> `uniq=` and `order=` are refused too, wherever they appear in a pack. Both describe the
+> **whole column** — which values may repeat across rows, and in what order they come out —
+> and a pack is asked for one value per row, so it has neither the row count nor the other
+> rows to answer with. Declare them on the sequence in the config that draws from the pack.
+> [`<distinct>`](#distinct--no-repeats-in-one-row) is different and stays allowed: it
+> constrains fields against each other *within* one row, which a pack can decide on its own.
+>
+> Complex correlations between fields belong in the config, not in a pack generator.
 
 ## `<distinct>` — no repeats in one row
 

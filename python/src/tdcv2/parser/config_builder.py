@@ -448,7 +448,16 @@ def parse_gen_tag(source: str) -> Gen:
         self_el = element.selfClosingElement()
         if self_el is not None and self_el.name.text == "gen":
             attrs = attributes(self_el.attr())
-            return Gen(attrs.get("type", ""), attrs)
+            type_ = attrs.get("type", "")
+            if not type_:
+                raise ValueError('<gen> in a generator body is missing a "type" attribute')
+            if type_ not in PRIMITIVE_GENERATOR_TYPES:
+                raise ValueError(
+                    f'generator type "{type_}" is not supported as a single-<gen> body '
+                    f"(supported: {', '.join(PRIMITIVE_GENERATOR_TYPES)}); "
+                    "to reference data, use <sequence>\u2026</sequence> + <data>"
+                )
+            return Gen(type_, attrs)
     raise ValueError(f"pack generator body has no <gen> tag: {source}")
 
 
@@ -476,6 +485,9 @@ def parse_pack_body(body: str) -> PackGenerator:
             refused = _whole_column_declaration(open_el)
             if refused is not None:
                 raise ValueError(refused)
+            refused = _disallowed_gen_type(open_el)
+            if refused is not None:
+                raise ValueError(refused)
             sequences.append(_sequence(open_el))
             continue
         data = child.dataElement()
@@ -484,6 +496,61 @@ def parse_pack_body(body: str) -> PackGenerator:
     if output is None:
         raise ValueError("a composed pack generator needs a <data>...</data> output template")
     return PackGenerator(sequences, output, _find(env.content(), "valid"))
+
+
+#: Generator types a pack may use as its whole body.
+#:
+#: A pack is a value, so its body may only be something that PRODUCES one on its own. What is
+#: missing from this list is what makes it worth having: ``file`` would read a path relative to
+#: nothing in particular, ``http`` would put a network call behind an address that looks like a
+#: word list, and ``template`` would let one pack call another and cycle.
+PRIMITIVE_GENERATOR_TYPES = (
+    "text",
+    "number",
+    "regex",
+    "advanced_regex",
+    "symbol",
+    "date",
+    "increment",
+    "decrement",
+)
+
+#: Types allowed for a ``<gen>`` inside a composed pack's local sequences. ``template`` is allowed
+#: here and not above: a composed body's whole purpose is to join values that come from data lists,
+#: and a data list is a leaf, so no cycle is possible through one.
+COMPOSED_GEN_TYPES = (*PRIMITIVE_GENERATOR_TYPES, "template")
+
+
+def _disallowed_gen_type(element) -> str | None:
+    """The first ``<gen>`` in this subtree whose type a pack may not use, said as a refusal.
+
+    The parse tree is walked rather than the built spec: a ``<mix>`` nested inside a pack's
+    ``<sequence>`` does not reach the spec here, so walking the spec would look straight past the
+    one place a network call is easiest to hide.
+    """
+    for gen in _descendant_elements(element):
+        if gen.name.text != "gen":
+            continue
+        type_ = attributes(gen.attr()).get("type", "")
+        if type_ and type_ not in COMPOSED_GEN_TYPES:
+            return (
+                f'generator uses <gen type="{type_}"> which is not allowed inside a pack generator'
+            )
+    return None
+
+
+def _descendant_elements(element):
+    """Every element below this one, self-closing and paired alike, depth first."""
+    content = element.content() if hasattr(element, "content") else None
+    for child in content.element() if content is not None else []:
+        self_el = child.selfClosingElement()
+        if self_el is not None:
+            yield self_el
+            continue
+        open_el = child.openCloseElement()
+        if open_el is not None:
+            yield open_el
+            yield from _descendant_elements(open_el)
 
 
 #: Whole-COLUMN declarations, which a pack body cannot honour.

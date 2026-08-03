@@ -857,6 +857,50 @@
         "duplicate data-pack address \"pl.dup.thing\" declared by both",
         "— rename or move one"
       ]
+    },
+    {
+      "name": "a pack may not reach the network, even from inside a sequence",
+      "note": "The four ports had no type whitelist for a pack body at all: this config exited 0 with an empty line, which is the worst shape a failure can take. The tree is walked rather than the built spec, so a <gen> hidden inside a <mix> is found too.",
+      "files": {
+        "packs/pl/probe/thing.tdc": "---\ndescription: probe.\ngenerator: tdc\nlocale: pl\n---\n<sequence name=\"p\">\n  <gen name=\"a\" type=\"http\" url=\"http://example.test\"/>\n</sequence>\n<data>${{p.a}}</data>\n",
+        "packs/pl/probe/left.txt": "A\nB\n",
+        "run.tdc": "<tdc>\n    <env count=\"1\" seed=\"packs\" local=\"pl\">\n        <sequence name=\"X\"><gen type=\"template\" value=\"pl.probe.thing\"/></sequence>\n    </env>\n    <block><line><data>${{X}}</data></line></block>\n</tdc>\n"
+      },
+      "argv": ["{dir}/run.tdc", "--data-path", "{dir}/packs"],
+      "exit": 1,
+      "stderrContains": [
+        "generator uses <gen type=\"http\"> which is not allowed inside a pack generator"
+      ]
+    },
+    {
+      "name": "a pack whose whole body is one <gen> is held to the primitive types",
+      "note": "A single-<gen> body has no sequences to draw from, so it may only be something that produces a value on its own. The message names the supported types rather than leaving the author to guess.",
+      "files": {
+        "packs/pl/probe/thing.tdc": "---\ndescription: probe.\ngenerator: tdc\nlocale: pl\n---\n<gen type=\"http\" url=\"http://example.test\"/>\n",
+        "packs/pl/probe/left.txt": "A\nB\n",
+        "run.tdc": "<tdc>\n    <env count=\"1\" seed=\"packs\" local=\"pl\">\n        <sequence name=\"X\"><gen type=\"template\" value=\"pl.probe.thing\"/></sequence>\n    </env>\n    <block><line><data>${{X}}</data></line></block>\n</tdc>\n"
+      },
+      "argv": ["{dir}/run.tdc", "--data-path", "{dir}/packs"],
+      "exit": 1,
+      "stderrContains": [
+        "generator type \"http\" is not supported as a single-<gen> body",
+        "(supported: text, number, regex, advanced_regex, symbol, date, increment, decrement)",
+        "to reference data, use <sequence>…</sequence> + <data>"
+      ]
+    },
+    {
+      "name": "a <gen> in a pack body with no type= is named, not reported as unported",
+      "note": "All four ports answered with an internal \"is not ported yet\" message here, and C# threw an unhandled exception with a stack trace. The pack is simply missing an attribute, and that is what the author needs to be told.",
+      "files": {
+        "packs/pl/probe/thing.tdc": "---\ndescription: probe.\ngenerator: tdc\nlocale: pl\n---\n<gen value=\"x\"/>\n",
+        "packs/pl/probe/left.txt": "A\nB\n",
+        "run.tdc": "<tdc>\n    <env count=\"1\" seed=\"packs\" local=\"pl\">\n        <sequence name=\"X\"><gen type=\"template\" value=\"pl.probe.thing\"/></sequence>\n    </env>\n    <block><line><data>${{X}}</data></line></block>\n</tdc>\n"
+      },
+      "argv": ["{dir}/run.tdc", "--data-path", "{dir}/packs"],
+      "exit": 1,
+      "stderrContains": [
+        "<gen> in a generator body is missing a \"type\" attribute"
+      ]
     }
   ],
   "gaps": {
