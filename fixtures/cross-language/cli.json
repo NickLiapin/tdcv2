@@ -698,6 +698,133 @@
         "run will likely thrash or crash",
         "mode=\"disk\""
       ]
+    },
+    {
+      "name": "a refusal the streaming engine words itself reaches the user unprefixed",
+      "note": "A running total is the accumulation of every row before it, so it is refused by name rather than approximated — and the sentence saying so is written at the refusal, complete. Every port used to add its exception class's own prefix on top (\"stream mode: \", and Rust \"not ported yet: \", which additionally called a deliberate design limit unfinished work), so one refusal read four ways depending on which package was installed. Pinned WITH the leading \"tdcv2: \" precisely so a second prefix breaks this case.",
+      "files": {
+        "running.tdc": "<tdc>\n  <env count=\"5\" seed=\"s\" local=\"en\">\n    <sequence name=\"N\"><gen type=\"number\" value=\"1..9\"/></sequence>\n    <sequence name=\"T\"><gen type=\"running\" of=\"N\" accumulate=\"sum\"/></sequence>\n  </env>\n  <block><line><data>${{N}},${{T}}</data></line></block>\n</tdc>\n"
+      },
+      "argv": ["{dir}/running.tdc", "--engine", "2"],
+      "exit": 1,
+      "stdout": "",
+      "stderrContains": [
+        "tdcv2: a running total (\"T\") is the accumulation of every row before it, so it cannot be computed one row at a time; the in-memory engine handles it (run without a forced streaming engine)"
+      ]
+    },
+    {
+      "name": "a pool reference under a parent is refused in the one refusal sentence",
+      "note": "The other shape: a refusal built from the shared template, which names the feature and the sequence that asked for it and then says the same thing every time. `--engine 2` is what makes the wording observable at all — left alone, the router quietly sends this config to the in-memory engine and nobody sees a message.",
+      "files": {
+        "poolparent.tdc": "<tdc>\n  <env count=\"4\" seed=\"s\" local=\"en\">\n    <pool name=\"P\" count=\"3\"><sequence name=\"a\"><gen type=\"text\" value=\"x,y,z\"/></sequence></pool>\n    <sequence name=\"C\"><gen type=\"text\" value=\"N,S\"/></sequence>\n    <sequence name=\"R\" parent=\"C.N\"><gen type=\"pool\" value=\"P\"/></sequence>\n  </env>\n  <block><line><data>${{C}}:${{R.a}}</data></line></block>\n</tdc>\n"
+      },
+      "argv": ["{dir}/poolparent.tdc", "--engine", "2"],
+      "exit": 1,
+      "stdout": "",
+      "stderrContains": [
+        "tdcv2: stream mode: a pool reference with parent= (\"R\") is not supported yet — run without mode=\"stream\" (the in-memory engine handles it), or remove it."
+      ]
+    },
+    {
+      "name": "an env-level <uniq> is refused in the one refusal sentence",
+      "note": "The group is named as the members joined by ×, which is the only part of the template that is not a plain sequence name — so it is pinned separately from the cases whose name is one identifier.",
+      "files": {
+        "envuniq.tdc": "<tdc><env count=\"4\" seed=\"env-u\" local=\"en\"><uniq><sequence name=\"A\"><gen type=\"text\" value=\"a1,a2,a3,a4\"/></sequence><sequence name=\"B\"><gen type=\"text\" value=\"b1,b2,b3,b4\"/></sequence></uniq></env><block><line><data>${{A}}-${{B}}</data></line></block></tdc>\n"
+      },
+      "argv": ["{dir}/envuniq.tdc", "--engine", "2"],
+      "exit": 1,
+      "stdout": "",
+      "stderrContains": [
+        "tdcv2: stream mode: <uniq> across sequences (a whole-column rearrangement) (\"A × B\") is not supported yet — run without mode=\"stream\" (the in-memory engine handles it), or remove it."
+      ]
+    },
+    {
+      "name": "uniq on one sequence is refused in the one refusal sentence",
+      "files": {
+        "uniqone.tdc": "<tdc><env count=\"4\" seed=\"u\" local=\"en\"><sequence name=\"A\" uniq=\"true\"><gen type=\"text\" value=\"a1,a2,a3,a4\"/></sequence></env><block><line><data>${{A}}</data></line></block></tdc>\n"
+      },
+      "argv": ["{dir}/uniqone.tdc", "--engine", "2"],
+      "exit": 1,
+      "stdout": "",
+      "stderrContains": [
+        "tdcv2: stream mode: uniq (a whole-column rearrangement) (\"A\") is not supported yet — run without mode=\"stream\" (the in-memory engine handles it), or remove it."
+      ]
+    },
+    {
+      "name": "a bare parent= is refused in the one refusal sentence",
+      "note": "The feature half of the template carries a quoted attribute of its own, so this pins that the two quotings nest the way the reference nests them rather than being collapsed into one.",
+      "files": {
+        "bareparent.tdc": "<tdc><env count=\"4\" seed=\"s\" local=\"en\"><sequence name=\"C\"><gen type=\"text\" value=\"N,S\"/></sequence><sequence name=\"R\" parent=\"C\"><gen type=\"text\" value=\"x,y\"/></sequence></env><block><line><data>${{C}}${{R}}</data></line></block></tdc>\n"
+      },
+      "argv": ["{dir}/bareparent.tdc", "--engine", "2"],
+      "exit": 1,
+      "stdout": "",
+      "stderrContains": [
+        "tdcv2: stream mode: bare parent=\"C\" (use parent=\"Name.Value\") (\"R\") is not supported yet — run without mode=\"stream\" (the in-memory engine handles it), or remove it."
+      ]
+    },
+    {
+      "name": "an advanced_regex weighted choice is refused in the one refusal sentence",
+      "files": {
+        "advregex.tdc": "<tdc><env count=\"4\" seed=\"s\" local=\"en\"><sequence name=\"A\"><gen type=\"advanced_regex\" value=\"(?%{70:yes;30:no})\"/></sequence></env><block><line><data>${{A}}</data></line></block></tdc>\n"
+      },
+      "argv": ["{dir}/advregex.tdc", "--engine", "2"],
+      "exit": 1,
+      "stdout": "",
+      "stderrContains": [
+        "tdcv2: stream mode: advanced_regex weighted choice \"(?%{…})\" (\"A\") is not supported yet — run without mode=\"stream\" (the in-memory engine handles it), or remove it."
+      ]
+    },
+    {
+      "name": "a <distinct> member that is a <mix> is refused in the one refusal sentence",
+      "files": {
+        "distinctmix.tdc": "<tdc><env count=\"4\" seed=\"s\" local=\"en\"><distinct><mix name=\"K\" percent=\"50,50\"><case><gen type=\"text\" value=\"A\"/></case><case><gen type=\"text\" value=\"B\"/></case></mix><sequence name=\"N\"><gen type=\"text\" value=\"A,B\"/></sequence></distinct></env><block><line><data>${{K}}${{N}}</data></line></block></tdc>\n"
+      },
+      "argv": ["{dir}/distinctmix.tdc", "--engine", "2"],
+      "exit": 1,
+      "stdout": "",
+      "stderrContains": [
+        "tdcv2: stream mode: <distinct> member \"K\" is a <mix> (\"K\") is not supported yet — run without mode=\"stream\" (the in-memory engine handles it), or remove it."
+      ]
+    },
+    {
+      "name": "a <distinct> member that is a <switch> is refused in the one refusal sentence",
+      "files": {
+        "distinctswitch.tdc": "<tdc><env count=\"4\" seed=\"s\" local=\"en\"><sequence name=\"G\"><gen type=\"text\" value=\"M,F\"/></sequence><distinct><switch name=\"N\" on=\"G\"><case is=\"M\"><gen type=\"text\" value=\"ann,bob\"/></case><case is=\"F\"><gen type=\"text\" value=\"cat,dot\"/></case></switch><sequence name=\"S\"><gen type=\"text\" value=\"ann,cat\"/></sequence></distinct></env><block><line><data>${{G}}-${{N}}-${{S}}</data></line></block></tdc>\n"
+      },
+      "argv": ["{dir}/distinctswitch.tdc", "--engine", "2"],
+      "exit": 1,
+      "stdout": "",
+      "stderrContains": [
+        "tdcv2: stream mode: <distinct> member \"N\" is a <switch> (\"N\") is not supported yet — run without mode=\"stream\" (the in-memory engine handles it), or remove it."
+      ]
+    },
+    {
+      "name": "a template address that interpolates a field is refused unprefixed",
+      "note": "Written at the refusal like the running total, and it quotes the address back — which is the part a shared prefix used to push out of the way. The four ports said only \"a template address that interpolates a field\" and never named which one.",
+      "files": {
+        "dyntemplate.tdc": "<tdc><env count=\"2\" seed=\"s\" local=\"en\"><sequence name=\"G\"><gen type=\"text\" value=\"male\"/></sequence><sequence name=\"N\"><gen type=\"template\" value=\"person.${{G}}.firstName\"/></sequence></env><block><line><data>${{N}}</data></line></block></tdc>\n"
+      },
+      "argv": ["{dir}/dyntemplate.tdc", "--engine", "2"],
+      "exit": 1,
+      "stdout": "",
+      "stderrContains": [
+        "tdcv2: template value \"person.${{G}}.firstName\" interpolates a field; the in-memory engine resolves it per row"
+      ]
+    },
+    {
+      "name": "weight= combined with row= is refused unprefixed",
+      "note": "The third refusal that words itself, and the only one reachable from two different places in the reference (the streaming builder and the row-link preparation), which is why both had to be checked rather than just the one a test happened to hit.",
+      "files": {
+        "people.csv": "name,city,w\nann,Rome,70\nbob,Oslo,30\n",
+        "weightrow.tdc": "<tdc><env count=\"4\" seed=\"s\" local=\"en\">\n  <sequence name=\"N\"><gen type=\"file\" src=\"people.csv\" column=\"name\" weight=\"w\" row=\"P\"/></sequence>\n  <sequence name=\"C\"><gen type=\"file\" src=\"people.csv\" column=\"city\" row=\"P\"/></sequence>\n</env><block><line><data>${{N}},${{C}}</data></line></block></tdc>\n"
+      },
+      "argv": ["{dir}/weightrow.tdc", "--engine", "2"],
+      "exit": 1,
+      "stdout": "",
+      "stderrContains": [
+        "tdcv2: weight= combined with row= needs an exact quota over the whole file; the in-memory engine handles it (run without a forced streaming engine)"
+      ]
     }
   ],
   "gaps": {

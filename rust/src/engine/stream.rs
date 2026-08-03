@@ -369,9 +369,16 @@ pub struct StreamEngine<'a> {
     failure: RefCell<Option<EngineError>>,
 }
 
-/// Refuse by name, prefixed the way the reference prefixes it.
-fn here<T>(what: &str) -> EngineResult<T> {
-    unsupported(&format!("stream mode: {what}"))
+/// The one refusal sentence, worded as the reference words it.
+///
+/// `feature` names what was asked for and `name` the sequence that asked; a
+/// refusal the reference words its own way goes through [`unsupported`] with
+/// that wording instead of through here.
+fn here<T>(feature: &str, name: &str) -> EngineResult<T> {
+    unsupported(&format!(
+        "stream mode: {feature} (\"{name}\") is not supported yet — run without mode=\"stream\" \
+         (the in-memory engine handles it), or remove it."
+    ))
 }
 
 pub fn render(config: &Config, now_millis: i64) -> EngineResult<String> {
@@ -554,10 +561,7 @@ impl<'a> StreamEngine<'a> {
             if let Source::Gen(gen) = &spec.source {
                 if gen.gen_type == "pool" {
                     if spec.parent.is_some() {
-                        return unsupported(&format!(
-                            "sequence \"{}\": a pool reference with parent= is built in memory",
-                            spec.name
-                        ));
+                        return here("a pool reference with parent=", &spec.name);
                     }
                     self.build_pool_reference(spec, gen)?;
                     continue;
@@ -698,16 +702,21 @@ impl<'a> StreamEngine<'a> {
         };
 
         let Some(dot) = reference.find('.') else {
-            return here(&format!(
-                "bare parent=\"{reference}\" (use parent=\"Name.Value\")"
-            ));
+            return here(
+                &format!("bare parent=\"{reference}\" (use parent=\"Name.Value\")"),
+                &spec.name,
+            );
         };
         let (parent_name, parent_value) = (&reference[..dot], &reference[dot + 1..]);
 
         let Some(parent) = self.parents.get(parent_name) else {
-            return here(&format!(
-                "parent \"{parent_name}\" (it must be a finite-value <sequence> declared earlier)"
-            ));
+            return here(
+                &format!(
+                    "parent \"{parent_name}\" (the parent must be a finite-value <sequence> \
+                     declared earlier)"
+                ),
+                &spec.name,
+            );
         };
         if parent.repeat.is_some() || !parent.values.iter().any(|v| v == parent_value) {
             return invalid(&format!(
@@ -819,15 +828,18 @@ impl StreamEngine<'_> {
         {
             // Its shares are exact over a whole column; a per-row draw would send
             // every row to the largest branch and look plausible doing it.
-            return here(&format!(
-                "advanced_regex weighted choice \"(?%{{…}})\" (\"{stream_id}\")"
-            ));
+            return here("advanced_regex weighted choice \"(?%{…})\"", stream_id);
         }
         if gen_type == "http" {
-            return here("<gen type=\"http\"> is a network call and is not reproducible");
+            return unsupported(
+                "stream mode: <gen type=\"http\"> is a network call and is not reproducible",
+            );
         }
         if gen_type == "template" && gen.attr_or("value", "").contains("${{") {
-            return here("a template address that interpolates a field");
+            return unsupported(&format!(
+                "template value \"{}\" interpolates a field; the in-memory engine resolves it per row",
+                gen.attr_or("value", "")
+            ));
         }
 
         // An empty subset — a parent value with no rows of its own.
@@ -849,7 +861,10 @@ impl StreamEngine<'_> {
             None
         };
         if weight_column.is_some() && trim_to_none(attrs.get("row").map(String::as_str)).is_some() {
-            return here("weight= combined with row= needs an exact quota over the whole file");
+            return unsupported(
+                "weight= combined with row= needs an exact quota over the whole file; the in-memory \
+                 engine handles it (run without a forced streaming engine)",
+            );
         }
 
         // order="sequential": row r takes element r mod N. Index-based, so it
@@ -1162,25 +1177,22 @@ impl StreamEngine<'_> {
             // uniform over combinations, ignoring the values actually drawn), and one seed
             // would then mean two datasets. It says so instead. The router sends every uniq to
             // the exact engine; this is the backstop for a forced one.
-            return here(&format!(
-                "uniq (a whole-column rearrangement) (\"{}\")",
-                spec.name
-            ));
+            return here("uniq (a whole-column rearrangement)", &spec.name);
         }
         let Source::Fields(fields) = &spec.source else {
-            return here(&format!(
-                "uniq on a simple sequence (a whole-column draw) (\"{}\")",
-                spec.name
-            ));
+            return here(
+                "uniq on a simple sequence (a whole-column draw)",
+                &spec.name,
+            );
         };
         if fields.is_empty() {
-            return here(&format!(
-                "uniq on a simple sequence (a whole-column draw) (\"{}\")",
-                spec.name
-            ));
+            return here(
+                "uniq on a simple sequence (a whole-column draw)",
+                &spec.name,
+            );
         }
         if trim_to_none(spec.parent.as_deref()).is_some() {
-            return here(&format!("uniq combined with a parent (\"{}\")", spec.name));
+            return here("uniq combined with a parent", &spec.name);
         }
 
         self.build_exact_uniq(spec, fields)
@@ -1197,10 +1209,13 @@ impl StreamEngine<'_> {
         for field in fields {
             let gen = &field.gen;
             if gen.gen_type != "text" {
-                return here(&format!(
-                    "uniq field \"{}\" of type \"{}\" (only text lists)",
-                    field.name, gen.gen_type
-                ));
+                return here(
+                    &format!(
+                        "uniq field \"{}\" of type \"{}\" (only text lists)",
+                        field.name, gen.gen_type
+                    ),
+                    &spec.name,
+                );
             }
 
             // Deduplicated in first-seen order, as the streaming pool is: a
@@ -1212,10 +1227,10 @@ impl StreamEngine<'_> {
                 }
             }
             if values.is_empty() {
-                return here(&format!(
-                    "uniq field \"{}\" with an empty value list",
-                    field.name
-                ));
+                return here(
+                    &format!("uniq field \"{}\" with an empty value list", field.name),
+                    &spec.name,
+                );
             }
 
             let percent = gen.attr_or("percent", "");
@@ -1266,10 +1281,10 @@ impl StreamEngine<'_> {
     ) -> EngineResult<Vec<String>> {
         // As with a sequence's own `uniq`: a group rearranges finished columns, so it belongs
         // to the in-memory engine and both disk engines refuse rather than answer differently.
-        here(&format!(
-            "<uniq> across sequences (a whole-column rearrangement) ({})",
-            group.join(" \u{d7} ")
-        ))
+        here(
+            "<uniq> across sequences (a whole-column rearrangement)",
+            &group.join(" \u{d7} "),
+        )
     }
 
     // ── distinct ─────────────────────────────────────────────────────────────
@@ -1351,16 +1366,19 @@ impl StreamEngine<'_> {
                 continue;
             }
             match &member.source {
-                Source::Mix(_) => return here(&format!("<distinct> member \"{name}\" is a <mix>")),
+                Source::Mix(_) => {
+                    return here(&format!("<distinct> member \"{name}\" is a <mix>"), name)
+                }
                 Source::Switch(_) => {
-                    return here(&format!("<distinct> member \"{name}\" is a <switch>"))
+                    return here(&format!("<distinct> member \"{name}\" is a <switch>"), name)
                 }
                 _ => {}
             }
             let Some(gen) = member.gen() else {
-                return here(&format!(
-                    "<distinct> member \"{name}\" (must be a simple sequence)"
-                ));
+                return here(
+                    &format!("<distinct> member \"{name}\" (must be a simple sequence)"),
+                    name,
+                );
             };
             members.push(DistinctMember {
                 name: name.clone(),

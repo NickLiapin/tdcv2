@@ -79,14 +79,31 @@ public final class StreamEngine {
     }
   }
 
-  /** Raised for a config this engine cannot answer row by row; the router picks another. */
+  /**
+   * Raised for a config this engine cannot answer row by row; the router picks another.
+   *
+   * <p>The message is carried verbatim. A prefix added here would reach the user only because of
+   * which package they installed, and would land on refusals that already word themselves fully —
+   * which is how one refusal came to read four ways across the five implementations.
+   */
   public static final class Unsupported extends RuntimeException {
 
     private static final long serialVersionUID = 1L;
 
     Unsupported(String message) {
-      super("stream mode: " + message);
+      super(message);
     }
+  }
+
+  /** The one refusal sentence, worded as the reference words it. */
+  private static Unsupported unsupported(String feature, String name) {
+    return new Unsupported(
+        "stream mode: "
+            + feature
+            + " (\""
+            + name
+            + "\") is not supported yet — run without mode=\"stream\" "
+            + "(the in-memory engine handles it), or remove it.");
   }
 
   /** Types whose value is built here and whose modifiers therefore apply here too. */
@@ -275,8 +292,7 @@ public final class StreamEngine {
 
       if (spec.gen() != null && "pool".equals(spec.gen().type())) {
         if (trimToNull(spec.parent()) != null) {
-          throw new Unsupported(
-              "sequence \"" + spec.name() + "\": a pool reference with parent= is built in memory");
+          throw unsupported("a pool reference with parent=", spec.name());
         }
         buildPoolReference(spec);
         continue;
@@ -335,10 +351,8 @@ public final class StreamEngine {
   private Set<String> buildEnvUniq(List<String> group, Map<String, Config.SequenceSpec> byName) {
     // As with a sequence's own `uniq`: a group rearranges finished columns, so it belongs to the
     // in-memory engine and both disk engines refuse rather than answer differently.
-    throw new Unsupported(
-        "<uniq> across sequences (a whole-column rearrangement) ("
-            + String.join(" × ", group)
-            + ")");
+    throw unsupported(
+        "<uniq> across sequences (a whole-column rearrangement)", String.join(" × ", group));
   }
 
   /**
@@ -357,13 +371,13 @@ public final class StreamEngine {
         continue;
       }
       if (member.isMix()) {
-        throw new Unsupported("<distinct> member \"" + name + "\" is a <mix>");
+        throw unsupported("<distinct> member \"" + name + "\" is a <mix>", name);
       }
       if (member.isSwitch()) {
-        throw new Unsupported("<distinct> member \"" + name + "\" is a <switch>");
+        throw unsupported("<distinct> member \"" + name + "\" is a <switch>", name);
       }
       if (member.gen() == null) {
-        throw new Unsupported("<distinct> member \"" + name + "\" (must be a simple sequence)");
+        throw unsupported("<distinct> member \"" + name + "\" (must be a simple sequence)", name);
       }
       members.add(name);
       genByName.put(name, member.gen());
@@ -640,15 +654,17 @@ public final class StreamEngine {
     }
     int dot = reference.indexOf('.');
     if (dot < 0) {
-      throw new Unsupported("bare parent=\"" + reference + "\" (use parent=\"Name.Value\")");
+      throw unsupported(
+          "bare parent=\"" + reference + "\" (use parent=\"Name.Value\")", spec.name());
     }
     String parentName = reference.substring(0, dot);
     String parentValue = reference.substring(dot + 1);
 
     ParentCapable parent = parents.get(parentName);
     if (parent == null) {
-      throw new Unsupported(
-          "parent \"" + parentName + "\" (it must be a finite-value <sequence> declared earlier)");
+      throw unsupported(
+          "parent \"" + parentName + "\" (the parent must be a finite-value <sequence> declared earlier)",
+          spec.name());
     }
     if (!parent.hasValue(parentValue)) {
       throw new IllegalStateException(
@@ -671,13 +687,17 @@ public final class StreamEngine {
         && AdvancedRegexGen.hasWeightedChoice(attrs.getOrDefault("value", ""))) {
       // Its shares are exact over a whole column; a per-row draw would send every row to the
       // largest branch and look plausible doing it.
-      throw new Unsupported("advanced_regex weighted choice \"(?%{…})\" (\"" + streamId + "\")");
+      throw unsupported("advanced_regex weighted choice \"(?%{…})\"", streamId);
     }
     if ("http".equals(type)) {
-      throw new Unsupported("<gen type=\"http\"> is a network call and is not reproducible");
+      throw new Unsupported(
+          "stream mode: <gen type=\"http\"> is a network call and is not reproducible");
     }
     if ("template".equals(type) && attrs.getOrDefault("value", "").contains("${{")) {
-      throw new Unsupported("a template address that interpolates a field");
+      throw new Unsupported(
+          "template value \""
+              + attrs.getOrDefault("value", "")
+              + "\" interpolates a field; the in-memory engine resolves it per row");
     }
 
     // An empty subset — a parent value with no rows of its own. Always inactive.
@@ -687,7 +707,9 @@ public final class StreamEngine {
 
     String weightColumn = "file".equals(type) ? trimToNull(attrs.get("weight")) : null;
     if (weightColumn != null && trimToNull(attrs.get("row")) != null) {
-      throw new Unsupported("weight= combined with row= needs an exact quota over the whole file");
+      throw new Unsupported(
+          "weight= combined with row= needs an exact quota over the whole file; the in-memory "
+              + "engine handles it (run without a forced streaming engine)");
     }
     FileGen.Weighted weightedPack = weightedTemplatePack(gen);
 
@@ -1342,14 +1364,13 @@ public final class StreamEngine {
       // combinations, ignoring the values actually drawn), and one seed would then mean two
       // datasets. It says so instead. The router sends every uniq to the exact engine; this is
       // the backstop for a forced one.
-      throw new Unsupported(
-          "uniq (a whole-column rearrangement) (\"" + spec.name() + "\")");
+      throw unsupported("uniq (a whole-column rearrangement)", spec.name());
     }
     if (!spec.isCompound() || spec.fields().isEmpty()) {
-      throw new Unsupported("uniq on a simple sequence (a whole-column draw) (\"" + spec.name() + "\")");
+      throw unsupported("uniq on a simple sequence (a whole-column draw)", spec.name());
     }
     if (trimToNull(spec.parent()) != null) {
-      throw new Unsupported("uniq combined with a parent (\"" + spec.name() + "\")");
+      throw unsupported("uniq combined with a parent", spec.name());
     }
     buildExactUniq(spec);
   }
@@ -1366,13 +1387,14 @@ public final class StreamEngine {
     for (Config.Field field : spec.fields()) {
       Config.Gen gen = field.gen();
       if (!"text".equals(gen.type())) {
-        throw new Unsupported(
-            "uniq field \"" + field.name() + "\" of type \"" + gen.type() + "\" (only text lists)");
+        throw unsupported(
+            "uniq field \"" + field.name() + "\" of type \"" + gen.type() + "\" (only text lists)",
+            spec.name());
       }
       List<String> values =
           new ArrayList<>(new LinkedHashSet<>(splitText(gen.attrs().getOrDefault("value", ""))));
       if (values.isEmpty()) {
-        throw new Unsupported("uniq field \"" + field.name() + "\" with an empty value list");
+        throw unsupported("uniq field \"" + field.name() + "\" with an empty value list", spec.name());
       }
       String percentAttr = gen.attrs().get("percent");
       double[] percents =

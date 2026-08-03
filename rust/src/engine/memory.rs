@@ -17,7 +17,7 @@ use std::cell::RefCell;
 use std::collections::{BTreeMap, BTreeSet};
 
 use super::per_row;
-use super::{invalid, unsupported, EngineError, EngineResult, RowSource};
+use super::{invalid, not_ported, EngineError, EngineResult, RowSource};
 use crate::compute;
 use crate::date;
 use crate::distribution::percent_mask;
@@ -1659,7 +1659,7 @@ pub(super) fn generate(
     if gen.gen_type != "file" {
         for gate in ["weight", "row"] {
             if gen.attrs.contains_key(gate) {
-                return unsupported(&format!("{gate}= on <gen>"));
+                return not_ported(&format!("{gate}= on <gen>"));
             }
         }
     }
@@ -1697,7 +1697,7 @@ pub(super) fn generate(
         "http" => Ok(vec![String::new(); count]),
         "increment" => counter::generate(&gen.attrs, count, true),
         "decrement" => counter::generate(&gen.attrs, count, false),
-        other => unsupported(&format!("<gen type=\"{other}\">")),
+        other => not_ported(&format!("<gen type=\"{other}\">")),
     }
 }
 
@@ -2411,7 +2411,7 @@ fn materialize_local(
     }
 
     let Some(gen) = spec.gen() else {
-        return unsupported("a pack sequence that is neither a <gen>, a <mix> nor a <compute>");
+        return not_ported("a pack sequence that is neither a <gen>, a <mix> nor a <compute>");
     };
     let produced = generate(gen, count, prng, env)?;
     let values = finish(produced, &gen.attrs, prng, None)?

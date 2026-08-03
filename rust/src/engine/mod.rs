@@ -47,12 +47,16 @@ impl EngineError {
     }
 }
 
+/// Both variants print the message they were given, and nothing else.
+///
+/// The variant is a routing fact — the disk engine matches on it to fall back —
+/// not something to narrate to the user. Prefixing `Unsupported` here put "not
+/// ported yet" in front of the streaming engine's DELIBERATE refusals, telling
+/// people a design limit was unfinished work, and made the same refusal read
+/// differently in Rust than in the other four implementations.
 impl std::fmt::Display for EngineError {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        match self {
-            EngineError::Unsupported(m) => write!(f, "not ported yet: {m}"),
-            EngineError::Invalid(m) => f.write_str(m),
-        }
+        f.write_str(self.message())
     }
 }
 
@@ -67,6 +71,14 @@ pub type EngineResult<T> = Result<T, EngineError>;
 /// biggest — rather than reporting a number and an impression.
 pub fn unsupported<T>(what: &str) -> EngineResult<T> {
     Err(EngineError::Unsupported(what.to_string()))
+}
+
+/// A gap in THIS port, said in the words the other four use for the same gap.
+///
+/// Distinct from a streaming refusal, which is a limit of the engine rather than
+/// of the port and words itself as the reference words it.
+pub fn not_ported<T>(what: &str) -> EngineResult<T> {
+    unsupported(&format!("{what} is not ported yet"))
 }
 
 pub fn invalid<T>(what: &str) -> EngineResult<T> {

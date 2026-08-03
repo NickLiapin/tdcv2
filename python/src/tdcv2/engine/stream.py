@@ -57,10 +57,20 @@ SAFE_UNIQ_CAP = 9007199254740992
 
 
 class UnsupportedError(RuntimeError):
-    """A config this engine cannot answer row by row; the router picks another."""
+    """A config this engine cannot answer row by row; the router picks another.
 
-    def __init__(self, message: str) -> None:
-        super().__init__(f"stream mode: {message}")
+    The message is carried verbatim. A prefix added here would reach the user only because of
+    which package they installed, and would land on refusals that already word themselves fully
+    — which is how one refusal came to read four ways across the five implementations.
+    """
+
+
+def unsupported(feature: str, name: str) -> UnsupportedError:
+    """The one refusal sentence, worded as the reference words it."""
+    return UnsupportedError(
+        f'stream mode: {feature} ("{name}") is not supported yet — '
+        'run without mode="stream" (the in-memory engine handles it), or remove it.'
+    )
 
 
 class StreamError(RuntimeError):
@@ -274,9 +284,7 @@ class StreamEngine:
             # exist at all, so that one goes to the in-memory engine rather than being guessed at.
             if spec.gen is not None and spec.gen.type == "pool":
                 if spec.parent:
-                    raise UnsupportedError(
-                        f'sequence "{spec.name}": a pool reference with parent= is built in memory'
-                    )
+                    raise unsupported("a pool reference with parent=", spec.name)
                 self._build_pool_reference(spec)
                 continue
             # A running total is the one construct that genuinely cannot be answered from a
@@ -429,14 +437,16 @@ class StreamEngine:
             return Domain(self.count, lambda row: row)
         dot = reference.find(".")
         if dot < 0:
-            raise UnsupportedError(f'bare parent="{reference}" (use parent="Name.Value")')
+            raise unsupported(f'bare parent="{reference}" (use parent="Name.Value")', spec.name)
         parent_name = reference[:dot]
         parent_value = reference[dot + 1 :]
 
         parent = self.parents.get(parent_name)
         if parent is None:
-            raise UnsupportedError(
-                f'parent "{parent_name}" (it must be a finite-value <sequence> declared earlier)'
+            raise unsupported(
+                f'parent "{parent_name}" (the parent must be a finite-value '
+                "<sequence> declared earlier)",
+                spec.name,
             )
         if not parent.has_value(parent_value):
             raise StreamError(
@@ -456,11 +466,16 @@ class StreamEngine:
         if type_ == "advanced_regex" and advanced_regex.has_weighted_choice(attrs.get("value", "")):
             # Its shares are exact over a whole column; a per-row draw would send every row to the
             # largest branch and look plausible doing it.
-            raise UnsupportedError(f'advanced_regex weighted choice "(?%{{…}})" ("{stream_id}")')
+            raise unsupported('advanced_regex weighted choice "(?%{…})"', stream_id)
         if type_ == "http":
-            raise UnsupportedError('<gen type="http"> is a network call and is not reproducible')
+            raise UnsupportedError(
+                'stream mode: <gen type="http"> is a network call and is not reproducible'
+            )
         if type_ == "template" and "${{" in attrs.get("value", ""):
-            raise UnsupportedError("a template address that interpolates a field")
+            raise UnsupportedError(
+                f'template value "{attrs.get("value", "")}" interpolates a field; '
+                "the in-memory engine resolves it per row"
+            )
 
         # An empty subset — a parent value with no rows of its own. Always inactive.
         if domain.size == 0:
@@ -469,7 +484,8 @@ class StreamEngine:
         weight_column = _trim_to_none(attrs.get("weight")) if type_ == "file" else None
         if weight_column is not None and _trim_to_none(attrs.get("row")) is not None:
             raise UnsupportedError(
-                "weight= combined with row= needs an exact quota over the whole file"
+                "weight= combined with row= needs an exact quota over the whole file; "
+                "the in-memory engine handles it (run without a forced streaming engine)"
             )
         weighted_pack = self._weighted_template_pack(gen)
 
@@ -999,11 +1015,11 @@ class StreamEngine:
             if member is None or name not in self.columns:
                 continue
             if member.is_mix:
-                raise UnsupportedError(f'<distinct> member "{name}" is a <mix>')
+                raise unsupported(f'<distinct> member "{name}" is a <mix>', name)
             if member.is_switch:
-                raise UnsupportedError(f'<distinct> member "{name}" is a <switch>')
+                raise unsupported(f'<distinct> member "{name}" is a <switch>', name)
             if member.gen is None:
-                raise UnsupportedError(f'<distinct> member "{name}" (must be a simple sequence)')
+                raise unsupported(f'<distinct> member "{name}" (must be a simple sequence)', name)
             members.append(name)
             gen_by_name[name] = member.gen
         if len(members) < 2:
@@ -1057,7 +1073,7 @@ class StreamEngine:
         if self.exact_uniq:
             self._build_exact_uniq(spec)
             return
-        raise UnsupportedError(f'uniq (a whole-column rearrangement) ("{spec.name}")')
+        raise unsupported("uniq (a whole-column rearrangement)", spec.name)
 
     def _build_env_uniq(self, group: list[str], by_name) -> set[str]:
         """Env-level ``<uniq>``: the tuple of several sequences is unique across the run.
@@ -1065,8 +1081,9 @@ class StreamEngine:
         As with a sequence's own ``uniq``: a group rearranges finished columns, so it belongs to
         the exact engine and this one refuses rather than answer differently.
         """
-        label = " × ".join(group)
-        raise UnsupportedError(f"<uniq> across sequences (a whole-column rearrangement) ({label})")
+        raise unsupported(
+            "<uniq> across sequences (a whole-column rearrangement)", " × ".join(group)
+        )
 
     def _mixed_radix(self, ids: list[str], pools: list[list[str]], key_id: str, label: str) -> None:
         """The columns laid out as the digits of one number, row ``i`` given a distinct value of it.
@@ -1112,21 +1129,19 @@ class StreamEngine:
         # of fields — state neither disk engine holds. Refused so the caller falls back to the
         # in-memory engine, which is where that draw lives.
         if not spec.is_compound or not spec.fields:
-            raise UnsupportedError(
-                f'uniq on a simple sequence (a whole-column draw) ("{spec.name}")'
-            )
+            raise unsupported("uniq on a simple sequence (a whole-column draw)", spec.name)
         if _trim_to_none(spec.parent) is not None:
-            raise UnsupportedError(f'uniq combined with a parent ("{spec.name}")')
+            raise unsupported("uniq combined with a parent", spec.name)
         fields = []
         for f in spec.fields:
             gen = f.gen
             if gen.type != "text":
-                raise UnsupportedError(
-                    f'uniq field "{f.name}" of type "{gen.type}" (only text lists)'
+                raise unsupported(
+                    f'uniq field "{f.name}" of type "{gen.type}" (only text lists)', spec.name
                 )
             values = list(dict.fromkeys(_split_text(gen.attrs.get("value", ""))))
             if not values:
-                raise UnsupportedError(f'uniq field "{f.name}" with an empty value list')
+                raise unsupported(f'uniq field "{f.name}" with an empty value list', spec.name)
             percent_attr = gen.attrs.get("percent")
             percents = (
                 percent_mask.expand(percent_attr, len(values))
@@ -1143,19 +1158,21 @@ class StreamEngine:
     def _uniq_pool(self, gen: Gen, label: str) -> list[str]:
         """A uniq field's pool: a finite text list, duplicates dropped and percent refused."""
         if gen.type != "text":
-            raise UnsupportedError(f'uniq column {label} of type "{gen.type}" (only text lists)')
+            raise UnsupportedError(
+                f'stream mode: uniq column {label} of type "{gen.type}" (only text lists)'
+            )
         percent = gen.attrs.get("percent")
         if percent:
             raise UnsupportedError(
-                f"uniq column {label} uses percent — streaming uniq gives UNIFORM distinct "
-                "combinations only. Exact percentages + uniqueness together need the in-memory "
-                'engine (run without mode="stream"), or drop percent.'
+                f"stream mode: uniq column {label} uses percent — streaming uniq gives UNIFORM "
+                "distinct combinations only. Exact percentages + uniqueness together need the "
+                'in-memory engine (run without mode="stream"), or drop percent.'
             )
         # Deduplicated in first-seen order: a repeated value would make the mixed-radix index map
         # two combinations onto one, and the column would no longer be unique.
         pool = list(dict.fromkeys(_split_text(gen.attrs.get("value", ""))))
         if not pool:
-            raise UnsupportedError(f"uniq column {label} with an empty value list")
+            raise UnsupportedError(f"stream mode: uniq column {label} with an empty value list")
         return pool
 
     # ── modifiers ───────────────────────────────────────────────────────────────────────────

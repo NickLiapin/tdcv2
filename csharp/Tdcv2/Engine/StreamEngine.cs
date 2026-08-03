@@ -66,14 +66,25 @@ public sealed class StreamEngine
     /// config away from here, so reaching this point is an internal gap — but a gap must degrade to
     /// a message the caller can read, not to an unhandled exception that aborts the process with a
     /// stack dump. The command line already renders this exception type.
+    /// <para>
+    /// The message is carried verbatim. A prefix added here would reach the user only because of
+    /// which package they installed, and would land on refusals that already word themselves fully
+    /// — which is how one refusal came to read four ways across the five implementations.
+    /// </para>
     /// </remarks>
     public sealed class UnsupportedHere : InvalidOperationException
     {
         internal UnsupportedHere(string message)
-            : base("stream mode: " + message)
+            : base(message)
         {
         }
     }
+
+    /// <summary>The one refusal sentence, worded as the reference words it.</summary>
+    private static UnsupportedHere Unsupported(string feature, string name) =>
+        new(
+            $"stream mode: {feature} (\"{name}\") is not supported yet — "
+                + "run without mode=\"stream\" (the in-memory engine handles it), or remove it.");
 
     /// <summary>Types whose value is built here and whose modifiers therefore apply here too.</summary>
     private static readonly HashSet<string> InlineTypes = new(StringComparer.Ordinal)
@@ -406,8 +417,7 @@ public sealed class StreamEngine
             {
                 if (!string.IsNullOrWhiteSpace(spec.Parent))
                 {
-                    throw new UnsupportedHere(
-                        $"sequence \"{spec.Name}\": a pool reference with parent= is built in memory");
+                    throw Unsupported("a pool reference with parent=", spec.Name);
                 }
 
                 BuildPoolReference(spec);
@@ -481,9 +491,9 @@ public sealed class StreamEngine
     {
         // As with a sequence's own `uniq`: a group rearranges finished columns, so it belongs to
         // the in-memory engine and both disk engines refuse rather than answer differently.
-        throw new UnsupportedHere(
-            "<uniq> across sequences (a whole-column rearrangement) ("
-            + string.Join(" × ", group) + ")");
+        throw Unsupported(
+            "<uniq> across sequences (a whole-column rearrangement)",
+            string.Join(" × ", group));
     }
 
     /// <summary>
@@ -508,18 +518,17 @@ public sealed class StreamEngine
 
             if (member.IsMix)
             {
-                throw new UnsupportedHere($"<distinct> member \"{name}\" is a <mix>");
+                throw Unsupported($"<distinct> member \"{name}\" is a <mix>", name);
             }
 
             if (member.IsSwitch)
             {
-                throw new UnsupportedHere($"<distinct> member \"{name}\" is a <switch>");
+                throw Unsupported($"<distinct> member \"{name}\" is a <switch>", name);
             }
 
             if (member.Gen is null)
             {
-                throw new UnsupportedHere(
-                    $"<distinct> member \"{name}\" (must be a simple sequence)");
+                throw Unsupported($"<distinct> member \"{name}\" (must be a simple sequence)", name);
             }
 
             members.Add(name);
@@ -717,7 +726,7 @@ public sealed class StreamEngine
         int dot = reference.IndexOf('.');
         if (dot < 0)
         {
-            throw new UnsupportedHere($"bare parent=\"{reference}\" (use parent=\"Name.Value\")");
+            throw Unsupported($"bare parent=\"{reference}\" (use parent=\"Name.Value\")", spec.Name);
         }
 
         string parentName = reference[..dot];
@@ -725,8 +734,9 @@ public sealed class StreamEngine
 
         if (!_parents.TryGetValue(parentName, out IParentCapable? parent))
         {
-            throw new UnsupportedHere(
-                $"parent \"{parentName}\" (it must be a finite-value <sequence> declared earlier)");
+            throw Unsupported(
+                $"parent \"{parentName}\" (the parent must be a finite-value <sequence> declared earlier)",
+                spec.Name);
         }
 
         if (!parent.HasValue(parentValue))
@@ -752,19 +762,20 @@ public sealed class StreamEngine
         {
             // Its shares are exact over a whole column; a per-row draw would send every row to the
             // largest branch and look plausible doing it.
-            throw new UnsupportedHere(
-                $"advanced_regex weighted choice \"(?%{{…}})\" (\"{streamId}\")");
+            throw Unsupported("advanced_regex weighted choice \"(?%{…})\"", streamId);
         }
 
         if (type == "http")
         {
             throw new UnsupportedHere(
-                "<gen type=\"http\"> is a network call and is not reproducible");
+                "stream mode: <gen type=\"http\"> is a network call and is not reproducible");
         }
 
         if (type == "template" && attrs.GetValueOrDefault("value", "").Contains("${{"))
         {
-            throw new UnsupportedHere("a template address that interpolates a field");
+            throw new UnsupportedHere(
+                $"template value \"{attrs.GetValueOrDefault("value", "")}\" interpolates a field; "
+                + "the in-memory engine resolves it per row");
         }
 
         // An empty subset — a parent value with no rows of its own. Always inactive.
@@ -777,7 +788,8 @@ public sealed class StreamEngine
         if (weightColumn is not null && TrimToNull(attrs.GetValueOrDefault("row")) is not null)
         {
             throw new UnsupportedHere(
-                "weight= combined with row= needs an exact quota over the whole file");
+                "weight= combined with row= needs an exact quota over the whole file; the in-memory "
+                + "engine handles it (run without a forced streaming engine)");
         }
 
         FileGen.Weighted? weightedPack = WeightedTemplatePack(gen);
@@ -1548,19 +1560,17 @@ public sealed class StreamEngine
             // over combinations, ignoring the values actually drawn), and one seed would then
             // mean two datasets. It says so instead. The router sends every uniq to the exact
             // engine; this is the backstop for a forced one.
-            throw new UnsupportedHere(
-                $"uniq (a whole-column rearrangement) (\"{spec.Name}\")");
+            throw Unsupported("uniq (a whole-column rearrangement)", spec.Name);
         }
 
         if (!spec.IsCompound || spec.Fields!.Count == 0)
         {
-            throw new UnsupportedHere(
-                $"uniq on a simple sequence (a whole-column draw) (\"{spec.Name}\")");
+            throw Unsupported("uniq on a simple sequence (a whole-column draw)", spec.Name);
         }
 
         if (TrimToNull(spec.Parent) is not null)
         {
-            throw new UnsupportedHere($"uniq combined with a parent (\"{spec.Name}\")");
+            throw Unsupported("uniq combined with a parent", spec.Name);
         }
 
         BuildExactUniq(spec);
@@ -1582,8 +1592,9 @@ public sealed class StreamEngine
             Gen gen = field.Gen;
             if (gen.Type != "text")
             {
-                throw new UnsupportedHere(
-                    $"uniq field \"{field.Name}\" of type \"{gen.Type}\" (only text lists)");
+                throw Unsupported(
+                    $"uniq field \"{field.Name}\" of type \"{gen.Type}\" (only text lists)",
+                    spec.Name);
             }
 
             List<string> values = MemoryEngine
@@ -1592,8 +1603,9 @@ public sealed class StreamEngine
                 .ToList();
             if (values.Count == 0)
             {
-                throw new UnsupportedHere(
-                    $"uniq field \"{field.Name}\" with an empty value list");
+                throw Unsupported(
+                    $"uniq field \"{field.Name}\" with an empty value list",
+                    spec.Name);
             }
 
             string? percentAttr = gen.Attrs.GetValueOrDefault("percent");
