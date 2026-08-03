@@ -111,7 +111,7 @@ java -jar build/libs/tdcv2-*-cli.jar demo.tdc
 ```
 
 Стоит завести алиас: `alias tdcv2='java -jar /path/to/tdcv2-cli.jar'` — после этого
-все команды на этих страницах читаются так же, как у остальных.
+все команды на этих страницах читаются так же, как везде.
 
 DSL и поведение идентичны npm-версии. API описан в разделе
 [Языковые привязки — Java](../bindings/java.md#top).
@@ -138,6 +138,7 @@ dotnet add package Tdcv2
 > cd csharp && dotnet build
 > dotnet run --project Tdcv2.Cli.Tool -- demo.tdc
 > ```
+>
 
 DSL и поведение идентичны npm-версии.
 
@@ -195,15 +196,17 @@ DSL и поведение — те же, что в npm-версии.
 </tdc>
 ```
 
-Запустите той командой, которую дала ваша установка:
+Запустите той командой, которую дала ваша установка. Три экосистемы кладут `tdcv2` в
+PATH из того же пакета, что несёт библиотеку; у Maven и NuGet нет аналога npm-овского
+`bin`, поэтому там командная строка — отдельный артефакт:
 
-| Язык | Команда |
-| :--- | :--- |
-| Node.js | `npx tdcv2 demo.tdc` |
-| Python | `tdcv2 demo.tdc` |
-| Rust | `tdcv2 demo.tdc`, после `cargo install tdcv2` |
-| C# | `dotnet run --project csharp/Tdcv2.Cli.Tool -- demo.tdc` — пакет-инструмент пока не выпущен |
-| Java | `java -jar java/build/libs/tdcv2-*-cli.jar demo.tdc` — у Maven нет аналога npm-овского `bin`, поэтому CLI остаётся отдельным jar |
+| Язык    | Команда                                                                                                         |
+| :------ | :-------------------------------------------------------------------------------------------------------------- |
+| Node.js | `npx tdcv2 demo.tdc`                                                                                            |
+| Python  | `tdcv2 demo.tdc`                                                                                                |
+| Rust    | `tdcv2 demo.tdc`, после `cargo install tdcv2`                                                                   |
+| C#      | `dotnet run --project csharp/Tdcv2.Cli.Tool -- demo.tdc` — пакет-инструмент пока не выпущен                     |
+| Java    | `java -jar java/build/libs/tdcv2-*-cli.jar demo.tdc` — собирается через `./gradlew cliJar`, скачать пока нельзя |
 
 Из корня репозитория короче всех — `./run demo.tdc`.
 
@@ -280,9 +283,9 @@ tdcv2 pack add en usa # скачать и подключить нужные па
 ```
 Available data packs:
 
-  common   installed   Common (locale-agnostic)   0.0 MB
-  en                   English (language)          0.1 MB
-  usa                  United States (country)     0.0 MB
+common installed Common (locale-agnostic) 0.0 MB
+en English (language) 0.1 MB
+usa United States (country) 0.0 MB
 ```
 
 Пакеты **компонуются** по независимым осям — язык, страна и локаль-независимый

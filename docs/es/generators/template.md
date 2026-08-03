@@ -24,7 +24,7 @@ Una ruta desconocida es un error de render: `unknown template path "..."`.
 >
 > Los valores que se muestran en esta página vienen de un `seed` fijo, así que son
 > reproducibles, pero las cadenas exactas pueden diferir entre versiones del núcleo.
-> Tómelos como ejemplos de la *forma*, no como garantías.
+> Tómelos como ejemplos de la _forma_, no como garantías.
 
 ## Por qué no una lista simple
 
@@ -92,15 +92,15 @@ plantillas con salida real.
 
 ## Datos de personas
 
-| Ruta                      | Produce                                            | Depende del locale |
-| :------------------------ | :------------------------------------------------- | :----------------: |
-| `person.male.firstName`   | Un nombre de pila masculino                        | `en`, `es`, `ru`   |
-| `person.female.firstName` | Un nombre de pila femenino                         | `en`, `es`, `ru`   |
-| `person.lastName`         | Un apellido (masculinos + comunes del locale)      | `en`, `es`, `ru`   |
-| `person.male.diagnosis`   | Un diagnóstico masculino + los comunes             | `en`, `es`, `ru`   |
-| `person.female.diagnosis` | Un diagnóstico femenino + los comunes              | `en`, `es`, `ru`   |
-| `person.gender`           | Un género al azar; la etiqueta viene del locale    | `en`, `es`, `ru`   |
-| `person.b_day`            | Una fecha de nacimiento en el formato dado         |   solo el formato  |
+| Ruta                      | Produce                                         | Depende del locale |
+| :------------------------ | :---------------------------------------------- | :----------------: |
+| `person.male.firstName`   | Un nombre de pila masculino                     |  `en`, `es`, `ru`  |
+| `person.female.firstName` | Un nombre de pila femenino                      |  `en`, `es`, `ru`  |
+| `person.lastName`         | Un apellido (masculinos + comunes del locale)   |  `en`, `es`, `ru`  |
+| `person.male.diagnosis`   | Un diagnóstico masculino + los comunes          |  `en`, `es`, `ru`  |
+| `person.female.diagnosis` | Un diagnóstico femenino + los comunes           |  `en`, `es`, `ru`  |
+| `person.gender`           | Un género al azar; la etiqueta viene del locale |  `en`, `es`, `ru`  |
+| `person.b_day`            | Una fecha de nacimiento en el formato dado      |  solo el formato   |
 
 > [!NOTE]
 > **Por qué `lastName` mezcla dos conjuntos**
@@ -160,7 +160,7 @@ last=Godoy       diagnosis=Varicocele
 Los conjuntos de diagnósticos tienen género por realismo —`person.female.diagnosis`
 saca de una lista específica de mujeres mezclada con padecimientos comunes—, y por eso
 siguen la misma división `male` / `female` que los nombres de pila. Úselos para
-fixtures médicos sintéticos donde la etiqueta nada más tiene que *parecer* plausible,
+fixtures médicos sintéticos donde la etiqueta nada más tiene que _parecer_ plausible,
 no ser clínicamente exacta.
 
 ### `person.gender` — una etiqueta que depende del locale
@@ -217,9 +217,9 @@ es el predeterminado si no pone `local`.
 
 ## Ubicación
 
-| Ruta               | Produce                | Depende del locale |
-| :----------------- | :--------------------- | :----------------: |
-| `location.country` | Un nombre de país      | las 9 locales      |
+| Ruta               | Produce           | Depende del locale |
+| :----------------- | :---------------- | :----------------: |
+| `location.country` | Un nombre de país |  los 10 paquetes   |
 
 ```xml
 <sequence name="C"><gen type="template" value="location.country"/></sequence>
@@ -242,11 +242,13 @@ países en `en`, 237 en `es`, 115 en `ru`), así que un mismo seed no cae en el 
 en los tres locales; lo que se conserva es la reproducibilidad dentro de cada uno.
 
 > [!NOTE]
-> **Todavía faltan ciudades y regiones**
+> **Cada locale que tiene un paquete**
 >
-> Hoy la lista localizada llega hasta el **país**. Ciudades y regiones por locale están
-> planeadas; mientras tanto, los paquetes de país las traen por su cuenta — por ejemplo
-> [`mexico.geo.city`](../data-packs/overview.md#top) y `mexico.geo.state`.
+> `location.country` viene en los diez paquetes de idioma que trae el registro — **ar**,
+> **de**, **el**, **en**, **es**, **fr**, **it**, **pl**, **pt** y **ru** — cada uno con
+> los mismos 233 países y territorios (el inglés trae 237). Un locale sin paquete tampoco
+> tiene lista: ahí la ruta da un error en vez de caer al inglés. Ciudades y regiones están
+> planeadas bajo `location.*`; `geo.city` y `geo.region` ya existen en los paquetes de país.
 
 ## Fechas
 
@@ -255,12 +257,12 @@ dependen del locale) del [generador `date`](date.md#formato-de-la-salida).
 
 ### `person.b_day` — una fecha de nacimiento
 
-| Atributo   | Por omisión  | Descripción                                     |
-| :--------- | :----------- | :---------------------------------------------- |
-| `oldest`   | `80`         | Edad máxima, en años                            |
-| `youngest` | `10`         | Edad mínima, en años                            |
-| `format`   | `L`          | Formato de salida (formato de fecha de TDC)     |
-| `local`    | del `<env>`  | Locale para los formatos localizados (`L`, `LL`) |
+| Atributo   | Por omisión | Descripción                                      |
+| :--------- | :---------- | :----------------------------------------------- |
+| `oldest`   | `80`        | Edad máxima, en años                             |
+| `youngest` | `10`        | Edad mínima, en años                             |
+| `format`   | `L`         | Formato de salida (formato de fecha de TDC)      |
+| `local`    | del `<env>` | Locale para los formatos localizados (`L`, `LL`) |
 
 Úsela cada vez que un registro necesite una fecha de nacimiento acotada por edad — la
 ventana `youngest` / `oldest` mantiene a todos dentro de una franja de edad creíble.
@@ -299,11 +301,11 @@ September 17, 1988    17 сентября 1988 г.
 
 ### `date.range` — una fecha de un rango
 
-| Atributo  | Por omisión  | Descripción                                 |
-| :-------- | :----------- | :------------------------------------------ |
-| `range`   | —            | **Obligatorio.** `"YYYY.MM.DD - YYYY.MM.DD"` |
-| `format`  | `L`          | Formato de salida                           |
-| `local`   | del `<env>`  | Locale para los formatos localizados        |
+| Atributo | Por omisión | Descripción                                  |
+| :------- | :---------- | :------------------------------------------- |
+| `range`  | —           | **Obligatorio.** `"YYYY.MM.DD - YYYY.MM.DD"` |
+| `format` | `L`         | Formato de salida                            |
+| `local`  | del `<env>` | Locale para los formatos localizados         |
 
 Úsela para cualquier fecha que no sea de nacimiento —la fecha de un pedido, un
 registro de alta, un evento—, donde quiera un sorteo uniforme entre dos límites
@@ -557,7 +559,7 @@ paquete.
 
 Hoy los conjuntos de plantillas vienen empaquetados con la biblioteca y se exponen a
 través de las rutas integradas que se listaron arriba. El plan es poder cargar
-*cualquier* archivo de datos de forma «declarativa» —con metadatos que describan qué
+_cualquier_ archivo de datos de forma «declarativa» —con metadatos que describan qué
 es, cómo está delimitado y qué clase lo parsea—, para que usted pueda registrar sus
 propios conjuntos igual que están registrados los integrados. Hasta entonces, las
 plantillas disponibles son exactamente las integradas que se documentan aquí.

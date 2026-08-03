@@ -22,7 +22,7 @@
 2. `tdcv2 pack add …` — скачать те наборы, которые вам действительно нужны.
 
 `init` идёт первым, потому что отвечает на вопрос, который `pack` решить не может: какая
-папка — *ваша*. Пакеты сознательно не лежат внутри установленной библиотеки: иначе каждое
+папка — _ваша_. Пакеты сознательно не лежат внутри установленной библиотеки: иначе каждое
 `npm update`, `pip install -U` или обновление зависимости стирало бы гигабайт данных,
 которые вы выбрали. `init` записывает папку, принадлежащую вашему проекту, и этот файл
 читают все реализации, поэтому пакет, скачанный один раз, находят все.
@@ -109,8 +109,8 @@ tdcv2 init --global
 `tdcv2 init --global`
 
 ```
-Wrote global config: /Users/you/.config/tdcv2/tdcv2.config.json
-  data packs → /Users/you/.config/tdcv2/tdcv2-packs
+Wrote global config: /Users/you/.config/tdcv2/config.json
+  data packs → /Users/you/.config/tdcv2/packs
   locale     → en
 ```
 
@@ -207,9 +207,9 @@ tdcv2 pack add ru --registry=https://packs.example.internal/tdc
 ```
 Available data packs:
 
-  common       ✓ installed   Common (locale-agnostic) (0.0 MB)
-  ru                         Russian (language) (0.1 MB)
-  rus                        Russia (country) (0.0 MB)
+common ✓ installed Common (locale-agnostic) (0.0 MB)
+ru Russian (language) (0.1 MB)
+rus Russia (country) (0.0 MB)
 ```
 
 Пригодится, чтобы проверить, что нужно адресу перед генерацией, и подтвердить, что набор встал

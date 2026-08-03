@@ -17,9 +17,9 @@ garantiza una máscara `percent` nunca cambian.
 
 ## De un vistazo
 
-| Atributo  | Obligatorio | Qué hace                                                                   |
-| :-------- | :---------- | :-------------------------------------------------------------------------- |
-| `value`   | **sí**      | Las opciones, separadas por comas: `"a,b,c"`                                |
+| Atributo  | Obligatorio | Qué hace                                                                             |
+| :-------- | :---------- | :----------------------------------------------------------------------------------- |
+| `value`   | **sí**      | Las opciones, separadas por comas: `"a,b,c"`                                         |
 | `percent` | no          | Proporción exacta de cada opción; vea [más abajo](#proporciones-exactas-con-percent) |
 
 Además de estos, `text` acepta los atributos transversales de los generadores:
@@ -68,7 +68,7 @@ patrón. Mismo atributo, gramática distinta — esta página cubre solo la lect
 Esto es lo que distingue a `text` de un simple selector aleatorio. Agregue `percent`
 y TDC acomoda los valores en cantidades **exactas** usando el método de Hamilton (del
 resto mayor): el número de veces que aparece cada valor coincide, garantizado, con
-los porcentajes. Lo aleatorio es solo el *orden*.
+los porcentajes. Lo aleatorio es solo el _orden_.
 
 ```xml
 <sequence name="Gender">
@@ -157,12 +157,12 @@ No hace falta llenar todas las posiciones. La regla es:
 La columna `Valores` de abajo es el largo de la lista de valores a la que se aplica la
 máscara (la misma máscara se expande distinto para un número distinto de valores):
 
-| Máscara  | Valores | Se expande a                 | Por qué                                                    |
-| :------- | :------ | :--------------------------- | :--------------------------------------------------------- |
-| `60`     | 2       | `60,40`                      | valor 1 = 60; el valor 2 se lleva el resto                 |
-| `,58`    | 2       | `42,58`                      | valor 2 = 58; el valor 1 se lleva el resto                 |
-| `,10,10` | 4       | `40,40,10,10`                | valores 3–4 = 10; los valores 1–2 reparten los 80 restantes |
-| `46,`    | 5       | `46,13.5,13.5,13.5,13.5`     | valor 1 = 46; los valores 2–5 reparten los 54 restantes (÷4) |
+| Máscara  | Valores | Se expande a                 | Por qué                                                       |
+| :------- | :------ | :--------------------------- | :------------------------------------------------------------ |
+| `60`     | 2       | `60,40`                      | valor 1 = 60; el valor 2 se lleva el resto                    |
+| `,58`    | 2       | `42,58`                      | valor 2 = 58; el valor 1 se lleva el resto                    |
+| `,10,10` | 4       | `40,40,10,10`                | valores 3–4 = 10; los valores 1–2 reparten los 80 restantes   |
+| `46,`    | 5       | `46,13.5,13.5,13.5,13.5`     | valor 1 = 46; los valores 2–5 reparten los 54 restantes (÷4)  |
 | `,,25,,` | 5       | `18.75,18.75,25,18.75,18.75` | valor 3 = 25; los otros cuatro reparten los 75 restantes (÷4) |
 
 Tome `46,` sobre una lista de cinco valores: solo se fijó la primera proporción, así

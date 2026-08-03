@@ -14,6 +14,7 @@ Dos paquetes: la biblioteca y la línea de comandos como `dotnet tool`.
 ## Cómo obtenerlo
 
 :::tip[En NuGet — versión 0.1.3]
+
 ```bash
 dotnet add package Tdcv2
 ```
@@ -26,6 +27,7 @@ ahora se compila desde el repositorio:
 cd csharp && dotnet build
 dotnet run --project Tdcv2.Cli.Tool -- demo.tdc
 ```
+
 :::
 
 ## Cómo usarlo
@@ -73,13 +75,13 @@ que sí lo tiene y que da la casualidad de que está vacío.
 
 ## Opciones
 
-| | |
-| --- | --- |
-| `ConfigFile` / `ConfigString` | Exactamente uno de los dos |
-| `Count`, `SeedValue`, `Locale` | Sustituyen lo declarado en `<env>` |
-| `NowMillis` | Fija el reloj, para que una prueba con fechas no caduque de un día a otro |
-| `PacksDir`, `DataPaths` | Dónde se buscan los packs y las fuentes `@data/…` |
-| `BaseDir` | Respecto a qué se resuelve un `src=` relativo |
+|                                |                                                                           |
+| ------------------------------ | ------------------------------------------------------------------------- |
+| `ConfigFile` / `ConfigString`  | Exactamente uno de los dos                                                |
+| `Count`, `SeedValue`, `Locale` | Sustituyen lo declarado en `<env>`                                        |
+| `NowMillis`                    | Fija el reloj, para que una prueba con fechas no caduque de un día a otro |
+| `PacksDir`, `DataPaths`        | Dónde se buscan los packs y las fuentes `@data/…`                         |
+| `BaseDir`                      | Respecto a qué se resuelve un `src=` relativo                             |
 
 `Diagnostics` lleva todo aquello de lo que se advirtió a la configuración sin rechazarla;
 los errores se lanzan desde el constructor, así que lo que quede ahí vale la pena decirlo

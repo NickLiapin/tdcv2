@@ -14,7 +14,7 @@ ejemplo, exactamente 70% de los códigos empiezan con `RU`, 20% con `US` y 10% c
 
 El [`regex`](regex.mdx) normal elige una alternativa `(RU|US|DE)` **al azar**, así que
 el reparto solo sale bien en promedio. `advanced_regex` agrega la **elección
-ponderada** (en inglés, *weighted choice*), que acomoda las variantes hasta cantidades
+ponderada** (en inglés, _weighted choice_), que acomoda las variantes hasta cantidades
 **exactas**.
 
 ```xml
@@ -108,7 +108,7 @@ entera en RAM. Está bien para conjuntos chicos y medianos. Si necesita
 participaciones exactas mientras hace **streaming** (memoria O(1), cualquier tamaño de
 salida), [`<mix percent>`](../reference/tags.mdx#distribuciones-y-selección) y
 [`<gen type="text" percent="…">`](text.mdx#proporciones-exactas-con-percent) dan
-proporciones exactas en un flujo, sin retener la columna completa. Y si *a mano* se
+proporciones exactas en un flujo, sin retener la columna completa. Y si _a mano_ se
 fuerza el motor de streaming puro (`mode="stream"` o `--engine 2`), TDC no va a
 arruinar los porcentajes en silencio: como no puede contarlos fila por fila, se niega
 con un error claro. Quite la anulación y vuelve a ser exacto.
@@ -138,16 +138,16 @@ composición de la columna cambia con ellos.
 
 ## `regex` vs `advanced_regex`
 
-| Capacidad                                       | `regex` | `advanced_regex` |
-| :---------------------------------------------- | :------ | :--------------- |
-| Generar un string a partir de un patrón          | sí      | sí               |
-| Clases de caracteres                             | sí      | sí               |
-| Alfabetos Unicode con nombre                     | sí      | sí               |
-| Grupos y retrorreferencias                       | sí      | sí               |
-| Tope de longitud vía `regex_max_length`          | sí      | sí               |
-| **Porcentajes exactos dentro del patrón**        | no      | **sí**           |
-| **Anidar variantes ponderadas**                  | no      | **sí**           |
-| Elección ponderada en el bloque de salida        | no      | no               |
+| Capacidad                                 | `regex` | `advanced_regex` |
+| :---------------------------------------- | :------ | :--------------- |
+| Generar un string a partir de un patrón   | sí      | sí               |
+| Clases de caracteres                      | sí      | sí               |
+| Alfabetos Unicode con nombre              | sí      | sí               |
+| Grupos y retrorreferencias                | sí      | sí               |
+| Tope de longitud vía `regex_max_length`   | sí      | sí               |
+| **Porcentajes exactos dentro del patrón** | no      | **sí**           |
+| **Anidar variantes ponderadas**           | no      | **sí**           |
+| Elección ponderada en el bloque de salida | no      | no               |
 
 La diferencia se ve mejor lado a lado. El [`regex`](regex.mdx) simple elige cada
 carácter libremente: la forma es fija, las participaciones no:

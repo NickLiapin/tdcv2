@@ -82,18 +82,18 @@ origen se explican abajo; los campos que cambian la manera de leer el cuerpo (li
 ponderadas, archivos externos, generadores) tienen sus propios ejemplos resueltos en
 [Cree su propio paquete](writing-your-own.md#top).
 
-| Campo         | Significado                                                     | Dónde se explica                    |
-| :------------ | :-------------------------------------------------------------- | :---------------------------------- |
-| `description` | Una descripción para humanos: «qué es esto»                     | abajo                               |
-| `address`     | Una dirección explícita, que anula la calculada a partir de la ruta | abajo                           |
-| `locale`      | En qué idioma habla el paquete (`en`, `es`, `fr`…)              | abajo                               |
-| `file`        | Apuntar a un archivo de datos externo en vez de un cuerpo integrado | abajo                           |
-| `column`      | Con `file`: tomar una columna con nombre o número de un CSV     | abajo                               |
-| `delimiter`   | El separador de columnas o valores (por omisión `,`)            | abajo                               |
-| `weight`      | Hacer ponderado el paquete: la columna de frecuencia            | [Cree su propio paquete](writing-your-own.md#top) |
-| `weighted`    | `true` — el cuerpo son líneas `valor,peso`                      | [Cree su propio paquete](writing-your-own.md#top) |
-| `generator`   | `tdc` — el cuerpo es un `<gen>`, no una lista                   | [Cree su propio paquete](writing-your-own.md#top) |
-| `inject`      | Un marcador de interpolación propio para un generador           | [Cree su propio paquete](writing-your-own.md#top) |
+| Campo         | Significado                                                         | Dónde se explica                               |
+| :------------ | :------------------------------------------------------------------ | :--------------------------------------------- |
+| `description` | Una descripción para humanos: «qué es esto»                         | abajo                                          |
+| `address`     | Una dirección explícita, que anula la calculada a partir de la ruta | abajo                                          |
+| `locale`      | En qué idioma habla el paquete (`en`, `es`, `fr`…)                  | abajo                                          |
+| `file`        | Apuntar a un archivo de datos externo en vez de un cuerpo integrado | abajo                                          |
+| `column`      | Con `file`: tomar una columna con nombre o número de un CSV         | abajo                                          |
+| `delimiter`   | El separador de columnas o valores (por omisión `,`)                | abajo                                          |
+| `weight`      | Hacer ponderado el paquete: la columna de frecuencia                | [Cree su propio paquete](writing-your-own.md#top) |
+| `weighted`    | `true` — el cuerpo son líneas `valor,peso`                          | [Cree su propio paquete](writing-your-own.md#top) |
+| `generator`   | `tdc` — el cuerpo es un `<gen>`, no una lista                       | [Cree su propio paquete](writing-your-own.md#top) |
+| `inject`      | Un marcador de interpolación propio para un generador               | [Cree su propio paquete](writing-your-own.md#top) |
 
 #### `description` — metadatos
 

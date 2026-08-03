@@ -65,11 +65,11 @@ orden** en vez de al azar.
 El mismo formato está disponible de tres maneras — mismo resultado, elija la que le
 convenga:
 
-| Ruta                          | Cómo se escribe               | Mejor cuando                           |
-| :---------------------------- | :---------------------------- | :------------------------------------- |
-| Un filtro en la interpolación | `${{X \| mask:…}}`            | un valor en un punto específico del texto |
-| Un atributo en [`<gen>`](../generators/overview.md#top) | `<gen … mask="…" case="…"/>`  | se formatea el generador **entero**    |
-| Una etiqueta en [`<compute>`](../compute/overview.md#top)       | `<mask pattern="…">…</mask>`  | el formato es un paso de un cálculo |
+| Ruta                                                   | Cómo se escribe              | Mejor cuando                              |
+| :----------------------------------------------------- | :--------------------------- | :---------------------------------------- |
+| Un filtro en la interpolación                          | `${{X \| mask:…}}`           | un valor en un punto específico del texto |
+| Un atributo en [`<gen>`](../generators/overview.md#top)   | `<gen … mask="…" case="…"/>` | se formatea el generador **entero**       |
+| Una etiqueta en [`<compute>`](../compute/overview.md#top) | `<mask pattern="…">…</mask>` | el formato es un paso de un cálculo       |
 
 La mayoría de los ejemplos de abajo usan la ruta del filtro, que vive en la
 [interpolación](../core-concepts/output-formatting.md#filtros). Cada etiqueta de compute
@@ -83,14 +83,14 @@ están los grupos.
 **Herramienta.** Una máscara recorre su patrón de izquierda a derecha. Cada **ranura** se
 come un pedazo de la entrada; todo lo demás se imprime como literal:
 
-| Ranura   | Toma de la entrada                                          |
-| :------- | :--------------------------------------------------------- |
-| `x`      | un carácter                                                |
-| `w`      | una palabra (letras hasta un espacio) y **se traga un** espacio |
-| `*`      | todo lo que aún no se ha consumido                         |
-| `x[0]` `w[-1]` | una posición **nombrada** — ver [Mover piezas](#mover-piezas--x0-w0-y-rangos) |
-| `\`      | escapa el siguiente carácter (`\x` → una `x` literal)      |
-| cualquier otra cosa | un literal: guion, punto, espacio, paréntesis — se imprime tal cual |
+| Ranura              | Toma de la entrada                                                            |
+| :------------------ | :---------------------------------------------------------------------------- |
+| `x`                 | un carácter                                                                   |
+| `w`                 | una palabra (letras hasta un espacio) y **se traga un** espacio               |
+| `*`                 | todo lo que aún no se ha consumido                                            |
+| `x[0]` `w[-1]`      | una posición **nombrada** — ver [Mover piezas](#mover-piezas--x0-w0-y-rangos) |
+| `\`                 | escapa el siguiente carácter (`\x` → una `x` literal)                         |
+| cualquier otra cosa | un literal: guion, punto, espacio, paréntesis — se imprime tal cual           |
 
 Los mismos dígitos bajo dos patrones:
 
@@ -149,13 +149,13 @@ secuencias e imprimirlas al revés.
 **Herramienta.** Ponga un índice entre corchetes en la ranura. Nombra una posición de
 la entrada **original**:
 
-| Ranura     | Toma                                                        |
-| :--------- | :---------------------------------------------------------- |
-| `x[7]`     | el carácter en el índice 7 — el octavo, contando desde `x[0]` |
-| `x[5..7]`  | los caracteres 5, 6 y 7 — **ambos** extremos incluidos       |
-| `x[-1]`    | el último carácter                                           |
-| `w[1]`     | la palabra en el índice 1 — la segunda                       |
-| `w[-1]`    | la última palabra                                            |
+| Ranura    | Toma                                                          |
+| :-------- | :------------------------------------------------------------ |
+| `x[7]`    | el carácter en el índice 7 — el octavo, contando desde `x[0]` |
+| `x[5..7]` | los caracteres 5, 6 y 7 — **ambos** extremos incluidos        |
+| `x[-1]`   | el último carácter                                            |
+| `w[1]`    | la palabra en el índice 1 — la segunda                        |
+| `w[-1]`   | la última palabra                                             |
 
 Los índices empiezan en **0**, como en el filtro
 [`slice`](#slice--cortar-una-parte-por-índice). Los rangos se escriben con `..`, igual
@@ -176,9 +176,9 @@ james miller   ->  miller, james
 mary jones     ->  jones, mary
 anna lee       ->  lee, anna
 
-12 Baker St    ->  Baker St 12
-7 Elm Road     ->  Elm Road 7
-140 Oak Lane   ->  Oak Lane 140
+12 Baker St -> Baker St 12
+7 Elm Road -> Elm Road 7
+140 Oak Lane -> Oak Lane 140
 ```
 
 Ninguno depende de lo largas que sean las palabras — para eso se cuenta por palabras y
@@ -292,11 +292,11 @@ error[TDC199]: mask: invalid index "[1-2]" after "x" — use x[0], x[0..4] or x[
 **Problema.** Los datos llegan con mayúsculas y minúsculas mezcladas (fuentes distintas,
 importaciones): `iPhone CASE`, `maría LÓPEZ`. Se necesita una sola forma consistente.
 
-| Nombre       | Qué hace                                               |
-| :----------- | :----------------------------------------------------- |
-| `upper`      | TODO EN MAYÚSCULAS                                     |
-| `lower`      | todo en minúsculas                                     |
-| `capitalize` | **solo la primera** letra en mayúscula, el resto igual  |
+| Nombre       | Qué hace                                                          |
+| :----------- | :---------------------------------------------------------------- |
+| `upper`      | TODO EN MAYÚSCULAS                                                |
+| `lower`      | todo en minúsculas                                                |
+| `capitalize` | **solo la primera** letra en mayúscula, el resto igual            |
 | `title`      | la primera letra de **cada palabra** en mayúscula, el resto igual |
 
 La misma cadena a través de los cuatro:
@@ -454,8 +454,18 @@ cero. Vea [`<slice>`](../compute/strings.md#reestructuración).
 2021-07-19  ->  slash=2021/07/19 | dot=2021.07.19
 ```
 
-El formato es `replace:from,to` — se reemplazan **todas** las apariciones. Vea
-[`<replace>`](../compute/strings.md#reestructuración).
+El formato es `replace:from,to` — se reemplazan **todas** las apariciones. Hay tres cosas
+que no hace, y cada una falla en silencio en vez de avisar:
+
+- **`from` se busca literalmente, nunca como expresión regular.** `replace:[abc],Z` busca
+  los cinco caracteres `[abc]` y, al no encontrarlos, no cambia nada.
+- **`from` no puede contener una coma.** La primera coma lo termina, así que todo lo que
+  sigue pertenece a `to`: `replace:-,+,x` reemplaza cada `-` por `+,x`.
+- **Un `from` vacío no hace nada.** `replace:,+` devuelve el valor intacto.
+
+Donde algo de esto importe, use la etiqueta
+[`<replace>`](../compute/strings.md#reestructuración) dentro de `<compute>`: toma `from=`
+y `to=` como atributos separados, así que una coma es solo un carácter.
 
 ### `trim` — quitar los espacios de los extremos
 
@@ -510,15 +520,15 @@ más chico que un grupo, así que vuelve sin cambios. Vea
 
 ### Resumen
 
-| Operación | Filtro                     | Etiqueta de `<compute>`                                     |
-| :-------- | :------------------------- | :--------------------------------------------------------- |
-| `slice`   | `slice:from[,to]`          | [`<slice from="0" to="4">`](../compute/strings.md#reestructuración)   |
-| `replace` | `replace:from,to`          | [`<replace from="-" to="/">`](../compute/strings.md#reestructuración) |
-| `trim`    | `trim`                     | [`<trim>`](../compute/strings.md#reestructuración)                    |
-| `group`   | `group:size[,sep]`         | [`<group size="3" sep=" ">`](../compute/strings.md#reestructuración)  |
-| `compact` | `compact` o `compact:16`   | —                                                          |
-| `csv`     | `csv`                      | — (sin etiqueta)                                           |
-| `sql`     | `sql`                      | — (sin etiqueta)                                           |
+| Operación | Filtro                   | Etiqueta de `<compute>`                                                |
+| :-------- | :----------------------- | :--------------------------------------------------------------------- |
+| `slice`   | `slice:from[,to]`        | [`<slice from="0" to="4">`](../compute/strings.md#reestructuración)   |
+| `replace` | `replace:from,to`        | [`<replace from="-" to="/">`](../compute/strings.md#reestructuración) |
+| `trim`    | `trim`                   | [`<trim>`](../compute/strings.md#reestructuración)                    |
+| `group`   | `group:size[,sep]`       | [`<group size="3" sep=" ">`](../compute/strings.md#reestructuración)  |
+| `compact` | `compact` o `compact:16` | —                                                                      |
+| `csv`     | `csv`                    | — (sin etiqueta)                                                       |
+| `sql`     | `sql`                    | — (sin etiqueta)                                                       |
 
 ## Orden — `order="sequential"`
 
@@ -576,10 +586,10 @@ ana.molina.lfls@example.com          <- la millonésima
 pablo.serrano.x2qxvk@example.com     <- la dos mil millonésima
 ```
 
-| Número            | Decimal    | `compact`             |
-| ----------------: | ---------: | --------------------: |
-| 1 000 000         | 7 dígitos  | `lfls` — 4 caracteres |
-| 2 000 000 000     | 10 dígitos | `x2qxvk` — 6 caracteres |
+|            Número |    Decimal |                 `compact` |
+| ----------------: | ---------: | ------------------------: |
+|         1 000 000 |  7 dígitos |     `lfls` — 4 caracteres |
+|     2 000 000 000 | 10 dígitos |   `x2qxvk` — 6 caracteres |
 | 1 000 000 000 000 | 13 dígitos | `cre66i9s` — 8 caracteres |
 
 Seis caracteres cubren 2170 millones de filas; siete cubren 78 mil millones. El mapeo es

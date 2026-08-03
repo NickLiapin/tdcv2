@@ -234,8 +234,10 @@ for field "B" different from the others after 1000 attempts — its source
 likely has too few distinct values.
 ```
 
-**Why:** an impossible request should fail immediately, not hang. This mirrors the
-feasibility check that [`uniq`](../constructs/unique-values.md#top) runs before generation.
+**Why:** an impossible request should fail loudly rather than hang. What differs from
+[`uniq`](../constructs/unique-values.md#top) is the timing: `uniq` proves the whole column
+feasible before generating, while `<distinct>` finds out on the first row it cannot
+satisfy.
 
 ### At the `<env>` level, groups take single-value sequences only
 

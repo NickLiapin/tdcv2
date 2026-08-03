@@ -29,24 +29,24 @@ pueden cambiar según la versión del core; lo que importa es la forma y las can
 
 ## De un vistazo
 
-| Atributo                                   | Obligatorio | Qué hace                                                            |
-| :----------------------------------------- | :---------- | :------------------------------------------------------------------ |
-| [`src`](../reference/attributes.md#top)       | sí          | Dónde está el archivo — ruta relativa, `@data`, `pkg:` o absoluta    |
-| [`column`](../reference/attributes.md#top)    | no          | Lee una columna del CSV, por nombre o por número desde 1 (activa CSV) |
-| [`delimiter`](../reference/attributes.md#top) | no          | Separador de celdas en modo CSV — coma por omisión                  |
-| [`header`](../reference/attributes.md#top)    | no          | Omite la primera línea cuando la columna se elige **por número**     |
+| Atributo                                   | Obligatorio | Qué hace                                                                        |
+| :----------------------------------------- | :---------- | :------------------------------------------------------------------------------ |
+| [`src`](../reference/attributes.md#top)       | sí          | Dónde está el archivo — ruta relativa, `@data`, `pkg:` o absoluta               |
+| [`column`](../reference/attributes.md#top)    | no          | Lee una columna del CSV, por nombre o por número desde 1 (activa CSV)           |
+| [`delimiter`](../reference/attributes.md#top) | no          | Separador de celdas en modo CSV — coma por omisión                              |
+| [`header`](../reference/attributes.md#top)    | no          | Omite la primera línea cuando la columna se elige **por número**                |
 | [`row`](../reference/attributes.md#top)       | no          | Liga varios campos a la **misma** línea del CSV (mantiene el registro completo) |
 
 ## `src` — dónde está el archivo
 
 `src` es **obligatorio**. Puede ser una ruta simple o una fuente del resolvedor:
 
-| `src`                                | Se resuelve como                                    |
-| :----------------------------------- | :-------------------------------------------------- |
-| `src="names.txt"`                    | Junto al archivo de configuración `.tdc`            |
-| `src="@data/names.txt"`              | Se busca en las carpetas pasadas con `--data-path`  |
-| `src="pkg:@tdc/data-en/names.txt"`   | Un archivo de un paquete dentro de `node_modules`   |
-| `src="/absolute/path/names.txt"`     | Una ruta absoluta                                   |
+| `src`                              | Se resuelve como                                   |
+| :--------------------------------- | :------------------------------------------------- |
+| `src="names.txt"`                  | Junto al archivo de configuración `.tdc`           |
+| `src="@data/names.txt"`            | Se busca en las carpetas pasadas con `--data-path` |
+| `src="pkg:@tdc/data-en/names.txt"` | Un archivo de un paquete dentro de `node_modules`  |
+| `src="/absolute/path/names.txt"`   | Una ruta absoluta                                  |
 
 El archivo se lee como UTF-8. Si la ruta no se puede resolver, la generación se detiene
 con un error en vez de producir nada en silencio.
@@ -230,13 +230,13 @@ aparece.
 `delimiter` acepta un solo carácter (`delimiter=";"`) o alguno de estos alias con
 nombre:
 
-| Valor       | Separador                            |
-| :---------- | :----------------------------------- |
-| `comma`     | coma `,` (el valor por omisión)      |
-| `semicolon` | punto y coma `;`                     |
-| `pipe`      | barra vertical                       |
-| `tab`       | tabulador (archivos TSV)             |
-| `\t`        | tabulador (igual que `tab`)          |
+| Valor       | Separador                       |
+| :---------- | :------------------------------ |
+| `comma`     | coma `,` (el valor por omisión) |
+| `semicolon` | punto y coma `;`                |
+| `pipe`      | barra vertical                  |
+| `tab`       | tabulador (archivos TSV)        |
+| `\t`        | tabulador (igual que `tab`)     |
 
 Para un archivo TSV (columnas separadas por tabulador), `delimiter="tab"` y
 `delimiter="\t"` son equivalentes — ambos leen el tabulador como separador.
@@ -464,7 +464,10 @@ Bolígrafo | Oficina | 1.10
 `weight`**, la configuración siempre corre en el motor en memoria: un motor de streaming
 no puede ponderar la elección de la fila sin conocer primero los totales del archivo. Si
 se fuerza `--engine 2`, TDC lo dice sin rodeos en vez de emitir columnas incoherentes en
-silencio. Esto se cubre a fondo en **[Datos coherentes y relacionales](../guides/coherent-data.md#top)**.
+silencio. El costo es que entonces la memoria crece con `count` — vea [Qué motor corre su
+configuración](../guides/large-outputs.md#qué-motor-corre-su-configuración). Los grupos
+ligados en sí se cubren en **[Datos coherentes y
+relacionales](../guides/coherent-data.md#top)**.
 
 ### Limitaciones (v1)
 

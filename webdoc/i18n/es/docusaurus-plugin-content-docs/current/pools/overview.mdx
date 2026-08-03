@@ -54,7 +54,7 @@ Linda -> Dr. James Johnson, room 100`}
 
 :::note[La salida es ilustrativa]
 Los valores vienen de un `seed` fijo, así que son reproducibles, pero las cadenas exactas
-pueden cambiar entre versiones del núcleo. Tómalos como ejemplo de *forma*, no como
+pueden cambiar entre versiones del núcleo. Tómalos como ejemplo de _forma_, no como
 garantía.
 :::
 
@@ -84,16 +84,16 @@ Todo lo demás en esta página se sigue de esas dos frases.
 `<pool>` vive **directamente en [`<env>`](../core-concepts/configuration.mdx)**, junto a
 `<sequence>`. Nunca se lee directamente: una secuencia sortea de él.
 
-| En `<pool>` | Obligatorio | Qué hace                                       |
-| :---------- | :---------- | :---------------------------------------------- |
+| En `<pool>` | Obligatorio | Qué hace                                               |
+| :---------- | :---------- | :----------------------------------------------------- |
 | `name`      | sí          | El nombre que un `<gen type="pool">` indica en `value` |
-| `count`     | sí          | Cuántos miembros tiene la tabla                 |
-| `comment`   | no          | Nota libre                                      |
+| `count`     | sí          | Cuántos miembros tiene la tabla                        |
+| `comment`   | no          | Nota libre                                             |
 
-| En `<gen type="pool">` | Obligatorio | Qué hace                                      |
-| :--------------------- | :---------- | :---------------------------------------------- |
-| `value`                | sí          | De qué pool sortear                              |
-| `filter`               | no          | De qué miembros puede sortear esta fila — [Acotar](filter.mdx) |
+| En `<gen type="pool">` | Obligatorio | Qué hace                                                                       |
+| :--------------------- | :---------- | :----------------------------------------------------------------------------- |
+| `value`                | sí          | De qué pool sortear                                                            |
+| `filter`               | no          | De qué miembros puede sortear esta fila — [Acotar](filter.mdx)                 |
 | `if`                   | no          | Si esta fila recibe un miembro siquiera — [Acotar](filter.mdx#filter-no-es-if) |
 
 ## Un pool es un `<env>` en miniatura
@@ -104,16 +104,16 @@ el `<env>` de una configuración, con el **número de miembros** en lugar del de
 
 Así que todo lo que ya sabes sigue aplicando dentro de un pool:
 
-| Dentro de un pool | Significa |
-| :---------------- | :-------- |
-| `<sequence>` | un campo de cada miembro |
-| [`<mix>`](../constructs/mix.mdx) | un campo repartido por `percent` exacto — entre los MIEMBROS |
-| [`<switch>`](../constructs/switch.mdx) | un campo derivado de otro campo del mismo miembro |
-| [`<uniq>`](../constructs/unique-values.mdx) · `uniq="true"` | miembros que deben diferir entre sí |
-| `<distinct>` | dos campos de un miembro que deben diferir |
-| `if=` | un campo que solo tienen algunos miembros |
-| `parent=` | un campo construido sobre los miembros que otro campo seleccionó |
-| `<compute>` | un campo calculado a partir de los otros campos del miembro |
+| Dentro de un pool                                           | Significa                                                        |
+| :---------------------------------------------------------- | :--------------------------------------------------------------- |
+| `<sequence>`                                                | un campo de cada miembro                                         |
+| [`<mix>`](../constructs/mix.mdx)                            | un campo repartido por `percent` exacto — entre los MIEMBROS     |
+| [`<switch>`](../constructs/switch.mdx)                      | un campo derivado de otro campo del mismo miembro                |
+| [`<uniq>`](../constructs/unique-values.mdx) · `uniq="true"` | miembros que deben diferir entre sí                              |
+| `<distinct>`                                                | dos campos de un miembro que deben diferir                       |
+| `if=`                                                       | un campo que solo tienen algunos miembros                        |
+| `parent=`                                                   | un campo construido sobre los miembros que otro campo seleccionó |
+| `<compute>`                                                 | un campo calculado a partir de los otros campos del miembro      |
 
 Lo que un pool **no** puede contener es salida: ni `<block>` ni etiquetas de formato. Un
 pool es una tabla que otras columnas leen, no algo que se escriba en un archivo. Tampoco
@@ -197,7 +197,7 @@ cirujanos; con qué frecuencia se les visita depende de cómo sorteen las filas 
 ```
 
 Seis números de consultorio distintos, sorteados sin reemplazo. Un pool cuyos miembros
-pretenden ser *cosas diferentes* suele querer esto en al menos un campo — si no, dos
+pretenden ser _cosas diferentes_ suele querer esto en al menos un campo — si no, dos
 miembros pueden salir idénticos y una fila no puede distinguirlos.
 
 ## La semilla propia del pool
@@ -232,11 +232,11 @@ Un pool se mantiene en memoria durante toda la ejecución — eso es lo que hace
 consulta desde una fila salga gratis. Medido en la implementación de referencia, un miembro
 con cuatro campos cuesta unos 320 bytes.
 
-| Miembros | Aproximadamente | Qué pasa |
-| :------- | :-------------- | :-------- |
-| hasta 100.000 | hasta ~29 MB | nada; se ejecuta |
-| más de 100.000 | | `TDC234`, una advertencia |
-| más de 1.000.000 | más de ~290 MB | `TDC235`, rechazado |
+| Miembros         | Aproximadamente | Qué pasa                  |
+| :--------------- | :-------------- | :------------------------ |
+| hasta 100.000    | hasta ~29 MB    | nada; se ejecuta          |
+| más de 100.000   |                 | `TDC234`, una advertencia |
+| más de 1.000.000 | más de ~290 MB  | `TDC235`, rechazado       |
 
 Los dos mensajes acaban igual, porque la causa suele ser la misma: si querías decir el
 número de **filas**, eso es `count` en `<env>`.

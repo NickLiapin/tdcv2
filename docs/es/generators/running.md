@@ -10,7 +10,7 @@
 
 # `running` — un total que se arrastra por la columna
 
-**Sirve cuando** un valor no se sortea sino que se *acumula*: el saldo de una cuenta
+**Sirve cuando** un valor no se sortea sino que se _acumula_: el saldo de una cuenta
 después de cada movimiento, un medidor que solo sube, la carga más alta vista hasta ahora.
 El valor de la fila 40 depende de las filas 1 a 39.
 
@@ -46,17 +46,17 @@ y no es una limitación que haya que esquivar: es lo que «acumulado» significa
 > **La salida es ilustrativa**
 >
 > Los valores salen de un `seed` fijo, así que son reproducibles, pero las cadenas exactas
-> pueden cambiar entre versiones del núcleo. Tómelas como ejemplo de *forma*, no como
+> pueden cambiar entre versiones del núcleo. Tómelas como ejemplo de _forma_, no como
 > garantía.
 
 ## De un vistazo
 
-| Atributo | Obligatorio | Qué hace |
-| :------- | :---------- | :-------- |
-| `of` | sí | La columna que se acumula. Tiene que estar **declarada más arriba** que esta secuencia |
-| `accumulate` | sí | `sum`, `min` o `max` |
-| `base` | no | El valor de apertura — un saldo inicial, un odómetro de partida |
-| `reset` | no | Una columna cuyo cambio reinicia el total |
+| Atributo     | Obligatorio | Qué hace                                                                               |
+| :----------- | :---------- | :------------------------------------------------------------------------------------- |
+| `of`         | sí          | La columna que se acumula. Tiene que estar **declarada más arriba** que esta secuencia |
+| `accumulate` | sí          | `sum`, `min` o `max`                                                                   |
+| `base`       | no          | El valor de apertura — un saldo inicial, un odómetro de partida                        |
+| `reset`      | no          | Una columna cuyo cambio reinicia el total                                              |
 
 Un total acumulado **no sortea nada**. Lee una columna que ya existe, no consume azar, y
 por eso agregar uno deja todas las demás columnas exactamente donde estaban.
@@ -136,7 +136,7 @@ tdcv2: a running total ("Balance") is the accumulation of every row before it, s
 ```
 
 Normalmente nunca ve ese mensaje: el enrutador elige el motor solo, y el rechazo aparece
-únicamente cuando la configuración *nombra* un motor de streaming y por lo tanto pidió que
+únicamente cuando la configuración _nombra_ un motor de streaming y por lo tanto pidió que
 se lo dijeran.
 
 Lo que cuesta: un total acumulado vive en memoria durante toda la corrida, como cualquier

@@ -13,7 +13,9 @@
 **Por omisión, TDC genera directo a disco** y funciona a cualquier tamaño — hasta miles de
 millones de filas. La memoria **no** crece con la cantidad de filas: cada fila se calcula
 al vuelo a partir de su número, no se guarda en un arreglo. Sin preparación especial —
-así es simplemente como funciona una corrida normal.
+así es simplemente como funciona una corrida normal. Un puñado de formas de configuración
+son la excepción y están listadas en [Qué motor corre su
+configuración](#qué-motor-corre-su-configuración).
 
 Las salidas de ejemplo de esta página son ilustrativas y pueden variar entre versiones del
 core; donde la página hace una afirmación numérica («exactamente 70/30», «128 MB planos»),
@@ -28,28 +30,90 @@ observe la forma del resultado, no los bytes exactos.
 
 ## Dos motores de disco, elegidos por usted
 
-Dentro de «disco» hay dos motores, y TDC elige el correcto **a partir de su
+Bajo «disco» corren dos motores, y TDC elige entre ellos **a partir de su
 configuración**:
 
 - **El motor rápido de streaming** — se usa para casi todo. Es perezoso, multihilo (vea
   [`--jobs`](../reference/cli.md#top)), con memoria O(cantidad de campos). Porcentajes
   exactos, dependencias [`parent`](hierarchical-dependencies.md#top),
   [`<mix>`](../reference/tags.md#top), [`<distinct>`](../constructs/unique-values.md#top) — todo al vuelo.
-- **El motor exacto en disco** — se enciende solo ante **cualquier** unicidad:
-  [`uniq="true"`](../constructs/unique-values.md#top) en una secuencia, o un grupo `<uniq>`.
-  Garantiza el resultado de forma exacta y su memoria se mantiene acotada — pero lo paga
-  revisando los datos con un ordenamiento externo y una pasada de reparación, y **esa
-  revisión se vuelve drásticamente más lenta a medida que crece el número de filas** (vea
-  la advertencia abajo).
+- **El motor exacto en disco** — para una promesa sobre la columna **terminada** y no sobre
+  la fila actual: un grupo [`<uniq>`](../constructs/unique-values.md#top) a nivel de env,
+  [`uniq="true"`](../constructs/unique-values.md#top) en una secuencia compuesta o en un
+  contador, y un [`parent`](hierarchical-dependencies.md#top) cuyo padre no es una secuencia
+  de texto. Garantiza el resultado de forma exacta y su memoria se mantiene acotada — pero
+  lo paga revisando los datos con un ordenamiento externo y una pasada de reparación, y
+  **esa revisión se vuelve drásticamente más lenta a medida que crece el número de filas**
+  (vea la advertencia abajo).
 
   La unicidad es una promesa sobre el **conjunto terminado**, no sobre una fila, y no se
   puede resolver fila a fila. Por eso mismo `--jobs` se niega a repartir una configuración
   que la pide: un worker sólo ve su propio rango de filas, y no distinguiría un duplicado
   fuera de ese rango de un valor que nunca ha visto.
 
-No hace falta saber cuál corre. La elección es **determinista — se basa en la
-configuración, no en el hardware** — así que la misma configuración da el mismo resultado
-en cualquier máquina (la reproducibilidad entre máquinas es una garantía central de TDC).
+El modo disco tiene un tercer destino, y es el que conviene conocer: cinco formas de
+configuración mandan la corrida de vuelta al motor pequeño en memoria, donde la memoria
+crece con `count`. Una de ellas es la manera más común de escribir `uniq`. [Qué motor corre
+su configuración](#qué-motor-corre-su-configuración) lista las cinco.
+
+La elección es **determinista — se basa en la configuración, no en el hardware** — así que
+la misma configuración da el mismo resultado en cualquier máquina (la reproducibilidad
+entre máquinas es una garantía central de TDC).
+
+## Qué motor corre su configuración
+
+`mode="disk"` pide memoria acotada. No siempre la consigue. TDC lee primero la
+configuración, y cinco formas rutean la corrida al **motor pequeño en memoria**, cuya
+memoria crece con la cantidad de filas. Se revisan en este orden.
+
+| Forma                                                                                                                                                                                              | Por qué no puede correr en streaming                                                                                                                             |
+| :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Un `value` de [`template`](../generators/template.md#top) que interpola un campo — `common.vehicle.model.${{Brand}}`                                                                                  | La dirección no se conoce hasta que la columna vecina tiene un valor, así que hay que resolverla fila por fila contra las otras secuencias.                      |
+| [`weight=`](../generators/file.md#top) y [`row=`](../generators/file.md#top) en el mismo generador `file`                                                                                                | Ponderar un sorteo de fila enlazada hasta una cuota exacta necesita los totales del archivo por adelantado.                                                      |
+| [Un generador de paquete que declara sus propias proporciones](../data-packs/writing-your-own.md#porcentajes-exactos-dentro-de-un-generador--mix--percent) — `percent=` en el archivo del paquete | La proporción es una cuota sobre la columna entera. Calculada fila a fila se vuelve una cuota sobre una sola fila, y cada fila se va a la proporción más grande. |
+| `uniq="true"` sobre una sola columna sorteada, sola o junto a texto literal                                                                                                                        | El sorteo corre **sin reemplazo**, así que tanto la bolsa como el conjunto de lo ya tomado abarcan la columna entera.                                            |
+| [`type="http"`](../generators/http.md#top) — una llamada de red                                                                                                                                       | No es reproducible ni síncrona, y se resuelve en una pasada asíncrona después de que se arma el resto del registro.                                              |
+
+Todo lo demás que pregunte por la columna terminada va al motor exacto en disco, y el
+resto corre en streaming.
+
+Así que `uniq` cae en dos motores distintos según cómo esté escrito:
+
+| `uniq` escrito como                                                                  | Motor           | Memoria           |
+| :----------------------------------------------------------------------------------- | :-------------- | :---------------- |
+| `uniq="true"` sobre una sola columna sorteada — `text`, `number`, `date`, `template` | en memoria      | crece con `count` |
+| `uniq="true"` sobre una columna hecha de una parte sorteada y literales `<data>`     | en memoria      | crece con `count` |
+| `uniq="true"` sobre un [contador](../generators/counters.md#top)                        | exacto en disco | acotada           |
+| `uniq="true"` sobre una secuencia compuesta (campos `<gen>` con nombre)              | exacto en disco | acotada           |
+| Un grupo [`<uniq>`](../constructs/unique-values.md#top) a nivel de env                  | exacto en disco | acotada           |
+
+**Ninguna forma de `uniq` corre en el motor rápido de streaming.** Rechaza `uniq` por su
+nombre, así que a una configuración que pidió streaming se le dice, en vez de entregarle
+datos que se repiten en silencio:
+
+`./run uniq.tdc --engine 2`
+
+```
+tdcv2: stream mode: uniq (a whole-column rearrangement) ("K") is not supported yet — run without mode="stream" (the in-memory engine handles it), or remove it.
+```
+
+Normalmente usted nunca ve un mensaje así. El ruteo elige el motor por su cuenta, y un
+rechazo solo sale a la luz cuando una configuración _nombra_ un motor de streaming y con
+eso pidió que se le dijera.
+
+Una bajada de motor no es un error. Cada una de las cinco formas es una promesa sobre una
+columna entera, y un motor que la respondiera desde una sola fila emitiría datos que se
+ven bien y no lo son. Lo que cuesta es memoria: en el motor en memoria se retiene la
+columna entera, así que una corrida con una de estas formas queda acotada por la RAM y no
+por el disco. [`preflight()`](#preflight--una-estimación-del-riesgo-de-memoria) lo estima
+antes de la corrida.
+
+Existe una ruta más, para lo que la lista no puede ver de antemano. Si el motor de
+streaming termina rechazando una configuración de todos modos — un [total
+acumulado](../generators/running.md#qué-motor-lo-ejecuta), un `parent="Nombre"` pelado sin
+valor, una referencia a un [pool](../pools/overview.md#top) — una corrida a disco ruteada
+automáticamente cae de vuelta al motor en memoria en lugar de fallar. Un `--engine 2`
+**forzado** igual falla, que es justamente el punto de forzarlo.
 
 > [!CAUTION]
 > **`uniq` sobre una salida enorme es LENTO — y `uniq` + `percent` es lo más lento que hace TDC**
@@ -61,7 +125,7 @@ en cualquier máquina (la reproducibilidad entre máquinas es una garantía cent
 > se mantiene plana — **el tiempo no**.
 >
 > **El peor caso, por lejos, es `uniq` y `percent` sobre las mismas columnas.** Acertar
-> proporciones exactas *y* no repetir a la vez es un problema de acomodo con restricciones
+> proporciones exactas _y_ no repetir a la vez es un problema de acomodo con restricciones
 > encima del ordenamiento, así que es dramáticamente más lento otra vez: una corrida que
 > sería rápida sin uno de los dos puede tardar un tiempo irrazonable con ambos. Si puede
 > soltar la exactitud (deje que las proporciones sean aproximadas) o la unicidad, hágalo.
@@ -134,14 +198,12 @@ simples y compuestas, generadores independientes
 [`percent`](../reference/attributes.md#top) exacto, [contadores](../generators/counters.md#top),
 los [integrados](../reference/builtins.md#top) (`_count`/`_first`/`_last`/`_total`),
 dependencias [`parent`](hierarchical-dependencies.md#top) (a cualquier profundidad),
-[`uniq="true"`](../constructs/unique-values.md#top) sobre una lista de texto finita y el
-[`<uniq>`](../constructs/unique-values.md#top) a nivel de env,
 [`<distinct>`](../constructs/unique-values.md#top) y [`<mix>`](../reference/tags.md#top) — todo al vuelo,
-exacto y en paralelo. Lo que le pasa al motor exacto es la unicidad que no puede resolver
-en una pasada: `percent` + `uniq` sobre las **mismas** columnas, y `uniq` sobre campos no
-textuales (números, fechas, plantillas). Así que una corrida normal cubre **cualquier**
-configuración; los casos de unicidad delegados también son correctos, solo que más lentos
-— y en salidas enormes, mucho más lentos (vea la advertencia arriba).
+exacto y en paralelo. Lo que no hace es ninguna forma de
+[`uniq`](../constructs/unique-values.md#top). La unicidad es una promesa sobre la columna
+terminada y este motor solo ve una fila a la vez, así que todo `uniq` se va a otra parte —
+al motor exacto en disco o al motor en memoria, según cómo esté escrito. [Qué motor corre
+su configuración](#qué-motor-corre-su-configuración) dice cuál.
 
 (En el motor rápido, `parent` funciona solo cuando el padre es una secuencia con una lista
 finita de valores — una secuencia [`text`](../generators/text.md#top). Heredar de un rango
@@ -196,13 +258,13 @@ de 700), y dentro de las 300 mujeres, exactamente 180/120 (60/40 de 300). En las
 «ajenas» el campo hijo queda en blanco — `Male` está vacío en las filas femeninas, y
 `Female` en las masculinas.
 
-### Unicidad por construcción (`uniq`)
+### Unicidad en todo el conjunto de datos (`uniq`)
 
 [`uniq="true"`](../constructs/unique-values.md#top) en una secuencia compuesta hace que la **tupla de todos
-sus campos sea única en todo el conjunto de datos** — sin guardar lo que ya se generó. La
-combinación de campos se trata como un solo número en un sistema de base mixta, y una
-permutación especial («una lotería sin tómbola») le entrega a cada fila su **propio**
-número de combinación, así que no hay repeticiones por construcción.
+sus campos sea única en todo el conjunto de datos**. Eso es una promesa sobre la columna
+terminada, así que corre en el motor exacto en disco y no en el de streaming. Cada columna
+se reparte hasta su cuota exacta y luego las tuplas se comparan entre sí; cuando una sola
+columna ya le da a cada fila un valor distinto, la comparación se omite.
 
 ```xml
 <env count="6" seed="s">
@@ -249,20 +311,19 @@ y,m
 z,m
 ```
 
-Como la unicidad es matemática y no contabilidad, esto escala hasta un archivo de un
-terabyte sin costo de memoria — no hay nada contra qué comparar. **Límites del `uniq`
-rápido:** solo campos/secuencias [`text`](../generators/text.md#top), uniformes (sin `percent`
-en esas columnas) y a lo más `2^52` combinaciones.
+La memoria se mantiene acotada en las dos formas: las columnas se resuelven a partir del
+número de fila, y la revisión de duplicados corre por fuera en vez de retener el conjunto
+de datos. Lo que cuesta es tiempo, no RAM — vea la advertencia arriba. **Límites:** los
+campos de un `uniq` compuesto tienen que ser listas [`text`](../generators/text.md#top).
 
 **La capacidad se revisa antes de que empiece la corrida.** Si pide más filas únicas de
-las que puede sostener el espacio de combinaciones, TDC falla de inmediato con un error
-claro — no ocho horas después, a media escritura del archivo:
+las que los datos pueden producir, TDC falla de inmediato con un error claro — no ocho
+horas después, a media escritura del archivo:
 
 `./run oversized-uniq.tdc`
 
 ```
-tdc: stream mode: uniq "K" is infeasible — only 1000000 distinct
-combinations exist, but 5000000000 unique rows were requested.
+tdcv2: uniq "K" is infeasible — its data supports at most 100 distinct rows, but 5000000000 were requested. Widen a column's values or lower count.
 ```
 
 ### `<mix>` en el stream
@@ -300,14 +361,14 @@ Sobre 1000 filas el reparto es exacto: 200 `new`, 500 `active-N`, 300 `closed`. 
 también se compone con [`parent`](hierarchical-dependencies.md#top) — y entonces está activo
 solo en las filas del padre.
 
-## Por qué el motor rápido no combina `percent` + `uniq`
+## Por qué `percent` + `uniq` es la pareja cara
 
-La unicidad por construcción y el porcentaje exacto por construcción son dos trucos
-**distintos**, y al vuelo (sin guardar lo que ya se generó) no se combinan — hacer ambos a
-la vez es o materialización total o un problema NP-difícil. Así que para esa única
-combinación TDC usa el **motor exacto en disco**, que retiene los datos y los permuta,
-verificando contra el conjunto completo. Es más lento, pero hace ambas cosas de forma
-exacta, a cualquier tamaño. El cambio es **automático** — no hay que activarlo.
+Los porcentajes exactos se reparten sobre la columna entera; la unicidad se revisa sobre la
+columna entera. Cada cosa por separado es asequible. Pedir las dos a la vez es un problema
+de acomodo con restricciones encima de la revisión, y eso es o materialización total o una
+búsqueda NP-difícil. El motor exacto en disco lo hace igual, a cualquier tamaño, reteniendo
+el acomodo y reparando las colisiones que encuentra — de forma correcta, y mucho más
+lentamente que cualquiera de las dos restricciones por separado.
 
 ## Paralelismo — automático
 
@@ -332,14 +393,14 @@ Una medición — 1 000 000 de filas, seis campos (un contador, dos nombres de p
 columna con `percent`, una distribución normal y una fecha), un archivo de 74 MB, en una
 máquina de 12 núcleos:
 
-| `--jobs`      | tiempo | aceleración |
-| :------------ | -----: | ----------: |
-| 1             | 6.93 s |          ×1 |
-| 2             | 4.04 s |        ×1.7 |
-| 4             | 2.27 s |        ×3.1 |
-| 8             | 1.57 s |    **×4.4** |
-| 12            | 1.72 s |        ×4.0 |
-| auto          | 1.69 s |        ×4.1 |
+| `--jobs` | tiempo | aceleración |
+| :------- | -----: | ----------: |
+| 1        | 6.93 s |          ×1 |
+| 2        | 4.04 s |        ×1.7 |
+| 4        | 2.27 s |        ×3.1 |
+| 8        | 1.57 s |    **×4.4** |
+| 12       | 1.72 s |        ×4.0 |
+| auto     | 1.69 s |        ×4.1 |
 
 Dos lecciones. **Más hilos no siempre es más rápido:** doce hilos en doce núcleos pierden
 contra ocho — se pelean por los mismos núcleos y el mismo disco. Y **por lo general no hay
@@ -358,15 +419,16 @@ hilo); la salida es idéntica de cualquier forma:
 npx tdcv2 customers.tdc --jobs 8 -o customers.csv
 ```
 
-Cuando el paralelismo **no** entra en acción, auto se queda callado, pero si pidió `--jobs`
-explícitamente TDC le dice por qué — por ejemplo, una configuración en el motor **exacto**
-(`percent` + `uniq` juntos corre en un solo hilo). La salida es correcta de cualquier
-forma.
+A veces el paralelismo **no** entra en acción. Solo el motor rápido de streaming reparte
+una corrida entre núcleos, así que todo lo que [se rutea fuera de
+él](#qué-motor-corre-su-configuración) — cualquier `uniq`, un generador `http`, un enlace
+de fila ponderado — corre en un solo hilo. Auto se queda callado al respecto, pero si pidió
+`--jobs` explícitamente TDC le dice por qué. La salida es correcta de cualquier forma.
 
 ## El motor se elige por su configuración, no por su hardware
 
-Cuál motor corre (el rápido o el exacto) lo decide TDC **por el contenido de la
-configuración**, nunca por la máquina. Esto importa: si la elección dependiera de «cuánta
+Cuál de los tres motores corre lo decide TDC **por el contenido de la configuración**,
+nunca por la máquina. Esto importa: si la elección dependiera de «cuánta
 RAM hay libre en este momento», entonces **la misma configuración con el mismo seed podría
 producir datos distintos en computadoras distintas** — y la reproducibilidad entre máquinas
 es la garantía central de TDC. Como el ruteo depende solo de la configuración, una
@@ -399,16 +461,16 @@ La salida de texto (`toString`/`toIterator`/`toStream`/`writeFile`/CLI) pasa por
 así que retienen datos en memoria (algo razonable para los conjuntos chicos para los que
 existe la API de objetos).
 
-| Método         | Salida de texto        | Memoria                | Sirve para                        |
-| :------------- | :--------------------- | :--------------------- | :-------------------------------- |
-| `toString()`   | recolectada completa   | O(campos) + texto completo | resultados chicos / medianos  |
-| `toIterator()` | una fila a la vez      | O(campos)              | resultados de texto grandes, fila por fila |
-| `toStream()`   | `Readable` de Node     | O(campos)              | canalizar a un archivo / HTTP / un archivador |
-| `writeFile()`  | por trozos a un archivo | O(campos)             | la salida más simple para un archivo grande |
-| CLI            | por trozos             | O(campos)              | la línea de comandos              |
-| `toArray()`    | filas como objetos, completas | materializadas en RAM | fixtures de objetos chicas / medianas |
-| `iterate()`    | filas como objetos, una por una | materializadas en RAM | salida de objetos, una fila a la vez |
-| `getAt(index)` | una fila como objeto   | materializada por llamada | acceso puntual, no masivo      |
+| Método         | Salida de texto                 | Memoria                    | Sirve para                                    |
+| :------------- | :------------------------------ | :------------------------- | :-------------------------------------------- |
+| `toString()`   | recolectada completa            | O(campos) + texto completo | resultados chicos / medianos                  |
+| `toIterator()` | una fila a la vez               | O(campos)                  | resultados de texto grandes, fila por fila    |
+| `toStream()`   | `Readable` de Node              | O(campos)                  | canalizar a un archivo / HTTP / un archivador |
+| `writeFile()`  | por trozos a un archivo         | O(campos)                  | la salida más simple para un archivo grande   |
+| CLI            | por trozos                      | O(campos)                  | la línea de comandos                          |
+| `toArray()`    | filas como objetos, completas   | materializadas en RAM      | fixtures de objetos chicas / medianas         |
+| `iterate()`    | filas como objetos, una por una | materializadas en RAM      | salida de objetos, una fila a la vez          |
+| `getAt(index)` | una fila como objeto            | materializada por llamada  | acceso puntual, no masivo                     |
 
 Para archivos grandes, use la CLI, `writeFile()`, `toIterator()` o `toStream()`:
 
@@ -521,9 +583,11 @@ const diagnostic = tdc.preflight({ output: "streaming" });
 
 ## Qué se materializa en RAM
 
-El motor de streaming (a disco) no guarda nada extra en memoria. La materialización ocurre
-solo en el **motor pequeño en RAM** — la API de objetos (`toArray`/`iterate`/`getAt`) y un
-`mode="memory"` explícito. Ahí retiene, de entrada:
+Los dos motores de disco no guardan nada extra en memoria. La materialización ocurre en el
+**motor pequeño en RAM** — al que se llega por la API de objetos
+(`toArray`/`iterate`/`getAt`), por un `mode="memory"` explícito y por cualquiera de las
+[cinco formas de configuración que rutean una corrida a disco de vuelta a
+él](#qué-motor-corre-su-configuración). Ahí retiene, de entrada:
 
 - los integrados `_count`, `_first`, `_last`, `_total`;
 - cada `<sequence>` simple;
@@ -557,6 +621,9 @@ ocupa dos ranuras de secuencia: `Person.FirstName` y `Person.LastName`.
 
 - Para un archivo de cualquier tamaño, simplemente use `writeFile()` o la CLI — a disco por
   omisión, y la memoria no crece con las filas.
+- Antes de una corrida muy grande, revise la configuración contra [las cinco formas que la
+  rutean de vuelta a memoria](#qué-motor-corre-su-configuración). El `uniq="true"` simple
+  es la que hay que vigilar.
 - Para acelerar muchas filas, agregue [`--jobs N`](../reference/cli.md#top) (en el motor
   rápido).
 - `toString()` es cómodo para pruebas y resultados chicos, pero junta todo el texto en una

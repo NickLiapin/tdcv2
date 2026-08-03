@@ -19,14 +19,14 @@ se le dé. Esta página recorre cada uno.
 
 ## De un vistazo
 
-| Atributo     | Obligatorio | Qué hace                                                            |
-| :----------- | :---------- | :------------------------------------------------------------------ |
-| `value`      | no          | `bit`, un rango `"100..999"`, o una lista de rangos                 |
-| `length`     | no          | Ancho fijo `"10"`, un rango `"2-10"`, o grupos `"2,10-12"`          |
+| Atributo     | Obligatorio | Qué hace                                                                            |
+| :----------- | :---------- | :---------------------------------------------------------------------------------- |
+| `value`      | no          | `bit`, un rango `"100..999"`, o una lista de rangos                                 |
+| `length`     | no          | Ancho fijo `"10"`, un rango `"2-10"`, o grupos `"2,10-12"`                          |
 | `percent`    | no          | Proporciones para los grupos de `length`, p. ej. `length="2,10-12" percent="85,15"` |
-| `first_zero` | no          | `true` / `false` — si se permite un cero inicial                    |
-| `include`    | no          | Agrega números o rangos a `value`                                   |
-| `exclude`    | no          | Quita números o rangos de `value`                                   |
+| `first_zero` | no          | `true` / `false` — si se permite un cero inicial                                    |
+| `include`    | no          | Agrega números o rangos a `value`                                                   |
+| `exclude`    | no          | Quita números o rangos de `value`                                                   |
 
 **Sin** `value` y **sin** `length`, `number` emite un solo dígito aleatorio del `0`
 al `9`.
@@ -139,8 +139,8 @@ rango al azar, y luego un número dentro de él.
 > [!NOTE]
 > **Detalle de la distribución**
 >
-> Con una **lista** de rangos, cada *rango* es igual de probable, y luego un número
-> *dentro* del rango elegido es igual de probable — de modo que los números
+> Con una **lista** de rangos, cada _rango_ es igual de probable, y luego un número
+> _dentro_ del rango elegido es igual de probable — de modo que los números
 > individuales **no** quedan uniformes sobre el conjunto completo. Si quiere una
 > elección genuinamente uniforme sobre un rango al que le faltan unos cuantos huecos,
 > use `exclude` (más abajo) en su lugar.
@@ -272,7 +272,7 @@ value="0..9" include="100"             → 8
 Dos cosas que vale la pena saber:
 
 - **La elección sí es genuinamente uniforme** sobre todo lo que queda. `value="0..9"
-  exclude="3"` da exactamente 1/9 para cada uno de los nueve números
+exclude="3"` da exactamente 1/9 para cada uno de los nueve números
   sobrevivientes — a diferencia de una lista de rangos, donde lo que pesa igual son
   los rangos, no los números.
 - **`exclude` tiene la última palabra.** El conjunto final es

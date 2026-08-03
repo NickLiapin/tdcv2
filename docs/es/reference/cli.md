@@ -35,14 +35,14 @@ y los datos — vea [Instalar packs](../data-packs/installing-packs.md#top) — 
 | Opción                  | Qué hace                                                 |
 | :---------------------- | :------------------------------------------------------- |
 | `-o, --output <path>`   | Escribe en un archivo. Sin ella, imprime en stdout       |
-| `--seed <seed>`         | Sobrescribe el `seed` de `<env>`                          |
-| `--count <n>`           | Sobrescribe el `count` de `<env>`                         |
+| `--seed <seed>`         | Sobrescribe el `seed` de `<env>`                         |
+| `--count <n>`           | Sobrescribe el `count` de `<env>`                        |
 | `--locale <loc>`        | Sobrescribe el locale (por omisión `en`)                 |
 | `--data-path <dir>`     | Agrega una carpeta de datos para `@data/…` (repetible)   |
 | `--jobs <n>`            | Cantidad de hilos de trabajo (por omisión lo decide TDC) |
 | `--mode <memory\|disk>` | Motor: `disk` (por omisión) o `memory`                   |
 | `--engine <1\|2\|3>`    | Forzar un motor específico (avanzado)                    |
-| `--disk`                | Atajo de `--mode disk` — ya es el valor por omisión     |
+| `--disk`                | Atajo de `--mode disk` — ya es el valor por omisión      |
 | `--stream`              | Alias heredado de `--engine 2`                           |
 | `-h, --help`            | Muestra la ayuda                                         |
 | `-v, --version`         | Muestra la versión                                       |
@@ -173,11 +173,11 @@ archivo queda intacto (código de salida 1).
 
 ## Códigos de salida
 
-| Código | Significado                                    |
-| -----: | :--------------------------------------------- |
-| `0`  | Generación exitosa, `--help` o `--version`       |
-| `1`  | Error de lectura, parseo, validación o ejecución |
-| `2`  | Argumentos de CLI incorrectos                    |
+| Código | Significado                                      |
+| -----: | :----------------------------------------------- |
+|    `0` | Generación exitosa, `--help` o `--version`       |
+|    `1` | Error de lectura, parseo, validación o ejecución |
+|    `2` | Argumentos de CLI incorrectos                    |
 
 ## Vea también
 

@@ -65,32 +65,32 @@ declare una secuencia con nombre y refiérase a ella con `${{Nombre}}` — vea
 
 Estos atributos funcionan en **todos** los generadores; el resto dependen de `type`.
 
-| Atributo  | Obligatorio | Qué hace                                                                                                     |
-| :-------- | :---------- | :----------------------------------------------------------------------------------------------------------- |
-| `type`    | **sí**      | Cuál generador se usa (vea la tabla de abajo)                                                                 |
+| Atributo  | Obligatorio | Qué hace                                                                                                                                                                                                                     |
+| :-------- | :---------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `type`    | **sí**      | Cuál generador se usa (vea la tabla de abajo)                                                                                                                                                                                |
 | `name`    | no          | Convierte el generador en un **campo** de su secuencia, que se lee como `${{Secuencia.Campo}}`. Sin él, el valor se suma al [valor propio de la secuencia](../core-concepts/sequences.md#una-secuencia-compuesta-por-valor) |
-| `if`      | no          | Condición de rama dentro de una [secuencia condicional](../core-concepts/sequences.md#top) — gana el primer `<gen>` verdadero |
-| `comment` | no          | Comentario libre, el motor lo ignora                                                                          |
+| `if`      | no          | Condición de rama dentro de una [secuencia condicional](../core-concepts/sequences.md#top) — gana el primer `<gen>` verdadero                                                                                                   |
+| `comment` | no          | Comentario libre, el motor lo ignora                                                                                                                                                                                         |
 
 ## Los generadores
 
 Cada tipo tiene su propia página, con todos sus parámetros y ejemplos resueltos.
 
-| `type`                                          | Produce                                                        |
-| :---------------------------------------------- | :------------------------------------------------------------- |
-| [`text`](text.md#top)                              | Un valor de un conjunto — uniforme, o con `percent` exacto     |
-| [`number`](number.md#top)                          | Un entero dentro de un rango, o una cadena de dígitos de ancho fijo |
-| [`template`](template.md#top)                      | Datos realistas integrados e identificadores técnicos          |
-| [`file`](file.md#top)                              | Valores leídos de sus propios archivos y columnas CSV          |
-| [`date`](date.md#top)                              | Una fecha o fecha-hora dentro de un rango y con un formato     |
-| [`symbol`](symbol.md#top)                          | Una cadena de caracteres de un conjunto o alfabeto con nombre  |
-| [`regex`](regex.md#top)                            | Una cadena que corresponde a una expresión regular finita      |
-| [`advanced_regex`](advanced-regex.md#top)          | Regex más elección ponderada entre alternativas                |
-| [`increment` / `decrement`](counters.md#top)       | Contadores ascendentes y descendentes                          |
-| [`timeseries`](timeseries.md#top)                  | Una serie de tiempo — tendencia + estacionalidad + ruido       |
-| [`pattern`](pattern.md#top)                        | Una distribución con la forma de una curva dibujada            |
-| [`http`](http.md#top)                              | Valores que responde su propio servicio, por lotes             |
-| [`running`](running.md#top)                        | Un total que se arrastra por la columna — un saldo, un máximo   |
+| `type`                                    | Produce                                                             |
+| :---------------------------------------- | :------------------------------------------------------------------ |
+| [`text`](text.md#top)                        | Un valor de un conjunto — uniforme, o con `percent` exacto          |
+| [`number`](number.md#top)                    | Un entero dentro de un rango, o una cadena de dígitos de ancho fijo |
+| [`template`](template.md#top)                | Datos realistas integrados e identificadores técnicos               |
+| [`file`](file.md#top)                        | Valores leídos de sus propios archivos y columnas CSV               |
+| [`date`](date.md#top)                        | Una fecha o fecha-hora dentro de un rango y con un formato          |
+| [`symbol`](symbol.md#top)                    | Una cadena de caracteres de un conjunto o alfabeto con nombre       |
+| [`regex`](regex.md#top)                      | Una cadena que corresponde a una expresión regular finita           |
+| [`advanced_regex`](advanced-regex.md#top)    | Regex más elección ponderada entre alternativas                     |
+| [`increment` / `decrement`](counters.md#top) | Contadores ascendentes y descendentes                               |
+| [`timeseries`](timeseries.md#top)            | Una serie de tiempo — tendencia + estacionalidad + ruido            |
+| [`pattern`](pattern.md#top)                  | Una distribución con la forma de una curva dibujada                 |
+| [`http`](http.md#top)                        | Valores que responde su propio servicio, por lotes                  |
+| [`running`](running.md#top)                  | Un total que se arrastra por la columna — un saldo, un máximo       |
 
 **Sobre los presets.** El viejo `type="preset"` ya no existe. Los identificadores
 algorítmicos —UUID, IBAN, números de tarjeta de crédito, SHA de git, identificaciones
@@ -148,7 +148,7 @@ atributos se le haya puesto.
 
 ### `case=` / `mask=` — mayúsculas/minúsculas y máscaras de presentación
 
-**Úselo cuando** el valor crudo es correcto pero debe *verse* de cierta manera: una
+**Úselo cuando** el valor crudo es correcto pero debe _verse_ de cierta manera: una
 columna que tiene que ir toda en mayúsculas, o un número simple que debe leerse como
 un identificador con formato.
 
@@ -189,8 +189,8 @@ nombres de los meses en orden de calendario, una lista de catálogo recorrida de
 arriba abajo, o dos columnas que tienen que quedar alineadas (como en el ejemplo de
 arriba).
 
-Por omisión, `order="random"`. Ponga `order="sequential"` y la fila *i* toma el
-*i*-ésimo valor en orden, volviendo al inicio cuando la lista se acaba.
+Por omisión, `order="random"`. Ponga `order="sequential"` y la fila _i_ toma el
+_i_-ésimo valor en orden, volviendo al inicio cuando la lista se acaba.
 `cycle="false"` convierte esa vuelta al inicio en un error explícito — útil cuando
 quedarse sin valores debe ser una falla y no una repetición silenciosa.
 

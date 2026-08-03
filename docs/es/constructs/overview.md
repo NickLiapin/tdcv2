@@ -11,21 +11,21 @@
 # Construcciones
 
 Un [generador](../generators/overview.md#top) produce un valor. Una **construcción** decide
-qué pasa alrededor de ese valor: *cuál* se usa, *si* aparece siquiera, *cuántos* van en
+qué pasa alrededor de ese valor: _cuál_ se usa, _si_ aparece siquiera, _cuántos_ van en
 una celda, si puede repetirse, y en cuántas filas se convierte un registro.
 
 Esa es la lista completa. Seis construcciones; todo lo demás en TDC es o un generador, o
 un lugar donde poner texto, o una forma de calcular algo a partir de valores que ya
 tiene.
 
-| Construcción | La pregunta que responde | |
-| :----------- | :----------------------- | :-- |
-| `<mix>` | ¿Cuál de varias ramas — en proporciones exactas? | [Elegir entre valores](mix.md#top) |
-| `<switch>` | ¿Qué valor se deduce de otro campo? | [Tablas de consulta](switch.md#top) |
-| `if` | ¿Debe aparecer esta pieza? | [Condiciones](conditional-output.md#top) |
-| `repeat` | ¿Cuántos valores van en una celda? | [Varios valores en una celda](multiple-values.md#top) |
-| `each` | ¿Cuántas filas produce un registro? | [Una fila por elemento](relational-tables.md#top) |
-| `uniq` · `<distinct>` | ¿Puede repetirse un valor — en la fila, o nunca? | [Unicidad](unique-values.md#top) |
+| Construcción          | La pregunta que responde                         |                                                    |
+| :-------------------- | :----------------------------------------------- | :------------------------------------------------- |
+| `<mix>`               | ¿Cuál de varias ramas — en proporciones exactas? | [Elegir entre valores](mix.md#top)                    |
+| `<switch>`            | ¿Qué valor se deduce de otro campo?              | [Tablas de consulta](switch.md#top)                   |
+| `if`                  | ¿Debe aparecer esta pieza?                       | [Condiciones](conditional-output.md#top)              |
+| `repeat`              | ¿Cuántos valores van en una celda?               | [Varios valores en una celda](multiple-values.md#top) |
+| `each`                | ¿Cuántas filas produce un registro?              | [Una fila por elemento](relational-tables.md#top)     |
+| `uniq` · `<distinct>` | ¿Puede repetirse un valor — en la fila, o nunca? | [Unicidad](unique-values.md#top)                      |
 
 Otras tres cosas se comportan como construcciones y están documentadas en otro lugar,
 porque pertenecen a un tema mayor:

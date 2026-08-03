@@ -52,17 +52,17 @@ puntos en línea: una sola línea con `points`, o una banda con `upper` / `lower
 <gen type="pattern" upper="0,20 50,40 100,20" lower="0,5 50,10 100,5" y_range="0..40"/>
 ```
 
-| Atributo          | Qué define                                                                     |
-| :---------------- | :----------------------------------------------------------------------------- |
-| `src`             | Un archivo **SVG** o **PNG** — la forma habitual de dar la figura               |
-| `points`          | Pares `x,y` tecleados en el config en vez de un archivo: `x` a lo ancho, `y` la altura |
-| `upper` / `lower` | Dos curvas de borde tecleadas en el config — un [corredor](#el-dibujo-se-lee-columna-por-columna) |
+| Atributo          | Qué define                                                                                                                            |
+| :---------------- | :------------------------------------------------------------------------------------------------------------------------------------ |
+| `src`             | Un archivo **SVG** o **PNG** — la forma habitual de dar la figura                                                                     |
+| `points`          | Pares `x,y` tecleados en el config en vez de un archivo: `x` a lo ancho, `y` la altura                                                |
+| `upper` / `lower` | Dos curvas de borde tecleadas en el config — un [corredor](#el-dibujo-se-lee-columna-por-columna)                                     |
 | `mode`            | `signal` (por omisión) — una trayectoria; `density` — una [distribución](#mode--las-dos-preguntas-que-se-le-pueden-hacer-a-un-dibujo) |
-| `y_range`         | `min..max` — el rango de los valores que se obtienen; el dibujo se estira dentro de él |
-| `interp`          | `linear` (por omisión) / `smooth` / `step` — el comportamiento de la línea entre puntos |
-| `spread`          | Dispersa cada fila en ±N, en unidades de `y_range` (por omisión `0` — línea exacta) |
-| `ink_threshold`   | `0..1` — qué tan oscuro debe ser un píxel del PNG para contar como tinta (por omisión `0.5`) |
-| `decimals`        | Dígitos después del punto decimal (por omisión `0`)                             |
+| `y_range`         | `min..max` — el rango de los valores que se obtienen; el dibujo se estira dentro de él                                                |
+| `interp`          | `linear` (por omisión) / `smooth` / `step` — el comportamiento de la línea entre puntos                                               |
+| `spread`          | Dispersa cada fila en ±N, en unidades de `y_range` (por omisión `0` — línea exacta)                                                   |
+| `ink_threshold`   | `0..1` — qué tan oscuro debe ser un píxel del PNG para contar como tinta (por omisión `0.5`)                                          |
+| `decimals`        | Dígitos después del punto decimal (por omisión `0`)                                                                                   |
 
 ## `src` — la figura es el config
 
@@ -297,11 +297,11 @@ Entre dos puntos dibujados lejos uno del otro pueden caber miles de filas. Libra
 su suerte, un segmento recto sube exactamente lo mismo en cada fila: matemáticamente
 correcto y visiblemente sintético. `interp` elige el comportamiento:
 
-| Valor                  | Qué hace                                                              |
+| Valor                  | Qué hace                                                               |
 | :--------------------- | :--------------------------------------------------------------------- |
-| `linear` (por omisión) | Segmentos rectos — ritmo constante entre dos puntos                     |
-| `smooth`               | Una curva por los puntos que **entra y sale suave**, sin pasarse nunca  |
-| `step`                 | Sostiene el valor de cada punto hasta el siguiente — una escalera       |
+| `linear` (por omisión) | Segmentos rectos — ritmo constante entre dos puntos                    |
+| `smooth`               | Una curva por los puntos que **entra y sale suave**, sin pasarse nunca |
+| `step`                 | Sostiene el valor de cada punto hasta el siguiente — una escalera      |
 
 `smooth` usa una cúbica monótona: redondea las esquinas y varía el ritmo, pero nunca
 puede llevar la línea por encima ni por debajo de los valores que usted realmente
@@ -430,10 +430,10 @@ de sus valores no se parece al dibujo. Cuando lo que quiere es que el dibujo def
 
 La misma figura responde dos preguntas distintas, y `mode` elige cuál:
 
-| Modo                    | La pregunta                                    | Qué sale                                                                     |
-| :---------------------- | :--------------------------------------------- | :--------------------------------------------------------------------------- |
-| `signal` (por omisión)  | ¿qué valor recibe **esta fila**?               | `0, 20, 40, 70, 90, 100, 90, 70, 40, 20, 0` — camina a lo largo de la línea, en orden |
-| `density`               | ¿con qué **frecuencia** aparece este valor?    | un montón de números agrupados alrededor de la joroba dibujada, en orden aleatorio |
+| Modo                   | La pregunta                                 | Qué sale                                                                              |
+| :--------------------- | :------------------------------------------ | :------------------------------------------------------------------------------------ |
+| `signal` (por omisión) | ¿qué valor recibe **esta fila**?            | `0, 20, 40, 70, 90, 100, 90, 70, 40, 20, 0` — camina a lo largo de la línea, en orden |
+| `density`              | ¿con qué **frecuencia** aparece este valor? | un montón de números agrupados alrededor de la joroba dibujada, en orden aleatorio    |
 
 En `density` los ejes intercambian significado: el eje horizontal es el **valor**, y
 la altura de la curva es **con qué frecuencia** ocurre ese valor. Dibuje una joroba en

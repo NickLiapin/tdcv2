@@ -60,8 +60,7 @@ Day 11    979
 Day 12    1014`}
 </Terminal>
 
-Ni subida, ni bajada, ni repetición: cada día simplemente da vueltas alrededor de
-1000. Las métricas reales no se ven así: las ventas tienen una tendencia (el negocio
+Ni subida, ni bajada, ni repetición: cada día simplemente da vueltas alrededor de 1000. Las métricas reales no se ven así: las ventas tienen una tendencia (el negocio
 crece), un ritmo semanal (los fines de semana no son como los días hábiles) y solo
 _encima de eso_ algo de desviación aleatoria. Esas tres capas son justamente lo que
 agrega `timeseries`.
@@ -72,14 +71,14 @@ agrega `timeseries`.
 <gen type="timeseries" base="1000" trend="20" period="7" amplitude="150" noise="30"/>
 ```
 
-| Atributo    | Qué define                                                          |
-| :---------- | :------------------------------------------------------------------ |
-| `base`      | Nivel inicial (por omisión `0`)                                     |
-| `trend`     | Pendiente: cuánto sube el valor en cada paso                        |
-| `period`    | Largo de la onda estacional, en filas (p. ej. `7` = una semana)     |
-| `amplitude` | Altura de la onda estacional                                        |
-| `noise`     | Fuerza del ruido aleatorio (desviación estándar)                    |
-| `decimals`  | Dígitos después del punto decimal (por omisión `0` — entero)        |
+| Atributo    | Qué define                                                      |
+| :---------- | :-------------------------------------------------------------- |
+| `base`      | Nivel inicial (por omisión `0`)                                 |
+| `trend`     | Pendiente: cuánto sube el valor en cada paso                    |
+| `period`    | Largo de la onda estacional, en filas (p. ej. `7` = una semana) |
+| `amplitude` | Altura de la onda estacional                                    |
+| `noise`     | Fuerza del ruido aleatorio (desviación estándar)                |
+| `decimals`  | Dígitos después del punto decimal (por omisión `0` — entero)    |
 
 Todas las capas son opcionales. Las secciones siguientes las toman una por una: qué
 hace cada una y cuándo conviene echarle mano.

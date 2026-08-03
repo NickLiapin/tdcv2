@@ -140,7 +140,7 @@ renderizar y nunca aparece en la salida — es cómoda para anotar un diseño co
 El bloque de salida es solo para **formatear**. No se puede poner un `<gen>` ni un `<mix>`
 directamente en un `<line>`: declare una [`<sequence>`](sequences.mdx) nombrada (o un
 [`<mix>`](../reference/tags.mdx)) en [`<env>`](configuration.mdx) y refiéralo con
-`${{Name}}`. Así se mantiene separado *qué son los datos* de *cómo se acomodan*.
+`${{Name}}`. Así se mantiene separado _qué son los datos_ de _cómo se acomodan_.
 
 Un límite relacionado: un generador
 [`advanced_regex`](../generators/advanced-regex.mdx) usado desde la salida no puede
@@ -199,7 +199,7 @@ YAML, un árbol.
 
 La diferencia que conviene captar: la indentación de las **etiquetas** (`<line>`
 desplazado dos espacios) es la disposición de su propio config y no aparece en ninguna
-parte. Solo es texto lo que está *entre* `<data>` y `</data>`. En el esquema de abajo,
+parte. Solo es texto lo que está _entre_ `<data>` y `</data>`. En el esquema de abajo,
 los dos espacios delante de `id` están dentro de los datos y sobreviven; los cuatro
 delante de `<line>` están fuera y desaparecen:
 
@@ -313,7 +313,7 @@ la máscara, luego mayúsculas). El conjunto completo —`mask`,
 `upper`/`lower`/`capitalize`/`title`, `slice`, `replace`, `trim`, `group`, `compact` y los
 escapes `csv`/`sql`— está en **[Máscaras y mayúsculas](../guides/masks-and-case.mdx)**.
 
-### Dónde *no* se ejecuta la interpolación
+### Dónde _no_ se ejecuta la interpolación
 
 - **No en las fixtures.** `${{…}}` queda intacto dentro de
   [`<before>`](#fixtures--texto-alrededor-de-los-registros) / `<after>` /

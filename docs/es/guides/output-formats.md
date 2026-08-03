@@ -90,12 +90,12 @@ leer.
 7,Juego de cuchillos, 3 pzas,Cocina,32.00
 
 # lo que en realidad ve un lector de CSV — 5 campos, no 4:
-7 | Juego de cuchillos |  3 pzas | Cocina | 32.00
+
+7 | Juego de cuchillos | 3 pzas | Cocina | 32.00
 ```
 
 **Herramienta.** El filtro [`csv`](masks-and-case.md#top) envuelve un campo entre comillas
-cuando las necesita y duplica cualquier comilla interna — exactamente lo que pide el RFC
-4180. Póngalo en **cada** campo de texto que venga de fuera de su configuración:
+cuando las necesita y duplica cualquier comilla interna — exactamente lo que pide el RFC 4180. Póngalo en **cada** campo de texto que venga de fuera de su configuración:
 
 ```xml
 <block>
@@ -501,6 +501,7 @@ Y luego se carga:
 sqlite3 shop.db < shop.sql
 
 # PostgreSQL — el mismo archivo
+
 psql -f shop.sql
 ```
 

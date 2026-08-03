@@ -41,11 +41,11 @@ pueden variar entre versiones del núcleo.
 
 ## Atributos
 
-| Atributo  | Obligatorio | Qué hace                                                              |
-| :-------- | :---------- | :-------------------------------------------------------------------- |
-| `name`    | **sí**      | El nombre de la secuencia — con él se la referencia, p. ej. `${{City}}` |
+| Atributo  | Obligatorio | Qué hace                                                                     |
+| :-------- | :---------- | :--------------------------------------------------------------------------- |
+| `name`    | **sí**      | El nombre de la secuencia — con él se la referencia, p. ej. `${{City}}`      |
 | `parent`  | no          | Restringe esta secuencia a un subconjunto de filas. Sintaxis: `Parent.Value` |
-| `comment` | no          | Una nota de texto libre; el motor la ignora                           |
+| `comment` | no          | Una nota de texto libre; el motor la ignora                                  |
 
 El único hijo obligatorio es una o más etiquetas
 [`<gen>`](../generators/overview.md#top), que producen los valores reales.
@@ -245,7 +245,7 @@ de la secuencia, `${{AgeGroup}}`:
 ```
 
 Una secuencia condicional sigue siendo una sola columna: se lee como `${{AgeGroup}}`,
-igual que una simple. Las varias etiquetas `<gen>` solo deciden *qué* valor llena cada
+igual que una simple. Las varias etiquetas `<gen>` solo deciden _qué_ valor llena cada
 fila.
 
 ## Secuencias dependientes (`parent`)

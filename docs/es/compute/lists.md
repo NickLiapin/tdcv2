@@ -80,14 +80,14 @@ literal: 10-20-30 | string: 4-8-1-6 | each: 10-20-30
 La columna interesante es la del medio: `Code` es el string `4816`, y `<over>` le entregó
 a `<each>` cuatro caracteres sueltos.
 
-| Etiqueta                                   | Qué hace                                                  |
-| :----------------------------------------- | :-------------------------------------------------------- |
-| [`<list>`](#list--una-lista-literal-de-valores) | una lista literal: `<list v="2,4,10"/>` o armada con hijos |
-| [`<each>`](#each--mapear-sobre-una-lista)  | aplica un cuerpo a cada elemento → una lista nueva        |
-| [`<reduce>`](#reduce--plegar-a-un-solo-valor) | pliega una lista a un solo valor, a través de un acumulador |
-| [`<join>`](#join--de-lista-a-string)       | una lista → un string (atributo `sep`)                    |
-| [`<at>`](#at--indexar-una-lista)           | un elemento por índice (atributo `default` si queda fuera de rango) |
-| [`<length>`](#length--medir-un-string-o-una-lista) | la longitud de un string o de una lista           |
+| Etiqueta                                           | Qué hace                                                            |
+| :------------------------------------------------- | :------------------------------------------------------------------ |
+| [`<list>`](#list--una-lista-literal-de-valores)    | una lista literal: `<list v="2,4,10"/>` o armada con hijos          |
+| [`<each>`](#each--mapear-sobre-una-lista)          | aplica un cuerpo a cada elemento → una lista nueva                  |
+| [`<reduce>`](#reduce--plegar-a-un-solo-valor)      | pliega una lista a un solo valor, a través de un acumulador         |
+| [`<join>`](#join--de-lista-a-string)               | una lista → un string (atributo `sep`)                              |
+| [`<at>`](#at--indexar-una-lista)                   | un elemento por índice (atributo `default` si queda fuera de rango) |
+| [`<length>`](#length--medir-un-string-o-una-lista) | la longitud de un string o de una lista                             |
 
 Las salidas de ejemplo de esta página son ilustrativas — los valores exactos dependen del
 seed y de la versión del núcleo, pero cada valor derivado se calcula exactamente a partir
@@ -289,14 +289,14 @@ términos que una suma de verificación va a sumar después.
 Usted camina junto a un estante con un frasco en la mano. En cada paso mira el objeto que
 tiene y decide qué va al frasco. Cuando la lista termina, el frasco es la respuesta.
 
-| Etiqueta | En versión frasco | Qué guarda |
-| :--- | :--- | :--- |
-| `<init>` | qué hay en el frasco antes de empezar | el valor inicial |
-| `<over>` | el estante que recorre | la lista o el string |
-| `<do>` | qué hace en cada paso | una expresión, evaluada una vez por elemento |
-| `<acc>` | qué hay en el frasco ahora mismo | lo que `<do>` produjo la vez anterior |
-| `<current>` | el objeto que tiene en la mano | el elemento de este paso |
-| `<current_index>` | qué paso es, contando desde 0 | un número |
+| Etiqueta          | En versión frasco                     | Qué guarda                                   |
+| :---------------- | :------------------------------------ | :------------------------------------------- |
+| `<init>`          | qué hay en el frasco antes de empezar | el valor inicial                             |
+| `<over>`          | el estante que recorre                | la lista o el string                         |
+| `<do>`            | qué hace en cada paso                 | una expresión, evaluada una vez por elemento |
+| `<acc>`           | qué hay en el frasco ahora mismo      | lo que `<do>` produjo la vez anterior        |
+| `<current>`       | el objeto que tiene en la mano        | el elemento de este paso                     |
+| `<current_index>` | qué paso es, contando desde 0         | un número                                    |
 
 `<over>`, `<init>` y `<do>` son ranuras: tres trabajos distintos, tres nombres distintos.
 El orden entre ellas en el archivo no importa; omitir una sí — las tres son obligatorias.
@@ -348,11 +348,11 @@ Cuatro pasos, una fila cada uno. El `acc` antes de un paso es lo que devolvió e
 anterior; `<init>` aporta el primero de todos.
 
 | Paso | `<current_index/>` | `<current/>` | `<acc/>` antes | `<do>` calcula | `<acc/>` después |
-| ---: | ---: | ---: | ---: | :--- | ---: |
-| 1 | 0 | 4 | 0 | 0 + 4 | 4 |
-| 2 | 1 | 8 | 4 | 4 + 8 | 12 |
-| 3 | 2 | 1 | 12 | 12 + 1 | 13 |
-| 4 | 3 | 6 | 13 | 13 + 6 | 19 |
+| ---: | -----------------: | -----------: | -------------: | :------------- | ---------------: |
+|    1 |                  0 |            4 |              0 | 0 + 4          |                4 |
+|    2 |                  1 |            8 |              4 | 4 + 8          |               12 |
+|    3 |                  2 |            1 |             12 | 12 + 1         |               13 |
+|    4 |                  3 |            6 |             13 | 13 + 6         |               19 |
 
 El frasco tras el último paso — `19` — es lo que `<reduce>` devuelve.
 
@@ -514,9 +514,9 @@ de `<join>` es un string común y corriente. Muy seguido va justo después de
   igual.
 - La entrada **debe ser una lista** — un número o un string suelto es un error.
 
-| Atributo  | Obligatorio | Por omisión  | Qué define                              |
-| :-------- | :---------- | :----------- | :-------------------------------------- |
-| `sep`     | no          | `""` (vacío) | el separador que se pone entre elementos |
+| Atributo | Obligatorio | Por omisión  | Qué define                               |
+| :------- | :---------- | :----------- | :--------------------------------------- |
+| `sep`    | no          | `""` (vacío) | el separador que se pone entre elementos |
 
 ### Armar un valor compuesto
 
@@ -611,8 +611,8 @@ nombre de una región, una tasa de impuesto).
 - **Fuera de rango:** si el atributo `default` está definido, se devuelve ese valor; sin
   `default`, es un error. Así es como una tabla obtiene un valor de respaldo.
 
-| Atributo  | Obligatorio | Por omisión | Qué define                                            |
-| :-------- | :---------- | :---------- | :---------------------------------------------------- |
+| Atributo  | Obligatorio | Por omisión | Qué define                                                      |
+| :-------- | :---------- | :---------- | :-------------------------------------------------------------- |
 | `default` | no          | —           | el entero que se devuelve cuando el índice queda fuera de rango |
 
 ### Una tabla de búsqueda

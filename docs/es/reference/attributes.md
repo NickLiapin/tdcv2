@@ -20,137 +20,137 @@ etiqueta y se explica donde se explica esa etiqueta — ver la
 
 ## Entorno y configuración
 
-| Atributo   | Qué define                                  | Ver                                                |
-| :--------- | :------------------------------------------ | :------------------------------------------------- |
-| `version` / `v` | Versión del DSL que requiere el archivo | [Configuración](../core-concepts/configuration.md#top) |
-| `count`    | Cantidad de registros                       | [Determinismo](../core-concepts/determinism.md#top)   |
-| `seed`     | Seed del generador aleatorio (reproducibilidad) | [Determinismo](../core-concepts/determinism.md#top) |
-| `local`    | Locale de los datos de plantilla            | [Template](../generators/template.md#top)             |
-| `inject`   | Marcador de interpolación propio            | [Salida y formato](../core-concepts/output-formatting.md#top) |
-| `mode`     | `memory` / `disk` — familia de motores      | [Salidas grandes](../guides/large-outputs.md#top)     |
-| `engine`   | `1` / `2` / `3` — forzar un motor (avanzado) | [Salidas grandes](../guides/large-outputs.md#top)    |
-| `comment`  | Comentario libre                            | [Configuración](../core-concepts/configuration.md#top)                                                  |
+| Atributo        | Qué define                                      | Ver                                                        |
+| :-------------- | :---------------------------------------------- | :--------------------------------------------------------- |
+| `version` / `v` | Versión del DSL que requiere el archivo         | [Configuración](../core-concepts/configuration.md#top)        |
+| `count`         | Cantidad de registros                           | [Determinismo](../core-concepts/determinism.md#top)           |
+| `seed`          | Seed del generador aleatorio (reproducibilidad) | [Determinismo](../core-concepts/determinism.md#top)           |
+| `local`         | Locale de los datos de plantilla                | [Template](../generators/template.md#top)                     |
+| `inject`        | Marcador de interpolación propio                | [Salida y formato](../core-concepts/output-formatting.md#top) |
+| `mode`          | `memory` / `disk` — familia de motores          | [Salidas grandes](../guides/large-outputs.md#top)             |
+| `engine`        | `1` / `2` / `3` — forzar un motor (avanzado)    | [Salidas grandes](../guides/large-outputs.md#top)             |
+| `comment`       | Comentario libre                                | [Configuración](../core-concepts/configuration.md#top)        |
 
 ## Secuencias y dependencias
 
-| Atributo   | Qué define                                  | Ver                                                |
-| :--------- | :------------------------------------------ | :------------------------------------------------- |
-| `name`     | En `<sequence>`: su nombre. En `<gen>`: lo convierte en un campo, `Secuencia.Campo`. En un `<data>` dentro de una secuencia: un campo constante, el único que no cuesta ni un sorteo | [Secuencias](../core-concepts/sequences.md#un-campo-constante) |
-| `parent`   | Filtro por padre `Parent.Value`             | [Dependencias jerárquicas](../guides/hierarchical-dependencies.md#top) |
-| `uniq`     | Combinación única en todas las filas        | [Valores únicos](../constructs/unique-values.md#top)      |
-| `on` / `is` | Sujeto / clave de rama para `<switch>`     | [Switch](../constructs/switch.md#top)                                                  |
-| `filter`   | En `<gen type="pool">`: de qué miembros puede sortear esta fila | [Registros coherentes](../pools/filter.md#top) |
-| `of`       | En `<gen type="running">`: la columna que se acumula | [Total acumulado](../generators/running.md#top) |
-| `reset`    | En `<gen type="running">`: una columna cuyo cambio reinicia el total | [Total acumulado](../generators/running.md#top) |
+| Atributo    | Qué define                                                                                                                                                                           | Ver                                                                 |
+| :---------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------ |
+| `name`      | En `<sequence>`: su nombre. En `<gen>`: lo convierte en un campo, `Secuencia.Campo`. En un `<data>` dentro de una secuencia: un campo constante, el único que no cuesta ni un sorteo | [Secuencias](../core-concepts/sequences.md#un-campo-constante)     |
+| `parent`    | Filtro por padre `Parent.Value`                                                                                                                                                      | [Dependencias jerárquicas](../guides/hierarchical-dependencies.md#top) |
+| `uniq`      | Combinación única en todas las filas                                                                                                                                                 | [Valores únicos](../constructs/unique-values.md#top)                   |
+| `on` / `is` | Sujeto / clave de rama para `<switch>`                                                                                                                                               | [Switch](../constructs/switch.md#top)                                  |
+| `filter`    | En `<gen type="pool">`: de qué miembros puede sortear esta fila                                                                                                                      | [Registros coherentes](../pools/filter.md#top)                         |
+| `of`        | En `<gen type="running">`: la columna que se acumula                                                                                                                                 | [Total acumulado](../generators/running.md#top)                        |
+| `reset`     | En `<gen type="running">`: una columna cuyo cambio reinicia el total                                                                                                                 | [Total acumulado](../generators/running.md#top)                        |
 
 ## Valores de los generadores
 
-| Atributo   | Qué define                                  | Ver                                                |
-| :--------- | :------------------------------------------ | :------------------------------------------------- |
-| `type`     | Qué generador se usa                        | [Generadores](../generators/overview.md#top)          |
-| `value`    | El valor principal del generador (según el tipo) | [Generadores](../generators/overview.md#top)     |
-| `percent`  | Distribución exacta de los valores          | [Text](../generators/text.md#top)                     |
-| `accumulate` | Reemplazar una lista `repeat` por su total acumulado, o decir cómo acumula una columna `running` | [Varios valores en una celda](../constructs/multiple-values.md#accumulate--un-total-acumulado-a-lo-largo-de-la-lista) |
-| `alphabet` | Alfabeto Unicode con nombre                 | [Symbol](../generators/symbol.md#top)                 |
-| `length`   | Largo / ancho de la salida                  | [Number](../generators/number.md#top)                 |
-| `first_zero` | Permitir un cero inicial                  | [Number](../generators/number.md#top)                 |
-| `step`     | Paso del contador                           | [Contadores](../generators/counters.md#top)           |
-| `regex_max_length` | Tope de longitud para el regex      | [Regex](../generators/regex.md#top)                   |
-| `include` / `exclude` | Conservar o descartar valores del conjunto | [Number](../generators/number.md#top)      |
-| `decimals` | Dígitos después del punto decimal           | [Number](../generators/number.md#top)                 |
-| `oldest` / `youngest` | Ventana de edad para la fecha de nacimiento | [Date](../generators/date.md#top)        |
-| `format`   | Formato de salida de la fecha               | [Date](../generators/date.md#top)                     |
-| `from` / `to` | Extremos del rango dados por separado    | [Date](../generators/date.md#top)                     |
-| `precision` | Paso para un rango con fecha y hora        | [Date](../generators/date.md#top)                     |
-| `range`    | Rango de fechas para `date.range`           | [Template](../generators/template.md#top)             |
+| Atributo              | Qué define                                                                                       | Ver                                                                                                                    |
+| :-------------------- | :----------------------------------------------------------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------- |
+| `type`                | Qué generador se usa                                                                             | [Generadores](../generators/overview.md#top)                                                                              |
+| `value`               | El valor principal del generador (según el tipo)                                                 | [Generadores](../generators/overview.md#top)                                                                              |
+| `percent`             | Distribución exacta de los valores                                                               | [Text](../generators/text.md#top)                                                                                         |
+| `accumulate`          | Reemplazar una lista `repeat` por su total acumulado, o decir cómo acumula una columna `running` | [Varios valores en una celda](../constructs/multiple-values.md#accumulate--un-total-acumulado-a-lo-largo-de-la-lista) |
+| `alphabet`            | Alfabeto Unicode con nombre                                                                      | [Symbol](../generators/symbol.md#top)                                                                                     |
+| `length`              | Largo / ancho de la salida                                                                       | [Number](../generators/number.md#top)                                                                                     |
+| `first_zero`          | Permitir un cero inicial                                                                         | [Number](../generators/number.md#top)                                                                                     |
+| `step`                | Paso del contador                                                                                | [Contadores](../generators/counters.md#top)                                                                               |
+| `regex_max_length`    | Tope de longitud para el regex                                                                   | [Regex](../generators/regex.md#top)                                                                                       |
+| `include` / `exclude` | Conservar o descartar valores del conjunto                                                       | [Number](../generators/number.md#top)                                                                                     |
+| `decimals`            | Dígitos después del punto decimal                                                                | [Number](../generators/number.md#top)                                                                                     |
+| `oldest` / `youngest` | Ventana de edad para la fecha de nacimiento                                                      | [Date](../generators/date.md#top)                                                                                         |
+| `format`              | Formato de salida de la fecha                                                                    | [Date](../generators/date.md#top)                                                                                         |
+| `from` / `to`         | Extremos del rango dados por separado                                                            | [Date](../generators/date.md#top)                                                                                         |
+| `precision`           | Paso para un rango con fecha y hora                                                              | [Date](../generators/date.md#top)                                                                                         |
+| `range`               | Rango de fechas para `date.range`                                                                | [Template](../generators/template.md#top)                                                                                 |
 
 ## Forma estadística
 
-| Atributo   | Qué define                                  | Ver                                                |
-| :--------- | :------------------------------------------ | :------------------------------------------------- |
-| `distribution` | Distribución con nombre (`normal`, `zipf`, …) | [Distribuciones](../guides/statistical-distributions.md#top) |
-| `min` / `max` | Recortar los valores sorteados a un rango | [Distribuciones](../guides/statistical-distributions.md#top) |
-| `missing`  | Proporción de filas dejadas vacías          | [Datos faltantes](../guides/missing-data.md#top)      |
-| `missing_as` | Cómo se escribe una celda vacía           | [Datos faltantes](../guides/missing-data.md#top)      |
-| `anomaly`  | Proporción de filas convertidas en atípicas | [Anomalías](../guides/anomalies.md#top)               |
-| `anomaly_factor` | Cuán lejos se empuja un valor atípico | [Anomalías](../guides/anomalies.md#top)               |
-| `anomaly_flag` | Columna-respuesta que marca los atípicos | [Anomalías](../guides/anomalies.md#top)              |
+| Atributo         | Qué define                                    | Ver                                                       |
+| :--------------- | :-------------------------------------------- | :-------------------------------------------------------- |
+| `distribution`   | Distribución con nombre (`normal`, `zipf`, …) | [Distribuciones](../guides/statistical-distributions.md#top) |
+| `min` / `max`    | Recortar los valores sorteados a un rango     | [Distribuciones](../guides/statistical-distributions.md#top) |
+| `missing`        | Proporción de filas dejadas vacías            | [Datos faltantes](../guides/missing-data.md#top)             |
+| `missing_as`     | Cómo se escribe una celda vacía               | [Datos faltantes](../guides/missing-data.md#top)             |
+| `anomaly`        | Proporción de filas convertidas en atípicas   | [Anomalías](../guides/anomalies.md#top)                      |
+| `anomaly_factor` | Cuán lejos se empuja un valor atípico         | [Anomalías](../guides/anomalies.md#top)                      |
+| `anomaly_flag`   | Columna-respuesta que marca los atípicos      | [Anomalías](../guides/anomalies.md#top)                      |
 
 **Cada distribución tiene sus propios parámetros**, y solo se leen cuando
 `distribution=` nombra esa distribución. Todas aceptan además `decimals`, `min` y
 `max`. Cada una está explicada, con un histograma, en la
 [guía de distribuciones](../guides/statistical-distributions.md#top).
 
-| `distribution=` | Parámetros | Qué significan |
-| :--- | :--- | :--- |
-| `normal` | `mean` `sd` | El centro y la dispersión |
-| `lognormal` | `meanlog` `sdlog` | El centro y la dispersión **del logaritmo** — el valor en sí queda sesgado a la derecha |
-| `exponential` | `rate` | Eventos por unidad de tiempo; la media es `1/rate` |
-| `pareto` | `alpha` `xmin` | El grosor de la cola y el valor mínimo posible |
-| `weibull` | `shape` `scale` | `shape` menor que 1 = fallos tempranos, mayor = desgaste; `scale` fija la vida típica |
-| `poisson` | `lambda` | Recuento medio por intervalo (tope de 700) |
-| `zipf` | `n` `s` | Cuántos rangos, y con qué pendiente caen |
-| `gamma` | `shape` `scale` | Espera total de `shape` eventos que tardan `scale` de media |
-| `beta` | `alpha` `beta` | Tiran hacia 1 y hacia 0 — el resultado queda entre 0 y 1 |
+| `distribution=` | Parámetros        | Qué significan                                                                          |
+| :-------------- | :---------------- | :-------------------------------------------------------------------------------------- |
+| `normal`        | `mean` `sd`       | El centro y la dispersión                                                               |
+| `lognormal`     | `meanlog` `sdlog` | El centro y la dispersión **del logaritmo** — el valor en sí queda sesgado a la derecha |
+| `exponential`   | `rate`            | Eventos por unidad de tiempo; la media es `1/rate`                                      |
+| `pareto`        | `alpha` `xmin`    | El grosor de la cola y el valor mínimo posible                                          |
+| `weibull`       | `shape` `scale`   | `shape` menor que 1 = fallos tempranos, mayor = desgaste; `scale` fija la vida típica   |
+| `poisson`       | `lambda`          | Recuento medio por intervalo (tope de 700)                                              |
+| `zipf`          | `n` `s`           | Cuántos rangos, y con qué pendiente caen                                                |
+| `gamma`         | `shape` `scale`   | Espera total de `shape` eventos que tardan `scale` de media                             |
+| `beta`          | `alpha` `beta`    | Tiran hacia 1 y hacia 0 — el resultado queda entre 0 y 1                                |
 
 ## Series temporales
 
-| Atributo   | Qué define                                  | Ver                                                |
-| :--------- | :------------------------------------------ | :------------------------------------------------- |
-| `base`     | Nivel inicial de la serie                   | [Series temporales](../generators/timeseries.md#top)  |
-| `trend`    | Deriva por paso                             | [Series temporales](../generators/timeseries.md#top)  |
-| `period`   | Largo de un ciclo estacional                | [Series temporales](../generators/timeseries.md#top)  |
-| `amplitude`| Altura del vaivén estacional                | [Series temporales](../generators/timeseries.md#top)  |
-| `noise`    | Ruido aleatorio añadido encima              | [Series temporales](../generators/timeseries.md#top)  |
+| Atributo    | Qué define                     | Ver                                               |
+| :---------- | :----------------------------- | :------------------------------------------------ |
+| `base`      | Nivel inicial de la serie      | [Series temporales](../generators/timeseries.md#top) |
+| `trend`     | Deriva por paso                | [Series temporales](../generators/timeseries.md#top) |
+| `period`    | Largo de un ciclo estacional   | [Series temporales](../generators/timeseries.md#top) |
+| `amplitude` | Altura del vaivén estacional   | [Series temporales](../generators/timeseries.md#top) |
+| `noise`     | Ruido aleatorio añadido encima | [Series temporales](../generators/timeseries.md#top) |
 
 ## Pattern (un dibujo como fuente)
 
-| Atributo   | Qué define                                  | Ver                                                |
-| :--------- | :------------------------------------------ | :------------------------------------------------- |
-| `points`   | Pares `x,y` escritos en línea en vez de un archivo | [Pattern](../generators/pattern.md#top)        |
-| `upper` / `lower` | Dos curvas límite — un corredor      | [Pattern](../generators/pattern.md#top)               |
-| `mode`     | `signal` (trayectoria) / `density` (distribución) | [Pattern](../generators/pattern.md#top)         |
-| `y_range`  | `min..max` — la escala vertical             | [Pattern](../generators/pattern.md#top)               |
-| `interp`   | `linear` / `smooth` / `step` entre puntos   | [Pattern](../generators/pattern.md#top)               |
-| `spread`   | Convertir la línea en un túnel de ancho ±N  | [Pattern](../generators/pattern.md#top)               |
-| `ink_threshold` | Cuán oscuro debe ser un píxel PNG para contar como tinta | [Pattern](../generators/pattern.md#top) |
+| Atributo          | Qué define                                               | Ver                                  |
+| :---------------- | :------------------------------------------------------- | :----------------------------------- |
+| `points`          | Pares `x,y` escritos en línea en vez de un archivo       | [Pattern](../generators/pattern.md#top) |
+| `upper` / `lower` | Dos curvas límite — un corredor                          | [Pattern](../generators/pattern.md#top) |
+| `mode`            | `signal` (trayectoria) / `density` (distribución)        | [Pattern](../generators/pattern.md#top) |
+| `y_range`         | `min..max` — la escala vertical                          | [Pattern](../generators/pattern.md#top) |
+| `interp`          | `linear` / `smooth` / `step` entre puntos                | [Pattern](../generators/pattern.md#top) |
+| `spread`          | Convertir la línea en un túnel de ancho ±N               | [Pattern](../generators/pattern.md#top) |
+| `ink_threshold`   | Cuán oscuro debe ser un píxel PNG para contar como tinta | [Pattern](../generators/pattern.md#top) |
 
 `mode` son dos atributos distintos que comparten nombre: en `<env>` elige la familia de
 motores; en un generador `pattern` elige la pregunta que se le hace al dibujo.
 
 ## Archivos y CSV
 
-| Atributo   | Qué define                                  | Ver                                                |
-| :--------- | :------------------------------------------ | :------------------------------------------------- |
-| `src`      | Ruta a un archivo de datos                  | [File](../generators/file.md#top)                     |
-| `column`   | Columna del CSV (nombre o número)           | [File](../generators/file.md#top)                     |
-| `header`   | Omitir la primera fila del CSV              | [File](../generators/file.md#top)                     |
-| `delimiter`| Separador del CSV                           | [File](../generators/file.md#top)                     |
-| `row`      | Clave de fila vinculada                     | [File](../generators/file.md#top)                     |
-| `weight`   | Columna de frecuencia para filas ponderadas | [Datos coherentes](../guides/coherent-data.md#top)    |
+| Atributo    | Qué define                                  | Ver                                             |
+| :---------- | :------------------------------------------ | :---------------------------------------------- |
+| `src`       | Ruta a un archivo de datos                  | [File](../generators/file.md#top)                  |
+| `column`    | Columna del CSV (nombre o número)           | [File](../generators/file.md#top)                  |
+| `header`    | Omitir la primera fila del CSV              | [File](../generators/file.md#top)                  |
+| `delimiter` | Separador del CSV                           | [File](../generators/file.md#top)                  |
+| `row`       | Clave de fila vinculada                     | [File](../generators/file.md#top)                  |
+| `weight`    | Columna de frecuencia para filas ponderadas | [Datos coherentes](../guides/coherent-data.md#top) |
 
 ## Servicio HTTP
 
-| Atributo   | Qué define                                  | Ver                                                |
-| :--------- | :------------------------------------------ | :------------------------------------------------- |
-| `src`      | URL del servicio (también la ruta, arriba)  | [Servicio HTTP](../generators/http.md#top)            |
-| `in`       | Secuencia cuyo valor se envía por fila       | [Servicio HTTP](../generators/http.md#top)            |
-| `on_error` | `fail` (def.) / `empty` ante un fallo        | [Servicio HTTP](../generators/http.md#top)            |
-| `timeout`  | Segundos a esperar la respuesta (def. 30)    | [Servicio HTTP](../generators/http.md#top)            |
+| Atributo   | Qué define                                 | Ver                                     |
+| :--------- | :----------------------------------------- | :-------------------------------------- |
+| `src`      | URL del servicio (también la ruta, arriba) | [Servicio HTTP](../generators/http.md#top) |
+| `in`       | Secuencia cuyo valor se envía por fila     | [Servicio HTTP](../generators/http.md#top) |
+| `on_error` | `fail` (def.) / `empty` ante un fallo      | [Servicio HTTP](../generators/http.md#top) |
+| `timeout`  | Segundos a esperar la respuesta (def. 30)  | [Servicio HTTP](../generators/http.md#top) |
 
 ## Salida y formato
 
-| Atributo   | Qué define                                  | Ver                                                |
-| :--------- | :------------------------------------------ | :------------------------------------------------- |
-| `if`       | Condición de despliegue (expresión)         | [Salida y formato](../core-concepts/output-formatting.md#top) |
-| `pair`     | Marcador emparejado para un `</data>` literal | [Salida y formato](../core-concepts/output-formatting.md#top) |
-| `mask`     | Máscara de despliegue (`x`/`w`/`*`)          | [Máscaras y mayúsculas](../guides/masks-and-case.md#top) |
-| `case`     | Mayúsculas y minúsculas (`upper`/`lower`/…) | [Máscaras y mayúsculas](../guides/masks-and-case.md#top) |
-| `order`    | Orden de los valores (`random` / `sequential`) | [Máscaras y mayúsculas](../guides/masks-and-case.md#top) |
-| `cycle`    | Con `sequential`: repetir el ciclo o dar error | [Máscaras y mayúsculas](../guides/masks-and-case.md#top) |
-| `repeat` / `separator` | Varios valores en una misma celda | [Varios valores](../constructs/multiple-values.md#top)                                                |
-| `each`     | Repetir una línea por cada elemento de la lista | [Tablas relacionales](../constructs/relational-tables.md#top)                                               |
-| `flag`     | Columna de respuesta para marcar outliers de `<mix>` | [Mix](../constructs/mix.md#top)                                          |
+| Atributo               | Qué define                                           | Ver                                                        |
+| :--------------------- | :--------------------------------------------------- | :--------------------------------------------------------- |
+| `if`                   | Condición de despliegue (expresión)                  | [Salida y formato](../core-concepts/output-formatting.md#top) |
+| `pair`                 | Marcador emparejado para un `</data>` literal        | [Salida y formato](../core-concepts/output-formatting.md#top) |
+| `mask`                 | Máscara de despliegue (`x`/`w`/`*`)                  | [Máscaras y mayúsculas](../guides/masks-and-case.md#top)      |
+| `case`                 | Mayúsculas y minúsculas (`upper`/`lower`/…)          | [Máscaras y mayúsculas](../guides/masks-and-case.md#top)      |
+| `order`                | Orden de los valores (`random` / `sequential`)       | [Máscaras y mayúsculas](../guides/masks-and-case.md#top)      |
+| `cycle`                | Con `sequential`: repetir el ciclo o dar error       | [Máscaras y mayúsculas](../guides/masks-and-case.md#top)      |
+| `repeat` / `separator` | Varios valores en una misma celda                    | [Varios valores](../constructs/multiple-values.md#top)        |
+| `each`                 | Repetir una línea por cada elemento de la lista      | [Tablas relacionales](../constructs/relational-tables.md#top) |
+| `flag`                 | Columna de respuesta para marcar outliers de `<mix>` | [Mix](../constructs/mix.md#top)                               |
 
 ---
 

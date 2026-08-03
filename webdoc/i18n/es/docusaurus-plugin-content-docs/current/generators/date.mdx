@@ -22,15 +22,15 @@ formato.
 
 ## De un vistazo
 
-| Atributo              | Qué hace                                                            |
-| :-------------------- | :------------------------------------------------------------------ |
-| `value`               | `birth`, `today`, `now`, una fecha suelta o un rango `START..END`    |
-| `range`               | Un rango `START..END` — una escritura más nueva de la misma idea     |
-| `from` / `to`         | Los dos extremos de un rango, dados por separado                     |
+| Atributo              | Qué hace                                                                               |
+| :-------------------- | :------------------------------------------------------------------------------------- |
+| `value`               | `birth`, `today`, `now`, una fecha suelta o un rango `START..END`                      |
+| `range`               | Un rango `START..END` — una escritura más nueva de la misma idea                       |
+| `from` / `to`         | Los dos extremos de un rango, dados por separado                                       |
 | `format`              | Formato de salida (vea [Formato de la salida](#formato-de-la-salida)); por omisión `L` |
-| `local`               | `en`, `es`, `ru` o `zh-cn`; se hereda de [`<env>`](../reference/tags.mdx) si se omite |
-| `oldest` / `youngest` | Ventana de edad en años para `value="birth"` (por omisión `80` y `10`) |
-| `precision`           | `day`, `second` o `millisecond`                                      |
+| `local`               | `en`, `es`, `ru` o `zh-cn`; se hereda de [`<env>`](../reference/tags.mdx) si se omite  |
+| `oldest` / `youngest` | Ventana de edad en años para `value="birth"` (por omisión `80` y `10`)                 |
+| `precision`           | `day`, `second` o `millisecond`                                                        |
 
 Solo uno de `value`, `range` o el par `from`/`to` se usa para describir un rango — son
 tres escrituras de lo mismo.
@@ -182,10 +182,10 @@ value="now"   format="YYYY-MM-DDTHH:mm:ss.SSS"   2026-04-23T12:00:00.000`}
 
 Cuando se omite `precision`, el valor por omisión sigue al tipo de rango:
 
-| Tipo de rango             | Paso por omisión    | Qué cambia `precision`                            |
-| :------------------------ | :------------------ | :------------------------------------------------ |
-| solo fecha (`YYYY-MM-DD`) | un **día**          | rara vez hace falta — ya son días completos        |
-| fecha y hora              | un **milisegundo**  | `precision="second"` pone los milisegundos en cero |
+| Tipo de rango             | Paso por omisión   | Qué cambia `precision`                             |
+| :------------------------ | :----------------- | :------------------------------------------------- |
+| solo fecha (`YYYY-MM-DD`) | un **día**         | rara vez hace falta — ya son días completos        |
+| fecha y hora              | un **milisegundo** | `precision="second"` pone los milisegundos en cero |
 
 Use `precision="second"` cuando quiera marcas de tiempo limpias y de aspecto humano en
 lugar de ruido de milisegundos; use `precision="millisecond"` (el valor por omisión para
@@ -201,32 +201,32 @@ Todos los tokens sobre un mismo instante fijo — **martes 5 de marzo de 2024,
 09:04:07**. El día y el mes son de una cifra a propósito, para que las parejas
 «con cero / sin cero» se distingan a simple vista:
 
-| Token  | Significa                          | Ejemplo                        |
-| :----- | :--------------------------------- | :----------------------------- |
-| `YYYY` | año de 4 dígitos                   | `2024`                         |
-| `YY`   | año de 2 dígitos                   | `24`                           |
-| `MMMM` | nombre completo del mes            | `March`                        |
-| `MMM`  | nombre corto del mes               | `Mar`                          |
-| `MM`   | mes de 2 dígitos                   | `03`                           |
-| `M`    | mes sin cero inicial               | `3`                            |
-| `DD`   | día de 2 dígitos                   | `05`                           |
-| `D`    | día sin cero inicial               | `5`                            |
-| `dddd` | nombre completo del día            | `Tuesday`                      |
-| `ddd`  | nombre corto del día               | `Tue`                          |
-| `HH`   | hora de 2 dígitos (24 h)           | `09`                           |
-| `H`    | hora sin cero inicial              | `9`                            |
-| `mm`   | minuto de 2 dígitos                | `04`                           |
-| `m`    | minuto sin cero inicial            | `4`                            |
-| `ss`   | segundo de 2 dígitos               | `07`                           |
-| `s`    | segundo sin cero inicial           | `7`                            |
-| `SSS`  | milisegundos                       | `000`                          |
-| `Z`    | desplazamiento UTC con dos puntos  | `+00:00`                       |
-| `ZZ`   | desplazamiento UTC sin dos puntos  | `+0000`                        |
-| `ISO`  | fecha en formato ISO 8601          | `2024-03-05`                   |
-| `L`    | fecha corta según el locale        | `03/05/2024`                   |
-| `LL`   | fecha larga según el locale        | `March 5, 2024`                |
-| `LLL`  | fecha larga con la hora            | `March 5, 2024 09:04`          |
-| `LLLL` | la misma, con el día de la semana  | `Tuesday, March 5, 2024 09:04` |
+| Token  | Significa                         | Ejemplo                        |
+| :----- | :-------------------------------- | :----------------------------- |
+| `YYYY` | año de 4 dígitos                  | `2024`                         |
+| `YY`   | año de 2 dígitos                  | `24`                           |
+| `MMMM` | nombre completo del mes           | `March`                        |
+| `MMM`  | nombre corto del mes              | `Mar`                          |
+| `MM`   | mes de 2 dígitos                  | `03`                           |
+| `M`    | mes sin cero inicial              | `3`                            |
+| `DD`   | día de 2 dígitos                  | `05`                           |
+| `D`    | día sin cero inicial              | `5`                            |
+| `dddd` | nombre completo del día           | `Tuesday`                      |
+| `ddd`  | nombre corto del día              | `Tue`                          |
+| `HH`   | hora de 2 dígitos (24 h)          | `09`                           |
+| `H`    | hora sin cero inicial             | `9`                            |
+| `mm`   | minuto de 2 dígitos               | `04`                           |
+| `m`    | minuto sin cero inicial           | `4`                            |
+| `ss`   | segundo de 2 dígitos              | `07`                           |
+| `s`    | segundo sin cero inicial          | `7`                            |
+| `SSS`  | milisegundos                      | `000`                          |
+| `Z`    | desplazamiento UTC con dos puntos | `+00:00`                       |
+| `ZZ`   | desplazamiento UTC sin dos puntos | `+0000`                        |
+| `ISO`  | fecha en formato ISO 8601         | `2024-03-05`                   |
+| `L`    | fecha corta según el locale       | `03/05/2024`                   |
+| `LL`   | fecha larga según el locale       | `March 5, 2024`                |
+| `LLL`  | fecha larga con la hora           | `March 5, 2024 09:04`          |
+| `LLLL` | la misma, con el día de la semana | `Tuesday, March 5, 2024 09:04` |
 
 Los nombres de mes y de día, y las cuatro formas de `L`, siguen el locale — ver
 [abajo](#formatos-dependientes-del-locale-l-y-ll). Todo lo demás es igual en cualquier idioma.

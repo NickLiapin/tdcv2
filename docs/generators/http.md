@@ -108,9 +108,11 @@ thousand rows is one request. A service written "one line in, one line out" stil
 - **B** — one request for the whole column — the whole batch, one round trip
 
 This is what keeps it fast: the cost is one round trip plus your service's own work,
-not a network round trip per value. It's also why `http` runs on the in-memory engine,
-and why it's best pointed at a service on your own machine, or at a run you have sized
-on purpose — not a billion rows against a distant endpoint.
+not a network round trip per value. It's also why `http` runs on the in-memory engine
+([one of five shapes that
+do](../guides/large-outputs.md#which-engine-runs-your-config)), and why it's best
+pointed at a service on your own machine, or at a run you have sized on purpose — not a
+billion rows against a distant endpoint.
 
 ## A whole service, in five languages
 

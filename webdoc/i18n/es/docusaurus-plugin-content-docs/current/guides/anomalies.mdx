@@ -19,10 +19,10 @@ que usted elija, para que su pipeline tenga algo anormal a lo cual reaccionar.
 
 Hay dos rutas, y esta página cubre las dos:
 
-| Ruta | El valor atípico se ve como | Columna de verdad de referencia |
-| :--- | :-------------------------- | :------------------------------ |
-| `anomaly="p"` en un [`<gen>`](../generators/overview.mdx) que produce números | el valor base **× un factor** | `anomaly_flag="Name"` |
-| `anomaly="true"` en un `<case>` dentro de un [`<mix>`](../reference/tags.mdx) | lo que sea que genere esa rama | `flag="Name"` |
+| Ruta                                                                          | El valor atípico se ve como    | Columna de verdad de referencia |
+| :---------------------------------------------------------------------------- | :----------------------------- | :------------------------------ |
+| `anomaly="p"` en un [`<gen>`](../generators/overview.mdx) que produce números | el valor base **× un factor**  | `anomaly_flag="Name"`           |
+| `anomaly="true"` en un `<case>` dentro de un [`<mix>`](../reference/tags.mdx) | lo que sea que genere esa rama | `flag="Name"`                   |
 
 Use la primera cuando un número «demasiado grande» ya es un buen valor atípico. Use la
 segunda cuando el valor atípico necesita su propia forma — otro rango, un string
@@ -243,7 +243,7 @@ outlier: 400`}
 De 20 lecturas, 3 salieron como anomalías — un dataset etiquetado listo para medir la
 precisión y el recall de un detector.
 
-**Por qué/cuándo.** Cada vez que necesite *medir* un detector, no solo alimentarlo. Note
+**Por qué/cuándo.** Cada vez que necesite _medir_ un detector, no solo alimentarlo. Note
 que `anomaly_flag` sin `anomaly` es un error: no hay nada que marcar.
 
 ## Un valor atípico a la medida — `flag` en un `<mix>`
@@ -302,11 +302,11 @@ número.
 
 TDC verifica que la etiqueta y la columna estén ambas presentes:
 
-| Lo que escribió | Lo que dice TDC |
-| :-------------- | :-------------- |
-| `anomaly="true"`, pero el `<mix>` no tiene `flag=` | error `TDC203` — la etiqueta no tiene a dónde ir |
-| `flag=`, pero ningún `<case>` está marcado | advertencia `TDC202` — la columna queda toda en `false` |
-| `flag=` en un `<mix>` **anidado** | error `TDC203` — solo un mix con nombre es dueño de la columna |
+| Lo que escribió                                    | Lo que dice TDC                                                |
+| :------------------------------------------------- | :------------------------------------------------------------- |
+| `anomaly="true"`, pero el `<mix>` no tiene `flag=` | error `TDC203` — la etiqueta no tiene a dónde ir               |
+| `flag=`, pero ningún `<case>` está marcado         | advertencia `TDC202` — la columna queda toda en `false`        |
+| `flag=` en un `<mix>` **anidado**                  | error `TDC203` — solo un mix con nombre es dueño de la columna |
 
 ### En Parquet — un tipo de verdad
 
@@ -331,7 +331,7 @@ salida](output-formats.mdx)**.
   limpiador.
 - **Varios tipos de defecto.** Puede marcar más de una rama; `flag` se pone en `true` en
   todos los casos marcados a la vez.
-- **Marcar un «evento raro».** La marca no tiene que significar *descompuesto*: puede
+- **Marcar un «evento raro».** La marca no tiene que significar _descompuesto_: puede
   señalar un caso raro pero perfectamente legítimo que su modelo igual debería aprender
   a atrapar.
 
@@ -342,7 +342,7 @@ salida](output-formats.mdx)**.
 - **Cualquier motor, cualquier volumen.** Los valores atípicos se deciden por número de
   fila, así que las corridas en memoria y en disco coinciden exactamente.
 - **Solo números, y decide el valor — no el `type=`.** En los ejemplos de arriba la
-  lista está escrita como `type="text"`, pero los valores *son* números, así que
+  lista está escrita como `type="text"`, pero los valores _son_ números, así que
   `anomaly` los multiplica. Póngalo en una columna de nombres y los valores pasan sin
   cambios, y además **en silencio**: `tdcv2 check` no dice nada, porque una lista de
   texto bien puede contener números y TDC no sabe qué quiso usted. Si una columna que

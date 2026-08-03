@@ -12,22 +12,22 @@
 
 Каждый `type` для [`<gen>`](../generators/overview.md#top). Каждая строка ведёт на свою полную страницу.
 
-| `type`                                        | Что производит                                                  |
-| :-------------------------------------------- | :------------------------------------------------------------- |
-| [`text`](../generators/text.md#top)              | Значение из набора — равномерно или по точным `percent`         |
-| [`number`](../generators/number.md#top)          | Целое число в диапазоне или строку цифр фиксированной длины      |
-| [`template`](../generators/template.md#top)      | Встроенные правдоподобные данные и технические идентификаторы    |
-| [`file`](../generators/file.md#top)              | Значения из ваших файлов и CSV-колонок                          |
-| [`date`](../generators/date.md#top)              | Дату или дату-время в диапазоне и формате                        |
-| [`symbol`](../generators/symbol.md#top)          | Строку из набора символов или именованного алфавита             |
-| [`regex`](../generators/regex.md#top)            | Строку по конечному регулярному выражению                        |
-| [`advanced_regex`](../generators/advanced-regex.md#top) | Regex плюс взвешенный выбор между вариантами              |
-| [`increment` / `decrement`](../generators/counters.md#top) | Возрастающий и убывающий счётчики                  |
-| [`timeseries`](../generators/timeseries.md#top)  | Временной ряд — тренд + сезонность + шум                        |
-| [`pattern`](../generators/pattern.md#top)        | Распределение по нарисованной кривой                            |
-| [`http`](../generators/http.md#top)              | Значение от вашего сервиса, по HTTP                          |
-| [`pool`](../pools/overview.md#top)             | Один целый член `<pool>` — запись, а не значение             |
-| [`running`](../generators/running.md#top)      | Итог, накопленный по колонке, а не разыгранный               |
+| `type`                                                  | Что производит                                                |
+| :------------------------------------------------------ | :------------------------------------------------------------ |
+| [`text`](../generators/text.md#top)                        | Значение из набора — равномерно или по точным `percent`       |
+| [`number`](../generators/number.md#top)                    | Целое число в диапазоне или строку цифр фиксированной длины   |
+| [`template`](../generators/template.md#top)                | Встроенные правдоподобные данные и технические идентификаторы |
+| [`file`](../generators/file.md#top)                        | Значения из ваших файлов и CSV-колонок                        |
+| [`date`](../generators/date.md#top)                        | Дату или дату-время в диапазоне и формате                     |
+| [`symbol`](../generators/symbol.md#top)                    | Строку из набора символов или именованного алфавита           |
+| [`regex`](../generators/regex.md#top)                      | Строку по конечному регулярному выражению                     |
+| [`advanced_regex`](../generators/advanced-regex.md#top)    | Regex плюс взвешенный выбор между вариантами                  |
+| [`increment` / `decrement`](../generators/counters.md#top) | Возрастающий и убывающий счётчики                             |
+| [`timeseries`](../generators/timeseries.md#top)            | Временной ряд — тренд + сезонность + шум                      |
+| [`pattern`](../generators/pattern.md#top)                  | Распределение по нарисованной кривой                          |
+| [`http`](../generators/http.md#top)                        | Значение от вашего сервиса, по HTTP                           |
+| [`pool`](../pools/overview.md#top)                         | Один целый член `<pool>` — запись, а не значение              |
+| [`running`](../generators/running.md#top)                  | Итог, накопленный по колонке, а не разыгранный                |
 
 ## Сквозные атрибуты
 

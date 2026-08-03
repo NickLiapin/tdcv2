@@ -10,8 +10,8 @@
 
 # Salida condicional con `if`
 
-**Úselo cuando** un valor deba decidir *si* aparece una pieza de la fila, y no solo
-*qué* dice: conservar una tarjeta y descartar otra; etiquetar unas filas y dejar las
+**Úselo cuando** un valor deba decidir _si_ aparece una pieza de la fila, y no solo
+_qué_ dice: conservar una tarjeta y descartar otra; etiquetar unas filas y dejar las
 demás peladas; poner una coma después de cada registro menos el último.
 
 Un generador siempre produce un valor. El atributo `if` es un interruptor aparte:
@@ -90,10 +90,10 @@ resto.
 El mismo lenguaje de expresiones funciona en tres etiquetas, con efectos ligeramente
 distintos:
 
-| Etiqueta                                       | Efecto de un `if` falso                                                        |
-| :--------------------------------------------- | :---------------------------------------------------------------------------- |
-| [`<line>`](../reference/tags.md#top)              | La línea entera se suprime — incluido el separador entre filas.               |
-| [`<data>`](../reference/tags.md#top)              | Solo se suprime ese trozo de texto; los demás `<data>` de la misma línea siguen. |
+| Etiqueta                                                         | Efecto de un `if` falso                                                                            |
+| :--------------------------------------------------------------- | :------------------------------------------------------------------------------------------------- |
+| [`<line>`](../reference/tags.md#top)                                | La línea entera se suprime — incluido el separador entre filas.                                    |
+| [`<data>`](../reference/tags.md#top)                                | Solo se suprime ese trozo de texto; los demás `<data>` de la misma línea siguen.                   |
 | [`<gen>`](../generators/overview.md#top) dentro de una `<sequence>` | Crea una **secuencia condicional** (abajo). Los generadores no se permiten en el bloque de salida. |
 
 ### Suprimir parte de una línea con `<data>`
@@ -175,11 +175,11 @@ Gender != Hombre     es lo mismo que   !Gender.Hombre
 
 ## Literales e identificadores pelados
 
-| Tipo          | Ejemplo              |
-| :------------ | :------------------- |
-| Número        | `5`, `3.14`, `-42`   |
-| Cadena        | `"admin"`, `'text'`  |
-| Identificador | `Name`, `_count`     |
+| Tipo          | Ejemplo             |
+| :------------ | :------------------ |
+| Número        | `5`, `3.14`, `-42`  |
+| Cadena        | `"admin"`, `'text'` |
+| Identificador | `Name`, `_count`    |
 
 Un **identificador pelado** (sin comillas) se resuelve en dos pasos:
 
@@ -198,16 +198,16 @@ No hay ninguna secuencia llamada `admin`, así que `admin` es simplemente la pal
 
 ## Operadores de comparación
 
-| Operador | Significado                              |
-| :------- | :--------------------------------------- |
-| `==`     | Igual (con promoción numérica suave)     |
-| `!=`     | Distinto (espejo de `==`)                |
-| `===`    | Igualdad estricta (valor **y** tipo)     |
-| `!==`    | Desigualdad estricta                     |
-| `<`      | Menor que                                |
-| `>`      | Mayor que                                |
-| `<=`     | Menor o igual                            |
-| `>=`     | Mayor o igual                            |
+| Operador | Significado                          |
+| :------- | :----------------------------------- |
+| `==`     | Igual (con promoción numérica suave) |
+| `!=`     | Distinto (espejo de `==`)            |
+| `===`    | Igualdad estricta (valor **y** tipo) |
+| `!==`    | Desigualdad estricta                 |
+| `<`      | Menor que                            |
+| `>`      | Mayor que                            |
+| `<=`     | Menor o igual                        |
+| `>=`     | Mayor o igual                        |
 
 Los operadores de orden `<`, `>`, `<=`, `>=` siempre convierten ambos operandos a
 números.
@@ -230,7 +230,7 @@ edad 70: adulto mayor
 ```
 
 `Age < 18` se queda con las dos primeras filas, `Age >= 18` toma el resto (el límite
-`18` cae en *adulto*), y `Age > 65` marca únicamente al `70`.
+`18` cae en _adulto_), y `Age > 65` marca únicamente al `70`.
 
 **Por qué / cuándo:** las comparaciones de orden son el caso de todos los días —
 límites de edad, umbrales, puntos de corte de puntaje.
@@ -331,10 +331,10 @@ mismo `!` es el que hace funcionar el atajo `!Gender.Hombre` de más arriba.
 
 | Operador | Significado                                                                |
 | :------- | :------------------------------------------------------------------------- |
-| `+`      | Suma (numérica si alguno de los operandos es número; si no, concatenación)  |
-| `-`      | Resta (los operandos se convierten a número)                                |
-| `*`      | Multiplicación                                                              |
-| `/`      | División                                                                    |
+| `+`      | Suma (numérica si alguno de los operandos es número; si no, concatenación) |
+| `-`      | Resta (los operandos se convierten a número)                               |
+| `*`      | Multiplicación                                                             |
+| `/`      | División                                                                   |
 
 La aritmética se hace cómoda justo dentro de una comparación:
 
@@ -362,8 +362,9 @@ agregar toda una secuencia extra solo para guardar el número derivado.
 > [!CAUTION]
 > **Operadores no soportados**
 >
-> `%` (resto) y `??` (nullish) lanzan un error al renderizar — por ejemplo
-> `if="_count % 2 == 0"` falla con `unsupported operator "%" in if expression`.
+> `%` (resto) y `??` (nullish) los rechaza la validación, antes de generar una sola fila:
+> `if="_count % 2 == 0"` falla con `error[TDC101]: unsupported operator "%" in if
+> expression` y no produce ninguna salida.
 >
 > `?.` (encadenamiento opcional) es peor porque falla **en silencio**: el parser lee
 > `X?.length` como un acceso con punto corriente `X.length`, que el atajo `X.Value`
@@ -399,13 +400,13 @@ booleano según estas reglas:
 
 | Valor                 | Se lee como |
 | :-------------------- | :---------: |
-| `null`, `undefined`   | falso       |
-| `0`, `NaN`            | falso       |
-| `""` (cadena vacía)   | falso       |
-| `"false"` (cadena)    | **falso**   |
-| `"true"` (cadena)     | verdadero   |
-| cualquier otra cadena | verdadero   |
-| un número ≠ 0         | verdadero   |
+| `null`, `undefined`   |    falso    |
+| `0`, `NaN`            |    falso    |
+| `""` (cadena vacía)   |    falso    |
+| `"false"` (cadena)    |  **falso**  |
+| `"true"` (cadena)     |  verdadero  |
+| cualquier otra cadena |  verdadero  |
+| un número ≠ 0         |  verdadero  |
 
 El caso de `"false"` es especial: existe para que las
 [secuencias integradas](../reference/builtins.md#top) `_first` / `_last`, que se guardan

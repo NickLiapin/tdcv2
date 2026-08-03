@@ -115,7 +115,7 @@ java -jar build/libs/tdcv2-*-cli.jar demo.tdc
 ```
 
 Vale la pena un alias: `alias tdcv2='java -jar /ruta/a/tdcv2-cli.jar'`, y a partir de
-ahí todos los comandos de estas páginas se leen igual que en los demás lenguajes.
+ahí todos los comandos de estas páginas se leen igual que en cualquier otro sitio.
 
 El DSL y el comportamiento son idénticos a los de la versión de npm. La API está en
 [Bibliotecas por lenguaje — Java](../bindings/java.md#top).
@@ -144,6 +144,7 @@ funciona sin instalar nada más.
 > cd csharp && dotnet build
 > dotnet run --project Tdcv2.Cli.Tool -- demo.tdc
 > ```
+>
 
 El DSL y el comportamiento son idénticos a los de la versión de npm.
 
@@ -201,19 +202,18 @@ de salida de una sola línea:
 </tdc>
 ```
 
-Ejecútelo con el comando que le dejó su instalación. **Node.js ya está en npm**; los
-otros cuatro todavía no están en sus registros, así que para ellos la vía de hoy es un
-clon del repositorio, y la columna de la derecha es cómo será cuando salgan:
+Ejecútelo con el comando que le dejó su instalación. Tres ecosistemas ponen `tdcv2` en
+su PATH desde el mismo paquete que trae la biblioteca; Maven y NuGet no tienen
+equivalente del `bin` de npm, así que para esos dos la línea de comandos es un segundo
+artefacto:
 
-Ejecútelo con el comando que le dio su instalación:
-
-| Lenguaje | Comando |
-| :--- | :--- |
-| Node.js | `npx tdcv2 demo.tdc` |
-| Python | `tdcv2 demo.tdc` |
-| Rust | `tdcv2 demo.tdc`, tras `cargo install tdcv2` |
-| C# | `dotnet run --project csharp/Tdcv2.Cli.Tool -- demo.tdc` — el paquete de herramienta todavía no se publica |
-| Java | `java -jar java/build/libs/tdcv2-*-cli.jar demo.tdc` — Maven no tiene equivalente del `bin` de npm, así que la CLI sigue siendo un jar aparte |
+| Lenguaje | Comando                                                                                                                   |
+| :------- | :------------------------------------------------------------------------------------------------------------------------ |
+| Node.js  | `npx tdcv2 demo.tdc`                                                                                                      |
+| Python   | `tdcv2 demo.tdc`                                                                                                          |
+| Rust     | `tdcv2 demo.tdc`, tras `cargo install tdcv2`                                                                              |
+| C#       | `dotnet run --project csharp/Tdcv2.Cli.Tool -- demo.tdc` — el paquete de herramienta todavía no se publica                |
+| Java     | `java -jar java/build/libs/tdcv2-*-cli.jar demo.tdc` — se construye con `./gradlew cliJar`, todavía no se puede descargar |
 
 Desde la raíz del repositorio, `./run demo.tdc` es el más corto de todos.
 
@@ -294,9 +294,9 @@ tdcv2 pack add en usa # descarga y conecta los paquetes que quiera
 ```
 Available data packs:
 
-  common   installed   Common (locale-agnostic)   0.0 MB
-  en                   English (language)          0.1 MB
-  usa                  United States (country)     0.0 MB
+common installed Common (locale-agnostic) 0.0 MB
+en English (language) 0.1 MB
+usa United States (country) 0.0 MB
 ```
 
 Los paquetes son **combinables** a lo largo de ejes independientes —idioma, país y

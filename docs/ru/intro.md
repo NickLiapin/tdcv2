@@ -260,17 +260,17 @@ for (const user of users) {
 
 ## Доступность
 
-Четыре реализации из пяти опубликованы. Одинаковые номера версий означают один и тот
+Опубликованы все пять. Одинаковые номера версий означают один и тот
 же движок: все пять держит общий набор фикстур, поэтому `0.1.3` из любого реестра даёт
 те же байты для того же конфига и сида.
 
-| Реализация | Реестр | Установка | Версия |
-| :--- | :--- | :--- | :--- |
-| **[TypeScript](bindings/typescript.md#top)** | npm | `npm i tdcv2` | 0.1.3 |
-| **[Python](bindings/python.md#top)** | PyPI | `pip install tdcv2` | 0.1.3 |
-| **[Rust](bindings/rust.md#top)** | crates.io | `cargo add tdcv2` | 0.1.3 |
-| **[C#](bindings/csharp.md#top)** | NuGet | `dotnet add package Tdcv2` | 0.1.3 |
-| **[Java](bindings/java.md#top)** | Maven Central | `io.github.nickliapin:tdcv2` | 0.1.3 |
+| Реализация                                | Реестр        | Установка                    | Версия |
+| :---------------------------------------- | :------------ | :--------------------------- | :----- |
+| **[TypeScript](bindings/typescript.md#top)** | npm           | `npm i tdcv2`                | 0.1.3  |
+| **[Python](bindings/python.md#top)**         | PyPI          | `pip install tdcv2`          | 0.1.3  |
+| **[Rust](bindings/rust.md#top)**             | crates.io     | `cargo add tdcv2`            | 0.1.3  |
+| **[C#](bindings/csharp.md#top)**             | NuGet         | `dotnet add package Tdcv2`   | 0.1.3  |
+| **[Java](bindings/java.md#top)**             | Maven Central | `io.github.nickliapin:tdcv2` | 0.1.3  |
 
 Каждый опубликованный пакет несёт стартовый набор паков, поэтому работает без всего
 остального; остальные десять языков и девяносто с лишним пакетов стран —

@@ -458,7 +458,10 @@ Coffee | Drinks | 4.50
 `weight`**, the config always runs on the in-memory engine: a streaming engine can't
 weight the row choice without first knowing the file's totals. If you force
 `--engine 2`, TDC says so plainly rather than silently emitting incoherent columns.
-This is covered in depth in **[Coherent & relational data](../guides/coherent-data.md#top)**.
+The cost is that memory then grows with `count` — see [Which engine runs your
+config](../guides/large-outputs.md#which-engine-runs-your-config). Linked groups
+themselves are covered in **[Coherent & relational
+data](../guides/coherent-data.md#top)**.
 
 ### Limitations (v1)
 

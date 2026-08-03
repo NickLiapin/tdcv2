@@ -12,7 +12,7 @@ import Terminal from '@site/src/components/Terminal';
 
 **Úselo cuando** un campo deba **derivarse de otro**, en lugar de sortearse por su
 cuenta. Usted tiene una columna `Country` y necesita a su lado una `Currency` que sea
-*siempre* consistente: `US` → `USD`, `JP` → `JPY`. Un segundo generador aleatorio es
+_siempre_ consistente: `US` → `USD`, `JP` → `JPY`. Un segundo generador aleatorio es
 justo lo contrario de lo que hace falta: le entregaría una moneda que no corresponde
 al país. Lo que usted quiere es una **tabla de consulta**: leer un campo y devolver el
 valor asociado a esa clave.
@@ -52,7 +52,7 @@ DE -> EUR`}
 :::note[Las salidas son ilustrativas]
 Los valores de abajo provienen de una `seed` fija, así que son reproducibles, pero
 las cadenas exactas pueden diferir entre versiones del core. Tómelos como ejemplos de
-*forma*, no como garantías.
+_forma_, no como garantías.
 :::
 
 Cada fila: TDC lee `Country` y devuelve la moneda asociada a esa clave. Este es el
@@ -74,17 +74,17 @@ hacen de manera torpe.
 [`<sequence>`](../core-concepts/sequences.mdx) y
 [`<mix>`](../reference/tags.mdx). Toma dos atributos y contiene una o más ramas.
 
-| Atributo  | Obligatorio | Qué hace                                            |
-| :-------- | :---------- | :-------------------------------------------------- |
-| `name`    | sí          | El nombre que se interpola con `${{name}}`          |
-| `on`      | sí          | La secuencia sujeto cuyo valor se consulta          |
-| `comment` | no          | Nota de texto libre                                 |
+| Atributo  | Obligatorio | Qué hace                                   |
+| :-------- | :---------- | :----------------------------------------- |
+| `name`    | sí          | El nombre que se interpola con `${{name}}` |
+| `on`      | sí          | La secuencia sujeto cuyo valor se consulta |
+| `comment` | no          | Nota de texto libre                        |
 
-| Etiqueta hija         | Qué es                                                          |
-| :-------------------- | :-------------------------------------------------------------- |
-| `<map>`               | Tabla compacta `CLAVE:VALOR` de **literales**                   |
-| `<case is="…">`       | Una rama cuyo valor es un **generador o un compuesto**          |
-| `<default>`           | La rama «si no» — se usa cuando ninguna clave coincidió          |
+| Etiqueta hija   | Qué es                                                  |
+| :-------------- | :------------------------------------------------------ |
+| `<map>`         | Tabla compacta `CLAVE:VALOR` de **literales**           |
+| `<case is="…">` | Una rama cuyo valor es un **generador o un compuesto**  |
+| `<default>`     | La rama «si no» — se usa cuando ninguna clave coincidió |
 
 Se necesita **al menos una** rama (una fila de `<map>` o un `<case>`).
 
@@ -121,7 +121,7 @@ DE -> EUR`}
 
 El valor que `Country` haya sacado en una fila decide el resultado: `JP` siempre da
 `JPY`, y cualquiera de `US/CA/MX` da `USD`. **Por qué importa:** el sujeto es la
-única entrada. Apunte `on` a otra secuencia y la misma tabla empieza a leer *sus*
+única entrada. Apunte `on` a otra secuencia y la misma tabla empieza a leer _sus_
 valores — la lógica de consulta es reutilizable.
 
 ## `<map>` — una tabla compacta de literales
@@ -141,7 +141,7 @@ Esto es byte por byte equivalente a cuatro ramas separadas
 
 - Los registros se separan con una **coma** `,`.
 - La clave y el valor se dividen en los **primeros dos puntos** `:` — así que los dos
-  puntos *dentro* de un valor se conservan (`US:Down : Left` → `Down : Left`).
+  puntos _dentro_ de un valor se conservan (`US:Down : Left` → `Down : Left`).
 - **Varias claves → un valor** con `|`: `CA|MX:USD` coincide tanto con `CA` como con
   `MX`.
 - Los espacios y los saltos de línea alrededor de los registros se ignoran, así que
@@ -189,7 +189,7 @@ eche mano de `<case>`. Su contenido se arma de izquierda a derecha con literales
 
 Dentro de `<switch>`, un `<case>` necesita
 [`is`](#claves-de-coincidencia--is) — la clave o claves con las que coincide. Aquí el
-nivel del cliente determina un *rango* de descuento, algo que una tabla plana no
+nivel del cliente determina un _rango_ de descuento, algo que una tabla plana no
 puede expresar:
 
 ```xml

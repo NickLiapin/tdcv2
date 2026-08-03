@@ -19,6 +19,7 @@ garantía entre lenguajes es una promesa central de TDC.
 > [!TIP]
 > **En PyPI — versión 0.1.3**
 >
+>
 > ```bash
 > pip install tdcv2
 > ```

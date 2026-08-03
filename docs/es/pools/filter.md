@@ -66,12 +66,12 @@ dispersión para la que se construyó el pool.
 La expresión se evalúa en **dos ámbitos a la vez**: los campos del miembro candidato y las
 columnas de la fila actual.
 
-| El nombre        | Qué lee                            |
-| :--------------- | :---------------------------------- |
+| El nombre        | Qué lee                                                                 |
+| :--------------- | :---------------------------------------------------------------------- |
 | `clinic`         | un **campo** del miembro candidato, si el pool tiene uno con ese nombre |
-| `Clinic`         | una **columna** de la fila actual   |
-| `Doctors.clinic` | siempre el campo del candidato — la forma cualificada |
-| `North`          | una palabra suelta, leída como cadena literal |
+| `Clinic`         | una **columna** de la fila actual                                       |
+| `Doctors.clinic` | siempre el campo del candidato — la forma cualificada                   |
+| `North`          | una palabra suelta, leída como cadena literal                           |
 
 El orden importa: un nombre suelto se busca **primero** como campo del miembro y solo
 después como columna de la fila. Un nombre que es las dos cosas se rechaza en lugar de
@@ -158,10 +158,10 @@ Nadie compra por encima de su presupuesto, y no hubo que enumerar nada a mano.
 
 Hay dos caminos, y cuál se recorre lo decide cómo está escrito el filtro:
 
-| El filtro | Cómo se responde una fila |
-| :-------- | :------------------------- |
+| El filtro                               | Cómo se responde una fila                                                 |
+| :-------------------------------------- | :------------------------------------------------------------------------ |
 | `campo == Columna` (en cualquier orden) | el pool se agrupa por ese campo **una vez**; una fila cuesta una búsqueda |
-| cualquier otra cosa | los candidatos se recorren, por fila — lineal en el tamaño del pool |
+| cualquier otra cosa                     | los candidatos se recorren, por fila — lineal en el tamaño del pool       |
 
 Los dos son correctos. La diferencia es la razón de que un pool tenga un
 [techo de tamaño](overview.md#tamaño): recorrer un millón de miembros, dos mil veces, es
@@ -172,9 +172,9 @@ un coste real, y el techo es donde la herramienta lo dice.
 Los dos acotan algo, y los dos pueden aparecer en el mismo `<gen>`. Se diferencian en **lo
 que sale**:
 
-| | Qué pregunta | Cuando dice que no |
-| :-- | :-- | :-- |
-| `if`     | por la **fila** — una respuesta por fila | no se genera nada; la celda queda vacía |
+|          | Qué pregunta                                       | Cuando dice que no                                             |
+| :------- | :------------------------------------------------- | :------------------------------------------------------------- |
+| `if`     | por la **fila** — una respuesta por fila           | no se genera nada; la celda queda vacía                        |
 | `filter` | por cada **candidato** — una respuesta por miembro | se sustituye un miembro que encaja; la celda nunca queda vacía |
 
 Así, `if="Age >= 18"` deja a los menores sin médico, y `filter="clinic == Clinic"` da
@@ -211,7 +211,7 @@ representados.
 
 - [Resumen](overview.md#top) — qué es un pool, y el techo de tamaño al que se refiere esta
   página
-- [Enlazar pools entre sí](linking.md#top) — `filter` leyendo un campo de *otra* referencia a
+- [Enlazar pools entre sí](linking.md#top) — `filter` leyendo un campo de _otra_ referencia a
   un pool, que es como se construye una cadena
 - [Condiciones](../constructs/conditional-output.md#top) — `if` completo, incluidos los
   operadores que comparte con `filter`

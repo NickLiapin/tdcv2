@@ -54,11 +54,11 @@ Hay exactamente un `<tdc>`, y solo como raíz. Un documento sin raíz `<tdc>` fa
 `error[TDC001]: document has no <tdc> root element`. Contiene un `<env>` opcional
 (descrito más abajo) y un [`<block>`](output-formatting.md#top) obligatorio.
 
-| Atributo           | Obligatorio | Qué hace                                              |
-| :----------------- | :---------- | :---------------------------------------------------- |
-| `version` / `v`    | no          | Versión mínima del DSL que necesita el archivo        |
+| Atributo           | Obligatorio | Qué hace                                                                 |
+| :----------------- | :---------- | :----------------------------------------------------------------------- |
+| `version` / `v`    | no          | Versión mínima del DSL que necesita el archivo                           |
 | `regex_max_length` | no          | Límite global de longitud para [`type="regex"`](../generators/regex.md#top) |
-| `comment`          | no          | Comentario libre, ignorado por el motor               |
+| `comment`          | no          | Comentario libre, ignorado por el motor                                  |
 
 ### `version` (alias `v`)
 
@@ -71,6 +71,7 @@ agregada en una versión específica y conviene obtener una falla clara en un mo
 desactualizado en lugar de una confusa.
 
 <!-- doc-check: skip the error's location line embeds a machine temp path -->
+
 ```xml
 <tdc version="9.9.9">
     <block><line><data>hello</data></line></block>
@@ -174,13 +175,13 @@ después o entre registros. Es opcional: si solo se necesita repetir una línea 
 veces, se puede omitir. Pero en cuanto hacen falta secuencias, parámetros o fixtures,
 todos viven aquí.
 
-| Atributo  | Por omisión | Qué define                                               |
-| :-------- | :---------- | :------------------------------------------------------- |
-| `count`   | `10`        | Cuántos registros generar                                |
-| `seed`    | aleatorio   | Seed del generador de números aleatorios                 |
+| Atributo  | Por omisión | Qué define                                                               |
+| :-------- | :---------- | :----------------------------------------------------------------------- |
+| `count`   | `10`        | Cuántos registros generar                                                |
+| `seed`    | aleatorio   | Seed del generador de números aleatorios                                 |
 | `local`   | `en`        | Locale para los datos de [`type="template"`](../generators/template.md#top) |
-| `inject`  | `${{%}}`    | El patrón de interpolación de valores                    |
-| `comment` | —           | Comentario libre, ignorado por el motor                  |
+| `inject`  | `${{%}}`    | El patrón de interpolación de valores                                    |
+| `comment` | —           | Comentario libre, ignorado por el motor                                  |
 
 > [!NOTE]
 > **Lo que se pasa por CLI manda**
@@ -275,7 +276,7 @@ Marcial
 Aurelio
 ```
 
-Solo cambian los *datos*: la estructura, el comportamiento del seed y todo lo demás siguen
+Solo cambian los _datos_: la estructura, el comportamiento del seed y todo lo demás siguen
 igual. Qué locales están disponibles depende de los
 [paquetes de datos](../data-packs/overview.md#top) instalados.
 
@@ -325,16 +326,16 @@ encabezados, separadores y envolturas por línea. Permiten que una sola configur
 un archivo completo —un arreglo JSON con sus `[` y `]`, un CSV con su fila de
 encabezado— y no solo los registros pelados.
 
-| Fixture              | Imprime                                    |
-| :------------------- | :----------------------------------------- |
-| `<before>`           | Una vez, antes de toda la ejecución        |
-| `<after>`            | Una vez, después de toda la ejecución      |
-| `<before_block>`     | Antes de cada registro                     |
-| `<after_block>`      | Después de cada registro                   |
-| `<delimiter_block>`  | Entre registros (no después del último)    |
-| `<before_line>`      | Antes de cada línea de un registro         |
-| `<after_line>`       | Después de cada línea de un registro       |
-| `<delimiter_line>`   | Entre las líneas de un registro            |
+| Fixture             | Imprime                                 |
+| :------------------ | :-------------------------------------- |
+| `<before>`          | Una vez, antes de toda la ejecución     |
+| `<after>`           | Una vez, después de toda la ejecución   |
+| `<before_block>`    | Antes de cada registro                  |
+| `<after_block>`     | Después de cada registro                |
+| `<delimiter_block>` | Entre registros (no después del último) |
+| `<before_line>`     | Antes de cada línea de un registro      |
+| `<after_line>`      | Después de cada línea de un registro    |
+| `<delimiter_line>`  | Entre las líneas de un registro         |
 
 ```xml
 <tdc>

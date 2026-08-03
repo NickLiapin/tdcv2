@@ -13,9 +13,9 @@
 Los datasets reales tienen dos reglas distintas de «sin duplicados», y TDC ofrece una
 herramienta separada para cada una:
 
-| Mecanismo    | Alcance     | Significado                                            |
-| :----------- | :---------- | :----------------------------------------------------- |
-| `<distinct>` | una fila    | los campos **no son iguales entre sí** dentro de la fila |
+| Mecanismo    | Alcance         | Significado                                              |
+| :----------- | :-------------- | :------------------------------------------------------- |
+| `<distinct>` | una fila        | los campos **no son iguales entre sí** dentro de la fila |
 | `uniq`       | todas las filas | la **combinación de campos** es única en todo el dataset |
 
 Conviene verlas como gemelas sobre dos ejes. `<distinct>` trabaja en **horizontal** —
@@ -181,8 +181,8 @@ Detalles que vale la pena conocer:
   distintos que la cantidad de campos que deben diferir (digamos, una palabra para dos
   campos), TDC lanza un error claro en vez de quedarse en un ciclo infinito.
 - **En el nivel `<env>` el grupo acepta solo secuencias de un valor** — un `<gen>`
-  simple o un [`<mix>`](mix.md#top). Una secuencia compuesta (de varios campos) se rechaza
-  ahí con el error `TDC129`.
+  simple, un [`<mix>`](mix.md#top) o un [`<switch>`](switch.md#top). Una secuencia compuesta
+  (de varios campos) se rechaza ahí con el error `TDC129`.
 
 ## `uniq` — la combinación nunca se repite
 
@@ -313,7 +313,7 @@ Cuando los campos viven en secuencias **distintas**, envuélvalos en `<uniq>…<
 ```
 
 En el grupo solo pueden ir secuencias de un valor (un [`<gen>`](../generators/overview.md#top)
-simple o un `<mix>`); una secuencia compuesta no puede.
+simple, un `<mix>` o un `<switch>`); una secuencia compuesta no puede.
 
 > [!NOTE]
 > **No es un id único**
@@ -321,7 +321,7 @@ simple o un `<mix>`); una secuencia compuesta no puede.
 > Se trata de la unicidad de una **combinación de campos**, no de un contador. Para un
 > número corrido, use [`increment`](../generators/counters.md#top).
 
-### Cómo hacer único un valor *unido*
+### Cómo hacer único un valor _unido_
 
 `uniq` es una propiedad del **sorteo**. Una secuencia cuyo valor se
 [computa](../compute/overview.md#top), o se elige por fila con `if=`, no sale de ninguna
@@ -349,16 +349,20 @@ igual cuando el límite ya no está.
 
 ## Volúmenes grandes
 
-`uniq` corre en disco de forma predeterminada, sin banderas — pero qué tan rápido depende
-de **qué** haces único:
+`uniq` corre en disco de forma predeterminada, sin banderas — pero **ninguna de sus formas
+corre en el motor rápido de streaming**, y cuál de los otros dos la toma depende de cómo la
+haya escrito:
 
-- **Sobre listas de texto finitas, sin `percent`**, un motor rápido garantiza la unicidad
-  *por construcción* (una numeración de base mixta más una permutación), sin almacenar
-  nada de lo que ya generó, hasta `2^52` combinaciones. Esto escala sin problema — cien
-  mil filas en un segundo.
-- **Sobre números, fechas o plantillas, o con `percent` en una columna**, TDC no puede
-  numerar las combinaciones de antemano y cambia al motor exacto en disco: genera, y luego
-  **ordena toda la salida y repara las colisiones**.
+- **`uniq="true"` sobre una sola columna sorteada** — el caso común — extrae sin
+  reposición, y para eso hacen falta la bolsa y los valores ya tomados. Ese es el motor en
+  memoria: la memoria crece con `count` y la corrida queda limitada por la RAM.
+- **Un `uniq` compuesto, un `uniq` sobre un contador o un grupo `<uniq>` en el nivel env**
+  van al motor exacto en disco: acomoda cada columna y luego **revisa las tuplas y repara
+  las colisiones**. La memoria se mantiene acotada; el tiempo no.
+
+[Qué motor corre su configuración](../guides/large-outputs.md#qué-motor-corre-su-configuración)
+tiene el enrutamiento completo, incluidas las cuatro formas sin `uniq` que también acaban
+en memoria.
 
 > [!CAUTION]
 > **`uniq` exacto sobre una salida enorme es LENTO — `uniq` + `percent` más que nada**
@@ -366,7 +370,7 @@ de **qué** haces único:
 > La revisión de ordenar-y-reparar es exhaustiva, y su costo crece **más rápido que
 > linealmente** con el número de filas. La memoria se mantiene acotada, pero el tiempo no —
 > cientos de miles de filas únicas ya tardan **minutos**, y los millones pueden correr
-> **horas o más**. Es el precio honesto de garantizar *ningún repetido* en un archivo enorme.
+> **horas o más**. Es el precio honesto de garantizar _ningún repetido_ en un archivo enorme.
 >
 > **`uniq` junto con `percent` sobre las mismas columnas es el peor caso que hay:**
 > proporciones exactas y sin repetidos a la vez es un acomodo con restricciones encima del

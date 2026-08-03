@@ -13,8 +13,8 @@
 **Conviene usarla cuando** dos campos de la misma fila sacan del mismo conjunto y no
 deben caer en el mismo valor: un primer nombre y un segundo nombre que no deberían salir
 `José José`, un país de nacimiento y un país de residencia que no deberían ser
-idénticos. `<distinct>` dice: *sus hijos directos, dentro de una fila, deben diferir
-entre sí.*
+idénticos. `<distinct>` dice: _sus hijos directos, dentro de una fila, deben diferir
+entre sí._
 
 Esta es una regla **horizontal** — mira a lo ancho de los campos de una sola fila. Su
 gemela vertical es [`uniq`](../constructs/unique-values.md#top), que evita que la **fila completa** se
@@ -222,7 +222,9 @@ producido un campo del grupo.
 
 Si una lista tiene menos valores distintos que la cantidad de campos que deben diferir
 —digamos, una sola palabra para dos campos—, la restricción es imposible de satisfacer.
-TDC lanza un error claro por adelantado en vez de quedarse en un ciclo infinito:
+En vez de quedarse en un ciclo infinito, TDC se rinde tras 1000 intentos en una fila y lo
+dice. A diferencia de `uniq`, que comprueba la viabilidad antes de generar, este falla
+durante la corrida — rápido, pero no antes de que empiece:
 
 `./run person.tdc`
 
@@ -232,15 +234,17 @@ for field "B" different from the others after 1000 attempts — its source
 likely has too few distinct values.
 ```
 
-**Por qué:** una petición imposible debe fallar de inmediato, no colgarse. Esto refleja
-la verificación de viabilidad que [`uniq`](../constructs/unique-values.md#top) hace antes de generar.
+**Por qué:** una petición imposible debe fallar de forma ruidosa, no colgarse. Lo que
+cambia frente a [`uniq`](../constructs/unique-values.md#top) es el momento: `uniq` prueba la
+viabilidad de toda la columna antes de generar, mientras que `<distinct>` se entera en la
+primera fila que no puede satisfacer.
 
 ### En el nivel `<env>`, los grupos aceptan solo secuencias de un valor
 
 Un `<distinct>` dentro de `<env>` puede envolver únicamente secuencias de **un solo
-valor** — un [`<gen>`](../generators/overview.md#top) simple o un `<switch>`. Una secuencia
-compuesta (de varios campos) no tiene un valor único que comparar, así que ponerla en el
-grupo se rechaza con el error `TDC129`:
+valor** — un [`<gen>`](../generators/overview.md#top) simple, un `<mix>` o un `<switch>`. Una
+secuencia compuesta (de varios campos) no tiene un valor único que comparar, así que
+ponerla en el grupo se rechaza con el error `TDC129`:
 
 `./run migration.tdc`
 
@@ -256,21 +260,21 @@ arriba); en el nivel `<env>`, mantenga cada secuencia agrupada en un solo valor.
 
 ## `<distinct>` frente a `uniq`, de un vistazo
 
-| Mecanismo    | Eje        | Alcance         | Significado                                            |
-| :----------- | :--------- | :-------------- | :----------------------------------------------------- |
+| Mecanismo    | Eje        | Alcance         | Significado                                              |
+| :----------- | :--------- | :-------------- | :------------------------------------------------------- |
 | `<distinct>` | horizontal | una fila        | los campos **no son iguales entre sí** dentro de la fila |
-| `uniq`       | vertical   | todas las filas | la **combinación de campos** nunca se repite            |
+| `uniq`       | vertical   | todas las filas | la **combinación de campos** nunca se repite             |
 
 Resuelven problemas distintos y se combinan sin problema — una fila puede exigir que sus
-dos campos de nombre difieran *y* que el par completo `(first, last)` sea único en todo
+dos campos de nombre difieran _y_ que el par completo `(first, last)` sea único en todo
 el dataset. Para la regla vertical, vea [Valores únicos](../constructs/unique-values.md#top).
 
 ## Puede contener
 
-| Etiqueta                                         | Dónde                 | Qué contiene                        |
-| :----------------------------------------------- | :-------------------- | :---------------------------------- |
-| [`<gen/>`](../generators/overview.md#top)           | dentro de `<sequence>` | Campos que deben diferir           |
-| [`<sequence>`](../core-concepts/sequences.md#top)   | dentro de `<env>`      | Secuencias que deben diferir       |
+| Etiqueta                                       | Dónde                  | Qué contiene                 |
+| :--------------------------------------------- | :--------------------- | :--------------------------- |
+| [`<gen/>`](../generators/overview.md#top)         | dentro de `<sequence>` | Campos que deben diferir     |
+| [`<sequence>`](../core-concepts/sequences.md#top) | dentro de `<env>`      | Secuencias que deben diferir |
 
 ## Véase también
 

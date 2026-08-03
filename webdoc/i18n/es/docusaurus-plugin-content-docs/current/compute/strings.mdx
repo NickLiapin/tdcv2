@@ -18,7 +18,7 @@ disponibles por otras dos vías: como atributo de [`<gen>`](../generators/overvi
 (`mask=` / `case=`) y como filtro de interpolación (`${{X | mask:…}}`). La guía
 [Máscaras y mayúsculas](../guides/masks-and-case.mdx) muestra esas rutas con salidas
 resueltas. Eche mano de la **etiqueta de compute** cuando el formato sea un paso dentro de
-un cálculo — por ejemplo, enmascarar un número y *después* ponerlo en mayúsculas antes de
+un cálculo — por ejemplo, enmascarar un número y _después_ ponerlo en mayúsculas antes de
 agregarle un dígito verificador. `<concat>`, `<str>` y `<pad>` existen **solo** como
 etiquetas de compute.
 
@@ -105,11 +105,11 @@ de `<trim>` de más abajo.
 
 Cuatro transformaciones de mayúsculas y minúsculas, cada una con un hijo de tipo string:
 
-| Etiqueta       | Hace                                                              |
-| :------------- | :---------------------------------------------------------------- |
-| `<upper>`      | TODO EN MAYÚSCULAS                                                |
-| `<lower>`      | todo en minúsculas                                                |
-| `<capitalize>` | **solo la primera** letra en mayúscula, el resto tal cual         |
+| Etiqueta       | Hace                                                                 |
+| :------------- | :------------------------------------------------------------------- |
+| `<upper>`      | TODO EN MAYÚSCULAS                                                   |
+| `<lower>`      | todo en minúsculas                                                   |
+| `<capitalize>` | **solo la primera** letra en mayúscula, el resto tal cual            |
 | `<title>`      | la primera letra de **cada palabra** en mayúscula, el resto tal cual |
 
 **Úselas cuando** los datos lleguen con mayúsculas y minúsculas mezcladas (distintas
@@ -152,12 +152,12 @@ un paso dentro de un cálculo.
 a derecha, cada **ranura** se come un pedazo de la entrada, y todo lo demás se imprime
 como literal.
 
-| Ranura           | Toma de la entrada                                              |
-| :--------------- | :--------------------------------------------------------------- |
-| `x`              | un carácter                                                      |
-| `w`              | una palabra (letras hasta un espacio) y **se traga un** espacio  |
-| `*`              | toda la entrada restante                                         |
-| `\`              | escapa el siguiente carácter (`\x` → una `x` literal)            |
+| Ranura              | Toma de la entrada                                                 |
+| :------------------ | :----------------------------------------------------------------- |
+| `x`                 | un carácter                                                        |
+| `w`                 | una palabra (letras hasta un espacio) y **se traga un** espacio    |
+| `*`                 | toda la entrada restante                                           |
+| `\`                 | escapa el siguiente carácter (`\x` → una `x` literal)              |
 | cualquier otra cosa | un literal: guion, punto, espacio, corchetes — se imprime tal cual |
 
 `pattern` es el único atributo (y es obligatorio). Una máscara es **tolerante y nunca
@@ -238,10 +238,10 @@ carácter en `from` se incluye, el carácter en `to` no — así que la longitud
 `to − from`. Los índices **empiezan en cero** y se cuentan en **puntos de código** (de modo
 que Unicode se corta por letras, no por bytes).
 
-| Atributo  | Obligatorio | Define                                                     |
-| :-------- | :---------- | :---------------------------------------------------------- |
-| `from`    | sí          | índice del primer carácter (empieza en cero), incluido      |
-| `to`      | no          | índice justo después del último carácter; si se omite → hasta el final |
+| Atributo | Obligatorio | Define                                                                 |
+| :------- | :---------- | :--------------------------------------------------------------------- |
+| `from`   | sí          | índice del primer carácter (empieza en cero), incluido                 |
+| `to`     | no          | índice justo después del último carácter; si se omite → hasta el final |
 
 **Úselo cuando** necesite una parte fija de un valor — el año o el mes de una fecha, el
 prefijo de un código, los últimos caracteres de un identificador.
@@ -274,10 +274,10 @@ en el índice 4 no se incluye); `from=5` sin `to` corre del índice 5 hasta el f
 escriba se busca tal cual. Si `from` está vacío, o no se encuentra, el string se devuelve
 sin cambios.
 
-| Atributo  | Obligatorio | Define                            |
-| :-------- | :---------- | :-------------------------------- |
-| `from`    | sí          | qué buscar (literal)              |
-| `to`      | sí          | con qué reemplazarlo              |
+| Atributo | Obligatorio | Define               |
+| :------- | :---------- | :------------------- |
+| `from`   | sí          | qué buscar (literal) |
+| `to`     | sí          | con qué reemplazarlo |
 
 **Úselo cuando** necesite cambiar un separador (guion → diagonal en una fecha) o quitar un
 carácter por completo (`to=""` elimina cada coincidencia):
@@ -338,10 +338,10 @@ entre ellos. La agrupación corre **de derecha a izquierda**, así que el grupo 
 (incompleto) queda a la **izquierda**, igual que con los separadores de miles. Un string
 más corto que un grupo se devuelve sin cambios (no se agrega separador).
 
-| Atributo  | Obligatorio | Por omisión | Define                        |
-| :-------- | :---------- | :---------- | :---------------------------- |
-| `size`    | no          | `3`         | tamaño del grupo (caracteres) |
-| `sep`     | no          | espacio `" "` | separador entre grupos      |
+| Atributo | Obligatorio | Por omisión   | Define                        |
+| :------- | :---------- | :------------ | :---------------------------- |
+| `size`   | no          | `3`           | tamaño del grupo (caracteres) |
+| `sep`    | no          | espacio `" "` | separador entre grupos        |
 
 **Úselo cuando** un número largo sea ilegible — dígitos de miles, bloques de una tarjeta,
 códigos largos:
@@ -376,10 +376,10 @@ desde la **izquierda** o por posición, use [`<mask>`](#reestructuración).
 **izquierda** hasta que el string alcanza `width`. Se comporta como `padStart`: si el
 string **ya mide al menos** `width`, se devuelve sin cambios — **no** hay truncamiento.
 
-| Atributo  | Por omisión | Define                                          |
-| :-------- | :---------- | :---------------------------------------------- |
-| `width`   | —           | ancho objetivo del string                       |
-| `fill`    | `"0"`       | el carácter que se antepone por la izquierda    |
+| Atributo | Por omisión | Define                                       |
+| :------- | :---------- | :------------------------------------------- |
+| `width`  | —           | ancho objetivo del string                    |
+| `fill`   | `"0"`       | el carácter que se antepone por la izquierda |
 
 **Úselo cuando** un identificador necesite un ancho fijo — un número de control, un código
 de artículo, un dígito verificador que debe ocupar dos lugares (`09`). Ceros a la
@@ -427,12 +427,12 @@ El formato está disponible como etiqueta de compute, como atributo de
 [Máscaras y mayúsculas](../guides/masks-and-case.mdx) muestra cada ruta con salida real.
 Dónde vive cada etiqueta:
 
-| Operación                        | Filtro `${{X\|…}}` | Atributo de `<gen>` | Etiqueta de `<compute>`           |
-| :------------------------------- | :----------------: | :-----------------: | :-------------------------------- |
-| caso (`upper`…`title`)           | sí                 | `case=`             | [`<upper>` …](#construcción-y-mayúsculas) |
-| `mask`                           | sí                 | `mask=`             | [`<mask>`](#reestructuración)     |
-| `slice` / `replace` / `trim` / `group` | sí           | —                   | [`<slice>` …](#reestructuración)  |
-| `concat` / `str` / `pad`         | —                  | —                   | esta página (solo compute)        |
+| Operación                              | Filtro `${{X\|…}}` | Atributo de `<gen>` | Etiqueta de `<compute>`                   |
+| :------------------------------------- | :----------------: | :-----------------: | :---------------------------------------- |
+| caso (`upper`…`title`)                 |         sí         |       `case=`       | [`<upper>` …](#construcción-y-mayúsculas) |
+| `mask`                                 |         sí         |       `mask=`       | [`<mask>`](#reestructuración)             |
+| `slice` / `replace` / `trim` / `group` |         sí         |          —          | [`<slice>` …](#reestructuración)          |
+| `concat` / `str` / `pad`               |         —          |          —          | esta página (solo compute)                |
 
 Eche mano de la etiqueta de compute cuando el formato sea un **paso dentro de un
 cálculo**; eche mano del atributo o del filtro para un valor sencillo.

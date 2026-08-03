@@ -158,7 +158,7 @@ de bucle como estas, y cada una se presenta junto a la etiqueta que la posee.
 
 ## Un ejemplo resuelto — un número de tarjeta válido
 
-Un número de tarjeta de pago es *casi* aleatorio: el último dígito es el dígito
+Un número de tarjeta de pago es _casi_ aleatorio: el último dígito es el dígito
 verificador de [Luhn](https://en.wikipedia.org/wiki/Luhn_algorithm), calculado a partir
 del resto. Generamos 15 dígitos aleatorios y dejamos que `<compute>` agregue el único
 dígito que vuelve válido al conjunto:
@@ -215,8 +215,8 @@ dígitos genuinamente válido según Luhn.
 
 Repasando las piezas: [`<reduce>`](lists.md#reduce--plegar-a-un-solo-valor) pliega los
 15 dígitos en una sola suma corrida, `sum`. Cada segundo dígito (un
-[`<current_index/>`](lists.md#top) par) se «duplica», pero Luhn toma la *suma de los
-dígitos* del valor duplicado, así que en lugar de `<multiply>` lo buscamos en una tabla
+[`<current_index/>`](lists.md#top) par) se «duplica», pero Luhn toma la _suma de los
+dígitos_ del valor duplicado, así que en lugar de `<multiply>` lo buscamos en una tabla
 pequeña con [`<at>`](lists.md#at--indexar-una-lista). Un
 [`<choose>`](conditionals.md#top) elige el valor duplicado o el dígito tal cual. El segundo
 paso, `check`, convierte esa suma en el dígito final, y
@@ -226,10 +226,10 @@ paso, `check`, convierte esa suma en el dígito final, y
 
 Toda expresión de compute se evalúa a uno de tres tipos.
 
-| Tipo   | Qué es                 | Literal              |
-| :----- | :--------------------- | :------------------- |
-| `int`  | un entero de 64 bits   | `<int v="10"/>`      |
-| `str`  | un string              | `<str v="AB"/>`      |
+| Tipo   | Qué es                   | Literal              |
+| :----- | :----------------------- | :------------------- |
+| `int`  | un entero de 64 bits     | `<int v="10"/>`      |
+| `str`  | un string                | `<str v="AB"/>`      |
 | `list` | una lista de `int`/`str` | `<list v="2,4,10"/>` |
 
 El valor de un literal va en el **atributo `v`** — en TDC, las etiquetas no pueden
@@ -242,18 +242,18 @@ comportan de otra manera. Aquí un nombre conocido es peor que uno desconocido: 
 relee la documentación de una etiqueta que cree conocer. Cada fila de abajo está medida,
 no deducida.
 
-| Usted escribe | Lo que puede esperar | Lo que da TDC |
-| :--- | :--- | :--- |
-| `<divide>` de 7 entre 2 | `3.5` | `3` — división entera, el resto se descarta |
-| `<divide>` de 1 entre 3 | `0.33` | `0` |
-| `<mod>` de -7 entre 3 | `-1`, como en C, Java y JavaScript | `2` — el resto nunca es negativo |
-| `<list v="a,b"/>` | una lista de dos strings | un error: `"a" is not an integer` |
-| `<replace from="[ab]"/>` | una expresión regular | una coincidencia literal, así que no se reemplaza nada |
-| `<replace from="a"/>` sobre `banana` | la primera `a` | `bXnXnX` — todas las apariciones |
-| `<equals>` de `5` y `"5"` | tipos distintos, no son iguales | son iguales |
-| `<slice from="99">` sobre `abc` | un error | un string vacío, en silencio |
-| `<pad width="2">` sobre `12345` | `12` | `12345` — `width` es un mínimo, nunca un recorte |
-| `<each>` donde se espera un string | un string | un error: `cannot use a list where a string is expected` |
+| Usted escribe                        | Lo que puede esperar               | Lo que da TDC                                            |
+| :----------------------------------- | :--------------------------------- | :------------------------------------------------------- |
+| `<divide>` de 7 entre 2              | `3.5`                              | `3` — división entera, el resto se descarta              |
+| `<divide>` de 1 entre 3              | `0.33`                             | `0`                                                      |
+| `<mod>` de -7 entre 3                | `-1`, como en C, Java y JavaScript | `2` — el resto nunca es negativo                         |
+| `<list v="a,b"/>`                    | una lista de dos strings           | un error: `"a" is not an integer`                        |
+| `<replace from="[ab]"/>`             | una expresión regular              | una coincidencia literal, así que no se reemplaza nada   |
+| `<replace from="a"/>` sobre `banana` | la primera `a`                     | `bXnXnX` — todas las apariciones                         |
+| `<equals>` de `5` y `"5"`            | tipos distintos, no son iguales    | son iguales                                              |
+| `<slice from="99">` sobre `abc`      | un error                           | un string vacío, en silencio                             |
+| `<pad width="2">` sobre `12345`      | `12`                               | `12345` — `width` es un mínimo, nunca un recorte         |
+| `<each>` donde se espera un string   | un string                          | un error: `cannot use a list where a string is expected` |
 
 Tres de estas merecen más que una fila.
 
@@ -265,16 +265,16 @@ variable, y por eso justamente el par confunde aquí.
 
 De ahí salen tres reglas, y el motor hace cumplir las tres:
 
-| Regla | Lo que obtiene si la rompe |
-| :--- | :--- |
-| Un nombre debe ligarse antes de leerse | `TDC182: <var name="x"> is not bound by an enclosing <let>` |
-| Un nombre se liga una vez y no se vuelve a ligar | `TDC185: <let name="x"> shadows an outer binding of the same name` |
+| Regla                                                   | Lo que obtiene si la rompe                                               |
+| :------------------------------------------------------ | :----------------------------------------------------------------------- |
+| Un nombre debe ligarse antes de leerse                  | `TDC182: <var name="x"> is not bound by an enclosing <let>`              |
+| Un nombre se liga una vez y no se vuelve a ligar        | `TDC185: <let name="x"> shadows an outer binding of the same name`       |
 | Una ligadura solo es visible dentro de su propia ranura | un `<let>` dentro de `<do>` es invisible fuera de él — otra vez `TDC182` |
 
 Dicho simple: `<let>` calcula un valor una sola vez y le pone nombre, y `<var>` es la
 forma de volver a pedir ese valor sin rehacer el trabajo. Una vez nombrado, el valor ya
 no cambia — para eso sirve ponerle nombre. Es el mismo movimiento que hacer cuentas en
-papel: *sea s el puntaje como número*, escrito una vez y usado hasta el final.
+papel: _sea s el puntaje como número_, escrito una vez y usado hasta el final.
 
 ### `<divide>` tira el resto
 
@@ -303,17 +303,17 @@ completo está en la [referencia de funciones de compute](../reference/compute.m
 
 Los valores de los que se parte y los nombres que se dan a los resultados intermedios.
 
-| Etiqueta               | Qué hace                                                  |
-| :--------------------- | :-------------------------------------------------------- |
-| `<int v="10"/>`        | un entero (`v` es decimal, puede llevar un `-` al inicio) |
-| `<str v="AB"/>`        | un string                                                 |
-| `<list v="2,4,10"/>`   | una lista de enteros separados por comas                  |
-| `<field name="X"/>`    | el valor de la secuencia `X` en el alcance — igual que `${{X}}` |
-| `<var name="X"/>`      | el valor ligado por un `<let name="X">` que lo contiene   |
-| `<let name="X">…`      | nombra un resultado intermedio para que lo lean las etiquetas hermanas |
-| `<current/>`           | el elemento actual (solo dentro de `<do>`)                |
-| `<current_index/>`     | la posición del elemento actual, empezando en cero        |
-| `<acc/>`               | el acumulador (solo dentro de `<reduce><do>`)             |
+| Etiqueta             | Qué hace                                                               |
+| :------------------- | :--------------------------------------------------------------------- |
+| `<int v="10"/>`      | un entero (`v` es decimal, puede llevar un `-` al inicio)              |
+| `<str v="AB"/>`      | un string                                                              |
+| `<list v="2,4,10"/>` | una lista de enteros separados por comas                               |
+| `<field name="X"/>`  | el valor de la secuencia `X` en el alcance — igual que `${{X}}`        |
+| `<var name="X"/>`    | el valor ligado por un `<let name="X">` que lo contiene                |
+| `<let name="X">…`    | nombra un resultado intermedio para que lo lean las etiquetas hermanas |
+| `<current/>`         | el elemento actual (solo dentro de `<do>`)                             |
+| `<current_index/>`   | la posición del elemento actual, empezando en cero                     |
+| `<acc/>`             | el acumulador (solo dentro de `<reduce><do>`)                          |
 
 ### [Aritmética](arithmetic.md#top)
 
@@ -385,7 +385,7 @@ clave de área específica.
 
 ### Rechazar y reintentar — `<valid>`
 
-A veces un dígito verificador calculado es *irrepresentable* en el formato de destino.
+A veces un dígito verificador calculado es _irrepresentable_ en el formato de destino.
 Un valor de control 10 en un ISBN-10 se escribe con la letra `X`; si un campo debe
 quedarse puramente numérico, esas filas hay que descartarlas. El pack agrega un solo
 predicado `<valid>`, y el motor **regenera la base hasta que pase** (con un tope de
@@ -407,7 +407,7 @@ emitido son diez dígitos limpios.
 2444206142
 ```
 
-**Úselo cuando** un valor correcto pueda aun así ser *inválido* para el dominio (un
+**Úselo cuando** un valor correcto pueda aun así ser _inválido_ para el dominio (un
 rango no emitido, un dígito verificador prohibido) y quiera que el pack garantice solo
 filas buenas.
 

@@ -9,49 +9,49 @@ Todas las etiquetas del DSL de TDC, con el lugar donde se explican a fondo.
 
 ## Estructura
 
-| Etiqueta            | Qué es                                         | Ver                                                |
-| :------------------ | :--------------------------------------------- | :------------------------------------------------- |
-| `<!--…-->`          | Un comentario                                  | —                                                  |
-| `<tdc>`             | El elemento raíz                               | [Configuración](../core-concepts/configuration.mdx) |
-| `<env>`             | Entorno: parámetros, secuencias, fixtures      | [Configuración](../core-concepts/configuration.mdx) |
-| `<sequence>`        | La declaración de una secuencia con nombre     | [Secuencias](../core-concepts/sequences.mdx)       |
-| `<gen>`             | Un generador de datos                          | [Generadores](../generators/overview.mdx)          |
-| `<data>`            | Dentro de una `<sequence>`: texto literal que se concatena en el valor de la secuencia; con `name`, un campo constante | [Secuencias](../core-concepts/sequences.mdx#una-secuencia-compuesta-por-valor) |
-| `<compute>`         | Un valor calculado                             | [Lenguaje de cálculo](../compute/overview.mdx)     |
+| Etiqueta     | Qué es                                                                                                                 | Ver                                                                            |
+| :----------- | :--------------------------------------------------------------------------------------------------------------------- | :----------------------------------------------------------------------------- |
+| `<!--…-->`   | Un comentario                                                                                                          | —                                                                              |
+| `<tdc>`      | El elemento raíz                                                                                                       | [Configuración](../core-concepts/configuration.mdx)                            |
+| `<env>`      | Entorno: parámetros, secuencias, fixtures                                                                              | [Configuración](../core-concepts/configuration.mdx)                            |
+| `<sequence>` | La declaración de una secuencia con nombre                                                                             | [Secuencias](../core-concepts/sequences.mdx)                                   |
+| `<gen>`      | Un generador de datos                                                                                                  | [Generadores](../generators/overview.mdx)                                      |
+| `<data>`     | Dentro de una `<sequence>`: texto literal que se concatena en el valor de la secuencia; con `name`, un campo constante | [Secuencias](../core-concepts/sequences.mdx#una-secuencia-compuesta-por-valor) |
+| `<compute>`  | Un valor calculado                                                                                                     | [Lenguaje de cálculo](../compute/overview.mdx)                                 |
 
 ## Diseño de la salida
 
-| Etiqueta            | Qué es                                         | Ver                                                |
-| :------------------ | :--------------------------------------------- | :------------------------------------------------- |
-| `<block>`           | El diseño de un registro de salida             | [Salida y formato](../core-concepts/output-formatting.mdx) |
-| `<line>`            | Una línea dentro de un registro                | [Salida y formato](../core-concepts/output-formatting.mdx) |
-| `<data>`            | Dentro de una `<line>`: texto literal con interpolación | [Salida y formato](../core-concepts/output-formatting.mdx) |
-| `<before>` / `<after>` | Texto antes / después de toda la generación | [Salida y formato](../core-concepts/output-formatting.mdx) |
-| `<before_block>` / `<after_block>` / `<delimiter_block>` | Texto alrededor / entre registros | [Salida y formato](../core-concepts/output-formatting.mdx) |
-| `<before_line>` / `<after_line>` / `<delimiter_line>` | Texto alrededor / entre líneas | [Salida y formato](../core-concepts/output-formatting.mdx) |
+| Etiqueta                                                 | Qué es                                                  | Ver                                                        |
+| :------------------------------------------------------- | :------------------------------------------------------ | :--------------------------------------------------------- |
+| `<block>`                                                | El diseño de un registro de salida                      | [Salida y formato](../core-concepts/output-formatting.mdx) |
+| `<line>`                                                 | Una línea dentro de un registro                         | [Salida y formato](../core-concepts/output-formatting.mdx) |
+| `<data>`                                                 | Dentro de una `<line>`: texto literal con interpolación | [Salida y formato](../core-concepts/output-formatting.mdx) |
+| `<before>` / `<after>`                                   | Texto antes / después de toda la generación             | [Salida y formato](../core-concepts/output-formatting.mdx) |
+| `<before_block>` / `<after_block>` / `<delimiter_block>` | Texto alrededor / entre registros                       | [Salida y formato](../core-concepts/output-formatting.mdx) |
+| `<before_line>` / `<after_line>` / `<delimiter_line>`    | Texto alrededor / entre líneas                          | [Salida y formato](../core-concepts/output-formatting.mdx) |
 
 ## Distribuciones y selección
 
-| Etiqueta            | Qué es                                                  | Ver                                                |
-| :------------------ | :------------------------------------------------------ | :------------------------------------------------- |
-| `<mix>`             | Una distribución: un valor repartido por porcentajes exactos | [Distribuciones (mix)](../constructs/mix.mdx)     |
-| `<switch>`          | Elegir un valor por clave (una tabla de búsqueda)       | [Tablas de búsqueda (switch)](../constructs/switch.mdx) |
-| `<map>`             | Una tabla compacta `CLAVE:VALOR` dentro de `<switch>`   | [Tablas de búsqueda (switch)](../constructs/switch.mdx) |
-| `<case>`            | Una rama dentro de `<mix>` o `<switch>`                 | [Distribuciones (mix)](../constructs/mix.mdx) · [Tablas de búsqueda (switch)](../constructs/switch.mdx) |
-| `<default>`         | La rama «si no» dentro de `<switch>`                    | [Tablas de búsqueda (switch)](../constructs/switch.mdx) |
+| Etiqueta    | Qué es                                                       | Ver                                                                                                     |
+| :---------- | :----------------------------------------------------------- | :------------------------------------------------------------------------------------------------------ |
+| `<mix>`     | Una distribución: un valor repartido por porcentajes exactos | [Distribuciones (mix)](../constructs/mix.mdx)                                                           |
+| `<switch>`  | Elegir un valor por clave (una tabla de búsqueda)            | [Tablas de búsqueda (switch)](../constructs/switch.mdx)                                                 |
+| `<map>`     | Una tabla compacta `CLAVE:VALOR` dentro de `<switch>`        | [Tablas de búsqueda (switch)](../constructs/switch.mdx)                                                 |
+| `<case>`    | Una rama dentro de `<mix>` o `<switch>`                      | [Distribuciones (mix)](../constructs/mix.mdx) · [Tablas de búsqueda (switch)](../constructs/switch.mdx) |
+| `<default>` | La rama «si no» dentro de `<switch>`                         | [Tablas de búsqueda (switch)](../constructs/switch.mdx)                                                 |
 
 ## Registros enteros
 
-| Etiqueta            | Qué es                                                  | Ver                                                |
-| :------------------ | :----------------------------------------------------- | :------------------------------------------------- |
-| `<pool>`            | Una tabla pequeña construida antes de las filas; una fila toma de ella un miembro entero | [Registros coherentes (pool)](../pools/overview.mdx) |
+| Etiqueta | Qué es                                                                                   | Ver                                                  |
+| :------- | :--------------------------------------------------------------------------------------- | :--------------------------------------------------- |
+| `<pool>` | Una tabla pequeña construida antes de las filas; una fila toma de ella un miembro entero | [Registros coherentes (pool)](../pools/overview.mdx) |
 
 ## Unicidad
 
-| Etiqueta            | Qué es                                                  | Ver                                       |
-| :------------------ | :------------------------------------------------------ | :---------------------------------------- |
-| `<distinct>`        | Campos/secuencias que deben diferir dentro de una fila  | [Sin repeticiones dentro de una fila](../guides/distinct.mdx) |
-| `<uniq>`            | La combinación de secuencias única en todas las filas   | [Valores únicos](../constructs/unique-values.mdx) |
+| Etiqueta     | Qué es                                                 | Ver                                                           |
+| :----------- | :----------------------------------------------------- | :------------------------------------------------------------ |
+| `<distinct>` | Campos/secuencias que deben diferir dentro de una fila | [Sin repeticiones dentro de una fila](../guides/distinct.mdx) |
+| `<uniq>`     | La combinación de secuencias única en todas las filas  | [Valores únicos](../constructs/unique-values.mdx)             |
 
 `<data>` aparece dos veces porque se lee de dos maneras. Dentro de una `<line>` es
 salida: texto literal en el que se interpolan los `${{…}}`. Dentro de una

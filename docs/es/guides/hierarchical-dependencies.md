@@ -22,7 +22,7 @@ solo para hombres», «el diagnóstico depende del sexo», «los niños no tiene
 en una sola descripción declarativa.
 
 > [!NOTE]
-> Las salidas de ejemplo que siguen son ilustrativas. Los *valores* exactos que emite un
+> Las salidas de ejemplo que siguen son ilustrativas. Los _valores_ exactos que emite un
 > generador pueden cambiar entre versiones del core y entre seeds; lo que la
 > característica garantiza son los **conteos** y las **reglas estructurales** (qué filas
 > se llenan y cuáles quedan vacías).
@@ -237,7 +237,7 @@ abajo, así que los padres siempre van primero.
 ## `parent` sin valor
 
 `parent="Parent"` — **sin punto ni valor** — significa «cualquier fila donde el padre
-tenga algún valor», sin importar *cuál*. Rara vez se necesita en el primer nivel (un
+tenga algún valor», sin importar _cuál_. Rara vez se necesita en el primer nivel (un
 padre de nivel superior siempre tiene valor), pero es la herramienta para cadenas más
 profundas, donde una secuencia intermedia está a su vez filtrada y usted quiere un nieto
 solo donde ese nivel intermedio se disparó.
@@ -312,7 +312,7 @@ US
 ## Un árbol en los datos, no en la configuración
 
 `parent` relaciona una **secuencia** con otra. Casi con la misma frecuencia aparece otra
-tarea: un registro que apunta a *otro registro del mismo tipo*. Un empleado cuyo jefe es
+tarea: un registro que apunta a _otro registro del mismo tipo_. Un empleado cuyo jefe es
 un empleado, un comentario que responde a un comentario, una categoría dentro de una
 categoría.
 
@@ -378,7 +378,7 @@ Lo que eso garantiza por construcción, no por suerte:
   uno profundo y estrecho.
 
 La misma columna sirve para un organigrama, un árbol de comentarios, una lista de
-materiales o categorías anidadas. Lo que los registros *dicen* es otra cuestión: el texto
+materiales o categorías anidadas. Lo que los registros _dicen_ es otra cuestión: el texto
 de un comentario es simplemente [`text.paragraph`](../generators/template.md#top) y no tiene
 que formar una conversación coherente para que el árbol sea un árbol válido.
 

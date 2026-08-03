@@ -29,7 +29,7 @@ se toma **del archivo de Fiat** — nunca un «Fiat Altima».
 >
 > Los valores de abajo vienen de un `seed` fijo, así que son reproducibles, pero las
 > cadenas y proporciones exactas pueden diferir entre versiones del core. Tómelos como
-> ejemplos de la *forma*, no como garantías.
+> ejemplos de la _forma_, no como garantías.
 
 ## Cómo se ve
 
@@ -60,7 +60,7 @@ Nissan Kicks
 
 Cada modelo pertenece a su marca. Y `common.vehicle.brand` es un pack **ponderado**
 (Toyota es común, Maybach es raro), así que las marcas mismas aparecen también en
-proporciones realistas — se obtienen pares coherentes *y* una mezcla de mercado creíble
+proporciones realistas — se obtienen pares coherentes _y_ una mezcla de mercado creíble
 en una sola configuración.
 
 ## Un hijo por padre — una cocina y su platillo
@@ -139,19 +139,20 @@ coherentes para marcas de autos, `food.cuisine`, `medical.specialtyCoherent`,
 
 - **El padre se declara antes que el hijo** — TDC materializa las
   [secuencias](../core-concepts/sequences.md#top) de arriba hacia abajo, así que
-  `${{Brand}}` lee un valor ya calculado. Un hijo que interpola un campo definido *más
-  abajo* no tiene nada que leer.
+  `${{Brand}}` lee un valor ya calculado. Un hijo que interpola un campo definido _más
+  abajo_ no tiene nada que leer.
 - **`parent="Brand"`** enlaza el hijo con el padre y fija el orden. Para una búsqueda
-  simple eso basta; el filtrado más estricto sobre un valor *específico*
+  simple eso basta; el filtrado más estricto sobre un valor _específico_
   (`parent="Brand.Fiat"`) se cubre en
   [Dependencias jerárquicas](hierarchical-dependencies.md#top).
 - **Cada valor del padre necesita un archivo hijo que le corresponda**, o la dirección
   no se resolverá y saldrá un error. Por eso la lista del padre suele contener
   exactamente los valores que tienen archivo (como `common.vehicle.brand`).
 - **Motor.** Una configuración así siempre corre en el motor en memoria (el único que
-  resuelve una dirección por fila). Se trata de coherencia realista, no de generar
-  gigabytes en streaming — vea [Salidas grandes](large-outputs.md#top) para la vía de
-  streaming.
+  resuelve una dirección por fila), así que la memoria crece con `count`. Se trata de
+  coherencia realista, no de generar gigabytes en streaming; [Qué motor corre su
+  configuración](large-outputs.md#qué-motor-corre-su-configuración) enumera esta forma y
+  las otras cuatro que se encaminan igual.
 
 ## El pariente CSV — `row` + `weight`
 

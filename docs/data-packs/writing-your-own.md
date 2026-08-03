@@ -254,9 +254,13 @@ Martín Romero
 Ruiz
 ```
 
-Over 100 rows, exactly 60 carry two surnames and 40 carry one. The generator body runs
-on the same engine, which knows `count` and lays the percentages out with Hamilton
-rather than leaving it to chance.
+Over 100 rows, exactly 60 carry two surnames and 40 carry one — the split is laid out
+with Hamilton over the whole `count` rather than left to chance.
+
+**Engine note.** That share is a quota over the whole column, which no streaming engine
+can apportion a row at a time, so a config using this pack runs on the in-memory engine
+and its memory grows with `count`. A pack without `percent=` costs nothing. See [Which
+engine runs your config](../guides/large-outputs.md#which-engine-runs-your-config).
 
 Inside a [`<case>`](../reference/tags.md#distributions-and-choice), build the value out
 of the tags themselves — [`<gen>`](../generators/overview.md#top), plus

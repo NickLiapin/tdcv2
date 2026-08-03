@@ -13,7 +13,8 @@
 **By default, TDC generates straight to disk.** Memory does **not** grow with the row
 count: each row is computed on the fly from its number rather than stored in an array, so
 the practical limit is disk space and time, not RAM. This needs no setup — it is how an
-ordinary run already behaves.
+ordinary run already behaves. A handful of config shapes are the exception and are
+listed in [Which engine runs your config](#which-engine-runs-your-config).
 
 Example outputs on this page are illustrative and can differ by core version. Where the
 page makes a numeric claim ("exactly 70/30", "128 MB flat"), watch the shape of the
@@ -28,14 +29,16 @@ result, not the exact bytes.
 
 ## Two disk engines, chosen for you
 
-There are two engines under "disk", and TDC picks the right one **from your config**:
+Two engines run under "disk", and TDC picks between them **from your config**:
 
 - **The fast streaming engine** — used for almost everything. Lazy, multi-threaded (see
   [`--jobs`](../reference/cli.md#top)), memory O(number of fields). Exact percentages,
   [`parent`](hierarchical-dependencies.md#top) dependencies, [`<mix>`](../reference/tags.md#top),
   [`<distinct>`](../constructs/unique-values.md#top) — all on the fly.
-- **The exact on-disk engine** — turns itself on for **any** uniqueness:
-  [`uniq="true"`](../constructs/unique-values.md#top) on a sequence, or a `<uniq>` group.
+- **The exact on-disk engine** — for a promise about the **finished** column rather than
+  the current row: an env-level [`<uniq>`](../constructs/unique-values.md#top) group,
+  [`uniq="true"`](../constructs/unique-values.md#top) on a compound sequence or on a counter,
+  and a [`parent`](hierarchical-dependencies.md#top) whose parent is not a text sequence.
   It guarantees the result exactly, and its memory stays bounded — but it pays for that by
   checking the data with an external sort and a repair pass, and **that check gets
   dramatically slower as the row count grows** (see the warning below).
@@ -45,9 +48,66 @@ There are two engines under "disk", and TDC picks the right one **from your conf
   for it: a worker sees only its own range of rows, and could not tell a duplicate outside
   that range from a value it has never seen.
 
-You don't need to know which one runs. The choice is **deterministic — based on the
-config, not the hardware** — so the same config gives the same result on every machine
-(reproducibility across machines is a core TDC guarantee).
+Disk mode has a third destination, and it is the one worth knowing about: five config
+shapes send the run back to the small in-memory engine, where memory grows with `count`.
+One of them is the commonest way of writing `uniq`. [Which engine runs your
+config](#which-engine-runs-your-config) lists all five.
+
+The choice is **deterministic — based on the config, not the hardware** — so the same
+config gives the same result on every machine (reproducibility across machines is a core
+TDC guarantee).
+
+## Which engine runs your config
+
+`mode="disk"` asks for bounded memory. It does not always get it. TDC reads the config
+first, and five shapes route the run to the **small in-memory engine**, whose memory grows
+with the row count. They are checked in this order.
+
+| Shape                                                                                                                                                                | Why it cannot stream                                                                                                                           |
+| :------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------- |
+| A [`template`](../generators/template.md#top) `value` that interpolates a field — `common.vehicle.model.${{Brand}}`                                                     | The address is not known until the sibling column has a value, so it has to be resolved per row against the other sequences.                   |
+| [`weight=`](../generators/file.md#top) and [`row=`](../generators/file.md#top) on the same `file` generator                                                                | Weighting a linked row draw to an exact quota needs the file's totals up front.                                                                |
+| A [pack generator that declares its own shares](../data-packs/writing-your-own.md#exact-percentages-inside-a-generator--mix--percent) — `percent=` in the pack file | The share is a quota over the whole column. Computed a row at a time it becomes a quota over one row, and every row goes to the largest share. |
+| `uniq="true"` on a single drawn column, alone or beside literal text                                                                                                 | The draw is **without replacement**, so the pool and the set already taken both span the whole column.                                         |
+| [`type="http"`](../generators/http.md#top) — a network call                                                                                                             | It is neither reproducible nor synchronous, and resolves in an async pass after the rest of the registry is built.                             |
+
+Whatever is left that asks about the finished column goes to the exact on-disk engine, and
+everything else streams.
+
+So `uniq` lands on two different engines depending on how it is written:
+
+| `uniq` written as                                                        | Engine        | Memory             |
+| :----------------------------------------------------------------------- | :------------ | :----------------- |
+| `uniq="true"` on one drawn column — `text`, `number`, `date`, `template` | in-memory     | grows with `count` |
+| `uniq="true"` on a column composed of a drawn part and `<data>` literals | in-memory     | grows with `count` |
+| `uniq="true"` on a [counter](../generators/counters.md#top)                 | exact on-disk | bounded            |
+| `uniq="true"` on a compound sequence (named `<gen>` fields)              | exact on-disk | bounded            |
+| An env-level [`<uniq>`](../constructs/unique-values.md#top) group           | exact on-disk | bounded            |
+
+**No form of `uniq` runs on the fast streaming engine.** It refuses `uniq` by name, so a
+config that asked for streaming is told rather than handed data that quietly repeats:
+
+`./run uniq.tdc --engine 2`
+
+```
+tdcv2: stream mode: uniq (a whole-column rearrangement) ("K") is not supported yet — run without mode="stream" (the in-memory engine handles it), or remove it.
+```
+
+You normally never see a message like that. The router picks the engine itself, and a
+refusal only surfaces when a config _names_ a streaming engine and so has asked to be told.
+
+A downgrade is not a bug. Each of the five shapes is a promise about a whole column, and an
+engine that answered it from one row would emit data that looks right and is not. What it
+costs is memory: on the in-memory engine the whole column is held, so a run using one of
+these shapes is bounded by RAM rather than by disk. [`preflight()`](#preflight--a-memory-risk-estimate)
+estimates that before the run.
+
+One more route exists for what the list cannot see in advance. If the streaming engine
+turns out to refuse a config anyway — a [running
+total](../generators/running.md#which-engine-runs-it), a bare `parent="Name"` with no
+value, a [pool](../pools/overview.md#top) reference — an automatically routed disk run falls
+back to the in-memory engine rather than failing. A **forced** `--engine 2` still fails,
+which is the point of forcing it.
 
 > [!CAUTION]
 > **`uniq` on a huge output is SLOW — and `uniq` + `percent` is the slowest thing TDC does**
@@ -130,14 +190,12 @@ anywhere). The result is deterministic.
 [`percent`](../reference/attributes.md#top), [counters](../generators/counters.md#top), the
 [built-ins](../reference/builtins.md#top) (`_count`/`_first`/`_last`/`_total`),
 [`parent`](hierarchical-dependencies.md#top) dependencies (any depth),
-[`uniq="true"`](../constructs/unique-values.md#top) over a finite text list and env-level
-[`<uniq>`](../constructs/unique-values.md#top),
 [`<distinct>`](../constructs/unique-values.md#top), and [`<mix>`](../reference/tags.md#top) — all on the fly,
-exact, and in parallel. What it hands to the exact engine is uniqueness it can't settle
-in one pass: `percent` + `uniq` on the **same** columns, and `uniq` over non-text fields
-(numbers, dates, templates). So a normal run covers **any** config; the handed-off
-uniqueness cases are correct too, just slower — and on huge outputs, much slower (see the
-warning above).
+exact, and in parallel. What it does not do is any form of
+[`uniq`](../constructs/unique-values.md#top). Uniqueness is a promise about the finished
+column and this engine only ever sees one row, so every `uniq` goes elsewhere — to the
+exact on-disk engine or to the in-memory one, depending on how it is written. [Which
+engine runs your config](#which-engine-runs-your-config) says which.
 
 (In the fast engine `parent` works only when the parent is a sequence with a finite list
 of values — a [`text`](../generators/text.md#top) sequence. Inheriting from a numeric range
@@ -189,13 +247,13 @@ Exactly 700 `M` and 300 `F`; inside the 700 males exactly 350/210/140 (50/30/20 
 inside the 300 females exactly 180/120 (60/40 of 300). On "foreign" rows the child field
 is blank — `Male` is empty on female rows, `Female` on male rows.
 
-### Uniqueness by construction (`uniq`)
+### Uniqueness across the whole dataset (`uniq`)
 
 [`uniq="true"`](../constructs/unique-values.md#top) on a compound sequence makes the **tuple of all its
-fields unique across the whole dataset** — without storing what was already generated.
-The field combination is treated as one number in a mixed-radix system, and a special
-permutation hands each row its **own** combination number, so there are no repeats by
-construction.
+fields unique across the whole dataset**. That is a promise about the finished column, so
+it runs on the exact on-disk engine rather than the streaming one. Each column is laid out
+to its exact quota and the tuples are then checked against each other; when one column on
+its own already gives every row a different value, the check is skipped.
 
 ```xml
 <env count="6" seed="s">
@@ -242,20 +300,19 @@ y,m
 z,m
 ```
 
-Because uniqueness is math, not bookkeeping, this scales to a terabyte file with no
-memory cost — there's nothing to compare against. **Limits of the fast `uniq`:** only
-[`text`](../generators/text.md#top) fields/sequences, uniform (no `percent` on the columns),
-and at most `2^52` combinations.
+Memory stays bounded in both shapes: the columns are resolved from the row number, and the
+duplicate check runs externally rather than holding the dataset. Time is the cost, not
+RAM — see the warning above. **Limits:** the fields of a compound `uniq` have to be
+[`text`](../generators/text.md#top) lists.
 
 **Capacity is checked before the run starts.** If you ask for more unique rows than the
-space of combinations can hold, TDC fails immediately with a clear error — not eight
-hours later, halfway through the file:
+data can produce, TDC fails immediately with a clear error — not eight hours later,
+halfway through the file:
 
 `./run oversized-uniq.tdc`
 
 ```
-tdc: stream mode: uniq "K" is infeasible — only 1000000 distinct
-combinations exist, but 5000000000 unique rows were requested.
+tdcv2: uniq "K" is infeasible — its data supports at most 100 distinct rows, but 5000000000 were requested. Widen a column's values or lower count.
 ```
 
 ### `<mix>` in the stream
@@ -293,14 +350,14 @@ Over 1000 rows the split is exact: 200 `new`, 500 `active-N`, 300 `closed`. `<mi
 composes with [`parent`](hierarchical-dependencies.md#top), in which case it's active only
 on the parent's rows.
 
-## Why the fast engine won't combine `percent` + `uniq`
+## Why `percent` + `uniq` is the expensive pair
 
-Uniqueness-by-construction and exact-percent-by-construction are two **different** tricks,
-and on the fly (without storing what was already generated) they don't combine — doing
-both at once is either full materialization or an NP-hard problem. So for that one
-combination TDC uses the **exact on-disk engine**, which holds the data and permutes it,
-checking against the whole set. It's slower, but it does both exactly, at any size. The
-switch is **automatic** — you don't opt in.
+Exact percentages are laid out over the whole column; uniqueness is checked over the whole
+column. Each is affordable on its own. Asking for both at once is a constrained layout
+problem stacked on top of the check, and that is either full materialization or an
+NP-hard search. The exact on-disk engine does it anyway, at any size, by holding the
+layout and repairing the collisions it finds — correctly, and much more slowly than either
+constraint alone.
 
 ## Parallelism — automatic
 
@@ -349,14 +406,15 @@ single-threaded); the output is identical either way:
 npx tdcv2 customers.tdc --jobs 8 -o customers.csv
 ```
 
-Sometimes parallelism does **not** kick in — a config on the **exact** engine, for
-example, since `percent` + `uniq` together runs single-threaded. Auto stays quiet about
-it, but if you asked for `--jobs` explicitly, TDC tells you why. The output is correct
-either way.
+Sometimes parallelism does **not** kick in. Only the fast streaming engine splits a run
+across cores, so anything [routed away from it](#which-engine-runs-your-config) — any
+`uniq`, an `http` generator, a weighted row link — runs single-threaded. Auto stays quiet
+about it, but if you asked for `--jobs` explicitly, TDC tells you why. The output is
+correct either way.
 
 ## The engine is chosen from your config, not your hardware
 
-Which engine runs (fast or exact) is decided by TDC **from the config's contents**, never
+Which of the three engines runs is decided by TDC **from the config's contents**, never
 from the machine. This matters: if the choice depended on "how much RAM is free right
 now", then **the same config with the same seed could produce different data on different
 computers** — and cross-machine reproducibility is TDC's central guarantee. Because
@@ -509,9 +567,10 @@ const diagnostic = tdc.preflight({ output: "streaming" });
 
 ## What gets materialized in RAM
 
-The streaming (disk) engine keeps nothing extra in memory. Materialization happens only in
-the **small in-RAM engine** — the object API (`toArray`/`iterate`/`getAt`) and an explicit
-`mode="memory"`. There it holds, up front:
+Both disk engines keep nothing extra in memory. Materialization happens in the **small
+in-RAM engine** — reached by the object API (`toArray`/`iterate`/`getAt`), by an explicit
+`mode="memory"`, and by any of the [five config shapes that route a disk run back to
+it](#which-engine-runs-your-config). There it holds, up front:
 
 - the built-ins `_count`, `_first`, `_last`, `_total`;
 - each simple `<sequence>`;
@@ -544,6 +603,8 @@ takes two sequence slots: `Person.FirstName` and `Person.LastName`.
 
 - For a file of any size, just use `writeFile()` or the CLI — it's disk by default, and
   memory doesn't grow with rows.
+- Before a very large run, check the config against [the five shapes that route it back
+  into memory](#which-engine-runs-your-config). Simple `uniq="true"` is the one to watch.
 - To speed up a big run, add [`--jobs N`](../reference/cli.md#top) (on the fast engine).
 - `toString()` suits tests and small results, but collects all text into one
   string — not for big files.

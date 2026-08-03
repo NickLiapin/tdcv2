@@ -21,18 +21,18 @@ determinismo por seed y las proporciones exactas— se señala donde importa.
 
 Ponga los campos entre dos líneas `---` al principio del archivo. Todos son opcionales:
 
-| Campo         | Significado                                                      |
-| :------------ | :--------------------------------------------------------------- |
-| `description` | Una descripción para humanos: «qué es esto»                      |
-| `address`     | Una dirección explícita, que anula la calculada a partir de la ruta |
+| Campo         | Significado                                                                           |
+| :------------ | :------------------------------------------------------------------------------------ |
+| `description` | Una descripción para humanos: «qué es esto»                                           |
+| `address`     | Una dirección explícita, que anula la calculada a partir de la ruta                   |
 | `locale`      | El idioma (`en`, `es`, `ru`…) — y el segmento de locale que le falta a una ruta plana |
-| `file`        | Apuntar a un archivo de datos externo en vez de un cuerpo integrado |
-| `column`      | Con `file`: tomar una columna con nombre o número de un CSV ajeno |
-| `delimiter`   | Con un CSV en `file`, o con un cuerpo ponderado: el separador (por omisión `,`) |
-| `weight`      | Con `file`: la columna de frecuencia que vuelve ponderado el paquete |
-| `weighted`    | `true` — el cuerpo son líneas `valor,peso`                        |
-| `generator`   | `tdc` — el cuerpo es un [`<gen>`](../generators/overview.mdx), no una lista |
-| `inject`      | Un marcador de interpolación propio para el generador             |
+| `file`        | Apuntar a un archivo de datos externo en vez de un cuerpo integrado                   |
+| `column`      | Con `file`: tomar una columna con nombre o número de un CSV ajeno                     |
+| `delimiter`   | Con un CSV en `file`, o con un cuerpo ponderado: el separador (por omisión `,`)       |
+| `weight`      | Con `file`: la columna de frecuencia que vuelve ponderado el paquete                  |
+| `weighted`    | `true` — el cuerpo son líneas `valor,peso`                                            |
+| `generator`   | `tdc` — el cuerpo es un [`<gen>`](../generators/overview.mdx), no una lista           |
+| `inject`      | Un marcador de interpolación propio para el generador                                 |
 
 Cada uno de estos se explica abajo, con una configuración y su salida.
 
@@ -141,7 +141,7 @@ Ese mismo `delimiter:` también fija el separador de columnas de un CSV externo 
 ## Generadores dentro de un paquete — `generator: tdc`
 
 Un paquete puede devolver un **generador** en vez de una lista; entonces la dirección
-entrega un valor *calculado*. Está escrito en el DSL propio de TDC, así que no hay nada
+entrega un valor _calculado_. Está escrito en el DSL propio de TDC, así que no hay nada
 nuevo que aprender. Ponga `generator: tdc` en el encabezado; el cuerpo es un
 [`<gen>`](../generators/overview.mdx). Aquí, la placa de vehículo mexicana — el formato
 nacional de auto particular `LLL-NN-NN`, más el formato antiguo `NNN-LLL` que sigue
@@ -253,9 +253,14 @@ Martín Romero
 Ruiz`}
 </Terminal>
 
-A lo largo de 100 filas, exactamente 60 llevan dos apellidos y 40 llevan uno: el cuerpo
-del generador corre sobre el mismo motor, que conoce `count` y reparte los porcentajes
-con Hamilton, no al azar.
+A lo largo de 100 filas, exactamente 60 llevan dos apellidos y 40 llevan uno: la
+proporción se reparte con Hamilton sobre todo el `count`, no al azar.
+
+**Nota sobre el motor.** Esa proporción es una cuota sobre la columna entera, y ningún
+motor de streaming puede repartirla de a una fila, así que una configuración que use este
+paquete corre en el motor en memoria y su memoria crece con `count`. Un paquete sin
+`percent=` no cuesta nada. Vea [Qué motor corre su
+configuración](../guides/large-outputs.mdx#qué-motor-corre-su-configuración).
 
 Dentro de un [`<case>`](../reference/tags.mdx#distribuciones-y-selección), arme el valor
 con las etiquetas mismas ([`<gen>`](../generators/overview.mdx), y

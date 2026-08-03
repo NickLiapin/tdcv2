@@ -143,8 +143,10 @@ sets ship for car makes, `food.cuisine`, `medical.specialtyCoherent`,
   you get an error. That's why the parent list usually holds exactly the values that
   have files (like `common.vehicle.brand`).
 - **Engine.** A config like this always runs on the in-memory engine — it's the only one
-  that resolves an address per row. This feature is about realistic coherence, not
-  streaming gigabytes; see [Large outputs](large-outputs.md#top) for the streaming path.
+  that resolves an address per row, so memory grows with `count`. This feature is about
+  realistic coherence, not streaming gigabytes; [Which engine runs your
+  config](large-outputs.md#which-engine-runs-your-config) lists this and the four other
+  shapes that route the same way.
 
 ## The CSV cousin — `row` + `weight`
 

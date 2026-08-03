@@ -12,23 +12,20 @@
  * is `slot − lo_V` — a bijection over `[0, M_V)`. That rank is the child's own
  * population index, so the same construction nests to any depth.
  *
- * uniq (uniqueness by construction, doc 29): a compound `uniq="true"`
- * sequence treats its fields as digits of a mixed-radix number. Capacity =
- * Π(pool sizes); `permute(i, capacity)` gives row `i` a UNIQUE combination
- * number (a bijection → no repeats), decoded digit-by-digit into per-field
- * values. Uniform distinct combinations, no array — infeasible configs
- * (count > capacity) error before any output. Percent-weighted uniq stays on
- * the in-memory engine (that's the NP-hard transportation problem).
+ * uniq: this engine does not do it, in any form. It once built a compound
+ * `uniq="true"` out of a mixed-radix bijection, and the description of that
+ * construction outlived the construction itself — long enough for the
+ * documentation to be written from this comment and promise streaming
+ * uniqueness the router never delivers. `uniq` was redefined as a
+ * rearrangement of a whole finished column, which is the one thing a lazy
+ * per-row resolver cannot see, so every shape of it is refused here by name
+ * and the router sends it to Engine 1 or Engine 3 instead.
  *
  * Scope: simple + compound sequences; text/percent (exact), counters, and
  * independent generators (number/date/regex/symbol/template via a per-row
- * seekable draw); parent-child; compound + env-level `uniq` (uniform);
- * in-sequence + env-level `<distinct>` (per-row repair); `<mix>` (exact
- * case %, gens + nested mixes per row). Parents must be finite-value (text)
- * sequences; `parent` must name a value (`P.V`). The ONE thing that can't be
- * done lazily: percent-weighted `uniq` (exact % + uniqueness together need
- * materialisation — the in-memory engine's `arrangeUnique`), so it throws a
- * clear error pointing there.
+ * seekable draw); parent-child; in-sequence + env-level `<distinct>` (per-row
+ * repair); `<mix>` (exact case %, gens + nested mixes per row). Parents must
+ * be finite-value (text) sequences; `parent` must name a value (`P.V`).
  */
 
 import { advancedRegexHasWeightedChoice } from '../generators/advanced-regex.js';

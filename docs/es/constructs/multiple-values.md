@@ -33,12 +33,12 @@ cada forma (cuántos valores caen en una celda, y cómo se unen) no cambia.
 
 ## De un vistazo
 
-| Atributo        | Qué significa                                              |
-| :-------------- | :-------------------------------------------------------- |
-| `repeat="3"`    | exactamente tres valores                                  |
+| Atributo        | Qué significa                                                          |
+| :-------------- | :--------------------------------------------------------------------- |
+| `repeat="3"`    | exactamente tres valores                                               |
 | `repeat="1..5"` | entre uno y cinco — cada longitud recibe una parte exacta de las filas |
-| `repeat="0..3"` | se permite el cero — la celda puede salir vacía           |
-| `separator=" "` | con qué unirlos; por omisión es una coma                  |
+| `repeat="0..3"` | se permite el cero — la celda puede salir vacía                        |
+| `separator=" "` | con qué unirlos; por omisión es una coma                               |
 
 El límite superior es **64**. `separator` sin `repeat` es un error — no hay nada que unir.
 
@@ -192,11 +192,11 @@ sesión. `accumulate=` reemplaza la lista por su total acumulado.
 A la izquierda, el mismo generador sin `accumulate=`; a la derecha, con él. El último
 elemento es el total, y cada uno antes de él es el subtotal en ese paso.
 
-| `accumulate=` | Cada elemento pasa a ser |
-| :------------ | :------------------------ |
-| `sum` | la suma de todo lo anterior, incluido él |
-| `max` | el mayor visto hasta ahí — un récord parcial |
-| `min` | el menor visto hasta ahí |
+| `accumulate=` | Cada elemento pasa a ser                     |
+| :------------ | :------------------------------------------- |
+| `sum`         | la suma de todo lo anterior, incluido él     |
+| `max`         | el mayor visto hasta ahí — un récord parcial |
+| `min`         | el menor visto hasta ahí                     |
 
 `./run peaks.tdc`
 
@@ -312,9 +312,9 @@ los mismos números — el archivo es idéntico byte por byte.
 Unos cuantos generadores atan cada valor al **número de fila**, y `repeat` no se les puede
 aplicar:
 
-| Generador                                                       | Por qué no                                  |
-| :-------------------------------------------------------------- | :------------------------------------------ |
-| [`increment`](../generators/counters.md#top), `decrement`          | el valor depende de la posición de la fila  |
+| Generador                                                                            | Por qué no                                   |
+| :----------------------------------------------------------------------------------- | :------------------------------------------- |
+| [`increment`](../generators/counters.md#top), `decrement`                               | el valor depende de la posición de la fila   |
 | [`timeseries`](../generators/timeseries.md#top), [`pattern`](../generators/pattern.md#top) | lo mismo — el valor está atado a la posición |
 
 Para estos, el índice de un elemento dependería de qué tan largas resultaron **todas las
@@ -324,13 +324,13 @@ vez de hacer lo incorrecto en silencio.
 
 ## Qué más no acepta TDC
 
-| Lo que escribió                                | Lo que dice                                                         |
-| :--------------------------------------------- | :----------------------------------------------------------------- |
-| `repeat="many"`, `repeat="1.5"`                | `TDC195` — se requiere un entero                                   |
-| `repeat="-1"`, `repeat="5..2"`                 | `TDC195` — el mínimo no puede ser negativo ni mayor que el máximo  |
-| `repeat="1..65"`                               | `TDC195` — el límite superior es 64                                |
-| `separator=";"` sin `repeat`                  | `TDC198` — no hay nada que unir                                    |
-| `repeat` o `separator` en un `<mix>`          | `TDC196` — un mix elige una rama, no construye una lista           |
+| Lo que escribió                      | Lo que dice                                                       |
+| :----------------------------------- | :---------------------------------------------------------------- |
+| `repeat="many"`, `repeat="1.5"`      | `TDC195` — se requiere un entero                                  |
+| `repeat="-1"`, `repeat="5..2"`       | `TDC195` — el mínimo no puede ser negativo ni mayor que el máximo |
+| `repeat="1..65"`                     | `TDC195` — el límite superior es 64                               |
+| `separator=";"` sin `repeat`         | `TDC198` — no hay nada que unir                                   |
+| `repeat` o `separator` en un `<mix>` | `TDC196` — un mix elige una rama, no construye una lista          |
 
 Sobre esa última: un `<mix>` **elige** entre ramas, así que «repítelo» no tiene un
 significado bien definido. Si quiere una lista dentro de una rama, ponga `repeat` en el

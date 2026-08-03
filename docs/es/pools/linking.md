@@ -16,9 +16,9 @@ trabajan junto a esos médicos. Esta página trata de cómo se conectan las piez
 
 Hay exactamente dos maneras de enlazar, y responden preguntas distintas:
 
-| El enlace | Dónde queda fijado | Cómo se escribe |
-| :-------- | :----------------- | :-------------- |
-| **Un pool sortea de un pool** | por miembro — este médico trabaja en esa clínica, siempre | `<gen type="pool">` dentro de un `<pool>` |
+| El enlace                                  | Dónde queda fijado                                                     | Cómo se escribe                                 |
+| :----------------------------------------- | :--------------------------------------------------------------------- | :---------------------------------------------- |
+| **Un pool sortea de un pool**              | por miembro — este médico trabaja en esa clínica, siempre              | `<gen type="pool">` dentro de un `<pool>`       |
 | **Dos referencias de una fila concuerdan** | por fila — la enfermera de este paciente es de la clínica de su médico | `filter=` nombrando el campo de otra referencia |
 
 La primera construye el mundo. La segunda mantiene unida una fila.
@@ -66,7 +66,7 @@ Dr. Williams @ East (tel 997)
 > **La salida es ilustrativa**
 >
 > Los valores vienen de un `seed` fijo, así que son reproducibles, pero las cadenas exactas
-> pueden cambiar entre versiones del núcleo. Tómalos como ejemplo de *forma*, no como
+> pueden cambiar entre versiones del núcleo. Tómalos como ejemplo de _forma_, no como
 > garantía.
 
 Tres hechos que se leen en esa salida:
@@ -76,7 +76,7 @@ Tres hechos que se leen en esa salida:
   `${{Seen.at}}` se rechaza por la misma razón que `${{Seen}}`.
 - **El enlace queda fijado por miembro, no por fila.** El Dr. Jones está en la clínica East
   en todas las filas donde aparece, porque la clínica se decidió cuando se construyó el
-  *médico*.
+  _médico_.
 - **Los campos de la clínica viajan juntos.** East siempre es 300 — el teléfono pertenece
   al registro de la clínica, no a la fila.
 

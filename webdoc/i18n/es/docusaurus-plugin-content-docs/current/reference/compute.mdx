@@ -17,87 +17,87 @@ hijos con un puesto — aparecen por nombre en la firma de la etiqueta que las p
 
 A fondo: [El sublenguaje compute](../compute/overview.mdx)
 
-| Etiqueta | Firma | Qué hace |
-| :--- | :--- | :--- |
-| [`<int>`](../compute/overview.mdx) | `v=` → `int` | Un literal entero (atributo `v`) |
-| [`<str>`](../compute/strings.mdx#str--un-literal-de-string) | `v=` → `str` | Un literal de cadena (atributo `v`) |
-| [`<list>`](../compute/lists.mdx#list--una-lista-literal-de-valores) | `v=` o `int…` → `list` | Una lista literal de enteros, o armada con expresiones anidadas |
-| [`<field>`](../compute/overview.mdx#un-valor-de-un-field-es-un-string) | `name=` → `str` | El valor de una secuencia en el ámbito — como `${{X}}` |
-| [`<var>`](../compute/overview.mdx#let-y-var-no-son-dos-clases-de-variable) | `name=` → `int\|str\|list` | Un valor ligado con `<let>` |
-| [`<let>`](../compute/overview.mdx#let-y-var-no-son-dos-clases-de-variable) | `name=` + 1 → `—` | Nombra un resultado intermedio para las etiquetas hermanas |
-| [`<current>`](../compute/lists.mdx#each--mapear-sobre-una-lista) | → `int\|str` | El elemento actual de la iteración (dentro de `<do>`) |
-| [`<current_index>`](../compute/lists.mdx#each--mapear-sobre-una-lista) | → `int` | El índice del elemento actual, desde cero |
-| [`<acc>`](../compute/lists.mdx#reduce--plegar-a-un-solo-valor) | → `int\|str\|list` | El acumulador (dentro de `<reduce>`) |
+| Etiqueta                                                                   | Firma                      | Qué hace                                                        |
+| :------------------------------------------------------------------------- | :------------------------- | :-------------------------------------------------------------- |
+| [`<int>`](../compute/overview.mdx)                                         | `v=` → `int`               | Un literal entero (atributo `v`)                                |
+| [`<str>`](../compute/strings.mdx#str--un-literal-de-string)                | `v=` → `str`               | Un literal de cadena (atributo `v`)                             |
+| [`<list>`](../compute/lists.mdx#list--una-lista-literal-de-valores)        | `v=` o `int…` → `list`     | Una lista literal de enteros, o armada con expresiones anidadas |
+| [`<field>`](../compute/overview.mdx#un-valor-de-un-field-es-un-string)     | `name=` → `str`            | El valor de una secuencia en el ámbito — como `${{X}}`          |
+| [`<var>`](../compute/overview.mdx#let-y-var-no-son-dos-clases-de-variable) | `name=` → `int\|str\|list` | Un valor ligado con `<let>`                                     |
+| [`<let>`](../compute/overview.mdx#let-y-var-no-son-dos-clases-de-variable) | `name=` + 1 → `—`          | Nombra un resultado intermedio para las etiquetas hermanas      |
+| [`<current>`](../compute/lists.mdx#each--mapear-sobre-una-lista)           | → `int\|str`               | El elemento actual de la iteración (dentro de `<do>`)           |
+| [`<current_index>`](../compute/lists.mdx#each--mapear-sobre-una-lista)     | → `int`                    | El índice del elemento actual, desde cero                       |
+| [`<acc>`](../compute/lists.mdx#reduce--plegar-a-un-solo-valor)             | → `int\|str\|list`         | El acumulador (dentro de `<reduce>`)                            |
 
 ## Listas e iteración
 
 A fondo: [Listas e iteración](../compute/lists.mdx)
 
-| Etiqueta | Firma | Qué hace |
-| :--- | :--- | :--- |
-| [`<each>`](../compute/lists.mdx#each--mapear-sobre-una-lista) | `<over>` `<do>` → `list` | Transforma cada elemento → una lista |
-| [`<reduce>`](../compute/lists.mdx#reduce--plegar-a-un-solo-valor) | `<over>` `<init>` `<do>` → `int\|str\|list` | Pliega una lista en un solo valor (`<acc>`) |
-| [`<join>`](../compute/lists.mdx#join--de-lista-a-string) | `list` + `sep=?` → `str` | Lista → cadena (atributo `sep`) |
-| [`<at>`](../compute/lists.mdx#at--indexar-una-lista) | `<in>` `<index>` + `default=?` → `int\|str` | Elemento por índice (atributo `default`) |
-| [`<length>`](../compute/lists.mdx#length--medir-un-string-o-una-lista) | `str\|list` → `int` | Largo de una cadena o de una lista |
+| Etiqueta                                                               | Firma                                       | Qué hace                                    |
+| :--------------------------------------------------------------------- | :------------------------------------------ | :------------------------------------------ |
+| [`<each>`](../compute/lists.mdx#each--mapear-sobre-una-lista)          | `<over>` `<do>` → `list`                    | Transforma cada elemento → una lista        |
+| [`<reduce>`](../compute/lists.mdx#reduce--plegar-a-un-solo-valor)      | `<over>` `<init>` `<do>` → `int\|str\|list` | Pliega una lista en un solo valor (`<acc>`) |
+| [`<join>`](../compute/lists.mdx#join--de-lista-a-string)               | `list` + `sep=?` → `str`                    | Lista → cadena (atributo `sep`)             |
+| [`<at>`](../compute/lists.mdx#at--indexar-una-lista)                   | `<in>` `<index>` + `default=?` → `int\|str` | Elemento por índice (atributo `default`)    |
+| [`<length>`](../compute/lists.mdx#length--medir-un-string-o-una-lista) | `str\|list` → `int`                         | Largo de una cadena o de una lista          |
 
 ## Aritmética
 
 A fondo: [Aritmética](../compute/arithmetic.mdx)
 
-| Etiqueta | Firma | Qué hace |
-| :--- | :--- | :--- |
-| [`<add>`](../compute/arithmetic.mdx#add) | `int…` → `int` | Suma de todos los hijos (vacío → 0) |
-| [`<subtract>`](../compute/arithmetic.mdx#subtract) | `int…` → `int` | El primero menos la suma de los demás |
-| [`<multiply>`](../compute/arithmetic.mdx#multiply) | `int…` → `int` | Producto (vacío → 1) |
-| [`<divide>`](../compute/arithmetic.mdx#divide) | `int` `int` → `int` | División entera hacia −∞ (2 hijos) |
-| [`<mod>`](../compute/arithmetic.mdx#mod) | `int` `int` → `int` | Residuo euclidiano, siempre ≥ 0 |
+| Etiqueta                                           | Firma               | Qué hace                              |
+| :------------------------------------------------- | :------------------ | :------------------------------------ |
+| [`<add>`](../compute/arithmetic.mdx#add)           | `int…` → `int`      | Suma de todos los hijos (vacío → 0)   |
+| [`<subtract>`](../compute/arithmetic.mdx#subtract) | `int…` → `int`      | El primero menos la suma de los demás |
+| [`<multiply>`](../compute/arithmetic.mdx#multiply) | `int…` → `int`      | Producto (vacío → 1)                  |
+| [`<divide>`](../compute/arithmetic.mdx#divide)     | `int` `int` → `int` | División entera hacia −∞ (2 hijos)    |
+| [`<mod>`](../compute/arithmetic.mdx#mod)           | `int` `int` → `int` | Residuo euclidiano, siempre ≥ 0       |
 
 ## Cadenas, codificación y formato
 
 A fondo: [Cadenas y formato](../compute/strings.mdx)
 
-| Etiqueta | Firma | Qué hace |
-| :--- | :--- | :--- |
-| [`<encode>`](../compute/arithmetic.mdx#encode-as) | `str`(1) + `as=` → `str` | Carácter → número (`base36`/`ascii`/`hex`/…) |
-| [`<to_number>`](../compute/arithmetic.mdx#to_number) | `str` → `int` | Cadena de dígitos → entero |
-| [`<pad>`](../compute/strings.mdx#pad--rellenar-a-la-izquierda-hasta-un-ancho-fijo) | `int\|str` + `width=` `fill=?` → `str` | Rellena a la izquierda hasta un ancho (`width`, `fill`) |
-| [`<concat>`](../compute/strings.mdx#concat--pegar-partes-en-un-string) | `int\|str…` → `str` | Une varias partes en una cadena |
-| [`<upper>`](../compute/strings.mdx#upper--lower--capitalize--title--mayúsculas-y-minúsculas) / [`<lower>`](../compute/strings.mdx#upper--lower--capitalize--title--mayúsculas-y-minúsculas) | `str` → `str` | Mayúsculas / minúsculas |
-| [`<capitalize>`](../compute/strings.mdx#upper--lower--capitalize--title--mayúsculas-y-minúsculas) | `str` → `str` | Primera letra en mayúscula |
-| [`<title>`](../compute/strings.mdx#upper--lower--capitalize--title--mayúsculas-y-minúsculas) | `str` → `str` | Primera letra de cada palabra en mayúscula |
-| [`<mask>`](../compute/strings.mdx#mask--dividir-y-reacomodar-según-un-patrón) | `str` + `pattern=` → `str` | Máscara de despliegue (`pattern`: `x`/`w`/`*`) |
-| [`<slice>`](../compute/strings.mdx#slice--substring-por-índices) | `str` + `from=` `to=?` → `str` | Subcadena `[from, to)` |
-| [`<replace>`](../compute/strings.mdx#replace--reemplazar-todas-las-apariciones) | `str` + `from=` `to=` → `str` | Reemplaza todas las apariciones (`from`, `to`) |
-| [`<trim>`](../compute/strings.mdx#trim--quitar-los-espacios-de-las-orillas) | `str` → `str` | Quita los espacios de los extremos |
-| [`<group>`](../compute/strings.mdx#group--agrupar-caracteres-desde-la-derecha) | `str` + `size=?` `sep=?` → `str` | Agrupa desde la derecha (`size`, `sep`) |
+| Etiqueta                                                                                                                                                                                    | Firma                                  | Qué hace                                                |
+| :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | :------------------------------------- | :------------------------------------------------------ |
+| [`<encode>`](../compute/arithmetic.mdx#encode-as)                                                                                                                                           | `str`(1) + `as=` → `str`               | Carácter → número (`base36`/`ascii`/`hex`/…)            |
+| [`<to_number>`](../compute/arithmetic.mdx#to_number)                                                                                                                                        | `str` → `int`                          | Cadena de dígitos → entero                              |
+| [`<pad>`](../compute/strings.mdx#pad--rellenar-a-la-izquierda-hasta-un-ancho-fijo)                                                                                                          | `int\|str` + `width=` `fill=?` → `str` | Rellena a la izquierda hasta un ancho (`width`, `fill`) |
+| [`<concat>`](../compute/strings.mdx#concat--pegar-partes-en-un-string)                                                                                                                      | `int\|str…` → `str`                    | Une varias partes en una cadena                         |
+| [`<upper>`](../compute/strings.mdx#upper--lower--capitalize--title--mayúsculas-y-minúsculas) / [`<lower>`](../compute/strings.mdx#upper--lower--capitalize--title--mayúsculas-y-minúsculas) | `str` → `str`                          | Mayúsculas / minúsculas                                 |
+| [`<capitalize>`](../compute/strings.mdx#upper--lower--capitalize--title--mayúsculas-y-minúsculas)                                                                                           | `str` → `str`                          | Primera letra en mayúscula                              |
+| [`<title>`](../compute/strings.mdx#upper--lower--capitalize--title--mayúsculas-y-minúsculas)                                                                                                | `str` → `str`                          | Primera letra de cada palabra en mayúscula              |
+| [`<mask>`](../compute/strings.mdx#mask--dividir-y-reacomodar-según-un-patrón)                                                                                                               | `str` + `pattern=` → `str`             | Máscara de despliegue (`pattern`: `x`/`w`/`*`)          |
+| [`<slice>`](../compute/strings.mdx#slice--substring-por-índices)                                                                                                                            | `str` + `from=` `to=?` → `str`         | Subcadena `[from, to)`                                  |
+| [`<replace>`](../compute/strings.mdx#replace--reemplazar-todas-las-apariciones)                                                                                                             | `str` + `from=` `to=` → `str`          | Reemplaza todas las apariciones (`from`, `to`)          |
+| [`<trim>`](../compute/strings.mdx#trim--quitar-los-espacios-de-las-orillas)                                                                                                                 | `str` → `str`                          | Quita los espacios de los extremos                      |
+| [`<group>`](../compute/strings.mdx#group--agrupar-caracteres-desde-la-derecha)                                                                                                              | `str` + `size=?` `sep=?` → `str`       | Agrupa desde la derecha (`size`, `sep`)                 |
 
 ## Condicionales
 
 A fondo: [Condicionales](../compute/conditionals.mdx)
 
-| Etiqueta | Firma | Qué hace |
-| :--- | :--- | :--- |
-| [`<choose>`](../compute/conditionals.mdx#choose--elegir-la-primera-rama-que-coincida) | `<when>…` `<otherwise>` → `int\|str\|list` | Elige una rama; requiere `<otherwise>` |
-| [`<when>`](../compute/conditionals.mdx#when--una-rama) | `<test>` `<then>` → `—` | Una rama: predicado `<test>` + valor `<then>` |
-| [`<otherwise>`](../compute/conditionals.mdx#otherwise-es-obligatorio--error-tdc184) | 1 → `int\|str\|list` | La rama «si no» (obligatoria) |
-| [`<test>`](../compute/conditionals.mdx#test--la-ranura-de-la-condición) | 1 → `yes\|no` | Contiene un predicado, da sí/no |
-| [`<then>`](../compute/conditionals.mdx#when--una-rama) | 1 → `int\|str\|list` | El valor de la rama que coincidió |
-| [`<equals>`](../compute/conditionals.mdx#equals--dos-enteros-son-iguales) | `int\|str` ×2 → `yes\|no` | Predicado: dos enteros son iguales |
-| [`<greater_than>`](../compute/conditionals.mdx#greater_than--a--b-estricto) | `int` `int` → `yes\|no` | Predicado: A > B |
-| [`<less_than>`](../compute/conditionals.mdx#less_than--a--b-estricto) | `int` `int` → `yes\|no` | Predicado: A < B |
-| [`<is_digit>`](../compute/conditionals.mdx#is_digit--un-carácter-es-09) | `str`(1) → `yes\|no` | Predicado: un carácter es un dígito 0–9 |
+| Etiqueta                                                                              | Firma                                      | Qué hace                                      |
+| :------------------------------------------------------------------------------------ | :----------------------------------------- | :-------------------------------------------- |
+| [`<choose>`](../compute/conditionals.mdx#choose--elegir-la-primera-rama-que-coincida) | `<when>…` `<otherwise>` → `int\|str\|list` | Elige una rama; requiere `<otherwise>`        |
+| [`<when>`](../compute/conditionals.mdx#when--una-rama)                                | `<test>` `<then>` → `—`                    | Una rama: predicado `<test>` + valor `<then>` |
+| [`<otherwise>`](../compute/conditionals.mdx#otherwise-es-obligatorio--error-tdc184)   | 1 → `int\|str\|list`                       | La rama «si no» (obligatoria)                 |
+| [`<test>`](../compute/conditionals.mdx#test--la-ranura-de-la-condición)               | 1 → `yes\|no`                              | Contiene un predicado, da sí/no               |
+| [`<then>`](../compute/conditionals.mdx#when--una-rama)                                | 1 → `int\|str\|list`                       | El valor de la rama que coincidió             |
+| [`<equals>`](../compute/conditionals.mdx#equals--dos-enteros-son-iguales)             | `int\|str` ×2 → `yes\|no`                  | Predicado: dos enteros son iguales            |
+| [`<greater_than>`](../compute/conditionals.mdx#greater_than--a--b-estricto)           | `int` `int` → `yes\|no`                    | Predicado: A > B                              |
+| [`<less_than>`](../compute/conditionals.mdx#less_than--a--b-estricto)                 | `int` `int` → `yes\|no`                    | Predicado: A < B                              |
+| [`<is_digit>`](../compute/conditionals.mdx#is_digit--un-carácter-es-09)               | `str`(1) → `yes\|no`                       | Predicado: un carácter es un dígito 0–9       |
 
 ## Envoltorios y especiales
 
-| Etiqueta | Firma | Qué hace |
-| :--- | :--- | :--- |
-| [`<over>`](../compute/lists.mdx#each--mapear-sobre-una-lista) | 1 → `str\|list` | La lista de entrada para `<each>` / `<reduce>` |
-| [`<do>`](../compute/lists.mdx#each--mapear-sobre-una-lista) | 1 → `int\|str\|list` | El cuerpo de la iteración para `<each>` / `<reduce>` |
-| [`<init>`](../compute/lists.mdx#reduce--plegar-a-un-solo-valor) | 1 → `int\|str\|list` | El valor inicial del acumulador para `<reduce>` |
-| [`<in>`](../compute/lists.mdx#at--indexar-una-lista) | 1 → `list` | La lista para `<at>` |
-| [`<index>`](../compute/lists.mdx#at--indexar-una-lista) | 1 → `int` | El índice del elemento para `<at>` |
-| [`<result>`](../compute/overview.mdx) | 1 → `int\|str\|list` | El valor final de un `<compute>` |
-| [`<valid>`](../compute/conditionals.mdx#valid--rechazar-y-reintentar) | 1 → `—` | Rechaza y reintenta hasta obtener algo válido |
+| Etiqueta                                                              | Firma                | Qué hace                                             |
+| :-------------------------------------------------------------------- | :------------------- | :--------------------------------------------------- |
+| [`<over>`](../compute/lists.mdx#each--mapear-sobre-una-lista)         | 1 → `str\|list`      | La lista de entrada para `<each>` / `<reduce>`       |
+| [`<do>`](../compute/lists.mdx#each--mapear-sobre-una-lista)           | 1 → `int\|str\|list` | El cuerpo de la iteración para `<each>` / `<reduce>` |
+| [`<init>`](../compute/lists.mdx#reduce--plegar-a-un-solo-valor)       | 1 → `int\|str\|list` | El valor inicial del acumulador para `<reduce>`      |
+| [`<in>`](../compute/lists.mdx#at--indexar-una-lista)                  | 1 → `list`           | La lista para `<at>`                                 |
+| [`<index>`](../compute/lists.mdx#at--indexar-una-lista)               | 1 → `int`            | El índice del elemento para `<at>`                   |
+| [`<result>`](../compute/overview.mdx)                                 | 1 → `int\|str\|list` | El valor final de un `<compute>`                     |
+| [`<valid>`](../compute/conditionals.mdx#valid--rechazar-y-reintentar) | 1 → `—`              | Rechaza y reintenta hasta obtener algo válido        |
 
 Vea la sección [Lenguaje de cálculo](../compute/overview.mdx) para ejemplos resueltos.

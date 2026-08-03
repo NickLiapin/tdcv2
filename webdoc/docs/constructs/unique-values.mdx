@@ -327,16 +327,18 @@ read alike once the boundary is gone.
 
 ## Large volumes
 
-`uniq` runs on disk by default, no flags — but how fast it runs depends on **what**
-you're making unique:
+`uniq` runs on disk by default, no flags — but **no form of it runs on the fast streaming
+engine**, and which of the other two takes it depends on how you wrote it:
 
-- **Over finite text lists, without `percent`**, a fast engine guarantees uniqueness
-  _by construction_ (a mixed-radix numbering plus a permutation), without storing
-  anything it has already generated, up to `2^52` combinations. This scales freely —
-  a hundred thousand rows in a second.
-- **Over numbers, dates, or templates, or with `percent` on a column**, TDC can't
-  number the combinations up front, so it switches to the exact on-disk engine: it
-  generates, then **sorts the whole output and repairs any collisions**.
+- **`uniq="true"` on a single drawn column** — the common case — draws without
+  replacement, which needs the pool and the values already taken. That is the in-memory
+  engine, so memory grows with `count` and the run is bounded by RAM.
+- **A compound `uniq`, a `uniq` counter, or an env-level `<uniq>` group** goes to the
+  exact on-disk engine: it lays out each column, then **checks the tuples and repairs any
+  collisions**. Memory stays bounded; time does not.
+
+[Which engine runs your config](../guides/large-outputs.mdx#which-engine-runs-your-config)
+has the full routing, including the four non-`uniq` shapes that land in memory too.
 
 :::danger[Exact `uniq` on a huge output is SLOW — `uniq` + `percent` most of all]
 The sort-and-repair check is thorough, and its cost grows **faster than linearly** with

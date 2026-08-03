@@ -21,12 +21,12 @@ eso y lo deja en cuatro nombres listos para usar.
 
 ## La lista
 
-| Nombre   | Valor                                                                |
-| :------- | :------------------------------------------------------------------- |
-| `_count` | El número del registro actual, **empezando en 1**                    |
-| `_first` | `"true"` en el primer registro, `"false"` en los demás               |
-| `_last`  | `"true"` en el último registro, `"false"` en los demás               |
-| `_total` | La cantidad total de registros (lo mismo que `count`), en cada fila   |
+| Nombre   | Valor                                                               |
+| :------- | :------------------------------------------------------------------ |
+| `_count` | El número del registro actual, **empezando en 1**                   |
+| `_first` | `"true"` en el primer registro, `"false"` en los demás              |
+| `_last`  | `"true"` en el último registro, `"false"` en los demás              |
+| `_total` | La cantidad total de registros (lo mismo que `count`), en cada fila |
 
 > [!NOTE]
 > **Cadenas, no booleanos**
@@ -88,10 +88,10 @@ Una línea [`<line each="List">`](../reference/attributes.md#top) se repite una 
 elemento de una lista, y allí hay dos valores integrados más — **solo allí**; el patrón
 completo está en [Tablas relacionales](../constructs/relational-tables.md#top):
 
-| Nombre       | Valor                                                                          |
-| :----------- | :----------------------------------------------------------------------------- |
-| `_item`      | La posición **dentro de esta tarjeta** — `1`, `2`, `3`, reiniciando cada una    |
-| `_item_id`   | Un número **único en todo el run** — una clave primaria lista para usar          |
+| Nombre     | Valor                                                                        |
+| :--------- | :--------------------------------------------------------------------------- |
+| `_item`    | La posición **dentro de esta tarjeta** — `1`, `2`, `3`, reiniciando cada una |
+| `_item_id` | Un número **único en todo el run** — una clave primaria lista para usar      |
 
 Existen solo en una línea con `each=`; en una línea común no nombran nada.
 

@@ -24,7 +24,7 @@ Todo el flujo son dos comandos:
 2. `tdcv2 pack add …`: descarga los conjuntos que realmente necesita.
 
 `init` va primero porque responde una pregunta que `pack` no puede resolver: cuál carpeta
-es *suya*. Los packs a propósito no viven dentro de la biblioteca instalada: si vivieran
+es _suya_. Los packs a propósito no viven dentro de la biblioteca instalada: si vivieran
 ahí, cada `npm update`, cada `pip install -U` o cada actualización de dependencias
 borraría un gigabyte de datos que usted eligió. `init` anota una carpeta que pertenece a
 su proyecto, y todas las implementaciones leen ese mismo archivo, así que un pack
@@ -114,8 +114,8 @@ tdcv2 init --global
 `tdcv2 init --global`
 
 ```
-Wrote global config: /Users/you/.config/tdcv2/tdcv2.config.json
-  data packs → /Users/you/.config/tdcv2/tdcv2-packs
+Wrote global config: /Users/you/.config/tdcv2/config.json
+  data packs → /Users/you/.config/tdcv2/packs
   locale     → en
 ```
 
@@ -215,9 +215,9 @@ conjunto.
 ```
 Available data packs:
 
-  common       ✓ installed   Common (locale-agnostic) (0.0 MB)
-  en                         English (language) (0.1 MB)
-  usa                        United States (country) (0.0 MB)
+common ✓ installed Common (locale-agnostic) (0.0 MB)
+en English (language) (0.1 MB)
+usa United States (country) (0.0 MB)
 ```
 
 Úselo para revisar qué necesita una dirección antes de generar, y para confirmar que un

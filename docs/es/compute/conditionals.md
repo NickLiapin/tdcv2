@@ -23,22 +23,22 @@ residuo, «¿esto es un dígito?» — y no solo si una clave coincidió.
 
 ## La forma
 
-| Etiqueta      | Qué hace                                                        |
-| :------------ | :-------------------------------------------------------------- |
+| Etiqueta      | Qué hace                                                             |
+| :------------ | :------------------------------------------------------------------- |
 | `<choose>`    | el primer `<when>` cuyo `<test>` sea verdadero; si no, `<otherwise>` |
-| `<when>`      | una rama: un predicado `<test>` y un valor `<then>`             |
-| `<test>`      | contiene exactamente un predicado, entrega un sí/no             |
+| `<when>`      | una rama: un predicado `<test>` y un valor `<then>`                  |
+| `<test>`      | contiene exactamente un predicado, entrega un sí/no                  |
 | `<then>`      | el valor que se devuelve cuando el `<test>` de esa rama es verdadero |
-| `<otherwise>` | la rama «si no» — **obligatoria**                               |
+| `<otherwise>` | la rama «si no» — **obligatoria**                                    |
 
 Los predicados viven **solo** dentro de `<test>` y devuelven sí/no (nunca un valor):
 
-| Predicado         | Verdadero cuando                    |
-| :---------------- | :---------------------------------- |
-| `<equals>`        | dos enteros son iguales             |
-| `<greater_than>`  | A &gt; B (estricto)                 |
-| `<less_than>`     | A &lt; B (estricto)                 |
-| `<is_digit>`      | un carácter es un dígito `0`–`9`    |
+| Predicado        | Verdadero cuando                 |
+| :--------------- | :------------------------------- |
+| `<equals>`       | dos enteros son iguales          |
+| `<greater_than>` | A &gt; B (estricto)              |
+| `<less_than>`    | A &lt; B (estricto)              |
+| `<is_digit>`     | un carácter es un dígito `0`–`9` |
 
 En el lenguaje no hay un tipo booleano independiente: un sí/no solo existe mientras dura un
 `<test>`. El valor de una rama siempre sale de `<then>` o de `<otherwise>`.
@@ -559,7 +559,7 @@ regenera. Esta es la misma garantía que dan los packs de ISBN integrados.
 Cada valor emitido son diez dígitos limpios: a lo largo de miles de filas ninguna tiene un
 valor de control de 10, porque `<valid>` rechaza esas bases y vuelve a sortear.
 
-**Úselo cuando** un valor correcto pueda aun así ser *inválido* para el dominio — un dígito
+**Úselo cuando** un valor correcto pueda aun así ser _inválido_ para el dominio — un dígito
 verificador prohibido, un rango no emitido — y quiera que el pack garantice solo filas
 buenas sin complicar la fórmula.
 

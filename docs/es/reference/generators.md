@@ -12,22 +12,22 @@
 
 Todos los valores de `type` para [`<gen>`](../generators/overview.md#top). Cada uno enlaza a su página completa.
 
-| `type`                                        | Qué produce                                                  |
-| :-------------------------------------------- | :----------------------------------------------------------- |
-| [`text`](../generators/text.md#top)              | Un valor de un conjunto — uniforme o por `percent` exactos    |
-| [`number`](../generators/number.md#top)          | Un entero dentro de un rango, o una cadena de dígitos de ancho fijo |
-| [`template`](../generators/template.md#top)      | Datos realistas integrados e identificadores técnicos         |
-| [`file`](../generators/file.md#top)              | Valores de sus propios archivos y columnas de CSV             |
-| [`date`](../generators/date.md#top)              | Una fecha o fecha-hora en un rango y formato dados            |
-| [`symbol`](../generators/symbol.md#top)          | Una cadena de caracteres de un conjunto o de un alfabeto con nombre |
-| [`regex`](../generators/regex.md#top)            | Una cadena que coincide con una expresión regular finita      |
-| [`advanced_regex`](../generators/advanced-regex.md#top) | Regex más elección ponderada entre alternativas        |
-| [`increment` / `decrement`](../generators/counters.md#top) | Contadores ascendentes y descendentes       |
-| [`timeseries`](../generators/timeseries.md#top)  | Una serie de tiempo — tendencia + estacionalidad + ruido      |
-| [`pattern`](../generators/pattern.md#top)        | Una distribución con la forma de una curva dibujada           |
-| [`http`](../generators/http.md#top)              | Un valor de un servicio suyo, vía HTTP                       |
-| [`pool`](../pools/overview.md#top)             | Un miembro entero de un `<pool>` — un registro, no un valor  |
-| [`running`](../generators/running.md#top)      | Un total acumulado por la columna, no sorteado               |
+| `type`                                                  | Qué produce                                                         |
+| :------------------------------------------------------ | :------------------------------------------------------------------ |
+| [`text`](../generators/text.md#top)                        | Un valor de un conjunto — uniforme o por `percent` exactos          |
+| [`number`](../generators/number.md#top)                    | Un entero dentro de un rango, o una cadena de dígitos de ancho fijo |
+| [`template`](../generators/template.md#top)                | Datos realistas integrados e identificadores técnicos               |
+| [`file`](../generators/file.md#top)                        | Valores de sus propios archivos y columnas de CSV                   |
+| [`date`](../generators/date.md#top)                        | Una fecha o fecha-hora en un rango y formato dados                  |
+| [`symbol`](../generators/symbol.md#top)                    | Una cadena de caracteres de un conjunto o de un alfabeto con nombre |
+| [`regex`](../generators/regex.md#top)                      | Una cadena que coincide con una expresión regular finita            |
+| [`advanced_regex`](../generators/advanced-regex.md#top)    | Regex más elección ponderada entre alternativas                     |
+| [`increment` / `decrement`](../generators/counters.md#top) | Contadores ascendentes y descendentes                               |
+| [`timeseries`](../generators/timeseries.md#top)            | Una serie de tiempo — tendencia + estacionalidad + ruido            |
+| [`pattern`](../generators/pattern.md#top)                  | Una distribución con la forma de una curva dibujada                 |
+| [`http`](../generators/http.md#top)                        | Un valor de un servicio suyo, vía HTTP                              |
+| [`pool`](../pools/overview.md#top)                         | Un miembro entero de un `<pool>` — un registro, no un valor         |
+| [`running`](../generators/running.md#top)                  | Un total acumulado por la columna, no sorteado                      |
 
 ## Atributos transversales
 

@@ -81,17 +81,17 @@ carpeta de ese archivo; con `configString`, fije `baseDir` usted mismo.
 
 ## Métodos terminales
 
-| Método             | Devuelve                                        | Para                            |
-| :----------------- | :---------------------------------------------- | :------------------------------ |
-| `toString()`       | toda la salida como una sola cadena             | resultados chicos o medianos    |
-| `writeFile(path)`  | escribe la salida en un archivo (por trozos)    | un archivo de cualquier tamaño  |
-| `toIterator()`     | un generador de líneas (una por registro)       | texto grande, sin cadena entera |
-| `toStream()`       | un `Readable` de Node.js                        | `pipe` a archivo / HTTP / gzip  |
-| `toArray()`        | un arreglo de objetos-fila                      | fixtures chicos de objetos      |
-| `iterate()`        | un generador de objetos-fila                    | salida de objetos, sin arreglo  |
-| `getAt(index)`     | un objeto-fila por índice                       | acceso puntual                  |
-| `preflight(opts?)` | un diagnóstico de memoria, o `undefined`        | una revisión antes de una corrida grande |
-| `seedInfo()`       | `{ seed, generated }`                           | leer o registrar el seed        |
+| Método             | Devuelve                                     | Para                                     |
+| :----------------- | :------------------------------------------- | :--------------------------------------- |
+| `toString()`       | toda la salida como una sola cadena          | resultados chicos o medianos             |
+| `writeFile(path)`  | escribe la salida en un archivo (por trozos) | un archivo de cualquier tamaño           |
+| `toIterator()`     | un generador de líneas (una por registro)    | texto grande, sin cadena entera          |
+| `toStream()`       | un `Readable` de Node.js                     | `pipe` a archivo / HTTP / gzip           |
+| `toArray()`        | un arreglo de objetos-fila                   | fixtures chicos de objetos               |
+| `iterate()`        | un generador de objetos-fila                 | salida de objetos, sin arreglo           |
+| `getAt(index)`     | un objeto-fila por índice                    | acceso puntual                           |
+| `preflight(opts?)` | un diagnóstico de memoria, o `undefined`     | una revisión antes de una corrida grande |
+| `seedInfo()`       | `{ seed, generated }`                        | leer o registrar el seed                 |
 
 `toString`/`writeFile`/`toIterator`/`toStream` son salida de texto a través del disco,
 con memoria O(cantidad de campos). Vea

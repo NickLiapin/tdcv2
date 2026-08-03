@@ -21,7 +21,7 @@ lista. Una tarjeta se convierte en **N filas de salida** — una tabla normaliza
 para una base de datos.
 
 > [!NOTE]
-> Las salidas de ejemplo que siguen son ilustrativas. Los *valores* exactos que emite un
+> Las salidas de ejemplo que siguen son ilustrativas. Los _valores_ exactos que emite un
 > generador pueden cambiar entre versiones del core y entre seeds; lo que la
 > característica garantiza son los **conteos** y las **reglas estructurales** (qué filas
 > aparecen, cuáles quedan vacías, que las llaves sean únicas).
@@ -35,11 +35,11 @@ para una base de datos.
 
 ## De un vistazo
 
-| Dónde           | Qué                                                                  |
-| :-------------- | :------------------------------------------------------------------- |
-| Se aplica en    | [`<line>`](../core-concepts/output-formatting.md#top)                  |
-| Valor           | El **nombre** de una secuencia cuyo generador tiene [`repeat`](../reference/attributes.md#top) |
-| Efecto          | La línea se emite una vez por cada elemento de esa lista            |
+| Dónde        | Qué                                                                                         |
+| :----------- | :------------------------------------------------------------------------------------------ |
+| Se aplica en | [`<line>`](../core-concepts/output-formatting.md#top)                                          |
+| Valor        | El **nombre** de una secuencia cuyo generador tiene [`repeat`](../reference/attributes.md#top) |
+| Efecto       | La línea se emite una vez por cada elemento de esa lista                                    |
 
 La secuencia destino **debe** llevar [`repeat`](../reference/attributes.md#top): eso es lo
 que la convierte en una lista recorrible. Apunte `each` a cualquier otra cosa y TDC le
@@ -115,12 +115,12 @@ segunda corrida, sin scripts para desplegar la lista.
 Dentro de una línea bajo `each`, el nombre de la secuencia recorrida significa el
 **elemento actual**, más dos integrados extra:
 
-| Token            | Qué significa                                                            |
-| :--------------- | :----------------------------------------------------------------------- |
+| Token            | Qué significa                                                                                    |
+| :--------------- | :----------------------------------------------------------------------------------------------- |
 | `${{VipOrders}}` | el elemento **actual**. Fuera de la línea con `each`, el mismo nombre es la lista completa unida |
-| `${{_item}}`     | la posición dentro de la tarjeta: `1`, `2`, `3`                          |
-| `${{_item_id}}`  | un número global, único en toda la corrida — su llave primaria            |
-| todo lo demás    | como siempre: `${{Id}}`, [`${{_count}}`](../reference/builtins.md#top), cualquier otra secuencia |
+| `${{_item}}`     | la posición dentro de la tarjeta: `1`, `2`, `3`                                                  |
+| `${{_item_id}}`  | un número global, único en toda la corrida — su llave primaria                                   |
+| todo lo demás    | como siempre: `${{Id}}`, [`${{_count}}`](../reference/builtins.md#top), cualquier otra secuencia    |
 
 Justamente por esto funciona la llave foránea: `${{Id}}` sigue significando el
 **cliente** en cada fila de pedido, no el elemento. Si al recorrer se reasignara `Id` al
@@ -225,11 +225,11 @@ La misma forma cubre cualquier cosa con un vocabulario fijo de pasos: un ticket 
 `each` es estricto sobre lo que puede recorrer, y falla de forma ruidosa en vez de
 adivinar:
 
-| Qué                                              | Por qué                                                                   | Error     |
-| :----------------------------------------------- | :------------------------------------------------------------------------ | :-------- |
-| `each` sobre una secuencia **sin** [`repeat`](../reference/attributes.md#top) | no hay nada que recorrer                                 | `TDC207`  |
-| `each` sobre un nombre que no existe             | la secuencia no está declarada                                            | `TDC206`  |
-| `<data name="…">` dentro de una línea con `each` | un `<data>` con nombre es una **columna** para Parquet, y Parquet junta columnas por tarjeta, no por fila recorrida | `TDC209`  |
+| Qué                                                                        | Por qué                                                                                                             | Error    |
+| :------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------ | :------- |
+| `each` sobre una secuencia **sin** [`repeat`](../reference/attributes.md#top) | no hay nada que recorrer                                                                                            | `TDC207` |
+| `each` sobre un nombre que no existe                                       | la secuencia no está declarada                                                                                      | `TDC206` |
+| `<data name="…">` dentro de una línea con `each`                           | un `<data>` con nombre es una **columna** para Parquet, y Parquet junta columnas por tarjeta, no por fila recorrida | `TDC209` |
 
 `./run broken.tdc  (each sobre algo que no es una lista)`
 
@@ -247,7 +247,7 @@ varias filas físicas.
 ## Vea también
 
 - **[Dependencias jerárquicas](../guides/hierarchical-dependencies.md#top)** — [`parent`](../reference/attributes.md#top),
-  que decide *cuál* lista está activa en cada fila.
+  que decide _cuál_ lista está activa en cada fila.
 - **[Datos coherentes y relacionales](../guides/coherent-data.md#top)** — la otra manera de relacionar
   tablas, por búsqueda contra un padre compartido.
 - **[`repeat` / `separator`](../reference/attributes.md#top)** — cómo una secuencia se

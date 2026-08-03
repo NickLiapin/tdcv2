@@ -50,12 +50,12 @@ cambiar según la versión del core, pero la forma nunca.
 
 Otras formas de todos los días:
 
-| Tarea                     | Patrón                                              | Ejemplo                            |
-| :------------------------ | :-------------------------------------------------- | :--------------------------------- |
-| SKU                       | `[A-Z]{3}-[0-9]{4}`                                 | `SAH-0136`                         |
-| Placa (EE. UU.)           | `[0-9][A-Z]{3}[0-9]{3}`                             | `7KLM042`                          |
-| Token hex de 32 caracteres | `[A-F0-9]{32}`                                     | `5AE5ABF3F7040BEB966D65A23EB7C1EC` |
-| Correo de prueba          | `user_[a-z0-9]{8}@test\.(com\|org)`                 | `user_zak0bdnw@test.com`           |
+| Tarea                      | Patrón                              | Ejemplo                            |
+| :------------------------- | :---------------------------------- | :--------------------------------- |
+| SKU                        | `[A-Z]{3}-[0-9]{4}`                 | `SAH-0136`                         |
+| Placa (EE. UU.)            | `[0-9][A-Z]{3}[0-9]{3}`             | `7KLM042`                          |
+| Token hex de 32 caracteres | `[A-F0-9]{32}`                      | `5AE5ABF3F7040BEB966D65A23EB7C1EC` |
+| Correo de prueba           | `user_[a-z0-9]{8}@test\.(com\|org)` | `user_zak0bdnw@test.com`           |
 
 Ese mismo SKU, renderizado completo:
 
@@ -95,25 +95,25 @@ Si se necesitan **porciones exactas** de variantes dentro del string (digamos, e
 
 ## La sintaxis de un vistazo
 
-| Construcción         | Ejemplo                      | Genera                                        |
-| :------------------- | :--------------------------- | :-------------------------------------------- |
-| Literales            | `ABC-42`                     | Exactamente esos caracteres                   |
-| Caracteres escapados | `\.\+\(\)\\`                 | Punto, más, paréntesis, barra invertida       |
-| Clase de caracteres  | `[ABC]`, `[a-z]`, `[A-Z0-9]` | Un carácter del conjunto                      |
-| Rango Unicode BMP    | `[а-я]`, `[א-ת]`, `[ぁ-ゖ]`  | Un carácter del rango                         |
-| Alfabeto con nombre  | `\a{kana.hiragana}`          | Un carácter de un alfabeto incorporado        |
-| Clase negada         | `[^0-9]`                     | Un carácter ASCII imprimible, salvo esos      |
+| Construcción         | Ejemplo                      | Genera                                           |
+| :------------------- | :--------------------------- | :----------------------------------------------- |
+| Literales            | `ABC-42`                     | Exactamente esos caracteres                      |
+| Caracteres escapados | `\.\+\(\)\\`                 | Punto, más, paréntesis, barra invertida          |
+| Clase de caracteres  | `[ABC]`, `[a-z]`, `[A-Z0-9]` | Un carácter del conjunto                         |
+| Rango Unicode BMP    | `[а-я]`, `[א-ת]`, `[ぁ-ゖ]`  | Un carácter del rango                            |
+| Alfabeto con nombre  | `\a{kana.hiragana}`          | Un carácter de un alfabeto incorporado           |
+| Clase negada         | `[^0-9]`                     | Un carácter ASCII imprimible, salvo esos         |
 | Clase abreviada      | `\d`, `\w`, `\s`             | Dígito, carácter de palabra, espacio o tabulador |
-| Abreviada inversa    | `\D`, `\W`, `\S`             | Lo inverso de lo anterior                     |
-| Cualquier carácter   | `.`                          | Un carácter ASCII imprimible                  |
-| Alternancia          | `cat\|dog`                   | `cat` o `dog`                                 |
-| Grupo                | `(cat\|dog)`                 | Agrupación y captura                          |
-| Grupo sin captura    | `(?:cat\|dog)`               | Agrupación sin captura                        |
-| Retrorreferencia     | `([0-9]{3})-\1`              | Repite un grupo ya generado                   |
-| Opcional             | `AB?C`                       | `AC` o `ABC`                                  |
-| Repetición exacta    | `[A-Z]{4}`                   | Exactamente 4                                 |
-| Repetición por rango | `[A-Z]{2,5}`                 | De 2 a 5                                      |
-| Anclas               | `^ABC$`                      | Ancho cero; el resultado es `ABC`             |
+| Abreviada inversa    | `\D`, `\W`, `\S`             | Lo inverso de lo anterior                        |
+| Cualquier carácter   | `.`                          | Un carácter ASCII imprimible                     |
+| Alternancia          | `cat\|dog`                   | `cat` o `dog`                                    |
+| Grupo                | `(cat\|dog)`                 | Agrupación y captura                             |
+| Grupo sin captura    | `(?:cat\|dog)`               | Agrupación sin captura                           |
+| Retrorreferencia     | `([0-9]{3})-\1`              | Repite un grupo ya generado                      |
+| Opcional             | `AB?C`                       | `AC` o `ABC`                                     |
+| Repetición exacta    | `[A-Z]{4}`                   | Exactamente 4                                    |
+| Repetición por rango | `[A-Z]{2,5}`                 | De 2 a 5                                         |
+| Anclas               | `^ABC$`                      | Ancho cero; el resultado es `ABC`                |
 
 El resto de esta página es la misma lista, pero con **salida real** debajo de cada
 entrada.
@@ -483,17 +483,17 @@ resultado ya finito sea más largo.
 
 ## Qué no está permitido
 
-| No permitido             | Por qué                                       | Use en su lugar                    |
-| :----------------------- | :-------------------------------------------- | :--------------------------------- |
-| `*`                      | Sin tope superior                             | `{0,n}`                            |
-| `+`                      | Sin tope superior                             | `{1,n}`                            |
-| `{n,}`                   | Sin tope superior                             | `{n,m}`                            |
-| Perezosos `*?`, `??`     | Semántica de búsqueda, no de generación       | Escriba el rango que quiere        |
-| Lookahead / lookbehind   | Inspeccionan texto existente, no lo construyen | Mueva la condición al DSL         |
-| Capturas con nombre      | Todavía no implementadas                      | Grupos simples y `\1`              |
-| Grupos condicionales     | Todavía no implementados                      | Use `<mix>` o una sequence         |
-| `\p{...}` / `\P{...}`    | Las propiedades Unicode aún no son portables  | `\a{name}` o una clase explícita   |
-| `\n` / `\r`              | La generación multilínea vive en otro lado    | Use `<line>`s separados            |
+| No permitido           | Por qué                                        | Use en su lugar                  |
+| :--------------------- | :--------------------------------------------- | :------------------------------- |
+| `*`                    | Sin tope superior                              | `{0,n}`                          |
+| `+`                    | Sin tope superior                              | `{1,n}`                          |
+| `{n,}`                 | Sin tope superior                              | `{n,m}`                          |
+| Perezosos `*?`, `??`   | Semántica de búsqueda, no de generación        | Escriba el rango que quiere      |
+| Lookahead / lookbehind | Inspeccionan texto existente, no lo construyen | Mueva la condición al DSL        |
+| Capturas con nombre    | Todavía no implementadas                       | Grupos simples y `\1`            |
+| Grupos condicionales   | Todavía no implementados                       | Use `<mix>` o una sequence       |
+| `\p{...}` / `\P{...}`  | Las propiedades Unicode aún no son portables   | `\a{name}` o una clase explícita |
+| `\n` / `\r`            | La generación multilínea vive en otro lado     | Use `<line>`s separados          |
 
 Por ejemplo, `+` se rechaza de inmediato:
 

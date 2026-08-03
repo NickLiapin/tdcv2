@@ -11,13 +11,17 @@
 # Determinismo y proporciones
 
 Dos propiedades hacen confiables los datos de TDC: el mismo **seed** reproduce los mismos
-datos byte por byte, y las partes caen en **proporciones exactas**. Esta página cubre tres
+datos byte por byte, y las partes caen en **proporciones exactas**. La promesa es precisa
+sobre lo que tiene que coincidir: la misma configuración, el mismo seed, la misma versión
+del núcleo y el mismo modo de salida. Si cambia cualquiera de esos cuatro, los bytes
+pueden cambiar; el lenguaje desde el que se ejecuta no está en la lista, y por eso las
+cinco implementaciones coinciden. Esta página cubre tres
 atributos juntos —`seed`, `count` y `percent`— porque interactúan: `count` decide cuántos
-registros se obtienen, `seed` decide *cuáles*, y `percent` fija sus proporciones.
+registros se obtienen, `seed` decide _cuáles_, y `percent` fija sus proporciones.
 
 > [!NOTE]
 > Las salidas de ejemplo de abajo son ilustrativas: los nombres y números exactos pueden
-> variar según la versión del núcleo, pero sus *propiedades* (reproducibilidad, prefijos,
+> variar según la versión del núcleo, pero sus _propiedades_ (reproducibilidad, prefijos,
 > conteos exactos) se mantienen.
 
 ![](../../img/guides/determinism.svg)
@@ -83,7 +87,7 @@ determinismo.
 
 ### Cambie el seed → un conjunto distinto, igual de estable
 
-Cambie el seed por otra palabra y obtiene un conjunto *distinto* que es igual de
+Cambie el seed por otra palabra y obtiene un conjunto _distinto_ que es igual de
 reproducible. La misma configuración, solo con `seed="alpha"`:
 
 `./run demo.tdc  (seed=alpha)`
@@ -150,13 +154,13 @@ Andre          Andre
                Saul
 ```
 
-`count` no *desplaza* los datos, solo continúa la misma serie. Así que puede depurar con
+`count` no _desplaza_ los datos, solo continúa la misma serie. Así que puede depurar con
 `count="3"` sabiendo que los primeros registros serán idénticos con `count="1000"`.
 
 ### La excepción: los diseños que abarcan toda la ejecución
 
 Los generadores que acomodan valores a lo largo de **toda** la ejecución se
-**recalculan** cuando `count` cambia: sus columnas *no* son un prefijo. Cuatro funciones
+**recalculan** cuando `count` cambia: sus columnas _no_ son un prefijo. Cuatro funciones
 trabajan así: las proporciones exactas (`percent` en [`text`](../generators/text.md#top) y en
 `<mix>`, por el método de Hamilton), la unicidad
 ([`uniq`](../constructs/unique-values.md#top)), un pack
@@ -216,7 +220,7 @@ ejecución.
 Agregue `percent` a un generador [`text`](../generators/text.md#top) (o a un `<mix>`) y las
 partes caen **exactamente**, acomodadas por el método de Hamilton (del resto mayor): se
 garantiza que el número de apariciones de cada valor coincida con los porcentajes que
-usted dio. La aleatoriedad queda solo en el *orden* de las filas.
+usted dio. La aleatoriedad queda solo en el _orden_ de las filas.
 
 ```xml
 <sequence name="Gender">
@@ -312,7 +316,7 @@ mal.
 
 Cuando la secuencia tiene un [`parent`](sequences.md#top), los porcentajes se miden **dentro
 del subconjunto filtrado**, no a lo largo de toda la ejecución. Un reparto 70/30 de
-usuarios activos es 70/30 *de las filas de ese padre*, calculado de forma independiente
+usuarios activos es 70/30 _de las filas de ese padre_, calculado de forma independiente
 por grupo. Ese es el fundamento de las
 [dependencias jerárquicas](../guides/hierarchical-dependencies.md#top).
 

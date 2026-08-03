@@ -17,13 +17,13 @@ aritméticos del lenguaje TDC — viven en una
 [`<gen>`](../generators/overview.mdx), tanto en su propio config como dentro de los packs
 de identificadores integrados.
 
-| Etiqueta                   | Qué hace                                          | Ejemplo → resultado        |
-| :------------------------- | :------------------------------------------------ | :------------------------- |
-| [`<add>`](#add)            | suma de todos los hijos (vacío → `0`)             | `add(2, 3, 4)` → `9`       |
-| [`<subtract>`](#subtract)  | el primero menos la suma del resto                | `subtract(10, 3, 2)` → `5` |
-| [`<multiply>`](#multiply)  | producto de todos los hijos (vacío → `1`)         | `multiply(2, 3, 4)` → `24` |
-| [`<divide>`](#divide)      | división entera hacia −∞ (exactamente 2 hijos)    | `divide(7, 2)` → `3`       |
-| [`<mod>`](#mod)            | residuo, siempre ≥ 0 (exactamente 2 hijos)        | `mod(17, 5)` → `2`         |
+| Etiqueta                  | Qué hace                                       | Ejemplo → resultado        |
+| :------------------------ | :--------------------------------------------- | :------------------------- |
+| [`<add>`](#add)           | suma de todos los hijos (vacío → `0`)          | `add(2, 3, 4)` → `9`       |
+| [`<subtract>`](#subtract) | el primero menos la suma del resto             | `subtract(10, 3, 2)` → `5` |
+| [`<multiply>`](#multiply) | producto de todos los hijos (vacío → `1`)      | `multiply(2, 3, 4)` → `24` |
+| [`<divide>`](#divide)     | división entera hacia −∞ (exactamente 2 hijos) | `divide(7, 2)` → `3`       |
+| [`<mod>`](#mod)           | residuo, siempre ≥ 0 (exactamente 2 hijos)     | `mod(17, 5)` → `2`         |
 
 Dos reglas valen para **todos** ellos:
 
@@ -142,7 +142,7 @@ actual menos año de nacimiento».
 
 ### El primero menos la suma del resto
 
-Con **tres** hijos, `<subtract>` toma el primero menos la *suma* de los otros dos — muy
+Con **tres** hijos, `<subtract>` toma el primero menos la _suma_ de los otros dos — muy
 útil cuando varios rubros van bajando un mismo presupuesto:
 
 ```xml
@@ -450,13 +450,13 @@ Para conseguir el carácter que se le pasa, tome un elemento de un string:
 `<str v="A"/>`.
 
 | `as`      | Qué produce                                                  |
-| :-------- | :---------------------------------------------------------- |
-| `base36`  | `0`–`9` → `0…9`, letras `A`–`Z`/`a`–`z` → `10…35` (decimal) |
+| :-------- | :----------------------------------------------------------- |
+| `base36`  | `0`–`9` → `0…9`, letras `A`–`Z`/`a`–`z` → `10…35` (decimal)  |
 | `ascii`   | punto de código decimal, solo `0`–`127` (si no, es un error) |
-| `unicode` | punto de código decimal, sin el límite de `127`             |
-| `hex`     | el punto de código en base 16                               |
-| `octal`   | el punto de código en base 8                                |
-| `binary`  | el punto de código en base 2                                |
+| `unicode` | punto de código decimal, sin el límite de `127`              |
+| `hex`     | el punto de código en base 16                                |
+| `octal`   | el punto de código en base 8                                 |
+| `binary`  | el punto de código en base 2                                 |
 
 Un valor de `as` desconocido se detecta antes de la corrida (error `TDC186`).
 

@@ -21,10 +21,10 @@ siguiente valor mediante la
 
 ## De un vistazo
 
-| Atributo | Se aplica a              | Por defecto | Qué hace                                  |
-| :------- | :----------------------- | :---------- | :---------------------------------------- |
-| `value`  | `increment`, `decrement` | `0`         | Valor inicial                             |
-| `step`   | `increment`, `decrement` | `1`         | Cuánto sumar o restar en cada fila        |
+| Atributo | Se aplica a              | Por defecto | Qué hace                           |
+| :------- | :----------------------- | :---------- | :--------------------------------- |
+| `value`  | `increment`, `decrement` | `0`         | Valor inicial                      |
+| `step`   | `increment`, `decrement` | `1`         | Cuánto sumar o restar en cada fila |
 
 Ambos contadores son **posicionales y deterministas**: cada fila simplemente toma el
 siguiente valor de la corrida. Ignoran por completo el

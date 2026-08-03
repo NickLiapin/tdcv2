@@ -10,7 +10,7 @@
 
 # El bloque `<mix>`
 
-**Úselo cuando** las proporciones de una columna no son iguales *y* además cada
+**Úselo cuando** las proporciones de una columna no son iguales _y_ además cada
 variante es más que una sola palabra. Los datos reales son desparejos: casi todos
 los pedidos están `paid` y muy pocos `cancelled`; casi todas las cuentas son `free`
 y muy pocas `premium`. Usted quiere una columna donde las variantes aparezcan en
@@ -130,13 +130,13 @@ al que llevan las secciones siguientes.
 
 ## Atributos
 
-| Atributo  | Obligatorio  | Qué hace                                                            |
-| :-------- | :----------- | :----------------------------------------------------------------- |
-| `name`    | **sí**       | El nombre para interpolar con `${{Nombre}}`                        |
-| `percent` | no           | La proporción de cada `<case>`; omítalo para un reparto uniforme   |
-| `parent`  | no           | Una secuencia padre — el reparto se calcula dentro de su subconjunto |
-| `flag`    | no           | Agrega una columna de respuestas que marca la rama atípica (ver [más abajo](#marcar-valores-atípicos-con-flag)) |
-| `comment` | no           | Una nota libre para el autor de la configuración; nunca se renderiza |
+| Atributo  | Obligatorio | Qué hace                                                                                                        |
+| :-------- | :---------- | :-------------------------------------------------------------------------------------------------------------- |
+| `name`    | **sí**      | El nombre para interpolar con `${{Nombre}}`                                                                     |
+| `percent` | no          | La proporción de cada `<case>`; omítalo para un reparto uniforme                                                |
+| `parent`  | no          | Una secuencia padre — el reparto se calcula dentro de su subconjunto                                            |
+| `flag`    | no          | Agrega una columna de respuestas que marca la rama atípica (ver [más abajo](#marcar-valores-atípicos-con-flag)) |
+| `comment` | no          | Una nota libre para el autor de la configuración; nunca se renderiza                                            |
 
 Un `<mix>` debe contener al menos un **[`<case>`](#ramas-compuestas)** — una rama.
 Todo lo demás es opcional.
@@ -199,8 +199,7 @@ Gold        9
 Platinum    3
 ```
 
-`18 + 9 + 3 = 30` — todo el subconjunto de paga, y no un porcentaje del total de
-100. Este es el corazón del modelo jerárquico; el tratamiento completo, con niveles
+`18 + 9 + 3 = 30` — todo el subconjunto de paga, y no un porcentaje del total de 100. Este es el corazón del modelo jerárquico; el tratamiento completo, con niveles
 anidados, está en
 **[Dependencias jerárquicas](../guides/hierarchical-dependencies.md#top)**.
 

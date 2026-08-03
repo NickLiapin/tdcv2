@@ -21,6 +21,7 @@ Un solo crate: biblioteca y línea de comandos a la vez.
 > [!TIP]
 > **En crates.io — versión 0.1.3**
 >
+>
 > ```bash
 > cargo add tdcv2      # como dependencia
 > cargo install tdcv2  # como comando
@@ -76,14 +77,14 @@ afirmaría que sí lo tiene y que resulta estar en blanco.
 
 ## Opciones
 
-| | |
-| --- | --- |
-| `config_file` / `config_string` | Exactamente uno de los dos |
-| `count`, `seed`, `locale` | Sustituyen lo declarado en `<env>` |
-| `engine` | Fuerza el motor 1, 2 o 3 en vez de dejar que la configuración decida |
-| `now_millis` | Fija el reloj, para que una prueba sobre fechas no caduque de un día para otro |
-| `packs_dir`, `data_paths` | Dónde se buscan los packs y las fuentes `@data/…` |
-| `base_dir` | Respecto a qué es relativo un `src=` relativo |
+|                                 |                                                                                |
+| ------------------------------- | ------------------------------------------------------------------------------ |
+| `config_file` / `config_string` | Exactamente uno de los dos                                                     |
+| `count`, `seed`, `locale`       | Sustituyen lo declarado en `<env>`                                             |
+| `engine`                        | Fuerza el motor 1, 2 o 3 en vez de dejar que la configuración decida           |
+| `now_millis`                    | Fija el reloj, para que una prueba sobre fechas no caduque de un día para otro |
+| `packs_dir`, `data_paths`       | Dónde se buscan los packs y las fuentes `@data/…`                              |
+| `base_dir`                      | Respecto a qué es relativo un `src=` relativo                                  |
 
 Una configuración rechazada vuelve como `TdcError::Refused`, que lleva los diagnósticos **y**
 el fuente al que apuntan, de modo que quien llama puede mostrar la línea con el error en

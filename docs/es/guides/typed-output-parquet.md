@@ -103,22 +103,22 @@ poner a prueba un detector de anomalías.
 
 ## Los tipos que puede escribir
 
-| `type=`          | Qué es                        | Cómo se lee desde texto            |
-| :--------------- | :---------------------------- | :--------------------------------- |
-| `bool`           | true / false                  | `true`/`false`, `1`/`0`            |
-| `int32`          | entero de 32 bits             | `-42`                              |
-| `int64`          | entero de 64 bits             | `9007199254740993` — exacto        |
-| `double`         | flotante de 8 bytes           | `3.14`, `1e3`                      |
-| `string`         | texto UTF-8                   | tal cual                           |
-| `date`           | fecha de calendario           | `2020-05-14`                       |
-| `timestamp`      | instante en el tiempo         | ISO-8601                           |
-| `decimal(p,s)`   | decimal exacto (dinero)       | `123.45` — **sin redondeo**        |
-| `uuid`           | UUID como 16 bytes            | forma canónica                     |
-| `json`           | JSON                          | tal cual                           |
-| `float`          | flotante de 4 bytes           | `3.14` — la mitad de espacio que `double`|
-| `float16`        | flotante de 2 bytes           | `3.14` — ~3 dígitos significativos |
-| `enum`           | texto enumerado               | `RED` — un string, pero etiquetado  |
-| `uint8/16/32/64` | entero sin signo              | `255` — rechaza un negativo        |
+| `type=`          | Qué es                  | Cómo se lee desde texto                   |
+| :--------------- | :---------------------- | :---------------------------------------- |
+| `bool`           | true / false            | `true`/`false`, `1`/`0`                   |
+| `int32`          | entero de 32 bits       | `-42`                                     |
+| `int64`          | entero de 64 bits       | `9007199254740993` — exacto               |
+| `double`         | flotante de 8 bytes     | `3.14`, `1e3`                             |
+| `string`         | texto UTF-8             | tal cual                                  |
+| `date`           | fecha de calendario     | `2020-05-14`                              |
+| `timestamp`      | instante en el tiempo   | ISO-8601                                  |
+| `decimal(p,s)`   | decimal exacto (dinero) | `123.45` — **sin redondeo**               |
+| `uuid`           | UUID como 16 bytes      | forma canónica                            |
+| `json`           | JSON                    | tal cual                                  |
+| `float`          | flotante de 4 bytes     | `3.14` — la mitad de espacio que `double` |
+| `float16`        | flotante de 2 bytes     | `3.14` — ~3 dígitos significativos        |
+| `enum`           | texto enumerado         | `RED` — un string, pero etiquetado        |
+| `uint8/16/32/64` | entero sin signo        | `255` — rechaza un negativo               |
 
 Agregue `\|null` después del tipo para que la columna acepte nulos:
 `type="int64\|null"`. Sin eso, un valor vacío es un **error** — una puerta de calidad
@@ -178,7 +178,7 @@ born   INT32                REQUIRED  {"type":"DATE"}
 key    FIXED_LEN_BYTE_ARRAY REQUIRED  {"type":"UUID"}
 flag   BOOLEAN              REQUIRED
 
-{"id":1,"price":230,"qty":63,  "born":"1996-05-25","key":"e96b21bc-...","flag":true}
+{"id":1,"price":230,"qty":63, "born":"1996-05-25","key":"e96b21bc-...","flag":true}
 {"id":2,"price":589,"qty":null,"born":"2000-05-01","key":"85caccad-...","flag":false}
 ```
 
@@ -287,10 +287,10 @@ los guarda con un **diccionario**: la lista de valores una vez, y en cada fila u
 chico que apunta a ella. La decisión es automática, tomada a partir de los datos. Sobre
 50 000 filas:
 
-| columna  | valores distintos | diccionario         | tamaño |
-| :------- | :---------------- | :------------------ | :----- |
-| `city`   | 5                 | **sí**              | 18 KB  |
-| `status` | 3                 | **sí**              | 12 KB  |
+| columna  | valores distintos | diccionario          | tamaño |
+| :------- | :---------------- | :------------------- | :----- |
+| `city`   | 5                 | **sí**               | 18 KB  |
+| `status` | 3                 | **sí**               | 12 KB  |
 | `uuid`   | 50 000            | no — no vale la pena | 781 KB |
 
 A una columna de valores únicos un diccionario solo le haría daño, así que TDC no aplica
@@ -315,8 +315,9 @@ columna sin comprimir. El archivo nunca crece por intentar encogerlo.
 
 Está implementada en el propio código de TDC, sin bibliotecas de terceros — y no solo por
 el bien de las dependencias: dos implementaciones de snappy pueden emitir bytes
-**distintos** (igualmente válidos) para los mismos datos, y TDC garantiza que las
-todas las implementaciones produzcan archivos idénticos byte por byte.
+**distintos** (igualmente válidos) para los mismos datos, y un codificador compartido es
+lo que permite que las cinco implementaciones produzcan archivos idénticos byte por byte
+en la misma versión.
 
 ## Leerlo de vuelta en pandas
 
@@ -388,8 +389,8 @@ ida y vuelta. Para la API completa de la biblioteca en cada lenguaje, vea
 - **[CLI](../reference/cli.md#top)** — `-o`, `--jobs`, `--engine`.
 - **[Máscaras y mayúsculas](masks-and-case.md#top)** — `mask` / `case`, que apagan la
   inferencia de tipos.
-- **[Bindings de lenguajes](../bindings/python.md#top)** — leer y escribir desde Python,
-  TypeScript y Java.
+- **[Bindings de lenguajes](../bindings/python.md#top)** — leer y escribir desde las cinco:
+  TypeScript, Python, Java, C# y Rust.
 
 ---
 

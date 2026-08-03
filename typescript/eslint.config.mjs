@@ -17,6 +17,11 @@ export default tseslint.config(
       // property each. Nothing in it is a style decision.
       '**/quick/addresses.ts',
       'eslint.config.mjs',
+      // The one file here that is deliberately CommonJS: what a `require()`
+      // reaches so it gets an explanation instead of Node's confusing
+      // ERR_PACKAGE_PATH_NOT_EXPORTED. Outside tsconfig by design, which is
+      // exactly what the type-aware parser refuses to read.
+      'esm-only.cjs',
     ],
   },
   eslint.configs.recommended,

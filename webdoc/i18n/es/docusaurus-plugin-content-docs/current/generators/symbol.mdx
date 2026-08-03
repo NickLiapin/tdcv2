@@ -29,13 +29,13 @@ estables.
 
 ## De un vistazo
 
-| Atributo   | Obligatorio     | Qué hace                                                  |
-| :--------- | :-------------- | :--------------------------------------------------------- |
-| `value`    | uno de los dos  | Su propio conjunto de caracteres (literales + rangos `[x-y]`) |
-| `alphabet` | uno de los dos  | Nombre de un alfabeto Unicode incorporado                   |
-| `length`   | no              | Longitud del string; por omisión `1`, máximo `1024`         |
-| `include`  | no              | Agrega caracteres al conjunto (misma gramática que `value`) |
-| `exclude`  | no              | Quita caracteres del conjunto                               |
+| Atributo   | Obligatorio    | Qué hace                                                      |
+| :--------- | :------------- | :------------------------------------------------------------ |
+| `value`    | uno de los dos | Su propio conjunto de caracteres (literales + rangos `[x-y]`) |
+| `alphabet` | uno de los dos | Nombre de un alfabeto Unicode incorporado                     |
+| `length`   | no             | Longitud del string; por omisión `1`, máximo `1024`           |
+| `include`  | no             | Agrega caracteres al conjunto (misma gramática que `value`)   |
+| `exclude`  | no             | Quita caracteres del conjunto                                 |
 
 ## Su propio conjunto con `value`
 
@@ -64,7 +64,7 @@ value="[a-f]xY[0-9]" length="5" → x3bYa`}
   en un mismo grupo: `[a-z0-9_]`.
 - **Las comas y los espacios fuera de los corchetes se ignoran** — están ahí solo por
   legibilidad: `value="[a-f], [0-5]"` es el mismo conjunto que `value="[a-f][0-5]"`. Para
-  usar una coma o un espacio *como carácter*, póngalo entre corchetes: `[,]`, `[ ]`.
+  usar una coma o un espacio _como carácter_, póngalo entre corchetes: `[,]`, `[ ]`.
 - **Los duplicados se eliminan; el orden se conserva.** `value="AABB"` es solo `{A, B}`.
 
 Sirve cualquier carácter, de cualquier idioma — no hay límite a ASCII. Vea
@@ -182,40 +182,40 @@ propósito, para mostrar que el mismo generador produce la escritura que se le n
 El mismo generador, una línea por alfabeto (`length="10"`), para comparar las escrituras
 lado a lado:
 
-| `alphabet`            | Salida de ejemplo    |
-| :-------------------- | :------------------- |
-| `latin.lower`         | `usahtbcjpi`         |
-| `latin.upper`         | `USAHTBCJPI`         |
+| `alphabet`            | Salida de ejemplo      |
+| :-------------------- | :--------------------- |
+| `latin.lower`         | `usahtbcjpi`           |
+| `latin.upper`         | `USAHTBCJPI`           |
 | `digits.fullwidth`    | `７７０２７０１３６３` |
-| `cyrillic.ru.letters` | `рнБСпВЖЧжХ`         |
-| `greek.letters`       | `ξμΒΟνΓΖΤζΡ`         |
-| `hebrew.letters`      | `פףאחפבגךני`         |
-| `arabic.letters`      | `فؿآحـآإذغد`         |
+| `cyrillic.ru.letters` | `рнБСпВЖЧжХ`           |
+| `greek.letters`       | `ξμΒΟνΓΖΤζΡ`           |
+| `hebrew.letters`      | `פףאחפבגךני`           |
+| `arabic.letters`      | `فؿآحـآإذغد`           |
 | `kana.hiragana`       | `ゃまぃすめいおちふそ` |
 | `kana.katakana`       | `ユメィズヤイオヂヘタ` |
 | `cjk.unified.basic`   | `货袪倱料護冣囱沌耣楿` |
-| `roman.upper`         | `DDIXDIIXCX`         |
+| `roman.upper`         | `DDIXDIIXCX`           |
 
 ### Todos los nombres soportados
 
-| `alphabet`            | Contiene                                        |
-| :-------------------- | :---------------------------------------------- |
-| `latin.lower`         | ASCII `a-z`                                     |
-| `latin.upper`         | ASCII `A-Z`                                     |
-| `latin.letters`       | ASCII `A-Z` y `a-z`                             |
-| `digits.ascii`        | Dígitos ASCII `0-9`                             |
-| `digits.fullwidth`    | Dígitos de ancho completo `０-９`               |
-| `cyrillic.ru.lower`   | Ruso `а-я` más `ё`                              |
-| `cyrillic.ru.upper`   | Ruso `А-Я` más `Ё`                              |
-| `cyrillic.ru.letters` | Cirílico ruso, ambas cajas, incluida la `ё`     |
-| `greek.letters`       | Letras griegas básicas                          |
-| `hebrew.letters`      | Hebreo `א-ת`                                    |
-| `arabic.letters`      | Letras árabes `ء-ي`                             |
-| `kana.hiragana`       | Hiragana japonés `ぁ-ゖ`                        |
-| `kana.katakana`       | Katakana japonés `ァ-ヺ`                        |
-| `cjk.unified.basic`   | CJK Unified Ideographs `U+4E00..U+9FFF`         |
-| `roman.upper`         | Letras de números romanos `I V X L C D M`       |
-| `roman.lower`         | Letras de números romanos `i v x l c d m`       |
+| `alphabet`            | Contiene                                    |
+| :-------------------- | :------------------------------------------ |
+| `latin.lower`         | ASCII `a-z`                                 |
+| `latin.upper`         | ASCII `A-Z`                                 |
+| `latin.letters`       | ASCII `A-Z` y `a-z`                         |
+| `digits.ascii`        | Dígitos ASCII `0-9`                         |
+| `digits.fullwidth`    | Dígitos de ancho completo `０-９`           |
+| `cyrillic.ru.lower`   | Ruso `а-я` más `ё`                          |
+| `cyrillic.ru.upper`   | Ruso `А-Я` más `Ё`                          |
+| `cyrillic.ru.letters` | Cirílico ruso, ambas cajas, incluida la `ё` |
+| `greek.letters`       | Letras griegas básicas                      |
+| `hebrew.letters`      | Hebreo `א-ת`                                |
+| `arabic.letters`      | Letras árabes `ء-ي`                         |
+| `kana.hiragana`       | Hiragana japonés `ぁ-ゖ`                    |
+| `kana.katakana`       | Katakana japonés `ァ-ヺ`                    |
+| `cjk.unified.basic`   | CJK Unified Ideographs `U+4E00..U+9FFF`     |
+| `roman.upper`         | Letras de números romanos `I V X L C D M`   |
+| `roman.lower`         | Letras de números romanos `i v x l c d m`   |
 
 Los 16 nombres están validados: cada uno se resuelve y produce caracteres de su
 escritura. Como el conjunto es fijo, use
@@ -225,7 +225,7 @@ escritura. Como el conjunto es fijo, use
 
 ## Escrituras Unicode a mano
 
-No *hay* obligación de usar un alfabeto con nombre — como `value` acepta cualquier
+No _hay_ obligación de usar un alfabeto con nombre — como `value` acepta cualquier
 carácter, también se puede teclear una escritura (o mezclar varias) directamente. Aun
 así, los alfabetos con nombre siguen siendo preferibles donde existe uno: están
 documentados, validados e incluyen caracteres incómodos que un rango simple dejaría

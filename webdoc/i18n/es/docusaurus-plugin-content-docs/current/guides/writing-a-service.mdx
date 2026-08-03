@@ -457,13 +457,13 @@ ello, y no cuesta más escribirla.
 Para que los cinco coincidan, tiene que coincidir la aritmética. Aquí es donde se rompe un
 port ingenuo, y se arregla con una línea por lenguaje:
 
-| Lenguaje | Qué mantiene el hash en 32 bits |
-| :--- | :--- |
-| Node | `Math.imul(h, prime) >>> 0` — un `*` normal pasaría por un double y perdería los bits bajos |
-| Python | `& 0xFFFFFFFF` — los enteros son de precisión arbitraria, nada se desborda solo |
-| Java | nada — la multiplicación de `int` ya da la vuelta |
-| C# | `unchecked { … }` — fuera de ahí, .NET *lanza una excepción* al desbordarse en vez de dar la vuelta |
-| Rust | `wrapping_mul` — un `*` normal *entra en pánico* al desbordar en una compilación de depuración |
+| Lenguaje | Qué mantiene el hash en 32 bits                                                                     |
+| :------- | :-------------------------------------------------------------------------------------------------- |
+| Node     | `Math.imul(h, prime) >>> 0` — un `*` normal pasaría por un double y perdería los bits bajos         |
+| Python   | `& 0xFFFFFFFF` — los enteros son de precisión arbitraria, nada se desborda solo                     |
+| Java     | nada — la multiplicación de `int` ya da la vuelta                                                   |
+| C#       | `unchecked { … }` — fuera de ahí, .NET _lanza una excepción_ al desbordarse en vez de dar la vuelta |
+| Rust     | `wrapping_mul` — un `*` normal _entra en pánico_ al desbordar en una compilación de depuración      |
 
 Olvídelo en Python y los números crecen sin fin, produciendo en silencio valores distintos
 de los demás. El propio motor de TDC tiene que resolver exactamente este problema — su

@@ -50,12 +50,12 @@ Tres prefijos alcanzan más allá de la locale activa. Son las mismas palabras q
 configuración y no cargan significado propio: existen para que la lista de autocompletado
 en `tdc.` siga siendo una lista de categorías y no un muro de 122 códigos.
 
-| Prefijo | Alcanza | Ejemplo |
-| :-- | :-- | :-- |
-| _(ninguno)_ | la locale activa | `tdc.person.lastName()` |
-| `common.` | el paquete compartido, igual en todos los idiomas | `tdc.common.id.uuid()` |
-| `country.<código>.` | el paquete de un país | `tdc.country.usa.docs.ssn()` |
-| `lang.<código>.` | el paquete de un idioma | `tdc.lang.ru.person.lastName()` |
+| Prefijo             | Alcanza                                           | Ejemplo                         |
+| :------------------ | :------------------------------------------------ | :------------------------------ |
+| _(ninguno)_         | la locale activa                                  | `tdc.person.lastName()`         |
+| `common.`           | el paquete compartido, igual en todos los idiomas | `tdc.common.id.uuid()`          |
+| `country.<código>.` | el paquete de un país                             | `tdc.country.usa.docs.ssn()`    |
+| `lang.<código>.`    | el paquete de un idioma                           | `tdc.lang.ru.person.lastName()` |
 
 ```ts
 tdc.common.id.uuid(); // 3ff6ff76-6ea7-4fad-8b99-3075a14cc7e9

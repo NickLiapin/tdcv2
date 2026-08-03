@@ -21,10 +21,10 @@ parte de sus datos.
 
 Un solo atributo decide cuál, y son trabajos genuinamente distintos:
 
-| | `in` | qué recibe su servicio | qué hace |
-| :-- | :-- | :-- | :-- |
-| **Fuente** | ausente | nada más que un conteo | inventa los valores él mismo — actúa como generador |
-| **Manejador** | presente | sus valores, uno por línea | transforma lo que envió y lo devuelve |
+|               | `in`     | qué recibe su servicio     | qué hace                                            |
+| :------------ | :------- | :------------------------- | :-------------------------------------------------- |
+| **Fuente**    | ausente  | nada más que un conteo     | inventa los valores él mismo — actúa como generador |
+| **Manejador** | presente | sus valores, uno por línea | transforma lo que envió y lo devuelve               |
 
 Los dos a la vez, contra el mismo servicio — la primera columna se entrega y vuelve
 cambiada, la segunda se saca de la nada:
@@ -75,12 +75,12 @@ fuente**, y la cabecera `X-TDC-Count` dice cuántos valores inventar.
 
 ## Atributos
 
-| Atributo   | Qué define |
-| :--------- | :--------- |
-| `src`      | la URL del servicio — `http://127.0.0.1:5566/gen` (local, rápido) o un host público. `https` también sirve |
+| Atributo   | Qué define                                                                                                                                                                          |
+| :--------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `src`      | la URL del servicio — `http://127.0.0.1:5566/gen` (local, rápido) o un host público. `https` también sirve                                                                          |
 | `in`       | la secuencia cuyo valor se envía en cada fila — esto es lo que convierte al servicio en **manejador**. Omítalo y el servicio es una **fuente**: no recibe nada e inventa cada valor |
-| `on_error` | `fail` (por omisión) — detenerse con un mensaje claro; o `empty` — dejar la celda vacía y seguir |
-| `timeout`  | segundos a esperar por una respuesta antes de rendirse. Por omisión 30 |
+| `on_error` | `fail` (por omisión) — detenerse con un mensaje claro; o `empty` — dejar la celda vacía y seguir                                                                                    |
+| `timeout`  | segundos a esperar por una respuesta antes de rendirse. Por omisión 30                                                                                                              |
 
 `in` nombra una secuencia **anterior** — se envía el valor que produjo en cada fila.
 
@@ -110,8 +110,10 @@ también funciona: solo recorre en bucle las líneas de la única petición que 
 
 Esto es lo que lo mantiene rápido: el costo es un viaje de ida y vuelta más el trabajo
 del propio servicio, no un viaje por valor. También por eso `http` corre en el motor en
-memoria y conviene reservarlo para un servicio en su propia máquina, o una corrida que
-usted dimensionó a propósito — no mil millones de filas contra un endpoint lejano.
+memoria ([una de las cinco formas que lo
+hacen](../guides/large-outputs.md#qué-motor-corre-su-configuración)) y conviene reservarlo
+para un servicio en su propia máquina, o una corrida que usted dimensionó a propósito —
+no mil millones de filas contra un endpoint lejano.
 
 ## Un servicio entero, en cinco lenguajes
 
@@ -310,7 +312,7 @@ El servicio está fuera del control de TDC, así que los fallos se manejan, no s
 
 - **`on_error="fail"`** (el valor por omisión) detiene la corrida con un mensaje que
   nombra la secuencia y el servicio — `http service for sequence "Checked" at … returned
-  500`. Una columna en blanco en un archivo terminado es peor sorpresa que una parada
+500`. Una columna en blanco en un archivo terminado es peor sorpresa que una parada
   clara.
 - **`on_error="empty"`** deja en blanco la columna afectada y termina, para cuando lo que
   quiere es una salida de mejor esfuerzo. Los huecos los revisa usted.
