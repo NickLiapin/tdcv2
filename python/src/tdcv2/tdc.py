@@ -27,7 +27,8 @@ from collections.abc import Iterator
 from dataclasses import dataclass
 from pathlib import Path
 
-from .engine import disk, memory, parallel, router, stream
+from . import engine
+from .engine import parallel, router
 from .errors import Diagnostic, TdcError, has_errors, summarize
 from .model.config import Config
 from .output import parquet_output
@@ -428,33 +429,10 @@ class TDC:
             self._rendered = self._build()
         return self._rendered
 
-    def _forced_engine(self) -> bool:
-        """Whether the config NAMED its engine rather than describing its constraint.
-
-        ``engine="2"`` and the older ``mode="stream"`` both say which engine to use. That makes a
-        refusal the answer: silently running elsewhere would hide exactly what the author asked to
-        be told. ``mode="disk"`` says what the run may cost instead, so falling back to a slower
-        engine honours it.
-        """
-        engine = self._config.engine
-        mode = self._config.mode
-        return bool(engine and engine.strip()) or (mode is not None and mode.strip() == "stream")
-
     def _build(self):
-        engine = self.engine()
-        if engine == 1:
-            return memory.build(self._config, self._packs, self._now_millis, self._base_dir)
-        if engine == 3:
-            # Engine 3 falls back on its own, so a config it cannot do exactly still renders.
-            return disk.rows(self._config, self._packs, self._now_millis, self._base_dir)
-        try:
-            return stream.rows(self._config, self._packs, self._now_millis, self._base_dir)
-        except stream.UnsupportedError:
-            if self._forced_engine():
-                raise  # named outright, so the refusal is the answer
-            # Routed here rather than asked for: the config turned out to need the whole column
-            # after all, and correct data matters more than the memory profile.
-            return memory.build(self._config, self._packs, self._now_millis, self._base_dir)
+        # Routing, and recovering from a streaming refusal, live in `engine` — one place, so the
+        # facade and the shared-case harness cannot come to different answers about one config.
+        return engine.build(self._config, self._packs, self._now_millis, self._base_dir)
 
 
 def _total_memory() -> int:

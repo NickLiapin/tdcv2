@@ -35,6 +35,19 @@
       "description": "The high-water mark: the largest value seen so far. Like the list flavour, min and max return an element that already exists rather than a reformatted one.",
       "config": "<tdc><env count=\"6\" seed=\"peak\" local=\"en\" mode=\"memory\"><sequence name=\"Load\"><gen type=\"number\" value=\"10..99\"/></sequence><sequence name=\"Peak\"><gen type=\"running\" of=\"Load\" accumulate=\"max\"/></sequence></env><block><line><data>${{Load}} ${{Peak}}</data></line></block></tdc>",
       "expected": ["29 29", "49 49", "83 83", "59 83", "92 92", "94 94"]
+    },
+    {
+      "name": "a-running-total-with-no-mode-goes-where-it-must",
+      "description": "The shape a reader actually writes: no mode=, no engine=, just a running total. Every other case here pins mode=\"memory\", so the ROUTER was never exercised and a port that sent this config to the streaming engine and let the refusal escape looked green. The streaming engine refuses a running total by design; when nobody named an engine, that refusal is answered by building it in memory, not by failing.",
+      "config": "<tdc><env count=\"6\" seed=\"ledger\" local=\"en\"><sequence name=\"Op\"><gen type=\"number\" value=\"-400..500\"/></sequence><sequence name=\"Balance\"><gen type=\"running\" of=\"Op\" accumulate=\"sum\" base=\"1000\"/></sequence></env><block><line><data>${{Op}},${{Balance}}</data></line></block></tdc>",
+      "expected": [
+        "399,1399",
+        "-246,1153",
+        "-270,883",
+        "159,1042",
+        "24,1066",
+        "-400,666"
+      ]
     }
   ]
 }

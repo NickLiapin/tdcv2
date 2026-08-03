@@ -31,6 +31,11 @@ const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 /**
  * How each implementation runs its tests.
  *
+ * `command` is the suite. `also` is anything else that must hold for that language
+ * and has nowhere else to run — Python's linter is the case: nothing in CI ever
+ * invoked ruff, and fourteen violations had accumulated on main by the time an
+ * audit thought to look. A gate nobody runs is not a gate.
+ *
  * `probe` is the file whose absence means "this toolchain is not installed here" —
  * checked before spawning so a missing tool reads as a missing tool and not as a
  * cryptic ENOENT. Python's is its virtualenv: the suite needs antlr4, and the
@@ -53,6 +58,7 @@ const IMPLEMENTATIONS = [
     generateParser: true,
     probe: 'python/.venv/bin/python',
     command: ['.venv/bin/python', ['-m', 'pytest', '-q']],
+    also: [['.venv/bin/ruff', ['check', 'src', 'tests']]],
     install: 'python3 -m venv python/.venv && python/.venv/bin/pip install -e "python[dev]"',
   },
   {
@@ -143,7 +149,17 @@ async function main() {
     }
 
     const [command, args] = impl.command;
-    const result = await run(command, args, join(ROOT, impl.cwd));
+    let result = await run(command, args, join(ROOT, impl.cwd));
+    // The extras run only once the suite is green: a failing test is the more
+    // useful thing to read first, and a lint report on top of it is noise.
+    for (const [extra, extraArgs] of result.code === 0 ? (impl.also ?? []) : []) {
+      const next = await run(extra, extraArgs, join(ROOT, impl.cwd));
+      if (next.code !== 0) {
+        result = { ...next, ms: result.ms + next.ms };
+        break;
+      }
+      result = { ...result, ms: result.ms + next.ms };
+    }
     const state = result.code === 0 ? 'pass' : result.code === -1 ? 'missing' : 'fail';
     results.push({ impl, state, ...result });
     console.log(

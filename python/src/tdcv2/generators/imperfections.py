@@ -11,12 +11,9 @@ a value about to be replaced.
 
 from __future__ import annotations
 
-from collections.abc import Callable
-
 import math
+from collections.abc import Callable
 from dataclasses import dataclass
-
-from ..prng.prng import Sfc32
 
 _DEFAULT_FACTOR = 10.0
 

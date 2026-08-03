@@ -1584,6 +1584,21 @@
         "lines": ["29 29", "49 49", "83 83", "59 83", "92 92", "94 94"]
       }
     },
+    "running/a-running-total-with-no-mode-goes-where-it-must": {
+      "engine2": {
+        "refused": "a running total (\"Balance\") is the accumulation of every row before it, so it cannot be computed one row at a time; the in-memory engine handles it (run without a forced streaming engine)"
+      },
+      "engine3": {
+        "lines": [
+          "399,1399",
+          "-246,1153",
+          "-270,883",
+          "159,1042",
+          "24,1066",
+          "-400,666"
+        ]
+      }
+    },
     "statistics/distribution-normal": {
       "engine2": {
         "lines": ["179.38", "152.83", "170.71", "153.99", "165.24", "174.37"]

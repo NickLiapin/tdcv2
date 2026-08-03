@@ -20,14 +20,14 @@
  *         exit 0 = every name is mentioned; exit 1 = the list of what is not
  */
 
-import { readdirSync, readFileSync, statSync } from 'node:fs';
+import { readFileSync, readdirSync, statSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
+import { engineAttributes, groups as engineGroups } from '../../scripts/engine-surface.mjs';
+
 const HERE = dirname(fileURLToPath(import.meta.url));
-const ROOT = join(HERE, '..', '..');
 const DOCS = join(HERE, '..', 'docs');
-const SRC = join(ROOT, 'typescript', 'src');
 
 function walk(dir, ext, out = []) {
   for (const name of readdirSync(dir)) {
@@ -41,13 +41,6 @@ function walk(dir, ext, out = []) {
 const docText = walk(DOCS, '.mdx')
   .map((f) => readFileSync(f, 'utf8'))
   .join('\n');
-const srcFiles = walk(SRC, '.ts').filter((f) => !f.includes('generated'));
-const srcText = srcFiles.map((f) => readFileSync(f, 'utf8')).join('\n');
-
-/** Every name captured by `re` (group 1) across the engine sources. */
-function fromEngine(re) {
-  return [...new Set([...srcText.matchAll(re)].map((m) => m[1]))].sort();
-}
 
 /** A name counts as documented if it appears backticked, as an attribute, or as a tag. */
 function mentioned(name) {
@@ -55,57 +48,7 @@ function mentioned(name) {
   return new RegExp(`\`${q}\`|\\b${q}\\s*=|<${q}[\\s/>]|"${q}"`).test(docText);
 }
 
-const groups = [
-  { title: 'generator types', names: listOf('KNOWN_GEN_TYPES') },
-  { title: 'interpolation filters', names: casesOf('format/transforms.ts', ['applyFilter']) },
-  { title: 'compute tags', names: casesOf('compute/evaluate.ts', ['evalElement', 'evalPredicate']) },
-  { title: 'diagnostic codes', names: fromEngine(/code:\s*'(TDC\d{3})'/g) },
-  { title: 'date format tokens', names: dateTokens() },
-  { title: 'distributions', names: casesOf('generators/distribution.ts') },
-  { title: 'encodings', names: listOf('ENCODINGS') },
-];
-
-/** Members of an exported string-literal array, e.g. `export const X = ['a','b']`. */
-function listOf(constName) {
-  const decl = new RegExp(`export const ${constName}[^;]*`, 's').exec(srcText)?.[0] ?? '';
-  return [...new Set((decl.match(/'([a-zA-Z0-9_]+)'/g) ?? []).map((s) => s.slice(1, -1)))];
-}
-
-/**
- * `case 'x':` labels inside one engine file, optionally narrowed to a single
- * exported function.
- *
- * The narrowing is not cosmetic. This script first reported `char` and `lit` as
- * undocumented filters the day transforms.ts grew a second switch — one over the
- * slots of a parsed mask, which has nothing to do with filter names. Scraping a
- * whole file for `case` labels assumes the file has exactly one switch and will
- * keep having one, which is not an assumption a checker gets to make.
- */
-function casesOf(relPath, withinFns) {
-  const file = join(SRC, relPath);
-  const whole = readFileSync(file, 'utf8');
-  const sources =
-    withinFns === undefined
-      ? [whole]
-      : withinFns.map((fn) => {
-          const start = whole.indexOf(`function ${fn}`);
-          if (start === -1) throw new Error(`audit: ${fn} not found in ${relPath}`);
-          const end = whole.indexOf('\n}', start); // the line that closes it
-          return whole.slice(start, end === -1 ? undefined : end);
-        });
-  const names = sources.flatMap((text) =>
-    (text.match(/case '([a-z_0-9]+)'/g) ?? []).map((s) => s.slice(6, -1)),
-  );
-  return [...new Set(names)].sort();
-}
-
-/** Tokens the date formatter understands, taken from its own token table. */
-function dateTokens() {
-  const text = readFileSync(join(SRC, 'date', 'format.ts'), 'utf8');
-  return [...new Set((text.match(/'([A-Za-z]{1,4})'/g) ?? []).map((s) => s.slice(1, -1)))]
-    .filter((t) => /^[A-Za-z]+$/.test(t))
-    .sort();
-}
+const groups = engineGroups();
 
 let failed = 0;
 for (const { title, names } of groups) {
@@ -122,7 +65,7 @@ for (const { title, names } of groups) {
 // every attribute the engine reads by name must appear on that one page.
 const attrsPage = readFileSync(join(DOCS, 'reference', 'attributes.mdx'), 'utf8');
 const listedOnPage = new Set([...attrsPage.matchAll(/`([a-z_0-9]+)`/g)].map((m) => m[1]));
-const engineAttrs = fromEngine(/attr(?:s|Map)\[\s*'([a-z_][a-z_0-9]*)'\s*\]/g);
+const engineAttrs = engineAttributes();
 // Attributes belonging to a single <compute> tag are covered by the compute pages;
 // the attributes page says so rather than repeating twenty of them.
 const COMPUTE_OWNED = new Set(['as', 'default', 'fill', 'pattern', 'sep', 'size', 'width', 'v']);

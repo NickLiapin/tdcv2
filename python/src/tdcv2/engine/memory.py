@@ -416,7 +416,14 @@ def composes_own_value(items: list[Item]) -> bool:
                for item in items)
 
 
-def _composed(spec: SequenceSpec, columns, rows: list[int], applicable: int, count: int, run: _Run) -> None:
+def _composed(
+    spec: SequenceSpec,
+    columns,
+    rows: list[int],
+    applicable: int,
+    count: int,
+    run: _Run,
+) -> None:
     """The body in declaration order: unnamed items build the value, named ones are fields.
 
     One pass, because the order the gens draw in is part of the contract and taking the named ones
@@ -480,7 +487,14 @@ def _composed(spec: SequenceSpec, columns, rows: list[int], applicable: int, cou
         columns[f"{spec.name}.{field_name}"] = _spread(rows, values, count)
 
 
-def _compound(spec: SequenceSpec, columns, rows: list[int], applicable: int, count: int, run: _Run) -> None:
+def _compound(
+    spec: SequenceSpec,
+    columns,
+    rows: list[int],
+    applicable: int,
+    count: int,
+    run: _Run,
+) -> None:
     """Every field shares the parent mask and draws from the shared stream in declaration order.
 
     That is what keeps a compound coherent: the city and the postcode of one generated address
@@ -505,7 +519,14 @@ def _compound(spec: SequenceSpec, columns, rows: list[int], applicable: int, cou
         columns[f"{spec.name}.{f.name}"] = _spread(rows, produced[f.name], count)
 
 
-def _mix_column(spec: SequenceSpec, columns, rows: list[int], applicable: int, count: int, run: _Run) -> None:
+def _mix_column(
+    spec: SequenceSpec,
+    columns,
+    rows: list[int],
+    applicable: int,
+    count: int,
+    run: _Run,
+) -> None:
     assert spec.mix is not None
     flags = [False] * applicable
     # The '#switch' suffix is a stable historical PRNG key — the streaming engine uses it
@@ -589,7 +610,11 @@ def _plain_column(
         # exactly the rows the value is absent from — a detector trained on this cannot learn
         # from a label the data never had. With `repeat` the label is a LIST parallel to the
         # values, saying which element spiked rather than merely that one did.
-        labels = repeat_flags if repeat_flags is not None else [str(on).lower() for on in anomaly_flags]
+        labels = (
+            repeat_flags
+            if repeat_flags is not None
+            else [str(on).lower() for on in anomaly_flags]
+        )
         columns[flag_name] = _spread(rows, labels, count)
 
 
@@ -711,7 +736,8 @@ def _finish(
     """
     out = list(values)
 
-    key_pair = per_row.keyed(run) if run is not None and gen_type in per_row.INLINE_ANOMALY_TYPES else None
+    keyed_inline = run is not None and gen_type in per_row.INLINE_ANOMALY_TYPES
+    key_pair = per_row.keyed(run) if keyed_inline else None
 
     def draw_on(purpose: str):
         if key_pair is None:
@@ -872,7 +898,9 @@ def _switch_values(spec, count: int, run: _Run, columns, name: str) -> list[str 
         for e, entry in enumerate(spec.entries)
     ]
     fallback = (
-        None if spec.fallback is None else _case_values(spec.fallback, count, named(f"{name}#swdef"))
+        None
+        if spec.fallback is None
+        else _case_values(spec.fallback, count, named(f"{name}#swdef"))
     )
 
     subject = columns.get(spec.on)

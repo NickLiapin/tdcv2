@@ -113,7 +113,9 @@ def absolute_row(run: _Run, position: int) -> int:
 #: ``text`` most clearly, since even an unweighted list is spread evenly over the column and
 #: permuted rather than picked per row (``exact_text_layout`` handles that instead). The rest
 #: are conditional and checked in ``per_row_buildable``.
-PER_ROW_TYPES = frozenset({"number", "regex", "symbol", "date", "template", "file", "advanced_regex"})
+PER_ROW_TYPES = frozenset(
+    {"number", "regex", "symbol", "date", "template", "file", "advanced_regex"}
+)
 
 #: Types the streaming engine builds INLINE — it reads the row's position rather than
 #: deriving a value from the row — and whose ``anomaly=``/``missing=`` draws it therefore
@@ -176,9 +178,7 @@ def per_row_buildable(gen: Gen, count: int, run: _Run) -> bool:
         return False
     # `repeat=` apportions the LENGTHS exactly across the column — how many rows get two
     # elements, how many get five. That plan is separate, and taking this path would skip it.
-    if attrs.get("repeat") is not None:
-        return False
-    return True
+    return attrs.get("repeat") is None
 
 
 def _pack_needs_whole_column(gen: Gen, run: _Run) -> bool:

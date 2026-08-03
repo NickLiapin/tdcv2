@@ -589,6 +589,22 @@ impl Plan {
         if let Some(e) = sink.finish(target)? {
             return Err(e);
         }
+        // The streaming engine can refuse a config the router sent it — a running
+        // total is the plain case — and when nobody named an engine, the answer is
+        // to build it in memory instead. Saying "no" here does exactly that: the
+        // caller writes the ordinary way. The half-written file goes first, so a
+        // failure between here and there cannot leave a truncated run looking
+        // finished.
+        if let Err(e) = &rendered {
+            if matches!(e, crate::engine::EngineError::Unsupported(_))
+                && !crate::engine::engine_was_named(&self.config)
+            {
+                std::fs::remove_file(target).map_err(|e| {
+                    TdcError::Io(format!("cannot remove \"{}\": {e}", target.display()))
+                })?;
+                return Ok(false);
+            }
+        }
         rendered?;
         Ok(true)
     }

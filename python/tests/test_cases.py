@@ -11,9 +11,9 @@ from pathlib import Path
 
 import pytest
 
+from tdcv2 import engine
 from tdcv2.date import plain
 from tdcv2.errors import Severity
-from tdcv2.engine import disk, memory, router, stream
 from tdcv2.packs import DataPacks
 from tdcv2.parser import config_builder, facade
 from tdcv2.validator.validate import validate
@@ -55,8 +55,10 @@ def test_a_shared_case_renders_what_the_reference_rendered(case: dict) -> None:
     """Through the ROUTER, the way a run reaches an engine in the first place.
 
     Most cases say mode="memory" and land on the in-memory engine, whose values the fixtures were
-    captured from. The one that says nothing at all is about routing itself: with no mode= a
-    config streams, and its expected output is the streaming engine's.
+    captured from. The ones that say nothing at all are about routing itself — including the case
+    where the streaming engine, having been routed a config, turns out not to be able to answer it
+    and the run moves to memory. Dispatching here by hand is what hid that: the facade recovered
+    and this did not, so the two disagreed about what a config produces.
     """
     parsed = facade.parse(case["config"])
     assert parsed.ok, f"syntax errors: {[str(p) for p in parsed.problems]}"
@@ -71,11 +73,5 @@ def test_a_shared_case_renders_what_the_reference_rendered(case: dict) -> None:
     config = config_builder.build(parsed.tree)
     now = now_millis(case)
 
-    engine = router.resolve(config, _PACKS)
-    if engine == 1:
-        produced = memory.render(config, _PACKS, now)
-    elif engine == 2:
-        produced = stream.render(config, _PACKS, now)
-    else:
-        produced = disk.render(config, _PACKS, now)
+    produced = engine.render(config, _PACKS, now)
     assert produced.split("\n")[:-1] == case["expected"]

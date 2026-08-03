@@ -85,6 +85,29 @@ pub fn invalid<T>(what: &str) -> EngineResult<T> {
     Err(EngineError::Invalid(what.to_string()))
 }
 
+/// Whether the config NAMED its engine rather than describing its constraint.
+///
+/// `engine="2"` and the older `mode="stream"` both say which engine to use, and
+/// that makes a refusal the answer: quietly running somewhere else would hide
+/// exactly what the author asked to be told. `mode="disk"` says what the run may
+/// COST instead, so falling back to a slower engine still honours it.
+pub fn engine_was_named(config: &Config) -> bool {
+    config.engine.as_deref().is_some_and(|e| !e.trim().is_empty())
+        || config.mode.as_deref().map(str::trim) == Some("stream")
+}
+
+/// Whether a streaming refusal may be answered by the in-memory engine instead.
+///
+/// The router sends a config to engine 2 on the evidence in the config; the
+/// engine then discovers, while building its resolvers, that this particular
+/// config needs the whole column after all — a running total is the plain case,
+/// since row 900 000 000 IS the sum of everything before it. When nobody asked
+/// for streaming by name, correct data matters more than the memory profile, so
+/// the run moves to memory and the reader never learns there was a decision.
+fn recoverable(config: &Config, error: &EngineError) -> bool {
+    matches!(error, EngineError::Unsupported(_)) && !engine_was_named(config)
+}
+
 /// A finished run, seen from the outside: how many records, what they are
 /// called, what a given record holds.
 ///
@@ -129,7 +152,10 @@ pub fn render_in(config: &Config, now_millis: i64, base_dir: Option<&str>) -> En
     let packs = DataPacks::discover().ok();
     match router::resolve(config, packs.as_ref())? {
         1 => memory::render_in(config, now_millis, base_dir),
-        2 => stream::render_in(config, now_millis, base_dir),
+        2 => match stream::render_in(config, now_millis, base_dir) {
+            Err(e) if recoverable(config, &e) => memory::render_in(config, now_millis, base_dir),
+            other => other,
+        },
         3 => {
             let packs = match packs {
                 Some(found) => found,
@@ -158,9 +184,13 @@ pub fn run_in(
         1 => Ok(Box::new(memory::run_in(
             config, packs, now_millis, base_dir,
         )?)),
-        2 => Ok(Box::new(stream::rows_in(
-            config, packs, now_millis, base_dir,
-        )?)),
+        2 => match stream::rows_in(config, packs, now_millis, base_dir) {
+            Ok(rows) => Ok(Box::new(rows)),
+            Err(e) if recoverable(config, &e) => Ok(Box::new(memory::run_in(
+                config, packs, now_millis, base_dir,
+            )?)),
+            Err(e) => Err(e),
+        },
         3 => disk::rows_in(config, packs, now_millis, base_dir),
         other => invalid(&format!("engine {other} does not exist")),
     }

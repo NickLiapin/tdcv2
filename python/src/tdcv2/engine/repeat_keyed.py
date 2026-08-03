@@ -20,7 +20,6 @@ from ..distribution import hamilton
 from ..generators import repeat as repeat_gen
 from ..prng import permute, seekable
 from ..prng.prng import create
-
 from . import per_row
 
 if TYPE_CHECKING:  # pragma: no cover - typing only

@@ -1041,11 +1041,14 @@ class _Validator:
                 self._check_pool_member_refs(open_el, pools_above)
                 declared_pool = _attrs(open_el.attr()).get("name")
                 if declared_pool and declared_pool in pools_above:
-                    # Two pools under one name: the second quietly replaced the first, and the only sign was a TDC193 in the block about a field that "does not exist".
+                    # Two pools under one name: the second quietly replaced the first, and
+                    # the only sign was a TDC193 in the block about a field that "does not
+                    # exist".
                     self._error(
                         "TDC241",
                         f'duplicate pool name "{declared_pool}"',
-                        "A pool is reached by name, so two of them cannot share one. Rename or remove the second.",
+                        "A pool is reached by name, so two of them cannot share one. "
+                        "Rename or remove the second.",
                         _line(open_el),
                         _column(open_el),
                     )
