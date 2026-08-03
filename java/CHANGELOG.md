@@ -11,7 +11,7 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [Unreleased]
 
-### Added
+### Fixed
 
 - **`tdcv2 --version` printed 0.1.0** while the build declared 0.1.3. Gradle now
   generates the constant from `project.version`, so the two cannot drift. Reading
@@ -29,6 +29,8 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
   string as a generator parameter, both of which existed elsewhere. The
   uninstalled-pack message told a Java user to run `tdcv2 pack add`, which is not
   a command they have.
+
+### Added
 
 - **The command line ships from Maven Central too**, as a second file under the
   same coordinates: `tdcv2-<version>-cli.jar`, self-contained, `java -jar` and it
