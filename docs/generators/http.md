@@ -20,10 +20,10 @@ point — anything you can put behind an HTTP endpoint becomes part of your data
 
 One attribute decides which, and the two are genuinely different jobs:
 
-| | `in` | what your service receives | what it does |
-| :-- | :-- | :-- | :-- |
-| **Source** | absent | nothing but a count | invents the values itself — it acts as a generator |
-| **Handler** | present | your values, one per line | transforms what you sent and hands it back |
+|             | `in`    | what your service receives | what it does                                       |
+| :---------- | :------ | :------------------------- | :------------------------------------------------- |
+| **Source**  | absent  | nothing but a count        | invents the values itself — it acts as a generator |
+| **Handler** | present | your values, one per line  | transforms what you sent and hands it back         |
 
 Both at once, against the same service — the first column is handed over and comes back
 changed, the second is conjured from nothing:
@@ -74,12 +74,12 @@ mode**, and the `X-TDC-Count` header says how many values to invent.
 
 ## Attributes
 
-| Attribute  | Meaning |
-| :--------- | :------ |
-| `src`      | the service URL — `http://127.0.0.1:5566/gen` (local, fast) or a public host. `https` works too |
+| Attribute  | Meaning                                                                                                                                                                               |
+| :--------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `src`      | the service URL — `http://127.0.0.1:5566/gen` (local, fast) or a public host. `https` works too                                                                                       |
 | `in`       | the sequence whose value is sent on each row — this is what turns the service into a **handler**. Omit it and the service is a **source**: it receives nothing and invents each value |
-| `on_error` | `fail` (default) — stop with a clear message; or `empty` — blank the cell and continue |
-| `timeout`  | seconds to wait for one answer before giving up. Default 30 |
+| `on_error` | `fail` (default) — stop with a clear message; or `empty` — blank the cell and continue                                                                                                |
+| `timeout`  | seconds to wait for one answer before giving up. Default 30                                                                                                                           |
 
 `in` names an **earlier** sequence — the value it produced on each row is what gets sent.
 

@@ -77,14 +77,14 @@ literal: 10-20-30 | string: 4-8-1-6 | each: 10-20-30
 The middle one is the interesting column: `Code` is the string `4816`, and `<over>`
 handed `<each>` four separate characters.
 
-| Tag                                        | What it does                                              |
-| :----------------------------------------- | :------------------------------------------------------- |
-| [`<list>`](#list--a-literal-list-of-values) | a literal list: `<list v="2,4,10"/>` or built from children |
-| [`<each>`](#each--map-over-a-list)         | apply a body to each element → a new list                |
-| [`<reduce>`](#reduce--fold-to-one-value)   | fold a list into one value, through an accumulator       |
-| [`<join>`](#join--a-list-to-a-string)      | a list → a string (attribute `sep`)                      |
-| [`<at>`](#at--index-into-a-list)           | one element by index (attribute `default` if out of range) |
-| [`<length>`](#length--measure-a-string-or-list) | the length of a string or a list                   |
+| Tag                                             | What it does                                                |
+| :---------------------------------------------- | :---------------------------------------------------------- |
+| [`<list>`](#list--a-literal-list-of-values)     | a literal list: `<list v="2,4,10"/>` or built from children |
+| [`<each>`](#each--map-over-a-list)              | apply a body to each element → a new list                   |
+| [`<reduce>`](#reduce--fold-to-one-value)        | fold a list into one value, through an accumulator          |
+| [`<join>`](#join--a-list-to-a-string)           | a list → a string (attribute `sep`)                         |
+| [`<at>`](#at--index-into-a-list)                | one element by index (attribute `default` if out of range)  |
+| [`<length>`](#length--measure-a-string-or-list) | the length of a string or a list                            |
 
 Example outputs on this page are illustrative — the exact values depend on the seed and
 the core version — but each derived value is computed exactly from the input shown
@@ -284,14 +284,14 @@ later sum.
 You walk along a list holding a jar. At each step you look at the item in your hand and
 decide what goes into the jar. When the list ends, the jar is the answer.
 
-| Tag | The jar version | What it holds |
-| :--- | :--- | :--- |
-| `<init>` | what is in the jar before you start | the starting value |
-| `<over>` | the shelf you walk along | the list or string |
-| `<do>` | what you do at each step | an expression, evaluated once per element |
-| `<acc>` | what is in the jar right now | the value `<do>` produced last time |
-| `<current>` | the item in your hand | the element at this step |
-| `<current_index>` | which step this is, counting from 0 | a number |
+| Tag               | The jar version                     | What it holds                             |
+| :---------------- | :---------------------------------- | :---------------------------------------- |
+| `<init>`          | what is in the jar before you start | the starting value                        |
+| `<over>`          | the shelf you walk along            | the list or string                        |
+| `<do>`            | what you do at each step            | an expression, evaluated once per element |
+| `<acc>`           | what is in the jar right now        | the value `<do>` produced last time       |
+| `<current>`       | the item in your hand               | the element at this step                  |
+| `<current_index>` | which step this is, counting from 0 | a number                                  |
 
 `<over>`, `<init>` and `<do>` are slots: three different jobs, so three different names.
 Their order in the file does not matter, but leaving one out does — all three are
@@ -344,11 +344,11 @@ Four steps, one row each. `acc` before a step is whatever the previous step retu
 `<init>` supplies the very first one.
 
 | Step | `<current_index/>` | `<current/>` | `<acc/>` before | `<do>` computes | `<acc/>` after |
-| ---: | ---: | ---: | ---: | :--- | ---: |
-| 1 | 0 | 4 | 0 | 0 + 4 | 4 |
-| 2 | 1 | 8 | 4 | 4 + 8 | 12 |
-| 3 | 2 | 1 | 12 | 12 + 1 | 13 |
-| 4 | 3 | 6 | 13 | 13 + 6 | 19 |
+| ---: | -----------------: | -----------: | --------------: | :-------------- | -------------: |
+|    1 |                  0 |            4 |               0 | 0 + 4           |              4 |
+|    2 |                  1 |            8 |               4 | 4 + 8           |             12 |
+|    3 |                  2 |            1 |              12 | 12 + 1          |             13 |
+|    4 |                  3 |            6 |              13 | 13 + 6          |             19 |
 
 The jar after the last step — `19` — is what `<reduce>` gives back.
 

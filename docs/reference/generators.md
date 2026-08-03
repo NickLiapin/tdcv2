@@ -12,22 +12,22 @@
 
 Every `type` for [`<gen>`](../generators/overview.md#top). Each one links to its full page.
 
-| `type`                                        | Produces                                                     |
-| :-------------------------------------------- | :---------------------------------------------------------- |
-| [`text`](../generators/text.md#top)              | A value from a set — uniform or by exact `percent`          |
-| [`number`](../generators/number.md#top)          | An integer in a range, or a fixed-width digit string        |
-| [`template`](../generators/template.md#top)      | Built-in realistic data and technical IDs                   |
-| [`file`](../generators/file.md#top)              | Values from your own files and CSV columns                  |
-| [`date`](../generators/date.md#top)              | A date or date-time in a range and format                   |
-| [`symbol`](../generators/symbol.md#top)          | A string of characters from a set or named alphabet         |
-| [`regex`](../generators/regex.md#top)            | A string matching a finite regular expression               |
-| [`advanced_regex`](../generators/advanced-regex.md#top) | Regex, plus weighted choice between alternatives     |
-| [`increment` / `decrement`](../generators/counters.md#top) | Rising and falling counters                       |
-| [`timeseries`](../generators/timeseries.md#top)  | A time series — trend + seasonality + noise                 |
-| [`pattern`](../generators/pattern.md#top)        | A distribution shaped like a drawn curve                    |
-| [`http`](../generators/http.md#top)              | A value fetched over HTTP from a service you wrote           |
-| [`pool`](../pools/overview.md#top)             | One whole member of a `<pool>` — a record, not a value       |
-| [`running`](../generators/running.md#top)      | A total accumulated down the column, not drawn              |
+| `type`                                                  | Produces                                               |
+| :------------------------------------------------------ | :----------------------------------------------------- |
+| [`text`](../generators/text.md#top)                        | A value from a set — uniform or by exact `percent`     |
+| [`number`](../generators/number.md#top)                    | An integer in a range, or a fixed-width digit string   |
+| [`template`](../generators/template.md#top)                | Built-in realistic data and technical IDs              |
+| [`file`](../generators/file.md#top)                        | Values from your own files and CSV columns             |
+| [`date`](../generators/date.md#top)                        | A date or date-time in a range and format              |
+| [`symbol`](../generators/symbol.md#top)                    | A string of characters from a set or named alphabet    |
+| [`regex`](../generators/regex.md#top)                      | A string matching a finite regular expression          |
+| [`advanced_regex`](../generators/advanced-regex.md#top)    | Regex, plus weighted choice between alternatives       |
+| [`increment` / `decrement`](../generators/counters.md#top) | Rising and falling counters                            |
+| [`timeseries`](../generators/timeseries.md#top)            | A time series — trend + seasonality + noise            |
+| [`pattern`](../generators/pattern.md#top)                  | A distribution shaped like a drawn curve               |
+| [`http`](../generators/http.md#top)                        | A value fetched over HTTP from a service you wrote     |
+| [`pool`](../pools/overview.md#top)                         | One whole member of a `<pool>` — a record, not a value |
+| [`running`](../generators/running.md#top)                  | A total accumulated down the column, not drawn         |
 
 ## Cross-cutting attributes
 

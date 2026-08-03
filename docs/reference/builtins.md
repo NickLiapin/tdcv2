@@ -21,12 +21,12 @@ and hands it to you under four ready-made names.
 
 ## The list
 
-| Name     | Value                                                                |
-| :------- | :------------------------------------------------------------------- |
-| `_count` | The current record number, **starting at 1**                         |
-| `_first` | `"true"` on the first record, `"false"` otherwise                    |
-| `_last`  | `"true"` on the last record, `"false"` otherwise                     |
-| `_total` | The total number of records (the same as `count`), on every row      |
+| Name     | Value                                                           |
+| :------- | :-------------------------------------------------------------- |
+| `_count` | The current record number, **starting at 1**                    |
+| `_first` | `"true"` on the first record, `"false"` otherwise               |
+| `_last`  | `"true"` on the last record, `"false"` otherwise                |
+| `_total` | The total number of records (the same as `count`), on every row |
 
 > [!NOTE]
 > **Strings, not booleans**
@@ -87,10 +87,10 @@ A [`<line each="List">`](../reference/attributes.md#top) repeats once per elemen
 and two more built-ins are available **only there** — see
 [Relational tables](../constructs/relational-tables.md#top) for the full pattern:
 
-| Name         | Value                                                                       |
-| :----------- | :-------------------------------------------------------------------------- |
-| `_item`      | The position **within this record** — `1`, `2`, `3`, restarting on each record  |
-| `_item_id`   | A number **unique across the whole run** — a ready-made primary key         |
+| Name       | Value                                                                          |
+| :--------- | :----------------------------------------------------------------------------- |
+| `_item`    | The position **within this record** — `1`, `2`, `3`, restarting on each record |
+| `_item_id` | A number **unique across the whole run** — a ready-made primary key            |
 
 They exist only on an `each=` line; on an ordinary line they refer to nothing.
 

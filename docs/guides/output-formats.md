@@ -84,7 +84,8 @@ only shows up when a program reads it back.
 7,"Knife set, 3 pcs",Kitchen,32.00
 
 # what a CSV reader actually sees — 5 fields, not 4:
-7 | Knife set |  3 pcs | Kitchen | 32.00
+
+7 | Knife set | 3 pcs | Kitchen | 32.00
 ```
 
 **Tool.** The [`csv`](masks-and-case.md#top) filter wraps a field in quotes and doubles any
@@ -486,6 +487,7 @@ Then load it:
 sqlite3 shop.db < shop.sql
 
 # PostgreSQL — same file
+
 psql -f shop.sql
 ```
 

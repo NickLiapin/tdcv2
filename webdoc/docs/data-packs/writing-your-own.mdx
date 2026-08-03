@@ -21,18 +21,18 @@ proportions — is called out where it matters.
 
 Put fields between two `---` lines at the top of the file. All are optional:
 
-| Field         | Meaning                                                         |
-| :------------ | :-------------------------------------------------------------- |
-| `description` | A human-readable description — "what this is"                  |
-| `address`     | An explicit address, overriding the one computed from the path |
+| Field         | Meaning                                                                 |
+| :------------ | :---------------------------------------------------------------------- |
+| `description` | A human-readable description — "what this is"                           |
+| `address`     | An explicit address, overriding the one computed from the path          |
 | `locale`      | Language (`en`, `es`, `ru`…) — and the locale segment a flat path lacks |
-| `file`        | Point at an external data file instead of an inline body       |
-| `column`      | With `file`: take a named/numbered column from an existing CSV |
-| `delimiter`   | With `file` CSV, or a weighted body: the separator (default `,`)|
-| `weight`      | With `file`: the frequency column that makes the pack weighted |
-| `weighted`    | `true` — the body is `value,weight` lines                      |
+| `file`        | Point at an external data file instead of an inline body                |
+| `column`      | With `file`: take a named/numbered column from an existing CSV          |
+| `delimiter`   | With `file` CSV, or a weighted body: the separator (default `,`)        |
+| `weight`      | With `file`: the frequency column that makes the pack weighted          |
+| `weighted`    | `true` — the body is `value,weight` lines                               |
 | `generator`   | `tdc` — the body is a [`<gen>`](../generators/overview.mdx), not a list |
-| `inject`      | A custom interpolation marker for the generator                |
+| `inject`      | A custom interpolation marker for the generator                         |
 
 Each of these is covered below, with a config and its output.
 
@@ -137,7 +137,7 @@ The same `delimiter:` also sets the column separator for an external `file:` CSV
 ## Generators in a pack — `generator: tdc`
 
 A pack can return a **generator** instead of a list, so that the address yields a
-*computed* value. It's written in TDC's own DSL, so there's nothing new to learn. Set
+_computed_ value. It's written in TDC's own DSL, so there's nothing new to learn. Set
 `generator: tdc` in the header; the body is a [`<gen>`](../generators/overview.mdx). Here
 is a US-style license plate — three letters, a dash, four digits:
 

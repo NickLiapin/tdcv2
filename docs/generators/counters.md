@@ -20,10 +20,10 @@ computed once as an array, and each output row pulls the next value with
 
 ## At a glance
 
-| Attribute | Applies to             | Default | What it does   |
-| :-------- | :--------------------- | :------ | :------------- |
-| `value`   | `increment`, `decrement` | `0`   | Starting value |
-| `step`    | `increment`, `decrement` | `1`   | Amount to add or subtract each row |
+| Attribute | Applies to               | Default | What it does                       |
+| :-------- | :----------------------- | :------ | :--------------------------------- |
+| `value`   | `increment`, `decrement` | `0`     | Starting value                     |
+| `step`    | `increment`, `decrement` | `1`     | Amount to add or subtract each row |
 
 Both counters are **position-based and deterministic**: each row takes the
 next value in the run. They ignore the [`seed`](../core-concepts/determinism.md#top)

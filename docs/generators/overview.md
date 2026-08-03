@@ -64,32 +64,32 @@ declare a named sequence and reference it with `${{Name}}` — see
 
 These work on **every** generator; the rest depend on `type`.
 
-| Attribute | Required | What it does                                                                                                                                                 |
-| :-------- | :------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `type`    | **yes**  | Which generator to use (see the table below)                                                                                                                 |
+| Attribute | Required | What it does                                                                                                                                                                               |
+| :-------- | :------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `type`    | **yes**  | Which generator to use (see the table below)                                                                                                                                               |
 | `name`    | no       | Makes this generator a **field** of its sequence, read as `${{Sequence.Field}}`. Without it the value joins the [sequence's own value](../core-concepts/sequences.md#a-composed-sequence) |
-| `if`      | no       | Branch condition inside a [conditional sequence](../core-concepts/sequences.md#top) — the first true `<gen>` wins                                                |
-| `comment` | no       | Free-form comment, ignored by the engine                                                                                                                     |
+| `if`      | no       | Branch condition inside a [conditional sequence](../core-concepts/sequences.md#top) — the first true `<gen>` wins                                                                             |
+| `comment` | no       | Free-form comment, ignored by the engine                                                                                                                                                   |
 
 ## The generators
 
 Each type has its own page, with every parameter and worked examples.
 
-| `type`                                          | Produces                                                       |
-| :---------------------------------------------- | :------------------------------------------------------------- |
-| [`text`](text.md#top)                              | A value from a set — uniform, or by exact `percent`            |
-| [`number`](number.md#top)                          | An integer in a range, or a fixed-width digit string           |
-| [`template`](template.md#top)                      | Built-in realistic data and technical IDs                      |
-| [`file`](file.md#top)                              | Values read from your own files and CSV columns                |
-| [`date`](date.md#top)                              | A date or date-time in a range and format                      |
-| [`symbol`](symbol.md#top)                          | A string of characters from a set or named alphabet            |
-| [`regex`](regex.md#top)                            | A string matching a finite regular expression                  |
-| [`advanced_regex`](advanced-regex.md#top)          | Regex plus weighted choice between alternatives                |
-| [`increment` / `decrement`](counters.md#top)       | Rising and falling counters                                    |
-| [`timeseries`](timeseries.md#top)                  | A time series — trend + seasonality + noise                    |
-| [`pattern`](pattern.md#top)                        | A distribution shaped like a drawn curve                       |
-| [`http`](http.md#top)                              | Values answered by your own service, batch by batch            |
-| [`running`](running.md#top)                        | A total that carries down the column — a balance, a high-water mark |
+| `type`                                    | Produces                                                            |
+| :---------------------------------------- | :------------------------------------------------------------------ |
+| [`text`](text.md#top)                        | A value from a set — uniform, or by exact `percent`                 |
+| [`number`](number.md#top)                    | An integer in a range, or a fixed-width digit string                |
+| [`template`](template.md#top)                | Built-in realistic data and technical IDs                           |
+| [`file`](file.md#top)                        | Values read from your own files and CSV columns                     |
+| [`date`](date.md#top)                        | A date or date-time in a range and format                           |
+| [`symbol`](symbol.md#top)                    | A string of characters from a set or named alphabet                 |
+| [`regex`](regex.md#top)                      | A string matching a finite regular expression                       |
+| [`advanced_regex`](advanced-regex.md#top)    | Regex plus weighted choice between alternatives                     |
+| [`increment` / `decrement`](counters.md#top) | Rising and falling counters                                         |
+| [`timeseries`](timeseries.md#top)            | A time series — trend + seasonality + noise                         |
+| [`pattern`](pattern.md#top)                  | A distribution shaped like a drawn curve                            |
+| [`http`](http.md#top)                        | Values answered by your own service, batch by batch                 |
+| [`running`](running.md#top)                  | A total that carries down the column — a balance, a high-water mark |
 
 **On presets.** The old `type="preset"` no longer exists. Algorithmic identifiers —
 UUIDs, IBANs, credit-card numbers, git SHAs, national IDs — are now
@@ -144,7 +144,7 @@ you attach.
 
 ### `case=` / `mask=` — letter case and display masks
 
-**Use it when** the raw value is correct but should *look* a certain way: a column
+**Use it when** the raw value is correct but should _look_ a certain way: a column
 that has to be all uppercase, or a plain number that should read like a formatted ID.
 
 `case=` changes letter case; `mask=` splits and rearranges characters into a fixed
@@ -181,7 +181,7 @@ in full on **[Masks & case](../guides/masks-and-case.md#top)**.
 month names in calendar order, a lookup list walked top to bottom, or two columns
 that have to stay aligned (as in the example above).
 
-By default `order="random"`. Set `order="sequential"` and row *i* takes the *i*-th
+By default `order="random"`. Set `order="sequential"` and row _i_ takes the _i_-th
 value in order, cycling back to the start when the list runs out. `cycle="false"`
 turns that wrap-around into a clear error instead — useful when running out of
 values should be a failure, not a silent repeat.

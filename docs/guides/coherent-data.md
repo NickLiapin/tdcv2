@@ -28,7 +28,7 @@ the model is drawn **from the Fiat file** — never "Fiat Altima".
 > **Outputs are illustrative**
 >
 > The values below come from a fixed `seed`, so they're reproducible, but exact strings
-> and proportions can differ between core versions. Treat them as examples of *shape*,
+> and proportions can differ between core versions. Treat them as examples of _shape_,
 > not guarantees.
 
 ## How it looks
@@ -60,7 +60,7 @@ Nissan Kicks
 
 Every model belongs to its brand. And `common.vehicle.brand` is a **weighted** pack
 (Toyotas are common, Maybachs are rare), so the makes themselves show up in realistic
-proportions too — you get coherent pairs *and* a believable market mix from one config.
+proportions too — you get coherent pairs _and_ a believable market mix from one config.
 
 ## One child per parent — a cuisine and its dish
 
@@ -135,9 +135,9 @@ sets ship for car makes, `food.cuisine`, `medical.specialtyCoherent`,
 - **Declare the parent before the child** — TDC materializes
   [sequences](../core-concepts/sequences.md#top) top to bottom, so `${{Brand}}` reads a
   value that has already been computed. A child that interpolates a field defined
-  *below* it has nothing to read.
+  _below_ it has nothing to read.
 - **`parent="Brand"`** links the child to the parent and fixes the order. For a plain
-  lookup that's enough; stricter filtering on a *specific* value (`parent="Brand.Fiat"`)
+  lookup that's enough; stricter filtering on a _specific_ value (`parent="Brand.Fiat"`)
   is covered in [Hierarchical dependencies](hierarchical-dependencies.md#top).
 - **Every parent value needs a matching child file**, or the address won't resolve and
   you get an error. That's why the parent list usually holds exactly the values that

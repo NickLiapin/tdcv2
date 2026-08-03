@@ -11,7 +11,7 @@ import Terminal from '@site/src/components/Terminal';
 # Lookup tables — `<switch>`
 
 **Use it when** one field must be **derived from another**, not drawn on its own. You
-have a `Country` column and you need a `Currency` beside it that is *always* consistent:
+have a `Country` column and you need a `Currency` beside it that is _always_ consistent:
 `US` → `USD`, `JP` → `JPY`. A second random generator is exactly wrong here — it would
 hand you a currency that doesn't match the country. What you want is a **lookup table**:
 read one field, return the value keyed to it.
@@ -50,7 +50,7 @@ DE -> EUR`}
 
 :::note[Outputs are illustrative]
 The values below come from a fixed `seed`, so they're reproducible, but exact strings
-can differ between core versions. Treat them as examples of *shape*, not guarantees.
+can differ between core versions. Treat them as examples of _shape_, not guarantees.
 :::
 
 On every row, TDC reads `Country` and returns the currency keyed to it. This is the
@@ -71,17 +71,17 @@ On every row, TDC reads `Country` and returns the currency keyed to it. This is 
 and [`<mix>`](../reference/tags.mdx). It takes two attributes and holds one or more
 branches.
 
-| Attribute | Required | What it does                                        |
-| :-------- | :------- | :-------------------------------------------------- |
-| `name`    | yes      | The name you interpolate with `${{name}}`           |
-| `on`      | yes      | The subject sequence whose value is looked up       |
-| `comment` | no       | Free-text note                                      |
+| Attribute | Required | What it does                                  |
+| :-------- | :------- | :-------------------------------------------- |
+| `name`    | yes      | The name you interpolate with `${{name}}`     |
+| `on`      | yes      | The subject sequence whose value is looked up |
+| `comment` | no       | Free-text note                                |
 
-| Child tag             | What it is                                                     |
-| :-------------------- | :------------------------------------------------------------- |
-| `<map>`               | Compact `KEY:VALUE` table of **literals**                      |
-| `<case is="…">`       | A branch whose value is a **generator or composite**          |
-| `<default>`           | The "else" branch — used when no key matches                   |
+| Child tag       | What it is                                           |
+| :-------------- | :--------------------------------------------------- |
+| `<map>`         | Compact `KEY:VALUE` table of **literals**            |
+| `<case is="…">` | A branch whose value is a **generator or composite** |
+| `<default>`     | The "else" branch — used when no key matches         |
 
 You need **at least one** branch (a `<map>` row or a `<case>`).
 
@@ -118,7 +118,7 @@ DE -> EUR`}
 
 Whatever value `Country` drew on a row decides the result: `JP` always yields `JPY`,
 and any of `US/CA/MX` yields `USD`. **Why it matters:** the subject is the single input.
-Point `on` at a different sequence and the same table starts reading *its* values
+Point `on` at a different sequence and the same table starts reading _its_ values
 instead — the lookup logic is reusable.
 
 ## `<map>` — a compact literal table
@@ -137,7 +137,7 @@ This is byte-for-byte equivalent to four separate `<case is="US"><data>USD</data
 branches — just shorter. The format rules:
 
 - Records are separated by a **comma** `,`.
-- Key and value are split by the **first colon** `:` — so colons *inside* a value are
+- Key and value are split by the **first colon** `:` — so colons _inside_ a value are
   kept (`US:Down : Left` → `Down : Left`).
 - **Multiple keys → one value** with `|`: `CA|MX:USD` matches both `CA` and `MX`.
 - Whitespace and line breaks around records are ignored, so you can wrap the table
@@ -182,7 +182,7 @@ is assembled left-to-right from [`<data>`](../reference/tags.mdx) literals and
 [sequence](../core-concepts/sequences.mdx) branch.
 
 Inside `<switch>`, a `<case>` needs [`is`](#matching-keys--is) — the key(s) it matches.
-Here a customer tier drives a discount *range*, something a flat table can't express:
+Here a customer tier drives a discount _range_, something a flat table can't express:
 
 ```xml
 <sequence name="Tier">

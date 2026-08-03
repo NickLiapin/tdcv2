@@ -20,33 +20,33 @@ tdcv2 <input.tdc> [options]
 > [!NOTE]
 > **Where `tdcv2` comes from**
 >
-> `npm install -D tdcv2` puts `tdcv2` on your PATH through `npx`. The other four are not on
-> their registries yet, so for those you install from a checkout — the command differs per
-> language, and [Installation](../getting-started/installation.md#top) has the tab for each.
-> Java is the one that never becomes a bare `tdcv2` (Maven has no equivalent of npm's
-> `bin`); an alias makes every command on this page read the same. Everything below is
-> identical whichever implementation you run.
+> `npm install -D tdcv2`, `pip install tdcv2` and `cargo install tdcv2` each put `tdcv2` on
+> your PATH from the package that carries the library. Maven and NuGet have no equivalent of
+> npm's `bin`, so for Java and C# the command line is a second artefact —
+> [Installation](../getting-started/installation.md#top) has the tab for each. An alias makes
+> every command on this page read the same. Everything below is identical whichever
+> implementation you run.
 
 Besides generating, the CLI has `tdcv2 init` and `tdcv2 pack` for setup and data — see
-[Installing packs](../data-packs/installing-packs.md#top) — and `tdcv2 format`
-([below](#tdcv2-format)).
+[Installing packs](../data-packs/installing-packs.md#top) — plus `tdcv2 check`
+([below](#tdcv2-check)) and `tdcv2 format` ([below](#tdcv2-format)).
 
 ## Options
 
-| Option                  | What it does                                             |
-| :---------------------- | :------------------------------------------------------ |
-| `-o, --output <path>`   | Write to a file. Without it, output goes to stdout       |
-| `--seed <seed>`         | Override the `seed` from `<env>`                         |
-| `--count <n>`           | Override the `count` from `<env>`                        |
-| `--locale <loc>`        | Override the locale (default `en`)                      |
-| `--data-path <dir>`     | Add a data folder for `@data/…` (repeatable)            |
-| `--jobs <n>`            | Number of worker threads (TDC picks one by default)     |
-| `--mode <memory\|disk>` | Engine: `disk` (default) or `memory`                    |
-| `--engine <1\|2\|3>`    | Force a specific engine (advanced)                      |
-| `--disk`                | Shortcut for `--mode disk` — already the default        |
-| `--stream`              | Legacy alias for `--engine 2`                           |
-| `-h, --help`            | Show help                                               |
-| `-v, --version`         | Show version                                            |
+| Option                  | What it does                                        |
+| :---------------------- | :-------------------------------------------------- |
+| `-o, --output <path>`   | Write to a file. Without it, output goes to stdout  |
+| `--seed <seed>`         | Override the `seed` from `<env>`                    |
+| `--count <n>`           | Override the `count` from `<env>`                   |
+| `--locale <loc>`        | Override the locale (default `en`)                  |
+| `--data-path <dir>`     | Add a data folder for `@data/…` (repeatable)        |
+| `--jobs <n>`            | Number of worker threads (TDC picks one by default) |
+| `--mode <memory\|disk>` | Engine: `disk` (default) or `memory`                |
+| `--engine <1\|2\|3>`    | Force a specific engine (advanced)                  |
+| `--disk`                | Shortcut for `--mode disk` — already the default    |
+| `--stream`              | Legacy alias for `--engine 2`                       |
+| `-h, --help`            | Show help                                           |
+| `-v, --version`         | Show version                                        |
 
 Long options also accept `=`: `tdcv2 demo.tdc --output=out.csv --count=100`.
 
@@ -135,6 +135,29 @@ TDC works out how many threads fit in this machine's RAM and uses that many, so 
 machine a run just takes longer instead of dying halfway through. Full details in
 [Large outputs](../guides/large-outputs.md#top).
 
+## `tdcv2 check`
+
+Reads a config, validates it, and generates nothing. What you want in a pre-commit hook
+or a CI step: it answers "would this run?" without spending the time to run it.
+
+```bash
+tdcv2 check demo.tdc
+```
+
+Everything goes to stderr — a valid config gets one line, an invalid one gets the same
+diagnostics `tdcv2 demo.tdc` would print. **Nothing goes to stdout**, deliberately: a
+hook's stdout is noise, and a caller that wants the data runs the generator instead.
+
+`tdcv2 check demo.tdc`
+
+```
+tdcv2: demo.tdc is valid
+```
+
+Warnings do not fail the check — they are printed and the exit code stays `0`, because a
+warning describes something that works but probably is not what you meant. Only an error
+exits `1`.
+
 ## `tdcv2 format`
 
 Tidies up a `.tdc` file — indentation, attribute spacing, aligned `<map>` tables. It's
@@ -150,11 +173,11 @@ the formatter reports it and leaves the file untouched (exit code 1).
 
 ## Exit codes
 
-| Code | Meaning                                        |
-| ---: | :--------------------------------------------- |
-| `0`  | Successful generation, `--help`, or `--version`|
-| `1`  | A read, parse, validation, or runtime error    |
-| `2`  | Bad CLI arguments                              |
+| Code | Meaning                                         |
+| ---: | :---------------------------------------------- |
+|  `0` | Successful generation, `--help`, or `--version` |
+|  `1` | A read, parse, validation, or runtime error     |
+|  `2` | Bad CLI arguments                               |
 
 ## See also
 

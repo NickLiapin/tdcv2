@@ -29,24 +29,24 @@ by core version; only the shape and the counts are the point.
 
 ## At a glance
 
-| Attribute                                  | Required | What it does                                                       |
-| :----------------------------------------- | :------- | :----------------------------------------------------------------- |
-| [`src`](../reference/attributes.md#top)       | yes      | Where the file is — relative, `@data`, `pkg:`, or absolute path    |
-| [`column`](../reference/attributes.md#top)    | no       | Read one CSV column, by name or 1-based number (switches to CSV)   |
-| [`delimiter`](../reference/attributes.md#top) | no       | Cell separator for CSV mode — comma by default                     |
-| [`header`](../reference/attributes.md#top)    | no       | Skip the first line when a column is chosen **by number**          |
+| Attribute                                  | Required | What it does                                                        |
+| :----------------------------------------- | :------- | :------------------------------------------------------------------ |
+| [`src`](../reference/attributes.md#top)       | yes      | Where the file is — relative, `@data`, `pkg:`, or absolute path     |
+| [`column`](../reference/attributes.md#top)    | no       | Read one CSV column, by name or 1-based number (switches to CSV)    |
+| [`delimiter`](../reference/attributes.md#top) | no       | Cell separator for CSV mode — comma by default                      |
+| [`header`](../reference/attributes.md#top)    | no       | Skip the first line when a column is chosen **by number**           |
 | [`row`](../reference/attributes.md#top)       | no       | Link several fields to the **same** CSV line (keeps a record whole) |
 
 ## `src` — where the file is
 
 `src` is **required**. It can be a plain path or a resolver source:
 
-| `src`                                | Resolves to                                        |
-| :----------------------------------- | :------------------------------------------------- |
-| `src="names.txt"`                    | Next to the `.tdc` config file                     |
-| `src="@data/names.txt"`              | Searched in the folders passed via `--data-path`   |
-| `src="pkg:@tdc/data-en/names.txt"`   | A file from a package in `node_modules`            |
-| `src="/absolute/path/names.txt"`     | An absolute path                                   |
+| `src`                              | Resolves to                                      |
+| :--------------------------------- | :----------------------------------------------- |
+| `src="names.txt"`                  | Next to the `.tdc` config file                   |
+| `src="@data/names.txt"`            | Searched in the folders passed via `--data-path` |
+| `src="pkg:@tdc/data-en/names.txt"` | A file from a package in `node_modules`          |
+| `src="/absolute/path/names.txt"`   | An absolute path                                 |
 
 The file is read as UTF-8. If the path can't be resolved, rendering stops with an
 error instead of silently producing nothing.
@@ -227,13 +227,13 @@ treats the whole line as a single field — the column is never found.
 `delimiter` takes either a single character (`delimiter=";"`) or one of these
 name aliases:
 
-| Value       | Separator                        |
-| :---------- | :------------------------------- |
-| `comma`     | comma `,` (the default)          |
-| `semicolon` | semicolon `;`                    |
-| `pipe`      | vertical bar                     |
-| `tab`       | tab character (TSV files)        |
-| `\t`        | tab character (same as `tab`)    |
+| Value       | Separator                     |
+| :---------- | :---------------------------- |
+| `comma`     | comma `,` (the default)       |
+| `semicolon` | semicolon `;`                 |
+| `pipe`      | vertical bar                  |
+| `tab`       | tab character (TSV files)     |
+| `\t`        | tab character (same as `tab`) |
 
 For a TSV file (tab-separated columns), `delimiter="tab"` and `delimiter="\t"` are
 equivalent — both read the tab as the separator.

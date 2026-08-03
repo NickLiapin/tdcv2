@@ -10,8 +10,8 @@
 
 # Conditional output with `if`
 
-**Use it when** a value should decide *whether* a piece of a row appears, not just
-*what* it says: keep one record, drop another; tag some rows and leave the rest bare;
+**Use it when** a value should decide _whether_ a piece of a row appears, not just
+_what_ it says: keep one record, drop another; tag some rows and leave the rest bare;
 put a comma after every record except the last.
 
 A generator always produces a value. The `if` attribute is a separate switch: it
@@ -85,10 +85,10 @@ renumber the rest.
 
 The same expression language works on three tags, with slightly different effects:
 
-| Tag                                            | Effect of a false `if`                                                        |
-| :--------------------------------------------- | :---------------------------------------------------------------------------- |
-| [`<line>`](../reference/tags.md#top)              | The entire line is suppressed — including the between-row separator.          |
-| [`<data>`](../reference/tags.md#top)              | Just that text chunk is suppressed; the other `<data>` on the same line still print. |
+| Tag                                                     | Effect of a false `if`                                                                   |
+| :------------------------------------------------------ | :--------------------------------------------------------------------------------------- |
+| [`<line>`](../reference/tags.md#top)                       | The entire line is suppressed — including the between-row separator.                     |
+| [`<data>`](../reference/tags.md#top)                       | Just that text chunk is suppressed; the other `<data>` on the same line still print.     |
 | [`<gen>`](../generators/overview.md#top) in a `<sequence>` | Makes a **conditional sequence** (below). Generators aren't allowed in the output block. |
 
 ### Suppressing part of a line with `<data>`
@@ -169,11 +169,11 @@ Gender != Male     is the same as   !Gender.Male
 
 ## Literals and bare identifiers
 
-| Kind       | Example              |
-| :--------- | :------------------- |
-| Number     | `5`, `3.14`, `-42`   |
-| String     | `"admin"`, `'text'`  |
-| Identifier | `Name`, `_count`     |
+| Kind       | Example             |
+| :--------- | :------------------ |
+| Number     | `5`, `3.14`, `-42`  |
+| String     | `"admin"`, `'text'` |
+| Identifier | `Name`, `_count`    |
 
 A **bare identifier** (no quotes) is resolved in two steps:
 
@@ -192,16 +192,16 @@ equivalent to `Role == "admin"`.
 
 ## Comparison operators
 
-| Operator | Meaning                              |
-| :------- | :----------------------------------- |
-| `==`     | Equal (with soft numeric promotion)  |
-| `!=`     | Not equal (mirror of `==`)           |
-| `===`    | Strict equal (value **and** type)    |
-| `!==`    | Strict not-equal                     |
-| `<`      | Less than                            |
-| `>`      | Greater than                         |
-| `<=`     | Less than or equal                   |
-| `>=`     | Greater than or equal                |
+| Operator | Meaning                             |
+| :------- | :---------------------------------- |
+| `==`     | Equal (with soft numeric promotion) |
+| `!=`     | Not equal (mirror of `==`)          |
+| `===`    | Strict equal (value **and** type)   |
+| `!==`    | Strict not-equal                    |
+| `<`      | Less than                           |
+| `>`      | Greater than                        |
+| `<=`     | Less than or equal                  |
+| `>=`     | Greater than or equal               |
 
 The ordering operators `<`, `>`, `<=`, `>=` always coerce both operands to numbers.
 
@@ -223,7 +223,7 @@ age 70: adult senior
 ```
 
 `Age < 18` is true on the first two rows, `Age >= 18` covers the rest (the boundary
-value `18` lands in *adult*), and `Age > 65` tags only `70`.
+value `18` lands in _adult_), and `Age > 65` tags only `70`.
 
 **Why/when:** ordering comparisons are the everyday case — age gates, thresholds,
 score cutoffs.
@@ -320,11 +320,11 @@ matches neither, so it gets no tag at all.
 
 ## Arithmetic operators
 
-| Operator | Meaning                                                                  |
-| :------- | :----------------------------------------------------------------------- |
+| Operator | Meaning                                                                   |
+| :------- | :------------------------------------------------------------------------ |
 | `+`      | Addition (numeric if either operand is a number; otherwise concatenation) |
-| `-`      | Subtraction (operands coerced to number)                                 |
-| `*`      | Multiplication                                                           |
+| `-`      | Subtraction (operands coerced to number)                                  |
+| `*`      | Multiplication                                                            |
 | `/`      | Division                                                                  |
 
 Arithmetic works inside a comparison:
@@ -353,8 +353,9 @@ sequence just to hold the derived number.
 > [!CAUTION]
 > **Unsupported operators**
 >
-> `%` (remainder) and `??` (nullish) raise an error at render time — for example
-> `if="_count % 2 == 0"` fails with `unsupported operator "%" in if expression`.
+> `%` (remainder) and `??` (nullish) are refused by validation, before a single row is
+> drawn — `if="_count % 2 == 0"` fails with `error[TDC101]: unsupported operator "%" in if
+> expression` and produces no output at all.
 >
 > `?.` (optional chaining) is worse because it fails **silently**: the parser reads
 > `X?.length` as a plain dotted access `X.length`, which the `X.Value` shorthand turns
@@ -386,15 +387,15 @@ The result matches the `==` / `!=` example exactly — two spellings of one test
 In logical operators and in `if` as a whole, a bare value is read as a boolean by
 these rules:
 
-| Value                | Read as    |
-| :------------------- | :--------: |
-| `null`, `undefined`  | false      |
-| `0`, `NaN`           | false      |
-| `""` (empty string)  | false      |
-| `"false"` (string)   | **false**  |
-| `"true"` (string)    | true       |
-| any other string     | true       |
-| a number ≠ 0         | true       |
+| Value               |  Read as  |
+| :------------------ | :-------: |
+| `null`, `undefined` |   false   |
+| `0`, `NaN`          |   false   |
+| `""` (empty string) |   false   |
+| `"false"` (string)  | **false** |
+| `"true"` (string)   |   true    |
+| any other string    |   true    |
+| a number ≠ 0        |   true    |
 
 The `"false"` case is special: it exists so the
 [built-in sequences](../reference/builtins.md#top) `_first` / `_last`, which are stored

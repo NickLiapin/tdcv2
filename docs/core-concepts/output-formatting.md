@@ -148,7 +148,7 @@ layout.
 The output block is for **formatting only**. You can't put a `<gen>` or a `<mix>`
 directly in a `<line>` — declare a named [`<sequence>`](sequences.md#top) (or a
 [`<mix>`](../reference/tags.md#top)) in [`<env>`](configuration.md#top) and reference it with
-`${{Name}}`. This keeps *what the data is* separate from *how it's laid out*.
+`${{Name}}`. This keeps _what the data is_ separate from _how it's laid out_.
 
 There's a related limit: an [`advanced_regex`](../generators/advanced-regex.md#top)
 generator used from inside the output can't use the weighted-choice form `(?%{...})`,
@@ -210,7 +210,7 @@ files — an indented SQL schema, nested JSON, YAML, a tree.
 
 Keep the two kinds of indentation straight. The indentation of the **tags** (`<line>`
 sitting two spaces in) is your config's own layout, and it never shows up in the output.
-Only what sits *between* `<data>` and `</data>` is text. In the schema below, the two
+Only what sits _between_ `<data>` and `</data>` is text. In the schema below, the two
 spaces before `id` are inside the data and survive; the four before `<line>` are outside
 it and disappear:
 
@@ -330,7 +330,7 @@ The full set — `mask`, `upper`/`lower`/`capitalize`/`title`, `slice`, `replace
 `trim`, `group`, `compact`, and the `csv`/`sql` escapes — is in
 **[Masks & case](../guides/masks-and-case.md#top)**.
 
-### Where interpolation does *not* run
+### Where interpolation does _not_ run
 
 - **Not in fixtures.** `${{…}}` is left untouched inside
   [`<before>`](#fixtures--text-around-the-records) / `<after>` / `<before_block>` and

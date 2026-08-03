@@ -81,14 +81,14 @@ covered below; the fields that change how the body is read (weighted lists, exte
 files, generators) get their own worked examples in
 [Writing your own](writing-your-own.md#top).
 
-| Field         | Meaning                                                         | Where covered                       |
-| :------------ | :------------------------------------------------------------- | :---------------------------------- |
-| `description` | A human-readable description — "what this is"                  | below                               |
-| `address`     | An explicit address, overriding the one computed from the path | below                               |
-| `locale`      | Which language the pack speaks (`en`, `es`, `fr`…)             | below                               |
-| `file`        | Point at an external data file instead of an inline body       | below                               |
-| `column`      | With `file`: take a named/numbered column from a CSV           | below                               |
-| `delimiter`   | The column/value separator (default `,`)                       | below                               |
+| Field         | Meaning                                                        | Where covered                            |
+| :------------ | :------------------------------------------------------------- | :--------------------------------------- |
+| `description` | A human-readable description — "what this is"                  | below                                    |
+| `address`     | An explicit address, overriding the one computed from the path | below                                    |
+| `locale`      | Which language the pack speaks (`en`, `es`, `fr`…)             | below                                    |
+| `file`        | Point at an external data file instead of an inline body       | below                                    |
+| `column`      | With `file`: take a named/numbered column from a CSV           | below                                    |
+| `delimiter`   | The column/value separator (default `,`)                       | below                                    |
 | `weight`      | Make the pack weighted: the frequency column                   | [Writing your own](writing-your-own.md#top) |
 | `weighted`    | `true` — the body is `value,weight` lines                      | [Writing your own](writing-your-own.md#top) |
 | `generator`   | `tdc` — the body is a `<gen>`, not a list                      | [Writing your own](writing-your-own.md#top) |

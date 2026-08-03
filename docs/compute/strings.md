@@ -21,7 +21,7 @@ two other ways — as a [`<gen>`](../generators/overview.md#top) attribute
 (`mask=` / `case=`) and as an interpolation filter (`${{X | mask:…}}`). The
 [Masks & case](../guides/masks-and-case.md#top) guide covers those routes with worked
 output. Reach for the **compute tag** when the formatting is a step in a calculation —
-for example, masking a number and *then* uppercasing it before appending a check digit.
+for example, masking a number and _then_ uppercasing it before appending a check digit.
 `<concat>`, `<str>`, and `<pad>` exist **only** as compute tags.
 
 > [!NOTE]
@@ -245,10 +245,10 @@ character at `from` is included, the character at `to` is not — so the length 
 `to − from`. Indices are **zero-based** and counted in **code points** (so Unicode is
 cut by letters, not bytes).
 
-| Attribute | Required | Sets                                                      |
-| :-------- | :------- | :-------------------------------------------------------- |
-| `from`    | yes      | index of the first character (zero-based), included       |
-| `to`      | no       | index just past the last character; omitted → to the end  |
+| Attribute | Required | Sets                                                     |
+| :-------- | :------- | :------------------------------------------------------- |
+| `from`    | yes      | index of the first character (zero-based), included      |
+| `to`      | no       | index just past the last character; omitted → to the end |
 
 **Use it when** you need a fixed part of a value — the year or month of a date, a code
 prefix, the last few characters of an identifier.
@@ -282,10 +282,10 @@ dash at index 4 is not included); `from=5` with no `to` runs from index 5 to the
 with `to`. Both are plain strings, not regular expressions — what you write is matched
 verbatim. If `from` is empty, or isn't found, the string is returned unchanged.
 
-| Attribute | Required | Sets                              |
-| :-------- | :------- | :-------------------------------- |
-| `from`    | yes      | what to search for (literal)      |
-| `to`      | yes      | what to replace it with           |
+| Attribute | Required | Sets                         |
+| :-------- | :------- | :--------------------------- |
+| `from`    | yes      | what to search for (literal) |
+| `to`      | yes      | what to replace it with      |
 
 **Use it when** you need to swap a separator (dash → slash in a date) or strip a
 character entirely (`to=""` removes every match):
@@ -350,10 +350,10 @@ them visible:
 ends up on the **left**, exactly like thousands separators. A string shorter than one
 group is returned unchanged (no separator added).
 
-| Attribute | Required | Default    | Sets                        |
-| :-------- | :------- | :--------- | :-------------------------- |
-| `size`    | no       | `3`        | group size (characters)     |
-| `sep`     | no       | space `" "` | separator between groups    |
+| Attribute | Required | Default     | Sets                     |
+| :-------- | :------- | :---------- | :----------------------- |
+| `size`    | no       | `3`         | group size (characters)  |
+| `sep`     | no       | space `" "` | separator between groups |
 
 **Use it when** a long number is hard to read — thousands separators, card blocks, long
 codes:
@@ -390,10 +390,10 @@ separator), `sep="-"` sets your own separator, and `size="4"` reads like card bl
 **left** until the string reaches `width`. It behaves like `padStart`: if the string is
 **already at least** `width` long, it comes back unchanged — there's **no** truncation.
 
-| Attribute | Default | Sets                                            |
-| :-------- | :------ | :---------------------------------------------- |
-| `width`   | —       | target width of the string                      |
-| `fill`    | `"0"`   | the character to prepend on the left            |
+| Attribute | Default | Sets                                 |
+| :-------- | :------ | :----------------------------------- |
+| `width`   | —       | target width of the string           |
+| `fill`    | `"0"`   | the character to prepend on the left |
 
 **Use it when** an identifier needs a fixed width — a control number, an article code,
 a check digit that has to take up two positions (`09`). Leading zeros to width 6:
@@ -443,12 +443,12 @@ attribute (`mask=` / `case=`), and an interpolation filter (`${{X | mask:…}}`)
 result. The [Masks & case](../guides/masks-and-case.md#top) guide shows each route with
 real output. Which tags live where:
 
-| Operation                        | Filter `${{X\|…}}` | `<gen>` attribute | `<compute>` tag                   |
-| :------------------------------- | :----------------: | :---------------: | :-------------------------------- |
-| case (`upper`…`title`)           | yes                | `case=`           | [`<upper>` …](#building-and-casing) |
-| `mask`                           | yes                | `mask=`           | [`<mask>`](#reshaping)            |
-| `slice` / `replace` / `trim` / `group` | yes          | —                 | [`<slice>` …](#reshaping)         |
-| `concat` / `str` / `pad`         | —                  | —                 | this page (compute-only)          |
+| Operation                              | Filter `${{X\|…}}` | `<gen>` attribute | `<compute>` tag                     |
+| :------------------------------------- | :----------------: | :---------------: | :---------------------------------- |
+| case (`upper`…`title`)                 |        yes         |      `case=`      | [`<upper>` …](#building-and-casing) |
+| `mask`                                 |        yes         |      `mask=`      | [`<mask>`](#reshaping)              |
+| `slice` / `replace` / `trim` / `group` |        yes         |         —         | [`<slice>` …](#reshaping)           |
+| `concat` / `str` / `pad`               |         —          |         —         | this page (compute-only)            |
 
 Reach for the compute tag when the formatting is a **step in a calculation**; reach for
 the attribute or filter for a plain value.

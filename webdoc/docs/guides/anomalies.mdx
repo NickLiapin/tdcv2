@@ -18,10 +18,10 @@ purpose**, at a rate you choose, so your pipeline has something abnormal to reac
 
 There are two routes, and this page covers both:
 
-| Route | Outlier looks like | Ground-truth column |
-| :---- | :----------------- | :------------------ |
-| `anomaly="p"` on a [`<gen>`](../generators/overview.mdx) producing numbers | the base value **× a factor** | `anomaly_flag="Name"` |
-| `anomaly="true"` on a `<case>` inside a [`<mix>`](../reference/tags.mdx) | whatever that branch generates | `flag="Name"` |
+| Route                                                                      | Outlier looks like             | Ground-truth column   |
+| :------------------------------------------------------------------------- | :----------------------------- | :-------------------- |
+| `anomaly="p"` on a [`<gen>`](../generators/overview.mdx) producing numbers | the base value **× a factor**  | `anomaly_flag="Name"` |
+| `anomaly="true"` on a `<case>` inside a [`<mix>`](../reference/tags.mdx)   | whatever that branch generates | `flag="Name"`         |
 
 Reach for the first when a "too big" number is outlier enough. Reach for the second
 when the outlier needs its own shape — a different range, a garbage string, a rare
@@ -236,7 +236,7 @@ outlier: 400`}
 Out of 20 readings, 3 came through as anomalies — a ready-made labeled dataset for
 scoring a detector's precision and recall.
 
-**Why/when.** Any time you need to *measure* a detector, not just feed it.
+**Why/when.** Any time you need to _measure_ a detector, not just feed it.
 `anomaly_flag` without `anomaly` is an error, because there is nothing to mark.
 
 ## A custom outlier — `flag` on a `<mix>`
@@ -294,11 +294,11 @@ what the outlier looks like — unlike `anomaly="p"`, which can only scale a num
 
 TDC checks that the label and the column are both present:
 
-| What you wrote | What TDC says |
-| :------------- | :------------ |
-| `anomaly="true"`, but the `<mix>` has no `flag=` | error `TDC203` — the label has nowhere to go |
-| `flag=`, but no `<case>` is marked | warning `TDC202` — the column is all `false` |
-| `flag=` on a **nested** `<mix>` | error `TDC203` — only a named mix owns the column |
+| What you wrote                                   | What TDC says                                     |
+| :----------------------------------------------- | :------------------------------------------------ |
+| `anomaly="true"`, but the `<mix>` has no `flag=` | error `TDC203` — the label has nowhere to go      |
+| `flag=`, but no `<case>` is marked               | warning `TDC202` — the column is all `false`      |
+| `flag=` on a **nested** `<mix>`                  | error `TDC203` — only a named mix owns the column |
 
 ### In Parquet — a real type
 
@@ -321,7 +321,7 @@ TDC never guesses a type it isn't sure of. See **[Output formats](output-formats
   empty phone — and see how many flagged rows the cleaner actually removes.
 - **Several kinds of defect.** You can tag more than one branch; `flag` is `true` on
   every marked case.
-- **Marking a "rare event."** The tag doesn't have to mean *broken* — it can mark a
+- **Marking a "rare event."** The tag doesn't have to mean _broken_ — it can mark a
   rare but perfectly legal case your model should still learn to catch.
 
 ## Details
@@ -331,7 +331,7 @@ TDC never guesses a type it isn't sure of. See **[Output formats](output-formats
 - **Any engine, any volume.** Outliers are decided by row number, so in-memory and
   on-disk runs agree exactly.
 - **Numbers only, and it's the value that decides — not the `type=`.** In the examples
-  above the list is written as `type="text"`, but the values *are* numbers, so `anomaly`
+  above the list is written as `type="text"`, but the values _are_ numbers, so `anomaly`
   multiplies them. Put it on a column of names and the values pass through unchanged —
   **silently**: `tdcv2 check` reports nothing, because a text list may hold numbers and
   TDC cannot know which you meant. If a column that should have spikes comes out clean,

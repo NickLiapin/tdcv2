@@ -56,12 +56,12 @@ core version, but the shape never does.
 
 Other everyday shapes:
 
-| Task              | Pattern                                             | Example                            |
-| :---------------- | :-------------------------------------------------- | :--------------------------------- |
-| SKU               | `[A-Z]{3}-[0-9]{4}`                                 | `SAH-0136`                         |
-| Plate (US)        | `[0-9][A-Z]{3}[0-9]{3}`                             | `7KLM042`                          |
-| 32-char hex token | `[A-F0-9]{32}`                                      | `5AE5ABF3F7040BEB966D65A23EB7C1EC` |
-| Test email        | `user_[a-z0-9]{8}@test\.(com\|org)`                 | `user_zak0bdnw@test.com`           |
+| Task              | Pattern                             | Example                            |
+| :---------------- | :---------------------------------- | :--------------------------------- |
+| SKU               | `[A-Z]{3}-[0-9]{4}`                 | `SAH-0136`                         |
+| Plate (US)        | `[0-9][A-Z]{3}[0-9]{3}`             | `7KLM042`                          |
+| 32-char hex token | `[A-F0-9]{32}`                      | `5AE5ABF3F7040BEB966D65A23EB7C1EC` |
+| Test email        | `user_[a-z0-9]{8}@test\.(com\|org)` | `user_zak0bdnw@test.com`           |
 
 That same SKU, rendered in full:
 
@@ -103,25 +103,25 @@ one prefix), plain `regex` won't do it — reach for
 
 ## Syntax at a glance
 
-| Construct           | Example                      | Generates                                    |
-| :------------------ | :--------------------------- | :------------------------------------------- |
-| Literals            | `ABC-42`                     | Exactly those characters                     |
-| Escaped characters  | `\.\+\(\)\\`                 | Dot, plus, parens, backslash                 |
-| Character class     | `[ABC]`, `[a-z]`, `[A-Z0-9]` | One character from the set                   |
-| Unicode BMP range   | `[а-я]`, `[א-ת]`, `[ぁ-ゖ]`  | One character from the range                 |
-| Named alphabet      | `\a{kana.hiragana}`          | One character from a built-in alphabet       |
-| Negated class       | `[^0-9]`                     | A printable ASCII character, except those    |
-| Shorthand class     | `\d`, `\w`, `\s`             | Digit, word char, space/tab                  |
-| Inverse shorthand   | `\D`, `\W`, `\S`             | The inverse of the above                     |
-| Any character       | `.`                          | One printable ASCII character                |
-| Alternation         | `cat\|dog`                   | `cat` or `dog`                               |
-| Group               | `(cat\|dog)`                 | Grouping and capture                         |
-| Non-capturing group | `(?:cat\|dog)`               | Grouping without capture                     |
-| Backreference       | `([0-9]{3})-\1`              | Repeats an already-generated group           |
-| Optional            | `AB?C`                       | `AC` or `ABC`                                |
-| Exact repeat        | `[A-Z]{4}`                   | Exactly 4                                    |
-| Range repeat        | `[A-Z]{2,5}`                 | 2 to 5                                        |
-| Anchors             | `^ABC$`                      | Zero-width; the result is `ABC`              |
+| Construct           | Example                      | Generates                                 |
+| :------------------ | :--------------------------- | :---------------------------------------- |
+| Literals            | `ABC-42`                     | Exactly those characters                  |
+| Escaped characters  | `\.\+\(\)\\`                 | Dot, plus, parens, backslash              |
+| Character class     | `[ABC]`, `[a-z]`, `[A-Z0-9]` | One character from the set                |
+| Unicode BMP range   | `[а-я]`, `[א-ת]`, `[ぁ-ゖ]`  | One character from the range              |
+| Named alphabet      | `\a{kana.hiragana}`          | One character from a built-in alphabet    |
+| Negated class       | `[^0-9]`                     | A printable ASCII character, except those |
+| Shorthand class     | `\d`, `\w`, `\s`             | Digit, word char, space/tab               |
+| Inverse shorthand   | `\D`, `\W`, `\S`             | The inverse of the above                  |
+| Any character       | `.`                          | One printable ASCII character             |
+| Alternation         | `cat\|dog`                   | `cat` or `dog`                            |
+| Group               | `(cat\|dog)`                 | Grouping and capture                      |
+| Non-capturing group | `(?:cat\|dog)`               | Grouping without capture                  |
+| Backreference       | `([0-9]{3})-\1`              | Repeats an already-generated group        |
+| Optional            | `AB?C`                       | `AC` or `ABC`                             |
+| Exact repeat        | `[A-Z]{4}`                   | Exactly 4                                 |
+| Range repeat        | `[A-Z]{2,5}`                 | 2 to 5                                    |
+| Anchors             | `^ABC$`                      | Zero-width; the result is `ABC`           |
 
 The rest of this page is the same list, but with **real output** under each one.
 
@@ -530,17 +530,17 @@ already-finite result to be longer.
 
 ## What's not allowed
 
-| Not allowed              | Why                                   | Use instead                     |
-| :----------------------- | :------------------------------------ | :------------------------------ |
-| `*`                      | No upper bound                        | `{0,n}`                         |
-| `+`                      | No upper bound                        | `{1,n}`                         |
-| `{n,}`                   | No upper bound                        | `{n,m}`                         |
-| Lazy `*?`, `??`          | Matcher semantics, not generation     | Write the range you want        |
-| Lookahead / lookbehind   | Inspects existing text, doesn't build | Move the condition into the DSL |
-| Named captures           | Not implemented yet                   | Plain groups and `\1`           |
-| Conditional groups       | Not implemented yet                   | Use `<mix>` or a sequence       |
-| `\p{...}` / `\P{...}`    | Unicode properties aren't portable yet| `\a{name}` or an explicit class |
-| `\n` / `\r`              | Multi-line generation lives elsewhere | Use separate `<line>`s          |
+| Not allowed            | Why                                    | Use instead                     |
+| :--------------------- | :------------------------------------- | :------------------------------ |
+| `*`                    | No upper bound                         | `{0,n}`                         |
+| `+`                    | No upper bound                         | `{1,n}`                         |
+| `{n,}`                 | No upper bound                         | `{n,m}`                         |
+| Lazy `*?`, `??`        | Matcher semantics, not generation      | Write the range you want        |
+| Lookahead / lookbehind | Inspects existing text, doesn't build  | Move the condition into the DSL |
+| Named captures         | Not implemented yet                    | Plain groups and `\1`           |
+| Conditional groups     | Not implemented yet                    | Use `<mix>` or a sequence       |
+| `\p{...}` / `\P{...}`  | Unicode properties aren't portable yet | `\a{name}` or an explicit class |
+| `\n` / `\r`            | Multi-line generation lives elsewhere  | Use separate `<line>`s          |
 
 For example, `+` is rejected immediately:
 

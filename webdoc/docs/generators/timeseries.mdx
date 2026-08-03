@@ -70,14 +70,14 @@ layers are exactly what `timeseries` adds.
 <gen type="timeseries" base="1000" trend="20" period="7" amplitude="150" noise="30"/>
 ```
 
-| Attribute   | What it sets                                            |
-| :---------- | :------------------------------------------------------ |
-| `base`      | Starting level (default `0`)                            |
-| `trend`     | Slope: how much the value rises each step               |
+| Attribute   | What it sets                                             |
+| :---------- | :------------------------------------------------------- |
+| `base`      | Starting level (default `0`)                             |
+| `trend`     | Slope: how much the value rises each step                |
 | `period`    | Length of the seasonal wave, in rows (e.g. `7` = a week) |
-| `amplitude` | Height of the seasonal wave                             |
-| `noise`     | Strength of the random noise (standard deviation)       |
-| `decimals`  | Digits after the decimal point (default `0` — integer)  |
+| `amplitude` | Height of the seasonal wave                              |
+| `noise`     | Strength of the random noise (standard deviation)        |
+| `decimals`  | Digits after the decimal point (default `0` — integer)   |
 
 Every layer is optional. The sections below take them one at a time — what each
 does, and when you'd reach for it.
@@ -228,7 +228,7 @@ Reading the columns:
   value climbs to a peak and falls to a trough: peaks land on days **3** and **10**
   (1186 → 1326), the trough on day **6** (954). Peaks and troughs repeat every 7
   rows, and each one sits higher than the last by exactly `trend · period = 20 · 7 =
-  140` — the wave rides up the trend.
+140` — the wave rides up the trend.
 - **+noise** — the same shape, but it jitters slightly (`1000 → 985`), the way real
   measurements do.
 

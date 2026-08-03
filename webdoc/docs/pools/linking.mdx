@@ -13,9 +13,9 @@ doctors. This page is about how the pieces connect.
 
 There are exactly two ways to link, and they answer different questions:
 
-| The link | Where it is fixed | Write it as |
-| :------- | :---------------- | :---------- |
-| **A pool draws from a pool** | per member — this doctor works at that clinic, always | `<gen type="pool">` inside a `<pool>` |
+| The link                     | Where it is fixed                                                   | Write it as                                |
+| :--------------------------- | :------------------------------------------------------------------ | :----------------------------------------- |
+| **A pool draws from a pool** | per member — this doctor works at that clinic, always               | `<gen type="pool">` inside a `<pool>`      |
 | **A row's references agree** | per row — this patient's nurse is at this patient's doctor's clinic | `filter=` naming another reference's field |
 
 The first builds the world. The second holds one row together.
@@ -58,7 +58,7 @@ Dr. Williams @ East (tel 997)`}
 
 :::note[Outputs are illustrative]
 The values come from a fixed `seed`, so they're reproducible, but exact strings can
-differ between core versions. Treat them as examples of *shape*, not guarantees.
+differ between core versions. Treat them as examples of _shape_, not guarantees.
 :::
 
 Three facts to read off that output:
@@ -67,7 +67,7 @@ Three facts to read off that output:
   its own; its fields are `${{Seen.at.city}}` and `${{Seen.at.phone}}`. Writing
   `${{Seen.at}}` is refused for the same reason `${{Seen}}` is.
 - **The link is fixed per member, not per row.** Dr. Jones is at the East clinic on
-  every row where he appears, because the clinic was decided when the *doctor* was
+  every row where he appears, because the clinic was decided when the _doctor_ was
   built.
 - **The clinic's own fields travel together.** East is always 300 — the phone belongs to
   the clinic record, not to the row.

@@ -65,12 +65,12 @@ spread the pool was built to have.
 The expression is evaluated in **two scopes at once**: the candidate member's fields,
 and the current row's columns.
 
-| The name         | What it reads                     |
-| :--------------- | :--------------------------------- |
+| The name         | What it reads                                                         |
+| :--------------- | :-------------------------------------------------------------------- |
 | `clinic`         | a **field** of the candidate member, if the pool has one by that name |
-| `Clinic`         | a **column** of the current row    |
-| `Doctors.clinic` | always the candidate's field — the qualified form |
-| `North`          | a bare word, read as the literal string |
+| `Clinic`         | a **column** of the current row                                       |
+| `Doctors.clinic` | always the candidate's field — the qualified form                     |
+| `North`          | a bare word, read as the literal string                               |
 
 The order matters: a bare name is looked up as a member field **first**, and only then
 as a row column. A name that is both is refused rather than guessed at:
@@ -156,10 +156,10 @@ Nobody buys above their budget, and nothing had to be listed by hand.
 
 Two paths, and which one runs is decided by how the filter is written:
 
-| The filter | How a row is answered |
-| :--------- | :--------------------- |
+| The filter                           | How a row is answered                                               |
+| :----------------------------------- | :------------------------------------------------------------------ |
 | `field == Column` (either way round) | the pool is bucketed by that field **once**; a row costs one lookup |
-| anything else | the candidates are scanned, per row — linear in the pool size |
+| anything else                        | the candidates are scanned, per row — linear in the pool size       |
 
 Both are correct. The difference is why a pool has a
 [size ceiling](overview.md#size) at all: a scan over a million members, two thousand
@@ -170,9 +170,9 @@ times, is a real cost, and the ceiling is where the tool says so.
 Both narrow something, and both may appear on the same `<gen>`. They differ in **what
 comes out**:
 
-| | The question it asks | When it says no |
-| :-- | :-- | :-- |
-| `if`     | about the **row** — one answer per row | nothing is generated; the cell is empty |
+|          | The question it asks                             | When it says no                                           |
+| :------- | :----------------------------------------------- | :-------------------------------------------------------- |
+| `if`     | about the **row** — one answer per row           | nothing is generated; the cell is empty                   |
 | `filter` | about each **candidate** — one answer per member | a matching member is substituted; the cell is never empty |
 
 So `if="Age >= 18"` leaves minors without a doctor, and `filter="clinic == Clinic"`
@@ -207,7 +207,7 @@ the row's column draws from, so every value is represented.
 ## Related
 
 - [Overview](overview.md#top) — what a pool is, and the size ceiling this page refers to
-- [Linking pools together](linking.md#top) — `filter` reading a field of *another* pool
+- [Linking pools together](linking.md#top) — `filter` reading a field of _another_ pool
   reference, which is how a chain is built
 - [Conditions](../constructs/conditional-output.md#top) — `if` in full, including the
   operators `filter` shares with it

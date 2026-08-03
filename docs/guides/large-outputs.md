@@ -59,7 +59,7 @@ config, not the hardware** — so the same config gives the same result on every
 > stays flat — **time does not**.
 >
 > **The worst case by far is `uniq` and `percent` on the same columns.** Hitting exact
-> proportions *and* no repeats at once is a constrained layout problem stacked on top of the
+> proportions _and_ no repeats at once is a constrained layout problem stacked on top of the
 > sort. That is dramatically slower again: a run that would finish quickly with only one of
 > the two can take an unreasonable amount of time with both. If you can drop either the exactness (let
 > the proportions be approximate) or the uniqueness, do.
@@ -323,14 +323,14 @@ strictly in order. Thread count is only about speed — it never affects the dat
 A benchmark — 1,000,000 rows, six fields (a counter, two template names, a `percent`
 column, a normal distribution, a date), a 74 MB file, on a 12-core machine:
 
-| `--jobs`      |   time | speedup |
-| :------------ | -----: | ------: |
-| 1             | 6.93 s |      ×1 |
-| 2             | 4.04 s |    ×1.7 |
-| 4             | 2.27 s |    ×3.1 |
-| 8             | 1.57 s |  **×4.4** |
-| 12            | 1.72 s |    ×4.0 |
-| auto          | 1.69 s |    ×4.1 |
+| `--jobs` |   time |  speedup |
+| :------- | -----: | -------: |
+| 1        | 6.93 s |       ×1 |
+| 2        | 4.04 s |     ×1.7 |
+| 4        | 2.27 s |     ×3.1 |
+| 8        | 1.57 s | **×4.4** |
+| 12       | 1.72 s |     ×4.0 |
+| auto     | 1.69 s |     ×4.1 |
 
 Two lessons. **More threads isn't always faster:** twelve threads on twelve cores lose to
 eight — they fight over the same cores and the same disk. And **there's usually nothing to
@@ -389,16 +389,16 @@ does **not** materialize a registry — O(fields). The object methods
 (`toArray`/`iterate`/`getAt`) return JS objects through the small in-RAM engine, so they
 hold data in memory (fine for the small sets the object API exists for).
 
-| Method         | Text output           | Memory                | Use for                          |
-| :------------- | :-------------------- | :-------------------- | :------------------------------- |
-| `toString()`   | collected whole       | O(fields) + full text | small / medium results           |
-| `toIterator()` | one row at a time     | O(fields)             | large text results, row by row   |
-| `toStream()`   | Node `Readable`       | O(fields)             | pipe to a file / HTTP / archiver |
-| `writeFile()`  | chunks to a file      | O(fields)             | simplest way to write a big file |
-| CLI            | chunks                | O(fields)             | the command line                 |
-| `toArray()`    | object rows, whole    | materialized in RAM   | small / medium object fixtures   |
-| `iterate()`    | object rows, one-by-one | materialized in RAM | object output, one row at a time |
-| `getAt(index)` | one object row        | materialized per call | point access, not bulk           |
+| Method         | Text output             | Memory                | Use for                          |
+| :------------- | :---------------------- | :-------------------- | :------------------------------- |
+| `toString()`   | collected whole         | O(fields) + full text | small / medium results           |
+| `toIterator()` | one row at a time       | O(fields)             | large text results, row by row   |
+| `toStream()`   | Node `Readable`         | O(fields)             | pipe to a file / HTTP / archiver |
+| `writeFile()`  | chunks to a file        | O(fields)             | simplest way to write a big file |
+| CLI            | chunks                  | O(fields)             | the command line                 |
+| `toArray()`    | object rows, whole      | materialized in RAM   | small / medium object fixtures   |
+| `iterate()`    | object rows, one-by-one | materialized in RAM   | object output, one row at a time |
+| `getAt(index)` | one object row          | materialized per call | point access, not bulk           |
 
 For big files, use the CLI, `writeFile()`, `toIterator()`, or `toStream()`:
 

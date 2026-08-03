@@ -139,7 +139,7 @@ random, then a number inside it.
 > [!NOTE]
 > **Distribution detail**
 >
-> With a range **list**, each *range* is equally likely, and then a number *inside*
+> With a range **list**, each _range_ is equally likely, and then a number _inside_
 > the chosen range is equally likely — so individual numbers are **not** uniform
 > across the whole set. If you want a genuinely uniform pick over a range minus a few
 > holes, use `exclude` (below) instead.
@@ -269,7 +269,7 @@ value="0..9" include="100"             → 8
 Two things worth knowing:
 
 - **The pick is genuinely uniform** over everything that remains. `value="0..9"
-  exclude="3"` gives each of the nine surviving numbers exactly a 1-in-9 chance —
+exclude="3"` gives each of the nine surviving numbers exactly a 1-in-9 chance —
   unlike a range list, where ranges, not numbers, are equally weighted.
 - **`exclude` has the last word.** The final set is `(base ∪ include) − exclude`,
   so a number added by `include` and removed by `exclude` is gone. If nothing is

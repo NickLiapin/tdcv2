@@ -21,6 +21,7 @@ One crate, library and command line together.
 > [!TIP]
 > **On crates.io — version 0.1.3**
 >
+>
 > ```bash
 > cargo add tdcv2      # as a dependency
 > cargo install tdcv2  # as a command
@@ -76,14 +77,14 @@ had one that happened to be empty.
 
 ## Options
 
-| | |
-| --- | --- |
-| `config_file` / `config_string` | Exactly one of the two |
-| `count`, `seed`, `locale` | Override what `<env>` declared |
-| `engine` | Force engine 1, 2 or 3 instead of letting the config route |
-| `now_millis` | Pin the clock, so a test asserting on a date does not expire overnight |
-| `packs_dir`, `data_paths` | Where packs and `@data/…` sources are found |
-| `base_dir` | What a relative `src=` is relative to |
+|                                 |                                                                        |
+| ------------------------------- | ---------------------------------------------------------------------- |
+| `config_file` / `config_string` | Exactly one of the two                                                 |
+| `count`, `seed`, `locale`       | Override what `<env>` declared                                         |
+| `engine`                        | Force engine 1, 2 or 3 instead of letting the config route             |
+| `now_millis`                    | Pin the clock, so a test asserting on a date does not expire overnight |
+| `packs_dir`, `data_paths`       | Where packs and `@data/…` sources are found                            |
+| `base_dir`                      | What a relative `src=` is relative to                                  |
 
 A refused config comes back as `TdcError::Refused`, which carries the diagnostics **and**
 the source they point into — so a caller can render the offending line rather than only

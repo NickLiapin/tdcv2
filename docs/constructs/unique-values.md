@@ -13,10 +13,10 @@
 Real datasets have two different "no duplicates" rules, and TDC gives you a separate
 tool for each:
 
-| Mechanism    | Scope    | Meaning                                              |
+| Mechanism    | Scope    | Meaning                                             |
 | :----------- | :------- | :-------------------------------------------------- |
 | `<distinct>` | one row  | fields **don't equal each other** within a row      |
-| `uniq`       | all rows | the **combination of fields** is unique across rows  |
+| `uniq`       | all rows | the **combination of fields** is unique across rows |
 
 Think of them as the same idea on two axes. `<distinct>` works **horizontally** —
 inside a single row, so you never get `John John` or "born in Paris, lives in Paris".
@@ -178,8 +178,8 @@ Details worth knowing:
   than the number of fields that must differ (say, one word for two fields), TDC
   raises a clear error instead of looping forever.
 - **At the `<env>` level the group takes single-value sequences only** — a plain
-  `<gen>` or a [`<mix>`](mix.md#top). A compound (multi-field) sequence there is rejected with
-  error `TDC129`.
+  `<gen>`, a [`<mix>`](mix.md#top) or a [`<switch>`](switch.md#top). A compound (multi-field)
+  sequence there is rejected with error `TDC129`.
 
 ## `uniq` — the combination never repeats
 
@@ -308,8 +308,8 @@ When the fields live in **different** sequences, wrap them in `<uniq>…</uniq>`
 <block><line><data>${{First}} ${{Last}}</data></line></block>
 ```
 
-Only single-value sequences (a plain [`<gen>`](../generators/overview.md#top) or a
-`<mix>`) can go in the group; a compound sequence can't.
+Only single-value sequences (a plain [`<gen>`](../generators/overview.md#top), a
+`<mix>` or a `<switch>`) can go in the group; a compound sequence can't.
 
 > [!NOTE]
 > **Not a "unique id"**
@@ -317,7 +317,7 @@ Only single-value sequences (a plain [`<gen>`](../generators/overview.md#top) or
 > This is about the uniqueness of a **combination of fields**, not a counter. For a
 > running number, use [`increment`](../generators/counters.md#top).
 
-### Making a *joined* value unique
+### Making a _joined_ value unique
 
 `uniq` is a property of a **draw**. A sequence whose value is
 [computed](../compute/overview.md#top), or picked per row by `if=`, isn't drawn from a
@@ -349,7 +349,7 @@ read alike once the boundary is gone.
 you're making unique:
 
 - **Over finite text lists, without `percent`**, a fast engine guarantees uniqueness
-  *by construction* (a mixed-radix numbering plus a permutation), without storing
+  _by construction_ (a mixed-radix numbering plus a permutation), without storing
   anything it has already generated, up to `2^52` combinations. This scales freely —
   a hundred thousand rows in a second.
 - **Over numbers, dates, or templates, or with `percent` on a column**, TDC can't
@@ -362,7 +362,7 @@ you're making unique:
 > The sort-and-repair check is thorough, and its cost grows **faster than linearly** with
 > the row count. Memory stays bounded, but time doesn't — hundreds of thousands of unique
 > rows already take **minutes**, and millions can run for **hours or longer**. That's the
-> honest price of guaranteeing *no repeat at all* across a huge file.
+> honest price of guaranteeing _no repeat at all_ across a huge file.
 >
 > **`uniq` together with `percent` on the same columns is the worst case there is:**
 > asking for exact proportions and no repeats at once stacks a constrained layout on top

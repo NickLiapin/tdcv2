@@ -32,12 +32,12 @@ guarantees (how many values land in a cell, and how they're joined) does not.
 
 ## At a glance
 
-| Attribute       | What it means                                              |
-| :-------------- | :-------------------------------------------------------- |
-| `repeat="3"`    | exactly three values                                      |
+| Attribute       | What it means                                                       |
+| :-------------- | :------------------------------------------------------------------ |
+| `repeat="3"`    | exactly three values                                                |
 | `repeat="1..5"` | between one and five — every length gets an exact share of the rows |
-| `repeat="0..3"` | zero is allowed — the cell can come out empty             |
-| `separator=" "` | what to join with; defaults to a comma                    |
+| `repeat="0..3"` | zero is allowed — the cell can come out empty                       |
+| `separator=" "` | what to join with; defaults to a comma                              |
 
 The upper bound is **64**. `separator` without `repeat` is an error — there's
 nothing to join.
@@ -177,11 +177,11 @@ the list with its running total.
 The left column is the same generator without `accumulate=`; the right one is with it. The
 last element is the total, and every element before it is the subtotal at that point.
 
-| `accumulate=` | Each element becomes |
-| :------------ | :-------------------- |
-| `sum` | everything up to and including it, added up |
-| `max` | the largest value seen so far — a high-water mark |
-| `min` | the smallest so far |
+| `accumulate=` | Each element becomes                              |
+| :------------ | :------------------------------------------------ |
+| `sum`         | everything up to and including it, added up       |
+| `max`         | the largest value seen so far — a high-water mark |
+| `min`         | the smallest so far                               |
 
 <Terminal title="./run peaks.tdc">
 {`пик 22,22,22,83,83
@@ -287,10 +287,10 @@ for `repeat`; if you need that, it's a different constraint.
 A few generators tie each value to the **row number**, and `repeat` can't apply
 to them:
 
-| Generator                                                       | Why not                                     |
-| :-------------------------------------------------------------- | :------------------------------------------ |
-| [`increment`](../generators/counters.mdx), `decrement`          | the value depends on the row's position     |
-| [`timeseries`](../generators/timeseries.mdx), [`pattern`](../generators/pattern.mdx) | same — the value is bound to the position   |
+| Generator                                                                            | Why not                                   |
+| :----------------------------------------------------------------------------------- | :---------------------------------------- |
+| [`increment`](../generators/counters.mdx), `decrement`                               | the value depends on the row's position   |
+| [`timeseries`](../generators/timeseries.mdx), [`pattern`](../generators/pattern.mdx) | same — the value is bound to the position |
 
 For these, an element's index would depend on how long **all the previous rows**
 turned out to be — a random quantity. That would make a row impossible to compute
@@ -299,13 +299,13 @@ error (`TDC204`) rather than silently doing the wrong thing.
 
 ## What else TDC won't accept
 
-| What you wrote                                 | What it says                                                        |
-| :--------------------------------------------- | :----------------------------------------------------------------- |
-| `repeat="many"`, `repeat="1.5"`                | `TDC195` — an integer is required                                  |
-| `repeat="-1"`, `repeat="5..2"`                 | `TDC195` — the minimum can't be negative or above the maximum      |
-| `repeat="1..65"`                               | `TDC195` — the upper bound is 64                                   |
-| `separator=";"` without `repeat`              | `TDC198` — nothing to join                                        |
-| `repeat` or `separator` on a `<mix>`          | `TDC196` — a mix picks one branch; it doesn't build a list        |
+| What you wrote                       | What it says                                                  |
+| :----------------------------------- | :------------------------------------------------------------ |
+| `repeat="many"`, `repeat="1.5"`      | `TDC195` — an integer is required                             |
+| `repeat="-1"`, `repeat="5..2"`       | `TDC195` — the minimum can't be negative or above the maximum |
+| `repeat="1..65"`                     | `TDC195` — the upper bound is 64                              |
+| `separator=";"` without `repeat`     | `TDC198` — nothing to join                                    |
+| `repeat` or `separator` on a `<mix>` | `TDC196` — a mix picks one branch; it doesn't build a list    |
 
 On that last one: a `<mix>` **chooses** among branches, so "repeat it" has no
 well-defined meaning. If you want a list inside a branch, put `repeat` on the

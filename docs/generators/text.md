@@ -22,7 +22,7 @@ guarantees never do.
 
 | Attribute | Required | What it does                                                             |
 | :-------- | :------- | :----------------------------------------------------------------------- |
-| `value`   | **yes**  | The options, comma-separated: `"a,b,c"`                                   |
+| `value`   | **yes**  | The options, comma-separated: `"a,b,c"`                                  |
 | `percent` | no       | Exact share of each option; see [below](#exact-proportions-with-percent) |
 
 On top of these, `text` accepts the cross-cutting generator attributes —
@@ -73,7 +73,7 @@ For strict list order instead of random picks, add
 This is what sets `text` apart from a plain random picker. Add `percent` and TDC
 lays the values out to **exact** counts using the Hamilton (largest-remainder)
 method — the number of times each value appears is guaranteed to match the
-percentages. The randomness is only in the *order*.
+percentages. The randomness is only in the _order_.
 
 ```xml
 <sequence name="Gender">
@@ -172,13 +172,13 @@ You don't have to fill in every position. The rule is:
 The `Values` column below gives the length of the value list the shares are applied to,
 since the same `percent` expands differently depending on how many values there are:
 
-| `percent` | Values | Expands to                  | Why                                                      |
-| :------- | :----- | :--------------------------- | :------------------------------------------------------- |
-| `60`     | 2      | `60,40`                      | value 1 = 60; value 2 takes the rest                     |
-| `,58`    | 2      | `42,58`                      | value 2 = 58; value 1 takes the rest                     |
-| `,10,10` | 4      | `40,40,10,10`                | values 3–4 = 10; values 1–2 split the remaining 80       |
-| `46,`    | 5      | `46,13.5,13.5,13.5,13.5`     | value 1 = 46; values 2–5 split the remaining 54 (÷4)     |
-| `,,25,,` | 5      | `18.75,18.75,25,18.75,18.75` | value 3 = 25; the other four split the remaining 75 (÷4) |
+| `percent` | Values | Expands to                   | Why                                                      |
+| :-------- | :----- | :--------------------------- | :------------------------------------------------------- |
+| `60`      | 2      | `60,40`                      | value 1 = 60; value 2 takes the rest                     |
+| `,58`     | 2      | `42,58`                      | value 2 = 58; value 1 takes the rest                     |
+| `,10,10`  | 4      | `40,40,10,10`                | values 3–4 = 10; values 1–2 split the remaining 80       |
+| `46,`     | 5      | `46,13.5,13.5,13.5,13.5`     | value 1 = 46; values 2–5 split the remaining 54 (÷4)     |
+| `,,25,,`  | 5      | `18.75,18.75,25,18.75,18.75` | value 3 = 25; the other four split the remaining 75 (÷4) |
 
 Take `46,` on a five-value list: only the first share is set, so the other four
 values divide the leftover `100 − 46 = 54` evenly — `13.5` each. The lone trailing

@@ -20,7 +20,7 @@ That is what lets one declarative config model a real dependent distribution: ma
 only for men, a diagnosis that follows from sex, children with no spouse.
 
 :::note
-Example outputs below are illustrative. The exact *values* a generator emits can
+Example outputs below are illustrative. The exact _values_ a generator emits can
 change from one core version or seed to the next; what the feature guarantees is the
 **counts** and the **structural rules** — which rows get filled and which stay empty.
 :::
@@ -221,7 +221,7 @@ parents always come first.
 ## `parent` without a value
 
 `parent="Parent"` — with **no dot and no value** — means "any row where the parent has
-a value at all", regardless of *which* value. You rarely need it at the first level (a
+a value at all", regardless of _which_ value. You rarely need it at the first level (a
 top-level parent always has a value), but it's the right tool for deeper chains, where
 a mid-level sequence is itself filtered and you want a grandchild only where that
 mid-level one fired.
@@ -291,7 +291,7 @@ never had to write `Country == RU` in the condition.
 ## A tree in the data, not in the config
 
 `parent` relates one **sequence** to another. A different job comes up almost as often:
-a record that points at *another record of the same kind*. An employee whose manager is
+a record that points at _another record of the same kind_. An employee whose manager is
 an employee, a comment replying to a comment, a category inside a category.
 
 That is a column, not a construct — and the whole difficulty is one word: **cycles**. A
@@ -353,7 +353,7 @@ What that guarantees, by construction rather than by luck:
   for a deep, thin one.
 
 The same column works for an org chart, a threaded comment tree, a bill of materials, or
-nested categories. What the records *say* is a separate question — comment text is just
+nested categories. What the records _say_ is a separate question — comment text is just
 [`text.paragraph`](../generators/template.mdx) and does not have to make conversational
 sense for the tree to be a valid tree.
 

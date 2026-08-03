@@ -22,15 +22,15 @@ can differ by core version. What stays fixed is the shape and the format.
 
 ## At a glance
 
-| Attribute             | What it does                                                       |
-| :-------------------- | :----------------------------------------------------------------- |
-| `value`               | `birth`, `today`, `now`, a single date, or a range `START..END`    |
-| `range`               | A range `START..END` — a newer spelling of the same idea           |
-| `from` / `to`         | The two endpoints of a range, given separately                     |
-| `format`              | Output format (see [Formatting the output](#formatting-the-output)); default `L` |
+| Attribute             | What it does                                                                             |
+| :-------------------- | :--------------------------------------------------------------------------------------- |
+| `value`               | `birth`, `today`, `now`, a single date, or a range `START..END`                          |
+| `range`               | A range `START..END` — a newer spelling of the same idea                                 |
+| `from` / `to`         | The two endpoints of a range, given separately                                           |
+| `format`              | Output format (see [Formatting the output](#formatting-the-output)); default `L`         |
 | `local`               | `en`, `es`, `ru`, or `zh-cn`; inherited from [`<env>`](../reference/tags.md#top) if omitted |
-| `oldest` / `youngest` | Age window in years for `value="birth"` (defaults `80` and `10`)   |
-| `precision`           | `day`, `second`, or `millisecond`                                  |
+| `oldest` / `youngest` | Age window in years for `value="birth"` (defaults `80` and `10`)                         |
+| `precision`           | `day`, `second`, or `millisecond`                                                        |
 
 Use only one of `value`, `range`, or the `from`/`to` pair to describe a range — they
 are three spellings of the same thing.
@@ -196,10 +196,10 @@ value="now"   format="YYYY-MM-DDTHH:mm:ss.SSS"   2026-04-23T12:00:00.000
 
 When `precision` is omitted, the default follows the range type:
 
-| Range type              | Default step   | What `precision` changes                      |
-| :---------------------- | :------------- | :-------------------------------------------- |
-| date-only (`YYYY-MM-DD`) | one **day**   | rarely needed — the range already steps in whole days |
-| date-time               | one **millisecond** | `precision="second"` zeros the milliseconds |
+| Range type               | Default step        | What `precision` changes                              |
+| :----------------------- | :------------------ | :---------------------------------------------------- |
+| date-only (`YYYY-MM-DD`) | one **day**         | rarely needed — the range already steps in whole days |
+| date-time                | one **millisecond** | `precision="second"` zeros the milliseconds           |
 
 Use `precision="second"` whenever you want clean, human-looking timestamps instead of
 millisecond noise; use `precision="millisecond"` (the date-time default) when you need
@@ -214,32 +214,32 @@ Here is every token, applied to one fixed moment: **Tuesday, March 5, 2024,
 09:04:07**. The day and the month are single-digit on purpose, so the padded and
 unpadded pairs differ visibly:
 
-| Token  | Means                          | Example                        |
-| :----- | :----------------------------- | :----------------------------- |
-| `YYYY` | 4-digit year                   | `2024`                         |
-| `YY`   | 2-digit year                   | `24`                           |
-| `MMMM` | full month name                | `March`                        |
-| `MMM`  | short month name               | `Mar`                          |
-| `MM`   | 2-digit month                  | `03`                           |
-| `M`    | month, no leading zero         | `3`                            |
-| `DD`   | 2-digit day                    | `05`                           |
-| `D`    | day, no leading zero           | `5`                            |
-| `dddd` | full weekday name              | `Tuesday`                      |
-| `ddd`  | short weekday name             | `Tue`                          |
-| `HH`   | 2-digit hour (24h)             | `09`                           |
-| `H`    | hour, no leading zero          | `9`                            |
-| `mm`   | 2-digit minute                 | `04`                           |
-| `m`    | minute, no leading zero        | `4`                            |
-| `ss`   | 2-digit second                 | `07`                           |
-| `s`    | second, no leading zero        | `7`                            |
-| `SSS`  | milliseconds                   | `000`                          |
-| `Z`    | UTC offset with a colon        | `+00:00`                       |
-| `ZZ`   | UTC offset without a colon     | `+0000`                        |
-| `ISO`  | ISO 8601 date                  | `2024-03-05`                   |
-| `L`    | locale-aware short date        | `03/05/2024`                   |
-| `LL`   | locale-aware long date         | `March 5, 2024`                |
-| `LLL`  | locale-aware long date + time  | `March 5, 2024 09:04`          |
-| `LLLL` | the same, with the weekday     | `Tuesday, March 5, 2024 09:04` |
+| Token  | Means                         | Example                        |
+| :----- | :---------------------------- | :----------------------------- |
+| `YYYY` | 4-digit year                  | `2024`                         |
+| `YY`   | 2-digit year                  | `24`                           |
+| `MMMM` | full month name               | `March`                        |
+| `MMM`  | short month name              | `Mar`                          |
+| `MM`   | 2-digit month                 | `03`                           |
+| `M`    | month, no leading zero        | `3`                            |
+| `DD`   | 2-digit day                   | `05`                           |
+| `D`    | day, no leading zero          | `5`                            |
+| `dddd` | full weekday name             | `Tuesday`                      |
+| `ddd`  | short weekday name            | `Tue`                          |
+| `HH`   | 2-digit hour (24h)            | `09`                           |
+| `H`    | hour, no leading zero         | `9`                            |
+| `mm`   | 2-digit minute                | `04`                           |
+| `m`    | minute, no leading zero       | `4`                            |
+| `ss`   | 2-digit second                | `07`                           |
+| `s`    | second, no leading zero       | `7`                            |
+| `SSS`  | milliseconds                  | `000`                          |
+| `Z`    | UTC offset with a colon       | `+00:00`                       |
+| `ZZ`   | UTC offset without a colon    | `+0000`                        |
+| `ISO`  | ISO 8601 date                 | `2024-03-05`                   |
+| `L`    | locale-aware short date       | `03/05/2024`                   |
+| `LL`   | locale-aware long date        | `March 5, 2024`                |
+| `LLL`  | locale-aware long date + time | `March 5, 2024 09:04`          |
+| `LLLL` | the same, with the weekday    | `Tuesday, March 5, 2024 09:04` |
 
 Month and weekday names, and the four `L` forms, follow the locale — see
 [below](#locale-aware-formats-l-and-ll). Everything else is the same in every

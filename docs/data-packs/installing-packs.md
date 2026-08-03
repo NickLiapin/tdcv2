@@ -22,7 +22,7 @@ The whole flow is two commands, and the order matters:
 2. `tdcv2 pack add …` — fill that place with the sets you actually need.
 
 `init` comes first because it answers a question `pack` cannot: which folder is
-*yours*. Packs deliberately do not live inside the installed library — if they did,
+_yours_. Packs deliberately do not live inside the installed library — if they did,
 every `npm update`, `pip install -U` or dependency bump would wipe a gigabyte of data
 you chose. `init` writes down a folder that belongs to your project, and every
 implementation reads that same file, so a pack downloaded once is found by all of them.
@@ -110,8 +110,8 @@ tdcv2 init --global
 `tdcv2 init --global`
 
 ```
-Wrote global config: /Users/you/.config/tdcv2/tdcv2.config.json
-  data packs → /Users/you/.config/tdcv2/tdcv2-packs
+Wrote global config: /Users/you/.config/tdcv2/config.json
+  data packs → /Users/you/.config/tdcv2/packs
   locale     → en
 ```
 
@@ -194,8 +194,8 @@ between bare coastlines and filled land.
 Every implementation opens the same picker, and the terminal decides how it is drawn:
 half-blocks and colour where they exist, ASCII and a plain line drawing where they do not
 (the old Windows console, a pipe, `NO_COLOR`). Java's and Rust's pickers need `stty` and
-so are Unix-only; on Windows they print the list instead, which C# and Node do not have to
-because their runtimes read a keystroke on their own.
+so are Unix-only; on Windows they print the list instead, which Node, Python and C# do not
+have to because their runtimes read a keystroke on their own.
 
 In a script — or anywhere without a terminal — drive it with subcommands:
 
@@ -228,27 +228,27 @@ of each set.
 ```
 Available data packs:
 
-  common       ✓ installed  Common (locale-agnostic) (0.0 MB)
-               Generators bound to neither a language nor a country: uuid,
-               hashes, ISBN/ISSN, GTIN/UPC/EAN, card PANs, MRZ, IPv4/IPv6/MAC,
-               semver, and more.
+common ✓ installed Common (locale-agnostic) (0.0 MB)
+Generators bound to neither a language nor a country: uuid,
+hashes, ISBN/ISSN, GTIN/UPC/EAN, card PANs, MRZ, IPv4/IPv6/MAC,
+semver, and more.
 
-  ar                        Arabic (language) (0.1 MB)
-               Content bound to the Arabic language rather than to any one
-               country: address, airline, animal, book, clothing, color,
-               commerce, company, date, education, event, finance, and 23 more.
+ar Arabic (language) (0.1 MB)
+Content bound to the Arabic language rather than to any one
+country: address, airline, animal, book, clothing, color,
+commerce, company, date, education, event, finance, and 23 more.
 
-  …
+…
 
-  yemen                     Yemen (country) (0.0 MB)
-               Data specific to Yemen: docs, education, finance, geo, holiday,
-               phone, sport.
+yemen Yemen (country) (0.0 MB)
+Data specific to Yemen: docs, education, finance, geo, holiday,
+phone, sport.
 
 Install with: tdcv2 pack add <id>
 ```
 
 Descriptions are folded to your window, so the list stays a list however narrow the
-terminal is. Piped or redirected there is no window to measure, and all three
+terminal is. Piped or redirected there is no window to measure, and all five
 implementations assume 80 columns — so a saved listing is the same file whichever one
 wrote it.
 

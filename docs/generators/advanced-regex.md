@@ -111,7 +111,7 @@ DE   10
 > memory, any output size), [`<mix percent>`](../reference/tags.md#distributions-and-choice)
 > and [`<gen type="text" percent="…">`](text.md#exact-proportions-with-percent) give
 > exact proportions in a stream, without holding the whole column. And if you
-> *manually* force the pure streaming engine (`mode="stream"` or `--engine 2`), TDC
+> _manually_ force the pure streaming engine (`mode="stream"` or `--engine 2`), TDC
 > won't silently ruin the percentages — it can't count them one row at a time, so it
 > refuses with a clear error. Drop the override and it's exact again.
 
@@ -141,16 +141,16 @@ makeup of the column changes with them.
 
 ## `regex` vs `advanced_regex`
 
-| Capability                                | `regex` | `advanced_regex` |
-| :---------------------------------------- | :------ | :--------------- |
-| Generate a string from a pattern          | yes     | yes              |
-| Character classes                         | yes     | yes              |
-| Named Unicode alphabets                   | yes     | yes              |
-| Groups and backreferences                 | yes     | yes              |
-| Length cap via `regex_max_length`         | yes     | yes              |
-| **Exact percentages inside the pattern**  | no      | **yes**          |
-| **Nest weighted variants**                | no      | **yes**          |
-| Weighted choice in the output block        | no      | no               |
+| Capability                               | `regex` | `advanced_regex` |
+| :--------------------------------------- | :------ | :--------------- |
+| Generate a string from a pattern         | yes     | yes              |
+| Character classes                        | yes     | yes              |
+| Named Unicode alphabets                  | yes     | yes              |
+| Groups and backreferences                | yes     | yes              |
+| Length cap via `regex_max_length`        | yes     | yes              |
+| **Exact percentages inside the pattern** | no      | **yes**          |
+| **Nest weighted variants**               | no      | **yes**          |
+| Weighted choice in the output block      | no      | no               |
 
 The difference is easiest to see side by side. Plain [`regex`](regex.md#top) picks each
 character freely — the shape is fixed, the shares are not:

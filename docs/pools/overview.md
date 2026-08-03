@@ -58,7 +58,7 @@ Linda -> Dr. James Johnson, room 100
 > **Outputs are illustrative**
 >
 > The values come from a fixed `seed`, so they're reproducible, but exact strings can
-> differ between core versions. Treat them as examples of *shape*, not guarantees.
+> differ between core versions. Treat them as examples of _shape_, not guarantees.
 
 Four doctors serve eight patients, and each doctor's three fields stay glued together.
 James Smith is in room 197 on every row where he appears, because the row picked
@@ -87,15 +87,15 @@ Everything else on this page follows from those two sentences.
 `<sequence>`. It is never read directly; a sequence draws from it.
 
 | On `<pool>` | Required | What it does                                    |
-| :---------- | :------- | :----------------------------------------------- |
-| `name`      | yes      | The name a `<gen type="pool">` names in `value`  |
-| `count`     | yes      | How many members the table holds                 |
-| `comment`   | no       | Free-text note                                   |
+| :---------- | :------- | :---------------------------------------------- |
+| `name`      | yes      | The name a `<gen type="pool">` names in `value` |
+| `count`     | yes      | How many members the table holds                |
+| `comment`   | no       | Free-text note                                  |
 
-| On `<gen type="pool">` | Required | What it does                                          |
-| :--------------------- | :------- | :------------------------------------------------------ |
-| `value`                | yes      | The pool to draw from                                    |
-| `filter`               | no       | Which members this row may draw from — [Narrowing](filter.md#top) |
+| On `<gen type="pool">` | Required | What it does                                                                     |
+| :--------------------- | :------- | :------------------------------------------------------------------------------- |
+| `value`                | yes      | The pool to draw from                                                            |
+| `filter`               | no       | Which members this row may draw from — [Narrowing](filter.md#top)                   |
 | `if`                   | no       | Whether this row gets a member at all — [Narrowing](filter.md#filter-is-not-if) |
 
 ## A pool is a miniature `<env>`
@@ -106,16 +106,16 @@ with the **member count** standing in for the row count.
 
 So everything you already know still applies inside a pool:
 
-| Inside a pool | Means |
-| :------------ | :---- |
-| `<sequence>` | a field of each member |
-| [`<mix>`](../constructs/mix.md#top) | a field split by exact `percent` — across the MEMBERS |
-| [`<switch>`](../constructs/switch.md#top) | a field derived from another field of the same member |
-| [`<uniq>`](../constructs/unique-values.md#top) · `uniq="true"` | members that must differ from one another |
-| `<distinct>` | two fields of one member that must differ |
-| `if=` | a field only some members have |
-| `parent=` | a field built over the members another field selected |
-| `<compute>` | a field calculated from the member's other fields |
+| Inside a pool                                               | Means                                                 |
+| :---------------------------------------------------------- | :---------------------------------------------------- |
+| `<sequence>`                                                | a field of each member                                |
+| [`<mix>`](../constructs/mix.md#top)                            | a field split by exact `percent` — across the MEMBERS |
+| [`<switch>`](../constructs/switch.md#top)                      | a field derived from another field of the same member |
+| [`<uniq>`](../constructs/unique-values.md#top) · `uniq="true"` | members that must differ from one another             |
+| `<distinct>`                                                | two fields of one member that must differ             |
+| `if=`                                                       | a field only some members have                        |
+| `parent=`                                                   | a field built over the members another field selected |
+| `<compute>`                                                 | a field calculated from the member's other fields     |
 
 What a pool may **not** hold is output: no `<block>`, and no fixture tags. A pool is a
 table other columns read, not something written to a file. It also may not contain
@@ -201,7 +201,7 @@ how often those three are seen depends on how the rows draw — and on
 ```
 
 Six distinct room numbers, drawn without replacement. A pool whose members are meant to
-be *different things* usually wants this on at least one field — otherwise two members
+be _different things_ usually wants this on at least one field — otherwise two members
 can come out identical, and a row cannot tell them apart.
 
 ## The pool's own seed
@@ -235,11 +235,11 @@ A pool is held in memory for the whole run — that is what makes a row's lookup
 Measured on the reference implementation, a member with four fields costs about
 320 bytes.
 
-| Members | Roughly | What happens |
-| :------ | :------ | :------------ |
-| up to 100,000 | up to ~29 MB | nothing; it runs |
-| over 100,000 | | `TDC234`, a warning |
-| over 1,000,000 | over ~290 MB | `TDC235`, refused |
+| Members        | Roughly      | What happens        |
+| :------------- | :----------- | :------------------ |
+| up to 100,000  | up to ~29 MB | nothing; it runs    |
+| over 100,000   |              | `TDC234`, a warning |
+| over 1,000,000 | over ~290 MB | `TDC235`, refused   |
 
 Both messages end the same way, because it is the usual cause: if you meant the number
 of **rows**, that is `count` on `<env>`.

@@ -23,7 +23,7 @@ An unknown path is a render error: `unknown template path "..."`.
 > **Outputs are illustrative**
 >
 > The values shown on this page come from a fixed `seed`, so they are reproducible, but
-> the exact strings can differ between core versions. Treat them as examples of *shape*,
+> the exact strings can differ between core versions. Treat them as examples of _shape_,
 > not guarantees.
 
 ## Why not a plain list
@@ -155,7 +155,7 @@ last=Shapiro     diagnosis=Hypertension
 The diagnosis pools are gendered for realism — `person.female.diagnosis` draws from a
 female-specific list mixed with common conditions — which is why they follow the same
 `male` / `female` split as first names. Use them for synthetic medical fixtures where
-the label just has to *look* plausible, not be clinically accurate.
+the label just has to _look_ plausible, not be clinically accurate.
 
 ### `person.gender` — a locale-aware label
 
@@ -207,8 +207,8 @@ whichever data pack the locale selects. English is the default under `local="en"
 
 ## Location
 
-| Path               | Produces       | Locale-aware   |
-| :----------------- | :------------- | :------------: |
+| Path               | Produces       | Locale-aware  |
+| :----------------- | :------------- | :-----------: |
 | `location.country` | A country name | all 9 locales |
 
 ```xml
@@ -232,11 +232,12 @@ The list is localized: `local="ru"` yields `Греция`, `Никарагуа`,
 > [!NOTE]
 > **Every locale that has a pack**
 >
-> `location.country` ships in all nine locales that carry a data pack — **en**, **es**,
-> **de**, **it**, **pt**, **fr**, **ru**, **ar** and **zh-cn** — each with the same 233
-> countries and territories (English carries 237). A locale with no pack has no list
-> either: the path raises an error there instead of falling back to English. Cities and
-> regions are planned.
+> `location.country` ships in all ten language packs the registry carries — **ar**,
+> **de**, **el**, **en**, **es**, **fr**, **it**, **pl**, **pt** and **ru** — each with
+> the same 233 countries and territories (English carries 237). A locale with no pack has
+> no list either: the path raises an error there instead of falling back to English. Cities
+> and regions are planned under `location.*`; `geo.city` and `geo.region` already exist in
+> the country packs.
 
 ## Dates
 
@@ -534,7 +535,7 @@ data. If a country changes its rules, you edit the pack's text file, not the eng
 ## Where template data lives
 
 Today the template pools ship with the library and are exposed through the built-in
-paths listed above. The plan is to let you load *any* data file declaratively — with
+paths listed above. The plan is to let you load _any_ data file declaratively — with
 metadata describing what it is, how it's delimited, and which class parses it — so you
 can register your own pools the same way the built-ins are registered. Until then, the
 available templates are exactly the built-in ones documented here.

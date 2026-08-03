@@ -59,32 +59,32 @@ declare a named sequence and reference it with `${{Name}}` — see
 
 These work on **every** generator; the rest depend on `type`.
 
-| Attribute | Required | What it does                                                                                                                                                 |
-| :-------- | :------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `type`    | **yes**  | Which generator to use (see the table below)                                                                                                                 |
+| Attribute | Required | What it does                                                                                                                                                                               |
+| :-------- | :------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `type`    | **yes**  | Which generator to use (see the table below)                                                                                                                                               |
 | `name`    | no       | Makes this generator a **field** of its sequence, read as `${{Sequence.Field}}`. Without it the value joins the [sequence's own value](../core-concepts/sequences.mdx#a-composed-sequence) |
-| `if`      | no       | Branch condition inside a [conditional sequence](../core-concepts/sequences.mdx) — the first true `<gen>` wins                                                |
-| `comment` | no       | Free-form comment, ignored by the engine                                                                                                                     |
+| `if`      | no       | Branch condition inside a [conditional sequence](../core-concepts/sequences.mdx) — the first true `<gen>` wins                                                                             |
+| `comment` | no       | Free-form comment, ignored by the engine                                                                                                                                                   |
 
 ## The generators
 
 Each type has its own page, with every parameter and worked examples.
 
-| `type`                                          | Produces                                                       |
-| :---------------------------------------------- | :------------------------------------------------------------- |
-| [`text`](text.mdx)                              | A value from a set — uniform, or by exact `percent`            |
-| [`number`](number.mdx)                          | An integer in a range, or a fixed-width digit string           |
-| [`template`](template.mdx)                      | Built-in realistic data and technical IDs                      |
-| [`file`](file.mdx)                              | Values read from your own files and CSV columns                |
-| [`date`](date.mdx)                              | A date or date-time in a range and format                      |
-| [`symbol`](symbol.mdx)                          | A string of characters from a set or named alphabet            |
-| [`regex`](regex.mdx)                            | A string matching a finite regular expression                  |
-| [`advanced_regex`](advanced-regex.mdx)          | Regex plus weighted choice between alternatives                |
-| [`increment` / `decrement`](counters.mdx)       | Rising and falling counters                                    |
-| [`timeseries`](timeseries.mdx)                  | A time series — trend + seasonality + noise                    |
-| [`pattern`](pattern.mdx)                        | A distribution shaped like a drawn curve                       |
-| [`http`](http.mdx)                              | Values answered by your own service, batch by batch            |
-| [`running`](running.mdx)                        | A total that carries down the column — a balance, a high-water mark |
+| `type`                                    | Produces                                                            |
+| :---------------------------------------- | :------------------------------------------------------------------ |
+| [`text`](text.mdx)                        | A value from a set — uniform, or by exact `percent`                 |
+| [`number`](number.mdx)                    | An integer in a range, or a fixed-width digit string                |
+| [`template`](template.mdx)                | Built-in realistic data and technical IDs                           |
+| [`file`](file.mdx)                        | Values read from your own files and CSV columns                     |
+| [`date`](date.mdx)                        | A date or date-time in a range and format                           |
+| [`symbol`](symbol.mdx)                    | A string of characters from a set or named alphabet                 |
+| [`regex`](regex.mdx)                      | A string matching a finite regular expression                       |
+| [`advanced_regex`](advanced-regex.mdx)    | Regex plus weighted choice between alternatives                     |
+| [`increment` / `decrement`](counters.mdx) | Rising and falling counters                                         |
+| [`timeseries`](timeseries.mdx)            | A time series — trend + seasonality + noise                         |
+| [`pattern`](pattern.mdx)                  | A distribution shaped like a drawn curve                            |
+| [`http`](http.mdx)                        | Values answered by your own service, batch by batch                 |
+| [`running`](running.mdx)                  | A total that carries down the column — a balance, a high-water mark |
 
 **On presets.** The old `type="preset"` no longer exists. Algorithmic identifiers —
 UUIDs, IBANs, credit-card numbers, git SHAs, national IDs — are now
@@ -135,7 +135,7 @@ you attach.
 
 ### `case=` / `mask=` — letter case and display masks
 
-**Use it when** the raw value is correct but should *look* a certain way: a column
+**Use it when** the raw value is correct but should _look_ a certain way: a column
 that has to be all uppercase, or a plain number that should read like a formatted ID.
 
 `case=` changes letter case; `mask=` splits and rearranges characters into a fixed
@@ -170,7 +170,7 @@ in full on **[Masks & case](../guides/masks-and-case.mdx)**.
 month names in calendar order, a lookup list walked top to bottom, or two columns
 that have to stay aligned (as in the example above).
 
-By default `order="random"`. Set `order="sequential"` and row *i* takes the *i*-th
+By default `order="random"`. Set `order="sequential"` and row _i_ takes the _i_-th
 value in order, cycling back to the start when the list runs out. `cycle="false"`
 turns that wrap-around into a clear error instead — useful when running out of
 values should be a failure, not a silent repeat.

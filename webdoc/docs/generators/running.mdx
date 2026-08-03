@@ -7,7 +7,7 @@ import Terminal from '@site/src/components/Terminal';
 
 # `running` — a total that carries down the column
 
-**Use it when** a value is not drawn but *accumulated*: an account balance after each
+**Use it when** a value is not drawn but _accumulated_: an account balance after each
 transaction, a meter that only goes up, the largest load seen so far. Row 40's value
 depends on rows 1 to 39.
 
@@ -39,17 +39,17 @@ a limitation to work around — it is what "running" means.
 
 :::note[Outputs are illustrative]
 The values come from a fixed `seed`, so they're reproducible, but exact strings can differ
-between core versions. Treat them as examples of *shape*, not guarantees.
+between core versions. Treat them as examples of _shape_, not guarantees.
 :::
 
 ## At a glance
 
-| Attribute | Required | What it does |
-| :-------- | :------- | :------------ |
-| `of` | yes | The column to accumulate. Must be **declared above** this sequence |
-| `accumulate` | yes | `sum`, `min` or `max` |
-| `base` | no | The opening value — an opening balance, a starting odometer |
-| `reset` | no | A column whose change restarts the total |
+| Attribute    | Required | What it does                                                       |
+| :----------- | :------- | :----------------------------------------------------------------- |
+| `of`         | yes      | The column to accumulate. Must be **declared above** this sequence |
+| `accumulate` | yes      | `sum`, `min` or `max`                                              |
+| `base`       | no       | The opening value — an opening balance, a starting odometer        |
+| `reset`      | no       | A column whose change restarts the total                           |
 
 A running total **draws nothing**. It reads a column that already exists, consumes no
 randomness at all, and therefore adding one leaves every other column exactly where it
@@ -123,7 +123,7 @@ the router sends the config to the in-memory one:
 </Terminal>
 
 You normally never see that message — the router picks the engine itself, and the refusal
-only surfaces when a config *names* a streaming engine and so has asked to be told.
+only surfaces when a config _names_ a streaming engine and so has asked to be told.
 
 What it costs: a running total is held in memory for the run, like any in-memory column.
 That is the honest boundary of this generator. A ledger of a few million rows is fine; a
@@ -140,6 +140,6 @@ record](../constructs/multiple-values.mdx#accumulate--a-running-total-across-the
 - [`accumulate=` on a repeat list](../constructs/multiple-values.mdx#accumulate--a-running-total-across-the-list) —
   the same idea inside one record, free on every engine
 - [Counters](counters.mdx) — `increment` and `decrement`, which move by a fixed step and
-  *are* computable from the row index
+  _are_ computable from the row index
 - [Timeseries](timeseries.mdx) — a curve that rises with trend and noise, also from the
   index alone, and usually what "a value that grows" really needs

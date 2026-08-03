@@ -82,17 +82,17 @@ file's folder. With `configString` there's no file to resolve against, so set
 
 ## Terminal methods
 
-| Method             | Returns                                | For                            |
-| :----------------- | :------------------------------------- | :----------------------------- |
-| `toString()`       | the whole output as one string         | small / medium results         |
-| `writeFile(path)`  | writes the output to a file (chunks)   | a file of any size             |
-| `toIterator()`     | a generator of lines (one per record)  | large text, no full string     |
-| `toStream()`       | a Node.js `Readable`                   | `pipe` to a file / HTTP / gzip |
-| `toArray()`        | an array of row objects                | small object fixtures          |
-| `iterate()`        | a generator of row objects             | object output, no array        |
-| `getAt(index)`     | one row object by index                | point access                   |
-| `preflight(opts?)` | a memory diagnostic, or `undefined`    | a check before a big run       |
-| `seedInfo()`       | `{ seed, generated }`                  | read / log the seed            |
+| Method             | Returns                               | For                            |
+| :----------------- | :------------------------------------ | :----------------------------- |
+| `toString()`       | the whole output as one string        | small / medium results         |
+| `writeFile(path)`  | writes the output to a file (chunks)  | a file of any size             |
+| `toIterator()`     | a generator of lines (one per record) | large text, no full string     |
+| `toStream()`       | a Node.js `Readable`                  | `pipe` to a file / HTTP / gzip |
+| `toArray()`        | an array of row objects               | small object fixtures          |
+| `iterate()`        | a generator of row objects            | object output, no array        |
+| `getAt(index)`     | one row object by index               | point access                   |
+| `preflight(opts?)` | a memory diagnostic, or `undefined`   | a check before a big run       |
+| `seedInfo()`       | `{ seed, generated }`                 | read / log the seed            |
 
 `toString`, `writeFile`, `toIterator`, and `toStream` all produce text through the
 disk-backed engine, and their memory use is O(number of fields). See **[Large

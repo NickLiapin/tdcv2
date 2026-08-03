@@ -21,6 +21,7 @@ Two packages: the library, and the command line as a `dotnet tool`.
 > [!TIP]
 > **On NuGet — version 0.1.3**
 >
+>
 > ```bash
 > dotnet add package Tdcv2
 > ```
@@ -33,6 +34,7 @@ Two packages: the library, and the command line as a `dotnet tool`.
 > cd csharp && dotnet build
 > dotnet run --project Tdcv2.Cli.Tool -- demo.tdc
 > ```
+>
 
 ## Using it
 
@@ -79,13 +81,13 @@ that happened to be empty.
 
 ## Options
 
-| | |
-| --- | --- |
-| `ConfigFile` / `ConfigString` | Exactly one of the two |
-| `Count`, `SeedValue`, `Locale` | Override what `<env>` declared |
-| `NowMillis` | Pin the clock, so a test asserting on a date does not expire overnight |
-| `PacksDir`, `DataPaths` | Where packs and `@data/…` sources are found |
-| `BaseDir` | What a relative `src=` is relative to |
+|                                |                                                                        |
+| ------------------------------ | ---------------------------------------------------------------------- |
+| `ConfigFile` / `ConfigString`  | Exactly one of the two                                                 |
+| `Count`, `SeedValue`, `Locale` | Override what `<env>` declared                                         |
+| `NowMillis`                    | Pin the clock, so a test asserting on a date does not expire overnight |
+| `PacksDir`, `DataPaths`        | Where packs and `@data/…` sources are found                            |
+| `BaseDir`                      | What a relative `src=` is relative to                                  |
 
 `Diagnostics` carries anything the config was warned about but not refused for; errors
 are thrown from the constructor, so whatever is left there is worth saying and not worth

@@ -11,10 +11,10 @@
 # The `<distinct>` tag
 
 **Use it when** two fields in the same row draw from the same pool and must not land
-on the same value — two symptoms for one patient, because nobody presents with *fever
-and fever*; a country of birth and a country of residence that shouldn't be identical.
-`<distinct>` says one thing: *its direct children must differ from each other within a
-row.*
+on the same value — two symptoms for one patient, because nobody presents with _fever
+and fever_; a country of birth and a country of residence that shouldn't be identical.
+`<distinct>` says one thing: _its direct children must differ from each other within a
+row._
 
 This is a **horizontal** rule — it looks across the fields of a single row. Its
 vertical twin is [`uniq`](../constructs/unique-values.md#top), which keeps the **whole row**
@@ -135,7 +135,7 @@ Itching + Runny Nose
 **Why here:** both fields pull from the same
 [`template`](../generators/template.md#top) pool, yet the two values in each row always
 differ. This is the everyday case — two attributes of one entity that share a source
-but must not coincide. A value can still repeat *down* a column (`Itching`
+but must not coincide. A value can still repeat _down_ a column (`Itching`
 shows up in rows 3 and 6): `<distinct>` looks across a row, never down the dataset.
 
 ### 2. Inside `<env>` — it wraps whole `<sequence>` blocks
@@ -221,8 +221,10 @@ distinct fields produced.
 ### Too few values fails cleanly
 
 If a list holds fewer distinct values than the number of fields that must differ — say
-one word for two fields — the constraint is impossible to satisfy. TDC raises a clear
-error up front instead of looping forever:
+one word for two fields — the constraint is impossible to satisfy. Rather than looping
+forever, TDC gives up after 1,000 attempts at a row and says so. Unlike `uniq`, which
+proves feasibility before generating, this one trips during the run — quickly, but not
+before it starts:
 
 `./run person.tdc`
 
@@ -238,9 +240,9 @@ feasibility check that [`uniq`](../constructs/unique-values.md#top) runs before 
 ### At the `<env>` level, groups take single-value sequences only
 
 A `<distinct>` inside `<env>` can wrap only **single-value** sequences — a plain
-[`<gen>`](../generators/overview.md#top) or a `<switch>`. A compound (multi-field)
-sequence has no single value to compare, so putting one in the group is rejected with
-error `TDC129`:
+[`<gen>`](../generators/overview.md#top), a `<mix>` or a `<switch>`. A compound
+(multi-field) sequence has no single value to compare, so putting one in the group is
+rejected with error `TDC129`:
 
 `./run migration.tdc`
 
@@ -256,21 +258,21 @@ each grouped sequence down to a single value.
 
 ## `<distinct>` vs. `uniq` at a glance
 
-| Mechanism    | Axis       | Scope    | Meaning                                          |
-| :----------- | :--------- | :------- | :----------------------------------------------- |
-| `<distinct>` | horizontal | one row  | fields **don't equal each other** within a row   |
-| `uniq`       | vertical   | all rows | the **combination of fields** never repeats      |
+| Mechanism    | Axis       | Scope    | Meaning                                        |
+| :----------- | :--------- | :------- | :--------------------------------------------- |
+| `<distinct>` | horizontal | one row  | fields **don't equal each other** within a row |
+| `uniq`       | vertical   | all rows | the **combination of fields** never repeats    |
 
 They solve different problems and compose freely — a row can require its two name
-fields to differ *and* the whole `(first, last)` pair to be unique across the dataset.
+fields to differ _and_ the whole `(first, last)` pair to be unique across the dataset.
 For the vertical rule, see [Unique values](../constructs/unique-values.md#top).
 
 ## May contain
 
-| Tag                                              | Where              | What it holds                       |
-| :----------------------------------------------- | :----------------- | :---------------------------------- |
-| [`<gen/>`](../generators/overview.md#top)           | inside `<sequence>` | Fields that must differ            |
-| [`<sequence>`](../core-concepts/sequences.md#top)   | inside `<env>`      | Sequences that must differ         |
+| Tag                                            | Where               | What it holds              |
+| :--------------------------------------------- | :------------------ | :------------------------- |
+| [`<gen/>`](../generators/overview.md#top)         | inside `<sequence>` | Fields that must differ    |
+| [`<sequence>`](../core-concepts/sequences.md#top) | inside `<env>`      | Sequences that must differ |
 
 ## See also
 

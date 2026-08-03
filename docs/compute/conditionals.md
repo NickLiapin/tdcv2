@@ -22,22 +22,22 @@ not just whether a key matched.
 
 ## The shape
 
-| Tag           | What it does                                                    |
-| :------------ | :------------------------------------------------------------- |
-| `<choose>`    | the first `<when>` whose `<test>` is true; else `<otherwise>`  |
-| `<when>`      | one branch: a `<test>` predicate and a `<then>` value          |
-| `<test>`      | holds exactly one predicate, yields yes/no                     |
-| `<then>`      | the value returned when this branch's `<test>` is true         |
-| `<otherwise>` | the "else" branch — **required**                               |
+| Tag           | What it does                                                  |
+| :------------ | :------------------------------------------------------------ |
+| `<choose>`    | the first `<when>` whose `<test>` is true; else `<otherwise>` |
+| `<when>`      | one branch: a `<test>` predicate and a `<then>` value         |
+| `<test>`      | holds exactly one predicate, yields yes/no                    |
+| `<then>`      | the value returned when this branch's `<test>` is true        |
+| `<otherwise>` | the "else" branch — **required**                              |
 
 Predicates live **only** inside `<test>` and return yes/no (never a value):
 
-| Predicate         | True when                     |
-| :---------------- | :---------------------------- |
-| `<equals>`        | two integers are equal        |
-| `<greater_than>`  | A &gt; B (strict)             |
-| `<less_than>`     | A &lt; B (strict)             |
-| `<is_digit>`      | a character is a digit `0`–`9`|
+| Predicate        | True when                      |
+| :--------------- | :----------------------------- |
+| `<equals>`       | two integers are equal         |
+| `<greater_than>` | A &gt; B (strict)              |
+| `<less_than>`    | A &lt; B (strict)              |
+| `<is_digit>`     | a character is a digit `0`–`9` |
 
 There's no standalone boolean type in the language: a yes/no answer exists only for the
 duration of a `<test>`. The value of a branch always comes from `<then>` or
@@ -557,7 +557,7 @@ guarantee the built-in ISBN packs give.
 Every emitted value is ten clean digits: across thousands of rows not one has a check
 value of 10, because `<valid>` rejects those bases and draws again.
 
-**Use it when** a correct value can still be *invalid* for the domain — a forbidden check
+**Use it when** a correct value can still be _invalid_ for the domain — a forbidden check
 digit, an unissued range — and you want the pack to guarantee only good rows without
 complicating the formula.
 

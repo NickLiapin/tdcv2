@@ -11,21 +11,21 @@
 # Constructs
 
 A [generator](../generators/overview.md#top) produces a value. A **construct** decides
-what happens around that value: *which* one is used, *whether* it appears at all, *how
-many* of them go in a cell, whether it may repeat, and how many rows one record turns
+what happens around that value: _which_ one is used, _whether_ it appears at all, _how
+many_ of them go in a cell, whether it may repeat, and how many rows one record turns
 into.
 
 That's the whole list: six constructs. Everything else in TDC is either a generator, a
 place to put text, or a way to compute something from values you already have.
 
-| Construct | The question it answers | |
-| :-------- | :---------------------- | :-- |
-| `<mix>` | Which of several branches — in exact proportions? | [Choosing between values](mix.md#top) |
-| `<switch>` | Which value follows from another field? | [Lookup tables](switch.md#top) |
-| `if` | Should this piece appear at all? | [Conditions](conditional-output.md#top) |
-| `repeat` | How many values go in one cell? | [Several values in a cell](multiple-values.md#top) |
-| `each` | How many rows does one record produce? | [One row per element](relational-tables.md#top) |
-| `uniq` · `<distinct>` | May a value repeat — in the row, or ever? | [Uniqueness](unique-values.md#top) |
+| Construct             | The question it answers                           |                                                 |
+| :-------------------- | :------------------------------------------------ | :---------------------------------------------- |
+| `<mix>`               | Which of several branches — in exact proportions? | [Choosing between values](mix.md#top)              |
+| `<switch>`            | Which value follows from another field?           | [Lookup tables](switch.md#top)                     |
+| `if`                  | Should this piece appear at all?                  | [Conditions](conditional-output.md#top)            |
+| `repeat`              | How many values go in one cell?                   | [Several values in a cell](multiple-values.md#top) |
+| `each`                | How many rows does one record produce?            | [One row per element](relational-tables.md#top)    |
+| `uniq` · `<distinct>` | May a value repeat — in the row, or ever?         | [Uniqueness](unique-values.md#top)                 |
 
 Three more things behave like constructs and are documented elsewhere, because they
 belong to a bigger topic:

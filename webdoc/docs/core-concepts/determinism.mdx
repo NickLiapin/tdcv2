@@ -11,14 +11,18 @@ import Terminal from '@site/src/components/Terminal';
 # Determinism & proportions
 
 Two properties make TDC's data trustworthy: the same **seed** reproduces the same data
-byte for byte, and every share comes out at its **exact proportion**. This page covers
+byte for byte, and every share comes out at its **exact proportion**. The promise is
+precise about what has to match — the same config, the same seed, the same core version
+and the same output mode. Any of those four changing is licence for the bytes to change;
+the language you run it from is not, which is why five implementations agree. This page
+covers
 three attributes together — `seed`, `count`, and `percent` — because they interact:
-`count` decides how many records you get, `seed` decides *which* records, and `percent`
+`count` decides how many records you get, `seed` decides _which_ records, and `percent`
 pins their proportions.
 
 :::note
 The example outputs below are illustrative — the exact names and numbers can differ by
-core version, but the *properties* they show (reproducibility, prefixes, exact counts)
+core version, but the _properties_ they show (reproducibility, prefixes, exact counts)
 always hold.
 :::
 
@@ -80,7 +84,7 @@ Nothing drifts. Same seed, same config, same result — that's determinism.
 
 ### Change the seed → a different, equally stable set
 
-Swap the seed for another word and you get a *different* set that's just as
+Swap the seed for another word and you get a _different_ set that's just as
 reproducible. Same config, only now `seed="alpha"`:
 
 <Terminal title="./run demo.tdc  (seed=alpha)">
@@ -141,13 +145,13 @@ Andre          Andre
                Saul`}
 </Terminal>
 
-`count` doesn't *shift* the data; it just continues the same series. So you can debug
+`count` doesn't _shift_ the data; it just continues the same series. So you can debug
 on `count="3"` knowing those first records will be identical at `count="1000"`.
 
 ### The exception: whole-run layouts
 
 Generators that lay their values out across the **entire** run get **recomputed** when
-`count` changes, so their columns are *not* a prefix. Four features work this way:
+`count` changes, so their columns are _not_ a prefix. Four features work this way:
 exact proportions (`percent` on [`text`](../generators/text.mdx) and on `<mix>`, via the
 Hamilton method), uniqueness ([`uniq`](../constructs/unique-values.mdx)), a
 **weighted** [`template`](../generators/template.mdx) pack, and the **list lengths** of
@@ -202,7 +206,7 @@ describes the whole run.
 Add `percent` to a [`text`](../generators/text.mdx) generator (or to a `<mix>`) and the
 shares land **exactly**, laid out by the Hamilton (largest-remainder) method: the number
 of times each value occurs is guaranteed to match the percentages you gave. The only
-randomness left is in the *order* of the rows.
+randomness left is in the _order_ of the rows.
 
 ```xml
 <sequence name="Gender">
@@ -240,11 +244,11 @@ covers most real cases with very little typing:
 
 | Mask     | For 2 / 4 / 5 values, expands to |
 | :------- | :------------------------------- |
-| `60`     | `60,40`                         |
-| `,40`    | `60,40`                         |
-| `,10,10` | `40,40,10,10`                   |
-| `,,25,,` | `18.75,18.75,25,18.75,18.75`    |
-| `46,`    | `46,13.5,13.5,13.5,13.5`        |
+| `60`     | `60,40`                          |
+| `,40`    | `60,40`                          |
+| `,10,10` | `40,40,10,10`                    |
+| `,,25,,` | `18.75,18.75,25,18.75,18.75`     |
+| `46,`    | `46,13.5,13.5,13.5,13.5`         |
 
 The rules: if every position is filled, the numbers have to sum to 100. If any are **empty**
 positions, the filled numbers have to sum to **no more than** 100, and the rest is
@@ -290,7 +294,7 @@ the count is never wrong.
 
 When the sequence has a [`parent`](sequences.mdx), the percentages are measured **within
 the filtered subset**, not across the whole run. A 70/30 split of active users is 70/30
-*of that parent's rows*, computed independently for each group. That's the foundation of
+_of that parent's rows_, computed independently for each group. That's the foundation of
 [hierarchical dependencies](../guides/hierarchical-dependencies.mdx).
 
 ### On `<mix>`

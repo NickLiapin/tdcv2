@@ -456,13 +456,13 @@ engine may retry a request, and requests may arrive concurrently. A stateless fu
 For all five to agree, the arithmetic has to agree. This is where a naive port breaks,
 and it comes down to one line per language:
 
-| Language | What keeps the hash 32-bit |
-| :--- | :--- |
-| Node | `Math.imul(h, prime) >>> 0` — a plain `*` would go through a double and lose the low bits |
-| Python | `& 0xFFFFFFFF` — integers are arbitrary-precision, so nothing overflows on its own |
-| Java | nothing — `int` multiplication already wraps |
-| C# | `unchecked { … }` — outside it, .NET *throws* on overflow instead of wrapping |
-| Rust | `wrapping_mul` — a plain `*` *panics* on overflow in a debug build |
+| Language | What keeps the hash 32-bit                                                                |
+| :------- | :---------------------------------------------------------------------------------------- |
+| Node     | `Math.imul(h, prime) >>> 0` — a plain `*` would go through a double and lose the low bits |
+| Python   | `& 0xFFFFFFFF` — integers are arbitrary-precision, so nothing overflows on its own        |
+| Java     | nothing — `int` multiplication already wraps                                              |
+| C#       | `unchecked { … }` — outside it, .NET _throws_ on overflow instead of wrapping             |
+| Rust     | `wrapping_mul` — a plain `*` _panics_ on overflow in a debug build                        |
 
 Miss it in Python and the numbers grow forever, silently producing different values from
 the rest. TDC's own engine has to solve exactly this problem: its PRNG is written in

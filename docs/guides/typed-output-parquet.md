@@ -100,22 +100,22 @@ ready to test an anomaly detector against.
 
 ## The types you can write
 
-| `type=`          | What it is                    | Read from text                     |
-| :--------------- | :---------------------------- | :--------------------------------- |
-| `bool`           | true / false                  | `true`/`false`, `1`/`0`            |
-| `int32`          | 32-bit integer                | `-42`                              |
-| `int64`          | 64-bit integer                | `9007199254740993` — exact         |
-| `double`         | 8-byte float                  | `3.14`, `1e3`                      |
-| `string`         | UTF-8 text                    | as-is                              |
-| `date`           | calendar date                 | `2020-05-14`                       |
-| `timestamp`      | instant in time               | ISO-8601                           |
-| `decimal(p,s)`   | exact decimal (money)         | `123.45` — **no rounding**         |
-| `uuid`           | UUID as 16 bytes              | canonical form                     |
-| `json`           | JSON                          | as-is                              |
-| `float`          | 4-byte float                  | `3.14` — half the space of `double`|
-| `float16`        | 2-byte float                  | `3.14` — ~3 significant digits     |
-| `enum`           | enumerated text               | `RED` — a string, but tagged       |
-| `uint8/16/32/64` | unsigned integer              | `255` — rejects a negative         |
+| `type=`          | What it is            | Read from text                      |
+| :--------------- | :-------------------- | :---------------------------------- |
+| `bool`           | true / false          | `true`/`false`, `1`/`0`             |
+| `int32`          | 32-bit integer        | `-42`                               |
+| `int64`          | 64-bit integer        | `9007199254740993` — exact          |
+| `double`         | 8-byte float          | `3.14`, `1e3`                       |
+| `string`         | UTF-8 text            | as-is                               |
+| `date`           | calendar date         | `2020-05-14`                        |
+| `timestamp`      | instant in time       | ISO-8601                            |
+| `decimal(p,s)`   | exact decimal (money) | `123.45` — **no rounding**          |
+| `uuid`           | UUID as 16 bytes      | canonical form                      |
+| `json`           | JSON                  | as-is                               |
+| `float`          | 4-byte float          | `3.14` — half the space of `double` |
+| `float16`        | 2-byte float          | `3.14` — ~3 significant digits      |
+| `enum`           | enumerated text       | `RED` — a string, but tagged        |
+| `uint8/16/32/64` | unsigned integer      | `255` — rejects a negative          |
 
 Add `\|null` after the type to make the column **nullable**: `type="int64\|null"`.
 Without it an empty value is an **error** — a free quality gate: if a column shouldn't
@@ -174,7 +174,7 @@ born   INT32                REQUIRED  {"type":"DATE"}
 key    FIXED_LEN_BYTE_ARRAY REQUIRED  {"type":"UUID"}
 flag   BOOLEAN              REQUIRED
 
-{"id":1,"price":230,"qty":63,  "born":"1996-05-25","key":"e96b21bc-...","flag":true}
+{"id":1,"price":230,"qty":63, "born":"1996-05-25","key":"e96b21bc-...","flag":true}
 {"id":2,"price":589,"qty":null,"born":"2000-05-01","key":"85caccad-...","flag":false}
 ```
 
@@ -305,8 +305,8 @@ uncompressed. The file never grows from an attempt to shrink it.
 
 It's implemented in TDC's own code, with no third-party library — and not just to keep the
 dependency list short: two snappy implementations can emit **different** (though equally
-valid) bytes for the same data, and TDC guarantees that every
-versions produce byte-identical files.
+valid) bytes for the same data, and a shared encoder is what lets all five
+implementations produce byte-identical files at the same version.
 
 ## Reading it back in pandas
 
@@ -374,8 +374,8 @@ the full library API in each language, see [Language bindings](../bindings/pytho
   memory at any size.
 - **[CLI](../reference/cli.md#top)** — `-o`, `--jobs`, `--engine`.
 - **[Masks & case](masks-and-case.md#top)** — `mask` / `case`, which switch type inference off.
-- **[Language bindings](../bindings/python.md#top)** — read and write from Python, TypeScript,
-  and Java.
+- **[Language bindings](../bindings/python.md#top)** — read and write from all five:
+  TypeScript, Python, Java, C# and Rust.
 
 ---
 

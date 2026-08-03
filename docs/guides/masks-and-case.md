@@ -62,11 +62,11 @@ values **in order** instead of at random.
 
 The same formatting is available three ways — same result, pick what's convenient:
 
-| Route                         | How you write it              | Best when                              |
-| :---------------------------- | :---------------------------- | :------------------------------------- |
-| A filter in interpolation     | `${{X \| mask:…}}`            | one value in one spot in the text      |
-| An attribute on [`<gen>`](../generators/overview.md#top) | `<gen … mask="…" case="…"/>`  | formatting the **whole** generator     |
-| A tag in [`<compute>`](../compute/overview.md#top)       | `<mask pattern="…">…</mask>`  | when formatting is a step in a calculation |
+| Route                                                 | How you write it             | Best when                                  |
+| :---------------------------------------------------- | :--------------------------- | :----------------------------------------- |
+| A filter in interpolation                             | `${{X \| mask:…}}`           | one value in one spot in the text          |
+| An attribute on [`<gen>`](../generators/overview.md#top) | `<gen … mask="…" case="…"/>` | formatting the **whole** generator         |
+| A tag in [`<compute>`](../compute/overview.md#top)       | `<mask pattern="…">…</mask>` | when formatting is a step in a calculation |
 
 Most examples below use the filter route, which lives in
 [interpolation](../core-concepts/output-formatting.md#filters). Each compute tag is
@@ -80,14 +80,14 @@ see where the groups start and end.
 **Tool.** A mask runs its pattern left to right. Each **slot** eats a piece of the
 input; everything else prints as a literal:
 
-| Slot     | Takes from the input                                        |
-| :------- | :--------------------------------------------------------- |
-| `x`      | one character                                              |
-| `w`      | one word (letters up to a space) and **swallows one** space |
-| `*`      | everything not yet consumed                                |
+| Slot           | Takes from the input                                                         |
+| :------------- | :--------------------------------------------------------------------------- |
+| `x`            | one character                                                                |
+| `w`            | one word (letters up to a space) and **swallows one** space                  |
+| `*`            | everything not yet consumed                                                  |
 | `x[0]` `w[-1]` | a **named** position — see [Moving pieces](#moving-pieces--x0-w0-and-ranges) |
-| `\`      | escapes the next character (`\x` → a literal `x`)          |
-| anything else | a literal: dash, dot, space, brackets — printed as-is |
+| `\`            | escapes the next character (`\x` → a literal `x`)                            |
+| anything else  | a literal: dash, dot, space, brackets — printed as-is                        |
 
 The same digits under two patterns:
 
@@ -145,13 +145,13 @@ regex, so you can't just generate two sequences and print them in the other orde
 **Tool.** Put an index in brackets on a slot. It names a position in the **original**
 input:
 
-| Slot       | Takes                                                       |
-| :--------- | :---------------------------------------------------------- |
-| `x[7]`     | the character at index 7 — the eighth, counting from `x[0]` |
-| `x[5..7]`  | characters 5, 6 and 7 — **both** ends included              |
-| `x[-1]`    | the last character                                          |
-| `w[1]`     | the word at index 1 — the second                            |
-| `w[-1]`    | the last word                                               |
+| Slot      | Takes                                                       |
+| :-------- | :---------------------------------------------------------- |
+| `x[7]`    | the character at index 7 — the eighth, counting from `x[0]` |
+| `x[5..7]` | characters 5, 6 and 7 — **both** ends included              |
+| `x[-1]`   | the last character                                          |
+| `w[1]`    | the word at index 1 — the second                            |
+| `w[-1]`   | the last word                                               |
 
 Indices start at **0**, like the [`slice`](#slice--cut-a-part-by-index) filter. Ranges are
 written with `..`, the same as everywhere else in TDC (`value="10..99"`,
@@ -171,9 +171,9 @@ james miller   ->  miller, james
 mary jones     ->  jones, mary
 anna lee       ->  lee, anna
 
-12 Baker St    ->  Baker St 12
-7 Elm Road     ->  Elm Road 7
-140 Oak Lane   ->  Oak Lane 140
+12 Baker St -> Baker St 12
+7 Elm Road -> Elm Road 7
+140 Oak Lane -> Oak Lane 140
 ```
 
 Neither one depends on how long the words are — that's the point of counting words
@@ -290,11 +290,11 @@ error[TDC199]: mask: invalid index "[1-2]" after "x" — use x[0], x[0..4] or x[
 **Problem.** Data arrives in mixed case, from different sources and imports:
 `iPhone CASE`, `mary JONES`. You need one consistent form.
 
-| Name         | Does                                                   |
-| :----------- | :----------------------------------------------------- |
-| `upper`      | ALL UPPERCASE                                          |
-| `lower`      | all lowercase                                          |
-| `capitalize` | **only the first** letter uppercase, the rest as-is    |
+| Name         | Does                                                    |
+| :----------- | :------------------------------------------------------ |
+| `upper`      | ALL UPPERCASE                                           |
+| `lower`      | all lowercase                                           |
+| `capitalize` | **only the first** letter uppercase, the rest as-is     |
 | `title`      | the first letter of **each word** uppercase, rest as-is |
 
 The same string through all four:
@@ -448,8 +448,18 @@ counting from zero. See [`<slice>`](../compute/strings.md#reshaping).
 2021-07-19  ->  slash=2021/07/19 | dot=2021.07.19
 ```
 
-The format is `replace:from,to`, and **all** occurrences are replaced. See
-[`<replace>`](../compute/strings.md#reshaping).
+The format is `replace:from,to`, and **all** occurrences are replaced. Three things it
+does not do, each of which fails quietly rather than loudly:
+
+- **`from` is matched literally, never as a regular expression.** `replace:[abc],Z`
+  looks for the five characters `[abc]` and, finding none, changes nothing.
+- **`from` cannot contain a comma.** The first comma ends it, so everything after
+  belongs to `to` — `replace:-,+,x` replaces each `-` with `+,x`.
+- **An empty `from` does nothing.** `replace:,+` returns the value untouched.
+
+Where any of those matter, use the [`<replace>`](../compute/strings.md#reshaping) tag
+in `<compute>` instead: it takes `from=` and `to=` as separate attributes, so a comma is
+just a character.
 
 ### `trim` — strip outer spaces
 
@@ -504,15 +514,15 @@ single group, so it comes back unchanged. See
 
 ### Summary
 
-| Operation | Filter                     | `<compute>` tag                                            |
-| :-------- | :------------------------- | :--------------------------------------------------------- |
-| `slice`   | `slice:from[,to]`          | [`<slice from="0" to="4">`](../compute/strings.md#reshaping)   |
-| `replace` | `replace:from,to`          | [`<replace from="-" to="/">`](../compute/strings.md#reshaping) |
-| `trim`    | `trim`                     | [`<trim>`](../compute/strings.md#reshaping)                    |
-| `group`   | `group:size[,sep]`         | [`<group size="3" sep=" ">`](../compute/strings.md#reshaping)  |
-| `compact` | `compact` or `compact:16`  | —                                                          |
-| `csv`     | `csv`                      | — (no tag)                                                 |
-| `sql`     | `sql`                      | — (no tag)                                                 |
+| Operation | Filter                    | `<compute>` tag                                                 |
+| :-------- | :------------------------ | :-------------------------------------------------------------- |
+| `slice`   | `slice:from[,to]`         | [`<slice from="0" to="4">`](../compute/strings.md#reshaping)   |
+| `replace` | `replace:from,to`         | [`<replace from="-" to="/">`](../compute/strings.md#reshaping) |
+| `trim`    | `trim`                    | [`<trim>`](../compute/strings.md#reshaping)                    |
+| `group`   | `group:size[,sep]`        | [`<group size="3" sep=" ">`](../compute/strings.md#reshaping)  |
+| `compact` | `compact` or `compact:16` | —                                                               |
+| `csv`     | `csv`                     | — (no tag)                                                      |
+| `sql`     | `sql`                     | — (no tag)                                                      |
 
 ## Order — `order="sequential"`
 
@@ -568,11 +578,11 @@ mary.jones.lfls@example.com         <- millionth
 david.brown.x2qxvk@example.com      <- two-billionth
 ```
 
-| Number            | Decimal   | `compact`             |
-| ----------------: | --------: | --------------------: |
-| 1,000,000         | 7 digits  | `lfls` — 4 chars      |
-| 2,000,000,000     | 10 digits | `x2qxvk` — 6 chars    |
-| 1,000,000,000,000 | 13 digits | `cre66i9s` — 8 chars  |
+|            Number |   Decimal |            `compact` |
+| ----------------: | --------: | -------------------: |
+|         1,000,000 |  7 digits |     `lfls` — 4 chars |
+|     2,000,000,000 | 10 digits |   `x2qxvk` — 6 chars |
+| 1,000,000,000,000 | 13 digits | `cre66i9s` — 8 chars |
 
 Six characters cover 2.17 billion rows, and seven cover 78 billion. The mapping is
 one-to-one, so different numbers always give different strings — the uniqueness you

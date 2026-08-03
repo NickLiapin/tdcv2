@@ -30,13 +30,13 @@ stable.
 
 ## At a glance
 
-| Attribute  | Required       | What it does                                          |
-| :--------- | :------------- | :---------------------------------------------------- |
-| `value`    | one of the two | Your own character set (literals + `[x-y]` ranges)    |
-| `alphabet` | one of the two | Name of a built-in Unicode alphabet                   |
-| `length`   | no             | String length; default `1`, maximum `1024`            |
-| `include`  | no             | Add characters to the set (same grammar as `value`)   |
-| `exclude`  | no             | Remove characters from the set                        |
+| Attribute  | Required       | What it does                                        |
+| :--------- | :------------- | :-------------------------------------------------- |
+| `value`    | one of the two | Your own character set (literals + `[x-y]` ranges)  |
+| `alphabet` | one of the two | Name of a built-in Unicode alphabet                 |
+| `length`   | no             | String length; default `1`, maximum `1024`          |
+| `include`  | no             | Add characters to the set (same grammar as `value`) |
+| `exclude`  | no             | Remove characters from the set                      |
 
 ## Your own set with `value`
 
@@ -67,7 +67,7 @@ value="[a-f]xY[0-9]" length="5" → x3bYa
   ranges in one group: `[a-z0-9_]`.
 - **Commas and spaces outside brackets are ignored** — they're there only for
   readability: `value="[a-f], [0-5]"` is the same set as `value="[a-f][0-5]"`. To
-  use a comma or a space *as a character*, put it in brackets: `[,]`, `[ ]`.
+  use a comma or a space _as a character_, put it in brackets: `[,]`, `[ ]`.
 - **Duplicates are removed; order is preserved.** `value="AABB"` is just `{A, B}`.
 
 Characters from any language work — you're not limited to ASCII. See
@@ -197,40 +197,40 @@ purpose, to show that the same generator produces whatever script you name.
 The same generator, one line per alphabet (`length="10"`), so you can compare the
 scripts side by side:
 
-| `alphabet`            | Example output       |
-| :-------------------- | :------------------- |
-| `latin.lower`         | `usahtbcjpi`         |
-| `latin.upper`         | `USAHTBCJPI`         |
+| `alphabet`            | Example output         |
+| :-------------------- | :--------------------- |
+| `latin.lower`         | `usahtbcjpi`           |
+| `latin.upper`         | `USAHTBCJPI`           |
 | `digits.fullwidth`    | `７７０２７０１３６３` |
-| `cyrillic.ru.letters` | `рнБСпВЖЧжХ`         |
-| `greek.letters`       | `ξμΒΟνΓΖΤζΡ`         |
-| `hebrew.letters`      | `פףאחפבגךני`         |
-| `arabic.letters`      | `فؿآحـآإذغد`         |
+| `cyrillic.ru.letters` | `рнБСпВЖЧжХ`           |
+| `greek.letters`       | `ξμΒΟνΓΖΤζΡ`           |
+| `hebrew.letters`      | `פףאחפבגךני`           |
+| `arabic.letters`      | `فؿآحـآإذغد`           |
 | `kana.hiragana`       | `ゃまぃすめいおちふそ` |
 | `kana.katakana`       | `ユメィズヤイオヂヘタ` |
 | `cjk.unified.basic`   | `货袪倱料護冣囱沌耣楿` |
-| `roman.upper`         | `DDIXDIIXCX`         |
+| `roman.upper`         | `DDIXDIIXCX`           |
 
 ### All supported names
 
-| `alphabet`            | Contains                                       |
-| :-------------------- | :--------------------------------------------- |
-| `latin.lower`         | ASCII `a-z`                                    |
-| `latin.upper`         | ASCII `A-Z`                                    |
-| `latin.letters`       | ASCII `A-Z` and `a-z`                          |
-| `digits.ascii`        | ASCII digits `0-9`                             |
-| `digits.fullwidth`    | Full-width digits `０-９`                      |
-| `cyrillic.ru.lower`   | Russian `а-я` plus `ё`                         |
-| `cyrillic.ru.upper`   | Russian `А-Я` plus `Ё`                         |
-| `cyrillic.ru.letters` | Russian Cyrillic, both cases, including `ё`    |
-| `greek.letters`       | Basic Greek letters                            |
-| `hebrew.letters`      | Hebrew `א-ת`                                   |
-| `arabic.letters`      | Arabic letters `ء-ي`                           |
-| `kana.hiragana`       | Japanese hiragana `ぁ-ゖ`                      |
-| `kana.katakana`       | Japanese katakana `ァ-ヺ`                      |
-| `cjk.unified.basic`   | CJK Unified Ideographs `U+4E00..U+9FFF`        |
-| `roman.upper`         | Roman-numeral letters `I V X L C D M`          |
-| `roman.lower`         | Roman-numeral letters `i v x l c d m`          |
+| `alphabet`            | Contains                                    |
+| :-------------------- | :------------------------------------------ |
+| `latin.lower`         | ASCII `a-z`                                 |
+| `latin.upper`         | ASCII `A-Z`                                 |
+| `latin.letters`       | ASCII `A-Z` and `a-z`                       |
+| `digits.ascii`        | ASCII digits `0-9`                          |
+| `digits.fullwidth`    | Full-width digits `０-９`                   |
+| `cyrillic.ru.lower`   | Russian `а-я` plus `ё`                      |
+| `cyrillic.ru.upper`   | Russian `А-Я` plus `Ё`                      |
+| `cyrillic.ru.letters` | Russian Cyrillic, both cases, including `ё` |
+| `greek.letters`       | Basic Greek letters                         |
+| `hebrew.letters`      | Hebrew `א-ת`                                |
+| `arabic.letters`      | Arabic letters `ء-ي`                        |
+| `kana.hiragana`       | Japanese hiragana `ぁ-ゖ`                   |
+| `kana.katakana`       | Japanese katakana `ァ-ヺ`                   |
+| `cjk.unified.basic`   | CJK Unified Ideographs `U+4E00..U+9FFF`     |
+| `roman.upper`         | Roman-numeral letters `I V X L C D M`       |
+| `roman.lower`         | Roman-numeral letters `i v x l c d m`       |
 
 All 16 names are validated: each one resolves and produces characters from its own
 script. Because the set is fixed, use [`include`](#extend-the-set-with-include) /
@@ -239,7 +239,7 @@ script. Because the set is fixed, use [`include`](#extend-the-set-with-include) 
 
 ## Unicode scripts by hand
 
-You don't *have* to use a named alphabet — because `value` accepts any characters,
+You don't _have_ to use a named alphabet — because `value` accepts any characters,
 you can also type a script (or mix several) directly. Named alphabets are still
 preferred where one exists: they're documented, validated, and include the awkward
 characters a plain range would miss, such as Russian `ё`.

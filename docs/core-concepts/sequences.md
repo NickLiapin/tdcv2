@@ -40,9 +40,9 @@ can differ between core versions.
 
 ## Attributes
 
-| Attribute | Required | What it does                                                          |
-| :-------- | :------- | :------------------------------------------------------------------- |
-| `name`    | **yes**  | The sequence's name — how you reference it, e.g. `${{City}}`         |
+| Attribute | Required | What it does                                                        |
+| :-------- | :------- | :------------------------------------------------------------------ |
+| `name`    | **yes**  | The sequence's name — how you reference it, e.g. `${{City}}`        |
 | `parent`  | no       | Restricts this sequence to a subset of rows. Syntax: `Parent.Value` |
 | `comment` | no       | A free-text note; ignored by the engine                             |
 
@@ -241,7 +241,7 @@ sequence name, `${{AgeGroup}}`:
 ```
 
 A conditional sequence is still a single column — you read it as `${{AgeGroup}}`, just
-like a simple one. The extra `<gen>` tags only decide *which* value fills each row.
+like a simple one. The extra `<gen>` tags only decide _which_ value fills each row.
 
 ## Dependent sequences (`parent`)
 

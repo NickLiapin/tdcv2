@@ -10,7 +10,7 @@ import Terminal from '@site/src/components/Terminal';
 
 # The `<mix>` block
 
-**Use it when** the shares in a column aren't equal *and* each share is more than
+**Use it when** the shares in a column aren't equal _and_ each share is more than
 a single word. Real data is lopsided: most orders are `paid` and few are
 `canceled`; most accounts are `free` and few are `premium`. You want a column
 where the variants appear in **fixed proportions** — not split evenly, and not as
@@ -123,13 +123,13 @@ case the next few sections build toward.
 
 ## Attributes
 
-| Attribute | Required     | What it does                                                       |
-| :-------- | :----------- | :----------------------------------------------------------------- |
-| `name`    | **yes**      | The name to interpolate with `${{Name}}`                           |
-| `percent` | no           | The share of each `<case>`; omit for a uniform split               |
-| `parent`  | no           | A parent sequence — the split is computed inside its subset        |
-| `flag`    | no           | Adds an answer-key column marking the outlier branch (see [below](#marking-outliers-with-flag)) |
-| `comment` | no           | A free-form note for the config author; never rendered             |
+| Attribute | Required | What it does                                                                                    |
+| :-------- | :------- | :---------------------------------------------------------------------------------------------- |
+| `name`    | **yes**  | The name to interpolate with `${{Name}}`                                                        |
+| `percent` | no       | The share of each `<case>`; omit for a uniform split                                            |
+| `parent`  | no       | A parent sequence — the split is computed inside its subset                                     |
+| `flag`    | no       | Adds an answer-key column marking the outlier branch (see [below](#marking-outliers-with-flag)) |
+| `comment` | no       | A free-form note for the config author; never rendered                                          |
 
 A `<mix>` must contain at least one **[`<case>`](#compound-branches)** — one
 branch. Everything else is optional.

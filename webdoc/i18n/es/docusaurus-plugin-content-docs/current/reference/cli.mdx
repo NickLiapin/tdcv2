@@ -14,17 +14,17 @@ tdcv2 <input.tdc> [options]
 ```
 
 :::note[De dónde sale `tdcv2`]
-`npm install -D tdcv2` deja el comando `tdcv2` disponible vía `npx`. Los otros cuatro
-todavía no están en sus registros, así que esos se instalan desde el repositorio — el
-comando cambia según el lenguaje, y [Instalación](../getting-started/installation.mdx)
-tiene la pestaña de cada uno. Java es el único que nunca llega a ser un `tdcv2` a secas
-(Maven no tiene equivalente del `bin` de npm); un alias hace que todos los comandos de
-esta página se lean igual. Todo lo de abajo funciona igual en cualquier implementación.
+`npm install -D tdcv2`, `pip install tdcv2` y `cargo install tdcv2` dejan el comando
+`tdcv2` en su PATH desde el mismo paquete que lleva la biblioteca. Maven y NuGet no tienen
+equivalente del `bin` de npm, así que en Java y C# la línea de comandos es un segundo
+artefacto; [Instalación](../getting-started/installation.mdx) tiene la pestaña de cada
+uno. Un alias hace que todos los comandos de esta página se lean igual. Todo lo de abajo
+funciona igual en cualquier implementación.
 :::
 
 Además de generar, la CLI tiene `tdcv2 init` y `tdcv2 pack` para la configuración inicial
-y los datos — vea [Instalar packs](../data-packs/installing-packs.mdx) — y `tdcv2 format`
-([abajo](#tdcv2-format)).
+y los datos — vea [Instalar packs](../data-packs/installing-packs.mdx) — más `tdcv2 check`
+([abajo](#tdcv2-check)) y `tdcv2 format` ([abajo](#tdcv2-format)).
 
 ## Opciones
 
@@ -127,6 +127,28 @@ por su cuenta si paralelizar. En resumen:
 TDC calcula cuántos hilos caben en la RAM de esta máquina y toma esa cantidad — en una
 máquina débil la corrida simplemente va más lenta, no se cae a la mitad. Todo el detalle
 está en [Volúmenes grandes](../guides/large-outputs.mdx).
+
+## `tdcv2 check`
+
+Lee una configuración, la valida y no genera nada. Es lo que quiere en un hook de
+pre-commit o en un paso de CI: responde «¿esto correría?» sin gastar el tiempo de
+correrlo.
+
+```bash
+tdcv2 check demo.tdc
+```
+
+Todo sale por stderr — una configuración válida recibe una línea, y una inválida los
+mismos diagnósticos que imprimiría `tdcv2 demo.tdc`. **Por stdout no sale nada**, a
+propósito: el stdout de un hook es ruido, y quien quiera los datos ejecuta el generador.
+
+<Terminal title="tdcv2 check demo.tdc">
+{`tdcv2: demo.tdc is valid`}
+</Terminal>
+
+Las advertencias no hacen fallar la comprobación — se imprimen y el código de salida sigue
+siendo `0`, porque una advertencia describe algo que funciona pero probablemente no es lo
+que usted quería. Solo un error sale con `1`.
 
 ## `tdcv2 format`
 

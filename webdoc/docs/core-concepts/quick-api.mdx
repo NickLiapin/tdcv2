@@ -51,12 +51,12 @@ uses, and they carry no meaning of their own — they are there so that the
 autocomplete list at `tdc.` stays a list of categories rather than a wall of 122
 locale codes.
 
-| Prefix | Reaches | Example |
-| :-- | :-- | :-- |
-| _(none)_ | the active locale | `tdc.person.lastName()` |
-| `common.` | the shared pack — the same in every language | `tdc.common.id.uuid()` |
-| `country.<code>.` | one country's pack | `tdc.country.usa.docs.ssn()` |
-| `lang.<code>.` | one language's pack | `tdc.lang.ru.person.lastName()` |
+| Prefix            | Reaches                                      | Example                         |
+| :---------------- | :------------------------------------------- | :------------------------------ |
+| _(none)_          | the active locale                            | `tdc.person.lastName()`         |
+| `common.`         | the shared pack — the same in every language | `tdc.common.id.uuid()`          |
+| `country.<code>.` | one country's pack                           | `tdc.country.usa.docs.ssn()`    |
+| `lang.<code>.`    | one language's pack                          | `tdc.lang.ru.person.lastName()` |
 
 ```ts
 tdc.common.id.uuid(); // 3ff6ff76-6ea7-4fad-8b99-3075a14cc7e9

@@ -20,7 +20,7 @@ The [`each`](../reference/attributes.md#top) attribute repeats a
 record turns into **N output rows** — a normalized table ready for a database.
 
 > [!NOTE]
-> Example outputs below are illustrative. The exact *values* a generator emits can
+> Example outputs below are illustrative. The exact _values_ a generator emits can
 > shift between core versions and seeds; the **counts** and the **structural rules**
 > (which rows appear, which stay empty, that keys are unique) are what the feature
 > guarantees.
@@ -34,11 +34,11 @@ record turns into **N output rows** — a normalized table ready for a database.
 
 ## At a glance
 
-| Where           | What                                                                 |
-| :-------------- | :------------------------------------------------------------------ |
-| Applies on      | [`<line>`](../core-concepts/output-formatting.md#top)                  |
-| Value           | The **name** of a sequence whose generator has [`repeat`](../reference/attributes.md#top) |
-| Effect          | The line is emitted once per element of that list                   |
+| Where      | What                                                                                   |
+| :--------- | :------------------------------------------------------------------------------------- |
+| Applies on | [`<line>`](../core-concepts/output-formatting.md#top)                                     |
+| Value      | The **name** of a sequence whose generator has [`repeat`](../reference/attributes.md#top) |
+| Effect     | The line is emitted once per element of that list                                      |
 
 The target sequence **must** carry [`repeat`](../reference/attributes.md#top) — that's
 what makes it a list to iterate over. Point `each` at anything else and TDC tells you
@@ -115,12 +115,12 @@ explode the list.
 Inside a line that carries `each`, the iterated sequence name refers to the **current
 element**, and two extra built-ins become available:
 
-| Token            | What it means                                                            |
-| :--------------- | :----------------------------------------------------------------------- |
+| Token            | What it means                                                                            |
+| :--------------- | :--------------------------------------------------------------------------------------- |
 | `${{VipOrders}}` | the **current** element. Outside the `each` line, the same name is the whole joined list |
-| `${{_item}}`     | position within the record: `1`, `2`, `3`                                  |
-| `${{_item_id}}`  | a global, unique number across the whole run — your primary key           |
-| everything else  | as usual: `${{Id}}`, [`${{_count}}`](../reference/builtins.md#top), any other sequence |
+| `${{_item}}`     | position within the record: `1`, `2`, `3`                                                |
+| `${{_item_id}}`  | a global, unique number across the whole run — your primary key                          |
+| everything else  | as usual: `${{Id}}`, [`${{_count}}`](../reference/builtins.md#top), any other sequence      |
 
 This is exactly why the foreign key works: `${{Id}}` still means the **customer** on
 every order row, not the element. If iterating rebound `Id` to the element, every order
@@ -223,11 +223,11 @@ The same shape covers anything with a fixed vocabulary of steps: a support ticke
 
 `each` is strict about what it can iterate, and fails loudly rather than guessing:
 
-| What                                             | Why                                                                       | Error     |
-| :----------------------------------------------- | :------------------------------------------------------------------------ | :-------- |
-| `each` on a sequence with **no** [`repeat`](../reference/attributes.md#top) | there's nothing to iterate over                          | `TDC207`  |
-| `each` on a name that doesn't exist              | the sequence is undeclared                                                | `TDC206`  |
-| `<data name="…">` inside an `each` line          | a named `<data>` is a **column** for Parquet, and Parquet collects columns per record, not per iterated row | `TDC209`  |
+| What                                                                     | Why                                                                                                         | Error    |
+| :----------------------------------------------------------------------- | :---------------------------------------------------------------------------------------------------------- | :------- |
+| `each` on a sequence with **no** [`repeat`](../reference/attributes.md#top) | there's nothing to iterate over                                                                             | `TDC207` |
+| `each` on a name that doesn't exist                                      | the sequence is undeclared                                                                                  | `TDC206` |
+| `<data name="…">` inside an `each` line                                  | a named `<data>` is a **column** for Parquet, and Parquet collects columns per record, not per iterated row | `TDC209` |
 
 `./run broken.tdc  (each on a non-list)`
 
@@ -244,7 +244,7 @@ formats — SQL, CSV, JSON lines — where one record must become several physic
 ## See also
 
 - **[Hierarchical dependencies](../guides/hierarchical-dependencies.md#top)** — [`parent`](../reference/attributes.md#top),
-  which decides *which* list is active on each row.
+  which decides _which_ list is active on each row.
 - **[Coherent & relational data](../guides/coherent-data.md#top)** — the other way to relate tables,
   by shared parent lookup.
 - **[`repeat` / `separator`](../reference/attributes.md#top)** — how a sequence becomes a

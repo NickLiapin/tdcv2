@@ -48,11 +48,11 @@ A file has exactly one `<tdc>`, and it has to be the root. A document without on
 with `error[TDC001]: document has no <tdc> root element`. It holds an optional `<env>`
 (covered below) and a required [`<block>`](output-formatting.mdx).
 
-| Attribute          | Required | What it does                                          |
-| :----------------- | :------- | :---------------------------------------------------- |
-| `version` / `v`    | no       | Minimum DSL version the file needs                    |
+| Attribute          | Required | What it does                                                    |
+| :----------------- | :------- | :-------------------------------------------------------------- |
+| `version` / `v`    | no       | Minimum DSL version the file needs                              |
 | `regex_max_length` | no       | Global length cap for [`type="regex"`](../generators/regex.mdx) |
-| `comment`          | no       | Free-form comment, ignored by the engine              |
+| `comment`          | no       | Free-form comment, ignored by the engine                        |
 
 ### `version` (alias `v`)
 
@@ -64,6 +64,7 @@ stopping. Use it when a config depends on a feature added in a specific release 
 want an out-of-date engine to fail clearly instead of confusingly.
 
 {/* doc-check: skip the error's location line embeds a machine temp path */}
+
 ```xml
 <tdc version="9.9.9">
     <block><line><data>hello</data></line></block>
@@ -114,6 +115,7 @@ default ceiling is 32:
 note: Use finite regex: bounded quantifiers such as {n} or {n,m}; unbounded *, +, and {n,} are rejected.
 
 aborted: 1 error`}
+
 </Terminal>
 
 Raising the cap only lets an already-finite result run longer — it never makes an
@@ -156,13 +158,13 @@ between records. It's optional: if all you need is one fixed line repeated `coun
 times, leave it out. But as soon as you want sequences, parameters, or fixtures, this
 is where they go.
 
-| Attribute | Default    | What it sets                                             |
-| :-------- | :--------- | :------------------------------------------------------- |
-| `count`   | `10`       | How many records to generate                             |
-| `seed`    | random     | Seed for the random number generator                     |
-| `local`   | `en`       | Locale for [`type="template"`](../generators/template.mdx) data |
-| `inject`  | `${{%}}`   | The interpolation pattern for values                     |
-| `comment` | —          | Free-form comment, ignored by the engine                 |
+| Attribute | Default  | What it sets                                                    |
+| :-------- | :------- | :-------------------------------------------------------------- |
+| `count`   | `10`     | How many records to generate                                    |
+| `seed`    | random   | Seed for the random number generator                            |
+| `local`   | `en`     | Locale for [`type="template"`](../generators/template.mdx) data |
+| `inject`  | `${{%}}` | The interpolation pattern for values                            |
+| `comment` | —        | Free-form comment, ignored by the engine                        |
 
 :::note[CLI overrides win]
 `--count`, `--seed`, and `--locale` on the command line override the values in
@@ -245,7 +247,7 @@ Russian name pack instead:
 Алексей`}
 </Terminal>
 
-Only the *data* changes — the structure, the seed behavior, and everything else stay
+Only the _data_ changes — the structure, the seed behavior, and everything else stay
 exactly the same. Which locales you have available depends on the installed
 [data packs](../data-packs/overview.mdx).
 
@@ -291,16 +293,16 @@ Fixtures are text slots printed around the generated records: banners, separator
 per-line wrappers. They let a single config emit a complete file — a JSON array with its
 `[` and `]`, a CSV with a header row — instead of just the bare records.
 
-| Fixture              | Prints                                  |
-| :------------------- | :-------------------------------------- |
-| `<before>`           | Once, before the whole run              |
-| `<after>`            | Once, after the whole run               |
-| `<before_block>`     | Before each record                      |
-| `<after_block>`      | After each record                       |
-| `<delimiter_block>`  | Between records (not after the last)    |
-| `<before_line>`      | Before each line of a record            |
-| `<after_line>`       | After each line of a record             |
-| `<delimiter_line>`   | Between the lines of a record           |
+| Fixture             | Prints                               |
+| :------------------ | :----------------------------------- |
+| `<before>`          | Once, before the whole run           |
+| `<after>`           | Once, after the whole run            |
+| `<before_block>`    | Before each record                   |
+| `<after_block>`     | After each record                    |
+| `<delimiter_block>` | Between records (not after the last) |
+| `<before_line>`     | Before each line of a record         |
+| `<after_line>`      | After each line of a record          |
+| `<delimiter_line>`  | Between the lines of a record        |
 
 ```xml
 <tdc>

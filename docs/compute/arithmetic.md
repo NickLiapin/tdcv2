@@ -16,13 +16,13 @@ language — they live in a [`<sequence>`](../core-concepts/sequences.md#top) ri
 [`<gen>`](../generators/overview.md#top), both in your own config and inside the built-in
 identifier packs.
 
-| Tag                        | What it does                                    | Example → result           |
-| :------------------------- | :---------------------------------------------- | :------------------------- |
-| [`<add>`](#add)            | sum of all children (empty → `0`)               | `add(2, 3, 4)` → `9`       |
-| [`<subtract>`](#subtract)  | first minus the sum of the rest                 | `subtract(10, 3, 2)` → `5` |
-| [`<multiply>`](#multiply)  | product of all children (empty → `1`)           | `multiply(2, 3, 4)` → `24` |
-| [`<divide>`](#divide)      | integer division toward −∞ (exactly 2 children) | `divide(7, 2)` → `3`       |
-| [`<mod>`](#mod)            | remainder, always ≥ 0 (exactly 2 children)      | `mod(17, 5)` → `2`         |
+| Tag                       | What it does                                    | Example → result           |
+| :------------------------ | :---------------------------------------------- | :------------------------- |
+| [`<add>`](#add)           | sum of all children (empty → `0`)               | `add(2, 3, 4)` → `9`       |
+| [`<subtract>`](#subtract) | first minus the sum of the rest                 | `subtract(10, 3, 2)` → `5` |
+| [`<multiply>`](#multiply) | product of all children (empty → `1`)           | `multiply(2, 3, 4)` → `24` |
+| [`<divide>`](#divide)     | integer division toward −∞ (exactly 2 children) | `divide(7, 2)` → `3`       |
+| [`<mod>`](#mod)           | remainder, always ≥ 0 (exactly 2 children)      | `mod(17, 5)` → `2`         |
 
 Two rules hold for **all** of them:
 
@@ -146,7 +146,7 @@ minus birth year".
 
 ### First minus the sum of the rest
 
-With **three** children `<subtract>` takes the first minus the *sum* of the other two —
+With **three** children `<subtract>` takes the first minus the _sum_ of the other two —
 used when several items draw down one budget:
 
 ```xml
@@ -473,13 +473,13 @@ To get a single character to feed it, pull one out of a string:
 `<str v="A"/>`.
 
 | `as`      | What it produces                                             |
-| :-------- | :---------------------------------------------------------- |
-| `base36`  | `0`–`9` → `0…9`, letters `A`–`Z`/`a`–`z` → `10…35` (decimal)|
-| `ascii`   | decimal code point, `0`–`127` only (otherwise an error)     |
-| `unicode` | decimal code point, no `127` limit                          |
-| `hex`     | the code point in base 16                                   |
-| `octal`   | the code point in base 8                                    |
-| `binary`  | the code point in base 2                                    |
+| :-------- | :----------------------------------------------------------- |
+| `base36`  | `0`–`9` → `0…9`, letters `A`–`Z`/`a`–`z` → `10…35` (decimal) |
+| `ascii`   | decimal code point, `0`–`127` only (otherwise an error)      |
+| `unicode` | decimal code point, no `127` limit                           |
+| `hex`     | the code point in base 16                                    |
+| `octal`   | the code point in base 8                                     |
+| `binary`  | the code point in base 2                                     |
 
 An unknown `as` value is caught before the run (error `TDC186`).
 

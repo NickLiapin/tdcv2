@@ -50,17 +50,17 @@ single line with `points`, or a band with `upper` / `lower`:
 <gen type="pattern" upper="0,20 50,40 100,20" lower="0,5 50,10 100,5" y_range="0..40"/>
 ```
 
-| Attribute         | What it sets                                                                  |
-| :---------------- | :---------------------------------------------------------------------------- |
-| `src`             | An **SVG** or **PNG** file — the usual way to give the shape                   |
-| `points`          | Pairs `x,y` typed inline instead of a file: `x` across, `y` height             |
-| `upper` / `lower` | Two boundary curves typed inline — a [corridor](#a-drawing-is-read-column-by-column) |
+| Attribute         | What it sets                                                                                                    |
+| :---------------- | :-------------------------------------------------------------------------------------------------------------- |
+| `src`             | An **SVG** or **PNG** file — the usual way to give the shape                                                    |
+| `points`          | Pairs `x,y` typed inline instead of a file: `x` across, `y` height                                              |
+| `upper` / `lower` | Two boundary curves typed inline — a [corridor](#a-drawing-is-read-column-by-column)                            |
 | `mode`            | `signal` (default) — a trajectory; `density` — a [distribution](#mode--the-two-questions-you-can-ask-a-drawing) |
-| `y_range`         | `min..max` — the range of the values you get; the drawing is stretched into it |
-| `interp`          | `linear` (default) / `smooth` / `step` — how the line behaves between points   |
-| `spread`          | Randomize every row by ±N in `y_range` units (default `0` — an exact line)     |
-| `ink_threshold`   | `0..1` — how dark a PNG pixel must be to count as ink (default `0.5`)          |
-| `decimals`        | Digits after the decimal point (default `0`)                                   |
+| `y_range`         | `min..max` — the range of the values you get; the drawing is stretched into it                                  |
+| `interp`          | `linear` (default) / `smooth` / `step` — how the line behaves between points                                    |
+| `spread`          | Randomize every row by ±N in `y_range` units (default `0` — an exact line)                                      |
+| `ink_threshold`   | `0..1` — how dark a PNG pixel must be to count as ink (default `0.5`)                                           |
+| `decimals`        | Digits after the decimal point (default `0`)                                                                    |
 
 ## `src` — the picture is the config
 
@@ -287,11 +287,11 @@ Between two points drawn far apart there may be thousands of rows. Left alone, a
 straight segment climbs by exactly the same amount every row — mathematically
 correct and visibly synthetic. `interp` picks the behavior:
 
-| Value              | What it does                                                              |
-| :----------------- | :------------------------------------------------------------------------ |
-| `linear` (default) | Straight segments — a constant rate between two points                     |
-| `smooth`           | A curve through the points that **eases in and out**, never overshooting   |
-| `step`             | Holds each point's value until the next one — a staircase                  |
+| Value              | What it does                                                             |
+| :----------------- | :----------------------------------------------------------------------- |
+| `linear` (default) | Straight segments — a constant rate between two points                   |
+| `smooth`           | A curve through the points that **eases in and out**, never overshooting |
+| `step`             | Holds each point's value until the next one — a staircase                |
 
 `smooth` uses a monotone cubic: it rounds the corners and varies the rate, but it can
 never take the line above or below the values you actually drew, so no phantom peak
@@ -418,10 +418,10 @@ other reading — `mode="density"`, below.
 
 The same picture answers two different questions, and `mode` picks which one:
 
-| Mode                | The question                          | What comes out                                                            |
-| :------------------ | :------------------------------------ | :------------------------------------------------------------------------ |
-| `signal` (default)  | "what value does **this row** get?"   | `0, 20, 40, 70, 90, 100, 90, 70, 40, 20, 0` — walks along the line, in order |
-| `density`           | "how **often** does this value come up?" | a pile of numbers clustered around the drawn hump, in random order        |
+| Mode               | The question                             | What comes out                                                               |
+| :----------------- | :--------------------------------------- | :--------------------------------------------------------------------------- |
+| `signal` (default) | "what value does **this row** get?"      | `0, 20, 40, 70, 90, 100, 90, 70, 40, 20, 0` — walks along the line, in order |
+| `density`          | "how **often** does this value come up?" | a pile of numbers clustered around the drawn hump, in random order           |
 
 In `density` the axes swap meaning: the horizontal axis is the **value**, and the
 curve's height is **how often** that value occurs. Draw a hump over the middle and

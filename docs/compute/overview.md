@@ -157,7 +157,7 @@ variables like this, and each one is introduced together with the tag that owns 
 
 ## A fuller example — a valid card number
 
-A payment-card number is *almost* random: the last digit is a
+A payment-card number is _almost_ random: the last digit is a
 [Luhn](https://en.wikipedia.org/wiki/Luhn_algorithm) check digit computed from the
 rest. Generate 15 random digits, then let `<compute>` append the one digit that makes
 the whole thing valid:
@@ -213,7 +213,7 @@ the core version — but every line above is a genuinely Luhn-valid 16-digit num
 
 Piece by piece: [`<reduce>`](lists.md#reduce--fold-to-one-value) folds the 15 digits
 into a single running `sum`. Every second digit (an even
-[`<current_index/>`](lists.md#top)) gets "doubled" — but Luhn wants the *digit sum* of the
+[`<current_index/>`](lists.md#top)) gets "doubled" — but Luhn wants the _digit sum_ of the
 doubled value, so instead of `<multiply>` the config looks it up in a small table with
 [`<at>`](lists.md#at--index-into-a-list). A [`<choose>`](conditionals.md#top) picks either
 the doubled value or the plain digit. The second `check` step turns that sum into the
@@ -223,11 +223,11 @@ final digit, and [`<concat>`](strings.md#top) glues it onto the base.
 
 Every compute expression evaluates to one of three types.
 
-| Type   | What it is             | Literal              |
-| :----- | :--------------------- | :------------------- |
-| `int`  | a 64-bit integer       | `<int v="10"/>`      |
-| `str`  | a string               | `<str v="AB"/>`      |
-| `list` | a list of `int`/`str`  | `<list v="2,4,10"/>` |
+| Type   | What it is            | Literal              |
+| :----- | :-------------------- | :------------------- |
+| `int`  | a 64-bit integer      | `<int v="10"/>`      |
+| `str`  | a string              | `<str v="AB"/>`      |
+| `list` | a list of `int`/`str` | `<list v="2,4,10"/>` |
 
 A literal's value goes in the **`v` attribute** — in TDC, tags can't hold text between
 `<tag>` and `</tag>`. There are no floats and no booleans.
@@ -239,18 +239,18 @@ differently. A familiar name is worse than an unfamiliar one here: you do not re
 documentation for a tag you think you already know. Each row below is measured, not
 inferred.
 
-| You write | You may expect | TDC gives |
-| :--- | :--- | :--- |
-| `<divide>` of 7 by 2 | `3.5` | `3` — integer division, the remainder is dropped |
-| `<divide>` of 1 by 3 | `0.33` | `0` |
-| `<mod>` of -7 by 3 | `-1`, as in C, Java and JavaScript | `2` — the remainder is never negative |
-| `<list v="a,b"/>` | a list of two strings | an error: `"a" is not an integer` |
-| `<replace from="[ab]"/>` | a regular expression | a literal match, so nothing is replaced |
-| `<replace from="a"/>` on `banana` | the first `a` | `bXnXnX` — every occurrence |
-| `<equals>` of `5` and `"5"` | different types, not equal | equal |
-| `<slice from="99">` of `abc` | an error | an empty string, silently |
-| `<pad width="2">` of `12345` | `12` | `12345` — `width` is a minimum, never a cut |
-| `<each>` used as a string | a string | an error: `cannot use a list where a string is expected` |
+| You write                         | You may expect                     | TDC gives                                                |
+| :-------------------------------- | :--------------------------------- | :------------------------------------------------------- |
+| `<divide>` of 7 by 2              | `3.5`                              | `3` — integer division, the remainder is dropped         |
+| `<divide>` of 1 by 3              | `0.33`                             | `0`                                                      |
+| `<mod>` of -7 by 3                | `-1`, as in C, Java and JavaScript | `2` — the remainder is never negative                    |
+| `<list v="a,b"/>`                 | a list of two strings              | an error: `"a" is not an integer`                        |
+| `<replace from="[ab]"/>`          | a regular expression               | a literal match, so nothing is replaced                  |
+| `<replace from="a"/>` on `banana` | the first `a`                      | `bXnXnX` — every occurrence                              |
+| `<equals>` of `5` and `"5"`       | different types, not equal         | equal                                                    |
+| `<slice from="99">` of `abc`      | an error                           | an empty string, silently                                |
+| `<pad width="2">` of `12345`      | `12`                               | `12345` — `width` is a minimum, never a cut              |
+| `<each>` used as a string         | a string                           | an error: `cannot use a list where a string is expected` |
 
 Three of these deserve more than a row.
 
@@ -262,16 +262,16 @@ exactly why the pair misleads here.
 
 Three rules follow, and the engine enforces all three:
 
-| Rule | What you get when you break it |
-| :--- | :--- |
-| A name must be bound before it is read | `TDC182: <var name="x"> is not bound by an enclosing <let>` |
-| A name is bound once and cannot be rebound | `TDC185: <let name="x"> shadows an outer binding of the same name` |
-| A binding is visible only inside its own slot | a `<let>` inside `<do>` is invisible outside it — `TDC182` again |
+| Rule                                          | What you get when you break it                                     |
+| :-------------------------------------------- | :----------------------------------------------------------------- |
+| A name must be bound before it is read        | `TDC182: <var name="x"> is not bound by an enclosing <let>`        |
+| A name is bound once and cannot be rebound    | `TDC185: <let name="x"> shadows an outer binding of the same name` |
+| A binding is visible only inside its own slot | a `<let>` inside `<do>` is invisible outside it — `TDC182` again   |
 
 Put plainly: `<let>` works a value out once and gives it a name, and `<var>` is how the
 rest of the block asks for that value again instead of repeating the work. The value
 never changes after it is named — that is what makes naming it worth anything. It is the
-same move as arithmetic on paper: *let s be the score as a number*, written once and used
+same move as arithmetic on paper: _let s be the score as a number_, written once and used
 to the end.
 
 ### `<divide>` throws the remainder away
@@ -301,17 +301,17 @@ the [Compute functions reference](../reference/compute.md#top).
 
 The values you start from and the names you give intermediate results.
 
-| Tag                    | What it does                                              |
-| :--------------------- | :------------------------------------------------------- |
-| `<int v="10"/>`        | an integer (`v` is decimal, may carry a leading `-`)     |
-| `<str v="AB"/>`        | a string                                                 |
-| `<list v="2,4,10"/>`   | a comma-separated list of ints                           |
-| `<field name="X"/>`    | the value of sequence `X` in scope — same as `${{X}}`    |
-| `<var name="X"/>`      | the value bound by an enclosing `<let name="X">`         |
-| `<let name="X">…`      | names an intermediate result that sibling tags can read  |
-| `<current/>`           | the current element (only inside `<do>`)                 |
-| `<current_index/>`     | the zero-based position of the current element           |
-| `<acc/>`               | the accumulator (only inside `<reduce><do>`)             |
+| Tag                  | What it does                                            |
+| :------------------- | :------------------------------------------------------ |
+| `<int v="10"/>`      | an integer (`v` is decimal, may carry a leading `-`)    |
+| `<str v="AB"/>`      | a string                                                |
+| `<list v="2,4,10"/>` | a comma-separated list of ints                          |
+| `<field name="X"/>`  | the value of sequence `X` in scope — same as `${{X}}`   |
+| `<var name="X"/>`    | the value bound by an enclosing `<let name="X">`        |
+| `<let name="X">…`    | names an intermediate result that sibling tags can read |
+| `<current/>`         | the current element (only inside `<do>`)                |
+| `<current_index/>`   | the zero-based position of the current element          |
+| `<acc/>`             | the accumulator (only inside `<reduce><do>`)            |
 
 ### [Arithmetic](arithmetic.md#top)
 
@@ -381,7 +381,7 @@ any area code can drive, or one phone pack you aim at a specific area code.
 
 ### Reject-and-retry — `<valid>`
 
-Sometimes a computed check digit can't be *represented* in the target format. An ISBN-10
+Sometimes a computed check digit can't be _represented_ in the target format. An ISBN-10
 check value of 10 is written as the letter `X`, so if a field has to stay purely
 numeric, those rows have to be thrown out. A pack adds one `<valid>` predicate and the
 engine **regenerates the base until it passes** — with a safety cap, so an impossible
@@ -403,7 +403,7 @@ is ten clean digits.
 2444206142
 ```
 
-**Use it when** a correct value can still be *invalid* for the domain — an unissued
+**Use it when** a correct value can still be _invalid_ for the domain — an unissued
 range, a forbidden check digit — and you want the pack to emit nothing but good rows.
 
 ## Limitations
