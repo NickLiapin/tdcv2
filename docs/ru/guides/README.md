@@ -22,6 +22,7 @@
 - [Типизированный вывод и Parquet](./typed-output-parquet.md#top)
 - [Большие объёмы](./large-outputs.md#top)
 - [Как написать сервис-генератор](./writing-a-service.md#top)
+- [Производительность](./performance.md#top)
 
 ---
 

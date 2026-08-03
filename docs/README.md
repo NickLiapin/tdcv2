@@ -79,6 +79,7 @@
 - [Typed output & Parquet](./guides/typed-output-parquet.md#top)
 - [Large outputs & streaming](./guides/large-outputs.md#top)
 - [Writing a service generator](./guides/writing-a-service.md#top)
+- [Performance](./guides/performance.md#top)
 
 ## Data Packs
 

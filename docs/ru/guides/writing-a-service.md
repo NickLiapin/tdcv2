@@ -4,7 +4,7 @@
 
 📖 **[Открыть на сайте документации →](https://nickliapin.github.io/tdcv2/ru/docs/guides/writing-a-service)**
 
-← Назад: [Большие объёмы](./large-outputs.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Обзор](../data-packs/overview.md#top) →
+← Назад: [Большие объёмы](./large-outputs.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Производительность](./performance.md#top) →
 
 ---
 
@@ -514,6 +514,6 @@ new Date(); // not
 
 ---
 
-← Назад: [Большие объёмы](./large-outputs.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Обзор](../data-packs/overview.md#top) →
+← Назад: [Большие объёмы](./large-outputs.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Производительность](./performance.md#top) →
 
 📖 **[Открыть на сайте документации →](https://nickliapin.github.io/tdcv2/ru/docs/guides/writing-a-service)**

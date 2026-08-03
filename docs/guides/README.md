@@ -22,6 +22,7 @@
 - [Typed output & Parquet](./typed-output-parquet.md#top)
 - [Large outputs & streaming](./large-outputs.md#top)
 - [Writing a service generator](./writing-a-service.md#top)
+- [Performance](./performance.md#top)
 
 ---
 

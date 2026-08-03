@@ -79,6 +79,7 @@
 - [Типизированный вывод и Parquet](./guides/typed-output-parquet.md#top)
 - [Большие объёмы](./guides/large-outputs.md#top)
 - [Как написать сервис-генератор](./guides/writing-a-service.md#top)
+- [Производительность](./guides/performance.md#top)
 
 ## Пакеты данных
 

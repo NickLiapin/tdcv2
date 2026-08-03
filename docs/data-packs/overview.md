@@ -4,7 +4,7 @@
 
 📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/data-packs/overview)**
 
-← Previous: [Writing a service generator](../guides/writing-a-service.md#top) · **[Contents](../README.md#top)** · Next: [Installing packs](./installing-packs.md#top) →
+← Previous: [Performance](../guides/performance.md#top) · **[Contents](../README.md#top)** · Next: [Installing packs](./installing-packs.md#top) →
 
 ---
 
@@ -345,6 +345,6 @@ ignored by the scanner.
 
 ---
 
-← Previous: [Writing a service generator](../guides/writing-a-service.md#top) · **[Contents](../README.md#top)** · Next: [Installing packs](./installing-packs.md#top) →
+← Previous: [Performance](../guides/performance.md#top) · **[Contents](../README.md#top)** · Next: [Installing packs](./installing-packs.md#top) →
 
 📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/data-packs/overview)**

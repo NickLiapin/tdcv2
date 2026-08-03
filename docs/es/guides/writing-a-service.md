@@ -4,7 +4,7 @@
 
 📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/guides/writing-a-service)**
 
-← Anterior: [Salidas grandes y streaming](./large-outputs.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Descripción general](../data-packs/overview.md#top) →
+← Anterior: [Salidas grandes y streaming](./large-outputs.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Rendimiento](./performance.md#top) →
 
 ---
 
@@ -514,6 +514,6 @@ Una lista corta, y cada punto sale de cómo falla este generador en la práctica
 
 ---
 
-← Anterior: [Salidas grandes y streaming](./large-outputs.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Descripción general](../data-packs/overview.md#top) →
+← Anterior: [Salidas grandes y streaming](./large-outputs.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Rendimiento](./performance.md#top) →
 
 📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/guides/writing-a-service)**

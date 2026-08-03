@@ -4,7 +4,7 @@
 
 📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/data-packs/overview)**
 
-← Anterior: [Escribir un generador de servicio](../guides/writing-a-service.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Instalar paquetes de datos](./installing-packs.md#top) →
+← Anterior: [Rendimiento](../guides/performance.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Instalar paquetes de datos](./installing-packs.md#top) →
 
 ---
 
@@ -359,6 +359,6 @@ son ignorados por el escáner.
 
 ---
 
-← Anterior: [Escribir un generador de servicio](../guides/writing-a-service.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Instalar paquetes de datos](./installing-packs.md#top) →
+← Anterior: [Rendimiento](../guides/performance.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Instalar paquetes de datos](./installing-packs.md#top) →
 
 📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/data-packs/overview)**

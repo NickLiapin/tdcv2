@@ -1,0 +1,122 @@
+[
+  {
+    "config": "customers",
+    "implementation": "npm",
+    "tier": "large",
+    "rows": 2000000,
+    "engine": 1,
+    "seconds": 12.97,
+    "peak_rss_mb": 1187.5,
+    "output_bytes": 147705273,
+    "digest": "14a2b9329242781a",
+    "failed": ""
+  },
+  {
+    "config": "customers",
+    "implementation": "pypi",
+    "tier": "large",
+    "rows": 2000000,
+    "engine": 1,
+    "seconds": 91.3,
+    "peak_rss_mb": 1528.7,
+    "output_bytes": 147705273,
+    "digest": "14a2b9329242781a",
+    "failed": ""
+  },
+  {
+    "config": "customers",
+    "implementation": "crates.io",
+    "tier": "large",
+    "rows": 2000000,
+    "engine": 1,
+    "seconds": 8.97,
+    "peak_rss_mb": 1321.5,
+    "output_bytes": 147705273,
+    "digest": "14a2b9329242781a",
+    "failed": ""
+  },
+  {
+    "config": "customers",
+    "implementation": "nuget",
+    "tier": "large",
+    "rows": 2000000,
+    "engine": 1,
+    "seconds": 14.37,
+    "peak_rss_mb": 1375.0,
+    "output_bytes": 147705273,
+    "digest": "14a2b9329242781a",
+    "failed": ""
+  },
+  {
+    "config": "customers",
+    "implementation": "maven",
+    "tier": "large",
+    "rows": 2000000,
+    "engine": 1,
+    "seconds": 9.62,
+    "peak_rss_mb": 4140.1,
+    "output_bytes": 147705273,
+    "digest": "14a2b9329242781a",
+    "failed": ""
+  },
+  {
+    "config": "customers",
+    "implementation": "npm",
+    "tier": "large",
+    "rows": 2000000,
+    "engine": 2,
+    "seconds": 14.37,
+    "peak_rss_mb": 189.7,
+    "output_bytes": 147705273,
+    "digest": "14a2b9329242781a",
+    "failed": ""
+  },
+  {
+    "config": "customers",
+    "implementation": "pypi",
+    "tier": "large",
+    "rows": 2000000,
+    "engine": 2,
+    "seconds": 112.11,
+    "peak_rss_mb": 32.3,
+    "output_bytes": 147705273,
+    "digest": "14a2b9329242781a",
+    "failed": ""
+  },
+  {
+    "config": "customers",
+    "implementation": "crates.io",
+    "tier": "large",
+    "rows": 2000000,
+    "engine": 2,
+    "seconds": 8.82,
+    "peak_rss_mb": 3.7,
+    "output_bytes": 147705273,
+    "digest": "14a2b9329242781a",
+    "failed": ""
+  },
+  {
+    "config": "customers",
+    "implementation": "nuget",
+    "tier": "large",
+    "rows": 2000000,
+    "engine": 2,
+    "seconds": 15.34,
+    "peak_rss_mb": 49.4,
+    "output_bytes": 147705273,
+    "digest": "14a2b9329242781a",
+    "failed": ""
+  },
+  {
+    "config": "customers",
+    "implementation": "maven",
+    "tier": "large",
+    "rows": 2000000,
+    "engine": 2,
+    "seconds": 9.5,
+    "peak_rss_mb": 397.1,
+    "output_bytes": 147705273,
+    "digest": "14a2b9329242781a",
+    "failed": ""
+  }
+]

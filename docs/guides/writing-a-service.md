@@ -4,7 +4,7 @@
 
 📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/guides/writing-a-service)**
 
-← Previous: [Large outputs & streaming](./large-outputs.md#top) · **[Contents](../README.md#top)** · Next: [Overview](../data-packs/overview.md#top) →
+← Previous: [Large outputs & streaming](./large-outputs.md#top) · **[Contents](../README.md#top)** · Next: [Performance](./performance.md#top) →
 
 ---
 
@@ -510,6 +510,6 @@ A short list, each item learned from the way this generator actually fails:
 
 ---
 
-← Previous: [Large outputs & streaming](./large-outputs.md#top) · **[Contents](../README.md#top)** · Next: [Overview](../data-packs/overview.md#top) →
+← Previous: [Large outputs & streaming](./large-outputs.md#top) · **[Contents](../README.md#top)** · Next: [Performance](./performance.md#top) →
 
 📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/guides/writing-a-service)**

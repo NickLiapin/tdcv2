@@ -22,6 +22,7 @@
 - [Salida tipada y Parquet](./typed-output-parquet.md#top)
 - [Salidas grandes y streaming](./large-outputs.md#top)
 - [Escribir un generador de servicio](./writing-a-service.md#top)
+- [Rendimiento](./performance.md#top)
 
 ---
 

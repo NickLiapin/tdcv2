@@ -1,0 +1,122 @@
+[
+  {
+    "config": "uniq",
+    "implementation": "npm",
+    "tier": "medium",
+    "rows": 200000,
+    "engine": 1,
+    "seconds": 1.26,
+    "peak_rss_mb": 264.3,
+    "output_bytes": 4288895,
+    "digest": "e747406db1135433",
+    "failed": ""
+  },
+  {
+    "config": "uniq",
+    "implementation": "pypi",
+    "tier": "medium",
+    "rows": 200000,
+    "engine": 1,
+    "seconds": 4.79,
+    "peak_rss_mb": 209.2,
+    "output_bytes": 4288895,
+    "digest": "e747406db1135433",
+    "failed": ""
+  },
+  {
+    "config": "uniq",
+    "implementation": "crates.io",
+    "tier": "medium",
+    "rows": 200000,
+    "engine": 1,
+    "seconds": 1.03,
+    "peak_rss_mb": 215.5,
+    "output_bytes": 4288895,
+    "digest": "e747406db1135433",
+    "failed": ""
+  },
+  {
+    "config": "uniq",
+    "implementation": "nuget",
+    "tier": "medium",
+    "rows": 200000,
+    "engine": 1,
+    "seconds": 1.35,
+    "peak_rss_mb": 188.0,
+    "output_bytes": 4288895,
+    "digest": "e747406db1135433",
+    "failed": ""
+  },
+  {
+    "config": "uniq",
+    "implementation": "maven",
+    "tier": "medium",
+    "rows": 200000,
+    "engine": 1,
+    "seconds": 0.96,
+    "peak_rss_mb": 793.0,
+    "output_bytes": 4288895,
+    "digest": "e747406db1135433",
+    "failed": ""
+  },
+  {
+    "config": "uniq",
+    "implementation": "npm",
+    "tier": "medium",
+    "rows": 200000,
+    "engine": 3,
+    "seconds": 1.91,
+    "peak_rss_mb": 203.9,
+    "output_bytes": 4288895,
+    "digest": "5bfc7846841094ff",
+    "failed": ""
+  },
+  {
+    "config": "uniq",
+    "implementation": "pypi",
+    "tier": "medium",
+    "rows": 200000,
+    "engine": 3,
+    "seconds": 8.23,
+    "peak_rss_mb": 76.0,
+    "output_bytes": 4288895,
+    "digest": "5bfc7846841094ff",
+    "failed": ""
+  },
+  {
+    "config": "uniq",
+    "implementation": "crates.io",
+    "tier": "medium",
+    "rows": 200000,
+    "engine": 3,
+    "seconds": 1.22,
+    "peak_rss_mb": 138.1,
+    "output_bytes": 4288895,
+    "digest": "5bfc7846841094ff",
+    "failed": ""
+  },
+  {
+    "config": "uniq",
+    "implementation": "nuget",
+    "tier": "medium",
+    "rows": 200000,
+    "engine": 3,
+    "seconds": 1.6,
+    "peak_rss_mb": 113.1,
+    "output_bytes": 4288895,
+    "digest": "5bfc7846841094ff",
+    "failed": ""
+  },
+  {
+    "config": "uniq",
+    "implementation": "maven",
+    "tier": "medium",
+    "rows": 200000,
+    "engine": 3,
+    "seconds": 1.32,
+    "peak_rss_mb": 637.3,
+    "output_bytes": 4288895,
+    "digest": "5bfc7846841094ff",
+    "failed": ""
+  }
+]

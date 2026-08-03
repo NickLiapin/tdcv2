@@ -79,6 +79,7 @@
 - [Salida tipada y Parquet](./guides/typed-output-parquet.md#top)
 - [Salidas grandes y streaming](./guides/large-outputs.md#top)
 - [Escribir un generador de servicio](./guides/writing-a-service.md#top)
+- [Rendimiento](./guides/performance.md#top)
 
 ## Paquetes de datos
 
