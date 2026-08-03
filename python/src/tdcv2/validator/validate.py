@@ -172,7 +172,7 @@ ATTRIBUTE_OWNERS: dict[str, frozenset[str]] = {
     "spread": frozenset({"pattern"}),
     "ink_threshold": frozenset({"pattern"}),
     # The synthetic series.
-    "base": frozenset({"timeseries"}),
+    "base": frozenset({"timeseries", "running"}),
     "trend": frozenset({"timeseries"}),
     "period": frozenset({"timeseries"}),
     "amplitude": frozenset({"timeseries"}),

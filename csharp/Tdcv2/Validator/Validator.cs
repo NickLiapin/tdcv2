@@ -117,7 +117,7 @@ public sealed class Validator
             ["ink_threshold"] = Set("pattern"),
 
             // The synthetic series.
-            ["base"] = Set("timeseries"),
+            ["base"] = Set("timeseries", "running"),
             ["trend"] = Set("timeseries"),
             ["period"] = Set("timeseries"),
             ["amplitude"] = Set("timeseries"),

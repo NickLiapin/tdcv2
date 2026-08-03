@@ -12,9 +12,11 @@ from pathlib import Path
 import pytest
 
 from tdcv2.date import plain
+from tdcv2.errors import Severity
 from tdcv2.engine import disk, memory, router, stream
 from tdcv2.packs import DataPacks
 from tdcv2.parser import config_builder, facade
+from tdcv2.validator.validate import validate
 
 REPO = Path(__file__).resolve().parents[2]
 CASES = REPO / "fixtures" / "cross-language" / "cases"
@@ -58,6 +60,14 @@ def test_a_shared_case_renders_what_the_reference_rendered(case: dict) -> None:
     """
     parsed = facade.parse(case["config"])
     assert parsed.ok, f"syntax errors: {[str(p) for p in parsed.problems]}"
+
+    # A case says "this config renders these bytes", which presumes the validator accepts it.
+    # Rendering straight off the parse tree skips that presumption, and a port whose validator
+    # refuses an attribute the reference reads then passes here while `tdcv2 check` on the same
+    # file fails. That is how `base=` on <gen type="running"> stayed refused in three ports.
+    refusals = [d for d in validate(parsed.tree, packs=_PACKS) if d.severity is Severity.ERROR]
+    assert not refusals, f"the validator refuses a shared case: {[d.signature() for d in refusals]}"
+
     config = config_builder.build(parsed.tree)
     now = now_millis(case)
 

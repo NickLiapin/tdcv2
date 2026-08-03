@@ -11,6 +11,7 @@ use tdcv2::engine::{self, EngineError};
 use tdcv2::json::{self, Value};
 use tdcv2::model::Config;
 use tdcv2::parser::{self, config_builder};
+use tdcv2::Severity;
 
 /// The repository's `fixtures/cross-language/`, found by walking up.
 ///
@@ -113,6 +114,23 @@ pub fn config_of(case: &Case) -> Result<Config, EngineError> {
             problems.join("; ")
         )));
     }
+    // A case says "this config renders these bytes", which presumes the validator
+    // accepts it. Building straight off the parse tree skips that presumption, so a
+    // port whose validator refuses an attribute the reference reads passes here while
+    // `tdcv2 check` on the same file fails. That is how `base=` on
+    // <gen type="running"> stayed refused in three ports.
+    let refusals: Vec<String> = tdcv2::validator::validate(&parsed.tree)
+        .into_iter()
+        .filter(|d| d.severity == Severity::Error)
+        .map(|d| format!("{} {}", d.code, d.message))
+        .collect();
+    if !refusals.is_empty() {
+        return Err(EngineError::Invalid(format!(
+            "the validator refuses a shared case: {}",
+            refusals.join("; ")
+        )));
+    }
+
     Ok(config_builder::build(&parsed.tree, None)
         .map_err(|e| EngineError::Invalid(e.message))?
         .with_overrides(case.count, case.seed.as_deref(), case.locale.as_deref()))

@@ -3,7 +3,9 @@ using System.Text;
 using System.Text.Json;
 using Tdcv2.Engine;
 using Tdcv2.Model;
+using Tdcv2.Errors;
 using Tdcv2.Parser;
+using Tdcv2.Validation;
 
 namespace Tdcv2.Tests;
 
@@ -77,6 +79,20 @@ public class SharedCasesTest
         {
             throw new InvalidOperationException(
                 "does not parse: " + string.Join("; ", parsed.Problems.Select(p => p.ToString())));
+        }
+
+        // A case says "this config renders these bytes", which presumes the validator accepts it.
+        // Rendering straight off the parse tree skips that presumption, so a port whose validator
+        // refuses an attribute the reference reads passes here while `tdcv2 check` on the same file
+        // fails. That is how `base=` on <gen type="running"> stayed refused in three ports.
+        var refusals = Validator.Validate(parsed.Tree)
+            .Where(d => d.Severity == Severity.Error)
+            .ToList();
+        if (refusals.Count > 0)
+        {
+            throw new InvalidOperationException(
+                "the validator refuses a shared case: "
+                + string.Join("; ", refusals.Select(d => d.Code + " " + d.Message)));
         }
 
         Config config = ConfigBuilder.Build(parsed.Tree);

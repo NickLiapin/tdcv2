@@ -198,7 +198,7 @@ pub const ATTRIBUTE_OWNERS: [(&str, &[&str]); 24] = [
     ("spread", &["pattern"]),
     ("ink_threshold", &["pattern"]),
     // The synthetic series.
-    ("base", &["timeseries"]),
+    ("base", &["timeseries", "running"]),
     ("trend", &["timeseries"]),
     ("period", &["timeseries"]),
     ("amplitude", &["timeseries"]),
