@@ -235,4 +235,55 @@ fn matches_the_shared_quick_vectors() {
             .unwrap_or_else(|e| panic!("{gen_type}: {e}"));
         assert_eq!(drawn, expected, "gen {gen_type} under seed {seed}");
     }
+
+    for case in fixture
+        .get("diagnostics")
+        .and_then(|v| v.as_array())
+        .expect("diagnostics")
+    {
+        let name = case.get("name").and_then(|v| v.as_str()).expect("name");
+        let seed = case.get("seed").and_then(|v| v.as_str()).expect("seed");
+        let locale = case.get("locale").and_then(|v| v.as_str()).expect("locale");
+        let address = case
+            .get("address")
+            .and_then(|v| v.as_str())
+            .expect("address");
+        let verbatim = case
+            .get("verbatim")
+            .and_then(|v| v.as_bool())
+            .expect("verbatim");
+
+        let message = Quick::seeded(seed)
+            .locale(locale)
+            .get(address)
+            .expect_err(name)
+            .0;
+
+        if verbatim {
+            let expected = case
+                .get("message")
+                .and_then(|v| v.as_str())
+                .expect("message");
+            assert_eq!(message, expected, "{name}");
+            continue;
+        }
+        // Where the wording is free the fragments are the contract, because one
+        // implementation words this one differently on purpose.
+        for fragment in case
+            .get("contains")
+            .and_then(|v| v.as_array())
+            .unwrap_or_default()
+        {
+            let fragment = fragment.as_str().unwrap_or_default();
+            assert!(message.contains(fragment), "{name}: {message}");
+        }
+        for fragment in case
+            .get("absent")
+            .and_then(|v| v.as_array())
+            .unwrap_or_default()
+        {
+            let fragment = fragment.as_str().unwrap_or_default();
+            assert!(!message.contains(fragment), "{name}: {message}");
+        }
+    }
 }

@@ -94,11 +94,26 @@ function asRange(body) {
   return { lo, hi, width, missing };
 }
 
+/**
+ * Every file the pack loader reads — which is every file that is not a dotfile, a locale's
+ * `_locale.json`, or prose.
+ *
+ * Not a list of extensions. `.txt` was never what made a file a pack; it was only what the packs
+ * happened to be when this was written, and the sixteen composed `.tdc` packs sat outside the check
+ * entirely until this stopped naming an extension. A generator inside a `.tdc` can write a range as
+ * an alternation exactly as one inside a `.txt` can.
+ */
+function isPackFile(name) {
+  if (name.startsWith('.') || name === '_locale.json') return false;
+  const base = name.toLowerCase().replace(/\.[^.]+$/, '');
+  return base !== 'readme' && base !== 'license' && base !== 'changelog';
+}
+
 function walk(dir, out = []) {
   for (const entry of readdirSync(dir)) {
     const path = join(dir, entry);
     if (statSync(path).isDirectory()) walk(path, out);
-    else if (entry.endsWith('.txt')) out.push(path);
+    else if (isPackFile(entry)) out.push(path);
   }
   return out;
 }

@@ -38,6 +38,24 @@ const ADDRESSES = [
   { seed: 'l', locale: 'en', address: 'person.lastName', count: 1 },
   // Crosses the batch boundary: the one place implementations drift.
   { seed: 'batch', locale: 'en', address: 'person.lastName', count: 600 },
+
+  // The locale, which every implementation exposes and nothing here used to pin: nine vectors
+  // all said `en`, so a port that ignored the locale entirely passed the whole file.
+  //
+  // One address under three scripts, so a port that reaches the wrong list cannot come back with
+  // something that merely looks plausible.
+  { seed: 'demo', locale: 'ru', address: 'person.lastName', count: 3 },
+  { seed: 'demo', locale: 'fr', address: 'person.lastName', count: 3 },
+  { seed: 'demo', locale: 'ar', address: 'person.lastName', count: 3 },
+  // A COMPOSED pack — `es/person/male/fullName.tdc` is a config, not a list of names — reached
+  // through the quick API, where the whole config is synthesised around it.
+  { seed: 'demo', locale: 'es', address: 'person.male.fullName', count: 2 },
+  // An address that names its own pack outranks the locale: this must equal the `ru` vector
+  // above, not the `en` list.
+  { seed: 'demo', locale: 'en', address: 'ru.person.lastName', count: 2 },
+  // And the other side of that rule: a country address is not a locale's to reinterpret, so this
+  // must equal the first two of `demo`/`en`/`usa.docs.ssn`.
+  { seed: 'demo', locale: 'ru', address: 'usa.docs.ssn', count: 2 },
 ];
 
 const GENERATORS = [
@@ -46,6 +64,79 @@ const GENERATORS = [
   { seed: 'r', type: 'regex', attrs: { value: '[A-Z]{3}-[0-9]{4}' }, count: 3 },
 ];
 
+/**
+ * What the quick API says when it cannot draw at all.
+ *
+ * These are the sentences the five wrote separately and then had to be converged by hand, which
+ * is the definition of something that belongs in a shared fixture. `message` is generated below,
+ * never written here.
+ *
+ * `verbatim: false` marks the one message an implementation is allowed to word differently, and
+ * says which fragments it still owes: Maven puts no `tdcv2` on the PATH, so Java's install advice
+ * also names `java -jar tdcv2-cli.jar` and cannot match the reference character for character.
+ * Everything else is one sentence in all five.
+ */
+const DIAGNOSTICS = [
+  {
+    name: 'a-typo-names-the-nearest-address',
+    seed: 'e',
+    locale: 'en',
+    address: 'usa.docs.sn',
+    verbatim: true,
+  },
+  {
+    // The near miss is found against the LOCALE-QUALIFIED form too: what was typed has no locale
+    // and what is proposed does.
+    name: 'the-nearest-address-may-be-the-qualified-one',
+    seed: 'e',
+    locale: 'en',
+    address: 'company.industri',
+    verbatim: true,
+  },
+  {
+    // The same shape of typo under another locale: the message names that locale, and proposes a
+    // Russian address rather than an English one.
+    name: 'the-locale-decides-which-near-miss-is-meant',
+    seed: 'e',
+    locale: 'ru',
+    address: 'person.lastNam',
+    verbatim: true,
+  },
+  {
+    // Far enough away that a suggestion would be an invention. No hint at all is the contract.
+    name: 'a-name-nothing-is-near-gets-no-suggestion',
+    seed: 'e',
+    locale: 'en',
+    address: 'person.qqqqqqqqqqqqqq',
+    verbatim: true,
+  },
+  {
+    // The fork the five diverged on. A pack that is real but not downloaded must not be answered
+    // with another language's address — that offers English to someone who asked for Afrikaans.
+    name: 'an-uninstalled-pack-is-not-a-typo',
+    seed: 'm',
+    locale: 'en',
+    address: 'af.person.lastName',
+    verbatim: false,
+    contains: [
+      'the "af" pack is not installed',
+      '"af.person.lastName" cannot be drawn',
+      'tdcv2 pack add af',
+    ],
+    absent: ['Did you mean'],
+  },
+];
+
+/** The message the reference raises for a draw that cannot happen. */
+function refusal({ seed, locale, address }) {
+  try {
+    new QuickDraw(seed, locale).draw({ type: 'template', attrs: { value: address } }, 1);
+  } catch (error) {
+    return error.message;
+  }
+  throw new Error(`${address} under locale "${locale}" was expected to fail, and did not`);
+}
+
 const document = {
   schemaVersion: 1,
   $comment:
@@ -53,7 +144,11 @@ const document = {
     'it. Every implementation opens a run of 512 rows under the given seed, reads values from ' +
     'it in order, and reopens under the seed plus "#<batch>" when that run is exhausted; the ' +
     '600-value case is there because that boundary is the one place two implementations drift ' +
-    'without anything else noticing. Regenerate with `npm run fixtures:quick`.',
+    'without anything else noticing. `addresses` carries the locale each draw runs under, and ' +
+    'an address that names its own pack outranks it. `diagnostics` carries what the API says ' +
+    'when it cannot draw at all: `message` is the reference wording, and where `verbatim` is ' +
+    'false an implementation may word it differently but still owes every fragment in ' +
+    '`contains` and none of those in `absent`. Regenerate with `npm run fixtures:quick`.',
   batchRows: BATCH_ROWS,
   addresses: ADDRESSES.map((c) => ({
     ...c,
@@ -66,6 +161,7 @@ const document = {
     ...g,
     expected: new QuickDraw(g.seed, undefined).draw({ type: g.type, attrs: g.attrs }, g.count),
   })),
+  diagnostics: DIAGNOSTICS.map((d) => ({ ...d, message: refusal(d) })),
 };
 
 /**
@@ -104,7 +200,8 @@ if (process.argv.includes('--check')) {
   }
   console.log(
     `quick vectors match (${String(document.addresses.length)} addresses, ` +
-      `${String(document.generators.length)} generators)`,
+      `${String(document.generators.length)} generators, ` +
+      `${String(document.diagnostics.length)} diagnostics)`,
   );
 } else {
   writeFileSync(TARGET, rendered);

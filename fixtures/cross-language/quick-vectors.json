@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "$comment": "The quick API — one value, one call, no config — as the TypeScript reference computes it. Every implementation opens a run of 512 rows under the given seed, reads values from it in order, and reopens under the seed plus \"#<batch>\" when that run is exhausted; the 600-value case is there because that boundary is the one place two implementations drift without anything else noticing. Regenerate with `npm run fixtures:quick`.",
+  "$comment": "The quick API — one value, one call, no config — as the TypeScript reference computes it. Every implementation opens a run of 512 rows under the given seed, reads values from it in order, and reopens under the seed plus \"#<batch>\" when that run is exhausted; the 600-value case is there because that boundary is the one place two implementations drift without anything else noticing. `addresses` carries the locale each draw runs under, and an address that names its own pack outranks it. `diagnostics` carries what the API says when it cannot draw at all: `message` is the reference wording, and where `verbatim` is false an implementation may word it differently but still owes every fragment in `contains` and none of those in `absent`. Regenerate with `npm run fixtures:quick`.",
   "batchRows": 512,
   "addresses": [
     {
@@ -669,6 +669,51 @@
         "Welch",
         "Wagner"
       ]
+    },
+    {
+      "seed": "demo",
+      "locale": "ru",
+      "address": "person.lastName",
+      "count": 3,
+      "expected": ["Седых", "Гончар", "Долгих"]
+    },
+    {
+      "seed": "demo",
+      "locale": "fr",
+      "address": "person.lastName",
+      "count": 3,
+      "expected": ["Leroux", "Dufour", "Aubert"]
+    },
+    {
+      "seed": "demo",
+      "locale": "ar",
+      "address": "person.lastName",
+      "count": 3,
+      "expected": ["المصري", "حمدان", "القرشي"]
+    },
+    {
+      "seed": "demo",
+      "locale": "es",
+      "address": "person.male.fullName",
+      "count": 2,
+      "expected": [
+        "Plácido Gonzalo Villafuerte Vela",
+        "Cipriano Pelayo Roldán Vieira"
+      ]
+    },
+    {
+      "seed": "demo",
+      "locale": "en",
+      "address": "ru.person.lastName",
+      "count": 2,
+      "expected": ["Седых", "Гончар"]
+    },
+    {
+      "seed": "demo",
+      "locale": "ru",
+      "address": "usa.docs.ssn",
+      "count": 2,
+      "expected": ["699209702", "532952730"]
     }
   ],
   "generators": [
@@ -698,6 +743,54 @@
       },
       "count": 3,
       "expected": ["WUW-4452", "WWG-0027", "WCL-8119"]
+    }
+  ],
+  "diagnostics": [
+    {
+      "name": "a-typo-names-the-nearest-address",
+      "seed": "e",
+      "locale": "en",
+      "address": "usa.docs.sn",
+      "verbatim": true,
+      "message": "unknown address \"usa.docs.sn\" (locale \"en\"). Did you mean \"usa.docs.ssn\"?"
+    },
+    {
+      "name": "the-nearest-address-may-be-the-qualified-one",
+      "seed": "e",
+      "locale": "en",
+      "address": "company.industri",
+      "verbatim": true,
+      "message": "unknown address \"company.industri\" (locale \"en\"). Did you mean \"en.company.industry\"?"
+    },
+    {
+      "name": "the-locale-decides-which-near-miss-is-meant",
+      "seed": "e",
+      "locale": "ru",
+      "address": "person.lastNam",
+      "verbatim": true,
+      "message": "unknown address \"person.lastNam\" (locale \"ru\"). Did you mean \"ru.person.lastName\"?"
+    },
+    {
+      "name": "a-name-nothing-is-near-gets-no-suggestion",
+      "seed": "e",
+      "locale": "en",
+      "address": "person.qqqqqqqqqqqqqq",
+      "verbatim": true,
+      "message": "unknown address \"person.qqqqqqqqqqqqqq\" (locale \"en\")"
+    },
+    {
+      "name": "an-uninstalled-pack-is-not-a-typo",
+      "seed": "m",
+      "locale": "en",
+      "address": "af.person.lastName",
+      "verbatim": false,
+      "contains": [
+        "the \"af\" pack is not installed",
+        "\"af.person.lastName\" cannot be drawn",
+        "tdcv2 pack add af"
+      ],
+      "absent": ["Did you mean"],
+      "message": "the \"af\" pack is not installed, so \"af.person.lastName\" cannot be drawn. Install it with `tdcv2 pack add af` (run `tdcv2 init` once first, to say where packs go)."
     }
   ]
 }

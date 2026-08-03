@@ -229,6 +229,16 @@ describe('the shared quick vectors', () => {
       count: number;
       expected: string[];
     }[];
+    diagnostics: {
+      name: string;
+      seed: string;
+      locale: string;
+      address: string;
+      verbatim: boolean;
+      message: string;
+      contains?: string[];
+      absent?: string[];
+    }[];
   };
 
   it('declares the batch size the fixture was captured at', () => {
@@ -251,6 +261,35 @@ describe('the shared quick vectors', () => {
       const draw = new QuickDraw(testCase.seed, undefined);
       const drawn = draw.draw({ type: testCase.type, attrs: testCase.attrs }, testCase.count);
       expect(drawn, testCase.type).toEqual(testCase.expected);
+    }
+  });
+
+  it('raises every diagnostic vector', () => {
+    // The generated types refuse a misspelled address at compile time, so a
+    // check on the RUNTIME message has to reach the draw directly.
+    for (const testCase of fixture.diagnostics) {
+      const draw = new QuickDraw(testCase.seed, testCase.locale);
+      let raised: unknown;
+      try {
+        draw.draw({ type: 'template', attrs: { value: testCase.address } }, 1);
+      } catch (error) {
+        raised = error;
+      }
+      expect(raised, testCase.name).toBeInstanceOf(TdcQuickError);
+      const message = (raised as Error).message;
+
+      if (testCase.verbatim) {
+        expect(message, testCase.name).toBe(testCase.message);
+        continue;
+      }
+      // Where the wording is free the fragments are the contract, because one
+      // implementation words this one differently on purpose.
+      for (const fragment of testCase.contains ?? []) {
+        expect(message, `${testCase.name}: ${fragment}`).toContain(fragment);
+      }
+      for (const fragment of testCase.absent ?? []) {
+        expect(message, `${testCase.name}: ${fragment}`).not.toContain(fragment);
+      }
     }
   });
 });

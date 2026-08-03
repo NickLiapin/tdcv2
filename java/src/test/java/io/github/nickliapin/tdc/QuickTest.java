@@ -258,5 +258,35 @@ class QuickTest {
               .genMany(c.get("type").asText(), attrs, c.get("count").asInt());
       assertEquals(expected, drawn, c.get("type").asText());
     }
+
+    for (JsonNode c : root.get("diagnostics")) {
+      String name = c.get("name").asText();
+      TdcQuickException caught =
+          assertThrows(
+              TdcQuickException.class,
+              () ->
+                  Quick.tdc()
+                      .seed(c.get("seed").asText())
+                      .locale(c.get("locale").asText())
+                      .get(c.get("address").asText()),
+              name);
+      String message = caught.getMessage();
+
+      if (c.get("verbatim").asBoolean()) {
+        assertEquals(c.get("message").asText(), message, name);
+        continue;
+      }
+      // Where the wording is free the fragments are the contract — and this is the
+      // implementation it was made free for: Maven puts no `tdcv2` on the PATH, so the
+      // sentence here also names the jar invocation and cannot match the reference word
+      // for word. The fragments still hold, which is what "the same message" has to mean
+      // across five implementations that cannot all say the same thing.
+      for (JsonNode fragment : c.path("contains")) {
+        assertTrue(message.contains(fragment.asText()), name + ": " + message);
+      }
+      for (JsonNode fragment : c.path("absent")) {
+        assertFalse(message.contains(fragment.asText()), name + ": " + message);
+      }
+    }
   }
 }

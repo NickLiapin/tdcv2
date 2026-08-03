@@ -222,16 +222,68 @@ def test_the_repository_readme_example_still_runs() -> None:
     assert all("-" in line and line.split("-")[0].isupper() for line in produced)
 
 
-def test_the_shared_fixtures_still_describe_this_implementation() -> None:
-    """A guard on the fixtures themselves: a truncated file would silently weaken every test."""
-    shared = REPO / "fixtures" / "cross-language"
-    cases = sum(
-        len(json.loads(p.read_text(encoding="utf-8"))["cases"])
-        for p in (shared / "cases").glob("*.json")
-    )
-    diagnostics = sum(
-        len(json.loads(p.read_text(encoding="utf-8"))["cases"])
-        for p in (shared / "diagnostics").glob("*.json")
-    )
-    assert cases == 140
-    assert diagnostics == 176
+SHARED = REPO / "fixtures" / "cross-language"
+
+
+def _shared_documents(kind: str) -> list[tuple[Path, dict]]:
+    """Every shared fixture file of one kind, parsed.
+
+    A missing directory or an unparseable file fails here rather than one test further on, where
+    it would arrive as a confusing assertion about a case nobody wrote.
+    """
+    directory = SHARED / kind
+    files = sorted(directory.glob("*.json"))
+    assert files, f"no shared fixtures under {directory}"
+    return [(path, json.loads(path.read_text(encoding="utf-8"))) for path in files]
+
+
+# What both harnesses in this suite read off a case. `test_cases.py` renders `config` and compares
+# it to `expected`; `test_diagnostics.py` validates `config` and compares the signatures. Neither
+# can tell a case it silently skipped from a case that passed, which is what these guard.
+_REQUIRED = {
+    "cases": ("name", "description", "config"),
+    "diagnostics": ("name", "description", "config", "demonstrates"),
+}
+
+
+@pytest.mark.parametrize("kind", ["cases", "diagnostics"])
+def test_every_shared_fixture_file_parses_and_carries_cases(kind: str) -> None:
+    """A file emptied or truncated leaves a parametrized suite green over nothing.
+
+    Deliberately a statement about SHAPE and not about how many cases there are. A total was what
+    stood here, and it collided: every worker who added a fixture had to bump one shared number,
+    and two doing so at once bumped it to two different values. It also never caught anything the
+    per-case assertions missed — the thing worth guarding is that every file is still readable and
+    still holds cases, and that is true at any size.
+    """
+    for path, document in _shared_documents(kind):
+        assert document["schemaVersion"] == 1, path.name
+        assert isinstance(document["cases"], list), path.name
+        assert document["cases"], f"{path.name} holds no cases"
+
+
+@pytest.mark.parametrize("kind", ["cases", "diagnostics"])
+def test_every_shared_case_carries_what_the_harness_reads(kind: str) -> None:
+    for path, document in _shared_documents(kind):
+        for case in document["cases"]:
+            where = f"{path.name} / {case.get('name', '?')}"
+            for field in _REQUIRED[kind]:
+                assert isinstance(case.get(field), str), f"{where}: {field} is missing"
+            for field in ("name", "config"):
+                assert case[field].strip(), f"{where}: {field} is empty"
+            assert isinstance(case["expected"], list), where
+            assert all(isinstance(line, str) for line in case["expected"]), where
+            # A rendered case with no expectation asserts nothing. Among the diagnostics an empty
+            # list IS the assertion — that config earns no complaint — so only `cases` is held to
+            # having something to compare against.
+            if kind == "cases":
+                assert case["expected"], f"{where}: expects nothing"
+
+
+@pytest.mark.parametrize("kind", ["cases", "diagnostics"])
+def test_no_two_shared_cases_in_one_file_share_a_name(kind: str) -> None:
+    # Both harnesses identify a case as "<file>/<name>", so a duplicate is two tests reported
+    # under one id — and a fixture pasted over its neighbour would read as a passing suite.
+    for path, document in _shared_documents(kind):
+        names = [case["name"] for case in document["cases"]]
+        assert len(set(names)) == len(names), f"{path.name}: duplicate case names"

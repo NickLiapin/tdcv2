@@ -48,12 +48,30 @@ const COUNTRY_MIN = 4;
 
 const CHECK = process.argv.includes('--check');
 
+/**
+ * Does this file resolve to an address?
+ *
+ * The same rule the pack loader applies, and deliberately not a list of extensions: the loader
+ * ignores the extension entirely, so `.txt` was never the definition of a data file — it was only
+ * what the data happened to be at the time. Sixteen composed packs arriving as `.tdc` made that
+ * assumption visible by undercounting eight locales by two apiece, and a second list of extensions
+ * would simply wait for the next new one.
+ *
+ * `_locale.json` is a locale's metadata, README/LICENSE/CHANGELOG are prose, and neither carries a
+ * value anyone can draw — so neither is what "enough to be worth downloading" is counting.
+ */
+function isAddressFile(name) {
+  if (name.startsWith('.') || name === '_locale.json') return false;
+  const base = name.toLowerCase().replace(/\.[^.]+$/, '');
+  return base !== 'readme' && base !== 'license' && base !== 'changelog';
+}
+
 function countFiles(dir) {
   let total = 0;
   for (const entry of readdirSync(dir, { withFileTypes: true })) {
     const full = join(dir, entry.name);
     if (entry.isDirectory()) total += countFiles(full);
-    else if (entry.name.endsWith('.txt')) total += 1;
+    else if (isAddressFile(entry.name)) total += 1;
   }
   return total;
 }
@@ -61,8 +79,8 @@ function countFiles(dir) {
 /** Top-level areas the folder actually covers, for a description nobody had to write. */
 function categories(dir) {
   return readdirSync(dir, { withFileTypes: true })
-    .filter((e) => e.isDirectory() || (e.isFile() && e.name.endsWith('.txt')))
-    .map((e) => e.name.replace(/\.txt$/, ''))
+    .filter((e) => e.isDirectory() || (e.isFile() && isAddressFile(e.name)))
+    .map((e) => e.name.replace(/\.[^.]+$/, ''))
     .filter((n) => !n.startsWith('_'))
     .sort();
 }
@@ -351,7 +369,13 @@ if (skipped.length > 0) {
 
 if (CHECK) {
   const current = readFileSync(MANIFEST, 'utf8');
-  if (current !== text) {
+  // Compared as DATA, not as text. lint-staged runs prettier over the manifest and
+  // prettier keeps a short array on one line where `JSON.stringify` gives each
+  // element its own, so a byte compare fails the moment the file is committed —
+  // which is why this check was red for its whole life while the data was correct.
+  // `quick-vectors.mjs` hit the same wall and records the same reasoning.
+  const sameData = JSON.stringify(JSON.parse(current)) === JSON.stringify(JSON.parse(text));
+  if (!sameData) {
     process.stderr.write(
       '\ndata/bundles.json is out of date — run scripts/refresh-bundle-manifest.mjs\n',
     );

@@ -212,3 +212,20 @@ class TestSharedVectors:
         for case in self.VECTORS["generators"]:
             node = getattr(tdc.seed(case["seed"]).gen, case["type"])
             assert node.many(case["count"], **case["attrs"]) == case["expected"], case["type"]
+
+    def test_every_diagnostic_vector(self) -> None:
+        for case in self.VECTORS["diagnostics"]:
+            draw = QuickDraw(case["seed"], case["locale"])
+            with pytest.raises(TdcQuickError) as caught:
+                draw.draw("template", {"value": case["address"]}, 1)
+            message = str(caught.value)
+
+            if case["verbatim"]:
+                assert message == case["message"], case["name"]
+                continue
+            # Where the wording is free the fragments are the contract, because
+            # one implementation words this one differently on purpose.
+            for fragment in case.get("contains", []):
+                assert fragment in message, f"{case['name']}: {fragment}"
+            for fragment in case.get("absent", []):
+                assert fragment not in message, f"{case['name']}: {fragment}"
