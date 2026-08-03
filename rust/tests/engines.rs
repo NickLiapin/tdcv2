@@ -1,10 +1,11 @@
 //! The other two scoreboards: what the STREAMING and the EXACT-ON-DISK engines
 //! produce for every shared case.
 //!
-//! The engines draw in different orders, so engine 1 and engine 2 do not agree
-//! on the same seed — and are not meant to. `engines.json` records what the
-//! reference produces on each, which makes them separate contracts with the same
-//! standard: match byte for byte, or refuse by name.
+//! `engines.json` records what the reference produces on each, and its lines
+//! MATCH the `expected` in the cases themselves — all three engines agree on one
+//! seed. Checked here per engine anyway, because that agreement is the property
+//! at stake: an engine that quietly drew in its own order would still look
+//! self-consistent, and only a comparison against the reference catches it.
 //!
 //! Every case is forced onto the engine under test, including the ones the
 //! router would send elsewhere. That is deliberate: the fixture holds an answer
@@ -15,31 +16,42 @@ mod common;
 
 use std::collections::BTreeMap;
 
-use common::{all_cases, config_of, now_of, Case};
+use common::{all_cases, config_of, now_of, print_excused, Case};
 use tdcv2::engine::{self, EngineError};
 use tdcv2::json::Value;
 
-/// The reference's output on one engine, keyed by `group/name`.
-fn expected_on(engine: &str) -> BTreeMap<String, String> {
+/// What the reference does with a case on one engine.
+///
+/// A refusal is an answer too. Skipping those cases used to hide the other half
+/// of the contract: an engine that happily rendered what the reference declines
+/// to render is as wrong as one that renders the wrong bytes, and nothing here
+/// would have said so.
+enum Expected {
+    Lines(String),
+    Refused,
+}
+
+/// The reference's answer on one engine, keyed by `group/name`.
+fn expected_on(engine: &str) -> BTreeMap<String, Expected> {
     let fixture = common::read_fixture("engines.json");
     let mut result = BTreeMap::new();
     let Some(cases) = fixture.get("cases").and_then(Value::as_object) else {
         panic!("engines.json has no cases");
     };
     for (name, node) in cases {
-        let Some(lines) = node
-            .get(&format!("engine{engine}"))
-            .and_then(|e| e.get("lines"))
-            .and_then(Value::as_array)
-        else {
+        let Some(on_engine) = node.get(&format!("engine{engine}")) else {
             continue;
         };
-        let mut text = String::new();
-        for line in lines {
-            text.push_str(line.as_str().unwrap_or_default());
-            text.push('\n');
+        if let Some(lines) = on_engine.get("lines").and_then(Value::as_array) {
+            let mut text = String::new();
+            for line in lines {
+                text.push_str(line.as_str().unwrap_or_default());
+                text.push('\n');
+            }
+            result.insert(name.clone(), Expected::Lines(text));
+        } else if on_engine.get("refused").is_some() {
+            result.insert(name.clone(), Expected::Refused);
         }
-        result.insert(name.clone(), text);
     }
     result
 }
@@ -62,21 +74,40 @@ fn no_shared_case_is_exact_on_disk_in_a_way_the_reference_is_not() {
 fn check_engine(which: &str) {
     let expected = expected_on(which);
     assert!(
-        expected.len() >= 90,
-        "only {} engine-2 expectations — the fixture moved",
+        expected.len() >= 120,
+        "only {} expectations for engine {which} — the fixture moved",
         expected.len()
     );
 
     let mut matched = 0usize;
-    let mut not_yet: BTreeMap<String, usize> = BTreeMap::new();
+    let mut not_yet: BTreeMap<String, Vec<String>> = BTreeMap::new();
     let mut wrong: Vec<String> = Vec::new();
 
     for case in &all_cases() {
         let Some(want) = expected.get(&case.name) else {
             continue;
         };
-        match render_on(case, which) {
-            Err(EngineError::Unsupported(what)) => *not_yet.entry(what).or_default() += 1,
+        let produced = render_on(case, which);
+        // WHAT is refused is the contract; how each language phrases it is not,
+        // so any error counts and an `Unsupported` is not excused here — the
+        // reference declines this case, and declining it is the right answer.
+        if matches!(want, Expected::Refused) {
+            match produced {
+                Err(_) => matched += 1,
+                Ok(_) => wrong.push(format!(
+                    "{}\n     want: refused\n      got: output",
+                    case.name
+                )),
+            }
+            continue;
+        }
+        let Expected::Lines(want) = want else {
+            unreachable!("handled above")
+        };
+        match produced {
+            Err(EngineError::Unsupported(what)) => {
+                not_yet.entry(what).or_default().push(case.name.clone());
+            }
             Err(EngineError::Invalid(why)) => wrong.push(format!("{}: {why}", case.name)),
             Ok(actual) if actual == *want => matched += 1,
             Ok(actual) => wrong.push(format!(
@@ -88,16 +119,12 @@ fn check_engine(which: &str) {
         }
     }
 
-    let missing: usize = not_yet.values().sum();
+    let missing: usize = not_yet.values().map(Vec::len).sum();
     println!(
         "engine {which}: {matched} match the reference, {missing} not ported yet, {} wrong",
         wrong.len()
     );
-    let mut ranked: Vec<(&String, &usize)> = not_yet.iter().collect();
-    ranked.sort_by(|a, b| b.1.cmp(a.1).then(a.0.cmp(b.0)));
-    for (what, n) in ranked {
-        println!("  {n:3}  {what}");
-    }
+    print_excused(&not_yet);
     for w in wrong.iter().take(10) {
         println!("  wrong: {w}");
     }

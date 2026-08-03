@@ -1,10 +1,12 @@
 //! Which engine a config gets.
 //!
-//! The engines are not interchangeable. They draw in different orders, so the
-//! same seed lands on different values — that is documented behaviour, not a
-//! defect. Which means routing is part of the contract: rendering a config on
-//! engine 1 when the reference would have used engine 2 produces output that is
-//! wrong in every row while looking perfectly plausible.
+//! The three engines agree: one config, one seed, one set of bytes, whichever
+//! engine renders it — that is what `fixtures/cross-language/engines.json` pins
+//! down. What differs is what each engine can do at all, and at what cost in
+//! memory. So routing is still part of the contract, but for a narrower reason:
+//! a config sent to an engine that cannot answer its question does not fail, it
+//! answers a smaller question — an exact share becomes a per-row guess — and
+//! the output is wrong in every row while looking perfectly plausible.
 //!
 //! A config does not name an engine — it states a constraint, and the router
 //! picks the fastest engine that can honour it. `mode="memory"` means the whole
@@ -22,14 +24,15 @@
 use super::{invalid, EngineResult};
 use crate::generators::advanced_regex;
 use crate::model::{Config, Gen, SequenceSpec, Source};
+use crate::packs::DataPacks;
 
 /// The engine a config runs on: 1 in memory, 2 streaming, 3 exact on disk.
 ///
-/// The pack-driven rule — a pack generator that declares its own shares — is not
-/// consulted yet, because packs are not loaded yet. It is named here rather than
-/// forgotten: until it lands, such a config routes to 2 where the reference
-/// routes it to 1.
-pub fn resolve(config: &Config) -> EngineResult<u8> {
+/// `packs` is what the pack-driven rule reads — a generator declares its shares
+/// inside its own file, so there is no way to see them without opening it.
+/// `None` skips that one rule and answers from the config alone, which is what a
+/// caller that has no registry to hand can honestly do.
+pub fn resolve(config: &Config, packs: Option<&DataPacks>) -> EngineResult<u8> {
     if let Some(forced) = trim_to_none(config.engine.as_deref()) {
         return match forced {
             "1" => Ok(1),
@@ -75,6 +78,15 @@ pub fn resolve(config: &Config) -> EngineResult<u8> {
             && trim_to_none(gen.attr("row")).is_some()
     }) {
         return Ok(1);
+    }
+
+    // A pack generator that declares its own shares apportions them over the
+    // whole column, and the file it declares them in is the only place they are
+    // written down.
+    if let Some(packs) = packs {
+        if any_gen(config, |gen| declares_shares(gen, config, packs)) {
+            return Ok(1);
+        }
     }
 
     // A network call is not reproducible, so it never runs on the reproducible
@@ -162,6 +174,22 @@ fn parent_is_finite_text(config: &Config, reference: &str) -> bool {
 fn is_weighted_advanced_regex(gen: &Gen) -> bool {
     gen.gen_type == "advanced_regex"
         && advanced_regex::has_weighted_choice(gen.attr_or("value", ""))
+}
+
+/// A `<gen type="template">` naming a pack generator that declares a share.
+///
+/// A dynamic address is left to the rule above it — the pack it names is not
+/// known here, and that config is already on its way to engine 1.
+fn declares_shares(gen: &Gen, config: &Config, packs: &DataPacks) -> bool {
+    if gen.gen_type != "template" {
+        return false;
+    }
+    let path = gen.attr_or("value", "");
+    if path.is_empty() || is_dynamic(path) {
+        return false;
+    }
+    let locale = trim_to_none(gen.attr("local")).unwrap_or_else(|| config.locale_or_default());
+    packs.needs_whole_column(path, locale)
 }
 
 /// `common.vehicle.model.${{Brand}}` — an address not known until the row is.

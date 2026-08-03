@@ -10,14 +10,12 @@
 //! wrong place has not told anyone what is wrong with their config — only which
 //! file to go looking in.
 //!
-//! Same standard as the render scoreboards: a case either matches or does not.
-//! Reporting NOTHING for a case is progress not yet made; reporting the wrong
-//! thing — or a complaint about a config the reference accepts — is a defect,
-//! and that is what this asserts.
+//! A case either matches the reference exactly or it fails, as it does in the
+//! other four. Saying LESS than the reference used to be tolerated here as
+//! "progress not yet made", and the cost was precise: TDC229 was absent for as
+//! long as the tolerance was, and nothing failed to say so.
 
 mod common;
-
-use std::collections::BTreeMap;
 
 use tdcv2::json::Value;
 use tdcv2::parser;
@@ -80,21 +78,6 @@ fn all_cases() -> Vec<Case> {
     cases
 }
 
-/// `Some(first missing code)` when `actual` is a subsequence of `expected` —
-/// nothing invented, only something not said yet.
-fn only_missing(actual: &[String], expected: &[String]) -> Option<String> {
-    let mut at = 0usize;
-    let mut first_missing = None;
-    for want in expected {
-        if actual.get(at) == Some(want) {
-            at += 1;
-        } else if first_missing.is_none() {
-            first_missing = Some(want.split(' ').nth(1).unwrap_or(want).to_string());
-        }
-    }
-    (at == actual.len()).then_some(first_missing?)
-}
-
 fn report(case: &Case) -> Vec<String> {
     let parsed = parser::parse(&case.config);
     if !parsed.ok() {
@@ -126,7 +109,6 @@ fn no_shared_case_is_diagnosed_differently_from_the_reference() {
     );
 
     let mut matched = 0usize;
-    let mut not_yet: BTreeMap<String, usize> = BTreeMap::new();
     let mut wrong: Vec<String> = Vec::new();
 
     for case in &cases {
@@ -151,16 +133,9 @@ fn no_shared_case_is_diagnosed_differently_from_the_reference() {
         let actual = report(case);
         if actual == case.expected {
             matched += 1;
-        } else if let Some(missing) = only_missing(&actual, &case.expected) {
-            // Everything reported IS reported by the reference, at the same
-            // place and in the same order — there is just less of it. That is a
-            // check not ported yet, and it is grouped by the first code that did
-            // not speak, so the biggest remaining piece of work is a number
-            // rather than a guess.
-            *not_yet.entry(missing).or_default() += 1;
         } else {
-            // Something the reference does not report, or the right code in the
-            // wrong place. Either way the config was told something untrue.
+            // Anything at all that is not the reference's answer: a code
+            // invented, a code withheld, or the right code in the wrong place.
             wrong.push(format!(
                 "{}\n     want: {:?}\n      got: {:?}",
                 case.name, case.expected, actual
@@ -168,17 +143,12 @@ fn no_shared_case_is_diagnosed_differently_from_the_reference() {
         }
     }
 
-    let missing: usize = not_yet.values().sum();
     println!(
-        "diagnostics: {matched} match the reference, {missing} not ported yet, {} wrong",
+        "diagnostics: {matched}/{} match the reference, {} wrong",
+        cases.len(),
         wrong.len()
     );
-    let mut ranked: Vec<(&String, &usize)> = not_yet.iter().collect();
-    ranked.sort_by(|a, b| b.1.cmp(a.1).then(a.0.cmp(b.0)));
-    for (code, n) in ranked {
-        println!("  {n:3}  {code}");
-    }
-    for w in wrong.iter().take(12) {
+    for w in &wrong {
         println!("  wrong: {w}");
     }
 
@@ -187,5 +157,4 @@ fn no_shared_case_is_diagnosed_differently_from_the_reference() {
         "{} case(s) diagnosed differently from the reference",
         wrong.len()
     );
-    assert!(matched > 0, "no case is diagnosed correctly yet");
 }

@@ -18,6 +18,22 @@ use std::path::Path;
 use source::{discover_root, DirectorySource, EmbeddedSource, LayeredSource, PackSource};
 
 use crate::engine::{invalid, EngineResult};
+use crate::model::config::{Gen, SequenceSpec, Source};
+use crate::parser::config_builder;
+
+/// A share declared by one sequence of a pack generator's body.
+///
+/// Read from the parsed body rather than by searching the text for `percent=`,
+/// because a `<data>` template may hold those eight characters as output.
+fn declares_share(spec: &SequenceSpec) -> bool {
+    let declared = |gen: &Gen| !gen.attr_or("percent", "").trim().is_empty();
+    match &spec.source {
+        Source::Mix(mix) => mix.percent.as_deref().is_some_and(|p| !p.trim().is_empty()),
+        Source::Gen(gen) => declared(gen),
+        Source::Fields(fields) => fields.iter().any(|field| declared(&field.gen)),
+        _ => false,
+    }
+}
 
 /// A loaded pack.
 ///
@@ -138,6 +154,33 @@ impl DataPacks {
     /// Whether an address resolves, without caring what is in it.
     pub fn exists(&self, dotted_path: &str, locale: &str) -> bool {
         self.load(dotted_path, locale).is_ok()
+    }
+
+    /// Whether a pack generator apportions a share over the whole column.
+    ///
+    /// A `percent=` anywhere in a generator's body — on its `<mix>`, on a
+    /// `<gen>`, on a compound field — makes its quota a property of the run
+    /// rather than of a row. Asked before a config is handed to an engine that
+    /// resolves one row at a time: such an engine computes the quota over a
+    /// single row, so every row goes to the largest share and the column comes
+    /// out uniform while looking like data.
+    ///
+    /// An address that does not resolve answers "no" — an unknown pack is the
+    /// validator's complaint to make, and the router has no better answer than
+    /// the one it would give for a pack with no shares.
+    pub fn needs_whole_column(&self, dotted_path: &str, locale: &str) -> bool {
+        let Ok(entry) = self.load(dotted_path, locale) else {
+            return false;
+        };
+        let Some(body) = entry.generator.as_deref() else {
+            return false;
+        };
+        match config_builder::parse_pack_body(body) {
+            Ok(composed) => composed.sequences.iter().any(declares_share),
+            // A single bare `<gen>` does not parse as a composed body: it
+            // declares a share only through its own `percent=`.
+            Err(_) => body.contains("percent="),
+        }
     }
 
     /// Resolve a dotted path against a locale and load it.

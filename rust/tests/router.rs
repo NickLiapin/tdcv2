@@ -16,7 +16,10 @@ fn engine_for(env_attrs: &str, body: &str) -> u8 {
     let parsed = parser::parse(&config);
     assert!(parsed.ok(), "did not parse: {config}");
     let built = config_builder::build(&parsed.tree, None).expect("builds");
-    router::resolve(&built).unwrap_or_else(|e| panic!("{e}: {config}"))
+    // The repository's own packs, because one of the rules is about what a pack
+    // file declares and there is nowhere else to read that from.
+    let packs = tdcv2::packs::DataPacks::discover().ok();
+    router::resolve(&built, packs.as_ref()).unwrap_or_else(|e| panic!("{e}: {config}"))
 }
 
 const PLAIN: &str = r#"<sequence name="V"><gen type="text" value="a,b"/></sequence>"#;
@@ -77,6 +80,24 @@ fn three_things_pull_a_disk_config_back_into_memory() {
 }
 
 #[test]
+fn a_pack_that_declares_its_own_shares_pulls_the_config_into_memory() {
+    // The share is written inside the pack file, so nothing in the config says
+    // this is a whole-column question — which is exactly why the router has to
+    // open the pack. `zh-cn.geo.streetName` splits its street types 60/20/15/5;
+    // resolved a row at a time the quota is computed over one row and every row
+    // takes the largest share, producing a column of one value that looks like
+    // data.
+    let percent_pack =
+        r#"<sequence name="V"><gen type="template" value="zh-cn.geo.streetName"/></sequence>"#;
+    assert_eq!(engine_for(r#"local="zh-cn""#, percent_pack), 1);
+
+    // A pack that declares no share has no such question and streams.
+    let plain_pack =
+        r#"<sequence name="V"><gen type="template" value="zh-cn.geo.streetNamed"/></sequence>"#;
+    assert_eq!(engine_for(r#"local="zh-cn""#, plain_pack), 2);
+}
+
+#[test]
 fn the_exact_engine_is_for_what_streaming_cannot_answer_per_row() {
     let weighted =
         r#"<sequence name="V"><gen type="advanced_regex" value="(?%{70:RU;30:US})"/></sequence>"#;
@@ -111,6 +132,9 @@ fn a_mode_or_engine_nobody_ships_is_refused_rather_than_guessed() {
         );
         let parsed = parser::parse(&config);
         let built = config_builder::build(&parsed.tree, None).expect("builds");
-        assert!(router::resolve(&built).is_err(), "{bad} should be refused");
+        assert!(
+            router::resolve(&built, None).is_err(),
+            "{bad} should be refused"
+        );
     }
 }

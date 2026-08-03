@@ -364,7 +364,7 @@ impl Tdc {
         // Read once, here, rather than per value: a run that straddled midnight
         // would otherwise put two different dates in one file from one "today".
         let now_millis = options.now_millis.unwrap_or_else(now);
-        let engine = engine::router::resolve(&config)?;
+        let engine = engine::router::resolve(&config, Some(&packs))?;
         // Generated once and kept: asking for the text and then for the rows
         // must not run the generator twice, which would be both slow and — with
         // a generated seed — a different answer.

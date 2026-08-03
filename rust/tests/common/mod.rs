@@ -135,6 +135,23 @@ pub fn render(case: &Case) -> Result<String, EngineError> {
     engine::render(&config_of(case)?, now_of(case)?)
 }
 
+/// Every case a scoreboard let through as "not ported yet", by name.
+///
+/// The count alone says how far there is to go; the names say what the work
+/// actually is. A scoreboard that reports only a number lets a whole feature sit
+/// excused indefinitely, because nothing in the output ever points at a case to
+/// go and read.
+pub fn print_excused(excused: &std::collections::BTreeMap<String, Vec<String>>) {
+    let mut ranked: Vec<(&String, &Vec<String>)> = excused.iter().collect();
+    ranked.sort_by(|a, b| b.1.len().cmp(&a.1.len()).then(a.0.cmp(b.0)));
+    for (what, names) in ranked {
+        println!("  {:3}  excused: {what}", names.len());
+        for name in names {
+            println!("         {name}");
+        }
+    }
+}
+
 /// `2024-01-15T00:00:00Z` to milliseconds since the epoch.
 ///
 /// Written out because the crate has no date dependency and, more to the point,

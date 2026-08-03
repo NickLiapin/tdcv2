@@ -1394,20 +1394,10 @@ fn pack_needs_whole_column(gen: &Gen, env: &Env) -> bool {
         .attr("local")
         .or(env.config.locale.as_deref())
         .unwrap_or("en");
-    if path.is_empty() || !env.packs.exists(path, locale) {
-        return false;
-    }
-    // A `percent=` anywhere in a generator's body — on its `<mix>`, on a `<gen>`, on a
-    // compound field — makes its quota a property of the run rather than of a row. Read from
-    // the body text rather than from a parse: the shape varies, the attribute does not, and a
-    // false positive here only costs the column its per-row path.
-    match env.packs.load(path, locale) {
-        Ok(entry) => entry
-            .generator
-            .as_deref()
-            .is_some_and(|body| body.contains("percent=")),
-        Err(_) => false,
-    }
+    // The same question the router asks, answered from the same place: this
+    // engine and the router disagreeing about one pack would put the column on
+    // the per-row path in an engine chosen precisely because it must not be.
+    !path.is_empty() && env.packs.needs_whole_column(path, locale)
 }
 
 /// A weighted file column read as a value list and its shares.
@@ -2348,7 +2338,8 @@ fn pack_generator(
     Ok(rendered)
 }
 
-/// One local sequence of a pack body: a computed value, or an ordinary column.
+/// One local sequence of a pack body: a computed value, a share, or an ordinary
+/// column.
 fn materialize_local(
     spec: &SequenceSpec,
     count: usize,
@@ -2364,8 +2355,19 @@ fn materialize_local(
         return Ok(values);
     }
 
+    // A `<mix percent>` is how a pack declares a share of its own — 60% of
+    // Spanish surnames are two words — and it is laid out over the whole
+    // generated column, which is why a config that draws from such a pack is
+    // routed here in the first place.
+    if let Source::Mix(mix) = &spec.source {
+        return Ok(mix_values(mix, count, prng, None, env, None)?
+            .into_iter()
+            .map(Some)
+            .collect());
+    }
+
     let Some(gen) = spec.gen() else {
-        return unsupported("a pack sequence that is neither a <gen> nor a <compute>");
+        return unsupported("a pack sequence that is neither a <gen>, a <mix> nor a <compute>");
     };
     let produced = generate(gen, count, prng, env)?;
     Ok(finish(produced, &gen.attrs, prng, None)?

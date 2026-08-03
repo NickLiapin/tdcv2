@@ -40,7 +40,10 @@ fn a_config_with_no_mode_streams_rather_than_going_to_memory() {
     let streamed = lines(&config(body, 6, "route"));
     let in_memory = lines(&config(body, 6, "route").with_engine("1"));
     assert_eq!(streamed, in_memory, "the engines must agree from one seed");
-    assert_eq!(engine::router::resolve(&config(body, 6, "route")), Ok(2));
+    assert_eq!(
+        engine::router::resolve(&config(body, 6, "route"), None),
+        Ok(2)
+    );
 }
 
 #[test]

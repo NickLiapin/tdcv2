@@ -2575,6 +2575,35 @@ impl Validator {
         for body in interpolations(text) {
             let mut parts = body.split('|');
             let name = parts.next().unwrap_or("").trim().to_string();
+            if self.pool_references.contains(&name) {
+                // A reference draws a whole MEMBER, so it has no single value to
+                // print. Without this it reached the output as literal text: a
+                // name that exists, resolves to nothing, and says nothing.
+                let fields: Vec<String> = self
+                    .declared_names
+                    .iter()
+                    .filter_map(|n| n.strip_prefix(&format!("{name}.")))
+                    .map(str::to_string)
+                    .collect();
+                let shown: Vec<String> = fields
+                    .iter()
+                    .map(|field| format!("${{{{{name}.{field}}}}}"))
+                    .collect();
+                self.error(
+                    "TDC229",
+                    format!(
+                        "\"{name}\" draws a whole member from a pool — it has no value of its \
+                         own to print"
+                    ),
+                    &if fields.is_empty() {
+                        format!("Read one of its fields: ${{{{{name}.field}}}}.")
+                    } else {
+                        format!("Read a field: {}.", shown.join(", "))
+                    },
+                    at,
+                );
+                continue;
+            }
             if !name.is_empty() && !self.declared_names.contains(&name) && !is_builtin(&name) {
                 self.error(
                     "TDC193",

@@ -14,7 +14,7 @@ mod common;
 
 use std::collections::BTreeMap;
 
-use common::{all_cases, render};
+use common::{all_cases, print_excused, render};
 use tdcv2::engine::EngineError;
 
 #[test]
@@ -27,13 +27,13 @@ fn no_shared_case_renders_something_other_than_the_reference() {
     );
 
     let mut matched = 0usize;
-    let mut not_yet: BTreeMap<String, usize> = BTreeMap::new();
+    let mut not_yet: BTreeMap<String, Vec<String>> = BTreeMap::new();
     let mut wrong: Vec<String> = Vec::new();
 
     for case in &cases {
         match render(case) {
             Err(EngineError::Unsupported(what)) => {
-                *not_yet.entry(what).or_default() += 1;
+                not_yet.entry(what).or_default().push(case.name.clone());
             }
             Err(EngineError::Invalid(why)) => {
                 // Not a missing feature: the engine rejected a config the
@@ -50,18 +50,12 @@ fn no_shared_case_renders_something_other_than_the_reference() {
         }
     }
 
-    let missing: usize = not_yet.values().sum();
+    let missing: usize = not_yet.values().map(Vec::len).sum();
     println!(
         "shared cases: {matched} match the reference, {missing} not ported yet, {} wrong",
         wrong.len()
     );
-    // Grouped, so the biggest remaining piece of work is a number rather than a
-    // guess about where to go next.
-    let mut ranked: Vec<(&String, &usize)> = not_yet.iter().collect();
-    ranked.sort_by(|a, b| b.1.cmp(a.1).then(a.0.cmp(b.0)));
-    for (what, n) in ranked {
-        println!("  {n:3}  {what}");
-    }
+    print_excused(&not_yet);
     for w in wrong.iter().take(10) {
         println!("  wrong: {w}");
     }

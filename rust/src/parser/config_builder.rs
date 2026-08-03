@@ -644,8 +644,18 @@ pub fn parse_pack_body(body: &str) -> Result<PackGenerator, BuildError> {
     let mut sequences = Vec::new();
     let mut output: Option<String> = None;
     for child in &env.children {
-        if child.kind == Kind::OpenClose && child.name == "sequence" {
-            sequences.push(sequence(child)?);
+        if child.kind == Kind::OpenClose {
+            // The same three tags `<env>` reads as a column, because a pack body
+            // IS an `<env>` — a standalone `<mix name="s" percent="60,40">` is
+            // how a pack declares its own shares. Reading only `<sequence>` here
+            // dropped that column silently, and `${{s}}` reached the output as
+            // eight literal characters.
+            match child.name.as_str() {
+                "sequence" => sequences.push(sequence(child)?),
+                "mix" => sequences.push(mix_sequence(child)),
+                "switch" => sequences.push(switch_sequence(child)),
+                _ => {}
+            }
             continue;
         }
         if child.kind == Kind::Data {

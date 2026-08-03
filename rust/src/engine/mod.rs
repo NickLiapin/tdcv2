@@ -1,10 +1,11 @@
 //! The engines: turning a [`Config`] into rows, and rows into text.
 //!
-//! There will be three, as there are in the other four implementations — one
-//! in-memory, one streaming, one exact-on-disk — and they legitimately produce
-//! *different bytes* for the same seed. Which engine a config gets is part of
-//! the contract, not an implementation detail, and the router decides it from
-//! what the config declares.
+//! There are three, as there are in the other four implementations — one
+//! in-memory, one streaming, one exact-on-disk — and they agree byte for byte
+//! on one seed, which `fixtures/cross-language/engines.json` checks. They differ
+//! in what they can answer and what it costs in memory, so which engine a config
+//! gets is still part of the contract: the router reads it off what the config
+//! declares.
 //!
 //! [`memory`] streams nothing and answers instantly, [`stream`] holds one row,
 //! and [`disk`] is [`stream`] with `uniq` built exactly — falling back to
@@ -97,11 +98,9 @@ pub trait RowSource {
 /// Run a config and return its text.
 ///
 /// The router decides which engine, and that decision is part of the contract
-/// rather than an optimisation: the three draw in different orders, so a config
-/// rendered on engine 1 when the reference would have streamed it comes out
-/// wrong in every row while looking perfectly plausible. Engines 2 and 3 are not
-/// written yet, so a config routed to one is refused by name — which is the only
-/// answer that stays honest.
+/// rather than an optimisation: an engine that cannot hold a whole column still
+/// answers a config that needs one, by answering a smaller question a row at a
+/// time — which comes out wrong in every row while looking perfectly plausible.
 pub fn render(config: &Config, now_millis: i64) -> EngineResult<String> {
     render_in(config, now_millis, None)
 }
@@ -112,10 +111,20 @@ pub fn render(config: &Config, now_millis: i64) -> EngineResult<String> {
 /// fail from another, which is the difference between a config a team can share
 /// and one that only runs where it was written.
 pub fn render_in(config: &Config, now_millis: i64, base_dir: Option<&str>) -> EngineResult<String> {
-    match router::resolve(config)? {
+    // Discovered rather than required: a config that draws from no pack at all
+    // still runs on a machine that has none, and only engine 3 cannot proceed
+    // without one.
+    let packs = DataPacks::discover().ok();
+    match router::resolve(config, packs.as_ref())? {
         1 => memory::render_in(config, now_millis, base_dir),
         2 => stream::render_in(config, now_millis, base_dir),
-        3 => disk::render_in(config, &DataPacks::discover()?, now_millis, base_dir),
+        3 => {
+            let packs = match packs {
+                Some(found) => found,
+                None => DataPacks::discover()?,
+            };
+            disk::render_in(config, &packs, now_millis, base_dir)
+        }
         other => invalid(&format!("engine {other} does not exist")),
     }
 }
@@ -133,7 +142,7 @@ pub fn run_in(
     now_millis: i64,
     base_dir: Option<&str>,
 ) -> EngineResult<Box<dyn RowSource>> {
-    match router::resolve(config)? {
+    match router::resolve(config, Some(packs))? {
         1 => Ok(Box::new(memory::run_in(
             config, packs, now_millis, base_dir,
         )?)),
