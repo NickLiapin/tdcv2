@@ -225,9 +225,6 @@ def resolve(src: str, base_dir: Path | None, roots: list[Path] | None = None) ->
     the config stays the same and only ``--data-path`` (or ``dataPaths`` in the project config)
     differs. With no data folder configured at all the alias cannot mean anything, and saying so is
     better than reporting a missing file.
-
-    ``pkg:`` is deliberately absent. It resolves through ``node_modules``, which exists in one of
-    the three runtimes; a Python or Java implementation pretending to support it would be guessing.
     """
     text = src.strip()
     candidates = list(roots or [])

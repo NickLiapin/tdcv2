@@ -13,6 +13,24 @@ page — is tracked in that implementation's own changelog:
 [TypeScript](typescript/CHANGELOG.md) · [Python](python/CHANGELOG.md) ·
 [Java](java/CHANGELOG.md) · [C#](csharp/CHANGELOG.md) · [Rust](rust/CHANGELOG.md).
 
+## [Unreleased]
+
+### Removed
+
+- **`src="pkg:…"` on the file and pattern generators.** It read a data file out of
+  an installed npm package. `node_modules` is npm's folder and nothing outside the
+  JavaScript runtime has it, so this was the one `src` form that worked in
+  TypeScript and failed in the other four implementations — against the promise
+  that one config produces one result everywhere.
+
+  Nothing used it: no data pack, no example, no shared fixture, and the package
+  the documentation named as its example was never published. Getting data out of
+  someone else's package is what data packs are for, and those work in all five.
+
+  A config that still writes `pkg:@scope/name/file.txt` now treats it as an
+  ordinary file name and stops with the usual unreadable-source error, the same
+  way the four ports have always answered it.
+
 ## [0.1.3] — 2026-08-02
 
 All five implementations released together at one version number.

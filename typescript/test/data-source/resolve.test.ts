@@ -57,15 +57,19 @@ describe('data source resolver', () => {
     expect(resolveExistingDataSourcePath(pathToFileURL(file).href).path).toBe(file);
   });
 
-  it('resolves package data sources from node_modules near baseDir', () => {
+  it('gives "pkg:" no special meaning, even with the package installed', () => {
+    // `pkg:` used to read a file out of an installed npm package. Only the
+    // TypeScript runtime has node_modules, so a config using it ran on one of
+    // the five implementations and failed on the other four. It is now an
+    // ordinary name that resolves to nothing, and this test is what stops it
+    // coming back.
     const root = tempRoot();
-    const packageData = join(root, 'node_modules', '@tdc', 'data-demo', 'names.txt');
     mkdirSync(join(root, 'node_modules', '@tdc', 'data-demo'), { recursive: true });
-    writeFileSync(packageData, 'Alice\n');
+    writeFileSync(join(root, 'node_modules', '@tdc', 'data-demo', 'names.txt'), 'Alice\n');
 
-    expect(
-      resolveExistingDataSourcePath('pkg:@tdc/data-demo/names.txt', { baseDir: root }).path,
-    ).toBe(packageData);
+    expect(() =>
+      resolveExistingDataSourcePath('pkg:@tdc/data-demo/names.txt', { baseDir: root }),
+    ).toThrow(DataSourceResolutionError);
   });
 
   it('reports all attempted paths when a source cannot be read', () => {

@@ -288,10 +288,6 @@ public static class FileGen
     /// data folder configured at all the alias cannot mean anything, and saying so is better than
     /// reporting a missing file.
     /// </para>
-    /// <para>
-    /// <c>pkg:</c> is deliberately absent. It resolves through <c>node_modules</c>, which exists in
-    /// one of the four runtimes; a .NET implementation pretending to support it would be guessing.
-    /// </para>
     /// </remarks>
     public static string Resolve(string src, string? baseDir, IReadOnlyList<string>? roots)
     {

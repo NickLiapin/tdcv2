@@ -1,5 +1,5 @@
 import { accessSync, constants } from 'node:fs';
-import { isAbsolute, join, resolve } from 'node:path';
+import { isAbsolute, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 export interface DataSourceOptions {
@@ -38,7 +38,6 @@ export function resolveDataSourcePath(
 
   if (isAbsolute(src)) return { path: src, attempts: [src] };
   if (src.startsWith('@data/')) return resolveDataAlias(src.slice('@data/'.length), options);
-  if (src.startsWith('pkg:')) return resolvePackageSource(src.slice('pkg:'.length), options);
 
   return resolveRelativeSource(src, options);
 }
@@ -72,74 +71,9 @@ function resolveDataAlias(aliasPath: string, options: DataSourceOptions): DataSo
   return { path: existing ?? attempts[0] ?? normalized, attempts };
 }
 
-function resolvePackageSource(
-  packageSource: string,
-  options: DataSourceOptions,
-): DataSourceResolution {
-  const parsed = parsePackageSource(packageSource);
-  const attempts = packageRootAttempts(options).map((root) =>
-    join(root, parsed.packageName, parsed.subpath),
-  );
-  const existing = attempts.find(isReadableFile);
-  if (existing) return { path: existing, attempts };
-  throw new DataSourceResolutionError(
-    `cannot resolve package data source "pkg:${packageSource}"`,
-    attempts,
-  );
-}
-
-function parsePackageSource(source: string): {
-  readonly packageName: string;
-  readonly subpath: string;
-} {
-  const src = source.trim();
-  if (src.length === 0) throw new DataSourceResolutionError('pkg: source must not be empty');
-  const parts = src.split('/').filter((part) => part.length > 0);
-  const isScoped = parts[0]?.startsWith('@') ?? false;
-  const packageName = isScoped ? `${parts[0] ?? ''}/${parts[1] ?? ''}` : (parts[0] ?? '');
-  const subpathParts = parts.slice(isScoped ? 2 : 1);
-  if (packageName.length === 0 || subpathParts.length === 0) {
-    throw new DataSourceResolutionError(
-      'pkg: sources must use pkg:package/path or pkg:@scope/package/path',
-    );
-  }
-  return { packageName, subpath: join(...subpathParts) };
-}
-
 function dataPathAttempts(source: string, options: DataSourceOptions): string[] {
   const paths = options.dataPaths ?? [];
   return paths.map((path) => resolve(path, source));
-}
-
-function packageRootAttempts(options: DataSourceOptions): string[] {
-  const starts = [baseDir(options), process.cwd(), ...normalizeDataPaths(options)];
-  const roots: string[] = [];
-  const seen = new Set<string>();
-  for (const start of starts) {
-    for (const root of nodeModuleRoots(start)) {
-      if (seen.has(root)) continue;
-      seen.add(root);
-      roots.push(root);
-    }
-  }
-  return roots;
-}
-
-function nodeModuleRoots(start: string): string[] {
-  const roots: string[] = [];
-  let current = resolve(start);
-  let done = false;
-  while (!done) {
-    roots.push(join(current, 'node_modules'));
-    const parent = resolve(current, '..');
-    if (parent === current) done = true;
-    else current = parent;
-  }
-  return roots;
-}
-
-function normalizeDataPaths(options: DataSourceOptions): string[] {
-  return (options.dataPaths ?? []).map((path) => resolve(path));
 }
 
 function baseDir(options: DataSourceOptions): string {

@@ -344,9 +344,6 @@ public final class FileGen {
    * the path in the config stays the same and only {@code --data-path} (or {@code dataPaths} in
    * the project config) differs. With no data folder configured at all the alias cannot mean
    * anything, and saying so is better than reporting a missing file.
-   *
-   * <p>{@code pkg:} is deliberately absent. It resolves through {@code node_modules}, which exists
-   * in one of the three runtimes; a Java implementation pretending to support it would be guessing.
    */
   public static Path resolve(String src, Path baseDir, List<Path> roots) {
     String text = src.trim();

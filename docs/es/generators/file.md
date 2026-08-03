@@ -31,7 +31,7 @@ pueden cambiar según la versión del core; lo que importa es la forma y las can
 
 | Atributo                                   | Obligatorio | Qué hace                                                                        |
 | :----------------------------------------- | :---------- | :------------------------------------------------------------------------------ |
-| [`src`](../reference/attributes.md#top)       | sí          | Dónde está el archivo — ruta relativa, `@data`, `pkg:` o absoluta               |
+| [`src`](../reference/attributes.md#top)       | sí          | Dónde está el archivo — ruta relativa, `@data` o absoluta                       |
 | [`column`](../reference/attributes.md#top)    | no          | Lee una columna del CSV, por nombre o por número desde 1 (activa CSV)           |
 | [`delimiter`](../reference/attributes.md#top) | no          | Separador de celdas en modo CSV — coma por omisión                              |
 | [`header`](../reference/attributes.md#top)    | no          | Omite la primera línea cuando la columna se elige **por número**                |
@@ -45,7 +45,6 @@ pueden cambiar según la versión del core; lo que importa es la forma y las can
 | :--------------------------------- | :------------------------------------------------- |
 | `src="names.txt"`                  | Junto al archivo de configuración `.tdc`           |
 | `src="@data/names.txt"`            | Se busca en las carpetas pasadas con `--data-path` |
-| `src="pkg:@tdc/data-en/names.txt"` | Un archivo de un paquete dentro de `node_modules`  |
 | `src="/absolute/path/names.txt"`   | Una ruta absoluta                                  |
 
 El archivo se lee como UTF-8. Si la ruta no se puede resolver, la generación se detiene

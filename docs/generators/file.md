@@ -31,7 +31,7 @@ by core version; only the shape and the counts are the point.
 
 | Attribute                                  | Required | What it does                                                        |
 | :----------------------------------------- | :------- | :------------------------------------------------------------------ |
-| [`src`](../reference/attributes.md#top)       | yes      | Where the file is — relative, `@data`, `pkg:`, or absolute path     |
+| [`src`](../reference/attributes.md#top)       | yes      | Where the file is — relative, `@data`, or absolute path             |
 | [`column`](../reference/attributes.md#top)    | no       | Read one CSV column, by name or 1-based number (switches to CSV)    |
 | [`delimiter`](../reference/attributes.md#top) | no       | Cell separator for CSV mode — comma by default                      |
 | [`header`](../reference/attributes.md#top)    | no       | Skip the first line when a column is chosen **by number**           |
@@ -45,7 +45,6 @@ by core version; only the shape and the counts are the point.
 | :--------------------------------- | :----------------------------------------------- |
 | `src="names.txt"`                  | Next to the `.tdc` config file                   |
 | `src="@data/names.txt"`            | Searched in the folders passed via `--data-path` |
-| `src="pkg:@tdc/data-en/names.txt"` | A file from a package in `node_modules`          |
 | `src="/absolute/path/names.txt"`   | An absolute path                                 |
 
 The file is read as UTF-8. If the path can't be resolved, rendering stops with an

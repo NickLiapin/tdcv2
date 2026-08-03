@@ -269,10 +269,6 @@ pub fn load(
 /// configured data folders differ. With no data folder configured at all the
 /// alias cannot mean anything, and saying so is better than reporting a missing
 /// file.
-///
-/// `pkg:` is deliberately absent. It resolves through `node_modules`, which
-/// exists in one of the five runtimes; an implementation pretending to support
-/// it would be guessing.
 pub fn resolve(src: &str, base_dir: Option<&str>, roots: &[String]) -> EngineResult<String> {
     let text = src.trim();
 
