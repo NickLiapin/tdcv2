@@ -552,6 +552,47 @@ impl Plan {
         memory_estimate(&self.config, self.engine, materialized)
     }
 
+    /// Write the run straight to a file, holding one row rather than the whole
+    /// output.
+    ///
+    /// Separate from [`Tdc::write_file`] because of WHEN it runs: by the time a
+    /// `Tdc` exists the run has already been materialised, so writing from one
+    /// can only ever copy what is already in memory. Going from the plan skips
+    /// that — the rows are produced and handed to the file as they appear.
+    ///
+    /// Returns `false` when this run cannot take the streaming path — Parquet
+    /// needs the whole table to write its footer, and the in-memory and
+    /// exact-on-disk engines hold the run by design. The caller then builds and
+    /// writes the ordinary way; nothing here changes what the bytes are.
+    pub fn write_streaming(&self, target: &Path) -> Result<bool, TdcError> {
+        let parquet = target
+            .extension()
+            .is_some_and(|e| e.eq_ignore_ascii_case("parquet"));
+        if parquet || self.engine != 2 {
+            return Ok(false);
+        }
+
+        let file = std::fs::File::create(target)
+            .map_err(|e| TdcError::Io(format!("cannot write \"{}\": {e}", target.display())))?;
+        let mut sink = FileSink {
+            out: std::io::BufWriter::new(file),
+            error: None,
+        };
+        let rendered = crate::engine::stream::write_in(
+            &self.config,
+            self.now_millis,
+            self.base_dir.as_deref(),
+            &mut sink,
+        );
+        // The sink's own failure is the better message: the engine only knows
+        // that a write refused, while the sink kept the reason the OS gave.
+        if let Some(e) = sink.finish(target)? {
+            return Err(e);
+        }
+        rendered?;
+        Ok(true)
+    }
+
     /// Produce the rows.
     pub fn build(self) -> Result<Tdc, TdcError> {
         // Generated once and kept: asking for the text and then for the rows
@@ -738,4 +779,41 @@ fn now() -> i64 {
         .duration_since(std::time::UNIX_EPOCH)
         .map(|since| since.as_millis() as i64)
         .unwrap_or(0)
+}
+
+
+/// A file seen as somewhere text can be written.
+///
+/// `std::fmt::Write` is what the renderer speaks, and it cannot carry an error:
+/// its failure type is empty. So the real cause is kept here and asked for once
+/// the run is over, which is also the only place it can be reported usefully.
+struct FileSink {
+    out: std::io::BufWriter<std::fs::File>,
+    error: Option<std::io::Error>,
+}
+
+impl FileSink {
+    /// Flush, and hand back whatever went wrong along the way.
+    fn finish(&mut self, target: &Path) -> Result<Option<TdcError>, TdcError> {
+        use std::io::Write as _;
+        if let Err(e) = self.out.flush() {
+            self.error.get_or_insert(e);
+        }
+        Ok(self.error.take().map(|e| {
+            TdcError::Io(format!("cannot write \"{}\": {e}", target.display()))
+        }))
+    }
+}
+
+impl std::fmt::Write for FileSink {
+    fn write_str(&mut self, text: &str) -> std::fmt::Result {
+        use std::io::Write as _;
+        match self.out.write_all(text.as_bytes()) {
+            Ok(()) => Ok(()),
+            Err(e) => {
+                self.error.get_or_insert(e);
+                Err(std::fmt::Error)
+            }
+        }
+    }
 }

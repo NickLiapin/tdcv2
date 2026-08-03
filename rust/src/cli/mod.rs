@@ -158,15 +158,31 @@ fn generate(
     // Ask what the run will cost before starting it. A config that cannot fit
     // says so in a millisecond here and takes minutes to say so by thrashing.
     //
-    // Materialized whichever way the output goes: the other implementations
-    // charge the whole-output string only to a run bound for stdout, because
-    // their `-o` path writes record by record. This one does not — `write_file`
-    // asks for the text and hands the bytes to the filesystem — so answering
-    // "streaming" for `-o` would under-report what this build actually holds.
-    if let Some(budget) = plan.preflight(true) {
+    // A run bound for a file on the streaming engine is NOT materialised — it is
+    // written a row at a time, like the other four implementations — so it is not
+    // charged for a whole-output string it never builds. Everything else is:
+    // stdout has to hold the text, and the other two engines hold the run by
+    // design.
+    let materialized = options.output.is_none() || plan.engine() != 2;
+    if let Some(budget) = plan.preflight(materialized) {
         report_one(stderr, &budget, input, Some(plan.source()))?;
         if budget.severity == Severity::Error {
             return Ok(1);
+        }
+    }
+
+    // The streaming path never builds the run: the rows go straight into the
+    // file as they appear. Anything it declines — Parquet, the other two
+    // engines — falls through to the ordinary route below, which produces the
+    // same bytes by a costlier road.
+    if let Some(path) = &options.output {
+        match plan.write_streaming(std::path::Path::new(path)) {
+            Ok(true) => return Ok(0),
+            Ok(false) => {}
+            Err(e) => {
+                fail(stderr, &e.to_string(), false)?;
+                return Ok(1);
+            }
         }
     }
 

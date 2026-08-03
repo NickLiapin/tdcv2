@@ -13,6 +13,25 @@ page — is tracked in that implementation's own changelog:
 [TypeScript](typescript/CHANGELOG.md) · [Python](python/CHANGELOG.md) ·
 [Java](java/CHANGELOG.md) · [C#](csharp/CHANGELOG.md) · [Rust](rust/CHANGELOG.md).
 
+## [Unreleased]
+
+### Fixed
+
+- **Rust: `-o` on the streaming engine held the whole run.** The engine produced rows one at
+  a time, but every way out of it assembled the complete output as one string, and writing to
+  a file then copied that string again. Measured on the published 0.1.4 across four sizes,
+  memory grew straight in line with the row count — 9 MB, 57 MB, 266 MB, **1051 MB** from
+  10 000 to 2 000 000 rows — where C# stayed at 50 MB throughout and Python at 32 MB. It also
+  made Rust's streaming engine slower than its own in-memory one, which is backwards.
+
+  It now renders into the file a row at a time: **4 MB at every size**, from ten thousand rows
+  to two million. Nothing about the output changed — the bytes match the previous release, the
+  other four implementations, and Rust's own stdout path, all on the same digest.
+
+  This was a known deviation rather than a surprise: a comment in the command line described
+  it and the memory preflight was written to be honest about it. The benchmark supplied what
+  the comment could not, which is what it costs. That preflight no longer needs the exception.
+
 ## [0.1.4] — 2026-08-03
 
 ### Fixed

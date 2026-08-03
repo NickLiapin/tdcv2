@@ -392,6 +392,35 @@ pub fn render_in(config: &Config, now_millis: i64, base_dir: Option<&str>) -> En
     engine.text_result()
 }
 
+/// The run, written into a sink as it is produced, holding one row rather than
+/// the whole output.
+///
+/// This is the entry point a file-bound run wants. `render` above builds the
+/// output as one String, which is right for a caller that asked for a String and
+/// wrong for one that is about to hand the bytes straight to a file: at two
+/// million rows that String, its copy and the materialised cells behind it cost
+/// a gigabyte to produce seventy megabytes.
+pub fn write_in<W: std::fmt::Write>(
+    config: &Config,
+    now_millis: i64,
+    base_dir: Option<&str>,
+    out: &mut W,
+) -> EngineResult<()> {
+    let packs = DataPacks::discover()?;
+    let engine = StreamEngine::build(config, &packs, now_millis, base_dir)?;
+    engine.write_result(out)
+}
+
+/// `std::fmt::Write` reports failure without saying why — the trait has no room
+/// for an error. A sink that writes to a file needs somewhere to keep the real
+/// cause, so it stores one and this turns the bare failure back into it.
+fn write_all<W: std::fmt::Write>(out: &mut W, text: &str) -> EngineResult<()> {
+    match out.write_str(text) {
+        Ok(()) => Ok(()),
+        Err(_) => crate::engine::invalid("cannot write the output"),
+    }
+}
+
 /// The run as addressable records, computed on demand.
 pub fn rows(config: &Config, now_millis: i64) -> EngineResult<StreamRows> {
     let packs = DataPacks::discover()?;
@@ -2108,13 +2137,25 @@ impl StreamEngine<'_> {
 
 impl StreamEngine<'_> {
     fn text_result(&self) -> EngineResult<String> {
+        let mut out = String::new();
+        self.write_result(&mut out)?;
+        Ok(out)
+    }
+
+    /// The run, written a piece at a time into any sink that accepts text.
+    ///
+    /// The same code path `text_result` uses, so the bytes cannot differ between
+    /// a run bound for a String and one bound for a file — the difference is only
+    /// where each piece goes once it exists. That is what lets `-o` hold one row
+    /// instead of the whole output, which is what "streaming" was supposed to
+    /// mean here and did not.
+    fn write_result<W: std::fmt::Write>(&self, out: &mut W) -> EngineResult<()> {
         let fx = &self.env.config.fixtures;
         let each = memory::each_info(self.env.config)?;
-        let mut out = String::new();
 
-        self.emit(&mut out, &fx.before, 0)?;
+        self.emit(out, &fx.before, 0)?;
         for row in 0..self.count {
-            self.emit(&mut out, &fx.before_block, row)?;
+            self.emit(out, &fx.before_block, row)?;
 
             let mut active = Vec::new();
             for line in &self.env.config.block {
@@ -2128,27 +2169,27 @@ impl StreamEngine<'_> {
             }
 
             for (i, line) in active.iter().enumerate() {
-                self.emit(&mut out, &fx.before_line, row)?;
-                out.push_str(&self.render_line(line, row, &each)?);
-                self.emit(&mut out, &fx.after_line, row)?;
+                self.emit(out, &fx.before_line, row)?;
+                write_all(out, &self.render_line(line, row, &each)?)?;
+                self.emit(out, &fx.after_line, row)?;
                 if i + 1 < active.len() {
-                    self.emit(&mut out, &fx.delimiter_line, row)?;
+                    self.emit(out, &fx.delimiter_line, row)?;
                 }
             }
 
-            self.emit(&mut out, &fx.after_block, row)?;
+            self.emit(out, &fx.after_block, row)?;
             if row + 1 < self.count {
-                self.emit(&mut out, &fx.delimiter_block, row)?;
+                self.emit(out, &fx.delimiter_block, row)?;
             }
         }
-        self.emit(&mut out, &fx.after, (self.count - 1).max(0))?;
-        Ok(out)
+        self.emit(out, &fx.after, (self.count - 1).max(0))?;
+        Ok(())
     }
 
-    fn emit(&self, to: &mut String, lines: &[Line], row: i32) -> EngineResult<()> {
+    fn emit<W: std::fmt::Write>(&self, to: &mut W, lines: &[Line], row: i32) -> EngineResult<()> {
         let none = BTreeMap::new();
         for line in lines {
-            to.push_str(&self.render_line(line, row, &none)?);
+            write_all(to, &self.render_line(line, row, &none)?)?;
         }
         Ok(())
     }

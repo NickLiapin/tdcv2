@@ -1,0 +1,102 @@
+[
+  {
+    "implementation": "npm",
+    "tier": "medium",
+    "rows": 200000,
+    "engine": 1,
+    "seconds": 1.22,
+    "peak_rss_mb": 196.7,
+    "output_bytes": 14570410,
+    "digest": "3bca9c07410bf117"
+  },
+  {
+    "implementation": "pypi",
+    "tier": "medium",
+    "rows": 200000,
+    "engine": 1,
+    "seconds": 8.5,
+    "peak_rss_mb": 195.5,
+    "output_bytes": 14570410,
+    "digest": "3bca9c07410bf117"
+  },
+  {
+    "implementation": "crates.io",
+    "tier": "medium",
+    "rows": 200000,
+    "engine": 1,
+    "seconds": 0.86,
+    "peak_rss_mb": 144.7,
+    "output_bytes": 14570410,
+    "digest": "3bca9c07410bf117"
+  },
+  {
+    "implementation": "nuget",
+    "tier": "medium",
+    "rows": 200000,
+    "engine": 1,
+    "seconds": 1.8,
+    "peak_rss_mb": 187.0,
+    "output_bytes": 14570410,
+    "digest": "3bca9c07410bf117"
+  },
+  {
+    "implementation": "maven",
+    "tier": "medium",
+    "rows": 200000,
+    "engine": 1,
+    "seconds": 1.33,
+    "peak_rss_mb": 934.9,
+    "output_bytes": 14570410,
+    "digest": "3bca9c07410bf117"
+  },
+  {
+    "implementation": "npm",
+    "tier": "medium",
+    "rows": 200000,
+    "engine": 2,
+    "seconds": 1.42,
+    "peak_rss_mb": 146.7,
+    "output_bytes": 14570410,
+    "digest": "3bca9c07410bf117"
+  },
+  {
+    "implementation": "pypi",
+    "tier": "medium",
+    "rows": 200000,
+    "engine": 2,
+    "seconds": 9.96,
+    "peak_rss_mb": 32.6,
+    "output_bytes": 14570410,
+    "digest": "3bca9c07410bf117"
+  },
+  {
+    "implementation": "crates.io",
+    "tier": "medium",
+    "rows": 200000,
+    "engine": 2,
+    "seconds": 1.36,
+    "peak_rss_mb": 110.3,
+    "output_bytes": 14570410,
+    "digest": "3bca9c07410bf117"
+  },
+  {
+    "implementation": "nuget",
+    "tier": "medium",
+    "rows": 200000,
+    "engine": 2,
+    "seconds": 1.72,
+    "peak_rss_mb": 49.5,
+    "output_bytes": 14570410,
+    "digest": "3bca9c07410bf117"
+  },
+  {
+    "implementation": "maven",
+    "tier": "medium",
+    "rows": 200000,
+    "engine": 2,
+    "seconds": 1.2,
+    "peak_rss_mb": 392.7,
+    "output_bytes": 14570410,
+    "digest": "3bca9c07410bf117"
+  }
+]

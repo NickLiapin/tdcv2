@@ -1,0 +1,102 @@
+[
+  {
+    "implementation": "npm",
+    "tier": "small",
+    "rows": 10000,
+    "engine": 1,
+    "seconds": 0.3,
+    "peak_rss_mb": 97.0,
+    "output_bytes": 713013,
+    "digest": "613e1d95eb028c6d"
+  },
+  {
+    "implementation": "pypi",
+    "tier": "small",
+    "rows": 10000,
+    "engine": 1,
+    "seconds": 0.6,
+    "peak_rss_mb": 39.7,
+    "output_bytes": 713013,
+    "digest": "613e1d95eb028c6d"
+  },
+  {
+    "implementation": "crates.io",
+    "tier": "small",
+    "rows": 10000,
+    "engine": 1,
+    "seconds": 0.05,
+    "peak_rss_mb": 10.9,
+    "output_bytes": 713013,
+    "digest": "613e1d95eb028c6d"
+  },
+  {
+    "implementation": "nuget",
+    "tier": "small",
+    "rows": 10000,
+    "engine": 1,
+    "seconds": 0.34,
+    "peak_rss_mb": 53.3,
+    "output_bytes": 713013,
+    "digest": "613e1d95eb028c6d"
+  },
+  {
+    "implementation": "maven",
+    "tier": "small",
+    "rows": 10000,
+    "engine": 1,
+    "seconds": 0.39,
+    "peak_rss_mb": 130.4,
+    "output_bytes": 713013,
+    "digest": "613e1d95eb028c6d"
+  },
+  {
+    "implementation": "npm",
+    "tier": "small",
+    "rows": 10000,
+    "engine": 2,
+    "seconds": 0.23,
+    "peak_rss_mb": 97.9,
+    "output_bytes": 713013,
+    "digest": "613e1d95eb028c6d"
+  },
+  {
+    "implementation": "pypi",
+    "tier": "small",
+    "rows": 10000,
+    "engine": 2,
+    "seconds": 0.66,
+    "peak_rss_mb": 32.3,
+    "output_bytes": 713013,
+    "digest": "613e1d95eb028c6d"
+  },
+  {
+    "implementation": "crates.io",
+    "tier": "small",
+    "rows": 10000,
+    "engine": 2,
+    "seconds": 0.07,
+    "peak_rss_mb": 9.1,
+    "output_bytes": 713013,
+    "digest": "613e1d95eb028c6d"
+  },
+  {
+    "implementation": "nuget",
+    "tier": "small",
+    "rows": 10000,
+    "engine": 2,
+    "seconds": 0.29,
+    "peak_rss_mb": 48.4,
+    "output_bytes": 713013,
+    "digest": "613e1d95eb028c6d"
+  },
+  {
+    "implementation": "maven",
+    "tier": "small",
+    "rows": 10000,
+    "engine": 2,
+    "seconds": 0.29,
+    "peak_rss_mb": 106.1,
+    "output_bytes": 713013,
+    "digest": "613e1d95eb028c6d"
+  }
+]

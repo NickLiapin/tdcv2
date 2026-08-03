@@ -1,0 +1,112 @@
+[
+  {
+    "implementation": "npm",
+    "tier": "large",
+    "rows": 2000000,
+    "engine": 1,
+    "seconds": 13.05,
+    "peak_rss_mb": 1163.3,
+    "output_bytes": 147705273,
+    "digest": "14a2b9329242781a",
+    "failed": ""
+  },
+  {
+    "implementation": "pypi",
+    "tier": "large",
+    "rows": 2000000,
+    "engine": 1,
+    "seconds": 92.13,
+    "peak_rss_mb": 1300.4,
+    "output_bytes": 147705273,
+    "digest": "14a2b9329242781a",
+    "failed": ""
+  },
+  {
+    "implementation": "crates.io",
+    "tier": "large",
+    "rows": 2000000,
+    "engine": 1,
+    "seconds": 9.0,
+    "peak_rss_mb": 1352.4,
+    "output_bytes": 147705273,
+    "digest": "14a2b9329242781a",
+    "failed": ""
+  },
+  {
+    "implementation": "nuget",
+    "tier": "large",
+    "rows": 2000000,
+    "engine": 1,
+    "seconds": 14.76,
+    "peak_rss_mb": 1325.2,
+    "output_bytes": 147705273,
+    "digest": "14a2b9329242781a",
+    "failed": ""
+  },
+  {
+    "implementation": "maven",
+    "tier": "large",
+    "rows": 2000000,
+    "engine": 1,
+    "seconds": 9.73,
+    "peak_rss_mb": 4067.5,
+    "output_bytes": 147705273,
+    "digest": "14a2b9329242781a",
+    "failed": ""
+  },
+  {
+    "implementation": "npm",
+    "tier": "large",
+    "rows": 2000000,
+    "engine": 2,
+    "seconds": 14.4,
+    "peak_rss_mb": 186.6,
+    "output_bytes": 147705273,
+    "digest": "14a2b9329242781a",
+    "failed": ""
+  },
+  {
+    "implementation": "pypi",
+    "tier": "large",
+    "rows": 2000000,
+    "engine": 2,
+    "seconds": 113.33,
+    "peak_rss_mb": 32.3,
+    "output_bytes": 147705273,
+    "digest": "14a2b9329242781a",
+    "failed": ""
+  },
+  {
+    "implementation": "crates.io",
+    "tier": "large",
+    "rows": 2000000,
+    "engine": 2,
+    "seconds": 14.21,
+    "peak_rss_mb": 1051.0,
+    "output_bytes": 147705273,
+    "digest": "14a2b9329242781a",
+    "failed": ""
+  },
+  {
+    "implementation": "nuget",
+    "tier": "large",
+    "rows": 2000000,
+    "engine": 2,
+    "seconds": 15.01,
+    "peak_rss_mb": 49.9,
+    "output_bytes": 147705273,
+    "digest": "14a2b9329242781a",
+    "failed": ""
+  },
+  {
+    "implementation": "maven",
+    "tier": "large",
+    "rows": 2000000,
+    "engine": 2,
+    "seconds": 9.38,
+    "peak_rss_mb": 398.4,
+    "output_bytes": 147705273,
+    "digest": "14a2b9329242781a",
+    "failed": ""
+  }
+]

@@ -146,3 +146,67 @@ fn a_uniq_asking_for_more_rows_than_combinations_says_so() {
         .to_string();
     assert!(message.contains("at most 12 distinct rows"), "{message}");
 }
+
+/// Writing a run to a file must not go through a copy of the whole output.
+///
+/// The `-o` path used to ask the facade for the text and hand the bytes to the
+/// filesystem, which meant the "streaming" engine held the entire run: measured
+/// at two million rows it wanted a gigabyte to produce a hundred and fifty
+/// megabytes, while C# held fifty megabytes flat. It now renders into the file a
+/// row at a time.
+///
+/// The property that matters is memory, and a test cannot read its own resident
+/// set honestly — so what is pinned here is the thing that would actually break
+/// if someone rewrote the streaming writer: its bytes, against the ordinary path
+/// that was always right.
+mod streaming_write {
+    use super::*;
+
+    fn source_for(count: i32) -> String {
+        format!(
+            "<tdc><env count=\"{count}\" seed=\"sw\" local=\"en\" engine=\"2\">\
+             <sequence name=\"N\"><gen type=\"number\" value=\"1..999\"/></sequence>\
+             <sequence name=\"T\"><gen type=\"text\" value=\"a,b,c\" percent=\"50,30,20\"/></sequence>\
+             </env><block><line><data>{}</data></line></block></tdc>",
+            "${{_count}},${{N}},${{T}}"
+        )
+    }
+
+    fn plan_for(count: i32) -> tdcv2::Plan {
+        tdcv2::Tdc::plan(tdcv2::Options {
+            config_string: Some(source_for(count)),
+            ..Default::default()
+        })
+        .expect("a valid config")
+    }
+
+    #[test]
+    fn the_file_holds_exactly_what_the_ordinary_path_produces() {
+        // Enough rows that a buffered writer flushes more than once, so a bug in
+        // the flushing shows up as a truncated tail rather than passing by luck.
+        let plan = plan_for(20_000);
+        let expected = tdcv2::Tdc::from_string(&source_for(20_000))
+            .expect("the run")
+            .text();
+
+        let target = std::env::temp_dir().join("tdcv2-streaming-write.csv");
+        assert!(
+            plan.write_streaming(&target).expect("the write"),
+            "the streaming engine with a plain target must take the streaming path"
+        );
+        let written = std::fs::read_to_string(&target).expect("the file");
+        let _ = std::fs::remove_file(&target);
+
+        assert_eq!(written, expected, "the streamed file differs from the text");
+    }
+
+    #[test]
+    fn parquet_declines_the_streaming_path() {
+        // Parquet writes a footer describing the whole table, so it cannot be
+        // finished without having seen all of it. Declining is how the caller
+        // knows to take the ordinary route.
+        let target = std::env::temp_dir().join("tdcv2-streaming-write.parquet");
+        assert!(!plan_for(10).write_streaming(&target).expect("the check"));
+        assert!(!target.exists(), "declining must not leave a file behind");
+    }
+}
