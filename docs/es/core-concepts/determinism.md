@@ -15,7 +15,8 @@ datos byte por byte, y las partes caen en **proporciones exactas**. La promesa e
 sobre lo que tiene que coincidir: la misma configuración, la misma semilla, la misma versión
 del núcleo y el mismo modo de salida. Si cambia cualquiera de esos cuatro, los bytes
 pueden cambiar; el lenguaje desde el que se ejecuta no está en la lista, y por eso las
-cinco implementaciones coinciden. Esta página cubre tres
+cinco implementaciones coinciden. Una configuración que pide la fecha de hoy agrega una
+quinta condición: [el reloj](#el-reloj-es-la-quinta-entrada). Esta página cubre tres
 atributos juntos —`seed`, `count` y `percent`— porque interactúan: `count` decide cuántos
 registros se obtienen, `seed` decide _cuáles_, y `percent` fija sus proporciones.
 
@@ -116,6 +117,38 @@ adelante.
 > El PRNG (cyrb128 + sfc32) se eligió de modo que el mismo `seed` y la misma configuración
 > den resultados idénticos en todas las implementaciones. Esa
 > portabilidad es una de las promesas centrales de TDC.
+
+### El reloj es la quinta entrada
+
+`value="today"`, `value="now"`, `person.b_day` y un generador `date` al que no se le
+dieron límites leen el reloj mientras la corrida sucede. La semilla fija qué filas se
+obtienen; no fija qué día es hoy. Una configuración que use cualquiera de ellos se
+reproduce dentro del mismo día y se corre de lugar después:
+
+`./run people.tdc  —  la misma semilla, con un año de diferencia`
+
+```
+--now 2026-04-23      --now 2027-04-23
+Robert 1988-08-21     Robert 1989-08-21
+John 2005-06-13       John 2006-06-13
+James 1977-06-16      James 1978-06-16
+```
+
+Los nombres son idénticos: un nombre sale solo de la semilla. Los cumpleaños se movieron,
+porque la ventana de edad se mide hacia atrás desde hoy.
+
+Anote el reloj y deja de correrse:
+
+```bash
+./run people.tdc --seed demo --now 2026-04-23
+```
+
+Dos corridas con el mismo `--now` son idénticas byte por byte; dos corridas con un
+`--now` distinto no lo son. La API de la biblioteca toma el mismo instante en
+milisegundos desde la época: `now` en `TdcOptions` (TypeScript), `now=` en `TDC`
+(Python), `Options.now(long)` (Java), `Options.NowMillis` (C#), `Options.now_millis`
+(Rust). La sintaxis aceptada y el resto de la bandera están en
+[`--now`](../reference/cli.md#--now--fijar-el-reloj).
 
 ## `count` — cuántos registros
 

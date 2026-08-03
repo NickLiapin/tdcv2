@@ -13,8 +13,10 @@ import Terminal from '@site/src/components/Terminal';
 Two properties make TDC's data trustworthy: the same **seed** reproduces the same data
 byte for byte, and every share comes out at its **exact proportion**. The promise is
 precise about what has to match — the same config, the same seed, the same core version
-and the same output mode. Any of those four changing is licence for the bytes to change;
-the language you run it from is not, which is why five implementations agree. This page
+and the same output mode. Any of those four changing is license for the bytes to change;
+the language you run it from is not, which is why five implementations agree. A config
+that asks for today's date adds a fifth condition —
+[the clock](#the-clock-is-the-fifth-input). This page
 covers
 three attributes together — `seed`, `count`, and `percent` — because they interact:
 `count` decides how many records you get, `seed` decides _which_ records, and `percent`
@@ -109,6 +111,35 @@ The PRNG (cyrb128 + sfc32) was chosen so that the same `seed` and config give id
 results in every implementation. That portability is one of
 TDC's core promises.
 :::
+
+### The clock is the fifth input
+
+`value="today"`, `value="now"`, `person.b_day`, and a `date` generator given no bounds
+read the clock while the run is happening. The seed pins which rows you get; it does not
+pin what "today" is. A config that uses any of them reproduces within the day and drifts
+after it:
+
+<Terminal title="./run people.tdc  —  the same seed, a year apart">
+{`--now 2026-04-23      --now 2027-04-23
+Robert 1988-08-21     Robert 1989-08-21
+John 2005-06-13       John 2006-06-13
+James 1977-06-16      James 1978-06-16`}
+</Terminal>
+
+The names are identical — a name comes from the seed alone. The birthdays moved, because
+the age window is measured back from today.
+
+Write the clock down and the drift stops:
+
+```bash
+./run people.tdc --seed demo --now 2026-04-23
+```
+
+Two runs with the same `--now` are identical byte for byte; two runs with a different
+`--now` are not. The library API takes the same instant as milliseconds since the epoch —
+`now` in TypeScript's `TdcOptions`, `now=` on Python's `TDC`, `Options.now(long)` in
+Java, `Options.NowMillis` in C#, `Options.now_millis` in Rust. The accepted syntax and
+the rest of the flag are on [`--now`](../reference/cli.mdx#--now--pin-the-clock).
 
 ## `count` — how many records
 

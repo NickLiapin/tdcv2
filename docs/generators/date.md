@@ -33,7 +33,9 @@ can differ by core version. What stays fixed is the shape and the format.
 | `precision`           | `day`, `second`, or `millisecond`                                                        |
 
 Use only one of `value`, `range`, or the `from`/`to` pair to describe a range — they
-are three spellings of the same thing.
+are three spellings of the same thing. Give none of them and the range runs from
+`1970-01-01` to the current moment; see
+[No bounds at all](#no-bounds-at-all--the-clock-closes-the-range).
 
 ## A random date in a range
 
@@ -127,6 +129,31 @@ long string.
 2026-05-02T09:00:02
 ```
 
+### No bounds at all — the clock closes the range
+
+A `date` generator given **neither** end still produces a date. The window runs from
+`1970-01-01` to the current moment, so the generator reads the clock even though nothing
+in the config mentions a date:
+
+```xml
+<gen type="date" format="YYYY-MM-DD"/>
+```
+
+`./run demo.tdc  —  the same seed, a year apart`
+
+```
+--now 2026-04-23    --now 2027-04-23
+1972-06-01          1972-06-17
+1994-11-20          1995-04-30
+1972-05-06          1972-05-21
+```
+
+This is the easiest way to lose reproducibility by accident. Give the generator two ends,
+or pin the clock with [`--now`](../reference/cli.md#--now--pin-the-clock).
+
+**One** end is not a third option. `from` without `to` is an error (`TDC150`), and so is
+`range="2020-01-01.."` (`TDC151`). A range is both ends or neither.
+
 ## A birthday with `value="birth"`
 
 `value="birth"` produces a date of birth relative to the current date, bounded by an
@@ -153,6 +180,11 @@ birthday tied to a whole synthetic person, the
 [`person.b_day`](../generators/template.md#top) template takes the same
 `oldest`/`youngest`/`format` attributes.
 
+That is also why the dates move. The window slides forward with the clock, so the same
+seed gives a different birth date tomorrow — the age holds, the date does not. Where the
+output has to stay put — a snapshot test, a fixture, a bug report — pin the clock with
+[`--now`](../reference/cli.md#--now--pin-the-clock).
+
 ## `today` and `now`
 
 `value="today"` is the current date; `value="now"` is the current date **and** time.
@@ -170,6 +202,11 @@ or "as of" fields.
 value="today" format="LL"                       April 23, 2026
 value="now"   format="YYYY-MM-DDTHH:mm:ss.SSS"   2026-04-23T12:00:00.000
 ```
+
+Reading the clock is the point of both, and it is what makes them non-reproducible: the
+seed has no say in what "today" is. Pin the clock with
+[`--now`](../reference/cli.md#--now--pin-the-clock) and `today` and `now` return the
+instant you named, in every run.
 
 ## `precision` — the step for date-time ranges
 
@@ -311,6 +348,9 @@ local="ru"     15 марта 2024 г.
 - `value`, `range`, and `from`/`to` are three spellings of one window — use whichever reads best.
 - `L` / `LL` change with `local`; `YYYY-MM-DD` and friends do not.
 - Date-only ranges step by day; date-time ranges by millisecond unless you set `precision`.
+- `today`, `now`, `value="birth"` and a generator with **no** bounds read the clock, so
+  the seed alone does not reproduce them — pin the clock with
+  [`--now`](../reference/cli.md#--now--pin-the-clock).
 - `format` applies **only** to dates. On template identifiers (SSN, IBAN, phone…) it is an error — shape those with [interpolation filters](../core-concepts/output-formatting.md#top) instead.
 
 ## See also
