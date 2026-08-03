@@ -1,0 +1,131 @@
+/* A measured comparison, drawn as a table. See ../Bars/index.js for why the bars
+   share one scale and why colour repeats what length already says. */
+
+.figure {
+  margin: 0 0 1.8rem;
+}
+
+/* A narrow window scrolls the table rather than the page. */
+.scroll {
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  min-width: 30rem;
+  border-collapse: collapse;
+  display: table;
+  margin: 0;
+}
+
+.table th,
+.table td {
+  border: 0;
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+  padding: 0.42rem 0.5rem;
+  background: none;
+  vertical-align: middle;
+}
+
+.table tbody tr:last-child th,
+.table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+/* The first heading cell is otherwise dead space, so it carries the two numbers
+   that say how big this run was: how many rows, and what the file weighed. */
+.corner {
+  width: 1%;
+  white-space: nowrap;
+  text-align: left;
+  font-size: 0.82rem;
+  font-weight: 600;
+  line-height: 1.35;
+  color: var(--ifm-color-emphasis-700);
+}
+
+.size {
+  display: block;
+  font-weight: 400;
+  font-size: 0.78rem;
+  color: var(--ifm-color-emphasis-600);
+}
+
+.head {
+  text-align: left;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--ifm-color-emphasis-700);
+}
+
+/* The name sits against its own bar — no badge to decode, no legend to consult. */
+.name {
+  width: 1%;
+  white-space: nowrap;
+  text-align: left;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.registry {
+  display: block;
+  font-weight: 400;
+  font-size: 0.75rem;
+  color: var(--ifm-color-emphasis-600);
+}
+
+/* The bar lives in a box INSIDE the cell. Making the `td` itself the flex
+   container takes it out of the table's own layout, and the columns stop
+   lining up. */
+.cell {
+  width: auto;
+}
+
+.bar {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.track {
+  flex: 1 1 auto;
+  min-width: 3rem;
+  height: 0.85rem;
+  border-radius: 3px;
+  background: var(--ifm-color-emphasis-200);
+  overflow: hidden;
+}
+
+.fill {
+  display: block;
+  height: 100%;
+  border-radius: 3px;
+  background: hsl(var(--bar-hue) 58% 42%);
+}
+
+[data-theme='dark'] .fill {
+  background: hsl(var(--bar-hue) 62% 54%);
+}
+
+.value {
+  flex: none;
+  min-width: 4.1rem;
+  text-align: right;
+  font-size: 0.86rem;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.unit {
+  margin-left: 0.15rem;
+  font-weight: 400;
+  font-size: 0.75rem;
+  color: var(--ifm-color-emphasis-600);
+}
+
+.caption {
+  margin-top: 0.55rem;
+  font-size: 0.87rem;
+  line-height: 1.5;
+  color: var(--ifm-color-emphasis-700);
+}

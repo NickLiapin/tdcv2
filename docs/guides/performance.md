@@ -50,11 +50,11 @@ Every rule below exists to keep this a measurement rather than an advertisement:
 
 **The storage does not matter as much as you would think, and that is worth showing rather
 than asserting.** Sequential write on this volume measures 810 MB/s cold and about 1.3 GB/s
-warm. The largest run here produces 147 MB, which at that rate is written in **0.031 seconds**
-out of a nine-to-fifteen second run — two tenths of one percent, and three hundredths of a
-percent for Python. These numbers are bound by the processor, so you can scale them to your
-own machine by core speed and ignore your disk. Nothing large is read: data packs are
-kilobytes and are cached after first use.
+warm. The largest run here produces a 141 MB file, and writing 141 MB and flushing it takes
+**0.24 seconds** measured directly — out of a nine-to-fifteen second run, so between two and
+three percent, and a quarter of one percent for Python. These numbers are bound by the
+processor, so you can scale them to your own machine by core speed and largely ignore your
+disk. Nothing large is read: data packs are kilobytes and are cached after first use.
 
 ### The versions
 
@@ -99,11 +99,23 @@ value assembled from two others.
 <sequence name="Joined"><gen type="date" range="2015-01-01..2025-12-31" format="YYYY-MM-DD"/></sequence>
 ```
 
+The three sizes below are the ones worth having a feel for — a file you can open in
+an editor, a file you would not, and a file that takes a moment to copy:
+
+| | Rows | The CSV it writes |
+| :--- | ---: | ---: |
+| **small** | 10 000 | 0.7 MB |
+| **medium** | 200 000 | 14 MB |
+| **large** | 2 000 000 | 141 MB |
+
+About 74 bytes a row, so you can read any size off that: a gigabyte is roughly
+fourteen million rows of this shape.
+
 ### Time
 
 Seconds, best of three runs (two at the largest size). Lower is better.
 
-| | 10 000 rows | 200 000 rows | 2 000 000 rows |
+| | 10 000 rows<br/>0.7 MB | 200 000 rows<br/>14 MB | 2 000 000 rows<br/>141 MB |
 | :--- | ---: | ---: | ---: |
 | **Rust** | 0.05 / 0.04 | 0.87 / 0.89 | **8.97 / 8.82** |
 | **Java** | 0.30 / 0.29 | 1.21 / 1.19 | 9.62 / 9.50 |
@@ -111,17 +123,18 @@ Seconds, best of three runs (two at the largest size). Lower is better.
 | **C#** | 0.30 / 0.29 | 1.78 / 1.76 | 14.37 / 15.34 |
 | **Python** | 0.55 / 0.66 | 8.35 / 10.24 | 91.30 / 112.11 |
 
-Each cell is *engine 1 / engine 2*.
+Each cell is *engine 1 / engine 2*. The same run, at the largest size, with the
+bars drawn:
 
-![](../img/guides/performance-time.svg)
+| 2 000 000 rows · 141 MB | engine 1 — in memory | engine 2 — streaming |
+| :--- | :--- | :--- |
+| **Rust** — crates.io | `8.97 s` █░░░░░░░░░░░░░ | `8.82 s` █░░░░░░░░░░░░░ |
+| **Java** — Maven Central | `9.62 s` █░░░░░░░░░░░░░ | `9.50 s` █░░░░░░░░░░░░░ |
+| **Node.js** — npm | `12.97 s` ██░░░░░░░░░░░░ | `14.37 s` ██░░░░░░░░░░░░ |
+| **C#** — NuGet | `14.37 s` ██░░░░░░░░░░░░ | `15.34 s` ██░░░░░░░░░░░░ |
+| **Python** — PyPI | `91.30 s` ███████████░░░ | `112.11 s` ██████████████ |
 
-*Seconds for two million rows, engine 1 (pale) against engine 2 (green). Logarithmic, because Python is an order of magnitude away from the rest.*
-
-- **A** — Rust — crates.io
-- **B** — Java — Maven Central
-- **C** — Node.js — npm
-- **D** — C# — NuGet
-- **E** — Python — PyPI
+*Seconds for the 141 MB file. Both columns share one scale, so the bars are comparable across the whole table; green is the fastest measurement on it and red the slowest.*
 
 At ten thousand rows you are mostly measuring start-up: a JVM booting, a Python interpreter
 importing. Below about a hundred thousand rows, the choice of implementation barely matters.
@@ -130,7 +143,7 @@ importing. Below about a hundred thousand rows, the choice of implementation bar
 
 Peak resident set, megabytes. Lower is better.
 
-| | 10 000 rows | 200 000 rows | 2 000 000 rows |
+| | 10 000 rows<br/>0.7 MB | 200 000 rows<br/>14 MB | 2 000 000 rows<br/>141 MB |
 | :--- | ---: | ---: | ---: |
 | **Rust** | 10.6 / **3.7** | 146 / **3.7** | 1322 / **3.7** |
 | **C#** | 53.6 / 48.5 | 187 / 49.4 | 1375 / 49.4 |
@@ -138,15 +151,15 @@ Peak resident set, megabytes. Lower is better.
 | **Node.js** | 97.6 / 98.0 | 190 / 154 | 1188 / 190 |
 | **Java** | 147 / 120 | 885 / 395 | 4140 / 397 |
 
-![](../img/guides/performance-memory.svg)
+| 2 000 000 rows · 141 MB | engine 1 — in memory | engine 2 — streaming |
+| :--- | :--- | :--- |
+| **Node.js** — npm | `1188 MB` ████░░░░░░░░░░ | `190 MB` █░░░░░░░░░░░░░ |
+| **Rust** — crates.io | `1322 MB` ████░░░░░░░░░░ | `3.7 MB` █░░░░░░░░░░░░░ |
+| **C#** — NuGet | `1375 MB` █████░░░░░░░░░ | `49.4 MB` █░░░░░░░░░░░░░ |
+| **Python** — PyPI | `1529 MB` █████░░░░░░░░░ | `32.3 MB` █░░░░░░░░░░░░░ |
+| **Java** — Maven Central | `4140 MB` ██████████████ | `397 MB` █░░░░░░░░░░░░░ |
 
-*Peak memory for two million rows, engine 1 (pale) against engine 2 (green). The pale bars grow with the row count; the green ones do not.*
-
-- **A** — Rust — crates.io
-- **B** — Java — Maven Central
-- **C** — Node.js — npm
-- **D** — C# — NuGet
-- **E** — Python — PyPI
+*Peak memory for the same 141 MB file, on one scale. The right-hand column is what the streaming engine is for: Rust's bar is 3.7 MB against its own 1322 MB on the left.*
 
 **This is the table to read if you read only one.** On engine 1 the memory column tracks the
 row count: ten times the rows, roughly ten times the memory, in every implementation. On
@@ -170,25 +183,27 @@ rows using about six percent of the space.
 </sequence>
 ```
 
-200 000 rows, seconds and peak megabytes, *engine 1 / engine 3*:
+A smaller file than the one above — three short codes a row rather than six fields:
 
-| | Time | Memory |
-| :--- | ---: | ---: |
-| **Java** | 0.96 / 1.32 | 793 / 637 |
-| **Rust** | 1.03 / 1.22 | 216 / 138 |
-| **Node.js** | 1.26 / 1.91 | 264 / 204 |
-| **C#** | 1.35 / 1.60 | 188 / **113** |
-| **Python** | 4.79 / 8.23 | 209 / **76** |
+| 200 000 rows · 4.1 MB | engine 1 — in memory | engine 3 — exact on disk |
+| :--- | :--- | :--- |
+| **Java** — Maven Central | `0.96 s` ██░░░░░░░░░░░░ | `1.32 s` ██░░░░░░░░░░░░ |
+| **Rust** — crates.io | `1.03 s` ██░░░░░░░░░░░░ | `1.22 s` ██░░░░░░░░░░░░ |
+| **Node.js** — npm | `1.26 s` ██░░░░░░░░░░░░ | `1.91 s` ███░░░░░░░░░░░ |
+| **C#** — NuGet | `1.35 s` ██░░░░░░░░░░░░ | `1.60 s` ███░░░░░░░░░░░ |
+| **Python** — PyPI | `4.79 s` ████████░░░░░░ | `8.23 s` ██████████████ |
 
-![](../img/guides/performance-uniq.svg)
+*Seconds. Engine 2 is absent because it cannot run this config at all.*
 
-*Peak memory for a uniq config at two hundred thousand rows, engine 1 (pale) against engine 3 (green). Engine 2 cannot run this config at all.*
+| 200 000 rows · 4.1 MB | engine 1 — in memory | engine 3 — exact on disk |
+| :--- | :--- | :--- |
+| **C#** — NuGet | `188 MB` ███░░░░░░░░░░░ | `113 MB` ██░░░░░░░░░░░░ |
+| **Python** — PyPI | `209 MB` ████░░░░░░░░░░ | `76.0 MB` █░░░░░░░░░░░░░ |
+| **Rust** — crates.io | `216 MB` ████░░░░░░░░░░ | `138 MB` ██░░░░░░░░░░░░ |
+| **Node.js** — npm | `264 MB` █████░░░░░░░░░ | `204 MB` ████░░░░░░░░░░ |
+| **Java** — Maven Central | `793 MB` ██████████████ | `637 MB` ███████████░░░ |
 
-- **A** — Rust — crates.io
-- **B** — Java — Maven Central
-- **C** — Node.js — npm
-- **D** — C# — NuGet
-- **E** — Python — PyPI
+*Peak memory for the same run. Every implementation gives some of it back on engine 3, and the two that give back the most end up lighter than anything on the left.*
 
 Engine 3 is slower here and lighter, which is the bargain it exists to offer. Its cost also
 grows faster than engine 1's as the row count climbs — it verifies with an external sort — so

@@ -1,0 +1,301 @@
+{
+  "customers": {
+    "small": {
+      "rows": 10000,
+      "bytes": 713013,
+      "engines": [1, 2],
+      "seconds": [
+        {
+          "name": "Rust",
+          "registry": "crates.io",
+          "values": [0.05, 0.04]
+        },
+        {
+          "name": "Node.js",
+          "registry": "npm",
+          "values": [0.22, 0.23]
+        },
+        {
+          "name": "Java",
+          "registry": "Maven Central",
+          "values": [0.3, 0.29]
+        },
+        {
+          "name": "C#",
+          "registry": "NuGet",
+          "values": [0.3, 0.29]
+        },
+        {
+          "name": "Python",
+          "registry": "PyPI",
+          "values": [0.55, 0.66]
+        }
+      ],
+      "megabytes": [
+        {
+          "name": "Rust",
+          "registry": "crates.io",
+          "values": [10.6, 3.7]
+        },
+        {
+          "name": "Python",
+          "registry": "PyPI",
+          "values": [40, 32.1]
+        },
+        {
+          "name": "C#",
+          "registry": "NuGet",
+          "values": [53.6, 48.5]
+        },
+        {
+          "name": "Node.js",
+          "registry": "npm",
+          "values": [97.6, 98]
+        },
+        {
+          "name": "Java",
+          "registry": "Maven Central",
+          "values": [147.4, 120.3]
+        }
+      ]
+    },
+    "medium": {
+      "rows": 200000,
+      "bytes": 14570410,
+      "engines": [1, 2],
+      "seconds": [
+        {
+          "name": "Rust",
+          "registry": "crates.io",
+          "values": [0.87, 0.89]
+        },
+        {
+          "name": "Java",
+          "registry": "Maven Central",
+          "values": [1.21, 1.19]
+        },
+        {
+          "name": "Node.js",
+          "registry": "npm",
+          "values": [1.21, 1.41]
+        },
+        {
+          "name": "C#",
+          "registry": "NuGet",
+          "values": [1.78, 1.76]
+        },
+        {
+          "name": "Python",
+          "registry": "PyPI",
+          "values": [8.35, 10.24]
+        }
+      ],
+      "megabytes": [
+        {
+          "name": "Rust",
+          "registry": "crates.io",
+          "values": [146.1, 3.7]
+        },
+        {
+          "name": "C#",
+          "registry": "NuGet",
+          "values": [187, 49.4]
+        },
+        {
+          "name": "Node.js",
+          "registry": "npm",
+          "values": [189.9, 153.9]
+        },
+        {
+          "name": "Python",
+          "registry": "PyPI",
+          "values": [196.9, 32.2]
+        },
+        {
+          "name": "Java",
+          "registry": "Maven Central",
+          "values": [885.2, 395.3]
+        }
+      ]
+    },
+    "large": {
+      "rows": 2000000,
+      "bytes": 147705273,
+      "engines": [1, 2],
+      "seconds": [
+        {
+          "name": "Rust",
+          "registry": "crates.io",
+          "values": [8.97, 8.82]
+        },
+        {
+          "name": "Java",
+          "registry": "Maven Central",
+          "values": [9.62, 9.5]
+        },
+        {
+          "name": "Node.js",
+          "registry": "npm",
+          "values": [12.97, 14.37]
+        },
+        {
+          "name": "C#",
+          "registry": "NuGet",
+          "values": [14.37, 15.34]
+        },
+        {
+          "name": "Python",
+          "registry": "PyPI",
+          "values": [91.3, 112.11]
+        }
+      ],
+      "megabytes": [
+        {
+          "name": "Node.js",
+          "registry": "npm",
+          "values": [1187.5, 189.7]
+        },
+        {
+          "name": "Rust",
+          "registry": "crates.io",
+          "values": [1321.5, 3.7]
+        },
+        {
+          "name": "C#",
+          "registry": "NuGet",
+          "values": [1375, 49.4]
+        },
+        {
+          "name": "Python",
+          "registry": "PyPI",
+          "values": [1528.7, 32.3]
+        },
+        {
+          "name": "Java",
+          "registry": "Maven Central",
+          "values": [4140.1, 397.1]
+        }
+      ]
+    }
+  },
+  "uniq": {
+    "small": {
+      "rows": 10000,
+      "bytes": 198894,
+      "engines": [1, 3],
+      "seconds": [
+        {
+          "name": "Rust",
+          "registry": "crates.io",
+          "values": [0.16, 0.03]
+        },
+        {
+          "name": "Java",
+          "registry": "Maven Central",
+          "values": [0.32, 0.23]
+        },
+        {
+          "name": "Node.js",
+          "registry": "npm",
+          "values": [0.33, 0.22]
+        },
+        {
+          "name": "C#",
+          "registry": "NuGet",
+          "values": [0.41, 0.23]
+        },
+        {
+          "name": "Python",
+          "registry": "PyPI",
+          "values": [1, 0.5]
+        }
+      ],
+      "megabytes": [
+        {
+          "name": "Rust",
+          "registry": "crates.io",
+          "values": [16, 8.2]
+        },
+        {
+          "name": "Python",
+          "registry": "PyPI",
+          "values": [40.2, 32.7]
+        },
+        {
+          "name": "C#",
+          "registry": "NuGet",
+          "values": [55, 48.3]
+        },
+        {
+          "name": "Node.js",
+          "registry": "npm",
+          "values": [101.4, 87]
+        },
+        {
+          "name": "Java",
+          "registry": "Maven Central",
+          "values": [186.1, 95.5]
+        }
+      ]
+    },
+    "medium": {
+      "rows": 200000,
+      "bytes": 4288895,
+      "engines": [1, 3],
+      "seconds": [
+        {
+          "name": "Java",
+          "registry": "Maven Central",
+          "values": [0.96, 1.32]
+        },
+        {
+          "name": "Rust",
+          "registry": "crates.io",
+          "values": [1.03, 1.22]
+        },
+        {
+          "name": "Node.js",
+          "registry": "npm",
+          "values": [1.26, 1.91]
+        },
+        {
+          "name": "C#",
+          "registry": "NuGet",
+          "values": [1.35, 1.6]
+        },
+        {
+          "name": "Python",
+          "registry": "PyPI",
+          "values": [4.79, 8.23]
+        }
+      ],
+      "megabytes": [
+        {
+          "name": "C#",
+          "registry": "NuGet",
+          "values": [188, 113.1]
+        },
+        {
+          "name": "Python",
+          "registry": "PyPI",
+          "values": [209.2, 76]
+        },
+        {
+          "name": "Rust",
+          "registry": "crates.io",
+          "values": [215.5, 138.1]
+        },
+        {
+          "name": "Node.js",
+          "registry": "npm",
+          "values": [264.3, 203.9]
+        },
+        {
+          "name": "Java",
+          "registry": "Maven Central",
+          "values": [793, 637.3]
+        }
+      ]
+    }
+  }
+}

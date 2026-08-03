@@ -118,6 +118,58 @@ function attrs(raw) {
   return out;
 }
 
+/** The benchmark's own numbers, the same file the <Bars> component reads. */
+const PERFORMANCE = JSON.parse(readFileSync(join(WEBSITE, 'src/data/performance.json'), 'utf8'));
+
+/** The width of a bar in characters — wide enough to compare, narrow enough that
+ *  a row still fits a phone. */
+const BAR = 14;
+
+/** Russian and Spanish write 8,97 where English writes 8.97, and the tables these
+ *  sit beside already do. */
+const DECIMAL = { en: '.', ru: ',', es: ',' };
+
+/** One <Bars> figure as a Markdown table GitHub can render. */
+function bars(a, code) {
+  const [config, tier, field] = a.source.split('.');
+  const set = PERFORMANCE[config][tier];
+  const rows = set[field];
+  const heads = a.columns.split('|');
+  const max = Math.max(...rows.flatMap((r) => r.values).filter((v) => v !== null));
+
+  // Precision follows the field, not the translated unit word. See the component.
+  const number = (v) => {
+    if (v === null) return '—';
+    const text =
+      field === 'seconds' ? v.toFixed(2) : v >= 100 ? String(Math.round(v)) : v.toFixed(1);
+    return text.replace('.', DECIMAL[code] ?? '.');
+  };
+  const bar = (v) => {
+    if (v === null) return '';
+    const filled = Math.max(1, Math.round((v / max) * BAR));
+    return ` ${'█'.repeat(filled)}${'░'.repeat(BAR - filled)}`;
+  };
+
+  const grouped = String(set.rows).replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+  const mb = set.bytes / 1024 / 1024;
+  const size = (mb >= 100 ? String(Math.round(mb)) : mb.toFixed(1)).replace(
+    '.',
+    DECIMAL[code] ?? '.',
+  );
+
+  const lines = [
+    `| ${grouped} ${a.rowsLabel ?? 'rows'} · ${size} ${a.sizeUnit ?? 'MB'} | ${heads.join(' | ')} |`,
+    `| :--- | ${heads.map(() => ':---').join(' | ')} |`,
+    ...rows.map(
+      (r) =>
+        `| **${r.name}** — ${r.registry} | ` +
+        `${r.values.map((v) => `\`${number(v)} ${a.unit}\`${bar(v)}`).join(' | ')} |`,
+    ),
+  ];
+  if (a.caption) lines.push('', `*${a.caption}*`);
+  return lines.join('\n');
+}
+
 function frontmatter(text) {
   const m = /^---\n([\s\S]*?)\n---\n?/.exec(text);
   if (!m) return { data: {}, body: text };
@@ -215,7 +267,7 @@ function flatten(items, acc = []) {
 
 // -------------------------------------------------------------- the rewriter
 
-function convert(body, page) {
+function convert(body, page, code) {
   const blocks = [];
   const hold = (s) => `${MARK}${blocks.push(s) - 1}${MARK}`;
 
@@ -259,6 +311,12 @@ function convert(body, page) {
     const items = JSON.parse(raw.replace(/,(\s*[\]}])/g, '$1'));
     return hold(items.map(([k, v]) => `- **${k}** — ${v}`).join('\n'));
   });
+
+  // <Bars source columns unit rowsLabel caption /> — a measured comparison. On
+  // the site every row carries a proportional coloured bar; GitHub renders no CSS,
+  // so the proportion is redrawn with block characters and the numbers, which are
+  // the part that has to be exact, are printed unchanged.
+  t = t.replace(new RegExp(`<Bars\\s*${ATTRS}/>`, 'g'), (_m, raw) => hold(bars(attrs(raw), code)));
 
   // <Tabs>/<TabItem> — one language per tab becomes one heading per language.
   t = t.replace(new RegExp(`</?Tabs\\s*${ATTRS}>`, 'g'), '');
@@ -479,7 +537,7 @@ for (const { locale, tree, home, pages, pageBy } of built) {
     // who finished the page and now wants the rest of the documentation.
     writeFileSync(
       dest,
-      `${TOP}\n\n${sw}\n\n${live}\n\n${bar}\n\n---\n\n${convert(body, page)}\n---\n\n${bar}\n\n${live}\n`,
+      `${TOP}\n\n${sw}\n\n${live}\n\n${bar}\n\n---\n\n${convert(body, page, code)}\n---\n\n${bar}\n\n${live}\n`,
     );
     written++;
   });

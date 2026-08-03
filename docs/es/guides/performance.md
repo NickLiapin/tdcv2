@@ -51,10 +51,11 @@ Cada regla existe para que esto siga siendo una medición y no un anuncio:
 
 **El almacenamiento importa menos de lo que parece, y conviene demostrarlo en vez de
 afirmarlo.** La escritura secuencial en este volumen mide 810 MB/s en frío y unos 1,3 GB/s en
-caliente. La ejecución más grande de esta página produce 147 MB, que a esa velocidad se
-escriben en **0,031 segundos** dentro de una ejecución de nueve a quince segundos: dos décimas
-de un uno por ciento, y tres centésimas para Python. Estos números los limita el procesador,
-así que puede escalarlos a su máquina por la velocidad de núcleo y olvidarse del disco. No se
+caliente. La ejecución más grande de esta página produce un archivo de 141 MB, y
+escribir 141 MB y volcarlos al disco cuesta **0,24 segundos** medidos directamente: dentro de
+una ejecución de nueve a quince segundos, entre un dos y un tres por ciento, y un cuarto de uno
+por ciento para Python. Estos números los limita el procesador, así que puede escalarlos a su
+máquina por la velocidad de núcleo y casi olvidarse del disco. No se
 lee nada grande: los paquetes de datos pesan kilobytes y quedan en caché tras el primer uso.
 
 ### Las versiones
@@ -100,11 +101,23 @@ decimales, una fecha y un valor montado a partir de otros dos.
 <sequence name="Joined"><gen type="date" range="2015-01-01..2025-12-31" format="YYYY-MM-DD"/></sequence>
 ```
 
+Conviene tener una intuición de los tres tamaños: un archivo que abriría en un editor, uno que
+no, y uno que tarda un momento en copiarse:
+
+| | Filas | El CSV que escribe |
+| :--- | ---: | ---: |
+| **pequeño** | 10 000 | 0,7 MB |
+| **mediano** | 200 000 | 14 MB |
+| **grande** | 2 000 000 | 141 MB |
+
+Unos 74 bytes por fila, así que cualquier tamaño se deduce de ahí: un gigabyte son unos catorce
+millones de filas de esta forma.
+
 ### Tiempo
 
 Segundos, el mejor de tres ejecuciones (de dos en el tamaño mayor). Menos es mejor.
 
-| | 10 000 filas | 200 000 filas | 2 000 000 filas |
+| | 10 000 filas<br/>0,7 MB | 200 000 filas<br/>14 MB | 2 000 000 filas<br/>141 MB |
 | :--- | ---: | ---: | ---: |
 | **Rust** | 0,05 / 0,04 | 0,87 / 0,89 | **8,97 / 8,82** |
 | **Java** | 0,30 / 0,29 | 1,21 / 1,19 | 9,62 / 9,50 |
@@ -112,17 +125,18 @@ Segundos, el mejor de tres ejecuciones (de dos en el tamaño mayor). Menos es me
 | **C#** | 0,30 / 0,29 | 1,78 / 1,76 | 14,37 / 15,34 |
 | **Python** | 0,55 / 0,66 | 8,35 / 10,24 | 91,30 / 112,11 |
 
-Cada celda es *motor 1 / motor 2*.
+Cada celda es *motor 1 / motor 2*. La misma ejecución, en el tamaño mayor, con las barras
+dibujadas:
 
-![](../../img/guides/performance-time.svg)
+| 2 000 000 filas · 141 MB | motor 1 — en memoria | motor 2 — de flujo |
+| :--- | :--- | :--- |
+| **Rust** — crates.io | `8,97 s` █░░░░░░░░░░░░░ | `8,82 s` █░░░░░░░░░░░░░ |
+| **Java** — Maven Central | `9,62 s` █░░░░░░░░░░░░░ | `9,50 s` █░░░░░░░░░░░░░ |
+| **Node.js** — npm | `12,97 s` ██░░░░░░░░░░░░ | `14,37 s` ██░░░░░░░░░░░░ |
+| **C#** — NuGet | `14,37 s` ██░░░░░░░░░░░░ | `15,34 s` ██░░░░░░░░░░░░ |
+| **Python** — PyPI | `91,30 s` ███████████░░░ | `112,11 s` ██████████████ |
 
-*Segundos para dos millones de filas, motor 1 (pálido) frente al motor 2 (verde). Escala logarítmica, porque Python queda a un orden de magnitud del resto.*
-
-- **A** — Rust — crates.io
-- **B** — Java — Maven Central
-- **C** — Node.js — npm
-- **D** — C# — NuGet
-- **E** — Python — PyPI
+*Segundos para el archivo de 141 MB. Ambas columnas comparten una escala, así que las barras son comparables en toda la tabla; el verde es la medición más rápida y el rojo la más lenta.*
 
 Con diez mil filas se mide sobre todo el arranque: una JVM levantándose, un intérprete de
 Python importando. Por debajo de unas cien mil filas, la implementación elegida apenas importa.
@@ -131,7 +145,7 @@ Python importando. Por debajo de unas cien mil filas, la implementación elegida
 
 Memoria residente máxima, en megabytes. Menos es mejor.
 
-| | 10 000 filas | 200 000 filas | 2 000 000 filas |
+| | 10 000 filas<br/>0,7 MB | 200 000 filas<br/>14 MB | 2 000 000 filas<br/>141 MB |
 | :--- | ---: | ---: | ---: |
 | **Rust** | 10,6 / **3,7** | 146 / **3,7** | 1322 / **3,7** |
 | **C#** | 53,6 / 48,5 | 187 / 49,4 | 1375 / 49,4 |
@@ -139,15 +153,15 @@ Memoria residente máxima, en megabytes. Menos es mejor.
 | **Node.js** | 97,6 / 98,0 | 190 / 154 | 1188 / 190 |
 | **Java** | 147 / 120 | 885 / 395 | 4140 / 397 |
 
-![](../../img/guides/performance-memory.svg)
+| 2 000 000 filas · 141 MB | motor 1 — en memoria | motor 2 — de flujo |
+| :--- | :--- | :--- |
+| **Node.js** — npm | `1188 MB` ████░░░░░░░░░░ | `190 MB` █░░░░░░░░░░░░░ |
+| **Rust** — crates.io | `1322 MB` ████░░░░░░░░░░ | `3,7 MB` █░░░░░░░░░░░░░ |
+| **C#** — NuGet | `1375 MB` █████░░░░░░░░░ | `49,4 MB` █░░░░░░░░░░░░░ |
+| **Python** — PyPI | `1529 MB` █████░░░░░░░░░ | `32,3 MB` █░░░░░░░░░░░░░ |
+| **Java** — Maven Central | `4140 MB` ██████████████ | `397 MB` █░░░░░░░░░░░░░ |
 
-*Memoria máxima para dos millones de filas, motor 1 (pálido) frente al motor 2 (verde). Las barras pálidas crecen con el número de filas; las verdes no.*
-
-- **A** — Rust — crates.io
-- **B** — Java — Maven Central
-- **C** — Node.js — npm
-- **D** — C# — NuGet
-- **E** — Python — PyPI
+*Memoria máxima para el mismo archivo de 141 MB, en una escala. La columna derecha es aquello para lo que existe el motor de flujo: la barra de Rust son 3,7 MB frente a sus propios 1322 MB de la izquierda.*
 
 **Si solo va a leer una tabla, lea esta.** En el motor 1 la memoria sigue al número de filas:
 diez veces más filas, unas diez veces más memoria, en todas las implementaciones. En el motor 2
@@ -171,25 +185,27 @@ filas ocupan alrededor del seis por ciento del espacio.
 </sequence>
 ```
 
-200 000 filas, segundos y megabytes máximos, *motor 1 / motor 3*:
+Un archivo más pequeño que el de arriba: tres códigos cortos por fila en vez de seis campos.
 
-| | Tiempo | Memoria |
-| :--- | ---: | ---: |
-| **Java** | 0,96 / 1,32 | 793 / 637 |
-| **Rust** | 1,03 / 1,22 | 216 / 138 |
-| **Node.js** | 1,26 / 1,91 | 264 / 204 |
-| **C#** | 1,35 / 1,60 | 188 / **113** |
-| **Python** | 4,79 / 8,23 | 209 / **76** |
+| 200 000 filas · 4,1 MB | motor 1 — en memoria | motor 3 — exacto en disco |
+| :--- | :--- | :--- |
+| **Java** — Maven Central | `0,96 s` ██░░░░░░░░░░░░ | `1,32 s` ██░░░░░░░░░░░░ |
+| **Rust** — crates.io | `1,03 s` ██░░░░░░░░░░░░ | `1,22 s` ██░░░░░░░░░░░░ |
+| **Node.js** — npm | `1,26 s` ██░░░░░░░░░░░░ | `1,91 s` ███░░░░░░░░░░░ |
+| **C#** — NuGet | `1,35 s` ██░░░░░░░░░░░░ | `1,60 s` ███░░░░░░░░░░░ |
+| **Python** — PyPI | `4,79 s` ████████░░░░░░ | `8,23 s` ██████████████ |
 
-![](../../img/guides/performance-uniq.svg)
+*Segundos. El motor 2 no aparece porque no puede ejecutar esta configuración.*
 
-*Memoria máxima con una configuración uniq y doscientas mil filas: motor 1 (pálido) frente al motor 3 (verde). El motor 2 no puede ejecutar esta configuración.*
+| 200 000 filas · 4,1 MB | motor 1 — en memoria | motor 3 — exacto en disco |
+| :--- | :--- | :--- |
+| **C#** — NuGet | `188 MB` ███░░░░░░░░░░░ | `113 MB` ██░░░░░░░░░░░░ |
+| **Python** — PyPI | `209 MB` ████░░░░░░░░░░ | `76,0 MB` █░░░░░░░░░░░░░ |
+| **Rust** — crates.io | `216 MB` ████░░░░░░░░░░ | `138 MB` ██░░░░░░░░░░░░ |
+| **Node.js** — npm | `264 MB` █████░░░░░░░░░ | `204 MB` ████░░░░░░░░░░ |
+| **Java** — Maven Central | `793 MB` ██████████████ | `637 MB` ███████████░░░ |
 
-- **A** — Rust — crates.io
-- **B** — Java — Maven Central
-- **C** — Node.js — npm
-- **D** — C# — NuGet
-- **E** — Python — PyPI
+*Memoria máxima de la misma ejecución. Todas las implementaciones devuelven algo en el motor 3, y las dos que más devuelven acaban más ligeras que cualquier cosa de la izquierda.*
 
 Aquí el motor 3 es más lento y más ligero, que es justamente el trato para el que existe. Su
 coste además crece más deprisa que el del motor 1 a medida que suben las filas, porque verifica
