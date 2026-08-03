@@ -44,16 +44,33 @@ tdcv2: no pack store configured — run `tdcv2 init` first
 > `init` y `pack` existen en todas las implementaciones, no solo en la de Node. Los
 > comandos, su salida y el archivo de configuración que escriben son idénticos — lo
 > sostiene una fixture de pruebas compartida contra la que las cinco se comparan byte a
-> byte. Lo único que cambia es cómo se invocan.
+> byte. Lo único que cambia es cómo se consigue el comando y cómo se escribe:
+>
+> | Su lenguaje | Cómo conseguir el comando                          | Cómo invocarlo                    |
+> | :---------- | :------------------------------------------------- | :-------------------------------- |
+> | Node.js     | nada — `npx` lo descarga solo                      | `npx tdcv2 pack add ru`           |
+> | Python      | `pip install tdcv2`                                | `tdcv2 pack add ru`               |
+> | Rust        | `cargo install tdcv2`                              | `tdcv2 pack add ru`               |
+> | C#          | `dotnet tool install --global Tdcv2.Cli`           | `tdcv2 pack add ru`               |
+> | Java        | descargar `tdcv2-0.1.4-cli.jar` de Maven Central   | `java -jar tdcv2-0.1.4-cli.jar pack add ru` |
+>
+> Tres de ellos dejan un comando `tdcv2` en su PATH y a partir de ahí se leen igual. Node no
+> necesita instalación alguna: `npx` descarga y ejecuta en un solo paso. Java es la
+> excepción porque Maven no tiene equivalente del `bin` de npm —añadir una biblioteca a un
+> proyecto no puede poner un comando en el PATH—, así que la línea de comandos es un jar que
+> usted ejecuta:
 >
 > ```bash
-> npx tdcv2 init                              # Node
-> tdcv2 init                                  # Python, Rust o C#, una vez instalado
-> java -jar tdcv2-cli.jar init                # Java
+> curl -LO https://repo1.maven.org/maven2/io/github/nickliapin/tdcv2/0.1.4/tdcv2-0.1.4-cli.jar
+> java -jar tdcv2-0.1.4-cli.jar pack add ru
 > ```
 >
+> Vale la pena un alias —`alias tdcv2='java -jar /ruta/a/tdcv2-0.1.4-cli.jar'`— y a partir de
+> ahí todos los comandos de esta página se leen igual que en cualquier otro sitio.
+>
 > Un proyecto configurado por una de ellas está listo para las otras cuatro — mismo config,
-> mismo almacén, mismo registro.
+> mismo almacén, mismo registro. Instalar `ru` desde Python y generar con él en Rust no es un
+> caso especial: es el caso normal.
 
 > Las salidas de ejemplo de abajo son ilustrativas: la cantidad exacta de archivos, los
 > tamaños y las rutas dependen de su máquina y de la versión del núcleo, pero la forma se

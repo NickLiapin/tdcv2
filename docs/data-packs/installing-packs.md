@@ -38,19 +38,35 @@ tdcv2: no pack store configured — run `tdcv2 init` first
 > [!TIP]
 > **The same commands in every language**
 >
-> `init` and `pack` are part of every implementation, not just the Node one. The
-> commands, their output and the config file they write are identical — held there by a
-> shared test fixture all five run against the same expected bytes. Only how you invoke
-> them differs.
+> `init` and `pack` are part of every implementation, not just the Node one. The commands,
+> their output and the config file they write are identical — held there by a shared test
+> fixture all five run against the same expected bytes. What differs is only how you get
+> the command in the first place, and how you spell it:
+>
+> | Your language | Getting the command                                    | Running it                        |
+> | :------------ | :----------------------------------------------------- | :-------------------------------- |
+> | Node.js       | nothing — `npx` fetches it                             | `npx tdcv2 pack add ru`           |
+> | Python        | `pip install tdcv2`                                    | `tdcv2 pack add ru`               |
+> | Rust          | `cargo install tdcv2`                                  | `tdcv2 pack add ru`               |
+> | C#            | `dotnet tool install --global Tdcv2.Cli`               | `tdcv2 pack add ru`               |
+> | Java          | download `tdcv2-0.1.4-cli.jar` from Maven Central      | `java -jar tdcv2-0.1.4-cli.jar pack add ru` |
+>
+> Three of them put a `tdcv2` command on your PATH and read the same from there on. Node
+> needs no install at all — `npx` downloads and runs in one step. Java is the odd one out
+> because Maven has no equivalent of npm's `bin`: adding a library to a project cannot put
+> a command on your PATH, so the command line is a jar you run yourself:
 >
 > ```bash
-> npx tdcv2 init                              # Node
-> tdcv2 init                                  # Python, Rust or C#, once installed
-> java -jar tdcv2-cli.jar init                # Java
+> curl -LO https://repo1.maven.org/maven2/io/github/nickliapin/tdcv2/0.1.4/tdcv2-0.1.4-cli.jar
+> java -jar tdcv2-0.1.4-cli.jar pack add ru
 > ```
 >
+> Worth an alias — `alias tdcv2='java -jar /path/to/tdcv2-0.1.4-cli.jar'` — after which every
+> command on this page reads the same as it does everywhere else.
+>
 > A project set up by one of them is ready for the other four — same config file, same
-> store, same registry.
+> store, same registry. Installing `ru` through Python and generating from it in Rust is
+> not a special case; it is the ordinary one.
 
 > The example outputs below are illustrative: exact file counts, sizes, and paths
 > depend on your machine and the core version, but the shape holds.
