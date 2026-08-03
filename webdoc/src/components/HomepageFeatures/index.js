@@ -8,7 +8,7 @@ const FeatureList = [
     description: (
       <>
         The same seed produces byte-identical output on every run — and across
-        the TypeScript, Python, and Java implementations.
+        all five implementations: TypeScript, Python, Rust, C# and Java.
       </>
     ),
   },

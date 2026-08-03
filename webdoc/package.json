@@ -14,7 +14,7 @@
     "write-heading-ids": "docusaurus write-heading-ids",
     "review": "node scripts/make-review-bundle.mjs",
     "docs:export": "node scripts/export-markdown.mjs",
-    "docs:check": "node scripts/check-markdown-export.mjs && node scripts/check-markdown-export.mjs --drift && node scripts/check-translation-parity.mjs && node scripts/fix-translated-anchors.mjs ru && node scripts/fix-translated-anchors.mjs es && node scripts/audit-doc-coverage.mjs && node scripts/audit-reference-rows.mjs"
+    "docs:check": "node scripts/check-markdown-export.mjs && node scripts/check-markdown-export.mjs --drift && node scripts/check-translation-parity.mjs && node scripts/fix-translated-anchors.mjs ru && node scripts/fix-translated-anchors.mjs es && node scripts/audit-doc-coverage.mjs && node scripts/audit-doc-versions.mjs && node scripts/audit-reference-rows.mjs"
   },
   "dependencies": {
     "@docusaurus/core": "3.10.2",

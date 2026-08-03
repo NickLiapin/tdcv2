@@ -91,14 +91,14 @@ La biblioteca es una sola dependencia:
 <dependency>
   <groupId>io.github.nickliapin</groupId>
   <artifactId>tdcv2</artifactId>
-  <version>0.1.4</version>
+  <version>0.1.6</version>
 </dependency>
 ```
 
 Con Gradle, en `build.gradle.kts`:
 
 ```kotlin
-implementation("io.github.nickliapin:tdcv2:0.1.4")
+implementation("io.github.nickliapin:tdcv2:0.1.6")
 ```
 
 Un juego inicial de paquetes de datos viaja dentro del jar, así que el ejemplo de
@@ -110,8 +110,8 @@ el CLI se distribuye como un único jar autónomo que no necesita más que un JD
 las mismas coordenadas que la biblioteca y se distingue por el clasificador `cli`:
 
 ```bash
-curl -LO https://repo1.maven.org/maven2/io/github/nickliapin/tdcv2/0.1.4/tdcv2-0.1.4-cli.jar
-java -jar tdcv2-0.1.4-cli.jar demo.tdc
+curl -LO https://repo1.maven.org/maven2/io/github/nickliapin/tdcv2/0.1.6/tdcv2-0.1.6-cli.jar
+java -jar tdcv2-0.1.6-cli.jar demo.tdc
 ```
 
 Vale la pena un alias: `alias tdcv2='java -jar /ruta/a/tdcv2-cli.jar'`, y a partir de
@@ -209,7 +209,7 @@ artefacto:
 | Python   | `tdcv2 demo.tdc`                                                                                                          |
 | Rust     | `tdcv2 demo.tdc`, tras `cargo install tdcv2`                                                                              |
 | C#       | `tdcv2 demo.tdc`, tras `dotnet tool install --global Tdcv2.Cli`                                                           |
-| Java     | `java -jar tdcv2-0.1.4-cli.jar demo.tdc` — el clasificador `cli` de las coordenadas de la propia biblioteca               |
+| Java     | `java -jar tdcv2-0.1.6-cli.jar demo.tdc` — el clasificador `cli` de las coordenadas de la propia biblioteca               |
 
 Desde la raíz del repositorio, `./run demo.tdc` es el más corto de todos.
 

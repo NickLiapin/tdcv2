@@ -83,15 +83,24 @@ console.log(dataset.toArray()); // object rows from <sequence> declarations
 
 ### CLI usage
 
-The package is **not published yet**, so run the CLI from this repository:
+Install it and run it:
+
+```bash
+npm install -D tdcv2
+npx tdcv2 demo.tdc -o out.csv
+```
+
+The same command line comes with all five packages — `pip install tdcv2`,
+`cargo install tdcv2`, `dotnet tool install -g Tdcv2.Cli`, or the `cli` jar from
+Maven Central. [Installation](docs/getting-started/installation.md) has the exact
+line for each.
+
+To run it from a checkout instead — while working on the engine itself:
 
 ```bash
 npm --workspace typescript run build
 node typescript/dist/cli/main.js demo.tdc -o out.csv
 ```
-
-Once published it will install as a dev dependency (`npm install -D tdcv2`) and run
-as `npx tdcv2 demo.tdc -o out.csv`.
 
 ---
 
@@ -137,7 +146,7 @@ with its own build, tests, and publishing pipeline (`npm`, `PyPI`, `Maven Centra
 ### Current phase
 
 **Phase 1 / v1.0:** five implementations of one contract, all published at
-**0.1.3** — npm, PyPI, Maven Central, NuGet and crates.io. Equal version numbers
+**0.1.6** — npm, PyPI, Maven Central, NuGet and crates.io. Equal version numbers
 are not a coincidence: they mean the same engine, so the same config and seed
 produce the same bytes whichever registry the package came from.
 

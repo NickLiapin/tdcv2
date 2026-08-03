@@ -21,9 +21,9 @@ bytes — a gigabyte of output from the same config comes out identical in each.
 Each one also carries the same command line, so nothing needs another
 language's toolchain to run a config.
 
-All five are published, at the same version: **0.1.4** on npm, PyPI, Maven
+All five are published, at the same version: **0.1.6** on npm, PyPI, Maven
 Central, NuGet and crates.io. Equal version numbers are not a coincidence — they
-mean the same engine, so `tdcv2 0.1.4` from any one of them answers a config the
+mean the same engine, so `tdcv2 0.1.6` from any one of them answers a config the
 same way.
 
 Pick your ecosystem. To try TDC without committing to a language, use the npm
@@ -95,14 +95,14 @@ The library is one dependency:
 <dependency>
   <groupId>io.github.nickliapin</groupId>
   <artifactId>tdcv2</artifactId>
-  <version>0.1.4</version>
+  <version>0.1.6</version>
 </dependency>
 ```
 
 Gradle, in `build.gradle.kts`:
 
 ```kotlin
-implementation("io.github.nickliapin:tdcv2:0.1.4")
+implementation("io.github.nickliapin:tdcv2:0.1.6")
 ```
 
 A starter set of data packs travels inside the jar, so the example above runs
@@ -115,8 +115,8 @@ nothing but a JDK. It sits under the same coordinates as the library, told apart
 by the `cli` classifier:
 
 ```bash
-curl -LO https://repo1.maven.org/maven2/io/github/nickliapin/tdcv2/0.1.4/tdcv2-0.1.4-cli.jar
-java -jar tdcv2-0.1.4-cli.jar demo.tdc
+curl -LO https://repo1.maven.org/maven2/io/github/nickliapin/tdcv2/0.1.6/tdcv2-0.1.6-cli.jar
+java -jar tdcv2-0.1.6-cli.jar demo.tdc
 ```
 
 Worth an alias: `alias tdcv2='java -jar /path/to/tdcv2-cli.jar'`, after which
@@ -213,7 +213,7 @@ second artefact:
 | Python         | `tdcv2 demo.tdc`                                                                                           |
 | Rust           | `tdcv2 demo.tdc`, after `cargo install tdcv2`                                                              |
 | C#             | `tdcv2 demo.tdc`, after `dotnet tool install --global Tdcv2.Cli`                                           |
-| Java           | `java -jar tdcv2-0.1.4-cli.jar demo.tdc` — the `cli` classifier of the library's own coordinates            |
+| Java           | `java -jar tdcv2-0.1.6-cli.jar demo.tdc` — the `cli` classifier of the library's own coordinates            |
 
 From the repository root, `./run demo.tdc` is the shortest of them all.
 

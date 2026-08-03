@@ -262,16 +262,16 @@ for (const user of users) {
 ## Доступность
 
 Опубликованы все пять. Одинаковые номера версий означают один и тот
-же движок: все пять держит общий набор фикстур, поэтому `0.1.4` из любого реестра даёт
+же движок: все пять держит общий набор фикстур, поэтому `0.1.6` из любого реестра даёт
 те же байты для того же конфига и сида.
 
 | Реализация                                | Реестр        | Установка                    | Версия |
 | :---------------------------------------- | :------------ | :--------------------------- | :----- |
-| **[TypeScript](bindings/typescript.md#top)** | npm           | `npm i tdcv2`                | 0.1.4  |
-| **[Python](bindings/python.md#top)**         | PyPI          | `pip install tdcv2`          | 0.1.4  |
-| **[Rust](bindings/rust.md#top)**             | crates.io     | `cargo add tdcv2`            | 0.1.4  |
-| **[C#](bindings/csharp.md#top)**             | NuGet         | `dotnet add package Tdcv2`   | 0.1.4  |
-| **[Java](bindings/java.md#top)**             | Maven Central | `io.github.nickliapin:tdcv2` | 0.1.4  |
+| **[TypeScript](bindings/typescript.md#top)** | npm           | `npm i tdcv2`                | 0.1.6  |
+| **[Python](bindings/python.md#top)**         | PyPI          | `pip install tdcv2`          | 0.1.6  |
+| **[Rust](bindings/rust.md#top)**             | crates.io     | `cargo add tdcv2`            | 0.1.6  |
+| **[C#](bindings/csharp.md#top)**             | NuGet         | `dotnet add package Tdcv2`   | 0.1.6  |
+| **[Java](bindings/java.md#top)**             | Maven Central | `io.github.nickliapin:tdcv2` | 0.1.6  |
 
 Каждый опубликованный пакет несёт стартовый набор паков, поэтому работает без всего
 остального; остальные десять языков и девяносто с лишним пакетов стран —
