@@ -326,7 +326,7 @@ falla con `generator reference cycle: …` antes de generar, en lugar de recurri
 > [`number`](../generators/number.md#top), [`regex`](../generators/regex.md#top),
 > [`advanced_regex`](../generators/advanced-regex.md#top),
 > [`symbol`](../generators/symbol.md#top), [`date`](../generators/date.md#top),
-> [`increment`](../generators/counter.md#top) y [`decrement`](../generators/counter.md#top).
+> [`increment`](../generators/counters.md#top) y [`decrement`](../generators/counters.md#top).
 > Dentro de un `<sequence>` también puede usar [`template`](../generators/template.md#top) para
 > traer una lista de datos u otro generador por dirección, junto con la distribución
 > [`<mix>`](../reference/tags.md#distribuciones-y-selección) / `percent`.

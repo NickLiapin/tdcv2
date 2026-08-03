@@ -310,7 +310,7 @@ TDC при загрузке проверяет, что **цикла нет** (A 
 > [`regex`](../generators/regex.md#top),
 > [`advanced_regex`](../generators/advanced-regex.md#top),
 > [`symbol`](../generators/symbol.md#top), [`date`](../generators/date.md#top),
-> [`increment`](../generators/counter.md#top) и [`decrement`](../generators/counter.md#top).
+> [`increment`](../generators/counters.md#top) и [`decrement`](../generators/counters.md#top).
 > Внутри `<sequence>` можно ещё использовать [`template`](../generators/template.md#top),
 > чтобы подтянуть список-данные или другой генератор по адресу, и распределение
 > [`<mix>`](../reference/tags.md#распределения-и-выбор) / `percent`.

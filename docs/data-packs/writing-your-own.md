@@ -312,7 +312,7 @@ load time that there's **no cycle** (A → B → A, or a self-reference) and fai
 > [`regex`](../generators/regex.md#top),
 > [`advanced_regex`](../generators/advanced-regex.md#top),
 > [`symbol`](../generators/symbol.md#top), [`date`](../generators/date.md#top),
-> [`increment`](../generators/counter.md#top) and [`decrement`](../generators/counter.md#top).
+> [`increment`](../generators/counters.md#top) and [`decrement`](../generators/counters.md#top).
 > Inside a `<sequence>` you may also use [`template`](../generators/template.md#top) to pull
 > in a data list or another generator by address, along with the
 > [`<mix>`](../reference/tags.md#distributions-and-choice) / `percent` distribution.
