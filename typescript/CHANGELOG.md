@@ -9,6 +9,41 @@ the npm package: its API surface, its command line, its landing page.
 
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [Unreleased]
+
+### Fixed
+
+- **`tdcv2 init --help` and `tdcv2 pack --help` printed an error instead of
+  help.** The flag parser saw `--help` before anything thought to answer it, so
+  both exited 2 with "unknown option". They now print the same usage text the
+  four ports print, byte for byte, and `pack --help` answers before the pack
+  store is resolved — which is the machine where somebody needs it.
+
+- **The quick API's error handling, four defects.** This is the odd case where
+  the reference was the worst of the five and the ports were right; each fix is
+  theirs, carried back.
+
+  Whether a pack was missing was decided by a lookup in a hardcoded table of
+  locales and countries, so an address outside that table got the opposite
+  answer to the one intended: `zz.person.lastName` was told "did you mean
+  ar.person.lastName?" — proposing a different language, the exact outcome the
+  message exists to avoid. It is a structural test now.
+
+  A failure the address could not explain was rewritten into one about the
+  address: an undeclared pack parameter raised TDC072 and the user was shown
+  "unknown address common.internet.email — did you mean common.internet.email?".
+  The engine's own diagnostic survives.
+
+  Formatting a diagnostic read the project config unguarded, so a broken
+  `tdcv2.config.json` replaced the real message — an error thrown from inside an
+  error handler.
+
+  The two halves of one message read two different lists, so a typo near a pack
+  installed through the project's `dataPaths` got no suggestion.
+
+- **The uninstalled-pack message no longer says `npx`.** All five now emit the
+  same sentence.
+
 ## [0.1.3] — 2026-08-02
 
 ### Fixed

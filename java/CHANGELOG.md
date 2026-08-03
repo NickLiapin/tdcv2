@@ -13,6 +13,23 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ### Added
 
+- **`tdcv2 --version` printed 0.1.0** while the build declared 0.1.3. Gradle now
+  generates the constant from `project.version`, so the two cannot drift. Reading
+  `Implementation-Version` from the jar manifest was the other candidate and was
+  rejected: it is null on a plain classpath, which is how the tests run.
+
+- **`--jobs` was accepted and silently ignored without `-o`.** A worker owns a
+  range of rows and writes it at a known offset; stdout is one ordered stream
+  with no offsets. It says so now, and only when more than one worker was asked
+  for.
+
+- **Quick API:** `RESERVED_PATH_NAMES` was missing, so nothing stopped a shared
+  pack shipping a `many` segment — unreachable in the three implementations
+  whose quick API is a proxy. Added, with a static seeded entry point and a bare
+  string as a generator parameter, both of which existed elsewhere. The
+  uninstalled-pack message told a Java user to run `tdcv2 pack add`, which is not
+  a command they have.
+
 - **The command line ships from Maven Central too**, as a second file under the
   same coordinates: `tdcv2-<version>-cli.jar`, self-contained, `java -jar` and it
   runs. Maven puts nothing on a PATH, so a command line cannot arrive as a

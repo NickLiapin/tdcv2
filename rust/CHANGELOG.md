@@ -9,6 +9,33 @@ this package: the crate, its library API and its binary.
 
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [Unreleased]
+
+### Fixed
+
+- **A config drawing from a pack that declares its own shares produced different
+  bytes here than in the other four.** The router never opened a pack, so such a
+  config went to the streaming engine — which resolves a row at a time, computes
+  the quota over that one row, and hands every row to the largest share. On
+  `zh-cn.geo.streetName` the reference gives 600/200/150/50 over a thousand rows
+  and this gave 1000/0/0/0, silently. The engine had its own cruder version of
+  the same question, a text search for `percent=`; both now call one function.
+
+- **A pack body opening with `<mix>` lost it.** `parse_pack_body` read only
+  `<sequence>` children, so `${{s}}` reached the output as eight literal
+  characters. `materialize_local` also had no arm for an inline mix, which its
+  own comment had anticipated.
+
+- **TDC229 was missing** — `${{Ref}}` where `Ref` draws a whole pool member. A
+  shared fixture already expected it and passed anyway, because the diagnostics
+  harness bucketed anything this implementation did not emit into "not ported
+  yet". That tolerance is gone; 159 of 159 diagnostics match the reference, and
+  removing it revealed nothing else.
+
+- **The render harness checked 113 of the 130 shared engine-2 cases.**
+  `engines.json` marks 17 as refused, and the harness dropped them rather than
+  checking this implementation refuses them too. It asserts them now.
+
 ## [0.1.3] — 2026-08-02
 
 The first release to crates.io. Everything below is what changed in this

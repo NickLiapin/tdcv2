@@ -9,6 +9,11 @@ the Python package: its API surface, its command line, its landing page.
 
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [Unreleased]
+
+Nothing specific to this package yet. Engine-wide changes for the release live in
+[the repository's CHANGELOG](../CHANGELOG.md).
+
 ## [0.1.3] — 2026-08-02
 
 ### Added
