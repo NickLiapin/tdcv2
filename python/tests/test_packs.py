@@ -224,10 +224,10 @@ def test_a_bundle_is_verified_before_a_single_byte_is_written(tmp_path: Path) ->
             ],
         }
     )
-    store = tmp_path / "store"
+    pack_store = tmp_path / "store"
     client = _LocalRegistry({"index.json": index.encode(), "bundles/ru.zip": archive})
-    result = client.install(client.index().find("ru"), store)
-    assert (store / "ru" / "person" / "lastName.txt").read_text(encoding="utf-8") == "Иванов\n"
+    result = client.install(client.index().find("ru"), pack_store)
+    assert (pack_store / "ru" / "person" / "lastName.txt").read_text(encoding="utf-8") == "Иванов\n"
     assert result.paths == ["ru/person"]
     assert result.files == 1
 

@@ -260,7 +260,7 @@ def _add(registry: Registry, store: Store, ids: list[str]) -> int:
     for bundle in bundles:
         sys.stderr.write(f"tdcv2: downloading {bundle.id} ({bundle.bytes / 1048576:.1f} MB)…\n")
         result = registry.install(bundle, store.path)
-        # The STORE goes into the config, once, however many bundles land in it \u2014 not each one.
+        # The STORE goes into the config, once, however many bundles land in it — not the bundle.
         stored = project_config.storable(store.config_path, store.path)
         added = project_config.register(store.config_path, [store.path])
         sys.stdout.write(
