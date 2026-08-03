@@ -41,9 +41,14 @@
 
     `LogicalName` gives every file the same `tdc/packs/…` prefix the jar uses, so the two ports
     name their resources identically.
+
+    Everything staged is embedded, not just `*.txt`: a pack's extension carries no meaning — a
+    `.txt` is a list of values and a `.tdc` is a body that builds one, and both are addressed by
+    path alone. The staging script drops the manifests and READMEs, so this glob has nothing to
+    filter; embedding by extension is what left every composed pack out of the assembly.
   -->
   <ItemGroup>
-    <EmbeddedResource Include="PacksData/**/*.txt">
+    <EmbeddedResource Include="PacksData/**/*">
       <LogicalName>tdc/packs/%(RecursiveDir)%(Filename)%(Extension)</LogicalName>
     </EmbeddedResource>
   </ItemGroup>

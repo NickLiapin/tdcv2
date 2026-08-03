@@ -921,7 +921,13 @@ def _conditional(spec: SequenceSpec, count: int, run: _Run, columns) -> list[str
 
 
 def _enforce_distinct(
-    spec: SequenceSpec, produced, count: int, run: _Run, rows: list[int] | None = None
+    spec: SequenceSpec,
+    produced,
+    count: int,
+    run: _Run,
+    rows: list[int] | None = None,
+    *,
+    shared_prng: bool = False,
 ) -> None:
     """``<distinct>`` — fields inside one group must differ from each other within a row.
 
@@ -932,6 +938,11 @@ def _enforce_distinct(
     Redrawing appends to the stream, so the result stays deterministic. The fuse is there because
     a one-value list can never satisfy two fields, and spinning forever would say far less than
     naming the problem.
+
+    ``shared_prng`` is for a PACK BODY, which is a nested build with no seed of its own: there is
+    nothing to key a repair stream by, so the replacement comes off the prng the body was handed.
+    The reference draws exactly this distinction, and a Spanish or Portuguese full name — two
+    given names and two surnames, each pair ``<distinct>`` — is where it shows.
     """
     assert spec.fields is not None
     gen_by_field = {f.name: f.gen for f in spec.fields}
@@ -963,11 +974,15 @@ def _enforce_distinct(
                     # Each attempt has a stream of its own, named for the field and the attempt
                     # number — the same names the streaming engine redraws under, so both
                     # engines land on the same replacement.
-                    one = replace(
-                        redraw_run,
-                        prng=seekable.generator(
-                            seed, f"{spec.name}.{field_name}#d{attempts}", row
-                        ),
+                    one = (
+                        run
+                        if shared_prng
+                        else replace(
+                            redraw_run,
+                            prng=seekable.generator(
+                                seed, f"{spec.name}.{field_name}#d{attempts}", row
+                            ),
+                        )
                     )
                     value = _generate(gen, 1, one)[0]
                 values[i] = value
@@ -1587,7 +1602,7 @@ def _run_pack_generator(
         if name in overrides:
             local[name] = [overrides[name]] * count
             continue
-        local[name] = _materialize_local(spec, count, run, local)
+        local.update(_materialize_local(spec, count, run, local))
 
     if body.validate is not None:
         _enforce_valid(body, local, count, run)
@@ -1598,13 +1613,35 @@ def _run_pack_generator(
     ]
 
 
-def _materialize_local(spec: SequenceSpec, count: int, run: _Run, local) -> list[str | None]:
-    """One local sequence of a pack body: a computed value, or an ordinary generated column."""
+def _materialize_local(
+    spec: SequenceSpec, count: int, run: _Run, local
+) -> dict[str, list[str | None]]:
+    """One local sequence of a pack body, as the column or columns it contributes.
+
+    A COMPOUND sequence contributes one column per field, named ``sequence.field`` — the same
+    shape it has in a config, because the reference runs a pack body through the very sequence
+    builder a config goes through. Every ``.tdc`` pack that ships is written this way.
+    """
+    name = spec.name or ""
     if spec.is_computed:
-        return [compute_evaluate(spec.compute, _row_lookup(local, i)) for i in range(count)]
+        return {name: [compute_evaluate(spec.compute, _row_lookup(local, i)) for i in range(count)]}
+    if spec.is_compound:
+        assert spec.fields is not None
+        # Declaration order off the shared prng: a pack body is a nested build with no stream
+        # of its own, so the fields of one row draw one after another rather than each keying
+        # itself — which is what pairs a given name with the surname beside it.
+        by_field: dict[str, list[str]] = {}
+        for field in spec.fields:
+            values = _generate(field.gen, count, run)
+            by_field[field.name] = list(_finish(values, field.gen.attrs, run.prng, [False] * count))
+        # After every field exists, never during: a group's members must all be there before
+        # the constraint between them means anything.
+        if spec.distinct_groups:
+            _enforce_distinct(spec, by_field, count, run, shared_prng=True)
+        return {f"{name}.{field.name}": list(by_field[field.name]) for field in spec.fields}
     assert spec.gen is not None
-    produced = _generate(spec.gen, count, run)
-    return list(_finish(produced, spec.gen.attrs, run.prng, [False] * count))
+    produced_values = _generate(spec.gen, count, run)
+    return {name: list(_finish(produced_values, spec.gen.attrs, run.prng, [False] * count))}
 
 
 def _enforce_valid(pack, local, count: int, run: _Run) -> None:

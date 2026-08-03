@@ -119,6 +119,18 @@ val packOutput = layout.buildDirectory.dir("generated-resources/packs")
 /** The axes a library ships with: locale-agnostic, one language, one country. */
 val starterPacks = listOf("common", "en", "countries/usa")
 
+/**
+ * Repository noise rather than data — the same short list the reference loader keeps.
+ *
+ * A name is the only thing that can keep a locale manifest or a README out of the jar, because
+ * a pack file is recognised by where it sits and not by what it is called.
+ */
+fun isPackNoise(name: String): Boolean {
+    if (name == "_locale.json" || name.startsWith(".")) return true
+    val stem = name.substringBeforeLast('.', name).lowercase()
+    return stem == "readme" || stem == "license" || stem == "changelog"
+}
+
 val bundlePacks by tasks.registering {
     inputs.dir(packSource)
     inputs.property("starter", starterPacks)
@@ -127,7 +139,10 @@ val bundlePacks by tasks.registering {
         val target = packOutput.get().dir("tdc/packs").asFile
         target.deleteRecursively()
         val index = StringBuilder()
-        packSource.walkTopDown().filter { it.isFile && it.extension == "txt" }.forEach { file ->
+        // Not "every .txt": a pack's extension carries no meaning — a `.txt` is a list of values
+        // and a `.tdc` is a body that builds one, and both are addressed by path alone. Filtering
+        // by extension is what left every composed pack out of the jar.
+        packSource.walkTopDown().filter { it.isFile && !isPackNoise(it.name) }.forEach { file ->
             val relative = file.relativeTo(packSource).invariantSeparatorsPath
             if (starterPacks.none { relative == it || relative.startsWith("$it/") }) return@forEach
             file.copyTo(target.resolve(relative).also { it.parentFile.mkdirs() }, overwrite = true)

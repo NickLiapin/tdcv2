@@ -500,7 +500,7 @@ public final class MemoryEngine {
           // constraint is checked against a spec that spells them out.
           enforceDistinct(
               withFieldsOf(spec), built, applicable, prng, packs, config, nowMillis, baseDir,
-              rowLinks, rows);
+              rowLinks, rows, false);
         }
 
         // Only when something unnamed actually composed it. A body of nothing but named items has
@@ -536,7 +536,8 @@ public final class MemoryEngine {
 
         if (applicable > 0 && spec.distinctGroups() != null) {
           enforceDistinct(
-              spec, produced, applicable, prng, packs, config, nowMillis, baseDir, rowLinks, rows);
+              spec, produced, applicable, prng, packs, config, nowMillis, baseDir, rowLinks, rows,
+              false);
         }
         if (applicable > 0 && spec.uniq()) {
           enforceUniqRedrawing(
@@ -1010,6 +1011,11 @@ public final class MemoryEngine {
    * <p>Redrawing appends to the stream, so the result stays deterministic. The fuse is there
    * because a one-value list can never satisfy two fields, and spinning forever would say far
    * less than naming the problem.
+   *
+   * <p>{@code sharedPrng} is for a PACK BODY, which is a nested build with no seed of its own:
+   * there is nothing to key a repair stream by, so the replacement comes off the prng the body was
+   * handed. The reference draws exactly this distinction, and a Spanish or Portuguese full name —
+   * two given names and two surnames, each pair {@code <distinct>} — is where it shows.
    */
   private static void enforceDistinct(
       Config.SequenceSpec spec,
@@ -1021,7 +1027,8 @@ public final class MemoryEngine {
       long nowMillis,
       Path baseDir,
       Map<String, RowLinkPlan> rowLinks,
-      List<Integer> rows) {
+      List<Integer> rows,
+      boolean sharedPrng) {
     Map<String, Config.Gen> genByField = new LinkedHashMap<>();
     for (Config.Field field : spec.fields()) {
       genByField.put(field.name(), field.gen());
@@ -1062,8 +1069,10 @@ public final class MemoryEngine {
             // same replacement.
             int row = i < rows.size() ? rows.get(i) : i;
             Prng.Sfc32 one =
-                Seekable.generator(
-                    config.seed(), spec.name() + "." + fieldName + "#d" + attempts, row);
+                sharedPrng
+                    ? prng
+                    : Seekable.generator(
+                        config.seed(), spec.name() + "." + fieldName + "#d" + attempts, row);
             value = generate(gen, 1, one, packs, config, nowMillis, baseDir, rowLinks).get(0);
           }
           values.set(i, value);
@@ -2059,8 +2068,7 @@ public final class MemoryEngine {
         local.put(spec.name(), constant);
         continue;
       }
-      local.put(
-          spec.name(),
+      local.putAll(
           materializeLocal(spec, count, prng, packs, config, nowMillis, baseDir, rowLinks, local));
     }
 
@@ -2075,8 +2083,15 @@ public final class MemoryEngine {
     return out;
   }
 
-  /** One local sequence of a pack body: a computed value, or an ordinary generated column. */
-  private static String[] materializeLocal(
+  /**
+   * One local sequence of a pack body, as the column or columns it contributes.
+   *
+   * <p>A COMPOUND sequence contributes one column per field, named {@code sequence.field} — the
+   * same shape it has in a config, because the reference runs a pack body through the very
+   * sequence builder a config goes through. Every {@code .tdc} pack that ships is written this
+   * way.
+   */
+  private static Map<String, String[]> materializeLocal(
       Config.SequenceSpec spec,
       int count,
       Prng.Sfc32 prng,
@@ -2086,15 +2101,44 @@ public final class MemoryEngine {
       Path baseDir,
       Map<String, RowLinkPlan> rowLinks,
       Map<String, String[]> local) {
+    Map<String, String[]> produced = new LinkedHashMap<>();
     if (spec.isComputed()) {
       String[] values = new String[count];
       for (int i = 0; i < count; i++) {
         values[i] = computeRow(spec, local, i);
       }
-      return values;
+      produced.put(spec.name(), values);
+      return produced;
     }
-    List<String> produced = generate(spec.gen(), count, prng, packs, config, nowMillis, baseDir, rowLinks);
-    return finish(produced, spec.gen().attrs(), prng, new boolean[count]).toArray(new String[0]);
+    if (spec.fields() != null) {
+      // Declaration order off the shared prng: a pack body is a nested build with no stream of
+      // its own, so the fields of one row draw one after another rather than each keying itself
+      // — which is what pairs a given name with the surname beside it.
+      Map<String, List<String>> byField = new LinkedHashMap<>();
+      for (Config.Field field : spec.fields()) {
+        List<String> values =
+            generate(field.gen(), count, prng, packs, config, nowMillis, baseDir, rowLinks);
+        byField.put(
+            field.name(),
+            new ArrayList<>(finish(values, field.gen().attrs(), prng, new boolean[count])));
+      }
+      // After every field exists, never during: a group's members must all be there before the
+      // constraint between them means anything.
+      if (spec.distinctGroups() != null) {
+        enforceDistinct(
+            spec, byField, count, prng, packs, config, nowMillis, baseDir, rowLinks, List.of(),
+            true);
+      }
+      for (Config.Field field : spec.fields()) {
+        produced.put(
+            spec.name() + "." + field.name(), byField.get(field.name()).toArray(new String[0]));
+      }
+      return produced;
+    }
+    List<String> values = generate(spec.gen(), count, prng, packs, config, nowMillis, baseDir, rowLinks);
+    produced.put(
+        spec.name(), finish(values, spec.gen().attrs(), prng, new boolean[count]).toArray(new String[0]));
+    return produced;
   }
 
   private static String computeRow(Config.SequenceSpec spec, Map<String, String[]> local, int row) {

@@ -14,6 +14,27 @@ namespace Tdcv2.Packs;
 /// </remarks>
 public sealed class DataPacks
 {
+    /// <summary>The extensions a dotted address is tried against, in order.</summary>
+    /// <remarks>
+    /// Nearly every pack is a <c>.txt</c> list; a COMPOSED pack — one whose value a generator body
+    /// builds rather than a line of the file — is a <c>.tdc</c>. The reference ignores the
+    /// extension altogether, and so does the address index below; this list is only the fast path
+    /// that spares an ordinary run the scan.
+    /// </remarks>
+    private static readonly string[] PackExtensions = { ".txt", ".tdc" };
+
+    /// <summary>
+    /// A relative path without its final extension, the way the reference derives an address from
+    /// one. Only the last segment is considered, so <c>nl-be/person/name</c> keeps the dot in its
+    /// folder.
+    /// </summary>
+    private static string StripExtension(string path)
+    {
+        int start = path.LastIndexOf('/') + 1;
+        int dot = path.LastIndexOf('.');
+        return dot > start ? path[..dot] : path;
+    }
+
     /// <summary>
     /// A loaded pack.
     /// </summary>
@@ -243,25 +264,29 @@ public sealed class DataPacks
         }
 
         string first = dottedPath.Split('.', 2)[0];
-        string file;
+        string @base;
         if (Source.HasTopLevel(first))
         {
             // A locale or a reserved bucket: the address is already absolute.
-            file = dottedPath.Replace('.', '/') + ".txt";
+            @base = dottedPath.Replace('.', '/');
         }
         else if (Source.HasCountry(first))
         {
             // A country: absolute too, but its files live under the countries/ grouping, which is
             // not part of the address anyone writes.
-            file = "countries/" + dottedPath.Replace('.', '/') + ".txt";
+            @base = "countries/" + dottedPath.Replace('.', '/');
         }
         else
         {
             // Relative to the active locale, so `person.lastName` under `ru` is a Russian surname.
-            file = (locale + "." + dottedPath).Replace('.', '/') + ".txt";
+            @base = (locale + "." + dottedPath).Replace('.', '/');
         }
 
-        if (!Source.Has(file))
+        string? file = PackExtensions
+            .Select(extension => @base + extension)
+            .FirstOrDefault(Source.Has);
+
+        if (file is null)
         {
             // The path did not answer, so ask the headers: a file may declare its own `address:`
             // and then live anywhere at all — which is how someone keeps a flat folder of their
@@ -270,7 +295,7 @@ public sealed class DataPacks
                 || !Source.Has(placed))
             {
                 throw new ArgumentException(
-                    $"unknown template path \"{dottedPath}\" (looked for {file} in {Source})");
+                    $"unknown template path \"{dottedPath}\" (looked for {@base}.txt in {Source})");
             }
 
             Entry placedEntry = Parse(Source.ReadLines(placed), placed);
@@ -372,7 +397,7 @@ public sealed class DataPacks
             }
             else
             {
-                string derived = file[..^".txt".Length].Replace('/', '.');
+                string derived = StripExtension(file).Replace('/', '.');
                 if (derived.StartsWith("countries.", StringComparison.Ordinal))
                 {
                     derived = derived["countries.".Length..];

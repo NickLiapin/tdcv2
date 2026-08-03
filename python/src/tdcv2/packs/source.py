@@ -21,6 +21,20 @@ BUNDLED_DIR = "packs_data"
 INDEX_NAME = "index.txt"
 
 
+def is_ignored_entry(name: str) -> bool:
+    """Whether a directory entry is repository noise rather than a pack.
+
+    The reference ignores a file's extension entirely when it turns a path into an address, so a
+    name is the only thing that can keep a locale manifest, a README or a ``.DS_Store`` out of the
+    registry — and this is the same short list ``load.ts`` keeps. Everything else is data, whatever
+    it is called.
+    """
+    if name == "_locale.json" or name.startswith("."):
+        return True
+    stem, dot, _ = name.lower().rpartition(".")
+    return (stem if dot else name.lower()) in {"readme", "license", "changelog"}
+
+
 class Source(Protocol):
     """Whatever can answer "is there a pack at this path, and what is in it"."""
 
@@ -72,11 +86,15 @@ class Directory:
         return (self.root / relative_path).read_text(encoding="utf-8").split("\n")
 
     def list_files(self) -> list[str]:
-        return sorted(
-            str(p.relative_to(self.root)).replace("\\", "/")
-            for p in self.root.rglob("*.txt")
-            if p.is_file()
-        )
+        found = []
+        for path in self.root.rglob("*"):
+            if not path.is_file():
+                continue
+            relative = str(path.relative_to(self.root)).replace("\\", "/")
+            if any(is_ignored_entry(part) for part in relative.split("/")):
+                continue
+            found.append(relative)
+        return sorted(found)
 
     def has_top_level(self, name: str) -> bool:
         return (self.root / name).is_dir()
@@ -132,7 +150,7 @@ class Bundled:
         return target.read_text(encoding="utf-8").split("\n")
 
     def list_files(self) -> list[str]:
-        return sorted(p for p in self._index if p.endswith(".txt"))
+        return sorted(self._index)
 
     def has_top_level(self, name: str) -> bool:
         return name in self._top_level

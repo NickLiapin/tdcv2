@@ -16,6 +16,10 @@ import shutil
 import sys
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "src"))
+
+from tdcv2.packs.source import is_ignored_entry
+
 STARTER = ("common", "en", "countries/usa")
 
 HERE = Path(__file__).resolve().parent
@@ -33,8 +37,15 @@ def main() -> int:
     TARGET.mkdir(parents=True)
 
     index: list[str] = []
-    for file in sorted(SOURCE.rglob("*.txt")):
+    # Every file, not just ``*.txt``: a pack's extension carries no meaning — a ``.txt`` is a list
+    # of values and a ``.tdc`` is a body that builds one, and both are addressed by path alone.
+    # Bundling by extension is what left every composed pack out of the wheel.
+    for file in sorted(SOURCE.rglob("*")):
+        if not file.is_file():
+            continue
         relative = file.relative_to(SOURCE).as_posix()
+        if any(is_ignored_entry(part) for part in relative.split("/")):
+            continue
         if not any(relative == s or relative.startswith(f"{s}/") for s in STARTER):
             continue
         destination = TARGET / relative

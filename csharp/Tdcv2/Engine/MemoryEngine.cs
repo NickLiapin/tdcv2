@@ -1198,10 +1198,17 @@ public static class MemoryEngine
     /// a one-value list can never satisfy two fields, and spinning forever would say far less than
     /// naming the problem.
     /// </para>
+    /// <para>
+    /// <paramref name="sharedPrng"/> is for a PACK BODY, which is a nested build with no seed of
+    /// its own: there is nothing to key a repair stream by, so the replacement comes off the prng
+    /// the body was handed. The reference draws exactly this distinction, and a Spanish or
+    /// Portuguese full name — two given names and two surnames, each pair <c>&lt;distinct&gt;</c>
+    /// — is where it shows.
+    /// </para>
     /// </remarks>
     private static void EnforceDistinct(
         SequenceSpec spec, Dictionary<string, List<string>> produced, int count,
-        Sfc32 prng, Ctx ctx, IReadOnlyList<int> rows)
+        Sfc32 prng, Ctx ctx, IReadOnlyList<int> rows, bool sharedPrng = false)
     {
         var genByField = spec.Fields!.ToDictionary(f => f.Name, f => f.Gen, StringComparer.Ordinal);
 
@@ -1241,8 +1248,10 @@ public static class MemoryEngine
                         // attempt number — the same names the streaming engine redraws under,
                         // so both engines land on the same replacement.
                         int row = i < rows.Count ? rows[i] : i;
-                        Sfc32 one = Seekable.Generator(
-                            ctx.Config.Seed, $"{spec.Name}.{fieldName}#d{attempts}", row);
+                        Sfc32 one = sharedPrng
+                            ? prng
+                            : Seekable.Generator(
+                                ctx.Config.Seed, $"{spec.Name}.{fieldName}#d{attempts}", row);
                         value = Generate(gen, 1, one, ctx)[0];
                     }
 
@@ -1724,7 +1733,10 @@ public static class MemoryEngine
                 continue;
             }
 
-            local[spec.Name] = MaterializeLocal(spec, count, prng, ctx, local);
+            foreach ((string name, string[] values) in MaterializeLocal(spec, count, prng, ctx, local))
+            {
+                local[name] = values;
+            }
         }
 
         if (pack.Validate is not null)
@@ -1741,11 +1753,19 @@ public static class MemoryEngine
         return rendered;
     }
 
-    /// <summary>One local sequence of a pack body: a computed value, or an ordinary generated column.</summary>
-    private static string[] MaterializeLocal(
+    /// <summary>
+    /// One local sequence of a pack body, as the column or columns it contributes.
+    /// </summary>
+    /// <remarks>
+    /// A COMPOUND sequence contributes one column per field, named <c>sequence.field</c> — the same
+    /// shape it has in a config, because the reference runs a pack body through the very sequence
+    /// builder a config goes through. Every <c>.tdc</c> pack that ships is written this way.
+    /// </remarks>
+    private static List<(string Name, string[] Values)> MaterializeLocal(
         SequenceSpec spec, int count, Sfc32 prng, Ctx ctx,
         IReadOnlyDictionary<string, string[]> local)
     {
+        var produced = new List<(string, string[])>();
         if (spec.IsComputed)
         {
             var values = new string[count];
@@ -1754,11 +1774,40 @@ public static class MemoryEngine
                 values[i] = ComputeRow(spec, local, i);
             }
 
-            return values;
+            produced.Add((spec.Name, values));
+            return produced;
         }
 
-        IReadOnlyList<string> produced = Generate(spec.Gen!, count, prng, ctx);
-        return Finish(produced, spec.Gen!.Attrs, prng).ToArray();
+        if (spec.Fields is not null)
+        {
+            // Declaration order off the shared prng: a pack body is a nested build with no stream
+            // of its own, so the fields of one row draw one after another rather than each keying
+            // itself — which is what pairs a given name with the surname beside it.
+            var byField = new Dictionary<string, List<string>>(StringComparer.Ordinal);
+            foreach (Field field in spec.Fields)
+            {
+                IReadOnlyList<string> drawn = Generate(field.Gen, count, prng, ctx);
+                byField[field.Name] = Finish(drawn, field.Gen.Attrs, prng).ToList();
+            }
+
+            // After every field exists, never during: a group's members must all be there before
+            // the constraint between them means anything.
+            if (spec.DistinctGroups is not null)
+            {
+                EnforceDistinct(spec, byField, count, prng, ctx, Array.Empty<int>(), true);
+            }
+
+            foreach (Field field in spec.Fields)
+            {
+                produced.Add((spec.Name + "." + field.Name, byField[field.Name].ToArray()));
+            }
+
+            return produced;
+        }
+
+        IReadOnlyList<string> single = Generate(spec.Gen!, count, prng, ctx);
+        produced.Add((spec.Name, Finish(single, spec.Gen!.Attrs, prng).ToArray()));
+        return produced;
     }
 
     /// <summary>How many redraws a <c>&lt;valid&gt;</c> constraint gets before the pack is called impossible.</summary>
@@ -1791,9 +1840,17 @@ public static class MemoryEngine
 
                 foreach (SequenceSpec spec in pack.Sequences)
                 {
-                    local[spec.Name][row] = spec.IsComputed
-                        ? ComputeRow(spec, local, row)
-                        : MaterializeLocal(spec, 1, prng, ctx, local)[0];
+                    if (spec.IsComputed)
+                    {
+                        local[spec.Name][row] = ComputeRow(spec, local, row);
+                        continue;
+                    }
+
+                    foreach ((string name, string[] values) in
+                        MaterializeLocal(spec, 1, prng, ctx, local))
+                    {
+                        local[name][row] = values[0];
+                    }
                 }
             }
         }

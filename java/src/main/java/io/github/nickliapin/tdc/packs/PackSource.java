@@ -24,6 +24,24 @@ import java.util.Set;
  */
 public interface PackSource {
 
+  /**
+   * Whether a directory entry is repository noise rather than a pack.
+   *
+   * <p>The reference ignores a file's extension entirely when it turns a path into an address, so
+   * a name is the only thing that can keep a locale manifest, a README or a {@code .DS_Store} out
+   * of the registry — and this is the same short list {@code load.ts} keeps. Everything else is
+   * data, whatever it is called.
+   */
+  static boolean isIgnoredEntry(String name) {
+    if (name.equals("_locale.json") || name.startsWith(".")) {
+      return true;
+    }
+    int dot = name.lastIndexOf('.');
+    String stem = dot > 0 ? name.substring(0, dot) : name;
+    stem = stem.toLowerCase(java.util.Locale.ROOT);
+    return stem.equals("readme") || stem.equals("license") || stem.equals("changelog");
+  }
+
   /** Whether a pack exists at this path, e.g. {@code en/person/lastName.txt}. */
   boolean has(String relativePath);
 
@@ -158,7 +176,8 @@ public interface PackSource {
       try (java.util.stream.Stream<Path> walk = Files.walk(root)) {
         return walk.filter(Files::isRegularFile)
             .map(path -> root.relativize(path).toString().replace('\\', '/'))
-            .filter(path -> path.endsWith(".txt"))
+            .filter(path -> java.util.Arrays.stream(path.split("/")).noneMatch(
+                PackSource::isIgnoredEntry))
             .sorted()
             .toList();
       } catch (IOException e) {

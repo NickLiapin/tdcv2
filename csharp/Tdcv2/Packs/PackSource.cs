@@ -12,6 +12,25 @@ namespace Tdcv2.Packs;
 /// </remarks>
 public interface IPackSource
 {
+    /// <summary>Whether a directory entry is repository noise rather than a pack.</summary>
+    /// <remarks>
+    /// The reference ignores a file's extension entirely when it turns a path into an address, so
+    /// a name is the only thing that can keep a locale manifest, a README or a <c>.DS_Store</c>
+    /// out of the registry — and this is the same short list <c>load.ts</c> keeps. Everything else
+    /// is data, whatever it is called.
+    /// </remarks>
+    static bool IsIgnoredEntry(string name)
+    {
+        if (name == "_locale.json" || name.StartsWith('.'))
+        {
+            return true;
+        }
+
+        int dot = name.LastIndexOf('.');
+        string stem = (dot > 0 ? name[..dot] : name).ToLowerInvariant();
+        return stem is "readme" or "license" or "changelog";
+    }
+
     /// <summary>Whether a pack exists at this path, e.g. <c>en/person/lastName.txt</c>.</summary>
     bool Has(string relativePath);
 
@@ -68,12 +87,17 @@ public sealed class DirectorySource : IPackSource
             return Array.Empty<string>();
         }
 
-        string[] found = Directory.GetFiles(_root, "*.txt", SearchOption.AllDirectories);
+        string[] found = Directory.GetFiles(_root, "*", SearchOption.AllDirectories);
         var relative = new List<string>(found.Length);
         foreach (string path in found)
         {
-            relative.Add(
-                Path.GetRelativePath(_root, path).Replace(Path.DirectorySeparatorChar, '/'));
+            string rel = Path.GetRelativePath(_root, path).Replace(Path.DirectorySeparatorChar, '/');
+            if (rel.Split('/').Any(IPackSource.IsIgnoredEntry))
+            {
+                continue;
+            }
+
+            relative.Add(rel);
         }
 
         relative.Sort(StringComparer.Ordinal);

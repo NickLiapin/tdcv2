@@ -21,6 +21,25 @@ use crate::engine::{invalid, EngineResult};
 use crate::model::config::{Gen, SequenceSpec, Source};
 use crate::parser::config_builder;
 
+/// The extensions a dotted address is tried against, in order.
+///
+/// Nearly every pack is a `.txt` list; a COMPOSED pack — one whose value a
+/// generator body builds rather than a line of the file — is a `.tdc`. The
+/// reference ignores the extension altogether, and so does the address index
+/// below; this list is only the fast path that spares an ordinary run the scan.
+const PACK_EXTENSIONS: [&str; 2] = [".txt", ".tdc"];
+
+/// A relative path without its final extension, the way the reference derives an
+/// address from one. Only the last segment is considered, so `nl-be/person/name`
+/// keeps the dot in its folder.
+fn strip_extension(path: &str) -> &str {
+    let start = path.rfind('/').map_or(0, |slash| slash + 1);
+    match path[start..].rfind('.') {
+        Some(dot) if dot > 0 => &path[..start + dot],
+        _ => path,
+    }
+}
+
 /// A share declared by one sequence of a pack generator's body.
 ///
 /// Read from the parsed body rather than by searching the text for `percent=`,
@@ -196,24 +215,28 @@ impl DataPacks {
         }
 
         let first = dotted_path.split('.').next().unwrap_or("");
-        let file = if self.source.has_top_level(first) {
+        let base = if self.source.has_top_level(first) {
             // A locale or a reserved bucket: the address is already absolute.
-            format!("{}.txt", dotted_path.replace('.', "/"))
+            dotted_path.replace('.', "/")
         } else if self.source.has_country(first) {
             // A country: absolute too, but its files live under the countries/
             // grouping, which is not part of the address anyone writes.
-            format!("countries/{}.txt", dotted_path.replace('.', "/"))
+            format!("countries/{}", dotted_path.replace('.', "/"))
         } else {
             // Relative to the active locale, so `person.lastName` under `ru` is
             // a Russian surname.
-            format!(
-                "{}.txt",
-                format!("{locale}.{dotted_path}").replace('.', "/")
-            )
+            format!("{locale}.{dotted_path}").replace('.', "/")
         };
 
-        let lines = match self.source.read_lines(&file) {
-            Some(lines) => lines,
+        let found = PACK_EXTENSIONS.iter().find_map(|extension| {
+            let candidate = format!("{base}{extension}");
+            self.source
+                .read_lines(&candidate)
+                .map(|lines| (candidate, lines))
+        });
+
+        let (file, lines) = match found {
+            Some(hit) => hit,
             None => {
                 // The path did not answer, so ask the headers: a file may declare
                 // its own `address:` and then live anywhere at all — which is how
@@ -229,7 +252,7 @@ impl DataPacks {
                     }
                     None => {
                         return invalid(&format!(
-                            "unknown template path \"{dotted_path}\" (looked for {file} in {})",
+                            "unknown template path \"{dotted_path}\" (looked for {base}.txt in {})",
                             self.source.describe()
                         ));
                     }
@@ -324,7 +347,7 @@ impl DataPacks {
             {
                 Some(declared) => declared.to_string(),
                 None => {
-                    let mut derived = file.trim_end_matches(".txt").replace('/', ".");
+                    let mut derived = strip_extension(&file).replace('/', ".");
                     if let Some(rest) = derived.strip_prefix("countries.") {
                         derived = rest.to_string();
                     }

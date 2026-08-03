@@ -7,6 +7,26 @@
 
 use std::path::{Path, PathBuf};
 
+/// Whether a directory entry is repository noise rather than a pack.
+///
+/// The reference ignores a file's extension entirely when it turns a path into
+/// an address, so a name is the only thing that can keep a locale manifest, a
+/// README or a `.DS_Store` out of the registry — and this is the same short list
+/// `load.ts` keeps. Everything else is data, whatever it is called.
+pub fn is_ignored_entry(name: &str) -> bool {
+    if name == "_locale.json" || name.starts_with('.') {
+        return true;
+    }
+    let stem = match name.rfind('.') {
+        Some(dot) if dot > 0 => &name[..dot],
+        _ => name,
+    };
+    matches!(
+        stem.to_lowercase().as_str(),
+        "readme" | "license" | "changelog"
+    )
+}
+
 pub trait PackSource: std::fmt::Debug {
     /// Whether a pack exists at this path, e.g. `en/person/lastName.txt`.
     fn has(&self, relative_path: &str) -> bool;
@@ -78,6 +98,9 @@ impl PackSource for DirectorySource {
             };
             for entry in entries.flatten() {
                 let name = entry.file_name().to_string_lossy().to_string();
+                if is_ignored_entry(&name) {
+                    continue;
+                }
                 let relative = if prefix.is_empty() {
                     name.clone()
                 } else {
@@ -85,7 +108,7 @@ impl PackSource for DirectorySource {
                 };
                 if entry.path().is_dir() {
                     walk(&entry.path(), &relative, out);
-                } else if relative.ends_with(".txt") {
+                } else {
                     out.push(relative);
                 }
             }

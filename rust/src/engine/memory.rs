@@ -749,7 +749,7 @@ fn build_columns_with(
                             _ => None,
                         })
                         .collect();
-                    enforce_distinct(spec, &fields, &mut produced, applicable, env, &rows)?;
+                    enforce_distinct(spec, &fields, &mut produced, applicable, env, &rows, None)?;
                 }
 
                 // Only when something unnamed actually composed it. A body of
@@ -796,7 +796,7 @@ fn build_columns_with(
                 // Both run over FINISHED fields: a group's members must all
                 // exist before the constraint between them means anything.
                 if !spec.distinct_groups.is_empty() {
-                    enforce_distinct(spec, fields, &mut produced, applicable, env, &rows)?;
+                    enforce_distinct(spec, fields, &mut produced, applicable, env, &rows, None)?;
                 }
                 if spec.uniq {
                     enforce_uniq_redrawing(
@@ -850,6 +850,11 @@ const UNIQ_REDRAW_ATTEMPTS: usize = 8;
 /// is there because a one-value list can never satisfy two fields, and spinning
 /// forever would say far less than naming the problem.
 #[allow(clippy::too_many_arguments)]
+/// `shared_prng` is for a PACK BODY, which is a nested build with no seed of its
+/// own: there is nothing to key a repair stream by, so the replacement comes off
+/// the prng the body was handed. The reference draws exactly this distinction,
+/// and a Spanish or Portuguese full name — two given names and two surnames,
+/// each pair `<distinct>` — is where it shows.
 fn enforce_distinct(
     spec: &SequenceSpec,
     fields: &[Field],
@@ -857,6 +862,7 @@ fn enforce_distinct(
     count: usize,
     env: &Env,
     rows: &[usize],
+    mut shared_prng: Option<&mut Sfc32>,
 ) -> EngineResult<()> {
     for group in &spec.distinct_groups {
         let members: Vec<usize> = group
@@ -889,16 +895,19 @@ fn enforce_distinct(
                     // Each attempt has a stream of its own, named for the field and the
                     // attempt number — the same names the streaming engine redraws under, so
                     // both engines land on the same replacement.
-                    let row = rows.get(i).copied().unwrap_or(i);
-                    let mut one = seekable::generator(
-                        &env.config.seed,
-                        &format!("{}.{field_name}#d{attempts}", spec.name),
-                        row as i32,
-                    );
-                    value = generate(&field.gen, 1, &mut one, env)?
-                        .into_iter()
-                        .next()
-                        .unwrap_or_default();
+                    let drawn = match shared_prng.as_deref_mut() {
+                        Some(prng) => generate(&field.gen, 1, prng, env)?,
+                        None => {
+                            let row = rows.get(i).copied().unwrap_or(i);
+                            let mut one = seekable::generator(
+                                &env.config.seed,
+                                &format!("{}.{field_name}#d{attempts}", spec.name),
+                                row as i32,
+                            );
+                            generate(&field.gen, 1, &mut one, env)?
+                        }
+                    };
+                    value = drawn.into_iter().next().unwrap_or_default();
                 }
                 produced[*slot].1[i] = value.clone();
                 seen.push(value);
@@ -2315,8 +2324,9 @@ fn pack_generator(
             local.insert(spec.name.clone(), vec![Some(value); count]);
             continue;
         }
-        let values = materialize_local(spec, count, prng, env, &local)?;
-        local.insert(spec.name.clone(), values);
+        for (name, values) in materialize_local(spec, count, prng, env, &local)? {
+            local.insert(name, values);
+        }
     }
 
     if let Some(valid) = &pack.validate {
@@ -2338,21 +2348,25 @@ fn pack_generator(
     Ok(rendered)
 }
 
-/// One local sequence of a pack body: a computed value, a share, or an ordinary
-/// column.
+/// One local sequence of a pack body, as the column or columns it contributes.
+///
+/// A COMPOUND sequence contributes one column per field, named `sequence.field`
+/// — the same shape it has in a config, because the reference runs a pack body
+/// through the very sequence builder a config goes through. Every `.tdc` pack
+/// that ships is written this way.
 fn materialize_local(
     spec: &SequenceSpec,
     count: usize,
     prng: &mut Sfc32,
     env: &Env,
     local: &BTreeMap<String, Vec<Option<String>>>,
-) -> EngineResult<Vec<Option<String>>> {
+) -> EngineResult<Vec<(String, Vec<Option<String>>)>> {
     if let Source::Compute(tree) = &spec.source {
         let mut values = Vec::with_capacity(count);
         for row in 0..count {
             values.push(Some(compute_row(tree, local, row)?));
         }
-        return Ok(values);
+        return Ok(vec![(spec.name.clone(), values)]);
     }
 
     // A `<mix percent>` is how a pack declares a share of its own — 60% of
@@ -2360,9 +2374,39 @@ fn materialize_local(
     // generated column, which is why a config that draws from such a pack is
     // routed here in the first place.
     if let Source::Mix(mix) = &spec.source {
-        return Ok(mix_values(mix, count, prng, None, env, None)?
+        let values = mix_values(mix, count, prng, None, env, None)?
             .into_iter()
             .map(Some)
+            .collect();
+        return Ok(vec![(spec.name.clone(), values)]);
+    }
+
+    if let Source::Fields(fields) = &spec.source {
+        // Declaration order off the shared prng: a pack body is a nested build
+        // with no stream of its own, so the fields of one row draw one after
+        // another rather than each keying itself — which is what pairs a given
+        // name with the surname beside it.
+        let mut by_field: Vec<(String, Vec<String>)> = Vec::with_capacity(fields.len());
+        for field in fields {
+            let values = generate(&field.gen, count, prng, env)?;
+            by_field.push((
+                field.name.clone(),
+                finish(values, &field.gen.attrs, prng, None)?,
+            ));
+        }
+        // After every field exists, never during: a group's members must all be
+        // there before the constraint between them means anything.
+        if !spec.distinct_groups.is_empty() {
+            enforce_distinct(spec, fields, &mut by_field, count, env, &[], Some(prng))?;
+        }
+        return Ok(by_field
+            .into_iter()
+            .map(|(field_name, values)| {
+                (
+                    format!("{}.{field_name}", spec.name),
+                    values.into_iter().map(Some).collect(),
+                )
+            })
             .collect());
     }
 
@@ -2370,10 +2414,11 @@ fn materialize_local(
         return unsupported("a pack sequence that is neither a <gen>, a <mix> nor a <compute>");
     };
     let produced = generate(gen, count, prng, env)?;
-    Ok(finish(produced, &gen.attrs, prng, None)?
+    let values = finish(produced, &gen.attrs, prng, None)?
         .into_iter()
         .map(Some)
-        .collect())
+        .collect();
+    Ok(vec![(spec.name.clone(), values)])
 }
 
 /// Reject and redraw until the pack's `<valid>` predicate holds.
@@ -2403,9 +2448,11 @@ fn enforce_valid(
                 ));
             }
             for spec in &pack.sequences {
-                let replacement = materialize_local(spec, 1, prng, env, local)?.remove(0);
-                if let Some(column) = local.get_mut(&spec.name) {
-                    column[row] = replacement;
+                for (name, mut values) in materialize_local(spec, 1, prng, env, local)? {
+                    let replacement = values.remove(0);
+                    if let Some(column) = local.get_mut(&name) {
+                        column[row] = replacement;
+                    }
                 }
             }
         }

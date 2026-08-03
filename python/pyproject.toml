@@ -92,7 +92,11 @@ where = ["src"]
 [tool.setuptools.package-data]
 # The starter packs, put here by scripts/bundle_packs.py. Everything else is downloaded from the
 # shared registry on demand — see src/tdcv2/packs/registry.py.
-"tdcv2" = ["packs_data/**/*.txt", "packs_data/index.txt"]
+#
+# Not "*.txt": a pack's extension carries no meaning — a `.txt` is a list of values and a `.tdc`
+# is a body that builds one, and both are addressed by path alone. The bundler decides what gets
+# staged here, so this only has to carry it into the wheel.
+"tdcv2" = ["packs_data/**/*", "packs_data/*"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

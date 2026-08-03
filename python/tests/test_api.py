@@ -233,5 +233,5 @@ def test_the_shared_fixtures_still_describe_this_implementation() -> None:
         len(json.loads(p.read_text(encoding="utf-8"))["cases"])
         for p in (shared / "diagnostics").glob("*.json")
     )
-    assert cases == 130
+    assert cases == 132
     assert diagnostics == 159

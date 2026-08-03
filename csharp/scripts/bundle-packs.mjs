@@ -24,7 +24,7 @@
  * publish, a trimmed one.
  */
 
-import { cpSync, existsSync, mkdirSync, renameSync, rmSync } from 'node:fs';
+import { cpSync, existsSync, mkdirSync, readdirSync, renameSync, rmSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -44,6 +44,29 @@ const target = resolve(here, '..', 'Tdcv2', 'PacksData');
  */
 const STARTER = ['common', 'en', 'countries/usa'];
 
+/**
+ * Repository noise rather than data — the same short list `load.ts` keeps.
+ *
+ * The .csproj embeds whatever is staged, because a pack's extension carries no
+ * meaning: a `.txt` is a list of values and a `.tdc` is a body that builds one,
+ * and both are addressed by path alone. So the filtering happens HERE, by name,
+ * and a locale manifest or a README never reaches the assembly.
+ */
+function isIgnored(name) {
+  if (name === '_locale.json' || name.startsWith('.')) return true;
+  const stem = name.toLowerCase().replace(/\.[^.]+$/, '');
+  return stem === 'readme' || stem === 'license' || stem === 'changelog';
+}
+
+/** Drop everything `isIgnored` names, in place, after the copy. */
+function prune(dir) {
+  for (const entry of readdirSync(dir, { withFileTypes: true })) {
+    const full = join(dir, entry.name);
+    if (isIgnored(entry.name)) rmSync(full, { recursive: true, force: true });
+    else if (entry.isDirectory()) prune(full);
+  }
+}
+
 const mode = process.argv[2];
 
 if (mode === 'add') {
@@ -58,6 +81,7 @@ if (mode === 'add') {
     }
     cpSync(from, join(staging, ...pack.split('/')), { recursive: true });
   }
+  prune(staging);
   // Built beside, then renamed: a concurrent build must never see it half full.
   rmSync(target, { recursive: true, force: true });
   renameSync(staging, target);

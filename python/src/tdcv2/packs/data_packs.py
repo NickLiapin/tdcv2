@@ -21,6 +21,22 @@ from .source import Source
 #: parsing a pack body there would report a pack author's syntax error at the caller's line.
 _SEQUENCE_NAME = re.compile(r'<sequence\s+[^>]*name\s*=\s*"([^"]+)"')
 
+#: The extensions a dotted address is tried against, in order. Nearly every pack is a ``.txt``
+#: list; a COMPOSED pack — one whose value a generator body builds rather than a line of the file
+#: — is a ``.tdc``. The reference ignores the extension altogether, and so does the address index;
+#: this list is only the fast path that spares an ordinary run the scan.
+_PACK_EXTENSIONS = (".txt", ".tdc")
+
+
+def _strip_extension(path: str) -> str:
+    """A relative path without its final extension, the way the reference derives an address.
+
+    Only the last segment is considered, so ``nl-be/person/name`` keeps the dot in its folder.
+    """
+    head, slash, name = path.rpartition("/")
+    stem, dot, _ = name.rpartition(".")
+    return head + slash + stem if dot and stem else path
+
 
 @dataclass(frozen=True, slots=True)
 class Entry:
@@ -139,15 +155,18 @@ class DataPacks:
 
         first = dotted_path.split(".", 1)[0]
         if self.source.has_top_level(first):
-            file = dotted_path.replace(".", "/") + ".txt"
+            base = dotted_path.replace(".", "/")
         elif self.source.has_country(first):
             # A country is absolute too, but its files live under the countries/ grouping, which
             # is not part of the address anyone writes.
-            file = "countries/" + dotted_path.replace(".", "/") + ".txt"
+            base = "countries/" + dotted_path.replace(".", "/")
         else:
-            file = (locale + "." + dotted_path).replace(".", "/") + ".txt"
+            base = (locale + "." + dotted_path).replace(".", "/")
 
-        if not self.source.has(file):
+        file = next(
+            (c for c in (base + ext for ext in _PACK_EXTENSIONS) if self.source.has(c)), None
+        )
+        if file is None:
             # The path did not answer, so ask the headers: a file may declare its own
             # ``address:`` and then live anywhere at all — which is how a user keeps a flat
             # folder of their own lists. Scanned once, on demand, so the ordinary run where
@@ -158,7 +177,7 @@ class DataPacks:
                 self._cache[key] = entry
                 return entry
             raise ValueError(
-                f'unknown template path "{dotted_path}" (looked for {file} in {self.source})'
+                f'unknown template path "{dotted_path}" (looked for {base}.txt in {self.source})'
             )
 
         entry = _parse(self.source.read_lines(file), file)
@@ -189,7 +208,7 @@ class DataPacks:
             if declared:
                 address = declared
             else:
-                address = file[:-4].replace("/", ".") if file.endswith(".txt") else file
+                address = _strip_extension(file).replace("/", ".")
                 if address.startswith("countries."):
                     address = address[len("countries.") :]
                 head = address.split(".", 1)[0]

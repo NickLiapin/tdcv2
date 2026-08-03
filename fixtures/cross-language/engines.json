@@ -484,6 +484,54 @@
         ]
       }
     },
+    "generators/template-composed-tdc-pack": {
+      "engine2": {
+        "lines": [
+          "Lubomir Pawłowski",
+          "Teofil Mroczek",
+          "Hubert Wierzbicki",
+          "Rudolf Kasprzak",
+          "Ambroży Przybysz",
+          "Melchior Marzec"
+        ]
+      },
+      "engine3": {
+        "lines": [
+          "Lubomir Pawłowski",
+          "Teofil Mroczek",
+          "Hubert Wierzbicki",
+          "Rudolf Kasprzak",
+          "Ambroży Przybysz",
+          "Melchior Marzec"
+        ]
+      }
+    },
+    "generators/template-composed-tdc-pack-distinct": {
+      "engine2": {
+        "lines": [
+          "Filomena Mariana Bustamante Rueda",
+          "Modesta Pamela Prada Chacón",
+          "Jacinta Florencia Jáuregui Morán",
+          "Araceli Bibiana Cruz Alba",
+          "Alicia Sara Cuevas Conde",
+          "Rosa Vanesa Toledano Gaviria",
+          "Raquel Marcia Anaya Tovar",
+          "Rocío Luisa Guerrero Ovalle"
+        ]
+      },
+      "engine3": {
+        "lines": [
+          "Filomena Mariana Bustamante Rueda",
+          "Modesta Pamela Prada Chacón",
+          "Jacinta Florencia Jáuregui Morán",
+          "Araceli Bibiana Cruz Alba",
+          "Alicia Sara Cuevas Conde",
+          "Rosa Vanesa Toledano Gaviria",
+          "Raquel Marcia Anaya Tovar",
+          "Rocío Luisa Guerrero Ovalle"
+        ]
+      }
+    },
     "mix-switch/mix-exact-percents": {
       "engine2": {
         "lines": ["A", "B", "A", "B", "B", "B", "B", "A", "B", "B"]

@@ -19,6 +19,27 @@ import java.util.Map;
 public final class DataPacks {
 
   /**
+   * The extensions a dotted address is tried against, in order.
+   *
+   * <p>Nearly every pack is a {@code .txt} list; a COMPOSED pack — one whose value a generator
+   * body builds rather than a line of the file — is a {@code .tdc}. The reference ignores the
+   * extension altogether, and so does the address index below; this list is only the fast path
+   * that spares an ordinary run the scan.
+   */
+  private static final String[] PACK_EXTENSIONS = {".txt", ".tdc"};
+
+  /**
+   * A relative path without its final extension, the way the reference derives an address from
+   * one. Only the last segment is considered, so {@code nl-be/person/name} keeps the dot in its
+   * folder.
+   */
+  private static String stripExtension(String path) {
+    int start = path.lastIndexOf('/') + 1;
+    int dot = path.lastIndexOf('.');
+    return dot > start ? path.substring(0, dot) : path;
+  }
+
+  /**
    * A loaded pack.
    *
    * <p>{@code percents} is null unless the pack is weighted. {@code generator} is null unless
@@ -237,20 +258,28 @@ public final class DataPacks {
     }
 
     String first = dottedPath.split("\\.", 2)[0];
-    String file;
+    String base;
     if (source.hasTopLevel(first)) {
       // A locale or a reserved bucket: the address is already absolute.
-      file = dottedPath.replace('.', '/') + ".txt";
+      base = dottedPath.replace('.', '/');
     } else if (source.hasCountry(first)) {
       // A country: absolute too, but its files live under the countries/ grouping, which is
       // not part of the address anyone writes.
-      file = "countries/" + dottedPath.replace('.', '/') + ".txt";
+      base = "countries/" + dottedPath.replace('.', '/');
     } else {
       // Relative to the active locale, so `person.lastName` under `ru` is a Russian surname.
-      file = (locale + "." + dottedPath).replace('.', '/') + ".txt";
+      base = (locale + "." + dottedPath).replace('.', '/');
     }
 
-    if (!source.has(file)) {
+    String file = null;
+    for (String extension : PACK_EXTENSIONS) {
+      if (source.has(base + extension)) {
+        file = base + extension;
+        break;
+      }
+    }
+
+    if (file == null) {
       // The path did not answer, so ask the headers: a file may declare its own `address:` and
       // then live anywhere at all — which is how someone keeps a flat folder of their own lists.
       String placed = addresses().get(absoluteAddress(dottedPath, locale));
@@ -259,8 +288,8 @@ public final class DataPacks {
             "unknown template path \""
                 + dottedPath
                 + "\" (looked for "
-                + file
-                + " in "
+                + base
+                + ".txt in "
                 + source
                 + ")");
       }
@@ -352,7 +381,7 @@ public final class DataPacks {
       if (declared != null && !declared.isBlank()) {
         address = declared.trim();
       } else {
-        String derived = file.substring(0, file.length() - ".txt".length()).replace('/', '.');
+        String derived = stripExtension(file).replace('/', '.');
         if (derived.startsWith("countries.")) {
           derived = derived.substring("countries.".length());
         }
