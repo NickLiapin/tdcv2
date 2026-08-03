@@ -128,7 +128,7 @@ fn unique_numbers(
 fn unsupported_reason(gen: &Gen) -> String {
     if gen.gen_type == "number" {
         return "its values are not a plain integer range — uniq supports value=\"a..b\" \
-                without decimals=, distribution=, include= or exclude="
+                without decimals=, distribution=, include=, exclude= or first_zero="
             .to_string();
     }
     format!(

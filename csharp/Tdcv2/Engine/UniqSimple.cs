@@ -147,7 +147,7 @@ internal static class UniqSimple
     private static string UnsupportedReason(Gen gen) =>
         gen.Type == "number"
             ? "its values are not a plain integer range — uniq supports value=\"a..b\" without "
-              + "decimals=, distribution=, include= or exclude="
+              + "decimals=, distribution=, include=, exclude= or first_zero="
             : $"its values cannot be enumerated (type=\"{gen.Type}\") — uniq on a simple "
               + "sequence supports text lists, template packs, file columns and plain integer "
               + "ranges";

@@ -130,7 +130,7 @@ public final class UniqSimple {
   static String unsupportedReason(Config.Gen gen) {
     if ("number".equals(gen.type())) {
       return "its values are not a plain integer range — uniq supports value=\"a..b\" "
-          + "without decimals=, distribution=, include= or exclude=";
+          + "without decimals=, distribution=, include=, exclude= or first_zero=";
     }
     return "its values cannot be enumerated (type=\"" + gen.type() + "\") — uniq on a simple "
         + "sequence supports text lists, template packs, file columns and plain integer ranges";

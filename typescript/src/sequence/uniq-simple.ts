@@ -46,7 +46,12 @@ export function genSupportsUniq(gen: GenSpec): boolean {
 export function uniqUnsupportedReason(gen: GenSpec): string | undefined {
   if (genSupportsUniq(gen)) return undefined;
   if (gen.type === 'number') {
-    return 'its values are not a plain integer range — uniq supports value="a..b" without decimals=, distribution=, include= or exclude=';
+    // Every attribute named here is one `plainIntRange` actually blocks. `first_zero=` was
+    // missing from the list and is the one people reach for when they want a fixed width for a
+    // composed value — so the reader was told their attributes were fine and refused anyway.
+    // `length=` is deliberately absent: it does NOT block, and a range like 100000..999999 is
+    // already six digits wide without it.
+    return 'its values are not a plain integer range — uniq supports value="a..b" without decimals=, distribution=, include=, exclude= or first_zero=';
   }
   return (
     `its values cannot be enumerated (type="${gen.type}") — uniq on a simple sequence ` +

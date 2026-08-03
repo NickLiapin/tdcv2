@@ -111,7 +111,7 @@ def unsupported_reason(gen) -> str:
     if gen.type == "number":
         return (
             "its values are not a plain integer range — uniq supports value=\"a..b\" "
-            "without decimals=, distribution=, include= or exclude="
+            "without decimals=, distribution=, include=, exclude= or first_zero="
         )
     return (
         f'its values cannot be enumerated (type="{gen.type}") — uniq on a simple sequence '
