@@ -18,7 +18,7 @@
  */
 
 import { execFileSync } from 'node:child_process';
-import { mkdtempSync, readdirSync, rmSync, writeFileSync } from 'node:fs';
+import { existsSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -53,9 +53,20 @@ try {
   console.log('packaging…');
   run('cargo', ['package', '--allow-dirty', '--quiet'], { cwd: crateDir });
 
-  const crate = readdirSync(join(crateDir, 'target', 'package')).find((f) => f.endsWith('.crate'));
-  if (!crate) {
-    throw new Error('cargo package produced no .crate');
+  // By NAME, not "the first .crate in the folder". `target/package` keeps every
+  // crate ever packaged here, so picking the first one verified whatever version
+  // happened to sort earliest — which meant a release could be checked by
+  // building yesterday's crate and calling it green. Reading the version out of
+  // Cargo.toml and demanding that exact file is what makes this able to fail.
+  const declared = /^version\s*=\s*"([^"]+)"/m.exec(
+    readFileSync(join(crateDir, 'Cargo.toml'), 'utf8'),
+  )?.[1];
+  if (!declared) {
+    throw new Error('could not read the version from rust/Cargo.toml');
+  }
+  const crate = `tdcv2-${declared}.crate`;
+  if (!existsSync(join(crateDir, 'target', 'package', crate))) {
+    throw new Error(`cargo package produced no ${crate}`);
   }
   console.log(`unpacking ${crate} into ${work}`);
   run('tar', ['-xzf', join(crateDir, 'target', 'package', crate), '-C', work]);

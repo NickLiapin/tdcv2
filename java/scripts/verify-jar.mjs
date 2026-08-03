@@ -20,7 +20,7 @@
  */
 
 import { execFileSync } from 'node:child_process';
-import { existsSync, mkdtempSync, readdirSync, rmSync, writeFileSync } from 'node:fs';
+import { existsSync, mkdtempSync, readFileSync, readdirSync, rmSync, writeFileSync } from 'node:fs';
 import { homedir, tmpdir } from 'node:os';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -75,12 +75,21 @@ try {
   run('./gradlew', ['jar', '-q'], { cwd: projectDir });
 
   const libs = join(projectDir, 'build', 'libs');
-  // The plain library jar is the one with no classifier — `tdcv2-<version>.jar`.
-  // Naming what to exclude instead is how this once picked up the javadoc archive
-  // after a publish left one lying here, and reported the library as dataless.
-  const jar = readdirSync(libs).find((f) => /^tdcv2-\d[^-]*\.jar$/.test(f));
-  if (!jar) {
-    throw new Error(`no library jar in ${libs}`);
+  // The plain library jar of the DECLARED version. Naming what to exclude instead
+  // is how this once picked up the javadoc archive after a publish left one lying
+  // here, and reported the library as dataless — and matching any version is how
+  // its sibling check for the Rust crate went on verifying yesterday's artefact
+  // through a release. This directory keeps everything ever built in it, so the
+  // only safe selection is by exact name.
+  const declared = /^version\s*=\s*"([^"]+)"/m.exec(
+    readFileSync(join(projectDir, 'build.gradle.kts'), 'utf8'),
+  )?.[1];
+  if (!declared) {
+    throw new Error('could not read the version from java/build.gradle.kts');
+  }
+  const jar = `tdcv2-${declared}.jar`;
+  if (!existsSync(join(libs, jar))) {
+    throw new Error(`no ${jar} in ${libs}`);
   }
 
   const packs = run('unzip', ['-l', join(libs, jar)])
@@ -123,9 +132,9 @@ try {
   console.log('building the cli jar…');
   run('./gradlew', ['cliJar', '-q'], { cwd: projectDir });
 
-  const cli = readdirSync(libs).find((f) => f.endsWith('-cli.jar'));
-  if (!cli) {
-    throw new Error(`no cli jar in ${libs}`);
+  const cli = `tdcv2-${declared}-cli.jar`;
+  if (!existsSync(join(libs, cli))) {
+    throw new Error(`no ${cli} in ${libs}`);
   }
 
   // Only the jar on the command line — no classpath, no ANTLR runtime. If the merge

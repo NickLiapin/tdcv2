@@ -18,7 +18,7 @@
  */
 
 import { execFileSync } from 'node:child_process';
-import { mkdtempSync, readdirSync, rmSync, writeFileSync } from 'node:fs';
+import { existsSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { homedir, tmpdir } from 'node:os';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -53,11 +53,21 @@ try {
     { cwd: projectDir },
   );
 
-  const nupkg = readdirSync(feed).find((f) => f.endsWith('.nupkg'));
-  if (!nupkg) {
-    throw new Error('dotnet pack produced no .nupkg');
+  // By NAME, not "the first one in the folder". This directory keeps every
+  // artefact ever built here, so picking the first match verified whichever
+  // version happened to sort earliest — which meant a release could be checked
+  // by building yesterday's artefact and calling it green. Reading the declared
+  // version and demanding that exact file is what makes this able to fail.
+  const version = /<Version>([^<]+)<\/Version>/.exec(
+    readFileSync(join(projectDir, 'Tdcv2.Cli.Tool', 'Tdcv2.Cli.Tool.csproj'), 'utf8'),
+  )?.[1];
+  if (!version) {
+    throw new Error('could not read <Version> from Tdcv2.Cli.Tool.csproj');
   }
-  const version = /Tdcv2\.Cli\.(.+)\.nupkg$/.exec(nupkg)?.[1];
+  const nupkg = `Tdcv2.Cli.${version}.nupkg`;
+  if (!existsSync(join(feed, nupkg))) {
+    throw new Error(`dotnet pack produced no ${nupkg}`);
+  }
   console.log(`installing ${nupkg} into ${toolPath}`);
 
   // A cached copy of this version would be installed instead of the one just
