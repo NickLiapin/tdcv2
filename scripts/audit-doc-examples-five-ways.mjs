@@ -29,7 +29,7 @@
  */
 
 import { execFileSync } from 'node:child_process';
-import { existsSync, mkdtempSync, writeFileSync } from 'node:fs';
+import { existsSync, mkdtempSync, readdirSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 
@@ -72,11 +72,21 @@ const IMPLEMENTATIONS = [
   {
     id: 'java',
     label: 'Java',
-    artefact: 'java/build/libs/tdcv2-0.1.4-cli.jar',
-    command: ['java', ['-jar', join(REPO, 'java/build/libs/tdcv2-0.1.4-cli.jar')]],
+    // The jar carries the version in its name, so naming one pins the audit to a release
+    // that will stop existing at the next bump. Found by the file itself instead.
+    artefact: javaCliJar(),
+    command: ['java', ['-jar', join(REPO, javaCliJar() ?? '')]],
     build: 'cd java && ./gradlew cliJar',
   },
 ];
+
+/** The built CLI jar, whatever version it was built at. */
+function javaCliJar() {
+  const dir = join(REPO, 'java/build/libs');
+  if (!existsSync(dir)) return 'java/build/libs/tdcv2-cli.jar';
+  const hit = readdirSync(dir).find((f) => f.endsWith('-cli.jar'));
+  return hit === undefined ? 'java/build/libs/tdcv2-cli.jar' : `java/build/libs/${hit}`;
+}
 
 const args = process.argv.slice(2);
 const onlyAt = args.indexOf('--only');

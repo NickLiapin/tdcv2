@@ -58,10 +58,14 @@ disk. Nothing large is read: data packs are kilobytes and are cached after first
 
 ### The versions
 
-Four implementations are the published 0.1.4 exactly as a user installs them. Rust is built
-from source with one fix that has not been released yet — the streaming engine used to hold
-the whole run when writing to a file. Publishing the old number would have documented
-behaviour that no longer exists in the source; this note goes away with 0.1.5.
+Every number here was taken on the published **0.1.4**, exactly as a user installs it, with
+one exception: Rust was built from source, because its published streaming engine still held
+the whole run when writing to a file. That fix shipped in **0.1.5**, so the Rust figures are
+what 0.1.5 does and the other four are what 0.1.4 did.
+
+The engine changes between the two releases were a routing recovery and three diagnostic
+messages — none of which touches how fast a row is produced or how much memory a run holds.
+The figures stand for 0.1.5.
 
 ## The three engines, briefly
 

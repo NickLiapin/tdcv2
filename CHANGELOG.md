@@ -15,7 +15,42 @@ page — is tracked in that implementation's own changelog:
 
 ## [Unreleased]
 
+## [0.1.5] — 2026-08-03
+
 ### Fixed
+
+- **A running total failed on Rust and worked on the other four.** The router picks an engine
+  from the config; the streaming engine then discovers, while building its resolvers, that
+  this particular config needs the whole column after all. A running total is the plain case —
+  row 900 000 000 IS the sum of everything before it. Four implementations answered that
+  refusal by building the run in memory; Rust let it escape, so `tdcv2 ledger.tdc` — the exact
+  config on the running-total documentation page — failed there and nowhere else.
+
+  Rust now recovers in its engine dispatch, and the file-writing path removes its half-written
+  output before handing the run back to be built the ordinary way. A config that NAMES its
+  engine still gets the refusal: `engine="2"` and `mode="stream"` are requests to be told, not
+  requests to be helped.
+
+  Python had the recovery in its facade only, and its shared-case harness dispatched for itself
+  without it — so the library and the contract harness disagreed about what one config
+  produces. Dispatch now lives in one place and both call it.
+
+  Nothing caught this because all three shared running-total cases pinned `mode="memory"`, so
+  no case ever reached the router. The new one writes what a reader writes.
+
+- **`uniq` on a number refused for a reason it did not name.** The check blocks five
+  attributes — `decimals=`, `distribution=`, `include=`, `exclude=` and `first_zero=` — and
+  the message listed four. `first_zero=` is the missing one and the one people reach for, since
+  it is how a number gets a fixed width. The reader set it, was refused, and read a list of
+  four attributes they had not used. `length=` stays out of the list because it does not
+  block: `value="100000..999999"` is already six digits wide.
+
+- **Running off the end of a source named the wrong number.** With
+  `order="sequential" cycle="false"`, a run longer than its source stops rather than looping
+  back and duplicating rows. But the message printed the row it stopped at as if it were the
+  requested size: a config asking for `count="6"` over a four-line file was told "only 4 values
+  for 5 rows". It now names the row that ran out, which is true on the streaming path as well —
+  that one resolves a row at a time and does not know the run's length there.
 
 - **Rust: `-o` on the streaming engine held the whole run.** The engine produced rows one at
   a time, but every way out of it assembled the complete output as one string, and writing to

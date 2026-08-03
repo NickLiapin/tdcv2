@@ -9,7 +9,7 @@ the npm package: its API surface, its command line, its landing page.
 
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
-## [Unreleased]
+## [0.1.4] — 2026-08-03
 
 ### Changed
 

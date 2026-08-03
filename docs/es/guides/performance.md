@@ -60,10 +60,14 @@ lee nada grande: los paquetes de datos pesan kilobytes y quedan en caché tras e
 
 ### Las versiones
 
-Cuatro implementaciones son la 0.1.4 publicada, exactamente como la instala un usuario. Rust
-está compilado desde el código con una corrección aún no publicada: el motor de flujo retenía
-la ejecución entera al escribir a un archivo. Publicar el número antiguo habría documentado un
-comportamiento que ya no existe en el código; esta nota desaparece con la 0.1.5.
+Todas las cifras se tomaron sobre la **0.1.4** publicada, exactamente como la instala un
+usuario, con una excepción: Rust se compiló desde el código, porque su motor de flujo
+publicado aún retenía la ejecución entera al escribir a un archivo. Esa corrección salió en la
+**0.1.5**, así que las cifras de Rust son las de la 0.1.5 y las otras cuatro las de la 0.1.4.
+
+Entre ambas versiones el motor cambió en una recuperación de enrutado y tres mensajes de
+diagnóstico — nada de eso afecta a la velocidad de una fila ni a la memoria que retiene una
+ejecución. Las cifras valen para la 0.1.5.
 
 ## Los tres motores, en breve
 
