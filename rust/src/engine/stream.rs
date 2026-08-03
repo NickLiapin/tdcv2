@@ -831,9 +831,11 @@ impl StreamEngine<'_> {
             return here("advanced_regex weighted choice \"(?%{…})\"", stream_id);
         }
         if gen_type == "http" {
-            return unsupported(
-                "stream mode: <gen type=\"http\"> is a network call and is not reproducible",
-            );
+            // A network call is not a draw: neither reproducible from a row index nor
+            // answerable synchronously, which is what a lazy per-row resolver needs.
+            return unsupported(&format!(
+                "<gen type=\"http\"> (\"{stream_id}\") is a network call, so it is neither reproducible nor answerable one row at a time; the in-memory engine handles it (run without a forced streaming engine)"
+            ));
         }
         if gen_type == "template" && gen.attr_or("value", "").contains("${{") {
             return unsupported(&format!(

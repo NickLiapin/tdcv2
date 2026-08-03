@@ -468,8 +468,12 @@ class StreamEngine:
             # largest branch and look plausible doing it.
             raise unsupported('advanced_regex weighted choice "(?%{…})"', stream_id)
         if type_ == "http":
+            # A network call is not a draw: neither reproducible from a row index nor
+            # answerable synchronously, which is what a lazy per-row resolver needs.
             raise UnsupportedError(
-                'stream mode: <gen type="http"> is a network call and is not reproducible'
+                f'<gen type="http"> ("{stream_id}") is a network call, so it is neither '
+                "reproducible nor answerable one row at a time; the in-memory engine "
+                "handles it (run without a forced streaming engine)"
             )
         if type_ == "template" and "${{" in attrs.get("value", ""):
             raise UnsupportedError(
@@ -1085,37 +1089,6 @@ class StreamEngine:
             "<uniq> across sequences (a whole-column rearrangement)", " × ".join(group)
         )
 
-    def _mixed_radix(self, ids: list[str], pools: list[list[str]], key_id: str, label: str) -> None:
-        """The columns laid out as the digits of one number, row ``i`` given a distinct value of it.
-
-        This is the whole trick. Uniqueness stops being something to check and becomes something
-        the arithmetic cannot violate: two rows would have to share an index, and the permutation
-        is a bijection. Nothing is remembered, so the millionth row costs what the first one did.
-        """
-        prefixes = []
-        capacity = 1
-        for pool in pools:
-            prefixes.append(capacity)
-            capacity *= len(pool)
-            if capacity > SAFE_UNIQ_CAP:
-                raise StreamError(
-                    f"stream mode: uniq {label} has more than 2^52 possible combinations — too "
-                    "many to index exactly. Reduce columns/values, or use the in-memory engine."
-                )
-        if self.count > capacity:
-            raise StreamError(
-                f"stream mode: uniq {label} is infeasible — only {capacity} distinct combinations "
-                f"exist, but {self.count} unique rows were requested."
-            )
-
-        total = capacity
-        key = permute.key(self.seed, key_id)
-        for j, pool in enumerate(pools):
-            prefix = prefixes[j]
-            self.columns[ids[j]] = lambda row, pool=pool, prefix=prefix: pool[
-                (permute.permute(row, total, key) // prefix) % len(pool)
-            ]
-
     def _build_exact_uniq(self, spec: SequenceSpec) -> None:
         """Each column built to its declared shares, then verified distinct.
 
@@ -1154,26 +1127,6 @@ class StreamEngine:
             fields, self.count, self.seed, f'"{spec.name}"', self.base_dir
         ).items():
             self.columns[name] = resolver
-
-    def _uniq_pool(self, gen: Gen, label: str) -> list[str]:
-        """A uniq field's pool: a finite text list, duplicates dropped and percent refused."""
-        if gen.type != "text":
-            raise UnsupportedError(
-                f'stream mode: uniq column {label} of type "{gen.type}" (only text lists)'
-            )
-        percent = gen.attrs.get("percent")
-        if percent:
-            raise UnsupportedError(
-                f"stream mode: uniq column {label} uses percent — streaming uniq gives UNIFORM "
-                "distinct combinations only. Exact percentages + uniqueness together need the "
-                'in-memory engine (run without mode="stream"), or drop percent.'
-            )
-        # Deduplicated in first-seen order: a repeated value would make the mixed-radix index map
-        # two combinations onto one, and the column would no longer be unique.
-        pool = list(dict.fromkeys(_split_text(gen.attrs.get("value", ""))))
-        if not pool:
-            raise UnsupportedError(f"stream mode: uniq column {label} with an empty value list")
-        return pool
 
     # ── modifiers ───────────────────────────────────────────────────────────────────────────
 

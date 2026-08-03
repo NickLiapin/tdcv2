@@ -690,8 +690,10 @@ public final class StreamEngine {
       throw unsupported("advanced_regex weighted choice \"(?%{…})\"", streamId);
     }
     if ("http".equals(type)) {
+      // A network call is not a draw: neither reproducible from a row index nor
+      // answerable synchronously, which is what a lazy per-row resolver needs.
       throw new Unsupported(
-          "stream mode: <gen type=\"http\"> is a network call and is not reproducible");
+          "<gen type=\"http\"> (\"" + streamId + "\") is a network call, so it is neither reproducible nor answerable one row at a time; the in-memory engine handles it (run without a forced streaming engine)");
     }
     if ("template".equals(type) && attrs.getOrDefault("value", "").contains("${{")) {
       throw new Unsupported(
