@@ -18,6 +18,20 @@ import { dirname, join, resolve } from 'node:path';
 
 import { PROJECT_CONFIG_NAME, globalConfigPath } from '../config/config.js';
 
+/**
+ * The same text the other four implementations print, to the byte. `init` is
+ * one command with five front ends, and a reader who checks the flags in one
+ * of them must not find a different list in the next.
+ */
+const USAGE = `Usage: tdcv2 init [options]
+
+  -g, --global          Write the per-user config instead of a project one
+  -y, --yes             Take the defaults, ask nothing
+  -f, --force           Overwrite an existing config
+  --locale <loc>        Default locale for the config (default: en)
+  --data-path <dir>     Folder for downloaded packs
+`;
+
 export interface InitPlan {
   /** Absolute path of the config file to write. */
   readonly path: string;
@@ -124,11 +138,21 @@ function parseInitFlags(argv: readonly string[]): InitFlags {
 
 /** Run `tdcv2 init`. Returns a process exit code. */
 export async function runInit(argv: readonly string[], ctx: InitContext): Promise<number> {
+  // Before parsing: asking for help is not an option the parser has to accept,
+  // and a user reaching for `--help` is usually already stuck on the rest of
+  // the line. The other four implementations answer it here too.
+  if (argv.some((a) => a === '-h' || a === '--help')) {
+    process.stdout.write(USAGE);
+    return 0;
+  }
+
   let flags: InitFlags;
   try {
     flags = parseInitFlags(argv);
   } catch (err) {
-    process.stderr.write(`tdcv2: ${(err as Error).message}\n`);
+    process.stderr.write(
+      `tdcv2: ${(err as Error).message}\nRun \`tdcv2 init --help\` for usage.\n`,
+    );
     return 2;
   }
 

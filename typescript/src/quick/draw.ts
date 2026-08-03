@@ -21,12 +21,7 @@
  */
 
 import { loadConfig } from '../config/config.js';
-import {
-  scanPacks,
-  bundledPacksDir,
-  CANONICAL_LOCALES,
-  CANONICAL_COUNTRIES,
-} from '../data-pack/index.js';
+import { scanPacks, bundledPacksDir } from '../data-pack/index.js';
 import { TDC, type TdcObjectRow } from '../lib/index.js';
 
 /**
@@ -102,20 +97,45 @@ function distance(a: string, b: string): number {
 }
 
 /**
- * The nearest bundled address to what was typed.
+ * Every address reachable right now — the bundled packs plus whatever the
+ * project's `tdcv2.config.json` registered.
+ *
+ * ONE list, because both halves of the message read it. Scanning bundled packs
+ * for "did you mean" and bundled-plus-project for "that pack is not installed"
+ * let a single sentence contradict itself: the half that proposes a near miss
+ * cannot see the pack the other half has just confirmed is there.
+ *
+ * A config this cannot read leaves the list empty rather than throwing. This
+ * runs while a diagnostic is being formatted, and a second failure raised from
+ * inside the handler for the first one loses the message the caller needed.
+ */
+function knownAddresses(): readonly string[] {
+  try {
+    const roots = [bundledPacksDir(), ...loadConfig({ cwd: process.cwd() }).dataPaths].filter(
+      (p): p is string => p !== undefined,
+    );
+    return [...scanPacks(roots).registry.keys()];
+  } catch {
+    return [];
+  }
+}
+
+/**
+ * The nearest reachable address to what was typed.
  *
  * Compared against the address as written AND against its locale-qualified
  * form, because `person.firstNam` and `en.person.firstNam` are the same typo
  * seen from two sides.
  */
-export function nearestAddress(typed: string, locale: string): string | undefined {
-  const registry = scanPacks(
-    [bundledPacksDir()].filter((p): p is string => p !== undefined),
-  ).registry;
+export function nearestAddress(
+  typed: string,
+  locale: string,
+  known: readonly string[],
+): string | undefined {
   const qualified = `${locale}.${typed}`;
   let best: string | undefined;
   let bestScore = Number.POSITIVE_INFINITY;
-  for (const address of registry.keys()) {
+  for (const address of known) {
     const score = Math.min(distance(typed, address), distance(qualified, address));
     if (score < bestScore) {
       bestScore = score;
@@ -135,25 +155,26 @@ export function nearestAddress(typed: string, locale: string): string | undefine
  * yet, and answering it with "did you mean en.person.lastName?" answers a
  * question the caller did not ask: they wanted Russian.
  *
- * Only a leading segment that IS a known pack and has NO address under it
- * qualifies. A typo in the tail of an installed pack (`ru.person.lastNam`)
- * leaves the pack reachable, and falls through to the "did you mean" path.
+ * The test is STRUCTURAL rather than a table of locale and country codes, so it
+ * holds for packs that do not exist yet: nothing at all sits under the first
+ * segment, but the REST of the address resolves somewhere — a name standing
+ * where a pack goes. A table answers `zz.person.lastName` with "did you mean
+ * ar.person.lastName?", which is the very swap this message was written to
+ * avoid; the structural test answers it with the pack.
+ *
+ * A typo in the tail fails one of the two halves — `ru.person.lastNam` leaves
+ * `ru` reachable, `persn.lastName` resolves nowhere — and falls through to the
+ * "did you mean" path.
  */
-function uninstalledPack(address: string): string | undefined {
-  const first = address.split('.')[0];
-  if (first === undefined || first === '') return undefined;
-  if (!CANONICAL_LOCALES.has(first) && !CANONICAL_COUNTRIES.has(first)) return undefined;
-  // The same roots the draw itself used: bundled packs plus whatever the
-  // project's `tdcv2.config.json` registered. Anything else would report a
-  // pack as missing that the very next call resolves.
-  const roots = [bundledPacksDir(), ...loadConfig({ cwd: process.cwd() }).dataPaths].filter(
-    (p): p is string => p !== undefined,
-  );
-  const prefix = `${first}.`;
-  for (const known of scanPacks(roots).registry.keys()) {
-    if (known.startsWith(prefix)) return undefined;
-  }
-  return first;
+function uninstalledPack(address: string, known: readonly string[]): string | undefined {
+  const dot = address.indexOf('.');
+  if (dot <= 0 || dot === address.length - 1) return undefined;
+  const head = address.slice(0, dot);
+  const tail = address.slice(dot + 1);
+  const prefix = `${head}.`;
+  if (known.some((a) => a.startsWith(prefix))) return undefined;
+  const suffix = `.${tail}`;
+  return known.some((a) => a === tail || a.endsWith(suffix)) ? head : undefined;
 }
 
 /**
@@ -210,21 +231,31 @@ export class QuickDraw {
 
   /**
    * Turn an engine diagnostic about a config the caller never wrote into a
-   * sentence about the call they did write.
+   * sentence about the call they did write — but ONLY when the address really
+   * is what went wrong.
+   *
+   * Rewriting every failure hides the one line that says what is actually
+   * wrong: an attribute the validator refused came back as `unknown address
+   * "common.internet.email". Did you mean "common.internet.email"?`, which is
+   * nonsense. An address the packs do resolve cannot be the explanation, so
+   * whatever the engine said is raised as it came.
    */
   private explain(spec: QuickGenSpec, error: unknown): Error {
-    if (spec.type !== 'template') return error instanceof Error ? error : new Error(String(error));
+    const raised = error instanceof Error ? error : new Error(String(error));
+    if (spec.type !== 'template') return raised;
     const address = spec.attrs['value'] ?? '';
     const locale = this.locale ?? 'en';
-    const missing = uninstalledPack(address);
+    const known = knownAddresses();
+    const missing = uninstalledPack(address, known);
     if (missing !== undefined) {
       return new TdcQuickError(
         `the "${missing}" pack is not installed, so "${address}" cannot be drawn. ` +
-          `Install it with \`npx tdcv2 pack add ${missing}\` ` +
-          '(run `npx tdcv2 init` once first, to say where packs go).',
+          `Install it with \`tdcv2 pack add ${missing}\` ` +
+          '(run `tdcv2 init` once first, to say where packs go).',
       );
     }
-    const near = nearestAddress(address, locale);
+    if (known.includes(address) || known.includes(`${locale}.${address}`)) return raised;
+    const near = nearestAddress(address, locale, known);
     return new TdcQuickError(
       `unknown address "${address}" (locale "${locale}")` +
         (near === undefined ? '' : `. Did you mean "${near}"?`),

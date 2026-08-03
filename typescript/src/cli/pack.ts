@@ -34,6 +34,20 @@ import {
   type PackIndex,
 } from './pack-core.js';
 
+/**
+ * The same text the other four implementations print, to the byte. `pack` is
+ * one command with five front ends, and a reader who checks the subcommands in
+ * one of them must not find a different list in the next.
+ */
+const USAGE = `Usage: tdcv2 pack [command]
+
+  list                  Show what can be installed, and what already is
+  add <id>...           Download and install one or more bundles
+  remove <id>...        Uninstall, and drop them from the config
+
+  --registry <url>      Use another registry (default: the public one)
+`;
+
 /** The public data-pack registry. Overridable with `--registry <base-url>`. */
 export const DEFAULT_REGISTRY =
   'https://raw.githubusercontent.com/NickLiapin/tdcv2-data-packs/master';
@@ -421,6 +435,15 @@ function parsePackArgs(argv: readonly string[]): PackArgs {
 
 /** Run `tdcv2 pack`. Returns a process exit code. */
 export async function runPack(argv: readonly string[], ctx: PackContext): Promise<number> {
+  // Before the store is resolved: `pack --help` is the one thing that has to
+  // work on a machine where `init` has not run yet, and resolving the store is
+  // exactly what fails there. Answered ahead of the argument parser too, so
+  // `-h` cannot end up read as a subcommand.
+  if (argv.some((a) => a === '-h' || a === '--help')) {
+    process.stdout.write(USAGE);
+    return 0;
+  }
+
   const args = parsePackArgs(argv);
 
   let store: Store;
