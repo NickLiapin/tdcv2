@@ -13,7 +13,7 @@ page — is tracked in that implementation's own changelog:
 [TypeScript](typescript/CHANGELOG.md) · [Python](python/CHANGELOG.md) ·
 [Java](java/CHANGELOG.md) · [C#](csharp/CHANGELOG.md) · [Rust](rust/CHANGELOG.md).
 
-## [Unreleased]
+## [0.1.4] — 2026-08-03
 
 ### Fixed
 

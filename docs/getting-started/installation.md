@@ -21,9 +21,9 @@ bytes — a gigabyte of output from the same config comes out identical in each.
 Each one also carries the same command line, so nothing needs another
 language's toolchain to run a config.
 
-All five are published, at the same version: **0.1.3** on npm, PyPI, Maven
+All five are published, at the same version: **0.1.4** on npm, PyPI, Maven
 Central, NuGet and crates.io. Equal version numbers are not a coincidence — they
-mean the same engine, so `tdcv2 0.1.3` from any one of them answers a config the
+mean the same engine, so `tdcv2 0.1.4` from any one of them answers a config the
 same way.
 
 Pick your ecosystem. To try TDC without committing to a language, use the npm
@@ -95,14 +95,14 @@ The library is one dependency:
 <dependency>
   <groupId>io.github.nickliapin</groupId>
   <artifactId>tdcv2</artifactId>
-  <version>0.1.3</version>
+  <version>0.1.4</version>
 </dependency>
 ```
 
 Gradle, in `build.gradle.kts`:
 
 ```kotlin
-implementation("io.github.nickliapin:tdcv2:0.1.3")
+implementation("io.github.nickliapin:tdcv2:0.1.4")
 ```
 
 A starter set of data packs travels inside the jar, so the example above runs
@@ -111,11 +111,12 @@ with nothing else installed.
 **The command line is a separate artifact.** Maven
 has no equivalent of npm's `bin` — adding a library to a project does not put a
 command on your PATH — so the CLI ships as one self-contained jar that needs
-nothing but a JDK:
+nothing but a JDK. It sits under the same coordinates as the library, told apart
+by the `cli` classifier:
 
 ```bash
-cd java && ./gradlew cliJar
-java -jar build/libs/tdcv2-*-cli.jar demo.tdc
+curl -LO https://repo1.maven.org/maven2/io/github/nickliapin/tdcv2/0.1.4/tdcv2-0.1.4-cli.jar
+java -jar tdcv2-0.1.4-cli.jar demo.tdc
 ```
 
 Worth an alias: `alias tdcv2='java -jar /path/to/tdcv2-cli.jar'`, after which
@@ -137,17 +138,14 @@ dotnet add package Tdcv2
 A starter set of data packs is embedded in the assembly, so it works with
 nothing else installed.
 
-> [!NOTE]
-> **The command line is not packaged yet**
->
-> .NET does have an answer to npm's `bin` — a tool package — but `Tdcv2.Cli` is
-> not published, so for now the command line is built from a checkout:
->
-> ```bash
-> cd csharp && dotnet build
-> dotnet run --project Tdcv2.Cli.Tool -- demo.tdc
-> ```
->
+**The command line is its own package.** NuGet has no equivalent of npm's `bin`,
+so the CLI is a .NET tool package of its own — install it globally and the command
+is on your PATH:
+
+```bash
+dotnet tool install --global Tdcv2.Cli
+tdcv2 demo.tdc
+```
 
 The DSL and behavior are identical to the npm version.
 
@@ -214,8 +212,8 @@ second artefact:
 | Node.js        | `npx tdcv2 demo.tdc`                                                                                       |
 | Python         | `tdcv2 demo.tdc`                                                                                           |
 | Rust           | `tdcv2 demo.tdc`, after `cargo install tdcv2`                                                              |
-| C#             | `dotnet run --project csharp/Tdcv2.Cli.Tool -- demo.tdc` — the tool package is not published yet           |
-| Java           | `java -jar java/build/libs/tdcv2-*-cli.jar demo.tdc` — built with `./gradlew cliJar`, not yet downloadable |
+| C#             | `tdcv2 demo.tdc`, after `dotnet tool install --global Tdcv2.Cli`                                           |
+| Java           | `java -jar tdcv2-0.1.4-cli.jar demo.tdc` — the `cli` classifier of the library's own coordinates            |
 
 From the repository root, `./run demo.tdc` is the shortest of them all.
 

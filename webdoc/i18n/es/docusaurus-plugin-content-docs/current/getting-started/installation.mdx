@@ -93,27 +93,27 @@ La biblioteca es una sola dependencia:
 <dependency>
   <groupId>io.github.nickliapin</groupId>
   <artifactId>tdcv2</artifactId>
-  <version>0.1.3</version>
+  <version>0.1.4</version>
 </dependency>
 ```
 
 Con Gradle, en `build.gradle.kts`:
 
 ```kotlin
-implementation("io.github.nickliapin:tdcv2:0.1.3")
+implementation("io.github.nickliapin:tdcv2:0.1.4")
 ```
 
 Un juego inicial de paquetes de datos viaja dentro del jar, así que el ejemplo de
 arriba funciona sin instalar nada más.
 
-**La línea de comandos es un artefacto aparte, y lo seguirá siendo tras el
-lanzamiento.** Maven no tiene equivalente del `bin` de npm —añadir una biblioteca a
-un proyecto no pone ningún comando en su PATH—, así que el CLI se distribuye como un
-único jar autónomo que no necesita más que un JDK:
+**La línea de comandos es un artefacto aparte.** Maven no tiene equivalente del `bin`
+de npm —añadir una biblioteca a un proyecto no pone ningún comando en su PATH—, así que
+el CLI se distribuye como un único jar autónomo que no necesita más que un JDK. Vive en
+las mismas coordenadas que la biblioteca y se distingue por el clasificador `cli`:
 
 ```bash
-cd java && ./gradlew cliJar
-java -jar build/libs/tdcv2-*-cli.jar demo.tdc
+curl -LO https://repo1.maven.org/maven2/io/github/nickliapin/tdcv2/0.1.4/tdcv2-0.1.4-cli.jar
+java -jar tdcv2-0.1.4-cli.jar demo.tdc
 ```
 
 Vale la pena un alias: `alias tdcv2='java -jar /ruta/a/tdcv2-cli.jar'`, y a partir de
@@ -136,17 +136,14 @@ dotnet add package Tdcv2
 El juego inicial de paquetes de datos va incrustado en el ensamblado, así que
 funciona sin instalar nada más.
 
-:::note[La línea de comandos todavía no se publica como herramienta]
-.NET sí tiene una respuesta al `bin` de npm —un paquete de herramienta—, pero
-`Tdcv2.Cli` no está publicado, así que por ahora la línea de comandos se compila
-desde una copia del repositorio:
+**La línea de comandos es su propio paquete.** NuGet no tiene equivalente del `bin` de
+npm, así que el CLI es un paquete de herramienta de .NET: instálelo de forma global y el
+comando queda en su PATH:
 
 ```bash
-cd csharp && dotnet build
-dotnet run --project Tdcv2.Cli.Tool -- demo.tdc
+dotnet tool install --global Tdcv2.Cli
+tdcv2 demo.tdc
 ```
-
-:::
 
 El DSL y el comportamiento son idénticos a los de la versión de npm.
 
@@ -218,8 +215,8 @@ artefacto:
 | Node.js  | `npx tdcv2 demo.tdc`                                                                                                      |
 | Python   | `tdcv2 demo.tdc`                                                                                                          |
 | Rust     | `tdcv2 demo.tdc`, tras `cargo install tdcv2`                                                                              |
-| C#       | `dotnet run --project csharp/Tdcv2.Cli.Tool -- demo.tdc` — el paquete de herramienta todavía no se publica                |
-| Java     | `java -jar java/build/libs/tdcv2-*-cli.jar demo.tdc` — se construye con `./gradlew cliJar`, todavía no se puede descargar |
+| C#       | `tdcv2 demo.tdc`, tras `dotnet tool install --global Tdcv2.Cli`                                                           |
+| Java     | `java -jar tdcv2-0.1.4-cli.jar demo.tdc` — el clasificador `cli` de las coordenadas de la propia biblioteca               |
 
 Desde la raíz del repositorio, `./run demo.tdc` es el más corto de todos.
 

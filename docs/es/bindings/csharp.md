@@ -19,7 +19,7 @@ Dos paquetes: la biblioteca y la línea de comandos como `dotnet tool`.
 ## Cómo obtenerlo
 
 > [!TIP]
-> **En NuGet — versión 0.1.3**
+> **En NuGet — versión 0.1.4**
 >
 >
 > ```bash
@@ -27,12 +27,11 @@ Dos paquetes: la biblioteca y la línea de comandos como `dotnet tool`.
 > ```
 >
 > Los paquetes de datos iniciales van incrustados en el ensamblado, así que funciona sin
-> instalar nada más. La línea de comandos todavía no se publica como herramienta; por
-> ahora se compila desde el repositorio:
+> instalar nada más. La línea de comandos es su propio paquete de herramienta: instálela de
+> forma global y `tdcv2` queda en su PATH:
 >
 > ```bash
-> cd csharp && dotnet build
-> dotnet run --project Tdcv2.Cli.Tool -- demo.tdc
+> dotnet tool install --global Tdcv2.Cli
 > ```
 >
 

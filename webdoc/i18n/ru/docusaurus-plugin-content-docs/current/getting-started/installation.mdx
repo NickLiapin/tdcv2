@@ -90,14 +90,14 @@ DSL и поведение идентичны npm-версии: тот же `.tdc
 <dependency>
   <groupId>io.github.nickliapin</groupId>
   <artifactId>tdcv2</artifactId>
-  <version>0.1.3</version>
+  <version>0.1.4</version>
 </dependency>
 ```
 
 Gradle, в `build.gradle.kts`:
 
 ```kotlin
-implementation("io.github.nickliapin:tdcv2:0.1.3")
+implementation("io.github.nickliapin:tdcv2:0.1.4")
 ```
 
 Стартовый набор паков едет внутри jar, так что пример выше работает без всякой
@@ -105,11 +105,12 @@ implementation("io.github.nickliapin:tdcv2:0.1.3")
 
 **Командная строка — отдельный артефакт.** У Maven нет
 аналога npm-овского `bin`: добавление библиотеки в проект не кладёт команду в PATH,
-— поэтому CLI поставляется одним самодостаточным jar, которому нужен только JDK:
+— поэтому CLI поставляется одним самодостаточным jar, которому нужен только JDK.
+Лежит он по тем же координатам, что и библиотека, и отличается классификатором `cli`:
 
 ```bash
-cd java && ./gradlew cliJar
-java -jar build/libs/tdcv2-*-cli.jar demo.tdc
+curl -LO https://repo1.maven.org/maven2/io/github/nickliapin/tdcv2/0.1.4/tdcv2-0.1.4-cli.jar
+java -jar tdcv2-0.1.4-cli.jar demo.tdc
 ```
 
 Стоит завести алиас: `alias tdcv2='java -jar /path/to/tdcv2-cli.jar'` — после этого
@@ -131,16 +132,14 @@ dotnet add package Tdcv2
 
 Стартовый набор паков вшит в сборку, поэтому пакет работает без всего остального.
 
-:::note[Командная строка отдельным пакетом пока не выпущена]
-У .NET ответ на npm-овский `bin` есть — пакет-инструмент, — но `Tdcv2.Cli` пока не
-опубликован, поэтому командную строку собирают из клона:
+**Командная строка — отдельный пакет.** У NuGet нет аналога npm-овского `bin`,
+поэтому CLI — собственный пакет-инструмент .NET: ставите глобально, и команда
+оказывается в PATH:
 
 ```bash
-cd csharp && dotnet build
-dotnet run --project Tdcv2.Cli.Tool -- demo.tdc
+dotnet tool install --global Tdcv2.Cli
+tdcv2 demo.tdc
 ```
-
-:::
 
 DSL и поведение идентичны npm-версии.
 
@@ -211,8 +210,8 @@ PATH из того же пакета, что несёт библиотеку; у
 | Node.js | `npx tdcv2 demo.tdc`                                                                                            |
 | Python  | `tdcv2 demo.tdc`                                                                                                |
 | Rust    | `tdcv2 demo.tdc`, после `cargo install tdcv2`                                                                   |
-| C#      | `dotnet run --project csharp/Tdcv2.Cli.Tool -- demo.tdc` — пакет-инструмент пока не выпущен                     |
-| Java    | `java -jar java/build/libs/tdcv2-*-cli.jar demo.tdc` — собирается через `./gradlew cliJar`, скачать пока нельзя |
+| C#      | `tdcv2 demo.tdc`, после `dotnet tool install --global Tdcv2.Cli`                                                |
+| Java    | `java -jar tdcv2-0.1.4-cli.jar demo.tdc` — классификатор `cli` у координат самой библиотеки                     |
 
 Из корня репозитория короче всех — `./run demo.tdc`.
 

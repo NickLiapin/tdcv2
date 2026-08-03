@@ -19,7 +19,7 @@ One crate, library and command line together.
 ## Getting it
 
 > [!TIP]
-> **On crates.io — version 0.1.3**
+> **On crates.io — version 0.1.4**
 >
 >
 > ```bash
