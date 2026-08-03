@@ -157,6 +157,24 @@ coincidió allí. Así se ve un filtro por padre en la salida de objetos.
 > fila en vez de todo lo que va antes: pedir la fila nueve millones de una configuración
 > de diez millones es el trabajo de una sola fila.
 
+## Un valor sin configuración
+
+El paquete exporta además `tdc`, que sortea un solo valor desde los mismos paquetes de
+datos que lee una configuración: sin archivo, sin `<env>`, una llamada.
+
+```ts
+import { tdc } from "tdcv2";
+
+tdc.person.lastName(); // Jones
+tdc.country.usa.docs.ssn(); // 699209702, con sus dígitos de control reales
+tdc.person.lastName.many(5); // cinco de ellos
+tdc.seed("demo").locale("ru").person.lastName(); // fijado y en ruso
+```
+
+Cada dirección incluida es una propiedad real del tipo, así que un error de escritura es
+un error de compilación y el autocompletado funciona sin ningún plugin. Toda la
+superficie está en [Un valor a la vez](../core-concepts/quick-api.md#top).
+
 ## Vea también
 
 - **[CLI](../reference/cli.md#top)** — el mismo motor desde la línea de comandos.

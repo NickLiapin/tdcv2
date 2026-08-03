@@ -45,3 +45,25 @@ for (var row : data.iterate()) {
 ```
 
 The method names mirror the [TypeScript API](typescript.mdx).
+
+## One value, without a config
+
+`Quick` draws a single value from the same data packs a config reads — no file, no
+`<env>`, one call:
+
+```java
+import io.github.nickliapin.tdc.quick.Quick;
+
+Quick tdc = Quick.tdc();
+
+tdc.get("person.lastName");              // Jones
+tdc.get("usa.docs.ssn");                 // 699209702, with its real check digits
+tdc.many("person.lastName", 5);          // five of them
+Quick.seeded("demo").locale("ru").get("person.lastName");  // pinned and in Russian
+```
+
+The address is a string here, where TypeScript, Python and C# walk it as members.
+The member shape needs one generated method per address, and a generated surface
+could only cover the packs inside the jar — while most packs arrive at run time,
+and `get("ru.person.lastName")` works the moment the download finishes. [One value
+at a time](../core-concepts/quick-api.mdx) is the whole surface.

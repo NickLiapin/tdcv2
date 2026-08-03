@@ -1,3 +1,4 @@
+using Tdcv2.Engine;
 using Tdcv2.Errors;
 
 namespace Tdcv2.Tests;
@@ -193,6 +194,82 @@ public class TdcTest
         Assert.Equal(1, new Tdc(new Tdc.Options { ConfigString = People }).Engine);
         Assert.Equal(
             2, new Tdc(new Tdc.Options { ConfigString = People, Mode = "disk" }).Engine);
+    }
+
+    /// <summary>A config the router sends to engine 2 that engine 2 turns out not to be able to build.</summary>
+    /// <remarks>
+    /// A running total: row nine million IS the sum of everything before it, so no engine that works
+    /// a row at a time can answer it — but nothing in the config's shape says so before the engine
+    /// tries.
+    /// </remarks>
+    private const string RoutedThenRefused =
+        "<tdc><env count=\"6\" seed=\"ledger\" local=\"en\">"
+        + "<sequence name=\"Op\"><gen type=\"number\" value=\"-400..500\"/></sequence>"
+        + "<sequence name=\"Balance\"><gen type=\"running\" of=\"Op\" accumulate=\"sum\"/></sequence>"
+        + "</env><block><line><data>${{Op}} ${{Balance}}</data></line></block></tdc>";
+
+    [Fact]
+    public void AConfigTheRouterSentToStreamingFallsBackInsteadOfFailing()
+    {
+        // Nothing asked for the streaming engine, so nothing is owed a refusal: the run belongs to
+        // whichever engine can answer it, and the answer is the in-memory engine's.
+        Assert.Equal(2, Build(RoutedThenRefused).Engine);
+        Assert.Equal(
+            "399 399\n-246 153\n-270 -117\n159 42\n24 66\n-400 -334\n",
+            Build(RoutedThenRefused).ToString());
+
+        // Same run, same bytes, whether the constraint was stated or left to the default.
+        Assert.Equal(
+            Build(RoutedThenRefused).ToString(),
+            new Tdc(new Tdc.Options { ConfigString = RoutedThenRefused, Mode = "disk" }).ToString());
+    }
+
+    [Fact]
+    public void AnEngineNamedOutrightRefusesRatherThanQuietlyRunningElsewhere()
+    {
+        // The opposite half of the rule above. Forcing an engine is a request to be told when it
+        // cannot do the job; falling back would answer a question nobody asked.
+        foreach (Tdc.Options forced in new[]
+                 {
+                     new Tdc.Options { ConfigString = RoutedThenRefused, Engine = 2 },
+                     new Tdc.Options
+                     {
+                         ConfigString = RoutedThenRefused.Replace(
+                             "local=\"en\"", "local=\"en\" engine=\"2\"", StringComparison.Ordinal),
+                     },
+                     new Tdc.Options
+                     {
+                         ConfigString = RoutedThenRefused.Replace(
+                             "local=\"en\"", "local=\"en\" mode=\"stream\"", StringComparison.Ordinal),
+                     },
+                 })
+        {
+            Assert.Throws<StreamEngine.UnsupportedHere>(() => new Tdc(forced).ToString());
+        }
+    }
+
+    [Fact]
+    public void AParquetNameAsksForTheTypedBinaryForm()
+    {
+        // The extension is the whole switch, as it is in the reference and the other ports. The
+        // magic number is what says a Parquet writer ran rather than the text one.
+        Tdc data = Build(
+            "<tdc><env count=\"6\" seed=\"facade\" local=\"en\">"
+            + "<sequence name=\"N\"><gen type=\"number\" value=\"1..999\"/></sequence>"
+            + "</env><block><line><data name=\"n\">${{N}}</data></line></block></tdc>");
+        string target = Path.Combine(
+            Path.GetTempPath(), "tdcv2-pq-" + Guid.NewGuid().ToString("N") + ".PARQUET");
+        try
+        {
+            data.WriteFile(target, 4);
+            byte[] written = File.ReadAllBytes(target);
+            Assert.Equal("PAR1", System.Text.Encoding.ASCII.GetString(written, 0, 4));
+            Assert.Equal("PAR1", System.Text.Encoding.ASCII.GetString(written, written.Length - 4, 4));
+        }
+        finally
+        {
+            File.Delete(target);
+        }
     }
 
     [Fact]

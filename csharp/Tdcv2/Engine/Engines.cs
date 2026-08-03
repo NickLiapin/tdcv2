@@ -27,15 +27,30 @@ public static class Engines
         DataPacks resolved = packs ?? DataPacks.Discover();
         long now = nowMillis ?? DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
 
-        return EngineRouter.Resolve(config, resolved) switch
+        int engine = EngineRouter.Resolve(config, resolved);
+        if (engine == 1)
         {
-            1 => MemoryEngine.Run(config, resolved, now, baseDir),
-            2 => StreamEngine.Rows(config, resolved, now, baseDir),
-            3 => DiskEngine.Rows(config, resolved, now, baseDir),
-            var other => throw new ArgumentException(
-                $"invalid engine \"{other}\" — expected 1 (in-memory), 2 (streaming), or "
-                + "3 (exact-on-disk)"),
-        };
+            return MemoryEngine.Run(config, resolved, now, baseDir);
+        }
+
+        if (engine == 3)
+        {
+            // Engine 3 falls back on its own, so a config it cannot do exactly still renders.
+            return DiskEngine.Rows(config, resolved, now, baseDir);
+        }
+
+        try
+        {
+            return StreamEngine.Rows(config, resolved, now, baseDir);
+        }
+        catch (StreamEngine.UnsupportedHere) when (!EngineRouter.Forced(config))
+        {
+            // The router sent this config here from its shape, and the engine turned out to need
+            // the whole column after all. Nothing asked for streaming, so nothing is owed a
+            // refusal: the in-memory engine answers it, at the cost of the memory profile. A
+            // forced engine is excluded above and still throws, which is the point of forcing one.
+            return MemoryEngine.Run(config, resolved, now, baseDir);
+        }
     }
 
     /// <summary>The whole output as one string.</summary>

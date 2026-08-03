@@ -122,7 +122,7 @@ public static class DiagnosticRenderer
         string blank = new(' ', number.Length);
         string pipe = Colorize("|", Cyan, colors);
         int column = Math.Max(0, diagnostic.Column);
-        int caretLen = Underline(text, column);
+        int caretLen = diagnostic.IsPoint ? 1 : Underline(text, column);
 
         // Window an over-long line around the carets, marking cut edges with "…".
         // The same formula lives in the other four implementations' renderers.
@@ -164,6 +164,11 @@ public static class DiagnosticRenderer
     /// <para>
     /// Every diagnostic in the shared fixtures underlines exactly what the reference underlines; a
     /// position that is neither gets one caret, which is what it had before.
+    /// </para>
+    /// <para>
+    /// Only asked about a complaint that names a span. A syntax error names a character instead —
+    /// see <see cref="Diagnostic.IsPoint"/> — and reading a span off the line there would underline
+    /// whatever happened to start at it, which is not what the parser was complaining about.
     /// </para>
     /// </remarks>
     private static int Underline(string text, int column)

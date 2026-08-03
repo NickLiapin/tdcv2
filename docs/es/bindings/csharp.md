@@ -94,6 +94,29 @@ los errores se lanzan desde el constructor, así que lo que quede ahí vale la p
 y no vale la pena detenerse por ello. `SeedInfo` indica si la semilla se generó: una
 ejecución sin semilla no es reproducible, que casi nunca es lo que se quería.
 
+## Un valor sin configuración
+
+`Quick.Tdc` sortea un solo valor desde los mismos paquetes de datos que lee una
+configuración: sin archivo, sin `<env>`, una llamada.
+
+```csharp
+using Tdcv2.Quick;
+
+dynamic tdc = Quick.Tdc;
+
+tdc.person.lastName();                              // Jones
+tdc.country.usa.docs.ssn();                         // 699209702, con sus dígitos de control reales
+tdc.person.lastName.many(5);                        // cinco de ellos
+Quick.Seed("demo").locale("ru").person.lastName();  // fijado y en ruso
+```
+
+Esta es la única parte de la librería que es `dynamic`, y a propósito: una dirección es
+un camino por los datos y no un conjunto fijo de miembros, y una clase por carpeta de
+paquete metería cien mil líneas de nada en el ensamblado. El precio es que una dirección
+mal escrita se detecta al ejecutar, así que el mensaje que lanza nombra la dirección real
+más cercana. Toda la superficie está en [Un valor a la
+vez](../core-concepts/quick-api.md#top).
+
 ## Requisitos
 
 .NET **6.0** o posterior. En el [README de C#](https://github.com/NickLiapin/tdcv2/tree/main/csharp)

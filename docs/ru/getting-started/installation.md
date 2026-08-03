@@ -236,6 +236,8 @@ tdcv2 demo.tdc --count 20 --seed alt
 Конфиг — это способ описать целый набор данных. Но та же установка отвечает и на одно
 значение, как это делает faker: без файла, без `<env>`, одним вызовом:
 
+#### TypeScript
+
 ```typescript
 import { tdc } from 'tdcv2';
 
@@ -246,19 +248,75 @@ tdc.country.usa.docs.ssn(); // 699209702 — с настоящими контр�
 tdc.lang.ru.person.lastName(); // после `tdcv2 pack add ru`
 ```
 
+#### Python
+
+```python
+from tdcv2 import tdc
+
+tdc.person.lastName()           # Jones
+tdc.person.male.firstName()     # Robert
+tdc.common.finance.iban()       # DE62299399441396459682
+tdc.country.usa.docs.ssn()      # 699209702 — с настоящими контрольными цифрами
+tdc.lang.ru.person.lastName()   # после `tdcv2 pack add ru`
+```
+
+#### Java
+
+```java
+import io.github.nickliapin.tdc.quick.Quick;
+
+Quick tdc = Quick.tdc();
+
+tdc.get("person.lastName");        // Jones
+tdc.get("person.male.firstName");  // Robert
+tdc.get("common.finance.iban");    // DE62299399441396459682
+tdc.get("usa.docs.ssn");           // 699209702 — с настоящими контрольными цифрами
+tdc.get("ru.person.lastName");     // после `java -jar tdcv2-cli.jar pack add ru`
+```
+
+#### C#
+
+```csharp
+using Tdcv2.Quick;
+
+dynamic tdc = Quick.Tdc;
+
+tdc.person.lastName();          // Jones
+tdc.person.male.firstName();    // Robert
+tdc.common.finance.iban();      // DE62299399441396459682
+tdc.country.usa.docs.ssn();     // 699209702 — с настоящими контрольными цифрами
+tdc.lang.ru.person.lastName();  // после `tdcv2 pack add ru`
+```
+
+#### Rust
+
+```rust
+use tdcv2::quick::Quick;
+
+let mut tdc = Quick::new();
+
+tdc.get("person.lastName")?;        // Jones
+tdc.get("person.male.firstName")?;  // Robert
+tdc.get("common.finance.iban")?;    // DE62299399441396459682
+tdc.get("usa.docs.ssn")?;           // 699209702 — с настоящими контрольными цифрами
+tdc.get("ru.person.lastName")?;     // после `tdcv2 pack add ru`
+```
+
 Оба пути читают одни и те же пакеты данных, так что фамилия из однострочного вызова и
 фамилия из конфига на миллион строк приходят из одного списка. Что выбрать — зависит от
 того, должны ли значения согласовываться между собой: конфиг связывает город со страной
 и держит долю ровно в 30%, а одиночный вызов не связывает ничего ни с чем.
 
-Вся поверхность — `.many(n)`, `seed()`, `locale()` и префиксы, дотягивающиеся до
-конкретного пакета, — на странице [API одного значения](../core-concepts/quick-api.md#top).
+Вся поверхность — `.many(n)`, `seed()`, `locale()` и способ дотянуться до конкретного
+пакета в каждом языке — на странице [API одного
+значения](../core-concepts/quick-api.md#top).
 
 > [!NOTE]
-> **Только Node.js**
+> **Значения здесь взяты из сида**
 >
-> Этот короткий путь — часть npm-пакета. Реализации на Python, Java, C# и Rust читают
-> конфиги; одиночного API у них нет.
+> Сама по себе каждая из пяти реализаций случайна на каждый запуск процесса — как faker.
+> В комментариях стоит то, что разыгрывает сид `demo`, так что `tdc.seed('demo')` — в Java
+> и Rust `Quick.seeded("demo")` — повторит их в точности.
 
 ## Установка пакетов данных (необязательно)
 

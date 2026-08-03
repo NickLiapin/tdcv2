@@ -86,6 +86,29 @@ lugar de solo citar el mensaje. `diagnostics()` en una corrida exitosa lleva aqu
 que se advirtió sin llegar a rechazar. `seed()` informa si la semilla fue inventada: una
 corrida sin semilla no es reproducible, que casi nunca es lo que se quería.
 
+## Un valor sin configuración
+
+`Quick` sortea un solo valor desde los mismos paquetes de datos que lee una
+configuración: sin archivo, sin `<env>`, una llamada.
+
+```rust
+use tdcv2::quick::Quick;
+
+let mut tdc = Quick::new();
+
+tdc.get("person.lastName")?;      // Jones
+tdc.get("usa.docs.ssn")?;         // 699209702, con sus dígitos de control reales
+tdc.many("person.lastName", 5)?;  // cinco de ellos
+Quick::seeded("demo").locale("ru").get("person.lastName")?;  // fijado y en ruso
+```
+
+Aquí la dirección es una cadena, mientras que TypeScript, Python y C# la recorren como
+miembros. La forma con miembros necesita una función generada por dirección, y una
+superficie generada solo cubriría los paquetes compilados dentro del binario, cuando la
+mayoría llega en tiempo de ejecución y `get("ru.person.lastName")` funciona en cuanto
+termina la descarga. Toda la superficie está en [Un valor a la
+vez](../core-concepts/quick-api.mdx).
+
 ## Sin dependencias
 
 El crate no depende de nada. Su lexer y su parser están escritos a mano contra la gramática

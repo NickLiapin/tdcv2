@@ -66,4 +66,23 @@ public class UnderlineTest
     [Fact]
     public void APositionPastTheEndOfTheLineStillRenders() =>
         Assert.Equal("^", Carets("<tdc/>", 1, 99));
+
+    [Fact]
+    public void ASyntaxErrorMarksTheCharacterItStoppedOn()
+    {
+        // The parser complains about a position, not about a span — whatever happens to begin
+        // there is not what it was complaining about. So the caret stays put, even where a value
+        // or an element starts and the width could be read off the line.
+        const string source = "<data pair=\"alpha\">x</data>";
+        string carets = DiagnosticRenderer
+            .Format(Diagnostic.ErrorAt("TDC001", "unclosed <data pair=\"alpha\">", "", 1, 0),
+                source, "t.tdc", false)
+            .Split('\n')
+            .First(l => l.Contains('^', StringComparison.Ordinal));
+
+        Assert.Equal("^", carets.Trim().TrimStart('|').Trim());
+
+        // And the same position, asked about as a span, still covers the element.
+        Assert.Equal(Carets(source.Length), Carets(source, 1, 0));
+    }
 }

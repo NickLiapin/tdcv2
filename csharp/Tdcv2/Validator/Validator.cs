@@ -352,9 +352,11 @@ public sealed class Validator
         TDCParser.OpenCloseElementContext? tdc = FindElement(document, "tdc");
         if (tdc is null)
         {
-            Error(
+            // A point, not a span: the complaint is that the document begins without a <tdc>, so
+            // whatever does begin there is not the thing being complained about.
+            _diagnostics.Add(Diagnostic.ErrorAt(
                 "TDC001", "document has no <tdc> root element",
-                "Wrap your configuration in a single <tdc>…</tdc> root tag.", 1, 0);
+                "Wrap your configuration in a single <tdc>…</tdc> root tag.", 1, 0));
             return;
         }
 

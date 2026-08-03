@@ -89,6 +89,35 @@ Tdcv2.Cli` puts `tdcv2` on your PATH, the same command the npm, pip and cargo
   `<env>` — a flag typed on this run is a more recent statement of intent than a
   line in the file.
 
+- **A config the router sent to the streaming engine could be refused outright.**
+  A running total, an env-level `<distinct>` over a `<mix>`, a pool reference
+  under a parent: nothing in their shape says the streaming engine cannot build
+  them, so the router sent them there and the refusal reached the user. The other
+  four implementations fall back to the in-memory engine and render them. This
+  one now does too — but only when the ROUTER chose. `engine="2"`, `--engine 2`
+  and the older `mode="stream"` still refuse, because forcing an engine is a
+  request to be told when it cannot do the job, and answering from a different
+  engine would hide exactly that.
+
+  A parallel write that fails now reports why. Every worker builds the same
+  config, so they fail identically, and "a worker failed" was hiding the one
+  sentence that explains the run.
+
+- **`-o out.parquet` wrote text into a file named `.parquet`.** The writer was
+  reachable only by calling `ParquetOutput` directly. The extension is the switch
+  now, as it is in the reference and in the Java and Python ports: a `.parquet`
+  target (in any case) gets the typed binary form, byte for byte what the
+  reference writes for the same config and seed. Parquet is written by one thread
+  whatever `--jobs` asks, because the file is a single framed container with a
+  footer rather than a concatenation of pieces.
+
+- **A syntax error underlined whatever started at its position.** The carets are
+  measured off the source line — a value runs to its closing quote, an element to
+  its closing tag — which is right for a validator complaint and wrong for the
+  parser's, which names a character and says nothing about what ends. An unclosed
+  `<data pair="…">` was underlined through the whole element, where the reference
+  marks the one character. Positions and codes are unchanged; only the width is.
+
 ## [0.1.3] — 2026-08-02
 
 The first release to NuGet. Everything below is what changed in this

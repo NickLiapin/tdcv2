@@ -201,7 +201,8 @@ coincidencia byte por byte con la salida de arriba.
 
 - **[Un valor sin configuración](core-concepts/quick-api.md#top).** `tdc.person.lastName()`:
   el trabajo que hace un faker, respondido desde los mismos paquetes que usa una
-  configuración. Solo Node.js.
+  configuración. En las cinco implementaciones, y con la misma semilla cada una devuelve
+  el mismo valor.
 
 - **[Paquetes de locale y de país](data-packs/overview.md#top).** Genere datos de personas,
   lugares, registros médicos y documentos en diez idiomas. Los paquetes de país también

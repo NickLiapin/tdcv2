@@ -136,9 +136,17 @@ public static class ParallelWrite
             catch (AggregateException e)
             {
                 // A worker's failure is the run's failure; unwrap it so the caller sees the real
-                // cause rather than "one or more errors occurred".
-                throw e.InnerExceptions.Count == 1
-                    ? e.InnerExceptions[0]
+                // cause rather than "one or more errors occurred". Every worker builds the same
+                // config, so when the config is the problem they all fail identically — reporting
+                // one of them then says everything the aggregate would, in a sentence a user can
+                // act on. Genuinely different failures keep the aggregate, which is the only
+                // honest answer when there is no single cause.
+                IReadOnlyList<Exception> causes = e.InnerExceptions
+                    .GroupBy(x => (x.GetType(), x.Message))
+                    .Select(g => g.First())
+                    .ToList();
+                throw causes.Count == 1
+                    ? causes[0]
                     : new InvalidOperationException("a worker failed", e);
             }
 

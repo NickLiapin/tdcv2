@@ -47,6 +47,26 @@ snake_case de Python.
 Para leer los diagnósticos conviene el [CLI](../reference/cli.md#top): `tdcv2 check`
 imprime los mismos errores señalando el lugar exacto en la configuración.
 
+## Un valor sin configuración
+
+El paquete exporta además `tdc`, que sortea un solo valor desde los mismos paquetes de
+datos que lee una configuración: sin archivo, sin `<env>`, una llamada.
+
+```python
+from tdcv2 import tdc
+
+tdc.person.lastName()                             # Jones
+tdc.country.usa.docs.ssn()                        # 699209702, con sus dígitos de control reales
+tdc.person.lastName.many(5)                       # cinco de ellos
+tdc.seed("demo").locale("ru").person.lastName()   # fijado y en ruso
+```
+
+Aquí los segmentos siguen en camelCase, al contrario que los nombres de métodos de
+arriba. Son direcciones que los paquetes ya traen, no identificadores que este paquete
+eligiera, y `person.lastName` tiene que leerse igual en una configuración, en la
+referencia y en las otras cuatro implementaciones. Toda la superficie está en [Un valor
+a la vez](../core-concepts/quick-api.md#top).
+
 ---
 
 ← Anterior: [TypeScript](./typescript.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Java](./java.md#top) →

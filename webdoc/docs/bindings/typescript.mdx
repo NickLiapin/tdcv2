@@ -149,6 +149,24 @@ than the whole run before it. Asking for row nine million of a ten-million-row
 config is a single row's work.
 :::
 
+## One value, without a config
+
+The package also exports `tdc`, which draws a single value from the same data packs
+a config reads — no file, no `<env>`, one call:
+
+```ts
+import { tdc } from "tdcv2";
+
+tdc.person.lastName(); // Jones
+tdc.country.usa.docs.ssn(); // 699209702, with its real check digits
+tdc.person.lastName.many(5); // five of them
+tdc.seed("demo").locale("ru").person.lastName(); // pinned and in Russian
+```
+
+Every bundled address is a real property on the type, so a misspelling is a compile
+error and completion works with no plugin. [One value at a
+time](../core-concepts/quick-api.mdx) is the whole surface.
+
 ## See also
 
 - **[CLI](../reference/cli.mdx)** — the same engine from the command line.

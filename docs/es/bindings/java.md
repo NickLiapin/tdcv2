@@ -52,6 +52,29 @@ for (var row : data.iterate()) {
 
 Los nombres de los métodos son un espejo de la [API de TypeScript](typescript.md#top).
 
+## Un valor sin configuración
+
+`Quick` sortea un solo valor desde los mismos paquetes de datos que lee una
+configuración: sin archivo, sin `<env>`, una llamada.
+
+```java
+import io.github.nickliapin.tdc.quick.Quick;
+
+Quick tdc = Quick.tdc();
+
+tdc.get("person.lastName");              // Jones
+tdc.get("usa.docs.ssn");                 // 699209702, con sus dígitos de control reales
+tdc.many("person.lastName", 5);          // cinco de ellos
+Quick.seeded("demo").locale("ru").get("person.lastName");  // fijado y en ruso
+```
+
+Aquí la dirección es una cadena, mientras que TypeScript, Python y C# la recorren como
+miembros. La forma con miembros necesita un método generado por dirección, y una
+superficie generada solo cubriría los paquetes que van dentro del jar, cuando la mayoría
+llega en tiempo de ejecución y `get("ru.person.lastName")` funciona en cuanto termina la
+descarga. Toda la superficie está en [Un valor a la
+vez](../core-concepts/quick-api.md#top).
+
 ---
 
 ← Anterior: [Python](./python.md#top) · **[Contenido](../README.md#top)** · Siguiente: [C#](./csharp.md#top) →

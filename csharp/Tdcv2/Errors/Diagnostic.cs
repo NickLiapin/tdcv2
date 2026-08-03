@@ -21,12 +21,30 @@ public enum Severity
 public sealed record Diagnostic(
     Severity Severity, string Code, string Message, string Hint, int Line, int Column)
 {
+    /// <summary>
+    /// Whether the position is a bare point rather than the start of something the line delimits.
+    /// </summary>
+    /// <remarks>
+    /// A validator complaint points at one of two things — an element, or a value inside its quotes
+    /// — and both say where they end in the source text, which is how the renderer knows how far to
+    /// underline. A syntax error points at neither: the parser stopped at a character and has
+    /// nothing to say about what, if anything, ends after it. Underlining outward from there would
+    /// claim a span nobody measured, so the caret stays on the one character — where the reference
+    /// puts it, because a parse diagnostic carries no end position there either.
+    /// </remarks>
+    public bool IsPoint { get; init; }
+
     public static Diagnostic Error(string code, string message, string hint, int line, int column) =>
         new(Severity.Error, code, message, hint, line, column);
 
     public static Diagnostic Warning(
         string code, string message, string hint, int line, int column) =>
         new(Severity.Warning, code, message, hint, line, column);
+
+    /// <summary>A complaint about a position rather than about a span — see <see cref="IsPoint"/>.</summary>
+    public static Diagnostic ErrorAt(
+        string code, string message, string hint, int line, int column) =>
+        new(Severity.Error, code, message, hint, line, column) { IsPoint = true };
 
     /// <summary>Whether anything here stops the run. A warning is worth saying and worth continuing past.</summary>
     public static bool HasErrors(IEnumerable<Diagnostic> diagnostics) =>

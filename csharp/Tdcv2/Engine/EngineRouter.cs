@@ -33,6 +33,22 @@ public static class EngineRouter
 {
     public static int Resolve(Config config) => Resolve(config, null);
 
+    /// <summary>Whether the config named an engine outright instead of describing its constraint.</summary>
+    /// <remarks>
+    /// <para>
+    /// The distinction decides what happens when the streaming engine meets a config it cannot
+    /// answer a row at a time. Named outright — <c>engine="2"</c>, <c>--engine 2</c>, or the older
+    /// <c>mode="stream"</c> — the refusal IS the answer: running the config somewhere else would
+    /// hide exactly what its author asked to be told, which is what forcing an engine is for.
+    /// </para>
+    /// <para>
+    /// Described as a constraint — <c>mode="disk"</c>, or nothing at all — the router chose, so the
+    /// router may choose again. Correct data then matters more than the memory profile.
+    /// </para>
+    /// </remarks>
+    public static bool Forced(Config config) =>
+        TrimToNull(config.Engine) is not null || TrimToNull(config.Mode) == "stream";
+
     /// <summary>The engine a config runs on: 1 in memory, 2 streaming, 3 exact on disk.</summary>
     public static int Resolve(Config config, DataPacks? packs)
     {

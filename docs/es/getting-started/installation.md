@@ -245,6 +245,8 @@ Una configuración es la forma de describir un conjunto entero. Pero la misma in
 también responde a un solo valor, como hace un faker: sin archivo, sin `<env>`, con una
 llamada:
 
+#### TypeScript
+
 ```typescript
 import { tdc } from 'tdcv2';
 
@@ -255,6 +257,60 @@ tdc.country.usa.docs.ssn(); // 699209702 — con sus dígitos de control reales
 tdc.lang.ru.person.lastName(); // tras `tdcv2 pack add ru`
 ```
 
+#### Python
+
+```python
+from tdcv2 import tdc
+
+tdc.person.lastName()           # Jones
+tdc.person.male.firstName()     # Robert
+tdc.common.finance.iban()       # DE62299399441396459682
+tdc.country.usa.docs.ssn()      # 699209702 — con sus dígitos de control reales
+tdc.lang.ru.person.lastName()   # tras `tdcv2 pack add ru`
+```
+
+#### Java
+
+```java
+import io.github.nickliapin.tdc.quick.Quick;
+
+Quick tdc = Quick.tdc();
+
+tdc.get("person.lastName");        // Jones
+tdc.get("person.male.firstName");  // Robert
+tdc.get("common.finance.iban");    // DE62299399441396459682
+tdc.get("usa.docs.ssn");           // 699209702 — con sus dígitos de control reales
+tdc.get("ru.person.lastName");     // tras `java -jar tdcv2-cli.jar pack add ru`
+```
+
+#### C#
+
+```csharp
+using Tdcv2.Quick;
+
+dynamic tdc = Quick.Tdc;
+
+tdc.person.lastName();          // Jones
+tdc.person.male.firstName();    // Robert
+tdc.common.finance.iban();      // DE62299399441396459682
+tdc.country.usa.docs.ssn();     // 699209702 — con sus dígitos de control reales
+tdc.lang.ru.person.lastName();  // tras `tdcv2 pack add ru`
+```
+
+#### Rust
+
+```rust
+use tdcv2::quick::Quick;
+
+let mut tdc = Quick::new();
+
+tdc.get("person.lastName")?;        // Jones
+tdc.get("person.male.firstName")?;  // Robert
+tdc.get("common.finance.iban")?;    // DE62299399441396459682
+tdc.get("usa.docs.ssn")?;           // 699209702 — con sus dígitos de control reales
+tdc.get("ru.person.lastName")?;     // tras `tdcv2 pack add ru`
+```
+
 Ambas rutas leen los mismos paquetes de datos, así que el apellido de una llamada de una
 línea y el de una configuración de un millón de filas salen de la misma lista. Cuál quiere
 depende de si los valores tienen que concordar entre sí: una configuración es lo que ata
@@ -262,13 +318,14 @@ una ciudad a su país y mantiene una proporción en exactamente el 30%, y una ll
 no ata nada con nada.
 
 [El API de un valor](../core-concepts/quick-api.md#top) tiene toda la superficie: `.many(n)`,
-`seed()`, `locale()` y los prefijos que alcanzan un paquete concreto.
+`seed()`, `locale()` y cómo alcanzar un paquete concreto en cada lenguaje.
 
 > [!NOTE]
-> **Solo Node.js**
+> **Los valores de aquí vienen de una semilla**
 >
-> Este atajo es parte del paquete de npm. Las implementaciones en Python, Java, C# y Rust
-> leen configuraciones; no tienen un API de una sola llamada.
+> Cada una de las cinco es aleatoria por proceso por sí sola, como lo es un faker. Los
+> valores de los comentarios son los que sortea la semilla `demo`, así que
+> `tdc.seed('demo')` —`Quick.seeded("demo")` en Java y Rust— los reproduce exactamente.
 
 ## Instalar paquetes de datos (opcional)
 

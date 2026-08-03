@@ -2,6 +2,7 @@ using System.Globalization;
 using Tdcv2.Engine;
 using Tdcv2.Errors;
 using Tdcv2.Model;
+using Tdcv2.Output;
 using Tdcv2.Packs;
 using Tdcv2.Parser;
 using Tdcv2.Validation;
@@ -269,7 +270,7 @@ public sealed class Tdc
             // line instead of only quoting the message.
             throw new TdcDiagnosticException(
                 parsed.Problems
-                    .Select(p => Diagnostic.Error("TDC001", p.Message, "", p.Line, p.Column))
+                    .Select(p => Diagnostic.ErrorAt("TDC001", p.Message, "", p.Line, p.Column))
                     .ToList(),
                 Source);
         }
@@ -462,11 +463,24 @@ public sealed class Tdc
     /// </para>
     /// <para>
     /// It applies only to the streaming engine and only to a run big enough to pay for the threads;
-    /// anything else writes on one thread, which is a slower answer and never a wrong one.
+    /// anything else writes on one thread, which is a slower answer and never a wrong one. Parquet
+    /// is one of those: the file is a single framed container ending in a footer, not a
+    /// concatenation of pieces.
     /// </para>
     /// </remarks>
     public void WriteFile(string target, int workers)
     {
+        // A .parquet name asks for the typed binary form. The extension is the whole switch — the
+        // same rule the reference and the other ports use — so there is no flag to remember and no
+        // second call to make; the columns still come from the named <data> in the block.
+        if (target.EndsWith(".parquet", StringComparison.OrdinalIgnoreCase))
+        {
+            using var file = new FileStream(
+                target, FileMode.Create, FileAccess.Write, FileShare.None, 1 << 16);
+            ParquetOutput.Write(_config, _run.Value, file);
+            return;
+        }
+
         bool canSplit = ParallelWrite.CanSplit(_config, _packs);
         int resolved = ParallelWrite.ResolveWorkers(
             workers <= 0 ? null : workers, canSplit, _config.Count);

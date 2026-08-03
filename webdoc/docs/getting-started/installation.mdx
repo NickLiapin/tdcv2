@@ -250,6 +250,9 @@ tdcv2 demo.tdc --count 20 --seed alt
 A config is how you describe a whole dataset. But the same install also answers a single
 value, the way a faker does — no file, no `<env>`, one call:
 
+<Tabs groupId="lang">
+<TabItem value="ts" label="TypeScript" default>
+
 ```typescript
 import { tdc } from 'tdcv2';
 
@@ -260,17 +263,79 @@ tdc.country.usa.docs.ssn(); // 699209702 — with its real check digits
 tdc.lang.ru.person.lastName(); // after `tdcv2 pack add ru`
 ```
 
+</TabItem>
+<TabItem value="py" label="Python">
+
+```python
+from tdcv2 import tdc
+
+tdc.person.lastName()           # Jones
+tdc.person.male.firstName()     # Robert
+tdc.common.finance.iban()       # DE62299399441396459682
+tdc.country.usa.docs.ssn()      # 699209702 — with its real check digits
+tdc.lang.ru.person.lastName()   # after `tdcv2 pack add ru`
+```
+
+</TabItem>
+<TabItem value="java" label="Java">
+
+```java
+import io.github.nickliapin.tdc.quick.Quick;
+
+Quick tdc = Quick.tdc();
+
+tdc.get("person.lastName");        // Jones
+tdc.get("person.male.firstName");  // Robert
+tdc.get("common.finance.iban");    // DE62299399441396459682
+tdc.get("usa.docs.ssn");           // 699209702 — with its real check digits
+tdc.get("ru.person.lastName");     // after `java -jar tdcv2-cli.jar pack add ru`
+```
+
+</TabItem>
+<TabItem value="csharp" label="C#">
+
+```csharp
+using Tdcv2.Quick;
+
+dynamic tdc = Quick.Tdc;
+
+tdc.person.lastName();          // Jones
+tdc.person.male.firstName();    // Robert
+tdc.common.finance.iban();      // DE62299399441396459682
+tdc.country.usa.docs.ssn();     // 699209702 — with its real check digits
+tdc.lang.ru.person.lastName();  // after `tdcv2 pack add ru`
+```
+
+</TabItem>
+<TabItem value="rust" label="Rust">
+
+```rust
+use tdcv2::quick::Quick;
+
+let mut tdc = Quick::new();
+
+tdc.get("person.lastName")?;        // Jones
+tdc.get("person.male.firstName")?;  // Robert
+tdc.get("common.finance.iban")?;    // DE62299399441396459682
+tdc.get("usa.docs.ssn")?;           // 699209702 — with its real check digits
+tdc.get("ru.person.lastName")?;     // after `tdcv2 pack add ru`
+```
+
+</TabItem>
+</Tabs>
+
 Both routes read the same data packs, so the surname in a one-line call and the surname
 in a million-row config come from one list. Which one you want depends on whether the
 values have to agree with each other: a config is what ties a city to its country and
 holds a share to exactly 30%, and a single call ties nothing to anything.
 
 [The one-value API](../core-concepts/quick-api.mdx) has the whole surface — `.many(n)`,
-`seed()`, `locale()`, and the prefixes that reach a specific pack.
+`seed()`, `locale()`, and how to reach a specific pack in each language.
 
-:::note[Node.js only]
-This shortcut is part of the npm package. The Python, Java, C# and Rust implementations
-read configs; they have no equivalent one-call API.
+:::note[The values here come from a seed]
+Each of the five is random per process on its own, the way a faker is. The values in
+the comments are what the seed `demo` draws, so `tdc.seed('demo')` — `Quick.seeded("demo")`
+in Java and Rust — reproduces them exactly.
 :::
 
 ## Install data packs (optional)

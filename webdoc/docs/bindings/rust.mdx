@@ -86,6 +86,28 @@ quote the message. `diagnostics()` on a successful run carries what the config w
 about but not refused for. `seed()` reports whether the seed was generated: an unseeded
 run is not reproducible, which is almost never what was wanted.
 
+## One value, without a config
+
+`Quick` draws a single value from the same data packs a config reads — no file, no
+`<env>`, one call:
+
+```rust
+use tdcv2::quick::Quick;
+
+let mut tdc = Quick::new();
+
+tdc.get("person.lastName")?;      // Jones
+tdc.get("usa.docs.ssn")?;         // 699209702, with its real check digits
+tdc.many("person.lastName", 5)?;  // five of them
+Quick::seeded("demo").locale("ru").get("person.lastName")?;  // pinned and in Russian
+```
+
+The address is a string here, where TypeScript, Python and C# walk it as members.
+The member shape needs one generated function per address, and a generated surface
+could only cover the packs compiled into the binary — while most packs arrive at run
+time, and `get("ru.person.lastName")` works the moment the download finishes. [One
+value at a time](../core-concepts/quick-api.mdx) is the whole surface.
+
 ## No dependencies
 
 The crate depends on nothing. Its lexer and parser are written by hand against the shared

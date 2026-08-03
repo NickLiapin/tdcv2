@@ -51,6 +51,28 @@ for (var row : data.iterate()) {
 
 Имена методов повторяют [TypeScript API](typescript.md#top).
 
+## Одно значение без конфига
+
+`Quick` вытягивает одно значение из тех же пакетов данных, которые читает конфиг: ни
+файла, ни `<env>`, один вызов.
+
+```java
+import io.github.nickliapin.tdc.quick.Quick;
+
+Quick tdc = Quick.tdc();
+
+tdc.get("person.lastName");              // Jones
+tdc.get("usa.docs.ssn");                 // 699209702, с настоящими контрольными цифрами
+tdc.many("person.lastName", 5);          // сразу пять
+Quick.seeded("demo").locale("ru").get("person.lastName");  // закреплено и по-русски
+```
+
+Адрес здесь строка, тогда как TypeScript, Python и C# идут по нему через члены объекта.
+Запись через члены требует по одному сгенерированному методу на адрес, а сгенерированная
+поверхность покрыла бы только пакеты внутри jar — при том что большинство пакетов
+приходит во время работы, а `get("ru.person.lastName")` заработает сразу после загрузки.
+Вся поверхность — на странице [По одному значению](../core-concepts/quick-api.md#top).
+
 ---
 
 ← Назад: [Python](./python.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [C#](./csharp.md#top) →

@@ -94,6 +94,29 @@ are thrown from the constructor, so whatever is left there is worth saying and n
 stopping for. `SeedInfo` reports whether the seed was generated — an unseeded run is not
 reproducible, which is almost never what was wanted.
 
+## One value, without a config
+
+`Quick.Tdc` draws a single value from the same data packs a config reads — no file,
+no `<env>`, one call:
+
+```csharp
+using Tdcv2.Quick;
+
+dynamic tdc = Quick.Tdc;
+
+tdc.person.lastName();                              // Jones
+tdc.country.usa.docs.ssn();                         // 699209702, with its real check digits
+tdc.person.lastName.many(5);                        // five of them
+Quick.Seed("demo").locale("ru").person.lastName();  // pinned and in Russian
+```
+
+This is the one part of the library that is `dynamic`, and deliberately: an address
+is a path through data rather than a fixed set of members, and a class per pack
+folder would put a hundred thousand lines of nothing in the assembly. The cost is
+that a misspelled address is caught when it runs, so the message it throws names
+the nearest real address. [One value at a time](../core-concepts/quick-api.md#top) is
+the whole surface.
+
 ## Requirements
 
 .NET **6.0** or newer. See the [C# README](https://github.com/NickLiapin/tdcv2/tree/main/csharp)

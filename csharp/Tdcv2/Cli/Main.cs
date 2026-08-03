@@ -312,7 +312,7 @@ See https://github.com/NickLiapin/tdcv2 for the DSL reference.
             Report(
                 stderr,
                 parsed.Problems
-                    .Select(p => Diagnostic.Error("TDC001", p.Message, "", p.Line, p.Column))
+                    .Select(p => Diagnostic.ErrorAt("TDC001", p.Message, "", p.Line, p.Column))
                     .ToList(),
                 files[0],
                 source);
