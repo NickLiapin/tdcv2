@@ -284,6 +284,39 @@ public final class ProjectConfig {
     return true;
   }
 
+  /**
+   * Drop every {@code dataPaths} entry that points INSIDE the store; the store itself is kept.
+   *
+   * <p>That is the per-bundle registration the old layout needed — a hundred of them for a hundred
+   * bundles — and after the move to the flat layout each one names a folder that no longer exists.
+   * Matched by resolved path, so a relative and an absolute spelling of the same folder both go.
+   * Returns how many went.
+   */
+  public static int removeDataPathsInside(Path configPath, Path store) {
+    if (!Files.isRegularFile(configPath)) {
+      return 0;
+    }
+    Path configDir = configPath.toAbsolutePath().getParent();
+    Map<String, Object> document = document(configPath);
+    List<String> entries = entries(document);
+    Path root = store.toAbsolutePath().normalize();
+
+    List<String> kept = new ArrayList<>();
+    for (String entry : entries) {
+      Path absolute = against(configDir, entry);
+      if (absolute.equals(root) || !absolute.startsWith(root)) {
+        kept.add(entry);
+      }
+    }
+    if (kept.size() == entries.size()) {
+      return 0;
+    }
+
+    document.put("dataPaths", new ArrayList<Object>(kept));
+    write(configPath, configDir, document);
+    return entries.size() - kept.size();
+  }
+
   /** The whole document, two-space indented — the shape every implementation writes. */
   private static void write(Path configPath, Path configDir, Map<String, Object> document) {
     StringBuilder json = new StringBuilder();

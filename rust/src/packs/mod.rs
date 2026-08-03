@@ -8,6 +8,7 @@
 
 pub mod project;
 pub mod registry;
+pub mod store;
 pub mod bundled_files;
 pub mod source;
 
@@ -18,8 +19,10 @@ use std::path::Path;
 use source::{discover_root, DirectorySource, EmbeddedSource, LayeredSource, PackSource};
 
 use crate::engine::{invalid, EngineResult};
+use crate::errors::Diagnostic;
 use crate::model::config::{Gen, SequenceSpec, Source};
 use crate::parser::config_builder;
+use crate::parser::lexer::Pos;
 
 /// The extensions a dotted address is tried against, in order.
 ///
@@ -91,6 +94,9 @@ pub struct DataPacks {
     /// most runs resolve every address straight from the path and never pay
     /// for the scan.
     index: RefCell<Option<BTreeMap<String, String>>>,
+    /// The files the index build read and could not place — TDC171. Filled by
+    /// the same pass, so saying so costs nothing over dropping them silently.
+    unaddressable: RefCell<Vec<Diagnostic>>,
 }
 
 impl std::fmt::Debug for DataPacks {
@@ -106,6 +112,7 @@ impl DataPacks {
             data_roots,
             cache: RefCell::new(BTreeMap::new()),
             index: RefCell::new(None),
+            unaddressable: RefCell::new(Vec::new()),
         }
     }
 
@@ -335,6 +342,7 @@ impl DataPacks {
             return built.clone();
         }
         let mut index: BTreeMap<String, String> = BTreeMap::new();
+        let mut dropped: Vec<Diagnostic> = Vec::new();
         for file in self.source.list_files() {
             let Some(lines) = self.source.read_lines(&file) else {
                 continue;
@@ -363,7 +371,15 @@ impl DataPacks {
                             .filter(|l| !l.is_empty())
                         {
                             Some(declared) => format!("{declared}.{derived}"),
-                            None => continue,
+                            None => {
+                                if has_header(&lines) {
+                                    dropped.push(unaddressable_warning(
+                                        &self.source.locate(&file).unwrap_or(file),
+                                        &derived,
+                                    ));
+                                }
+                                continue;
+                            }
                         }
                     }
                 }
@@ -371,8 +387,50 @@ impl DataPacks {
             index.insert(address, file);
         }
         *self.index.borrow_mut() = Some(index.clone());
+        *self.unaddressable.borrow_mut() = dropped;
         index
     }
+
+    /// Every pack file the address scan read and could not place.
+    ///
+    /// Empty until something has looked an address up and missed, because that
+    /// is when the scan runs. The reference walks every pack root before it
+    /// starts and can therefore say this about a file no config mentions; here
+    /// the walk is the fallback path, and a run that resolves everything by path
+    /// never pays for it. The author who wrote the unplaceable file always takes
+    /// the fallback — their own address is the one that misses — so the file
+    /// gets named at the moment it matters. `fixtures/cross-language/cli.json`
+    /// records the difference.
+    pub fn header_warnings(&self) -> Vec<Diagnostic> {
+        self.unaddressable.borrow().clone()
+    }
+}
+
+/// A pack file the scan read and could not address.
+///
+/// A warning rather than an error: the run continues on everything else, and the
+/// author hears about the file instead of meeting it later as "unknown template
+/// path" with nothing to connect the two.
+fn unaddressable_warning(file: &str, address: &str) -> Diagnostic {
+    Diagnostic::warning(
+        "TDC171",
+        format!(
+            "data-pack file \"{file}\" is not addressable: \"{address}\" starts with no locale, \
+             country or `common`. Add `address:` or `locale:` to its header, or move it under a \
+             locale folder."
+        ),
+        &format!("Data pack file: {file}"),
+        Pos { line: 1, column: 0 },
+    )
+}
+
+/// Whether the file opens with the `---` fence.
+///
+/// A file with no header at all stays silent when it cannot be placed: it is
+/// probably a raw `@data` source that happens to sit in a pack folder, not a
+/// pack somebody meant to publish.
+fn has_header(lines: &[String]) -> bool {
+    lines.first().map(|l| l.trim()) == Some("---")
 }
 
 /// Just the `---` fenced header, for the address scan: no body, no validation.

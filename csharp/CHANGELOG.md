@@ -13,6 +13,14 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ### Added
 
+- **A pack file that lands at no address is now named — TDC171.** A file carrying
+  a `---` header whose path starts with no locale, country or `common`, and whose
+  header does not say where it belongs, was dropped in silence; the author met it
+  later as "unknown template path" about a file sitting in their own folder. Both
+  halves are now reported. The scan stays lazy — it runs when a lookup has
+  already missed, which is when the author is looking — so an ordinary run pays
+  nothing for it.
+
 - **`Tdcv2.Cli`, a second package: the command line.** `dotnet tool install -g
 Tdcv2.Cli` puts `tdcv2` on your PATH, the same command the npm, pip and cargo
   packages already carry.
@@ -45,6 +53,29 @@ Tdcv2.Cli` puts `tdcv2` on your PATH, the same command the npm, pip and cargo
 - **`Engine` and `Mode` on `Tdc.Options`.** Name an engine outright (1 in memory,
   2 streaming, 3 exact on disk) or state the constraint and let the router pick.
   Either beats what `<env>` declared.
+
+### Changed
+
+- **One folder for downloaded packs, not three levels of near-duplicate names.**
+  `tdcv2 pack add ru russia` used to leave `data/ru/packs/ru/…` and
+  `data/russia/packs/countries/russia/…`, and appended a `dataPaths` entry per
+  bundle — a hundred packs meant a hundred entries. Both extra levels belonged to
+  the tooling rather than to the data: `<store>/<id>/` existed so removal could
+  delete one folder, and `packs/` came out of the archive. They are gone. Every
+  bundle now unpacks into ONE tree at its address path — `data/ru/…`,
+  `data/countries/russia/…` — and the store is registered once.
+
+  What each bundle owns is written down in `<store>/.tdcv2-installed.json`
+  instead of implied by a folder name, so `pack remove` deletes exactly the paths
+  that bundle brought and leaves the country beside it alone. The new
+  `Tdcv2.Packs.PackStore` holds that bookkeeping, and `PackRegistry.Install` now
+  answers with the file count and the paths rather than a folder to register.
+
+  A store from an earlier version is moved to the new shape in place, by the
+  first `tdcv2 pack` command of any kind, which also replaces the per-bundle
+  `dataPaths` entries with the store and says on stderr what it moved. Nothing
+  has to be downloaded again. If a path in the new layout is already taken the
+  move is refused whole, with the collisions named, rather than half-done.
 
 ### Fixed
 

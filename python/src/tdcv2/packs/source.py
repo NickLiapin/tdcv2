@@ -70,6 +70,15 @@ class Source(Protocol):
         """
         ...
 
+    def locate(self, relative_path: str) -> str | None:
+        """Where a file physically is, for a complaint that has to name it.
+
+        A relative path is ambiguous the moment two roots are layered, and "which file did you
+        mean" is the one thing such a message must not leave open. Packs shipped inside the
+        wheel have no path at all, which is why this can answer nothing.
+        """
+        ...
+
 
 class Directory:
     """Packs from a folder on disk."""
@@ -101,6 +110,10 @@ class Directory:
 
     def has_country(self, name: str) -> bool:
         return (self.root / "countries" / name).is_dir()
+
+    def locate(self, relative_path: str) -> str | None:
+        path = self.root / relative_path
+        return str(path) if path.is_file() else None
 
     def __str__(self) -> str:
         return str(self.root)
@@ -158,6 +171,10 @@ class Bundled:
     def has_country(self, name: str) -> bool:
         return name in self._countries
 
+    def locate(self, relative_path: str) -> str | None:
+        path = self._root / relative_path
+        return str(path) if path.is_file() else None
+
     def __str__(self) -> str:
         return f"bundled packs ({len(self._index)} files)"
 
@@ -203,6 +220,10 @@ class Layered:
 
     def has_country(self, name: str) -> bool:
         return any(source.has_country(name) for source in self.sources)
+
+    def locate(self, relative_path: str) -> str | None:
+        source = self._owning(relative_path)
+        return None if source is None else source.locate(relative_path)
 
     def __str__(self) -> str:
         return ", ".join(str(source) for source in self.sources)

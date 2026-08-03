@@ -156,12 +156,13 @@ tdcv2 init --yes --data-path ../shared-tdc-packs
 }
 ```
 
-- **`packStore`** — куда `pack` качает пакеты. Сама папка **не сканируется** как данные; при
-  установке `pack` прописывает конкретные корни пакетов в `dataPaths`.
+- **`packStore`** — куда `pack` качает пакеты. Каждый набор ложится в эту одну папку, а
+  первый `pack add` прописывает саму папку в `dataPaths`. Как она устроена, описано в
+  разделе «Внутри хранилища пакетов» ниже.
 - **`locale`** — локаль по умолчанию (задаётся флагом `--locale`, см. выше).
 - **`dataPaths`** — папки, которые движок реально сканирует в поисках пакетов. `pack add`
-  наполняет их за вас, а вы можете дописать сюда свои папки, чтобы указать движку на
-  [пакеты, написанные вами самими](writing-your-own.md#top).
+  вписывает туда хранилище за вас, а вы можете дописать сюда свои папки, чтобы указать
+  движку на [пакеты, написанные вами самими](writing-your-own.md#top).
 
 Конфиг ищется обходом **вверх** от текущей папки (так же, как инструменты находят
 `tsconfig.json`). Когда одно и то же определено в нескольких источниках, приоритет идёт от
@@ -227,9 +228,23 @@ tdcv2 pack add ru --registry=https://packs.example.internal/tdc
 ```
 Available data packs:
 
-common ✓ installed Common (locale-agnostic) (0.0 MB)
-ru Russian (language) (0.1 MB)
-rus Russia (country) (0.0 MB)
+common Common (locale-agnostic) (0.0 MB)
+Generators bound to neither a language nor a country: uuid,
+hashes, ISBN/ISSN, GTIN/UPC/EAN, card PANs, MRZ, IPv4/IPv6/MAC,
+semver, and more.
+
+ru ✓ installed Russian (language) (0.1 MB)
+Content bound to the Russian language: given names, gendered
+surnames and patronymics, gender words, months and weekdays,
+colors, country names. Shared by every Russian-speaking locale.
+
+…
+
+yemen Yemen (country) (0.0 MB)
+Data specific to Yemen: docs, education, finance, geo, holiday,
+phone, sport.
+
+Install with: tdcv2 pack add <id>
 ```
 
 Описания переносятся по ширине вашего окна, так что список остаётся списком, каким бы
@@ -247,8 +262,9 @@ rus Russia (country) (0.0 MB)
 ### `pack add <id…>` — скачать и зарегистрировать
 
 `pack add` качает zip набора, сверяет его `sha256` (подменённая или битая загрузка не
-установится), распаковывает и **прописывает** папку в конфиг, так что данные сразу доступны по
-своим адресам через точку — без отдельного шага подключения.
+установится), распаковывает его в хранилище пакетов и **прописывает** это хранилище в
+конфиг, так что данные сразу доступны по своим адресам через точку — без отдельного шага
+подключения.
 
 ```bash
 tdcv2 pack add ru
@@ -257,31 +273,96 @@ tdcv2 pack add ru
 `tdcv2 pack add ru`
 
 ```
-Installed ru: 30 files → /path/to/project/tdcv2-packs/ru
-  registered ./tdcv2-packs/ru/packs in /path/to/project/tdcv2.config.json
+Installed ru: 355 files → /path/to/project/tdcv2-packs/ru
+  registered ./tdcv2-packs in /path/to/project/tdcv2.config.json
 ```
 
-Можно установить несколько наборов за один вызов — `tdcv2 pack add common ru rus` — это
+Хранилище прописывается один раз, при первой установке. Следующие наборы ложатся в ту же
+папку и сообщают `already registered`.
+
+Можно установить несколько наборов за один вызов — `tdcv2 pack add common ru russia` — это
 обычный способ собрать локаль (см. раздел «Пакеты осевые» ниже).
 
 ### `pack remove <id…>` — удалить и отменить регистрацию
 
-`pack remove` удаляет папку набора и убирает её запись из `dataPaths`, так что движок
-перестаёт её сканировать.
+`pack remove` удаляет ровно те пути, которые принёс этот набор, и ничего рядом с ними.
+Папка, опустевшая после удаления, уходит следом.
 
 ```bash
-tdcv2 pack remove rus
+tdcv2 pack remove russia
 ```
 
-`tdcv2 pack remove rus`
+`tdcv2 pack remove russia`
 
 ```
-Removed rus (/path/to/project/tdcv2-packs/rus)
-  unregistered from /path/to/project/tdcv2.config.json
+Removed russia (/path/to/project/tdcv2-packs/countries/russia)
+```
+
+Хранилище остаётся в `dataPaths`, пока в нём что-то лежит: одна эта запись обслуживает все
+наборы сразу. Уберите последний набор — уйдёт и запись:
+
+`tdcv2 pack remove common ru`
+
+```
+Removed common (/path/to/project/tdcv2-packs/common)
+Removed ru (/path/to/project/tdcv2-packs/ru)
+  store now empty — unregistered /path/to/project/tdcv2-packs from /path/to/project/tdcv2.config.json
 ```
 
 Удаление набора безопасно: встроенный набор по умолчанию (см. раздел «Встроенный набор по
 умолчанию против докачки») по этим адресам возвращается сам собой.
+
+## Внутри хранилища пакетов
+
+Каждый набор распаковывается в **одну** папку, которую называет `packStore`. Язык ложится
+под своим кодом, страна — в `countries/`, а `common` — под своим именем:
+
+```text
+tdcv2-packs/
+├── .tdcv2-installed.json
+├── common/…
+├── ru/…
+└── countries/russia/…
+```
+
+Эта папка — единственный корень сканирования, поэтому в конфиге одна запись `dataPaths`,
+сколько бы наборов вы ни поставили:
+
+```json
+{
+  "packStore": "./tdcv2-packs",
+  "locale": "ru",
+  "dataPaths": ["./tdcv2-packs"]
+}
+```
+
+`.tdcv2-installed.json` — служебный учёт самого хранилища, править его руками не нужно. По
+каждому набору там записаны пути, которыми он владеет, число принесённых файлов, `sha256`,
+по которому сверялась загрузка, и версия, если реестр её публикует. Именно из этого файла
+`pack remove` узнаёт, что удалять, а `pack list` — что пометить как `✓ installed`.
+
+### Хранилище от предыдущей версии
+
+Прежние версии распаковывали каждый набор в `<store>/<id>/packs/…` и давали ему отдельную
+запись в `dataPaths`. На диске это давало три почти одинаковых уровня, а в конфиге — по
+записи на набор: сотня пакетов стран означала сотню записей.
+
+Первая же команда `tdcv2 pack` — любая из них — переносит такое хранилище к раскладке
+выше, прямо на месте. Скачивать заново ничего не нужно. Сообщение уходит в stderr:
+
+`tdcv2 pack list (хранилище в старой раскладке)`
+
+```
+tdcv2: pack store "/path/to/project/tdcv2-packs" used the old per-bundle layout; moved it to the flat one.
+  ru: ru/packs → ru (355 files)
+  russia: russia/packs → countries/russia (18 files)
+  dropped 2 per-bundle dataPaths entries
+  registered ./tdcv2-packs instead
+```
+
+Все перемещения планируются до того, как что-то сдвинется. Если путь в новой раскладке уже
+занят, перенос отклоняется целиком, а конфликты называются поимённо — вместо того чтобы
+оставить хранилище наполовину в одной раскладке, наполовину в другой.
 
 ## Пакеты осевые
 
@@ -290,38 +371,27 @@ Removed rus (/path/to/project/tdcv2-packs/rus)
 друг на друге:
 
 ```bash
-tdcv2 pack add common ru rus
+tdcv2 pack add common ru russia
 ```
 
-`tdcv2 pack add common ru rus`
+`tdcv2 pack add common ru russia`
 
 ```
 Installed common: 145 files → /path/to/project/tdcv2-packs/common
-  registered ./tdcv2-packs/common/packs in /path/to/project/tdcv2.config.json
+  registered ./tdcv2-packs in /path/to/project/tdcv2.config.json
 Installed ru: 355 files → /path/to/project/tdcv2-packs/ru
-  registered ./tdcv2-packs/ru/packs in /path/to/project/tdcv2.config.json
-Installed rus: 18 files → /path/to/project/tdcv2-packs/rus
-  registered ./tdcv2-packs/rus/packs in /path/to/project/tdcv2.config.json
+  already registered in /path/to/project/tdcv2.config.json
+Installed russia: 18 files → /path/to/project/tdcv2-packs/countries/russia
+  already registered in /path/to/project/tdcv2.config.json
 ```
 
-Остаётся конфиг, в котором перечислены все три — в том порядке, в каком они накладываются:
-
-```json
-{
-  "packStore": "./tdcv2-packs",
-  "locale": "ru",
-  "dataPaths": [
-    "./tdcv2-packs/common/packs",
-    "./tdcv2-packs/ru/packs",
-    "./tdcv2-packs/rus/packs"
-  ]
-}
-```
+В хранилище остаются три папки под одной записью `dataPaths`, которая покрывает их все, —
+см. раздел «Внутри хранилища пакетов» выше.
 
 Это не причуда формата файлов — так отражается, что язык и страна действительно независимы.
 Русский язык общий для России, Беларуси и Казахстана, поэтому он качается один раз как `ru`; а
-данные, специфичные для страны (регионы России, телефонные коды), лежат в `rus`. Смешивайте и
-сочетайте, чтобы собрать любую нужную локаль.
+данные, специфичные для страны (регионы России, телефонные коды), лежат в `russia`. Смешивайте
+и сочетайте, чтобы собрать любую нужную локаль.
 
 ## Встроенный набор по умолчанию против докачки
 

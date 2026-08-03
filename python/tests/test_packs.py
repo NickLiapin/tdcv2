@@ -10,7 +10,7 @@ from pathlib import Path
 
 import pytest
 
-from tdcv2.packs import DataPacks, PackError, Registry, project_config, registry, source
+from tdcv2.packs import DataPacks, PackError, Registry, project_config, registry, source, store
 
 REPO = Path(__file__).resolve().parents[2]
 
@@ -206,8 +206,8 @@ def _zip(entries: dict[str, str]) -> bytes:
 
 
 def test_a_bundle_is_verified_before_a_single_byte_is_written(tmp_path: Path) -> None:
-    # The zip carries the bundle id at its root, which is the registry's layout: unpacking into
-    # the store lands it at <store>/ru/packs.
+    # The zip nests everything under `<id>/packs/`, which is the registry's layout and the
+    # bundler's business: both levels are stripped, so the address path lands in the store.
     archive = _zip({"ru/packs/ru/person/lastName.txt": "Иванов\n"})
     good = hashlib.sha256(archive).hexdigest()
     index = json.dumps(
@@ -224,9 +224,12 @@ def test_a_bundle_is_verified_before_a_single_byte_is_written(tmp_path: Path) ->
             ],
         }
     )
+    store = tmp_path / "store"
     client = _LocalRegistry({"index.json": index.encode(), "bundles/ru.zip": archive})
-    root = client.install(client.index().find("ru"), tmp_path / "store")
-    assert (root / "ru" / "person" / "lastName.txt").read_text(encoding="utf-8") == "Иванов\n"
+    result = client.install(client.index().find("ru"), store)
+    assert (store / "ru" / "person" / "lastName.txt").read_text(encoding="utf-8") == "Иванов\n"
+    assert result.paths == ["ru/person"]
+    assert result.files == 1
 
     # A digest that does not match is refused — a generator quietly fed the wrong names produces
     # a dataset nobody can tell is wrong.
@@ -236,9 +239,8 @@ def test_a_bundle_is_verified_before_a_single_byte_is_written(tmp_path: Path) ->
         bad_client.install(bad_client.index().find("ru"), tmp_path / "store2")
 
 
-def test_an_entry_that_would_escape_the_store_is_refused(tmp_path: Path) -> None:
-    archive = _zip({"../escaped.txt": "no"})
-    digest = hashlib.sha256(archive).hexdigest()
+def _evil_client(entries: dict[str, str]) -> Registry:
+    archive = _zip(entries)
     index = json.dumps(
         {
             "schemaVersion": 1,
@@ -248,20 +250,40 @@ def test_an_entry_that_would_escape_the_store_is_refused(tmp_path: Path) -> None
                     "name": "Evil",
                     "file": "bundles/evil.zip",
                     "bytes": len(archive),
-                    "sha256": digest,
+                    "sha256": hashlib.sha256(archive).hexdigest(),
                 }
             ],
         }
     )
-    client = _LocalRegistry({"index.json": index.encode(), "bundles/evil.zip": archive})
-    with pytest.raises(PackError, match="would escape the pack store"):
+    return _LocalRegistry({"index.json": index.encode(), "bundles/evil.zip": archive})
+
+
+def test_an_entry_that_would_escape_the_store_is_refused(tmp_path: Path) -> None:
+    # A zip can name `../../etc/something`, and an extractor that trusts the name writes wherever
+    # it is told. The archive is data from the network; it does not get to choose paths.
+    client = _evil_client({"evil/packs/../../escaped.txt": "no"})
+    with pytest.raises(PackError, match="unsafe path"):
         client.install(client.index().find("evil"), tmp_path / "store")
+    assert not (tmp_path / "escaped.txt").exists()
+
+
+def test_an_archive_carrying_anything_but_its_own_packs_is_refused_whole(tmp_path: Path) -> None:
+    # Not the bundle it claims to be. Unpacked, its files would scatter into a tree shared with
+    # every other bundle, and nothing could take them apart again.
+    client = _evil_client({"evil/packs/evil/a.txt": "fine\n", "somebodyelse/b.txt": "not\n"})
+    with pytest.raises(PackError, match="refusing to unpack it"):
+        client.install(client.index().find("evil"), tmp_path / "store")
+    assert not (tmp_path / "store" / "evil").exists()
 
 
 def test_the_store_reports_what_is_already_installed(tmp_path: Path) -> None:
-    (tmp_path / "ru" / registry.BUNDLE_PACKS_DIR).mkdir(parents=True)
-    (tmp_path / "notabundle").mkdir()
-    assert registry.installed(tmp_path) == ["ru"]
+    # From the books, not from a directory listing: `hand_unpacked` is a perfectly good tree,
+    # but nothing records what it owns, so nothing could remove it cleanly either.
+    (tmp_path / "hand_unpacked" / "person").mkdir(parents=True)
+    store.write_installed(
+        tmp_path, store.InstalledRecord(bundles=[store.InstalledBundle("ru", ["ru"], files=2)])
+    )
+    assert store.installed(tmp_path) == ["ru"]
 
 
 def test_layers_are_searched_from_the_top_down(tmp_path: Path) -> None:

@@ -10,29 +10,37 @@ in Python at once, and there is exactly one place to publish to. This is the Pyt
 the same ``index.json``, the same bundle zips, the same digests and the same store layout, so a
 project can be set up by whichever implementation happens to be at hand and used by any of the
 others.
+
+The wire is here; where a bundle's files land and how the store remembers them is
+:mod:`tdcv2.packs.store`.
 """
 
 from __future__ import annotations
 
 import hashlib
-import io
 import json
 import urllib.error
 import urllib.request
-import zipfile
 from dataclasses import dataclass, field
 from pathlib import Path
 
+from .store import (
+    InstalledBundle,
+    PackError,
+    assert_no_overlap,
+    bundle_owned_paths,
+    delete_owned_paths,
+    find_bundle,
+    plan_extract,
+    read_installed,
+    with_bundle,
+    write_extract,
+    write_installed,
+)
+
 DEFAULT_BASE_URL = "https://raw.githubusercontent.com/NickLiapin/tdcv2-data-packs/master"
 
-# The folder inside a bundle that is a pack scan root.
-BUNDLE_PACKS_DIR = "packs"
-
 _TIMEOUT_SECONDS = 60
-
-
-class PackError(RuntimeError):
-    """Anything that stops a bundle being installed, said plainly."""
 
 
 @dataclass(frozen=True, slots=True)
@@ -45,6 +53,11 @@ class Bundle:
     file: str
     bytes: int
     sha256: str
+    #: What the registry calls this revision of the bundle. Optional: today's index declares
+    #: none, and the digest already tells two revisions apart — but the store writes down
+    #: whatever the registry did say, so a registry that starts versioning its bundles is
+    #: understood without a client change.
+    version: str | None = None
     locale: str | None = None
     country: str | None = None
     contents: list[str] = field(default_factory=list)
@@ -72,6 +85,15 @@ class Index:
         raise PackError(f'unknown bundle "{bundle_id}". Available: {known}')
 
 
+@dataclass(frozen=True, slots=True)
+class Installation:
+    """What one install put in the store: where the data went, and how much of it there is."""
+
+    #: Store-relative paths the bundle now owns — where its data actually is.
+    paths: list[str]
+    files: int
+
+
 class Registry:
     __slots__ = ("base_url",)
 
@@ -82,22 +104,22 @@ class Registry:
         """The catalogue of what can be installed."""
         return parse_index(self._fetch(f"{self.base_url}/index.json").decode("utf-8"))
 
-    def install(self, bundle: Bundle, store: Path) -> Path:
-        """A bundle downloaded and unpacked into the store.
+    def install(self, bundle: Bundle, store: Path) -> Installation:
+        """A bundle downloaded, verified, unpacked into the store, and written into its books.
 
         The bytes are checked against the digest the registry published BEFORE anything is
         written. Data that arrives corrupted, or altered on the way, is refused rather than
         unpacked: a generator quietly fed the wrong names produces a dataset nobody can tell is
-        wrong.
+        wrong. The length is checked first, because a download cut short in transit is the
+        common case and saying how short says far more than "the hash did not match".
 
-        A bundle's zip nests everything under its own top folder — ``en/packs/…`` — so it is
-        unpacked into the STORE, not into ``<store>/<id>``: the archive already carries the id.
-        Unpacking a level deeper would give ``<store>/en/en/packs`` and nothing would resolve.
-        That layout is the registry's, shared by every implementation, so getting it wrong here
-        breaks packs published for the others rather than only ours.
-
-        Returns the pack root to register, ``<store>/<id>/packs``.
+        A bundle's zip nests everything under ``<id>/packs/``, which is the bundler's business
+        and not the user's: both levels are stripped, so what lands in the store is the address
+        path — ``<store>/ru/person/lastName.txt`` — and the store stays one scan root for every
+        bundle in it. That layout is the registry's, shared by every implementation, so getting
+        it wrong here breaks packs published for the others rather than only ours.
         """
+        store.mkdir(parents=True, exist_ok=True)
         archive = self._fetch(f"{self.base_url}/{bundle.file}")
         if bundle.bytes > 0 and len(archive) != bundle.bytes:
             raise PackError(
@@ -110,15 +132,26 @@ class Registry:
                 "not installed"
             )
 
-        store.mkdir(parents=True, exist_ok=True)
-        _unzip(archive, store)
+        rels, files = plan_extract(archive, bundle.id, store)
+        paths = bundle_owned_paths(rels)
+        record = read_installed(store)
+        assert_no_overlap(bundle.id, paths, record)
 
-        root = store / bundle.id / BUNDLE_PACKS_DIR
-        if not root.is_dir():
-            raise PackError(
-                f'bundle "{bundle.id}" has no "packs" folder at its root — cannot register it'
-            )
-        return root
+        # Re-installing replaces rather than layers: without this, a bundle that dropped a file
+        # would leave the old one behind for good, still answering to its address.
+        previous = find_bundle(record, bundle.id)
+        if previous is not None:
+            delete_owned_paths(store, previous.paths)
+
+        write_extract(files, store)
+        write_installed(
+            store,
+            with_bundle(
+                record,
+                InstalledBundle(bundle.id, paths, bundle.version or "", bundle.sha256, len(rels)),
+            ),
+        )
+        return Installation(paths, len(rels))
 
     def _fetch(self, url: str) -> bytes:
         try:
@@ -130,13 +163,6 @@ class Registry:
             raise PackError(f"{url} returned {e.code}") from None
         except OSError as e:
             raise PackError(f"cannot reach {url} ({e})") from e
-
-
-def installed(store: Path) -> list[str]:
-    """Bundle ids already in the store — a folder that carries a ``packs/`` directory."""
-    if not store.is_dir():
-        return []
-    return sorted(p.name for p in store.iterdir() if (p / BUNDLE_PACKS_DIR).is_dir())
 
 
 def parse_index(text: str) -> Index:
@@ -188,6 +214,7 @@ def _parse_bundle(raw: object, i: int) -> Bundle:
         file=_required(raw.get("file"), f"bundles[{i}].file"),
         bytes=int(size),
         sha256=_required(raw.get("sha256"), f"bundles[{i}].sha256").lower(),
+        version=_optional(raw.get("version"), f"bundles[{i}].version"),
         locale=_optional(raw.get("locale"), f"bundles[{i}].locale"),
         country=_optional(raw.get("country"), f"bundles[{i}].country"),
         contents=contents,
@@ -224,23 +251,3 @@ def _required(value: object, what: str) -> str:
 
 def _optional(value: object, what: str) -> str | None:
     return None if value is None else _required(value, what)
-
-
-def _unzip(archive: bytes, target: Path) -> None:
-    """Unpacked, refusing any entry that would land outside the target.
-
-    A zip can name ``../../etc/something``, and an extractor that trusts the name writes wherever
-    it is told. The archive is data from the network; it does not get to choose paths.
-    """
-    root = target.resolve()
-    with zipfile.ZipFile(io.BytesIO(archive)) as zf:
-        for entry in zf.infolist():
-            destination = Path(root / entry.filename).resolve()
-            if not (destination == root or root in destination.parents):
-                raise PackError(f'bundle entry "{entry.filename}" would escape the pack store')
-            if entry.is_dir():
-                destination.mkdir(parents=True, exist_ok=True)
-                continue
-            destination.parent.mkdir(parents=True, exist_ok=True)
-            with zf.open(entry) as src, destination.open("wb") as out:
-                out.write(src.read())

@@ -294,17 +294,20 @@ class CliTest {
     assertTrue(stdout().contains("demo"));
 
     assertEquals(0, Pack.run(List.of("add", "demo", "--registry=" + url), project));
+    // One entry, naming the store itself — the bundle no longer has a folder of its own.
     String registered = Files.readString(project.resolve("tdcv2.config.json"));
-    assertTrue(registered.contains("tdcv2-packs/demo/packs"), registered);
-    assertTrue(Files.isDirectory(project.resolve("tdcv2-packs/demo/packs")));
+    assertTrue(registered.contains("\"./tdcv2-packs\""), registered);
+    assertTrue(Files.isRegularFile(project.resolve("tdcv2-packs/demo/person/lastName.txt")));
 
     out.reset();
     assertEquals(0, Pack.run(List.of("list", "--registry=" + url), project));
     assertTrue(stdout().contains("installed"));
 
     assertEquals(0, Pack.run(List.of("remove", "demo"), project));
-    assertFalse(
-        Files.readString(project.resolve("tdcv2.config.json")).contains("demo/packs"));
+    // The last bundle out takes the store's registration with it.
+    assertTrue(
+        Files.readString(project.resolve("tdcv2.config.json")).contains("\"dataPaths\": []"),
+        Files.readString(project.resolve("tdcv2.config.json")));
     assertFalse(Files.exists(project.resolve("tdcv2-packs/demo")));
   }
 

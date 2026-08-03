@@ -11,8 +11,37 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [Unreleased]
 
-Nothing specific to this package yet. Engine-wide changes for the release live in
-[the repository's CHANGELOG](../CHANGELOG.md).
+### Changed
+
+- **One folder for downloaded packs, not three levels of near-duplicate names.**
+  `tdcv2 pack add ru russia` used to leave `data/ru/packs/ru/…` and
+  `data/russia/packs/countries/russia/…`, and appended a `dataPaths` entry per
+  bundle — a hundred packs meant a hundred entries. Both extra levels belonged
+  to the tooling rather than to the data: `<store>/<id>/` existed so removal
+  could delete one folder, and `packs/` came out of the archive. They are gone.
+  Every bundle now unpacks into ONE tree at its address path — `data/ru/…`,
+  `data/countries/russia/…` — and the store is registered once. `DataPacks.install`
+  writes the same single entry.
+
+  What each bundle owns is written down in `<store>/.tdcv2-installed.json`
+  instead of implied by a folder name, so `pack remove` deletes exactly the
+  paths that bundle brought and leaves the country beside it alone.
+
+  A store from an earlier version is moved to the new shape in place, by the
+  first `tdcv2 pack` command of any kind, which also replaces the per-bundle
+  `dataPaths` entries with the store and says on stderr what it moved. Nothing
+  has to be downloaded again. If a path in the new layout is already taken the
+  move is refused whole, with the collisions named, rather than half-done.
+
+### Added
+
+- **A pack file that lands at no address is now named — TDC171.** A file carrying
+  a `---` header whose path starts with no locale, country or `common`, and whose
+  header does not say where it belongs, was dropped in silence; the author met it
+  later as "unknown template path" about a file sitting in their own folder. Both
+  halves are now reported. The scan stays lazy — it runs when a lookup has
+  already missed, which is when the author is looking — so an ordinary run pays
+  nothing for it.
 
 ## [0.1.3] — 2026-08-02
 

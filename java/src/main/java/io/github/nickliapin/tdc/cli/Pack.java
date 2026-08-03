@@ -1,6 +1,7 @@
 package io.github.nickliapin.tdc.cli;
 
 import io.github.nickliapin.tdc.packs.PackRegistry;
+import io.github.nickliapin.tdc.packs.PackStore;
 import io.github.nickliapin.tdc.packs.ProjectConfig;
 import java.io.IOException;
 import java.io.UncheckedIOException;
@@ -23,9 +24,10 @@ import java.util.TreeSet;
  *
  * <p>A bundle is axis-pure — one language ({@code en}), or one country ({@code usa}), or {@code
  * common} — because language and country are independent and compose: US English is common + en +
- * usa. Installing extracts to {@code <store>/<id>/} and registers only that bundle's own {@code
- * packs} folder in the config, so addresses stay {@code en.person.lastName} and never {@code
- * en.packs.en.person.lastName}.
+ * usa. Everything lands in ONE tree, at its address path: {@code <store>/ru/…}, {@code
+ * <store>/countries/usa/…}. Which bundle owns which path is written down in {@code
+ * <store>/.tdcv2-installed.json} rather than implied by a folder name, so ten languages and a
+ * hundred countries are one folder and one {@code dataPaths} entry.
  *
  * <p>Where things go is decided by the config cascade, not guessed: {@code packStore} from the
  * nearest {@code tdcv2.config.json}, else the global one. With neither, {@code init} has not been
@@ -114,6 +116,14 @@ public final class Pack {
         registryUrl == null ? new PackRegistry() : new PackRegistry(registryUrl);
 
     try {
+      // Before anything reads the store: a store from an older tdcv2 is in the old per-bundle
+      // layout, which `list`, `add` and `remove` all now misread. The first `tdcv2 pack` after an
+      // upgrade fixes it, once, and says what it did.
+      PackStore.Migration migration = PackStore.migrate(store.path(), store.configPath());
+      if (migration != null) {
+        reportMigration(migration);
+      }
+
       // No subcommand and a terminal that can host the picker: browse the catalogue instead of
       // printing it. Anywhere else — a pipe, a script, CI, Windows — printing is the right answer.
       if (rest.isEmpty() && PackPicker.available()) {
@@ -315,12 +325,14 @@ public final class Pack {
     for (PackRegistry.Bundle bundle : bundles) {
       System.err.println(
           "tdcv2: downloading " + bundle.id() + " (" + megabytes(bundle.bytes()) + ")…");
-      Path root = registry.install(bundle, store.path());
-      Path directory = store.path().resolve(bundle.id());
-      String stored = ProjectConfig.storedPath(store.configPath(), root);
-      boolean added = ProjectConfig.register(store.configPath(), List.of(root));
+      PackStore.InstalledBundle entry = registry.install(bundle, store.path());
+      // The STORE goes into the config, once, however many bundles land in it \u2014 never the bundle,
+      // which no longer has a folder of its own to name.
+      String stored = ProjectConfig.storedPath(store.configPath(), store.path());
+      boolean added = ProjectConfig.register(store.configPath(), List.of(store.path()));
       System.out.println(
-          "Installed " + bundle.id() + ": " + countFiles(directory) + " files \u2192 " + directory);
+          "Installed " + bundle.id() + ": " + entry.files() + " files \u2192 "
+              + installedAt(store.path(), entry.paths()));
       System.out.println(
           added
               ? "  registered " + stored + " in " + store.configPath()
@@ -329,54 +341,82 @@ public final class Pack {
     return 0;
   }
 
-  /** Everything the bundle unpacked, for the line that reports what landed. */
-  private static long countFiles(Path directory) {
-    try (java.util.stream.Stream<Path> tree = Files.walk(directory)) {
-      return tree.filter(Files::isRegularFile).count();
-    } catch (IOException e) {
-      throw new UncheckedIOException(e);
+  /** Where a bundle's data ended up, for the line that reports an install. */
+  private static String installedAt(Path store, List<String> paths) {
+    List<String> absolute = new ArrayList<>();
+    for (String path : paths) {
+      absolute.add(PackStore.resolve(store, path).toString());
     }
+    return String.join(", ", absolute);
   }
 
+  /**
+   * Uninstall bundles: delete exactly the paths the store recorded for each, and drop the store
+   * from the config once nothing is left in it. No network.
+   *
+   * <p>Deleting by record rather than by folder name is what a shared tree costs and what it buys:
+   * {@code russia} lives at {@code countries/russia} beside {@code countries/usa}, and only the
+   * recorded path goes. Because installs SHADOW the bundled default rather than replacing it,
+   * removing a bundle simply lets the default resurface — no hole.
+   */
   private static int remove(Store store, List<String> ids) {
+    PackStore.InstalledRecord record = PackStore.read(store.path());
     for (String id : ids) {
-      Path directory = store.path().resolve(id);
-      Path packs = directory.resolve(PackRegistry.BUNDLE_PACKS_DIR);
-      if (!Files.isDirectory(packs) && !Files.exists(directory)) {
+      PackStore.InstalledBundle entry = PackStore.find(record, id);
+      if (entry == null) {
         // Not an error. `remove` is asked for to reach a state, and that state already holds;
         // exiting non-zero would make an idempotent script fail on its second run.
         System.err.println("tdcv2: \"" + id + "\" is not installed — nothing to remove");
         continue;
       }
-      boolean removed = ProjectConfig.unregister(store.configPath(), List.of(packs));
-      deleteTree(directory);
-      System.out.println("Removed " + id + " (" + directory + ")");
+      PackStore.deleteOwnedPaths(store.path(), entry.paths());
+      record = PackStore.without(record, id);
+      PackStore.write(store.path(), record);
+      System.out.println("Removed " + id + " (" + installedAt(store.path(), entry.paths()) + ")");
+    }
+
+    // The store stays registered while it still holds something: one entry serves every bundle, so
+    // it comes out only when the last one does.
+    if (record.bundles().isEmpty()
+        && ProjectConfig.unregister(store.configPath(), List.of(store.path()))) {
       System.out.println(
-          removed
-              ? "  unregistered from " + store.configPath()
-              : "  was not registered in " + store.configPath());
+          "  store now empty — unregistered " + store.path() + " from " + store.configPath());
     }
     return 0;
   }
 
-  private static String megabytes(long bytes) {
-    return String.format(Locale.ROOT, "%.1f MB", bytes / 1024.0 / 1024.0);
+  /**
+   * Move a store written by an older tdcv2 to the flat layout, and say what moved.
+   *
+   * <p>On stderr: {@code pack list} prints a catalogue people pipe, and a one-off notice about the
+   * store is not part of it.
+   */
+  private static void reportMigration(PackStore.Migration migration) {
+    List<String> lines = new ArrayList<>();
+    lines.add(
+        "tdcv2: pack store \"" + migration.store()
+            + "\" used the old per-bundle layout; moved it to the flat one.");
+    for (PackStore.Move move : migration.moves()) {
+      lines.add(
+          "  " + move.id() + ": " + move.from() + " → " + String.join(", ", move.to())
+              + " (" + move.files() + " files)");
+    }
+    if (migration.droppedDataPaths() > 0) {
+      lines.add("  dropped " + migration.droppedDataPaths() + " per-bundle dataPaths entries");
+    }
+    if (migration.registered() != null) {
+      lines.add("  registered " + migration.registered() + " instead");
+    }
+    List<String> leftovers = migration.leftovers();
+    if (!leftovers.isEmpty()) {
+      String shown = String.join(", ", leftovers.subList(0, Math.min(3, leftovers.size())));
+      String more = leftovers.size() > 3 ? ", … and " + (leftovers.size() - 3) + " more" : "";
+      lines.add("  left where they were (not pack data): " + shown + more);
+    }
+    System.err.println(String.join("\n", lines));
   }
 
-  /** Depth-first, so a directory is gone only once its contents are. */
-  private static void deleteTree(Path root) {
-    try (java.util.stream.Stream<Path> walk = Files.walk(root)) {
-      walk.sorted(Comparator.reverseOrder())
-          .forEach(
-              path -> {
-                try {
-                  Files.deleteIfExists(path);
-                } catch (IOException e) {
-                  throw new UncheckedIOException(e);
-                }
-              });
-    } catch (IOException e) {
-      throw new UncheckedIOException("cannot remove \"" + root + "\"", e);
-    }
+  private static String megabytes(long bytes) {
+    return String.format(Locale.ROOT, "%.1f MB", bytes / 1024.0 / 1024.0);
   }
 }

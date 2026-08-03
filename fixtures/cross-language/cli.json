@@ -27,7 +27,9 @@
     "fromProjectPack": "<tdc>\n  <env count=\"1\" seed=\"s\" local=\"en\">\n    <sequence name=\"L\"><gen type=\"template\" value=\"person.lastName\"/></sequence>\n  </env>\n  <block><line><data>${{L}}</data></line></block>\n</tdc>\n",
     "packNoLocale": "<tdc>\n  <env count=\"1\" seed=\"s\">\n    <sequence name=\"L\"><gen type=\"template\" value=\"person.lastName\"/></sequence>\n  </env>\n  <block><line><data>${{L}}</data></line></block>\n</tdc>\n",
     "clockToday": "<tdc><env count=\"2\" seed=\"clock\" local=\"en\" mode=\"memory\"><sequence name=\"D\"><gen type=\"date\" value=\"today\" format=\"ISO\"/></sequence></env><block><line><data>${{D}}</data></line></block></tdc>\n",
-    "clockBirthday": "<tdc><env count=\"3\" seed=\"clock\" local=\"en\" mode=\"memory\"><sequence name=\"B\"><gen type=\"template\" value=\"person.b_day\" oldest=\"60\" youngest=\"18\" format=\"YYYY-MM-DD\"/></sequence></env><block><line><data>${{B}}</data></line></block></tdc>\n"
+    "clockBirthday": "<tdc><env count=\"3\" seed=\"clock\" local=\"en\" mode=\"memory\"><sequence name=\"B\"><gen type=\"template\" value=\"person.b_day\" oldest=\"60\" youngest=\"18\" format=\"YYYY-MM-DD\"/></sequence></env><block><line><data>${{B}}</data></line></block></tdc>\n",
+    "tooBigForMemory": "<tdc>\n  <env count=\"2000000000\" seed=\"s\" local=\"en\" mode=\"memory\">\n    <sequence name=\"A\"><gen type=\"number\" value=\"1..9\"/></sequence>\n    <sequence name=\"B\"><gen type=\"number\" value=\"1..9\"/></sequence>\n  </env>\n  <block><line><data>${{A}},${{B}}</data></line></block>\n</tdc>\n",
+    "strayPack": "<tdc>\n  <env count=\"1\" seed=\"s\" local=\"en\">\n    <sequence name=\"L\"><gen type=\"template\" value=\"stray\"/></sequence>\n  </env>\n  <block><line><data>${{L}}</data></line></block>\n</tdc>\n"
   },
   "cases": [
     {
@@ -372,7 +374,22 @@
       "stdoutContains": ["demo", "Demo pack"]
     },
     {
-      "name": "pack add installs and registers the bundle's own packs folder",
+      "name": "pack add unpacks the address path straight into the store",
+      "command": "pack",
+      "registry": true,
+      "files": {
+        "tdcv2.config.json": "{\n  \"packStore\": \"./tdcv2-packs\"\n}\n"
+      },
+      "argv": ["add", "demo", "--registry={registry}"],
+      "exit": 0,
+      "wrote": {
+        "tdcv2-packs/demo/person/lastName.txt": "Ivanov\nPetrov\n",
+        "tdcv2.config.json": "{\n  \"packStore\": \"./tdcv2-packs\",\n  \"dataPaths\": [\n    \"./tdcv2-packs\"\n  ]\n}\n"
+      },
+      "note": "The archive nests its files under `demo/packs/`, which is the bundler's business: both levels are stripped so what lands in the store is the address path and nothing else. One store, one dataPaths entry, however many bundles go in."
+    },
+    {
+      "name": "pack add writes down what the bundle owns",
       "command": "pack",
       "registry": true,
       "files": {
@@ -381,8 +398,14 @@
       "argv": ["add", "demo", "--registry={registry}"],
       "exit": 0,
       "wroteContains": {
-        "tdcv2.config.json": ["tdcv2-packs/demo/packs"]
-      }
+        "tdcv2-packs/.tdcv2-installed.json": [
+          "\"schemaVersion\": 1",
+          "\"id\": \"demo\"",
+          "\"demo/person\"",
+          "\"files\": 1"
+        ]
+      },
+      "note": "With every bundle in one tree, a folder named after the bundle no longer exists, so the store keeps books: the paths each bundle owns (the shallowest folder holding all its files — here `demo/person`, since the demo bundle is one file), its version, its digest. `remove` deletes exactly those paths and `list` marks installed from this file. It is a DOTFILE because the store is a scan root and the loader skips ignored names, not unknown extensions — `installed.json` here would load as a pack at address `installed`. The sha256 is not pinned: each runner builds its own archive and only the extracted contents have to agree."
     },
     {
       "name": "pack add rejects an unknown id and lists what there is",
@@ -503,11 +526,13 @@
       "registry": true,
       "files": {
         "tdcv2.config.json": "{\n  \"packStore\": \"./tdcv2-packs\"\n}\n",
-        "tdcv2-packs/demo/packs/demo/person/lastName.txt": "Ivanov\nPetrov\n"
+        "tdcv2-packs/demo/person/lastName.txt": "Ivanov\nPetrov\n",
+        "tdcv2-packs/.tdcv2-installed.json": "{\n  \"schemaVersion\": 1,\n  \"bundles\": [\n    {\n      \"id\": \"demo\",\n      \"paths\": [\n        \"demo/person\"\n      ],\n      \"version\": \"\",\n      \"sha256\": \"\",\n      \"files\": 1\n    }\n  ]\n}\n"
       },
       "argv": ["list", "--registry={registry}"],
       "exit": 0,
-      "stdout": "Available data packs:\n\n  demo         ✓ installed  Demo pack (0.0 MB)\n               two surnames\n\nInstall with: tdcv2 pack add <id>\n"
+      "stdout": "Available data packs:\n\n  demo         ✓ installed  Demo pack (0.0 MB)\n               two surnames\n\nInstall with: tdcv2 pack add <id>\n",
+      "note": "The mark comes from the store's books, not from a folder with the bundle's name — there are no such folders any more. A tree somebody unpacked by hand is therefore not \"installed\": nothing records what it owns, so nothing could remove it cleanly either."
     },
     {
       "name": "pack add reports each bundle, its file count and where it was registered",
@@ -520,10 +545,10 @@
       "exit": 0,
       "stdoutContains": [
         "Installed demo: 1 files → ",
-        "  registered ./tdcv2-packs/demo/packs in "
+        "  registered ./tdcv2-packs in "
       ],
       "wrote": {
-        "tdcv2.config.json": "{\n  \"packStore\": \"./tdcv2-packs\",\n  \"dataPaths\": [\n    \"./tdcv2-packs/demo/packs\"\n  ]\n}\n"
+        "tdcv2.config.json": "{\n  \"packStore\": \"./tdcv2-packs\",\n  \"dataPaths\": [\n    \"./tdcv2-packs\"\n  ]\n}\n"
       }
     },
     {
@@ -536,8 +561,51 @@
       "argv": ["add", "demo", "--registry={registry}"],
       "exit": 0,
       "wrote": {
-        "tdcv2.config.json": "{\n  \"packStore\": \"./tdcv2-packs\",\n  \"locale\": \"en\",\n  \"somethingWeDoNotKnowAbout\": {\n    \"kept\": true\n  },\n  \"dataPaths\": [\n    \"./tdcv2-packs/demo/packs\"\n  ]\n}\n"
+        "tdcv2.config.json": "{\n  \"packStore\": \"./tdcv2-packs\",\n  \"locale\": \"en\",\n  \"somethingWeDoNotKnowAbout\": {\n    \"kept\": true\n  },\n  \"dataPaths\": [\n    \"./tdcv2-packs\"\n  ]\n}\n"
       }
+    },
+    {
+      "name": "pack remove deletes the tree the record names, and nothing beside it",
+      "command": "pack",
+      "files": {
+        "tdcv2.config.json": "{\n  \"packStore\": \"./tdcv2-packs\",\n  \"dataPaths\": [\n    \"./tdcv2-packs\"\n  ]\n}\n",
+        "tdcv2-packs/demo/person/lastName.txt": "Ivanov\nPetrov\n",
+        "tdcv2-packs/countries/atlantis/docs/id.txt": "AT-1\n",
+        "tdcv2-packs/.tdcv2-installed.json": "{\n  \"schemaVersion\": 1,\n  \"bundles\": [\n    {\n      \"id\": \"atlantis\",\n      \"paths\": [\n        \"countries/atlantis\"\n      ],\n      \"version\": \"\",\n      \"sha256\": \"\",\n      \"files\": 1\n    },\n    {\n      \"id\": \"demo\",\n      \"paths\": [\n        \"demo/person\"\n      ],\n      \"version\": \"\",\n      \"sha256\": \"\",\n      \"files\": 1\n    }\n  ]\n}\n"
+      },
+      "argv": ["remove", "atlantis"],
+      "exit": 0,
+      "stdoutContains": ["Removed atlantis ("],
+      "wrote": {
+        "tdcv2-packs/demo/person/lastName.txt": "Ivanov\nPetrov\n",
+        "tdcv2-packs/.tdcv2-installed.json": "{\n  \"schemaVersion\": 1,\n  \"bundles\": [\n    {\n      \"id\": \"demo\",\n      \"paths\": [\n        \"demo/person\"\n      ],\n      \"version\": \"\",\n      \"sha256\": \"\",\n      \"files\": 1\n    }\n  ]\n}\n",
+        "tdcv2.config.json": "{\n  \"packStore\": \"./tdcv2-packs\",\n  \"dataPaths\": [\n    \"./tdcv2-packs\"\n  ]\n}\n"
+      },
+      "note": "No network: removal reads the store's books. `countries/atlantis` goes and the now-empty `countries/` goes with it, while the bundle sharing the tree is untouched — which is the whole reason the paths are recorded rather than guessed from the id. The store stays in `dataPaths` because something is still in it; it is unregistered only when the last bundle leaves."
+    },
+    {
+      "name": "a store in the old per-bundle layout is moved to the flat one",
+      "command": "pack",
+      "registry": true,
+      "files": {
+        "tdcv2.config.json": "{\n  \"packStore\": \"./tdcv2-packs\",\n  \"dataPaths\": [\n    \"./tdcv2-packs/demo/packs\"\n  ]\n}\n",
+        "tdcv2-packs/demo/packs/demo/person/lastName.txt": "Ivanov\nPetrov\n"
+      },
+      "argv": ["list", "--registry={registry}"],
+      "exit": 0,
+      "stdout": "Available data packs:\n\n  demo         ✓ installed  Demo pack (0.0 MB)\n               two surnames\n\nInstall with: tdcv2 pack add <id>\n",
+      "stderrContains": [
+        "used the old per-bundle layout",
+        "demo: demo/packs → demo/person (1 files)",
+        "dropped 1 per-bundle dataPaths entries",
+        "registered ./tdcv2-packs instead"
+      ],
+      "wrote": {
+        "tdcv2-packs/demo/person/lastName.txt": "Ivanov\nPetrov\n",
+        "tdcv2-packs/.tdcv2-installed.json": "{\n  \"schemaVersion\": 1,\n  \"bundles\": [\n    {\n      \"id\": \"demo\",\n      \"paths\": [\n        \"demo/person\"\n      ],\n      \"version\": \"\",\n      \"sha256\": \"\",\n      \"files\": 1\n    }\n  ]\n}\n",
+        "tdcv2.config.json": "{\n  \"packStore\": \"./tdcv2-packs\",\n  \"dataPaths\": [\n    \"./tdcv2-packs\"\n  ]\n}\n"
+      },
+      "note": "Everyone who ran `pack add` before the flat store has `<store>/<id>/packs/…` on disk and one dataPaths entry per bundle, and neither `list` nor `remove` can read that any more. So the FIRST `tdcv2 pack` of any kind moves it, in place, and says what it did — on stderr, because the catalogue on stdout is something people pipe. Version and sha256 are empty: the archive is long gone and nothing here is going to invent them. It happens once; a store already flat is left alone. `pack --help` runs before this, so it still works on a machine where nothing is set up."
     },
     {
       "name": "a bundle whose bytes do not match the index is refused before it is unpacked",
@@ -598,16 +666,49 @@
       "argv": ["{dir}/a.tdc", "--data-path", "{dir}/mypacks"],
       "exit": 0,
       "stdout": "Toaster / Grinder\nToaster / Grinder\nKettle / Grinder\n"
+    },
+    {
+      "name": "a pack file that lands at no address is named, not merely missed",
+      "note": "The file carries a header, so it was meant as a pack, but `stray` names no locale, country or `common` and nothing in the header says where it belongs — so it is dropped, and the address it was asked for cannot resolve. Both halves have to be said: TDC071 alone sends the author to the config, which is right, while the file that was silently discarded sits in the folder next to it. Warning and error together, exit 1.",
+      "files": {
+        "mypacks/stray.txt": "---\ndescription: a list of my own\n---\nAlpha\nBeta\n",
+        "a.tdc": "@strayPack"
+      },
+      "argv": ["{dir}/a.tdc", "--data-path", "{dir}/mypacks"],
+      "exit": 1,
+      "stderrContains": [
+        "warning[TDC171]",
+        "stray.txt",
+        "is not addressable",
+        "starts with no locale, country or `common`",
+        "error[TDC071]"
+      ]
+    },
+    {
+      "name": "a run too big for this machine's memory is refused before it starts",
+      "note": "Two billion records held in RAM is hundreds of gigabytes on any reading of the estimate, so the answer does not depend on the machine running the test — which is what lets this be a shared case at all. The numbers in the message legitimately differ (a JVM reports its heap ceiling, the others the physical total, and a run to stdout is charged for the string it builds while `-o` is not); the code, the refusal and the silent stdout do not. `mode=\"memory\"` is what makes count a memory cost: the streaming engines hold one row.",
+      "files": { "big.tdc": "@tooBigForMemory" },
+      "argv": ["{dir}/big.tdc"],
+      "exit": 1,
+      "stdout": "",
+      "stderrContains": [
+        "error[TDC201]",
+        "estimated memory need (~",
+        "exceeds this machine's RAM",
+        "run will likely thrash or crash",
+        "mode=\"disk\""
+      ]
     }
   ],
   "gaps": {
     "pkg: sources": "TypeScript resolves src=\"pkg:package/path\" through node_modules. It has no meaning off Node, so the four ports refuse it rather than guessing, and no case exercises it.",
-    "pack header warnings": "A pack file that carries a header but resolves to no locale, country or `common` is dropped by every implementation. The reference scans every pack root up front, so it can say so (warning TDC171); the ports scan only when a lookup has already missed, so they report the miss itself (TDC071) and nothing earlier."
+    "pack header warnings for a file nothing asks for": "TDC171 itself is no longer a gap — all five name the dropped file, and the case above pins it. What differs is WHEN. The reference reads every pack root before it starts, so it warns about an unplaceable file even when no config mentions it; the ports build that index only once a lookup has missed, which is the moment the author is looking for the file anyway. Measured, the reference's scan is 4100 files and ~240 ms per process against a bundled set that has never produced a single warning, so the ports keep the lazy scan on purpose. The one case it cannot reach: a stray file sitting beside packs a config uses successfully stays unreported outside TypeScript.",
+    "TDC160, TDC161 and TDC162": "Three render-time refusals about an INLINE <gen> — `row=` on one, weighted advanced_regex choices, a non-numeric counter start or step. No implementation can reach them from its command line, the reference included: a <gen> inside <line> is TDC131/TDC132 and one directly inside <block> is TDC013, all raised by the validator before anything renders, and the TDC facade validates too. They are reachable only through TypeScript's low-level render(parse(src).tree) entry point, which walks an unvalidated AST — a shape the ports do not have, because they compile a config into a model rather than rendering the tree. Porting them would mean first accepting a config all five currently refuse."
   },
   "registryBundle": {
     "id": "demo",
     "entry": "demo/packs/demo/person/lastName.txt",
     "contents": "Ivanov\nPetrov\n",
-    "note": "The zip nests everything under the bundle's own id, so it unpacks into the STORE and lands at <store>/<id>/packs. Every runner builds exactly this, because the layout is the registry's and getting it wrong breaks packs published for the other implementations."
+    "note": "The zip nests everything under `<id>/packs/`. That nesting is the bundler's, not the store's: `pack add` strips both levels while extracting, so this archive lands at <store>/demo/person/lastName.txt. An entry that does not carry the `<id>/packs/` prefix means the archive is not the bundle it claims to be, and the whole thing is refused rather than scattered into a shared tree. Every runner builds exactly this, because the layout is the registry's and getting it wrong breaks packs published for the other implementations."
   }
 }

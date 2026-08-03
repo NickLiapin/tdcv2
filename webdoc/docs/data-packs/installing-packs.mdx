@@ -143,11 +143,12 @@ tdcv2 init --yes --data-path ../shared-tdc-packs
 }
 ```
 
-- **`packStore`** — where `pack` downloads to. The folder itself is **not** scanned as
-  data; on install, `pack` registers the individual pack roots in `dataPaths`.
+- **`packStore`** — where `pack` downloads to. Every set lands in that one folder, and
+  the first `pack add` registers the folder itself in `dataPaths`. See
+  [inside the pack store](#inside-the-pack-store) for what it looks like.
 - **`locale`** — the default locale (set by the `--locale` flag, above).
-- **`dataPaths`** — the folders the engine actually scans for packs. `pack add` fills
-  these in for you, and you can add your own folders here to point the engine at
+- **`dataPaths`** — the folders the engine actually scans for packs. `pack add` puts the
+  store in there for you, and you can add your own folders here to point the engine at
   [packs you wrote yourself](writing-your-own.mdx).
 
 The config is found by walking **up** from the current folder, the same way tools locate
@@ -248,8 +249,9 @@ landed after `pack add`.
 ### `pack add <id…>` — download and register
 
 `pack add` downloads the set's zip, verifies its `sha256` (a tampered or corrupted
-download won't install), unpacks it, and **registers** the folder in your config, so the
-data is live at its dotted addresses right away — no extra wiring step.
+download won't install), unpacks it into the pack store, and **registers** that store in
+your config, so the data is live at its dotted addresses right away — no extra wiring
+step.
 
 ```bash
 tdcv2 pack add en
@@ -257,28 +259,90 @@ tdcv2 pack add en
 
 <Terminal title="tdcv2 pack add en">
 {`Installed en: 324 files → /path/to/project/tdcv2-packs/en
-  registered ./tdcv2-packs/en/packs in /path/to/project/tdcv2.config.json`}
+  registered ./tdcv2-packs in /path/to/project/tdcv2.config.json`}
 </Terminal>
+
+The store is registered once, on the first install. Later sets land in the same folder
+and say `already registered` instead.
 
 You can install several sets in one call — `tdcv2 pack add common en usa` — and that's
 the normal way to assemble a locale (see [axis-pure packs](#packs-are-axis-pure) below).
 
 ### `pack remove <id…>` — delete and unregister
 
-`pack remove` deletes the set's folder and removes its entry from `dataPaths`, so the
-engine stops scanning it.
+`pack remove` deletes exactly the paths that set brought, and nothing beside them. A
+folder left empty by the deletion goes too.
 
 ```bash
 tdcv2 pack remove usa
 ```
 
 <Terminal title="tdcv2 pack remove usa">
-{`Removed usa (/path/to/project/tdcv2-packs/usa)
-  unregistered from /path/to/project/tdcv2.config.json`}
+{`Removed usa (/path/to/project/tdcv2-packs/countries/usa)`}
+</Terminal>
+
+The store stays in `dataPaths` while it still holds something, because that one entry
+serves every set in it. Remove the last set and the entry goes as well:
+
+<Terminal title="tdcv2 pack remove common en">
+{`Removed common (/path/to/project/tdcv2-packs/common)
+Removed en (/path/to/project/tdcv2-packs/en)
+  store now empty — unregistered /path/to/project/tdcv2-packs from /path/to/project/tdcv2.config.json`}
 </Terminal>
 
 Removing a set is safe: the [built-in default](#built-in-default-vs-downloaded) at those
 addresses comes back on its own.
+
+## Inside the pack store
+
+Every set unpacks into the **one** folder `packStore` names. A language goes under its
+code, a country under `countries/`, and `common` under its own name:
+
+```text
+tdcv2-packs/
+├── .tdcv2-installed.json
+├── common/…
+├── en/…
+└── countries/usa/…
+```
+
+That folder is a single scan root, so the config holds one `dataPaths` entry however many
+sets you install:
+
+```json
+{
+  "packStore": "./tdcv2-packs",
+  "locale": "en",
+  "dataPaths": ["./tdcv2-packs"]
+}
+```
+
+`.tdcv2-installed.json` is the store's own bookkeeping, and not a file you edit. For each
+set it records the paths that set owns, how many files it brought, the `sha256` the
+download was checked against, and the version if the registry publishes one. That is what
+`pack remove` reads to find what to delete, and what `pack list` reads for the
+`✓ installed` mark.
+
+### A store from an earlier version
+
+Earlier versions unpacked each set into `<store>/<id>/packs/…` and gave it a `dataPaths`
+entry of its own. That put three near-identical levels on disk, and it put one entry per
+set in the config — a hundred country packs meant a hundred entries.
+
+The first `tdcv2 pack` command of any kind moves such a store to the layout above, in
+place. Nothing is downloaded again. The notice goes to stderr:
+
+<Terminal title="tdcv2 pack list (store in the old layout)">
+{`tdcv2: pack store "/path/to/project/tdcv2-packs" used the old per-bundle layout; moved it to the flat one.
+  en: en/packs → en (324 files)
+  usa: usa/packs → countries/usa (22 files)
+  dropped 2 per-bundle dataPaths entries
+  registered ./tdcv2-packs instead`}
+</Terminal>
+
+Every move is planned before anything moves. If a path in the new layout is already
+taken, the whole migration is refused and the collisions are named, rather than leaving
+the store half in one shape and half in the other.
 
 ## Packs are axis-pure
 
@@ -292,26 +356,15 @@ tdcv2 pack add common en usa
 
 <Terminal title="tdcv2 pack add common en usa">
 {`Installed common: 145 files → /path/to/project/tdcv2-packs/common
-  registered ./tdcv2-packs/common/packs in /path/to/project/tdcv2.config.json
+  registered ./tdcv2-packs in /path/to/project/tdcv2.config.json
 Installed en: 324 files → /path/to/project/tdcv2-packs/en
-  registered ./tdcv2-packs/en/packs in /path/to/project/tdcv2.config.json
-Installed usa: 22 files → /path/to/project/tdcv2-packs/usa
-  registered ./tdcv2-packs/usa/packs in /path/to/project/tdcv2.config.json`}
+  already registered in /path/to/project/tdcv2.config.json
+Installed usa: 22 files → /path/to/project/tdcv2-packs/countries/usa
+  already registered in /path/to/project/tdcv2.config.json`}
 </Terminal>
 
-Which leaves a config naming all three, in the order they layer:
-
-```json
-{
-  "packStore": "./tdcv2-packs",
-  "locale": "en",
-  "dataPaths": [
-    "./tdcv2-packs/common/packs",
-    "./tdcv2-packs/en/packs",
-    "./tdcv2-packs/usa/packs"
-  ]
-}
-```
+Which leaves three folders in the store, under the one `dataPaths` entry that covers all
+of them — see [inside the pack store](#inside-the-pack-store).
 
 This isn't a quirk of the file format. It reflects the fact that language and country
 really are independent. English is shared by the US, the UK, and Canada, so it downloads

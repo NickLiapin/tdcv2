@@ -21,7 +21,7 @@ pub mod pack_picker;
 
 use std::io::Write;
 
-use crate::errors::{render, Diagnostic};
+use crate::errors::{render, Diagnostic, Severity};
 use crate::tdc::{Options, Tdc, TdcError};
 
 pub const VERSION: &str = env!("CARGO_PKG_VERSION");
@@ -128,20 +128,22 @@ fn generate(
         ..Options::default()
     };
 
-    let data = match Tdc::new(built) {
-        Ok(data) => data,
+    // Planned rather than built, so the memory question below is asked before
+    // the memory is spent.
+    let plan = match Tdc::plan(built) {
+        Ok(plan) => plan,
         Err(e) => {
             report_error(stderr, &e, input)?;
             return Ok(1);
         }
     };
 
-    report(stderr, data.diagnostics(), input, Some(data.source()))?;
+    report(stderr, plan.diagnostics(), input, Some(plan.source()))?;
 
     // A run with no seed anywhere gets a random one. Print it, or the output
     // cannot be reproduced — which is the one promise the whole library is built
     // to keep.
-    let seed = data.seed();
+    let seed = plan.seed();
     if seed.generated {
         note(
             stderr,
@@ -152,6 +154,29 @@ fn generate(
             ),
         )?;
     }
+
+    // Ask what the run will cost before starting it. A config that cannot fit
+    // says so in a millisecond here and takes minutes to say so by thrashing.
+    //
+    // Materialized whichever way the output goes: the other implementations
+    // charge the whole-output string only to a run bound for stdout, because
+    // their `-o` path writes record by record. This one does not — `write_file`
+    // asks for the text and hands the bytes to the filesystem — so answering
+    // "streaming" for `-o` would under-report what this build actually holds.
+    if let Some(budget) = plan.preflight(true) {
+        report_one(stderr, &budget, input, Some(plan.source()))?;
+        if budget.severity == Severity::Error {
+            return Ok(1);
+        }
+    }
+
+    let data = match plan.build() {
+        Ok(data) => data,
+        Err(e) => {
+            report_error(stderr, &e, input)?;
+            return Ok(1);
+        }
+    };
 
     let written = match &options.output {
         Some(path) => data.write_file(path),
@@ -299,6 +324,21 @@ fn report(
         return Ok(());
     }
     writeln!(stderr, "{}", render::all(problems, source, filename, false))
+}
+
+/// One diagnostic that did not come from validation, so without the "n errors"
+/// tally.
+///
+/// The tally counts a config's complaints. The preflight is a separate question
+/// asked after the config passed, and folding it into the count would report a
+/// valid config as an invalid one.
+fn report_one(
+    stderr: &mut dyn Write,
+    problem: &Diagnostic,
+    filename: &str,
+    source: Option<&str>,
+) -> std::io::Result<()> {
+    writeln!(stderr, "{}", render::one(problem, source, filename, false))
 }
 
 fn fail(stderr: &mut dyn Write, message: &str, usage: bool) -> std::io::Result<()> {

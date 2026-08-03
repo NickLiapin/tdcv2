@@ -7,6 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import com.sun.net.httpserver.HttpServer;
 import io.github.nickliapin.tdc.packs.DataPacks;
 import io.github.nickliapin.tdc.packs.PackRegistry;
+import io.github.nickliapin.tdc.packs.PackStore;
 import io.github.nickliapin.tdc.packs.ProjectConfig;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -40,8 +41,8 @@ class PackRegistryTest {
 
   @BeforeEach
   void startRegistry() throws Exception {
-    // The zip carries the bundle id at its root, which is the registry's layout: unpacking into
-    // the store lands it at <store>/xx/packs.
+    // The zip nests everything under `<id>/packs/`, which is the registry's layout. Both levels
+    // are stripped on the way in, so what lands is <store>/xx/person/firstName.txt.
     bundleZip = zip("xx/packs/xx/person/firstName.txt", "Ilmatar\nVäinö\n");
     bundleSha = sha256(bundleZip);
 
@@ -92,14 +93,16 @@ class PackRegistryTest {
     assertEquals("xx", index.bundles().get(0).locale());
 
     Path store = project.resolve("tdcv2-packs");
-    Path root = registry.install(index.find("xx"), store);
-    assertTrue(Files.isRegularFile(root.resolve("xx/person/firstName.txt")));
+    PackStore.InstalledBundle entry = registry.install(index.find("xx"), store);
+    assertTrue(Files.isRegularFile(store.resolve("xx/person/firstName.txt")));
+    // The one folder holding every file it brought — never more, so removal cannot take more.
+    assertEquals(List.of("xx/person"), entry.paths());
+    assertEquals(1, entry.files());
     assertEquals(List.of("xx"), PackRegistry.installed(store));
 
     // Registered the way the config cascade expects, the downloaded pack resolves like any other.
     Files.writeString(
-        project.resolve(ProjectConfig.PROJECT_CONFIG_NAME),
-        "{\"dataPaths\": [\"tdcv2-packs/xx/packs\"]}");
+        project.resolve(ProjectConfig.PROJECT_CONFIG_NAME), "{\"dataPaths\": [\"tdcv2-packs\"]}");
     DataPacks packs = DataPacks.forProject(project);
     assertEquals(List.of("Ilmatar", "Väinö"), packs.load("person.firstName", "xx").values());
     // And the starter set that ships in the jar is still there underneath it.
@@ -114,14 +117,14 @@ class PackRegistryTest {
 
     assertEquals(List.of("Ilmatar", "Väinö"), packs.load("person.firstName", "xx").values());
     String config = Files.readString(project.resolve(ProjectConfig.PROJECT_CONFIG_NAME));
-    assertTrue(config.contains("tdcv2-packs/xx/packs"), "config should name the pack root: " + config);
+    assertTrue(config.contains("tdcv2-packs"), "config should name the pack store: " + config);
 
     // A second run is not a second entry, and the first locale still resolves.
     DataPacks again = DataPacks.install(project, new PackRegistry(baseUrl), "xx");
     assertEquals(
         1,
         Files.readString(project.resolve(ProjectConfig.PROJECT_CONFIG_NAME))
-            .split("tdcv2-packs/xx/packs", -1).length - 1,
+            .split("\"\\./tdcv2-packs\"", -1).length - 1,
         "installing twice should not duplicate the entry");
     assertTrue(again.exists("person.firstName", "xx"));
   }
@@ -135,8 +138,8 @@ class PackRegistryTest {
     PackRegistry.Bundle swapped =
         new PackRegistry.Bundle(
             "corrupt", real.name(), real.description(), "bundles/corrupt.zip",
-            real.bytes(), real.sha256(), real.locale(), real.country(), real.contents(),
-            real.regions(), real.point());
+            real.bytes(), real.sha256(), real.version(), real.locale(), real.country(),
+            real.contents(), real.regions(), real.point());
 
     RuntimeException e =
         assertThrows(RuntimeException.class, () -> registry.install(swapped, store));

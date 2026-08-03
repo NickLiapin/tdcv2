@@ -12,6 +12,7 @@ import re
 from dataclasses import dataclass
 from pathlib import Path
 
+from ..errors import Diagnostic
 from . import project_config, source
 from .registry import Registry
 from .source import Source
@@ -69,7 +70,7 @@ class DataPacks:
     already handed a ``DataPacks``, so nothing new has to be threaded through fifteen signatures.
     """
 
-    __slots__ = ("_cache", "_index", "data_roots", "source")
+    __slots__ = ("_cache", "_index", "_unaddressable", "data_roots", "source")
 
     def __init__(self, from_source: Source | Path, data_roots: list[Path] | None = None) -> None:
         self.source: Source = (
@@ -79,6 +80,9 @@ class DataPacks:
         #: address -> relative file path, built on first use. ``None`` until then: most runs
         #: resolve every address straight from the path and never pay for the scan.
         self._index: dict[str, str] | None = None
+        #: The files the index build read and could not place — TDC171. Filled by the same pass,
+        #: so saying so costs nothing over dropping them silently.
+        self._unaddressable: list[Diagnostic] = []
         #: Folders searched by ``src="@data/…"``, and by a relative ``src=`` the config's own
         #: folder does not hold. Highest priority last, as the layers are.
         self.data_roots: list[Path] = list(data_roots or [])
@@ -104,11 +108,10 @@ class DataPacks:
         layers: list[Source] = [source.Bundled()]
         config = project_config.load(cwd)
         layers.extend(source.Directory(d) for d in config.data_paths if d.is_dir())
-        # The pack STORE is deliberately not a scan root. Bundles land in `<store>/<id>/` and each
-        # registers its own `packs` folder in `dataPaths`; scanning the store as well would make
-        # every installed bundle's ID look like a top-level namespace, so `france.docs.nir` would
-        # be looked up as `france/docs/nir.txt` instead of `countries/france/docs/nir.txt` and a
-        # country pack would stop resolving the moment it was installed.
+        # The pack STORE is not a scan root on its own account. It is scanned when `pack add` has
+        # put something in it and written it into `dataPaths` — the same as any other data path,
+        # and by the entry above rather than by anything special here. A `packStore` nobody has
+        # installed into is a folder the project named, not a folder of packs.
         for root in extra_roots or []:
             if root.is_dir():
                 layers.append(source.Directory(root))
@@ -136,8 +139,11 @@ class DataPacks:
 
         client = registry or Registry()
         index = client.index()
-        roots = [client.install(index.find(bundle_id), store) for bundle_id in bundle_ids]
-        project_config.register(config_path or config_dir / project_config.CONFIG_NAME, roots)
+        for bundle_id in bundle_ids:
+            client.install(index.find(bundle_id), store)
+        # One entry for the store, whatever went into it: every bundle unpacks at its address
+        # path inside that single folder, so there is no per-bundle root left to name.
+        project_config.register(config_path or config_dir / project_config.CONFIG_NAME, [store])
         return DataPacks.for_project(project)
 
     def load(self, dotted_path: str, locale: str) -> Entry:
@@ -202,8 +208,10 @@ class DataPacks:
         if self._index is not None:
             return self._index
         index: dict[str, str] = {}
+        dropped: list[Diagnostic] = []
         for file in self.source.list_files():
-            header = _header_of(self.source.read_lines(file))
+            lines = self.source.read_lines(file)
+            header = _header_of(lines)
             declared = header.get("address", "").strip()
             if declared:
                 address = declared
@@ -217,11 +225,31 @@ class DataPacks:
                     # thing that can say where this belongs.
                     declared_locale = header.get("locale", "").strip()
                     if not declared_locale:
+                        if _has_header(lines):
+                            dropped.append(
+                                _unaddressable_warning(
+                                    self.source.locate(file) or file, address
+                                )
+                            )
                         continue
                     address = f"{declared_locale}.{address}"
             index[address] = file
         self._index = index
+        self._unaddressable = dropped
         return index
+
+    def header_warnings(self) -> list[Diagnostic]:
+        """Every pack file the address scan read and could not place.
+
+        Empty until something has looked an address up and missed, because that is when the scan
+        runs. The reference walks every pack root before it starts and can therefore say this
+        about a file no config mentions; here the walk is the fallback path, and a run that
+        resolves everything by path never pays for it. The author who wrote the unplaceable file
+        always takes the fallback — their own address is the one that misses — so the file gets
+        named at the moment it matters. ``fixtures/cross-language/cli.json`` records the
+        difference.
+        """
+        return list(self._unaddressable)
 
     def addresses(self) -> list[str]:
         """Every address these packs can answer to, in no particular order.
@@ -268,6 +296,33 @@ class DataPacks:
         except (ValueError, OSError):
             return False
         return True
+
+
+def _has_header(lines: list[str]) -> bool:
+    """Whether the file opens with the ``---`` fence.
+
+    A file with no header at all stays silent when it cannot be placed: it is probably a raw
+    ``@data`` source that happens to sit in a pack folder, not a pack somebody meant to publish.
+    """
+    return bool(lines) and lines[0].strip() == "---"
+
+
+def _unaddressable_warning(file: str, address: str) -> Diagnostic:
+    """A pack file the scan read and could not address.
+
+    A warning rather than an error: the run continues on everything else, and the author hears
+    about the file instead of meeting it later as "unknown template path" with nothing to connect
+    the two.
+    """
+    return Diagnostic.warning(
+        "TDC171",
+        f'data-pack file "{file}" is not addressable: "{address}" starts with no locale, '
+        "country or `common`. Add `address:` or `locale:` to its header, or move it under a "
+        "locale folder.",
+        f"Data pack file: {file}",
+        1,
+        0,
+    )
 
 
 def _header_of(lines: list[str]) -> dict[str, str]:

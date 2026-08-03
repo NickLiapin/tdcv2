@@ -5,9 +5,10 @@ a size no library should carry. Everything else is downloaded on demand from one
 three implementations read, so a pack fetched by any of them works in the other two.
 
 A bundle is axis-pure — one language (``en``), or one country (``usa``), or ``common`` — because
-language and country are independent and compose: US English is common + en + usa. Installing
-extracts to ``<store>/<id>/`` and registers only that bundle's own ``packs`` folder in the config,
-so addresses stay ``en.person.lastName`` and never ``en.packs.en.person.lastName``.
+language and country are independent and compose: US English is common + en + usa. Everything lands
+in ONE tree, at its address path: ``<store>/ru/…``, ``<store>/countries/russia/…``. Which bundle
+owns which path is written down in ``<store>/.tdcv2-installed.json`` rather than implied by a folder
+name, so ten languages and a hundred countries are one folder and one ``dataPaths`` entry.
 
 Where things go is decided by the config cascade, not guessed: ``packStore`` from the nearest
 ``tdcv2.config.json``, else the global one. With neither, `init` has not been run and this says so
@@ -22,7 +23,18 @@ from dataclasses import dataclass
 from pathlib import Path
 
 from ..packs import project_config
-from ..packs.registry import DEFAULT_BASE_URL, PackError, Registry, installed
+from ..packs.registry import DEFAULT_BASE_URL, Registry
+from ..packs.store import (
+    PackError,
+    StoreMigration,
+    delete_owned_paths,
+    find_bundle,
+    installed,
+    migrate_store,
+    read_installed,
+    without_bundle,
+    write_installed,
+)
 
 USAGE = """Usage: tdcv2 pack [command]
 
@@ -108,6 +120,13 @@ def run_pack(argv: list[str], cwd: Path | None = None) -> int:
         return 2
 
     try:
+        # Before anything reads the store: a store from an older tdcv2 is in the old per-bundle
+        # layout, which `list`, `add` and `remove` all now misread. The first `tdcv2 pack` after
+        # an upgrade fixes it, once, and says what it did.
+        migration = migrate_store(store.path, store.config_path)
+        if migration is not None:
+            _report_migration(migration)
+
         if interactive:
             return _browse(Registry(registry_url), store)
         if command == "list":
@@ -228,6 +247,11 @@ def _list(registry: Registry, store: Store) -> int:
     return 0
 
 
+def _installed_at(store: Path, paths: list[str]) -> str:
+    """Where a bundle's data ended up, for the line that reports an install or a removal."""
+    return ", ".join(str(store / path) for path in paths)
+
+
 def _add(registry: Registry, store: Store, ids: list[str]) -> int:
     index = registry.index()
     # Every id is looked up before anything is downloaded, so a typo in the third one does not
@@ -235,13 +259,13 @@ def _add(registry: Registry, store: Store, ids: list[str]) -> int:
     bundles = [index.find(bundle_id) for bundle_id in ids]
     for bundle in bundles:
         sys.stderr.write(f"tdcv2: downloading {bundle.id} ({bundle.bytes / 1048576:.1f} MB)…\n")
-        root = registry.install(bundle, store.path)
-        directory = store.path / bundle.id
-        files = sum(1 for entry in directory.rglob("*") if entry.is_file())
-        stored = project_config.storable(store.config_path, root)
-        added = project_config.register(store.config_path, [root])
+        result = registry.install(bundle, store.path)
+        # The STORE goes into the config, once, however many bundles land in it \u2014 not each one.
+        stored = project_config.storable(store.config_path, store.path)
+        added = project_config.register(store.config_path, [store.path])
         sys.stdout.write(
-            f"Installed {bundle.id}: {files} files \u2192 {directory}\n"
+            f"Installed {bundle.id}: {result.files} files "
+            f"\u2192 {_installed_at(store.path, result.paths)}\n"
             + (
                 f"  registered {stored} in {store.config_path}\n"
                 if added
@@ -252,25 +276,54 @@ def _add(registry: Registry, store: Store, ids: list[str]) -> int:
 
 
 def _remove(store: Store, ids: list[str]) -> int:
-    import shutil
+    """Bundles uninstalled: exactly the paths the store recorded for each, and nothing beside them.
 
-    from ..packs.registry import BUNDLE_PACKS_DIR
-
+    Deleting by record rather than by folder name is what a shared tree costs and what it buys:
+    ``russia`` lives at ``countries/russia`` next to ``countries/usa``, and only the recorded path
+    goes. Because installs SHADOW the bundled default rather than replacing it, removing a bundle
+    simply lets the default resurface — no hole. Nothing here touches the network.
+    """
+    record = read_installed(store.path)
     for bundle_id in ids:
-        directory = store.path / bundle_id
-        if not (directory / BUNDLE_PACKS_DIR).is_dir() and not directory.exists():
+        entry = find_bundle(record, bundle_id)
+        if entry is None:
             # Not an error. `remove` is asked for to reach a state, and that state already holds;
             # exiting non-zero would make an idempotent script fail on its second run.
             sys.stderr.write(f'tdcv2: "{bundle_id}" is not installed — nothing to remove\n')
             continue
-        removed = project_config.unregister(store.config_path, [directory / BUNDLE_PACKS_DIR])
-        shutil.rmtree(directory, ignore_errors=True)
+        delete_owned_paths(store.path, entry.paths)
+        record = without_bundle(record, bundle_id)
+        write_installed(store.path, record)
+        sys.stdout.write(f"Removed {bundle_id} ({_installed_at(store.path, entry.paths)})\n")
+
+    # The store stays registered while it still holds something: one entry serves every bundle in
+    # it, so it only comes out when the last one leaves.
+    if not record.bundles and project_config.unregister(store.config_path, [store.path]):
         sys.stdout.write(
-            f"Removed {bundle_id} ({directory})\n"
-            + (
-                f"  unregistered from {store.config_path}\n"
-                if removed
-                else f"  was not registered in {store.config_path}\n"
-            )
+            f"  store now empty — unregistered {store.path} from {store.config_path}\n"
         )
     return 0
+
+
+def _report_migration(migration: StoreMigration) -> None:
+    """A store moved to the flat layout, said out loud.
+
+    On stderr: `pack list` prints a catalogue people pipe, and a one-off notice about the store is
+    no part of it.
+    """
+    lines = [
+        f'tdcv2: pack store "{migration.store}" used the old per-bundle layout; '
+        "moved it to the flat one."
+    ]
+    for move in migration.moves:
+        lines.append(f"  {move.id}: {move.source} → {', '.join(move.to)} ({move.files} files)")
+    if migration.dropped_data_paths > 0:
+        lines.append(f"  dropped {migration.dropped_data_paths} per-bundle dataPaths entries")
+    if migration.registered is not None:
+        lines.append(f"  registered {migration.registered} instead")
+    if migration.leftovers:
+        shown = ", ".join(migration.leftovers[:3])
+        rest = len(migration.leftovers) - 3
+        more = f", … and {rest} more" if rest > 0 else ""
+        lines.append(f"  left where they were (not pack data): {shown}{more}")
+    sys.stderr.write("\n".join(lines) + "\n")

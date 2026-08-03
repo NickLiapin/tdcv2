@@ -96,6 +96,10 @@ def register(config_path: Path, pack_roots: list[Path]) -> bool:
     tool writes them, so a checked-in config keeps working on another machine. Existing settings
     are preserved and duplicates dropped.
 
+    ``pack add`` calls this with the STORE, once, however many bundles land in it: every bundle
+    unpacks at its address path inside that one folder, so there is nothing per-bundle left to
+    register.
+
     Returns whether anything was actually added, so a caller can tell "installed and wired up"
     from "installed, and it was already wired up".
     """
@@ -110,11 +114,14 @@ def register(config_path: Path, pack_roots: list[Path]) -> bool:
         if not any(_against(config_dir, e).resolve() == target for e in entries):
             entries.append(_storable(config_dir, target))
 
-    added = entries != document.get("dataPaths")
+    # Nothing to say and nothing to write: a second bundle going into a store already named
+    # here must not rewrite the file, if only so that a config nobody changed keeps its mtime.
+    if entries == document.get("dataPaths"):
+        return False
     document["dataPaths"] = entries
     config_dir.mkdir(parents=True, exist_ok=True)
     config_path.write_text(json.dumps(document, indent=2, ensure_ascii=False) + "\n", "utf-8")
-    return added
+    return True
 
 
 def storable(config_path: Path, target: Path) -> str:
@@ -143,6 +150,34 @@ def unregister(config_path: Path, pack_roots: list[Path]) -> bool:
     document["dataPaths"] = kept
     config_path.write_text(json.dumps(document, indent=2, ensure_ascii=False) + "\n", "utf-8")
     return True
+
+
+def remove_data_paths_inside(config_path: Path, store: Path) -> int:
+    """Every ``dataPaths`` entry pointing INSIDE the store dropped; the store itself kept.
+
+    That is the per-bundle registration the old layout needed — one entry per bundle, a hundred
+    of them for a hundred countries — and after the store is moved to the flat layout each of
+    those entries names a folder that is no longer there. Matched by resolved path, so it makes
+    no difference whether they were written relative or absolute. Returns how many went.
+    """
+    if not config_path.is_file():
+        return 0
+
+    config_dir = config_path.resolve().parent
+    document = _document(config_path)
+    entries = [e for e in document.get("dataPaths", []) if isinstance(e, str)]
+    root = store.resolve()
+    kept: list[str] = []
+    for entry in entries:
+        absolute = _against(config_dir, entry).resolve()
+        if absolute == root or not absolute.is_relative_to(root):
+            kept.append(entry)
+    if len(kept) == len(entries):
+        return 0
+
+    document["dataPaths"] = kept
+    config_path.write_text(json.dumps(document, indent=2, ensure_ascii=False) + "\n", "utf-8")
+    return len(entries) - len(kept)
 
 
 def _document(path: Path) -> dict[str, object]:

@@ -52,16 +52,24 @@ public sealed class PackRegistry
     /// One downloadable bundle, as the registry's index describes it.
     /// </summary>
     /// <remarks>
+    /// <para>
+    /// <c>Version</c> is what the registry calls this revision of the bundle. Optional: today's
+    /// index declares none, and the digest already tells two revisions apart — but the store writes
+    /// down whatever the registry did say, so a registry that starts versioning its bundles is
+    /// understood without a client change.
+    /// </para>
+    /// <para>
     /// <c>Regions</c> and <c>Point</c> say where a country is: the continents it belongs to, and
     /// roughly its middle as [longitude, latitude]. They come from the registry so an interactive
     /// picker can group and plot a country without keeping a copy of world geography — the picker
     /// exists in several languages, and several copies would be several copies that drift. Empty and
     /// null for languages and for <c>common</c>, and for an index published before they existed,
     /// which is why neither is required.
+    /// </para>
     /// </remarks>
     public sealed record Bundle(
         string Id, string Name, string Description, string File, long Bytes, string Sha256,
-        string? Locale, string? Country, IReadOnlyList<string> Contents,
+        string? Version, string? Locale, string? Country, IReadOnlyList<string> Contents,
         IReadOnlyList<string> Regions, double[]? Point);
 
     /// <summary>The catalogue.</summary>
@@ -96,8 +104,11 @@ public sealed class PackRegistry
     public Index ReadIndex() =>
         ParseIndex(Encoding.UTF8.GetString(Fetch(_baseUrl + "/index.json")));
 
+    /// <summary>What one install put in the store: how many files, and under which paths.</summary>
+    public sealed record Installation(int Files, IReadOnlyList<string> Paths);
+
     /// <summary>
-    /// Download a bundle and unpack it into the store.
+    /// Download a bundle, verify it, unpack it into the store and write down what it owns.
     /// </summary>
     /// <remarks>
     /// <para>
@@ -106,17 +117,22 @@ public sealed class PackRegistry
     /// generator quietly fed the wrong names produces a dataset nobody can tell is wrong.
     /// </para>
     /// <para>
-    /// A bundle's zip nests everything under its own top folder — <c>en/packs/…</c> — so it is
-    /// unpacked into the STORE, not into <c>&lt;store&gt;/&lt;id&gt;</c>: the archive already carries
-    /// the id. Unpacking a level deeper would give <c>&lt;store&gt;/en/en/packs</c> and nothing would
-    /// resolve. That layout is the registry's, shared by every implementation, so getting it wrong
-    /// here breaks packs published for the others rather than only ours.
+    /// A bundle's zip nests everything under <c>&lt;id&gt;/packs/</c>, which is the bundler's
+    /// business and not the user's: both levels are stripped here so the address path lands
+    /// directly in the store and <c>ru/person/lastName.txt</c> is what appears under it. That
+    /// layout is the registry's, shared by every implementation, so getting it wrong here breaks
+    /// packs published for the others rather than only ours.
     /// </para>
     /// </remarks>
-    /// <returns>The pack root to register, <c>&lt;store&gt;/&lt;id&gt;/packs</c>.</returns>
-    public string Install(Bundle bundle, string store)
+    public Installation Install(Bundle bundle, string store)
     {
+        Directory.CreateDirectory(store);
+
         byte[] archive = Fetch(_baseUrl + "/" + bundle.File);
+
+        // Length first: a download cut short in transit is the common case, and saying how short
+        // says far more than "the hash did not match". The digest then covers everything else —
+        // including an archive swapped for one of exactly the same size.
         if (bundle.Bytes > 0 && archive.Length != bundle.Bytes)
         {
             throw new PackException(
@@ -130,32 +146,41 @@ public sealed class PackRegistry
                 + "not installed");
         }
 
-        Directory.CreateDirectory(store);
-        Unzip(archive, store);
+        using var zip = new ZipArchive(new MemoryStream(archive), ZipArchiveMode.Read);
+        List<KeyValuePair<string, ZipArchiveEntry>> planned = Plan(zip, bundle.Id, store);
+        IReadOnlyList<string> paths =
+            PackStore.OwnedPaths(planned.Select(e => e.Key).ToList());
 
-        string root = Path.Combine(store, bundle.Id, BundlePacksDir);
-        return Directory.Exists(root)
-            ? root
-            : throw new PackException(
-                $"bundle \"{bundle.Id}\" has no \"packs\" folder at its root — cannot register it");
-    }
+        PackStore.InstalledRecord record = PackStore.Read(store);
+        AssertNoOverlap(bundle.Id, paths, record);
 
-    /// <summary>Bundle ids already in the store — a folder that carries a <c>packs/</c> directory.</summary>
-    public static IReadOnlyList<string> Installed(string store)
-    {
-        if (!Directory.Exists(store))
+        // Re-installing replaces rather than layers: without this, a bundle that dropped a file
+        // would leave the old one behind for good, still answering to its address.
+        PackStore.InstalledBundle? previous =
+            record.Bundles.FirstOrDefault(b => b.Id == bundle.Id);
+        if (previous is not null)
         {
-            return Array.Empty<string>();
+            PackStore.DeleteOwnedPaths(store, previous.Paths);
         }
 
-        return Directory.GetDirectories(store)
-            .Where(p => Directory.Exists(Path.Combine(p, BundlePacksDir)))
-            .Select(Path.GetFileName)
-            .Where(name => name is not null)
-            .Select(name => name!)
-            .OrderBy(name => name, StringComparer.Ordinal)
-            .ToList();
+        foreach (KeyValuePair<string, ZipArchiveEntry> file in planned)
+        {
+            string destination = PackStore.Resolve(store, file.Key);
+            Directory.CreateDirectory(Path.GetDirectoryName(destination)!);
+            file.Value.ExtractToFile(destination, overwrite: true);
+        }
+
+        PackStore.Write(
+            store,
+            PackStore.With(
+                record,
+                new PackStore.InstalledBundle(
+                    bundle.Id, paths, bundle.Version ?? "", bundle.Sha256, planned.Count)));
+        return new Installation(planned.Count, paths);
     }
+
+    /// <summary>Bundle ids already in the store, from the store's own books.</summary>
+    public static IReadOnlyList<string> Installed(string store) => PackStore.InstalledIds(store);
 
     // ── the wire ─────────────────────────────────────────────────────────────────────────────
 
@@ -227,38 +252,92 @@ public sealed class PackRegistry
         System.Convert.ToHexString(SHA256.HashData(data)).ToLowerInvariant();
 
     /// <summary>
-    /// Unpack, refusing any entry that would land outside the target.
+    /// Decide, before a single byte is written, what the archive would put where.
     /// </summary>
     /// <remarks>
-    /// A zip can name <c>../../etc/something</c>, and an extractor that trusts the name writes
-    /// wherever it is told. The archive is data from the network; it does not get to choose paths.
+    /// Every entry must carry the <c>&lt;id&gt;/packs/</c> prefix — an archive that is not the
+    /// bundle it claims to be, or that carries something beside its packs, is refused whole rather
+    /// than scattered into a shared tree that nothing could then take apart again. A zip can also
+    /// name <c>../../etc/something</c>, and an extractor that trusts the name writes wherever it is
+    /// told; the escape is caught here rather than at the write, so an archive with one escaping
+    /// path does not first lay down the files that came before it.
     /// </remarks>
-    private static void Unzip(byte[] archive, string target)
+    private static List<KeyValuePair<string, ZipArchiveEntry>> Plan(
+        ZipArchive zip, string id, string store)
     {
-        string root = Path.GetFullPath(target);
-        string prefix = root.EndsWith(Path.DirectorySeparatorChar)
-            ? root
-            : root + Path.DirectorySeparatorChar;
-
-        using var zip = new ZipArchive(new MemoryStream(archive), ZipArchiveMode.Read);
+        string prefix = id + "/" + BundlePacksDir + "/";
+        var planned = new List<KeyValuePair<string, ZipArchiveEntry>>();
         foreach (ZipArchiveEntry entry in zip.Entries)
         {
-            string destination = Path.GetFullPath(Path.Combine(root, entry.FullName));
-            if (destination != root && !destination.StartsWith(prefix, StringComparison.Ordinal))
+            string name = entry.FullName;
+            if (name.EndsWith('/'))
             {
-                throw new PackException(
-                    $"bundle entry \"{entry.FullName}\" would escape the pack store");
-            }
-
-            // A directory entry has an empty name after its trailing slash.
-            if (entry.Name.Length == 0)
-            {
-                Directory.CreateDirectory(destination);
                 continue;
             }
 
-            Directory.CreateDirectory(Path.GetDirectoryName(destination)!);
-            entry.ExtractToFile(destination, overwrite: true);
+            if (!name.StartsWith(prefix, StringComparison.Ordinal))
+            {
+                throw new PackException(
+                    $"bundle \"{id}\" carries \"{name}\", which is not under \"{prefix}\" — "
+                    + "refusing to unpack it");
+            }
+
+            string relative = name[prefix.Length..];
+            if (relative.Length == 0)
+            {
+                continue;
+            }
+
+            if (!PackStore.IsInside(PackStore.Resolve(store, relative), store))
+            {
+                throw new PackException($"bundle \"{id}\" contains an unsafe path: {relative}");
+            }
+
+            planned.Add(new KeyValuePair<string, ZipArchiveEntry>(relative, entry));
+        }
+
+        if (planned.Count == 0)
+        {
+            throw new PackException($"bundle \"{id}\" has no files under \"{prefix}\"");
+        }
+
+        planned.Sort((a, b) => string.CompareOrdinal(a.Key, b.Key));
+        return planned;
+    }
+
+    /// <summary>
+    /// Refuse a bundle that would write into a path another one owns.
+    /// </summary>
+    /// <remarks>
+    /// The registry's bundles are axis-pure and no two of them name the same path, so this never
+    /// fires on the real catalogue — it fires on a hand-built or renamed archive, where the
+    /// alternative is two bundles interleaved in one tree and a <c>pack remove</c> that takes half
+    /// of the other with it.
+    /// </remarks>
+    private static void AssertNoOverlap(
+        string id, IReadOnlyList<string> paths, PackStore.InstalledRecord record)
+    {
+        foreach (PackStore.InstalledBundle other in record.Bundles)
+        {
+            if (other.Id == id)
+            {
+                continue;
+            }
+
+            foreach (string mine in paths)
+            {
+                foreach (string theirs in other.Paths)
+                {
+                    if (mine == theirs
+                        || mine.StartsWith(theirs + "/", StringComparison.Ordinal)
+                        || theirs.StartsWith(mine + "/", StringComparison.Ordinal))
+                    {
+                        throw new PackException(
+                            $"bundle \"{id}\" would write into \"{mine}\", which \"{other.Id}\" "
+                            + $"already owns — remove \"{other.Id}\" first");
+                    }
+                }
+            }
         }
     }
 
@@ -352,6 +431,7 @@ public sealed class PackRegistry
             Required(Get(raw, "file"), $"bundles[{i}].file"),
             (long)bytes.GetDouble(),
             Required(Get(raw, "sha256"), $"bundles[{i}].sha256").ToLowerInvariant(),
+            Optional(raw, "version", $"bundles[{i}].version"),
             Optional(raw, "locale", $"bundles[{i}].locale"),
             Optional(raw, "country", $"bundles[{i}].country"),
             contents,

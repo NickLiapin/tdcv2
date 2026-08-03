@@ -16,9 +16,10 @@ namespace Tdcv2.Cli;
 /// <para>
 /// A bundle is axis-pure — one language (<c>en</c>), or one country (<c>usa</c>), or <c>common</c> —
 /// because language and country are independent and compose: US English is common + en + usa.
-/// Installing extracts to <c>&lt;store&gt;/&lt;id&gt;/</c> and registers only that bundle's own
-/// <c>packs</c> folder in the config, so addresses stay <c>en.person.lastName</c> and never
-/// <c>en.packs.en.person.lastName</c>.
+/// Everything lands in ONE tree, at its address path: <c>&lt;store&gt;/en/…</c>,
+/// <c>&lt;store&gt;/countries/usa/…</c>. Which bundle owns which path is written down in
+/// <c>&lt;store&gt;/.tdcv2-installed.json</c> rather than implied by a folder name, so ten languages
+/// and a hundred countries are one folder and one <c>dataPaths</c> entry.
 /// </para>
 /// <para>
 /// Where things go is decided by the config cascade, not guessed: <c>packStore</c> from the nearest
@@ -123,6 +124,16 @@ public static class Pack
 
         try
         {
+            // Before anything reads the store: a store from an older tdcv2 is in the old
+            // per-bundle layout, which `list`, `add` and `remove` all now misread. The first
+            // `tdcv2 pack` after an upgrade fixes it, once, and says what it did.
+            PackStore.StoreMigration? migration =
+                PackStore.Migrate(store.Path, store.ConfigPath);
+            if (migration is not null)
+            {
+                ReportMigration(migration, stderr);
+            }
+
             if (bare && PackPicker.Usable())
             {
                 return Browse(registry, store, stdout, stderr);
@@ -328,12 +339,15 @@ public static class Pack
         foreach (PackRegistry.Bundle bundle in bundles)
         {
             stderr.Write($"tdcv2: downloading {bundle.Id} ({Megabytes(bundle.Bytes)})…\n");
-            string root = registry.Install(bundle, store.Path);
-            string directory = System.IO.Path.Combine(store.Path, bundle.Id);
-            string stored = ProjectConfig.StoredPath(store.ConfigPath, root);
-            bool added = ProjectConfig.Register(store.ConfigPath, new[] { root });
+            PackRegistry.Installation result = registry.Install(bundle, store.Path);
+
+            // The STORE goes into the config, once, however many bundles land in it — a bundle
+            // no longer has a folder of its own to register.
+            string stored = ProjectConfig.StoredPath(store.ConfigPath, store.Path);
+            bool added = ProjectConfig.Register(store.ConfigPath, new[] { store.Path });
             stdout.Write(
-                $"Installed {bundle.Id}: {CountFiles(directory)} files → {directory}\n");
+                $"Installed {bundle.Id}: {result.Files} files → "
+                + $"{InstalledAt(store.Path, result.Paths)}\n");
             stdout.Write(
                 added
                     ? $"  registered {stored} in {store.ConfigPath}\n"
@@ -343,20 +357,28 @@ public static class Pack
         return 0;
     }
 
-    /// <summary>Everything the bundle unpacked, for the line that reports what landed.</summary>
-    private static int CountFiles(string directory) =>
-        Directory.Exists(directory)
-            ? Directory.GetFiles(directory, "*", SearchOption.AllDirectories).Length
-            : 0;
+    /// <summary>Where a bundle's data ended up, for the line that reports an install.</summary>
+    private static string InstalledAt(string store, IReadOnlyList<string> paths) =>
+        string.Join(", ", paths.Select(p => PackStore.Resolve(store, p)));
 
+    /// <summary>
+    /// Uninstall bundles: delete exactly the paths the store recorded for each, and drop the store
+    /// from the config once nothing is left in it. No network.
+    /// </summary>
+    /// <remarks>
+    /// Deleting by record rather than by folder name is what a shared tree costs and what it buys:
+    /// <c>russia</c> lives at <c>countries/russia</c> beside <c>countries/usa</c>, and only the
+    /// recorded path goes. Because installs SHADOW the bundled default rather than replacing it,
+    /// removing a bundle simply lets the default resurface — no hole.
+    /// </remarks>
     private static int Remove(
         Store store, IReadOnlyList<string> ids, TextWriter stdout, TextWriter stderr)
     {
+        PackStore.InstalledRecord record = PackStore.Read(store.Path);
         foreach (string id in ids)
         {
-            string directory = System.IO.Path.Combine(store.Path, id);
-            string packs = System.IO.Path.Combine(directory, PackRegistry.BundlePacksDir);
-            if (!Directory.Exists(packs) && !Directory.Exists(directory))
+            PackStore.InstalledBundle? entry = record.Bundles.FirstOrDefault(b => b.Id == id);
+            if (entry is null)
             {
                 // Not an error. `remove` is asked for to reach a state, and that state already
                 // holds; exiting non-zero would make an idempotent script fail on its second run.
@@ -364,16 +386,64 @@ public static class Pack
                 continue;
             }
 
-            bool removed = ProjectConfig.Unregister(store.ConfigPath, new[] { packs });
-            Directory.Delete(directory, recursive: true);
-            stdout.Write($"Removed {id} ({directory})\n");
+            PackStore.DeleteOwnedPaths(store.Path, entry.Paths);
+            record = PackStore.Without(record, id);
+            PackStore.Write(store.Path, record);
+            stdout.Write($"Removed {id} ({InstalledAt(store.Path, entry.Paths)})\n");
+        }
+
+        // The store stays registered while it still holds something: one entry serves every
+        // bundle, so it only comes out when the last one does.
+        if (record.Bundles.Count == 0
+            && ProjectConfig.Unregister(store.ConfigPath, new[] { store.Path }))
+        {
             stdout.Write(
-                removed
-                    ? $"  unregistered from {store.ConfigPath}\n"
-                    : $"  was not registered in {store.ConfigPath}\n");
+                $"  store now empty — unregistered {store.Path} from {store.ConfigPath}\n");
         }
 
         return 0;
+    }
+
+    /// <summary>
+    /// Say what the move to the flat layout did.
+    /// </summary>
+    /// <remarks>
+    /// On stderr: <c>pack list</c> prints a catalogue people pipe, and a one-off notice about the
+    /// store is not part of it.
+    /// </remarks>
+    private static void ReportMigration(PackStore.StoreMigration migration, TextWriter stderr)
+    {
+        var lines = new List<string>
+        {
+            $"tdcv2: pack store \"{migration.Store}\" used the old per-bundle layout; "
+            + "moved it to the flat one.",
+        };
+        foreach (PackStore.StoreMove move in migration.Moves)
+        {
+            lines.Add(
+                $"  {move.Id}: {move.From} → {string.Join(", ", move.To)} ({move.Files} files)");
+        }
+
+        if (migration.DroppedDataPaths > 0)
+        {
+            lines.Add($"  dropped {migration.DroppedDataPaths} per-bundle dataPaths entries");
+        }
+
+        if (migration.Registered is not null)
+        {
+            lines.Add($"  registered {migration.Registered} instead");
+        }
+
+        if (migration.Leftovers.Count > 0)
+        {
+            string shown = string.Join(", ", migration.Leftovers.Take(3));
+            string more = migration.Leftovers.Count > 3
+                ? $", … and {migration.Leftovers.Count - 3} more"
+                : "";
+            lines.Add($"  left where they were (not pack data): {shown}{more}");
+        }
+
+        stderr.Write(string.Join("\n", lines) + "\n");
     }
 
     private static string Megabytes(long bytes) =>

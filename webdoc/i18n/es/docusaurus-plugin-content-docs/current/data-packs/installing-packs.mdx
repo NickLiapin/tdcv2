@@ -150,12 +150,13 @@ tdcv2 init --yes --data-path ../shared-tdc-packs
 }
 ```
 
-- **`packStore`** — adónde descarga `pack`. La carpeta en sí **no** se escanea como
-  datos; al instalar, `pack` registra en `dataPaths` las raíces de paquete concretas.
+- **`packStore`** — adónde descarga `pack`. Cada conjunto aterriza en esa única carpeta, y
+  el primer `pack add` registra la carpeta misma en `dataPaths`. Vea
+  [dentro del almacén de paquetes](#dentro-del-almacén-de-paquetes) para saber cómo queda.
 - **`locale`** — el locale por omisión (lo fija la bandera `--locale`, arriba).
 - **`dataPaths`** — las carpetas que el motor sí escanea en busca de paquetes. `pack add`
-  las llena por usted, y usted puede agregar aquí sus propias carpetas para apuntar el
-  motor a [paquetes que escribió usted mismo](writing-your-own.mdx).
+  pone ahí el almacén por usted, y usted puede agregar aquí sus propias carpetas para
+  apuntar el motor a [paquetes que escribió usted mismo](writing-your-own.mdx).
 
 La configuración se busca subiendo **hacia arriba** desde la carpeta actual (igual que
 las herramientas localizan `tsconfig.json`). Cuando varias fuentes definen lo mismo, la
@@ -223,8 +224,23 @@ conjunto.
 {`Available data packs:
 
 common ✓ installed Common (locale-agnostic) (0.0 MB)
-en English (language) (0.1 MB)
-usa United States (country) (0.0 MB)`}
+Generators bound to neither a language nor a country: uuid,
+hashes, ISBN/ISSN, GTIN/UPC/EAN, card PANs, MRZ, IPv4/IPv6/MAC,
+semver, and more.
+
+en ✓ installed English (language) (0.1 MB)
+Content bound to the English language, not to any one country:
+given names and surnames (US-frequency-weighted), gender words,
+country names. Shared by every English-speaking locale (USA, UK,
+Canada, Australia, …).
+
+…
+
+yemen Yemen (country) (0.0 MB)
+Data specific to Yemen: docs, education, finance, geo, holiday,
+phone, sport.
+
+Install with: tdcv2 pack add <id>`}
 
 </Terminal>
 
@@ -244,18 +260,21 @@ conjunto aterrizó después de `pack add`.
 ### `pack add <id…>` — descargar y registrar
 
 `pack add` descarga el zip del conjunto, verifica su `sha256` (una descarga alterada o
-corrupta no se instala), lo desempaqueta y **registra** la carpeta en su configuración,
-de modo que los datos quedan vivos en sus direcciones con puntos de inmediato, sin ningún
-paso extra de conexión.
+corrupta no se instala), lo desempaqueta dentro del almacén de paquetes y **registra** ese
+almacén en su configuración, de modo que los datos quedan vivos en sus direcciones con
+puntos de inmediato, sin ningún paso extra de conexión.
 
 ```bash
 tdcv2 pack add en
 ```
 
 <Terminal title="tdcv2 pack add en">
-{`Installed en: 30 files → /path/to/project/tdcv2-packs/en
-  registered ./tdcv2-packs/en/packs in /path/to/project/tdcv2.config.json`}
+{`Installed en: 324 files → /path/to/project/tdcv2-packs/en
+  registered ./tdcv2-packs in /path/to/project/tdcv2.config.json`}
 </Terminal>
+
+El almacén se registra una sola vez, en la primera instalación. Los conjuntos siguientes
+aterrizan en la misma carpeta y dicen `already registered`.
 
 Puede instalar varios conjuntos en una sola llamada —`tdcv2 pack add common en usa`—, que
 es la manera normal de armar un locale (vea
@@ -263,21 +282,79 @@ es la manera normal de armar un locale (vea
 
 ### `pack remove <id…>` — borrar y quitar del registro
 
-`pack remove` borra la carpeta del conjunto y elimina su entrada de `dataPaths`, de modo
-que el motor deja de escanearla.
+`pack remove` borra exactamente las rutas que trajo ese conjunto, y nada que esté al lado.
+Una carpeta que quede vacía tras el borrado se va también.
 
 ```bash
 tdcv2 pack remove usa
 ```
 
 <Terminal title="tdcv2 pack remove usa">
-{`Removed usa (/path/to/project/tdcv2-packs/usa)
-  unregistered from /path/to/project/tdcv2.config.json`}
+{`Removed usa (/path/to/project/tdcv2-packs/countries/usa)`}
+</Terminal>
+
+El almacén sigue en `dataPaths` mientras contenga algo, porque esa única entrada sirve a
+todos los conjuntos que hay dentro. Quite el último conjunto y la entrada se va con él:
+
+<Terminal title="tdcv2 pack remove common en">
+{`Removed common (/path/to/project/tdcv2-packs/common)
+Removed en (/path/to/project/tdcv2-packs/en)
+  store now empty — unregistered /path/to/project/tdcv2-packs from /path/to/project/tdcv2.config.json`}
 </Terminal>
 
 Quitar un conjunto es seguro: el
 [conjunto integrado por omisión](#el-conjunto-integrado-frente-al-descargado) vuelve solo
 en esas direcciones.
+
+## Dentro del almacén de paquetes
+
+Cada conjunto se desempaqueta en la **única** carpeta que nombra `packStore`. Un idioma va
+bajo su código, un país bajo `countries/`, y `common` bajo su propio nombre:
+
+```text
+tdcv2-packs/
+├── .tdcv2-installed.json
+├── common/…
+├── en/…
+└── countries/usa/…
+```
+
+Esa carpeta es una sola raíz de escaneo, así que la configuración lleva una entrada de
+`dataPaths` por muchos conjuntos que instale:
+
+```json
+{
+  "packStore": "./tdcv2-packs",
+  "locale": "en",
+  "dataPaths": ["./tdcv2-packs"]
+}
+```
+
+`.tdcv2-installed.json` es la contabilidad del propio almacén, y no un archivo que usted
+edite. De cada conjunto anota las rutas que le pertenecen, cuántos archivos trajo, el
+`sha256` contra el que se verificó la descarga, y la versión si el registro publica una.
+De ahí lee `pack remove` qué borrar, y de ahí lee `pack list` la marca `✓ installed`.
+
+### Un almacén de una versión anterior
+
+Las versiones anteriores desempaquetaban cada conjunto en `<store>/<id>/packs/…` y le
+daban una entrada propia en `dataPaths`. Eso dejaba tres niveles casi idénticos en disco, y
+una entrada por conjunto en la configuración: cien paquetes de país eran cien entradas.
+
+El primer `tdcv2 pack` que ejecute, sea cual sea, mueve ese almacén a la disposición de
+arriba, en su sitio. No hay que descargar nada de nuevo. El aviso sale por stderr:
+
+<Terminal title="tdcv2 pack list (almacén en la disposición antigua)">
+{`tdcv2: pack store "/path/to/project/tdcv2-packs" used the old per-bundle layout; moved it to the flat one.
+  en: en/packs → en (324 files)
+  usa: usa/packs → countries/usa (22 files)
+  dropped 2 per-bundle dataPaths entries
+  registered ./tdcv2-packs instead`}
+</Terminal>
+
+Todo movimiento se planifica antes de que nada se mueva. Si una ruta de la disposición
+nueva ya está ocupada, el traslado se rechaza entero y se nombran las colisiones, en vez de
+dejar el almacén mitad en una forma y mitad en la otra.
 
 ## Los paquetes son puros por eje
 
@@ -291,26 +368,15 @@ tdcv2 pack add common en usa
 
 <Terminal title="tdcv2 pack add common en usa">
 {`Installed common: 145 files → /path/to/project/tdcv2-packs/common
-  registered ./tdcv2-packs/common/packs in /path/to/project/tdcv2.config.json
+  registered ./tdcv2-packs in /path/to/project/tdcv2.config.json
 Installed en: 324 files → /path/to/project/tdcv2-packs/en
-  registered ./tdcv2-packs/en/packs in /path/to/project/tdcv2.config.json
-Installed usa: 22 files → /path/to/project/tdcv2-packs/usa
-  registered ./tdcv2-packs/usa/packs in /path/to/project/tdcv2.config.json`}
+  already registered in /path/to/project/tdcv2.config.json
+Installed usa: 22 files → /path/to/project/tdcv2-packs/countries/usa
+  already registered in /path/to/project/tdcv2.config.json`}
 </Terminal>
 
-Queda un config que nombra las tres, en el orden en que se apilan:
-
-```json
-{
-  "packStore": "./tdcv2-packs",
-  "locale": "en",
-  "dataPaths": [
-    "./tdcv2-packs/common/packs",
-    "./tdcv2-packs/en/packs",
-    "./tdcv2-packs/usa/packs"
-  ]
-}
-```
+Quedan tres carpetas en el almacén, bajo la única entrada de `dataPaths` que las cubre a
+todas — vea [dentro del almacén de paquetes](#dentro-del-almacén-de-paquetes).
 
 Esto no es una rareza del formato de archivo: refleja que el idioma y el país son
 genuinamente independientes. El inglés lo comparten Estados Unidos, el Reino Unido y

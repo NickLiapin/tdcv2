@@ -1,5 +1,6 @@
 package io.github.nickliapin.tdc.packs;
 
+import io.github.nickliapin.tdc.errors.Diagnostic;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
@@ -68,6 +69,13 @@ public final class DataPacks {
   private Map<String, String> addressIndex;
 
   /**
+   * The files the index build read and could not place — TDC171.
+   *
+   * <p>Filled by the same pass, so saying so costs nothing over dropping them silently.
+   */
+  private List<Diagnostic> unaddressable = List.of();
+
+  /**
    * Folders searched by {@code src="@data/…"}, and by a relative {@code src=} the config's own
    * folder does not hold. Highest priority last, as the layers are.
    *
@@ -127,11 +135,10 @@ public final class DataPacks {
         layers.add(new PackSource.Directory(dir));
       }
     }
-    // The pack STORE is deliberately not a scan root. Bundles land in `<store>/<id>/` and each
-    // registers its own `packs` folder in `dataPaths`; scanning the store as well would make every
-    // installed bundle's ID look like a top-level namespace, so `france.docs.nir` would be looked
-    // up as `france/docs/nir.txt` instead of `countries/france/docs/nir.txt` and a country pack
-    // would stop resolving the moment it was installed.
+    // The pack store is not singled out here. Bundles unpack into it at their ADDRESS path —
+    // `<store>/ru/…`, `<store>/countries/france/…` — and `pack add` writes the store itself into
+    // `dataPaths` once, so it arrives above like any other root and `france.docs.nir` resolves as
+    // `countries/france/docs/nir.txt`, which is where it now sits.
     for (Path root : extraRoots) {
       if (Files.isDirectory(root)) {
         layers.add(new PackSource.Directory(root));
@@ -172,11 +179,13 @@ public final class DataPacks {
         resolved.packStore() != null ? resolved.packStore() : configDir.resolve("tdcv2-packs");
 
     PackRegistry.Index index = registry.index();
-    List<Path> roots = new ArrayList<>();
     for (String id : bundleIds) {
-      roots.add(registry.install(index.find(id), store));
+      registry.install(index.find(id), store);
     }
-    ProjectConfig.register(configPath == null ? configDir.resolve(ProjectConfig.PROJECT_CONFIG_NAME) : configPath, roots);
+    // One entry, whatever went in: every bundle lands in this one folder at its address path.
+    ProjectConfig.register(
+        configPath == null ? configDir.resolve(ProjectConfig.PROJECT_CONFIG_NAME) : configPath,
+        List.of(store));
     return forProject(project);
   }
 
@@ -374,8 +383,10 @@ public final class DataPacks {
       return addressIndex;
     }
     Map<String, String> index = new HashMap<>();
+    List<Diagnostic> dropped = new ArrayList<>();
     for (String file : source.listFiles()) {
-      Map<String, String> header = headerOf(source.readLines(file));
+      List<String> lines = source.readLines(file);
+      Map<String, String> header = headerOf(lines);
       String declared = header.get("address");
       String address;
       if (declared != null && !declared.isBlank()) {
@@ -393,6 +404,10 @@ public final class DataPacks {
           // where this belongs.
           String declaredLocale = header.get("locale");
           if (declaredLocale == null || declaredLocale.isBlank()) {
+            if (hasHeader(lines)) {
+              String where = source.locate(file);
+              dropped.add(unaddressableWarning(where == null ? file : where, derived));
+            }
             continue;
           }
           address = declaredLocale.trim() + "." + derived;
@@ -401,7 +416,51 @@ public final class DataPacks {
       index.put(address, file);
     }
     addressIndex = index;
+    unaddressable = List.copyOf(dropped);
     return index;
+  }
+
+  /**
+   * Every pack file the address scan read and could not place — TDC171.
+   *
+   * <p>Empty until something has looked an address up and missed, because that is when the scan
+   * runs. The reference walks every pack root before it starts and can therefore say this about a
+   * file no config mentions; here the walk is the fallback path, and a run that resolves
+   * everything by path never pays for it. The author who wrote the unplaceable file always takes
+   * the fallback — their own address is the one that misses — so the file gets named at the
+   * moment it matters. {@code fixtures/cross-language/cli.json} records the difference.
+   */
+  public List<Diagnostic> headerWarnings() {
+    return unaddressable;
+  }
+
+  /**
+   * A pack file the scan read and could not address.
+   *
+   * <p>A warning rather than an error: the run continues on everything else, and the author hears
+   * about the file instead of meeting it later as "unknown template path" with nothing to connect
+   * the two.
+   */
+  private static Diagnostic unaddressableWarning(String file, String address) {
+    return Diagnostic.warning(
+        "TDC171",
+        "data-pack file \"" + file + "\" is not addressable: \"" + address
+            + "\" starts with no locale, country or `common`. Add `address:` or `locale:` to its "
+            + "header, or move it under a locale folder.",
+        "Data pack file: " + file,
+        1,
+        0);
+  }
+
+  /**
+   * Whether the file opens with the {@code ---} fence.
+   *
+   * <p>A file with no header at all stays silent when it cannot be placed: it is probably a raw
+   * {@code @data} source that happens to sit in a pack folder, not a pack somebody meant to
+   * publish.
+   */
+  private static boolean hasHeader(List<String> lines) {
+    return !lines.isEmpty() && "---".equals(lines.get(0).trim());
   }
 
   /** Just the {@code ---} fenced header, for the address scan: no body, no validation. */

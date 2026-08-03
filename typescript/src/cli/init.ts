@@ -35,7 +35,7 @@ const USAGE = `Usage: tdcv2 init [options]
 export interface InitPlan {
   /** Absolute path of the config file to write. */
   readonly path: string;
-  /** Where downloaded packs should live (a `dataPaths` entry). */
+  /** Where downloaded packs should live — one folder, whatever is installed. */
   readonly packStore: string;
   /** Default locale. */
   readonly locale: string;
@@ -68,11 +68,11 @@ export function defaultPackStore(global: boolean, configPath: string, ctx: InitC
 
 /**
  * The config file's JSON. The store is written as `packStore` (NOT `dataPaths`):
- * it is where `pack add` downloads bundles, and it is deliberately not a scan
- * root — `pack add` adds each bundle's own roots to `dataPaths` so addresses
- * stay correct. A project config writes the store RELATIVE (portable across
- * machines and check-in-friendly); a global config uses the absolute path (it
- * is machine-specific by nature).
+ * it is where `pack add` downloads to, and it is not a scan root until there is
+ * something in it — the first `pack add` registers the store itself, once, for
+ * every bundle that will ever land there. A project config writes the store
+ * RELATIVE (portable across machines and check-in-friendly); a global config
+ * uses the absolute path (it is machine-specific by nature).
  */
 export function buildConfigContent(plan: InitPlan): string {
   const store = plan.global ? plan.packStore : relativeTo(dirname(plan.path), plan.packStore);

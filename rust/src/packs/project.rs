@@ -211,6 +211,37 @@ pub fn unregister(config_path: &Path, roots: &[String]) -> EngineResult<bool> {
     Ok(true)
 }
 
+/// Drop every `dataPaths` entry that points INSIDE `store`, keeping the store
+/// itself and everything outside it. Returns how many went.
+///
+/// That is the per-bundle registration the old layout needed — a hundred of them
+/// for a hundred bundles — and after the move to the flat store each one names a
+/// folder that no longer exists.
+pub fn remove_data_paths_inside(config_path: &Path, store: &Path) -> EngineResult<usize> {
+    if !config_path.is_file() {
+        return Ok(0);
+    }
+    let dir = config_dir(config_path);
+    let mut document = read_document(config_path)?;
+    let entries = data_path_entries(&document);
+
+    let kept: Vec<String> = entries
+        .iter()
+        .filter(|entry| {
+            let resolved = PathBuf::from(absolute(&dir, entry));
+            is_same_path(&resolved, store) || !is_path_inside(&resolved, store)
+        })
+        .cloned()
+        .collect();
+    if kept.len() == entries.len() {
+        return Ok(0);
+    }
+
+    put(&mut document, "dataPaths", array_of(&kept));
+    write_document(config_path, &document)?;
+    Ok(entries.len() - kept.len())
+}
+
 /// How `target` would be written down in this config — what `pack add` reports.
 pub fn stored_path(config_path: &Path, target: &str) -> String {
     storable(&config_dir(config_path), &absolute(Path::new("."), target))
@@ -330,6 +361,44 @@ pub fn absolute(base: &Path, text: &str) -> String {
         base.join(path)
     };
     normalize(&joined)
+}
+
+/// Whether `child` is `parent` itself, or sits somewhere under it.
+///
+/// This is the guard on every path that came from outside — an entry in a
+/// downloaded archive, a path a hand-edited store record claims to own — so it
+/// answers about what a path MEANS rather than about what is on disk: a store
+/// nobody has created yet still has an inside, and a symlink is not consulted
+/// about whether the archive that wrote it was honest.
+pub fn is_path_inside(child: &Path, parent: &Path) -> bool {
+    let child = resolved(child);
+    let parent = resolved(parent);
+    if child == parent {
+        return true;
+    }
+    let separator = std::path::MAIN_SEPARATOR;
+    let prefix = if parent.ends_with(separator) {
+        parent
+    } else {
+        format!("{parent}{separator}")
+    };
+    child.starts_with(&prefix)
+}
+
+/// Whether two paths name the same place, `.` and `..` folded out of both.
+pub fn is_same_path(one: &Path, other: &Path) -> bool {
+    resolved(one) == resolved(other)
+}
+
+/// A path made absolute against the process's directory, then normalised.
+fn resolved(path: &Path) -> String {
+    if path.is_absolute() {
+        return normalize(path);
+    }
+    match std::env::current_dir() {
+        Ok(cwd) => normalize(&cwd.join(path)),
+        Err(_) => normalize(path),
+    }
 }
 
 /// `.` dropped and `..` cancelled against the segment before it.

@@ -63,6 +63,14 @@ public interface IPackSource
     /// address and be searched for under the active locale, where it is not.
     /// </remarks>
     bool HasCountry(string name);
+
+    /// <summary>Where a file physically is, for a complaint that has to name it.</summary>
+    /// <remarks>
+    /// A relative path is ambiguous the moment two roots are layered, and "which file did you
+    /// mean" is the one thing such a message must not leave open. Packs compiled into the
+    /// assembly have no path at all, which is why this can answer null.
+    /// </remarks>
+    string? Locate(string relativePath) => null;
 }
 
 /// <summary>One folder of packs.</summary>
@@ -108,6 +116,12 @@ public sealed class DirectorySource : IPackSource
 
     public bool HasCountry(string name) =>
         Directory.Exists(Path.Combine(_root, "countries", name));
+
+    public string? Locate(string relativePath)
+    {
+        string path = Path.Combine(_root, relativePath.Replace('/', Path.DirectorySeparatorChar));
+        return File.Exists(path) ? path : null;
+    }
 
     public override string ToString() => _root;
 }
@@ -166,6 +180,8 @@ public sealed class LayeredSource : IPackSource
     public bool HasTopLevel(string name) => _sources.Any(s => s.HasTopLevel(name));
 
     public bool HasCountry(string name) => _sources.Any(s => s.HasCountry(name));
+
+    public string? Locate(string relativePath) => Owning(relativePath)?.Locate(relativePath);
 
     public override string ToString() => string.Join(", ", _sources);
 }

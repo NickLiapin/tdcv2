@@ -11,10 +11,11 @@
 //! the same digests, and the same store layout, so a project can be set up by
 //! whichever implementation happens to be at hand and used by any of the others.
 
-use std::path::{Path, PathBuf};
+use std::path::Path;
 
 use crate::archive::{sha256, zip};
 use crate::json::{self, Value};
+use crate::packs::store::{self, InstalledBundle};
 
 /// Where the bundles live. The same default every implementation uses.
 pub const DEFAULT_BASE_URL: &str =
@@ -46,6 +47,13 @@ pub struct Bundle {
     pub file: String,
     pub bytes: i64,
     pub sha256: String,
+    /// What the registry calls this revision of the bundle.
+    ///
+    /// Optional: today's index declares none, and the digest already tells two
+    /// revisions apart — but the store writes down whatever the registry did
+    /// say, so a registry that starts versioning its bundles is understood
+    /// without a client change.
+    pub version: Option<String>,
     /// The language a locale bundle carries, when it carries one.
     pub locale: Option<String>,
     /// The country a country bundle is for, when it is for one.
@@ -111,22 +119,26 @@ impl Registry {
         parse_index(&text)
     }
 
-    /// Download a bundle and unpack it into the store.
+    /// Download a bundle, verify it, unpack it into the store and write it into
+    /// the store's books.
     ///
     /// The bytes are checked against the digest the registry published before
     /// anything is written. Data that arrived corrupted, or altered on the way,
     /// is refused rather than unpacked — a generator quietly fed the wrong names
-    /// produces a dataset nobody can tell is wrong.
+    /// produces a dataset nobody can tell is wrong. Length first, because a
+    /// download cut short in transit is the common case and saying how short says
+    /// far more than "the hash did not match"; the digest then covers everything
+    /// else, including an archive swapped for one of exactly the same size.
     ///
-    /// A bundle's zip nests everything under its own top folder — `en/packs/…` —
-    /// so it is unpacked into the STORE, not into `<store>/<id>`: the archive
-    /// already carries the id. Unpacking a level deeper would give
-    /// `<store>/en/en/packs` and nothing would resolve. That layout is the
-    /// registry's, shared by every implementation, so getting it wrong here
-    /// breaks packs published for the others rather than only ours.
-    ///
-    /// Returns the pack root to register, `<store>/<id>/packs`.
-    pub fn install(&self, bundle: &Bundle, store: &Path) -> Result<PathBuf, PackError> {
+    /// A bundle's zip nests everything under `<id>/packs/`, and both levels are
+    /// stripped while unpacking so what lands in the store is the address path:
+    /// `<store>/en/person/lastName.txt`. That archive layout is the registry's,
+    /// shared by every implementation, so getting it wrong here breaks packs
+    /// published for the others rather than only ours.
+    pub fn install(&self, bundle: &Bundle, store: &Path) -> Result<Installation, PackError> {
+        std::fs::create_dir_all(store)
+            .map_err(|e| PackError(format!("cannot create \"{}\": {e}", store.display())))?;
+
         let archive = fetch(&format!("{}/{}", self.base_url, bundle.file))?;
         if bundle.bytes > 0 && archive.len() as i64 != bundle.bytes {
             return fail(format!(
@@ -143,56 +155,55 @@ impl Registry {
             ));
         }
 
-        std::fs::create_dir_all(store)
-            .map_err(|e| PackError(format!("cannot create \"{}\": {e}", store.display())))?;
-        zip::extract(&archive, store).map_err(|e| PackError(e.0))?;
+        let entries = zip::read(&archive).map_err(|e| PackError(e.0))?;
+        let planned = store::plan_extract(entries, &bundle.id, store)?;
+        let files: Vec<String> = planned.iter().map(|(name, _)| name.clone()).collect();
+        let paths = store::bundle_owned_paths(&files);
 
-        let root = store.join(&bundle.id).join(BUNDLE_PACKS_DIR);
-        if root.is_dir() {
-            Ok(root)
-        } else {
-            fail(format!(
-                "bundle \"{}\" has no \"packs\" folder at its root — cannot register it",
-                bundle.id
-            ))
+        let record = store::read_installed(store)?;
+        store::assert_no_overlap(&bundle.id, &paths, &record)?;
+
+        // Re-installing replaces rather than layers: without this, a bundle that
+        // dropped a file would leave the old one behind for good, still
+        // answering to its address.
+        let previous = record
+            .bundles
+            .iter()
+            .find(|b| b.id == bundle.id)
+            .map(|b| b.paths.clone());
+        if let Some(previous) = previous {
+            store::delete_owned_paths(store, &previous)?;
         }
+
+        store::write_extract(&planned, store)?;
+        store::write_installed(
+            store,
+            &store::with_bundle(
+                record,
+                InstalledBundle {
+                    id: bundle.id.clone(),
+                    paths: paths.clone(),
+                    version: bundle.version.clone().unwrap_or_default(),
+                    sha256: bundle.sha256.clone(),
+                    files: files.len(),
+                },
+            ),
+        )?;
+
+        Ok(Installation {
+            files: files.len(),
+            paths,
+        })
     }
 }
 
-/// Bundle ids already in the store — a folder that carries a `packs/` directory.
-pub fn installed(store: &Path) -> Vec<String> {
-    let Ok(entries) = std::fs::read_dir(store) else {
-        return Vec::new();
-    };
-    let mut ids: Vec<String> = entries
-        .filter_map(|entry| {
-            let path = entry.ok()?.path();
-            if !path.join(BUNDLE_PACKS_DIR).is_dir() {
-                return None;
-            }
-            Some(path.file_name()?.to_string_lossy().into_owned())
-        })
-        .collect();
-    ids.sort();
-    ids
-}
-
-/// Every file under a folder, for the line that reports what landed.
-pub fn count_files(directory: &Path) -> usize {
-    let Ok(entries) = std::fs::read_dir(directory) else {
-        return 0;
-    };
-    entries
-        .filter_map(Result::ok)
-        .map(|entry| {
-            let path = entry.path();
-            if path.is_dir() {
-                count_files(&path)
-            } else {
-                1
-            }
-        })
-        .sum()
+/// What one install put where.
+#[derive(Clone, Debug)]
+pub struct Installation {
+    /// How many files the bundle wrote.
+    pub files: usize,
+    /// The store-relative paths it now owns — where its data actually is.
+    pub paths: Vec<String>,
 }
 
 fn parse_index(text: &str) -> Result<Index, PackError> {
@@ -212,6 +223,7 @@ fn parse_index(text: &str) -> Result<Index, PackError> {
                 file: text_of(node, "file"),
                 bytes: node.get("bytes").and_then(Value::as_i64).unwrap_or(0),
                 sha256: text_of(node, "sha256"),
+                version: opt_text(node, "version"),
                 locale: opt_text(node, "locale"),
                 country: opt_text(node, "country"),
                 regions: node

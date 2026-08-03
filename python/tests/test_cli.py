@@ -226,8 +226,10 @@ class TestPack:
         assert pack_cmd.run_pack(["add", "demo", f"--registry={url}"], project) == 0
         capsys.readouterr()
         registered = json.loads((project / "tdcv2.config.json").read_text())
-        assert registered["dataPaths"] == ["./tdcv2-packs/demo/packs"]
-        assert (project / "tdcv2-packs" / "demo" / "packs").is_dir()
+        # One entry, and it names the store itself: the bundle unpacked at its address path
+        # inside it, so there is no per-bundle root to register.
+        assert registered["dataPaths"] == ["./tdcv2-packs"]
+        assert (project / "tdcv2-packs" / "demo" / "person" / "lastName.txt").is_file()
 
         assert pack_cmd.run_pack(["list", f"--registry={url}"], project) == 0
         assert "installed" in capsys.readouterr().out

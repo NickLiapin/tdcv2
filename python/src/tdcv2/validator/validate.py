@@ -229,7 +229,13 @@ def validate(document, base_dir: Path | None = None, packs: DataPacks | None = N
     """
     v = _Validator(base_dir, packs)
     v.run(document)
-    return list(v.diagnostics)
+    found = list(v.diagnostics)
+    # A pack file the address scan read and could not place — TDC171. Reported after the walk
+    # because the scan is what the walk's own lookups trigger: asking before it has run would
+    # always find nothing.
+    if packs is not None:
+        found.extend(packs.header_warnings())
+    return found
 
 
 class _Validator:

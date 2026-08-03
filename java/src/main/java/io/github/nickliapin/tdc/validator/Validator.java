@@ -318,7 +318,14 @@ public final class Validator {
       io.github.nickliapin.tdc.packs.DataPacks packs) {
     Validator v = new Validator(baseDir, packs);
     v.run(document);
-    return List.copyOf(v.diagnostics);
+    List<Diagnostic> found = new java.util.ArrayList<>(v.diagnostics);
+    // A pack file the address scan read and could not place — TDC171. Reported after the walk
+    // because the scan is what the walk's own lookups trigger: asking before it has run would
+    // always find nothing.
+    if (packs != null) {
+      found.addAll(packs.headerWarnings());
+    }
+    return List.copyOf(found);
   }
 
 

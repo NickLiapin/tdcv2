@@ -330,7 +330,17 @@ public sealed class Validator
     {
         var v = new Validator(baseDir, packs);
         v.Run(document);
-        return v._diagnostics;
+        if (packs is null)
+        {
+            return v._diagnostics;
+        }
+
+        // A pack file the address scan read and could not place — TDC171. Reported after the walk
+        // because the scan is what the walk's own lookups trigger: asking before it has run would
+        // always find nothing.
+        var found = new List<Diagnostic>(v._diagnostics);
+        found.AddRange(packs.HeaderWarnings());
+        return found;
     }
 
     /// <summary>The folders a file source may name. Absent packs mean none were configured.</summary>

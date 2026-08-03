@@ -75,6 +75,17 @@ public interface PackSource {
   boolean hasCountry(String name);
 
   /**
+   * Where a file physically is, for a complaint that has to name it.
+   *
+   * <p>A relative path is ambiguous the moment two roots are layered, and "which file did you
+   * mean" is the one thing such a message must not leave open. Packs read from inside the jar
+   * have no path at all, which is why this can answer {@code null}.
+   */
+  default String locate(String relativePath) {
+    return null;
+  }
+
+  /**
    * Several sources searched in order, the last one winning.
    *
    * <p>This is what lets a project's own packs shadow the bundled ones without replacing them: a
@@ -144,6 +155,12 @@ public interface PackSource {
       }
       return false;
     }
+
+    @Override
+    public String locate(String relativePath) {
+      PackSource source = owning(relativePath);
+      return source == null ? null : source.locate(relativePath);
+    }
   }
 
   /** Packs from a directory. */
@@ -193,6 +210,12 @@ public interface PackSource {
     @Override
     public boolean hasCountry(String name) {
       return Files.isDirectory(root.resolve("countries").resolve(name));
+    }
+
+    @Override
+    public String locate(String relativePath) {
+      Path path = root.resolve(relativePath);
+      return Files.isRegularFile(path) ? path.toString() : null;
     }
 
     @Override

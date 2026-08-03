@@ -4,34 +4,47 @@
  *
  * In a real terminal it opens a small menu: browse the registry, tick the
  * bundles you want, and it downloads, verifies by hash, extracts into the pack
- * store, and wires the pack folder into your config — so the data is usable by
- * its normal address the moment it lands. With no terminal it is scriptable:
+ * store, and wires the store into your config — so the data is usable by its
+ * normal address the moment it lands. With no terminal it is scriptable:
  * `pack list` and `pack add <id…>`.
  *
+ * Everything lands in ONE tree, at its address path: `<store>/ru/…`,
+ * `<store>/countries/russia/…`. Which bundle owns which path is written down in
+ * `<store>/.tdcv2-installed.json` rather than implied by a folder name, so ten
+ * languages and a hundred countries are one folder and one `dataPaths` entry.
+ *
  * The wire (fetch) and the unzip live here; the decisions (what the index means,
- * whether a download is intact, which folder to register) are pure in
- * `pack-core.ts`. Inquirer and fflate are imported lazily so the ordinary
- * generate path never pays for them.
+ * whether a download is intact, what a bundle owns) are pure in `pack-core.ts`.
+ * Inquirer and fflate are imported lazily so the ordinary generate path never
+ * pays for them.
  */
 
-import { existsSync, mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
+import { mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 import { loadConfig } from '../config/config.js';
 import {
+  BUNDLE_PACKS_DIR,
   PackError,
-  bundleDir,
-  bundlePacksRoot,
+  addDataPath,
+  bundleOwnedPaths,
   findBundle,
   installedBundleIds,
   isPathInside,
+  migrateStore,
   parseIndex,
-  registerBundleInConfig,
-  unregisterBundleFromConfig,
+  pruneEmptyDirs,
+  readInstalled,
+  removeDataPath,
   verifySha256,
+  withBundle,
+  withoutBundle,
+  writeInstalled,
+  type InstalledRecord,
   type PackBundle,
   type PackIndex,
+  type StoreMigration,
 } from './pack-core.js';
 
 /**
@@ -150,34 +163,76 @@ export async function downloadWithProgress(
 }
 
 /**
- * Extract a bundle zip into the store. The zip nests everything under its own
- * top folder (`<id>/…`), so extracting into the store places it at
- * `<store>/<id>/…`. Each entry is checked to stay under the store (zip-slip
- * guard). Returns the number of files written.
+ * Read a bundle zip and decide, before a single byte is written, what it would
+ * put where.
+ *
+ * The archive nests everything under `<id>/packs/`, which is the bundler's
+ * business and not the user's: those two levels are stripped here so the address
+ * path lands directly in the store and `ru/person/lastName.txt` is what appears
+ * under it, not `ru/packs/ru/person/lastName.txt`. Every entry must carry that
+ * prefix — an archive that is not the bundle it claims to be, or that carries
+ * something beside its packs, is refused whole rather than scattered into a
+ * shared tree that nothing could then take apart again.
  */
-async function extractBundle(data: Uint8Array, store: string, id: string): Promise<number> {
+async function planExtract(
+  data: Uint8Array,
+  id: string,
+  store: string,
+): Promise<{ rels: string[]; files: Record<string, Uint8Array> }> {
   const { unzipSync } = await import('fflate');
-  let files: Record<string, Uint8Array>;
+  let entries: Record<string, Uint8Array>;
   try {
-    files = unzipSync(data);
+    entries = unzipSync(data);
   } catch (err) {
     throw new PackError(`bundle "${id}" is not a valid zip: ${(err as Error).message}`);
   }
-  let written = 0;
-  for (const [name, bytes] of Object.entries(files)) {
+  const prefix = `${id}/${BUNDLE_PACKS_DIR}/`;
+  const files: Record<string, Uint8Array> = {};
+  const rels: string[] = [];
+  for (const [name, bytes] of Object.entries(entries)) {
     if (name.endsWith('/')) continue; // directory entry
-    const dest = join(store, name);
-    if (!isPathInside(dest, store)) {
-      throw new PackError(`bundle "${id}" contains an unsafe path: ${name}`);
+    if (!name.startsWith(prefix)) {
+      throw new PackError(
+        `bundle "${id}" carries "${name}", which is not under "${prefix}" — refusing to unpack it`,
+      );
     }
+    const rel = name.slice(prefix.length);
+    if (rel === '') continue;
+    // Zip-slip, checked here rather than at the write: an archive with one
+    // escaping path must not first lay down the files that came before it.
+    if (!isPathInside(join(store, rel), store)) {
+      throw new PackError(`bundle "${id}" contains an unsafe path: ${rel}`);
+    }
+    files[rel] = bytes;
+    rels.push(rel);
+  }
+  if (rels.length === 0) {
+    throw new PackError(`bundle "${id}" has no files under "${prefix}"`);
+  }
+  return { rels: rels.sort(), files };
+}
+
+/** Write a planned extract into the store. Every path was checked by the plan. */
+function writeExtract(files: Record<string, Uint8Array>, store: string): void {
+  for (const [rel, bytes] of Object.entries(files)) {
+    const dest = join(store, rel);
     mkdirSync(dirname(dest), { recursive: true });
     writeFileSync(dest, bytes);
-    written++;
   }
-  if (!existsSync(bundlePacksRoot(store, id))) {
-    throw new PackError(`bundle "${id}" has no "packs" folder at its root — cannot register it`);
+}
+
+/** Delete the paths a bundle owns, and any parent left empty behind them. */
+function deleteOwnedPaths(store: string, paths: readonly string[]): void {
+  for (const rel of paths) {
+    const target = join(store, rel);
+    // The record is a file on disk and may have been edited; a path that does
+    // not resolve inside the store is not deleted on its say-so.
+    if (!isPathInside(target, store) || target === store) {
+      throw new PackError(`refusing to delete "${rel}": it is not inside the pack store`);
+    }
+    rmSync(target, { recursive: true, force: true });
+    pruneEmptyDirs(dirname(target), store);
   }
-  return written;
 }
 
 // ── install one bundle ────────────────────────────────────────────────────────
@@ -187,10 +242,12 @@ interface InstallResult {
   readonly files: number;
   readonly registered: boolean;
   readonly storedPath: string;
+  /** Store-relative paths the bundle now owns — where its data actually is. */
+  readonly paths: readonly string[];
 }
 
 /**
- * Download, verify, extract, and register one bundle. `report` receives a
+ * Download, verify, extract, and record one bundle. `report` receives a
  * single-line status the caller can render however it likes.
  */
 async function installBundle(
@@ -222,13 +279,56 @@ async function installBundle(
   }
 
   report(`${bundle.id}: extracting…`);
-  const files = await extractBundle(data, store.path, bundle.id);
+  const { rels, files } = await planExtract(data, bundle.id, store.path);
+  const paths = bundleOwnedPaths(rels);
 
-  const { added, stored } = registerBundleInConfig(
-    store.configPath,
-    bundlePacksRoot(store.path, bundle.id),
+  const record = readInstalled(store.path);
+  assertNoOverlap(bundle.id, paths, record);
+
+  // Re-installing replaces rather than layers: without this, a bundle that
+  // dropped a file would leave the old one behind for good, still answering to
+  // its address.
+  const previous = record.bundles.find((b) => b.id === bundle.id);
+  if (previous) deleteOwnedPaths(store.path, previous.paths);
+
+  writeExtract(files, store.path);
+  writeInstalled(
+    store.path,
+    withBundle(record, {
+      id: bundle.id,
+      paths,
+      version: bundle.version ?? '',
+      sha256: bundle.sha256,
+      files: rels.length,
+    }),
   );
-  return { id: bundle.id, files, registered: added, storedPath: stored };
+
+  const { added, stored } = addDataPath(store.configPath, store.path);
+  return { id: bundle.id, files: rels.length, registered: added, storedPath: stored, paths };
+}
+
+/**
+ * Refuse a bundle that would write into a path another one owns.
+ *
+ * The registry's bundles are axis-pure and no two of them name the same path, so
+ * this never fires on the real catalogue — it fires on a hand-built or renamed
+ * archive, where the alternative is two bundles interleaved in one tree and a
+ * `pack remove` that takes half of the other with it.
+ */
+function assertNoOverlap(id: string, paths: readonly string[], record: InstalledRecord): void {
+  for (const other of record.bundles) {
+    if (other.id === id) continue;
+    for (const mine of paths) {
+      for (const theirs of other.paths) {
+        if (mine === theirs || mine.startsWith(`${theirs}/`) || theirs.startsWith(`${mine}/`)) {
+          throw new PackError(
+            `bundle "${id}" would write into "${mine}", which "${other.id}" already owns — ` +
+              `remove "${other.id}" first`,
+          );
+        }
+      }
+    }
+  }
 }
 
 function progressLine(id: string, received: number, total: number): string {
@@ -316,6 +416,11 @@ async function cmdList(registry: string, store: Store): Promise<number> {
   return 0;
 }
 
+/** Where a bundle's data ended up, for the line that reports an install. */
+function installedAt(store: string, paths: readonly string[]): string {
+  return paths.map((p) => join(store, p)).join(', ');
+}
+
 async function cmdAdd(registry: string, store: Store, ids: readonly string[]): Promise<number> {
   const index = await fetchIndex(registry);
   const bundles = ids.map((id) => findBundle(index, id)); // validate all first
@@ -323,7 +428,7 @@ async function cmdAdd(registry: string, store: Store, ids: readonly string[]): P
     const result = await installBundle(registry, store, bundle, rewriteLine);
     endLine();
     process.stdout.write(
-      `Installed ${result.id}: ${String(result.files)} files → ${bundleDir(store.path, result.id)}\n` +
+      `Installed ${result.id}: ${String(result.files)} files → ${installedAt(store.path, result.paths)}\n` +
         (result.registered
           ? `  registered ${result.storedPath} in ${store.configPath}\n`
           : `  already registered in ${store.configPath}\n`),
@@ -333,31 +438,62 @@ async function cmdAdd(registry: string, store: Store, ids: readonly string[]): P
 }
 
 /**
- * Uninstall bundles: delete `<store>/<id>` and drop its pack root from the
- * config. No network. Because installs SHADOW the bundled default rather than
- * replacing it, removing a bundle simply lets the default resurface — no hole.
+ * Uninstall bundles: delete exactly the paths the store recorded for each, and
+ * drop the store from the config once nothing is left in it. No network.
+ *
+ * Deleting by record rather than by folder name is what a shared tree costs and
+ * what it buys: `russia` lives at `countries/russia` beside `countries/usa`, and
+ * only the recorded path goes. Because installs SHADOW the bundled default
+ * rather than replacing it, removing a bundle simply lets the default resurface
+ * — no hole.
  */
 function cmdRemove(store: Store, ids: readonly string[]): number {
-  const installed = new Set(installedBundleIds(store.path));
+  let record = readInstalled(store.path);
   for (const id of ids) {
-    const dir = bundleDir(store.path, id);
-    if (!installed.has(id) && !existsSync(dir)) {
+    const entry = record.bundles.find((b) => b.id === id);
+    if (entry === undefined) {
       process.stderr.write(`tdcv2: "${id}" is not installed — nothing to remove\n`);
       continue;
     }
-    const { removed } = unregisterBundleFromConfig(
-      store.configPath,
-      bundlePacksRoot(store.path, id),
-    );
-    rmSync(dir, { recursive: true, force: true });
+    deleteOwnedPaths(store.path, entry.paths);
+    record = withoutBundle(record, id);
+    writeInstalled(store.path, record);
+    process.stdout.write(`Removed ${id} (${installedAt(store.path, entry.paths)})\n`);
+  }
+
+  // The store stays registered while it still holds something: one entry serves
+  // every bundle, so it only comes out when the last one does.
+  if (record.bundles.length === 0 && removeDataPath(store.configPath, store.path).removed) {
     process.stdout.write(
-      `Removed ${id} (${dir})\n` +
-        (removed
-          ? `  unregistered from ${store.configPath}\n`
-          : `  was not registered in ${store.configPath}\n`),
+      `  store now empty — unregistered ${store.path} from ${store.configPath}\n`,
     );
   }
   return 0;
+}
+
+/**
+ * Move a store written by an older tdcv2 to the flat layout, and say what moved.
+ *
+ * On stderr: `pack list` prints a catalogue people pipe, and a one-off notice
+ * about the store is not part of it.
+ */
+function reportMigration(m: StoreMigration): void {
+  const lines = [
+    `tdcv2: pack store "${m.store}" used the old per-bundle layout; moved it to the flat one.`,
+  ];
+  for (const move of m.moves) {
+    lines.push(`  ${move.id}: ${move.from} → ${move.to.join(', ')} (${String(move.files)} files)`);
+  }
+  if (m.droppedDataPaths > 0) {
+    lines.push(`  dropped ${String(m.droppedDataPaths)} per-bundle dataPaths entries`);
+  }
+  if (m.registered !== undefined) lines.push(`  registered ${m.registered} instead`);
+  if (m.leftovers.length > 0) {
+    const shown = m.leftovers.slice(0, 3).join(', ');
+    const more = m.leftovers.length > 3 ? `, … and ${String(m.leftovers.length - 3)} more` : '';
+    lines.push(`  left where they were (not pack data): ${shown}${more}`);
+  }
+  process.stderr.write(`${lines.join('\n')}\n`);
 }
 
 // ── interactive picker ────────────────────────────────────────────────────────
@@ -386,7 +522,7 @@ async function runInteractive(registry: string, store: Store): Promise<number> {
     const result = await installBundle(registry, store, bundle, rewriteLine);
     endLine();
     process.stdout.write(
-      `Installed ${result.id}: ${String(result.files)} files → ${bundleDir(store.path, result.id)}\n` +
+      `Installed ${result.id}: ${String(result.files)} files → ${installedAt(store.path, result.paths)}\n` +
         (result.registered
           ? `  registered ${result.storedPath} in ${store.configPath}\n`
           : `  already registered in ${store.configPath}\n`),
@@ -465,6 +601,12 @@ export async function runPack(argv: readonly string[], ctx: PackContext): Promis
     process.stdout.isTTY;
 
   try {
+    // Before anything reads the store: a store from an older tdcv2 is in the old
+    // per-bundle layout, which `list`, `add` and `remove` all now misread. The
+    // first `tdcv2 pack` after an upgrade fixes it, once, and says what it did.
+    const migration = migrateStore(store.path, store.configPath);
+    if (migration) reportMigration(migration);
+
     if (interactive) return await runInteractive(args.registry, store);
     if (args.sub === 'list') return await cmdList(args.registry, store);
     if (args.sub === 'add') {

@@ -61,11 +61,10 @@ def config_content(plan: Plan) -> str:
     """The file's JSON.
 
     The store is written as ``packStore``, not as a ``dataPaths`` entry: it is where ``pack add``
-    downloads bundles, and it is deliberately not a scan root on its own — each installed bundle
-    registers its own ``packs`` folder, so that addresses stay ``en.person.lastName`` rather than
-    ``en.packs.en.person.lastName``. A project config stores the path relative, so the file can be
-    checked into git and still work on another machine; a global config is machine-specific by
-    nature and stores it absolute.
+    downloads to, and it is not a scan root until there is something in it — the first ``pack add``
+    registers the store itself, once, for every bundle that will ever land there. A project config
+    stores the path relative, so the file can be checked into git and still work on another
+    machine; a global config is machine-specific by nature and stores it absolute.
     """
     store = (
         str(plan.pack_store) if plan.is_global else _relative_to(plan.path.parent, plan.pack_store)

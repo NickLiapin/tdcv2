@@ -259,6 +259,19 @@ impl Tdc {
     }
 
     pub fn new(options: Options) -> Result<Tdc, TdcError> {
+        Tdc::plan(options)?.build()
+    }
+
+    /// Everything a run needs, read and checked, with the rows not yet made.
+    ///
+    /// The other four implementations produce their rows on first use, so they
+    /// can be asked what a run will cost after the object exists. Here a `Tdc`
+    /// IS the finished run — which is what lets `text()` and `rows()` return
+    /// values rather than results — so the question has to be asked one step
+    /// earlier, and this is that step. [`Plan::preflight`] is the reason it is
+    /// public: an estimate that arrives after the memory has been spent answers
+    /// nothing.
+    pub fn plan(options: Options) -> Result<Plan, TdcError> {
         let source = match (&options.config_file, &options.config_string) {
             (Some(_), Some(_)) | (None, None) => {
                 return Err(TdcError::Io(
@@ -365,18 +378,16 @@ impl Tdc {
         // would otherwise put two different dates in one file from one "today".
         let now_millis = options.now_millis.unwrap_or_else(now);
         let engine = engine::router::resolve(&config, Some(&packs))?;
-        // Generated once and kept: asking for the text and then for the rows
-        // must not run the generator twice, which would be both slow and — with
-        // a generated seed — a different answer.
-        let run = engine::run_in(&config, &packs, now_millis, base_dir.as_deref())?;
 
-        Ok(Tdc {
+        Ok(Plan {
             config,
             seed_generated,
             source,
             diagnostics,
             engine,
-            run,
+            packs,
+            now_millis,
+            base_dir,
         })
     }
 
@@ -474,6 +485,220 @@ impl Tdc {
             index,
         })
     }
+
+    /// What this run cost in memory, or nothing when the answer is "not much".
+    ///
+    /// The same question [`Plan::preflight`] answers, kept here because the other
+    /// four implementations ask it of the finished object and a caller porting
+    /// code between them should not have to find a different name. Asked here it
+    /// is a report rather than a decision: the rows already exist. Ask the plan
+    /// instead when the point is to not pay.
+    pub fn preflight(&self, materialized: bool) -> Option<Diagnostic> {
+        memory_estimate(&self.config, self.engine, materialized)
+    }
+}
+
+/// A run that has been read, checked and understood, but not yet produced.
+///
+/// See [`Tdc::plan`] for why this exists as its own step.
+pub struct Plan {
+    config: Config,
+    seed_generated: bool,
+    source: String,
+    diagnostics: Vec<Diagnostic>,
+    engine: u8,
+    packs: DataPacks,
+    now_millis: i64,
+    base_dir: Option<String>,
+}
+
+impl Plan {
+    /// The config text, for rendering a diagnostic against the line it names.
+    pub fn source(&self) -> &str {
+        &self.source
+    }
+
+    /// Anything the config was warned about but not refused for.
+    pub fn diagnostics(&self) -> &[Diagnostic] {
+        &self.diagnostics
+    }
+
+    /// The seed this run will use, and whether the config named it.
+    pub fn seed(&self) -> Seed {
+        Seed {
+            value: self.config.seed.clone(),
+            generated: self.seed_generated,
+        }
+    }
+
+    /// Which engine will run it: 1 in memory, 2 streaming, 3 exact on disk.
+    pub fn engine(&self) -> u8 {
+        self.engine
+    }
+
+    /// What this run is likely to cost in memory, or nothing when the answer is
+    /// "not much".
+    ///
+    /// Worth asking before a large run rather than after: a config that will not
+    /// fit says so in a millisecond here, and takes minutes to say so by
+    /// thrashing. The estimate is deliberately crude — a cell is assumed to cost
+    /// about forty bytes and a rendered record about two hundred — because the
+    /// decision it informs is "is this the right order of magnitude", not "how
+    /// many bytes exactly".
+    ///
+    /// `materialized` is whether the whole output will be held as one string, as
+    /// [`Tdc::text`] does. A run written straight to a file does not pay that.
+    pub fn preflight(&self, materialized: bool) -> Option<Diagnostic> {
+        memory_estimate(&self.config, self.engine, materialized)
+    }
+
+    /// Produce the rows.
+    pub fn build(self) -> Result<Tdc, TdcError> {
+        // Generated once and kept: asking for the text and then for the rows
+        // must not run the generator twice, which would be both slow and — with
+        // a generated seed — a different answer.
+        let run = engine::run_in(
+            &self.config,
+            &self.packs,
+            self.now_millis,
+            self.base_dir.as_deref(),
+        )?;
+
+        Ok(Tdc {
+            config: self.config,
+            seed_generated: self.seed_generated,
+            source: self.source,
+            diagnostics: self.diagnostics,
+            engine: self.engine,
+            run,
+        })
+    }
+}
+
+/// Very coarse per-cell estimate in bytes: a typical generated value — a name, a
+/// number, a short date — lands in that range once its own bookkeeping is paid
+/// for.
+const BYTES_PER_CELL: i64 = 40;
+
+/// Estimated size of one rendered record: the literal text plus the values
+/// substituted into it. Generous, and roughly what the example configs produce.
+const BYTES_PER_RENDERED_CARD: i64 = 200;
+
+/// Warn once the estimate reaches this share of total RAM: the run will take a
+/// big part of the machine and may lean on swap, but it can still finish.
+const WARN_RATIO: f64 = 0.5;
+
+/// Refuse once it reaches this share: even with the operating system handing
+/// back everything it can, it will not fit, and the run will thrash or die. The
+/// headroom below 1.0 is for the OS, for everything else running, and for how
+/// rough the estimate is.
+const ERROR_RATIO: f64 = 0.9;
+
+/// The memory estimate, and the complaint it justifies.
+///
+/// Measured against the machine's TOTAL memory rather than what the operating
+/// system calls free. Modern systems keep RAM busy with caches they hand back
+/// the moment a process asks, so the free figure reads far below what a run can
+/// actually have and would refuse jobs that run perfectly well. What bounds a
+/// run is what fits in physical memory before it thrashes.
+fn memory_estimate(config: &Config, engine: u8, materialized: bool) -> Option<Diagnostic> {
+    // A streaming engine holds one row, not the run, so its cost does not grow
+    // with count.
+    let streaming = engine != 1;
+    let mut slots: i64 = 4; // _count, _first, _last, _total
+    for spec in &config.sequences {
+        slots += match &spec.source {
+            crate::model::config::Source::Fields(fields) => fields.len() as i64,
+            _ => 1,
+        };
+    }
+
+    let count = i64::from(config.count);
+    let cells = if streaming { slots } else { count * slots };
+    let mut estimated = cells * BYTES_PER_CELL;
+    if !streaming && materialized {
+        estimated += count * BYTES_PER_RENDERED_CARD;
+    }
+
+    // No figure means no opinion. The other four inherit the reference's
+    // `total > 0 ? … : Infinity`, which on Node can never happen; here the probe
+    // really can come back empty on a platform neither branch below knows, and
+    // refusing every run on a machine we failed to measure would be a worse
+    // answer than the OOM it is trying to prevent.
+    let total = i64::try_from(total_memory()?).unwrap_or(i64::MAX);
+    if total <= 0 {
+        return None;
+    }
+    let ratio = estimated as f64 / total as f64;
+    if ratio < WARN_RATIO {
+        return None;
+    }
+
+    let estimated_mb = (estimated + 1024 * 1024 - 1) / (1024 * 1024);
+    let total_mb = total / (1024 * 1024);
+    let at = Pos { line: 1, column: 0 };
+    if ratio >= ERROR_RATIO {
+        return Some(Diagnostic::error(
+            "TDC201",
+            format!(
+                "estimated memory need (~{estimated_mb} MB) exceeds this machine's RAM \
+                 ({total_mb} MB) — run will likely thrash or crash"
+            ),
+            "Reduce count, split the generation into smaller batches, or switch to disk mode \
+             (mode=\"disk\") which is bounded-memory.",
+            at,
+        ));
+    }
+    Some(Diagnostic::warning(
+        "TDC200",
+        format!(
+            "estimated memory need (~{estimated_mb} MB) is a large share of this machine's RAM \
+             ({total_mb} MB) — may lean on swap and slow down"
+        ),
+        "This will still run; for very large datasets mode=\"disk\" keeps memory flat regardless \
+         of count.",
+        at,
+    ))
+}
+
+/// This machine's physical RAM, or `None` when the platform will not say.
+///
+/// There is no such thing in `std`, and the crate takes no dependencies, so the
+/// two systems it runs on are asked in their own words — the same shape the pack
+/// downloader and the terminal-size probe already use: ask the system, and take
+/// no answer for an answer. `/proc/meminfo` is a plain file read; `sysctl` is one
+/// short process, run once per run.
+fn total_memory() -> Option<u64> {
+    if let Ok(meminfo) = std::fs::read_to_string("/proc/meminfo") {
+        // "MemTotal:       32791484 kB" — the unit is always kB, and has been
+        // for the whole life of the file.
+        let kb = meminfo
+            .lines()
+            .find_map(|line| line.strip_prefix("MemTotal:"))
+            .and_then(|rest| rest.split_whitespace().next())
+            .and_then(|number| number.parse::<u64>().ok());
+        if let Some(kb) = kb {
+            return Some(kb * 1024);
+        }
+    }
+
+    // macOS and the BSDs. `hw.memsize` is bytes on macOS; `hw.physmem` is the
+    // BSD spelling of the same thing.
+    for key in ["hw.memsize", "hw.physmem"] {
+        let output = std::process::Command::new("sysctl")
+            .args(["-n", key])
+            .stderr(std::process::Stdio::null())
+            .output()
+            .ok();
+        let bytes = output
+            .filter(|done| done.status.success())
+            .and_then(|done| String::from_utf8(done.stdout).ok())
+            .and_then(|text| text.trim().parse::<u64>().ok());
+        if let Some(bytes) = bytes.filter(|b| *b > 0) {
+            return Some(bytes);
+        }
+    }
+    None
 }
 
 impl std::fmt::Display for Tdc {

@@ -56,6 +56,16 @@ pub trait PackSource: std::fmt::Debug {
     /// where it is not.
     fn has_country(&self, name: &str) -> bool;
 
+    /// Where a file physically is, for a complaint that has to name it.
+    ///
+    /// A relative path is ambiguous the moment two roots are layered, and "which
+    /// file did you mean" is the one thing such a message must not leave open.
+    /// Packs compiled into the binary have no path at all, which is why this can
+    /// answer nothing.
+    fn locate(&self, _relative_path: &str) -> Option<String> {
+        None
+    }
+
     fn describe(&self) -> String;
 }
 
@@ -125,6 +135,11 @@ impl PackSource for DirectorySource {
 
     fn has_country(&self, name: &str) -> bool {
         self.root.join("countries").join(name).is_dir()
+    }
+
+    fn locate(&self, relative_path: &str) -> Option<String> {
+        let path = self.resolve(relative_path);
+        path.is_file().then(|| path.display().to_string())
     }
 
     fn describe(&self) -> String {
@@ -268,6 +283,10 @@ impl PackSource for LayeredSource {
 
     fn has_country(&self, name: &str) -> bool {
         self.sources.iter().any(|s| s.has_country(name))
+    }
+
+    fn locate(&self, relative_path: &str) -> Option<String> {
+        self.owning(relative_path)?.locate(relative_path)
     }
 
     fn describe(&self) -> String {

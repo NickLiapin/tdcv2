@@ -280,3 +280,43 @@ fn a_run_of_no_records_is_a_run_not_a_failure() {
     assert_eq!(data.rows().count(), 0);
     assert_eq!(data.row(0).map(|r| r.to_map()), None::<BTreeMap<_, _>>);
 }
+
+#[test]
+fn a_run_too_big_for_memory_says_so_before_it_is_built() {
+    // The point of asking the PLAN rather than the finished run: two hundred
+    // million records held in memory will not fit on any machine this runs on,
+    // and here nothing has been allocated yet when the answer comes back.
+    let small = concat!(
+        r#"<tdc><env count="10" seed="s" local="en" mode="memory"><sequence name="N">"#,
+        r#"<gen type="number" value="1..9"/></sequence></env>"#,
+        r#"<block><line><data>${{N}}</data></line></block></tdc>"#,
+    );
+
+    let plan = |count: Option<i32>, engine: Option<u8>| {
+        Tdc::plan(Options {
+            config_string: Some(small.to_string()),
+            count,
+            engine,
+            ..Options::default()
+        })
+        .expect("the config is valid")
+    };
+
+    assert!(
+        plan(None, None).preflight(true).is_none(),
+        "a ten-record run needs no warning"
+    );
+
+    let problem = plan(Some(200_000_000), None)
+        .preflight(true)
+        .expect("an impossible run should say so before it starts");
+    assert_eq!(problem.code, "TDC201");
+    assert_eq!(problem.severity, tdcv2::Severity::Error);
+
+    // The same count on a streaming engine holds one row at a time, so there is
+    // nothing to warn about — which is the entire reason that engine exists.
+    assert!(
+        plan(Some(200_000_000), Some(2)).preflight(true).is_none(),
+        "a streaming run's memory does not grow with its count"
+    );
+}

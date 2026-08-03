@@ -1,8 +1,9 @@
 """Data packs: the vocabularies a run draws from, and where they come from."""
 
-from . import project_config, registry, source
+from . import project_config, registry, source, store
 from .data_packs import DataPacks, Entry
-from .registry import Bundle, Index, PackError, Registry
+from .registry import Bundle, Index, Registry
+from .store import PackError
 
 __all__ = [
     "Bundle",
@@ -14,4 +15,5 @@ __all__ = [
     "project_config",
     "registry",
     "source",
+    "store",
 ]

@@ -240,6 +240,44 @@ public static class ProjectConfig
         return true;
     }
 
+    /// <summary>
+    /// Drop every <c>dataPaths</c> entry that points INSIDE a store; the store itself is kept.
+    /// </summary>
+    /// <remarks>
+    /// That is the per-bundle registration the old layout needed — a hundred of them for a hundred
+    /// bundles — and after the move to the flat layout each one names a folder that no longer
+    /// exists. Matched by resolved path, so a relative and an absolute spelling of the same folder
+    /// both go. Returns how many went.
+    /// </remarks>
+    public static int UnregisterInside(string configPath, string store)
+    {
+        if (!File.Exists(configPath))
+        {
+            return 0;
+        }
+
+        string configDir = Path.GetDirectoryName(Path.GetFullPath(configPath))!;
+        List<KeyValuePair<string, object?>> document = ReadDocument(configPath);
+        List<string> entries = Entries(document);
+
+        string root = Path.GetFullPath(store);
+        List<string> kept = entries
+            .Where(e =>
+            {
+                string absolute = Against(configDir, e);
+                return absolute == root || !PackStore.IsInside(absolute, root);
+            })
+            .ToList();
+        if (kept.Count == entries.Count)
+        {
+            return 0;
+        }
+
+        Put(document, "dataPaths", kept.Cast<object?>().ToList());
+        Write(configPath, configDir, document);
+        return entries.Count - kept.Count;
+    }
+
     private static JsonElement Document(string path)
     {
         string text;

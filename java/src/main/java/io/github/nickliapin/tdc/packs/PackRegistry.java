@@ -14,6 +14,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.time.Duration;
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
@@ -63,6 +64,11 @@ public final class PackRegistry {
   /**
    * One downloadable bundle, as the registry's index describes it.
    *
+   * <p>{@code version} is what the registry calls this revision of the bundle. Optional: today's
+   * index declares none, and the digest already tells two revisions apart — but the store writes
+   * down whatever the registry did say, so a registry that starts versioning its bundles is
+   * understood without a client change.
+   *
    * <p>{@code regions} and {@code point} say where a country is: the continents it belongs to,
    * and roughly its middle as [longitude, latitude]. They come from the registry so the
    * interactive picker can group and plot a country without keeping a copy of world geography —
@@ -77,6 +83,7 @@ public final class PackRegistry {
       String file,
       long bytes,
       String sha256,
+      String version,
       String locale,
       String country,
       List<String> contents,
@@ -120,22 +127,31 @@ public final class PackRegistry {
   }
 
   /**
-   * Download a bundle and unpack it into the store.
+   * Download a bundle, unpack it into the store, and write down what it owns.
    *
    * <p>The bytes are checked against the digest the registry published before anything is
    * written. Data that arrives corrupted, or altered on the way, is refused rather than unpacked
    * — a generator quietly fed the wrong names produces a dataset nobody can tell is wrong.
    *
-   * <p>A bundle's zip nests everything under its own top folder — {@code en/packs/…} — so it is
-   * unpacked into the STORE, not into {@code <store>/<id>}: the archive already carries the id.
-   * Unpacking a level deeper would give {@code <store>/en/en/packs} and nothing would resolve.
-   * That layout is the registry's, shared by every implementation, so getting it wrong here
-   * breaks packs published for the others rather than only ours.
+   * <p>A bundle's zip nests everything under {@code <id>/packs/}, which is the bundler's business
+   * and not the user's: both levels are stripped here so the address path lands directly in the
+   * store and {@code ru/person/lastName.txt} is what appears under it. That layout is the
+   * registry's, shared by every implementation, so getting it wrong here breaks packs published
+   * for the others rather than only ours.
    *
-   * @return the pack root to register, {@code <store>/<id>/packs}
+   * @return the entry the store now holds for this bundle — the paths it owns, and how many files
    */
-  public Path install(Bundle bundle, Path store) {
+  public PackStore.InstalledBundle install(Bundle bundle, Path store) {
+    try {
+      Files.createDirectories(store);
+    } catch (IOException e) {
+      throw new UncheckedIOException("cannot create the pack store " + store, e);
+    }
+
     byte[] archive = fetch(baseUrl + "/" + bundle.file());
+    // Length first: a download cut short in transit is the common case, and saying how short says
+    // far more than "the hash did not match". The digest then covers everything else — including
+    // an archive swapped for one of exactly the same size.
     if (bundle.bytes() > 0 && archive.length != bundle.bytes()) {
       throw new PackException(
           "bundle \"" + bundle.id() + "\": expected " + bundle.bytes() + " bytes, got "
@@ -148,36 +164,64 @@ public final class PackRegistry {
               + "not installed");
     }
 
-    try {
-      Files.createDirectories(store);
-      unzip(archive, store);
-    } catch (IOException e) {
-      throw new UncheckedIOException("cannot unpack bundle \"" + bundle.id() + "\"", e);
+    Map<String, byte[]> files = planExtract(archive, bundle.id(), store);
+    List<String> rels = new ArrayList<>(files.keySet());
+    rels.sort(String::compareTo);
+    List<String> paths = PackStore.ownedPaths(rels);
+
+    PackStore.InstalledRecord record = PackStore.read(store);
+    assertNoOverlap(bundle.id(), paths, record);
+
+    // Re-installing replaces rather than layers: without this, a bundle that dropped a file would
+    // leave the old one behind for good, still answering to its address.
+    PackStore.InstalledBundle previous = PackStore.find(record, bundle.id());
+    if (previous != null) {
+      PackStore.deleteOwnedPaths(store, previous.paths());
     }
 
-    Path root = store.resolve(bundle.id()).resolve(BUNDLE_PACKS_DIR);
-    if (!Files.isDirectory(root)) {
-      throw new PackException(
-          "bundle \"" + bundle.id() + "\" has no \"packs\" folder at its root — cannot register it");
-    }
-    return root;
+    writeExtract(files, store);
+    PackStore.InstalledBundle entry =
+        new PackStore.InstalledBundle(
+            bundle.id(),
+            paths,
+            bundle.version() == null ? "" : bundle.version(),
+            bundle.sha256(),
+            rels.size());
+    PackStore.write(store, PackStore.with(record, entry));
+    return entry;
   }
 
-  /** Bundle ids already in the store — a folder that carries a {@code packs/} directory. */
+  /**
+   * Refuse a bundle that would write into a path another one owns.
+   *
+   * <p>The registry's bundles are axis-pure and no two of them name the same path, so this never
+   * fires on the real catalogue — it fires on a hand-built or renamed archive, where the
+   * alternative is two bundles interleaved in one tree and a {@code pack remove} that takes half
+   * of the other with it.
+   */
+  private static void assertNoOverlap(
+      String id, List<String> paths, PackStore.InstalledRecord record) {
+    for (PackStore.InstalledBundle other : record.bundles()) {
+      if (other.id().equals(id)) {
+        continue;
+      }
+      for (String mine : paths) {
+        for (String theirs : other.paths()) {
+          if (mine.equals(theirs)
+              || mine.startsWith(theirs + "/")
+              || theirs.startsWith(mine + "/")) {
+            throw new PackException(
+                "bundle \"" + id + "\" would write into \"" + mine + "\", which \"" + other.id()
+                    + "\" already owns — remove \"" + other.id() + "\" first");
+          }
+        }
+      }
+    }
+  }
+
+  /** Bundle ids already in the store, from the books it keeps rather than from its folders. */
   public static List<String> installed(Path store) {
-    List<String> ids = new ArrayList<>();
-    if (!Files.isDirectory(store)) {
-      return ids;
-    }
-    try (java.util.stream.Stream<Path> entries = Files.list(store)) {
-      entries
-          .filter(p -> Files.isDirectory(p.resolve(BUNDLE_PACKS_DIR)))
-          .forEach(p -> ids.add(p.getFileName().toString()));
-    } catch (IOException e) {
-      throw new UncheckedIOException("cannot read the pack store " + store, e);
-    }
-    ids.sort(String::compareTo);
-    return ids;
+    return PackStore.installedIds(store);
   }
 
   // ── the wire ─────────────────────────────────────────────────────────────────────────────
@@ -239,39 +283,69 @@ public final class PackRegistry {
   }
 
   /**
-   * Unpack, refusing any entry that would land outside the target.
+   * Read a bundle zip and decide, before a single byte is written, what it would put where.
    *
-   * <p>A zip can name {@code ../../etc/something}, and an extractor that trusts the name writes
-   * wherever it is told. The archive is data from the network; it does not get to choose paths.
+   * <p>Every entry must carry the {@code <id>/packs/} prefix — an archive that is not the bundle
+   * it claims to be, or that carries something beside its packs, is refused whole rather than
+   * scattered into a shared tree that nothing could then take apart again. A zip can also name
+   * {@code ../../etc/something}, and an extractor that trusts the name writes wherever it is told;
+   * that is checked here rather than at the write, so an archive with one escaping path does not
+   * first lay down the files that came before it.
    */
-  private static void unzip(byte[] archive, Path target) throws IOException {
-    Path root = target.toAbsolutePath().normalize();
+  private static Map<String, byte[]> planExtract(byte[] archive, String id, Path store) {
+    String prefix = id + "/" + BUNDLE_PACKS_DIR + "/";
+    Map<String, byte[]> files = new LinkedHashMap<>();
     try (ZipInputStream zip = new ZipInputStream(new java.io.ByteArrayInputStream(archive))) {
       ZipEntry entry;
       while ((entry = zip.getNextEntry()) != null) {
-        Path destination = root.resolve(entry.getName()).normalize();
-        if (!destination.startsWith(root)) {
-          throw new PackException(
-              "bundle entry \"" + entry.getName() + "\" would escape the pack store");
-        }
-        if (entry.isDirectory()) {
-          Files.createDirectories(destination);
+        String name = entry.getName();
+        if (name.endsWith("/")) {
           continue;
         }
-        Files.createDirectories(destination.getParent());
-        try (java.io.OutputStream out = Files.newOutputStream(destination)) {
-          copy(zip, out);
+        if (!name.startsWith(prefix)) {
+          throw new PackException(
+              "bundle \"" + id + "\" carries \"" + name + "\", which is not under \"" + prefix
+                  + "\" — refusing to unpack it");
         }
+        String relative = name.substring(prefix.length());
+        if (relative.isEmpty()) {
+          continue;
+        }
+        if (!PackStore.isPathInside(PackStore.resolve(store, relative), store)) {
+          throw new PackException("bundle \"" + id + "\" contains an unsafe path: " + relative);
+        }
+        files.put(relative, readAll(zip));
+      }
+    } catch (IOException e) {
+      throw new PackException("bundle \"" + id + "\" is not a valid zip: " + e.getMessage(), e);
+    }
+    if (files.isEmpty()) {
+      throw new PackException("bundle \"" + id + "\" has no files under \"" + prefix + "\"");
+    }
+    return files;
+  }
+
+  /** Write a planned extract into the store. Every path was checked by the plan. */
+  private static void writeExtract(Map<String, byte[]> files, Path store) {
+    for (Map.Entry<String, byte[]> file : files.entrySet()) {
+      Path destination = PackStore.resolve(store, file.getKey());
+      try {
+        Files.createDirectories(destination.getParent());
+        Files.write(destination, file.getValue());
+      } catch (IOException e) {
+        throw new UncheckedIOException("cannot write " + destination, e);
       }
     }
   }
 
-  private static void copy(InputStream in, java.io.OutputStream out) throws IOException {
+  private static byte[] readAll(InputStream in) throws IOException {
+    java.io.ByteArrayOutputStream out = new java.io.ByteArrayOutputStream();
     byte[] buffer = new byte[1 << 16];
     int read;
     while ((read = in.read(buffer)) > 0) {
       out.write(buffer, 0, read);
     }
+    return out.toByteArray();
   }
 
   // ── the index ────────────────────────────────────────────────────────────────────────────
@@ -340,6 +414,7 @@ public final class PackRegistry {
         required(b.get("file"), "bundles[" + i + "].file"),
         (long) (double) (Double) bytes,
         required(b.get("sha256"), "bundles[" + i + "].sha256").toLowerCase(Locale.ROOT),
+        optional(b.get("version"), "bundles[" + i + "].version"),
         optional(b.get("locale"), "bundles[" + i + "].locale"),
         optional(b.get("country"), "bundles[" + i + "].country"),
         contents,

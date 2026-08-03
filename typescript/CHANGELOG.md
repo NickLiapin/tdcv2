@@ -11,6 +11,27 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [Unreleased]
 
+### Changed
+
+- **One folder for downloaded packs, not three levels of near-duplicate names.**
+  `tdcv2 pack add ru russia` used to leave `data/ru/packs/ru/…` and
+  `data/russia/packs/countries/russia/…`, and appended a `dataPaths` entry per
+  bundle — a hundred packs meant a hundred entries. Both extra levels belonged
+  to the tooling rather than to the data: `<store>/<id>/` existed so removal
+  could delete one folder, and `packs/` came out of the archive. They are gone.
+  Every bundle now unpacks into ONE tree at its address path — `data/ru/…`,
+  `data/countries/russia/…` — and the store is registered once.
+
+  What each bundle owns is written down in `<store>/.tdcv2-installed.json`
+  instead of implied by a folder name, so `pack remove` deletes exactly the
+  paths that bundle brought and leaves the country beside it alone.
+
+  A store from an earlier version is moved to the new shape in place, by the
+  first `tdcv2 pack` command of any kind, which also replaces the per-bundle
+  `dataPaths` entries with the store and says on stderr what it moved. Nothing
+  has to be downloaded again. If a path in the new layout is already taken the
+  move is refused whole, with the collisions named, rather than half-done.
+
 ### Fixed
 
 - **`tdcv2 init --help` and `tdcv2 pack --help` printed an error instead of

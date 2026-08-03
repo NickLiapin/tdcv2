@@ -249,6 +249,16 @@ but the combination it asks for can't be carried out.
 | `TDC200` | _(warning)_ The estimated memory use is a large share of this machine's RAM — the run continues | For very large sets, use `mode="disk"`, which keeps memory flat                         |
 | `TDC201` | The estimated memory use is more than this machine's RAM                                        | Lower `count`, batch the run, or use `mode="disk"`                                      |
 
+> [!NOTE]
+> **Three of these cannot be reached from a config**
+>
+> `TDC160`, `TDC161` and `TDC162` describe an inline `<gen>` — one written directly
+> inside `<line>` rather than in a `<sequence>`. Validation refuses that shape first, with
+> `TDC131` (`a <gen> is not allowed inside <line>`) or `TDC013`, so a real config never gets
+> far enough to raise them. They are reachable only through the low-level `render(parse(src).tree)`
+> export, which walks an unvalidated tree on purpose. That is also why the four ports do not
+> have them: they compile a config into a model that has no place to put such a `<gen>`.
+
 ## Formatting and modifiers
 
 | Code     | Fires when                                                       | Fix                                                                      |

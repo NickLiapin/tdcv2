@@ -172,6 +172,10 @@ npx tdcv2 pack list            # what the registry has
 npx tdcv2 pack add ru france   # download and wire up
 ```
 
+Everything lands in one folder, at its own address path — `tdcv2-packs/ru/…`,
+`tdcv2-packs/countries/france/…` — and that folder is registered in your config
+once, however many packs you go on to install.
+
 One registry, one `tdcv2.config.json`, one store, shared by all five
 implementations: a pack installed from here is a pack the others find. The full
 story is in

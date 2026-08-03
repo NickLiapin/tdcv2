@@ -234,6 +234,17 @@ se puede llevar a cabo.
 | `TDC200` | _(advertencia)_ La estimación de memoria es una parte grande de la RAM de esta máquina — el run continúa | Para conjuntos muy grandes use `mode="disk"`, la memoria se mantiene plana                  |
 | `TDC201` | La estimación de memoria supera la RAM de esta máquina                                                   | Baje `count`, divida el run, o use `mode="disk"`                                            |
 
+> [!NOTE]
+> **A tres de estos no se llega desde una configuración**
+>
+> `TDC160`, `TDC161` y `TDC162` describen un `<gen>` en línea — escrito directamente dentro
+> de `<line>` en vez de en un `<sequence>`. La validación rechaza esa forma antes, con
+> `TDC131` (`a <gen> is not allowed inside <line>`) o `TDC013`, así que una configuración
+> real nunca llega tan lejos. Solo se alcanzan por el export de bajo nivel
+> `render(parse(src).tree)`, que recorre un árbol sin validar a propósito. Por eso mismo no
+> existen en los cuatro ports: compilan la configuración en un modelo donde ese `<gen>` no
+> tiene dónde ir.
+
 ## Formato y modificadores
 
 | Código   | Cuándo salta                                             | Qué hacer                                                                 |

@@ -1,4 +1,5 @@
 using System.Globalization;
+using Tdcv2.Errors;
 
 namespace Tdcv2.Packs;
 
@@ -67,6 +68,12 @@ public sealed class DataPacks
     /// the scan.
     /// </remarks>
     private Dictionary<string, string>? _addressIndex;
+
+    /// <summary>The files the index build read and could not place — TDC171.</summary>
+    /// <remarks>
+    /// Filled by the same pass, so saying so costs nothing over dropping them silently.
+    /// </remarks>
+    private IReadOnlyList<Diagnostic> _unaddressable = Array.Empty<Diagnostic>();
 
     /// <summary>
     /// Folders searched by <c>src="@data/…"</c>, and by a relative <c>src=</c> the config's own
@@ -386,9 +393,11 @@ public sealed class DataPacks
         }
 
         var index = new Dictionary<string, string>(StringComparer.Ordinal);
+        var dropped = new List<Diagnostic>();
         foreach (string file in Source.ListFiles())
         {
-            Dictionary<string, string> header = HeaderOf(Source.ReadLines(file));
+            IReadOnlyList<string> lines = Source.ReadLines(file);
+            Dictionary<string, string> header = HeaderOf(lines);
             string address;
             if (header.TryGetValue("address", out string? declared)
                 && !string.IsNullOrWhiteSpace(declared))
@@ -417,6 +426,11 @@ public sealed class DataPacks
                 }
                 else
                 {
+                    if (HasHeader(lines))
+                    {
+                        dropped.Add(UnaddressableWarning(Source.Locate(file) ?? file, derived));
+                    }
+
                     continue;
                 }
             }
@@ -425,8 +439,45 @@ public sealed class DataPacks
         }
 
         _addressIndex = index;
+        _unaddressable = dropped;
         return index;
     }
+
+    /// <summary>Every pack file the address scan read and could not place — TDC171.</summary>
+    /// <remarks>
+    /// Empty until something has looked an address up and missed, because that is when the scan
+    /// runs. The reference walks every pack root before it starts and can therefore say this about
+    /// a file no config mentions; here the walk is the fallback path, and a run that resolves
+    /// everything by path never pays for it. The author who wrote the unplaceable file always
+    /// takes the fallback — their own address is the one that misses — so the file gets named at
+    /// the moment it matters. <c>fixtures/cross-language/cli.json</c> records the difference.
+    /// </remarks>
+    public IReadOnlyList<Diagnostic> HeaderWarnings() => _unaddressable;
+
+    /// <summary>A pack file the scan read and could not address.</summary>
+    /// <remarks>
+    /// A warning rather than an error: the run continues on everything else, and the author hears
+    /// about the file instead of meeting it later as "unknown template path" with nothing to
+    /// connect the two.
+    /// </remarks>
+    private static Diagnostic UnaddressableWarning(string file, string address) =>
+        Diagnostic.Warning(
+            "TDC171",
+            $"data-pack file \"{file}\" is not addressable: \"{address}\" starts with no locale, "
+            + "country or `common`. Add `address:` or `locale:` to its header, or move it under a "
+            + "locale folder.",
+            $"Data pack file: {file}",
+            1,
+            0);
+
+    /// <summary>Whether the file opens with the <c>---</c> fence.</summary>
+    /// <remarks>
+    /// A file with no header at all stays silent when it cannot be placed: it is probably a raw
+    /// <c>@data</c> source that happens to sit in a pack folder, not a pack somebody meant to
+    /// publish.
+    /// </remarks>
+    private static bool HasHeader(IReadOnlyList<string> lines) =>
+        lines.Count > 0 && lines[0].Trim() == "---";
 
     /// <summary>Just the <c>---</c> fenced header, for the address scan: no body, no validation.</summary>
     private static Dictionary<string, string> HeaderOf(IReadOnlyList<string> lines)

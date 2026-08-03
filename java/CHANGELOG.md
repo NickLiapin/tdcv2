@@ -11,6 +11,32 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [Unreleased]
 
+### Changed
+
+- **The pack store is one flat tree with one `dataPaths` entry.** A bundle used to
+  unpack to `<store>/<id>/packs/<address>/…` and add a data root of its own, so
+  ten languages and a hundred countries meant three near-duplicate levels and a
+  hundred roots. Everything now lands at its address path — `<store>/ru/…`,
+  `<store>/countries/usa/…` — and the store itself is registered once. Which
+  bundle owns which path is written in `<store>/.tdcv2-installed.json` instead of
+  being implied by a folder name, so `pack remove` deletes exactly what a bundle
+  brought and `pack list` marks what the store has actually recorded. A store
+  written by an earlier version is moved to the new shape by the first
+  `tdcv2 pack` of any kind, in place, with a report on stderr; anything in an old
+  bundle folder that was never pack data is left where it is. `PackRegistry.install`
+  now returns the store's entry for the bundle rather than a pack root, and
+  `PackRegistry.Bundle` carries the index's optional `version`.
+
+### Added
+
+- **A pack file that lands at no address is now named — TDC171.** A file carrying
+  a `---` header whose path starts with no locale, country or `common`, and whose
+  header does not say where it belongs, was dropped in silence; the author met it
+  later as "unknown template path" about a file sitting in their own folder. Both
+  halves are now reported. The scan stays lazy — it runs when a lookup has
+  already missed, which is when the author is looking — so an ordinary run pays
+  nothing for it.
+
 ### Fixed
 
 - **`tdcv2 --version` printed 0.1.0** while the build declared 0.1.3. Gradle now

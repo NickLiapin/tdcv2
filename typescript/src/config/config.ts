@@ -42,15 +42,16 @@ export interface ResolvedConfig {
   /** Default locale — the highest level that set one wins. Undefined if none. */
   readonly locale: string | undefined;
   /**
-   * Where `pack add` downloads bundles. Unlike `dataPaths` this is NOT a scan
-   * root — bundles land in `<packStore>/<id>/` and their specific roots are
-   * added to `dataPaths`, so addresses stay correct and the store itself is
-   * never scanned. The highest level that sets one wins.
+   * Where `pack add` downloads bundles. Every bundle unpacks into this ONE
+   * folder, at its address path (`<packStore>/ru/…`, `<packStore>/countries/usa/…`),
+   * which `pack add` registers in `dataPaths` once — not once per bundle. It is
+   * not a scan root on its own account: it is scanned because that entry says
+   * so, the same as any other data path. The highest level that sets one wins.
    */
   readonly packStore: string | undefined;
   /**
    * The config file that set the winning `packStore` — the file `pack add`
-   * edits to register a downloaded bundle's root. Undefined if no packStore.
+   * edits to register the store. Undefined if no packStore.
    */
   readonly packStoreSource: string | undefined;
   /** Config files that contributed, low→high, for diagnostics. */
