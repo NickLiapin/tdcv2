@@ -1,0 +1,253 @@
+name: Publish all five
+
+# One tag, five registries, one version.
+#
+# Before this file, npm, PyPI and crates.io were published by hand and Java and
+# C# from CI. In a single afternoon the three manual ones failed three times —
+# a wrong npm command, a broken local Python toolchain, and a crate that went to
+# crates.io with no data packs in it, which had to be yanked. The two automated
+# ones failed zero times, because their artefact checks run inside their own
+# workflow rather than in somebody's memory.
+#
+# The versions also drifted, which is the other half of the problem: five
+# separate publishes meant five chances to publish a different number. Here the
+# tag names the version once, every job checks its own build file against it, and
+# nothing is uploaded until all five artefacts have been built and RUN outside
+# the repository.
+#
+#   git tag v0.1.7 && git push origin v0.1.7
+#
+# `workflow_dispatch` runs everything except the uploads, so the whole release
+# can be proven without spending a version number that can never be reused.
+# Every publishing step is guarded by the same `refs/tags/` condition.
+#
+# ── What has to exist on the registry side ───────────────────────────────────
+# Nothing here stores a token. Four of the five registries hand this workflow a
+# short-lived credential in exchange for GitHub's proof of which repository and
+# which workflow file is asking, so the policy on each site names THIS file —
+# renaming it breaks publishing, silently and only at the next release.
+#
+#   npm, PyPI, crates.io, NuGet — Trusted Publishing, configured on each site
+#   Maven Central              — a GPG key and Portal credentials, in secrets
+#
+# Maven is the exception because Central asks for a signature over every
+# artefact, which needs a private key rather than an identity token.
+
+on:
+  push:
+    tags: ["v*"]
+  workflow_dispatch:
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  # ───────────────────────────────────────────────────────────────────────────
+  # Nothing publishes until this passes. It is the stage 0.1.5 did not get: the
+  # sources were green and the crate was empty.
+  gate:
+    name: Versions agree, artefacts run outside the repository
+    runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.version.outputs.value }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - uses: actions/setup-java@v4
+        with: { distribution: temurin, java-version: 17 }
+      - uses: actions/setup-dotnet@v4
+        with: { dotnet-version: "6.0.x\n8.0.x" }
+      - uses: dtolnay/rust-toolchain@stable
+
+      - name: The tag must agree with every build file
+        id: version
+        run: |
+          node scripts/verify-artefacts.mjs --only nothing
+          declared=$(grep -m1 '"version"' typescript/package.json | sed 's/.*"version": "\(.*\)".*/\1/')
+          if [ "${GITHUB_REF_TYPE:-}" = "tag" ]; then
+            tagged="${GITHUB_REF_NAME#v}"
+            if [ "$declared" != "$tagged" ]; then
+              echo "tag $GITHUB_REF_NAME says $tagged, the build files say $declared" >&2
+              exit 1
+            fi
+          fi
+          echo "value=$declared" >> "$GITHUB_OUTPUT"
+          echo "releasing $declared"
+
+      - name: Generate the parsers a clean clone does not carry
+        run: node scripts/generate-parsers.mjs --only csharp
+
+      - name: Build the reference the artefact checks compare against
+        run: |
+          npm ci
+          npm run build --workspace=typescript
+
+      - name: Every artefact, built and run the way a stranger receives it
+        run: node scripts/verify-artefacts.mjs
+
+  # ───────────────────────────────────────────────────────────────────────────
+  npm:
+    needs: gate
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          registry-url: https://registry.npmjs.org
+      # Trusted Publishing needs a recent npm; the one bundled with Node 22 is
+      # older than the feature.
+      - run: npm install -g npm@latest
+      - run: npm ci
+      - run: npm run build --workspace=typescript
+      # `prepack` puts the starter packs inside the tarball. npm runs it itself,
+      # which is why npm has never shipped an empty package — and why Cargo, which
+      # has no such hook, once did.
+      - name: Publish
+        if: github.ref_type == 'tag'
+        run: npm publish -w tdcv2 --access public
+
+  pypi:
+    needs: gate
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - name: Build the distributions
+        run: |
+          python -m pip install --quiet build
+          cd python && python -m build
+      - name: Publish
+        if: github.ref_type == 'tag'
+        uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          packages-dir: python/dist
+
+  crates:
+    needs: gate
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - uses: dtolnay/rust-toolchain@stable
+      # The step that 0.1.5 was missing. The starter packs live once at the
+      # repository root and are copied in here, because a published crate has
+      # nothing above it. `--allow-dirty` is not a shortcut: the copies are
+      # deliberately uncommitted, and are removed again below.
+      - name: Put the starter packs inside the crate
+        run: cd rust && node scripts/bundle-packs.mjs add
+      - name: Publish
+        if: github.ref_type == 'tag'
+        uses: rust-lang/crates-io-auth-action@v1
+        id: auth
+      - name: Push
+        if: github.ref_type == 'tag'
+        env:
+          CARGO_REGISTRY_TOKEN: ${{ steps.auth.outputs.token }}
+        run: cargo publish --manifest-path rust/Cargo.toml --allow-dirty
+      - name: Take them out again
+        if: always()
+        run: cd rust && node scripts/bundle-packs.mjs remove
+
+  maven:
+    needs: gate
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with: { distribution: temurin, java-version: 17 }
+      - name: Build and sign the bundle
+        env:
+          GPG_SIGNING_KEY: ${{ secrets.GPG_SIGNING_KEY }}
+          GPG_SIGNING_PASSPHRASE: ${{ secrets.GPG_SIGNING_PASSPHRASE }}
+        run: |
+          cd java
+          ./gradlew publish
+          # `maven-metadata.xml` is Central's to write, not ours to send: an
+          # unexpected file in the bundle fails validation.
+          cd build/central && find . -name 'maven-metadata.xml*' -delete
+          zip -qr ../bundle.zip .
+      - name: Every artefact must carry a signature
+        # A missing signature is only reported after the upload, by which time the
+        # deployment has to be dropped by hand.
+        run: |
+          cd java/build/central
+          missing=0
+          for f in $(find . -type f ! -name '*.asc' ! -name '*.md5' ! -name '*.sha*'); do
+            [ -f "$f.asc" ] || { echo "no signature for $f" >&2; missing=1; }
+          done
+          exit $missing
+      - name: Keep the bundle, so a failed upload can be inspected
+        uses: actions/upload-artifact@v4
+        with:
+          name: maven-central-bundle
+          path: java/build/bundle.zip
+      - name: Upload to the Central Portal
+        if: github.ref_type == 'tag'
+        env:
+          USERNAME: ${{ secrets.CENTRAL_USERNAME }}
+          PASSWORD: ${{ secrets.CENTRAL_PASSWORD }}
+        run: |
+          token=$(printf '%s:%s' "$USERNAME" "$PASSWORD" | base64)
+          id=$(curl -sS -X POST \
+            -H "Authorization: Bearer $token" \
+            -F bundle=@java/build/bundle.zip \
+            "https://central.sonatype.com/api/v1/publisher/upload")
+          echo "deployment $id"
+          for _ in $(seq 1 20); do
+            state=$(curl -sS -X POST -H "Authorization: Bearer $token" \
+              "https://central.sonatype.com/api/v1/publisher/status?id=$id" \
+              | sed -n 's/.*"deploymentState":"\([A-Z]*\)".*/\1/p')
+            echo "  $state"
+            case "$state" in
+              VALIDATED|PUBLISHING|PUBLISHED)
+                echo "bundle accepted — https://central.sonatype.com/publishing/deployments"
+                exit 0 ;;
+              FAILED)
+                echo "the Portal rejected the bundle; reasons are on the deployment page" >&2
+                exit 1 ;;
+            esac
+            sleep 30
+          done
+          echo "still not validated after ten minutes" >&2
+          exit 1
+
+  nuget:
+    needs: gate
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with: { dotnet-version: "6.0.x\n8.0.x" }
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Generate the parser
+        # `csharp/Tdcv2/Generated/` is produced from the shared grammar, so a
+        # clean clone has to make it before anything compiles.
+        run: node scripts/generate-parsers.mjs --only csharp
+      - name: Pack both packages
+        run: |
+          cd csharp
+          node scripts/bundle-packs.mjs add
+          dotnet pack Tdcv2/Tdcv2.csproj -c Release --nologo
+          dotnet pack Tdcv2.Cli.Tool/Tdcv2.Cli.Tool.csproj -c Release --nologo
+          node scripts/bundle-packs.mjs remove
+      - name: Publish
+        if: github.ref_type == 'tag'
+        uses: NuGet/login@v1
+        id: login
+        with:
+          user: NickLiapin
+      - name: Push
+        if: github.ref_type == 'tag'
+        run: |
+          for dir in csharp/Tdcv2 csharp/Tdcv2.Cli.Tool; do
+            dotnet nuget push "$dir/bin/Release/*.nupkg" \
+              --api-key "${{ steps.login.outputs.NUGET_API_KEY }}" \
+              --source https://api.nuget.org/v3/index.json \
+              --skip-duplicate
+          done
