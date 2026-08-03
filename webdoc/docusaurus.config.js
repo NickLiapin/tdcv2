@@ -3,6 +3,10 @@
 
 import {themes as prismThemes} from 'prism-react-renderer';
 
+// The released version is substituted into every page at build time, so no page
+// carries it and none can drift. See plugins/remark-version.mjs.
+import remarkVersion from './plugins/remark-version.mjs';
+
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'TDC — The Data Constructor',
@@ -72,6 +76,9 @@ const config = {
         docs: {
           sidebarPath: './sidebars.js',
           // No "Edit this page" link — the site is edited locally, not via GitHub.
+          // Before the defaults, so the token is already a number by the time
+          // anything else looks at a code block.
+          beforeDefaultRemarkPlugins: [remarkVersion],
         },
         blog: false,
         theme: {

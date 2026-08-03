@@ -1,5 +1,5 @@
 /**
- * Fail when the documentation names a version the packages no longer carry.
+ * Fail when a documentation SOURCE writes the version out instead of asking for it.
  *
  * The install pages tell people what to type: a Maven coordinate, a `curl` for a
  * jar with the version in its filename, a table of five registries. Every one of
@@ -8,9 +8,14 @@
  * 0.1.4, and the jar the installation page told people to download did not exist
  * at the URL it gave.
  *
- * Nothing was broken; nothing was checked either. So this reads the number the
- * packages actually declare and requires the documentation to agree — in all
- * three languages, since a translation drifts exactly as easily.
+ * The fix was to stop writing it down: the sources carry `%%TDC_VERSION%%` and
+ * the build puts the number in — the site through a remark plugin, the markdown
+ * export through the same module. So this no longer compares numbers. It refuses
+ * a LITERAL version in a source, because a literal is the only way drift can
+ * start again.
+ *
+ * README.md is the exception and is still compared rather than tokenised: GitHub
+ * renders it directly from the repository, with no build in between.
  *
  * ── Two kinds of number are deliberately left alone ──────────────────────────
  * `<tdc version="0.1.0">` is the DSL DOCUMENT version, which has its own life
@@ -31,9 +36,7 @@ const HERE = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(HERE, '..', '..');
 
 /** What the packages say, which is the only version that is true. */
-const DECLARED = /"version":\s*"([^"]+)"/.exec(
-  readFileSync(join(ROOT, 'typescript', 'package.json'), 'utf8'),
-)[1];
+const { TOKEN, VERSION: DECLARED } = await import('../plugins/remark-version.mjs');
 
 /**
  * Where OUR version is named, and nowhere else.
@@ -85,8 +88,16 @@ for (const file of files) {
     // address in the http pages as a stale version — 63 of them, on the first run.
     // A version is a triple with no further digit or dot on either side.
     for (const m of line.matchAll(/(?<![\d.])\d+\.\d+\.\d+(?![\d.])/g)) {
-      if (m[0] !== DECLARED) {
-        stale.push({ where: `${relative(ROOT, file)}:${String(i + 1)}`, found: m[0], line: line.trim() });
+      // A source page must not name a version at all; README has no build step,
+      // so there the number itself is checked.
+      const isReadme = file.endsWith('README.md');
+      if (!isReadme || m[0] !== DECLARED) {
+        stale.push({
+          where: `${relative(ROOT, file)}:${String(i + 1)}`,
+          found: m[0],
+          line: line.trim(),
+          why: isReadme ? 'not the released version' : `write ${TOKEN} instead — the build fills it in`,
+        });
       }
     }
   }
@@ -95,7 +106,7 @@ for (const file of files) {
 if (stale.length > 0) {
   console.log(`The packages declare ${DECLARED}. These say otherwise:\n`);
   for (const s of stale) {
-    console.log(`  ${s.where}  →  ${s.found}`);
+    console.log(`  ${s.where}  →  ${s.found}  (${s.why})`);
     console.log(`    ${s.line.slice(0, 110)}`);
   }
   console.log(
@@ -104,4 +115,6 @@ if (stale.length > 0) {
   );
   process.exit(1);
 }
-console.log(`Every version named in the documentation is ${DECLARED}.`);
+console.log(
+  `No documentation source writes a version down; the build fills in ${DECLARED}.`,
+);

@@ -22,6 +22,8 @@ import { cpSync, existsSync, mkdirSync, readFileSync, readdirSync, rmSync, statS
 import { dirname, join, relative, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
+import { TOKEN, VERSION } from '../plugins/remark-version.mjs';
+
 const HERE = dirname(fileURLToPath(import.meta.url));
 const WEBSITE = join(HERE, '..');
 const ROOT = join(WEBSITE, '..');
@@ -273,7 +275,15 @@ function convert(body, page, code) {
 
   let t = body;
 
-  // Fenced code first: nothing below may rewrite what a reader will copy.
+  // The released version goes in FIRST, above the fence hold — a Maven coordinate
+  // and a `curl` for a versioned jar live inside code blocks, and those are the
+  // lines a reader copies. Everything below this deliberately leaves fenced code
+  // alone; this is the one rewrite that must reach into it. Both this and the
+  // site build read VERSION from the same module, so the copy GitHub renders and
+  // the copy the site renders cannot name different numbers.
+  t = t.split(TOKEN).join(VERSION);
+
+  // Fenced code next: nothing below may rewrite what a reader will copy.
   t = t.replace(/^(```|~~~)[^\n]*\n[\s\S]*?^\1[ \t]*$/gm, (m) => hold(m));
 
   // MDX imports mean nothing in plain Markdown.
