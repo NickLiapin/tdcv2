@@ -161,6 +161,30 @@ public sealed class StreamEngine
         engine.Write(output, 0, engine._count);
     }
 
+    /// <summary>
+    /// The same, for rows <c>[from, to)</c> alone — one shard of a run being written in parallel.
+    /// </summary>
+    /// <remarks>
+    /// Every draw is keyed by seed, stream and row index, so row nine million is a function of its
+    /// own number and needs to know nothing about row eight million. That the shards join into
+    /// exactly the bytes one thread would have written is a property of the writer, not of luck:
+    /// the opening and closing fixtures belong to the shards holding the first and last row, and
+    /// the between-blocks delimiter is keyed to the global row number.
+    /// </remarks>
+    public static void RenderRows(
+        Config config,
+        DataPacks packs,
+        long nowMillis,
+        string? baseDir,
+        TextWriter output,
+        int from,
+        int to)
+    {
+        var engine = new StreamEngine(config, packs, nowMillis, baseDir, false);
+        engine.BuildColumns();
+        engine.Write(output, from, to);
+    }
+
     private sealed class StreamRows : IRowSource
     {
         private readonly StreamEngine _engine;

@@ -1,5 +1,5 @@
 {
-  "description": "The command line's contract, as data. Every implementation runs this file and must agree — exit code first, then what reached stdout and stderr. Derived from typescript/test/cli/*.test.ts, which was the only place the behaviour was written down when the Java and Python CLIs were built.",
+  "description": "The command line's contract, as data. Every implementation runs this file and must agree — exit code first, then what reached stdout and stderr. Derived from typescript/test/cli/*.test.ts, which was the only place the behaviour was written down when the first ports were built; there are five implementations now, and this file is the only thing holding their command lines together.",
   "schema": {
     "name": "what the case is for, used in the test report",
     "command": "which entry point: 'main' (default), 'init' or 'pack'. init and pack take the temp directory as their working directory, which is why they are named rather than passed as argv.",
@@ -13,7 +13,7 @@
     "stderrContains": "substrings that must appear on stderr",
     "wrote": "relative path -> exact contents the run must have left behind",
     "wroteContains": "relative path -> substrings the file must contain",
-    "only": "implementations this case runs in. Absent means all three. Present means the others do not support the feature yet — the case stays here, named and visible, rather than being deleted and forgotten.",
+    "only": "implementations this case runs in. Absent means all five. Present means the others do not support the feature yet — the case stays here, named and visible, rather than being deleted and forgotten.",
     "note": "why the case is shaped the way it is, when that is not obvious"
   },
   "configs": {
@@ -41,16 +41,18 @@
       "stdoutContains": ["Usage"]
     },
     {
-      "name": "--version prints a semver-shaped version",
+      "name": "--version prints the declared version",
       "argv": ["--version"],
       "exit": 0,
-      "stdoutMatches": "tdcv2 \\d+\\.\\d+\\.\\d+"
+      "stdoutContains": ["tdcv2 0.1.3"],
+      "note": "The exact number, not a shape. A shape is what let two implementations ship a hardcoded 0.1.0 while the fixture stayed green. Bump this with the version in all five build files."
     },
     {
-      "name": "-v prints a semver-shaped version",
+      "name": "-v prints the declared version",
       "argv": ["-v"],
       "exit": 0,
-      "stdoutMatches": "tdcv2 \\d+\\.\\d+\\.\\d+"
+      "stdoutContains": ["tdcv2 0.1.3"],
+      "note": "The exact number, not a shape. A shape is what let two implementations ship a hardcoded 0.1.0 while the fixture stayed green. Bump this with the version in all five build files."
     },
     {
       "name": "no input exits 2 and points at --help",
@@ -211,6 +213,21 @@
       "stderrContains": ["error[TDC071]", " --> ", "aborted: 1 error"]
     },
     {
+      "name": "init --help prints usage and exits 0",
+      "command": "init",
+      "argv": ["--help"],
+      "exit": 0,
+      "stdoutContains": ["Usage: tdcv2 init", "--global", "--yes"],
+      "note": "The reference exited 2 with \"unknown option for init\" until 0.1.4: the flag parser saw --help before anything answered it."
+    },
+    {
+      "name": "init -h prints usage and exits 0",
+      "command": "init",
+      "argv": ["-h"],
+      "exit": 0,
+      "stdoutContains": ["Usage: tdcv2 init"]
+    },
+    {
       "name": "init writes a project config with a relative, portable store",
       "command": "init",
       "argv": ["--yes"],
@@ -259,6 +276,21 @@
       "argv": ["--nonsense"],
       "exit": 2,
       "stderrContains": ["unknown option for init"]
+    },
+    {
+      "name": "pack --help prints usage and exits 0",
+      "command": "pack",
+      "argv": ["--help"],
+      "exit": 0,
+      "stdoutContains": ["Usage: tdcv2 pack", "list", "add", "remove"],
+      "note": "Runs before the pack store is resolved, so it works on a machine where init has never run — which is where somebody needs it."
+    },
+    {
+      "name": "pack -h prints usage and exits 0",
+      "command": "pack",
+      "argv": ["-h"],
+      "exit": 0,
+      "stdoutContains": ["Usage: tdcv2 pack"]
     },
     {
       "name": "pack without a config says to run init first",
@@ -508,7 +540,7 @@
     }
   ],
   "gaps": {
-    "pkg: sources": "TypeScript resolves src=\"pkg:package/path\" through node_modules. It has no meaning off Node, so Java and Python refuse it rather than guessing, and no case exercises it.",
+    "pkg: sources": "TypeScript resolves src=\"pkg:package/path\" through node_modules. It has no meaning off Node, so the four ports refuse it rather than guessing, and no case exercises it.",
     "pack header warnings": "A pack file that carries a header but resolves to no locale, country or `common` is dropped by every implementation. The reference scans every pack root up front, so it can say so (warning TDC171); the ports scan only when a lookup has already missed, so they report the miss itself (TDC071) and nothing earlier."
   },
   "registryBundle": {

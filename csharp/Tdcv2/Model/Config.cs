@@ -320,6 +320,34 @@ public sealed class Config
             EnvDistinctGroups,
             Pools);
 
+    /// <summary>
+    /// A copy whose engine selection comes from the caller rather than from <c>&lt;env&gt;</c>.
+    /// </summary>
+    /// <remarks>
+    /// The two settings replace each other rather than layering, because they answer the same
+    /// question at different levels of detail: naming an engine says which one, naming a mode says
+    /// what the run may cost. Keeping the file's <c>engine="1"</c> alongside a caller's
+    /// <c>mode="disk"</c> would let the more specific of the two win from the wrong source — the
+    /// router reads the engine first, so the config would quietly beat the command line.
+    /// </remarks>
+    public Config WithEngineSelection(string? newEngine, string? newMode) =>
+        newEngine is null && newMode is null
+            ? this
+            : new Config(
+                Count,
+                Seed,
+                Locale,
+                Inject,
+                RegexMaxLength,
+                Sequences,
+                Block,
+                Fixtures,
+                newEngine is null ? newMode : null,
+                newEngine,
+                EnvUniqGroups,
+                EnvDistinctGroups,
+                Pools);
+
     private static IReadOnlyList<IReadOnlyList<string>> DeepCopy(
         IReadOnlyList<IReadOnlyList<string>>? groups) =>
         groups is null

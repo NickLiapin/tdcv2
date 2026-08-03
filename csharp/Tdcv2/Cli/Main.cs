@@ -1,3 +1,4 @@
+using System.Reflection;
 using Tdcv2.Errors;
 using Tdcv2.Formatter;
 using Tdcv2.Parser;
@@ -15,7 +16,8 @@ namespace Tdcv2.Cli;
 /// flag: the same config run through any of them must behave the same way, including its exit codes.
 /// </para>
 /// <para>
-/// Exit codes: 0 fine, 1 the run failed (an invalid config), 2 the command line itself was wrong.
+/// Exit codes: 0 fine, 1 the run failed (an invalid config, a refused preflight), 2 the command line
+/// itself was wrong.
 /// </para>
 /// <para>
 /// Everything is written through the two writers passed in rather than through Console directly, so
@@ -24,7 +26,16 @@ namespace Tdcv2.Cli;
 /// </remarks>
 public static class Main
 {
-    public const string Version = "0.1.0";
+    /// <summary>
+    /// The version this assembly was built as, not a second copy of it.
+    /// </summary>
+    /// <remarks>
+    /// A hand-written constant is a number that agrees with itself and with nothing else: bumping
+    /// <c>Tdcv2.csproj</c> for a release left <c>tdcv2 --version</c> reporting the old one, silently.
+    /// The TypeScript package had exactly this bug and it went unnoticed through a release. Asking
+    /// the assembly means the two cannot drift apart again.
+    /// </remarks>
+    public static readonly string Version = ResolveVersion();
 
     private const string Help = @"tdcv2 — The Data Constructor
 
@@ -41,8 +52,10 @@ Options:
   --count <n>              Override the count declared in <env>
   --locale <loc>           Override the default locale (default: en)
   --data-path <dir>        Add a data folder for @data/... sources (repeatable)
-  --jobs <n>               Worker threads for a large streaming run. The count never
-                           changes the output, only how long it takes.
+  --jobs <n>               Worker threads for a large streaming run. Needs -o:
+                           stdout is written by one thread. By default TDC uses
+                           one per core bar one; the count never changes the
+                           output, only how long it takes.
   --mode <memory|disk>     Advanced. disk (default): bounded memory, scales to
                            any size — TDC picks the streaming or exact engine
                            automatically from the config. memory: the small,
@@ -132,6 +145,11 @@ See https://github.com/NickLiapin/tdcv2 for the DSL reference.
                 SeedValue = options.Seed,
                 Locale = options.Locale,
                 DataPaths = options.DataPaths,
+                // Either of these outranks what <env> declared: a flag the user typed on this run is
+                // a more recent statement of intent than a line in the file. Which of the two wins
+                // when both are given is the model's rule, not the command line's.
+                Engine = options.Engine,
+                Mode = options.Mode,
             };
             data = new Tdc(built);
         }
@@ -159,11 +177,27 @@ See https://github.com/NickLiapin/tdcv2 for the DSL reference.
                 + $"\"{seed.Value}\" to reproduce this exact output.");
         }
 
+        // Ask what the run will cost before starting it. A config that cannot fit says so in a
+        // millisecond here and takes minutes to say so by thrashing.
+        Diagnostic? budget = data.Preflight(options.Output is null);
+        if (budget is not null)
+        {
+            ReportOne(stderr, budget, options.Input, data.Source);
+            if (budget.Severity == Severity.Error)
+            {
+                return 1;
+            }
+        }
+
         try
         {
             if (options.Output is not null)
             {
-                data.WriteFile(options.Output);
+                // No --jobs means "decide from the machine". The worker count never changes the
+                // bytes — a shard is a range of rows and every row is a function of its own number
+                // — so it is safe to pick from the hardware, unlike the engine, which follows from
+                // the config.
+                data.WriteFile(options.Output, options.Jobs ?? 0);
             }
             else
             {
@@ -325,6 +359,19 @@ See https://github.com/NickLiapin/tdcv2 for the DSL reference.
             DiagnosticRenderer.FormatAll(problems, source, filename ?? "<input>", false) + "\n");
     }
 
+    /// <summary>
+    /// One diagnostic that did not come from validation, so without the "n errors" tally.
+    /// </summary>
+    /// <remarks>
+    /// The tally counts a config's complaints. The preflight is a separate question asked after
+    /// the config passed, and folding it into the count would report a valid config as an invalid
+    /// one.
+    /// </remarks>
+    private static void ReportOne(
+        TextWriter stderr, Diagnostic problem, string? filename, string? source) =>
+        stderr.Write(
+            DiagnosticRenderer.Format(problem, source, filename ?? "<input>", false) + "\n");
+
     internal static void Fail(TextWriter stderr, string message, bool usage)
     {
         stderr.Write("tdcv2: " + message + "\n");
@@ -336,4 +383,22 @@ See https://github.com/NickLiapin/tdcv2 for the DSL reference.
 
     internal static void Note(TextWriter stderr, string message) =>
         stderr.Write("tdcv2: " + message + "\n");
+
+    private static string ResolveVersion()
+    {
+        Assembly assembly = typeof(Main).Assembly;
+        string? informational = assembly
+            .GetCustomAttribute<AssemblyInformationalVersionAttribute>()?.InformationalVersion;
+        if (string.IsNullOrEmpty(informational))
+        {
+            // A source tree compiled without the package metadata has no informational version;
+            // the assembly version is still four numbers, and three of them are the release.
+            return assembly.GetName().Version?.ToString(3) ?? "0+unknown";
+        }
+
+        // The SDK appends "+<commit>" when it can find one. That is build provenance, not the number
+        // a user compares against npm or PyPI, and the shared CLI fixture expects a bare semver.
+        int plus = informational.IndexOf('+');
+        return plus < 0 ? informational : informational[..plus];
+    }
 }

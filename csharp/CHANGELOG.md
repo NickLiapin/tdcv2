@@ -28,6 +28,36 @@ Tdcv2.Cli` puts `tdcv2` on your PATH, the same command the npm, pip and cargo
   the TypeScript reference, because that is the only way to see data that is
   missing from an artefact but present a few directories up.
 
+- **The memory preflight, `TDC200` and `TDC201`.** `Tdc.Preflight()` estimates
+  what a run will cost in RAM before generating anything: a warning when it is a
+  large share of the machine, a refusal when it cannot plausibly fit. The command
+  line prints it and exits 1 on the refusal, as the other four implementations do.
+  A config that will not fit now says so in a millisecond instead of taking
+  minutes to say so by thrashing.
+
+- **`Tdc.WriteFile(path, workers)` — one run written by several threads.** Every
+  draw is keyed by seed, stream and row index, so a shard is a range of rows and
+  needs no coordination with any other. The worker count therefore never changes
+  the bytes, only how long they take; zero means "decide from the machine". It
+  applies to the streaming engine only, and everything else writes on one thread.
+  `WriteFile(path)` on its own is unchanged: still one thread.
+
+- **`Engine` and `Mode` on `Tdc.Options`.** Name an engine outright (1 in memory,
+  2 streaming, 3 exact on disk) or state the constraint and let the router pick.
+  Either beats what `<env>` declared.
+
+### Fixed
+
+- **`tdcv2 --version` printed 0.1.0.** The number was a constant in the source
+  that no release ever bumped, so it agreed with itself and with nothing else. It
+  now comes from the assembly, which cannot drift from the package.
+
+- **`--engine`, `--mode`, `--disk` and `--jobs` were parsed and then discarded.**
+  Every one of them is now honoured: a named engine overrides the router, a mode
+  sets the routing constraint, and `--jobs` splits the write. All four outrank
+  `<env>` — a flag typed on this run is a more recent statement of intent than a
+  line in the file.
+
 ## [0.1.3] — 2026-08-02
 
 The first release to NuGet. Everything below is what changed in this

@@ -38,11 +38,53 @@ namespace Tdcv2;
 /// </remarks>
 public sealed class Tdc
 {
+    /// <summary>
+    /// What one generated value is assumed to cost, held as a string.
+    /// </summary>
+    /// <remarks>
+    /// A name, a number or a short date lands in the twenty-to-forty byte range once the object
+    /// header is counted. The figure is shared with the other four implementations so that a config
+    /// refused on one is refused on all of them.
+    /// </remarks>
+    private const int BytesPerCell = 40;
+
+    /// <summary>What one rendered record is assumed to cost: its literal text plus the values in it.</summary>
+    private const int BytesPerRenderedCard = 200;
+
+    /// <summary>
+    /// Warn once the estimate reaches this share of the machine's RAM.
+    /// </summary>
+    /// <remarks>
+    /// The run will take a big part of the machine and may lean on swap if anything else is busy,
+    /// but it can still finish — so it is worth saying and not worth stopping for.
+    /// </remarks>
+    private const double WarnRatio = 0.5;
+
+    /// <summary>
+    /// Refuse once the estimate reaches this share of the machine's RAM.
+    /// </summary>
+    /// <remarks>
+    /// Headroom below 1.0 leaves room for the operating system, for everything else running, and
+    /// for the estimate's own roughness.
+    /// </remarks>
+    private const double ErrorRatio = 0.9;
+
     private readonly Config _config;
     private readonly DataPacks _packs;
     private readonly long _nowMillis;
     private readonly string? _baseDir;
     private readonly Lazy<IRowSource> _run;
+
+    /// <summary>
+    /// Where the packs came from, kept so a parallel write can build one registry per worker.
+    /// </summary>
+    /// <remarks>
+    /// The registry itself cannot be shared: it caches what it loads in a plain dictionary, and
+    /// filling one from several threads at once is a data race. Rebuilding needs the same two
+    /// inputs the constructor used, so those are what is stored rather than the result.
+    /// </remarks>
+    private readonly string? _packsDir;
+    private readonly IReadOnlyList<string> _dataPaths;
 
     /// <summary>
     /// Whether the seed was invented here because nothing declared one.
@@ -182,6 +224,26 @@ public sealed class Tdc
         /// directory is the only honest answer left.
         /// </remarks>
         public string? BaseDir { get; set; }
+
+        /// <summary>
+        /// Run on one named engine — 1 in memory, 2 streaming, 3 exact on disk.
+        /// </summary>
+        /// <remarks>
+        /// Overrides everything the config says and refuses rather than falling back when the named
+        /// engine cannot do what the config asks. That is what makes it useful for a benchmark and
+        /// wrong for ordinary use.
+        /// </remarks>
+        public int? Engine { get; set; }
+
+        /// <summary>
+        /// <c>memory</c> or <c>disk</c> — how much of the run may be held at once.
+        /// </summary>
+        /// <remarks>
+        /// A constraint rather than a choice: the router picks the fastest engine that can honour
+        /// it, so a config that turns out to need the whole column still renders correctly. Beaten
+        /// by <see cref="Engine"/>, and beats whatever <c>&lt;env&gt;</c> declared.
+        /// </remarks>
+        public string? Mode { get; set; }
     }
 
     /// <summary>A config file, everything else from <c>&lt;env&gt;</c>.</summary>
@@ -221,10 +283,9 @@ public sealed class Tdc
         // consulted, so a pack downloaded by any implementation is found by this one. Searched from
         // the CONFIG FILE's folder, not from the shell: a .tdc file belongs to the project it sits
         // in, and running it from one directory up must not quietly lose that project's packs.
-        _packs = options.PacksDir is not null
-            ? new DataPacks(options.PacksDir)
-            : DataPacks.ForProject(
-                _baseDir ?? Directory.GetCurrentDirectory(), options.DataPaths);
+        _packsDir = options.PacksDir;
+        _dataPaths = options.DataPaths;
+        _packs = PacksForWorker();
 
         // Validate before building. A config the reference refuses must be refused here too, or the
         // two implementations disagree about which configs are legal — which is a portability bug
@@ -242,7 +303,9 @@ public sealed class Tdc
             .Build(
                 parsed.Tree,
                 ProjectConfig.Load(_baseDir ?? Directory.GetCurrentDirectory()).Locale)
-            .Override(options.Count, options.SeedValue, options.Locale);
+            .Override(options.Count, options.SeedValue, options.Locale)
+            .WithEngineSelection(
+                options.Engine?.ToString(CultureInfo.InvariantCulture), TrimToNull(options.Mode));
 
         // Nothing named a seed, so one is invented — and USED, which is the whole point. Leaving it
         // empty would make every seedless run produce the same bytes while SeedInfo reported a
@@ -309,14 +372,113 @@ public sealed class Tdc
     /// </remarks>
     public int Engine => EngineRouter.Resolve(_config, _packs);
 
+    /// <summary>
+    /// What this run is likely to cost in memory, or <c>null</c> when the answer is "not much".
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Worth asking before a large run rather than after: a config that will not fit says so in a
+    /// millisecond here, and takes minutes to say so by thrashing. The estimate is deliberately
+    /// crude — a cell is assumed to cost about forty bytes and a rendered record about two hundred —
+    /// because the decision it informs is "is this the right order of magnitude", not "how many
+    /// bytes exactly".
+    /// </para>
+    /// <para>
+    /// It is measured against the machine's TOTAL memory rather than what the operating system calls
+    /// free. Modern systems keep RAM busy with caches they hand back the moment a process asks for
+    /// it, so the free figure reads far below what a run can actually have and would refuse jobs
+    /// that run perfectly well. What bounds a run is what fits in physical memory before it thrashes.
+    /// </para>
+    /// </remarks>
+    /// <param name="materialized">
+    /// Whether the whole output will be held as one string, as <see cref="ToString"/> does. A run
+    /// written straight to a file does not pay that.
+    /// </param>
+    public Diagnostic? Preflight(bool materialized = true)
+    {
+        // A streaming engine holds one row, not the run, so its cost does not grow with count.
+        bool streaming = Engine != 1;
+        long slots = 4; // _count, _first, _last, _total
+        foreach (SequenceSpec spec in _config.Sequences)
+        {
+            slots += spec.IsCompound && spec.Fields is not null ? spec.Fields.Count : 1;
+        }
+
+        long cells = streaming ? slots : (long)_config.Count * slots;
+        long estimated = cells * BytesPerCell;
+        if (!streaming && materialized)
+        {
+            estimated += (long)_config.Count * BytesPerRenderedCard;
+        }
+
+        long total = TotalMemory();
+        double ratio = total > 0 ? (double)estimated / total : double.PositiveInfinity;
+        if (ratio < WarnRatio)
+        {
+            return null;
+        }
+
+        long estimatedMb = (estimated + (1024 * 1024) - 1) / (1024 * 1024);
+        long totalMb = total / (1024 * 1024);
+        return ratio >= ErrorRatio
+            ? Diagnostic.Error(
+                "TDC201",
+                $"estimated memory need (~{estimatedMb} MB) exceeds this machine's RAM "
+                + $"({totalMb} MB) — run will likely thrash or crash",
+                "Reduce count, split the generation into smaller batches, or switch to disk mode "
+                + "(mode=\"disk\") which is bounded-memory.",
+                1,
+                0)
+            : Diagnostic.Warning(
+                "TDC200",
+                $"estimated memory need (~{estimatedMb} MB) is a large share of this machine's RAM "
+                + $"({totalMb} MB) — may lean on swap and slow down",
+                "This will still run; for very large datasets mode=\"disk\" keeps memory flat "
+                + "regardless of count.",
+                1,
+                0);
+    }
+
     /// <summary>The whole output as one string.</summary>
     public override string ToString() => _run.Value.Text();
 
-    /// <summary>Write the output to a file, replacing whatever is there.</summary>
-    public void WriteFile(string target)
+    /// <summary>
+    /// Write the output to a file, replacing whatever is there.
+    /// </summary>
+    /// <remarks>
+    /// One thread, because a caller who did not ask for several should not silently get them. The
+    /// overload below is where that is asked for.
+    /// </remarks>
+    public void WriteFile(string target) => WriteFile(target, 1);
+
+    /// <summary>
+    /// The same, across <paramref name="workers"/> threads.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Zero means "decide from the machine". The worker count never changes the bytes — a shard is
+    /// a range of rows and every row is a function of its own number — so it is a speed knob and
+    /// nothing else, unlike the engine, which has to be chosen from the config.
+    /// </para>
+    /// <para>
+    /// It applies only to the streaming engine and only to a run big enough to pay for the threads;
+    /// anything else writes on one thread, which is a slower answer and never a wrong one.
+    /// </para>
+    /// </remarks>
+    public void WriteFile(string target, int workers)
     {
-        using var writer = new StreamWriter(target, append: false);
-        _run.Value.WriteTo(writer);
+        bool canSplit = ParallelWrite.CanSplit(_config, _packs);
+        int resolved = ParallelWrite.ResolveWorkers(
+            workers <= 0 ? null : workers, canSplit, _config.Count);
+        if (resolved <= 1)
+        {
+            using var writer = new StreamWriter(target, append: false);
+            _run.Value.WriteTo(writer);
+            return;
+        }
+
+        ParallelWrite.WriteFile(
+            _config, PacksForWorker, _nowMillis, _baseDir, target, resolved, _config.Count);
     }
 
     /// <summary>The records one at a time, without building a list of them.</summary>
@@ -347,4 +509,20 @@ public sealed class Tdc
 
     /// <summary>The declared sequences, in declaration order.</summary>
     public IReadOnlyList<string> SequenceNames => _run.Value.SequenceNames;
+
+    private static string? TrimToNull(string? value) =>
+        string.IsNullOrWhiteSpace(value) ? null : value.Trim();
+
+    /// <summary>This machine's RAM, or zero when the runtime will not say.</summary>
+    /// <remarks>
+    /// The garbage collector's own figure, which is the machine's physical memory — or the
+    /// container's limit where there is one, which is the number that actually bounds the run.
+    /// </remarks>
+    private static long TotalMemory() => GC.GetGCMemoryInfo().TotalAvailableMemoryBytes;
+
+    /// <summary>A registry of its own for one worker, built from the inputs this run was given.</summary>
+    private DataPacks PacksForWorker() =>
+        _packsDir is not null
+            ? new DataPacks(_packsDir)
+            : DataPacks.ForProject(_baseDir ?? Directory.GetCurrentDirectory(), _dataPaths);
 }

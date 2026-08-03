@@ -1,3 +1,5 @@
+using Tdcv2.Errors;
+
 namespace Tdcv2.Tests;
 
 /// <summary>
@@ -18,6 +20,13 @@ public class TdcTest
         + "<sequence name=\"Address\"><gen name=\"city\" type=\"text\" value=\"Berlin, Munich\"/>"
         + "<gen name=\"zip\" type=\"number\" value=\"10000..99999\"/></sequence>"
         + "</env><block><line><data>${{Gender}}</data></line></block></tdc>";
+
+    /// <summary>The same run without <c>mode="memory"</c>, so the router sends it to engine 2.</summary>
+    private const string Streamable =
+        "<tdc><env count=\"6\" seed=\"facade\" local=\"en\">"
+        + "<sequence name=\"N\"><gen type=\"number\" value=\"1..999\"/></sequence>"
+        + "<sequence name=\"W\"><gen type=\"regex\" value=\"[a-z]{5}\"/></sequence>"
+        + "</env><block><line><data>${{N}},${{W}}</data></line></block></tdc>";
 
     private static Tdc Build(string config) =>
         new(new Tdc.Options { ConfigString = config });
@@ -149,6 +158,63 @@ public class TdcTest
         {
             File.Delete(target);
         }
+    }
+
+    [Fact]
+    public void SplittingTheWriteAcrossThreadsChangesNothingButTheClock()
+    {
+        // The worker count is safe to pick from the hardware only because it cannot change the
+        // bytes: a shard is a range of rows, and every row is a function of its own number.
+        Tdc data = Build(Streamable);
+        string one = Path.Combine(Path.GetTempPath(), "tdcv2-one-" + Guid.NewGuid().ToString("N"));
+        string many = Path.Combine(Path.GetTempPath(), "tdcv2-many-" + Guid.NewGuid().ToString("N"));
+        try
+        {
+            data.WriteFile(one, 1);
+            data.WriteFile(many, 4);
+            Assert.Equal(File.ReadAllText(one), File.ReadAllText(many));
+            Assert.Equal(data.ToString(), File.ReadAllText(many));
+        }
+        finally
+        {
+            File.Delete(one);
+            File.Delete(many);
+        }
+    }
+
+    [Fact]
+    public void AnEngineNamedByTheCallerBeatsWhateverTheConfigDeclared()
+    {
+        Assert.Equal(2, Build(Streamable).Engine);
+        Assert.Equal(1, new Tdc(new Tdc.Options { ConfigString = Streamable, Engine = 1 }).Engine);
+
+        // A mode is a constraint rather than a choice, and it too outranks <env> — a flag typed on
+        // this run is a more recent statement of intent than a line in the file.
+        Assert.Equal(1, new Tdc(new Tdc.Options { ConfigString = People }).Engine);
+        Assert.Equal(
+            2, new Tdc(new Tdc.Options { ConfigString = People, Mode = "disk" }).Engine);
+    }
+
+    [Fact]
+    public void ARunThatCannotFitIsRefusedBeforeItStarts()
+    {
+        // Held in memory, a billion records need hundreds of gigabytes on any machine this will
+        // ever run on, so the answer does not depend on the one running the test.
+        Diagnostic? refused = new Tdc(new Tdc.Options
+        {
+            ConfigString = People.Replace("count=\"6\"", "count=\"1000000000\""),
+        }).Preflight();
+        Assert.NotNull(refused);
+        Assert.Equal("TDC201", refused!.Code);
+        Assert.Equal(Severity.Error, refused.Severity);
+
+        // Six records, and a streaming engine holding one row at a time, are both silent.
+        Assert.Null(Build(People).Preflight());
+        Assert.Null(
+            new Tdc(new Tdc.Options
+            {
+                ConfigString = Streamable.Replace("count=\"6\"", "count=\"1000000000\""),
+            }).Preflight());
     }
 
     [Fact]
