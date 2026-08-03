@@ -222,7 +222,12 @@ fn check_written(
 }
 
 fn resolve(text: &str, dir: &Path) -> String {
+    // `{version}` is this build's own version, not a number written into the
+    // shared file: the five are released together but not always in the same
+    // minute, and one hardcoded number would force a lockstep the registries do
+    // not. What stays asserted is that a build prints the version it was built as.
     text.replace("{dir}", &dir.to_string_lossy())
+        .replace("{version}", env!("CARGO_PKG_VERSION"))
 }
 
 fn resolve_all(text: &str, dir: &Path, registry: Option<&str>) -> String {

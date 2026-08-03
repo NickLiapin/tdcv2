@@ -17,6 +17,7 @@ import { pathToFileURL } from 'node:url';
 
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
+import { VERSION } from '../../src/version.js';
 import { cliIo, main } from '../../src/cli/main.js';
 import { runInit } from '../../src/cli/init.js';
 
@@ -170,7 +171,7 @@ function crc32(data: Buffer): number {
 }
 
 function resolveText(text: string, dir: string, registry: string | undefined): string {
-  const withDir = text.split('{dir}').join(dir);
+  const withDir = text.split('{dir}').join(dir).split('{version}').join(VERSION);
   return registry === undefined ? withDir : withDir.split('{registry}').join(registry);
 }
 
@@ -219,7 +220,7 @@ describe('the shared CLI fixture', () => {
 
       if (testCase.stdout !== undefined) expect(stdoutBuf).toBe(testCase.stdout);
       for (const fragment of testCase.stdoutContains ?? []) {
-        expect(stdoutBuf).toContain(fragment);
+        expect(stdoutBuf).toContain(resolveText(fragment, dir, registry));
       }
       if (testCase.stdoutMatches !== undefined) {
         expect(stdoutBuf).toMatch(new RegExp(testCase.stdoutMatches, 'm'));

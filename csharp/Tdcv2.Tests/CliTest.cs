@@ -130,7 +130,7 @@ public class CliTest
 
     private static string Resolve(string text, string dir, string? registry)
     {
-        string result = text.Replace("{dir}", dir);
+        string result = text.Replace("{dir}", dir).Replace("{version}", Tdcv2.Cli.Main.Version);
         return registry is null ? result : result.Replace("{registry}", registry);
     }
 

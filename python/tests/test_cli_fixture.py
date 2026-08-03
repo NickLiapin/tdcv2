@@ -92,8 +92,20 @@ def build_registry(root: Path) -> str:
     return root.as_uri()
 
 
+def tdcv2_version() -> str:
+    """This build's own version, asked of the same place ``--version`` asks.
+
+    The five ship together but not always in the same minute, so the shared fixture cannot name
+    one number for all of them. Reading it from the distribution rather than from a constant here
+    is also what keeps this able to fail: a build that reports the wrong version fails the case.
+    """
+    from tdcv2.cli.main import _version
+
+    return _version()
+
+
 def resolve(text: str, directory: Path, registry: str | None) -> str:
-    out = text.replace("{dir}", str(directory))
+    out = text.replace("{dir}", str(directory)).replace("{version}", tdcv2_version())
     return out if registry is None else out.replace("{registry}", registry)
 
 
@@ -127,7 +139,7 @@ def test_case(case: dict, tmp_path: Path, capsys) -> None:
     if "stdout" in case:
         assert captured.out == case["stdout"]
     for fragment in case.get("stdoutContains", []):
-        assert fragment in captured.out
+        assert resolve(fragment, tmp_path, registry) in captured.out
     if "stdoutMatches" in case:
         assert re.search(case["stdoutMatches"], captured.out), captured.out
     for fragment in case.get("stderrContains", []):

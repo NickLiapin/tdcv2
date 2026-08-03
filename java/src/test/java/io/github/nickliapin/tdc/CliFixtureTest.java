@@ -143,7 +143,7 @@ class CliFixtureTest {
       assertEquals(testCase.get("stdout").asText(), stdout);
     }
     for (JsonNode fragment : testCase.path("stdoutContains")) {
-      assertTrue(stdout.contains(fragment.asText()), stdout);
+      assertTrue(stdout.contains(resolve(fragment.asText(), dir, registry)), stdout);
     }
     if (testCase.has("stdoutMatches")) {
       assertTrue(
@@ -178,7 +178,9 @@ class CliFixtureTest {
   }
 
   private static String resolve(String text, Path dir, String registry) {
-    String result = text.replace("{dir}", dir.toString());
+    String result =
+        text.replace("{dir}", dir.toString())
+            .replace("{version}", io.github.nickliapin.tdc.cli.Main.VERSION);
     return registry == null ? result : result.replace("{registry}", registry);
   }
 

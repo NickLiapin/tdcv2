@@ -5,7 +5,7 @@
     "command": "which entry point: 'main' (default), 'init' or 'pack'. init and pack take the temp directory as their working directory, which is why they are named rather than passed as argv.",
     "files": "relative path -> contents, written into a fresh temp directory before the run",
     "registry": "true to build the standard demo registry in the temp directory and make {registry} available",
-    "argv": "arguments. {dir} becomes the temp directory's absolute path, {registry} its registry URL",
+    "argv": "arguments. {dir} becomes the temp directory's absolute path, {registry} its registry URL. In an expectation, {version} is the running implementation's own declared version",
     "exit": "the required exit code",
     "stdout": "exact stdout, when the output is the point",
     "stdoutContains": "substrings that must appear",
@@ -58,15 +58,15 @@
       "name": "--version prints the declared version",
       "argv": ["--version"],
       "exit": 0,
-      "stdoutContains": ["tdcv2 0.1.4"],
-      "note": "The exact number, not a shape. A shape is what let two implementations ship a hardcoded 0.1.0 while the fixture stayed green. Bump this with the version in all five build files."
+      "stdoutContains": ["tdcv2 {version}"],
+      "note": "The exact number, not a shape — a shape is what let two implementations ship a hardcoded 0.1.0 while the fixture stayed green. `{version}` is each implementation's OWN declared version, substituted by its runner: the five are released together but not always in the same minute, and a fixture that hardcoded one number would force a lockstep the registries do not. What is still asserted is that a build prints the version it was built as."
     },
     {
       "name": "-v prints the declared version",
       "argv": ["-v"],
       "exit": 0,
-      "stdoutContains": ["tdcv2 0.1.4"],
-      "note": "The exact number, not a shape. A shape is what let two implementations ship a hardcoded 0.1.0 while the fixture stayed green. Bump this with the version in all five build files."
+      "stdoutContains": ["tdcv2 {version}"],
+      "note": "The exact number, not a shape — a shape is what let two implementations ship a hardcoded 0.1.0 while the fixture stayed green. `{version}` is each implementation's OWN declared version, substituted by its runner: the five are released together but not always in the same minute, and a fixture that hardcoded one number would force a lockstep the registries do not. What is still asserted is that a build prints the version it was built as."
     },
     {
       "name": "no input exits 2 and points at --help",
