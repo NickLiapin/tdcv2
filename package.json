@@ -21,10 +21,12 @@
     "review": "npm --prefix webdoc run review",
     "docs:export": "npm --prefix webdoc run docs:export",
     "docs:check": "npm --prefix webdoc run docs:check",
-    "check": "npm run check --workspaces --if-present && npm run docs:check",
+    "check": "npm run check --workspaces --if-present && npm run docs:check && npm run audit:fixtures",
     "parity": "node scripts/five-ways.mjs",
     "generate:parsers": "node scripts/generate-parsers.mjs",
-    "fixtures:filters": "node typescript/scripts/filter-vectors.mjs"
+    "fixtures:filters": "node typescript/scripts/filter-vectors.mjs",
+    "audit:fixtures": "node scripts/audit-fixture-coverage.mjs",
+    "audit:docs-five-ways": "node scripts/audit-doc-examples-five-ways.mjs"
   },
   "devDependencies": {
     "husky": "^9.1.6",

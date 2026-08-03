@@ -54,6 +54,36 @@
       "description": "pad, slice and length",
       "config": "<tdc><env count=\"1\" seed=\"unit-test\" local=\"en\" mode=\"memory\"><sequence name=\"V\"><compute><let name=\"s\"><str v=\"42\"/></let><result><concat><pad width=\"6\"><var name=\"s\"/></pad><str v=\"|\"/><pad width=\"6\" fill=\"*\"><var name=\"s\"/></pad><str v=\"|\"/><length><str v=\"hello\"/></length></concat></result></compute></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
       "expected": ["000042|****42|5"]
+    },
+    {
+      "name": "case-transforms-and-trim",
+      "description": "<upper>, <lower>, <capitalize>, <title> and <trim>. Every one of them was implemented five times and pinned by no shared case, so four ports were free to disagree about, say, what <title> does to the second word.",
+      "config": "<tdc><env count=\"1\" seed=\"unit-test\" local=\"en\" mode=\"memory\"><sequence name=\"W\"><gen type=\"text\" value=\"  wide open road  \"/></sequence><sequence name=\"T\"><compute><result><trim><field name=\"W\"/></trim></result></compute></sequence><sequence name=\"U\"><compute><result><upper><trim><field name=\"W\"/></trim></upper></result></compute></sequence><sequence name=\"L\"><compute><result><lower><str v=\"LOUD\"/></lower></result></compute></sequence><sequence name=\"C\"><compute><result><capitalize><str v=\"one two\"/></capitalize></result></compute></sequence><sequence name=\"Ti\"><compute><result><title><str v=\"one two\"/></title></result></compute></sequence></env><block><line><data>${{T}}|${{U}}|${{L}}|${{C}}|${{Ti}}</data></line></block></tdc>",
+      "expected": ["wide open road|WIDE OPEN ROAD|loud|One two|One Two"]
+    },
+    {
+      "name": "string-surgery-mask-replace-slice-group",
+      "description": "<mask>, <replace>, <slice> — including a negative from= — and <group>. The compute-layer spellings, which are a different code path from the mask= attribute the formatting cases already cover.",
+      "config": "<tdc><env count=\"1\" seed=\"unit-test\" local=\"en\" mode=\"memory\"><sequence name=\"Raw\"><gen type=\"text\" value=\"378984323\"/></sequence><sequence name=\"M\"><compute><result><mask pattern=\"xxx-xx-xxxx\"><field name=\"Raw\"/></mask></result></compute></sequence><sequence name=\"R\"><compute><result><replace from=\"-\" to=\"/\"><str v=\"2026-08-03\"/></replace></result></compute></sequence><sequence name=\"S\"><compute><result><slice from=\"2\" to=\"5\"><str v=\"abcdefgh\"/></slice></result></compute></sequence><sequence name=\"S2\"><compute><result><slice from=\"-3\"><str v=\"abcdefgh\"/></slice></result></compute></sequence><sequence name=\"G\"><compute><result><group size=\"4\" sep=\" \"><str v=\"4111111111111111\"/></group></result></compute></sequence></env><block><line><data>${{M}}|${{R}}|${{S}}|${{S2}}|${{G}}</data></line></block></tdc>",
+      "expected": ["378-98-4323|2026/08/03|cde|fgh|4111 1111 1111 1111"]
+    },
+    {
+      "name": "lists-at-index-and-current-index",
+      "description": "<join>, <list>, <at> with <in>/<index>, <at default=> out of range, <current_index/> inside a <reduce>, <multiply> and <subtract>. The <current_index/> shape is the one every check-digit algorithm is built on.",
+      "config": "<tdc><env count=\"1\" seed=\"unit-test\" local=\"en\" mode=\"memory\"><sequence name=\"J\"><compute><result><join sep=\"-\"><in><list v=\"10,20,30\"/></in></join></result></compute></sequence><sequence name=\"A\"><compute><result><at><in><list v=\"7,8,9\"/></in><index><int v=\"1\"/></index></at></result></compute></sequence><sequence name=\"Dv\"><compute><result><at default=\"0\"><in><list v=\"7,8,9\"/></in><index><int v=\"9\"/></index></at></result></compute></sequence><sequence name=\"W\"><compute><result><reduce><over><list v=\"5,1,2,0\"/></over><init><int v=\"0\"/></init><do><add><acc/><multiply><current/><at><in><list v=\"1,3,1,3\"/></in><index><current_index/></index></at></multiply></add></do></reduce></result></compute></sequence><sequence name=\"Sub\"><compute><result><subtract><int v=\"17\"/><int v=\"9\"/></subtract></result></compute></sequence></env><block><line><data>${{J}}|${{A}}|${{Dv}}|${{W}}|${{Sub}}</data></line></block></tdc>",
+      "expected": ["10-20-30|8|0|10|8"]
+    },
+    {
+      "name": "predicates-less-greater-is-digit",
+      "description": "<less_than>, <greater_than> and <is_digit> inside <choose>/<when>/<test>. A predicate that answers backwards in one port silently picks the other branch — there is no crash to notice.",
+      "config": "<tdc><env count=\"1\" seed=\"unit-test\" local=\"en\" mode=\"memory\"><sequence name=\"Lo\"><compute><result><choose><when><test><less_than><int v=\"5\"/><int v=\"30\"/></less_than></test><then><str v=\"low\"/></then></when><otherwise><str v=\"high\"/></otherwise></choose></result></compute></sequence><sequence name=\"Hi\"><compute><result><choose><when><test><greater_than><int v=\"91\"/><int v=\"9\"/></greater_than></test><then><str v=\"big\"/></then></when><otherwise><str v=\"small\"/></otherwise></choose></result></compute></sequence><sequence name=\"Dg\"><compute><result><choose><when><test><is_digit><slice from=\"0\" to=\"1\"><str v=\"7abc\"/></slice></is_digit></test><then><str v=\"numeric\"/></then></when><otherwise><str v=\"letter\"/></otherwise></choose></result></compute></sequence></env><block><line><data>${{Lo}}|${{Hi}}|${{Dg}}</data></line></block></tdc>",
+      "expected": ["low|big|numeric"]
+    },
+    {
+      "name": "every-encoding",
+      "description": "<encode as=> in all five spellings other than base36: ascii, unicode, hex, octal, binary. The letter A, so the expected values are the same number written five ways.",
+      "config": "<tdc><env count=\"1\" seed=\"unit-test\" local=\"en\" mode=\"memory\"><sequence name=\"E\"><compute><result><join sep=\"|\"><list><encode as=\"ascii\"><str v=\"A\"/></encode><encode as=\"unicode\"><str v=\"A\"/></encode><encode as=\"hex\"><str v=\"A\"/></encode><encode as=\"octal\"><str v=\"A\"/></encode><encode as=\"binary\"><str v=\"A\"/></encode></list></join></result></compute></sequence></env><block><line><data>${{E}}</data></line></block></tdc>",
+      "expected": ["65|65|41|101|1000001"]
     }
   ]
 }

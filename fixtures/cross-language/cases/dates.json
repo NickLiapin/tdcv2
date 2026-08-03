@@ -74,6 +74,20 @@
         "December 26, 1998"
       ],
       "now": "2026-04-23T12:00:00Z"
+    },
+    {
+      "name": "every-format-token-one-instant",
+      "description": "Seventeen tokens no shared case reached: D, H, HH, m, mm, s, ss, SSS, YY, MMM, MMMM, ddd, dddd, L, Z, ZZ and ISO, all reading one fixed instant. The engine works in UTC, so Z and ZZ are the same on every machine — checked by running the reference under a second timezone before this was written down.",
+      "config": "<tdc><env count=\"1\" seed=\"unit-test\" local=\"en\" mode=\"memory\"><sequence name=\"T0\"><gen type=\"date\" range=\"2026-03-05T07:09:03..2026-03-05T07:09:03\" format=\"D\"/></sequence><sequence name=\"T1\"><gen type=\"date\" range=\"2026-03-05T07:09:03..2026-03-05T07:09:03\" format=\"H\"/></sequence><sequence name=\"T2\"><gen type=\"date\" range=\"2026-03-05T07:09:03..2026-03-05T07:09:03\" format=\"HH\"/></sequence><sequence name=\"T3\"><gen type=\"date\" range=\"2026-03-05T07:09:03..2026-03-05T07:09:03\" format=\"m\"/></sequence><sequence name=\"T4\"><gen type=\"date\" range=\"2026-03-05T07:09:03..2026-03-05T07:09:03\" format=\"mm\"/></sequence><sequence name=\"T5\"><gen type=\"date\" range=\"2026-03-05T07:09:03..2026-03-05T07:09:03\" format=\"s\"/></sequence><sequence name=\"T6\"><gen type=\"date\" range=\"2026-03-05T07:09:03..2026-03-05T07:09:03\" format=\"ss\"/></sequence><sequence name=\"T7\"><gen type=\"date\" range=\"2026-03-05T07:09:03..2026-03-05T07:09:03\" format=\"SSS\"/></sequence><sequence name=\"T8\"><gen type=\"date\" range=\"2026-03-05T07:09:03..2026-03-05T07:09:03\" format=\"YY\"/></sequence><sequence name=\"T9\"><gen type=\"date\" range=\"2026-03-05T07:09:03..2026-03-05T07:09:03\" format=\"MMM\"/></sequence><sequence name=\"T10\"><gen type=\"date\" range=\"2026-03-05T07:09:03..2026-03-05T07:09:03\" format=\"MMMM\"/></sequence><sequence name=\"T11\"><gen type=\"date\" range=\"2026-03-05T07:09:03..2026-03-05T07:09:03\" format=\"ddd\"/></sequence><sequence name=\"T12\"><gen type=\"date\" range=\"2026-03-05T07:09:03..2026-03-05T07:09:03\" format=\"dddd\"/></sequence><sequence name=\"T13\"><gen type=\"date\" range=\"2026-03-05T07:09:03..2026-03-05T07:09:03\" format=\"L\"/></sequence><sequence name=\"T14\"><gen type=\"date\" range=\"2026-03-05T07:09:03..2026-03-05T07:09:03\" format=\"Z\"/></sequence><sequence name=\"T15\"><gen type=\"date\" range=\"2026-03-05T07:09:03..2026-03-05T07:09:03\" format=\"ZZ\"/></sequence><sequence name=\"T16\"><gen type=\"date\" range=\"2026-03-05T07:09:03..2026-03-05T07:09:03\" format=\"ISO\"/></sequence></env><block><line><data>${{T0}}|${{T1}}|${{T2}}|${{T3}}|${{T4}}|${{T5}}|${{T6}}|${{T7}}|${{T8}}|${{T9}}|${{T10}}|${{T11}}|${{T12}}|${{T13}}|${{T14}}|${{T15}}|${{T16}}</data></line></block></tdc>",
+      "expected": [
+        "5|7|07|9|09|3|03|000|26|Mar|March|Thu|Thursday|03/05/2026|+00:00|+0000|2026-03-05"
+      ]
+    },
+    {
+      "name": "the-two-long-localized-formats",
+      "description": "LLL and LLLL — month name, day, year and time, assembled per locale. Their own case because they carry commas, which a pipe-joined row would hide.",
+      "config": "<tdc><env count=\"1\" seed=\"unit-test\" local=\"en\" mode=\"memory\"><sequence name=\"T0\"><gen type=\"date\" range=\"2026-03-05T07:09:03..2026-03-05T07:09:03\" format=\"LLL\"/></sequence><sequence name=\"T1\"><gen type=\"date\" range=\"2026-03-05T07:09:03..2026-03-05T07:09:03\" format=\"LLLL\"/></sequence></env><block><line><data>${{T0}} / ${{T1}}</data></line></block></tdc>",
+      "expected": ["March 5, 2026 07:09 / Thursday, March 5, 2026 07:09"]
     }
   ]
 }

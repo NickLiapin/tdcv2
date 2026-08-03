@@ -144,6 +144,46 @@
         "lines": ["000042|****42|5"]
       }
     },
+    "compute/case-transforms-and-trim": {
+      "engine2": {
+        "lines": ["wide open road|WIDE OPEN ROAD|loud|One two|One Two"]
+      },
+      "engine3": {
+        "lines": ["wide open road|WIDE OPEN ROAD|loud|One two|One Two"]
+      }
+    },
+    "compute/string-surgery-mask-replace-slice-group": {
+      "engine2": {
+        "lines": ["378-98-4323|2026/08/03|cde|fgh|4111 1111 1111 1111"]
+      },
+      "engine3": {
+        "lines": ["378-98-4323|2026/08/03|cde|fgh|4111 1111 1111 1111"]
+      }
+    },
+    "compute/lists-at-index-and-current-index": {
+      "engine2": {
+        "lines": ["10-20-30|8|0|10|8"]
+      },
+      "engine3": {
+        "lines": ["10-20-30|8|0|10|8"]
+      }
+    },
+    "compute/predicates-less-greater-is-digit": {
+      "engine2": {
+        "lines": ["low|big|numeric"]
+      },
+      "engine3": {
+        "lines": ["low|big|numeric"]
+      }
+    },
+    "compute/every-encoding": {
+      "engine2": {
+        "lines": ["65|65|41|101|1000001"]
+      },
+      "engine3": {
+        "lines": ["65|65|41|101|1000001"]
+      }
+    },
     "dates/date-range-day": {
       "engine2": {
         "lines": [
@@ -256,6 +296,26 @@
         ]
       }
     },
+    "dates/every-format-token-one-instant": {
+      "engine2": {
+        "lines": [
+          "5|7|07|9|09|3|03|000|26|Mar|March|Thu|Thursday|03/05/2026|+00:00|+0000|2026-03-05"
+        ]
+      },
+      "engine3": {
+        "lines": [
+          "5|7|07|9|09|3|03|000|26|Mar|March|Thu|Thursday|03/05/2026|+00:00|+0000|2026-03-05"
+        ]
+      }
+    },
+    "dates/the-two-long-localized-formats": {
+      "engine2": {
+        "lines": ["March 5, 2026 07:09 / Thursday, March 5, 2026 07:09"]
+      },
+      "engine3": {
+        "lines": ["March 5, 2026 07:09 / Thursday, March 5, 2026 07:09"]
+      }
+    },
     "formatting/mask-phone": {
       "engine2": {
         "lines": ["555-123-4567"]
@@ -350,6 +410,14 @@
       },
       "engine3": {
         "lines": ["hi Ann and ${{V}}"]
+      }
+    },
+    "formatting/filters-mask-trim-replace": {
+      "engine2": {
+        "lines": ["378-98-4323|spaced out|2026/08/03"]
+      },
+      "engine3": {
+        "lines": ["378-98-4323|spaced out|2026/08/03"]
       }
     },
     "generators/number-padded-range": {

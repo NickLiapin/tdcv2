@@ -72,6 +72,12 @@
       "description": "The inject marker is configurable",
       "config": "<tdc><env count=\"1\" seed=\"unit-test\" local=\"en\" mode=\"memory\" inject=\"&lt;&lt;%&gt;&gt;\"><sequence name=\"V\"><gen type=\"text\" value=\"Ann\"/></sequence></env><block><line><data>hi &lt;&lt;V&gt;&gt; and ${{V}}</data></line></block></tdc>",
       "expected": ["hi Ann and ${{V}}"]
+    },
+    {
+      "name": "filters-mask-trim-replace",
+      "description": "The interpolation-filter route: ${{X|mask:…}}, ${{X|trim}} and ${{X|replace:a,b}}. The same three transforms reachable through <compute>, reached the other way.",
+      "config": "<tdc><env count=\"1\" seed=\"unit-test\" local=\"en\" mode=\"memory\"><sequence name=\"Raw\"><gen type=\"text\" value=\"378984323\"/></sequence><sequence name=\"Pad\"><gen type=\"text\" value=\"  spaced out  \"/></sequence><sequence name=\"Date\"><gen type=\"text\" value=\"2026-08-03\"/></sequence></env><block><line><data>${{Raw|mask:xxx-xx-xxxx}}|${{Pad|trim}}|${{Date|replace:-,/}}</data></line></block></tdc>",
+      "expected": ["378-98-4323|spaced out|2026/08/03"]
     }
   ]
 }
