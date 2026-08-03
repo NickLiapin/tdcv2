@@ -485,6 +485,9 @@ def parse_pack_body(body: str) -> PackGenerator:
             refused = _whole_column_declaration(open_el)
             if refused is not None:
                 raise ValueError(refused)
+            refused = _misplaced_in_sequence(open_el)
+            if refused is not None:
+                raise ValueError(refused)
             refused = _disallowed_gen_type(open_el)
             if refused is not None:
                 raise ValueError(refused)
@@ -496,6 +499,35 @@ def parse_pack_body(body: str) -> PackGenerator:
     if output is None:
         raise ValueError("a composed pack generator needs a <data>...</data> output template")
     return PackGenerator(sequences, output, _find(env.content(), "valid"))
+
+
+#: Constructs that belong somewhere other than directly inside a ``<sequence>``.
+#:
+#: The same five the validator refuses in a config with TDC013, and refused here for the same
+#: reason — except that in a pack body nothing was refusing them at all. A ``<mix>`` written
+#: inside a pack's ``<sequence>`` produced no value and no complaint in the reference:
+#: ``${{p.m}}`` reached the output as eight literal characters, which is the one outcome worse
+#: than an error, because the run looks like it worked.
+#:
+#: Distribution is an env-level construct: a pack declares its own shares with a ``<mix>`` at the
+#: top of its body, beside the sequences rather than inside one.
+MISPLACED_IN_SEQUENCE = ("mix", "switch", "case", "default", "map")
+
+
+def _misplaced_in_sequence(sequence) -> str | None:
+    """Why this pack sequence is refused, or ``None`` when its children all belong there."""
+    content = sequence.content()
+    for child in content.element() if content is not None else []:
+        element = child.openCloseElement() or child.selfClosingElement()
+        name = element.name.text if element is not None else None
+        if name is None or name not in MISPLACED_IN_SEQUENCE:
+            continue
+        return (
+            f"generator has <{name}> directly inside <sequence>, which is not allowed. "
+            "A <mix> or <switch> is a named construct of its own — declare it beside the "
+            "sequences in the pack body and reach it as ${{Name}}."
+        )
+    return None
 
 
 #: Generator types a pack may use as its whole body.

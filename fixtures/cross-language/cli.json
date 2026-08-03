@@ -901,6 +901,20 @@
       "stderrContains": [
         "<gen> in a generator body is missing a \"type\" attribute"
       ]
+    },
+    {
+      "name": "a <mix> directly inside a pack's <sequence> is refused, not rendered as its own text",
+      "note": "A config refuses this with TDC013; a pack body had no such check. The reference was the worse of the five here: it emitted the interpolation as eight literal characters, so the run looked like it worked and the placeholder landed in the data. Distribution is an env-level construct — a pack declares its shares with a <mix> beside the sequences, not inside one.",
+      "files": {
+        "packs/pl/probe/thing.tdc": "---\ndescription: probe.\ngenerator: tdc\nlocale: pl\n---\n<sequence name=\"p\">\n  <mix name=\"m\" percent=\"50,50\">\n    <case><gen type=\"text\" value=\"AAA\"/></case>\n    <case><gen type=\"text\" value=\"BBB\"/></case>\n  </mix>\n</sequence>\n<data>${{p.m}}</data>\n",
+        "run.tdc": "<tdc>\n    <env count=\"1\" seed=\"packs\" local=\"pl\">\n        <sequence name=\"X\"><gen type=\"template\" value=\"pl.probe.thing\"/></sequence>\n    </env>\n    <block><line><data>${{X}}</data></line></block>\n</tdc>\n"
+      },
+      "argv": ["{dir}/run.tdc", "--data-path", "{dir}/packs"],
+      "exit": 1,
+      "stderrContains": [
+        "generator has <mix> directly inside <sequence>, which is not allowed",
+        "declare it beside the sequences in the pack body"
+      ]
     }
   ],
   "gaps": {

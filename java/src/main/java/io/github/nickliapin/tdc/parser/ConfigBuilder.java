@@ -289,6 +289,10 @@ public final class ConfigBuilder {
         if (refused != null) {
           throw new IllegalArgumentException(refused);
         }
+        String misplaced = misplacedInSequence(open);
+        if (misplaced != null) {
+          throw new IllegalArgumentException(misplaced);
+        }
         String badType = disallowedGenType(open);
         if (badType != null) {
           throw new IllegalArgumentException(badType);
@@ -306,6 +310,42 @@ public final class ConfigBuilder {
           "a composed pack generator needs a <data>...</data> output template");
     }
     return new PackGenerator(sequences, output, findElement(env.content(), "valid"));
+  }
+
+  /**
+   * Constructs that belong somewhere other than directly inside a {@code <sequence>}.
+   *
+   * <p>The same five the validator refuses in a config with TDC013, and refused here for the same
+   * reason — except that in a pack body nothing was refusing them at all. A {@code <mix>} written
+   * inside a pack's {@code <sequence>} produced no value and no complaint in the reference: the
+   * interpolation reached the output as eight literal characters, which is the one outcome worse
+   * than an error, because the run looks like it worked.
+   *
+   * <p>Distribution is an env-level construct: a pack declares its own shares with a
+   * {@code <mix>} at the top of its body, beside the sequences rather than inside one.
+   */
+  private static final List<String> MISPLACED_IN_SEQUENCE =
+      List.of("mix", "switch", "case", "default", "map");
+
+  /** Why this pack sequence is refused, or null when its children all belong there. */
+  private static String misplacedInSequence(TDCParser.OpenCloseElementContext sequence) {
+    if (sequence.content() == null) {
+      return null;
+    }
+    for (TDCParser.ElementContext child : sequence.content().element()) {
+      TDCParser.OpenCloseElementContext open = child.openCloseElement();
+      TDCParser.SelfClosingElementContext self = child.selfClosingElement();
+      String name = open != null ? open.name.getText() : self != null ? self.name.getText() : null;
+      if (name == null || !MISPLACED_IN_SEQUENCE.contains(name)) {
+        continue;
+      }
+      return "generator has <"
+          + name
+          + "> directly inside <sequence>, which is not allowed. A <mix> or <switch> is a named"
+          + " construct of its own — declare it beside the sequences in the pack body and reach it"
+          + " as ${{Name}}.";
+    }
+    return null;
   }
 
   /**

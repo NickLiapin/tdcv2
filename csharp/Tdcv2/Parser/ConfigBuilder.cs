@@ -752,6 +752,12 @@ public static class ConfigBuilder
                     throw new ArgumentException(refused);
                 }
 
+                string? misplaced = MisplacedInSequence(open);
+                if (misplaced is not null)
+                {
+                    throw new ArgumentException(misplaced);
+                }
+
                 string? badType = DisallowedGenType(open);
                 if (badType is not null)
                 {
@@ -775,6 +781,51 @@ public static class ConfigBuilder
         }
 
         return new PackGenerator(sequences, output, FindElement(env.content(), "valid"));
+    }
+
+    /// <summary>
+    /// Constructs that belong somewhere other than directly inside a <c>&lt;sequence&gt;</c>.
+    /// </summary>
+    /// <remarks>
+    /// The same five the validator refuses in a config with TDC013, and refused here for the same
+    /// reason — except that in a pack body nothing was refusing them at all. A <c>&lt;mix&gt;</c>
+    /// written inside a pack's <c>&lt;sequence&gt;</c> produced no value and no complaint in the
+    /// reference: the interpolation reached the output as eight literal characters, which is the
+    /// one outcome worse than an error, because the run looks like it worked.
+    /// <para>
+    /// Distribution is an env-level construct: a pack declares its own shares with a
+    /// <c>&lt;mix&gt;</c> at the top of its body, beside the sequences rather than inside one.
+    /// </para>
+    /// </remarks>
+    private static readonly string[] MisplacedInSequenceTags =
+    {
+        "mix", "switch", "case", "default", "map"
+    };
+
+    /// <summary>Why this pack sequence is refused, or null when its children all belong.</summary>
+    private static string? MisplacedInSequence(TDCParser.OpenCloseElementContext sequence)
+    {
+        if (sequence.content() is null)
+        {
+            return null;
+        }
+
+        foreach (TDCParser.ElementContext child in sequence.content().element())
+        {
+            TDCParser.OpenCloseElementContext open = child.openCloseElement();
+            TDCParser.SelfClosingElementContext self = child.selfClosingElement();
+            string? name = open?.name.Text ?? self?.name.Text;
+            if (name is null || !MisplacedInSequenceTags.Contains(name))
+            {
+                continue;
+            }
+
+            return $"generator has <{name}> directly inside <sequence>, which is not allowed. "
+                + "A <mix> or <switch> is a named construct of its own — declare it beside the "
+                + "sequences in the pack body and reach it as ${{Name}}.";
+        }
+
+        return null;
     }
 
     /// <summary>Generator types a pack may use as its whole body.</summary>

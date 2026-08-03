@@ -634,6 +634,35 @@ pub struct PackGenerator {
     pub validate: Option<Element>,
 }
 
+/// Constructs that belong somewhere other than directly inside a `<sequence>`.
+///
+/// The same five the validator refuses in a config with TDC013, and refused here
+/// for the same reason — except that in a pack body nothing was refusing them at
+/// all. A `<mix>` written inside a pack's `<sequence>` produced no value and no
+/// complaint in the reference: `${{p.m}}` reached the output as eight literal
+/// characters, which is the one outcome worse than an error, because the run
+/// looks like it worked.
+///
+/// Distribution is an env-level construct: a pack declares its own shares with a
+/// `<mix>` at the top of its body, beside the sequences rather than inside one.
+const MISPLACED_IN_SEQUENCE: [&str; 5] = ["mix", "switch", "case", "default", "map"];
+
+/// Why this pack sequence is refused, or `None` when its children all belong.
+fn misplaced_in_sequence(sequence: &Element) -> Option<String> {
+    for child in &sequence.children {
+        if !MISPLACED_IN_SEQUENCE.contains(&child.name.as_str()) {
+            continue;
+        }
+        let name = &child.name;
+        return Some(format!(
+            "generator has <{name}> directly inside <sequence>, which is not allowed. A <mix> or \
+             <switch> is a named construct of its own — declare it beside the sequences in the \
+             pack body and reach it as ${{{{Name}}}}."
+        ));
+    }
+    None
+}
+
 /// Generator types a pack may use as its whole body.
 ///
 /// A pack is a value, so its body may only be something that PRODUCES one on its
@@ -763,6 +792,9 @@ pub fn parse_pack_body(body: &str) -> Result<PackGenerator, BuildError> {
             match child.name.as_str() {
                 "sequence" => {
                     if let Some(refused) = whole_column_declaration(child) {
+                        return err(refused);
+                    }
+                    if let Some(refused) = misplaced_in_sequence(child) {
                         return err(refused);
                     }
                     if let Some(refused) = disallowed_gen_type(child) {

@@ -37,6 +37,7 @@ import {
   extractDataText,
   findChildElement,
 } from '../processor/walk.js';
+import { childTagName } from '../validator/placement.js';
 
 /** Generator types allowed as a self-contained primitive body. */
 export const PRIMITIVE_GENERATOR_TYPES: readonly string[] = [
@@ -131,6 +132,8 @@ export function parseGeneratorSpec(body: string, inject?: string): GeneratorPars
         error: `inject pattern "${resolvedInject}" has no "%" placeholder — interpolation will never match`,
       };
     }
+    const misplaced = firstMisplacedInSequence(env);
+    if (misplaced !== undefined) return { error: misplaced };
     const wholeColumn = firstWholeColumnDeclaration(env);
     if (wholeColumn !== undefined) return { error: wholeColumn };
     // A `<compute>` sequence carries no <gen> (it derives its value), so it is
@@ -187,6 +190,40 @@ export function parseGeneratorSpec(body: string, inject?: string): GeneratorPars
       needsWholeColumn: (attrs['percent'] ?? '').trim() !== '',
     },
   };
+}
+
+/**
+ * Constructs that belong somewhere other than directly inside a `<sequence>`.
+ *
+ * The same five the validator refuses in a config with TDC013, and refused here
+ * for the same reason — except that in a pack body nothing was refusing them at
+ * all. A `<mix>` written inside a pack's `<sequence>` produced no value and no
+ * complaint: `${{p.m}}` reached the output as eight literal characters, which is
+ * the one outcome worse than an error, because the run looks like it worked.
+ *
+ * Distribution is an env-level construct: a pack declares its own shares with a
+ * `<mix>` at the top of its body, beside the sequences rather than inside one.
+ */
+const MISPLACED_IN_SEQUENCE: readonly string[] = ['mix', 'switch', 'case', 'default', 'map'];
+
+function firstMisplacedInSequence(env: OpenCloseElementContext): string | undefined {
+  for (const el of contentElements(env.content())) {
+    const k = elementKind(el);
+    // Only a paired `<sequence>…</sequence>` can hold anything at all, so a
+    // self-closing one has nothing to be misplaced inside it.
+    if (k?.kind !== 'open' || elementName(k.node) !== 'sequence') continue;
+
+    for (const child of contentElements(k.node.content())) {
+      const name = childTagName(child);
+      if (name === null || !MISPLACED_IN_SEQUENCE.includes(name)) continue;
+      return (
+        `generator has <${name}> directly inside <sequence>, which is not allowed. ` +
+        'A <mix> or <switch> is a named construct of its own — declare it beside the ' +
+        'sequences in the pack body and reach it as ${{Name}}.'
+      );
+    }
+  }
+  return undefined;
 }
 
 /**

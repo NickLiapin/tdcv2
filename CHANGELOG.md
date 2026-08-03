@@ -41,6 +41,13 @@ page — is tracked in that implementation's own changelog:
   constrains fields against each other _within_ one row, which a pack can answer on its own,
   and five shipped full-name packs use it to keep a person's two surnames from matching.
 
+- **A `<mix>` inside a pack's `<sequence>` is refused instead of leaking into the data.**
+  A config refuses this with TDC013 — distribution is a construct of its own, declared beside
+  the sequences rather than inside one — but a pack body had no such check. The reference was
+  the worst of the five here: it emitted the interpolation as eight literal characters, so
+  `${{p.m}}` landed in the output and the run looked like it had worked. All five now refuse
+  it with the same message.
+
 - **A data pack can no longer reach the network, or the filesystem, in four of five.** A
   pack body may only use generators that produce a value on their own — `text`, `number`,
   `regex`, `advanced_regex`, `symbol`, `date`, `increment`, `decrement`, plus `template`
