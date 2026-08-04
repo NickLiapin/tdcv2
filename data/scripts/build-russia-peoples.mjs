@@ -48,6 +48,9 @@ function read(people, name) {
     .filter((l) => l !== '' && !l.startsWith('#'));
 }
 
+/** Strip the `!` that marks a deliberately indeclinable surname — see below. */
+const bare = (value) => value.replace(/\s*!$/, '');
+
 function zipf(rank) {
   return Math.max(1, Math.round(1_000_000 / rank));
 }
@@ -80,7 +83,21 @@ for (const people of peoples) {
   const surnames = read(people, 'surnames-masculine.txt');
   const indeclinable = read(people, 'surnames-indeclinable.txt');
 
-  if (male.length === 0 || female.length === 0) {
+  /*
+   * `surnamesOnly` is an honest answer, not a shortcut.
+   *
+   * Chuvash, Mordvins, Mari, Udmurts, Komi, Russian Koreans and Russian Jews
+   * overwhelmingly give their children Russian given names today; what stays
+   * distinct is the surname — Цой, Пак, Рабинович. Inventing a list of "Chuvash
+   * given names" to fill the column would put made-up data in the pack, so such a
+   * people contributes its surnames to the merge and takes Russian given names,
+   * and the file says which peoples those are.
+   */
+  if (people.surnamesOnly) {
+    if (male.length > 0 || female.length > 0) {
+      faults.push(`${people.id}: declared surnamesOnly but has given names — drop one or the other`);
+    }
+  } else if (male.length === 0 || female.length === 0) {
     faults.push(`${people.id}: has no given names — every people needs both lists`);
   }
   if (surnames.length === 0 && indeclinable.length === 0) {
@@ -97,10 +114,28 @@ for (const people of peoples) {
       faults.push(`${people.id}: "${value}" does not decline — move it to surnames-indeclinable.txt`);
     }
   }
-  for (const value of indeclinable) {
+  /*
+   * `Цой !` — the marker for a surname that looks declinable and is not.
+   *
+   * The declension rules read the ENDING, and some non-Russian surnames end the
+   * same way by coincidence: Цой matches the -ой of Луговой → Луговая, Шин matches
+   * the -ин of Пушкин → Пушкина. Neither declines; Виктор Цой and his sister are
+   * both Цой.
+   *
+   * The rules cannot tell these apart from the spelling — that is what the
+   * language is like, not a bug to fix — so the fact is written down beside the
+   * name. A bare name that would decline is still refused, because that is nearly
+   * always a name in the wrong file; the marker is how you say "I checked".
+   */
+  for (const raw of indeclinable) {
+    const checked = raw.endsWith('!');
+    if (checked) continue;
     try {
-      const feminine = feminineSurname(value);
-      faults.push(`${people.id}: "${value}" declines to "${feminine}" — it belongs in surnames-masculine.txt`);
+      const feminine = feminineSurname(raw);
+      faults.push(
+        `${people.id}: "${raw}" declines to "${feminine}" — move it to surnames-masculine.txt, ` +
+          `or write "${raw} !" if it genuinely does not decline`,
+      );
     } catch {
       /* refusing to decline is exactly what an indeclinable surname should do */
     }
@@ -109,7 +144,7 @@ for (const people of peoples) {
     ['male given names', male],
     ['female given names', female],
     ['surnames', surnames],
-    ['indeclinable surnames', indeclinable],
+    ['indeclinable surnames', indeclinable.map(bare)],
   ]) {
     const seen = new Set();
     for (const value of list) {
@@ -118,7 +153,7 @@ for (const people of peoples) {
       if (/[A-Za-z]/.test(value)) faults.push(`${people.id} ${what}: "${value}" contains Latin letters`);
     }
   }
-  loaded.push({ people, male, female, surnames, indeclinable });
+  loaded.push({ people, male, female, surnames, indeclinable: indeclinable.map(bare) });
 }
 
 if (faults.length > 0) {
@@ -159,18 +194,21 @@ let files = 0;
 for (const { people, male, female, surnames, indeclinable } of loaded) {
   if (people.source) continue;
   const who = people.ru;
-  files += write(`${people.id}/male/firstName.txt`, `${who} — male given name, ordered by frequency`, weighted(male)) > 0 ? 1 : 0;
-  write(`${people.id}/female/firstName.txt`, `${who} — female given name, ordered by frequency`, weighted(female));
-  write(
-    `${people.id}/male/patronymic.txt`,
-    `${who} — male patronymic, formed from the father's given name by the Russian rules`,
-    weighted(male.map(masculinePatronymic)),
-  );
-  write(
-    `${people.id}/female/patronymic.txt`,
-    `${who} — female patronymic, the feminine form of the same patronymic at the same line as the male list`,
-    weighted(male.map(masculinePatronymic).map(femininePatronymic)),
-  );
+  files += 1;
+  if (!people.surnamesOnly) {
+    write(`${people.id}/male/firstName.txt`, `${who} — male given name, ordered by frequency`, weighted(male));
+    write(`${people.id}/female/firstName.txt`, `${who} — female given name, ordered by frequency`, weighted(female));
+    write(
+      `${people.id}/male/patronymic.txt`,
+      `${who} — male patronymic, formed from the father's given name by the Russian rules`,
+      weighted(male.map(masculinePatronymic)),
+    );
+    write(
+      `${people.id}/female/patronymic.txt`,
+      `${who} — female patronymic, the feminine form of the same patronymic at the same line as the male list`,
+      weighted(male.map(masculinePatronymic).map(femininePatronymic)),
+    );
+  }
   if (surnames.length > 0) {
     write(`${people.id}/male/lastName.txt`, `${who} — male surname (declined masculine form)`, weighted(surnames));
     write(

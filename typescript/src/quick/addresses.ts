@@ -4,7 +4,7 @@
  * Every bundled address, as a property. Regenerate after changing the packs:
  * `npm run quick:types`. `npm run check` fails if the two disagree.
  *
- * 4011 addresses.
+ * 4078 addresses.
  */
 
 import type { QuickAddress, QuickParams } from './types.js';
@@ -2432,6 +2432,29 @@ export type QuickAddressTree = {
       };
       readonly holiday: QuickAddress;
       readonly person: {
+        readonly armenian: {
+          readonly female: {
+            readonly firstName: QuickAddress;
+            readonly patronymic: QuickAddress;
+          };
+          readonly lastName: QuickAddress;
+          readonly male: {
+            readonly firstName: QuickAddress;
+            readonly patronymic: QuickAddress;
+          };
+        };
+        readonly azerbaijani: {
+          readonly female: {
+            readonly firstName: QuickAddress;
+            readonly lastName: QuickAddress;
+            readonly patronymic: QuickAddress;
+          };
+          readonly male: {
+            readonly firstName: QuickAddress;
+            readonly lastName: QuickAddress;
+            readonly patronymic: QuickAddress;
+          };
+        };
         readonly bashkir: {
           readonly female: {
             readonly firstName: QuickAddress;
@@ -2468,6 +2491,18 @@ export type QuickAddressTree = {
             readonly patronymic: QuickAddress;
           };
         };
+        readonly circassian: {
+          readonly female: {
+            readonly firstName: QuickAddress;
+            readonly lastName: QuickAddress;
+            readonly patronymic: QuickAddress;
+          };
+          readonly male: {
+            readonly firstName: QuickAddress;
+            readonly lastName: QuickAddress;
+            readonly patronymic: QuickAddress;
+          };
+        };
         readonly dagestan: {
           readonly female: {
             readonly firstName: QuickAddress;
@@ -2485,6 +2520,38 @@ export type QuickAddressTree = {
           readonly lastName: QuickAddress;
           readonly patronymic: QuickAddress;
         };
+        readonly german: {
+          readonly female: {
+            readonly firstName: QuickAddress;
+            readonly patronymic: QuickAddress;
+          };
+          readonly lastName: QuickAddress;
+          readonly male: {
+            readonly firstName: QuickAddress;
+            readonly patronymic: QuickAddress;
+          };
+        };
+        readonly ingush: {
+          readonly female: {
+            readonly firstName: QuickAddress;
+            readonly lastName: QuickAddress;
+            readonly patronymic: QuickAddress;
+          };
+          readonly male: {
+            readonly firstName: QuickAddress;
+            readonly lastName: QuickAddress;
+            readonly patronymic: QuickAddress;
+          };
+        };
+        readonly jewish: {
+          readonly female: {
+            readonly lastName: QuickAddress;
+          };
+          readonly lastName: QuickAddress;
+          readonly male: {
+            readonly lastName: QuickAddress;
+          };
+        };
         readonly kalmyk: {
           readonly female: {
             readonly firstName: QuickAddress;
@@ -2497,11 +2564,62 @@ export type QuickAddressTree = {
             readonly patronymic: QuickAddress;
           };
         };
+        readonly karachay_balkar: {
+          readonly female: {
+            readonly firstName: QuickAddress;
+            readonly lastName: QuickAddress;
+            readonly patronymic: QuickAddress;
+          };
+          readonly male: {
+            readonly firstName: QuickAddress;
+            readonly lastName: QuickAddress;
+            readonly patronymic: QuickAddress;
+          };
+        };
+        readonly kazakh: {
+          readonly female: {
+            readonly firstName: QuickAddress;
+            readonly lastName: QuickAddress;
+            readonly patronymic: QuickAddress;
+          };
+          readonly male: {
+            readonly firstName: QuickAddress;
+            readonly lastName: QuickAddress;
+            readonly patronymic: QuickAddress;
+          };
+        };
+        readonly korean: {
+          readonly lastName: QuickAddress;
+        };
         readonly lastName: QuickAddress;
         readonly male: {
           readonly firstName: QuickAddress;
           readonly lastName: QuickAddress;
           readonly patronymic: QuickAddress;
+        };
+        readonly ossetian: {
+          readonly female: {
+            readonly firstName: QuickAddress;
+            readonly lastName: QuickAddress;
+            readonly patronymic: QuickAddress;
+          };
+          readonly male: {
+            readonly firstName: QuickAddress;
+            readonly lastName: QuickAddress;
+            readonly patronymic: QuickAddress;
+          };
+        };
+        readonly tajik: {
+          readonly female: {
+            readonly firstName: QuickAddress;
+            readonly lastName: QuickAddress;
+            readonly patronymic: QuickAddress;
+          };
+          readonly male: {
+            readonly firstName: QuickAddress;
+            readonly lastName: QuickAddress;
+            readonly patronymic: QuickAddress;
+          };
         };
         readonly tatar: {
           readonly female: {
@@ -2523,6 +2641,29 @@ export type QuickAddressTree = {
           readonly lastName: QuickAddress;
           readonly male: {
             readonly firstName: QuickAddress;
+            readonly patronymic: QuickAddress;
+          };
+        };
+        readonly ukrainian: {
+          readonly female: {
+            readonly firstName: QuickAddress;
+            readonly patronymic: QuickAddress;
+          };
+          readonly lastName: QuickAddress;
+          readonly male: {
+            readonly firstName: QuickAddress;
+            readonly patronymic: QuickAddress;
+          };
+        };
+        readonly uzbek: {
+          readonly female: {
+            readonly firstName: QuickAddress;
+            readonly lastName: QuickAddress;
+            readonly patronymic: QuickAddress;
+          };
+          readonly male: {
+            readonly firstName: QuickAddress;
+            readonly lastName: QuickAddress;
             readonly patronymic: QuickAddress;
           };
         };

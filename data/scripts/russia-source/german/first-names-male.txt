@@ -1,0 +1,16 @@
+# Given names of the Russian Germans, most common first. Many carry Russian names
+# and are drawn from the Russian list; these are the ones that stayed German.
+Артур
+Эрнст
+Вальдемар
+Рудольф
+Эдгар
+Вильгельм
+Готлиб
+Иоганн
+Отто
+Александер
+Роберт
+Герхард
+Эрих
+Курт

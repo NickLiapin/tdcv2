@@ -1,0 +1,11 @@
+---
+description: Евреи — female surname, the feminine form of the surname at the same line as the male list
+weighted: true
+---
+Дворкина,1000000
+Ямпольская,500000
+Слуцкая,333333
+Бродская,250000
+Райкина,200000
+Левина,166667
+Гинзбург-Левина,142857

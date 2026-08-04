@@ -18,13 +18,112 @@
       "population": 105579179,
       "source": "ru-source"
     },
-    { "id": "tatar", "ru": "Татары", "population": 4713669 },
-    { "id": "chechen", "ru": "Чеченцы", "population": 1674854 },
-    { "id": "bashkir", "ru": "Башкиры", "population": 1571879 },
-    { "id": "dagestan", "ru": "Народы Дагестана", "population": 3153857 },
-    { "id": "yakut", "ru": "Якуты (саха)", "population": 478409 },
-    { "id": "buryat", "ru": "Буряты", "population": 460054 },
-    { "id": "tuvan", "ru": "Тувинцы", "population": 295384 },
-    { "id": "kalmyk", "ru": "Калмыки", "population": 174000 }
+    {
+      "id": "tatar",
+      "ru": "Татары",
+      "population": 4713669
+    },
+    {
+      "id": "dagestan",
+      "ru": "Народы Дагестана",
+      "population": 3153857
+    },
+    {
+      "id": "chechen",
+      "ru": "Чеченцы",
+      "population": 1674854
+    },
+    {
+      "id": "bashkir",
+      "ru": "Башкиры",
+      "population": 1571879
+    },
+    {
+      "id": "armenian",
+      "ru": "Армяне",
+      "population": 946172
+    },
+    {
+      "id": "ukrainian",
+      "ru": "Украинцы",
+      "population": 884007
+    },
+    {
+      "id": "circassian",
+      "ru": "Адыгские народы",
+      "population": 696721
+    },
+    {
+      "id": "kazakh",
+      "ru": "Казахи",
+      "population": 591970
+    },
+    {
+      "id": "ossetian",
+      "ru": "Осетины",
+      "population": 528515
+    },
+    {
+      "id": "ingush",
+      "ru": "Ингуши",
+      "population": 517186
+    },
+    {
+      "id": "azerbaijani",
+      "ru": "Азербайджанцы",
+      "population": 483007
+    },
+    {
+      "id": "yakut",
+      "ru": "Якуты (саха)",
+      "population": 478409
+    },
+    {
+      "id": "buryat",
+      "ru": "Буряты",
+      "population": 460054
+    },
+    {
+      "id": "tuvan",
+      "ru": "Тувинцы",
+      "population": 295384
+    },
+    {
+      "id": "uzbek",
+      "ru": "Узбеки",
+      "population": 289862
+    },
+    {
+      "id": "karachay_balkar",
+      "ru": "Карачаевцы и балкарцы",
+      "population": 262246
+    },
+    {
+      "id": "tajik",
+      "ru": "Таджики",
+      "population": 201257
+    },
+    {
+      "id": "german",
+      "ru": "Российские немцы",
+      "population": 195256
+    },
+    {
+      "id": "kalmyk",
+      "ru": "Калмыки",
+      "population": 174000
+    },
+    {
+      "id": "korean",
+      "ru": "Корейцы",
+      "population": 148556,
+      "surnamesOnly": true
+    },
+    {
+      "id": "jewish",
+      "ru": "Евреи",
+      "population": 82644,
+      "surnamesOnly": true
+    }
   ]
 }
