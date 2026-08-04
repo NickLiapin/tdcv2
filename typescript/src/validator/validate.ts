@@ -88,6 +88,7 @@ import {
   checkSelfClosingSequence,
   type MemberCheckers,
 } from './members.js';
+import { checkUniqMemory } from './uniq-memory.js';
 import { checkUniqOnComposed, checkUniqUnsupported } from './uniq-shape.js';
 import { checkMixFlag } from './mix-flag.js';
 import { checkGenRepeat, checkMixRepeat } from './repeat.js';
@@ -320,6 +321,13 @@ class Ctx {
    */
   public locale = 'en';
 
+  /**
+   * The run length from `<env count="…">`, once it has parsed. Needed by checks
+   * whose answer depends on SIZE rather than on shape — how much a `uniq` column
+   * will cost, which is nothing at a hundred rows and gigabytes at ten million.
+   */
+  public count = 0;
+
   public constructor(
     public readonly diagnostics: Diagnostic[],
     public readonly regexMaxLength: number,
@@ -351,6 +359,7 @@ function checkEnv(envEl: OpenCloseElementContext, ctx: Ctx): void {
   if (countAttr) {
     const raw = attrMap['count'] ?? '';
     const n = Number(raw);
+    if (Number.isFinite(n) && Number.isInteger(n) && n >= 0) ctx.count = n;
     if (!Number.isFinite(n) || !Number.isInteger(n) || n < 0) {
       ctx.diagnostics.push({
         severity: 'error',
@@ -588,6 +597,13 @@ function finiteTextValues(
 function checkSequence(seqEl: OpenCloseElementContext, ctx: Ctx): void {
   checkDeclName(seqEl, ctx, 'sequence');
   const name = extractAttrs(seqEl.attr())['name'];
+
+  // Size, not shape: what this column will COST. The shape checks below decide
+  // whether uniq can be kept at all; this one asks what keeping it is worth in
+  // memory, which only the run length can answer.
+  if ((extractAttrs(seqEl.attr())['uniq'] ?? '').trim().toLowerCase() === 'true') {
+    checkUniqMemory(seqEl, name ?? '?', ctx.count, ctx.diagnostics);
+  }
 
   // Compute sequence: the producer is a `<compute>` tree. Validate the tree
   // statically (checkCompute) with the set of names it may reference — the
