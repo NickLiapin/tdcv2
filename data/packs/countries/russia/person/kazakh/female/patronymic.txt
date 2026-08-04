@@ -1,19 +1,19 @@
 ---
-description: Казахи — female patronymic, the feminine form of the same patronymic at the same line as the male list
+description: Казахи living in Russia — the PEOPLE, not the country; for kazakhstan use its own pack — female patronymic, the feminine form of the same patronymic at the same line as the male list
 weighted: true
 ---
 Ерлановна,1000000
-Нурлановна,500000
-Азаматовна,333333
-Даулетовна,250000
-Асхатовна,200000
-Бауыржановна,166667
-Талгатовна,142857
-Кайратовна,125000
-Сериковна,111111
-Маратовна,100000
-Аскаровна,90909
-Досжановна,83333
-Жанатовна,76923
-Муратовна,71429
-Санжаровна,66667
+Нурлановна,933821
+Азаматовна,873079
+Даулетовна,817244
+Асхатовна,765844
+Бауыржановна,718461
+Талгатовна,674722
+Кайратовна,634293
+Сериковна,596876
+Маратовна,562205
+Аскаровна,530039
+Досжановна,500163
+Жанатовна,472383
+Муратовна,446524
+Санжаровна,422427

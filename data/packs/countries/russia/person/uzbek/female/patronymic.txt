@@ -1,18 +1,18 @@
 ---
-description: Узбеки — female patronymic, the feminine form of the same patronymic at the same line as the male list
+description: Узбеки living in Russia — the PEOPLE, not the country; for uzbekistan use its own pack — female patronymic, the feminine form of the same patronymic at the same line as the male list
 weighted: true
 ---
 Азизовна,1000000
-Бахтиёровна,500000
-Дилшодовна,333333
-Жасуровна,250000
-Комиловна,200000
-Улугбековна,166667
-Фарруховна,142857
-Шухратовна,125000
-Отабековна,111111
-Санжаровна,100000
-Рустамовна,90909
-Тимуровна,83333
-Абдуллична,76923
-Икромовна,71429
+Бахтиёровна,933821
+Дилшодовна,873079
+Жасуровна,817244
+Комиловна,765844
+Улугбековна,718461
+Фарруховна,674722
+Шухратовна,634293
+Отабековна,596876
+Санжаровна,562205
+Рустамовна,530039
+Тимуровна,500163
+Абдуллична,472383
+Икромовна,446524

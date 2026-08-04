@@ -1,16 +1,16 @@
 ---
-description: Казахи — female given name, ordered by frequency
+description: Казахи living in Russia — the PEOPLE, not the country; for kazakhstan use its own pack — female given name, ordered by frequency
 weighted: true
 ---
 Айгуль,1000000
-Гульмира,500000
-Динара,333333
-Асель,250000
-Жанна,200000
-Айнур,166667
-Сауле,142857
-Гульнара,125000
-Ботагоз,111111
-Алия,100000
-Мадина,90909
-Куралай,83333
+Гульмира,933821
+Динара,873079
+Асель,817244
+Жанна,765844
+Айнур,718461
+Сауле,674722
+Гульнара,634293
+Ботагоз,596876
+Алия,562205
+Мадина,530039
+Куралай,500163

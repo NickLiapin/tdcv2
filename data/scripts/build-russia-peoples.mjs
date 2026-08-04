@@ -29,7 +29,7 @@ import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-import { feminineSurname, femininePatronymic, masculinePatronymic } from './build-ru-names.mjs';
+import { feminineSurname, femininePatronymic, frequency, masculinePatronymic } from './build-ru-names.mjs';
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const SOURCE = join(HERE, 'russia-source');
@@ -51,8 +51,9 @@ function read(people, name) {
 /** Strip the `!` that marks a deliberately indeclinable surname — see below. */
 const bare = (value) => value.replace(/\s*!$/, '');
 
+/** The shared curve as an integer column, commonest name at 1000000. */
 function zipf(rank) {
-  return Math.max(1, Math.round(1_000_000 / rank));
+  return Math.max(1, Math.round((frequency(rank) / frequency(1)) * 1_000_000));
 }
 
 /** `--check` compares instead of writing — see build-ru-names.mjs for why. */
@@ -174,8 +175,17 @@ function merge(column) {
   const weights = new Map();
   for (const entry of loaded) {
     const values = column(entry);
+    if (values.length === 0) continue;
+    // Normalise each people's curve to sum to 1, THEN scale by population. Without
+    // this a people's share depends on how many of its names happen to be written
+    // down: measured before the fix, every minority came out at 0.56-0.73x of its
+    // census share and Russians at 1.06x, purely because the Russian list is 222
+    // names long and a Tajik list is 13. How much I managed to author is a fact
+    // about me, not about Russia.
+    const total = values.reduce((sum, _, i) => sum + frequency(i + 1), 0);
     for (const [i, value] of values.entries()) {
-      const weight = Math.max(1, Math.round((entry.people.population / 1000) * (zipf(i + 1) / 1_000_000)));
+      const share = frequency(i + 1) / total;
+      const weight = Math.max(1, Math.round(share * (entry.people.population / 100)));
       weights.set(value, (weights.get(value) ?? 0) + weight);
     }
   }
@@ -191,9 +201,35 @@ const derived = (list, fn) => list.map((v, i) => `${fn(v)},${String(zipf(i + 1))
 // Russians are skipped here only because ru/person/** already IS that list; they
 // still take part in the merge below.
 let files = 0;
+/*
+ * The description says PEOPLE, not country, and says it out loud.
+ *
+ * `russia.person.kazakh.*` is Kazakhs living in Russia — in Moscow, Petersburg,
+ * Voronezh — and has nothing to do with Kazakhstan, which is a separate country
+ * with its own pack. Same for Armenians, Azerbaijanis, Uzbeks, Tajiks, Ukrainians
+ * and Germans. Anyone reading only the address could take it the other way, so
+ * every description says which it is.
+ */
+const ALSO_A_COUNTRY = {
+  kazakh: 'kazakhstan',
+  armenian: 'armenia',
+  azerbaijani: 'azerbaijan',
+  uzbek: 'uzbekistan',
+  tajik: 'tajikistan',
+  ukrainian: 'ukraine',
+  german: 'germany',
+  korean: 'south_korea',
+};
+const inRussia = (people) => {
+  const country = ALSO_A_COUNTRY[people.id];
+  return country === undefined
+    ? `${people.ru}, one of the peoples of Russia`
+    : `${people.ru} living in Russia — the PEOPLE, not the country; for ${country} use its own pack`;
+};
+
 for (const { people, male, female, surnames, indeclinable } of loaded) {
   if (people.source) continue;
-  const who = people.ru;
+  const who = inRussia(people);
   files += 1;
   if (!people.surnamesOnly) {
     write(`${people.id}/male/firstName.txt`, `${who} — male given name, ordered by frequency`, weighted(male));

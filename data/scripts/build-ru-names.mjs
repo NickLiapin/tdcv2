@@ -146,16 +146,39 @@ export function masculinePatronymic(given) {
 }
 
 /**
- * Rank → weight, on a Zipf curve.
+ * Rank → relative frequency.
  *
- * Zipf is the shape surname frequency actually takes, and it is what makes the
- * top of the list dominate the way it does in life: rank 1 is worth about seven
- * times rank 7 and seventy times rank 70. The constant only scales the whole
- * column, so it is chosen to keep the numbers readable rather than to mean
- * anything.
+ * Plain Zipf — 1/rank — was the first attempt and it is wrong at both ends. It
+ * made Александр 17% of all men, which is three times life, and it left the tail
+ * far too fat: Чеслав at rank 222 came out only 222 times rarer than Александр,
+ * where the real gap is in the hundreds. The head was too sharp and the tail was
+ * not sharp enough, which is the same complaint from both directions.
+ *
+ * Zipf–Mandelbrot fixes both, because `q` flattens the head independently of how
+ * fast `s` drops the tail. The two constants were fitted numerically against three
+ * things known about Russian given names rather than picked by feel:
+ *
+ *              this curve   real Russia
+ *   Александр       5.0%      about 5–6%
+ *   top 10           38%      about 35–40%
+ *   top 40           79%      about 75%
+ *   rank 1 / 222     459×
+ *
+ * They also do the right thing on a SHORT list without being told to. With only
+ * fifteen names q=54 leaves the curve nearly flat, which is honest: for a people
+ * whose list holds fifteen names, the order between them is a guess, and pretending
+ * the first is seventy times the last would be inventing precision.
  */
+const ZIPF_Q = 54;
+const ZIPF_S = 3.8;
+
+export function frequency(rank) {
+  return 1 / Math.pow(rank + ZIPF_Q, ZIPF_S);
+}
+
+/** The same curve as an integer column, scaled so the commonest name reads 1000000. */
 function zipf(rank) {
-  return Math.max(1, Math.round(1_000_000 / rank));
+  return Math.max(1, Math.round((frequency(rank) / frequency(1)) * 1_000_000));
 }
 
 /**

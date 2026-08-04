@@ -1,17 +1,17 @@
 ---
-description: Таджики — female patronymic, the feminine form of the same patronymic at the same line as the male list
+description: Таджики living in Russia — the PEOPLE, not the country; for tajikistan use its own pack — female patronymic, the feminine form of the same patronymic at the same line as the male list
 weighted: true
 ---
 Далеровна,1000000
-Фирдавсовна,500000
-Джамшедовна,333333
-Синоовна,250000
-Бахтиёровна,200000
-Хуршедовна,166667
-Сухробовна,142857
-Рустамовна,125000
-Умедовна,111111
-Парвизовна,100000
-Наврузовна,90909
-Шухратовна,83333
-Фаридуновна,76923
+Фирдавсовна,933821
+Джамшедовна,873079
+Синоовна,817244
+Бахтиёровна,765844
+Хуршедовна,718461
+Сухробовна,674722
+Рустамовна,634293
+Умедовна,596876
+Парвизовна,562205
+Наврузовна,530039
+Шухратовна,500163
+Фаридуновна,472383

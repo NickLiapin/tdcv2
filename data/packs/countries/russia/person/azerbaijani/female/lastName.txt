@@ -1,19 +1,19 @@
 ---
-description: Азербайджанцы — female surname, the feminine form of the surname at the same line as the male list
+description: Азербайджанцы living in Russia — the PEOPLE, not the country; for azerbaijan use its own pack — female surname, the feminine form of the surname at the same line as the male list
 weighted: true
 ---
 Алиева,1000000
-Мамедова,500000
-Гусейнова,333333
-Гасанова,250000
-Рагимова,200000
-Багирова,166667
-Керимова,142857
-Сулейманова,125000
-Аскерова,111111
-Джафарова,100000
-Велиева,90909
-Ибрагимова,83333
-Наджафова,76923
-Рустамова,71429
-Юсифова,66667
+Мамедова,933821
+Гусейнова,873079
+Гасанова,817244
+Рагимова,765844
+Багирова,718461
+Керимова,674722
+Сулейманова,634293
+Аскерова,596876
+Джафарова,562205
+Велиева,530039
+Ибрагимова,500163
+Наджафова,472383
+Рустамова,446524
+Юсифова,422427

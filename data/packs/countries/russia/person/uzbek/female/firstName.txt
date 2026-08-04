@@ -1,14 +1,14 @@
 ---
-description: Узбеки — female given name, ordered by frequency
+description: Узбеки living in Russia — the PEOPLE, not the country; for uzbekistan use its own pack — female given name, ordered by frequency
 weighted: true
 ---
 Дилноза,1000000
-Гулнора,500000
-Малика,333333
-Нигора,250000
-Сабина,200000
-Феруза,166667
-Шахноза,142857
-Зульфия,125000
-Мохира,111111
-Севара,100000
+Гулнора,933821
+Малика,873079
+Нигора,817244
+Сабина,765844
+Феруза,718461
+Шахноза,674722
+Зульфия,634293
+Мохира,596876
+Севара,562205

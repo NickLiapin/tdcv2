@@ -1,11 +1,11 @@
 ---
-description: Евреи — male surname (declined masculine form)
+description: Евреи, one of the peoples of Russia — male surname (declined masculine form)
 weighted: true
 ---
 Дворкин,1000000
-Ямпольский,500000
-Слуцкий,333333
-Бродский,250000
-Райкин,200000
-Левин,166667
-Гинзбург-Левин,142857
+Ямпольский,933821
+Слуцкий,873079
+Бродский,817244
+Райкин,765844
+Левин,718461
+Гинзбург-Левин,674722

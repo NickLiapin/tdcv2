@@ -1,14 +1,14 @@
 ---
-description: Российские немцы — female given name, ordered by frequency
+description: Российские немцы living in Russia — the PEOPLE, not the country; for germany use its own pack — female given name, ordered by frequency
 weighted: true
 ---
 Эльза,1000000
-Ирма,500000
-Эрна,333333
-Гертруда,250000
-Матильда,200000
-Амалия,166667
-Фрида,142857
-Хильда,125000
-Лидия,111111
-Эмилия,100000
+Ирма,933821
+Эрна,873079
+Гертруда,817244
+Матильда,765844
+Амалия,718461
+Фрида,674722
+Хильда,634293
+Лидия,596876
+Эмилия,562205

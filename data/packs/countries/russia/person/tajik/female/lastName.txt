@@ -1,17 +1,17 @@
 ---
-description: Таджики — female surname, the feminine form of the surname at the same line as the male list
+description: Таджики living in Russia — the PEOPLE, not the country; for tajikistan use its own pack — female surname, the feminine form of the surname at the same line as the male list
 weighted: true
 ---
 Рахмонова,1000000
-Назарова,500000
-Шарипова,333333
-Каримова,250000
-Сафарова,200000
-Одинаева,166667
-Холова,142857
-Джураева,125000
-Мирзоева,111111
-Ятимова,100000
-Саидова,90909
-Кодирова,83333
-Умарова,76923
+Назарова,933821
+Шарипова,873079
+Каримова,817244
+Сафарова,765844
+Одинаева,718461
+Холова,674722
+Джураева,634293
+Мирзоева,596876
+Ятимова,562205
+Саидова,530039
+Кодирова,500163
+Умарова,472383

@@ -1,18 +1,18 @@
 ---
-description: Российские немцы — female patronymic, the feminine form of the same patronymic at the same line as the male list
+description: Российские немцы living in Russia — the PEOPLE, not the country; for germany use its own pack — female patronymic, the feminine form of the same patronymic at the same line as the male list
 weighted: true
 ---
 Артуровна,1000000
-Эрнстовна,500000
-Вальдемаровна,333333
-Рудольфовна,250000
-Эдгаровна,200000
-Вильгельмовна,166667
-Готлибовна,142857
-Иоганновна,125000
-Оттоовна,111111
-Александеровна,100000
-Робертовна,90909
-Герхардовна,83333
-Эриховна,76923
-Куртовна,71429
+Эрнстовна,933821
+Вальдемаровна,873079
+Рудольфовна,817244
+Эдгаровна,765844
+Вильгельмовна,718461
+Готлибовна,674722
+Иоганновна,634293
+Оттоовна,596876
+Александеровна,562205
+Робертовна,530039
+Герхардовна,500163
+Эриховна,472383
+Куртовна,446524

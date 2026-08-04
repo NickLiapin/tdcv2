@@ -1,18 +1,18 @@
 ---
-description: Узбеки — female surname, the feminine form of the surname at the same line as the male list
+description: Узбеки living in Russia — the PEOPLE, not the country; for uzbekistan use its own pack — female surname, the feminine form of the surname at the same line as the male list
 weighted: true
 ---
 Каримова,1000000
-Мирзаева,500000
-Рахимова,333333
-Юлдашева,250000
-Абдуллаева,200000
-Турсунова,166667
-Хамидова,142857
-Эргашева,125000
-Назарова,111111
-Саидова,100000
-Умарова,90909
-Ходжаева,83333
-Шарипова,76923
-Якубова,71429
+Мирзаева,933821
+Рахимова,873079
+Юлдашева,817244
+Абдуллаева,765844
+Турсунова,718461
+Хамидова,674722
+Эргашева,634293
+Назарова,596876
+Саидова,562205
+Умарова,530039
+Ходжаева,500163
+Шарипова,472383
+Якубова,446524

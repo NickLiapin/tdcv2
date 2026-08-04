@@ -1,14 +1,14 @@
 ---
-description: Украинцы — female given name, ordered by frequency
+description: Украинцы living in Russia — the PEOPLE, not the country; for ukraine use its own pack — female given name, ordered by frequency
 weighted: true
 ---
 Оксана,1000000
-Галина,500000
-Ярина,333333
-Оляна,250000
-Мирослава,200000
-Леся,166667
-Одарка,142857
-Мотря,125000
-Христина,111111
-Ганна,100000
+Галина,933821
+Ярина,873079
+Оляна,817244
+Мирослава,765844
+Леся,718461
+Одарка,674722
+Мотря,634293
+Христина,596876
+Ганна,562205

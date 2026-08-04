@@ -1,17 +1,17 @@
 ---
-description: Таджики — male patronymic, formed from the father's given name by the Russian rules
+description: Таджики living in Russia — the PEOPLE, not the country; for tajikistan use its own pack — male patronymic, formed from the father's given name by the Russian rules
 weighted: true
 ---
 Далерович,1000000
-Фирдавсович,500000
-Джамшедович,333333
-Синоович,250000
-Бахтиёрович,200000
-Хуршедович,166667
-Сухробович,142857
-Рустамович,125000
-Умедович,111111
-Парвизович,100000
-Наврузович,90909
-Шухратович,83333
-Фаридунович,76923
+Фирдавсович,933821
+Джамшедович,873079
+Синоович,817244
+Бахтиёрович,765844
+Хуршедович,718461
+Сухробович,674722
+Рустамович,634293
+Умедович,596876
+Парвизович,562205
+Наврузович,530039
+Шухратович,500163
+Фаридунович,472383
