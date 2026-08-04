@@ -28,8 +28,8 @@
     "fixtures:filters": "node typescript/scripts/filter-vectors.mjs",
     "audit:fixtures": "node scripts/audit-fixture-coverage.mjs",
     "audit:docs-five-ways": "node scripts/audit-doc-examples-five-ways.mjs",
-    "docs:urls": "npm --prefix webdoc run docs:urls",
-    "docs:bundle": "npm --prefix webdoc run --silent docs:bundle"
+    "docs:urls": "node webdoc/scripts/list-doc-urls.mjs",
+    "docs:bundle": "node webdoc/scripts/list-doc-urls.mjs --bundle"
   },
   "devDependencies": {
     "husky": "^9.1.6",
