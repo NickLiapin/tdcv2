@@ -675,7 +675,7 @@
       "locale": "ru",
       "address": "person.lastName",
       "count": 3,
-      "expected": ["Седых", "Гончар", "Долгих"]
+      "expected": ["Шевченко", "Арутюнян", "Тарасенко"]
     },
     {
       "seed": "demo",
@@ -706,7 +706,7 @@
       "locale": "en",
       "address": "ru.person.lastName",
       "count": 2,
-      "expected": ["Седых", "Гончар"]
+      "expected": ["Шевченко", "Арутюнян"]
     },
     {
       "seed": "demo",

@@ -67,12 +67,32 @@ export function feminineSurname(masculine) {
   );
 }
 
+/**
+ * The four patronymics whose feminine form no rule produces.
+ *
+ * Fathers named Илья, Фома, Лука and Кузьма give sons a patronymic in -ич, and
+ * every rule that turns -ич into -ична gets these four wrong: the feminine forms
+ * are Ильинична, Фоминична, Лукинична and Кузьминична, with an -ин- that appears
+ * from nowhere. Russian reference grammars list them as exceptions, and they are
+ * the whole list — Никитич really does give Никитична, and Саввич gives Саввична.
+ *
+ * They were wrong here until 2026-08-04, which is what a table of four entries is
+ * for: a rule that quietly mishandles its exceptions is worse than a rule with the
+ * exceptions written out beside it.
+ */
+const IRREGULAR_PATRONYMICS = {
+  Ильич: 'Ильинична',
+  Фомич: 'Фоминична',
+  Лукич: 'Лукинична',
+  Кузьмич: 'Кузьминична',
+};
+
 /** `Иванович` → `Ивановна`. Every Russian patronymic ends one of three ways. */
 export function femininePatronymic(masculine) {
+  if (masculine in IRREGULAR_PATRONYMICS) return IRREGULAR_PATRONYMICS[masculine];
   for (const [ending, replacement] of [
     [/ович$/, 'овна'],
     [/евич$/, 'евна'],
-    [/ьич$/, 'инична'],
     [/ич$/, 'ична'],
   ]) {
     if (ending.test(masculine)) return masculine.replace(ending, replacement);
@@ -108,9 +128,15 @@ function authored(name) {
 }
 
 const surnames = authored('surnames-masculine.txt');
+const indeclinable = authored('surnames-indeclinable.txt');
 const maleNames = authored('first-names-male.txt');
 const femaleNames = authored('first-names-female.txt');
 const patronymics = authored('patronymics-masculine.txt');
+
+/** Does any declension rule claim this surname? */
+function declines(surname) {
+  return DECLENSIONS.some(([ending]) => ending.test(surname));
+}
 
 // A duplicate would give one surname two ranks and therefore two weights, and the
 // pack merges duplicates by summing them — so the list would silently stop being
@@ -121,6 +147,7 @@ const patronymics = authored('patronymics-masculine.txt');
 const faults = [];
 for (const [what, list] of [
   ['surnames', surnames],
+  ['indeclinable surnames', indeclinable],
   ['male given names', maleNames],
   ['female given names', femaleNames],
   ['patronymics', patronymics],
@@ -129,6 +156,27 @@ for (const [what, list] of [
   for (const value of list) {
     if (seen.has(value)) faults.push(`${what}: "${value}" appears twice`);
     seen.add(value);
+  }
+}
+// The two surname files are two answers to one question — does this name have a
+// feminine form? A name in both would be drawn by `person.lastName` unchanged and
+// by `person.female.lastName` declined, so the same woman is Ткаченко on one page
+// and Ткаченкова on the next.
+{
+  const gendered = new Set(surnames);
+  for (const value of indeclinable) {
+    if (gendered.has(value)) faults.push(`"${value}" is in BOTH surname files — it declines or it does not`);
+  }
+}
+// The check that the masculine list already gets, run backwards: a name here that
+// the rules WOULD decline is simply in the wrong file, and putting it here quietly
+// costs it its feminine form.
+for (const value of indeclinable) {
+  if (declines(value)) {
+    faults.push(
+      `indeclinable surnames: "${value}" declines to "${feminineSurname(value)}" — ` +
+        'it belongs in surnames-masculine.txt',
+    );
   }
 }
 for (const [what, list, derive] of [
@@ -147,6 +195,7 @@ for (const [what, list, derive] of [
 // lookup. Two slipped in while this list was being typed.
 for (const [what, list] of [
   ['surnames', surnames],
+  ['indeclinable surnames', indeclinable],
   ['male given names', maleNames],
   ['female given names', femaleNames],
   ['patronymics', patronymics],
@@ -176,6 +225,13 @@ write(
   'Russian female surname, the feminine form of the same surname at the same line as ' +
     'person/male/lastName — so a family keeps one name. Weights match the masculine list.',
   weightedPairs(surnames, feminineSurname),
+);
+write(
+  'lastName.txt',
+  'Russian surname, gender-neutral — the forms that do not decline, so a man and a ' +
+    'woman carry the same string. For a surname that does have a feminine form use ' +
+    'person.male.lastName / person.female.lastName.',
+  weighted(indeclinable),
 );
 write(
   'male/firstName.txt',
