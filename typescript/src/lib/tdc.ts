@@ -37,11 +37,11 @@ import { renderParquetChunks } from '../output/render-parquet.js';
 import { parse } from '../parser/index.js';
 import { extractAttrs, findChildElement, elementKind, elementName } from '../processor/walk.js';
 import {
-  needsExactEngine,
   render,
   renderAsync,
   renderStream,
   resolveEngineSelection,
+  resolveRenderEngine,
   specsUseHttp,
 } from '../processor/render.js';
 import { extractEnvUniqGroups, extractSequenceSpecs } from '../sequence/index.js';
@@ -259,9 +259,29 @@ export class TDC {
       stream: this.options.stream,
       mode: this.options.mode,
     });
-    if ('forced' in selection) return selection.forced;
-    if (selection.mode === 'memory') return 1;
-    return needsExactEngine(extractSequenceSpecs(envEl), extractEnvUniqGroups(envEl)) ? 3 : 2;
+    // Ask the RENDERER's router rather than deciding again here.
+    //
+    // This used to be a second implementation that only chose between 3 and 2,
+    // while claiming in its own comment to match the renderer. It did not: the
+    // renderer sends five shapes to Engine 1 — a template address that
+    // interpolates a field, weight= with row=, a percent-declaring pack
+    // generator, uniq on a simple sequence, and http — and none of them were
+    // asked about here.
+    //
+    // The cost of that was not cosmetic. `usesStreamEngine()` answered "yes"
+    // for a config the renderer runs in memory, so the CLI believed the run was
+    // parallelisable, and auto-parallelism (100,000 rows and up) hands each
+    // worker `stream: true` — a FORCED engine, which has no fallback. Measured
+    // before this fix: the same weight=+row= config produced 50,000 rows and
+    // then, at 100,000, exited 1 with zero rows and a message telling the reader
+    // to "run without a forced streaming engine" they had never asked for.
+    return resolveRenderEngine(
+      selection,
+      extractSequenceSpecs(envEl),
+      extractEnvUniqGroups(envEl),
+      this.packs,
+      this.options.locale,
+    );
   }
 
   /** Resolved card count (CLI/API override beats env). Public for the parallel CLI. */
