@@ -215,6 +215,7 @@ export function buildLazyRegistry(
         now,
         options,
         registry,
+        parents,
       );
       continue;
     }
@@ -355,20 +356,78 @@ function buildSwitchSeq(
   now: number,
   options: SequenceBuildOptions,
   registry: SequenceRegistry,
+  parents: Map<string, ParentCapable>,
 ): Sequence {
   const fullDomain: Domain = { size: count, popIndexAt: (i) => i };
-  const built = switchSpec.entries.map((e, k) => ({
-    keys: e.keys,
-    resolve: buildCaseResolver(
-      e.value,
-      `${name}#sw${String(k)}`,
-      fullDomain,
-      seed,
-      locale,
-      now,
-      options,
-    ),
-  }));
+  const subjectParent = parents.get(switchSpec.on);
+
+  /*
+   * A branch draws over THE ROWS THAT CHOSE IT, not over the whole run.
+   *
+   * Every entry used to get `fullDomain`, which made a `<mix percent="20,80">`
+   * inside `<case is="Male">` apportion its 20% over ALL the rows — the ones
+   * that landed on female rows were then discarded. Measured on 10 rows split
+   * 5/5: the branch produced exactly 2 specials over the wrong denominator, and
+   * 0, 1 or 2 survived; every fourth run had none while the config asked for one
+   * man in five.
+   *
+   * The subset was never out of reach here. `ParentCapable` already answers both
+   * questions a branch needs, and `domainOf` uses them for `parent="Gender.Male"`
+   * today — the branch of a `<switch on="Gender">` keyed `Male` wants the very
+   * same domain. `buildMixSeq` promises "exact sub-percentages nest to any
+   * depth" through this same bijection; the switch simply was not asking.
+   */
+  const branchDomain = (keys: readonly string[]): Domain | undefined => {
+    // One key only. A multi-key entry (`US|CA|MX`) is the union of subsets, and
+    // ranks across a union do not compose from the per-value ranks — the
+    // interleaving is what decides them. Refused below rather than approximated.
+    if (keys.length !== 1) return undefined;
+    const key = keys[0];
+    if (key === undefined || !subjectParent?.hasValue(key)) return undefined;
+    return {
+      size: subjectParent.quotaOf(key),
+      popIndexAt: (i) => subjectParent.childRankAt(i, key),
+    };
+  };
+
+  /** Does this branch declare a share that the domain has to be right for? */
+  const carriesPercent = (c: CaseSpec | undefined): boolean =>
+    (c?.parts ?? []).some(
+      (part) =>
+        (part.kind === 'mix' && (part.mixSpec.attrs['percent'] ?? '').trim() !== '') ||
+        (part.kind === 'gen' && (part.gen.attrs['percent'] ?? '').trim() !== ''),
+    );
+
+  const built = switchSpec.entries.map((e, k) => {
+    const domain = branchDomain(e.keys);
+    if (domain === undefined && carriesPercent(e.value)) {
+      // Cannot be resolved lazily over the right subset, and resolving it over
+      // the wrong one is what this change exists to stop. Refuse, and the run
+      // falls back to the in-memory engine, which can.
+      throw unsupported(
+        `a percentage inside <case is="${e.keys.join('|')}"> of <switch on="${switchSpec.on}">`,
+        name,
+      );
+    }
+    return {
+      keys: e.keys,
+      resolve: buildCaseResolver(
+        e.value,
+        `${name}#sw${String(k)}`,
+        domain ?? fullDomain,
+        seed,
+        locale,
+        now,
+        options,
+      ),
+    };
+  });
+
+  if (carriesPercent(switchSpec.fallback)) {
+    // <default> holds the rows no entry matched — a complement, which
+    // ParentCapable does not enumerate. Same refusal, same fallback.
+    throw unsupported(`a percentage inside <default> of <switch on="${switchSpec.on}">`, name);
+  }
   const fallback = switchSpec.fallback
     ? buildCaseResolver(
         switchSpec.fallback,

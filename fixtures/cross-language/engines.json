@@ -2534,7 +2534,7 @@
         "refused": "stream mode: <uniq> across sequences (a whole-column rearrangement) (\"N × S\") is not supported yet — run without mode=\"stream\" (the in-memory engine handles it), or remove it."
       },
       "engine3": {
-        "lines": ["M-ann-1", "M-bob-3", "F-cat-2", "F-cat-3"]
+        "lines": ["M-bob-1", "M-ann-3", "F-dot-3", "F-cat-2"]
       }
     }
   }

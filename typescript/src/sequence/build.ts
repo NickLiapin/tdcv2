@@ -572,38 +572,76 @@ function materializeSwitch(
   now: number,
   ctx: SequenceBuildContext,
 ): Sequence {
-  // Every entry resolves over the WHOLE run, not over the rows that chose it —
-  // the streaming engine builds them that way so a lookup stays O(1), and the
-  // stream names have to match it entry for entry.
-  const named = (streamId: string): SequenceBuildContext => ({ ...ctx, streamId });
-  const built = switchSpec.entries.map((e, k) => ({
-    keys: e.keys,
-    values: buildCaseValues(
-      e.value,
-      count,
-      prng,
-      locale,
-      now,
-      named(`${spec.name}#sw${String(k)}`),
-    ),
-  }));
-  const fallback = switchSpec.fallback
-    ? buildCaseValues(switchSpec.fallback, count, prng, locale, now, named(`${spec.name}#swdef`))
-    : undefined;
+  /*
+   * Each branch is built over THE ROWS THAT CHOSE IT, not over the whole run.
+   *
+   * It used to be the whole run, as a concession to the streaming engine — one
+   * branch column per entry keeps a lookup O(1) there. Applied to this engine it
+   * was quietly wrong, and wrong in the worst way: a `<mix percent="20,80">`
+   * inside `<case is="Male">` handed out its 20% over ALL the rows, and the ones
+   * that landed on female rows were discarded. Measured before this change, on
+   * 10 rows split 5/5: the branch produced exactly 2 specials every time — over
+   * the wrong denominator — and 0, 1 or 2 of them survived. Every fourth run had
+   * none at all, while the config plainly asked for one man in five.
+   *
+   * The denominator was never unknown. `registry[switchSpec.on]` below is the
+   * subject's whole materialised column: the partition is available before a
+   * single branch is built. `<mix>` and `parent=` have always done it this way —
+   * see materializeMixSequence, which this now mirrors — and both are exact.
+   */
   const subject = registry[switchSpec.on];
+  const mask = computeParentMask(spec, registry, count);
+  const applicable = orderedRows(spec, mask, ctx.layouts);
 
-  const values = new Array<string | undefined>(count);
-  for (let i = 0; i < count; i++) {
-    const key = subject ? (sequenceValueAt(subject, i) ?? '') : '';
-    let picked: string | undefined;
-    for (const e of built) {
-      if (e.keys.includes(key)) {
-        picked = e.values[i];
-        break;
-      }
+  // Partition first, build second. A row belongs to the FIRST entry whose keys
+  // contain the subject's value — the same precedence the per-row loop had.
+  const entryRows: number[][] = switchSpec.entries.map(() => []);
+  const fallbackRows: number[] = [];
+  for (const row of applicable) {
+    const key = subject ? (sequenceValueAt(subject, row) ?? '') : '';
+    const k = switchSpec.entries.findIndex((e) => e.keys.includes(key));
+    if (k >= 0) entryRows[k]?.push(row);
+    else fallbackRows.push(row);
+  }
+
+  const values = new Array<string | undefined>(count).fill(undefined);
+  const place = (rows: readonly number[], produced: readonly string[]): void => {
+    for (let i = 0; i < rows.length; i++) {
+      const row = rows[i];
+      if (row !== undefined) values[row] = produced[i];
     }
-    if (picked === undefined && fallback) picked = fallback[i];
-    values[i] = picked;
+  };
+
+  switchSpec.entries.forEach((e, k) => {
+    const rows = entryRows[k] ?? [];
+    // A branch no row chose draws nothing at all — a quota over zero rows is not
+    // a quota, and Hamilton must never be handed that denominator.
+    if (rows.length === 0) return;
+    place(
+      rows,
+      buildCaseValues(
+        e.value,
+        rows.length,
+        prng,
+        locale,
+        now,
+        withRows(ctx, `${spec.name}#sw${String(k)}`, rows),
+      ),
+    );
+  });
+
+  if (switchSpec.fallback && fallbackRows.length > 0) {
+    place(
+      fallbackRows,
+      buildCaseValues(
+        switchSpec.fallback,
+        fallbackRows.length,
+        prng,
+        locale,
+        now,
+        withRows(ctx, `${spec.name}#swdef`, fallbackRows),
+      ),
+    );
   }
   return { name: spec.name, values };
 }
