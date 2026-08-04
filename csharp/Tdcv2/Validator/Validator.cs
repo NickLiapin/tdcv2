@@ -3831,6 +3831,31 @@ public sealed class Validator
             column);
     }
 
+    /// <summary>
+    /// The XML entities somebody writes in an expression, and what they meant. The config LOOKS
+    /// like XML, so <c>filter="price &amp;lt;= Budget"</c> is what a careful person writes. TDC
+    /// does not expand entities, so the parser sees nine characters where a <c>&lt;</c> was meant
+    /// and reports the character it tripped over, which tells the reader nothing about what to
+    /// change.
+    /// </summary>
+    private static readonly (string Found, string Means)[] XmlEntities =
+    {
+        ("&lt;", "<"), ("&gt;", ">"), ("&amp;", "&"), ("&quot;", "\""), ("&apos;", "'"),
+    };
+
+    private static (string Found, string Means)? XmlEntity(string expression)
+    {
+        foreach (var pair in XmlEntities)
+        {
+            if (expression.Contains(pair.Found, StringComparison.Ordinal))
+            {
+                return pair;
+            }
+        }
+
+        return null;
+    }
+
     private void CheckIfExpression(string expression, int line, int column)
     {
         Expr.Expr parsed;
@@ -3840,9 +3865,24 @@ public sealed class Validator
         }
         catch (ArgumentException e)
         {
-            Error(
-                "TDC100", $"invalid if expression \"{Clip(expression)}\": {e.Message}",
-                "Supported: comparison, && || !, and arithmetic.", line, column);
+            var entity = XmlEntity(expression);
+            if (entity is null)
+            {
+                Error(
+                    "TDC100", $"invalid if expression \"{Clip(expression)}\": {e.Message}",
+                    "Supported: comparison, && || !, and arithmetic.", line, column);
+            }
+            else
+            {
+                Error(
+                    "TDC100",
+                    $"invalid if expression \"{Clip(expression)}\": TDC does not expand XML entities, "
+                        + $"so \"{entity.Value.Found}\" is {entity.Value.Found.Length} literal characters, "
+                        + $"not \"{entity.Value.Means}\"",
+                    $"write {entity.Value.Means} directly — the config is XML-shaped but it is not XML, "
+                        + "and the raw character is what the expression parser reads",
+                    line, column);
+            }
             return;
         }
 

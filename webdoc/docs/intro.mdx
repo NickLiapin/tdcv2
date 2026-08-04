@@ -73,6 +73,35 @@ results afterward. Those lists are never reachable from the selected branch.
 
 Everything else in this documentation builds on this mechanism.
 
+## This is not XML
+
+Read the next example before this sentence and you will assume you are looking at XML.
+You are not. **TDC is its own format.** It borrows the shape of angle-bracket tags
+because that shape reads well for nested, named things — and the resemblance ends
+there. No XML parser reads a `.tdc` file, and no XML rule applies to one.
+
+What people expect from XML and do **not** get here:
+
+| XML has | TDC |
+| :--- | :--- |
+| entities — `&lt;` becomes `<` | **nothing is expanded.** `&lt;` is four characters. Write `<` |
+| namespaces, `xmlns:` | no such concept |
+| a DTD or an XSD to validate against | the engine validates, against its own rules |
+| `<![CDATA[…]]>` | not a thing; `<data>` already holds raw text |
+| `<?xml …?>`, `<!DOCTYPE …>` | not accepted |
+| attribute values are just text | attribute values are **TDC expressions** — `if="Age >= 18"` is parsed and evaluated |
+
+The `<` and `>` you write inside `<data>` are plain characters and stay plain, which is
+exactly what lets a config emit JSON, SQL or HTML without fighting an escaping layer.
+
+:::note[Why the examples say `xml`]
+
+The code blocks on this site are tagged `xml` so your browser colours the tags and
+attributes. That colouring is the entire extent of it. It is a syntax highlighter's
+best guess, not a statement about the format.
+
+:::
+
 ## A basic example
 
 The following configuration generates ten people with a 60/40 gender split. Their names

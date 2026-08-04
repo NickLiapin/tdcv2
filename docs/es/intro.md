@@ -64,6 +64,37 @@ filtrar el resultado después. Esas listas son inalcanzables desde la rama elegi
 
 Todo lo demás en esta documentación se apoya en este mecanismo.
 
+## Esto no es XML
+
+Si lee el siguiente ejemplo antes que esta frase, supondrá que está viendo XML. No lo es.
+**TDC es su propio formato.** Toma la forma de las etiquetas entre ángulos porque esa
+forma se lee bien para cosas anidadas con nombre, y ahí termina el parecido. Ningún
+analizador XML lee un archivo `.tdc`, y ninguna regla de XML se le aplica.
+
+Lo que se espera de XML y **no** hay aquí:
+
+| XML tiene | TDC |
+| :--- | :--- |
+| entidades — `&lt;` pasa a ser `<` | **nada se expande.** `&lt;` son cuatro caracteres. Escriba `<` |
+| espacios de nombres, `xmlns:` | no existe tal concepto |
+| un DTD o un XSD contra el que validar | valida el propio motor, con sus reglas |
+| `<![CDATA[…]]>` | no hace falta: `<data>` ya guarda texto crudo |
+| `<?xml …?>`, `<!DOCTYPE …>` | no se aceptan |
+| el valor de un atributo es solo texto | el valor de un atributo es una **expresión TDC**: `if="Age >= 18"` se analiza y se evalúa |
+
+Los `<` y `>` que escriba dentro de `<data>` son caracteres corrientes y así se quedan,
+que es justo lo que permite a una configuración emitir JSON, SQL o HTML sin pelear con
+una capa de escapado.
+
+> [!NOTE]
+> **Por qué los ejemplos dicen `xml`**
+>
+>
+> Los bloques de código de este sitio llevan la etiqueta `xml` para que el navegador
+> coloree etiquetas y atributos. Ese coloreado es todo el alcance del asunto: es la
+> conjetura de un resaltador de sintaxis, no una afirmación sobre el formato.
+>
+
 ## Un ejemplo básico
 
 La siguiente configuración genera diez personas con una división por sexo de 60/40. Sus

@@ -238,6 +238,21 @@ def validate(document, base_dir: Path | None = None, packs: DataPacks | None = N
     return found
 
 
+# The XML entities somebody writes in an expression, and what they meant. The
+# config LOOKS like XML, so `filter="price &lt;= Budget"` is what a careful person
+# writes. TDC does not expand entities, so the parser sees nine characters where a
+# `<` was meant and reports the character it tripped over, which tells the reader
+# nothing about what to change.
+_XML_ENTITIES = (("&lt;", "<"), ("&gt;", ">"), ("&amp;", "&"), ("&quot;", '"'), ("&apos;", "'"))
+
+
+def _xml_entity(expression: str):
+    for found, means in _XML_ENTITIES:
+        if found in expression:
+            return found, means
+    return None
+
+
 class _Validator:
     __slots__ = (
         "base_dir",
@@ -2933,13 +2948,22 @@ class _Validator:
         try:
             parsed = expr_parse(expression)
         except ValueError as e:
-            self._error(
-                "TDC100",
-                f'invalid if expression "{_clip(expression)}": {e}',
-                "Supported: comparison, && || !, and arithmetic.",
-                line,
-                column,
-            )
+            entity = _xml_entity(expression)
+            if entity is None:
+                message = f'invalid if expression "{_clip(expression)}": {e}'
+                hint = "Supported: comparison, && || !, and arithmetic."
+            else:
+                found, means = entity
+                message = (
+                    f'invalid if expression "{_clip(expression)}": TDC does not expand '
+                    f'XML entities, so "{found}" is {len(found)} literal characters, '
+                    f'not "{means}"'
+                )
+                hint = (
+                    f"write {means} directly — the config is XML-shaped but it is not "
+                    "XML, and the raw character is what the expression parser reads"
+                )
+            self._error("TDC100", message, hint, line, column)
             return
         self._check_expr_node(parsed, line, column)
 

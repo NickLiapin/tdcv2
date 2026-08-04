@@ -64,6 +64,34 @@ function parenDepth(expr: string): number {
   return deepest;
 }
 
+/**
+ * The XML entities somebody writes in an expression, and what they meant.
+ *
+ * The config LOOKS like XML, so `filter="price &lt;= Budget"` is what a careful
+ * person writes — it is what XML requires, and what every editor autocompletes.
+ * TDC does not expand entities, so the parser sees nine characters where a `<`
+ * was meant and reports `Unexpected "=" at character 10`, which is true and tells
+ * the reader nothing about what to change.
+ *
+ * `&lt;` and `&gt;` are the ones that matter, since comparison is where an
+ * expression needs them; the rest are here because a reader who has learnt to
+ * escape one will escape the others too.
+ */
+const XML_ENTITIES: readonly (readonly [string, string])[] = [
+  ['&lt;', '<'],
+  ['&gt;', '>'],
+  ['&amp;', '&'],
+  ['&quot;', '"'],
+  ['&apos;', "'"],
+];
+
+function xmlEntity(expr: string): { found: string; means: string } | undefined {
+  for (const [found, means] of XML_ENTITIES) {
+    if (expr.includes(found)) return { found, means };
+  }
+  return undefined;
+}
+
 export function checkIfExpression(
   attr: AttrContext,
   expr: string,
@@ -83,6 +111,7 @@ export function checkIfExpression(
     });
     return;
   }
+  const entity = xmlEntity(expr);
   let ast: jsep.Expression;
   try {
     ast = jsep(expr);
@@ -92,8 +121,19 @@ export function checkIfExpression(
       severity: 'error',
       source: 'validator',
       ...valRange,
-      message: `invalid if expression "${clip(expr)}": ${msg}`,
-      hint: 'See the operator table: https://nickliapin.github.io/tdcv2/docs/core-concepts/output-formatting',
+      // An entity is the likelier explanation than whatever the parser tripped
+      // over, so it replaces the parser's own message rather than sitting beside
+      // it: "Unexpected = at character 10" is true and useless.
+      message:
+        entity === undefined
+          ? `invalid if expression "${clip(expr)}": ${msg}`
+          : `invalid if expression "${clip(expr)}": TDC does not expand XML entities, ` +
+            `so "${entity.found}" is ${String(entity.found.length)} literal characters, not "${entity.means}"`,
+      hint:
+        entity === undefined
+          ? 'See the operator table: https://nickliapin.github.io/tdcv2/docs/core-concepts/output-formatting'
+          : `write ${entity.means} directly — the config is XML-shaped but it is not XML, and ` +
+            'the raw character is what the expression parser reads',
       code: 'TDC100',
     });
     return;

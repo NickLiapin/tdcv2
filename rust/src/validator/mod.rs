@@ -3060,16 +3060,34 @@ impl Validator {
     fn check_if_expression(&mut self, expression: &str, at: Pos) {
         match expr::parse(expression) {
             Ok(parsed) => self.check_expr_node(&parsed, at),
-            Err(e) => self.error(
-                "TDC100",
-                format!(
-                    "invalid if expression \"{}\": {}",
-                    clip(expression),
-                    e.message()
+            Err(e) => match xml_entity(expression) {
+                None => self.error(
+                    "TDC100",
+                    format!(
+                        "invalid if expression \"{}\": {}",
+                        clip(expression),
+                        e.message()
+                    ),
+                    "Supported: comparison, && || !, and arithmetic.",
+                    at,
                 ),
-                "Supported: comparison, && || !, and arithmetic.",
-                at,
-            ),
+                Some((found, means)) => self.error(
+                    "TDC100",
+                    format!(
+                        "invalid if expression \"{}\": TDC does not expand XML entities, \
+                         so \"{}\" is {} literal characters, not \"{}\"",
+                        clip(expression),
+                        found,
+                        found.len(),
+                        means
+                    ),
+                    &format!(
+                        "write {means} directly — the config is XML-shaped but it is not XML, \
+                         and the raw character is what the expression parser reads"
+                    ),
+                    at,
+                ),
+            },
         }
     }
 
@@ -3143,6 +3161,25 @@ impl Validator {
 }
 
 /// The `${{…}}` bodies in a piece of text — `\$\{\{([^}]+)}}` read by hand.
+/// The XML entities somebody writes in an expression, and what they meant.
+///
+/// The config LOOKS like XML, so `filter="price &lt;= Budget"` is what a careful
+/// person writes. TDC does not expand entities, so the parser sees nine characters
+/// where a `<` was meant and reports the character it tripped over, which tells
+/// the reader nothing about what to change.
+fn xml_entity(expression: &str) -> Option<(&'static str, &'static str)> {
+    const ENTITIES: [(&str, &str); 5] = [
+        ("&lt;", "<"),
+        ("&gt;", ">"),
+        ("&amp;", "&"),
+        ("&quot;", "\""),
+        ("&apos;", "'"),
+    ];
+    ENTITIES
+        .into_iter()
+        .find(|(found, _)| expression.contains(found))
+}
+
 fn interpolations(text: &str) -> Vec<String> {
     let chars: Vec<char> = text.chars().collect();
     let mut result = Vec::new();

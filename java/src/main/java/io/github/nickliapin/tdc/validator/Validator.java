@@ -3054,13 +3054,45 @@ public final class Validator {
         line, column);
   }
 
+  /**
+   * The XML entities somebody writes in an expression, and what they meant.
+   *
+   * <p>The config LOOKS like XML, so {@code filter="price &amp;lt;= Budget"} is what a careful
+   * person writes. TDC does not expand entities, so the parser sees nine characters where a
+   * {@code <} was meant and reports the character it tripped over, which tells the reader nothing
+   * about what to change.
+   */
+  private static final String[][] XML_ENTITIES = {
+    {"&lt;", "<"}, {"&gt;", ">"}, {"&amp;", "&"}, {"&quot;", "\""}, {"&apos;", "'"}
+  };
+
+  private static String[] xmlEntity(String expression) {
+    for (String[] pair : XML_ENTITIES) {
+      if (expression.contains(pair[0])) {
+        return pair;
+      }
+    }
+    return null;
+  }
+
   private void checkIfExpression(String expression, int line, int column) {
     io.github.nickliapin.tdc.expr.Expr parsed;
     try {
       parsed = io.github.nickliapin.tdc.expr.Expr.parse(expression);
     } catch (RuntimeException e) {
-      error("TDC100", "invalid if expression \"" + clip(expression) + "\": " + e.getMessage(),
-          "Supported: comparison, && || !, and arithmetic.", line, column);
+      String[] entity = xmlEntity(expression);
+      if (entity == null) {
+        error("TDC100", "invalid if expression \"" + clip(expression) + "\": " + e.getMessage(),
+            "Supported: comparison, && || !, and arithmetic.", line, column);
+      } else {
+        error("TDC100",
+            "invalid if expression \"" + clip(expression) + "\": TDC does not expand XML entities,"
+                + " so \"" + entity[0] + "\" is " + entity[0].length()
+                + " literal characters, not \"" + entity[1] + "\"",
+            "write " + entity[1] + " directly — the config is XML-shaped but it is not XML,"
+                + " and the raw character is what the expression parser reads",
+            line, column);
+      }
       return;
     }
     checkExprNode(parsed, line, column);
