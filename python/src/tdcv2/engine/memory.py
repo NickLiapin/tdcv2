@@ -887,35 +887,105 @@ def _switch_values(spec, count: int, run: _Run, columns, name: str) -> list[str 
     no default is empty — which is a value, not a failure: a country with no currency listed
     simply has none here.
     """
-    # Every entry resolves over the WHOLE run, not over the rows that chose it — the streaming
-    # engine builds them that way so a lookup stays O(1), and the stream names have to match it
-    # entry for entry.
-    def named(stream_id: str) -> _Run:
-        return replace(run, stream_id=stream_id)
-
-    built = [
-        _case_values(entry.value, count, named(f"{name}#sw{e}"))
-        for e, entry in enumerate(spec.entries)
-    ]
-    fallback = (
-        None
-        if spec.fallback is None
-        else _case_values(spec.fallback, count, named(f"{name}#swdef"))
-    )
-
+    # Group the rows by branch BEFORE generating, exactly as `_mix_values` does — that is what
+    # makes a percentage inside a branch mean what it says. Every entry used to be built over the
+    # WHOLE run and the values that landed on rows belonging to another branch were dropped, so a
+    # `<mix percent="20,80">` inside `<case is="Male">` apportioned its 20% across all the rows
+    # rather than across the men. Measured over 100 runs of 10 rows split 5/5: 0, 1 or 2
+    # survivors, and 23 runs with none, where the config plainly asked for one man in five.
     subject = columns.get(spec.on)
-    out: list[str | None] = [None] * count
+    entry_positions: list[list[int]] = [[] for _ in spec.entries]
+    fallback_positions: list[int] = []
     for i in range(count):
         key = "" if subject is None or subject[i] is None else subject[i]
-        picked = None
         for e, entry in enumerate(spec.entries):
             if key in entry.keys:
-                picked = built[e][i]
+                entry_positions[e].append(i)
                 break
-        if picked is None and fallback is not None:
-            picked = fallback[i]
-        out[i] = picked
+        else:
+            fallback_positions.append(i)
+
+    out: list[str | None] = [None] * count
+
+    def place(positions: list[int], case, stream_id: str, keys: list[str] | None) -> None:
+        # A branch no row chose draws nothing: a quota over zero rows is not a quota.
+        if not positions:
+            return
+        rows = [per_row.absolute_row(run, p) for p in positions]
+        order = None if keys is None else _branch_order(spec.on, keys, rows, run.layouts)
+        if order is None:
+            if not _case_carries_percent(case):
+                # The streaming engines cannot number the rows of a multi-key branch or of
+                # <default>, so they build those over the whole run and read the row they
+                # want. This engine has to do the same or the two would answer differently on
+                # a config neither of them refuses.
+                whole = _case_values(case, count, replace(run, stream_id=stream_id))
+                for position in positions:
+                    out[position] = whole[position]
+                return
+            # It declares a share, so the streaming engines refuse it and the router sends the
+            # whole config here: no other engine will ever produce this column, and it is free
+            # to be exact. The quota goes over the branch's OWN rows, in row order.
+            values = _case_values(case, len(positions), per_row.with_rows(run, stream_id, rows))
+            for local, position in enumerate(positions):
+                out[position] = values[local]
+            return
+        ordered = [positions[j] for j in order]
+        ordered_rows = [rows[j] for j in order]
+        values = _case_values(
+            case, len(ordered), per_row.with_rows(run, stream_id, ordered_rows)
+        )
+        for local, position in enumerate(ordered):
+            out[position] = values[local]
+
+    for e, entry in enumerate(spec.entries):
+        place(entry_positions[e], entry.value, f"{name}#sw{e}", list(entry.keys))
+    if spec.fallback is not None:
+        place(fallback_positions, spec.fallback, f"{name}#swdef", None)
     return out
+
+
+def _case_carries_percent(case) -> bool:
+    """Does this ``<case>`` body declare a share that the denominator has to be right for?"""
+    return any(
+        (part.mix is not None and (part.mix.percent or "").strip() != "")
+        or (part.gen is not None and part.gen.attr("percent").strip() != "")
+        for part in case.parts
+    )
+
+
+def _branch_order(on: str, keys: list[str], rows: list[int], layouts) -> list[int] | None:
+    """Where each of a branch's rows sits in the order the STREAMING engine numbers them.
+
+    A branch keyed ``Male`` of ``<switch on="Gender">`` is the same subset as
+    ``parent="Gender.Male"``, and both engines must lay a quota over it the same way. That
+    order is NOT row order: it is the rank inside the subject's exact layout, which is what
+    ``ordered_rows`` computes for a child and what the streaming engine's ``child_rank_at``
+    hands out. Ordering by row instead put the right COUNT of values on the wrong rows, and the
+    two engines disagreed on a config neither of them refused.
+
+    ``None`` for a multi-key entry (``US|CA|MX``): its rows are a union of subsets, and ranks
+    across a union do not compose from the per-value ranks.
+    """
+    if len(keys) != 1 or layouts is None:
+        return None
+    plan = layouts.get(on)
+    key = keys[0]
+    if plan is None or key not in plan.values:
+        return None
+    vi = plan.values.index(key)
+    lo = plan.cum_hi[vi] - plan.counts[vi]
+
+    order: list[int] = [-1] * len(rows)
+    for local, row in enumerate(rows):
+        slot = plan.slot_by_row.get(row)
+        if slot is None:
+            return None
+        rank = slot - lo
+        if rank < 0 or rank >= len(order):
+            return None
+        order[rank] = local
+    return None if any(o < 0 for o in order) else order
 
 
 def _conditional(spec: SequenceSpec, count: int, run: _Run, columns) -> list[str | None]:

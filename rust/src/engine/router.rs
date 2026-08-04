@@ -110,8 +110,76 @@ pub fn resolve(config: &Config, packs: Option<&DataPacks>) -> EngineResult<u8> {
     if any_gen(config, |gen| gen.gen_type == "http") {
         return Ok(1);
     }
+    // A <switch> branch that declares a share the streaming engines cannot lay over the right
+    // rows. They refuse such a branch rather than apportion it over the wrong denominator, and a
+    // refusal reached at build time is not a fallback for every caller. Decide it here,
+    // statically, where every path sees the same answer.
+    if unstreamable_switch_percent(config) {
+        return Ok(1);
+    }
 
     Ok(if needs_exact(config) { 3 } else { 2 })
+}
+
+/// Does this `<case>` body declare a share that the denominator has to be right for?
+fn case_carries_percent(case: Option<&crate::model::Case>) -> bool {
+    case.is_some_and(|c| {
+        c.parts.iter().any(|part| match part {
+            crate::model::CasePart::Mix(mix) => {
+                !mix.percent.as_deref().unwrap_or("").trim().is_empty()
+            }
+            crate::model::CasePart::Gen(gen) => !gen.attr_or("percent", "").trim().is_empty(),
+            crate::model::CasePart::Text(_) => false,
+        })
+    })
+}
+
+/// A `<switch>` branch whose share the streaming engines cannot honour.
+///
+/// They can subset a branch keyed on ONE value of a plain values list — the same bijection
+/// `parent="Gender.Male"` uses. They cannot rank a multi-key branch (`US|CA|MX` is a union, and
+/// ranks across a union do not compose from the per-value ranks), nor `<default>` (a complement,
+/// which nothing enumerates), nor any branch whose subject is not a finite values list.
+///
+/// Deliberately conservative: anything it cannot prove streamable goes to engine 1, which costs
+/// speed on an exotic config and never costs correctness.
+fn unstreamable_switch_percent(config: &Config) -> bool {
+    let plain_list_values = |name: &str| -> Option<Vec<String>> {
+        let subject = config.sequences.iter().find(|s| s.name == name)?;
+        let gen = match &subject.source {
+            Source::Gen(gen) => gen,
+            _ => return None,
+        };
+        if gen.gen_type != "text"
+            || gen.attr_or("order", "") == "sequential"
+            || !gen.attr_or("repeat", "").trim().is_empty()
+        {
+            return None;
+        }
+        Some(
+            gen.attr_or("value", "")
+                .split(',')
+                .map(|v| v.trim().to_string())
+                .collect(),
+        )
+    };
+
+    config.sequences.iter().any(|spec| {
+        let Source::Switch(sw) = &spec.source else {
+            return false;
+        };
+        if case_carries_percent(sw.fallback.as_ref()) {
+            return true;
+        }
+        let values = plain_list_values(&sw.on);
+        sw.entries.iter().any(|entry| {
+            case_carries_percent(Some(&entry.value))
+                && (entry.keys.len() != 1
+                    || values
+                        .as_ref()
+                        .is_none_or(|vs| !vs.contains(&entry.keys[0])))
+        })
+    })
 }
 
 /// Whether disk mode needs the exact engine rather than the streaming one.

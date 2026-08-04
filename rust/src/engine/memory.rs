@@ -647,7 +647,8 @@ fn build_columns_with(
             }
 
             Source::Switch(sw) => {
-                let values = switch_values(sw, count, &mut prng, &columns, env, &spec.name)?;
+                let values =
+                    switch_values(sw, count, &mut prng, &columns, env, &spec.name, &layouts)?;
                 columns.insert(spec.name.clone(), values);
             }
 
@@ -2018,9 +2019,13 @@ fn mix_values(
 
 /// `<switch on="Subject">` — look the subject's value up in the table.
 ///
-/// Every entry is built over every row, not only the matching ones, for the same
-/// reason a mix builds each case over the rows it won: a case may hold a
-/// generator, and its draws belong to the stream whether or not that key came up.
+/// An entry is built over THE ROWS THAT CHOSE IT, exactly as a mix builds a case
+/// over the rows it won. Every entry used to be built over the whole run and the
+/// values that landed on rows belonging to another branch were dropped, so a
+/// `<mix percent="20,80">` inside `<case is="Male">` apportioned its 20% across
+/// all the rows rather than across the men. Measured over 100 runs of 10 rows
+/// split 5/5: 0, 1 or 2 survivors, and 23 runs with none at all, where the config
+/// plainly asked for one man in five.
 ///
 /// A row with no match and no `<default>` is EMPTY rather than a failure — a
 /// country with no entry in a currency table has no currency, and `None` is how
@@ -2032,44 +2037,153 @@ fn switch_values(
     columns: &BTreeMap<String, Vec<Option<String>>>,
     env: &Env,
     name: &str,
+    layouts: &BTreeMap<String, per_row::ExactLayout>,
 ) -> EngineResult<Vec<Option<String>>> {
-    // Every entry resolves over the WHOLE run, not over the rows that chose it — the streaming
-    // engine builds them that way so a lookup stays O(1), and the stream names have to match it
-    // entry for entry.
-    let named = |stream_id: String| per_row::Stream {
-        seed: env.config.seed.clone(),
-        id: stream_id,
-        rows: None,
-    };
-    let mut built = Vec::with_capacity(sw.entries.len());
-    for (e, entry) in sw.entries.iter().enumerate() {
-        let stream = named(format!("{name}#sw{e}"));
-        built.push(case_values(&entry.value, count, prng, env, Some(&stream))?);
-    }
-    let fallback = match &sw.fallback {
-        Some(case) => {
-            let stream = named(format!("{name}#swdef"));
-            Some(case_values(case, count, prng, env, Some(&stream))?)
-        }
-        None => None,
-    };
-
+    // Group the rows by branch BEFORE generating: the subject's whole column is already here.
     let subject = columns.get(&sw.on);
-    let mut result = Vec::with_capacity(count);
+    let mut entry_rows: Vec<Vec<usize>> = vec![Vec::new(); sw.entries.len()];
+    let mut fallback_rows: Vec<usize> = Vec::new();
     for i in 0..count {
         let key = subject
             .and_then(|c| c.get(i))
             .and_then(|v| v.as_deref())
             .unwrap_or("");
-        let picked = sw
+        match sw
             .entries
             .iter()
             .position(|entry| entry.keys.iter().any(|k| k == key))
-            .map(|e| built[e][i].clone())
-            .or_else(|| fallback.as_ref().map(|f| f[i].clone()));
-        result.push(picked);
+        {
+            Some(e) => entry_rows[e].push(i),
+            None => fallback_rows.push(i),
+        }
+    }
+
+    /// One branch over its own rows. A branch no row chose draws nothing: a quota over zero
+    /// rows is not a quota.
+    ///
+    /// `ranked` is the rows in the order the STREAMING engine numbers them; `None` when they
+    /// cannot be numbered, and then the branch is built over the whole run and read at the row
+    /// — which is what the streaming engine does with such a branch, and the two must agree.
+    fn place(
+        case: &Case,
+        rows: &[usize],
+        ranked: Option<Vec<usize>>,
+        stream_id: String,
+        count: usize,
+        prng: &mut Sfc32,
+        env: &Env,
+        out: &mut [Option<String>],
+    ) -> EngineResult<()> {
+        if rows.is_empty() {
+            return Ok(());
+        }
+        let Some(ranked) = ranked else {
+            if !case_carries_percent(case) {
+                // The streaming engines cannot number the rows of a multi-key branch or of
+                // <default>, so they build those over the whole run and read the row they want.
+                // This engine has to do the same or the two would answer differently on a
+                // config neither of them refuses.
+                let stream = per_row::Stream::new(&env.config.seed, &stream_id);
+                let whole = case_values(case, count, prng, env, Some(&stream))?;
+                for &row in rows {
+                    out[row] = Some(whole[row].clone());
+                }
+                return Ok(());
+            }
+            // It declares a share, so the streaming engines refuse it and the router sends the
+            // whole config here: no other engine will ever produce this column, and it is free
+            // to be exact. The quota goes over the branch's OWN rows, in row order.
+            let stream = per_row::Stream::with_rows(&env.config.seed, &stream_id, rows.to_vec());
+            let values = case_values(case, rows.len(), prng, env, Some(&stream))?;
+            for (local, &row) in rows.iter().enumerate() {
+                out[row] = Some(values[local].clone());
+            }
+            return Ok(());
+        };
+        let stream = per_row::Stream::with_rows(&env.config.seed, &stream_id, ranked.clone());
+        let values = case_values(case, ranked.len(), prng, env, Some(&stream))?;
+        for (local, &row) in ranked.iter().enumerate() {
+            out[row] = Some(values[local].clone());
+        }
+        Ok(())
+    }
+
+    let mut result = vec![None; count];
+    for (e, entry) in sw.entries.iter().enumerate() {
+        let ranked = ranked_branch_rows(&sw.on, &entry.keys, &entry_rows[e], layouts);
+        place(
+            &entry.value,
+            &entry_rows[e],
+            ranked,
+            format!("{name}#sw{e}"),
+            count,
+            prng,
+            env,
+            &mut result,
+        )?;
+    }
+    if let Some(case) = &sw.fallback {
+        // <default> holds the rows no entry matched — a complement, which no layout enumerates.
+        place(
+            case,
+            &fallback_rows,
+            None,
+            format!("{name}#swdef"),
+            count,
+            prng,
+            env,
+            &mut result,
+        )?;
     }
     Ok(result)
+}
+
+/// Does this `<case>` body declare a share that the denominator has to be right for?
+fn case_carries_percent(case: &Case) -> bool {
+    case.parts.iter().any(|part| match part {
+        CasePart::Mix(mix) => !mix.percent.as_deref().unwrap_or("").trim().is_empty(),
+        CasePart::Gen(gen) => !gen.attr_or("percent", "").trim().is_empty(),
+        CasePart::Text(_) => false,
+    })
+}
+
+/// A switch branch's rows in the order the STREAMING engine numbers them, or `None` when it
+/// cannot number them at all.
+///
+/// A branch keyed `Male` of `<switch on="Gender">` is the same subset as `parent="Gender.Male"`,
+/// and both engines must lay a quota over it the same way. That order is NOT row order: it is
+/// the rank inside the subject's exact layout, which is what `ordered_rows` computes for a child
+/// and what the streaming engine's `child_rank_at` hands out. Ordering by row instead put the
+/// right COUNT of values on the wrong rows, and the two engines disagreed on a config neither of
+/// them refused.
+///
+/// `None` for a multi-key entry (`US|CA|MX`): its rows are a union of subsets, and ranks across a
+/// union do not compose from the per-value ranks.
+fn ranked_branch_rows(
+    on: &str,
+    keys: &[String],
+    rows: &[usize],
+    layouts: &BTreeMap<String, per_row::ExactLayout>,
+) -> Option<Vec<usize>> {
+    if keys.len() != 1 {
+        return None;
+    }
+    let plan = layouts.get(on)?;
+    let vi = plan.values.iter().position(|v| v == &keys[0])?;
+    let lo = plan.cum_hi[vi] - plan.counts[vi];
+
+    let mut ordered = vec![usize::MAX; rows.len()];
+    for &row in rows {
+        let rank = plan.slot_by_row.get(&row)? - lo;
+        if rank < 0 || rank as usize >= ordered.len() {
+            return None;
+        }
+        ordered[rank as usize] = row;
+    }
+    if ordered.contains(&usize::MAX) {
+        return None;
+    }
+    Some(ordered)
 }
 
 /// `<gen type="number" distribution="normal" …/>` — a column shaped like real data.

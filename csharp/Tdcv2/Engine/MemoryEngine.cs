@@ -526,7 +526,7 @@ public static class MemoryEngine
             if (spec.IsSwitch)
             {
                 columns[spec.Name] =
-                    SwitchValues(spec.SwitchSpec!, count, prng, columns, ctx, spec.Name);
+                    SwitchValues(spec.SwitchSpec!, count, prng, columns, ctx, spec.Name, layouts);
                 continue;
             }
 
@@ -2130,50 +2130,188 @@ public static class MemoryEngine
     /// A switch: look the subject's value up in the table.
     /// </summary>
     /// <remarks>
-    /// Built over every row rather than only the matching ones, because a case may hold a
-    /// generator and its draws are part of the stream whether or not that key came up. A row with
-    /// no match and no default is empty — which is a value, not a failure: a country with no
-    /// currency listed simply has none here.
+    /// An entry is built over THE ROWS THAT CHOSE IT, exactly as a mix builds a case over the
+    /// rows it won. Every entry used to be built over the whole run and the values that landed
+    /// on rows belonging to another branch were dropped, so a <c>&lt;mix percent="20,80"&gt;</c>
+    /// inside <c>&lt;case is="Male"&gt;</c> apportioned its 20% across all the rows rather than
+    /// across the men. Measured over 100 runs of 10 rows split 5/5: 0, 1 or 2 survivors, and 23
+    /// runs with none at all, where the config plainly asked for one man in five.
+    /// <para>
+    /// A row with no match and no default is empty — which is a value, not a failure: a country
+    /// with no currency listed simply has none here.
+    /// </para>
     /// </remarks>
     private static string[] SwitchValues(
         Switch spec, int count, Sfc32 prng, IReadOnlyDictionary<string, string[]> columns,
-        Ctx ctx, string name)
+        Ctx ctx, string name, Dictionary<string, PerRow.ExactLayout> layouts)
     {
-        // Every entry resolves over the WHOLE run, not over the rows that chose it — the
-        // streaming engine builds them that way so a lookup stays O(1), and the stream names
-        // have to match it entry for entry.
-        PerRow.Stream Named(string id) => new(ctx.Config.Seed, id, null);
-
-        var built = new List<IReadOnlyList<string>>(spec.Entries.Count);
+        // Group the rows by branch BEFORE generating: the subject's whole column is already here.
+        columns.TryGetValue(spec.On, out string[]? subject);
+        var entryRows = new List<List<int>>(spec.Entries.Count);
         for (int e = 0; e < spec.Entries.Count; e++)
         {
-            built.Add(CaseValues(
-                spec.Entries[e].Value, count, prng, ctx, Named($"{name}#sw{e}")));
+            entryRows.Add(new List<int>());
         }
 
-        IReadOnlyList<string>? fallback = spec.Fallback is null
-            ? null
-            : CaseValues(spec.Fallback, count, prng, ctx, Named($"{name}#swdef"));
-
-        columns.TryGetValue(spec.On, out string[]? subject);
-        var result = new string[count];
+        var fallbackRows = new List<int>();
         for (int i = 0; i < count; i++)
         {
             string key = subject is null ? "" : subject[i] ?? "";
-            string? picked = null;
+            int picked = -1;
             for (int e = 0; e < spec.Entries.Count; e++)
             {
                 if (spec.Entries[e].Keys.Contains(key))
                 {
-                    picked = built[e][i];
+                    picked = e;
                     break;
                 }
             }
 
-            result[i] = picked ?? (fallback is not null ? fallback[i] : null!);
+            (picked < 0 ? fallbackRows : entryRows[picked]).Add(i);
+        }
+
+        var result = new string[count];
+
+        // A branch no row chose draws nothing: a quota over zero rows is not a quota.
+        //
+        // `ranked` is the rows in the order the STREAMING engine numbers them; null when they
+        // cannot be numbered, and then the branch is built over the whole run and read at the
+        // row — which is what the streaming engine does with such a branch, and the two must
+        // agree.
+        void Place(Case body, List<int> rows, List<int>? ranked, string streamId)
+        {
+            if (rows.Count == 0)
+            {
+                return;
+            }
+
+            if (ranked is null)
+            {
+                if (!CaseCarriesPercent(body))
+                {
+                    // The streaming engines cannot number the rows of a multi-key branch or of
+                    // <default>, so they build those over the whole run and read the row they
+                    // want. This engine has to do the same or the two would answer differently
+                    // on a config neither of them refuses.
+                    IReadOnlyList<string> whole = CaseValues(
+                        body, count, prng, ctx, new PerRow.Stream(ctx.Config.Seed, streamId, null));
+                    foreach (int row in rows)
+                    {
+                        result[row] = whole[row];
+                    }
+
+                    return;
+                }
+
+                // It declares a share, so the streaming engines refuse it and the router sends
+                // the whole config here: no other engine will ever produce this column, and it
+                // is free to be exact. The quota goes over the branch's OWN rows, in row order.
+                IReadOnlyList<string> exact = CaseValues(
+                    body, rows.Count, prng, ctx,
+                    new PerRow.Stream(ctx.Config.Seed, streamId, rows.ToArray()));
+                for (int local = 0; local < rows.Count; local++)
+                {
+                    result[rows[local]] = exact[local];
+                }
+
+                return;
+            }
+
+            IReadOnlyList<string> values = CaseValues(
+                body, ranked.Count, prng, ctx,
+                new PerRow.Stream(ctx.Config.Seed, streamId, ranked.ToArray()));
+            for (int local = 0; local < ranked.Count; local++)
+            {
+                result[ranked[local]] = values[local];
+            }
+        }
+
+        for (int e = 0; e < spec.Entries.Count; e++)
+        {
+            SwitchEntry entry = spec.Entries[e];
+            Place(
+                entry.Value, entryRows[e],
+                RankedBranchRows(spec.On, entry.Keys, entryRows[e], layouts),
+                $"{name}#sw{e}");
+        }
+
+        if (spec.Fallback is not null)
+        {
+            // <default> holds the rows no entry matched — a complement, which no layout
+            // enumerates.
+            Place(spec.Fallback, fallbackRows, null, $"{name}#swdef");
         }
 
         return result;
+    }
+
+    /// <summary>
+    /// A switch branch's rows in the order the STREAMING engine numbers them, or <c>null</c>
+    /// when it cannot number them at all.
+    /// </summary>
+    /// <remarks>
+    /// A branch keyed <c>Male</c> of <c>&lt;switch on="Gender"&gt;</c> is the same subset as
+    /// <c>parent="Gender.Male"</c>, and both engines must lay a quota over it the same way. That
+    /// order is NOT row order: it is the rank inside the subject's exact layout, which is what
+    /// <c>OrderedRows</c> computes for a child and what the streaming engine's
+    /// <c>ChildRankAt</c> hands out. Ordering by row instead put the right COUNT of values on
+    /// the wrong rows, and the two engines disagreed on a config neither of them refused.
+    /// <para>
+    /// <c>null</c> for a multi-key entry (<c>US|CA|MX</c>): its rows are a union of subsets, and
+    /// ranks across a union do not compose from the per-value ranks.
+    /// </para>
+    /// </remarks>
+    /// <summary>
+    /// Does this <c>&lt;case&gt;</c> body declare a share the denominator has to be right for?
+    /// </summary>
+    private static bool CaseCarriesPercent(Case body) =>
+        body.Parts.Any(part =>
+            (part.Mix is not null && !string.IsNullOrWhiteSpace(part.Mix.Percent))
+            || (part.Gen is not null && !string.IsNullOrWhiteSpace(part.Gen.Attr("percent"))));
+
+    private static List<int>? RankedBranchRows(
+        string on, IReadOnlyList<string> keys, List<int> rows,
+        Dictionary<string, PerRow.ExactLayout> layouts)
+    {
+        if (keys.Count != 1 || !layouts.TryGetValue(on, out PerRow.ExactLayout? plan))
+        {
+            return null;
+        }
+
+        int vi = -1;
+        for (int i = 0; i < plan.Values.Count; i++)
+        {
+            if (plan.Values[i] == keys[0])
+            {
+                vi = i;
+                break;
+            }
+        }
+
+        if (vi < 0)
+        {
+            return null;
+        }
+
+        int lo = plan.CumHi[vi] - plan.Counts[vi];
+        var ordered = new List<int>(Enumerable.Repeat(-1, rows.Count));
+        foreach (int row in rows)
+        {
+            if (!plan.SlotByRow.TryGetValue(row, out int slot))
+            {
+                return null;
+            }
+
+            int rank = slot - lo;
+            if (rank < 0 || rank >= ordered.Count)
+            {
+                return null;
+            }
+
+            ordered[rank] = row;
+        }
+
+        return ordered.Contains(-1) ? null : ordered;
     }
 
     /// <summary>

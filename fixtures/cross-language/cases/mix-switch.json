@@ -362,6 +362,48 @@
         "JP|?",
         "FR|?"
       ]
+    },
+    {
+      "name": "switch-branch-percent-is-over-the-branch",
+      "description": "A percentage inside a <switch> branch is a quota over THAT BRANCH's rows. 20% of the five Male rows is exactly one — not \"about one\". Every branch used to be built over the whole run, so the mix handed out its 20% over all ten rows and the specials that landed on female rows were discarded: measured over 100 runs, 0, 1 or 2 survived and 23 runs had none. That is not randomness, it is Hamilton over the wrong denominator, which is worse because it looks like a working feature. ONE seed proves nothing here — the old behaviour was right about half the time by luck — so the tests around this case sweep many seeds; the fixture pins one of them.",
+      "config": "<tdc><env count=\"10\" seed=\"switch-branch-pct\" local=\"en\" mode=\"memory\"><sequence name=\"G\"><gen type=\"text\" value=\"Male,Female\" percent=\"50,50\"/></sequence><switch name=\"D\" on=\"G\"><case is=\"Male\"><mix percent=\"20,80\"><case><data>SPECIAL</data></case><case><data>ordinary</data></case></mix></case><case is=\"Female\"><data>other</data></case></switch></env><block><line><data>${{G}}-${{D}}</data></line></block></tdc>",
+      "expected": [
+        "Male-ordinary",
+        "Male-SPECIAL",
+        "Male-ordinary",
+        "Female-other",
+        "Male-ordinary",
+        "Female-other",
+        "Female-other",
+        "Female-other",
+        "Male-ordinary",
+        "Female-other"
+      ]
+    },
+    {
+      "name": "switch-branch-draws-over-its-own-rows",
+      "description": "Four rows per branch and four distinct values: each branch spends its list once each, and WHICH row gets which value is the second half of the claim. A branch's rows are numbered by their rank inside the subject's exact layout — the order parent=\"G.M\" uses — not by row number. Numbering them by row put the right count of values on the wrong rows, which the counts could not see and which made engine 1 and engine 3 answer differently from one seed. That is what this case exists to catch, so compare it row for row.",
+      "config": "<tdc><env count=\"8\" seed=\"switch-branch-order\" local=\"en\" mode=\"memory\"><sequence name=\"G\"><gen type=\"text\" value=\"M,F\" percent=\"50,50\"/></sequence><switch name=\"N\" on=\"G\"><case is=\"M\"><gen type=\"text\" value=\"a,b,c,d\"/></case><case is=\"F\"><gen type=\"text\" value=\"w,x,y,z\"/></case></switch></env><block><line><data>${{G}}-${{N}}</data></line></block></tdc>",
+      "expected": ["F-x", "F-w", "M-b", "M-a", "F-z", "M-d", "F-y", "M-c"]
+    },
+    {
+      "name": "switch-multi-key-branch-percent-is-exact",
+      "description": "A percentage inside a multi-key branch is a quota over the rows of THAT UNION: 33% of the nine US/CA/MX rows is exactly three. The streaming engines refuse this branch — a union's ranks do not compose from the per-value ranks, so they cannot lay a quota over it — and the ROUTER sends the whole config to the in-memory engine, which can. That refusal is why this must be decided statically: `--jobs` hands each worker a forced streaming engine with nowhere to fall back to, and a 200,000-row version of this config used to produce a full file single-threaded and exit 1 in parallel. Over those 200,000 rows the share also read 44,999 of an exact 45,000 — close enough to look right and not be.",
+      "config": "<tdc><env count=\"12\" seed=\"switch-multikey\" local=\"en\"><sequence name=\"G\"><gen type=\"text\" value=\"US,CA,MX,DE\" percent=\"25,25,25,25\"/></sequence><switch name=\"D\" on=\"G\"><case is=\"US|CA|MX\"><mix percent=\"33,67\"><case><data>near</data></case><case><data>far</data></case></mix></case><default><data>eu</data></default></switch></env><block><line><data>${{G}}-${{D}}</data></line></block></tdc>",
+      "expected": [
+        "CA-far",
+        "US-far",
+        "CA-far",
+        "MX-far",
+        "CA-far",
+        "MX-near",
+        "DE-eu",
+        "MX-near",
+        "DE-eu",
+        "US-near",
+        "DE-eu",
+        "US-far"
+      ]
     }
   ]
 }

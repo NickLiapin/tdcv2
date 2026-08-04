@@ -29,17 +29,20 @@ import { describe, expect, it } from 'vitest';
 
 import { TDC } from '../../src/index.js';
 
+/** The rendered rows for each of `seeds` seeds. */
+function perSeedRows(config: (seed: string) => string, seeds = 25): string[][] {
+  const runs: string[][] = [];
+  for (let s = 0; s < seeds; s++) {
+    runs.push(
+      new TDC({ configString: config(`s${String(s)}`) }).toString().split('\n').filter(Boolean),
+    );
+  }
+  return runs;
+}
+
 /** How many rows carry the special value, for each of `seeds` seeds. */
 function perSeed(config: (seed: string) => string, special: string, seeds = 25): number[] {
-  const counts: number[] = [];
-  for (let s = 0; s < seeds; s++) {
-    const rows = new TDC({ configString: config(`s${String(s)}`) })
-      .toString()
-      .split('\n')
-      .filter(Boolean);
-    counts.push(rows.filter((r) => r.includes(special)).length);
-  }
-  return counts;
+  return perSeedRows(config, seeds).map((rows) => rows.filter((r) => r.includes(special)).length);
 }
 
 const CONFIG = (seed: string, engine?: string): string => `<tdc version="0.1">
@@ -66,10 +69,48 @@ describe('a percentage inside a <switch> branch', () => {
   });
 
   it('gives the same answer on the in-memory and the streaming engine', () => {
-    const memory = perSeed((s) => CONFIG(s, '1'), ',SPECIAL');
-    const streaming = perSeed((s) => CONFIG(s, '2'), ',SPECIAL');
+    // ROW FOR ROW, not count for count. The first version of this test compared
+    // counts, and counts cannot see the fault that came next: once a branch
+    // draws over its own rows, those rows have an ORDER, and it is the rank
+    // inside the subject's exact layout — the order `parent="Gender.Male"`
+    // already uses — not the row number. Numbering them by row put the right
+    // number of specials on the wrong rows, so the counts matched perfectly
+    // while the two engines produced different datasets from one seed.
+    const memory = perSeedRows((s) => CONFIG(s, '1'));
+    const streaming = perSeedRows((s) => CONFIG(s, '2'));
     expect(memory).toEqual(streaming);
-    expect(new Set(memory)).toEqual(new Set([1]));
+    expect(
+      new Set(memory.map((rows) => rows.filter((r) => r.includes(',SPECIAL')).length)),
+    ).toEqual(new Set([1]));
+  });
+
+  it('lands four distinct branch values on the same rows under both engines', () => {
+    // Four rows per branch and four distinct values, so ANY difference in how
+    // the branch numbers its rows shows up as a different row — the previous
+    // test has one special among five, which a misordering can survive.
+    //
+    // Not compared against the `parent=` form: a branch draws on its own stream
+    // name (`N#sw0`), so within the subset it arranges values differently from a
+    // sequence called `NM`. What must match is the two ENGINES, which is the
+    // contract, and the subset ordering is what they were disagreeing about.
+    const config = (seed: string, engine: string): string => `<tdc version="0.1">
+  <env count="8" seed="${seed}" local="en" engine="${engine}">
+    <sequence name="G"><gen type="text" value="M,F" percent="50,50"/></sequence>
+    <switch name="N" on="G">
+      <case is="M"><gen type="text" value="a,b,c,d"/></case>
+      <case is="F"><gen type="text" value="w,x,y,z"/></case>
+    </switch>
+  </env>
+  <block><line><data>\${{G}}-\${{N}}</data></line></block>
+</tdc>`;
+    const memory = perSeedRows((s) => config(s, '1'));
+    expect(memory).toEqual(perSeedRows((s) => config(s, '2')));
+    // And each branch still spends its four values once each, on every seed.
+    for (const rows of memory) {
+      for (const value of ['a', 'b', 'c', 'd', 'w', 'x', 'y', 'z']) {
+        expect(rows.filter((r) => r.endsWith(`-${value}`))).toHaveLength(1);
+      }
+    }
   });
 
   it('matches what the parent= form has always produced', () => {

@@ -1394,6 +1394,42 @@ public sealed class StreamEngine
         });
     }
 
+    /// <summary>The rows that chose one branch, numbered within themselves, or <c>null</c>.</summary>
+    /// <remarks>
+    /// Every branch used to get the whole run, which made a <c>&lt;mix percent="20,80"&gt;</c>
+    /// inside <c>&lt;case is="Male"&gt;</c> apportion its 20% over ALL the rows; the ones that
+    /// landed on female rows were then discarded. The subset was never out of reach — a branch of
+    /// <c>&lt;switch on="Gender"&gt;</c> keyed <c>Male</c> wants exactly the domain
+    /// <c>parent="Gender.Male"</c> already gets.
+    /// <para>
+    /// One key only. A multi-key entry (<c>US|CA|MX</c>) is the union of subsets, and ranks across
+    /// a union do not compose from the per-value ranks — the interleaving is what decides them.
+    /// Refused rather than approximated.
+    /// </para>
+    /// </remarks>
+    private Domain? BranchDomain(string on, IReadOnlyList<string> keys)
+    {
+        if (keys.Count != 1)
+        {
+            return null;
+        }
+
+        string key = keys[0];
+        if (!_parents.TryGetValue(on, out IParentCapable? parent) || !parent.HasValue(key))
+        {
+            return null;
+        }
+
+        return new Domain(parent.QuotaOf(key), row => parent.ChildRankAt(row, key));
+    }
+
+    /// <summary>Does this branch declare a share that the domain has to be right for?</summary>
+    private static bool CarriesPercent(Case? body) =>
+        body is not null && body.Parts.Any(part =>
+            (part.Mix is not null && !string.IsNullOrWhiteSpace(part.Mix.Percent))
+            || (part.Gen is not null
+                && !string.IsNullOrWhiteSpace(part.Gen.Attr("percent"))));
+
     private void BuildSwitch(SequenceSpec spec)
     {
         Switch sw = spec.SwitchSpec!;
@@ -1401,7 +1437,28 @@ public sealed class StreamEngine
         var entries = new List<Func<int, string>>();
         for (int e = 0; e < sw.Entries.Count; e++)
         {
-            entries.Add(CaseResolver(sw.Entries[e].Value, spec.Name + "#sw" + e, full));
+            SwitchEntry entry = sw.Entries[e];
+            Domain? domain = BranchDomain(sw.On, entry.Keys);
+            if (domain is null && CarriesPercent(entry.Value))
+            {
+                // Cannot be resolved lazily over the right subset, and resolving it over the
+                // wrong one is what this change exists to stop. Refuse, and the run falls back
+                // to the in-memory engine, which can.
+                throw Unsupported(
+                    $"a percentage inside <case is=\"{string.Join("|", entry.Keys)}\"> of "
+                    + $"<switch on=\"{sw.On}\">",
+                    spec.Name);
+            }
+
+            entries.Add(CaseResolver(entry.Value, spec.Name + "#sw" + e, domain ?? full));
+        }
+
+        if (CarriesPercent(sw.Fallback))
+        {
+            // <default> holds the rows no entry matched — a complement, which IParentCapable
+            // does not enumerate. Same refusal, same fallback.
+            throw Unsupported(
+                $"a percentage inside <default> of <switch on=\"{sw.On}\">", spec.Name);
         }
 
         Func<int, string>? fallback = sw.Fallback is null

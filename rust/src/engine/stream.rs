@@ -1167,14 +1167,79 @@ impl StreamEngine<'_> {
         Ok(parts)
     }
 
+    /// The rows that chose one branch, numbered within themselves.
+    ///
+    /// Every branch used to get the whole run, which made a `<mix percent="20,80">`
+    /// inside `<case is="Male">` apportion its 20% over ALL the rows; the ones
+    /// that landed on female rows were then discarded. The subset was never out
+    /// of reach — a branch of `<switch on="Gender">` keyed `Male` wants exactly
+    /// the domain `parent="Gender.Male"` already gets.
+    ///
+    /// One key only. A multi-key entry (`US|CA|MX`) is the union of subsets, and
+    /// ranks across a union do not compose from the per-value ranks — the
+    /// interleaving is what decides them. Refused rather than approximated.
+    fn branch_domain(&self, on: &str, keys: &[String]) -> Option<Domain> {
+        if keys.len() != 1 {
+            return None;
+        }
+        let parent = self.parents.get(on)?;
+        if parent.repeat.is_some() {
+            return None;
+        }
+        let at = parent.values.iter().position(|v| v == &keys[0])?;
+        Some(Domain {
+            size: parent.counts[at],
+            of: DomainOf::Child(on.to_string(), keys[0].clone()),
+        })
+    }
+
+    /// Does this branch declare a share that the domain has to be right for?
+    fn carries_percent(case: Option<&Case>) -> bool {
+        case.is_some_and(|c| {
+            c.parts.iter().any(|part| match part {
+                CasePart::Mix(mix) => {
+                    !mix.percent.as_deref().unwrap_or("").trim().is_empty()
+                }
+                CasePart::Gen(gen) => !gen.attr_or("percent", "").trim().is_empty(),
+                CasePart::Text(_) => false,
+            })
+        })
+    }
+
     fn build_switch(&self, name: &str, sw: &Switch) -> EngineResult<Column> {
         let full = Domain::all(self.count);
         let mut entries = Vec::with_capacity(sw.entries.len());
         for (e, entry) in sw.entries.iter().enumerate() {
+            let domain = self.branch_domain(&sw.on, &entry.keys);
+            if domain.is_none() && Self::carries_percent(Some(&entry.value)) {
+                // Cannot be resolved lazily over the right subset, and resolving it over the
+                // wrong one is what this change exists to stop. Refuse, and the run falls back
+                // to the in-memory engine, which can.
+                return here(
+                    &format!(
+                        "a percentage inside <case is=\"{}\"> of <switch on=\"{}\">",
+                        entry.keys.join("|"),
+                        sw.on
+                    ),
+                    name,
+                );
+            }
             entries.push((
                 entry.keys.clone(),
-                self.case_parts(&entry.value, &format!("{name}#sw{e}"), full.clone())?,
+                self.case_parts(
+                    &entry.value,
+                    &format!("{name}#sw{e}"),
+                    domain.unwrap_or_else(|| full.clone()),
+                )?,
             ));
+        }
+        if Self::carries_percent(sw.fallback.as_ref()) {
+            // <default> holds the rows no entry matched — a complement, which the quota table
+            // does not enumerate. Same refusal, same fallback.
+            return here(
+                &format!("a percentage inside <default> of <switch on=\"{}\">", sw.on),
+                name,
+            );
         }
         let fallback = match &sw.fallback {
             Some(case) => Some(self.case_parts(case, &format!("{name}#swdef"), full)?),

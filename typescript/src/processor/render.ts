@@ -74,7 +74,7 @@ import {
 } from '../sequence/index.js';
 import { extractPoolSpecs } from '../sequence/pool.js';
 import { buildPoolTables } from '../sequence/pool-build.js';
-import type { SequenceRegistry, SequenceSpec } from '../sequence/index.js';
+import type { CaseSpec, SequenceRegistry, SequenceSpec } from '../sequence/index.js';
 import { resolveTemplate } from '../templates/resolver.js';
 
 import type { AttrMap } from './attrs.js';
@@ -772,8 +772,63 @@ export function resolveRenderEngine(
   // engine="2"/"3" is honoured above and fails clearly in the streaming build,
   // which has no http case.)
   if (specsUseHttp(specs)) return 1;
+  // A `<switch>` branch that declares a share the streaming engines cannot lay
+  // over the right rows. They REFUSE such a branch rather than apportion it over
+  // the wrong denominator, and a refusal reached at build time is not a fallback
+  // when the run is parallel: `--jobs` hands each worker a FORCED streaming
+  // engine, which has nowhere to fall back to. Measured before this line
+  // existed: a 200,000-row config with `<case is="US|CA|MX">` holding a
+  // percentage produced a full file single-threaded and exited 1 with the
+  // refusal under `--jobs 4`. Decide it here, statically, where both paths see
+  // the same answer.
+  if (specsUseUnstreamableSwitchPercent(specs)) return 1;
   // disk mode: the fastest engine the config allows.
   return needsExactEngine(specs, envUniqGroups) ? 3 : 2;
+}
+
+/** Does this `<case>` body declare a share that the denominator has to be right for? */
+function caseCarriesPercent(body: CaseSpec | undefined): boolean {
+  return (body?.parts ?? []).some(
+    (part) =>
+      (part.kind === 'mix' && (part.mixSpec.attrs['percent'] ?? '').trim() !== '') ||
+      (part.kind === 'gen' && (part.gen.attrs['percent'] ?? '').trim() !== ''),
+  );
+}
+
+/**
+ * A `<switch>` branch whose share the streaming engines cannot honour.
+ *
+ * They can subset a branch keyed on ONE value of a plain values list — the same
+ * bijection `parent="Gender.Male"` uses. They cannot rank a multi-key branch
+ * (`US|CA|MX` is a union, and ranks across a union do not compose), nor
+ * `<default>` (a complement, which nothing enumerates), nor any branch whose
+ * subject is not a finite values list to begin with.
+ *
+ * Deliberately conservative: anything it cannot prove streamable goes to
+ * Engine 1, which costs speed on an exotic config and never costs correctness.
+ * The opposite mistake is the one that ends a run.
+ */
+function specsUseUnstreamableSwitchPercent(specs: readonly SequenceSpec[]): boolean {
+  const plainListValues = (name: string): readonly string[] | undefined => {
+    const subject = specs.find((s) => s.name === name);
+    const gen = subject?.gen;
+    if (gen?.type !== 'text') return undefined;
+    if ((gen.attrs['order'] ?? '') === 'sequential') return undefined;
+    if ((gen.attrs['repeat'] ?? '').trim() !== '') return undefined;
+    return (gen.attrs['value'] ?? '').split(',').map((v) => v.trim());
+  };
+
+  return specs.some((spec) => {
+    const sw = spec.switchSpec;
+    if (!sw) return false;
+    if (caseCarriesPercent(sw.fallback)) return true;
+    const values = plainListValues(sw.on);
+    return sw.entries.some((entry) => {
+      if (!caseCarriesPercent(entry.value)) return false;
+      const key = entry.keys.length === 1 ? entry.keys[0] : undefined;
+      return key === undefined || !values?.includes(key);
+    });
+  });
 }
 
 /** Any `<gen type="http">` — the network-backed generator. */

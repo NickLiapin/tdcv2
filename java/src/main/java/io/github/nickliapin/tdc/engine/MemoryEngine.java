@@ -34,6 +34,7 @@ import io.github.nickliapin.tdc.stats.Timeseries;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -581,7 +582,7 @@ public final class MemoryEngine {
             spec.name(),
             switchValues(
                 spec.switchSpec(), count, prng, packs, config, nowMillis, baseDir, rowLinks,
-                columns, spec.name()));
+                columns, spec.name(), layouts));
         continue;
       }
 
@@ -616,7 +617,7 @@ public final class MemoryEngine {
             spec.name(),
             switchValues(
                 spec.switchSpec(), count, prng, packs, config, nowMillis, baseDir, rowLinks,
-                columns, spec.name()));
+                columns, spec.name(), layouts));
         continue;
       }
 
@@ -1456,10 +1457,15 @@ public final class MemoryEngine {
   /**
    * A switch: look the subject's value up in the table.
    *
-   * <p>Built over every row rather than only the matching ones, because a case may hold a
-   * generator and its draws are part of the stream whether or not that key came up. A row with
-   * no match and no default is empty — which is a value, not a failure: a country with no
-   * currency listed simply has none here.
+   * <p>An entry is built over THE ROWS THAT CHOSE IT, exactly as a mix builds a case over the
+   * rows it won. Every entry used to be built over the whole run and the values that landed on
+   * rows belonging to another branch were dropped, so a {@code <mix percent="20,80">} inside
+   * {@code <case is="Male">} apportioned its 20% across all the rows rather than across the men.
+   * Measured over 100 runs of 10 rows split 5/5: 0, 1 or 2 survivors, and 23 runs with none at
+   * all, where the config plainly asked for one man in five.
+   *
+   * <p>A row with no match and no default is empty — which is a value, not a failure: a country
+   * with no currency listed simply has none here.
    */
   private static String[] switchValues(
       Config.Switch spec,
@@ -1471,41 +1477,163 @@ public final class MemoryEngine {
       Path baseDir,
       Map<String, RowLinkPlan> rowLinks,
       Map<String, String[]> columns,
-      String name) {
-    // Every entry resolves over the WHOLE run, not over the rows that chose it — the streaming
-    // engine builds them that way so a lookup stays O(1), and the stream names have to match it
-    // entry for entry.
-    List<List<String>> built = new ArrayList<>(spec.entries().size());
-    for (int e = 0; e < spec.entries().size(); e++) {
-      built.add(
-          caseValues(
-              spec.entries().get(e).value(), count, prng, packs, config, nowMillis, baseDir,
-              rowLinks, new PerRow.Stream(config.seed(), name + "#sw" + e, null)));
-    }
-    List<String> fallback =
-        spec.fallback() == null
-            ? null
-            : caseValues(
-                spec.fallback(), count, prng, packs, config, nowMillis, baseDir, rowLinks,
-                new PerRow.Stream(config.seed(), name + "#swdef", null));
-
+      String name,
+      Map<String, PerRow.ExactLayout> layouts) {
+    // Group the rows by branch BEFORE generating: the subject's whole column is already here.
     String[] subject = columns.get(spec.on());
-    String[] out = new String[count];
+    List<List<Integer>> entryRows = new ArrayList<>(spec.entries().size());
+    for (int e = 0; e < spec.entries().size(); e++) {
+      entryRows.add(new ArrayList<>());
+    }
+    List<Integer> fallbackRows = new ArrayList<>();
     for (int i = 0; i < count; i++) {
       String key = subject == null || subject[i] == null ? "" : subject[i];
-      String picked = null;
+      int picked = -1;
       for (int e = 0; e < spec.entries().size(); e++) {
         if (spec.entries().get(e).keys().contains(key)) {
-          picked = built.get(e).get(i);
+          picked = e;
           break;
         }
       }
-      if (picked == null && fallback != null) {
-        picked = fallback.get(i);
-      }
-      out[i] = picked;
+      (picked < 0 ? fallbackRows : entryRows.get(picked)).add(i);
+    }
+
+    String[] out = new String[count];
+    for (int e = 0; e < spec.entries().size(); e++) {
+      Config.SwitchEntry entry = spec.entries().get(e);
+      place(
+          entry.value(), entryRows.get(e),
+          rankedBranchRows(spec.on(), entry.keys(), entryRows.get(e), layouts),
+          name + "#sw" + e, count, prng, packs, config, nowMillis, baseDir, rowLinks, out);
+    }
+    if (spec.fallback() != null) {
+      // <default> holds the rows no entry matched — a complement, which no layout enumerates.
+      place(
+          spec.fallback(), fallbackRows, null, name + "#swdef", count, prng, packs, config,
+          nowMillis, baseDir, rowLinks, out);
     }
     return out;
+  }
+
+  /**
+   * One switch branch over its own rows.
+   *
+   * <p>A branch no row chose draws nothing: a quota over zero rows is not a quota.
+   *
+   * <p>{@code ranked} is the rows in the order the STREAMING engine numbers them; {@code null}
+   * when they cannot be numbered, and then the branch is built over the whole run and read at
+   * the row — which is what the streaming engine does with such a branch, and the two must
+   * agree.
+   */
+  private static void place(
+      Config.Case body,
+      List<Integer> rows,
+      List<Integer> ranked,
+      String streamId,
+      int count,
+      Prng.Sfc32 prng,
+      DataPacks packs,
+      Config config,
+      long nowMillis,
+      Path baseDir,
+      Map<String, RowLinkPlan> rowLinks,
+      String[] out) {
+    if (rows.isEmpty()) {
+      return;
+    }
+    if (ranked == null) {
+      if (!caseCarriesPercent(body)) {
+        // The streaming engines cannot number the rows of a multi-key branch or of <default>, so
+        // they build those over the whole run and read the row they want. This engine has to do
+        // the same or the two would answer differently on a config neither of them refuses.
+        List<String> whole =
+            caseValues(
+                body, count, prng, packs, config, nowMillis, baseDir, rowLinks,
+                new PerRow.Stream(config.seed(), streamId, null));
+        for (int row : rows) {
+          out[row] = whole.get(row);
+        }
+        return;
+      }
+      // It declares a share, so the streaming engines refuse it and the router sends the whole
+      // config here: no other engine will ever produce this column, and it is free to be exact.
+      // The quota goes over the branch's OWN rows, in row order.
+      List<String> exact =
+          caseValues(
+              body, rows.size(), prng, packs, config, nowMillis, baseDir, rowLinks,
+              new PerRow.Stream(config.seed(), streamId, rows));
+      for (int local = 0; local < rows.size(); local++) {
+        out[rows.get(local)] = exact.get(local);
+      }
+      return;
+    }
+    List<String> values =
+        caseValues(
+            body, ranked.size(), prng, packs, config, nowMillis, baseDir, rowLinks,
+            new PerRow.Stream(config.seed(), streamId, ranked));
+    for (int local = 0; local < ranked.size(); local++) {
+      out[ranked.get(local)] = values.get(local);
+    }
+  }
+
+  /**
+   * A switch branch's rows in the order the STREAMING engine numbers them, or {@code null} when
+   * it cannot number them at all.
+   *
+   * <p>A branch keyed {@code Male} of {@code <switch on="Gender">} is the same subset as
+   * {@code parent="Gender.Male"}, and both engines must lay a quota over it the same way. That
+   * order is NOT row order: it is the rank inside the subject's exact layout, which is what
+   * {@code orderedRows} computes for a child and what the streaming engine's
+   * {@code childRankAt} hands out. Ordering by row instead put the right COUNT of values on the
+   * wrong rows, and the two engines disagreed on a config neither of them refused.
+   *
+   * <p>{@code null} for a multi-key entry ({@code US|CA|MX}): its rows are a union of subsets,
+   * and ranks across a union do not compose from the per-value ranks.
+   */
+  /** Does this {@code <case>} body declare a share that the denominator has to be right for? */
+  private static boolean caseCarriesPercent(Config.Case body) {
+    for (Config.CasePart part : body.parts()) {
+      if (part.mix() != null
+          && part.mix().percent() != null
+          && !part.mix().percent().trim().isEmpty()) {
+        return true;
+      }
+      String genPercent = part.gen() == null ? null : part.gen().attrs().get("percent");
+      if (genPercent != null && !genPercent.trim().isEmpty()) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  private static List<Integer> rankedBranchRows(
+      String on, List<String> keys, List<Integer> rows, Map<String, PerRow.ExactLayout> layouts) {
+    if (keys.size() != 1) {
+      return null;
+    }
+    PerRow.ExactLayout plan = layouts.get(on);
+    if (plan == null) {
+      return null;
+    }
+    int vi = plan.values().indexOf(keys.get(0));
+    if (vi < 0) {
+      return null;
+    }
+    int lo = plan.cumHi()[vi] - plan.counts()[vi];
+
+    List<Integer> ordered = new ArrayList<>(Collections.nCopies(rows.size(), -1));
+    for (int row : rows) {
+      Integer slot = plan.slotByRow().get(row);
+      if (slot == null) {
+        return null;
+      }
+      int rank = slot - lo;
+      if (rank < 0 || rank >= ordered.size()) {
+        return null;
+      }
+      ordered.set(rank, row);
+    }
+    return ordered.contains(-1) ? null : ordered;
   }
 
   /**

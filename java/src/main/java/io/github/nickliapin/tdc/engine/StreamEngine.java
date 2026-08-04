@@ -1218,12 +1218,78 @@ public final class StreamEngine {
         });
   }
 
+  /**
+   * The rows that chose one branch, numbered within themselves, or null when they cannot be.
+   *
+   * <p>Every branch used to get the whole run, which made a {@code <mix percent="20,80">} inside
+   * {@code <case is="Male">} apportion its 20% over ALL the rows; the ones that landed on female
+   * rows were then discarded. The subset was never out of reach — a branch of
+   * {@code <switch on="Gender">} keyed {@code Male} wants exactly the domain
+   * {@code parent="Gender.Male"} already gets.
+   *
+   * <p>One key only. A multi-key entry ({@code US|CA|MX}) is the union of subsets, and ranks
+   * across a union do not compose from the per-value ranks — the interleaving is what decides
+   * them. Refused rather than approximated.
+   */
+  private Domain branchDomain(String on, List<String> keys) {
+    if (keys.size() != 1) {
+      return null;
+    }
+    String key = keys.get(0);
+    ParentCapable parent = parents.get(on);
+    if (parent == null || !parent.hasValue(key)) {
+      return null;
+    }
+    return new Domain(parent.quotaOf(key), row -> parent.childRankAt(row, key));
+  }
+
+  /** Does this branch declare a share that the domain has to be right for? */
+  private static boolean carriesPercent(Config.Case body) {
+    if (body == null) {
+      return false;
+    }
+    for (Config.CasePart part : body.parts()) {
+      if (part.mix() != null && !trimToEmpty(part.mix().percent()).isEmpty()) {
+        return true;
+      }
+      if (part.gen() != null && !trimToEmpty(part.gen().attrs().get("percent")).isEmpty()) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  private static String trimToEmpty(String value) {
+    return value == null ? "" : value.trim();
+  }
+
   private void buildSwitch(Config.SequenceSpec spec) {
     Config.Switch sw = spec.switchSpec();
     Domain full = new Domain(count, row -> row);
     List<CaseResolver> entries = new ArrayList<>();
     for (int e = 0; e < sw.entries().size(); e++) {
-      entries.add(caseResolver(sw.entries().get(e).value(), spec.name() + "#sw" + e, full));
+      Config.SwitchEntry entry = sw.entries().get(e);
+      Domain domain = branchDomain(sw.on(), entry.keys());
+      if (domain == null && carriesPercent(entry.value())) {
+        // Cannot be resolved lazily over the right subset, and resolving it over the wrong one
+        // is what this change exists to stop. Refuse, and the run falls back to the in-memory
+        // engine, which can.
+        throw unsupported(
+            "a percentage inside <case is=\""
+                + String.join("|", entry.keys())
+                + "\"> of <switch on=\""
+                + sw.on()
+                + "\">",
+            spec.name());
+      }
+      entries.add(
+          caseResolver(entry.value(), spec.name() + "#sw" + e, domain == null ? full : domain));
+    }
+    if (carriesPercent(sw.fallback())) {
+      // <default> holds the rows no entry matched — a complement, which ParentCapable does not
+      // enumerate. Same refusal, same fallback.
+      throw unsupported(
+          "a percentage inside <default> of <switch on=\"" + sw.on() + "\">", spec.name());
     }
     CaseResolver fallback =
         sw.fallback() == null ? null : caseResolver(sw.fallback(), spec.name() + "#swdef", full);

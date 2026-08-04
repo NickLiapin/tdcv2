@@ -128,7 +128,88 @@ public static class EngineRouter
             return 1;
         }
 
+        // A <switch> branch that declares a share the streaming engines cannot lay over the
+        // right rows. They refuse such a branch rather than apportion it over the wrong
+        // denominator, and a refusal reached at build time is not a fallback for every caller.
+        // Decide it here, statically, where every path sees the same answer.
+        if (UnstreamableSwitchPercent(config))
+        {
+            return 1;
+        }
+
         return NeedsExact(config) ? 3 : 2;
+    }
+
+    /// <summary>
+    /// Does this <c>&lt;case&gt;</c> body declare a share the denominator has to be right for?
+    /// </summary>
+    private static bool CaseCarriesPercent(Case? body) =>
+        body is not null && body.Parts.Any(part =>
+            (part.Mix is not null && !string.IsNullOrWhiteSpace(part.Mix.Percent))
+            || (part.Gen is not null && !string.IsNullOrWhiteSpace(part.Gen.Attr("percent"))));
+
+    /// <summary>
+    /// A <c>&lt;switch&gt;</c> branch whose share the streaming engines cannot honour.
+    /// </summary>
+    /// <remarks>
+    /// They can subset a branch keyed on ONE value of a plain values list — the same bijection
+    /// <c>parent="Gender.Male"</c> uses. They cannot rank a multi-key branch (<c>US|CA|MX</c> is
+    /// a union, and ranks across a union do not compose from the per-value ranks), nor
+    /// <c>&lt;default&gt;</c> (a complement, which nothing enumerates), nor any branch whose
+    /// subject is not a finite values list.
+    /// <para>
+    /// Deliberately conservative: anything it cannot prove streamable goes to engine 1, which
+    /// costs speed on an exotic config and never costs correctness.
+    /// </para>
+    /// </remarks>
+    private static bool UnstreamableSwitchPercent(Config config)
+    {
+        List<string>? PlainListValues(string name)
+        {
+            SequenceSpec? subject = config.Sequences.FirstOrDefault(s => s.Name == name);
+            Gen? gen = subject?.Gen;
+            if (gen is null || gen.Type != "text")
+            {
+                return null;
+            }
+
+            if (gen.Attr("order") == "sequential" || !string.IsNullOrWhiteSpace(gen.Attr("repeat")))
+            {
+                return null;
+            }
+
+            return gen.Attr("value").Split(',').Select(v => v.Trim()).ToList();
+        }
+
+        foreach (SequenceSpec spec in config.Sequences)
+        {
+            Switch? sw = spec.SwitchSpec;
+            if (sw is null)
+            {
+                continue;
+            }
+
+            if (CaseCarriesPercent(sw.Fallback))
+            {
+                return true;
+            }
+
+            List<string>? values = PlainListValues(sw.On);
+            foreach (SwitchEntry entry in sw.Entries)
+            {
+                if (!CaseCarriesPercent(entry.Value))
+                {
+                    continue;
+                }
+
+                if (entry.Keys.Count != 1 || values is null || !values.Contains(entry.Keys[0]))
+                {
+                    return true;
+                }
+            }
+        }
+
+        return false;
     }
 
     /// <summary>

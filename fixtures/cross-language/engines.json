@@ -1297,6 +1297,65 @@
         ]
       }
     },
+    "mix-switch/switch-branch-percent-is-over-the-branch": {
+      "engine2": {
+        "lines": [
+          "Male-ordinary",
+          "Male-SPECIAL",
+          "Male-ordinary",
+          "Female-other",
+          "Male-ordinary",
+          "Female-other",
+          "Female-other",
+          "Female-other",
+          "Male-ordinary",
+          "Female-other"
+        ]
+      },
+      "engine3": {
+        "lines": [
+          "Male-ordinary",
+          "Male-SPECIAL",
+          "Male-ordinary",
+          "Female-other",
+          "Male-ordinary",
+          "Female-other",
+          "Female-other",
+          "Female-other",
+          "Male-ordinary",
+          "Female-other"
+        ]
+      }
+    },
+    "mix-switch/switch-branch-draws-over-its-own-rows": {
+      "engine2": {
+        "lines": ["F-x", "F-w", "M-b", "M-a", "F-z", "M-d", "F-y", "M-c"]
+      },
+      "engine3": {
+        "lines": ["F-x", "F-w", "M-b", "M-a", "F-z", "M-d", "F-y", "M-c"]
+      }
+    },
+    "mix-switch/switch-multi-key-branch-percent-is-exact": {
+      "engine2": {
+        "refused": "stream mode: a percentage inside <case is=\"US|CA|MX\"> of <switch on=\"G\"> (\"D\") is not supported yet — run without mode=\"stream\" (the in-memory engine handles it), or remove it."
+      },
+      "engine3": {
+        "lines": [
+          "CA-far",
+          "US-far",
+          "CA-far",
+          "MX-far",
+          "CA-far",
+          "MX-near",
+          "DE-eu",
+          "MX-near",
+          "DE-eu",
+          "US-near",
+          "DE-eu",
+          "US-far"
+        ]
+      }
+    },
     "ordering/sequential-text-loops": {
       "engine2": {
         "lines": ["Jan", "Feb", "Mar", "Jan", "Feb", "Mar", "Jan"]
@@ -2534,7 +2593,7 @@
         "refused": "stream mode: <uniq> across sequences (a whole-column rearrangement) (\"N × S\") is not supported yet — run without mode=\"stream\" (the in-memory engine handles it), or remove it."
       },
       "engine3": {
-        "lines": ["M-bob-1", "M-ann-3", "F-dot-3", "F-cat-2"]
+        "lines": ["M-bob-1", "M-ann-3", "F-cat-3", "F-dot-2"]
       }
     }
   }

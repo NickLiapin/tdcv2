@@ -34,7 +34,7 @@ from ..generators import advanced_regex, imperfections, number
 from ..generators import file as file_gen
 from ..generators import repeat as repeat_gen
 from ..lib import numbers
-from ..model.config import Config, Gen, Line, SequenceSpec
+from ..model.config import Case, Config, Gen, Line, SequenceSpec
 from ..packs import DataPacks
 from ..pattern import gen as patterns
 from ..prng import permute, seekable
@@ -933,10 +933,63 @@ class StreamEngine:
     def _build_switch(self, spec: SequenceSpec) -> None:
         sw = spec.switch_spec
         full = Domain(self.count, lambda row: row)
-        entries = [
-            self._case_resolver(entry.value, f"{spec.name}#sw{e}", full)
-            for e, entry in enumerate(sw.entries)
-        ]
+        subject = self.parents.get(sw.on)
+
+        def branch_domain(keys: list[str]) -> Domain | None:
+            """The rows that chose this branch, numbered within themselves.
+
+            Every branch used to get ``full``, which made a ``<mix percent="20,80">`` inside
+            ``<case is="Male">`` apportion its 20% over ALL the rows; the ones that landed on
+            female rows were then discarded. The subset was never out of reach — ``Parent``
+            answers both questions a branch needs, and ``_domain_of`` uses them for
+            ``parent="Gender.Male"`` today.
+
+            One key only. A multi-key entry (``US|CA|MX``) is the union of subsets, and ranks
+            across a union do not compose from the per-value ranks — the interleaving is what
+            decides them. Refused below rather than approximated.
+            """
+            if subject is None or len(keys) != 1:
+                return None
+            key = keys[0]
+            if not subject.has_value(key):
+                return None
+            parent = subject
+            return Domain(parent.quota_of(key), lambda row: parent.child_rank_at(row, key))
+
+        def carries_percent(case: Case | None) -> bool:
+            """Does this branch declare a share that the domain has to be right for?"""
+            if case is None:
+                return False
+            return any(
+                (part.mix is not None and (part.mix.percent or "").strip() != "")
+                or (part.gen is not None and part.gen.attr("percent").strip() != "")
+                for part in case.parts
+            )
+
+        entries = []
+        for e, entry in enumerate(sw.entries):
+            domain = branch_domain(entry.keys)
+            if domain is None and carries_percent(entry.value):
+                # Cannot be resolved lazily over the right subset, and resolving it over the
+                # wrong one is what this change exists to stop. Refuse, and the run falls back
+                # to the in-memory engine, which can.
+                raise unsupported(
+                    f'a percentage inside <case is="{"|".join(entry.keys)}"> of '
+                    f'<switch on="{sw.on}">',
+                    spec.name,
+                )
+            entries.append(
+                self._case_resolver(
+                    entry.value, f"{spec.name}#sw{e}", full if domain is None else domain
+                )
+            )
+
+        if carries_percent(sw.fallback):
+            # <default> holds the rows no entry matched — a complement, which Parent does not
+            # enumerate. Same refusal, same fallback.
+            raise unsupported(
+                f'a percentage inside <default> of <switch on="{sw.on}">', spec.name
+            )
         fallback = (
             None
             if sw.fallback is None

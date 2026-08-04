@@ -3,6 +3,7 @@ package io.github.nickliapin.tdc.engine;
 import io.github.nickliapin.tdc.generators.AdvancedRegexGen;
 import io.github.nickliapin.tdc.model.Config;
 import io.github.nickliapin.tdc.packs.DataPacks;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -95,7 +96,91 @@ public final class EngineRouter {
     if (anyGen(config, gen -> "http".equals(gen.type()))) {
       return 1;
     }
+    // A <switch> branch that declares a share the streaming engines cannot lay over the right
+    // rows. They refuse such a branch rather than apportion it over the wrong denominator, and a
+    // refusal reached at build time is not a fallback for every caller. Decide it here,
+    // statically, where every path sees the same answer.
+    if (unstreamableSwitchPercent(config)) {
+      return 1;
+    }
     return needsExact(config) ? 3 : 2;
+  }
+
+  /** Does this {@code <case>} body declare a share that the denominator has to be right for? */
+  private static boolean caseCarriesPercent(Config.Case body) {
+    if (body == null) {
+      return false;
+    }
+    for (Config.CasePart part : body.parts()) {
+      if (part.mix() != null && !trimmed(part.mix().percent()).isEmpty()) {
+        return true;
+      }
+      if (part.gen() != null && !trimmed(part.gen().attrs().get("percent")).isEmpty()) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  private static String trimmed(String value) {
+    return value == null ? "" : value.trim();
+  }
+
+  /**
+   * A {@code <switch>} branch whose share the streaming engines cannot honour.
+   *
+   * <p>They can subset a branch keyed on ONE value of a plain values list — the same bijection
+   * {@code parent="Gender.Male"} uses. They cannot rank a multi-key branch ({@code US|CA|MX} is a
+   * union, and ranks across a union do not compose from the per-value ranks), nor
+   * {@code <default>} (a complement, which nothing enumerates), nor any branch whose subject is
+   * not a finite values list.
+   *
+   * <p>Deliberately conservative: anything it cannot prove streamable goes to engine 1, which
+   * costs speed on an exotic config and never costs correctness.
+   */
+  private static boolean unstreamableSwitchPercent(Config config) {
+    for (Config.SequenceSpec spec : config.sequences()) {
+      Config.Switch sw = spec.switchSpec();
+      if (sw == null) {
+        continue;
+      }
+      if (caseCarriesPercent(sw.fallback())) {
+        return true;
+      }
+      List<String> values = plainListValues(config, sw.on());
+      for (Config.SwitchEntry entry : sw.entries()) {
+        if (!caseCarriesPercent(entry.value())) {
+          continue;
+        }
+        if (entry.keys().size() != 1 || values == null || !values.contains(entry.keys().get(0))) {
+          return true;
+        }
+      }
+    }
+    return false;
+  }
+
+  /** The values of a plain {@code <gen type="text" value="a,b,c">} sequence, or null. */
+  private static List<String> plainListValues(Config config, String name) {
+    for (Config.SequenceSpec spec : config.sequences()) {
+      if (!name.equals(spec.name())) {
+        continue;
+      }
+      Config.Gen gen = spec.gen();
+      if (gen == null || !"text".equals(gen.type())) {
+        return null;
+      }
+      if ("sequential".equals(gen.attrs().get("order"))
+          || !trimmed(gen.attrs().get("repeat")).isEmpty()) {
+        return null;
+      }
+      List<String> values = new ArrayList<>();
+      for (String value : trimmed(gen.attrs().get("value")).split(",", -1)) {
+        values.add(value.trim());
+      }
+      return values;
+    }
+    return null;
   }
 
   /**

@@ -82,7 +82,62 @@ def resolve(config: Config, packs: DataPacks | None = None) -> int:
     # A network call is not reproducible, so it never runs on the reproducible path.
     if _any_gen(config, lambda gen: gen.type == "http"):
         return 1
+    # A <switch> branch that declares a share the streaming engines cannot lay over the right
+    # rows. They refuse such a branch rather than apportion it over the wrong denominator, and a
+    # refusal reached at build time is not a fallback for every caller. Decide it here,
+    # statically, where every path sees the same answer.
+    if _unstreamable_switch_percent(config):
+        return 1
     return 3 if needs_exact(config) else 2
+
+
+def _case_carries_percent(case) -> bool:
+    """Does this ``<case>`` body declare a share that the denominator has to be right for?"""
+    if case is None:
+        return False
+    return any(
+        (part.mix is not None and (part.mix.percent or "").strip() != "")
+        or (part.gen is not None and part.gen.attr("percent").strip() != "")
+        for part in case.parts
+    )
+
+
+def _unstreamable_switch_percent(config: Config) -> bool:
+    """A ``<switch>`` branch whose share the streaming engines cannot honour.
+
+    They can subset a branch keyed on ONE value of a plain values list — the same bijection
+    ``parent="Gender.Male"`` uses. They cannot rank a multi-key branch (``US|CA|MX`` is a union,
+    and ranks across a union do not compose from the per-value ranks), nor ``<default>`` (a
+    complement, which nothing enumerates), nor any branch whose subject is not a finite values
+    list to begin with.
+
+    Deliberately conservative: anything it cannot prove streamable goes to engine 1, which costs
+    speed on an exotic config and never costs correctness.
+    """
+    by_name = {spec.name: spec for spec in config.sequences}
+
+    def plain_list_values(name: str) -> list[str] | None:
+        subject = by_name.get(name)
+        gen = None if subject is None else subject.gen
+        if gen is None or gen.type != "text":
+            return None
+        if gen.attr("order") == "sequential" or gen.attr("repeat").strip() != "":
+            return None
+        return [v.strip() for v in gen.attr("value").split(",")]
+
+    for spec in config.sequences:
+        sw = spec.switch_spec
+        if sw is None:
+            continue
+        if _case_carries_percent(sw.fallback):
+            return True
+        values = plain_list_values(sw.on)
+        for entry in sw.entries:
+            if not _case_carries_percent(entry.value):
+                continue
+            if len(entry.keys) != 1 or values is None or entry.keys[0] not in values:
+                return True
+    return False
 
 
 def needs_exact(config: Config) -> bool:
