@@ -29,7 +29,7 @@
     "audit:fixtures": "node scripts/audit-fixture-coverage.mjs",
     "audit:docs-five-ways": "node scripts/audit-doc-examples-five-ways.mjs",
     "docs:urls": "node webdoc/scripts/list-doc-urls.mjs",
-    "docs:bundle": "node webdoc/scripts/list-doc-urls.mjs --bundle"
+    "docs:bundle": "npm run docs:export --silent && node webdoc/scripts/list-doc-urls.mjs --bundle"
   },
   "devDependencies": {
     "husky": "^9.1.6",

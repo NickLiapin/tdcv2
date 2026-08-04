@@ -22,7 +22,7 @@
  *   node webdoc/scripts/list-doc-urls.mjs --check   # + verify against the site
  */
 
-import { readFileSync, readdirSync, statSync } from 'node:fs';
+import { mkdirSync, readFileSync, readdirSync, statSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -107,11 +107,41 @@ if (process.argv.includes('--bundle')) {
    * each page's URL above it so any finding can be pointed back at a real page.
    */
   const EXPORT = join(HERE, '..', '..', 'docs');
+  const flag = process.argv.indexOf('--out');
+  const out = flag === -1 ? join(HERE, '..', '..', 'temp_docs', 'tdc-docs-en.md') : process.argv[flag + 1];
+
+  /*
+   * Images go.
+   *
+   * They are relative paths — `../img/pattern/signal.svg` — which resolve to
+   * nothing once the pages are one file somewhere else, so every one of them is a
+   * broken link in the reader's input. Nothing is lost with them: the figures obey
+   * the house rule of carrying NO words, and what they mean is written in the
+   * caption underneath.
+   *
+   * The exception is alt text, which sometimes says what the picture shows
+   * ("Generated values land exactly on the drawn curve"). Where there is any it
+   * stays, marked as a figure so nobody mistakes it for prose; where it is empty
+   * the line goes entirely.
+   */
+  let dropped = 0;
+  let kept = 0;
+  const stripImages = (md) =>
+    md.replace(/!\[([^\]]*)\]\([^)]*\)/g, (_, alt) => {
+      if (alt.trim() === '') {
+        dropped++;
+        return '';
+      }
+      kept++;
+      return `_[figure: ${alt.trim()}]_`;
+    });
+
   const parts = [
     '# TDC — the complete English documentation',
     '',
     `${String(pages.length)} pages, in the order the site's menu presents them. Each section below opens`,
-    'with the URL of the page it came from.',
+    'with the URL of the page it came from. Figures are omitted; where a figure carried',
+    'a description it is kept as `[figure: …]`.',
     '',
   ];
   for (const p of pages) {
@@ -124,9 +154,19 @@ if (process.argv.includes('--bundle')) {
       console.error(`missing export for ${slug} — run \`npm run docs:export\` first`);
       process.exit(1);
     }
-    parts.push('\n\n---\n', `<!-- source: ${p.url} -->`, '', body.trim(), '');
+    parts.push('\n\n---\n', `<!-- source: ${p.url} -->`, '', stripImages(body).trim(), '');
   }
-  process.stdout.write(`${parts.join('\n')}\n`);
+  // Stripping an image on its own line leaves the blank lines that surrounded it.
+  const text = `${parts.join('\n').replace(/\n{4,}/g, '\n\n\n')}\n`;
+  mkdirSync(dirname(out), { recursive: true });
+  writeFileSync(out, text, 'utf8');
+  const words = text.split(/\s+/).filter(Boolean).length;
+  console.log(
+    `${out}\n` +
+      `  ${String(pages.length)} pages, ${String(words.toLocaleString('en-US'))} words, ` +
+      `${String(Math.round(text.length / 1024))} KB\n` +
+      `  ${String(dropped + kept)} images removed (${String(kept)} kept their description)`,
+  );
 } else if (process.argv.includes('--check')) {
   const xml = await (await fetch(`${SITE}/sitemap.xml`)).text();
   const live = new Set(
