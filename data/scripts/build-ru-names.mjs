@@ -101,6 +101,51 @@ export function femininePatronymic(masculine) {
 }
 
 /**
+ * Given name → masculine patronymic. `Иван` → `Иванович`, `Сергей` → `Сергеевич`.
+ *
+ * A patronymic is not a name in its own right, it is a FUNCTION of the father's
+ * given name, so it is computed here rather than typed. Typed separately, the two
+ * lists drift: the authored patronymic list held 183 entries against 222 given
+ * names, which meant 39 fathers whose sons the pack could not name.
+ */
+const PATRONYMIC_EXCEPTIONS = {
+  // A vowel appears, drops or changes — none of it predictable from the spelling.
+  Пётр: 'Петрович',
+  Лев: 'Львович',
+  Павел: 'Павлович',
+  Михаил: 'Михайлович',
+  Яков: 'Яковлевич',
+  Нестор: 'Нестерович',
+  Гавриил: 'Гаврилович',
+  Даниил: 'Данилович',
+  Данила: 'Данилович',
+  // -ий takes -ьевич by default (Василий → Васильевич); these four take -иевич,
+  // and no spelling rule separates them — Дмитрий and Юрий both end -рий and go
+  // different ways.
+  Дмитрий: 'Дмитриевич',
+  Георгий: 'Георгиевич',
+  Ираклий: 'Ираклиевич',
+  Онуфрий: 'Онуфриевич',
+  Эмиль: 'Эмильевич',
+};
+
+export function masculinePatronymic(given) {
+  if (given in PATRONYMIC_EXCEPTIONS) return PATRONYMIC_EXCEPTIONS[given];
+  // Илья → Ильич: the -я goes, the soft sign stays.
+  if (given.endsWith('ья')) return `${given.slice(0, -1)}ич`;
+  // Никита → Никитич, Фома → Фомич, Кузьма → Кузьмич.
+  if (given.endsWith('а') || given.endsWith('я')) return `${given.slice(0, -1)}ич`;
+  // Василий → Васильевич, Юрий → Юрьевич, Евгений → Евгеньевич.
+  if (given.endsWith('ий')) return `${given.slice(0, -2)}ьевич`;
+  // Сергей → Сергеевич, Николай → Николаевич.
+  if (given.endsWith('й')) return `${given.slice(0, -1)}евич`;
+  // Игорь → Игоревич, Лазарь → Лазаревич.
+  if (given.endsWith('ь')) return `${given.slice(0, -1)}евич`;
+  // Иван → Иванович, and every other name ending in a consonant.
+  return `${given}ович`;
+}
+
+/**
  * Rank → weight, on a Zipf curve.
  *
  * Zipf is the shape surname frequency actually takes, and it is what makes the
@@ -131,7 +176,25 @@ const surnames = authored('surnames-masculine.txt');
 const indeclinable = authored('surnames-indeclinable.txt');
 const maleNames = authored('first-names-male.txt');
 const femaleNames = authored('first-names-female.txt');
-const patronymics = authored('patronymics-masculine.txt');
+const fathers = authored('fathers-by-frequency.txt');
+
+/**
+ * Every male given name, ranked as a father: the explicit order first, then the
+ * rest in the order they appear as given names.
+ *
+ * Deriving rather than typing is what makes the two counts agree — 222 given names
+ * now yield 222 patronymics, where the hand-kept list had 183 and nobody could see
+ * which 39 were missing. Two names collapse to one patronymic (Даниил and Данила
+ * both give Данилович), so the result is deduplicated and comes out one or two
+ * short of the given-name count; that is the language, not a gap.
+ */
+const patronymics = (() => {
+  const ranked = [...fathers, ...maleNames.filter((n) => !fathers.includes(n))];
+  const seen = new Set();
+  return ranked
+    .map(masculinePatronymic)
+    .filter((p) => !seen.has(p) && seen.add(p));
+})();
 
 /** Does any declension rule claim this surname? */
 function declines(surname) {
@@ -150,12 +213,23 @@ for (const [what, list] of [
   ['indeclinable surnames', indeclinable],
   ['male given names', maleNames],
   ['female given names', femaleNames],
-  ['patronymics', patronymics],
+  ['father rankings', fathers],
 ]) {
   const seen = new Set();
   for (const value of list) {
     if (seen.has(value)) faults.push(`${what}: "${value}" appears twice`);
     seen.add(value);
+  }
+}
+// The ranking file only reorders names the pack already has. A name here that is
+// not a given name is a typo that would otherwise become a patronymic for a father
+// who does not exist — Никалаевич, sitting at rank 4, looking entirely plausible.
+{
+  const known = new Set(maleNames);
+  for (const value of fathers) {
+    if (!known.has(value)) {
+      faults.push(`father rankings: "${value}" is not in first-names-male.txt`);
+    }
   }
 }
 // The two surname files are two answers to one question — does this name have a
@@ -198,7 +272,7 @@ for (const [what, list] of [
   ['indeclinable surnames', indeclinable],
   ['male given names', maleNames],
   ['female given names', femaleNames],
-  ['patronymics', patronymics],
+  ['father rankings', fathers],
 ]) {
   for (const value of list) {
     if (/[A-Za-z]/.test(value)) faults.push(`${what}: "${value}" contains Latin letters`);

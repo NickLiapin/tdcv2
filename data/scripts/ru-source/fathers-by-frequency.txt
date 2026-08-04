@@ -1,0 +1,118 @@
+# Male given names again — but ordered by how common they were among FATHERS.
+#
+# This file holds no patronymics. A patronymic is derived from the father's given
+# name by rule (see masculinePatronymic in build-ru-names.mjs), so writing the
+# forms down a second time only creates a second list to keep in step. What cannot
+# be derived is the ORDER: a patronymic names a man a generation older, so
+# Николаевич and Петрович are common while Николай and Пётр are not names given to
+# children today. That skew is the only thing this file carries.
+#
+# It may be a PREFIX. Any given name missing here still gets a patronymic — it just
+# lands after this list, in the order of first-names-male.txt. So adding a name
+# there is never silently lost; it is only unranked, which for a rare name is right.
+#
+# Every name here must be a real entry in first-names-male.txt, and the builder
+# refuses one that is not: a father whose name the pack does not know is a typo.
+Александр
+Сергей
+Владимир
+Николай
+Иван
+Пётр
+Василий
+Михаил
+Алексей
+Андрей
+Дмитрий
+Виктор
+Анатолий
+Юрий
+Валерий
+Геннадий
+Борис
+Григорий
+Леонид
+Евгений
+Павел
+Игорь
+Олег
+Константин
+Максим
+Роман
+Денис
+Виталий
+Антон
+Артём
+Аркадий
+Валентин
+Семён
+Фёдор
+Степан
+Егор
+Никита
+Илья
+Кирилл
+Даниил
+Вадим
+Георгий
+Владислав
+Тимофей
+Матвей
+Арсений
+Захар
+Лев
+Марк
+Глеб
+Ярослав
+Святослав
+Всеволод
+Вячеслав
+Станислав
+Ростислав
+Мирослав
+Богдан
+Тимур
+Руслан
+Артур
+Эдуард
+Филипп
+Герман
+Родион
+Савелий
+Савва
+Давид
+Гордей
+Мирон
+Платон
+Тихон
+Иннокентий
+Прохор
+Демьян
+Ефим
+Гавриил
+Наум
+Тарас
+Устин
+Влас
+Осип
+Игнат
+Фома
+Лука
+Макар
+Емельян
+Кузьма
+Трофим
+Афанасий
+Аверьян
+Елисей
+Евсей
+Клим
+Лаврентий
+Никифор
+Пантелей
+Спиридон
+Терентий
+Ульян
+Харитон
+Юлиан
+Яков
