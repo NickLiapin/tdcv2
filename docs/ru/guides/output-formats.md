@@ -184,9 +184,9 @@ JSONDecodeError: Expecting value: line 17 column 1
 
 ```
 [
-  {"id": 1, "name": "Егор"},
-  {"id": 2, "name": "Павел"},
-  {"id": 3, "name": "Всеволод"}
+  {"id": 1, "name": "Владимир"},
+  {"id": 2, "name": "Сергей"},
+  {"id": 3, "name": "Александр"}
 ]
 ```
 
