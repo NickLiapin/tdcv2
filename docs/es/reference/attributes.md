@@ -146,8 +146,8 @@ motores; en un generador `pattern` elige la pregunta que se le hace al dibujo.
 | `pair`                 | Marcador emparejado para un `</data>` literal        | [Salida y formato](../core-concepts/output-formatting.md#top) |
 | `mask`                 | Máscara de despliegue (`x`/`w`/`*`)                  | [Máscaras y mayúsculas](../guides/masks-and-case.md#top)      |
 | `case`                 | Mayúsculas y minúsculas (`upper`/`lower`/…)          | [Máscaras y mayúsculas](../guides/masks-and-case.md#top)      |
-| `order`                | Orden de los valores (`random` / `sequential`)       | [Máscaras y mayúsculas](../guides/masks-and-case.md#top)      |
-| `cycle`                | Con `sequential`: repetir el ciclo o dar error       | [Máscaras y mayúsculas](../guides/masks-and-case.md#top)      |
+| `order`                | Orden de los valores (`random` / `sequential`)       | [Generadores](../generators/overview.md#top)                  |
+| `cycle`                | Con `sequential`: repetir el ciclo o dar error       | [Generadores](../generators/overview.md#top)                  |
 | `repeat` / `separator` | Varios valores en una misma celda                    | [Varios valores](../constructs/multiple-values.md#top)        |
 | `each`                 | Repetir una línea por cada elemento de la lista      | [Tablas relacionales](../constructs/relational-tables.md#top) |
 | `flag`                 | Columna de respuesta para marcar outliers de `<mix>` | [Mix](../constructs/mix.md#top)                               |

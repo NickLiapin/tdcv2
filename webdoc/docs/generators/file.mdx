@@ -100,7 +100,17 @@ Austin`}
 
 Empty lines are skipped in list mode. For strict file order instead of random
 picks, add `order="sequential"` — it emits the lines in exactly the order they
-appear in the file (see [Masks & case](../guides/masks-and-case.mdx)).
+appear in the file (see [`order=` / `cycle=`](overview.mdx)).
+
+:::warning[Past the end of the file, it starts again]
+`order="sequential"` walks the file and then **wraps back to the first line**, so a
+`count` larger than the file repeats rows — silently, with no warning. For a list of
+weekday names that is the point; for a file of real records it means duplicates in
+your output that nothing draws attention to.
+
+Add `cycle="false"` when running out of lines should stop the run rather than repeat
+it. It names the row that ran out and writes nothing.
+:::
 
 ### CSV mode — a value from a column
 

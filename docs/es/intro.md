@@ -187,6 +187,12 @@ coincidencia byte por byte con la salida de arriba.
   —como el nombre de un producto, su precio y su categoría— pueden salir de la misma fila
   de origen.
 
+- **[Un reparto que existe antes que las filas](pools/overview.md#top).** Un `<pool>` construye
+  un mundo pequeño una sola vez — clínicas, y luego médicos que trabajan en una de ellas — y
+  cada fila toma un miembro entero. Así, este médico está en esa clínica en todas las filas
+  que lo mencionan. Y `filter=` mantiene unida una fila: la enfermera de este paciente
+  trabaja donde trabaja su médico.
+
 - **[Valores únicos](constructs/unique-values.md#top).** Los valores se pueden generar sin
   duplicados dentro de una columna.
 

@@ -145,8 +145,8 @@
 | `pair`                 | Парный маркер для литерального `</data>`      | [Вывод и форматирование](../core-concepts/output-formatting.md#top) |
 | `mask`                 | Маска оформления (`x`/`w`/`*`)                | [Маски и регистр](../guides/masks-and-case.md#top)                  |
 | `case`                 | Регистр букв (`upper`/`lower`/…)              | [Маски и регистр](../guides/masks-and-case.md#top)                  |
-| `order`                | Порядок значений (`random` / `sequential`)    | [Маски и регистр](../guides/masks-and-case.md#top)                  |
-| `cycle`                | При `sequential`: зациклить или ошибка        | [Маски и регистр](../guides/masks-and-case.md#top)                  |
+| `order`                | Порядок значений (`random` / `sequential`)    | [Генераторы](../generators/overview.md#top)                        |
+| `cycle`                | При `sequential`: зациклить или ошибка        | [Генераторы](../generators/overview.md#top)                        |
 | `repeat` / `separator` | Несколько значений в одной ячейке             | [Несколько значений](../constructs/multiple-values.md#top)          |
 | `each`                 | Повторить строку для каждого элемента списка  | [Связанные таблицы](../constructs/relational-tables.md#top)         |
 | `flag`                 | Колонка-ответ для разметки выбросов в `<mix>` | [Mix](../constructs/mix.md#top)                                     |

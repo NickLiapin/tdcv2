@@ -24,7 +24,7 @@ guarantees never do.
 
 On top of these, `text` accepts the cross-cutting generator attributes —
 `case=` / `mask=` for [output formatting](../guides/masks-and-case.mdx) and
-`order=` / `cycle=` for [value order](../guides/masks-and-case.mdx).
+`order=` / `cycle=` for [value order](overview.mdx).
 
 ## `value` — a list of options
 
@@ -52,7 +52,7 @@ freely from row to row (`green` twice above); if you need every row to differ,
 see [Unique values](../constructs/unique-values.mdx).
 
 For strict list order instead of random picks, add
-`order="sequential"` — see [Masks & case](../guides/masks-and-case.mdx).
+`order="sequential"` — see [Generators overview](overview.mdx).
 
 :::note[`value` reads differently per generator]
 `value` is every generator's main input, but its **meaning depends on `type`**.

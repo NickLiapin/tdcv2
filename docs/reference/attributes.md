@@ -144,8 +144,8 @@ engine family; on a `pattern` generator it picks what you're asking the drawing 
 | `pair`                 | Paired marker for a literal `</data>`      | [Output & formatting](../core-concepts/output-formatting.md#top) |
 | `mask`                 | Display mask (`x`/`w`/`*`)                 | [Masks & case](../guides/masks-and-case.md#top)                  |
 | `case`                 | Letter case (`upper`/`lower`/…)            | [Masks & case](../guides/masks-and-case.md#top)                  |
-| `order`                | Value order (`random` / `sequential`)      | [Masks & case](../guides/masks-and-case.md#top)                  |
-| `cycle`                | With `sequential`: cycle or raise an error | [Masks & case](../guides/masks-and-case.md#top)                  |
+| `order`                | Value order (`random` / `sequential`)      | [Generators](../generators/overview.md#top)                      |
+| `cycle`                | With `sequential`: cycle or raise an error | [Generators](../generators/overview.md#top)                      |
 | `repeat` / `separator` | Several values in one cell                 | [Multiple values](../constructs/multiple-values.md#top)          |
 | `each`                 | Repeat a line for each list element        | [Relational tables](../constructs/relational-tables.md#top)      |
 | `flag`                 | Answer column that marks `<mix>` outliers  | [Mix](../constructs/mix.md#marking-outliers-with-flag)       |

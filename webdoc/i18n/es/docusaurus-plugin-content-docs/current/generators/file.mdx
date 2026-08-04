@@ -100,7 +100,17 @@ Monterrey`}
 
 Las líneas vacías se omiten en modo lista. Para respetar el orden estricto del archivo
 en lugar de elegir al azar, agregue `order="sequential"` — emite las líneas exactamente
-en el orden en que aparecen en el archivo (vea [Máscaras y mayúsculas](../guides/masks-and-case.mdx)).
+en el orden en que aparecen en el archivo (vea [`order=` / `cycle=`](overview.mdx)).
+
+:::warning[Al pasar del final del archivo, vuelve a empezar]
+`order="sequential"` recorre el archivo y **vuelve a la primera línea**, así que un
+`count` mayor que el archivo repite filas — en silencio, sin aviso. Para una lista de
+días de la semana eso es lo deseado; para un archivo de registros reales son duplicados
+en la salida que nada señala.
+
+Ponga `cycle="false"` cuando quedarse sin líneas deba detener la ejecución en lugar de
+repetirla. Nombra la fila que se quedó sin valor y no escribe nada.
+:::
 
 ### Modo CSV — un valor de una columna
 

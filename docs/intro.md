@@ -183,6 +183,12 @@ byte-for-byte match with the output shown above.
 - **[Coherent related fields](guides/coherent-data.md#top).** Related values — such as a
   product name, price, and category — can be drawn from the same source row.
 
+- **[A cast that exists before the rows do](pools/overview.md#top).** A `<pool>` builds a
+  small world once — clinics, then doctors who each work at one of them — and every row
+  draws a whole member of it, so this doctor is at that clinic in every row that mentions
+  them. `filter=` then holds one row together: this patient's nurse works where this
+  patient's doctor does.
+
 - **[Unique values](constructs/unique-values.md#top).** Values can be generated without
   duplicates within a column.
 

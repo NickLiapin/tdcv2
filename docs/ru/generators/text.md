@@ -28,7 +28,7 @@
 
 Кроме них `text` принимает кросс-режущие атрибуты генераторов —
 `case=` / `mask=` для [форматирования вывода](../guides/masks-and-case.md#top) и
-`order=` / `cycle=` для [порядка значений](../guides/masks-and-case.md#top).
+`order=` / `cycle=` для [порядка значений](overview.md#top).
 
 ## `value` — список вариантов
 
@@ -59,7 +59,7 @@ blue
 каждая строка отличалась, см. [Уникальные значения](../constructs/unique-values.md#top).
 
 Хотите варианты строго в порядке списка, а не случайно? Добавьте
-`order="sequential"` — см. [Маски и регистр](../guides/masks-and-case.md#top).
+`order="sequential"` — см. [Обзор генераторов](overview.md#top).
 
 > [!NOTE]
 > **`value` читается по-разному в каждом генераторе**

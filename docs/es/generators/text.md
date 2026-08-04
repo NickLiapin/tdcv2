@@ -27,7 +27,7 @@ garantiza una máscara `percent` nunca cambian.
 
 Además de estos, `text` acepta los atributos transversales de los generadores:
 `case=` / `mask=` para el [formato de salida](../guides/masks-and-case.md#top) y
-`order=` / `cycle=` para el [orden de los valores](../guides/masks-and-case.md#top).
+`order=` / `cycle=` para el [orden de los valores](overview.md#top).
 
 ## `value` — una lista de opciones
 
@@ -57,7 +57,7 @@ repetirse libremente de una fila a otra (`green` dos veces arriba); si necesita 
 cada fila sea distinta, vea [Valores únicos](../constructs/unique-values.md#top).
 
 ¿Quiere las opciones en el orden estricto de la lista en vez de al azar? Agregue
-`order="sequential"` — vea [Máscaras y mayúsculas](../guides/masks-and-case.md#top).
+`order="sequential"` — vea [Resumen de generadores](overview.md#top).
 
 > [!NOTE]
 > **`value` se lee distinto en cada generador**
