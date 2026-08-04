@@ -316,6 +316,98 @@ fallback is just a literal, put it in `<data>`: `<default><data>Other</data></de
 - It's **optional.** With no `<default>` and no matching key, the value is empty on
   that row.
 
+## A share inside a branch
+
+A `<case>` can hold a [`<mix>`](./mix.md#top), and its percentages are a quota over **that
+branch's rows** — not over the run. Twenty percent of the male records is twenty percent
+of the male records, whatever share of the run turns out to be male.
+
+```xml
+<tdc>
+  <env count="10" seed="clinic" local="en">
+    <sequence name="Sex">
+      <gen type="text" value="male,female" percent="50,50"/>
+    </sequence>
+
+    <switch name="Diagnosis" on="Sex">
+      <case is="male">
+        <mix percent="20,80">
+          <case><data>prostatitis</data></case>
+          <case><data>influenza</data></case>
+        </mix>
+      </case>
+      <case is="female"><data>influenza</data></case>
+    </switch>
+  </env>
+  <block><line><data>${{Sex}} -> ${{Diagnosis}}</data></line></block>
+</tdc>
+```
+
+`./run clinic.tdc`
+
+```
+male -> influenza
+female -> influenza
+male -> influenza
+male -> influenza
+male -> influenza
+female -> influenza
+male -> prostatitis
+female -> influenza
+female -> influenza
+female -> influenza
+```
+
+Five records are male, and one of them carries the male-specific diagnosis. Raise the
+count and the ratio holds — 20% of the male records, whatever the run size:
+
+`./run clinic.tdc (count=100, tallied)`
+
+```
+female -> influenza    50
+male -> influenza      40
+male -> prostatitis    10
+```
+
+Not "about ten" — the count is the same on every seed.
+
+**Why it matters:** the denominator is the branch. A share measured against the whole run
+would hand out 20 prostatitis values over 100 records, then drop the ones that landed on a
+female record. You would get somewhere near ten, and never reliably ten.
+
+### Multi-key branches and `<default>`
+
+The rule is the same for a share inside a branch that matches several keys, and inside
+`<default>`. Here 30% of the North American records ship express:
+
+```xml
+<sequence name="Country">
+  <gen type="text" value="US,CA,MX,DE" percent="25,25,25,25"/>
+</sequence>
+
+<switch name="Shipping" on="Country">
+  <case is="US|CA|MX">
+    <mix percent="30,70">
+      <case><data>express</data></case>
+      <case><data>standard</data></case>
+    </mix>
+  </case>
+  <default><data>international</data></default>
+</switch>
+```
+
+`./run shipping.tdc (count=120, tallied)`
+
+```
+express          27
+standard         63
+international    30
+```
+
+Ninety records match `US|CA|MX`, and `27 + 63 = 90` — 30% of the branch, to the record.
+These two shapes cost you the streaming engine; see
+[Deterministic across engines](#deterministic-across-engines).
+
 ## Selection rules
 
 - The **first** matching branch wins. `<map>` rows are checked first (in written
@@ -385,10 +477,32 @@ MX -> USD
 
 ## Deterministic across engines
 
-A `<switch>` value is a **pure function** of its subject: same subject value on a row,
-same result, every time. There's no per-row random draw to keep in sync, so a lookup
-table behaves identically across all three engines (memory / stream / disk) — see
-[Large outputs](../guides/large-outputs.md#top) for the streaming path, and
+A `<switch>` whose branches are literals is a **pure function** of its subject: the same
+subject value on a row gives the same result, every time. There's no per-row random draw
+to keep in sync.
+
+A branch that **generates** its value draws like any other generator. The result is still
+fixed by the `seed`, and all three engines (memory / stream / disk) produce the same rows,
+but the value is no longer decided by the subject alone.
+
+One shape gives up the streaming engine: a **share** inside a branch keyed on more than
+one value (`is="US|CA|MX"`), or inside `<default>`. Those rows are a union of subsets, or
+what is left after every other branch has taken its own, and the streaming engine cannot
+number them one row at a time — which is what an exact share needs. TDC routes such a
+config to the in-memory engine on its own: you get the exact share, and the memory cost of
+holding the run. A branch keyed on a **single** value streams normally.
+
+Forcing the streaming engine on one of those configs says so rather than approximating:
+
+`./run shipping.tdc (engine=&quot;2&quot; forced)`
+
+```
+tdcv2: stream mode: a percentage inside <case is="US|CA|MX"> of <switch on="Country">
+("Shipping") is not supported yet — run without mode="stream" (the in-memory engine
+handles it), or remove it.
+```
+
+See [Large outputs](../guides/large-outputs.md#top) for the streaming path, and
 [Determinism](../core-concepts/determinism.md#top) for the guarantee.
 
 ## `<switch>` is generation, not formatting

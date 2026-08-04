@@ -244,6 +244,10 @@ error/fatal    3
 
 `23 + 7 + 3 = 33` — exactly the error subset.
 
+The same holds one level out: a `<mix>` written inside a
+[`<switch>`](./switch.md#a-share-inside-a-branch) branch takes its quota over the rows
+that branch matched, not over the run.
+
 ## Compound branches
 
 Here's what `<mix>` gives you that a bare list of strings can't: a `<case>` can

@@ -326,6 +326,101 @@ huecos. Si el respaldo es apenas un literal, póngalo en `<data>`:
 - Es **opcional.** Sin `<default>` y sin clave coincidente, el valor queda vacío en
   esa fila.
 
+## Una proporción dentro de una rama
+
+Un `<case>` puede contener un [`<mix>`](./mix.md#top), y sus porcentajes son una cuota
+sobre las filas **de esa rama**, no sobre la ejecución completa. El veinte por ciento de
+los registros masculinos sigue siendo el veinte por ciento de los registros masculinos,
+sea cual sea la proporción de la ejecución que resulte masculina.
+
+```xml
+<tdc>
+  <env count="10" seed="clinic" local="en">
+    <sequence name="Sex">
+      <gen type="text" value="male,female" percent="50,50"/>
+    </sequence>
+
+    <switch name="Diagnosis" on="Sex">
+      <case is="male">
+        <mix percent="20,80">
+          <case><data>prostatitis</data></case>
+          <case><data>influenza</data></case>
+        </mix>
+      </case>
+      <case is="female"><data>influenza</data></case>
+    </switch>
+  </env>
+  <block><line><data>${{Sex}} -> ${{Diagnosis}}</data></line></block>
+</tdc>
+```
+
+`./run clinic.tdc`
+
+```
+male -> influenza
+female -> influenza
+male -> influenza
+male -> influenza
+male -> influenza
+female -> influenza
+male -> prostatitis
+female -> influenza
+female -> influenza
+female -> influenza
+```
+
+Cinco registros son masculinos, y uno de ellos lleva el diagnóstico masculino. Suba el
+`count` y la proporción se mantiene: el 20% de los registros masculinos, sea cual sea el
+tamaño de la ejecución.
+
+`./run clinic.tdc (count=100, recuento)`
+
+```
+female -> influenza    50
+male -> influenza      40
+male -> prostatitis    10
+```
+
+No «unos diez» — el recuento es el mismo con cualquier `seed`.
+
+**Por qué importa:** el denominador es la rama. Una proporción medida sobre la ejecución
+completa repartiría 20 valores `prostatitis` entre cien registros y luego descartaría los
+que cayeran en un registro femenino. Obtendría algo cercano a diez, y nunca diez exactos.
+
+### Ramas con varias claves y `<default>`
+
+La regla es la misma para una proporción dentro de una rama que coincide con varias
+claves, y dentro de `<default>`. Aquí el 30% de los registros norteamericanos se envían
+exprés:
+
+```xml
+<sequence name="Country">
+  <gen type="text" value="US,CA,MX,DE" percent="25,25,25,25"/>
+</sequence>
+
+<switch name="Shipping" on="Country">
+  <case is="US|CA|MX">
+    <mix percent="30,70">
+      <case><data>express</data></case>
+      <case><data>standard</data></case>
+    </mix>
+  </case>
+  <default><data>international</data></default>
+</switch>
+```
+
+`./run shipping.tdc (count=120, recuento)`
+
+```
+express          27
+standard         63
+international    30
+```
+
+Noventa registros coinciden con `US|CA|MX`, y `27 + 63 = 90` — el 30% de la rama, al
+registro. Estas dos formas le cuestan el motor de flujo; vea
+[Determinista en todos los motores](#determinista-en-todos-los-motores).
+
 ## Reglas de selección
 
 - Gana la **primera** rama que coincide. Las filas de `<map>` se revisan primero (en
@@ -395,11 +490,33 @@ generado `REG-###`, y `GB` — que no está en ninguna rama — cae en `<default
 
 ## Determinista en todos los motores
 
-Un valor de `<switch>` es una **función pura** de su sujeto: mismo valor del sujeto en
-una fila, mismo resultado, siempre. No hay sorteo aleatorio por fila que mantener
-sincronizado, así que una tabla de consulta se comporta de forma idéntica en los tres
-motores (memoria / flujo / disco) — vea
-[Salidas grandes](../guides/large-outputs.md#top) para el camino de streaming, y
+Un `<switch>` cuyas ramas son literales es una **función pura** de su sujeto: mismo valor
+del sujeto en una fila, mismo resultado, siempre. No hay sorteo aleatorio por fila que
+mantener sincronizado.
+
+Una rama que **genera** su valor lo sortea como cualquier otro generador. El resultado
+sigue fijado por el `seed`, y los tres motores (memoria / flujo / disco) producen las
+mismas filas, pero el valor ya no lo decide el sujeto por sí solo.
+
+Una forma le cuesta el motor de flujo: una **proporción** dentro de una rama con más de
+una clave (`is="US|CA|MX"`), o dentro de `<default>`. Esas filas son una unión de
+subconjuntos, o lo que queda tras todas las demás ramas, y el motor de flujo no puede
+numerarlas fila a fila — que es justo lo que necesita una proporción exacta. TDC dirige
+esa configuración al motor en memoria por su cuenta: obtiene la proporción exacta y paga
+con la memoria que exige mantener la ejecución. Una rama con una **sola** clave sigue en
+flujo con normalidad.
+
+Forzar el motor de flujo en una de esas configuraciones lo dice en vez de aproximar:
+
+`./run shipping.tdc (engine=&quot;2&quot; forzado)`
+
+```
+tdcv2: stream mode: a percentage inside <case is="US|CA|MX"> of <switch on="Country">
+("Shipping") is not supported yet — run without mode="stream" (the in-memory engine
+handles it), or remove it.
+```
+
+Vea [Salidas grandes](../guides/large-outputs.md#top) para el camino de streaming, y
 [Determinismo](../core-concepts/determinism.md#top) para la garantía.
 
 ## `<switch>` es generación, no formato

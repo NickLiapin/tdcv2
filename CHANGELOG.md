@@ -15,6 +15,32 @@ page — is tracked in that implementation's own changelog:
 
 ## [Unreleased]
 
+### Fixed
+
+- **A percentage inside a `<switch>` branch was a quota over the whole run, not over the
+  branch.** A `<mix percent="20,80">` inside `<case is="Male">` handed out its 20% over
+  every row and dropped the values that landed on a row belonging to another branch.
+  Measured over 100 runs of 10 rows split 5/5: 0, 1 or 2 survivors, and 23 runs with
+  none, where the config asked for one man in five. It was not randomness — it was an
+  exact share over the wrong denominator, which is worse, because it looks like a
+  working feature.
+
+  A branch now draws over the rows that chose it. A branch keyed on a single value gets
+  the same subset `parent="Gender.Male"` already gets, so it still streams. A share
+  inside a multi-key branch (`is="US|CA|MX"`) or inside `<default>` covers a union of
+  subsets, or what every other branch left behind, and neither can be numbered one row at
+  a time — those configs are routed to the in-memory engine, where the share is exact.
+  Measured on 200,000 rows: 45,000 of an exact 45,000, where it used to read 44,999.
+
+  **This changes output.** Any config with a percentage inside a `<switch>` branch
+  produces different bytes from the same seed.
+
+- **`--jobs` could kill a run the same config survived single-threaded.** A worker is
+  handed a forced streaming engine and has nowhere to fall back to, so a refusal reached
+  while building was fatal there and merely a fallback everywhere else. The engine for
+  such a config is now decided before the run starts, where every path sees the same
+  answer.
+
 ## [0.1.6] — 2026-08-03
 
 ### Fixed

@@ -60,7 +60,7 @@ TDC guarantee).
 ## Which engine runs your config
 
 `mode="disk"` asks for bounded memory. It does not always get it. TDC reads the config
-first, and five shapes route the run to the **small in-memory engine**, whose memory grows
+first, and six shapes route the run to the **small in-memory engine**, whose memory grows
 with the row count. They are checked in this order.
 
 | Shape                                                                                                                                                                | Why it cannot stream                                                                                                                           |
@@ -70,6 +70,7 @@ with the row count. They are checked in this order.
 | A [pack generator that declares its own shares](../data-packs/writing-your-own.md#exact-percentages-inside-a-generator--mix--percent) — `percent=` in the pack file | The share is a quota over the whole column. Computed a row at a time it becomes a quota over one row, and every row goes to the largest share. |
 | `uniq="true"` on a single drawn column, alone or beside literal text                                                                                                 | The draw is **without replacement**, so the pool and the set already taken both span the whole column.                                         |
 | [`type="http"`](../generators/http.md#top) — a network call                                                                                                             | It is neither reproducible nor synchronous, and resolves in an async pass after the rest of the registry is built.                             |
+| A `percent=` inside a [`<switch>`](../constructs/switch.md#a-share-inside-a-branch) branch keyed on several values — `is="US\|CA\|MX"` — or inside `<default>`      | The share is a quota over the branch's own rows, and those rows are a union of subsets, or what every other branch left behind. Neither can be numbered one row at a time. |
 
 Whatever is left that asks about the finished column goes to the exact on-disk engine, and
 everything else streams.
