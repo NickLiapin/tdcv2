@@ -202,65 +202,17 @@ const derived = (list, fn) => list.map((v, i) => `${fn(v)},${String(zipf(i + 1))
 // still take part in the merge below.
 let files = 0;
 /*
- * The description says PEOPLE, not country, and says it out loud.
+ * The pack holds SEVEN files and no more.
  *
- * `russia.person.kazakh.*` is Kazakhs living in Russia — in Moscow, Petersburg,
- * Voronezh — and has nothing to do with Kazakhstan, which is a separate country
- * with its own pack. Same for Armenians, Azerbaijanis, Uzbeks, Tajiks, Ukrainians
- * and Germans. Anyone reading only the address could take it the other way, so
- * every description says which it is.
+ * An earlier version also wrote russia.person.tatar.male.firstName and one such
+ * address per people. Nobody asked for that. It is surface to document and to keep
+ * working, and it invites the misreading the whole thing has to avoid — that
+ * `kazakh` is about Kazakhstan rather than about Kazakhs living in Voronezh.
+ *
+ * What a user wants is a name met in Russia, drawn in the proportions Russia has.
+ * That is one file per column. The split by people stays where it belongs — in the
+ * sources, where it is how the weights get computed — and never reaches the pack.
  */
-const ALSO_A_COUNTRY = {
-  kazakh: 'kazakhstan',
-  armenian: 'armenia',
-  azerbaijani: 'azerbaijan',
-  uzbek: 'uzbekistan',
-  tajik: 'tajikistan',
-  ukrainian: 'ukraine',
-  german: 'germany',
-  korean: 'south_korea',
-};
-const inRussia = (people) => {
-  const country = ALSO_A_COUNTRY[people.id];
-  return country === undefined
-    ? `${people.ru}, one of the peoples of Russia`
-    : `${people.ru} living in Russia — the PEOPLE, not the country; for ${country} use its own pack`;
-};
-
-for (const { people, male, female, surnames, indeclinable } of loaded) {
-  if (people.source) continue;
-  const who = inRussia(people);
-  files += 1;
-  if (!people.surnamesOnly) {
-    write(`${people.id}/male/firstName.txt`, `${who} — male given name, ordered by frequency`, weighted(male));
-    write(`${people.id}/female/firstName.txt`, `${who} — female given name, ordered by frequency`, weighted(female));
-    write(
-      `${people.id}/male/patronymic.txt`,
-      `${who} — male patronymic, formed from the father's given name by the Russian rules`,
-      weighted(male.map(masculinePatronymic)),
-    );
-    write(
-      `${people.id}/female/patronymic.txt`,
-      `${who} — female patronymic, the feminine form of the same patronymic at the same line as the male list`,
-      weighted(male.map(masculinePatronymic).map(femininePatronymic)),
-    );
-  }
-  if (surnames.length > 0) {
-    write(`${people.id}/male/lastName.txt`, `${who} — male surname (declined masculine form)`, weighted(surnames));
-    write(
-      `${people.id}/female/lastName.txt`,
-      `${who} — female surname, the feminine form of the surname at the same line as the male list`,
-      derived(surnames, feminineSurname),
-    );
-  }
-  if (indeclinable.length > 0) {
-    write(
-      `${people.id}/lastName.txt`,
-      `${who} — surname that does not decline, identical for a man and a woman`,
-      weighted(indeclinable),
-    );
-  }
-}
 
 // ── The merged addresses: russia.person.male.firstName and friends ──
 const census = 'weights are 2021 census populations × rank, so the mix matches the country';
@@ -315,7 +267,7 @@ if (CHECK) {
   }
   console.log(`russia person names match their sources (${String(loaded.length)} peoples)`);
 } else {
-  console.log(`${String(loaded.length)} peoples, ${String(files)} with their own address\n`);
+  console.log(`${String(loaded.length)} peoples merged into ${String(Object.keys(counts).length)} files\n`);
   for (const [name, n] of Object.entries(counts)) {
     console.log(`${String(n).padStart(6)}  russia.person.${name.replace('.txt', '').replace('/', '.')}`);
   }
