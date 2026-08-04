@@ -28,7 +28,7 @@
 
 import { readFileSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { fileURLToPath, pathToFileURL } from 'node:url';
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const PACK = join(HERE, '..', 'packs', 'ru', 'person');
@@ -158,9 +158,28 @@ function zipf(rank) {
   return Math.max(1, Math.round(1_000_000 / rank));
 }
 
+/**
+ * `--check` compares instead of writing.
+ *
+ * These pack files look exactly like the hand-written ones beside them, so the
+ * obvious thing to do with a name that needs fixing is to open the pack file and
+ * fix it — after which the next run of this script silently throws the edit away.
+ * Wired into `npm run check`, this turns that into a failed build with the command
+ * to run, which is the only way an editable-looking generated file stays honest.
+ */
+const CHECK = process.argv.includes('--check');
+const drifted = [];
+
 function write(path, description, values) {
   const header = ['---', `description: ${description}`, 'weighted: true', '---'].join('\n');
-  writeFileSync(join(PACK, path), `${header}\n${values.join('\n')}\n`, 'utf8');
+  const content = `${header}\n${values.join('\n')}\n`;
+  const file = join(PACK, path);
+  if (CHECK) {
+    const actual = readFileSync(file, 'utf8');
+    if (actual !== content) drifted.push(`ru/person/${path}`);
+    return;
+  }
+  writeFileSync(file, content, 'utf8');
   console.log(`${String(values.length).padStart(5)}  ${path}`);
 }
 
@@ -172,6 +191,15 @@ function authored(name) {
     .filter((l) => l !== '' && !l.startsWith('#'));
 }
 
+// Everything below builds the pack; everything above is the declension rules,
+// which build-russia-peoples.mjs imports — Tatar and Kalmyk surnames are Russified
+// and decline by exactly these rules, and a second copy of them would be a second
+// thing to get wrong. Importing must not rebuild the ru pack as a side effect, so
+// the body runs only when this file is the command being run.
+const RUN_AS_SCRIPT = process.argv[1] !== undefined && import.meta.url === pathToFileURL(process.argv[1]).href;
+if (!RUN_AS_SCRIPT) {
+  // Loaded for its rules alone.
+} else {
 const surnames = authored('surnames-masculine.txt');
 const indeclinable = authored('surnames-indeclinable.txt');
 const maleNames = authored('first-names-male.txt');
@@ -331,3 +359,18 @@ write(
     'as person/male/patronymic — so siblings share a father.',
   weightedPairs(patronymics, femininePatronymic),
 );
+
+if (CHECK) {
+  if (drifted.length > 0) {
+    console.error('These pack files do not match what the sources produce:\n');
+    for (const f of drifted) console.error(`  ${f}`);
+    console.error(
+      '\nThey are GENERATED. Edit data/scripts/ru-source/ instead, then run\n' +
+        '  node data/scripts/build-ru-names.mjs\n' +
+        'and commit the result. A fix made in the pack file is thrown away by the next run.',
+    );
+    process.exit(1);
+  }
+  console.log(`ru person names match their sources (${String(surnames.length)} surnames, ${String(maleNames.length)} male and ${String(femaleNames.length)} female given names, ${String(patronymics.length)} patronymics)`);
+}
+}

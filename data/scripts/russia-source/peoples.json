@@ -1,0 +1,30 @@
+{
+  "note": [
+    "The peoples of Russia whose given names and surnames differ from the Russian ones.",
+    "Population is the 2021 census count and becomes the weight in the merged list, so a",
+    "row drawn from russia.person.* looks like the country rather than like an even split",
+    "between Russians and Tuvans. Russians are here as one people among the rest — that is",
+    "what makes russia.person.* usable WITHOUT the ru locale bundle, the way a country pack",
+    "is supposed to be. Their names come from the ru locale source rather than being copied.",
+    "",
+    "Peoples who today give their children Russian names and are distinguished mainly by",
+    "surname (Chuvash, Mordvins, Mari, Udmurts, Komi) are deliberately absent: a made-up",
+    "list of 'Chuvash given names' would be worse than no list."
+  ],
+  "peoples": [
+    {
+      "id": "russian",
+      "ru": "Русские",
+      "population": 105579179,
+      "source": "ru-source"
+    },
+    { "id": "tatar", "ru": "Татары", "population": 4713669 },
+    { "id": "chechen", "ru": "Чеченцы", "population": 1674854 },
+    { "id": "bashkir", "ru": "Башкиры", "population": 1571879 },
+    { "id": "dagestan", "ru": "Народы Дагестана", "population": 3153857 },
+    { "id": "yakut", "ru": "Якуты (саха)", "population": 478409 },
+    { "id": "buryat", "ru": "Буряты", "population": 460054 },
+    { "id": "tuvan", "ru": "Тувинцы", "population": 295384 },
+    { "id": "kalmyk", "ru": "Калмыки", "population": 174000 }
+  ]
+}
