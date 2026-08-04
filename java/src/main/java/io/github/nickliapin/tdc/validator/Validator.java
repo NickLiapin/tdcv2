@@ -225,6 +225,13 @@ public final class Validator {
   private final io.github.nickliapin.tdc.packs.DataPacks packs;
   private int documentRegexMaxLength = RegexGen.DEFAULT_MAX_LENGTH;
   private String locale = "en";
+
+  /**
+   * The run length from {@code <env count="…">}. Needed by checks whose answer depends on SIZE
+   * rather than shape — a {@code uniq} column costs nothing at a hundred rows and gigabytes at ten
+   * million.
+   */
+  private long envCount = 0;
   /** Every sequence name the config declares — what an interpolation may refer to. */
   private final Set<String> declaredNames = new LinkedHashSet<>();
   /** Those of them that produce a list, which is what each= may walk. */
@@ -497,6 +504,7 @@ public final class Validator {
         if (Integer.parseInt(count.trim()) < 0) {
           throw new NumberFormatException();
         }
+        envCount = Long.parseLong(count.trim());
       } catch (NumberFormatException e) {
         error("TDC020", "invalid count \"" + count + "\" — expected a non-negative integer",
             "count is how many records to generate.", at(env, "count")[0], at(env, "count")[1]);
@@ -577,6 +585,8 @@ public final class Validator {
       } else if ("mix".equals(tag)) {
         checkMix(open);
       } else if ("sequence".equals(tag)) {
+        // Size, not shape: what this column will COST at this run length.
+        checkUniqMemory(open, name);
         checkSequenceBody(open, name);
         checkSequenceDataAttrs(open);
         checkComputeBody(open);
@@ -1323,6 +1333,41 @@ public final class Validator {
   }
 
   /** A sequence must actually produce something, and a compound must name its fields. */
+  /** Bytes a value costs while {@code uniq} holds the column — MEASURED, see the TS reference. */
+  private static final long UNIQ_BYTES_PER_VALUE = 250;
+
+  /** Where to start talking, matching {@code <pool>}'s TDC234 threshold. */
+  private static final long UNIQ_WARN_ROWS = 100_000;
+
+  /**
+   * {@code uniq} over many rows holds the whole column in memory — say so before the run.
+   *
+   * <p>A {@code <pool>} has warned since TDC234; {@code uniq} does the same thing and said nothing.
+   * 250 bytes a value is measured — peak RSS against row count, the slope over an eight-fold range;
+   * the table is in {@code typescript/src/validator/uniq-memory.ts}.
+   */
+  private void checkUniqMemory(TDCParser.OpenCloseElementContext open, String name) {
+    Map<String, String> attrs = attributes(open.attr());
+    if (!"true".equals(attrs.getOrDefault("uniq", "").trim().toLowerCase(java.util.Locale.ROOT))) {
+      return;
+    }
+    if (envCount < UNIQ_WARN_ROWS) {
+      return;
+    }
+    double mb = envCount * (double) UNIQ_BYTES_PER_VALUE / 1024 / 1024;
+    String size = mb >= 1024
+        ? String.format(java.util.Locale.ROOT, "%.1f GB", mb / 1024)
+        : grouped((long) Math.round(mb)) + " MB";
+    warn("TDC236",
+        "uniq on \"" + (name == null ? "?" : name) + "\" holds all " + grouped(envCount)
+            + " values in memory for the whole run — about " + size,
+        "Drawing without replacement means remembering what has been drawn, so this cannot "
+            + "stream: the config runs on the in-memory engine whatever mode= asks for. Measured "
+            + "at about 250 bytes a value. It works — it is worth being deliberate about at this "
+            + "size.",
+        line(open), column(open));
+  }
+
   private void checkSequenceBody(TDCParser.OpenCloseElementContext open, String name) {
     List<Map<String, String>> gens = new ArrayList<>();
     List<TDCParser.SelfClosingElementContext> genNodes = new ArrayList<>();

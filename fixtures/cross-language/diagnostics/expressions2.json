@@ -49,6 +49,13 @@
       "description": "An XML entity in an expression: the config is XML-SHAPED but is not XML, so &lt; stays four characters and the parser must say so rather than reporting the character it tripped over",
       "config": "<tdc><env count=\"2\" seed=\"s\"><sequence name=\"P\"><gen type=\"number\" value=\"1..30\"/></sequence><sequence name=\"T\"><gen type=\"text\" value=\"cheap\" if=\"P &lt;= 15\"/></sequence></env><block><line><data>${{P}}</data></line></block></tdc>",
       "expected": ["error TDC100 1:147"]
+    },
+    {
+      "name": "uniq-memory-at-scale",
+      "demonstrates": "TDC236",
+      "description": "uniq over a large run holds the whole column in memory. A <pool> has warned since TDC234; uniq costs the same and used to say nothing, and the run gave no clue why it needed half a gigabyte. The 250 bytes a value in the message is MEASURED, not guessed.",
+      "config": "<tdc><env count=\"2000000\" seed=\"s\"><sequence name=\"Id\" uniq=\"true\"><gen type=\"number\" value=\"1..2000000000\"/></sequence></env><block><line><data>${{Id}}</data></line></block></tdc>",
+      "expected": ["warning TDC236 1:35"]
     }
   ]
 }

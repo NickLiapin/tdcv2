@@ -241,6 +241,13 @@ public sealed class Validator
     private int _documentRegexMaxLength = RegexGen.DefaultMaxLength;
     private string _locale = "en";
 
+    /// <summary>
+    /// The run length from <c>&lt;env count="…"&gt;</c>. Needed by checks whose answer depends on
+    /// SIZE rather than shape — a <c>uniq</c> column costs nothing at a hundred rows and gigabytes
+    /// at ten million.
+    /// </summary>
+    private long _envCount;
+
     /// <summary>Every sequence name the config declares — what an interpolation may refer to.</summary>
     private readonly HashSet<string> _declaredNames = new(StringComparer.Ordinal);
 
@@ -551,6 +558,11 @@ public sealed class Validator
         _locale = envAttrs.GetValueOrDefault("local", "en");
 
         string? count = envAttrs.GetValueOrDefault("count");
+        if (count is not null && int.TryParse(count.Trim(), out int parsed) && parsed >= 0)
+        {
+            _envCount = parsed;
+        }
+
         if (count is not null && (!int.TryParse(count.Trim(), out int n) || n < 0))
         {
             (int line, int column) = At(env, "count");
@@ -672,6 +684,8 @@ public sealed class Validator
                     CheckMix(open);
                     break;
                 case "sequence":
+                    // Size, not shape: what this column will COST at this run length.
+                    CheckUniqMemory(open, name);
                     CheckSequenceBody(open, name);
                     CheckSequenceDataAttrs(open);
                     CheckComputeBody(open);
@@ -1616,6 +1630,46 @@ public sealed class Validator
     }
 
     /// <summary>A sequence must actually produce something, and a compound must name its fields.</summary>
+    /// <summary>Bytes a value costs while <c>uniq</c> holds the column — MEASURED.</summary>
+    private const long UniqBytesPerValue = 250;
+
+    /// <summary>Where to start talking, matching <c>&lt;pool&gt;</c>'s TDC234 threshold.</summary>
+    private const long UniqWarnRows = 100_000;
+
+    /// <summary>
+    /// <c>uniq</c> over many rows holds the whole column in memory — say so before the run.
+    /// <para>A <c>&lt;pool&gt;</c> has warned since TDC234; <c>uniq</c> does the same thing and
+    /// said nothing. 250 bytes a value is measured — peak RSS against row count, the slope over an
+    /// eight-fold range; the table is in <c>typescript/src/validator/uniq-memory.ts</c>.</para>
+    /// </summary>
+    private void CheckUniqMemory(TDCParser.OpenCloseElementContext open, string? name)
+    {
+        IReadOnlyDictionary<string, string> attrs = Attributes(open.attr());
+        if (attrs.GetValueOrDefault("uniq", "").Trim().ToLowerInvariant() != "true")
+        {
+            return;
+        }
+
+        if (_envCount < UniqWarnRows)
+        {
+            return;
+        }
+
+        double mb = _envCount * (double)UniqBytesPerValue / 1024 / 1024;
+        string size = mb >= 1024
+            ? $"{mb / 1024:F1} GB"
+            : $"{Math.Round(mb):N0} MB";
+        Warn(
+            "TDC236",
+            $"uniq on \"{name ?? "?"}\" holds all {_envCount:N0} values in memory for the whole "
+            + $"run — about {size}",
+            "Drawing without replacement means remembering what has been drawn, so this cannot "
+            + "stream: the config runs on the in-memory engine whatever mode= asks for. Measured "
+            + "at about 250 bytes a value. It works — it is worth being deliberate about at this "
+            + "size.",
+            Line(open), Column(open));
+    }
+
     private void CheckSequenceBody(TDCParser.OpenCloseElementContext open, string? name)
     {
         var gens = new List<IReadOnlyDictionary<string, string>>();

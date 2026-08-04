@@ -253,6 +253,19 @@ def _xml_entity(expression: str):
     return None
 
 
+# `uniq` over many rows holds the whole column in memory — say so before the run.
+# A <pool> has warned since TDC234; uniq does the same thing and said nothing.
+# 250 bytes a value is MEASURED (peak RSS against row count, slope over an
+# eight-fold range) — see typescript/src/validator/uniq-memory.ts for the table.
+_UNIQ_BYTES_PER_VALUE = 250
+_UNIQ_WARN_ROWS = 100_000
+
+
+def _megabytes(byte_count: int) -> str:
+    mb = byte_count / 1024 / 1024
+    return f"{mb / 1024:.1f} GB" if mb >= 1024 else f"{round(mb):,} MB"
+
+
 class _Validator:
     __slots__ = (
         "base_dir",
@@ -260,6 +273,7 @@ class _Validator:
         "declared_order",
         "diagnostics",
         "document_regex_max_length",
+        "env_count",
         "env_names",
         "finite_values",
         "locale",
@@ -281,6 +295,10 @@ class _Validator:
         self.packs = packs
         self.document_regex_max_length = regex.DEFAULT_MAX_LENGTH
         self.locale = "en"
+        # The run length from <env count="…">. Needed by checks whose answer
+        # depends on SIZE rather than shape — what a uniq column costs is
+        # nothing at a hundred rows and gigabytes at ten million.
+        self.env_count = 0
         # Every sequence name the config declares — what an interpolation may refer to.
         self.declared_names: set[str] = set()
         self.declared_order: list[str] = []
@@ -493,6 +511,7 @@ class _Validator:
             try:
                 if int(count.strip()) < 0:
                     raise ValueError
+                self.env_count = int(count.strip())
             except ValueError:
                 line, column = _at(env, "count")
                 self._error(
@@ -614,6 +633,7 @@ class _Validator:
             elif tag == "mix":
                 self._check_mix(open_el, True)
             elif tag == "sequence":
+                self._check_uniq_memory(open_el, name)
                 self._check_sequence_body(open_el, name)
                 self._check_sequence_data_attrs(open_el)
                 self._check_compute_body(open_el)
@@ -1217,6 +1237,24 @@ class _Validator:
             inner = child.openCloseElement()
             if inner is not None and inner.name.text == "distinct":
                 self._collect_field_names(inner, name)
+
+    def _check_uniq_memory(self, open_el, name: str | None) -> None:
+        """Size, not shape: what a uniq column will COST at this run length."""
+        if _attrs(open_el.attr()).get("uniq", "").strip().lower() != "true":
+            return
+        if self.env_count < _UNIQ_WARN_ROWS:
+            return
+        self._warn(
+            "TDC236",
+            f'uniq on "{name or "?"}" holds all {self.env_count:,} values in memory '
+            f"for the whole run — about {_megabytes(self.env_count * _UNIQ_BYTES_PER_VALUE)}",
+            "Drawing without replacement means remembering what has been drawn, so this "
+            "cannot stream: the config runs on the in-memory engine whatever mode= asks "
+            "for. Measured at about 250 bytes a value. It works — it is worth being "
+            "deliberate about at this size.",
+            _line(open_el),
+            _column(open_el),
+        )
 
     def _check_sequence_body(self, open_el, name: str | None) -> None:
         """A sequence must actually produce something, and a compound must name its fields."""

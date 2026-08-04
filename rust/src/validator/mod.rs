@@ -81,6 +81,10 @@ struct Validator {
     /// be handed the walk's own list.
     declared_order: Vec<String>,
     locale: String,
+    /// The run length from `<env count="…">`. Needed by checks whose answer
+    /// depends on SIZE rather than shape — a `uniq` column costs nothing at a
+    /// hundred rows and gigabytes at ten million.
+    env_count: i64,
     /// The packs a template address is looked up in, when the caller has them.
     /// Absent means addresses are taken on trust — a check that cannot be made
     /// is better skipped than guessed.
@@ -310,10 +314,52 @@ impl Validator {
 
     // ── env ──────────────────────────────────────────────────────────────────
 
+    /// `uniq` over many rows holds the whole column in memory — say so first.
+    ///
+    /// A `<pool>` has warned since TDC234; `uniq` does the same thing and said
+    /// nothing. 250 bytes a value is MEASURED — peak RSS against row count, the
+    /// slope over an eight-fold range; the table is in the TypeScript reference,
+    /// `typescript/src/validator/uniq-memory.ts`.
+    fn check_uniq_memory(&mut self, open: &Element, named: Option<&str>) {
+        const BYTES_PER_VALUE: i64 = 250;
+        const WARN_ROWS: i64 = 100_000;
+        if open.attr_value("uniq").map(str::trim).map(str::to_lowercase).as_deref() != Some("true") {
+            return;
+        }
+        if self.env_count < WARN_ROWS {
+            return;
+        }
+        let bytes = self.env_count * BYTES_PER_VALUE;
+        let mb = bytes as f64 / 1024.0 / 1024.0;
+        let size = if mb >= 1024.0 {
+            format!("{:.1} GB", mb / 1024.0)
+        } else {
+            format!("{} MB", Self::grouped(mb.round() as i64))
+        };
+        self.warn(
+            "TDC236",
+            format!(
+                "uniq on \"{}\" holds all {} values in memory for the whole run — about {}",
+                named.unwrap_or("?"),
+                Self::grouped(self.env_count),
+                size
+            ),
+            "Drawing without replacement means remembering what has been drawn, so this cannot \
+             stream: the config runs on the in-memory engine whatever mode= asks for. Measured at \
+             about 250 bytes a value. It works — it is worth being deliberate about at this size.",
+            open.pos,
+        );
+    }
+
     fn check_env(&mut self, env: &Element) {
         self.locale = env.attr_value("local").unwrap_or("en").to_string();
 
         if let Some(count) = env.attr_value("count").map(str::to_string) {
+            if let Ok(n) = count.trim().parse::<i64>() {
+                if n >= 0 {
+                    self.env_count = n;
+                }
+            }
             if !count.trim().parse::<i32>().is_ok_and(|n| n >= 0) {
                 self.error(
                     "TDC020",
@@ -482,6 +528,8 @@ impl Validator {
                 "switch" => self.check_switch(open, &declared),
                 "mix" => self.check_mix(open, true),
                 "sequence" => {
+                    // Size, not shape: what this column will COST at this run length.
+                    self.check_uniq_memory(open, named);
                     self.check_sequence_body(open, named);
                     self.check_sequence_data_attrs(open);
                     self.check_compute_body(open);
