@@ -51,7 +51,7 @@ identificador, no una clasificación. Guíese por los grupos de abajo.
 
 | Código   | Cuándo salta                                                 | Qué hacer                                                                                                                             |
 | :------- | :----------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------ |
-| `TDC001` | El archivo no tiene raíz `<tdc>`                             | Envuelva todo en un único `<tdc>…</tdc>`                                                                                              |
+| `TDC001` | El archivo no tiene raíz `<tdc>`, **o** no se pudo analizar en absoluto — un error de sintaxis, incluida una etiqueta de cierre con otro nombre (`<sequence>…</gen>`) | Envuelva todo en un único `<tdc>…</tdc>`, o corrija la sintaxis que señala el mensaje. Nada más se comprueba hasta que el archivo se analice |
 | `TDC002` | `<tdc>` no tiene hijo `<block>`                              | Agregue el `<block>` con la disposición de un registro                                                                                |
 | `TDC003` | En `<tdc>` están `version` y `v` a la vez                    | Deje uno — son alias                                                                                                                  |
 | `TDC004` | La versión declarada no parece una versión                   | Use una versión que el runtime admita, p. ej. `v="0.1"` (un valor más nuevo que el runtime lanza `TDC005`)                            |
