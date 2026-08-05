@@ -1673,15 +1673,17 @@ public sealed class Validator
     private void CheckSequenceBody(TDCParser.OpenCloseElementContext open, string? name)
     {
         var gens = new List<IReadOnlyDictionary<string, string>>();
-        var genNodes = new List<TDCParser.SelfClosingElementContext>();
+        // Attributes and a position, rather than the typed node: a <gen> reaches here in
+        // either punctuation, and pointing at it is all this list is ever used for.
+        var genNodes = new List<GenNode>();
         bool hasCompute = false;
         TDCParser.OpenCloseElementContext? computeEl = null;
         foreach (TDCParser.ElementContext child in open.content().element())
         {
-            TDCParser.SelfClosingElementContext self = child.selfClosingElement();
-            if (self is not null && self.name.Text == "gen")
+            GenNode? self = GenNodeOf(child);
+            if (self is not null)
             {
-                gens.Add(Attributes(self.attr()));
+                gens.Add(Attributes(self.Attrs));
                 genNodes.Add(self);
                 continue;
             }
@@ -1701,10 +1703,10 @@ public sealed class Validator
             {
                 foreach (TDCParser.ElementContext g in inner.content().element())
                 {
-                    TDCParser.SelfClosingElementContext gen = g.selfClosingElement();
-                    if (gen is not null && gen.name.Text == "gen")
+                    GenNode? gen = GenNodeOf(g);
+                    if (gen is not null)
                     {
-                        gens.Add(Attributes(gen.attr()));
+                        gens.Add(Attributes(gen.Attrs));
                         genNodes.Add(gen);
                     }
                 }
@@ -1802,7 +1804,8 @@ public sealed class Validator
 
             if (!fieldNames.Add(fieldName))
             {
-                (int line, int column) = At(genNodes[g], "name");
+                (int line, int column) =
+                    At(genNodes[g].Attrs, "name", genNodes[g].Line, genNodes[g].Column);
                 Error(
                     "TDC111",
                     $"duplicate field name \"{fieldName}\" inside compound <sequence "
@@ -4290,4 +4293,32 @@ public sealed class Validator
         int hidden = value.Length - MessageEchoLimit;
         return value[..MessageEchoLimit] + "\u2026 (" + hidden + " more chars)";
     }
+
+    /// <summary>A <c>&lt;gen&gt;</c>'s attributes and where it starts, whichever way it was punctuated.</summary>
+    private sealed record GenNode(TDCParser.AttrContext[] Attrs, int Line, int Column);
+
+    /// <summary>
+    /// The <c>&lt;gen&gt;</c> in this child, self-closing or open/close alike.
+    /// </summary>
+    /// <remarks>
+    /// Matching only the self-closing form left <c>&lt;gen …&gt;&lt;/gen&gt;</c> unseen, and the
+    /// sequence was then blamed for having no generator while one stood in plain sight.
+    /// </remarks>
+    private GenNode? GenNodeOf(TDCParser.ElementContext child)
+    {
+        TDCParser.SelfClosingElementContext self = child.selfClosingElement();
+        if (self is not null && self.name.Text == "gen")
+        {
+            return new GenNode(self.attr(), Line(self), Column(self));
+        }
+
+        TDCParser.OpenCloseElementContext open = child.openCloseElement();
+        if (open is not null && open.name.Text == "gen")
+        {
+            return new GenNode(open.attr(), Line(open), Column(open));
+        }
+
+        return null;
+    }
+
 }

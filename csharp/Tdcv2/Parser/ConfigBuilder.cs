@@ -354,10 +354,10 @@ public static class ConfigBuilder
                 continue;
             }
 
-            TDCParser.SelfClosingElementContext self = child.selfClosingElement();
-            if (self is not null && self.name.Text == "gen")
+            TDCParser.AttrContext[]? selfAttrs = GenAttrsOf(child);
+            if (selfAttrs is not null)
             {
-                IReadOnlyDictionary<string, string> genAttrs = Attributes(self.attr());
+                IReadOnlyDictionary<string, string> genAttrs = Attributes(selfAttrs);
                 parts.Add(new CasePart(
                     null, new Gen(genAttrs.GetValueOrDefault("type") ?? "", genAttrs), null));
                 continue;
@@ -520,10 +520,10 @@ public static class ConfigBuilder
                 continue;
             }
 
-            TDCParser.SelfClosingElementContext self = child.selfClosingElement();
-            if (self is not null && self.name.Text == "gen")
+            TDCParser.AttrContext[]? selfAttrs = GenAttrsOf(child);
+            if (selfAttrs is not null)
             {
-                IReadOnlyDictionary<string, string> genAttrs = Attributes(self.attr());
+                IReadOnlyDictionary<string, string> genAttrs = Attributes(selfAttrs);
                 items.Add(ItemOf(genAttrs, ref unnamedGens));
                 gens.Add(genAttrs);
                 continue;
@@ -537,10 +537,10 @@ public static class ConfigBuilder
                 var group = new List<string>();
                 foreach (TDCParser.ElementContext inner in open.content().element())
                 {
-                    TDCParser.SelfClosingElementContext innerGen = inner.selfClosingElement();
-                    if (innerGen is not null && innerGen.name.Text == "gen")
+                    TDCParser.AttrContext[]? innerGen = GenAttrsOf(inner);
+                    if (innerGen is not null)
                     {
-                        IReadOnlyDictionary<string, string> genAttrs = Attributes(innerGen.attr());
+                        IReadOnlyDictionary<string, string> genAttrs = Attributes(innerGen);
                         items.Add(ItemOf(genAttrs, ref unnamedGens));
                         gens.Add(genAttrs);
                         string? fieldName = genAttrs.GetValueOrDefault("name");
@@ -696,10 +696,10 @@ public static class ConfigBuilder
 
         foreach (TDCParser.ElementContext element in parsed.Tree.element())
         {
-            TDCParser.SelfClosingElementContext self = element.selfClosingElement();
-            if (self is not null && self.name.Text == "gen")
+            TDCParser.AttrContext[]? selfAttrs = GenAttrsOf(element);
+            if (selfAttrs is not null)
             {
-                IReadOnlyDictionary<string, string> attrs = Attributes(self.attr());
+                IReadOnlyDictionary<string, string> attrs = Attributes(selfAttrs);
                 string type = attrs.GetValueOrDefault("type", "");
                 if (type.Length == 0)
                 {
@@ -1009,4 +1009,30 @@ public static class ConfigBuilder
 
         return null;
     }
+
+    /// <summary>
+    /// The attributes of a <c>&lt;gen&gt;</c>, whichever way it was punctuated.
+    /// </summary>
+    /// <remarks>
+    /// Four of the five implementations only ever looked for the SELF-CLOSING form, so
+    /// <c>&lt;gen type="text" value="a,b"&gt;&lt;/gen&gt;</c> — the ordinary alternative spelling
+    /// — was not seen as a generator at all, and the sequence was blamed for having none.
+    /// </remarks>
+    private static TDCParser.AttrContext[]? GenAttrsOf(TDCParser.ElementContext child)
+    {
+        TDCParser.SelfClosingElementContext self = child.selfClosingElement();
+        if (self is not null && self.name.Text == "gen")
+        {
+            return self.attr();
+        }
+
+        TDCParser.OpenCloseElementContext open = child.openCloseElement();
+        if (open is not null && open.name.Text == "gen")
+        {
+            return open.attr();
+        }
+
+        return null;
+    }
+
 }
