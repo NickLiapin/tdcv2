@@ -189,14 +189,40 @@ jobs:
       - name: Upload to the Central Portal
         if: github.ref_type == 'tag'
         env:
-          USERNAME: ${{ secrets.CENTRAL_USERNAME }}
-          PASSWORD: ${{ secrets.CENTRAL_PASSWORD }}
+          # The names the repository has actually held since the Java-only workflow: see
+          # publish-maven.yml. When the five registries were merged into this file the secrets
+          # were renamed in the CODE and nowhere else, so GitHub substituted two empty strings
+          # and the Portal answered "Invalid token" — about an empty credential, which is true
+          # and unhelpful. A missing secret is indistinguishable from a wrong one here.
+          USERNAME: ${{ secrets.CENTRAL_TOKEN_USERNAME }}
+          PASSWORD: ${{ secrets.CENTRAL_TOKEN_PASSWORD }}
         run: |
-          token=$(printf '%s:%s' "$USERNAME" "$PASSWORD" | base64)
-          id=$(curl -sS -X POST \
+          # -w 0: GNU base64 wraps at 76 characters, and a newline inside an Authorization
+          # header makes the whole credential invalid. macOS base64 does not wrap, so this
+          # only ever bites on a runner.
+          token=$(printf '%s:%s' "$USERNAME" "$PASSWORD" | base64 -w 0)
+
+          # The upload used to be read as an id whatever came back. When the Portal answered
+          # `{"error":{"message":"Invalid token"}}` the script put that JSON in the status URL
+          # and polled it twenty times, so the log said "Invalid token" in a place that looked
+          # like a deployment id and the real problem — the credentials — was never named.
+          code=$(curl -sS -o /tmp/upload.out -w '%{http_code}' -X POST \
             -H "Authorization: Bearer $token" \
             -F bundle=@java/build/bundle.zip \
             "https://central.sonatype.com/api/v1/publisher/upload")
+          id=$(cat /tmp/upload.out)
+          if [ "$code" != "201" ] && [ "$code" != "200" ]; then
+            echo "the Portal refused the upload (HTTP $code): $id" >&2
+            case "$id" in
+              *"Invalid token"*)
+                echo "" >&2
+                echo "CENTRAL_TOKEN_USERNAME and CENTRAL_TOKEN_PASSWORD must be the two halves" >&2
+                echo "of a Central USER TOKEN — not the site login. Generate one at" >&2
+                echo "central.sonatype.com -> View Account -> Generate User Token; the password" >&2
+                echo "half is shown once, so a lost one has to be regenerated." >&2 ;;
+            esac
+            exit 1
+          fi
           echo "deployment $id"
           for _ in $(seq 1 20); do
             state=$(curl -sS -X POST -H "Authorization: Bearer $token" \
