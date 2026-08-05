@@ -1069,19 +1069,48 @@ def _conditional(spec: SequenceSpec, count: int, run: _Run, columns) -> list[str
     assert spec.branches is not None
     if count == 0:
         return []
-    built = [
-        _finish(_generate(b.gen, count, run), b.gen.attrs, run.prng, [False] * count)
-        for b in spec.branches
-    ]
+
+    # Each branch draws under its OWN stream — ``Name#if0``, ``Name#if1`` — the ids the
+    # streaming engine gives them. They used to take the run's shared PRNG, which made a
+    # branch's values depend on how many draws the columns before it had made: the same
+    # config and seed then produced different data here than when streaming.
+    built: list[list[str]] = []
+    flag_names: list[str | None] = []
+    flags: list[list[bool]] = []
+    for b, branch in enumerate(spec.branches):
+        spiked = [False] * count
+        branch_run = replace(run, stream_id=f"{spec.name}#if{b}", rows=None)
+        built.append(_column_values(branch.gen, count, branch_run, spiked))
+        declared = (branch.gen.attrs.get("anomaly_flag") or "").strip()
+        flag_names.append(declared or None)
+        flags.append(spiked)
+
+    # One column per DISTINCT name: branches sharing ``anomaly_flag="IsOutlier"`` share the
+    # column, which is the point of writing it on each branch.
+    flag_columns: dict[str, list[str | None]] = {}
+    for name in flag_names:
+        if name is not None and name not in flag_columns:
+            flag_columns[name] = [None] * count
 
     out: list[str | None] = []
     for i in range(count):
-        picked = None
+        winner = None
         for b, branch in enumerate(spec.branches):
             if branch.if_expr is None or _condition(branch.if_expr, columns, i):
-                picked = built[b][i]
+                winner = b
                 break
-        out.append(picked)
+        # No branch matched: the row is not covered, so neither the value nor any claim about
+        # it exists — every flag column stays None here, masked exactly like the value.
+        out.append(None if winner is None else built[winner][i])
+        if winner is None:
+            continue
+        for name, column in flag_columns.items():
+            # A covered row always has an answer. ``false`` — not empty — when the branch that
+            # produced it cannot spike at all, because "no outlier" is the truth about that row
+            # and a detector scored against the column needs it stated, not left blank.
+            spiked = flag_names[winner] == name and flags[winner][i]
+            column[i] = "true" if spiked else "false"
+    columns.update(flag_columns)
     return out
 
 

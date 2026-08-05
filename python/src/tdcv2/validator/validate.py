@@ -2607,6 +2607,30 @@ class _Validator:
                     where[1],
                 )
 
+    def _check_case_gen_flag(self, gen_el) -> None:
+        """A ``<gen>`` written inside a ``<case>``.
+
+        ``anomaly_flag="NAME"`` mints a ground-truth column beside a sequence's value. A case
+        body is a CONCATENATION of parts, so a flag written on one part describes that part
+        rather than the row, and there is no honest column to mint. ``<mix flag="NAME">`` asks
+        the same question where it has an answer. Until this check the attribute was accepted
+        here and did nothing, and the only sign was ``${{NAME}}`` reaching the data as literal
+        characters.
+        """
+        flag = _attrs(gen_el.attr()).get("anomaly_flag")
+        if flag is None:
+            return
+        line, column = _at(gen_el, "anomaly_flag")
+        self._error(
+            "TDC246",
+            f'anomaly_flag="{flag.strip()}" is not read on a <gen> inside a <case>',
+            "A case body is several parts joined, so a flag on one part does not describe the "
+            'row. Put flag="NAME" on the <mix> instead, or move the <gen> into a <sequence> of '
+            "its own.",
+            line,
+            column,
+        )
+
     def _check_case_body(self, case_el) -> None:
         """What may sit inside a ``<case>``: literal text, one generator, or a nested mix.
 
@@ -2618,6 +2642,7 @@ class _Validator:
                 continue
             self_closing = child.selfClosingElement()
             if self_closing is not None and self_closing.name.text == "gen":
+                self._check_case_gen_flag(self_closing)
                 continue
             open_el = child.openCloseElement()
             if open_el is None:
@@ -2631,6 +2656,7 @@ class _Validator:
                 self._check_switch(open_el, self.declared_order, named=False)
                 continue
             if open_el.name.text == "gen":
+                self._check_case_gen_flag(open_el)
                 continue
             self._error(
                 "TDC125",

@@ -972,10 +972,11 @@ class StreamEngine:
         # already says which rows it applies to through its own conditions.
         assert spec.branches is not None
         full = Domain(self.count, lambda row: row)
-        branches = [
-            self._build_gen(f"{spec.name}#if{b}", branch.gen, full).column
+        made = [
+            self._build_gen(f"{spec.name}#if{b}", branch.gen, full)
             for b, branch in enumerate(spec.branches)
         ]
+        branches = [m.column for m in made]
 
         def column(row: int) -> str | None:
             for b, branch in enumerate(spec.branches):
@@ -984,6 +985,30 @@ class StreamEngine:
             return None
 
         self.columns[spec.name or ""] = column
+
+        # A branch carrying ``anomaly_flag="NAME"`` mints the companion ground-truth column.
+        # It answers over the SAME conditions: the row's flag comes from whichever branch
+        # produced the row's value. A branch that did not declare this name answers ``false``
+        # — not empty — because the row IS covered and "no outlier" is the truth about it;
+        # a row no branch matched gets None, masking the flag exactly like the value.
+        declared: list[str] = []
+        for m in made:
+            name = (m.flag_name or "").strip()
+            if name and name not in declared:
+                declared.append(name)
+        for flag_name in declared:
+
+            def flag_column(row: int, flag_name: str = flag_name) -> str | None:
+                for b, branch in enumerate(spec.branches):
+                    if branch.if_expr is not None and not self._condition(branch.if_expr, row):
+                        continue
+                    owner = (made[b].flag_name or "").strip()
+                    if owner != flag_name or made[b].flag is None:
+                        return "false"
+                    return made[b].flag(row) or "false"
+                return None
+
+            self.columns[flag_name] = flag_column
 
     def _build_switch(self, spec: SequenceSpec) -> None:
         sw = spec.switch_spec
