@@ -154,6 +154,10 @@ impl Validator {
     }
 
     /// Report every child of `el` that is not on `allowed`.
+    ///
+    /// TDC013 means "a tag this language knows, in the wrong place" and TDC010
+    /// "a tag nobody has heard of", so the sentence follows the code rather than
+    /// the call site — otherwise a reader gets one code and the other's wording.
     fn check_contained(&mut self, el: &Element, parent: &str, code: &str, allowed: &[&str]) {
         let bad: Vec<(String, Pos)> = el
             .children
@@ -162,7 +166,18 @@ impl Validator {
             .map(|c| (c.name.clone(), c.pos))
             .collect();
         for (name, pos) in bad {
-            self.unknown_child(parent, &name, code, allowed, pos);
+            if code == "TDC013" {
+                let mut names: Vec<&str> = allowed.to_vec();
+                names.sort_unstable();
+                self.error(
+                    "TDC013",
+                    format!("<{name}> is not allowed directly inside <{parent}>"),
+                    &format!("Allowed inside <{parent}>: {}.", names.join(", ")),
+                    pos,
+                );
+            } else {
+                self.unknown_child(parent, &name, code, allowed, pos);
+            }
         }
     }
 
@@ -1263,7 +1278,14 @@ impl Validator {
                 self.error(
                     "TDC013",
                     format!("<{}> is not allowed directly inside <sequence>", child.name),
-                    hint,
+                    &format!(
+                        "{hint} Allowed inside <sequence>: {}.",
+                        {
+                            let mut n = tables::SEQUENCE_CHILDREN.to_vec();
+                            n.sort_unstable();
+                            n.join(", ")
+                        }
+                    ),
                     child.pos,
                 );
                 misplaced += 1;
@@ -2910,8 +2932,15 @@ impl Validator {
     // ── block ────────────────────────────────────────────────────────────────
 
     fn check_block(&mut self, block: &Element) {
+        // These two were missed when the other containers were closed: an invented
+        // tag in either passed in silence while the same tag one level up did not.
+        // The brief report put the implementations side by side and the gap showed.
+        let b = block.clone();
+        self.check_contained(&b, "block", "TDC013", &tables::BLOCK_CHILDREN);
         for child in &block.children {
             if child.kind == Kind::OpenClose && child.name == "line" {
+                let l = child.clone();
+                self.check_contained(&l, "line", "TDC013", &tables::LINE_CHILDREN);
                 self.check_line(child);
             }
         }

@@ -133,12 +133,12 @@ fn generate(
     let plan = match Tdc::plan(built) {
         Ok(plan) => plan,
         Err(e) => {
-            report_error(stderr, &e, input)?;
+            report_error(stderr, &e, input, false)?;
             return Ok(1);
         }
     };
 
-    report(stderr, plan.diagnostics(), input, Some(plan.source()))?;
+    report(stderr, plan.diagnostics(), input, Some(plan.source()), false)?;
 
     // A run with no seed anywhere gets a random one. Print it, or the output
     // cannot be reproduced — which is the one promise the whole library is built
@@ -189,7 +189,7 @@ fn generate(
     let data = match plan.build() {
         Ok(data) => data,
         Err(e) => {
-            report_error(stderr, &e, input)?;
+            report_error(stderr, &e, input, false)?;
             return Ok(1);
         }
     };
@@ -211,9 +211,13 @@ fn generate(
 
 /// `tdcv2 check <file>` — the validator alone, for an editor or a pre-commit hook.
 fn check(argv: &[String], stderr: &mut dyn Write) -> std::io::Result<i32> {
+    // `--brief` prints one line per diagnostic and no source excerpt: an editor
+    // listing errors in a panel wants rows, not a picture of the file.
+    let brief = argv.iter().any(|a| a == "--brief");
     let files: Vec<&String> = argv.iter().filter(|a| !a.starts_with('-')).collect();
-    if files.len() != argv.len() || files.len() != 1 {
-        fail(stderr, "usage: tdcv2 check <input.tdc>", false)?;
+    let flags: Vec<&String> = argv.iter().filter(|a| a.starts_with('-')).collect();
+    if flags.iter().any(|f| *f != "--brief") || files.len() != 1 {
+        fail(stderr, "usage: tdcv2 check [--brief] <input.tdc>", false)?;
         return Ok(2);
     }
     let file = files[0];
@@ -221,13 +225,13 @@ fn check(argv: &[String], stderr: &mut dyn Write) -> std::io::Result<i32> {
     let data = match Tdc::from_file(file) {
         Ok(data) => data,
         Err(e) => {
-            report_error(stderr, &e, file)?;
+            report_error(stderr, &e, file, brief)?;
             return Ok(1);
         }
     };
 
     let problems = data.diagnostics();
-    report(stderr, problems, file, Some(data.source()))?;
+    report(stderr, problems, file, Some(data.source()), brief)?;
     if problems.is_empty() {
         writeln!(stderr, "tdcv2: {file} is valid")?;
     }
@@ -290,7 +294,7 @@ fn format(argv: &[String], stdout: &mut dyn Write, stderr: &mut dyn Write) -> st
                 )
             })
             .collect();
-        report(stderr, &syntax, file, Some(&source))?;
+        report(stderr, &syntax, file, Some(&source), false)?;
         return Ok(1);
     }
 
@@ -319,12 +323,17 @@ fn format(argv: &[String], stdout: &mut dyn Write, stderr: &mut dyn Write) -> st
 
 /// A refusal, in the same block a warning would get. Anything else is one line —
 /// there is no config position to point at.
-fn report_error(stderr: &mut dyn Write, error: &TdcError, filename: &str) -> std::io::Result<()> {
+fn report_error(
+    stderr: &mut dyn Write,
+    error: &TdcError,
+    filename: &str,
+    brief: bool,
+) -> std::io::Result<()> {
     match error {
         TdcError::Refused {
             diagnostics,
             source,
-        } => report(stderr, diagnostics, filename, Some(source)),
+        } => report(stderr, diagnostics, filename, Some(source), brief),
         other => fail(stderr, &other.to_string(), false),
     }
 }
@@ -335,9 +344,13 @@ fn report(
     problems: &[Diagnostic],
     filename: &str,
     source: Option<&str>,
+    brief: bool,
 ) -> std::io::Result<()> {
     if problems.is_empty() {
         return Ok(());
+    }
+    if brief {
+        return writeln!(stderr, "{}", render::brief(problems));
     }
     writeln!(stderr, "{}", render::all(problems, source, filename, false))
 }

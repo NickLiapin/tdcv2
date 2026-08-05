@@ -35,6 +35,20 @@
       "config": "<tdc><env count=\"2\" seed=\"p\" local=\"en\"><before><bogus_tag/><line><data>h</data></line></before><sequence name=\"A\"><gen type=\"number\" value=\"1..9\"/></sequence></env><block><line><data>x</data></line></block></tdc>",
       "expected": ["error TDC131 1:48"],
       "demonstrates": "TDC131"
+    },
+    {
+      "name": "unknown-child-of-block",
+      "demonstrates": "TDC013",
+      "description": "A <block> holds <line>s. Rust accepted an invented tag here in silence — a hole left when the other containers were closed, and one the full report hid: it only showed when the brief output put the implementations on one line each.",
+      "config": "<tdc><env count=\"2\" seed=\"p\" local=\"en\"><sequence name=\"A\"><gen type=\"number\" value=\"1..9\"/></sequence></env><block><bogus_tag/><line><data>x</data></line></block></tdc>",
+      "expected": ["error TDC013 1:116"]
+    },
+    {
+      "name": "unknown-child-of-line",
+      "demonstrates": "TDC013",
+      "description": "Same gap one level deeper.",
+      "config": "<tdc><env count=\"2\" seed=\"p\" local=\"en\"><sequence name=\"A\"><gen type=\"number\" value=\"1..9\"/></sequence></env><block><line><bogus_tag/><data>x</data></line></block></tdc>",
+      "expected": ["error TDC013 1:122"]
     }
   ]
 }

@@ -161,6 +161,38 @@ pub mod render {
         lines.join("\n")
     }
 
+    /// One line per diagnostic: code, position, message, hint after `::`.
+    ///
+    /// The full report is right for a person and wrong for a program. Measured on
+    /// a three-error config it is 1807 characters over 27 lines, of which three
+    /// lines carry the finding and the rest draw a picture of the file — and a
+    /// tool feeding a refusal back to a model spends two thirds of its window on
+    /// the drawing. The hint is kept: it carries the list of what IS allowed,
+    /// which is the half a reader acts on. No trailing count either, so a caller
+    /// parsing rows need not skip a sentence at the end.
+    pub fn brief(diagnostics: &[Diagnostic]) -> String {
+        diagnostics
+            .iter()
+            .map(|d| {
+                let code = if d.code.is_empty() {
+                    match d.severity {
+                        Severity::Warning => "WARN",
+                        _ => "ERROR",
+                    }
+                } else {
+                    d.code.as_str()
+                };
+                let hint = if d.hint.is_empty() {
+                    String::new()
+                } else {
+                    format!(" :: {}", d.hint)
+                };
+                format!("{code} {}:{} {}{hint}", d.line, d.column, d.message)
+            })
+            .collect::<Vec<_>>()
+            .join("\n")
+    }
+
     /// Every diagnostic as a block, with a count at the end. Nothing in, nothing
     /// out — so a caller can print the result unconditionally.
     pub fn all(

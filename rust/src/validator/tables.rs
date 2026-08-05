@@ -53,6 +53,10 @@ pub const POOL_CHILDREN: [&str; 6] = [
 /// What a fixture (`<before>`, `<after>`, the delimiters) holds: literal text.
 pub const FIXTURE_CHILDREN: [&str; 2] = ["data", "line"];
 
+/// What may sit directly inside `<block>` and `<line>`.
+pub const BLOCK_CHILDREN: [&str; 2] = ["line", "data"];
+pub const LINE_CHILDREN: [&str; 4] = ["data", "gen", "mix", "switch"];
+
 /// What may sit directly inside `<switch>`.
 pub const SWITCH_CHILDREN: [&str; 3] = ["map", "case", "default"];
 
