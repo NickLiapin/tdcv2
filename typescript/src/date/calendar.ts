@@ -169,3 +169,76 @@ export function stepsBetween(start: PlainDateTime, end: PlainDateTime, unit: Ste
   if (toEpochMillis(addSteps(start, unit, n)) > toEpochMillis(end)) n--;
   return n + 1;
 }
+
+/** A step as written: how many of a unit each row advances by. */
+export interface StepSpec {
+  readonly count: number;
+  readonly unit: StepUnit;
+}
+
+/**
+ * `step="15 minute"`, `step="2"`, `step="month"` — a count and a unit.
+ *
+ * A bare number means DAYS, the default unit, so `step="2"` is every other day.
+ * The unit is spelled out rather than abbreviated: `m` would have to be either
+ * minute or month, and a config that silently meant the wrong one of those is
+ * worse than one that will not parse.
+ */
+export function parseStep(raw: string | undefined): StepSpec | undefined {
+  const value = (raw ?? '').trim();
+  if (value === '') return { count: 1, unit: 'day' };
+  if (/^\d+$/.test(value)) {
+    const count = Number(value);
+    return count >= 1 ? { count, unit: 'day' } : undefined;
+  }
+  const m = /^(?:(\d+)\s+)?([a-z]+)$/.exec(value.toLowerCase());
+  if (!m) return undefined;
+  const count = m[1] === undefined ? 1 : Number(m[1]);
+  const unit = m[2] ?? '';
+  if (count < 1 || !(STEP_UNITS as readonly string[]).includes(unit)) return undefined;
+  return { count, unit: unit as StepUnit };
+}
+
+/** `start` advanced by `n` of `step`. */
+export function addStep(start: PlainDateTime, step: StepSpec, n: number): PlainDateTime {
+  return addSteps(start, step.unit, n * step.count);
+}
+
+const WEEKDAYS = ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'] as const;
+
+/**
+ * `days="mon-fri"` or `days="sun,wed"` — which weekdays a walked axis keeps.
+ *
+ * A SPAN wraps: `fri-mon` is Friday, Saturday, Sunday, Monday, because a week is
+ * a circle and refusing to go round it would make half the spans unwritable.
+ * Returns undefined on a name it does not know, so the caller can say which.
+ */
+export function parseWeekdays(raw: string | undefined): ReadonlySet<number> | undefined {
+  const value = (raw ?? '').trim().toLowerCase();
+  if (value === '') return undefined;
+  const keep = new Set<number>();
+  for (const part of value.split(',')) {
+    const span = part.trim();
+    if (span === '') return undefined;
+    const dash = span.indexOf('-');
+    if (dash < 0) {
+      const i = WEEKDAYS.indexOf(span as (typeof WEEKDAYS)[number]);
+      if (i < 0) return undefined;
+      keep.add(i);
+      continue;
+    }
+    const from = WEEKDAYS.indexOf(span.slice(0, dash) as (typeof WEEKDAYS)[number]);
+    const to = WEEKDAYS.indexOf(span.slice(dash + 1) as (typeof WEEKDAYS)[number]);
+    if (from < 0 || to < 0) return undefined;
+    for (let d = from; ; d = (d + 1) % 7) {
+      keep.add(d);
+      if (d === to) break;
+    }
+  }
+  return keep;
+}
+
+/** The weekday of a date, 0 = Sunday, matching `parseWeekdays`. */
+export function weekdayOf(value: PlainDateTime): number {
+  return utcWeekday(value);
+}

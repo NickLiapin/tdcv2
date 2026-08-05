@@ -1,5 +1,15 @@
 export { DateRuntimeError, type DatePrecision, type PlainDateTime } from './types.js';
-export { STEP_UNITS, addSteps, stepsBetween, type StepUnit } from './calendar.js';
+export {
+  STEP_UNITS,
+  addStep,
+  addSteps,
+  parseStep,
+  parseWeekdays,
+  stepsBetween,
+  weekdayOf,
+  type StepSpec,
+  type StepUnit,
+} from './calendar.js';
 export {
   MS_PER_DAY,
   MS_PER_SECOND,

@@ -726,7 +726,9 @@ export function build(
     return {
       sequence: wrapLazy((i) => {
         const r = popIndexAt(i);
-        return r === undefined ? undefined : axis.at(sequentialIndex(axis.size, r, cycle));
+        if (r === undefined) return undefined;
+        // An OPEN axis has no size and never wraps.
+        return axis.size === undefined ? axis.at(r) : axis.at(sequentialIndex(axis.size, r, cycle));
       }),
     };
   }

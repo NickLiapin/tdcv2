@@ -24,7 +24,8 @@ import type {
   OpenCloseElementContext,
   SelfClosingElementContext,
 } from '../generated/TDCParser.js';
-import { parsePrecision, parseStepUnit } from '../generators/date.js';
+import { parsePrecision } from '../generators/date.js';
+import { parseStep, parseWeekdays } from '../date/index.js';
 import { extractAttrs } from '../processor/walk.js';
 
 export function checkGenDate(
@@ -35,13 +36,20 @@ export function checkGenDate(
   const attrMap = extractAttrs(attrs);
   checkDateCommonAttrs(attrs, diagnostics);
   checkDateStep(attrs, attrMap, diagnostics);
+  checkDateDays(attrs, attrMap, diagnostics);
 
   const value = attrMap['value']?.trim();
   const fromAttr = findAttr(attrs, 'from');
   const toAttr = findAttr(attrs, 'to');
   const rangeAttr = findAttr(attrs, 'range');
 
-  if ((fromAttr || toAttr) && (!fromAttr || !toAttr)) {
+  // `from=` with no `to=` is an OPEN axis when the range is WALKED: row i is
+  // start + i steps, and `count` decides the length. Requiring an end there meant
+  // working out what date the millionth day falls on in order to write it down.
+  // On a DRAWN date one end still means nothing, so TDC150 stays for that.
+  const walked = (attrMap['order'] ?? '').trim() === 'sequential';
+  const openAxis = walked && fromAttr !== undefined && toAttr === undefined;
+  if (!openAxis && (fromAttr || toAttr) && (!fromAttr || !toAttr)) {
     diagnostics.push({
       severity: 'error',
       source: 'validator',
@@ -54,10 +62,8 @@ export function checkGenDate(
   }
 
   try {
-    if (fromAttr && toAttr) {
-      parseDateTimeStrict(attrMap['from'] ?? '');
-      parseDateTimeStrict(attrMap['to'] ?? '');
-    }
+    if (fromAttr) parseDateTimeStrict(attrMap['from'] ?? '');
+    if (toAttr) parseDateTimeStrict(attrMap['to'] ?? '');
     if (rangeAttr) parseDateRangeValue(attrMap['range'] ?? '');
     if (value !== undefined && value.length > 0) validateDateValue(value);
     checkBirthAges(attrs);
@@ -239,7 +245,7 @@ function checkDateStep(
   if (!stepAttr) return;
   const raw = (attrMap['step'] ?? '').trim();
 
-  if (parseStepUnit(raw) === undefined) {
+  if (parseStep(raw) === undefined) {
     diagnostics.push({
       severity: 'error',
       source: 'validator',
@@ -259,6 +265,63 @@ function checkDateStep(
       message: `step="${raw}" has no order="sequential" on the same <gen> — nothing walks the range`,
       hint: 'Add order="sequential" to walk the range one step at a time, or remove step= and let the dates be drawn at random.',
       code: 'TDC248',
+    });
+  }
+}
+
+/**
+ * `days="mon-fri"` — which weekdays a walked axis keeps.
+ *
+ * A FILTER, not a step: the spacing stops being even, since Friday to Monday is
+ * a three-day jump. That is why it is a separate attribute — one word for both
+ * operations would stop them being combinable, and "every 15 minutes, but only
+ * on working days" is exactly what gets asked for.
+ */
+function checkDateDays(
+  attrs: readonly AttrContext[],
+  attrMap: Readonly<Record<string, string>>,
+  diagnostics: Diagnostic[],
+): void {
+  const daysAttr = findAttr(attrs, 'days');
+  if (!daysAttr) return;
+  const raw = (attrMap['days'] ?? '').trim();
+
+  if (parseWeekdays(raw) === undefined) {
+    diagnostics.push({
+      severity: 'error',
+      source: 'validator',
+      ...attrValueRange(daysAttr),
+      message: `unknown weekday in days="${raw}"`,
+      hint: 'Names are mon, tue, wed, thu, fri, sat, sun — a span like "mon-fri" or a list like "sun,wed".',
+      code: 'TDC249',
+    });
+    return;
+  }
+
+  if ((attrMap['order'] ?? '').trim() !== 'sequential') {
+    diagnostics.push({
+      severity: 'error',
+      source: 'validator',
+      ...attrValueRange(daysAttr),
+      message: `days="${raw}" has no order="sequential" on the same <gen> — nothing walks the range`,
+      hint: 'Add order="sequential" to walk the range and keep only these days, or remove days= and let the dates be drawn at random.',
+      code: 'TDC248',
+    });
+    return;
+  }
+
+  const unit = parseStep(attrMap['step'])?.unit;
+  if (unit === 'week' || unit === 'month' || unit === 'year') {
+    // Every step of a week or more lands on the same weekday, so the filter would
+    // match every row or none of them — a full column or an empty one, with
+    // nothing said either way.
+    diagnostics.push({
+      severity: 'error',
+      source: 'validator',
+      ...attrValueRange(daysAttr),
+      message: `days="${raw}" cannot narrow a step="${unit}" — that step already fixes the weekday`,
+      hint: 'A step of a week or more lands on the same weekday every time, so this would match every row or none. Use a step of a day or less, or drop days=.',
+      code: 'TDC250',
     });
   }
 }

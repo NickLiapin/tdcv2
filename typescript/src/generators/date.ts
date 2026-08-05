@@ -19,12 +19,15 @@ import {
   subtractUtcYears,
   toEpochDay,
   toEpochMillis,
-  STEP_UNITS,
-  addSteps,
+  addStep,
+  parseStep,
+  parseWeekdays,
   stepsBetween,
+  weekdayOf,
   type DatePrecision,
   type ParsedDateRange,
   type PlainDateTime,
+  type StepSpec,
   type StepUnit,
 } from '../date/index.js';
 import type { AttrMap } from '../processor/attrs.js';
@@ -36,6 +39,10 @@ export interface DateGenAttrs {
   readonly from?: string | undefined;
   readonly to?: string | undefined;
   readonly range?: string | undefined;
+  /** How far each row advances on a walked axis: `2`, `15 minute`, `month`. */
+  readonly step?: string | undefined;
+  /** Which weekdays a walked axis keeps: `mon-fri`, `sun,wed`. */
+  readonly days?: string | undefined;
   readonly format?: string | undefined;
   readonly local?: string | undefined;
   readonly oldest?: string | number | undefined;
@@ -71,41 +78,99 @@ export function dateGenerator(attrs: DateGenAttrs, locale: string, now: number):
 
 /** The `step=` unit a walked date range advances by, or undefined if unknown. */
 export function parseStepUnit(raw: string | undefined): StepUnit | undefined {
-  const value = (raw ?? '').trim();
-  if (value === '') return 'day';
-  return (STEP_UNITS as readonly string[]).includes(value) ? (value as StepUnit) : undefined;
+  return parseStep(raw)?.unit;
+}
+
+/** True when a range was written with only its START — an axis with no end. */
+function isOpenAxis(attrs: DateGenAttrs): boolean {
+  return (
+    attrs.from !== undefined &&
+    attrs.to === undefined &&
+    attrs.range === undefined &&
+    (attrs.value ?? '') === ''
+  );
+}
+
+const MS_PER_WEEK = 7 * 24 * 3600 * 1000;
+
+function gcd(a: number, b: number): number {
+  return b === 0 ? a : gcd(b, a % b);
 }
 
 /**
- * A date range as a walkable axis: how many steps it holds, and what the k-th one is.
+ * A date range as a walkable axis: how many steps it holds, and what the k-th is.
  *
- * The range is never expanded into a list. A century stepped by the second is three
- * billion values, and the streaming engine promises bounded memory whatever the
- * config says — so the count is computed and each date is `start + k × step`,
- * measured from the START rather than accumulated. That is what keeps a clamped
- * February from dragging every later month back with it.
+ * `size` is undefined for an OPEN axis — `from=` with no end. That is the case
+ * the first design missed: requiring an end meant working out what date the
+ * millionth day falls on in order to write it down, when the end is simply
+ * `start + count × step`. An open axis never wraps, because there is nothing to
+ * wrap at.
  *
- * A `<gen type="date">` that names one fixed date has no axis to walk; it answers
- * that date for every row, which is what it already did.
+ * The range is never expanded into a list. A century stepped by the second is
+ * three billion values and the streaming engine promises bounded memory whatever
+ * the config says — so each date is `start + k × step`, measured from the START
+ * rather than accumulated, which is what keeps a clamped February from dragging
+ * every later month back with it.
  */
 export function dateAxis(
   attrs: DateGenAttrs,
   locale: string,
   now: number,
   unit: StepUnit,
-): { size: number; at: (k: number) => string } {
+): { size: number | undefined; at: (k: number) => string } {
+  const step: StepSpec = parseStep(attrs.step) ?? { count: 1, unit };
+  const keep = parseWeekdays(attrs.days);
   const plan = buildDatePlan(attrs, locale, now);
   const render = (value: PlainDateTime): string => formatDateTime(value, plan.format, plan.locale);
-  if (plan.kind !== 'range' || !plan.start || !plan.end) {
+
+  if (plan.kind !== 'range' || !plan.start) {
     const fixed = plan.fixed ?? plan.start;
     if (!fixed) throw new DateRuntimeError('date generator: invalid generation plan');
     return { size: 1, at: () => render(fixed) };
   }
   const start = plan.start;
-  return {
-    size: stepsBetween(start, plan.end, unit),
-    at: (k) => render(addSteps(start, unit, k)),
+
+  // `days=` keeps only some of the candidates, so the k-th KEPT one is wanted
+  // rather than the k-th candidate. Which candidates match repeats on a cycle —
+  // one week's worth of steps — so the offsets are found once and then indexed,
+  // instead of scanning from the beginning for every row.
+  const filtered = keep
+    ? (() => {
+        const stepMs =
+          step.unit === 'month' || step.unit === 'year'
+            ? 0
+            : toEpochMillis(addStep(start, step, 1)) - toEpochMillis(start);
+        const perCycle = stepMs > 0 ? MS_PER_WEEK / gcd(stepMs, MS_PER_WEEK) : 7;
+        const offsets: number[] = [];
+        for (let i = 0; i < perCycle; i++) {
+          if (keep.has(weekdayOf(addStep(start, step, i)))) offsets.push(i);
+        }
+        return { perCycle, offsets };
+      })()
+    : undefined;
+
+  const candidateAt = (k: number): PlainDateTime => {
+    if (!filtered || filtered.offsets.length === 0) return addStep(start, step, k);
+    const cycles = Math.floor(k / filtered.offsets.length);
+    const within = filtered.offsets[k % filtered.offsets.length] ?? 0;
+    return addStep(start, step, cycles * filtered.perCycle + within);
   };
+
+  if (isOpenAxis(attrs)) {
+    return { size: undefined, at: (k) => render(candidateAt(k)) };
+  }
+
+  const end = plan.end;
+  if (!end) return { size: undefined, at: (k) => render(candidateAt(k)) };
+  const candidates = Math.ceil(stepsBetween(start, end, step.unit) / step.count);
+  const size = filtered
+    ? Math.max(
+        1,
+        Math.floor(candidates / filtered.perCycle) * filtered.offsets.length +
+          filtered.offsets.filter((o) => o < candidates % filtered.perCycle).length,
+      )
+    : candidates;
+  return { size, at: (k) => render(candidateAt(k)) };
 }
 
 function buildDatePlan(attrs: DateGenAttrs, locale: string, now: number): DatePlan {
@@ -154,6 +219,19 @@ function buildDatePlan(attrs: DateGenAttrs, locale: string, now: number): DatePl
 
   const rangeFromAttrs = attrs.from !== undefined || attrs.to !== undefined;
   if (rangeFromAttrs) {
+    // `from=` alone is an OPEN axis — legal when the range is WALKED, and the
+    // plan carries only a start. `dateAxis` reads `end` as undefined and never
+    // wraps; a DRAWN date with one end is still refused, by TDC150.
+    if (attrs.from !== undefined && attrs.to === undefined) {
+      const start = parseDateTimeStrict(attrs.from);
+      return {
+        kind: 'range',
+        start: start.value,
+        precision: parsePrecision(attrs.precision, start.hasTime ? 'millisecond' : 'day'),
+        format,
+        locale: loc,
+      };
+    }
     if (attrs.from === undefined || attrs.to === undefined) {
       throw new DateRuntimeError('date generator: "from" and "to" must be provided together');
     }

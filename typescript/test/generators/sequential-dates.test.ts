@@ -147,3 +147,131 @@ describe('what the validator says about a walked date', () => {
     );
   });
 });
+
+/**
+ * The three things the first design missed, all of them about a run whose LENGTH
+ * is the input and whose end is a consequence.
+ *
+ * Requiring a `to=` meant working out what date the millionth day falls on in
+ * order to write it down. The end of a walked axis is `start + count × step`; it
+ * is not something a config should have to compute in its author's head.
+ */
+describe('an open axis, a multiplied step, and a weekday filter', () => {
+  it('walks forward from `from=` with no end at all', () => {
+    const doc = config(
+      4,
+      '<gen type="date" from="2026-01-01" order="sequential" format="YYYY-MM-DD"/>',
+    );
+    for (const [, opts] of ENGINES) {
+      expect(rows(doc, opts)).toEqual(['2026-01-01', '2026-01-02', '2026-01-03', '2026-01-04']);
+    }
+  });
+
+  it('never loops, because an open axis has no end to loop at', () => {
+    // The bounded form wraps at the end of its range. This one cannot: row i is
+    // start + i steps, whatever i is, which is the whole point.
+    const doc = config(
+      400,
+      '<gen type="date" from="2026-01-01" order="sequential" format="YYYY-MM-DD"/>',
+    );
+    const out = rows(doc, ENGINES[0]![1]);
+    expect(out[364]).toBe('2026-12-31');
+    expect(out[399]).toBe('2027-02-04');
+    expect(new Set(out).size).toBe(400);
+  });
+
+  it('multiplies the step when asked', () => {
+    const doc = config(
+      3,
+      '<gen type="date" from="2026-01-01T00:00:00" order="sequential" step="15 minute" format="YYYY-MM-DD HH:mm"/>',
+    );
+    expect(rows(doc, ENGINES[0]![1])).toEqual([
+      '2026-01-01 00:00',
+      '2026-01-01 00:15',
+      '2026-01-01 00:30',
+    ]);
+  });
+
+  it('reads a bare number as days, the default unit', () => {
+    const doc = config(
+      3,
+      '<gen type="date" from="2026-01-01" order="sequential" step="2" format="YYYY-MM-DD"/>',
+    );
+    expect(rows(doc, ENGINES[0]![1])).toEqual(['2026-01-01', '2026-01-03', '2026-01-05']);
+  });
+
+  it('keeps only the weekdays `days=` names', () => {
+    // 2026-01-01 is a Thursday. mon-fri therefore gives Thu, Fri, then jumps the
+    // weekend to Monday — the jump being exactly why this is a filter and not a
+    // step: the spacing is no longer even.
+    const doc = config(
+      4,
+      '<gen type="date" from="2026-01-01" order="sequential" days="mon-fri" format="YYYY-MM-DD"/>',
+    );
+    for (const [, opts] of ENGINES) {
+      expect(rows(doc, opts)).toEqual(['2026-01-01', '2026-01-02', '2026-01-05', '2026-01-06']);
+    }
+  });
+
+  it('takes a list of days as well as a span', () => {
+    const doc = config(
+      3,
+      '<gen type="date" from="2026-01-01" order="sequential" days="sun,wed" format="YYYY-MM-DD"/>',
+    );
+    expect(rows(doc, ENGINES[0]![1])).toEqual(['2026-01-04', '2026-01-07', '2026-01-11']);
+  });
+
+  it('combines the two: every 12 hours, working days only', () => {
+    const doc = config(
+      4,
+      '<gen type="date" from="2026-01-02T00:00:00" order="sequential" step="12 hour" days="mon-fri" format="YYYY-MM-DD HH:mm"/>',
+    );
+    // Friday 2 Jan gives 00:00 and 12:00; the weekend is skipped; Monday 5 Jan
+    // resumes. A step alone could not say this.
+    expect(rows(doc, ENGINES[0]![1])).toEqual([
+      '2026-01-02 00:00',
+      '2026-01-02 12:00',
+      '2026-01-05 00:00',
+      '2026-01-05 12:00',
+    ]);
+  });
+});
+
+describe('what the validator says about the open forms', () => {
+  const codesOf = (gen: string): string[] => {
+    const parsed = parse(config(3, gen));
+    expect(parsed.diagnostics).toEqual([]);
+    return validate(parsed.tree).diagnostics.map((d) => d.code);
+  };
+
+  it('accepts from= alone when the range is walked', () => {
+    expect(codesOf('<gen type="date" from="2026-01-01" order="sequential"/>')).toEqual([]);
+  });
+
+  it('still refuses from= alone on a DRAWN date', () => {
+    // Where the range is sampled, one end genuinely means nothing — TDC150 was
+    // right for that case and stays.
+    expect(codesOf('<gen type="date" from="2026-01-01"/>')).toContain('TDC150');
+  });
+
+  it('refuses a weekday it does not know', () => {
+    expect(
+      codesOf('<gen type="date" from="2026-01-01" order="sequential" days="mon-frr"/>'),
+    ).toContain('TDC249');
+  });
+
+  it('refuses days= with a step that already fixes the weekday', () => {
+    // A week/month/year step lands on the same weekday every time, so the filter
+    // would match always or never — and the user would get a full column or an
+    // empty one with nothing said.
+    expect(
+      codesOf('<gen type="date" from="2026-01-01" order="sequential" step="week" days="mon"/>'),
+    ).toContain('TDC250');
+  });
+
+  it('refuses days= without order="sequential" — nothing walks the axis', () => {
+    expect(codesOf('<gen type="date" range="2026-01-01..2026-12-31" days="mon-fri"/>')).toContain(
+      'TDC248',
+    );
+  });
+});

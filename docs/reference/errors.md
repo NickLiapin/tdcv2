@@ -288,6 +288,8 @@ but the combination it asks for can't be carried out.
 | `TDC246` | `anomaly_flag` on a `<gen>` inside a `<case>`                    | A case body is several parts joined, so a flag on one part doesn't describe the row — put `flag="NAME"` on the `<mix>` instead |
 | `TDC247` | `step` on a `<gen type="date">` names a unit it cannot walk        | Supported: second, minute, hour, day, week, month, year |
 | `TDC248` | `step` without `order="sequential"` on the same `<gen>`            | Nothing walks the range — the dates are still drawn at random. Add `order="sequential"`, or drop `step` |
+| `TDC249` | `days` names a weekday that does not exist                        | mon, tue, wed, thu, fri, sat, sun — a span like `mon-fri` or a list like `sun,wed` |
+| `TDC250` | `days` with a `step` of a week or more                            | That step already fixes the weekday, so the filter would match every row or none |
 
 ## See also
 

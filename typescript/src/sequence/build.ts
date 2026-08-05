@@ -1050,7 +1050,10 @@ function buildGenValuesRaw(
     const unit = parseStepUnit(gen.attrs['step']) ?? 'day';
     const axis = dateAxis(gen.attrs, locale, now, unit);
     const cycle = gen.attrs['cycle'] !== 'false';
-    return Array.from({ length: count }, (_, i) => axis.at(sequentialIndex(axis.size, i, cycle)));
+    // An OPEN axis has no size and never wraps: row i is simply the i-th step.
+    return Array.from({ length: count }, (_, i) =>
+      axis.size === undefined ? axis.at(i) : axis.at(sequentialIndex(axis.size, i, cycle)),
+    );
   }
   switch (gen.type) {
     case 'text': {

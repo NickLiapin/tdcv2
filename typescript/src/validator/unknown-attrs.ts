@@ -217,6 +217,7 @@ export const ATTRIBUTE_OWNERS: ReadonlyMap<string, ReadonlySet<string>> = new Ma
   // date range means the same thing in its own units, which is why it borrows
   // the word rather than inventing one — but the counter must keep it.
   ['step', new Set(['date', 'increment', 'decrement'])],
+  ['days', new Set(['date'])],
   // Where the characters come from.
   ['alphabet', new Set(['symbol'])],
   // The external source and how to read it. `pattern` is in the list because a
