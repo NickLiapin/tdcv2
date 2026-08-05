@@ -1,0 +1,75 @@
+{
+  "schemaVersion": 1,
+  "cases": [
+    {
+      "name": "share-below-one-row-in-a-switch-branch",
+      "demonstrates": "TDC251",
+      "description": "the reported shape: 10% of a five-row branch asks for half a record",
+      "config": "<tdc><env count=\"10\" seed=\"s\" local=\"en\"><sequence name=\"G\"><gen type=\"text\" value=\"M,F\" percent=\"50,50\"/></sequence><switch name=\"D\" on=\"G\"><case is=\"M\"><mix percent=\"10,90\"><case><data>a</data></case><case><data>b</data></case></mix></case><case is=\"F\"><data>x</data></case></switch></env><block><line><data>x</data></line></block></tdc>",
+      "expected": ["warning TDC251 1:154"]
+    },
+    {
+      "name": "share-that-covers-a-whole-row",
+      "demonstrates": "",
+      "description": "20% of the same five rows is exactly one record — nothing to say",
+      "config": "<tdc><env count=\"10\" seed=\"s\" local=\"en\"><sequence name=\"G\"><gen type=\"text\" value=\"M,F\" percent=\"50,50\"/></sequence><switch name=\"D\" on=\"G\"><case is=\"M\"><mix percent=\"20,80\"><case><data>a</data></case><case><data>b</data></case></mix></case><case is=\"F\"><data>x</data></case></switch></env><block><line><data>x</data></line></block></tdc>",
+      "expected": []
+    },
+    {
+      "name": "count-raised-until-the-share-fits",
+      "demonstrates": "",
+      "description": "the same 10%, over twice the rows",
+      "config": "<tdc><env count=\"20\" seed=\"s\" local=\"en\"><sequence name=\"G\"><gen type=\"text\" value=\"M,F\" percent=\"50,50\"/></sequence><switch name=\"D\" on=\"G\"><case is=\"M\"><mix percent=\"10,90\"><case><data>a</data></case><case><data>b</data></case></mix></case><case is=\"F\"><data>x</data></case></switch></env><block><line><data>x</data></line></block></tdc>",
+      "expected": []
+    },
+    {
+      "name": "share-below-one-row-at-env-level",
+      "demonstrates": "TDC251",
+      "description": "a mix at the top of env: the denominator is count itself",
+      "config": "<tdc><env count=\"50\" seed=\"s\" local=\"en\"><mix name=\"M\" percent=\"1,99\"><case><data>a</data></case><case><data>b</data></case></mix></env><block><line><data>x</data></line></block></tdc>",
+      "expected": ["warning TDC251 1:41"]
+    },
+    {
+      "name": "share-below-one-row-on-a-text-generator",
+      "demonstrates": "TDC251",
+      "description": "a text generator writing its own shares is measured the same way",
+      "config": "<tdc><env count=\"10\" seed=\"s\" local=\"en\"><sequence name=\"T\"><gen type=\"text\" value=\"a,b\" percent=\"2,98\"/></sequence></env><block><line><data>x</data></line></block></tdc>",
+      "expected": ["warning TDC251 1:60"]
+    },
+    {
+      "name": "share-below-one-row-inside-a-parent-subset",
+      "demonstrates": "TDC251",
+      "description": "parent= narrows the denominator to its own subset: 2% of 30 rows",
+      "config": "<tdc><env count=\"100\" seed=\"s\" local=\"en\"><sequence name=\"S\"><gen type=\"text\" value=\"Free,Paid\" percent=\"70,30\"/></sequence><mix name=\"T\" parent=\"S.Paid\" percent=\"2,98\"><case><data>a</data></case><case><data>b</data></case></mix></env><block><line><data>x</data></line></block></tdc>",
+      "expected": ["warning TDC251 1:124"]
+    },
+    {
+      "name": "multi-key-branch-adds-the-shares-it-matches",
+      "demonstrates": "",
+      "description": "is=\"A|B\" reaches 20% of the rows, so 5% of it is a whole record",
+      "config": "<tdc><env count=\"100\" seed=\"s\" local=\"en\"><sequence name=\"K\"><gen type=\"text\" value=\"A,B,C\" percent=\"10,10,80\"/></sequence><switch name=\"D\" on=\"K\"><case is=\"A|B\"><mix percent=\"5,95\"><case><data>a</data></case><case><data>b</data></case></mix></case><default><data>x</data></default></switch></env><block><line><data>x</data></line></block></tdc>",
+      "expected": []
+    },
+    {
+      "name": "subject-that-declares-no-shares",
+      "demonstrates": "",
+      "description": "an even split is the default, not a statement — the denominator is unknown",
+      "config": "<tdc><env count=\"10\" seed=\"s\" local=\"en\"><sequence name=\"G\"><gen type=\"text\" value=\"M,F\"/></sequence><switch name=\"D\" on=\"G\"><case is=\"M\"><mix percent=\"10,90\"><case><data>a</data></case><case><data>b</data></case></mix></case><case is=\"F\"><data>x</data></case></switch></env><block><line><data>x</data></line></block></tdc>",
+      "expected": []
+    },
+    {
+      "name": "a-repeat-plans-its-quota-over-elements",
+      "demonstrates": "",
+      "description": "repeat= draws several per row, so rows is the wrong denominator and this stays silent",
+      "config": "<tdc><env count=\"2\" seed=\"s\" local=\"en\"><sequence name=\"T\"><gen type=\"text\" value=\"a,b\" percent=\"70,30\" repeat=\"3\"/></sequence></env><block><line><data>x</data></line></block></tdc>",
+      "expected": []
+    },
+    {
+      "name": "a-zero-share-asks-for-nothing-on-purpose",
+      "demonstrates": "",
+      "description": "0% is a deliberate absence, not a rounding accident",
+      "config": "<tdc><env count=\"10\" seed=\"s\" local=\"en\"><mix name=\"M\" percent=\"0,100\"><case><data>a</data></case><case><data>b</data></case></mix></env><block><line><data>x</data></line></block></tdc>",
+      "expected": []
+    }
+  ]
+}

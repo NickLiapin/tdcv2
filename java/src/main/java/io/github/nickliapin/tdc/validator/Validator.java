@@ -500,6 +500,246 @@ public final class Validator {
 
   // ── env ──────────────────────────────────────────────────────────────────────────────────
 
+  // ── a share below one whole row ───────────────────────────────────────────────────────────
+
+  /**
+   * A {@code percent} share that asks for less than one whole row.
+   *
+   * <p>{@code percent} is an exact quota over the rows that reach it, not a chance rolled per
+   * row. Ten percent of a five-row subset asks for HALF a record, and half a record cannot be
+   * emitted — so the branch produces one or none and the seed alone decides which. The engine
+   * rounds and says nothing, which is how a column that came out empty reads as a config that was
+   * never written rather than one that rounded away.
+   *
+   * <p>The denominator is knowable for the shapes people write: {@code count} at the top of
+   * {@code <env>}, {@code count} × a parent's share, or {@code count} × the share a
+   * {@code <switch>} branch matches. Where the subject writes no shares of its own this stays
+   * SILENT — a check that guessed would fire on working configs and be turned off.
+   */
+  private void checkSmallShares(TDCParser.OpenCloseElementContext env) {
+    if (envCount <= 0) {
+      return;
+    }
+    Map<String, Map<String, Double>> shares = new LinkedHashMap<>();
+
+    for (TDCParser.OpenCloseElementContext child : openChildren(env)) {
+      switch (child.name.getText()) {
+        case "sequence" -> readSequenceShares(child, shares);
+        case "mix" -> reportThin(
+            child, branchCount(child), rowsOf(attributes(child.attr()).get("parent"), shares));
+        case "switch" -> readSwitchShares(child, shares);
+        default -> { }
+      }
+    }
+  }
+
+  /** Record what a sequence's values are worth, and check its own share. */
+  private void readSequenceShares(
+      TDCParser.OpenCloseElementContext seq, Map<String, Map<String, Double>> shares) {
+    Map<String, String> seqAttrs = attributes(seq.attr());
+    Double rows = rowsOf(seqAttrs.get("parent"), shares);
+
+    // A `<gen …/>` is SELF-CLOSING, and one written as `<gen …></gen>` is not. Both are the
+    // sequence's generator, so both are collected: reading only one kind found nothing at all.
+    List<org.antlr.v4.runtime.ParserRuleContext> gens = new ArrayList<>();
+    List<Map<String, String>> genAttrs = new ArrayList<>();
+    if (seq.content() != null) {
+      for (TDCParser.ElementContext c : seq.content().element()) {
+        TDCParser.SelfClosingElementContext self = c.selfClosingElement();
+        TDCParser.OpenCloseElementContext open = c.openCloseElement();
+        if (self != null && "gen".equals(self.name.getText())) {
+          gens.add(self);
+          genAttrs.add(attributes(self.attr()));
+        } else if (open != null && "gen".equals(open.name.getText())) {
+          gens.add(open);
+          genAttrs.add(attributes(open.attr()));
+        }
+      }
+    }
+    if (gens.size() != 1) {
+      return;
+    }
+    Map<String, String> attrs = genAttrs.get(0);
+    if (!"text".equals(attrs.get("type"))) {
+      return;
+    }
+
+    List<String> values = new ArrayList<>();
+    for (String v : (attrs.getOrDefault("value", "")).split(",", -1)) {
+      if (!v.trim().isEmpty()) {
+        values.add(v.trim());
+      }
+    }
+    String mask = attrs.get("percent");
+    if (values.isEmpty() || mask == null) {
+      return;
+    }
+    double[] percents = safeExpand(mask, values.size());
+    if (percents == null) {
+      return;
+    }
+
+    String name = seqAttrs.get("name");
+    if (name != null && !name.isEmpty() && rows != null) {
+      Map<String, Double> table = new LinkedHashMap<>();
+      for (int i = 0; i < values.size(); i++) {
+        table.put(values.get(i), percents[i] / 100);
+      }
+      shares.put(name, table);
+    }
+
+    reportThinAttrs(attrs, gens.get(0), values.size(), rows);
+  }
+
+  /** Each {@code <case is="X">}, with the rows that value takes. */
+  private void readSwitchShares(
+      TDCParser.OpenCloseElementContext switchEl, Map<String, Map<String, Double>> shares) {
+    String subject = attributes(switchEl.attr()).get("on");
+    Map<String, Double> table = subject == null ? null : shares.get(subject);
+    if (table == null) {
+      return;
+    }
+
+    for (TDCParser.OpenCloseElementContext caseEl : openChildren(switchEl)) {
+      if (!"case".equals(caseEl.name.getText())) {
+        continue;
+      }
+      String is = attributes(caseEl.attr()).get("is");
+      if (is == null) {
+        continue;
+      }
+      // `is="US|CA"` matches either, so the branch takes both their shares.
+      double fraction = 0;
+      boolean known = true;
+      for (String key : is.split("\\|", -1)) {
+        Double share = table.get(key.trim());
+        if (share == null) {
+          known = false;
+        } else {
+          fraction += share;
+        }
+      }
+      if (!known) {
+        continue;
+      }
+      for (TDCParser.OpenCloseElementContext inner : openChildren(caseEl)) {
+        if ("mix".equals(inner.name.getText())) {
+          reportThin(inner, branchCount(inner), envCount * fraction);
+        }
+      }
+    }
+  }
+
+  /** How many {@code <case>} branches a {@code <mix>} holds. */
+  private static int branchCount(TDCParser.OpenCloseElementContext mix) {
+    int n = 0;
+    for (TDCParser.OpenCloseElementContext c : openChildren(mix)) {
+      if ("case".equals(c.name.getText())) {
+        n++;
+      }
+    }
+    return n;
+  }
+
+  /** Rows reaching something with this {@code parent}, or null when unresolvable. */
+  private Double rowsOf(String parent, Map<String, Map<String, Double>> shares) {
+    if (parent == null || parent.trim().isEmpty()) {
+      return (double) envCount;
+    }
+    int at = parent.indexOf('.');
+    if (at < 0) {
+      return null;
+    }
+    Map<String, Double> table = shares.get(parent.substring(0, at));
+    Double share = table == null ? null : table.get(parent.substring(at + 1));
+    return share == null ? null : envCount * share;
+  }
+
+  /** The mask, or null when it does not parse — somebody else's diagnostic. */
+  private static double[] safeExpand(String mask, int values) {
+    try {
+      return PercentMask.expand(mask, values);
+    } catch (RuntimeException e) {
+      return null;
+    }
+  }
+
+  private void reportThin(
+      TDCParser.OpenCloseElementContext el, int branches, Double rows) {
+    reportThinAttrs(attributes(el.attr()), el, branches, rows);
+  }
+
+  /** Report the smallest share that asks for less than a row, once per element. */
+  private void reportThinAttrs(
+      Map<String, String> own, org.antlr.v4.runtime.ParserRuleContext el, int branches,
+      Double rows) {
+    if (rows == null || rows <= 0 || branches <= 0) {
+      return;
+    }
+    String mask = own.get("percent");
+    if (mask == null) {
+      return;
+    }
+    // `repeat=` plans the quota over ELEMENTS, not rows: three per row over four rows is twelve
+    // draws, and `repeat="1..3"` does not even fix how many. Rows is the wrong denominator here,
+    // so say nothing.
+    if (!own.getOrDefault("repeat", "").trim().isEmpty()) {
+      return;
+    }
+    double[] percents = safeExpand(mask, branches);
+    if (percents == null) {
+      return;
+    }
+
+    Double worst = null;
+    for (double percent : percents) {
+      if (percent <= 0) {
+        continue; // a zero share asks for nothing on purpose
+      }
+      if (percent / 100 * rows >= 1) {
+        continue;
+      }
+      if (worst == null || percent < worst) {
+        worst = percent;
+      }
+    }
+    if (worst == null) {
+      return;
+    }
+
+    warn("TDC251",
+        "percent=\"" + twoPlaces(worst) + "\" over " + twoPlaces(rows) + " rows asks for "
+            + twoPlaces(worst / 100 * rows)
+            + " records — the result is 0 or 1, and the seed decides which",
+        "A share below one whole row cannot be emitted, so the branch fires once or not at all. "
+            + "Raise the share, or raise count= until the share covers a whole row.",
+        el.getStart().getLine(), el.getStart().getCharPositionInLine());
+  }
+
+  /** Every child that is an open-close tag, in source order. */
+  private static List<TDCParser.OpenCloseElementContext> openChildren(
+      TDCParser.OpenCloseElementContext parent) {
+    List<TDCParser.OpenCloseElementContext> out = new ArrayList<>();
+    if (parent.content() == null) {
+      return out;
+    }
+    for (TDCParser.ElementContext c : parent.content().element()) {
+      TDCParser.OpenCloseElementContext el = c.openCloseElement();
+      if (el != null) {
+        out.add(el);
+      }
+    }
+    return out;
+  }
+
+  /** Two decimals at most, and no trailing zeros — {@code 0.5}, not {@code 0.50}. */
+  private static String twoPlaces(double value) {
+    double rounded = Math.round(value * 100) / 100.0;
+    return rounded == Math.rint(rounded)
+        ? String.valueOf((long) rounded)
+        : String.valueOf(rounded);
+  }
+
   private void checkEnv(TDCParser.OpenCloseElementContext env) {
     Map<String, String> envAttrs = attributes(env.attr());
     locale = envAttrs.getOrDefault("local", "en");
@@ -524,6 +764,10 @@ public final class Validator {
           "Use a single \"%\" where the sequence name should go, e.g. inject=\"${{%}}\".",
           at(env, "inject")[0], at(env, "inject")[1]);
     }
+
+    // A share below one whole row: its own pass, because the denominator of a <mix> in a
+    // switch branch belongs to the switch and not to the walk that follows.
+    checkSmallShares(env);
 
     // Pools first, and only their shape: a reference may stand above the pool it names, and
     // complaining about an unknown field in that case would report the wrong problem.

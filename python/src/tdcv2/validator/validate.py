@@ -545,6 +545,160 @@ class _Validator:
 
     # ── env ─────────────────────────────────────────────────────────────────────────────────
 
+
+    # ── a share below one whole row ─────────────────────────────────────────────────────────
+
+    def _check_small_shares(self, env) -> None:
+        """``percent`` is an exact quota over the rows that reach it, not a chance per row.
+
+        Ten percent of a five-row subset asks for HALF a record, and half a record cannot be
+        emitted — so the branch produces one or none and the seed alone decides which. The engine
+        rounds and says nothing, which is how a column that came out empty reads as a config that
+        was never written rather than one that rounded away.
+
+        The denominator is knowable for the shapes people write: ``count`` at the top of ``<env>``,
+        ``count`` x a parent's share, or ``count`` x the share a ``<switch>`` branch matches. Where
+        the subject writes no shares of its own this stays SILENT — a check that guessed would fire
+        on working configs and be turned off.
+        """
+        if self.env_count <= 0:
+            return
+        shares: dict[str, dict[str, float]] = {}
+
+        for child in _elements(env):
+            inner = child.openCloseElement()
+            if inner is None:
+                continue
+            name = inner.name.text
+            if name == "sequence":
+                self._read_sequence_shares(inner, shares)
+            elif name == "mix":
+                rows = self._rows_of(_attrs(inner.attr()).get("parent"), shares)
+                self._report_thin(inner, self._branch_count(inner), rows)
+            elif name == "switch":
+                self._read_switch_shares(inner, shares)
+
+    def _read_sequence_shares(self, seq, shares: dict[str, dict[str, float]]) -> None:
+        """Record what a sequence's values are worth, and check its own share."""
+        seq_attrs = _attrs(seq.attr())
+        rows = self._rows_of(seq_attrs.get("parent"), shares)
+
+        gens = [
+            g
+            for g in _child_elements(seq)
+            if g is not None and _element_name(g) == "gen"
+        ]
+        if len(gens) != 1:
+            return
+        gen = gens[0]
+        attrs = _attrs(gen.attr())
+        if attrs.get("type") != "text":
+            return
+
+        values = [v.strip() for v in (attrs.get("value") or "").split(",") if v.strip()]
+        mask = attrs.get("percent")
+        if not values or mask is None:
+            return
+        percents = self._safe_expand(mask, len(values))
+        if percents is None:
+            return
+
+        name = seq_attrs.get("name")
+        if name and rows is not None:
+            shares[name] = {
+                value: percent / 100 for value, percent in zip(values, percents, strict=False)
+            }
+
+        self._report_thin(gen, len(values), rows)
+
+    def _read_switch_shares(self, switch, shares: dict[str, dict[str, float]]) -> None:
+        """Each ``<case is="X">``, with the rows that value takes."""
+        subject = _attrs(switch.attr()).get("on")
+        table = shares.get(subject) if subject is not None else None
+        if not table:
+            return
+
+        for case in _child_elements(switch):
+            if _element_name(case) != "case":
+                continue
+            is_value = _attrs(case.attr()).get("is")
+            if is_value is None:
+                continue
+            # `is="US|CA"` matches either, so the branch takes both their shares.
+            fraction = 0.0
+            for key in (k.strip() for k in is_value.split("|")):
+                if key not in table:
+                    break
+                fraction += table[key]
+            else:
+                for inner in _child_elements(case):
+                    if _element_name(inner) == "mix":
+                        self._report_thin(
+                            inner, self._branch_count(inner), self.env_count * fraction
+                        )
+
+    @staticmethod
+    def _branch_count(mix) -> int:
+        return sum(1 for el in _child_elements(mix) if _element_name(el) == "case")
+
+    def _rows_of(self, parent: str | None, shares: dict[str, dict[str, float]]) -> float | None:
+        """Rows reaching something with this ``parent``, or None when it cannot be resolved."""
+        if parent is None or not parent.strip():
+            return float(self.env_count)
+        at = parent.find(".")
+        if at < 0:
+            return None
+        share = shares.get(parent[:at], {}).get(parent[at + 1 :])
+        return None if share is None else self.env_count * share
+
+    @staticmethod
+    def _safe_expand(mask: str, values: int) -> list[float] | None:
+        """The mask, or None when it does not parse — somebody else's diagnostic."""
+        try:
+            return percent_mask.expand(mask, values)
+        except Exception:  # any parse failure means "not ours to report"
+            return None
+
+    def _report_thin(self, el, branches: int, rows: float | None) -> None:
+        """Report the smallest share that asks for less than a row, once per element."""
+        if rows is None or rows <= 0 or branches <= 0:
+            return
+        own = _attrs(el.attr())
+        mask = own.get("percent")
+        if mask is None:
+            return
+        # `repeat=` plans the quota over ELEMENTS, not rows: three per row over four rows is
+        # twelve draws, and `repeat="1..3"` does not even fix how many. Rows is the wrong
+        # denominator here, so say nothing.
+        if (own.get("repeat") or "").strip():
+            return
+        percents = self._safe_expand(mask, branches)
+        if percents is None:
+            return
+
+        worst: float | None = None
+        for percent in percents:
+            if percent <= 0:  # a zero share asks for nothing on purpose
+                continue
+            if percent / 100 * rows >= 1:
+                continue
+            if worst is None or percent < worst:
+                worst = percent
+        if worst is None:
+            return
+
+        line, column = _line(el), _column(el)
+        self._warn(
+            "TDC251",
+            f'percent="{_two_places(worst)}" over {_two_places(rows)} rows asks for '
+            f"{_two_places(worst / 100 * rows)} records — the result is 0 or 1, and the seed "
+            "decides which",
+            "A share below one whole row cannot be emitted, so the branch fires once or not at "
+            "all. Raise the share, or raise count= until the share covers a whole row.",
+            line,
+            column,
+        )
+
     def _check_env(self, env) -> None:
         env_attrs = _attrs(env.attr())
         self.locale = env_attrs.get("local", "en")
@@ -576,6 +730,10 @@ class _Validator:
                 line,
                 column,
             )
+
+        # A share below one whole row: its own pass, because the denominator of a <mix> in a
+        # switch branch belongs to the switch and not to the walk that follows.
+        self._check_small_shares(env)
 
         self._check_children(env.content(), "env", ENV_CHILDREN)
         # A fixture holds text and <line>s. Anything else was ignored in silence unless
@@ -3429,6 +3587,26 @@ def _attrs(attrs) -> dict[str, str]:
         raw = attr.attrValue.text
         out[attr.attrName.text] = raw[1:-1]
     return out
+
+
+def _child_elements(element) -> list:
+    """Every child that is a tag — open-close or self-closing — with `<data>` left out."""
+    out: list = []
+    for child in _elements(element):
+        node = child.openCloseElement() or child.selfClosingElement()
+        if node is not None:
+            out.append(node)
+    return out
+
+
+def _element_name(node) -> str:
+    return node.name.text
+
+
+def _two_places(value: float) -> str:
+    """Two decimals at most, and no trailing zeros — `0.5`, not `0.50`."""
+    rounded = round(value, 2)
+    return str(int(rounded)) if rounded == int(rounded) else str(rounded)
 
 
 def _elements(element) -> list:

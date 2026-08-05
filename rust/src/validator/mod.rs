@@ -405,6 +405,183 @@ impl Validator {
         );
     }
 
+    /// A `percent` share that asks for less than one whole row.
+    ///
+    /// `percent` is an exact quota over the rows that reach it, not a chance
+    /// rolled per row. Ten percent of a five-row subset asks for HALF a record,
+    /// and half a record cannot be emitted — so the branch produces one or none
+    /// and the seed alone decides which. The engine rounds and says nothing,
+    /// which is how a column that came out empty reads as a config that was
+    /// never written rather than one that rounded away.
+    ///
+    /// The denominator is knowable for the shapes people write: `count` at the
+    /// top of `<env>`, `count` x a parent's share, or `count` x the share a
+    /// `<switch>` branch matches. Where the subject writes no shares of its own
+    /// this stays SILENT — a check that guessed would fire on working configs
+    /// and be turned off.
+    fn check_small_shares(&mut self, env: &Element) {
+        if self.env_count <= 0 {
+            return;
+        }
+        let mut shares: BTreeMap<String, BTreeMap<String, f64>> = BTreeMap::new();
+
+        for child in &env.children {
+            match child.name.as_str() {
+                "sequence" => self.read_sequence_shares(child, &mut shares),
+                "mix" => {
+                    let rows = self.rows_of(child.attr_value("parent"), &shares);
+                    self.report_thin(child, branch_count(child), rows);
+                }
+                "switch" => self.read_switch_shares(child, &shares),
+                _ => {}
+            }
+        }
+    }
+
+    /// Record what a sequence's values are worth, and check its own share.
+    fn read_sequence_shares(
+        &mut self,
+        seq: &Element,
+        shares: &mut BTreeMap<String, BTreeMap<String, f64>>,
+    ) {
+        let rows = self.rows_of(seq.attr_value("parent"), shares);
+
+        let gens: Vec<&Element> = seq.children.iter().filter(|c| c.name == "gen").collect();
+        if gens.len() != 1 {
+            return;
+        }
+        let gen = gens[0];
+        if gen.attr_value("type") != Some("text") {
+            return;
+        }
+
+        let values: Vec<&str> = gen
+            .attr_value("value")
+            .unwrap_or("")
+            .split(',')
+            .map(str::trim)
+            .filter(|v| !v.is_empty())
+            .collect();
+        let Some(mask) = gen.attr_value("percent") else {
+            return;
+        };
+        if values.is_empty() {
+            return;
+        }
+        let Some(percents) = safe_expand(mask, values.len()) else {
+            return;
+        };
+
+        if let (Some(name), Some(_)) = (seq.attr_value("name"), rows) {
+            let mut table = BTreeMap::new();
+            for (value, percent) in values.iter().zip(percents.iter()) {
+                table.insert((*value).to_string(), percent / 100.0);
+            }
+            shares.insert(name.to_string(), table);
+        }
+
+        self.report_thin(gen, values.len(), rows);
+    }
+
+    /// Each `<case is="X">`, with the rows that value takes.
+    fn read_switch_shares(
+        &mut self,
+        switch: &Element,
+        shares: &BTreeMap<String, BTreeMap<String, f64>>,
+    ) {
+        let Some(table) = switch.attr_value("on").and_then(|on| shares.get(on)) else {
+            return;
+        };
+
+        for case in switch.children_named("case") {
+            let Some(is) = case.attr_value("is") else {
+                continue;
+            };
+            // `is="US|CA"` matches either, so the branch takes both their shares.
+            let mut fraction = 0.0;
+            let mut known = true;
+            for key in is.split('|').map(str::trim) {
+                match table.get(key) {
+                    Some(share) => fraction += share,
+                    None => known = false,
+                }
+            }
+            if !known {
+                continue;
+            }
+            let rows = self.env_count as f64 * fraction;
+            for inner in case.children_named("mix") {
+                self.report_thin(inner, branch_count(inner), Some(rows));
+            }
+        }
+    }
+
+    /// Rows reaching something with this `parent`, or `None` when unresolvable.
+    fn rows_of(
+        &self,
+        parent: Option<&str>,
+        shares: &BTreeMap<String, BTreeMap<String, f64>>,
+    ) -> Option<f64> {
+        let Some(parent) = parent.map(str::trim).filter(|p| !p.is_empty()) else {
+            return Some(self.env_count as f64);
+        };
+        let at = parent.find('.')?;
+        let share = shares.get(&parent[..at])?.get(&parent[at + 1..])?;
+        Some(self.env_count as f64 * share)
+    }
+
+    /// Report the smallest share that asks for less than a row, once per element.
+    fn report_thin(&mut self, el: &Element, branches: usize, rows: Option<f64>) {
+        let Some(rows) = rows.filter(|r| *r > 0.0) else {
+            return;
+        };
+        if branches == 0 {
+            return;
+        }
+        let Some(mask) = el.attr_value("percent") else {
+            return;
+        };
+        // `repeat=` plans the quota over ELEMENTS, not rows: three per row over
+        // four rows is twelve draws, and `repeat="1..3"` does not even fix how
+        // many. Rows is the wrong denominator here, so say nothing.
+        if !el.attr_value("repeat").unwrap_or("").trim().is_empty() {
+            return;
+        }
+        let Some(percents) = safe_expand(mask, branches) else {
+            return;
+        };
+
+        let mut worst: Option<f64> = None;
+        for percent in percents {
+            if percent <= 0.0 {
+                continue; // a zero share asks for nothing on purpose
+            }
+            if percent / 100.0 * rows >= 1.0 {
+                continue;
+            }
+            if worst.is_none_or(|w| percent < w) {
+                worst = Some(percent);
+            }
+        }
+        let Some(worst) = worst else {
+            return;
+        };
+
+        self.warn(
+            "TDC251",
+            format!(
+                "percent=\"{}\" over {} rows asks for {} records — the result is 0 or 1, and \
+                 the seed decides which",
+                two_places(worst),
+                two_places(rows),
+                two_places(worst / 100.0 * rows)
+            ),
+            "A share below one whole row cannot be emitted, so the branch fires once or not at \
+             all. Raise the share, or raise count= until the share covers a whole row.",
+            el.pos,
+        );
+    }
+
     fn check_env(&mut self, env: &Element) {
         self.locale = env.attr_value("local").unwrap_or("en").to_string();
 
@@ -423,6 +600,10 @@ impl Validator {
                 );
             }
         }
+
+        // A share below one whole row: its own pass, because the denominator of a
+        // <mix> in a switch branch belongs to the switch and not to the walk below.
+        self.check_small_shares(env);
 
         if let Some(inject) = env.attr_value("inject").map(str::to_string) {
             if !inject.contains('%') {
@@ -4009,4 +4190,24 @@ fn plain_names_with_dots(expression: &str) -> Vec<String> {
                 .is_some_and(|c| c.is_ascii_alphabetic() || c == '_')
         })
         .collect()
+}
+
+/// How many `<case>` branches a `<mix>` holds.
+fn branch_count(mix: &Element) -> usize {
+    mix.children_named("case").count()
+}
+
+/// The mask, or `None` when it does not parse — somebody else's diagnostic.
+fn safe_expand(mask: &str, values: usize) -> Option<Vec<f64>> {
+    percent_mask::expand(mask, values).ok()
+}
+
+/// Two decimals at most, and no trailing zeros — `0.5`, not `0.50`.
+fn two_places(value: f64) -> String {
+    let rounded = (value * 100.0).round() / 100.0;
+    if (rounded - rounded.round()).abs() < f64::EPSILON {
+        format!("{}", rounded.round() as i64)
+    } else {
+        format!("{rounded}")
+    }
 }

@@ -1,3 +1,4 @@
+using System.Globalization;
 using Tdcv2.Sequence;
 using System.Text.RegularExpressions;
 using Antlr4.Runtime;
@@ -558,6 +559,330 @@ public sealed class Validator
 
     // ── env ──────────────────────────────────────────────────────────────────────────────────
 
+    // ── a share below one whole row ───────────────────────────────────────────────────────
+
+    /// <summary>A <c>percent</c> share that asks for less than one whole row.</summary>
+    /// <remarks>
+    /// <c>percent</c> is an exact quota over the rows that reach it, not a chance rolled per row.
+    /// Ten percent of a five-row subset asks for HALF a record, and half a record cannot be
+    /// emitted — so the branch produces one or none and the seed alone decides which. The engine
+    /// rounds and says nothing, which is how a column that came out empty reads as a config that
+    /// was never written rather than one that rounded away.
+    /// <para>
+    /// The denominator is knowable for the shapes people write: <c>count</c> at the top of
+    /// <c>&lt;env&gt;</c>, <c>count</c> × a parent's share, or <c>count</c> × the share a
+    /// <c>&lt;switch&gt;</c> branch matches. Where the subject writes no shares of its own this
+    /// stays SILENT — a check that guessed would fire on working configs and be turned off.
+    /// </para>
+    /// </remarks>
+    private void CheckSmallShares(TDCParser.OpenCloseElementContext env)
+    {
+        if (_envCount <= 0)
+        {
+            return;
+        }
+
+        var shares = new Dictionary<string, Dictionary<string, double>>(StringComparer.Ordinal);
+        foreach (TDCParser.OpenCloseElementContext child in OpenChildren(env))
+        {
+            switch (child.name.Text)
+            {
+                case "sequence":
+                    this.ReadSequenceShares(child, shares);
+                    break;
+                case "mix":
+                    this.ReportThin(
+                        child, BranchCount(child),
+                        this.RowsOf(Attributes(child.attr()).GetValueOrDefault("parent"), shares));
+                    break;
+                case "switch":
+                    this.ReadSwitchShares(child, shares);
+                    break;
+                default:
+                    break;
+            }
+        }
+    }
+
+    /// <summary>Record what a sequence's values are worth, and check its own share.</summary>
+    private void ReadSequenceShares(
+        TDCParser.OpenCloseElementContext seq,
+        Dictionary<string, Dictionary<string, double>> shares)
+    {
+        IReadOnlyDictionary<string, string> seqAttrs = Attributes(seq.attr());
+        double? rows = this.RowsOf(seqAttrs.GetValueOrDefault("parent"), shares);
+
+        // A `<gen …/>` is SELF-CLOSING, and one written as `<gen …></gen>` is not. Both are the
+        // sequence's generator, so both are collected.
+        var gens = new List<Antlr4.Runtime.ParserRuleContext>();
+        var genAttrs = new List<IReadOnlyDictionary<string, string>>();
+        if (seq.content() is not null)
+        {
+            foreach (TDCParser.ElementContext c in seq.content().element())
+            {
+                TDCParser.SelfClosingElementContext self = c.selfClosingElement();
+                TDCParser.OpenCloseElementContext open = c.openCloseElement();
+                if (self is not null && self.name.Text == "gen")
+                {
+                    gens.Add(self);
+                    genAttrs.Add(Attributes(self.attr()));
+                }
+                else if (open is not null && open.name.Text == "gen")
+                {
+                    gens.Add(open);
+                    genAttrs.Add(Attributes(open.attr()));
+                }
+            }
+        }
+
+        if (gens.Count != 1)
+        {
+            return;
+        }
+
+        IReadOnlyDictionary<string, string> attrs = genAttrs[0];
+        if (attrs.GetValueOrDefault("type") != "text")
+        {
+            return;
+        }
+
+        var values = new List<string>();
+        foreach (string v in (attrs.GetValueOrDefault("value") ?? "").Split(','))
+        {
+            if (v.Trim().Length > 0)
+            {
+                values.Add(v.Trim());
+            }
+        }
+
+        string? mask = attrs.GetValueOrDefault("percent");
+        if (values.Count == 0 || mask is null)
+        {
+            return;
+        }
+
+        double[]? percents = SafeExpand(mask, values.Count);
+        if (percents is null)
+        {
+            return;
+        }
+
+        string? name = seqAttrs.GetValueOrDefault("name");
+        if (!string.IsNullOrEmpty(name) && rows is not null)
+        {
+            var table = new Dictionary<string, double>(StringComparer.Ordinal);
+            for (int i = 0; i < values.Count; i++)
+            {
+                table[values[i]] = percents[i] / 100;
+            }
+
+            shares[name] = table;
+        }
+
+        this.ReportThinAttrs(attrs, gens[0], values.Count, rows);
+    }
+
+    /// <summary>Each <c>&lt;case is="X"&gt;</c>, with the rows that value takes.</summary>
+    private void ReadSwitchShares(
+        TDCParser.OpenCloseElementContext switchEl,
+        Dictionary<string, Dictionary<string, double>> shares)
+    {
+        string? subject = Attributes(switchEl.attr()).GetValueOrDefault("on");
+        if (subject is null || !shares.TryGetValue(subject, out Dictionary<string, double>? table))
+        {
+            return;
+        }
+
+        foreach (TDCParser.OpenCloseElementContext caseEl in OpenChildren(switchEl))
+        {
+            if (caseEl.name.Text != "case")
+            {
+                continue;
+            }
+
+            string? isValue = Attributes(caseEl.attr()).GetValueOrDefault("is");
+            if (isValue is null)
+            {
+                continue;
+            }
+
+            // `is="US|CA"` matches either, so the branch takes both their shares.
+            double fraction = 0;
+            bool known = true;
+            foreach (string key in isValue.Split('|'))
+            {
+                if (table.TryGetValue(key.Trim(), out double share))
+                {
+                    fraction += share;
+                }
+                else
+                {
+                    known = false;
+                }
+            }
+
+            if (!known)
+            {
+                continue;
+            }
+
+            foreach (TDCParser.OpenCloseElementContext inner in OpenChildren(caseEl))
+            {
+                if (inner.name.Text == "mix")
+                {
+                    this.ReportThin(inner, BranchCount(inner), _envCount * fraction);
+                }
+            }
+        }
+    }
+
+    /// <summary>How many <c>&lt;case&gt;</c> branches a <c>&lt;mix&gt;</c> holds.</summary>
+    private static int BranchCount(TDCParser.OpenCloseElementContext mix)
+    {
+        int n = 0;
+        foreach (TDCParser.OpenCloseElementContext c in OpenChildren(mix))
+        {
+            if (c.name.Text == "case")
+            {
+                n++;
+            }
+        }
+
+        return n;
+    }
+
+    /// <summary>Rows reaching something with this <c>parent</c>, or null when unresolvable.</summary>
+    private double? RowsOf(string? parent, Dictionary<string, Dictionary<string, double>> shares)
+    {
+        if (string.IsNullOrWhiteSpace(parent))
+        {
+            return _envCount;
+        }
+
+        int at = parent.IndexOf('.', StringComparison.Ordinal);
+        if (at < 0)
+        {
+            return null;
+        }
+
+        return shares.TryGetValue(parent[..at], out Dictionary<string, double>? table)
+            && table.TryGetValue(parent[(at + 1)..], out double share)
+            ? _envCount * share
+            : null;
+    }
+
+    /// <summary>The mask, or null when it does not parse — somebody else's diagnostic.</summary>
+    private static double[]? SafeExpand(string mask, int values)
+    {
+        try
+        {
+            return PercentMask.Expand(mask, values);
+        }
+        catch (Exception)
+        {
+            return null;
+        }
+    }
+
+    private void ReportThin(
+        TDCParser.OpenCloseElementContext el, int branches, double? rows) =>
+        this.ReportThinAttrs(Attributes(el.attr()), el, branches, rows);
+
+    /// <summary>Report the smallest share that asks for less than a row, once per element.</summary>
+    private void ReportThinAttrs(
+        IReadOnlyDictionary<string, string> own, Antlr4.Runtime.ParserRuleContext el,
+        int branches, double? rows)
+    {
+        if (rows is not > 0 || branches <= 0)
+        {
+            return;
+        }
+
+        string? mask = own.GetValueOrDefault("percent");
+        if (mask is null)
+        {
+            return;
+        }
+
+        // `repeat=` plans the quota over ELEMENTS, not rows: three per row over four rows is
+        // twelve draws, and `repeat="1..3"` does not even fix how many. Rows is the wrong
+        // denominator here, so say nothing.
+        if (!string.IsNullOrWhiteSpace(own.GetValueOrDefault("repeat")))
+        {
+            return;
+        }
+
+        double[]? percents = SafeExpand(mask, branches);
+        if (percents is null)
+        {
+            return;
+        }
+
+        double? worst = null;
+        foreach (double percent in percents)
+        {
+            if (percent <= 0)
+            {
+                continue; // a zero share asks for nothing on purpose
+            }
+
+            if (percent / 100 * rows.Value >= 1)
+            {
+                continue;
+            }
+
+            if (worst is null || percent < worst)
+            {
+                worst = percent;
+            }
+        }
+
+        if (worst is null)
+        {
+            return;
+        }
+
+        this.Warn(
+            "TDC251",
+            $"percent=\"{TwoPlaces(worst.Value)}\" over {TwoPlaces(rows.Value)} rows asks for "
+            + $"{TwoPlaces(worst.Value / 100 * rows.Value)} records — the result is 0 or 1, and "
+            + "the seed decides which",
+            "A share below one whole row cannot be emitted, so the branch fires once or not at "
+            + "all. Raise the share, or raise count= until the share covers a whole row.",
+            el.Start.Line, el.Start.Column);
+    }
+
+    /// <summary>Every child that is an open-close tag, in source order.</summary>
+    private static List<TDCParser.OpenCloseElementContext> OpenChildren(
+        TDCParser.OpenCloseElementContext parent)
+    {
+        var out_ = new List<TDCParser.OpenCloseElementContext>();
+        if (parent.content() is null)
+        {
+            return out_;
+        }
+
+        foreach (TDCParser.ElementContext c in parent.content().element())
+        {
+            TDCParser.OpenCloseElementContext el = c.openCloseElement();
+            if (el is not null)
+            {
+                out_.Add(el);
+            }
+        }
+
+        return out_;
+    }
+
+    /// <summary>Two decimals at most, and no trailing zeros — <c>0.5</c>, not <c>0.50</c>.</summary>
+    private static string TwoPlaces(double value)
+    {
+        double rounded = Math.Round(value, 2, MidpointRounding.AwayFromZero);
+        return rounded == Math.Truncate(rounded)
+            ? ((long)rounded).ToString(CultureInfo.InvariantCulture)
+            : rounded.ToString(CultureInfo.InvariantCulture);
+    }
+
     private void CheckEnv(TDCParser.OpenCloseElementContext env)
     {
         IReadOnlyDictionary<string, string> envAttrs = Attributes(env.attr());
@@ -588,6 +913,10 @@ public sealed class Validator
                 "Use a single \"%\" where the sequence name should go, e.g. inject=\"${{%}}\".",
                 line, column);
         }
+
+        // A share below one whole row: its own pass, because the denominator of a <mix> in a
+        // switch branch belongs to the switch and not to the walk that follows.
+        this.CheckSmallShares(env);
 
         // Pools first, and only their shape: a reference may stand above the pool it names, and
         // complaining about an unknown field in that case would report the wrong problem.
