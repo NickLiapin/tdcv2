@@ -9,6 +9,19 @@ this package: the jar and the library API.
 
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [0.1.7]
+
+### Fixed
+
+- **The published POM declared the ANTLR compiler as a runtime dependency.** Gradle's
+  `antlr` plugin makes `api` extend the `antlr` configuration, so `org.antlr:antlr4` — the
+  code generator, and about 30 MB of ICU4J behind it — was a `compile` dependency of the
+  library. Every consumer downloaded a compiler to run a parser that was generated at our
+  build time, not theirs. The POM now declares `antlr4-runtime` and nothing else.
+
+  The same leak filled the executable jar: `tdcv2-<version>-cli.jar` was 16.68 MB, of
+  which our own classes were 1.49 MB. It is 1.24 MB now.
+
 ## [0.1.4] — 2026-08-03
 
 ### Changed

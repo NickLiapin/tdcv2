@@ -24,6 +24,20 @@ java {
     toolchain { languageVersion = JavaLanguageVersion.of(17) }
 }
 
+// Gradle's `antlr` plugin makes `api` extend the `antlr` configuration, so the ANTLR TOOL —
+// a compiler, and 30 MB of ICU4J behind it — lands on the runtime classpath, in the published
+// POM as a `compile` dependency, and inside the executable jar. None of it is needed to RUN a
+// generated parser; only `antlr4-runtime` is.
+//
+// Measured before this line existed: the published POM declared `org.antlr:antlr4`, so every
+// consumer of the library downloaded the compiler; the cli jar was 16.68 MB, of which our own
+// code was 1.49 MB and ICU4J 30.68 MB uncompressed. It was also about to fail a release: four
+// Maven Central releases had eaten 62.72 MB of an 80 MB monthly allowance, and a fifth at
+// 19.15 MB would not fit.
+configurations.api {
+    setExtendsFrom(extendsFrom.filterNot { it.name == "antlr" })
+}
+
 dependencies {
     // The ANTLR runtime is the one runtime dependency, and it mirrors the choice the
     // TypeScript implementation makes (antlr4ng). Everything else comes from the standard

@@ -17,6 +17,17 @@ page — is tracked in that implementation's own changelog:
 
 ## [0.1.7] — 2026-08-04
 
+### Fixed (Java packaging)
+
+- **The Java library made every consumer download the ANTLR compiler.** Gradle's `antlr`
+  plugin quietly puts the code generator on the runtime classpath, so the published POM
+  asked for `org.antlr:antlr4` and, behind it, ICU4J — about 34 MB of build tooling to run
+  a parser generated at our build time. The executable jar carried the same cargo: 16.68 MB,
+  of which 1.49 MB was ours. Now: the POM names `antlr4-runtime` alone, and the jar is
+  1.24 MB. The other four implementations were checked and were already clean — each names
+  its runtime dependency by hand, which is why only the one with a plugin doing it silently
+  went wrong.
+
 ### This release changes what a config produces
 
 Two kinds of config come out different from the same `seed`. Neither is a
