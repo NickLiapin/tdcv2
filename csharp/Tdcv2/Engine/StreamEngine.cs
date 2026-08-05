@@ -1378,9 +1378,14 @@ public sealed class StreamEngine
         // already says which rows it applies to through its own conditions.
         var full = new Domain(_count, row => row);
         var branches = new List<Column>();
+        var flagNames = new List<string?>();
+        var flagColumns = new List<Column?>();
         for (int b = 0; b < spec.Branches!.Count; b++)
         {
-            branches.Add(BuildGen(spec.Name + "#if" + b, spec.Branches[b].Gen, full).Column);
+            Built made = BuildGen(spec.Name + "#if" + b, spec.Branches[b].Gen, full);
+            branches.Add(made.Column);
+            flagNames.Add(made.FlagName);
+            flagColumns.Add(made.Flag);
         }
 
         Put(spec.Name, row =>
@@ -1396,6 +1401,46 @@ public sealed class StreamEngine
 
             return null;
         });
+
+        // A branch carrying anomaly_flag="NAME" mints the companion ground-truth column. It
+        // answers over the SAME conditions: the row's flag comes from whichever branch produced
+        // the row's value. A branch that did not declare this name answers "false" — not empty —
+        // because the row IS covered and "no outlier" is the truth about it; a row no branch
+        // matched gets null, masking the flag exactly like the value.
+        var declared = new List<string>();
+        foreach (string? name in flagNames)
+        {
+            string trimmed = (name ?? string.Empty).Trim();
+            if (trimmed.Length != 0 && !declared.Contains(trimmed))
+            {
+                declared.Add(trimmed);
+            }
+        }
+
+        foreach (string flagName in declared)
+        {
+            Put(flagName, row =>
+            {
+                for (int b = 0; b < spec.Branches.Count; b++)
+                {
+                    string? condition = spec.Branches[b].IfExpr;
+                    if (condition is not null && !Condition(condition, row))
+                    {
+                        continue;
+                    }
+
+                    Column? flag = flagColumns[b];
+                    if (flag is null || (flagNames[b] ?? string.Empty).Trim() != flagName)
+                    {
+                        return "false";
+                    }
+
+                    return flag(row) ?? "false";
+                }
+
+                return null;
+            });
+        }
     }
 
     /// <summary>A <c>&lt;switch&gt;</c> written inside a <c>&lt;case&gt;</c> — the nested form.</summary>

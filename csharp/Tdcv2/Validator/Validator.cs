@@ -3307,6 +3307,32 @@ public sealed class Validator
     /// A nested mix is checked as a nested one — it contributes a value to the column around it and
     /// has nowhere of its own to put a flag.
     /// </remarks>
+    /// <summary>
+    /// A <c>&lt;gen&gt;</c> written inside a <c>&lt;case&gt;</c>.
+    /// </summary>
+    /// <remarks>
+    /// <c>anomaly_flag="NAME"</c> mints a ground-truth column beside a sequence's value. A case
+    /// body is a CONCATENATION of parts, so a flag written on one part describes that part rather
+    /// than the row, and there is no honest column to mint. <c>&lt;mix flag="NAME"&gt;</c> asks
+    /// the same question where it has an answer. Until this check the attribute was accepted here
+    /// and did nothing, and the only sign was <c>${{NAME}}</c> reaching the data as literal
+    /// characters.
+    /// </remarks>
+    private void CheckCaseGenFlag(string? flag, (int Line, int Column) at)
+    {
+        if (flag is null)
+        {
+            return;
+        }
+
+        Error(
+            "TDC246", $"anomaly_flag=\"{flag.Trim()}\" is not read on a <gen> inside a <case>",
+            "A case body is several parts joined, so a flag on one part does not describe the "
+            + "row. Put flag=\"NAME\" on the <mix> instead, or move the <gen> into a <sequence> "
+            + "of its own.",
+            at.Line, at.Column);
+    }
+
     private void CheckCaseBody(TDCParser.OpenCloseElementContext caseEl)
     {
         foreach (TDCParser.ElementContext child in caseEl.content().element())
@@ -3319,6 +3345,9 @@ public sealed class Validator
             TDCParser.SelfClosingElementContext self = child.selfClosingElement();
             if (self is not null && self.name.Text == "gen")
             {
+                CheckCaseGenFlag(
+                    Attributes(self.attr()).GetValueOrDefault("anomaly_flag"),
+                    At(self, "anomaly_flag"));
                 continue;
             }
 
@@ -3344,6 +3373,9 @@ public sealed class Validator
 
             if (open.name.Text == "gen")
             {
+                CheckCaseGenFlag(
+                    Attributes(open.attr()).GetValueOrDefault("anomaly_flag"),
+                    At(open, "anomaly_flag"));
                 continue;
             }
 

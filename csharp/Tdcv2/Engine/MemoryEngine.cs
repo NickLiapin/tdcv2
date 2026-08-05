@@ -503,7 +503,12 @@ public static class MemoryEngine
 
             if (spec.IsConditional)
             {
-                columns[spec.Name] = Conditional(spec, count, prng, columns, ctx);
+                columns[spec.Name] = Conditional(
+                    spec, count, prng, columns, ctx, out Dictionary<string, string[]> flagCols);
+                foreach (KeyValuePair<string, string[]> flag in flagCols)
+                {
+                    columns[flag.Key] = flag.Value;
+                }
                 continue;
             }
 
@@ -1881,36 +1886,77 @@ public static class MemoryEngine
     /// </remarks>
     private static string[] Conditional(
         SequenceSpec spec, int count, Sfc32 prng, IReadOnlyDictionary<string, string[]> columns,
-        Ctx ctx)
+        Ctx ctx, out Dictionary<string, string[]> extraColumns)
     {
+        extraColumns = new Dictionary<string, string[]>();
         if (count == 0)
         {
             return Array.Empty<string>();
         }
 
+        // Each branch draws under its OWN stream — `Name#if0`, `Name#if1` — the ids the
+        // streaming engine gives them. They used to take the run's shared PRNG, which made a
+        // branch's values depend on how many draws the columns before it had made, so the same
+        // config and seed produced different data here than when streaming.
         var built = new List<IReadOnlyList<string>>();
-        foreach (Branch branch in spec.Branches!)
+        var flagNames = new List<string?>();
+        var flags = new List<bool[]>();
+        for (int b = 0; b < spec.Branches!.Count; b++)
         {
-            built.Add(Finish(Generate(branch.Gen, count, prng, ctx), branch.Gen.Attrs, prng));
+            Gen gen = spec.Branches[b].Gen;
+            var spiked = new bool[count];
+            built.Add(ColumnValues(
+                gen, count, prng, ctx,
+                new PerRow.Stream(ctx.Config.Seed, spec.Name + "#if" + b, null), spiked));
+            string declared = (gen.Attrs.TryGetValue("anomaly_flag", out string? f) ? f : "").Trim();
+            flagNames.Add(declared.Length == 0 ? null : declared);
+            flags.Add(spiked);
+        }
+
+        // One column per DISTINCT name: branches sharing anomaly_flag="IsOutlier" share the
+        // column, which is the point of writing it on each branch.
+        var flagColumns = new Dictionary<string, string[]>();
+        foreach (string? name in flagNames)
+        {
+            if (name is not null && !flagColumns.ContainsKey(name))
+            {
+                flagColumns[name] = new string[count];
+            }
         }
 
         var result = new string[count];
         for (int i = 0; i < count; i++)
         {
-            string? picked = null;
+            int winner = -1;
             for (int b = 0; b < spec.Branches.Count; b++)
             {
                 string? condition = spec.Branches[b].IfExpr;
                 if (condition is null || Condition(condition, columns, i))
                 {
-                    picked = built[b][i];
+                    winner = b;
                     break;
                 }
             }
 
-            result[i] = picked!;
+            // No branch matched: the row is not covered, so neither the value nor any claim
+            // about it exists — every flag column stays null here, masked like the value.
+            result[i] = winner < 0 ? null! : built[winner][i];
+            if (winner < 0)
+            {
+                continue;
+            }
+
+            foreach (string name in flagColumns.Keys)
+            {
+                // A covered row always has an answer. "false" — not empty — when the branch
+                // that produced it cannot spike at all, because "no outlier" is the truth about
+                // that row and a detector scored against the column needs it stated.
+                bool spiked = flagNames[winner] == name && flags[winner][i];
+                flagColumns[name][i] = spiked ? "true" : "false";
+            }
         }
 
+        extraColumns = flagColumns;
         return result;
     }
 
