@@ -25,7 +25,14 @@ public final class Config {
    * <p>A case concatenates its pieces, which is what lets a branch read as {@code A-} followed
    * by a pattern rather than as a separate prefix column.
    */
-  public record CasePart(String text, Gen gen, Mix mix) {}
+  /**
+   * One piece of a {@code <case>} body: literal text, a generator, a nested mix, or a nested
+   * switch.
+   *
+   * <p>A nested {@code <switch>} contributes a value only — it has no {@code name}, so nothing
+   * can interpolate it — and it looks its subject up over the rows of the branch it sits in.
+   */
+  public record CasePart(String text, Gen gen, Mix mix, Switch switchSpec) {}
 
   /**
    * One branch of a {@code <mix>} or {@code <switch>}.

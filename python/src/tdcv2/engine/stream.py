@@ -80,6 +80,17 @@ class StreamError(RuntimeError):
 Column = Callable[[int], "str | None"]
 
 
+def _case_carries_percent(case: Case | None) -> bool:
+    """Does this ``<case>`` body declare a share that the denominator has to be right for?"""
+    if case is None:
+        return False
+    return any(
+        (part.mix is not None and (part.mix.percent or "").strip() != "")
+        or (part.gen is not None and part.gen.attr("percent").strip() != "")
+        for part in case.parts
+    )
+
+
 @dataclass(frozen=True, slots=True)
 class Domain:
     """The rows a sequence applies to: how many, and where a given row sits among them."""
@@ -903,14 +914,58 @@ class StreamEngine:
                 parts.append(lambda row, text=part.text: text)
             elif part.gen is not None:
                 parts.append(self._build_gen(f"{stream_id}#p{p}", part.gen, domain).column)
-            else:
+            elif part.mix is not None:
                 # A nested mix contributes its value only; flag= is a top-level idea.
                 parts.append(self._build_mix(f"{stream_id}#p{p}", part.mix, domain).column)
+            else:
+                parts.append(
+                    self._nested_switch(f"{stream_id}#p{p}", part.switch, domain)
+                )
 
         def resolve(row: int) -> str:
             return "".join(_none_to_empty(part(row)) for part in parts)
 
         return resolve
+
+    def _nested_switch(self, stream_id: str, sw, domain: Domain) -> Column:
+        """A ``<switch>`` written inside a ``<case>`` — the nested form.
+
+        Every branch resolves over the SAME domain as the case it sits in. A branch's own rows
+        are an intersection of two partitions — the enclosing branch's and the inner subject's
+        — and there is no O(1) rank inside an intersection, which is what an exact share would
+        need. So a nested branch that declares one is refused here and the router sends the
+        config to the in-memory engine. A branch that declares none needs no rank: the row
+        decides which branch answers, and both engines read the same row.
+        """
+
+        def refuse(where: str):
+            return unsupported(
+                f'a percentage inside {where} of a nested <switch on="{sw.on}">', stream_id
+            )
+
+        entries = []
+        for e, entry in enumerate(sw.entries):
+            if _case_carries_percent(entry.value):
+                raise refuse(f'<case is="{"|".join(entry.keys)}">')
+            entries.append(
+                (entry.keys, self._case_resolver(entry.value, f"{stream_id}#sw{e}", domain))
+            )
+        if _case_carries_percent(sw.fallback):
+            raise refuse("<default>")
+        fallback = (
+            None
+            if sw.fallback is None
+            else self._case_resolver(sw.fallback, f"{stream_id}#swdef", domain)
+        )
+
+        def column(row: int) -> str | None:
+            key = _none_to_empty(self.value(sw.on, row))
+            for keys, resolve in entries:
+                if key in keys:
+                    return resolve(row)
+            return None if fallback is None else fallback(row)
+
+        return column
 
     def _build_conditional(self, spec: SequenceSpec) -> None:
         # Over every row, and without the parent mask — matching the reference. A conditional
@@ -956,20 +1011,10 @@ class StreamEngine:
             parent = subject
             return Domain(parent.quota_of(key), lambda row: parent.child_rank_at(row, key))
 
-        def carries_percent(case: Case | None) -> bool:
-            """Does this branch declare a share that the domain has to be right for?"""
-            if case is None:
-                return False
-            return any(
-                (part.mix is not None and (part.mix.percent or "").strip() != "")
-                or (part.gen is not None and part.gen.attr("percent").strip() != "")
-                for part in case.parts
-            )
-
         entries = []
         for e, entry in enumerate(sw.entries):
             domain = branch_domain(entry.keys)
-            if domain is None and carries_percent(entry.value):
+            if domain is None and _case_carries_percent(entry.value):
                 # Cannot be resolved lazily over the right subset, and resolving it over the
                 # wrong one is what this change exists to stop. Refuse, and the run falls back
                 # to the in-memory engine, which can.
@@ -984,7 +1029,7 @@ class StreamEngine:
                 )
             )
 
-        if carries_percent(sw.fallback):
+        if _case_carries_percent(sw.fallback):
             # <default> holds the rows no entry matched — a complement, which Parent does not
             # enumerate. Same refusal, same fallback.
             raise unsupported(

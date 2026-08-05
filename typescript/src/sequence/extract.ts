@@ -336,12 +336,15 @@ function specFromMix(node: OpenCloseElementContext): SequenceSpec | undefined {
   return parent ? { name, parent, mixSpec } : { name, mixSpec };
 }
 
-/** Build a switch-sequence spec from a standalone env-level `<switch on="…">`. */
-function specFromSwitch(node: OpenCloseElementContext): SequenceSpec | undefined {
-  const attrs = extractAttrs(node.attr());
-  const name = attrs['name'];
-  if (!name) return undefined;
-  const on = attrs['on'] ?? '';
+/**
+ * The body of a `<switch on="…">` — its subject, its entries and its fallback.
+ *
+ * Shared by the env-level form, which becomes a column of its own, and the form
+ * written inside a `<case>`, which contributes a value to the branch it sits in.
+ * One reader, so the two spellings cannot drift apart.
+ */
+function toSwitchSpec(node: OpenCloseElementContext): SwitchSpec {
+  const on = extractAttrs(node.attr())['on'] ?? '';
 
   const entries: SwitchEntry[] = [];
   let fallback: CaseSpec | undefined;
@@ -362,8 +365,14 @@ function specFromSwitch(node: OpenCloseElementContext): SequenceSpec | undefined
     }
   }
 
-  const switchSpec: SwitchSpec = fallback ? { on, entries, fallback } : { on, entries };
-  return { name, switchSpec };
+  return fallback ? { on, entries, fallback } : { on, entries };
+}
+
+/** Build a switch-sequence spec from a standalone env-level `<switch on="…">`. */
+function specFromSwitch(node: OpenCloseElementContext): SequenceSpec | undefined {
+  const name = extractAttrs(node.attr())['name'];
+  if (!name) return undefined;
+  return { name, switchSpec: toSwitchSpec(node) };
 }
 
 /** Split a `A|B|C` multi-key string into trimmed, non-empty keys. */
@@ -427,6 +436,8 @@ function toCaseSpec(node: OpenCloseElementContext): CaseSpec {
         parts.push({ kind: 'gen', gen: toGenSpec(extractAttrs(k.node.attr())) });
       } else if (name === 'mix') {
         parts.push({ kind: 'mix', mixSpec: toMixSpec(k.node) });
+      } else if (name === 'switch') {
+        parts.push({ kind: 'switch', switchSpec: toSwitchSpec(k.node) });
       }
     }
   }

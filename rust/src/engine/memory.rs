@@ -623,6 +623,7 @@ fn build_columns_with(
                     Some(&mut flags),
                     env,
                     Some(&stream),
+                    &columns,
                 )?;
                 columns.insert(spec.name.clone(), spread(&rows, values, count));
 
@@ -1274,7 +1275,7 @@ fn one_scalar(spec: &SequenceSpec, prng: &mut Sfc32, env: &Env) -> EngineResult<
         }
         Source::Mix(mix) => {
             let mut flags = vec![false; 1];
-            Ok(mix_values(mix, 1, prng, Some(&mut flags), env, None)?
+            Ok(mix_values(mix, 1, prng, Some(&mut flags), env, None, &BTreeMap::new())?
                 .into_iter()
                 .next()
                 .unwrap_or_default())
@@ -1889,6 +1890,7 @@ fn case_values(
     prng: &mut Sfc32,
     env: &Env,
     stream: Option<&per_row::Stream>,
+    columns: &BTreeMap<String, Vec<Option<String>>>,
 ) -> EngineResult<Vec<String>> {
     let mut parts: Vec<String> = vec![String::new(); count];
     // Parts are numbered among ALL of them, literals included: the streaming engine numbers
@@ -1899,7 +1901,10 @@ fn case_values(
         let values: Vec<String> = match part {
             CasePart::Text(text) => vec![text.clone(); count],
             CasePart::Gen(gen) => column_values(gen, count, prng, env, sub.as_ref(), None, None)?,
-            CasePart::Mix(mix) => mix_values(mix, count, prng, None, env, sub.as_ref())?,
+            CasePart::Mix(mix) => mix_values(mix, count, prng, None, env, sub.as_ref(), columns)?,
+            CasePart::Switch(sw) => {
+                nested_switch_values(sw, count, prng, env, sub.as_ref(), columns)?
+            }
         };
         for (slot, value) in parts.iter_mut().zip(values) {
             slot.push_str(&value);
@@ -1921,6 +1926,7 @@ fn mix_values(
     flags: Option<&mut Vec<bool>>,
     env: &Env,
     stream: Option<&per_row::Stream>,
+    columns: &BTreeMap<String, Vec<Option<String>>>,
 ) -> EngineResult<Vec<String>> {
     if mix.cases.is_empty() {
         return Ok(vec![String::new(); count]);
@@ -1948,7 +1954,7 @@ fn mix_values(
             if rows.is_empty() {
                 continue;
             }
-            let values = case_values(case, rows.len(), prng, env, None)?;
+            let values = case_values(case, rows.len(), prng, env, None, columns)?;
             for (row, value) in rows.into_iter().zip(values) {
                 result[row] = value;
             }
@@ -2000,7 +2006,7 @@ fn mix_values(
             .collect();
         let rows: Vec<usize> = positions.iter().map(|&p| stream.row_at(p)).collect();
         let sub = per_row::Stream::with_rows(&stream.seed, &format!("{}#c{c}", stream.id), rows);
-        let values = case_values(case, quota as usize, prng, env, Some(&sub))?;
+        let values = case_values(case, quota as usize, prng, env, Some(&sub), columns)?;
         for (local, &position) in positions.iter().enumerate() {
             result[position] = values[local].clone();
         }
@@ -2064,6 +2070,7 @@ fn switch_values(
     /// `ranked` is the rows in the order the STREAMING engine numbers them; `None` when they
     /// cannot be numbered, and then the branch is built over the whole run and read at the row
     /// — which is what the streaming engine does with such a branch, and the two must agree.
+    #[allow(clippy::too_many_arguments)]
     fn place(
         case: &Case,
         rows: &[usize],
@@ -2073,6 +2080,7 @@ fn switch_values(
         prng: &mut Sfc32,
         env: &Env,
         out: &mut [Option<String>],
+        columns: &BTreeMap<String, Vec<Option<String>>>,
     ) -> EngineResult<()> {
         if rows.is_empty() {
             return Ok(());
@@ -2084,7 +2092,7 @@ fn switch_values(
                 // This engine has to do the same or the two would answer differently on a
                 // config neither of them refuses.
                 let stream = per_row::Stream::new(&env.config.seed, &stream_id);
-                let whole = case_values(case, count, prng, env, Some(&stream))?;
+                let whole = case_values(case, count, prng, env, Some(&stream), columns)?;
                 for &row in rows {
                     out[row] = Some(whole[row].clone());
                 }
@@ -2094,14 +2102,14 @@ fn switch_values(
             // whole config here: no other engine will ever produce this column, and it is free
             // to be exact. The quota goes over the branch's OWN rows, in row order.
             let stream = per_row::Stream::with_rows(&env.config.seed, &stream_id, rows.to_vec());
-            let values = case_values(case, rows.len(), prng, env, Some(&stream))?;
+            let values = case_values(case, rows.len(), prng, env, Some(&stream), columns)?;
             for (local, &row) in rows.iter().enumerate() {
                 out[row] = Some(values[local].clone());
             }
             return Ok(());
         };
         let stream = per_row::Stream::with_rows(&env.config.seed, &stream_id, ranked.clone());
-        let values = case_values(case, ranked.len(), prng, env, Some(&stream))?;
+        let values = case_values(case, ranked.len(), prng, env, Some(&stream), columns)?;
         for (local, &row) in ranked.iter().enumerate() {
             out[row] = Some(values[local].clone());
         }
@@ -2120,6 +2128,7 @@ fn switch_values(
             prng,
             env,
             &mut result,
+            columns,
         )?;
     }
     if let Some(case) = &sw.fallback {
@@ -2133,6 +2142,7 @@ fn switch_values(
             prng,
             env,
             &mut result,
+            columns,
         )?;
     }
     Ok(result)
@@ -2143,8 +2153,103 @@ fn case_carries_percent(case: &Case) -> bool {
     case.parts.iter().any(|part| match part {
         CasePart::Mix(mix) => !mix.percent.as_deref().unwrap_or("").trim().is_empty(),
         CasePart::Gen(gen) => !gen.attr_or("percent", "").trim().is_empty(),
-        CasePart::Text(_) => false,
+        // A nested switch declares no share of its own; each of ITS branches is judged
+        // separately, where the refusal that matters is raised.
+        CasePart::Text(_) | CasePart::Switch(_) => false,
     })
+}
+
+/// A `<switch>` written inside a `<case>` — the nested form.
+///
+/// It looks its subject up over THE ROWS OF THE BRANCH IT SITS IN. `stream` already carries
+/// those rows and this part's name, so position `i` here is the same cell the streaming engine
+/// resolves at the absolute row.
+///
+/// A branch of a nested switch is never RANKED: its rows are an intersection of two partitions
+/// — the enclosing branch's and the inner subject's — and the streaming engines cannot number an
+/// intersection one row at a time. A branch that declares a share is refused there, the router
+/// sends the config here, and the quota goes over the branch's own rows. One that declares none
+/// is built over the enclosing branch's rows, which is what the streaming engines do.
+fn nested_switch_values(
+    sw: &Switch,
+    count: usize,
+    prng: &mut Sfc32,
+    env: &Env,
+    stream: Option<&per_row::Stream>,
+    columns: &BTreeMap<String, Vec<Option<String>>>,
+) -> EngineResult<Vec<String>> {
+    let stream_id = stream.map(|s| s.id.clone()).unwrap_or_default();
+    let row_of = |i: usize| stream.map_or(i, |s| s.row_at(i));
+    let subject = columns.get(&sw.on);
+
+    let mut entry_positions: Vec<Vec<usize>> = vec![Vec::new(); sw.entries.len()];
+    let mut fallback_positions: Vec<usize> = Vec::new();
+    for i in 0..count {
+        let row = row_of(i);
+        let key = subject
+            .and_then(|c| c.get(row))
+            .and_then(|v| v.as_deref())
+            .unwrap_or("");
+        match sw
+            .entries
+            .iter()
+            .position(|entry| entry.keys.iter().any(|k| k == key))
+        {
+            Some(e) => entry_positions[e].push(i),
+            None => fallback_positions.push(i),
+        }
+    }
+
+    let mut out = vec![String::new(); count];
+    let mut place_branch = |case: &Case,
+                            positions: &[usize],
+                            id: String,
+                            prng: &mut Sfc32,
+                            out: &mut Vec<String>|
+     -> EngineResult<()> {
+        if positions.is_empty() {
+            return Ok(());
+        }
+        if !case_carries_percent(case) {
+            let sub = per_row::Stream {
+                seed: env.config.seed.clone(),
+                id: id.clone(),
+                rows: stream.and_then(|s| s.rows.clone()),
+            };
+            let whole = case_values(case, count, prng, env, Some(&sub), columns)?;
+            for &i in positions {
+                out[i] = whole[i].clone();
+            }
+            return Ok(());
+        }
+        let rows: Vec<usize> = positions.iter().map(|&i| row_of(i)).collect();
+        let sub = per_row::Stream::with_rows(&env.config.seed, &id, rows);
+        let values = case_values(case, positions.len(), prng, env, Some(&sub), columns)?;
+        for (local, &position) in positions.iter().enumerate() {
+            out[position] = values[local].clone();
+        }
+        Ok(())
+    };
+
+    for (e, entry) in sw.entries.iter().enumerate() {
+        place_branch(
+            &entry.value,
+            &entry_positions[e],
+            format!("{stream_id}#sw{e}"),
+            prng,
+            &mut out,
+        )?;
+    }
+    if let Some(case) = &sw.fallback {
+        place_branch(
+            case,
+            &fallback_positions,
+            format!("{stream_id}#swdef"),
+            prng,
+            &mut out,
+        )?;
+    }
+    Ok(out)
 }
 
 /// A switch branch's rows in the order the STREAMING engine numbers them, or `None` when it
@@ -2488,7 +2593,7 @@ fn materialize_local(
     // generated column, which is why a config that draws from such a pack is
     // routed here in the first place.
     if let Source::Mix(mix) = &spec.source {
-        let values = mix_values(mix, count, prng, None, env, None)?
+        let values = mix_values(mix, count, prng, None, env, None, &BTreeMap::new())?
             .into_iter()
             .map(Some)
             .collect();

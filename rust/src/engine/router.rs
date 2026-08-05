@@ -23,7 +23,7 @@
 
 use super::{invalid, EngineResult};
 use crate::generators::advanced_regex;
-use crate::model::{Config, Gen, SequenceSpec, Source};
+use crate::model::{Config, Gen, SequenceSpec, Source, Switch};
 use crate::packs::DataPacks;
 
 /// The engine a config runs on: 1 in memory, 2 streaming, 3 exact on disk.
@@ -129,7 +129,9 @@ fn case_carries_percent(case: Option<&crate::model::Case>) -> bool {
                 !mix.percent.as_deref().unwrap_or("").trim().is_empty()
             }
             crate::model::CasePart::Gen(gen) => !gen.attr_or("percent", "").trim().is_empty(),
-            crate::model::CasePart::Text(_) => false,
+            // A nested switch declares no share of its own; each of ITS branches is judged
+            // separately, in `unstreamable_switch_percent`.
+            crate::model::CasePart::Text(_) | crate::model::CasePart::Switch(_) => false,
         })
     })
 }
@@ -143,6 +145,29 @@ fn case_carries_percent(case: Option<&crate::model::Case>) -> bool {
 ///
 /// Deliberately conservative: anything it cannot prove streamable goes to engine 1, which costs
 /// speed on an exotic config and never costs correctness.
+/// Every `<switch>` written inside this `<case>` body, at any depth.
+fn nested_switches(case: &crate::model::Case, found: &mut Vec<Switch>) {
+    for part in &case.parts {
+        match part {
+            crate::model::CasePart::Switch(sw) => {
+                found.push((**sw).clone());
+                for entry in &sw.entries {
+                    nested_switches(&entry.value, found);
+                }
+                if let Some(fallback) = &sw.fallback {
+                    nested_switches(fallback, found);
+                }
+            }
+            crate::model::CasePart::Mix(mix) => {
+                for inner in &mix.cases {
+                    nested_switches(inner, found);
+                }
+            }
+            _ => {}
+        }
+    }
+}
+
 fn unstreamable_switch_percent(config: &Config) -> bool {
     let plain_list_values = |name: &str| -> Option<Vec<String>> {
         let subject = config.sequences.iter().find(|s| s.name == name)?;
@@ -163,6 +188,37 @@ fn unstreamable_switch_percent(config: &Config) -> bool {
                 .collect(),
         )
     };
+
+    // A NESTED switch is never rankable — its branch covers an intersection of two partitions,
+    // and there is no O(1) rank inside one. So any share it declares, at any depth, decides
+    // engine 1.
+    let nested_declares_share = |bodies: Vec<&crate::model::Case>| -> bool {
+        let mut found = Vec::new();
+        for body in bodies {
+            nested_switches(body, &mut found);
+        }
+        found.iter().any(|nested| {
+            case_carries_percent(nested.fallback.as_ref())
+                || nested
+                    .entries
+                    .iter()
+                    .any(|e| case_carries_percent(Some(&e.value)))
+        })
+    };
+
+    if config.sequences.iter().any(|spec| match &spec.source {
+        Source::Switch(sw) => {
+            let mut bodies: Vec<&crate::model::Case> = sw.entries.iter().map(|e| &e.value).collect();
+            if let Some(fallback) = &sw.fallback {
+                bodies.push(fallback);
+            }
+            nested_declares_share(bodies)
+        }
+        Source::Mix(mix) => nested_declares_share(mix.cases.iter().collect()),
+        _ => false,
+    }) {
+        return true;
+    }
 
     config.sequences.iter().any(|spec| {
         let Source::Switch(sw) = &spec.source else {

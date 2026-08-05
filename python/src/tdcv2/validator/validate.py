@@ -1565,8 +1565,26 @@ class _Validator:
                 column,
             )
 
-    def _check_switch(self, open_el, declared: list[str]) -> None:
+    def _check_switch(self, open_el, declared: list[str], named: bool = True) -> None:
+        """``named`` is false for the form written inside a ``<case>``.
+
+        That one contributes a value to the branch around it rather than a column of its own,
+        so it has no name to declare and nothing can interpolate it. Every other rule — the
+        subject, the entries, the fallback — is the same, from this one function.
+        """
         attrs = _attrs(open_el.attr())
+        if not named and attrs.get("name") is not None:
+            line, column = _at(open_el, "name")
+            self._error(
+                "TDC245",
+                '"name" on a nested <switch> is not supported — only an env-level <switch> '
+                "becomes a column",
+                "A nested <switch> contributes its value to the <case> around it. Nothing can "
+                "interpolate it, so a name would name nothing. Move it to <env> if you want "
+                "${{Name}}.",
+                line,
+                column,
+            )
         on = attrs.get("on")
         if on is None or not on.strip():
             self._error(
@@ -1606,8 +1624,10 @@ class _Validator:
                         _line(inner),
                         _column(inner),
                     )
+                self._check_case_body(inner)
             elif inner.name.text == "default":
                 entries += 1
+                self._check_case_body(inner)
         if entries == 0:
             self._error(
                 "TDC135",
@@ -2605,12 +2625,17 @@ class _Validator:
             if open_el.name.text == "mix":
                 self._check_mix(open_el, False)
                 continue
+            if open_el.name.text == "switch":
+                # A `<switch>` inside a `<case>` looks its subject up over the rows of that
+                # branch. Held to every rule the env-level form is, except that it has no name.
+                self._check_switch(open_el, self.declared_order, named=False)
+                continue
             if open_el.name.text == "gen":
                 continue
             self._error(
                 "TDC125",
                 f'unknown child of <case>: "<{open_el.name.text}>"',
-                "Allowed children: data, gen, mix.",
+                "Allowed children: data, gen, mix, switch.",
                 _line(open_el),
                 _column(open_el),
             )

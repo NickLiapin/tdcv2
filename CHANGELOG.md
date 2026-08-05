@@ -15,6 +15,29 @@ page — is tracked in that implementation's own changelog:
 
 ## [Unreleased]
 
+### Added
+
+- **A `<switch>` may be written inside a `<case>`.** A branch can hold a whole second
+  lookup, which is what a value that depends on two fields needs — a national id whose
+  shape depends on the sex, and for one sex only, on the region. Writing that before took
+  one sequence per combination plus an expression to choose between them.
+
+  `<case>` is shared by `<mix>` and `<switch>`, so the nested form works under both: the
+  mix decides whether a record is an invoice, the switch decides which tax it names.
+
+  The nested form takes no `name` — it contributes its value to the branch around it and
+  nothing can interpolate it, so a name would name nothing (`TDC245`). It partitions only
+  the rows of the branch it sits in, and `<default>` covers the rows of THAT BRANCH which
+  matched no inner key. A share inside a nested branch is exact, and routes the config to
+  the in-memory engine, because a nested branch covers an intersection of two partitions
+  that the streaming engines cannot number a row at a time.
+
+### Fixed
+
+- **Python and Rust never validated the body of a `<switch>` branch.** Anything written
+  inside `<case>` or `<default>` of a switch went unchecked in those two, so a config the
+  reference rejected ran there. Found by making all five agree on the nested form.
+
 ### Fixed
 
 - **A percentage inside a `<switch>` branch was a quota over the whole run, not over the

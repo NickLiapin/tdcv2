@@ -74,7 +74,7 @@ import {
 } from '../sequence/index.js';
 import { extractPoolSpecs } from '../sequence/pool.js';
 import { buildPoolTables } from '../sequence/pool-build.js';
-import type { CaseSpec, SequenceRegistry, SequenceSpec } from '../sequence/index.js';
+import type { CaseSpec, SequenceRegistry, SequenceSpec, SwitchSpec } from '../sequence/index.js';
 import { resolveTemplate } from '../templates/resolver.js';
 
 import type { AttrMap } from './attrs.js';
@@ -818,9 +818,7 @@ function specsUseUnstreamableSwitchPercent(specs: readonly SequenceSpec[]): bool
     return (gen.attrs['value'] ?? '').split(',').map((v) => v.trim());
   };
 
-  return specs.some((spec) => {
-    const sw = spec.switchSpec;
-    if (!sw) return false;
+  const topLevelUnstreamable = (sw: SwitchSpec): boolean => {
     if (caseCarriesPercent(sw.fallback)) return true;
     const values = plainListValues(sw.on);
     return sw.entries.some((entry) => {
@@ -828,7 +826,42 @@ function specsUseUnstreamableSwitchPercent(specs: readonly SequenceSpec[]): bool
       const key = entry.keys.length === 1 ? entry.keys[0] : undefined;
       return key === undefined || !values?.includes(key);
     });
+  };
+
+  // A NESTED switch is never rankable — its branch covers an intersection of two
+  // partitions, and there is no O(1) rank inside one. So any share it declares,
+  // at any depth, decides Engine 1.
+  const nestedUnstreamable = (sw: SwitchSpec): boolean =>
+    caseCarriesPercent(sw.fallback) || sw.entries.some((e) => caseCarriesPercent(e.value));
+
+  return specs.some((spec) => {
+    const nested = [
+      ...(spec.switchSpec
+        ? [...spec.switchSpec.entries.map((e) => e.value), spec.switchSpec.fallback]
+        : []),
+      ...(spec.mixSpec?.cases ?? []),
+    ].flatMap((body) => nestedSwitches(body));
+    if (nested.some(nestedUnstreamable)) return true;
+    return spec.switchSpec !== undefined && topLevelUnstreamable(spec.switchSpec);
   });
+}
+
+/** Every `<switch>` written inside this `<case>` body, at any depth. */
+function nestedSwitches(body: CaseSpec | undefined): SwitchSpec[] {
+  const found: SwitchSpec[] = [];
+  const visit = (c: CaseSpec | undefined): void => {
+    for (const part of c?.parts ?? []) {
+      if (part.kind === 'switch') {
+        found.push(part.switchSpec);
+        for (const entry of part.switchSpec.entries) visit(entry.value);
+        visit(part.switchSpec.fallback);
+      } else if (part.kind === 'mix') {
+        for (const inner of part.mixSpec.cases) visit(inner);
+      }
+    }
+  };
+  visit(body);
+  return found;
 }
 
 /** Any `<gen type="http">` — the network-backed generator. */

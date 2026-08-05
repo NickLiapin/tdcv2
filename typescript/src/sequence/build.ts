@@ -102,6 +102,12 @@ import { registerRunning } from './running.js';
 export interface SequenceBuildOptions {
   readonly regexMaxLength?: number | undefined;
   /**
+   * A column's value at an absolute row, for a `<switch>` written inside a
+   * `<case>`. The streaming engines fill it with a read of their own lazy
+   * registry; the in-memory engine passes the same shape on its context.
+   */
+  readonly valueAt?: ((name: string, row: number) => string | undefined) | undefined;
+  /**
    * Pools already computed for this run, by name — see `pool-build.ts`. A
    * `<gen type="pool">` reads a member out of one of these instead of drawing a
    * value of its own.
@@ -304,6 +310,13 @@ export function buildSequences(
     httpDeferred: options.httpDeferred,
     seed: options.seed,
     layouts: new Map(),
+    // Read lazily, so a nested <switch> sees the subject column whatever order
+    // the registry filled up in — the validator has already made sure the
+    // subject is declared before the switch that reads it.
+    valueAt: (name, row) => {
+      const seq = registry[name];
+      return seq ? sequenceValueAt(seq, row) : undefined;
+    },
   };
 
   // Built-in positional sequences. All deterministic by iteration index,

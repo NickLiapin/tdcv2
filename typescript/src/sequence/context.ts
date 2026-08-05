@@ -69,4 +69,14 @@ export interface SequenceBuildContext {
    * absent, an http generator refuses rather than emit silent placeholders.
    */
   readonly httpDeferred?: boolean | undefined;
+  /**
+   * A finished column's value at an ABSOLUTE row — what a `<switch>` written
+   * inside a `<case>` looks its subject up in.
+   *
+   * A nested switch is not a column and never appears in the registry itself,
+   * so it cannot be resolved the way the env-level form is. It reads the
+   * registry through this instead, which keeps the reader out of the type: the
+   * streaming engine passes the same function over its own lazy columns.
+   */
+  readonly valueAt?: ((name: string, row: number) => string | undefined) | undefined;
 }

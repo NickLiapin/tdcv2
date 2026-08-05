@@ -159,4 +159,4 @@ export const KNOWN_MIX_CHILDREN: readonly string[] = ['case'] as const;
 export const KNOWN_SWITCH_CHILDREN: readonly string[] = ['map', 'case', 'default'] as const;
 
 /** Tag names valid as direct children of `<case>`. */
-export const KNOWN_CASE_CHILDREN: readonly string[] = ['data', 'gen', 'mix'] as const;
+export const KNOWN_CASE_CHILDREN: readonly string[] = ['data', 'gen', 'mix', 'switch'] as const;

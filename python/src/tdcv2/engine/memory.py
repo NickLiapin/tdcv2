@@ -12,6 +12,7 @@ perfectly valid data that matches nothing.
 from __future__ import annotations
 
 import math
+from collections.abc import Callable
 from dataclasses import dataclass, field, replace
 from pathlib import Path
 
@@ -110,6 +111,10 @@ class _Run:
     # The exact layout each finished column got, by column name. Shared by reference across every
     # derived run, so a column declared later can see one built earlier.
     layouts: dict[str, per_row.ExactLayout] | None = None
+    # A finished column's value at an ABSOLUTE row — what a `<switch>` inside a `<case>` looks
+    # its subject up in. A nested switch is not a column and never reaches the registry, so it
+    # cannot be resolved the way the env-level form is.
+    value_at: Callable[[str, int], str | None] | None = None
 
 
 def render(config: Config, packs: DataPacks, now_millis: int, base_dir: Path | None = None) -> str:
@@ -315,7 +320,21 @@ def _build_columns(
     columns["_last"] = ["true" if i == count - 1 else "false" for i in range(count)]
     columns["_total"] = [str(count)] * count
 
-    run = _Run(config, packs, now_millis, base_dir, create(config.seed), layouts={})
+    def _column_value_at(name: str, row: int) -> str | None:
+        # Read lazily, so a nested <switch> sees the subject column whatever order the
+        # registry filled up in — the validator has already checked it is declared first.
+        column = columns.get(name)
+        return None if column is None or row >= len(column) else column[row]
+
+    run = _Run(
+        config,
+        packs,
+        now_millis,
+        base_dir,
+        create(config.seed),
+        layouts={},
+        value_at=_column_value_at,
+    )
 
     # Pools first, and off a DERIVED seed. A pool must be invisible to every column it does not
     # feed: adding one to a config leaves the ids, the ages and the names exactly where they
@@ -873,9 +892,60 @@ def _case_values(case, count: int, run: _Run) -> list[str]:
             values = [part.text] * count
         elif part.gen is not None:
             values = _column_values(part.gen, count, part_run)
-        else:
+        elif part.mix is not None:
             values = _mix_values(part.mix, count, part_run, None)
+        else:
+            values = _nested_switch_values(part.switch, count, part_run)
         out = [out[i] + values[i] for i in range(count)]
+    return out
+
+
+def _nested_switch_values(spec, count: int, run: _Run) -> list[str]:
+    """A ``<switch>`` written inside a ``<case>`` — the nested form.
+
+    It looks its subject up over THE ROWS OF THE BRANCH IT SITS IN. ``run`` already carries
+    those rows and this part's stream name, so position ``i`` here is the same cell the
+    streaming engine resolves at ``absolute_row(run, i)``.
+
+    A branch of a nested switch is never RANKED: its rows are an intersection of two
+    partitions — the enclosing branch's and the inner subject's — and the streaming engines
+    cannot number an intersection one row at a time. So a branch that declares a share is
+    refused there, the router sends the config here, and the quota goes over the branch's own
+    rows. A branch that declares none is built over the enclosing branch's rows, which is what
+    the streaming engines do, so the two agree row for row.
+    """
+    stream_id = run.stream_id or ""
+    entry_positions: list[list[int]] = [[] for _ in spec.entries]
+    fallback_positions: list[int] = []
+    for i in range(count):
+        key = run.value_at(spec.on, per_row.absolute_row(run, i)) if run.value_at else None
+        key = "" if key is None else key
+        for e, entry in enumerate(spec.entries):
+            if key in entry.keys:
+                entry_positions[e].append(i)
+                break
+        else:
+            fallback_positions.append(i)
+
+    out = [""] * count
+
+    def place(positions: list[int], case, part_id: str) -> None:
+        if not positions:
+            return
+        if not _case_carries_percent(case):
+            whole = _case_values(case, count, replace(run, stream_id=part_id))
+            for i in positions:
+                out[i] = whole[i]
+            return
+        rows = [per_row.absolute_row(run, i) for i in positions]
+        values = _case_values(case, len(positions), per_row.with_rows(run, part_id, rows))
+        for local, position in enumerate(positions):
+            out[position] = values[local]
+
+    for e, entry in enumerate(spec.entries):
+        place(entry_positions[e], entry.value, f"{stream_id}#sw{e}")
+    if spec.fallback is not None:
+        place(fallback_positions, spec.fallback, f"{stream_id}#swdef")
     return out
 
 

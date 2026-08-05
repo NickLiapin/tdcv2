@@ -46,6 +46,10 @@ pub enum CasePart {
     Text(String),
     Gen(Gen),
     Mix(Box<Mix>),
+    /// A `<switch>` written inside a `<case>`. It contributes a value only — it has no `name`,
+    /// so nothing can interpolate it — and it looks its subject up over the rows of the branch
+    /// it sits in, not over the run.
+    Switch(Box<Switch>),
 }
 
 /// One branch of a `<mix>` or `<switch>`.

@@ -210,7 +210,13 @@ export interface CaseSpec {
 export type CasePart =
   | { readonly kind: 'data'; readonly text: string }
   | { readonly kind: 'gen'; readonly gen: GenSpec }
-  | { readonly kind: 'mix'; readonly mixSpec: MixSpec };
+  | { readonly kind: 'mix'; readonly mixSpec: MixSpec }
+  /**
+   * A `<switch>` written inside a `<case>`. It contributes a value only — it has
+   * no `name`, so nothing can interpolate it — and it looks its subject up over
+   * the rows of the branch it sits in, not over the run.
+   */
+  | { readonly kind: 'switch'; readonly switchSpec: SwitchSpec };
 
 /** A materialized sequence ready for per-iteration lookup. */
 export interface Sequence {

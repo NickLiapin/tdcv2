@@ -386,6 +386,63 @@ Ninety records match `US|CA|MX`, and `27 + 63 = 90` — 30% of the branch, to th
 These two shapes cost you the streaming engine; see
 [Deterministic across engines](#deterministic-across-engines).
 
+## A `<switch>` inside a `<case>`
+
+A branch can hold a whole second lookup. Use it when a value depends on two fields and the
+second one only matters for some values of the first — a national id whose shape depends on
+the sex, and for one sex only, on the region.
+
+```xml
+<tdc>
+  <env count="8" seed="clinic-id" local="en">
+    <sequence name="Sex"><gen type="text" value="male,female" percent="50,50"/></sequence>
+    <sequence name="Region"><gen type="text" value="north,south" percent="50,50"/></sequence>
+
+    <switch name="Id" on="Sex">
+      <case is="male"><data>M-</data><gen type="number" value="100..199"/></case>
+      <case is="female">
+        <switch on="Region">
+          <case is="north"><data>FN-</data><gen type="number" value="200..299"/></case>
+          <case is="south"><data>FS-</data><gen type="number" value="300..399"/></case>
+        </switch>
+      </case>
+    </switch>
+  </env>
+  <block><line><data>${{Sex}}/${{Region}} -> ${{Id}}</data></line></block>
+</tdc>
+```
+
+<Terminal title="./run ids.tdc">
+{`male/south -> M-156
+male/north -> M-118
+male/north -> M-177
+male/north -> M-129
+female/south -> FS-371
+female/north -> FN-212
+female/south -> FS-358
+female/south -> FS-353`}
+</Terminal>
+
+A male record never reaches the inner switch. A female one reads `Region` and takes the
+branch keyed to it. **Why it matters:** the alternative is one sequence per combination plus
+an expression to choose between them — three declarations to say one thing, with nothing
+tying them together.
+
+The nested form takes no `name`: it contributes its value to the branch around it and
+nothing can interpolate it, so a name would name nothing (error `TDC245`). Everything else
+is the same as at the top level — the subject must be a sequence declared earlier, `<map>`
+works, and `<default>` covers the rows of THAT BRANCH which matched no inner key.
+
+The same `<case>` sits inside [`<mix>`](./mix.mdx), so a nested `<switch>` works there too:
+the mix decides whether a record is an invoice, the switch decides which tax it names.
+
+:::note[A share inside a nested branch does not stream]
+A branch of a nested switch covers an intersection of two partitions — the enclosing
+branch's rows and the inner subject's — which the streaming engines cannot number one row at
+a time. A [share](#a-share-inside-a-branch) written there is exact, and TDC routes the config
+to the in-memory engine to keep it so.
+:::
+
 ## Selection rules
 
 - The **first** matching branch wins. `<map>` rows are checked first (in written

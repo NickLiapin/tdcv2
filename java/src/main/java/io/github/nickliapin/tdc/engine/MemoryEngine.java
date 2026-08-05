@@ -563,7 +563,7 @@ public final class MemoryEngine {
                     flags,
                     // The '#switch' suffix is a stable historical key: the streaming engine
                     // spells it that way so a <mix> keeps the values of the <switch> it replaced.
-                    new PerRow.Stream(config.seed(), spec.name() + "#switch", rows));
+                    new PerRow.Stream(config.seed(), spec.name() + "#switch", rows), columns);
         columns.put(spec.name(), spread(rows, produced, count));
 
         String flagName = spec.mix().flag();
@@ -596,7 +596,7 @@ public final class MemoryEngine {
                     flags,
                     // The '#switch' suffix is a stable historical key: the streaming engine
                     // spells it that way so a <mix> keeps the values of the <switch> it replaced.
-                    new PerRow.Stream(config.seed(), spec.name() + "#switch", rows));
+                    new PerRow.Stream(config.seed(), spec.name() + "#switch", rows), columns);
         columns.put(spec.name(), spread(rows, produced, count));
 
         String flagName = spec.mix().flag();
@@ -992,7 +992,7 @@ public final class MemoryEngine {
       List<String> built =
           mixValues(
               spec.mix(), 1, prng, packs, config, nowMillis, baseDir, new LinkedHashMap<>(),
-              new boolean[1], null);
+              new boolean[1], null, Map.of());
       return built.isEmpty() ? "" : built.get(0);
     }
     return "";
@@ -1283,7 +1283,8 @@ public final class MemoryEngine {
       Path baseDir,
       Map<String, RowLinkPlan> rowLinks,
       boolean[] flags,
-      PerRow.Stream stream) {
+      PerRow.Stream stream,
+      Map<String, String[]> columns) {
     List<Config.Case> cases = mix.cases();
     if (cases.isEmpty()) {
       List<String> out = new ArrayList<>(count);
@@ -1332,7 +1333,7 @@ public final class MemoryEngine {
         List<String> values =
             caseValues(
                 cases.get(c), taken.size(), prng, packs, config, nowMillis, baseDir, rowLinks,
-                null);
+                null, columns);
         for (int i = 0; i < taken.size(); i++) {
           out.set(taken.get(i), values.get(i));
         }
@@ -1380,7 +1381,7 @@ public final class MemoryEngine {
       List<String> values =
           caseValues(
               cases.get(c), quota, prng, packs, config, nowMillis, baseDir, rowLinks,
-              new PerRow.Stream(stream.seed(), stream.id() + "#c" + c, caseRows));
+              new PerRow.Stream(stream.seed(), stream.id() + "#c" + c, caseRows), columns);
       for (int local = 0; local < quota; local++) {
         out.set(positions[local], values.get(local));
       }
@@ -1416,7 +1417,8 @@ public final class MemoryEngine {
       long nowMillis,
       Path baseDir,
       Map<String, RowLinkPlan> rowLinks,
-      PerRow.Stream stream) {
+      PerRow.Stream stream,
+      Map<String, String[]> columns) {
     List<StringBuilder> out = new ArrayList<>(count);
     for (int i = 0; i < count; i++) {
       out.add(new StringBuilder());
@@ -1438,10 +1440,16 @@ public final class MemoryEngine {
             columnValues(
                 part.gen(), count, prng, packs, config, nowMillis, baseDir, rowLinks, sub, null,
                 null);
-      } else {
+      } else if (part.mix() != null) {
         values =
             mixValues(
-                part.mix(), count, prng, packs, config, nowMillis, baseDir, rowLinks, null, sub);
+                part.mix(), count, prng, packs, config, nowMillis, baseDir, rowLinks, null, sub,
+                columns);
+      } else {
+        values =
+            nestedSwitchValues(
+                part.switchSpec(), count, prng, packs, config, nowMillis, baseDir, rowLinks, sub,
+                columns);
       }
       for (int i = 0; i < count; i++) {
         out.get(i).append(values.get(i));
@@ -1504,15 +1512,121 @@ public final class MemoryEngine {
       place(
           entry.value(), entryRows.get(e),
           rankedBranchRows(spec.on(), entry.keys(), entryRows.get(e), layouts),
-          name + "#sw" + e, count, prng, packs, config, nowMillis, baseDir, rowLinks, out);
+          name + "#sw" + e, count, prng, packs, config, nowMillis, baseDir, rowLinks, out,
+          columns);
     }
     if (spec.fallback() != null) {
       // <default> holds the rows no entry matched — a complement, which no layout enumerates.
       place(
           spec.fallback(), fallbackRows, null, name + "#swdef", count, prng, packs, config,
-          nowMillis, baseDir, rowLinks, out);
+          nowMillis, baseDir, rowLinks, out, columns);
     }
     return out;
+  }
+
+  /**
+   * A {@code <switch>} written inside a {@code <case>} — the nested form.
+   *
+   * <p>It looks its subject up over THE ROWS OF THE BRANCH IT SITS IN. {@code stream} already
+   * carries those rows and this part's name, so position {@code i} here is the same cell the
+   * streaming engine resolves at the absolute row.
+   *
+   * <p>A branch of a nested switch is never RANKED: its rows are an intersection of two
+   * partitions — the enclosing branch's and the inner subject's — and the streaming engines
+   * cannot number an intersection one row at a time. A branch that declares a share is refused
+   * there, the router sends the config here, and the quota goes over the branch's own rows. One
+   * that declares none is built over the enclosing branch's rows, which is what the streaming
+   * engines do.
+   */
+  private static List<String> nestedSwitchValues(
+      Config.Switch spec,
+      int count,
+      Prng.Sfc32 prng,
+      DataPacks packs,
+      Config config,
+      long nowMillis,
+      Path baseDir,
+      Map<String, RowLinkPlan> rowLinks,
+      PerRow.Stream stream,
+      Map<String, String[]> columns) {
+    String streamId = stream == null ? "" : stream.id();
+    String[] subject = columns.get(spec.on());
+    List<List<Integer>> entryPositions = new ArrayList<>();
+    for (int e = 0; e < spec.entries().size(); e++) {
+      entryPositions.add(new ArrayList<>());
+    }
+    List<Integer> fallbackPositions = new ArrayList<>();
+    for (int i = 0; i < count; i++) {
+      int row = stream == null ? i : stream.rowAt(i);
+      String key = subject == null || row >= subject.length || subject[row] == null
+          ? ""
+          : subject[row];
+      int picked = -1;
+      for (int e = 0; e < spec.entries().size(); e++) {
+        if (spec.entries().get(e).keys().contains(key)) {
+          picked = e;
+          break;
+        }
+      }
+      (picked < 0 ? fallbackPositions : entryPositions.get(picked)).add(i);
+    }
+
+    String[] out = new String[count];
+    Arrays.fill(out, "");
+    for (int e = 0; e < spec.entries().size(); e++) {
+      placeNested(
+          spec.entries().get(e).value(), entryPositions.get(e), streamId + "#sw" + e, count, prng,
+          packs, config, nowMillis, baseDir, rowLinks, stream, out, columns);
+    }
+    if (spec.fallback() != null) {
+      placeNested(
+          spec.fallback(), fallbackPositions, streamId + "#swdef", count, prng, packs, config,
+          nowMillis, baseDir, rowLinks, stream, out, columns);
+    }
+    return Arrays.asList(out);
+  }
+
+  /** One branch of a nested switch, over the positions that chose it. */
+  private static void placeNested(
+      Config.Case body,
+      List<Integer> positions,
+      String streamId,
+      int count,
+      Prng.Sfc32 prng,
+      DataPacks packs,
+      Config config,
+      long nowMillis,
+      Path baseDir,
+      Map<String, RowLinkPlan> rowLinks,
+      PerRow.Stream stream,
+      String[] out,
+      Map<String, String[]> columns) {
+    if (positions.isEmpty()) {
+      return;
+    }
+    if (!caseCarriesPercent(body)) {
+      List<String> whole =
+          caseValues(
+              body, count, prng, packs, config, nowMillis, baseDir, rowLinks,
+              new PerRow.Stream(
+                  config.seed(), streamId, stream == null ? null : stream.rows()),
+              columns);
+      for (int i : positions) {
+        out[i] = whole.get(i);
+      }
+      return;
+    }
+    List<Integer> rows = new ArrayList<>(positions.size());
+    for (int i : positions) {
+      rows.add(stream == null ? i : stream.rowAt(i));
+    }
+    List<String> values =
+        caseValues(
+            body, positions.size(), prng, packs, config, nowMillis, baseDir, rowLinks,
+            new PerRow.Stream(config.seed(), streamId, rows), columns);
+    for (int local = 0; local < positions.size(); local++) {
+      out[positions.get(local)] = values.get(local);
+    }
   }
 
   /**
@@ -1537,7 +1651,8 @@ public final class MemoryEngine {
       long nowMillis,
       Path baseDir,
       Map<String, RowLinkPlan> rowLinks,
-      String[] out) {
+      String[] out,
+      Map<String, String[]> columns) {
     if (rows.isEmpty()) {
       return;
     }
@@ -1549,7 +1664,7 @@ public final class MemoryEngine {
         List<String> whole =
             caseValues(
                 body, count, prng, packs, config, nowMillis, baseDir, rowLinks,
-                new PerRow.Stream(config.seed(), streamId, null));
+                new PerRow.Stream(config.seed(), streamId, null), columns);
         for (int row : rows) {
           out[row] = whole.get(row);
         }
@@ -1561,7 +1676,7 @@ public final class MemoryEngine {
       List<String> exact =
           caseValues(
               body, rows.size(), prng, packs, config, nowMillis, baseDir, rowLinks,
-              new PerRow.Stream(config.seed(), streamId, rows));
+              new PerRow.Stream(config.seed(), streamId, rows), columns);
       for (int local = 0; local < rows.size(); local++) {
         out[rows.get(local)] = exact.get(local);
       }
@@ -1570,7 +1685,7 @@ public final class MemoryEngine {
     List<String> values =
         caseValues(
             body, ranked.size(), prng, packs, config, nowMillis, baseDir, rowLinks,
-            new PerRow.Stream(config.seed(), streamId, ranked));
+            new PerRow.Stream(config.seed(), streamId, ranked), columns);
     for (int local = 0; local < ranked.size(); local++) {
       out[ranked.get(local)] = values.get(local);
     }

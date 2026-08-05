@@ -9,7 +9,7 @@
  */
 
 import type { ExactLayout } from './per-row.js';
-import { withRows } from './per-row.js';
+import { absoluteRow, withRows } from './per-row.js';
 import type { SequenceBuildContext } from './context.js';
 import { computeParentMask, orderedRows } from './assemble.js';
 import { buildCaseValues } from './mix-values.js';
@@ -163,7 +163,7 @@ function unrankedBranchValues(
 }
 
 /** Does this `<case>` body declare a share that the denominator has to be right for? */
-function caseCarriesPercent(body: CaseSpec | undefined): boolean {
+export function caseCarriesPercent(body: CaseSpec | undefined): boolean {
   return (body?.parts ?? []).some(
     (part) =>
       (part.kind === 'mix' && (part.mixSpec.attrs['percent'] ?? '').trim() !== '') ||
@@ -209,4 +209,70 @@ function rankedBranchRows(
     ordered[rank] = row;
   }
   return ordered;
+}
+
+/**
+ * A `<switch>` written inside a `<case>` — the nested form, which contributes a
+ * value rather than a column.
+ *
+ * It looks its subject up over THE ROWS OF THE BRANCH IT SITS IN. `ctx` already
+ * carries those rows and this part's stream name, so position `i` here is the
+ * same cell the streaming engine resolves at `absoluteRow(ctx, i)`.
+ *
+ * A branch of a nested switch is never RANKED. Its rows are an intersection of
+ * two partitions — the enclosing branch's, and the inner subject's — and the
+ * streaming engines cannot number an intersection one row at a time. So the same
+ * rule the top level already uses applies here:
+ *
+ * - **The branch declares a share.** The streaming engines refuse it, the router
+ *   sends the config to this engine, and the quota goes over the branch's own
+ *   rows, where it is exact.
+ * - **It declares no share.** Built over the enclosing branch's rows, which is
+ *   what the streaming engines do, so the two agree row for row.
+ */
+export function buildNestedSwitchValues(
+  switchSpec: SwitchSpec,
+  count: number,
+  prng: () => number,
+  locale: string,
+  now: number,
+  ctx: SequenceBuildContext,
+): string[] {
+  const streamId = ctx.streamId ?? '';
+  const entryPositions: number[][] = switchSpec.entries.map(() => []);
+  const fallbackPositions: number[] = [];
+  for (let i = 0; i < count; i++) {
+    const key = ctx.valueAt?.(switchSpec.on, absoluteRow(ctx, i)) ?? '';
+    const k = switchSpec.entries.findIndex((e) => e.keys.includes(key));
+    if (k >= 0) entryPositions[k]?.push(i);
+    else fallbackPositions.push(i);
+  }
+
+  const out = new Array<string>(count).fill('');
+  const place = (positions: readonly number[], body: CaseSpec, id: string): void => {
+    if (positions.length === 0) return;
+    if (!caseCarriesPercent(body)) {
+      const whole = buildCaseValues(body, count, prng, locale, now, { ...ctx, streamId: id });
+      for (const i of positions) out[i] = whole[i] ?? '';
+      return;
+    }
+    const rows = positions.map((i) => absoluteRow(ctx, i));
+    const values = buildCaseValues(
+      body,
+      positions.length,
+      prng,
+      locale,
+      now,
+      withRows(ctx, id, rows),
+    );
+    positions.forEach((position, local) => {
+      out[position] = values[local] ?? '';
+    });
+  };
+
+  switchSpec.entries.forEach((e, k) => {
+    place(entryPositions[k] ?? [], e.value, `${streamId}#sw${String(k)}`);
+  });
+  if (switchSpec.fallback) place(fallbackPositions, switchSpec.fallback, `${streamId}#swdef`);
+  return out;
 }

@@ -297,6 +297,9 @@ fn case_spec(element: &Element) -> Case {
             Kind::OpenClose if child.name == "mix" => {
                 parts.push(CasePart::Mix(Box::new(mix_of(child))));
             }
+            Kind::OpenClose if child.name == "switch" => {
+                parts.push(CasePart::Switch(Box::new(switch_body(child))));
+            }
             _ => {}
         }
     }
@@ -312,7 +315,11 @@ fn gen_of(element: &Element) -> Gen {
     Gen::new(gen_type, attrs)
 }
 
-fn switch_sequence(element: &Element) -> SequenceSpec {
+/// The body of a `<switch on="…">` — its subject, entries and fallback.
+///
+/// Shared by the env-level form, which becomes a column, and the form written inside a `<case>`,
+/// which contributes a value. One reader, so the two spellings cannot drift apart.
+fn switch_body(element: &Element) -> Switch {
     let mut entries: Vec<SwitchEntry> = Vec::new();
     let mut fallback: Option<Case> = None;
 
@@ -334,14 +341,18 @@ fn switch_sequence(element: &Element) -> SequenceSpec {
         }
     }
 
+    Switch {
+        on: element.attr_value("on").unwrap_or_default().to_string(),
+        entries,
+        fallback,
+    }
+}
+
+fn switch_sequence(element: &Element) -> SequenceSpec {
     SequenceSpec {
         name: element.attr_value("name").unwrap_or_default().to_string(),
         parent: element.attr_value("parent").map(str::to_string),
-        source: Source::Switch(Switch {
-            on: element.attr_value("on").unwrap_or_default().to_string(),
-            entries,
-            fallback,
-        }),
+        source: Source::Switch(switch_body(element)),
         distinct_groups: Vec::new(),
         uniq: false,
     }

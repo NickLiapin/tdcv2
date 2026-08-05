@@ -24,15 +24,19 @@ class Gen:
 
 @dataclass(frozen=True, slots=True)
 class CasePart:
-    """One piece of a ``<case>`` body: literal text, a generator, or a nested mix.
+    """One piece of a ``<case>`` body: literal text, a generator, a nested mix or a nested switch.
 
     A case concatenates its pieces, which is what lets a branch read as ``A-`` followed by a
     pattern rather than as a separate prefix column.
+
+    A nested ``<switch>`` contributes a value only — it has no ``name``, so nothing can
+    interpolate it — and it looks its subject up over the rows of the branch it sits in.
     """
 
     text: str | None = None
     gen: Gen | None = None
     mix: Mix | None = None
+    switch: Switch | None = None
 
 
 @dataclass(frozen=True, slots=True)

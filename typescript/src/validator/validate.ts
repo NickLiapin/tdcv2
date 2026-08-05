@@ -1175,6 +1175,13 @@ function checkCaseContent(caseEl: OpenCloseElementContext, ctx: Ctx): void {
       checkMixBody(k.node, ctx, false);
       continue;
     }
+    if (k.kind === 'open' && elementName(k.node) === 'switch') {
+      // A `<switch>` inside a `<case>` looks its subject up over the rows of
+      // that branch. It is held to every rule the env-level form is held to,
+      // except that it has no name of its own to declare.
+      checkSwitch(k.node, ctx, false);
+      continue;
+    }
 
     const name = elementName(k.node);
     const suggestion = closestMatch(name, KNOWN_CASE_CHILDREN);
@@ -1194,12 +1201,33 @@ function checkCaseContent(caseEl: OpenCloseElementContext, ctx: Ctx): void {
 // <switch>  — deterministic lookup by subject value
 // -----------------------------------------------------------------------
 
-/** Validate a standalone env-level `<switch on="…">` lookup. */
-function checkSwitch(switchEl: OpenCloseElementContext, ctx: Ctx): void {
-  checkDeclName(switchEl, ctx, 'switch');
+/**
+ * Validate a `<switch on="…">` lookup.
+ *
+ * `named` is false for the form written inside a `<case>`: it contributes a
+ * value to that branch rather than a column of its own, so it has no name to
+ * declare and nothing can interpolate it. Everything else — the subject, the
+ * entries, the fallback — is held to exactly the same rules, from this one
+ * function, so the two spellings cannot drift apart.
+ */
+function checkSwitch(switchEl: OpenCloseElementContext, ctx: Ctx, named = true): void {
+  if (named) checkDeclName(switchEl, ctx, 'switch');
 
   const attrs = switchEl.attr();
   const attrMap = extractAttrs(attrs);
+
+  const nameAttr = findAttr(attrs, 'name');
+  if (!named && nameAttr) {
+    ctx.diagnostics.push({
+      severity: 'error',
+      source: 'validator',
+      ...attrValueRange(nameAttr),
+      message:
+        '"name" on a nested <switch> is not supported — only an env-level <switch> becomes a column',
+      hint: 'A nested <switch> contributes its value to the <case> around it. Nothing can interpolate it, so a name would name nothing. Move it to <env> if you want ${{Name}}.',
+      code: 'TDC245',
+    });
+  }
 
   // `on` — the subject sequence, required and must be declared already.
   const onAttr = findAttr(attrs, 'on');
@@ -1285,9 +1313,11 @@ function checkSwitch(switchEl: OpenCloseElementContext, ctx: Ctx): void {
     });
   }
 
-  // Register the switch's name so ${{Name}} resolves.
+  // Register the switch's name so ${{Name}} resolves. A nested switch has none:
+  // registering one would let a later reference resolve to a value no column
+  // holds.
   const name = attrMap['name'];
-  if (name) ctx.declaredSequences.push(name);
+  if (named && name) ctx.declaredSequences.push(name);
 }
 
 /** Validate one `<case is="…">` inside a `<switch>`; returns nothing. */

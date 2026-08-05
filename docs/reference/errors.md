@@ -224,6 +224,7 @@ and [`<gen type="running">`](../generators/running.md#top).
 | `TDC135` | `<switch>` has no entries                                                                                  | Add a `<map>`, `<case>`, or `<default>`                     |
 | `TDC136` | _(warning)_ A `<map>` row isn't `KEY:VALUE` — the bad row is skipped and the rest of the map still applies | One pair per entry, separated by a colon                    |
 | `TDC137` | A `<case>` inside `<switch>` has no `is`                                                                   | `is` is the branch key                                      |
+| `TDC245` | `name` on a `<switch>` written inside a `<case>` | The nested form contributes a value to that branch; only an env-level `<switch>` becomes a column |
 
 ## Dates
 

@@ -2655,19 +2655,45 @@ impl Validator {
                 self.check_mix(child, false);
                 continue;
             }
+            if child.name == "switch" {
+                // A `<switch>` inside a `<case>` looks its subject up over the rows of that
+                // branch. Held to every rule the env-level form is, except that it has no name.
+                let declared = self.declared_order.clone();
+                self.check_switch_form(child, &declared, false);
+                continue;
+            }
             if child.name == "gen" {
                 continue;
             }
             self.error(
                 "TDC125",
                 format!("unknown child of <case>: \"<{}>\"", child.name),
-                "Allowed children: data, gen, mix.",
+                "Allowed children: data, gen, mix, switch.",
                 child.pos,
             );
         }
     }
 
     fn check_switch(&mut self, open: &Element, declared: &[String]) {
+        self.check_switch_form(open, declared, true);
+    }
+
+    /// `named` is false for the form written inside a `<case>`: it contributes a value to that
+    /// branch rather than a column of its own, so it has no name to declare and nothing can
+    /// interpolate it. Every other rule is the same, from this one function.
+    fn check_switch_form(&mut self, open: &Element, declared: &[String], named: bool) {
+        if !named && open.attr_value("name").is_some() {
+            self.error(
+                "TDC245",
+                "\"name\" on a nested <switch> is not supported — only an env-level <switch> \
+                 becomes a column"
+                    .to_string(),
+                "A nested <switch> contributes its value to the <case> around it. Nothing can \
+                 interpolate it, so a name would name nothing. Move it to <env> if you want \
+                 ${{Name}}.",
+                open.at("name"),
+            );
+        }
         match open
             .attr_value("on")
             .map(str::trim)
@@ -2706,8 +2732,12 @@ impl Validator {
                             child.pos,
                         );
                     }
+                    self.check_case_body(child);
                 }
-                (Kind::OpenClose, "default") => entries += 1,
+                (Kind::OpenClose, "default") => {
+                    entries += 1;
+                    self.check_case_body(child);
+                }
                 _ => {}
             }
         }

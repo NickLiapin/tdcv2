@@ -162,8 +162,69 @@ public static class EngineRouter
     /// costs speed on an exotic config and never costs correctness.
     /// </para>
     /// </remarks>
+    /// <summary>Every <c>&lt;switch&gt;</c> written inside this <c>&lt;case&gt;</c>, at any depth.</summary>
+    private static void NestedSwitches(Case? body, List<Switch> found)
+    {
+        if (body is null)
+        {
+            return;
+        }
+
+        foreach (CasePart part in body.Parts)
+        {
+            if (part.SwitchSpec is not null)
+            {
+                found.Add(part.SwitchSpec);
+                foreach (SwitchEntry entry in part.SwitchSpec.Entries)
+                {
+                    NestedSwitches(entry.Value, found);
+                }
+
+                NestedSwitches(part.SwitchSpec.Fallback, found);
+            }
+            else if (part.Mix is not null)
+            {
+                foreach (Case inner in part.Mix.Cases)
+                {
+                    NestedSwitches(inner, found);
+                }
+            }
+        }
+    }
+
     private static bool UnstreamableSwitchPercent(Config config)
     {
+        // A NESTED switch is never rankable — its branch covers an intersection of two
+        // partitions, and there is no O(1) rank inside one. So any share it declares, at any
+        // depth, decides engine 1.
+        foreach (SequenceSpec spec in config.Sequences)
+        {
+            var bodies = new List<Case?>();
+            if (spec.SwitchSpec is not null)
+            {
+                bodies.AddRange(spec.SwitchSpec.Entries.Select(e => (Case?)e.Value));
+                bodies.Add(spec.SwitchSpec.Fallback);
+            }
+
+            if (spec.Mix is not null)
+            {
+                bodies.AddRange(spec.Mix.Cases.Select(c => (Case?)c));
+            }
+
+            var nested = new List<Switch>();
+            foreach (Case? body in bodies)
+            {
+                NestedSwitches(body, nested);
+            }
+
+            if (nested.Any(inner =>
+                CaseCarriesPercent(inner.Fallback)
+                || inner.Entries.Any(e => CaseCarriesPercent(e.Value))))
+            {
+                return true;
+            }
+        }
+
         List<string>? PlainListValues(string name)
         {
             SequenceSpec? subject = config.Sequences.FirstOrDefault(s => s.Name == name);

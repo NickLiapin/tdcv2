@@ -1614,7 +1614,26 @@ public final class Validator {
   }
 
   private void checkSwitch(TDCParser.OpenCloseElementContext open, List<String> declared) {
+    checkSwitchForm(open, declared, true);
+  }
+
+  /**
+   * {@code named} is false for the form written inside a {@code <case>}: it contributes a value
+   * to that branch rather than a column of its own, so it has no name to declare and nothing can
+   * interpolate it. Every other rule is the same, from this one method.
+   */
+  private void checkSwitchForm(
+      TDCParser.OpenCloseElementContext open, List<String> declared, boolean named) {
     Map<String, String> attrs = attributes(open.attr());
+    if (!named && attrs.get("name") != null) {
+      error("TDC245",
+          "\"name\" on a nested <switch> is not supported — only an env-level <switch> becomes a"
+              + " column",
+          "A nested <switch> contributes its value to the <case> around it. Nothing can"
+              + " interpolate it, so a name would name nothing. Move it to <env> if you want"
+              + " ${{Name}}.",
+          at(open, "name")[0], at(open, "name")[1]);
+    }
     String on = attrs.get("on");
     if (on == null || on.isBlank()) {
       error("TDC133", "<switch> is missing a required \"on\" attribute",
@@ -1643,8 +1662,10 @@ public final class Validator {
               "A switch case matches a value; \"is\" is the value it matches.",
               line(inner), column(inner));
         }
+        checkCaseBody(inner);
       } else if ("default".equals(inner.name.getText())) {
         entries++;
+        checkCaseBody(inner);
       }
     }
     if (entries == 0) {
@@ -2642,11 +2663,17 @@ public final class Validator {
         checkMix(open, false);
         continue;
       }
+      if ("switch".equals(open.name.getText())) {
+        // A `<switch>` inside a `<case>` looks its subject up over the rows of that branch. Held
+        // to every rule the env-level form is, except that it has no name.
+        checkSwitchForm(open, declaredOrder, false);
+        continue;
+      }
       if ("gen".equals(open.name.getText())) {
         continue;
       }
       error("TDC125", "unknown child of <case>: \"<" + open.name.getText() + ">\"",
-          "Allowed children: data, gen, mix.", line(open), column(open));
+          "Allowed children: data, gen, mix, switch.", line(open), column(open));
     }
   }
 

@@ -25,6 +25,7 @@ import { buildGenValues } from './build.js';
 import type { SequenceBuildContext } from './context.js';
 import { absoluteRow, keyedDraws, withRows } from './per-row.js';
 import type { CaseSpec, MixSpec } from './types.js';
+import { buildNestedSwitchValues } from './switch-build.js';
 
 /** The rows a mix (or one of its cases) covers, in the order it builds them. */
 export interface MixDomain {
@@ -138,8 +139,19 @@ function buildKeyedCaseValues(
       values = new Array<string>(domain.size).fill(part.text);
     } else if (part.kind === 'gen') {
       values = buildGenValues(part.gen, domain.size, prng, locale, now, withRows(ctx, id, rows));
-    } else {
+    } else if (part.kind === 'mix') {
       values = buildKeyedMixValues(part.mixSpec, domain, seed, id, prng, locale, now, ctx);
+    } else {
+      // A nested <switch> reads its subject over the rows of the case it sits
+      // in, so it gets the same withRows context a gen part gets.
+      values = buildNestedSwitchValues(
+        part.switchSpec,
+        domain.size,
+        prng,
+        locale,
+        now,
+        withRows(ctx, id, rows),
+      );
     }
     for (let i = 0; i < domain.size; i++) out[i] = `${out[i] ?? ''}${values[i] ?? ''}`;
   });
@@ -234,8 +246,10 @@ export function buildCaseValues(
       values = new Array<string>(count).fill(part.text);
     } else if (part.kind === 'gen') {
       values = buildGenValues(part.gen, count, prng, locale, now, partCtx);
-    } else {
+    } else if (part.kind === 'mix') {
       values = buildMixValues(part.mixSpec, count, prng, locale, now, partCtx);
+    } else {
+      values = buildNestedSwitchValues(part.switchSpec, count, prng, locale, now, partCtx);
     }
 
     for (let i = 0; i < count; i++) {

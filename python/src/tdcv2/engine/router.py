@@ -125,8 +125,44 @@ def _unstreamable_switch_percent(config: Config) -> bool:
             return None
         return [v.strip() for v in gen.attr("value").split(",")]
 
+    def nested_switches(case) -> list:
+        """Every ``<switch>`` written inside this ``<case>`` body, at any depth."""
+        found: list = []
+
+        def visit(body) -> None:
+            if body is None:
+                return
+            for part in body.parts:
+                if part.switch is not None:
+                    found.append(part.switch)
+                    for entry in part.switch.entries:
+                        visit(entry.value)
+                    visit(part.switch.fallback)
+                elif part.mix is not None:
+                    for inner in part.mix.cases:
+                        visit(inner)
+
+        visit(case)
+        return found
+
     for spec in config.sequences:
         sw = spec.switch_spec
+        bodies = []
+        if sw is not None:
+            bodies.extend(entry.value for entry in sw.entries)
+            bodies.append(sw.fallback)
+        if spec.mix is not None:
+            bodies.extend(spec.mix.cases)
+        # A NESTED switch is never rankable — its branch covers an intersection of two
+        # partitions, and there is no O(1) rank inside one. So any share it declares, at any
+        # depth, decides engine 1.
+        for body in bodies:
+            for nested in nested_switches(body):
+                if _case_carries_percent(nested.fallback) or any(
+                    _case_carries_percent(e.value) for e in nested.entries
+                ):
+                    return True
+
         if sw is None:
             continue
         if _case_carries_percent(sw.fallback):

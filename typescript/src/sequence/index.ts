@@ -9,4 +9,11 @@ export { buildLazyRegistry, StreamUnsupportedError } from './stream-build.js';
 export { buildExactDiskRegistry } from './exact-disk.js';
 export { extractEnvDistinctGroups, extractEnvUniqGroups, extractSequenceSpecs } from './extract.js';
 export { sequenceValueAt } from './types.js';
-export type { CaseSpec, GenSpec, Sequence, SequenceRegistry, SequenceSpec } from './types.js';
+export type {
+  CaseSpec,
+  GenSpec,
+  Sequence,
+  SequenceRegistry,
+  SequenceSpec,
+  SwitchSpec,
+} from './types.js';

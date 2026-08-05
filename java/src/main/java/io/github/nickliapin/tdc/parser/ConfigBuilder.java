@@ -507,7 +507,7 @@ public final class ConfigBuilder {
       if (data instanceof TDCParser.DataWithBodyContext body) {
         parts.add(
             new Config.CasePart(
-                PairedData.restore(body.dataContent().getText()), null, null));
+                PairedData.restore(body.dataContent().getText()), null, null, null));
         continue;
       }
       TDCParser.SelfClosingElementContext self = child.selfClosingElement();
@@ -515,18 +515,26 @@ public final class ConfigBuilder {
         Map<String, String> genAttrs = attributes(self.attr());
         parts.add(
             new Config.CasePart(
-                null, new Config.Gen(genAttrs.getOrDefault("type", ""), genAttrs), null));
+                null, new Config.Gen(genAttrs.getOrDefault("type", ""), genAttrs), null, null));
         continue;
       }
       TDCParser.OpenCloseElementContext open = child.openCloseElement();
       if (open != null && "mix".equals(open.name.getText())) {
-        parts.add(new Config.CasePart(null, null, mix(open)));
+        parts.add(new Config.CasePart(null, null, mix(open), null));
+      } else if (open != null && "switch".equals(open.name.getText())) {
+        parts.add(new Config.CasePart(null, null, null, switchBody(open)));
       }
     }
     return new Config.Case(parts, "true".equals(attributes(element.attr()).get("anomaly")));
   }
 
-  private static Config.SequenceSpec switchSequence(TDCParser.OpenCloseElementContext element) {
+  /**
+   * The body of a {@code <switch on="…">} — its subject, entries and fallback.
+   *
+   * <p>Shared by the env-level form, which becomes a column, and the form written inside a
+   * {@code <case>}, which contributes a value. One reader, so the two cannot drift apart.
+   */
+  private static Config.Switch switchBody(TDCParser.OpenCloseElementContext element) {
     Map<String, String> attrs = attributes(element.attr());
     List<Config.SwitchEntry> entries = new ArrayList<>();
     Config.Case fallback = null;
@@ -554,6 +562,11 @@ public final class ConfigBuilder {
         }
       }
     }
+    return new Config.Switch(attrs.getOrDefault("on", ""), entries, fallback);
+  }
+
+  private static Config.SequenceSpec switchSequence(TDCParser.OpenCloseElementContext element) {
+    Map<String, String> attrs = attributes(element.attr());
     return new Config.SequenceSpec(
         attrs.get("name"),
         attrs.get("parent"),
@@ -563,7 +576,7 @@ public final class ConfigBuilder {
         null,
         null,
         null,
-        new Config.Switch(attrs.getOrDefault("on", ""), entries, fallback),
+        switchBody(element),
         null,
         false);
   }
@@ -600,7 +613,8 @@ public final class ConfigBuilder {
       String value = row.substring(colon + 1).trim();
       out.add(
           new Config.SwitchEntry(
-              keys, new Config.Case(List.of(new Config.CasePart(value, null, null)), false)));
+              keys,
+              new Config.Case(List.of(new Config.CasePart(value, null, null, null)), false)));
     }
     return out;
   }

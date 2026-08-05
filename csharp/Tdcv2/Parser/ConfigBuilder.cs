@@ -368,12 +368,23 @@ public static class ConfigBuilder
             {
                 parts.Add(new CasePart(null, null, MixOf(open)));
             }
+            else if (open is not null && open.name.Text == "switch")
+            {
+                parts.Add(new CasePart(null, null, null, SwitchBody(open)));
+            }
         }
 
         return new Case(parts, Attributes(element.attr()).GetValueOrDefault("anomaly") == "true");
     }
 
-    private static SequenceSpec SwitchSequence(TDCParser.OpenCloseElementContext element)
+    /// <summary>
+    /// The body of a <c>&lt;switch on="…"&gt;</c> — its subject, entries and fallback.
+    /// </summary>
+    /// <remarks>
+    /// Shared by the env-level form, which becomes a column, and the form written inside a
+    /// <c>&lt;case&gt;</c>, which contributes a value. One reader, so the two cannot drift apart.
+    /// </remarks>
+    private static Switch SwitchBody(TDCParser.OpenCloseElementContext element)
     {
         IReadOnlyDictionary<string, string> attrs = Attributes(element.attr());
         var entries = new List<SwitchEntry>();
@@ -417,11 +428,17 @@ public static class ConfigBuilder
             }
         }
 
+        return new Switch(attrs.GetValueOrDefault("on") ?? "", entries, fallback);
+    }
+
+    private static SequenceSpec SwitchSequence(TDCParser.OpenCloseElementContext element)
+    {
+        IReadOnlyDictionary<string, string> attrs = Attributes(element.attr());
         return new SequenceSpec(
             attrs.GetValueOrDefault("name") ?? "",
             attrs.GetValueOrDefault("parent"),
             null,
-            SwitchSpec: new Switch(attrs.GetValueOrDefault("on") ?? "", entries, fallback));
+            SwitchSpec: SwitchBody(element));
     }
 
     /// <summary>The raw body of a <c>&lt;map&gt;</c>; a self-closing one carries none.</summary>

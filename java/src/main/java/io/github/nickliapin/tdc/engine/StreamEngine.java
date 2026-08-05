@@ -1183,9 +1183,11 @@ public final class StreamEngine {
         parts.add(row -> text);
       } else if (part.gen() != null) {
         parts.add(buildGen(streamId + "#p" + p, part.gen(), domain).column());
-      } else {
+      } else if (part.mix() != null) {
         // A nested mix contributes its value only; `flag=` is a top-level idea.
         parts.add(buildMix(streamId + "#p" + p, part.mix(), domain).column());
+      } else {
+        parts.add(nestedSwitch(streamId + "#p" + p, part.switchSpec(), domain));
       }
     }
     return row -> {
@@ -1216,6 +1218,51 @@ public final class StreamEngine {
           }
           return null;
         });
+  }
+
+  /**
+   * A {@code <switch>} written inside a {@code <case>} — the nested form.
+   *
+   * <p>Every branch resolves over the SAME domain as the case it sits in. A branch's own rows are
+   * an intersection of two partitions — the enclosing branch's and the inner subject's — and
+   * there is no O(1) rank inside an intersection, which is what an exact share would need. So a
+   * nested branch that declares one is refused here and the router sends the config to the
+   * in-memory engine. A branch that declares none needs no rank: the row decides which branch
+   * answers, and both engines read the same row.
+   */
+  private Column nestedSwitch(String streamId, Config.Switch sw, Domain domain) {
+    List<CaseResolver> resolvers = new ArrayList<>();
+    List<List<String>> allKeys = new ArrayList<>();
+    for (int e = 0; e < sw.entries().size(); e++) {
+      Config.SwitchEntry entry = sw.entries().get(e);
+      if (carriesPercent(entry.value())) {
+        throw unsupported(
+            "a percentage inside <case is=\""
+                + String.join("|", entry.keys())
+                + "\"> of a nested <switch on=\""
+                + sw.on()
+                + "\">",
+            streamId);
+      }
+      allKeys.add(entry.keys());
+      resolvers.add(caseResolver(entry.value(), streamId + "#sw" + e, domain));
+    }
+    if (carriesPercent(sw.fallback())) {
+      throw unsupported(
+          "a percentage inside <default> of a nested <switch on=\"" + sw.on() + "\">", streamId);
+    }
+    CaseResolver fallback =
+        sw.fallback() == null ? null : caseResolver(sw.fallback(), streamId + "#swdef", domain);
+
+    return row -> {
+      String key = nullToEmpty(valueAt(sw.on(), row));
+      for (int e = 0; e < allKeys.size(); e++) {
+        if (allKeys.get(e).contains(key)) {
+          return resolvers.get(e).valueAt(row);
+        }
+      }
+      return fallback == null ? null : fallback.valueAt(row);
+    };
   }
 
   /**

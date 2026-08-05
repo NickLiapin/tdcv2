@@ -1356,6 +1356,74 @@
         ]
       }
     },
+    "mix-switch/switch-nested-in-a-switch-branch": {
+      "engine2": {
+        "lines": [
+          "male/south=M",
+          "female/north=FN",
+          "male/south=M",
+          "female/north=FN",
+          "female/north=FN",
+          "male/north=M",
+          "male/south=M",
+          "male/south=M",
+          "male/north=M",
+          "female/south=FS",
+          "female/north=FN",
+          "female/south=FS"
+        ]
+      },
+      "engine3": {
+        "lines": [
+          "male/south=M",
+          "female/north=FN",
+          "male/south=M",
+          "female/north=FN",
+          "female/north=FN",
+          "male/north=M",
+          "male/south=M",
+          "male/south=M",
+          "male/north=M",
+          "female/south=FS",
+          "female/north=FN",
+          "female/south=FS"
+        ]
+      }
+    },
+    "mix-switch/switch-nested-in-a-mix-case": {
+      "engine2": {
+        "lines": [
+          "US|receipt",
+          "EU|invoice-VAT",
+          "US|invoice-SalesTax",
+          "EU|invoice-VAT",
+          "US|receipt",
+          "EU|receipt",
+          "EU|receipt",
+          "US|invoice-SalesTax",
+          "EU|receipt",
+          "US|invoice-SalesTax",
+          "US|invoice-SalesTax",
+          "EU|receipt"
+        ]
+      },
+      "engine3": {
+        "lines": [
+          "US|receipt",
+          "EU|invoice-VAT",
+          "US|invoice-SalesTax",
+          "EU|invoice-VAT",
+          "US|receipt",
+          "EU|receipt",
+          "EU|receipt",
+          "US|invoice-SalesTax",
+          "EU|receipt",
+          "US|invoice-SalesTax",
+          "US|invoice-SalesTax",
+          "EU|receipt"
+        ]
+      }
+    },
     "ordering/sequential-text-loops": {
       "engine2": {
         "lines": ["Jan", "Feb", "Mar", "Jan", "Feb", "Mar", "Jan"]

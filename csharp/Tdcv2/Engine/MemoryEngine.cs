@@ -46,7 +46,10 @@ public static class MemoryEngine
     /// </remarks>
     internal readonly record struct Ctx(
         Config Config, DataPacks Packs, long NowMillis, string? BaseDir,
-        Dictionary<string, RowLinkPlan> RowLinks)
+        Dictionary<string, RowLinkPlan> RowLinks,
+        // The columns built so far. A `<switch>` inside a `<case>` is not a column itself and
+        // never reaches the registry, so it reads its subject through this instead.
+        Dictionary<string, string[]>? Columns = null)
     {
         internal int RegexMax => Config.RegexMaxLength;
 
@@ -419,6 +422,10 @@ public static class MemoryEngine
         Config config = ctx.Config;
         int count = config.Count;
         var columns = new Dictionary<string, string[]>();
+        // Handed to every builder below, so a nested <switch> can look its subject up. The
+        // dictionary is filled as the loop runs and read only when a row is resolved, by which
+        // time the subject — declared earlier, as the validator insists — is in it.
+        ctx = ctx with { Columns = columns };
 
         // Built-ins first. They are positional, consume no randomness, and are therefore
         // identical for a given count no matter what else the config does.
@@ -2112,9 +2119,13 @@ public static class MemoryEngine
             {
                 values = ColumnValues(part.Gen, count, prng, ctx, sub);
             }
+            else if (part.Mix is not null)
+            {
+                values = MixValues(part.Mix, count, prng, null, ctx, sub);
+            }
             else
             {
-                values = MixValues(part.Mix!, count, prng, null, ctx, sub);
+                values = NestedSwitchValues(part.SwitchSpec!, count, prng, ctx, sub);
             }
 
             for (int i = 0; i < count; i++)
@@ -2240,6 +2251,97 @@ public static class MemoryEngine
             // <default> holds the rows no entry matched — a complement, which no layout
             // enumerates.
             Place(spec.Fallback, fallbackRows, null, $"{name}#swdef");
+        }
+
+        return result;
+    }
+
+    /// <summary>A <c>&lt;switch&gt;</c> written inside a <c>&lt;case&gt;</c> — the nested form.</summary>
+    /// <remarks>
+    /// It looks its subject up over THE ROWS OF THE BRANCH IT SITS IN. <c>stream</c> already
+    /// carries those rows and this part's name, so position <c>i</c> here is the same cell the
+    /// streaming engine resolves at the absolute row.
+    /// <para>
+    /// A branch of a nested switch is never RANKED: its rows are an intersection of two
+    /// partitions — the enclosing branch's and the inner subject's — and the streaming engines
+    /// cannot number an intersection one row at a time. A branch that declares a share is refused
+    /// there, the router sends the config here, and the quota goes over the branch's own rows.
+    /// One that declares none is built over the enclosing branch's rows, which is what the
+    /// streaming engines do.
+    /// </para>
+    /// </remarks>
+    private static IReadOnlyList<string> NestedSwitchValues(
+        Switch spec, int count, Sfc32 prng, Ctx ctx, PerRow.Stream? stream)
+    {
+        string streamId = stream?.Id ?? "";
+        string[]? subject = null;
+        ctx.Columns?.TryGetValue(spec.On, out subject);
+
+        var entryPositions = new List<List<int>>();
+        for (int e = 0; e < spec.Entries.Count; e++)
+        {
+            entryPositions.Add(new List<int>());
+        }
+
+        var fallbackPositions = new List<int>();
+        for (int i = 0; i < count; i++)
+        {
+            int row = stream?.RowAt(i) ?? i;
+            string key = subject is null || row >= subject.Length || subject[row] is null
+                ? ""
+                : subject[row];
+            int picked = -1;
+            for (int e = 0; e < spec.Entries.Count; e++)
+            {
+                if (spec.Entries[e].Keys.Contains(key))
+                {
+                    picked = e;
+                    break;
+                }
+            }
+
+            (picked < 0 ? fallbackPositions : entryPositions[picked]).Add(i);
+        }
+
+        var result = new string[count];
+        Array.Fill(result, "");
+
+        void Place(Case body, List<int> positions, string id)
+        {
+            if (positions.Count == 0)
+            {
+                return;
+            }
+
+            if (!CaseCarriesPercent(body))
+            {
+                IReadOnlyList<string> whole = CaseValues(
+                    body, count, prng, ctx, new PerRow.Stream(ctx.Config.Seed, id, stream?.Rows));
+                foreach (int i in positions)
+                {
+                    result[i] = whole[i];
+                }
+
+                return;
+            }
+
+            var rows = positions.Select(i => stream?.RowAt(i) ?? i).ToArray();
+            IReadOnlyList<string> values = CaseValues(
+                body, positions.Count, prng, ctx, new PerRow.Stream(ctx.Config.Seed, id, rows));
+            for (int local = 0; local < positions.Count; local++)
+            {
+                result[positions[local]] = values[local];
+            }
+        }
+
+        for (int e = 0; e < spec.Entries.Count; e++)
+        {
+            Place(spec.Entries[e].Value, entryPositions[e], $"{streamId}#sw{e}");
+        }
+
+        if (spec.Fallback is not null)
+        {
+            Place(spec.Fallback, fallbackPositions, $"{streamId}#swdef");
         }
 
         return result;

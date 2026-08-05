@@ -138,7 +138,57 @@ public final class EngineRouter {
    * <p>Deliberately conservative: anything it cannot prove streamable goes to engine 1, which
    * costs speed on an exotic config and never costs correctness.
    */
+  /** Every {@code <switch>} written inside this {@code <case>} body, at any depth. */
+  private static void nestedSwitches(Config.Case body, List<Config.Switch> found) {
+    if (body == null) {
+      return;
+    }
+    for (Config.CasePart part : body.parts()) {
+      if (part.switchSpec() != null) {
+        found.add(part.switchSpec());
+        for (Config.SwitchEntry entry : part.switchSpec().entries()) {
+          nestedSwitches(entry.value(), found);
+        }
+        nestedSwitches(part.switchSpec().fallback(), found);
+      } else if (part.mix() != null) {
+        for (Config.Case inner : part.mix().cases()) {
+          nestedSwitches(inner, found);
+        }
+      }
+    }
+  }
+
   private static boolean unstreamableSwitchPercent(Config config) {
+    // A NESTED switch is never rankable — its branch covers an intersection of two partitions,
+    // and there is no O(1) rank inside one. So any share it declares, at any depth, decides
+    // engine 1.
+    for (Config.SequenceSpec spec : config.sequences()) {
+      List<Config.Case> bodies = new ArrayList<>();
+      if (spec.switchSpec() != null) {
+        for (Config.SwitchEntry entry : spec.switchSpec().entries()) {
+          bodies.add(entry.value());
+        }
+        bodies.add(spec.switchSpec().fallback());
+      }
+      if (spec.mix() != null) {
+        bodies.addAll(spec.mix().cases());
+      }
+      List<Config.Switch> nested = new ArrayList<>();
+      for (Config.Case body : bodies) {
+        nestedSwitches(body, nested);
+      }
+      for (Config.Switch inner : nested) {
+        if (caseCarriesPercent(inner.fallback())) {
+          return true;
+        }
+        for (Config.SwitchEntry entry : inner.entries()) {
+          if (caseCarriesPercent(entry.value())) {
+            return true;
+          }
+        }
+      }
+    }
+
     for (Config.SequenceSpec spec : config.sequences()) {
       Config.Switch sw = spec.switchSpec();
       if (sw == null) {

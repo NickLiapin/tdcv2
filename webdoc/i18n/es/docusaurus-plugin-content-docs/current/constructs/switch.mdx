@@ -399,6 +399,64 @@ Noventa registros coinciden con `US|CA|MX`, y `27 + 63 = 90` — el 30% de la ra
 registro. Estas dos formas le cuestan el motor de flujo; vea
 [Determinista en todos los motores](#determinista-en-todos-los-motores).
 
+## Un `<switch>` dentro de un `<case>`
+
+Una rama puede contener una segunda consulta entera. Úsela cuando un valor depende de dos
+campos y el segundo solo importa para algunos valores del primero — un identificador nacional
+cuya forma depende del sexo y, para un sexo solamente, de la región.
+
+```xml
+<tdc>
+  <env count="8" seed="clinic-id" local="en">
+    <sequence name="Sex"><gen type="text" value="male,female" percent="50,50"/></sequence>
+    <sequence name="Region"><gen type="text" value="north,south" percent="50,50"/></sequence>
+
+    <switch name="Id" on="Sex">
+      <case is="male"><data>M-</data><gen type="number" value="100..199"/></case>
+      <case is="female">
+        <switch on="Region">
+          <case is="north"><data>FN-</data><gen type="number" value="200..299"/></case>
+          <case is="south"><data>FS-</data><gen type="number" value="300..399"/></case>
+        </switch>
+      </case>
+    </switch>
+  </env>
+  <block><line><data>${{Sex}}/${{Region}} -> ${{Id}}</data></line></block>
+</tdc>
+```
+
+<Terminal title="./run ids.tdc">
+{`male/south -> M-156
+male/north -> M-118
+male/north -> M-177
+male/north -> M-129
+female/south -> FS-371
+female/north -> FN-212
+female/south -> FS-358
+female/south -> FS-353`}
+</Terminal>
+
+Un registro masculino nunca llega al switch interior. Uno femenino lee `Region` y toma la rama
+con esa clave. **Por qué importa:** la alternativa es una secuencia por combinación más una
+expresión para elegir entre ellas — tres declaraciones para decir una sola cosa, sin nada que
+las ate.
+
+La forma anidada no admite `name`: aporta su valor a la rama que la rodea y nada puede
+interpolarla, así que un nombre no nombraría nada (error `TDC245`). Todo lo demás es igual que
+en el nivel superior: el sujeto debe ser una secuencia declarada antes, `<map>` funciona, y
+`<default>` cubre las filas DE ESA RAMA que no coincidieron con ninguna clave interior.
+
+El mismo `<case>` está dentro de [`<mix>`](./mix.mdx), así que un `<switch>` anidado también
+funciona allí: el mix decide si un registro es una factura, el switch decide qué impuesto
+nombra.
+
+:::note[Una proporción dentro de una rama anidada no fluye]
+Una rama de un switch anidado cubre la intersección de dos particiones — las filas de la rama
+que la envuelve y las del sujeto interior — que los motores de flujo no pueden numerar fila a
+fila. Una [proporción](#una-proporción-dentro-de-una-rama) escrita ahí es exacta, y TDC dirige
+la configuración al motor en memoria para que siga siéndolo.
+:::
+
 ## Reglas de selección
 
 - Gana la **primera** rama que coincide. Las filas de `<map>` se revisan primero (en

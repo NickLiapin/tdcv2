@@ -1991,9 +1991,31 @@ public sealed class Validator
         }
     }
 
-    private void CheckSwitch(TDCParser.OpenCloseElementContext open, List<string> declared)
+    private void CheckSwitch(TDCParser.OpenCloseElementContext open, List<string> declared) =>
+        CheckSwitchForm(open, declared, true);
+
+    /// <summary>
+    /// <c>named</c> is false for the form written inside a <c>&lt;case&gt;</c>: it contributes a
+    /// value to that branch rather than a column of its own, so it has no name to declare and
+    /// nothing can interpolate it. Every other rule is the same, from this one method.
+    /// </summary>
+    private void CheckSwitchForm(
+        TDCParser.OpenCloseElementContext open, IReadOnlyList<string> declared, bool named)
     {
         IReadOnlyDictionary<string, string> attrs = Attributes(open.attr());
+        if (!named && attrs.GetValueOrDefault("name") is not null)
+        {
+            (int nameLine, int nameColumn) = At(open, "name");
+            Error(
+                "TDC245",
+                "\"name\" on a nested <switch> is not supported — only an env-level <switch> "
+                + "becomes a column",
+                "A nested <switch> contributes its value to the <case> around it. Nothing can "
+                + "interpolate it, so a name would name nothing. Move it to <env> if you want "
+                + "${{Name}}.",
+                nameLine, nameColumn);
+        }
+
         string? on = attrs.GetValueOrDefault("on");
         if (string.IsNullOrWhiteSpace(on))
         {
@@ -2036,10 +2058,13 @@ public sealed class Validator
                         "A switch case matches a value; \"is\" is the value it matches.",
                         Line(inner), Column(inner));
                 }
+
+                CheckCaseBody(inner);
             }
             else if (inner.name.Text == "default")
             {
                 entries++;
+                CheckCaseBody(inner);
             }
         }
 
@@ -3309,6 +3334,14 @@ public sealed class Validator
                 continue;
             }
 
+            if (open.name.Text == "switch")
+            {
+                // A `<switch>` inside a `<case>` looks its subject up over the rows of that
+                // branch. Held to every rule the env-level form is, except that it has no name.
+                CheckSwitchForm(open, _declaredOrder, false);
+                continue;
+            }
+
             if (open.name.Text == "gen")
             {
                 continue;
@@ -3316,7 +3349,7 @@ public sealed class Validator
 
             Error(
                 "TDC125", $"unknown child of <case>: \"<{open.name.Text}>\"",
-                "Allowed children: data, gen, mix.", Line(open), Column(open));
+                "Allowed children: data, gen, mix, switch.", Line(open), Column(open));
         }
     }
 

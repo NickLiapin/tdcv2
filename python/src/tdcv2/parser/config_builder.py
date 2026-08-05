@@ -351,11 +351,17 @@ def _case(element) -> Case:
         open_el = child.openCloseElement()
         if open_el is not None and open_el.name.text == "mix":
             parts.append(CasePart(mix=_mix(open_el)))
+        elif open_el is not None and open_el.name.text == "switch":
+            parts.append(CasePart(switch=_switch_body(open_el)))
     return Case(parts, attributes(element.attr()).get("anomaly") == "true")
 
 
-def _switch_sequence(element) -> SequenceSpec:
-    attrs = attributes(element.attr())
+def _switch_body(element) -> Switch:
+    """The body of a ``<switch on="…">`` — its subject, entries and fallback.
+
+    Shared by the env-level form, which becomes a column, and the form written inside a
+    ``<case>``, which contributes a value. One reader, so the two cannot drift apart.
+    """
     entries: list[SwitchEntry] = []
     fallback: Case | None = None
 
@@ -374,10 +380,15 @@ def _switch_sequence(element) -> SequenceSpec:
         elif open_el.name.text == "default":
             fallback = _case(open_el)
 
+    return Switch(attributes(element.attr()).get("on", ""), entries, fallback)
+
+
+def _switch_sequence(element) -> SequenceSpec:
+    attrs = attributes(element.attr())
     return SequenceSpec(
         name=attrs.get("name"),
         parent=attrs.get("parent"),
-        switch_spec=Switch(attrs.get("on", ""), entries, fallback),
+        switch_spec=_switch_body(element),
     )
 
 

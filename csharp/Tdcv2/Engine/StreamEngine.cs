@@ -1349,10 +1349,14 @@ public sealed class StreamEngine
             {
                 parts.Add(BuildGen(streamId + "#p" + p, part.Gen, domain).Column);
             }
-            else
+            else if (part.Mix is not null)
             {
                 // A nested mix contributes its value only; `flag=` is a top-level idea.
-                parts.Add(BuildMix(streamId + "#p" + p, part.Mix!, domain).Column);
+                parts.Add(BuildMix(streamId + "#p" + p, part.Mix, domain).Column);
+            }
+            else
+            {
+                parts.Add(NestedSwitch(streamId + "#p" + p, part.SwitchSpec!, domain));
             }
         }
 
@@ -1392,6 +1396,57 @@ public sealed class StreamEngine
 
             return null;
         });
+    }
+
+    /// <summary>A <c>&lt;switch&gt;</c> written inside a <c>&lt;case&gt;</c> — the nested form.</summary>
+    /// <remarks>
+    /// Every branch resolves over the SAME domain as the case it sits in. A branch's own rows are
+    /// an intersection of two partitions — the enclosing branch's and the inner subject's — and
+    /// there is no O(1) rank inside an intersection, which is what an exact share would need. So a
+    /// nested branch that declares one is refused here and the router sends the config to the
+    /// in-memory engine. A branch that declares none needs no rank: the row decides which branch
+    /// answers, and both engines read the same row.
+    /// </remarks>
+    private Column NestedSwitch(string streamId, Switch sw, Domain domain)
+    {
+        var entries = new List<(IReadOnlyList<string> Keys, Func<int, string> Resolve)>();
+        for (int e = 0; e < sw.Entries.Count; e++)
+        {
+            SwitchEntry entry = sw.Entries[e];
+            if (CarriesPercent(entry.Value))
+            {
+                throw Unsupported(
+                    $"a percentage inside <case is=\"{string.Join("|", entry.Keys)}\"> of a "
+                    + $"nested <switch on=\"{sw.On}\">",
+                    streamId);
+            }
+
+            entries.Add((entry.Keys, CaseResolver(entry.Value, $"{streamId}#sw{e}", domain)));
+        }
+
+        if (CarriesPercent(sw.Fallback))
+        {
+            throw Unsupported(
+                $"a percentage inside <default> of a nested <switch on=\"{sw.On}\">", streamId);
+        }
+
+        Func<int, string>? fallback = sw.Fallback is null
+            ? null
+            : CaseResolver(sw.Fallback, $"{streamId}#swdef", domain);
+
+        return row =>
+        {
+            string key = NullToEmpty(ValueAt(sw.On, row));
+            foreach ((IReadOnlyList<string> keys, Func<int, string> resolve) in entries)
+            {
+                if (keys.Contains(key))
+                {
+                    return resolve(row);
+                }
+            }
+
+            return fallback?.Invoke(row);
+        };
     }
 
     /// <summary>The rows that chose one branch, numbered within themselves, or <c>null</c>.</summary>

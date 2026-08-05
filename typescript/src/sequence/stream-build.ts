@@ -78,6 +78,7 @@ import { arrangeExactUniq, type ExactUniqField } from './exact-uniq.js';
 import { counterValueAt } from './stream-resolve.js';
 import { buildComposedStream, composesOwnValue } from './composed.js';
 import { sequenceValueAt } from './types.js';
+import { caseCarriesPercent } from './switch-build.js';
 import type {
   CaseSpec,
   CondBranch,
@@ -118,7 +119,7 @@ export function buildLazyRegistry(
   seed: string,
   locale: string,
   now: number,
-  options: SequenceBuildOptions = {},
+  baseOptions: SequenceBuildOptions = {},
   envGroups: EnvGroups = { uniq: [], distinct: [] },
   /** Engine 3: allow percent+uniq via exact-% construction + verification. */
   exactUniq = false,
@@ -130,6 +131,18 @@ export function buildLazyRegistry(
     _total: lazy('_total', () => String(count)),
   };
   const parents = new Map<string, ParentCapable>();
+
+  // A `<switch>` inside a `<case>` is not a column, so it cannot be resolved
+  // through the registry the way the env-level form is. It reads the subject
+  // through this instead — lazily, so the column it names need only exist by the
+  // time a row is asked for.
+  const options: SequenceBuildOptions = {
+    ...baseOptions,
+    valueAt: (name, row) => {
+      const seq = registry[name];
+      return seq ? sequenceValueAt(seq, row) : undefined;
+    },
+  };
 
   // A `<uniq>` group REARRANGES whole columns so each keeps its multiset — a
   // promise about the finished column, which no engine can keep a row at a
@@ -956,6 +969,17 @@ export function buildCaseResolver(
     // Both a gen and a nested mix resolve over the case's SUBSET domain, so
     // counters count within the case, text is exact-% within it, and nested
     // switches split within it — reusing the same builders as top-level.
+    if (part.kind === 'switch') {
+      return nestedSwitchResolver(
+        part.switchSpec,
+        `${streamId}#p${String(p)}`,
+        caseDomain,
+        seed,
+        locale,
+        now,
+        options,
+      );
+    }
     const sub =
       part.kind === 'gen'
         ? build(`${streamId}#p${String(p)}`, part.gen, caseDomain, seed, locale, now, options)
@@ -975,6 +999,69 @@ export function buildCaseResolver(
     return (i) => sequenceValueAt(sub, i) ?? '';
   });
   return (i) => partResolvers.map((r) => r(i)).join('');
+}
+
+/**
+ * A `<switch>` written inside a `<case>` — the nested form.
+ *
+ * Every branch resolves over the SAME domain as the case it sits in. A branch's
+ * own rows are an intersection of two partitions — the enclosing branch's, and
+ * the inner subject's — and there is no O(1) rank inside an intersection, which
+ * is what an exact share would need. So a nested branch that declares one is
+ * refused here and the router sends the config to the in-memory engine, which
+ * numbers the rows it has in hand. A branch that declares no share needs no
+ * rank: the row decides which branch answers, and both engines read the same
+ * row.
+ */
+function nestedSwitchResolver(
+  switchSpec: SwitchSpec,
+  streamId: string,
+  caseDomain: Domain,
+  seed: string,
+  locale: string,
+  now: number,
+  options: SequenceBuildOptions,
+): (i: number) => string {
+  const refuse = (where: string): never => {
+    throw unsupported(
+      `a percentage inside ${where} of a nested <switch on="${switchSpec.on}">`,
+      streamId,
+    );
+  };
+  const entries = switchSpec.entries.map((e, k) => {
+    if (caseCarriesPercent(e.value)) refuse(`<case is="${e.keys.join('|')}">`);
+    return {
+      keys: e.keys,
+      resolve: buildCaseResolver(
+        e.value,
+        `${streamId}#sw${String(k)}`,
+        caseDomain,
+        seed,
+        locale,
+        now,
+        options,
+      ),
+    };
+  });
+  if (switchSpec.fallback && caseCarriesPercent(switchSpec.fallback)) refuse('<default>');
+  const fallback = switchSpec.fallback
+    ? buildCaseResolver(
+        switchSpec.fallback,
+        `${streamId}#swdef`,
+        caseDomain,
+        seed,
+        locale,
+        now,
+        options,
+      )
+    : undefined;
+
+  return (i) => {
+    const key = options.valueAt?.(switchSpec.on, i) ?? '';
+    const hit = entries.find((e) => e.keys.includes(key));
+    if (hit) return hit.resolve(i);
+    return fallback ? fallback(i) : '';
+  };
 }
 
 /**

@@ -1162,9 +1162,56 @@ impl StreamEngine<'_> {
                 // A nested mix contributes its value only; `flag=` is a
                 // top-level idea.
                 CasePart::Mix(mix) => self.build_mix(&stream, mix, domain.clone())?.column,
+                CasePart::Switch(sw) => self.nested_switch(&stream, sw, domain.clone())?,
             });
         }
         Ok(parts)
+    }
+
+    /// A `<switch>` written inside a `<case>` — the nested form.
+    ///
+    /// Every branch resolves over the SAME domain as the case it sits in. A branch's own rows
+    /// are an intersection of two partitions — the enclosing branch's and the inner subject's —
+    /// and there is no O(1) rank inside an intersection, which is what an exact share would
+    /// need. So a nested branch that declares one is refused here and the router sends the
+    /// config to the in-memory engine. A branch that declares none needs no rank: the row
+    /// decides which branch answers, and both engines read the same row.
+    fn nested_switch(&self, stream_id: &str, sw: &Switch, domain: Domain) -> EngineResult<Column> {
+        let mut entries = Vec::with_capacity(sw.entries.len());
+        for (e, entry) in sw.entries.iter().enumerate() {
+            if Self::carries_percent(Some(&entry.value)) {
+                return here(
+                    &format!(
+                        "a percentage inside <case is=\"{}\"> of a nested <switch on=\"{}\">",
+                        entry.keys.join("|"),
+                        sw.on
+                    ),
+                    stream_id,
+                );
+            }
+            entries.push((
+                entry.keys.clone(),
+                self.case_parts(&entry.value, &format!("{stream_id}#sw{e}"), domain.clone())?,
+            ));
+        }
+        if Self::carries_percent(sw.fallback.as_ref()) {
+            return here(
+                &format!(
+                    "a percentage inside <default> of a nested <switch on=\"{}\">",
+                    sw.on
+                ),
+                stream_id,
+            );
+        }
+        let fallback = match &sw.fallback {
+            Some(case) => Some(self.case_parts(case, &format!("{stream_id}#swdef"), domain)?),
+            None => None,
+        };
+        Ok(Column::Switch {
+            on: sw.on.clone(),
+            entries,
+            fallback,
+        })
     }
 
     /// The rows that chose one branch, numbered within themselves.
@@ -1201,7 +1248,9 @@ impl StreamEngine<'_> {
                     !mix.percent.as_deref().unwrap_or("").trim().is_empty()
                 }
                 CasePart::Gen(gen) => !gen.attr_or("percent", "").trim().is_empty(),
-                CasePart::Text(_) => false,
+                // A nested switch declares no share of its own; each of ITS branches is
+                // judged in `nested_switch`, where the refusal is raised.
+                CasePart::Text(_) | CasePart::Switch(_) => false,
             })
         })
     }

@@ -14,7 +14,15 @@ public sealed record Gen(string Type, IReadOnlyDictionary<string, string> Attrs)
 /// A case concatenates its pieces, which is what lets a branch read as <c>A-</c> followed by a
 /// pattern rather than as a separate prefix column.
 /// </remarks>
-public sealed record CasePart(string? Text, Gen? Gen, Mix? Mix);
+/// <summary>
+/// One piece of a <c>&lt;case&gt;</c> body: literal text, a generator, a nested mix, or a nested
+/// switch.
+/// </summary>
+/// <remarks>
+/// A nested <c>&lt;switch&gt;</c> contributes a value only — it has no <c>name</c>, so nothing can
+/// interpolate it — and it looks its subject up over the rows of the branch it sits in.
+/// </remarks>
+public sealed record CasePart(string? Text, Gen? Gen, Mix? Mix, Switch? SwitchSpec = null);
 
 /// <summary>One branch of a <c>&lt;mix&gt;</c> or <c>&lt;switch&gt;</c>.</summary>
 /// <param name="Anomaly">
