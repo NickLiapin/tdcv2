@@ -312,11 +312,11 @@ misma configuración y la misma semilla.
 
 | Implementación                            | Registro      | Instalación                  | Versión |
 | :---------------------------------------- | :------------ | :--------------------------- | :------ |
-| **[TypeScript](bindings/typescript.md#top)** | npm           | `npm i tdcv2`                | 0.1.6   |
-| **[Python](bindings/python.md#top)**         | PyPI          | `pip install tdcv2`          | 0.1.6   |
-| **[Rust](bindings/rust.md#top)**             | crates.io     | `cargo add tdcv2`            | 0.1.6   |
-| **[C#](bindings/csharp.md#top)**             | NuGet         | `dotnet add package Tdcv2`   | 0.1.6   |
-| **[Java](bindings/java.md#top)**             | Maven Central | `io.github.nickliapin:tdcv2` | 0.1.6   |
+| **[TypeScript](bindings/typescript.md#top)** | npm           | `npm i tdcv2`                | 0.1.7   |
+| **[Python](bindings/python.md#top)**         | PyPI          | `pip install tdcv2`          | 0.1.7   |
+| **[Rust](bindings/rust.md#top)**             | crates.io     | `cargo add tdcv2`            | 0.1.7   |
+| **[C#](bindings/csharp.md#top)**             | NuGet         | `dotnet add package Tdcv2`   | 0.1.7   |
+| **[Java](bindings/java.md#top)**             | Maven Central | `io.github.nickliapin:tdcv2` | 0.1.7   |
 
 Cada paquete publicado lleva un juego inicial de paquetes de datos, así que funciona sin
 instalar nada más; los otros diez idiomas y noventa y tantos paquetes de país están

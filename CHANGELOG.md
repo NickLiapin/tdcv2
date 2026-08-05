@@ -15,6 +15,22 @@ page — is tracked in that implementation's own changelog:
 
 ## [Unreleased]
 
+## [0.1.7] — 2026-08-04
+
+### This release changes what a config produces
+
+Two kinds of config come out different from the same `seed`. Neither is a
+regression: both were wrong before and are right now. If you compare a fresh run
+against a snapshot taken on 0.1.6, expect a diff.
+
+- **Any config with a `percent` inside a `<switch>` branch.** The share was
+  apportioned over the whole run and the values that landed on rows belonging to
+  another branch were dropped. It is a quota over the branch now, so the values
+  and the rows they sit on both move.
+- **Any config with `local="ru"`.** The Russian name lists were filled out to the
+  scale of the English ones and the feminine forms are derived rather than
+  listed, so the names drawn from them differ.
+
 ### Added
 
 - **A `<switch>` may be written inside a `<case>`.** A branch can hold a whole second

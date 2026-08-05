@@ -28,7 +28,7 @@
   -->
   <PropertyGroup>
     <PackageId>Tdcv2.Cli</PackageId>
-    <Version>0.1.6</Version>
+    <Version>0.1.7</Version>
     <Authors>Nick Liapin</Authors>
     <Description>Command line for TDC — the deterministic test-data generator. Turns a .tdc config into data: generate, check, format, init, and pack. Same seed, same bytes as the TypeScript, Python, Java and Rust implementations. The library itself is the Tdcv2 package.</Description>
     <PackageTags>test-data;mock-data;fake-data;synthetic-data;data-generator;deterministic;fixtures;testing;cli;dotnet-tool</PackageTags>

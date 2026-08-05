@@ -29,7 +29,7 @@
  */
 
 import { execFileSync } from 'node:child_process';
-import { existsSync, mkdtempSync, readdirSync, writeFileSync } from 'node:fs';
+import { existsSync, mkdtempSync, readFileSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 
@@ -80,12 +80,22 @@ const IMPLEMENTATIONS = [
   },
 ];
 
-/** The built CLI jar, whatever version it was built at. */
+/**
+ * The CLI jar for the version this tree declares.
+ *
+ * It used to be "whatever `-cli.jar` readdir hands back first", which is
+ * alphabetical, so a jar left behind by an earlier release WON. That is how this
+ * audit came to report six port disagreements on a fixed engine: `build/libs`
+ * held 0.1.5, 0.1.6 and 0.1.7 side by side, and Java was judged on a jar built
+ * the day before the fix. The report said the ports disagreed. They agreed; the
+ * harness was reading the wrong file.
+ *
+ * So: the version decides, and a missing jar says so by name instead of quietly
+ * running an old one.
+ */
 function javaCliJar() {
-  const dir = join(REPO, 'java/build/libs');
-  if (!existsSync(dir)) return 'java/build/libs/tdcv2-cli.jar';
-  const hit = readdirSync(dir).find((f) => f.endsWith('-cli.jar'));
-  return hit === undefined ? 'java/build/libs/tdcv2-cli.jar' : `java/build/libs/${hit}`;
+  const version = JSON.parse(readFileSync(join(REPO, 'typescript/package.json'), 'utf8')).version;
+  return `java/build/libs/tdcv2-${version}-cli.jar`;
 }
 
 const args = process.argv.slice(2);

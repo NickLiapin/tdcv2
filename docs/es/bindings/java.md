@@ -22,14 +22,14 @@ Una sola dependencia, desde Maven Central:
 <dependency>
   <groupId>io.github.nickliapin</groupId>
   <artifactId>tdcv2</artifactId>
-  <version>0.1.6</version>
+  <version>0.1.7</version>
 </dependency>
 ```
 
 Con Gradle, en `build.gradle.kts`:
 
 ```kotlin
-implementation("io.github.nickliapin:tdcv2:0.1.6")
+implementation("io.github.nickliapin:tdcv2:0.1.7")
 ```
 
 Los paquetes de datos iniciales viajan dentro del jar, así que esto funciona sin

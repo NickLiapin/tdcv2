@@ -303,11 +303,11 @@ registry produces the same bytes for the same config and seed.
 
 | Implementation                            | Registry      | Install                      | Version |
 | :---------------------------------------- | :------------ | :--------------------------- | :------ |
-| **[TypeScript](bindings/typescript.md#top)** | npm           | `npm i tdcv2`                | 0.1.6   |
-| **[Python](bindings/python.md#top)**         | PyPI          | `pip install tdcv2`          | 0.1.6   |
-| **[Rust](bindings/rust.md#top)**             | crates.io     | `cargo add tdcv2`            | 0.1.6   |
-| **[C#](bindings/csharp.md#top)**             | NuGet         | `dotnet add package Tdcv2`   | 0.1.6   |
-| **[Java](bindings/java.md#top)**             | Maven Central | `io.github.nickliapin:tdcv2` | 0.1.6   |
+| **[TypeScript](bindings/typescript.md#top)** | npm           | `npm i tdcv2`                | 0.1.7   |
+| **[Python](bindings/python.md#top)**         | PyPI          | `pip install tdcv2`          | 0.1.7   |
+| **[Rust](bindings/rust.md#top)**             | crates.io     | `cargo add tdcv2`            | 0.1.7   |
+| **[C#](bindings/csharp.md#top)**             | NuGet         | `dotnet add package Tdcv2`   | 0.1.7   |
+| **[Java](bindings/java.md#top)**             | Maven Central | `io.github.nickliapin:tdcv2` | 0.1.7   |
 
 Every published package carries a starter set of data packs, so it works with
 nothing else installed; the other ten languages and ninety-odd country packs are

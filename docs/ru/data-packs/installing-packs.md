@@ -50,7 +50,7 @@ tdcv2: no pack store configured — run `tdcv2 init` first
 > | Python   | `pip install tdcv2`                               | `tdcv2 pack add ru`               |
 > | Rust     | `cargo install tdcv2`                             | `tdcv2 pack add ru`               |
 > | C#       | `dotnet tool install --global Tdcv2.Cli`          | `tdcv2 pack add ru`               |
-> | Java     | скачать `tdcv2-0.1.6-cli.jar` с Maven Central     | `java -jar tdcv2-0.1.6-cli.jar pack add ru` |
+> | Java     | скачать `tdcv2-0.1.7-cli.jar` с Maven Central     | `java -jar tdcv2-0.1.7-cli.jar pack add ru` |
 >
 > Три из них кладут команду `tdcv2` в PATH, и дальше читаются одинаково. Node не требует
 > установки вообще — `npx` скачивает и запускает одним действием. Java выбивается потому,
@@ -58,11 +58,11 @@ tdcv2: no pack store configured — run `tdcv2 init` first
 > положить команду в PATH, поэтому командная строка — это jar, который вы запускаете сами:
 >
 > ```bash
-> curl -LO https://repo1.maven.org/maven2/io/github/nickliapin/tdcv2/0.1.6/tdcv2-0.1.6-cli.jar
-> java -jar tdcv2-0.1.6-cli.jar pack add ru
+> curl -LO https://repo1.maven.org/maven2/io/github/nickliapin/tdcv2/0.1.7/tdcv2-0.1.7-cli.jar
+> java -jar tdcv2-0.1.7-cli.jar pack add ru
 > ```
 >
-> Стоит завести алиас — `alias tdcv2='java -jar /путь/к/tdcv2-0.1.6-cli.jar'` — после этого
+> Стоит завести алиас — `alias tdcv2='java -jar /путь/к/tdcv2-0.1.7-cli.jar'` — после этого
 > все команды на этой странице читаются так же, как везде.
 >
 > Проект, настроенный одной реализацией, готов для остальных четырёх — тот же конфиг, то же
