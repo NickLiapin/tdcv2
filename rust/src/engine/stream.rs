@@ -637,14 +637,49 @@ impl<'a> StreamEngine<'a> {
                     // to through its own conditions.
                     let full = Domain::all(self.count);
                     let mut built = Vec::with_capacity(branches.len());
+                    let mut flags: Vec<(Option<String>, Option<Column>)> =
+                        Vec::with_capacity(branches.len());
                     for (b, branch) in branches.iter().enumerate() {
                         let stream = format!("{}#if{b}", spec.name);
-                        built.push((
-                            branch.if_expr.clone(),
-                            Box::new(self.build_gen(&stream, &branch.gen, full.clone())?.column),
-                        ));
+                        let made = self.build_gen(&stream, &branch.gen, full.clone())?;
+                        built.push((branch.if_expr.clone(), Box::new(made.column)));
+                        flags.push((made.flag_name, made.flag));
                     }
-                    self.put(&spec.name, Column::Conditional(built));
+                    self.put(&spec.name, Column::Conditional(built.clone()));
+
+                    // A branch carrying `anomaly_flag="NAME"` mints the companion
+                    // ground-truth column. It is a conditional in its own right, over
+                    // the SAME conditions: the row's flag comes from whichever branch
+                    // produced the row's value. A branch that did not declare this
+                    // name answers `false` — not empty — because the row IS covered
+                    // and "no outlier" is the truth about it. Rows no branch matched
+                    // fall out of Conditional as absent, masking the flag exactly
+                    // like the value.
+                    let mut named: Vec<String> = Vec::new();
+                    for (flag_name, _) in &flags {
+                        if let Some(n) = flag_name {
+                            if !named.contains(n) {
+                                named.push(n.clone());
+                            }
+                        }
+                    }
+                    for flag_name in named {
+                        let arms = built
+                            .iter()
+                            .zip(flags.iter())
+                            .map(|((cond, _), (owner, flag))| {
+                                let column = match (owner.as_ref(), flag) {
+                                    (Some(o), Some(f)) if *o == flag_name => f.clone(),
+                                    _ => Column::Constant {
+                                        domain: full.clone(),
+                                        text: "false".to_string(),
+                                    },
+                                };
+                                (cond.clone(), Box::new(column))
+                            })
+                            .collect();
+                        self.put(&flag_name, Column::Conditional(arms));
+                    }
                 }
                 Source::Items(items) => {
                     // The body in declaration order, each part on a stream of

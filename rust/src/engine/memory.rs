@@ -820,8 +820,12 @@ fn build_columns_with(
             }
 
             Source::Branches(branches) => {
-                let values = conditional(branches, count, &mut prng, &columns, env)?;
+                let (values, flag_columns) =
+                    conditional(&spec.name, branches, count, &mut prng, &columns, env)?;
                 columns.insert(spec.name.clone(), values);
+                for (flag_name, flag_values) in flag_columns {
+                    columns.insert(flag_name, flag_values);
+                }
             }
         }
     }
@@ -2417,36 +2421,87 @@ fn spread(rows: &[usize], produced: Vec<String>, count: usize) -> Vec<Option<Str
 /// would make the whole run depend on which branch happened to win, and two
 /// engines would stop agreeing.
 fn conditional(
+    name: &str,
     branches: &[Branch],
     count: usize,
     prng: &mut Sfc32,
     columns: &BTreeMap<String, Vec<Option<String>>>,
     env: &Env,
-) -> EngineResult<Vec<Option<String>>> {
+) -> EngineResult<(Vec<Option<String>>, Vec<(String, Vec<Option<String>>)>)> {
     if count == 0 {
-        return Ok(Vec::new());
+        return Ok((Vec::new(), Vec::new()));
     }
 
+    // Each branch draws under its OWN stream — `Name#if0`, `Name#if1` — the ids the
+    // streaming engine gives them. They used to take the run's shared PRNG, which
+    // made a branch's values depend on how many draws the columns before it had
+    // made, so the two engines produced different data from one seed.
     let mut built = Vec::with_capacity(branches.len());
-    for branch in branches {
-        let drawn = generate(&branch.gen, count, prng, env)?;
-        built.push(finish(drawn, &branch.gen.attrs, prng, None)?);
+    for (k, branch) in branches.iter().enumerate() {
+        let stream = per_row::Stream::new(&env.config.seed, &format!("{name}#if{k}"));
+        let flag_name = branch
+            .gen
+            .attr("anomaly_flag")
+            .map(str::trim)
+            .filter(|f| !f.is_empty())
+            .map(str::to_string);
+        let mut flags = vec![false; count];
+        let values = column_values(
+            &branch.gen,
+            count,
+            prng,
+            env,
+            Some(&stream),
+            Some(&mut flags),
+            None,
+        )?;
+        built.push((flag_name, values, flags));
+    }
+
+    // One column per DISTINCT name: branches sharing `anomaly_flag="IsOutlier"`
+    // share the column, which is the point of writing it on each branch.
+    let mut flag_names: Vec<String> = Vec::new();
+    for (flag_name, _, _) in &built {
+        if let Some(n) = flag_name {
+            if !flag_names.contains(n) {
+                flag_names.push(n.clone());
+            }
+        }
     }
 
     let mut result = vec![None; count];
-    for (i, slot) in result.iter_mut().enumerate() {
+    let mut flag_columns: Vec<(String, Vec<Option<String>>)> = flag_names
+        .iter()
+        .map(|n| (n.clone(), vec![None; count]))
+        .collect();
+
+    for i in 0..count {
+        let mut winner = None;
         for (b, branch) in branches.iter().enumerate() {
             let holds = match &branch.if_expr {
                 None => true,
                 Some(condition) => condition_at(condition, columns, i)?,
             };
             if holds {
-                *slot = Some(built[b][i].clone());
+                winner = Some(b);
                 break;
             }
         }
+        // No branch matched: the row is not covered, so neither the value nor any
+        // claim about it exists — every flag column stays absent here, masked
+        // exactly like the value.
+        let Some(b) = winner else { continue };
+        result[i] = Some(built[b].1[i].clone());
+        for (column_name, column) in &mut flag_columns {
+            // A covered row always has an answer. `false` — not empty — when the
+            // branch that produced it cannot spike at all, because "no outlier" is
+            // the truth about that row and a detector scored against the column
+            // needs it stated rather than left blank.
+            let spiked = built[b].0.as_ref() == Some(column_name) && built[b].2[i];
+            column[i] = Some(if spiked { "true" } else { "false" }.to_string());
+        }
     }
-    Ok(result)
+    Ok((result, flag_columns))
 }
 
 /// One `if=` expression, against one row.
