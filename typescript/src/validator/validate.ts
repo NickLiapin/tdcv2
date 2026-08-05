@@ -55,15 +55,22 @@ import { checkGenTemplate } from './template-locale.js';
 import {
   BUILTIN_SEQUENCES,
   KNOWN_CASE_CHILDREN,
+  KNOWN_DISTINCT_CHILDREN,
+  KNOWN_ENV_GROUP_CHILDREN,
   KNOWN_ENV_CHILDREN,
   KNOWN_GEN_TYPES,
   KNOWN_MIX_CHILDREN,
   KNOWN_SEQUENCE_CHILDREN,
-  KNOWN_SWITCH_CHILDREN,
   KNOWN_TDC_CHILDREN,
 } from './known.js';
 import { checkGenNumber as checkGenNumberAttrs } from './number.js';
-import { childNode, childTagName, isKnownConstruct, reportMisplaced } from './placement.js';
+import {
+  childNode,
+  childTagName,
+  isKnownConstruct,
+  reportMisplaced,
+  reportUnknownChild,
+} from './placement.js';
 import { checkIfExpression, type PendingExpression, runPendingExpressions } from './expr-check.js';
 import { DEFAULT_REGEX_MAX_LENGTH, parseRegexMaxLength } from '../generators/regex.js';
 import { checkGenAdvancedRegex } from './advanced-regex.js';
@@ -74,6 +81,7 @@ import { checkGenRegex } from './regex.js';
 import { checkGenSymbol } from './symbol.js';
 import { checkCompute } from './compute.js';
 import { checkGroupSize } from './group-size.js';
+import { checkGenBody, checkGroupBody, openChild } from './container-children.js';
 import {
   checkPoolIsRead,
   collectPoolFieldValues,
@@ -210,7 +218,7 @@ export function validate(tree: DocumentContext, options: ValidationOptions = {})
       ...nodeRange(k.node),
       message: `unknown child of <tdc>: "<${childName}>"`,
       ...(suggestion ? { suggestion: `did you mean "<${suggestion}>"?` } : {}),
-      hint: `Allowed children: ${formatCandidates(KNOWN_TDC_CHILDREN)}.`,
+      hint: `Allowed inside <tdc>: ${formatCandidates(KNOWN_TDC_CHILDREN)}.`,
       code: 'TDC010',
     });
   }
@@ -434,6 +442,7 @@ function checkEnv(envEl: OpenCloseElementContext, ctx: Ctx): void {
     }
 
     if ((name === 'distinct' || name === 'uniq') && k.kind === 'open') {
+      checkGroupBody({ node: k.node }, name, KNOWN_ENV_GROUP_CHILDREN, ctx);
       checkGroupSize(k.node, ctx.diagnostics, name);
       checkEnvSequenceGroup(k.node, ctx.diagnostics, name, memberCheckers(ctx));
       continue;
@@ -476,7 +485,7 @@ function checkEnv(envEl: OpenCloseElementContext, ctx: Ctx): void {
       ...nodeRange(k.node),
       message: `unknown child of <env>: "<${name}>"`,
       ...(suggestion ? { suggestion: `did you mean "<${suggestion}>"?` } : {}),
-      hint: `Allowed: ${formatCandidates(KNOWN_ENV_CHILDREN)}.`,
+      hint: `Allowed inside <env>: ${formatCandidates(KNOWN_ENV_CHILDREN)}.`,
       code: 'TDC010',
     });
   }
@@ -656,6 +665,13 @@ function checkSequence(seqEl: OpenCloseElementContext, ctx: Ctx): void {
   let misplaced = 0;
   for (const el of contentElements(seqEl.content())) {
     const cn = childTagName(el);
+    // A `<distinct>`/`<uniq>` wrapper is allowed here, but its own body was
+    // never looked at — the gens inside were collected and everything else
+    // dropped on the floor.
+    if (cn === 'distinct' || cn === 'uniq') {
+      checkGroupBody(openChild(el), cn, KNOWN_DISTINCT_CHILDREN, ctx);
+      continue;
+    }
     if (cn === null || KNOWN_SEQUENCE_CHILDREN.includes(cn)) continue;
     if (isKnownConstruct(cn) || cn === 'map') {
       // A construct that exists but lives elsewhere: say where.
@@ -669,16 +685,7 @@ function checkSequence(seqEl: OpenCloseElementContext, ctx: Ctx): void {
     // allowed names; a sequence answers the same way now.
     const node = childNode(el);
     if (!node) continue;
-    const suggestion = closestMatch(cn, KNOWN_SEQUENCE_CHILDREN);
-    ctx.diagnostics.push({
-      severity: 'error',
-      source: 'validator',
-      ...nodeRange(node),
-      message: `unknown child of <sequence>: "<${cn}>"`,
-      ...(suggestion ? { suggestion: `did you mean "<${suggestion}>"?` } : {}),
-      hint: `Allowed: ${formatCandidates(KNOWN_SEQUENCE_CHILDREN)}.`,
-      code: 'TDC010',
-    });
+    reportUnknownChild(node, 'sequence', cn, 'TDC010', ctx);
     misplaced += 1;
   }
 
@@ -787,6 +794,7 @@ function checkGen(
   ctx: Ctx,
   inCase = false,
 ): void {
+  checkGenBody(gen, ctx);
   const attrs = gen.attr();
   const attrMap = extractAttrs(attrs);
   const type = attrMap['type'] ?? '';
@@ -1077,7 +1085,7 @@ function checkMixBody(mixEl: OpenCloseElementContext, ctx: Ctx, named = true): v
       ...nodeRange(k.node),
       message: `unknown child of <mix>: "<${childName}>"`,
       ...(suggestion ? { suggestion: `did you mean "<${suggestion}>"?` } : {}),
-      hint: `Allowed children: ${formatCandidates(KNOWN_MIX_CHILDREN)}.`,
+      hint: `Allowed inside <mix>: ${formatCandidates(KNOWN_MIX_CHILDREN)}.`,
       code: 'TDC124',
     });
   }
@@ -1190,7 +1198,7 @@ function checkCaseContent(caseEl: OpenCloseElementContext, ctx: Ctx): void {
       ...nodeRange(k.node),
       message: `unknown child of <case>: "<${name}>"`,
       ...(suggestion ? { suggestion: `did you mean "<${suggestion}>"?` } : {}),
-      hint: `Allowed children: ${formatCandidates(KNOWN_CASE_CHILDREN)}.`,
+      hint: `Allowed inside <case>: ${formatCandidates(KNOWN_CASE_CHILDREN)}.`,
       code: 'TDC125',
     });
   }
@@ -1280,24 +1288,18 @@ function checkSwitch(switchEl: OpenCloseElementContext, ctx: Ctx, named = true):
       continue;
     }
     const k = elementKind(el);
-    if (k?.kind !== 'open') continue;
+    // `kind !== 'open'` used to skip the child entirely, so `<bogus/>` written
+    // self-closing slipped through while `<bogus></bogus>` was caught — the same
+    // invention accepted or refused depending on how it was punctuated.
+    if (!k || k.kind === 'data') continue;
     const childName = elementName(k.node);
-    if (childName === 'case') {
+    if (childName === 'case' && k.kind === 'open') {
       checkSwitchEntry(k.node, ctx);
       entryCount += 1;
-    } else if (childName === 'default') {
+    } else if (childName === 'default' && k.kind === 'open') {
       checkCaseContent(k.node, ctx);
     } else {
-      const suggestion = closestMatch(childName, KNOWN_SWITCH_CHILDREN);
-      ctx.diagnostics.push({
-        severity: 'error',
-        source: 'validator',
-        ...nodeRange(k.node),
-        message: `unknown child of <switch>: "<${childName}>"`,
-        ...(suggestion ? { suggestion: `did you mean "<${suggestion}>"?` } : {}),
-        hint: `Allowed children: ${formatCandidates(KNOWN_SWITCH_CHILDREN)}.`,
-        code: 'TDC124',
-      });
+      reportUnknownChild(k.node, 'switch', childName, 'TDC124', ctx);
     }
   }
 

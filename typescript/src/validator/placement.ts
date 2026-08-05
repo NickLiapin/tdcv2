@@ -11,6 +11,7 @@ import type { ParserRuleContext } from 'antlr4ng';
 
 import { type Diagnostic, formatCandidates, nodeRange } from '../errors/index.js';
 import { ALLOWED_CHILDREN } from './known.js';
+import { closestMatch } from '../errors/index.js';
 import type { ElementContext } from '../generated/TDCParser.js';
 import { elementKind, elementName } from '../processor/walk.js';
 
@@ -69,5 +70,40 @@ export function reportMisplaced(
     message: `<${name}> is not allowed directly inside <${parent}>`,
     hint: [belongs, takes].filter(Boolean).join(' ') || `Move <${name}> to a valid location.`,
     code: 'TDC013',
+  });
+}
+
+/**
+ * One invented tag, one answer — wherever it turns up.
+ *
+ * Eight containers refused an unknown child and five let it through in silence,
+ * and the eight that did refuse used five codes and three wordings for the one
+ * mistake. The codes stay as they are (they are published, and the errors
+ * reference is keyed by them); the NOTE is what a reader acts on, so every
+ * container now says it the same way.
+ *
+ * `<data>` is the deliberate exception and is never checked: a tag inside it is
+ * output TEXT — `<data>x<b/>y</data>` renders `x<b/>y` — which is how a config
+ * emits XML or HTML.
+ */
+export function reportUnknownChild(
+  node: ParserRuleContext,
+  parent: string,
+  name: string,
+  code: string,
+  sink: { diagnostics: Diagnostic[] },
+  /** Explicit list, for a tag whose children depend on where it sits. */
+  allowedOverride?: readonly string[],
+): void {
+  const allowed = allowedOverride ?? ALLOWED_CHILDREN[parent] ?? [];
+  const suggestion = closestMatch(name, allowed);
+  sink.diagnostics.push({
+    severity: 'error',
+    source: 'validator',
+    ...nodeRange(node),
+    message: `unknown child of <${parent}>: "<${name}>"`,
+    ...(suggestion ? { suggestion: `did you mean "<${suggestion}>"?` } : {}),
+    hint: `Allowed inside <${parent}>: ${formatCandidates(allowed)}.`,
+    code,
   });
 }

@@ -42,7 +42,9 @@ describe('an invented tag inside <sequence>', () => {
   });
 
   it('names what a sequence WILL take — the part a reader acts on', () => {
-    expect(report(invented)[0]).toContain('Allowed: gen, data, distinct, compute.');
+    expect(report(invented)[0]).toContain(
+      'Allowed inside <sequence>: gen, data, distinct, compute.',
+    );
   });
 
   it('still accepts every legitimate body', () => {
@@ -95,5 +97,87 @@ describe('a known tag in the wrong container', () => {
     // "Move <row> to a valid location" does not say where. TDC010 in the same
     // situation prints the list, and that list is what gets read and acted on.
     expect(report(misplaced)[0]).toContain('Allowed inside <block>: line, data.');
+  });
+});
+
+/**
+ * The same invented tag, in every container that has one.
+ *
+ * Written as a table because the fault it guards was never in any single
+ * container — it was that eight of them answered and five did not, and the
+ * eight that did used three different wordings for one mistake. A model reading
+ * three shapes learns three rules; a table is the only way to keep them one.
+ */
+describe('an invented tag is refused wherever it appears', () => {
+  const BOG = '<bogus_tag/>';
+  const SEQ = '<sequence name="A"><gen type="number" value="1..9"/></sequence>';
+  const containers: readonly (readonly [string, string])[] = [
+    [
+      'tdc',
+      `<tdc>${BOG}<env count="2" seed="p" local="en">${SEQ}</env><block><line><data>x</data></line></block></tdc>`,
+    ],
+    [
+      'env',
+      `<tdc><env count="2" seed="p" local="en">${BOG}${SEQ}</env><block><line><data>x</data></line></block></tdc>`,
+    ],
+    [
+      'sequence',
+      `<tdc><env count="2" seed="p" local="en"><sequence name="A"><gen type="number" value="1..9"/>${BOG}</sequence></env><block><line><data>x</data></line></block></tdc>`,
+    ],
+    [
+      'block',
+      `<tdc><env count="2" seed="p" local="en">${SEQ}</env><block>${BOG}<line><data>x</data></line></block></tdc>`,
+    ],
+    [
+      'line',
+      `<tdc><env count="2" seed="p" local="en">${SEQ}</env><block><line>${BOG}<data>x</data></line></block></tdc>`,
+    ],
+    [
+      'mix',
+      `<tdc><env count="2" seed="p" local="en"><mix name="M" percent="50,50">${BOG}<case><data>a</data></case><case><data>b</data></case></mix></env><block><line><data>x</data></line></block></tdc>`,
+    ],
+    [
+      'case',
+      `<tdc><env count="2" seed="p" local="en"><mix name="M" percent="50,50"><case><data>a</data>${BOG}</case><case><data>b</data></case></mix></env><block><line><data>x</data></line></block></tdc>`,
+    ],
+    [
+      'switch',
+      `<tdc><env count="2" seed="p" local="en"><sequence name="K"><gen type="text" value="a,b"/></sequence><switch name="S" on="K">${BOG}<case is="a"><data>1</data></case><default><data>2</data></default></switch></env><block><line><data>x</data></line></block></tdc>`,
+    ],
+    [
+      'distinct',
+      `<tdc><env count="2" seed="p" local="en"><sequence name="A"><distinct><gen name="p" type="number" value="1..9"/><gen name="q" type="number" value="1..9"/>${BOG}</distinct></sequence></env><block><line><data>x</data></line></block></tdc>`,
+    ],
+    [
+      'before',
+      `<tdc><env count="2" seed="p" local="en"><before>${BOG}<line><data>h</data></line></before>${SEQ}</env><block><line><data>x</data></line></block></tdc>`,
+    ],
+    [
+      'gen',
+      `<tdc><env count="2" seed="p" local="en"><sequence name="A"><gen type="number" value="1..9">${BOG}</gen></sequence></env><block><line><data>x</data></line></block></tdc>`,
+    ],
+    [
+      'compute',
+      `<tdc><env count="2" seed="p" local="en"><sequence name="A"><compute><result><join sep="-"><in><list v="10,20"/>${BOG}</in></join></result></compute></sequence></env><block><line><data>x</data></line></block></tdc>`,
+    ],
+  ];
+
+  for (const [where, source] of containers) {
+    it(`<${where}> says so, and says what it does take`, () => {
+      const found = report(source).filter((d) => d.includes('bogus_tag'));
+      expect(found.length, `<${where}> stayed silent`).toBeGreaterThan(0);
+      expect(found[0], `<${where}> used its own wording`).toContain(`Allowed inside <${where}>:`);
+    });
+  }
+
+  it('leaves <data> alone — a tag there is output text, not a mistake', () => {
+    // `<data>x<b/>y</data>` renders `x<b/>y`, which is how a config emits XML or
+    // HTML. Refusing it would take that away to catch a typo.
+    const inData =
+      '<tdc><env count="2" seed="p" local="en">' +
+      '<sequence name="A"><gen type="number" value="1..9"/></sequence></env>' +
+      '<block><line><data>x<bogus_tag/>y</data></line></block></tdc>';
+    expect(report(inData)).toEqual([]);
+    expect(new TDC({ configString: inData }).toString().split('\n')[0]).toBe('x<bogus_tag/>y');
   });
 });

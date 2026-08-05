@@ -11,7 +11,7 @@
  * Diagnostic codes: TDC180–TDC189.
  */
 
-import { type Diagnostic, nodeRange } from '../errors/index.js';
+import { formatCandidates, type Diagnostic, nodeRange } from '../errors/index.js';
 import type {
   ElementContext,
   OpenCloseElementContext,
@@ -209,7 +209,17 @@ function walkExpr(el: ElementContext, scope: VScope, diags: Diagnostic[]): void 
   const n = cnode(el);
   if (!n) return;
   if (!COMPUTE_TAGS.has(n.name)) {
-    report(diags, n.node, 'TDC180', `unknown compute tag <${n.name}>`, HINTS_BY_TAG[n.name]);
+    // A tag with a note of its own keeps it — those explain a real confusion.
+    // Everything else gets the same "Allowed inside <X>" list every container
+    // prints, truncated the way the long <env> list already is.
+    report(
+      diags,
+      n.node,
+      'TDC180',
+      `unknown compute tag <${n.name}>`,
+      HINTS_BY_TAG[n.name] ??
+        `Allowed inside <compute>: ${formatCandidates([...COMPUTE_TAGS].sort())}.`,
+    );
     return;
   }
   switch (n.name) {

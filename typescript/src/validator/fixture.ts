@@ -16,7 +16,7 @@ import { nodeRange } from '../errors/index.js';
 import type { OpenCloseElementContext } from '../generated/TDCParser.js';
 import { contentElements, elementKind } from '../processor/walk.js';
 
-import { childNode, childTagName } from './placement.js';
+import { childNode, childTagName, reportUnknownChild } from './placement.js';
 
 /** Fixture tags: text emitted around cards and lines, never generated data. */
 export const FIXTURE_TAGS: readonly string[] = [
@@ -49,7 +49,15 @@ export function checkFixture(
     const name = childTagName(el);
     if (name === null || name === 'data') continue;
     const k = elementKind(el);
-    if (name === 'line' && k?.kind === 'open') {
+    // A fixture holds text and <line>s. Anything else was ignored in silence
+    // unless it happened to be a generator inside a <line> — so an invented tag
+    // written straight into <before> passed without a word.
+    if (name !== 'line') {
+      const node = childNode(el);
+      if (node) reportUnknownChild(node, fixtureName, name, 'TDC131', { diagnostics });
+      continue;
+    }
+    if (k?.kind === 'open') {
       for (const inner of contentElements(k.node.content())) {
         const innerName = childTagName(inner);
         if (innerName === null || innerName === 'data') continue;

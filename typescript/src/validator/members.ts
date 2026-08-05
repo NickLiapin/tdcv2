@@ -23,6 +23,8 @@ import {
 
 import { nodeRange } from '../errors/source-map.js';
 import { checkGroupSize } from './group-size.js';
+import { KNOWN_POOL_CHILDREN } from './known.js';
+import { reportUnknownChild } from './placement.js';
 import { checkPool, checkPoolMemberRefs } from './pool.js';
 
 /**
@@ -99,12 +101,21 @@ export function checkPoolMembers(
   const outerNames = declaredSequences.length;
   for (const child of contentElements(pool.content())) {
     const k = elementKind(child);
-    if (k?.kind === 'self') {
+    if (!k || k.kind === 'data') continue;
+    const name = elementName(k.node);
+    // Neither branch below used to say anything about a name it did not know,
+    // so an invented tag inside a <pool> passed in silence whichever way it was
+    // written. The list is deliberately generous — see KNOWN_POOL_CHILDREN.
+    // `<block>` inside a pool is already TDC230, which says far more than a
+    // generic "unknown child" would; leave it to that.
+    if (name !== 'block' && !KNOWN_POOL_CHILDREN.includes(name)) {
+      reportUnknownChild(k.node, 'pool', name, 'TDC010', { diagnostics });
+      continue;
+    }
+    if (k.kind === 'self') {
       checkSelfClosingSequence(k.node, diagnostics);
       continue;
     }
-    if (k?.kind !== 'open') continue;
-    const name = elementName(k.node);
     if (name === 'sequence') checkers.sequence(k.node);
     else if (name === 'mix') checkers.mix(k.node);
     else if (name === 'switch') checkers.switchTag(k.node);

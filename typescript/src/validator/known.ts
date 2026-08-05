@@ -186,6 +186,49 @@ export const KNOWN_SEQUENCE_CHILDREN: readonly string[] = [
 export const KNOWN_BLOCK_CHILDREN: readonly string[] = ['line', 'data'] as const;
 
 /**
+ * `<distinct>` and `<uniq>` mean two different things depending on where they
+ * sit, and so hold two different sets of children.
+ *
+ * Inside a `<sequence>` they group the FIELDS of one record — `<gen>`s. At
+ * `<env>` level they group whole COLUMNS, so their members are declarations:
+ * sequences, mixes, switches, or a bare `<member name="…"/>` naming one. One
+ * list for both refused half the working configs in the suite, which is how
+ * this comment came to be written.
+ */
+export const KNOWN_DISTINCT_CHILDREN: readonly string[] = ['gen'] as const;
+
+/** Members of an `<env>`-level `<distinct>` / `<uniq>` group. */
+export const KNOWN_ENV_GROUP_CHILDREN: readonly string[] = [
+  'sequence',
+  'mix',
+  'switch',
+  'member',
+] as const;
+
+/**
+ * Tag names valid as direct children of `<pool>`.
+ *
+ * Deliberately generous. A pool is a miniature `<env>`, and the risk here is
+ * lopsided: too SHORT a list refuses configs that work today, while too long a
+ * one merely leaves a little of the old silence in place. Anything on this list
+ * that a pool cannot really hold already has a diagnostic of its own.
+ */
+export const KNOWN_POOL_CHILDREN: readonly string[] = [
+  'sequence',
+  'mix',
+  'switch',
+  'uniq',
+  'distinct',
+  'member',
+] as const;
+
+/** Tag names valid inside a fixture (`<before>`, `<after>`, the delimiters…). */
+export const KNOWN_FIXTURE_CHILDREN: readonly string[] = ['data', 'line'] as const;
+
+/** Tag names valid inside the open/close form of `<gen>`. */
+export const KNOWN_GEN_CHILDREN: readonly string[] = ['data'] as const;
+
+/**
  * What each container allows, for the "Allowed: …" note.
  *
  * TDC010 printed this list and TDC013 did not — it said "Move <row> to a valid
@@ -200,4 +243,17 @@ export const ALLOWED_CHILDREN: Readonly<Record<string, readonly string[]>> = {
   switch: KNOWN_SWITCH_CHILDREN,
   case: KNOWN_CASE_CHILDREN,
   block: KNOWN_BLOCK_CHILDREN,
+  distinct: KNOWN_DISTINCT_CHILDREN,
+  uniq: KNOWN_DISTINCT_CHILDREN,
+  pool: KNOWN_POOL_CHILDREN,
+  gen: KNOWN_GEN_CHILDREN,
+  line: ['data', 'gen', 'mix', 'switch'],
+  before: KNOWN_FIXTURE_CHILDREN,
+  after: KNOWN_FIXTURE_CHILDREN,
+  before_block: KNOWN_FIXTURE_CHILDREN,
+  after_block: KNOWN_FIXTURE_CHILDREN,
+  delimiter_block: KNOWN_FIXTURE_CHILDREN,
+  before_line: KNOWN_FIXTURE_CHILDREN,
+  after_line: KNOWN_FIXTURE_CHILDREN,
+  delimiter_line: KNOWN_FIXTURE_CHILDREN,
 };
