@@ -58,6 +58,7 @@ import {
   KNOWN_ENV_CHILDREN,
   KNOWN_GEN_TYPES,
   KNOWN_MIX_CHILDREN,
+  KNOWN_SEQUENCE_CHILDREN,
   KNOWN_SWITCH_CHILDREN,
   KNOWN_TDC_CHILDREN,
 } from './known.js';
@@ -655,10 +656,30 @@ function checkSequence(seqEl: OpenCloseElementContext, ctx: Ctx): void {
   let misplaced = 0;
   for (const el of contentElements(seqEl.content())) {
     const cn = childTagName(el);
-    if (cn === 'mix' || cn === 'switch' || cn === 'case' || cn === 'default' || cn === 'map') {
+    if (cn === null || KNOWN_SEQUENCE_CHILDREN.includes(cn)) continue;
+    if (isKnownConstruct(cn) || cn === 'map') {
+      // A construct that exists but lives elsewhere: say where.
       reportMisplaced(el, cn, 'sequence', ctx);
       misplaced += 1;
+      continue;
     }
+    // Anything else is invented or mistyped, and used to pass in SILENCE — the
+    // config validated, exit 0, and the run went ahead as if the tag had done
+    // something. The same mistake inside <env> has always been TDC010 with the
+    // allowed names; a sequence answers the same way now.
+    const node = childNode(el);
+    if (!node) continue;
+    const suggestion = closestMatch(cn, KNOWN_SEQUENCE_CHILDREN);
+    ctx.diagnostics.push({
+      severity: 'error',
+      source: 'validator',
+      ...nodeRange(node),
+      message: `unknown child of <sequence>: "<${cn}>"`,
+      ...(suggestion ? { suggestion: `did you mean "<${suggestion}>"?` } : {}),
+      hint: `Allowed: ${formatCandidates(KNOWN_SEQUENCE_CHILDREN)}.`,
+      code: 'TDC010',
+    });
+    misplaced += 1;
   }
 
   if (gens.length === 0) {

@@ -9,7 +9,8 @@
 
 import type { ParserRuleContext } from 'antlr4ng';
 
-import { type Diagnostic, nodeRange } from '../errors/index.js';
+import { type Diagnostic, formatCandidates, nodeRange } from '../errors/index.js';
+import { ALLOWED_CHILDREN } from './known.js';
 import type { ElementContext } from '../generated/TDCParser.js';
 import { elementKind, elementName } from '../processor/walk.js';
 
@@ -55,12 +56,18 @@ export function reportMisplaced(
 ): void {
   const node = childNode(el);
   if (!node) return;
+  // Two halves, and the second is the one a reader acts on: where this tag
+  // SHOULD go, then what this parent WILL take. TDC013 used to carry only the
+  // first — and for a tag with no entry above, only "move it somewhere".
+  const belongs = PLACEMENT_HINT[name];
+  const allowed = ALLOWED_CHILDREN[parent];
+  const takes = allowed ? `Allowed inside <${parent}>: ${formatCandidates(allowed)}.` : undefined;
   sink.diagnostics.push({
     severity: 'error',
     source: 'validator',
     ...nodeRange(node),
     message: `<${name}> is not allowed directly inside <${parent}>`,
-    hint: PLACEMENT_HINT[name] ?? `Move <${name}> to a valid location.`,
+    hint: [belongs, takes].filter(Boolean).join(' ') || `Move <${name}> to a valid location.`,
     code: 'TDC013',
   });
 }

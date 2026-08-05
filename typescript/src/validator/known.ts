@@ -160,3 +160,44 @@ export const KNOWN_SWITCH_CHILDREN: readonly string[] = ['map', 'case', 'default
 
 /** Tag names valid as direct children of `<case>`. */
 export const KNOWN_CASE_CHILDREN: readonly string[] = ['data', 'gen', 'mix', 'switch'] as const;
+
+/**
+ * Tag names valid as direct children of `<sequence>`.
+ *
+ * The last container to get a list, and the reason is worth recording: an
+ * invented tag here was accepted in silence — `check` said `is valid`, exit 0,
+ * the run went ahead — while the identical mistake one level up, inside
+ * `<env>`, got TDC010 with the allowed names spelled out. A model reading the
+ * second fixes it on the first try; reading nothing, it concludes the tag
+ * exists and carries it from attempt to attempt.
+ *
+ * The list is short because a sequence body is: the generator(s), literal text
+ * between them, a `<distinct>` wrapper grouping fields, or a `<compute>` that
+ * derives the column from others.
+ */
+export const KNOWN_SEQUENCE_CHILDREN: readonly string[] = [
+  'gen',
+  'data',
+  'distinct',
+  'compute',
+] as const;
+
+/** Tag names valid as direct children of `<block>`. */
+export const KNOWN_BLOCK_CHILDREN: readonly string[] = ['line', 'data'] as const;
+
+/**
+ * What each container allows, for the "Allowed: …" note.
+ *
+ * TDC010 printed this list and TDC013 did not — it said "Move <row> to a valid
+ * location", which does not say where. The list is the part a reader acts on,
+ * so both codes carry it now.
+ */
+export const ALLOWED_CHILDREN: Readonly<Record<string, readonly string[]>> = {
+  tdc: KNOWN_TDC_CHILDREN,
+  env: KNOWN_ENV_CHILDREN,
+  sequence: KNOWN_SEQUENCE_CHILDREN,
+  mix: KNOWN_MIX_CHILDREN,
+  switch: KNOWN_SWITCH_CHILDREN,
+  case: KNOWN_CASE_CHILDREN,
+  block: KNOWN_BLOCK_CHILDREN,
+};

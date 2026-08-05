@@ -159,23 +159,39 @@ export class TDC {
     const packScan = scanPacks(packRoots);
     this.packs = packScan.registry;
 
+    const parserDiags: Diagnostic[] = parseResult.diagnostics.map((d, i) => ({
+      severity: 'error',
+      source: d.source,
+      // The same code `format` gives a parse failure. It was missing here, and
+      // the shared CLI fixture — which requires a located, CODED diagnostic —
+      // was satisfied instead by the TDC002 that the torn tree produced. A
+      // contract met by the very fallout it was meant to rule out.
+      code: 'TDC001',
+      line: d.line,
+      column: d.column,
+      message: d.message,
+      ...(i === 0
+        ? {
+            hint: 'The document did not parse, so the structural and semantic checks were skipped. Fix this first — anything they reported would be describing the torn tree, not your config.',
+          }
+        : {}),
+    }));
+
+    // A tree that did not parse makes every later finding suspect, so none are
+    // shown. An unpaired `</gen>` drops <block> out of the document, and the run
+    // then reported "no <block> child" about a <block> plainly present in the
+    // very line it printed — the consequence reading as more convincing than the
+    // cause, and both a reader and a model going off to fix the wrong thing.
+    if (parserDiags.length > 0) {
+      throw new TdcDiagnosticError(parserDiags, source);
+    }
+
     const validation = validate(parseResult.tree, {
       dataSources: { baseDir: resolved.baseDir, dataPaths: effective.dataPaths },
       packAddresses: [...this.packs.keys()],
       packParams: packParameterNames(this.packs),
     });
-    const parserDiags: Diagnostic[] = parseResult.diagnostics.map((d) => ({
-      severity: 'error',
-      source: d.source,
-      line: d.line,
-      column: d.column,
-      message: d.message,
-    }));
-    const combined: Diagnostic[] = [
-      ...parserDiags,
-      ...packScan.diagnostics,
-      ...validation.diagnostics,
-    ];
+    const combined: Diagnostic[] = [...packScan.diagnostics, ...validation.diagnostics];
     if (hasErrors(combined)) {
       throw new TdcDiagnosticError(combined, source);
     }
