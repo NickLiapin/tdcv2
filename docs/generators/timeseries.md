@@ -79,6 +79,7 @@ layers are exactly what `timeseries` adds.
 | `trend`     | Slope: how much the value rises each step                |
 | `period`    | Length of the seasonal wave, in rows (e.g. `7` = a week) |
 | `amplitude` | Height of the seasonal wave                              |
+| `peak_at`   | Which row the wave peaks on (default: a quarter period in) |
 | `noise`     | Strength of the random noise (standard deviation)        |
 | `decimals`  | Digits after the decimal point (default `0` — integer)   |
 
@@ -157,6 +158,81 @@ Within each 7-row window the value rises to a peak and falls to a trough, then
 repeats. Because the trend keeps lifting the whole line, each cycle sits higher than
 the last — the wave rides up the slope. Use it for anything with a calendar rhythm:
 weekday-vs-weekend traffic, summer-vs-winter demand.
+
+### `peak_at` — which row the wave is highest on
+
+`period` and `amplitude` say how long the wave is and how far it swings. They do not
+say WHEN it peaks, and the default answer surprises people: the wave starts at the
+middle of its swing and climbs, so it peaks a **quarter period** in.
+
+Over twelve monthly rows that is row 3 — April. "Warmer in summer" is what the
+config was for, and April is not it:
+
+```xml
+<gen type="timeseries" base="15" amplitude="10" period="12" decimals="1"/>
+```
+
+`./run temp.tdc — the fourth row is the highest`
+
+```
+15.0
+20.0
+23.7
+25.0
+23.7
+20.0
+15.0
+10.0
+6.3
+5.0
+6.3
+10.0
+```
+
+`peak_at` names the row instead. Rows count from zero, so July is row 6:
+
+```xml
+<gen type="timeseries" base="15" amplitude="10" period="12" peak_at="6" decimals="1"/>
+```
+
+`./run temp.tdc — the seventh row is the highest`
+
+```
+5.0
+6.3
+10.0
+15.0
+20.0
+23.7
+25.0
+23.7
+20.0
+15.0
+10.0
+6.3
+```
+
+Nothing else moved: same `base`, same `amplitude`, same twelve-row cycle. Only the
+month the maximum lands on.
+
+**It is a row, not an angle.** `period` is already counted in rows, so `peak_at` is
+too — 182 of 365 is the first of July, and that is a number you can work out from a
+calendar rather than from radians. A value beyond the period wraps, so `peak_at="18"`
+over `period="12"` is the same as `6`, and a fraction is allowed when the peak sits
+between two rows.
+
+`peak_at="0"` is worth knowing separately: it makes the wave START at its maximum,
+a shape a plain sine cannot produce at any amplitude.
+
+> [!NOTE]
+> **If you reached for `phase`**
+>
+> That is the signal-processing name and TDC does not have it. `peak_at` does the same
+> job in the unit the rest of the generator uses. Writing `phase=` is an error that
+> says so.
+
+`peak_at` needs a `period` — a wave has to have a length before it can have a highest
+point. Without one it is `TDC253`.
 
 ### `noise` — real-world roughness
 

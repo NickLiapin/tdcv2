@@ -77,6 +77,7 @@ agrega `timeseries`.
 | `trend`     | Pendiente: cuánto sube el valor en cada paso                    |
 | `period`    | Largo de la onda estacional, en filas (p. ej. `7` = una semana) |
 | `amplitude` | Altura de la onda estacional                                    |
+| `peak_at`   | En qué fila alcanza su máximo la onda (por defecto: a un cuarto del período) |
 | `noise`     | Fuerza del ruido aleatorio (desviación estándar)                |
 | `decimals`  | Dígitos después del punto decimal (por omisión `0` — entero)    |
 
@@ -151,6 +152,76 @@ luego se repite. Como la tendencia sigue levantando toda la línea, cada ciclo q
 más alto que el anterior: la onda cabalga cuesta arriba. Sirve para cualquier cosa con
 ritmo de calendario: tráfico entre semana contra fin de semana, demanda de verano
 contra invierno.
+
+### `peak_at` — en qué fila la onda está más alta
+
+`period` y `amplitude` dicen qué largo tiene la onda y cuánto oscila. No dicen **cuándo**
+alcanza su máximo, y la respuesta por defecto sorprende: la onda arranca en la mitad de su
+oscilación y sube, así que su máximo cae a un **cuarto del período**.
+
+Sobre doce filas mensuales eso es la fila 3 — abril. El config se escribió para «más calor
+en verano», y abril no lo es:
+
+```xml
+<gen type="timeseries" base="15" amplitude="10" period="12" decimals="1"/>
+```
+
+<Terminal title="./run temp.tdc — la cuarta fila es la más alta">
+{`15.0
+20.0
+23.7
+25.0
+23.7
+20.0
+15.0
+10.0
+6.3
+5.0
+6.3
+10.0`}
+</Terminal>
+
+`peak_at` nombra la fila directamente. Las filas se cuentan desde cero, así que julio es la
+fila 6:
+
+```xml
+<gen type="timeseries" base="15" amplitude="10" period="12" peak_at="6" decimals="1"/>
+```
+
+<Terminal title="./run temp.tdc — la séptima fila es la más alta">
+{`5.0
+6.3
+10.0
+15.0
+20.0
+23.7
+25.0
+23.7
+20.0
+15.0
+10.0
+6.3`}
+</Terminal>
+
+Nada más se movió: el mismo `base`, la misma `amplitude`, el mismo ciclo de doce filas.
+Solo cambió el mes en el que cae el máximo.
+
+**Es una fila, no un ángulo.** `period` ya se cuenta en filas, así que `peak_at` también:
+182 de 365 es el primero de julio, y ese número sale de un calendario y no de los radianes.
+Un valor más allá del período da la vuelta, así que `peak_at="18"` con `period="12"` es lo
+mismo que `6`, y se admite una fracción cuando el máximo cae entre dos filas.
+
+`peak_at="0"` merece conocerse aparte: hace que la onda **empiece** en su máximo, una forma
+que un seno simple no produce con ninguna amplitud.
+
+:::note[Si buscaste `phase`]
+Ese es el nombre del procesamiento de señales, y TDC no lo tiene. `peak_at` hace el mismo
+trabajo en la unidad que usa el resto del generador. Escribir `phase=` es un error que lo
+dice.
+:::
+
+`peak_at` necesita un `period`: una onda tiene que tener largo antes de poder tener un punto
+más alto. Sin él es `TDC253`.
 
 ### `noise` — la aspereza del mundo real
 
