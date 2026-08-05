@@ -26,6 +26,18 @@ import type { Diagnostic } from './diagnostic.js';
 
 export interface FormatOptions {
   /**
+   * One line per diagnostic, with no source excerpt and no carets.
+   *
+   * The full report is right for a person and wrong for a program: 1746
+   * characters and 27 lines for three errors, of which three lines carry the
+   * finding and the rest draw a picture of the file. A tool feeding a refusal
+   * back to a model spends two thirds of its window on that picture, and an
+   * editor listing errors in a panel wants rows, not art.
+   *
+   *     TDC010 3:12 unknown child of <sequence>: "<anomaly_factor>" :: Allowed inside …
+   */
+  readonly brief?: boolean;
+  /**
    * Filename to print in the `-->` location prefix. Defaults to
    * `<input>` so single-file CLI invocations read naturally even when
    * the user passed a string, not a path.
@@ -104,6 +116,11 @@ export function formatDiagnostics(
 ): string {
   if (diagnostics.length === 0) return '';
   const colors = options.colors ?? false;
+  if (options.brief === true) {
+    // No summary line either: a caller parsing rows should not have to skip a
+    // sentence at the end, and a caller counting them already knows how many.
+    return diagnostics.map(briefLine).join('\n');
+  }
   const blocks = diagnostics.map((d) => formatDiagnostic(d, source, options));
   const errorCount = diagnostics.filter((d) => d.severity === 'error').length;
   const warnCount = diagnostics.length - errorCount;
@@ -167,4 +184,18 @@ function renderSnippet(d: Diagnostic, source: string, colors: boolean): string[]
     `${gutter('')} ${pipe} ${caretLine}`,
     `${gutter('')} ${pipe}`,
   ];
+}
+
+/**
+ * One diagnostic on one line: code, position, message, and the hint after `::`.
+ *
+ * The hint is kept because it carries the list of what IS allowed, which is the
+ * part a reader — or a model — acts on. Dropping it to save characters would
+ * remove the only actionable half.
+ */
+function briefLine(d: Diagnostic): string {
+  const code = d.code ?? (d.severity === 'warning' ? 'WARN' : 'ERROR');
+  const where = `${String(d.line)}:${String(d.column)}`;
+  const hint = d.hint === undefined || d.hint === '' ? '' : ` :: ${d.hint}`;
+  return `${code} ${where} ${d.message}${hint}`;
 }

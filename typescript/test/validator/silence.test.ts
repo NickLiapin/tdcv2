@@ -96,7 +96,7 @@ describe('a known tag in the wrong container', () => {
       '<block><row><line><data>${{A}}</data></line></row></block></tdc>';
     // "Move <row> to a valid location" does not say where. TDC010 in the same
     // situation prints the list, and that list is what gets read and acted on.
-    expect(report(misplaced)[0]).toContain('Allowed inside <block>: line, data.');
+    expect(report(misplaced)[0]).toContain('Allowed inside <block>: data, line.');
   });
 });
 

@@ -61,8 +61,12 @@ export function reportMisplaced(
   // SHOULD go, then what this parent WILL take. TDC013 used to carry only the
   // first — and for a tag with no entry above, only "move it somewhere".
   const belongs = PLACEMENT_HINT[name];
+  // Sorted, like the unknown-child path below — the previous commit sorted only
+  // one of the two and left this one printing declaration order.
   const allowed = ALLOWED_CHILDREN[parent];
-  const takes = allowed ? `Allowed inside <${parent}>: ${formatCandidates(allowed)}.` : undefined;
+  const takes = allowed
+    ? `Allowed inside <${parent}>: ${formatCandidates([...allowed].sort())}.`
+    : undefined;
   sink.diagnostics.push({
     severity: 'error',
     source: 'validator',

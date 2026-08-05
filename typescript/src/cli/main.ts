@@ -79,7 +79,8 @@ Usage:
   tdcv2 init [--global]            Set up a config (asks where; --yes for defaults)
   tdcv2 pack [list|add|remove <id>] Install / remove data packs (menu with no args)
   tdcv2 format [-w] <file.tdc>     Pretty-print a config (-w writes it in place)
-  tdcv2 check <input.tdc>          Validate a config without generating anything
+  tdcv2 check [--brief] <input.tdc> Validate a config without generating anything
+                                   (--brief: one line per diagnostic, no excerpt)
 
 Options:
   -o, --output <path>      Write generated content to <path> (default: stdout)
@@ -518,9 +519,15 @@ export async function main(argv: readonly string[]): Promise<number> {
  * 1 when it is not.
  */
 function runCheck(argv: readonly string[]): number {
+  // `--brief` prints one line per diagnostic and no source excerpt. The full
+  // report is right for a person and wrong for a program: an editor listing
+  // errors in a panel wants rows, and a tool feeding a refusal back to a model
+  // spends two thirds of its window on the picture of the file.
+  const brief = argv.includes('--brief');
   const files = argv.filter((a) => !a.startsWith('-'));
-  if (files.length !== argv.length || files.length !== 1) {
-    process.stderr.write('tdcv2: usage: tdcv2 check <input.tdc>\n');
+  const flags = argv.filter((a) => a.startsWith('-'));
+  if (flags.some((f) => f !== '--brief') || files.length !== 1) {
+    process.stderr.write('tdcv2: usage: tdcv2 check [--brief] <input.tdc>\n');
     return 2;
   }
   const file = files[0] ?? '';
@@ -532,6 +539,7 @@ function runCheck(argv: readonly string[]): number {
         formatDiagnostics(tdc.diagnostics, tdc.source, {
           filename: file,
           colors: process.stderr.isTTY,
+          brief,
         }) + '\n',
       );
     } else {
@@ -544,6 +552,7 @@ function runCheck(argv: readonly string[]): number {
         formatDiagnostics(err.diagnostics, err.source, {
           filename: file,
           colors: process.stderr.isTTY,
+          brief,
         }) + '\n',
       );
       return 1;
