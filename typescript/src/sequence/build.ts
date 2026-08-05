@@ -54,6 +54,7 @@ import { openUnit, seekableGen, seekableUniforms } from '../prng/seekable.js';
 import {
   absoluteRow,
   exactTextLayout,
+  forStreamOf,
   redrawCtx,
   INLINE_ANOMALY_TYPES,
   keyedDraws,
@@ -470,7 +471,7 @@ export function buildSequences(
       continue;
     }
     if (spec.conditional) {
-      registry[spec.name] = materializeConditional(
+      const { sequence, flags } = materializeConditional(
         spec,
         spec.conditional,
         registry,
@@ -480,6 +481,8 @@ export function buildSequences(
         now,
         ctx,
       );
+      registry[spec.name] = sequence;
+      for (const f of flags) registry[f.name] = f.sequence;
       continue;
     }
     if (spec.compute) {
@@ -583,23 +586,61 @@ function materializeConditional(
   locale: string,
   now: number,
   ctx: SequenceBuildContext,
-): Sequence {
-  const built = branches.map((b) => ({
-    cond: b.cond,
-    values: buildGenValues(b.gen, count, prng, locale, now, ctx),
-  }));
+): { sequence: Sequence; flags: readonly { name: string; sequence: Sequence }[] } {
+  // Each branch draws under its OWN stream — `Name#if0`, `Name#if1` — the ids
+  // the streaming engine gives them in `buildConditionalSeq`. They used to share
+  // the run's PRNG, which made a branch's values depend on how many draws the
+  // columns before it had made: the same config and seed then produced different
+  // data on the in-memory engine than on the streaming one.
+  const built = branches.map((b, k) => {
+    const flagName = (b.gen.attrs['anomaly_flag'] ?? '').trim();
+    const flags: string[] | undefined = flagName === '' ? undefined : [];
+    return {
+      cond: b.cond,
+      flagName,
+      flags,
+      values: buildGenValues(
+        b.gen,
+        count,
+        prng,
+        locale,
+        now,
+        forStreamOf(ctx, `${spec.name}#if${String(k)}`),
+        flags,
+      ),
+    };
+  });
+
   const values = new Array<string | undefined>(count);
-  for (let i = 0; i < count; i++) {
-    let picked: string | undefined;
-    for (const b of built) {
-      if (b.cond === undefined || evaluateIf(b.cond, registry, i)) {
-        picked = b.values[i];
-        break;
-      }
+  // One column per DISTINCT name: branches sharing `anomaly_flag="IsOutlier"`
+  // share the column, which is the point of writing it on each branch.
+  const flagCols = new Map<string, (string | undefined)[]>();
+  for (const b of built) {
+    if (b.flagName !== '' && !flagCols.has(b.flagName)) {
+      flagCols.set(b.flagName, new Array<string | undefined>(count));
     }
-    values[i] = picked;
   }
-  return { name: spec.name, values };
+
+  for (let i = 0; i < count; i++) {
+    const winner = built.find((b) => b.cond === undefined || evaluateIf(b.cond, registry, i));
+    values[i] = winner?.values[i];
+    // No branch matched: the row is not covered, so neither the value nor any
+    // claim about it exists. Every flag column stays `undefined` here, masked
+    // exactly like the value.
+    if (!winner) continue;
+    for (const [name, col] of flagCols) {
+      // A covered row always has an answer. `false` — not empty — when the
+      // branch that produced it cannot spike at all, because "no outlier" is
+      // the truth about that row, and a detector scored against the column
+      // needs it stated rather than left blank.
+      col[i] = winner.flagName === name ? (winner.flags?.[i] ?? 'false') : 'false';
+    }
+  }
+
+  return {
+    sequence: { name: spec.name, values },
+    flags: [...flagCols].map(([name, vals]) => ({ name, sequence: { name, values: vals } })),
+  };
 }
 
 function materializeSimple(

@@ -205,7 +205,7 @@ export function buildLazyRegistry(
     }
 
     if (spec.conditional) {
-      registry[spec.name] = buildConditionalSeq(
+      const { sequence, flags } = buildConditionalSeq(
         spec.name,
         spec.conditional,
         count,
@@ -215,6 +215,8 @@ export function buildLazyRegistry(
         options,
         registry,
       );
+      registry[spec.name] = sequence;
+      for (const f of flags) registry[f.name] = f.sequence;
       continue;
     }
 
@@ -337,20 +339,50 @@ function buildConditionalSeq(
   now: number,
   options: SequenceBuildOptions,
   registry: SequenceRegistry,
-): Sequence {
+): { sequence: Sequence; flags: readonly { name: string; sequence: Sequence }[] } {
   const fullDomain: Domain = { size: count, popIndexAt: (i) => i };
-  const built = branches.map((b, k) => ({
-    cond: b.cond,
-    seq: build(`${name}#if${String(k)}`, b.gen, fullDomain, seed, locale, now, options).sequence,
-  }));
-  return lazy(name, (i) => {
-    for (const b of built) {
-      if (b.cond === undefined || evaluateIf(b.cond, registry, i)) {
-        return sequenceValueAt(b.seq, i);
-      }
-    }
-    return undefined;
+  const built = branches.map((b, k) => {
+    const streamId = `${name}#if${String(k)}`;
+    const { sequence, flag } = build(streamId, b.gen, fullDomain, seed, locale, now, options);
+    const flagName = (b.gen.attrs['anomaly_flag'] ?? '').trim();
+    return {
+      cond: b.cond,
+      seq: sequence,
+      flagName,
+      // A repeating gen builds its label alongside its values; everything else
+      // derives one over the same domain the branch drew on.
+      flagSeq:
+        flagName === ''
+          ? undefined
+          : (flag?.sequence ??
+            anomalyFlagSequence(b.gen, seed, streamId, fullDomain, locale, now, options)?.sequence),
+    };
   });
+
+  /** The branch that produces row `i`, or undefined when none matched. */
+  const winnerAt = (i: number): (typeof built)[number] | undefined =>
+    built.find((b) => b.cond === undefined || evaluateIf(b.cond, registry, i));
+
+  const sequence = lazy(name, (i) => {
+    const w = winnerAt(i);
+    return w ? sequenceValueAt(w.seq, i) : undefined;
+  });
+
+  // One column per distinct `anomaly_flag` name; branches sharing a name share
+  // the column. See `materializeConditional` in build.ts for the masking rule —
+  // the two engines answer this the same way or the flag is worthless.
+  const flagNames = [...new Set(built.map((b) => b.flagName).filter((n) => n !== ''))];
+  const flags = flagNames.map((flagName) => ({
+    name: flagName,
+    sequence: lazy(flagName, (i) => {
+      const w = winnerAt(i);
+      if (!w) return undefined;
+      if (w.flagName !== flagName || !w.flagSeq) return 'false';
+      return sequenceValueAt(w.flagSeq, i) ?? 'false';
+    }),
+  }));
+
+  return { sequence, flags };
 }
 
 /**
