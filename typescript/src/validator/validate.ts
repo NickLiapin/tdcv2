@@ -96,7 +96,7 @@ import { checkLineEach } from './each.js';
 import { EACH_BUILTINS } from '../processor/each.js';
 import { checkGenWeight } from './weight.js';
 import { checkGenMask } from './mask.js';
-import { checkGenImperfections } from './imperfections.js';
+import { checkAnomalyFlag, checkGenImperfections } from './imperfections.js';
 import { checkParentRef } from './parent-ref.js';
 import { checkAllUnknownAttrs, checkUnknownAttrs } from './unknown-attrs.js';
 import { checkGenHttp } from './http.js';
@@ -761,7 +761,11 @@ function genAttrIf(gen: OpenCloseElementContext | SelfClosingElementContext): st
 // <gen>  (used inside <sequence> and inside a <mix>'s <case>)
 // -----------------------------------------------------------------------
 
-function checkGen(gen: OpenCloseElementContext | SelfClosingElementContext, ctx: Ctx): void {
+function checkGen(
+  gen: OpenCloseElementContext | SelfClosingElementContext,
+  ctx: Ctx,
+  inCase = false,
+): void {
   const attrs = gen.attr();
   const attrMap = extractAttrs(attrs);
   const type = attrMap['type'] ?? '';
@@ -821,33 +825,7 @@ function checkGen(gen: OpenCloseElementContext | SelfClosingElementContext, ctx:
       code: 'TDC191',
     });
   }
-  // anomaly_flag="NAME" mints a companion "true"/"false" ground-truth column, so
-  // it needs an anomaly to flag and a non-empty column name.
-  const flagAttr = findAttr(attrs, 'anomaly_flag');
-  if (flagAttr) {
-    const flagVal = (attrMap['anomaly_flag'] ?? '').trim();
-    // It mints a real sequence, so `${{Flag}}` must resolve like any other.
-    if (flagVal !== '') ctx.declaredSequences.push(flagVal);
-    const anomalyVal = (attrMap['anomaly'] ?? '').trim();
-    if (flagVal === '') {
-      ctx.diagnostics.push({
-        severity: 'error',
-        source: 'validator',
-        ...attrValueRange(flagAttr),
-        message: 'anomaly_flag must name the ground-truth column, e.g. anomaly_flag="IsOutlier"',
-        code: 'TDC193',
-      });
-    } else if (anomalyVal === '') {
-      ctx.diagnostics.push({
-        severity: 'error',
-        source: 'validator',
-        ...attrValueRange(flagAttr),
-        message: `anomaly_flag="${flagVal}" has no "anomaly" on the same <gen> — nothing to flag`,
-        hint: 'Add anomaly="p" (a probability 0..1) to inject outliers, or remove anomaly_flag.',
-        code: 'TDC193',
-      });
-    }
-  }
+  checkAnomalyFlag(gen, ctx.diagnostics, ctx.declaredSequences, inCase);
 
   switch (type) {
     case 'text':
@@ -1164,11 +1142,11 @@ function checkCaseContent(caseEl: OpenCloseElementContext, ctx: Ctx): void {
       continue;
     }
     if (k.kind === 'self' && elementName(k.node) === 'gen') {
-      checkGen(k.node, ctx);
+      checkGen(k.node, ctx, true);
       continue;
     }
     if (k.kind === 'open' && elementName(k.node) === 'gen') {
-      checkGen(k.node, ctx);
+      checkGen(k.node, ctx, true);
       continue;
     }
     if (k.kind === 'open' && elementName(k.node) === 'mix') {

@@ -64,6 +64,84 @@
         ]
       }
     },
+    "anomaly-flag/anomaly-flag-conditional-memory": {
+      "engine2": {
+        "lines": [
+          "a|2|false",
+          "b|2000|true",
+          "a|2000|true",
+          "a|1|false",
+          "b|3000|true",
+          "b|2000|true",
+          "a|1|false",
+          "b|1|false"
+        ]
+      },
+      "engine3": {
+        "lines": [
+          "a|2|false",
+          "b|2000|true",
+          "a|2000|true",
+          "a|1|false",
+          "b|3000|true",
+          "b|2000|true",
+          "a|1|false",
+          "b|1|false"
+        ]
+      }
+    },
+    "anomaly-flag/anomaly-flag-conditional-disk": {
+      "engine2": {
+        "lines": [
+          "a|2|false",
+          "b|2000|true",
+          "a|2000|true",
+          "a|1|false",
+          "b|3000|true",
+          "b|2000|true",
+          "a|1|false",
+          "b|1|false"
+        ]
+      },
+      "engine3": {
+        "lines": [
+          "a|2|false",
+          "b|2000|true",
+          "a|2000|true",
+          "a|1|false",
+          "b|3000|true",
+          "b|2000|true",
+          "a|1|false",
+          "b|1|false"
+        ]
+      }
+    },
+    "anomaly-flag/anomaly-flag-conditional-unflagged-branch": {
+      "engine2": {
+        "lines": [
+          "a|2|false",
+          "b|8|false",
+          "a|2000|true",
+          "a|1|false",
+          "b|9|false",
+          "b|8|false",
+          "a|1|false",
+          "b|7|false"
+        ]
+      },
+      "engine3": {
+        "lines": [
+          "a|2|false",
+          "b|8|false",
+          "a|2000|true",
+          "a|1|false",
+          "b|9|false",
+          "b|8|false",
+          "a|1|false",
+          "b|7|false"
+        ]
+      }
+    },
     "compute/compute-aba-routing": {
       "engine2": {
         "lines": [

@@ -23,8 +23,9 @@
 
 import { describe, expect, it } from 'vitest';
 
-import { parseStrict } from '../../src/parser/index.js';
+import { parse, parseStrict } from '../../src/parser/index.js';
 import { render, type RenderOptions } from '../../src/processor/render.js';
+import { validate } from '../../src/validator/index.js';
 
 const NOW = new Date('2026-04-23T12:00:00Z').getTime();
 const N = 400;
@@ -113,5 +114,50 @@ describe('anomaly_flag on a conditional <gen>', () => {
       expect(stream).toEqual(memory);
       expect(disk).toEqual(memory);
     }
+  });
+});
+
+/**
+ * The other half of the same silence. A `<case>` body is a CONCATENATION of
+ * parts — `<data>invoice-</data>` followed by a `<gen>` — so a flag written on
+ * one part describes that part and not the row's value, and there is no honest
+ * column to mint. `<mix flag="NAME">` says the same thing at the level where it
+ * is true, so the answer here is to say so rather than to invent semantics.
+ */
+describe('anomaly_flag on a <gen> inside a <case>', () => {
+  const codesOf = (source: string): string[] => {
+    const parsed = parse(source);
+    expect(parsed.diagnostics).toEqual([]);
+    return validate(parsed.tree).diagnostics.map((d) => d.code);
+  };
+
+  const inCase = (parent: string, close: string): string =>
+    `<tdc><env count="4" seed="n" local="en">` +
+    `<sequence name="K"><gen type="text" value="a,b"/></sequence>` +
+    `${parent}<case is="a">` +
+    `<gen type="number" value="1..9" anomaly="0.5" anomaly_flag="Out"/>` +
+    `</case><default><data>x</data></default>${close}` +
+    `</env><block><line><data>\${{C}}|\${{Out}}</data></line></block></tdc>`;
+
+  it('is refused inside a <switch> case', () => {
+    expect(codesOf(inCase('<switch name="C" on="K">', '</switch>'))).toContain('TDC246');
+  });
+
+  it('is refused inside a <mix> case', () => {
+    expect(codesOf(inCase('<mix name="C" percent="50,50">', '</mix>'))).toContain('TDC246');
+  });
+
+  it('does not pile a second error on the same mistake', () => {
+    // TDC246 is the root cause. Letting `${{Out}}` also raise TDC193 would send
+    // the reader after a name that is not the problem.
+    expect(codesOf(inCase('<switch name="C" on="K">', '</switch>'))).not.toContain('TDC193');
+  });
+
+  it('still allows the flag on a plain sequence — the refusal is about <case>', () => {
+    const ok =
+      `<tdc><env count="4" seed="n" local="en">` +
+      `<sequence name="C"><gen type="number" value="1..9" anomaly="0.5" anomaly_flag="Out"/></sequence>` +
+      `</env><block><line><data>\${{C}}|\${{Out}}</data></line></block></tdc>`;
+    expect(codesOf(ok)).toEqual([]);
   });
 });

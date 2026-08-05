@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "cases": [
+    {
+      "name": "anomaly-flag-conditional-memory",
+      "description": "A <gen> with if= mints its anomaly_flag column. anomaly_factor=1000 against a 1..3 draw makes the spike unmistakable, so the flag is checked against the value it claims to describe, not merely for being a boolean.",
+      "config": "<tdc><env count=\"8\" seed=\"unit-test\" local=\"en\" mode=\"memory\"><sequence name=\"Class\"><gen type=\"text\" value=\"a,b\"/></sequence><sequence name=\"V\"><gen type=\"number\" value=\"1..3\" anomaly=\"0.4\" anomaly_factor=\"1000\" anomaly_flag=\"Flag\" if=\"Class == a\"/><gen type=\"number\" value=\"1..3\" anomaly=\"0.4\" anomaly_factor=\"1000\" anomaly_flag=\"Flag\"/></sequence></env><block><line><data>${{Class}}|${{V}}|${{Flag}}</data></line></block></tdc>",
+      "expected": [
+        "a|2|false",
+        "b|2000|true",
+        "a|2000|true",
+        "a|1|false",
+        "b|3000|true",
+        "b|2000|true",
+        "a|1|false",
+        "b|1|false"
+      ]
+    },
+    {
+      "name": "anomaly-flag-conditional-disk",
+      "description": "The same config on the streaming engine, expecting the SAME rows. This is the case that was missing: a branch used to draw off the run's shared PRNG in memory and off its own stream when streaming, so the two engines disagreed and nothing noticed. Byte-identical to anomaly-flag-conditional-memory by design — if you re-baseline one, re-baseline both together or the pair stops testing anything.",
+      "config": "<tdc><env count=\"8\" seed=\"unit-test\" local=\"en\" mode=\"disk\"><sequence name=\"Class\"><gen type=\"text\" value=\"a,b\"/></sequence><sequence name=\"V\"><gen type=\"number\" value=\"1..3\" anomaly=\"0.4\" anomaly_factor=\"1000\" anomaly_flag=\"Flag\" if=\"Class == a\"/><gen type=\"number\" value=\"1..3\" anomaly=\"0.4\" anomaly_factor=\"1000\" anomaly_flag=\"Flag\"/></sequence></env><block><line><data>${{Class}}|${{V}}|${{Flag}}</data></line></block></tdc>",
+      "expected": [
+        "a|2|false",
+        "b|2000|true",
+        "a|2000|true",
+        "a|1|false",
+        "b|3000|true",
+        "b|2000|true",
+        "a|1|false",
+        "b|1|false"
+      ]
+    },
+    {
+      "name": "anomaly-flag-conditional-unflagged-branch",
+      "description": "Only the first branch can spike. Rows from the second are still COVERED by the sequence, so the flag reads false rather than empty — a detector scored against the column needs \"no outlier\" stated, not left blank. Values 7..9 mark those rows plainly.",
+      "config": "<tdc><env count=\"8\" seed=\"unit-test\" local=\"en\" mode=\"memory\"><sequence name=\"Class\"><gen type=\"text\" value=\"a,b\"/></sequence><sequence name=\"V\"><gen type=\"number\" value=\"1..3\" anomaly=\"0.4\" anomaly_factor=\"1000\" anomaly_flag=\"Flag\" if=\"Class == a\"/><gen type=\"number\" value=\"7..9\"/></sequence></env><block><line><data>${{Class}}|${{V}}|${{Flag}}</data></line></block></tdc>",
+      "expected": [
+        "a|2|false",
+        "b|8|false",
+        "a|2000|true",
+        "a|1|false",
+        "b|9|false",
+        "b|8|false",
+        "a|1|false",
+        "b|7|false"
+      ]
+    }
+  ]
+}

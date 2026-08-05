@@ -83,3 +83,64 @@ export function checkGenImperfections(
     code: 'TDC243',
   });
 }
+
+/**
+ * `anomaly_flag="NAME"` — the ground-truth companion column naming which rows
+ * were turned into outliers. It mints a real sequence, so the name is recorded
+ * as declared and `${{NAME}}` resolves like any other.
+ *
+ * Three ways to get it wrong, and the third is the one that used to be silent.
+ * Inside a `<case>` the attribute was accepted and did nothing at all: a case
+ * body is a CONCATENATION of parts, so a flag written on one part describes
+ * that part rather than the row's value, and the engine has no honest column to
+ * mint. `<mix flag="NAME">` asks the same question where it has an answer.
+ */
+export function checkAnomalyFlag(
+  gen: OpenCloseElementContext | SelfClosingElementContext,
+  diagnostics: Diagnostic[],
+  declaredSequences: string[],
+  inCase: boolean,
+): void {
+  const attrs = gen.attr();
+  const flagAttr = findAttr(attrs, 'anomaly_flag');
+  if (!flagAttr) return;
+  const attrMap = extractAttrs(attrs);
+  const flagVal = (attrMap['anomaly_flag'] ?? '').trim();
+  // Declared even when refused below, so `${{NAME}}` does not raise TDC193 on
+  // top of the real error and send the reader after the wrong thing.
+  if (flagVal !== '') declaredSequences.push(flagVal);
+
+  if (inCase) {
+    diagnostics.push({
+      severity: 'error',
+      source: 'validator',
+      ...attrValueRange(flagAttr),
+      message: `anomaly_flag="${flagVal}" is not read on a <gen> inside a <case>`,
+      hint: 'A case body is several parts joined, so a flag on one part does not describe the row. Put flag="NAME" on the <mix> instead, or move the <gen> into a <sequence> of its own.',
+      code: 'TDC246',
+    });
+    return;
+  }
+
+  if (flagVal === '') {
+    diagnostics.push({
+      severity: 'error',
+      source: 'validator',
+      ...attrValueRange(flagAttr),
+      message: 'anomaly_flag must name the ground-truth column, e.g. anomaly_flag="IsOutlier"',
+      code: 'TDC193',
+    });
+    return;
+  }
+
+  if ((attrMap['anomaly'] ?? '').trim() === '') {
+    diagnostics.push({
+      severity: 'error',
+      source: 'validator',
+      ...attrValueRange(flagAttr),
+      message: `anomaly_flag="${flagVal}" has no "anomaly" on the same <gen> — nothing to flag`,
+      hint: 'Add anomaly="p" (a probability 0..1) to inject outliers, or remove anomaly_flag.',
+      code: 'TDC193',
+    });
+  }
+}

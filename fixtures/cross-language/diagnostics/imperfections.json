@@ -35,6 +35,13 @@
       "description": "One number in the list is enough to perturb, so this is left alone. The half of the check that must never fire: only a list with nothing numeric anywhere in it is refused.",
       "config": "<tdc><env count=\"3\" seed=\"s\" local=\"en\"><sequence name=\"X\"><gen type=\"text\" value=\"alpha,42,gamma\" anomaly=\"0.3\"/></sequence></env><block><line><data>${{X}}</data></line></block></tdc>",
       "expected": []
+    },
+    {
+      "name": "anomaly-flag-inside-case",
+      "demonstrates": "TDC246",
+      "description": "anomaly_flag on a <gen> inside a <case>. A case body is a concatenation, so a flag on one part does not describe the row; <mix flag=\"NAME\"> is where the question has an answer. It used to be accepted and do nothing, and the only sign was ${{Out}} reaching the data as literal characters.",
+      "config": "<tdc><env count=\"2\" seed=\"s\"><sequence name=\"K\"><gen type=\"text\" value=\"a,b\"/></sequence><switch name=\"S\" on=\"K\"><case is=\"a\"><gen type=\"number\" value=\"1..9\" anomaly=\"0.5\" anomaly_flag=\"Out\"/></case><default><data>x</data></default></switch></env><block><line><data>${{S}}</data></line></block></tdc>",
+      "expected": ["error TDC246 1:186"]
     }
   ]
 }

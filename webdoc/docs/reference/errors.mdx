@@ -279,6 +279,7 @@ have them: they compile a config into a model that has no place to put such a `<
 | `TDC213` | `weight` is combined with `order`                                | `order` walks the rows by position; weighting picks them by frequency    |
 | `TDC242` | `anomaly` or `missing` isn't a number in `[0, 1]`                | Both are a SHARE of the values: `anomaly="0.05"`, `missing="0.1"`        |
 | `TDC243` | `anomaly` on a `value` list with no number in it                 | An anomaly multiplies a number, so a list of words comes back unchanged  |
+| `TDC246` | `anomaly_flag` on a `<gen>` inside a `<case>`                    | A case body is several parts joined, so a flag on one part doesn't describe the row — put `flag="NAME"` on the `<mix>` instead |
 
 ## See also
 
