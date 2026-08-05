@@ -525,6 +525,30 @@ public final class Validator {
     collectPoolFieldValues(env);
     collectPoolReferences(env);
     checkChildren(env.content(), "env", ENV_CHILDREN);
+    for (TDCParser.ElementContext c : env.content().element()) {
+      TDCParser.OpenCloseElementContext el = c.openCloseElement();
+      if (el == null) {
+        continue;
+      }
+      String tag = el.name.getText();
+      if (FIXTURE_TAG_NAMES.contains(tag)) {
+        // A fixture holds text and <line>s; anything else was ignored in silence.
+        checkChildren(el.content(), tag, FIXTURE_CHILDREN, "TDC131", FIXTURE_CHILDREN);
+      } else if ("pool".equals(tag)) {
+        // Tags with a reason of their own keep TDC230, which says far more; they pass
+        // this check but are never offered as allowed.
+        Set<String> passes = new java.util.HashSet<>(POOL_CHILDREN);
+        for (TDCParser.ElementContext inner : el.content().element()) {
+          TDCParser.OpenCloseElementContext io = inner.openCloseElement();
+          TDCParser.SelfClosingElementContext is = inner.selfClosingElement();
+          String n = io != null ? io.name.getText() : (is != null ? is.name.getText() : null);
+          if (n != null && forbiddenInPool(n) != null) {
+            passes.add(n);
+          }
+        }
+        checkChildren(el.content(), "pool", passes, "TDC010", POOL_CHILDREN);
+      }
+    }
     checkClosedTagAttrs("env", env.attr(), line(env), column(env));
 
     Set<String> names = new LinkedHashSet<>();
@@ -1369,6 +1393,16 @@ public final class Validator {
   }
 
   private void checkSequenceBody(TDCParser.OpenCloseElementContext open, String name) {
+    // An invented tag here used to pass in SILENCE: the config validated, exit 0, and the
+    // run went ahead as if the tag had done something.
+    checkChildren(open.content(), "sequence", SEQUENCE_CHILDREN);
+    for (TDCParser.ElementContext c : open.content().element()) {
+      TDCParser.OpenCloseElementContext w = c.openCloseElement();
+      if (w != null && ("distinct".equals(w.name.getText()) || "uniq".equals(w.name.getText()))) {
+        // The wrapper is allowed here, but its own body was never looked at.
+        checkChildren(w.content(), w.name.getText(), DISTINCT_CHILDREN);
+      }
+    }
     List<Map<String, String>> gens = new ArrayList<>();
     // Attributes and a position, rather than the typed node: a <gen> reaches here in
     // either punctuation, and the only thing wanted of it later is where to point.
@@ -1625,8 +1659,15 @@ public final class Validator {
    * to that branch rather than a column of its own, so it has no name to declare and nothing can
    * interpolate it. Every other rule is the same, from this one method.
    */
+  private void checkSwitchFormEntry(TDCParser.OpenCloseElementContext open) {
+    // The entries walk only ever looked at open/close children, so a self-closing
+    // invention passed while <bogus></bogus> was caught.
+    checkChildren(open.content(), "switch", SWITCH_CHILDREN, "TDC124", SWITCH_CHILDREN);
+  }
+
   private void checkSwitchForm(
       TDCParser.OpenCloseElementContext open, List<String> declared, boolean named) {
+    checkSwitchFormEntry(open);
     Map<String, String> attrs = attributes(open.attr());
     if (!named && attrs.get("name") != null) {
       error("TDC245",
@@ -3231,6 +3272,18 @@ public final class Validator {
   // ── placement ────────────────────────────────────────────────────────────────────────────
 
   private void checkChildren(TDCParser.ContentContext content, String parent, Set<String> allowed) {
+    checkChildren(content, parent, allowed, "TDC010", allowed);
+  }
+
+  /**
+   * Report every child not on {@code allowed}.
+   *
+   * <p>{@code allowed} is what PASSES; {@code shown} is what the note lists. They differ for
+   * {@code <pool>}, where several tags are refused by a diagnostic of their own (TDC230) and so
+   * must not be reported here — but must not be offered as allowed either.
+   */
+  private void checkChildren(TDCParser.ContentContext content, String parent, Set<String> allowed,
+      String code, Set<String> shown) {
     if (content == null) {
       return;
     }
@@ -3262,10 +3315,14 @@ public final class Validator {
       String hint = PLACEMENT_HINTS.get(name);
       if (hint != null) {
         error("TDC013", "<" + name + "> is not allowed directly inside <" + parent + ">",
-            hint, line, column);
+            hint + " Allowed inside <" + parent + ">: "
+                + String.join(", ", new java.util.TreeSet<>(shown)) + ".",
+            line, column);
       } else {
-        error("TDC010", "unknown child of <" + parent + ">: \"<" + name + ">\"",
-            "Allowed children: " + String.join(", ", new java.util.TreeSet<>(allowed)) + ".",
+        // The note is what a reader acts on, so every container says it the same way.
+        error(code, "unknown child of <" + parent + ">: \"<" + name + ">\"",
+            "Allowed inside <" + parent + ">: "
+                + String.join(", ", new java.util.TreeSet<>(shown)) + ".",
             line, column);
       }
     }
@@ -3394,5 +3451,30 @@ public final class Validator {
     }
     return null;
   }
+
+
+  /** What may sit directly inside {@code <sequence>}. */
+  private static final Set<String> SEQUENCE_CHILDREN =
+      Set.of("gen", "data", "distinct", "compute");
+
+  /**
+   * {@code <distinct>}/{@code <uniq>} mean two different things by position, and so hold two
+   * different sets: inside a {@code <sequence>} the FIELDS of one record, at {@code <env>} level
+   * whole COLUMNS. One list for both refuses working configs.
+   */
+  private static final Set<String> DISTINCT_CHILDREN = Set.of("gen");
+
+  /** Deliberately generous: too short a list refuses configs that work today. */
+  private static final Set<String> POOL_CHILDREN =
+      Set.of("sequence", "mix", "switch", "uniq", "distinct", "member", "data");
+
+  /** A fixture holds literal text and {@code <line>}s. */
+  private static final Set<String> FIXTURE_CHILDREN = Set.of("data", "line");
+
+  /** What may sit directly inside {@code <switch>}. */
+  private static final Set<String> SWITCH_CHILDREN = Set.of("map", "case", "default");
+
+  private static final Set<String> FIXTURE_TAG_NAMES = Set.of("before", "after", "before_block",
+      "after_block", "delimiter_block", "before_line", "after_line", "delimiter_line");
 
 }
