@@ -217,14 +217,20 @@ public final class Main {
 
   /** {@code tdcv2 check <file>} — the validator alone, for an editor or a pre-commit hook. */
   private static int check(List<String> argv) {
+    // `--brief` prints one line per diagnostic and no source excerpt: an editor listing
+    // errors in a panel wants rows, not a picture of the file.
+    boolean brief = argv.contains("--brief");
     List<String> files = new ArrayList<>();
+    boolean unknownFlag = false;
     for (String arg : argv) {
       if (!arg.startsWith("-")) {
         files.add(arg);
+      } else if (!"--brief".equals(arg)) {
+        unknownFlag = true;
       }
     }
-    if (files.size() != argv.size() || files.size() != 1) {
-      fail("usage: tdcv2 check <input.tdc>", false);
+    if (unknownFlag || files.size() != 1) {
+      fail("usage: tdcv2 check [--brief] <input.tdc>", false);
       return 2;
     }
 
@@ -232,7 +238,7 @@ public final class Main {
     try {
       data = new TDC(files.get(0));
     } catch (TdcDiagnosticException e) {
-      report(e.diagnostics(), files.get(0), e.source());
+      report(e.diagnostics(), files.get(0), e.source(), brief);
       return 1;
     } catch (RuntimeException e) {
       fail(e.getMessage(), false);
@@ -329,12 +335,43 @@ public final class Main {
 
   /** Diagnostics to stderr, so they stay out of a piped or redirected run's data. */
   private static void report(List<Diagnostic> problems, String filename, String source) {
+    report(problems, filename, source, false);
+  }
+
+  private static void report(
+      List<Diagnostic> problems, String filename, String source, boolean brief) {
     if (problems.isEmpty()) {
+      return;
+    }
+    if (brief) {
+      StringBuilder out = new StringBuilder();
+      for (Diagnostic d : problems) {
+        if (out.length() > 0) {
+          out.append('\n');
+        }
+        out.append(briefLine(d));
+      }
+      System.err.println(out);
       return;
     }
     System.err.println(
         DiagnosticRenderer.formatAll(
             problems, source, filename == null ? "<input>" : filename, false));
+  }
+
+  /**
+   * One diagnostic on one line: code, position, message, hint after {@code ::}.
+   *
+   * <p>The hint is kept because it carries the list of what IS allowed, which is the half a
+   * reader — or a model — acts on. No trailing count either, so a caller parsing rows need
+   * not skip a sentence at the end.
+   */
+  private static String briefLine(Diagnostic d) {
+    String code = d.code() == null || d.code().isEmpty()
+        ? (d.severity() == Diagnostic.Severity.WARNING ? "WARN" : "ERROR")
+        : d.code();
+    String hint = d.hint() == null || d.hint().isEmpty() ? "" : " :: " + d.hint();
+    return code + " " + d.line() + ":" + d.column() + " " + d.message() + hint;
   }
 
   private static void reportOne(Diagnostic problem, String filename, String source) {

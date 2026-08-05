@@ -1395,7 +1395,13 @@ public final class Validator {
   private void checkSequenceBody(TDCParser.OpenCloseElementContext open, String name) {
     // An invented tag here used to pass in SILENCE: the config validated, exit 0, and the
     // run went ahead as if the tag had done something.
-    checkChildren(open.content(), "sequence", SEQUENCE_CHILDREN);
+    // MISPLACED_IN_SEQUENCE is handled by the dedicated loop below, which also counts
+    // them so TDC036 stays quiet. Reporting them here as well printed the same TDC013
+    // twice — invisible in the full report, obvious once the brief output put the two
+    // lines together.
+    Set<String> seqPasses = new java.util.HashSet<>(SEQUENCE_CHILDREN);
+    seqPasses.addAll(MISPLACED_IN_SEQUENCE);
+    checkChildren(open.content(), "sequence", seqPasses, "TDC010", SEQUENCE_CHILDREN);
     for (TDCParser.ElementContext c : open.content().element()) {
       TDCParser.OpenCloseElementContext w = c.openCloseElement();
       if (w != null && ("distinct".equals(w.name.getText()) || "uniq".equals(w.name.getText()))) {
@@ -1453,7 +1459,8 @@ public final class Validator {
       }
       if (tag != null && MISPLACED_IN_SEQUENCE.contains(tag)) {
         error("TDC013", "<" + tag + "> is not allowed directly inside <sequence>",
-            PLACEMENT_HINTS.get(tag),
+            PLACEMENT_HINTS.get(tag) + " Allowed inside <sequence>: "
+                + String.join(", ", new java.util.TreeSet<>(SEQUENCE_CHILDREN)) + ".",
             node.getStart().getLine(), node.getStart().getCharPositionInLine());
         misplaced++;
       }
@@ -2893,9 +2900,13 @@ public final class Validator {
   // ── block ────────────────────────────────────────────────────────────────────────────────
 
   private void checkBlock(TDCParser.OpenCloseElementContext block) {
+    // These two were missed when the other containers were closed: an invented tag in
+    // either passed in silence while the same tag one level up did not.
+    checkChildren(block.content(), "block", BLOCK_CHILDREN, "TDC013", BLOCK_CHILDREN);
     for (TDCParser.ElementContext child : block.content().element()) {
       TDCParser.OpenCloseElementContext open = child.openCloseElement();
       if (open != null && "line".equals(open.name.getText())) {
+        checkChildren(open.content(), "line", LINE_CHILDREN, "TDC013", LINE_CHILDREN);
         checkLine(open);
       }
     }
@@ -3318,6 +3329,13 @@ public final class Validator {
             hint + " Allowed inside <" + parent + ">: "
                 + String.join(", ", new java.util.TreeSet<>(shown)) + ".",
             line, column);
+      } else if ("TDC013".equals(code)) {
+        // TDC013 means "a tag this language knows, in the wrong place" and TDC010 "a tag
+        // nobody has heard of", so the sentence follows the code rather than the call site.
+        error("TDC013", "<" + name + "> is not allowed directly inside <" + parent + ">",
+            "Allowed inside <" + parent + ">: "
+                + String.join(", ", new java.util.TreeSet<>(shown)) + ".",
+            line, column);
       } else {
         // The note is what a reader acts on, so every container says it the same way.
         error(code, "unknown child of <" + parent + ">: \"<" + name + ">\"",
@@ -3473,6 +3491,11 @@ public final class Validator {
 
   /** What may sit directly inside {@code <switch>}. */
   private static final Set<String> SWITCH_CHILDREN = Set.of("map", "case", "default");
+
+  /** What may sit directly inside {@code <block>} and {@code <line>}. */
+  private static final Set<String> BLOCK_CHILDREN = Set.of("line", "data");
+
+  private static final Set<String> LINE_CHILDREN = Set.of("data", "gen", "mix", "switch");
 
   private static final Set<String> FIXTURE_TAG_NAMES = Set.of("before", "after", "before_block",
       "after_block", "delimiter_block", "before_line", "after_line", "delimiter_line");
