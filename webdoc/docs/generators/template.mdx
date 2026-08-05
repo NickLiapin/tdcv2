@@ -214,10 +214,98 @@ The list is localized: `local="ru"` yields `Греция`, `Никарагуа`,
 `location.country` ships in all ten language packs the registry carries — **ar**,
 **de**, **el**, **en**, **es**, **fr**, **it**, **pl**, **pt** and **ru** — each with
 the same 233 countries and territories (English carries 237). A locale with no pack has
-no list either: the path raises an error there instead of falling back to English. Cities
-and regions are planned under `location.*`; `geo.city` and `geo.region` already exist in
-the country packs.
+no list either: the path raises an error there instead of falling back to English.
 :::
+
+There is no `location.city`. Cities, regions and postcodes live under
+[`geo.*`](#geo--geography-from-the-country-packs), which is the next section, because
+they come from a **country** pack rather than a language one.
+
+### Eight of those countries contain a comma
+
+`Congo, Republic of (Brazzaville)`, `Korea, Republic of (South Korea)`,
+`Micronesia, Federal States of` — eight of the 237 English entries are written the way
+the ISO list writes them, with the qualifier after a comma. Dropped straight into a CSV
+line, they split the row:
+
+```xml
+<line><data>${{Id}},${{Country}}</data></line>
+```
+
+<Terminal title="./run csv.tdc — row 2 now has three fields, not two">
+{`1,Mongolia
+2,Korea, Republic of (South Korea)
+3,India`}
+</Terminal>
+
+The engine already answers this. The
+[`csv` filter](../core-concepts/output-formatting.mdx) quotes the value, and quoting is
+unconditional rather than clever — a reader of the output can see one rule applied to
+every row instead of guessing which values were special:
+
+```xml
+<line><data>${{Id}},${{Country|csv}}</data></line>
+```
+
+<Terminal title="./run csv.tdc — the same three rows, and row 2 is one field again">
+{`1,"Mongolia"
+2,"Korea, Republic of (South Korea)"
+3,"India"`}
+</Terminal>
+
+Any pack value can hold a comma — a company name, a street, a job title. `csv` is the
+answer for all of them, and a column of country names is simply where you meet it first.
+
+## `geo.*` — geography from the country packs
+
+`location.*` is the **language** pack talking: country names in the reader's language, the
+same 233 everywhere. `geo.*` is a **country** pack talking: the places inside one country,
+and a country list weighted by how many people live there.
+
+| Path                          | Comes from     | Produces                                     |
+| :---------------------------- | :------------- | :------------------------------------------- |
+| `geo.country`                 | language pack  | A country name, **weighted by population**   |
+| `geo.capitalByCountry`        | language pack  | A capital, keyed by country                  |
+| `geo.currencyByCountry`       | language pack  | A currency name, keyed by country            |
+| `geo.currencyCodeByCountry`   | language pack  | An ISO currency code, keyed by country       |
+| `geo.direction`               | language pack  | `north`, `south-east`, …                     |
+| `<country>.geo.city`          | country pack   | A city in that country                       |
+| `<country>.geo.province`      | country pack   | A province, state, region or department      |
+| `<country>.geo.postalCode`    | country pack   | A postcode in that country's own format      |
+| `<country>.geo.streetName`    | country pack   | A street name                                |
+
+`geo.city` ships in **92 of the 111 country packs**. The exact set of place names differs
+by country, because the countries do: Poland has `voivodeship`, Italy has `comune`, the
+United States has `state` and `zip`. Read
+[Data packs](../data-packs/overview.mdx) for what a given country carries.
+
+### `location.country` and `geo.country` are different lists
+
+Both are real, and they answer different questions:
+
+```xml
+<sequence name="Flat"><gen type="template" value="location.country"/></sequence>
+<sequence name="Weighted"><gen type="template" value="geo.country"/></sequence>
+<sequence name="City"><gen type="template" value="usa.geo.city"/></sequence>
+```
+
+<Terminal title="./run geo.tdc (count=5, local=en)">
+{`Burundi | Indonesia | Los Angeles
+Singapore | China | New York
+Congo, Republic of (Brazzaville) | India | Phoenix
+Estonia | China | Chicago
+Cyprus | United States | Houston`}
+</Terminal>
+
+`location.country` draws **uniformly from 237** names, so Burundi is as likely as China.
+That is what you want when the column is "any country" — a test that must not care which.
+
+`geo.country` draws from **36 countries weighted by population**, so China and India come
+up often and the tail rarely. That is what you want when the column is meant to look like
+a customer base. Uniform countries in a customer table are the giveaway that data is
+generated.
+
+Neither is more correct. Pick the one whose question matches the column.
 
 ## Dates
 

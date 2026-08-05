@@ -226,9 +226,100 @@ en los tres locales; lo que se conserva es la reproducibilidad dentro de cada un
 `location.country` viene en los diez paquetes de idioma que trae el registro — **ar**,
 **de**, **el**, **en**, **es**, **fr**, **it**, **pl**, **pt** y **ru** — cada uno con
 los mismos 233 países y territorios (el inglés trae 237). Un locale sin paquete tampoco
-tiene lista: ahí la ruta da un error en vez de caer al inglés. Ciudades y regiones están
-planeadas bajo `location.*`; `geo.city` y `geo.region` ya existen en los paquetes de país.
+tiene lista: ahí la ruta da un error en vez de caer al inglés.
 :::
+
+No existe `location.city`. Las ciudades, las regiones y los códigos postales viven bajo
+[`geo.*`](#geo--geografía-de-los-paquetes-de-país) — la sección siguiente — porque vienen de
+un paquete de **país** y no de uno de idioma.
+
+### Ocho de esos países llevan una coma
+
+`Congo, Republic of (Brazzaville)`, `Korea, Republic of (South Korea)`,
+`Micronesia, Federal States of` — ocho de las 237 entradas en inglés están escritas como las
+escribe la lista ISO, con el calificativo después de una coma. Puestas tal cual en una línea
+CSV, parten la fila:
+
+```xml
+<line><data>${{Id}},${{Country}}</data></line>
+```
+
+<Terminal title="./run csv.tdc — la fila 2 tiene ahora tres campos, no dos">
+{`1,Mongolia
+2,Korea, Republic of (South Korea)
+3,India`}
+</Terminal>
+
+El motor ya responde a esto. El filtro
+[`csv`](../core-concepts/output-formatting.mdx) entrecomilla el valor, y lo hace **siempre**
+en vez de decidir cuándo: quien lee la salida ve una sola regla aplicada a todas las filas,
+en lugar de adivinar qué valores resultaron especiales.
+
+```xml
+<line><data>${{Id}},${{Country|csv}}</data></line>
+```
+
+<Terminal title="./run csv.tdc — las mismas tres filas, y la 2 vuelve a ser un campo">
+{`1,"Mongolia"
+2,"Korea, Republic of (South Korea)"
+3,"India"`}
+</Terminal>
+
+Cualquier valor de un paquete puede llevar una coma: el nombre de una empresa, una calle, un
+puesto de trabajo. `csv` es la respuesta para todos ellos, y una columna de países es
+sencillamente donde usted se lo encuentra primero.
+
+## `geo.*` — geografía de los paquetes de país
+
+`location.*` es el paquete de **idioma** hablando: nombres de países en el idioma del lector,
+los mismos 233 en todas partes. `geo.*` es un paquete de **país** hablando: los lugares
+dentro de un país, y una lista de países ponderada por cuánta gente vive en ellos.
+
+| Ruta                          | De dónde viene    | Qué produce                                     |
+| :---------------------------- | :---------------- | :---------------------------------------------- |
+| `geo.country`                 | paquete de idioma | Un país, **ponderado por población**            |
+| `geo.capitalByCountry`        | paquete de idioma | Una capital, con el país como clave             |
+| `geo.currencyByCountry`       | paquete de idioma | Un nombre de moneda, con el país como clave     |
+| `geo.currencyCodeByCountry`   | paquete de idioma | Un código ISO de moneda, con el país como clave |
+| `geo.direction`               | paquete de idioma | `north`, `south-east`, …                        |
+| `<país>.geo.city`             | paquete de país   | Una ciudad de ese país                          |
+| `<país>.geo.province`         | paquete de país   | Una provincia, estado, región o departamento    |
+| `<país>.geo.postalCode`       | paquete de país   | Un código postal en el formato de ese país      |
+| `<país>.geo.streetName`       | paquete de país   | El nombre de una calle                          |
+
+`geo.city` viene en **92 de los 111 paquetes de país**. El conjunto exacto de nombres de
+lugar cambia según el país, porque los países cambian: Polonia tiene `voivodeship`, Italia
+tiene `comune`, Estados Unidos tiene `state` y `zip`. Lea
+[Paquetes de datos](../data-packs/overview.mdx) para saber qué trae un país concreto.
+
+### `location.country` y `geo.country` son listas distintas
+
+Las dos son reales, y responden preguntas distintas:
+
+```xml
+<sequence name="Flat"><gen type="template" value="location.country"/></sequence>
+<sequence name="Weighted"><gen type="template" value="geo.country"/></sequence>
+<sequence name="City"><gen type="template" value="usa.geo.city"/></sequence>
+```
+
+<Terminal title="./run geo.tdc (count=5, local=en)">
+{`Burundi | Indonesia | Los Angeles
+Singapore | China | New York
+Congo, Republic of (Brazzaville) | India | Phoenix
+Estonia | China | Chicago
+Cyprus | United States | Houston`}
+</Terminal>
+
+`location.country` sortea **uniformemente entre 237** nombres, así que Burundi sale tanto
+como China. Eso es lo que usted quiere cuando la columna significa "un país cualquiera": una
+prueba a la que no le importa cuál.
+
+`geo.country` sortea entre **36 países ponderados por población**, así que China e India
+salen a menudo y la cola rara vez. Eso es lo que usted quiere cuando la columna debe
+parecerse a una cartera de clientes. Países uniformes en una tabla de clientes son la señal
+más clara de que los datos están generados.
+
+Ninguna de las dos es más correcta. Elija aquella cuya pregunta coincida con su columna.
 
 ## Fechas
 
