@@ -140,7 +140,11 @@ impl Validator {
     /// are published), but the note is what a reader acts on, so it is built
     /// here for every container alike.
     fn unknown_child(&mut self, parent: &str, name: &str, code: &str, allowed: &[&str], at: Pos) {
-        let hint = format!("Allowed inside <{parent}>: {}.", allowed.join(", "));
+        // Sorted, because the four other implementations sort and a reader scanning
+        // for a name finds it faster in a list that has an order.
+        let mut names: Vec<&str> = allowed.to_vec();
+        names.sort_unstable();
+        let hint = format!("Allowed inside <{parent}>: {}.", names.join(", "));
         self.error(
             code,
             format!("unknown child of <{parent}>: \"<{name}>\""),

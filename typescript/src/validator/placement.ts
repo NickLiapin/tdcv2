@@ -95,7 +95,11 @@ export function reportUnknownChild(
   /** Explicit list, for a tag whose children depend on where it sits. */
   allowedOverride?: readonly string[],
 ): void {
-  const allowed = allowedOverride ?? ALLOWED_CHILDREN[parent] ?? [];
+  // Sorted, because the four ports sort and a reader scanning for a name finds it
+  // faster in a list that has an order. The truncation `formatCandidates` applies to a
+  // long list then cuts the same names everywhere rather than a different six per
+  // implementation — which is what made the difference worth closing at all.
+  const allowed = [...(allowedOverride ?? ALLOWED_CHILDREN[parent] ?? [])].sort();
   const suggestion = closestMatch(name, allowed);
   sink.diagnostics.push({
     severity: 'error',

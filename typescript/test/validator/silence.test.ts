@@ -43,7 +43,7 @@ describe('an invented tag inside <sequence>', () => {
 
   it('names what a sequence WILL take — the part a reader acts on', () => {
     expect(report(invented)[0]).toContain(
-      'Allowed inside <sequence>: gen, data, distinct, compute.',
+      'Allowed inside <sequence>: compute, data, distinct, gen.',
     );
   });
 

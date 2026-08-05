@@ -218,7 +218,7 @@ export function validate(tree: DocumentContext, options: ValidationOptions = {})
       ...nodeRange(k.node),
       message: `unknown child of <tdc>: "<${childName}>"`,
       ...(suggestion ? { suggestion: `did you mean "<${suggestion}>"?` } : {}),
-      hint: `Allowed inside <tdc>: ${formatCandidates(KNOWN_TDC_CHILDREN)}.`,
+      hint: `Allowed inside <tdc>: ${formatCandidates([...KNOWN_TDC_CHILDREN].sort())}.`,
       code: 'TDC010',
     });
   }
@@ -485,7 +485,7 @@ function checkEnv(envEl: OpenCloseElementContext, ctx: Ctx): void {
       ...nodeRange(k.node),
       message: `unknown child of <env>: "<${name}>"`,
       ...(suggestion ? { suggestion: `did you mean "<${suggestion}>"?` } : {}),
-      hint: `Allowed inside <env>: ${formatCandidates(KNOWN_ENV_CHILDREN)}.`,
+      hint: `Allowed inside <env>: ${formatCandidates([...KNOWN_ENV_CHILDREN].sort())}.`,
       code: 'TDC010',
     });
   }
@@ -1085,7 +1085,7 @@ function checkMixBody(mixEl: OpenCloseElementContext, ctx: Ctx, named = true): v
       ...nodeRange(k.node),
       message: `unknown child of <mix>: "<${childName}>"`,
       ...(suggestion ? { suggestion: `did you mean "<${suggestion}>"?` } : {}),
-      hint: `Allowed inside <mix>: ${formatCandidates(KNOWN_MIX_CHILDREN)}.`,
+      hint: `Allowed inside <mix>: ${formatCandidates([...KNOWN_MIX_CHILDREN].sort())}.`,
       code: 'TDC124',
     });
   }
@@ -1198,7 +1198,7 @@ function checkCaseContent(caseEl: OpenCloseElementContext, ctx: Ctx): void {
       ...nodeRange(k.node),
       message: `unknown child of <case>: "<${name}>"`,
       ...(suggestion ? { suggestion: `did you mean "<${suggestion}>"?` } : {}),
-      hint: `Allowed inside <case>: ${formatCandidates(KNOWN_CASE_CHILDREN)}.`,
+      hint: `Allowed inside <case>: ${formatCandidates([...KNOWN_CASE_CHILDREN].sort())}.`,
       code: 'TDC125',
     });
   }
