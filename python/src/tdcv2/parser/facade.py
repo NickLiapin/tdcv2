@@ -98,6 +98,69 @@ class _DepthGuard(ParseTreeListener):
             self._depth -= 1
 
 
+class _ClosingTagGuard(ParseTreeListener):
+    """Records the first closing tag whose name is not its element's.
+
+    ``openCloseElement : LT name=NAME attr* GT content endTag=END_TAG ;`` takes ANY name in the
+    closing tag, so ``<sequence>...</gen>`` was a structurally valid document and nothing
+    downstream compared the two: the element is built under its OPENING name and the closing tag
+    is thrown away.
+
+    Only the first is kept. A closing tag on the wrong element shifts every closing tag after it,
+    so one typo would otherwise produce a mismatch per remaining level — all describing the same
+    typo, and only the first one placed where the author can act on it.
+    """
+
+    def __init__(self) -> None:
+        self.found: SyntaxProblem | None = None
+
+    def enterEveryRule(self, ctx) -> None:  # noqa: N802 - the name is ANTLR's
+        """The closing tag is not read until the rule exits."""
+
+    def exitEveryRule(self, ctx) -> None:  # noqa: N802 - the name is ANTLR's
+        if self.found is not None or ctx.getRuleIndex() != TDCParser.RULE_openCloseElement:
+            return
+        open_tag, close = ctx.name, ctx.endTag
+        # Recovery can leave either token missing or synthesised. A guess about what the author
+        # meant to close is worth less than the parser's own complaint about the tag itself.
+        if open_tag is None or close is None or close.type != TDCParser.END_TAG:
+            return
+        closes = _closing_name(close.text or "")
+        if closes is None or closes == open_tag.text:
+            return
+        self.found = SyntaxProblem(
+            close.line,
+            close.column,
+            f"</{closes}> closes <{open_tag.text}>, which was opened on line {open_tag.line}",
+        )
+
+
+def _closing_name(text: str) -> str | None:
+    """``</gen>`` to ``gen``. None for anything that is not a closing tag."""
+    if not text.startswith("</") or not text.endswith(">"):
+        return None
+    return text[2:-1]
+
+
+def _with_closing_tag_mismatch(
+    problems: list[SyntaxProblem], mismatch: SyntaxProblem | None
+) -> list[SyntaxProblem]:
+    """Put the mismatch in its place, and drop what the parser said after it.
+
+    Everything reported past a misplaced closing tag is reading a tree that has already gone
+    wrong — ``extraneous input '</tdc>'`` at the bottom of the file being the usual one. What was
+    said BEFORE it is about a part of the document the mismatch had not reached.
+    """
+    if mismatch is None:
+        return problems
+    before = [
+        p
+        for p in problems
+        if p.line < mismatch.line or (p.line == mismatch.line and p.column < mismatch.column)
+    ]
+    return [*before, mismatch]
+
+
 def parse(source: str) -> Result:
     """Parse a config, collecting syntax errors rather than printing them."""
     collector = _Collector()
@@ -115,6 +178,8 @@ def parse(source: str) -> Result:
     parser.removeErrorListeners()
     parser.addErrorListener(collector)
     parser.addParseListener(_DepthGuard())
+    closing_tags = _ClosingTagGuard()
+    parser.addParseListener(closing_tags)
 
     try:
         tree = parser.document()
@@ -125,7 +190,7 @@ def parse(source: str) -> Result:
         problems.extend(collector.problems)
         problems.append(SyntaxProblem(refusal.line, refusal.column, str(refusal)))
         return Result(_empty_document(), problems)
-    problems.extend(collector.problems)
+    problems.extend(_with_closing_tag_mismatch(collector.problems, closing_tags.found))
     return Result(tree, problems)
 
 

@@ -149,6 +149,16 @@ impl Parser<'_> {
         }
     }
 
+    /// `</gen>` to `gen`. The lexer only ever builds an `EndTag` from a well
+    /// formed `</name>`, so the trimming cannot fail — but it stays total
+    /// rather than indexing, because a panic here would be a parser crash on
+    /// input a user typed.
+    fn closing_name(text: &str) -> &str {
+        text.strip_prefix("</")
+            .and_then(|rest| rest.strip_suffix('>'))
+            .unwrap_or(text)
+    }
+
     fn describe(&self, tok: &Tok) -> String {
         match tok {
             Tok::Eof => "'<EOF>'".to_string(),
@@ -279,7 +289,22 @@ impl Parser<'_> {
                     self.gave_up = true;
                     break;
                 }
-                Tok::EndTag(_) => {
+                Tok::EndTag(text) => {
+                    // The grammar's END_TAG takes ANY name, so `<sequence>…</gen>`
+                    // parsed and nothing downstream ever compared the two: the
+                    // element is built under its OPENING name and the closing tag
+                    // is thrown away. `gave_up` because one misplaced closing tag
+                    // shifts every closing tag below it, and all of those describe
+                    // the same typo.
+                    let text = text.clone();
+                    let closes = Self::closing_name(&text);
+                    if closes != name {
+                        let opened = pos.line;
+                        self.error(format!(
+                            "</{closes}> closes <{name}>, which was opened on line {opened}"
+                        ));
+                        self.gave_up = true;
+                    }
                     self.bump();
                     break;
                 }

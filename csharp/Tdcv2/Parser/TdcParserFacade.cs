@@ -44,7 +44,8 @@ public static class TdcParserFacade
     public static Result Parse(string source)
     {
         var problems = new List<SyntaxProblem>();
-        var collector = new Collector(problems);
+        var fromAntlr = new List<SyntaxProblem>();
+        var collector = new Collector(fromAntlr);
 
         PairedData.Rewrite rewritten = PairedData.Preprocess(source);
 
@@ -64,10 +65,13 @@ public static class TdcParserFacade
         parser.RemoveErrorListeners();
         parser.AddErrorListener(collector);
         parser.AddParseListener(new DepthGuard());
+        var closingTags = new ClosingTagGuard();
+        parser.AddParseListener(closingTags);
 
         try
         {
             TDCParser.DocumentContext tree = parser.document();
+            problems.AddRange(WithClosingTagMismatch(fromAntlr, closingTags.Found));
             return new Result(tree, problems);
         }
         catch (ElementDepthException refusal)
@@ -75,8 +79,102 @@ public static class TdcParserFacade
             // Past the ceiling there is no tree worth building — parsing it IS the danger.
             // Callers get what garbage input gets: an empty document plus the problem that
             // explains it.
+            problems.AddRange(fromAntlr);
             problems.Add(new SyntaxProblem(refusal.Line, refusal.Column, refusal.Message));
             return new Result(EmptyDocument(), problems);
+        }
+    }
+
+    /// <summary><c>&lt;/gen&gt;</c> to <c>gen</c>. Null for anything that is not a closing tag.</summary>
+    private static string? ClosingName(string? text) =>
+        text is not null && text.StartsWith("</", StringComparison.Ordinal)
+            && text.EndsWith(">", StringComparison.Ordinal)
+            ? text.Substring(2, text.Length - 3)
+            : null;
+
+    /// <summary>
+    /// Puts the mismatch in its place, and drops what the parser said after it.
+    /// </summary>
+    /// <remarks>
+    /// Everything reported past a misplaced closing tag is reading a tree that has already gone
+    /// wrong — <c>extraneous input '&lt;/tdc&gt;'</c> at the bottom of the file being the usual
+    /// one. What was said BEFORE it is about a part of the document the mismatch had not reached.
+    /// </remarks>
+    private static List<SyntaxProblem> WithClosingTagMismatch(
+        List<SyntaxProblem> problems, SyntaxProblem? mismatch)
+    {
+        if (mismatch is null)
+        {
+            return problems;
+        }
+        var kept = new List<SyntaxProblem>();
+        foreach (SyntaxProblem problem in problems)
+        {
+            if (problem.Line < mismatch.Line
+                || (problem.Line == mismatch.Line && problem.Column < mismatch.Column))
+            {
+                kept.Add(problem);
+            }
+        }
+        kept.Add(mismatch);
+        return kept;
+    }
+
+    /// <summary>
+    /// Records the first closing tag whose name is not its element's.
+    /// </summary>
+    /// <remarks>
+    /// <c>openCloseElement : LT name=NAME attr* GT content endTag=END_TAG ;</c> takes ANY name in
+    /// the closing tag, so <c>&lt;sequence&gt;…&lt;/gen&gt;</c> was a structurally valid document
+    /// and nothing downstream compared the two: the element is built under its OPENING name and
+    /// the closing tag is thrown away.
+    /// <para>
+    /// Only the first is kept. A closing tag on the wrong element shifts every closing tag after
+    /// it, so one typo would otherwise produce a mismatch per remaining level — all describing the
+    /// same typo, and only the first placed where the author can act on it.
+    /// </para>
+    /// </remarks>
+    private sealed class ClosingTagGuard : Antlr4.Runtime.Tree.IParseTreeListener
+    {
+        internal SyntaxProblem? Found { get; private set; }
+
+        public void EnterEveryRule(ParserRuleContext ctx)
+        {
+        }
+
+        public void ExitEveryRule(ParserRuleContext ctx)
+        {
+            if (Found is not null || ctx.RuleIndex != TDCParser.RULE_openCloseElement)
+            {
+                return;
+            }
+            var element = (TDCParser.OpenCloseElementContext)ctx;
+            IToken open = element.name;
+            IToken close = element.endTag;
+            // Recovery can leave either token missing or synthesised. A guess about what the
+            // author meant to close is worth less than the parser's own complaint about the tag.
+            if (open is null || close is null || close.Type != TDCParser.END_TAG)
+            {
+                return;
+            }
+            string? closes = ClosingName(close.Text);
+            if (closes is null || closes == open.Text)
+            {
+                return;
+            }
+            Found = new SyntaxProblem(
+                close.Line,
+                close.Column,
+                "</" + closes + "> closes <" + open.Text + ">, which was opened on line "
+                    + open.Line.ToString(System.Globalization.CultureInfo.InvariantCulture));
+        }
+
+        public void VisitTerminal(Antlr4.Runtime.Tree.ITerminalNode node)
+        {
+        }
+
+        public void VisitErrorNode(Antlr4.Runtime.Tree.IErrorNode node)
+        {
         }
     }
 

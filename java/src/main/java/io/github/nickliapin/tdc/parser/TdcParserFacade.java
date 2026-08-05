@@ -99,9 +99,96 @@ public final class TdcParserFacade {
     public void visitErrorNode(org.antlr.v4.runtime.tree.ErrorNode node) {}
   }
 
+  /**
+   * Records the first closing tag whose name is not its element's.
+   *
+   * <p>{@code openCloseElement : LT name=NAME attr* GT content endTag=END_TAG ;} takes ANY name
+   * in the closing tag, so {@code <sequence>…</gen>} was a structurally valid document and
+   * nothing downstream compared the two: the element is built under its OPENING name and the
+   * closing tag is thrown away.
+   *
+   * <p>Only the first is kept. A closing tag on the wrong element shifts every closing tag after
+   * it, so one typo would otherwise produce a mismatch per remaining level — all describing the
+   * same typo, and only the first one placed where the author can act on it.
+   */
+  private static final class ClosingTagGuard
+      implements org.antlr.v4.runtime.tree.ParseTreeListener {
+    private SyntaxProblem found;
+
+    @Override
+    public void enterEveryRule(org.antlr.v4.runtime.ParserRuleContext ctx) {}
+
+    @Override
+    public void exitEveryRule(org.antlr.v4.runtime.ParserRuleContext ctx) {
+      if (found != null || ctx.getRuleIndex() != TDCParser.RULE_openCloseElement) {
+        return;
+      }
+      TDCParser.OpenCloseElementContext element = (TDCParser.OpenCloseElementContext) ctx;
+      org.antlr.v4.runtime.Token open = element.name;
+      org.antlr.v4.runtime.Token close = element.endTag;
+      // Recovery can leave either token missing or synthesised. A guess about what the author
+      // meant to close is worth less than the parser's own complaint about the tag itself.
+      if (open == null || close == null || close.getType() != TDCParser.END_TAG) {
+        return;
+      }
+      String closes = closingName(close.getText());
+      if (closes == null || closes.equals(open.getText())) {
+        return;
+      }
+      found =
+          new SyntaxProblem(
+              close.getLine(),
+              close.getCharPositionInLine(),
+              "</"
+                  + closes
+                  + "> closes <"
+                  + open.getText()
+                  + ">, which was opened on line "
+                  + open.getLine());
+    }
+
+    @Override
+    public void visitTerminal(org.antlr.v4.runtime.tree.TerminalNode node) {}
+
+    @Override
+    public void visitErrorNode(org.antlr.v4.runtime.tree.ErrorNode node) {}
+  }
+
+  /** {@code </gen>} to {@code gen}. Null for anything that is not a closing tag. */
+  private static String closingName(String text) {
+    if (text == null || !text.startsWith("</") || !text.endsWith(">")) {
+      return null;
+    }
+    return text.substring(2, text.length() - 1);
+  }
+
+  /**
+   * Puts the mismatch in its place, and drops what the parser said after it.
+   *
+   * <p>Everything reported past a misplaced closing tag is reading a tree that has already gone
+   * wrong — {@code extraneous input '</tdc>'} at the bottom of the file being the usual one. What
+   * was said BEFORE it is about a part of the document the mismatch had not reached.
+   */
+  private static List<SyntaxProblem> withClosingTagMismatch(
+      List<SyntaxProblem> problems, SyntaxProblem mismatch) {
+    if (mismatch == null) {
+      return problems;
+    }
+    List<SyntaxProblem> kept = new ArrayList<>();
+    for (SyntaxProblem problem : problems) {
+      if (problem.line() < mismatch.line()
+          || (problem.line() == mismatch.line() && problem.column() < mismatch.column())) {
+        kept.add(problem);
+      }
+    }
+    kept.add(mismatch);
+    return kept;
+  }
+
   /** Parse a config, collecting syntax errors rather than printing them. */
   public static Result parse(String source) {
     List<SyntaxProblem> problems = new ArrayList<>();
+    List<SyntaxProblem> fromAntlr = new ArrayList<>();
 
     PairedData.Rewrite rewritten = PairedData.preprocess(source);
     // Ahead of ANTLR's own, because they were found ahead of it: a config whose paired tags do not
@@ -120,7 +207,7 @@ public final class TdcParserFacade {
               int charPositionInLine,
               String msg,
               RecognitionException e) {
-            problems.add(new SyntaxProblem(line, charPositionInLine, msg));
+            fromAntlr.add(new SyntaxProblem(line, charPositionInLine, msg));
           }
         };
 
@@ -132,13 +219,18 @@ public final class TdcParserFacade {
     parser.removeErrorListeners();
     parser.addErrorListener(collector);
     parser.addParseListener(new DepthGuard());
+    ClosingTagGuard closingTags = new ClosingTagGuard();
+    parser.addParseListener(closingTags);
 
     try {
-      return new Result(parser.document(), List.copyOf(problems));
+      TDCParser.DocumentContext tree = parser.document();
+      problems.addAll(withClosingTagMismatch(fromAntlr, closingTags.found));
+      return new Result(tree, List.copyOf(problems));
     } catch (ElementDepthException refusal) {
       // Past the ceiling there is no tree worth building — parsing it IS the
       // danger. Callers get what garbage input gets: an empty document plus
       // the problem that explains it.
+      problems.addAll(fromAntlr);
       problems.add(new SyntaxProblem(refusal.line, refusal.column, refusal.getMessage()));
       return new Result(emptyDocument(), List.copyOf(problems));
     }
