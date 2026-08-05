@@ -1204,8 +1204,13 @@ public final class StreamEngine {
     // already says which rows it applies to through its own conditions.
     Domain full = new Domain(count, row -> row);
     List<Column> branches = new ArrayList<>();
+    List<String> flagNames = new ArrayList<>();
+    List<Column> flagColumns = new ArrayList<>();
     for (int b = 0; b < spec.branches().size(); b++) {
-      branches.add(buildGen(spec.name() + "#if" + b, spec.branches().get(b).gen(), full).column());
+      Built made = buildGen(spec.name() + "#if" + b, spec.branches().get(b).gen(), full);
+      branches.add(made.column());
+      flagNames.add(made.flagName());
+      flagColumns.add(made.flag());
     }
     columns.put(
         spec.name(),
@@ -1218,6 +1223,37 @@ public final class StreamEngine {
           }
           return null;
         });
+
+    // A branch carrying anomaly_flag="NAME" mints the companion ground-truth column. It
+    // answers over the SAME conditions: the row's flag comes from whichever branch produced
+    // the row's value. A branch that did not declare this name answers "false" — not empty —
+    // because the row IS covered and "no outlier" is the truth about it; a row no branch
+    // matched gets null, masking the flag exactly like the value.
+    List<String> declared = new ArrayList<>();
+    for (String name : flagNames) {
+      if (name != null && !name.trim().isEmpty() && !declared.contains(name.trim())) {
+        declared.add(name.trim());
+      }
+    }
+    for (String flagName : declared) {
+      columns.put(
+          flagName,
+          row -> {
+            for (int b = 0; b < spec.branches().size(); b++) {
+              String condition = spec.branches().get(b).ifExpr();
+              if (condition != null && !condition(condition, row)) {
+                continue;
+              }
+              Column flag = flagColumns.get(b);
+              if (flag == null || !flagName.equals(String.valueOf(flagNames.get(b)).trim())) {
+                return "false";
+              }
+              String value = flag.valueAt(row);
+              return value == null ? "false" : value;
+            }
+            return null;
+          });
+    }
   }
 
   /**

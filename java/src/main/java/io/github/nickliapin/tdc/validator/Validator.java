@@ -2646,6 +2646,26 @@ public final class Validator {
     }
   }
 
+  /**
+   * A `<gen>` written inside a `<case>`.
+   *
+   * <p>`anomaly_flag="NAME"` mints a ground-truth column beside a sequence's value. A case body
+   * is a CONCATENATION of parts, so a flag written on one part describes that part rather than
+   * the row, and there is no honest column to mint. `<mix flag="NAME">` asks the same question
+   * where it has an answer. Until this check the attribute was accepted here and did nothing,
+   * and the only sign was `${{NAME}}` reaching the data as literal characters.
+   */
+  private void checkCaseGenFlag(String flag, int[] pos) {
+    if (flag == null) {
+      return;
+    }
+    error("TDC246", "anomaly_flag=\"" + flag.trim() + "\" is not read on a <gen> inside a <case>",
+        "A case body is several parts joined, so a flag on one part does not describe the row. "
+            + "Put flag=\"NAME\" on the <mix> instead, or move the <gen> into a <sequence> of "
+            + "its own.",
+        pos[0], pos[1]);
+  }
+
   private void checkCaseBody(TDCParser.OpenCloseElementContext caseEl) {
     for (TDCParser.ElementContext child : caseEl.content().element()) {
       if (child.dataElement() != null) {
@@ -2653,6 +2673,7 @@ public final class Validator {
       }
       TDCParser.SelfClosingElementContext self = child.selfClosingElement();
       if (self != null && "gen".equals(self.name.getText())) {
+        checkCaseGenFlag(attributes(self.attr()).get("anomaly_flag"), at(self, "anomaly_flag"));
         continue;
       }
       TDCParser.OpenCloseElementContext open = child.openCloseElement();
@@ -2670,6 +2691,7 @@ public final class Validator {
         continue;
       }
       if ("gen".equals(open.name.getText())) {
+        checkCaseGenFlag(attributes(open.attr()).get("anomaly_flag"), at(open, "anomaly_flag"));
         continue;
       }
       error("TDC125", "unknown child of <case>: \"<" + open.name.getText() + ">\"",

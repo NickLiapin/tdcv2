@@ -1772,28 +1772,69 @@ public final class MemoryEngine {
     if (count == 0) {
       return List.of();
     }
+    // Each branch draws under its OWN stream — `Name#if0`, `Name#if1` — the ids the
+    // streaming engine gives them. They used to take the run's shared PRNG, which made a
+    // branch's values depend on how many draws the columns before it had made, so the same
+    // config and seed produced different data here than when streaming.
     List<List<String>> built = new ArrayList<>();
-    for (Config.Branch branch : spec.branches()) {
+    List<String> flagNames = new ArrayList<>();
+    List<boolean[]> flags = new ArrayList<>();
+    for (int b = 0; b < spec.branches().size(); b++) {
+      Config.Gen gen = spec.branches().get(b).gen();
+      boolean[] spiked = new boolean[count];
       built.add(
-          finish(
-              generate(branch.gen(), count, prng, packs, config, nowMillis, baseDir, rowLinks),
-              branch.gen().attrs(),
+          columnValues(
+              gen,
+              count,
               prng,
-              new boolean[count]));
+              packs,
+              config,
+              nowMillis,
+              baseDir,
+              rowLinks,
+              new PerRow.Stream(config.seed(), spec.name() + "#if" + b, null),
+              spiked,
+              null));
+      String declared = gen.attrs().get("anomaly_flag");
+      flagNames.add(declared == null || declared.trim().isEmpty() ? null : declared.trim());
+      flags.add(spiked);
+    }
+
+    // One column per DISTINCT name: branches sharing anomaly_flag="IsOutlier" share the
+    // column, which is the point of writing it on each branch.
+    Map<String, String[]> flagColumns = new LinkedHashMap<>();
+    for (String name : flagNames) {
+      if (name != null) {
+        flagColumns.computeIfAbsent(name, key -> new String[count]);
+      }
     }
 
     List<String> out = new ArrayList<>(count);
     for (int i = 0; i < count; i++) {
-      String picked = null;
+      int winner = -1;
       for (int b = 0; b < spec.branches().size(); b++) {
         String condition = spec.branches().get(b).ifExpr();
         if (condition == null || condition(condition, columns, i)) {
-          picked = built.get(b).get(i);
+          winner = b;
           break;
         }
       }
-      out.add(picked);
+      // No branch matched: the row is not covered, so neither the value nor any claim
+      // about it exists — every flag column stays null here, masked like the value.
+      out.add(winner < 0 ? null : built.get(winner).get(i));
+      if (winner < 0) {
+        continue;
+      }
+      for (Map.Entry<String, String[]> entry : flagColumns.entrySet()) {
+        // A covered row always has an answer. `false` — not empty — when the branch that
+        // produced it cannot spike at all, because "no outlier" is the truth about that
+        // row and a detector scored against the column needs it stated, not left blank.
+        boolean spiked =
+            entry.getKey().equals(flagNames.get(winner)) && flags.get(winner)[i];
+        entry.getValue()[i] = spiked ? "true" : "false";
+      }
     }
+    columns.putAll(flagColumns);
     return out;
   }
 
