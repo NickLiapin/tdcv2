@@ -222,6 +222,12 @@ _INTERPOLATION = re.compile(r"\$\{\{([^}]+)}}")
 _VERSION = re.compile(r"^\d+(?:\.\d+)*$")
 
 
+
+def _gen_element(child):
+    """A ``<gen>``, self-closing or open/close alike."""
+    el = child.selfClosingElement() or child.openCloseElement()
+    return el if el is not None and el.name.text == "gen" else None
+
 def validate(document, base_dir: Path | None = None, packs: DataPacks | None = None):
     """Every diagnostic the config earns, in the order they were found.
 
@@ -1263,8 +1269,11 @@ class _Validator:
         has_compute = False
         compute_el = None
         for child in _elements(open_el):
-            self_closing = child.selfClosingElement()
-            if self_closing is not None and self_closing.name.text == "gen":
+            # A <gen> is a <gen> however it was punctuated. Looking only at the
+            # self-closing form left `<gen …></gen>` unseen, and the sequence was
+            # blamed for having no generator while one stood in plain sight.
+            self_closing = _gen_element(child)
+            if self_closing is not None:
                 gens.append(_attrs(self_closing.attr()))
                 gen_nodes.append(self_closing)
                 continue
@@ -1276,8 +1285,8 @@ class _Validator:
                 compute_el = inner
             elif inner.name.text == "distinct":
                 for g in _elements(inner):
-                    gen = g.selfClosingElement()
-                    if gen is not None and gen.name.text == "gen":
+                    gen = _gen_element(g)
+                    if gen is not None:
                         gens.append(_attrs(gen.attr()))
                         gen_nodes.append(gen)
 

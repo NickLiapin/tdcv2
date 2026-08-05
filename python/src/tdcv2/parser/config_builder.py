@@ -57,6 +57,18 @@ class PackGenerator:
     validate: Any = None
 
 
+
+def _gen_of(child):
+    """A ``<gen>``, whichever way it was punctuated.
+
+    Four of the five implementations only ever looked for the SELF-CLOSING form, so
+    ``<gen type="text" value="a,b"></gen>`` — the ordinary alternative spelling — was
+    not seen as a generator at all, and the sequence was blamed for having none:
+    "has no <gen> child", about a <gen> standing in plain sight.
+    """
+    el = child.selfClosingElement() or child.openCloseElement()
+    return el if el is not None and el.name.text == "gen" else None
+
 def build(document: TDCParser.DocumentContext, default_locale: str | None = None) -> Config:
     """The whole config, as the engines need it.
 
@@ -228,8 +240,8 @@ def _sequence(element) -> SequenceSpec:
                 items.append(Item(text=text))
             continue
 
-        self_el = child.selfClosingElement()
-        if self_el is not None and self_el.name.text == "gen":
+        self_el = _gen_of(child)
+        if self_el is not None:
             gen_attrs = attributes(self_el.attr())
             item, unnamed_gens = _item_of(gen_attrs, unnamed_gens)
             items.append(item)
@@ -241,8 +253,8 @@ def _sequence(element) -> SequenceSpec:
             # Its children are ordinary fields; the wrapper only records the constraint.
             group: list[str] = []
             for inner in open_el.content().element():
-                inner_gen = inner.selfClosingElement()
-                if inner_gen is not None and inner_gen.name.text == "gen":
+                inner_gen = _gen_of(inner)
+                if inner_gen is not None:
                     gen_attrs = attributes(inner_gen.attr())
                     item, unnamed_gens = _item_of(gen_attrs, unnamed_gens)
                     items.append(item)
