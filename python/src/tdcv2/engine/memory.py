@@ -1514,6 +1514,17 @@ def _generate(gen: Gen, count: int, run: _Run) -> list[str]:
         cycle = attrs.get("cycle") != "false"
         return [_pick_sequential(values, i, cycle) for i in range(count)]
 
+    # The same rule over a date range: row i is the i-th step from the start. The axis is
+    # arithmetic rather than a list, so a long range costs nothing to walk.
+    if gen.type == "date" and attrs.get("order") == "sequential":
+        axis = date_gen.date_axis(attrs, locale, run.now_millis)
+        cycle = attrs.get("cycle") != "false"
+        # An OPEN axis has no size and never wraps: row i is simply the i-th step.
+        return [
+            axis.at(i) if axis.size is None else axis.at(sequential_index(axis.size, i, cycle))
+            for i in range(count)
+        ]
+
     if gen.type == "increment":
         return counter.generate(attrs, count, True)
     if gen.type == "decrement":
@@ -1709,6 +1720,22 @@ def _split_text(value: str) -> list[str]:
     return [part.strip() for part in value.split(",")]
 
 
+def sequential_index(size: int, index: int, cycle: bool) -> int:
+    """Which of ``size`` positions row ``index`` reads, wrapping unless ``cycle="false"``.
+
+    Split out from :func:`_pick_sequential` because a walked date range has positions without
+    having a list: its values are computed from an index, and only this part applies.
+    """
+    if size <= 0:
+        return 0
+    if not cycle and index >= size:
+        raise EngineError(
+            f'order="sequential" cycle="false": the source has only {size} values, '
+            f"so row {index + 1} has none — shorten count= or lengthen the source"
+        )
+    return index % size
+
+
 def _pick_sequential(values: list[str], index: int, cycle: bool) -> str:
     """Element ``index mod N``, or a refusal once the data runs out under ``cycle="false"``.
 
@@ -1718,12 +1745,7 @@ def _pick_sequential(values: list[str], index: int, cycle: bool) -> str:
     """
     if not values:
         return ""
-    if not cycle and index >= len(values):
-        raise EngineError(
-            f'order="sequential" cycle="false": the source has only {len(values)} values, '
-            f"so row {index + 1} has none — shorten count= or lengthen the source"
-        )
-    return values[index % len(values)]
+    return values[sequential_index(len(values), index, cycle)]
 
 
 def _trim_to_none(value: str | None) -> str | None:

@@ -25,6 +25,7 @@ from dataclasses import dataclass
 from pathlib import Path
 
 from ..compute import evaluate as compute_evaluate
+from ..date import gen as date_gen
 from ..distribution import hamilton, percent_mask
 from ..expr import as_condition
 from ..format import interpolate
@@ -542,6 +543,25 @@ class StreamEngine:
                 return None if r is None else _pick_sequential(values, r, cycle)
 
             return Built(_wrap(mod, sequential))
+
+        # The same rule over a date range. The axis is arithmetic rather than a list, which is
+        # what lets this stay seekable and bounded however long the range is.
+        if type_ == "date" and attrs.get("order") == "sequential":
+            axis = date_gen.date_axis(
+                attrs, attrs.get("local") or self.config.locale, self.now_millis
+            )
+            cycle = attrs.get("cycle") != "false"
+
+            def walked(row: int) -> str | None:
+                r = domain.pop_index_at(row)
+                if r is None:
+                    return None
+                # An OPEN axis has no size and never wraps: row r is simply the r-th step.
+                if axis.size is None:
+                    return axis.at(r)
+                return axis.at(memory.sequential_index(axis.size, r, cycle))
+
+            return Built(_wrap(mod, walked))
 
         if type_ in ("increment", "decrement"):
             start = _long_attr(attrs.get("value"), 0)

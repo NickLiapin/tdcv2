@@ -178,9 +178,21 @@ def test_an_age_range_that_runs_backwards_is_refused() -> None:
         gen.build_plan({"value": "birth", "oldest": "10", "youngest": "70"}, "en", NOW)
 
 
-def test_from_and_to_travel_together() -> None:
+def test_to_without_from_is_refused() -> None:
+    # An end with no beginning says nothing under either reading: a drawn range needs both, and a
+    # walked one starts at `from`.
     with pytest.raises(plain.DateError, match="must be provided together"):
-        gen.build_plan({"from": "2026-01-01"}, "en", NOW)
+        gen.build_plan({"to": "2026-01-01"}, "en", NOW)
+
+
+def test_from_alone_is_an_open_axis_rather_than_an_error() -> None:
+    # It used to be refused. The end of a WALKED range is start + count x step — a consequence,
+    # not an input — so requiring it meant working out what date the millionth day falls on in
+    # order to write it down. A drawn date with one end is still refused, now by the validator
+    # (TDC150) rather than here.
+    plan = gen.build_plan({"from": "2026-01-01"}, "en", NOW)
+    assert plan.start == plain.PlainDateTime(2026, 1, 1)
+    assert plan.end is None
 
 
 def test_an_unsupported_precision_lists_the_ones_that_are() -> None:

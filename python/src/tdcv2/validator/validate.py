@@ -19,6 +19,7 @@ import re
 from pathlib import Path
 from urllib.parse import urlparse
 
+from ..date import calendar
 from ..date import formatter as date_formatter
 from ..date import gen as date_gen
 from ..date import parse as date_parse
@@ -166,7 +167,8 @@ GEN_ATTRS = frozenset(
         "anomaly_flag",
         "flag", "local", "count", "weight", "percent", "first_zero", "include", "exclude",
         "length", "decimals", "distribution", "regex_max_length", "alphabet", "format", "from",
-        "to", "oldest", "youngest", "precision", "range", "step", "src", "column", "header",
+        "to", "oldest", "youngest", "precision", "range", "step", "weekdays", "src",
+        "column", "header",
         "delimiter", "row", "base", "trend", "period", "amplitude", "noise", "points", "upper",
         "lower", "y_range", "interp", "spread", "ink_threshold", "mode", "in", "on_error",
         "timeout", "mean", "sd", "meanlog", "sdlog", "rate", "alpha", "xmin", "shape", "scale",
@@ -178,9 +180,13 @@ GEN_ATTRS = frozenset(
 #: correctly for SOME generator; this says whether it means anything for THIS one. Without it a
 #: `min=`/`max=` on a number and a `range=` on anything but a date pass silently and are dropped.
 ATTRIBUTE_OWNERS: dict[str, frozenset[str]] = {
-    # A list to walk. A range-based generator draws instead of stepping.
-    "order": frozenset({"text", "file"}),
-    "cycle": frozenset({"text", "file"}),
+    # A list to walk — or, on a date, a range walked instead of drawn.
+    "order": frozenset({"text", "file", "date"}),
+    "cycle": frozenset({"text", "file", "date"}),
+    # How far each row moves. A counter's stride and a walked date range mean the same thing in
+    # their own units, which is why they borrow one word.
+    "step": frozenset({"date", "increment", "decrement"}),
+    "weekdays": frozenset({"date"}),
     # Where the characters come from.
     "alphabet": frozenset({"symbol"}),
     # The external source and how to read it. `pattern` is here because a drawn curve is loaded
@@ -2291,7 +2297,12 @@ class _Validator:
     def _check_date(self, gen, attrs: dict[str, str], type_: str | None) -> None:
         if type_ != "date":
             return
-        if (attrs.get("from") is not None) != (attrs.get("to") is not None):
+        # `from=` alone is an OPEN axis when the range is WALKED: the end of such an axis is
+        # start + count x step, a consequence rather than an input. On a DRAWN date one end
+        # genuinely means nothing, and that is what this refuses.
+        walked = (attrs.get("order") or "").strip() == "sequential"
+        open_axis = walked and attrs.get("from") is not None and attrs.get("to") is None
+        if not open_axis and (attrs.get("from") is not None) != (attrs.get("to") is not None):
             self._error(
                 "TDC150",
                 '<gen type="date"> requires both "from" and "to" when either is used',
@@ -2309,8 +2320,107 @@ class _Validator:
                 line,
                 column,
             )
+        self._check_date_step(gen, attrs)
+        self._check_date_weekdays(gen, attrs)
         self._check_date_common(gen, attrs)
         self._check_date_values(gen, attrs)
+
+    def _check_date_step(self, gen, attrs: dict[str, str]) -> None:
+        """``step=`` on a walked date axis: what it may say, and that anything reads it."""
+        if attrs.get("step") is None:
+            return
+        raw = (attrs.get("step") or "").strip()
+        line, column = _at(gen, "step")
+
+        parsed = calendar.parse_step(raw)
+        if not parsed.ok:
+            # The two failures read differently because they ARE different: one is a spelling
+            # nobody meant, the other a step whose meaning would depend on which half was applied
+            # first.
+            mixed = parsed.reason == "mixed"
+            self._error(
+                "TDC247",
+                (
+                    f'step="{raw}" mixes a calendar unit with a fixed one'
+                    if mixed
+                    else f'step="{raw}" is not a step this engine can walk'
+                ),
+                (
+                    "A month is 28 to 31 days, so \"one month and fifteen days\" depends on "
+                    "which is applied first. Write one or the other: 45d, or 1mo."
+                    if mixed
+                    else f'Write {calendar.STEP_SYNTAX}. A bare number means days, so step="2" is '
+                    "every other day."
+                ),
+                line,
+                column,
+            )
+            return
+
+        if (attrs.get("order") or "").strip() != "sequential":
+            self._error(
+                "TDC248",
+                f'step="{raw}" has no order="sequential" on the same <gen> — nothing walks the '
+                "range",
+                'Add order="sequential" to walk the range one step at a time, or remove step= and '
+                "let the dates be drawn at random.",
+                line,
+                column,
+            )
+
+    def _check_date_weekdays(self, gen, attrs: dict[str, str]) -> None:
+        """``weekdays="mon..fri"`` — which weekdays a walked axis keeps.
+
+        A FILTER, not a step: the spacing stops being even, since Friday to Monday is a three-day
+        jump. That is why it is a separate attribute — one word for both operations would stop
+        them being combinable, and "every 15 minutes, but only on working days" is exactly what
+        gets asked for.
+        """
+        if attrs.get("weekdays") is None:
+            return
+        raw = (attrs.get("weekdays") or "").strip()
+        line, column = _at(gen, "weekdays")
+
+        if calendar.parse_weekdays(raw) is None:
+            self._error(
+                "TDC249",
+                f'unknown weekday in weekdays="{raw}"',
+                f"Names are {', '.join(calendar.WEEKDAY_NAMES)} — a span like \"mon..fri\" or a "
+                'list like "sun,wed".',
+                line,
+                column,
+            )
+            return
+
+        if (attrs.get("order") or "").strip() != "sequential":
+            self._error(
+                "TDC248",
+                f'weekdays="{raw}" has no order="sequential" on the same <gen> — nothing walks '
+                "the range",
+                'Add order="sequential" to walk the range and keep only these days, or remove '
+                "weekdays= and let the dates be drawn at random.",
+                line,
+                column,
+            )
+            return
+
+        step = calendar.parse_step(attrs.get("step"))
+        if step.step is not None and calendar.fixes_weekday(step.step):
+            # A calendar step, or any whole number of weeks, lands on the same weekday every time
+            # — so the filter would match every row or none of them, giving a full column or an
+            # empty one with nothing said either way. Measured on the STEP rather than on its
+            # spelling, so `14d` is caught as surely as `2w`.
+            written = (attrs.get("step") or "").strip()
+            self._error(
+                "TDC250",
+                f'weekdays="{raw}" cannot narrow step="{written}" — that step already fixes the '
+                "weekday",
+                "A whole number of weeks, or any calendar step, lands on the same weekday every "
+                "time, so this would match every row or none. Use a step that is not a multiple "
+                "of a week, or drop weekdays=.",
+                line,
+                column,
+            )
 
     def _check_date_values(self, gen, attrs: dict[str, str]) -> None:
         """The dates themselves parse.

@@ -14,10 +14,11 @@ date and an event timestamp, and only the config knows which one is wanted.
 from __future__ import annotations
 
 import math
+from collections.abc import Callable
 from dataclasses import dataclass
 
 from ..prng.prng import Sfc32
-from . import parse
+from . import calendar, parse
 from .formatter import format_date_time
 from .plain import (
     MS_PER_SECOND,
@@ -103,6 +104,22 @@ def build_plan(attrs: dict[str, str], locale: str, now: int) -> Plan:
         )
 
     if attrs.get("from") is not None or attrs.get("to") is not None:
+        # `from=` alone is an OPEN axis — legal when the range is WALKED, and the plan carries
+        # only a start. `date_axis` reads `end` as None and never wraps; a DRAWN date with one
+        # end is still refused, by TDC150.
+        if attrs.get("from") is not None and attrs.get("to") is None:
+            start = parse.date_time(attrs["from"])
+            return Plan(
+                None,
+                start.value,
+                None,
+                parse_precision(
+                    attrs.get("precision"),
+                    Precision.MILLISECOND if start.has_time else Precision.DAY,
+                ),
+                fmt,
+                loc,
+            )
         if attrs.get("from") is None or attrs.get("to") is None:
             raise DateError('date generator: "from" and "to" must be provided together')
         bounds = parse.Range(parse.date_time(attrs["from"]), parse.date_time(attrs["to"]))
@@ -130,6 +147,91 @@ def build_plan(attrs: dict[str, str], locale: str, now: int) -> Plan:
     # Nothing said at all: the whole span from the epoch to right now, by day.
     bounds = parse.Range(parse.date_time(DEFAULT_START), parse.Parsed(from_epoch_millis(now), True))
     return _range_plan(bounds, attrs, fmt, loc, Precision.DAY)
+
+
+_MS_PER_WEEK = 7 * 86_400_000
+
+
+def _is_open_axis(attrs: dict[str, str]) -> bool:
+    """True when a range was written with only its START — an axis with no end."""
+    return (
+        attrs.get("from") is not None
+        and attrs.get("to") is None
+        and attrs.get("range") is None
+        and not (attrs.get("value") or "")
+    )
+
+
+@dataclass(frozen=True, slots=True)
+class Axis:
+    """A walkable date range: how many steps it holds, and what the k-th is.
+
+    ``size`` is ``None`` for an OPEN axis — ``from=`` with no end — which never wraps, because
+    there is nothing to wrap at.
+    """
+
+    size: int | None
+    at: Callable[[int], str]
+
+
+def date_axis(attrs: dict[str, str], locale: str, now: int) -> Axis:
+    """A date range as a walkable axis.
+
+    The range is never expanded into a list. A century stepped by the second is three billion
+    values and the streaming engine promises bounded memory whatever the config says — so each
+    date is ``start + k × step``, measured from the START rather than accumulated, which is what
+    keeps a clamped February from dragging every later month back with it.
+    """
+    parsed = calendar.parse_step(attrs.get("step"))
+    step = parsed.step if parsed.step is not None else calendar.DEFAULT_STEP
+    keep = calendar.parse_weekdays(attrs.get("weekdays"))
+    plan = build_plan(attrs, locale, now)
+
+    def render(value: PlainDateTime) -> str:
+        return format_date_time(value, plan.format, plan.locale)
+
+    if plan.start is None:
+        fixed = plan.fixed
+        if fixed is None:
+            raise DateError("date generator: invalid generation plan")
+        return Axis(1, lambda _k: render(fixed))
+    start = plan.start
+
+    # `weekdays=` keeps only some of the candidates, so the k-th KEPT one is wanted rather than
+    # the k-th candidate. Which candidates match repeats on a cycle — one week's worth of steps —
+    # so the offsets are found once and then indexed, instead of scanning from the beginning for
+    # every row.
+    offsets: list[int] = []
+    per_cycle = 0
+    if keep is not None:
+        per_cycle = _MS_PER_WEEK // math.gcd(step.ms, _MS_PER_WEEK) if step.ms > 0 else 7
+        offsets = [
+            i
+            for i in range(per_cycle)
+            if calendar.weekday_of(calendar.add_step(start, step, i)) in keep
+        ]
+
+    def candidate_at(k: int) -> PlainDateTime:
+        if keep is None or not offsets:
+            return calendar.add_step(start, step, k)
+        cycles, within = divmod(k, len(offsets))
+        return calendar.add_step(start, step, cycles * per_cycle + offsets[within])
+
+    if _is_open_axis(attrs) or plan.end is None:
+        return Axis(None, lambda k: render(candidate_at(k)))
+
+    candidates = calendar.steps_between(start, plan.end, step)
+    if keep is not None and offsets:
+        size = max(
+            1,
+            candidates // per_cycle * len(offsets)
+            + sum(1 for o in offsets if o < candidates % per_cycle),
+        )
+    elif keep is not None:
+        size = 1
+    else:
+        size = candidates
+    return Axis(size, lambda k: render(candidate_at(k)))
 
 
 def parse_precision(raw: str | None, fallback: Precision = Precision.DAY) -> Precision:
