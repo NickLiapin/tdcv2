@@ -140,7 +140,21 @@ for (const file of files) {
   // Every link has to land somewhere real.
   for (const m of prose.matchAll(/\]\(([^)\s]+)\)/g)) {
     const href = m[1];
-    if (/^(https?:|mailto:|#)/.test(href)) continue;
+    if (/^(https?:|mailto:)/.test(href)) continue;
+
+    // A bare `#anchor` points INTO THIS FILE, and used to be skipped along with
+    // the external schemes above — so a heading anchor written by hand was
+    // checked on a translated page (against its own headings, by the anchor
+    // repairer) and nowhere at all in English. `#a-date-axis--walking-…` with
+    // one hyphen too many passed this line and printed "anchors all resolve".
+    if (href.startsWith('#')) {
+      const own = href.slice(1);
+      if (own !== '' && !anchorsOf(file).has(own)) {
+        fail(file, `anchor not found in this file: #${own}`);
+      }
+      continue;
+    }
+
     const [path, hash] = href.split('#');
     const target = resolve(dirname(file), path);
     if (!existsSync(target)) {
