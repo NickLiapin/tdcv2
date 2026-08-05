@@ -1279,10 +1279,12 @@ fn one_scalar(spec: &SequenceSpec, prng: &mut Sfc32, env: &Env) -> EngineResult<
         }
         Source::Mix(mix) => {
             let mut flags = vec![false; 1];
-            Ok(mix_values(mix, 1, prng, Some(&mut flags), env, None, &BTreeMap::new())?
-                .into_iter()
-                .next()
-                .unwrap_or_default())
+            Ok(
+                mix_values(mix, 1, prng, Some(&mut flags), env, None, &BTreeMap::new())?
+                    .into_iter()
+                    .next()
+                    .unwrap_or_default(),
+            )
         }
         _ => Ok(String::new()),
     }
@@ -1674,6 +1676,22 @@ pub(super) fn generate(
         "text" => text(gen, count, prng),
         "number" if gen.attrs.contains_key("distribution") => distributed(&gen.attrs, count, prng),
         "number" => number::generate(&gen.attrs, count, prng),
+        // The same rule over a date range: row i is the i-th step from the start.
+        // The axis is arithmetic rather than a list, so a long range costs
+        // nothing to walk.
+        "date" if gen.attrs.get("order").map(String::as_str) == Some("sequential") => {
+            let axis =
+                date::gen::date_axis(&gen.attrs, env.config.locale.as_deref(), env.now_millis)?;
+            let cycle = gen.attrs.get("cycle").map(String::as_str) != Some("false");
+            (0..count)
+                .map(|i| match axis.size {
+                    // An OPEN axis has no size and never wraps: row i is simply
+                    // the i-th step.
+                    None => Ok(axis.at(i as i64)),
+                    Some(size) => Ok(axis.at(sequential_index(size as usize, i, cycle)? as i64)),
+                })
+                .collect()
+        }
         "date" => date::gen::generate(
             &gen.attrs,
             env.config.locale.as_deref(),
@@ -2857,19 +2875,30 @@ pub fn split_text(value: &str) -> Vec<String> {
 /// Silently emitting empty cells for the tail of a run is the failure this
 /// project exists to prevent: the file looks the right length and its last
 /// thousand rows say nothing.
+/// Which of `size` positions row `i` reads, wrapping unless `cycle="false"`.
+///
+/// Split out of `pick_sequential` because a walked date range has positions
+/// without having a list: its values are computed from an index, and only this
+/// part applies.
+pub(super) fn sequential_index(size: usize, i: usize, cycle: bool) -> EngineResult<usize> {
+    if size == 0 {
+        return Ok(0);
+    }
+    if !cycle && i >= size {
+        return invalid(&format!(
+            "order=\"sequential\" cycle=\"false\": the source has only {size} values, so row {} \
+             has none — shorten count= or lengthen the source",
+            i + 1
+        ));
+    }
+    Ok(i % size)
+}
+
 pub(super) fn pick_sequential(list: &[String], i: usize, cycle: bool) -> EngineResult<String> {
     if list.is_empty() {
         return Ok(String::new());
     }
-    if !cycle && i >= list.len() {
-        return invalid(&format!(
-            "order=\"sequential\" cycle=\"false\": the source has only {} values, so row {} \
-             has none — shorten count= or lengthen the source",
-            list.len(),
-            i + 1
-        ));
-    }
-    Ok(list[i % list.len()].clone())
+    Ok(list[sequential_index(list.len(), i, cycle)?].clone())
 }
 
 // ── rendering ────────────────────────────────────────────────────────────────

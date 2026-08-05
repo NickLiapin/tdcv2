@@ -11,6 +11,7 @@
 //! would produce different data in Moscow and in Denver from the same seed,
 //! which is the one thing the product promises never happens.
 
+pub mod calendar;
 pub mod format;
 pub mod gen;
 pub mod locales;

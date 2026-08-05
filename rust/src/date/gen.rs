@@ -11,8 +11,8 @@
 use std::collections::BTreeMap;
 
 use super::{
-    floor_div, format, from_epoch_day, from_epoch_millis, parse, subtract_utc_years, to_epoch_day,
-    to_epoch_millis, PlainDateTime,
+    calendar, floor_div, format, from_epoch_day, from_epoch_millis, parse, subtract_utc_years,
+    to_epoch_day, to_epoch_millis, PlainDateTime, MS_PER_DAY,
 };
 use crate::engine::{invalid, EngineResult};
 use crate::prng::Sfc32;
@@ -33,6 +33,9 @@ struct Plan {
     fixed: Option<PlainDateTime>,
     start: PlainDateTime,
     end: PlainDateTime,
+    /// True when the range was written with only its START. `end` is then a copy
+    /// of `start` and means nothing; `date_axis` reads this and never wraps.
+    open_end: bool,
     grain: Precision,
     format: String,
     locale: Option<String>,
@@ -196,6 +199,28 @@ fn build_plan(
     let from = attrs.get("from");
     let to = attrs.get("to");
     if from.is_some() || to.is_some() {
+        // `from=` alone is an OPEN axis — legal when the range is WALKED, and the
+        // plan carries only a start. `date_axis` reads `open_end` and never wraps;
+        // a DRAWN date with one end is still refused, by TDC150.
+        if let (Some(from), None) = (from, to) {
+            let start = parse::date_time(from)?;
+            return Ok(Plan {
+                fixed: None,
+                start: start.value,
+                end: start.value,
+                open_end: true,
+                grain: parse_precision(
+                    precision,
+                    if start.has_time {
+                        Precision::Millisecond
+                    } else {
+                        Precision::Day
+                    },
+                )?,
+                format,
+                locale: loc,
+            });
+        }
         let (Some(from), Some(to)) = (from, to) else {
             return invalid("date generator: \"from\" and \"to\" must be provided together");
         };
@@ -254,6 +279,7 @@ fn fixed(value: PlainDateTime, grain: Precision, format: String, locale: Option<
         fixed: Some(value),
         start: PlainDateTime::default(),
         end: PlainDateTime::default(),
+        open_end: false,
         grain,
         format,
         locale,
@@ -290,9 +316,130 @@ fn range_plan(
         fixed: None,
         start,
         end,
+        open_end: false,
         grain: parse_precision(precision, fallback)?,
         format,
         locale,
+    })
+}
+
+/// A date range as a walkable axis: how many steps it holds, and what the k-th is.
+///
+/// `size` is `None` for an OPEN axis — `from=` with no end. Requiring an end
+/// meant working out what date the millionth day falls on in order to write it
+/// down, when the end is simply `start + count x step`. Such an axis never wraps,
+/// because there is nothing to wrap at.
+///
+/// The range is never expanded into a list. A century stepped by the second is
+/// three billion values and the streaming engine promises bounded memory whatever
+/// the config says — so each date is `start + k x step`, measured from the START
+/// rather than accumulated, which is what keeps a clamped February from dragging
+/// every later month back with it.
+#[derive(Debug)]
+pub struct Axis {
+    pub size: Option<i64>,
+    start: PlainDateTime,
+    step: calendar::StepSpec,
+    /// Which offsets within one cycle a `weekdays=` filter keeps. Empty when
+    /// there is no filter.
+    offsets: Vec<i64>,
+    per_cycle: i64,
+    format: String,
+    locale: Option<String>,
+}
+
+impl Axis {
+    /// The k-th value of the axis, rendered.
+    pub fn at(&self, k: i64) -> String {
+        let candidate = if self.offsets.is_empty() {
+            calendar::add_step(self.start, self.step, k)
+        } else {
+            let n = self.offsets.len() as i64;
+            let cycles = k.div_euclid(n);
+            let within = self.offsets[k.rem_euclid(n) as usize];
+            calendar::add_step(self.start, self.step, cycles * self.per_cycle + within)
+        };
+        format::format(candidate, Some(&self.format), self.locale.as_deref())
+    }
+}
+
+fn gcd(a: i64, b: i64) -> i64 {
+    if b == 0 {
+        a
+    } else {
+        gcd(b, a % b)
+    }
+}
+
+const MS_PER_WEEK: i64 = 7 * MS_PER_DAY;
+
+/// Build the walkable axis a `order="sequential"` date reads.
+pub fn date_axis(
+    attrs: &BTreeMap<String, String>,
+    locale: Option<&str>,
+    now_millis: i64,
+) -> EngineResult<Axis> {
+    let step = calendar::parse_step(attrs.get("step").map(String::as_str))
+        .unwrap_or(calendar::DEFAULT_STEP);
+    let keep = calendar::parse_weekdays(attrs.get("weekdays").map(String::as_str));
+    let plan = build_plan(attrs, locale, now_millis)?;
+    format::check_format(&plan.format)?;
+
+    if let Some(fixed) = plan.fixed {
+        return Ok(Axis {
+            size: Some(1),
+            start: fixed,
+            step: calendar::DEFAULT_STEP,
+            offsets: Vec::new(),
+            per_cycle: 1,
+            format: plan.format,
+            locale: plan.locale,
+        });
+    }
+
+    // `weekdays=` keeps only some of the candidates, so the k-th KEPT one is
+    // wanted rather than the k-th candidate. Which candidates match repeats on a
+    // cycle — one week's worth of steps — so the offsets are found once and then
+    // indexed, instead of scanning from the beginning for every row.
+    let mut offsets: Vec<i64> = Vec::new();
+    let mut per_cycle = 1i64;
+    if let Some(keep) = keep {
+        per_cycle = if step.ms > 0 {
+            MS_PER_WEEK / gcd(step.ms, MS_PER_WEEK)
+        } else {
+            7
+        };
+        for i in 0..per_cycle {
+            if keep[calendar::weekday_of(calendar::add_step(plan.start, step, i))] {
+                offsets.push(i);
+            }
+        }
+    }
+
+    let size = if plan.open_end {
+        None
+    } else {
+        let candidates = calendar::steps_between(plan.start, plan.end, step);
+        Some(if offsets.is_empty() {
+            candidates
+        } else {
+            (candidates / per_cycle * offsets.len() as i64
+                + offsets
+                    .iter()
+                    .filter(|o| **o < candidates % per_cycle)
+                    .count() as i64)
+                .max(1)
+        })
+    };
+
+    Ok(Axis {
+        size,
+        start: plan.start,
+        step,
+        offsets,
+        per_cycle,
+        format: plan.format,
+        locale: plan.locale,
     })
 }
 

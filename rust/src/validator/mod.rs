@@ -371,7 +371,13 @@ impl Validator {
     fn check_uniq_memory(&mut self, open: &Element, named: Option<&str>) {
         const BYTES_PER_VALUE: i64 = 250;
         const WARN_ROWS: i64 = 100_000;
-        if open.attr_value("uniq").map(str::trim).map(str::to_lowercase).as_deref() != Some("true") {
+        if open
+            .attr_value("uniq")
+            .map(str::trim)
+            .map(str::to_lowercase)
+            .as_deref()
+            != Some("true")
+        {
             return;
         }
         if self.env_count < WARN_ROWS {
@@ -1152,11 +1158,7 @@ impl Validator {
     /// silently using its first field would enforce something the config did not
     /// ask for.
     fn check_env_group_member(&mut self, sequence: &Element, tag: &str) {
-        let gens: Vec<&Element> = sequence
-            .children
-            .iter()
-            .filter(|c| is_gen(c))
-            .collect();
+        let gens: Vec<&Element> = sequence.children.iter().filter(|c| is_gen(c)).collect();
         let named = gens.iter().filter(|g| g.attr("name").is_some()).count();
 
         if named > 0 || gens.len() > 1 {
@@ -1278,14 +1280,11 @@ impl Validator {
                 self.error(
                     "TDC013",
                     format!("<{}> is not allowed directly inside <sequence>", child.name),
-                    &format!(
-                        "{hint} Allowed inside <sequence>: {}.",
-                        {
-                            let mut n = tables::SEQUENCE_CHILDREN.to_vec();
-                            n.sort_unstable();
-                            n.join(", ")
-                        }
-                    ),
+                    &format!("{hint} Allowed inside <sequence>: {}.", {
+                        let mut n = tables::SEQUENCE_CHILDREN.to_vec();
+                        n.sort_unstable();
+                        n.join(", ")
+                    }),
                     child.pos,
                 );
                 misplaced += 1;
@@ -2336,12 +2335,128 @@ impl Validator {
         }
     }
 
+    /// `step=` on a walked date axis: what it may say, and that anything reads it.
+    fn check_date_step(&mut self, gen: &Element, attrs: &Attrs) {
+        let Some(raw) = attrs.get("step") else {
+            return;
+        };
+        let raw = raw.trim();
+        match date::calendar::parse_step(Some(raw)) {
+            Err(reason) => {
+                // The two failures read differently because they ARE different:
+                // one is a spelling nobody meant, the other a step whose meaning
+                // would depend on which half was applied first.
+                let mixed = reason == date::calendar::StepError::Mixed;
+                self.error(
+                    "TDC247",
+                    if mixed {
+                        format!("step=\"{raw}\" mixes a calendar unit with a fixed one")
+                    } else {
+                        format!("step=\"{raw}\" is not a step this engine can walk")
+                    },
+                    &if mixed {
+                        "A month is 28 to 31 days, so \"one month and fifteen days\" depends on \
+                         which is applied first. Write one or the other: 45d, or 1mo."
+                            .to_string()
+                    } else {
+                        format!(
+                            "Write {}. A bare number means days, so step=\"2\" is every other day.",
+                            date::calendar::STEP_SYNTAX
+                        )
+                    },
+                    gen.at("step"),
+                );
+            }
+            Ok(_) => {
+                if attrs.get("order").map(|o| o.trim()) != Some("sequential") {
+                    self.error(
+                        "TDC248",
+                        format!(
+                            "step=\"{raw}\" has no order=\"sequential\" on the same <gen> — \
+                             nothing walks the range"
+                        ),
+                        "Add order=\"sequential\" to walk the range one step at a time, or remove \
+                         step= and let the dates be drawn at random.",
+                        gen.at("step"),
+                    );
+                }
+            }
+        }
+    }
+
+    /// `weekdays="mon..fri"` — which weekdays a walked axis keeps.
+    ///
+    /// A FILTER, not a step: the spacing stops being even, since Friday to Monday
+    /// is a three-day jump. That is why it is a separate attribute — one word for
+    /// both operations would stop them being combinable, and "every 15 minutes,
+    /// but only on working days" is exactly what gets asked for.
+    fn check_date_weekdays(&mut self, gen: &Element, attrs: &Attrs) {
+        let Some(raw) = attrs.get("weekdays") else {
+            return;
+        };
+        let raw = raw.trim();
+        if date::calendar::parse_weekdays(Some(raw)).is_none() {
+            self.error(
+                "TDC249",
+                format!("unknown weekday in weekdays=\"{raw}\""),
+                &format!(
+                    "Names are {} — a span like \"mon..fri\" or a list like \"sun,wed\".",
+                    date::calendar::weekday_names()
+                ),
+                gen.at("weekdays"),
+            );
+            return;
+        }
+
+        if attrs.get("order").map(|o| o.trim()) != Some("sequential") {
+            self.error(
+                "TDC248",
+                format!(
+                    "weekdays=\"{raw}\" has no order=\"sequential\" on the same <gen> — nothing \
+                     walks the range"
+                ),
+                "Add order=\"sequential\" to walk the range and keep only these days, or remove \
+                 weekdays= and let the dates be drawn at random.",
+                gen.at("weekdays"),
+            );
+            return;
+        }
+
+        if let Ok(step) = date::calendar::parse_step(attrs.get("step").map(String::as_str)) {
+            if date::calendar::fixes_weekday(step) {
+                // A calendar step, or any whole number of weeks, lands on the same
+                // weekday every time — so the filter would match every row or none
+                // of them, giving a full column or an empty one with nothing said
+                // either way. Measured on the STEP rather than on its spelling, so
+                // `14d` is caught as surely as `2w`.
+                let written = attrs.get("step").map(|v| v.trim()).unwrap_or("");
+                self.error(
+                    "TDC250",
+                    format!(
+                        "weekdays=\"{raw}\" cannot narrow step=\"{written}\" — that step already \
+                         fixes the weekday"
+                    ),
+                    "A whole number of weeks, or any calendar step, lands on the same weekday \
+                     every time, so this would match every row or none. Use a step that is not a \
+                     multiple of a week, or drop weekdays=.",
+                    gen.at("weekdays"),
+                );
+            }
+        }
+    }
+
     fn check_date(&mut self, gen: &Element, attrs: &Attrs, gen_type: Option<&str>) {
         if gen_type != Some("date") {
             return;
         }
 
-        if attrs.contains_key("from") != attrs.contains_key("to") {
+        // `from=` alone is an OPEN axis when the range is WALKED: the end of such
+        // an axis is start + count x step, a consequence rather than an input. On
+        // a DRAWN date one end genuinely means nothing, and that is what this
+        // refuses.
+        let walked = attrs.get("order").map(|o| o.trim()) == Some("sequential");
+        let open_axis = walked && attrs.contains_key("from") && !attrs.contains_key("to");
+        if !open_axis && attrs.contains_key("from") != attrs.contains_key("to") {
             self.error(
                 "TDC150",
                 "<gen type=\"date\"> requires both \"from\" and \"to\" when either is used"
@@ -2350,6 +2465,9 @@ impl Validator {
                 gen.pos,
             );
         }
+
+        self.check_date_step(gen, attrs);
+        self.check_date_weekdays(gen, attrs);
 
         if let Some(local) = attrs.get("local").filter(|l| !l.trim().is_empty()) {
             if !date::locales::is_known(local) {

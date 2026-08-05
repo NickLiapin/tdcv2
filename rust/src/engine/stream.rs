@@ -32,6 +32,7 @@ use std::collections::BTreeMap;
 use super::memory::{self, Env};
 use super::{invalid, unsupported, EngineError, EngineResult, RowSource};
 use crate::compute;
+use crate::date;
 use crate::distribution::percent_mask;
 use crate::engine::exact_uniq;
 use crate::expr::evaluate;
@@ -198,6 +199,15 @@ enum Column {
     Sequential {
         domain: Domain,
         list: Vec<String>,
+        cycle: bool,
+        modifier: Option<Modifier>,
+    },
+    /// The same rule over a date range. The axis is arithmetic rather than a
+    /// list, which is what lets this stay seekable and bounded however long the
+    /// range is.
+    WalkedDate {
+        domain: Domain,
+        axis: std::rc::Rc<date::gen::Axis>,
         cycle: bool,
         modifier: Option<Modifier>,
     },
@@ -952,6 +962,23 @@ impl StreamEngine<'_> {
             }));
         }
 
+        if gen_type == "date" && attrs.get("order").map(String::as_str) == Some("sequential") {
+            let axis = date::gen::date_axis(
+                attrs,
+                gen.attrs
+                    .get("local")
+                    .map(String::as_str)
+                    .or(self.env.config.locale.as_deref()),
+                self.env.now_millis,
+            )?;
+            return Ok(Built::plain(Column::WalkedDate {
+                domain,
+                axis: std::rc::Rc::new(axis),
+                cycle: attrs.get("cycle").map(String::as_str) != Some("false"),
+                modifier,
+            }));
+        }
+
         if gen_type == "increment" || gen_type == "decrement" {
             return Ok(Built::plain(Column::Counter {
                 domain,
@@ -1279,9 +1306,7 @@ impl StreamEngine<'_> {
     fn carries_percent(case: Option<&Case>) -> bool {
         case.is_some_and(|c| {
             c.parts.iter().any(|part| match part {
-                CasePart::Mix(mix) => {
-                    !mix.percent.as_deref().unwrap_or("").trim().is_empty()
-                }
+                CasePart::Mix(mix) => !mix.percent.as_deref().unwrap_or("").trim().is_empty(),
                 CasePart::Gen(gen) => !gen.attr_or("percent", "").trim().is_empty(),
                 // A nested switch declares no share of its own; each of ITS branches is
                 // judged in `nested_switch`, where the refusal is raised.
@@ -1867,6 +1892,26 @@ impl StreamEngine<'_> {
                     return Ok(None);
                 };
                 let value = memory::pick_sequential(list, r as usize, *cycle)?;
+                self.modify(modifier, row, Some(value), 0)
+            }
+
+            Column::WalkedDate {
+                domain,
+                axis,
+                cycle,
+                modifier,
+            } => {
+                let Some(r) = self.pop_index_at(domain, row)? else {
+                    return Ok(None);
+                };
+                // An OPEN axis has no size and never wraps: row r is simply the
+                // r-th step.
+                let value = match axis.size {
+                    None => axis.at(i64::from(r)),
+                    Some(size) => {
+                        axis.at(memory::sequential_index(size as usize, r as usize, *cycle)? as i64)
+                    }
+                };
                 self.modify(modifier, row, Some(value), 0)
             }
 

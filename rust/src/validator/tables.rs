@@ -46,9 +46,7 @@ pub const ENV_GROUP_CHILDREN: [&str; 4] = ["sequence", "mix", "switch", "member"
 
 /// What may sit inside `<pool>`. Deliberately generous: too SHORT a list refuses
 /// configs that work, while too long a one merely leaves a little silence.
-pub const POOL_CHILDREN: [&str; 6] = [
-    "sequence", "mix", "switch", "uniq", "distinct", "member",
-];
+pub const POOL_CHILDREN: [&str; 6] = ["sequence", "mix", "switch", "uniq", "distinct", "member"];
 
 /// What a fixture (`<before>`, `<after>`, the delimiters) holds: literal text.
 pub const FIXTURE_CHILDREN: [&str; 2] = ["data", "line"];
@@ -97,7 +95,7 @@ pub const MISPLACED_IN_SEQUENCE: [&str; 5] = ["mix", "switch", "case", "default"
 /// to `<case>`; `on` to `<switch>`; `v` to `<tdc>`. The list was one flat union of
 /// every attribute name in the language, so writing any of them on a `<gen>`
 /// passed in silence while the reference refused it.
-pub const GEN_ATTRS: [&str; 77] = [
+pub const GEN_ATTRS: [&str; 78] = [
     "type",
     "value",
     "name",
@@ -108,6 +106,7 @@ pub const GEN_ATTRS: [&str; 77] = [
     "mask",
     "order",
     "cycle",
+    "weekdays",
     "repeat",
     "separator",
     "accumulate",
@@ -200,10 +199,14 @@ pub const GEN_TYPES: [&str; 15] = [
 /// An attribute in [`GEN_ATTRS`] is spelled correctly for SOME generator; this
 /// says whether it means anything for THIS one. Without it a `min=`/`max=` on a
 /// number and a `range=` on anything but a date pass silently and are dropped.
-pub const ATTRIBUTE_OWNERS: [(&str, &[&str]); 24] = [
-    // A list to walk. A range-based generator draws instead of stepping.
-    ("order", &["text", "file"]),
-    ("cycle", &["text", "file"]),
+pub const ATTRIBUTE_OWNERS: [(&str, &[&str]); 26] = [
+    // A list to walk — or, on a date, a range walked instead of drawn.
+    ("order", &["text", "file", "date"]),
+    ("cycle", &["text", "file", "date"]),
+    // How far each row moves. A counter's stride and a walked date range mean the
+    // same thing in their own units, which is why they borrow one word.
+    ("step", &["date", "increment", "decrement"]),
+    ("weekdays", &["date"]),
     // Where the characters come from.
     ("alphabet", &["symbol"]),
     // The external source and how to read it. `pattern` is here because a drawn
