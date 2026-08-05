@@ -172,7 +172,7 @@ GEN_ATTRS = frozenset(
         "delimiter", "row", "base", "trend", "period", "amplitude", "noise", "points", "upper",
         "lower", "y_range", "interp", "spread", "ink_threshold", "mode", "in", "on_error",
         "timeout", "mean", "sd", "meanlog", "sdlog", "rate", "alpha", "xmin", "shape", "scale",
-        "lambda", "n", "s", "beta", "min", "max", "filter",
+        "lambda", "n", "s", "beta", "min", "max", "filter", "peak_at",
     }
 )  # fmt: skip
 
@@ -186,6 +186,8 @@ ATTRIBUTE_OWNERS: dict[str, frozenset[str]] = {
     # How far each row moves. A counter's stride and a walked date range mean the same thing in
     # their own units, which is why they borrow one word.
     "step": frozenset({"date", "increment", "decrement"}),
+    # The seasonal wave's highest row.
+    "peak_at": frozenset({"timeseries"}),
     "weekdays": frozenset({"date"}),
     # Where the characters come from.
     "alphabet": frozenset({"symbol"}),
@@ -1929,6 +1931,7 @@ class _Validator:
         self._check_regexes(gen, attrs, type_)
         self._check_symbol(gen, attrs, type_)
         self._check_date(gen, attrs, type_)
+        self._check_timeseries(gen, attrs, type_)
         self._check_repeat(gen, attrs, type_)
 
         self._check_gen_attributes(gen, attrs, type_)
@@ -2448,6 +2451,52 @@ class _Validator:
                 "TDC099",
                 f'unknown alphabet "{alphabet}"',
                 f"Known alphabets: {', '.join(checks.alphabet_names())}.",
+                line,
+                column,
+            )
+
+    def _check_timeseries(self, gen, attrs: dict[str, str], type_: str | None) -> None:
+        """``peak_at=`` — which row the seasonal wave is highest on.
+
+        A wave is ``amplitude·cos(2π·(i − peak)/period)``, so ``peak_at`` names the row it
+        peaks on. Without it the peak sits a quarter period in, which is where a plain sine
+        already peaked — and for a year of daily rows that is early April, the one season
+        nobody means by "warmer in summer".
+
+        It is a ROW, not a shift, because the row is what the author knows: 182 of 365 is the
+        first of July. Same unit as ``period``, which is also counted in rows.
+        """
+        if type_ != "timeseries" or attrs.get("peak_at") is None:
+            return
+        raw = (attrs.get("peak_at") or "").strip()
+        line, column = _at(gen, "peak_at")
+
+        try:
+            float(raw)
+        except ValueError:
+            self._error(
+                "TDC252",
+                f'peak_at="{raw}" is not a number',
+                "peak_at is the row the seasonal wave peaks on, counted like period= — "
+                'peak_at="182" over period="365" puts the peak at the first of July.',
+                line,
+                column,
+            )
+            return
+
+        # A wave needs a length before it can have a highest point. Without `period` there is
+        # no wave at all, so `peak_at` would be read by nobody.
+        period_raw = (attrs.get("period") or "").strip()
+        try:
+            period = float(period_raw) if period_raw else 0.0
+        except ValueError:
+            period = 0.0
+        if period <= 0:
+            self._error(
+                "TDC253",
+                f'peak_at="{raw}" has no period= on the same <gen> — there is no wave to '
+                "place a peak on",
+                "Add period= (the length of one season, in rows), or remove peak_at=.",
                 line,
                 column,
             )

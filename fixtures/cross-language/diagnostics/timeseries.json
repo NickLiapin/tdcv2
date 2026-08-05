@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "cases": [
+    {
+      "name": "peak-at-is-not-a-number",
+      "demonstrates": "TDC252",
+      "description": "peak_at is a row index, so a season name is not one",
+      "config": "<tdc><env count=\"3\" seed=\"s\"><sequence name=\"G\"><gen type=\"timeseries\" base=\"15\" amplitude=\"10\" period=\"12\" peak_at=\"summer\"/></sequence></env><block><line><data>x</data></line></block></tdc>",
+      "expected": ["error TDC252 1:117"]
+    },
+    {
+      "name": "peak-at-with-no-period",
+      "demonstrates": "TDC253",
+      "description": "a wave needs a length before it can have a highest point",
+      "config": "<tdc><env count=\"3\" seed=\"s\"><sequence name=\"G\"><gen type=\"timeseries\" base=\"15\" amplitude=\"10\" peak_at=\"6\"/></sequence></env><block><line><data>x</data></line></block></tdc>",
+      "expected": ["error TDC253 1:105"]
+    },
+    {
+      "name": "peak-at-beside-a-period-is-accepted",
+      "demonstrates": "",
+      "description": "the ordinary shape: nothing to say",
+      "config": "<tdc><env count=\"3\" seed=\"s\"><sequence name=\"G\"><gen type=\"timeseries\" base=\"15\" amplitude=\"10\" period=\"12\" peak_at=\"6\"/></sequence></env><block><line><data>x</data></line></block></tdc>",
+      "expected": []
+    },
+    {
+      "name": "phase-is-not-the-attribute",
+      "demonstrates": "TDC015",
+      "description": "the word readers reach for; the engine spells it peak_at",
+      "config": "<tdc><env count=\"3\" seed=\"s\"><sequence name=\"G\"><gen type=\"timeseries\" base=\"15\" amplitude=\"10\" period=\"12\" phase=\"6\"/></sequence></env><block><line><data>x</data></line></block></tdc>",
+      "expected": ["error TDC015 1:115"]
+    }
+  ]
+}

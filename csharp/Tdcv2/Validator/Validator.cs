@@ -94,6 +94,9 @@ public sealed class Validator
             ["step"] = Set("date", "increment", "decrement"),
             ["weekdays"] = Set("date"),
 
+            // The seasonal wave's highest row.
+            ["peak_at"] = Set("timeseries"),
+
             // Where the characters come from.
             ["alphabet"] = Set("symbol"),
 
@@ -212,7 +215,8 @@ public sealed class Validator
         "anomaly_flag",
         "flag", "local", "count", "weight", "percent", "first_zero", "include", "exclude",
         "length", "decimals", "distribution", "regex_max_length", "alphabet", "format", "from",
-        "to", "oldest", "youngest", "precision", "range", "step", "weekdays", "src", "column",
+        "to", "oldest", "youngest", "precision", "range", "step", "weekdays", "peak_at",
+        "src", "column",
         "header",
         "delimiter", "row", "base", "trend", "period", "amplitude", "noise", "points", "upper",
         "lower", "y_range", "interp", "spread", "ink_threshold", "mode", "in", "on_error",
@@ -2530,6 +2534,7 @@ public sealed class Validator
         CheckRegexes(gen, attrs, type);
         CheckSymbol(gen, attrs, type);
         CheckDate(gen, attrs, type);
+        this.CheckTimeseries(gen, attrs, type);
         CheckRepeat(gen, attrs, type);
 
         CheckGenAttributes(gen, attrs, type);
@@ -3390,6 +3395,51 @@ public sealed class Validator
                 "A whole number of weeks, or any calendar step, lands on the same weekday every "
                 + "time, so this would match every row or none. Use a step that is not a multiple "
                 + "of a week, or drop weekdays=.",
+                line, column);
+        }
+    }
+
+    /// <summary><c>peak_at=</c> — which row the seasonal wave is highest on.</summary>
+    /// <remarks>
+    /// Without it the peak sits a quarter period in, which is where a plain sine already peaked —
+    /// and for a year of daily rows that is early April, the one season nobody means by "warmer in
+    /// summer". It is a ROW, not a shift: 182 of 365 is the first of July, and <c>period</c> is
+    /// already counted in rows.
+    /// </remarks>
+    private void CheckTimeseries(
+        TDCParser.SelfClosingElementContext gen, IReadOnlyDictionary<string, string> attrs,
+        string? type)
+    {
+        if (type != "timeseries" || !attrs.TryGetValue("peak_at", out string? rawPeak))
+        {
+            return;
+        }
+
+        string raw = rawPeak.Trim();
+        (int line, int column) = At(gen, "peak_at");
+
+        if (!double.TryParse(raw, NumberStyles.Float, CultureInfo.InvariantCulture, out double _))
+        {
+            Error(
+                "TDC252", $"peak_at=\"{raw}\" is not a number",
+                "peak_at is the row the seasonal wave peaks on, counted like period= — "
+                + "peak_at=\"182\" over period=\"365\" puts the peak at the first of July.",
+                line, column);
+            return;
+        }
+
+        // A wave needs a length before it can have a highest point. Without `period` there is no
+        // wave at all, so `peak_at` would be read by nobody.
+        string rawPeriod = attrs.GetValueOrDefault("period", string.Empty).Trim();
+        if (!double.TryParse(
+                rawPeriod, NumberStyles.Float, CultureInfo.InvariantCulture, out double period)
+            || period <= 0)
+        {
+            Error(
+                "TDC253",
+                $"peak_at=\"{raw}\" has no period= on the same <gen> — there is no wave to "
+                + "place a peak on",
+                "Add period= (the length of one season, in rows), or remove peak_at=.",
                 line, column);
         }
     }

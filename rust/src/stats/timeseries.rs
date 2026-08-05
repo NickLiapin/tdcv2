@@ -2,7 +2,7 @@
 //!
 //! The layered model every real series is built from:
 //!
-//! `value(i) = base + trend·i + amplitude·sin(2π·i/period) + noise·z`
+//! `value(i) = base + trend·i + amplitude·cos(2π·(i − peak)/period) + noise·z`
 //!
 //! A trend, one seasonal wave, and gaussian noise, with the row index as the
 //! clock. Sales, sensor readings and traffic look like this. A uniform draw over
@@ -25,6 +25,14 @@ pub struct Spec {
     /// Seasonal period in rows; zero means no seasonality.
     pub period: f64,
     pub amplitude: f64,
+    /// Which row the wave peaks on, or `None` for the classic sine.
+    ///
+    /// A plain `sin(2π·i/period)` crosses zero at row 0 and peaks a QUARTER
+    /// PERIOD later, so a year of daily rows peaks in early April — the one
+    /// season nobody means by "warmer in summer". `peak_at` names the ROW rather
+    /// than a shift, because the row is what the author knows: 182 of 365 is the
+    /// first of July.
+    pub peak_at: Option<f64>,
     /// Standard deviation of the noise; zero means no noise, and no draws.
     pub noise_sd: f64,
     pub decimals: usize,
@@ -88,6 +96,10 @@ pub fn parse(attrs: &BTreeMap<String, String>) -> EngineResult<Spec> {
         trend: number(attrs, "trend", 0.0)?,
         period,
         amplitude: number(attrs, "amplitude", 0.0)?,
+        peak_at: match attrs.get("peak_at").map(|v| v.trim()) {
+            None | Some("") => None,
+            Some(_) => Some(number(attrs, "peak_at", 0.0)?),
+        },
         noise_sd,
         decimals,
     })
@@ -101,7 +113,14 @@ pub fn standard_normal(u1: f64, u2: f64) -> f64 {
 pub fn value_at(spec: &Spec, i: i64, z: f64) -> f64 {
     let mut v = spec.base + spec.trend * i as f64;
     if spec.period > 0.0 && spec.amplitude != 0.0 {
-        v += spec.amplitude * (2.0 * std::f64::consts::PI * i as f64 / spec.period).sin();
+        // One formula for both. `cos` peaks where its argument is zero, so the
+        // wave peaks exactly on `peak`. The DEFAULT peak is a quarter period in,
+        // which is where a plain `sin(2π·i/period)` already peaked — so a config
+        // without `peak_at` produces the same bytes it always did, without a
+        // second branch saying so.
+        let peak = spec.peak_at.unwrap_or(spec.period / 4.0);
+        v += spec.amplitude
+            * (2.0 * std::f64::consts::PI * (i as f64 - peak) / spec.period).cos();
     }
     if spec.noise_sd != 0.0 {
         v += spec.noise_sd * z;

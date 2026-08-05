@@ -10,7 +10,7 @@ import java.util.Map;
  *
  * <p>The layered model every real series is built from:
  *
- * <pre>{@code value(i) = base + trend·i + amplitude·sin(2π·i/period) + noise·z}</pre>
+ * <pre>{@code value(i) = base + trend·i + amplitude·cos(2π·(i − peak)/period) + noise·z}</pre>
  *
  * <p>A trend, one seasonal wave, and gaussian noise, with the row index as the clock. Sales,
  * sensor readings and traffic look like this. A uniform draw over the same range does not, and
@@ -27,6 +27,15 @@ public final class Timeseries {
       /** Seasonal period in rows; zero means no seasonality. */
       double period,
       double amplitude,
+      /**
+       * Which row the wave peaks on, or null for the classic sine.
+       *
+       * <p>A plain {@code sin(2π·i/period)} crosses zero at row 0 and peaks a QUARTER PERIOD
+       * later, so a year of daily rows peaks in early April — the one season nobody means by
+       * "warmer in summer". {@code peak_at} names the ROW rather than a shift, because the row
+       * is what the author knows: 182 of 365 is the first of July.
+       */
+      Double peakAt,
       /** Standard deviation of the noise; zero means no noise, and no draws. */
       double noiseSd,
       int decimals) {
@@ -84,6 +93,9 @@ public final class Timeseries {
         number(attrs, "trend", 0),
         period,
         number(attrs, "amplitude", 0),
+        attrs.get("peak_at") == null || attrs.get("peak_at").trim().isEmpty()
+            ? null
+            : number(attrs, "peak_at", 0),
         noiseSd,
         decimals);
   }
@@ -96,7 +108,12 @@ public final class Timeseries {
   public static double valueAt(Spec spec, int i, double z) {
     double v = spec.base() + spec.trend() * i;
     if (spec.period() > 0 && spec.amplitude() != 0) {
-      v += spec.amplitude() * Math.sin(2 * Math.PI * i / spec.period());
+      // One formula for both. `cos` peaks where its argument is zero, so the wave peaks exactly
+      // on `peak`. The DEFAULT peak is a quarter period in, which is where a plain
+      // `sin(2π·i/period)` already peaked — so a config without `peak_at` produces the same
+      // bytes it always did, without a second branch saying so.
+      double peak = spec.peakAt() == null ? spec.period() / 4 : spec.peakAt();
+      v += spec.amplitude() * Math.cos(2 * Math.PI * (i - peak) / spec.period());
     }
     if (spec.noiseSd() != 0) {
       v += spec.noiseSd() * z;

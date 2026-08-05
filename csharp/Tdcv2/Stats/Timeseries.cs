@@ -22,9 +22,17 @@ namespace Tdcv2.Stats;
 public static class Timeseries
 {
     /// <param name="Period">Seasonal period in rows; zero means no seasonality.</param>
+    /// <param name="PeakAt">
+    /// Which row the wave peaks on, or null for the classic sine. A plain
+    /// <c>sin(2π·i/period)</c> crosses zero at row 0 and peaks a QUARTER PERIOD later, so a year
+    /// of daily rows peaks in early April — the one season nobody means by "warmer in summer".
+    /// <c>peak_at</c> names the ROW rather than a shift, because the row is what the author
+    /// knows: 182 of 365 is the first of July.
+    /// </param>
     /// <param name="NoiseSd">Standard deviation of the noise; zero means no noise, and no draws.</param>
     public readonly record struct Spec(
-        double Base, double Trend, double Period, double Amplitude, double NoiseSd, int Decimals)
+        double Base, double Trend, double Period, double Amplitude, double? PeakAt,
+        double NoiseSd, int Decimals)
     {
         public bool HasNoise => NoiseSd != 0;
     }
@@ -77,6 +85,9 @@ public static class Timeseries
             Number(attrs, "trend", 0),
             period,
             Number(attrs, "amplitude", 0),
+            string.IsNullOrWhiteSpace(attrs.GetValueOrDefault("peak_at"))
+                ? null
+                : Number(attrs, "peak_at", 0),
             noiseSd,
             decimals);
     }
@@ -90,7 +101,12 @@ public static class Timeseries
         double v = spec.Base + (spec.Trend * i);
         if (spec.Period > 0 && spec.Amplitude != 0)
         {
-            v += spec.Amplitude * Math.Sin(2 * Math.PI * i / spec.Period);
+            // One formula for both. `cos` peaks where its argument is zero, so the wave peaks
+            // exactly on `peak`. The DEFAULT peak is a quarter period in, which is where a plain
+            // `sin(2π·i/period)` already peaked — so a config without `peak_at` produces the same
+            // bytes it always did, without a second branch saying so.
+            double peak = spec.PeakAt ?? spec.Period / 4;
+            v += spec.Amplitude * Math.Cos(2 * Math.PI * (i - peak) / spec.Period);
         }
 
         if (spec.NoiseSd != 0)

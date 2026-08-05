@@ -97,6 +97,82 @@
       "description": "anomaly multiplies the values it selects",
       "config": "<tdc><env count=\"6\" seed=\"unit-test\" local=\"en\" mode=\"memory\"><sequence name=\"V\"><gen type=\"number\" value=\"1..9\" anomaly=\"0.3\" anomaly_factor=\"10\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
       "expected": ["60", "2", "90", "2", "8", "7"]
+    },
+    {
+      "name": "timeseries-peak-at-moves-the-peak",
+      "description": "peak_at=6 puts the highest row on 6, where the default puts it on 3",
+      "config": "<tdc><env count=\"12\" seed=\"unit-test\" local=\"en\" mode=\"memory\"><sequence name=\"V\"><gen type=\"timeseries\" base=\"15\" amplitude=\"10\" period=\"12\" decimals=\"1\" peak_at=\"6\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
+      "expected": [
+        "5.0",
+        "6.3",
+        "10.0",
+        "15.0",
+        "20.0",
+        "23.7",
+        "25.0",
+        "23.7",
+        "20.0",
+        "15.0",
+        "10.0",
+        "6.3"
+      ]
+    },
+    {
+      "name": "timeseries-peak-at-row-zero",
+      "description": "a wave starting AT its maximum — the shape a plain sine cannot express",
+      "config": "<tdc><env count=\"12\" seed=\"unit-test\" local=\"en\" mode=\"memory\"><sequence name=\"V\"><gen type=\"timeseries\" base=\"15\" amplitude=\"10\" period=\"12\" decimals=\"1\" peak_at=\"0\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
+      "expected": [
+        "25.0",
+        "23.7",
+        "20.0",
+        "15.0",
+        "10.0",
+        "6.3",
+        "5.0",
+        "6.3",
+        "10.0",
+        "15.0",
+        "20.0",
+        "23.7"
+      ]
+    },
+    {
+      "name": "timeseries-peak-at-wraps",
+      "description": "a peak beyond the period names the same row within it: 18 is 6",
+      "config": "<tdc><env count=\"12\" seed=\"unit-test\" local=\"en\" mode=\"memory\"><sequence name=\"V\"><gen type=\"timeseries\" base=\"15\" amplitude=\"10\" period=\"12\" decimals=\"1\" peak_at=\"18\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
+      "expected": [
+        "5.0",
+        "6.3",
+        "10.0",
+        "15.0",
+        "20.0",
+        "23.7",
+        "25.0",
+        "23.7",
+        "20.0",
+        "15.0",
+        "10.0",
+        "6.3"
+      ]
+    },
+    {
+      "name": "timeseries-peak-at-fraction",
+      "description": "a peak need not land on a row; 6.5 sits between two equal rows",
+      "config": "<tdc><env count=\"12\" seed=\"unit-test\" local=\"en\" mode=\"memory\"><sequence name=\"V\"><gen type=\"timeseries\" base=\"15\" amplitude=\"10\" period=\"12\" decimals=\"1\" peak_at=\"6.5\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
+      "expected": [
+        "5.3",
+        "5.3",
+        "7.9",
+        "12.4",
+        "17.6",
+        "22.1",
+        "24.7",
+        "24.7",
+        "22.1",
+        "17.6",
+        "12.4",
+        "7.9"
+      ]
     }
   ]
 }

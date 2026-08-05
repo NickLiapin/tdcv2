@@ -1,6 +1,6 @@
 """``<gen type="timeseries">`` — a column that moves the way measured things move.
 
-    value(i) = base + trend·i + amplitude·sin(2π·i/period) + noise·z
+    value(i) = base + trend·i + amplitude·cos(2π·(i − peak)/period) + noise·z
 
 A drift, one seasonal wave, and gaussian noise over the row index as the time axis. Sales,
 sensors, traffic and queue depths all look like this; none of them look like flat uniform noise,
@@ -27,10 +27,21 @@ class Spec:
     """The seasonal period in rows; zero switches seasonality off."""
 
     amplitude: float
+
     noise_sd: float
     """The standard deviation of the gaussian noise; zero switches it off."""
 
     decimals: int
+
+    peak_at: float | None = None
+    """Which row the wave peaks on, or None for the classic sine.
+
+    A plain ``sin(2π·i/period)`` crosses zero at row 0 and peaks a QUARTER PERIOD later, so a
+    year of daily rows peaks in early April — the one season nobody means by "warmer in
+    summer". ``peak_at`` names the ROW instead of a shift, because the row is what the author
+    knows: 182 of 365 is the first of July. Last in the record because it is the only field
+    with a default, and a dataclass wants those at the end.
+    """
 
     def has_noise(self) -> bool:
         """Whether this spec draws at all — which decides if it consumes uniforms."""
@@ -65,6 +76,11 @@ def parse(attrs: dict[str, str]) -> Spec:
         trend=num("trend", 0),
         period=period,
         amplitude=num("amplitude", 0),
+        peak_at=(
+            None
+            if attrs.get("peak_at") is None or not str(attrs["peak_at"]).strip()
+            else num("peak_at", 0)
+        ),
         noise_sd=noise_sd,
         decimals=int(decimals),
     )
@@ -79,7 +95,12 @@ def value_at(spec: Spec, i: int, z: float) -> float:
     """The layered value at row ``i``, with ``z`` as its standard-normal noise sample."""
     v = spec.base + spec.trend * i
     if spec.period > 0 and spec.amplitude != 0:
-        v += spec.amplitude * math.sin(2 * math.pi * i / spec.period)
+        # One formula for both. ``cos`` peaks where its argument is zero, so the wave peaks
+        # exactly on ``peak``. The DEFAULT peak is a quarter period in, which is where a plain
+        # ``sin(2π·i/period)`` already peaked — so a config without ``peak_at`` produces the
+        # same bytes it always did, without a second branch saying so.
+        peak = spec.period / 4 if spec.peak_at is None else spec.peak_at
+        v += spec.amplitude * math.cos(2 * math.pi * (i - peak) / spec.period)
     if spec.noise_sd != 0:
         v += spec.noise_sd * z
     return v

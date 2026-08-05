@@ -89,6 +89,8 @@ public final class Validator {
           // thing in their own units, which is why they borrow one word.
           Map.entry("step", java.util.Set.of("date", "increment", "decrement")),
           Map.entry("weekdays", java.util.Set.of("date")),
+          // The seasonal wave's highest row.
+          Map.entry("peak_at", java.util.Set.of("timeseries")),
           // Where the characters come from.
           Map.entry("alphabet", java.util.Set.of("symbol")),
           // Only `pool` takes a filter: everywhere else there are no candidates to narrow, and
@@ -203,7 +205,8 @@ public final class Validator {
           "flag", "local", "count", "weight", "percent", "first_zero", "include", "exclude",
           "accumulate", "of", "reset", "length", "decimals", "distribution", "regex_max_length", "alphabet",
           "format", "from",
-          "to", "oldest", "youngest", "precision", "range", "step", "weekdays", "src", "column",
+          "to", "oldest", "youngest", "precision", "range", "step", "weekdays", "peak_at", "src",
+          "column",
           "header",
           "delimiter", "row", "base", "trend", "period", "amplitude", "noise", "points", "upper",
           "lower", "y_range", "interp", "spread", "ink_threshold", "mode", "in", "on_error",
@@ -2021,6 +2024,7 @@ public final class Validator {
     checkRegexes(gen, attrs, type);
     checkSymbol(gen, attrs, type);
     checkDate(gen, attrs, type);
+    checkTimeseries(gen, attrs, type);
     checkRepeat(gen, attrs, type);
 
     checkGenAttributes(gen, attrs, type);
@@ -2742,6 +2746,54 @@ public final class Validator {
           "A whole number of weeks, or any calendar step, lands on the same weekday every time, "
               + "so this would match every row or none. Use a step that is not a multiple of a "
               + "week, or drop weekdays=.",
+          where[0], where[1]);
+    }
+  }
+
+  /**
+   * {@code peak_at=} — which row the seasonal wave is highest on.
+   *
+   * <p>Without it the peak sits a quarter period in, which is where a plain sine already
+   * peaked — and for a year of daily rows that is early April, the one season nobody means by
+   * "warmer in summer". It is a ROW, not a shift: 182 of 365 is the first of July, and
+   * {@code period} is already counted in rows.
+   */
+  private void checkTimeseries(
+      TDCParser.SelfClosingElementContext gen, Map<String, String> attrs, String type) {
+    if (!"timeseries".equals(type) || attrs.get("peak_at") == null) {
+      return;
+    }
+    String raw = attrs.get("peak_at").trim();
+    int[] where = at(gen, "peak_at");
+
+    double peak;
+    try {
+      peak = Double.parseDouble(raw);
+    } catch (NumberFormatException e) {
+      error("TDC252", "peak_at=\"" + raw + "\" is not a number",
+          "peak_at is the row the seasonal wave peaks on, counted like period= — "
+              + "peak_at=\"182\" over period=\"365\" puts the peak at the first of July.",
+          where[0], where[1]);
+      return;
+    }
+    if (Double.isNaN(peak)) {
+      return;
+    }
+
+    // A wave needs a length before it can have a highest point. Without `period` there is no
+    // wave at all, so `peak_at` would be read by nobody.
+    double period;
+    try {
+      String rawPeriod = attrs.getOrDefault("period", "").trim();
+      period = rawPeriod.isEmpty() ? 0 : Double.parseDouble(rawPeriod);
+    } catch (NumberFormatException e) {
+      period = 0;
+    }
+    if (period <= 0) {
+      error("TDC253",
+          "peak_at=\"" + raw + "\" has no period= on the same <gen> — there is no wave to "
+              + "place a peak on",
+          "Add period= (the length of one season, in rows), or remove peak_at=.",
           where[0], where[1]);
     }
   }

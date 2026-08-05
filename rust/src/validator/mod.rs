@@ -1760,6 +1760,7 @@ impl Validator {
         self.check_regexes(gen, &attrs, gen_type);
         self.check_symbol(gen, &attrs, gen_type);
         self.check_date(gen, &attrs, gen_type);
+        self.check_timeseries(gen, &attrs, gen_type);
         self.check_repeat(gen, &attrs, gen_type);
 
         self.check_gen_attributes(gen, &attrs, gen_type);
@@ -2623,6 +2624,53 @@ impl Validator {
                     gen.at("weekdays"),
                 );
             }
+        }
+    }
+
+    /// `peak_at=` — which row the seasonal wave is highest on.
+    ///
+    /// A wave is `amplitude·cos(2π·(i − peak)/period)`, so `peak_at` names the
+    /// row it peaks on. Without it the peak sits a quarter period in, which is
+    /// where a plain sine already peaked — and for a year of daily rows that is
+    /// early April, the one season nobody means by "warmer in summer".
+    ///
+    /// It is a ROW, not a shift: 182 of 365 is the first of July, and `period`
+    /// is already counted in rows.
+    fn check_timeseries(&mut self, gen: &Element, attrs: &Attrs, gen_type: Option<&str>) {
+        if gen_type != Some("timeseries") {
+            return;
+        }
+        let Some(raw) = attrs.get("peak_at").map(|v| v.trim().to_string()) else {
+            return;
+        };
+
+        if raw.parse::<f64>().is_err() {
+            self.error(
+                "TDC252",
+                format!("peak_at=\"{raw}\" is not a number"),
+                "peak_at is the row the seasonal wave peaks on, counted like period= — \
+                 peak_at=\"182\" over period=\"365\" puts the peak at the first of July.",
+                gen.at("peak_at"),
+            );
+            return;
+        }
+
+        // A wave needs a length before it can have a highest point. Without
+        // `period` there is no wave at all, so `peak_at` would be read by nobody.
+        let period = attrs
+            .get("period")
+            .and_then(|p| p.trim().parse::<f64>().ok())
+            .unwrap_or(0.0);
+        if period <= 0.0 {
+            self.error(
+                "TDC253",
+                format!(
+                    "peak_at=\"{raw}\" has no period= on the same <gen> — there is no wave to \
+                     place a peak on"
+                ),
+                "Add period= (the length of one season, in rows), or remove peak_at=.",
+                gen.at("peak_at"),
+            );
         }
     }
 
