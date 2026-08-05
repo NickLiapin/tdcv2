@@ -589,6 +589,38 @@ public sealed class Validator
         this.CollectPoolFieldValues(env);
         this.CollectPoolReferences(env);
         CheckChildren(env.content(), "env", EnvChildren);
+        foreach (TDCParser.ElementContext c in env.content().element())
+        {
+            TDCParser.OpenCloseElementContext el = c.openCloseElement();
+            if (el is null)
+            {
+                continue;
+            }
+
+            string tag = el.name.Text;
+            if (FixtureTagNames.Contains(tag))
+            {
+                // A fixture holds text and <line>s; anything else was ignored in silence.
+                CheckChildren(el.content(), tag, FixtureChildren, "TDC131", FixtureChildren);
+            }
+            else if (tag == "pool")
+            {
+                // Tags with a reason of their own keep TDC230, which says far more; they
+                // pass this check but are never offered as allowed.
+                var passes = new HashSet<string>(PoolChildren);
+                foreach (TDCParser.ElementContext inner in el.content().element())
+                {
+                    string? poolChildName = inner.openCloseElement()?.name.Text
+                        ?? inner.selfClosingElement()?.name.Text;
+                    if (poolChildName is not null && ForbiddenInPool(poolChildName) is not null)
+                    {
+                        passes.Add(poolChildName);
+                    }
+                }
+
+                CheckChildren(el.content(), "pool", passes, "TDC010", PoolChildren);
+            }
+        }
         CheckClosedTagAttrs("env", env.attr(), Line(env), Column(env));
 
         var names = new HashSet<string>(StringComparer.Ordinal);
@@ -1672,6 +1704,19 @@ public sealed class Validator
 
     private void CheckSequenceBody(TDCParser.OpenCloseElementContext open, string? name)
     {
+        // An invented tag here used to pass in SILENCE: the config validated, exit 0, and
+        // the run went ahead as if the tag had done something.
+        CheckChildren(open.content(), "sequence", SequenceChildren);
+        foreach (TDCParser.ElementContext c in open.content().element())
+        {
+            TDCParser.OpenCloseElementContext w = c.openCloseElement();
+            if (w is not null && (w.name.Text == "distinct" || w.name.Text == "uniq"))
+            {
+                // The wrapper is allowed here, but its own body was never looked at.
+                CheckChildren(w.content(), w.name.Text, DistinctChildren);
+            }
+        }
+
         var gens = new List<IReadOnlyDictionary<string, string>>();
         // Attributes and a position, rather than the typed node: a <gen> reaches here in
         // either punctuation, and pointing at it is all this list is ever used for.
@@ -2002,9 +2047,15 @@ public sealed class Validator
     /// value to that branch rather than a column of its own, so it has no name to declare and
     /// nothing can interpolate it. Every other rule is the same, from this one method.
     /// </summary>
+    private void CheckSwitchEntries(TDCParser.OpenCloseElementContext open) =>
+        // The entries walk only ever looked at open/close children, so a self-closing
+        // invention passed while <bogus></bogus> was caught.
+        CheckChildren(open.content(), "switch", SwitchChildren, "TDC124", SwitchChildren);
+
     private void CheckSwitchForm(
         TDCParser.OpenCloseElementContext open, IReadOnlyList<string> declared, bool named)
     {
+        CheckSwitchEntries(open);
         IReadOnlyDictionary<string, string> attrs = Attributes(open.attr());
         if (!named && attrs.GetValueOrDefault("name") is not null)
         {
@@ -4061,8 +4112,21 @@ public sealed class Validator
     // ── placement ────────────────────────────────────────────────────────────────────────────
 
     private void CheckChildren(
-        TDCParser.ContentContext? content, string parent, IReadOnlySet<string> allowed)
+        TDCParser.ContentContext? content, string parent, IReadOnlySet<string> allowed) =>
+        CheckChildren(content, parent, allowed, "TDC010", allowed);
+
+    /// <summary>Report every child not on <paramref name="allowed"/>.</summary>
+    /// <remarks>
+    /// <paramref name="allowed"/> is what PASSES; <paramref name="shown"/> is what the note
+    /// lists. They differ for <c>&lt;pool&gt;</c>, where several tags are refused by a
+    /// diagnostic of their own (TDC230) and so must not be reported here — but must not be
+    /// offered as allowed either.
+    /// </remarks>
+    private void CheckChildren(
+        TDCParser.ContentContext? content, string parent, IReadOnlySet<string> allowed,
+        string code, IReadOnlySet<string> shown)
     {
+        string listed = string.Join(", ", shown.OrderBy(a => a, StringComparer.Ordinal));
         if (content is null)
         {
             return;
@@ -4105,16 +4169,15 @@ public sealed class Validator
             if (PlacementHints.TryGetValue(name, out string? hint))
             {
                 Error(
-                    "TDC013", $"<{name}> is not allowed directly inside <{parent}>", hint,
-                    line, column);
+                    "TDC013", $"<{name}> is not allowed directly inside <{parent}>",
+                    $"{hint} Allowed inside <{parent}>: {listed}.", line, column);
             }
             else
             {
                 Error(
-                    "TDC010", $"unknown child of <{parent}>: \"<{name}>\"",
-                    "Allowed children: "
-                    + string.Join(", ", allowed.OrderBy(a => a, StringComparer.Ordinal)) + ".",
-                    line, column);
+                    // The note is what a reader acts on, so every container says it alike.
+                    code, $"unknown child of <{parent}>: \"<{name}>\"",
+                    $"Allowed inside <{parent}>: {listed}.", line, column);
             }
         }
     }
@@ -4320,5 +4383,37 @@ public sealed class Validator
 
         return null;
     }
+
+
+    /// <summary>What may sit directly inside <c>&lt;sequence&gt;</c>.</summary>
+    private static readonly IReadOnlySet<string> SequenceChildren =
+        new HashSet<string> { "gen", "data", "distinct", "compute" };
+
+    /// <summary>
+    /// <c>&lt;distinct&gt;</c>/<c>&lt;uniq&gt;</c> mean two different things by position: inside
+    /// a <c>&lt;sequence&gt;</c> the FIELDS of one record, at <c>&lt;env&gt;</c> level whole
+    /// COLUMNS. One list for both refuses working configs.
+    /// </summary>
+    private static readonly IReadOnlySet<string> DistinctChildren = new HashSet<string> { "gen" };
+
+    /// <summary>Deliberately generous: too short a list refuses configs that work today.</summary>
+    private static readonly IReadOnlySet<string> PoolChildren = new HashSet<string>
+    {
+        "sequence", "mix", "switch", "uniq", "distinct", "member", "data",
+    };
+
+    /// <summary>A fixture holds literal text and <c>&lt;line&gt;</c>s.</summary>
+    private static readonly IReadOnlySet<string> FixtureChildren =
+        new HashSet<string> { "data", "line" };
+
+    /// <summary>What may sit directly inside <c>&lt;switch&gt;</c>.</summary>
+    private static readonly IReadOnlySet<string> SwitchChildren =
+        new HashSet<string> { "map", "case", "default" };
+
+    private static readonly IReadOnlySet<string> FixtureTagNames = new HashSet<string>
+    {
+        "before", "after", "before_block", "after_block", "delimiter_block", "before_line",
+        "after_line", "delimiter_line",
+    };
 
 }
