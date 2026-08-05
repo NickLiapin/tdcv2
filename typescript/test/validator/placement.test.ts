@@ -25,7 +25,11 @@ import { validate } from '../../src/validator/index.js';
 const OUT = '<block><line><data>x</data></line></block>';
 /** A <tdc> whose <env> body is `envBody`. */
 const doc = (envBody: string, block = OUT) =>
-  `<tdc><env count="2" seed="s">${envBody}</env>${block}</tdc>`;
+  // 100 rows, not 2: the document below carries percent masks, and over two
+  // rows every share of theirs asks for less than a record (TDC251). The count
+  // is incidental to placement, and a token one made the fixture say something
+  // it did not mean.
+  `<tdc><env count="100" seed="s">${envBody}</env>${block}</tdc>`;
 /** A <tdc> whose <block> body is `blockBody` (env is empty). */
 const blockDoc = (blockBody: string) =>
   `<tdc><env count="2" seed="s"></env><block>${blockBody}</block></tdc>`;

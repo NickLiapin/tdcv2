@@ -81,6 +81,7 @@ import { checkGenRegex } from './regex.js';
 import { checkGenSymbol } from './symbol.js';
 import { checkCompute } from './compute.js';
 import { checkGroupSize } from './group-size.js';
+import { checkSmallShares } from './small-share.js';
 import { checkGenBody, checkGroupBody, openChild } from './container-children.js';
 import {
   checkPoolIsRead,
@@ -407,6 +408,10 @@ function checkEnv(envEl: OpenCloseElementContext, ctx: Ctx): void {
   ctx.poolFields = collectPoolFields(envEl);
   ctx.poolFieldValues = collectPoolFieldValues(envEl);
   const poolsRead = collectPoolReferences(envEl);
+
+  // A share below one whole row: its own pass, because the denominator of a
+  // <mix> in a switch branch belongs to the switch and not to the walk below.
+  checkSmallShares(envEl, ctx.count, ctx.diagnostics);
 
   // Walk env children: sequences + mix/switch + fixtures.
   const poolsAbove: string[] = [];

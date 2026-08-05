@@ -34,7 +34,7 @@ note: Declare it in <env>, or set a different inject= pattern if you really want
 La validación corre antes de la generación, así que un config con errores no produce
 dato alguno en vez de medio archivo. Casi cada diagnóstico aquí es un **error** y detiene
 el run: si el config pidió algo que no va a obtener, TDC se niega en vez de devolver
-datos que parecen correctos pero no lo son. Las excepciones son siete **advertencias** que
+datos que parecen correctos pero no lo son. Las excepciones son ocho **advertencias** que
 dejan terminar el run: `TDC136` (una fila de `<map>` malformada, omitida mientras las
 válidas siguen aplicando), `TDC171` (un archivo de data pack cuya cabecera lo deja sin
 dirección), `TDC200` (una estimación de memoria grande pero que cabe), `TDC216` (una
@@ -163,6 +163,7 @@ Ver [Registros coherentes](../pools/overview.mdx).
 | `TDC248` | `step` sin `order="sequential"` en el mismo `<gen>`                        | Nadie recorre el rango: las fechas se siguen sorteando al azar. Añada `order="sequential"` o quite `step`                                                                                                   |
 | `TDC249` | `weekdays` nombra un día de la semana que no existe                        | sun, mon, tue, wed, thu, fri, sat — un rango `mon..fri` o una lista `sun,wed`                                                                                                                                 |
 | `TDC250` | `weekdays` con un paso de un número entero de semanas, o un paso de calendario | Ese paso ya fija el día de la semana, así que el filtro coincidiría con todas las filas o con ninguna                                                                                                        |
+| `TDC251` | _(advertencia)_ Una proporción de `percent` pide menos de una fila entera     | `percent` es una cuota exacta sobre las filas que llegan a ella, así que el 10 % de un subconjunto de cinco filas pide medio registro. Medio registro no se puede emitir: la rama dispara una vez o ninguna, y lo decide el seed. Suba la proporción, o suba `count` |
 | `TDC244` | `type="pattern"` sin `points`, `src` ni `upper`                             | Un dibujo necesita una forma de la que leer: `points="0,0 1,5 2,3"`, un archivo en `src`, o `upper`/`lower` para una banda                                                                                                                                  |
 
 ## Totales acumulados

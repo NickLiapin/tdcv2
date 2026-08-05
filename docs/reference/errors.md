@@ -39,13 +39,14 @@ note: Declare it in <env>, or set a different inject= pattern if you really want
 Validation runs before generation, so a config with errors produces no data at all rather
 than half a file. Almost every diagnostic here is an **error** and stops the run: if the
 config asked for something it wouldn't actually get, TDC refuses rather than handing back
-data that looks right but isn't. The exceptions are seven **warnings** that let the run finish: `TDC136` (a malformed
+data that looks right but isn't. The exceptions are eight **warnings** that let the run finish: `TDC136` (a malformed
 `<map>` row is skipped and the valid rows still apply), `TDC171` (a pack file whose header
 puts it at no address), `TDC200` (a memory estimate that is large but still fits),
 `TDC216` (an expression that is always true or always false), `TDC221` (a `<uniq>` or
 `<distinct>` group with one member, which constrains nothing), `TDC231` (a `<pool>` nothing
-reads) and `TDC234` (a pool over
-100,000 members). Each says as much in its row below.
+reads), `TDC234` (a pool over
+100,000 members) and `TDC251` (a `percent` share that asks for less than one row). Each says
+as much in its row below.
 
 The numbers run roughly in the order a config is checked — structure first, then
 generators, then everything built on top of them — but a number is an identifier, not a
@@ -290,6 +291,7 @@ but the combination it asks for can't be carried out.
 | `TDC248` | `step` without `order="sequential"` on the same `<gen>`            | Nothing walks the range — the dates are still drawn at random. Add `order="sequential"`, or drop `step` |
 | `TDC249` | `weekdays` names a weekday that does not exist                    | sun, mon, tue, wed, thu, fri, sat — a span like `mon..fri` or a list like `sun,wed` |
 | `TDC250` | `weekdays` with a step of a whole number of weeks, or a calendar step | Such a step already fixes the weekday, so the filter would match every row or none |
+| `TDC251` | _(warning)_ A `percent` share asks for less than one whole row              | `percent` is an exact quota over the rows that reach it, so 10% of a five-row subset asks for half a record. Half a record cannot be emitted: the branch fires once or not at all, and the seed decides which. Raise the share, or raise `count`
 
 ## See also
 

@@ -18,7 +18,10 @@ function run(source: string) {
 }
 
 const wrap = (mixOpen: string, cases: string) =>
-  `<tdc><env count="4" seed="mf">${mixOpen}${cases}</mix></env>` +
+  // count is 20 rather than a token 4 so that `percent="80,20"` covers whole
+  // rows. Below that the smaller share asks for less than one record and earns
+  // TDC251, which has nothing to do with what these tests are about.
+  `<tdc><env count="20" seed="mf">${mixOpen}${cases}</mix></env>` +
   `<block><line><data>\${{M}}</data></line></block></tdc>`;
 
 const TWO_CASES =
@@ -58,7 +61,7 @@ describe('validator — <mix flag> / <case anomaly>', () => {
 
   it('errors on flag= on a nested <mix> (TDC203)', () => {
     const src =
-      `<tdc><env count="4" seed="mf">` +
+      `<tdc><env count="20" seed="mf">` +
       `<mix name="M" percent="50,50" flag="Bad">` +
       `<case anomaly="true"><gen type="text" value="A"/></case>` +
       `<case><mix percent="50,50" flag="Inner">` +
