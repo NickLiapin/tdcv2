@@ -24,6 +24,10 @@ can differ by core version. What stays fixed is the shape and the format.
 | `value`               | `birth`, `today`, `now`, a single date, or a range `START..END`                          |
 | `range`               | A range `START..END` — a newer spelling of the same idea                                 |
 | `from` / `to`         | The two endpoints of a range, given separately                                           |
+| `order`               | `sequential` walks the range instead of drawing from it — see [A date axis](#a-date-axis-walking-the-range-instead-of-drawing-from-it) |
+| `step`                | How far each row moves on a walked axis: `15m`, `1h30m`, `2d`, `3mo`, `1y`               |
+| `weekdays`            | Which weekdays a walked axis keeps: `mon..fri`, `sun,wed`                                |
+| `cycle`               | `false` refuses instead of looping when a walked BOUNDED range runs out                  |
 | `format`              | Output format (see [Formatting the output](#formatting-the-output)); default `L`         |
 | `local`               | `en`, `es`, `ru`, or `zh-cn`; inherited from [`<env>`](../reference/tags.mdx) if omitted |
 | `oldest` / `youngest` | Age window in years for `value="birth"` (defaults `80` and `10`)                         |
@@ -33,6 +37,10 @@ Use only one of `value`, `range`, or the `from`/`to` pair to describe a range �
 are three spellings of the same thing. Give none of them and the range runs from
 `1970-01-01` to the current moment; see
 [No bounds at all](#no-bounds-at-all--the-clock-closes-the-range).
+
+The last four attributes belong to a **walked** range and are read only alongside
+`order="sequential"`. On a drawn date `step` or `weekdays` would be silently ignored, so
+they are refused instead (`TDC248`).
 
 ## A random date in a range
 
@@ -138,8 +146,165 @@ in the config mentions a date:
 This is the easiest way to lose reproducibility by accident. Give the generator two ends,
 or pin the clock with [`--now`](../reference/cli.mdx#--now--pin-the-clock).
 
-**One** end is not a third option. `from` without `to` is an error (`TDC150`), and so is
-`range="2020-01-01.."` (`TDC151`). A range is both ends or neither.
+**One** end is not a third option for a range you DRAW from: `from` without `to` is
+`TDC150`, and `range="2020-01-01.."` is `TDC151`. Where a value is sampled, a single end
+says nothing about what to sample. One end IS enough when the range is
+[walked](#a-date-axis-walking-the-range-instead-of-drawing-from-it) — that is the next
+section.
+
+## A date axis: walking the range instead of drawing from it
+
+Everything above **draws**: each row picks a date at random from the window. Ask for a
+row per day for a year and you get repeats and gaps, because that is what drawing means.
+
+Add `order="sequential"` and the range is **walked** instead. Row 0 is the start, row 1
+is one step on, row _i_ is `start + i × step`. This is the time axis a run needs when the
+data is a series rather than a sample: readings, transactions, a log.
+
+### `from` alone — an axis with no end
+
+A walked axis takes only a start. Its end is `start + count × step`, which is a
+consequence of the run's length rather than something you work out and write down:
+
+```xml
+<gen type="date" from="2026-01-01" order="sequential" format="YYYY-MM-DD"/>
+```
+
+<Terminal title="./run axis.tdc (count=5)">
+{`2026-01-01
+2026-01-02
+2026-01-03
+2026-01-04
+2026-01-05`}
+</Terminal>
+
+Raise `count` to a million and the axis simply runs a million days. Nothing is expanded
+into a list, so the range costs no memory however long it is.
+
+### `step` — how far each row moves
+
+The default is one day. `step` takes a number and a unit, and units add up:
+
+| Written    | Means                | Group    |
+| :--------- | :------------------- | :------- |
+| `15m`      | 15 minutes           | fixed    |
+| `1h30m`    | 90 minutes           | fixed    |
+| `2` or `2d`| 2 days               | fixed    |
+| `1w`       | 7 days               | fixed    |
+| `3mo`      | 3 calendar months    | calendar |
+| `1y6mo`    | 18 calendar months   | calendar |
+
+`m` is the **minute**, as it is in every notation of this shape. The month is `mo`,
+because `m` is taken — and not `M`, since a difference of forty-four thousand between
+three minutes and three months should not rest on the case of one letter.
+
+```xml
+<gen type="date" from="2026-01-01T09:00:00" order="sequential"
+     step="15m" format="YYYY-MM-DD HH:mm"/>
+```
+
+<Terminal title="./run axis.tdc (count=4)">
+{`2026-01-01 09:00
+2026-01-01 09:15
+2026-01-01 09:30
+2026-01-01 09:45`}
+</Terminal>
+
+A step is EITHER fixed or calendar, never both. `15m` is always 900,000 milliseconds; a
+month is 28 to 31 days. They add up within their own group and `step="1mo15d"` is refused
+(`TDC247`), because "a month and fifteen days" is 43, 44, 45 or 46 days depending on which
+half you apply first, and a config whose meaning turns on an invisible ordering is worse
+than one that will not parse. Write `45d`, or `1mo`.
+
+### A calendar step keeps the day of the month
+
+Each step is measured **from the start**, never accumulated. That distinction is invisible
+on days and decides the answer on months:
+
+```xml
+<gen type="date" from="2026-01-31" order="sequential" step="1mo" format="YYYY-MM-DD"/>
+```
+
+<Terminal title="./run axis.tdc (count=4)">
+{`2026-01-31
+2026-02-28
+2026-03-31
+2026-04-30`}
+</Terminal>
+
+February clamps to the 28th, and March goes back to the 31st. Stepping on from the clamped
+February would have given 28 March and dragged every later month with it.
+
+### `weekdays` — keeping only some days
+
+A filter, not a step:
+
+```xml
+<gen type="date" from="2026-01-01" order="sequential"
+     weekdays="mon..fri" format="ddd YYYY-MM-DD"/>
+```
+
+<Terminal title="./run axis.tdc (count=6)">
+{`Thu 2026-01-01
+Fri 2026-01-02
+Mon 2026-01-05
+Tue 2026-01-06
+Wed 2026-01-07
+Thu 2026-01-08`}
+</Terminal>
+
+Friday to Monday is a three-day jump, which is exactly why this is not a step: a step
+keeps the spacing even, and a filter breaks it. Keeping them apart is what lets them
+combine — "every 12 hours, working days only" needs both words:
+
+```xml
+<gen type="date" from="2026-01-02T00:00:00" order="sequential"
+     step="12h" weekdays="mon..fri" format="ddd YYYY-MM-DD HH:mm"/>
+```
+
+<Terminal title="./run axis.tdc (count=6)">
+{`Fri 2026-01-02 00:00
+Fri 2026-01-02 12:00
+Mon 2026-01-05 00:00
+Mon 2026-01-05 12:00
+Tue 2026-01-06 00:00
+Tue 2026-01-06 12:00`}
+</Terminal>
+
+Spans use `..`, like every other range in TDC, and a list uses commas: `weekdays="sun,wed"`.
+A span **wraps**, so `fri..mon` is Friday, Saturday, Sunday, Monday — a week is a circle,
+and refusing to go round it would make half the spans unwritable.
+
+`weekdays` under a step of a whole week or more is refused (`TDC250`). Such a step lands on
+the same weekday every time, so the filter would match every row or none of them — a full
+column or an empty one, with nothing said either way. That is measured on the step's
+length, so `14d` is refused exactly as `2w` is.
+
+### A bounded range wraps
+
+Give a walked range both ends and it loops when it runs out, the way a short list does:
+
+```xml
+<gen type="date" range="2026-01-01..2026-01-03" order="sequential" format="YYYY-MM-DD"/>
+```
+
+<Terminal title="./run axis.tdc (count=7)">
+{`2026-01-01
+2026-01-02
+2026-01-03
+2026-01-01
+2026-01-02
+2026-01-03
+2026-01-01`}
+</Terminal>
+
+`cycle="false"` turns running out into a refusal instead:
+
+<Terminal title="./run axis.tdc (range of 2 days, count=4, cycle=false)">
+{`tdcv2: order="sequential" cycle="false": the source has only 2 values, so row 3 has none — shorten count= or lengthen the source`}
+</Terminal>
+
+An **open** axis has no end to wrap at, so `cycle` means nothing there.
 
 ## A birthday with `value="birth"`
 
@@ -323,6 +488,10 @@ local="ru"     15 марта 2024 г.`}
 - `value`, `range`, and `from`/`to` are three spellings of one window — use whichever reads best.
 - `L` / `LL` change with `local`; `YYYY-MM-DD` and friends do not.
 - Date-only ranges step by day; date-time ranges by millisecond unless you set `precision`.
+- `order="sequential"` WALKS the range; without it every row is an independent draw.
+- On a walked axis `m` is the minute and `mo` is the month. `step="1mo15d"` is refused —
+  write `45d` or `1mo`.
+- `weekdays` filters, `step` paces. They combine, and neither replaces the other.
 - `today`, `now`, `value="birth"` and a generator with **no** bounds read the clock, so
   the seed alone does not reproduce them — pin the clock with
   [`--now`](../reference/cli.mdx#--now--pin-the-clock).

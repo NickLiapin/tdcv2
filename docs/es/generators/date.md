@@ -30,6 +30,10 @@ formato.
 | `value`               | `birth`, `today`, `now`, una fecha suelta o un rango `START..END`                      |
 | `range`               | Un rango `START..END` — una escritura más nueva de la misma idea                       |
 | `from` / `to`         | Los dos extremos de un rango, dados por separado                                       |
+| `order`               | `sequential` recorre el rango en vez de sortear de él — vea [Un eje de fechas](#un-eje-de-fechas-recorrer-el-rango-en-vez-de-sortear-de-él) |
+| `step`                | Cuánto avanza cada fila en un eje recorrido: `15m`, `1h30m`, `2d`, `3mo`, `1y`          |
+| `weekdays`            | Qué días de la semana conserva un eje recorrido: `mon..fri`, `sun,wed`                 |
+| `cycle`               | `false` rechaza en vez de dar la vuelta cuando un rango ACOTADO recorrido se agota      |
 | `format`              | Formato de salida (vea [Formato de la salida](#formato-de-la-salida)); por omisión `L` |
 | `local`               | `en`, `es`, `ru` o `zh-cn`; se hereda de [`<env>`](../reference/tags.md#top) si se omite  |
 | `oldest` / `youngest` | Ventana de edad en años para `value="birth"` (por omisión `80` y `10`)                 |
@@ -38,6 +42,10 @@ formato.
 Solo uno de `value`, `range` o el par `from`/`to` se usa para describir un rango — son
 tres escrituras de lo mismo. No dé ninguno y el rango va de `1970-01-01` al momento
 actual; vea [Sin límites](#sin-límites--el-reloj-cierra-el-rango).
+
+Los últimos cuatro atributos pertenecen a un rango **recorrido** y solo se leen junto con
+`order="sequential"`. En una fecha sorteada, `step` o `weekdays` quedarían ignorados en
+silencio, así que se rechazan (`TDC248`).
 
 ## Una fecha aleatoria dentro de un rango
 
@@ -154,8 +162,184 @@ Esta es la forma más fácil de perder la reproducibilidad sin darse cuenta. Del
 generador dos extremos, o fije el reloj con
 [`--now`](../reference/cli.md#--now--fijar-el-reloj).
 
-**Un** extremo no es una tercera opción. `from` sin `to` es un error (`TDC150`), y
-`range="2020-01-01.."` también (`TDC151`). Un rango son los dos extremos o ninguno.
+**Un** extremo no es una tercera opción para un rango del que se SORTEA: `from` sin `to` es
+`TDC150`, y `range="2020-01-01.."` es `TDC151`. Donde un valor se sortea, un solo extremo no
+dice nada sobre qué sortear. Un extremo SÍ alcanza cuando el rango se
+[recorre](#un-eje-de-fechas-recorrer-el-rango-en-vez-de-sortear-de-él) — de eso trata la
+sección siguiente.
+
+## Un eje de fechas: recorrer el rango en vez de sortear de él
+
+Todo lo anterior **sortea**: cada fila toma una fecha al azar de la ventana. Pida una fila
+por día durante un año y obtendrá repeticiones y huecos, porque eso es lo que significa
+sortear.
+
+Agregue `order="sequential"` y el rango se **recorre**. La fila 0 es el comienzo, la fila 1
+está un paso más adelante, y la fila _i_ es `comienzo + i × paso`. Este es el eje de tiempo
+que una ejecución necesita cuando los datos son una serie y no una muestra: lecturas,
+transacciones, una bitácora.
+
+### `from` solo — un eje sin final
+
+Un eje recorrido toma solo un comienzo. Su final es `comienzo + count × paso`, o sea una
+consecuencia del largo de la ejecución y no algo que usted calcule y escriba:
+
+```xml
+<gen type="date" from="2026-01-01" order="sequential" format="YYYY-MM-DD"/>
+```
+
+`./run axis.tdc (count=5)`
+
+```
+2026-01-01
+2026-01-02
+2026-01-03
+2026-01-04
+2026-01-05
+```
+
+Suba `count` a un millón y el eje recorre un millón de días. Nada se expande en una lista,
+así que el rango no cuesta memoria por largo que sea.
+
+### `step` — cuánto avanza cada fila
+
+Por omisión, un día. `step` toma un número y una unidad, y las unidades se suman:
+
+| Escrito     | Significa             | Grupo     |
+| :---------- | :-------------------- | :-------- |
+| `15m`       | 15 minutos            | fijo      |
+| `1h30m`     | 90 minutos            | fijo      |
+| `2` o `2d`  | 2 días                | fijo      |
+| `1w`        | 7 días                | fijo      |
+| `3mo`       | 3 meses de calendario | calendario |
+| `1y6mo`     | 18 meses de calendario | calendario |
+
+`m` es el **minuto**, como en toda notación de esta forma. El mes es `mo`, porque `m` ya
+está tomado; y no `M`, porque una diferencia de cuarenta y cuatro mil entre tres minutos y
+tres meses no debería depender de la caja de una letra.
+
+```xml
+<gen type="date" from="2026-01-01T09:00:00" order="sequential"
+     step="15m" format="YYYY-MM-DD HH:mm"/>
+```
+
+`./run axis.tdc (count=4)`
+
+```
+2026-01-01 09:00
+2026-01-01 09:15
+2026-01-01 09:30
+2026-01-01 09:45
+```
+
+Un paso es O fijo O de calendario, nunca ambos. `15m` son siempre 900 000 milisegundos; un
+mes son de 28 a 31 días. Se suman solo dentro de su propio grupo, y `step="1mo15d"` se
+rechaza (`TDC247`): «un mes y quince días» son 43, 44, 45 o 46 días según cuál mitad se
+aplique primero, y una configuración cuyo significado depende de un orden invisible es peor
+que una que no se analiza. Escriba `45d`, o `1mo`.
+
+### Un paso de calendario conserva el día del mes
+
+Cada paso se mide **desde el comienzo**, nunca se acumula. Esa distinción es invisible en
+días y decide la respuesta en meses:
+
+```xml
+<gen type="date" from="2026-01-31" order="sequential" step="1mo" format="YYYY-MM-DD"/>
+```
+
+`./run axis.tdc (count=4)`
+
+```
+2026-01-31
+2026-02-28
+2026-03-31
+2026-04-30
+```
+
+Febrero se recorta al 28 y marzo vuelve al 31. Avanzar desde el febrero recortado habría
+dado el 28 de marzo y habría arrastrado con él a todos los meses siguientes.
+
+### `weekdays` — conservar solo algunos días
+
+Un filtro, no un paso:
+
+```xml
+<gen type="date" from="2026-01-01" order="sequential"
+     weekdays="mon..fri" format="ddd YYYY-MM-DD"/>
+```
+
+`./run axis.tdc (count=6)`
+
+```
+Thu 2026-01-01
+Fri 2026-01-02
+Mon 2026-01-05
+Tue 2026-01-06
+Wed 2026-01-07
+Thu 2026-01-08
+```
+
+Del viernes al lunes hay un salto de tres días, y por eso justamente esto no es un paso: un
+paso mantiene pareja la separación y un filtro la rompe. Mantenerlos aparte es lo que
+permite combinarlos — «cada 12 horas, solo en días hábiles» necesita las dos palabras:
+
+```xml
+<gen type="date" from="2026-01-02T00:00:00" order="sequential"
+     step="12h" weekdays="mon..fri" format="ddd YYYY-MM-DD HH:mm"/>
+```
+
+`./run axis.tdc (count=6)`
+
+```
+Fri 2026-01-02 00:00
+Fri 2026-01-02 12:00
+Mon 2026-01-05 00:00
+Mon 2026-01-05 12:00
+Tue 2026-01-06 00:00
+Tue 2026-01-06 12:00
+```
+
+Los rangos usan `..`, como todo rango en TDC, y una lista usa comas: `weekdays="sun,wed"`.
+Un rango **da la vuelta**, así que `fri..mon` es viernes, sábado, domingo, lunes — una
+semana es un círculo, y prohibir recorrerlo dejaría la mitad de los rangos sin poder
+escribirse.
+
+`weekdays` bajo un paso de una semana entera o más se rechaza (`TDC250`). Un paso así cae
+siempre en el mismo día de la semana, así que el filtro coincidiría con todas las filas o
+con ninguna — una columna llena o una vacía, sin decir nada al respecto. Eso se mide sobre
+el largo del paso, así que `14d` se rechaza igual que `2w`.
+
+### Un rango acotado da la vuelta
+
+Déle los dos extremos a un rango recorrido y volverá al principio cuando se acabe, como hace
+una lista corta:
+
+```xml
+<gen type="date" range="2026-01-01..2026-01-03" order="sequential" format="YYYY-MM-DD"/>
+```
+
+`./run axis.tdc (count=7)`
+
+```
+2026-01-01
+2026-01-02
+2026-01-03
+2026-01-01
+2026-01-02
+2026-01-03
+2026-01-01
+```
+
+`cycle="false"` convierte el agotarse en un rechazo:
+
+`./run axis.tdc (rango de 2 días, count=4, cycle=false)`
+
+```
+tdcv2: order="sequential" cycle="false": the source has only 2 values, so row 3 has none — shorten count= or lengthen the source
+```
+
+Un eje **abierto** no tiene final donde dar la vuelta, así que allí `cycle` no significa
+nada.
 
 ## Un cumpleaños con `value="birth"`
 
@@ -353,6 +537,10 @@ local="ru"     15 марта 2024 г.
 - `value`, `range` y `from`/`to` son tres escrituras de una misma ventana — use la que mejor se lea.
 - `L` / `LL` cambian con `local`; `YYYY-MM-DD` y compañía no.
 - Los rangos de solo fecha avanzan por día; los de fecha y hora por milisegundo, salvo que se fije `precision`.
+- `order="sequential"` RECORRE el rango; sin él cada fila es un sorteo independiente.
+- En un eje recorrido `m` es el minuto y `mo` es el mes. `step="1mo15d"` se rechaza —
+  escriba `45d` o `1mo`.
+- `weekdays` filtra, `step` marca el ritmo. Se combinan, y ninguno reemplaza al otro.
 - `today`, `now`, `value="birth"` y un generador **sin** límites leen el reloj, así que
   la semilla sola no los reproduce — fije el reloj con
   [`--now`](../reference/cli.md#--now--fijar-el-reloj).
