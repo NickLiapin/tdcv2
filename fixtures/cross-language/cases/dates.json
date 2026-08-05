@@ -88,6 +88,114 @@
       "description": "LLL and LLLL — month name, day, year and time, assembled per locale. Their own case because they carry commas, which a pipe-joined row would hide.",
       "config": "<tdc><env count=\"1\" seed=\"unit-test\" local=\"en\" mode=\"memory\"><sequence name=\"T0\"><gen type=\"date\" range=\"2026-03-05T07:09:03..2026-03-05T07:09:03\" format=\"LLL\"/></sequence><sequence name=\"T1\"><gen type=\"date\" range=\"2026-03-05T07:09:03..2026-03-05T07:09:03\" format=\"LLLL\"/></sequence></env><block><line><data>${{T0}} / ${{T1}}</data></line></block></tdc>",
       "expected": ["March 5, 2026 07:09 / Thursday, March 5, 2026 07:09"]
+    },
+    {
+      "name": "walked-day",
+      "description": "order=sequential walks a bounded range one day at a time and wraps at the end",
+      "config": "<tdc><env count=\"6\" seed=\"unit-test\" local=\"en\" mode=\"memory\"><sequence name=\"V\"><gen type=\"date\" range=\"2026-01-01..2026-01-04\" order=\"sequential\" format=\"YYYY-MM-DD\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
+      "expected": [
+        "2026-01-01",
+        "2026-01-02",
+        "2026-01-03",
+        "2026-01-04",
+        "2026-01-01",
+        "2026-01-02"
+      ],
+      "now": "2026-04-23T12:00:00Z"
+    },
+    {
+      "name": "walked-open-axis",
+      "description": "from= with no end never wraps: row i is the i-th step, across month and year boundaries",
+      "config": "<tdc><env count=\"5\" seed=\"unit-test\" local=\"en\" mode=\"memory\"><sequence name=\"V\"><gen type=\"date\" from=\"2026-12-29\" order=\"sequential\" format=\"YYYY-MM-DD\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
+      "expected": [
+        "2026-12-29",
+        "2026-12-30",
+        "2026-12-31",
+        "2027-01-01",
+        "2027-01-02"
+      ],
+      "now": "2026-04-23T12:00:00Z"
+    },
+    {
+      "name": "walked-calendar-clamp",
+      "description": "each step is measured from the START, so a clamped February does not drag later months back",
+      "config": "<tdc><env count=\"4\" seed=\"unit-test\" local=\"en\" mode=\"memory\"><sequence name=\"V\"><gen type=\"date\" from=\"2026-01-31\" order=\"sequential\" step=\"1mo\" format=\"YYYY-MM-DD\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
+      "expected": ["2026-01-31", "2026-02-28", "2026-03-31", "2026-04-30"],
+      "now": "2026-04-23T12:00:00Z"
+    },
+    {
+      "name": "walked-step-minutes",
+      "description": "m is the MINUTE in this notation, as it is everywhere the notation is used",
+      "config": "<tdc><env count=\"3\" seed=\"unit-test\" local=\"en\" mode=\"memory\"><sequence name=\"V\"><gen type=\"date\" from=\"2026-01-01T00:00:00\" order=\"sequential\" step=\"15m\" format=\"YYYY-MM-DD HH:mm\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
+      "expected": ["2026-01-01 00:00", "2026-01-01 00:15", "2026-01-01 00:30"],
+      "now": "2026-04-23T12:00:00Z"
+    },
+    {
+      "name": "walked-step-composed",
+      "description": "fixed units add up within their group",
+      "config": "<tdc><env count=\"3\" seed=\"unit-test\" local=\"en\" mode=\"memory\"><sequence name=\"V\"><gen type=\"date\" from=\"2026-01-01T00:00:00\" order=\"sequential\" step=\"1h30m\" format=\"YYYY-MM-DD HH:mm\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
+      "expected": ["2026-01-01 00:00", "2026-01-01 01:30", "2026-01-01 03:00"],
+      "now": "2026-04-23T12:00:00Z"
+    },
+    {
+      "name": "walked-step-calendar-composed",
+      "description": "mo is the month, and calendar units add up within their own group",
+      "config": "<tdc><env count=\"3\" seed=\"unit-test\" local=\"en\" mode=\"memory\"><sequence name=\"V\"><gen type=\"date\" from=\"2026-01-01\" order=\"sequential\" step=\"1y6mo\" format=\"YYYY-MM-DD\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
+      "expected": ["2026-01-01", "2027-07-01", "2029-01-01"],
+      "now": "2026-04-23T12:00:00Z"
+    },
+    {
+      "name": "walked-step-bare-number",
+      "description": "a bare number is a count of DAYS, the default unit",
+      "config": "<tdc><env count=\"3\" seed=\"unit-test\" local=\"en\" mode=\"memory\"><sequence name=\"V\"><gen type=\"date\" from=\"2026-01-01\" order=\"sequential\" step=\"2\" format=\"YYYY-MM-DD\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
+      "expected": ["2026-01-01", "2026-01-03", "2026-01-05"],
+      "now": "2026-04-23T12:00:00Z"
+    },
+    {
+      "name": "walked-weekdays-span",
+      "description": "a weekday span keeps only those days; 2026-01-01 is a Thursday, so the weekend is jumped",
+      "config": "<tdc><env count=\"4\" seed=\"unit-test\" local=\"en\" mode=\"memory\"><sequence name=\"V\"><gen type=\"date\" from=\"2026-01-01\" order=\"sequential\" weekdays=\"mon..fri\" format=\"YYYY-MM-DD\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
+      "expected": ["2026-01-01", "2026-01-02", "2026-01-05", "2026-01-06"],
+      "now": "2026-04-23T12:00:00Z"
+    },
+    {
+      "name": "walked-weekdays-wrapping-span",
+      "description": "a span wraps round the week: fri..mon is Fri, Sat, Sun, Mon",
+      "config": "<tdc><env count=\"5\" seed=\"unit-test\" local=\"en\" mode=\"memory\"><sequence name=\"V\"><gen type=\"date\" from=\"2026-01-01\" order=\"sequential\" weekdays=\"fri..mon\" format=\"YYYY-MM-DD\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
+      "expected": [
+        "2026-01-02",
+        "2026-01-03",
+        "2026-01-04",
+        "2026-01-05",
+        "2026-01-09"
+      ],
+      "now": "2026-04-23T12:00:00Z"
+    },
+    {
+      "name": "walked-weekdays-list",
+      "description": "a comma list keeps exactly those weekdays",
+      "config": "<tdc><env count=\"3\" seed=\"unit-test\" local=\"en\" mode=\"memory\"><sequence name=\"V\"><gen type=\"date\" from=\"2026-01-01\" order=\"sequential\" weekdays=\"sun,wed\" format=\"YYYY-MM-DD\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
+      "expected": ["2026-01-04", "2026-01-07", "2026-01-11"],
+      "now": "2026-04-23T12:00:00Z"
+    },
+    {
+      "name": "walked-step-and-weekdays",
+      "description": "step and filter combine: every 12 hours, working days only — the case one attribute could not say",
+      "config": "<tdc><env count=\"4\" seed=\"unit-test\" local=\"en\" mode=\"memory\"><sequence name=\"V\"><gen type=\"date\" from=\"2026-01-02T00:00:00\" order=\"sequential\" step=\"12h\" weekdays=\"mon..fri\" format=\"YYYY-MM-DD HH:mm\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
+      "expected": [
+        "2026-01-02 00:00",
+        "2026-01-02 12:00",
+        "2026-01-05 00:00",
+        "2026-01-05 12:00"
+      ],
+      "now": "2026-04-23T12:00:00Z"
+    },
+    {
+      "name": "walked-leap-day",
+      "description": "a walked axis lands on 29 February rather than skipping it",
+      "config": "<tdc><env count=\"3\" seed=\"unit-test\" local=\"en\" mode=\"memory\"><sequence name=\"V\"><gen type=\"date\" from=\"2024-02-28\" order=\"sequential\" format=\"YYYY-MM-DD\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
+      "expected": ["2024-02-28", "2024-02-29", "2024-03-01"],
+      "now": "2026-04-23T12:00:00Z"
     }
   ]
 }

@@ -145,6 +145,7 @@ export const GEN_ATTRIBUTES: ReadonlySet<string> = new Set([
   'precision',
   'range',
   'step',
+  'weekdays',
   'src',
   'column',
   'header',

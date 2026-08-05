@@ -14,6 +14,90 @@
       "description": "A date locale nobody has translated",
       "config": "<tdc><env count=\"2\" seed=\"s\"><sequence name=\"G\"><gen type=\"date\" range=\"2026-01-01..2026-01-31\" local=\"klingon\"/></sequence></env><block><line><data>x</data></line></block></tdc>",
       "expected": ["error TDC153 1:103"]
+    },
+    {
+      "name": "step-not-a-step",
+      "demonstrates": "TDC247",
+      "description": "a step this notation cannot express is refused",
+      "config": "<tdc><env count=\"2\" seed=\"s\"><sequence name=\"G\"><gen type=\"date\" from=\"2026-01-01\" order=\"sequential\" step=\"fortnight\"/></sequence></env><block><line><data>x</data></line></block></tdc>",
+      "expected": ["error TDC247 1:108"]
+    },
+    {
+      "name": "step-old-spelled-out-form",
+      "demonstrates": "TDC247",
+      "description": "the earlier prose form is gone: there is one notation, not two",
+      "config": "<tdc><env count=\"2\" seed=\"s\"><sequence name=\"G\"><gen type=\"date\" from=\"2026-01-01\" order=\"sequential\" step=\"15 minute\"/></sequence></env><block><line><data>x</data></line></block></tdc>",
+      "expected": ["error TDC247 1:108"]
+    },
+    {
+      "name": "step-mixes-calendar-and-fixed",
+      "demonstrates": "TDC247",
+      "description": "a month plus fifteen days depends on which is applied first, so it is refused rather than guessed",
+      "config": "<tdc><env count=\"2\" seed=\"s\"><sequence name=\"G\"><gen type=\"date\" from=\"2026-01-01\" order=\"sequential\" step=\"1mo15d\"/></sequence></env><block><line><data>x</data></line></block></tdc>",
+      "expected": ["error TDC247 1:108"]
+    },
+    {
+      "name": "step-repeats-a-unit",
+      "demonstrates": "TDC247",
+      "description": "a repeated unit is a typo; summing it would hide the typo instead of reporting it",
+      "config": "<tdc><env count=\"2\" seed=\"s\"><sequence name=\"G\"><gen type=\"date\" from=\"2026-01-01\" order=\"sequential\" step=\"1h30m1h\"/></sequence></env><block><line><data>x</data></line></block></tdc>",
+      "expected": ["error TDC247 1:108"]
+    },
+    {
+      "name": "step-without-order-sequential",
+      "demonstrates": "TDC248",
+      "description": "nothing walks the range, so step= would be read by nobody",
+      "config": "<tdc><env count=\"2\" seed=\"s\"><sequence name=\"G\"><gen type=\"date\" range=\"2026-01-01..2026-12-31\" step=\"1d\"/></sequence></env><block><line><data>x</data></line></block></tdc>",
+      "expected": ["error TDC248 1:102"]
+    },
+    {
+      "name": "weekdays-without-order-sequential",
+      "demonstrates": "TDC248",
+      "description": "the same for the filter: with no walk there is nothing to filter",
+      "config": "<tdc><env count=\"2\" seed=\"s\"><sequence name=\"G\"><gen type=\"date\" range=\"2026-01-01..2026-12-31\" weekdays=\"mon..fri\"/></sequence></env><block><line><data>x</data></line></block></tdc>",
+      "expected": ["error TDC248 1:106"]
+    },
+    {
+      "name": "weekdays-unknown-name",
+      "demonstrates": "TDC249",
+      "description": "a weekday that does not exist is named rather than silently dropped",
+      "config": "<tdc><env count=\"2\" seed=\"s\"><sequence name=\"G\"><gen type=\"date\" from=\"2026-01-01\" order=\"sequential\" weekdays=\"mon..frr\"/></sequence></env><block><line><data>x</data></line></block></tdc>",
+      "expected": ["error TDC249 1:112"]
+    },
+    {
+      "name": "weekdays-hyphen-is-not-a-range",
+      "demonstrates": "TDC249",
+      "description": "the range operator is .. everywhere in this language, so mon-fri is not a span",
+      "config": "<tdc><env count=\"2\" seed=\"s\"><sequence name=\"G\"><gen type=\"date\" from=\"2026-01-01\" order=\"sequential\" weekdays=\"mon-fri\"/></sequence></env><block><line><data>x</data></line></block></tdc>",
+      "expected": ["error TDC249 1:112"]
+    },
+    {
+      "name": "weekdays-under-a-weekly-step",
+      "demonstrates": "TDC250",
+      "description": "a whole week always lands on the same weekday, so the filter would match every row or none",
+      "config": "<tdc><env count=\"2\" seed=\"s\"><sequence name=\"G\"><gen type=\"date\" from=\"2026-01-01\" order=\"sequential\" step=\"1w\" weekdays=\"mon\"/></sequence></env><block><line><data>x</data></line></block></tdc>",
+      "expected": ["error TDC250 1:122"]
+    },
+    {
+      "name": "weekdays-under-a-fourteen-day-step",
+      "demonstrates": "TDC250",
+      "description": "14d fixes the weekday exactly as 2w does — the test is the step's LENGTH, not its spelling",
+      "config": "<tdc><env count=\"2\" seed=\"s\"><sequence name=\"G\"><gen type=\"date\" from=\"2026-01-01\" order=\"sequential\" step=\"14d\" weekdays=\"mon\"/></sequence></env><block><line><data>x</data></line></block></tdc>",
+      "expected": ["error TDC250 1:123"]
+    },
+    {
+      "name": "weekdays-under-a-calendar-step",
+      "demonstrates": "TDC250",
+      "description": "a calendar step fixes the weekday too",
+      "config": "<tdc><env count=\"2\" seed=\"s\"><sequence name=\"G\"><gen type=\"date\" from=\"2026-01-01\" order=\"sequential\" step=\"1mo\" weekdays=\"mon\"/></sequence></env><block><line><data>x</data></line></block></tdc>",
+      "expected": ["error TDC250 1:123"]
+    },
+    {
+      "name": "walked-from-alone-is-accepted",
+      "demonstrates": "",
+      "description": "from= with no end is an OPEN axis when the range is walked: no diagnostic at all",
+      "config": "<tdc><env count=\"2\" seed=\"s\"><sequence name=\"G\"><gen type=\"date\" from=\"2026-01-01\" order=\"sequential\"/></sequence></env><block><line><data>x</data></line></block></tdc>",
+      "expected": []
     }
   ]
 }
