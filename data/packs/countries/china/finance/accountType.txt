@@ -1,5 +1,5 @@
 ---
-address: zh-cn.finance.accountType
+address: china.finance.accountType
 description: Chinese bank account types
 locale: zh-cn
 ---

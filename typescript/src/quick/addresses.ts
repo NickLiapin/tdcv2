@@ -753,6 +753,35 @@ export type QuickAddressTree = {
         readonly plate: QuickAddress;
       };
     };
+    readonly china: {
+      readonly docs: {
+        readonly id: QuickAddress;
+      };
+      readonly education: {
+        readonly university: QuickAddress;
+      };
+      readonly finance: {
+        readonly accountType: QuickAddress;
+        readonly bank: QuickAddress;
+      };
+      readonly geo: {
+        readonly city: QuickAddress;
+        readonly postalCode: QuickAddress;
+        readonly province: QuickAddress;
+        readonly provinceAbbr: QuickAddress;
+        readonly provinceCode: QuickAddress;
+        readonly streetName: QuickAddress;
+        readonly streetNamed: QuickAddress;
+      };
+      readonly holiday: QuickAddress;
+      readonly phone: QuickAddress;
+      readonly sport: {
+        readonly team: QuickAddress;
+      };
+      readonly vehicle: {
+        readonly plate: QuickAddress;
+      };
+    };
     readonly colombia: {
       readonly docs: {
         readonly cc: QuickAddress;
@@ -3080,23 +3109,17 @@ export type QuickAddressTree = {
     readonly weekday: QuickAddress;
     readonly weekdayAbbr: QuickAddress;
   };
-  readonly docs: {
-    readonly id: QuickAddress;
-  };
   readonly education: {
     readonly courseSubject: QuickAddress;
     readonly degree: QuickAddress;
     readonly grade: QuickAddress;
     readonly major: QuickAddress;
-    readonly university: QuickAddress;
   };
   readonly event: {
     readonly type: QuickAddress;
     readonly venueType: QuickAddress;
   };
   readonly finance: {
-    readonly accountType: QuickAddress;
-    readonly bank: QuickAddress;
     readonly budgetCategory: QuickAddress;
     readonly creditScoreBand: QuickAddress;
     readonly insuranceType: QuickAddress;
@@ -3343,7 +3366,6 @@ export type QuickAddressTree = {
       readonly 'Южная Корея': QuickAddress;
       readonly 'Япония': QuickAddress;
     };
-    readonly city: QuickAddress;
     readonly country: QuickAddress;
     readonly currencyByCountry: {
       readonly Argentina: QuickAddress;
@@ -3512,12 +3534,6 @@ export type QuickAddressTree = {
       readonly 'Япония': QuickAddress;
     };
     readonly direction: QuickAddress;
-    readonly postalCode: QuickAddress;
-    readonly province: QuickAddress;
-    readonly provinceAbbr: QuickAddress;
-    readonly provinceCode: QuickAddress;
-    readonly streetName: QuickAddress;
-    readonly streetNamed: QuickAddress;
   };
   readonly government: {
     readonly agency: QuickAddress;
@@ -3530,7 +3546,6 @@ export type QuickAddressTree = {
     readonly noun: QuickAddress;
     readonly verb: QuickAddress;
   };
-  readonly holiday: QuickAddress;
   readonly hr: {
     readonly benefit: QuickAddress;
     readonly interviewStage: QuickAddress;
@@ -6942,26 +6957,6 @@ export type QuickAddressTree = {
       };
     };
     readonly 'zh-cn': {
-      readonly docs: {
-        readonly id: QuickAddress;
-      };
-      readonly education: {
-        readonly university: QuickAddress;
-      };
-      readonly finance: {
-        readonly accountType: QuickAddress;
-        readonly bank: QuickAddress;
-      };
-      readonly geo: {
-        readonly city: QuickAddress;
-        readonly postalCode: QuickAddress;
-        readonly province: QuickAddress;
-        readonly provinceAbbr: QuickAddress;
-        readonly provinceCode: QuickAddress;
-        readonly streetName: QuickAddress;
-        readonly streetNamed: QuickAddress;
-      };
-      readonly holiday: QuickAddress;
       readonly location: {
         readonly country: QuickAddress;
       };
@@ -6973,13 +6968,6 @@ export type QuickAddressTree = {
         readonly male: {
           readonly firstName: QuickAddress;
         };
-      };
-      readonly phone: QuickAddress;
-      readonly sport: {
-        readonly team: QuickAddress;
-      };
-      readonly vehicle: {
-        readonly plate: QuickAddress;
       };
     };
   };
@@ -7250,7 +7238,6 @@ export type QuickAddressTree = {
     readonly suffix: QuickAddress;
     readonly zodiac: QuickAddress;
   };
-  readonly phone: QuickAddress;
   readonly realestate: {
     readonly amenity: QuickAddress;
     readonly listingStatus: QuickAddress;
@@ -7335,7 +7322,6 @@ export type QuickAddressTree = {
       readonly 'هوكي الجليد': QuickAddress;
     };
     readonly sportCoherent: QuickAddress;
-    readonly team: QuickAddress;
   };
   readonly telecom: {
     readonly carrier: QuickAddress;
@@ -7356,7 +7342,6 @@ export type QuickAddressTree = {
   readonly vehicle: {
     readonly bicycle: QuickAddress;
     readonly fuel: QuickAddress;
-    readonly plate: QuickAddress;
     readonly type: QuickAddress;
   };
   readonly weather: {

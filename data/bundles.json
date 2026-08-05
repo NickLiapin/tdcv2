@@ -231,6 +231,15 @@
       "packs": ["packs/countries/chile"]
     },
     {
+      "id": "china",
+      "name": "China (country)",
+      "description": "Data specific to China: docs, education, finance, geo, holiday, phone, sport, vehicle.",
+      "country": "china",
+      "regions": ["asia"],
+      "point": [104.2, 35.9],
+      "packs": ["packs/countries/china"]
+    },
+    {
       "id": "colombia",
       "name": "Colombia (country)",
       "description": "Data specific to Colombia: NIT with its mod-11 check digit, cédulas, the 32 departments and Bogotá with DANE and ISO codes, municipalities, postal codes drawn from the real department blocks, banks with their Banco de la República codes, universities, Categoría Primera A clubs, the holidays and which of them the Ley Emiliani moves to Monday, and the plate formats.",

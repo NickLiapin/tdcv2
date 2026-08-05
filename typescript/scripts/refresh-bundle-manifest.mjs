@@ -147,6 +147,7 @@ const GEOGRAPHY = {
   cape_verde: { regions: ['africa'], point: [-24, 16] },
   chad: { regions: ['africa'], point: [19, 15] },
   chile: { regions: ['south'], point: [-71, -35] },
+  china: { regions: ['asia'], point: [104.2, 35.9] },
   colombia: { regions: ['south'], point: [-73, 4] },
   comoros: { regions: ['africa'], point: [43.3, -11.7] },
   congo: { regions: ['africa'], point: [15.5, -1] },

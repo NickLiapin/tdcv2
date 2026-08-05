@@ -113,7 +113,7 @@ describe('a memory-engine config above the auto-parallel threshold', () => {
   });
 
   /*
-   * A REAL pack generator, not one written for the test. `zh-cn.geo.streetName`
+   * A REAL pack generator, not one written for the test. `china.geo.streetName`
    * declares percent="60,20,15,5" over its street types, so it exercises the
    * shape as a user meets it — and the shares are asserted, because the failure
    * this routing prevents is not a crash but every row taking the largest share
@@ -123,7 +123,7 @@ describe('a memory-engine config above the auto-parallel threshold', () => {
     const rows = generate(
       `<tdc version="0.1">
   <env count="${String(ABOVE)}" seed="s" local="zh-cn">
-    <sequence name="S"><gen type="template" value="zh-cn.geo.streetName"/></sequence>
+    <sequence name="S"><gen type="template" value="china.geo.streetName"/></sequence>
   </env>
   <block><line><data>\${{S}}</data></line></block>
 </tdc>`,

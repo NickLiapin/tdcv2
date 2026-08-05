@@ -1,5 +1,5 @@
 ---
-address: zh-cn.geo.postalCode
+address: china.geo.postalCode
 description: Chinese 6-digit postal code (structural — the assigned per-area ranges are not fully modelled)
 generator: tdc
 locale: zh-cn

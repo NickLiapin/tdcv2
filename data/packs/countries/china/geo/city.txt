@@ -1,5 +1,5 @@
 ---
-address: zh-cn.geo.city
+address: china.geo.city
 description: Major Chinese cities
 locale: zh-cn
 ---

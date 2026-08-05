@@ -1,5 +1,5 @@
 ---
-address: zh-cn.vehicle.plate
+address: china.vehicle.plate
 description: Chinese licence plate — province abbreviation + issuing-authority letter + 5 alphanumerics (e.g. 京A12345)
 generator: tdc
 locale: zh-cn

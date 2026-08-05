@@ -24,9 +24,9 @@ function render(address: string, count = 60, seed = 'zh'): string[] {
   return new TDC({ configString: config }).toString().trim().split('\n');
 }
 
-describe('zh-cn.docs.id', () => {
+describe('china.docs.id', () => {
   it('is 18 chars with a valid MOD 11-2 check character (X allowed)', () => {
-    const out = render('zh-cn.docs.id');
+    const out = render('china.docs.id');
     expect(out).toHaveLength(60);
     for (const v of out) {
       expect(v).toMatch(/^\d{17}[\dX]$/);
@@ -37,7 +37,7 @@ describe('zh-cn.docs.id', () => {
   it('produces the X check character for the residues that require it', () => {
     // Over enough rows at least one ID must end in X — the case a naive
     // digit-only implementation gets wrong.
-    expect(render('zh-cn.docs.id', 300).some((v) => v.endsWith('X'))).toBe(true);
+    expect(render('china.docs.id', 300).some((v) => v.endsWith('X'))).toBe(true);
   });
 });
 
@@ -47,8 +47,8 @@ describe('zh-cn person and place data resolves', () => {
       'zh-cn.person.lastName',
       'zh-cn.person.male.firstName',
       'zh-cn.person.female.firstName',
-      'zh-cn.geo.city',
-      'zh-cn.geo.province',
+      'china.geo.city',
+      'china.geo.province',
     ]) {
       for (const v of render(addr, 10)) expect(v).toMatch(/[一-鿿]/); // has a CJK char
     }

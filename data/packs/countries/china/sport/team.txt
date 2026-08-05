@@ -1,5 +1,5 @@
 ---
-address: zh-cn.sport.team
+address: china.sport.team
 description: Chinese Super League (中超) football clubs
 locale: zh-cn
 ---

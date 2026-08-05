@@ -1,5 +1,5 @@
 ---
-address: zh-cn.holiday
+address: china.holiday
 description: Chinese public holidays
 locale: zh-cn
 ---

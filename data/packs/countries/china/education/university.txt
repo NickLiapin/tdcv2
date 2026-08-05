@@ -1,5 +1,5 @@
 ---
-address: zh-cn.education.university
+address: china.education.university
 description: Chinese universities
 locale: zh-cn
 ---

@@ -1,6 +1,6 @@
 ---
-address: zh-cn.geo.province
-description: Chinese province-level division (31 mainland); same order as zh-cn.geo.provinceAbbr / provinceCode
+address: china.geo.province
+description: Chinese province-level division (31 mainland); same order as china.geo.provinceAbbr / provinceCode
 locale: zh-cn
 ---
 北京市

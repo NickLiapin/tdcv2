@@ -1,5 +1,5 @@
 ---
-address: zh-cn.phone
+address: china.phone
 description: Chinese mobile phone in E.164 form (+86 1[3-9] + 9 digits)
 generator: tdc
 locale: zh-cn

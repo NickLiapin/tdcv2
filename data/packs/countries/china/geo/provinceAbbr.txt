@@ -1,6 +1,6 @@
 ---
-address: zh-cn.geo.provinceAbbr
-description: One-character province abbreviation (used on licence plates), index-aligned with zh-cn.geo.province
+address: china.geo.provinceAbbr
+description: One-character province abbreviation (used on licence plates), index-aligned with china.geo.province
 locale: zh-cn
 ---
 京

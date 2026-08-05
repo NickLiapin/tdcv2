@@ -1,6 +1,6 @@
 ---
-address: zh-cn.geo.streetNamed
-description: Bare Chinese street-name cores; zh-cn.geo.streetName appends a type (路/街/大道)
+address: china.geo.streetNamed
+description: Bare Chinese street-name cores; china.geo.streetName appends a type (路/街/大道)
 locale: zh-cn
 ---
 中山

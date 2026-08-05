@@ -1,5 +1,5 @@
 ---
-address: zh-cn.docs.id
+address: china.docs.id
 description: Chinese Resident Identity Card (居民身份证) — 18 chars: 6-digit region code + 8-digit birth date + 3-digit sequence + ISO 7064 MOD 11-2 check (last char may be X)
 generator: tdc
 locale: zh-cn

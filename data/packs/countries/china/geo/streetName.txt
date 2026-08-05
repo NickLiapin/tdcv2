@@ -1,10 +1,10 @@
 ---
-address: zh-cn.geo.streetName
+address: china.geo.streetName
 description: A Chinese street name — a named core plus a type (路 / 街 / 大道 / 巷)
 generator: tdc
 locale: zh-cn
 ---
-<sequence name="named"><gen type="template" value="zh-cn.geo.streetNamed"/></sequence>
+<sequence name="named"><gen type="template" value="china.geo.streetNamed"/></sequence>
 <sequence name="type"><gen type="text" value="路,街,大道,巷" percent="60,20,15,5"/></sequence>
 <sequence name="street"><compute>
   <result><concat><field name="named"/><field name="type"/></concat></result>

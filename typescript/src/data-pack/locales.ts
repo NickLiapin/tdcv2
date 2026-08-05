@@ -183,6 +183,7 @@ export const CANONICAL_COUNTRIES: ReadonlySet<string> = new Set([
   'bulgaria',
   'canada',
   'chile',
+  'china',
   'colombia',
   'costa_rica',
   'croatia',
