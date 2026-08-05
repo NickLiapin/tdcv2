@@ -155,6 +155,7 @@ export const GEN_ATTRIBUTES: ReadonlySet<string> = new Set([
   'trend',
   'period',
   'amplitude',
+  'peak_at',
   'noise',
   'points',
   'upper',
@@ -253,6 +254,7 @@ export const ATTRIBUTE_OWNERS: ReadonlyMap<string, ReadonlySet<string>> = new Ma
   ['trend', new Set(['timeseries'])],
   ['period', new Set(['timeseries'])],
   ['amplitude', new Set(['timeseries'])],
+  ['peak_at', new Set(['timeseries'])],
   ['noise', new Set(['timeseries'])],
   // Zero-padding a numeric range.
   ['first_zero', new Set(['number'])],
@@ -324,6 +326,15 @@ const MISPLACED: ReadonlyMap<string, string> = new Map([
     'gen:parent',
     'parent= selects which rows a whole <sequence> or <mix> builds on; ' +
       'move it there. A <gen> inside one is already filtered by it.',
+  ],
+  [
+    // Not a misplacement but the same failure: a word readers reach for that the
+    // language spells differently. The nearest accepted string to `phase` is
+    // `case`, which sends someone shifting a seasonal wave to look at branching.
+    'gen:phase',
+    'A seasonal wave is shifted with peak_at=, which names the ROW the wave ' +
+      'peaks on rather than an angle: peak_at="182" over period="365" puts the ' +
+      'peak at the first of July.',
   ],
   [
     'switch:percent',

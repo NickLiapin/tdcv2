@@ -291,6 +291,8 @@ but the combination it asks for can't be carried out.
 | `TDC248` | `step` without `order="sequential"` on the same `<gen>`            | Nothing walks the range — the dates are still drawn at random. Add `order="sequential"`, or drop `step` |
 | `TDC249` | `weekdays` names a weekday that does not exist                    | sun, mon, tue, wed, thu, fri, sat — a span like `mon..fri` or a list like `sun,wed` |
 | `TDC250` | `weekdays` with a step of a whole number of weeks, or a calendar step | Such a step already fixes the weekday, so the filter would match every row or none |
+| `TDC252` | `peak_at` on a `<gen type="timeseries">` is not a number                     | `peak_at` is the row the seasonal wave peaks on, counted like `period` — `peak_at="182"` over `period="365"` puts the peak at the first of July |
+| `TDC253` | `peak_at` with no `period` on the same `<gen>`                              | A wave needs a length before it can have a highest point. Add `period`, or remove `peak_at` |
 | `TDC251` | _(warning)_ A `percent` share asks for less than one whole row              | `percent` is an exact quota over the rows that reach it, so 10% of a five-row subset asks for half a record. Half a record cannot be emitted: the branch fires once or not at all, and the seed decides which. Raise the share, or raise `count`
 
 ## See also

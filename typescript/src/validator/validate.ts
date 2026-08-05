@@ -79,6 +79,7 @@ import { checkGenDrawing, checkGenFile } from './file.js';
 import { checkSwitchCaseAttrs, checkSwitchMap } from './switch-body.js';
 import { checkGenRegex } from './regex.js';
 import { checkGenSymbol } from './symbol.js';
+import { checkGenTimeseries } from './timeseries.js';
 import { checkCompute } from './compute.js';
 import { checkGroupSize } from './group-size.js';
 import { checkSmallShares } from './small-share.js';
@@ -888,6 +889,9 @@ function checkGen(
       break;
     case 'date':
       checkGenDate(gen, ctx.diagnostics);
+      break;
+    case 'timeseries':
+      checkGenTimeseries(gen, ctx.diagnostics);
       break;
     case 'increment':
     case 'decrement':

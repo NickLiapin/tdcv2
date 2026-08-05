@@ -101,6 +101,7 @@
 | `trend`     | Снос за шаг                  | [Временные ряды](../generators/timeseries.md#top) |
 | `period`    | Длина одного сезонного цикла | [Временные ряды](../generators/timeseries.md#top) |
 | `amplitude` | Высота сезонного размаха     | [Временные ряды](../generators/timeseries.md#top) |
+| `peak_at`   | На какой строке пикует сезонная волна | [Временные ряды](../generators/timeseries.md#top) |
 | `noise`     | Случайное дрожание сверху    | [Временные ряды](../generators/timeseries.md#top) |
 
 ## Pattern (рисунок как источник)

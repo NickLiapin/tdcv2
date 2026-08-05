@@ -102,6 +102,7 @@ etiqueta y se explica donde se explica esa etiqueta — ver la
 | `trend`     | Deriva por paso                | [Series temporales](../generators/timeseries.md#top) |
 | `period`    | Largo de un ciclo estacional   | [Series temporales](../generators/timeseries.md#top) |
 | `amplitude` | Altura del vaivén estacional   | [Series temporales](../generators/timeseries.md#top) |
+| `peak_at`   | En qué fila alcanza su máximo la onda estacional | [Series temporales](../generators/timeseries.md#top) |
 | `noise`     | Ruido aleatorio añadido encima | [Series temporales](../generators/timeseries.md#top) |
 
 ## Pattern (un dibujo como fuente)

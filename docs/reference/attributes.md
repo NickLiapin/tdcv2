@@ -100,6 +100,7 @@ and `max`. Each is explained, with a histogram, on the
 | `trend`     | Drift per step               | [Timeseries](../generators/timeseries.md#top) |
 | `period`    | Length of one seasonal cycle | [Timeseries](../generators/timeseries.md#top) |
 | `amplitude` | Height of the seasonal swing | [Timeseries](../generators/timeseries.md#top) |
+| `peak_at`   | Which row the seasonal wave peaks on | [Timeseries](../generators/timeseries.md#top) |
 | `noise`     | Random jitter added on top   | [Timeseries](../generators/timeseries.md#top) |
 
 ## Pattern (a drawing as the source)
