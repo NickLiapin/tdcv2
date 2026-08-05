@@ -34,7 +34,7 @@ use crate::unicode;
 
 /// A tag's attributes, unquoted and by name.
 type Attrs = std::collections::BTreeMap<String, String>;
-use crate::parser::ast::{Document, Element, Kind};
+use crate::parser::ast::{is_gen, Document, Element, Kind};
 use crate::parser::lexer::Pos;
 
 /// The document versions this runtime understands.
@@ -1136,7 +1136,7 @@ impl Validator {
         let gens: Vec<&Element> = sequence
             .children
             .iter()
-            .filter(|c| c.kind == Kind::SelfClosing && c.name == "gen")
+            .filter(|c| is_gen(c))
             .collect();
         let named = gens.iter().filter(|g| g.attr("name").is_some()).count();
 
@@ -1161,7 +1161,7 @@ impl Validator {
     /// sits.
     fn collect_field_names(&mut self, element: &Element, name: &str) {
         for child in &element.children {
-            if child.kind == Kind::SelfClosing && child.name == "gen" {
+            if is_gen(child) {
                 if let Some(field) = child.attr_value("name").filter(|f| !f.trim().is_empty()) {
                     self.declared_names.insert(format!("{name}.{field}"));
                 }
@@ -1203,7 +1203,7 @@ impl Validator {
         let mut has_compute = false;
         let mut compute_el = None;
         for child in &open.children {
-            if child.kind == Kind::SelfClosing && child.name == "gen" {
+            if is_gen(child) {
                 gens.push(child);
             } else if child.kind == Kind::OpenClose {
                 if child.name == "compute" {
@@ -1211,7 +1211,7 @@ impl Validator {
                     compute_el = Some(child);
                 } else if child.name == "distinct" {
                     for g in &child.children {
-                        if g.kind == Kind::SelfClosing && g.name == "gen" {
+                        if is_gen(g) {
                             gens.push(g);
                         }
                     }
@@ -1504,7 +1504,7 @@ impl Validator {
     // ── gen ──────────────────────────────────────────────────────────────────
 
     fn check_gens_in(&mut self, element: &Element) {
-        if element.kind == Kind::SelfClosing && element.name == "gen" {
+        if is_gen(element) {
             self.check_gen(element);
             return;
         }
@@ -2979,7 +2979,7 @@ impl Validator {
         }
 
         for child in &line.children {
-            if child.kind == Kind::SelfClosing && child.name == "gen" {
+            if is_gen(child) {
                 self.error(
                     "TDC131",
                     "a <gen> is not allowed inside <line> — the output block is for formatting only"

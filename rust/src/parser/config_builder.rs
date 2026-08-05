@@ -11,7 +11,7 @@ use crate::model::{
     Branch, Case, CasePart, Config, DataPart, Field, Fixtures, Gen, Item, Line, Mix, PoolSpec,
     SequenceSpec, Source, Switch, SwitchEntry,
 };
-use crate::parser::ast::{Document, Element, Kind};
+use crate::parser::ast::{is_gen, Document, Element, Kind};
 
 const DEFAULT_COUNT: i32 = 10;
 const DEFAULT_LOCALE: &str = "en";
@@ -293,7 +293,7 @@ fn case_spec(element: &Element) -> Case {
     for child in &element.children {
         match child.kind {
             Kind::Data => parts.push(CasePart::Text(child.text.clone())),
-            Kind::SelfClosing if child.name == "gen" => parts.push(CasePart::Gen(gen_of(child))),
+            _ if child.name == "gen" => parts.push(CasePart::Gen(gen_of(child))),
             Kind::OpenClose if child.name == "mix" => {
                 parts.push(CasePart::Mix(Box::new(mix_of(child))));
             }
@@ -426,7 +426,7 @@ fn sequence(element: &Element) -> Result<SequenceSpec, BuildError> {
             continue;
         }
 
-        if child.kind == Kind::SelfClosing && child.name == "gen" {
+        if is_gen(child) {
             let gen_attrs = child.attr_map();
             items.push(item_of(&gen_attrs, &mut unnamed_gens));
             gens.push(gen_attrs);
@@ -439,7 +439,7 @@ fn sequence(element: &Element) -> Result<SequenceSpec, BuildError> {
         if child.kind == Kind::OpenClose && child.name == "distinct" {
             let mut group = Vec::new();
             for inner in &child.children {
-                if inner.kind == Kind::SelfClosing && inner.name == "gen" {
+                if is_gen(inner) {
                     let gen_attrs = inner.attr_map();
                     if let Some(field_name) = gen_attrs.get("name") {
                         if !field_name.is_empty() {
@@ -614,7 +614,7 @@ pub fn parse_gen_tag(source: &str) -> Result<Gen, BuildError> {
         ));
     }
     for element in &parsed.tree.elements {
-        if element.kind == Kind::SelfClosing && element.name == "gen" {
+        if is_gen(element) {
             let kind = element.attr_value("type").unwrap_or("");
             if kind.is_empty() {
                 return err("<gen> in a generator body is missing a \"type\" attribute");

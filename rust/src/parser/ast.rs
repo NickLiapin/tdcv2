@@ -151,3 +151,13 @@ impl Document {
         self.elements.iter().find(|c| c.name == name)
     }
 }
+
+/// A `<gen>`, whichever way it was punctuated.
+///
+/// Four of the five implementations only ever looked for the SELF-CLOSING form,
+/// so `<gen type="text" value="a,b"></gen>` — the ordinary alternative spelling —
+/// was not seen as a generator at all, and the sequence was blamed for having
+/// none: "has no <gen> child", about a <gen> standing in plain sight.
+pub fn is_gen(el: &Element) -> bool {
+    el.name == "gen" && el.kind != Kind::Data
+}
