@@ -62,7 +62,7 @@ import {
   sequentialList,
   type SequenceBuildOptions,
 } from './build.js';
-import { dateAxis, parseStepUnit } from '../generators/date.js';
+import { dateAxis } from '../generators/date.js';
 import { resolveGenAnomalyFlagTextAt, resolveGenValueAt } from './gen-resolve.js';
 import { loadWeightedValues, weightColumnOf } from '../generators/weighted.js';
 import {
@@ -720,8 +720,7 @@ export function build(
   // The same rule over a date range. The axis is arithmetic rather than a list,
   // which is what lets this stay seekable and bounded however long the range is.
   if (gen.type === 'date' && gen.attrs['order'] === 'sequential') {
-    const unit = parseStepUnit(gen.attrs['step']) ?? 'day';
-    const axis = dateAxis(gen.attrs, locale, now, unit);
+    const axis = dateAxis(gen.attrs, locale, now);
     const cycle = gen.attrs['cycle'] !== 'false';
     return {
       sequence: wrapLazy((i) => {

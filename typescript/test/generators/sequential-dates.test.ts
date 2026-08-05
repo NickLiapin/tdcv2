@@ -83,7 +83,7 @@ describe('a date range walked by step', () => {
       // March that stepping on from the clamped February would give.
       const doc = config(
         4,
-        '<gen type="date" range="2026-01-31..2026-12-31" order="sequential" step="month" format="YYYY-MM-DD"/>',
+        '<gen type="date" range="2026-01-31..2026-12-31" order="sequential" step="1mo" format="YYYY-MM-DD"/>',
       );
       expect(rows(doc, opts)).toEqual(['2026-01-31', '2026-02-28', '2026-03-31', '2026-04-30']);
     });
@@ -91,7 +91,7 @@ describe('a date range walked by step', () => {
     it(`steps by hour when asked (${label})`, () => {
       const doc = config(
         3,
-        '<gen type="date" range="2026-01-01T00:00:00..2026-01-01T05:00:00" order="sequential" step="hour" format="YYYY-MM-DD HH:mm"/>',
+        '<gen type="date" range="2026-01-01T00:00:00..2026-01-01T05:00:00" order="sequential" step="1h" format="YYYY-MM-DD HH:mm"/>',
       );
       expect(rows(doc, opts)).toEqual(['2026-01-01 00:00', '2026-01-01 01:00', '2026-01-01 02:00']);
     });
@@ -129,11 +129,11 @@ describe('what the validator says about a walked date', () => {
 
   it('accepts order and step on a date', () => {
     expect(
-      codesOf('<gen type="date" range="2026-01-01..2026-12-31" order="sequential" step="day"/>'),
+      codesOf('<gen type="date" range="2026-01-01..2026-12-31" order="sequential" step="1d"/>'),
     ).toEqual([]);
   });
 
-  it('refuses a step unit it cannot walk', () => {
+  it('refuses a step it cannot walk', () => {
     expect(
       codesOf(
         '<gen type="date" range="2026-01-01..2026-12-31" order="sequential" step="fortnight"/>',
@@ -142,7 +142,7 @@ describe('what the validator says about a walked date', () => {
   });
 
   it('refuses step= without order="sequential" — nothing would read it', () => {
-    expect(codesOf('<gen type="date" range="2026-01-01..2026-12-31" step="day"/>')).toContain(
+    expect(codesOf('<gen type="date" range="2026-01-01..2026-12-31" step="1d"/>')).toContain(
       'TDC248',
     );
   });
@@ -183,7 +183,7 @@ describe('an open axis, a multiplied step, and a weekday filter', () => {
   it('multiplies the step when asked', () => {
     const doc = config(
       3,
-      '<gen type="date" from="2026-01-01T00:00:00" order="sequential" step="15 minute" format="YYYY-MM-DD HH:mm"/>',
+      '<gen type="date" from="2026-01-01T00:00:00" order="sequential" step="15m" format="YYYY-MM-DD HH:mm"/>',
     );
     expect(rows(doc, ENGINES[0]![1])).toEqual([
       '2026-01-01 00:00',
@@ -200,13 +200,13 @@ describe('an open axis, a multiplied step, and a weekday filter', () => {
     expect(rows(doc, ENGINES[0]![1])).toEqual(['2026-01-01', '2026-01-03', '2026-01-05']);
   });
 
-  it('keeps only the weekdays `days=` names', () => {
-    // 2026-01-01 is a Thursday. mon-fri therefore gives Thu, Fri, then jumps the
+  it('keeps only the weekdays `weekdays=` names', () => {
+    // 2026-01-01 is a Thursday. mon..fri therefore gives Thu, Fri, then jumps the
     // weekend to Monday — the jump being exactly why this is a filter and not a
     // step: the spacing is no longer even.
     const doc = config(
       4,
-      '<gen type="date" from="2026-01-01" order="sequential" days="mon-fri" format="YYYY-MM-DD"/>',
+      '<gen type="date" from="2026-01-01" order="sequential" weekdays="mon..fri" format="YYYY-MM-DD"/>',
     );
     for (const [, opts] of ENGINES) {
       expect(rows(doc, opts)).toEqual(['2026-01-01', '2026-01-02', '2026-01-05', '2026-01-06']);
@@ -216,7 +216,7 @@ describe('an open axis, a multiplied step, and a weekday filter', () => {
   it('takes a list of days as well as a span', () => {
     const doc = config(
       3,
-      '<gen type="date" from="2026-01-01" order="sequential" days="sun,wed" format="YYYY-MM-DD"/>',
+      '<gen type="date" from="2026-01-01" order="sequential" weekdays="sun,wed" format="YYYY-MM-DD"/>',
     );
     expect(rows(doc, ENGINES[0]![1])).toEqual(['2026-01-04', '2026-01-07', '2026-01-11']);
   });
@@ -224,7 +224,7 @@ describe('an open axis, a multiplied step, and a weekday filter', () => {
   it('combines the two: every 12 hours, working days only', () => {
     const doc = config(
       4,
-      '<gen type="date" from="2026-01-02T00:00:00" order="sequential" step="12 hour" days="mon-fri" format="YYYY-MM-DD HH:mm"/>',
+      '<gen type="date" from="2026-01-02T00:00:00" order="sequential" step="12h" weekdays="mon..fri" format="YYYY-MM-DD HH:mm"/>',
     );
     // Friday 2 Jan gives 00:00 and 12:00; the weekend is skipped; Monday 5 Jan
     // resumes. A step alone could not say this.
@@ -256,22 +256,126 @@ describe('what the validator says about the open forms', () => {
 
   it('refuses a weekday it does not know', () => {
     expect(
-      codesOf('<gen type="date" from="2026-01-01" order="sequential" days="mon-frr"/>'),
+      codesOf('<gen type="date" from="2026-01-01" order="sequential" weekdays="mon..frr"/>'),
     ).toContain('TDC249');
   });
 
-  it('refuses days= with a step that already fixes the weekday', () => {
+  it('refuses weekdays= with a step that already fixes the weekday', () => {
     // A week/month/year step lands on the same weekday every time, so the filter
     // would match always or never — and the user would get a full column or an
     // empty one with nothing said.
     expect(
-      codesOf('<gen type="date" from="2026-01-01" order="sequential" step="week" days="mon"/>'),
+      codesOf('<gen type="date" from="2026-01-01" order="sequential" step="1w" weekdays="mon"/>'),
     ).toContain('TDC250');
   });
 
-  it('refuses days= without order="sequential" — nothing walks the axis', () => {
-    expect(codesOf('<gen type="date" range="2026-01-01..2026-12-31" days="mon-fri"/>')).toContain(
-      'TDC248',
-    );
+  it('refuses weekdays= without order="sequential" — nothing walks the axis', () => {
+    expect(
+      codesOf('<gen type="date" range="2026-01-01..2026-12-31" weekdays="mon..fri"/>'),
+    ).toContain('TDC248');
+  });
+});
+
+/**
+ * The notation, after the first one was rejected for looking foreign to its own
+ * language.
+ *
+ * Two faults were named, and both were real. `days="mon-fri"` used a hyphen where
+ * every other range in TDC uses `..` — `length="6..9"`, `range="0..100"`. And
+ * `step="15 minute"` was prose inside an attribute, a shape that appears nowhere
+ * else here. The third fault was the one that mattered: with `step="day"` sitting
+ * beside `days="mon-fri"`, the two attributes were near-homographs for entirely
+ * different operations, and nobody could tell them apart.
+ *
+ * So: `..` for the span, `15m` for the step, and the filter renamed to
+ * `weekdays=` so it cannot be read as a count of days.
+ */
+describe('the step notation', () => {
+  const walk = (n: number, gen: string): string[] =>
+    rows(config(n, `<gen type="date" from="2026-01-01T00:00:00" order="sequential" ${gen}/>`), {
+      now: NOW,
+      mode: 'memory',
+    });
+
+  it('adds up within the fixed units', () => {
+    expect(walk(3, 'step="1h30m" format="YYYY-MM-DD HH:mm"')).toEqual([
+      '2026-01-01 00:00',
+      '2026-01-01 01:30',
+      '2026-01-01 03:00',
+    ]);
+  });
+
+  it('reads `m` as MINUTE, the way every notation like this does', () => {
+    expect(walk(2, 'step="3m" format="YYYY-MM-DD HH:mm"')).toEqual([
+      '2026-01-01 00:00',
+      '2026-01-01 00:03',
+    ]);
+  });
+
+  it('reads `mo` as month, and adds up within the calendar units', () => {
+    expect(walk(3, 'step="1y6mo" format="YYYY-MM-DD"')).toEqual([
+      '2026-01-01',
+      '2027-07-01',
+      '2029-01-01',
+    ]);
+  });
+
+  it('still reads a bare number as days', () => {
+    expect(walk(3, 'step="2" format="YYYY-MM-DD"')).toEqual([
+      '2026-01-01',
+      '2026-01-03',
+      '2026-01-05',
+    ]);
+  });
+});
+
+describe('what the validator says about a step', () => {
+  const codesOf = (gen: string): string[] => {
+    const parsed = parse(config(3, gen));
+    expect(parsed.diagnostics).toEqual([]);
+    return validate(parsed.tree).diagnostics.map((d) => d.code);
+  };
+  const hintOf = (gen: string): string => {
+    const found = validate(parse(config(3, gen)).tree).diagnostics.find((d) => d.code === 'TDC247');
+    return `${found?.message ?? ''} :: ${found?.hint ?? ''}`;
+  };
+  const walked = (step: string): string =>
+    `<gen type="date" from="2026-01-01" order="sequential" step="${step}"/>`;
+
+  it('refuses a calendar unit mixed with a fixed one', () => {
+    // "One month and fifteen days" is 43, 44, 45 or 46 days depending on which
+    // is applied first. A config whose meaning turns on an invisible ordering is
+    // worse than one that will not parse.
+    expect(codesOf(walked('1mo15d'))).toContain('TDC247');
+  });
+
+  it('says WHY a mixed step is refused, rather than calling it a typo', () => {
+    expect(hintOf(walked('1mo15d'))).toContain('mixes a calendar unit with a fixed one');
+    expect(hintOf(walked('1mo15d'))).toContain('45d, or 1mo');
+  });
+
+  it('refuses a repeated unit rather than summing it', () => {
+    // `1h30m1h` is a typo every time. Adding the two hours together would hide it.
+    expect(codesOf(walked('1h30m1h'))).toContain('TDC247');
+  });
+
+  it('refuses the old spelled-out form, so there is one notation and not two', () => {
+    expect(codesOf(walked('15 minute'))).toContain('TDC247');
+    expect(codesOf(walked('month'))).toContain('TDC247');
+  });
+
+  it('shows the notation in the hint, since the value alone does not teach it', () => {
+    expect(hintOf(walked('fortnight'))).toContain('15m, 1h30m, 2d, 3mo, 1y');
+  });
+
+  it('catches a weekday-fixing step by its LENGTH, not by its spelling', () => {
+    // `14d` fixes the weekday exactly as `2w` does. The old test looked at the
+    // unit name and would have let this one through.
+    expect(
+      codesOf('<gen type="date" from="2026-01-01" order="sequential" step="14d" weekdays="mon"/>'),
+    ).toContain('TDC250');
+    expect(
+      codesOf('<gen type="date" from="2026-01-01" order="sequential" step="3d" weekdays="mon"/>'),
+    ).not.toContain('TDC250');
   });
 });

@@ -9,7 +9,8 @@ import {
   parseDateRangeValue,
   parseDateTimeStrict,
   parseLegacyDateRange,
-  STEP_UNITS,
+  STEP_SYNTAX,
+  WEEKDAY_NAMES,
   validateDateFormat,
 } from '../date/index.js';
 import {
@@ -25,7 +26,7 @@ import type {
   SelfClosingElementContext,
 } from '../generated/TDCParser.js';
 import { parsePrecision } from '../generators/date.js';
-import { parseStep, parseWeekdays } from '../date/index.js';
+import { fixesWeekday, parseStep, parseWeekdays } from '../date/index.js';
 import { extractAttrs } from '../processor/walk.js';
 
 export function checkGenDate(
@@ -36,7 +37,7 @@ export function checkGenDate(
   const attrMap = extractAttrs(attrs);
   checkDateCommonAttrs(attrs, diagnostics);
   checkDateStep(attrs, attrMap, diagnostics);
-  checkDateDays(attrs, attrMap, diagnostics);
+  checkDateWeekdays(attrs, attrMap, diagnostics);
 
   const value = attrMap['value']?.trim();
   const fromAttr = findAttr(attrs, 'from');
@@ -245,13 +246,22 @@ function checkDateStep(
   if (!stepAttr) return;
   const raw = (attrMap['step'] ?? '').trim();
 
-  if (parseStep(raw) === undefined) {
+  const parsed = parseStep(raw);
+  if (!parsed.ok) {
+    // The two failures read differently because they ARE different: one is a
+    // spelling nobody meant, the other a step whose meaning would depend on
+    // which half was applied first.
+    const mixed = parsed.reason === 'mixed';
     diagnostics.push({
       severity: 'error',
       source: 'validator',
       ...attrValueRange(stepAttr),
-      message: `unknown step "${raw}"`,
-      hint: `Supported: ${STEP_UNITS.join(', ')}.`,
+      message: mixed
+        ? `step="${raw}" mixes a calendar unit with a fixed one`
+        : `step="${raw}" is not a step this engine can walk`,
+      hint: mixed
+        ? 'A month is 28 to 31 days, so "one month and fifteen days" depends on which is applied first. Write one or the other: 45d, or 1mo.'
+        : `Write ${STEP_SYNTAX}. A bare number means days, so step="2" is every other day.`,
       code: 'TDC247',
     });
     return;
@@ -270,29 +280,29 @@ function checkDateStep(
 }
 
 /**
- * `days="mon-fri"` — which weekdays a walked axis keeps.
+ * `weekdays="mon..fri"` — which weekdays a walked axis keeps.
  *
  * A FILTER, not a step: the spacing stops being even, since Friday to Monday is
  * a three-day jump. That is why it is a separate attribute — one word for both
  * operations would stop them being combinable, and "every 15 minutes, but only
  * on working days" is exactly what gets asked for.
  */
-function checkDateDays(
+function checkDateWeekdays(
   attrs: readonly AttrContext[],
   attrMap: Readonly<Record<string, string>>,
   diagnostics: Diagnostic[],
 ): void {
-  const daysAttr = findAttr(attrs, 'days');
+  const daysAttr = findAttr(attrs, 'weekdays');
   if (!daysAttr) return;
-  const raw = (attrMap['days'] ?? '').trim();
+  const raw = (attrMap['weekdays'] ?? '').trim();
 
   if (parseWeekdays(raw) === undefined) {
     diagnostics.push({
       severity: 'error',
       source: 'validator',
       ...attrValueRange(daysAttr),
-      message: `unknown weekday in days="${raw}"`,
-      hint: 'Names are mon, tue, wed, thu, fri, sat, sun — a span like "mon-fri" or a list like "sun,wed".',
+      message: `unknown weekday in weekdays="${raw}"`,
+      hint: `Names are ${WEEKDAY_NAMES.join(', ')} — a span like "mon..fri" or a list like "sun,wed".`,
       code: 'TDC249',
     });
     return;
@@ -303,24 +313,26 @@ function checkDateDays(
       severity: 'error',
       source: 'validator',
       ...attrValueRange(daysAttr),
-      message: `days="${raw}" has no order="sequential" on the same <gen> — nothing walks the range`,
-      hint: 'Add order="sequential" to walk the range and keep only these days, or remove days= and let the dates be drawn at random.',
+      message: `weekdays="${raw}" has no order="sequential" on the same <gen> — nothing walks the range`,
+      hint: 'Add order="sequential" to walk the range and keep only these days, or remove weekdays= and let the dates be drawn at random.',
       code: 'TDC248',
     });
     return;
   }
 
-  const unit = parseStep(attrMap['step'])?.unit;
-  if (unit === 'week' || unit === 'month' || unit === 'year') {
-    // Every step of a week or more lands on the same weekday, so the filter would
-    // match every row or none of them — a full column or an empty one, with
-    // nothing said either way.
+  const step = parseStep(attrMap['step']);
+  if (step.ok && fixesWeekday(step.step)) {
+    // A calendar step, or any whole number of weeks, lands on the same weekday
+    // every time — so the filter would match every row or none of them, giving a
+    // full column or an empty one with nothing said either way. Measured on the
+    // STEP rather than on its spelling, so `14d` is caught as surely as `2w`.
+    const written = (attrMap['step'] ?? '').trim();
     diagnostics.push({
       severity: 'error',
       source: 'validator',
       ...attrValueRange(daysAttr),
-      message: `days="${raw}" cannot narrow a step="${unit}" — that step already fixes the weekday`,
-      hint: 'A step of a week or more lands on the same weekday every time, so this would match every row or none. Use a step of a day or less, or drop days=.',
+      message: `weekdays="${raw}" cannot narrow step="${written}" — that step already fixes the weekday`,
+      hint: 'A whole number of weeks, or any calendar step, lands on the same weekday every time, so this would match every row or none. Use a step that is not a multiple of a week, or drop weekdays=.',
       code: 'TDC250',
     });
   }

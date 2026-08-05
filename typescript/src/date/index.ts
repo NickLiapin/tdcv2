@@ -1,14 +1,16 @@
 export { DateRuntimeError, type DatePrecision, type PlainDateTime } from './types.js';
 export {
-  STEP_UNITS,
+  DEFAULT_STEP,
+  STEP_SYNTAX,
+  WEEKDAY_NAMES,
   addStep,
-  addSteps,
+  fixesWeekday,
   parseStep,
   parseWeekdays,
   stepsBetween,
   weekdayOf,
+  type StepResult,
   type StepSpec,
-  type StepUnit,
 } from './calendar.js';
 export {
   MS_PER_DAY,

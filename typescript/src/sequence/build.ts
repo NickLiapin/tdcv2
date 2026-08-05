@@ -28,7 +28,7 @@ import { expandPercentMask } from '../distribution/percent-mask.js';
 import { resolveExistingDataSourcePath, type DataSourceOptions } from '../data-source/index.js';
 import { advancedRegexGenerator } from '../generators/advanced-regex.js';
 import { decrementGenerator, incrementGenerator } from '../generators/counter.js';
-import { dateAxis, dateGenerator, parseStepUnit } from '../generators/date.js';
+import { dateAxis, dateGenerator } from '../generators/date.js';
 import { loadCsvColumnFile, loadListFile } from '../generators/file.js';
 import { formatSample, parseDistribution, sampleDistribution } from '../generators/distribution.js';
 
@@ -1047,8 +1047,7 @@ function buildGenValuesRaw(
   // The same rule over a date range: row i → the i-th step from the start. The
   // axis is arithmetic, not a list, so a long range costs nothing to walk.
   if (gen.type === 'date' && gen.attrs['order'] === 'sequential') {
-    const unit = parseStepUnit(gen.attrs['step']) ?? 'day';
-    const axis = dateAxis(gen.attrs, locale, now, unit);
+    const axis = dateAxis(gen.attrs, locale, now);
     const cycle = gen.attrs['cycle'] !== 'false';
     // An OPEN axis has no size and never wraps: row i is simply the i-th step.
     return Array.from({ length: count }, (_, i) =>

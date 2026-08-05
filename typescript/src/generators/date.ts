@@ -20,6 +20,7 @@ import {
   toEpochDay,
   toEpochMillis,
   addStep,
+  DEFAULT_STEP,
   parseStep,
   parseWeekdays,
   stepsBetween,
@@ -28,7 +29,6 @@ import {
   type ParsedDateRange,
   type PlainDateTime,
   type StepSpec,
-  type StepUnit,
 } from '../date/index.js';
 import type { AttrMap } from '../processor/attrs.js';
 
@@ -39,10 +39,10 @@ export interface DateGenAttrs {
   readonly from?: string | undefined;
   readonly to?: string | undefined;
   readonly range?: string | undefined;
-  /** How far each row advances on a walked axis: `2`, `15 minute`, `month`. */
+  /** How far each row advances on a walked axis: `2`, `15m`, `1h30m`, `3mo`. */
   readonly step?: string | undefined;
-  /** Which weekdays a walked axis keeps: `mon-fri`, `sun,wed`. */
-  readonly days?: string | undefined;
+  /** Which weekdays a walked axis keeps: `mon..fri`, `sun,wed`. */
+  readonly weekdays?: string | undefined;
   readonly format?: string | undefined;
   readonly local?: string | undefined;
   readonly oldest?: string | number | undefined;
@@ -74,11 +74,6 @@ export function dateGenerator(attrs: DateGenAttrs, locale: string, now: number):
     }
     return out;
   };
-}
-
-/** The `step=` unit a walked date range advances by, or undefined if unknown. */
-export function parseStepUnit(raw: string | undefined): StepUnit | undefined {
-  return parseStep(raw)?.unit;
 }
 
 /** True when a range was written with only its START — an axis with no end. */
@@ -116,10 +111,10 @@ export function dateAxis(
   attrs: DateGenAttrs,
   locale: string,
   now: number,
-  unit: StepUnit,
 ): { size: number | undefined; at: (k: number) => string } {
-  const step: StepSpec = parseStep(attrs.step) ?? { count: 1, unit };
-  const keep = parseWeekdays(attrs.days);
+  const parsed = parseStep(attrs.step);
+  const step: StepSpec = parsed.ok ? parsed.step : DEFAULT_STEP;
+  const keep = parseWeekdays(attrs.weekdays);
   const plan = buildDatePlan(attrs, locale, now);
   const render = (value: PlainDateTime): string => formatDateTime(value, plan.format, plan.locale);
 
@@ -130,17 +125,13 @@ export function dateAxis(
   }
   const start = plan.start;
 
-  // `days=` keeps only some of the candidates, so the k-th KEPT one is wanted
+  // `weekdays=` keeps only some of the candidates, so the k-th KEPT one is wanted
   // rather than the k-th candidate. Which candidates match repeats on a cycle —
   // one week's worth of steps — so the offsets are found once and then indexed,
   // instead of scanning from the beginning for every row.
   const filtered = keep
     ? (() => {
-        const stepMs =
-          step.unit === 'month' || step.unit === 'year'
-            ? 0
-            : toEpochMillis(addStep(start, step, 1)) - toEpochMillis(start);
-        const perCycle = stepMs > 0 ? MS_PER_WEEK / gcd(stepMs, MS_PER_WEEK) : 7;
+        const perCycle = step.ms > 0 ? MS_PER_WEEK / gcd(step.ms, MS_PER_WEEK) : 7;
         const offsets: number[] = [];
         for (let i = 0; i < perCycle; i++) {
           if (keep.has(weekdayOf(addStep(start, step, i)))) offsets.push(i);
@@ -162,7 +153,7 @@ export function dateAxis(
 
   const end = plan.end;
   if (!end) return { size: undefined, at: (k) => render(candidateAt(k)) };
-  const candidates = Math.ceil(stepsBetween(start, end, step.unit) / step.count);
+  const candidates = stepsBetween(start, end, step);
   const size = filtered
     ? Math.max(
         1,
