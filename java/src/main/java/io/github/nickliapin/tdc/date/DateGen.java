@@ -33,6 +33,11 @@ public final class DateGen {
       PlainDateTime fixed,
       PlainDateTime start,
       PlainDateTime end,
+      /**
+       * True when the range was written with only its START. {@code end} is then a copy of {@code
+       * start} and means nothing; {@link #dateAxis} reads this and never wraps.
+       */
+      boolean openEnd,
       Precision precision,
       String format,
       String locale) {}
@@ -121,6 +126,7 @@ public final class DateGen {
           Calendar.fromEpochMillis(nowMillis).startOfDay(),
           null,
           null,
+          false,
           precision(attrs.get("precision"), Precision.DAY),
           format,
           loc);
@@ -130,6 +136,7 @@ public final class DateGen {
           Calendar.fromEpochMillis(nowMillis),
           null,
           null,
+          false,
           precision(attrs.get("precision"), Precision.MILLISECOND),
           format,
           loc);
@@ -154,7 +161,23 @@ public final class DateGen {
     String from = attrs.get("from");
     String to = attrs.get("to");
     if (from != null || to != null) {
-      if (from == null || to == null) {
+      // `from=` alone is an OPEN axis — legal when the range is WALKED, and the plan carries only
+      // a start. `dateAxis` reads `openEnd` and never wraps; a DRAWN date with one end is still
+      // refused, by TDC150.
+      if (to == null) {
+        DateParse.Parsed start = DateParse.dateTime(from);
+        return new Plan(
+            null,
+            start.value(),
+            start.value(),
+            true,
+            precision(
+                attrs.get("precision"),
+                start.hasTime() ? Precision.MILLISECOND : Precision.DAY),
+            format,
+            loc);
+      }
+      if (from == null) {
         throw new IllegalArgumentException(
             "date generator: \"from\" and \"to\" must be provided together");
       }
@@ -176,6 +199,7 @@ public final class DateGen {
           parsed.value(),
           null,
           null,
+          false,
           precision(attrs.get("precision"), parsed.hasTime() ? Precision.MILLISECOND : Precision.DAY),
           format,
           loc);
@@ -226,7 +250,120 @@ public final class DateGen {
     Precision defaultPrecision =
         fallback != null ? fallback : hasTime ? Precision.MILLISECOND : Precision.DAY;
     return new Plan(
-        null, start, end, precision(attrs.get("precision"), defaultPrecision), format, locale);
+        null, start, end, false, precision(attrs.get("precision"), defaultPrecision), format,
+        locale);
+  }
+
+  /**
+   * A date range as a walkable axis: how many steps it holds, and what the k-th is.
+   *
+   * <p>{@code size} is {@code null} for an OPEN axis — {@code from=} with no end. Requiring an end
+   * meant working out what date the millionth day falls on in order to write it down, when the end
+   * is simply {@code start + count × step}. Such an axis never wraps, because there is nothing to
+   * wrap at.
+   *
+   * <p>The range is never expanded into a list. A century stepped by the second is three billion
+   * values and the streaming engine promises bounded memory whatever the config says — so each
+   * date is {@code start + k × step}, measured from the START rather than accumulated, which is
+   * what keeps a clamped February from dragging every later month back with it.
+   */
+  public static final class Axis {
+    private final Long size;
+    private final PlainDateTime start;
+    private final DateStep.Spec step;
+    private final List<Long> offsets;
+    private final long perCycle;
+    private final String format;
+    private final String locale;
+
+    private Axis(
+        Long size,
+        PlainDateTime start,
+        DateStep.Spec step,
+        List<Long> offsets,
+        long perCycle,
+        String format,
+        String locale) {
+      this.size = size;
+      this.start = start;
+      this.step = step;
+      this.offsets = offsets;
+      this.perCycle = perCycle;
+      this.format = format;
+      this.locale = locale;
+    }
+
+    /** How many positions the axis holds, or {@code null} when it is open. */
+    public Long size() {
+      return size;
+    }
+
+    /** The k-th value of the axis, rendered. */
+    public String at(long k) {
+      PlainDateTime candidate;
+      if (offsets.isEmpty()) {
+        candidate = DateStep.addStep(start, step, k);
+      } else {
+        long n = offsets.size();
+        long cycles = Math.floorDiv(k, n);
+        long within = offsets.get((int) Math.floorMod(k, n));
+        candidate = DateStep.addStep(start, step, cycles * perCycle + within);
+      }
+      return DateFormatter.format(candidate, format, locale);
+    }
+  }
+
+  private static final long MS_PER_WEEK = 7 * Calendar.MS_PER_DAY;
+
+  private static long gcd(long a, long b) {
+    return b == 0 ? a : gcd(b, a % b);
+  }
+
+  /** Build the walkable axis an {@code order="sequential"} date reads. */
+  public static Axis dateAxis(Map<String, String> attrs, String locale, long nowMillis) {
+    DateStep.Result parsed = DateStep.parseStep(attrs.get("step"));
+    DateStep.Spec step = parsed.ok() ? parsed.step() : DateStep.DEFAULT_STEP;
+    boolean[] keep = DateStep.parseWeekdays(attrs.get("weekdays"));
+    Plan plan = plan(attrs, locale, nowMillis);
+
+    if (plan.start() == null) {
+      PlainDateTime fixed = plan.fixed();
+      if (fixed == null) {
+        throw new IllegalArgumentException("date generator: invalid generation plan");
+      }
+      return new Axis(
+          1L, fixed, DateStep.DEFAULT_STEP, List.of(), 1, plan.format(), plan.locale());
+    }
+
+    // `weekdays=` keeps only some of the candidates, so the k-th KEPT one is wanted rather than
+    // the k-th candidate. Which candidates match repeats on a cycle — one week's worth of steps —
+    // so the offsets are found once and then indexed, instead of scanning from the beginning for
+    // every row.
+    List<Long> offsets = List.of();
+    long perCycle = 1;
+    if (keep != null) {
+      perCycle = step.ms() > 0 ? MS_PER_WEEK / gcd(step.ms(), MS_PER_WEEK) : 7;
+      offsets = DateStep.keptOffsets(plan.start(), step, keep, perCycle);
+    }
+
+    Long size = null;
+    if (!plan.openEnd()) {
+      long candidates = DateStep.stepsBetween(plan.start(), plan.end(), step);
+      if (offsets.isEmpty()) {
+        size = candidates;
+      } else {
+        long whole = candidates / perCycle * offsets.size();
+        long tail = candidates % perCycle;
+        long partial = 0;
+        for (long offset : offsets) {
+          if (offset < tail) {
+            partial++;
+          }
+        }
+        size = Math.max(1, whole + partial);
+      }
+    }
+    return new Axis(size, plan.start(), step, offsets, perCycle, plan.format(), plan.locale());
   }
 
   private static PlainDateTime pick(Plan plan, Prng.Sfc32 prng) {

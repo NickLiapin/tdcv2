@@ -1,5 +1,6 @@
 package io.github.nickliapin.tdc.engine;
 
+import io.github.nickliapin.tdc.date.DateGen;
 import io.github.nickliapin.tdc.distribution.Hamilton;
 import io.github.nickliapin.tdc.distribution.PercentMask;
 import io.github.nickliapin.tdc.expr.Evaluate;
@@ -752,6 +753,27 @@ public final class StreamEngine {
               row -> {
                 Integer r = domain.popIndexAt().apply(row);
                 return r == null ? null : pickSequential(list, r, cycle);
+              }));
+    }
+
+    // The same rule over a date range. The axis is arithmetic rather than a list, which is what
+    // lets this stay seekable and bounded however long the range is.
+    if ("date".equals(type) && "sequential".equals(attrs.get("order"))) {
+      DateGen.Axis axis =
+          DateGen.dateAxis(attrs, localeOf(attrs), nowMillis);
+      boolean cycle = !"false".equals(attrs.get("cycle"));
+      return new Built(
+          wrap(
+              mod,
+              row -> {
+                Integer r = domain.popIndexAt().apply(row);
+                if (r == null) {
+                  return null;
+                }
+                // An OPEN axis has no size and never wraps: row r is simply the r-th step.
+                return axis.size() == null
+                    ? axis.at(r)
+                    : axis.at(MemoryEngine.sequentialIndex(axis.size(), r, cycle));
               }));
     }
 

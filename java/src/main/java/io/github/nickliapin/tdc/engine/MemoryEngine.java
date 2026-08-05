@@ -2279,19 +2279,33 @@ public final class MemoryEngine {
    * twelve months across a year of daily records. {@code cycle="false"} is for when running out
    * is a mistake worth hearing about rather than something to paper over by starting again.
    */
-  private static String pickSequential(List<String> list, int index, boolean cycle) {
-    if (list.isEmpty()) {
-      return "";
+  /**
+   * Which of {@code size} positions row {@code index} reads, wrapping unless {@code
+   * cycle="false"}.
+   *
+   * <p>Split out of {@link #pickSequential} because a walked date range has positions without
+   * having a list: its values are computed from an index, and only this part applies.
+   */
+  static long sequentialIndex(long size, long index, boolean cycle) {
+    if (size <= 0) {
+      return 0;
     }
-    if (!cycle && index >= list.size()) {
+    if (!cycle && index >= size) {
       throw new IllegalStateException(
           "order=\"sequential\" cycle=\"false\": the source has only "
-              + list.size()
+              + size
               + " values, so row "
               + (index + 1)
               + " has none — shorten count= or lengthen the source");
     }
-    return list.get(index % list.size());
+    return index % size;
+  }
+
+  private static String pickSequential(List<String> list, int index, boolean cycle) {
+    if (list.isEmpty()) {
+      return "";
+    }
+    return list.get((int) sequentialIndex(list.size(), index, cycle));
   }
 
   /** Pack bodies parse once per address and are then reused; a pack does not change mid-run. */
@@ -2689,6 +2703,19 @@ public final class MemoryEngine {
       List<String> out = new ArrayList<>(count);
       for (int i = 0; i < count; i++) {
         out.add(pickSequential(list, i, cycle));
+      }
+      return out;
+    }
+
+    // The same rule over a date range: row i is the i-th step from the start. The axis is
+    // arithmetic rather than a list, so a long range costs nothing to walk.
+    if ("date".equals(gen.type()) && "sequential".equals(gen.attrs().get("order"))) {
+      DateGen.Axis axis = DateGen.dateAxis(gen.attrs(), locale, nowMillis);
+      boolean cycle = !"false".equals(gen.attrs().get("cycle"));
+      List<String> out = new ArrayList<>(count);
+      for (int i = 0; i < count; i++) {
+        // An OPEN axis has no size and never wraps: row i is simply the i-th step.
+        out.add(axis.size() == null ? axis.at(i) : axis.at(sequentialIndex(axis.size(), i, cycle)));
       }
       return out;
     }

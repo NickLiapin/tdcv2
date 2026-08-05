@@ -1,6 +1,7 @@
 package io.github.nickliapin.tdc.validator;
 
 import io.github.nickliapin.tdc.date.DateParse;
+import io.github.nickliapin.tdc.date.DateStep;
 import io.github.nickliapin.tdc.errors.Diagnostic;
 import io.github.nickliapin.tdc.distribution.PercentMask;
 import io.github.nickliapin.tdc.generators.Accumulate;
@@ -81,9 +82,13 @@ public final class Validator {
    */
   private static final Map<String, java.util.Set<String>> ATTRIBUTE_OWNERS =
       Map.ofEntries(
-          // A list to walk. A range-based generator draws instead of stepping.
-          Map.entry("order", java.util.Set.of("text", "file")),
-          Map.entry("cycle", java.util.Set.of("text", "file")),
+          // A list to walk — or, on a date, a range walked instead of drawn.
+          Map.entry("order", java.util.Set.of("text", "file", "date")),
+          Map.entry("cycle", java.util.Set.of("text", "file", "date")),
+          // How far each row moves. A counter's stride and a walked date range mean the same
+          // thing in their own units, which is why they borrow one word.
+          Map.entry("step", java.util.Set.of("date", "increment", "decrement")),
+          Map.entry("weekdays", java.util.Set.of("date")),
           // Where the characters come from.
           Map.entry("alphabet", java.util.Set.of("symbol")),
           // Only `pool` takes a filter: everywhere else there are no candidates to narrow, and
@@ -198,7 +203,8 @@ public final class Validator {
           "flag", "local", "count", "weight", "percent", "first_zero", "include", "exclude",
           "accumulate", "of", "reset", "length", "decimals", "distribution", "regex_max_length", "alphabet",
           "format", "from",
-          "to", "oldest", "youngest", "precision", "range", "step", "src", "column", "header",
+          "to", "oldest", "youngest", "precision", "range", "step", "weekdays", "src", "column",
+          "header",
           "delimiter", "row", "base", "trend", "period", "amplitude", "noise", "points", "upper",
           "lower", "y_range", "interp", "spread", "ink_threshold", "mode", "in", "on_error",
           "timeout", "mean", "sd", "meanlog", "sdlog", "rate", "alpha", "xmin", "shape", "scale",
@@ -2399,6 +2405,103 @@ public final class Validator {
     }
   }
 
+  private static String trimmed(String value) {
+    return value == null ? "" : value.trim();
+  }
+
+  /** {@code step=} on a walked date axis: what it may say, and that anything reads it. */
+  private void checkDateStep(
+      TDCParser.SelfClosingElementContext gen, Map<String, String> attrs) {
+    if (attrs.get("step") == null) {
+      return;
+    }
+    String raw = trimmed(attrs.get("step"));
+    int[] where = at(gen, "step");
+    DateStep.Result parsed = DateStep.parseStep(raw);
+
+    if (!parsed.ok()) {
+      // The two failures read differently because they ARE different: one is a spelling nobody
+      // meant, the other a step whose meaning would depend on which half was applied first.
+      boolean mixed = parsed.reason() == DateStep.Reason.MIXED;
+      error(
+          "TDC247",
+          mixed
+              ? "step=\"" + raw + "\" mixes a calendar unit with a fixed one"
+              : "step=\"" + raw + "\" is not a step this engine can walk",
+          mixed
+              ? "A month is 28 to 31 days, so \"one month and fifteen days\" depends on which is "
+                  + "applied first. Write one or the other: 45d, or 1mo."
+              : "Write " + DateStep.STEP_SYNTAX
+                  + ". A bare number means days, so step=\"2\" is every other day.",
+          where[0], where[1]);
+      return;
+    }
+
+    if (!"sequential".equals(trimmed(attrs.get("order")))) {
+      error(
+          "TDC248",
+          "step=\"" + raw + "\" has no order=\"sequential\" on the same <gen> — nothing walks "
+              + "the range",
+          "Add order=\"sequential\" to walk the range one step at a time, or remove step= and let "
+              + "the dates be drawn at random.",
+          where[0], where[1]);
+    }
+  }
+
+  /**
+   * {@code weekdays="mon..fri"} — which weekdays a walked axis keeps.
+   *
+   * <p>A FILTER, not a step: the spacing stops being even, since Friday to Monday is a three-day
+   * jump. That is why it is a separate attribute — one word for both operations would stop them
+   * being combinable, and "every 15 minutes, but only on working days" is exactly what gets asked
+   * for.
+   */
+  private void checkDateWeekdays(
+      TDCParser.SelfClosingElementContext gen, Map<String, String> attrs) {
+    if (attrs.get("weekdays") == null) {
+      return;
+    }
+    String raw = trimmed(attrs.get("weekdays"));
+    int[] where = at(gen, "weekdays");
+
+    if (DateStep.parseWeekdays(raw) == null) {
+      error(
+          "TDC249",
+          "unknown weekday in weekdays=\"" + raw + "\"",
+          "Names are " + String.join(", ", DateStep.WEEKDAY_NAMES)
+              + " — a span like \"mon..fri\" or a list like \"sun,wed\".",
+          where[0], where[1]);
+      return;
+    }
+
+    if (!"sequential".equals(trimmed(attrs.get("order")))) {
+      error(
+          "TDC248",
+          "weekdays=\"" + raw + "\" has no order=\"sequential\" on the same <gen> — nothing "
+              + "walks the range",
+          "Add order=\"sequential\" to walk the range and keep only these days, or remove "
+              + "weekdays= and let the dates be drawn at random.",
+          where[0], where[1]);
+      return;
+    }
+
+    DateStep.Result step = DateStep.parseStep(attrs.get("step"));
+    if (step.ok() && DateStep.fixesWeekday(step.step())) {
+      // A calendar step, or any whole number of weeks, lands on the same weekday every time — so
+      // the filter would match every row or none of them, giving a full column or an empty one
+      // with nothing said either way. Measured on the STEP rather than on its spelling, so `14d`
+      // is caught as surely as `2w`.
+      error(
+          "TDC250",
+          "weekdays=\"" + raw + "\" cannot narrow step=\"" + trimmed(attrs.get("step"))
+              + "\" — that step already fixes the weekday",
+          "A whole number of weeks, or any calendar step, lands on the same weekday every time, "
+              + "so this would match every row or none. Use a step that is not a multiple of a "
+              + "week, or drop weekdays=.",
+          where[0], where[1]);
+    }
+  }
+
   private void checkDate(
       TDCParser.SelfClosingElementContext gen, Map<String, String> attrs, String type) {
     if (!"date".equals(type)) {
@@ -2406,11 +2509,18 @@ public final class Validator {
     }
     boolean from = attrs.get("from") != null;
     boolean to = attrs.get("to") != null;
-    if (from != to) {
+    // `from=` alone is an OPEN axis when the range is WALKED: the end of such an axis is
+    // start + count × step, a consequence rather than an input. On a DRAWN date one end genuinely
+    // means nothing, and that is what this refuses.
+    boolean walked = "sequential".equals(trimmed(attrs.get("order")));
+    boolean openAxis = walked && from && !to;
+    if (!openAxis && from != to) {
       error("TDC150", "<gen type=\"date\"> requires both \"from\" and \"to\" when either is used",
           "Use from=\"2020-01-01\" to=\"2025-12-31\", or value=\"2020-01-01..2025-12-31\".",
           line(gen), column(gen));
     }
+    checkDateStep(gen, attrs);
+    checkDateWeekdays(gen, attrs);
     String local = attrs.get("local");
     if (local != null && !local.isBlank() && !Checks.isKnownDateLocale(local)) {
       error("TDC153", "unknown date locale \"" + local + "\"",
