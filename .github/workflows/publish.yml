@@ -206,10 +206,15 @@ jobs:
           # `{"error":{"message":"Invalid token"}}` the script put that JSON in the status URL
           # and polled it twenty times, so the log said "Invalid token" in a place that looked
           # like a deployment id and the real problem — the credentials — was never named.
+          # `name=` is what the Portal shows in its deployment list. Without it every entry is
+          # called "bundle.zip", which is the filename, and telling one release from another
+          # means opening each in turn. No publishingType: the default publishes on its own,
+          # where USER_MANAGED would leave a validated bundle waiting for a click nobody is
+          # watching for.
           code=$(curl -sS -o /tmp/upload.out -w '%{http_code}' -X POST \
             -H "Authorization: Bearer $token" \
             -F bundle=@java/build/bundle.zip \
-            "https://central.sonatype.com/api/v1/publisher/upload")
+            "https://central.sonatype.com/api/v1/publisher/upload?name=tdcv2-${GITHUB_REF_NAME#v}")
           id=$(cat /tmp/upload.out)
           if [ "$code" != "201" ] && [ "$code" != "200" ]; then
             echo "the Portal refused the upload (HTTP $code): $id" >&2
