@@ -270,6 +270,22 @@
         "lines": ["6,10,16|same"]
       }
     },
+    "containers/a-tag-inside-data-is-text-not-a-mistake": {
+      "engine2": {
+        "lines": ["x<bogus_tag/>y", "x<bogus_tag/>y"]
+      },
+      "engine3": {
+        "lines": ["x<bogus_tag/>y", "x<bogus_tag/>y"]
+      }
+    },
+    "containers/an-open-close-gen-is-the-same-generator": {
+      "engine2": {
+        "lines": ["a", "b"]
+      },
+      "engine3": {
+        "lines": ["a", "b"]
+      }
+    },
     "dates/date-range-day": {
       "engine2": {
         "lines": [

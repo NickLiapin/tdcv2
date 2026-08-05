@@ -102,6 +102,33 @@ ENV_CHILDREN = frozenset(
     }
 )  # fmt: skip
 
+# What may sit directly inside <sequence>: the generator(s), literal text between them, a
+# <distinct> wrapper grouping fields, or a <compute> that derives the value.
+SEQUENCE_CHILDREN = frozenset({"gen", "data", "distinct", "compute"})
+
+# <distinct>/<uniq> mean two different things by position, and so hold two different sets.
+# Inside a <sequence> they group the FIELDS of one record; at <env> level, whole COLUMNS.
+# One list for both refuses working configs.
+DISTINCT_CHILDREN = frozenset({"gen"})
+ENV_GROUP_CHILDREN = frozenset({"sequence", "mix", "switch", "member"})
+
+# Deliberately generous: too SHORT a list refuses configs that work, while too long a one
+# merely leaves a little of the old silence in place.
+POOL_CHILDREN = frozenset({"sequence", "mix", "switch", "uniq", "distinct", "member", "data"})
+
+# A fixture holds literal text and <line>s.
+FIXTURE_CHILDREN = frozenset({"data", "line"})
+
+# What may sit directly inside <switch>.
+SWITCH_CHILDREN = frozenset({"map", "case", "default"})
+
+FIXTURE_TAGS = frozenset(
+    {
+        "before", "after", "before_block", "after_block", "delimiter_block",
+        "before_line", "after_line", "delimiter_line",
+    }
+)  # fmt: skip
+
 # Tags refused inside <pool>, with the reason each one is refused.
 FORBIDDEN_IN_POOL = {
     "block": "a pool has no output of its own — it is a table other columns read",
@@ -541,6 +568,14 @@ class _Validator:
             )
 
         self._check_children(env.content(), "env", ENV_CHILDREN)
+        # A fixture holds text and <line>s. Anything else was ignored in silence unless
+        # it happened to be a generator inside a <line>.
+        for child in _elements(env):
+            inner = child.openCloseElement()
+            if inner is not None and inner.name.text in FIXTURE_TAGS:
+                self._check_children(
+                    inner.content(), inner.name.text, FIXTURE_CHILDREN, "TDC131"
+                )
         self._check_closed_tag_attrs("env", env.attr(), _line(env), _column(env))
 
         names: set[str] = set()
@@ -1035,6 +1070,15 @@ class _Validator:
                     column,
                 )
 
+        # Neither branch below said anything about a name it did not know, and the
+        # open/close-only test meant a self-closing invention was not even looked at.
+        # Tags with a reason of their own keep TDC230, which says far more.
+        self._check_children(
+            node.content(),
+            "pool",
+            POOL_CHILDREN | frozenset(FORBIDDEN_IN_POOL),
+            shown=POOL_CHILDREN,
+        )
         for child in _elements(node):
             inner = child.openCloseElement()
             if inner is None:
@@ -1263,6 +1307,10 @@ class _Validator:
         )
 
     def _check_sequence_body(self, open_el, name: str | None) -> None:
+        # An invented tag here used to pass in SILENCE: the config validated, exit 0,
+        # and the run went ahead as if the tag had done something. <env> has always
+        # answered this; <sequence> was the last container with no list of its own.
+        self._check_children(open_el.content(), "sequence", SEQUENCE_CHILDREN)
         """A sequence must actually produce something, and a compound must name its fields."""
         gens: list[dict[str, str]] = []
         gen_nodes = []
@@ -1284,6 +1332,9 @@ class _Validator:
                 has_compute = True
                 compute_el = inner
             elif inner.name.text == "distinct":
+                # The wrapper is allowed here, but its own body was never looked at:
+                # the gens inside were collected and everything else dropped.
+                self._check_children(inner.content(), "distinct", DISTINCT_CHILDREN)
                 for g in _elements(inner):
                     gen = _gen_element(g)
                     if gen is not None:
@@ -1594,6 +1645,10 @@ class _Validator:
                 line,
                 column,
             )
+        # The entries walk below only ever looked at open/close children, so an invented
+        # tag written self-closing passed while <bogus></bogus> was caught — the same
+        # invention accepted or refused depending on how it was punctuated.
+        self._check_children(open_el.content(), "switch", SWITCH_CHILDREN, "TDC124")
         on = attrs.get("on")
         if on is None or not on.strip():
             self._error(
@@ -3106,7 +3161,21 @@ class _Validator:
 
     # ── placement ───────────────────────────────────────────────────────────────────────────
 
-    def _check_children(self, content, parent: str, allowed: frozenset[str]) -> None:
+    def _check_children(
+        self,
+        content,
+        parent: str,
+        allowed: frozenset[str],
+        code: str = "TDC010",
+        shown: frozenset[str] | None = None,
+    ) -> None:
+        """``allowed`` is what passes; ``shown`` is what the note lists.
+
+        They differ for ``<pool>``, where several tags are refused by a diagnostic of
+        their own (TDC230) and so must not be reported here — but must not be offered
+        as allowed either.
+        """
+        listed = ", ".join(sorted(shown if shown is not None else allowed))
         if content is None:
             return
         for child in content.element() or []:
@@ -3134,15 +3203,18 @@ class _Validator:
                 self._error(
                     "TDC013",
                     f"<{name}> is not allowed directly inside <{parent}>",
-                    hint,
+                    f"{hint} Allowed inside <{parent}>: {listed}.",
                     line,
                     column,
                 )
             else:
                 self._error(
-                    "TDC010",
+                    code,
                     f'unknown child of <{parent}>: "<{name}>"',
-                    f"Allowed children: {', '.join(sorted(allowed))}.",
+                    # The note is what a reader acts on, so every container says it the
+                    # same way. Containers used to differ twice over: some stayed silent,
+                    # and the ones that spoke used three wordings for one mistake.
+                    f"Allowed inside <{parent}>: {listed}.",
                     line,
                     column,
                 )

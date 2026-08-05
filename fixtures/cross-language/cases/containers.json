@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "cases": [
+    {
+      "name": "a-tag-inside-data-is-text-not-a-mistake",
+      "description": "The deliberate exception. <data>x<b/>y</data> renders x<b/>y, which is how a config emits XML or HTML — so nothing is reported here, and that silence is the feature.",
+      "config": "<tdc><env count=\"2\" seed=\"p\" local=\"en\"><sequence name=\"A\"><gen type=\"number\" value=\"1..9\"/></sequence></env><block><line><data>x<bogus_tag/>y</data></line></block></tdc>",
+      "expected": ["x<bogus_tag/>y", "x<bogus_tag/>y"]
+    },
+    {
+      "name": "an-open-close-gen-is-the-same-generator",
+      "description": "<gen …></gen> is the ordinary alternative spelling of <gen …/>, and must be accepted. Four of the five refused it and blamed the sequence — \"has no <gen> child\" about a <gen> standing in plain sight — because their collectors only ever looked at the self-closing form.",
+      "config": "<tdc><env count=\"2\" seed=\"p\" local=\"en\"><sequence name=\"A\"><gen type=\"text\" value=\"a,b\"></gen></sequence></env><block><line><data>${{A}}</data></line></block></tdc>",
+      "expected": ["a", "b"]
+    }
+  ]
+}
