@@ -185,9 +185,13 @@ def _generate(options: Options) -> int:
 
 def _check(argv: list[str]) -> int:
     """``tdcv2 check <file>`` — the validator alone, for an editor or a pre-commit hook."""
+    # ``--brief`` prints one line per diagnostic and no source excerpt: an editor
+    # listing errors in a panel wants rows, not a picture of the file.
+    brief = "--brief" in argv
     files = [a for a in argv if not a.startswith("-")]
-    if len(argv) != len(files) or len(files) != 1:
-        _fail("usage: tdcv2 check <input.tdc>")
+    flags = [a for a in argv if a.startswith("-")]
+    if any(f != "--brief" for f in flags) or len(files) != 1:
+        _fail("usage: tdcv2 check [--brief] <input.tdc>")
         return 2
 
     from ..tdc import TDC
@@ -195,14 +199,14 @@ def _check(argv: list[str]) -> int:
     try:
         data = TDC(files[0])
     except TdcError as e:
-        _report(e.diagnostics, files[0], e.source)
+        _report(e.diagnostics, files[0], e.source, brief=brief)
         return 1
     except (OSError, ValueError) as e:
         _fail(str(e))
         return 1
 
     problems = data.diagnostics
-    _report(problems, files[0], data.source)
+    _report(problems, files[0], data.source, brief=brief)
     if not problems:
         sys.stderr.write(f"tdcv2: {files[0]} is valid\n")
     return 0
@@ -275,13 +279,34 @@ def _engine_for(mode: str | None) -> int | None:
     return 1 if mode == "memory" else None
 
 
-def _report(problems: list[Diagnostic], filename: str | None, source: str | None = None) -> None:
+def _report(
+    problems: list[Diagnostic],
+    filename: str | None,
+    source: str | None = None,
+    *,
+    brief: bool = False,
+) -> None:
     """Diagnostics to stderr, so they stay out of a piped or redirected run's data."""
     if not problems:
+        return
+    if brief:
+        sys.stderr.write("\n".join(_brief_line(d) for d in problems) + "\n")
         return
     sys.stderr.write(
         format_diagnostics(problems, source, filename or "<input>", sys.stderr.isatty()) + "\n"
     )
+
+
+def _brief_line(d: Diagnostic) -> str:
+    """One diagnostic on one line: code, position, message, hint after ``::``.
+
+    The hint is kept because it carries the list of what IS allowed, which is the
+    half a reader — or a model — acts on. No trailing count either, so a caller
+    parsing rows need not skip a sentence at the end.
+    """
+    code = d.code or ("WARN" if d.severity == "warning" else "ERROR")
+    hint = f" :: {d.hint}" if d.hint else ""
+    return f"{code} {d.line}:{d.column} {d.message}{hint}"
 
 
 def _report_one(problem: Diagnostic, filename: str | None, source: str | None = None) -> None:

@@ -122,6 +122,10 @@ FIXTURE_CHILDREN = frozenset({"data", "line"})
 # What may sit directly inside <switch>.
 SWITCH_CHILDREN = frozenset({"map", "case", "default"})
 
+# What may sit directly inside <block> and <line>.
+BLOCK_CHILDREN = frozenset({"line", "data"})
+LINE_CHILDREN = frozenset({"data", "gen", "mix", "switch"})
+
 FIXTURE_TAGS = frozenset(
     {
         "before", "after", "before_block", "after_block", "delimiter_block",
@@ -1310,7 +1314,14 @@ class _Validator:
         # An invented tag here used to pass in SILENCE: the config validated, exit 0,
         # and the run went ahead as if the tag had done something. <env> has always
         # answered this; <sequence> was the last container with no list of its own.
-        self._check_children(open_el.content(), "sequence", SEQUENCE_CHILDREN)
+        # MISPLACED_IN_SEQUENCE is handled by the dedicated loop below, which also
+        # counts them so TDC036 stays quiet. Reporting them here as well printed the
+        # same TDC013 twice — invisible in the full report, obvious the moment the
+        # brief output put the two lines together.
+        self._check_children(
+            open_el.content(), "sequence", SEQUENCE_CHILDREN | MISPLACED_IN_SEQUENCE,
+            shown=SEQUENCE_CHILDREN,
+        )
         """A sequence must actually produce something, and a compound must name its fields."""
         gens: list[dict[str, str]] = []
         gen_nodes = []
@@ -1358,7 +1369,8 @@ class _Validator:
                 self._error(
                     "TDC013",
                     f"<{tag}> is not allowed directly inside <sequence>",
-                    PLACEMENT_HINTS[tag],
+                    f"{PLACEMENT_HINTS[tag]} Allowed inside <sequence>: "
+                    f"{', '.join(sorted(SEQUENCE_CHILDREN))}.",
                     _line(node) if node is not None else _line(open_el),
                     _column(node) if node is not None else _column(open_el),
                 )
@@ -2835,9 +2847,13 @@ class _Validator:
     # ── block ───────────────────────────────────────────────────────────────────────────────
 
     def _check_block(self, block) -> None:
+        # These two were missed when the other containers were closed: an invented
+        # tag in either passed in silence while the same tag one level up did not.
+        self._check_children(block.content(), "block", BLOCK_CHILDREN, "TDC013")
         for child in _elements(block):
             open_el = child.openCloseElement()
             if open_el is not None and open_el.name.text == "line":
+                self._check_children(open_el.content(), "line", LINE_CHILDREN, "TDC013")
                 self._check_line(open_el)
 
     def _check_line(self, line_el) -> None:
@@ -3204,6 +3220,17 @@ class _Validator:
                     "TDC013",
                     f"<{name}> is not allowed directly inside <{parent}>",
                     f"{hint} Allowed inside <{parent}>: {listed}.",
+                    line,
+                    column,
+                )
+            elif code == "TDC013":
+                # TDC013 means "a tag this language knows, in the wrong place" and
+                # TDC010 "a tag nobody has heard of", so the sentence follows the
+                # code rather than the call site.
+                self._error(
+                    "TDC013",
+                    f"<{name}> is not allowed directly inside <{parent}>",
+                    f"Allowed inside <{parent}>: {listed}.",
                     line,
                     column,
                 )
