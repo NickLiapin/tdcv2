@@ -209,8 +209,14 @@ export const GEN_ATTRIBUTES: ReadonlySet<string> = new Set([
  */
 export const ATTRIBUTE_OWNERS: ReadonlyMap<string, ReadonlySet<string>> = new Map([
   // A list to walk. A range-based generator draws instead of stepping.
-  ['order', new Set(['text', 'file'])],
-  ['cycle', new Set(['text', 'file'])],
+  // `date` joined these when a range became walkable: the same word, the same
+  // looping, the same `cycle="false"` refusal — see `dateAxis`.
+  ['order', new Set(['text', 'file', 'date'])],
+  ['cycle', new Set(['text', 'file', 'date'])],
+  // `step` predates this: on a counter it is how much each row ADDS. A walked
+  // date range means the same thing in its own units, which is why it borrows
+  // the word rather than inventing one — but the counter must keep it.
+  ['step', new Set(['date', 'increment', 'decrement'])],
   // Where the characters come from.
   ['alphabet', new Set(['symbol'])],
   // The external source and how to read it. `pattern` is in the list because a

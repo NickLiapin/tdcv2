@@ -28,7 +28,7 @@ import { expandPercentMask } from '../distribution/percent-mask.js';
 import { resolveExistingDataSourcePath, type DataSourceOptions } from '../data-source/index.js';
 import { advancedRegexGenerator } from '../generators/advanced-regex.js';
 import { decrementGenerator, incrementGenerator } from '../generators/counter.js';
-import { dateGenerator } from '../generators/date.js';
+import { dateAxis, dateGenerator, parseStepUnit } from '../generators/date.js';
 import { loadCsvColumnFile, loadListFile } from '../generators/file.js';
 import { formatSample, parseDistribution, sampleDistribution } from '../generators/distribution.js';
 
@@ -999,20 +999,34 @@ export function sequentialList(gen: GenSpec, dataSources: DataSourceOptions): st
   return (gen.attrs['value'] ?? '').split(',').map((s) => s.trim());
 }
 
-/** Pick element `index mod N` (loop), or error past the end when `cycle=false`. */
-export function pickSequential(list: readonly string[], index: number, cycle: boolean): string {
-  if (list.length === 0) return '';
-  if (!cycle && index >= list.length) {
+/**
+ * Which of `size` values row `index` gets: `index mod size` (loop), or an error
+ * past the end when `cycle=false`.
+ *
+ * The one place that decides, so a text list, a file column and a walked date
+ * range answer the same way — and say the same thing when they run out. A date
+ * range never becomes a list (a century by the second is not a list anyone
+ * should hold), which is why this takes a SIZE rather than the values.
+ */
+export function sequentialIndex(size: number, index: number, cycle: boolean): number {
+  if (size <= 0) return 0;
+  if (!cycle && index >= size) {
     // Say which ROW ran out, not how many rows were asked for: the streaming path
     // resolves one row at a time and does not know the run's size here. The old
     // wording read "only 4 values for 5 rows" on a config that said count="6",
     // so the one number a reader would take to their config was the wrong one.
     throw new Error(
-      `order="sequential" cycle="false": the source has only ${String(list.length)} values, ` +
+      `order="sequential" cycle="false": the source has only ${String(size)} values, ` +
         `so row ${String(index + 1)} has none — shorten count= or lengthen the source`,
     );
   }
-  return list[index % list.length] ?? '';
+  return index % size;
+}
+
+/** Pick element `index mod N` (loop), or error past the end when `cycle=false`. */
+export function pickSequential(list: readonly string[], index: number, cycle: boolean): string {
+  if (list.length === 0) return '';
+  return list[sequentialIndex(list.length, index, cycle)] ?? '';
 }
 
 function buildGenValuesRaw(
@@ -1029,6 +1043,14 @@ function buildGenValuesRaw(
     const list = sequentialList(gen, ctx.dataSources);
     const cycle = gen.attrs['cycle'] !== 'false';
     return Array.from({ length: count }, (_, i) => pickSequential(list, i, cycle));
+  }
+  // The same rule over a date range: row i → the i-th step from the start. The
+  // axis is arithmetic, not a list, so a long range costs nothing to walk.
+  if (gen.type === 'date' && gen.attrs['order'] === 'sequential') {
+    const unit = parseStepUnit(gen.attrs['step']) ?? 'day';
+    const axis = dateAxis(gen.attrs, locale, now, unit);
+    const cycle = gen.attrs['cycle'] !== 'false';
+    return Array.from({ length: count }, (_, i) => axis.at(sequentialIndex(axis.size, i, cycle)));
   }
   switch (gen.type) {
     case 'text': {

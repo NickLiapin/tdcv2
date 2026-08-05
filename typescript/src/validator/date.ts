@@ -9,6 +9,7 @@ import {
   parseDateRangeValue,
   parseDateTimeStrict,
   parseLegacyDateRange,
+  STEP_UNITS,
   validateDateFormat,
 } from '../date/index.js';
 import {
@@ -23,7 +24,7 @@ import type {
   OpenCloseElementContext,
   SelfClosingElementContext,
 } from '../generated/TDCParser.js';
-import { parsePrecision } from '../generators/date.js';
+import { parsePrecision, parseStepUnit } from '../generators/date.js';
 import { extractAttrs } from '../processor/walk.js';
 
 export function checkGenDate(
@@ -33,6 +34,7 @@ export function checkGenDate(
   const attrs = gen.attr();
   const attrMap = extractAttrs(attrs);
   checkDateCommonAttrs(attrs, diagnostics);
+  checkDateStep(attrs, attrMap, diagnostics);
 
   const value = attrMap['value']?.trim();
   const fromAttr = findAttr(attrs, 'from');
@@ -217,4 +219,46 @@ function findAttr(attrs: readonly AttrContext[], name: string): AttrContext | un
     if (attr._attrName?.text === name) return attr;
   }
   return undefined;
+}
+
+/**
+ * `step=` on a walked date range — and the two ways to write it that mean nothing.
+ *
+ * An unknown unit would silently fall back to days, so a config asking for
+ * `step="fortnight"` would render a year of consecutive days and look right at a
+ * glance. And `step=` without `order="sequential"` is read by nothing at all: the
+ * range is still drawn at random, which is the harder mistake to see because the
+ * dates ARE inside the range the config named.
+ */
+function checkDateStep(
+  attrs: readonly AttrContext[],
+  attrMap: Readonly<Record<string, string>>,
+  diagnostics: Diagnostic[],
+): void {
+  const stepAttr = findAttr(attrs, 'step');
+  if (!stepAttr) return;
+  const raw = (attrMap['step'] ?? '').trim();
+
+  if (parseStepUnit(raw) === undefined) {
+    diagnostics.push({
+      severity: 'error',
+      source: 'validator',
+      ...attrValueRange(stepAttr),
+      message: `unknown step "${raw}"`,
+      hint: `Supported: ${STEP_UNITS.join(', ')}.`,
+      code: 'TDC247',
+    });
+    return;
+  }
+
+  if ((attrMap['order'] ?? '').trim() !== 'sequential') {
+    diagnostics.push({
+      severity: 'error',
+      source: 'validator',
+      ...attrValueRange(stepAttr),
+      message: `step="${raw}" has no order="sequential" on the same <gen> — nothing walks the range`,
+      hint: 'Add order="sequential" to walk the range one step at a time, or remove step= and let the dates be drawn at random.',
+      code: 'TDC248',
+    });
+  }
 }

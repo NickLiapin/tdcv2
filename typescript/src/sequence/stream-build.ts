@@ -58,9 +58,11 @@ import { resolveExistingDataSourcePath } from '../data-source/index.js';
 import {
   patternGenForGen,
   pickSequential,
+  sequentialIndex,
   sequentialList,
   type SequenceBuildOptions,
 } from './build.js';
+import { dateAxis, parseStepUnit } from '../generators/date.js';
 import { resolveGenAnomalyFlagTextAt, resolveGenValueAt } from './gen-resolve.js';
 import { loadWeightedValues, weightColumnOf } from '../generators/weighted.js';
 import {
@@ -711,6 +713,20 @@ export function build(
       sequence: wrapLazy((i) => {
         const r = popIndexAt(i);
         return r === undefined ? undefined : pickSequential(list, r, cycle);
+      }),
+    };
+  }
+
+  // The same rule over a date range. The axis is arithmetic rather than a list,
+  // which is what lets this stay seekable and bounded however long the range is.
+  if (gen.type === 'date' && gen.attrs['order'] === 'sequential') {
+    const unit = parseStepUnit(gen.attrs['step']) ?? 'day';
+    const axis = dateAxis(gen.attrs, locale, now, unit);
+    const cycle = gen.attrs['cycle'] !== 'false';
+    return {
+      sequence: wrapLazy((i) => {
+        const r = popIndexAt(i);
+        return r === undefined ? undefined : axis.at(sequentialIndex(axis.size, r, cycle));
       }),
     };
   }

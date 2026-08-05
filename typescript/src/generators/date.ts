@@ -19,9 +19,13 @@ import {
   subtractUtcYears,
   toEpochDay,
   toEpochMillis,
+  STEP_UNITS,
+  addSteps,
+  stepsBetween,
   type DatePrecision,
   type ParsedDateRange,
   type PlainDateTime,
+  type StepUnit,
 } from '../date/index.js';
 import type { AttrMap } from '../processor/attrs.js';
 
@@ -62,6 +66,45 @@ export function dateGenerator(attrs: DateGenAttrs, locale: string, now: number):
       out[i] = formatDateTime(value, plan.format, plan.locale);
     }
     return out;
+  };
+}
+
+/** The `step=` unit a walked date range advances by, or undefined if unknown. */
+export function parseStepUnit(raw: string | undefined): StepUnit | undefined {
+  const value = (raw ?? '').trim();
+  if (value === '') return 'day';
+  return (STEP_UNITS as readonly string[]).includes(value) ? (value as StepUnit) : undefined;
+}
+
+/**
+ * A date range as a walkable axis: how many steps it holds, and what the k-th one is.
+ *
+ * The range is never expanded into a list. A century stepped by the second is three
+ * billion values, and the streaming engine promises bounded memory whatever the
+ * config says — so the count is computed and each date is `start + k × step`,
+ * measured from the START rather than accumulated. That is what keeps a clamped
+ * February from dragging every later month back with it.
+ *
+ * A `<gen type="date">` that names one fixed date has no axis to walk; it answers
+ * that date for every row, which is what it already did.
+ */
+export function dateAxis(
+  attrs: DateGenAttrs,
+  locale: string,
+  now: number,
+  unit: StepUnit,
+): { size: number; at: (k: number) => string } {
+  const plan = buildDatePlan(attrs, locale, now);
+  const render = (value: PlainDateTime): string => formatDateTime(value, plan.format, plan.locale);
+  if (plan.kind !== 'range' || !plan.start || !plan.end) {
+    const fixed = plan.fixed ?? plan.start;
+    if (!fixed) throw new DateRuntimeError('date generator: invalid generation plan');
+    return { size: 1, at: () => render(fixed) };
+  }
+  const start = plan.start;
+  return {
+    size: stepsBetween(start, plan.end, unit),
+    at: (k) => render(addSteps(start, unit, k)),
   };
 }
 

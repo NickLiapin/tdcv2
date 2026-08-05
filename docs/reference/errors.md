@@ -286,6 +286,8 @@ but the combination it asks for can't be carried out.
 | `TDC242` | `anomaly` or `missing` isn't a number in `[0, 1]`                | Both are a SHARE of the values: `anomaly="0.05"`, `missing="0.1"`        |
 | `TDC243` | `anomaly` on a `value` list with no number in it                 | An anomaly multiplies a number, so a list of words comes back unchanged  |
 | `TDC246` | `anomaly_flag` on a `<gen>` inside a `<case>`                    | A case body is several parts joined, so a flag on one part doesn't describe the row — put `flag="NAME"` on the `<mix>` instead |
+| `TDC247` | `step` on a `<gen type="date">` names a unit it cannot walk        | Supported: second, minute, hour, day, week, month, year |
+| `TDC248` | `step` without `order="sequential"` on the same `<gen>`            | Nothing walks the range — the dates are still drawn at random. Add `order="sequential"`, or drop `step` |
 
 ## See also
 
