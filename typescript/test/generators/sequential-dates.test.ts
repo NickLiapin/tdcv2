@@ -124,7 +124,7 @@ describe('what the validator says about a walked date', () => {
   const codesOf = (gen: string): string[] => {
     const parsed = parse(config(3, gen));
     expect(parsed.diagnostics).toEqual([]);
-    return validate(parsed.tree).diagnostics.map((d) => d.code);
+    return validate(parsed.tree).diagnostics.map((d) => d.code ?? '?');
   };
 
   it('accepts order and step on a date', () => {
@@ -241,7 +241,7 @@ describe('what the validator says about the open forms', () => {
   const codesOf = (gen: string): string[] => {
     const parsed = parse(config(3, gen));
     expect(parsed.diagnostics).toEqual([]);
-    return validate(parsed.tree).diagnostics.map((d) => d.code);
+    return validate(parsed.tree).diagnostics.map((d) => d.code ?? '?');
   };
 
   it('accepts from= alone when the range is walked', () => {
@@ -333,7 +333,7 @@ describe('what the validator says about a step', () => {
   const codesOf = (gen: string): string[] => {
     const parsed = parse(config(3, gen));
     expect(parsed.diagnostics).toEqual([]);
-    return validate(parsed.tree).diagnostics.map((d) => d.code);
+    return validate(parsed.tree).diagnostics.map((d) => d.code ?? '?');
   };
   const hintOf = (gen: string): string => {
     const found = validate(parse(config(3, gen)).tree).diagnostics.find((d) => d.code === 'TDC247');

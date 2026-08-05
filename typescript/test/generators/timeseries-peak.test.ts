@@ -80,7 +80,8 @@ describe('peak_at moves the peak to the row it names', () => {
 
   it('takes a fraction, since a peak need not land on a row', () => {
     const values = wave({ ...SEASON, peak_at: '6.5' }, 12);
-    expect(values[6]).toBeCloseTo(values[7], 10);
+    // A peak halfway between two rows leaves them at the same height.
+    expect(values[6]).toBeCloseTo(values[7] ?? Number.NaN, 10);
   });
 });
 

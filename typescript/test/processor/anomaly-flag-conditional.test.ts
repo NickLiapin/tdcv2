@@ -128,7 +128,7 @@ describe('anomaly_flag on a <gen> inside a <case>', () => {
   const codesOf = (source: string): string[] => {
     const parsed = parse(source);
     expect(parsed.diagnostics).toEqual([]);
-    return validate(parsed.tree).diagnostics.map((d) => d.code);
+    return validate(parsed.tree).diagnostics.map((d) => d.code ?? '?');
   };
 
   const inCase = (parent: string, close: string): string =>
