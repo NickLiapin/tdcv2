@@ -1,5 +1,6 @@
 using System.Globalization;
 using System.Text;
+using Tdcv2.Date;
 using Tdcv2.Distribution;
 using Tdcv2.Expr;
 using Tdcv2.Format;
@@ -824,6 +825,27 @@ public sealed class StreamEngine
             {
                 int? r = domain.PopIndexAt(row);
                 return r is null ? null : MemoryEngine.PickSequential(list, r.Value, cycle);
+            }));
+        }
+
+        // The same rule over a date range. The axis is arithmetic rather than a list, which is
+        // what lets this stay seekable and bounded however long the range is.
+        if (type == "date" && attrs.GetValueOrDefault("order") == "sequential")
+        {
+            DateGen.Axis axis = DateGen.DateAxis(attrs, LocaleOf(attrs), _nowMillis);
+            bool walkCycle = attrs.GetValueOrDefault("cycle") != "false";
+            return new Built(Wrap(mod, row =>
+            {
+                int? r = domain.PopIndexAt(row);
+                if (r is null)
+                {
+                    return null;
+                }
+
+                // An OPEN axis has no size and never wraps: row r is simply the r-th step.
+                return axis.Size is long size
+                    ? axis.At(MemoryEngine.SequentialIndex(size, r.Value, walkCycle))
+                    : axis.At(r.Value);
             }));
         }
 

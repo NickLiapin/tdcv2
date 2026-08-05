@@ -36,6 +36,11 @@ public static class DateGen
         PlainDateTime? Fixed,
         PlainDateTime Start,
         PlainDateTime End,
+        /// <summary>
+        /// True when the range was written with only its START. <c>End</c> is then a copy of
+        /// <c>Start</c> and means nothing; <see cref="DateAxis"/> reads this and never wraps.
+        /// </summary>
+        bool OpenEnd,
         Precision Grain,
         string Format,
         string? Locale);
@@ -173,7 +178,21 @@ public static class DateGen
         bool hasTo = attrs.TryGetValue("to", out string? to);
         if (hasFrom || hasTo)
         {
-            if (!hasFrom || !hasTo)
+            // `from=` alone is an OPEN axis — legal when the range is WALKED, and the plan carries
+            // only a start. `DateAxis` reads `OpenEnd` and never wraps; a DRAWN date with one end
+            // is still refused, by TDC150.
+            if (hasFrom && !hasTo)
+            {
+                DateParse.Parsed only = DateParse.DateTime(from!);
+                return new Plan(
+                    null, only.Value, only.Value, true,
+                    ParsePrecision(
+                        attrs.GetValueOrDefault("precision"),
+                        only.HasTime ? Precision.Millisecond : Precision.Day),
+                    format, loc);
+            }
+
+            if (!hasFrom)
             {
                 throw new ArgumentException(
                     "date generator: \"from\" and \"to\" must be provided together");
@@ -217,7 +236,7 @@ public static class DateGen
 
     private static Plan Fixed(
         PlainDateTime value, Precision grain, string format, string? locale) =>
-        new(value, default, default, grain, format, locale);
+        new(value, default, default, false, grain, format, locale);
 
     private static Plan RangeOf(
         DateParse.Parsed start, DateParse.Parsed end,
@@ -236,8 +255,136 @@ public static class DateGen
         Precision defaultPrecision =
             fallback ?? (hasTime ? Precision.Millisecond : Precision.Day);
         return new Plan(
-            null, start, end,
+            null, start, end, false,
             ParsePrecision(attrs.GetValueOrDefault("precision"), defaultPrecision), format, locale);
+    }
+
+    /// <summary>
+    /// A date range as a walkable axis: how many steps it holds, and what the k-th is.
+    /// </summary>
+    /// <remarks>
+    /// <c>Size</c> is null for an OPEN axis — <c>from=</c> with no end. Requiring an end meant
+    /// working out what date the millionth day falls on in order to write it down, when the end is
+    /// simply <c>start + count × step</c>. Such an axis never wraps, because there is nothing to
+    /// wrap at.
+    /// <para>
+    /// The range is never expanded into a list. A century stepped by the second is three billion
+    /// values and the streaming engine promises bounded memory whatever the config says — so each
+    /// date is <c>start + k × step</c>, measured from the START rather than accumulated, which is
+    /// what keeps a clamped February from dragging every later month back with it.
+    /// </para>
+    /// </remarks>
+    public sealed class Axis
+    {
+        private readonly PlainDateTime _start;
+        private readonly DateStep.Spec _step;
+        private readonly IReadOnlyList<long> _offsets;
+        private readonly long _perCycle;
+        private readonly string _format;
+        private readonly string? _locale;
+
+        internal Axis(
+            long? size, PlainDateTime start, DateStep.Spec step, IReadOnlyList<long> offsets,
+            long perCycle, string format, string? locale)
+        {
+            Size = size;
+            _start = start;
+            _step = step;
+            _offsets = offsets;
+            _perCycle = perCycle;
+            _format = format;
+            _locale = locale;
+        }
+
+        /// <summary>How many positions the axis holds, or null when it is open.</summary>
+        public long? Size { get; }
+
+        /// <summary>The k-th value of the axis, rendered.</summary>
+        public string At(long k)
+        {
+            PlainDateTime candidate;
+            if (_offsets.Count == 0)
+            {
+                candidate = DateStep.AddStep(_start, _step, k);
+            }
+            else
+            {
+                long n = _offsets.Count;
+                long cycles = k / n;
+                long within = _offsets[(int)(k % n)];
+                candidate = DateStep.AddStep(_start, _step, (cycles * _perCycle) + within);
+            }
+
+            return DateFormatter.Format(candidate, _format, _locale);
+        }
+    }
+
+    private const long MsPerWeek = 7 * Calendar.MsPerDay;
+
+    private static long Gcd(long a, long b) => b == 0 ? a : Gcd(b, a % b);
+
+    /// <summary>Build the walkable axis an <c>order="sequential"</c> date reads.</summary>
+    public static Axis DateAxis(
+        IReadOnlyDictionary<string, string> attrs, string? locale, long nowMillis)
+    {
+        DateStep.Result parsed = DateStep.ParseStep(attrs.GetValueOrDefault("step"));
+        DateStep.Spec step = parsed.Step ?? DateStep.DefaultStep;
+        bool[]? keep = DateStep.ParseWeekdays(attrs.GetValueOrDefault("weekdays"));
+        Plan plan = BuildPlan(attrs, locale, nowMillis);
+
+        if (plan.Fixed is PlainDateTime only)
+        {
+            return new Axis(
+                1, only, DateStep.DefaultStep, Array.Empty<long>(), 1, plan.Format, plan.Locale);
+        }
+
+        // `weekdays=` keeps only some of the candidates, so the k-th KEPT one is wanted rather than
+        // the k-th candidate. Which candidates match repeats on a cycle — one week's worth of
+        // steps — so the offsets are found once and then indexed, instead of scanning from the
+        // beginning for every row.
+        IReadOnlyList<long> offsets = Array.Empty<long>();
+        long perCycle = 1;
+        if (keep is not null)
+        {
+            perCycle = step.Ms > 0 ? MsPerWeek / Gcd(step.Ms, MsPerWeek) : 7;
+            var kept = new List<long>();
+            for (long i = 0; i < perCycle; i++)
+            {
+                if (keep[Calendar.Weekday(DateStep.AddStep(plan.Start, step, i))])
+                {
+                    kept.Add(i);
+                }
+            }
+
+            offsets = kept;
+        }
+
+        long? size = null;
+        if (!plan.OpenEnd)
+        {
+            long candidates = DateStep.StepsBetween(plan.Start, plan.End, step);
+            if (offsets.Count == 0)
+            {
+                size = candidates;
+            }
+            else
+            {
+                long whole = candidates / perCycle * offsets.Count;
+                long tail = candidates % perCycle;
+                long partial = 0;
+                foreach (long offset in offsets)
+                {
+                    if (offset < tail)
+                    {
+                        partial++;
+                    }
+                }
+
+                size = Math.Max(1, whole + partial);
+            }
+        }
+
+        return new Axis(size, plan.Start, step, offsets, perCycle, plan.Format, plan.Locale);
     }
 
     private static PlainDateTime Pick(Plan plan, Sfc32 prng)

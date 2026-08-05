@@ -843,7 +843,27 @@ public static class MemoryEngine
             case "template":
                 return Template(gen, count, prng, ctx);
             case "date":
+            {
+                // The same rule over a date range: row i is the i-th step from the start. The
+                // axis is arithmetic rather than a list, so a long range costs nothing to walk.
+                if (gen.Attrs.GetValueOrDefault("order") == "sequential")
+                {
+                    DateGen.Axis axis = DateGen.DateAxis(gen.Attrs, ctx.Locale, ctx.NowMillis);
+                    bool cycle = gen.Attrs.GetValueOrDefault("cycle") != "false";
+                    var walked = new List<string>(count);
+                    for (int i = 0; i < count; i++)
+                    {
+                        // An OPEN axis has no size and never wraps: row i is simply the i-th step.
+                        walked.Add(axis.Size is long size
+                            ? axis.At(SequentialIndex(size, i, cycle))
+                            : axis.At(i));
+                    }
+
+                    return walked;
+                }
+
                 return DateGen.Generate(gen.Attrs, ctx.Locale, ctx.NowMillis, count, prng);
+            }
             case "timeseries":
                 return Stats.Timeseries.Generate(gen.Attrs, count, prng);
             case "file":
@@ -2884,22 +2904,33 @@ public static class MemoryEngine
     /// twelve months across a year of daily records. <c>cycle="false"</c> is for when running out is
     /// a mistake worth hearing about rather than something to paper over by starting again.
     /// </remarks>
-    internal static string PickSequential(IReadOnlyList<string> list, int index, bool cycle)
+    /// <summary>
+    /// Which of <c>size</c> positions row <c>index</c> reads, wrapping unless
+    /// <c>cycle="false"</c>.
+    /// </summary>
+    /// <remarks>
+    /// Split out of <see cref="PickSequential"/> because a walked date range has positions without
+    /// having a list: its values are computed from an index, and only this part applies.
+    /// </remarks>
+    internal static long SequentialIndex(long size, long index, bool cycle)
     {
-        if (list.Count == 0)
+        if (size <= 0)
         {
-            return "";
+            return 0;
         }
 
-        if (!cycle && index >= list.Count)
+        if (!cycle && index >= size)
         {
             throw new InvalidOperationException(
-                $"order=\"sequential\" cycle=\"false\": the source has only {list.Count} "
+                $"order=\"sequential\" cycle=\"false\": the source has only {size} "
                 + $"values, so row {index + 1} has none — shorten count= or lengthen the source");
         }
 
-        return list[index % list.Count];
+        return index % size;
     }
+
+    internal static string PickSequential(IReadOnlyList<string> list, int index, bool cycle) =>
+        list.Count == 0 ? "" : list[(int)SequentialIndex(list.Count, index, cycle)];
 
     internal static IReadOnlyList<string> SplitText(string value) =>
         value.Split(',').Select(p => p.Trim()).ToArray();

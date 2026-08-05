@@ -84,9 +84,14 @@ public sealed class Validator
     private static readonly IReadOnlyDictionary<string, IReadOnlySet<string>> AttributeOwners =
         new Dictionary<string, IReadOnlySet<string>>(StringComparer.Ordinal)
         {
-            // A list to walk. A range-based generator draws instead of stepping.
-            ["order"] = Set("text", "file"),
-            ["cycle"] = Set("text", "file"),
+            // A list to walk — or, on a date, a range walked instead of drawn.
+            ["order"] = Set("text", "file", "date"),
+            ["cycle"] = Set("text", "file", "date"),
+
+            // How far each row moves. A counter's stride and a walked date range mean the same
+            // thing in their own units, which is why they borrow one word.
+            ["step"] = Set("date", "increment", "decrement"),
+            ["weekdays"] = Set("date"),
 
             // Where the characters come from.
             ["alphabet"] = Set("symbol"),
@@ -206,7 +211,8 @@ public sealed class Validator
         "anomaly_flag",
         "flag", "local", "count", "weight", "percent", "first_zero", "include", "exclude",
         "length", "decimals", "distribution", "regex_max_length", "alphabet", "format", "from",
-        "to", "oldest", "youngest", "precision", "range", "step", "src", "column", "header",
+        "to", "oldest", "youngest", "precision", "range", "step", "weekdays", "src", "column",
+        "header",
         "delimiter", "row", "base", "trend", "period", "amplitude", "noise", "points", "upper",
         "lower", "y_range", "interp", "spread", "ink_threshold", "mode", "in", "on_error",
         "timeout", "mean", "sd", "meanlog", "sdlog", "rate", "alpha", "xmin", "shape", "scale",
@@ -2954,6 +2960,111 @@ public sealed class Validator
         }
     }
 
+    /// <summary><c>step=</c> on a walked date axis: what it may say, and that anything reads it.</summary>
+    private void CheckDateStep(
+        TDCParser.SelfClosingElementContext gen, IReadOnlyDictionary<string, string> attrs)
+    {
+        if (!attrs.TryGetValue("step", out string? rawStep))
+        {
+            return;
+        }
+
+        string raw = rawStep.Trim();
+        (int line, int column) = At(gen, "step");
+        DateStep.Result parsed = DateStep.ParseStep(raw);
+
+        if (!parsed.Ok)
+        {
+            // The two failures read differently because they ARE different: one is a spelling
+            // nobody meant, the other a step whose meaning would depend on which half was applied
+            // first.
+            bool mixed = parsed.Why == DateStep.Reason.Mixed;
+            Error(
+                "TDC247",
+                mixed
+                    ? $"step=\"{raw}\" mixes a calendar unit with a fixed one"
+                    : $"step=\"{raw}\" is not a step this engine can walk",
+                mixed
+                    ? "A month is 28 to 31 days, so \"one month and fifteen days\" depends on "
+                      + "which is applied first. Write one or the other: 45d, or 1mo."
+                    : $"Write {DateStep.StepSyntax}. A bare number means days, so step=\"2\" is "
+                      + "every other day.",
+                line, column);
+            return;
+        }
+
+        if ((attrs.GetValueOrDefault("order") ?? "").Trim() != "sequential")
+        {
+            Error(
+                "TDC248",
+                $"step=\"{raw}\" has no order=\"sequential\" on the same <gen> — nothing walks "
+                + "the range",
+                "Add order=\"sequential\" to walk the range one step at a time, or remove step= "
+                + "and let the dates be drawn at random.",
+                line, column);
+        }
+    }
+
+    /// <summary><c>weekdays="mon..fri"</c> — which weekdays a walked axis keeps.</summary>
+    /// <remarks>
+    /// A FILTER, not a step: the spacing stops being even, since Friday to Monday is a three-day
+    /// jump. That is why it is a separate attribute — one word for both operations would stop them
+    /// being combinable, and "every 15 minutes, but only on working days" is exactly what gets
+    /// asked for.
+    /// </remarks>
+    private void CheckDateWeekdays(
+        TDCParser.SelfClosingElementContext gen, IReadOnlyDictionary<string, string> attrs)
+    {
+        if (!attrs.TryGetValue("weekdays", out string? rawDays))
+        {
+            return;
+        }
+
+        string raw = rawDays.Trim();
+        (int line, int column) = At(gen, "weekdays");
+
+        if (DateStep.ParseWeekdays(raw) is null)
+        {
+            Error(
+                "TDC249",
+                $"unknown weekday in weekdays=\"{raw}\"",
+                $"Names are {string.Join(", ", DateStep.WeekdayNames)} — a span like \"mon..fri\" "
+                + "or a list like \"sun,wed\".",
+                line, column);
+            return;
+        }
+
+        if ((attrs.GetValueOrDefault("order") ?? "").Trim() != "sequential")
+        {
+            Error(
+                "TDC248",
+                $"weekdays=\"{raw}\" has no order=\"sequential\" on the same <gen> — nothing "
+                + "walks the range",
+                "Add order=\"sequential\" to walk the range and keep only these days, or remove "
+                + "weekdays= and let the dates be drawn at random.",
+                line, column);
+            return;
+        }
+
+        DateStep.Result step = DateStep.ParseStep(attrs.GetValueOrDefault("step"));
+        if (step.Step is DateStep.Spec spec && DateStep.FixesWeekday(spec))
+        {
+            // A calendar step, or any whole number of weeks, lands on the same weekday every time
+            // — so the filter would match every row or none of them, giving a full column or an
+            // empty one with nothing said either way. Measured on the STEP rather than on its
+            // spelling, so `14d` is caught as surely as `2w`.
+            string written = (attrs.GetValueOrDefault("step") ?? "").Trim();
+            Error(
+                "TDC250",
+                $"weekdays=\"{raw}\" cannot narrow step=\"{written}\" — that step already fixes "
+                + "the weekday",
+                "A whole number of weeks, or any calendar step, lands on the same weekday every "
+                + "time, so this would match every row or none. Use a step that is not a multiple "
+                + "of a week, or drop weekdays=.",
+                line, column);
+        }
+    }
+
     private void CheckDate(
         TDCParser.SelfClosingElementContext gen, IReadOnlyDictionary<string, string> attrs,
         string? type)
@@ -2963,7 +3074,12 @@ public sealed class Validator
             return;
         }
 
-        if (attrs.ContainsKey("from") != attrs.ContainsKey("to"))
+        // `from=` alone is an OPEN axis when the range is WALKED: the end of such an axis is
+        // start + count × step, a consequence rather than an input. On a DRAWN date one end
+        // genuinely means nothing, and that is what this refuses.
+        bool walked = (attrs.GetValueOrDefault("order") ?? "").Trim() == "sequential";
+        bool openAxis = walked && attrs.ContainsKey("from") && !attrs.ContainsKey("to");
+        if (!openAxis && attrs.ContainsKey("from") != attrs.ContainsKey("to"))
         {
             Error(
                 "TDC150",
@@ -2971,6 +3087,9 @@ public sealed class Validator
                 "Use from=\"2020-01-01\" to=\"2025-12-31\", or value=\"2020-01-01..2025-12-31\".",
                 Line(gen), Column(gen));
         }
+
+        CheckDateStep(gen, attrs);
+        CheckDateWeekdays(gen, attrs);
 
         string? local = attrs.GetValueOrDefault("local");
         if (!string.IsNullOrWhiteSpace(local) && !Checks.IsKnownDateLocale(local))
