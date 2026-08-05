@@ -221,10 +221,13 @@ See https://github.com/NickLiapin/tdcv2 for the DSL reference.
     /// <summary><c>tdcv2 check &lt;file&gt;</c> — the validator alone, for an editor or a pre-commit hook.</summary>
     private static int Check(IReadOnlyList<string> argv, TextWriter stderr)
     {
+        // `--brief` prints one line per diagnostic and no source excerpt: an editor
+        // listing errors in a panel wants rows, not a picture of the file.
+        bool brief = argv.Contains("--brief");
         List<string> files = argv.Where(a => !a.StartsWith('-')).ToList();
-        if (files.Count != argv.Count || files.Count != 1)
+        if (argv.Any(a => a.StartsWith('-') && a != "--brief") || files.Count != 1)
         {
-            Fail(stderr, "usage: tdcv2 check <input.tdc>", false);
+            Fail(stderr, "usage: tdcv2 check [--brief] <input.tdc>", false);
             return 2;
         }
 
@@ -235,7 +238,7 @@ See https://github.com/NickLiapin/tdcv2 for the DSL reference.
         }
         catch (TdcDiagnosticException e)
         {
-            Report(stderr, e.Diagnostics, files[0], e.Source);
+            Report(stderr, e.Diagnostics, files[0], e.Source, brief);
             return 1;
         }
         catch (Exception e) when (e is ArgumentException or IOException or InvalidOperationException)
@@ -353,15 +356,39 @@ See https://github.com/NickLiapin/tdcv2 for the DSL reference.
 
     /// <summary>Diagnostics to stderr, so they stay out of a piped or redirected run's data.</summary>
     private static void Report(
-        TextWriter stderr, IReadOnlyList<Diagnostic> problems, string? filename, string? source)
+        TextWriter stderr, IReadOnlyList<Diagnostic> problems, string? filename, string? source,
+        bool brief = false)
     {
         if (problems.Count == 0)
         {
             return;
         }
 
+        if (brief)
+        {
+            stderr.Write(string.Join("\n", problems.Select(BriefLine)) + "\n");
+            return;
+        }
+
         stderr.Write(
             DiagnosticRenderer.FormatAll(problems, source, filename ?? "<input>", false) + "\n");
+    }
+
+    /// <summary>
+    /// One diagnostic on one line: code, position, message, hint after <c>::</c>.
+    /// </summary>
+    /// <remarks>
+    /// The hint is kept because it carries the list of what IS allowed, which is the half a
+    /// reader — or a model — acts on. No trailing count either, so a caller parsing rows need
+    /// not skip a sentence at the end.
+    /// </remarks>
+    private static string BriefLine(Diagnostic d)
+    {
+        string code = string.IsNullOrEmpty(d.Code)
+            ? (d.Severity == Severity.Warning ? "WARN" : "ERROR")
+            : d.Code;
+        string hint = string.IsNullOrEmpty(d.Hint) ? "" : $" :: {d.Hint}";
+        return $"{code} {d.Line}:{d.Column} {d.Message}{hint}";
     }
 
     /// <summary>

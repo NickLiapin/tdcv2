@@ -1706,7 +1706,13 @@ public sealed class Validator
     {
         // An invented tag here used to pass in SILENCE: the config validated, exit 0, and
         // the run went ahead as if the tag had done something.
-        CheckChildren(open.content(), "sequence", SequenceChildren);
+        // MisplacedInSequence is handled by the dedicated loop below, which also counts
+        // them so TDC036 stays quiet. Reporting them here as well printed the same TDC013
+        // twice — invisible in the full report, obvious once the brief output put the two
+        // lines together.
+        var seqPasses = new HashSet<string>(SequenceChildren);
+        seqPasses.UnionWith(MisplacedInSequence);
+        CheckChildren(open.content(), "sequence", seqPasses, "TDC010", SequenceChildren);
         foreach (TDCParser.ElementContext c in open.content().element())
         {
             TDCParser.OpenCloseElementContext w = c.openCloseElement();
@@ -1786,7 +1792,8 @@ public sealed class Validator
             {
                 Error(
                     "TDC013", $"<{tag}> is not allowed directly inside <sequence>",
-                    PlacementHints.GetValueOrDefault(tag, ""),
+                    PlacementHints.GetValueOrDefault(tag, "")
+                    + $" Allowed inside <sequence>: {string.Join(", ", SequenceChildren.OrderBy(a => a, StringComparer.Ordinal))}.",
                     node!.Start.Line, node.Start.Column);
                 misplaced++;
             }
@@ -3638,11 +3645,15 @@ public sealed class Validator
 
     private void CheckBlock(TDCParser.OpenCloseElementContext block)
     {
+        // These two were missed when the other containers were closed: an invented tag in
+        // either passed in silence while the same tag one level up did not.
+        CheckChildren(block.content(), "block", BlockChildren, "TDC013", BlockChildren);
         foreach (TDCParser.ElementContext child in block.content().element())
         {
             TDCParser.OpenCloseElementContext open = child.openCloseElement();
             if (open is not null && open.name.Text == "line")
             {
+                CheckChildren(open.content(), "line", LineChildren, "TDC013", LineChildren);
                 CheckLine(open);
             }
         }
@@ -4172,6 +4183,14 @@ public sealed class Validator
                     "TDC013", $"<{name}> is not allowed directly inside <{parent}>",
                     $"{hint} Allowed inside <{parent}>: {listed}.", line, column);
             }
+            else if (code == "TDC013")
+            {
+                // TDC013 means "a tag this language knows, in the wrong place" and TDC010
+                // "a tag nobody has heard of", so the sentence follows the code.
+                Error(
+                    "TDC013", $"<{name}> is not allowed directly inside <{parent}>",
+                    $"Allowed inside <{parent}>: {listed}.", line, column);
+            }
             else
             {
                 Error(
@@ -4409,6 +4428,13 @@ public sealed class Validator
     /// <summary>What may sit directly inside <c>&lt;switch&gt;</c>.</summary>
     private static readonly IReadOnlySet<string> SwitchChildren =
         new HashSet<string> { "map", "case", "default" };
+
+    /// <summary>What may sit directly inside <c>&lt;block&gt;</c> and <c>&lt;line&gt;</c>.</summary>
+    private static readonly IReadOnlySet<string> BlockChildren =
+        new HashSet<string> { "line", "data" };
+
+    private static readonly IReadOnlySet<string> LineChildren =
+        new HashSet<string> { "data", "gen", "mix", "switch" };
 
     private static readonly IReadOnlySet<string> FixtureTagNames = new HashSet<string>
     {
