@@ -32,6 +32,30 @@ pub const ENV_CHILDREN: [&str; 14] = [
     "delimiter_line",
 ];
 
+/// What may sit directly inside `<sequence>`: the generator(s), literal text
+/// between them, a `<distinct>` wrapper grouping fields, or a `<compute>`.
+pub const SEQUENCE_CHILDREN: [&str; 4] = ["gen", "data", "distinct", "compute"];
+
+/// What a `<distinct>`/`<uniq>` wrapper holds INSIDE a sequence: the fields of
+/// one record. At `<env>` level the same two tags group whole columns instead —
+/// see `ENV_GROUP_CHILDREN`. One list for both refuses working configs.
+pub const DISTINCT_CHILDREN: [&str; 1] = ["gen"];
+
+/// Members of an `<env>`-level `<distinct>`/`<uniq>` group.
+pub const ENV_GROUP_CHILDREN: [&str; 4] = ["sequence", "mix", "switch", "member"];
+
+/// What may sit inside `<pool>`. Deliberately generous: too SHORT a list refuses
+/// configs that work, while too long a one merely leaves a little silence.
+pub const POOL_CHILDREN: [&str; 6] = [
+    "sequence", "mix", "switch", "uniq", "distinct", "member",
+];
+
+/// What a fixture (`<before>`, `<after>`, the delimiters) holds: literal text.
+pub const FIXTURE_CHILDREN: [&str; 2] = ["data", "line"];
+
+/// What may sit directly inside `<switch>`.
+pub const SWITCH_CHILDREN: [&str; 3] = ["map", "case", "default"];
+
 /// What each closed tag reads.
 pub const CLOSED_TAG_ATTRIBUTES: [(&str, &[&str]); 13] = [
     (

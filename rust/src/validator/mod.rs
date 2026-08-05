@@ -133,6 +133,35 @@ struct Validator {
 }
 
 impl Validator {
+    /// One invented tag, one answer — wherever it turns up.
+    ///
+    /// Containers used to differ twice over: five said nothing at all, and the
+    /// ones that did spoke in three wordings. The CODES stay as they are (they
+    /// are published), but the note is what a reader acts on, so it is built
+    /// here for every container alike.
+    fn unknown_child(&mut self, parent: &str, name: &str, code: &str, allowed: &[&str], at: Pos) {
+        let hint = format!("Allowed inside <{parent}>: {}.", allowed.join(", "));
+        self.error(
+            code,
+            format!("unknown child of <{parent}>: \"<{name}>\""),
+            &hint,
+            at,
+        );
+    }
+
+    /// Report every child of `el` that is not on `allowed`.
+    fn check_contained(&mut self, el: &Element, parent: &str, code: &str, allowed: &[&str]) {
+        let bad: Vec<(String, Pos)> = el
+            .children
+            .iter()
+            .filter(|c| !allowed.contains(&c.name.as_str()) && c.name != "comment")
+            .map(|c| (c.name.clone(), c.pos))
+            .collect();
+        for (name, pos) in bad {
+            self.unknown_child(parent, &name, code, allowed, pos);
+        }
+    }
+
     fn error(&mut self, code: &str, message: String, hint: &str, at: Pos) {
         self.diagnostics
             .push(Diagnostic::error(code, message, hint, at));
@@ -395,6 +424,16 @@ impl Validator {
         self.collect_pool_field_values(env);
         self.collect_pool_references(env);
         let mut pools_above: Vec<String> = Vec::new();
+        // A fixture holds text and <line>s. Anything else was ignored in silence.
+        let fixtures: Vec<Element> = env
+            .children
+            .iter()
+            .filter(|c| c.kind == Kind::OpenClose && is_fixture_tag(&c.name))
+            .cloned()
+            .collect();
+        for f in &fixtures {
+            self.check_fixture_children(f);
+        }
         for child in &env.children {
             if child.kind == Kind::OpenClose && child.name == "pool" {
                 self.check_closed_tag_attrs("pool", child);
@@ -881,6 +920,24 @@ impl Validator {
             }
         }
 
+        let unknown: Vec<(String, Pos)> = node
+            .children
+            .iter()
+            .filter(|c| {
+                !tables::POOL_CHILDREN.contains(&c.name.as_str())
+                    && forbidden_in_pool(&c.name).is_none()
+                    && c.name != "comment"
+                    && c.name != "data"
+            })
+            .map(|c| (c.name.clone(), c.pos))
+            .collect();
+        for (name, pos) in unknown {
+            // Neither branch below said anything about a name it did not know, and
+            // the `kind != OpenClose` skip meant a self-closing invention was not
+            // even looked at. Tags with a reason of their own keep TDC230.
+            self.unknown_child("pool", &name, "TDC010", &tables::POOL_CHILDREN, pos);
+        }
+
         for child in &node.children {
             if child.kind != Kind::OpenClose {
                 continue;
@@ -1167,6 +1224,32 @@ impl Validator {
         // beats letting it fall through to a confusing "no <gen>", which names a
         // symptom rather than the cause.
         let mut misplaced = 0;
+        let unknown: Vec<(String, Pos)> = open
+            .children
+            .iter()
+            .filter(|c| {
+                !tables::SEQUENCE_CHILDREN.contains(&c.name.as_str())
+                    && !tables::MISPLACED_IN_SEQUENCE.contains(&c.name.as_str())
+                    && c.name != "comment"
+            })
+            .map(|c| (c.name.clone(), c.pos))
+            .collect();
+        for (name, pos) in unknown {
+            // Used to pass in SILENCE: the config validated, exit 0, and the run
+            // went ahead as if the tag had done something.
+            self.unknown_child("sequence", &name, "TDC010", &tables::SEQUENCE_CHILDREN, pos);
+            misplaced += 1;
+        }
+        let wrappers: Vec<Element> = open
+            .children
+            .iter()
+            .filter(|c| c.name == "distinct" || c.name == "uniq")
+            .cloned()
+            .collect();
+        for w in &wrappers {
+            let tag = w.name.clone();
+            self.check_contained(w, &tag, "TDC010", &tables::DISTINCT_CHILDREN);
+        }
         for child in &open.children {
             if tables::MISPLACED_IN_SEQUENCE.contains(&child.name.as_str()) {
                 let hint = tables::PLACEMENT_HINTS
@@ -2685,6 +2768,14 @@ impl Validator {
     /// mint. `<mix flag="NAME">` asks the same question where it has an answer.
     /// Until this check the attribute was accepted here and did nothing, and the
     /// only sign was `${{NAME}}` reaching the data as literal characters.
+    /// A fixture holds text and `<line>`s. Anything else was ignored in silence
+    /// unless it happened to be a generator inside a `<line>`.
+    fn check_fixture_children(&mut self, fixture: &Element) {
+        let f = fixture.clone();
+        let tag = fixture.name.clone();
+        self.check_contained(&f, &tag, "TDC131", &tables::FIXTURE_CHILDREN);
+    }
+
     fn check_case_gen(&mut self, gen: &Element) {
         let Some(flag) = gen.attr_value("anomaly_flag").map(str::trim) else {
             return;
@@ -2740,6 +2831,7 @@ impl Validator {
         }
 
         let mut entries = 0;
+        let mut unknown: Vec<(String, Pos)> = Vec::new();
         for child in &open.children {
             match (child.kind, child.name.as_str()) {
                 (Kind::Map, _) => {
@@ -2763,8 +2855,16 @@ impl Validator {
                     entries += 1;
                     self.check_case_body(child);
                 }
-                _ => {}
+                (_, "comment") | (Kind::Data, _) => {}
+                _ => {
+                    // The catch-all used to be empty, so an invented tag here
+                    // passed without a word — self-closing or not.
+                    unknown.push((child.name.clone(), child.pos));
+                }
             }
+        }
+        for (name, pos) in unknown {
+            self.unknown_child("switch", &name, "TDC124", &tables::SWITCH_CHILDREN, pos);
         }
 
         if entries == 0 {
@@ -3685,6 +3785,20 @@ fn add_member_fields(
             }
         }
     }
+}
+
+fn is_fixture_tag(tag: &str) -> bool {
+    matches!(
+        tag,
+        "before"
+            | "after"
+            | "before_block"
+            | "after_block"
+            | "delimiter_block"
+            | "before_line"
+            | "after_line"
+            | "delimiter_line"
+    )
 }
 
 fn forbidden_in_pool(tag: &str) -> Option<&'static str> {

@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "cases": [
+    {
+      "name": "unknown-child-of-sequence",
+      "description": "An invented tag inside <sequence>. It used to validate and run: check said \"is valid\", exit 0, and the tag did nothing. <env> has always answered this.",
+      "config": "<tdc><env count=\"2\" seed=\"p\" local=\"en\"><sequence name=\"A\"><gen type=\"number\" value=\"1..9\"/><bogus_tag/></sequence></env><block><line><data>x</data></line></block></tdc>",
+      "expected": ["error TDC010 1:92"],
+      "demonstrates": "TDC010"
+    },
+    {
+      "name": "unknown-child-of-switch",
+      "description": "Self-closing on purpose: the walk skipped anything that was not an open/close element, so this exact spelling passed while <bogus></bogus> was caught.",
+      "config": "<tdc><env count=\"2\" seed=\"p\" local=\"en\"><sequence name=\"K\"><gen type=\"text\" value=\"a,b\"/></sequence><switch name=\"S\" on=\"K\"><bogus_tag/><case is=\"a\"><data>1</data></case><default><data>2</data></default></switch></env><block><line><data>x</data></line></block></tdc>",
+      "expected": ["error TDC124 1:124"],
+      "demonstrates": "TDC124"
+    },
+    {
+      "name": "unknown-child-of-distinct",
+      "description": "A <distinct> wrapper inside a sequence groups <gen>s; its own body was never looked at.",
+      "config": "<tdc><env count=\"2\" seed=\"p\" local=\"en\"><sequence name=\"A\"><distinct><gen name=\"p\" type=\"number\" value=\"1..9\"/><gen name=\"q\" type=\"number\" value=\"1..9\"/><bogus_tag/></distinct></sequence></env><block><line><data>x</data></line></block></tdc>",
+      "expected": ["error TDC010 1:153"],
+      "demonstrates": "TDC010"
+    },
+    {
+      "name": "unknown-child-of-pool",
+      "description": "Same skip as <switch>: neither branch of the pool member loop said anything about a name it did not know.",
+      "config": "<tdc><env count=\"2\" seed=\"p\" local=\"en\"><pool name=\"P\" count=\"3\"><bogus_tag/><sequence name=\"f\"><gen type=\"text\" value=\"x,y,z\"/></sequence></pool><sequence name=\"A\"><gen type=\"number\" value=\"1..9\"/></sequence></env><block><line><data>x</data></line></block></tdc>",
+      "expected": ["error TDC010 1:65", "warning TDC231 1:40"],
+      "demonstrates": "TDC010"
+    },
+    {
+      "name": "unknown-child-of-fixture",
+      "description": "A fixture holds text and <line>s. Anything else was ignored unless it was a generator inside a <line>.",
+      "config": "<tdc><env count=\"2\" seed=\"p\" local=\"en\"><before><bogus_tag/><line><data>h</data></line></before><sequence name=\"A\"><gen type=\"number\" value=\"1..9\"/></sequence></env><block><line><data>x</data></line></block></tdc>",
+      "expected": ["error TDC131 1:48"],
+      "demonstrates": "TDC131"
+    },
+    {
+      "name": "a-tag-inside-data-is-text-not-a-mistake",
+      "description": "The deliberate exception. <data>x<b/>y</data> renders x<b/>y, which is how a config emits XML or HTML — so nothing is reported here, and that silence is the feature.",
+      "config": "<tdc><env count=\"2\" seed=\"p\" local=\"en\"><sequence name=\"A\"><gen type=\"number\" value=\"1..9\"/></sequence></env><block><line><data>x<bogus_tag/>y</data></line></block></tdc>",
+      "expected": []
+    }
+  ]
+}
