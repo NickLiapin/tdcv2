@@ -105,6 +105,41 @@
       "description": "A pair= opener with no matching closer anywhere: a plain </data> does not close it",
       "config": "<tdc><env count=\"1\" seed=\"s\" local=\"en\"></env><block><line><data pair=\"alpha\">x</data></line></block></tdc>",
       "expected": ["error PARSE 1:59"]
+    },
+    {
+      "name": "closing-tag-names-another-element",
+      "demonstrates": "PARSE",
+      "description": "<sequence> closed by </gen> — the grammar's END_TAG takes any name, so this was a valid document in all five",
+      "config": "<tdc><env count=\"2\" seed=\"s\" local=\"en\"><sequence name=\"A\"><gen type=\"text\" value=\"a\"/></gen></env><block><line><data>x</data></line></block></tdc>",
+      "expected": ["error PARSE 1:87"]
+    },
+    {
+      "name": "closing-tag-mismatch-at-the-root",
+      "demonstrates": "PARSE",
+      "description": "</env> closing <tdc>: the shortest document that shows the two names are compared",
+      "config": "<tdc></env>",
+      "expected": ["error PARSE 1:5"]
+    },
+    {
+      "name": "closing-tag-mismatch-reported-once",
+      "demonstrates": "PARSE",
+      "description": "One misplaced </case> shifts every closing tag after it — the first is the only one the author can act on",
+      "config": "<tdc><env count=\"2\" seed=\"s\" local=\"en\"><mix name=\"M\"><case><data>a</data></case></case></mix></env><block><line><data>x</data></line></block></tdc>",
+      "expected": ["error PARSE 1:81"]
+    },
+    {
+      "name": "stray-closing-tag-is-named-not-the-leftovers",
+      "demonstrates": "PARSE",
+      "description": "A </block> with nothing to close is reported where it stands, not as whatever the parser made of the rest of the file",
+      "config": "<tdc><env count=\"2\" seed=\"s\" local=\"en\"></env></block><block><line><data>x</data></line></block></tdc>",
+      "expected": ["error PARSE 1:46"]
+    },
+    {
+      "name": "closing-tag-inside-data-is-text",
+      "demonstrates": "",
+      "description": "</gen> inside <data> is output, not structure — the name check must not read raw-text bodies",
+      "config": "<tdc><env count=\"2\" seed=\"s\" local=\"en\"></env><block><line><data></gen></data></line></block></tdc>",
+      "expected": []
     }
   ]
 }

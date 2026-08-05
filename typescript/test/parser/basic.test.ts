@@ -87,14 +87,15 @@ describe('parser — error reporting', () => {
     expect(result.diagnostics.length).toBeGreaterThan(0);
   });
 
-  it('accepts mismatched open/close tag names at grammar level', () => {
-    // Grammar-wise `<tdc></env>` is structurally valid: the end-tag is a
-    // single literal token and the parser does not verify the name matches
-    // the opener. Tag-name matching is a semantic validation that lives
-    // at AST level, to be added in a later milestone.
-    // See docs/vision/07-questions.md if this policy changes.
+  it('refuses a closing tag that names another element', () => {
+    // `END_TAG` is one literal token and the grammar never compares its name
+    // to the opener's, so `<tdc></env>` was structurally valid and every
+    // implementation called it a good document. The comparison is now a parse
+    // listener — see src/parser/closing-tag.ts for why it lives there and not
+    // in the validator.
     const result = parse('<tdc></env>');
-    expect(result.diagnostics).toHaveLength(0);
+    expect(result.diagnostics).toHaveLength(1);
+    expect(result.diagnostics[0]?.message).toContain('</env> closes <tdc>');
   });
 
   it('parseStrict throws TdcParseError on any diagnostic', () => {

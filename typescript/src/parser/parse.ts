@@ -18,6 +18,7 @@ import { CharStream, CommonTokenStream } from 'antlr4ng';
 import { TDCLexer } from '../generated/TDCLexer.js';
 import { TDCParser, type DocumentContext } from '../generated/TDCParser.js';
 
+import { ClosingTagGuard, withClosingTagMismatch } from './closing-tag.js';
 import { DepthGuard, ElementDepthError } from './depth.js';
 import { DiagnosticCollector } from './error-listener.js';
 import { TdcParseError, type ParserDiagnostic } from './errors.js';
@@ -46,6 +47,8 @@ export function parse(source: string): ParseResult {
   parser.removeErrorListeners();
   parser.addErrorListener(collector);
   parser.addParseListener(new DepthGuard());
+  const closingTags = new ClosingTagGuard();
+  parser.addParseListener(closingTags);
 
   let tree: DocumentContext;
   let depthDiagnostic: ParserDiagnostic | undefined;
@@ -70,7 +73,7 @@ export function parse(source: string): ParseResult {
     tree,
     diagnostics: [
       ...preprocessed.diagnostics,
-      ...collector.diagnostics,
+      ...withClosingTagMismatch(collector.diagnostics, closingTags.diagnostic),
       ...(depthDiagnostic ? [depthDiagnostic] : []),
     ],
   };
