@@ -510,9 +510,9 @@ public final class ConfigBuilder {
                 PairedData.restore(body.dataContent().getText()), null, null, null));
         continue;
       }
-      TDCParser.SelfClosingElementContext self = child.selfClosingElement();
-      if (self != null && "gen".equals(self.name.getText())) {
-        Map<String, String> genAttrs = attributes(self.attr());
+      List<TDCParser.AttrContext> genEl = genAttrsOf(child);
+      if (genEl != null) {
+        Map<String, String> genAttrs = attributes(genEl);
         parts.add(
             new Config.CasePart(
                 null, new Config.Gen(genAttrs.getOrDefault("type", ""), genAttrs), null, null));
@@ -657,9 +657,9 @@ public final class ConfigBuilder {
         continue;
       }
 
-      TDCParser.SelfClosingElementContext self = child.selfClosingElement();
-      if (self != null && "gen".equals(self.name.getText())) {
-        Map<String, String> genAttrs = attributes(self.attr());
+      List<TDCParser.AttrContext> genEl = genAttrsOf(child);
+      if (genEl != null) {
+        Map<String, String> genAttrs = attributes(genEl);
         Config.Item item = itemOf(genAttrs);
         if (item.gen() != null) {
           unnamedGens++;
@@ -674,9 +674,9 @@ public final class ConfigBuilder {
       if (open != null && "distinct".equals(open.name.getText())) {
         List<String> group = new ArrayList<>();
         for (TDCParser.ElementContext inner : open.content().element()) {
-          TDCParser.SelfClosingElementContext innerGen = inner.selfClosingElement();
-          if (innerGen != null && "gen".equals(innerGen.name.getText())) {
-            Map<String, String> genAttrs = attributes(innerGen.attr());
+          List<TDCParser.AttrContext> innerGen = genAttrsOf(inner);
+          if (innerGen != null) {
+            Map<String, String> genAttrs = attributes(innerGen);
             Config.Item item = itemOf(genAttrs);
             if (item.gen() != null) {
               unnamedGens++;
@@ -850,4 +850,25 @@ public final class ConfigBuilder {
     }
     return null;
   }
+
+  /**
+   * The attributes of a {@code <gen>}, whichever way it was punctuated.
+   *
+   * <p>Four of the five implementations only ever looked for the SELF-CLOSING form, so
+   * {@code <gen type="text" value="a,b"></gen>} — the ordinary alternative spelling — was not
+   * seen as a generator at all, and the sequence was blamed for having none: "has no
+   * &lt;gen&gt; child", about a &lt;gen&gt; standing in plain sight.
+   */
+  private static List<TDCParser.AttrContext> genAttrsOf(TDCParser.ElementContext child) {
+    TDCParser.SelfClosingElementContext self = child.selfClosingElement();
+    if (self != null && "gen".equals(self.name.getText())) {
+      return self.attr();
+    }
+    TDCParser.OpenCloseElementContext open = child.openCloseElement();
+    if (open != null && "gen".equals(open.name.getText())) {
+      return open.attr();
+    }
+    return null;
+  }
+
 }

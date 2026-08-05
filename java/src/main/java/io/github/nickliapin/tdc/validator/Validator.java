@@ -1370,13 +1370,15 @@ public final class Validator {
 
   private void checkSequenceBody(TDCParser.OpenCloseElementContext open, String name) {
     List<Map<String, String>> gens = new ArrayList<>();
-    List<TDCParser.SelfClosingElementContext> genNodes = new ArrayList<>();
+    // Attributes and a position, rather than the typed node: a <gen> reaches here in
+    // either punctuation, and the only thing wanted of it later is where to point.
+    List<GenNode> genNodes = new ArrayList<>();
     boolean hasCompute = false;
     TDCParser.OpenCloseElementContext computeEl = null;
     for (TDCParser.ElementContext child : open.content().element()) {
-      TDCParser.SelfClosingElementContext self = child.selfClosingElement();
-      if (self != null && "gen".equals(self.name.getText())) {
-        gens.add(attributes(self.attr()));
+      GenNode self = genNodeOf(child);
+      if (self != null) {
+        gens.add(attributes(self.attrs()));
         genNodes.add(self);
         continue;
       }
@@ -1389,9 +1391,9 @@ public final class Validator {
         computeEl = inner;
       } else if ("distinct".equals(inner.name.getText())) {
         for (TDCParser.ElementContext g : inner.content().element()) {
-          TDCParser.SelfClosingElementContext gen = g.selfClosingElement();
-          if (gen != null && "gen".equals(gen.name.getText())) {
-            gens.add(attributes(gen.attr()));
+          GenNode gen = genNodeOf(g);
+          if (gen != null) {
+            gens.add(attributes(gen.attrs()));
             genNodes.add(gen);
           }
         }
@@ -1470,12 +1472,13 @@ public final class Validator {
         continue;
       }
       if (!fieldNames.add(fieldName)) {
-        TDCParser.SelfClosingElementContext node = genNodes.get(g);
+        GenNode node = genNodes.get(g);
         error("TDC111",
             "duplicate field name \"" + fieldName + "\" inside compound <sequence name=\""
                 + (name == null ? "?" : name) + "\">",
             "Each <gen name=\"…\"> within a compound sequence must have a unique name.",
-            at(node, "name")[0], at(node, "name")[1]);
+            at(node.attrs(), "name", node.line(), node.column())[0],
+            at(node.attrs(), "name", node.line(), node.column())[1]);
       }
     }
 
@@ -3370,4 +3373,26 @@ public final class Validator {
     int hidden = value.length() - MESSAGE_ECHO_LIMIT;
     return value.substring(0, MESSAGE_ECHO_LIMIT) + "\u2026 (" + hidden + " more chars)";
   }
+
+  /** A {@code <gen>}'s attributes and where it starts, whichever way it was punctuated. */
+  private record GenNode(List<TDCParser.AttrContext> attrs, int line, int column) {}
+
+  /**
+   * The {@code <gen>} in this child, self-closing or open/close alike.
+   *
+   * <p>Matching only the self-closing form left {@code <gen …></gen>} unseen, and the sequence
+   * was then blamed for having no generator while one stood in plain sight.
+   */
+  private GenNode genNodeOf(TDCParser.ElementContext child) {
+    TDCParser.SelfClosingElementContext self = child.selfClosingElement();
+    if (self != null && "gen".equals(self.name.getText())) {
+      return new GenNode(self.attr(), line(self), column(self));
+    }
+    TDCParser.OpenCloseElementContext open = child.openCloseElement();
+    if (open != null && "gen".equals(open.name.getText())) {
+      return new GenNode(open.attr(), line(open), column(open));
+    }
+    return null;
+  }
+
 }
