@@ -234,6 +234,146 @@ Lo mismo vale un nivel más arriba: un `<mix>` escrito dentro de una rama de
 [`<switch>`](./switch.mdx#una-proporción-dentro-de-una-rama) toma su cuota sobre las
 filas que esa rama capturó, no sobre la ejecución completa.
 
+## Una proporción menor que un registro
+
+La regla del subconjunto tiene un borde que conviene conocer de antemano. Un
+porcentaje es una proporción de **las filas que llegan a la rama**, no una
+probabilidad que se tira para cada fila. Cuando esa proporción resulta menor que
+una fila entera, la rama puede producir un valor y puede no producir nada.
+
+Esta configuración le da un diagnóstico a cada registro. El diez por ciento de
+cada sexo recibe un diagnóstico específico de ese sexo, y el resto recibe uno
+general:
+
+```xml
+<env count="10" seed="demo" local="en">
+    <sequence name="Gender">
+        <gen type="text" value="Male,Female" percent="50,50"/>
+    </sequence>
+    <switch name="Diagnosis" on="Gender">
+        <case is="Male">
+            <mix percent="10,90">
+                <case><gen type="template" value="medical.diagnosisMale"/></case>
+                <case><gen type="template" value="medical.diagnosis"/></case>
+            </mix>
+        </case>
+        <case is="Female">
+            <mix percent="10,90">
+                <case><gen type="template" value="medical.diagnosisFemale"/></case>
+                <case><gen type="template" value="medical.diagnosis"/></case>
+            </mix>
+        </case>
+    </switch>
+</env>
+```
+
+<Terminal title="./run diagnosis.tdc (count=10, seed=demo)">
+{`Female,Coronary Artery Disease
+Female,Tuberculosis
+Male,Attention Deficit Hyperactivity Disorder
+Male,Osteoarthritis
+Male,Hypothyroidism
+Male,Celiac Disease
+Female,Anemia
+Female,Postpartum Hemorrhage
+Female,Tinnitus
+Male,Obstructive Sleep Apnea`}
+</Terminal>
+
+El lado femenino funcionó: `Postpartum Hemorrhage` en la fila 8 viene de
+`medical.diagnosisFemale`. Del lado masculino no aparece nada de
+`medical.diagnosisMale` — las cinco filas masculinas llevan condiciones generales.
+
+Los datos son correctos, la configuración es correcta y el reparto también.
+Cuente las filas masculinas: son **cinco**. El diez por ciento de cinco filas es
+**media fila**.
+
+:::danger[Una proporción menor que una fila no es una probabilidad baja, es un volado invisible]
+`percent="10"` sobre un subconjunto de cinco filas pide 0.5 registros. TDC no
+puede emitir medio registro, así que emite uno o ninguno, y lo decide únicamente
+el `seed`. La ejecución de arriba no tuvo mala suerte. Deje la configuración
+igual, cambie solo el seed, y el diagnóstico masculino específico aparece en
+alrededor de la mitad de las ejecuciones.
+
+Cada vez que una proporción sea pequeña, multiplíquela por la cantidad de filas
+que realmente llegarán a ella. Por debajo de 1, la columna es un volado.
+:::
+
+El volado se tira una sola vez, cuando usted elige el seed, y no otra vez en cada
+ejecución. La configuración de arriba devuelve los mismos diez registros siempre:
+una columna que salió vacía sigue vacía, y volver a ejecutarla no prueba nada. Es
+el [determinismo](../core-concepts/determinism.mdx) funcionando tal como se
+promete, y es justo lo que vuelve difícil de detectar la trampa. La salida es
+estable, reproducible y no corresponde a la proporción que usted pidió.
+
+### Aquí no hay término medio
+
+La misma configuración, con un número cambiado; medido sobre 30 seeds por fila:
+
+| `percent` | Filas pedidas, de 5 | Diagnósticos masculinos específicos |
+| :-------- | :------------------ | :---------------------------------- |
+| `5`       | 0.25                | 0 con cada seed                     |
+| `9`       | 0.45                | 0 con cada seed                     |
+| **`10`**  | **0.5**             | **0 o 1 — lo decide el seed**       |
+| `11`      | 0.55                | 1 con cada seed                     |
+| `16`      | 0.8                 | 1 con cada seed                     |
+| `20`      | 1.0                 | 1 con cada seed                     |
+
+Nada aparece ni desaparece de a poco. Por debajo del 10 % la rama no dispara
+nunca, por encima del 10 % dispara exactamente una vez, y el 10 % es el único
+valor del rango que varía.
+
+La razón está en el método de reparto. Primero cada rama toma las filas enteras
+que cubre su proporción, y después las filas sobrantes van a las ramas con la
+parte fraccionaria más grande. Con `percent="11"` las proporciones son 0.55 y
+4.45, así que la única fila sobrante va a la primera rama con cada seed. Con
+`percent="9"` son 0.45 y 4.55, y va a la segunda con cada seed. Solo con
+`percent="10"` ambas partes fraccionarias valen 0.5, no hay nada que las separe,
+y el empate se rompe con el seed.
+
+### Dos maneras de volverlo seguro
+
+**Subir la proporción** para que la fracción gane sin empate. Cambia un carácter:
+
+```xml
+<mix percent="20,80">
+```
+
+<Terminal title="./run diagnosis.tdc (count=10, seed=demo, percent=20,80)">
+{`Female,Coronary Artery Disease
+Female,Tuberculosis
+Male,Attention Deficit Hyperactivity Disorder
+Male,Spermatocele
+Male,Hypothyroidism
+Male,Celiac Disease
+Female,Anemia
+Female,Postpartum Hemorrhage
+Female,Tinnitus
+Male,Obstructive Sleep Apnea`}
+</Terminal>
+
+La fila 4 ahora lleva `Spermatocele`. Nada más en la columna se movió.
+
+**O subir el count** y conservar el 10 %. Con `count="20"` el subconjunto
+masculino tiene diez filas, y el 10 % de diez es exactamente una:
+
+<Terminal title="./run diagnosis.tdc (count=20, seed=demo, solo filas masculinas)">
+{`Male,Osteoarthritis
+Male,Hypothyroidism
+Male,Obesity
+Male,Vitamin D Deficiency
+Male,Cryptorchidism
+Male,Obstructive Sleep Apnea
+Male,Varicose Veins
+Male,Vitamin D Deficiency
+Male,Attention Deficit Hyperactivity Disorder
+Male,Cholecystitis`}
+</Terminal>
+
+Un `Cryptorchidism` en diez filas masculinas, con cada seed. Una vez que la
+cantidad de filas pedidas es un número entero, la cuenta es exacta y el seed solo
+decide a qué filas les toca.
+
 ## Ramas compuestas
 
 Esto es lo que `<mix>` le da y una lista pelada de cadenas no puede dar: un `<case>`

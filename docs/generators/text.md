@@ -160,6 +160,14 @@ Tails
 Heads
 ```
 
+The rounding matters most when a share is **small**. `percent="10"` over 5 rows
+asks for half a row, and half a row cannot be emitted — so the value appears once
+or not at all, decided by the seed. A rare option can vanish from a short run
+entirely while the config looks correct. Multiply the share by the number of rows
+before you trust it, and see
+[A share smaller than one record](../constructs/mix.md#a-share-smaller-than-one-record)
+for the worked example.
+
 ### Partial percent lists
 
 You don't have to fill in every position. The rule is:

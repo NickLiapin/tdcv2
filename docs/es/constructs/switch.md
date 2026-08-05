@@ -383,6 +383,19 @@ male -> prostatitis    10
 
 No «unos diez» — el recuento es el mismo con cualquier `seed`.
 
+> [!CAUTION]
+> **El denominador es pequeño, así que una proporción chica puede redondearse a nada**
+>
+> El ejemplo de arriba usa `20` por una razón. Solo cinco registros son masculinos,
+> así que `20 %` pide exactamente un registro. Escriba `10 %` en su lugar y la rama
+> pide **medio** registro, que no se puede emitir. Entonces `prostatitis` aparece
+> una vez o no aparece, lo decide el seed, y la ejecución se ve como si la
+> configuración nunca hubiera funcionado.
+>
+> Multiplique la proporción por la cantidad de filas que capturará esa rama. Por
+> debajo de 1, la columna es un volado. El ejemplo resuelto está en
+> [Una proporción menor que un registro](./mix.md#una-proporción-menor-que-un-registro).
+
 **Por qué importa:** el denominador es la rama. Una proporción medida sobre la ejecución
 completa repartiría 20 valores `prostatitis` entre cien registros y luego descartaría los
 que cayeran en un registro femenino. Obtendría algo cercano a diez, y nunca diez exactos.

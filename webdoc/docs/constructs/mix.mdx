@@ -235,6 +235,141 @@ The same holds one level out: a `<mix>` written inside a
 [`<switch>`](./switch.mdx#a-share-inside-a-branch) branch takes its quota over the rows
 that branch matched, not over the run.
 
+## A share smaller than one record
+
+The subset rule has an edge worth knowing before it costs you an afternoon. A
+percentage is a share of **the rows that reach the branch**, not a chance rolled
+for each row. When that share works out to less than one whole row, the branch
+may produce a value and it may produce nothing at all.
+
+This config gives every record a diagnosis. Ten percent of each sex gets a
+diagnosis specific to that sex, and the rest get a general one:
+
+```xml
+<env count="10" seed="demo" local="en">
+    <sequence name="Gender">
+        <gen type="text" value="Male,Female" percent="50,50"/>
+    </sequence>
+    <switch name="Diagnosis" on="Gender">
+        <case is="Male">
+            <mix percent="10,90">
+                <case><gen type="template" value="medical.diagnosisMale"/></case>
+                <case><gen type="template" value="medical.diagnosis"/></case>
+            </mix>
+        </case>
+        <case is="Female">
+            <mix percent="10,90">
+                <case><gen type="template" value="medical.diagnosisFemale"/></case>
+                <case><gen type="template" value="medical.diagnosis"/></case>
+            </mix>
+        </case>
+    </switch>
+</env>
+```
+
+<Terminal title="./run diagnosis.tdc (count=10, seed=demo)">
+{`Female,Coronary Artery Disease
+Female,Tuberculosis
+Male,Attention Deficit Hyperactivity Disorder
+Male,Osteoarthritis
+Male,Hypothyroidism
+Male,Celiac Disease
+Female,Anemia
+Female,Postpartum Hemorrhage
+Female,Tinnitus
+Male,Obstructive Sleep Apnea`}
+</Terminal>
+
+The female side worked: `Postpartum Hemorrhage` on row 8 comes from
+`medical.diagnosisFemale`. The male side shows nothing from
+`medical.diagnosisMale` — all five male rows carry general conditions.
+
+The data is right, the config is right, and the split is right. Count the male
+rows: **five**. Ten percent of five rows is **half a row**.
+
+:::danger[A share below one row is not a small chance. It is a coin flip you cannot see.]
+`percent="10"` over a five-row subset asks for 0.5 records. TDC cannot emit half
+a record, so it emits one or none, and the `seed` alone decides which. The run
+above is not unlucky. Keep the config and change only the seed, and the
+male-specific diagnosis appears in about half of the runs.
+
+Whenever a share is small, multiply it by the number of rows that will actually
+reach it. Below 1, the column is a coin flip.
+:::
+
+The coin is tossed once, when you choose the seed — not again on every run. The
+config above returns the same ten records forever, so a column that came out
+empty stays empty, and re-running it proves nothing. That is
+[determinism](../core-concepts/determinism.mdx) working as promised, and it is
+what makes the trap hard to spot: the output is stable, repeatable, and wrong
+about the share you asked for.
+
+### There is no gradual middle
+
+The same config, one number changed, measured over 30 seeds each:
+
+| `percent` | Rows requested, out of 5 | Male-specific diagnoses produced |
+| :-------- | :----------------------- | :--------------------------------- |
+| `5`       | 0.25                     | 0 under every seed                 |
+| `9`       | 0.45                     | 0 under every seed                 |
+| **`10`**  | **0.5**                  | **0 or 1 — the seed decides**      |
+| `11`      | 0.55                     | 1 under every seed                 |
+| `16`      | 0.8                      | 1 under every seed                 |
+| `20`      | 1.0                      | 1 under every seed                 |
+
+Nothing fades in or out. Below 10% the branch never fires, above 10% it always
+fires exactly once, and 10% is the only value in the range that varies at all.
+
+The reason is the allocation method. Each branch first takes the whole rows its
+share covers, then the leftover rows go to the branches with the largest
+fraction. At `percent="11"` the two shares are 0.55 and 4.45, so the one leftover
+row goes to the first branch under every seed. At `percent="9"` they are 0.45 and
+4.55, and it goes to the second under every seed. At exactly `percent="10"` both
+fractions are 0.5, nothing separates them, and the tie is broken from the seed.
+
+### Two ways to make it certain
+
+**Raise the share** so the fraction wins outright. One character changes:
+
+```xml
+<mix percent="20,80">
+```
+
+<Terminal title="./run diagnosis.tdc (count=10, seed=demo, percent=20,80)">
+{`Female,Coronary Artery Disease
+Female,Tuberculosis
+Male,Attention Deficit Hyperactivity Disorder
+Male,Spermatocele
+Male,Hypothyroidism
+Male,Celiac Disease
+Female,Anemia
+Female,Postpartum Hemorrhage
+Female,Tinnitus
+Male,Obstructive Sleep Apnea`}
+</Terminal>
+
+Row 4 now carries `Spermatocele`. Nothing else in the column moved.
+
+**Or raise the count** and keep the 10%. At `count="20"` the male subset holds ten
+rows, and 10% of ten is exactly one:
+
+<Terminal title="./run diagnosis.tdc (count=20, seed=demo, male rows only)">
+{`Male,Osteoarthritis
+Male,Hypothyroidism
+Male,Obesity
+Male,Vitamin D Deficiency
+Male,Cryptorchidism
+Male,Obstructive Sleep Apnea
+Male,Varicose Veins
+Male,Vitamin D Deficiency
+Male,Attention Deficit Hyperactivity Disorder
+Male,Cholecystitis`}
+</Terminal>
+
+One `Cryptorchidism` in ten male rows, under every seed. Once the requested
+number of rows is a whole number, the count is exact and the seed only decides
+which rows get it.
+
 ## Compound branches
 
 Here's what `<mix>` gives you that a bare list of strings can't: a `<case>` can

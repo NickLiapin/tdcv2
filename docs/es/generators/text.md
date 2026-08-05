@@ -161,6 +161,14 @@ Tails
 Heads
 ```
 
+El redondeo importa sobre todo cuando la proporción es **pequeña**.
+`percent="10"` sobre 5 filas pide media fila, y media fila no se puede emitir —
+así que el valor aparece una vez o no aparece, y lo decide el seed. Una opción
+rara puede desaparecer por completo de una ejecución corta mientras la
+configuración se ve correcta. Multiplique la proporción por la cantidad de filas
+antes de confiar en ella; el ejemplo resuelto está en
+[Una proporción menor que un registro](../constructs/mix.md#una-proporción-menor-que-un-registro).
+
 ### Máscaras `percent` cortas
 
 No hace falta llenar todas las posiciones. La regla es:

@@ -351,6 +351,17 @@ male -> prostatitis    10`}
 
 Not "about ten" — the count is the same on every seed.
 
+:::danger[The denominator is small, so a small share can round away to nothing]
+The example above uses `20` for a reason. Only five records are male, so `20%`
+asks for exactly one record. Write `10%` instead and the branch asks for **half**
+a record, which cannot be emitted — `prostatitis` then appears once or not at all,
+decided by the seed, and the run looks like the config never worked.
+
+Multiply the share by the number of rows the branch will match. Below 1, the
+column is a coin flip. The worked example is
+[A share smaller than one record](./mix.mdx#a-share-smaller-than-one-record).
+:::
+
 **Why it matters:** the denominator is the branch. A share measured against the whole run
 would hand out 20 prostatitis values over 100 records, then drop the ones that landed on a
 female record. You would get somewhere near ten, and never reliably ten.
