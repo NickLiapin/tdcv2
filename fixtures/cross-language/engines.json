@@ -740,6 +740,14 @@
         "lines": ["bare plus minus capital name-intact"]
       }
     },
+    "expressions/tdcmath-fourth-wave-produces-the-same-double-everywhere": {
+      "engine2": {
+        "lines": ["erf erfc gamma lgamma gamma-whole erfc-tail"]
+      },
+      "engine3": {
+        "lines": ["erf erfc gamma lgamma gamma-whole erfc-tail"]
+      }
+    },
     "formatting/mask-phone": {
       "engine2": {
         "lines": ["555-123-4567"]

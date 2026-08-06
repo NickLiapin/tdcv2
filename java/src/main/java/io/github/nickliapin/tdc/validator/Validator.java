@@ -195,6 +195,10 @@ public final class Validator {
       Map.ofEntries(
           Map.entry("abs", new int[] {1, 1}),
           Map.entry("acos", new int[] {1, 1}),
+          Map.entry("erf", new int[] {1, 1}),
+          Map.entry("erfc", new int[] {1, 1}),
+          Map.entry("gamma", new int[] {1, 1}),
+          Map.entry("lgamma", new int[] {1, 1}),
           Map.entry("acosh", new int[] {1, 1}),
           Map.entry("asinh", new int[] {1, 1}),
           Map.entry("atanh", new int[] {1, 1}),
@@ -235,19 +239,20 @@ public final class Validator {
   private static final List<String> EXPR_FUNCTION_NAMES =
       List.of(
           "abs", "acos", "acosh", "asin", "asinh", "atan", "atan2", "atanh", "cbrt", "ceil",
-          "contains", "cos", "cosh", "ends_with", "exp", "expm1", "floor", "hypot", "is_empty",
-          "len", "log", "log10", "log1p", "log2", "lower", "max", "min", "pow", "round", "sign",
-          "sin", "sinh", "sqrt", "starts_with", "tan", "tanh", "trunc", "upper");
+          "contains", "cos", "cosh", "ends_with", "erf", "erfc", "exp", "expm1", "floor", "gamma",
+          "hypot", "is_empty", "len", "lgamma", "log", "log10", "log1p", "log2", "lower", "max",
+          "min", "pow", "round", "sign", "sin", "sinh", "sqrt", "starts_with", "tan", "tanh",
+          "trunc", "upper");
 
   /**
-   * Not available, and not typos either. Someone writing {@code erf(_count)} knows what they
-   * meant, and "did you mean exp?" is worse than saying nothing.
+   * Not available, and not typos either. Someone writing {@code digamma(_count)} knows what they
+   * meant, and "did you mean gamma?" is worse than saying nothing.
    *
    * <p>Every name here has to be built and pinned to its bits in five languages before it can be
    * offered, which is the only thing keeping it on this list.
    */
   private static final List<String> PLANNED_EXPR_FUNCTIONS =
-      List.of("degrees", "erf", "erfc", "gamma", "lgamma", "radians");
+      List.of("beta", "degrees", "digamma", "radians", "zeta");
 
   private static final List<String> SUPPORTED_UNARY_OPERATORS = List.of("!", "-", "+");
 

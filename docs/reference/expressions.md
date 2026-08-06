@@ -113,6 +113,8 @@ list of numeric words still matches.
 | `asinh(x)` `acosh(x)` `atanh(x)` | 1 | inverse hyperbolic functions                     |
 | `hypot(x, y)`              | 2      | vector length, without overflowing on the way    |
 | `sign(x)`                  | 1      | −1, 0 or 1                                       |
+| `erf(x)` `erfc(x)`         | 1      | the error function and its complement            |
+| `gamma(x)` `lgamma(x)`     | 1      | Γ(x), and log \|Γ(x)\| for when Γ overflows       |
 
 Everything above the rule is exact — built from comparisons and from the arithmetic IEEE-754
 pins down, so the five implementations cannot disagree. Everything below it, TDC computes
@@ -225,19 +227,40 @@ same reason, and inherit the accuracy.
 to infinity for x = 10²⁰⁰, though the answer is perfectly representable. And `log2` separates the
 exponent before taking any logarithm, so `log2(8)` is 3 rather than 2.9999999999999996.
 
+### Where the bound stops being a number of ulp
+
+Four of these carry a bound that is not simply "within 4 ulp", and saying so is
+part of the reference rather than a footnote:
+
+| Function | What holds |
+| :--- | :--- |
+| `erf` | within 4 ulp |
+| `erfc` | within 8 ulp — it passes through e^(−x²), and that exponential carries the rounding of the square |
+| `gamma` | **exact** on whole numbers to 23, within 7 ulp on all 171 a double can hold; twelve significant digits elsewhere |
+| `lgamma` | within 32 ulp away from its zeros; the meaningful bound AT x = 1 and x = 2 is absolute, under 10⁻¹³ |
+
+`lgamma` is the interesting one. It is zero at 1 and at 2, and no method that
+adds up terms of size 1 can be *relatively* accurate about their cancelling to
+nothing — the claim there has to be absolute, and it is. Both zeros come out
+exactly zero.
+
+`gamma` off the whole numbers ends in an exponential, so its drift grows with
+log Γ(x) itself: the same amplification `pow` has, for the same reason. That is
+why a whole number takes the factorial path instead.
+
 ## What is deliberately absent
 
-**The rest of the maths library.** `erf`, `erfc`, `gamma`, `lgamma`, `degrees` and `radians`
-are refused by name rather than guessed at:
+**The rest of the maths library.** `digamma`, `beta`, `zeta`, `degrees` and `radians` are
+refused by name rather than guessed at:
 
 `tdcv2 check seasonal.tdc`
 
 ```
-error[TDC257]: erf() is not available yet in an if expression
+error[TDC257]: digamma() is not available yet in an if expression
 ```
 
-Note what it does NOT say: "did you mean `exp`?" Edit distance would have offered exactly
-that, and `exp` is not the error function. A name on this list is answered with
+Note what it does NOT say: "did you mean `gamma`?" Edit distance would have offered exactly
+that, and digamma is the derivative of gamma's logarithm, not gamma. A name on this list is answered with
 the reason instead.
 
 Each one has to be built and pinned to its bits in five languages before it can be offered,

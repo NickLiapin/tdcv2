@@ -349,3 +349,255 @@ describe('TdcMath lands where the true value is', () => {
     expect(TdcMath.atan2(0, -1)).toBe(TdcMath.PI);
   });
 });
+
+/**
+ * ── The statistical four ──────────────────────────────────────────────────────
+ *
+ * `erf`, `erfc`, `gamma` and `lgamma` have no counterpart in JavaScript's Math,
+ * so there is nothing on this side to compare against. The tables below were
+ * produced by Python's libm — the same reference the other functions are
+ * measured against, just written down rather than called.
+ *
+ * Regenerate with:
+ *   python3 -c "import math; print(math.erf(0.5))"   (and so on)
+ */
+const ERF_REFERENCE: readonly (readonly [number, number])[] = [
+  [-3, -0.9999779095030015],
+  [-2.75, -0.9998993780778804],
+  [-2.5, -0.999593047982555],
+  [-2.25, -0.9985372834133188],
+  [-2, -0.9953222650189527],
+  [-1.75, -0.9866716712191824],
+  [-1.5, -0.9661051464753108],
+  [-1.25, -0.9229001282564582],
+  [-1, -0.8427007929497148],
+  [-0.75, -0.7111556336535152],
+  [-0.5, -0.5204998778130465],
+  [-0.25, -0.2763263901682369],
+  [0, 0],
+  [0.25, 0.2763263901682369],
+  [0.5, 0.5204998778130465],
+  [0.75, 0.7111556336535152],
+  [1, 0.8427007929497148],
+  [1.25, 0.9229001282564582],
+  [1.5, 0.9661051464753108],
+  [1.75, 0.9866716712191824],
+  [2, 0.9953222650189527],
+  [2.25, 0.9985372834133188],
+  [2.5, 0.999593047982555],
+  [2.75, 0.9998993780778804],
+  [3, 0.9999779095030015],
+  [0, 0],
+  [1e-8, 1.1283791670955126e-8],
+  [0.5, 0.5204998778130465],
+  [1, 0.8427007929497148],
+  [1.5, 0.9661051464753108],
+  [2, 0.9953222650189527],
+  [5, 0.9999999999984626],
+];
+const ERFC_REFERENCE: readonly (readonly [number, number])[] = [
+  [0, 1],
+  [1, 0.15729920705028516],
+  [2, 0.0046777349810472645],
+  [3, 0.000022090496998585438],
+  [4, 1.541725790028002e-8],
+  [5, 1.537459794428035e-12],
+  [6, 2.1519736712498913e-17],
+  [7, 4.183825607779415e-23],
+  [8, 1.1224297172982926e-29],
+  [9, 4.137031746513811e-37],
+  [10, 2.0884875837625446e-45],
+  [11, 1.4408661379436945e-54],
+  [12, 1.3562611692059042e-64],
+  [13, 1.7395573154667246e-75],
+  [14, 3.0372298477503115e-87],
+  [15, 7.212994172451208e-100],
+  [16, 2.3284857515715305e-113],
+  [17, 1.0212280150942608e-127],
+  [18, 6.082369231816398e-143],
+  [19, 4.917722839256476e-159],
+  [20, 5.395865611607901e-176],
+  [21, 8.032453871022456e-194],
+  [22, 1.6219058609334724e-212],
+  [23, 4.441265948088057e-232],
+  [24, 1.6489825831519335e-252],
+  [25, 8.300172571196523e-274],
+  [26, 5.663192408856143e-296],
+  [0.5, 0.4795001221869535],
+  [1, 0.15729920705028516],
+  [1.5, 0.033894853524689274],
+  [3, 0.000022090496998585438],
+  [10, 2.0884875837625446e-45],
+  [20, 5.395865611607901e-176],
+  [25, 8.300172571196523e-274],
+];
+const GAMMA_REFERENCE: readonly (readonly [number, number])[] = [
+  [0.1, 9.51350769866873],
+  [0.9291666666666666, 1.0461976755091167],
+  [1.7583333333333333, 0.9209842228828232],
+  [2.5875, 1.4163177758741623],
+  [3.4166666666666665, 3.034969993897266],
+  [4.245833333333333, 8.239500443570774],
+  [5.074999999999999, 26.886699548075853],
+  [5.904166666666666, 101.98505561742414],
+  [6.7333333333333325, 439.3855891427291],
+  [7.562499999999999, 2113.951668582568],
+  [8.391666666666666, 11211.103644359844],
+  [9.220833333333331, 64871.83473573114],
+  [10.049999999999999, 406177.8260348657],
+  [10.879166666666666, 2733080.4261579034],
+  [11.708333333333332, 19650096.636426892],
+  [12.5375, 150218408.2361388],
+  [13.366666666666665, 1215882320.4364662],
+  [14.195833333333331, 10381746091.660011],
+  [15.024999999999999, 93208185321.14206],
+  [15.854166666666664, 877399485464.423],
+  [16.683333333333334, 8637534396405.851],
+  // eslint's no-loss-of-precision reads this one as over-long even though it
+  // round-trips exactly; the same double spelled with an exponent satisfies both.
+  [17.5125, 8.872266146418763e13],
+  [18.341666666666665, 948925563681788.9],
+  [19.170833333333334, 10547915432793546],
+  [20, 121645100408832000],
+  [0.5, 1.7724538509055159],
+  [1.5, 0.8862269254527578],
+  [2.5, 1.329340388179137],
+  [-0.5, -3.544907701811032],
+  [-1.5, 2.363271801207355],
+  [-2.5, -0.9453087204829418],
+  [-4.7, -0.05354127572391971],
+  [100, 9.332621544394415e155],
+  [171, 7.257415615307998e306],
+];
+const LGAMMA_REFERENCE: readonly (readonly [number, number])[] = [
+  [0.1, 2.2527126517342055],
+  [1.3458333333333334, -0.11475683353336884],
+  [2.591666666666667, 0.35116939887503507],
+  [3.8374999999999995, 1.5914462800412734],
+  [5.083333333333333, 3.3043274553274764],
+  [6.329166666666667, 5.358722720631954],
+  [7.574999999999998, 7.680770735135469],
+  [8.820833333333333, 10.22297077565126],
+  [10.066666666666666, 12.952177478551311],
+  [11.312499999999998, 15.843936692547704],
+  [12.558333333333334, 18.879458730028656],
+  [13.804166666666665, 22.043852383873915],
+  [15.049999999999997, 25.32502458980572],
+  [16.295833333333334, 28.712958883253734],
+  [17.541666666666668, 32.199222461378625],
+  [18.7875, 35.77661790896893],
+  [20.033333333333335, 39.43893012118895],
+  [21.279166666666665, 43.18073796349224],
+  [22.525, 46.99727120529611],
+  [23.770833333333336, 50.884299890172805],
+  [25.01666666666667, 54.838047440189705],
+  [26.2625, 58.85512145182795],
+  [27.508333333333333, 62.93245789800734],
+  [28.754166666666666, 67.06727563916499],
+  [29.999999999999996, 71.257038967168],
+  [0.5, 0.5723649429247004],
+  [100, 359.1342053695754],
+  [1000, 5905.220423209181],
+  [1000000, 12815504.569147613],
+  [-0.5, 1.265512123484645],
+  [-3.7, -1.379739904965825],
+];
+
+describe('TdcMath: the statistical four', () => {
+  it('erf stays within 4 ulp of libm', () => {
+    for (const [x, expected] of ERF_REFERENCE) {
+      expect(ulpsApart(TdcMath.erf(x), expected), `erf(${String(x)})`).toBeLessThanOrEqual(4);
+    }
+  });
+
+  /**
+   * Eight rather than four, and the extra is not slack: `erfc` past 1 goes
+   * through `e^(-x²)`, and that exponential carries the rounding of the square.
+   * The split in `expNegSquare` is what keeps it at eight instead of 445.
+   */
+  it('erfc stays within 8 ulp of libm', () => {
+    for (const [x, expected] of ERFC_REFERENCE) {
+      expect(ulpsApart(TdcMath.erfc(x), expected), `erfc(${String(x)})`).toBeLessThanOrEqual(8);
+    }
+  });
+
+  /**
+   * `erfc` is not `1 - erf`, and this is where it shows. The subtraction decays
+   * in two stages: at x = 5 it still produces a number, but only the first six
+   * of twelve digits are right; by x = 6 erf has rounded to 1 and the answer is
+   * gone entirely, though the true value is 2e-17 and perfectly representable.
+   */
+  it('erfc keeps the value that 1 - erf throws away', () => {
+    const half = 1 - TdcMath.erf(5);
+    expect(half).toBeGreaterThan(0);
+    // Same first six digits as erfc(5), then they part company.
+    expect(Math.abs((half - TdcMath.erfc(5)) / TdcMath.erfc(5))).toBeGreaterThan(1e-8);
+    expect(Math.abs((half - TdcMath.erfc(5)) / TdcMath.erfc(5))).toBeLessThan(1e-4);
+
+    expect(TdcMath.erf(6)).toBe(1);
+    expect(1 - TdcMath.erf(6)).toBe(0);
+    expect(TdcMath.erfc(6)).toBeGreaterThan(2e-17);
+    expect(TdcMath.erfc(6)).toBeLessThan(3e-17);
+    // And it keeps going long after that.
+    expect(TdcMath.erfc(20)).toBeGreaterThan(0);
+    expect(TdcMath.erfc(26)).toBeGreaterThan(0);
+  });
+
+  /**
+   * Γ of a whole number is a factorial, and that is what people check first.
+   * The dedicated path makes the first twenty-three exact.
+   */
+  it('gamma is exact on the whole numbers a factorial can hold', () => {
+    let factorial = 1;
+    for (let n = 1; n <= 23; n += 1) {
+      expect(TdcMath.gamma(n), `gamma(${String(n)})`).toBe(factorial);
+      factorial *= n;
+    }
+    expect(TdcMath.gamma(171)).toBeLessThan(Number.POSITIVE_INFINITY);
+    expect(TdcMath.gamma(172)).toBe(Number.POSITIVE_INFINITY);
+  });
+
+  /**
+   * Off the whole numbers, Γ ends in an exponential, so the drift grows with
+   * log Γ(x) — the same amplification `pow` has. Twelve significant digits is
+   * what survives, and is what is asserted.
+   */
+  it('gamma keeps twelve significant digits elsewhere', () => {
+    for (const [x, expected] of GAMMA_REFERENCE) {
+      const relative = Math.abs((TdcMath.gamma(x) - expected) / expected);
+      expect(relative, `gamma(${String(x)})`).toBeLessThan(1e-12);
+    }
+  });
+
+  it('gamma has no value at a pole', () => {
+    expect(TdcMath.gamma(0)).toBeNaN();
+    expect(TdcMath.gamma(-1)).toBeNaN();
+    expect(TdcMath.gamma(-10)).toBeNaN();
+    expect(TdcMath.lgamma(0)).toBe(Number.POSITIVE_INFINITY);
+    expect(TdcMath.lgamma(-3)).toBe(Number.POSITIVE_INFINITY);
+  });
+
+  /**
+   * `lgamma` is measured two ways on purpose. It has zeros at 1 and 2, and no
+   * method that sums terms of size 1 can be RELATIVELY accurate about their
+   * cancelling to nothing — so the relative bound is claimed only where the
+   * value is not near zero, and an absolute bound covers the rest.
+   */
+  it('lgamma stays within 32 ulp where it is not near a zero', () => {
+    for (const [x, expected] of LGAMMA_REFERENCE) {
+      if (Math.abs(expected) < 1) continue;
+      expect(ulpsApart(TdcMath.lgamma(x), expected), `lgamma(${String(x)})`).toBeLessThanOrEqual(
+        32,
+      );
+    }
+  });
+
+  it('lgamma stays within 1e-13 in absolute terms, and is exactly zero at both zeros', () => {
+    for (const [x, expected] of LGAMMA_REFERENCE) {
+      if (x > 30) continue;
+      expect(Math.abs(TdcMath.lgamma(x) - expected), `lgamma(${String(x)})`).toBeLessThan(1e-13);
+    }
+    expect(TdcMath.lgamma(1)).toBe(0);
+    expect(TdcMath.lgamma(2)).toBe(0);
+  });
+});

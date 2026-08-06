@@ -67,8 +67,8 @@
     {
       "name": "a-planned-function-is-not-a-typo",
       "demonstrates": "TDC257",
-      "description": "erf is refused with the reason rather than a suggestion: it is not implemented yet, and edit distance would have offered \"exp\", which is not the error function. Its neighbours expm1, log1p, log2, asinh, acosh, atanh, hypot and sign ARE implemented — TDC computes them itself rather than calling the host.",
-      "config": "<tdc><env count=\"2\" seed=\"s\" local=\"en\"><sequence name=\"N\"><gen type=\"text\" value=\"5\"/></sequence><sequence name=\"R\"><gen if=\"erf(N) > 1\" type=\"text\" value=\"Y\"/><gen type=\"text\" value=\"N\"/></sequence></env><block><line><data>${{R}}</data></line></block></tdc>",
+      "description": "digamma is refused with the reason rather than a suggestion: it is not implemented yet, and edit distance would have offered \"gamma\", which is a different function — digamma is the derivative of its logarithm. erf, erfc, gamma and lgamma ARE implemented, TDC computing each itself rather than calling the host.",
+      "config": "<tdc><env count=\"2\" seed=\"s\" local=\"en\"><sequence name=\"N\"><gen type=\"text\" value=\"5\"/></sequence><sequence name=\"R\"><gen if=\"digamma(N) > 1\" type=\"text\" value=\"Y\"/><gen type=\"text\" value=\"N\"/></sequence></env><block><line><data>${{R}}</data></line></block></tdc>",
       "expected": ["error TDC257 1:126"]
     },
     {

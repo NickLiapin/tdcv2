@@ -858,4 +858,220 @@ public final class TdcMath {
     double a = Math.abs(x);
     return sign * 0.5 * log1p((2 * a) / (1 - a));
   }
+
+  // ── The fourth wave: statistics ────────────────────────────────────────────
+  //
+  // erf, erfc, gamma and lgamma. These are the first functions here whose
+  // accuracy is bounded by something other than the series that computes them,
+  // and each one says so where it lives.
+
+  private static final double TWO_OVER_SQRT_PI = 1.1283791670955126;
+  private static final double ONE_OVER_SQRT_PI = 0.5641895835477563;
+  private static final double LOG_SQRT_2PI = 0.9189385332046728;
+  private static final double SQRT_2PI = 2.5066282746310002;
+
+  /** 2^27 + 1 — Dekker's splitting constant. */
+  private static final double SPLIT = 134217729;
+
+  /** Taylor coefficients for erf(x)*sqrt(pi)/2 over x^2, ascending. */
+  private static final double[] ERF_COEFF = {
+    1.0,
+    -1.0 / 3.0,
+    1.0 / 10.0,
+    -1.0 / 42.0,
+    1.0 / 216.0,
+    -1.0 / 1320.0,
+    1.0 / 9360.0,
+    -1.0 / 75600.0,
+    1.0 / 685440.0,
+    -1.0 / 6894720.0,
+    1.0 / 76204800.0,
+    -1.0 / 918086400.0,
+    1.0 / 11975040000.0,
+    -1.0 / 168129561600.0,
+    1.0 / 2528170444800.0,
+    -1.0 / 40537905525000.0,
+    1.0 / 691118486016000.0,
+    -1.0 / 12460033493760000.0,
+  };
+
+  /** How deep the continued fraction for erfc runs. */
+  private static final int ERFC_DEPTH = 200;
+
+  /** Lanczos coefficients, g = 7, n = 9 — the classic set. */
+  private static final double[] LANCZOS = {
+    0.99999999999980993,
+    676.5203681218851,
+    -1259.1392167224028,
+    771.32342877765313,
+    -176.61502916214059,
+    12.507343278686905,
+    -0.13857109526572012,
+    9.9843695780195716e-6,
+    1.5056327351493116e-7,
+  };
+
+  /**
+   * {@code e^(-x*x)}, computed so the rounding of x*x never reaches the exponent.
+   *
+   * <p>This is the whole accuracy story for erfc. Squaring x rounds by about x^2 * 2^-53; exp then
+   * turns that ABSOLUTE error in its argument into a RELATIVE error in its answer, so at x = 23 the
+   * result drifts by about 6e-14 — four hundred ulp. Measured before this existed: 445 ulp. After:
+   * 5. The high part keeps 26 significant bits, so its square needs 52 and is exact.
+   */
+  private static double expNegSquare(double x) {
+    double s = SPLIT * x;
+    double hi = s - (s - x);
+    double lo = x - hi;
+    return exp(-hi * hi) * (1 + expm1(-(2 * hi * lo + lo * lo)));
+  }
+
+  /** erf on [0, 1] — no exponential involved, so nothing amplifies. */
+  private static double erfSmall(double x) {
+    return TWO_OVER_SQRT_PI * x * horner(ERF_COEFF, x * x);
+  }
+
+  /**
+   * erfc for x &gt; 1, by continued fraction. Two hundred levels rather than a convergence test: a
+   * FIXED depth is one less thing for five implementations to agree about. The depth is set by the
+   * slowest point, just above x = 1, where 100 levels leave 29645 ulp and 200 leave 5.
+   */
+  private static double erfcLarge(double x) {
+    double f = 0;
+    for (int k = ERFC_DEPTH; k >= 1; k -= 1) {
+      f = k / 2.0 / (x + f);
+    }
+    return ONE_OVER_SQRT_PI * expNegSquare(x) / (x + f);
+  }
+
+  /**
+   * {@code erf(x)} — the error function. Below 1 the series is used directly; above it,
+   * {@code 1 - erfc(x)}, because there erfc is the small quantity.
+   */
+  public static double erf(double x) {
+    if (Double.isNaN(x)) {
+      return Double.NaN;
+    }
+    double sign = x < 0 ? -1 : 1;
+    double a = Math.abs(x);
+    if (Double.isInfinite(a)) {
+      return sign;
+    }
+    if (a <= 1) {
+      return sign * erfSmall(a);
+    }
+    return sign * (1 - erfcLarge(a));
+  }
+
+  /**
+   * {@code erfc(x)} — the complement, and not computed as 1 - erf past 1. At x = 5 the true value
+   * is 1.5e-12 and the subtraction keeps only six of its twelve digits; by x = 6 erf has rounded to
+   * 1 and the answer is gone entirely.
+   */
+  public static double erfc(double x) {
+    if (Double.isNaN(x)) {
+      return Double.NaN;
+    }
+    if (x == Double.POSITIVE_INFINITY) {
+      return 0;
+    }
+    if (x == Double.NEGATIVE_INFINITY) {
+      return 2;
+    }
+    if (x < 0) {
+      return 2 - erfc(-x);
+    }
+    if (x <= 1) {
+      return 1 - erfSmall(x);
+    }
+    return erfcLarge(x);
+  }
+
+  /**
+   * {@code sin(pi*x)}, taken from the distance to the nearest whole number.
+   *
+   * <p>The reflection formula for gamma needs this near the integers, where sin(pi*x) approaches
+   * zero. Computing sin(PI * x) directly puts the rounding of PI * x — absolute, and growing with
+   * x — right next to a zero: at x = -4.00006 the answer came out 28582 ulp wrong.
+   */
+  private static double sinPi(double x) {
+    double n = Math.floor(x + 0.5);
+    double r = x - n;
+    double s = sin(PI * r);
+    return (long) n % 2 == 0 ? s : -s;
+  }
+
+  private static double lanczosSum(double z) {
+    double a = LANCZOS[0];
+    for (int i = 1; i < 9; i += 1) {
+      a += LANCZOS[i] / (z + i);
+    }
+    return a;
+  }
+
+  /**
+   * {@code lgamma(x)} — the natural logarithm of |gamma(x)|.
+   *
+   * <p>Away from x = 1 and x = 2 it is within 32 ulp. AT those two points lgamma is ZERO, and a
+   * relative bound there is not a statement about this code — no method that sums terms of size 1
+   * can be relatively accurate about their cancelling to nothing. What holds is the ABSOLUTE error,
+   * measured under 1e-13 on a bounded range.
+   */
+  public static double lgamma(double x) {
+    if (Double.isNaN(x)) {
+      return Double.NaN;
+    }
+    if (x == Double.POSITIVE_INFINITY) {
+      return Double.POSITIVE_INFINITY;
+    }
+    // The poles: every whole number at or below zero.
+    if (x <= 0 && x == trunc(x)) {
+      return Double.POSITIVE_INFINITY;
+    }
+    if (x < 0.5) {
+      return log(PI / Math.abs(sinPi(x))) - lgamma(1 - x);
+    }
+    double z = x - 1;
+    double t = z + 7.5;
+    return LOG_SQRT_2PI + (z + 0.5) * log(t) - t + log(lanczosSum(z));
+  }
+
+  /**
+   * {@code gamma(x)} — the factorial extended to the reals.
+   *
+   * <p>Gamma of a whole number is a factorial, and multiplying it out is exact for the first
+   * twenty-three and within 7 ulp for all 171 that fit in a double. The general route ends in an
+   * exponential, and exp turns the absolute error of its argument into a relative error of its
+   * answer, so the drift grows with log gamma(x) — about 2000 ulp near x = 146.
+   */
+  public static double gamma(double x) {
+    if (Double.isNaN(x)) {
+      return Double.NaN;
+    }
+    if (x == Double.POSITIVE_INFINITY) {
+      return Double.POSITIVE_INFINITY;
+    }
+    if (x == Double.NEGATIVE_INFINITY) {
+      return Double.NaN;
+    }
+    // Every whole number at or below zero is a pole, with no value to give.
+    if (x <= 0 && x == trunc(x)) {
+      return Double.NaN;
+    }
+    if (x == trunc(x) && x >= 1 && x <= 171) {
+      double result = 1;
+      for (double k = 2; k < x; k += 1) {
+        result *= k;
+      }
+      return result;
+    }
+    if (x < 0.5) {
+      return PI / (sinPi(x) * gamma(1 - x));
+    }
+    double z = x - 1;
+    double t = z + 7.5;
+    // One exponential rather than t^(z+0.5) * e^(-t): that product overflows on
+    // its first factor near x = 150, while gamma(x) is still finite to 171.
+    return SQRT_2PI * lanczosSum(z) * exp((z + 0.5) * log(t) - t);
+  }
 }

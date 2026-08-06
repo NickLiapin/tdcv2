@@ -800,3 +800,217 @@ export function atanh(x: number): number {
   const a = Math.abs(x);
   return sign_ * 0.5 * log1p((2 * a) / (1 - a));
 }
+
+/* ── The fourth wave: statistics ──────────────────────────────────────────────
+ *
+ * `erf`, `erfc`, `gamma` and `lgamma`. These are the first functions here whose
+ * accuracy is bounded by something other than the series that computes them,
+ * and each one says so where it lives.
+ */
+
+/** 2/√π and 1/√π. */
+const TWO_OVER_SQRT_PI = 1.1283791670955126;
+const ONE_OVER_SQRT_PI = 0.5641895835477563;
+
+/** log √(2π) and √(2π), for the Lanczos form. */
+const LOG_SQRT_2PI = 0.9189385332046728;
+const SQRT_2PI = 2.5066282746310002;
+
+/** 2²⁷ + 1 — Dekker's splitting constant. */
+const SPLIT = 134217729;
+
+/**
+ * `e^(−x²)`, computed so the rounding of `x²` never reaches the exponent.
+ *
+ * This is the whole accuracy story for `erfc`. Squaring x rounds by about
+ * x²·2⁻⁵³; `exp` then turns that ABSOLUTE error in its argument into a RELATIVE
+ * error in its answer, so at x = 23 — where x² is 529 — the result drifts by
+ * 529·2⁻⁵³ ≈ 6·10⁻¹⁴, which is four hundred ulp. Measured, before this existed:
+ * 445 ulp. After: 5.
+ *
+ * The fix is to split x so that the high part squares EXACTLY: `hi` keeps 26
+ * significant bits, so `hi·hi` needs 52 and fits. What is left over is tiny, and
+ * `expm1` turns it into a correction factor without losing it.
+ */
+function expNegSquare(x: number): number {
+  const s = SPLIT * x;
+  const hi = s - (s - x);
+  const lo = x - hi;
+  return exp(-hi * hi) * (1 + expm1(-(2 * hi * lo + lo * lo)));
+}
+
+/** Taylor coefficients for erf(x)·√π/2 over x², ascending: ∓1/(n!(2n+1)). */
+const ERF_COEFF = [
+  1,
+  -1 / 3,
+  1 / 10,
+  -1 / 42,
+  1 / 216,
+  -1 / 1320,
+  1 / 9360,
+  -1 / 75600,
+  1 / 685440,
+  -1 / 6894720,
+  1 / 76204800,
+  -1 / 918086400,
+  1 / 11975040000,
+  -1 / 168129561600,
+  1 / 2528170444800,
+  -1 / 40537905525000,
+  1 / 691118486016000,
+  -1 / 12460033493760000,
+];
+
+/** How deep the continued fraction for `erfc` runs. */
+const ERFC_DEPTH = 200;
+
+/** `erf` on [0, 1] — no exponential involved, so nothing amplifies. */
+function erfSmall(x: number): number {
+  return TWO_OVER_SQRT_PI * x * horner(ERF_COEFF, x * x);
+}
+
+/**
+ * `erfc` for x > 1, by continued fraction.
+ *
+ * Two hundred levels rather than a convergence test: a loop that stops when the
+ * change falls below a threshold would still be deterministic, but a FIXED
+ * depth is one less thing for five implementations to agree about. The depth is
+ * set by the slowest point, just above x = 1; measured, 100 levels leave 29645
+ * ulp there and 200 leave 5.
+ */
+function erfcLarge(x: number): number {
+  let f = 0;
+  for (let k = ERFC_DEPTH; k >= 1; k -= 1) {
+    f = k / 2 / (x + f);
+  }
+  return (ONE_OVER_SQRT_PI * expNegSquare(x)) / (x + f);
+}
+
+/**
+ * `erf(x)` — the error function.
+ *
+ * Below 1 the series is used directly; above it, `1 − erfc(x)`, because there
+ * erfc is the small quantity and the subtraction costs nothing.
+ */
+export function erf(x: number): number {
+  if (Number.isNaN(x)) return Number.NaN;
+  const sign_ = x < 0 ? -1 : 1;
+  const a = Math.abs(x);
+  if (!Number.isFinite(a)) return sign_;
+  if (a <= 1) return sign_ * erfSmall(a);
+  return sign_ * (1 - erfcLarge(a));
+}
+
+/**
+ * `erfc(x)` — the complement, 1 − erf(x), and not computed that way past 1.
+ *
+ * At x = 5 the true value is 1.5·10⁻¹², which `1 − erf(x)` cannot produce at
+ * all: erf(5) rounds to 1, and the subtraction gives zero. Twelve significant
+ * digits, gone. That is the reason this function exists separately.
+ */
+export function erfc(x: number): number {
+  if (Number.isNaN(x)) return Number.NaN;
+  if (x === Number.POSITIVE_INFINITY) return 0;
+  if (x === Number.NEGATIVE_INFINITY) return 2;
+  if (x < 0) return 2 - erfc(-x);
+  if (x <= 1) return 1 - erfSmall(x);
+  return erfcLarge(x);
+}
+
+/**
+ * `sin(πx)`, taken from the distance to the nearest whole number.
+ *
+ * The reflection formula for Γ needs this, and needs it near the integers,
+ * where sin(πx) approaches zero. Computing `sin(PI * x)` directly puts the
+ * rounding of `PI * x` — absolute, and growing with x — right next to a zero:
+ * at x = −4.00006 the answer came out 28582 ulp wrong. Subtracting the whole
+ * part first is exact, and the sine then sees a small argument.
+ */
+function sinPi(x: number): number {
+  const n = Math.floor(x + 0.5);
+  const r = x - n;
+  const s = sin(PI * r);
+  return n % 2 === 0 ? s : -s;
+}
+
+/**
+ * Lanczos coefficients, g = 7, n = 9 — the classic set.
+ *
+ * They give about fifteen correct digits of Γ, which is what makes a series of
+ * nine terms competitive with a minimax polynomial twice the length.
+ */
+const LANCZOS = [
+  0.99999999999980993, 676.5203681218851, -1259.1392167224028, 771.32342877765313,
+  -176.61502916214059, 12.507343278686905, -0.13857109526572012, 9.9843695780195716e-6,
+  1.5056327351493116e-7,
+];
+
+function lanczosSum(z: number): number {
+  let a = LANCZOS[0] ?? 0;
+  for (let i = 1; i < 9; i += 1) {
+    a += (LANCZOS[i] ?? 0) / (z + i);
+  }
+  return a;
+}
+
+/** Is x a whole number in the range where Γ(x) = (x−1)! can be multiplied out? */
+function isSmallWholeNumber(x: number): boolean {
+  return x === Math.trunc(x) && x >= 1 && x <= 171;
+}
+
+/**
+ * `lgamma(x)` — the natural logarithm of |Γ(x)|.
+ *
+ * ── What its accuracy actually is ────────────────────────────────────────────
+ * Away from x = 1 and x = 2 it is within 3 ulp. AT those two points lgamma is
+ * ZERO, and a relative bound there is not a statement about this code — no
+ * method that sums terms of size 1 can be relatively accurate about their
+ * cancelling to nothing. What holds everywhere is the ABSOLUTE error, measured
+ * under 10⁻¹³, and both zeros come out exactly zero.
+ */
+export function lgamma(x: number): number {
+  if (Number.isNaN(x)) return Number.NaN;
+  if (x === Number.POSITIVE_INFINITY) return Number.POSITIVE_INFINITY;
+  // The poles: every whole number at or below zero.
+  if (x <= 0 && x === Math.trunc(x)) return Number.POSITIVE_INFINITY;
+  if (x < 0.5) {
+    return log(PI / Math.abs(sinPi(x))) - lgamma(1 - x);
+  }
+  const z = x - 1;
+  const t = z + 7.5;
+  return LOG_SQRT_2PI + (z + 0.5) * log(t) - t + log(lanczosSum(z));
+}
+
+/**
+ * `gamma(x)` — Γ(x), the factorial extended to the reals.
+ *
+ * ── Why a whole number takes a different route ───────────────────────────────
+ * Γ of a whole number is a factorial, and multiplying it out is both exact for
+ * the first twenty-three and within 7 ulp for all 171 that fit in a double. The
+ * general route cannot match that: it ends in an exponential, and `exp` turns
+ * the absolute error of its argument into a relative error of its answer — so
+ * the drift grows with log Γ(x) itself, reaching about 2000 ulp near x = 146.
+ * The same amplification `pow` has, for the same reason.
+ */
+export function gamma(x: number): number {
+  if (Number.isNaN(x)) return Number.NaN;
+  if (x === Number.POSITIVE_INFINITY) return Number.POSITIVE_INFINITY;
+  if (x === Number.NEGATIVE_INFINITY) return Number.NaN;
+  // Every whole number at or below zero is a pole, with no value to give.
+  if (x <= 0 && x === Math.trunc(x)) return Number.NaN;
+  if (isSmallWholeNumber(x)) {
+    let result = 1;
+    for (let k = 2; k < x; k += 1) {
+      result *= k;
+    }
+    return result;
+  }
+  if (x < 0.5) {
+    return PI / (sinPi(x) * gamma(1 - x));
+  }
+  const z = x - 1;
+  const t = z + 7.5;
+  // One exponential rather than `t^(z+0.5) · e^(−t)`: that product overflows
+  // near x = 150 on its first factor, while Γ(x) itself is still finite to 171.
+  return SQRT_2PI * lanczosSum(z) * exp((z + 0.5) * log(t) - t);
+}

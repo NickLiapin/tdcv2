@@ -827,3 +827,224 @@ pub fn atanh(x: f64) -> f64 {
     let a = x.abs();
     sign_of * 0.5 * log1p((2.0 * a) / (1.0 - a))
 }
+
+// ── The fourth wave: statistics ──────────────────────────────────────────────
+//
+// `erf`, `erfc`, `gamma` and `lgamma`. These are the first functions here whose
+// accuracy is bounded by something other than the series that computes them,
+// and each one says so where it lives.
+
+const TWO_OVER_SQRT_PI: f64 = 1.128_379_167_095_512_6;
+const ONE_OVER_SQRT_PI: f64 = 0.564_189_583_547_756_3;
+const LOG_SQRT_2PI: f64 = 0.918_938_533_204_672_8;
+const SQRT_2PI: f64 = 2.506_628_274_631_000_2;
+
+/// 2^27 + 1 — Dekker's splitting constant.
+const SPLIT: f64 = 134_217_729.0;
+
+/// Taylor coefficients for `erf(x)*sqrt(pi)/2` over `x^2`, ascending.
+const ERF_COEFF: [f64; 18] = [
+    1.0,
+    -1.0 / 3.0,
+    1.0 / 10.0,
+    -1.0 / 42.0,
+    1.0 / 216.0,
+    -1.0 / 1320.0,
+    1.0 / 9360.0,
+    -1.0 / 75600.0,
+    1.0 / 685_440.0,
+    -1.0 / 6_894_720.0,
+    1.0 / 76_204_800.0,
+    -1.0 / 918_086_400.0,
+    1.0 / 11_975_040_000.0,
+    -1.0 / 168_129_561_600.0,
+    1.0 / 2_528_170_444_800.0,
+    -1.0 / 40_537_905_525_000.0,
+    1.0 / 691_118_486_016_000.0,
+    -1.0 / 12_460_033_493_760_000.0,
+];
+
+/// How deep the continued fraction for `erfc` runs.
+const ERFC_DEPTH: i32 = 200;
+
+/// Lanczos coefficients, g = 7, n = 9 — the classic set, good for ~15 digits.
+const LANCZOS: [f64; 9] = [
+    0.999_999_999_999_809_93,
+    676.520_368_121_885_1,
+    -1259.139_216_722_402_8,
+    771.323_428_777_653_13,
+    -176.615_029_162_140_59,
+    12.507_343_278_686_905,
+    -0.138_571_095_265_720_12,
+    9.984_369_578_019_571_6e-6,
+    1.505_632_735_149_311_6e-7,
+];
+
+/// `e^(-x*x)`, computed so the rounding of `x*x` never reaches the exponent.
+///
+/// This is the whole accuracy story for `erfc`. Squaring x rounds by about
+/// x^2 · 2^-53; `exp` then turns that ABSOLUTE error in its argument into a
+/// RELATIVE error in its answer, so at x = 23 the result drifts by about
+/// 6e-14 — four hundred ulp. Measured before this existed: 445 ulp. After: 5.
+/// The high part keeps 26 significant bits, so its square needs 52 and is exact.
+fn exp_neg_square(x: f64) -> f64 {
+    let s = SPLIT * x;
+    let hi = s - (s - x);
+    let lo = x - hi;
+    exp(-hi * hi) * (1.0 + expm1(-(2.0 * hi * lo + lo * lo)))
+}
+
+/// `erf` on [0, 1] — no exponential involved, so nothing amplifies.
+fn erf_small(x: f64) -> f64 {
+    TWO_OVER_SQRT_PI * x * horner(&ERF_COEFF, x * x)
+}
+
+/// `erfc` for x > 1, by continued fraction.
+///
+/// Two hundred levels rather than a convergence test: a FIXED depth is one less
+/// thing for five implementations to agree about. The depth is set by the
+/// slowest point, just above x = 1, where 100 levels leave 29645 ulp and 200
+/// leave 5.
+fn erfc_large(x: f64) -> f64 {
+    let mut f = 0.0f64;
+    let mut k = ERFC_DEPTH;
+    while k >= 1 {
+        f = f64::from(k) / 2.0 / (x + f);
+        k -= 1;
+    }
+    ONE_OVER_SQRT_PI * exp_neg_square(x) / (x + f)
+}
+
+/// `erf(x)` — the error function.
+///
+/// Below 1 the series is used directly; above it, `1 - erfc(x)`, because there
+/// erfc is the small quantity and the subtraction costs nothing.
+pub fn erf(x: f64) -> f64 {
+    if x.is_nan() {
+        return f64::NAN;
+    }
+    let sign_of = if x < 0.0 { -1.0 } else { 1.0 };
+    let a = x.abs();
+    if a.is_infinite() {
+        return sign_of;
+    }
+    if a <= 1.0 {
+        return sign_of * erf_small(a);
+    }
+    sign_of * (1.0 - erfc_large(a))
+}
+
+/// `erfc(x)` — the complement, 1 − erf(x), and not computed that way past 1.
+///
+/// At x = 5 the true value is 1.5e-12, and `1 - erf(x)` keeps only six of its
+/// twelve digits; by x = 6 erf has rounded to 1 and the answer is gone entirely.
+pub fn erfc(x: f64) -> f64 {
+    if x.is_nan() {
+        return f64::NAN;
+    }
+    if x == f64::INFINITY {
+        return 0.0;
+    }
+    if x == f64::NEG_INFINITY {
+        return 2.0;
+    }
+    if x < 0.0 {
+        return 2.0 - erfc(-x);
+    }
+    if x <= 1.0 {
+        return 1.0 - erf_small(x);
+    }
+    erfc_large(x)
+}
+
+/// `sin(pi*x)`, taken from the distance to the nearest whole number.
+///
+/// The reflection formula for Γ needs this near the integers, where sin(pi·x)
+/// approaches zero. Computing `sin(PI * x)` directly puts the rounding of
+/// `PI * x` — absolute, and growing with x — right next to a zero: at
+/// x = -4.00006 the answer came out 28582 ulp wrong.
+fn sin_pi(x: f64) -> f64 {
+    let n = (x + 0.5).floor();
+    let r = x - n;
+    let s = sin(PI * r);
+    if (n as i64) % 2 == 0 {
+        s
+    } else {
+        -s
+    }
+}
+
+fn lanczos_sum(z: f64) -> f64 {
+    let mut a = LANCZOS[0];
+    for i in 1..9 {
+        a += LANCZOS[i] / (z + i as f64);
+    }
+    a
+}
+
+/// `lgamma(x)` — the natural logarithm of |Γ(x)|.
+///
+/// Away from x = 1 and x = 2 it is within 32 ulp. AT those two points lgamma is
+/// ZERO, and a relative bound there is not a statement about this code — no
+/// method that sums terms of size 1 can be relatively accurate about their
+/// cancelling to nothing. What holds is the ABSOLUTE error, measured under
+/// 1e-13 on a bounded range, and both zeros come out exactly zero.
+pub fn lgamma(x: f64) -> f64 {
+    if x.is_nan() {
+        return f64::NAN;
+    }
+    if x == f64::INFINITY {
+        return f64::INFINITY;
+    }
+    // The poles: every whole number at or below zero.
+    if x <= 0.0 && x == x.trunc() {
+        return f64::INFINITY;
+    }
+    if x < 0.5 {
+        return log(PI / sin_pi(x).abs()) - lgamma(1.0 - x);
+    }
+    let z = x - 1.0;
+    let t = z + 7.5;
+    LOG_SQRT_2PI + (z + 0.5) * log(t) - t + log(lanczos_sum(z))
+}
+
+/// `gamma(x)` — the factorial extended to the reals.
+///
+/// Γ of a whole number is a factorial, and multiplying it out is exact for the
+/// first twenty-three and within 7 ulp for all 171 that fit in a double. The
+/// general route cannot match that: it ends in an exponential, and `exp` turns
+/// the absolute error of its argument into a relative error of its answer, so
+/// the drift grows with log Γ(x) — about 2000 ulp near x = 146. The same
+/// amplification `pow` has, for the same reason.
+pub fn gamma(x: f64) -> f64 {
+    if x.is_nan() {
+        return f64::NAN;
+    }
+    if x == f64::INFINITY {
+        return f64::INFINITY;
+    }
+    if x == f64::NEG_INFINITY {
+        return f64::NAN;
+    }
+    // Every whole number at or below zero is a pole, with no value to give.
+    if x <= 0.0 && x == x.trunc() {
+        return f64::NAN;
+    }
+    if x == x.trunc() && (1.0..=171.0).contains(&x) {
+        let mut result = 1.0f64;
+        let mut k = 2.0f64;
+        while k < x {
+            result *= k;
+            k += 1.0;
+        }
+        return result;
+    }
+    if x < 0.5 {
+        return PI / (sin_pi(x) * gamma(1.0 - x));
+    }
+    let z = x - 1.0;
+    let t = z + 7.5;
+    // One exponential rather than `t^(z+0.5) · e^(-t)`: that product overflows
+    // on its first factor near x = 150, while Γ(x) is still finite to 171.
+    SQRT_2PI * lanczos_sum(z) * exp((z + 0.5) * log(t) - t)
+}

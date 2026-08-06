@@ -191,12 +191,16 @@ export const EXPR_FUNCTIONS: Readonly<Record<string, { min: number; max: number 
   cos: { min: 1, max: 1 },
   cosh: { min: 1, max: 1 },
   ends_with: { min: 2, max: 2 },
+  erf: { min: 1, max: 1 },
+  erfc: { min: 1, max: 1 },
   exp: { min: 1, max: 1 },
   expm1: { min: 1, max: 1 },
   floor: { min: 1, max: 1 },
+  gamma: { min: 1, max: 1 },
   hypot: { min: 2, max: 2 },
   is_empty: { min: 1, max: 1 },
   len: { min: 1, max: 1 },
+  lgamma: { min: 1, max: 1 },
   log: { min: 1, max: 1 },
   log10: { min: 1, max: 1 },
   log1p: { min: 1, max: 1 },
@@ -222,21 +226,20 @@ export const EXPR_FUNCTION_NAMES: readonly string[] = Object.keys(EXPR_FUNCTIONS
 /**
  * Names that are not available and are not typos either.
  *
- * Someone who writes `erf(_count)` knows exactly what they meant, and telling
- * them "did you mean exp?" is worse than saying nothing — edit distance has no
- * idea one is the error function and the other is not. They are answered with
- * the real reason instead.
+ * Someone who writes `digamma(_count)` knows exactly what they meant, and
+ * telling them "did you mean gamma?" is worse than saying nothing — edit
+ * distance has no idea one is the derivative of the other's logarithm. They are
+ * answered with the real reason instead.
  *
  * Every name here has to be built and pinned to its bits in five languages
  * before it can be offered, which is the only thing keeping it on this list.
  */
 export const PLANNED_EXPR_FUNCTIONS: readonly string[] = [
+  'beta',
   'degrees',
-  'erf',
-  'erfc',
-  'gamma',
-  'lgamma',
+  'digamma',
   'radians',
+  'zeta',
 ] as const;
 
 export const BUILTIN_SEQUENCES: readonly string[] = [

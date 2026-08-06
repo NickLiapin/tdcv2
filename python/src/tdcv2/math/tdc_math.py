@@ -714,3 +714,200 @@ def atanh(x: float) -> float:
     sign_ = -1 if x < 0 else 1
     a = abs(x)
     return sign_ * 0.5 * log1p((2 * a) / (1 - a))
+
+
+# ── The fourth wave: statistics ───────────────────────────────────────────────
+#
+# erf, erfc, gamma and lgamma. These are the first functions here whose accuracy
+# is bounded by something other than the series that computes them, and each one
+# says so where it lives.
+
+_TWO_OVER_SQRT_PI = 1.1283791670955126
+_ONE_OVER_SQRT_PI = 0.5641895835477563
+_LOG_SQRT_2PI = 0.9189385332046728
+_SQRT_2PI = 2.5066282746310002
+
+# 2^27 + 1 — Dekker's splitting constant.
+_SPLIT = 134217729
+
+# Taylor coefficients for erf(x)*sqrt(pi)/2 over x^2, ascending: -+1/(n!(2n+1)).
+_ERF_COEFF = (
+    1,
+    -1 / 3,
+    1 / 10,
+    -1 / 42,
+    1 / 216,
+    -1 / 1320,
+    1 / 9360,
+    -1 / 75600,
+    1 / 685440,
+    -1 / 6894720,
+    1 / 76204800,
+    -1 / 918086400,
+    1 / 11975040000,
+    -1 / 168129561600,
+    1 / 2528170444800,
+    -1 / 40537905525000,
+    1 / 691118486016000,
+    -1 / 12460033493760000,
+)
+
+# How deep the continued fraction for erfc runs.
+_ERFC_DEPTH = 200
+
+# Lanczos coefficients, g = 7, n = 9 — the classic set, good for ~15 digits.
+_LANCZOS = (
+    0.99999999999980993,
+    676.5203681218851,
+    -1259.1392167224028,
+    771.32342877765313,
+    -176.61502916214059,
+    12.507343278686905,
+    -0.13857109526572012,
+    9.9843695780195716e-6,
+    1.5056327351493116e-7,
+)
+
+
+def _exp_neg_square(x: float) -> float:
+    """``e^(-x*x)``, computed so the rounding of x*x never reaches the exponent.
+
+    This is the whole accuracy story for erfc. Squaring x rounds by about x^2 * 2^-53; exp then
+    turns that ABSOLUTE error in its argument into a RELATIVE error in its answer, so at x = 23 the
+    result drifts by about 6e-14 — four hundred ulp. Measured before this existed: 445 ulp. After:
+    5. The high part keeps 26 significant bits, so its square needs 52 and is exact.
+    """
+    s = _SPLIT * x
+    hi = s - (s - x)
+    lo = x - hi
+    return exp(-hi * hi) * (1 + expm1(-(2 * hi * lo + lo * lo)))
+
+
+def _erf_small(x: float) -> float:
+    """``erf`` on [0, 1] — no exponential involved, so nothing amplifies."""
+    return _TWO_OVER_SQRT_PI * x * _horner(_ERF_COEFF, x * x)
+
+
+def _erfc_large(x: float) -> float:
+    """``erfc`` for x > 1, by continued fraction.
+
+    Two hundred levels rather than a convergence test: a FIXED depth is one less thing for five
+    implementations to agree about. The depth is set by the slowest point, just above x = 1, where
+    100 levels leave 29645 ulp and 200 leave 5.
+    """
+    f = 0.0
+    for k in range(_ERFC_DEPTH, 0, -1):
+        f = k / 2 / (x + f)
+    return _ONE_OVER_SQRT_PI * _exp_neg_square(x) / (x + f)
+
+
+def erf(x: float) -> float:
+    """``erf(x)`` — the error function.
+
+    Below 1 the series is used directly; above it, ``1 - erfc(x)``, because there erfc is the small
+    quantity and the subtraction costs nothing.
+    """
+    if x != x:
+        return math.nan
+    sign_ = -1 if x < 0 else 1
+    a = abs(x)
+    if math.isinf(a):
+        return float(sign_)
+    if a <= 1:
+        return sign_ * _erf_small(a)
+    return sign_ * (1 - _erfc_large(a))
+
+
+def erfc(x: float) -> float:
+    """``erfc(x)`` — the complement, 1 - erf(x), and not computed that way past 1.
+
+    At x = 5 the true value is 1.5e-12, and ``1 - erf(x)`` keeps only six of its twelve digits; by
+    x = 6 erf has rounded to 1 and the answer is gone entirely. That is why this exists separately.
+    """
+    if x != x:
+        return math.nan
+    if x == math.inf:
+        return 0.0
+    if x == -math.inf:
+        return 2.0
+    if x < 0:
+        return 2 - erfc(-x)
+    if x <= 1:
+        return 1 - _erf_small(x)
+    return _erfc_large(x)
+
+
+def _sin_pi(x: float) -> float:
+    """``sin(pi*x)``, taken from the distance to the nearest whole number.
+
+    The reflection formula for gamma needs this near the integers, where sin(pi*x) approaches zero.
+    Computing sin(PI * x) directly puts the rounding of PI * x — absolute, and growing with x —
+    right next to a zero: at x = -4.00006 the answer came out 28582 ulp wrong.
+    """
+    n = math.floor(x + 0.5)
+    r = x - n
+    s = sin(PI * r)
+    return s if n % 2 == 0 else -s
+
+
+def _lanczos_sum(z: float) -> float:
+    a = _LANCZOS[0]
+    for i in range(1, 9):
+        a += _LANCZOS[i] / (z + i)
+    return a
+
+
+def lgamma(x: float) -> float:
+    """``lgamma(x)`` — the natural logarithm of |gamma(x)|.
+
+    Away from x = 1 and x = 2 it is within 32 ulp. AT those two points lgamma is ZERO, and a
+    relative bound there is not a statement about this code — no method that sums terms of size 1
+    can be relatively accurate about their cancelling to nothing. What holds is the ABSOLUTE error,
+    measured under 1e-13 on a bounded range, and both zeros come out exactly zero.
+    """
+    if x != x:
+        return math.nan
+    if x == math.inf:
+        return math.inf
+    # The poles: every whole number at or below zero.
+    if x <= 0 and x == math.trunc(x):
+        return math.inf
+    if x < 0.5:
+        return log(PI / abs(_sin_pi(x))) - lgamma(1 - x)
+    z = x - 1
+    t = z + 7.5
+    return _LOG_SQRT_2PI + (z + 0.5) * log(t) - t + log(_lanczos_sum(z))
+
+
+def gamma(x: float) -> float:
+    """``gamma(x)`` — the factorial extended to the reals.
+
+    Gamma of a whole number is a factorial, and multiplying it out is exact for the first
+    twenty-three and within 7 ulp for all 171 that fit in a double. The general route cannot match
+    that: it ends in an exponential, and exp turns the absolute error of its argument into a
+    relative error of its answer, so the drift grows with log gamma(x) — about 2000 ulp near
+    x = 146. The same amplification pow has, for the same reason.
+    """
+    if x != x:
+        return math.nan
+    if x == math.inf:
+        return math.inf
+    if x == -math.inf:
+        return math.nan
+    # Every whole number at or below zero is a pole, with no value to give.
+    if x <= 0 and x == math.trunc(x):
+        return math.nan
+    if x == math.trunc(x) and 1 <= x <= 171:
+        result = 1.0
+        k = 2
+        while k < x:
+            result *= k
+            k += 1
+        return result
+    if x < 0.5:
+        return PI / (_sin_pi(x) * gamma(1 - x))
+    z = x - 1
+    t = z + 7.5
+    # One exponential rather than t^(z+0.5) * e^(-t): that product overflows on
+    # its first factor near x = 150, while gamma(x) is still finite to 171.
+    return _SQRT_2PI * _lanczos_sum(z) * exp((z + 0.5) * log(t) - t)

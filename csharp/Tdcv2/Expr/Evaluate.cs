@@ -209,9 +209,13 @@ public static class Evaluate
             case "cbrt": return Maths.TdcMath.Cbrt(Num(0));
             case "cos": return Maths.TdcMath.Cos(Num(0));
             case "cosh": return Maths.TdcMath.Cosh(Num(0));
+            case "erf": return Maths.TdcMath.Erf(Num(0));
+            case "erfc": return Maths.TdcMath.Erfc(Num(0));
             case "exp": return Maths.TdcMath.Exp(Num(0));
             case "expm1": return Maths.TdcMath.Expm1(Num(0));
+            case "gamma": return Maths.TdcMath.Gamma(Num(0));
             case "hypot": return Maths.TdcMath.Hypot(Num(0), Num(1));
+            case "lgamma": return Maths.TdcMath.Lgamma(Num(0));
             case "log": return Maths.TdcMath.Log(Num(0));
             case "log10": return Maths.TdcMath.Log10(Num(0));
             case "log1p": return Maths.TdcMath.Log1p(Num(0));

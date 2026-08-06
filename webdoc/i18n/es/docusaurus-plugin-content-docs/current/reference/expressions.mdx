@@ -108,6 +108,8 @@ columna de texto contra una lista de palabras numéricas sigue coincidiendo.
 | `asinh(x)` `acosh(x)` `atanh(x)` | 1     | funciones hiperbólicas inversas                    |
 | `hypot(x, y)`              | 2          | longitud del vector, sin desbordar por el camino   |
 | `sign(x)`                  | 1          | −1, 0 o 1                                          |
+| `erf(x)` `erfc(x)`         | 1          | la función de error y su complemento               |
+| `gamma(x)` `lgamma(x)`     | 1          | Γ(x), y log \|Γ(x)\| para cuando Γ desborda        |
 
 Todo lo que está por encima de la raya es exacto: construido con comparaciones y con la
 aritmética que IEEE-754 fija sin ambigüedad, así que las cinco implementaciones no pueden
@@ -216,17 +218,38 @@ sobre `log1p` por la misma razón.
 x = 10²⁰⁰, aunque la respuesta es perfectamente representable. Y `log2` separa el exponente antes
 de tomar ningún logaritmo, así que `log2(8)` es 3 y no 2,9999999999999996.
 
+### Donde la cota deja de medirse en ulp
+
+Estas cuatro llevan una cota que no se resume en «dentro de 4 ulp», y decirlo es
+parte de la referencia, no una nota al pie:
+
+| Función | Lo que se garantiza |
+| :--- | :--- |
+| `erf` | dentro de 4 ulp |
+| `erfc` | dentro de 8 ulp — pasa por e^(−x²), y esa exponencial arrastra el redondeo del cuadrado |
+| `gamma` | **exacta** en los enteros hasta 23, dentro de 7 ulp en los 171 que caben en un double; doce cifras significativas en el resto |
+| `lgamma` | dentro de 32 ulp lejos de sus ceros; en x = 1 y x = 2 la cota con sentido es absoluta, bajo 10⁻¹³ |
+
+`lgamma` es el caso interesante. Vale cero en 1 y en 2, y ningún método que sume
+términos de tamaño 1 puede ser *relativamente* exacto sobre que se cancelen a
+nada — allí la afirmación tiene que ser absoluta, y lo es. Ambos ceros salen
+exactamente cero.
+
+`gamma` fuera de los enteros termina en una exponencial, así que su desvío crece
+con log Γ(x): la misma amplificación que tiene `pow`. Por eso un entero toma el
+camino del factorial.
+
 ## Lo que falta a propósito
 
-**El resto de la biblioteca matemática.** `erf`, `erfc`, `gamma`, `lgamma`, `degrees` y
-`radians` se rechazan por nombre en lugar de adivinarse:
+**El resto de la biblioteca matemática.** `digamma`, `beta`, `zeta`, `degrees` y `radians` se
+rechazan por nombre en lugar de adivinarse:
 
 <Terminal title="tdcv2 check seasonal.tdc">
-{`error[TDC257]: erf() is not available yet in an if expression`}
+{`error[TDC257]: digamma() is not available yet in an if expression`}
 </Terminal>
 
-Fíjese en lo que NO dice: «¿quiso decir `exp`?». La distancia de edición habría ofrecido justo
-eso, y `exp` no es la función de error. Un nombre de esta lista recibe la razón,
+Fíjese en lo que NO dice: «¿quiso decir `gamma`?». La distancia de edición habría ofrecido justo
+eso, y digamma es la derivada del logaritmo de gamma, no gamma. Un nombre de esta lista recibe la razón,
 no una conjetura.
 
 Cada una hay que construirla y fijarla bit a bit en cinco lenguajes antes de poder ofrecerla,
