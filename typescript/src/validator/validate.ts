@@ -79,6 +79,7 @@ import { checkGenDrawing, checkGenFile } from './file.js';
 import { checkSwitchCaseAttrs, checkSwitchMap } from './switch-body.js';
 import { checkGenRegex } from './regex.js';
 import { checkGenSymbol } from './symbol.js';
+import { checkSequentialRepeat } from './sequential-repeat.js';
 import { checkGenTimeseries } from './timeseries.js';
 import { checkCompute } from './compute.js';
 import { checkGroupSize } from './group-size.js';
@@ -861,6 +862,8 @@ function checkGen(
     });
   }
   checkAnomalyFlag(gen, ctx.diagnostics, ctx.declaredSequences, inCase);
+  // Type-independent: text, file and date all take order="sequential".
+  checkSequentialRepeat(gen, ctx.diagnostics);
 
   switch (type) {
     case 'text':

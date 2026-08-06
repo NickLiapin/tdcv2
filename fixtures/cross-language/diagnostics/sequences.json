@@ -84,6 +84,34 @@
       "description": "A group constrains its members against each other, so one member constrains nothing. It used to be dropped in silence: check reported the config valid and the run drew repeats. A warning, not an error — the config still runs, it just does not do what it was written for.",
       "config": "<tdc><env count=\"5\" seed=\"one\" local=\"en\"><uniq><sequence name=\"S\"><gen type=\"number\" value=\"1..3\"/></sequence></uniq></env><block><line><data>${{S}}</data></line></block></tdc>",
       "expected": ["warning TDC221 1:42"]
+    },
+    {
+      "name": "sequential-repeat-is-refused",
+      "demonstrates": "TDC254",
+      "description": "repeat= with order=\"sequential\" — the engines disagree about what it produces, so it is refused rather than answered three ways",
+      "config": "<tdc><env count=\"3\" seed=\"s\" local=\"en\"><sequence name=\"A\"><gen type=\"text\" value=\"a,b,c\" repeat=\"3\" order=\"sequential\"/></sequence></env><block><line><data>${{A}}</data></line></block></tdc>",
+      "expected": ["error TDC254 1:98"]
+    },
+    {
+      "name": "sequential-repeat-on-a-date-is-refused",
+      "demonstrates": "TDC254",
+      "description": "The same refusal on a walked date axis — the rule is about the two attributes, not about one generator type",
+      "config": "<tdc><env count=\"3\" seed=\"s\" local=\"en\"><sequence name=\"D\"><gen type=\"date\" range=\"2026-01-01..2026-01-31\" order=\"sequential\" repeat=\"2\"/></sequence></env><block><line><data>${{D}}</data></line></block></tdc>",
+      "expected": ["error TDC254 1:134"]
+    },
+    {
+      "name": "sequential-without-repeat-is-fine",
+      "demonstrates": "",
+      "description": "A walked column on its own is unaffected",
+      "config": "<tdc><env count=\"3\" seed=\"s\" local=\"en\"><sequence name=\"A\"><gen type=\"text\" value=\"a,b,c\" order=\"sequential\"/></sequence></env><block><line><data>${{A}}</data></line></block></tdc>",
+      "expected": []
+    },
+    {
+      "name": "repeat-without-sequential-is-fine",
+      "demonstrates": "",
+      "description": "A repeating column on its own is unaffected",
+      "config": "<tdc><env count=\"3\" seed=\"s\" local=\"en\"><sequence name=\"A\"><gen type=\"text\" value=\"a,b,c\" repeat=\"3\"/></sequence></env><block><line><data>${{A}}</data></line></block></tdc>",
+      "expected": []
     }
   ]
 }

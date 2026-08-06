@@ -1932,6 +1932,7 @@ class _Validator:
         self._check_symbol(gen, attrs, type_)
         self._check_date(gen, attrs, type_)
         self._check_timeseries(gen, attrs, type_)
+        self._check_sequential_repeat(gen, attrs)
         self._check_repeat(gen, attrs, type_)
 
         self._check_gen_attributes(gen, attrs, type_)
@@ -2454,6 +2455,38 @@ class _Validator:
                 line,
                 column,
             )
+
+    def _check_sequential_repeat(self, gen, attrs: dict[str, str]) -> None:
+        """``repeat=`` together with ``order="sequential"``.
+
+        Each attribute is well defined alone and undefined together, and the engines proved it
+        by disagreeing: engine 1 gave the row several elements that were all the SAME value and
+        never advanced, engines 2 and 3 dropped the repeat list and emitted one walking value.
+        ``check`` called that valid, so the author got data that looks plausible, is wrong, and
+        is wrong differently depending on which engine answered.
+
+        Refusing costs no working feature — there was none. Making the combination mean the
+        obvious thing (the row's elements walk the list) means threading an element index
+        through the length-quota layout in three engines, which is a feature with its own
+        design, not a patch.
+        """
+        if (attrs.get("order") or "").strip() != "sequential":
+            return
+        repeat = (attrs.get("repeat") or "").strip()
+        if not repeat:
+            return
+        # Point at `repeat=`: a walked column is what the author asked for and can keep.
+        line, column = _at(gen, "repeat")
+        self._error(
+            "TDC254",
+            f'repeat="{repeat}" cannot be combined with order="sequential"',
+            "A walked list and a repeating list are two different columns, and together they "
+            "have no one answer — the engines disagree about what they produce. Keep "
+            'order="sequential" for a column that walks its source one value per row, or keep '
+            "repeat= for several drawn values per row.",
+            line,
+            column,
+        )
 
     def _check_timeseries(self, gen, attrs: dict[str, str], type_: str | None) -> None:
         """``peak_at=`` — which row the seasonal wave is highest on.

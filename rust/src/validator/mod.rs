@@ -1761,6 +1761,7 @@ impl Validator {
         self.check_symbol(gen, &attrs, gen_type);
         self.check_date(gen, &attrs, gen_type);
         self.check_timeseries(gen, &attrs, gen_type);
+        self.check_sequential_repeat(gen, &attrs);
         self.check_repeat(gen, &attrs, gen_type);
 
         self.check_gen_attributes(gen, &attrs, gen_type);
@@ -2636,6 +2637,35 @@ impl Validator {
     ///
     /// It is a ROW, not a shift: 182 of 365 is the first of July, and `period`
     /// is already counted in rows.
+    /// `repeat=` together with `order="sequential"`.
+    ///
+    /// Well defined apart, undefined together — and the engines proved it by
+    /// disagreeing: engine 1 gave the row several elements that were all the
+    /// SAME value and never advanced, engines 2 and 3 dropped the repeat list
+    /// and emitted one walking value. `check` called that valid, so the author
+    /// got data that looks plausible and is wrong differently per engine.
+    fn check_sequential_repeat(&mut self, gen: &Element, attrs: &Attrs) {
+        if attrs.get("order").map(|v| v.trim()) != Some("sequential") {
+            return;
+        }
+        let Some(repeat) = attrs.get("repeat").map(|v| v.trim().to_string()) else {
+            return;
+        };
+        if repeat.is_empty() {
+            return;
+        }
+        // Point at `repeat=`: a walked column is what the author asked for and can keep.
+        self.error(
+            "TDC254",
+            format!("repeat=\"{repeat}\" cannot be combined with order=\"sequential\""),
+            "A walked list and a repeating list are two different columns, and together they \
+             have no one answer — the engines disagree about what they produce. Keep \
+             order=\"sequential\" for a column that walks its source one value per row, or keep \
+             repeat= for several drawn values per row.",
+            gen.at("repeat"),
+        );
+    }
+
     fn check_timeseries(&mut self, gen: &Element, attrs: &Attrs, gen_type: Option<&str>) {
         if gen_type != Some("timeseries") {
             return;

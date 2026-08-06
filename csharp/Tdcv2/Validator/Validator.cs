@@ -2535,6 +2535,7 @@ public sealed class Validator
         CheckSymbol(gen, attrs, type);
         CheckDate(gen, attrs, type);
         this.CheckTimeseries(gen, attrs, type);
+        this.CheckSequentialRepeat(gen, attrs);
         CheckRepeat(gen, attrs, type);
 
         CheckGenAttributes(gen, attrs, type);
@@ -3397,6 +3398,44 @@ public sealed class Validator
                 + "of a week, or drop weekdays=.",
                 line, column);
         }
+    }
+
+    /// <summary><c>repeat=</c> together with <c>order="sequential"</c>.</summary>
+    /// <remarks>
+    /// Well defined apart, undefined together — and the engines proved it by disagreeing:
+    /// engine 1 gave the row several elements that were all the SAME value and never advanced,
+    /// engines 2 and 3 dropped the repeat list and emitted one walking value. <c>check</c> called
+    /// that valid, so the author got data that looks plausible and is wrong differently depending
+    /// on which engine answered.
+    /// </remarks>
+    private void CheckSequentialRepeat(
+        TDCParser.SelfClosingElementContext gen, IReadOnlyDictionary<string, string> attrs)
+    {
+        if (!attrs.TryGetValue("order", out string? order) || order.Trim() != "sequential")
+        {
+            return;
+        }
+        if (!attrs.TryGetValue("repeat", out string? rawRepeat))
+        {
+            return;
+        }
+        string repeat = rawRepeat.Trim();
+        if (repeat.Length == 0)
+        {
+            return;
+        }
+
+        // Point at `repeat=`: a walked column is what the author asked for and can keep.
+        (int line, int column) = At(gen, "repeat");
+        Error(
+            "TDC254",
+            "repeat=\"" + repeat + "\" cannot be combined with order=\"sequential\"",
+            "A walked list and a repeating list are two different columns, and together they have "
+                + "no one answer — the engines disagree about what they produce. Keep "
+                + "order=\"sequential\" for a column that walks its source one value per row, or "
+                + "keep repeat= for several drawn values per row.",
+            line,
+            column);
     }
 
     /// <summary><c>peak_at=</c> — which row the seasonal wave is highest on.</summary>
