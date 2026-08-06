@@ -26,7 +26,7 @@ use crate::distribution::percent_mask;
 use crate::errors::Diagnostic;
 use crate::expr;
 use crate::format::{mask, transforms};
-use crate::generators::{accumulate, advanced_regex, file, number, regex, repeat};
+use crate::generators::{accumulate, advanced_regex, file, number, regex, repeat, stat};
 use crate::numbers;
 use crate::output::column_type::ColumnType;
 use crate::packs::DataPacks;
@@ -1771,6 +1771,7 @@ impl Validator {
         self.check_source(gen, &attrs, gen_type);
         self.check_http(gen, &attrs, gen_type);
         self.check_running(gen, &attrs, gen_type);
+        self.check_stat(gen, &attrs, gen_type);
         self.check_mask(gen, &attrs);
         self.check_counter(gen, &attrs, gen_type);
         self.check_date_templates(gen, &attrs, gen_type);
@@ -1862,6 +1863,69 @@ impl Validator {
                 format!("{name}=\"{value}\" is not a sequence declared above this one"),
                 &hint,
                 gen.at(name),
+            );
+        }
+    }
+
+    /// Everything a statistic cannot do without.
+    ///
+    /// The same two things a running total needs, for the same two reasons: it
+    /// has to say WHAT to summarise and WHICH statistic, and the column it reads
+    /// has to be declared ABOVE it. The declaration-order complaint is TDC240,
+    /// shared with `running` on purpose — the same rule with the same fix.
+    fn check_stat(&mut self, gen: &Element, attrs: &Attrs, gen_type: Option<&str>) {
+        if gen_type != Some("stat") {
+            return;
+        }
+        let of = attrs.get("of").map(|s| s.trim()).unwrap_or("");
+        if of.is_empty() {
+            self.error(
+                "TDC262",
+                "<gen type=\"stat\"> does not say what to summarise".to_string(),
+                "Name the column it reads: of=\"Price\". A statistic reads another sequence — \
+                 it draws nothing of its own.",
+                gen.pos,
+            );
+        }
+        let raw_op = attrs.get("op").map(|s| s.trim()).unwrap_or("").to_string();
+        if raw_op.is_empty() {
+            self.error(
+                "TDC262",
+                "<gen type=\"stat\"> does not say which statistic".to_string(),
+                &format!("Add op=\"…\" — one of: {}.", stat::OPS.join(", ")),
+                gen.pos,
+            );
+        } else if let Err(message) = stat::parse_op(attrs) {
+            self.error(
+                "TDC262",
+                message,
+                &format!("One of: {}.", stat::OPS.join(", ")),
+                gen.at("op"),
+            );
+        }
+        if let Err(message) = stat::parse_decimals(attrs) {
+            self.error(
+                "TDC262",
+                message,
+                "decimals= rounds the answer. A mean, a median and a standard deviation are \
+                 ratios and print in full without it; sum, min and max keep the exact scale of \
+                 the column.",
+                gen.at("decimals"),
+            );
+        }
+        if !of.is_empty() && !self.declared_order.iter().any(|d| d == of) {
+            let hint = if self.declared_order.is_empty() {
+                "A statistic is built from a column that already exists, so the column it reads \
+                 has to come first."
+                    .to_string()
+            } else {
+                format!("Declared above: {}.", self.declared_order.join(", "))
+            };
+            self.error(
+                "TDC240",
+                format!("of=\"{of}\" is not a sequence declared above this one"),
+                &hint,
+                gen.at("of"),
             );
         }
     }

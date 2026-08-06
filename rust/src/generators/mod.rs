@@ -12,4 +12,5 @@ pub mod rand;
 pub mod regex;
 pub mod repeat;
 pub mod scan;
+pub mod stat;
 pub mod symbol;

@@ -291,6 +291,15 @@ public final class StreamEngine {
                 + "it (run without a forced streaming engine)");
       }
 
+      // A statistic over the whole run is the stronger form of the same thing: it is not knowable
+      // from the rows SO FAR either, because the rows after this one are part of the answer.
+      if (spec.gen() != null && "stat".equals(spec.gen().type())) {
+        throw new Unsupported(
+            "a statistic (\"" + spec.name() + "\") is computed over every row of the run, "
+                + "including the ones after this one, so it cannot be computed one row at a time; "
+                + "the in-memory engine handles it (run without a forced streaming engine)");
+      }
+
       if (spec.gen() != null && "pool".equals(spec.gen().type())) {
         if (trimToNull(spec.parent()) != null) {
           throw unsupported("a pool reference with parent=", spec.name());

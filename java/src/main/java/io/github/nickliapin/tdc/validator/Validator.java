@@ -6,6 +6,7 @@ import io.github.nickliapin.tdc.errors.Diagnostic;
 import io.github.nickliapin.tdc.distribution.PercentMask;
 import io.github.nickliapin.tdc.generators.Accumulate;
 import io.github.nickliapin.tdc.generators.RegexGen;
+import io.github.nickliapin.tdc.generators.Stat;
 import io.github.nickliapin.tdc.parser.PairedData;
 import io.github.nickliapin.tdc.parser.generated.TDCParser;
 import io.github.nickliapin.tdc.sequence.Pool;
@@ -117,7 +118,8 @@ public final class Validator {
           Map.entry("ink_threshold", java.util.Set.of("pattern")),
           // The synthetic series.
           Map.entry("base", java.util.Set.of("timeseries", "running")),
-          Map.entry("of", java.util.Set.of("running")),
+          Map.entry("of", java.util.Set.of("running", "stat")),
+          Map.entry("op", java.util.Set.of("stat")),
           Map.entry("reset", java.util.Set.of("running")),
           Map.entry("trend", java.util.Set.of("timeseries")),
           Map.entry("period", java.util.Set.of("timeseries")),
@@ -307,7 +309,7 @@ public final class Validator {
           "type", "value", "name", "if", "comment", "case", "mask", "order", "cycle", "repeat",
           "separator", "missing", "missing_as", "anomaly", "anomaly_factor", "anomaly_flag",
           "local", "weight", "percent", "first_zero", "include", "exclude",
-          "accumulate", "of", "reset", "length", "decimals", "distribution", "regex_max_length", "alphabet",
+          "accumulate", "of", "reset", "op", "length", "decimals", "distribution", "regex_max_length", "alphabet",
           "format", "from",
           "to", "oldest", "youngest", "precision", "range", "step", "weekdays", "peak_at", "src",
           "column",
@@ -320,7 +322,8 @@ public final class Validator {
   private static final Set<String> GEN_TYPES =
       Set.of(
           "text", "file", "template", "number", "regex", "advanced_regex", "symbol", "date",
-          "increment", "decrement", "timeseries", "pattern", "http", "pool", "running");
+          "increment", "decrement", "timeseries", "pattern", "http", "pool", "running",
+          "stat");
 
   /**
    * Template paths that are generators rather than pack files.
@@ -2138,6 +2141,7 @@ public final class Validator {
     checkSource(gen, attrs, type);
     checkHttp(gen, attrs, type);
     checkRunning(gen, attrs, type);
+    checkStat(gen, attrs, type);
     checkMask(gen, attrs);
     checkCounter(gen, attrs, type);
     checkDateTemplates(gen, attrs, type);
@@ -3216,6 +3220,57 @@ public final class Validator {
                   + "reads has to come first."
               : "Declared above: " + String.join(", ", declaredOrder) + ".",
           at(gen, name)[0], at(gen, name)[1]);
+    }
+  }
+
+  /**
+   * Everything a statistic cannot do without.
+   *
+   * <p>The same two things a running total needs, for the same two reasons: it has to say WHAT to
+   * summarise and WHICH statistic, and the column it reads has to be declared ABOVE it. The
+   * declaration-order complaint is TDC240, shared with {@code running} on purpose — the same rule
+   * with the same fix.
+   */
+  private void checkStat(
+      TDCParser.SelfClosingElementContext gen, Map<String, String> attrs, String type) {
+    if (!"stat".equals(type)) {
+      return;
+    }
+    String of = attrs.getOrDefault("of", "").trim();
+    if (of.isEmpty()) {
+      error("TDC262", "<gen type=\"stat\"> does not say what to summarise",
+          "Name the column it reads: of=\"Price\". A statistic reads another sequence — it "
+              + "draws nothing of its own.",
+          line(gen), column(gen));
+    }
+    String rawOp = attrs.getOrDefault("op", "").trim();
+    if (rawOp.isEmpty()) {
+      error("TDC262", "<gen type=\"stat\"> does not say which statistic",
+          "Add op=\"…\" — one of: " + String.join(", ", Stat.OPS) + ".",
+          line(gen), column(gen));
+    } else {
+      try {
+        Stat.parse(attrs);
+      } catch (Stat.StatError e) {
+        error("TDC262", e.getMessage(), "One of: " + String.join(", ", Stat.OPS) + ".",
+            at(gen, "op")[0], at(gen, "op")[1]);
+      }
+    }
+    try {
+      Stat.parseDecimals(attrs);
+    } catch (Stat.StatError e) {
+      error("TDC262", e.getMessage(),
+          "decimals= rounds the answer. A mean, a median and a standard deviation are ratios and "
+              + "print in full without it; sum, min and max keep the exact scale of the column.",
+          at(gen, "decimals")[0], at(gen, "decimals")[1]);
+    }
+    if (!of.isEmpty() && !declaredOrder.contains(of)) {
+      error("TDC240", "of=\"" + of + "\" is not a sequence declared above this one",
+          declaredOrder.isEmpty()
+              ? "A statistic is built from a column that already exists, so the column it reads "
+                  + "has to come first."
+              : "Declared above: " + String.join(", ", declaredOrder) + ".",
+          at(gen, "of")[0], at(gen, "of")[1]);
     }
   }
 

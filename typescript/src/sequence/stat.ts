@@ -153,24 +153,17 @@ function stddev(values: readonly number[]): number {
 /**
  * `decimals=` applied.
  *
- * Written out rather than delegated to `toFixed`, because the five
- * implementations round differently at a tie and a statistic that changes in the
- * last digit between languages is exactly what this project refuses to ship. The
- * rule is TDC's own: a half goes AWAY FROM ZERO.
+ * `toFixed` and nothing hand-rolled, deliberately. The first draft multiplied by
+ * 10^decimals and floored — which introduces a rounding error of its own before
+ * the rounding rule ever runs, so two implementations could land on either side
+ * of a tie for the same input. `toFixed` works on the decimal expansion of the
+ * double itself, the four ports already imitate it exactly for `decimals=` on
+ * <gen type="number">, and reusing it means the attribute means one thing across
+ * the whole engine rather than two.
  */
 function fixed(value: number, decimals: number): string {
   if (!Number.isFinite(value)) return String(value);
-  const scale = Math.pow(10, decimals);
-  const scaled = value * scale;
-  const rounded = scaled < 0 ? -Math.floor(-scaled + 0.5) : Math.floor(scaled + 0.5);
-  const negative = rounded < 0;
-  const digits = Math.abs(rounded)
-    .toString()
-    .padStart(decimals + 1, '0');
-  const whole = digits.slice(0, digits.length - decimals);
-  const fraction = digits.slice(digits.length - decimals);
-  const sign = negative ? '-' : '';
-  return decimals === 0 ? `${sign}${whole}` : `${sign}${whole}.${fraction}`;
+  return value.toFixed(decimals);
 }
 
 /**

@@ -13,6 +13,7 @@ import io.github.nickliapin.tdc.generators.Counter;
 import io.github.nickliapin.tdc.generators.FileGen;
 import io.github.nickliapin.tdc.generators.HttpGen;
 import io.github.nickliapin.tdc.generators.Accumulate;
+import io.github.nickliapin.tdc.generators.Stat;
 import io.github.nickliapin.tdc.generators.Imperfections;
 import io.github.nickliapin.tdc.generators.NumberGen;
 import io.github.nickliapin.tdc.generators.Repeat;
@@ -198,6 +199,34 @@ public final class MemoryEngine {
     String base = attrs.getOrDefault("base", "").trim();
     String[] values = java.util.Arrays.copyOf(source, Math.min(count, source.length));
     columns.put(spec.name(), Accumulate.applyColumn(values, op, base.isEmpty() ? null : base, resetAt));
+  }
+
+  /**
+   * Publish a statistic over the whole run: ONE value, on every row.
+   *
+   * <p>Reads its source out of the columns rather than drawing anything, exactly as a running
+   * total does — which is why adding one leaves every other column where it was.
+   */
+  private static void statColumn(
+      Config.SequenceSpec spec, Map<String, String[]> columns, int count) {
+    Map<String, String> attrs = spec.gen().attrs();
+    String of = attrs.getOrDefault("of", "").trim();
+    String op = Stat.read(attrs);
+    String[] source = columns.get(of);
+    if (op == null || source == null) {
+      return; // the validator reports both
+    }
+    Integer decimals;
+    try {
+      decimals = Stat.parseDecimals(attrs);
+    } catch (Stat.StatError e) {
+      return; // a bad decimals= is a diagnostic, not a crash
+    }
+    String[] values = java.util.Arrays.copyOf(source, Math.min(count, source.length));
+    String answer = Stat.statistic(values, op, decimals);
+    String[] column = new String[count];
+    java.util.Arrays.fill(column, answer);
+    columns.put(spec.name(), column);
   }
 
   static Map<String, Pool.Table> buildPoolTables(
@@ -426,6 +455,12 @@ public final class MemoryEngine {
       // that already exists — which is also why `of=` must name a sequence declared above it.
       if (spec.gen() != null && "running".equals(spec.gen().type())) {
         runningColumn(spec, columns, count);
+        continue;
+      }
+      // A statistic over the whole run. Resolved here for the same reason and by the same rule:
+      // it reads a column that already exists, so `of=` has to name a sequence above it.
+      if (spec.gen() != null && "stat".equals(spec.gen().type())) {
+        statColumn(spec, columns, count);
         continue;
       }
       if (spec.isComposed()) {

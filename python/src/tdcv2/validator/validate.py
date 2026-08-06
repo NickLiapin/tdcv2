@@ -48,6 +48,7 @@ from ..format import transforms
 from ..generators import accumulate as accumulate_gen
 from ..generators import file as file_gen
 from ..generators import regex
+from ..generators import stat as stat_gen
 from ..output import column_type
 from ..packs import DataPacks
 from ..parser import paired_data
@@ -300,7 +301,7 @@ _NOT_A_PACK_PARAM = frozenset({"parent", "count", "flag"})
 GEN_ATTRS = frozenset(
     {
         "type", "value", "name", "if", "comment", "case", "mask", "order", "cycle", "repeat",
-        "separator", "accumulate", "of", "reset", "missing", "missing_as", "anomaly",
+        "separator", "accumulate", "of", "reset", "op", "missing", "missing_as", "anomaly",
         "anomaly_factor",
         "anomaly_flag",
         "local", "weight", "percent", "first_zero", "include", "exclude",
@@ -348,6 +349,10 @@ ATTRIBUTE_OWNERS: dict[str, frozenset[str]] = {
     "interp": frozenset({"pattern"}),
     "spread": frozenset({"pattern"}),
     "ink_threshold": frozenset({"pattern"}),
+    # The column a whole-column construct reads, and what it does with it.
+    "of": frozenset({"running", "stat"}),
+    "reset": frozenset({"running"}),
+    "op": frozenset({"stat"}),
     # The synthetic series.
     "base": frozenset({"timeseries", "running"}),
     "trend": frozenset({"timeseries"}),
@@ -384,7 +389,7 @@ BUILTIN_TEMPLATE_PARAMS: dict[str, frozenset[str]] = {
 GEN_TYPES = frozenset(
     {
         "text", "file", "template", "number", "regex", "advanced_regex", "symbol", "date",
-        "increment", "decrement", "timeseries", "pattern", "http", "pool", "running",
+        "increment", "decrement", "timeseries", "pattern", "http", "pool", "running", "stat",
     }
 )  # fmt: skip
 
@@ -2103,6 +2108,7 @@ class _Validator:
         self._check_source(gen, attrs, type_)
         self._check_http(gen, attrs, type_)
         self._check_running(gen, attrs, type_)
+        self._check_stat(gen, attrs, type_)
         self._check_mask(gen, attrs)
         self._check_counter(gen, attrs, type_)
         self._check_date_templates(gen, attrs, type_)
@@ -3132,6 +3138,74 @@ class _Validator:
                 f'{name}="{value}" is not a sequence declared above this one',
                 "A running total is built from a column that already exists, so the column "
                 "it reads has to come first."
+                if not self.declared_order
+                else "Declared above: " + ", ".join(self.declared_order) + ".",
+                at_line,
+                at_column,
+            )
+
+    def _check_stat(self, gen, attrs: dict[str, str], type_: str | None) -> None:
+        """Everything a statistic cannot do without.
+
+        The same two things a running total needs, for the same two reasons: it has to say WHAT
+        to summarise and WHICH statistic, and the column it reads has to be declared ABOVE it.
+        The declaration-order complaint is TDC240, shared with ``running`` on purpose — the same
+        rule with the same fix.
+        """
+        if type_ != "stat":
+            return
+        line, column = _line(gen), _column(gen)
+        of = (attrs.get("of") or "").strip()
+        if not of:
+            self._error(
+                "TDC262",
+                '<gen type="stat"> does not say what to summarise',
+                'Name the column it reads: of="Price". A statistic reads another sequence — it '
+                "draws nothing of its own.",
+                line,
+                column,
+            )
+        raw_op = (attrs.get("op") or "").strip()
+        if not raw_op:
+            self._error(
+                "TDC262",
+                '<gen type="stat"> does not say which statistic',
+                'Add op="…" — one of: ' + ", ".join(stat_gen.OPS) + ".",
+                line,
+                column,
+            )
+        else:
+            try:
+                stat_gen.parse_op(attrs)
+            except stat_gen.StatError as err:
+                at_line, at_column = _at(gen, "op")
+                # This Diagnostic carries no suggestion field, so the near name goes in the
+                # hint — the fixtures pin severity, code and position, never wording.
+                near = _nearest(raw_op, stat_gen.OPS)
+                hint = "One of: " + ", ".join(stat_gen.OPS) + "."
+                if near:
+                    hint = f'Did you mean "{near}"? ' + hint
+                self._error("TDC262", str(err), hint, at_line, at_column)
+        try:
+            stat_gen.parse_decimals(attrs)
+        except stat_gen.StatError as err:
+            at_line, at_column = _at(gen, "decimals")
+            self._error(
+                "TDC262",
+                str(err),
+                "decimals= rounds the answer. A mean, a median and a standard deviation are "
+                "ratios and print in full without it; sum, min and max keep the exact scale of "
+                "the column.",
+                at_line,
+                at_column,
+            )
+        if of and of not in self.declared_order:
+            at_line, at_column = _at(gen, "of")
+            self._error(
+                "TDC240",
+                f'of="{of}" is not a sequence declared above this one',
+                "A statistic is built from a column that already exists, so the column it reads "
+                "has to come first."
                 if not self.declared_order
                 else "Declared above: " + ", ".join(self.declared_order) + ".",
                 at_line,

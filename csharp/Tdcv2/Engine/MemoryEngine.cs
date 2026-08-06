@@ -203,6 +203,40 @@ public static class MemoryEngine
             source.Take(count).ToArray(), op, baseText.Length == 0 ? null : baseText, resetAt);
     }
 
+    /// <summary>
+    /// Publish a statistic over the whole run: ONE value, on every row.
+    /// </summary>
+    /// <remarks>
+    /// Reads its source out of the columns rather than drawing anything, exactly as a running
+    /// total does — which is why adding one leaves every other column where it was.
+    /// </remarks>
+    private static void StatColumn(
+        SequenceSpec spec, Dictionary<string, string?[]> columns, int count)
+    {
+        IReadOnlyDictionary<string, string> attrs = spec.Gen!.Attrs;
+        string of = (attrs.GetValueOrDefault("of") ?? "").Trim();
+        string? op = Stat.ReadOp(attrs);
+        if (op is null || !columns.TryGetValue(of, out string?[]? source))
+        {
+            return; // the validator reports both
+        }
+
+        int? decimals;
+        try
+        {
+            decimals = Stat.ParseDecimals(attrs);
+        }
+        catch (StatException)
+        {
+            return; // a bad decimals= is a diagnostic, not a crash
+        }
+
+        string answer = Stat.Statistic(source.Take(count).ToArray(), op, decimals);
+        var column = new string?[count];
+        Array.Fill(column, answer);
+        columns[spec.Name] = column;
+    }
+
     internal static IReadOnlyDictionary<string, PoolTable> BuildPoolTables(Ctx ctx)
     {
         var tables = new Dictionary<string, PoolTable>(StringComparer.Ordinal);
@@ -482,6 +516,14 @@ public static class MemoryEngine
             if (spec.Gen is not null && spec.Gen.Type == "running")
             {
                 RunningColumn(spec, columns, count);
+                continue;
+            }
+
+            // A statistic over the whole run. Resolved here for the same reason and by the same
+            // rule: it reads a column that already exists, so `of=` has to name one above it.
+            if (spec.Gen is not null && spec.Gen.Type == "stat")
+            {
+                StatColumn(spec, columns, count);
                 continue;
             }
 

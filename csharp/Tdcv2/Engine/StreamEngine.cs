@@ -414,6 +414,18 @@ public sealed class StreamEngine
                     + "handles it (run without a forced streaming engine)");
             }
 
+            // A statistic over the whole run is the stronger form of the same thing: it is not
+            // knowable from the rows SO FAR either, because the rows after this one are part of
+            // the answer. Refused by name, and the router hands the config to memory.
+            if (spec.Gen is not null && spec.Gen.Type == "stat")
+            {
+                throw new UnsupportedHere(
+                    $"a statistic (\"{spec.Name}\") is computed over every row of the run, "
+                    + "including the ones after this one, so it cannot be computed one row at a "
+                    + "time; the in-memory engine handles it (run without a forced streaming "
+                    + "engine)");
+            }
+
             if (spec.Gen is not null && spec.Gen.Type == "pool")
             {
                 if (!string.IsNullOrWhiteSpace(spec.Parent))

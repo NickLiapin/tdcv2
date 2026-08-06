@@ -69,14 +69,16 @@ describe('stat — the arithmetic it shares with a running total', () => {
     expect(column('max', '10.50,9')[0]).toBe('10.50');
   });
 
-  it('decimals= rounds, and a half goes AWAY FROM ZERO like everywhere else in TDC', () => {
-    // 936.36 / 8 is 117.045 exactly; toward-even would answer 117.04.
+  it('decimals= rounds the way decimals= on a number already rounds', () => {
+    // The same toFixed the four ports imitate for <gen type="number">, so the
+    // attribute means one thing across the engine. 936.36 / 8 lands on 117.045
+    // and rounds up; round-half-to-even would answer 117.04.
     expect(
       column('mean', '181.44,86.56,168.24,178.89,41.53,111.89,29.34,138.47', ' decimals="2"')[0],
     ).toBe('117.05');
-    // A half at zero is where the three host languages disagree most: mean 0.5
-    // is 1 here and 0 under round-half-to-even; mean −0.5 is −1 here and −0 in
-    // JavaScript. −1.5 would NOT tell them apart, which is why it is not used.
+    // A half at zero is where the host languages disagree most: mean 0.5 is 1
+    // here and 0 under round-half-to-even; mean −0.5 is −1 here. −1.5 would NOT
+    // tell the two conventions apart, which is why it is not used.
     expect(column('mean', '0,1', ' decimals="0"')[0]).toBe('1');
     expect(column('mean', '-1,0', ' decimals="0"')[0]).toBe('-1');
   });

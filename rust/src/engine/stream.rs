@@ -618,6 +618,17 @@ impl<'a> StreamEngine<'a> {
                         spec.name
                     ));
                 }
+                // A statistic over the whole run is the stronger form of the
+                // same thing: it is not knowable from the rows SO FAR either,
+                // because the rows after this one are part of the answer.
+                if gen.gen_type == "stat" {
+                    return unsupported(&format!(
+                        "a statistic (\"{}\") is computed over every row of the run, including \
+                         the ones after this one, so it cannot be computed one row at a time; \
+                         the in-memory engine handles it (run without a forced streaming engine)",
+                        spec.name
+                    ));
+                }
             }
 
             match &spec.source {

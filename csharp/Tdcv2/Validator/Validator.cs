@@ -126,6 +126,9 @@ public sealed class Validator
             ["ink_threshold"] = Set("pattern"),
 
             // The synthetic series.
+            ["of"] = Set("running", "stat"),
+            ["reset"] = Set("running"),
+            ["op"] = Set("stat"),
             ["base"] = Set("timeseries", "running"),
             ["trend"] = Set("timeseries"),
             ["period"] = Set("timeseries"),
@@ -284,7 +287,7 @@ public sealed class Validator
 
     private static readonly IReadOnlySet<string> GenAttrs = Set(
         "type", "value", "name", "if", "comment", "case", "mask", "order", "cycle", "repeat",
-        "separator", "accumulate", "of", "reset", "missing", "missing_as", "anomaly",
+        "separator", "accumulate", "of", "reset", "op", "missing", "missing_as", "anomaly",
         "anomaly_factor",
         "anomaly_flag",
         "local", "weight", "percent", "first_zero", "include", "exclude",
@@ -299,7 +302,8 @@ public sealed class Validator
 
     private static readonly IReadOnlySet<string> GenTypes = Set(
         "text", "file", "template", "number", "regex", "advanced_regex", "symbol", "date",
-        "increment", "decrement", "timeseries", "pattern", "http", "pool", "running");
+        "increment", "decrement", "timeseries", "pattern", "http", "pool", "running",
+        "stat");
 
     /// <summary>
     /// Template paths that are generators rather than pack files.
@@ -2618,6 +2622,7 @@ public sealed class Validator
         CheckSource(gen, attrs, type);
         CheckHttp(gen, attrs, type);
         CheckRunning(gen, attrs, type);
+        CheckStat(gen, attrs, type);
         CheckMask(gen, attrs);
         CheckCounter(gen, attrs, type);
         CheckDateTemplates(gen, attrs, type);
@@ -3931,6 +3936,86 @@ public sealed class Validator
                 _declaredOrder.Count == 0
                     ? "A running total is built from a column that already exists, so the "
                       + "column it reads has to come first."
+                    : "Declared above: " + string.Join(", ", _declaredOrder) + ".",
+                line, column);
+        }
+    }
+
+    /// <summary>
+    /// Everything a statistic cannot do without.
+    /// </summary>
+    /// <remarks>
+    /// The same two things a running total needs, for the same two reasons: it has to say WHAT to
+    /// summarise and WHICH statistic, and the column it reads has to be declared ABOVE it. The
+    /// declaration-order complaint is TDC240, shared with <c>running</c> on purpose — the same
+    /// rule with the same fix.
+    /// </remarks>
+    private void CheckStat(
+        TDCParser.SelfClosingElementContext gen,
+        IReadOnlyDictionary<string, string> attrs,
+        string? type)
+    {
+        if (type != "stat")
+        {
+            return;
+        }
+
+        string of = (attrs.GetValueOrDefault("of") ?? "").Trim();
+        if (of.Length == 0)
+        {
+            Error(
+                "TDC262", "<gen type=\"stat\"> does not say what to summarise",
+                "Name the column it reads: of=\"Price\". A statistic reads another sequence — "
+                + "it draws nothing of its own.",
+                Line(gen), Column(gen));
+        }
+
+        string rawOp = (attrs.GetValueOrDefault("op") ?? "").Trim();
+        if (rawOp.Length == 0)
+        {
+            Error(
+                "TDC262", "<gen type=\"stat\"> does not say which statistic",
+                "Add op=\"…\" — one of: " + string.Join(", ", Stat.Ops) + ".",
+                Line(gen), Column(gen));
+        }
+        else
+        {
+            try
+            {
+                Stat.ParseOp(attrs);
+            }
+            catch (StatException e)
+            {
+                (int line, int column) = At(gen, "op");
+                Error(
+                    "TDC262", e.Message, "One of: " + string.Join(", ", Stat.Ops) + ".",
+                    line, column);
+            }
+        }
+
+        try
+        {
+            Stat.ParseDecimals(attrs);
+        }
+        catch (StatException e)
+        {
+            (int line, int column) = At(gen, "decimals");
+            Error(
+                "TDC262", e.Message,
+                "decimals= rounds the answer. A mean, a median and a standard deviation are "
+                + "ratios and print in full without it; sum, min and max keep the exact scale of "
+                + "the column.",
+                line, column);
+        }
+
+        if (of.Length != 0 && !_declaredOrder.Contains(of, StringComparer.Ordinal))
+        {
+            (int line, int column) = At(gen, "of");
+            Error(
+                "TDC240", $"of=\"{of}\" is not a sequence declared above this one",
+                _declaredOrder.Count == 0
+                    ? "A statistic is built from a column that already exists, so the column it "
+                      + "reads has to come first."
                     : "Declared above: " + string.Join(", ", _declaredOrder) + ".",
                 line, column);
         }

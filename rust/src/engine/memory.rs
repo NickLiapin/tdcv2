@@ -26,6 +26,7 @@ use crate::expr::evaluate as expr;
 use crate::format::interpolate::{self, Lookup};
 use crate::format::{mask, transforms};
 use crate::generators::accumulate;
+use crate::generators::stat;
 use crate::generators::{
     advanced_regex, counter, file, http, imperfections, number, rand, regex, repeat, symbol,
 };
@@ -187,6 +188,38 @@ pub fn render_in(config: &Config, now_millis: i64, base_dir: Option<&str>) -> En
 /// Reads its source out of the columns rather than drawing anything: a running
 /// total consumes no randomness at all, which is why adding one leaves every
 /// other column exactly where it was.
+/// Publish a statistic over the whole run: ONE value, on every row.
+///
+/// Reads its source out of the columns rather than drawing anything, exactly as
+/// a running total does — which is why adding one leaves every other column
+/// where it was.
+fn stat_column(
+    spec: &SequenceSpec,
+    gen: &Gen,
+    columns: &mut BTreeMap<String, Vec<Option<String>>>,
+    count: usize,
+) -> EngineResult<()> {
+    let of = gen.attrs.get("of").map(|s| s.trim()).unwrap_or("");
+    let Some(source) = columns.get(of).cloned() else {
+        return Ok(()); // unknown column — the validator reports it
+    };
+    let Some(op) = stat::read_op(&gen.attrs) else {
+        return Ok(()); // no op — likewise
+    };
+    // A bad decimals= is a diagnostic, not a crash.
+    let Ok(decimals) = stat::parse_decimals(&gen.attrs) else {
+        return Ok(());
+    };
+    let values: Vec<Option<String>> = source.into_iter().take(count).collect();
+    match stat::statistic(&values, &op, decimals) {
+        Ok(answer) => {
+            columns.insert(spec.name.clone(), vec![Some(answer); count]);
+            Ok(())
+        }
+        Err(message) => invalid(&message),
+    }
+}
+
 fn running_column(
     spec: &SequenceSpec,
     gen: &Gen,
@@ -498,6 +531,13 @@ fn build_columns_with(
             // why `of=` must name a sequence declared above it.
             if gen.gen_type == "running" {
                 running_column(spec, gen, &mut columns, count)?;
+                continue;
+            }
+            // A statistic over the whole run. Resolved here for the same reason
+            // and by the same rule: it reads a column that already exists, so
+            // `of=` has to name a sequence declared above it.
+            if gen.gen_type == "stat" {
+                stat_column(spec, gen, &mut columns, count)?;
                 continue;
             }
         }

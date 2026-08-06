@@ -25,6 +25,7 @@ from ..format import interpolate
 from ..format.mask import apply_mask
 from ..format.transforms import apply_case, is_case_transform
 from ..generators import accumulate as accumulate_gen
+from ..generators import stat as stat_gen
 from ..generators import advanced_regex, counter, imperfections, number, regex, symbol
 from ..generators import file as file_gen
 from ..generators import http as http_gen
@@ -236,6 +237,26 @@ def _running(spec: SequenceSpec, columns: dict[str, list[str | None]], count: in
     columns[spec.name or ""] = accumulate_gen.apply_column(source[:count], op, base, reset_at)
 
 
+def _stat(spec: SequenceSpec, columns: dict[str, list[str | None]], count: int) -> None:
+    """Publish a statistic over the whole run: ONE value, on every row.
+
+    Reads its source out of the columns rather than drawing anything, exactly as a running total
+    does — which is why adding one leaves every other column where it was.
+    """
+    attrs = spec.gen.attrs if spec.gen is not None else {}
+    source = columns.get((attrs.get("of") or "").strip())
+    op = stat_gen.read_op(attrs)
+    if source is None or op is None:
+        return  # the validator reports both
+    try:
+        decimals = stat_gen.parse_decimals(attrs)
+    except stat_gen.StatError:
+        return  # a bad decimals= is a diagnostic, not a crash
+
+    answer = stat_gen.statistic(source[:count], op, decimals)
+    columns[spec.name or ""] = [answer] * count
+
+
 def _pool_reference(
     spec: SequenceSpec,
     columns: dict[str, list[str | None]],
@@ -363,6 +384,12 @@ def _build_columns(
         # column that already exists — which is also why `of=` must name a sequence above it.
         if spec.gen is not None and spec.gen.type == "running":
             _running(spec, columns, count)
+            continue
+
+        # A statistic over the whole run. Resolved here for the same reason and by the same
+        # rule: it reads a column that already exists, so `of=` has to name a sequence above it.
+        if spec.gen is not None and spec.gen.type == "stat":
+            _stat(spec, columns, count)
             continue
 
         if spec.is_composed:
