@@ -1048,3 +1048,150 @@ pub fn gamma(x: f64) -> f64 {
     // on its first factor near x = 150, while Γ(x) is still finite to 171.
     SQRT_2PI * lanczos_sum(z) * exp((z + 0.5) * log(t) - t)
 }
+
+// ── The fifth wave: what was left ────────────────────────────────────────────
+//
+// Two conversions, and three functions each defined in terms of what came
+// before.
+
+const DEGREES_PER_RADIAN: f64 = 57.295_779_513_082_32;
+const RADIANS_PER_DEGREE: f64 = 0.017_453_292_519_943_295;
+
+/// Asymptotic coefficients for digamma, ascending in 1/x^2: -B_2k/(2k).
+///
+/// The series is asymptotic, not convergent — adding terms forever makes it
+/// worse, not better.
+const DIGAMMA_COEFF: [f64; 8] = [
+    -1.0 / 12.0,
+    1.0 / 120.0,
+    -1.0 / 252.0,
+    1.0 / 240.0,
+    -1.0 / 132.0,
+    691.0 / 32760.0,
+    -1.0 / 12.0,
+    3617.0 / 8160.0,
+];
+
+/// Where the recurrence stops shifting.
+///
+/// Ten, and larger is WORSE: each step of `psi(x) = psi(x+1) - 1/x` adds its
+/// own rounding. Measured against the exact value at whole numbers —
+/// psi(n) = -gamma + H(n-1) — ten gives 3 ulp, fourteen gives 12.
+const DIGAMMA_SHIFT: f64 = 10.0;
+
+/// B_2k/(2k)! for k = 1..7 — the Euler-Maclaurin tail for zeta.
+const ZETA_BERNOULLI: [f64; 7] = [
+    1.0 / 12.0,
+    -1.0 / 720.0,
+    1.0 / 30240.0,
+    -1.0 / 1_209_600.0,
+    1.0 / 47_900_160.0,
+    -691.0 / 1_307_674_368_000.0,
+    1.0 / 74_724_249_600.0,
+];
+
+const ZETA_TERMS: i32 = 12;
+const ZETA_CORRECTIONS: i32 = 6;
+
+/// `degrees(x)` — one multiplication, so all five agree trivially.
+///
+/// It exists because every circular function here takes radians and says so; a
+/// config holding an angle in degrees needs somewhere to put the conversion.
+pub fn degrees(x: f64) -> f64 {
+    x * DEGREES_PER_RADIAN
+}
+
+/// `radians(x)` — the other direction, same single rounding.
+pub fn radians(x: f64) -> f64 {
+    x * RADIANS_PER_DEGREE
+}
+
+/// `beta(a, b)` — the Euler beta function, Γ(a)Γ(b)/Γ(a+b).
+///
+/// Taken directly from the gammas while they fit, because that is the accurate
+/// route. Past a+b = 171 the numerator overflows although the answer is small —
+/// beta SHRINKS as its arguments grow — so up there it goes through logarithms.
+pub fn beta(a: f64, b: f64) -> f64 {
+    if a.is_nan() || b.is_nan() {
+        return f64::NAN;
+    }
+    if a > 0.0 && b > 0.0 && a + b > 171.0 {
+        return exp(lgamma(a) + lgamma(b) - lgamma(a + b));
+    }
+    gamma(a) * gamma(b) / gamma(a + b)
+}
+
+/// `digamma(x)` — the derivative of log Γ(x).
+///
+/// Small arguments are lifted by the recurrence until the asymptotic series is
+/// usable; negatives come back through the reflection
+/// `psi(1-x) - psi(x) = pi*cot(pi*x)`.
+pub fn digamma(x: f64) -> f64 {
+    if x.is_nan() {
+        return f64::NAN;
+    }
+    if x == f64::INFINITY {
+        return f64::INFINITY;
+    }
+    // Every whole number at or below zero is a pole, as it is for Γ itself.
+    if x <= 0.0 && x == x.trunc() {
+        return f64::NAN;
+    }
+    if x < 0.5 {
+        return digamma(1.0 - x) - PI / tan(PI * x);
+    }
+    let mut shifted = x;
+    let mut correction = 0.0f64;
+    while shifted < DIGAMMA_SHIFT {
+        correction -= 1.0 / shifted;
+        shifted += 1.0;
+    }
+    let f = 1.0 / (shifted * shifted);
+    correction + log(shifted) - 0.5 / shifted + f * horner(&DIGAMMA_COEFF, f)
+}
+
+/// ζ(s) for s > 1, by Euler-Maclaurin.
+fn zeta_sum(s: f64) -> f64 {
+    let mut total = 0.0f64;
+    let mut n = 1;
+    while n < ZETA_TERMS {
+        total += pow(f64::from(n), -s);
+        n += 1;
+    }
+    let tail = pow(f64::from(ZETA_TERMS), -s);
+    total += tail / 2.0 + f64::from(ZETA_TERMS) * tail / (s - 1.0);
+    // Then the Bernoulli corrections, each a rising factorial over a growing power.
+    let mut rising = s;
+    let mut power = tail / f64::from(ZETA_TERMS);
+    let mut k = 1;
+    while k <= ZETA_CORRECTIONS {
+        total += ZETA_BERNOULLI[(k - 1) as usize] * rising * power;
+        rising *= (s + f64::from(2 * k - 1)) * (s + f64::from(2 * k));
+        power /= f64::from(ZETA_TERMS) * f64::from(ZETA_TERMS);
+        k += 1;
+    }
+    total
+}
+
+/// `zeta(s)` — the Riemann zeta function, for real s.
+///
+/// Above 1 the sum converges and Euler-Maclaurin makes twelve terms behave like
+/// thousands. Below it the functional equation reflects the argument across
+/// s = 1/2, which is why this needs Γ and sin and could not have been written
+/// before them. ζ(1) is the pole; ζ(0) is -1/2, which the reflection cannot
+/// give because it meets 0 · ∞ there.
+pub fn zeta(s: f64) -> f64 {
+    if s.is_nan() {
+        return f64::NAN;
+    }
+    if s == 1.0 {
+        return f64::INFINITY;
+    }
+    if s == 0.0 {
+        return -0.5;
+    }
+    if s > 1.0 {
+        return zeta_sum(s);
+    }
+    pow(2.0, s) * pow(PI, s - 1.0) * sin(PI * s / 2.0) * gamma(1.0 - s) * zeta_sum(1.0 - s)
+}

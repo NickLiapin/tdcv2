@@ -748,6 +748,14 @@
         "lines": ["erf erfc gamma lgamma gamma-whole erfc-tail"]
       }
     },
+    "expressions/tdcmath-fifth-wave-produces-the-same-double-everywhere": {
+      "engine2": {
+        "lines": ["degrees radians beta digamma zeta zeta-pi2"]
+      },
+      "engine3": {
+        "lines": ["degrees radians beta digamma zeta zeta-pi2"]
+      }
+    },
     "formatting/mask-phone": {
       "engine2": {
         "lines": ["555-123-4567"]

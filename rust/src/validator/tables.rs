@@ -322,7 +322,7 @@ pub const SUPPORTED_UNARY_OPERATORS: [&str; 3] = ["!", "-", "+"];
 /// down. The transcendental ones are computed by TDC itself (`crate::math`)
 /// rather than by the host libm, which is what keeps five implementations on
 /// one double.
-pub const EXPR_FUNCTIONS: [(&str, usize, usize); 42] = [
+pub const EXPR_FUNCTIONS: [(&str, usize, usize); 47] = [
     ("abs", 1, 1),
     ("acos", 1, 1),
     ("acosh", 1, 1),
@@ -331,11 +331,14 @@ pub const EXPR_FUNCTIONS: [(&str, usize, usize); 42] = [
     ("atan", 1, 1),
     ("atan2", 2, 2),
     ("atanh", 1, 1),
+    ("beta", 2, 2),
     ("cbrt", 1, 1),
     ("ceil", 1, 1),
     ("contains", 2, 2),
     ("cos", 1, 1),
     ("cosh", 1, 1),
+    ("degrees", 1, 1),
+    ("digamma", 1, 1),
     ("ends_with", 2, 2),
     ("erf", 1, 1),
     ("erfc", 1, 1),
@@ -355,6 +358,7 @@ pub const EXPR_FUNCTIONS: [(&str, usize, usize); 42] = [
     ("max", 1, usize::MAX),
     ("min", 1, usize::MAX),
     ("pow", 2, 2),
+    ("radians", 1, 1),
     ("round", 1, 1),
     ("sign", 1, 1),
     ("sin", 1, 1),
@@ -365,21 +369,31 @@ pub const EXPR_FUNCTIONS: [(&str, usize, usize); 42] = [
     ("tanh", 1, 1),
     ("trunc", 1, 1),
     ("upper", 1, 1),
+    ("zeta", 1, 1),
 ];
 
-pub const EXPR_FUNCTION_NAMES: [&str; 42] = [
-    "abs", "acos", "acosh", "asin", "asinh", "atan", "atan2", "atanh", "cbrt", "ceil", "contains",
-    "cos", "cosh", "ends_with", "erf", "erfc", "exp", "expm1", "floor", "gamma", "hypot",
-    "is_empty", "len", "lgamma", "log", "log10", "log1p", "log2", "lower", "max", "min", "pow",
-    "round", "sign", "sin", "sinh", "sqrt", "starts_with", "tan", "tanh", "trunc", "upper",
+pub const EXPR_FUNCTION_NAMES: [&str; 47] = [
+    "abs", "acos", "acosh", "asin", "asinh", "atan", "atan2", "atanh", "beta", "cbrt", "ceil",
+    "contains", "cos", "cosh", "degrees", "digamma", "ends_with", "erf", "erfc", "exp", "expm1",
+    "floor", "gamma", "hypot", "is_empty", "len", "lgamma", "log", "log10", "log1p", "log2",
+    "lower", "max", "min", "pow", "radians", "round", "sign", "sin", "sinh", "sqrt",
+    "starts_with", "tan", "tanh", "trunc", "upper", "zeta",
 ];
 
-/// Not available, and not typos either. Someone writing `digamma(_count)` knows
-/// what they meant, and "did you mean gamma?" is worse than saying nothing.
+/// Not available, and not typos either. Someone writing `besselj(_count)` knows
+/// what they meant, and "did you mean beta?" is worse than saying nothing.
 ///
-/// Every name here has to be built and pinned to its bits in five languages
-/// before it can be offered, which is the only thing keeping it on this list.
-pub const PLANNED_EXPR_FUNCTIONS: [&str; 5] = ["beta", "degrees", "digamma", "radians", "zeta"];
+/// What is left here is the mathematics a data generator has no business
+/// carrying: each is a project rather than a function, and none has ever
+/// plausibly belonged in a row predicate.
+pub const PLANNED_EXPR_FUNCTIONS: [&str; 6] = [
+    "airy",
+    "besselj",
+    "bessely",
+    "elliptic_e",
+    "elliptic_k",
+    "polygamma",
+];
 
 pub fn lookup<'a>(table: &'a [(&'a str, &'a [&'a str])], key: &str) -> Option<&'a [&'a str]> {
     table.iter().find(|(k, _)| *k == key).map(|(_, v)| *v)

@@ -195,6 +195,11 @@ public final class Validator {
       Map.ofEntries(
           Map.entry("abs", new int[] {1, 1}),
           Map.entry("acos", new int[] {1, 1}),
+          Map.entry("beta", new int[] {2, 2}),
+          Map.entry("degrees", new int[] {1, 1}),
+          Map.entry("digamma", new int[] {1, 1}),
+          Map.entry("radians", new int[] {1, 1}),
+          Map.entry("zeta", new int[] {1, 1}),
           Map.entry("erf", new int[] {1, 1}),
           Map.entry("erfc", new int[] {1, 1}),
           Map.entry("gamma", new int[] {1, 1}),
@@ -238,21 +243,22 @@ public final class Validator {
 
   private static final List<String> EXPR_FUNCTION_NAMES =
       List.of(
-          "abs", "acos", "acosh", "asin", "asinh", "atan", "atan2", "atanh", "cbrt", "ceil",
-          "contains", "cos", "cosh", "ends_with", "erf", "erfc", "exp", "expm1", "floor", "gamma",
-          "hypot", "is_empty", "len", "lgamma", "log", "log10", "log1p", "log2", "lower", "max",
-          "min", "pow", "round", "sign", "sin", "sinh", "sqrt", "starts_with", "tan", "tanh",
-          "trunc", "upper");
+          "abs", "acos", "acosh", "asin", "asinh", "atan", "atan2", "atanh", "beta", "cbrt",
+          "ceil", "contains", "cos", "cosh", "degrees", "digamma", "ends_with",
+          "erf", "erfc", "exp", "expm1", "floor", "gamma", "hypot", "is_empty", "len", "lgamma",
+          "log", "log10", "log1p", "log2", "lower", "max", "min", "pow", "radians", "round",
+          "sign", "sin", "sinh", "sqrt", "starts_with", "tan", "tanh", "trunc", "upper", "zeta");
 
   /**
-   * Not available, and not typos either. Someone writing {@code digamma(_count)} knows what they
-   * meant, and "did you mean gamma?" is worse than saying nothing.
+   * Not available, and not typos either. Someone writing {@code besselj(_count)} knows what they
+   * meant, and "did you mean beta?" is worse than saying nothing. What is left is the mathematics
+   * a data generator has no business carrying.
    *
    * <p>Every name here has to be built and pinned to its bits in five languages before it can be
    * offered, which is the only thing keeping it on this list.
    */
   private static final List<String> PLANNED_EXPR_FUNCTIONS =
-      List.of("beta", "degrees", "digamma", "radians", "zeta");
+      List.of("airy", "besselj", "bessely", "elliptic_e", "elliptic_k", "polygamma");
 
   private static final List<String> SUPPORTED_UNARY_OPERATORS = List.of("!", "-", "+");
 

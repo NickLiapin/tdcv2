@@ -623,7 +623,7 @@ describe('validator — if-expression checks', () => {
   });
 
   it('answers a not-yet-implemented name with the reason, not a bogus suggestion', () => {
-    const r = run(wrap('if="digamma(x) > 1"'));
+    const r = run(wrap('if="besselj(x) > 1"'));
     const d = r.diagnostics.find((x) => x.code === 'TDC257');
     expect(d?.message).toMatch(/not available yet/);
     expect(d?.suggestion).toBeUndefined();

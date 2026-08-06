@@ -601,3 +601,126 @@ describe('TdcMath: the statistical four', () => {
     expect(TdcMath.lgamma(2)).toBe(0);
   });
 });
+
+/**
+ * ── The fifth wave ────────────────────────────────────────────────────────────
+ *
+ * These are checked against IDENTITIES rather than against another libm, which
+ * is a stronger reference: ζ(2) is π²/6 exactly, ψ(n) is −γ plus a harmonic
+ * sum, β(2,3) is 1/12. A table of numbers copied from somewhere can only say
+ * "the same as that implementation"; an identity says "right".
+ */
+
+/** Euler–Mascheroni, to the nearest double. */
+const EULER_MASCHERONI = 0.5772156649015329;
+
+describe('TdcMath: the fifth wave', () => {
+  it('degrees and radians are each other, exactly, at the landmarks', () => {
+    expect(TdcMath.degrees(TdcMath.PI)).toBe(180);
+    expect(TdcMath.degrees(TdcMath.PI / 2)).toBe(90);
+    expect(TdcMath.degrees(0)).toBe(0);
+    expect(TdcMath.radians(180)).toBe(TdcMath.PI);
+    expect(TdcMath.radians(0)).toBe(0);
+    // A round trip is two roundings, so it comes back within an ulp or two.
+    for (const x of grid(-720, 720, 289)) {
+      expect(ulpsApart(TdcMath.degrees(TdcMath.radians(x)), x)).toBeLessThanOrEqual(2);
+    }
+  });
+
+  it('beta matches its closed forms', () => {
+    // β(a,b) = Γ(a)Γ(b)/Γ(a+b), and these are the cases with an exact answer.
+    expect(ulpsApart(TdcMath.beta(2, 3), 1 / 12)).toBeLessThanOrEqual(CEILING);
+    expect(ulpsApart(TdcMath.beta(5, 7), 1 / 2310)).toBeLessThanOrEqual(CEILING);
+    // β(½,½) = π, the one everybody checks.
+    expect(ulpsApart(TdcMath.beta(0.5, 0.5), TdcMath.PI)).toBeLessThanOrEqual(CEILING);
+    // β(1,n) = 1/n for every whole n.
+    for (let n = 1; n <= 40; n += 1) {
+      expect(ulpsApart(TdcMath.beta(1, n), 1 / n), `beta(1, ${String(n)})`).toBeLessThanOrEqual(
+        CEILING,
+      );
+    }
+    // Symmetric in its arguments, which the implementation does not assume.
+    for (const a of grid(0.5, 12, 24)) {
+      for (const b of grid(0.5, 12, 24)) {
+        expect(ulpsApart(TdcMath.beta(a, b), TdcMath.beta(b, a))).toBeLessThanOrEqual(CEILING);
+      }
+    }
+    // Past a+b = 171 the direct route would overflow though the answer is tiny.
+    expect(TdcMath.beta(100, 100)).toBeGreaterThan(0);
+    expect(TdcMath.beta(100, 100)).toBeLessThan(1e-59);
+  });
+
+  /**
+   * ψ(n) = −γ + H(n−1) is exact for every whole n, so the reference is built
+   * here rather than quoted — and it disagrees with a wrong implementation for
+   * a reason, not by a table lookup.
+   */
+  it('digamma matches the harmonic sum at whole numbers', () => {
+    let harmonic = 0;
+    for (let n = 1; n <= 40; n += 1) {
+      const expected = -EULER_MASCHERONI + harmonic;
+      expect(ulpsApart(TdcMath.digamma(n), expected), `digamma(${String(n)})`).toBeLessThanOrEqual(
+        8,
+      );
+      harmonic += 1 / n;
+    }
+  });
+
+  it('digamma matches its other closed forms', () => {
+    // ψ(½) = −γ − 2·log 2
+    expect(
+      ulpsApart(TdcMath.digamma(0.5), -EULER_MASCHERONI - 2 * TdcMath.log(2)),
+    ).toBeLessThanOrEqual(8);
+    /*
+     * The recurrence it is built on, checked against itself off the grid.
+     *
+     * The tolerance scales with the CANCELLATION in the check rather than being
+     * a constant, because the identity is ill-conditioned where the two sides
+     * are large and their sum is small: at x = 0.3, ψ(x) is −3.50 and 1/x is
+     * 3.33, so the reference expression loses a factor of twenty before digamma
+     * is even involved. A flat bound there would be measuring the test.
+     */
+    for (const x of grid(0.3, 20, 60)) {
+      const left = TdcMath.digamma(x + 1);
+      const cancellation = Math.max(1, Math.abs(TdcMath.digamma(x)) / Math.abs(left));
+      expect(
+        ulpsApart(left, TdcMath.digamma(x) + 1 / x),
+        `digamma recurrence at ${String(x)}`,
+      ).toBeLessThanOrEqual(8 * cancellation);
+    }
+    expect(TdcMath.digamma(0)).toBeNaN();
+    expect(TdcMath.digamma(-2)).toBeNaN();
+  });
+
+  /**
+   * Every one of these is a closed form: ζ at the even numbers is a power of π
+   * over a whole number, and at the negative odd numbers it is a rational.
+   */
+  it('zeta matches its closed forms', () => {
+    const pi = TdcMath.PI;
+    const cases: readonly (readonly [number, number])[] = [
+      [2, (pi * pi) / 6],
+      [4, (pi * pi * pi * pi) / 90],
+      [6, (pi * pi * pi * pi * pi * pi) / 945],
+      [8, TdcMath.pow(pi, 8) / 9450],
+      [-1, -1 / 12],
+      [-3, 1 / 120],
+      [-5, -1 / 252],
+      [0, -0.5],
+    ];
+    for (const [s, expected] of cases) {
+      expect(ulpsApart(TdcMath.zeta(s), expected), `zeta(${String(s)})`).toBeLessThanOrEqual(8);
+    }
+    // Apéry's constant, which has no closed form and is quoted.
+    // Apéry's constant, 1.2020569031595942854…, whose nearest double ends 942.
+    expect(ulpsApart(TdcMath.zeta(3), 1.2020569031595942)).toBeLessThanOrEqual(8);
+    expect(TdcMath.zeta(1)).toBe(Number.POSITIVE_INFINITY);
+    // The trivial zeros.
+    for (const s of [-2, -4, -6, -8]) {
+      expect(Math.abs(TdcMath.zeta(s)), `zeta(${String(s)})`).toBeLessThan(1e-15);
+    }
+    // Far out it approaches 1 from above.
+    expect(TdcMath.zeta(50)).toBeGreaterThan(1);
+    expect(TdcMath.zeta(50)).toBeLessThan(1 + 1e-14);
+  });
+});

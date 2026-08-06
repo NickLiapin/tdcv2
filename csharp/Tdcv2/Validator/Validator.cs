@@ -210,37 +210,39 @@ public sealed class Validator
         new[]
         {
             ("abs", 1, 1), ("acos", 1, 1), ("acosh", 1, 1), ("asin", 1, 1), ("asinh", 1, 1),
-            ("atan", 1, 1), ("atan2", 2, 2), ("atanh", 1, 1), ("cbrt", 1, 1), ("ceil", 1, 1),
-            ("contains", 2, 2), ("cos", 1, 1), ("cosh", 1, 1), ("ends_with", 2, 2),
+            ("atan", 1, 1), ("atan2", 2, 2), ("atanh", 1, 1), ("beta", 2, 2), ("cbrt", 1, 1),
+            ("ceil", 1, 1), ("contains", 2, 2), ("cos", 1, 1), ("cosh", 1, 1),
+            ("degrees", 1, 1), ("digamma", 1, 1), ("ends_with", 2, 2),
             ("erf", 1, 1), ("erfc", 1, 1), ("exp", 1, 1), ("expm1", 1, 1), ("floor", 1, 1),
             ("gamma", 1, 1), ("hypot", 2, 2),
             ("is_empty", 1, 1), ("len", 1, 1), ("lgamma", 1, 1), ("log", 1, 1), ("log10", 1, 1),
             ("log1p", 1, 1),
             ("log2", 1, 1), ("lower", 1, 1), ("max", 1, int.MaxValue), ("min", 1, int.MaxValue),
-            ("pow", 2, 2), ("round", 1, 1), ("sign", 1, 1), ("sin", 1, 1), ("sinh", 1, 1),
-            ("sqrt", 1, 1), ("starts_with", 2, 2), ("tan", 1, 1), ("tanh", 1, 1),
-            ("trunc", 1, 1), ("upper", 1, 1),
+            ("pow", 2, 2), ("radians", 1, 1), ("round", 1, 1), ("sign", 1, 1), ("sin", 1, 1),
+            ("sinh", 1, 1), ("sqrt", 1, 1), ("starts_with", 2, 2), ("tan", 1, 1), ("tanh", 1, 1),
+            ("trunc", 1, 1), ("upper", 1, 1), ("zeta", 1, 1),
         };
 
     private static readonly IReadOnlyList<string> ExprFunctionNames =
         new[]
         {
-            "abs", "acos", "acosh", "asin", "asinh", "atan", "atan2", "atanh", "cbrt", "ceil",
-            "contains", "cos", "cosh", "ends_with", "erf", "erfc", "exp", "expm1", "floor",
-            "gamma", "hypot", "is_empty", "len", "lgamma", "log", "log10", "log1p", "log2",
-            "lower", "max", "min", "pow", "round", "sign", "sin", "sinh", "sqrt", "starts_with",
-            "tan", "tanh", "trunc", "upper",
+            "abs", "acos", "acosh", "asin", "asinh", "atan", "atan2", "atanh", "beta", "cbrt",
+            "ceil", "contains", "cos", "cosh", "degrees", "digamma", "ends_with", "erf", "erfc",
+            "exp", "expm1", "floor", "gamma", "hypot", "is_empty", "len", "lgamma", "log",
+            "log10", "log1p", "log2", "lower", "max", "min", "pow", "radians", "round", "sign",
+            "sin", "sinh", "sqrt", "starts_with", "tan", "tanh", "trunc", "upper", "zeta",
         };
 
     /// <summary>
-    /// Not available, and not typos either. Someone writing <c>digamma(_count)</c> knows what they
-    /// meant, and "did you mean gamma?" is worse than saying nothing.
+    /// Not available, and not typos either. Someone writing <c>besselj(_count)</c> knows what they
+    /// meant, and "did you mean beta?" is worse than saying nothing. What is left is the
+    /// mathematics a data generator has no business carrying.
     ///
     /// <para>Every name here has to be built and pinned to its bits in five languages before it
     /// can be offered, which is the only thing keeping it on this list.</para>
     /// </summary>
     private static readonly IReadOnlyList<string> PlannedExprFunctions =
-        new[] { "beta", "degrees", "digamma", "radians", "zeta" };
+        new[] { "airy", "besselj", "bessely", "elliptic_e", "elliptic_k", "polygamma" };
 
     private static readonly IReadOnlyList<string> SupportedUnaryOperators = new[] { "!", "-", "+" };
 

@@ -67,8 +67,8 @@
     {
       "name": "a-planned-function-is-not-a-typo",
       "demonstrates": "TDC257",
-      "description": "digamma is refused with the reason rather than a suggestion: it is not implemented yet, and edit distance would have offered \"gamma\", which is a different function — digamma is the derivative of its logarithm. erf, erfc, gamma and lgamma ARE implemented, TDC computing each itself rather than calling the host.",
-      "config": "<tdc><env count=\"2\" seed=\"s\" local=\"en\"><sequence name=\"N\"><gen type=\"text\" value=\"5\"/></sequence><sequence name=\"R\"><gen if=\"digamma(N) > 1\" type=\"text\" value=\"Y\"/><gen type=\"text\" value=\"N\"/></sequence></env><block><line><data>${{R}}</data></line></block></tdc>",
+      "description": "besselj is refused with the reason rather than a suggestion: edit distance would have offered \"beta\", an unrelated function. What is left on that list is the mathematics a data generator has no business carrying — Bessel, Airy, elliptic integrals, polygamma — each a project rather than a function. Everything a row predicate plausibly needs, including digamma, zeta and beta itself, IS implemented.",
+      "config": "<tdc><env count=\"2\" seed=\"s\" local=\"en\"><sequence name=\"N\"><gen type=\"text\" value=\"5\"/></sequence><sequence name=\"R\"><gen if=\"besselj(N) > 1\" type=\"text\" value=\"Y\"/><gen type=\"text\" value=\"N\"/></sequence></env><block><line><data>${{R}}</data></line></block></tdc>",
       "expected": ["error TDC257 1:126"]
     },
     {

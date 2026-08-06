@@ -197,6 +197,7 @@ public static class Evaluate
             }
             case "lower": return Str(0).ToLowerInvariant();
             case "upper": return Str(0).ToUpperInvariant();
+            case "zeta": return Maths.TdcMath.Zeta(Num(0));
             // Transcendentals, computed by TDC rather than by .NET — see Math/TdcMath.cs.
             // Adding one here means adding it to TdcMath in all five, not calling System.Math.
             case "acos": return Maths.TdcMath.Acos(Num(0));
@@ -205,9 +206,12 @@ public static class Evaluate
             case "asinh": return Maths.TdcMath.Asinh(Num(0));
             case "atan": return Maths.TdcMath.Atan(Num(0));
             case "atanh": return Maths.TdcMath.Atanh(Num(0));
+            case "beta": return Maths.TdcMath.Beta(Num(0), Num(1));
             case "atan2": return Maths.TdcMath.Atan2(Num(0), Num(1));
             case "cbrt": return Maths.TdcMath.Cbrt(Num(0));
             case "cos": return Maths.TdcMath.Cos(Num(0));
+            case "degrees": return Maths.TdcMath.Degrees(Num(0));
+            case "digamma": return Maths.TdcMath.Digamma(Num(0));
             case "cosh": return Maths.TdcMath.Cosh(Num(0));
             case "erf": return Maths.TdcMath.Erf(Num(0));
             case "erfc": return Maths.TdcMath.Erfc(Num(0));
@@ -222,6 +226,7 @@ public static class Evaluate
             case "log2": return Maths.TdcMath.Log2(Num(0));
             case "pow": return Maths.TdcMath.Pow(Num(0), Num(1));
             case "sin": return Maths.TdcMath.Sin(Num(0));
+            case "radians": return Maths.TdcMath.Radians(Num(0));
             case "sign": return Maths.TdcMath.Sign(Num(0));
             case "sinh": return Maths.TdcMath.Sinh(Num(0));
             case "sqrt": return Maths.TdcMath.Sqrt(Num(0));

@@ -116,6 +116,10 @@ columna de texto contra una lista de palabras numéricas sigue coincidiendo.
 | `sign(x)`                  | 1          | −1, 0 o 1                                          |
 | `erf(x)` `erfc(x)`         | 1          | la función de error y su complemento               |
 | `gamma(x)` `lgamma(x)`     | 1          | Γ(x), y log \|Γ(x)\| para cuando Γ desborda        |
+| `beta(a, b)`               | 2          | Γ(a)Γ(b)/Γ(a+b)                                    |
+| `digamma(x)`               | 1          | ψ(x), la derivada de log Γ                         |
+| `zeta(s)`                  | 1          | la función zeta de Riemann, para s real            |
+| `degrees(x)` `radians(x)`  | 1          | entre las dos formas de escribir un ángulo         |
 
 Todo lo que está por encima de la raya es exacto: construido con comparaciones y con la
 aritmética que IEEE-754 fija sin ambigüedad, así que las cinco implementaciones no pueden
@@ -252,21 +256,22 @@ camino del factorial.
 
 ## Lo que falta a propósito
 
-**El resto de la biblioteca matemática.** `digamma`, `beta`, `zeta`, `degrees` y `radians` se
-rechazan por nombre en lugar de adivinarse:
+**La matemática que un generador de datos no tiene por qué cargar.** `besselj`, `bessely`,
+`airy`, `elliptic_k`, `elliptic_e` y `polygamma` se rechazan por nombre:
 
 `tdcv2 check seasonal.tdc`
 
 ```
-error[TDC257]: digamma() is not available yet in an if expression
+error[TDC257]: besselj() is not available yet in an if expression
 ```
 
-Fíjese en lo que NO dice: «¿quiso decir `gamma`?». La distancia de edición habría ofrecido justo
-eso, y digamma es la derivada del logaritmo de gamma, no gamma. Un nombre de esta lista recibe la razón,
+Fíjese en lo que NO dice: «¿quiso decir `beta`?». La distancia de edición habría ofrecido justo
+eso, y las dos nombran funciones completamente distintas. Un nombre de esta lista recibe la razón,
 no una conjetura.
 
-Cada una hay que construirla y fijarla bit a bit en cinco lenguajes antes de poder ofrecerla,
-que es lo único que la mantiene en la lista.
+Cada una de ellas es un proyecto y no una función, y ninguna ha pertenecido nunca de verdad a
+un predicado de fila. Se quedan en la lista para que quien alcance una reciba una respuesta y
+no «función desconocida».
 
 **Bucles y recursión.** El motor se elige a partir de la configuración antes de generar una
 fila, [`preflight()`](../guides/large-outputs.md#top) estima la memoria antes de la corrida, y

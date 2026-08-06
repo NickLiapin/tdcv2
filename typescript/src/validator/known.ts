@@ -185,10 +185,13 @@ export const EXPR_FUNCTIONS: Readonly<Record<string, { min: number; max: number 
   atan: { min: 1, max: 1 },
   atan2: { min: 2, max: 2 },
   atanh: { min: 1, max: 1 },
+  beta: { min: 2, max: 2 },
   cbrt: { min: 1, max: 1 },
   ceil: { min: 1, max: 1 },
   contains: { min: 2, max: 2 },
   cos: { min: 1, max: 1 },
+  degrees: { min: 1, max: 1 },
+  digamma: { min: 1, max: 1 },
   cosh: { min: 1, max: 1 },
   ends_with: { min: 2, max: 2 },
   erf: { min: 1, max: 1 },
@@ -209,6 +212,7 @@ export const EXPR_FUNCTIONS: Readonly<Record<string, { min: number; max: number 
   max: { min: 1, max: undefined },
   min: { min: 1, max: undefined },
   pow: { min: 2, max: 2 },
+  radians: { min: 1, max: 1 },
   round: { min: 1, max: 1 },
   sign: { min: 1, max: 1 },
   sin: { min: 1, max: 1 },
@@ -219,6 +223,7 @@ export const EXPR_FUNCTIONS: Readonly<Record<string, { min: number; max: number 
   tanh: { min: 1, max: 1 },
   trunc: { min: 1, max: 1 },
   upper: { min: 1, max: 1 },
+  zeta: { min: 1, max: 1 },
 };
 
 export const EXPR_FUNCTION_NAMES: readonly string[] = Object.keys(EXPR_FUNCTIONS).sort();
@@ -226,20 +231,23 @@ export const EXPR_FUNCTION_NAMES: readonly string[] = Object.keys(EXPR_FUNCTIONS
 /**
  * Names that are not available and are not typos either.
  *
- * Someone who writes `digamma(_count)` knows exactly what they meant, and
- * telling them "did you mean gamma?" is worse than saying nothing — edit
- * distance has no idea one is the derivative of the other's logarithm. They are
+ * Someone who writes `besselj(_count)` knows exactly what they meant, and
+ * telling them "did you mean beta?" is worse than saying nothing — edit
+ * distance has no idea these name entirely different functions. They are
  * answered with the real reason instead.
  *
- * Every name here has to be built and pinned to its bits in five languages
- * before it can be offered, which is the only thing keeping it on this list.
+ * What is left here is the mathematics a data generator has no business
+ * carrying: each of these is a project rather than a function, and none has
+ * ever plausibly belonged in a row predicate. They stay so that a person who
+ * reaches for one gets an answer rather than "unknown function".
  */
 export const PLANNED_EXPR_FUNCTIONS: readonly string[] = [
-  'beta',
-  'degrees',
-  'digamma',
-  'radians',
-  'zeta',
+  'airy',
+  'besselj',
+  'bessely',
+  'elliptic_e',
+  'elliptic_k',
+  'polygamma',
 ] as const;
 
 export const BUILTIN_SEQUENCES: readonly string[] = [

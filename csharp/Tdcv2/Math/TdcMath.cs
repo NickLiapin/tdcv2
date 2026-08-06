@@ -931,4 +931,138 @@ internal static class TdcMath
         // on its first factor near x = 150, while Γ(x) is still finite to 171.
         return Sqrt2Pi * LanczosSum(z) * Exp(((z + 0.5) * Log(t)) - t);
     }
+
+    // ── The fifth wave: what was left ────────────────────────────────────────
+    //
+    // Two conversions, and three functions each defined in terms of what came
+    // before.
+
+    private const double DegreesPerRadian = 57.29577951308232;
+    private const double RadiansPerDegree = 0.017453292519943295;
+
+    /// <summary>
+    /// Asymptotic coefficients for digamma, ascending in 1/x²: −B₂ₖ/(2k). The series is
+    /// asymptotic, not convergent — adding terms forever makes it worse, not better.
+    /// </summary>
+    private static readonly double[] DigammaCoeff =
+    {
+        -1.0 / 12.0,
+        1.0 / 120.0,
+        -1.0 / 252.0,
+        1.0 / 240.0,
+        -1.0 / 132.0,
+        691.0 / 32760.0,
+        -1.0 / 12.0,
+        3617.0 / 8160.0,
+    };
+
+    /// <summary>
+    /// Where the recurrence stops shifting. Ten, and larger is WORSE: each step of
+    /// ψ(x) = ψ(x+1) − 1/x adds its own rounding. Measured against the exact value at whole
+    /// numbers — ψ(n) = −γ + H(n−1) — ten gives 3 ulp, fourteen gives 12.
+    /// </summary>
+    private const double DigammaShift = 10;
+
+    /// <summary>B₂ₖ/(2k)! for k = 1…7 — the Euler–Maclaurin tail for ζ.</summary>
+    private static readonly double[] ZetaBernoulli =
+    {
+        1.0 / 12.0,
+        -1.0 / 720.0,
+        1.0 / 30240.0,
+        -1.0 / 1209600.0,
+        1.0 / 47900160.0,
+        -691.0 / 1307674368000.0,
+        1.0 / 74724249600.0,
+    };
+
+    private const int ZetaTerms = 12;
+    private const int ZetaCorrections = 6;
+
+    /// <summary>
+    /// <c>degrees(x)</c> — one multiplication, so all five agree trivially. It exists because
+    /// every circular function here takes radians and says so.
+    /// </summary>
+    public static double Degrees(double x) => x * DegreesPerRadian;
+
+    /// <summary><c>radians(x)</c> — the other direction, same single rounding.</summary>
+    public static double Radians(double x) => x * RadiansPerDegree;
+
+    /// <summary>
+    /// <c>beta(a, b)</c> — the Euler beta function, Γ(a)Γ(b)/Γ(a+b).
+    ///
+    /// <para>Taken directly from the gammas while they fit. Past a+b = 171 the numerator
+    /// overflows although the answer is small — beta SHRINKS as its arguments grow — so up there
+    /// it goes through logarithms.</para>
+    /// </summary>
+    public static double Beta(double a, double b)
+    {
+        if (double.IsNaN(a) || double.IsNaN(b)) return double.NaN;
+        if (a > 0 && b > 0 && a + b > 171)
+        {
+            return Exp(Lgamma(a) + Lgamma(b) - Lgamma(a + b));
+        }
+        return Gamma(a) * Gamma(b) / Gamma(a + b);
+    }
+
+    /// <summary>
+    /// <c>digamma(x)</c> — the derivative of log Γ(x). Small arguments are lifted by the
+    /// recurrence until the asymptotic series is usable; negatives come back through the
+    /// reflection ψ(1−x) − ψ(x) = π·cot(πx).
+    /// </summary>
+    public static double Digamma(double x)
+    {
+        if (double.IsNaN(x)) return double.NaN;
+        if (double.IsPositiveInfinity(x)) return double.PositiveInfinity;
+        // Every whole number at or below zero is a pole, as it is for Γ itself.
+        if (x <= 0 && x == System.Math.Truncate(x)) return double.NaN;
+        if (x < 0.5) return Digamma(1 - x) - (Pi / Tan(Pi * x));
+        double shifted = x;
+        double correction = 0;
+        while (shifted < DigammaShift)
+        {
+            correction -= 1 / shifted;
+            shifted += 1;
+        }
+        double f = 1 / (shifted * shifted);
+        return correction + Log(shifted) - (0.5 / shifted) + (f * Horner(DigammaCoeff, f));
+    }
+
+    /// <summary>ζ(s) for s &gt; 1, by Euler–Maclaurin.</summary>
+    private static double ZetaSum(double s)
+    {
+        double total = 0;
+        for (int n = 1; n < ZetaTerms; n += 1)
+        {
+            total += Pow(n, -s);
+        }
+        double tail = Pow(ZetaTerms, -s);
+        total += (tail / 2) + (ZetaTerms * tail / (s - 1));
+        // Then the Bernoulli corrections, each a rising factorial over a growing power.
+        double rising = s;
+        double power = tail / ZetaTerms;
+        for (int k = 1; k <= ZetaCorrections; k += 1)
+        {
+            total += ZetaBernoulli[k - 1] * rising * power;
+            rising *= (s + (2 * k) - 1) * (s + (2 * k));
+            power /= (double)ZetaTerms * ZetaTerms;
+        }
+        return total;
+    }
+
+    /// <summary>
+    /// <c>zeta(s)</c> — the Riemann zeta function, for real s.
+    ///
+    /// <para>Above 1 the sum converges and Euler–Maclaurin makes twelve terms behave like
+    /// thousands. Below it the functional equation reflects the argument across s = ½, which is
+    /// why this needs Γ and Sin. ζ(1) is the pole; ζ(0) is −½, which the reflection cannot give
+    /// because it meets 0 · ∞ there.</para>
+    /// </summary>
+    public static double Zeta(double s)
+    {
+        if (double.IsNaN(s)) return double.NaN;
+        if (s == 1) return double.PositiveInfinity;
+        if (s == 0) return -0.5;
+        if (s > 1) return ZetaSum(s);
+        return Pow(2, s) * Pow(Pi, s - 1) * Sin(Pi * s / 2) * Gamma(1 - s) * ZetaSum(1 - s);
+    }
 }

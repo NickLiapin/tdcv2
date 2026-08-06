@@ -1074,4 +1074,151 @@ public final class TdcMath {
     // its first factor near x = 150, while gamma(x) is still finite to 171.
     return SQRT_2PI * lanczosSum(z) * exp((z + 0.5) * log(t) - t);
   }
+
+  // ── The fifth wave: what was left ──────────────────────────────────────────
+  //
+  // Two conversions, and three functions each defined in terms of what came
+  // before.
+
+  private static final double DEGREES_PER_RADIAN = 57.29577951308232;
+  private static final double RADIANS_PER_DEGREE = 0.017453292519943295;
+
+  /**
+   * Asymptotic coefficients for digamma, ascending in 1/x^2: -B_2k/(2k). The series is asymptotic,
+   * not convergent — adding terms forever makes it worse, not better.
+   */
+  private static final double[] DIGAMMA_COEFF = {
+    -1.0 / 12.0,
+    1.0 / 120.0,
+    -1.0 / 252.0,
+    1.0 / 240.0,
+    -1.0 / 132.0,
+    691.0 / 32760.0,
+    -1.0 / 12.0,
+    3617.0 / 8160.0,
+  };
+
+  /**
+   * Where the recurrence stops shifting. Ten, and larger is WORSE: each step of
+   * psi(x) = psi(x+1) - 1/x adds its own rounding. Measured against the exact value at whole
+   * numbers — psi(n) = -gamma + H(n-1) — ten gives 3 ulp, fourteen gives 12.
+   */
+  private static final double DIGAMMA_SHIFT = 10;
+
+  /** B_2k/(2k)! for k = 1..7 — the Euler-Maclaurin tail for zeta. */
+  private static final double[] ZETA_BERNOULLI = {
+    1.0 / 12.0,
+    -1.0 / 720.0,
+    1.0 / 30240.0,
+    -1.0 / 1209600.0,
+    1.0 / 47900160.0,
+    -691.0 / 1307674368000.0,
+    1.0 / 74724249600.0,
+  };
+
+  private static final int ZETA_TERMS = 12;
+  private static final int ZETA_CORRECTIONS = 6;
+
+  /**
+   * {@code degrees(x)} — one multiplication, so all five agree trivially. It exists because every
+   * circular function here takes radians and says so.
+   */
+  public static double degrees(double x) {
+    return x * DEGREES_PER_RADIAN;
+  }
+
+  /** {@code radians(x)} — the other direction, same single rounding. */
+  public static double radians(double x) {
+    return x * RADIANS_PER_DEGREE;
+  }
+
+  /**
+   * {@code beta(a, b)} — the Euler beta function, gamma(a)*gamma(b)/gamma(a+b).
+   *
+   * <p>Taken directly from the gammas while they fit. Past a+b = 171 the numerator overflows
+   * although the answer is small — beta SHRINKS as its arguments grow — so up there it goes
+   * through logarithms.
+   */
+  public static double beta(double a, double b) {
+    if (Double.isNaN(a) || Double.isNaN(b)) {
+      return Double.NaN;
+    }
+    if (a > 0 && b > 0 && a + b > 171) {
+      return exp(lgamma(a) + lgamma(b) - lgamma(a + b));
+    }
+    return gamma(a) * gamma(b) / gamma(a + b);
+  }
+
+  /**
+   * {@code digamma(x)} — the derivative of log gamma(x).
+   *
+   * <p>Small arguments are lifted by the recurrence until the asymptotic series is usable;
+   * negatives come back through the reflection psi(1-x) - psi(x) = pi*cot(pi*x).
+   */
+  public static double digamma(double x) {
+    if (Double.isNaN(x)) {
+      return Double.NaN;
+    }
+    if (x == Double.POSITIVE_INFINITY) {
+      return Double.POSITIVE_INFINITY;
+    }
+    // Every whole number at or below zero is a pole, as it is for gamma itself.
+    if (x <= 0 && x == trunc(x)) {
+      return Double.NaN;
+    }
+    if (x < 0.5) {
+      return digamma(1 - x) - PI / tan(PI * x);
+    }
+    double shifted = x;
+    double correction = 0;
+    while (shifted < DIGAMMA_SHIFT) {
+      correction -= 1 / shifted;
+      shifted += 1;
+    }
+    double f = 1 / (shifted * shifted);
+    return correction + log(shifted) - 0.5 / shifted + f * horner(DIGAMMA_COEFF, f);
+  }
+
+  /** zeta(s) for s &gt; 1, by Euler-Maclaurin. */
+  private static double zetaSum(double s) {
+    double total = 0;
+    for (int n = 1; n < ZETA_TERMS; n += 1) {
+      total += pow(n, -s);
+    }
+    double tail = pow(ZETA_TERMS, -s);
+    total += tail / 2 + ZETA_TERMS * tail / (s - 1);
+    // Then the Bernoulli corrections, each a rising factorial over a growing power.
+    double rising = s;
+    double power = tail / ZETA_TERMS;
+    for (int k = 1; k <= ZETA_CORRECTIONS; k += 1) {
+      total += ZETA_BERNOULLI[k - 1] * rising * power;
+      rising *= (s + 2 * k - 1) * (s + 2 * k);
+      power /= (double) ZETA_TERMS * ZETA_TERMS;
+    }
+    return total;
+  }
+
+  /**
+   * {@code zeta(s)} — the Riemann zeta function, for real s.
+   *
+   * <p>Above 1 the sum converges and Euler-Maclaurin makes twelve terms behave like thousands.
+   * Below it the functional equation reflects the argument across s = 1/2, which is why this needs
+   * gamma and sin. zeta(1) is the pole; zeta(0) is -1/2, which the reflection cannot give because
+   * it meets 0 * infinity there.
+   */
+  public static double zeta(double s) {
+    if (Double.isNaN(s)) {
+      return Double.NaN;
+    }
+    if (s == 1) {
+      return Double.POSITIVE_INFINITY;
+    }
+    if (s == 0) {
+      return -0.5;
+    }
+    if (s > 1) {
+      return zetaSum(s);
+    }
+    return pow(2, s) * pow(PI, s - 1) * sin(PI * s / 2) * gamma(1 - s) * zetaSum(1 - s);
+  }
 }

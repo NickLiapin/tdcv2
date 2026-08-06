@@ -229,6 +229,16 @@ public final class Evaluate {
         // Adding one here means adding it to TdcMath in all five, not calling java.lang.Math.
       case "acos":
         return io.github.nickliapin.tdc.mathx.TdcMath.acos(num(args, 0));
+      case "beta":
+        return io.github.nickliapin.tdc.mathx.TdcMath.beta(num(args, 0), num(args, 1));
+      case "degrees":
+        return io.github.nickliapin.tdc.mathx.TdcMath.degrees(num(args, 0));
+      case "digamma":
+        return io.github.nickliapin.tdc.mathx.TdcMath.digamma(num(args, 0));
+      case "radians":
+        return io.github.nickliapin.tdc.mathx.TdcMath.radians(num(args, 0));
+      case "zeta":
+        return io.github.nickliapin.tdc.mathx.TdcMath.zeta(num(args, 0));
       case "erf":
         return io.github.nickliapin.tdc.mathx.TdcMath.erf(num(args, 0));
       case "erfc":

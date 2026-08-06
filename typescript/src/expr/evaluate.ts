@@ -220,6 +220,7 @@ const FUNCTIONS: Readonly<Record<string, (args: readonly unknown[]) => unknown>>
   floor: (a) => Math.floor(num(a, 0)),
   max: (a) => a.map((v) => asNumber(v)).reduce((x, y) => (y > x ? y : x)),
   min: (a) => a.map((v) => asNumber(v)).reduce((x, y) => (y < x ? y : x)),
+  radians: (a) => TdcMath.radians(num(a, 0)),
   round: (a) => {
     const x = num(a, 0);
     return x < 0 ? -Math.floor(-x + 0.5) : Math.floor(x + 0.5);
@@ -236,6 +237,7 @@ const FUNCTIONS: Readonly<Record<string, (args: readonly unknown[]) => unknown>>
   lower: (a) => text(a, 0).toLowerCase(),
   starts_with: (a) => text(a, 0).startsWith(text(a, 1)),
   upper: (a) => text(a, 0).toUpperCase(),
+  zeta: (a) => TdcMath.zeta(num(a, 0)),
 
   // Transcendentals, computed by TDC rather than by the host — see
   // math/tdc-math.ts for why that is not paranoia. Adding one here means adding
@@ -246,9 +248,12 @@ const FUNCTIONS: Readonly<Record<string, (args: readonly unknown[]) => unknown>>
   asinh: (a) => TdcMath.asinh(num(a, 0)),
   atan: (a) => TdcMath.atan(num(a, 0)),
   atanh: (a) => TdcMath.atanh(num(a, 0)),
+  beta: (a) => TdcMath.beta(num(a, 0), num(a, 1)),
   atan2: (a) => TdcMath.atan2(num(a, 0), num(a, 1)),
   cbrt: (a) => TdcMath.cbrt(num(a, 0)),
   cos: (a) => TdcMath.cos(num(a, 0)),
+  degrees: (a) => TdcMath.degrees(num(a, 0)),
+  digamma: (a) => TdcMath.digamma(num(a, 0)),
   cosh: (a) => TdcMath.cosh(num(a, 0)),
   erf: (a) => TdcMath.erf(num(a, 0)),
   erfc: (a) => TdcMath.erfc(num(a, 0)),

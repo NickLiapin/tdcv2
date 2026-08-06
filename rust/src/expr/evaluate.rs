@@ -159,6 +159,7 @@ fn call_function(name: &str, args: &[V]) -> EngineResult<V> {
         "len" => V::Num(text(0)?.chars().count() as f64),
         "lower" => V::Str(text(0)?.to_lowercase()),
         "upper" => V::Str(text(0)?.to_uppercase()),
+        "zeta" => V::Num(crate::math::zeta(num(0)?)),
         // Transcendentals, computed by TDC rather than by Rust — see math/mod.rs.
         // Adding one here means adding it to TdcMath in all five, not calling
         // the host's f64 method.
@@ -168,9 +169,12 @@ fn call_function(name: &str, args: &[V]) -> EngineResult<V> {
         "asinh" => V::Num(crate::math::asinh(num(0)?)),
         "atan" => V::Num(crate::math::atan(num(0)?)),
         "atanh" => V::Num(crate::math::atanh(num(0)?)),
+        "beta" => V::Num(crate::math::beta(num(0)?, num(1)?)),
         "atan2" => V::Num(crate::math::atan2(num(0)?, num(1)?)),
         "cbrt" => V::Num(crate::math::cbrt(num(0)?)),
         "cos" => V::Num(crate::math::cos(num(0)?)),
+        "degrees" => V::Num(crate::math::degrees(num(0)?)),
+        "digamma" => V::Num(crate::math::digamma(num(0)?)),
         "cosh" => V::Num(crate::math::cosh(num(0)?)),
         "erf" => V::Num(crate::math::erf(num(0)?)),
         "erfc" => V::Num(crate::math::erfc(num(0)?)),
@@ -185,6 +189,7 @@ fn call_function(name: &str, args: &[V]) -> EngineResult<V> {
         "log2" => V::Num(crate::math::log2(num(0)?)),
         "pow" => V::Num(crate::math::pow(num(0)?, num(1)?)),
         "sin" => V::Num(crate::math::sin(num(0)?)),
+        "radians" => V::Num(crate::math::radians(num(0)?)),
         "sign" => V::Num(crate::math::sign(num(0)?)),
         "sinh" => V::Num(crate::math::sinh(num(0)?)),
         "sqrt" => V::Num(crate::math::sqrt(num(0)?)),

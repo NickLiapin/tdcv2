@@ -1014,3 +1014,148 @@ export function gamma(x: number): number {
   // near x = 150 on its first factor, while Γ(x) itself is still finite to 171.
   return SQRT_2PI * lanczosSum(z) * exp((z + 0.5) * log(t) - t);
 }
+
+/* ── The fifth wave: what was left ────────────────────────────────────────────
+ *
+ * Two conversions, and three functions that are each defined in terms of what
+ * came before.
+ */
+
+/** 180/π and π/180. */
+const DEGREES_PER_RADIAN = 57.29577951308232;
+const RADIANS_PER_DEGREE = 0.017453292519943295;
+
+/**
+ * `degrees(x)` and `radians(x)` — one multiplication each, and exact in the
+ * sense that matters: there is a single rounding, so all five agree trivially.
+ *
+ * They exist because every circular function here takes radians and says so.
+ * A config holding an angle in degrees needs somewhere to put the conversion,
+ * and a named function is better than the constant 57.29577951308232 appearing
+ * in it by hand.
+ */
+export function degrees(x: number): number {
+  return x * DEGREES_PER_RADIAN;
+}
+
+export function radians(x: number): number {
+  return x * RADIANS_PER_DEGREE;
+}
+
+/**
+ * `beta(a, b)` — the Euler beta function, Γ(a)Γ(b)/Γ(a+b).
+ *
+ * Taken directly from the gammas while they fit, because that is the accurate
+ * route. Past a+b = 171 the numerator overflows although the answer is small —
+ * beta SHRINKS as its arguments grow — so up there it goes through logarithms
+ * instead, at the cost of the usual exponential amplification.
+ */
+export function beta(a: number, b: number): number {
+  if (Number.isNaN(a) || Number.isNaN(b)) return Number.NaN;
+  if (a > 0 && b > 0 && a + b > 171) {
+    return exp(lgamma(a) + lgamma(b) - lgamma(a + b));
+  }
+  return (gamma(a) * gamma(b)) / gamma(a + b);
+}
+
+/**
+ * Asymptotic coefficients for digamma, ascending in 1/x²: −B₂ₖ/(2k).
+ *
+ * The series is asymptotic, not convergent — adding terms forever makes it
+ * worse, not better. Eight is what the shift below can carry.
+ */
+const DIGAMMA_COEFF = [
+  -1 / 12,
+  1 / 120,
+  -1 / 252,
+  1 / 240,
+  -1 / 132,
+  691 / 32760,
+  -1 / 12,
+  3617 / 8160,
+];
+
+/**
+ * Where the recurrence stops shifting.
+ *
+ * Ten, and larger is WORSE: each step of `ψ(x) = ψ(x+1) − 1/x` adds its own
+ * rounding, so pushing to 14 or 20 to help the series costs more than it buys.
+ * Measured against the exact value at whole numbers — ψ(n) = −γ + H(n−1) — ten
+ * gives 3 ulp, fourteen gives 12.
+ */
+const DIGAMMA_SHIFT = 10;
+
+/**
+ * `digamma(x)` — ψ(x), the derivative of log Γ(x).
+ *
+ * Small arguments are lifted by the recurrence until the asymptotic series is
+ * usable; negatives come back through the reflection ψ(1−x) − ψ(x) = π·cot(πx).
+ */
+export function digamma(x: number): number {
+  if (Number.isNaN(x)) return Number.NaN;
+  if (x === Number.POSITIVE_INFINITY) return Number.POSITIVE_INFINITY;
+  // Every whole number at or below zero is a pole, as it is for Γ itself.
+  if (x <= 0 && x === Math.trunc(x)) return Number.NaN;
+  if (x < 0.5) {
+    return digamma(1 - x) - PI / tan(PI * x);
+  }
+  let shifted = x;
+  let correction = 0;
+  while (shifted < DIGAMMA_SHIFT) {
+    correction -= 1 / shifted;
+    shifted += 1;
+  }
+  const f = 1 / (shifted * shifted);
+  return correction + log(shifted) - 0.5 / shifted + f * horner(DIGAMMA_COEFF, f);
+}
+
+/** B₂ₖ/(2k)! for k = 1…7 — the Euler–Maclaurin tail for ζ. */
+const ZETA_BERNOULLI = [
+  1 / 12,
+  -1 / 720,
+  1 / 30240,
+  -1 / 1209600,
+  1 / 47900160,
+  -691 / 1307674368000,
+  1 / 74724249600,
+];
+
+/** How far the direct sum runs before Euler–Maclaurin takes over, and how many correction terms follow. */
+const ZETA_TERMS = 12;
+const ZETA_CORRECTIONS = 6;
+
+/** ζ(s) for s > 1, by Euler–Maclaurin. */
+function zetaSum(s: number): number {
+  let total = 0;
+  for (let n = 1; n < ZETA_TERMS; n += 1) {
+    total += pow(n, -s);
+  }
+  const tail = pow(ZETA_TERMS, -s);
+  total += tail / 2 + (ZETA_TERMS * tail) / (s - 1);
+  // Then the Bernoulli corrections, each a rising factorial over a growing power.
+  let rising = s;
+  let power = tail / ZETA_TERMS;
+  for (let k = 1; k <= ZETA_CORRECTIONS; k += 1) {
+    total += (ZETA_BERNOULLI[k - 1] ?? 0) * rising * power;
+    rising *= (s + 2 * k - 1) * (s + 2 * k);
+    power /= ZETA_TERMS * ZETA_TERMS;
+  }
+  return total;
+}
+
+/**
+ * `zeta(s)` — the Riemann zeta function, for real s.
+ *
+ * Above 1 the sum converges and Euler–Maclaurin makes twelve terms behave like
+ * thousands. Below it the functional equation reflects the argument across
+ * s = ½, which is why this needs Γ and sin and could not have been written
+ * before them. ζ(1) is the pole; ζ(0) is −½, which the reflection cannot give
+ * because it meets 0 · ∞ there.
+ */
+export function zeta(s: number): number {
+  if (Number.isNaN(s)) return Number.NaN;
+  if (s === 1) return Number.POSITIVE_INFINITY;
+  if (s === 0) return -0.5;
+  if (s > 1) return zetaSum(s);
+  return pow(2, s) * pow(PI, s - 1) * sin((PI * s) / 2) * gamma(1 - s) * zetaSum(1 - s);
+}

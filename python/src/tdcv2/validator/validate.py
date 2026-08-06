@@ -127,9 +127,12 @@ EXPR_FUNCTIONS: dict[str, tuple[int, int | None]] = {
     "atan": (1, 1),
     "atan2": (2, 2),
     "atanh": (1, 1),
+    "beta": (2, 2),
     "cbrt": (1, 1),
     "contains": (2, 2),
     "cos": (1, 1),
+    "degrees": (1, 1),
+    "digamma": (1, 1),
     "cosh": (1, 1),
     "ends_with": (2, 2),
     "erf": (1, 1),
@@ -150,6 +153,7 @@ EXPR_FUNCTIONS: dict[str, tuple[int, int | None]] = {
     "max": (1, None),
     "min": (1, None),
     "pow": (2, 2),
+    "radians": (1, 1),
     "round": (1, 1),
     "sign": (1, 1),
     "sin": (1, 1),
@@ -160,6 +164,7 @@ EXPR_FUNCTIONS: dict[str, tuple[int, int | None]] = {
     "tanh": (1, 1),
     "trunc": (1, 1),
     "upper": (1, 1),
+    "zeta": (1, 1),
 }
 EXPR_FUNCTION_NAMES = tuple(sorted(EXPR_FUNCTIONS))
 

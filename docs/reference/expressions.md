@@ -115,6 +115,10 @@ list of numeric words still matches.
 | `sign(x)`                  | 1      | −1, 0 or 1                                       |
 | `erf(x)` `erfc(x)`         | 1      | the error function and its complement            |
 | `gamma(x)` `lgamma(x)`     | 1      | Γ(x), and log \|Γ(x)\| for when Γ overflows       |
+| `beta(a, b)`               | 2      | Γ(a)Γ(b)/Γ(a+b)                                  |
+| `digamma(x)`               | 1      | ψ(x), the derivative of log Γ                    |
+| `zeta(s)`                  | 1      | the Riemann zeta function, for real s            |
+| `degrees(x)` `radians(x)`  | 1      | between the two ways of writing an angle         |
 
 Everything above the rule is exact — built from comparisons and from the arithmetic IEEE-754
 pins down, so the five implementations cannot disagree. Everything below it, TDC computes
@@ -250,21 +254,22 @@ why a whole number takes the factorial path instead.
 
 ## What is deliberately absent
 
-**The rest of the maths library.** `digamma`, `beta`, `zeta`, `degrees` and `radians` are
-refused by name rather than guessed at:
+**The mathematics a data generator has no business carrying.** `besselj`, `bessely`, `airy`,
+`elliptic_k`, `elliptic_e` and `polygamma` are refused by name rather than guessed at:
 
 `tdcv2 check seasonal.tdc`
 
 ```
-error[TDC257]: digamma() is not available yet in an if expression
+error[TDC257]: besselj() is not available yet in an if expression
 ```
 
-Note what it does NOT say: "did you mean `gamma`?" Edit distance would have offered exactly
-that, and digamma is the derivative of gamma's logarithm, not gamma. A name on this list is answered with
+Note what it does NOT say: "did you mean `beta`?" Edit distance would have offered exactly
+that, and the two name entirely different functions. A name on this list is answered with
 the reason instead.
 
-Each one has to be built and pinned to its bits in five languages before it can be offered,
-which is the only thing keeping it on the list.
+Each of these is a project rather than a function, and none has ever plausibly belonged in a
+row predicate. They stay on the list so that a person who reaches for one gets an answer
+rather than "unknown function".
 
 **Loops and recursion.** The engine is chosen from the config before a row is generated,
 [`preflight()`](../guides/large-outputs.md#top) estimates memory before the run, and `--jobs`

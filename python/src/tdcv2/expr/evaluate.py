@@ -137,6 +137,7 @@ _FUNCTIONS: dict[str, Callable[[list], object]] = {
     "lower": lambda a: _arg_text(a, 0).lower(),
     "starts_with": lambda a: _arg_text(a, 0).startswith(_arg_text(a, 1)),
     "upper": lambda a: _arg_text(a, 0).upper(),
+    "zeta": lambda a: tdc_math.zeta(_num(a, 0)),
     # Transcendentals, computed by TDC rather than by Python — see math/tdc_math.py.
     # Adding one here means adding it to TdcMath in all five, not calling math.something.
     "acos": lambda a: tdc_math.acos(_num(a, 0)),
@@ -145,9 +146,12 @@ _FUNCTIONS: dict[str, Callable[[list], object]] = {
     "asinh": lambda a: tdc_math.asinh(_num(a, 0)),
     "atan": lambda a: tdc_math.atan(_num(a, 0)),
     "atanh": lambda a: tdc_math.atanh(_num(a, 0)),
+    "beta": lambda a: tdc_math.beta(_num(a, 0), _num(a, 1)),
     "atan2": lambda a: tdc_math.atan2(_num(a, 0), _num(a, 1)),
     "cbrt": lambda a: tdc_math.cbrt(_num(a, 0)),
     "cos": lambda a: tdc_math.cos(_num(a, 0)),
+    "degrees": lambda a: tdc_math.degrees(_num(a, 0)),
+    "digamma": lambda a: tdc_math.digamma(_num(a, 0)),
     "cosh": lambda a: tdc_math.cosh(_num(a, 0)),
     "erf": lambda a: tdc_math.erf(_num(a, 0)),
     "erfc": lambda a: tdc_math.erfc(_num(a, 0)),
@@ -162,6 +166,7 @@ _FUNCTIONS: dict[str, Callable[[list], object]] = {
     "log2": lambda a: tdc_math.log2(_num(a, 0)),
     "pow": lambda a: tdc_math.pow(_num(a, 0), _num(a, 1)),
     "sin": lambda a: tdc_math.sin(_num(a, 0)),
+    "radians": lambda a: tdc_math.radians(_num(a, 0)),
     "sign": lambda a: tdc_math.sign(_num(a, 0)),
     "sinh": lambda a: tdc_math.sinh(_num(a, 0)),
     "sqrt": lambda a: tdc_math.sqrt(_num(a, 0)),

@@ -911,3 +911,122 @@ def gamma(x: float) -> float:
     # One exponential rather than t^(z+0.5) * e^(-t): that product overflows on
     # its first factor near x = 150, while gamma(x) is still finite to 171.
     return _SQRT_2PI * _lanczos_sum(z) * exp((z + 0.5) * log(t) - t)
+
+
+# ── The fifth wave: what was left ─────────────────────────────────────────────
+#
+# Two conversions, and three functions each defined in terms of what came before.
+
+_DEGREES_PER_RADIAN = 57.29577951308232
+_RADIANS_PER_DEGREE = 0.017453292519943295
+
+# Asymptotic coefficients for digamma, ascending in 1/x^2: -B_2k/(2k). The series
+# is asymptotic, not convergent — adding terms forever makes it worse.
+_DIGAMMA_COEFF = (-1 / 12, 1 / 120, -1 / 252, 1 / 240, -1 / 132, 691 / 32760, -1 / 12, 3617 / 8160)
+
+# Where the recurrence stops shifting. Ten, and larger is WORSE: each step of
+# psi(x) = psi(x+1) - 1/x adds its own rounding. Measured against the exact value
+# at whole numbers — psi(n) = -gamma + H(n-1) — ten gives 3 ulp, fourteen gives 12.
+_DIGAMMA_SHIFT = 10
+
+# B_2k/(2k)! for k = 1..7 — the Euler-Maclaurin tail for zeta.
+_ZETA_BERNOULLI = (
+    1 / 12,
+    -1 / 720,
+    1 / 30240,
+    -1 / 1209600,
+    1 / 47900160,
+    -691 / 1307674368000,
+    1 / 74724249600,
+)
+
+_ZETA_TERMS = 12
+_ZETA_CORRECTIONS = 6
+
+
+def degrees(x: float) -> float:
+    """``degrees(x)`` — one multiplication, so all five agree trivially.
+
+    It exists because every circular function here takes radians and says so; a config holding an
+    angle in degrees needs somewhere to put the conversion.
+    """
+    return x * _DEGREES_PER_RADIAN
+
+
+def radians(x: float) -> float:
+    """``radians(x)`` — the other direction, same single rounding."""
+    return x * _RADIANS_PER_DEGREE
+
+
+def beta(a: float, b: float) -> float:
+    """``beta(a, b)`` — the Euler beta function, gamma(a)*gamma(b)/gamma(a+b).
+
+    Taken directly from the gammas while they fit, because that is the accurate route. Past
+    a+b = 171 the numerator overflows although the answer is small — beta SHRINKS as its arguments
+    grow — so up there it goes through logarithms instead.
+    """
+    if a != a or b != b:
+        return math.nan
+    if a > 0 and b > 0 and a + b > 171:
+        return exp(lgamma(a) + lgamma(b) - lgamma(a + b))
+    return gamma(a) * gamma(b) / gamma(a + b)
+
+
+def digamma(x: float) -> float:
+    """``digamma(x)`` — the derivative of log gamma(x).
+
+    Small arguments are lifted by the recurrence until the asymptotic series is usable; negatives
+    come back through the reflection psi(1-x) - psi(x) = pi*cot(pi*x).
+    """
+    if x != x:
+        return math.nan
+    if x == math.inf:
+        return math.inf
+    # Every whole number at or below zero is a pole, as it is for gamma itself.
+    if x <= 0 and x == math.trunc(x):
+        return math.nan
+    if x < 0.5:
+        return digamma(1 - x) - PI / tan(PI * x)
+    shifted = x
+    correction = 0.0
+    while shifted < _DIGAMMA_SHIFT:
+        correction -= 1 / shifted
+        shifted += 1
+    f = 1 / (shifted * shifted)
+    return correction + log(shifted) - 0.5 / shifted + f * _horner(_DIGAMMA_COEFF, f)
+
+
+def _zeta_sum(s: float) -> float:
+    """zeta(s) for s > 1, by Euler-Maclaurin."""
+    total = 0.0
+    for n in range(1, _ZETA_TERMS):
+        total += pow(float(n), -s)
+    tail = pow(float(_ZETA_TERMS), -s)
+    total += tail / 2 + _ZETA_TERMS * tail / (s - 1)
+    # Then the Bernoulli corrections, each a rising factorial over a growing power.
+    rising = s
+    power = tail / _ZETA_TERMS
+    for k in range(1, _ZETA_CORRECTIONS + 1):
+        total += _ZETA_BERNOULLI[k - 1] * rising * power
+        rising *= (s + 2 * k - 1) * (s + 2 * k)
+        power /= _ZETA_TERMS * _ZETA_TERMS
+    return total
+
+
+def zeta(s: float) -> float:
+    """``zeta(s)`` — the Riemann zeta function, for real s.
+
+    Above 1 the sum converges and Euler-Maclaurin makes twelve terms behave like thousands. Below
+    it the functional equation reflects the argument across s = 1/2, which is why this needs gamma
+    and sin and could not have been written before them. zeta(1) is the pole; zeta(0) is -1/2,
+    which the reflection cannot give because it meets 0 * infinity there.
+    """
+    if s != s:
+        return math.nan
+    if s == 1:
+        return math.inf
+    if s == 0:
+        return -0.5
+    if s > 1:
+        return _zeta_sum(s)
+    return pow(2.0, s) * pow(PI, s - 1) * sin(PI * s / 2) * gamma(1 - s) * _zeta_sum(1 - s)
