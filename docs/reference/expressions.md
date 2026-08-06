@@ -86,9 +86,6 @@ list of numeric words still matches.
 
 ## Functions
 
-Every function here is **exact**: built from comparisons and from the arithmetic IEEE-754
-pins down, so the five implementations cannot disagree about a result.
-
 | Function                   | Takes  | Gives                                            |
 | :------------------------- | :----- | :----------------------------------------------- |
 | `abs(x)`                   | 1      | magnitude                                        |
@@ -102,6 +99,15 @@ pins down, so the five implementations cannot disagree about a result.
 | `ends_with(s, p)`          | 2      | suffix test                                      |
 | `contains(s, p)`           | 2      | substring test                                   |
 | `lower(s)` `upper(s)`      | 1      | case                                             |
+| `sqrt(x)`                  | 1      | square root                                      |
+| `pow(x, y)`                | 2      | x raised to y                                    |
+| `exp(x)`                   | 1      | e raised to x                                    |
+| `log(x)` `log10(x)`        | 1      | natural / base-10 logarithm                      |
+| `sin(x)` `cos(x)` `tan(x)` | 1      | circular functions, in **radians**               |
+
+Everything above the rule is exact — built from comparisons and from the arithmetic IEEE-754
+pins down, so the five implementations cannot disagree. Everything below it, TDC computes
+itself.
 
 > [!NOTE]
 > **Two rules worth knowing before you rely on them**
@@ -117,24 +123,75 @@ pins down, so the five implementations cannot disagree about a result.
 > carry, so the portable unit wins. `len("10")` is 2: a string function reads its argument as
 > text, never as a number.
 
+## Why TDC computes its own transcendentals
+
+IEEE-754 gives `+ - * /` and `sqrt` exactly one legal answer each, so every language agrees
+about them. It says nothing about `sin`, `cos`, `exp`, `log` or `pow` — each libm picks its
+own algorithm — and the gap is measurable, not theoretical:
+
+| | `tan(1)` |
+| :--- | :--- |
+| Node | `3ff8eb245cbee3a6` |
+| Python | `3ff8eb245cbee3a5` |
+
+Sixteen of seventy-seven sampled values disagree somewhere across the five implementations.
+In a `timeseries` that never shows, because every number is rounded to a decimal string
+before it becomes output — the last bit dies on the way out. A comparison has no rounding
+step, so that bit becomes a different row, and a different file, on a tool whose whole
+promise is that five implementations produce the same bytes.
+
+So TDC computes these itself, the way it already computes its own random numbers rather than
+trusting each language's. The results land within about 2 ulp of the true value — the same
+neighbourhood a libm occupies — and, far more importantly, on the **same** double in all
+five. Matching any particular libm is not the goal and could not be: the libms do not match
+each other.
+
+```xml
+<sequence name="Month"><gen type="increment" value="1"/></sequence>
+<sequence name="Load">
+  <gen if="cos(Month / 2) > 0.5"  type="text" value="peak"/>
+  <gen if="cos(Month / 2) < -0.5" type="text" value="trough"/>
+  <gen                            type="text" value="normal"/>
+</sequence>
+<sequence name="Tier">
+  <gen if="pow(2, Month) > 100" type="text" value="large"/>
+  <gen                          type="text" value="small"/>
+</sequence>
+```
+
+`tdcv2 seasonal.tdc`
+
+```
+1 peak small
+2 peak small
+3 normal small
+4 normal small
+5 trough small
+6 trough small
+7 trough large
+8 trough large
+```
+
+That file was run through all five implementations and produced those bytes in every one.
+
+Two things follow from computing them rather than borrowing them. `pow` with a whole-number
+exponent goes through repeated squaring, so `pow(10, 3)` is exactly 1000 rather than
+999.9999999999998 — a config comparing against a round number would have noticed. And the
+circular functions take **radians**, with no degree variant: one convention, stated once.
+
 ## What is deliberately absent
 
-**Trigonometry, logarithms, powers.** `sin`, `cos`, `exp`, `log`, `sqrt` and their kin are
-refused by name, with the reason:
+**The rest of the maths library.** `sinh`, `cosh`, `tanh`, `asin`, `acos`, `atan`, `atan2`
+and `cbrt` are refused by name rather than guessed at:
 
 `tdcv2 check seasonal.tdc`
 
 ```
-error[TDC257]: cos() is not available yet in an if expression
+error[TDC257]: sinh() is not available yet in an if expression
 ```
 
-The note beside it explains why, and the reason is measurable: `tan(1)` already differs in
-its last bit between Node and Python on the same machine. Sixteen of seventy-seven sampled
-values disagree somewhere across the five implementations. In a `timeseries` that never
-shows, because every number is rounded before it becomes output — but a comparison has no
-rounding step, so one bit becomes a different row and a different file. These arrive once
-TDC computes them itself, the way it computes its own random numbers rather than trusting
-each language's.
+Each one has to be built and pinned to its bits in five languages before it can be offered,
+which is the only reason it is not here yet.
 
 **Loops and recursion.** The engine is chosen from the config before a row is generated,
 [`preflight()`](../guides/large-outputs.md#top) estimates memory before the run, and `--jobs`

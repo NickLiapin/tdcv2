@@ -21,6 +21,7 @@ pub mod expr;
 pub mod format;
 pub mod generators;
 pub mod json;
+pub mod math;
 pub mod model;
 pub mod numbers;
 pub mod output;

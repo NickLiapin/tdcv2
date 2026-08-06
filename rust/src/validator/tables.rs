@@ -318,37 +318,45 @@ pub const SUPPORTED_UNARY_OPERATORS: [&str; 3] = ["!", "-", "+"];
 /// What an `if=` may call: the name, then the smallest and largest argument
 /// count (`usize::MAX` for variadic).
 ///
-/// Every one is EXACT — comparisons and the arithmetic IEEE-754 pins down — so
-/// the five implementations cannot disagree about a result. Transcendental
-/// functions are absent for exactly that reason.
-pub const EXPR_FUNCTIONS: [(&str, usize, usize); 14] = [
+/// The exact ones are built from comparisons and the arithmetic IEEE-754 pins
+/// down. The transcendental ones are computed by TDC itself (`crate::math`)
+/// rather than by the host libm, which is what keeps five implementations on
+/// one double.
+pub const EXPR_FUNCTIONS: [(&str, usize, usize); 22] = [
     ("abs", 1, 1),
     ("ceil", 1, 1),
     ("contains", 2, 2),
+    ("cos", 1, 1),
     ("ends_with", 2, 2),
+    ("exp", 1, 1),
     ("floor", 1, 1),
     ("is_empty", 1, 1),
     ("len", 1, 1),
+    ("log", 1, 1),
+    ("log10", 1, 1),
     ("lower", 1, 1),
     ("max", 1, usize::MAX),
     ("min", 1, usize::MAX),
+    ("pow", 2, 2),
     ("round", 1, 1),
+    ("sin", 1, 1),
+    ("sqrt", 1, 1),
     ("starts_with", 2, 2),
+    ("tan", 1, 1),
     ("trunc", 1, 1),
     ("upper", 1, 1),
 ];
 
-pub const EXPR_FUNCTION_NAMES: [&str; 14] = [
-    "abs", "ceil", "contains", "ends_with", "floor", "is_empty", "len", "lower", "max", "min",
-    "round", "starts_with", "trunc", "upper",
+pub const EXPR_FUNCTION_NAMES: [&str; 22] = [
+    "abs", "ceil", "contains", "cos", "ends_with", "exp", "floor", "is_empty", "len", "log",
+    "log10", "lower", "max", "min", "pow", "round", "sin", "sqrt", "starts_with", "tan", "trunc",
+    "upper",
 ];
 
-/// Not available, and not typos either. Someone writing `cos(_count)` knows
-/// what they meant, and "did you mean abs?" is worse than saying nothing.
-pub const PLANNED_EXPR_FUNCTIONS: [&str; 16] = [
-    "acos", "asin", "atan", "atan2", "cbrt", "cos", "cosh", "exp", "log", "log10", "pow", "sin",
-    "sinh", "sqrt", "tan", "tanh",
-];
+/// Not available, and not typos either. Someone writing `sinh(_count)` knows
+/// what they meant, and "did you mean sin?" is worse than saying nothing.
+pub const PLANNED_EXPR_FUNCTIONS: [&str; 8] =
+    ["acos", "asin", "atan", "atan2", "cbrt", "cosh", "sinh", "tanh"];
 
 pub fn lookup<'a>(table: &'a [(&'a str, &'a [&'a str])], key: &str) -> Option<&'a [&'a str]> {
     table.iter().find(|(k, _)| *k == key).map(|(_, v)| *v)

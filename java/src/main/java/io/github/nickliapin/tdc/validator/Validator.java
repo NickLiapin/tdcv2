@@ -187,38 +187,47 @@ public final class Validator {
    * What an {@code if=} may call: the name, then the smallest and largest argument count
    * ({@code Integer.MAX_VALUE} for variadic).
    *
-   * <p>Every one is EXACT — comparisons and the arithmetic IEEE-754 pins down — so the five
-   * implementations cannot disagree. Transcendental functions are absent for that reason.
+   * <p>The exact ones are built from comparisons and the arithmetic IEEE-754 pins down. The
+   * transcendental ones are computed by TDC itself ({@code mathx.TdcMath}) rather than by the host
+   * libm, which is what keeps five implementations on one double.
    */
   private static final Map<String, int[]> EXPR_FUNCTIONS =
       Map.ofEntries(
           Map.entry("abs", new int[] {1, 1}),
           Map.entry("ceil", new int[] {1, 1}),
           Map.entry("contains", new int[] {2, 2}),
+          Map.entry("cos", new int[] {1, 1}),
           Map.entry("ends_with", new int[] {2, 2}),
+          Map.entry("exp", new int[] {1, 1}),
           Map.entry("floor", new int[] {1, 1}),
           Map.entry("is_empty", new int[] {1, 1}),
           Map.entry("len", new int[] {1, 1}),
+          Map.entry("log", new int[] {1, 1}),
+          Map.entry("log10", new int[] {1, 1}),
           Map.entry("lower", new int[] {1, 1}),
           Map.entry("max", new int[] {1, Integer.MAX_VALUE}),
           Map.entry("min", new int[] {1, Integer.MAX_VALUE}),
+          Map.entry("pow", new int[] {2, 2}),
           Map.entry("round", new int[] {1, 1}),
+          Map.entry("sin", new int[] {1, 1}),
+          Map.entry("sqrt", new int[] {1, 1}),
           Map.entry("starts_with", new int[] {2, 2}),
+          Map.entry("tan", new int[] {1, 1}),
           Map.entry("trunc", new int[] {1, 1}),
           Map.entry("upper", new int[] {1, 1}));
 
   private static final List<String> EXPR_FUNCTION_NAMES =
       List.of(
-          "abs", "ceil", "contains", "ends_with", "floor", "is_empty", "len", "lower", "max",
-          "min", "round", "starts_with", "trunc", "upper");
+          "abs", "ceil", "contains", "cos", "ends_with", "exp", "floor", "is_empty", "len", "log",
+          "log10", "lower", "max", "min", "pow", "round", "sin", "sqrt", "starts_with", "tan",
+          "trunc", "upper");
 
   /**
-   * Not available, and not typos either. Someone writing {@code cos(_count)} knows what they
-   * meant, and "did you mean abs?" is worse than saying nothing.
+   * Not available, and not typos either. Someone writing {@code sinh(_count)} knows what they
+   * meant, and "did you mean sin?" is worse than saying nothing.
    */
   private static final List<String> PLANNED_EXPR_FUNCTIONS =
-      List.of("acos", "asin", "atan", "atan2", "cbrt", "cos", "cosh", "exp", "log", "log10",
-          "pow", "sin", "sinh", "sqrt", "tan", "tanh");
+      List.of("acos", "asin", "atan", "atan2", "cbrt", "cosh", "sinh", "tanh");
 
   private static final List<String> SUPPORTED_UNARY_OPERATORS = List.of("!", "-", "+");
 

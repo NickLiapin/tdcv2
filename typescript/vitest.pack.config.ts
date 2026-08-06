@@ -17,5 +17,7 @@ import { defineConfig } from 'vitest/config';
 export default defineConfig({
   test: {
     include: ['test/cli/install-smoke.test.ts'],
+    // Same single build as the main config: no test file compiles for itself.
+    globalSetup: ['test/global-setup.ts'],
   },
 });

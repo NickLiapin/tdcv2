@@ -225,6 +225,24 @@ public final class Evaluate {
         return str(args, 0).toLowerCase(java.util.Locale.ROOT);
       case "upper":
         return str(args, 0).toUpperCase(java.util.Locale.ROOT);
+        // Transcendentals, computed by TDC rather than by Java — see mathx/TdcMath.java.
+        // Adding one here means adding it to TdcMath in all five, not calling java.lang.Math.
+      case "cos":
+        return io.github.nickliapin.tdc.mathx.TdcMath.cos(num(args, 0));
+      case "exp":
+        return io.github.nickliapin.tdc.mathx.TdcMath.exp(num(args, 0));
+      case "log":
+        return io.github.nickliapin.tdc.mathx.TdcMath.log(num(args, 0));
+      case "log10":
+        return io.github.nickliapin.tdc.mathx.TdcMath.log10(num(args, 0));
+      case "pow":
+        return io.github.nickliapin.tdc.mathx.TdcMath.pow(num(args, 0), num(args, 1));
+      case "sin":
+        return io.github.nickliapin.tdc.mathx.TdcMath.sin(num(args, 0));
+      case "sqrt":
+        return io.github.nickliapin.tdc.mathx.TdcMath.sqrt(num(args, 0));
+      case "tan":
+        return io.github.nickliapin.tdc.mathx.TdcMath.tan(num(args, 0));
       default:
         throw new IllegalArgumentException(
             "if expression: unknown function \"" + name + "\"");

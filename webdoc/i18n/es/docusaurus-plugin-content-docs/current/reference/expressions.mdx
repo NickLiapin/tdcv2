@@ -81,10 +81,6 @@ columna de texto contra una lista de palabras numéricas sigue coincidiendo.
 
 ## Funciones
 
-Cada función aquí es **exacta**: está construida con comparaciones y con la aritmética que
-IEEE-754 fija sin ambigüedad, así que las cinco implementaciones no pueden discrepar sobre un
-resultado.
-
 | Función                    | Toma       | Da                                                 |
 | :------------------------- | :--------- | :------------------------------------------------- |
 | `abs(x)`                   | 1          | magnitud                                           |
@@ -98,6 +94,15 @@ resultado.
 | `ends_with(s, p)`          | 2          | prueba de sufijo                                   |
 | `contains(s, p)`           | 2          | prueba de subcadena                                |
 | `lower(s)` `upper(s)`      | 1          | mayúsculas y minúsculas                            |
+| `sqrt(x)`                  | 1          | raíz cuadrada                                      |
+| `pow(x, y)`                | 2          | x elevado a y                                      |
+| `exp(x)`                   | 1          | e elevado a x                                      |
+| `log(x)` `log10(x)`        | 1          | logaritmo natural / decimal                        |
+| `sin(x)` `cos(x)` `tan(x)` | 1          | funciones circulares, en **radianes**              |
+
+Todo lo que está por encima de la raya es exacto: construido con comparaciones y con la
+aritmética que IEEE-754 fija sin ambigüedad, así que las cinco implementaciones no pueden
+discrepar. Todo lo que está por debajo, TDC lo calcula por sí mismo.
 
 :::note[Dos reglas que conviene saber antes de apoyarse en ellas]
 **`round` manda la mitad alejándose del cero.** `round(0.5)` es 1 y `round(-0.5)` es −1.
@@ -112,22 +117,72 @@ implementación puede llevar, así que gana la unidad portable. `len("10")` es 2
 de cadena lee su argumento como texto, nunca como número.
 :::
 
-## Lo que falta a propósito
+## Por qué TDC calcula sus propias funciones trascendentes
 
-**Trigonometría, logaritmos, potencias.** `sin`, `cos`, `exp`, `log`, `sqrt` y sus parientes
-se rechazan por nombre, con la razón:
+IEEE-754 fija para `+ - * /` y `sqrt` exactamente una respuesta legal, así que sobre ellas
+todos los lenguajes coinciden. No dice nada sobre `sin`, `cos`, `exp`, `log` ni `pow` — cada
+libm elige su propio algoritmo — y la diferencia es medible, no teórica:
 
-<Terminal title="tdcv2 check seasonal.tdc">
-{`error[TDC257]: cos() is not available yet in an if expression`}
+| | `tan(1)` |
+| :--- | :--- |
+| Node | `3ff8eb245cbee3a6` |
+| Python | `3ff8eb245cbee3a5` |
+
+De setenta y siete valores muestreados, dieciséis discrepan en al menos dos de las cinco
+implementaciones. En un `timeseries` eso no se ve: cada número se redondea a una cadena
+decimal antes de convertirse en salida, y el último bit muere de camino. Una comparación no
+tiene paso de redondeo, así que ese bit se vuelve otra fila y otro archivo — en una
+herramienta cuya promesa entera es que cinco implementaciones producen los mismos bytes.
+
+Por eso TDC las calcula por sí mismo, igual que ya calcula sus propios números aleatorios en
+vez de confiar en los de cada lenguaje. Los resultados caen dentro de unos 2 ulp del valor
+verdadero — el mismo vecindario que ocupa una libm — y, mucho más importante, sobre el
+**mismo** double en las cinco. Coincidir con una libm concreta no es el objetivo ni podría
+serlo: las libms no coinciden entre sí.
+
+```xml
+<sequence name="Month"><gen type="increment" value="1"/></sequence>
+<sequence name="Load">
+  <gen if="cos(Month / 2) > 0.5"  type="text" value="peak"/>
+  <gen if="cos(Month / 2) < -0.5" type="text" value="trough"/>
+  <gen                            type="text" value="normal"/>
+</sequence>
+<sequence name="Tier">
+  <gen if="pow(2, Month) > 100" type="text" value="large"/>
+  <gen                          type="text" value="small"/>
+</sequence>
+```
+
+<Terminal title="tdcv2 seasonal.tdc">
+{`1 peak small
+2 peak small
+3 normal small
+4 normal small
+5 trough small
+6 trough small
+7 trough large
+8 trough large`}
 </Terminal>
 
-La nota que lo acompaña explica por qué, y la razón es medible: `tan(1)` ya difiere en su
-último bit entre Node y Python en la misma máquina. De setenta y siete valores muestreados,
-dieciséis discrepan en al menos dos de las cinco implementaciones. En un `timeseries` eso no
-se ve, porque cada número se redondea antes de convertirse en salida — pero una comparación
-no tiene paso de redondeo, así que un bit se vuelve otra fila y otro archivo. Llegarán cuando
-TDC las calcule por sí mismo, igual que calcula sus propios números aleatorios en vez de
-confiar en los de cada lenguaje.
+Ese archivo se pasó por las cinco implementaciones y todas produjeron esos mismos bytes.
+
+De calcularlas en vez de tomarlas prestadas se siguen dos cosas. `pow` con un exponente
+entero pasa por elevación al cuadrado, así que `pow(10, 3)` es exactamente 1000 y no
+999.9999999999998 — una configuración que compare contra un número redondo lo habría notado.
+Y las funciones circulares toman **radianes**, sin variante en grados: un convenio, dicho una
+sola vez.
+
+## Lo que falta a propósito
+
+**El resto de la biblioteca matemática.** `sinh`, `cosh`, `tanh`, `asin`, `acos`, `atan`,
+`atan2` y `cbrt` se rechazan por nombre en lugar de adivinarse:
+
+<Terminal title="tdcv2 check seasonal.tdc">
+{`error[TDC257]: sinh() is not available yet in an if expression`}
+</Terminal>
+
+Cada una hay que construirla y fijarla bit a bit en cinco lenguajes antes de poder ofrecerla,
+que es la única razón por la que todavía no está aquí.
 
 **Bucles y recursión.** El motor se elige a partir de la configuración antes de generar una
 fila, [`preflight()`](../guides/large-outputs.mdx) estima la memoria antes de la corrida, y

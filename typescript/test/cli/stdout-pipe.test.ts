@@ -40,8 +40,7 @@ describe('stdout is a pipe', () => {
   let dir: string;
 
   beforeAll(() => {
-    // Build once so dist/cli/main.js and the compiled worker exist.
-    execFileSync('npm', ['run', 'build'], { cwd: pkgRoot, stdio: 'ignore' });
+    // dist/ was compiled by test/global-setup.ts, once, before any worker.
     dir = mkdtempSync(join(tmpdir(), 'tdc-pipe-'));
     writeFileSync(join(dir, 'c.tdc'), CONFIG);
   }, 120_000);

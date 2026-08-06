@@ -197,6 +197,16 @@ public static class Evaluate
             }
             case "lower": return Str(0).ToLowerInvariant();
             case "upper": return Str(0).ToUpperInvariant();
+            // Transcendentals, computed by TDC rather than by .NET — see Math/TdcMath.cs.
+            // Adding one here means adding it to TdcMath in all five, not calling System.Math.
+            case "cos": return Maths.TdcMath.Cos(Num(0));
+            case "exp": return Maths.TdcMath.Exp(Num(0));
+            case "log": return Maths.TdcMath.Log(Num(0));
+            case "log10": return Maths.TdcMath.Log10(Num(0));
+            case "pow": return Maths.TdcMath.Pow(Num(0), Num(1));
+            case "sin": return Maths.TdcMath.Sin(Num(0));
+            case "sqrt": return Maths.TdcMath.Sqrt(Num(0));
+            case "tan": return Maths.TdcMath.Tan(Num(0));
             default:
                 throw new ArgumentException($"if expression: unknown function \"{name}\"");
         }

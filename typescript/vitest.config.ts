@@ -4,6 +4,12 @@ export default defineConfig({
   test: {
     include: ['test/**/*.test.ts'],
     /**
+     * Compile once, here, before any worker starts. Three test files spawn the
+     * built CLI; when each built it for itself, the concurrent `tsc` runs
+     * rewrote `dist/cli/main.js` under a sibling that was spawning it.
+     */
+    globalSetup: ['test/global-setup.ts'],
+    /**
      * The packaging smoke test runs `npm pack`, whose prepack step copies the
      * data packs to `typescript/data/packs` and whose postpack removes them
      * again. `bundledPacksDir()` probes exactly that path FIRST, so any other

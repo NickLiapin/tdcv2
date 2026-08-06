@@ -182,8 +182,8 @@ describe('--jobs end-to-end (real worker threads)', () => {
   }
 
   beforeAll(() => {
-    // Build once so the compiled worker (dist/cli/render-worker.js) exists.
-    execFileSync('npm', ['run', 'build'], { cwd: pkgRoot, stdio: 'ignore' });
+    // dist/cli/render-worker.js was compiled by test/global-setup.ts, once,
+    // before any worker — not here, where three files raced to write it.
     dir = mkdtempSync(join(tmpdir(), 'tdc-par-e2e-'));
   }, 120_000);
 

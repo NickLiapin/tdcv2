@@ -202,35 +202,35 @@ public sealed class Validator
     /// What an <c>if=</c> may call: the name, then the smallest and largest argument count
     /// (<c>int.MaxValue</c> for variadic).
     ///
-    /// Every one is EXACT — comparisons and the arithmetic IEEE-754 pins down — so the five
-    /// implementations cannot disagree. Transcendental functions are absent for that reason.
+    /// The exact ones are built from comparisons and the arithmetic IEEE-754 pins down. The
+    /// transcendental ones are computed by TDC itself (<c>Tdcv2.Maths.TdcMath</c>) rather than by
+    /// the host libm, which is what keeps five implementations on one double.
     /// </summary>
     private static readonly IReadOnlyList<(string Name, int Low, int High)> ExprFunctions =
         new[]
         {
-            ("abs", 1, 1), ("ceil", 1, 1), ("contains", 2, 2), ("ends_with", 2, 2),
-            ("floor", 1, 1), ("is_empty", 1, 1), ("len", 1, 1), ("lower", 1, 1),
-            ("max", 1, int.MaxValue), ("min", 1, int.MaxValue), ("round", 1, 1),
-            ("starts_with", 2, 2), ("trunc", 1, 1), ("upper", 1, 1),
+            ("abs", 1, 1), ("ceil", 1, 1), ("contains", 2, 2), ("cos", 1, 1),
+            ("ends_with", 2, 2), ("exp", 1, 1), ("floor", 1, 1), ("is_empty", 1, 1),
+            ("len", 1, 1), ("log", 1, 1), ("log10", 1, 1), ("lower", 1, 1),
+            ("max", 1, int.MaxValue), ("min", 1, int.MaxValue), ("pow", 2, 2), ("round", 1, 1),
+            ("sin", 1, 1), ("sqrt", 1, 1), ("starts_with", 2, 2), ("tan", 1, 1),
+            ("trunc", 1, 1), ("upper", 1, 1),
         };
 
     private static readonly IReadOnlyList<string> ExprFunctionNames =
         new[]
         {
-            "abs", "ceil", "contains", "ends_with", "floor", "is_empty", "len", "lower", "max",
-            "min", "round", "starts_with", "trunc", "upper",
+            "abs", "ceil", "contains", "cos", "ends_with", "exp", "floor", "is_empty", "len",
+            "log", "log10", "lower", "max", "min", "pow", "round", "sin", "sqrt", "starts_with",
+            "tan", "trunc", "upper",
         };
 
     /// <summary>
-    /// Not available, and not typos either. Someone writing <c>cos(_count)</c> knows what they
-    /// meant, and "did you mean abs?" is worse than saying nothing.
+    /// Not available, and not typos either. Someone writing <c>sinh(_count)</c> knows what they
+    /// meant, and "did you mean sin?" is worse than saying nothing.
     /// </summary>
     private static readonly IReadOnlyList<string> PlannedExprFunctions =
-        new[]
-        {
-            "acos", "asin", "atan", "atan2", "cbrt", "cos", "cosh", "exp", "log", "log10",
-            "pow", "sin", "sinh", "sqrt", "tan", "tanh",
-        };
+        new[] { "acos", "asin", "atan", "atan2", "cbrt", "cosh", "sinh", "tanh" };
 
     private static readonly IReadOnlyList<string> SupportedUnaryOperators = new[] { "!", "-", "+" };
 

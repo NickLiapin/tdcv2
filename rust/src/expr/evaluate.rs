@@ -159,6 +159,17 @@ fn call_function(name: &str, args: &[V]) -> EngineResult<V> {
         "len" => V::Num(text(0)?.chars().count() as f64),
         "lower" => V::Str(text(0)?.to_lowercase()),
         "upper" => V::Str(text(0)?.to_uppercase()),
+        // Transcendentals, computed by TDC rather than by Rust — see math/mod.rs.
+        // Adding one here means adding it to TdcMath in all five, not calling
+        // the host's f64 method.
+        "cos" => V::Num(crate::math::cos(num(0)?)),
+        "exp" => V::Num(crate::math::exp(num(0)?)),
+        "log" => V::Num(crate::math::log(num(0)?)),
+        "log10" => V::Num(crate::math::log10(num(0)?)),
+        "pow" => V::Num(crate::math::pow(num(0)?, num(1)?)),
+        "sin" => V::Num(crate::math::sin(num(0)?)),
+        "sqrt" => V::Num(crate::math::sqrt(num(0)?)),
+        "tan" => V::Num(crate::math::tan(num(0)?)),
         _ => return invalid(&format!("if expression: unknown function \"{name}\"")),
     })
 }

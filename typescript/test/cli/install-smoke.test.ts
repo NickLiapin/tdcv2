@@ -41,7 +41,7 @@ describe('the published package works after a real install', () => {
   let installed = '';
 
   beforeAll(() => {
-    execFileSync('npm', ['run', 'build'], { cwd: pkgRoot, stdio: 'ignore' });
+    // dist/ was compiled by test/global-setup.ts.
     // `npm pack` runs prepack/postpack, so this is the real tarball.
     const tarball = execFileSync('npm', ['pack', '--silent'], { cwd: pkgRoot, encoding: 'utf8' })
       .trim()
