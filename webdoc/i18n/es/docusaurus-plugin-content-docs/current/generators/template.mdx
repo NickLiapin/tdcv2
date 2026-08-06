@@ -86,13 +86,18 @@ plantillas con salida real.
 
 | Ruta                      | Produce                                         | Depende del locale |
 | :------------------------ | :---------------------------------------------- | :----------------: |
-| `person.male.firstName`   | Un nombre de pila masculino                     |  `en`, `es`, `ru`  |
-| `person.female.firstName` | Un nombre de pila femenino                      |  `en`, `es`, `ru`  |
-| `person.lastName`         | Un apellido (masculinos + comunes del locale)   |  `en`, `es`, `ru`  |
-| `person.male.diagnosis`   | Un diagnóstico masculino + los comunes          |  `en`, `es`, `ru`  |
-| `person.female.diagnosis` | Un diagnóstico femenino + los comunes           |  `en`, `es`, `ru`  |
-| `person.gender`           | Un género al azar; la etiqueta viene del locale |  `en`, `es`, `ru`  |
+| `person.male.firstName`   | Un nombre de pila masculino                     |   10 + `zh-cn`     |
+| `person.female.firstName` | Un nombre de pila femenino                      |   10 + `zh-cn`     |
+| `person.lastName`         | Un apellido (masculinos + comunes del locale)   |   10 + `zh-cn`     |
+| `person.male.diagnosis`   | Un diagnóstico masculino + los comunes          |        10          |
+| `person.female.diagnosis` | Un diagnóstico femenino + los comunes           |        10          |
+| `person.gender`           | Un género al azar; la etiqueta viene del locale |        10          |
 | `person.b_day`            | Una fecha de nacimiento en el formato dado      |  solo el formato   |
+
+Los diez son `ar`, `de`, `el`, `en`, `es`, `fr`, `it`, `pl`, `pt` y `ru` — los paquetes de
+idioma que están llenos y no son esbozos. `zh-cn` trae nombres pero todavía no el resto.
+Cualquier otro locale recibe [TDC217](../reference/errors.mdx), que nombra los locales que
+sí traen la ruta en lugar de dejar que la corrida adivine.
 
 :::note[Por qué `lastName` mezcla dos conjuntos]
 `person.lastName` combina los apellidos masculinos con los apellidos **comunes** del

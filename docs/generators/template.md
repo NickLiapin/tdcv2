@@ -91,13 +91,18 @@ hand. The rest of this page walks through each family of templates with real out
 
 | Path                      | Produces                                         | Locale-aware |
 | :------------------------ | :----------------------------------------------- | :----------: |
-| `person.male.firstName`   | A male first name                                |  `en`, `ru`  |
-| `person.female.firstName` | A female first name                              |  `en`, `ru`  |
-| `person.lastName`         | A last name (male + locale-common surnames)      |  `en`, `ru`  |
-| `person.male.diagnosis`   | A male diagnosis + common ones                   |  `en`, `ru`  |
-| `person.female.diagnosis` | A female diagnosis + common ones                 |  `en`, `ru`  |
-| `person.gender`           | A random gender; the label comes from the locale |  `en`, `ru`  |
+| `person.male.firstName`   | A male first name                                | 10 + `zh-cn` |
+| `person.female.firstName` | A female first name                              | 10 + `zh-cn` |
+| `person.lastName`         | A last name (male + locale-common surnames)      | 10 + `zh-cn` |
+| `person.male.diagnosis`   | A male diagnosis + common ones                   |      10      |
+| `person.female.diagnosis` | A female diagnosis + common ones                 |      10      |
+| `person.gender`           | A random gender; the label comes from the locale |      10      |
 | `person.b_day`            | A birthday in the format you specify             | format only  |
+
+The ten are `ar`, `de`, `el`, `en`, `es`, `fr`, `it`, `pl`, `pt` and `ru` — the language
+packs that are filled rather than stubs. `zh-cn` carries names but not yet the rest. Any
+other locale gets [TDC217](../reference/errors.md#top), which names the locales that do ship
+the path rather than letting the run guess.
 
 > [!NOTE]
 > **Why `lastName` mixes two pools**
