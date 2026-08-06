@@ -161,6 +161,11 @@ def _iterable(value: Value) -> list[Value]:
     raise ComputeError("<over>: expected a string or list to iterate")
 
 
+# The builtin row counters, which are numbers rather than text. _first and _last are
+# deliberately absent: they are the strings "true" and "false".
+_NUMERIC_BUILTIN_FIELDS = frozenset({"_count", "_total"})
+
+
 def _element(element, scope: Scope) -> Value:
     n = _node(element)
     name = n.name
@@ -194,6 +199,13 @@ def _element(element, scope: Scope) -> Value:
         value = scope.fields(key)
         if value is None:
             raise ComputeError(f'<field>: "{key}" is not in scope')
+        # A sequence's value is text, and coerce_int deliberately refuses a multi-digit string so
+        # that "the third character" and "the number 375" stay different things. The row counters
+        # are not text: _count and _total are numbers by nature. Without this they were strings,
+        # so the single-digit escape hatch carried them to row 9 and the tenth row failed.
+        # _first and _last stay out: they are the words "true" and "false".
+        if key in _NUMERIC_BUILTIN_FIELDS:
+            return int_value(int(value))
         return str_value(value)
     if name == "var":
         key = n.attrs.get("name", "")

@@ -12,7 +12,7 @@ import math
 from collections.abc import Callable
 
 from ..lib import numbers
-from .parse import Binary, Bool, Computed, Member, Name, Node, Null, Num, Str, Unary, parse
+from .parse import Binary, Bool, Call, Computed, Member, Name, Node, Null, Num, Str, Unary, parse
 
 _CACHE: dict[str, Node] = {}
 
@@ -47,9 +47,43 @@ def _eval(node: Node, has: Callable[[str], bool], value: Callable[[str], str]):
         return _unary(node.op, _eval(node.operand, has, value))
     if isinstance(node, Binary):
         return _binary(node.op, _eval(node.left, has, value), _eval(node.right, has, value))
+    if isinstance(node, Call):
+        fn = _FUNCTIONS.get(node.name)
+        if fn is None:
+            raise ValueError(f'if expression: unknown function "{node.name}"')
+        return fn([as_number(_eval(a, has, value)) for a in node.args])
     if isinstance(node, Computed):
         raise ValueError("computed member access is not supported in if expressions")
     raise ValueError(f"if expression: unhandled node {node}")
+
+
+def _round_half_away_from_zero(x: float) -> float:
+    """A half goes AWAY FROM ZERO: ``round(0.5)`` is 1 and ``round(-0.5)`` is -1.
+
+    Python's own ``round`` sends a half to even (0.5 → 0, 2.5 → 2), JavaScript sends it toward
+    +inf, Java rounds half up. None of the three is symmetric, so TDC states its own rule and
+    every implementation writes it out rather than calling the host.
+    """
+    return -math.floor(-x + 0.5) if x < 0 else math.floor(x + 0.5)
+
+
+def _first(args: list[float]) -> float:
+    if not args:
+        raise ValueError("if expression: a function needs at least one argument")
+    return args[0]
+
+
+# Exact by construction: comparisons and the arithmetic IEEE-754 pins down, so the five
+# implementations cannot disagree. Transcendental functions are absent for exactly that reason.
+_FUNCTIONS: dict[str, Callable[[list[float]], float]] = {
+    "abs": lambda a: abs(_first(a)),
+    "ceil": lambda a: float(math.ceil(_first(a))),
+    "floor": lambda a: float(math.floor(_first(a))),
+    "max": lambda a: max(a) if a else _first(a),
+    "min": lambda a: min(a) if a else _first(a),
+    "round": lambda a: _round_half_away_from_zero(_first(a)),
+    "trunc": lambda a: float(math.trunc(_first(a))),
+}
 
 
 def _member(dotted: str, has: Callable[[str], bool], value: Callable[[str], str]):
@@ -186,12 +220,22 @@ def _divide(a: float, b: float) -> float:
 
 
 def _remainder(a: float, b: float) -> float:
-    """The remainder takes the sign of the DIVIDEND, which is JavaScript's rule, not Python's."""
-    if b == 0 or math.isnan(a) or math.isnan(b) or math.isinf(a):
+    """The EUCLIDEAN remainder, always in ``[0, |b|)``.
+
+    Not JavaScript's rule and not Python's either. The compute layer's ``<mod>`` already answered
+    this question — ``mod(-3, 2)`` is 1 — and one engine must not give two answers depending on
+    which layer the author reached for. Same algorithm as ``euclidean_mod`` in ``compute/value``,
+    written for floats.
+    """
+    if b == 0:
+        raise ValueError("if expression: the right side of % must not be zero")
+    if math.isnan(a) or math.isnan(b) or math.isinf(a):
         return math.nan
     if math.isinf(b):
         return a
-    return math.fmod(a, b)
+    magnitude = abs(b)
+    r = math.fmod(a, magnitude)
+    return r + magnitude if r < 0 else r
 
 
 def _text(v) -> str:

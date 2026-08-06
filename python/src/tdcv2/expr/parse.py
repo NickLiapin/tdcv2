@@ -19,9 +19,17 @@ from dataclasses import dataclass
 from ..lib import text
 
 # jsep's binary precedence, verbatim. Higher binds tighter.
+#
+# The bitwise and shift operators are here even though the engine implements none of them, and
+# that is the point: the reference parses whatever jsep parses and then refuses the operator BY
+# NAME. A port whose table stopped at the supported set answered `x & 1` with a syntax error
+# pointing at the ampersand, which tells the reader nothing about what to write instead.
 PRECEDENCE = {
     "||": 1,
     "&&": 2,
+    "|": 3,
+    "^": 4,
+    "&": 5,
     "==": 6,
     "!=": 6,
     "===": 6,
@@ -30,6 +38,9 @@ PRECEDENCE = {
     ">": 7,
     "<=": 7,
     ">=": 7,
+    "<<": 8,
+    ">>": 8,
+    ">>>": 8,
     "+": 9,
     "-": 9,
     "*": 10,
@@ -37,8 +48,30 @@ PRECEDENCE = {
     "%": 10,
 }
 
-# Longest first, so `<=` is never read as `<` followed by a stray `=`.
-_OPERATORS = ("===", "!==", "==", "!=", "<=", ">=", "&&", "||", "<", ">", "+", "-", "*", "/", "%")
+# Longest first, so `<=` is never read as `<` followed by a stray `=`, and `&&` never as two `&`.
+_OPERATORS = (
+    ">>>",
+    "===",
+    "!==",
+    "==",
+    "!=",
+    "<=",
+    ">=",
+    "&&",
+    "||",
+    "<<",
+    ">>",
+    "<",
+    ">",
+    "+",
+    "-",
+    "*",
+    "/",
+    "%",
+    "&",
+    "|",
+    "^",
+)
 
 
 class Node:
@@ -88,6 +121,14 @@ class Binary(Node):
 class Unary(Node):
     op: str
     operand: Node
+
+
+@dataclass(frozen=True, slots=True)
+class Call(Node):
+    """``abs(x)`` — a call on a bare name, with its arguments already parsed."""
+
+    name: str
+    args: tuple[Node, ...]
 
 
 @dataclass(frozen=True, slots=True)
@@ -222,6 +263,29 @@ class _Parser:
         if c.isalpha() or c in ("_", "$"):
             value = self._word()
             self.skip_space()
+            # A call, but only on a bare name: ``abs(x)`` and never ``obj.method(x)``. The
+            # reference restricts it the same way, and the validator says so with a position.
+            if isinstance(value, Name) and not self.done() and self.src[self.pos] == "(":
+                self.pos += 1
+                args: list[Node] = []
+                self.skip_space()
+                if not self.done() and self.src[self.pos] == ")":
+                    self.pos += 1
+                else:
+                    while True:
+                        args.append(self.expression(0))
+                        self.skip_space()
+                        if self.done():
+                            raise ValueError(f'if expression: unbalanced parentheses in "{self.src}"')
+                        if self.src[self.pos] == ",":
+                            self.pos += 1
+                            continue
+                        if self.src[self.pos] == ")":
+                            self.pos += 1
+                            break
+                        raise ValueError(f'if expression: unbalanced parentheses in "{self.src}"')
+                self.skip_space()
+                return Call(value.value, tuple(args))
             while not self.done() and self.src[self.pos] == "[":
                 self.pos += 1
                 self.expression(0)

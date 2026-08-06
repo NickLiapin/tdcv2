@@ -27,7 +27,7 @@ from ..date.plain import Precision
 from ..distribution import percent_mask
 from ..errors import Diagnostic
 from ..expr import parse as expr_parse
-from ..expr.parse import Binary, Computed, Member, Name, Unary
+from ..expr.parse import Binary, Call, Computed, Member, Name, Unary
 from ..format import mask as mask_lib
 from ..format import mask as mask_mod
 from ..format import transforms
@@ -93,7 +93,61 @@ PLACEMENT_HINTS = {
 }
 
 # The binary operators the evaluator implements. Anything else is refused, not ignored.
-SUPPORTED_BINARY = ("==", "!=", "===", "!==", "<", ">", "<=", ">=", "&&", "||", "+", "-", "*", "/")
+SUPPORTED_BINARY = (
+    "==",
+    "!=",
+    "===",
+    "!==",
+    "<",
+    ">",
+    "<=",
+    ">=",
+    "&&",
+    "||",
+    "+",
+    "-",
+    "*",
+    "/",
+    # Euclidean, matching <mod>: -3 % 2 is 1 here and -1 in JavaScript, Java, C# and Rust.
+    "%",
+)
+
+# What an if= may call, and how many arguments each takes; None as the upper bound means
+# variadic. Every one is EXACT — comparisons and the arithmetic IEEE-754 pins down — so the five
+# implementations cannot disagree. Transcendental functions are absent for that reason alone.
+EXPR_FUNCTIONS: dict[str, tuple[int, int | None]] = {
+    "abs": (1, 1),
+    "ceil": (1, 1),
+    "floor": (1, 1),
+    "max": (1, None),
+    "min": (1, None),
+    "round": (1, 1),
+    "trunc": (1, 1),
+}
+EXPR_FUNCTION_NAMES = tuple(sorted(EXPR_FUNCTIONS))
+
+# Not available, and not typos either. Someone writing cos(_count) knows what they meant, and
+# "did you mean abs?" is worse than saying nothing.
+PLANNED_EXPR_FUNCTIONS = (
+    "acos", "asin", "atan", "atan2", "cbrt", "cos", "cosh", "exp",
+    "log", "log10", "pow", "sin", "sinh", "sqrt", "tan", "tanh",
+)
+
+
+def _nearest(needle: str, candidates: tuple[str, ...]) -> str | None:
+    """The closest candidate by edit distance, or None when nothing is close enough."""
+    def distance(a: str, b: str) -> int:
+        prev = list(range(len(b) + 1))
+        for i, ca in enumerate(a, 1):
+            cur = [i]
+            for j, cb in enumerate(b, 1):
+                cur.append(min(cur[j - 1] + 1, prev[j] + 1, prev[j - 1] + (ca != cb)))
+            prev = cur
+        return prev[-1]
+
+    limit = min(3, max(1, len(needle) // 2 + 1))
+    best = min(candidates, key=lambda c: distance(needle, c), default=None)
+    return best if best is not None and distance(needle, best) <= limit else None
 SUPPORTED_UNARY = ("!", "-", "+")
 
 # What may sit directly inside <env>.
@@ -3603,12 +3657,60 @@ class _Validator:
                 self._error(
                     "TDC101",
                     f'unsupported operator "{node.op}" in if expression',
-                    f"Supported binary operators: {' '.join(SUPPORTED_BINARY)}.",
+                    f"Supported binary operators: {' '.join(SUPPORTED_BINARY)}. "
+                    f"Functions: {', '.join(EXPR_FUNCTION_NAMES)}. "
+                    "Anything an expression cannot say, a <compute> sequence can — it has "
+                    "integer division, remainders, string surgery and checksums — and the "
+                    "sequence it produces is what if= then compares.",
                     line,
                     column,
                 )
             self._check_expr_node(node.left, line, column)
             self._check_expr_node(node.right, line, column)
+            return
+        if isinstance(node, Call):
+            spec = EXPR_FUNCTIONS.get(node.name)
+            if spec is None:
+                planned = node.name in PLANNED_EXPR_FUNCTIONS
+                near = None if planned else _nearest(node.name, EXPR_FUNCTION_NAMES)
+                self._error(
+                    "TDC257",
+                    (
+                        f"{node.name}() is not available yet in an if expression"
+                        if planned
+                        else f'unknown function "{node.name}" in if expression'
+                    ),
+                    (
+                        f"Every host language computes {node.name} slightly differently — tan(1) "
+                        "already differs in its last bit between Node and Python — and a "
+                        "comparison turns that bit into a different row. It arrives once TDC "
+                        "computes it itself, the way it computes its own random numbers. "
+                        f"Available today: {', '.join(EXPR_FUNCTION_NAMES)}."
+                        if planned
+                        else (f'Did you mean "{near}"? ' if near else "")
+                        + f"Available: {', '.join(EXPR_FUNCTION_NAMES)}."
+                    ),
+                    line,
+                    column,
+                )
+                return
+            low, high = spec
+            n = len(node.args)
+            if n < low or (high is not None and n > high):
+                wants = (
+                    f"at least {low}"
+                    if high is None
+                    else (f"exactly {low}" if low == high else f"{low} to {high}")
+                )
+                self._error(
+                    "TDC258",
+                    f"{node.name}() takes {wants} argument{'' if high == 1 else 's'}, got {n}",
+                    "",
+                    line,
+                    column,
+                )
+            for arg in node.args:
+                self._check_expr_node(arg, line, column)
             return
         if isinstance(node, Computed):
             self._error(
