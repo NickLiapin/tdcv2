@@ -39,14 +39,17 @@ note: Declare it in <env>, or set a different inject= pattern if you really want
 La validación corre antes de la generación, así que un config con errores no produce
 dato alguno en vez de medio archivo. Casi cada diagnóstico aquí es un **error** y detiene
 el run: si el config pidió algo que no va a obtener, TDC se niega en vez de devolver
-datos que parecen correctos pero no lo son. Las excepciones son ocho **advertencias** que
+datos que parecen correctos pero no lo son. Las excepciones son nueve **advertencias** que
 dejan terminar el run: `TDC136` (una fila de `<map>` malformada, omitida mientras las
 válidas siguen aplicando), `TDC171` (un archivo de data pack cuya cabecera lo deja sin
 dirección), `TDC200` (una estimación de memoria grande pero que cabe), `TDC216` (una
 expresión que siempre es verdadera o siempre falsa), `TDC221` (un grupo `<uniq>` o
 `<distinct>` con un solo miembro, que no restringe nada), `TDC231` (un pool que nadie
-lee) y `TDC234` (un pool de más de
-100.000 miembros). Cada una lo indica en su fila más abajo.
+lee), `TDC234` (un pool de más de
+100.000 miembros), `TDC236` (una columna `uniq` más allá de 100.000 filas, que no puede
+fluir — en su segundo sentido, un pool declarado fuera de orden, es un error) y `TDC251`
+(una proporción de `percent` que pide menos de una fila). Cada una lo indica en su fila
+más abajo.
 
 Los números se reparten más o menos en el orden en que se revisa un config — primero la
 estructura, luego los generadores, luego todo lo construido encima — pero el número es un

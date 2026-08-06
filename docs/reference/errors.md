@@ -39,13 +39,15 @@ note: Declare it in <env>, or set a different inject= pattern if you really want
 Validation runs before generation, so a config with errors produces no data at all rather
 than half a file. Almost every diagnostic here is an **error** and stops the run: if the
 config asked for something it wouldn't actually get, TDC refuses rather than handing back
-data that looks right but isn't. The exceptions are eight **warnings** that let the run finish: `TDC136` (a malformed
+data that looks right but isn't. The exceptions are nine **warnings** that let the run finish: `TDC136` (a malformed
 `<map>` row is skipped and the valid rows still apply), `TDC171` (a pack file whose header
 puts it at no address), `TDC200` (a memory estimate that is large but still fits),
 `TDC216` (an expression that is always true or always false), `TDC221` (a `<uniq>` or
 `<distinct>` group with one member, which constrains nothing), `TDC231` (a `<pool>` nothing
 reads), `TDC234` (a pool over
-100,000 members) and `TDC251` (a `percent` share that asks for less than one row). Each says
+100,000 members), `TDC236` (a `uniq` column past 100,000 rows, which cannot stream — its
+second meaning, a pool declared out of order, is an error) and `TDC251` (a `percent` share
+that asks for less than one row). Each says
 as much in its row below.
 
 The numbers run roughly in the order a config is checked — structure first, then
