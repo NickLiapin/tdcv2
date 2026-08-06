@@ -236,7 +236,7 @@ fn unary_op(op: &str, arg: &V) -> EngineResult<V> {
     Ok(match op {
         "!" => V::Bool(!to_boolean(arg)),
         "-" => match as_exact_int(arg) {
-            Some(whole) => V::Int(checked_int(whole.checked_neg())?),
+            Some(whole) => V::Int(checked_int(whole.checked_neg(), -i128::from(whole))?),
             None => V::Num(-as_number(arg)),
         },
         "+" => match as_exact_int(arg) {
@@ -276,7 +276,7 @@ fn binary_op(op: &str, left: &V, right: &V) -> EngineResult<V> {
         // `+` adds when either side is already a number and joins otherwise, as
         // in JavaScript.
         "+" => match both_whole(left, right) {
-            Some((a, b)) => V::Int(checked_int(a.checked_add(b))?),
+            Some((a, b)) => V::Int(checked_int(a.checked_add(b), i128::from(a) + i128::from(b))?),
             None => {
                 if matches!(left, V::Num(_)) || matches!(right, V::Num(_)) {
                     V::Num(as_number(left) + as_number(right))
@@ -286,11 +286,11 @@ fn binary_op(op: &str, left: &V, right: &V) -> EngineResult<V> {
             }
         },
         "-" => match both_whole(left, right) {
-            Some((a, b)) => V::Int(checked_int(a.checked_sub(b))?),
+            Some((a, b)) => V::Int(checked_int(a.checked_sub(b), i128::from(a) - i128::from(b))?),
             None => V::Num(as_number(left) - as_number(right)),
         },
         "*" => match both_whole(left, right) {
-            Some((a, b)) => V::Int(checked_int(a.checked_mul(b))?),
+            Some((a, b)) => V::Int(checked_int(a.checked_mul(b), i128::from(a) * i128::from(b))?),
             None => V::Num(as_number(left) * as_number(right)),
         },
         // Division alone stays in floating point, always. It is not closed over
@@ -408,10 +408,16 @@ fn both_whole(left: &V, right: &V) -> Option<(i64, i64)> {
 }
 
 /// The result of whole-number arithmetic, refused rather than wrapped.
-fn checked_int(v: Option<i64>) -> EngineResult<i64> {
+///
+/// The refusal NAMES the value, as the compute layer's does. Reaching it needs
+/// arithmetic wider than the domain, so `wide` is computed only once the fast
+/// path has already said no — the ordinary case never pays for it.
+fn checked_int(v: Option<i64>, wide: i128) -> EngineResult<i64> {
     match v {
         Some(n) => Ok(n),
-        None => invalid("integer overflow: the result is outside the signed 64-bit range"),
+        None => invalid(&format!(
+            "integer overflow: {wide} is outside the signed 64-bit range"
+        )),
     }
 }
 

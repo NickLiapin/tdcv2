@@ -1,5 +1,6 @@
 using System.Collections.Concurrent;
 using System.Globalization;
+using System.Numerics;
 
 namespace Tdcv2.Expr;
 
@@ -365,9 +366,16 @@ public static class Evaluate
         return b is null ? (null, null) : (a, b);
     }
 
-    private static object CheckedNegate(long v) => Checked(() => checked(-v));
+    private static object CheckedNegate(long v) => Checked(() => checked(-v), () => -(BigInteger)v);
 
-    private static object Checked(Func<long> compute)
+    /// <summary>
+    /// The result of whole-number arithmetic, refused rather than wrapped.
+    ///
+    /// <para>The refusal NAMES the value, as the compute layer's does. Reaching it needs
+    /// arithmetic wider than the domain, so <paramref name="wide"/> runs only once the fast path
+    /// has already said no — the ordinary case never pays for the allocation.</para>
+    /// </summary>
+    private static object Checked(Func<long> compute, Func<BigInteger> wide)
     {
         try
         {
@@ -376,14 +384,14 @@ public static class Evaluate
         catch (OverflowException)
         {
             throw new ArgumentException(
-                "integer overflow: the result is outside the signed 64-bit range");
+                $"integer overflow: {wide()} is outside the signed 64-bit range");
         }
     }
 
     private static object WholeAdd(object? left, object? right)
     {
         var (a, b) = BothWhole(left, right);
-        if (a.HasValue) return Checked(() => checked(a.Value + b!.Value));
+        if (a.HasValue) return Checked(() => checked(a.Value + b!.Value), () => (BigInteger)a.Value + b!.Value);
         // `+` adds when either side is already a number and joins otherwise, as in JavaScript.
         return left is double || right is double
             ? AsNumber(left) + AsNumber(right)
@@ -393,13 +401,13 @@ public static class Evaluate
     private static object WholeSubtract(object? left, object? right)
     {
         var (a, b) = BothWhole(left, right);
-        return a.HasValue ? Checked(() => checked(a.Value - b!.Value)) : AsNumber(left) - AsNumber(right);
+        return a.HasValue ? Checked(() => checked(a.Value - b!.Value), () => (BigInteger)a.Value - b!.Value) : AsNumber(left) - AsNumber(right);
     }
 
     private static object WholeMultiply(object? left, object? right)
     {
         var (a, b) = BothWhole(left, right);
-        return a.HasValue ? Checked(() => checked(a.Value * b!.Value)) : AsNumber(left) * AsNumber(right);
+        return a.HasValue ? Checked(() => checked(a.Value * b!.Value), () => (BigInteger)a.Value * b!.Value) : AsNumber(left) * AsNumber(right);
     }
 
     private static object WholeRemainder(object? left, object? right)

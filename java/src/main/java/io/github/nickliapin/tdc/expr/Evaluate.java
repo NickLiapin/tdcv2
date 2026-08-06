@@ -143,7 +143,7 @@ public final class Evaluate {
       case "+" -> {
         long[] w = bothWhole(left, right);
         if (w != null) {
-          yield checked(() -> Math.addExact(w[0], w[1]));
+          yield checked(() -> Math.addExact(w[0], w[1]), () -> big(w[0]).add(big(w[1])));
         }
         yield left instanceof Double || right instanceof Double
             ? (Object) (asNumber(left) + asNumber(right))
@@ -153,13 +153,13 @@ public final class Evaluate {
         long[] w = bothWhole(left, right);
         yield w == null
             ? (Object) (asNumber(left) - asNumber(right))
-            : checked(() -> Math.subtractExact(w[0], w[1]));
+            : checked(() -> Math.subtractExact(w[0], w[1]), () -> big(w[0]).subtract(big(w[1])));
       }
       case "*" -> {
         long[] w = bothWhole(left, right);
         yield w == null
             ? (Object) (asNumber(left) * asNumber(right))
-            : checked(() -> Math.multiplyExact(w[0], w[1]));
+            : checked(() -> Math.multiplyExact(w[0], w[1]), () -> big(w[0]).multiply(big(w[1])));
       }
       // Division alone stays in floating point, always. It is not closed over the whole
       // numbers — 7/2 is not one — and a rule that came out exact only when the division
@@ -479,17 +479,29 @@ public final class Evaluate {
     return b == null ? null : new long[] {a, b};
   }
 
-  private static Object checkedNegate(long v) {
-    return checked(() -> Math.negateExact(v));
+  private static java.math.BigInteger big(long v) {
+    return java.math.BigInteger.valueOf(v);
   }
 
-  /** The result of whole-number arithmetic, refused rather than wrapped. */
-  private static Object checked(java.util.function.LongSupplier compute) {
+  private static Object checkedNegate(long v) {
+    return checked(() -> Math.negateExact(v), () -> java.math.BigInteger.valueOf(v).negate());
+  }
+
+  /**
+   * The result of whole-number arithmetic, refused rather than wrapped.
+   *
+   * <p>The refusal NAMES the value, as the compute layer's does. Reaching it needs arithmetic
+   * wider than the domain, so {@code wide} runs only once the fast path has already said no — the
+   * ordinary case never pays for the allocation.
+   */
+  private static Object checked(
+      java.util.function.LongSupplier compute,
+      java.util.function.Supplier<java.math.BigInteger> wide) {
     try {
       return compute.getAsLong();
     } catch (ArithmeticException overflow) {
       throw new IllegalArgumentException(
-          "integer overflow: the result is outside the signed 64-bit range");
+          "integer overflow: " + wide.get() + " is outside the signed 64-bit range");
     }
   }
 
