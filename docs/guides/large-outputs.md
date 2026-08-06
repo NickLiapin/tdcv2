@@ -48,10 +48,10 @@ Two engines run under "disk", and TDC picks between them **from your config**:
   for it: a worker sees only its own range of rows, and could not tell a duplicate outside
   that range from a value it has never seen.
 
-Disk mode has a third destination, and it is the one worth knowing about: five config
+Disk mode has a third destination, and it is the one worth knowing about: six config
 shapes send the run back to the small in-memory engine, where memory grows with `count`.
 One of them is the commonest way of writing `uniq`. [Which engine runs your
-config](#which-engine-runs-your-config) lists all five.
+config](#which-engine-runs-your-config) lists all six.
 
 The choice is **deterministic — based on the config, not the hardware** — so the same
 config gives the same result on every machine (reproducibility across machines is a core
@@ -97,7 +97,7 @@ tdcv2: stream mode: uniq (a whole-column rearrangement) ("K") is not supported y
 You normally never see a message like that. The router picks the engine itself, and a
 refusal only surfaces when a config _names_ a streaming engine and so has asked to be told.
 
-A downgrade is not a bug. Each of the five shapes is a promise about a whole column, and an
+A downgrade is not a bug. Each of the six shapes is a promise about a whole column, and an
 engine that answered it from one row would emit data that looks right and is not. What it
 costs is memory: on the in-memory engine the whole column is held, so a run using one of
 these shapes is bounded by RAM rather than by disk. [`preflight()`](#preflight--a-memory-risk-estimate)
@@ -578,7 +578,7 @@ const diagnostic = tdc.preflight({ output: "streaming" });
 
 Both disk engines keep nothing extra in memory. Materialization happens in the **small
 in-RAM engine** — reached by the object API (`toArray`/`iterate`/`getAt`), by an explicit
-`mode="memory"`, and by any of the [five config shapes that route a disk run back to
+`mode="memory"`, and by any of the [six config shapes that route a disk run back to
 it](#which-engine-runs-your-config). There it holds, up front:
 
 - the built-ins `_count`, `_first`, `_last`, `_total`;
@@ -612,7 +612,7 @@ takes two sequence slots: `Person.FirstName` and `Person.LastName`.
 
 - For a file of any size, just use `writeFile()` or the CLI — it's disk by default, and
   memory doesn't grow with rows.
-- Before a very large run, check the config against [the five shapes that route it back
+- Before a very large run, check the config against [the six shapes that route it back
   into memory](#which-engine-runs-your-config). Simple `uniq="true"` is the one to watch.
 - To speed up a big run, add [`--jobs N`](../reference/cli.md#top) (on the fast engine).
 - `toString()` suits tests and small results, but collects all text into one

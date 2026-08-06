@@ -109,7 +109,7 @@ también funciona: solo recorre en bucle las líneas de la única petición que 
 
 Esto es lo que lo mantiene rápido: el costo es un viaje de ida y vuelta más el trabajo
 del propio servicio, no un viaje por valor. También por eso `http` corre en el motor en
-memoria ([una de las cinco formas que lo
+memoria ([una de las seis formas que lo
 hacen](../guides/large-outputs.mdx#qué-motor-corre-su-configuración)) y conviene reservarlo
 para un servicio en su propia máquina, o una corrida que usted dimensionó a propósito —
 no mil millones de filas contra un endpoint lejano.

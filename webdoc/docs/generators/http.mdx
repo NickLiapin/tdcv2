@@ -108,7 +108,7 @@ thousand rows is one request. A service written "one line in, one line out" stil
 
 This is what keeps it fast: the cost is one round trip plus your service's own work,
 not a network round trip per value. It's also why `http` runs on the in-memory engine
-([one of five shapes that
+([one of six shapes that
 do](../guides/large-outputs.mdx#which-engine-runs-your-config)), and why it's best
 pointed at a service on your own machine, or at a run you have sized on purpose — not a
 billion rows against a distant endpoint.

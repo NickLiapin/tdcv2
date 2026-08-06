@@ -85,7 +85,7 @@ cannot be settled a row at a time — the streaming engine would have to know wh
 That is why the second table below compares engine 1 with engine **3**: engine 2 is not a
 candidate for that config at all.
 
-[Large outputs](large-outputs.md#top) has the full account, including the five config shapes that
+[Large outputs](large-outputs.md#top) has the full account, including the six config shapes that
 send a run back to engine 1.
 
 ## An ordinary config

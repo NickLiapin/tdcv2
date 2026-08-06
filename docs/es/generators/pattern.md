@@ -257,8 +257,14 @@ cualquier magnitud medida donde redondear a enteros aplanaría la forma.
 `./run decimals.tdc (11 filas)`
 
 ```
--1.00   -0.60   -0.20   0.20   0.60   1.00   0.60   0.20   -0.20   -0.60   -1.00
+-1.00   -0.60   -0.20   0.20   0.60   0.90   0.60   0.20   -0.20   -0.60   -1.00
 ```
+
+La fila del medio cae justo en la cima y aun así lee `0.90` y no `1.00`: una fila cubre
+una **rebanada** del dibujo y reporta el promedio de esa rebanada, así que el único punto
+que toca el techo se promedia con todo lo que tiene al lado. Más abajo,
+[Estiramiento](#estiramiento--el-dibujo-casi-nunca-tiene-tantos-puntos-como-filas-hay)
+desarrolla esa regla completa.
 
 ## Estiramiento — el dibujo casi nunca tiene tantos puntos como filas hay
 
@@ -267,18 +273,23 @@ reparte sobre toda la corrida, así que los dos lados del desajuste se tratan di
 
 **Menos filas que detalle dibujado → promediado.** Una fila no muestrea un solo punto:
 cubre una **rebanada** del dibujo tan ancha como la porción que le toca, y reporta el
-promedio de esa rebanada. Un zigzag de 200 dientes entre 0 y 100 exprimido en 5 filas
+promedio de esa rebanada. Un zigzag de cinco dientes entre 0 y 100 exprimido en 5 filas
 da la media de los dientes, no el diente que casualmente quedó bajo un punto de
 muestreo:
 
-`./run saw.tdc (200 dientes en 5 filas)`
+```xml
+<gen type="pattern" points="0,0 10,100 20,0 30,100 40,0 50,100 60,0 70,100 80,0 90,100 100,0"
+     y_range="0..100"/>
+```
+
+`./run saw.tdc (5 dientes en 5 filas)`
 
 ```
-50.2   50.1   50.0   49.9   49.8
+50   50   46   50   50
 ```
 
-Amplíe la misma corrida a 400 filas y los dientes vuelven, porque ahora cada fila es lo
-bastante angosta como para verlos: `100  50  13  50  87  51  13  49  87 …`
+Amplíe la misma corrida a 40 filas y los dientes vuelven, porque ahora cada fila es lo
+bastante angosta como para verlos: `0  26  51  77  92  72  46  21  9  31  56  82 …`
 
 ![Un zigzag leído con 300 filas y con 6 filas](../../img/pattern/saw.svg)
 

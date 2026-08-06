@@ -248,8 +248,13 @@ quantity where rounding to integers would flatten the shape.
 `./run decimals.tdc (11 rows)`
 
 ```
--1.00   -0.60   -0.20   0.20   0.60   1.00   0.60   0.20   -0.20   -0.60   -1.00
+-1.00   -0.60   -0.20   0.20   0.60   0.90   0.60   0.20   -0.20   -0.60   -1.00
 ```
+
+The middle row sits on the apex and still reads `0.90` rather than `1.00`: a row covers a
+**slice** of the drawing and reports the average over it, so the one point that touches the
+top is averaged with everything beside it. [Stretching](#stretching--the-drawing-rarely-has-as-many-points-as-you-have-rows),
+below, is that rule in full.
 
 ## Stretching — the drawing rarely has as many points as you have rows
 
@@ -258,17 +263,22 @@ mapped onto the whole run, so the two sides of the mismatch are handled differen
 
 **Fewer rows than drawn detail → averaging.** A row doesn't sample a single spot; it
 covers a **slice** of the drawing as wide as one row's share, and reports the average
-over that slice. A 200-tooth zigzag between 0 and 100 squeezed into 5 rows gives the
+over that slice. A five-tooth zigzag between 0 and 100 squeezed into 5 rows gives the
 teeth's mean, not whichever tooth happened to sit under a sample point:
 
-`./run saw.tdc (200 teeth into 5 rows)`
+```xml
+<gen type="pattern" points="0,0 10,100 20,0 30,100 40,0 50,100 60,0 70,100 80,0 90,100 100,0"
+     y_range="0..100"/>
+```
+
+`./run saw.tdc (5 teeth into 5 rows)`
 
 ```
-50.2   50.1   50.0   49.9   49.8
+50   50   46   50   50
 ```
 
-Widen the same run to 400 rows and the teeth come back, because now each row is
-narrow enough to see them: `100  50  13  50  87  51  13  49  87 …`
+Widen the same run to 40 rows and the teeth come back, because now each row is
+narrow enough to see them: `0  26  51  77  92  72  46  21  9  31  56  82 …`
 
 ![A zigzag read at 300 rows and at 6 rows](../img/pattern/saw.svg)
 

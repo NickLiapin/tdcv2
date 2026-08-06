@@ -87,7 +87,7 @@ resolverse fila a fila: el motor de flujo tendría que saber qué viene después
 segunda tabla compara el motor 1 con el motor **3**: el 2 ni siquiera es candidato para esa
 configuración.
 
-[Salidas grandes](large-outputs.md#top) tiene el relato completo, incluidas las cinco formas de
+[Salidas grandes](large-outputs.md#top) tiene el relato completo, incluidas las seis formas de
 configuración que devuelven una ejecución al motor 1.
 
 ## Una configuración corriente
