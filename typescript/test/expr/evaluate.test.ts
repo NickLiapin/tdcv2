@@ -170,6 +170,56 @@ describe('evaluateIf — functions', () => {
     const reg = registry({});
     expect(() => evaluateIf('cos(1) > 0', reg, 0)).toThrow(/unknown function "cos"/);
   });
+
+  it('string predicates read the value as text, not as a number', () => {
+    const reg = registry({ N: ['McDonald'], Z: ['10'] });
+    expect(evaluateIf('starts_with(N, Mc)', reg, 0)).toBe(true);
+    expect(evaluateIf('ends_with(N, ald)', reg, 0)).toBe(true);
+    expect(evaluateIf('contains(N, Don)', reg, 0)).toBe(true);
+    expect(evaluateIf('len(N) == 8', reg, 0)).toBe(true);
+    // The one that proves the two families are separate: "10" is two characters.
+    expect(evaluateIf('len(Z) == 2', reg, 0)).toBe(true);
+  });
+
+  it('len counts code points, so an emoji is one character', () => {
+    const reg = registry({ E: ['😀ab'] });
+    expect(evaluateIf('len(E) == 3', reg, 0)).toBe(true);
+  });
+
+  it('upper, lower and is_empty', () => {
+    const reg = registry({ A: ['aB'], B: [''] });
+    expect(evaluateIf('upper(A) == AB', reg, 0)).toBe(true);
+    expect(evaluateIf('lower(A) == ab', reg, 0)).toBe(true);
+    expect(evaluateIf('is_empty(B)', reg, 0)).toBe(true);
+    expect(evaluateIf('is_empty(A)', reg, 0)).toBe(false);
+  });
+});
+
+describe('evaluateIf — in, and the ternary', () => {
+  it('in tests membership of a bare-word list', () => {
+    const reg = registry({ C: ['CA'] });
+    expect(evaluateIf('C in [US, CA, MX]', reg, 0)).toBe(true);
+    expect(evaluateIf('C in [US, MX]', reg, 0)).toBe(false);
+  });
+
+  it('in compares as loosely as == does', () => {
+    // The column is text; the list is numbers. `==` already bridges that, and
+    // `in` must not be stricter or the two would disagree on the same pair.
+    const reg = registry({ N: ['3'] });
+    expect(evaluateIf('N in [1, 2, 3]', reg, 0)).toBe(true);
+  });
+
+  it('in binds like a comparison, so && groups around it', () => {
+    const reg = registry({ C: ['CA'], N: ['5'] });
+    expect(evaluateIf('C in [US, CA] && N == 5', reg, 0)).toBe(true);
+    expect(evaluateIf('C in [US] && N == 5', reg, 0)).toBe(false);
+  });
+
+  it('the ternary picks a value, and the result is compared as usual', () => {
+    const reg = registry({ N: ['1'] });
+    expect(evaluateIf('(N > 40 ? N : 100) > 40', reg, 0)).toBe(true);
+    expect(evaluateIf('(N > 40 ? N : 0) > 40', reg, 0)).toBe(false);
+  });
 });
 
 describe('evaluateIf — errors', () => {

@@ -6,6 +6,10 @@
 
 import jsep from 'jsep';
 
+// Registers `in` on jsep's shared operator table. Without this the validator
+// reads `Country in [US, CA]` as a syntax error while a run accepts it.
+import '../expr/operators.js';
+
 import { type Diagnostic, attrValueRange, closestMatch, type Range } from '../errors/index.js';
 import type { AttrContext } from '../generated/TDCParser.js';
 
@@ -142,12 +146,17 @@ export function checkIfExpression(
     return;
   }
 
+  // The arrays that sit where an array belongs — the right side of `in`. Every
+  // other one is flagged, so `if="[1,2]"` cannot reach the evaluator.
+  const inMembership = new Set<jsep.Expression>();
+
   // Walk AST and collect unsupported operators.
   const walk = (node: jsep.Expression): void => {
     switch (node.type) {
       case 'BinaryExpression':
       case 'LogicalExpression': {
         const bin = node as jsep.BinaryExpression;
+        if (bin.operator === 'in') inMembership.add(bin.right);
         if (!SUPPORTED_BINARY_OPERATORS.includes(bin.operator)) {
           const suggestion = closestMatch(bin.operator, SUPPORTED_BINARY_OPERATORS);
           sink.diagnostics.push({
@@ -189,6 +198,30 @@ export function checkIfExpression(
       case 'Literal':
       case 'Identifier':
         return;
+      case 'ArrayExpression': {
+        // A list is only meaningful as the right side of `in`. Anywhere else it
+        // is not an error the evaluator can survive, so it is one here.
+        const array = node as jsep.ArrayExpression;
+        if (!inMembership.has(node)) {
+          sink.diagnostics.push({
+            severity: 'error',
+            source: 'validator',
+            ...valRange,
+            message: 'a [list] is only allowed on the right of "in"',
+            hint: 'Write Country in [US, CA, MX]. A list has no meaning on its own.',
+            code: 'TDC259',
+          });
+        }
+        for (const element of array.elements) if (element) walk(element);
+        return;
+      }
+      case 'ConditionalExpression': {
+        const cond = node as jsep.ConditionalExpression;
+        walk(cond.test);
+        walk(cond.consequent);
+        walk(cond.alternate);
+        return;
+      }
       case 'MemberExpression': {
         // Dotted access: a compound field `Person.Field`, or the value-check
         // sugar `Gender.Male` (≡ Gender == Male). Only plain identifier chains

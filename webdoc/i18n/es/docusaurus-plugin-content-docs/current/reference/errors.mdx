@@ -174,6 +174,7 @@ Ver [Registros coherentes](../pools/overview.mdx).
 | `TDC256` | Una máscara sin patrón — `<mask>` sin `pattern=`, o `${{X\|mask}}` sin argumento | Déle un patrón. Sin él la máscara no conserva nada y devuelve la cadena vacía, así que la columna sale en blanco |
 | `TDC257` | Una expresión `if=` llama a una función que no existe | O es una errata, y entonces se ofrece el nombre cercano, o es una de `sin`, `cos`, `exp`, `log` y afines, y entonces se da la razón: cada lenguaje anfitrión las calcula un poco distinto, y una comparación convierte el último bit en otra fila. Hoy están: `abs`, `ceil`, `floor`, `max`, `min`, `round`, `trunc` |
 | `TDC258` | Una función de una expresión `if=` recibe un número de argumentos equivocado | `abs`, `ceil`, `floor`, `round` y `trunc` toman exactamente uno; `min` y `max` toman los que les dé |
+| `TDC259` | Una `[lista]` está en un sitio que no es la derecha de `in` | Una lista es un conjunto de valores contra el que comparar, así que solo significa algo como `Country in [US, CA, MX]`. Por sí sola no le da ningún valor a la condición |
 | `TDC244` | `type="pattern"` sin `points`, `src` ni `upper`                             | Un dibujo necesita una forma de la que leer: `points="0,0 1,5 2,3"`, un archivo en `src`, o `upper`/`lower` para una banda                                                                                                                                  |
 
 ## Totales acumulados

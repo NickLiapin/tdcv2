@@ -599,8 +599,20 @@ describe('validator — if-expression checks', () => {
   });
 
   it('errors on unsupported expression constructs', () => {
-    const r = run(wrap('if="x ? 1 : 2"'));
+    // Two expressions with nothing joining them — jsep calls it a Compound, and
+    // there is no one value for the condition to be.
+    const r = run(wrap('if="Gender Male"'));
     expect(r.diagnostics.find((d) => d.code === 'TDC103')).toBeDefined();
+  });
+
+  it('accepts the ternary and a list on the right of in', () => {
+    const r = run(wrap('if="(x > 1 ? x : 0) in [1, 2, 3]"'));
+    expect(r.diagnostics.filter((d) => d.severity === 'error')).toEqual([]);
+  });
+
+  it('refuses a list standing on its own', () => {
+    const r = run(wrap('if="[1, 2]"'));
+    expect(r.diagnostics.find((d) => d.code === 'TDC259')).toBeDefined();
   });
 
   it('names an unknown function, and suggests the near one', () => {

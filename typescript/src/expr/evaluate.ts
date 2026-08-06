@@ -23,6 +23,9 @@
 import jsep from 'jsep';
 
 import { sequenceValueAt } from '../sequence/types.js';
+// Registers `in`. jsep's operator table is module state, so both the evaluator
+// and the validator must import this before they parse anything.
+import './operators.js';
 import type { SequenceRegistry } from '../sequence/types.js';
 
 type JsepNode = jsep.Expression;
@@ -141,7 +144,20 @@ function walk(node: JsepNode, scope: ExprScope): unknown {
       const name = (call.callee as jsep.Identifier).name;
       const fn = FUNCTIONS[name];
       if (!fn) throw new Error(`unknown function "${name}"`);
-      return fn(call.arguments.map((a) => asNumber(walk(a, scope))));
+      return fn(call.arguments.map((a) => walk(a, scope)));
+    }
+    case 'ArrayExpression': {
+      // Only ever the right side of `in`, where it is a set of values to test
+      // against. Bare words inside stay bare — `[US, CA, MX]` reads the way the
+      // rest of the language reads an unquoted word.
+      const array = node as jsep.ArrayExpression;
+      return array.elements.map((e) => (e ? walk(e, scope) : undefined));
+    }
+    case 'ConditionalExpression': {
+      const cond = node as jsep.ConditionalExpression;
+      return toBoolean(walk(cond.test, scope))
+        ? walk(cond.consequent, scope)
+        : walk(cond.alternate, scope);
     }
     default:
       throw new Error(`unsupported expression node: ${node.type}`);
@@ -193,17 +209,32 @@ function memberExpressionToName(node: jsep.MemberExpression): string {
  * people mean when they say "round", and is symmetric, so a column of positives
  * and a column of negatives behave the same way.
  */
-const FUNCTIONS: Readonly<Record<string, (args: readonly number[]) => number>> = {
-  abs: (a) => Math.abs(first(a)),
-  ceil: (a) => Math.ceil(first(a)),
-  floor: (a) => Math.floor(first(a)),
-  max: (a) => a.reduce((x, y) => (y > x ? y : x)),
-  min: (a) => a.reduce((x, y) => (y < x ? y : x)),
+const FUNCTIONS: Readonly<Record<string, (args: readonly unknown[]) => unknown>> = {
+  // Numbers. Each coerces its own arguments rather than the registry doing it
+  // for everyone, because the string functions below must NOT be coerced:
+  // `len("10")` is 2, and a registry that pre-numbered every argument could not
+  // tell the two families apart.
+  abs: (a) => Math.abs(num(a, 0)),
+  ceil: (a) => Math.ceil(num(a, 0)),
+  floor: (a) => Math.floor(num(a, 0)),
+  max: (a) => a.map((v) => asNumber(v)).reduce((x, y) => (y > x ? y : x)),
+  min: (a) => a.map((v) => asNumber(v)).reduce((x, y) => (y < x ? y : x)),
   round: (a) => {
-    const x = first(a);
+    const x = num(a, 0);
     return x < 0 ? -Math.floor(-x + 0.5) : Math.floor(x + 0.5);
   },
-  trunc: (a) => Math.trunc(first(a)),
+  trunc: (a) => Math.trunc(num(a, 0)),
+
+  // Strings. The predicates people actually reach for — a prefix, a substring,
+  // a length — and none of them touches floating point, so all five agree for
+  // free.
+  contains: (a) => text(a, 0).includes(text(a, 1)),
+  ends_with: (a) => text(a, 0).endsWith(text(a, 1)),
+  is_empty: (a) => text(a, 0).length === 0,
+  len: (a) => codePointLength(text(a, 0)),
+  lower: (a) => text(a, 0).toLowerCase(),
+  starts_with: (a) => text(a, 0).startsWith(text(a, 1)),
+  upper: (a) => text(a, 0).toUpperCase(),
 };
 
 /**
@@ -214,10 +245,58 @@ const FUNCTIONS: Readonly<Record<string, (args: readonly number[]) => number>> =
  */
 export const IMPLEMENTED_FUNCTION_NAMES: readonly string[] = Object.keys(FUNCTIONS).sort();
 
-function first(args: readonly number[]): number {
-  const [a] = args;
-  if (a === undefined) throw new Error('a function needs at least one argument');
-  return a;
+function at(args: readonly unknown[], index: number): unknown {
+  if (index >= args.length) throw new Error('a function was given too few arguments');
+  return args[index];
+}
+
+function num(args: readonly unknown[], index: number): number {
+  return asNumber(at(args, index));
+}
+
+/** An argument as text. A list never reaches here — only `in` produces one. */
+function text(args: readonly unknown[], index: number): string {
+  const value = at(args, index);
+  if (value === null || value === undefined) return '';
+  if (typeof value === 'string') return value;
+  if (typeof value === 'number' || typeof value === 'boolean') return String(value);
+  throw new Error('a string function was given a list');
+}
+
+/**
+ * `len` counts CODE POINTS.
+ *
+ * Three answers were available and only one is portable. UTF-16 units are what
+ * JavaScript's `.length` gives — 2 for a single emoji — and neither Python nor
+ * Rust would agree. Grapheme clusters are what a human means by "a character"
+ * and would make a family emoji 1, but they need a Unicode segmentation table:
+ * `Intl.Segmenter` here, ICU there, and a crate in Rust, which ships with none.
+ *
+ * Code points sit between, and they are what `len()` in Python and
+ * `.chars().count()` in Rust already do, with `codePointCount` reaching them in
+ * Java and C#. So `len("😀")` is 1 and `len("👨‍👩‍👧")` is 5 — the second is
+ * surprising, and it is the same surprise in all five implementations rather
+ * than a different one in each.
+ */
+function codePointLength(value: string): number {
+  // eslint-disable-next-line @typescript-eslint/no-misused-spread -- deliberate: see above
+  return [...value].length;
+}
+
+/**
+ * `Country in [US, CA, MX]` — is the left value one of the right ones?
+ *
+ * The alternative is `Country == US || Country == CA || Country == MX`, which
+ * says the column name three times and grows a term per country. Comparison
+ * uses the same loose rule `==` does, so a numeric column and a list of numeric
+ * words still match.
+ *
+ * A right side that is not a list is a mistake the validator catches; here it
+ * is one more equality, so the expression still means something definite.
+ */
+function membership(left: unknown, right: unknown): boolean {
+  if (!Array.isArray(right)) return coerce(left, right, (a, b) => a == b);
+  return right.some((candidate) => coerce(left, candidate, (a, b) => a == b));
 }
 
 /**
@@ -273,6 +352,8 @@ function applyBinary(op: string, left: unknown, right: unknown): unknown {
       return asNumber(left) / asNumber(right);
     case '%':
       return euclideanRemainder(asNumber(left), asNumber(right));
+    case 'in':
+      return membership(left, right);
     default:
       throw new Error(`unsupported binary operator: ${op}`);
   }

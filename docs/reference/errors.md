@@ -301,6 +301,7 @@ but the combination it asks for can't be carried out.
 | `TDC256` | A mask with no pattern — `<mask>` without `pattern=`, or `${{X\|mask}}` with no argument | Give it a pattern. Without one the mask keeps nothing and returns the empty string, so the column comes out blank |
 | `TDC257` | An `if=` expression calls a function that is not there | Either a typo, answered with the near name, or one of `sin`, `cos`, `exp`, `log` and their kin, answered with the reason: every host language computes those slightly differently, and a comparison turns the last bit into a different row. Available today: `abs`, `ceil`, `floor`, `max`, `min`, `round`, `trunc` |
 | `TDC258` | A function in an `if=` expression is given the wrong number of arguments | `abs`, `ceil`, `floor`, `round` and `trunc` take exactly one; `min` and `max` take as many as you give them |
+| `TDC259` | A `[list]` sits somewhere other than the right of `in` | A list is a set of values to test against, so it only means something as `Country in [US, CA, MX]`. On its own it has no value for the condition to be |
 
 ## See also
 

@@ -154,6 +154,9 @@ export const SUPPORTED_BINARY_OPERATORS: readonly string[] = [
   // −1 in JavaScript, Java, C# and Rust; the engine answers one way in both of
   // its layers rather than borrowing whatever the host language does.
   '%',
+  // Set membership: `Country in [US, CA, MX]`. Spelling that out as three
+  // comparisons says the column name three times and grows a term per value.
+  'in',
 ] as const;
 
 export const SUPPORTED_UNARY_OPERATORS: readonly string[] = ['!', '-', '+'] as const;
@@ -176,11 +179,18 @@ export const SUPPORTED_UNARY_OPERATORS: readonly string[] = ['!', '-', '+'] as c
 export const EXPR_FUNCTIONS: Readonly<Record<string, { min: number; max: number | undefined }>> = {
   abs: { min: 1, max: 1 },
   ceil: { min: 1, max: 1 },
+  contains: { min: 2, max: 2 },
+  ends_with: { min: 2, max: 2 },
   floor: { min: 1, max: 1 },
+  is_empty: { min: 1, max: 1 },
+  len: { min: 1, max: 1 },
+  lower: { min: 1, max: 1 },
   max: { min: 1, max: undefined },
   min: { min: 1, max: undefined },
   round: { min: 1, max: 1 },
+  starts_with: { min: 2, max: 2 },
   trunc: { min: 1, max: 1 },
+  upper: { min: 1, max: 1 },
 };
 
 export const EXPR_FUNCTION_NAMES: readonly string[] = Object.keys(EXPR_FUNCTIONS).sort();
