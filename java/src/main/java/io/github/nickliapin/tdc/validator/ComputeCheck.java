@@ -227,6 +227,15 @@ final class ComputeCheck {
         walkWrapper(node, "in", scope);
         walkWrapper(node, "index", scope);
       }
+      case "mask" -> {
+        // The filter form of the same fault is TDC256 in Validator. A mask with no pattern has
+        // nothing to keep, and the engine answered that literally: it returned the empty string.
+        if (node.attrs().getOrDefault("pattern", "").trim().isEmpty()) {
+          report(node, "TDC256",
+              "<mask> needs a pattern= — without one it returns the empty string", null);
+        }
+        walkSlot(node.children(), scope);
+      }
       case "encode" -> {
         String as = node.attrs().getOrDefault("as", "");
         if (!ENCODINGS.contains(as)) {

@@ -325,6 +325,22 @@ impl<'a> ComputeCheck<'a> {
                 self.walk_wrapper(node, "index", scope);
             }
 
+            "mask" => {
+                // The filter form of the same fault is TDC256 in mod.rs. A mask
+                // with no pattern has nothing to keep, and the engine answered
+                // that literally: it returned the empty string.
+                if node.attr_value("pattern").unwrap_or("").trim().is_empty() {
+                    self.report(
+                        node,
+                        "TDC256",
+                        "<mask> needs a pattern= — without one it returns the empty string"
+                            .to_string(),
+                        "",
+                    );
+                }
+                self.walk_slot(&node.children, scope);
+            }
+
             "encode" => {
                 let as_what = node.attr_value("as").unwrap_or("").to_string();
                 if !ENCODINGS.contains(&as_what.as_str()) {

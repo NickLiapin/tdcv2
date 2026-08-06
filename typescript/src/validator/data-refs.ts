@@ -1,3 +1,4 @@
+import { applyMask } from '../format/transforms.js';
 import { type Diagnostic, closestMatch, nodeRange } from '../errors/index.js';
 import type { DataElementContext } from '../generated/TDCParser.js';
 
@@ -121,6 +122,45 @@ export function checkInterpolationFilters(
     for (const piece of content.split('|').slice(1)) {
       const colon = piece.indexOf(':');
       const kind = (colon < 0 ? piece : piece.slice(0, colon)).trim();
+      const arg = colon < 0 ? undefined : piece.slice(colon + 1);
+
+      // A mask with no pattern has nothing to keep, and the engine answered that
+      // literally: it returned the empty string and the column came out blank.
+      // Every other bare filter is a whole transform on its own — `upper`,
+      // `trim`, `csv` — so this one reads like them and is not.
+      if (kind === 'mask' && (arg === undefined || arg.trim() === '')) {
+        diagnostics.push({
+          severity: 'error',
+          source: 'validator',
+          ...nodeRange(node),
+          message: 'the "mask" filter needs a pattern — ${{X|mask}} empties the column',
+          hint:
+            'Write the pattern after a colon: ${{X|mask:xxx-xx}}. `x` keeps a character, `w` ' +
+            'keeps a whole word, `*` hides one — see the masks guide.',
+          code: 'TDC256',
+        });
+        continue;
+      }
+
+      // The same parse the `mask=` attribute gets. Written as a filter it was
+      // reaching the renderer unchecked, which is how a bad index aborted a run
+      // with no position to point at.
+      if (kind === 'mask' && arg !== undefined) {
+        try {
+          applyMask(arg, '');
+        } catch (err) {
+          diagnostics.push({
+            severity: 'error',
+            source: 'validator',
+            ...nodeRange(node),
+            message: err instanceof Error ? err.message : String(err),
+            hint: 'Indices are 0-based; ranges use "..", e.g. mask:x[0..3] or mask:w[-1], w[0].',
+            code: 'TDC199',
+          });
+        }
+        continue;
+      }
+
       if (kind && !isFilterName(kind)) {
         diagnostics.push({
           severity: 'error',

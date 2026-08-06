@@ -321,6 +321,22 @@ internal sealed class ComputeCheck
                 WalkWrapper(node, "index", scope);
                 return;
 
+            case "mask":
+            {
+                // The filter form of the same fault is TDC256 in Validator. A mask with no
+                // pattern has nothing to keep, and the engine answered that literally: it
+                // returned the empty string.
+                if (node.Attrs.GetValueOrDefault("pattern", "").Trim().Length == 0)
+                {
+                    Report(
+                        node, "TDC256",
+                        "<mask> needs a pattern= — without one it returns the empty string", null);
+                }
+
+                WalkSlot(node.Children, scope);
+                return;
+            }
+
             case "encode":
             {
                 string @as = node.Attrs.GetValueOrDefault("as", "");

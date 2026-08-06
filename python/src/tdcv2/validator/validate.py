@@ -29,6 +29,7 @@ from ..errors import Diagnostic
 from ..expr import parse as expr_parse
 from ..expr.parse import Binary, Computed, Member, Name, Unary
 from ..format import mask as mask_lib
+from ..format import mask as mask_mod
 from ..format import transforms
 from ..generators import accumulate as accumulate_gen
 from ..generators import file as file_gen
@@ -3403,6 +3404,36 @@ class _Validator:
             for filter_text in parts[1:]:
                 colon = filter_text.find(":")
                 kind = (filter_text if colon < 0 else filter_text[:colon]).strip()
+                arg = None if colon < 0 else filter_text[colon + 1 :]
+                # A mask with no pattern has nothing to keep, and the engine answered that
+                # literally: it returned the empty string and the column came out blank. Every
+                # other bare filter is a whole transform on its own — `upper`, `trim`, `csv` —
+                # so this one reads like them and is not.
+                if kind == "mask" and (arg is None or not arg.strip()):
+                    self._error(
+                        "TDC256",
+                        'the "mask" filter needs a pattern — ${{X|mask}} empties the column',
+                        "Write the pattern after a colon: ${{X|mask:xxx-xx}}. `x` keeps a "
+                        "character, `w` keeps a whole word, `*` hides one — see the masks guide.",
+                        line,
+                        column,
+                    )
+                    continue
+                # The same parse the `mask=` attribute gets. Written as a filter it was reaching
+                # the renderer unchecked, which is how a bad index aborted a run with no position.
+                if kind == "mask" and arg is not None:
+                    try:
+                        mask_mod.apply_mask(arg, "")
+                    except ValueError as err:
+                        self._error(
+                            "TDC199",
+                            str(err),
+                            'Indices are 0-based; ranges use "..", e.g. mask:x[0..3] or '
+                            "mask:w[-1], w[0].",
+                            line,
+                            column,
+                        )
+                    continue
                 if kind and not checks.is_known_filter(kind):
                     self._error(
                         "TDC192",

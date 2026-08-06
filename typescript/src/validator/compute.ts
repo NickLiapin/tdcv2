@@ -322,6 +322,22 @@ function walkExpr(el: ElementContext, scope: VScope, diags: Diagnostic[]): void 
     case 'choose':
       walkChoose(n, scope, diags);
       return;
+    case 'mask': {
+      // The filter form of the same fault is TDC256 in data-refs.ts. A mask with
+      // no pattern has nothing to keep, and the engine answered that literally:
+      // it returned the empty string, so the column came out blank.
+      const pattern = (n.attrs['pattern'] ?? '').trim();
+      if (pattern === '') {
+        report(
+          diags,
+          n.node,
+          'TDC256',
+          '<mask> needs a pattern= — without one it returns the empty string',
+        );
+      }
+      walkSlot(n.children, scope, diags);
+      return;
+    }
     case 'join':
     case 'length':
     case 'to_number':
@@ -330,7 +346,6 @@ function walkExpr(el: ElementContext, scope: VScope, diags: Diagnostic[]): void 
     case 'lower':
     case 'capitalize':
     case 'title':
-    case 'mask':
     case 'slice':
     case 'replace':
     case 'trim':

@@ -3536,6 +3536,30 @@ public final class Validator {
         String filter = parts[i];
         int colon = filter.indexOf(':');
         String kind = (colon < 0 ? filter : filter.substring(0, colon)).trim();
+        String arg = colon < 0 ? null : filter.substring(colon + 1);
+
+        // A mask with no pattern has nothing to keep, and the engine answered that literally:
+        // it returned the empty string and the column came out blank. Every other bare filter
+        // is a whole transform on its own, so this one reads like them and is not.
+        if ("mask".equals(kind) && (arg == null || arg.isBlank())) {
+          error("TDC256", "the \"mask\" filter needs a pattern — ${{X|mask}} empties the column",
+              "Write the pattern after a colon: ${{X|mask:xxx-xx}}. `x` keeps a character, `w` "
+                  + "keeps a whole word, `*` hides one — see the masks guide.",
+              line, column);
+          continue;
+        }
+        // The same parse the mask= attribute gets. Written as a filter it reached the renderer
+        // unchecked.
+        if ("mask".equals(kind)) {
+          try {
+            io.github.nickliapin.tdc.format.Mask.check(arg);
+          } catch (RuntimeException e) {
+            error("TDC199", e.getMessage(),
+                "Indices are 0-based; ranges use \"..\", e.g. mask:x[0..3] or mask:w[-1], w[0].",
+                line, column);
+          }
+          continue;
+        }
         if (!kind.isEmpty() && !Checks.isKnownFilter(kind)) {
           error("TDC192", "unknown interpolation filter \"" + kind + "\"",
               "Supported: " + String.join(", ", io.github.nickliapin.tdc.format.Transforms.FILTER_NAMES) + ".",

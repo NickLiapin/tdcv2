@@ -218,6 +218,18 @@ class ComputeCheck:
             if as_what not in _ENCODINGS:
                 self._report(node, "TDC186", f'<encode>: unknown encoding "{as_what}"', None)
             self._slot(node.children, scope)
+        elif name == "mask":
+            # The filter form of the same fault is TDC256 in validate.py. A mask with no pattern
+            # has nothing to keep, and the engine answered that literally: it returned the empty
+            # string, so the column came out blank.
+            if not (node.attrs.get("pattern") or "").strip():
+                self._report(
+                    node,
+                    "TDC256",
+                    "<mask> needs a pattern= — without one it returns the empty string",
+                    None,
+                )
+            self._slot(node.children, scope)
         elif name == "choose":
             self._choose(node, scope)
         elif name == "over":

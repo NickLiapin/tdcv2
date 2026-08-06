@@ -3588,12 +3588,46 @@ impl Validator {
                 );
             }
             for filter in parts {
-                let kind = match filter.find(':') {
-                    Some(colon) => &filter[..colon],
+                let colon = filter.find(':');
+                let kind = match colon {
+                    Some(c) => &filter[..c],
                     None => filter,
                 }
                 .trim()
                 .to_string();
+                let arg = colon.map(|c| filter[c + 1..].to_string());
+
+                // A mask with no pattern has nothing to keep, and the engine
+                // answered that literally: it returned the empty string and the
+                // column came out blank. Every other bare filter is a whole
+                // transform on its own, so this one reads like them and is not.
+                if kind == "mask" && arg.as_ref().map(|a| a.trim().is_empty()) != Some(false) {
+                    self.error(
+                        "TDC256",
+                        "the \"mask\" filter needs a pattern — ${{X|mask}} empties the column"
+                            .to_string(),
+                        "Write the pattern after a colon: ${{X|mask:xxx-xx}}. `x` keeps a \
+                         character, `w` keeps a whole word, `*` hides one — see the masks guide.",
+                        at,
+                    );
+                    continue;
+                }
+                // The same parse the `mask=` attribute gets. Written as a filter
+                // it reached the renderer unchecked.
+                if kind == "mask" {
+                    if let Some(pattern) = arg.as_ref() {
+                        if let Err(err) = mask::check(pattern) {
+                            self.error(
+                                "TDC199",
+                                err.message().to_string(),
+                                "Indices are 0-based; ranges use \"..\", e.g. mask:x[0..3] or \
+                                 mask:w[-1], w[0].",
+                                at,
+                            );
+                        }
+                    }
+                    continue;
+                }
                 if !kind.is_empty() && !transforms::is_filter_name(&kind) {
                     self.error(
                         "TDC192",

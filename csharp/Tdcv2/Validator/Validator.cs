@@ -4424,6 +4424,43 @@ public sealed class Validator
                 string filter = parts[i];
                 int colon = filter.IndexOf(':');
                 string kind = (colon < 0 ? filter : filter[..colon]).Trim();
+                string? arg = colon < 0 ? null : filter[(colon + 1)..];
+
+                // A mask with no pattern has nothing to keep, and the engine answered that
+                // literally: it returned the empty string and the column came out blank. Every
+                // other bare filter is a whole transform on its own, so this one reads like them
+                // and is not.
+                if (kind == "mask" && string.IsNullOrWhiteSpace(arg))
+                {
+                    Error(
+                        "TDC256",
+                        "the \"mask\" filter needs a pattern — ${{X|mask}} empties the column",
+                        "Write the pattern after a colon: ${{X|mask:xxx-xx}}. `x` keeps a "
+                        + "character, `w` keeps a whole word, `*` hides one — see the masks guide.",
+                        line, column);
+                    continue;
+                }
+
+                // The same parse the mask= attribute gets. Written as a filter it reached the
+                // renderer unchecked.
+                if (kind == "mask")
+                {
+                    try
+                    {
+                        Format.Mask.Check(arg!);
+                    }
+                    catch (Exception e)
+                    {
+                        Error(
+                            "TDC199", e.Message,
+                            "Indices are 0-based; ranges use \"..\", e.g. mask:x[0..3] or "
+                            + "mask:w[-1], w[0].",
+                            line, column);
+                    }
+
+                    continue;
+                }
+
                 if (kind.Length > 0 && !Checks.IsKnownFilter(kind))
                 {
                     Error(

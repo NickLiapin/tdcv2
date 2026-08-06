@@ -84,6 +84,41 @@
       "description": "A predicate that is not one, inside <test>",
       "config": "<tdc><env count=\"2\" seed=\"s\"><sequence name=\"A\"><gen type=\"number\" value=\"1..9\"/></sequence><sequence name=\"C\"><compute><result><choose><when><test><roughly><field name=\"A\"/><int v=\"1\"/></roughly></test><then><str v=\"x\"/></then></when><otherwise><str v=\"y\"/></otherwise></choose></result></compute></sequence></env><block><line><data>${{C}}</data></line></block></tdc>",
       "expected": ["error TDC180 1:148"]
+    },
+    {
+      "name": "mask-with-no-pattern",
+      "demonstrates": "TDC256",
+      "description": "<mask> with no pattern= returned the empty string, so the column came out blank",
+      "config": "<tdc><env count=\"2\" seed=\"s\" local=\"en\"><sequence name=\"A\"><gen type=\"text\" value=\"hello\"/></sequence><sequence name=\"M\"><compute><result><mask><field name=\"A\"/></mask></result></compute></sequence></env><block><line><data>${{M}}</data></line></block></tdc>",
+      "expected": ["error TDC256 1:138"]
+    },
+    {
+      "name": "mask-with-a-pattern",
+      "demonstrates": "",
+      "description": "The same tag with a pattern is untouched",
+      "config": "<tdc><env count=\"2\" seed=\"s\" local=\"en\"><sequence name=\"A\"><gen type=\"text\" value=\"hello\"/></sequence><sequence name=\"M\"><compute><result><mask pattern=\"xx\"><field name=\"A\"/></mask></result></compute></sequence></env><block><line><data>${{M}}</data></line></block></tdc>",
+      "expected": []
+    },
+    {
+      "name": "mask-filter-with-no-argument",
+      "demonstrates": "TDC256",
+      "description": "The same fault in its filter spelling — every other bare filter is a whole transform, so this one reads like them and is not",
+      "config": "<tdc><env count=\"2\" seed=\"s\" local=\"en\"><sequence name=\"A\"><gen type=\"text\" value=\"hello\"/></sequence></env><block><line><data>${{A|mask}}</data></line></block></tdc>",
+      "expected": ["error TDC256 1:121"]
+    },
+    {
+      "name": "mask-filter-with-an-argument",
+      "demonstrates": "",
+      "description": "A filter with a pattern is untouched",
+      "config": "<tdc><env count=\"2\" seed=\"s\" local=\"en\"><sequence name=\"A\"><gen type=\"text\" value=\"hello\"/></sequence></env><block><line><data>${{A|mask:xx}}</data></line></block></tdc>",
+      "expected": []
+    },
+    {
+      "name": "mask-filter-with-a-bad-index",
+      "demonstrates": "TDC199",
+      "description": "Written as a filter the pattern reached the renderer unchecked; only the mask= attribute was parsed",
+      "config": "<tdc><env count=\"2\" seed=\"s\" local=\"en\"><sequence name=\"A\"><gen type=\"text\" value=\"hello\"/></sequence></env><block><line><data>${{A|mask:x[1-2]}}</data></line></block></tdc>",
+      "expected": ["error TDC199 1:121"]
     }
   ]
 }
