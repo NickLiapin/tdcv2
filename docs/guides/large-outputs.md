@@ -313,8 +313,16 @@ halfway through the file:
 `./run oversized-uniq.tdc`
 
 ```
-tdcv2: uniq "K" is infeasible — its data supports at most 100 distinct rows, but 5000000000 were requested. Widen a column's values or lower count.
+tdcv2: uniq: group "K1 × K2" cannot produce 10000000 unique combinations — the values drawn for these sequences allow at most 100 distinct rows. Add more values to a member (more distinct names, wider ranges…) or lower the count.
 ```
+
+> [!CAUTION]
+> **The check has a ceiling of its own**
+>
+> Past roughly a hundred million rows the capacity check stops arriving first: the run
+> reaches for memory before the arithmetic is done, and what comes back is a crash rather
+> than the message above. Keep `count=` inside a range you would actually generate, and the
+> check does its job.
 
 ### `<mix>` in the stream
 

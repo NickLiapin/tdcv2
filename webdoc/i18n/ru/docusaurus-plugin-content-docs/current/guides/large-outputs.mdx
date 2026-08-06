@@ -306,8 +306,15 @@ z,m`}
 середине файла:
 
 <Terminal title="./run oversized-uniq.tdc">
-{`tdcv2: uniq "K" is infeasible — its data supports at most 100 distinct rows, but 5000000000 were requested. Widen a column's values or lower count.`}
+{`tdcv2: uniq: group "K1 × K2" cannot produce 10000000 unique combinations — the values drawn for these sequences allow at most 100 distinct rows. Add more values to a member (more distinct names, wider ranges…) or lower the count.`}
 </Terminal>
+
+:::caution[У самой проверки есть потолок]
+Примерно за сотней миллионов строк проверка ёмкости перестаёт успевать первой: прогон
+тянется за памятью раньше, чем досчитана арифметика, и вместо сообщения выше приходит
+падение. Держите `count=` в пределах, которые вы действительно стали бы генерировать, —
+тогда проверка делает свою работу.
+:::
 
 ### `<mix>` в стриминге
 

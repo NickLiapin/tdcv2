@@ -324,8 +324,16 @@ horas después, a media escritura del archivo:
 `./run oversized-uniq.tdc`
 
 ```
-tdcv2: uniq "K" is infeasible — its data supports at most 100 distinct rows, but 5000000000 were requested. Widen a column's values or lower count.
+tdcv2: uniq: group "K1 × K2" cannot produce 10000000 unique combinations — the values drawn for these sequences allow at most 100 distinct rows. Add more values to a member (more distinct names, wider ranges…) or lower the count.
 ```
+
+> [!CAUTION]
+> **El propio chequeo tiene un techo**
+>
+> Pasados unos cien millones de filas el chequeo de capacidad deja de llegar primero: el run
+> pide memoria antes de terminar la aritmética, y lo que vuelve es un fallo en vez del
+> mensaje de arriba. Mantenga `count=` dentro de un rango que realmente generaría y el
+> chequeo cumple su función.
 
 ### `<mix>` en el stream
 
