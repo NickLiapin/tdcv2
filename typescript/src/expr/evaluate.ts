@@ -130,6 +130,19 @@ function walk(node: JsepNode, scope: ExprScope): unknown {
       const arg = walk(un.argument, scope);
       return applyUnary(un.operator, arg);
     }
+    case 'CallExpression': {
+      const call = node as jsep.CallExpression;
+      // Only a bare name may be called: `abs(x)`, never `obj.method(x)` or the
+      // result of an expression. The validator says the same thing earlier and
+      // with a position; this keeps the evaluator honest on its own.
+      if (call.callee.type !== 'Identifier') {
+        throw new Error('only a plain function name can be called');
+      }
+      const name = (call.callee as jsep.Identifier).name;
+      const fn = FUNCTIONS[name];
+      if (!fn) throw new Error(`unknown function "${name}"`);
+      return fn(call.arguments.map((a) => asNumber(walk(a, scope))));
+    }
     default:
       throw new Error(`unsupported expression node: ${node.type}`);
   }
@@ -162,6 +175,49 @@ function memberExpressionToName(node: jsep.MemberExpression): string {
   }
   parts.unshift((cur as jsep.Identifier).name);
   return parts.join('.');
+}
+
+/**
+ * The functions `if=` may call.
+ *
+ * Every one of these is EXACT: it is built from comparisons and from the
+ * arithmetic IEEE-754 pins down, so the five implementations cannot disagree
+ * about a result. That is the whole admission criterion, and it is why `sin`,
+ * `cos`, `exp` and friends are not here yet — see EXPR_FUNCTIONS in
+ * validator/known.ts.
+ *
+ * `round` needs saying out loud, because the host languages do not agree on it:
+ * JavaScript rounds a half toward +∞ (`Math.round(-0.5)` is −0), Python rounds
+ * a half to even (`round(0.5)` is 0), Java rounds a half up. TDC rounds a half
+ * AWAY FROM ZERO — `round(0.5)` is 1, `round(-0.5)` is −1 — which is the rule
+ * people mean when they say "round", and is symmetric, so a column of positives
+ * and a column of negatives behave the same way.
+ */
+const FUNCTIONS: Readonly<Record<string, (args: readonly number[]) => number>> = {
+  abs: (a) => Math.abs(first(a)),
+  ceil: (a) => Math.ceil(first(a)),
+  floor: (a) => Math.floor(first(a)),
+  max: (a) => a.reduce((x, y) => (y > x ? y : x)),
+  min: (a) => a.reduce((x, y) => (y < x ? y : x)),
+  round: (a) => {
+    const x = first(a);
+    return x < 0 ? -Math.floor(-x + 0.5) : Math.floor(x + 0.5);
+  },
+  trunc: (a) => Math.trunc(first(a)),
+};
+
+/**
+ * The names this evaluator can actually call. Exported so a test can pin that
+ * it matches EXPR_FUNCTIONS in the validator: a name that validates and does
+ * not evaluate is worse than one that does neither, because `check` calls the
+ * config good and the run falls over.
+ */
+export const IMPLEMENTED_FUNCTION_NAMES: readonly string[] = Object.keys(FUNCTIONS).sort();
+
+function first(args: readonly number[]): number {
+  const [a] = args;
+  if (a === undefined) throw new Error('a function needs at least one argument');
+  return a;
 }
 
 /**

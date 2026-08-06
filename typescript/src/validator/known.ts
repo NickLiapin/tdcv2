@@ -158,6 +158,60 @@ export const SUPPORTED_BINARY_OPERATORS: readonly string[] = [
 
 export const SUPPORTED_UNARY_OPERATORS: readonly string[] = ['!', '-', '+'] as const;
 
+/**
+ * The functions an `if=` expression may call, and how many arguments each takes.
+ *
+ * `max` is the top of an INCLUSIVE range and `undefined` means variadic. The
+ * implementations live in `expr/evaluate.ts`; a unit test pins that the two
+ * lists name exactly the same functions, because a name that validates and does
+ * not evaluate is the worst of both.
+ *
+ * Everything here is EXACT — it is built from arithmetic the IEEE-754 standard
+ * pins down, so five implementations cannot disagree about it. Transcendental
+ * functions (sin, cos, exp, log …) are deliberately absent: measured on one
+ * machine, `tan(1)` already differs in its last bit between Node and Python,
+ * and a comparison turns that bit into a different row. They arrive when TDC
+ * ships its own implementations, the way it ships its own PRNG.
+ */
+export const EXPR_FUNCTIONS: Readonly<Record<string, { min: number; max: number | undefined }>> = {
+  abs: { min: 1, max: 1 },
+  ceil: { min: 1, max: 1 },
+  floor: { min: 1, max: 1 },
+  max: { min: 1, max: undefined },
+  min: { min: 1, max: undefined },
+  round: { min: 1, max: 1 },
+  trunc: { min: 1, max: 1 },
+};
+
+export const EXPR_FUNCTION_NAMES: readonly string[] = Object.keys(EXPR_FUNCTIONS).sort();
+
+/**
+ * Names that are not available and are not typos either.
+ *
+ * Someone who writes `cos(_count)` knows exactly what they meant, and telling
+ * them "did you mean abs?" is worse than saying nothing — edit distance has no
+ * idea these are transcendental functions. They are answered with the real
+ * reason instead.
+ */
+export const PLANNED_EXPR_FUNCTIONS: readonly string[] = [
+  'acos',
+  'asin',
+  'atan',
+  'atan2',
+  'cbrt',
+  'cos',
+  'cosh',
+  'exp',
+  'log',
+  'log10',
+  'pow',
+  'sin',
+  'sinh',
+  'sqrt',
+  'tan',
+  'tanh',
+] as const;
+
 export const BUILTIN_SEQUENCES: readonly string[] = [
   '_count',
   '_first',

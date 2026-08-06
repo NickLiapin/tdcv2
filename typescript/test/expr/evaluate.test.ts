@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 
-import { evaluateIf } from '../../src/expr/evaluate.js';
+import { IMPLEMENTED_FUNCTION_NAMES, evaluateIf } from '../../src/expr/evaluate.js';
+import { EXPR_FUNCTION_NAMES } from '../../src/validator/known.js';
 import type { SequenceRegistry } from '../../src/sequence/types.js';
 
 /**
@@ -127,6 +128,50 @@ describe('evaluateIf — the modulo operator', () => {
   });
 });
 
+describe('evaluateIf — functions', () => {
+  it('the validator and the evaluator know the same names', () => {
+    // A name that validates and does not evaluate makes `check` call a config
+    // good and the run fall over — the one failure mode worth a whole test.
+    expect(IMPLEMENTED_FUNCTION_NAMES).toEqual([...EXPR_FUNCTION_NAMES]);
+  });
+
+  it('abs, floor, ceil and trunc', () => {
+    const reg = registry({ N: ['-7.5'] });
+    expect(evaluateIf('abs(N) == 7.5', reg, 0)).toBe(true);
+    expect(evaluateIf('floor(N) == 0 - 8', reg, 0)).toBe(true);
+    expect(evaluateIf('ceil(N) == 0 - 7', reg, 0)).toBe(true);
+    expect(evaluateIf('trunc(N) == 0 - 7', reg, 0)).toBe(true);
+  });
+
+  it('min and max take as many arguments as you give them', () => {
+    const reg = registry({});
+    expect(evaluateIf('min(3, 1, 2) == 1', reg, 0)).toBe(true);
+    expect(evaluateIf('max(3, 1, 2) == 3', reg, 0)).toBe(true);
+    expect(evaluateIf('min(5) == 5', reg, 0)).toBe(true);
+  });
+
+  it('round sends a half AWAY FROM ZERO, unlike any of the host languages', () => {
+    // JS rounds a half toward +∞ (Math.round(-0.5) is -0); Python rounds to
+    // even (round(0.5) is 0, round(2.5) is 2); Java rounds half up. TDC is
+    // symmetric, so a column of negatives behaves like a column of positives.
+    const reg = registry({});
+    expect(evaluateIf('round(0.5) == 1', reg, 0)).toBe(true);
+    expect(evaluateIf('round(0 - 0.5) == 0 - 1', reg, 0)).toBe(true);
+    expect(evaluateIf('round(2.5) == 3', reg, 0)).toBe(true);
+    expect(evaluateIf('round(0 - 2.5) == 0 - 3', reg, 0)).toBe(true);
+  });
+
+  it('composes with the rest of the language', () => {
+    const reg = registry({ N: ['-9'] });
+    expect(evaluateIf('abs(N) % 2 == 1 && max(abs(N), 3) == 9', reg, 0)).toBe(true);
+  });
+
+  it('throws on a name it does not implement', () => {
+    const reg = registry({});
+    expect(() => evaluateIf('cos(1) > 0', reg, 0)).toThrow(/unknown function "cos"/);
+  });
+});
+
 describe('evaluateIf — errors', () => {
   it('throws on an operator that is still unsupported (bitwise)', () => {
     const reg = registry({});
@@ -138,8 +183,13 @@ describe('evaluateIf — errors', () => {
     expect(() => evaluateIf('Name[0] == A', reg, 0)).toThrow(/computed member access/);
   });
 
-  it('throws on unsupported call expressions', () => {
+  it('names the function it does not know, rather than refusing calls wholesale', () => {
     const reg = registry({});
-    expect(() => evaluateIf('helper()', reg, 0)).toThrow(/unsupported expression node/);
+    expect(() => evaluateIf('helper()', reg, 0)).toThrow(/unknown function "helper"/);
+  });
+
+  it('refuses to call anything but a plain name', () => {
+    const reg = registry({ obj: ['x'] });
+    expect(() => evaluateIf('obj.method(1)', reg, 0)).toThrow(/plain function name/);
   });
 });

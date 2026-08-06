@@ -599,8 +599,32 @@ describe('validator — if-expression checks', () => {
   });
 
   it('errors on unsupported expression constructs', () => {
-    const r = run(wrap('if="helper()"'));
+    const r = run(wrap('if="x ? 1 : 2"'));
     expect(r.diagnostics.find((d) => d.code === 'TDC103')).toBeDefined();
+  });
+
+  it('names an unknown function, and suggests the near one', () => {
+    const r = run(wrap('if="abz(x) > 1"'));
+    const d = r.diagnostics.find((x) => x.code === 'TDC257');
+    expect(d).toBeDefined();
+    expect(d?.suggestion).toMatch(/abs/);
+  });
+
+  it('answers a transcendental name with the reason, not a bogus suggestion', () => {
+    const r = run(wrap('if="cos(x) > 1"'));
+    const d = r.diagnostics.find((x) => x.code === 'TDC257');
+    expect(d?.message).toMatch(/not available yet/);
+    expect(d?.suggestion).toBeUndefined();
+  });
+
+  it('counts the arguments', () => {
+    const r = run(wrap('if="abs(x, 2) > 1"'));
+    expect(r.diagnostics.find((x) => x.code === 'TDC258')).toBeDefined();
+  });
+
+  it('accepts the functions it ships', () => {
+    const r = run(wrap('if="max(abs(x), 3) % 2 == 0"'));
+    expect(r.diagnostics.filter((d) => d.severity === 'error')).toEqual([]);
   });
 
   it('accepts well-formed expressions', () => {

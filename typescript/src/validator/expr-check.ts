@@ -11,6 +11,9 @@ import type { AttrContext } from '../generated/TDCParser.js';
 
 import {
   BUILTIN_SEQUENCES,
+  EXPR_FUNCTION_NAMES,
+  EXPR_FUNCTIONS,
+  PLANNED_EXPR_FUNCTIONS,
   SUPPORTED_BINARY_OPERATORS,
   SUPPORTED_UNARY_OPERATORS,
 } from './known.js';
@@ -200,13 +203,65 @@ export function checkIfExpression(
         walk(m.object);
         return;
       }
+      case 'CallExpression': {
+        const call = node as jsep.CallExpression;
+        if (call.callee.type !== 'Identifier') {
+          sink.diagnostics.push({
+            severity: 'error',
+            source: 'validator',
+            ...valRange,
+            message: 'only a plain function name can be called in an if expression',
+            hint: `Write abs(x), not an expression that produces a function. Available: ${EXPR_FUNCTION_NAMES.join(', ')}.`,
+            code: 'TDC257',
+          });
+          return;
+        }
+        const name = (call.callee as jsep.Identifier).name;
+        const spec = EXPR_FUNCTIONS[name];
+        if (!spec) {
+          const planned = PLANNED_EXPR_FUNCTIONS.includes(name);
+          const suggestion = planned ? undefined : closestMatch(name, EXPR_FUNCTION_NAMES);
+          sink.diagnostics.push({
+            severity: 'error',
+            source: 'validator',
+            ...valRange,
+            message: planned
+              ? `${name}() is not available yet in an if expression`
+              : `unknown function "${name}" in if expression`,
+            ...(suggestion ? { suggestion: `did you mean "${suggestion}"?` } : {}),
+            hint: planned
+              ? `Every host language computes ${name} slightly differently — tan(1) already differs in its last bit between Node and Python — and a comparison turns that bit into a different row. It arrives once TDC computes it itself, the way it computes its own random numbers. Available today: ${EXPR_FUNCTION_NAMES.join(', ')}.`
+              : `Available: ${EXPR_FUNCTION_NAMES.join(', ')}.`,
+            code: 'TDC257',
+          });
+          return;
+        }
+        const n = call.arguments.length;
+        if (n < spec.min || (spec.max !== undefined && n > spec.max)) {
+          const wants =
+            spec.max === undefined
+              ? `at least ${String(spec.min)}`
+              : spec.min === spec.max
+                ? `exactly ${String(spec.min)}`
+                : `${String(spec.min)} to ${String(spec.max)}`;
+          sink.diagnostics.push({
+            severity: 'error',
+            source: 'validator',
+            ...valRange,
+            message: `${name}() takes ${wants} argument${spec.max === 1 ? '' : 's'}, got ${String(n)}`,
+            code: 'TDC258',
+          });
+        }
+        for (const arg of call.arguments) walk(arg);
+        return;
+      }
       default: {
         sink.diagnostics.push({
           severity: 'error',
           source: 'validator',
           ...valRange,
           message: `unsupported expression construct "${node.type}" in if expression`,
-          hint: 'Only comparisons, logical connectives, arithmetic, member access, identifiers and literals are allowed.',
+          hint: 'Only comparisons, logical connectives, arithmetic, function calls, member access, identifiers and literals are allowed.',
           code: 'TDC103',
         });
       }
