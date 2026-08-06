@@ -150,17 +150,17 @@ que reinicia en cada padre).
 
 ## Un ciclo de vida, no solo una lista
 
-La lista que recorre `each` no tiene por qué ser un saco de valores sin relación. Si está
-escrita en orden, las filas salen en orden — así se genera un **historial**: un pedido que
-va `created → paid → shipped → delivered`, una fila por paso, y nunca un paso fuera de
-sitio.
+Las filas de un registro no tienen que ser un saco de valores sin relación. Pueden ser una
+**historia**: un pedido que va `created → paid → shipped → delivered`, una fila por paso, y
+nunca un paso fuera de orden.
 
-Lo hacen dos piezas. [`order="sequential"`](../reference/attributes.md#top) hace que la lista
-de `repeat` recorra los valores en el orden en que están escritos en vez de sortearlos, y
-[`parent`](../guides/hierarchical-dependencies.md#top) elige qué camino toma este registro:
+Lo hacen dos piezas. Un [`<mix>`](mix.md#top) elige qué camino toma este pedido, e
+[`if`](../core-concepts/output-formatting.md#top) en cada `<line>` decide si ese paso
+pertenece al camino — así los pasos se escriben en el orden en que ocurren y solo se
+emiten las líneas del camino elegido:
 
 ```xml
-<env count="5" seed="lifecycle" local="en">
+<env count="20" seed="lifecycle" local="en">
     <sequence name="OrderId"><gen type="increment" value="1000"/></sequence>
 
     <mix name="Outcome" percent="60,25,15">
@@ -168,21 +168,18 @@ de `repeat` recorra los valores en el orden en que están escritos en vez de sor
         <case><gen type="text" value="refunded"/></case>
         <case><gen type="text" value="cancelled"/></case>
     </mix>
-
-    <sequence name="Happy" parent="Outcome.delivered">
-        <gen type="text" value="created,paid,shipped,delivered" repeat="4" order="sequential" cycle="true"/>
-    </sequence>
-    <sequence name="Refund" parent="Outcome.refunded">
-        <gen type="text" value="created,paid,refunded" repeat="3" order="sequential" cycle="true"/>
-    </sequence>
-    <sequence name="Cancel" parent="Outcome.cancelled">
-        <gen type="text" value="created,cancelled" repeat="2" order="sequential" cycle="true"/>
-    </sequence>
 </env>
 <block>
-    <line each="Happy"><data>${{OrderId}},${{_item}},${{Happy}}</data></line>
-    <line each="Refund"><data>${{OrderId}},${{_item}},${{Refund}}</data></line>
-    <line each="Cancel"><data>${{OrderId}},${{_item}},${{Cancel}}</data></line>
+    <line><data>${{OrderId}},1,created</data></line>
+
+    <line if="Outcome.delivered"><data>${{OrderId}},2,paid</data></line>
+    <line if="Outcome.delivered"><data>${{OrderId}},3,shipped</data></line>
+    <line if="Outcome.delivered"><data>${{OrderId}},4,delivered</data></line>
+
+    <line if="Outcome.refunded"><data>${{OrderId}},2,paid</data></line>
+    <line if="Outcome.refunded"><data>${{OrderId}},3,refunded</data></line>
+
+    <line if="Outcome.cancelled"><data>${{OrderId}},2,cancelled</data></line>
 </block>
 ```
 
@@ -195,20 +192,36 @@ de `repeat` recorra los valores en el orden en que están escritos en vez de sor
 1000,4,delivered
 1001,1,created
 1001,2,paid
-1001,3,shipped
-1001,4,delivered
+1001,3,refunded
 1002,1,created
 1002,2,paid
 1002,3,shipped
 1002,4,delivered
 1003,1,created
-1003,2,cancelled
+1003,2,paid
+1003,3,shipped
+1003,4,delivered
 1004,1,created
 1004,2,paid
 1004,3,refunded
 ```
 
-Cada pedido sigue un camino **legal** — uno enviado se pagó antes, uno cancelado nunca se
+Cada pedido toma un camino **legal** — uno enviado se pagó primero, uno cancelado nunca se
+envió — y los desenlaces caen en las proporciones exactas que declaró `<mix>`. El número de
+paso se escribe en la línea en vez de contarse, porque las líneas de un camino ya se
+conocen cuando se escribe el config.
+
+> [!NOTE]
+> **No `repeat` + `order="sequential"`**
+>
+> Una forma corta tentadora es una sola secuencia con el camino entero:
+> `<gen type="text" value="created,paid,shipped,delivered" repeat="4" order="sequential"/>`
+> más `each` para desplegarla. Esa combinación se **rechaza** (`TDC254`). Cada atributo está
+> bien definido por separado y sin definir juntos, y los motores discrepaban sobre lo que
+> producían: un config obtenía datos verosímiles que diferían según qué motor respondiera.
+> Una lista por fila que recorre su fuente en orden es una función que TDC todavía no tiene.
+
+**legal** — uno enviado se pagó antes, uno cancelado nunca se
 envió — y los desenlaces caen en las proporciones exactas que declaró `<mix>`. De las tres
 líneas solo se dispara una por registro, porque `parent` deja vacías las otras dos.
 

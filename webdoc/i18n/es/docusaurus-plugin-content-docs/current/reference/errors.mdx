@@ -166,6 +166,7 @@ Ver [Registros coherentes](../pools/overview.mdx).
 | `TDC252` | `peak_at` en un `<gen type="timeseries">` no es un número                     | `peak_at` es la fila en la que la onda estacional alcanza su máximo, contada como `period`: `peak_at="182"` con `period="365"` pone el pico el primero de julio |
 | `TDC253` | `peak_at` sin `period` en el mismo `<gen>`                                    | Una onda necesita un largo antes de poder tener un punto más alto. Añada `period`, o quite `peak_at` |
 | `TDC251` | _(advertencia)_ Una proporción de `percent` pide menos de una fila entera     | `percent` es una cuota exacta sobre las filas que llegan a ella, así que el 10 % de un subconjunto de cinco filas pide medio registro. Medio registro no se puede emitir: la rama dispara una vez o ninguna, y lo decide el seed. Suba la proporción, o suba `count` |
+| `TDC254` | `repeat=` y `order="sequential"` en el mismo `<gen>`                          | Deje uno. Una columna que recorre toma un valor por fila de su fuente; una repetida toma varios valores sorteados. Juntos los motores discrepaban, así que la combinación se rechaza en vez de responderse de tres formas |
 | `TDC244` | `type="pattern"` sin `points`, `src` ni `upper`                             | Un dibujo necesita una forma de la que leer: `points="0,0 1,5 2,3"`, un archivo en `src`, o `upper`/`lower` para una banda                                                                                                                                  |
 
 ## Totales acumulados

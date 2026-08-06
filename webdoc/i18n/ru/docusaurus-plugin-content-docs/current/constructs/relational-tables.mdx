@@ -147,20 +147,19 @@ INSERT INTO orders VALUES (17, 4, 2324);`}
 для многопоточности суррогатный ключ. Берите `_item`, когда нужен порядковый номер
 внутри карточки (`1, 2, 3`, заново стартующий на каждом родителе).
 
-## Не просто список, а жизненный цикл
+## Жизненный цикл, а не просто список
 
-Список, по которому идёт `each`, не обязан быть мешком несвязанных значений. Если он
-записан по порядку, строки и выйдут по порядку — так делается **история**: заказ идёт
-`created → paid → shipped → delivered`, по строке на шаг, и ни один шаг не встанет не на
-своё место.
+Строки одной записи не обязаны быть мешком несвязанных значений. Они могут быть
+**историей**: заказ идёт `created → paid → shipped → delivered`, по строке на шаг, и ни
+один шаг не встаёт не на своё место.
 
-Работают две вещи. [`order="sequential"`](../reference/attributes.mdx) заставляет список
-`repeat` идти по значениям в том порядке, в каком они написаны, а не разыгрывать их, а
-[`parent`](../guides/hierarchical-dependencies.mdx) выбирает, по какому пути пойдёт эта
-запись:
+Работают две вещи. [`<mix>`](mix.mdx) выбирает, каким путём пойдёт этот заказ, а
+[`if`](../core-concepts/output-formatting.mdx) на каждой `<line>` решает, принадлежит ли
+шаг этому пути — так шаги записаны в том порядке, в каком происходят, и срабатывают
+только строки выбранного пути:
 
 ```xml
-<env count="5" seed="lifecycle" local="en">
+<env count="20" seed="lifecycle" local="en">
     <sequence name="OrderId"><gen type="increment" value="1000"/></sequence>
 
     <mix name="Outcome" percent="60,25,15">
@@ -168,21 +167,18 @@ INSERT INTO orders VALUES (17, 4, 2324);`}
         <case><gen type="text" value="refunded"/></case>
         <case><gen type="text" value="cancelled"/></case>
     </mix>
-
-    <sequence name="Happy" parent="Outcome.delivered">
-        <gen type="text" value="created,paid,shipped,delivered" repeat="4" order="sequential" cycle="true"/>
-    </sequence>
-    <sequence name="Refund" parent="Outcome.refunded">
-        <gen type="text" value="created,paid,refunded" repeat="3" order="sequential" cycle="true"/>
-    </sequence>
-    <sequence name="Cancel" parent="Outcome.cancelled">
-        <gen type="text" value="created,cancelled" repeat="2" order="sequential" cycle="true"/>
-    </sequence>
 </env>
 <block>
-    <line each="Happy"><data>${{OrderId}},${{_item}},${{Happy}}</data></line>
-    <line each="Refund"><data>${{OrderId}},${{_item}},${{Refund}}</data></line>
-    <line each="Cancel"><data>${{OrderId}},${{_item}},${{Cancel}}</data></line>
+    <line><data>${{OrderId}},1,created</data></line>
+
+    <line if="Outcome.delivered"><data>${{OrderId}},2,paid</data></line>
+    <line if="Outcome.delivered"><data>${{OrderId}},3,shipped</data></line>
+    <line if="Outcome.delivered"><data>${{OrderId}},4,delivered</data></line>
+
+    <line if="Outcome.refunded"><data>${{OrderId}},2,paid</data></line>
+    <line if="Outcome.refunded"><data>${{OrderId}},3,refunded</data></line>
+
+    <line if="Outcome.cancelled"><data>${{OrderId}},2,cancelled</data></line>
 </block>
 ```
 
@@ -193,20 +189,35 @@ INSERT INTO orders VALUES (17, 4, 2324);`}
 1000,4,delivered
 1001,1,created
 1001,2,paid
-1001,3,shipped
-1001,4,delivered
+1001,3,refunded
 1002,1,created
 1002,2,paid
 1002,3,shipped
 1002,4,delivered
 1003,1,created
-1003,2,cancelled
+1003,2,paid
+1003,3,shipped
+1003,4,delivered
 1004,1,created
 1004,2,paid
 1004,3,refunded`}
 </Terminal>
 
-Каждый заказ идёт **легальным** путём — отгруженный сначала оплачен, отменённый никогда
+Каждый заказ проходит **допустимый** путь — отгруженный был сначала оплачен, отменённый
+не отгружался, — а исходы ложатся ровно в тех долях, которые объявил `<mix>`. Номер шага
+записан прямо в строке, а не считается, потому что строки одного пути известны уже когда
+пишется конфиг.
+
+:::note[Не `repeat` + `order="sequential"`]
+Соблазнительная короткая запись — одна последовательность, держащая весь путь:
+`<gen type="text" value="created,paid,shipped,delivered" repeat="4" order="sequential"/>`
+плюс `each`, чтобы её развернуть. Эта комбинация **отклоняется** (`TDC254`). Оба атрибута
+по отдельности определены, а вместе — нет, и движки расходились в том, что производят:
+конфиг получал правдоподобные данные, которые отличались в зависимости от того, какой
+движок ответил. Списка на строку, идущего по источнику по порядку, у TDC пока нет.
+:::
+
+**легальным** путём — отгруженный сначала оплачен, отменённый никогда
 не отгружался, — а исходы ложатся ровно в те доли, которые объявил `<mix>`. Из трёх строк
 на запись срабатывает только одна: `parent` оставляет две другие пустыми.
 

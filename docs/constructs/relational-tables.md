@@ -149,17 +149,17 @@ restarts on every parent).
 
 ## A lifecycle, not just a list
 
-The list `each` walks does not have to be a bag of unrelated values. If it is written in
-order, the rows come out in order — which is how you generate a **history**: an order
-that goes `created → paid → shipped → delivered`, one row per step, and never a step out
-of sequence.
+A record's rows do not have to be a bag of unrelated values. They can be a **history**:
+an order that goes `created → paid → shipped → delivered`, one row per step, and never a
+step out of sequence.
 
-Two pieces do it. [`order="sequential"`](../reference/attributes.md#top) makes the `repeat`
-list walk the values in the order they are written instead of drawing them, and
-[`parent`](../guides/hierarchical-dependencies.md#top) picks which path this record takes:
+Two pieces do it. A [`<mix>`](mix.md#top) picks which path this order takes, and
+[`if`](../core-concepts/output-formatting.md#top) on each `<line>` decides whether that step
+belongs to the path — so the steps are written in the order they happen, and only the
+lines of the chosen path fire:
 
 ```xml
-<env count="5" seed="lifecycle" local="en">
+<env count="20" seed="lifecycle" local="en">
     <sequence name="OrderId"><gen type="increment" value="1000"/></sequence>
 
     <mix name="Outcome" percent="60,25,15">
@@ -167,21 +167,18 @@ list walk the values in the order they are written instead of drawing them, and
         <case><gen type="text" value="refunded"/></case>
         <case><gen type="text" value="cancelled"/></case>
     </mix>
-
-    <sequence name="Happy" parent="Outcome.delivered">
-        <gen type="text" value="created,paid,shipped,delivered" repeat="4" order="sequential" cycle="true"/>
-    </sequence>
-    <sequence name="Refund" parent="Outcome.refunded">
-        <gen type="text" value="created,paid,refunded" repeat="3" order="sequential" cycle="true"/>
-    </sequence>
-    <sequence name="Cancel" parent="Outcome.cancelled">
-        <gen type="text" value="created,cancelled" repeat="2" order="sequential" cycle="true"/>
-    </sequence>
 </env>
 <block>
-    <line each="Happy"><data>${{OrderId}},${{_item}},${{Happy}}</data></line>
-    <line each="Refund"><data>${{OrderId}},${{_item}},${{Refund}}</data></line>
-    <line each="Cancel"><data>${{OrderId}},${{_item}},${{Cancel}}</data></line>
+    <line><data>${{OrderId}},1,created</data></line>
+
+    <line if="Outcome.delivered"><data>${{OrderId}},2,paid</data></line>
+    <line if="Outcome.delivered"><data>${{OrderId}},3,shipped</data></line>
+    <line if="Outcome.delivered"><data>${{OrderId}},4,delivered</data></line>
+
+    <line if="Outcome.refunded"><data>${{OrderId}},2,paid</data></line>
+    <line if="Outcome.refunded"><data>${{OrderId}},3,refunded</data></line>
+
+    <line if="Outcome.cancelled"><data>${{OrderId}},2,cancelled</data></line>
 </block>
 ```
 
@@ -194,22 +191,35 @@ list walk the values in the order they are written instead of drawing them, and
 1000,4,delivered
 1001,1,created
 1001,2,paid
-1001,3,shipped
-1001,4,delivered
+1001,3,refunded
 1002,1,created
 1002,2,paid
 1002,3,shipped
 1002,4,delivered
 1003,1,created
-1003,2,cancelled
+1003,2,paid
+1003,3,shipped
+1003,4,delivered
 1004,1,created
 1004,2,paid
 1004,3,refunded
 ```
 
 Every order takes a **legal** path — a shipped order was paid first, a cancelled one
-never shipped — and the outcomes land in the exact proportions `<mix>` declared. Only
-one of the three lines fires per record, because `parent` leaves the other two empty.
+never shipped — and the outcomes land in the exact proportions `<mix>` declared. The step
+number is written into the line rather than counted, because the lines of one path are
+known when the config is written.
+
+> [!NOTE]
+> **Not `repeat` + `order="sequential"`**
+>
+> A tempting shorter spelling is one sequence holding the whole path — `<gen type="text"
+> value="created,paid,shipped,delivered" repeat="4" order="sequential"/>` — with `each` to
+> unroll it. That combination is **refused** (`TDC254`). The two attributes are each well
+> defined alone and undefined together, and the engines disagreed about what they produced,
+> so a config using it got plausible-looking data that differed depending on which engine
+> answered. A per-row list that walks its source in order is a feature TDC does not have
+> yet.
 
 **Why it is built this way.** A status column that changed by "looking at the previous
 row" would force the run to be computed in order, from the first row. Choosing a whole
