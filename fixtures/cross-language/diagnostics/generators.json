@@ -75,7 +75,7 @@
       "name": "if-on-a-gen-is-checked-at-all",
       "demonstrates": "TDC101",
       "description": "A conditional gen's own if= is an expression like any other — only the reference was checking it. \"%\" parses everywhere and is supported nowhere.",
-      "config": "<tdc><env count=\"2\" seed=\"s\" local=\"en\"><sequence name=\"Z\"><gen if=\"1 % 2\" type=\"text\" value=\"a\"/><gen type=\"text\" value=\"b\"/></sequence></env><block><line><data>${{Z}}</data></line></block></tdc>",
+      "config": "<tdc><env count=\"2\" seed=\"s\" local=\"en\"><sequence name=\"Z\"><gen if=\"1 & 2\" type=\"text\" value=\"a\"/><gen type=\"text\" value=\"b\"/></sequence></env><block><line><data>${{Z}}</data></line></block></tdc>",
       "expected": ["error TDC101 1:68"]
     },
     {

@@ -158,7 +158,12 @@ export function checkIfExpression(
             ...(suggestion && suggestion !== bin.operator
               ? { suggestion: `did you mean "${suggestion}"?` }
               : {}),
-            hint: `Supported binary operators: ${SUPPORTED_BINARY_OPERATORS.join(' ')}.`,
+            hint:
+              `Supported binary operators: ${SUPPORTED_BINARY_OPERATORS.join(' ')}. ` +
+              `Functions: ${EXPR_FUNCTION_NAMES.join(', ')}. ` +
+              'Anything an expression cannot say, a <compute> sequence can — it has integer ' +
+              'division, remainders, string surgery and checksums — and the sequence it produces ' +
+              'is what if= then compares.',
             code: 'TDC101',
           });
         }

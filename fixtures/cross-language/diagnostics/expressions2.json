@@ -56,6 +56,27 @@
       "description": "uniq over a large run holds the whole column in memory. A <pool> has warned since TDC234; uniq costs the same and used to say nothing, and the run gave no clue why it needed half a gigabyte. The 250 bytes a value in the message is MEASURED, not guessed.",
       "config": "<tdc><env count=\"2000000\" seed=\"s\"><sequence name=\"Id\" uniq=\"true\"><gen type=\"number\" value=\"1..2000000000\"/></sequence></env><block><line><data>${{Id}}</data></line></block></tdc>",
       "expected": ["warning TDC236 1:35"]
+    },
+    {
+      "name": "unknown-function-in-an-if",
+      "demonstrates": "TDC257",
+      "description": "A typo in a function name, caught before the run. The suggestion comes from edit distance over the seven that exist.",
+      "config": "<tdc><env count=\"2\" seed=\"s\" local=\"en\"><sequence name=\"N\"><gen type=\"text\" value=\"5\"/></sequence><sequence name=\"R\"><gen if=\"abz(N) > 1\" type=\"text\" value=\"Y\"/><gen type=\"text\" value=\"N\"/></sequence></env><block><line><data>${{R}}</data></line></block></tdc>",
+      "expected": ["error TDC257 1:126"]
+    },
+    {
+      "name": "a-transcendental-function-is-not-a-typo",
+      "demonstrates": "TDC257",
+      "description": "cos is refused with the reason rather than a suggestion: every host language computes it slightly differently, and a comparison turns the last bit into a different row. Suggesting \"abs\" here would be worse than saying nothing.",
+      "config": "<tdc><env count=\"2\" seed=\"s\" local=\"en\"><sequence name=\"N\"><gen type=\"text\" value=\"5\"/></sequence><sequence name=\"R\"><gen if=\"cos(N) > 1\" type=\"text\" value=\"Y\"/><gen type=\"text\" value=\"N\"/></sequence></env><block><line><data>${{R}}</data></line></block></tdc>",
+      "expected": ["error TDC257 1:126"]
+    },
+    {
+      "name": "a-function-given-too-many-arguments",
+      "demonstrates": "TDC258",
+      "description": "Arity is checked by the validator, so a wrong call is a diagnostic with a position rather than a failure part-way through a run.",
+      "config": "<tdc><env count=\"2\" seed=\"s\" local=\"en\"><sequence name=\"N\"><gen type=\"text\" value=\"5\"/></sequence><sequence name=\"R\"><gen if=\"abs(N, 2) > 1\" type=\"text\" value=\"Y\"/><gen type=\"text\" value=\"N\"/></sequence></env><block><line><data>${{R}}</data></line></block></tdc>",
+      "expected": ["error TDC258 1:126"]
     }
   ]
 }

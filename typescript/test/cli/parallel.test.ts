@@ -212,7 +212,11 @@ describe('--jobs end-to-end (real worker threads)', () => {
     // And the exact 70/30 survives the split, whole-file.
     const males = rows.filter((l) => l.split(',')[1] === 'M').length;
     expect(males).toBe(630);
-  });
+    // Three whole CLI runs with 1, 4 and 7 worker threads. Every other heavy
+    // test in this file carries this budget; this one was left on the 10s
+    // default and passed alone while timing out inside the full suite, where
+    // the machine is busy — a red run that says nothing about the code.
+  }, 120_000);
 
   /**
    * `repeat` spends one draw on the row's length and then a FIXED budget of

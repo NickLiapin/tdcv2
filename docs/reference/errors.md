@@ -299,6 +299,8 @@ but the combination it asks for can't be carried out.
 | `TDC254` | `repeat=` and `order="sequential"` on the same `<gen>`                       | Keep one. A walked column takes one value per row from its source; a repeating column takes several drawn values. Together the engines disagreed, so the combination is refused rather than answered three ways |
 | `TDC255` | `decimals=` together with `include=` or `exclude=`                            | Drop one. A set built by `include`/`exclude` holds whole numbers and the pick is uniform over them, so there is nothing fractional to round — the engine was quietly emitting integers |
 | `TDC256` | A mask with no pattern — `<mask>` without `pattern=`, or `${{X\|mask}}` with no argument | Give it a pattern. Without one the mask keeps nothing and returns the empty string, so the column comes out blank |
+| `TDC257` | An `if=` expression calls a function that is not there | Either a typo, answered with the near name, or one of `sin`, `cos`, `exp`, `log` and their kin, answered with the reason: every host language computes those slightly differently, and a comparison turns the last bit into a different row. Available today: `abs`, `ceil`, `floor`, `max`, `min`, `round`, `trunc` |
+| `TDC258` | A function in an `if=` expression is given the wrong number of arguments | `abs`, `ceil`, `floor`, `round` and `trunc` take exactly one; `min` and `max` take as many as you give them |
 
 ## See also
 

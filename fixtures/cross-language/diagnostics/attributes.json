@@ -61,7 +61,7 @@
       "name": "unsupported-binary-operator",
       "demonstrates": "TDC101",
       "description": "An operator the evaluator does not implement",
-      "config": "<tdc><env count=\"2\" seed=\"s\"><sequence name=\"A\"><gen type=\"number\" value=\"1..9\"/></sequence></env><block><line><data if=\"A % 2\">x</data></line></block></tdc>",
+      "config": "<tdc><env count=\"2\" seed=\"s\"><sequence name=\"A\"><gen type=\"number\" value=\"1..9\"/></sequence></env><block><line><data if=\"A & 2\">x</data></line></block></tdc>",
       "expected": ["error TDC101 1:121"]
     },
     {

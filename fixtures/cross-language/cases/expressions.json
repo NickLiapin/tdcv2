@@ -1,0 +1,61 @@
+{
+  "schemaVersion": 1,
+  "cases": [
+    {
+      "name": "modulo-picks-every-second-row",
+      "description": "The condition everybody writes first. Before `%` existed this was unwritable in if=, and the only way through was a compute sequence holding <mod> — two metres away and invisible.",
+      "config": "<tdc><env count=\"6\" seed=\"ex\" local=\"en\" mode=\"memory\"><sequence name=\"P\"><gen if=\"_count % 2 == 0\" type=\"text\" value=\"even\"/><gen type=\"text\" value=\"odd\"/></sequence></env><block><line><data>${{P}}</data></line></block></tdc>",
+      "expected": ["odd", "even", "odd", "even", "odd", "even"]
+    },
+    {
+      "name": "modulo-is-euclidean-not-the-host-languages",
+      "description": "The case that catches a port reaching for its own `%`. Euclidean says -4 % 3 is 2; JavaScript, Java, C# and Rust all say -1. The compute layer's <mod> already answered 2, and one engine must not give two answers to one question.",
+      "config": "<tdc><env count=\"5\" seed=\"ex\" local=\"en\" mode=\"memory\"><sequence name=\"N\"><gen type=\"text\" value=\"-4,-3,-2,-1,0\" order=\"sequential\"/></sequence><sequence name=\"R\"><gen if=\"N % 3 == 0\" type=\"text\" value=\"0\"/><gen if=\"N % 3 == 1\" type=\"text\" value=\"1\"/><gen if=\"N % 3 == 2\" type=\"text\" value=\"2\"/><gen type=\"text\" value=\"?\"/></sequence></env><block><line><data>${{N}}%3=${{R}}</data></line></block></tdc>",
+      "expected": ["-4%3=2", "-3%3=0", "-2%3=1", "-1%3=2", "0%3=0"]
+    },
+    {
+      "name": "round-sends-a-half-away-from-zero",
+      "description": "Three hosts, three answers, none symmetric: JavaScript rounds a half toward +INF, Python rounds to even, Java rounds half up. TDC rounds away from zero, so a column of negatives behaves like a column of positives.",
+      "config": "<tdc><env count=\"6\" seed=\"ex\" local=\"en\" mode=\"memory\"><sequence name=\"N\"><gen type=\"text\" value=\"0.5,-0.5,1.5,-1.5,2.5,-2.5\" order=\"sequential\"/></sequence><sequence name=\"R\"><gen if=\"round(N) == 1\" type=\"text\" value=\"1\"/><gen if=\"round(N) == 0 - 1\" type=\"text\" value=\"-1\"/><gen if=\"round(N) == 2\" type=\"text\" value=\"2\"/><gen if=\"round(N) == 0 - 2\" type=\"text\" value=\"-2\"/><gen if=\"round(N) == 3\" type=\"text\" value=\"3\"/><gen if=\"round(N) == 0 - 3\" type=\"text\" value=\"-3\"/><gen type=\"text\" value=\"?\"/></sequence></env><block><line><data>round(${{N}})=${{R}}</data></line></block></tdc>",
+      "expected": [
+        "round(0.5)=1",
+        "round(-0.5)=-1",
+        "round(1.5)=2",
+        "round(-1.5)=-2",
+        "round(2.5)=3",
+        "round(-2.5)=-3"
+      ]
+    },
+    {
+      "name": "abs-floor-ceil-trunc-on-a-negative-fraction",
+      "description": "floor and trunc part company on negatives — floor(-7.5) is -8, trunc(-7.5) is -7 — which is exactly where a port that reached for the wrong one goes unnoticed.",
+      "config": "<tdc><env count=\"1\" seed=\"ex\" local=\"en\" mode=\"memory\"><sequence name=\"A\"><gen if=\"abs(0 - 7.5) == 7.5\" type=\"text\" value=\"abs=ok\"/><gen type=\"text\" value=\"abs=BAD\"/></sequence><sequence name=\"F\"><gen if=\"floor(0 - 7.5) == 0 - 8\" type=\"text\" value=\"floor=ok\"/><gen type=\"text\" value=\"floor=BAD\"/></sequence><sequence name=\"C\"><gen if=\"ceil(0 - 7.5) == 0 - 7\" type=\"text\" value=\"ceil=ok\"/><gen type=\"text\" value=\"ceil=BAD\"/></sequence><sequence name=\"T\"><gen if=\"trunc(0 - 7.5) == 0 - 7\" type=\"text\" value=\"trunc=ok\"/><gen type=\"text\" value=\"trunc=BAD\"/></sequence></env><block><line><data>${{A}} ${{F}} ${{C}} ${{T}}</data></line></block></tdc>",
+      "expected": ["abs=ok floor=ok ceil=ok trunc=ok"]
+    },
+    {
+      "name": "min-and-max-are-variadic-and-compose",
+      "description": "Functions nest inside each other and inside the operators, so a port cannot get away with a flat special case per name.",
+      "config": "<tdc><env count=\"3\" seed=\"ex\" local=\"en\" mode=\"memory\"><sequence name=\"N\"><gen type=\"text\" value=\"-9,4,-2\" order=\"sequential\"/></sequence><sequence name=\"R\"><gen if=\"max(abs(N), 3) % 2 == 1\" type=\"text\" value=\"odd-max\"/><gen if=\"min(abs(N), 3) == 3\" type=\"text\" value=\"min-is-3\"/><gen type=\"text\" value=\"other\"/></sequence></env><block><line><data>N=${{N}} -> ${{R}}</data></line></block></tdc>",
+      "expected": ["N=-9 -> odd-max", "N=4 -> min-is-3", "N=-2 -> odd-max"]
+    },
+    {
+      "name": "the-row-counter-is-a-number-past-the-ninth-row",
+      "description": "_count used to arrive as text, and coerceInt lets a SINGLE digit through — so this config ran to row 9 and threw on row 10. Twelve rows is the shortest run that proves it.",
+      "config": "<tdc><env count=\"12\" seed=\"ex\" local=\"en\" mode=\"memory\"><sequence name=\"P\"><compute><result><mod><field name=\"_count\"/><int v=\"5\"/></mod></result></compute></sequence></env><block><line><data>${{_count}}:${{P}}</data></line></block></tdc>",
+      "expected": [
+        "1:1",
+        "2:2",
+        "3:3",
+        "4:4",
+        "5:0",
+        "6:1",
+        "7:2",
+        "8:3",
+        "9:4",
+        "10:0",
+        "11:1",
+        "12:2"
+      ]
+    }
+  ]
+}

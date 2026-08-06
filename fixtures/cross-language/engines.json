@@ -562,6 +562,94 @@
         "lines": ["2024-02-28", "2024-02-29", "2024-03-01"]
       }
     },
+    "expressions/modulo-picks-every-second-row": {
+      "engine2": {
+        "lines": ["odd", "even", "odd", "even", "odd", "even"]
+      },
+      "engine3": {
+        "lines": ["odd", "even", "odd", "even", "odd", "even"]
+      }
+    },
+    "expressions/modulo-is-euclidean-not-the-host-languages": {
+      "engine2": {
+        "lines": ["-4%3=2", "-3%3=0", "-2%3=1", "-1%3=2", "0%3=0"]
+      },
+      "engine3": {
+        "lines": ["-4%3=2", "-3%3=0", "-2%3=1", "-1%3=2", "0%3=0"]
+      }
+    },
+    "expressions/round-sends-a-half-away-from-zero": {
+      "engine2": {
+        "lines": [
+          "round(0.5)=1",
+          "round(-0.5)=-1",
+          "round(1.5)=2",
+          "round(-1.5)=-2",
+          "round(2.5)=3",
+          "round(-2.5)=-3"
+        ]
+      },
+      "engine3": {
+        "lines": [
+          "round(0.5)=1",
+          "round(-0.5)=-1",
+          "round(1.5)=2",
+          "round(-1.5)=-2",
+          "round(2.5)=3",
+          "round(-2.5)=-3"
+        ]
+      }
+    },
+    "expressions/abs-floor-ceil-trunc-on-a-negative-fraction": {
+      "engine2": {
+        "lines": ["abs=ok floor=ok ceil=ok trunc=ok"]
+      },
+      "engine3": {
+        "lines": ["abs=ok floor=ok ceil=ok trunc=ok"]
+      }
+    },
+    "expressions/min-and-max-are-variadic-and-compose": {
+      "engine2": {
+        "lines": ["N=-9 -> odd-max", "N=4 -> min-is-3", "N=-2 -> odd-max"]
+      },
+      "engine3": {
+        "lines": ["N=-9 -> odd-max", "N=4 -> min-is-3", "N=-2 -> odd-max"]
+      }
+    },
+    "expressions/the-row-counter-is-a-number-past-the-ninth-row": {
+      "engine2": {
+        "lines": [
+          "1:1",
+          "2:2",
+          "3:3",
+          "4:4",
+          "5:0",
+          "6:1",
+          "7:2",
+          "8:3",
+          "9:4",
+          "10:0",
+          "11:1",
+          "12:2"
+        ]
+      },
+      "engine3": {
+        "lines": [
+          "1:1",
+          "2:2",
+          "3:3",
+          "4:4",
+          "5:0",
+          "6:1",
+          "7:2",
+          "8:3",
+          "9:4",
+          "10:0",
+          "11:1",
+          "12:2"
+        ]
+      }
+    },
     "formatting/mask-phone": {
       "engine2": {
         "lines": ["555-123-4567"]
