@@ -650,6 +650,64 @@
         ]
       }
     },
+    "expressions/in-tests-membership-of-a-bare-word-list": {
+      "engine2": {
+        "lines": ["US=NAFTA", "FR=other", "CA=NAFTA", "JP=other", "MX=NAFTA"]
+      },
+      "engine3": {
+        "lines": ["US=NAFTA", "FR=other", "CA=NAFTA", "JP=other", "MX=NAFTA"]
+      }
+    },
+    "expressions/in-compares-as-loosely-as-equals-does": {
+      "engine2": {
+        "lines": ["1=in", "3=in", "7=out"]
+      },
+      "engine3": {
+        "lines": ["1=in", "3=in", "7=out"]
+      }
+    },
+    "expressions/string-predicates-read-a-value-as-text": {
+      "engine2": {
+        "lines": [
+          "McDonald=prefix",
+          "OBrien=suffix",
+          "Li=short",
+          "Rodriguez=inside"
+        ]
+      },
+      "engine3": {
+        "lines": [
+          "McDonald=prefix",
+          "OBrien=suffix",
+          "Li=short",
+          "Rodriguez=inside"
+        ]
+      }
+    },
+    "expressions/len-counts-code-points-and-never-numbers": {
+      "engine2": {
+        "lines": ["[ab] len=2", "[😀ab] len=3", "[10] len=2"]
+      },
+      "engine3": {
+        "lines": ["[ab] len=2", "[😀ab] len=3", "[10] len=2"]
+      }
+    },
+    "expressions/upper-lower-and-is-empty": {
+      "engine2": {
+        "lines": ["[aB]=up-AB", "[]=empty", "[CD]=low-cd"]
+      },
+      "engine3": {
+        "lines": ["[aB]=up-AB", "[]=empty", "[CD]=low-cd"]
+      }
+    },
+    "expressions/the-ternary-picks-a-value-then-it-is-compared": {
+      "engine2": {
+        "lines": ["10=low", "50=mid", "90=high"]
+      },
+      "engine3": {
+        "lines": ["10=low", "50=mid", "90=high"]
+      }
+    },
     "formatting/mask-phone": {
       "engine2": {
         "lines": ["555-123-4567"]

@@ -38,6 +38,15 @@ public sealed interface Expr {
 
   record Unary(String op, Expr operand) implements Expr {}
 
+  /** {@code abs(x)} — a call on a bare name, with its arguments already parsed. */
+  record Call(String callee, java.util.List<Expr> args) implements Expr {}
+
+  /** {@code [US, CA, MX]} — only ever the right side of {@code in}. */
+  record Arr(java.util.List<Expr> items) implements Expr {}
+
+  /** {@code a ? b : c} — picks a VALUE, which is then compared like any other. */
+  record Conditional(Expr test, Expr consequent, Expr alternate) implements Expr {}
+
   /**
    * {@code x[0]} — subscripting, which the evaluator does not implement.
    *
@@ -45,9 +54,6 @@ public sealed interface Expr {
    * stricter than the reference's turns "computed member access is not supported" into "syntax
    * error", and the second says nothing about what to write instead.
    */
-  /** {@code abs(x)} — a call on a bare name, with its arguments already parsed. */
-  record Call(String callee, java.util.List<Expr> args) implements Expr {}
-
   record Computed(Expr object) implements Expr {}
 
   /**
@@ -80,7 +86,10 @@ public sealed interface Expr {
           Map.entry("-", 9),
           Map.entry("*", 10),
           Map.entry("/", 10),
-          Map.entry("%", 10));
+          Map.entry("%", 10),
+          // A word operator rather than a symbol; peekOperator keeps it from
+          // swallowing a sequence called "index".
+          Map.entry("in", 7));
 
   /**
    * A hard ceiling on parenthesis nesting. The parser recurses per '(', so a generated
@@ -126,7 +135,7 @@ public sealed interface Expr {
           "nests deeper than " + MAX_EXPR_NESTING + " levels");
     }
     Parser parser = new Parser(source);
-    Expr result = parser.expression(0);
+    Expr result = parser.ternary(0);
     parser.skipSpace();
     if (!parser.done()) {
       throw new IllegalArgumentException(
@@ -156,6 +165,29 @@ public sealed interface Expr {
       while (pos < src.length() && Character.isWhitespace(src.charAt(pos))) {
         pos++;
       }
+    }
+
+    /**
+     * {@code a ? b : c}, which binds looser than every binary operator.
+     *
+     * <p>Wrapping the binary loop rather than living inside it is what makes {@code x > 1 ? a : b}
+     * read as {@code (x > 1) ? a : b} and not {@code x > (1 ? a : b)}.
+     */
+    Expr ternary(int minPrecedence) {
+      Expr test = expression(minPrecedence);
+      skipSpace();
+      if (done() || src.charAt(pos) != '?') {
+        return test;
+      }
+      pos++;
+      Expr consequent = ternary(0);
+      skipSpace();
+      if (done() || src.charAt(pos) != ':') {
+        throw new IllegalArgumentException(
+            "if expression: a ? without its : in \"" + src + "\"");
+      }
+      pos++;
+      return new Conditional(test, consequent, ternary(0));
     }
 
     Expr expression(int minPrecedence) {
@@ -200,6 +232,10 @@ public sealed interface Expr {
       return primary();
     }
 
+    private static boolean isWordChar(char c) {
+      return Character.isLetterOrDigit(c) || c == '_' || c == '$';
+    }
+
     /** A leading {@code -} belongs to the number when a digit follows it directly. */
     private boolean isNumberStart() {
       return pos + 1 < src.length() && Character.isDigit(src.charAt(pos + 1));
@@ -212,9 +248,38 @@ public sealed interface Expr {
       }
       char c = src.charAt(pos);
 
+      if (c == '[') {
+        pos++;
+        List<Expr> items = new ArrayList<>();
+        skipSpace();
+        if (!done() && src.charAt(pos) == ']') {
+          pos++;
+          return new Arr(items);
+        }
+        while (true) {
+          items.add(ternary(0));
+          skipSpace();
+          if (done()) {
+            throw new IllegalArgumentException(
+                "if expression: unbalanced brackets in \"" + src + "\"");
+          }
+          if (src.charAt(pos) == ',') {
+            pos++;
+            continue;
+          }
+          if (src.charAt(pos) == ']') {
+            pos++;
+            break;
+          }
+          throw new IllegalArgumentException(
+              "if expression: unbalanced brackets in \"" + src + "\"");
+        }
+        return new Arr(items);
+      }
+
       if (c == '(') {
         pos++;
-        Expr inner = expression(0);
+        Expr inner = ternary(0);
         skipSpace();
         if (done() || src.charAt(pos) != ')') {
           throw new IllegalArgumentException("if expression: unbalanced parentheses in \"" + src + "\"");
@@ -244,7 +309,7 @@ public sealed interface Expr {
             pos++;
           } else {
             while (true) {
-              args.add(expression(0));
+              args.add(ternary(0));
               skipSpace();
               if (done()) {
                 throw new IllegalArgumentException(
@@ -352,6 +417,15 @@ public sealed interface Expr {
     }
 
     private String peekOperator() {
+      // `in` is a WORD, so it counts only when what surrounds it cannot continue an identifier —
+      // otherwise a sequence called "index" would be read as the operator followed by "dex".
+      if (src.startsWith("in", pos)) {
+        boolean afterOk = pos + 2 >= src.length() || !isWordChar(src.charAt(pos + 2));
+        boolean beforeOk = pos == 0 || !isWordChar(src.charAt(pos - 1));
+        if (afterOk && beforeOk) {
+          return "in";
+        }
+      }
       // Longest first, so `<=` is never read as `<` followed by a stray `=`, and `&&` never as
       // two `&`.
       for (String op :

@@ -305,10 +305,12 @@ pub const PLACEMENT_HINTS: [(&str, &str); 8] = [
 /// Operators whose right side may be a bare word rather than a name.
 pub const COMPARISON_OPERATORS: &[&str] = &["==", "!=", "===", "!==", "<", ">", "<=", ">="];
 
-pub const SUPPORTED_BINARY_OPERATORS: [&str; 15] = [
+pub const SUPPORTED_BINARY_OPERATORS: [&str; 16] = [
     "==", "!=", "===", "!==", "<", ">", "<=", ">=", "&&", "||", "+", "-", "*", "/",
     // Euclidean, matching <mod>: -3 % 2 is 1 here and -1 in Rust's own `%`.
     "%",
+    // Set membership: `Country in [US, CA, MX]`.
+    "in",
 ];
 
 pub const SUPPORTED_UNARY_OPERATORS: [&str; 3] = ["!", "-", "+"];
@@ -319,18 +321,27 @@ pub const SUPPORTED_UNARY_OPERATORS: [&str; 3] = ["!", "-", "+"];
 /// Every one is EXACT — comparisons and the arithmetic IEEE-754 pins down — so
 /// the five implementations cannot disagree about a result. Transcendental
 /// functions are absent for exactly that reason.
-pub const EXPR_FUNCTIONS: [(&str, usize, usize); 7] = [
+pub const EXPR_FUNCTIONS: [(&str, usize, usize); 14] = [
     ("abs", 1, 1),
     ("ceil", 1, 1),
+    ("contains", 2, 2),
+    ("ends_with", 2, 2),
     ("floor", 1, 1),
+    ("is_empty", 1, 1),
+    ("len", 1, 1),
+    ("lower", 1, 1),
     ("max", 1, usize::MAX),
     ("min", 1, usize::MAX),
     ("round", 1, 1),
+    ("starts_with", 2, 2),
     ("trunc", 1, 1),
+    ("upper", 1, 1),
 ];
 
-pub const EXPR_FUNCTION_NAMES: [&str; 7] =
-    ["abs", "ceil", "floor", "max", "min", "round", "trunc"];
+pub const EXPR_FUNCTION_NAMES: [&str; 14] = [
+    "abs", "ceil", "contains", "ends_with", "floor", "is_empty", "len", "lower", "max", "min",
+    "round", "starts_with", "trunc", "upper",
+];
 
 /// Not available, and not typos either. Someone writing `cos(_count)` knows
 /// what they meant, and "did you mean abs?" is worse than saying nothing.

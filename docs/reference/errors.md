@@ -4,7 +4,7 @@
 
 📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/reference/errors)**
 
-← Previous: [Identifier catalog](./identifiers.md#top) · **[Contents](../README.md#top)** · Next: [TypeScript](../bindings/typescript.md#top) →
+← Previous: [Identifier catalog](./identifiers.md#top) · **[Contents](../README.md#top)** · Next: [Expressions](./expressions.md#top) →
 
 ---
 
@@ -310,6 +310,6 @@ but the combination it asks for can't be carried out.
 
 ---
 
-← Previous: [Identifier catalog](./identifiers.md#top) · **[Contents](../README.md#top)** · Next: [TypeScript](../bindings/typescript.md#top) →
+← Previous: [Identifier catalog](./identifiers.md#top) · **[Contents](../README.md#top)** · Next: [Expressions](./expressions.md#top) →
 
 📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/reference/errors)**

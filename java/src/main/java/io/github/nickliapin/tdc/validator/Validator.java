@@ -178,7 +178,10 @@ public final class Validator {
 
   private static final List<String> SUPPORTED_BINARY_OPERATORS =
       // `%` is EUCLIDEAN, matching <mod>: -3 % 2 is 1 here and -1 in Java's own %.
-      List.of("==", "!=", "===", "!==", "<", ">", "<=", ">=", "&&", "||", "+", "-", "*", "/", "%");
+      List.of(
+          "==", "!=", "===", "!==", "<", ">", "<=", ">=", "&&", "||", "+", "-", "*", "/", "%",
+          // Set membership: `Country in [US, CA, MX]`.
+          "in");
 
   /**
    * What an {@code if=} may call: the name, then the smallest and largest argument count
@@ -188,17 +191,26 @@ public final class Validator {
    * implementations cannot disagree. Transcendental functions are absent for that reason.
    */
   private static final Map<String, int[]> EXPR_FUNCTIONS =
-      Map.of(
-          "abs", new int[] {1, 1},
-          "ceil", new int[] {1, 1},
-          "floor", new int[] {1, 1},
-          "max", new int[] {1, Integer.MAX_VALUE},
-          "min", new int[] {1, Integer.MAX_VALUE},
-          "round", new int[] {1, 1},
-          "trunc", new int[] {1, 1});
+      Map.ofEntries(
+          Map.entry("abs", new int[] {1, 1}),
+          Map.entry("ceil", new int[] {1, 1}),
+          Map.entry("contains", new int[] {2, 2}),
+          Map.entry("ends_with", new int[] {2, 2}),
+          Map.entry("floor", new int[] {1, 1}),
+          Map.entry("is_empty", new int[] {1, 1}),
+          Map.entry("len", new int[] {1, 1}),
+          Map.entry("lower", new int[] {1, 1}),
+          Map.entry("max", new int[] {1, Integer.MAX_VALUE}),
+          Map.entry("min", new int[] {1, Integer.MAX_VALUE}),
+          Map.entry("round", new int[] {1, 1}),
+          Map.entry("starts_with", new int[] {2, 2}),
+          Map.entry("trunc", new int[] {1, 1}),
+          Map.entry("upper", new int[] {1, 1}));
 
   private static final List<String> EXPR_FUNCTION_NAMES =
-      List.of("abs", "ceil", "floor", "max", "min", "round", "trunc");
+      List.of(
+          "abs", "ceil", "contains", "ends_with", "floor", "is_empty", "len", "lower", "max",
+          "min", "round", "starts_with", "trunc", "upper");
 
   /**
    * Not available, and not typos either. Someone writing {@code cos(_count)} knows what they
@@ -3812,7 +3824,32 @@ public final class Validator {
    * the operator it asked for is quietly not the operator it gets.
    */
   private void checkExprNode(io.github.nickliapin.tdc.expr.Expr node, int line, int column) {
+    if (node instanceof io.github.nickliapin.tdc.expr.Expr.Arr array) {
+      // Reached only when nothing marked it as an `in` right-hand side: the Binary branch
+      // checks its own right operand before recursing.
+      error("TDC259", "a [list] is only allowed on the right of \"in\"",
+          "Write Country in [US, CA, MX]. A list has no meaning on its own.", line, column);
+      for (io.github.nickliapin.tdc.expr.Expr item : array.items()) {
+        checkExprNode(item, line, column);
+      }
+      return;
+    }
+    if (node instanceof io.github.nickliapin.tdc.expr.Expr.Conditional ternary) {
+      checkExprNode(ternary.test(), line, column);
+      checkExprNode(ternary.consequent(), line, column);
+      checkExprNode(ternary.alternate(), line, column);
+      return;
+    }
     if (node instanceof io.github.nickliapin.tdc.expr.Expr.Binary binary) {
+      if (binary.op().equals("in")
+          && binary.right() instanceof io.github.nickliapin.tdc.expr.Expr.Arr members) {
+        // The one place a list belongs: check its items, not the list itself.
+        checkExprNode(binary.left(), line, column);
+        for (io.github.nickliapin.tdc.expr.Expr item : members.items()) {
+          checkExprNode(item, line, column);
+        }
+        return;
+      }
       if (!SUPPORTED_BINARY_OPERATORS.contains(binary.op())) {
         error("TDC101", "unsupported operator \"" + binary.op() + "\" in if expression",
             "Supported binary operators: " + String.join(" ", SUPPORTED_BINARY_OPERATORS)

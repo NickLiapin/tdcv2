@@ -50,11 +50,23 @@ public final class Evaluate {
       return scope.has(n.value()) ? scope.value(n.value()) : n.value();
     }
     if (node instanceof Expr.Call c) {
-      double[] args = new double[c.args().size()];
+      Object[] args = new Object[c.args().size()];
       for (int i = 0; i < args.length; i++) {
-        args[i] = asNumber(eval(c.args().get(i), scope));
+        args[i] = eval(c.args().get(i), scope);
       }
       return callFunction(c.callee(), args);
+    }
+    if (node instanceof Expr.Arr a) {
+      java.util.List<Object> items = new java.util.ArrayList<>(a.items().size());
+      for (Expr item : a.items()) {
+        items.add(eval(item, scope));
+      }
+      return items;
+    }
+    if (node instanceof Expr.Conditional t) {
+      return toBoolean(eval(t.test(), scope))
+          ? eval(t.consequent(), scope)
+          : eval(t.alternate(), scope);
     }
     if (node instanceof Expr.Member m) {
       return member(m.dotted(), scope);
@@ -115,6 +127,21 @@ public final class Evaluate {
       case "*" -> asNumber(left) * asNumber(right);
       case "/" -> asNumber(left) / asNumber(right);
       case "%" -> euclideanRemainder(asNumber(left), asNumber(right));
+      // As loose as `==`, deliberately: a text column against a list of numeric words has to
+      // match, or `in` and `==` would disagree about the same pair.
+      case "in" -> {
+        if (right instanceof java.util.List<?> items) {
+          boolean found = false;
+          for (Object candidate : items) {
+            if (looseEquals(left, candidate)) {
+              found = true;
+              break;
+            }
+          }
+          yield found;
+        }
+        yield looseEquals(left, right);
+      }
       default -> throw new IllegalArgumentException("if expression: unsupported operator " + op);
     };
   }
@@ -146,45 +173,87 @@ public final class Evaluate {
    * UP (so -0.5 becomes 0), JavaScript sends it toward +inf, Python to even. TDC sends a half AWAY
    * FROM ZERO, which is symmetric.
    */
-  private static double callFunction(String name, double[] args) {
+  private static Object callFunction(String name, Object[] args) {
     if (args.length == 0) {
       throw new IllegalArgumentException(
           "if expression: a function needs at least one argument");
     }
-    double first = args[0];
     switch (name) {
       case "abs":
-        return Math.abs(first);
+        return Math.abs(num(args, 0));
       case "ceil":
-        return Math.ceil(first);
+        return Math.ceil(num(args, 0));
       case "floor":
-        return Math.floor(first);
-      case "trunc":
-        return first < 0 ? Math.ceil(first) : Math.floor(first);
-      case "round":
-        return first < 0 ? -Math.floor(-first + 0.5) : Math.floor(first + 0.5);
+        return Math.floor(num(args, 0));
+      case "trunc": {
+        double x = num(args, 0);
+        return x < 0 ? Math.ceil(x) : Math.floor(x);
+      }
+      case "round": {
+        double x = num(args, 0);
+        return x < 0 ? -Math.floor(-x + 0.5) : Math.floor(x + 0.5);
+      }
       case "max": {
-        double best = first;
-        for (double v : args) {
-          if (v > best) {
-            best = v;
-          }
+        double best = asNumber(args[0]);
+        for (Object v : args) {
+          best = Math.max(best, asNumber(v));
         }
         return best;
       }
       case "min": {
-        double best = first;
-        for (double v : args) {
-          if (v < best) {
-            best = v;
-          }
+        double best = asNumber(args[0]);
+        for (Object v : args) {
+          best = Math.min(best, asNumber(v));
         }
         return best;
       }
+      case "contains":
+        return str(args, 0).contains(str(args, 1));
+      case "ends_with":
+        return str(args, 0).endsWith(str(args, 1));
+      case "starts_with":
+        return str(args, 0).startsWith(str(args, 1));
+      case "is_empty":
+        return str(args, 0).isEmpty();
+      case "len": {
+        // CODE POINTS, matching Python's len() and Rust's chars().count(). Java's own
+        // String.length() counts UTF-16 units and would make an emoji 2.
+        String s = str(args, 0);
+        return (double) s.codePointCount(0, s.length());
+      }
+      case "lower":
+        return str(args, 0).toLowerCase(java.util.Locale.ROOT);
+      case "upper":
+        return str(args, 0).toUpperCase(java.util.Locale.ROOT);
       default:
         throw new IllegalArgumentException(
             "if expression: unknown function \"" + name + "\"");
     }
+  }
+
+  /**
+   * Each family coerces its own arguments.
+   *
+   * <p>The string functions must NOT be numbered: {@code len("10")} is 2, and a caller that
+   * pre-numbered every argument could not tell the two families apart.
+   */
+  private static double num(Object[] args, int index) {
+    if (index >= args.length) {
+      throw new IllegalArgumentException(
+          "if expression: a function was given too few arguments");
+    }
+    return asNumber(args[index]);
+  }
+
+  private static String str(Object[] args, int index) {
+    if (index >= args.length) {
+      throw new IllegalArgumentException(
+          "if expression: a function was given too few arguments");
+    }
+    if (args[index] instanceof java.util.List<?>) {
+      throw new IllegalArgumentException("if expression: a string function was given a list");
+    }
+    return text(args[index]);
   }
 
   /**

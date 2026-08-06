@@ -18,6 +18,7 @@
 - [Встроенные значения](./builtins.md#top)
 - [Каталог идентификаторов](./identifiers.md#top)
 - [Коды ошибок](./errors.md#top)
+- [Выражения](./expressions.md#top)
 
 ---
 

@@ -97,6 +97,7 @@
 - [Valores integrados](./reference/builtins.md#top)
 - [Catálogo de identificadores](./reference/identifiers.md#top)
 - [Códigos de error](./reference/errors.md#top)
+- [Expresiones](./reference/expressions.md#top)
 
 ## Bibliotecas por lenguaje
 

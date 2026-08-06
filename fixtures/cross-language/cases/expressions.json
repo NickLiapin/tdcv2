@@ -56,6 +56,47 @@
         "11:1",
         "12:2"
       ]
+    },
+    {
+      "name": "in-tests-membership-of-a-bare-word-list",
+      "description": "The alternative says the column name once per value and grows a term per country. Bare words inside the list stay bare, the way the rest of the language reads an unquoted word.",
+      "config": "<tdc><env count=\"5\" seed=\"ex\" local=\"en\" mode=\"memory\"><sequence name=\"C\"><gen type=\"text\" value=\"US,FR,CA,JP,MX\" order=\"sequential\"/></sequence><sequence name=\"R\"><gen if=\"C in [US, CA, MX]\" type=\"text\" value=\"NAFTA\"/><gen type=\"text\" value=\"other\"/></sequence></env><block><line><data>${{C}}=${{R}}</data></line></block></tdc>",
+      "expected": ["US=NAFTA", "FR=other", "CA=NAFTA", "JP=other", "MX=NAFTA"]
+    },
+    {
+      "name": "in-compares-as-loosely-as-equals-does",
+      "description": "The column is text and the list is numbers. `==` already bridges that, so `in` must not be stricter — the two would disagree about the same pair.",
+      "config": "<tdc><env count=\"3\" seed=\"ex\" local=\"en\" mode=\"memory\"><sequence name=\"N\"><gen type=\"text\" value=\"1,3,7\" order=\"sequential\"/></sequence><sequence name=\"R\"><gen if=\"N in [1, 2, 3]\" type=\"text\" value=\"in\"/><gen type=\"text\" value=\"out\"/></sequence></env><block><line><data>${{N}}=${{R}}</data></line></block></tdc>",
+      "expected": ["1=in", "3=in", "7=out"]
+    },
+    {
+      "name": "string-predicates-read-a-value-as-text",
+      "description": "starts_with, ends_with, contains and len over one column of surnames — the four an author reaches for before any arithmetic.",
+      "config": "<tdc><env count=\"4\" seed=\"ex\" local=\"en\" mode=\"memory\"><sequence name=\"N\"><gen type=\"text\" value=\"McDonald,OBrien,Li,Rodriguez\" order=\"sequential\"/></sequence><sequence name=\"R\"><gen if=\"starts_with(N, Mc)\" type=\"text\" value=\"prefix\"/><gen if=\"len(N) < 3\" type=\"text\" value=\"short\"/><gen if=\"contains(N, rig)\" type=\"text\" value=\"inside\"/><gen if=\"ends_with(N, ien)\" type=\"text\" value=\"suffix\"/><gen type=\"text\" value=\".\"/></sequence></env><block><line><data>${{N}}=${{R}}</data></line></block></tdc>",
+      "expected": [
+        "McDonald=prefix",
+        "OBrien=suffix",
+        "Li=short",
+        "Rodriguez=inside"
+      ]
+    },
+    {
+      "name": "len-counts-code-points-and-never-numbers",
+      "description": "Two decisions in one case. An emoji is ONE code point, not the two UTF-16 units JavaScript would report — Python's len() and Rust's chars().count() already agree, and Java and C# reach it with codePointCount. And \"10\" is two characters rather than the number ten, which is what keeps the string family separate from the numeric one.",
+      "config": "<tdc><env count=\"3\" seed=\"ex\" local=\"en\" mode=\"memory\"><sequence name=\"S\"><gen type=\"text\" value=\"ab,😀ab,10\" order=\"sequential\"/></sequence><sequence name=\"R\"><gen if=\"len(S) == 2\" type=\"text\" value=\"2\"/><gen if=\"len(S) == 3\" type=\"text\" value=\"3\"/><gen type=\"text\" value=\"?\"/></sequence></env><block><line><data>[${{S}}] len=${{R}}</data></line></block></tdc>",
+      "expected": ["[ab] len=2", "[😀ab] len=3", "[10] len=2"]
+    },
+    {
+      "name": "upper-lower-and-is-empty",
+      "description": "An empty column is falsy already; is_empty says so out loud, which a reader can see is deliberate rather than a forgotten condition.",
+      "config": "<tdc><env count=\"3\" seed=\"ex\" local=\"en\" mode=\"memory\"><sequence name=\"S\"><gen type=\"text\" value=\"aB,,CD\" order=\"sequential\"/></sequence><sequence name=\"R\"><gen if=\"is_empty(S)\" type=\"text\" value=\"empty\"/><gen if=\"upper(S) == AB\" type=\"text\" value=\"up-AB\"/><gen if=\"lower(S) == cd\" type=\"text\" value=\"low-cd\"/><gen type=\"text\" value=\"?\"/></sequence></env><block><line><data>[${{S}}]=${{R}}</data></line></block></tdc>",
+      "expected": ["[aB]=up-AB", "[]=empty", "[CD]=low-cd"]
+    },
+    {
+      "name": "the-ternary-picks-a-value-then-it-is-compared",
+      "description": "The ternary produces a VALUE, not a branch of the config — what surrounds it is an ordinary comparison.",
+      "config": "<tdc><env count=\"3\" seed=\"ex\" local=\"en\" mode=\"memory\"><sequence name=\"N\"><gen type=\"text\" value=\"10,50,90\" order=\"sequential\"/></sequence><sequence name=\"R\"><gen if=\"(N > 40 ? N : 0) > 60\" type=\"text\" value=\"high\"/><gen if=\"(N > 40 ? N : 0) > 0\" type=\"text\" value=\"mid\"/><gen type=\"text\" value=\"low\"/></sequence></env><block><line><data>${{N}}=${{R}}</data></line></block></tdc>",
+      "expected": ["10=low", "50=mid", "90=high"]
     }
   ]
 }

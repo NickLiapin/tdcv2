@@ -97,6 +97,7 @@
 - [Built-ins](./reference/builtins.md#top)
 - [Identifier catalog](./reference/identifiers.md#top)
 - [Error codes](./reference/errors.md#top)
+- [Expressions](./reference/expressions.md#top)
 
 ## Language Bindings
 

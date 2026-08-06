@@ -4,7 +4,7 @@
 
 📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/reference/errors)**
 
-← Anterior: [Catálogo de identificadores](./identifiers.md#top) · **[Contenido](../README.md#top)** · Siguiente: [TypeScript](../bindings/typescript.md#top) →
+← Anterior: [Catálogo de identificadores](./identifiers.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Expresiones](./expressions.md#top) →
 
 ---
 
@@ -294,6 +294,6 @@ se puede llevar a cabo.
 
 ---
 
-← Anterior: [Catálogo de identificadores](./identifiers.md#top) · **[Contenido](../README.md#top)** · Siguiente: [TypeScript](../bindings/typescript.md#top) →
+← Anterior: [Catálogo de identificadores](./identifiers.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Expresiones](./expressions.md#top) →
 
 📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/reference/errors)**

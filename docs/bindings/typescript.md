@@ -4,7 +4,7 @@
 
 📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/bindings/typescript)**
 
-← Previous: [Error codes](../reference/errors.md#top) · **[Contents](../README.md#top)** · Next: [Python](./python.md#top) →
+← Previous: [Expressions](../reference/expressions.md#top) · **[Contents](../README.md#top)** · Next: [Python](./python.md#top) →
 
 ---
 
@@ -182,6 +182,6 @@ time](../core-concepts/quick-api.md#top) is the whole surface.
 
 ---
 
-← Previous: [Error codes](../reference/errors.md#top) · **[Contents](../README.md#top)** · Next: [Python](./python.md#top) →
+← Previous: [Expressions](../reference/expressions.md#top) · **[Contents](../README.md#top)** · Next: [Python](./python.md#top) →
 
 📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/bindings/typescript)**

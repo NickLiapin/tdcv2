@@ -46,6 +46,9 @@ PRECEDENCE = {
     "*": 10,
     "/": 10,
     "%": 10,
+    # A word operator rather than a symbol; the tokenizer keeps it from swallowing
+    # a sequence called "index".
+    "in": 7,
 }
 
 # Longest first, so `<=` is never read as `<` followed by a stray `=`, and `&&` never as two `&`.
@@ -124,6 +127,22 @@ class Unary(Node):
 
 
 @dataclass(frozen=True, slots=True)
+class Array(Node):
+    """``[US, CA, MX]`` — only ever the right side of ``in``."""
+
+    items: tuple[Node, ...]
+
+
+@dataclass(frozen=True, slots=True)
+class Conditional(Node):
+    """``a ? b : c`` — picks a VALUE, which is then compared like any other."""
+
+    test: Node
+    consequent: Node
+    alternate: Node
+
+
+@dataclass(frozen=True, slots=True)
 class Call(Node):
     """``abs(x)`` — a call on a bare name, with its arguments already parsed."""
 
@@ -179,7 +198,7 @@ def parse(source: str) -> Node:
     if _paren_depth(source) > _MAX_EXPR_NESTING:
         raise ValueError(f"nests deeper than {_MAX_EXPR_NESTING} levels")
     parser = _Parser(source)
-    result = parser.expression(0)
+    result = parser.ternary(0)
     parser.skip_space()
     if not parser.done():
         raise ValueError(f'if expression: unexpected "{parser.rest()}" in "{source}"')
@@ -204,6 +223,24 @@ class _Parser:
     def skip_space(self) -> None:
         while self.pos < len(self.src) and text.is_space(self.src[self.pos]):
             self.pos += 1
+
+    def ternary(self, min_precedence: int) -> Node:
+        """``a ? b : c``, which binds looser than every binary operator.
+
+        Wrapping the binary loop rather than living inside it is what makes
+        ``x > 1 ? a : b`` read as ``(x > 1) ? a : b`` and not ``x > (1 ? a : b)``.
+        """
+        test = self.expression(min_precedence)
+        self.skip_space()
+        if self.done() or self.src[self.pos] != "?":
+            return test
+        self.pos += 1
+        consequent = self.ternary(0)
+        self.skip_space()
+        if self.done() or self.src[self.pos] != ":":
+            raise ValueError(f'if expression: a ? without its : in "{self.src}"')
+        self.pos += 1
+        return Conditional(test, consequent, self.ternary(0))
 
     def expression(self, min_precedence: int) -> Node:
         left = self._unary()
@@ -247,12 +284,33 @@ class _Parser:
 
         if c == "(":
             self.pos += 1
-            inner = self.expression(0)
+            inner = self.ternary(0)
             self.skip_space()
             if self.done() or self.src[self.pos] != ")":
                 raise ValueError(f'if expression: unbalanced parentheses in "{self.src}"')
             self.pos += 1
             return inner
+
+        if c == "[":
+            self.pos += 1
+            items: list[Node] = []
+            self.skip_space()
+            if not self.done() and self.src[self.pos] == "]":
+                self.pos += 1
+                return Array(())
+            while True:
+                items.append(self.ternary(0))
+                self.skip_space()
+                if self.done():
+                    raise ValueError(f'if expression: unbalanced brackets in "{self.src}"')
+                if self.src[self.pos] == ",":
+                    self.pos += 1
+                    continue
+                if self.src[self.pos] == "]":
+                    self.pos += 1
+                    break
+                raise ValueError(f'if expression: unbalanced brackets in "{self.src}"')
+            return Array(tuple(items))
 
         if c in ("'", '"'):
             return self._string(c)
@@ -273,7 +331,7 @@ class _Parser:
                     self.pos += 1
                 else:
                     while True:
-                        args.append(self.expression(0))
+                        args.append(self.ternary(0))
                         self.skip_space()
                         if self.done():
                             raise ValueError(
@@ -355,6 +413,17 @@ class _Parser:
         return self.src[start : self.pos]
 
     def _peek_operator(self) -> str | None:
+        # `in` is a WORD, so it only counts when what follows cannot continue an
+        # identifier — otherwise a sequence called "index" would be read as the
+        # operator followed by "dex".
+        if self.src.startswith("in", self.pos):
+            after = self.pos + 2
+            if after >= len(self.src) or not (
+                self.src[after].isalnum() or self.src[after] in ("_", "$")
+            ):
+                before = self.src[self.pos - 1] if self.pos > 0 else " "
+                if not (before.isalnum() or before in ("_", "$")):
+                    return "in"
         for op in _OPERATORS:
             if self.src.startswith(op, self.pos):
                 return op

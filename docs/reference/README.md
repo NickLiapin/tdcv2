@@ -18,6 +18,7 @@
 - [Built-ins](./builtins.md#top)
 - [Identifier catalog](./identifiers.md#top)
 - [Error codes](./errors.md#top)
+- [Expressions](./expressions.md#top)
 
 ---
 

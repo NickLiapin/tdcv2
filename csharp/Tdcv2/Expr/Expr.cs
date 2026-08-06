@@ -45,6 +45,12 @@ public abstract record Expr
     /// <summary><c>abs(x)</c> — a call on a bare name, with its arguments already parsed.</summary>
     public sealed record Call(string Callee, IReadOnlyList<Expr> Args) : Expr;
 
+    /// <summary><c>[US, CA, MX]</c> — only ever the right side of <c>in</c>.</summary>
+    public sealed record Arr(IReadOnlyList<Expr> Items) : Expr;
+
+    /// <summary><c>a ? b : c</c> — picks a VALUE, which is then compared like any other.</summary>
+    public sealed record Conditional(Expr Test, Expr Consequent, Expr Alternate) : Expr;
+
     /// <summary>
     /// <c>x[0]</c> — subscripting, which the evaluator does not implement.
     /// </summary>
@@ -79,6 +85,9 @@ public abstract record Expr
         ["*"] = 10,
         ["/"] = 10,
         ["%"] = 10,
+        // A word operator rather than a symbol; PeekOperator keeps it from
+        // swallowing a sequence called "index".
+        ["in"] = 7,
     };
 
     /// <summary>
@@ -141,7 +150,7 @@ public abstract record Expr
         }
 
         var parser = new Parser(source);
-        Expr result = parser.Expression(0);
+        Expr result = parser.Ternary(0);
         parser.SkipSpace();
         if (!parser.Done)
         {
@@ -181,6 +190,32 @@ public abstract record Expr
             {
                 _pos++;
             }
+        }
+
+        /// <summary><c>a ? b : c</c>, which binds looser than every binary operator.</summary>
+        /// <remarks>
+        /// Wrapping the binary loop rather than living inside it is what makes
+        /// <c>x > 1 ? a : b</c> read as <c>(x > 1) ? a : b</c>.
+        /// </remarks>
+        internal Expr Ternary(int minPrecedence)
+        {
+            Expr test = Expression(minPrecedence);
+            SkipSpace();
+            if (Done || _src[_pos] != '?')
+            {
+                return test;
+            }
+
+            _pos++;
+            Expr consequent = Ternary(0);
+            SkipSpace();
+            if (Done || _src[_pos] != ':')
+            {
+                throw new ArgumentException($"if expression: a ? without its : in \"{_src}\"");
+            }
+
+            _pos++;
+            return new Conditional(test, consequent, Ternary(0));
         }
 
         internal Expr Expression(int minPrecedence)
@@ -256,7 +291,7 @@ public abstract record Expr
             if (c == '(')
             {
                 _pos++;
-                Expr inner = Expression(0);
+                Expr inner = Ternary(0);
                 SkipSpace();
                 if (Done || _src[_pos] != ')')
                 {
@@ -266,6 +301,46 @@ public abstract record Expr
 
                 _pos++;
                 return inner;
+            }
+
+            if (c == '[')
+            {
+                _pos++;
+                List<Expr> items = new();
+                SkipSpace();
+                if (!Done && _src[_pos] == ']')
+                {
+                    _pos++;
+                    return new Arr(items);
+                }
+
+                while (true)
+                {
+                    items.Add(Ternary(0));
+                    SkipSpace();
+                    if (Done)
+                    {
+                        throw new ArgumentException(
+                            $"if expression: unbalanced brackets in \"{_src}\"");
+                    }
+
+                    if (_src[_pos] == ',')
+                    {
+                        _pos++;
+                        continue;
+                    }
+
+                    if (_src[_pos] == ']')
+                    {
+                        _pos++;
+                        break;
+                    }
+
+                    throw new ArgumentException(
+                        $"if expression: unbalanced brackets in \"{_src}\"");
+                }
+
+                return new Arr(items);
             }
 
             if (c == '\'' || c == '"')
@@ -297,7 +372,7 @@ public abstract record Expr
                     {
                         while (true)
                         {
-                            args.Add(Expression(0));
+                            args.Add(Ternary(0));
                             SkipSpace();
                             if (Done)
                             {
@@ -442,6 +517,20 @@ public abstract record Expr
 
         private string? PeekOperator()
         {
+            // `in` is a WORD, so it counts only when what surrounds it cannot continue an
+            // identifier — otherwise a sequence called "index" would be read as the operator
+            // followed by "dex".
+            if (_src.AsSpan(_pos).StartsWith("in".AsSpan(), StringComparison.Ordinal))
+            {
+                static bool IsWord(char c) => char.IsLetterOrDigit(c) || c == '_' || c == '$';
+                bool afterOk = _pos + 2 >= _src.Length || !IsWord(_src[_pos + 2]);
+                bool beforeOk = _pos == 0 || !IsWord(_src[_pos - 1]);
+                if (afterOk && beforeOk)
+                {
+                    return "in";
+                }
+            }
+
             foreach (string op in Operators)
             {
                 if (_src.AsSpan(_pos).StartsWith(op.AsSpan(), StringComparison.Ordinal))

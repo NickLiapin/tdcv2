@@ -40,7 +40,11 @@ public static class Evaluate
         Expr.Member m => MemberOf(m.Dotted, scope),
         Expr.Unary u => UnaryOp(u.Op, Eval(u.Operand, scope)),
         Expr.Binary b => BinaryOp(b.Op, Eval(b.Left, scope), Eval(b.Right, scope)),
-        Expr.Call c => CallFunction(c.Callee, c.Args.Select(a => AsNumber(Eval(a, scope))).ToArray()),
+        Expr.Call c => CallFunction(c.Callee, c.Args.Select(a => Eval(a, scope)).ToArray()),
+        Expr.Arr a => a.Items.Select(i => Eval(i, scope)).ToList(),
+        Expr.Conditional t => ToBoolean(Eval(t.Test, scope))
+            ? Eval(t.Consequent, scope)
+            : Eval(t.Alternate, scope),
         _ => throw new InvalidOperationException($"if expression: unhandled node {node}"),
     };
 
@@ -94,6 +98,11 @@ public static class Evaluate
         "*" => AsNumber(left) * AsNumber(right),
         "/" => AsNumber(left) / AsNumber(right),
         "%" => EuclideanRemainder(AsNumber(left), AsNumber(right)),
+        // As loose as `==`, deliberately: a text column against a list of numeric words has to
+        // match, or `in` and `==` would disagree about the same pair.
+        "in" => right is List<object?> items
+            ? items.Any(candidate => LooseEquals(left, candidate))
+            : LooseEquals(left, right),
         _ => throw new ArgumentException($"if expression: unsupported operator {op}"),
     };
 
@@ -126,23 +135,68 @@ public static class Evaluate
     /// <c>round</c> is written out rather than delegated: .NET rounds a half to even by default,
     /// JavaScript sends it toward +inf, Java rounds half up. TDC sends a half AWAY FROM ZERO.
     /// </summary>
-    private static double CallFunction(string name, double[] args)
+    private static object CallFunction(string name, object?[] args)
     {
         if (args.Length == 0)
         {
             throw new ArgumentException("if expression: a function needs at least one argument");
         }
 
-        double first = args[0];
+        // Each family coerces its own arguments. The string functions must NOT be numbered:
+        // len("10") is 2, and a caller that pre-numbered every argument could not tell the two
+        // families apart.
+        double Num(int i) => i < args.Length
+            ? AsNumber(args[i])
+            : throw new ArgumentException(
+                "if expression: a function was given too few arguments");
+        string Str(int i)
+        {
+            if (i >= args.Length)
+            {
+                throw new ArgumentException(
+                    "if expression: a function was given too few arguments");
+            }
+
+            if (args[i] is List<object?>)
+            {
+                throw new ArgumentException("if expression: a string function was given a list");
+            }
+
+            return Text(args[i]);
+        }
+
         switch (name)
         {
-            case "abs": return Math.Abs(first);
-            case "ceil": return Math.Ceiling(first);
-            case "floor": return Math.Floor(first);
-            case "trunc": return Math.Truncate(first);
-            case "round": return first < 0 ? -Math.Floor(-first + 0.5) : Math.Floor(first + 0.5);
-            case "max": return args.Aggregate(first, (a, b) => b > a ? b : a);
-            case "min": return args.Aggregate(first, (a, b) => b < a ? b : a);
+            case "abs": return Math.Abs(Num(0));
+            case "ceil": return Math.Ceiling(Num(0));
+            case "floor": return Math.Floor(Num(0));
+            case "trunc": return Math.Truncate(Num(0));
+            case "round":
+            {
+                double x = Num(0);
+                return x < 0 ? -Math.Floor(-x + 0.5) : Math.Floor(x + 0.5);
+            }
+            case "max": return args.Select(AsNumber).Aggregate((a, b) => b > a ? b : a);
+            case "min": return args.Select(AsNumber).Aggregate((a, b) => b < a ? b : a);
+            case "contains": return Str(0).Contains(Str(1), StringComparison.Ordinal);
+            case "ends_with": return Str(0).EndsWith(Str(1), StringComparison.Ordinal);
+            case "starts_with": return Str(0).StartsWith(Str(1), StringComparison.Ordinal);
+            case "is_empty": return Str(0).Length == 0;
+            // CODE POINTS, matching Python's len() and Rust's chars().count(); C#'s own
+            // .Length would count UTF-16 units and make an emoji 2.
+            case "len":
+            {
+                string s = Str(0);
+                int count = 0;
+                for (int i = 0; i < s.Length; i += char.IsSurrogatePair(s, i) ? 2 : 1)
+                {
+                    count++;
+                }
+
+                return (double)count;
+            }
+            case "lower": return Str(0).ToLowerInvariant();
+            case "upper": return Str(0).ToUpperInvariant();
             default:
                 throw new ArgumentException($"if expression: unknown function \"{name}\"");
         }

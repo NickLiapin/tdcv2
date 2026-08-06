@@ -3837,7 +3837,35 @@ impl Validator {
     /// gets.
     fn check_expr_node(&mut self, node: &expr::Expr, at: Pos) {
         match node {
+            expr::Expr::Array(items) => {
+                // Reached only when nothing marked it as an `in` right-hand
+                // side: the Binary arm checks its own right operand first.
+                self.error(
+                    "TDC259",
+                    "a [list] is only allowed on the right of \"in\"".to_string(),
+                    "Write Country in [US, CA, MX]. A list has no meaning on its own.",
+                    at,
+                );
+                for item in items {
+                    self.check_expr_node(item, at);
+                }
+            }
+            expr::Expr::Conditional(test, consequent, alternate) => {
+                self.check_expr_node(test, at);
+                self.check_expr_node(consequent, at);
+                self.check_expr_node(alternate, at);
+            }
             expr::Expr::Binary(op, left, right) => {
+                if op == "in" {
+                    if let expr::Expr::Array(items) = right.as_ref() {
+                        // The one place a list belongs: check its items, not it.
+                        self.check_expr_node(left, at);
+                        for item in items {
+                            self.check_expr_node(item, at);
+                        }
+                        return;
+                    }
+                }
                 if !tables::SUPPORTED_BINARY_OPERATORS.contains(&op.as_str()) {
                     self.error(
                         "TDC101",

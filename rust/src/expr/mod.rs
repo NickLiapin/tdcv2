@@ -30,6 +30,10 @@ pub enum Expr {
     Unary(String, Box<Expr>),
     /// `abs(x)` — a call on a bare name, with its arguments already parsed.
     Call(String, Vec<Expr>),
+    /// `[US, CA, MX]` — only ever the right side of `in`.
+    Array(Vec<Expr>),
+    /// `a ? b : c` — picks a VALUE, which is then compared like any other.
+    Conditional(Box<Expr>, Box<Expr>, Box<Expr>),
     /// `x[0]` — subscripting, which the evaluator does not implement.
     ///
     /// Parsed rather than rejected so the complaint can name what is
@@ -58,6 +62,9 @@ fn precedence(op: &str) -> Option<u8> {
         "<<" | ">>" | ">>>" => 8,
         "+" | "-" => 9,
         "*" | "/" | "%" => 10,
+        // A word operator rather than a symbol; `peek_operator` keeps it from
+        // swallowing a sequence called "index".
+        "in" => 7,
         _ => return None,
     })
 }
@@ -115,7 +122,7 @@ pub fn parse(source: &str) -> EngineResult<Expr> {
         raw: source,
         pos: 0,
     };
-    let result = parser.expression(0)?;
+    let result = parser.ternary(0)?;
     parser.skip_space();
     if !parser.done() {
         return invalid(&format!(
@@ -156,6 +163,34 @@ impl Parser<'_> {
         word.chars()
             .enumerate()
             .all(|(i, c)| self.src.get(self.pos + i) == Some(&c))
+    }
+
+    /// `a ? b : c`, which binds looser than every binary operator.
+    ///
+    /// Wrapping the binary loop rather than living inside it is what makes
+    /// `x > 1 ? a : b` read as `(x > 1) ? a : b` and not `x > (1 ? a : b)`.
+    fn ternary(&mut self, min_precedence: u8) -> EngineResult<Expr> {
+        let test = self.expression(min_precedence)?;
+        self.skip_space();
+        if self.peek() != Some('?') {
+            return Ok(test);
+        }
+        self.pos += 1;
+        let consequent = self.ternary(0)?;
+        self.skip_space();
+        if self.peek() != Some(':') {
+            return invalid(&format!(
+                "if expression: a ? without its : in \"{}\"",
+                self.raw
+            ));
+        }
+        self.pos += 1;
+        let alternate = self.ternary(0)?;
+        Ok(Expr::Conditional(
+            Box::new(test),
+            Box::new(consequent),
+            Box::new(alternate),
+        ))
     }
 
     fn expression(&mut self, min_precedence: u8) -> EngineResult<Expr> {
@@ -213,7 +248,7 @@ impl Parser<'_> {
 
         if c == '(' {
             self.pos += 1;
-            let inner = self.expression(0)?;
+            let inner = self.ternary(0)?;
             self.skip_space();
             if self.peek() != Some(')') {
                 return invalid(&format!(
@@ -223,6 +258,36 @@ impl Parser<'_> {
             }
             self.pos += 1;
             return Ok(inner);
+        }
+
+        if c == '[' {
+            self.pos += 1;
+            let mut items: Vec<Expr> = Vec::new();
+            self.skip_space();
+            if self.peek() == Some(']') {
+                self.pos += 1;
+                return Ok(Expr::Array(items));
+            }
+            loop {
+                items.push(self.ternary(0)?);
+                self.skip_space();
+                match self.peek() {
+                    Some(',') => {
+                        self.pos += 1;
+                    }
+                    Some(']') => {
+                        self.pos += 1;
+                        break;
+                    }
+                    _ => {
+                        return invalid(&format!(
+                            "if expression: unbalanced brackets in \"{}\"",
+                            self.raw
+                        ));
+                    }
+                }
+            }
+            return Ok(Expr::Array(items));
         }
 
         if c == '\'' || c == '"' {
@@ -249,7 +314,7 @@ impl Parser<'_> {
                         self.pos += 1;
                     } else {
                         loop {
-                            args.push(self.expression(0)?);
+                            args.push(self.ternary(0)?);
                             self.skip_space();
                             match self.peek() {
                                 Some(',') => {
@@ -373,6 +438,19 @@ impl Parser<'_> {
     }
 
     fn peek_operator(&self) -> Option<&'static str> {
+        // `in` is a WORD, so it counts only when what surrounds it cannot
+        // continue an identifier — otherwise a sequence called "index" would be
+        // read as the operator followed by "dex".
+        if self.starts_with("in") {
+            let is_word = |c: Option<&char>| {
+                c.is_some_and(|ch| ch.is_alphanumeric() || *ch == '_' || *ch == '$')
+            };
+            let after_ok = !is_word(self.src.get(self.pos + 2));
+            let before_ok = self.pos == 0 || !is_word(self.src.get(self.pos - 1));
+            if after_ok && before_ok {
+                return Some("in");
+            }
+        }
         OPERATORS.into_iter().find(|op| self.starts_with(op))
     }
 }

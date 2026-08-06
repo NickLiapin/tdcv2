@@ -30,6 +30,8 @@ enum V {
     Num(f64),
     Str(String),
     Bool(bool),
+    /// Only ever produced by an array literal, and only ever consumed by `in`.
+    Lst(Vec<V>),
 }
 
 pub fn as_condition(source: &str, scope: &dyn Scope) -> EngineResult<bool> {
@@ -60,9 +62,24 @@ fn eval(node: &Expr, scope: &dyn Scope) -> EngineResult<V> {
         Expr::Call(name, args) => {
             let mut values = Vec::with_capacity(args.len());
             for arg in args {
-                values.push(as_number(&eval(arg, scope)?));
+                values.push(eval(arg, scope)?);
             }
-            V::Num(call_function(name, &values)?)
+            call_function(name, &values)?
+        }
+        Expr::Array(items) => {
+            let mut values = Vec::with_capacity(items.len());
+            for item in items {
+                values.push(eval(item, scope)?);
+            }
+            V::Lst(values)
+        }
+        Expr::Conditional(test, consequent, alternate) => {
+            let branch = if to_boolean(&eval(test, scope)?) {
+                consequent
+            } else {
+                alternate
+            };
+            eval(branch, scope)?
         }
         Expr::Computed(_) => {
             return invalid("if expression: computed member access x[i] is not supported")
@@ -95,27 +112,53 @@ fn euclidean_remainder(a: f64, b: f64) -> EngineResult<f64> {
 /// sends a half away from zero, but JavaScript sends it toward +inf and Python
 /// to even, so the rule is stated here in every implementation rather than
 /// inherited from whichever host happens to agree.
-fn call_function(name: &str, args: &[f64]) -> EngineResult<f64> {
-    let first = || -> EngineResult<f64> {
-        args.first()
-            .copied()
-            .map_or_else(|| invalid("if expression: a function needs at least one argument"), Ok)
+fn call_function(name: &str, args: &[V]) -> EngineResult<V> {
+    // Each family coerces its own arguments. The string functions must NOT be
+    // numbered: `len("10")` is 2, and a caller that pre-numbered every argument
+    // could not tell the two families apart.
+    let num = |i: usize| -> EngineResult<f64> {
+        args.get(i)
+            .map_or_else(|| invalid("if expression: a function was given too few arguments"), |v| Ok(as_number(v)))
+    };
+    let text = |i: usize| -> EngineResult<String> {
+        match args.get(i) {
+            None => invalid("if expression: a function was given too few arguments"),
+            Some(V::Lst(_)) => invalid("if expression: a string function was given a list"),
+            Some(v) => Ok(text(v)),
+        }
     };
     Ok(match name {
-        "abs" => first()?.abs(),
-        "ceil" => first()?.ceil(),
-        "floor" => first()?.floor(),
-        "trunc" => first()?.trunc(),
+        "abs" => V::Num(num(0)?.abs()),
+        "ceil" => V::Num(num(0)?.ceil()),
+        "floor" => V::Num(num(0)?.floor()),
+        "trunc" => V::Num(num(0)?.trunc()),
         "round" => {
-            let x = first()?;
-            if x < 0.0 {
-                -(-x + 0.5).floor()
-            } else {
-                (x + 0.5).floor()
-            }
+            let x = num(0)?;
+            V::Num(if x < 0.0 { -(-x + 0.5).floor() } else { (x + 0.5).floor() })
         }
-        "max" => args.iter().skip(1).fold(first()?, |a, &b| if b > a { b } else { a }),
-        "min" => args.iter().skip(1).fold(first()?, |a, &b| if b < a { b } else { a }),
+        "max" | "min" => {
+            if args.is_empty() {
+                return invalid("if expression: a function needs at least one argument");
+            }
+            let wants_max = name == "max";
+            let mut best = as_number(&args[0]);
+            for v in args.iter().skip(1) {
+                let n = as_number(v);
+                if (wants_max && n > best) || (!wants_max && n < best) {
+                    best = n;
+                }
+            }
+            V::Num(best)
+        }
+        "contains" => V::Bool(text(0)?.contains(&text(1)?)),
+        "ends_with" => V::Bool(text(0)?.ends_with(&text(1)?)),
+        "starts_with" => V::Bool(text(0)?.starts_with(&text(1)?)),
+        "is_empty" => V::Bool(text(0)?.is_empty()),
+        // CODE POINTS, matching Python's len() over str and the reference's
+        // spread; Java and C# reach the same count with codePointCount.
+        "len" => V::Num(text(0)?.chars().count() as f64),
+        "lower" => V::Str(text(0)?.to_lowercase()),
+        "upper" => V::Str(text(0)?.to_uppercase()),
         _ => return invalid(&format!("if expression: unknown function \"{name}\"")),
     })
 }
@@ -172,6 +215,12 @@ fn binary_op(op: &str, left: &V, right: &V) -> EngineResult<V> {
         "*" => V::Num(as_number(left) * as_number(right)),
         "/" => V::Num(as_number(left) / as_number(right)),
         "%" => V::Num(euclidean_remainder(as_number(left), as_number(right))?),
+        // As loose as `==`, deliberately: a text column against a list of numeric
+        // words has to match, or `in` and `==` would disagree about the same pair.
+        "in" => V::Bool(match right {
+            V::Lst(items) => items.iter().any(|candidate| loose_equals(left, candidate)),
+            other => loose_equals(left, other),
+        }),
         other => {
             return invalid(&format!("if expression: unsupported operator {other}"));
         }
@@ -229,6 +278,10 @@ fn to_boolean(v: &V) -> bool {
         V::Str(s) => !s.is_empty() && s != "false",
         V::Bool(b) => *b,
         V::Num(d) => *d != 0.0 && !d.is_nan(),
+        // A list reaches here only if it stood where a condition belongs, which
+        // TDC259 refuses before the run. An empty one is false, like an empty
+        // string.
+        V::Lst(items) => !items.is_empty(),
     }
 }
 
@@ -244,6 +297,7 @@ fn as_number(v: &V) -> f64 {
             }
         }
         V::Null => f64::NAN,
+        V::Lst(_) => f64::NAN,
     }
 }
 
@@ -274,5 +328,6 @@ fn text(v: &V) -> String {
         V::Num(d) => numbers::to_text(*d),
         V::Bool(b) => if *b { "true" } else { "false" }.to_string(),
         V::Str(s) => s.clone(),
+        V::Lst(items) => items.iter().map(text).collect::<Vec<_>>().join(","),
     }
 }

@@ -77,6 +77,13 @@
       "description": "Arity is checked by the validator, so a wrong call is a diagnostic with a position rather than a failure part-way through a run.",
       "config": "<tdc><env count=\"2\" seed=\"s\" local=\"en\"><sequence name=\"N\"><gen type=\"text\" value=\"5\"/></sequence><sequence name=\"R\"><gen if=\"abs(N, 2) > 1\" type=\"text\" value=\"Y\"/><gen type=\"text\" value=\"N\"/></sequence></env><block><line><data>${{R}}</data></line></block></tdc>",
       "expected": ["error TDC258 1:126"]
+    },
+    {
+      "name": "a-list-standing-on-its-own",
+      "demonstrates": "TDC259",
+      "description": "A list is a set of values to test against, so it means something only to the right of `in`. On its own there is no value for the condition to be.",
+      "config": "<tdc><env count=\"2\" seed=\"s\" local=\"en\"><sequence name=\"N\"><gen type=\"text\" value=\"5\"/></sequence><sequence name=\"R\"><gen if=\"[1, 2]\" type=\"text\" value=\"Y\"/><gen type=\"text\" value=\"N\"/></sequence></env><block><line><data>${{R}}</data></line></block></tdc>",
+      "expected": ["error TDC259 1:126"]
     }
   ]
 }

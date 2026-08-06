@@ -27,7 +27,7 @@ from ..date.plain import Precision
 from ..distribution import percent_mask
 from ..errors import Diagnostic
 from ..expr import parse as expr_parse
-from ..expr.parse import Binary, Call, Computed, Member, Name, Unary
+from ..expr.parse import Array, Binary, Call, Computed, Conditional, Member, Name, Unary
 from ..format import mask as mask_lib
 from ..format import mask as mask_mod
 from ..format import transforms
@@ -110,6 +110,8 @@ SUPPORTED_BINARY = (
     "/",
     # Euclidean, matching <mod>: -3 % 2 is 1 here and -1 in JavaScript, Java, C# and Rust.
     "%",
+    # Set membership: `Country in [US, CA, MX]`.
+    "in",
 )
 
 # What an if= may call, and how many arguments each takes; None as the upper bound means
@@ -118,11 +120,18 @@ SUPPORTED_BINARY = (
 EXPR_FUNCTIONS: dict[str, tuple[int, int | None]] = {
     "abs": (1, 1),
     "ceil": (1, 1),
+    "contains": (2, 2),
+    "ends_with": (2, 2),
     "floor": (1, 1),
+    "is_empty": (1, 1),
+    "len": (1, 1),
+    "lower": (1, 1),
     "max": (1, None),
     "min": (1, None),
     "round": (1, 1),
+    "starts_with": (2, 2),
     "trunc": (1, 1),
+    "upper": (1, 1),
 }
 EXPR_FUNCTION_NAMES = tuple(sorted(EXPR_FUNCTIONS))
 
@@ -3658,7 +3667,31 @@ class _Validator:
         A parser that is more permissive than the evaluator is a trap: the config is accepted, and
         the operator it asked for is quietly not the operator it gets.
         """
+        if isinstance(node, Array):
+            # Reached only when nothing marked it as an `in` right-hand side: the
+            # Binary branch below checks its own right operand before recursing.
+            self._error(
+                "TDC259",
+                'a [list] is only allowed on the right of "in"',
+                "Write Country in [US, CA, MX]. A list has no meaning on its own.",
+                line,
+                column,
+            )
+            for item in node.items:
+                self._check_expr_node(item, line, column)
+            return
+        if isinstance(node, Conditional):
+            self._check_expr_node(node.test, line, column)
+            self._check_expr_node(node.consequent, line, column)
+            self._check_expr_node(node.alternate, line, column)
+            return
         if isinstance(node, Binary):
+            if node.op == "in" and isinstance(node.right, Array):
+                # The one place a list belongs; check its items, not the list itself.
+                self._check_expr_node(node.left, line, column)
+                for item in node.right.items:
+                    self._check_expr_node(item, line, column)
+                return
             if node.op not in SUPPORTED_BINARY:
                 self._error(
                     "TDC101",

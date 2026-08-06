@@ -18,6 +18,7 @@
 - [Valores integrados](./builtins.md#top)
 - [Catálogo de identificadores](./identifiers.md#top)
 - [Códigos de error](./errors.md#top)
+- [Expresiones](./expressions.md#top)
 
 ---
 

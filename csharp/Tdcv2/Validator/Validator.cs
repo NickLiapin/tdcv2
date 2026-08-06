@@ -194,6 +194,8 @@ public sealed class Validator
             "==", "!=", "===", "!==", "<", ">", "<=", ">=", "&&", "||", "+", "-", "*", "/",
             // Euclidean, matching <mod>: -3 % 2 is 1 here and -1 in C#'s own %.
             "%",
+            // Set membership: `Country in [US, CA, MX]`.
+            "in",
         };
 
     /// <summary>
@@ -206,12 +208,18 @@ public sealed class Validator
     private static readonly IReadOnlyList<(string Name, int Low, int High)> ExprFunctions =
         new[]
         {
-            ("abs", 1, 1), ("ceil", 1, 1), ("floor", 1, 1), ("max", 1, int.MaxValue),
-            ("min", 1, int.MaxValue), ("round", 1, 1), ("trunc", 1, 1),
+            ("abs", 1, 1), ("ceil", 1, 1), ("contains", 2, 2), ("ends_with", 2, 2),
+            ("floor", 1, 1), ("is_empty", 1, 1), ("len", 1, 1), ("lower", 1, 1),
+            ("max", 1, int.MaxValue), ("min", 1, int.MaxValue), ("round", 1, 1),
+            ("starts_with", 2, 2), ("trunc", 1, 1), ("upper", 1, 1),
         };
 
     private static readonly IReadOnlyList<string> ExprFunctionNames =
-        new[] { "abs", "ceil", "floor", "max", "min", "round", "trunc" };
+        new[]
+        {
+            "abs", "ceil", "contains", "ends_with", "floor", "is_empty", "len", "lower", "max",
+            "min", "round", "starts_with", "trunc", "upper",
+        };
 
     /// <summary>
     /// Not available, and not typos either. Someone writing <c>cos(_count)</c> knows what they
@@ -4769,7 +4777,39 @@ public sealed class Validator
     {
         switch (node)
         {
+            case Expr.Expr.Arr array:
+                // Reached only when nothing marked it as an `in` right-hand side: the Binary
+                // arm checks its own right operand before recursing.
+                Error(
+                    "TDC259", "a [list] is only allowed on the right of \"in\"",
+                    "Write Country in [US, CA, MX]. A list has no meaning on its own.",
+                    line, column);
+                foreach (Expr.Expr item in array.Items)
+                {
+                    CheckExprNode(item, line, column);
+                }
+
+                return;
+
+            case Expr.Expr.Conditional ternary:
+                CheckExprNode(ternary.Test, line, column);
+                CheckExprNode(ternary.Consequent, line, column);
+                CheckExprNode(ternary.Alternate, line, column);
+                return;
+
             case Expr.Expr.Binary binary:
+                if (binary.Op == "in" && binary.Right is Expr.Expr.Arr members)
+                {
+                    // The one place a list belongs: check its items, not the list.
+                    CheckExprNode(binary.Left, line, column);
+                    foreach (Expr.Expr item in members.Items)
+                    {
+                        CheckExprNode(item, line, column);
+                    }
+
+                    return;
+                }
+
                 if (!SupportedBinaryOperators.Contains(binary.Op))
                 {
                     Error(

@@ -97,6 +97,7 @@
 - [Встроенные значения](./reference/builtins.md#top)
 - [Каталог идентификаторов](./reference/identifiers.md#top)
 - [Коды ошибок](./reference/errors.md#top)
+- [Выражения](./reference/expressions.md#top)
 
 ## Библиотеки для языков
 

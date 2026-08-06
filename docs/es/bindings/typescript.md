@@ -4,7 +4,7 @@
 
 📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/bindings/typescript)**
 
-← Anterior: [Códigos de error](../reference/errors.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Python](./python.md#top) →
+← Anterior: [Expresiones](../reference/expressions.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Python](./python.md#top) →
 
 ---
 
@@ -182,6 +182,6 @@ superficie está en [Un valor a la vez](../core-concepts/quick-api.md#top).
 
 ---
 
-← Anterior: [Códigos de error](../reference/errors.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Python](./python.md#top) →
+← Anterior: [Expresiones](../reference/expressions.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Python](./python.md#top) →
 
 📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/bindings/typescript)**

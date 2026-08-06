@@ -12,7 +12,22 @@ import math
 from collections.abc import Callable
 
 from ..lib import numbers
-from .parse import Binary, Bool, Call, Computed, Member, Name, Node, Null, Num, Str, Unary, parse
+from .parse import (
+    Array,
+    Binary,
+    Bool,
+    Call,
+    Computed,
+    Conditional,
+    Member,
+    Name,
+    Node,
+    Null,
+    Num,
+    Str,
+    Unary,
+    parse,
+)
 
 _CACHE: dict[str, Node] = {}
 
@@ -51,7 +66,12 @@ def _eval(node: Node, has: Callable[[str], bool], value: Callable[[str], str]):
         fn = _FUNCTIONS.get(node.name)
         if fn is None:
             raise ValueError(f'if expression: unknown function "{node.name}"')
-        return fn([as_number(_eval(a, has, value)) for a in node.args])
+        return fn([_eval(a, has, value) for a in node.args])
+    if isinstance(node, Array):
+        return [_eval(item, has, value) for item in node.items]
+    if isinstance(node, Conditional):
+        branch = node.consequent if to_boolean(_eval(node.test, has, value)) else node.alternate
+        return _eval(branch, has, value)
     if isinstance(node, Computed):
         raise ValueError("computed member access is not supported in if expressions")
     raise ValueError(f"if expression: unhandled node {node}")
@@ -67,22 +87,55 @@ def _round_half_away_from_zero(x: float) -> float:
     return -math.floor(-x + 0.5) if x < 0 else math.floor(x + 0.5)
 
 
-def _first(args: list[float]) -> float:
+def _nonempty(args: list) -> list:
     if not args:
         raise ValueError("if expression: a function needs at least one argument")
-    return args[0]
+    return args
+
+
+def _at(args: list, index: int):
+    if index >= len(args):
+        raise ValueError("if expression: a function was given too few arguments")
+    return args[index]
+
+
+def _num(args: list, index: int) -> float:
+    return as_number(_at(args, index))
+
+
+def _arg_text(args: list, index: int) -> str:
+    """An argument as text. A list never reaches here — only ``in`` produces one."""
+    value = _at(args, index)
+    if value is None:
+        return ""
+    if isinstance(value, list):
+        raise ValueError("if expression: a string function was given a list")
+    return _text(value)
 
 
 # Exact by construction: comparisons and the arithmetic IEEE-754 pins down, so the five
 # implementations cannot disagree. Transcendental functions are absent for exactly that reason.
-_FUNCTIONS: dict[str, Callable[[list[float]], float]] = {
-    "abs": lambda a: abs(_first(a)),
-    "ceil": lambda a: float(math.ceil(_first(a))),
-    "floor": lambda a: float(math.floor(_first(a))),
-    "max": lambda a: max(a) if a else _first(a),
-    "min": lambda a: min(a) if a else _first(a),
-    "round": lambda a: _round_half_away_from_zero(_first(a)),
-    "trunc": lambda a: float(math.trunc(_first(a))),
+_FUNCTIONS: dict[str, Callable[[list], object]] = {
+    # Numbers. Each coerces its own arguments rather than the registry doing it for
+    # everyone, because the string family must NOT be coerced: len("10") is 2, and a
+    # registry that pre-numbered every argument could not tell the two apart.
+    "abs": lambda a: abs(_num(a, 0)),
+    "ceil": lambda a: float(math.ceil(_num(a, 0))),
+    "floor": lambda a: float(math.floor(_num(a, 0))),
+    "max": lambda a: max(as_number(v) for v in _nonempty(a)),
+    "min": lambda a: min(as_number(v) for v in _nonempty(a)),
+    "round": lambda a: _round_half_away_from_zero(_num(a, 0)),
+    "trunc": lambda a: float(math.trunc(_num(a, 0))),
+    # Strings. None of these touches floating point, so all five agree for free.
+    "contains": lambda a: _arg_text(a, 1) in _arg_text(a, 0),
+    "ends_with": lambda a: _arg_text(a, 0).endswith(_arg_text(a, 1)),
+    "is_empty": lambda a: len(_arg_text(a, 0)) == 0,
+    # len counts CODE POINTS, which is what Python's len() over str already does and
+    # what Rust's chars().count() gives; Java and C# reach it with codePointCount.
+    "len": lambda a: float(len(_arg_text(a, 0))),
+    "lower": lambda a: _arg_text(a, 0).lower(),
+    "starts_with": lambda a: _arg_text(a, 0).startswith(_arg_text(a, 1)),
+    "upper": lambda a: _arg_text(a, 0).upper(),
 }
 
 
@@ -145,6 +198,12 @@ def _binary(op: str, left, right):
         return _divide(as_number(left), as_number(right))
     if op == "%":
         return _remainder(as_number(left), as_number(right))
+    if op == "in":
+        # As loose as `==`, deliberately: a text column against a list of numeric
+        # words has to match, or `in` and `==` would disagree about the same pair.
+        if isinstance(right, list):
+            return any(_loose_equals(left, candidate) for candidate in right)
+        return _loose_equals(left, right)
     raise ValueError(f"if expression: unsupported operator {op}")
 
 

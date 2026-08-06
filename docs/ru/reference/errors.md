@@ -4,7 +4,7 @@
 
 📖 **[Открыть на сайте документации →](https://nickliapin.github.io/tdcv2/ru/docs/reference/errors)**
 
-← Назад: [Каталог идентификаторов](./identifiers.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [TypeScript](../bindings/typescript.md#top) →
+← Назад: [Каталог идентификаторов](./identifiers.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Выражения](./expressions.md#top) →
 
 ---
 
@@ -292,6 +292,6 @@ note: Declare it in <env>, or set a different inject= pattern if you really want
 
 ---
 
-← Назад: [Каталог идентификаторов](./identifiers.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [TypeScript](../bindings/typescript.md#top) →
+← Назад: [Каталог идентификаторов](./identifiers.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Выражения](./expressions.md#top) →
 
 📖 **[Открыть на сайте документации →](https://nickliapin.github.io/tdcv2/ru/docs/reference/errors)**
