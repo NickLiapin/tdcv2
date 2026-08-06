@@ -6,6 +6,9 @@
 //! counts as false**. Without that, `if="!_last"` would be true on every row,
 //! because the string "false" is a non-empty string.
 
+use std::borrow::Cow;
+use std::cmp::Ordering;
+
 use super::Expr;
 use crate::engine::{invalid, EngineResult};
 use crate::numbers;
@@ -154,12 +157,18 @@ fn call_function(name: &str, args: &[V]) -> EngineResult<V> {
             V::Num(if x < 0.0 { -(-x + 0.5).floor() } else { (x + 0.5).floor() })
         }
         "max" | "min" => {
-            if args.is_empty() {
+            // One list argument spread out, or the arguments themselves — so
+            // max(split(Prices, ",")) and max(1, 9, 4) both work.
+            let spread: &[V] = match args {
+                [V::Lst(items)] => items,
+                other => other,
+            };
+            if spread.is_empty() {
                 return invalid("if expression: a function needs at least one argument");
             }
             let wants_max = name == "max";
-            let mut best = as_number(&args[0]);
-            for v in args.iter().skip(1) {
+            let mut best = as_number(&spread[0]);
+            for v in spread.iter().skip(1) {
                 let n = as_number(v);
                 if (wants_max && n > best) || (!wants_max && n < best) {
                     best = n;
@@ -176,6 +185,28 @@ fn call_function(name: &str, args: &[V]) -> EngineResult<V> {
         "len" => V::Num(text(0)?.chars().count() as f64),
         "lower" => V::Str(text(0)?.to_lowercase()),
         "upper" => V::Str(text(0)?.to_uppercase()),
+        // Lists inside one row. A sequence with repeat= puts several values in
+        // one field, and an expression sees the JOINED text because that is what
+        // the field holds — so `split` is the bridge and everything else works
+        // on lists. No grammar changed: the list value already existed, made by
+        // an array literal and consumed by `in`.
+        "split" => V::Lst(split_text(&text(0)?, &text(1)?)),
+        "join" => {
+            let separator = text(1)?;
+            let parts: Vec<String> = list_of(args, 0).iter().map(self::text).collect();
+            V::Str(parts.join(&separator))
+        }
+        // How many. `len` is the STRING length and would answer about the separators.
+        "count" => V::Num(list_of(args, 0).len() as f64),
+        "at" => {
+            let items = list_value(args, 0)?;
+            let index = index_value(args, 1)?;
+            items.get(index).cloned().unwrap_or_else(|| V::Str(String::new()))
+        }
+        "sum" => sum_of(&list_of(args, 0))?,
+        "mean" => V::Num(mean_of(&list_of(args, 0))),
+        "median" => V::Num(median_of(&list_of(args, 0))),
+        "stddev" => V::Num(stddev_of(&list_of(args, 0))),
         "zeta" => V::Num(crate::math::zeta(num(0)?)),
         // Transcendentals, computed by TDC rather than by Rust — see math/mod.rs.
         // Adding one here means adding it to TdcMath in all five, not calling
@@ -214,6 +245,128 @@ fn call_function(name: &str, args: &[V]) -> EngineResult<V> {
         "tan" => V::Num(crate::math::tan(num(0)?)),
         _ => return invalid(&format!("if expression: unknown function \"{name}\"")),
     })
+}
+
+/// Text to a list. An empty subject gives an empty list, not a list of one blank.
+fn split_text(subject: &str, separator: &str) -> Vec<V> {
+    if subject.is_empty() {
+        return Vec::new();
+    }
+    if separator.is_empty() {
+        // CODE POINTS, the same unit `len` counts, so split(s, "") and len(s)
+        // never disagree about how many characters a string has.
+        return subject.chars().map(|c| V::Str(c.to_string())).collect();
+    }
+    subject.split(separator).map(|p| V::Str(p.to_string())).collect()
+}
+
+/// An argument as a list.
+///
+/// A bare value counts as a list of one, so `sum(Price)` on a single number is
+/// an answer rather than an error — the alternative is a rule a caller has to
+/// remember before every call.
+fn list_of(args: &[V], index: usize) -> Cow<'_, [V]> {
+    match args.get(index) {
+        Some(V::Lst(items)) => Cow::Borrowed(items),
+        Some(V::Null) | None => Cow::Owned(Vec::new()),
+        Some(v) => Cow::Owned(vec![v.clone()]),
+    }
+}
+
+/// `at`'s subject, which has to be a real list.
+///
+/// `list_of` above reads a bare value as a list of one, which is right for
+/// `sum(Price)` and wrong here: a `repeat` list arrives as the JOINED text, so
+/// `at(Items, 1)` — the shape everybody writes first — used to ask for the
+/// second element of a one-element list and get the same empty string a
+/// legitimately short row gives. Naming the mistake is the point.
+fn list_value(args: &[V], index: usize) -> EngineResult<&[V]> {
+    match args.get(index) {
+        Some(V::Lst(items)) => Ok(items),
+        None => invalid("if expression: a function was given too few arguments"),
+        Some(v) => invalid(&format!(
+            "at() needs a list, and {} is a single value — split it first, \
+             as in at(split(Items, \",\"), 1)",
+            show(v)
+        )),
+    }
+}
+
+/// An index: a whole number, zero or more. Anything else is a mistake, not a shape.
+fn index_value(args: &[V], index: usize) -> EngineResult<usize> {
+    let Some(raw) = args.get(index) else {
+        return invalid("if expression: a function was given too few arguments");
+    };
+    let n = as_number(raw);
+    if !n.is_finite() || n.fract() != 0.0 || n < 0.0 {
+        return invalid(&format!(
+            "at() index must be a whole number of zero or more, not {}",
+            show(raw)
+        ));
+    }
+    Ok(n as usize)
+}
+
+/// A value as it should read inside a message: text quoted, everything else plain.
+fn show(v: &V) -> String {
+    match v {
+        V::Str(s) => format!("\"{s}\""),
+        V::Lst(_) => "a list".to_string(),
+        V::Null => "nothing".to_string(),
+        other => text(other),
+    }
+}
+
+/// The total. Whole while every element is whole, so a column of ids stays exact.
+fn sum_of(items: &[V]) -> EngineResult<V> {
+    let whole: Option<Vec<i64>> = items.iter().map(as_exact_int).collect();
+    if let Some(parts) = whole {
+        if !parts.is_empty() {
+            let wide: i128 = parts.iter().map(|&n| i128::from(n)).sum();
+            let narrow = parts.iter().try_fold(0i64, |acc, &n| acc.checked_add(n));
+            return Ok(V::Int(checked_int(narrow, wide)?));
+        }
+    }
+    Ok(V::Num(items.iter().map(as_number).sum()))
+}
+
+/// The average. Always a double: a mean is a ratio, and ratios are not whole.
+fn mean_of(items: &[V]) -> f64 {
+    if items.is_empty() {
+        return f64::NAN;
+    }
+    items.iter().map(as_number).sum::<f64>() / items.len() as f64
+}
+
+/// The middle value; with an even count, the average of the two middle ones.
+fn median_of(items: &[V]) -> f64 {
+    if items.is_empty() {
+        return f64::NAN;
+    }
+    let mut sorted: Vec<f64> = items.iter().map(as_number).collect();
+    sorted.sort_by(|a, b| a.partial_cmp(b).unwrap_or(Ordering::Equal));
+    let half = sorted.len() / 2;
+    if sorted.len() % 2 == 1 {
+        sorted[half]
+    } else {
+        (sorted[half - 1] + sorted[half]) / 2.0
+    }
+}
+
+/// The POPULATION standard deviation — divided by n, not by n-1.
+///
+/// A generated list is the whole of what it describes, not a sample drawn from
+/// something larger, so n is the honest divisor. Stated because the two differ
+/// and neither is the obvious default.
+fn stddev_of(items: &[V]) -> f64 {
+    if items.is_empty() {
+        return f64::NAN;
+    }
+    let values: Vec<f64> = items.iter().map(as_number).collect();
+    let average = values.iter().sum::<f64>() / values.len() as f64;
+    let variance =
+        values.iter().map(|v| (v - average) * (v - average)).sum::<f64>() / values.len() as f64;
+    crate::math::sqrt(variance)
 }
 
 /// `A.B` is read three ways, in order: a compound field named "A.B"; else, when

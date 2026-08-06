@@ -322,7 +322,7 @@ pub const SUPPORTED_UNARY_OPERATORS: [&str; 3] = ["!", "-", "+"];
 /// down. The transcendental ones are computed by TDC itself (`crate::math`)
 /// rather than by the host libm, which is what keeps five implementations on
 /// one double.
-pub const EXPR_FUNCTIONS: [(&str, usize, usize); 47] = [
+pub const EXPR_FUNCTIONS: [(&str, usize, usize); 55] = [
     ("abs", 1, 1),
     ("acos", 1, 1),
     ("acosh", 1, 1),
@@ -330,6 +330,7 @@ pub const EXPR_FUNCTIONS: [(&str, usize, usize); 47] = [
     ("asinh", 1, 1),
     ("atan", 1, 1),
     ("atan2", 2, 2),
+    ("at", 2, 2),
     ("atanh", 1, 1),
     ("beta", 2, 2),
     ("cbrt", 1, 1),
@@ -337,6 +338,7 @@ pub const EXPR_FUNCTIONS: [(&str, usize, usize); 47] = [
     ("contains", 2, 2),
     ("cos", 1, 1),
     ("cosh", 1, 1),
+    ("count", 1, 1),
     ("degrees", 1, 1),
     ("digamma", 1, 1),
     ("ends_with", 2, 2),
@@ -348,6 +350,7 @@ pub const EXPR_FUNCTIONS: [(&str, usize, usize); 47] = [
     ("gamma", 1, 1),
     ("hypot", 2, 2),
     ("is_empty", 1, 1),
+    ("join", 2, 2),
     ("len", 1, 1),
     ("lgamma", 1, 1),
     ("log", 1, 1),
@@ -356,6 +359,8 @@ pub const EXPR_FUNCTIONS: [(&str, usize, usize); 47] = [
     ("log2", 1, 1),
     ("lower", 1, 1),
     ("max", 1, usize::MAX),
+    ("mean", 1, 1),
+    ("median", 1, 1),
     ("min", 1, usize::MAX),
     ("pow", 2, 2),
     ("radians", 1, 1),
@@ -363,8 +368,11 @@ pub const EXPR_FUNCTIONS: [(&str, usize, usize); 47] = [
     ("sign", 1, 1),
     ("sin", 1, 1),
     ("sinh", 1, 1),
+    ("split", 2, 2),
     ("sqrt", 1, 1),
     ("starts_with", 2, 2),
+    ("stddev", 1, 1),
+    ("sum", 1, 1),
     ("tan", 1, 1),
     ("tanh", 1, 1),
     ("trunc", 1, 1),

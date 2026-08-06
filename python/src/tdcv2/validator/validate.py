@@ -27,7 +27,21 @@ from ..date.plain import Precision
 from ..distribution import percent_mask
 from ..errors import Diagnostic
 from ..expr import parse as expr_parse
-from ..expr.parse import Array, Binary, Call, Computed, Conditional, Member, Name, Unary
+from ..lib import numbers
+from ..expr.parse import (
+    Array,
+    Binary,
+    Bool,
+    Call,
+    Computed,
+    Conditional,
+    Member,
+    Name,
+    Null,
+    Num,
+    Str,
+    Unary,
+)
 from ..format import mask as mask_lib
 from ..format import mask as mask_mod
 from ..format import transforms
@@ -125,12 +139,14 @@ EXPR_FUNCTIONS: dict[str, tuple[int, int | None]] = {
     "asin": (1, 1),
     "asinh": (1, 1),
     "atan": (1, 1),
+    "at": (2, 2),
     "atan2": (2, 2),
     "atanh": (1, 1),
     "beta": (2, 2),
     "cbrt": (1, 1),
     "contains": (2, 2),
     "cos": (1, 1),
+    "count": (1, 1),
     "degrees": (1, 1),
     "digamma": (1, 1),
     "cosh": (1, 1),
@@ -143,6 +159,7 @@ EXPR_FUNCTIONS: dict[str, tuple[int, int | None]] = {
     "hypot": (2, 2),
     "floor": (1, 1),
     "is_empty": (1, 1),
+    "join": (2, 2),
     "len": (1, 1),
     "lgamma": (1, 1),
     "log": (1, 1),
@@ -151,6 +168,8 @@ EXPR_FUNCTIONS: dict[str, tuple[int, int | None]] = {
     "log2": (1, 1),
     "lower": (1, 1),
     "max": (1, None),
+    "mean": (1, 1),
+    "median": (1, 1),
     "min": (1, None),
     "pow": (2, 2),
     "radians": (1, 1),
@@ -158,8 +177,11 @@ EXPR_FUNCTIONS: dict[str, tuple[int, int | None]] = {
     "sign": (1, 1),
     "sin": (1, 1),
     "sinh": (1, 1),
+    "split": (2, 2),
     "sqrt": (1, 1),
     "starts_with": (2, 2),
+    "stddev": (1, 1),
+    "sum": (1, 1),
     "tan": (1, 1),
     "tanh": (1, 1),
     "trunc": (1, 1),
@@ -171,22 +193,12 @@ EXPR_FUNCTION_NAMES = tuple(sorted(EXPR_FUNCTIONS))
 # Not available, and not typos either. Someone writing cos(_count) knows what they meant, and
 # "did you mean abs?" is worse than saying nothing.
 PLANNED_EXPR_FUNCTIONS = (
-    "acos",
-    "asin",
-    "atan",
-    "atan2",
-    "cbrt",
-    "cos",
-    "cosh",
-    "exp",
-    "log",
-    "log10",
-    "pow",
-    "sin",
-    "sinh",
-    "sqrt",
-    "tan",
-    "tanh",
+    "airy",
+    "besselj",
+    "bessely",
+    "elliptic_e",
+    "elliptic_k",
+    "polygamma",
 )
 
 
@@ -436,6 +448,37 @@ def _megabytes(byte_count: int) -> str:
     mb = byte_count / 1024 / 1024
     return f"{mb / 1024:.1f} GB" if mb >= 1024 else f"{round(mb):,} MB"
 
+
+
+# The functions that hand back a list. `at` reads one, and nothing else does today; when a
+# second joins, it goes here and the check above stays put.
+LIST_RETURNING_FUNCTIONS = ("split",)
+
+
+def _provably_not_a_list(node) -> bool:
+    """Whether a subexpression can be shown, from the text alone, never to be a list."""
+    if isinstance(node, (Name, Member, Num, Str, Bool, Null)):
+        return True
+    if isinstance(node, Call):
+        return node.name not in LIST_RETURNING_FUNCTIONS
+    return False
+
+
+def _bad_index_literal(node) -> str | None:
+    """A written-out index that is not one, as it should read back in the message."""
+    if isinstance(node, Str):
+        return f'"{node.value}"'
+    if isinstance(node, Num):
+        value = node.value
+        whole = value == int(value) if isinstance(value, float) else True
+        if whole and value >= 0:
+            return None
+        return numbers.to_text(float(value)) if isinstance(value, float) else str(value)
+    # A parser that does not fold a sign into the literal leaves a minus in front of it.
+    if isinstance(node, Unary) and node.op == "-" and isinstance(node.operand, Num):
+        inner = node.operand.value
+        return "-" + (numbers.to_text(float(inner)) if isinstance(inner, float) else str(inner))
+    return None
 
 class _Validator:
     __slots__ = (
@@ -3781,6 +3824,8 @@ class _Validator:
                     line,
                     column,
                 )
+            if node.name == "at":
+                self._check_at_call(node, line, column)
             for arg in node.args:
                 self._check_expr_node(arg, line, column)
             return
@@ -3804,6 +3849,39 @@ class _Validator:
                     column,
                 )
             self._check_expr_node(node.operand, line, column)
+
+    def _check_at_call(self, node, line: int, column: int) -> None:
+        """``at(subject, index)``, checked before the run rather than during it.
+
+        Both halves are provable from the text alone. A name always resolves to a STRING — a
+        ``repeat`` list arrives joined, never as a list — so ``at(Items, 1)`` can only ever answer
+        with nothing, and that nothing is indistinguishable from a legitimately short row. An index
+        written out as ``-1``, ``1.5`` or ``"one"`` is the same kind of mistake one level down.
+
+        The engine refuses both at run time as well; this is the earlier, better-placed half of the
+        same rule, because ``check`` can point at the character.
+        """
+        subject = node.args[0] if node.args else None
+        if subject is not None and _provably_not_a_list(subject):
+            self._error(
+                "TDC260",
+                "at() needs a list, and this argument is a single value",
+                "A repeat list reaches an expression as its joined text, so cut it first: "
+                'at(split(Items, ","), 1).',
+                line,
+                column,
+            )
+        index = node.args[1] if len(node.args) > 1 else None
+        bad = _bad_index_literal(index) if index is not None else None
+        if bad is not None:
+            self._error(
+                "TDC261",
+                f"at() index must be a whole number of zero or more, not {bad}",
+                "Elements count from zero: at(list, 0) is the first. Past the end is empty text "
+                "— ask count(list) first.",
+                line,
+                column,
+            )
 
     # ── placement ───────────────────────────────────────────────────────────────────────────
 

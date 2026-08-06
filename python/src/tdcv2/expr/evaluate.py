@@ -104,6 +104,124 @@ def _num(args: list, index: int) -> float:
     return as_number(_at(args, index))
 
 
+def _spread(args: list) -> list:
+    """One list argument spread out, or the arguments themselves."""
+    if len(args) == 1 and isinstance(args[0], list):
+        return args[0]
+    return args
+
+
+def _list_of(args: list, index: int) -> list:
+    """An argument as a list.
+
+    A bare value counts as a list of one, so ``sum(Price)`` on a single number is an answer
+    rather than an error — the alternative is a rule a caller has to remember before every call.
+    """
+    value = _at(args, index)
+    if isinstance(value, list):
+        return value
+    return [] if value is None else [value]
+
+
+def _list_value(args: list, index: int) -> list:
+    """``at``'s subject, which has to be a real list.
+
+    ``_list_of`` above reads a bare value as a list of one, which is right for ``sum(Price)``
+    and wrong here: a ``repeat`` list arrives as the JOINED text, so ``at(Items, 1)`` — the shape
+    everybody writes first — used to ask for the second element of a one-element list and get the
+    same empty string a legitimately short row gives. Naming the mistake is the point.
+    """
+    value = _at(args, index)
+    if isinstance(value, list):
+        return value
+    raise ValueError(
+        f"at() needs a list, and {_show(value)} is a single value — "
+        'split it first, as in at(split(Items, ","), 1)'
+    )
+
+
+def _index_value(args: list, index: int) -> int:
+    """An index: a whole number, zero or more. Anything else is a mistake, not a shape."""
+    raw = _at(args, index)
+    n = as_number(raw)
+    if not math.isfinite(n) or n != math.floor(n) or n < 0:
+        raise ValueError(f"at() index must be a whole number of zero or more, not {_show(raw)}")
+    return int(n)
+
+
+def _show(v) -> str:
+    """A value as it should read inside a message: text quoted, everything else plain."""
+    if isinstance(v, str):
+        return f'"{v}"'
+    if isinstance(v, list):
+        return "a list"
+    if v is None:
+        return "nothing"
+    return _text(v)
+
+
+def _split(args: list) -> list:
+    """Text to a list. An empty subject gives an empty list, not a list of one blank."""
+    subject = _arg_text(args, 0)
+    separator = _arg_text(args, 1)
+    if subject == "":
+        return []
+    if separator == "":
+        # CODE POINTS, the same unit `len` counts, so split(s, "") and len(s) never
+        # disagree about how many characters a string has.
+        return list(subject)
+    return subject.split(separator)
+
+
+def _element_at(args: list):
+    """The i-th element, counting from zero, or empty text past the end."""
+    items = _list_value(args, 0)
+    index = _index_value(args, 1)
+    return items[index] if index < len(items) else ""
+
+
+def _sum(args: list):
+    """The total. Whole while every element is whole, so a column of ids stays exact."""
+    items = _list_of(args, 0)
+    whole = [_as_exact_int(v) for v in items]
+    if items and all(v is not None for v in whole):
+        return _checked_int(sum(whole))
+    return sum(as_number(v) for v in items)
+
+
+def _mean(args: list) -> float:
+    """The average. Always a double: a mean is a ratio, and ratios are not whole."""
+    items = _list_of(args, 0)
+    if not items:
+        return math.nan
+    return sum(as_number(v) for v in items) / len(items)
+
+
+def _median(args: list) -> float:
+    """The middle value; with an even count, the average of the two middle ones."""
+    items = sorted(as_number(v) for v in _list_of(args, 0))
+    if not items:
+        return math.nan
+    half = len(items) // 2
+    if len(items) % 2 == 1:
+        return items[half]
+    return (items[half - 1] + items[half]) / 2
+
+
+def _stddev(args: list) -> float:
+    """The POPULATION standard deviation — divided by n, not by n-1.
+
+    A generated list is the whole of what it describes, not a sample drawn from something
+    larger, so n is the honest divisor. Stated because the two differ and neither is obvious.
+    """
+    items = [as_number(v) for v in _list_of(args, 0)]
+    if not items:
+        return math.nan
+    average = sum(items) / len(items)
+    variance = sum((v - average) * (v - average) for v in items) / len(items)
+    return tdc_math.sqrt(variance)
+
+
 def _arg_text(args: list, index: int) -> str:
     """An argument as text. A list never reaches here — only ``in`` produces one."""
     value = _at(args, index)
@@ -123,8 +241,8 @@ _FUNCTIONS: dict[str, Callable[[list], object]] = {
     "abs": lambda a: abs(_num(a, 0)),
     "ceil": lambda a: float(math.ceil(_num(a, 0))),
     "floor": lambda a: float(math.floor(_num(a, 0))),
-    "max": lambda a: max(as_number(v) for v in _nonempty(a)),
-    "min": lambda a: min(as_number(v) for v in _nonempty(a)),
+    "max": lambda a: max(as_number(v) for v in _nonempty(_spread(a))),
+    "min": lambda a: min(as_number(v) for v in _nonempty(_spread(a))),
     "round": lambda a: _round_half_away_from_zero(_num(a, 0)),
     "trunc": lambda a: float(math.trunc(_num(a, 0))),
     # Strings. None of these touches floating point, so all five agree for free.
@@ -137,6 +255,24 @@ _FUNCTIONS: dict[str, Callable[[list], object]] = {
     "lower": lambda a: _arg_text(a, 0).lower(),
     "starts_with": lambda a: _arg_text(a, 0).startswith(_arg_text(a, 1)),
     "upper": lambda a: _arg_text(a, 0).upper(),
+    # Lists inside one row. A sequence with repeat= puts several values in one field, and an
+    # expression sees the JOINED text because that is what the field holds — so `split` is the
+    # bridge and everything else works on lists. No grammar changed for this: the list value
+    # already existed, produced by an array literal and consumed by `in`.
+    "split": _split,
+    "join": lambda a: _arg_text(a, 1).join(_text(v) for v in _list_of(a, 0)),
+    # How many. `len` is the STRING length and would answer about the separators.
+    "count": lambda a: float(len(_list_of(a, 0))),
+    # The i-th element, counting from zero. PAST THE END gives empty text rather than a refusal,
+    # because a `repeat` range produces rows of DIFFERENT lengths on purpose; `count()` is there
+    # to ask first. Every other way of getting nothing — a negative index, a fractional one, an
+    # index that is not a number, a subject that is not a list — is a mistake in the config and
+    # refuses, because each of them used to answer with that same empty string.
+    "at": _element_at,
+    "sum": _sum,
+    "mean": _mean,
+    "median": _median,
+    "stddev": _stddev,
     "zeta": lambda a: tdc_math.zeta(_num(a, 0)),
     # Transcendentals, computed by TDC rather than by Python — see math/tdc_math.py.
     # Adding one here means adding it to TdcMath in all five, not calling math.something.

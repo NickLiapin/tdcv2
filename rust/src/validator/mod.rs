@@ -27,6 +27,7 @@ use crate::errors::Diagnostic;
 use crate::expr;
 use crate::format::{mask, transforms};
 use crate::generators::{accumulate, advanced_regex, file, number, regex, repeat};
+use crate::numbers;
 use crate::output::column_type::ColumnType;
 use crate::packs::DataPacks;
 use crate::stats::distribution;
@@ -3934,6 +3935,9 @@ impl Validator {
                         }
                     }
                 }
+                if name == "at" {
+                    self.check_at_call(args, at);
+                }
                 for arg in args {
                     self.check_expr_node(arg, at);
                 }
@@ -3965,6 +3969,38 @@ impl Validator {
         }
     }
 
+    /// `at(subject, index)`, checked before the run rather than during it.
+    ///
+    /// Both halves are provable from the text alone. A name always resolves to a
+    /// STRING — a `repeat` list arrives joined, never as a list — so
+    /// `at(Items, 1)` can only ever answer with nothing, and that nothing is
+    /// indistinguishable from a legitimately short row. An index written out as
+    /// `-1`, `1.5` or `"one"` is the same kind of mistake one level down.
+    ///
+    /// The engine refuses both at run time as well; this is the earlier,
+    /// better-placed half of the same rule, because `check` points at the
+    /// character.
+    fn check_at_call(&mut self, args: &[expr::Expr], at: Pos) {
+        if args.first().is_some_and(provably_not_a_list) {
+            self.error(
+                "TDC260",
+                "at() needs a list, and this argument is a single value".to_string(),
+                "A repeat list reaches an expression as its joined text, so cut it first: \
+                 at(split(Items, \",\"), 1).",
+                at,
+            );
+        }
+        if let Some(bad) = args.get(1).and_then(bad_index_literal) {
+            self.error(
+                "TDC261",
+                format!("at() index must be a whole number of zero or more, not {bad}"),
+                "Elements count from zero: at(list, 0) is the first. Past the end is empty text \
+                 — ask count(list) first.",
+                at,
+            );
+        }
+    }
+
     // ── still to port ────────────────────────────────────────────────────────
 
     /// A `<compute>` sequence's tree, checked against everything declared so far.
@@ -3981,6 +4017,44 @@ impl Validator {
             known.extend(BUILTINS.iter().map(|b| (*b).to_string()));
             compute_check::ComputeCheck::new(&mut self.diagnostics).check(child, Some(&known));
         }
+    }
+}
+
+/// The functions that hand back a list. `at` reads one, and nothing else does
+/// today; when a second joins, it goes here and the check above stays put.
+const LIST_RETURNING_FUNCTIONS: [&str; 1] = ["split"];
+
+/// Whether a subexpression can be shown, from the text alone, never to be a list.
+fn provably_not_a_list(node: &expr::Expr) -> bool {
+    match node {
+        expr::Expr::Name(_)
+        | expr::Expr::Member(_)
+        | expr::Expr::Num(_)
+        | expr::Expr::Int(_)
+        | expr::Expr::Str(_)
+        | expr::Expr::Bool(_)
+        | expr::Expr::Null => true,
+        expr::Expr::Call(name, _) => !LIST_RETURNING_FUNCTIONS.contains(&name.as_str()),
+        _ => false,
+    }
+}
+
+/// A written-out index that is not one, as it should read back in the message.
+fn bad_index_literal(node: &expr::Expr) -> Option<String> {
+    match node {
+        expr::Expr::Str(s) => Some(format!("\"{s}\"")),
+        expr::Expr::Int(n) if *n < 0 => Some(n.to_string()),
+        expr::Expr::Int(_) => None,
+        expr::Expr::Num(d) if d.fract() != 0.0 || *d < 0.0 => Some(numbers::to_text(*d)),
+        expr::Expr::Num(_) => None,
+        // A parser that does not fold a sign into the literal leaves a minus in
+        // front of it; this one folds, so the branch is a belt to the braces.
+        expr::Expr::Unary(op, operand) if op == "-" => match operand.as_ref() {
+            expr::Expr::Int(n) => Some(format!("-{n}")),
+            expr::Expr::Num(d) => Some(format!("-{}", numbers::to_text(*d))),
+            _ => None,
+        },
+        _ => None,
     }
 }
 
