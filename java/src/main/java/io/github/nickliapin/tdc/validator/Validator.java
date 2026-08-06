@@ -198,11 +198,19 @@ public final class Validator {
    * was one flat union of every attribute name in the language, so writing any of them on a
    * {@code <gen>} passed in silence here while the reference refused it.
    */
+  /** parent= belongs on the <sequence>; count= and flag= belong to other tags entirely. */
+  private static final String MISPLACED_GEN_PARENT =
+      "parent= selects which rows a whole <sequence> or <mix> builds on; move it there. "
+          + "A <gen> inside one is already filtered by it.";
+
+  /** Attributes a &lt;gen&gt; may carry that are not pack parameters. */
+  private static final Set<String> NOT_A_PACK_PARAM = Set.of("parent", "count", "flag");
+
   private static final Set<String> GEN_ATTRS =
       Set.of(
           "type", "value", "name", "if", "comment", "case", "mask", "order", "cycle", "repeat",
           "separator", "missing", "missing_as", "anomaly", "anomaly_factor", "anomaly_flag",
-          "flag", "local", "count", "weight", "percent", "first_zero", "include", "exclude",
+          "local", "weight", "percent", "first_zero", "include", "exclude",
           "accumulate", "of", "reset", "length", "decimals", "distribution", "regex_max_length", "alphabet",
           "format", "from",
           "to", "oldest", "youngest", "precision", "range", "step", "weekdays", "peak_at", "src",
@@ -2272,11 +2280,33 @@ public final class Validator {
       TDCParser.SelfClosingElementContext gen, Map<String, String> attrs, String type) {
     if ("template".equals(type)) {
       checkBuiltinTemplateAttrs(gen, attrs);
+      // A pack's parameters are open-ended, so the "is this a known name" half cannot run
+      // here — but which type reads order= does not depend on the pack, and that half is why
+      // order= and parent= sat on a template generator doing nothing.
+      for (String name : attrs.keySet()) {
+        if ("parent".equals(name)) {
+          ignored(gen, name, MISPLACED_GEN_PARENT);
+          continue;
+        }
+        java.util.Set<String> owns = ATTRIBUTE_OWNERS.get(name);
+        if (owns != null && !owns.contains("template")) {
+          List<String> sortedOwners = new ArrayList<>(owns);
+          java.util.Collections.sort(sortedOwners);
+          StringBuilder belongsTo = new StringBuilder();
+          for (int i = 0; i < sortedOwners.size(); i++) {
+            belongsTo.append(i == 0 ? "" : ", ")
+                .append("type=\"").append(sortedOwners.get(i)).append('"');
+          }
+          ignored(gen, name, "\"" + name + "\" belongs to " + belongsTo
+              + " — a type=\"template\" generator ignores it.");
+        }
+      }
       return;
     }
 
     String distribution = attrs.get("distribution");
     boolean hasDistribution = distribution != null && !distribution.isBlank();
+    String order = attrs.getOrDefault("order", "").trim();
 
     for (String name : attrs.keySet()) {
       if (!GEN_ATTRS.contains(name)) {
@@ -2289,6 +2319,14 @@ public final class Validator {
             "\"" + name + "\" is a parameter of a named distribution — add distribution=\"…\" "
                 + "for it to mean anything. To bound a plain number, put the range in "
                 + "value=\"10..20\".");
+        continue;
+      }
+      // cycle= says what happens when a WALK runs out. Without a walk there is nothing to
+      // run out of: the generator draws, and a draw never ends.
+      if ("cycle".equals(name) && !"sequential".equals(order)) {
+        ignored(gen, name,
+            "cycle= says what happens when order=\"sequential\" reaches the end of its source. "
+                + "Without order=\"sequential\" the generator draws, and a draw never runs out.");
         continue;
       }
       java.util.Set<String> owners = ATTRIBUTE_OWNERS.get(name);
@@ -2416,7 +2454,10 @@ public final class Validator {
       return false;
     }
     for (Map.Entry<String, String> attr : attrs.entrySet()) {
-      if (GEN_ATTRS.contains(attr.getKey()) || declared.contains(attr.getKey())) {
+      // parent, count and flag may sit on a <gen> and are each reported by their own rule;
+      // a pack-parameter check must not read them as typos.
+      if (GEN_ATTRS.contains(attr.getKey()) || declared.contains(attr.getKey())
+          || NOT_A_PACK_PARAM.contains(attr.getKey())) {
         continue;
       }
       String hint =

@@ -159,13 +159,25 @@ POOL_MAX_MEMBERS = 1_000_000
 # name in the language, so writing any of them on a <gen> passed in silence
 # while the reference refused it — a config that ran differently depending on
 # which implementation you happened to use.
+#: `parent=` selects which rows a whole <sequence> or <mix> builds on; a <gen> inside one is
+#: already filtered by it, so on the <gen> itself nothing reads it.
+_MISPLACED_GEN_PARENT = (
+    'parent= selects which rows a whole <sequence> or <mix> builds on; move it there. '
+    'A <gen> inside one is already filtered by it.'
+)
+
+#: Attributes a <gen> may carry that are NOT pack parameters, so a pack-parameter check must not
+#: mistake them for typos. They are each reported by their own rule instead — `parent=` belongs on
+#: the <sequence>, and `count=`/`flag=` belong to other tags entirely.
+_NOT_A_PACK_PARAM = frozenset({"parent", "count", "flag"})
+
 GEN_ATTRS = frozenset(
     {
         "type", "value", "name", "if", "comment", "case", "mask", "order", "cycle", "repeat",
         "separator", "accumulate", "of", "reset", "missing", "missing_as", "anomaly",
         "anomaly_factor",
         "anomaly_flag",
-        "flag", "local", "count", "weight", "percent", "first_zero", "include", "exclude",
+        "local", "weight", "percent", "first_zero", "include", "exclude",
         "length", "decimals", "distribution", "regex_max_length", "alphabet", "format", "from",
         "to", "oldest", "youngest", "precision", "range", "step", "weekdays", "src",
         "column", "header",
@@ -2109,9 +2121,24 @@ class _Validator:
         """
         if type_ == "template":
             self._check_builtin_template_attrs(gen, attrs)
+            # A pack's parameters are open-ended, so the "is this a known name" half cannot run
+            # here — but which type reads `order=` does not depend on the pack, and that half is
+            # why `order=` and `parent=` sat on a template generator doing nothing.
+            for name in attrs:
+                owners = ATTRIBUTE_OWNERS.get(name)
+                if owners is not None and "template" not in owners:
+                    belongs = ", ".join(f'type="{t}"' for t in sorted(owners))
+                    self._ignored(
+                        gen,
+                        name,
+                        f'"{name}" belongs to {belongs} — a type="template" generator ignores it.',
+                    )
+                elif name == "parent":
+                    self._ignored(gen, name, _MISPLACED_GEN_PARENT)
             return
 
         has_distribution = bool((attrs.get("distribution") or "").strip())
+        order = (attrs.get("order") or "").strip()
         for name in attrs:
             if name not in GEN_ATTRS:
                 self._ignored(gen, name, "Check the spelling against the generator's attributes.")
@@ -2124,6 +2151,17 @@ class _Validator:
                     f'"{name}" is a parameter of a named distribution — add distribution="…" '
                     "for it to mean anything. To bound a plain number, put the range in "
                     'value="10..20".',
+                )
+                continue
+            # `cycle` says what happens when a WALK runs out. Without a walk there is nothing
+            # to run out of: the generator draws, and a draw never ends.
+            if name == "cycle" and order != "sequential":
+                self._ignored(
+                    gen,
+                    name,
+                    'cycle= says what happens when order="sequential" reaches the end of its '
+                    'source. Without order="sequential" the generator draws, and a draw never '
+                    "runs out.",
                 )
                 continue
             owners = ATTRIBUTE_OWNERS.get(name)
@@ -2179,7 +2217,7 @@ class _Validator:
             return False
 
         for name, value in attrs.items():
-            if name in GEN_ATTRS or name in declared:
+            if name in GEN_ATTRS or name in declared or name in _NOT_A_PACK_PARAM:
                 continue
             line, column = _at(gen, name)
             if declared:

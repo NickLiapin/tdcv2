@@ -2076,6 +2076,37 @@ impl Validator {
     fn check_gen_attributes(&mut self, gen: &Element, attrs: &Attrs, gen_type: Option<&str>) {
         if gen_type == Some("template") {
             self.check_builtin_template_attrs(gen, attrs);
+            // A pack's parameters are open-ended, so the "is this a known name"
+            // half cannot run here — but which type reads `order=` does not
+            // depend on the pack, and that half is why `order=` and `parent=`
+            // sat on a template generator doing nothing.
+            let written: Vec<String> = gen.attrs.iter().map(|a| a.name.clone()).collect();
+            for name in &written {
+                if name == "parent" {
+                    self.ignored(
+                        gen,
+                        name,
+                        "parent= selects which rows a whole <sequence> or <mix> builds on; move \
+                         it there. A <gen> inside one is already filtered by it.",
+                    );
+                } else if let Some(owners) = tables::lookup(&tables::ATTRIBUTE_OWNERS, name) {
+                    if !owners.contains(&"template") {
+                        let belongs = owners
+                            .iter()
+                            .map(|t| format!("type=\"{t}\""))
+                            .collect::<Vec<_>>()
+                            .join(", ");
+                        self.ignored(
+                            gen,
+                            name,
+                            &format!(
+                                "\"{name}\" belongs to {belongs} — a type=\"template\" \
+                                 generator ignores it."
+                            ),
+                        );
+                    }
+                }
+            }
             return;
         }
 
@@ -2094,6 +2125,20 @@ impl Validator {
                     gen,
                     name,
                     "Check the spelling against the generator's attributes.",
+                );
+                continue;
+            }
+
+            // `cycle` says what happens when a WALK runs out. Without a walk
+            // there is nothing to run out of: the generator draws, and a draw
+            // never ends.
+            if name == "cycle" && attrs.get("order").map(|v| v.trim()) != Some("sequential") {
+                self.ignored(
+                    gen,
+                    name,
+                    "cycle= says what happens when order=\"sequential\" reaches the end of its \
+                     source. Without order=\"sequential\" the generator draws, and a draw never \
+                     runs out.",
                 );
                 continue;
             }
@@ -2201,7 +2246,11 @@ impl Validator {
         let offenders: Vec<(String, String)> = attrs
             .iter()
             .filter(|(name, _)| {
-                !tables::GEN_ATTRS.contains(&name.as_str()) && !declared.contains(*name)
+                // `parent`, `count` and `flag` may sit on a <gen> and are each reported
+                // by their own rule; a pack-parameter check must not read them as typos.
+                !tables::GEN_ATTRS.contains(&name.as_str())
+                    && !declared.contains(*name)
+                    && !matches!(name.as_str(), "parent" | "count" | "flag")
             })
             .map(|(name, value)| (name.clone(), value.clone()))
             .collect();

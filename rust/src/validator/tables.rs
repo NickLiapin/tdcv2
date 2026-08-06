@@ -95,7 +95,7 @@ pub const MISPLACED_IN_SEQUENCE: [&str; 5] = ["mix", "switch", "case", "default"
 /// to `<case>`; `on` to `<switch>`; `v` to `<tdc>`. The list was one flat union of
 /// every attribute name in the language, so writing any of them on a `<gen>`
 /// passed in silence while the reference refused it.
-pub const GEN_ATTRS: [&str; 79] = [
+pub const GEN_ATTRS: [&str; 77] = [
     "type",
     "value",
     "name",
@@ -118,10 +118,8 @@ pub const GEN_ATTRS: [&str; 79] = [
     "anomaly",
     "anomaly_factor",
     "anomaly_flag",
-    "flag",
-    "local",
-    "count",
-    "weight",
+        "local",
+        "weight",
     "percent",
     "first_zero",
     "include",

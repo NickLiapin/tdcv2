@@ -208,12 +208,21 @@ public sealed class Validator
     /// attribute name in the language, so writing any of them on a <c>&lt;gen&gt;</c> passed in
     /// silence here while the reference refused it.
     /// </summary>
+    /// <summary>parent= belongs on the &lt;sequence&gt;; count= and flag= belong to other tags.</summary>
+    private const string MisplacedGenParent =
+        "parent= selects which rows a whole <sequence> or <mix> builds on; move it there. "
+        + "A <gen> inside one is already filtered by it.";
+
+    /// <summary>Attributes a &lt;gen&gt; may carry that are not pack parameters.</summary>
+    private static readonly IReadOnlySet<string> NotAPackParam =
+        new HashSet<string> { "parent", "count", "flag" };
+
     private static readonly IReadOnlySet<string> GenAttrs = Set(
         "type", "value", "name", "if", "comment", "case", "mask", "order", "cycle", "repeat",
         "separator", "accumulate", "of", "reset", "missing", "missing_as", "anomaly",
         "anomaly_factor",
         "anomaly_flag",
-        "flag", "local", "count", "weight", "percent", "first_zero", "include", "exclude",
+        "local", "weight", "percent", "first_zero", "include", "exclude",
         "length", "decimals", "distribution", "regex_max_length", "alphabet", "format", "from",
         "to", "oldest", "youngest", "precision", "range", "step", "weekdays", "peak_at",
         "src", "column",
@@ -2838,11 +2847,32 @@ public sealed class Validator
         if (type == "template")
         {
             CheckBuiltinTemplateAttrs(gen, attrs);
+            // A pack's parameters are open-ended, so the "is this a known name" half cannot run
+            // here — but which type reads order= does not depend on the pack, and that half is
+            // why order= and parent= sat on a template generator doing nothing.
+            foreach (string name in attrs.Keys)
+            {
+                if (name == "parent")
+                {
+                    Ignored(gen, name, MisplacedGenParent);
+                }
+                else if (AttributeOwners.TryGetValue(name, out IReadOnlySet<string>? owns)
+                    && !owns.Contains("template"))
+                {
+                    string owned = string.Join(
+                        ", ",
+                        owns.OrderBy(o => o, StringComparer.Ordinal).Select(o => $"type=\"{o}\""));
+                    Ignored(
+                        gen, name,
+                        $"\"{name}\" belongs to {owned} — a type=\"template\" generator ignores it.");
+                }
+            }
             return;
         }
 
         bool hasDistribution =
             !string.IsNullOrWhiteSpace(attrs.GetValueOrDefault("distribution"));
+        string order = attrs.GetValueOrDefault("order", string.Empty).Trim();
 
         foreach (string name in attrs.Keys)
         {
@@ -2860,6 +2890,18 @@ public sealed class Validator
                     $"\"{name}\" is a parameter of a named distribution — add distribution=\"…\" "
                     + "for it to mean anything. To bound a plain number, put the range in "
                     + "value=\"10..20\".");
+                continue;
+            }
+
+            // cycle= says what happens when a WALK runs out. Without a walk there is nothing
+            // to run out of: the generator draws, and a draw never ends.
+            if (name == "cycle" && order != "sequential")
+            {
+                Ignored(
+                    gen, name,
+                    "cycle= says what happens when order=\"sequential\" reaches the end of its "
+                    + "source. Without order=\"sequential\" the generator draws, and a draw never "
+                    + "runs out.");
                 continue;
             }
 
@@ -2950,7 +2992,10 @@ public sealed class Validator
 
         foreach (KeyValuePair<string, string> attr in attrs)
         {
-            if (GenAttrs.Contains(attr.Key) || declared.Contains(attr.Key))
+            // parent, count and flag may sit on a <gen> and are each reported by their own
+            // rule; a pack-parameter check must not read them as typos.
+            if (GenAttrs.Contains(attr.Key) || declared.Contains(attr.Key)
+                || NotAPackParam.Contains(attr.Key))
             {
                 continue;
             }

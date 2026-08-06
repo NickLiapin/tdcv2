@@ -126,6 +126,48 @@
       "description": "A counter's value follows the row index, and a list of unknown length leaves no index to follow. The message names the type.",
       "config": "<tdc><env count=\"3\" seed=\"s\" local=\"en\"><sequence name=\"X\"><gen type=\"increment\" value=\"1\" repeat=\"3\"/></sequence></env><block><line><data>${{X}}</data></line></block></tdc>",
       "expected": ["error TDC204 1:99"]
+    },
+    {
+      "name": "gen-count-is-not-a-gen-attribute",
+      "demonstrates": "TDC015",
+      "description": "count= is the run on <env> and the table on <pool>; a <gen> reads neither, and the value looks like a way to ask for several values",
+      "config": "<tdc><env count=\"3\" seed=\"s\" local=\"en\"><sequence name=\"A\"><gen type=\"text\" value=\"a,b\" count=\"99\"/></sequence></env><block><line><data>${{A}}</data></line></block></tdc>",
+      "expected": ["error TDC015 1:95"]
+    },
+    {
+      "name": "gen-flag-belongs-to-mix",
+      "demonstrates": "TDC015",
+      "description": "flag= records which branch a <mix> took; the <gen> equivalent is anomaly_flag=",
+      "config": "<tdc><env count=\"3\" seed=\"s\" local=\"en\"><sequence name=\"A\"><gen type=\"text\" value=\"a,b\" flag=\"X\"/></sequence></env><block><line><data>${{A}}</data></line></block></tdc>",
+      "expected": ["error TDC015 1:94"]
+    },
+    {
+      "name": "cycle-without-a-walk",
+      "demonstrates": "TDC015",
+      "description": "cycle= says what happens when a walk runs out — without order=\"sequential\" the generator draws, and a draw never runs out",
+      "config": "<tdc><env count=\"3\" seed=\"s\" local=\"en\"><sequence name=\"A\"><gen type=\"text\" value=\"a,b\" cycle=\"false\"/></sequence></env><block><line><data>${{A}}</data></line></block></tdc>",
+      "expected": ["error TDC015 1:95"]
+    },
+    {
+      "name": "order-on-a-template-generator",
+      "demonstrates": "TDC015",
+      "description": "A pack's parameters are open-ended, but which type reads order= does not depend on the pack",
+      "config": "<tdc><env count=\"3\" seed=\"s\" local=\"en\"><sequence name=\"A\"><gen type=\"template\" value=\"person.lastName\" order=\"sequential\"/></sequence></env><block><line><data>${{A}}</data></line></block></tdc>",
+      "expected": ["error TDC015 1:111"]
+    },
+    {
+      "name": "parent-on-a-template-generator",
+      "demonstrates": "TDC015",
+      "description": "parent= filters a whole <sequence>; on a <gen> it was accepted and read by nobody",
+      "config": "<tdc><env count=\"3\" seed=\"s\" local=\"en\"><sequence name=\"A\"><gen type=\"template\" value=\"person.lastName\" parent=\"X.y\"/></sequence></env><block><line><data>${{A}}</data></line></block></tdc>",
+      "expected": ["error TDC015 1:112"]
+    },
+    {
+      "name": "local-on-a-generator-is-real",
+      "demonstrates": "",
+      "description": "local= on a <gen> DOES override the locale for that generator — the sweep called it a no-op and measuring said otherwise",
+      "config": "<tdc><env count=\"3\" seed=\"s\" local=\"en\"><sequence name=\"A\"><gen type=\"template\" value=\"person.lastName\" local=\"ru\"/></sequence></env><block><line><data>${{A}}</data></line></block></tdc>",
+      "expected": []
     }
   ]
 }

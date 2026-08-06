@@ -122,9 +122,7 @@ export const GEN_ATTRIBUTES: ReadonlySet<string> = new Set([
   'anomaly',
   'anomaly_factor',
   'anomaly_flag',
-  'flag',
   'local',
-  'count',
   'weight',
   // read by one generator type or another
   'filter',
@@ -337,6 +335,21 @@ const MISPLACED: ReadonlyMap<string, string> = new Map([
       'peak at the first of July.',
   ],
   [
+    // `count` belongs to <env> (rows in the run) and to <pool> (members in the
+    // table). On a <gen> nothing reads it, and it looks exactly like a way to
+    // ask for several values — which is `repeat=`.
+    'gen:count',
+    'count= is the size of the run on <env> and the size of the table on ' +
+      '<pool>. For several values in ONE row use repeat=.',
+  ],
+  [
+    // `flag` names the ground-truth column of a <mix>. The nearest thing on a
+    // <gen> is anomaly_flag=, and someone reaching for `flag` there wants it.
+    'gen:flag',
+    'flag= names the branch-recording column of a <mix>. The <gen> equivalent ' +
+      'is anomaly_flag=, which records which rows were made outliers.',
+  ],
+  [
     'switch:percent',
     'percent= splits rows between the branches of a <mix>. A <switch> chooses ' +
       'its case from the value of on=, so there is nothing here to split.',
@@ -375,15 +388,22 @@ export function checkGenAttrs(attrs: readonly AttrContext[], diagnostics: Diagno
   let type: string | undefined;
   let value: string | undefined;
   let hasDistribution = false;
+  let order: string | undefined;
   for (const a of attrs) {
     const n = a._attrName?.text;
     if (n === 'type') type = attrValueText(a);
     else if (n === 'value') value = attrValueText(a);
     else if (n === 'distribution' && attrValueText(a).trim() !== '') hasDistribution = true;
+    else if (n === 'order') order = attrValueText(a).trim();
   }
 
   if (type === 'template') {
     checkBuiltinTemplateAttrs(attrs, value, diagnostics);
+    // A pack's parameters are open-ended, so the "is this a known name" half
+    // cannot run here — but the two halves that do not depend on the pack still
+    // can, and they were the reason `order=` and `parent=` sat on a template
+    // generator doing nothing while `check` said the document was valid.
+    checkOwnershipOnly(attrs, 'template', diagnostics);
     return;
   }
 
@@ -415,8 +435,56 @@ export function checkGenAttrs(attrs: readonly AttrContext[], diagnostics: Diagno
       continue;
     }
 
+    // `cycle` says what happens when a WALK runs out. Without a walk there is
+    // nothing to run out of: the generator draws, and a draw never ends.
+    if (name === 'cycle' && order !== 'sequential') {
+      reportIgnored(
+        attr,
+        name,
+        'cycle= says what happens when order="sequential" reaches the end of its source. ' +
+          'Without order="sequential" the generator draws, and a draw never runs out.',
+        [...GEN_ATTRIBUTES],
+        diagnostics,
+      );
+      continue;
+    }
+
     const owners = ATTRIBUTE_OWNERS.get(name);
     if (owners !== undefined && type !== undefined && !owners.has(type)) {
+      reportIgnored(
+        attr,
+        name,
+        `"${name}" belongs to ${formatCandidates([...owners].sort().map((t) => `type="${t}"`))} — ` +
+          `a type="${type}" generator ignores it.`,
+        [...GEN_ATTRIBUTES],
+        diagnostics,
+      );
+    }
+  }
+}
+
+/**
+ * The type-ownership half of the gen check, for a generator whose OTHER
+ * attributes cannot be validated against a closed list.
+ *
+ * `type="template"` takes whatever parameters its pack declares, so an unknown
+ * name there is not a mistake. Which type reads `order=` is a different
+ * question, and it has an answer regardless of the pack.
+ */
+function checkOwnershipOnly(
+  attrs: readonly AttrContext[],
+  type: string,
+  diagnostics: Diagnostic[],
+): void {
+  for (const attr of attrs) {
+    const name = attr._attrName?.text;
+    if (name === undefined) continue;
+    if (MISPLACED.has(`gen:${name}`)) {
+      reportIgnored(attr, name, '', [...GEN_ATTRIBUTES], diagnostics);
+      continue;
+    }
+    const owners = ATTRIBUTE_OWNERS.get(name);
+    if (owners !== undefined && !owners.has(type)) {
       reportIgnored(
         attr,
         name,
