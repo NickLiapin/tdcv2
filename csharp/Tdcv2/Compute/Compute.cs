@@ -1,3 +1,4 @@
+using System.Globalization;
 using System.Numerics;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -142,6 +143,12 @@ public static class Compute
 
     // ── the evaluator ────────────────────────────────────────────────────────────────────────
 
+    /// <summary>
+    /// The builtin row counters, which are numbers rather than text. <c>_first</c> and
+    /// <c>_last</c> are deliberately absent: they are the strings "true" and "false".
+    /// </summary>
+    private static readonly HashSet<string> NumericBuiltinFields = new() { "_count", "_total" };
+
     private static Value Eval(TDCParser.ElementContext el, Scope scope)
     {
         Node n = ToNode(el);
@@ -200,6 +207,19 @@ public static class Compute
                 string name = n.Attrs.GetValueOrDefault("name", "");
                 string value = scope.Fields.Get(name)
                     ?? throw new ComputeError($"<field>: \"{name}\" is not in scope");
+                // A sequence's value is text, and AsInt deliberately refuses a multi-digit string
+                // so that "the third character" and "the number 375" stay different things. The
+                // row counters are not text: _count and _total are numbers by nature. Without
+                // this they were strings, so the single-digit escape hatch carried them to row 9
+                // and the tenth row failed. _first and _last stay out — they are the words "true"
+                // and "false".
+                if (NumericBuiltinFields.Contains(name)
+                    && long.TryParse(value, NumberStyles.Integer, CultureInfo.InvariantCulture,
+                        out long counter))
+                {
+                    return Value.Of(counter);
+                }
+
                 return Value.Of(value);
             }
 

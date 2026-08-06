@@ -124,6 +124,10 @@ fn eval_wrapper(n: &Element, wrapper: &str, scope: &Scope) -> ComputeResult<Valu
 
 // ── the evaluator ────────────────────────────────────────────────────────────
 
+/// The builtin row counters, which are numbers rather than text. `_first` and
+/// `_last` are deliberately absent: they are the strings "true" and "false".
+const NUMERIC_BUILTIN_FIELDS: [&str; 2] = ["_count", "_total"];
+
 fn eval(el: &Element, scope: &Scope) -> ComputeResult<Value> {
     let attr = |name: &str| el.attr_value(name);
     let children: Vec<&Element> = el.children.iter().filter(|c| is_element(c)).collect();
@@ -169,6 +173,17 @@ fn eval(el: &Element, scope: &Scope) -> ComputeResult<Value> {
         "field" => {
             let name = attr("name").unwrap_or("");
             match scope.fields.get(name) {
+                // A sequence's value is text, and `coerce_int` deliberately refuses
+                // a multi-digit string so that "the third character" and "the number
+                // 375" stay different things. The row counters are not text: `_count`
+                // and `_total` are numbers by nature. Without this they were strings,
+                // so the single-digit escape hatch carried them to row 9 and the
+                // tenth row failed. `_first` and `_last` stay out — they are the
+                // words "true" and "false".
+                Some(v) if NUMERIC_BUILTIN_FIELDS.contains(&name) => match v.parse::<i128>() {
+                    Ok(n) => Value::int(n),
+                    Err(_) => Ok(Value::str(v)),
+                },
                 Some(v) => Ok(Value::str(v)),
                 None => err(format!("<field>: \"{name}\" is not in scope")),
             }

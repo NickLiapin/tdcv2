@@ -57,9 +57,66 @@ fn eval(node: &Expr, scope: &dyn Scope) -> EngineResult<V> {
         Expr::Member(dotted) => member_of(dotted, scope),
         Expr::Unary(op, operand) => unary_op(op, &eval(operand, scope)?)?,
         Expr::Binary(op, left, right) => binary_op(op, &eval(left, scope)?, &eval(right, scope)?)?,
+        Expr::Call(name, args) => {
+            let mut values = Vec::with_capacity(args.len());
+            for arg in args {
+                values.push(as_number(&eval(arg, scope)?));
+            }
+            V::Num(call_function(name, &values)?)
+        }
         Expr::Computed(_) => {
             return invalid("if expression: computed member access x[i] is not supported")
         }
+    })
+}
+
+/// `%` — the EUCLIDEAN remainder, always in `[0, |b|)`.
+///
+/// Not Rust's `%`, which takes the sign of the dividend and answers -1 to
+/// `-3 % 2`. The compute layer's `<mod>` answers 1, and one engine must not
+/// give two answers depending on which layer the author reached for.
+fn euclidean_remainder(a: f64, b: f64) -> EngineResult<f64> {
+    if b == 0.0 {
+        return invalid("if expression: the right side of % must not be zero");
+    }
+    let magnitude = b.abs();
+    let r = a % magnitude;
+    Ok(if r < 0.0 { r + magnitude } else { r })
+}
+
+/// The functions an `if=` may call.
+///
+/// Every one is EXACT — comparisons and the arithmetic IEEE-754 pins down — so
+/// the five implementations cannot disagree about a result. `sin`, `cos`, `exp`
+/// and the rest are absent for exactly that reason; the validator answers them
+/// with it.
+///
+/// `round` is written out rather than delegated: Rust's `f64::round` already
+/// sends a half away from zero, but JavaScript sends it toward +inf and Python
+/// to even, so the rule is stated here in every implementation rather than
+/// inherited from whichever host happens to agree.
+fn call_function(name: &str, args: &[f64]) -> EngineResult<f64> {
+    let first = || -> EngineResult<f64> {
+        args.first()
+            .copied()
+            .map_or_else(|| invalid("if expression: a function needs at least one argument"), Ok)
+    };
+    Ok(match name {
+        "abs" => first()?.abs(),
+        "ceil" => first()?.ceil(),
+        "floor" => first()?.floor(),
+        "trunc" => first()?.trunc(),
+        "round" => {
+            let x = first()?;
+            if x < 0.0 {
+                -(-x + 0.5).floor()
+            } else {
+                (x + 0.5).floor()
+            }
+        }
+        "max" => args.iter().skip(1).fold(first()?, |a, &b| if b > a { b } else { a }),
+        "min" => args.iter().skip(1).fold(first()?, |a, &b| if b < a { b } else { a }),
+        _ => return invalid(&format!("if expression: unknown function \"{name}\"")),
     })
 }
 
@@ -114,7 +171,7 @@ fn binary_op(op: &str, left: &V, right: &V) -> EngineResult<V> {
         "-" => V::Num(as_number(left) - as_number(right)),
         "*" => V::Num(as_number(left) * as_number(right)),
         "/" => V::Num(as_number(left) / as_number(right)),
-        "%" => V::Num(as_number(left) % as_number(right)),
+        "%" => V::Num(euclidean_remainder(as_number(left), as_number(right))?),
         other => {
             return invalid(&format!("if expression: unsupported operator {other}"));
         }

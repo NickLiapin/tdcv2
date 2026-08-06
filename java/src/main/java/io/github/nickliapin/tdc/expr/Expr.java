@@ -45,13 +45,29 @@ public sealed interface Expr {
    * stricter than the reference's turns "computed member access is not supported" into "syntax
    * error", and the second says nothing about what to write instead.
    */
+  /** {@code abs(x)} — a call on a bare name, with its arguments already parsed. */
+  record Call(String callee, java.util.List<Expr> args) implements Expr {}
+
   record Computed(Expr object) implements Expr {}
 
-  /** jsep's binary precedence, verbatim. Higher binds tighter. */
+  /**
+   * jsep's binary precedence, verbatim. Higher binds tighter.
+   *
+   * <p>The bitwise and shift operators are here even though the engine implements none of them,
+   * and that is the point: the reference parses whatever jsep parses and then refuses the operator
+   * BY NAME. A table that stopped at the supported set answered {@code x & 1} with a syntax error
+   * pointing at the ampersand, which tells the reader nothing about what to write instead.
+   */
   Map<String, Integer> PRECEDENCE =
       Map.ofEntries(
           Map.entry("||", 1),
           Map.entry("&&", 2),
+          Map.entry("|", 3),
+          Map.entry("^", 4),
+          Map.entry("&", 5),
+          Map.entry("<<", 8),
+          Map.entry(">>", 8),
+          Map.entry(">>>", 8),
           Map.entry("==", 6),
           Map.entry("!=", 6),
           Map.entry("===", 6),
@@ -217,9 +233,40 @@ public sealed interface Expr {
 
       if (Character.isLetter(c) || c == '_' || c == '$') {
         Expr value = word();
+        skipSpace();
+        // A call, but only on a bare name: `abs(x)` and never `obj.method(x)`. The reference
+        // restricts it the same way, and the validator says so with a position.
+        if (value instanceof Name named && !done() && src.charAt(pos) == '(') {
+          pos++;
+          java.util.List<Expr> args = new java.util.ArrayList<>();
+          skipSpace();
+          if (!done() && src.charAt(pos) == ')') {
+            pos++;
+          } else {
+            while (true) {
+              args.add(expression(0));
+              skipSpace();
+              if (done()) {
+                throw new IllegalArgumentException(
+                    "if expression: unbalanced parentheses in \"" + src + "\"");
+              }
+              if (src.charAt(pos) == ',') {
+                pos++;
+                continue;
+              }
+              if (src.charAt(pos) == ')') {
+                pos++;
+                break;
+              }
+              throw new IllegalArgumentException(
+                  "if expression: unbalanced parentheses in \"" + src + "\"");
+            }
+          }
+          skipSpace();
+          return new Call(named.value(), args);
+        }
         // A subscript parses and then fails validation, so the complaint can say which
         // construct is unsupported rather than only where the parser stopped.
-        skipSpace();
         while (!done() && src.charAt(pos) == '[') {
           pos++;
           expression(0);
@@ -305,10 +352,11 @@ public sealed interface Expr {
     }
 
     private String peekOperator() {
-      // Longest first, so `<=` is never read as `<` followed by a stray `=`.
+      // Longest first, so `<=` is never read as `<` followed by a stray `=`, and `&&` never as
+      // two `&`.
       for (String op :
-          List.of("===", "!==", "==", "!=", "<=", ">=", "&&", "||", "<", ">", "+", "-", "*", "/",
-              "%")) {
+          List.of(">>>", "===", "!==", "==", "!=", "<=", ">=", "&&", "||", "<<", ">>", "<", ">",
+              "+", "-", "*", "/", "%", "&", "|", "^")) {
         if (src.startsWith(op, pos)) {
           return op;
         }

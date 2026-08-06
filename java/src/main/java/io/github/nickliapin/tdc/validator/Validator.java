@@ -177,7 +177,36 @@ public final class Validator {
       List.of("==", "!=", "===", "!==", "<", ">", "<=", ">=");
 
   private static final List<String> SUPPORTED_BINARY_OPERATORS =
-      List.of("==", "!=", "===", "!==", "<", ">", "<=", ">=", "&&", "||", "+", "-", "*", "/");
+      // `%` is EUCLIDEAN, matching <mod>: -3 % 2 is 1 here and -1 in Java's own %.
+      List.of("==", "!=", "===", "!==", "<", ">", "<=", ">=", "&&", "||", "+", "-", "*", "/", "%");
+
+  /**
+   * What an {@code if=} may call: the name, then the smallest and largest argument count
+   * ({@code Integer.MAX_VALUE} for variadic).
+   *
+   * <p>Every one is EXACT — comparisons and the arithmetic IEEE-754 pins down — so the five
+   * implementations cannot disagree. Transcendental functions are absent for that reason.
+   */
+  private static final Map<String, int[]> EXPR_FUNCTIONS =
+      Map.of(
+          "abs", new int[] {1, 1},
+          "ceil", new int[] {1, 1},
+          "floor", new int[] {1, 1},
+          "max", new int[] {1, Integer.MAX_VALUE},
+          "min", new int[] {1, Integer.MAX_VALUE},
+          "round", new int[] {1, 1},
+          "trunc", new int[] {1, 1});
+
+  private static final List<String> EXPR_FUNCTION_NAMES =
+      List.of("abs", "ceil", "floor", "max", "min", "round", "trunc");
+
+  /**
+   * Not available, and not typos either. Someone writing {@code cos(_count)} knows what they
+   * meant, and "did you mean abs?" is worse than saying nothing.
+   */
+  private static final List<String> PLANNED_EXPR_FUNCTIONS =
+      List.of("acos", "asin", "atan", "atan2", "cbrt", "cos", "cosh", "exp", "log", "log10",
+          "pow", "sin", "sinh", "sqrt", "tan", "tanh");
 
   private static final List<String> SUPPORTED_UNARY_OPERATORS = List.of("!", "-", "+");
 
@@ -3786,11 +3815,49 @@ public final class Validator {
     if (node instanceof io.github.nickliapin.tdc.expr.Expr.Binary binary) {
       if (!SUPPORTED_BINARY_OPERATORS.contains(binary.op())) {
         error("TDC101", "unsupported operator \"" + binary.op() + "\" in if expression",
-            "Supported binary operators: " + String.join(" ", SUPPORTED_BINARY_OPERATORS) + ".",
+            "Supported binary operators: " + String.join(" ", SUPPORTED_BINARY_OPERATORS)
+                + ". Functions: " + String.join(", ", EXPR_FUNCTION_NAMES)
+                + ". Anything an expression cannot say, a <compute> sequence can — it has integer "
+                + "division, remainders, string surgery and checksums — and the sequence it "
+                + "produces is what if= then compares.",
             line, column);
       }
       checkExprNode(binary.left(), line, column);
       checkExprNode(binary.right(), line, column);
+      return;
+    }
+    if (node instanceof io.github.nickliapin.tdc.expr.Expr.Call call) {
+      int[] spec = EXPR_FUNCTIONS.get(call.callee());
+      if (spec == null) {
+        boolean planned = PLANNED_EXPR_FUNCTIONS.contains(call.callee());
+        error("TDC257",
+            planned
+                ? call.callee() + "() is not available yet in an if expression"
+                : "unknown function \"" + call.callee() + "\" in if expression",
+            planned
+                ? "Every host language computes " + call.callee() + " slightly differently — "
+                    + "tan(1) already differs in its last bit between Node and Python — and a "
+                    + "comparison turns that bit into a different row. It arrives once TDC "
+                    + "computes it itself, the way it computes its own random numbers. Available "
+                    + "today: " + String.join(", ", EXPR_FUNCTION_NAMES) + "."
+                : "Available: " + String.join(", ", EXPR_FUNCTION_NAMES) + ".",
+            line, column);
+        return;
+      }
+      int given = call.args().size();
+      if (given < spec[0] || given > spec[1]) {
+        String wants =
+            spec[1] == Integer.MAX_VALUE
+                ? "at least " + spec[0]
+                : spec[0] == spec[1] ? "exactly " + spec[0] : spec[0] + " to " + spec[1];
+        error("TDC258",
+            call.callee() + "() takes " + wants + " argument" + (spec[1] == 1 ? "" : "s")
+                + ", got " + given,
+            "", line, column);
+      }
+      for (io.github.nickliapin.tdc.expr.Expr arg : call.args()) {
+        checkExprNode(arg, line, column);
+      }
       return;
     }
     if (node instanceof io.github.nickliapin.tdc.expr.Expr.Computed computed) {

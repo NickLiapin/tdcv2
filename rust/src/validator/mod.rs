@@ -3843,14 +3843,72 @@ impl Validator {
                         "TDC101",
                         format!("unsupported operator \"{op}\" in if expression"),
                         &format!(
-                            "Supported binary operators: {}.",
-                            tables::SUPPORTED_BINARY_OPERATORS.join(" ")
+                            "Supported binary operators: {}. Functions: {}. Anything an \
+                             expression cannot say, a <compute> sequence can — it has integer \
+                             division, remainders, string surgery and checksums — and the \
+                             sequence it produces is what if= then compares.",
+                            tables::SUPPORTED_BINARY_OPERATORS.join(" "),
+                            tables::EXPR_FUNCTION_NAMES.join(", ")
                         ),
                         at,
                     );
                 }
                 self.check_expr_node(left, at);
                 self.check_expr_node(right, at);
+            }
+            expr::Expr::Call(name, args) => {
+                match tables::EXPR_FUNCTIONS.iter().find(|(n, _, _)| n == name) {
+                    None => {
+                        let planned = tables::PLANNED_EXPR_FUNCTIONS.contains(&name.as_str());
+                        self.error(
+                            "TDC257",
+                            if planned {
+                                format!("{name}() is not available yet in an if expression")
+                            } else {
+                                format!("unknown function \"{name}\" in if expression")
+                            },
+                            &if planned {
+                                format!(
+                                    "Every host language computes {name} slightly differently — \
+                                     tan(1) already differs in its last bit between Node and \
+                                     Python — and a comparison turns that bit into a different \
+                                     row. It arrives once TDC computes it itself, the way it \
+                                     computes its own random numbers. Available today: {}.",
+                                    tables::EXPR_FUNCTION_NAMES.join(", ")
+                                )
+                            } else {
+                                format!(
+                                    "Available: {}.",
+                                    tables::EXPR_FUNCTION_NAMES.join(", ")
+                                )
+                            },
+                            at,
+                        );
+                        return;
+                    }
+                    Some(&(_, low, high)) => {
+                        let n = args.len();
+                        if n < low || n > high {
+                            let wants = if high == usize::MAX {
+                                format!("at least {low}")
+                            } else if low == high {
+                                format!("exactly {low}")
+                            } else {
+                                format!("{low} to {high}")
+                            };
+                            let plural = if high == 1 { "" } else { "s" };
+                            self.error(
+                                "TDC258",
+                                format!("{name}() takes {wants} argument{plural}, got {n}"),
+                                "",
+                                at,
+                            );
+                        }
+                    }
+                }
+                for arg in args {
+                    self.check_expr_node(arg, at);
+                }
             }
             expr::Expr::Computed(inner) => {
                 self.error(

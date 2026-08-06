@@ -49,6 +49,13 @@ public final class Evaluate {
       // An unknown name is its own value, which is what lets `Gender == Male` go unquoted.
       return scope.has(n.value()) ? scope.value(n.value()) : n.value();
     }
+    if (node instanceof Expr.Call c) {
+      double[] args = new double[c.args().size()];
+      for (int i = 0; i < args.length; i++) {
+        args[i] = asNumber(eval(c.args().get(i), scope));
+      }
+      return callFunction(c.callee(), args);
+    }
     if (node instanceof Expr.Member m) {
       return member(m.dotted(), scope);
     }
@@ -107,9 +114,77 @@ public final class Evaluate {
       case "-" -> asNumber(left) - asNumber(right);
       case "*" -> asNumber(left) * asNumber(right);
       case "/" -> asNumber(left) / asNumber(right);
-      case "%" -> asNumber(left) % asNumber(right);
+      case "%" -> euclideanRemainder(asNumber(left), asNumber(right));
       default -> throw new IllegalArgumentException("if expression: unsupported operator " + op);
     };
+  }
+
+  /**
+   * {@code %} — the EUCLIDEAN remainder, always in {@code [0, |b|)}.
+   *
+   * <p>Not Java's {@code %}, which takes the sign of the dividend and answers -1 to {@code -3 %
+   * 2}. The compute layer's {@code <mod>} answers 1, and one engine must not give two answers
+   * depending on which layer the author reached for.
+   */
+  private static double euclideanRemainder(double a, double b) {
+    if (b == 0) {
+      throw new IllegalArgumentException("if expression: the right side of % must not be zero");
+    }
+    double magnitude = Math.abs(b);
+    double r = a % magnitude;
+    return r < 0 ? r + magnitude : r;
+  }
+
+  /**
+   * The functions an {@code if=} may call.
+   *
+   * <p>Every one is EXACT — comparisons and the arithmetic IEEE-754 pins down — so the five
+   * implementations cannot disagree about a result. sin, cos, exp and the rest are absent for
+   * exactly that reason; the validator answers them with it.
+   *
+   * <p>{@code round} is written out rather than delegated: Java's {@code Math.round} sends a half
+   * UP (so -0.5 becomes 0), JavaScript sends it toward +inf, Python to even. TDC sends a half AWAY
+   * FROM ZERO, which is symmetric.
+   */
+  private static double callFunction(String name, double[] args) {
+    if (args.length == 0) {
+      throw new IllegalArgumentException(
+          "if expression: a function needs at least one argument");
+    }
+    double first = args[0];
+    switch (name) {
+      case "abs":
+        return Math.abs(first);
+      case "ceil":
+        return Math.ceil(first);
+      case "floor":
+        return Math.floor(first);
+      case "trunc":
+        return first < 0 ? Math.ceil(first) : Math.floor(first);
+      case "round":
+        return first < 0 ? -Math.floor(-first + 0.5) : Math.floor(first + 0.5);
+      case "max": {
+        double best = first;
+        for (double v : args) {
+          if (v > best) {
+            best = v;
+          }
+        }
+        return best;
+      }
+      case "min": {
+        double best = first;
+        for (double v : args) {
+          if (v < best) {
+            best = v;
+          }
+        }
+        return best;
+      }
+      default:
+        throw new IllegalArgumentException(
+            "if expression: unknown function \"" + name + "\"");
+    }
   }
 
   /**

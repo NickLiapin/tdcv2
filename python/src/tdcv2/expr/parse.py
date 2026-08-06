@@ -276,7 +276,9 @@ class _Parser:
                         args.append(self.expression(0))
                         self.skip_space()
                         if self.done():
-                            raise ValueError(f'if expression: unbalanced parentheses in "{self.src}"')
+                            raise ValueError(
+                                f'if expression: unbalanced parentheses in "{self.src}"'
+                            )
                         if self.src[self.pos] == ",":
                             self.pos += 1
                             continue

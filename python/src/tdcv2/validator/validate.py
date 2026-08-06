@@ -129,13 +129,28 @@ EXPR_FUNCTION_NAMES = tuple(sorted(EXPR_FUNCTIONS))
 # Not available, and not typos either. Someone writing cos(_count) knows what they meant, and
 # "did you mean abs?" is worse than saying nothing.
 PLANNED_EXPR_FUNCTIONS = (
-    "acos", "asin", "atan", "atan2", "cbrt", "cos", "cosh", "exp",
-    "log", "log10", "pow", "sin", "sinh", "sqrt", "tan", "tanh",
+    "acos",
+    "asin",
+    "atan",
+    "atan2",
+    "cbrt",
+    "cos",
+    "cosh",
+    "exp",
+    "log",
+    "log10",
+    "pow",
+    "sin",
+    "sinh",
+    "sqrt",
+    "tan",
+    "tanh",
 )
 
 
 def _nearest(needle: str, candidates: tuple[str, ...]) -> str | None:
     """The closest candidate by edit distance, or None when nothing is close enough."""
+
     def distance(a: str, b: str) -> int:
         prev = list(range(len(b) + 1))
         for i, ca in enumerate(a, 1):
@@ -148,6 +163,8 @@ def _nearest(needle: str, candidates: tuple[str, ...]) -> str | None:
     limit = min(3, max(1, len(needle) // 2 + 1))
     best = min(candidates, key=lambda c: distance(needle, c), default=None)
     return best if best is not None and distance(needle, best) <= limit else None
+
+
 SUPPORTED_UNARY = ("!", "-", "+")
 
 # What may sit directly inside <env>.
@@ -217,8 +234,8 @@ POOL_MAX_MEMBERS = 1_000_000
 #: `parent=` selects which rows a whole <sequence> or <mix> builds on; a <gen> inside one is
 #: already filtered by it, so on the <gen> itself nothing reads it.
 _MISPLACED_GEN_PARENT = (
-    'parent= selects which rows a whole <sequence> or <mix> builds on; move it there. '
-    'A <gen> inside one is already filtered by it.'
+    "parent= selects which rows a whole <sequence> or <mix> builds on; move it there. "
+    "A <gen> inside one is already filtered by it."
 )
 
 #: Attributes a <gen> may carry that are NOT pack parameters, so a pack-parameter check must not
@@ -328,11 +345,11 @@ _INTERPOLATION = re.compile(r"\$\{\{([^}]+)}}")
 _VERSION = re.compile(r"^\d+(?:\.\d+)*$")
 
 
-
 def _gen_element(child):
     """A ``<gen>``, self-closing or open/close alike."""
     el = child.selfClosingElement() or child.openCloseElement()
     return el if el is not None and el.name.text == "gen" else None
+
 
 def validate(document, base_dir: Path | None = None, packs: DataPacks | None = None):
     """Every diagnostic the config earns, in the order they were found.
@@ -614,7 +631,6 @@ class _Validator:
 
     # ── env ─────────────────────────────────────────────────────────────────────────────────
 
-
     # ── a share below one whole row ─────────────────────────────────────────────────────────
 
     def _check_small_shares(self, env) -> None:
@@ -652,11 +668,7 @@ class _Validator:
         seq_attrs = _attrs(seq.attr())
         rows = self._rows_of(seq_attrs.get("parent"), shares)
 
-        gens = [
-            g
-            for g in _child_elements(seq)
-            if g is not None and _element_name(g) == "gen"
-        ]
+        gens = [g for g in _child_elements(seq) if g is not None and _element_name(g) == "gen"]
         if len(gens) != 1:
             return
         gen = gens[0]
@@ -810,9 +822,7 @@ class _Validator:
         for child in _elements(env):
             inner = child.openCloseElement()
             if inner is not None and inner.name.text in FIXTURE_TAGS:
-                self._check_children(
-                    inner.content(), inner.name.text, FIXTURE_CHILDREN, "TDC131"
-                )
+                self._check_children(inner.content(), inner.name.text, FIXTURE_CHILDREN, "TDC131")
         self._check_closed_tag_attrs("env", env.attr(), _line(env), _column(env))
 
         names: set[str] = set()
@@ -1401,9 +1411,7 @@ class _Validator:
                         self._check_group_size(member, member.name.text, wrapped_count)
                 del outer
             elif tag in ("uniq", "distinct"):
-                self._check_closed_tag_attrs(
-                    tag, open_el.attr(), _line(open_el), _column(open_el)
-                )
+                self._check_closed_tag_attrs(tag, open_el.attr(), _line(open_el), _column(open_el))
                 members = 0
                 for inner in _elements(open_el):
                     wrapped = inner.openCloseElement()
@@ -1434,7 +1442,7 @@ class _Validator:
             return
         if tag == "uniq":
             hint = (
-                'Put at least two <sequence> members in it, or drop the wrapper and write '
+                "Put at least two <sequence> members in it, or drop the wrapper and write "
                 'uniq="true" on the one sequence — that draws without replacement.'
             )
         else:
@@ -1552,7 +1560,9 @@ class _Validator:
         # same TDC013 twice — invisible in the full report, obvious the moment the
         # brief output put the two lines together.
         self._check_children(
-            open_el.content(), "sequence", SEQUENCE_CHILDREN | MISPLACED_IN_SEQUENCE,
+            open_el.content(),
+            "sequence",
+            SEQUENCE_CHILDREN | MISPLACED_IN_SEQUENCE,
             shown=SEQUENCE_CHILDREN,
         )
         """A sequence must actually produce something, and a compound must name its fields."""
@@ -2475,8 +2485,11 @@ class _Validator:
         decimals = (attrs.get("decimals") or "").strip()
         if has_modifier and decimals not in ("", "0"):
             which = (
-                "include/exclude" if has_include and has_exclude
-                else "include" if has_include else "exclude"
+                "include/exclude"
+                if has_include and has_exclude
+                else "include"
+                if has_include
+                else "exclude"
             )
             line, column = _at(gen, "decimals")
             self._error(
@@ -2699,7 +2712,7 @@ class _Validator:
                     else f'step="{raw}" is not a step this engine can walk'
                 ),
                 (
-                    "A month is 28 to 31 days, so \"one month and fifteen days\" depends on "
+                    'A month is 28 to 31 days, so "one month and fifteen days" depends on '
                     "which is applied first. Write one or the other: 45d, or 1mo."
                     if mixed
                     else f'Write {calendar.STEP_SYNTAX}. A bare number means days, so step="2" is '
@@ -2738,7 +2751,7 @@ class _Validator:
             self._error(
                 "TDC249",
                 f'unknown weekday in weekdays="{raw}"',
-                f"Names are {', '.join(calendar.WEEKDAY_NAMES)} — a span like \"mon..fri\" or a "
+                f'Names are {", ".join(calendar.WEEKDAY_NAMES)} — a span like "mon..fri" or a '
                 'list like "sun,wed".',
                 line,
                 column,
@@ -3412,9 +3425,7 @@ class _Validator:
                 self._check_data_type(data, _line(line_el), _column(line_el))
                 # The <data> element, not the <line> around it: several <data> pieces can share a
                 # line, and pointing at the line would name the wrong one whenever they do.
-                self._check_interpolation(
-                    _data_text(data), data.start.line, data.start.column
-                )
+                self._check_interpolation(_data_text(data), data.start.line, data.start.column)
                 condition = _attrs(data.attr()).get("if")
                 if condition is not None:
                     where = _at_attrs(data.attr(), "if", _line(line_el), _column(line_el))
@@ -3514,10 +3525,7 @@ class _Validator:
                         column,
                     )
 
-
-    def _check_expression_names(
-        self, expression: str, line: int, column: int, each: bool
-    ) -> None:
+    def _check_expression_names(self, expression: str, line: int, column: int, each: bool) -> None:
         """The names an ``if=`` expression uses, checked against what exists.
 
         An identifier that names no sequence is not an error by itself — it is how a bare word
@@ -3612,9 +3620,7 @@ class _Validator:
         field = tail.split(".")[0]
         if f"{root}.{field}" in self.declared_names:
             return
-        fields = sorted(
-            n[len(root) + 1 :] for n in self.declared_names if n.startswith(f"{root}.")
-        )
+        fields = sorted(n[len(root) + 1 :] for n in self.declared_names if n.startswith(f"{root}."))
         self._error(
             "TDC215",
             f'"{path}" is not a field of "{root}" — the condition can never be true',

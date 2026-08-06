@@ -189,7 +189,40 @@ public sealed class Validator
 
     /// <summary>The binary operators the evaluator implements. Anything else is refused, not ignored.</summary>
     private static readonly IReadOnlyList<string> SupportedBinaryOperators =
-        new[] { "==", "!=", "===", "!==", "<", ">", "<=", ">=", "&&", "||", "+", "-", "*", "/" };
+        new[]
+        {
+            "==", "!=", "===", "!==", "<", ">", "<=", ">=", "&&", "||", "+", "-", "*", "/",
+            // Euclidean, matching <mod>: -3 % 2 is 1 here and -1 in C#'s own %.
+            "%",
+        };
+
+    /// <summary>
+    /// What an <c>if=</c> may call: the name, then the smallest and largest argument count
+    /// (<c>int.MaxValue</c> for variadic).
+    ///
+    /// Every one is EXACT — comparisons and the arithmetic IEEE-754 pins down — so the five
+    /// implementations cannot disagree. Transcendental functions are absent for that reason.
+    /// </summary>
+    private static readonly IReadOnlyList<(string Name, int Low, int High)> ExprFunctions =
+        new[]
+        {
+            ("abs", 1, 1), ("ceil", 1, 1), ("floor", 1, 1), ("max", 1, int.MaxValue),
+            ("min", 1, int.MaxValue), ("round", 1, 1), ("trunc", 1, 1),
+        };
+
+    private static readonly IReadOnlyList<string> ExprFunctionNames =
+        new[] { "abs", "ceil", "floor", "max", "min", "round", "trunc" };
+
+    /// <summary>
+    /// Not available, and not typos either. Someone writing <c>cos(_count)</c> knows what they
+    /// meant, and "did you mean abs?" is worse than saying nothing.
+    /// </summary>
+    private static readonly IReadOnlyList<string> PlannedExprFunctions =
+        new[]
+        {
+            "acos", "asin", "atan", "atan2", "cbrt", "cos", "cosh", "exp", "log", "log10",
+            "pow", "sin", "sinh", "sqrt", "tan", "tanh",
+        };
 
     private static readonly IReadOnlyList<string> SupportedUnaryOperators = new[] { "!", "-", "+" };
 
@@ -4742,12 +4775,62 @@ public sealed class Validator
                     Error(
                         "TDC101", $"unsupported operator \"{binary.Op}\" in if expression",
                         "Supported binary operators: "
-                        + string.Join(" ", SupportedBinaryOperators) + ".",
+                        + string.Join(" ", SupportedBinaryOperators)
+                        + ". Functions: " + string.Join(", ", ExprFunctionNames)
+                        + ". Anything an expression cannot say, a <compute> sequence can — it has "
+                        + "integer division, remainders, string surgery and checksums — and the "
+                        + "sequence it produces is what if= then compares.",
                         line, column);
                 }
 
                 CheckExprNode(binary.Left, line, column);
                 CheckExprNode(binary.Right, line, column);
+                return;
+
+            case Expr.Expr.Call call:
+                (string Name, int Low, int High)? spec =
+                    ExprFunctions.Cast<(string Name, int Low, int High)?>()
+                        .FirstOrDefault(f => f!.Value.Name == call.Callee);
+                if (spec is null)
+                {
+                    bool planned = PlannedExprFunctions.Contains(call.Callee);
+                    Error(
+                        "TDC257",
+                        planned
+                            ? $"{call.Callee}() is not available yet in an if expression"
+                            : $"unknown function \"{call.Callee}\" in if expression",
+                        planned
+                            ? $"Every host language computes {call.Callee} slightly differently — "
+                              + "tan(1) already differs in its last bit between Node and Python — "
+                              + "and a comparison turns that bit into a different row. It arrives "
+                              + "once TDC computes it itself, the way it computes its own random "
+                              + "numbers. Available today: "
+                              + string.Join(", ", ExprFunctionNames) + "."
+                            : "Available: " + string.Join(", ", ExprFunctionNames) + ".",
+                        line, column);
+                    return;
+                }
+
+                int given = call.Args.Count;
+                if (given < spec.Value.Low || given > spec.Value.High)
+                {
+                    string wants = spec.Value.High == int.MaxValue
+                        ? $"at least {spec.Value.Low}"
+                        : spec.Value.Low == spec.Value.High
+                            ? $"exactly {spec.Value.Low}"
+                            : $"{spec.Value.Low} to {spec.Value.High}";
+                    Error(
+                        "TDC258",
+                        $"{call.Callee}() takes {wants} argument{(spec.Value.High == 1 ? "" : "s")}, "
+                        + $"got {given}",
+                        string.Empty, line, column);
+                }
+
+                foreach (Expr.Expr arg in call.Args)
+                {
+                    CheckExprNode(arg, line, column);
+                }
+
                 return;
 
             case Expr.Expr.Computed computed:

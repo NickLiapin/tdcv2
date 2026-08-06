@@ -28,6 +28,8 @@ pub enum Expr {
     Member(String),
     Binary(String, Box<Expr>, Box<Expr>),
     Unary(String, Box<Expr>),
+    /// `abs(x)` — a call on a bare name, with its arguments already parsed.
+    Call(String, Vec<Expr>),
     /// `x[0]` — subscripting, which the evaluator does not implement.
     ///
     /// Parsed rather than rejected so the complaint can name what is
@@ -38,21 +40,33 @@ pub enum Expr {
 }
 
 /// jsep's binary precedence, verbatim. Higher binds tighter.
+///
+/// The bitwise and shift operators are here even though the engine implements
+/// none of them, and that is the point: the reference parses whatever jsep
+/// parses and then refuses the operator BY NAME. A parser that stopped at the
+/// supported set answered `x & 1` with a syntax error pointing at the
+/// ampersand, which tells the reader nothing about what to write instead.
 fn precedence(op: &str) -> Option<u8> {
     Some(match op {
         "||" => 1,
         "&&" => 2,
+        "|" => 3,
+        "^" => 4,
+        "&" => 5,
         "==" | "!=" | "===" | "!==" => 6,
         "<" | ">" | "<=" | ">=" => 7,
+        "<<" | ">>" | ">>>" => 8,
         "+" | "-" => 9,
         "*" | "/" | "%" => 10,
         _ => return None,
     })
 }
 
-/// Longest first, so `<=` is never read as `<` followed by a stray `=`.
-const OPERATORS: [&str; 15] = [
-    "===", "!==", "==", "!=", "<=", ">=", "&&", "||", "<", ">", "+", "-", "*", "/", "%",
+/// Longest first, so `<=` is never read as `<` followed by a stray `=`, and
+/// `&&` never as two `&`.
+const OPERATORS: [&str; 21] = [
+    ">>>", "===", "!==", "==", "!=", "<=", ">=", "&&", "||", "<<", ">>", "<", ">", "+", "-", "*",
+    "/", "%", "&", "|", "^",
 ];
 
 /// A hard ceiling on parenthesis nesting. The parser recurses per `(`, so a
@@ -221,10 +235,46 @@ impl Parser<'_> {
 
         if c.is_alphabetic() || c == '_' || c == '$' {
             let mut value = self.word()?;
+            self.skip_space();
+            // A call, but only on a bare name: `abs(x)` and never `obj.method(x)`.
+            // The reference restricts it the same way, and the validator says so
+            // with a position.
+            if let Expr::Name(name) = &value {
+                if self.peek() == Some('(') {
+                    let name = name.clone();
+                    self.pos += 1;
+                    let mut args: Vec<Expr> = Vec::new();
+                    self.skip_space();
+                    if self.peek() == Some(')') {
+                        self.pos += 1;
+                    } else {
+                        loop {
+                            args.push(self.expression(0)?);
+                            self.skip_space();
+                            match self.peek() {
+                                Some(',') => {
+                                    self.pos += 1;
+                                }
+                                Some(')') => {
+                                    self.pos += 1;
+                                    break;
+                                }
+                                _ => {
+                                    return invalid(&format!(
+                                        "if expression: unbalanced parentheses in \"{}\"",
+                                        self.raw
+                                    ));
+                                }
+                            }
+                        }
+                    }
+                    self.skip_space();
+                    return Ok(Expr::Call(name, args));
+                }
+            }
             // A subscript parses and then fails validation, so the complaint can
             // say which construct is unsupported rather than only where the
             // parser stopped.
-            self.skip_space();
             while self.peek() == Some('[') {
                 self.pos += 1;
                 self.expression(0)?;

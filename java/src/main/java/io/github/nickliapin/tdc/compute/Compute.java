@@ -112,6 +112,13 @@ public final class Compute {
 
   // ── the evaluator ────────────────────────────────────────────────────────────────────────
 
+  /**
+   * The builtin row counters, which are numbers rather than text. {@code _first} and {@code _last}
+   * are deliberately absent: they are the strings "true" and "false".
+   */
+  private static final java.util.Set<String> NUMERIC_BUILTIN_FIELDS =
+      java.util.Set.of("_count", "_total");
+
   private static Value eval(TDCParser.ElementContext el, Scope scope) {
     Node n = node(el);
     switch (n.name()) {
@@ -154,6 +161,18 @@ public final class Compute {
         String value = scope.fields().get(name);
         if (value == null) {
           throw new ComputeError("<field>: \"" + name + "\" is not in scope");
+        }
+        // A sequence's value is text, and asInt deliberately refuses a multi-digit string so that
+        // "the third character" and "the number 375" stay different things. The row counters are
+        // not text: _count and _total are numbers by nature. Without this they were strings, so
+        // the single-digit escape hatch carried them to row 9 and the tenth row failed. _first
+        // and _last stay out — they are the words "true" and "false".
+        if (NUMERIC_BUILTIN_FIELDS.contains(name)) {
+          try {
+            return Value.of(new java.math.BigInteger(value));
+          } catch (NumberFormatException ignored) {
+            return Value.of(value);
+          }
         }
         return Value.of(value);
       }

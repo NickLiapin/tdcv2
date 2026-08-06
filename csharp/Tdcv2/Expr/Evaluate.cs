@@ -40,6 +40,7 @@ public static class Evaluate
         Expr.Member m => MemberOf(m.Dotted, scope),
         Expr.Unary u => UnaryOp(u.Op, Eval(u.Operand, scope)),
         Expr.Binary b => BinaryOp(b.Op, Eval(b.Left, scope), Eval(b.Right, scope)),
+        Expr.Call c => CallFunction(c.Callee, c.Args.Select(a => AsNumber(Eval(a, scope))).ToArray()),
         _ => throw new InvalidOperationException($"if expression: unhandled node {node}"),
     };
 
@@ -92,9 +93,60 @@ public static class Evaluate
         "-" => AsNumber(left) - AsNumber(right),
         "*" => AsNumber(left) * AsNumber(right),
         "/" => AsNumber(left) / AsNumber(right),
-        "%" => AsNumber(left) % AsNumber(right),
+        "%" => EuclideanRemainder(AsNumber(left), AsNumber(right)),
         _ => throw new ArgumentException($"if expression: unsupported operator {op}"),
     };
+
+    /// <summary>
+    /// <c>%</c> — the EUCLIDEAN remainder, always in <c>[0, |b|)</c>.
+    ///
+    /// Not C#'s <c>%</c>, which takes the sign of the dividend and answers -1 to <c>-3 % 2</c>.
+    /// The compute layer's <c>&lt;mod&gt;</c> answers 1, and one engine must not give two answers
+    /// depending on which layer the author reached for.
+    /// </summary>
+    private static double EuclideanRemainder(double a, double b)
+    {
+        if (b == 0)
+        {
+            throw new ArgumentException("if expression: the right side of % must not be zero");
+        }
+
+        double magnitude = Math.Abs(b);
+        double r = a % magnitude;
+        return r < 0 ? r + magnitude : r;
+    }
+
+    /// <summary>
+    /// The functions an <c>if=</c> may call.
+    ///
+    /// Every one is EXACT — comparisons and the arithmetic IEEE-754 pins down — so the five
+    /// implementations cannot disagree about a result. sin, cos, exp and the rest are absent for
+    /// exactly that reason; the validator answers them with it.
+    ///
+    /// <c>round</c> is written out rather than delegated: .NET rounds a half to even by default,
+    /// JavaScript sends it toward +inf, Java rounds half up. TDC sends a half AWAY FROM ZERO.
+    /// </summary>
+    private static double CallFunction(string name, double[] args)
+    {
+        if (args.Length == 0)
+        {
+            throw new ArgumentException("if expression: a function needs at least one argument");
+        }
+
+        double first = args[0];
+        switch (name)
+        {
+            case "abs": return Math.Abs(first);
+            case "ceil": return Math.Ceiling(first);
+            case "floor": return Math.Floor(first);
+            case "trunc": return Math.Truncate(first);
+            case "round": return first < 0 ? -Math.Floor(-first + 0.5) : Math.Floor(first + 0.5);
+            case "max": return args.Aggregate(first, (a, b) => b > a ? b : a);
+            case "min": return args.Aggregate(first, (a, b) => b < a ? b : a);
+            default:
+                throw new ArgumentException($"if expression: unknown function \"{name}\"");
+        }
+    }
 
     /// <summary>
     /// Loose equality. A number against a numeric-looking string compares as numbers, so

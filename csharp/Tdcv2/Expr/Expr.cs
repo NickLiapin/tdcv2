@@ -42,6 +42,9 @@ public abstract record Expr
 
     public sealed record Unary(string Op, Expr Operand) : Expr;
 
+    /// <summary><c>abs(x)</c> — a call on a bare name, with its arguments already parsed.</summary>
+    public sealed record Call(string Callee, IReadOnlyList<Expr> Args) : Expr;
+
     /// <summary>
     /// <c>x[0]</c> — subscripting, which the evaluator does not implement.
     /// </summary>
@@ -57,6 +60,9 @@ public abstract record Expr
     {
         ["||"] = 1,
         ["&&"] = 2,
+        ["|"] = 3,
+        ["^"] = 4,
+        ["&"] = 5,
         ["=="] = 6,
         ["!="] = 6,
         ["==="] = 6,
@@ -65,6 +71,9 @@ public abstract record Expr
         [">"] = 7,
         ["<="] = 7,
         [">="] = 7,
+        ["<<"] = 8,
+        [">>"] = 8,
+        [">>>"] = 8,
         ["+"] = 9,
         ["-"] = 9,
         ["*"] = 10,
@@ -148,8 +157,13 @@ public abstract record Expr
     {
         private static readonly string[] Operators =
         {
-            // Longest first, so `<=` is never read as `<` followed by a stray `=`.
-            "===", "!==", "==", "!=", "<=", ">=", "&&", "||", "<", ">", "+", "-", "*", "/", "%",
+            // Longest first, so `<=` is never read as `<` followed by a stray `=`, and `&&`
+            // never as two `&`. The bitwise and shift operators are here even though the engine
+            // implements none of them: the reference parses whatever jsep parses and then refuses
+            // the operator BY NAME, and a tokenizer that stopped at the supported set answered
+            // `x & 1` with a syntax error pointing at the ampersand.
+            ">>>", "===", "!==", "==", "!=", "<=", ">=", "&&", "||", "<<", ">>", "<", ">",
+            "+", "-", "*", "/", "%", "&", "|", "^",
         };
 
         private readonly string _src;
@@ -267,9 +281,53 @@ public abstract record Expr
             if (char.IsLetter(c) || c == '_' || c == '$')
             {
                 Expr value = Word();
+                SkipSpace();
+                // A call, but only on a bare name: `abs(x)` and never `obj.method(x)`. The
+                // reference restricts it the same way, and the validator says so with a position.
+                if (value is Name named && !Done && _src[_pos] == '(')
+                {
+                    _pos++;
+                    List<Expr> args = new();
+                    SkipSpace();
+                    if (!Done && _src[_pos] == ')')
+                    {
+                        _pos++;
+                    }
+                    else
+                    {
+                        while (true)
+                        {
+                            args.Add(Expression(0));
+                            SkipSpace();
+                            if (Done)
+                            {
+                                throw new ArgumentException(
+                                    $"if expression: unbalanced parentheses in \"{_src}\"");
+                            }
+
+                            if (_src[_pos] == ',')
+                            {
+                                _pos++;
+                                continue;
+                            }
+
+                            if (_src[_pos] == ')')
+                            {
+                                _pos++;
+                                break;
+                            }
+
+                            throw new ArgumentException(
+                                $"if expression: unbalanced parentheses in \"{_src}\"");
+                        }
+                    }
+
+                    SkipSpace();
+                    return new Call(named.Value, args);
+                }
+
                 // A subscript parses and then fails validation, so the complaint can say which
                 // construct is unsupported rather than only where the parser stopped.
-                SkipSpace();
                 while (!Done && _src[_pos] == '[')
                 {
                     _pos++;

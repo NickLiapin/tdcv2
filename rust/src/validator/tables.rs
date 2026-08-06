@@ -305,11 +305,39 @@ pub const PLACEMENT_HINTS: [(&str, &str); 8] = [
 /// Operators whose right side may be a bare word rather than a name.
 pub const COMPARISON_OPERATORS: &[&str] = &["==", "!=", "===", "!==", "<", ">", "<=", ">="];
 
-pub const SUPPORTED_BINARY_OPERATORS: [&str; 14] = [
+pub const SUPPORTED_BINARY_OPERATORS: [&str; 15] = [
     "==", "!=", "===", "!==", "<", ">", "<=", ">=", "&&", "||", "+", "-", "*", "/",
+    // Euclidean, matching <mod>: -3 % 2 is 1 here and -1 in Rust's own `%`.
+    "%",
 ];
 
 pub const SUPPORTED_UNARY_OPERATORS: [&str; 3] = ["!", "-", "+"];
+
+/// What an `if=` may call: the name, then the smallest and largest argument
+/// count (`usize::MAX` for variadic).
+///
+/// Every one is EXACT — comparisons and the arithmetic IEEE-754 pins down — so
+/// the five implementations cannot disagree about a result. Transcendental
+/// functions are absent for exactly that reason.
+pub const EXPR_FUNCTIONS: [(&str, usize, usize); 7] = [
+    ("abs", 1, 1),
+    ("ceil", 1, 1),
+    ("floor", 1, 1),
+    ("max", 1, usize::MAX),
+    ("min", 1, usize::MAX),
+    ("round", 1, 1),
+    ("trunc", 1, 1),
+];
+
+pub const EXPR_FUNCTION_NAMES: [&str; 7] =
+    ["abs", "ceil", "floor", "max", "min", "round", "trunc"];
+
+/// Not available, and not typos either. Someone writing `cos(_count)` knows
+/// what they meant, and "did you mean abs?" is worse than saying nothing.
+pub const PLANNED_EXPR_FUNCTIONS: [&str; 16] = [
+    "acos", "asin", "atan", "atan2", "cbrt", "cos", "cosh", "exp", "log", "log10", "pow", "sin",
+    "sinh", "sqrt", "tan", "tanh",
+];
 
 pub fn lookup<'a>(table: &'a [(&'a str, &'a [&'a str])], key: &str) -> Option<&'a [&'a str]> {
     table.iter().find(|(k, _)| *k == key).map(|(_, v)| *v)
