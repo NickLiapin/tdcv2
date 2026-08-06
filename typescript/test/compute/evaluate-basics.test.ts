@@ -26,6 +26,31 @@ describe('field references', () => {
   it('errors on an unknown field', () => {
     expect(() => evalExpr('<field name="missing"/>')).toThrow(/not in scope/);
   });
+
+  // The row counters are numbers, not text. They used to arrive as strings, and
+  // `coerceInt` lets a SINGLE digit through — so `<mod><field name="_count"/>…`
+  // worked to row 9 and threw on row 10. A config proven on five rows broke on
+  // a million, which is the worst shape this kind of bug can take.
+  it('reads _count and _total as integers, at any magnitude', () => {
+    expect(evalExpr('<mod><field name="_count"/><int v="2"/></mod>', { _count: '10' })).toBe('0');
+    expect(evalExpr('<mod><field name="_count"/><int v="2"/></mod>', { _count: '9' })).toBe('1');
+    expect(evalExpr('<add><field name="_total"/><int v="1"/></add>', { _total: '1000000' })).toBe(
+      '1000001',
+    );
+  });
+
+  it('leaves _first and _last as the strings they are', () => {
+    expect(evalExpr('<field name="_last"/>', { _last: 'true' })).toBe('true');
+    expect(() =>
+      evalExpr('<add><field name="_last"/><int v="1"/></add>', { _last: 'true' }),
+    ).toThrow(/expected an integer/);
+  });
+
+  it('an ordinary field is still text, so its digits stay characters', () => {
+    expect(() => evalExpr('<add><field name="x"/><int v="1"/></add>', { x: '375' })).toThrow(
+      /wrap it in <to_number>/,
+    );
+  });
 });
 
 describe('let / var', () => {

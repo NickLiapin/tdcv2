@@ -150,6 +150,10 @@ export const SUPPORTED_BINARY_OPERATORS: readonly string[] = [
   '-',
   '*',
   '/',
+  // Euclidean, matching <mod> — see expr/evaluate.ts. `-3 % 2` is 1 here and
+  // −1 in JavaScript, Java, C# and Rust; the engine answers one way in both of
+  // its layers rather than borrowing whatever the host language does.
+  '%',
 ] as const;
 
 export const SUPPORTED_UNARY_OPERATORS: readonly string[] = ['!', '-', '+'] as const;

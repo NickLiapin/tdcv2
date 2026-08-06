@@ -106,10 +106,31 @@ describe('evaluateIf — undefined sequence values', () => {
   });
 });
 
-describe('evaluateIf — errors', () => {
-  it('throws on unsupported operator (modulo, nullish, etc.)', () => {
+describe('evaluateIf — the modulo operator', () => {
+  it('picks out every second row', () => {
     const reg = registry({});
-    expect(() => evaluateIf('_count % 2 == 0', reg, 0)).toThrow(/operator/);
+    expect(evaluateIf('_count % 2 == 0', reg, 1)).toBe(true); // row 2
+    expect(evaluateIf('_count % 2 == 0', reg, 2)).toBe(false); // row 3
+  });
+
+  it('is EUCLIDEAN, like <mod> — and unlike the host language', () => {
+    // JavaScript, Java, C# and Rust all answer −1 to `-3 % 2`; the compute
+    // layer's <mod> answers 1, so `%` answers 1 too. One engine, one answer.
+    const reg = registry({});
+    expect(evaluateIf('(0 - 3) % 2 == 1', reg, 0)).toBe(true);
+    expect(evaluateIf('(0 - 3) % 2 == 0 - 1', reg, 0)).toBe(false);
+  });
+
+  it('refuses a zero divisor rather than quietly yielding NaN', () => {
+    const reg = registry({});
+    expect(() => evaluateIf('_count % 0 == 0', reg, 0)).toThrow(/must not be zero/);
+  });
+});
+
+describe('evaluateIf — errors', () => {
+  it('throws on an operator that is still unsupported (bitwise)', () => {
+    const reg = registry({});
+    expect(() => evaluateIf('_count & 1 == 0', reg, 0)).toThrow(/operator/);
   });
 
   it('throws on unsupported computed member access', () => {

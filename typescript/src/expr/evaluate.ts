@@ -164,6 +164,23 @@ function memberExpressionToName(node: jsep.MemberExpression): string {
   return parts.join('.');
 }
 
+/**
+ * `%` — the EUCLIDEAN remainder, always in `[0, |b|)`.
+ *
+ * Not the host language's `%`. JavaScript, Java, C# and Rust all answer −1 to
+ * `-3 % 2`; Python answers 1. The compute layer already settled this question
+ * for `<mod>` and answers 1 (`compute/value.ts`, euclideanMod), so a `%` that
+ * borrowed the host convention would make one engine give two different
+ * answers to the same question depending on which layer the author reached
+ * for. Same algorithm as `<mod>`, written for doubles.
+ */
+function euclideanRemainder(a: number, b: number): number {
+  if (b === 0) throw new Error('the right side of % must not be zero');
+  const abs = Math.abs(b);
+  const r = a % abs;
+  return r < 0 ? r + abs : r;
+}
+
 function applyBinary(op: string, left: unknown, right: unknown): unknown {
   switch (op) {
     case '==':
@@ -198,6 +215,8 @@ function applyBinary(op: string, left: unknown, right: unknown): unknown {
       return asNumber(left) * asNumber(right);
     case '/':
       return asNumber(left) / asNumber(right);
+    case '%':
+      return euclideanRemainder(asNumber(left), asNumber(right));
     default:
       throw new Error(`unsupported binary operator: ${op}`);
   }

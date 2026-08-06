@@ -43,6 +43,14 @@ import {
 } from './value.js';
 
 /**
+ * The builtin row counters, which are numbers rather than text.
+ *
+ * `_first` and `_last` are deliberately absent: they are the strings "true" and
+ * "false", and reading them as integers would be a lie of a different kind.
+ */
+const NUMERIC_BUILTIN_FIELDS: ReadonlySet<string> = new Set(['_count', '_total']);
+
+/**
  * Evaluation scope. `fields` resolves `<field>`; `vars` holds `<let>` bindings;
  * `current`/`currentIndex`/`acc` are the contextual iteration values, present
  * only inside a `<do>` body.
@@ -168,6 +176,18 @@ function evalElement(el: ElementContext, scope: EvalScope): Value {
       const name = n.attrs['name'] ?? '';
       const value = scope.fields(name);
       if (value === undefined) throw new ComputeError(`<field>: "${name}" is not in scope`);
+      // A sequence's value is text, and `coerceInt` deliberately refuses a
+      // multi-digit string so that "the third character" and "the number 375"
+      // stay different things. The row counters are not text: `_count` and
+      // `_total` are numbers by nature, and typing them as such is what makes
+      // `<mod><field name="_count"/><int v="2"/></mod>` mean something.
+      //
+      // Without this the counters were strings, so the single-digit escape
+      // hatch in `coerceInt` carried them to row 9 and the tenth row failed
+      // with "expected an integer in arithmetic, got the string "10"". A
+      // config tested on five rows broke on a million, which is the worst
+      // shape a bug can have here.
+      if (NUMERIC_BUILTIN_FIELDS.has(name)) return int(BigInt(value));
       return str(value);
     }
     case 'var': {

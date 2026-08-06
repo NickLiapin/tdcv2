@@ -588,8 +588,13 @@ describe('validator — if-expression checks', () => {
     expect(r.diagnostics.find((d) => d.code === 'TDC100')).toBeDefined();
   });
 
-  it('errors on an unsupported operator (%)', () => {
-    const r = run(wrap('if="x % 2 == 0"'));
+  it('accepts % — the row-parity operator every author reaches for first', () => {
+    const r = run(wrap('if="_count % 2 == 0"'));
+    expect(r.diagnostics.find((d) => d.code === 'TDC101')).toBeUndefined();
+  });
+
+  it('errors on an operator that is still unsupported (bitwise)', () => {
+    const r = run(wrap('if="x & 1 == 0"'));
     expect(r.diagnostics.find((d) => d.code === 'TDC101')).toBeDefined();
   });
 
