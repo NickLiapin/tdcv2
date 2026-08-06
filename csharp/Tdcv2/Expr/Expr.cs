@@ -27,6 +27,15 @@ public abstract record Expr
 {
     public sealed record Num(double Value) : Expr;
 
+    /// <summary>
+    /// A literal written as a whole number, kept as one.
+    ///
+    /// <para>Forcing it to double at parse time would lose the argument before anything could
+    /// protect it: 9007199254740993 becomes 9007199254740992, and no later care puts the digit
+    /// back.</para>
+    /// </summary>
+    public sealed record Int(long Value) : Expr;
+
     public sealed record Str(string Value) : Expr;
 
     public sealed record Bool(bool Value) : Expr;
@@ -488,7 +497,18 @@ public abstract record Expr
                 }
             }
 
-            return new Num(double.Parse(_src[start.._pos], CultureInfo.InvariantCulture));
+            string literal = _src[start.._pos];
+            // Digits and an optional sign, nothing else: a point or an exponent
+            // means the author wrote a fraction and meant one.
+            string body = literal.Length > 0 && (literal[0] == '+' || literal[0] == '-')
+                ? literal[1..]
+                : literal;
+            if (body.Length > 0 && body.All(c => c >= '0' && c <= '9')
+                && long.TryParse(literal, NumberStyles.Integer, CultureInfo.InvariantCulture, out long whole))
+            {
+                return new Int(whole);
+            }
+            return new Num(double.Parse(literal, CultureInfo.InvariantCulture));
         }
 
         private Expr Word()

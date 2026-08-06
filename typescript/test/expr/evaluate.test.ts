@@ -262,3 +262,62 @@ describe('evaluateIf — errors', () => {
     expect(() => evaluateIf('obj.method(1)', reg, 0)).toThrow(/plain function name/);
   });
 });
+
+describe('whole numbers stay whole', () => {
+  const reg = registry({ Id: ['9007199254740993'] });
+
+  /**
+   * A double holds every integer up to 2^53 and then starts skipping. Before
+   * this, the two lines below answered true and 0 — silently, which for a data
+   * generator is the worst kind of wrong: the run finishes and the file looks
+   * fine.
+   */
+  it('tells two neighbouring whole numbers apart past 2^53', () => {
+    expect(evaluateIf('Id == 9007199254740993', reg, 0)).toBe(true);
+    expect(evaluateIf('Id == 9007199254740992', reg, 0)).toBe(false);
+    expect(evaluateIf('9007199254740993 - 9007199254740992 == 1', reg, 0)).toBe(true);
+    expect(evaluateIf('9007199254740993 > 9007199254740992', reg, 0)).toBe(true);
+  });
+
+  /**
+   * The domain reaches -2^63, but its most negative value cannot be WRITTEN as
+   * a literal: `-9223372036854775808` is unary minus applied to a magnitude one
+   * past the largest positive, so the literal itself is out of range before the
+   * sign is reached. Arithmetic gets there; the keyboard does not.
+   */
+  it('reaches the edge of the signed 64-bit domain', () => {
+    expect(evaluateIf('9223372036854775807 - 1 == 9223372036854775806', reg, 0)).toBe(true);
+    expect(evaluateIf('0 - 9223372036854775807 == -9223372036854775807', reg, 0)).toBe(true);
+    expect(evaluateIf('-9223372036854775807 - 1 < -9223372036854775806', reg, 0)).toBe(true);
+  });
+
+  /**
+   * Past the domain the answer is a refusal, in the same words the compute layer
+   * uses, rather than a quiet slide back into floating point — which would be
+   * the same silent wrongness arriving one step later.
+   *
+   * This is a RUN-TIME refusal, and the shared-case fixtures have no slot for
+   * one: they describe what a config renders. So the five-way agreement on this
+   * particular behaviour rests on each implementation's own tests, not on the
+   * cross-language contract. Worth knowing before relying on it.
+   */
+  it('refuses rather than rounding when the domain runs out', () => {
+    expect(() => evaluateIf('1000000000000000000 * 10 == 0', reg, 0)).toThrow(
+      /integer overflow: 10000000000000000000 is outside the signed 64-bit range/,
+    );
+  });
+
+  it('leaves division in floating point, always', () => {
+    expect(evaluateIf('7 / 2 == 3.5', reg, 0)).toBe(true);
+    expect(evaluateIf('10 / 2 == 5', reg, 0)).toBe(true);
+  });
+
+  it('keeps every rule the double path already had', () => {
+    expect(evaluateIf('-4 % 3 == 2', reg, 0)).toBe(true);
+    expect(evaluateIf('2 + 3 * 4 == 14', reg, 0)).toBe(true);
+    expect(evaluateIf('-(5) == -5', reg, 0)).toBe(true);
+    // A fraction is not a whole number and must not be treated as one.
+    expect(evaluateIf('2.5 + 2.5 == 5', reg, 0)).toBe(true);
+    expect(evaluateIf('sqrt(9007199254740993) > 94906265', reg, 0)).toBe(true);
+  });
+});

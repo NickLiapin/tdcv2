@@ -19,6 +19,11 @@ use crate::engine::{invalid, EngineResult};
 #[derive(Clone, Debug, PartialEq)]
 pub enum Expr {
     Num(f64),
+    /// A literal written as a whole number, kept as one. Forcing it to f64 here
+    /// would lose the argument before anything could protect it:
+    /// 9007199254740993 becomes 9007199254740992 and no later care puts the
+    /// digit back.
+    Int(i64),
     Str(String),
     Bool(bool),
     Null,
@@ -414,7 +419,17 @@ impl Parser<'_> {
         }
         let text: String = self.src[start..self.pos].iter().collect();
         match text.parse::<f64>() {
-            Ok(n) => Ok(Expr::Num(n)),
+            Ok(n) => {
+                // Digits and an optional sign, nothing else: a point or an
+                // exponent means the author wrote a fraction and meant one.
+                let body = text.strip_prefix(['+', '-']).unwrap_or(&text);
+                if !body.is_empty() && body.bytes().all(|b| b.is_ascii_digit()) {
+                    if let Ok(whole) = text.parse::<i64>() {
+                        return Ok(Expr::Int(whole));
+                    }
+                }
+                Ok(Expr::Num(n))
+            }
             Err(_) => invalid(&format!("if expression: \"{text}\" is not a number")),
         }
     }

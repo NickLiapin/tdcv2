@@ -28,6 +28,22 @@ pub trait Scope {
 enum V {
     Null,
     Num(f64),
+    /// A whole number, kept exact.
+    ///
+    /// A double holds every integer up to 2^53 and then starts skipping. Past
+    /// that point two DIFFERENT whole numbers become the same double, and an
+    /// expression built on doubles alone answers accordingly:
+    ///
+    /// ```text
+    /// 9007199254740993 == 9007199254740992   ->  true
+    /// 9007199254740993 -  9007199254740992   ->  0
+    /// ```
+    ///
+    /// Both wrong, and wrong silently — the worst way for a data generator to
+    /// be wrong, since the run finishes and the file looks fine. The domain is
+    /// signed 64-bit, matching the compute layer, because i64 is the widest
+    /// integer all five implementations hold natively.
+    Int(i64),
     Str(String),
     Bool(bool),
     /// Only ever produced by an array literal, and only ever consumed by `in`.
@@ -44,6 +60,7 @@ pub fn as_condition(source: &str, scope: &dyn Scope) -> EngineResult<bool> {
 fn eval(node: &Expr, scope: &dyn Scope) -> EngineResult<V> {
     Ok(match node {
         Expr::Num(n) => V::Num(*n),
+        Expr::Int(n) => V::Int(*n),
         Expr::Str(s) => V::Str(s.clone()),
         Expr::Bool(b) => V::Bool(*b),
         Expr::Null => V::Null,
@@ -218,8 +235,14 @@ fn member_of(dotted: &str, scope: &dyn Scope) -> V {
 fn unary_op(op: &str, arg: &V) -> EngineResult<V> {
     Ok(match op {
         "!" => V::Bool(!to_boolean(arg)),
-        "-" => V::Num(-as_number(arg)),
-        "+" => V::Num(as_number(arg)),
+        "-" => match as_exact_int(arg) {
+            Some(whole) => V::Int(checked_int(whole.checked_neg())?),
+            None => V::Num(-as_number(arg)),
+        },
+        "+" => match as_exact_int(arg) {
+            Some(whole) => V::Int(whole),
+            None => V::Num(as_number(arg)),
+        },
         other => {
             return invalid(&format!("if expression: unsupported operator {other}"));
         }
@@ -232,25 +255,57 @@ fn binary_op(op: &str, left: &V, right: &V) -> EngineResult<V> {
         "!=" => V::Bool(!loose_equals(left, right)),
         "===" => V::Bool(strict_equals(left, right)),
         "!==" => V::Bool(!strict_equals(left, right)),
-        "<" => V::Bool(as_number(left) < as_number(right)),
-        ">" => V::Bool(as_number(left) > as_number(right)),
-        "<=" => V::Bool(as_number(left) <= as_number(right)),
-        ">=" => V::Bool(as_number(left) >= as_number(right)),
+        "<" => V::Bool(match both_whole(left, right) {
+            Some((a, b)) => a < b,
+            None => as_number(left) < as_number(right),
+        }),
+        ">" => V::Bool(match both_whole(left, right) {
+            Some((a, b)) => a > b,
+            None => as_number(left) > as_number(right),
+        }),
+        "<=" => V::Bool(match both_whole(left, right) {
+            Some((a, b)) => a <= b,
+            None => as_number(left) <= as_number(right),
+        }),
+        ">=" => V::Bool(match both_whole(left, right) {
+            Some((a, b)) => a >= b,
+            None => as_number(left) >= as_number(right),
+        }),
         "&&" => V::Bool(to_boolean(left) && to_boolean(right)),
         "||" => V::Bool(to_boolean(left) || to_boolean(right)),
         // `+` adds when either side is already a number and joins otherwise, as
         // in JavaScript.
-        "+" => {
-            if matches!(left, V::Num(_)) || matches!(right, V::Num(_)) {
-                V::Num(as_number(left) + as_number(right))
-            } else {
-                V::Str(text(left) + &text(right))
+        "+" => match both_whole(left, right) {
+            Some((a, b)) => V::Int(checked_int(a.checked_add(b))?),
+            None => {
+                if matches!(left, V::Num(_)) || matches!(right, V::Num(_)) {
+                    V::Num(as_number(left) + as_number(right))
+                } else {
+                    V::Str(text(left) + &text(right))
+                }
             }
-        }
-        "-" => V::Num(as_number(left) - as_number(right)),
-        "*" => V::Num(as_number(left) * as_number(right)),
+        },
+        "-" => match both_whole(left, right) {
+            Some((a, b)) => V::Int(checked_int(a.checked_sub(b))?),
+            None => V::Num(as_number(left) - as_number(right)),
+        },
+        "*" => match both_whole(left, right) {
+            Some((a, b)) => V::Int(checked_int(a.checked_mul(b))?),
+            None => V::Num(as_number(left) * as_number(right)),
+        },
+        // Division alone stays in floating point, always. It is not closed over
+        // the whole numbers — 7/2 is not one — and a rule that came out exact
+        // only when the division happened to be even would be a rule nobody
+        // could hold in their head.
         "/" => V::Num(as_number(left) / as_number(right)),
-        "%" => V::Num(euclidean_remainder(as_number(left), as_number(right))?),
+        "%" => match both_whole(left, right) {
+            // Euclidean, like the double path and like <mod> in compute.
+            Some((a, b)) if b != 0 => {
+                let r = a % b;
+                V::Int(if r < 0 { r + b.abs() } else { r })
+            }
+            _ => V::Num(euclidean_remainder(as_number(left), as_number(right))?),
+        },
         // As loose as `==`, deliberately: a text column against a list of numeric
         // words has to match, or `in` and `==` would disagree about the same pair.
         "in" => V::Bool(match right {
@@ -312,6 +367,7 @@ fn to_boolean(v: &V) -> bool {
         // it too: the string "false" is falsy. Every boolean column in TDC is
         // text, so without this `if="!_last"` would be true on every row.
         V::Str(s) => !s.is_empty() && s != "false",
+        V::Int(n) => *n != 0,
         V::Bool(b) => *b,
         V::Num(d) => *d != 0.0 && !d.is_nan(),
         // A list reaches here only if it stood where a condition belongs, which
@@ -321,9 +377,51 @@ fn to_boolean(v: &V) -> bool {
     }
 }
 
+/// A value seen as an exact whole number, or `None` if it is not one.
+fn as_exact_int(v: &V) -> Option<i64> {
+    match v {
+        V::Int(n) => Some(*n),
+        V::Str(s) => {
+            let body = s.strip_prefix(['+', '-']).unwrap_or(s);
+            if body.is_empty() || !body.bytes().all(|b| b.is_ascii_digit()) {
+                return None;
+            }
+            s.parse::<i64>().ok()
+        }
+        // A double is admitted only while it is still exact. Past 2^53 it has
+        // already lost the answer, and calling it exact would be the same lie
+        // in a different place.
+        V::Num(d) => {
+            if d.fract() == 0.0 && d.abs() <= 9_007_199_254_740_991.0 {
+                Some(*d as i64)
+            } else {
+                None
+            }
+        }
+        _ => None,
+    }
+}
+
+/// Both operands as exact whole numbers, or `None` if either is not one.
+fn both_whole(left: &V, right: &V) -> Option<(i64, i64)> {
+    Some((as_exact_int(left)?, as_exact_int(right)?))
+}
+
+/// The result of whole-number arithmetic, refused rather than wrapped.
+fn checked_int(v: Option<i64>) -> EngineResult<i64> {
+    match v {
+        Some(n) => Ok(n),
+        None => invalid("integer overflow: the result is outside the signed 64-bit range"),
+    }
+}
+
 fn as_number(v: &V) -> f64 {
     match v {
         V::Num(d) => *d,
+        // A whole number handed to something that works in floating point —
+        // sqrt, log, sin. Past 2^53 this loses digits, which is the honest
+        // answer: those functions have no exact one to give.
+        V::Int(n) => *n as f64,
         V::Str(s) => js_number(s),
         V::Bool(b) => {
             if *b {
@@ -362,6 +460,9 @@ fn text(v: &V) -> String {
     match v {
         V::Null => "null".to_string(),
         V::Num(d) => numbers::to_text(*d),
+        // Printed from the integer itself, not through a double: past 2^53 the
+        // round trip would put back the digit the domain exists to keep.
+        V::Int(n) => n.to_string(),
         V::Bool(b) => if *b { "true" } else { "false" }.to_string(),
         V::Str(s) => s.clone(),
         V::Lst(items) => items.iter().map(text).collect::<Vec<_>>().join(","),

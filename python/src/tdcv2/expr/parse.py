@@ -81,9 +81,32 @@ class Node:
     __slots__ = ()
 
 
+_INT64_MIN = -9223372036854775808
+_INT64_MAX = 9223372036854775807
+
+
+def _whole_or_float(text: str):
+    """A literal's own text as an exact whole number where it is one.
+
+    Digits and an optional sign, nothing else: a point or an exponent means the
+    author wrote a fraction and meant one.
+    """
+    body = text[1:] if text[:1] in "+-" else text
+    if body.isdigit():
+        v = int(text)
+        if _INT64_MIN <= v <= _INT64_MAX:
+            return v
+    return float(text)
+
+
 @dataclass(frozen=True, slots=True)
 class Num(Node):
-    value: float
+    # int when the literal was written as a whole number that fits the signed
+    # 64-bit domain, float otherwise. The distinction has to survive parsing:
+    # forcing float here loses the argument before anything can protect it —
+    # 9007199254740993 arrives as 9007199254740992 and no later care puts the
+    # digit back.
+    value: float | int
 
 
 @dataclass(frozen=True, slots=True)
@@ -401,7 +424,8 @@ class _Parser:
                 self.pos = after
                 while self.pos < len(self.src) and self.src[self.pos].isdigit():
                     self.pos += 1
-        return Num(float(self.src[start : self.pos]))
+        text = self.src[start : self.pos]
+        return Num(_whole_or_float(text))
 
     def _word(self) -> Node:
         parts = [self._identifier()]

@@ -58,6 +58,41 @@ significa que **una errata se compara consigo misma y no coincide con nada, en s
 por eso un nombre desconocido a la derecha de un punto lanza [TDC193](errors.md#top) en vez de
 pasar.
 
+## Números enteros
+
+Un double guarda todos los enteros hasta 2⁵³ y a partir de ahí empieza a saltárselos, así que una
+expresión construida solo sobre doubles responde así:
+
+`lo que un double dice de dos números distintos`
+
+```
+9007199254740993 == 9007199254740992   true
+9007199254740993 -  9007199254740992   0
+```
+
+Las dos cosas son falsas, y falsas en silencio — que para un generador de datos es la peor forma
+de estar equivocado: la ejecución termina y el archivo parece correcto. Por eso un operando que
+ES un número entero se lleva como tal:
+
+| | |
+| :--- | :--- |
+| un literal sin punto ni exponente | sigue siendo entero |
+| una columna cuyo valor se lee como dígitos | compara como entero contra otro entero |
+| `+ - * %` sobre dos enteros | siguen siendo enteros |
+| `/` | **siempre** en coma flotante — la división no es cerrada sobre los enteros |
+| lo que se pasa a `sqrt`, `log`, `sin`… | pasa a double: esas no tienen respuesta exacta que dar |
+
+El dominio son 64 bits con signo, el mismo que la [capa compute](compute.md#top). Más allá la
+respuesta es un rechazo, con las mismas palabras que usa compute:
+
+`tdcv2 ledger.tdc`
+
+```
+tdcv2: integer overflow: 10000000000000000000 is outside the signed 64-bit range
+```
+
+Un borde que conviene saber: −2⁶³ se alcanza con aritmética pero no se escribe como literal.
+
 ## Operadores
 
 | Grupo          | Operadores                       |

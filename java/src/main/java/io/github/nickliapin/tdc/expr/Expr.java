@@ -23,6 +23,14 @@ public sealed interface Expr {
 
   record Num(double value) implements Expr {}
 
+  /**
+   * A literal written as a whole number, kept as one.
+   *
+   * <p>Forcing it to double at parse time would lose the argument before anything could protect
+   * it: 9007199254740993 becomes 9007199254740992, and no later care puts the digit back.
+   */
+  record Int(long value) implements Expr {}
+
   record Str(String value) implements Expr {}
 
   record Bool(boolean value) implements Expr {}
@@ -396,7 +404,22 @@ public sealed interface Expr {
           }
         }
       }
-      return new Num(Double.parseDouble(src.substring(start, pos)));
+      String literal = src.substring(start, pos);
+      // Digits and an optional sign, nothing else: a point or an exponent means
+      // the author wrote a fraction and meant one.
+      String body =
+          !literal.isEmpty() && (literal.charAt(0) == '+' || literal.charAt(0) == '-')
+              ? literal.substring(1)
+              : literal;
+      if (!body.isEmpty() && body.chars().allMatch(Character::isDigit)) {
+        try {
+          return new Int(Long.parseLong(literal));
+        } catch (NumberFormatException outsideTheDomain) {
+          // Wider than i64: fall through and let it be a double, which is the
+          // only thing left that can hold it at all.
+        }
+      }
+      return new Num(Double.parseDouble(literal));
     }
 
     private Expr word() {

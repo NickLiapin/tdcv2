@@ -32,6 +32,7 @@ public static class Evaluate
     private static object? Eval(Expr node, IScope scope) => node switch
     {
         Expr.Num n => n.Value,
+        Expr.Int n => n.Value,
         Expr.Str s => s.Value,
         Expr.Bool b => b.Value,
         Expr.Null => null,
@@ -73,8 +74,10 @@ public static class Evaluate
     private static object UnaryOp(string op, object? arg) => op switch
     {
         "!" => !ToBoolean(arg),
-        "-" => -AsNumber(arg),
-        "+" => AsNumber(arg),
+        "-" => AsExactInt(arg) is long negatable
+            ? CheckedNegate(negatable)
+            : -AsNumber(arg),
+        "+" => AsExactInt(arg) ?? (object)AsNumber(arg),
         _ => throw new ArgumentException($"if expression: unsupported operator {op}"),
     };
 
@@ -84,20 +87,29 @@ public static class Evaluate
         "!=" => !LooseEquals(left, right),
         "===" => StrictEquals(left, right),
         "!==" => !StrictEquals(left, right),
-        "<" => AsNumber(left) < AsNumber(right),
-        ">" => AsNumber(left) > AsNumber(right),
-        "<=" => AsNumber(left) <= AsNumber(right),
-        ">=" => AsNumber(left) >= AsNumber(right),
+        "<" => BothWhole(left, right) is var (la, lb) && la.HasValue
+            ? la.Value < lb!.Value
+            : AsNumber(left) < AsNumber(right),
+        ">" => BothWhole(left, right) is var (ga, gb) && ga.HasValue
+            ? ga.Value > gb!.Value
+            : AsNumber(left) > AsNumber(right),
+        "<=" => BothWhole(left, right) is var (lea, leb) && lea.HasValue
+            ? lea.Value <= leb!.Value
+            : AsNumber(left) <= AsNumber(right),
+        ">=" => BothWhole(left, right) is var (gea, geb) && gea.HasValue
+            ? gea.Value >= geb!.Value
+            : AsNumber(left) >= AsNumber(right),
         "&&" => ToBoolean(left) && ToBoolean(right),
         "||" => ToBoolean(left) || ToBoolean(right),
         // `+` adds when either side is already a number and joins otherwise, as in JavaScript.
-        "+" => left is double || right is double
-            ? AsNumber(left) + AsNumber(right)
-            : Text(left) + Text(right),
-        "-" => AsNumber(left) - AsNumber(right),
-        "*" => AsNumber(left) * AsNumber(right),
+        "+" => WholeAdd(left, right),
+        "-" => WholeSubtract(left, right),
+        "*" => WholeMultiply(left, right),
+        // Division alone stays in floating point, always. It is not closed over the whole
+        // numbers — 7/2 is not one — and a rule that came out exact only when the division
+        // happened to be even would be a rule nobody could hold in their head.
         "/" => AsNumber(left) / AsNumber(right),
-        "%" => EuclideanRemainder(AsNumber(left), AsNumber(right)),
+        "%" => WholeRemainder(left, right),
         // As loose as `==`, deliberately: a text column against a list of numeric words has to
         // match, or `in` and `==` would disagree about the same pair.
         "in" => right is List<object?> items
@@ -244,6 +256,13 @@ public static class Evaluate
     /// </summary>
     private static bool LooseEquals(object? left, object? right)
     {
+        // Two whole numbers compare as whole numbers, whichever shape they arrived
+        // in — a generated id is a string, the literal beside it is not.
+        var (wa, wb) = BothWhole(left, right);
+        if (wa.HasValue)
+        {
+            return wa.Value == wb!.Value;
+        }
         if (left is double a1 && right is string s1)
         {
             double b = JsNumber(s1);
@@ -299,9 +318,108 @@ public static class Evaluate
         _ => true,
     };
 
+    /* ── Whole numbers that stay whole ────────────────────────────────────────
+     *
+     * A double holds every integer up to 2⁵³ and then starts skipping. Past that
+     * point two DIFFERENT whole numbers become the same double, and an expression
+     * built on doubles alone answers accordingly:
+     *
+     *     9007199254740993 == 9007199254740992   ->  true
+     *     9007199254740993 -  9007199254740992   ->  0
+     *
+     * Both wrong, and wrong silently — the worst way for a data generator to be
+     * wrong, since the run finishes and the file looks fine. The domain is signed
+     * 64-bit, matching the compute layer.
+     */
+
+    /// <summary>A value seen as an exact whole number, or null if it is not one.</summary>
+    private static long? AsExactInt(object? v)
+    {
+        switch (v)
+        {
+            case long n:
+                return n;
+            case string s:
+                string body = s.Length > 0 && (s[0] == '+' || s[0] == '-') ? s[1..] : s;
+                if (body.Length > 0 && body.All(c => c >= '0' && c <= '9')
+                    && long.TryParse(s, NumberStyles.Integer, CultureInfo.InvariantCulture, out long parsed))
+                {
+                    return parsed;
+                }
+                return null;
+            // A double is admitted only while it is still exact. Past 2⁵³ it has
+            // already lost the answer, and calling it exact would be the same lie
+            // in a different place.
+            case double d when d % 1 == 0 && System.Math.Abs(d) <= 9007199254740991d:
+                return (long)d;
+            default:
+                return null;
+        }
+    }
+
+    private static (long?, long?) BothWhole(object? left, object? right)
+    {
+        long? a = AsExactInt(left);
+        if (a is null) return (null, null);
+        long? b = AsExactInt(right);
+        return b is null ? (null, null) : (a, b);
+    }
+
+    private static object CheckedNegate(long v) => Checked(() => checked(-v));
+
+    private static object Checked(Func<long> compute)
+    {
+        try
+        {
+            return compute();
+        }
+        catch (OverflowException)
+        {
+            throw new ArgumentException(
+                "integer overflow: the result is outside the signed 64-bit range");
+        }
+    }
+
+    private static object WholeAdd(object? left, object? right)
+    {
+        var (a, b) = BothWhole(left, right);
+        if (a.HasValue) return Checked(() => checked(a.Value + b!.Value));
+        // `+` adds when either side is already a number and joins otherwise, as in JavaScript.
+        return left is double || right is double
+            ? AsNumber(left) + AsNumber(right)
+            : Text(left) + Text(right);
+    }
+
+    private static object WholeSubtract(object? left, object? right)
+    {
+        var (a, b) = BothWhole(left, right);
+        return a.HasValue ? Checked(() => checked(a.Value - b!.Value)) : AsNumber(left) - AsNumber(right);
+    }
+
+    private static object WholeMultiply(object? left, object? right)
+    {
+        var (a, b) = BothWhole(left, right);
+        return a.HasValue ? Checked(() => checked(a.Value * b!.Value)) : AsNumber(left) * AsNumber(right);
+    }
+
+    private static object WholeRemainder(object? left, object? right)
+    {
+        var (a, b) = BothWhole(left, right);
+        if (a.HasValue && b!.Value != 0)
+        {
+            // Euclidean, like the double path and like <mod> in compute.
+            long r = a.Value % b.Value;
+            return r < 0 ? r + System.Math.Abs(b.Value) : r;
+        }
+        return EuclideanRemainder(AsNumber(left), AsNumber(right));
+    }
+
     private static double AsNumber(object? v) => v switch
     {
         double d => d,
+        // A whole number handed to something that works in floating point — sqrt,
+        // log, sin. Past 2⁵³ this loses digits, which is the honest answer.
+        long n => n,
         string s => JsNumber(s),
         bool b => b ? 1 : 0,
         _ => double.NaN,

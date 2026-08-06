@@ -52,6 +52,39 @@ A bare word is what lets `Gender == Male` be written without quotes. It also mea
 compares against itself and quietly matches nothing** — which is why an unknown name on the
 right of a dot raises [TDC193](errors.mdx) rather than passing.
 
+## Whole numbers
+
+A double holds every integer up to 2⁵³ and then starts skipping, so an expression built on
+doubles alone answers this way:
+
+<Terminal title="what a double says about two different numbers">
+{`9007199254740993 == 9007199254740992   true
+9007199254740993 -  9007199254740992   0`}
+</Terminal>
+
+Both wrong, and wrong without a word — which for a data generator is the worst kind of wrong,
+because the run finishes and the file looks fine. So an operand that IS a whole number is
+carried as one, and only becomes a double when something asks it to:
+
+| | |
+| :--- | :--- |
+| a literal without a point or an exponent | stays whole |
+| a column whose value reads as digits | compares as whole against another whole |
+| `+ - * %` on two whole numbers | stay whole |
+| `/` | **always** floating point — division is not closed over the whole numbers |
+| anything handed to `sqrt`, `log`, `sin`… | becomes a double, because those have no exact answer to give |
+
+The domain is signed 64-bit, the same as the [compute layer](compute.mdx) — the widest integer
+all five implementations hold natively. Past it the answer is a refusal, in the same words
+compute uses, rather than a quiet slide back into floating point:
+
+<Terminal title="tdcv2 ledger.tdc">
+{`tdcv2: integer overflow: 10000000000000000000 is outside the signed 64-bit range`}
+</Terminal>
+
+One edge worth knowing: −2⁶³ can be reached by arithmetic but not written as a literal, since
+`-9223372036854775808` is a minus sign applied to a magnitude one past the largest positive.
+
 ## Operators
 
 | Group      | Operators                        |

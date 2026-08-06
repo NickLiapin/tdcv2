@@ -92,10 +92,77 @@ function toBoolean(v: unknown): boolean {
   return Boolean(v);
 }
 
+/* ── Whole numbers that stay whole ────────────────────────────────────────────
+ *
+ * A double holds every integer up to 2⁵³ and then starts skipping. Past that
+ * point two DIFFERENT whole numbers become the same double, and an expression
+ * built on doubles alone answers accordingly:
+ *
+ *     9007199254740993 == 9007199254740992   →  true
+ *     9007199254740993 -  9007199254740992   →  0
+ *
+ * Both are wrong, and wrong silently — which is the worst way for a data
+ * generator to be wrong, since the run finishes and the file looks fine. So an
+ * operand that IS a whole number is carried as one, and only becomes a double
+ * when something asks it to.
+ *
+ * The domain is signed 64-bit, matching the compute layer exactly. It is not
+ * unbounded on purpose: five implementations have to agree, and i64 is the
+ * widest integer all five hold natively. Past it the answer is a refusal with
+ * the same words compute uses, not a quiet slide into floating point.
+ */
+
+const INT64_MIN = -9223372036854775808n;
+const INT64_MAX = 9223372036854775807n;
+
+/** Digits, optionally signed, and nothing else — no point, no exponent. */
+const WHOLE_NUMBER = /^[+-]?\d+$/;
+
+function withinInt64(v: bigint): boolean {
+  return v >= INT64_MIN && v <= INT64_MAX;
+}
+
+/** A literal's own text as an exact whole number, or null if it is not one. */
+function exactIntegerLiteral(raw: string | undefined): bigint | null {
+  if (raw === undefined || !WHOLE_NUMBER.test(raw)) return null;
+  const v = BigInt(raw);
+  return withinInt64(v) ? v : null;
+}
+
+/**
+ * A value seen as an exact whole number, or null if it is not one.
+ *
+ * A double is admitted only while it is still exact — `Number.isSafeInteger`
+ * is precisely the test for "this double still knows which integer it is".
+ * Beyond that it has already lost the answer, and calling it exact would be
+ * the same lie in a different place.
+ */
+function asExactInteger(v: unknown): bigint | null {
+  if (typeof v === 'bigint') return v;
+  if (typeof v === 'number') return Number.isSafeInteger(v) ? BigInt(v) : null;
+  if (typeof v === 'string' && WHOLE_NUMBER.test(v)) {
+    const parsed = BigInt(v);
+    return withinInt64(parsed) ? parsed : null;
+  }
+  return null;
+}
+
+/** The result of whole-number arithmetic, refused rather than rounded if it leaves the domain. */
+function checkedInteger(v: bigint): bigint {
+  if (!withinInt64(v)) {
+    throw new Error(`integer overflow: ${v.toString()} is outside the signed 64-bit range`);
+  }
+  return v;
+}
+
 function walk(node: JsepNode, scope: ExprScope): unknown {
   switch (node.type) {
     case 'Literal': {
-      return (node as jsep.Literal).value;
+      const literal = node as jsep.Literal;
+      // The RAW text, not the parsed value. A double has already lost the
+      // argument by the time jsep hands it over: `9007199254740993` arrives as
+      // 9007199254740992, and no later care can put the digit back.
+      return exactIntegerLiteral(literal.raw) ?? literal.value;
     }
     case 'Identifier': {
       const name = (node as jsep.Identifier).name;
@@ -365,31 +432,69 @@ function applyBinary(op: string, left: unknown, right: unknown): unknown {
     case '!==':
       return left !== right;
     case '<':
-      return asNumber(left) < asNumber(right);
+      return compareNumeric(
+        left,
+        right,
+        (a, b) => a < b,
+        (a, b) => a < b,
+      );
     case '>':
-      return asNumber(left) > asNumber(right);
+      return compareNumeric(
+        left,
+        right,
+        (a, b) => a > b,
+        (a, b) => a > b,
+      );
     case '<=':
-      return asNumber(left) <= asNumber(right);
+      return compareNumeric(
+        left,
+        right,
+        (a, b) => a <= b,
+        (a, b) => a <= b,
+      );
     case '>=':
-      return asNumber(left) >= asNumber(right);
+      return compareNumeric(
+        left,
+        right,
+        (a, b) => a >= b,
+        (a, b) => a >= b,
+      );
     case '&&':
       return toBoolean(left) && toBoolean(right);
     case '||':
       return toBoolean(left) || toBoolean(right);
-    case '+':
+    case '+': {
+      const whole = bothWhole(left, right);
+      if (whole) return checkedInteger(whole[0] + whole[1]);
       // If both sides look numeric, prefer numeric addition; otherwise
       // fall back to string concatenation to match JS semantics.
       return typeof left === 'number' || typeof right === 'number'
         ? asNumber(left) + asNumber(right)
         : String(left) + String(right);
-    case '-':
-      return asNumber(left) - asNumber(right);
-    case '*':
-      return asNumber(left) * asNumber(right);
+    }
+    case '-': {
+      const whole = bothWhole(left, right);
+      return whole ? checkedInteger(whole[0] - whole[1]) : asNumber(left) - asNumber(right);
+    }
+    case '*': {
+      const whole = bothWhole(left, right);
+      return whole ? checkedInteger(whole[0] * whole[1]) : asNumber(left) * asNumber(right);
+    }
     case '/':
+      // Division alone stays in floating point, always. It is not closed over
+      // the whole numbers — 7/2 is not one — and a rule that returns an exact
+      // answer only when the division happens to come out even would be a rule
+      // nobody could hold in their head.
       return asNumber(left) / asNumber(right);
-    case '%':
+    case '%': {
+      const whole = bothWhole(left, right);
+      if (whole && whole[1] !== 0n) {
+        // Euclidean, like the double path and like <mod> in compute.
+        const r = whole[0] % whole[1];
+        return r < 0n ? r + (whole[1] < 0n ? -whole[1] : whole[1]) : r;
+      }
       return euclideanRemainder(asNumber(left), asNumber(right));
+    }
     case 'in':
       return membership(left, right);
     default:
@@ -401,13 +506,39 @@ function applyUnary(op: string, arg: unknown): unknown {
   switch (op) {
     case '!':
       return !toBoolean(arg);
-    case '-':
-      return -asNumber(arg);
+    case '-': {
+      const whole = asExactInteger(arg);
+      return whole === null ? -asNumber(arg) : checkedInteger(-whole);
+    }
     case '+':
-      return asNumber(arg);
+      return asExactInteger(arg) ?? asNumber(arg);
     default:
       throw new Error(`unsupported unary operator: ${op}`);
   }
+}
+
+/** Both operands as exact whole numbers, or null if either is not one. */
+function bothWhole(left: unknown, right: unknown): readonly [bigint, bigint] | null {
+  const a = asExactInteger(left);
+  if (a === null) return null;
+  const b = asExactInteger(right);
+  return b === null ? null : [a, b];
+}
+
+/**
+ * An ordering comparison, exact when both sides are whole numbers.
+ *
+ * The two callbacks are the same test written twice, once over bigint and once
+ * over double, because TypeScript will not let one function take both.
+ */
+function compareNumeric(
+  left: unknown,
+  right: unknown,
+  whole: (a: bigint, b: bigint) => boolean,
+  loose: (a: number, b: number) => boolean,
+): boolean {
+  const pair = bothWhole(left, right);
+  return pair ? whole(pair[0], pair[1]) : loose(asNumber(left), asNumber(right));
 }
 
 function coerce(left: unknown, right: unknown, op: (a: unknown, b: unknown) => boolean): boolean {
@@ -415,6 +546,10 @@ function coerce(left: unknown, right: unknown, op: (a: unknown, b: unknown) => b
   // numeric string, compare as numbers; otherwise compare as strings.
   // This matches user intent when writing `if="_count == 5"` (where
   // _count is "5" as a string) and `if="Gender == Male"` (string==string).
+  // Two whole numbers are compared as whole numbers, whichever shape they
+  // arrived in — a generated id is a string, the literal beside it is not.
+  const pair = bothWhole(left, right);
+  if (pair) return op(pair[0], pair[1]);
   if (typeof left === 'number' && typeof right === 'string') {
     const n = Number(right);
     if (!Number.isNaN(n)) return op(left, n);
@@ -428,6 +563,10 @@ function coerce(left: unknown, right: unknown, op: (a: unknown, b: unknown) => b
 
 function asNumber(v: unknown): number {
   if (typeof v === 'number') return v;
+  // A whole number handed to a function that works in floating point — `sqrt`,
+  // `log`, `sin`. Past 2^53 this loses digits, which is the honest answer:
+  // those functions have no exact one to give.
+  if (typeof v === 'bigint') return Number(v);
   if (typeof v === 'string') return Number(v);
   if (typeof v === 'boolean') return v ? 1 : 0;
   return Number.NaN;

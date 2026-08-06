@@ -764,6 +764,18 @@
         "lines": ["log10-whole log10-negative log10-bits log10-edge"]
       }
     },
+    "expressions/whole-numbers-stay-whole-past-two-to-the-fifty-three": {
+      "engine2": {
+        "lines": [
+          "точно сосед-отличён разность край деление-дробное остаток-евклидов"
+        ]
+      },
+      "engine3": {
+        "lines": [
+          "точно сосед-отличён разность край деление-дробное остаток-евклидов"
+        ]
+      }
+    },
     "formatting/mask-phone": {
       "engine2": {
         "lines": ["555-123-4567"]

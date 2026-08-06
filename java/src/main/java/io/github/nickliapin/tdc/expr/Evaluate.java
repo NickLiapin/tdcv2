@@ -33,6 +33,9 @@ public final class Evaluate {
   // A chain of `instanceof` rather than a switch over the sealed type: switch patterns are still
   // a preview feature on Java 17, and 17 is the version the docs promise this library runs on.
   private static Object eval(Expr node, Scope scope) {
+    if (node instanceof Expr.Int n) {
+      return n.value();
+    }
     if (node instanceof Expr.Num n) {
       return n.value();
     }
@@ -100,8 +103,14 @@ public final class Evaluate {
   private static Object unary(String op, Object arg) {
     return switch (op) {
       case "!" -> !toBoolean(arg);
-      case "-" -> -asNumber(arg);
-      case "+" -> asNumber(arg);
+      case "-" -> {
+        Long whole = asExactInt(arg);
+        yield whole == null ? (Object) (-asNumber(arg)) : checkedNegate(whole);
+      }
+      case "+" -> {
+        Long whole = asExactInt(arg);
+        yield whole == null ? (Object) asNumber(arg) : whole;
+      }
       default -> throw new IllegalArgumentException("if expression: unsupported operator " + op);
     };
   }
@@ -112,21 +121,59 @@ public final class Evaluate {
       case "!=" -> !looseEquals(left, right);
       case "===" -> strictEquals(left, right);
       case "!==" -> !strictEquals(left, right);
-      case "<" -> asNumber(left) < asNumber(right);
-      case ">" -> asNumber(left) > asNumber(right);
-      case "<=" -> asNumber(left) <= asNumber(right);
-      case ">=" -> asNumber(left) >= asNumber(right);
+      case "<" -> {
+        long[] w = bothWhole(left, right);
+        yield w == null ? asNumber(left) < asNumber(right) : w[0] < w[1];
+      }
+      case ">" -> {
+        long[] w = bothWhole(left, right);
+        yield w == null ? asNumber(left) > asNumber(right) : w[0] > w[1];
+      }
+      case "<=" -> {
+        long[] w = bothWhole(left, right);
+        yield w == null ? asNumber(left) <= asNumber(right) : w[0] <= w[1];
+      }
+      case ">=" -> {
+        long[] w = bothWhole(left, right);
+        yield w == null ? asNumber(left) >= asNumber(right) : w[0] >= w[1];
+      }
       case "&&" -> toBoolean(left) && toBoolean(right);
       case "||" -> toBoolean(left) || toBoolean(right);
       // `+` adds when either side is already a number and joins otherwise, as in JavaScript.
-      case "+" ->
-          left instanceof Double || right instanceof Double
-              ? (Object) (asNumber(left) + asNumber(right))
-              : text(left) + text(right);
-      case "-" -> asNumber(left) - asNumber(right);
-      case "*" -> asNumber(left) * asNumber(right);
+      case "+" -> {
+        long[] w = bothWhole(left, right);
+        if (w != null) {
+          yield checked(() -> Math.addExact(w[0], w[1]));
+        }
+        yield left instanceof Double || right instanceof Double
+            ? (Object) (asNumber(left) + asNumber(right))
+            : text(left) + text(right);
+      }
+      case "-" -> {
+        long[] w = bothWhole(left, right);
+        yield w == null
+            ? (Object) (asNumber(left) - asNumber(right))
+            : checked(() -> Math.subtractExact(w[0], w[1]));
+      }
+      case "*" -> {
+        long[] w = bothWhole(left, right);
+        yield w == null
+            ? (Object) (asNumber(left) * asNumber(right))
+            : checked(() -> Math.multiplyExact(w[0], w[1]));
+      }
+      // Division alone stays in floating point, always. It is not closed over the whole
+      // numbers — 7/2 is not one — and a rule that came out exact only when the division
+      // happened to be even would be a rule nobody could hold in their head.
       case "/" -> asNumber(left) / asNumber(right);
-      case "%" -> euclideanRemainder(asNumber(left), asNumber(right));
+      case "%" -> {
+        long[] w = bothWhole(left, right);
+        if (w != null && w[1] != 0) {
+          // Euclidean, like the double path and like <mod> in compute.
+          long r = w[0] % w[1];
+          yield r < 0 ? r + Math.abs(w[1]) : r;
+        }
+        yield euclideanRemainder(asNumber(left), asNumber(right));
+      }
       // As loose as `==`, deliberately: a text column against a list of numeric words has to
       // match, or `in` and `==` would disagree about the same pair.
       case "in" -> {
@@ -330,6 +377,12 @@ public final class Evaluate {
    * text.
    */
   private static boolean looseEquals(Object left, Object right) {
+    // Two whole numbers compare as whole numbers, whichever shape they arrived
+    // in — a generated id is a string, the literal beside it is not.
+    long[] w = bothWhole(left, right);
+    if (w != null) {
+      return w[0] == w[1];
+    }
     if (left instanceof Double a && right instanceof String s) {
       double b = jsNumber(s);
       if (!Double.isNaN(b)) {
@@ -377,9 +430,77 @@ public final class Evaluate {
     return true;
   }
 
+  /* ── Whole numbers that stay whole ──────────────────────────────────────────
+   *
+   * A double holds every integer up to 2^53 and then starts skipping. Past that
+   * point two DIFFERENT whole numbers become the same double, and an expression
+   * built on doubles alone answers accordingly:
+   *
+   *     9007199254740993 == 9007199254740992   ->  true
+   *     9007199254740993 -  9007199254740992   ->  0
+   *
+   * Both wrong, and wrong silently — the worst way for a data generator to be
+   * wrong, since the run finishes and the file looks fine. The domain is signed
+   * 64-bit, matching the compute layer.
+   */
+
+  /** A value seen as an exact whole number, or null if it is not one. */
+  private static Long asExactInt(Object v) {
+    if (v instanceof Long n) {
+      return n;
+    }
+    if (v instanceof String s) {
+      String body =
+          !s.isEmpty() && (s.charAt(0) == '+' || s.charAt(0) == '-') ? s.substring(1) : s;
+      if (body.isEmpty() || !body.chars().allMatch(Character::isDigit)) {
+        return null;
+      }
+      try {
+        return Long.parseLong(s);
+      } catch (NumberFormatException outsideTheDomain) {
+        return null;
+      }
+    }
+    // A double is admitted only while it is still exact. Past 2^53 it has already
+    // lost the answer, and calling it exact would be the same lie in another place.
+    if (v instanceof Double d && d % 1 == 0 && Math.abs(d) <= 9007199254740991d) {
+      return (long) (double) d;
+    }
+    return null;
+  }
+
+  /** Both operands as exact whole numbers, or null if either is not one. */
+  private static long[] bothWhole(Object left, Object right) {
+    Long a = asExactInt(left);
+    if (a == null) {
+      return null;
+    }
+    Long b = asExactInt(right);
+    return b == null ? null : new long[] {a, b};
+  }
+
+  private static Object checkedNegate(long v) {
+    return checked(() -> Math.negateExact(v));
+  }
+
+  /** The result of whole-number arithmetic, refused rather than wrapped. */
+  private static Object checked(java.util.function.LongSupplier compute) {
+    try {
+      return compute.getAsLong();
+    } catch (ArithmeticException overflow) {
+      throw new IllegalArgumentException(
+          "integer overflow: the result is outside the signed 64-bit range");
+    }
+  }
+
   private static double asNumber(Object v) {
     if (v instanceof Double d) {
       return d;
+    }
+    // A whole number handed to something that works in floating point — sqrt, log,
+    // sin. Past 2^53 this loses digits, which is the honest answer.
+    if (v instanceof Long n) {
+      return n;
     }
     if (v instanceof String s) {
       return jsNumber(s);

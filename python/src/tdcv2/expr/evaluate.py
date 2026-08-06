@@ -200,6 +200,64 @@ def _unary(op: str, arg):
     raise ValueError(f"if expression: unsupported operator {op}")
 
 
+# ── Whole numbers that stay whole ─────────────────────────────────────────────
+#
+# A double holds every integer up to 2^53 and then starts skipping. Past that
+# point two DIFFERENT whole numbers become the same double, and an expression
+# built on doubles alone answers accordingly:
+#
+#     9007199254740993 == 9007199254740992   ->  True
+#     9007199254740993 -  9007199254740992   ->  0
+#
+# Both wrong, and wrong silently — the worst way for a data generator to be
+# wrong, since the run finishes and the file looks fine. So an operand that IS a
+# whole number is carried as one, and only becomes a double when asked.
+#
+# The domain is signed 64-bit, matching the compute layer. Python's own int is
+# unbounded, which makes the bound something this file has to impose rather than
+# receive: without it Python would quietly answer questions the other four
+# implementations refuse.
+
+_INT64_MIN = -9223372036854775808
+_INT64_MAX = 9223372036854775807
+
+
+def _as_exact_int(v):
+    """A value seen as an exact whole number, or None if it is not one.
+
+    ``bool`` is excluded first and deliberately: in Python it is a SUBCLASS of int, so
+    ``isinstance(True, int)`` is true and True would otherwise arithmetic as 1 here while
+    behaving as a truth value everywhere else.
+    """
+    if isinstance(v, bool):
+        return None
+    if isinstance(v, int):
+        return v if _INT64_MIN <= v <= _INT64_MAX else None
+    if isinstance(v, str):
+        body = v[1:] if v[:1] in "+-" else v
+        if body.isdigit():
+            parsed = int(v)
+            if _INT64_MIN <= parsed <= _INT64_MAX:
+                return parsed
+    return None
+
+
+def _both_whole(left, right):
+    """Both operands as exact whole numbers, or None if either is not one."""
+    a = _as_exact_int(left)
+    if a is None:
+        return None
+    b = _as_exact_int(right)
+    return None if b is None else (a, b)
+
+
+def _checked_int(v: int) -> int:
+    """The result of whole-number arithmetic, refused rather than rounded."""
+    if not (_INT64_MIN <= v <= _INT64_MAX):
+        raise ValueError(f"integer overflow: {v} is outside the signed 64-bit range")
+    return v
+
+
 def _binary(op: str, left, right):
     if op == "==":
         return _loose_equals(left, right)
@@ -209,30 +267,48 @@ def _binary(op: str, left, right):
         return _strict_equals(left, right)
     if op == "!==":
         return not _strict_equals(left, right)
+    whole = _both_whole(left, right)
     if op == "<":
-        return _lt(as_number(left), as_number(right))
+        return whole[0] < whole[1] if whole else _lt(as_number(left), as_number(right))
     if op == ">":
-        return _lt(as_number(right), as_number(left))
+        return whole[0] > whole[1] if whole else _lt(as_number(right), as_number(left))
     if op == "<=":
+        if whole:
+            return whole[0] <= whole[1]
         return not _lt(as_number(right), as_number(left)) and not _nan(left, right)
     if op == ">=":
+        if whole:
+            return whole[0] >= whole[1]
         return not _lt(as_number(left), as_number(right)) and not _nan(left, right)
     if op == "&&":
         return to_boolean(left) and to_boolean(right)
     if op == "||":
         return to_boolean(left) or to_boolean(right)
     if op == "+":
+        if whole:
+            return _checked_int(whole[0] + whole[1])
         # Adds when either side is already a number, joins otherwise, as in JavaScript.
         if isinstance(left, float) or isinstance(right, float):
             return as_number(left) + as_number(right)
         return _text(left) + _text(right)
     if op == "-":
+        if whole:
+            return _checked_int(whole[0] - whole[1])
         return as_number(left) - as_number(right)
     if op == "*":
+        if whole:
+            return _checked_int(whole[0] * whole[1])
         return as_number(left) * as_number(right)
     if op == "/":
+        # Division alone stays in floating point, always. It is not closed over the
+        # whole numbers — 7/2 is not one — and a rule that came out exact only when
+        # the division happened to be even would be a rule nobody could hold.
         return _divide(as_number(left), as_number(right))
     if op == "%":
+        if whole and whole[1] != 0:
+            # Euclidean, like the double path and like <mod> in compute.
+            r = whole[0] % whole[1]
+            return r + abs(whole[1]) if r < 0 else r
         return _remainder(as_number(left), as_number(right))
     if op == "in":
         # As loose as `==`, deliberately: a text column against a list of numeric
@@ -249,6 +325,11 @@ def _loose_equals(left, right) -> bool:
     That is what makes ``_count == 5`` work even though ``_count`` arrives as text. Everything
     else compares as text.
     """
+    # Two whole numbers compare as whole numbers, whichever shape they arrived
+    # in — a generated id is a string, the literal beside it is not.
+    whole = _both_whole(left, right)
+    if whole:
+        return whole[0] == whole[1]
     if isinstance(left, float) and isinstance(right, str):
         b = numbers.parse(right)
         if not math.isnan(b):
@@ -292,6 +373,11 @@ def as_number(v) -> float:
         return 1.0 if v else 0.0
     if isinstance(v, float):
         return v
+    # A whole number handed to something that works in floating point — sqrt, log,
+    # sin. Past 2^53 this loses digits, which is the honest answer: those functions
+    # have no exact one to give.
+    if isinstance(v, int):
+        return float(v)
     if isinstance(v, str):
         return numbers.parse(v)
     return math.nan
