@@ -65,10 +65,10 @@
       "expected": ["error TDC257 1:126"]
     },
     {
-      "name": "a-transcendental-function-is-not-a-typo",
+      "name": "a-planned-function-is-not-a-typo",
       "demonstrates": "TDC257",
-      "description": "cos is refused with the reason rather than a suggestion: every host language computes it slightly differently, and a comparison turns the last bit into a different row. Suggesting \"abs\" here would be worse than saying nothing.",
-      "config": "<tdc><env count=\"2\" seed=\"s\" local=\"en\"><sequence name=\"N\"><gen type=\"text\" value=\"5\"/></sequence><sequence name=\"R\"><gen if=\"cos(N) > 1\" type=\"text\" value=\"Y\"/><gen type=\"text\" value=\"N\"/></sequence></env><block><line><data>${{R}}</data></line></block></tdc>",
+      "description": "sinh is refused with the reason rather than a suggestion: it is not implemented yet, and edit distance would have offered \"sin\", which is a different function. Its siblings cos, sin, exp, log, pow and sqrt ARE implemented — TDC computes them itself rather than calling the host.",
+      "config": "<tdc><env count=\"2\" seed=\"s\" local=\"en\"><sequence name=\"N\"><gen type=\"text\" value=\"5\"/></sequence><sequence name=\"R\"><gen if=\"sinh(N) > 1\" type=\"text\" value=\"Y\"/><gen type=\"text\" value=\"N\"/></sequence></env><block><line><data>${{R}}</data></line></block></tdc>",
       "expected": ["error TDC257 1:126"]
     },
     {

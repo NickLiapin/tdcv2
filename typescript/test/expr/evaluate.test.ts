@@ -168,7 +168,19 @@ describe('evaluateIf — functions', () => {
 
   it('throws on a name it does not implement', () => {
     const reg = registry({});
-    expect(() => evaluateIf('cos(1) > 0', reg, 0)).toThrow(/unknown function "cos"/);
+    expect(() => evaluateIf('sinh(1) > 0', reg, 0)).toThrow(/unknown function "sinh"/);
+  });
+
+  it('computes the transcendentals itself, to the same double every time', () => {
+    // The literals are what TdcMath produces; a host libm would differ in the
+    // last bit on some of them, and that is the whole point of the module.
+    const reg = registry({});
+    expect(evaluateIf('sqrt(2) == 1.4142135623730951', reg, 0)).toBe(true);
+    expect(evaluateIf('exp(1) == 2.7182818284590446', reg, 0)).toBe(true);
+    expect(evaluateIf('log(7) == 1.9459101490553132', reg, 0)).toBe(true);
+    expect(evaluateIf('sin(1) == 0.8414709848078965', reg, 0)).toBe(true);
+    expect(evaluateIf('cos(1000) == 0.5623790762907029', reg, 0)).toBe(true);
+    expect(evaluateIf('pow(10, 3) == 1000', reg, 0)).toBe(true);
   });
 
   it('string predicates read the value as text, not as a number', () => {

@@ -708,6 +708,14 @@
         "lines": ["10=low", "50=mid", "90=high"]
       }
     },
+    "expressions/tdcmath-produces-the-same-double-everywhere": {
+      "engine2": {
+        "lines": ["sqrt exp log sin cos tan pow"]
+      },
+      "engine3": {
+        "lines": ["sqrt exp log sin cos tan pow"]
+      }
+    },
     "formatting/mask-phone": {
       "engine2": {
         "lines": ["555-123-4567"]

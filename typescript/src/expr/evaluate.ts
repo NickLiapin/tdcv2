@@ -22,6 +22,7 @@
 
 import jsep from 'jsep';
 
+import * as TdcMath from '../math/tdc-math.js';
 import { sequenceValueAt } from '../sequence/types.js';
 // Registers `in`. jsep's operator table is module state, so both the evaluator
 // and the validator must import this before they parse anything.
@@ -235,6 +236,18 @@ const FUNCTIONS: Readonly<Record<string, (args: readonly unknown[]) => unknown>>
   lower: (a) => text(a, 0).toLowerCase(),
   starts_with: (a) => text(a, 0).startsWith(text(a, 1)),
   upper: (a) => text(a, 0).toUpperCase(),
+
+  // Transcendentals, computed by TDC rather than by the host — see
+  // math/tdc-math.ts for why that is not paranoia. Adding one here means adding
+  // it to TdcMath in all five implementations, not calling Math.something.
+  cos: (a) => TdcMath.cos(num(a, 0)),
+  exp: (a) => TdcMath.exp(num(a, 0)),
+  log: (a) => TdcMath.log(num(a, 0)),
+  log10: (a) => TdcMath.log10(num(a, 0)),
+  pow: (a) => TdcMath.pow(num(a, 0), num(a, 1)),
+  sin: (a) => TdcMath.sin(num(a, 0)),
+  sqrt: (a) => TdcMath.sqrt(num(a, 0)),
+  tan: (a) => TdcMath.tan(num(a, 0)),
 };
 
 /**
