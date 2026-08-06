@@ -241,15 +241,19 @@ public final class Evaluate {
         return x < 0 ? -Math.floor(-x + 0.5) : Math.floor(x + 0.5);
       }
       case "max": {
-        double best = asNumber(args[0]);
-        for (Object v : args) {
+        // One list argument spread out, or the arguments themselves — so
+        // max(split(Prices, ",")) and max(1, 9, 4) both work.
+        java.util.List<Object> items = spread(args);
+        double best = asNumber(items.get(0));
+        for (Object v : items) {
           best = Math.max(best, asNumber(v));
         }
         return best;
       }
       case "min": {
-        double best = asNumber(args[0]);
-        for (Object v : args) {
+        java.util.List<Object> items = spread(args);
+        double best = asNumber(items.get(0));
+        for (Object v : items) {
           best = Math.min(best, asNumber(v));
         }
         return best;
@@ -272,6 +276,44 @@ public final class Evaluate {
         return str(args, 0).toLowerCase(java.util.Locale.ROOT);
       case "upper":
         return str(args, 0).toUpperCase(java.util.Locale.ROOT);
+        // Lists inside one row. A sequence with repeat= puts several values in one field, and
+        // an expression sees the JOINED text because that is what the field holds — so `split`
+        // is the bridge and everything else works on lists. No grammar changed: the list value
+        // already existed, made by an array literal and consumed by `in`.
+      case "split":
+        return splitText(str(args, 0), str(args, 1));
+      case "join": {
+        StringBuilder out = new StringBuilder();
+        String separator = str(args, 1);
+        java.util.List<Object> items = listOf(args, 0);
+        for (int i = 0; i < items.size(); i++) {
+          if (i > 0) {
+            out.append(separator);
+          }
+          out.append(text(items.get(i)));
+        }
+        return out.toString();
+      }
+        // How many. `len` is the STRING length and would answer about the separators.
+      case "count":
+        return (double) listOf(args, 0).size();
+      case "at": {
+        java.util.List<Object> items = listValue(args, 0);
+        int index = indexValue(args, 1);
+        if (index >= items.size()) {
+          return "";
+        }
+        Object element = items.get(index);
+        return element == null ? "" : element;
+      }
+      case "sum":
+        return sumOf(listOf(args, 0));
+      case "mean":
+        return meanOf(listOf(args, 0));
+      case "median":
+        return medianOf(listOf(args, 0));
+      case "stddev":
+        return stdDevOf(listOf(args, 0));
         // Transcendentals, computed by TDC rather than by Java — see mathx/TdcMath.java.
         // Adding one here means adding it to TdcMath in all five, not calling java.lang.Math.
       case "acos":
@@ -358,6 +400,192 @@ public final class Evaluate {
           "if expression: a function was given too few arguments");
     }
     return asNumber(args[index]);
+  }
+
+  /** One list argument spread out, or the arguments themselves. */
+  @SuppressWarnings("unchecked")
+  private static java.util.List<Object> spread(Object[] args) {
+    if (args.length == 1 && args[0] instanceof java.util.List<?> only) {
+      return (java.util.List<Object>) only;
+    }
+    return java.util.Arrays.asList(args);
+  }
+
+  /**
+   * An argument as a list.
+   *
+   * <p>A bare value counts as a list of one, so {@code sum(Price)} on a single number is an answer
+   * rather than an error — the alternative is a rule a caller has to remember before every call.
+   */
+  @SuppressWarnings("unchecked")
+  private static java.util.List<Object> listOf(Object[] args, int index) {
+    if (index >= args.length) {
+      throw new IllegalArgumentException(
+          "if expression: a function was given too few arguments");
+    }
+    Object value = args[index];
+    if (value instanceof java.util.List<?> items) {
+      return (java.util.List<Object>) items;
+    }
+    return value == null ? java.util.List.of() : java.util.List.of(value);
+  }
+
+  /**
+   * {@code at}'s subject, which has to be a real list.
+   *
+   * <p>{@link #listOf} reads a bare value as a list of one, which is right for {@code sum(Price)}
+   * and wrong here: a {@code repeat} list arrives as the JOINED text, so {@code at(Items, 1)} — the
+   * shape everybody writes first — used to ask for the second element of a one-element list and get
+   * the same empty string a legitimately short row gives. Naming the mistake is the point.
+   */
+  @SuppressWarnings("unchecked")
+  private static java.util.List<Object> listValue(Object[] args, int index) {
+    if (index >= args.length) {
+      throw new IllegalArgumentException(
+          "if expression: a function was given too few arguments");
+    }
+    if (args[index] instanceof java.util.List<?> items) {
+      return (java.util.List<Object>) items;
+    }
+    throw new IllegalArgumentException(
+        "at() needs a list, and "
+            + show(args[index])
+            + " is a single value — split it first, as in at(split(Items, \",\"), 1)");
+  }
+
+  /** An index: a whole number, zero or more. Anything else is a mistake, not a shape. */
+  private static int indexValue(Object[] args, int index) {
+    if (index >= args.length) {
+      throw new IllegalArgumentException(
+          "if expression: a function was given too few arguments");
+    }
+    Object raw = args[index];
+    double n = asNumber(raw);
+    if (Double.isNaN(n) || Double.isInfinite(n) || n != Math.floor(n) || n < 0) {
+      throw new IllegalArgumentException(
+          "at() index must be a whole number of zero or more, not " + show(raw));
+    }
+    return (int) Math.min(n, Integer.MAX_VALUE);
+  }
+
+  /** A value as it should read inside a message: text quoted, everything else plain. */
+  private static String show(Object v) {
+    if (v instanceof String s) {
+      return "\"" + s + "\"";
+    }
+    if (v instanceof java.util.List<?>) {
+      return "a list";
+    }
+    return v == null ? "nothing" : text(v);
+  }
+
+  /** Text to a list. An empty subject gives an empty list, not a list of one blank. */
+  private static java.util.List<Object> splitText(String subject, String separator) {
+    java.util.List<Object> items = new java.util.ArrayList<>();
+    if (subject.isEmpty()) {
+      return items;
+    }
+    if (separator.isEmpty()) {
+      // CODE POINTS, the same unit `len` counts, so split(s, "") and len(s) never disagree
+      // about how many characters a string has.
+      subject.codePoints().forEach(cp -> items.add(new String(Character.toChars(cp))));
+      return items;
+    }
+    int from = 0;
+    int hit = subject.indexOf(separator, from);
+    while (hit >= 0) {
+      items.add(subject.substring(from, hit));
+      from = hit + separator.length();
+      hit = subject.indexOf(separator, from);
+    }
+    items.add(subject.substring(from));
+    return items;
+  }
+
+  /** The total. Whole while every element is whole, so a column of ids stays exact. */
+  private static Object sumOf(java.util.List<Object> items) {
+    long[] parts = new long[items.size()];
+    boolean allWhole = !items.isEmpty();
+    for (int i = 0; i < items.size() && allWhole; i++) {
+      Long n = asExactInt(items.get(i));
+      if (n == null) {
+        allWhole = false;
+      } else {
+        parts[i] = n;
+      }
+    }
+    if (allWhole) {
+      return checked(
+          () -> {
+            long total = 0;
+            for (long n : parts) {
+              total = Math.addExact(total, n);
+            }
+            return total;
+          },
+          () -> {
+            java.math.BigInteger total = java.math.BigInteger.ZERO;
+            for (long n : parts) {
+              total = total.add(java.math.BigInteger.valueOf(n));
+            }
+            return total;
+          });
+    }
+    double sum = 0;
+    for (Object item : items) {
+      sum += asNumber(item);
+    }
+    return sum;
+  }
+
+  /** The average. Always a double: a mean is a ratio, and ratios are not whole. */
+  private static double meanOf(java.util.List<Object> items) {
+    if (items.isEmpty()) {
+      return Double.NaN;
+    }
+    double sum = 0;
+    for (Object item : items) {
+      sum += asNumber(item);
+    }
+    return sum / items.size();
+  }
+
+  /** The middle value; with an even count, the average of the two middle ones. */
+  private static double medianOf(java.util.List<Object> items) {
+    if (items.isEmpty()) {
+      return Double.NaN;
+    }
+    double[] sorted = new double[items.size()];
+    for (int i = 0; i < items.size(); i++) {
+      sorted[i] = asNumber(items.get(i));
+    }
+    java.util.Arrays.sort(sorted);
+    int half = sorted.length / 2;
+    return sorted.length % 2 == 1 ? sorted[half] : (sorted[half - 1] + sorted[half]) / 2;
+  }
+
+  /**
+   * The POPULATION standard deviation — divided by n, not by n-1.
+   *
+   * <p>A generated list is the whole of what it describes, not a sample drawn from something
+   * larger, so n is the honest divisor. Stated because the two differ and neither is obvious.
+   */
+  private static double stdDevOf(java.util.List<Object> items) {
+    if (items.isEmpty()) {
+      return Double.NaN;
+    }
+    double[] values = new double[items.size()];
+    double average = 0;
+    for (int i = 0; i < items.size(); i++) {
+      values[i] = asNumber(items.get(i));
+      average += values[i];
+    }
+    average /= values.length;
+    double variance = 0;
+    for (double v : values) {
+      variance += (v - average) * (v - average);
+    }
+    return io.github.nickliapin.tdc.mathx.TdcMath.sqrt(variance / values.length);
   }
 
   private static String str(Object[] args, int index) {

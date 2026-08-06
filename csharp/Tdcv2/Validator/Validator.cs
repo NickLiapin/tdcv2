@@ -210,27 +210,33 @@ public sealed class Validator
         new[]
         {
             ("abs", 1, 1), ("acos", 1, 1), ("acosh", 1, 1), ("asin", 1, 1), ("asinh", 1, 1),
-            ("atan", 1, 1), ("atan2", 2, 2), ("atanh", 1, 1), ("beta", 2, 2), ("cbrt", 1, 1),
-            ("ceil", 1, 1), ("contains", 2, 2), ("cos", 1, 1), ("cosh", 1, 1),
+            ("at", 2, 2), ("atan", 1, 1), ("atan2", 2, 2), ("atanh", 1, 1), ("beta", 2, 2),
+            ("cbrt", 1, 1),
+            ("ceil", 1, 1), ("contains", 2, 2), ("cos", 1, 1), ("cosh", 1, 1), ("count", 1, 1),
             ("degrees", 1, 1), ("digamma", 1, 1), ("ends_with", 2, 2),
             ("erf", 1, 1), ("erfc", 1, 1), ("exp", 1, 1), ("expm1", 1, 1), ("floor", 1, 1),
             ("gamma", 1, 1), ("hypot", 2, 2),
-            ("is_empty", 1, 1), ("len", 1, 1), ("lgamma", 1, 1), ("log", 1, 1), ("log10", 1, 1),
-            ("log1p", 1, 1),
-            ("log2", 1, 1), ("lower", 1, 1), ("max", 1, int.MaxValue), ("min", 1, int.MaxValue),
+            ("is_empty", 1, 1), ("join", 2, 2), ("len", 1, 1), ("lgamma", 1, 1), ("log", 1, 1),
+            ("log10", 1, 1), ("log1p", 1, 1),
+            ("log2", 1, 1), ("lower", 1, 1), ("max", 1, int.MaxValue), ("mean", 1, 1),
+            ("median", 1, 1), ("min", 1, int.MaxValue),
             ("pow", 2, 2), ("radians", 1, 1), ("round", 1, 1), ("sign", 1, 1), ("sin", 1, 1),
-            ("sinh", 1, 1), ("sqrt", 1, 1), ("starts_with", 2, 2), ("tan", 1, 1), ("tanh", 1, 1),
+            ("sinh", 1, 1), ("split", 2, 2), ("sqrt", 1, 1), ("starts_with", 2, 2),
+            ("stddev", 1, 1), ("sum", 1, 1), ("tan", 1, 1), ("tanh", 1, 1),
             ("trunc", 1, 1), ("upper", 1, 1), ("zeta", 1, 1),
         };
 
     private static readonly IReadOnlyList<string> ExprFunctionNames =
         new[]
         {
-            "abs", "acos", "acosh", "asin", "asinh", "atan", "atan2", "atanh", "beta", "cbrt",
-            "ceil", "contains", "cos", "cosh", "degrees", "digamma", "ends_with", "erf", "erfc",
-            "exp", "expm1", "floor", "gamma", "hypot", "is_empty", "len", "lgamma", "log",
-            "log10", "log1p", "log2", "lower", "max", "min", "pow", "radians", "round", "sign",
-            "sin", "sinh", "sqrt", "starts_with", "tan", "tanh", "trunc", "upper", "zeta",
+            "abs", "acos", "acosh", "asin", "asinh", "at", "atan", "atan2", "atanh", "beta",
+            "cbrt", "ceil", "contains", "cos", "cosh", "count", "degrees", "digamma",
+            "ends_with", "erf", "erfc",
+            "exp", "expm1", "floor", "gamma", "hypot", "is_empty", "join", "len", "lgamma",
+            "log", "log10", "log1p", "log2", "lower", "max", "mean", "median", "min", "pow",
+            "radians", "round", "sign",
+            "sin", "sinh", "split", "sqrt", "starts_with", "stddev", "sum", "tan", "tanh",
+            "trunc", "upper", "zeta",
         };
 
     /// <summary>
@@ -243,6 +249,12 @@ public sealed class Validator
     /// </summary>
     private static readonly IReadOnlyList<string> PlannedExprFunctions =
         new[] { "airy", "besselj", "bessely", "elliptic_e", "elliptic_k", "polygamma" };
+
+    /// <summary>
+    /// The functions that hand back a list. <c>at</c> reads one, and nothing else does today;
+    /// when a second joins, it goes here and the check stays put.
+    /// </summary>
+    private static readonly IReadOnlySet<string> ListReturningFunctions = Set("split");
 
     private static readonly IReadOnlyList<string> SupportedUnaryOperators = new[] { "!", "-", "+" };
 
@@ -4878,6 +4890,11 @@ public sealed class Validator
                         string.Empty, line, column);
                 }
 
+                if (call.Callee == "at")
+                {
+                    CheckAtCall(call, line, column);
+                }
+
                 foreach (Expr.Expr arg in call.Args)
                 {
                     CheckExprNode(arg, line, column);
@@ -4906,6 +4923,72 @@ public sealed class Validator
                 return;
         }
     }
+
+    /// <summary>
+    /// <c>at(subject, index)</c>, checked before the run rather than during it.
+    /// </summary>
+    /// <remarks>
+    /// Both halves are provable from the text alone. A name always resolves to a STRING — a
+    /// <c>repeat</c> list arrives joined, never as a list — so <c>at(Items, 1)</c> can only ever
+    /// answer with nothing, and that nothing is indistinguishable from a legitimately short row.
+    /// An index written out as <c>-1</c>, <c>1.5</c> or <c>"one"</c> is the same kind of mistake
+    /// one level down. The engine refuses both at run time as well; this is the earlier,
+    /// better-placed half of the same rule, because <c>check</c> points at the character.
+    /// </remarks>
+    private void CheckAtCall(Expr.Expr.Call call, int line, int column)
+    {
+        if (call.Args.Count > 0 && ProvablyNotAList(call.Args[0]))
+        {
+            Error(
+                "TDC260", "at() needs a list, and this argument is a single value",
+                "A repeat list reaches an expression as its joined text, so cut it first: "
+                + "at(split(Items, \",\"), 1).",
+                line, column);
+        }
+
+        if (call.Args.Count > 1 && BadIndexLiteral(call.Args[1]) is string bad)
+        {
+            Error(
+                "TDC261", $"at() index must be a whole number of zero or more, not {bad}",
+                "Elements count from zero: at(list, 0) is the first. Past the end is empty text "
+                + "— ask count(list) first.",
+                line, column);
+        }
+    }
+
+    /// <summary>Whether a subexpression can be shown, from the text alone, never to be a list.</summary>
+    private static bool ProvablyNotAList(Expr.Expr node) => node switch
+    {
+        Expr.Expr.Name or Expr.Expr.Member or Expr.Expr.Num or Expr.Expr.Int
+            or Expr.Expr.Str or Expr.Expr.Bool or Expr.Expr.Null => true,
+        Expr.Expr.Call call => !ListReturningFunctions.Contains(call.Callee),
+        _ => false,
+    };
+
+    /// <summary>A written-out index that is not one, as it should read back in the message.</summary>
+    private static string? BadIndexLiteral(Expr.Expr node) => node switch
+    {
+        Expr.Expr.Str s => $"\"{s.Value}\"",
+        Expr.Expr.Int n => n.Value < 0 ? n.Value.ToString(CultureInfo.InvariantCulture) : null,
+        Expr.Expr.Num d => d.Value != Math.Floor(d.Value) || d.Value < 0
+            ? LiteralText(d.Value)
+            : null,
+        // A parser that does not fold a sign into the literal leaves a minus in front of it;
+        // this one folds, so the branch is a belt to the braces.
+        Expr.Expr.Unary unary when unary.Op == "-" => unary.Operand switch
+        {
+            Expr.Expr.Int n => "-" + n.Value.ToString(CultureInfo.InvariantCulture),
+            Expr.Expr.Num d => "-" + LiteralText(d.Value),
+            _ => null,
+        },
+        _ => null,
+    };
+
+    /// <summary>A double as a person wrote it: whole numbers without a point, as JavaScript prints.</summary>
+    private static string LiteralText(double value) =>
+        value == Math.Floor(value) && !double.IsInfinity(value)
+            ? ((long)value).ToString(CultureInfo.InvariantCulture)
+            : value.ToString("R", CultureInfo.InvariantCulture);
 
     // ── placement ────────────────────────────────────────────────────────────────────────────
 

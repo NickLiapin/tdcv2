@@ -189,8 +189,10 @@ public static class Evaluate
                 double x = Num(0);
                 return x < 0 ? -Math.Floor(-x + 0.5) : Math.Floor(x + 0.5);
             }
-            case "max": return args.Select(AsNumber).Aggregate((a, b) => b > a ? b : a);
-            case "min": return args.Select(AsNumber).Aggregate((a, b) => b < a ? b : a);
+            // Spread: one list argument read as the arguments themselves, so
+            // max(split(Prices, ",")) and max(1, 9, 4) both work.
+            case "max": return Spread(args).Select(AsNumber).Aggregate((a, b) => b > a ? b : a);
+            case "min": return Spread(args).Select(AsNumber).Aggregate((a, b) => b < a ? b : a);
             case "contains": return Str(0).Contains(Str(1), StringComparison.Ordinal);
             case "ends_with": return Str(0).EndsWith(Str(1), StringComparison.Ordinal);
             case "starts_with": return Str(0).StartsWith(Str(1), StringComparison.Ordinal);
@@ -210,6 +212,25 @@ public static class Evaluate
             }
             case "lower": return Str(0).ToLowerInvariant();
             case "upper": return Str(0).ToUpperInvariant();
+            // Lists inside one row. A sequence with repeat= puts several values in one field,
+            // and an expression sees the JOINED text because that is what the field holds — so
+            // `split` is the bridge and everything else works on lists. No grammar changed: the
+            // list value already existed, made by an array literal and consumed by `in`.
+            case "split": return SplitText(Str(0), Str(1));
+            case "join": return string.Join(Str(1), ListOf(args, 0).Select(Text));
+            // How many. `len` is the STRING length and would answer about the separators.
+            case "count": return (double)ListOf(args, 0).Count;
+            case "at":
+            {
+                List<object?> items = ListValue(args, 0);
+                int index = IndexValue(args, 1);
+                return index < items.Count ? items[index] ?? string.Empty : string.Empty;
+            }
+
+            case "sum": return SumOf(ListOf(args, 0));
+            case "mean": return MeanOf(ListOf(args, 0));
+            case "median": return MedianOf(ListOf(args, 0));
+            case "stddev": return StdDevOf(ListOf(args, 0));
             case "zeta": return Maths.TdcMath.Zeta(Num(0));
             // Transcendentals, computed by TDC rather than by .NET — see Math/TdcMath.cs.
             // Adding one here means adding it to TdcMath in all five, not calling System.Math.
@@ -364,6 +385,193 @@ public static class Evaluate
         if (a is null) return (null, null);
         long? b = AsExactInt(right);
         return b is null ? (null, null) : (a, b);
+    }
+
+    /// <summary>One list argument spread out, or the arguments themselves.</summary>
+    private static IEnumerable<object?> Spread(object?[] args) =>
+        args.Length == 1 && args[0] is List<object?> only ? only : args;
+
+    /// <summary>
+    /// An argument as a list.
+    ///
+    /// <para>A bare value counts as a list of one, so <c>sum(Price)</c> on a single number is an
+    /// answer rather than an error — the alternative is a rule a caller has to remember before
+    /// every call.</para>
+    /// </summary>
+    private static List<object?> ListOf(object?[] args, int index)
+    {
+        if (index >= args.Length)
+        {
+            throw new ArgumentException("if expression: a function was given too few arguments");
+        }
+
+        return args[index] switch
+        {
+            List<object?> items => items,
+            null => new List<object?>(),
+            var one => new List<object?> { one },
+        };
+    }
+
+    /// <summary>
+    /// <c>at</c>'s subject, which has to be a real list.
+    ///
+    /// <para><see cref="ListOf"/> reads a bare value as a list of one, which is right for
+    /// <c>sum(Price)</c> and wrong here: a <c>repeat</c> list arrives as the JOINED text, so
+    /// <c>at(Items, 1)</c> — the shape everybody writes first — used to ask for the second element
+    /// of a one-element list and get the same empty string a legitimately short row gives. Naming
+    /// the mistake is the point.</para>
+    /// </summary>
+    private static List<object?> ListValue(object?[] args, int index)
+    {
+        if (index >= args.Length)
+        {
+            throw new ArgumentException("if expression: a function was given too few arguments");
+        }
+
+        if (args[index] is List<object?> items)
+        {
+            return items;
+        }
+
+        throw new ArgumentException(
+            $"at() needs a list, and {Show(args[index])} is a single value — split it first, "
+            + "as in at(split(Items, \",\"), 1)");
+    }
+
+    /// <summary>An index: a whole number, zero or more. Anything else is a mistake, not a shape.</summary>
+    private static int IndexValue(object?[] args, int index)
+    {
+        if (index >= args.Length)
+        {
+            throw new ArgumentException("if expression: a function was given too few arguments");
+        }
+
+        object? raw = args[index];
+        double n = AsNumber(raw);
+        if (double.IsNaN(n) || double.IsInfinity(n) || n != Math.Floor(n) || n < 0)
+        {
+            throw new ArgumentException(
+                $"at() index must be a whole number of zero or more, not {Show(raw)}");
+        }
+
+        return (int)Math.Min(n, int.MaxValue);
+    }
+
+    /// <summary>A value as it should read inside a message: text quoted, everything else plain.</summary>
+    private static string Show(object? v) => v switch
+    {
+        string s => $"\"{s}\"",
+        List<object?> => "a list",
+        null => "nothing",
+        _ => Text(v),
+    };
+
+    /// <summary>Text to a list. An empty subject gives an empty list, not a list of one blank.</summary>
+    private static List<object?> SplitText(string subject, string separator)
+    {
+        var items = new List<object?>();
+        if (subject.Length == 0)
+        {
+            return items;
+        }
+
+        if (separator.Length == 0)
+        {
+            // CODE POINTS, the same unit `len` counts, so split(s, "") and len(s) never disagree
+            // about how many characters a string has.
+            for (int i = 0; i < subject.Length;)
+            {
+                int width = char.IsSurrogatePair(subject, i) ? 2 : 1;
+                items.Add(subject.Substring(i, width));
+                i += width;
+            }
+
+            return items;
+        }
+
+        foreach (string part in subject.Split(separator))
+        {
+            items.Add(part);
+        }
+
+        return items;
+    }
+
+    /// <summary>The total. Whole while every element is whole, so a column of ids stays exact.</summary>
+    private static object SumOf(List<object?> items)
+    {
+        var parts = new List<long>(items.Count);
+        bool allWhole = items.Count > 0;
+        foreach (object? item in items)
+        {
+            if (AsExactInt(item) is not long n)
+            {
+                allWhole = false;
+                break;
+            }
+
+            parts.Add(n);
+        }
+
+        if (allWhole)
+        {
+            return Checked(
+                () =>
+                {
+                    long total = 0;
+                    foreach (long n in parts) total = checked(total + n);
+                    return total;
+                },
+                () =>
+                {
+                    BigInteger total = BigInteger.Zero;
+                    foreach (long n in parts) total += n;
+                    return total;
+                });
+        }
+
+        double sum = 0;
+        foreach (object? item in items) sum += AsNumber(item);
+        return sum;
+    }
+
+    /// <summary>The average. Always a double: a mean is a ratio, and ratios are not whole.</summary>
+    private static double MeanOf(List<object?> items)
+    {
+        if (items.Count == 0) return double.NaN;
+        double sum = 0;
+        foreach (object? item in items) sum += AsNumber(item);
+        return sum / items.Count;
+    }
+
+    /// <summary>The middle value; with an even count, the average of the two middle ones.</summary>
+    private static double MedianOf(List<object?> items)
+    {
+        if (items.Count == 0) return double.NaN;
+        List<double> sorted = items.Select(AsNumber).ToList();
+        sorted.Sort();
+        int half = sorted.Count / 2;
+        return sorted.Count % 2 == 1 ? sorted[half] : (sorted[half - 1] + sorted[half]) / 2;
+    }
+
+    /// <summary>
+    /// The POPULATION standard deviation — divided by n, not by n−1.
+    ///
+    /// <para>A generated list is the whole of what it describes, not a sample drawn from something
+    /// larger, so n is the honest divisor. Stated because the two differ and neither is the obvious
+    /// default.</para>
+    /// </summary>
+    private static double StdDevOf(List<object?> items)
+    {
+        if (items.Count == 0) return double.NaN;
+        List<double> values = items.Select(AsNumber).ToList();
+        double average = 0;
+        foreach (double v in values) average += v;
+        average /= values.Count;
+        double variance = 0;
+        foreach (double v in values) variance += (v - average) * (v - average);
+        return Maths.TdcMath.Sqrt(variance / values.Count);
     }
 
     private static object CheckedNegate(long v) => Checked(() => checked(-v), () => -(BigInteger)v);

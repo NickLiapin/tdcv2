@@ -239,15 +239,24 @@ public final class Validator {
           Map.entry("tan", new int[] {1, 1}),
           Map.entry("tanh", new int[] {1, 1}),
           Map.entry("trunc", new int[] {1, 1}),
-          Map.entry("upper", new int[] {1, 1}));
+          Map.entry("upper", new int[] {1, 1}),
+          Map.entry("at", new int[] {2, 2}),
+          Map.entry("count", new int[] {1, 1}),
+          Map.entry("join", new int[] {2, 2}),
+          Map.entry("mean", new int[] {1, 1}),
+          Map.entry("median", new int[] {1, 1}),
+          Map.entry("split", new int[] {2, 2}),
+          Map.entry("stddev", new int[] {1, 1}),
+          Map.entry("sum", new int[] {1, 1}));
 
   private static final List<String> EXPR_FUNCTION_NAMES =
       List.of(
-          "abs", "acos", "acosh", "asin", "asinh", "atan", "atan2", "atanh", "beta", "cbrt",
-          "ceil", "contains", "cos", "cosh", "degrees", "digamma", "ends_with",
-          "erf", "erfc", "exp", "expm1", "floor", "gamma", "hypot", "is_empty", "len", "lgamma",
-          "log", "log10", "log1p", "log2", "lower", "max", "min", "pow", "radians", "round",
-          "sign", "sin", "sinh", "sqrt", "starts_with", "tan", "tanh", "trunc", "upper", "zeta");
+          "abs", "acos", "acosh", "asin", "asinh", "at", "atan", "atan2", "atanh", "beta",
+          "cbrt", "ceil", "contains", "cos", "cosh", "count", "degrees", "digamma", "ends_with",
+          "erf", "erfc", "exp", "expm1", "floor", "gamma", "hypot", "is_empty", "join", "len",
+          "lgamma", "log", "log10", "log1p", "log2", "lower", "max", "mean", "median", "min",
+          "pow", "radians", "round", "sign", "sin", "sinh", "split", "sqrt", "starts_with",
+          "stddev", "sum", "tan", "tanh", "trunc", "upper", "zeta");
 
   /**
    * Not available, and not typos either. Someone writing {@code besselj(_count)} knows what they
@@ -259,6 +268,12 @@ public final class Validator {
    */
   private static final List<String> PLANNED_EXPR_FUNCTIONS =
       List.of("airy", "besselj", "bessely", "elliptic_e", "elliptic_k", "polygamma");
+
+  /**
+   * The functions that hand back a list. {@code at} reads one, and nothing else does today; when a
+   * second joins, it goes here and the check stays put.
+   */
+  private static final List<String> LIST_RETURNING_FUNCTIONS = List.of("split");
 
   private static final List<String> SUPPORTED_UNARY_OPERATORS = List.of("!", "-", "+");
 
@@ -3932,6 +3947,9 @@ public final class Validator {
                 + ", got " + given,
             "", line, column);
       }
+      if ("at".equals(call.callee())) {
+        checkAtCall(call, line, column);
+      }
       for (io.github.nickliapin.tdc.expr.Expr arg : call.args()) {
         checkExprNode(arg, line, column);
       }
@@ -3951,6 +3969,82 @@ public final class Validator {
       }
       checkExprNode(unary.operand(), line, column);
     }
+  }
+
+  /**
+   * {@code at(subject, index)}, checked before the run rather than during it.
+   *
+   * <p>Both halves are provable from the text alone. A name always resolves to a STRING — a
+   * {@code repeat} list arrives joined, never as a list — so {@code at(Items, 1)} can only ever
+   * answer with nothing, and that nothing is indistinguishable from a legitimately short row. An
+   * index written out as {@code -1}, {@code 1.5} or {@code "one"} is the same kind of mistake one
+   * level down.
+   *
+   * <p>The engine refuses both at run time as well; this is the earlier, better-placed half of the
+   * same rule, because {@code check} points at the character.
+   */
+  private void checkAtCall(
+      io.github.nickliapin.tdc.expr.Expr.Call call, int line, int column) {
+    if (!call.args().isEmpty() && provablyNotAList(call.args().get(0))) {
+      error("TDC260", "at() needs a list, and this argument is a single value",
+          "A repeat list reaches an expression as its joined text, so cut it first: "
+              + "at(split(Items, \",\"), 1).",
+          line, column);
+    }
+    if (call.args().size() > 1) {
+      String bad = badIndexLiteral(call.args().get(1));
+      if (bad != null) {
+        error("TDC261", "at() index must be a whole number of zero or more, not " + bad,
+            "Elements count from zero: at(list, 0) is the first. Past the end is empty text "
+                + "— ask count(list) first.",
+            line, column);
+      }
+    }
+  }
+
+  /** Whether a subexpression can be shown, from the text alone, never to be a list. */
+  private static boolean provablyNotAList(io.github.nickliapin.tdc.expr.Expr node) {
+    if (node instanceof io.github.nickliapin.tdc.expr.Expr.Call call) {
+      return !LIST_RETURNING_FUNCTIONS.contains(call.callee());
+    }
+    return node instanceof io.github.nickliapin.tdc.expr.Expr.Name
+        || node instanceof io.github.nickliapin.tdc.expr.Expr.Member
+        || node instanceof io.github.nickliapin.tdc.expr.Expr.Num
+        || node instanceof io.github.nickliapin.tdc.expr.Expr.Int
+        || node instanceof io.github.nickliapin.tdc.expr.Expr.Str
+        || node instanceof io.github.nickliapin.tdc.expr.Expr.Bool
+        || node instanceof io.github.nickliapin.tdc.expr.Expr.Null;
+  }
+
+  /** A written-out index that is not one, as it should read back in the message. */
+  private static String badIndexLiteral(io.github.nickliapin.tdc.expr.Expr node) {
+    if (node instanceof io.github.nickliapin.tdc.expr.Expr.Str s) {
+      return "\"" + s.value() + "\"";
+    }
+    if (node instanceof io.github.nickliapin.tdc.expr.Expr.Int n) {
+      return n.value() < 0 ? String.valueOf(n.value()) : null;
+    }
+    if (node instanceof io.github.nickliapin.tdc.expr.Expr.Num d) {
+      return d.value() != Math.floor(d.value()) || d.value() < 0 ? literalText(d.value()) : null;
+    }
+    // A parser that does not fold a sign into the literal leaves a minus in front of it; this one
+    // folds, so the branch is a belt to the braces.
+    if (node instanceof io.github.nickliapin.tdc.expr.Expr.Unary unary && "-".equals(unary.op())) {
+      if (unary.operand() instanceof io.github.nickliapin.tdc.expr.Expr.Int n) {
+        return "-" + n.value();
+      }
+      if (unary.operand() instanceof io.github.nickliapin.tdc.expr.Expr.Num d) {
+        return "-" + literalText(d.value());
+      }
+    }
+    return null;
+  }
+
+  /** A double as a person wrote it: whole numbers without a point, as JavaScript prints. */
+  private static String literalText(double value) {
+    return value == Math.floor(value) && !Double.isInfinite(value)
+        ? String.valueOf((long) value)
+        : String.valueOf(value);
   }
 
   // ── placement ────────────────────────────────────────────────────────────────────────────
