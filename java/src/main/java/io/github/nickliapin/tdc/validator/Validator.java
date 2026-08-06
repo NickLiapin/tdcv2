@@ -195,6 +195,14 @@ public final class Validator {
       Map.ofEntries(
           Map.entry("abs", new int[] {1, 1}),
           Map.entry("acos", new int[] {1, 1}),
+          Map.entry("acosh", new int[] {1, 1}),
+          Map.entry("asinh", new int[] {1, 1}),
+          Map.entry("atanh", new int[] {1, 1}),
+          Map.entry("expm1", new int[] {1, 1}),
+          Map.entry("hypot", new int[] {2, 2}),
+          Map.entry("log1p", new int[] {1, 1}),
+          Map.entry("log2", new int[] {1, 1}),
+          Map.entry("sign", new int[] {1, 1}),
           Map.entry("asin", new int[] {1, 1}),
           Map.entry("atan", new int[] {1, 1}),
           Map.entry("atan2", new int[] {2, 2}),
@@ -226,21 +234,20 @@ public final class Validator {
 
   private static final List<String> EXPR_FUNCTION_NAMES =
       List.of(
-          "abs", "acos", "asin", "atan", "atan2", "cbrt", "ceil", "contains", "cos", "cosh",
-          "ends_with", "exp", "floor", "is_empty", "len", "log", "log10", "lower", "max", "min",
-          "pow", "round", "sin", "sinh", "sqrt", "starts_with", "tan", "tanh", "trunc", "upper");
+          "abs", "acos", "acosh", "asin", "asinh", "atan", "atan2", "atanh", "cbrt", "ceil",
+          "contains", "cos", "cosh", "ends_with", "exp", "expm1", "floor", "hypot", "is_empty",
+          "len", "log", "log10", "log1p", "log2", "lower", "max", "min", "pow", "round", "sign",
+          "sin", "sinh", "sqrt", "starts_with", "tan", "tanh", "trunc", "upper");
 
   /**
-   * Not available, and not typos either. Someone writing {@code atanh(_count)} knows what they
-   * meant, and "did you mean atan?" is worse than saying nothing.
+   * Not available, and not typos either. Someone writing {@code erf(_count)} knows what they
+   * meant, and "did you mean exp?" is worse than saying nothing.
    *
    * <p>Every name here has to be built and pinned to its bits in five languages before it can be
    * offered, which is the only thing keeping it on this list.
    */
   private static final List<String> PLANNED_EXPR_FUNCTIONS =
-      List.of(
-          "acosh", "asinh", "atanh", "degrees", "expm1", "hypot", "log1p", "log2", "radians",
-          "sign");
+      List.of("degrees", "erf", "erfc", "gamma", "lgamma", "radians");
 
   private static final List<String> SUPPORTED_UNARY_OPERATORS = List.of("!", "-", "+");
 
@@ -3894,10 +3901,10 @@ public final class Validator {
                 ? call.callee() + "() is not available yet in an if expression"
                 : "unknown function \"" + call.callee() + "\" in if expression",
             planned
-                ? "Every host language computes " + call.callee() + " slightly differently — "
-                    + "tan(1) already differs in its last bit between Node and Python — and a "
-                    + "comparison turns that bit into a different row. It arrives once TDC "
-                    + "computes it itself, the way it computes its own random numbers. Available "
+                ? "TDC computes its own mathematics rather than calling each language's, because "
+                    + "the libms disagree in the last bit and a comparison turns that bit into a "
+                    + "different row. So " + call.callee() + " arrives once it has been built and "
+                    + "pinned to its bits in all five implementations, not before. Available "
                     + "today: " + String.join(", ", EXPR_FUNCTION_NAMES) + "."
                 : "Available: " + String.join(", ", EXPR_FUNCTION_NAMES) + ".",
             line, column);

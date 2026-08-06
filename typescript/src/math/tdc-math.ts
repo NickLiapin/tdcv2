@@ -204,6 +204,22 @@ export function exp(x: number): number {
 }
 
 /**
+ * The series for `atanh(s)/s` over s², shared by `log` and `log1p`.
+ *
+ * The two callers reduce to different intervals, so each names how far to go:
+ * `log` halves its argument until |s| <= 0.1716 and thirteen terms suffice,
+ * while `log1p` cannot halve — it must not form `1 + x` at all — and reaches
+ * |s| <= 1/3, where thirteen terms are 63 ulp out and twenty are 2.
+ */
+function atanhSeries(s2: number, highestOddPower: number): number {
+  let sum = 0;
+  for (let i = highestOddPower; i >= 1; i -= 2) {
+    sum = sum * s2 + 1 / i;
+  }
+  return sum;
+}
+
+/**
  * `log(x)` — natural logarithm.
  *
  * `x` is split into `m · 2^e` with m near 1 by halving and doubling, both exact.
@@ -225,12 +241,7 @@ export function log(x: number): number {
     e -= 1;
   }
   const s = (m - 1) / (m + 1);
-  const s2 = s * s;
-  let sum = 0;
-  for (let i = 25; i >= 1; i -= 2) {
-    sum = sum * s2 + 1 / i;
-  }
-  return 2 * s * sum + e * LN2_HI + e * LN2_LO;
+  return 2 * s * atanhSeries(s * s, 25) + e * LN2_HI + e * LN2_LO;
 }
 
 /** `log10(x)`, as `log(x) / ln 10`. */
@@ -614,4 +625,178 @@ export function cbrt(x: number): number {
     y = (2 * y + a / (y * y)) / 3;
   }
   return sign * scaleByPowerOfTwo(y, e);
+}
+
+/* ── The third wave: the shapes that exist to avoid cancellation ──────────────
+ *
+ * `expm1` and `log1p` are not conveniences. Near zero, `exp(x) - 1` and
+ * `log(1 + x)` each throw away most of their answer to a subtraction or to a
+ * rounding that happens before the function is even called — and these two are
+ * what the inverse hyperbolics are built from, which is why they come first.
+ */
+
+/** Taylor coefficients for (eˣ − 1)/x over x, ascending: 1/(n+1)!. */
+const EXPM1_COEFF = [
+  1,
+  1 / 2,
+  1 / 6,
+  1 / 24,
+  1 / 120,
+  1 / 720,
+  1 / 5040,
+  1 / 40320,
+  1 / 362880,
+  1 / 3628800,
+  1 / 39916800,
+  1 / 479001600,
+  1 / 6227020800,
+  1 / 87178291200,
+  1 / 1307674368000,
+  1 / 20922789888000,
+];
+
+/**
+ * `expm1(x)` — eˣ − 1, computed so that small x keeps its digits.
+ *
+ * `exp(0.0000001) - 1` in plain arithmetic is a subtraction of two numbers that
+ * agree to seven places, and most of the answer dies in it. The series has no
+ * subtraction to lose anything to.
+ */
+export function expm1(x: number): number {
+  if (Number.isNaN(x)) return Number.NaN;
+  if (Math.abs(x) < 0.5) return x * horner(EXPM1_COEFF, x);
+  return exp(x) - 1;
+}
+
+/**
+ * `log1p(x)` — log(1 + x), computed so that small x keeps its digits.
+ *
+ * The loss here happens before the logarithm is reached: `1 + 1e-20` IS 1 as a
+ * double, so `log(1 + x)` returns zero for every x under 10⁻¹⁶. Reducing
+ * instead to `2·atanh(x/(2+x))` never forms `1 + x` at all.
+ */
+export function log1p(x: number): number {
+  if (Number.isNaN(x) || x < -1) return Number.NaN;
+  if (x === -1) return Number.NEGATIVE_INFINITY;
+  if (x === Number.POSITIVE_INFINITY) return Number.POSITIVE_INFINITY;
+  // Past a half, `1 + x` has nothing left to lose and the direct route is both
+  // shorter and better conditioned.
+  if (Math.abs(x) >= 0.5) return log(1 + x);
+  const s = x / (2 + x);
+  return 2 * s * atanhSeries(s * s, 39);
+}
+
+/**
+ * `log2(x)`.
+ *
+ * Not `log(x) / ln2`: that would make `log2(8)` come out 2.9999999999999996,
+ * and a power of two is precisely the argument someone passes to `log2`. The
+ * exponent is separated first, so a power of two returns a whole number exactly
+ * and only the mantissa goes through the logarithm.
+ */
+export function log2(x: number): number {
+  if (Number.isNaN(x) || x < 0) return Number.NaN;
+  if (x === 0) return Number.NEGATIVE_INFINITY;
+  if (x === Number.POSITIVE_INFINITY) return Number.POSITIVE_INFINITY;
+  let m = x;
+  let e = 0;
+  while (m >= 1.4142135623730951) {
+    m /= 2;
+    e += 1;
+  }
+  while (m < 0.7071067811865476) {
+    m *= 2;
+    e -= 1;
+  }
+  if (m === 1) return e;
+  return e + log(m) / LN2;
+}
+
+/**
+ * `hypot(x, y)` — the length of the vector, without an intermediate that
+ * overflows.
+ *
+ * `sqrt(x*x + y*y)` is the definition and the wrong implementation: for
+ * x = 10²⁰⁰ the square overflows to infinity and the answer comes back
+ * infinite, though it is perfectly representable. Factoring the larger side out
+ * first keeps every intermediate near 1.
+ */
+export function hypot(x: number, y: number): number {
+  // An infinite side wins even against a NaN on the other, which is what
+  // IEEE-754 recommends: the length is infinite whatever the other side is.
+  if (!Number.isFinite(x) && !Number.isNaN(x)) return Number.POSITIVE_INFINITY;
+  if (!Number.isFinite(y) && !Number.isNaN(y)) return Number.POSITIVE_INFINITY;
+  if (Number.isNaN(x) || Number.isNaN(y)) return Number.NaN;
+  let a = Math.abs(x);
+  let b = Math.abs(y);
+  if (a < b) {
+    const swap = a;
+    a = b;
+    b = swap;
+  }
+  if (a === 0) return 0;
+  const ratio = b / a;
+  return a * Math.sqrt(1 + ratio * ratio);
+}
+
+/** `sign(x)` — −1, 0 or 1. Exact: there is nothing here to round. */
+export function sign(x: number): number {
+  if (Number.isNaN(x)) return Number.NaN;
+  if (x > 0) return 1;
+  if (x < 0) return -1;
+  return 0;
+}
+
+/**
+ * `asinh(x)` — the inverse hyperbolic sine, over the whole real line.
+ *
+ * `log(x + sqrt(x² + 1))` is the textbook form and cancels for small x: the two
+ * terms approach 1 and −1 of each other. Rewriting the argument as
+ * `x + x²/(1 + sqrt(1 + x²))` leaves `log1p` a number near x rather than a
+ * number near 1, and nothing cancels.
+ */
+export function asinh(x: number): number {
+  if (Number.isNaN(x) || !Number.isFinite(x)) return x;
+  const sign_ = x < 0 ? -1 : 1;
+  const a = Math.abs(x);
+  // Past this, a² would overflow while asinh(a) is still a small number; up
+  // there sqrt(1 + a²) is a to every bit, so the answer is log(2a).
+  if (a > 1e150) return sign_ * (log(a) + LN2);
+  return sign_ * log1p(a + (a * a) / (1 + Math.sqrt(1 + a * a)));
+}
+
+/**
+ * `acosh(x)` — the inverse hyperbolic cosine, defined for x ≥ 1.
+ *
+ * Written around `t = x − 1`, which is exact for the x near 1 where the answer
+ * approaches zero and the textbook form loses it.
+ */
+export function acosh(x: number): number {
+  if (Number.isNaN(x)) return Number.NaN;
+  if (x < 1) return Number.NaN;
+  if (x === 1) return 0;
+  if (x === Number.POSITIVE_INFINITY) return Number.POSITIVE_INFINITY;
+  if (x > 1e150) return log(x) + LN2;
+  const t = x - 1;
+  return log1p(t + Math.sqrt(2 * t + t * t));
+}
+
+/**
+ * `atanh(x)` — the inverse hyperbolic tangent, over (−1, 1).
+ *
+ * `½·log((1+x)/(1−x))` forms a ratio near 1 for small x and loses it. The same
+ * ratio written as `1 + 2x/(1−x)` hands `log1p` the small part directly.
+ */
+export function atanh(x: number): number {
+  if (Number.isNaN(x)) return Number.NaN;
+  if (x > 1 || x < -1) return Number.NaN;
+  if (x === 1) return Number.POSITIVE_INFINITY;
+  if (x === -1) return Number.NEGATIVE_INFINITY;
+  // The identity is only well-conditioned on the positive side. Fed x = −0.999999
+  // directly it hands `log1p` an argument of −0.9999995, which is the very
+  // cancellation `log1p` exists to avoid — and the answer came back 37618 ulp
+  // wrong. Folding to |x| first keeps that argument positive and large.
+  const sign_ = x < 0 ? -1 : 1;
+  const a = Math.abs(x);
+  return sign_ * 0.5 * log1p((2 * a) / (1 - a));
 }

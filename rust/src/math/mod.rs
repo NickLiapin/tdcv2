@@ -170,6 +170,26 @@ const EXP_UNDERFLOW: f64 = -745.133_219_101_941_1;
 /// The most halvings that keep a value near 1 inside the normal range.
 const DEEPEST_NORMAL_HALVING: i64 = 1021;
 
+/// Taylor coefficients for `(e^x - 1)/x` over x, ascending: 1/(n+1)!.
+const EXPM1_COEFF: [f64; 16] = [
+    1.0,
+    1.0 / 2.0,
+    1.0 / 6.0,
+    1.0 / 24.0,
+    1.0 / 120.0,
+    1.0 / 720.0,
+    1.0 / 5040.0,
+    1.0 / 40320.0,
+    1.0 / 362_880.0,
+    1.0 / 3_628_800.0,
+    1.0 / 39_916_800.0,
+    1.0 / 479_001_600.0,
+    1.0 / 6_227_020_800.0,
+    1.0 / 87_178_291_200.0,
+    1.0 / 1_307_674_368_000.0,
+    1.0 / 20_922_789_888_000.0,
+];
+
 /// Horner over z, ascending coefficients — the shape every series here uses.
 fn horner(coeff: &[f64], z: f64) -> f64 {
     let mut total = 0.0f64;
@@ -263,14 +283,23 @@ pub fn log(x: f64) -> f64 {
         e -= 1.0;
     }
     let s = (m - 1.0) / (m + 1.0);
-    let s2 = s * s;
+    2.0 * s * atanh_series(s * s, 25) + e * LN2_HI + e * LN2_LO
+}
+
+/// The series for `atanh(s)/s` over s^2, shared by `log` and `log1p`.
+///
+/// The two callers reduce to different intervals, so each names how far to go:
+/// `log` halves its argument until |s| <= 0.1716 and thirteen terms suffice,
+/// while `log1p` cannot halve — it must not form `1 + x` at all — and reaches
+/// |s| <= 1/3, where thirteen terms are 63 ulp out and twenty are 2.
+fn atanh_series(s2: f64, highest_odd_power: i32) -> f64 {
     let mut total = 0.0f64;
-    let mut i = 25;
+    let mut i = highest_odd_power;
     while i >= 1 {
         total = total * s2 + 1.0 / f64::from(i);
         i -= 2;
     }
-    2.0 * s * total + e * LN2_HI + e * LN2_LO
+    total
 }
 
 pub fn log10(x: f64) -> f64 {
@@ -609,4 +638,192 @@ pub fn cbrt(x: f64) -> f64 {
         y = (2.0 * y + a / (y * y)) / 3.0;
     }
     sign * scale_by_power_of_two(y, e)
+}
+
+// ── The third wave: the shapes that exist to avoid cancellation ──────────────
+//
+// `expm1` and `log1p` are not conveniences. Near zero, `exp(x) - 1` and
+// `log(1 + x)` each throw away most of their answer to a subtraction or to a
+// rounding that happens before the function is even called — and these two are
+// what the inverse hyperbolics are built from, which is why they come first.
+
+/// `expm1(x)` — e^x - 1, computed so that small x keeps its digits.
+///
+/// `exp(0.0000001) - 1` in plain arithmetic is a subtraction of two numbers
+/// that agree to seven places, and most of the answer dies in it. The series
+/// has no subtraction to lose anything to.
+pub fn expm1(x: f64) -> f64 {
+    if x.is_nan() {
+        return f64::NAN;
+    }
+    if x.abs() < 0.5 {
+        return x * horner(&EXPM1_COEFF, x);
+    }
+    exp(x) - 1.0
+}
+
+/// `log1p(x)` — log(1 + x), computed so that small x keeps its digits.
+///
+/// The loss here happens before the logarithm is reached: `1 + 1e-20` IS 1 as a
+/// double, so `log(1 + x)` returns zero for every x under 1e-16. Reducing
+/// instead to `2*atanh(x/(2+x))` never forms `1 + x` at all.
+pub fn log1p(x: f64) -> f64 {
+    if x.is_nan() || x < -1.0 {
+        return f64::NAN;
+    }
+    if x == -1.0 {
+        return f64::NEG_INFINITY;
+    }
+    if x == f64::INFINITY {
+        return f64::INFINITY;
+    }
+    // Past a half, `1 + x` has nothing left to lose and the direct route is
+    // both shorter and better conditioned.
+    if x.abs() >= 0.5 {
+        return log(1.0 + x);
+    }
+    let s = x / (2.0 + x);
+    2.0 * s * atanh_series(s * s, 39)
+}
+
+/// `log2(x)`.
+///
+/// Not `log(x) / ln2`: that would make `log2(8)` come out 2.9999999999999996,
+/// and a power of two is precisely the argument someone passes to `log2`. The
+/// exponent is separated first.
+pub fn log2(x: f64) -> f64 {
+    if x.is_nan() || x < 0.0 {
+        return f64::NAN;
+    }
+    if x == 0.0 {
+        return f64::NEG_INFINITY;
+    }
+    if x == f64::INFINITY {
+        return f64::INFINITY;
+    }
+    let mut m = x;
+    let mut e = 0.0f64;
+    while m >= 1.414_213_562_373_095_1 {
+        m /= 2.0;
+        e += 1.0;
+    }
+    while m < 0.707_106_781_186_547_6 {
+        m *= 2.0;
+        e -= 1.0;
+    }
+    if m == 1.0 {
+        return e;
+    }
+    e + log(m) / LN2
+}
+
+/// `hypot(x, y)` — the length of the vector, without an intermediate that
+/// overflows.
+///
+/// `sqrt(x*x + y*y)` is the definition and the wrong implementation: for
+/// x = 1e200 the square overflows to infinity and the answer comes back
+/// infinite, though it is perfectly representable. Factoring the larger side
+/// out first keeps every intermediate near 1.
+pub fn hypot(x: f64, y: f64) -> f64 {
+    // An infinite side wins even against a NaN on the other, which is what
+    // IEEE-754 recommends: the length is infinite whatever the other side is.
+    if x.is_infinite() || y.is_infinite() {
+        return f64::INFINITY;
+    }
+    if x.is_nan() || y.is_nan() {
+        return f64::NAN;
+    }
+    let mut a = x.abs();
+    let mut b = y.abs();
+    if a < b {
+        std::mem::swap(&mut a, &mut b);
+    }
+    if a == 0.0 {
+        return 0.0;
+    }
+    let ratio = b / a;
+    a * (1.0 + ratio * ratio).sqrt()
+}
+
+/// `sign(x)` — -1, 0 or 1. Exact: there is nothing here to round.
+pub fn sign(x: f64) -> f64 {
+    if x.is_nan() {
+        return f64::NAN;
+    }
+    if x > 0.0 {
+        return 1.0;
+    }
+    if x < 0.0 {
+        return -1.0;
+    }
+    0.0
+}
+
+/// `asinh(x)` — the inverse hyperbolic sine, over the whole real line.
+///
+/// `log(x + sqrt(x*x + 1))` is the textbook form and cancels for small x.
+/// Rewriting the argument as `x + x*x/(1 + sqrt(1 + x*x))` leaves `log1p` a
+/// number near x rather than a number near 1, and nothing cancels.
+pub fn asinh(x: f64) -> f64 {
+    if x.is_nan() || x.is_infinite() {
+        return x;
+    }
+    let sign_of = if x < 0.0 { -1.0 } else { 1.0 };
+    let a = x.abs();
+    // Past this, a*a would overflow while asinh(a) is still a small number; up
+    // there sqrt(1 + a*a) is a to every bit, so the answer is log(2a).
+    if a > 1e150 {
+        return sign_of * (log(a) + LN2);
+    }
+    sign_of * log1p(a + (a * a) / (1.0 + (1.0 + a * a).sqrt()))
+}
+
+/// `acosh(x)` — the inverse hyperbolic cosine, defined for x >= 1.
+///
+/// Written around `t = x - 1`, which is exact for the x near 1 where the answer
+/// approaches zero and the textbook form loses it.
+pub fn acosh(x: f64) -> f64 {
+    if x.is_nan() {
+        return f64::NAN;
+    }
+    if x < 1.0 {
+        return f64::NAN;
+    }
+    if x == 1.0 {
+        return 0.0;
+    }
+    if x == f64::INFINITY {
+        return f64::INFINITY;
+    }
+    if x > 1e150 {
+        return log(x) + LN2;
+    }
+    let t = x - 1.0;
+    log1p(t + (2.0 * t + t * t).sqrt())
+}
+
+/// `atanh(x)` — the inverse hyperbolic tangent, over (-1, 1).
+///
+/// `0.5*log((1+x)/(1-x))` forms a ratio near 1 for small x and loses it. The
+/// same ratio written as `1 + 2x/(1-x)` hands `log1p` the small part directly.
+pub fn atanh(x: f64) -> f64 {
+    if x.is_nan() {
+        return f64::NAN;
+    }
+    if x > 1.0 || x < -1.0 {
+        return f64::NAN;
+    }
+    if x == 1.0 {
+        return f64::INFINITY;
+    }
+    if x == -1.0 {
+        return f64::NEG_INFINITY;
+    }
+    // The identity is only well-conditioned on the positive side. Fed
+    // x = -0.999999 directly it hands `log1p` an argument of -0.9999995, which
+    // is the very cancellation `log1p` exists to avoid — and the answer came
+    // back 37618 ulp wrong. Folding to |x| first keeps that argument positive.
+    let sign_of = if x < 0.0 { -1.0 } else { 1.0 };
+    let a = x.abs();
+    sign_of * 0.5 * log1p((2.0 * a) / (1.0 - a))
 }

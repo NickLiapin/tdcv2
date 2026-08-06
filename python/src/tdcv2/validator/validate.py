@@ -121,25 +121,33 @@ EXPR_FUNCTIONS: dict[str, tuple[int, int | None]] = {
     "abs": (1, 1),
     "ceil": (1, 1),
     "acos": (1, 1),
+    "acosh": (1, 1),
     "asin": (1, 1),
+    "asinh": (1, 1),
     "atan": (1, 1),
     "atan2": (2, 2),
+    "atanh": (1, 1),
     "cbrt": (1, 1),
     "contains": (2, 2),
     "cos": (1, 1),
     "cosh": (1, 1),
     "ends_with": (2, 2),
     "exp": (1, 1),
+    "expm1": (1, 1),
+    "hypot": (2, 2),
     "floor": (1, 1),
     "is_empty": (1, 1),
     "len": (1, 1),
     "log": (1, 1),
     "log10": (1, 1),
+    "log1p": (1, 1),
+    "log2": (1, 1),
     "lower": (1, 1),
     "max": (1, None),
     "min": (1, None),
     "pow": (2, 2),
     "round": (1, 1),
+    "sign": (1, 1),
     "sin": (1, 1),
     "sinh": (1, 1),
     "sqrt": (1, 1),
@@ -3736,10 +3744,10 @@ class _Validator:
                         else f'unknown function "{node.name}" in if expression'
                     ),
                     (
-                        f"Every host language computes {node.name} slightly differently — tan(1) "
-                        "already differs in its last bit between Node and Python — and a "
-                        "comparison turns that bit into a different row. It arrives once TDC "
-                        "computes it itself, the way it computes its own random numbers. "
+                        "TDC computes its own mathematics rather than calling each language's, "
+                        "because the libms disagree in the last bit and a comparison turns that "
+                        f"bit into a different row. So {node.name} arrives once it has been built "
+                        "and pinned to its bits in all five implementations, not before. "
                         f"Available today: {', '.join(EXPR_FUNCTION_NAMES)}."
                         if planned
                         else (f'Did you mean "{near}"? ' if near else "")

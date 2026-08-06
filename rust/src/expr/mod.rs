@@ -394,6 +394,24 @@ impl Parser<'_> {
         while self.peek().is_some_and(|c| c.is_ascii_digit() || c == '.') {
             self.pos += 1;
         }
+        // An exponent is part of the number, not a name glued to it. Without
+        // this, `1e200` lexed as the number 1 followed by the name `e200`, and
+        // the parser reported "unbalanced parentheses" — a message about the
+        // wrong thing entirely.
+        if self.peek().is_some_and(|c| c == 'e' || c == 'E') {
+            let mut after = self.pos + 1;
+            if self.src.get(after).is_some_and(|c| *c == '+' || *c == '-') {
+                after += 1;
+            }
+            // Only take the "e" if a digit follows it; otherwise this is a name
+            // sitting against a number and the caller should see it as one.
+            if self.src.get(after).is_some_and(char::is_ascii_digit) {
+                self.pos = after;
+                while self.peek().is_some_and(|c| c.is_ascii_digit()) {
+                    self.pos += 1;
+                }
+            }
+        }
         let text: String = self.src[start..self.pos].iter().collect();
         match text.parse::<f64>() {
             Ok(n) => Ok(Expr::Num(n)),

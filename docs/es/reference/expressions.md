@@ -109,6 +109,11 @@ columna de texto contra una lista de palabras numéricas sigue coincidiendo.
 | `atan2(y, x)`              | 2          | el ángulo del punto (x, y), sobre (−π, π]          |
 | `sinh(x)` `cosh(x)` `tanh(x)` | 1       | funciones hiperbólicas                             |
 | `cbrt(x)`                  | 1          | raíz cúbica — también de negativos, a diferencia de `pow` |
+| `expm1(x)` `log1p(x)`      | 1          | eˣ−1 y log(1+x), exactas cerca de cero             |
+| `log2(x)`                  | 1          | logaritmo binario — exacto en una potencia de dos  |
+| `asinh(x)` `acosh(x)` `atanh(x)` | 1     | funciones hiperbólicas inversas                    |
+| `hypot(x, y)`              | 2          | longitud del vector, sin desbordar por el camino   |
+| `sign(x)`                  | 1          | −1, 0 o 1                                          |
 
 Todo lo que está por encima de la raya es exacto: construido con comparaciones y con la
 aritmética que IEEE-754 fija sin ambigüedad, así que las cinco implementaciones no pueden
@@ -201,19 +206,40 @@ entero pasa por elevación al cuadrado, así que `pow(10, 3)` es exactamente 100
 Y las funciones circulares toman **radianes**, sin variante en grados: un convenio, dicho una
 sola vez.
 
+### El par que existe porque la resta pierde cosas
+
+`expm1` y `log1p` no son atajos para `exp(x) - 1` ni `log(1 + x)`. Son esas expresiones
+calculadas de modo que la respuesta sobreviva:
+
+`cerca de cero, las definiciones no devuelven nada`
+
+```
+expm1(1e-20)   1e-20        exp(1e-20) - 1     0
+log1p(1e-20)   1e-20        log(1 + 1e-20)     0
+```
+
+La segunda columna no es un error de redondeo: es la respuesta entera, desaparecida. `1 + 1e-20`
+ES 1 como double, así que el logaritmo nunca llega a ver el argumento; y `exp(1e-20)` es 1,0000…,
+de modo que la resta cancela todas las cifras que importaban. `asinh` y `atanh` están construidas
+sobre `log1p` por la misma razón.
+
+`hypot` evita el problema simétrico en el otro extremo: `sqrt(x² + y²)` desborda a infinito para
+x = 10²⁰⁰, aunque la respuesta es perfectamente representable. Y `log2` separa el exponente antes
+de tomar ningún logaritmo, así que `log2(8)` es 3 y no 2,9999999999999996.
+
 ## Lo que falta a propósito
 
-**El resto de la biblioteca matemática.** `asinh`, `acosh`, `atanh`, `log2`, `log1p`, `expm1`,
-`hypot`, `sign`, `degrees` y `radians` se rechazan por nombre en lugar de adivinarse:
+**El resto de la biblioteca matemática.** `erf`, `erfc`, `gamma`, `lgamma`, `degrees` y
+`radians` se rechazan por nombre en lugar de adivinarse:
 
 `tdcv2 check seasonal.tdc`
 
 ```
-error[TDC257]: atanh() is not available yet in an if expression
+error[TDC257]: erf() is not available yet in an if expression
 ```
 
-Fíjese en lo que NO dice: «¿quiso decir `atan`?». La distancia de edición habría ofrecido justo
-eso, y `atan` es la inversa de otra función distinta. Un nombre de esta lista recibe la razón,
+Fíjese en lo que NO dice: «¿quiso decir `exp`?». La distancia de edición habría ofrecido justo
+eso, y `exp` no es la función de error. Un nombre de esta lista recibe la razón,
 no una conjetura.
 
 Cada una hay que construirla y fijarla bit a bit en cinco lenguajes antes de poder ofrecerla,

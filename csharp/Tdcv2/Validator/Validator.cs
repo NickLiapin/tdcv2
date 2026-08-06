@@ -209,36 +209,35 @@ public sealed class Validator
     private static readonly IReadOnlyList<(string Name, int Low, int High)> ExprFunctions =
         new[]
         {
-            ("abs", 1, 1), ("acos", 1, 1), ("asin", 1, 1), ("atan", 1, 1), ("atan2", 2, 2),
-            ("cbrt", 1, 1), ("ceil", 1, 1), ("contains", 2, 2), ("cos", 1, 1), ("cosh", 1, 1),
-            ("ends_with", 2, 2), ("exp", 1, 1), ("floor", 1, 1), ("is_empty", 1, 1),
-            ("len", 1, 1), ("log", 1, 1), ("log10", 1, 1), ("lower", 1, 1),
-            ("max", 1, int.MaxValue), ("min", 1, int.MaxValue), ("pow", 2, 2), ("round", 1, 1),
-            ("sin", 1, 1), ("sinh", 1, 1), ("sqrt", 1, 1), ("starts_with", 2, 2), ("tan", 1, 1),
-            ("tanh", 1, 1), ("trunc", 1, 1), ("upper", 1, 1),
+            ("abs", 1, 1), ("acos", 1, 1), ("acosh", 1, 1), ("asin", 1, 1), ("asinh", 1, 1),
+            ("atan", 1, 1), ("atan2", 2, 2), ("atanh", 1, 1), ("cbrt", 1, 1), ("ceil", 1, 1),
+            ("contains", 2, 2), ("cos", 1, 1), ("cosh", 1, 1), ("ends_with", 2, 2),
+            ("exp", 1, 1), ("expm1", 1, 1), ("floor", 1, 1), ("hypot", 2, 2),
+            ("is_empty", 1, 1), ("len", 1, 1), ("log", 1, 1), ("log10", 1, 1), ("log1p", 1, 1),
+            ("log2", 1, 1), ("lower", 1, 1), ("max", 1, int.MaxValue), ("min", 1, int.MaxValue),
+            ("pow", 2, 2), ("round", 1, 1), ("sign", 1, 1), ("sin", 1, 1), ("sinh", 1, 1),
+            ("sqrt", 1, 1), ("starts_with", 2, 2), ("tan", 1, 1), ("tanh", 1, 1),
+            ("trunc", 1, 1), ("upper", 1, 1),
         };
 
     private static readonly IReadOnlyList<string> ExprFunctionNames =
         new[]
         {
-            "abs", "acos", "asin", "atan", "atan2", "cbrt", "ceil", "contains", "cos", "cosh",
-            "ends_with", "exp", "floor", "is_empty", "len", "log", "log10", "lower", "max", "min",
-            "pow", "round", "sin", "sinh", "sqrt", "starts_with", "tan", "tanh", "trunc", "upper",
+            "abs", "acos", "acosh", "asin", "asinh", "atan", "atan2", "atanh", "cbrt", "ceil",
+            "contains", "cos", "cosh", "ends_with", "exp", "expm1", "floor", "hypot", "is_empty",
+            "len", "log", "log10", "log1p", "log2", "lower", "max", "min", "pow", "round", "sign",
+            "sin", "sinh", "sqrt", "starts_with", "tan", "tanh", "trunc", "upper",
         };
 
     /// <summary>
-    /// Not available, and not typos either. Someone writing <c>atanh(_count)</c> knows what they
-    /// meant, and "did you mean atan?" is worse than saying nothing.
+    /// Not available, and not typos either. Someone writing <c>erf(_count)</c> knows what they
+    /// meant, and "did you mean exp?" is worse than saying nothing.
     ///
     /// <para>Every name here has to be built and pinned to its bits in five languages before it
     /// can be offered, which is the only thing keeping it on this list.</para>
     /// </summary>
     private static readonly IReadOnlyList<string> PlannedExprFunctions =
-        new[]
-        {
-            "acosh", "asinh", "atanh", "degrees", "expm1", "hypot", "log1p", "log2", "radians",
-            "sign",
-        };
+        new[] { "degrees", "erf", "erfc", "gamma", "lgamma", "radians" };
 
     private static readonly IReadOnlyList<string> SupportedUnaryOperators = new[] { "!", "-", "+" };
 
@@ -4848,11 +4847,11 @@ public sealed class Validator
                             ? $"{call.Callee}() is not available yet in an if expression"
                             : $"unknown function \"{call.Callee}\" in if expression",
                         planned
-                            ? $"Every host language computes {call.Callee} slightly differently — "
-                              + "tan(1) already differs in its last bit between Node and Python — "
-                              + "and a comparison turns that bit into a different row. It arrives "
-                              + "once TDC computes it itself, the way it computes its own random "
-                              + "numbers. Available today: "
+                            ? "TDC computes its own mathematics rather than calling each "
+                              + "language's, because the libms disagree in the last bit and a "
+                              + $"comparison turns that bit into a different row. So {call.Callee} "
+                              + "arrives once it has been built and pinned to its bits in all five "
+                              + "implementations, not before. Available today: "
                               + string.Join(", ", ExprFunctionNames) + "."
                             : "Available: " + string.Join(", ", ExprFunctionNames) + ".",
                         line, column);

@@ -174,6 +174,27 @@ internal static class TdcMath
     /// <summary>The most halvings that keep a value near 1 inside the normal range.</summary>
     private const long DeepestNormalHalving = 1021;
 
+    /// <summary>Taylor coefficients for (eˣ − 1)/x over x, ascending: 1/(n+1)!.</summary>
+    private static readonly double[] Expm1Coeff =
+    {
+        1.0,
+        1.0 / 2.0,
+        1.0 / 6.0,
+        1.0 / 24.0,
+        1.0 / 120.0,
+        1.0 / 720.0,
+        1.0 / 5040.0,
+        1.0 / 40320.0,
+        1.0 / 362880.0,
+        1.0 / 3628800.0,
+        1.0 / 39916800.0,
+        1.0 / 479001600.0,
+        1.0 / 6227020800.0,
+        1.0 / 87178291200.0,
+        1.0 / 1307674368000.0,
+        1.0 / 20922789888000.0,
+    };
+
     /// <summary>Horner over z, ascending coefficients — the shape every series here uses.</summary>
     private static double Horner(double[] coeff, double z)
     {
@@ -267,13 +288,25 @@ internal static class TdcMath
             e -= 1;
         }
         double s = (m - 1) / (m + 1);
-        double s2 = s * s;
+        return (2 * s * AtanhSeries(s * s, 25)) + (e * Ln2Hi) + (e * Ln2Lo);
+    }
+
+    /// <summary>
+    /// The series for atanh(s)/s over s², shared by Log and Log1p.
+    ///
+    /// <para>The two callers reduce to different intervals, so each names how far to go: Log
+    /// halves its argument until |s| &lt;= 0.1716 and thirteen terms suffice, while Log1p cannot
+    /// halve — it must not form 1 + x at all — and reaches |s| &lt;= 1/3, where thirteen terms are
+    /// 63 ulp out and twenty are 2.</para>
+    /// </summary>
+    private static double AtanhSeries(double s2, int highestOddPower)
+    {
         double sum = 0;
-        for (int i = 25; i >= 1; i -= 2)
+        for (int i = highestOddPower; i >= 1; i -= 2)
         {
             sum = (sum * s2) + (1.0 / i);
         }
-        return (2 * s * sum) + (e * Ln2Hi) + (e * Ln2Lo);
+        return sum;
     }
 
     public static double Log10(double x) => Log(x) / 2.302585092994046;
@@ -547,5 +580,160 @@ internal static class TdcMath
             y = ((2 * y) + (a / (y * y))) / 3;
         }
         return sign * ScaleByPowerOfTwo(y, e);
+    }
+
+    // ── The third wave: the shapes that exist to avoid cancellation ──────────
+    //
+    // Expm1 and Log1p are not conveniences. Near zero, exp(x) − 1 and log(1 + x)
+    // each throw away most of their answer to a subtraction or to a rounding
+    // that happens before the function is even called — and these two are what
+    // the inverse hyperbolics are built from, which is why they come first.
+
+    /// <summary>
+    /// <c>expm1(x)</c> — eˣ − 1, computed so that small x keeps its digits.
+    ///
+    /// <para><c>Exp(0.0000001) - 1</c> in plain arithmetic is a subtraction of two numbers that
+    /// agree to seven places, and most of the answer dies in it.</para>
+    /// </summary>
+    public static double Expm1(double x)
+    {
+        if (double.IsNaN(x)) return double.NaN;
+        if (System.Math.Abs(x) < 0.5) return x * Horner(Expm1Coeff, x);
+        return Exp(x) - 1;
+    }
+
+    /// <summary>
+    /// <c>log1p(x)</c> — log(1 + x), computed so that small x keeps its digits.
+    ///
+    /// <para>The loss here happens before the logarithm is reached: <c>1 + 1e-20</c> IS 1 as a
+    /// double, so <c>Log(1 + x)</c> returns zero for every x under 1e-16. Reducing instead to
+    /// 2·atanh(x/(2+x)) never forms 1 + x at all.</para>
+    /// </summary>
+    public static double Log1p(double x)
+    {
+        if (double.IsNaN(x) || x < -1) return double.NaN;
+        if (x == -1) return double.NegativeInfinity;
+        if (double.IsPositiveInfinity(x)) return double.PositiveInfinity;
+        // Past a half, 1 + x has nothing left to lose and the direct route is
+        // both shorter and better conditioned.
+        if (System.Math.Abs(x) >= 0.5) return Log(1 + x);
+        double s = x / (2 + x);
+        return 2 * s * AtanhSeries(s * s, 39);
+    }
+
+    /// <summary>
+    /// <c>log2(x)</c>.
+    ///
+    /// <para>Not <c>Log(x) / ln2</c>: that would make <c>Log2(8)</c> come out 2.9999999999999996,
+    /// and a power of two is precisely the argument someone passes to Log2. The exponent is
+    /// separated first.</para>
+    /// </summary>
+    public static double Log2(double x)
+    {
+        if (double.IsNaN(x) || x < 0) return double.NaN;
+        if (x == 0) return double.NegativeInfinity;
+        if (double.IsPositiveInfinity(x)) return double.PositiveInfinity;
+        double m = x;
+        double e = 0;
+        while (m >= 1.4142135623730951)
+        {
+            m /= 2;
+            e += 1;
+        }
+        while (m < 0.7071067811865476)
+        {
+            m *= 2;
+            e -= 1;
+        }
+        if (m == 1) return e;
+        return e + (Log(m) / Ln2);
+    }
+
+    /// <summary>
+    /// <c>hypot(x, y)</c> — the length of the vector, without an intermediate that overflows.
+    ///
+    /// <para><c>Sqrt(x*x + y*y)</c> is the definition and the wrong implementation: for x = 1e200
+    /// the square overflows to infinity and the answer comes back infinite, though it is perfectly
+    /// representable. Factoring the larger side out first keeps every intermediate near 1.</para>
+    /// </summary>
+    public static double Hypot(double x, double y)
+    {
+        // An infinite side wins even against a NaN on the other, which is what
+        // IEEE-754 recommends: the length is infinite whatever the other side is.
+        if (double.IsInfinity(x) || double.IsInfinity(y)) return double.PositiveInfinity;
+        if (double.IsNaN(x) || double.IsNaN(y)) return double.NaN;
+        double a = System.Math.Abs(x);
+        double b = System.Math.Abs(y);
+        if (a < b)
+        {
+            (a, b) = (b, a);
+        }
+        if (a == 0) return 0;
+        double ratio = b / a;
+        return a * System.Math.Sqrt(1 + (ratio * ratio));
+    }
+
+    /// <summary><c>sign(x)</c> — −1, 0 or 1. Exact: there is nothing here to round.</summary>
+    public static double Sign(double x)
+    {
+        if (double.IsNaN(x)) return double.NaN;
+        if (x > 0) return 1;
+        if (x < 0) return -1;
+        return 0;
+    }
+
+    /// <summary>
+    /// <c>asinh(x)</c> — the inverse hyperbolic sine, over the whole real line.
+    ///
+    /// <para>log(x + sqrt(x² + 1)) is the textbook form and cancels for small x. Rewriting the
+    /// argument as x + x²/(1 + sqrt(1 + x²)) leaves Log1p a number near x rather than near 1.</para>
+    /// </summary>
+    public static double Asinh(double x)
+    {
+        if (double.IsNaN(x) || double.IsInfinity(x)) return x;
+        double sign = x < 0 ? -1 : 1;
+        double a = System.Math.Abs(x);
+        // Past this, a² would overflow while asinh(a) is still a small number; up
+        // there sqrt(1 + a²) is a to every bit, so the answer is log(2a).
+        if (a > 1e150) return sign * (Log(a) + Ln2);
+        return sign * Log1p(a + ((a * a) / (1 + System.Math.Sqrt(1 + (a * a)))));
+    }
+
+    /// <summary>
+    /// <c>acosh(x)</c> — the inverse hyperbolic cosine, defined for x ≥ 1.
+    ///
+    /// <para>Written around t = x − 1, which is exact for the x near 1 where the answer approaches
+    /// zero and the textbook form loses it.</para>
+    /// </summary>
+    public static double Acosh(double x)
+    {
+        if (double.IsNaN(x)) return double.NaN;
+        if (x < 1) return double.NaN;
+        if (x == 1) return 0;
+        if (double.IsPositiveInfinity(x)) return double.PositiveInfinity;
+        if (x > 1e150) return Log(x) + Ln2;
+        double t = x - 1;
+        return Log1p(t + System.Math.Sqrt((2 * t) + (t * t)));
+    }
+
+    /// <summary>
+    /// <c>atanh(x)</c> — the inverse hyperbolic tangent, over (−1, 1).
+    ///
+    /// <para>½·log((1+x)/(1−x)) forms a ratio near 1 for small x and loses it. The same ratio
+    /// written as 1 + 2x/(1−x) hands Log1p the small part directly.</para>
+    /// </summary>
+    public static double Atanh(double x)
+    {
+        if (double.IsNaN(x)) return double.NaN;
+        if (x > 1 || x < -1) return double.NaN;
+        if (x == 1) return double.PositiveInfinity;
+        if (x == -1) return double.NegativeInfinity;
+        // The identity is only well-conditioned on the positive side. Fed
+        // x = -0.999999 directly it hands Log1p an argument of -0.9999995, which
+        // is the very cancellation Log1p exists to avoid — and the answer came
+        // back 37618 ulp wrong. Folding to |x| first keeps that argument positive.
+        double sign = x < 0 ? -1 : 1;
+        double a = System.Math.Abs(x);
+        return sign * 0.5 * Log1p((2 * a) / (1 - a));
     }
 }

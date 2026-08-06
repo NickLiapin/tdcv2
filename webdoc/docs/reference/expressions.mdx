@@ -102,6 +102,11 @@ list of numeric words still matches.
 | `atan2(y, x)`              | 2      | the angle of the point (x, y), over (−π, π]      |
 | `sinh(x)` `cosh(x)` `tanh(x)` | 1   | hyperbolic functions                             |
 | `cbrt(x)`                  | 1      | cube root — works on negatives, unlike `pow`     |
+| `expm1(x)` `log1p(x)`      | 1      | eˣ−1 and log(1+x), kept accurate near zero       |
+| `log2(x)`                  | 1      | base-2 logarithm — exact on a power of two       |
+| `asinh(x)` `acosh(x)` `atanh(x)` | 1 | inverse hyperbolic functions                     |
+| `hypot(x, y)`              | 2      | vector length, without overflowing on the way    |
+| `sign(x)`                  | 1      | −1, 0 or 1                                       |
 
 Everything above the rule is exact — built from comparisons and from the arithmetic IEEE-754
 pins down, so the five implementations cannot disagree. Everything below it, TDC computes
@@ -190,17 +195,36 @@ exponent goes through repeated squaring, so `pow(10, 3)` is exactly 1000 rather 
 999.9999999999998 — a config comparing against a round number would have noticed. And the
 circular functions take **radians**, with no degree variant: one convention, stated once.
 
-## What is deliberately absent
+### The pair that exists because subtraction loses things
 
-**The rest of the maths library.** `asinh`, `acosh`, `atanh`, `log2`, `log1p`, `expm1`,
-`hypot`, `sign`, `degrees` and `radians` are refused by name rather than guessed at:
+`expm1` and `log1p` are not shorthands for `exp(x) - 1` and `log(1 + x)`. They are those
+expressions computed so that the answer survives:
 
-<Terminal title="tdcv2 check seasonal.tdc">
-{`error[TDC257]: atanh() is not available yet in an if expression`}
+<Terminal title="near zero, the definitions return nothing">
+{`expm1(1e-20)   1e-20        exp(1e-20) - 1     0
+log1p(1e-20)   1e-20        log(1 + 1e-20)     0`}
 </Terminal>
 
-Note what it does NOT say: "did you mean `atan`?" Edit distance would have offered exactly
-that, and `atan` is the inverse of a different function. A name on this list is answered with
+The second column is not a rounding error — it is the whole answer, gone. `1 + 1e-20` IS 1 as a
+double, so the logarithm never sees the argument at all; and `exp(1e-20)` is 1.0000…, so the
+subtraction cancels every digit that mattered. `asinh` and `atanh` are built on `log1p` for the
+same reason, and inherit the accuracy.
+
+`hypot` avoids the mirror-image problem at the other end of the range: `sqrt(x² + y²)` overflows
+to infinity for x = 10²⁰⁰, though the answer is perfectly representable. And `log2` separates the
+exponent before taking any logarithm, so `log2(8)` is 3 rather than 2.9999999999999996.
+
+## What is deliberately absent
+
+**The rest of the maths library.** `erf`, `erfc`, `gamma`, `lgamma`, `degrees` and `radians`
+are refused by name rather than guessed at:
+
+<Terminal title="tdcv2 check seasonal.tdc">
+{`error[TDC257]: erf() is not available yet in an if expression`}
+</Terminal>
+
+Note what it does NOT say: "did you mean `exp`?" Edit distance would have offered exactly
+that, and `exp` is not the error function. A name on this list is answered with
 the reason instead.
 
 Each one has to be built and pinned to its bits in five languages before it can be offered,

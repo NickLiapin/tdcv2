@@ -378,6 +378,24 @@ public sealed interface Expr {
       while (pos < src.length() && (Character.isDigit(src.charAt(pos)) || src.charAt(pos) == '.')) {
         pos++;
       }
+      // An exponent is part of the number, not a name glued to it. Without this,
+      // `1e200` lexed as the number 1 followed by the name `e200`, and the parser
+      // reported "unbalanced parentheses" — a message about the wrong thing
+      // entirely.
+      if (pos < src.length() && (src.charAt(pos) == 'e' || src.charAt(pos) == 'E')) {
+        int after = pos + 1;
+        if (after < src.length() && (src.charAt(after) == '+' || src.charAt(after) == '-')) {
+          after++;
+        }
+        // Only take the "e" if a digit follows it; otherwise this is a name
+        // sitting against a number and the caller should see it as one.
+        if (after < src.length() && Character.isDigit(src.charAt(after))) {
+          pos = after;
+          while (pos < src.length() && Character.isDigit(src.charAt(pos))) {
+            pos++;
+          }
+        }
+      }
       return new Num(Double.parseDouble(src.substring(start, pos)));
     }
 

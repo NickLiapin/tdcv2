@@ -724,6 +724,22 @@
         "lines": ["atan asin acos atan2 sinh cosh tanh cbrt"]
       }
     },
+    "expressions/tdcmath-third-wave-produces-the-same-double-everywhere": {
+      "engine2": {
+        "lines": ["expm1 log1p log2 asinh acosh atanh hypot sign"]
+      },
+      "engine3": {
+        "lines": ["expm1 log1p log2 asinh acosh atanh hypot sign"]
+      }
+    },
+    "expressions/a-number-may-carry-an-exponent": {
+      "engine2": {
+        "lines": ["bare plus minus capital name-intact"]
+      },
+      "engine3": {
+        "lines": ["bare plus minus capital name-intact"]
+      }
+    },
     "formatting/mask-phone": {
       "engine2": {
         "lines": ["555-123-4567"]

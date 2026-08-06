@@ -49,6 +49,20 @@ function grid(lo: number, hi: number, count: number): number[] {
   return Array.from({ length: count }, (_, i) => lo + ((hi - lo) * i) / (count - 1));
 }
 
+/**
+ * Points spread evenly by RATIO rather than by distance.
+ *
+ * `expm1`, `log1p`, `asinh` and `atanh` all exist for arguments near zero,
+ * where a linear grid puts almost no points: from 10⁻¹⁸ to 0.5 it would place
+ * everything at the far end and never test what the function is for.
+ */
+function byRatio(lo: number, hi: number, count: number): number[] {
+  const steps = Array.from({ length: count }, (_, i) =>
+    Math.exp(Math.log(lo) + ((Math.log(hi) - Math.log(lo)) * i) / (count - 1)),
+  );
+  return [...steps, ...steps.map((v) => -v)];
+}
+
 const CEILING = 4;
 
 interface Case {
@@ -117,6 +131,37 @@ const CASES: readonly Case[] = [
     mine: TdcMath.cbrt,
     host: Math.cbrt,
     points: [...grid(-1000, 1000, 2001), ...grid(-1, 1, 501)],
+  },
+  {
+    name: 'expm1',
+    mine: TdcMath.expm1,
+    host: Math.expm1,
+    points: [...grid(-40, 40, 1001), ...byRatio(1e-18, 0.5, 501)],
+  },
+  {
+    name: 'log1p',
+    mine: TdcMath.log1p,
+    host: Math.log1p,
+    points: [...grid(-0.99, 100, 1001), ...byRatio(1e-18, 0.9, 501)],
+  },
+  { name: 'log2', mine: TdcMath.log2, host: Math.log2, points: grid(1e-9, 1e9, 2001) },
+  {
+    name: 'asinh',
+    mine: TdcMath.asinh,
+    host: Math.asinh,
+    points: [...grid(-100, 100, 1001), ...byRatio(1e-18, 1, 501)],
+  },
+  {
+    name: 'acosh',
+    mine: TdcMath.acosh,
+    host: Math.acosh,
+    points: [...grid(1, 1000, 1001), ...grid(1, 1.001, 501)],
+  },
+  {
+    name: 'atanh',
+    mine: TdcMath.atanh,
+    host: Math.atanh,
+    points: [...grid(-0.999999, 0.999999, 1001), ...byRatio(1e-18, 0.5, 501)],
   },
 ];
 
@@ -197,6 +242,58 @@ describe('TdcMath lands where the true value is', () => {
     expect(TdcMath.pow(100, 0.5)).toBe(10);
     expect(TdcMath.pow(9, 1.5)).toBe(27);
     expect(TdcMath.pow(16, 2.5)).toBe(1024);
+  });
+
+  it('hypot stays within the ceiling, and does not overflow on the way', () => {
+    let worst = 0;
+    let at = '';
+    for (const x of grid(-100, 100, 201)) {
+      for (const y of grid(-100, 100, 201)) {
+        const d = ulpsApart(TdcMath.hypot(x, y), Math.hypot(x, y));
+        if (d > worst) {
+          worst = d;
+          at = `${String(x)}, ${String(y)}`;
+        }
+      }
+    }
+    expect(worst, `worst at ${at}`).toBeLessThanOrEqual(CEILING);
+    // The reason the larger side is factored out first: squaring 1e200 alone
+    // would reach infinity, and the answer here is nowhere near it.
+    expect(TdcMath.hypot(1e200, 1e200)).toBe(Math.hypot(1e200, 1e200));
+    expect(TdcMath.hypot(1e-200, 1e-200)).toBe(Math.hypot(1e-200, 1e-200));
+    expect(TdcMath.hypot(3, 4)).toBe(5);
+  });
+
+  /**
+   * `sign` has nothing to round, so it is checked for what it returns rather
+   * than for how close it lands.
+   */
+  it('sign answers exactly', () => {
+    expect(TdcMath.sign(-7.5)).toBe(-1);
+    expect(TdcMath.sign(7.5)).toBe(1);
+    expect(TdcMath.sign(0)).toBe(0);
+    expect(TdcMath.sign(-0)).toBe(0);
+    expect(TdcMath.sign(Number.NaN)).toBeNaN();
+    expect(TdcMath.sign(Number.POSITIVE_INFINITY)).toBe(1);
+  });
+
+  /**
+   * What the near-zero pair exist for: at these arguments the textbook forms
+   * return zero, having thrown the answer away before computing it.
+   */
+  it('keeps the answer where the textbook form would have lost it', () => {
+    expect(TdcMath.expm1(1e-20)).toBe(1e-20);
+    expect(TdcMath.log1p(1e-20)).toBe(1e-20);
+    expect(TdcMath.asinh(1e-20)).toBe(1e-20);
+    expect(TdcMath.atanh(1e-20)).toBe(1e-20);
+    // The same arguments through the definitions, for contrast.
+    expect(TdcMath.exp(1e-20) - 1).toBe(0);
+    expect(TdcMath.log(1 + 1e-20)).toBe(0);
+    // log2 of a power of two is a whole number, which log(x)/ln2 would miss.
+    expect(TdcMath.log2(8)).toBe(3);
+    expect(TdcMath.log2(1024)).toBe(10);
+    expect(TdcMath.log2(0.25)).toBe(-2);
+    expect(TdcMath.acosh(1)).toBe(0);
   });
 
   it('atan2 stays within the ceiling over all four quadrants', () => {

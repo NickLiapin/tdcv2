@@ -179,9 +179,12 @@ export const SUPPORTED_UNARY_OPERATORS: readonly string[] = ['!', '-', '+'] as c
 export const EXPR_FUNCTIONS: Readonly<Record<string, { min: number; max: number | undefined }>> = {
   abs: { min: 1, max: 1 },
   acos: { min: 1, max: 1 },
+  acosh: { min: 1, max: 1 },
   asin: { min: 1, max: 1 },
+  asinh: { min: 1, max: 1 },
   atan: { min: 1, max: 1 },
   atan2: { min: 2, max: 2 },
+  atanh: { min: 1, max: 1 },
   cbrt: { min: 1, max: 1 },
   ceil: { min: 1, max: 1 },
   contains: { min: 2, max: 2 },
@@ -189,16 +192,21 @@ export const EXPR_FUNCTIONS: Readonly<Record<string, { min: number; max: number 
   cosh: { min: 1, max: 1 },
   ends_with: { min: 2, max: 2 },
   exp: { min: 1, max: 1 },
+  expm1: { min: 1, max: 1 },
   floor: { min: 1, max: 1 },
+  hypot: { min: 2, max: 2 },
   is_empty: { min: 1, max: 1 },
   len: { min: 1, max: 1 },
   log: { min: 1, max: 1 },
   log10: { min: 1, max: 1 },
+  log1p: { min: 1, max: 1 },
+  log2: { min: 1, max: 1 },
   lower: { min: 1, max: 1 },
   max: { min: 1, max: undefined },
   min: { min: 1, max: undefined },
   pow: { min: 2, max: 2 },
   round: { min: 1, max: 1 },
+  sign: { min: 1, max: 1 },
   sin: { min: 1, max: 1 },
   sinh: { min: 1, max: 1 },
   sqrt: { min: 1, max: 1 },
@@ -214,25 +222,21 @@ export const EXPR_FUNCTION_NAMES: readonly string[] = Object.keys(EXPR_FUNCTIONS
 /**
  * Names that are not available and are not typos either.
  *
- * Someone who writes `atanh(_count)` knows exactly what they meant, and telling
- * them "did you mean atan?" is worse than saying nothing — edit distance has no
- * idea that one is the inverse of a hyperbolic function and the other is not.
- * They are answered with the real reason instead.
+ * Someone who writes `erf(_count)` knows exactly what they meant, and telling
+ * them "did you mean exp?" is worse than saying nothing — edit distance has no
+ * idea one is the error function and the other is not. They are answered with
+ * the real reason instead.
  *
  * Every name here has to be built and pinned to its bits in five languages
  * before it can be offered, which is the only thing keeping it on this list.
  */
 export const PLANNED_EXPR_FUNCTIONS: readonly string[] = [
-  'acosh',
-  'asinh',
-  'atanh',
   'degrees',
-  'expm1',
-  'hypot',
-  'log1p',
-  'log2',
+  'erf',
+  'erfc',
+  'gamma',
+  'lgamma',
   'radians',
-  'sign',
 ] as const;
 
 export const BUILTIN_SEQUENCES: readonly string[] = [

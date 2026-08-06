@@ -3897,11 +3897,11 @@ impl Validator {
                             },
                             &if planned {
                                 format!(
-                                    "Every host language computes {name} slightly differently — \
-                                     tan(1) already differs in its last bit between Node and \
-                                     Python — and a comparison turns that bit into a different \
-                                     row. It arrives once TDC computes it itself, the way it \
-                                     computes its own random numbers. Available today: {}.",
+                                    "TDC computes its own mathematics rather than calling each \
+                                     language's, because the libms disagree in the last bit and a \
+                                     comparison turns that bit into a different row. So {name} \
+                                     arrives once it has been built and pinned to its bits in all \
+                                     five implementations, not before. Available today: {}.",
                                     tables::EXPR_FUNCTION_NAMES.join(", ")
                                 )
                             } else {

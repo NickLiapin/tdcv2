@@ -168,7 +168,7 @@ describe('evaluateIf — functions', () => {
 
   it('throws on a name it does not implement', () => {
     const reg = registry({});
-    expect(() => evaluateIf('atanh(1) > 0', reg, 0)).toThrow(/unknown function "atanh"/);
+    expect(() => evaluateIf('erf(1) > 0', reg, 0)).toThrow(/unknown function "erf"/);
   });
 
   it('computes the transcendentals itself, to the same double every time', () => {

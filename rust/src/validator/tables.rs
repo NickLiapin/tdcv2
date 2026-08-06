@@ -322,12 +322,15 @@ pub const SUPPORTED_UNARY_OPERATORS: [&str; 3] = ["!", "-", "+"];
 /// down. The transcendental ones are computed by TDC itself (`crate::math`)
 /// rather than by the host libm, which is what keeps five implementations on
 /// one double.
-pub const EXPR_FUNCTIONS: [(&str, usize, usize); 30] = [
+pub const EXPR_FUNCTIONS: [(&str, usize, usize); 38] = [
     ("abs", 1, 1),
     ("acos", 1, 1),
+    ("acosh", 1, 1),
     ("asin", 1, 1),
+    ("asinh", 1, 1),
     ("atan", 1, 1),
     ("atan2", 2, 2),
+    ("atanh", 1, 1),
     ("cbrt", 1, 1),
     ("ceil", 1, 1),
     ("contains", 2, 2),
@@ -335,16 +338,21 @@ pub const EXPR_FUNCTIONS: [(&str, usize, usize); 30] = [
     ("cosh", 1, 1),
     ("ends_with", 2, 2),
     ("exp", 1, 1),
+    ("expm1", 1, 1),
     ("floor", 1, 1),
+    ("hypot", 2, 2),
     ("is_empty", 1, 1),
     ("len", 1, 1),
     ("log", 1, 1),
     ("log10", 1, 1),
+    ("log1p", 1, 1),
+    ("log2", 1, 1),
     ("lower", 1, 1),
     ("max", 1, usize::MAX),
     ("min", 1, usize::MAX),
     ("pow", 2, 2),
     ("round", 1, 1),
+    ("sign", 1, 1),
     ("sin", 1, 1),
     ("sinh", 1, 1),
     ("sqrt", 1, 1),
@@ -355,20 +363,20 @@ pub const EXPR_FUNCTIONS: [(&str, usize, usize); 30] = [
     ("upper", 1, 1),
 ];
 
-pub const EXPR_FUNCTION_NAMES: [&str; 30] = [
-    "abs", "acos", "asin", "atan", "atan2", "cbrt", "ceil", "contains", "cos", "cosh", "ends_with",
-    "exp", "floor", "is_empty", "len", "log", "log10", "lower", "max", "min", "pow", "round",
-    "sin", "sinh", "sqrt", "starts_with", "tan", "tanh", "trunc", "upper",
+pub const EXPR_FUNCTION_NAMES: [&str; 38] = [
+    "abs", "acos", "acosh", "asin", "asinh", "atan", "atan2", "atanh", "cbrt", "ceil", "contains",
+    "cos", "cosh", "ends_with", "exp", "expm1", "floor", "hypot", "is_empty", "len", "log",
+    "log10", "log1p", "log2", "lower", "max", "min", "pow", "round", "sign", "sin", "sinh",
+    "sqrt", "starts_with", "tan", "tanh", "trunc", "upper",
 ];
 
-/// Not available, and not typos either. Someone writing `atanh(_count)` knows
-/// what they meant, and "did you mean atan?" is worse than saying nothing.
+/// Not available, and not typos either. Someone writing `erf(_count)` knows
+/// what they meant, and "did you mean exp?" is worse than saying nothing.
 ///
 /// Every name here has to be built and pinned to its bits in five languages
 /// before it can be offered, which is the only thing keeping it on this list.
-pub const PLANNED_EXPR_FUNCTIONS: [&str; 10] = [
-    "acosh", "asinh", "atanh", "degrees", "expm1", "hypot", "log1p", "log2", "radians", "sign",
-];
+pub const PLANNED_EXPR_FUNCTIONS: [&str; 6] =
+    ["degrees", "erf", "erfc", "gamma", "lgamma", "radians"];
 
 pub fn lookup<'a>(table: &'a [(&'a str, &'a [&'a str])], key: &str) -> Option<&'a [&'a str]> {
     table.iter().find(|(k, _)| *k == key).map(|(_, v)| *v)

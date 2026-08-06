@@ -375,6 +375,15 @@ class _Parser:
         return Str("".join(out))
 
     def _number(self) -> Node:
+        """Scan a number literal, exponent included.
+
+        An exponent is part of the number, not a name glued to it.
+
+        Without this, `1e200` lexed as the number 1 followed by the name `e200`, and
+        the parser reported "unbalanced parentheses" — a message about the wrong thing
+        entirely. The reference accepts it, so four implementations disagreed with the
+        fifth on any config that wrote a large or small literal in scientific form.
+        """
         start = self.pos
         if self.src[self.pos] == "-":
             self.pos += 1
@@ -382,6 +391,16 @@ class _Parser:
             self.src[self.pos].isdigit() or self.src[self.pos] == "."
         ):
             self.pos += 1
+        if self.pos < len(self.src) and self.src[self.pos] in "eE":
+            after = self.pos + 1
+            if after < len(self.src) and self.src[after] in "+-":
+                after += 1
+            # Only take the "e" if a digit follows it; otherwise this is a name
+            # sitting against a number and the caller should see it as one.
+            if after < len(self.src) and self.src[after].isdigit():
+                self.pos = after
+                while self.pos < len(self.src) and self.src[self.pos].isdigit():
+                    self.pos += 1
         return Num(float(self.src[start : self.pos]))
 
     def _word(self) -> Node:

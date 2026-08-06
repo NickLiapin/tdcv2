@@ -465,6 +465,29 @@ public abstract record Expr
                 _pos++;
             }
 
+            // An exponent is part of the number, not a name glued to it. Without
+            // this, `1e200` lexed as the number 1 followed by the name `e200`, and
+            // the parser reported "unbalanced parentheses" — a message about the
+            // wrong thing entirely.
+            if (_pos < _src.Length && (_src[_pos] == 'e' || _src[_pos] == 'E'))
+            {
+                int after = _pos + 1;
+                if (after < _src.Length && (_src[after] == '+' || _src[after] == '-'))
+                {
+                    after++;
+                }
+                // Only take the "e" if a digit follows it; otherwise this is a name
+                // sitting against a number and the caller should see it as one.
+                if (after < _src.Length && char.IsDigit(_src[after]))
+                {
+                    _pos = after;
+                    while (_pos < _src.Length && char.IsDigit(_src[_pos]))
+                    {
+                        _pos++;
+                    }
+                }
+            }
+
             return new Num(double.Parse(_src[start.._pos], CultureInfo.InvariantCulture));
         }
 

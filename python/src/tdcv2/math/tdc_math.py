@@ -157,6 +157,27 @@ _EXP_UNDERFLOW = -745.1332191019411
 _DEEPEST_NORMAL_HALVING = 1021
 
 
+# Taylor coefficients for (e^x - 1)/x over x, ascending: 1/(n+1)!.
+_EXPM1_COEFF = (
+    1,
+    1 / 2,
+    1 / 6,
+    1 / 24,
+    1 / 120,
+    1 / 720,
+    1 / 5040,
+    1 / 40320,
+    1 / 362880,
+    1 / 3628800,
+    1 / 39916800,
+    1 / 479001600,
+    1 / 6227020800,
+    1 / 87178291200,
+    1 / 1307674368000,
+    1 / 20922789888000,
+)
+
+
 def _horner(coeff: tuple[float, ...], z: float) -> float:
     """Horner over z, ascending coefficients — the shape every series here uses."""
     total = 0.0
@@ -216,6 +237,20 @@ def exp(x: float) -> float:
     return _scale_by_power_of_two(_horner(_EXP_COEFF, r), k)
 
 
+def _atanh_series(s2: float, highest_odd_power: int) -> float:
+    """The series for ``atanh(s)/s`` over s^2, shared by ``log`` and ``log1p``.
+
+    The two callers reduce to different intervals, so each names how far to go: ``log`` halves its
+    argument until |s| <= 0.1716 and thirteen terms suffice, while ``log1p`` cannot halve — it must
+    not form ``1 + x`` at all — and reaches |s| <= 1/3, where thirteen terms are 63 ulp out and
+    twenty are 2.
+    """
+    total = 0.0
+    for i in range(highest_odd_power, 0, -2):
+        total = total * s2 + 1 / i
+    return total
+
+
 def log(x: float) -> float:
     """``log(x)`` — ``x = m * 2^e`` by exact halving, then ``2*atanh((m-1)/(m+1))``."""
     if x != x or x < 0:
@@ -233,11 +268,7 @@ def log(x: float) -> float:
         m *= 2
         e -= 1
     s = (m - 1) / (m + 1)
-    s2 = s * s
-    total = 0.0
-    for i in range(25, 0, -2):
-        total = total * s2 + 1 / i
-    return 2 * s * total + e * _LN2_HI + e * _LN2_LO
+    return 2 * s * _atanh_series(s * s, 25) + e * _LN2_HI + e * _LN2_LO
 
 
 def log10(x: float) -> float:
@@ -521,3 +552,165 @@ def cbrt(x: float) -> float:
     for _ in range(6):
         y = (2 * y + a / (y * y)) / 3
     return sign * _scale_by_power_of_two(y, e)
+
+
+# ── The third wave: the shapes that exist to avoid cancellation ───────────────
+#
+# expm1 and log1p are not conveniences. Near zero, exp(x) - 1 and log(1 + x)
+# each throw away most of their answer to a subtraction or to a rounding that
+# happens before the function is even called — and these two are what the
+# inverse hyperbolics are built from, which is why they come first.
+
+
+def expm1(x: float) -> float:
+    """``expm1(x)`` — e^x - 1, computed so that small x keeps its digits.
+
+    ``exp(0.0000001) - 1`` in plain arithmetic is a subtraction of two numbers that agree to seven
+    places, and most of the answer dies in it. The series has no subtraction to lose anything to.
+    """
+    if x != x:
+        return math.nan
+    if abs(x) < 0.5:
+        return x * _horner(_EXPM1_COEFF, x)
+    return exp(x) - 1
+
+
+def log1p(x: float) -> float:
+    """``log1p(x)`` — log(1 + x), computed so that small x keeps its digits.
+
+    The loss here happens before the logarithm is reached: ``1 + 1e-20`` IS 1 as a double, so
+    ``log(1 + x)`` returns zero for every x under 1e-16. Reducing instead to
+    ``2*atanh(x/(2+x))`` never forms ``1 + x`` at all.
+    """
+    if x != x or x < -1:
+        return math.nan
+    if x == -1:
+        return -math.inf
+    if x == math.inf:
+        return math.inf
+    # Past a half, `1 + x` has nothing left to lose and the direct route is both
+    # shorter and better conditioned.
+    if abs(x) >= 0.5:
+        return log(1 + x)
+    s = x / (2 + x)
+    return 2 * s * _atanh_series(s * s, 39)
+
+
+def log2(x: float) -> float:
+    """``log2(x)``.
+
+    Not ``log(x) / ln2``: that would make ``log2(8)`` come out 2.9999999999999996, and a power of
+    two is precisely the argument someone passes to ``log2``. The exponent is separated first.
+    """
+    if x != x or x < 0:
+        return math.nan
+    if x == 0:
+        return -math.inf
+    if x == math.inf:
+        return math.inf
+    m = x
+    e = 0
+    while m >= 1.4142135623730951:
+        m /= 2
+        e += 1
+    while m < 0.7071067811865476:
+        m *= 2
+        e -= 1
+    if m == 1:
+        return float(e)
+    return e + log(m) / _LN2
+
+
+def hypot(x: float, y: float) -> float:
+    """``hypot(x, y)`` — the length of the vector, without an intermediate that overflows.
+
+    ``sqrt(x*x + y*y)`` is the definition and the wrong implementation: for x = 1e200 the square
+    overflows to infinity and the answer comes back infinite, though it is perfectly
+    representable. Factoring the larger side out first keeps every intermediate near 1.
+    """
+    # An infinite side wins even against a NaN on the other, which is what
+    # IEEE-754 recommends: the length is infinite whatever the other side is.
+    if math.isinf(x) or math.isinf(y):
+        return math.inf
+    if x != x or y != y:
+        return math.nan
+    a = abs(x)
+    b = abs(y)
+    if a < b:
+        a, b = b, a
+    if a == 0:
+        return 0.0
+    ratio = b / a
+    return a * math.sqrt(1 + ratio * ratio)
+
+
+def sign(x: float) -> float:
+    """``sign(x)`` — -1, 0 or 1. Exact: there is nothing here to round."""
+    if x != x:
+        return math.nan
+    if x > 0:
+        return 1.0
+    if x < 0:
+        return -1.0
+    return 0.0
+
+
+def asinh(x: float) -> float:
+    """``asinh(x)`` — the inverse hyperbolic sine, over the whole real line.
+
+    ``log(x + sqrt(x*x + 1))`` is the textbook form and cancels for small x. Rewriting the
+    argument as ``x + x*x/(1 + sqrt(1 + x*x))`` leaves ``log1p`` a number near x rather than a
+    number near 1, and nothing cancels.
+    """
+    if x != x or math.isinf(x):
+        return x
+    sign_ = -1 if x < 0 else 1
+    a = abs(x)
+    # Past this, a*a would overflow while asinh(a) is still a small number; up
+    # there sqrt(1 + a*a) is a to every bit, so the answer is log(2a).
+    if a > 1e150:
+        return sign_ * (log(a) + _LN2)
+    return sign_ * log1p(a + (a * a) / (1 + math.sqrt(1 + a * a)))
+
+
+def acosh(x: float) -> float:
+    """``acosh(x)`` — the inverse hyperbolic cosine, defined for x >= 1.
+
+    Written around ``t = x - 1``, which is exact for the x near 1 where the answer approaches zero
+    and the textbook form loses it.
+    """
+    if x != x:
+        return math.nan
+    if x < 1:
+        return math.nan
+    if x == 1:
+        return 0.0
+    if x == math.inf:
+        return math.inf
+    if x > 1e150:
+        return log(x) + _LN2
+    t = x - 1
+    return log1p(t + math.sqrt(2 * t + t * t))
+
+
+def atanh(x: float) -> float:
+    """``atanh(x)`` — the inverse hyperbolic tangent, over (-1, 1).
+
+    ``0.5*log((1+x)/(1-x))`` forms a ratio near 1 for small x and loses it. The same ratio written
+    as ``1 + 2x/(1-x)`` hands ``log1p`` the small part directly.
+    """
+    if x != x:
+        return math.nan
+    if x > 1 or x < -1:
+        return math.nan
+    if x == 1:
+        return math.inf
+    if x == -1:
+        return -math.inf
+    # The identity is only well-conditioned on the positive side. Fed x = -0.999999
+    # directly it hands log1p an argument of -0.9999995, which is the very
+    # cancellation log1p exists to avoid — and the answer came back 37618 ulp
+    # wrong. Folding to |x| first keeps that argument positive and large.
+    sign_ = -1 if x < 0 else 1
+    a = abs(x)
+    return sign_ * 0.5 * log1p((2 * a) / (1 - a))

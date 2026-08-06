@@ -200,17 +200,25 @@ public static class Evaluate
             // Transcendentals, computed by TDC rather than by .NET — see Math/TdcMath.cs.
             // Adding one here means adding it to TdcMath in all five, not calling System.Math.
             case "acos": return Maths.TdcMath.Acos(Num(0));
+            case "acosh": return Maths.TdcMath.Acosh(Num(0));
             case "asin": return Maths.TdcMath.Asin(Num(0));
+            case "asinh": return Maths.TdcMath.Asinh(Num(0));
             case "atan": return Maths.TdcMath.Atan(Num(0));
+            case "atanh": return Maths.TdcMath.Atanh(Num(0));
             case "atan2": return Maths.TdcMath.Atan2(Num(0), Num(1));
             case "cbrt": return Maths.TdcMath.Cbrt(Num(0));
             case "cos": return Maths.TdcMath.Cos(Num(0));
             case "cosh": return Maths.TdcMath.Cosh(Num(0));
             case "exp": return Maths.TdcMath.Exp(Num(0));
+            case "expm1": return Maths.TdcMath.Expm1(Num(0));
+            case "hypot": return Maths.TdcMath.Hypot(Num(0), Num(1));
             case "log": return Maths.TdcMath.Log(Num(0));
             case "log10": return Maths.TdcMath.Log10(Num(0));
+            case "log1p": return Maths.TdcMath.Log1p(Num(0));
+            case "log2": return Maths.TdcMath.Log2(Num(0));
             case "pow": return Maths.TdcMath.Pow(Num(0), Num(1));
             case "sin": return Maths.TdcMath.Sin(Num(0));
+            case "sign": return Maths.TdcMath.Sign(Num(0));
             case "sinh": return Maths.TdcMath.Sinh(Num(0));
             case "sqrt": return Maths.TdcMath.Sqrt(Num(0));
             case "tanh": return Maths.TdcMath.Tanh(Num(0));
