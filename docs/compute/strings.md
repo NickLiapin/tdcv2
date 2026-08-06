@@ -238,7 +238,7 @@ take four characters.
 
 ### `<slice>` — substring by index
 
-**Takes** one string plus `from=` and optional `to=` → **gives** a string. Counting starts at 0, a negative `from` counts from the end, and a range past the end yields an empty string rather than an error.
+**Takes** one string plus `from=` and optional `to=` → **gives** a string. Counting starts at 0, a negative `from` counts from the end, and a range past the end yields an empty string rather than an error. `from=` is treated as 0 when it is left out, so a `<slice>` with only `to=` cuts from the start.
 
 `<slice from="…" to="…">` cuts a substring over the half-open range `[from, to)`: the
 character at `from` is included, the character at `to` is not — so the length is
@@ -384,7 +384,7 @@ separator), `sep="-"` sets your own separator, and `size="4"` reads like card bl
 
 ### `<pad>` — pad on the left to a fixed width
 
-**Takes** one value plus `width=` and `fill=` → **gives** a string. `width` is a minimum: a value already that long or longer comes through untouched, never cut.
+**Takes** one value plus `width=` and `fill=` → **gives** a string. `width` is a minimum: a value already that long or longer comes through untouched, never cut. Leave `width=` out and the tag does nothing at all — the value passes through as written, which is easy to miss when a padded column comes back unpadded.
 
 `<pad width="…" fill="…">` coerces its child to a string and prepends `fill` on the
 **left** until the string reaches `width`. It behaves like `padStart`: if the string is

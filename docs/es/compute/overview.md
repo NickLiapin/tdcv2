@@ -23,7 +23,10 @@ verificador de un ISBN, el mod-97 de un IBAN.
 - `<compute>` **deriva** un valor como función pura de otros valores.
 
 `<compute>` lee otras secuencias con `<field name="…"/>` — los mismos nombres que usaría
-en [`${{…}}`](../core-concepts/output-formatting.md#top).
+en [`${{…}}`](../core-concepts/output-formatting.md#top), con una restricción que la
+interpolación no tiene: **la secuencia debe estar declarada más arriba que esta**. Un
+`<field>` que apunta a una `<sequence>` más abajo en el archivo es `TDC182`, porque la
+fila se construye en el orden en que la escribió el config.
 
 > [!CAUTION]
 > **Un procesador, no un generador**

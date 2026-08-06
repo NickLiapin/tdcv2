@@ -22,7 +22,10 @@ built: a credit card's Luhn digit, an ISBN check digit, an IBAN mod-97.
 - `<compute>` **derives** a value as a pure function of other values.
 
 `<compute>` reads other sequences with `<field name="…"/>` — the same names you'd use
-in [`${{…}}`](../core-concepts/output-formatting.md#top).
+in [`${{…}}`](../core-concepts/output-formatting.md#top), with one restriction that
+interpolation does not have: **the sequence has to be declared above this one**. A
+`<field>` pointing at a `<sequence>` further down the file is `TDC182`, because the row is
+built in the order the config writes it.
 
 > [!CAUTION]
 > **A processor, not a generator**

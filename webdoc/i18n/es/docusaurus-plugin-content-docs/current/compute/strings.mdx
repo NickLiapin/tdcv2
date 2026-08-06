@@ -231,7 +231,7 @@ toman cuatro caracteres.
 
 ### `<slice>` — substring por índices
 
-**Toma** un string más `from=` y un `to=` opcional → **da** un string. La cuenta empieza en 0, un `from` negativo cuenta desde el final, y un rango más allá del final da un string vacío en vez de un error.
+**Toma** un string más `from=` y un `to=` opcional → **da** un string. La cuenta empieza en 0, un `from` negativo cuenta desde el final, y un rango más allá del final da un string vacío en vez de un error. Si se omite `from=` vale 0, así que un `<slice>` con solo `to=` corta desde el principio.
 
 `<slice from="…" to="…">` corta un substring sobre el rango semiabierto `[from, to)`: el
 carácter en `from` se incluye, el carácter en `to` no — así que la longitud es
@@ -370,7 +370,7 @@ desde la **izquierda** o por posición, use [`<mask>`](#reestructuración).
 
 ### `<pad>` — rellenar a la izquierda hasta un ancho fijo
 
-**Toma** un valor más `width=` y `fill=` → **da** un string. `width` es un mínimo: un valor que ya mide eso o más pasa intacto, nunca se recorta.
+**Toma** un valor más `width=` y `fill=` → **da** un string. `width` es un mínimo: un valor que ya mide eso o más pasa intacto, nunca se recorta. Si omite `width=`, la etiqueta no hace absolutamente nada — el valor pasa tal cual, algo fácil de pasar por alto cuando una columna rellenada vuelve sin rellenar.
 
 `<pad width="…" fill="…">` convierte su hijo a string y le antepone `fill` por la
 **izquierda** hasta que el string alcanza `width`. Se comporta como `padStart`: si el
