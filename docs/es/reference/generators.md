@@ -28,6 +28,7 @@ Todos los valores de `type` para [`<gen>`](../generators/overview.md#top). Cada 
 | [`http`](../generators/http.md#top)                        | Un valor de un servicio suyo, vía HTTP                              |
 | [`pool`](../pools/overview.md#top)                         | Un miembro entero de un `<pool>` — un registro, no un valor         |
 | [`running`](../generators/running.md#top)                  | Un total acumulado por la columna, no sorteado                      |
+| [`stat`](../generators/stat.md#top)                        | Un número sobre toda la ejecución, en cada fila                     |
 
 ## Atributos transversales
 

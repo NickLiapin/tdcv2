@@ -112,6 +112,7 @@ import { checkAnomalyFlag, checkGenImperfections } from './imperfections.js';
 import { checkParentRef } from './parent-ref.js';
 import { checkAllUnknownAttrs, checkUnknownAttrs } from './unknown-attrs.js';
 import { checkGenHttp } from './http.js';
+import { checkGenStat } from './stat.js';
 import { checkGenRunning } from './running.js';
 import { checkGenText } from './text.js';
 import { checkGenCounter } from './counter.js';
@@ -905,6 +906,9 @@ function checkGen(
       break;
     case 'running':
       checkGenRunning(gen, ctx.declaredSequences, ctx.diagnostics);
+      break;
+    case 'stat':
+      checkGenStat(gen, ctx.declaredSequences, ctx.diagnostics);
       break;
   }
 

@@ -4,7 +4,7 @@
 
 📖 **[Открыть на сайте документации →](https://nickliapin.github.io/tdcv2/ru/docs/generators/running)**
 
-← Назад: [HTTP-сервис](./http.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Обзор](../pools/overview.md#top) →
+← Назад: [HTTP-сервис](./http.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Статистика](./stat.md#top) →
 
 ---
 
@@ -158,6 +158,6 @@ tdcv2: a running total ("Balance") is the accumulation of every row before it, s
 
 ---
 
-← Назад: [HTTP-сервис](./http.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Обзор](../pools/overview.md#top) →
+← Назад: [HTTP-сервис](./http.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Статистика](./stat.md#top) →
 
 📖 **[Открыть на сайте документации →](https://nickliapin.github.io/tdcv2/ru/docs/generators/running)**

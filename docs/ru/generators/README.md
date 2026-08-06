@@ -24,6 +24,7 @@
 - [Кривая (pattern)](./pattern.md#top)
 - [HTTP-сервис](./http.md#top)
 - [Нарастающий итог](./running.md#top)
+- [Статистика](./stat.md#top)
 
 ---
 

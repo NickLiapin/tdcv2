@@ -39,6 +39,7 @@
 - [Кривая (pattern)](./generators/pattern.md#top)
 - [HTTP-сервис](./generators/http.md#top)
 - [Нарастающий итог](./generators/running.md#top)
+- [Статистика](./generators/stat.md#top)
 
 ## Pools
 

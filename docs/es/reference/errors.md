@@ -182,6 +182,7 @@ Ver [Registros coherentes](../pools/overview.md#top).
 | `TDC259` | Una `[lista]` está en un sitio que no es la derecha de `in` | Una lista es un conjunto de valores contra el que comparar, así que solo significa algo como `Country in [US, CA, MX]`. Por sí sola no le da ningún valor a la condición |
 | `TDC260` | `at()` recibe algo que no es una lista | Una lista de `repeat` llega a la expresión como su texto unido, así que `at(Items, 1)` pide el segundo elemento de una lista de uno y responde con nada. Córtela primero: `at(split(Items, ","), 1)` |
 | `TDC261` | `at()` recibe un índice que no lo es | Un índice es un número entero, cero o más. Pasado el final el resultado es texto vacío a propósito — las filas de `repeat="1..4"` tienen longitudes distintas — pero `-1`, `1.5` y `"one"` son errores, y cada uno producía esa misma columna en blanco |
+| `TDC262` | `<gen type="stat">` no dice qué resumir (`of=`) ni qué estadística (`op=`), o nombra una que no existe | Una estadística lee otra columna y no genera nada propio, así que ambas son obligatorias. `op=` es una de `sum`, `mean`, `median`, `min`, `max`, `count`, `stddev`; `decimals=` va de 0 a 10 |
 | `TDC244` | `type="pattern"` sin `points`, `src` ni `upper`                             | Un dibujo necesita una forma de la que leer: `points="0,0 1,5 2,3"`, un archivo en `src`, o `upper`/`lower` para una banda                                                                                                                                  |
 
 ## Totales acumulados

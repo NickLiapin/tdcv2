@@ -185,6 +185,18 @@ export function buildLazyRegistry(
       );
     }
 
+    // A statistic over the whole run is the stronger form of the same thing: it
+    // is not knowable from the rows SO FAR either, because the rows after this
+    // one are part of the answer. Refused by name, and the router hands the
+    // config to the in-memory engine.
+    if (spec.gen?.type === 'stat') {
+      throw new StreamUnsupportedError(
+        `a statistic ("${spec.name}") is computed over every row of the run, including the ` +
+          'ones after this one, so it cannot be computed one row at a time; the in-memory ' +
+          'engine handles it (run without a forced streaming engine)',
+      );
+    }
+
     // A network call is not a draw: it is neither reproducible from a row index
     // nor answerable synchronously, which is what a lazy per-row resolver needs.
     // Refused here rather than left to fall through, because the fall-through

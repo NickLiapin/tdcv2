@@ -4,7 +4,7 @@
 
 📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/generators/running)**
 
-← Previous: [HTTP service](./http.md#top) · **[Contents](../README.md#top)** · Next: [Overview](../pools/overview.md#top) →
+← Previous: [HTTP service](./http.md#top) · **[Contents](../README.md#top)** · Next: [Statistic](./stat.md#top) →
 
 ---
 
@@ -158,6 +158,6 @@ record](../constructs/multiple-values.md#accumulate--a-running-total-across-the-
 
 ---
 
-← Previous: [HTTP service](./http.md#top) · **[Contents](../README.md#top)** · Next: [Overview](../pools/overview.md#top) →
+← Previous: [HTTP service](./http.md#top) · **[Contents](../README.md#top)** · Next: [Statistic](./stat.md#top) →
 
 📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/generators/running)**

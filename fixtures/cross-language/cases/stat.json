@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "cases": [
+    {
+      "name": "every-statistic-over-the-whole-run",
+      "description": "One number for the WHOLE run, on every row — the third axis after accumulate= inside a record and <gen type=\"running\"> down a column. The values are the textbook set whose POPULATION standard deviation is exactly 2: dividing by n-1 would give about 2.14, so the line tells the two conventions apart. Median 4.5 pins the even-count rule, mean 5 the ratio, and min/max return an element that already exists rather than a recomputed one.",
+      "config": "<tdc><env count=\"8\" seed=\"s\" local=\"en\" mode=\"memory\"><sequence name=\"N\"><gen type=\"text\" value=\"2,4,4,4,5,5,7,9\" order=\"sequential\"/></sequence><sequence name=\"Sum\"><gen type=\"stat\" of=\"N\" op=\"sum\"/></sequence><sequence name=\"Mean\"><gen type=\"stat\" of=\"N\" op=\"mean\"/></sequence><sequence name=\"Median\"><gen type=\"stat\" of=\"N\" op=\"median\"/></sequence><sequence name=\"Min\"><gen type=\"stat\" of=\"N\" op=\"min\"/></sequence><sequence name=\"Max\"><gen type=\"stat\" of=\"N\" op=\"max\"/></sequence><sequence name=\"Count\"><gen type=\"stat\" of=\"N\" op=\"count\"/></sequence><sequence name=\"Sd\"><gen type=\"stat\" of=\"N\" op=\"stddev\"/></sequence></env><block><line><data>${{N}} ${{Sum}} ${{Mean}} ${{Median}} ${{Min}} ${{Max}} ${{Count}} ${{Sd}}</data></line></block></tdc>",
+      "expected": [
+        "2 40 5 4.5 2 9 8 2",
+        "4 40 5 4.5 2 9 8 2",
+        "4 40 5 4.5 2 9 8 2",
+        "4 40 5 4.5 2 9 8 2",
+        "5 40 5 4.5 2 9 8 2",
+        "5 40 5 4.5 2 9 8 2",
+        "7 40 5 4.5 2 9 8 2",
+        "9 40 5 4.5 2 9 8 2"
+      ]
+    },
+    {
+      "name": "a-statistic-keeps-the-exact-decimals-a-running-total-keeps",
+      "description": "sum, min and max are the last value of the corresponding RUNNING column, which is how the fixed-point arithmetic is kept from drifting between the two features: 19.99 + 0.01 + 0.01 is 20.01 everywhere rather than 20.009999999999998 in one of them. min returns the winning element with its own spelling, so 007 stays 007. decimals= rounds a ratio, and a half goes AWAY FROM ZERO — 117.045 becomes 117.05, not the 117.04 round-half-to-even would give.",
+      "config": "<tdc><env count=\"3\" seed=\"s\" local=\"en\" mode=\"memory\"><sequence name=\"Money\"><gen type=\"text\" value=\"19.99,0.01,0.01\" order=\"sequential\"/></sequence><sequence name=\"Padded\"><gen type=\"text\" value=\"007,10,9\" order=\"sequential\"/></sequence><sequence name=\"Half\"><gen type=\"text\" value=\"117.04,117.05,117.045\" order=\"sequential\"/></sequence><sequence name=\"Total\"><gen type=\"stat\" of=\"Money\" op=\"sum\"/></sequence><sequence name=\"Smallest\"><gen type=\"stat\" of=\"Padded\" op=\"min\"/></sequence><sequence name=\"Rounded\"><gen type=\"stat\" of=\"Half\" op=\"mean\" decimals=\"2\"/></sequence></env><block><line><data>${{Total}} ${{Smallest}} ${{Rounded}}</data></line></block></tdc>",
+      "expected": ["20.01 007 117.05", "20.01 007 117.05", "20.01 007 117.05"]
+    },
+    {
+      "name": "a-row-that-knows-whether-it-is-above-average",
+      "description": "The question a statistic exists to answer, and the one nothing else can: the average is not knowable until the last row exists, while a conditional gen is evaluated as the row is built. A parent-filtered cell takes no part in the statistic — the same rule accumulate= follows — so the average here is over the three rows that carry an Amount, not over six.",
+      "config": "<tdc><env count=\"6\" seed=\"s\" local=\"en\" mode=\"memory\"><sequence name=\"Kind\"><gen type=\"text\" value=\"a,b,a,b,a,b\" order=\"sequential\"/></sequence><sequence name=\"Amount\" parent=\"Kind.a\"><gen type=\"text\" value=\"10,20,30\" order=\"sequential\"/></sequence><sequence name=\"Average\"><gen type=\"stat\" of=\"Amount\" op=\"mean\"/></sequence><sequence name=\"Rows\"><gen type=\"stat\" of=\"Amount\" op=\"count\"/></sequence><sequence name=\"Flag\"><gen if=\"Amount > Average\" type=\"text\" value=\"above\"/><gen type=\"text\" value=\"not-above\"/></sequence></env><block><line><data>${{Kind}} ${{Amount}} ${{Average}} ${{Rows}} ${{Flag}}</data></line></block></tdc>",
+      "expected": [
+        "a 10 20 3 not-above",
+        "b  20 3 not-above",
+        "a 20 20 3 not-above",
+        "b  20 3 not-above",
+        "a 30 20 3 above",
+        "b  20 3 not-above"
+      ]
+    },
+    {
+      "name": "a-statistic-with-no-mode-goes-where-it-must",
+      "description": "The shape a reader actually writes: no mode=, no engine=, just a statistic. The other cases here pin mode=\"memory\", so the ROUTER is never exercised by them and a port that sent this config to the streaming engine and let the refusal escape would look green. The streaming engine refuses a statistic by design; when nobody named an engine, that refusal is answered by building the run in memory, not by failing.",
+      "config": "<tdc><env count=\"4\" seed=\"prices\" local=\"en\"><sequence name=\"Price\"><gen type=\"number\" value=\"10..200\"/></sequence><sequence name=\"Average\"><gen type=\"stat\" of=\"Price\" op=\"mean\" decimals=\"2\"/></sequence></env><block><line><data>${{Price}},${{Average}}</data></line></block></tdc>",
+      "expected": ["182,154.00", "86,154.00", "169,154.00", "179,154.00"]
+    }
+  ]
+}

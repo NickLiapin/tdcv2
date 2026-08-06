@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "cases": [
+    {
+      "name": "a-statistic-that-does-not-say-what-to-summarise",
+      "demonstrates": "TDC262",
+      "description": "A statistic reads another column and draws nothing of its own, so of= is not optional. Without it there is no column to read and the sequence would render empty on every row.",
+      "config": "<tdc><env count=\"2\" seed=\"s\" local=\"en\"><sequence name=\"Price\"><gen type=\"text\" value=\"10,20\"/></sequence><sequence name=\"S\"><gen type=\"stat\" op=\"mean\"/></sequence></env><block><line><data>${{S}}</data></line></block></tdc>",
+      "expected": ["error TDC262 1:125"]
+    },
+    {
+      "name": "a-statistic-that-does-not-say-which-one",
+      "demonstrates": "TDC262",
+      "description": "op= is the statistic itself: sum, mean, median, min, max, count or stddev. Without it the generator names a column and says nothing about what to do with it.",
+      "config": "<tdc><env count=\"2\" seed=\"s\" local=\"en\"><sequence name=\"Price\"><gen type=\"text\" value=\"10,20\"/></sequence><sequence name=\"S\"><gen type=\"stat\" of=\"Price\"/></sequence></env><block><line><data>${{S}}</data></line></block></tdc>",
+      "expected": ["error TDC262 1:125"]
+    },
+    {
+      "name": "a-statistic-op-that-is-not-one",
+      "demonstrates": "TDC262",
+      "description": "A misspelled op is answered with the near name rather than with silence, the same way a misspelled function in an expression is. The list is short enough to print in full.",
+      "config": "<tdc><env count=\"2\" seed=\"s\" local=\"en\"><sequence name=\"Price\"><gen type=\"text\" value=\"10,20\"/></sequence><sequence name=\"S\"><gen type=\"stat\" of=\"Price\" op=\"men\"/></sequence></env><block><line><data>${{S}}</data></line></block></tdc>",
+      "expected": ["error TDC262 1:157"]
+    },
+    {
+      "name": "a-statistic-reading-a-column-that-is-not-declared-above-it",
+      "demonstrates": "TDC240",
+      "description": "A statistic is built in declaration order out of a column that already exists, so of= takes the same rule parent= and a running total take. The code is shared with running deliberately: it is the same rule with the same fix, and a second code for it would lengthen the error reference without telling a reader anything new.",
+      "config": "<tdc><env count=\"2\" seed=\"s\" local=\"en\"><sequence name=\"Price\"><gen type=\"text\" value=\"10,20\"/></sequence><sequence name=\"S\"><gen type=\"stat\" of=\"Prices\" op=\"sum\"/></sequence></env><block><line><data>${{S}}</data></line></block></tdc>",
+      "expected": ["error TDC240 1:146"]
+    }
+  ]
+}

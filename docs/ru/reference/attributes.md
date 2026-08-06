@@ -39,7 +39,8 @@
 | `uniq`      | Уникальная комбинация по всем строкам                                                                                                                                             | [Уникальные значения](../constructs/unique-values.md#top)                |
 | `on` / `is` | Субъект / ключ ветки для `<switch>`                                                                                                                                               | [Switch](../constructs/switch.md#top)                                    |
 | `filter`    | На `<gen type="pool">`: из каких членов может выбирать эта строка                                                                                                                 | [Согласованные записи](../pools/filter.md#top)                           |
-| `of`        | На `<gen type="running">`: какую колонку накапливать                                                                                                                              | [Нарастающий итог](../generators/running.md#top)                         |
+| `of`        | На `<gen type="running">`: какую колонку накапливать. На `<gen type="stat">`: по какой колонке считать                                                                            | [Нарастающий итог](../generators/running.md#top), [Статистика](../generators/stat.md#top) |
+| `op`        | На `<gen type="stat">`: какая статистика — `sum`, `mean`, `median`, `min`, `max`, `count` или `stddev`                                                                            | [Статистика](../generators/stat.md#top)                                  |
 | `reset`     | На `<gen type="running">`: колонка, смена значения которой перезапускает итог                                                                                                     | [Нарастающий итог](../generators/running.md#top)                         |
 
 ## Значения генераторов

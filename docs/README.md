@@ -39,6 +39,7 @@
 - [Pattern](./generators/pattern.md#top)
 - [HTTP service](./generators/http.md#top)
 - [Running total](./generators/running.md#top)
+- [Statistic](./generators/stat.md#top)
 
 ## Pools
 

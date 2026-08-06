@@ -1,0 +1,181 @@
+<a name="top"></a>
+
+**English** · [Русский](../ru/generators/stat.md#top) · [Español](../es/generators/stat.md#top)
+
+📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/generators/stat)**
+
+← Previous: [Running total](./running.md#top) · **[Contents](../README.md#top)** · Next: [Overview](../pools/overview.md#top) →
+
+---
+
+# `stat` — one number for the whole run
+
+**Use it when** a row needs to know something about _every_ row, including the ones after
+it: is this price above the average, what is the largest order in the file, how many rows
+carry a value at all.
+
+This is the third and last axis of "a value that is not drawn but derived". `accumulate=`
+totals a list inside one record. [`running`](running.md#top) totals a column as it goes, so
+row 40 knows about rows 1–39. A statistic knows about all of them.
+
+```xml
+<tdc>
+  <env count="8" seed="basket" local="en">
+    <sequence name="Price"><gen type="number" value="10..200" decimals="2"/></sequence>
+    <sequence name="Average"><gen type="stat" of="Price" op="mean" decimals="2"/></sequence>
+    <sequence name="Verdict">
+      <gen if="Price > Average" type="text" value="above average"/>
+      <gen type="text" value="below average"/>
+    </sequence>
+  </env>
+  <block>
+    <line><data>${{Price}}   ${{Average}}   ${{Verdict}}</data></line>
+  </block>
+</tdc>
+```
+
+`./run basket.tdc`
+
+```
+156.83   122.52   above average
+176.51   122.52   above average
+135.17   122.52   above average
+157.94   122.52   above average
+50.71   122.52   below average
+92.28   122.52   below average
+50.37   122.52   below average
+160.35   122.52   above average
+```
+
+"Is this row above average" cannot be asked any other way. The average is not knowable
+until the last row exists, and a conditional `<gen>` is evaluated while the row is being
+built — so the statistic has to be a column of its own, computed first.
+
+> [!NOTE]
+> **Outputs are illustrative**
+>
+> The values come from a fixed `seed`, so they're reproducible, but exact strings can differ
+> between core versions. Treat them as examples of _shape_, not guarantees.
+
+## At a glance
+
+| Attribute  | Required | What it does                                                                 |
+| :--------- | :------- | :--------------------------------------------------------------------------- |
+| `of`       | yes      | The column to summarise. Must be **declared above** this sequence            |
+| `op`       | yes      | `sum`, `mean`, `median`, `min`, `max`, `count` or `stddev`                   |
+| `decimals` | no       | Round the answer to N places, 0–10                                           |
+
+A statistic **draws nothing**. It reads a column that already exists, consumes no
+randomness at all, and therefore adding one leaves every other column exactly where it was.
+
+## The seven statistics
+
+```xml
+<env count="6" seed="lab" local="en">
+    <sequence name="Reading"><gen type="number" value="1..100"/></sequence>
+    <sequence name="Total"><gen type="stat" of="Reading" op="sum"/></sequence>
+    <sequence name="Smallest"><gen type="stat" of="Reading" op="min"/></sequence>
+    <sequence name="Largest"><gen type="stat" of="Reading" op="max"/></sequence>
+    <sequence name="Middle"><gen type="stat" of="Reading" op="median"/></sequence>
+    <sequence name="Spread"><gen type="stat" of="Reading" op="stddev" decimals="3"/></sequence>
+    <sequence name="Rows"><gen type="stat" of="Reading" op="count"/></sequence>
+</env>
+```
+
+`./run lab.tdc`
+
+```
+60  sum=297 min=7 max=81 median=63 sd=27.415 n=6
+81  sum=297 min=7 max=81 median=63 sd=27.415 n=6
+66  sum=297 min=7 max=81 median=63 sd=27.415 n=6
+7  sum=297 min=7 max=81 median=63 sd=27.415 n=6
+17  sum=297 min=7 max=81 median=63 sd=27.415 n=6
+66  sum=297 min=7 max=81 median=63 sd=27.415 n=6
+```
+
+Two of them are worth stating outright, because the alternatives are just as common and
+give different numbers:
+
+- **`stddev` is the POPULATION standard deviation** — divided by _n_, not by _n_−1. A
+  generated column is the whole of what it describes, not a sample drawn from something
+  larger, so _n_ is the honest divisor. The same choice the `stddev()`
+  [expression function](../reference/expressions.md#top) makes.
+- **`median` on an even count is the average of the two middle values**, so a column of
+  `2,4,4,4,5,5,7,9` has median `4.5`.
+
+`count` is how many rows carried a value — rows a [`parent`](../guides/hierarchical-dependencies.md#top)
+filter emptied are not counted, and take no part in any of the others either. That is the
+same rule `accumulate=` and `running` follow, so a filtered column means one thing across
+all three rather than three.
+
+## Exact decimals, and `decimals=`
+
+`sum`, `min` and `max` are the last value of the corresponding **running** column. That is
+not a shortcut — it is what keeps the two features from drifting: the arithmetic runs on
+whole numbers scaled by the widest fraction in the column, never on floating point, so
+`19.99 + 0.01 + 0.01` is `20.01` in all five implementations rather than
+`20.009999999999998` in one of them. `min` and `max` return an element that already exists,
+so a value that arrived as `007` stays `007`.
+
+`mean`, `median` and `stddev` are **ratios** and cannot be exact. Without `decimals=` they
+print in full, digits and all, because a mean that quietly lost digits is worse than an
+ugly one. With it they are rounded — and a half goes **away from zero**, the same rule
+`round()` follows everywhere else in TDC, so `117.045` at two places is `117.05`.
+
+## Declaration order
+
+`of=` names a column, and it must be **declared above** the statistic (`TDC240`) — the same
+rule [`parent`](../guides/hierarchical-dependencies.md#top) and `running` follow, for the same
+reason: the statistic is built out of a column that already exists.
+
+A statistic that does not say what to summarise, or which statistic to take, is `TDC262`.
+
+`./run lab.tdc`
+
+```
+error[TDC262]: op="men" is not one of sum, mean, median, min, max, count, stddev
+ --> lab.tdc:4:63
+  |
+4 |     <sequence name="Spread"><gen type="stat" of="Reading" op="men"/></sequence>
+  |                                                               ^^^
+  |
+help: did you mean "mean"?
+note: One of: sum, mean, median, min, max, count, stddev.
+```
+
+## Which engine runs it
+
+The [streaming engine](../guides/large-outputs.md#top) refuses a statistic, by name, and the
+router sends the config to the in-memory one:
+
+`./run basket.tdc --engine 2`
+
+```
+tdcv2: a statistic ("Average") is computed over every row of the run, including the ones after this one, so it cannot be computed one row at a time; the in-memory engine handles it (run without a forced streaming engine)
+```
+
+You normally never see that message — the router picks the engine itself, and the refusal
+only surfaces when a config _names_ a streaming engine and so has asked to be told.
+
+What it costs is the same boundary [`running`](running.md#which-engine-runs-it) has, one
+step stronger: a running total at least knows its answer by the time it reaches a row,
+while a statistic does not know it until the run is over. The column it reads is held for
+the run.
+
+**Everything else still streams.** The limit is per config, not per project: a run without
+a statistic is untouched.
+
+## See also
+
+- [`running`](running.md#top) — the same column, accumulated as it goes rather than summarised
+  at the end
+- [`accumulate=` on a repeat list](../constructs/multiple-values.md#accumulate--a-running-total-across-the-list) —
+  the same idea inside one record, free on every engine
+- [Expressions](../reference/expressions.md#top) — `sum`, `mean`, `median` and `stddev` also
+  exist as functions, over a list inside one row rather than down a column
+
+---
+
+← Previous: [Running total](./running.md#top) · **[Contents](../README.md#top)** · Next: [Overview](../pools/overview.md#top) →
+
+📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/generators/stat)**

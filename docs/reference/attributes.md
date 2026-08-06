@@ -38,7 +38,8 @@ covered where that tag is explained — see the [compute reference](compute.md#t
 | `uniq`      | Combination that must be unique across all rows                                                                                                             | [Unique values](../constructs/unique-values.md#top)                     |
 | `on` / `is` | Subject / branch key for `<switch>`                                                                                                                         | [Switch](../constructs/switch.md#top)                                   |
 | `filter`    | On `<gen type="pool">`: which members this row may draw from                                                                                                | [Coherent records](../pools/filter.md#top)                              |
-| `of`        | On `<gen type="running">`: the column to accumulate                                                                                                         | [Running total](../generators/running.md#top)                           |
+| `of`        | On `<gen type="running">`: the column to accumulate. On `<gen type="stat">`: the column to summarise                                                        | [Running total](../generators/running.md#top), [Statistic](../generators/stat.md#top) |
+| `op`        | On `<gen type="stat">`: which statistic — `sum`, `mean`, `median`, `min`, `max`, `count` or `stddev`                                                        | [Statistic](../generators/stat.md#top)                                  |
 | `reset`     | On `<gen type="running">`: a column whose change restarts the total                                                                                         | [Running total](../generators/running.md#top)                           |
 
 ## Generator values

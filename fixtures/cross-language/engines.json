@@ -2266,6 +2266,54 @@
         ]
       }
     },
+    "stat/every-statistic-over-the-whole-run": {
+      "engine2": {
+        "refused": "a statistic (\"Sum\") is computed over every row of the run, including the ones after this one, so it cannot be computed one row at a time; the in-memory engine handles it (run without a forced streaming engine)"
+      },
+      "engine3": {
+        "lines": [
+          "2 40 5 4.5 2 9 8 2",
+          "4 40 5 4.5 2 9 8 2",
+          "4 40 5 4.5 2 9 8 2",
+          "4 40 5 4.5 2 9 8 2",
+          "5 40 5 4.5 2 9 8 2",
+          "5 40 5 4.5 2 9 8 2",
+          "7 40 5 4.5 2 9 8 2",
+          "9 40 5 4.5 2 9 8 2"
+        ]
+      }
+    },
+    "stat/a-statistic-keeps-the-exact-decimals-a-running-total-keeps": {
+      "engine2": {
+        "refused": "a statistic (\"Total\") is computed over every row of the run, including the ones after this one, so it cannot be computed one row at a time; the in-memory engine handles it (run without a forced streaming engine)"
+      },
+      "engine3": {
+        "lines": ["20.01 007 117.05", "20.01 007 117.05", "20.01 007 117.05"]
+      }
+    },
+    "stat/a-row-that-knows-whether-it-is-above-average": {
+      "engine2": {
+        "refused": "stream mode: parent \"Kind\" (the parent must be a finite-value <sequence> declared earlier) (\"Amount\") is not supported yet — run without mode=\"stream\" (the in-memory engine handles it), or remove it."
+      },
+      "engine3": {
+        "lines": [
+          "a 10 20 3 not-above",
+          "b  20 3 not-above",
+          "a 20 20 3 not-above",
+          "b  20 3 not-above",
+          "a 30 20 3 above",
+          "b  20 3 not-above"
+        ]
+      }
+    },
+    "stat/a-statistic-with-no-mode-goes-where-it-must": {
+      "engine2": {
+        "refused": "a statistic (\"Average\") is computed over every row of the run, including the ones after this one, so it cannot be computed one row at a time; the in-memory engine handles it (run without a forced streaming engine)"
+      },
+      "engine3": {
+        "lines": ["182,154.00", "86,154.00", "169,154.00", "179,154.00"]
+      }
+    },
     "statistics/distribution-normal": {
       "engine2": {
         "lines": ["179.38", "152.83", "170.71", "153.99", "165.24", "174.37"]

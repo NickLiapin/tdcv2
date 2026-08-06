@@ -98,6 +98,7 @@ import { enforceUniqRedrawing } from './enforce-uniq.js';
 import { enforceEnvDistinct, enforceEnvUniq } from './env-groups.js';
 import { poolRefName, type PoolTables } from './pool.js';
 import { registerPoolRef } from './pool-ref.js';
+import { registerStat } from './stat.js';
 import { registerRunning } from './running.js';
 
 export interface SequenceBuildOptions {
@@ -378,6 +379,13 @@ export function buildSequences(
     // sequence declared above it.
     if (spec.gen?.type === 'running') {
       registerRunning(spec, registry, count);
+      continue;
+    }
+    // A statistic over the whole run. Resolved here for the same reason and by
+    // the same rule: it reads a column that already exists, so `of=` has to name
+    // a sequence declared above it.
+    if (spec.gen?.type === 'stat') {
+      registerStat(spec, registry, count);
       continue;
     }
     if (spec.items) {

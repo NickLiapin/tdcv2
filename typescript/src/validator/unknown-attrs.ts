@@ -117,6 +117,7 @@ export const GEN_ATTRIBUTES: ReadonlySet<string> = new Set([
   'accumulate',
   'of',
   'reset',
+  'op',
   'missing',
   'missing_as',
   'anomaly',
@@ -224,8 +225,9 @@ export const ATTRIBUTE_OWNERS: ReadonlyMap<string, ReadonlySet<string>> = new Ma
   // drawn curve is loaded the same way — `src="curve.svg"`, `src="curve.png"`.
   // Measuring said otherwise only because the probe file did not exist and the
   // load threw; the corpus sweep caught the false error before it shipped.
-  ['of', new Set(['running'])],
+  ['of', new Set(['running', 'stat'])],
   ['reset', new Set(['running'])],
+  ['op', new Set(['stat'])],
   ['src', new Set(['file', 'http', 'pattern'])],
   ['column', new Set(['file'])],
   ['header', new Set(['file'])],

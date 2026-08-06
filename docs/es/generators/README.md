@@ -24,6 +24,7 @@
 - [Pattern (dibujo)](./pattern.md#top)
 - [Servicio HTTP](./http.md#top)
 - [Total acumulado](./running.md#top)
+- [Estadística](./stat.md#top)
 
 ---
 

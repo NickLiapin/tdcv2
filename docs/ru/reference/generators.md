@@ -28,6 +28,7 @@
 | [`http`](../generators/http.md#top)                        | Значение от вашего сервиса, по HTTP                           |
 | [`pool`](../pools/overview.md#top)                         | Один целый член `<pool>` — запись, а не значение              |
 | [`running`](../generators/running.md#top)                  | Итог, накопленный по колонке, а не разыгранный                |
+| [`stat`](../generators/stat.md#top)                        | Одно число на весь прогон, в каждой строке                   |
 
 ## Сквозные атрибуты
 
