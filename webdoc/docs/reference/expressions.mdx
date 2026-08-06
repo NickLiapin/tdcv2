@@ -126,6 +126,13 @@ list of numeric words still matches.
 | `ends_with(s, p)`          | 2      | suffix test                                      |
 | `contains(s, p)`           | 2      | substring test                                   |
 | `lower(s)` `upper(s)`      | 1      | case                                             |
+| `split(s, sep)`            | 2      | text cut into a list — see [Lists inside one row](#lists-inside-one-row) |
+| `join(list, sep)`          | 2      | a list back into text                            |
+| `count(list)`              | 1      | how many elements                                |
+| `at(list, i)`              | 2      | the i-th element, counting from **zero**         |
+| `sum(list)`                | 1      | the total — stays whole while every element is   |
+| `mean(list)` `median(list)`| 1      | average, and middle value                        |
+| `stddev(list)`             | 1      | **population** standard deviation, divided by n  |
 | `sqrt(x)`                  | 1      | square root                                      |
 | `pow(x, y)`                | 2      | x raised to y                                    |
 | `exp(x)`                   | 1      | e raised to x                                    |
@@ -162,6 +169,47 @@ family emoji built from several code points counts as several. Grapheme clusters
 the human answer and need a Unicode segmentation table that not every implementation can
 carry, so the portable unit wins. `len("10")` is 2: a string function reads its argument as
 text, never as a number.
+:::
+
+## Lists inside one row
+
+A sequence with `repeat=` puts several values in one field, joined by its `separator=`.
+An expression sees the **joined text**, because that is what the field holds — so `split`
+is how a list becomes a list, and everything else works on what it hands back.
+
+```xml
+<sequence name="Prices">
+  <gen type="number" value="10..200" repeat="3" separator=","/>
+</sequence>
+<sequence name="Basket">
+  <gen if="sum(split(Prices, ',')) > 300" type="text" value="large"/>
+  <gen type="text" value="ordinary"/>
+</sequence>
+```
+
+`min` and `max` read a list as readily as loose arguments: `max(split(Prices, ','))` and
+`max(1, 9, 4)` both work. An empty separator cuts into single characters, the same unit
+`len` counts, so `count(split(s, ''))` and `len(s)` never disagree.
+
+:::note[`at` counts from zero, and refuses an index that is not one]
+`at(list, 0)` is the first element. **Past the end is empty text** — deliberately, because
+`repeat="1..4"` makes rows of different lengths on purpose, and asking for the third element
+of a two-element row is a real question with an empty answer. Use `count(list)` to ask
+first.
+
+Everything else is refused rather than answered with that same empty string: a negative
+index, a fractional one, an index that is not a number, and a subject that was never split.
+That last one is the mistake everybody makes first —
+
+```xml
+<gen if="at(Prices, 1) > 100" …/>   <!-- refused: TDC260 -->
+<gen if="at(split(Prices, ','), 1) > 100" …/>   <!-- what was meant -->
+```
+
+`Prices` is the joined text, so the first line asked for the second element of a
+one-element list and used to render a blank column while the run reported success.
+Written-out mistakes are caught by `tdcv2 check` before a row exists; an index worked out
+at run time — `at(list, _count - 1)` — is checked as the row is built.
 :::
 
 ## Why TDC computes its own transcendentals

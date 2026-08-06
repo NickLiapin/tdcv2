@@ -321,3 +321,102 @@ describe('whole numbers stay whole', () => {
     expect(evaluateIf('sqrt(9007199254740993) > 94906265', reg, 0)).toBe(true);
   });
 });
+
+/**
+ * Lists inside one row.
+ *
+ * A `repeat` list reaches an expression as its JOINED text — that is what the
+ * renderer produced and what the registry holds — so `split` is the bridge and
+ * everything else works on what it hands back.
+ */
+describe('within-row lists', () => {
+  const reg = registry({
+    Prices: ['12,40,101'],
+    One: ['7'],
+    Empty: [''],
+    Word: ['abc'],
+  });
+
+  it('split cuts the joined text, and count says how many', () => {
+    expect(evaluateIf('count(split(Prices, ",")) == 3', reg, 0)).toBe(true);
+    // An empty subject is NO elements, not one blank one.
+    expect(evaluateIf('count(split(Empty, ",")) == 0', reg, 0)).toBe(true);
+    // An empty separator cuts into code points, the unit `len` counts.
+    expect(evaluateIf('count(split(Word, "")) == len(Word)', reg, 0)).toBe(true);
+  });
+
+  it('at reads an element, counting from zero', () => {
+    expect(evaluateIf('at(split(Prices, ","), 0) == 12', reg, 0)).toBe(true);
+    expect(evaluateIf('at(split(Prices, ","), 2) == 101', reg, 0)).toBe(true);
+  });
+
+  it('sum stays whole while every element is whole', () => {
+    expect(evaluateIf('sum(split(Prices, ",")) == 153', reg, 0)).toBe(true);
+    // Past 2^53 a double would round; the whole-number path does not.
+    const big = registry({ B: ['9007199254740992,1'] });
+    expect(evaluateIf('sum(split(B, ",")) == 9007199254740993', big, 0)).toBe(true);
+  });
+
+  it('mean, median and stddev describe the list', () => {
+    const five = registry({ N: ['2,4,4,4,5,5,7,9'] });
+    expect(evaluateIf('mean(split(N, ",")) == 5', five, 0)).toBe(true);
+    expect(evaluateIf('median(split(N, ",")) == 4.5', five, 0)).toBe(true);
+    // POPULATION standard deviation — divided by 8, not by 7.
+    expect(evaluateIf('stddev(split(N, ",")) == 2', five, 0)).toBe(true);
+  });
+
+  it('min and max take a list as readily as loose arguments', () => {
+    expect(evaluateIf('max(split(Prices, ",")) == 101', reg, 0)).toBe(true);
+    expect(evaluateIf('min(split(Prices, ",")) == 12', reg, 0)).toBe(true);
+    expect(evaluateIf('max(1, 9, 4) == 9', reg, 0)).toBe(true);
+  });
+
+  it('join puts a list back together', () => {
+    // The right side is QUOTED: a bare 12-40-101 is arithmetic, not a word.
+    expect(evaluateIf('join(split(Prices, ","), "-") == "12-40-101"', reg, 0)).toBe(true);
+  });
+
+  /**
+   * The four ways `at` used to answer with nothing.
+   *
+   * Only the first is a fact about the data: `repeat="1..4"` makes rows of
+   * DIFFERENT lengths on purpose, so asking for the third element of a
+   * two-element row is a question with a real, empty answer. The other three are
+   * mistakes in the config, and each of them used to produce that same empty
+   * string — so the run looked like it worked and the column came out blank.
+   */
+  it('past the end is empty, because rows may be short on purpose', () => {
+    expect(evaluateIf('is_empty(at(split(Prices, ","), 9))', reg, 0)).toBe(true);
+    // And count() is there to ask before reaching.
+    expect(evaluateIf('count(split(Prices, ",")) > 9', reg, 0)).toBe(false);
+  });
+
+  it('a negative or fractional index is refused, not silently empty', () => {
+    expect(() => evaluateIf('is_empty(at(split(Prices, ","), 0 - 1))', reg, 0)).toThrow(
+      /at\(\) index must be a whole number of zero or more, not -1/,
+    );
+    expect(() => evaluateIf('is_empty(at(split(Prices, ","), 1.5))', reg, 0)).toThrow(/not 1\.5/);
+  });
+
+  it('an index that is not a number is refused', () => {
+    expect(() => evaluateIf('is_empty(at(split(Prices, ","), "one"))', reg, 0)).toThrow(
+      /at\(\) index must be a whole number of zero or more, not "one"/,
+    );
+  });
+
+  it('at on a value that was never split is refused, and says how to fix it', () => {
+    // The shape everybody writes first. `Prices` is the joined text, so this
+    // asked for the second element of a one-element list and got nothing.
+    expect(() => evaluateIf('is_empty(at(Prices, 1))', reg, 0)).toThrow(
+      /at\(\) needs a list.*split it first/s,
+    );
+    expect(() => evaluateIf('at(One, 0) == 7', reg, 0)).toThrow(/at\(\) needs a list/);
+  });
+
+  it('the other list functions still read a single value as a list of one', () => {
+    // Deliberate, and different from `at`: a total of one thing is that thing,
+    // and `sum(Price)` should not need a rule remembered before every call.
+    expect(evaluateIf('sum(One) == 7', reg, 0)).toBe(true);
+    expect(evaluateIf('count(One) == 1', reg, 0)).toBe(true);
+  });
+});

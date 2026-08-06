@@ -285,8 +285,17 @@ const FUNCTIONS: Readonly<Record<string, (args: readonly unknown[]) => unknown>>
   abs: (a) => Math.abs(num(a, 0)),
   ceil: (a) => Math.ceil(num(a, 0)),
   floor: (a) => Math.floor(num(a, 0)),
-  max: (a) => a.map((v) => asNumber(v)).reduce((x, y) => (y > x ? y : x)),
-  min: (a) => a.map((v) => asNumber(v)).reduce((x, y) => (y < x ? y : x)),
+  // Given a single list, they range over it; given loose arguments, over those.
+  // A caller writing max(Prices) after splitting means the list, and having to
+  // write max(at(l,0), at(l,1), …) instead would be absurd.
+  max: (a) =>
+    spread(a)
+      .map((v) => asNumber(v))
+      .reduce((x, y) => (y > x ? y : x)),
+  min: (a) =>
+    spread(a)
+      .map((v) => asNumber(v))
+      .reduce((x, y) => (y < x ? y : x)),
   radians: (a) => TdcMath.radians(num(a, 0)),
   round: (a) => {
     const x = num(a, 0);
@@ -298,6 +307,101 @@ const FUNCTIONS: Readonly<Record<string, (args: readonly unknown[]) => unknown>>
   // a length — and none of them touches floating point, so all five agree for
   // free.
   contains: (a) => text(a, 0).includes(text(a, 1)),
+
+  /* ── Lists inside one row ──────────────────────────────────────────────────
+   *
+   * A `repeat` list reaches an expression as the JOINED TEXT it was rendered
+   * to — "48,91,14", not three values. That is the shape the engine already
+   * produces, and the honest way to reach the parts is to say so: `split` turns
+   * the text into a list, and everything else works on lists.
+   *
+   * No grammar changed for this. The list value already existed, produced by an
+   * array literal and consumed by `in`; these functions simply give it more to
+   * do. `Items[0]` would have needed computed member access, a bounds rule and
+   * five parsers to agree — `at(Items, 0)` needs none of that and reads the
+   * same.
+   */
+
+  /** Text to a list. An empty subject gives an empty list, not a list of one blank. */
+  split: (a) => {
+    const subject = text(a, 0);
+    const separator = text(a, 1);
+    if (subject === '') return [];
+    if (separator === '') {
+      // CODE POINTS, the same unit `len` counts, so split(s, "") and len(s)
+      // never disagree about how many characters a string has.
+      // eslint-disable-next-line @typescript-eslint/no-misused-spread -- the code-point unit is the deliberate choice
+      return [...subject];
+    }
+    return subject.split(separator);
+  },
+  /** A list back to text. */
+  join: (a) =>
+    listOf(a, 0)
+      .map((v) => String(v))
+      .join(text(a, 1)),
+  /** How many. `len` is the STRING length and would answer about the separators. */
+  count: (a) => listOf(a, 0).length,
+  /**
+   * The i-th element, counting from zero.
+   *
+   * PAST THE END gives empty text rather than a refusal, because a `repeat`
+   * range produces rows of DIFFERENT lengths on purpose: refusing would make
+   * `at(Items, 2)` unusable on exactly the data `repeat="1..4"` exists to make.
+   * `count()` is there to ask first, and `is_empty()` to check after. That is
+   * the only silence here, and it is a fact about the data.
+   *
+   * Everything else refuses. A negative index, a fractional one, an index that
+   * is not a number, or a subject that is not a list are mistakes in the config,
+   * not shapes the data can take, and each of them used to answer with the same
+   * empty string as a legitimate short row — so the config looked like it worked
+   * and produced nothing.
+   */
+  at: (a) => {
+    const items = listValue(a, 0);
+    const index = indexValue(a, 1);
+    return index < items.length ? (items[index] ?? '') : '';
+  },
+  /** The total. Whole while every element is whole, so a column of ids stays exact. */
+  sum: (a) => {
+    const items = listOf(a, 0);
+    const whole = items.map((v) => asExactInteger(v));
+    if (items.length > 0 && whole.every((v) => v !== null)) {
+      // every() above proved none is null, and the compiler narrowed with it.
+      return checkedInteger(whole.reduce((x, y) => x + y, 0n));
+    }
+    return items.reduce((x: number, v) => x + asNumber(v), 0);
+  },
+  /** The average. Always a double: a mean is a ratio, and ratios are not whole. */
+  mean: (a) => {
+    const items = listOf(a, 0);
+    if (items.length === 0) return Number.NaN;
+    return items.reduce((x: number, v) => x + asNumber(v), 0) / items.length;
+  },
+  /** The middle value; with an even count, the average of the two middle ones. */
+  median: (a) => {
+    const items = listOf(a, 0)
+      .map((v) => asNumber(v))
+      .sort((x, y) => x - y);
+    if (items.length === 0) return Number.NaN;
+    const half = Math.trunc(items.length / 2);
+    if (items.length % 2 === 1) return items[half] ?? Number.NaN;
+    return ((items[half - 1] ?? Number.NaN) + (items[half] ?? Number.NaN)) / 2;
+  },
+  /**
+   * The POPULATION standard deviation — divided by n, not by n−1.
+   *
+   * A generated list is the whole of what it describes, not a sample drawn from
+   * something larger, so n is the honest divisor. Stated because the two differ
+   * and neither is the obvious default.
+   */
+  stddev: (a) => {
+    const items = listOf(a, 0).map((v) => asNumber(v));
+    if (items.length === 0) return Number.NaN;
+    const average = items.reduce((x, v) => x + v, 0) / items.length;
+    const variance = items.reduce((x, v) => x + (v - average) * (v - average), 0) / items.length;
+    return TdcMath.sqrt(variance);
+  },
   ends_with: (a) => text(a, 0).endsWith(text(a, 1)),
   is_empty: (a) => text(a, 0).length === 0,
   len: (a) => codePointLength(text(a, 0)),
@@ -353,6 +457,63 @@ export const IMPLEMENTED_FUNCTION_NAMES: readonly string[] = Object.keys(FUNCTIO
 function at(args: readonly unknown[], index: number): unknown {
   if (index >= args.length) throw new Error('a function was given too few arguments');
   return args[index];
+}
+
+/**
+ * An argument as a list.
+ *
+ * A bare value counts as a list of one, so `sum(Price)` on a single number is
+ * an answer rather than an error — the alternative is a rule that a caller has
+ * to remember before every call.
+ */
+function listOf(args: readonly unknown[], index: number): unknown[] {
+  const v = at(args, index);
+  if (Array.isArray(v)) return v as unknown[];
+  return v === undefined || v === null ? [] : [v];
+}
+
+/**
+ * `at`'s subject, which has to be a real list.
+ *
+ * `listOf` above reads a bare value as a list of one, which is right for
+ * `sum(Price)` and wrong here: a `repeat` list arrives as the JOINED text, so
+ * `at(Items, 1)` — the shape everybody writes first — used to ask for the second
+ * element of a one-element list and get the same empty string a legitimately
+ * short row gives. Naming the mistake is the whole point of this function.
+ */
+function listValue(args: readonly unknown[], index: number): readonly unknown[] {
+  const v = at(args, index);
+  if (Array.isArray(v)) return v as unknown[];
+  throw new Error(
+    `at() needs a list, and ${show(v)} is a single value — split it first, ` +
+      'as in at(split(Items, ","), 1)',
+  );
+}
+
+/** An index: a whole number, zero or more. Anything else is a mistake, not a shape. */
+function indexValue(args: readonly unknown[], index: number): number {
+  const raw = at(args, index);
+  const n = asNumber(raw);
+  if (!Number.isInteger(n) || n < 0) {
+    throw new Error(`at() index must be a whole number of zero or more, not ${show(raw)}`);
+  }
+  return n;
+}
+
+/** A value as it should read inside a message: text quoted, everything else plain. */
+function show(v: unknown): string {
+  if (typeof v === 'string') return `"${v}"`;
+  if (typeof v === 'number' || typeof v === 'bigint' || typeof v === 'boolean') {
+    return v.toString();
+  }
+  if (Array.isArray(v)) return 'a list';
+  return 'nothing';
+}
+
+/** One list argument spread out, or the arguments themselves. */
+function spread(args: readonly unknown[]): readonly unknown[] {
+  if (args.length === 1 && Array.isArray(args[0])) return args[0] as unknown[];
+  return args;
 }
 
 function num(args: readonly unknown[], index: number): number {

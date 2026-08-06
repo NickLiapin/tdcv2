@@ -302,6 +302,8 @@ but the combination it asks for can't be carried out.
 | `TDC257` | An `if=` expression calls a function that is not there | Either a typo, answered with the near name, or one of `sin`, `cos`, `exp`, `log` and their kin, answered with the reason: every host language computes those slightly differently, and a comparison turns the last bit into a different row. Available today: `abs`, `ceil`, `floor`, `max`, `min`, `round`, `trunc` |
 | `TDC258` | A function in an `if=` expression is given the wrong number of arguments | `abs`, `ceil`, `floor`, `round` and `trunc` take exactly one; `min` and `max` take as many as you give them |
 | `TDC259` | A `[list]` sits somewhere other than the right of `in` | A list is a set of values to test against, so it only means something as `Country in [US, CA, MX]`. On its own it has no value for the condition to be |
+| `TDC260` | `at()` is given something that is not a list | A `repeat` list reaches an expression as its joined text, so `at(Items, 1)` asks for the second element of a one-element list and answers with nothing. Cut it first: `at(split(Items, ","), 1)` |
+| `TDC261` | `at()` is given an index that is not one | An index is a whole number, zero or more. Past the end is empty text on purpose — rows made by `repeat="1..4"` have different lengths — but `-1`, `1.5` and `"one"` are mistakes, and each of them used to produce that same blank column |
 
 ## See also
 

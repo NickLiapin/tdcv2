@@ -84,6 +84,20 @@
       "description": "A list is a set of values to test against, so it means something only to the right of `in`. On its own there is no value for the condition to be.",
       "config": "<tdc><env count=\"2\" seed=\"s\" local=\"en\"><sequence name=\"N\"><gen type=\"text\" value=\"5\"/></sequence><sequence name=\"R\"><gen if=\"[1, 2]\" type=\"text\" value=\"Y\"/><gen type=\"text\" value=\"N\"/></sequence></env><block><line><data>${{R}}</data></line></block></tdc>",
       "expected": ["error TDC259 1:126"]
+    },
+    {
+      "name": "at-on-a-value-that-was-never-split",
+      "demonstrates": "TDC260",
+      "description": "A repeat list reaches an expression as its JOINED text, so at(Items, 1) asks for the second element of a one-element list. It answered with the same empty string a legitimately short row gives, so the run reported success and the column came out blank. A name can never hold a list, which makes this provable from the text alone.",
+      "config": "<tdc><env count=\"2\" seed=\"s\" local=\"en\"><sequence name=\"Items\"><gen type=\"text\" value=\"5\" repeat=\"3\" separator=\",\"/></sequence><sequence name=\"R\"><gen if=\"at(Items, 1) == 5\" type=\"text\" value=\"Y\"/><gen type=\"text\" value=\"N\"/></sequence></env><block><line><data>${{R}}</data></line></block></tdc>",
+      "expected": ["error TDC260 1:155"]
+    },
+    {
+      "name": "an-index-that-is-not-an-index",
+      "demonstrates": "TDC261",
+      "description": "An index is a whole number, zero or more. Past the end of a list IS empty text, deliberately, because repeat=\"1..4\" makes rows of different lengths — but -1 is a mistake in the config, not a shape the data can take, and it used to answer with that same empty string.",
+      "config": "<tdc><env count=\"2\" seed=\"s\" local=\"en\"><sequence name=\"Items\"><gen type=\"text\" value=\"5\" repeat=\"3\" separator=\",\"/></sequence><sequence name=\"R\"><gen if=\"at(split(Items, ','), -1) == 5\" type=\"text\" value=\"Y\"/><gen type=\"text\" value=\"N\"/></sequence></env><block><line><data>${{R}}</data></line></block></tdc>",
+      "expected": ["error TDC261 1:155"]
     }
   ]
 }

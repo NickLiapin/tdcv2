@@ -290,6 +290,7 @@ export function checkIfExpression(
             code: 'TDC258',
           });
         }
+        if (name === 'at') checkAtCall(call, valRange, sink);
         for (const arg of call.arguments) walk(arg);
         return;
       }
@@ -306,6 +307,87 @@ export function checkIfExpression(
     }
   };
   walk(ast);
+}
+
+/**
+ * The functions that hand back a list. `at` reads one, and nothing else does
+ * today; when a second joins, it goes here and the check below stays put.
+ */
+const LIST_RETURNING_FUNCTIONS: readonly string[] = ['split'];
+
+/**
+ * `at(subject, index)`, checked before the run rather than during it.
+ *
+ * Both halves are provable from the text alone. A name always resolves to a
+ * STRING — a `repeat` list arrives joined, never as a list — so `at(Items, 1)`
+ * can only ever answer with nothing, and that nothing is indistinguishable from
+ * a legitimately short row. An index written out as `-1`, `1.5` or `"one"` is
+ * the same kind of mistake one level down.
+ *
+ * The engine refuses both at run time as well; this is the earlier, better-placed
+ * half of the same rule, because `check` can point at the character.
+ */
+function checkAtCall(
+  call: jsep.CallExpression,
+  valRange: Range,
+  sink: { diagnostics: Diagnostic[] },
+): void {
+  const subject = call.arguments[0];
+  if (subject && provablyNotAList(subject)) {
+    sink.diagnostics.push({
+      severity: 'error',
+      source: 'validator',
+      ...valRange,
+      message: 'at() needs a list, and this argument is a single value',
+      hint: 'A repeat list reaches an expression as its joined text, so cut it first: at(split(Items, ","), 1).',
+      code: 'TDC260',
+    });
+  }
+  const index = call.arguments[1];
+  const bad = index ? badIndexLiteral(index) : undefined;
+  if (bad !== undefined) {
+    sink.diagnostics.push({
+      severity: 'error',
+      source: 'validator',
+      ...valRange,
+      message: `at() index must be a whole number of zero or more, not ${bad}`,
+      hint: 'Elements count from zero: at(list, 0) is the first. Past the end is empty text — ask count(list) first.',
+      code: 'TDC261',
+    });
+  }
+}
+
+/** Whether a subexpression can be shown, from the text alone, never to be a list. */
+function provablyNotAList(node: jsep.Expression): boolean {
+  if (node.type === 'Identifier' || node.type === 'MemberExpression') return true;
+  if (node.type === 'Literal') return true;
+  if (node.type === 'CallExpression') {
+    const callee = (node as jsep.CallExpression).callee;
+    if (callee.type !== 'Identifier') return false;
+    return !LIST_RETURNING_FUNCTIONS.includes((callee as jsep.Identifier).name);
+  }
+  return false;
+}
+
+/** A written-out index that is not one, as it should read back in the message. */
+function badIndexLiteral(node: jsep.Expression): string | undefined {
+  if (node.type === 'Literal') {
+    const value = (node as jsep.Literal).value;
+    if (typeof value === 'string') return `"${value}"`;
+    if (typeof value === 'number') {
+      return Number.isInteger(value) && value >= 0 ? undefined : String(value);
+    }
+    return (node as jsep.Literal).raw;
+  }
+  // jsep reads `-1` as a minus applied to 1, so a negative index is never a
+  // Literal and the check above would never see one.
+  if (node.type === 'UnaryExpression') {
+    const un = node as jsep.UnaryExpression;
+    if (un.operator === '-' && un.argument.type === 'Literal') {
+      return `-${(un.argument as jsep.Literal).raw}`;
+    }
+  }
+  return undefined;
 }
 
 /**

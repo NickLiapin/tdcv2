@@ -125,6 +125,13 @@ columna de texto contra una lista de palabras numéricas sigue coincidiendo.
 | `ends_with(s, p)`          | 2          | prueba de sufijo                                   |
 | `contains(s, p)`           | 2          | prueba de subcadena                                |
 | `lower(s)` `upper(s)`      | 1          | mayúsculas y minúsculas                            |
+| `split(s, sep)`            | 2          | texto cortado en lista — ver [Listas dentro de una fila](#listas-dentro-de-una-fila) |
+| `join(list, sep)`          | 2          | una lista de vuelta a texto                        |
+| `count(list)`              | 1          | cuántos elementos                                  |
+| `at(list, i)`              | 2          | el elemento i, contando **desde cero**             |
+| `sum(list)`                | 1          | el total — sigue entero mientras todos lo sean     |
+| `mean(list)` `median(list)`| 1          | media y valor central                              |
+| `stddev(list)`             | 1          | desviación típica **poblacional**, dividida por n  |
 | `sqrt(x)`                  | 1          | raíz cuadrada                                      |
 | `pow(x, y)`                | 2          | x elevado a y                                      |
 | `exp(x)`                   | 1          | e elevado a x                                      |
@@ -161,6 +168,48 @@ emoji de familia hecho de varios puntos de código cuenta como varios. Los grupo
 serían la respuesta humana y necesitan una tabla de segmentación Unicode que no toda
 implementación puede llevar, así que gana la unidad portable. `len("10")` es 2: una función
 de cadena lee su argumento como texto, nunca como número.
+:::
+
+## Listas dentro de una fila
+
+Una secuencia con `repeat=` pone varios valores en un mismo campo, unidos por su
+`separator=`. Una expresión ve el **texto unido**, porque eso es lo que el campo contiene:
+`split` es el puente que convierte una lista en una lista.
+
+```xml
+<sequence name="Prices">
+  <gen type="number" value="10..200" repeat="3" separator=","/>
+</sequence>
+<sequence name="Basket">
+  <gen if="sum(split(Prices, ',')) > 300" type="text" value="large"/>
+  <gen type="text" value="ordinary"/>
+</sequence>
+```
+
+`min` y `max` leen una lista igual de bien que argumentos sueltos: funcionan tanto
+`max(split(Prices, ','))` como `max(1, 9, 4)`. Un separador vacío corta en caracteres
+sueltos, la misma unidad que cuenta `len`, así que `count(split(s, ''))` y `len(s)` nunca
+discrepan.
+
+:::note[`at` cuenta desde cero y rechaza un índice que no lo es]
+`at(list, 0)` es el primer elemento. **Pasado el final el resultado es texto vacío**, y a
+propósito: `repeat="1..4"` hace filas de longitudes distintas, y preguntar por el tercer
+elemento de una fila de dos es una pregunta real con una respuesta vacía. Para preguntar
+antes está `count(list)`.
+
+Todo lo demás se rechaza en vez de responder con esa misma cadena vacía: un índice
+negativo, uno fraccionario, uno que no es un número, y un sujeto que nunca se cortó. Ese
+último es el error que todo el mundo comete primero —
+
+```xml
+<gen if="at(Prices, 1) > 100" …/>   <!-- rechazado: TDC260 -->
+<gen if="at(split(Prices, ','), 1) > 100" …/>   <!-- lo que se quería decir -->
+```
+
+`Prices` es el texto unido, así que la primera línea pedía el segundo elemento de una lista
+de uno y dejaba la columna en blanco mientras la ejecución informaba de éxito. Los errores
+escritos tal cual los detecta `tdcv2 check` antes de que exista una fila; un índice que se
+calcula sobre la marcha — `at(list, _count - 1)` — se comprueba al construir la fila.
 :::
 
 ## Por qué TDC calcula sus propias funciones trascendentes

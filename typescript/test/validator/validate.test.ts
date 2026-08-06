@@ -639,6 +639,44 @@ describe('validator — if-expression checks', () => {
     expect(r.diagnostics.filter((d) => d.severity === 'error')).toEqual([]);
   });
 
+  /**
+   * `at()` reaches into a list, and both halves of the call can be checked from
+   * the text alone — a name always resolves to a string, so `at(Items, 1)` can
+   * only ever answer with nothing, and a written-out index is either an index or
+   * it is not. The engine refuses both at run time too; this is the half that
+   * can point at the character before a single row is rendered.
+   */
+  it('at() on a value that was never split — the joined text is not a list', () => {
+    const r = run(wrap('if="at(Items, 1) == 5"'));
+    const d = r.diagnostics.find((x) => x.code === 'TDC260');
+    expect(d).toBeDefined();
+    expect(d?.hint).toMatch(/split/);
+  });
+
+  it('at() on a split IS a list, and passes', () => {
+    const r = run(wrap('if="at(split(Items, \',\'), 1) == 5"'));
+    expect(r.diagnostics.find((x) => x.code === 'TDC260')).toBeUndefined();
+    expect(r.diagnostics.find((x) => x.code === 'TDC261')).toBeUndefined();
+  });
+
+  it('at() with an index that is not one', () => {
+    for (const [expr, shown] of [
+      ["at(split(Items, ','), -1)", '-1'],
+      ["at(split(Items, ','), 1.5)", '1.5'],
+      ["at(split(Items, ','), 'two')", '"two"'],
+    ] as const) {
+      const r = run(wrap(`if="${expr} == 5"`));
+      const d = r.diagnostics.find((x) => x.code === 'TDC261');
+      expect(d, expr).toBeDefined();
+      expect(d?.message).toContain(shown);
+    }
+  });
+
+  it('at() with an index that has to be worked out is left to the run', () => {
+    const r = run(wrap('if="at(split(Items, \',\'), _count - 1) == 5"'));
+    expect(r.diagnostics.find((x) => x.code === 'TDC261')).toBeUndefined();
+  });
+
   it('accepts well-formed expressions', () => {
     const r = run(wrap('if="_count > 5 && _first"'));
     expect(hasErrors(r.diagnostics)).toBe(false);
