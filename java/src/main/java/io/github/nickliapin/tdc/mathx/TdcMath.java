@@ -311,8 +311,33 @@ public final class TdcMath {
     return sum;
   }
 
+  /**
+   * The largest k for which 10^k and 10^-k are both exactly doubles. Past 10^22 a power of ten is
+   * no longer representable, so beyond here "exact" has nothing to mean.
+   */
+  private static final double EXACT_POWER_OF_TEN = 22;
+
+  /**
+   * {@code log10(x)}.
+   *
+   * <p>A power of ten is the argument someone passes to log10, and log(x)/ln10 gets it wrong: it
+   * returned 2.9999999999999996 for 1000. There is no exponent to separate here the way log2
+   * separates a power of two — a double is binary — so the whole answer is checked instead: if
+   * raising ten back to it returns the argument unchanged, it was exact.
+   */
   public static double log10(double x) {
-    return log(x) / 2.302585092994046;
+    double r = log(x) / 2.302585092994046;
+    double whole = r >= 0 ? Math.floor(r + 0.5) : Math.ceil(r - 0.5);
+    if (Math.abs(whole) <= EXACT_POWER_OF_TEN) {
+      // A NEGATIVE power has to be built from the positive one and inverted.
+      // pow(10, -2) squares 1/10, and a tenth is not exact in binary, so the
+      // square misses 0.01; 1 / pow(10, 2) is one rounding of an exact 100.
+      double p = whole >= 0 ? pow(10, whole) : 1 / pow(10, -whole);
+      if (p == x) {
+        return whole;
+      }
+    }
+    return r;
   }
 
   /** The quadrant (0-3) and the remainder in [-pi/4, pi/4], packed so both cross one return. */

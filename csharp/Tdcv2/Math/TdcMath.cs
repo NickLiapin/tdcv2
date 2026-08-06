@@ -309,7 +309,36 @@ internal static class TdcMath
         return sum;
     }
 
-    public static double Log10(double x) => Log(x) / 2.302585092994046;
+    /// <summary>
+    /// The largest k for which 10^k and 10^-k are both exactly doubles. Past 10²² a power of ten
+    /// is no longer representable, so beyond here "exact" has nothing to mean.
+    /// </summary>
+    private const double ExactPowerOfTen = 22;
+
+    /// <summary>
+    /// <c>log10(x)</c>.
+    ///
+    /// <para>A power of ten is the argument someone passes to Log10, and Log(x)/ln10 gets it
+    /// wrong: it returned 2.9999999999999996 for 1000. There is no exponent to separate here the
+    /// way Log2 separates a power of two — a double is binary — so the whole answer is checked
+    /// instead: if raising ten back to it returns the argument unchanged, it was exact.</para>
+    /// </summary>
+    public static double Log10(double x)
+    {
+        double r = Log(x) / 2.302585092994046;
+        double whole = r >= 0
+            ? System.Math.Floor(r + 0.5)
+            : System.Math.Ceiling(r - 0.5);
+        if (System.Math.Abs(whole) <= ExactPowerOfTen)
+        {
+            // A NEGATIVE power has to be built from the positive one and inverted.
+            // Pow(10, -2) squares 1/10, and a tenth is not exact in binary, so the
+            // square misses 0.01; 1 / Pow(10, 2) is one rounding of an exact 100.
+            double p = whole >= 0 ? Pow(10, whole) : 1 / Pow(10, -whole);
+            if (p == x) return whole;
+        }
+        return r;
+    }
 
     /// <summary>The quadrant (0-3) and the remainder in [−π/4, π/4].</summary>
     private static (int Quadrant, double Remainder) ReduceByQuarterTurn(double x)

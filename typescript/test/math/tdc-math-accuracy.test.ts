@@ -290,6 +290,17 @@ describe('TdcMath lands where the true value is', () => {
     expect(TdcMath.exp(1e-20) - 1).toBe(0);
     expect(TdcMath.log(1 + 1e-20)).toBe(0);
     // log2 of a power of two is a whole number, which log(x)/ln2 would miss.
+    // log10 has the same duty and had the same defect: it answered
+    // 2.9999999999999996 for 1000 until a shared case finally called it.
+    expect(TdcMath.log10(1000)).toBe(3);
+    expect(TdcMath.log10(0.001)).toBe(-3);
+    expect(TdcMath.log10(1)).toBe(0);
+    // 10^22 is the largest power of ten that is still a double; past it the
+    // question has no answer to be exact about.
+    expect(TdcMath.log10(1e22)).toBe(22);
+    for (let k = -22; k <= 22; k += 1) {
+      expect(TdcMath.log10(Number(`1e${String(k)}`)), `log10(1e${String(k)})`).toBe(k);
+    }
     expect(TdcMath.log2(8)).toBe(3);
     expect(TdcMath.log2(1024)).toBe(10);
     expect(TdcMath.log2(0.25)).toBe(-2);

@@ -42,10 +42,20 @@ const docText = walk(DOCS, '.mdx')
   .map((f) => readFileSync(f, 'utf8'))
   .join('\n');
 
-/** A name counts as documented if it appears backticked, as an attribute, or as a tag. */
+/**
+ * A name counts as documented if it appears backticked, as an attribute, or as
+ * a tag — or, for an expression function, backticked WITH its bracket.
+ *
+ * The last form was missing when the expression functions joined this audit,
+ * and twenty of them were reported undocumented while sitting in the reference
+ * table the whole time: the table writes them the way a person calls them,
+ * `tan(x)`, and the matcher was only looking for `tan`. The fix belongs here
+ * rather than in the pages — which is the failure mode this file's own header
+ * warns about, arriving from the other direction.
+ */
 function mentioned(name) {
   const q = name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-  return new RegExp(`\`${q}\`|\\b${q}\\s*=|<${q}[\\s/>]|"${q}"`).test(docText);
+  return new RegExp(`\`${q}\`|\`${q}\\(|\\b${q}\\s*=|<${q}[\\s/>]|"${q}"`).test(docText);
 }
 
 const groups = engineGroups();

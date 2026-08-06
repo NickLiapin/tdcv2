@@ -756,6 +756,14 @@
         "lines": ["degrees radians beta digamma zeta zeta-pi2"]
       }
     },
+    "expressions/log10-is-whole-on-a-power-of-ten": {
+      "engine2": {
+        "lines": ["log10-whole log10-negative log10-bits log10-edge"]
+      },
+      "engine3": {
+        "lines": ["log10-whole log10-negative log10-bits log10-edge"]
+      }
+    },
     "formatting/mask-phone": {
       "engine2": {
         "lines": ["555-123-4567"]

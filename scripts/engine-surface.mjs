@@ -105,5 +105,23 @@ export function groups() {
     { id: 'date', title: 'date format tokens', names: dateTokens() },
     { id: 'dist', title: 'distributions', names: casesOf('generators/distribution.ts') },
     { id: 'enc', title: 'encodings', names: listOf('ENCODINGS') },
+    { id: 'fn', title: 'expression functions', names: exprFunctions() },
   ];
+}
+
+/**
+ * Every function name `if=` and `filter=` accept.
+ *
+ * This group was added late, and the cost of its absence is on record: `log10`
+ * sat in the engine for months with no shared case calling it, and kept a defect
+ * nobody could see — `log(x)/ln10` answered 2.9999999999999996 for 1000. Forty-
+ * six of forty-seven functions were covered, which is exactly the shape of gap a
+ * per-group count makes visible and a total does not.
+ */
+function exprFunctions() {
+  const decl = /EXPR_FUNCTIONS[^=]*=\s*\{([\s\S]*?)\n\};/.exec(
+    readFileSync(join(SRC, 'validator', 'known.ts'), 'utf8'),
+  )?.[1];
+  if (decl === undefined) throw new Error('engine-surface: EXPR_FUNCTIONS not found');
+  return [...decl.matchAll(/^\s{2}([a-z0-9_]+):/gm)].map((m) => m[1]);
 }

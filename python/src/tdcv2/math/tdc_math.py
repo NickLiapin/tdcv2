@@ -156,6 +156,16 @@ _EXP_UNDERFLOW = -745.1332191019411
 # The most halvings that keep a value near 1 inside the normal range.
 _DEEPEST_NORMAL_HALVING = 1021
 
+# The largest k for which 10^k and 10^-k are both exactly doubles. Past 10^22 a
+# power of ten is no longer representable, so beyond here "exact" has nothing to
+# mean and the general formula takes over.
+_EXACT_POWER_OF_TEN = 22
+
+
+def _round_half_away(x: float) -> float:
+    """Nearest whole number, halves away from zero — the rule TDC states everywhere."""
+    return math.floor(x + 0.5) if x >= 0 else math.ceil(x - 0.5)
+
 
 # Taylor coefficients for (e^x - 1)/x over x, ascending: 1/(n+1)!.
 _EXPM1_COEFF = (
@@ -272,7 +282,26 @@ def log(x: float) -> float:
 
 
 def log10(x: float) -> float:
-    return log(x) / 2.302585092994046
+    """``log10(x)``.
+
+    A power of ten is the argument someone passes to ``log10``, and ``log(x)/ln10`` gets it wrong:
+    it returned 2.9999999999999996 for 1000. There is no exponent to separate here the way
+    ``log2`` separates a power of two — a double is binary — so the whole answer is checked
+    instead: if raising ten back to it returns the argument unchanged, it was exact.
+
+    The check needs no tolerance: ``pow`` with a whole exponent goes through repeated squaring, so
+    the equality IS the test.
+    """
+    r = log(x) / 2.302585092994046
+    whole = _round_half_away(r)
+    if abs(whole) <= _EXACT_POWER_OF_TEN:
+        # A NEGATIVE power has to be built from the positive one and inverted.
+        # pow(10, -2) squares 1/10, and a tenth is not exact in binary, so the
+        # square misses 0.01; 1 / pow(10, 2) is one rounding of an exact 100.
+        p = pow(10.0, whole) if whole >= 0 else 1 / pow(10.0, -whole)
+        if p == x:
+            return float(whole)
+    return r
 
 
 def _reduce_by_quarter_turn(x: float) -> tuple[int, float]:

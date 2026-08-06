@@ -102,6 +102,10 @@ const PROBE = {
   // needed writing for a different reason — and taught them not to believe the
   // next report.
   enc: (n) => new RegExp(`as=\\\\?"${quote(n)}\\\\?"`).test(DATA),
+  // A function is exercised when a case CALLS it. Matching the bare name would
+  // pass on any case that merely happened to contain the letters — `min` lives
+  // inside `missing`, `len` inside `length` — so the open bracket is the point.
+  fn: (n) => new RegExp(`\\b${quote(n)}\\s*\\(`).test(DATA),
 };
 
 /**
