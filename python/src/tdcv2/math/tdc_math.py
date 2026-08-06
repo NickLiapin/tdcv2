@@ -28,6 +28,8 @@ PI = 3.141592653589793
 E = 2.718281828459045
 
 # ln 2, split so `k * LN2_HI` keeps the low bits a single constant would drop.
+# The constant carries 21 zero low bits, so any k this reduction produces
+# multiplies without rounding.
 _LN2_HI = 0.6931471803691238
 _LN2_LO = 1.9082149292705877e-10
 _LN2 = 0.6931471805599453
@@ -39,6 +41,12 @@ _PIO2_1 = 1.5707963267341256
 _PIO2_2 = 6.077100506506192e-11
 _PIO2_3 = 2.0222662487959506e-21
 
+# pi/4 and 3pi/4 — the quadrant answers atan2 returns.
+_PIO4 = 0.7853981633974483
+_PI3O4 = 2.356194490192345
+
+# Taylor coefficients for (sin(r) - r)/r^3 over r^2, ascending. The count is set
+# by the WORST point of the reduced interval, |r| = pi/4, not by a typical one.
 _SIN_COEFF = (
     -1 / 6,
     1 / 120,
@@ -47,8 +55,12 @@ _SIN_COEFF = (
     -1 / 39916800,
     1 / 6227020800,
     -1 / 1307674368000,
+    1 / 355687428096000,
 )
 
+# Taylor coefficients for (cos(r) - 1)/r^2 over r^2, ascending. The last two are
+# not optional: stopping at 1/14! is 13 ulp out at |r| = pi/4, and sin and tan
+# both inherit that, since half of all arguments route through this series.
 _COS_COEFF = (
     -1 / 2,
     1 / 24,
@@ -57,10 +69,100 @@ _COS_COEFF = (
     -1 / 3628800,
     1 / 479001600,
     -1 / 87178291200,
+    1 / 20922789888000,
+    -1 / 6402373705728000,
+)
+
+# Taylor coefficients for e^r over r, ascending: 1/n!. Horner rather than a
+# forward recurrence, which rounds twice per term and carries the error forward:
+# 4 ulp against 1 for the same number of terms.
+_EXP_COEFF = (
+    1,
+    1,
+    1 / 2,
+    1 / 6,
+    1 / 24,
+    1 / 120,
+    1 / 720,
+    1 / 5040,
+    1 / 40320,
+    1 / 362880,
+    1 / 3628800,
+    1 / 39916800,
+    1 / 479001600,
+    1 / 6227020800,
+    1 / 87178291200,
+    1 / 1307674368000,
+)
+
+# Taylor coefficients for atan(t)/t over t^2, ascending. Twenty-four, because
+# the reduction halves the argument ONCE and no more: one halving with this many
+# terms measures 2 ulp, two halvings with sixteen measures 3, three with twelve
+# measures 4. Series terms are cheaper than reduction steps here.
+_ATAN_COEFF = (
+    1,
+    -1 / 3,
+    1 / 5,
+    -1 / 7,
+    1 / 9,
+    -1 / 11,
+    1 / 13,
+    -1 / 15,
+    1 / 17,
+    -1 / 19,
+    1 / 21,
+    -1 / 23,
+    1 / 25,
+    -1 / 27,
+    1 / 29,
+    -1 / 31,
+    1 / 33,
+    -1 / 35,
+    1 / 37,
+    -1 / 39,
+    1 / 41,
+    -1 / 43,
+    1 / 45,
+    -1 / 47,
+)
+
+# Taylor coefficients for sinh(x)/x over x^2, ascending: 1/(2n+1)!.
+_SINH_COEFF = (
+    1,
+    1 / 6,
+    1 / 120,
+    1 / 5040,
+    1 / 362880,
+    1 / 39916800,
+    1 / 6227020800,
+    1 / 1307674368000,
+)
+
+# Taylor coefficients for cosh(x) over x^2, ascending: 1/(2n)!.
+_COSH_COEFF = (
+    1,
+    1 / 2,
+    1 / 24,
+    1 / 720,
+    1 / 40320,
+    1 / 3628800,
+    1 / 479001600,
+    1 / 87178291200,
 )
 
 _EXP_OVERFLOW = 709.782712893384
 _EXP_UNDERFLOW = -745.1332191019411
+
+# The most halvings that keep a value near 1 inside the normal range.
+_DEEPEST_NORMAL_HALVING = 1021
+
+
+def _horner(coeff: tuple[float, ...], z: float) -> float:
+    """Horner over z, ascending coefficients — the shape every series here uses."""
+    total = 0.0
+    for i in range(len(coeff) - 1, -1, -1):
+        total = total * z + coeff[i]
+    return total
 
 
 def sqrt(x: float) -> float:
@@ -70,17 +172,35 @@ def sqrt(x: float) -> float:
     return math.sqrt(x)
 
 
-def _scale_by_power_of_two(value: float, n: int) -> float:
-    """``value * 2**n`` by exact doubling — a power of two is exact in binary."""
+def _halve_times(value: float, count: int) -> float:
+    """Halve ``value`` exactly ``count`` times. Exact while the result stays normal."""
     out = value
-    k = n
-    while k > 0:
-        out *= 2
-        k -= 1
-    while k < 0:
+    for _ in range(count):
         out /= 2
-        k += 1
     return out
+
+
+def _scale_by_power_of_two(value: float, n: int) -> float:
+    """``value * 2**n`` for ``value`` near 1.
+
+    Stepping one power at a time is exact — while the numbers stay normal. Below 2^-1022 they are
+    not: a subnormal has fewer bits than it started with, and every further halving rounds again.
+    Halving all the way down that way threw away most of the answer: exp(-730) came back
+    9.22631e-318 against a true 9.226315e-318, and exp(-745) came back 0 against 5e-324.
+
+    So a deep scaling is split: down to the edge of the normal range in exact steps, then ONE
+    multiplication by a small power of two — itself exact, being no smaller than 2^-54.
+    """
+    if n >= -_DEEPEST_NORMAL_HALVING:
+        out = value
+        k = n
+        while k > 0:
+            out *= 2
+            k -= 1
+        return _halve_times(out, -k)
+    at_the_edge = _halve_times(value, _DEEPEST_NORMAL_HALVING)
+    remainder = _halve_times(1.0, -(n + _DEEPEST_NORMAL_HALVING))
+    return at_the_edge * remainder
 
 
 def exp(x: float) -> float:
@@ -93,12 +213,7 @@ def exp(x: float) -> float:
         return 0.0
     k = math.trunc(x / _LN2 + (0.5 if x >= 0 else -0.5))
     r = x - k * _LN2_HI - k * _LN2_LO
-    term = 1.0
-    total = 1.0
-    for i in range(1, 14):
-        term = term * r / i
-        total += term
-    return _scale_by_power_of_two(total, k)
+    return _scale_by_power_of_two(_horner(_EXP_COEFF, r), k)
 
 
 def log(x: float) -> float:
@@ -138,18 +253,12 @@ def _reduce_by_quarter_turn(x: float) -> tuple[int, float]:
 
 def _sin_core(r: float) -> float:
     z = r * r
-    total = 0.0
-    for i in range(len(_SIN_COEFF) - 1, -1, -1):
-        total = total * z + _SIN_COEFF[i]
-    return r + r * z * total
+    return r + r * z * _horner(_SIN_COEFF, z)
 
 
 def _cos_core(r: float) -> float:
     z = r * r
-    total = 0.0
-    for i in range(len(_COS_COEFF) - 1, -1, -1):
-        total = total * z + _COS_COEFF[i]
-    return 1 + z * total
+    return 1 + z * _horner(_COS_COEFF, z)
 
 
 def sin(x: float) -> float:
@@ -188,11 +297,24 @@ def tan(x: float) -> float:
     return s / c if quadrant % 2 == 0 else -c / s
 
 
-def pow(x: float, y: float) -> float:
-    """An integer exponent goes through repeated squaring: ``pow(10, 3)`` is exactly 1000.
+def _repeated_squaring(base: float, exponent: int) -> float:
+    result = 1.0
+    b = base
+    n = exponent
+    while n > 0:
+        if n % 2 == 1:
+            result *= b
+        b *= b
+        n = n // 2
+    return result
 
-    The name shadows the builtin inside this module, deliberately: it is the name the expression
-    language uses, and nothing here calls the builtin.
+
+def pow(x: float, y: float) -> float:
+    """``pow(x, y)``.
+
+    An integer exponent goes through repeated squaring: pow(10, 3) is exactly 1000. The name
+    shadows the builtin inside this module, deliberately: it is the name the expression language
+    uses, and nothing here calls the builtin.
     """
     if y != y:
         return math.nan
@@ -201,17 +323,201 @@ def pow(x: float, y: float) -> float:
     if x != x:
         return math.nan
     if y == math.trunc(y) and not math.isinf(y) and abs(y) <= 1024:
-        result = 1.0
-        base = 1 / x if y < 0 else x
-        n = int(abs(y))
-        while n > 0:
-            if n % 2 == 1:
-                result *= base
-            base *= base
-            n = n // 2
-        return result
+        return _repeated_squaring(1 / x if y < 0 else x, int(abs(y)))
+    # A negative base with a fractional exponent has no real answer, and saying
+    # so is better than returning whatever the general route would produce.
     if x < 0:
         return math.nan
     if x == 0:
         return 0.0 if y > 0 else math.inf
+    # A half-integer exponent is the fractional one people actually write, and
+    # x^(n/2) is (sqrt x)^n — both halves exact. Without this, pow(100, 0.5) came
+    # back 9.999999999999998 and pow(9, 1.5) 26.99999999999999.
+    half = 2 * y
+    if half == math.trunc(half) and abs(half) <= 2048:
+        root = math.sqrt(x)
+        return _repeated_squaring(1 / root if half < 0 else root, int(abs(half)))
     return exp(y * log(x))
+
+
+# ── The second wave: inverses and hyperbolics ─────────────────────────────────
+#
+# Same rule as everything above: + - * /, math.sqrt, and the functions this
+# module already built. Nothing here calls a transcendental of the host.
+
+
+def _atan_half(t: float) -> float:
+    """Half-angle for the arctangent: ``atan(t) = 2*atan(h(t))``. Built from sqrt alone."""
+    return t / (1 + math.sqrt(1 + t * t))
+
+
+def _atan_core(t: float) -> float:
+    """``atan`` on [0, 1], halved once so the series runs on |t| <= 0.4143."""
+    h = _atan_half(t)
+    return 2 * (h * _horner(_ATAN_COEFF, h * h))
+
+
+def atan(x: float) -> float:
+    """``atan(x)`` — the arctangent, in radians, over the whole real line."""
+    if x != x:
+        return math.nan
+    if x == math.inf:
+        return _PIO2
+    if x == -math.inf:
+        return -_PIO2
+    sign = -1 if x < 0 else 1
+    a = abs(x)
+    r = _PIO2 - _atan_core(1 / a) if a > 1 else _atan_core(a)
+    return sign * r
+
+
+def atan2(y: float, x: float) -> float:
+    """``atan2(y, x)`` — the angle of the point (x, y), in radians, over (-pi, pi].
+
+    The quadrant cannot be recovered from ``y/x`` alone: the ratio is the same in opposite
+    quadrants, which is the whole reason this function exists separately from ``atan``.
+    """
+    if y != y or x != x:
+        return math.nan
+    y_inf = math.isinf(y)
+    x_inf = math.isinf(x)
+    if y_inf and x_inf:
+        magnitude = _PIO4 if x > 0 else _PI3O4
+        return magnitude if y > 0 else -magnitude
+    if y_inf:
+        return _PIO2 if y > 0 else -_PIO2
+    if x_inf:
+        if x > 0:
+            return 0.0
+        return -PI if y < 0 else PI
+    if x == 0 and y == 0:
+        return 0.0
+    if x == 0:
+        return _PIO2 if y > 0 else -_PIO2
+    if y == 0:
+        return 0.0 if x > 0 else PI
+    r = atan(y / x)
+    if x > 0:
+        return r
+    return r + PI if y > 0 else r - PI
+
+
+def _asin_small(a: float) -> float:
+    """``asin`` on [0, 0.5], where ``1 - a*a`` keeps every bit it started with."""
+    return atan(a / math.sqrt(1 - a * a))
+
+
+def asin(x: float) -> float:
+    """``asin(x)`` — the arcsine, in radians, over [-1, 1].
+
+    Past a half the direct route would compute ``1 - a*a`` with a and 1 nearly equal, and lose most
+    of its digits before sqrt ever saw them. The half-angle identity moves the subtraction to
+    ``1 - a``, which is exact in that range, and lands back on the branch above.
+    """
+    if x != x:
+        return math.nan
+    sign = -1 if x < 0 else 1
+    a = abs(x)
+    if a > 1:
+        return math.nan
+    if a == 1:
+        return sign * _PIO2
+    if a <= 0.5:
+        return sign * _asin_small(a)
+    return sign * (_PIO2 - 2 * _asin_small(math.sqrt((1 - a) / 2)))
+
+
+def acos(x: float) -> float:
+    """``acos(x)`` — the arccosine, in radians, over [-1, 1].
+
+    Not ``pi/2 - asin(x)`` everywhere: near x = 1 the answer approaches zero, and that subtraction
+    would compute it as the difference of two numbers that are nearly pi/2, throwing away every
+    digit that matters.
+    """
+    if x != x:
+        return math.nan
+    if x > 1 or x < -1:
+        return math.nan
+    if x == 1:
+        return 0.0
+    if x == -1:
+        return PI
+    if x >= 0.5:
+        return 2 * _asin_small(math.sqrt((1 - x) / 2))
+    if x <= -0.5:
+        return PI - 2 * _asin_small(math.sqrt((1 + x) / 2))
+    return _PIO2 - _asin_small(abs(x)) * (-1 if x < 0 else 1)
+
+
+def sinh(x: float) -> float:
+    """``sinh(x)`` — below a half the exponential route would cancel the answer away."""
+    if x != x or math.isinf(x):
+        return x
+    a = abs(x)
+    if a < 0.5:
+        return x * _horner(_SINH_COEFF, x * x)
+    sign = -1 if x < 0 else 1
+    # Past this point e^x overflows but sinh(x) still fits, so the halving is
+    # folded into the exponent rather than applied after it.
+    if a > 709:
+        return sign * exp(a - _LN2)
+    t = exp(a)
+    return sign * (t - 1 / t) / 2
+
+
+def cosh(x: float) -> float:
+    """``cosh(x)`` — a sum rather than a difference, so nothing cancels."""
+    if x != x:
+        return math.nan
+    if math.isinf(x):
+        return math.inf
+    a = abs(x)
+    if a < 0.5:
+        return _horner(_COSH_COEFF, x * x)
+    if a > 709:
+        return exp(a - _LN2)
+    t = exp(a)
+    return (t + 1 / t) / 2
+
+
+def tanh(x: float) -> float:
+    """``tanh(x)`` — past 20 the true value is within 1e-17 of 1, closer than the next double."""
+    if x != x:
+        return math.nan
+    sign = -1 if x < 0 else 1
+    if math.isinf(x):
+        return float(sign)
+    a = abs(x)
+    if a > 20:
+        return float(sign)
+    if a < 0.5:
+        z = x * x
+        return x * _horner(_SINH_COEFF, z) / _horner(_COSH_COEFF, z)
+    u = exp(2 * a)
+    return sign * (u - 1) / (u + 1)
+
+
+def cbrt(x: float) -> float:
+    """``cbrt(x)`` — the cube root, defined for negatives too.
+
+    ``pow(x, 1/3)`` is not the same function: one third is not a double, and a negative base with a
+    fractional exponent has no real answer at all. So this is its own function, reduced by powers
+    of eight — exact, being powers of two — and then refined by Newton's method.
+    """
+    if x != x or math.isinf(x) or x == 0:
+        return x
+    sign = -1 if x < 0 else 1
+    a = abs(x)
+    e = 0
+    while a >= 8:
+        a /= 8
+        e += 1
+    while a < 1:
+        a *= 8
+        e -= 1
+    # A straight line through the ends of [1, 8): within 11% everywhere, which
+    # six Newton passes take past the last bit.
+    y = 1 + (a - 1) / 7
+    for _ in range(6):
+        y = (2 * y + a / (y * y)) / 3
+    return sign * _scale_by_power_of_two(y, e)

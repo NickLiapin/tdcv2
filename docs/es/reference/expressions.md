@@ -105,6 +105,10 @@ columna de texto contra una lista de palabras numéricas sigue coincidiendo.
 | `exp(x)`                   | 1          | e elevado a x                                      |
 | `log(x)` `log10(x)`        | 1          | logaritmo natural / decimal                        |
 | `sin(x)` `cos(x)` `tan(x)` | 1          | funciones circulares, en **radianes**              |
+| `asin(x)` `acos(x)` `atan(x)` | 1       | sus inversas, en radianes                          |
+| `atan2(y, x)`              | 2          | el ángulo del punto (x, y), sobre (−π, π]          |
+| `sinh(x)` `cosh(x)` `tanh(x)` | 1       | funciones hiperbólicas                             |
+| `cbrt(x)`                  | 1          | raíz cúbica — también de negativos, a diferencia de `pow` |
 
 Todo lo que está por encima de la raya es exacto: construido con comparaciones y con la
 aritmética que IEEE-754 fija sin ambigüedad, así que las cinco implementaciones no pueden
@@ -142,10 +146,26 @@ tiene paso de redondeo, así que ese bit se vuelve otra fila y otro archivo — 
 herramienta cuya promesa entera es que cinco implementaciones producen los mismos bytes.
 
 Por eso TDC las calcula por sí mismo, igual que ya calcula sus propios números aleatorios en
-vez de confiar en los de cada lenguaje. Los resultados caen dentro de unos 2 ulp del valor
-verdadero — el mismo vecindario que ocupa una libm — y, mucho más importante, sobre el
-**mismo** double en las cinco. Coincidir con una libm concreta no es el objetivo ni podría
-serlo: las libms no coinciden entre sí.
+vez de confiar en los de cada lenguaje. Cada una cae dentro de **4 ulp** del valor verdadero —
+el mismo vecindario que ocupa una libm — y, mucho más importante, sobre el **mismo** double en
+las cinco. Coincidir con una libm concreta no es el objetivo ni podría serlo: las libms no
+coinciden entre sí.
+
+Ese 4 se comprueba, no se afirma, sobre mallas que llegan a los extremos del rango de cada
+función. Los extremos son lo que importa: una serie truncada dos términos antes de tiempo es
+invisible en mitad de un intervalo y se desvía trece ulp en el borde — que es exactamente el
+fallo tras el cual se escribió la comprobación.
+
+`pow` es la única con una cota más ancha, por una razón que conviene conocer:
+
+| exponente | cómo se calcula | desviación |
+| :--- | :--- | :--- |
+| entero, o un medio | elevación al cuadrado, `sqrt` para el medio | crece con el exponente: ~4 ulp en 3, ~22 en 20 |
+| cualquier otro | `exp(y · log x)` | crece con \|y · log x\|: ~2 ulp en 1, ~457 en 400 |
+
+Ambas son amplificación, no un defecto: elevar al cuadrado duplica el error recibido, y `exp`
+convierte un error absoluto en su argumento en uno relativo en su respuesta. Doce cifras
+significativas sobreviven en los dos casos.
 
 ```xml
 <sequence name="Month"><gen type="increment" value="1"/></sequence>
@@ -183,17 +203,21 @@ sola vez.
 
 ## Lo que falta a propósito
 
-**El resto de la biblioteca matemática.** `sinh`, `cosh`, `tanh`, `asin`, `acos`, `atan`,
-`atan2` y `cbrt` se rechazan por nombre en lugar de adivinarse:
+**El resto de la biblioteca matemática.** `asinh`, `acosh`, `atanh`, `log2`, `log1p`, `expm1`,
+`hypot`, `sign`, `degrees` y `radians` se rechazan por nombre en lugar de adivinarse:
 
 `tdcv2 check seasonal.tdc`
 
 ```
-error[TDC257]: sinh() is not available yet in an if expression
+error[TDC257]: atanh() is not available yet in an if expression
 ```
 
+Fíjese en lo que NO dice: «¿quiso decir `atan`?». La distancia de edición habría ofrecido justo
+eso, y `atan` es la inversa de otra función distinta. Un nombre de esta lista recibe la razón,
+no una conjetura.
+
 Cada una hay que construirla y fijarla bit a bit en cinco lenguajes antes de poder ofrecerla,
-que es la única razón por la que todavía no está aquí.
+que es lo único que la mantiene en la lista.
 
 **Bucles y recursión.** El motor se elige a partir de la configuración antes de generar una
 fila, [`preflight()`](../guides/large-outputs.md#top) estima la memoria antes de la corrida, y

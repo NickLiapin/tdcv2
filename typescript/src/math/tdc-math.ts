@@ -60,7 +60,15 @@ const PIO2_1 = 1.5707963267341256;
 const PIO2_2 = 6.077100506506192e-11;
 const PIO2_3 = 2.0222662487959506e-21;
 
-/** Taylor coefficients for sin(r)/r − 1 over r², highest power first in use. */
+/**
+ * Taylor coefficients for (sin(r) − r)/r³ over r², ascending: ∓1/(2n+3)!.
+ *
+ * The count is set by the WORST point of the reduced interval, |r| = π/4, not
+ * by a typical one. Stopping at 1/15! leaves a first-omitted term of 6·10⁻¹⁷
+ * there — half an ulp, which is the edge of acceptable; 1/17! puts it at
+ * 8·10⁻²⁰ and settles it. Measuring accuracy on a narrow sample would have
+ * missed the difference entirely, because it only shows at the ends.
+ */
 const SIN_COEFF = [
   -1 / 6,
   1 / 120,
@@ -69,9 +77,17 @@ const SIN_COEFF = [
   -1 / 39916800,
   1 / 6227020800,
   -1 / 1307674368000,
+  1 / 355687428096000,
 ];
 
-/** Taylor coefficients for cos(r) − 1 over r². */
+/**
+ * Taylor coefficients for (cos(r) − 1)/r² over r², ascending: ∓1/(2n+2)!.
+ *
+ * Nine of them, and the last two are not optional. At |r| = π/4 a series that
+ * stops at 1/14! is off by 1.4·10⁻¹⁵ — thirteen ulp — and `sin` and `tan` both
+ * inherit that, since a quarter-turn reduction routes half of all arguments
+ * through this series and `tan` divides by it.
+ */
 const COS_COEFF = [
   -1 / 2,
   1 / 24,
@@ -80,6 +96,35 @@ const COS_COEFF = [
   -1 / 3628800,
   1 / 479001600,
   -1 / 87178291200,
+  1 / 20922789888000,
+  -1 / 6402373705728000,
+];
+
+/**
+ * Taylor coefficients for eʳ over r, ascending: 1/n!.
+ *
+ * Horner rather than the forward recurrence `term = term·r/i` this used to run.
+ * Both truncate at the same place, but the recurrence rounds twice per term and
+ * carries that error into the next one, which measured 4 ulp against 1 for the
+ * same number of terms.
+ */
+const EXP_COEFF = [
+  1,
+  1,
+  1 / 2,
+  1 / 6,
+  1 / 24,
+  1 / 120,
+  1 / 720,
+  1 / 5040,
+  1 / 40320,
+  1 / 362880,
+  1 / 3628800,
+  1 / 39916800,
+  1 / 479001600,
+  1 / 6227020800,
+  1 / 87178291200,
+  1 / 1307674368000,
 ];
 
 /** The largest and smallest arguments `exp` can answer with a finite double. */
@@ -97,29 +142,53 @@ export function sqrt(x: number): number {
   return Math.sqrt(x);
 }
 
-/** `2^n` for an integer n, by exact doubling — a power of two is exact in binary. */
-function scaleByPowerOfTwo(value: number, n: number): number {
+/** Halve `value` exactly `count` times. Exact while the result stays normal. */
+function halveTimes(value: number, count: number): number {
   let out = value;
-  let k = n;
-  // Stepping one power at a time keeps every intermediate a normal double for
-  // the range `exp` allows, and each multiplication is exact.
-  while (k > 0) {
-    out *= 2;
-    k -= 1;
-  }
-  while (k < 0) {
+  for (let i = 0; i < count; i += 1) {
     out /= 2;
-    k += 1;
   }
   return out;
+}
+
+/** The most halvings that keep a value near 1 inside the normal range. */
+const DEEPEST_NORMAL_HALVING = 1021;
+
+/**
+ * `value · 2^n` for an integer n, with `value` near 1.
+ *
+ * Stepping one power at a time is exact — while the numbers stay normal. Below
+ * 2⁻¹⁰²² they do not: a subnormal has fewer bits than it started with, and
+ * every further halving rounds again. Halving all the way down from 1 to 2⁻¹⁰⁷⁴
+ * that way threw away most of the answer — `exp(-730)` came back
+ * 9.22631e-318 against a true 9.226315e-318, and `exp(-745)` came back 0
+ * against 5e-324.
+ *
+ * So a deep scaling is split: down to the edge of the normal range in exact
+ * steps, then ONE multiplication by a small power of two — itself exact, being
+ * no smaller than 2⁻⁵⁴ — which rounds once and only once.
+ */
+function scaleByPowerOfTwo(value: number, n: number): number {
+  if (n >= -DEEPEST_NORMAL_HALVING) {
+    let out = value;
+    let k = n;
+    while (k > 0) {
+      out *= 2;
+      k -= 1;
+    }
+    return halveTimes(out, -k);
+  }
+  const atTheEdge = halveTimes(value, DEEPEST_NORMAL_HALVING);
+  const remainder = halveTimes(1, -(n + DEEPEST_NORMAL_HALVING));
+  return atTheEdge * remainder;
 }
 
 /**
  * `exp(x)` — range-reduced to `2^k · e^r` with |r| ≤ ln2/2, then Taylor.
  *
- * Thirteen terms take |r| ≤ 0.347 well past double precision; the series is
- * evaluated forward because each term is the previous one times `r/i`, which
- * costs one multiply and one divide and needs no coefficient table.
+ * `k · LN2_HI` is exact: the constant carries 21 zero low bits, so any k this
+ * reduction can produce multiplies without rounding, and the subtraction keeps
+ * every digit a single ln2 constant would have thrown away.
  */
 export function exp(x: number): number {
   if (Number.isNaN(x)) return Number.NaN;
@@ -127,11 +196,9 @@ export function exp(x: number): number {
   if (x < EXP_UNDERFLOW) return 0;
   const k = Math.trunc(x / LN2 + (x >= 0 ? 0.5 : -0.5));
   const r = x - k * LN2_HI - k * LN2_LO;
-  let term = 1;
-  let sum = 1;
-  for (let i = 1; i <= 13; i += 1) {
-    term = (term * r) / i;
-    sum += term;
+  let sum = 0;
+  for (let i = EXP_COEFF.length - 1; i >= 0; i -= 1) {
+    sum = sum * r + (EXP_COEFF[i] ?? 0);
   }
   return scaleByPowerOfTwo(sum, k);
 }
@@ -243,24 +310,308 @@ export function tan(x: number): number {
  * rather than 999.9999999999998, and a config that compares against a round
  * number would notice the difference. Everything else is `exp(y · log(x))`.
  */
+function repeatedSquaring(base: number, exponent: number): number {
+  let result = 1;
+  let b = base;
+  let n = exponent;
+  while (n > 0) {
+    if (n % 2 === 1) result *= b;
+    b *= b;
+    n = Math.trunc(n / 2);
+  }
+  return result;
+}
+
 export function pow(x: number, y: number): number {
   if (Number.isNaN(y)) return Number.NaN;
   if (y === 0) return 1;
   if (Number.isNaN(x)) return Number.NaN;
   if (Number.isInteger(y) && Math.abs(y) <= 1024) {
-    let result = 1;
-    let base = y < 0 ? 1 / x : x;
-    let n = Math.abs(y);
-    while (n > 0) {
-      if (n % 2 === 1) result *= base;
-      base *= base;
-      n = Math.trunc(n / 2);
-    }
-    return result;
+    return repeatedSquaring(y < 0 ? 1 / x : x, Math.abs(y));
   }
   // A negative base with a fractional exponent has no real answer, and saying
   // so is better than returning whatever the general route would produce.
   if (x < 0) return Number.NaN;
   if (x === 0) return y > 0 ? 0 : Number.POSITIVE_INFINITY;
+  // A half-integer exponent is the fractional one people actually write, and
+  // `x^(n/2)` is `(√x)^n` — both halves exact. Without this, `pow(100, 0.5)`
+  // came back 9.999999999999998 and `pow(9, 1.5)` 26.99999999999999, which is
+  // the same round-number problem the integer path exists to avoid.
+  const half = 2 * y;
+  if (Number.isInteger(half) && Math.abs(half) <= 2048) {
+    const root = Math.sqrt(x);
+    return repeatedSquaring(half < 0 ? 1 / root : root, Math.abs(half));
+  }
   return exp(y * log(x));
+}
+
+/* ── The second wave: inverses and hyperbolics ────────────────────────────────
+ *
+ * Same rule as everything above: `+ - * /`, `Math.sqrt`, and the functions this
+ * file already built. Nothing here calls a transcendental of the host.
+ */
+
+/** π/2, π/4 and 3π/4 as their nearest doubles — the quadrant answers `atan2` returns. */
+const PIO4 = 0.7853981633974483;
+const PI3O4 = 2.356194490192345;
+
+/**
+ * Taylor coefficients for atan(t)/t over t², ascending: ∓1/(2n+1).
+ *
+ * Twenty-four, because the reduction below halves the argument ONCE and no
+ * more. Each halving costs a `sqrt`, a divide and their roundings; measured
+ * against the host, one halving with this many terms lands at 2 ulp, two
+ * halvings with sixteen at 3, and three with twelve at 4. Series terms are
+ * cheaper than reduction steps here, which is the opposite of the usual advice
+ * and the reason this is written down.
+ */
+const ATAN_COEFF = [
+  1,
+  -1 / 3,
+  1 / 5,
+  -1 / 7,
+  1 / 9,
+  -1 / 11,
+  1 / 13,
+  -1 / 15,
+  1 / 17,
+  -1 / 19,
+  1 / 21,
+  -1 / 23,
+  1 / 25,
+  -1 / 27,
+  1 / 29,
+  -1 / 31,
+  1 / 33,
+  -1 / 35,
+  1 / 37,
+  -1 / 39,
+  1 / 41,
+  -1 / 43,
+  1 / 45,
+  -1 / 47,
+];
+
+/** Taylor coefficients for sinh(x)/x over x², ascending: 1/(2n+1)!. */
+const SINH_COEFF = [
+  1,
+  1 / 6,
+  1 / 120,
+  1 / 5040,
+  1 / 362880,
+  1 / 39916800,
+  1 / 6227020800,
+  1 / 1307674368000,
+];
+
+/** Taylor coefficients for cosh(x) over x², ascending: 1/(2n)!. */
+const COSH_COEFF = [
+  1,
+  1 / 2,
+  1 / 24,
+  1 / 720,
+  1 / 40320,
+  1 / 3628800,
+  1 / 479001600,
+  1 / 87178291200,
+];
+
+/** Horner over z, ascending coefficients — the shape every series here uses. */
+function horner(coeff: readonly number[], z: number): number {
+  let sum = 0;
+  for (let i = coeff.length - 1; i >= 0; i -= 1) {
+    sum = sum * z + (coeff[i] ?? 0);
+  }
+  return sum;
+}
+
+/**
+ * Half-angle for the arctangent: `atan(t) = 2·atan(h(t))`.
+ *
+ * Built from `sqrt` alone, so it is as well-defined as `sqrt` is.
+ */
+function atanHalf(t: number): number {
+  return t / (1 + Math.sqrt(1 + t * t));
+}
+
+/** `atan` on [0, 1], halved once so the series runs on |t| ≤ 0.4143. */
+function atanCore(t: number): number {
+  const h = atanHalf(t);
+  return 2 * (h * horner(ATAN_COEFF, h * h));
+}
+
+/**
+ * `atan(x)` — the arctangent, in radians, over the whole real line.
+ *
+ * Above 1 the argument is flipped with `atan(x) = π/2 − atan(1/x)`, which keeps
+ * the series on the interval it was built for and makes the infinities fall out
+ * for free.
+ */
+export function atan(x: number): number {
+  if (Number.isNaN(x)) return Number.NaN;
+  if (x === Number.POSITIVE_INFINITY) return PIO2;
+  if (x === Number.NEGATIVE_INFINITY) return -PIO2;
+  const sign = x < 0 ? -1 : 1;
+  const a = Math.abs(x);
+  const r = a > 1 ? PIO2 - atanCore(1 / a) : atanCore(a);
+  return sign * r;
+}
+
+/**
+ * `atan2(y, x)` — the angle of the point (x, y), in radians, over (−π, π].
+ *
+ * The quadrant cannot be recovered from `y/x` alone: the ratio is the same in
+ * opposite quadrants, which is the whole reason this function exists separately
+ * from `atan`.
+ */
+export function atan2(y: number, x: number): number {
+  if (Number.isNaN(y) || Number.isNaN(x)) return Number.NaN;
+  const yInf = !Number.isFinite(y);
+  const xInf = !Number.isFinite(x);
+  if (yInf && xInf) {
+    const magnitude = x > 0 ? PIO4 : PI3O4;
+    return y > 0 ? magnitude : -magnitude;
+  }
+  if (yInf) return y > 0 ? PIO2 : -PIO2;
+  if (xInf) {
+    // Plain zero rather than negative zero: the five implementations have to
+    // agree, and a signed zero is one more thing for four ports to get subtly
+    // different. Nothing downstream can tell them apart — it renders as "0"
+    // and compares equal to 0.
+    if (x > 0) return 0;
+    return y < 0 ? -PI : PI;
+  }
+  if (x === 0 && y === 0) return 0;
+  if (x === 0) return y > 0 ? PIO2 : -PIO2;
+  if (y === 0) return x > 0 ? 0 : PI;
+  const r = atan(y / x);
+  if (x > 0) return r;
+  return y > 0 ? r + PI : r - PI;
+}
+
+/** `asin` on [0, 0.5], where `1 − a²` keeps every bit it started with. */
+function asinSmall(a: number): number {
+  return atan(a / Math.sqrt(1 - a * a));
+}
+
+/**
+ * `asin(x)` — the arcsine, in radians, over [−1, 1].
+ *
+ * Past a half the direct route would compute `1 − a²` with a and 1 nearly
+ * equal, and lose most of its digits before `sqrt` ever saw them. The
+ * half-angle identity `asin(a) = π/2 − 2·asin(√((1−a)/2))` moves the
+ * subtraction to `1 − a`, which is exact in that range, and lands back on the
+ * branch above.
+ */
+export function asin(x: number): number {
+  if (Number.isNaN(x)) return Number.NaN;
+  const sign = x < 0 ? -1 : 1;
+  const a = Math.abs(x);
+  if (a > 1) return Number.NaN;
+  if (a === 1) return sign * PIO2;
+  if (a <= 0.5) return sign * asinSmall(a);
+  return sign * (PIO2 - 2 * asinSmall(Math.sqrt((1 - a) / 2)));
+}
+
+/**
+ * `acos(x)` — the arccosine, in radians, over [−1, 1].
+ *
+ * Not `π/2 − asin(x)` everywhere: near x = 1 the answer approaches zero, and
+ * that subtraction would compute it as the difference of two numbers that are
+ * nearly π/2, throwing away every digit that matters. Each end gets the form
+ * that keeps them.
+ */
+export function acos(x: number): number {
+  if (Number.isNaN(x)) return Number.NaN;
+  if (x > 1 || x < -1) return Number.NaN;
+  if (x === 1) return 0;
+  if (x === -1) return PI;
+  if (x >= 0.5) return 2 * asinSmall(Math.sqrt((1 - x) / 2));
+  if (x <= -0.5) return PI - 2 * asinSmall(Math.sqrt((1 + x) / 2));
+  return PIO2 - asinSmall(Math.abs(x)) * (x < 0 ? -1 : 1);
+}
+
+/**
+ * `sinh(x)` — the hyperbolic sine.
+ *
+ * Below a half the exponential route would compute `eˣ − e⁻ˣ` with the two
+ * nearly equal and cancel away the answer, so the series takes over there.
+ * Above it there is no cancellation left to fear.
+ */
+export function sinh(x: number): number {
+  if (Number.isNaN(x) || !Number.isFinite(x)) return x;
+  const a = Math.abs(x);
+  if (a < 0.5) return x * horner(SINH_COEFF, x * x);
+  const sign = x < 0 ? -1 : 1;
+  // Past this point eˣ overflows but sinh(x) still fits, so the halving is
+  // folded into the exponent rather than applied after it.
+  if (a > 709) return sign * exp(a - LN2);
+  const t = exp(a);
+  return (sign * (t - 1 / t)) / 2;
+}
+
+/**
+ * `cosh(x)` — the hyperbolic cosine.
+ *
+ * A sum rather than a difference, so nothing cancels; the series below a half
+ * is for accuracy, not for survival.
+ */
+export function cosh(x: number): number {
+  if (Number.isNaN(x)) return Number.NaN;
+  if (!Number.isFinite(x)) return Number.POSITIVE_INFINITY;
+  const a = Math.abs(x);
+  if (a < 0.5) return horner(COSH_COEFF, x * x);
+  if (a > 709) return exp(a - LN2);
+  const t = exp(a);
+  return (t + 1 / t) / 2;
+}
+
+/**
+ * `tanh(x)` — the hyperbolic tangent.
+ *
+ * Past 20 the true value is within 10⁻¹⁷ of 1, closer than the next double, so
+ * the answer is 1 and computing e⁴⁰ to discover that would be waste.
+ */
+export function tanh(x: number): number {
+  if (Number.isNaN(x)) return Number.NaN;
+  const sign = x < 0 ? -1 : 1;
+  if (!Number.isFinite(x)) return sign;
+  const a = Math.abs(x);
+  if (a > 20) return sign;
+  if (a < 0.5) {
+    const z = x * x;
+    return (x * horner(SINH_COEFF, z)) / horner(COSH_COEFF, z);
+  }
+  const u = exp(2 * a);
+  return (sign * (u - 1)) / (u + 1);
+}
+
+/**
+ * `cbrt(x)` — the cube root, defined for negatives too.
+ *
+ * `pow(x, 1/3)` is not the same function: 1/3 is not a double, and a negative
+ * base with a fractional exponent has no real answer at all. So this is its own
+ * function, reduced by powers of eight — exact, being powers of two — and then
+ * refined by Newton's method, which triples its correct digits each pass.
+ */
+export function cbrt(x: number): number {
+  if (Number.isNaN(x) || !Number.isFinite(x) || x === 0) return x;
+  const sign = x < 0 ? -1 : 1;
+  let a = Math.abs(x);
+  let e = 0;
+  while (a >= 8) {
+    a /= 8;
+    e += 1;
+  }
+  while (a < 1) {
+    a *= 8;
+    e -= 1;
+  }
+  // A straight line through the ends of [1, 8): within 11% everywhere, which
+  // six Newton passes take past the last bit.
+  let y = 1 + (a - 1) / 7;
+  for (let i = 0; i < 6; i += 1) {
+    y = (2 * y + a / (y * y)) / 3;
+  }
+  return sign * scaleByPowerOfTwo(y, e);
 }

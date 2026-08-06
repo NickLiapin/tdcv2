@@ -98,6 +98,10 @@ list of numeric words still matches.
 | `exp(x)`                   | 1      | e raised to x                                    |
 | `log(x)` `log10(x)`        | 1      | natural / base-10 logarithm                      |
 | `sin(x)` `cos(x)` `tan(x)` | 1      | circular functions, in **radians**               |
+| `asin(x)` `acos(x)` `atan(x)` | 1   | their inverses, giving radians                   |
+| `atan2(y, x)`              | 2      | the angle of the point (x, y), over (−π, π]      |
+| `sinh(x)` `cosh(x)` `tanh(x)` | 1   | hyperbolic functions                             |
+| `cbrt(x)`                  | 1      | cube root — works on negatives, unlike `pow`     |
 
 Everything above the rule is exact — built from comparisons and from the arithmetic IEEE-754
 pins down, so the five implementations cannot disagree. Everything below it, TDC computes
@@ -134,10 +138,26 @@ step, so that bit becomes a different row, and a different file, on a tool whose
 promise is that five implementations produce the same bytes.
 
 So TDC computes these itself, the way it already computes its own random numbers rather than
-trusting each language's. The results land within about 2 ulp of the true value — the same
-neighbourhood a libm occupies — and, far more importantly, on the **same** double in all
-five. Matching any particular libm is not the goal and could not be: the libms do not match
-each other.
+trusting each language's. Every one lands within **4 ulp** of the true value — the same
+neighbourhood a libm occupies — and, far more importantly, on the **same** double in all five.
+Matching any particular libm is not the goal and could not be: the libms do not match each
+other.
+
+That 4 is checked rather than claimed, on grids that run to the ends of each function's range.
+The ends are where it matters: a series truncated two terms early is invisible in the middle
+of an interval and thirteen ulp out at the edge, which is exactly the bug the check was
+written after.
+
+`pow` is the one function with a wider bound, for a reason worth knowing:
+
+| exponent | how it is computed | drift |
+| :--- | :--- | :--- |
+| whole, or a half | repeated squaring, `sqrt` for the half | grows with the exponent — ~4 ulp at 3, ~22 at 20 |
+| anything else | `exp(y · log x)` | grows with \|y · log x\| — ~2 ulp at 1, ~457 at 400 |
+
+Both come from amplification, not from a defect: squaring doubles whatever error it was
+handed, and `exp` turns an absolute error in its argument into a relative one in its answer.
+Twelve significant digits survive either way.
 
 ```xml
 <sequence name="Month"><gen type="increment" value="1"/></sequence>
@@ -172,15 +192,19 @@ circular functions take **radians**, with no degree variant: one convention, sta
 
 ## What is deliberately absent
 
-**The rest of the maths library.** `sinh`, `cosh`, `tanh`, `asin`, `acos`, `atan`, `atan2`
-and `cbrt` are refused by name rather than guessed at:
+**The rest of the maths library.** `asinh`, `acosh`, `atanh`, `log2`, `log1p`, `expm1`,
+`hypot`, `sign`, `degrees` and `radians` are refused by name rather than guessed at:
 
 <Terminal title="tdcv2 check seasonal.tdc">
-{`error[TDC257]: sinh() is not available yet in an if expression`}
+{`error[TDC257]: atanh() is not available yet in an if expression`}
 </Terminal>
 
+Note what it does NOT say: "did you mean `atan`?" Edit distance would have offered exactly
+that, and `atan` is the inverse of a different function. A name on this list is answered with
+the reason instead.
+
 Each one has to be built and pinned to its bits in five languages before it can be offered,
-which is the only reason it is not here yet.
+which is the only thing keeping it on the list.
 
 **Loops and recursion.** The engine is chosen from the config before a row is generated,
 [`preflight()`](../guides/large-outputs.mdx) estimates memory before the run, and `--jobs`

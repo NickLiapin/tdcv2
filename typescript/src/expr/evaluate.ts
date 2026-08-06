@@ -240,13 +240,21 @@ const FUNCTIONS: Readonly<Record<string, (args: readonly unknown[]) => unknown>>
   // Transcendentals, computed by TDC rather than by the host — see
   // math/tdc-math.ts for why that is not paranoia. Adding one here means adding
   // it to TdcMath in all five implementations, not calling Math.something.
+  acos: (a) => TdcMath.acos(num(a, 0)),
+  asin: (a) => TdcMath.asin(num(a, 0)),
+  atan: (a) => TdcMath.atan(num(a, 0)),
+  atan2: (a) => TdcMath.atan2(num(a, 0), num(a, 1)),
+  cbrt: (a) => TdcMath.cbrt(num(a, 0)),
   cos: (a) => TdcMath.cos(num(a, 0)),
+  cosh: (a) => TdcMath.cosh(num(a, 0)),
   exp: (a) => TdcMath.exp(num(a, 0)),
   log: (a) => TdcMath.log(num(a, 0)),
   log10: (a) => TdcMath.log10(num(a, 0)),
   pow: (a) => TdcMath.pow(num(a, 0), num(a, 1)),
   sin: (a) => TdcMath.sin(num(a, 0)),
+  sinh: (a) => TdcMath.sinh(num(a, 0)),
   sqrt: (a) => TdcMath.sqrt(num(a, 0)),
+  tanh: (a) => TdcMath.tanh(num(a, 0)),
   tan: (a) => TdcMath.tan(num(a, 0)),
 };
 

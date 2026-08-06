@@ -716,6 +716,14 @@
         "lines": ["sqrt exp log sin cos tan pow"]
       }
     },
+    "expressions/tdcmath-second-wave-produces-the-same-double-everywhere": {
+      "engine2": {
+        "lines": ["atan asin acos atan2 sinh cosh tanh cbrt"]
+      },
+      "engine3": {
+        "lines": ["atan asin acos atan2 sinh cosh tanh cbrt"]
+      }
+    },
     "formatting/mask-phone": {
       "engine2": {
         "lines": ["555-123-4567"]

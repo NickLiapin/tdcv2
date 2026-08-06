@@ -32,6 +32,8 @@ internal static class TdcMath
     public const double E = 2.718281828459045;
 
     // ln 2, split so `k * Ln2Hi` keeps the low bits a single constant would drop.
+    // The constant carries 21 zero low bits, so any k this reduction produces
+    // multiplies without rounding.
     private const double Ln2Hi = 0.6931471803691238;
     private const double Ln2Lo = 1.9082149292705877e-10;
     private const double Ln2 = 0.6931471805599453;
@@ -43,6 +45,14 @@ internal static class TdcMath
     private const double PiOver2B = 6.077100506506192e-11;
     private const double PiOver2C = 2.0222662487959506e-21;
 
+    // pi/4 and 3pi/4 — the quadrant answers Atan2 returns.
+    private const double PiOver4 = 0.7853981633974483;
+    private const double ThreePiOver4 = 2.356194490192345;
+
+    /// <summary>
+    /// Taylor coefficients for (sin(r) − r)/r³ over r², ascending. The count is set by the WORST
+    /// point of the reduced interval, |r| = π/4, not by a typical one.
+    /// </summary>
     private static readonly double[] SinCoeff =
     {
         -1.0 / 6.0,
@@ -52,8 +62,14 @@ internal static class TdcMath
         -1.0 / 39916800.0,
         1.0 / 6227020800.0,
         -1.0 / 1307674368000.0,
+        1.0 / 355687428096000.0,
     };
 
+    /// <summary>
+    /// Taylor coefficients for (cos(r) − 1)/r² over r², ascending. The last two are not optional:
+    /// stopping at 1/14! is thirteen ulp out at |r| = π/4, and Sin and Tan both inherit that,
+    /// since a quarter-turn reduction routes half of all arguments through this series.
+    /// </summary>
     private static readonly double[] CosCoeff =
     {
         -1.0 / 2.0,
@@ -63,10 +79,111 @@ internal static class TdcMath
         -1.0 / 3628800.0,
         1.0 / 479001600.0,
         -1.0 / 87178291200.0,
+        1.0 / 20922789888000.0,
+        -1.0 / 6402373705728000.0,
+    };
+
+    /// <summary>
+    /// Taylor coefficients for eʳ over r, ascending: 1/n!. Horner rather than a forward
+    /// recurrence, which rounds twice per term and carries the error forward: 4 ulp against 1 for
+    /// the same number of terms.
+    /// </summary>
+    private static readonly double[] ExpCoeff =
+    {
+        1.0,
+        1.0,
+        1.0 / 2.0,
+        1.0 / 6.0,
+        1.0 / 24.0,
+        1.0 / 120.0,
+        1.0 / 720.0,
+        1.0 / 5040.0,
+        1.0 / 40320.0,
+        1.0 / 362880.0,
+        1.0 / 3628800.0,
+        1.0 / 39916800.0,
+        1.0 / 479001600.0,
+        1.0 / 6227020800.0,
+        1.0 / 87178291200.0,
+        1.0 / 1307674368000.0,
+    };
+
+    /// <summary>
+    /// Taylor coefficients for atan(t)/t over t², ascending. Twenty-four, because the reduction
+    /// halves the argument ONCE and no more: measured, one halving with this many terms lands at
+    /// 2 ulp, two halvings with sixteen at 3, three with twelve at 4. Series terms are cheaper
+    /// than reduction steps here, which is the opposite of the usual advice.
+    /// </summary>
+    private static readonly double[] AtanCoeff =
+    {
+        1.0,
+        -1.0 / 3.0,
+        1.0 / 5.0,
+        -1.0 / 7.0,
+        1.0 / 9.0,
+        -1.0 / 11.0,
+        1.0 / 13.0,
+        -1.0 / 15.0,
+        1.0 / 17.0,
+        -1.0 / 19.0,
+        1.0 / 21.0,
+        -1.0 / 23.0,
+        1.0 / 25.0,
+        -1.0 / 27.0,
+        1.0 / 29.0,
+        -1.0 / 31.0,
+        1.0 / 33.0,
+        -1.0 / 35.0,
+        1.0 / 37.0,
+        -1.0 / 39.0,
+        1.0 / 41.0,
+        -1.0 / 43.0,
+        1.0 / 45.0,
+        -1.0 / 47.0,
+    };
+
+    /// <summary>Taylor coefficients for sinh(x)/x over x², ascending: 1/(2n+1)!.</summary>
+    private static readonly double[] SinhCoeff =
+    {
+        1.0,
+        1.0 / 6.0,
+        1.0 / 120.0,
+        1.0 / 5040.0,
+        1.0 / 362880.0,
+        1.0 / 39916800.0,
+        1.0 / 6227020800.0,
+        1.0 / 1307674368000.0,
+    };
+
+    /// <summary>Taylor coefficients for cosh(x) over x², ascending: 1/(2n)!.</summary>
+    private static readonly double[] CoshCoeff =
+    {
+        1.0,
+        1.0 / 2.0,
+        1.0 / 24.0,
+        1.0 / 720.0,
+        1.0 / 40320.0,
+        1.0 / 3628800.0,
+        1.0 / 479001600.0,
+        1.0 / 87178291200.0,
     };
 
     private const double ExpOverflow = 709.782712893384;
     private const double ExpUnderflow = -745.1332191019411;
+
+    /// <summary>The most halvings that keep a value near 1 inside the normal range.</summary>
+    private const long DeepestNormalHalving = 1021;
+
+    /// <summary>Horner over z, ascending coefficients — the shape every series here uses.</summary>
+    private static double Horner(double[] coeff, double z)
+    {
+        double total = 0;
+        for (int i = coeff.Length - 1; i >= 0; i -= 1)
+        {
+            total = (total * z) + coeff[i];
+        }
+        return total;
+    }
 
     /// <summary>
     /// Delegated: IEEE-754 requires square root to be correctly rounded, so there is one legal
@@ -78,25 +195,49 @@ internal static class TdcMath
         return System.Math.Sqrt(x);
     }
 
-    /// <summary><c>value * 2^n</c> by exact doubling — a power of two is exact in binary.</summary>
-    private static double ScaleByPowerOfTwo(double value, long n)
+    /// <summary>Halve <paramref name="value"/> exactly <paramref name="count"/> times.</summary>
+    private static double HalveTimes(double value, long count)
     {
         double outValue = value;
-        long k = n;
-        while (k > 0)
-        {
-            outValue *= 2;
-            k -= 1;
-        }
-        while (k < 0)
+        for (long i = 0; i < count; i += 1)
         {
             outValue /= 2;
-            k += 1;
         }
         return outValue;
     }
 
-    /// <summary><c>exp(x)</c> — range-reduced to 2^k * e^r with |r| &lt;= ln2/2, then Taylor.</summary>
+    /// <summary>
+    /// <c>value * 2^n</c> for a value near 1.
+    ///
+    /// <para>Stepping one power at a time is exact — while the numbers stay normal. Below 2⁻¹⁰²²
+    /// they are not: a subnormal has fewer bits than it started with, and every further halving
+    /// rounds again. Halving all the way down that way threw away most of the answer —
+    /// <c>Exp(-730)</c> came back 9.22631e-318 against a true 9.226315e-318, and <c>Exp(-745)</c>
+    /// came back 0 against 5e-324.</para>
+    ///
+    /// <para>So a deep scaling is split: down to the edge of the normal range in exact steps,
+    /// then ONE multiplication by a small power of two — itself exact, being no smaller than
+    /// 2⁻⁵⁴ — which rounds once and only once.</para>
+    /// </summary>
+    private static double ScaleByPowerOfTwo(double value, long n)
+    {
+        if (n >= -DeepestNormalHalving)
+        {
+            double outValue = value;
+            long k = n;
+            while (k > 0)
+            {
+                outValue *= 2;
+                k -= 1;
+            }
+            return HalveTimes(outValue, -k);
+        }
+        double atTheEdge = HalveTimes(value, DeepestNormalHalving);
+        double remainder = HalveTimes(1, -(n + DeepestNormalHalving));
+        return atTheEdge * remainder;
+    }
+
+    /// <summary><c>exp(x)</c> — range-reduced to 2^k · e^r with |r| &lt;= ln2/2, then Taylor.</summary>
     public static double Exp(double x)
     {
         if (double.IsNaN(x)) return double.NaN;
@@ -104,17 +245,10 @@ internal static class TdcMath
         if (x < ExpUnderflow) return 0;
         double k = System.Math.Truncate((x / Ln2) + (x >= 0 ? 0.5 : -0.5));
         double r = x - (k * Ln2Hi) - (k * Ln2Lo);
-        double term = 1;
-        double sum = 1;
-        for (int i = 1; i <= 13; i += 1)
-        {
-            term = term * r / i;
-            sum += term;
-        }
-        return ScaleByPowerOfTwo(sum, (long)k);
+        return ScaleByPowerOfTwo(Horner(ExpCoeff, r), (long)k);
     }
 
-    /// <summary><c>log(x)</c> — x = m * 2^e by exact halving, then 2*atanh((m-1)/(m+1)).</summary>
+    /// <summary><c>log(x)</c> — x = m · 2^e by exact halving, then 2·atanh((m−1)/(m+1)).</summary>
     public static double Log(double x)
     {
         if (double.IsNaN(x) || x < 0) return double.NaN;
@@ -144,7 +278,7 @@ internal static class TdcMath
 
     public static double Log10(double x) => Log(x) / 2.302585092994046;
 
-    /// <summary>The quadrant (0-3) and the remainder in [-pi/4, pi/4].</summary>
+    /// <summary>The quadrant (0-3) and the remainder in [−π/4, π/4].</summary>
     private static (int Quadrant, double Remainder) ReduceByQuarterTurn(double x)
     {
         double k = System.Math.Truncate((x / PiOver2) + (x >= 0 ? 0.5 : -0.5));
@@ -156,23 +290,13 @@ internal static class TdcMath
     private static double SinCore(double r)
     {
         double z = r * r;
-        double sum = 0;
-        for (int i = SinCoeff.Length - 1; i >= 0; i -= 1)
-        {
-            sum = (sum * z) + SinCoeff[i];
-        }
-        return r + (r * z * sum);
+        return r + (r * z * Horner(SinCoeff, z));
     }
 
     private static double CosCore(double r)
     {
         double z = r * r;
-        double sum = 0;
-        for (int i = CosCoeff.Length - 1; i >= 0; i -= 1)
-        {
-            sum = (sum * z) + CosCoeff[i];
-        }
-        return 1 + (z * sum);
+        return 1 + (z * Horner(CosCoeff, z));
     }
 
     public static double Sin(double x)
@@ -208,8 +332,22 @@ internal static class TdcMath
         return quadrant % 2 == 0 ? s / c : -c / s;
     }
 
+    private static double RepeatedSquaring(double baseValue, long exponent)
+    {
+        double result = 1;
+        double b = baseValue;
+        long n = exponent;
+        while (n > 0)
+        {
+            if (n % 2 == 1) result *= b;
+            b *= b;
+            n /= 2;
+        }
+        return result;
+    }
+
     /// <summary>
-    /// An integer exponent goes through repeated squaring, so <c>pow(10, 3)</c> is exactly 1000
+    /// An integer exponent goes through repeated squaring, so <c>Pow(10, 3)</c> is exactly 1000
     /// rather than 999.9999999999998.
     /// </summary>
     public static double Pow(double x, double y)
@@ -219,19 +357,195 @@ internal static class TdcMath
         if (double.IsNaN(x)) return double.NaN;
         if (y == System.Math.Truncate(y) && !double.IsInfinity(y) && System.Math.Abs(y) <= 1024)
         {
-            double result = 1;
-            double baseValue = y < 0 ? 1 / x : x;
-            long n = (long)System.Math.Abs(y);
-            while (n > 0)
-            {
-                if (n % 2 == 1) result *= baseValue;
-                baseValue *= baseValue;
-                n /= 2;
-            }
-            return result;
+            return RepeatedSquaring(y < 0 ? 1 / x : x, (long)System.Math.Abs(y));
         }
+        // A negative base with a fractional exponent has no real answer, and saying
+        // so is better than returning whatever the general route would produce.
         if (x < 0) return double.NaN;
         if (x == 0) return y > 0 ? 0 : double.PositiveInfinity;
+        // A half-integer exponent is the fractional one people actually write, and
+        // x^(n/2) is (√x)^n — both halves exact. Without this, Pow(100, 0.5) came
+        // back 9.999999999999998 and Pow(9, 1.5) 26.99999999999999.
+        double half = 2 * y;
+        if (half == System.Math.Truncate(half) && System.Math.Abs(half) <= 2048)
+        {
+            double root = System.Math.Sqrt(x);
+            return RepeatedSquaring(half < 0 ? 1 / root : root, (long)System.Math.Abs(half));
+        }
         return Exp(y * Log(x));
+    }
+
+    // ── The second wave: inverses and hyperbolics ────────────────────────────
+    //
+    // Same rule as everything above: + - * /, Math.Sqrt, and the functions this
+    // class already built. Nothing here calls a transcendental of the host.
+
+    /// <summary>Half-angle for the arctangent: atan(t) = 2·atan(h(t)). Built from sqrt alone.</summary>
+    private static double AtanHalf(double t) => t / (1 + System.Math.Sqrt(1 + (t * t)));
+
+    /// <summary><c>atan</c> on [0, 1], halved once so the series runs on |t| &lt;= 0.4143.</summary>
+    private static double AtanCore(double t)
+    {
+        double h = AtanHalf(t);
+        return 2 * (h * Horner(AtanCoeff, h * h));
+    }
+
+    /// <summary><c>atan(x)</c> — the arctangent, in radians, over the whole real line.</summary>
+    public static double Atan(double x)
+    {
+        if (double.IsNaN(x)) return double.NaN;
+        if (double.IsPositiveInfinity(x)) return PiOver2;
+        if (double.IsNegativeInfinity(x)) return -PiOver2;
+        double sign = x < 0 ? -1 : 1;
+        double a = System.Math.Abs(x);
+        double r = a > 1 ? PiOver2 - AtanCore(1 / a) : AtanCore(a);
+        return sign * r;
+    }
+
+    /// <summary>
+    /// <c>atan2(y, x)</c> — the angle of the point (x, y), in radians, over (−π, π].
+    ///
+    /// <para>The quadrant cannot be recovered from <c>y/x</c> alone: the ratio is the same in
+    /// opposite quadrants, which is the whole reason this exists separately from Atan.</para>
+    /// </summary>
+    public static double Atan2(double y, double x)
+    {
+        if (double.IsNaN(y) || double.IsNaN(x)) return double.NaN;
+        if (double.IsInfinity(y) && double.IsInfinity(x))
+        {
+            double magnitude = x > 0 ? PiOver4 : ThreePiOver4;
+            return y > 0 ? magnitude : -magnitude;
+        }
+        if (double.IsInfinity(y)) return y > 0 ? PiOver2 : -PiOver2;
+        if (double.IsInfinity(x))
+        {
+            if (x > 0) return 0;
+            return y < 0 ? -Pi : Pi;
+        }
+        if (x == 0 && y == 0) return 0;
+        if (x == 0) return y > 0 ? PiOver2 : -PiOver2;
+        if (y == 0) return x > 0 ? 0 : Pi;
+        double r = Atan(y / x);
+        if (x > 0) return r;
+        return y > 0 ? r + Pi : r - Pi;
+    }
+
+    /// <summary><c>asin</c> on [0, 0.5], where 1 − a² keeps every bit it started with.</summary>
+    private static double AsinSmall(double a) => Atan(a / System.Math.Sqrt(1 - (a * a)));
+
+    /// <summary>
+    /// <c>asin(x)</c> — the arcsine, in radians, over [−1, 1].
+    ///
+    /// <para>Past a half the direct route would compute 1 − a² with a and 1 nearly equal, and
+    /// lose most of its digits before sqrt ever saw them. The half-angle identity moves the
+    /// subtraction to 1 − a, which is exact in that range.</para>
+    /// </summary>
+    public static double Asin(double x)
+    {
+        if (double.IsNaN(x)) return double.NaN;
+        double sign = x < 0 ? -1 : 1;
+        double a = System.Math.Abs(x);
+        if (a > 1) return double.NaN;
+        if (a == 1) return sign * PiOver2;
+        if (a <= 0.5) return sign * AsinSmall(a);
+        return sign * (PiOver2 - (2 * AsinSmall(System.Math.Sqrt((1 - a) / 2))));
+    }
+
+    /// <summary>
+    /// <c>acos(x)</c> — the arccosine, in radians, over [−1, 1].
+    ///
+    /// <para>Not π/2 − asin(x) everywhere: near x = 1 the answer approaches zero, and that
+    /// subtraction would compute it as the difference of two numbers that are nearly π/2,
+    /// throwing away every digit that matters.</para>
+    /// </summary>
+    public static double Acos(double x)
+    {
+        if (double.IsNaN(x)) return double.NaN;
+        if (x > 1 || x < -1) return double.NaN;
+        if (x == 1) return 0;
+        if (x == -1) return Pi;
+        if (x >= 0.5) return 2 * AsinSmall(System.Math.Sqrt((1 - x) / 2));
+        if (x <= -0.5) return Pi - (2 * AsinSmall(System.Math.Sqrt((1 + x) / 2)));
+        return PiOver2 - (AsinSmall(System.Math.Abs(x)) * (x < 0 ? -1 : 1));
+    }
+
+    /// <summary><c>sinh(x)</c> — below a half the exponential route would cancel the answer away.</summary>
+    public static double Sinh(double x)
+    {
+        if (double.IsNaN(x) || double.IsInfinity(x)) return x;
+        double a = System.Math.Abs(x);
+        if (a < 0.5) return x * Horner(SinhCoeff, x * x);
+        double sign = x < 0 ? -1 : 1;
+        // Past this point e^x overflows but sinh(x) still fits, so the halving is
+        // folded into the exponent rather than applied after it.
+        if (a > 709) return sign * Exp(a - Ln2);
+        double t = Exp(a);
+        return sign * (t - (1 / t)) / 2;
+    }
+
+    /// <summary><c>cosh(x)</c> — a sum rather than a difference, so nothing cancels.</summary>
+    public static double Cosh(double x)
+    {
+        if (double.IsNaN(x)) return double.NaN;
+        if (double.IsInfinity(x)) return double.PositiveInfinity;
+        double a = System.Math.Abs(x);
+        if (a < 0.5) return Horner(CoshCoeff, x * x);
+        if (a > 709) return Exp(a - Ln2);
+        double t = Exp(a);
+        return (t + (1 / t)) / 2;
+    }
+
+    /// <summary>
+    /// <c>tanh(x)</c> — past 20 the true value is within 10⁻¹⁷ of 1, closer than the next double,
+    /// so the answer is 1 and computing e⁴⁰ to discover that would be waste.
+    /// </summary>
+    public static double Tanh(double x)
+    {
+        if (double.IsNaN(x)) return double.NaN;
+        double sign = x < 0 ? -1 : 1;
+        if (double.IsInfinity(x)) return sign;
+        double a = System.Math.Abs(x);
+        if (a > 20) return sign;
+        if (a < 0.5)
+        {
+            double z = x * x;
+            return x * Horner(SinhCoeff, z) / Horner(CoshCoeff, z);
+        }
+        double u = Exp(2 * a);
+        return sign * (u - 1) / (u + 1);
+    }
+
+    /// <summary>
+    /// <c>cbrt(x)</c> — the cube root, defined for negatives too.
+    ///
+    /// <para><c>Pow(x, 1/3)</c> is not the same function: one third is not a double, and a
+    /// negative base with a fractional exponent has no real answer at all. So this is its own
+    /// function, reduced by powers of eight — exact, being powers of two — and then refined by
+    /// Newton's method.</para>
+    /// </summary>
+    public static double Cbrt(double x)
+    {
+        if (double.IsNaN(x) || double.IsInfinity(x) || x == 0) return x;
+        double sign = x < 0 ? -1 : 1;
+        double a = System.Math.Abs(x);
+        long e = 0;
+        while (a >= 8)
+        {
+            a /= 8;
+            e += 1;
+        }
+        while (a < 1)
+        {
+            a *= 8;
+            e -= 1;
+        }
+        // A straight line through the ends of [1, 8): within 11% everywhere, which
+        // six Newton passes take past the last bit.
+        double y = 1 + ((a - 1) / 7);
+        for (int i = 0; i < 6; i += 1)
+        {
+            y = ((2 * y) + (a / (y * y))) / 3;
+        }
+        return sign * ScaleByPowerOfTwo(y, e);
     }
 }

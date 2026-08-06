@@ -60,15 +60,15 @@
     {
       "name": "unknown-function-in-an-if",
       "demonstrates": "TDC257",
-      "description": "A typo in a function name, caught before the run. The suggestion comes from edit distance over the seven that exist.",
+      "description": "A typo in a function name, caught before the run. The suggestion comes from edit distance over the names that exist.",
       "config": "<tdc><env count=\"2\" seed=\"s\" local=\"en\"><sequence name=\"N\"><gen type=\"text\" value=\"5\"/></sequence><sequence name=\"R\"><gen if=\"abz(N) > 1\" type=\"text\" value=\"Y\"/><gen type=\"text\" value=\"N\"/></sequence></env><block><line><data>${{R}}</data></line></block></tdc>",
       "expected": ["error TDC257 1:126"]
     },
     {
       "name": "a-planned-function-is-not-a-typo",
       "demonstrates": "TDC257",
-      "description": "sinh is refused with the reason rather than a suggestion: it is not implemented yet, and edit distance would have offered \"sin\", which is a different function. Its siblings cos, sin, exp, log, pow and sqrt ARE implemented — TDC computes them itself rather than calling the host.",
-      "config": "<tdc><env count=\"2\" seed=\"s\" local=\"en\"><sequence name=\"N\"><gen type=\"text\" value=\"5\"/></sequence><sequence name=\"R\"><gen if=\"sinh(N) > 1\" type=\"text\" value=\"Y\"/><gen type=\"text\" value=\"N\"/></sequence></env><block><line><data>${{R}}</data></line></block></tdc>",
+      "description": "atanh is refused with the reason rather than a suggestion: it is not implemented yet, and edit distance would have offered \"atan\", the inverse of a different function. Its neighbours atan, sinh, cosh, tanh, cos, sin, exp, log, pow, sqrt and cbrt ARE implemented — TDC computes them itself rather than calling the host.",
+      "config": "<tdc><env count=\"2\" seed=\"s\" local=\"en\"><sequence name=\"N\"><gen type=\"text\" value=\"5\"/></sequence><sequence name=\"R\"><gen if=\"atanh(N) > 1\" type=\"text\" value=\"Y\"/><gen type=\"text\" value=\"N\"/></sequence></env><block><line><data>${{R}}</data></line></block></tdc>",
       "expected": ["error TDC257 1:126"]
     },
     {

@@ -162,13 +162,21 @@ fn call_function(name: &str, args: &[V]) -> EngineResult<V> {
         // Transcendentals, computed by TDC rather than by Rust — see math/mod.rs.
         // Adding one here means adding it to TdcMath in all five, not calling
         // the host's f64 method.
+        "acos" => V::Num(crate::math::acos(num(0)?)),
+        "asin" => V::Num(crate::math::asin(num(0)?)),
+        "atan" => V::Num(crate::math::atan(num(0)?)),
+        "atan2" => V::Num(crate::math::atan2(num(0)?, num(1)?)),
+        "cbrt" => V::Num(crate::math::cbrt(num(0)?)),
         "cos" => V::Num(crate::math::cos(num(0)?)),
+        "cosh" => V::Num(crate::math::cosh(num(0)?)),
         "exp" => V::Num(crate::math::exp(num(0)?)),
         "log" => V::Num(crate::math::log(num(0)?)),
         "log10" => V::Num(crate::math::log10(num(0)?)),
         "pow" => V::Num(crate::math::pow(num(0)?, num(1)?)),
         "sin" => V::Num(crate::math::sin(num(0)?)),
+        "sinh" => V::Num(crate::math::sinh(num(0)?)),
         "sqrt" => V::Num(crate::math::sqrt(num(0)?)),
+        "tanh" => V::Num(crate::math::tanh(num(0)?)),
         "tan" => V::Num(crate::math::tan(num(0)?)),
         _ => return invalid(&format!("if expression: unknown function \"{name}\"")),
     })

@@ -139,13 +139,21 @@ _FUNCTIONS: dict[str, Callable[[list], object]] = {
     "upper": lambda a: _arg_text(a, 0).upper(),
     # Transcendentals, computed by TDC rather than by Python — see math/tdc_math.py.
     # Adding one here means adding it to TdcMath in all five, not calling math.something.
+    "acos": lambda a: tdc_math.acos(_num(a, 0)),
+    "asin": lambda a: tdc_math.asin(_num(a, 0)),
+    "atan": lambda a: tdc_math.atan(_num(a, 0)),
+    "atan2": lambda a: tdc_math.atan2(_num(a, 0), _num(a, 1)),
+    "cbrt": lambda a: tdc_math.cbrt(_num(a, 0)),
     "cos": lambda a: tdc_math.cos(_num(a, 0)),
+    "cosh": lambda a: tdc_math.cosh(_num(a, 0)),
     "exp": lambda a: tdc_math.exp(_num(a, 0)),
     "log": lambda a: tdc_math.log(_num(a, 0)),
     "log10": lambda a: tdc_math.log10(_num(a, 0)),
     "pow": lambda a: tdc_math.pow(_num(a, 0), _num(a, 1)),
     "sin": lambda a: tdc_math.sin(_num(a, 0)),
+    "sinh": lambda a: tdc_math.sinh(_num(a, 0)),
     "sqrt": lambda a: tdc_math.sqrt(_num(a, 0)),
+    "tanh": lambda a: tdc_math.tanh(_num(a, 0)),
     "tan": lambda a: tdc_math.tan(_num(a, 0)),
 }
 

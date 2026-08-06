@@ -194,9 +194,15 @@ public final class Validator {
   private static final Map<String, int[]> EXPR_FUNCTIONS =
       Map.ofEntries(
           Map.entry("abs", new int[] {1, 1}),
+          Map.entry("acos", new int[] {1, 1}),
+          Map.entry("asin", new int[] {1, 1}),
+          Map.entry("atan", new int[] {1, 1}),
+          Map.entry("atan2", new int[] {2, 2}),
+          Map.entry("cbrt", new int[] {1, 1}),
           Map.entry("ceil", new int[] {1, 1}),
           Map.entry("contains", new int[] {2, 2}),
           Map.entry("cos", new int[] {1, 1}),
+          Map.entry("cosh", new int[] {1, 1}),
           Map.entry("ends_with", new int[] {2, 2}),
           Map.entry("exp", new int[] {1, 1}),
           Map.entry("floor", new int[] {1, 1}),
@@ -210,24 +216,31 @@ public final class Validator {
           Map.entry("pow", new int[] {2, 2}),
           Map.entry("round", new int[] {1, 1}),
           Map.entry("sin", new int[] {1, 1}),
+          Map.entry("sinh", new int[] {1, 1}),
           Map.entry("sqrt", new int[] {1, 1}),
           Map.entry("starts_with", new int[] {2, 2}),
           Map.entry("tan", new int[] {1, 1}),
+          Map.entry("tanh", new int[] {1, 1}),
           Map.entry("trunc", new int[] {1, 1}),
           Map.entry("upper", new int[] {1, 1}));
 
   private static final List<String> EXPR_FUNCTION_NAMES =
       List.of(
-          "abs", "ceil", "contains", "cos", "ends_with", "exp", "floor", "is_empty", "len", "log",
-          "log10", "lower", "max", "min", "pow", "round", "sin", "sqrt", "starts_with", "tan",
-          "trunc", "upper");
+          "abs", "acos", "asin", "atan", "atan2", "cbrt", "ceil", "contains", "cos", "cosh",
+          "ends_with", "exp", "floor", "is_empty", "len", "log", "log10", "lower", "max", "min",
+          "pow", "round", "sin", "sinh", "sqrt", "starts_with", "tan", "tanh", "trunc", "upper");
 
   /**
-   * Not available, and not typos either. Someone writing {@code sinh(_count)} knows what they
-   * meant, and "did you mean sin?" is worse than saying nothing.
+   * Not available, and not typos either. Someone writing {@code atanh(_count)} knows what they
+   * meant, and "did you mean atan?" is worse than saying nothing.
+   *
+   * <p>Every name here has to be built and pinned to its bits in five languages before it can be
+   * offered, which is the only thing keeping it on this list.
    */
   private static final List<String> PLANNED_EXPR_FUNCTIONS =
-      List.of("acos", "asin", "atan", "atan2", "cbrt", "cosh", "sinh", "tanh");
+      List.of(
+          "acosh", "asinh", "atanh", "degrees", "expm1", "hypot", "log1p", "log2", "radians",
+          "sign");
 
   private static final List<String> SUPPORTED_UNARY_OPERATORS = List.of("!", "-", "+");
 

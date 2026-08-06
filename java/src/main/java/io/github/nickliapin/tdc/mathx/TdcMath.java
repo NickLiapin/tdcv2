@@ -48,6 +48,14 @@ public final class TdcMath {
   private static final double PIO2_2 = 6.077100506506192e-11;
   private static final double PIO2_3 = 2.0222662487959506e-21;
 
+  // pi/4 and 3pi/4 — the quadrant answers atan2 returns.
+  private static final double PIO4 = 0.7853981633974483;
+  private static final double PI3O4 = 2.356194490192345;
+
+  /**
+   * Taylor coefficients for (sin(r) - r)/r^3 over r^2, ascending. The count is set by the WORST
+   * point of the reduced interval, |r| = pi/4, not by a typical one.
+   */
   private static final double[] SIN_COEFF = {
     -1.0 / 6.0,
     1.0 / 120.0,
@@ -56,8 +64,14 @@ public final class TdcMath {
     -1.0 / 39916800.0,
     1.0 / 6227020800.0,
     -1.0 / 1307674368000.0,
+    1.0 / 355687428096000.0,
   };
 
+  /**
+   * Taylor coefficients for (cos(r) - 1)/r^2 over r^2, ascending. The last two are not optional:
+   * stopping at 1/14! is thirteen ulp out at |r| = pi/4, and sin and tan both inherit that, since
+   * a quarter-turn reduction routes half of all arguments through this series.
+   */
   private static final double[] COS_COEFF = {
     -1.0 / 2.0,
     1.0 / 24.0,
@@ -66,12 +80,107 @@ public final class TdcMath {
     -1.0 / 3628800.0,
     1.0 / 479001600.0,
     -1.0 / 87178291200.0,
+    1.0 / 20922789888000.0,
+    -1.0 / 6402373705728000.0,
+  };
+
+  /**
+   * Taylor coefficients for e^r over r, ascending: 1/n!. Horner rather than a forward recurrence,
+   * which rounds twice per term and carries the error forward: 4 ulp against 1 for the same number
+   * of terms.
+   */
+  private static final double[] EXP_COEFF = {
+    1.0,
+    1.0,
+    1.0 / 2.0,
+    1.0 / 6.0,
+    1.0 / 24.0,
+    1.0 / 120.0,
+    1.0 / 720.0,
+    1.0 / 5040.0,
+    1.0 / 40320.0,
+    1.0 / 362880.0,
+    1.0 / 3628800.0,
+    1.0 / 39916800.0,
+    1.0 / 479001600.0,
+    1.0 / 6227020800.0,
+    1.0 / 87178291200.0,
+    1.0 / 1307674368000.0,
+  };
+
+  /**
+   * Taylor coefficients for atan(t)/t over t^2, ascending. Twenty-four, because the reduction
+   * halves the argument ONCE and no more: measured, one halving with this many terms lands at
+   * 2 ulp, two halvings with sixteen at 3, three with twelve at 4. Series terms are cheaper than
+   * reduction steps here, which is the opposite of the usual advice.
+   */
+  private static final double[] ATAN_COEFF = {
+    1.0,
+    -1.0 / 3.0,
+    1.0 / 5.0,
+    -1.0 / 7.0,
+    1.0 / 9.0,
+    -1.0 / 11.0,
+    1.0 / 13.0,
+    -1.0 / 15.0,
+    1.0 / 17.0,
+    -1.0 / 19.0,
+    1.0 / 21.0,
+    -1.0 / 23.0,
+    1.0 / 25.0,
+    -1.0 / 27.0,
+    1.0 / 29.0,
+    -1.0 / 31.0,
+    1.0 / 33.0,
+    -1.0 / 35.0,
+    1.0 / 37.0,
+    -1.0 / 39.0,
+    1.0 / 41.0,
+    -1.0 / 43.0,
+    1.0 / 45.0,
+    -1.0 / 47.0,
+  };
+
+  /** Taylor coefficients for sinh(x)/x over x^2, ascending: 1/(2n+1)!. */
+  private static final double[] SINH_COEFF = {
+    1.0,
+    1.0 / 6.0,
+    1.0 / 120.0,
+    1.0 / 5040.0,
+    1.0 / 362880.0,
+    1.0 / 39916800.0,
+    1.0 / 6227020800.0,
+    1.0 / 1307674368000.0,
+  };
+
+  /** Taylor coefficients for cosh(x) over x^2, ascending: 1/(2n)!. */
+  private static final double[] COSH_COEFF = {
+    1.0,
+    1.0 / 2.0,
+    1.0 / 24.0,
+    1.0 / 720.0,
+    1.0 / 40320.0,
+    1.0 / 3628800.0,
+    1.0 / 479001600.0,
+    1.0 / 87178291200.0,
   };
 
   private static final double EXP_OVERFLOW = 709.782712893384;
   private static final double EXP_UNDERFLOW = -745.1332191019411;
 
+  /** The most halvings that keep a value near 1 inside the normal range. */
+  private static final long DEEPEST_NORMAL_HALVING = 1021;
+
   private TdcMath() {}
+
+  /** Horner over z, ascending coefficients — the shape every series here uses. */
+  private static double horner(double[] coeff, double z) {
+    double total = 0;
+    for (int i = coeff.length - 1; i >= 0; i -= 1) {
+      total = total * z + coeff[i];
+    }
+    return total;
+  }
 
   /**
    * Delegated: IEEE-754 requires square root to be correctly rounded, so there is one legal answer
@@ -89,19 +198,40 @@ public final class TdcMath {
     return x < 0 ? Math.ceil(x) : Math.floor(x);
   }
 
-  /** {@code value * 2^n} by exact doubling — a power of two is exact in binary. */
-  private static double scaleByPowerOfTwo(double value, long n) {
+  /** Halve {@code value} exactly {@code count} times. Exact while the result stays normal. */
+  private static double halveTimes(double value, long count) {
     double out = value;
-    long k = n;
-    while (k > 0) {
-      out *= 2;
-      k -= 1;
-    }
-    while (k < 0) {
+    for (long i = 0; i < count; i += 1) {
       out /= 2;
-      k += 1;
     }
     return out;
+  }
+
+  /**
+   * {@code value * 2^n} for a value near 1.
+   *
+   * <p>Stepping one power at a time is exact — while the numbers stay normal. Below 2^-1022 they
+   * are not: a subnormal has fewer bits than it started with, and every further halving rounds
+   * again. Halving all the way down that way threw away most of the answer — {@code exp(-730)}
+   * came back 9.22631e-318 against a true 9.226315e-318, and {@code exp(-745)} came back 0 against
+   * 5e-324.
+   *
+   * <p>So a deep scaling is split: down to the edge of the normal range in exact steps, then ONE
+   * multiplication by a small power of two — itself exact, being no smaller than 2^-54.
+   */
+  private static double scaleByPowerOfTwo(double value, long n) {
+    if (n >= -DEEPEST_NORMAL_HALVING) {
+      double out = value;
+      long k = n;
+      while (k > 0) {
+        out *= 2;
+        k -= 1;
+      }
+      return halveTimes(out, -k);
+    }
+    double atTheEdge = halveTimes(value, DEEPEST_NORMAL_HALVING);
+    double remainder = halveTimes(1, -(n + DEEPEST_NORMAL_HALVING));
+    return atTheEdge * remainder;
   }
 
   /** {@code exp(x)} — range-reduced to 2^k * e^r with |r| &lt;= ln2/2, then Taylor. */
@@ -117,13 +247,7 @@ public final class TdcMath {
     }
     double k = trunc(x / LN2 + (x >= 0 ? 0.5 : -0.5));
     double r = x - k * LN2_HI - k * LN2_LO;
-    double term = 1;
-    double sum = 1;
-    for (int i = 1; i <= 13; i += 1) {
-      term = term * r / i;
-      sum += term;
-    }
-    return scaleByPowerOfTwo(sum, (long) k);
+    return scaleByPowerOfTwo(horner(EXP_COEFF, r), (long) k);
   }
 
   /** {@code log(x)} — x = m * 2^e by exact halving, then 2*atanh((m-1)/(m+1)). */
@@ -170,20 +294,12 @@ public final class TdcMath {
 
   private static double sinCore(double r) {
     double z = r * r;
-    double sum = 0;
-    for (int i = SIN_COEFF.length - 1; i >= 0; i -= 1) {
-      sum = sum * z + SIN_COEFF[i];
-    }
-    return r + r * z * sum;
+    return r + r * z * horner(SIN_COEFF, z);
   }
 
   private static double cosCore(double r) {
     double z = r * r;
-    double sum = 0;
-    for (int i = COS_COEFF.length - 1; i >= 0; i -= 1) {
-      sum = sum * z + COS_COEFF[i];
-    }
-    return 1 + z * sum;
+    return 1 + z * horner(COS_COEFF, z);
   }
 
   public static double sin(double x) {
@@ -255,17 +371,7 @@ public final class TdcMath {
       return Double.NaN;
     }
     if (y == trunc(y) && !Double.isInfinite(y) && Math.abs(y) <= 1024) {
-      double result = 1;
-      double base = y < 0 ? 1 / x : x;
-      long n = (long) Math.abs(y);
-      while (n > 0) {
-        if (n % 2 == 1) {
-          result *= base;
-        }
-        base *= base;
-        n /= 2;
-      }
-      return result;
+      return repeatedSquaring(y < 0 ? 1 / x : x, (long) Math.abs(y));
     }
     if (x < 0) {
       return Double.NaN;
@@ -273,6 +379,252 @@ public final class TdcMath {
     if (x == 0) {
       return y > 0 ? 0 : Double.POSITIVE_INFINITY;
     }
+    // A half-integer exponent is the fractional one people actually write, and
+    // x^(n/2) is (sqrt x)^n — both halves exact. Without this, pow(100, 0.5)
+    // came back 9.999999999999998 and pow(9, 1.5) 26.99999999999999.
+    double half = 2 * y;
+    if (half == trunc(half) && Math.abs(half) <= 2048) {
+      double root = Math.sqrt(x);
+      return repeatedSquaring(half < 0 ? 1 / root : root, (long) Math.abs(half));
+    }
     return exp(y * log(x));
+  }
+
+  private static double repeatedSquaring(double base, long exponent) {
+    double result = 1;
+    double b = base;
+    long n = exponent;
+    while (n > 0) {
+      if (n % 2 == 1) {
+        result *= b;
+      }
+      b *= b;
+      n /= 2;
+    }
+    return result;
+  }
+
+  // ── The second wave: inverses and hyperbolics ──────────────────────────────
+  //
+  // Same rule as everything above: + - * /, Math.sqrt, and the functions this
+  // class already built. Nothing here calls a transcendental of the host.
+
+  /** Half-angle for the arctangent: atan(t) = 2*atan(h(t)). Built from sqrt alone. */
+  private static double atanHalf(double t) {
+    return t / (1 + Math.sqrt(1 + t * t));
+  }
+
+  /** {@code atan} on [0, 1], halved once so the series runs on |t| &lt;= 0.4143. */
+  private static double atanCore(double t) {
+    double h = atanHalf(t);
+    return 2 * (h * horner(ATAN_COEFF, h * h));
+  }
+
+  /** {@code atan(x)} — the arctangent, in radians, over the whole real line. */
+  public static double atan(double x) {
+    if (Double.isNaN(x)) {
+      return Double.NaN;
+    }
+    if (x == Double.POSITIVE_INFINITY) {
+      return PIO2;
+    }
+    if (x == Double.NEGATIVE_INFINITY) {
+      return -PIO2;
+    }
+    double sign = x < 0 ? -1 : 1;
+    double a = Math.abs(x);
+    double r = a > 1 ? PIO2 - atanCore(1 / a) : atanCore(a);
+    return sign * r;
+  }
+
+  /**
+   * {@code atan2(y, x)} — the angle of the point (x, y), in radians, over (-pi, pi].
+   *
+   * <p>The quadrant cannot be recovered from {@code y/x} alone: the ratio is the same in opposite
+   * quadrants, which is the whole reason this exists separately from {@code atan}.
+   */
+  public static double atan2(double y, double x) {
+    if (Double.isNaN(y) || Double.isNaN(x)) {
+      return Double.NaN;
+    }
+    if (Double.isInfinite(y) && Double.isInfinite(x)) {
+      double magnitude = x > 0 ? PIO4 : PI3O4;
+      return y > 0 ? magnitude : -magnitude;
+    }
+    if (Double.isInfinite(y)) {
+      return y > 0 ? PIO2 : -PIO2;
+    }
+    if (Double.isInfinite(x)) {
+      if (x > 0) {
+        return 0;
+      }
+      return y < 0 ? -PI : PI;
+    }
+    if (x == 0 && y == 0) {
+      return 0;
+    }
+    if (x == 0) {
+      return y > 0 ? PIO2 : -PIO2;
+    }
+    if (y == 0) {
+      return x > 0 ? 0 : PI;
+    }
+    double r = atan(y / x);
+    if (x > 0) {
+      return r;
+    }
+    return y > 0 ? r + PI : r - PI;
+  }
+
+  /** {@code asin} on [0, 0.5], where 1 - a*a keeps every bit it started with. */
+  private static double asinSmall(double a) {
+    return atan(a / Math.sqrt(1 - a * a));
+  }
+
+  /**
+   * {@code asin(x)} — the arcsine, in radians, over [-1, 1].
+   *
+   * <p>Past a half the direct route would compute 1 - a*a with a and 1 nearly equal, and lose most
+   * of its digits before sqrt ever saw them. The half-angle identity moves the subtraction to
+   * 1 - a, which is exact in that range.
+   */
+  public static double asin(double x) {
+    if (Double.isNaN(x)) {
+      return Double.NaN;
+    }
+    double sign = x < 0 ? -1 : 1;
+    double a = Math.abs(x);
+    if (a > 1) {
+      return Double.NaN;
+    }
+    if (a == 1) {
+      return sign * PIO2;
+    }
+    if (a <= 0.5) {
+      return sign * asinSmall(a);
+    }
+    return sign * (PIO2 - 2 * asinSmall(Math.sqrt((1 - a) / 2)));
+  }
+
+  /**
+   * {@code acos(x)} — the arccosine, in radians, over [-1, 1].
+   *
+   * <p>Not pi/2 - asin(x) everywhere: near x = 1 the answer approaches zero, and that subtraction
+   * would compute it as the difference of two numbers that are nearly pi/2, throwing away every
+   * digit that matters.
+   */
+  public static double acos(double x) {
+    if (Double.isNaN(x)) {
+      return Double.NaN;
+    }
+    if (x > 1 || x < -1) {
+      return Double.NaN;
+    }
+    if (x == 1) {
+      return 0;
+    }
+    if (x == -1) {
+      return PI;
+    }
+    if (x >= 0.5) {
+      return 2 * asinSmall(Math.sqrt((1 - x) / 2));
+    }
+    if (x <= -0.5) {
+      return PI - 2 * asinSmall(Math.sqrt((1 + x) / 2));
+    }
+    return PIO2 - asinSmall(Math.abs(x)) * (x < 0 ? -1 : 1);
+  }
+
+  /** {@code sinh(x)} — below a half the exponential route would cancel the answer away. */
+  public static double sinh(double x) {
+    if (Double.isNaN(x) || Double.isInfinite(x)) {
+      return x;
+    }
+    double a = Math.abs(x);
+    if (a < 0.5) {
+      return x * horner(SINH_COEFF, x * x);
+    }
+    double sign = x < 0 ? -1 : 1;
+    // Past this point e^x overflows but sinh(x) still fits, so the halving is
+    // folded into the exponent rather than applied after it.
+    if (a > 709) {
+      return sign * exp(a - LN2);
+    }
+    double t = exp(a);
+    return sign * (t - 1 / t) / 2;
+  }
+
+  /** {@code cosh(x)} — a sum rather than a difference, so nothing cancels. */
+  public static double cosh(double x) {
+    if (Double.isNaN(x)) {
+      return Double.NaN;
+    }
+    if (Double.isInfinite(x)) {
+      return Double.POSITIVE_INFINITY;
+    }
+    double a = Math.abs(x);
+    if (a < 0.5) {
+      return horner(COSH_COEFF, x * x);
+    }
+    if (a > 709) {
+      return exp(a - LN2);
+    }
+    double t = exp(a);
+    return (t + 1 / t) / 2;
+  }
+
+  /**
+   * {@code tanh(x)} — past 20 the true value is within 1e-17 of 1, closer than the next double, so
+   * the answer is 1 and computing e^40 to discover that would be waste.
+   */
+  public static double tanh(double x) {
+    if (Double.isNaN(x)) {
+      return Double.NaN;
+    }
+    double sign = x < 0 ? -1 : 1;
+    if (Double.isInfinite(x)) {
+      return sign;
+    }
+    double a = Math.abs(x);
+    if (a > 20) {
+      return sign;
+    }
+    if (a < 0.5) {
+      double z = x * x;
+      return x * horner(SINH_COEFF, z) / horner(COSH_COEFF, z);
+    }
+    double u = exp(2 * a);
+    return sign * (u - 1) / (u + 1);
+  }
+
+  /**
+   * {@code cbrt(x)} — the cube root, defined for negatives too.
+   *
+   * <p>{@code pow(x, 1/3)} is not the same function: one third is not a double, and a negative
+   * base with a fractional exponent has no real answer at all. So this is its own function,
+   * reduced by powers of eight — exact, being powers of two — and then refined by Newton's method.
+   */
+  public static double cbrt(double x) {
+    if (Double.isNaN(x) || Double.isInfinite(x) || x == 0) {
+      return x;
+    }
+    double sign = x < 0 ? -1 : 1;
+    double a = Math.abs(x);
+    long e = 0;
+    while (a >= 8) {
+      a /= 8;
+      e += 1;
+    }
+    while (a < 1) {
+      a *= 8;
+      e -= 1;
+    }
+    // A straight line through the ends of [1, 8): within 11% everywhere, which
+    // six Newton passes take past the last bit.
+    double y = 1 + (a - 1) / 7;
+    for (int i = 0; i < 6; i += 1) {
+      y = (2 * y + a / (y * y)) / 3;
+    }
+    return sign * scaleByPowerOfTwo(y, e);
   }
 }

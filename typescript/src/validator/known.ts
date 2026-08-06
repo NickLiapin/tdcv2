@@ -178,9 +178,15 @@ export const SUPPORTED_UNARY_OPERATORS: readonly string[] = ['!', '-', '+'] as c
  */
 export const EXPR_FUNCTIONS: Readonly<Record<string, { min: number; max: number | undefined }>> = {
   abs: { min: 1, max: 1 },
+  acos: { min: 1, max: 1 },
+  asin: { min: 1, max: 1 },
+  atan: { min: 1, max: 1 },
+  atan2: { min: 2, max: 2 },
+  cbrt: { min: 1, max: 1 },
   ceil: { min: 1, max: 1 },
   contains: { min: 2, max: 2 },
   cos: { min: 1, max: 1 },
+  cosh: { min: 1, max: 1 },
   ends_with: { min: 2, max: 2 },
   exp: { min: 1, max: 1 },
   floor: { min: 1, max: 1 },
@@ -194,9 +200,11 @@ export const EXPR_FUNCTIONS: Readonly<Record<string, { min: number; max: number 
   pow: { min: 2, max: 2 },
   round: { min: 1, max: 1 },
   sin: { min: 1, max: 1 },
+  sinh: { min: 1, max: 1 },
   sqrt: { min: 1, max: 1 },
   starts_with: { min: 2, max: 2 },
   tan: { min: 1, max: 1 },
+  tanh: { min: 1, max: 1 },
   trunc: { min: 1, max: 1 },
   upper: { min: 1, max: 1 },
 };
@@ -206,20 +214,25 @@ export const EXPR_FUNCTION_NAMES: readonly string[] = Object.keys(EXPR_FUNCTIONS
 /**
  * Names that are not available and are not typos either.
  *
- * Someone who writes `cos(_count)` knows exactly what they meant, and telling
- * them "did you mean abs?" is worse than saying nothing — edit distance has no
- * idea these are transcendental functions. They are answered with the real
- * reason instead.
+ * Someone who writes `atanh(_count)` knows exactly what they meant, and telling
+ * them "did you mean atan?" is worse than saying nothing — edit distance has no
+ * idea that one is the inverse of a hyperbolic function and the other is not.
+ * They are answered with the real reason instead.
+ *
+ * Every name here has to be built and pinned to its bits in five languages
+ * before it can be offered, which is the only thing keeping it on this list.
  */
 export const PLANNED_EXPR_FUNCTIONS: readonly string[] = [
-  'acos',
-  'asin',
-  'atan',
-  'atan2',
-  'cbrt',
-  'cosh',
-  'sinh',
-  'tanh',
+  'acosh',
+  'asinh',
+  'atanh',
+  'degrees',
+  'expm1',
+  'hypot',
+  'log1p',
+  'log2',
+  'radians',
+  'sign',
 ] as const;
 
 export const BUILTIN_SEQUENCES: readonly string[] = [
