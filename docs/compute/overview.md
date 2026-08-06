@@ -246,7 +246,8 @@ inferred.
 | `<mod>` of -7 by 3                | `-1`, as in C, Java and JavaScript | `2` — the remainder is never negative                    |
 | `<list v="a,b"/>`                 | a list of two strings              | an error: `"a" is not an integer`                        |
 | `<replace from="[ab]"/>`          | a regular expression               | a literal match, so nothing is replaced                  |
-| `<replace from="a"/>` on `banana` | the first `a`                      | `bXnXnX` — every occurrence                              |
+| `<replace from="a" to="X"/>` on `banana` | the first `a`             | `bXnXnX` — every occurrence                              |
+| `<replace from="a"/>` on `banana`, no `to=` | nothing, or an error      | `bnn` — every match is deleted                           |
 | `<equals>` of `5` and `"5"`       | different types, not equal         | equal                                                    |
 | `<slice from="99">` of `abc`      | an error                           | an empty string, silently                                |
 | `<pad width="2">` of `12345`      | `12`                               | `12345` — `width` is a minimum, never a cut              |

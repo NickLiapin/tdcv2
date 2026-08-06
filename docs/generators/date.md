@@ -32,7 +32,7 @@ can differ by core version. What stays fixed is the shape and the format.
 | `weekdays`            | Which weekdays a walked axis keeps: `mon..fri`, `sun,wed`                                |
 | `cycle`               | `false` refuses instead of looping when a walked BOUNDED range runs out                  |
 | `format`              | Output format (see [Formatting the output](#formatting-the-output)); default `L`         |
-| `local`               | `en`, `es`, `ru`, or `zh-cn`; inherited from [`<env>`](../reference/tags.md#top) if omitted |
+| `local`               | `ar`, `de`, `el`, `en`, `es`, `fr`, `it`, `pl`, `pt`, `ru`, `zh-cn` (three-letter aliases too: `eng`, `spa`, `fra`, …); inherited from [`<env>`](../reference/tags.md#top) if omitted |
 | `oldest` / `youngest` | Age window in years for `value="birth"` (defaults `80` and `10`)                         |
 | `precision`           | `day`, `second`, or `millisecond`                                                        |
 

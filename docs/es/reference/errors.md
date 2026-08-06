@@ -229,7 +229,7 @@ y [`<gen type="running">`](../generators/running.md#top).
 | `TDC150` | Solo se dio uno de `from` / `to`            | Ambos extremos o ninguno                                              |
 | `TDC151` | El valor de fecha no parsea                 | `value="2020-01-01..2025-12-31"`, `"birth"`, `"today"`, `"now"`       |
 | `TDC152` | Un token de `format` es desconocido         | Ver la [tabla de tokens](../generators/date.md#formato-de-la-salida) |
-| `TDC153` | `local` nombra un locale sin datos de fecha | Incluidas: `en`, `es`, `ru`, `zh-cn`                                  |
+| `TDC153` | `local` nombra un locale sin datos de fecha | Incluidas: `ar`, `de`, `el`, `en`, `es`, `fr`, `it`, `pl`, `pt`, `ru`, `zh-cn`, más alias de tres letras |
 | `TDC154` | `precision` no es un paso admitido          | Ver [precision](../generators/date.md#top)                               |
 
 ## Durante la generación

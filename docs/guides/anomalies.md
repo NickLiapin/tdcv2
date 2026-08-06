@@ -54,7 +54,9 @@ values (0 to 1) that become outliers. The size of each spike is `anomaly_factor`
 
 About 15% of the values get multiplied by 8 — normal readings sit near `50`, the
 outliers land near `400`. An outlier is exactly the base value **multiplied** by the
-factor. It works on **numbers only**; non-numeric values pass through untouched (see
+factor. It works on **numbers only**; non-numeric values in a mixed list pass through
+untouched, and a list with no numbers at all is refused outright (`TDC243`) rather than
+decorated with an attribute that could never fire (see
 [Details](#details)).
 
 ## Before and after — the same series, with and without spikes
@@ -310,7 +312,7 @@ TDC checks that the label and the column are both present:
 | What you wrote                                   | What TDC says                                     |
 | :----------------------------------------------- | :------------------------------------------------ |
 | `anomaly="true"`, but the `<mix>` has no `flag=` | error `TDC203` — the label has nowhere to go      |
-| `flag=`, but no `<case>` is marked               | warning `TDC202` — the column is all `false`      |
+| `flag=`, but no `<case>` is marked               | error `TDC202` — the column would be all `false`  |
 | `flag=` on a **nested** `<mix>`                  | error `TDC203` — only a named mix owns the column |
 
 ### In Parquet — a real type

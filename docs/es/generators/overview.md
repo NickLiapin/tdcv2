@@ -115,7 +115,14 @@ también es exacto:
 text:  100 100 100 100 100 100 100 100 100 100
 ```
 
-Eso cubre [`text`](text.md#top), [`number`](number.md#top) y [`<mix>`](../constructs/mix.md#top).
+Eso cubre [`text`](text.md#top) y [`<mix>`](../constructs/mix.md#top), y
+[`number`](number.md#top) **cuando su `percent` reparte grupos de `length`**: `length="2,3"
+percent="70,30"` sobre mil filas da exactamente 700 y 300.
+
+Un rango numérico simple es de la otra clase. `value="1..10"` sortea, y sobre mil filas
+los diez valores salen `97 84 106 112 107 102 90 95 86 121` — la dispersión de un sorteo,
+no una cuota. La regla es lo que escribió el config: las proporciones escritas se cumplen
+exactamente, en un rango se mete la mano.
 
 **Apuntó a una fuente — obtiene un sorteo.** Un [archivo](file.md#top) o un
 [pool](../pools/overview.md#top) es un conjunto en el que mete la mano una vez por fila, de

@@ -56,7 +56,9 @@ omisión `10`):
 Cerca del 15% de los valores se multiplican por 8 — las lecturas normales quedan cerca
 de `50` y los valores atípicos aterrizan cerca de `400`. Un valor atípico es
 exactamente el valor base **multiplicado** por el factor. Funciona **solo con
-números**; los valores no numéricos pasan intactos (vea [Detalles](#detalles)).
+números**; los valores no numéricos de una lista mixta pasan intactos, y una lista sin
+ningún número se rechaza de plano (`TDC243`) en vez de llevar un atributo que nunca podría
+dispararse (vea [Detalles](#detalles)).
 
 ## Antes y después — la misma serie, con y sin picos
 
@@ -305,7 +307,7 @@ TDC verifica que la etiqueta y la columna estén ambas presentes:
 | Lo que escribió                                    | Lo que dice TDC                                                |
 | :------------------------------------------------- | :------------------------------------------------------------- |
 | `anomaly="true"`, pero el `<mix>` no tiene `flag=` | error `TDC203` — la etiqueta no tiene a dónde ir               |
-| `flag=`, pero ningún `<case>` está marcado         | advertencia `TDC202` — la columna queda toda en `false`        |
+| `flag=`, pero ningún `<case>` está marcado         | error `TDC202` — la columna quedaría toda en `false`           |
 | `flag=` en un `<mix>` **anidado**                  | error `TDC203` — solo un mix con nombre es dueño de la columna |
 
 ### En Parquet — un tipo de verdad

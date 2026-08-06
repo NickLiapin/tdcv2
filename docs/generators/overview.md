@@ -113,7 +113,14 @@ is 30 and 70, not "about". Left unset, the shares are equal, and equal is exact 
 text:  100 100 100 100 100 100 100 100 100 100
 ```
 
-That covers [`text`](text.md#top), [`number`](number.md#top) and [`<mix>`](../constructs/mix.md#top).
+That covers [`text`](text.md#top) and [`<mix>`](../constructs/mix.md#top), and
+[`number`](number.md#top) **when its `percent` splits `length` groups** — `length="2,3"
+percent="70,30"` over a thousand rows is 700 and 300 exactly.
+
+A plain numeric range is the other kind. `value="1..10"` draws, and over a thousand rows
+the ten values come out `97 84 106 112 107 102 90 95 86 121` — the spread of a draw, not
+a quota. The rule is what the config wrote down: shares written out are honoured exactly,
+a range is reached into.
 
 **You pointed at a source — you get a draw.** A [file](file.md#top) or a
 [pool](../pools/overview.md#top) is a set you reach into, once per row, independently. Over

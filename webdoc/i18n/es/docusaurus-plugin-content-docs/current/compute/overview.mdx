@@ -247,7 +247,8 @@ no deducida.
 | `<mod>` de -7 entre 3                | `-1`, como en C, Java y JavaScript | `2` — el resto nunca es negativo                         |
 | `<list v="a,b"/>`                    | una lista de dos strings           | un error: `"a" is not an integer`                        |
 | `<replace from="[ab]"/>`             | una expresión regular              | una coincidencia literal, así que no se reemplaza nada   |
-| `<replace from="a"/>` sobre `banana` | la primera `a`                     | `bXnXnX` — todas las apariciones                         |
+| `<replace from="a" to="X"/>` sobre `banana` | la primera `a`            | `bXnXnX` — todas las apariciones                         |
+| `<replace from="a"/>` sobre `banana`, sin `to=` | nada, o un error       | `bnn` — cada coincidencia se borra                       |
 | `<equals>` de `5` y `"5"`            | tipos distintos, no son iguales    | son iguales                                              |
 | `<slice from="99">` sobre `abc`      | un error                           | un string vacío, en silencio                             |
 | `<pad width="2">` sobre `12345`      | `12`                               | `12345` — `width` es un mínimo, nunca un recorte         |
