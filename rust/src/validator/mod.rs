@@ -2485,9 +2485,31 @@ impl Validator {
             }
         }
 
-        let has_modifier = ["include", "exclude"]
-            .iter()
-            .any(|k| attrs.get(*k).is_some_and(|v| !v.trim().is_empty()));
+        let has_include = attrs.get("include").is_some_and(|v| !v.trim().is_empty());
+        let has_exclude = attrs.get("exclude").is_some_and(|v| !v.trim().is_empty());
+        let has_modifier = has_include || has_exclude;
+        // `include`/`exclude` turn the draw into a pick from an explicit set of
+        // WHOLE numbers, so a fractional value can never be in it: `decimals`
+        // described a draw that is no longer happening. The engine dropped it
+        // and emitted integers, and a config asking for 7.71 got 8 in silence.
+        let decimals = attrs.get("decimals").map(|v| v.trim()).unwrap_or("");
+        if has_modifier && !decimals.is_empty() && decimals != "0" {
+            let which = if has_include && has_exclude {
+                "include/exclude"
+            } else if has_include {
+                "include"
+            } else {
+                "exclude"
+            };
+            self.error(
+                "TDC255",
+                format!("decimals=\"{decimals}\" cannot be combined with {which}"),
+                "include= and exclude= build a set of whole numbers and pick one uniformly, so \
+                 there are no fractional values to round. Drop decimals=, or bound the range \
+                 with value= instead of a set.",
+                gen.at("decimals"),
+            );
+        }
         if has_modifier && blank(value) {
             self.error(
                 "TDC087",

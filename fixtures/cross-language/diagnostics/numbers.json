@@ -49,6 +49,41 @@
       "description": "The same total the other percent lists are held to: what is left over would have to go somewhere unnamed.",
       "config": "<tdc><env count=\"3\" seed=\"s\" local=\"en\"><sequence name=\"X\"><gen type=\"number\" value=\"10..999\" length=\"2,3\" percent=\"30,50\"/></sequence></env><block><line><data>${{X}}</data></line></block></tdc>",
       "expected": ["error TDC086 1:116"]
+    },
+    {
+      "name": "decimals-with-exclude",
+      "demonstrates": "TDC255",
+      "description": "exclude= makes the draw a pick from a set of whole numbers, so decimals described a draw that was no longer happening — the engine dropped it and emitted integers",
+      "config": "<tdc><env count=\"3\" seed=\"s\" local=\"en\"><sequence name=\"N\"><gen type=\"number\" value=\"1..10\" decimals=\"2\" exclude=\"5\"/></sequence></env><block><line><data>${{N}}</data></line></block></tdc>",
+      "expected": ["error TDC255 1:102"]
+    },
+    {
+      "name": "decimals-with-include",
+      "demonstrates": "TDC255",
+      "description": "The same set, reached the other way",
+      "config": "<tdc><env count=\"3\" seed=\"s\" local=\"en\"><sequence name=\"N\"><gen type=\"number\" value=\"1..10\" decimals=\"2\" include=\"99\"/></sequence></env><block><line><data>${{N}}</data></line></block></tdc>",
+      "expected": ["error TDC255 1:102"]
+    },
+    {
+      "name": "decimals-zero-with-exclude",
+      "demonstrates": "",
+      "description": "decimals=\"0\" asks for whole numbers, which is what a set already gives — nothing is lost, so nothing is said",
+      "config": "<tdc><env count=\"3\" seed=\"s\" local=\"en\"><sequence name=\"N\"><gen type=\"number\" value=\"1..10\" decimals=\"0\" exclude=\"5\"/></sequence></env><block><line><data>${{N}}</data></line></block></tdc>",
+      "expected": []
+    },
+    {
+      "name": "decimals-without-a-set",
+      "demonstrates": "",
+      "description": "A fractional draw over a plain range is untouched",
+      "config": "<tdc><env count=\"3\" seed=\"s\" local=\"en\"><sequence name=\"N\"><gen type=\"number\" value=\"1..10\" decimals=\"2\"/></sequence></env><block><line><data>${{N}}</data></line></block></tdc>",
+      "expected": []
+    },
+    {
+      "name": "exclude-without-decimals",
+      "demonstrates": "",
+      "description": "A set without decimals is untouched",
+      "config": "<tdc><env count=\"3\" seed=\"s\" local=\"en\"><sequence name=\"N\"><gen type=\"number\" value=\"1..10\" exclude=\"5\"/></sequence></env><block><line><data>${{N}}</data></line></block></tdc>",
+      "expected": []
     }
   ]
 }

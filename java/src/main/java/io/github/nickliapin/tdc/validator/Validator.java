@@ -2628,9 +2628,24 @@ public final class Validator {
           at(gen, "length")[0], at(gen, "length")[1]);
     }
 
-    boolean hasModifier =
-        (attrs.get("include") != null && !attrs.get("include").isBlank())
-            || (attrs.get("exclude") != null && !attrs.get("exclude").isBlank());
+    boolean hasInclude = attrs.get("include") != null && !attrs.get("include").isBlank();
+    boolean hasExclude = attrs.get("exclude") != null && !attrs.get("exclude").isBlank();
+    boolean hasModifier = hasInclude || hasExclude;
+    // include/exclude turn the draw into a pick from an explicit set of WHOLE numbers, so a
+    // fractional value can never be in it: decimals described a draw that is no longer
+    // happening. The engine dropped it and emitted integers, and a config asking for 7.71 got
+    // 8 without a word.
+    String decimals = attrs.getOrDefault("decimals", "").trim();
+    if (hasModifier && !decimals.isEmpty() && !"0".equals(decimals)) {
+      String which = hasInclude && hasExclude ? "include/exclude" : hasInclude ? "include"
+          : "exclude";
+      error("TDC255",
+          "decimals=\"" + decimals + "\" cannot be combined with " + which,
+          "include= and exclude= build a set of whole numbers and pick one uniformly, so there "
+              + "are no fractional values to round. Drop decimals=, or bound the range with "
+              + "value= instead of a set.",
+          at(gen, "decimals")[0], at(gen, "decimals")[1]);
+    }
     if (hasModifier && (value == null || value.isBlank())) {
       error("TDC087", "<gen type=\"number\"> include/exclude require a numeric range in \"value\"",
           "Add a range first, e.g. value=\"0..9\" exclude=\"3\".", line(gen), column(gen));

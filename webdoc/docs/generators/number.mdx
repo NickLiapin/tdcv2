@@ -245,6 +245,9 @@ Two things worth knowing:
 - **The pick is genuinely uniform** over everything that remains. `value="0..9"
 exclude="3"` gives each of the nine surviving numbers exactly a 1-in-9 chance —
   unlike a range list, where ranges, not numbers, are equally weighted.
+- **A set has no decimals.** `include`/`exclude` build a set of whole numbers and pick one
+  uniformly, so `decimals=` has nothing to round. The two together are refused (`TDC255`) —
+  before that the engine dropped `decimals` and emitted integers without a word.
 - **`exclude` has the last word.** The final set is `(base ∪ include) − exclude`,
   so a number added by `include` and removed by `exclude` is gone. If nothing is
   left after the modifiers, that's error `TDC087`.

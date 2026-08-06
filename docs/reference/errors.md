@@ -295,6 +295,7 @@ but the combination it asks for can't be carried out.
 | `TDC253` | `peak_at` with no `period` on the same `<gen>`                              | A wave needs a length before it can have a highest point. Add `period`, or remove `peak_at` |
 | `TDC251` | _(warning)_ A `percent` share asks for less than one whole row              | `percent` is an exact quota over the rows that reach it, so 10% of a five-row subset asks for half a record. Half a record cannot be emitted: the branch fires once or not at all, and the seed decides which. Raise the share, or raise `count`
 | `TDC254` | `repeat=` and `order="sequential"` on the same `<gen>`                       | Keep one. A walked column takes one value per row from its source; a repeating column takes several drawn values. Together the engines disagreed, so the combination is refused rather than answered three ways |
+| `TDC255` | `decimals=` together with `include=` or `exclude=`                            | Drop one. A set built by `include`/`exclude` holds whole numbers and the pick is uniform over them, so there is nothing fractional to round — the engine was quietly emitting integers |
 
 ## See also
 

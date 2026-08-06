@@ -3242,9 +3242,29 @@ public sealed class Validator
                 "Examples: length=\"10\", length=\"2-10\", length=\"2,10-12\".", line, column);
         }
 
-        bool hasModifier =
-            !string.IsNullOrWhiteSpace(attrs.GetValueOrDefault("include"))
-            || !string.IsNullOrWhiteSpace(attrs.GetValueOrDefault("exclude"));
+        bool hasInclude = !string.IsNullOrWhiteSpace(attrs.GetValueOrDefault("include"));
+        bool hasExclude = !string.IsNullOrWhiteSpace(attrs.GetValueOrDefault("exclude"));
+        bool hasModifier = hasInclude || hasExclude;
+
+        // include/exclude turn the draw into a pick from an explicit set of WHOLE numbers, so a
+        // fractional value can never be in it: decimals described a draw that is no longer
+        // happening. The engine dropped it and emitted integers, and a config asking for 7.71
+        // got 8 without a word.
+        string decimalsRaw = attrs.GetValueOrDefault("decimals", string.Empty).Trim();
+        if (hasModifier && decimalsRaw.Length > 0 && decimalsRaw != "0")
+        {
+            string which = hasInclude && hasExclude ? "include/exclude"
+                : hasInclude ? "include" : "exclude";
+            (int decLine, int decColumn) = At(gen, "decimals");
+            Error(
+                "TDC255",
+                $"decimals=\"{decimalsRaw}\" cannot be combined with {which}",
+                "include= and exclude= build a set of whole numbers and pick one uniformly, so "
+                + "there are no fractional values to round. Drop decimals=, or bound the range "
+                + "with value= instead of a set.",
+                decLine, decColumn);
+        }
+
         if (hasModifier && string.IsNullOrWhiteSpace(value))
         {
             Error(

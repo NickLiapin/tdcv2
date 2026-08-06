@@ -249,6 +249,9 @@ Dos cosas que vale la pena saber:
 exclude="3"` da exactamente 1/9 para cada uno de los nueve números
   sobrevivientes — a diferencia de una lista de rangos, donde lo que pesa igual son
   los rangos, no los números.
+- **Un conjunto no tiene decimales.** `include`/`exclude` forman un conjunto de números enteros
+  y eligen uno uniformemente, así que `decimals=` no tiene nada que redondear. Juntos se
+  rechazan (`TDC255`) — antes el motor descartaba `decimals` y emitía enteros sin decir nada.
 - **`exclude` tiene la última palabra.** El conjunto final es
   `(base ∪ include) − exclude`, así que un número agregado por `include` y quitado por
   `exclude` desaparece. Si no queda nada después de los modificadores, eso es el error

@@ -59,6 +59,29 @@ export function checkGenNumber(
   const hasInclude = (attrMap['include'] ?? '').trim().length > 0;
   const hasExclude = (attrMap['exclude'] ?? '').trim().length > 0;
   if (hasInclude || hasExclude) {
+    // `include`/`exclude` turn the draw into a pick from an explicit set of WHOLE
+    // numbers — "each of the nine surviving numbers exactly a 1-in-9 chance". A
+    // fractional value can never be in that set, so `decimals` describes a draw
+    // that is no longer happening: the engine dropped it and emitted integers,
+    // and the config that asked for 7.71 got 8 without a word.
+    const decimalsAttr = findAttr(attrs, 'decimals');
+    const decimals = (attrMap['decimals'] ?? '').trim();
+    if (decimalsAttr && decimals !== '' && decimals !== '0') {
+      diagnostics.push({
+        severity: 'error',
+        source: 'validator',
+        ...attrValueRange(decimalsAttr),
+        message: `decimals="${decimals}" cannot be combined with ${
+          hasInclude && hasExclude ? 'include/exclude' : hasInclude ? 'include' : 'exclude'
+        }`,
+        hint:
+          'include= and exclude= build a set of whole numbers and pick one uniformly, so there ' +
+          'are no fractional values to round. Drop decimals=, or bound the range with value= ' +
+          'instead of a set.',
+        code: 'TDC255',
+      });
+    }
+
     const rawValue = (attrMap['value'] ?? '').trim();
     if (!valueAttr || rawValue.length === 0) {
       diagnostics.push({
