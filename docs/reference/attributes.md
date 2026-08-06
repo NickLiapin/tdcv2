@@ -25,7 +25,7 @@ covered where that tag is explained — see the [compute reference](compute.md#t
 | `seed`          | RNG seed, for reproducibility                 | [Determinism](../core-concepts/determinism.md#top)               |
 | `local`         | Locale for template data                      | [Template](../generators/template.md#top)                        |
 | `inject`        | Custom interpolation marker                   | [Output & formatting](../core-concepts/output-formatting.md#top) |
-| `mode`          | `memory` / `disk` — which engine family       | [Large outputs](../guides/large-outputs.md#top)                  |
+| `mode`          | `memory` / `disk` — which engine family; `stream` is a legacy alias that forces engine 2 | [Large outputs](../guides/large-outputs.md#top)                  |
 | `engine`        | `1` / `2` / `3` — force one engine (advanced) | [Large outputs](../guides/large-outputs.md#top)                  |
 | `comment`       | Free-form comment                             | [Configuration](../core-concepts/configuration.md#comment)   |
 

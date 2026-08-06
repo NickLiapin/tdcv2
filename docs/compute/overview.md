@@ -393,8 +393,13 @@ condition can't loop forever:
 <valid><less_than><to_number><field name="check"/></to_number><int v="10"/></less_than></valid>
 ```
 
-Across thousands of rows, not one will have a check value of 10 — every emitted ISBN-10
-is ten clean digits.
+Across thousands of rows, not one will have a check value of 10 — every ISBN-10 emitted
+**by this config** is ten clean digits.
+
+The bundled `common.book.isbn10` deliberately does the opposite: it carries no `<valid>`
+and writes the `X`, because that is what a real ISBN-10 does. About one in ten ends in
+`X` — measured, 30 of 300. Add the predicate above when a column has to stay numeric;
+leave it off when you want the standard.
 
 `./run isbn.tdc`
 

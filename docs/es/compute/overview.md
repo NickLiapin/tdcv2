@@ -398,7 +398,12 @@ seguridad para que una condición imposible no se cicle para siempre):
 ```
 
 A lo largo de miles de filas, ninguna tendrá un valor de control de 10 — cada ISBN-10
-emitido son diez dígitos limpios.
+emitido **por este config** son diez dígitos limpios.
+
+El `common.book.isbn10` incluido hace deliberadamente lo contrario: no lleva `<valid>` y
+escribe la `X`, porque eso es lo que hace un ISBN-10 real. Cerca de uno de cada diez
+termina en `X` — medido, 30 de 300. Añada el predicado de arriba cuando una columna deba
+quedar numérica; déjelo fuera cuando quiera el estándar.
 
 `./run isbn.tdc`
 

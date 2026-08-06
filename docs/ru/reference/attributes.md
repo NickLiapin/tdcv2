@@ -26,7 +26,7 @@
 | `seed`          | Сид генератора случайных чисел (воспроизводимость) | [Детерминизм](../core-concepts/determinism.md#top)                  |
 | `local`         | Локаль для шаблонных данных                        | [Шаблоны](../generators/template.md#top)                            |
 | `inject`        | Свой маркер интерполяции                           | [Вывод и форматирование](../core-concepts/output-formatting.md#top) |
-| `mode`          | `memory` / `disk` — семейство движков              | [Большие объёмы](../guides/large-outputs.md#top)                    |
+| `mode`          | `memory` / `disk` — семейство движков; `stream` — легаси-псевдоним, форсирующий движок 2 | [Большие объёмы](../guides/large-outputs.md#top)                    |
 | `engine`        | `1` / `2` / `3` — форсировать движок (продвинутое) | [Большие объёмы](../guides/large-outputs.md#top)                    |
 | `comment`       | Произвольный комментарий                           | [Конфигурация](../core-concepts/configuration.md#top)               |
 
