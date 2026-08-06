@@ -294,14 +294,48 @@ and a country list weighted by how many people live there.
 | `geo.currencyCodeByCountry`   | language pack  | An ISO currency code, keyed by country       |
 | `geo.direction`               | language pack  | `north`, `south-east`, …                     |
 | `<country>.geo.city`          | country pack   | A city in that country                       |
-| `<country>.geo.province`      | country pack   | A province, state, region or department      |
-| `<country>.geo.postalCode`    | country pack   | A postcode in that country's own format      |
+| `<country>.geo.<division>`    | country pack   | A subdivision, under **that country's** word |
+| `<country>.geo.<postcode>`    | country pack   | A postcode, under that country's word too    |
 | `<country>.geo.streetName`    | country pack   | A street name                                |
 
-`geo.city` ships in **92 of the 111 country packs**. The exact set of place names differs
-by country, because the countries do: Poland has `voivodeship`, Italy has `comune`, the
-United States has `state` and `zip`. Read
-[Data packs](../data-packs/overview.md#top) for what a given country carries.
+The five language-pack rows ship in **`en` and `ru`** today; ask for `geo.country` under
+`local="es"` and the run stops with TDC217, naming the locales that do have it. The
+country-pack rows are where the table has to stay vague, and the reason is the subject
+itself: **a country pack names its subdivisions the way that country names them.**
+
+| Leaf              | Country packs that ship it |
+| :---------------- | :------------------------- |
+| `geo.city`        | 93 of 111                  |
+| `geo.region`      | 52                         |
+| `geo.streetName`  | 36 (plus 37 with `geo.streetNamed`) |
+| `geo.postalCode`  | 24                         |
+| `geo.province`    | 19                         |
+| `geo.zip`         | 16                         |
+| `geo.municipality`| 13                         |
+
+Some subdivision exists in 95 of the 111 packs and some postcode in 48 — under names that
+include `department`, `canton`, `governorate`, `voivodeship`, `prefecture`, `eircode`,
+`cep` and `cap`. So `usa.geo.province` is not a path: the United States has
+`usa.geo.state` and `usa.geo.zip`.
+
+**Guessing is the intended way to find out.** Write the leaf you expect and run `check` —
+the diagnostic lists what is actually there:
+
+`tdcv2 check geo.tdc`
+
+```
+error[TDC071]: unknown template path "usa.geo.province"
+ --> geo.tdc:4:35
+  |
+4 |       <gen type="template" value="usa.geo.province"/>
+  |                                   ^^^^^^^^^^^^^^^^
+  |
+note: Beside it: usa.geo.city, usa.geo.county, usa.geo.state, usa.geo.stateAbbr, usa.geo.streetName, usa.geo.streetNamed, … (1 more).
+
+aborted: 1 error
+```
+
+[Data packs](../data-packs/overview.md#top) covers what a given country carries.
 
 ### `location.country` and `geo.country` are different lists
 
@@ -340,15 +374,33 @@ Both date templates share the format tokens (and locale-aware `L` / `LL`) of the
 
 ### `person.b_day` — a birthday
 
-| Attribute  | Default      | Description                              |
-| :--------- | :----------- | :--------------------------------------- |
-| `oldest`   | `80`         | Maximum age, in years                    |
-| `youngest` | `10`         | Minimum age, in years                    |
-| `format`   | `L`          | Output format (TDC date-format)          |
-| `local`    | from `<env>` | Locale for localized formats (`L`, `LL`) |
+| Attribute   | Default       | Description                              |
+| :---------- | :------------ | :--------------------------------------- |
+| `oldest`    | `80`          | Maximum age, in years                    |
+| `youngest`  | `10`          | Minimum age, in years                    |
+| `format`    | `L`           | Output format (TDC date-format)          |
+| `local`     | from `<env>`  | Locale for localized formats (`L`, `LL`) |
+| `precision` | `millisecond` | `day`, `second` or `millisecond`         |
 
 Use it whenever a record needs an age-bounded date of birth — the `youngest` / `oldest`
 window keeps everyone inside a believable age band.
+
+> [!NOTE]
+> **The same birthday, two defaults**
+>
+> `person.b_day` and [`<gen type="date" value="birth">`](date.md#a-birthday-with-valuebirth)
+> compute the same thing from the same age window, and they default to different
+> precision: the template draws a **millisecond**, the date generator a **day**. Under a
+> date-only format nothing shows. Ask for a time and the difference is the whole value:
+>
+> ```
+> person.b_day                  1976-07-06 11:28:39.539
+> <gen type="date" value="birth">  1999-01-21 00:00:00.000
+> ```
+>
+> Write `precision="day"` on the template when a birthday should be a date and nothing
+> more. It is not only cosmetic — snapping to the day can move the value into the
+> neighbouring date, so the two precisions do not always render the same day.
 
 ```xml
 <gen type="template" value="person.b_day" youngest="18" oldest="65" format="YYYY-MM-DD"/>

@@ -97,6 +97,44 @@ export function localesHavingPath(
   return [...new Set(out)].sort();
 }
 
+/**
+ * Every path a config may legally write, given the packs that were loaded: the
+ * addresses themselves (`usa.geo.city`) and their locale-free shapes
+ * (`geo.city`, which resolves against the env locale at render time).
+ *
+ * TDC071's hint used to list the nine canonical shapes and call them "known
+ * paths", which is what a reader who wrote `usa.geo.province` sees — while
+ * `usa.geo.city`, absent from that list, works. The list was not a list of
+ * known paths at all; it was a list of paths every locale happens to ship.
+ */
+export function candidateTemplatePaths(packAddresses: readonly string[]): readonly string[] {
+  const out = new Set<string>(KNOWN_TEMPLATE_PATHS);
+  for (const address of packAddresses) {
+    out.add(address);
+    const dot = address.indexOf('.');
+    if (dot > 0) out.add(address.slice(dot + 1));
+  }
+  return [...out];
+}
+
+/**
+ * The paths that sit beside `path` under the same namespace — what the author
+ * most likely meant when they invented a leaf name their country does not use.
+ * `usa.geo.province` → `usa.geo.city`, `usa.geo.county`, `usa.geo.state`, …
+ */
+export function siblingTemplatePaths(
+  path: string,
+  packAddresses: readonly string[],
+): readonly string[] {
+  const dot = path.lastIndexOf('.');
+  if (dot <= 0) return [];
+  const namespace = path.slice(0, dot + 1);
+  const out = candidateTemplatePaths(packAddresses).filter(
+    (candidate) => candidate !== path && candidate.startsWith(namespace),
+  );
+  return [...out].sort();
+}
+
 export const SUPPORTED_BINARY_OPERATORS: readonly string[] = [
   '==',
   '!=',

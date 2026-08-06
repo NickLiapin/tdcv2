@@ -283,14 +283,46 @@ dentro de un país, y una lista de países ponderada por cuánta gente vive en e
 | `geo.currencyCodeByCountry`   | paquete de idioma | Un código ISO de moneda, con el país como clave |
 | `geo.direction`               | paquete de idioma | `north`, `south-east`, …                        |
 | `<país>.geo.city`             | paquete de país   | Una ciudad de ese país                          |
-| `<país>.geo.province`         | paquete de país   | Una provincia, estado, región o departamento    |
-| `<país>.geo.postalCode`       | paquete de país   | Un código postal en el formato de ese país      |
+| `<país>.geo.<división>`       | paquete de país   | Una división, **con la palabra de ese país**    |
+| `<país>.geo.<código postal>`  | paquete de país   | Un código postal, también con su propia palabra |
 | `<país>.geo.streetName`       | paquete de país   | El nombre de una calle                          |
 
-`geo.city` viene en **92 de los 111 paquetes de país**. El conjunto exacto de nombres de
-lugar cambia según el país, porque los países cambian: Polonia tiene `voivodeship`, Italia
-tiene `comune`, Estados Unidos tiene `state` y `zip`. Lea
-[Paquetes de datos](../data-packs/overview.mdx) para saber qué trae un país concreto.
+Las cinco filas del paquete de idioma existen hoy en **`en` y `ru`**; pida `geo.country`
+con `local="es"` y la ejecución se detiene con TDC217, nombrando las locales que sí lo
+traen. Las filas de país son donde la tabla tiene que quedarse vaga, y la razón es el
+tema mismo: **un paquete de país nombra sus divisiones como las nombra ese país.**
+
+| Hoja              | Paquetes de país que la traen |
+| :---------------- | :---------------------------- |
+| `geo.city`        | 93 de 111                     |
+| `geo.region`      | 52                            |
+| `geo.streetName`  | 36 (más 37 con `geo.streetNamed`) |
+| `geo.postalCode`  | 24                            |
+| `geo.province`    | 19                            |
+| `geo.zip`         | 16                            |
+| `geo.municipality`| 13                            |
+
+Alguna división existe en 95 de los 111 paquetes y algún código postal en 48, bajo
+nombres como `department`, `canton`, `governorate`, `voivodeship`, `prefecture`,
+`eircode`, `cep` y `cap`. Por eso `usa.geo.province` no es una ruta: Estados Unidos tiene
+`usa.geo.state` y `usa.geo.zip`.
+
+**Adivinar es la forma prevista de averiguarlo.** Escriba la hoja que espera y ejecute
+`check` — el diagnóstico enumera lo que hay de verdad:
+
+<Terminal title="tdcv2 check geo.tdc">
+{`error[TDC071]: unknown template path "usa.geo.province"
+ --> geo.tdc:4:35
+  |
+4 |       <gen type="template" value="usa.geo.province"/>
+  |                                   ^^^^^^^^^^^^^^^^
+  |
+note: Beside it: usa.geo.city, usa.geo.county, usa.geo.state, usa.geo.stateAbbr, usa.geo.streetName, usa.geo.streetNamed, … (1 more).
+
+aborted: 1 error`}
+</Terminal>
+
+Lea [Paquetes de datos](../data-packs/overview.mdx) para saber qué trae un país concreto.
 
 ### `location.country` y `geo.country` son listas distintas
 
@@ -328,15 +360,32 @@ dependen del locale) del [generador `date`](date.mdx#formato-de-la-salida).
 
 ### `person.b_day` — una fecha de nacimiento
 
-| Atributo   | Por omisión | Descripción                                      |
-| :--------- | :---------- | :----------------------------------------------- |
-| `oldest`   | `80`        | Edad máxima, en años                             |
-| `youngest` | `10`        | Edad mínima, en años                             |
-| `format`   | `L`         | Formato de salida (formato de fecha de TDC)      |
-| `local`    | del `<env>` | Locale para los formatos localizados (`L`, `LL`) |
+| Atributo    | Por omisión   | Descripción                                      |
+| :---------- | :------------ | :----------------------------------------------- |
+| `oldest`    | `80`          | Edad máxima, en años                             |
+| `youngest`  | `10`          | Edad mínima, en años                             |
+| `format`    | `L`           | Formato de salida (formato de fecha de TDC)      |
+| `local`     | del `<env>`   | Locale para los formatos localizados (`L`, `LL`) |
+| `precision` | `millisecond` | `day`, `second` o `millisecond`                  |
 
 Úsela cada vez que un registro necesite una fecha de nacimiento acotada por edad — la
 ventana `youngest` / `oldest` mantiene a todos dentro de una franja de edad creíble.
+
+:::note[La misma fecha de nacimiento, dos valores por omisión]
+`person.b_day` y [`<gen type="date" value="birth">`](date.mdx#un-cumpleaños-con-valuebirth)
+calculan lo mismo a partir de la misma ventana de edad, y su valor por omisión difiere:
+la plantilla saca un **milisegundo**, el generador de fechas un **día**. Con un formato
+sin hora no se nota. Pida la hora y la diferencia es el valor entero:
+
+```
+person.b_day                  1976-07-06 11:28:39.539
+<gen type="date" value="birth">  1999-01-21 00:00:00.000
+```
+
+Escriba `precision="day"` en la plantilla cuando una fecha de nacimiento deba ser una
+fecha y nada más. No es solo cosmético: redondear al día puede mover el valor a la fecha
+vecina, así que las dos precisiones no siempre dan el mismo día.
+:::
 
 ```xml
 <gen type="template" value="person.b_day" youngest="18" oldest="65" format="YYYY-MM-DD"/>

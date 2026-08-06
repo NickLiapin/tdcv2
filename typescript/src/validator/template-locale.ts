@@ -19,7 +19,13 @@ import type {
 import { extractAttrs } from '../processor/walk.js';
 import { nodeRange } from '../errors/source-map.js';
 import { closestMatch } from '../errors/suggestions.js';
-import { KNOWN_TEMPLATE_PATHS, isDynamicTemplateValue, templatePathKnown } from './known.js';
+import {
+  KNOWN_TEMPLATE_PATHS,
+  candidateTemplatePaths,
+  isDynamicTemplateValue,
+  siblingTemplatePaths,
+  templatePathKnown,
+} from './known.js';
 import { checkBirthDateTemplate, checkDateRangeTemplate } from './date.js';
 import { checkTemplateParams, type PackParams } from './pack-params.js';
 
@@ -110,14 +116,27 @@ export function checkGenTemplate(
   // Valid if a builtin, a hard pack address, or a soft shape (some locale has
   // it). The concrete locale is resolved against the env at render time.
   if (!templatePathKnown(path, ctx.packAddresses)) {
-    const suggestion = closestMatch(path, KNOWN_TEMPLATE_PATHS);
+    // Suggest against what is actually loaded, not against the nine canonical
+    // shapes: a country pack names its own subdivisions, so the leaf a reader
+    // guesses (`province`) is often `state`, `region` or `department` here.
+    const siblings = siblingTemplatePaths(path, ctx.packAddresses);
+    // Search the namespace first when it exists. Across the whole pack list the
+    // nearest string to `usa.geo.province` is `cuba.geo.province` — a real path,
+    // in the wrong country, and worse than no suggestion at all.
+    const suggestion =
+      siblings.length > 0
+        ? closestMatch(path, siblings)
+        : closestMatch(path, candidateTemplatePaths(ctx.packAddresses));
     ctx.diagnostics.push({
       severity: 'error',
       source: 'validator',
       ...attrValueRange(valueAttr),
       message: `unknown template path "${path}"`,
       ...(suggestion ? { suggestion: `did you mean "${suggestion}"?` } : {}),
-      hint: `Known paths: ${formatCandidates(KNOWN_TEMPLATE_PATHS)}.`,
+      hint:
+        siblings.length > 0
+          ? `Beside it: ${formatCandidates(siblings)}.`
+          : `Known paths: ${formatCandidates(KNOWN_TEMPLATE_PATHS)}.`,
       code: 'TDC071',
     });
     return;

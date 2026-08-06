@@ -114,7 +114,7 @@ Four case transforms, each taking one string child:
 | `<upper>`      | ALL UPPERCASE                                               |
 | `<lower>`      | all lowercase                                               |
 | `<capitalize>` | **only the first** letter uppercase, the rest as-is         |
-| `<title>`      | the first letter of **each word** uppercase, the rest as-is |
+| `<title>`      | the first letter of **each space-separated word** uppercase, the rest as-is |
 
 **Use them when** data arrives in mixed case (different sources, imports) and you need
 one consistent form. The same string through all four:
@@ -141,6 +141,23 @@ ANNA von lee  ->  upper=ANNA VON LEE | lower=anna von lee | capitalize=ANNA von 
 unchanged — its first `A` is already uppercase), while `title` uppercases the first
 letter of **every** word (`von` → `Von`, `lee` → `Lee`). `upper` / `lower` change
 everything.
+
+> [!CAUTION]
+> **A word ends at a space, and nowhere else**
+>
+> `title` splits on whitespace only. A hyphen or an apostrophe is an ordinary character
+> inside a word, so the letter after it is left alone — which is exactly where people
+> names differ from the rule:
+>
+> ```
+> mary-jane watson  ->  Mary-jane Watson
+> o'brien smith     ->  O'brien Smith
+> ```
+>
+> `Mary-Jane` and `O'Brien` are what a reader expects and not what comes out. The same
+> holds for the `case="title"` attribute on `<gen>`, which runs the same transform. When
+> the column is a person's name, draw it from a pack — the pack already stores it cased
+> the way that language writes it — rather than title-casing lowercase input.
 
 ## Reshaping
 

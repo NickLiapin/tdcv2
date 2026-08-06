@@ -116,7 +116,7 @@ Cuatro transformaciones de mayúsculas y minúsculas, cada una con un hijo de ti
 | `<upper>`      | TODO EN MAYÚSCULAS                                                   |
 | `<lower>`      | todo en minúsculas                                                   |
 | `<capitalize>` | **solo la primera** letra en mayúscula, el resto tal cual            |
-| `<title>`      | la primera letra de **cada palabra** en mayúscula, el resto tal cual |
+| `<title>`      | la primera letra de **cada palabra separada por espacios** en mayúscula, el resto tal cual |
 
 **Úselas cuando** los datos lleguen con mayúsculas y minúsculas mezcladas (distintas
 fuentes, importaciones) y necesite una sola forma consistente. El mismo string a través de
@@ -144,6 +144,23 @@ ANA de la torre  ->  upper=ANA DE LA TORRE | lower=ana de la torre | capitalize=
 — su primera `A` ya está en mayúscula), mientras que `title` levanta la primera letra de
 **cada** palabra (`de` → `De`, `torre` → `Torre`). `upper` / `lower` cambian todo. Las
 letras acentuadas se transforman igual que las demás: `É` ↔ `é`, `Í` ↔ `í`.
+
+> [!CAUTION]
+> **Una palabra termina en un espacio, y en ningún otro sitio**
+>
+> `title` corta solo por espacios. Un guion o un apóstrofo es un carácter corriente dentro
+> de la palabra, así que la letra que va detrás se queda como estaba — justo donde los
+> nombres de persona se apartan de la regla:
+>
+> ```
+> josé-maría o'donnell  ->  José-maría O'donnell
+> mary-jane watson      ->  Mary-jane Watson
+> ```
+>
+> `José-María` y `O'Donnell` es lo que espera quien lee, y no es lo que sale. Lo mismo vale
+> para el atributo `case="title"` de `<gen>`, que ejecuta la misma transformación. Cuando la
+> columna es el nombre de una persona, sáquelo de un paquete: el paquete ya lo guarda con
+> las mayúsculas que ese idioma escribe, en vez de aplicar `title` a un texto en minúsculas.
 
 ## Reestructuración
 
