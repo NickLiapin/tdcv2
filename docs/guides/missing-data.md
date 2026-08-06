@@ -109,7 +109,7 @@ the column name, not by the marker); only what fills the hole changes:
 
 ```
 full=Austin | holey=Austin
-full=Denver | holey=Denver
+full=Denver | holey=NULL
 full=Boston | holey=NULL
 full=Seattle | holey=NULL
 full=Chicago | holey=Chicago
@@ -118,9 +118,9 @@ full=Portland | holey=Portland
 full=Miami | holey=Miami
 ```
 
-The holes are on the same rows — 3 and 4 — as before, but now you can **see** them.
-Set `missing_as="—"` or `missing_as="NA"` and you get your own marker in the same
-places.
+The holes are on the same rows — 2, 3 and 4 — as before, where `Denver`, `Boston` and
+`Seattle` were: adding the marker moved nothing. Set `missing_as="—"` or
+`missing_as="NA"` and you get your own marker in the same places.
 
 ## How many holes — varying the rate
 

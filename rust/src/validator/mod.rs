@@ -2678,21 +2678,41 @@ impl Validator {
 
         if let Ok(step) = date::calendar::parse_step(attrs.get("step").map(String::as_str)) {
             if date::calendar::fixes_weekday(step) {
-                // A calendar step, or any whole number of weeks, lands on the same
-                // weekday every time — so the filter would match every row or none
-                // of them, giving a full column or an empty one with nothing said
-                // either way. Measured on the STEP rather than on its spelling, so
-                // `14d` is caught as surely as `2w`.
+                // Two different reasons wear one code, and they must not wear one
+                // sentence.
+                //
+                // A whole number of weeks really does land on the same weekday every
+                // time, so the filter matches every row or none. Measured on the STEP
+                // rather than on its spelling, so `14d` is caught as surely as `2w`.
+                //
+                // A CALENDAR step does not: 15 January 2026 is a Thursday, 15 February
+                // a Sunday, 15 March a Sunday, 15 April a Wednesday. The combination is
+                // still refused — a month holds a different number of days each time —
+                // but for its own reason.
                 let written = attrs.get("step").map(|v| v.trim()).unwrap_or("");
+                let whole_weeks = step.months == 0;
                 self.error(
                     "TDC250",
-                    format!(
-                        "weekdays=\"{raw}\" cannot narrow step=\"{written}\" — that step already \
-                         fixes the weekday"
-                    ),
-                    "A whole number of weeks, or any calendar step, lands on the same weekday \
-                     every time, so this would match every row or none. Use a step that is not a \
-                     multiple of a week, or drop weekdays=.",
+                    if whole_weeks {
+                        format!(
+                            "weekdays=\"{raw}\" cannot narrow step=\"{written}\" — that step \
+                             already fixes the weekday"
+                        )
+                    } else {
+                        format!(
+                            "weekdays=\"{raw}\" cannot narrow step=\"{written}\" — a calendar \
+                             step is not measured in days"
+                        )
+                    },
+                    if whole_weeks {
+                        "A whole number of weeks lands on the same weekday every time, so this \
+                         would match every row or none. Use a step that is not a multiple of a \
+                         week, or drop weekdays=."
+                    } else {
+                        "A month and a year hold a different number of days each time, so which \
+                         rows survive the filter follows the calendar rather than anything \
+                         written here. Use a step measured in days or hours, or drop weekdays=."
+                    },
                     gen.at("weekdays"),
                 );
             }

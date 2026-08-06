@@ -298,10 +298,18 @@ Spans use `..`, like every other range in TDC, and a list uses commas: `weekdays
 A span **wraps**, so `fri..mon` is Friday, Saturday, Sunday, Monday — a week is a circle,
 and refusing to go round it would make half the spans unwritable.
 
-`weekdays` under a step of a whole week or more is refused (`TDC250`). Such a step lands on
-the same weekday every time, so the filter would match every row or none of them — a full
-column or an empty one, with nothing said either way. That is measured on the step's
-length, so `14d` is refused exactly as `2w` is.
+Two kinds of step refuse `weekdays` (`TDC250`), for two different reasons.
+
+A **whole number of weeks** lands on the same weekday every time, so the filter would
+match every row or none of them — a full column or an empty one, with nothing said either
+way. That is measured on the step's length, so `14d` is refused exactly as `2w` is, while
+`10d` is fine.
+
+A **calendar step** — `1mo`, `3mo`, `1y` — is refused for the opposite reason: it does
+*not* fix the weekday. The 15th walks Thursday, Sunday, Sunday, Wednesday, Friday, Monday
+across the first half of 2026. Which rows survive a weekday filter would follow the
+calendar rather than anything written in the config, so the step and the filter are asked
+to be one or the other.
 
 ### A bounded range wraps
 

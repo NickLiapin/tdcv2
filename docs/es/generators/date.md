@@ -304,10 +304,18 @@ Un rango **da la vuelta**, así que `fri..mon` es viernes, sábado, domingo, lun
 semana es un círculo, y prohibir recorrerlo dejaría la mitad de los rangos sin poder
 escribirse.
 
-`weekdays` bajo un paso de una semana entera o más se rechaza (`TDC250`). Un paso así cae
-siempre en el mismo día de la semana, así que el filtro coincidiría con todas las filas o
-con ninguna — una columna llena o una vacía, sin decir nada al respecto. Eso se mide sobre
-el largo del paso, así que `14d` se rechaza igual que `2w`.
+Dos clases de paso rechazan `weekdays` (`TDC250`), por dos razones distintas.
+
+Un **número entero de semanas** cae siempre en el mismo día de la semana, así que el
+filtro coincidiría con todas las filas o con ninguna — una columna llena o una vacía, sin
+decir nada al respecto. Eso se mide sobre el largo del paso, así que `14d` se rechaza
+igual que `2w`, mientras que `10d` pasa.
+
+Un **paso de calendario** — `1mo`, `3mo`, `1y` — se rechaza por la razón opuesta: *no*
+fija el día de la semana. El día 15 recorre jueves, domingo, domingo, miércoles, viernes
+y lunes a lo largo de la primera mitad de 2026. Qué filas sobrevivirían al filtro lo
+decidiría el calendario y no lo que dice la configuración, así que el paso y el filtro
+piden elegir uno de los dos.
 
 ### Un rango acotado da la vuelta
 

@@ -3449,18 +3449,31 @@ public sealed class Validator
         DateStep.Result step = DateStep.ParseStep(attrs.GetValueOrDefault("step"));
         if (step.Step is DateStep.Spec spec && DateStep.FixesWeekday(spec))
         {
-            // A calendar step, or any whole number of weeks, lands on the same weekday every time
-            // — so the filter would match every row or none of them, giving a full column or an
-            // empty one with nothing said either way. Measured on the STEP rather than on its
-            // spelling, so `14d` is caught as surely as `2w`.
+            // Two different reasons wear one code, and they must not wear one sentence.
+            //
+            // A whole number of weeks really does land on the same weekday every time, so the
+            // filter matches every row or none. Measured on the STEP rather than on its spelling,
+            // so `14d` is caught as surely as `2w`.
+            //
+            // A CALENDAR step does not: 15 January 2026 is a Thursday, 15 February a Sunday,
+            // 15 March a Sunday, 15 April a Wednesday. The combination is still refused — a month
+            // holds a different number of days each time — but for its own reason.
             string written = (attrs.GetValueOrDefault("step") ?? "").Trim();
+            bool wholeWeeks = spec.Months == 0;
             Error(
                 "TDC250",
-                $"weekdays=\"{raw}\" cannot narrow step=\"{written}\" — that step already fixes "
-                + "the weekday",
-                "A whole number of weeks, or any calendar step, lands on the same weekday every "
-                + "time, so this would match every row or none. Use a step that is not a multiple "
-                + "of a week, or drop weekdays=.",
+                wholeWeeks
+                    ? $"weekdays=\"{raw}\" cannot narrow step=\"{written}\" — that step already "
+                        + "fixes the weekday"
+                    : $"weekdays=\"{raw}\" cannot narrow step=\"{written}\" — a calendar step is "
+                        + "not measured in days",
+                wholeWeeks
+                    ? "A whole number of weeks lands on the same weekday every time, so this "
+                        + "would match every row or none. Use a step that is not a multiple of a "
+                        + "week, or drop weekdays=."
+                    : "A month and a year hold a different number of days each time, so which "
+                        + "rows survive the filter follows the calendar rather than anything "
+                        + "written here. Use a step measured in days or hours, or drop weekdays=.",
                 line, column);
         }
     }
