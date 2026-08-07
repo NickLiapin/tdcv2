@@ -15,6 +15,8 @@ page — is tracked in that implementation's own changelog:
 
 ## [Unreleased]
 
+## [0.2.0] — 2026-08-07
+
 ### Added
 
 - **`<gen type="stat">` — one number for the whole run, on every row.** `op=` is `sum`,

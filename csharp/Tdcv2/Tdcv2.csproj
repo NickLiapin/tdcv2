@@ -15,7 +15,7 @@
        produces the same bytes for the same config and seed. -->
   <PropertyGroup>
     <PackageId>Tdcv2</PackageId>
-    <Version>0.1.7</Version>
+    <Version>0.2.0</Version>
     <Authors>Nick Liapin</Authors>
     <Description>Deterministic test-data generator: coherent records, exact proportions, and any text format you describe. Same seed, same bytes — in C#, TypeScript, Python, Java and Rust alike.</Description>
     <PackageTags>test-data;mock-data;fake-data;synthetic-data;data-generator;deterministic;fixtures;testing;csv;json;parquet</PackageTags>

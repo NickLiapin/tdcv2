@@ -32,8 +32,13 @@ describe('package smoke test', () => {
   });
 
   it('compares document versions numerically', () => {
+    // Against SUPPORTED_DSL_VERSION, which is what the validator compares a
+    // `<tdc version=>` to — not against VERSION, the package number. This used
+    // to read VERSION, so the assertion held only while the two happened to be
+    // near each other, and releasing 0.2.0 broke a test about a document
+    // dialect that had not changed at all.
     expect(compareVersions('0.01', '0.1.0')).toBe(0);
-    expect(compareVersions('0.2', VERSION)).toBe(1);
-    expect(compareVersions('0.0.9', VERSION)).toBe(-1);
+    expect(compareVersions('0.2', SUPPORTED_DSL_VERSION)).toBe(1);
+    expect(compareVersions('0.0.9', SUPPORTED_DSL_VERSION)).toBe(-1);
   });
 });

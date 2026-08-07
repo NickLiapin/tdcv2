@@ -302,11 +302,11 @@ for (const user of users) {
 
 | Реализация                                | Реестр        | Установка                    | Версия |
 | :---------------------------------------- | :------------ | :--------------------------- | :----- |
-| **[TypeScript](bindings/typescript.md#top)** | npm           | `npm i tdcv2`                | 0.1.7  |
-| **[Python](bindings/python.md#top)**         | PyPI          | `pip install tdcv2`          | 0.1.7  |
-| **[Rust](bindings/rust.md#top)**             | crates.io     | `cargo add tdcv2`            | 0.1.7  |
-| **[C#](bindings/csharp.md#top)**             | NuGet         | `dotnet add package Tdcv2`   | 0.1.7  |
-| **[Java](bindings/java.md#top)**             | Maven Central | `io.github.nickliapin:tdcv2` | 0.1.7  |
+| **[TypeScript](bindings/typescript.md#top)** | npm           | `npm i tdcv2`                | 0.2.0  |
+| **[Python](bindings/python.md#top)**         | PyPI          | `pip install tdcv2`          | 0.2.0  |
+| **[Rust](bindings/rust.md#top)**             | crates.io     | `cargo add tdcv2`            | 0.2.0  |
+| **[C#](bindings/csharp.md#top)**             | NuGet         | `dotnet add package Tdcv2`   | 0.2.0  |
+| **[Java](bindings/java.md#top)**             | Maven Central | `io.github.nickliapin:tdcv2` | 0.2.0  |
 
 Каждый опубликованный пакет несёт стартовый набор паков, поэтому работает без всего
 остального; остальные десять языков и девяносто с лишним пакетов стран —
