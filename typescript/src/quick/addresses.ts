@@ -4,7 +4,7 @@
  * Every bundled address, as a property. Regenerate after changing the packs:
  * `npm run quick:types`. `npm run check` fails if the two disagree.
  *
- * 3964 addresses.
+ * 3988 addresses.
  */
 
 import type { QuickAddress, QuickParams } from './types.js';
@@ -6954,6 +6954,40 @@ export type QuickAddressTree = {
       readonly world: {
         readonly religion: QuickAddress;
         readonly writingSystem: QuickAddress;
+      };
+    };
+    readonly uk: {
+      readonly date: {
+        readonly month: QuickAddress;
+        readonly monthAbbr: QuickAddress;
+        readonly quarter: QuickAddress;
+        readonly season: QuickAddress;
+        readonly timeOfDay: QuickAddress;
+        readonly weekday: QuickAddress;
+        readonly weekdayAbbr: QuickAddress;
+      };
+      readonly person: {
+        readonly female: {
+          readonly firstName: QuickAddress;
+          readonly lastName: QuickAddress;
+          readonly patronymic: QuickAddress;
+        };
+        readonly gender: QuickAddress;
+        readonly hobby: QuickAddress;
+        readonly language: QuickAddress;
+        readonly lastName: QuickAddress;
+        readonly male: {
+          readonly firstName: QuickAddress;
+          readonly lastName: QuickAddress;
+          readonly patronymic: QuickAddress;
+        };
+        readonly maritalStatus: QuickAddress;
+        readonly nationality: QuickAddress;
+        readonly nickname: QuickAddress;
+        readonly prefix: QuickAddress;
+        readonly pronoun: QuickAddress;
+        readonly suffix: QuickAddress;
+        readonly zodiac: QuickAddress;
       };
     };
     readonly 'zh-cn': {
