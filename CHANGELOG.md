@@ -17,7 +17,27 @@ page — is tracked in that implementation's own changelog:
 
 ## [0.2.0] — 2026-08-07
 
+The first release since the expression language, the walked date axis and four new
+constructs. One version across npm, PyPI, crates.io, Maven Central and NuGet, and every
+item below holds in all five implementations.
+
 ### Added
+
+- **The expression language grew from comparisons to a language.** `if=` now takes `%`,
+  arithmetic on the row counters (`_count` and `_total` are numbers, not text), function
+  calls — `abs`, `ceil`, `floor`, `max`, `min`, `round`, `trunc` — membership (`Country in
+[US, CA, MX]`), string predicates and the ternary. `TDC101` shows what is available when
+  a name is not.
+
+- **`TdcMath` — the transcendentals are computed by TDC rather than by the host.** `sqrt`,
+  `exp`, `log`, the trigonometric and hyperbolic functions and their inverses, `erf`,
+  `erfc`, `gamma`, `lgamma`, `expm1`, `log1p`, `log2`, `hypot`, `sign`. Every host language
+  rounds these slightly differently, and one last-bit difference turns a comparison into a
+  different row, so TDC computes them itself and all five agree bit for bit.
+
+- **Whole numbers stay whole past 2^53.** The expression language works in a signed 64-bit
+  integer domain, so `9007199254740993 == 9007199254740992` is false and their difference
+  is 1. On doubles both answers were wrong, and wrong in silence.
 
 - **`<gen type="stat">` — one number for the whole run, on every row.** `op=` is `sum`,
   `mean`, `median`, `min`, `max`, `count` or `stddev`, over a column declared above it.
@@ -29,54 +49,90 @@ page — is tracked in that implementation's own changelog:
   real record: admitted and discharged, ordered and shipped, issued and expires.
   `plus="3..10d"` draws a fresh gap per row, `plus="7d"` is the same distance every row,
   and both bounds may be negative to measure backwards. The offset reads the source
-  column's VALUE, not the text in the cell, so a source rendered as `MMMM D` — which
-  throws the year away — still offsets correctly, and a month lands on the last day of
-  February rather than 30 days later.
+  column's VALUE, not the text in the cell, so a source rendered as `MMMM D` — which throws
+  the year away — still offsets correctly, and a month lands on the last day of February
+  rather than 30 days later.
 
-- **`<split>` in the compute layer — a string to a list.** The inverse of `<join>`, and
-  the fourth way to get a list. A `repeat=` column arrives at an expression as its joined
-  text; until now there was no way to read it back apart, so "sum quantity × price over
-  the items of this order" was unwritable.
+- **A date range can be WALKED, not only drawn.** `order="sequential"` marches down the
+  calendar; `step=` takes one notation (`15m`, `1h30m`, `3mo`); `weekdays="mon..fri"` keeps
+  only some days; and with no upper bound the axis grows with the run.
 
-- **`<assert that="…" says="…"/>` — a config that checks its own output.** A statement
-  about the whole run, in `<env>` beside `<uniq>` and `<distinct>`. What is worth
-  asserting is the property the config does NOT state: you write `percent="70"`, a
-  `parent=` filter and a condition stack up, and the share that reaches the file is 42
-  percent with nothing to say so. If the condition holds, nothing happens; if it does not,
-  the run stops with the author's own sentence and exit code 1, before a line is written.
+- **`<split>` in the compute layer — a string to a list.** The inverse of `<join>`, and the
+  fourth way to get a list. A `repeat=` column arrives at an expression as its joined text;
+  until now there was no way to read it back apart, so "sum quantity × price over the items
+  of this order" was unwritable.
 
-  Three existing mechanisms, no new language: `that=` is the `if=` expression language,
-  the numbers come from `<gen type="stat">`, `says=` is the sentence a reader gets. There
-  is no flag — an assertion runs because it is written.
+- **`at()` and lists inside one row.** An expression can reach the n-th element of a list a
+  row carries, and the mistakes it used to answer with an empty column — a non-list, a
+  negative or fractional index — are now named.
 
-  Every name the expression reads must be the same on every row, or a per-row column would
-  be read at row 0 and the run called verified. A column left empty by a filter is refused
-  for the same reason. TDC265 and TDC266 refuse the half-written forms.
+- **`<assert that="…" says="…"/>` — a config that checks its own output.** A statement about
+  the whole run, in `<env>` beside `<uniq>` and `<distinct>`. What is worth asserting is the
+  property the config does NOT state: you write `percent="70"`, a `parent=` filter and a
+  condition stack up, and the share that reaches the file is 42 percent with nothing to say
+  so. If the condition holds nothing happens; if not, the run stops with the author's own
+  sentence and exit code 1, before a line is written. Every name it reads must be the same
+  on every row, or a per-row column would be read at row 0 and the run called verified.
+
+- **`peak_at` on `timeseries` — which row the wave is highest on.** "Warmer in July" is now
+  writable; before, the peak sat a quarter period in and could not be moved.
+
+- **Fixtures interpolate.** `${{Name}}` in `<before>`, `<after>` and their siblings expands,
+  in the reference as it already did in the four ports.
+
+- **`check --brief` — one line per diagnostic**, for a tool rather than a person. It also
+  made three faults visible that the full report had been hiding.
 
 ### Fixed
 
 - **A `uniq` group asked for more rows than its values can make now says so before
   allocating.** The check existed and its message was right, but it ran over the finished
-  columns — so two lists of ten values and `count="1000000000"` died in the allocator with
-  a heap dump, and `count="5000000000"` with `Invalid array length`. Exactly where the
-  warning is worth most, since the alternative is an eight-hour run that was never going
-  to succeed. The ceiling is now computed from the specs, before a single column is built,
-  and it only ever answers "definitely impossible": a member whose capacity is not knowable
-  from its spec leaves the group unbounded and the old check does its work as before.
+  columns — so two lists of ten values and `count="1000000000"` died in the allocator with a
+  heap dump, and `count="5000000000"` with `Invalid array length`. Exactly where the warning
+  is worth most, since the alternative is an eight-hour run that was never going to succeed.
+  The ceiling is now computed from the specs, before a single column is built, and it only
+  ever answers "definitely impossible".
 
 - **An offset from a WALKED source (`order="sequential"`) came out empty, in silence.** A
   walked date returns from a different branch of the builder than a drawn one, and that
-  branch was not filling the instant the column keeps beside its text — so the offset read
-  every row as "this row has no date". The safety net closes the whole class: the instants
-  are attached only when every applicable row filled one, because a sink asked for and left
-  unfilled means "this build never wrote one", which is the opposite answer to "no date
-  anywhere".
+  branch was not filling the instant the column keeps beside its text. The safety net closes
+  the whole class: the instants are attached only when every applicable row filled one.
+
+- **A conditional `<gen>` drew off the wrong stream and lost its `anomaly_flag` column.**
+  TDC246 refuses the flag inside a `<case>`, where it never meant anything.
+
+- **Five silent answers became refusals**, each of which used to produce a column that
+  looked fine: a `<mask>` with no pattern (TDC256), `decimals=` alongside
+  `include=`/`exclude=`, `repeat=` with `order="sequential"` (where the three engines
+  disagreed), a `<gen>` attribute nothing reads (TDC015 now catches it per generator type),
+  and a closing tag that does not name the element it opened.
+
+- **TDC251 — a `percent` share that asks for less than one whole row.** Ten percent of five
+  rows is half a record, the engine rounded it away, and the column read like one nobody had
+  written.
+
+- **An invented tag is refused wherever it appears, in one wording**, and `<gen></gen>` is
+  the same generator as `<gen/>`.
+
+- **TDC071 names the paths that exist** instead of only saying the one you wrote does not,
+  and TDC250 no longer claims a calendar step fixes the weekday — it does not.
+
+- **Three misleading answers found by the Studio agent**: a fixture body that renders
+  nothing now says so, `<delimiter_line>` sits between the lines an `each=` produced rather
+  than between the elements, and a name that fails to interpolate is reported as the cause
+  rather than as a range.
 
 - **The npm package told CommonJS callers a lie the runtime then refused.** `exports` and
-  `types` promised type definitions for `require()`, while the module is ESM-only, so the
-  editor type-checked a call that could not run. `attw --pack` is green on all four
-  resolutions now, and the CJS type IS the message: it resolves to a string telling the
-  reader to `import` instead. Kept runnable as `npm run types:pack`.
+  `types` promised type definitions for `require()`, while the module is ESM-only. `attw
+--pack` is green on all four resolutions now, and the CJS type IS the message.
+
+### Data
+
+- **The Chinese pack was on the wrong axis** — filed as a locale when its content is a
+  country — so nobody could reach it. Now `countries/china` (15 files) and `zh-cn` (4).
+- **`uk` (Ukrainian) gains its person and date core**, with masculine and feminine surnames
+  and patronymics parallel line for line.
+- The person paths ship in ten locales rather than two.
 
 ## [0.1.7] — 2026-08-04
 
