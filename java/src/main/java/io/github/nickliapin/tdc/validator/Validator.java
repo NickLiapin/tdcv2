@@ -527,7 +527,31 @@ public final class Validator {
    * than refusing it.
    */
   private void checkTdcChildren(TDCParser.OpenCloseElementContext tdc) {
+    // Both containers are read by taking the FIRST of their kind, so a second one is dropped
+    // whole — every sequence it declares, every line it lays out — and the run finishes looking
+    // healthy while half the config produced nothing. The same silent discard TDC014 refuses for
+    // the self-closing spelling, one level up. Reported on the SECOND one: the first is what
+    // runs, so the second is the surprise.
+    Map<String, Integer> seen = new java.util.HashMap<>();
     for (TDCParser.ElementContext child : tdc.content().element()) {
+      TDCParser.OpenCloseElementContext here = child.openCloseElement();
+      if (here != null
+          && ("env".equals(here.name.getText()) || "block".equals(here.name.getText()))) {
+        String tag = here.name.getText();
+        int count = seen.merge(tag, 1, Integer::sum);
+        if (count > 1) {
+          error("TDC270",
+              "<tdc> holds more than one <" + tag + "> — only the first is read, and this one is "
+                  + "discarded whole",
+              "env".equals(tag)
+                  ? "Every sequence declared here would be missing at render time. Move them "
+                      + "into the first <env>."
+                  : "Every line laid out here would be missing from the output. Move them into "
+                      + "the first <block>, or use <line if=\"\u2026\"> to switch layouts per row.",
+              line(here), column(here));
+        }
+      }
+
       TDCParser.SelfClosingElementContext self = child.selfClosingElement();
       if (self != null) {
         String name = self.name.getText();

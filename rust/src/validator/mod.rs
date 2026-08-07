@@ -262,8 +262,37 @@ impl Validator {
     /// discarded: the run silently falls back to a default count on a random
     /// seed. Half-honouring it is worse than refusing it.
     fn check_tdc_children(&mut self, tdc: &Element) {
+        // Both containers are read by taking the FIRST of their kind, so a second
+        // one is dropped whole — every sequence it declares, every line it lays
+        // out — and the run finishes looking healthy while half the config
+        // produced nothing. The same silent discard TDC014 refuses for the
+        // self-closing spelling, one level up. Reported on the SECOND one: the
+        // first is what runs, so the second is the surprise.
+        let mut seen: BTreeMap<String, usize> = BTreeMap::new();
         for child in &tdc.children {
             let name = child.name.clone();
+            if child.kind == Kind::OpenClose && (name == "env" || name == "block") {
+                let count = seen.entry(name.clone()).or_insert(0);
+                *count += 1;
+                if *count > 1 {
+                    self.error(
+                        "TDC270",
+                        format!(
+                            "<tdc> holds more than one <{name}> — only the first is read, and \
+                             this one is discarded whole"
+                        ),
+                        if name == "env" {
+                            "Every sequence declared here would be missing at render time. Move \
+                             them into the first <env>."
+                        } else {
+                            "Every line laid out here would be missing from the output. Move \
+                             them into the first <block>, or use <line if=\"\u{2026}\"> to \
+                             switch layouts per row."
+                        },
+                        child.pos,
+                    );
+                }
+            }
             if child.kind == Kind::SelfClosing {
                 if name == "env" || name == "block" {
                     self.error(

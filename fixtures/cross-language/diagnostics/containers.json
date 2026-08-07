@@ -56,6 +56,20 @@
       "description": "A <data> written straight into a fixture, with no <line> around it. The validator used to skip it and the renderer only ever walks <line> children, so the text was dropped without a word — the config said something and got nothing. Named rather than rendered: a bare <data> would have to invent whether it ends the line, and <line><data> already says.",
       "config": "<tdc><env count=\"2\" seed=\"s\" local=\"en\"><sequence name=\"A\"><gen type=\"text\" value=\"x\"/></sequence><delimiter_line><data>,</data></delimiter_line></env><block><line><data>${{A}}</data></line></block></tdc>",
       "expected": ["error TDC131 1:114"]
+    },
+    {
+      "name": "a-second-env-is-refused-not-dropped",
+      "demonstrates": "TDC270",
+      "description": "Both `<env>` and `<block>` are read by taking the FIRST of their kind, so a second one is dropped whole — every sequence it declares, every line it lays out — and the run finishes looking healthy while half the config produced nothing. `check` called such a document valid. The same silent discard TDC014 refuses for the self-closing spelling, one level up. Reported on the SECOND one, which is the surprise.",
+      "config": "<tdc><env count=\"2\" seed=\"a\"><sequence name=\"A\"><gen type=\"text\" value=\"x\"/></sequence></env><env count=\"2\" seed=\"b\"><sequence name=\"B\"><gen type=\"text\" value=\"y\"/></sequence></env><block><line><data>${{A}}</data></line></block></tdc>",
+      "expected": ["error TDC270 1:93"]
+    },
+    {
+      "name": "a-second-block-is-refused-not-dropped",
+      "demonstrates": "TDC270",
+      "description": "Both `<env>` and `<block>` are read by taking the FIRST of their kind, so a second one is dropped whole — every sequence it declares, every line it lays out — and the run finishes looking healthy while half the config produced nothing. `check` called such a document valid. The same silent discard TDC014 refuses for the self-closing spelling, one level up. Reported on the SECOND one, which is the surprise.",
+      "config": "<tdc><env count=\"2\" seed=\"a\"><sequence name=\"A\"><gen type=\"text\" value=\"x\"/></sequence></env><block><line><data>${{A}}</data></line></block><block><line><data>second</data></line></block></tdc>",
+      "expected": ["error TDC270 1:140"]
     }
   ]
 }

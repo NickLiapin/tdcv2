@@ -532,8 +532,35 @@ public sealed class Validator
     /// </remarks>
     private void CheckTdcChildren(TDCParser.OpenCloseElementContext tdc)
     {
+        // Both containers are read by taking the FIRST of their kind, so a second one is dropped
+        // whole — every sequence it declares, every line it lays out — and the run finishes
+        // looking healthy while half the config produced nothing. The same silent discard TDC014
+        // refuses for the self-closing spelling, one level up. Reported on the SECOND one: the
+        // first is what runs, so the second is the surprise.
+        var seen = new Dictionary<string, int>(StringComparer.Ordinal);
         foreach (TDCParser.ElementContext child in tdc.content().element())
         {
+            TDCParser.OpenCloseElementContext here = child.openCloseElement();
+            if (here is not null && here.name.Text is "env" or "block")
+            {
+                string tag = here.name.Text;
+                seen[tag] = seen.GetValueOrDefault(tag) + 1;
+                if (seen[tag] > 1)
+                {
+                    Error(
+                        "TDC270",
+                        $"<tdc> holds more than one <{tag}> — only the first is read, and this "
+                        + "one is discarded whole",
+                        tag == "env"
+                            ? "Every sequence declared here would be missing at render time. "
+                              + "Move them into the first <env>."
+                            : "Every line laid out here would be missing from the output. Move "
+                              + "them into the first <block>, or use <line if=\"\u2026\"> to "
+                              + "switch layouts per row.",
+                        Line(here), Column(here));
+                }
+            }
+
             TDCParser.SelfClosingElementContext self = child.selfClosingElement();
             if (self is not null)
             {

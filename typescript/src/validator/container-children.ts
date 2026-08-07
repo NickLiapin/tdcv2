@@ -13,7 +13,8 @@
 
 import type { Diagnostic } from '../errors/index.js';
 import type { OpenCloseElementContext, SelfClosingElementContext } from '../generated/TDCParser.js';
-import { contentElements, elementKind } from '../processor/walk.js';
+import { contentElements, elementKind, elementName } from '../processor/walk.js';
+import { nodeRange } from '../errors/source-map.js';
 
 import { KNOWN_GEN_CHILDREN } from './known.js';
 import { childNode, childTagName, reportUnknownChild } from './placement.js';
@@ -66,4 +67,41 @@ export function openChild(
 ): { readonly node: OpenCloseElementContext } | undefined {
   const k = elementKind(child);
   return k?.kind === 'open' ? { node: k.node } : undefined;
+}
+
+/**
+ * A second `<env>` or a second `<block>` under `<tdc>`.
+ *
+ * Both are read by taking the FIRST of their kind, so a second one is dropped
+ * whole — every sequence it declares, every line it lays out — and the run
+ * finishes looking healthy. `check` called such a document valid, and half the
+ * config produced nothing: the same silent discard TDC014 refuses for the
+ * self-closing spelling, one level up.
+ *
+ * Reported on the SECOND one: the first is the one that runs, so the second is
+ * the surprise, and pointing at it puts the caret on the text to delete or
+ * merge.
+ */
+export function checkOneEnvOneBlock(tdc: OpenCloseElementContext, diagnostics: Diagnostic[]): void {
+  const seen = new Map<string, number>();
+  for (const child of contentElements(tdc.content())) {
+    const k = elementKind(child);
+    if (!k || k.kind === 'data') continue;
+    const name = elementName(k.node);
+    if (name !== 'env' && name !== 'block') continue;
+    const count = (seen.get(name) ?? 0) + 1;
+    seen.set(name, count);
+    if (count < 2) continue;
+    diagnostics.push({
+      severity: 'error',
+      source: 'validator',
+      ...nodeRange(k.node),
+      message: `<tdc> holds more than one <${name}> — only the first is read, and this one is discarded whole`,
+      hint:
+        name === 'env'
+          ? 'Every sequence declared here would be missing at render time. Move them into the first <env>.'
+          : 'Every line laid out here would be missing from the output. Move them into the first <block>, or use <line if="…"> to switch layouts per row.',
+      code: 'TDC270',
+    });
+  }
 }

@@ -90,6 +90,14 @@ page — is tracked in that implementation's own changelog:
   branch already carries its own condition, `<case if="…">`, which is the question the shape
   does raise; the same reasoning as TDC246 beside it.
 
+<!-- covers: TDC270 -->
+
+- A second `<env>` or a second `<block>` under `<tdc>` is refused by TDC270. Both are read
+  by taking the FIRST of their kind, so a second one was dropped whole — every sequence it
+  declared, every line it laid out — and the run finished looking healthy while half the
+  config had produced nothing. `check` called such a document valid. The same silent discard
+  TDC014 already refuses for the self-closing spelling, one level up.
+
 <!-- covers: abs, round, floor, ceil, trunc, min, max -->
 
 - `abs`, `round`, `floor`, `ceil`, `trunc`, `min` and `max` in `if=` and `filter=` kept

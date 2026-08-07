@@ -87,6 +87,7 @@ import { checkGroupSize } from './group-size.js';
 import { checkAssertTag } from './assert.js';
 import { checkSmallShares } from './small-share.js';
 import { checkGenBody, checkGroupBody, openChild } from './container-children.js';
+import { checkOneEnvOneBlock } from './container-children.js';
 import {
   checkPoolIsRead,
   checkPoolRefHasNoIf,
@@ -171,6 +172,7 @@ export function validate(tree: DocumentContext, options: ValidationOptions = {})
     options.packParams,
   );
 
+  checkOneEnvOneBlock(tdc, diags);
   const envEl = findChildElement(tdc.content(), 'env');
   const blockEl = findChildElement(tdc.content(), 'block');
 

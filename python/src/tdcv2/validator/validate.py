@@ -634,7 +634,32 @@ class _Validator:
         run silently falls back to a default count on a random seed. Half-honouring it is worse
         than refusing it.
         """
+        # Both containers are read by taking the FIRST of their kind, so a second one is
+        # dropped whole — every sequence it declares, every line it lays out — and the run
+        # finishes looking healthy while half the config produced nothing. The same silent
+        # discard TDC014 refuses for the self-closing spelling, one level up. Reported on the
+        # SECOND one: the first is what runs, so the second is the surprise.
+        seen: dict[str, int] = {}
         for child in _elements(tdc):
+            open_here = child.openCloseElement()
+            name_here = open_here.name.text if open_here is not None else None
+            if name_here in ("env", "block"):
+                seen[name_here] = seen.get(name_here, 0) + 1
+                if seen[name_here] > 1:
+                    self._error(
+                        "TDC270",
+                        f"<tdc> holds more than one <{name_here}> — only the first is read, and "
+                        "this one is discarded whole",
+                        "Every sequence declared here would be missing at render time. Move "
+                        "them into the first <env>."
+                        if name_here == "env"
+                        else "Every line laid out here would be missing from the output. Move "
+                        'them into the first <block>, or use <line if="\u2026"> to switch '
+                        "layouts per row.",
+                        _line(open_here),
+                        _column(open_here),
+                    )
+
             self_closing = child.selfClosingElement()
             if self_closing is not None:
                 name = self_closing.name.text

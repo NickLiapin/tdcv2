@@ -312,6 +312,7 @@ but the combination it asks for can't be carried out.
 | `TDC267` | `uniq="true"` together with `mask=`, `case=`, `missing=`, `repeat=`, `separator=` or `anomaly=` | A draw without replacement produces the column directly and never reaches the layer that rewrites values, so the attribute could only ever be dropped. Applying it would break the other promise: a mask maps two distinct draws onto the same characters |
 | `TDC268` | `if=` on a `<gen type="pool">` | A reference publishes a whole MEMBER, and a `<gen>` carrying `if=` becomes a conditional branch the pool resolver does not recognise — so no `Ref.field` column was registered and `${{Ref.name}}` reached the output as its own literal text. Use `parent=` to leave rows without a member |
 | `TDC269` | `if=` on a `<gen>` inside a `<case>` | A case body is several parts joined into one value, so a condition on one part has no value to fall back to. It was accepted and ignored, and the part appeared on every row — including the ones the condition excluded. Put the condition on the branch: `<case if="…">` |
+| `TDC270` | `<tdc>` holds a second `<env>` or `<block>` | Both are read by taking the FIRST of their kind, so a second one is discarded whole — every sequence it declares, every line it lays out — while the run finishes looking healthy. Reported on the second one |
 
 ## See also
 
