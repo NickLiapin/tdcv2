@@ -83,6 +83,7 @@ import { checkSequentialRepeat } from './sequential-repeat.js';
 import { checkGenTimeseries } from './timeseries.js';
 import { checkCompute } from './compute.js';
 import { checkGroupSize } from './group-size.js';
+import { checkAssertTag } from './assert.js';
 import { checkSmallShares } from './small-share.js';
 import { checkGenBody, checkGroupBody, openChild } from './container-children.js';
 import {
@@ -462,14 +463,16 @@ function checkEnv(envEl: OpenCloseElementContext, ctx: Ctx): void {
     if (name === 'pool' && k.kind === 'open') {
       // `poolsAbove` grows as the walk goes: a member may draw from a pool
       // already seen and from nothing else, which makes a cycle unwritable.
-      checkPoolDeclaration(
-        k.node,
-        poolsAbove,
-        ctx.diagnostics,
-        memberCheckers(ctx),
-        ctx.declaredSequences,
-      );
+      const checkers = memberCheckers(ctx);
+      checkPoolDeclaration(k.node, poolsAbove, ctx.diagnostics, checkers, ctx.declaredSequences);
       checkPoolIsRead(k.node, poolsRead, ctx.diagnostics);
+      continue;
+    }
+
+    // `that=` is the if= language, so it takes the same two passes: syntax now,
+    // names once every sequence is known.
+    if (name === 'assert' && k.kind === 'self') {
+      checkAssertTag(k.node, ctx);
       continue;
     }
 

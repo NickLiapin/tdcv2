@@ -20,6 +20,7 @@
  */
 
 import type { OpenCloseElementContext, SelfClosingElementContext } from '../generated/TDCParser.js';
+import type { AssertSpec } from './assert.js';
 import {
   collectSequenceGens,
   contentElements,
@@ -102,6 +103,25 @@ export function extractEnvDistinctGroups(env: OpenCloseElementContext | undefine
  */
 export function extractEnvUniqGroups(env: OpenCloseElementContext | undefined): string[][] {
   return envWrapperGroups(env, 'uniq');
+}
+
+/**
+ * Env-level `<assert that="…" says="…"/>` declarations, in document order.
+ *
+ * A sibling of `<uniq>` and `<distinct>` because, like them, it states something
+ * about the whole run rather than about one column. Self-closing, so the generic
+ * `selfClosingElement` rule already parses it and no grammar changed.
+ */
+export function extractAsserts(env: OpenCloseElementContext | undefined): AssertSpec[] {
+  if (!env) return [];
+  const out: AssertSpec[] = [];
+  for (const child of contentElements(env.content())) {
+    const k = elementKind(child);
+    if (k?.kind !== 'self' || elementName(k.node) !== 'assert') continue;
+    const attrs = extractAttrs(k.node.attr());
+    out.push({ that: (attrs['that'] ?? '').trim(), says: (attrs['says'] ?? '').trim() });
+  }
+  return out;
 }
 
 /**

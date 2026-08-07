@@ -32,6 +32,7 @@
  */
 
 import { evaluateIf } from '../expr/evaluate.js';
+import { checkAssertions } from '../sequence/assert.js';
 import { buildEachInfo, elementRegistry, splitElements, type EachInfo } from './each.js';
 import { resolveExistingDataSourcePath, type DataSourceOptions } from '../data-source/index.js';
 import type {
@@ -63,6 +64,7 @@ import {
   buildSequences,
   extractEnvDistinctGroups,
   extractEnvUniqGroups,
+  extractAsserts,
   extractSequenceSpecs,
   runGenerator,
   StreamUnsupportedError,
@@ -574,6 +576,12 @@ export function prepareRender(
       httpDeferred: deferHttp,
     });
   }
+  // The run is finished; now the config gets to check its own output. Here rather
+  // than in the output half so both the sync and the async path are covered, and
+  // so a failed assertion stops before a single line is written — a file that
+  // exists is a file someone will use.
+  checkAssertions(extractAsserts(envEl), registry, env.count);
+
   return { tdc, blockEl, env, registry, now, prng, eachInfo, sequenceSpecs };
 }
 

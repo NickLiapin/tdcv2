@@ -282,6 +282,7 @@ export const KNOWN_ENV_CHILDREN: readonly string[] = [
   'pool',
   'uniq',
   'distinct',
+  'assert',
   'before',
   'after',
   'before_block',
