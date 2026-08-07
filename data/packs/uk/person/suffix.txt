@@ -1,0 +1,10 @@
+---
+description: Ukrainian post-nominal — an academic degree, written after the name
+---
+к.т.н.
+д.т.н.
+к.е.н.
+д.е.н.
+к.мед.н.
+проф.
+доц.

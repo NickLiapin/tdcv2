@@ -1,0 +1,6 @@
+---
+description: Стать
+locale: uk
+---
+чоловік
+жінка
