@@ -266,7 +266,8 @@ public sealed class Validator
 
     /// <summary>What may sit directly inside <c>&lt;env&gt;</c>.</summary>
     private static readonly IReadOnlySet<string> EnvChildren = Set(
-        "sequence", "mix", "switch", "pool", "uniq", "distinct", "before", "after", "before_block",
+        "sequence", "mix", "switch", "pool", "uniq", "distinct", "assert", "before", "after",
+        "before_block",
         "after_block", "delimiter_block", "before_line", "after_line", "delimiter_line");
 
     /// <summary>
@@ -1009,6 +1010,7 @@ public sealed class Validator
         this.CollectPoolFieldValues(env);
         this.CollectPoolReferences(env);
         CheckChildren(env.content(), "env", EnvChildren);
+        this.CheckAsserts(env);
         foreach (TDCParser.ElementContext c in env.content().element())
         {
             TDCParser.OpenCloseElementContext el = c.openCloseElement();
@@ -4991,6 +4993,60 @@ public sealed class Validator
         }
 
         return null;
+    }
+
+    /// <summary>
+    /// <c>&lt;assert that="…" says="…"/&gt;</c> — the two attributes it cannot do without.
+    /// </summary>
+    /// <remarks>
+    /// An assertion is the one construct whose whole worth is that it FAILS, so a half-written one
+    /// is worse than none: the config carries a check, the reader believes the run was verified, and
+    /// nothing was ever compared. The expression is not re-checked here — <c>that=</c> is the
+    /// <c>if=</c> language, so a typo in a column name is reported exactly as it is there.
+    /// </remarks>
+    private void CheckAsserts(TDCParser.OpenCloseElementContext env)
+    {
+        foreach (TDCParser.ElementContext child in env.content().element())
+        {
+            TDCParser.SelfClosingElementContext self = child.selfClosingElement();
+            if (self is null || self.name.Text != "assert")
+            {
+                continue;
+            }
+
+            IReadOnlyDictionary<string, string> attrs = Attributes(self.attr());
+            string that = (attrs.GetValueOrDefault("that") ?? "").Trim();
+            string says = (attrs.GetValueOrDefault("says") ?? "").Trim();
+            if (that.Length == 0)
+            {
+                (int l, int c) = At(self.attr(), "that", Line(self), Column(self));
+                this.Error(
+                    "TDC265",
+                    "<assert> has no condition — that= is required",
+                    "Write the property the run must have, in the if= language, over whole-run "
+                    + "columns: <assert that=\"Rows == 700\" says=\"…\"/>. The numbers come from "
+                    + "<gen type=\"stat\">.",
+                    l,
+                    c);
+                continue;
+            }
+
+            if (says.Length == 0)
+            {
+                (int l, int c) = At(self.attr(), "says", Line(self), Column(self));
+                this.Error(
+                    "TDC266",
+                    $"<assert that=\"{that}\"> has no message — says= is required",
+                    "When this fails, says= is what the reader is told. An expression alone leaves "
+                    + "them to work out what it was for, months later, in a CI log.",
+                    l,
+                    c);
+            }
+
+            (int tl, int tc) = At(self.attr(), "that", Line(self), Column(self));
+            this.CheckIfExpression(that, tl, tc);
+            _pendingExpressions.Add((_diagnostics.Count, that, tl, tc, false));
+        }
     }
 
     private void CheckIfExpression(string expression, int line, int column)

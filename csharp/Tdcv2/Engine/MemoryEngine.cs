@@ -91,6 +91,15 @@ public static class MemoryEngine
             // same rows, whichever of them reaches the key first.
             new Dictionary<string, RowLinkPlan>(StringComparer.Ordinal)));
 
+        // The run is finished; now the config gets to check its own output — before a single
+        // line is written, because a file that exists is a file someone will use.
+        Assertions.Check(
+            config,
+            (name, row) => columns.TryGetValue(name, out string[]? c) && row < c.Length
+                ? c[row]
+                : null,
+            columns.ContainsKey);
+
         return new MaterializedRows(config, columns);
     }
 

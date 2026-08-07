@@ -53,11 +53,28 @@ public static class ConfigBuilder
         var envUniq = new List<IReadOnlyList<string>>();
         var envDistinct = new List<IReadOnlyList<string>>();
         var pools = new List<PoolSpec>();
+        var asserts = new List<AssertSpec>();
 
         if (env is not null)
         {
             foreach (TDCParser.ElementContext child in env.content().element())
             {
+                // `<assert/>` is the one env child written self-closing, so it is read here
+                // rather than lost by the open/close walk below.
+                TDCParser.SelfClosingElementContext self = child.selfClosingElement();
+                if (self is not null)
+                {
+                    if (self.name.Text == "assert")
+                    {
+                        IReadOnlyDictionary<string, string> a = Attributes(self.attr());
+                        asserts.Add(new AssertSpec(
+                            a.GetValueOrDefault("that") ?? "",
+                            a.GetValueOrDefault("says") ?? ""));
+                    }
+
+                    continue;
+                }
+
                 TDCParser.OpenCloseElementContext open = child.openCloseElement();
                 if (open is null)
                 {
@@ -157,7 +174,8 @@ public static class ConfigBuilder
             envAttrs.GetValueOrDefault("engine"),
             envUniq,
             envDistinct,
-            pools);
+            pools,
+            asserts);
     }
 
     /// <summary>

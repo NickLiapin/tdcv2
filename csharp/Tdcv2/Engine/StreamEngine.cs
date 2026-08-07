@@ -499,6 +499,10 @@ public sealed class StreamEngine
         {
             ApplyEnvDistinct(group, byName);
         }
+
+        // The same check the in-memory engine makes, on the same finished run: an assertion that
+        // only held on one engine would be a check that depends on how the file was produced.
+        Assertions.Check(_config, ValueAt, _columns.ContainsKey);
     }
 
     /// <summary>

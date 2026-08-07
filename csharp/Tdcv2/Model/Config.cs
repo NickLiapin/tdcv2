@@ -239,6 +239,15 @@ public sealed class PoolSpec
     public IReadOnlyList<IReadOnlyList<string>> DistinctGroups { get; }
 }
 
+/// <summary>
+/// One <c>&lt;assert that="…" says="…"/&gt;</c> as written.
+/// </summary>
+/// <remarks>
+/// A statement about the whole run, like <c>&lt;uniq&gt;</c> and <c>&lt;distinct&gt;</c>, which is
+/// why it sits in <c>&lt;env&gt;</c> rather than beside a column.
+/// </remarks>
+public sealed record AssertSpec(string That, string Says);
+
 public sealed class Config
 {
     public Config(
@@ -254,7 +263,8 @@ public sealed class Config
         string? engine = null,
         IReadOnlyList<IReadOnlyList<string>>? envUniqGroups = null,
         IReadOnlyList<IReadOnlyList<string>>? envDistinctGroups = null,
-        IReadOnlyList<PoolSpec>? pools = null)
+        IReadOnlyList<PoolSpec>? pools = null,
+        IReadOnlyList<AssertSpec>? asserts = null)
     {
         Count = count;
         Seed = seed;
@@ -269,6 +279,7 @@ public sealed class Config
         EnvUniqGroups = DeepCopy(envUniqGroups);
         EnvDistinctGroups = DeepCopy(envDistinctGroups);
         Pools = pools is null ? Array.Empty<PoolSpec>() : pools.ToArray();
+        Asserts = asserts is null ? Array.Empty<AssertSpec>() : asserts.ToArray();
     }
 
     public int Count { get; }
@@ -303,6 +314,9 @@ public sealed class Config
 
     public IReadOnlyList<IReadOnlyList<string>> EnvDistinctGroups { get; }
 
+    /// <summary>Every <c>&lt;assert&gt;</c> declared in <c>&lt;env&gt;</c>.</summary>
+    public IReadOnlyList<AssertSpec> Asserts { get; }
+
     /// <summary>
     /// A copy with the runtime parameters replaced; a <c>null</c> argument keeps what
     /// <c>&lt;env&gt;</c> declared.
@@ -326,7 +340,8 @@ public sealed class Config
             Engine,
             EnvUniqGroups,
             EnvDistinctGroups,
-            Pools);
+            Pools,
+            Asserts);
 
     /// <summary>
     /// A copy whose engine selection comes from the caller rather than from <c>&lt;env&gt;</c>.
@@ -354,7 +369,8 @@ public sealed class Config
                 newEngine,
                 EnvUniqGroups,
                 EnvDistinctGroups,
-                Pools);
+                Pools,
+                Asserts);
 
     private static IReadOnlyList<IReadOnlyList<string>> DeepCopy(
         IReadOnlyList<IReadOnlyList<string>>? groups) =>
