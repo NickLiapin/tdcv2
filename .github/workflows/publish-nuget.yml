@@ -30,10 +30,17 @@ name: Publish to NuGet
 # artefact twice, and the Central Portal held two identical validated deployments
 # of tdcv2-0.2.0 waiting for somebody to notice.
 #
-# `publish.yml` on a `v*` tag is now the only automatic path. What is left here is
-# the dry run the comment below describes: `workflow_dispatch`, so packaging can be
-# proven, or one registry re-run by hand after a partial failure, without a second
-# upload racing the first.
+# `publish.yml` on a `v*` tag is now the only path that publishes, and the NuGet
+# Trusted Publishing policy says so too — it names `publish.yml`, and when this file
+# tried to publish 0.2.0 the token exchange was refused with "Workflow mismatch for
+# policy 'tdcv2'". That refusal was the policy working exactly as intended: it is
+# there so that only the sanctioned workflow can push a package, and it stopped one
+# that was not. The setting is correct and wants no change.
+#
+# What is left here is a DRY RUN and nothing else. Every publishing step below is
+# gated on `refs/tags/`, and with the tag trigger gone a `workflow_dispatch` runs on a
+# branch — so it builds and packs, never logs in, and cannot push. That is the honest
+# shape: this file can prove the packaging, and it cannot pretend to release.
 on:
   # A dry run any time, so the packaging can be proven without publishing.
   workflow_dispatch:
