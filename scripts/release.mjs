@@ -231,6 +231,59 @@ function treeIsReleasable(version) {
   }
 }
 
+
+// ── 5. Maven Central's monthly budget ────────────────────────────────────────
+
+/**
+ * Maven Central limits publishing PER CALENDAR MONTH, per organisation: 7
+ * releases, 80 MB, 1000 files. They are visible at
+ * central.sonatype.com → Publishing Settings → Usage Center, and the counter
+ * there updates once a day — which is exactly late enough to be useless as a
+ * brake while you are cutting releases.
+ *
+ * So the brake lives here, counted from the tags in this repository, which is
+ * the same event: one `v*` tag is one Central release.
+ *
+ * The month this was written cost five of the seven — 0.1.3, 0.1.4, 0.1.5 and
+ * 0.1.6 in two days, then 0.1.7 — and the size sat at 83% because every one of
+ * those carried the ANTLR compiler inside the CLI jar (16.68 MB, fixed in
+ * 0.1.7; a release is about 4 MB now). Neither number had anything to do with
+ * how the bundle was NAMED on the Portal, which is a label and nothing else.
+ */
+const CENTRAL_RELEASES_PER_MONTH = 7;
+
+function centralBudget() {
+  // Both tag shapes reached Central: `java-v*` was the Java-only release path
+  // until 0.1.7, and `v*` is the merged one. Deduplicated by VERSION, because
+  // v0.2.0 and java-v0.2.0 were one release uploaded twice — which is the very
+  // mistake that made this month tight, and must not also be miscounted here.
+  const month = new Date().toISOString().slice(0, 7);
+  const versions = new Set(
+    git('for-each-ref', '--format=%(creatordate:format:%Y-%m) %(refname:short)', 'refs/tags/*')
+      .split('\n')
+      .filter((line) => line.startsWith(month))
+      .map((line) => /\b(?:java-)?v(\d+\.\d+\.\d+)$/.exec(line)?.[1])
+      .filter(Boolean),
+  );
+
+  const used = versions.size;
+  const left = CENTRAL_RELEASES_PER_MONTH - used - 1; // -1 for the one being cut
+  if (left < 0) {
+    fail(
+      `Maven Central allows ${String(CENTRAL_RELEASES_PER_MONTH)} releases a month and ${month} ` +
+        `already has ${String(used)}: ${[...versions].join(', ')}. Cutting another exceeds it — ` +
+        'wait for the month to turn, or ask Central for an open-source adjustment.',
+    );
+  } else if (left <= 1) {
+    console.log(
+      `  warn  ${String(used)} Central releases already in ${month}; this one leaves ` +
+        `${String(left)} of ${String(CENTRAL_RELEASES_PER_MONTH)}`,
+    );
+  } else {
+    ok(`Central budget: ${String(used)} used in ${month}, ${String(left)} left after this one`);
+  }
+}
+
 // ── run ──────────────────────────────────────────────────────────────────────
 
 const lastTag = git('describe', '--tags', '--abbrev=0', '--match', 'v*');
@@ -241,6 +294,7 @@ if (version) {
   const section = changelogSection(version);
   if (section) await changelogCoversTheSurface(section, lastTag);
   treeIsReleasable(version);
+  centralBudget();
 }
 
 if (problems.length > 0) {
