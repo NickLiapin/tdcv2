@@ -116,11 +116,20 @@ public final class MemoryEngine {
           active.add(line);
         }
       }
-      for (int i = 0; i < active.size(); i++) {
+      // The OUTPUT lines, not the <line> ELEMENTS. One `<line each="Items">` produces as many
+      // output lines as the list has elements, and the three per-line fixtures are documented as
+      // wrapping "the lines of a record" — so they have to see what the reader sees. They used to
+      // see the elements, and <delimiter_line> between the repetitions of an each= line therefore
+      // did nothing at all: no comma between the members of an array, in silence.
+      List<String> emitted = new ArrayList<>();
+      for (Config.Line line : active) {
+        emitted.addAll(renderLine(line, columns, row, config.inject(), eachInfo));
+      }
+      for (int i = 0; i < emitted.size(); i++) {
         emit(out, fx.beforeLine(), columns, row, config.inject());
-        out.append(renderLine(active.get(i), columns, row, config.inject(), eachInfo));
+        out.append(emitted.get(i));
         emit(out, fx.afterLine(), columns, row, config.inject());
-        if (i < active.size() - 1) {
+        if (i < emitted.size() - 1) {
           emit(out, fx.delimiterLine(), columns, row, config.inject());
         }
       }
@@ -142,7 +151,10 @@ public final class MemoryEngine {
       int row,
       String inject) {
     for (Config.Line line : lines) {
-      out.append(renderLine(line, columns, row, inject, Map.of()));
+      // A fixture line is one output line, and renderLine hands back the LINES.
+      for (String text : renderLine(line, columns, row, inject, Map.of())) {
+        out.append(text);
+      }
     }
   }
 
@@ -2892,7 +2904,7 @@ public final class MemoryEngine {
    * produce several and a list with nothing in it must produce none at all: a customer with no
    * orders leaves no blank row behind.
    */
-  private static String renderLine(
+  private static List<String> renderLine(
       Config.Line line,
       Map<String, String[]> columns,
       int row,
@@ -2908,7 +2920,7 @@ public final class MemoryEngine {
 
     String listName = line.each() == null ? null : line.each().trim();
     if (listName == null || listName.isEmpty()) {
-      return Interpolate.apply(template, inject, lookup(columns, row)) + "\n";
+      return List.of(Interpolate.apply(template, inject, lookup(columns, row)) + "\n");
     }
 
     Repeat.Spec spec = eachInfo.get(listName);
@@ -2931,16 +2943,16 @@ public final class MemoryEngine {
       stride = elements.size();
     }
 
-    StringBuilder out = new StringBuilder();
+    List<String> out = new ArrayList<>();
     for (int k = 0; k < elements.size(); k++) {
-      out.append(
-              Interpolate.apply(
+      out.add(
+          Interpolate.apply(
                   template,
                   inject,
-                  elementLookup(columns, row, listName, elements.get(k), k + 1, lane, stride)))
-          .append('\n');
+                  elementLookup(columns, row, listName, elements.get(k), k + 1, lane, stride))
+              + "\n");
     }
-    return out.toString();
+    return out;
   }
 
   /**

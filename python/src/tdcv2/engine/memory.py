@@ -143,11 +143,19 @@ def build(
             for line in config.block
             if line.if_expr is None or _condition(line.if_expr, columns, row)
         ]
-        for i, line in enumerate(active):
+        # The OUTPUT lines, not the <line> ELEMENTS. One `<line each="Items">` produces as many
+        # output lines as the list has elements, and the three per-line fixtures are documented
+        # as wrapping "the lines of a record" — so they have to see what the reader sees. They
+        # used to see the elements, and <delimiter_line> between the repetitions of an each= line
+        # therefore did nothing at all: no comma between the members of an array, in silence.
+        emitted: list[str] = []
+        for line in active:
+            emitted.extend(_render_line(line, columns, row, config.inject, each_info))
+        for i, text in enumerate(emitted):
             _emit(out, fx.before_line, columns, row, config.inject)
-            out.append(_render_line(line, columns, row, config.inject, each_info))
+            out.append(text)
             _emit(out, fx.after_line, columns, row, config.inject)
-            if i < len(active) - 1:
+            if i < len(emitted) - 1:
                 _emit(out, fx.delimiter_line, columns, row, config.inject)
 
         _emit(out, fx.after_block, columns, row, config.inject)
@@ -160,7 +168,9 @@ def build(
 
 def _emit(out: list[str], lines: list[Line], columns, row: int, inject: str) -> None:
     for line in lines:
-        out.append(_render_line(line, columns, row, inject, {}))
+        # A fixture line is one output line; extend rather than append, because _render_line
+        # hands back the LINES now and a two-line fixture must not come out joined.
+        out.extend(_render_line(line, columns, row, inject, {}))
 
 
 def _each_info(config: Config) -> dict[str, repeat_gen.Spec]:
@@ -2002,12 +2012,13 @@ def _condition(expr: str, columns, row: int) -> bool:
     )
 
 
-def _render_line(line: Line, columns, row: int, inject: str, each_info) -> str:
+def _render_line(line: Line, columns, row: int, inject: str, each_info) -> list[str]:
     """One line — or, with ``each="NAME"``, one line per element of that list.
 
-    The text comes back with its newline already attached, because a line with ``each`` may
-    produce several and a list with nothing in it must produce none at all: a customer with no
-    orders leaves no blank row behind.
+    The OUTPUT LINES, each with its newline already attached. A list with nothing in it produces
+    none at all: a customer with no orders leaves no blank row behind. A list is returned rather
+    than one joined string so the caller can put a fixture BETWEEN the lines an each= produced —
+    which is what <delimiter_line> is for, and what it silently failed to do.
     """
     template = "".join(
         part.text
@@ -2017,7 +2028,7 @@ def _render_line(line: Line, columns, row: int, inject: str, each_info) -> str:
 
     list_name = None if line.each is None else line.each.strip()
     if not list_name:
-        return interpolate.apply(template, inject, _row_lookup(columns, row)) + "\n"
+        return [interpolate.apply(template, inject, _row_lookup(columns, row)) + "\n"]
 
     spec = each_info.get(list_name)
     column = columns.get(list_name)
@@ -2040,7 +2051,7 @@ def _render_line(line: Line, columns, row: int, inject: str, each_info) -> str:
     for k, element in enumerate(elements):
         lookup = _element_lookup(columns, row, list_name, element, k + 1, lane, stride)
         out.append(interpolate.apply(template, inject, lookup) + "\n")
-    return "".join(out)
+    return out
 
 
 def _element_lookup(columns, row: int, list_name: str, element: str, position: int, lane, stride):

@@ -1756,6 +1756,14 @@ impl Validator {
             Some(_) => {}
         }
 
+        // Before the per-type checks, and INSTEAD of them when it fires: a value
+        // holding ${{…}} is not the value its generator will try to parse, so
+        // letting the generator also complain would put a wrong explanation
+        // beside the right one.
+        if self.check_attr_interpolation(gen, &attrs, gen_type) {
+            return;
+        }
+
         self.check_required_value(gen, &attrs, gen_type);
         self.check_number(gen, &attrs, gen_type);
         self.check_regexes(gen, &attrs, gen_type);
@@ -1928,6 +1936,48 @@ impl Validator {
                 gen.at("of"),
             );
         }
+    }
+
+    /// `${{Name}}` written into an attribute that does not read it.
+    ///
+    /// Interpolation reaches exactly two places: the TEXT inside `<data>`, and
+    /// `<gen type="template" value=>`, where a path may be finished by another
+    /// column. Everywhere else the braces are eight literal characters — and the
+    /// generator that receives them complains about whatever it happens to be
+    /// parsing: an invalid number range, an invalid date, a bad quantifier, an
+    /// unknown alphabet — while `type="text"` said nothing at all and emitted the
+    /// braces. Five messages and one silence for one mistake, none naming it.
+    ///
+    /// Deliberately blind to WHICH attribute: a list of "attributes that do not
+    /// interpolate" would be every attribute but one, and would have to be kept
+    /// in step with every generator added later.
+    fn check_attr_interpolation(
+        &mut self,
+        gen: &Element,
+        attrs: &Attrs,
+        gen_type: Option<&str>,
+    ) -> bool {
+        let mut found = false;
+        let offenders: Vec<String> = attrs
+            .keys()
+            .filter(|name| attrs.get(name.as_str()).is_some_and(|v| v.contains("${{")))
+            // The one place it works: a pack path finished by another column,
+            // which is the documented idiom for linked pairs.
+            .filter(|name| !(name.as_str() == "value" && gen_type == Some("template")))
+            .cloned()
+            .collect();
+        for name in offenders {
+            self.error(
+                "TDC263",
+                format!("${{{{…}}}} in {name}= is not expanded — the braces are literal text here"),
+                "Interpolation reaches the text inside <data> and <gen type=\"template\" value=>, \
+                 and nowhere else. To make one column depend on another, read it in an if= \
+                 condition, or build the value in a <compute> sequence.",
+                gen.at(&name),
+            );
+            found = true;
+        }
+        found
     }
 
     fn check_http(&mut self, gen: &Element, attrs: &Attrs, gen_type: Option<&str>) {

@@ -245,7 +245,12 @@ ENV_GROUP_CHILDREN = frozenset({"sequence", "mix", "switch", "member"})
 POOL_CHILDREN = frozenset({"sequence", "mix", "switch", "uniq", "distinct", "member", "data"})
 
 # A fixture holds literal text and <line>s.
-FIXTURE_CHILDREN = frozenset({"data", "line"})
+#: A fixture body is made of ``<line>``s and nothing else.
+#:
+#: ``data`` used to be on this list, and every renderer only ever walks ``<line>`` — so
+#: ``<before><data>x</data></before>`` validated and emitted nothing at all. The list is what the
+#: "Allowed inside" note prints, so it has to say what the renderer actually does.
+FIXTURE_CHILDREN = frozenset({"line"})
 
 # What may sit directly inside <switch>.
 SWITCH_CHILDREN = frozenset({"map", "case", "default"})
@@ -2093,6 +2098,12 @@ class _Validator:
                 column,
             )
 
+        # Before the per-type checks, and INSTEAD of them when it fires: a value holding ${{…}}
+        # is not the value its generator will try to parse, so letting the generator also
+        # complain would put a wrong explanation beside the right one.
+        if self._check_attr_interpolation(gen, attrs, type_):
+            return
+
         self._check_required_value(gen, attrs, type_)
         self._check_number(gen, attrs, type_)
         self._check_regexes(gen, attrs, type_)
@@ -2133,6 +2144,42 @@ class _Validator:
                 line,
                 column,
             )
+
+    def _check_attr_interpolation(self, gen, attrs: dict[str, str], type_: str | None) -> bool:
+        """``${{Name}}`` written into an attribute that does not read it.
+
+        Interpolation reaches exactly two places: the TEXT inside ``<data>``, and
+        ``<gen type="template" value=>``, where a path may be finished by another column.
+        Everywhere else the braces are eight literal characters — and the generator that
+        receives them complains about whatever it happens to be parsing, which is true and tells
+        the reader nothing: an invalid number range, an invalid date, a bad quantifier, an unknown
+        alphabet — and ``type="text"`` said nothing at all and emitted the braces. Five messages
+        and one silence for one mistake, and none of them naming it.
+
+        The check is deliberately blind to WHICH attribute: a list of "attributes that do not
+        interpolate" would be every attribute but one, and would have to be kept in step with
+        every generator added later.
+        """
+        found = False
+        for name, raw in attrs.items():
+            if "${{" not in (raw or ""):
+                continue
+            # The one place it works: a pack path finished by another column, which is the
+            # documented idiom for linked pairs.
+            if name == "value" and type_ == "template":
+                continue
+            line, column = _at(gen, name)
+            self._error(
+                "TDC263",
+                f"${{{{…}}}} in {name}= is not expanded — the braces are literal text here",
+                "Interpolation reaches the text inside <data> and <gen type=\"template\" "
+                "value=>, and nowhere else. To make one column depend on another, read it in an "
+                "if= condition, or build the value in a <compute> sequence.",
+                line,
+                column,
+            )
+            found = True
+        return found
 
     def _check_http(self, gen, attrs: dict[str, str], type_: str | None) -> None:
         """The ``http`` generator: everything knowable before the run.
@@ -3989,6 +4036,13 @@ class _Validator:
                 )
             elif child.mapElement() is not None:
                 name, line, column = "map", 1, 0
+            elif child.dataElement() is not None:
+                # `<data>` is its own node in the grammar, so this walk used to step over it in
+                # silence — which is how `<before><data>x</data></before>` came to validate and
+                # render nothing at all. Parents that take a `<data>` have it on `allowed` and
+                # pass the check below; the fixtures do not, and now say so.
+                data_el = child.dataElement()
+                name, line, column = "data", _line(data_el), _column(data_el)
             else:
                 continue
             if name in allowed:

@@ -1923,12 +1923,20 @@ public sealed class StreamEngine
                 }
             }
 
-            for (int i = 0; i < active.Count; i++)
+            // The OUTPUT lines, not the <line> ELEMENTS — see the note in the in-memory engine.
+            // The two must agree byte for byte, so they count the same thing.
+            var emitted = new List<string>();
+            foreach (Line line in active)
+            {
+                emitted.AddRange(RenderLine(line, row, eachInfo));
+            }
+
+            for (int i = 0; i < emitted.Count; i++)
             {
                 Emit(output, fx.BeforeLine, row);
-                output.Write(RenderLine(active[i], row, eachInfo));
+                output.Write(emitted[i]);
                 Emit(output, fx.AfterLine, row);
-                if (i < active.Count - 1)
+                if (i < emitted.Count - 1)
                 {
                     Emit(output, fx.DelimiterLine, row);
                 }
@@ -1966,11 +1974,15 @@ public sealed class StreamEngine
         var none = new Dictionary<string, Repeat.Spec>(StringComparer.Ordinal);
         foreach (Line line in lines)
         {
-            output.Write(RenderLine(line, row, none));
+            // A fixture line is one output line, and RenderLine hands back the LINES.
+            foreach (string text in RenderLine(line, row, none))
+            {
+                output.Write(text);
+            }
         }
     }
 
-    private string RenderLine(
+    private IReadOnlyList<string> RenderLine(
         Line line, int row, IReadOnlyDictionary<string, Repeat.Spec> eachInfo)
     {
         var text = new StringBuilder();
@@ -1986,7 +1998,10 @@ public sealed class StreamEngine
         string? listName = TrimToNull(line.Each);
         if (listName is null)
         {
-            return Interpolate.Apply(template, _config.Inject, new StreamLookup(this, row)) + "\n";
+            return new[]
+            {
+                Interpolate.Apply(template, _config.Inject, new StreamLookup(this, row)) + "\n",
+            };
         }
 
         Repeat.Spec? spec = eachInfo.TryGetValue(listName, out Repeat.Spec found) ? found : null;
@@ -2010,18 +2025,16 @@ public sealed class StreamEngine
             stride = elements.Count;
         }
 
-        var result = new StringBuilder();
+        var result = new List<string>();
         for (int k = 0; k < elements.Count; k++)
         {
-            result
-                .Append(Interpolate.Apply(
-                    template, _config.Inject,
-                    new StreamElementLookup(
-                        this, row, listName, elements[k], k + 1, lane, stride)))
-                .Append('\n');
+            result.Add(Interpolate.Apply(
+                template, _config.Inject,
+                new StreamElementLookup(this, row, listName, elements[k], k + 1, lane, stride))
+                + "\n");
         }
 
-        return result.ToString();
+        return result;
     }
 
     // ── row access ───────────────────────────────────────────────────────────────────────────

@@ -200,11 +200,16 @@ class StreamEngine:
                 for line in self.config.block
                 if line.if_expr is None or self._condition(line.if_expr, row)
             ]
-            for i, line in enumerate(active):
+            # The OUTPUT lines, not the <line> ELEMENTS — see the note in the in-memory
+            # engine. The two must agree byte for byte, so they count the same thing.
+            emitted: list[str] = []
+            for line in active:
+                emitted.extend(self._render_line(line, row, each_info))
+            for i, text in enumerate(emitted):
                 self._emit(emit, fx.before_line, row, each_info)
-                emit(self._render_line(line, row, each_info))
+                emit(text)
                 self._emit(emit, fx.after_line, row, each_info)
-                if i < len(active) - 1:
+                if i < len(emitted) - 1:
                     self._emit(emit, fx.delimiter_line, row, each_info)
 
             self._emit(emit, fx.after_block, row, each_info)
@@ -1338,9 +1343,11 @@ class StreamEngine:
 
     def _emit(self, emit, lines: list[Line], row: int, each_info) -> None:
         for line in lines:
-            emit(self._render_line(line, row, {}))
+            # A fixture line is one output line, and _render_line hands back the LINES.
+            for text in self._render_line(line, row, {}):
+                emit(text)
 
-    def _render_line(self, line: Line, row: int, each_info) -> str:
+    def _render_line(self, line: Line, row: int, each_info) -> list[str]:
         template = "".join(
             part.text
             for part in line.parts
@@ -1349,7 +1356,7 @@ class StreamEngine:
 
         list_name = _trim_to_none(line.each) if line.each else None
         if list_name is None:
-            return interpolate.apply(template, self.config.inject, self._lookup(row)) + "\n"
+            return [interpolate.apply(template, self.config.inject, self._lookup(row)) + "\n"]
 
         spec = each_info.get(list_name)
         separator = repeat_gen.DEFAULT_SEPARATOR if spec is None else spec.separator
@@ -1368,7 +1375,7 @@ class StreamEngine:
         for k, element in enumerate(elements):
             lookup = self._element_lookup(row, list_name, element, k + 1, lane, stride)
             out.append(interpolate.apply(template, self.config.inject, lookup) + "\n")
-        return "".join(out)
+        return out
 
     def _value_or_none(self, name: str, row: int) -> str | None:
         column = self.columns.get(name)

@@ -1612,11 +1612,17 @@ public final class StreamEngine {
             active.add(line);
           }
         }
-        for (int i = 0; i < active.size(); i++) {
+        // The OUTPUT lines, not the <line> ELEMENTS — see the note in the in-memory engine.
+        // The two must agree byte for byte, so they count the same thing.
+        List<String> emitted = new ArrayList<>();
+        for (Config.Line line : active) {
+          emitted.addAll(renderLine(line, row, eachInfo));
+        }
+        for (int i = 0; i < emitted.size(); i++) {
           emit(out, fx.beforeLine(), row);
-          out.append(renderLine(active.get(i), row, eachInfo));
+          out.append(emitted.get(i));
           emit(out, fx.afterLine(), row);
-          if (i < active.size() - 1) {
+          if (i < emitted.size() - 1) {
             emit(out, fx.delimiterLine(), row);
           }
         }
@@ -1650,11 +1656,15 @@ public final class StreamEngine {
 
   private void emit(Appendable out, List<Config.Line> lines, int row) throws IOException {
     for (Config.Line line : lines) {
-      out.append(renderLine(line, row, Map.of()));
+      // A fixture line is one output line, and renderLine hands back the LINES.
+      for (String text : renderLine(line, row, Map.of())) {
+        out.append(text);
+      }
     }
   }
 
-  private String renderLine(Config.Line line, int row, Map<String, Repeat.Spec> eachInfo) {
+  private List<String> renderLine(
+      Config.Line line, int row, Map<String, Repeat.Spec> eachInfo) {
     StringBuilder text = new StringBuilder();
     for (Config.DataPart part : line.parts()) {
       if (part.ifExpr() == null || condition(part.ifExpr(), row)) {
@@ -1665,7 +1675,7 @@ public final class StreamEngine {
 
     String listName = trimToNull(line.each());
     if (listName == null) {
-      return Interpolate.apply(template, config.inject(), lookup(row)) + "\n";
+      return List.of(Interpolate.apply(template, config.inject(), lookup(row)) + "\n");
     }
 
     Repeat.Spec spec = eachInfo.get(listName);
@@ -1686,16 +1696,16 @@ public final class StreamEngine {
       stride = elements.size();
     }
 
-    StringBuilder out = new StringBuilder();
+    List<String> out = new ArrayList<>();
     for (int k = 0; k < elements.size(); k++) {
-      out.append(
-              Interpolate.apply(
+      out.add(
+          Interpolate.apply(
                   template,
                   config.inject(),
-                  elementLookup(row, listName, elements.get(k), k + 1, lane, stride)))
-          .append('\n');
+                  elementLookup(row, listName, elements.get(k), k + 1, lane, stride))
+              + "\n");
     }
-    return out.toString();
+    return out;
   }
 
   // ── row access ───────────────────────────────────────────────────────────────────────────

@@ -2126,6 +2126,19 @@ public final class Validator {
           at(gen, "type")[0], at(gen, "type")[1]);
     }
 
+    // Before the per-type checks, and INSTEAD of them when it fires: a value holding
+
+    // ${{…}} is not the value its generator will try to parse, so letting the generator
+
+    // also complain would put a wrong explanation beside the right one.
+
+    if (checkAttrInterpolation(gen, attrs, type)) {
+
+      return;
+
+    }
+
+
     checkRequiredValue(gen, attrs, type);
     checkNumber(gen, attrs, type);
     checkRegexes(gen, attrs, type);
@@ -3231,6 +3244,39 @@ public final class Validator {
    * declaration-order complaint is TDC240, shared with {@code running} on purpose — the same rule
    * with the same fix.
    */
+  /**
+   * {@code ${{Name}}} written into an attribute that does not read it.
+   *
+   * <p>Interpolation reaches exactly two places: the TEXT inside {@code <data>}, and
+   * {@code <gen type="template" value=>}. Everywhere else the braces are eight literal
+   * characters — and the generator that receives them complains about whatever it happens to be
+   * parsing: an invalid number range, an invalid date, a bad quantifier, an unknown alphabet —
+   * while {@code type="text"} said nothing at all and emitted the braces. Five messages and one
+   * silence for one mistake, none of them naming it.
+   */
+  private boolean checkAttrInterpolation(
+      TDCParser.SelfClosingElementContext gen, Map<String, String> attrs, String type) {
+    boolean found = false;
+    for (Map.Entry<String, String> entry : attrs.entrySet()) {
+      String value = entry.getValue();
+      if (value == null || !value.contains("${{")) {
+        continue;
+      }
+      // The one place it works: a pack path finished by another column.
+      if ("value".equals(entry.getKey()) && "template".equals(type)) {
+        continue;
+      }
+      error("TDC263",
+          "${{…}} in " + entry.getKey() + "= is not expanded — the braces are literal text here",
+          "Interpolation reaches the text inside <data> and <gen type=\"template\" value=>, and "
+              + "nowhere else. To make one column depend on another, read it in an if= condition, "
+              + "or build the value in a <compute> sequence.",
+          at(gen, entry.getKey())[0], at(gen, entry.getKey())[1]);
+      found = true;
+    }
+    return found;
+  }
+
   private void checkStat(
       TDCParser.SelfClosingElementContext gen, Map<String, String> attrs, String type) {
     if (!"stat".equals(type)) {
@@ -4138,6 +4184,15 @@ public final class Validator {
         name = "map";
         line = 1;
         column = 0;
+      } else if (child.dataElement() != null) {
+        // `<data>` is its own node in the grammar, so this walk used to step over it in silence —
+        // which is how `<before><data>x</data></before>` came to validate and render nothing at
+        // all. Parents that take a `<data>` have it on `allowed` and pass the check below; the
+        // fixtures do not, and now say so.
+        TDCParser.DataElementContext data = child.dataElement();
+        name = "data";
+        line = data.getStart().getLine();
+        column = data.getStart().getCharPositionInLine();
       }
       if (name == null || allowed.contains(name)) {
         continue;
@@ -4309,7 +4364,14 @@ public final class Validator {
       Set.of("sequence", "mix", "switch", "uniq", "distinct", "member", "data");
 
   /** A fixture holds literal text and {@code <line>}s. */
-  private static final Set<String> FIXTURE_CHILDREN = Set.of("data", "line");
+  /**
+   * A fixture body is made of {@code <line>}s and nothing else.
+   *
+   * <p>{@code data} used to be on this list, and every renderer only ever walks {@code <line>} —
+   * so {@code <before><data>x</data></before>} validated and emitted nothing at all. The list is
+   * what the "Allowed inside" note prints, so it has to say what the renderer actually does.
+   */
+  private static final Set<String> FIXTURE_CHILDREN = Set.of("line");
 
   /** What may sit directly inside {@code <switch>}. */
   private static final Set<String> SWITCH_CHILDREN = Set.of("map", "case", "default");

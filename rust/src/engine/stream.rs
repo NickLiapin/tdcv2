@@ -2373,11 +2373,18 @@ impl StreamEngine<'_> {
                 }
             }
 
-            for (i, line) in active.iter().enumerate() {
+            // The OUTPUT lines, not the <line> ELEMENTS — see the note in the
+            // in-memory engine. The two must agree byte for byte, so they count
+            // the same thing.
+            let mut emitted: Vec<String> = Vec::new();
+            for line in &active {
+                emitted.extend(self.render_line(line, row, &each)?);
+            }
+            for (i, text) in emitted.iter().enumerate() {
                 self.emit(out, &fx.before_line, row)?;
-                write_all(out, &self.render_line(line, row, &each)?)?;
+                write_all(out, text)?;
                 self.emit(out, &fx.after_line, row)?;
-                if i + 1 < active.len() {
+                if i + 1 < emitted.len() {
                     self.emit(out, &fx.delimiter_line, row)?;
                 }
             }
@@ -2394,7 +2401,10 @@ impl StreamEngine<'_> {
     fn emit<W: std::fmt::Write>(&self, to: &mut W, lines: &[Line], row: i32) -> EngineResult<()> {
         let none = BTreeMap::new();
         for line in lines {
-            write_all(to, &self.render_line(line, row, &none)?)?;
+            // A fixture line is one output line, and `render_line` hands back the LINES.
+            for text in self.render_line(line, row, &none)? {
+                write_all(to, &text)?;
+            }
         }
         Ok(())
     }
@@ -2404,7 +2414,7 @@ impl StreamEngine<'_> {
         line: &Line,
         row: i32,
         each_info: &BTreeMap<String, repeat::Spec>,
-    ) -> EngineResult<String> {
+    ) -> EngineResult<Vec<String>> {
         let mut template = String::new();
         for part in &line.parts {
             let keep = match &part.if_expr {
@@ -2422,7 +2432,7 @@ impl StreamEngine<'_> {
             let mut text = interpolate::apply(&template, inject, &lookup)?;
             self.raise_pending()?;
             text.push('\n');
-            return Ok(text);
+            return Ok(vec![text]);
         };
 
         let spec = each_info.get(list_name);
@@ -2443,7 +2453,7 @@ impl StreamEngine<'_> {
             stride = elements.len() as i64;
         }
 
-        let mut result = String::new();
+        let mut result: Vec<String> = Vec::new();
         for (k, element) in elements.iter().enumerate() {
             let lookup = ElementLookup {
                 base: StreamLookup { engine: self, row },
@@ -2452,9 +2462,10 @@ impl StreamEngine<'_> {
                 item: (k + 1) as i64,
                 item_id: repeat::item_key(i64::from(row) + 1, (k + 1) as i64, lane, stride),
             };
-            result.push_str(&interpolate::apply(&template, inject, &lookup)?);
+            let mut text = interpolate::apply(&template, inject, &lookup)?;
             self.raise_pending()?;
-            result.push('\n');
+            text.push('\n');
+            result.push(text);
         }
         Ok(result)
     }

@@ -365,6 +365,63 @@ para el archivo completo — el formato de elección pasados unos cientos de mil
 Vea [Salidas grandes y streaming](large-outputs.mdx) para saber cómo TDC las produce en
 disco sin mantener el archivo en memoria.
 
+
+### Una lista anidada dentro de un registro
+
+Un registro que lleva su propia lista — un pedido y sus líneas, un paciente y sus visitas —
+necesita una coma **entre las repeticiones** de un mismo `<line each=…>`, y eso es lo que hace
+[`<delimiter_line>`](../core-concepts/output-formatting.mdx). Las fixtures por línea ven las
+líneas que ve el lector, así que una línea multiplicada por `each=` son varias de ellas:
+
+```xml
+<tdc>
+  <env count="3" seed="orders" local="en">
+    <sequence name="Sku"><gen type="regex" value="SKU-[0-9]{4}" repeat="1..3" separator="|"/></sequence>
+    <before><line><data>[</data></line></before>
+    <after><line><data>]</data></line></after>
+    <before_block><line><data>  [</data></line></before_block>
+    <after_block><line><data>  ]</data></line></after_block>
+    <delimiter_block><line><data>  ,</data></line></delimiter_block>
+    <delimiter_line><line><data>    ,</data></line></delimiter_line>
+  </env>
+  <block>
+    <line each="Sku"><data>    "${{Sku}}"</data></line>
+  </block>
+</tdc>
+```
+
+<Terminal title="./run orders.tdc">
+{`[
+  [
+    "SKU-3547"
+    ,
+    "SKU-8121"
+    ,
+    "SKU-7610"
+  ]
+  ,
+  [
+    "SKU-4917"
+  ]
+  ,
+  [
+    "SKU-2540"
+    ,
+    "SKU-4232"
+  ]
+]`}
+</Terminal>
+
+`repeat="1..3"` da a cada registro un número distinto de elementos, y el delimitador lo sigue: una
+coma menos que líneas, siempre, incluido el registro que solo tiene una.
+
+:::note[El envoltorio no lleva valores]
+Las fixtures son **texto literal**: un `${{Name}}` escrito en una no se expande, y un `<gen>` dentro
+de una se rechaza (`TDC131`). Así que los corchetes van en las fixtures y todo lo que varía va en el
+`<block>`. Un registro que necesita sus propios campos *junto a* una lista anidada es la forma a la
+que esto todavía no llega.
+:::
+
 ## SQL
 
 Para SQL uno emite sentencias que una base de datos ejecuta directamente — TDC no se

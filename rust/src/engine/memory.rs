@@ -2967,11 +2967,22 @@ fn emit(config: &Config, columns: &BTreeMap<String, Vec<Option<String>>>) -> Eng
             }
         }
 
-        for (i, line) in active.iter().enumerate() {
+        // The OUTPUT lines, not the <line> ELEMENTS. One `<line each="Items">`
+        // produces as many output lines as the list has elements, and the three
+        // per-line fixtures are documented as wrapping "the lines of a record" —
+        // so they have to see what the reader sees. They used to see the
+        // elements, and <delimiter_line> between the repetitions of an each= line
+        // therefore did nothing at all: no comma between the members of an array,
+        // in silence.
+        let mut emitted: Vec<String> = Vec::new();
+        for line in &active {
+            emitted.extend(render_line(line, columns, row, config, &each)?);
+        }
+        for (i, text) in emitted.iter().enumerate() {
             emit_lines(&mut out, &fx.before_line, columns, row, config, &each)?;
-            out.push_str(&render_line(line, columns, row, config, &each)?);
+            out.push_str(text);
             emit_lines(&mut out, &fx.after_line, columns, row, config, &each)?;
-            if i + 1 < active.len() {
+            if i + 1 < emitted.len() {
                 emit_lines(&mut out, &fx.delimiter_line, columns, row, config, &each)?;
             }
         }
@@ -3002,7 +3013,10 @@ fn emit_lines(
     each: &BTreeMap<String, repeat::Spec>,
 ) -> EngineResult<()> {
     for line in lines {
-        to.push_str(&render_line(line, columns, row, config, each)?);
+        // A fixture line is one output line, and `render_line` hands back the LINES.
+        for text in render_line(line, columns, row, config, each)? {
+            to.push_str(&text);
+        }
     }
     Ok(())
 }
@@ -3033,7 +3047,7 @@ fn render_line(
     row: usize,
     config: &Config,
     each_info: &BTreeMap<String, repeat::Spec>,
-) -> EngineResult<String> {
+) -> EngineResult<Vec<String>> {
     let mut template = String::new();
     for part in &line.parts {
         let keep = match &part.if_expr {
@@ -3054,7 +3068,7 @@ fn render_line(
         let lookup = RowLookup { columns, row };
         let mut text = interpolate::apply(&template, config.inject.as_deref(), &lookup)?;
         text.push('\n');
-        return Ok(text);
+        return Ok(vec![text]);
     };
 
     let spec = each_info.get(list_name);
@@ -3082,7 +3096,7 @@ fn render_line(
         stride = elements.len() as i64;
     }
 
-    let mut result = String::new();
+    let mut result: Vec<String> = Vec::new();
     for (k, element) in elements.iter().enumerate() {
         let lookup = ElementLookup {
             base: RowLookup { columns, row },
@@ -3091,12 +3105,9 @@ fn render_line(
             item: (k + 1) as i64,
             item_id: repeat::item_key(row as i64 + 1, (k + 1) as i64, lane, stride),
         };
-        result.push_str(&interpolate::apply(
-            &template,
-            config.inject.as_deref(),
-            &lookup,
-        )?);
-        result.push('\n');
+        let mut text = interpolate::apply(&template, config.inject.as_deref(), &lookup)?;
+        text.push('\n');
+        result.push(text);
     }
     Ok(result)
 }

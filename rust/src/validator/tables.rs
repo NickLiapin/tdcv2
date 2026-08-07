@@ -49,7 +49,13 @@ pub const ENV_GROUP_CHILDREN: [&str; 4] = ["sequence", "mix", "switch", "member"
 pub const POOL_CHILDREN: [&str; 6] = ["sequence", "mix", "switch", "uniq", "distinct", "member"];
 
 /// What a fixture (`<before>`, `<after>`, the delimiters) holds: literal text.
-pub const FIXTURE_CHILDREN: [&str; 2] = ["data", "line"];
+/// A fixture body is made of `<line>`s and nothing else.
+///
+/// `data` used to be on this list, and every renderer only ever walks `<line>` —
+/// so `<before><data>x</data></before>` validated and emitted nothing at all.
+/// The list is what the "Allowed inside" note prints, so it has to say what the
+/// renderer actually does.
+pub const FIXTURE_CHILDREN: [&str; 1] = ["line"];
 
 /// What may sit directly inside `<block>` and `<line>`.
 pub const BLOCK_CHILDREN: [&str; 2] = ["line", "data"];

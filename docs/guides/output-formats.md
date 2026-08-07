@@ -354,6 +354,65 @@ That parses back to the original string, quotes intact.
 > `replace` pass for `\` → `\\`), then escape the quotes — otherwise the second pass mangles
 > the escapes the first one just added.
 
+### A nested list inside a record
+
+A record that carries a list of its own — an order and its lines, a patient and their visits —
+needs a comma **between the repetitions** of one `<line each=…>`, and that is what
+[`<delimiter_line>`](../core-concepts/output-formatting.md#top) does. The per-line fixtures see the
+lines a reader sees, so a line multiplied by `each=` is several of them:
+
+```xml
+<tdc>
+  <env count="3" seed="orders" local="en">
+    <sequence name="Sku"><gen type="regex" value="SKU-[0-9]{4}" repeat="1..3" separator="|"/></sequence>
+    <before><line><data>[</data></line></before>
+    <after><line><data>]</data></line></after>
+    <before_block><line><data>  [</data></line></before_block>
+    <after_block><line><data>  ]</data></line></after_block>
+    <delimiter_block><line><data>  ,</data></line></delimiter_block>
+    <delimiter_line><line><data>    ,</data></line></delimiter_line>
+  </env>
+  <block>
+    <line each="Sku"><data>    "${{Sku}}"</data></line>
+  </block>
+</tdc>
+```
+
+`./run orders.tdc`
+
+```
+[
+  [
+    "SKU-3547"
+    ,
+    "SKU-8121"
+    ,
+    "SKU-7610"
+  ]
+  ,
+  [
+    "SKU-4917"
+  ]
+  ,
+  [
+    "SKU-2540"
+    ,
+    "SKU-4232"
+  ]
+]
+```
+
+`repeat="1..3"` gives each record a different number of elements, and the delimiter follows —
+one comma fewer than there are lines, every time, including the record that has only one.
+
+> [!NOTE]
+> **The wrapper holds no values**
+>
+> Fixtures are **literal text**: a `${{Name}}` written in one is not expanded, and a `<gen>` inside
+> one is refused (`TDC131`). So the brackets go in the fixtures and everything that varies goes in
+> the `<block>`. A record that needs its own fields *beside* a nested list is the shape this does
+> not reach yet.
+
 ### Many records: NDJSON
 
 An array has a ceiling: to read a single object, a parser has to load the **whole file**, so

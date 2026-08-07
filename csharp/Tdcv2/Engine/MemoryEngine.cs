@@ -146,12 +146,24 @@ public static class MemoryEngine
                 }
             }
 
-            for (int i = 0; i < active.Count; i++)
+            // The OUTPUT lines, not the <line> ELEMENTS. One `<line each="Items">` produces as
+            // many output lines as the list has elements, and the three per-line fixtures are
+            // documented as wrapping "the lines of a record" — so they have to see what the
+            // reader sees. They used to see the elements, and <delimiter_line> between the
+            // repetitions of an each= line therefore did nothing at all: no comma between the
+            // members of an array, in silence.
+            var emitted = new List<string>();
+            foreach (Line line in active)
+            {
+                emitted.AddRange(RenderLine(line, columns, row, config.Inject, eachInfo));
+            }
+
+            for (int i = 0; i < emitted.Count; i++)
             {
                 Emit(result, eachInfo, fx.BeforeLine, columns, row, config.Inject);
-                result.Append(RenderLine(active[i], columns, row, config.Inject, eachInfo));
+                result.Append(emitted[i]);
                 Emit(result, eachInfo, fx.AfterLine, columns, row, config.Inject);
-                if (i < active.Count - 1)
+                if (i < emitted.Count - 1)
                 {
                     Emit(result, eachInfo, fx.DelimiterLine, columns, row, config.Inject);
                 }
@@ -2984,7 +2996,11 @@ public static class MemoryEngine
     {
         foreach (Line line in lines)
         {
-            to.Append(RenderLine(line, columns, row, inject, eachInfo));
+            // A fixture line is one output line, and RenderLine hands back the LINES.
+            foreach (string text in RenderLine(line, columns, row, inject, eachInfo))
+            {
+                to.Append(text);
+            }
         }
     }
 
@@ -2996,7 +3012,7 @@ public static class MemoryEngine
     /// produce several and a list with nothing in it must produce none at all: a customer with no
     /// orders leaves no blank row behind.
     /// </remarks>
-    private static string RenderLine(
+    private static IReadOnlyList<string> RenderLine(
         Line line, IReadOnlyDictionary<string, string[]> columns, int row, string? inject,
         IReadOnlyDictionary<string, Repeat.Spec> eachInfo)
     {
@@ -3013,7 +3029,7 @@ public static class MemoryEngine
         string? listName = line.Each?.Trim();
         if (string.IsNullOrEmpty(listName))
         {
-            return Interpolate.Apply(template, inject, new RowLookup(columns, row)) + "\n";
+            return new[] { Interpolate.Apply(template, inject, new RowLookup(columns, row)) + "\n" };
         }
 
         Repeat.Spec? spec = eachInfo.TryGetValue(listName, out Repeat.Spec found) ? found : null;
@@ -3042,17 +3058,15 @@ public static class MemoryEngine
             stride = elements.Count;
         }
 
-        var result = new StringBuilder();
+        var result = new List<string>();
         for (int k = 0; k < elements.Count; k++)
         {
-            result
-                .Append(Interpolate.Apply(
-                    template, inject,
-                    new ElementLookup(columns, row, listName, elements[k], k + 1, lane, stride)))
-                .Append('\n');
+            result.Add(Interpolate.Apply(
+                template, inject,
+                new ElementLookup(columns, row, listName, elements[k], k + 1, lane, stride)) + "\n");
         }
 
-        return result.ToString();
+        return result;
     }
 
     /// <summary>

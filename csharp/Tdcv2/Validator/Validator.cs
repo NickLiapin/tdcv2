@@ -2607,6 +2607,21 @@ public sealed class Validator
                 line, column);
         }
 
+        // Before the per-type checks, and INSTEAD of them when it fires: a value holding
+
+        // ${{…}} is not the value its generator will try to parse, so letting the generator
+
+        // also complain would put a wrong explanation beside the right one.
+
+        if (CheckAttrInterpolation(gen, attrs, type))
+
+        {
+
+            return;
+
+        }
+
+
         CheckRequiredValue(gen, attrs, type);
         CheckNumber(gen, attrs, type);
         CheckRegexes(gen, attrs, type);
@@ -3950,6 +3965,50 @@ public sealed class Validator
     /// declaration-order complaint is TDC240, shared with <c>running</c> on purpose — the same
     /// rule with the same fix.
     /// </remarks>
+    /// <summary>
+    /// <c>${{Name}}</c> written into an attribute that does not read it.
+    /// </summary>
+    /// <remarks>
+    /// Interpolation reaches exactly two places: the TEXT inside <c>&lt;data&gt;</c>, and
+    /// <c>&lt;gen type="template" value=&gt;</c>. Everywhere else the braces are eight literal
+    /// characters — and the generator that receives them complains about whatever it happens to
+    /// be parsing: an invalid number range, an invalid date, a bad quantifier, an unknown
+    /// alphabet — while <c>type="text"</c> said nothing at all and emitted the braces. Five
+    /// messages and one silence for one mistake, none of them naming it.
+    /// </remarks>
+    private bool CheckAttrInterpolation(
+        TDCParser.SelfClosingElementContext gen,
+        IReadOnlyDictionary<string, string> attrs,
+        string? type)
+    {
+        bool found = false;
+        foreach (KeyValuePair<string, string> entry in attrs)
+        {
+            if (entry.Value is null || !entry.Value.Contains("${{", StringComparison.Ordinal))
+            {
+                continue;
+            }
+
+            // The one place it works: a pack path finished by another column.
+            if (entry.Key == "value" && type == "template")
+            {
+                continue;
+            }
+
+            (int line, int column) = At(gen, entry.Key);
+            Error(
+                "TDC263",
+                $"${{{{…}}}} in {entry.Key}= is not expanded — the braces are literal text here",
+                "Interpolation reaches the text inside <data> and <gen type=\"template\" value=>, "
+                + "and nowhere else. To make one column depend on another, read it in an if= "
+                + "condition, or build the value in a <compute> sequence.",
+                line, column);
+            found = true;
+        }
+
+        return found;
+    }
+
     private void CheckStat(
         TDCParser.SelfClosingElementContext gen,
         IReadOnlyDictionary<string, string> attrs,
@@ -5123,6 +5182,17 @@ public sealed class Validator
                 line = 1;
                 column = 0;
             }
+            else if (child.dataElement() is not null)
+            {
+                // `<data>` is its own node in the grammar, so this walk used to step over it in
+                // silence — which is how `<before><data>x</data></before>` came to validate and
+                // render nothing at all. Parents that take a `<data>` have it on `allowed` and
+                // pass the check below; the fixtures do not, and now say so.
+                TDCParser.DataElementContext data = child.dataElement();
+                name = "data";
+                line = data.Start.Line;
+                column = data.Start.Column;
+            }
 
             if (name is null || allowed.Contains(name))
             {
@@ -5377,8 +5447,17 @@ public sealed class Validator
     };
 
     /// <summary>A fixture holds literal text and <c>&lt;line&gt;</c>s.</summary>
+    /// <summary>
+    /// A fixture body is made of <c>&lt;line&gt;</c>s and nothing else.
+    /// </summary>
+    /// <remarks>
+    /// <c>data</c> used to be on this list, and every renderer only ever walks <c>&lt;line&gt;</c>
+    /// — so <c>&lt;before&gt;&lt;data&gt;x&lt;/data&gt;&lt;/before&gt;</c> validated and emitted
+    /// nothing at all. The list is what the "Allowed inside" note prints, so it has to say what
+    /// the renderer actually does.
+    /// </remarks>
     private static readonly IReadOnlySet<string> FixtureChildren =
-        new HashSet<string> { "data", "line" };
+        new HashSet<string> { "line" };
 
     /// <summary>What may sit directly inside <c>&lt;switch&gt;</c>.</summary>
     private static readonly IReadOnlySet<string> SwitchChildren =
