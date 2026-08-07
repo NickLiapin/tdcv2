@@ -27,7 +27,15 @@ const DOCS = fileURLToPath(new URL('../../../docs/', import.meta.url));
  * Keyed by the marker that makes them invalid, so a real regression elsewhere
  * still fails the suite.
  */
-const DELIBERATELY_INVALID = [/version="9\.9\.9"/];
+const DELIBERATELY_INVALID = [
+  /version="9\.9\.9"/,
+  // The <assert> page shows a run that STOPS, because that is the whole point of
+  // the tag. Keyed on the sentence the assertion carries rather than on `assert`
+  // itself, so every other example on that page still has to run — and so that
+  // editing the sentence re-arms this test loudly rather than exempting it
+  // quietly.
+  /says="every shipped order should carry a tracking number"/,
+];
 
 function markdownFiles(dir: string, acc: string[] = []): string[] {
   for (const name of readdirSync(dir)) {
