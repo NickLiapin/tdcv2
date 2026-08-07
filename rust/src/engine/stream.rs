@@ -549,6 +549,16 @@ impl<'a> StreamEngine<'a> {
             failure: RefCell::new(None),
         };
         engine.build_columns()?;
+        // The same check the in-memory engine makes, on the same finished run:
+        // an assertion that only held on one engine would be a check that
+        // depends on how the file was produced.
+        crate::sequence::assertions::check(
+            &config.asserts,
+            &config.sequences,
+            &|name, row| engine.value_at(name, row as i32).ok().flatten(),
+            &|name| engine.columns.contains_key(name),
+            config.count.max(0) as usize,
+        )?;
         engine.sequence_names = engine
             .order
             .iter()

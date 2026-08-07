@@ -35,7 +35,9 @@ fn a_call_takes_the_next_value_rather_than_rerendering_row_one() {
     // The bug this prevents: a call that means "render one row" returns the same
     // value forever, so a loop of calls produces one name repeated.
     let mut tdc = demo();
-    let drawn: Vec<String> = (0..5).map(|_| tdc.get("person.lastName").unwrap()).collect();
+    let drawn: Vec<String> = (0..5)
+        .map(|_| tdc.get("person.lastName").unwrap())
+        .collect();
     assert_eq!(
         drawn,
         vec!["Jones", "Bush", "Armstrong", "Andrews", "Jimenez"]
@@ -83,7 +85,10 @@ fn seed_and_locale_return_a_new_value() {
     assert_ne!(first_of_one, one.get("person.lastName").unwrap());
     assert_eq!(
         first_of_one,
-        Quick::seeded("a").locale("en").get("person.lastName").unwrap()
+        Quick::seeded("a")
+            .locale("en")
+            .get("person.lastName")
+            .unwrap()
     );
 }
 
@@ -134,7 +139,11 @@ fn a_missing_pack_says_so_instead_of_proposing_another_language() {
         .locale("en")
         .get("af.person.lastName")
         .unwrap_err();
-    assert!(error.0.contains("\"af\" pack is not installed"), "{}", error.0);
+    assert!(
+        error.0.contains("\"af\" pack is not installed"),
+        "{}",
+        error.0
+    );
     assert!(error.0.contains("tdcv2 pack add af"), "{}", error.0);
     assert!(!error.0.contains("Did you mean"), "{}", error.0);
 }
@@ -192,7 +201,10 @@ fn matches_the_shared_quick_vectors() {
     {
         let seed = case.get("seed").and_then(|v| v.as_str()).expect("seed");
         let locale = case.get("locale").and_then(|v| v.as_str()).expect("locale");
-        let address = case.get("address").and_then(|v| v.as_str()).expect("address");
+        let address = case
+            .get("address")
+            .and_then(|v| v.as_str())
+            .expect("address");
         let count = case.get("count").and_then(|v| v.as_f64()).expect("count") as usize;
         let expected: Vec<String> = case
             .get("expected")

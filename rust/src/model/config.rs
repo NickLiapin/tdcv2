@@ -284,6 +284,17 @@ pub struct Config {
     pub env_uniq_groups: Vec<Vec<String>>,
     pub env_distinct_groups: Vec<Vec<String>>,
     pub pools: Vec<PoolSpec>,
+    pub asserts: Vec<AssertSpec>,
+}
+
+/// One `<assert that="…" says="…"/>` as written.
+///
+/// A statement about the whole run, like `<uniq>` and `<distinct>`, which is why
+/// it sits in `<env>` rather than beside a column.
+#[derive(Clone, Debug, Default, PartialEq, Eq)]
+pub struct AssertSpec {
+    pub that: String,
+    pub says: String,
 }
 
 impl Config {

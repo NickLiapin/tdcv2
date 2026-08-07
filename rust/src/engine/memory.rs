@@ -20,12 +20,12 @@ use super::per_row;
 use super::{invalid, not_ported, EngineError, EngineResult, RowSource};
 use crate::compute;
 use crate::date;
+use crate::date::to_epoch_millis;
 use crate::distribution::percent_mask;
 use crate::expr::evaluate;
 use crate::expr::evaluate as expr;
 use crate::format::interpolate::{self, Lookup};
 use crate::format::{mask, transforms};
-use crate::date::to_epoch_millis;
 use crate::generators::accumulate;
 use crate::generators::date_offset;
 use crate::generators::stat;
@@ -153,6 +153,21 @@ pub fn run_in(
     let env = Env::new(config, packs, now_millis, base_dir);
     let mut columns = build_columns(&env)?;
     resolve_http(&env, &mut columns)?;
+    // The run is finished; now the config gets to check its own output — before
+    // a single line is written, because a file that exists is a file someone
+    // will use.
+    crate::sequence::assertions::check(
+        &config.asserts,
+        &config.sequences,
+        &|name, row| {
+            columns
+                .get(name)
+                .and_then(|c| c.get(row).cloned())
+                .flatten()
+        },
+        &|name| columns.contains_key(name),
+        config.count.max(0) as usize,
+    )?;
     let sequence_names = columns
         .keys()
         .filter(|name| !name.starts_with('_'))

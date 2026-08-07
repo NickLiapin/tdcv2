@@ -623,6 +623,7 @@ impl Validator {
         }
 
         self.check_children(env, "env", &tables::ENV_CHILDREN);
+        self.check_asserts(env);
         self.check_closed_tag_attrs("env", env);
         self.check_group_sizes(env);
         // Pools first, and only their shape: a reference may stand above the
@@ -4009,6 +4010,51 @@ impl Validator {
             &hint,
             at,
         );
+    }
+
+    /// `<assert that="…" says="…"/>` — the two attributes it cannot do without.
+    ///
+    /// An assertion is the one construct whose whole worth is that it FAILS, so
+    /// a half-written one is worse than none: the config carries a check, the
+    /// reader believes the run was verified, and nothing was ever compared.
+    ///
+    /// The expression is not re-checked here. `that=` is the `if=` language, so
+    /// it takes the same syntax pass now and the same put-aside name pass once
+    /// every sequence is known — a typo in a column name is reported exactly as
+    /// it is in `if=`, because it IS that mistake.
+    fn check_asserts(&mut self, env: &Element) {
+        for child in env
+            .children
+            .iter()
+            .filter(|c| c.kind == Kind::SelfClosing && c.name == "assert")
+        {
+            let that = child.attr_value("that").unwrap_or("").trim().to_string();
+            let says = child.attr_value("says").unwrap_or("").trim().to_string();
+            if that.is_empty() {
+                self.error(
+                    "TDC265",
+                    "<assert> has no condition — that= is required".to_string(),
+                    "Write the property the run must have, in the if= language, over whole-run \
+                     columns: <assert that=\"Rows == 700\" says=\"…\"/>. The numbers come from \
+                     <gen type=\"stat\">.",
+                    child.at("that"),
+                );
+                continue;
+            }
+            if says.is_empty() {
+                self.error(
+                    "TDC266",
+                    format!("<assert that=\"{that}\"> has no message — says= is required"),
+                    "When this fails, says= is what the reader is told. An expression alone \
+                     leaves them to work out what it was for, months later, in a CI log.",
+                    child.at("says"),
+                );
+            }
+            let at = child.at("that");
+            self.check_if_expression(&that, at);
+            self.pending_expressions
+                .push((self.diagnostics.len(), that, at, false));
+        }
     }
 
     fn check_if_expression(&mut self, expression: &str, at: Pos) {

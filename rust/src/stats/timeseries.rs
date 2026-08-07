@@ -119,8 +119,7 @@ pub fn value_at(spec: &Spec, i: i64, z: f64) -> f64 {
         // without `peak_at` produces the same bytes it always did, without a
         // second branch saying so.
         let peak = spec.peak_at.unwrap_or(spec.period / 4.0);
-        v += spec.amplitude
-            * (2.0 * std::f64::consts::PI * (i as f64 - peak) / spec.period).cos();
+        v += spec.amplitude * (2.0 * std::f64::consts::PI * (i as f64 - peak) / spec.period).cos();
     }
     if spec.noise_sd != 0.0 {
         v += spec.noise_sd * z;

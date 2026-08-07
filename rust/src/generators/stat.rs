@@ -134,8 +134,11 @@ fn median(values: &[f64]) -> f64 {
 /// The POPULATION standard deviation — divided by n, matching `stddev()` in an expression.
 fn stddev(values: &[f64]) -> f64 {
     let average = mean(values);
-    let variance =
-        values.iter().map(|v| (v - average) * (v - average)).sum::<f64>() / values.len() as f64;
+    let variance = values
+        .iter()
+        .map(|v| (v - average) * (v - average))
+        .sum::<f64>()
+        / values.len() as f64;
     crate::math::sqrt(variance)
 }
 

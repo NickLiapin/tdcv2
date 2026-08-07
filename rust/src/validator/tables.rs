@@ -15,13 +15,14 @@
 pub const TDC_CHILDREN: [&str; 2] = ["env", "block"];
 
 /// What may sit directly inside `<env>`.
-pub const ENV_CHILDREN: [&str; 14] = [
+pub const ENV_CHILDREN: [&str; 15] = [
     "sequence",
     "mix",
     "switch",
     "pool",
     "uniq",
     "distinct",
+    "assert",
     "before",
     "after",
     "before_block",

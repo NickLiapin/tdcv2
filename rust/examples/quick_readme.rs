@@ -14,7 +14,9 @@ fn main() -> Result<(), tdcv2::quick::QuickError> {
     );
     println!(
         "{:?}",
-        Quick::seeded("demo").locale("en").many("person.lastName", 5)?
+        Quick::seeded("demo")
+            .locale("en")
+            .many("person.lastName", 5)?
     );
     println!(
         "{}",

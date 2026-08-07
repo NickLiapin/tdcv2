@@ -263,9 +263,7 @@ fn eval(el: &Element, scope: &Scope) -> ComputeResult<Value> {
             let Value::Str(text) = eval_slot(&el.children, scope)? else {
                 return err("<split>: expected a string, got a list");
             };
-            Ok(Value::Lst(
-                text.split(sep).map(Value::str).collect(),
-            ))
+            Ok(Value::Lst(text.split(sep).map(Value::str).collect()))
         }
         "at" => {
             let Value::Lst(list) = eval_wrapper(el, "in", scope)? else {

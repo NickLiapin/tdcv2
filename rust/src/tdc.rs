@@ -797,7 +797,6 @@ fn now() -> i64 {
         .unwrap_or(0)
 }
 
-
 /// A file seen as somewhere text can be written.
 ///
 /// `std::fmt::Write` is what the renderer speaks, and it cannot carry an error:
@@ -815,9 +814,10 @@ impl FileSink {
         if let Err(e) = self.out.flush() {
             self.error.get_or_insert(e);
         }
-        Ok(self.error.take().map(|e| {
-            TdcError::Io(format!("cannot write \"{}\": {e}", target.display()))
-        }))
+        Ok(self
+            .error
+            .take()
+            .map(|e| TdcError::Io(format!("cannot write \"{}\": {e}", target.display()))))
     }
 }
 

@@ -138,7 +138,13 @@ fn generate(
         }
     };
 
-    report(stderr, plan.diagnostics(), input, Some(plan.source()), false)?;
+    report(
+        stderr,
+        plan.diagnostics(),
+        input,
+        Some(plan.source()),
+        false,
+    )?;
 
     // A run with no seed anywhere gets a random one. Print it, or the output
     // cannot be reproduced — which is the one promise the whole library is built

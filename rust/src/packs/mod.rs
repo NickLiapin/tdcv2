@@ -6,11 +6,11 @@
 //! `percent=` uses. That is why a run of 30,000 rows from the SSA name file
 //! contains precisely as many Jameses as the census says, not approximately.
 
+pub mod bundled_files;
 pub mod project;
 pub mod registry;
-pub mod store;
-pub mod bundled_files;
 pub mod source;
+pub mod store;
 
 use std::cell::RefCell;
 use std::collections::BTreeMap;
@@ -136,9 +136,7 @@ impl DataPacks {
         if !EmbeddedSource::is_empty() {
             return Ok(Self::new(Box::new(EmbeddedSource::new()), Vec::new()));
         }
-        invalid(
-            "no data packs found; set TDCV2_PACKS to a pack folder",
-        )
+        invalid("no data packs found; set TDCV2_PACKS to a pack folder")
     }
 
     /// The packs a project has, rather than the packs this build ships with.
@@ -273,14 +271,11 @@ impl DataPacks {
             ));
         }
 
-        let found = candidates
-            .into_iter()
-            .next()
-            .and_then(|candidate| {
-                self.source
-                    .read_lines(&candidate)
-                    .map(|lines| (candidate, lines))
-            });
+        let found = candidates.into_iter().next().and_then(|candidate| {
+            self.source
+                .read_lines(&candidate)
+                .map(|lines| (candidate, lines))
+        });
 
         let (file, lines) = match found {
             Some(hit) => hit,

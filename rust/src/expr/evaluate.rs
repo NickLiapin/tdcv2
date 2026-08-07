@@ -137,8 +137,10 @@ fn call_function(name: &str, args: &[V]) -> EngineResult<V> {
     // numbered: `len("10")` is 2, and a caller that pre-numbered every argument
     // could not tell the two families apart.
     let num = |i: usize| -> EngineResult<f64> {
-        args.get(i)
-            .map_or_else(|| invalid("if expression: a function was given too few arguments"), |v| Ok(as_number(v)))
+        args.get(i).map_or_else(
+            || invalid("if expression: a function was given too few arguments"),
+            |v| Ok(as_number(v)),
+        )
     };
     let text = |i: usize| -> EngineResult<String> {
         match args.get(i) {
@@ -154,7 +156,11 @@ fn call_function(name: &str, args: &[V]) -> EngineResult<V> {
         "trunc" => V::Num(num(0)?.trunc()),
         "round" => {
             let x = num(0)?;
-            V::Num(if x < 0.0 { -(-x + 0.5).floor() } else { (x + 0.5).floor() })
+            V::Num(if x < 0.0 {
+                -(-x + 0.5).floor()
+            } else {
+                (x + 0.5).floor()
+            })
         }
         "max" | "min" => {
             // One list argument spread out, or the arguments themselves — so
@@ -201,7 +207,10 @@ fn call_function(name: &str, args: &[V]) -> EngineResult<V> {
         "at" => {
             let items = list_value(args, 0)?;
             let index = index_value(args, 1)?;
-            items.get(index).cloned().unwrap_or_else(|| V::Str(String::new()))
+            items
+                .get(index)
+                .cloned()
+                .unwrap_or_else(|| V::Str(String::new()))
         }
         "sum" => sum_of(&list_of(args, 0))?,
         "mean" => V::Num(mean_of(&list_of(args, 0))),
@@ -257,7 +266,10 @@ fn split_text(subject: &str, separator: &str) -> Vec<V> {
         // never disagree about how many characters a string has.
         return subject.chars().map(|c| V::Str(c.to_string())).collect();
     }
-    subject.split(separator).map(|p| V::Str(p.to_string())).collect()
+    subject
+        .split(separator)
+        .map(|p| V::Str(p.to_string()))
+        .collect()
 }
 
 /// An argument as a list.
@@ -364,8 +376,11 @@ fn stddev_of(items: &[V]) -> f64 {
     }
     let values: Vec<f64> = items.iter().map(as_number).collect();
     let average = values.iter().sum::<f64>() / values.len() as f64;
-    let variance =
-        values.iter().map(|v| (v - average) * (v - average)).sum::<f64>() / values.len() as f64;
+    let variance = values
+        .iter()
+        .map(|v| (v - average) * (v - average))
+        .sum::<f64>()
+        / values.len() as f64;
     crate::math::sqrt(variance)
 }
 
@@ -429,7 +444,10 @@ fn binary_op(op: &str, left: &V, right: &V) -> EngineResult<V> {
         // `+` adds when either side is already a number and joins otherwise, as
         // in JavaScript.
         "+" => match both_whole(left, right) {
-            Some((a, b)) => V::Int(checked_int(a.checked_add(b), i128::from(a) + i128::from(b))?),
+            Some((a, b)) => V::Int(checked_int(
+                a.checked_add(b),
+                i128::from(a) + i128::from(b),
+            )?),
             None => {
                 if matches!(left, V::Num(_)) || matches!(right, V::Num(_)) {
                     V::Num(as_number(left) + as_number(right))
@@ -439,11 +457,17 @@ fn binary_op(op: &str, left: &V, right: &V) -> EngineResult<V> {
             }
         },
         "-" => match both_whole(left, right) {
-            Some((a, b)) => V::Int(checked_int(a.checked_sub(b), i128::from(a) - i128::from(b))?),
+            Some((a, b)) => V::Int(checked_int(
+                a.checked_sub(b),
+                i128::from(a) - i128::from(b),
+            )?),
             None => V::Num(as_number(left) - as_number(right)),
         },
         "*" => match both_whole(left, right) {
-            Some((a, b)) => V::Int(checked_int(a.checked_mul(b), i128::from(a) * i128::from(b))?),
+            Some((a, b)) => V::Int(checked_int(
+                a.checked_mul(b),
+                i128::from(a) * i128::from(b),
+            )?),
             None => V::Num(as_number(left) * as_number(right)),
         },
         // Division alone stays in floating point, always. It is not closed over

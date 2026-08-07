@@ -208,7 +208,8 @@ fn unstreamable_switch_percent(config: &Config) -> bool {
 
     if config.sequences.iter().any(|spec| match &spec.source {
         Source::Switch(sw) => {
-            let mut bodies: Vec<&crate::model::Case> = sw.entries.iter().map(|e| &e.value).collect();
+            let mut bodies: Vec<&crate::model::Case> =
+                sw.entries.iter().map(|e| &e.value).collect();
             if let Some(fallback) = &sw.fallback {
                 bodies.push(fallback);
             }

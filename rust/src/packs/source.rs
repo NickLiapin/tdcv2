@@ -200,7 +200,12 @@ impl PackSource for EmbeddedSource {
         // Split the same way DirectorySource does, so an embedded pack and a
         // pack on disk give the identical list of values — including the
         // trailing-newline and \r\n rules the other four implementations follow.
-        Some(Self::find(relative_path)?.lines().map(str::to_string).collect())
+        Some(
+            Self::find(relative_path)?
+                .lines()
+                .map(str::to_string)
+                .collect(),
+        )
     }
 
     fn list_files(&self) -> Vec<String> {
@@ -227,7 +232,10 @@ impl PackSource for EmbeddedSource {
     }
 
     fn describe(&self) -> String {
-        format!("the {} packs built into this binary", super::bundled_files::FILES.len())
+        format!(
+            "the {} packs built into this binary",
+            super::bundled_files::FILES.len()
+        )
     }
 }
 

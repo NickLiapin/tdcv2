@@ -8,8 +8,8 @@
 use std::collections::BTreeMap;
 
 use crate::model::{
-    Branch, Case, CasePart, Config, DataPart, Field, Fixtures, Gen, Item, Line, Mix, PoolSpec,
-    SequenceSpec, Source, Switch, SwitchEntry,
+    AssertSpec, Branch, Case, CasePart, Config, DataPart, Field, Fixtures, Gen, Item, Line, Mix,
+    PoolSpec, SequenceSpec, Source, Switch, SwitchEntry,
 };
 use crate::parser::ast::{is_gen, Document, Element, Kind};
 
@@ -95,8 +95,20 @@ pub fn build(document: &Document, default_locale: Option<&str>) -> Result<Config
     let mut env_uniq: Vec<Vec<String>> = Vec::new();
     let mut env_distinct: Vec<Vec<String>> = Vec::new();
     let mut pools: Vec<PoolSpec> = Vec::new();
+    let mut asserts: Vec<AssertSpec> = Vec::new();
 
     if let Some(env) = env {
+        // `<assert/>` is the one env child written self-closing, so it is read
+        // before the open/close walk rather than lost by it.
+        for child in env.children.iter().filter(|c| c.kind == Kind::SelfClosing) {
+            if child.name == "assert" {
+                let attrs = child.attr_map();
+                asserts.push(AssertSpec {
+                    that: attrs.get("that").cloned().unwrap_or_default(),
+                    says: attrs.get("says").cloned().unwrap_or_default(),
+                });
+            }
+        }
         for child in env.children.iter().filter(|c| c.kind == Kind::OpenClose) {
             match child.name.as_str() {
                 "sequence" => sequences.push(sequence(child)?),
@@ -167,6 +179,7 @@ pub fn build(document: &Document, default_locale: Option<&str>) -> Result<Config
         env_uniq_groups: env_uniq,
         env_distinct_groups: env_distinct,
         pools,
+        asserts,
     })
 }
 

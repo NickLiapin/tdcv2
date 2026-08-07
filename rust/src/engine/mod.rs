@@ -92,7 +92,10 @@ pub fn invalid<T>(what: &str) -> EngineResult<T> {
 /// exactly what the author asked to be told. `mode="disk"` says what the run may
 /// COST instead, so falling back to a slower engine still honours it.
 pub fn engine_was_named(config: &Config) -> bool {
-    config.engine.as_deref().is_some_and(|e| !e.trim().is_empty())
+    config
+        .engine
+        .as_deref()
+        .is_some_and(|e| !e.trim().is_empty())
         || config.mode.as_deref().map(str::trim) == Some("stream")
 }
 

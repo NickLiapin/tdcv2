@@ -317,7 +317,11 @@ const EXACT_POWER_OF_TEN: f64 = 22.0;
 /// returns the argument unchanged, it was exact.
 pub fn log10(x: f64) -> f64 {
     let r = log(x) / 2.302_585_092_994_046;
-    let whole = if r >= 0.0 { (r + 0.5).floor() } else { (r - 0.5).ceil() };
+    let whole = if r >= 0.0 {
+        (r + 0.5).floor()
+    } else {
+        (r - 0.5).ceil()
+    };
     if whole.abs() <= EXACT_POWER_OF_TEN {
         // A NEGATIVE power has to be built from the positive one and inverted.
         // `pow(10, -2)` squares 1/10, and a tenth is not exact in binary, so the
