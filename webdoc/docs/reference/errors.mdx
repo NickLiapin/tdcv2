@@ -305,6 +305,7 @@ have them: they compile a config into a model that has no place to put such a `<
 | `TDC266` | `<assert>` has no message | `says=` is what a reader is told when it fires, months later, in a CI log. An expression on its own leaves them to work out what it was defending |
 | `TDC267` | `uniq="true"` together with `mask=`, `case=`, `missing=`, `repeat=`, `separator=` or `anomaly=` | A draw without replacement produces the column directly and never reaches the layer that rewrites values, so the attribute could only ever be dropped. Applying it would break the other promise: a mask maps two distinct draws onto the same characters |
 | `TDC268` | `if=` on a `<gen type="pool">` | A reference publishes a whole MEMBER, and a `<gen>` carrying `if=` becomes a conditional branch the pool resolver does not recognise — so no `Ref.field` column was registered and `${{Ref.name}}` reached the output as its own literal text. Use `parent=` to leave rows without a member |
+| `TDC269` | `if=` on a `<gen>` inside a `<case>` | A case body is several parts joined into one value, so a condition on one part has no value to fall back to. It was accepted and ignored, and the part appeared on every row — including the ones the condition excluded. Put the condition on the branch: `<case if="…">` |
 
 ## See also
 

@@ -3572,6 +3572,24 @@ impl Validator {
     }
 
     fn check_case_gen(&mut self, gen: &Element) {
+        // `if=` on a `<gen>` inside a `<case>` — accepted by the grammar, read by
+        // nothing. A case body is several parts JOINED into one value, so a
+        // condition on one part has no answer to give: if it were false, the part
+        // would have to become something, and there is no honest candidate. The
+        // branch already carries its own condition. It used to be accepted and
+        // ignored, so the value appeared on EVERY row.
+        if gen.attr_value("if").is_some() {
+            self.error(
+                "TDC269",
+                "if= is not read on a <gen> inside a <case>: a case body is several parts \
+                 joined, so a condition on one part has no value to fall back to"
+                    .to_string(),
+                "Put the condition on the branch \u{2014} <case if=\"\u{2026}\"> \u{2014} or \
+                 move the <gen> into a <sequence> of its own, where a false condition falls \
+                 through to the next <gen>.",
+                gen.at("if"),
+            );
+        }
         let Some(flag) = gen.attr_value("anomaly_flag").map(str::trim) else {
             return;
         };

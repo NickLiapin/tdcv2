@@ -144,3 +144,35 @@ export function checkAnomalyFlag(
     });
   }
 }
+
+/**
+ * `if=` on a `<gen>` inside a `<case>` — accepted by the grammar, read by nothing.
+ *
+ * A `<case>` body is several parts JOINED into one value, so a condition on one
+ * part has no answer to give: if it were false, the part would have to become
+ * something, and there is no honest candidate. The branch already has its own
+ * condition — `<case if="…">` — which is the question the shape does raise.
+ *
+ * It used to be accepted and ignored, so `<gen if="K == p">` inside a case put
+ * its value on EVERY row, including the ones the condition excluded, from a
+ * config `check` had called valid. The same reasoning as TDC246 beside it: a
+ * flag on one part does not describe the row, and neither does a condition.
+ */
+export function checkGenIfInCase(
+  gen: OpenCloseElementContext | SelfClosingElementContext,
+  diagnostics: Diagnostic[],
+  inCase: boolean,
+): void {
+  if (!inCase) return;
+  const attr = findAttr(gen.attr(), 'if');
+  if (!attr) return;
+  diagnostics.push({
+    severity: 'error',
+    source: 'validator',
+    ...attrValueRange(attr),
+    message:
+      'if= is not read on a <gen> inside a <case>: a case body is several parts joined, so a condition on one part has no value to fall back to',
+    hint: 'Put the condition on the branch — <case if="…"> — or move the <gen> into a <sequence> of its own, where a false condition falls through to the next <gen>.',
+    code: 'TDC269',
+  });
+}

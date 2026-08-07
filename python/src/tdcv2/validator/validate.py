@@ -3594,6 +3594,29 @@ class _Validator:
                     where[1],
                 )
 
+    def _check_case_gen_if(self, gen_el) -> None:
+        """``if=`` on a ``<gen>`` inside a ``<case>`` — accepted by the grammar, read by nothing.
+
+        A case body is several parts JOINED into one value, so a condition on one part has no
+        answer to give: if it were false, the part would have to become something, and there is
+        no honest candidate. The branch already carries its own condition. It used to be
+        accepted and ignored, so the value appeared on EVERY row — including the ones the
+        condition excluded — from a config ``check`` had called valid.
+        """
+        if _attrs(gen_el.attr()).get("if") is None:
+            return
+        line, column = _at(gen_el, "if")
+        self._error(
+            "TDC269",
+            "if= is not read on a <gen> inside a <case>: a case body is several parts joined, "
+            "so a condition on one part has no value to fall back to",
+            'Put the condition on the branch \u2014 <case if="\u2026"> \u2014 or move the <gen> '
+            "into a <sequence> of its own, where a false condition falls through to the next "
+            "<gen>.",
+            line,
+            column,
+        )
+
     def _check_case_gen_flag(self, gen_el) -> None:
         """A ``<gen>`` written inside a ``<case>``.
 
@@ -3630,6 +3653,7 @@ class _Validator:
             self_closing = child.selfClosingElement()
             if self_closing is not None and self_closing.name.text == "gen":
                 self._check_case_gen_flag(self_closing)
+                self._check_case_gen_if(self_closing)
                 continue
             open_el = child.openCloseElement()
             if open_el is None:
@@ -3644,6 +3668,7 @@ class _Validator:
                 continue
             if open_el.name.text == "gen":
                 self._check_case_gen_flag(open_el)
+                self._check_case_gen_if(open_el)
                 continue
             self._error(
                 "TDC125",

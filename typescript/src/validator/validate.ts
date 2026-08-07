@@ -111,7 +111,7 @@ import { checkLineEach } from './each.js';
 import { EACH_BUILTINS } from '../processor/each.js';
 import { checkGenWeight } from './weight.js';
 import { checkGenMask } from './mask.js';
-import { checkAnomalyFlag, checkGenImperfections } from './imperfections.js';
+import { checkAnomalyFlag, checkGenIfInCase, checkGenImperfections } from './imperfections.js';
 import { checkParentRef } from './parent-ref.js';
 import { checkAllUnknownAttrs, checkUnknownAttrs } from './unknown-attrs.js';
 import { checkGenHttp } from './http.js';
@@ -871,6 +871,7 @@ function checkGen(
     });
   }
   checkAnomalyFlag(gen, ctx.diagnostics, ctx.declaredSequences, inCase);
+  checkGenIfInCase(gen, ctx.diagnostics, inCase);
   // Type-independent: text, file and date all take order="sequential".
   checkSequentialRepeat(gen, ctx.diagnostics);
   // Before the per-type checks, and INSTEAD of them when it fires: a value

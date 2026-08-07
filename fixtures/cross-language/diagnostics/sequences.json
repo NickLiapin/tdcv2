@@ -126,6 +126,13 @@
       "description": "`uniq=\"True\"` must mean what `uniq=\"true\"` means. The reference compared the raw attribute against the lowercase literal while the validator lowercased it first, so a capitalised value passed validation as a uniqueness promise and then did nothing — a column with duplicates that `check` had already called valid. This case pins the two sides together: the capitalised form reaches the same refusal.",
       "config": "<tdc><env count=\"4\" seed=\"s\"><sequence name=\"X\" uniq=\"True\"><gen type=\"number\" value=\"10..99\" mask=\"x\"/></sequence></env><block><line><data>${{X}}</data></line></block></tdc>",
       "expected": ["error TDC267 1:54"]
+    },
+    {
+      "name": "if-on-a-gen-inside-a-case-is-refused",
+      "demonstrates": "TDC269",
+      "description": "A <case> body is several parts JOINED into one value, so a condition on one part has no answer to give: if it were false, the part would have to become something, and there is no honest candidate. The branch already carries its own condition. It used to be accepted and ignored, so a <gen if=\"K == p\"> inside a case put its value on EVERY row — including the ones the condition excluded — from a config `check` had called valid. Same reasoning as TDC246 beside it: a flag on one part does not describe the row, and neither does a condition.",
+      "config": "<tdc><env count=\"4\" seed=\"s\"><sequence name=\"K\"><gen type=\"text\" value=\"p,q\"/></sequence><mix name=\"M\" percent=\"100\"><case><gen if=\"K == p\" type=\"text\" value=\"ONLY-P\"/></case></mix></env><block><line><data>${{M}}</data></line></block></tdc>",
+      "expected": ["error TDC269 1:132"]
     }
   ]
 }

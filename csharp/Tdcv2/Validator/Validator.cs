@@ -4307,6 +4307,33 @@ public sealed class Validator
     /// has nowhere of its own to put a flag.
     /// </remarks>
     /// <summary>
+    /// <c>if=</c> on a <c>&lt;gen&gt;</c> inside a <c>&lt;case&gt;</c> — accepted by the grammar,
+    /// read by nothing.
+    /// </summary>
+    /// <remarks>
+    /// A case body is several parts JOINED into one value, so a condition on one part has no
+    /// answer to give: if it were false, the part would have to become something, and there is
+    /// no honest candidate. The branch already carries its own condition. It used to be accepted
+    /// and ignored, so the value appeared on EVERY row.
+    /// </remarks>
+    private void CheckCaseGenIf(string? condition, (int Line, int Column) at)
+    {
+        if (condition is null)
+        {
+            return;
+        }
+
+        Error(
+            "TDC269",
+            "if= is not read on a <gen> inside a <case>: a case body is several parts joined, "
+            + "so a condition on one part has no value to fall back to",
+            "Put the condition on the branch \u2014 <case if=\"\u2026\"> \u2014 or move the "
+            + "<gen> into a <sequence> of its own, where a false condition falls through to the "
+            + "next <gen>.",
+            at.Line, at.Column);
+    }
+
+    /// <summary>
     /// A <c>&lt;gen&gt;</c> written inside a <c>&lt;case&gt;</c>.
     /// </summary>
     /// <remarks>
@@ -4347,6 +4374,8 @@ public sealed class Validator
                 CheckCaseGenFlag(
                     Attributes(self.attr()).GetValueOrDefault("anomaly_flag"),
                     At(self, "anomaly_flag"));
+                CheckCaseGenIf(
+                    Attributes(self.attr()).GetValueOrDefault("if"), At(self, "if"));
                 continue;
             }
 
@@ -4375,6 +4404,8 @@ public sealed class Validator
                 CheckCaseGenFlag(
                     Attributes(open.attr()).GetValueOrDefault("anomaly_flag"),
                     At(open, "anomaly_flag"));
+                CheckCaseGenIf(
+                    Attributes(open.attr()).GetValueOrDefault("if"), At(open, "if"));
                 continue;
             }
 

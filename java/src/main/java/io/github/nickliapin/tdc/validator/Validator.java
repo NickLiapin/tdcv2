@@ -3547,6 +3547,28 @@ public final class Validator {
   }
 
   /**
+   * {@code if=} on a {@code <gen>} inside a {@code <case>} — accepted by the grammar, read by
+   * nothing.
+   *
+   * <p>A case body is several parts JOINED into one value, so a condition on one part has no
+   * answer to give: if it were false, the part would have to become something, and there is no
+   * honest candidate. The branch already carries its own condition. It used to be accepted and
+   * ignored, so the value appeared on EVERY row.
+   */
+  private void checkCaseGenIf(String condition, int[] pos) {
+    if (condition == null) {
+      return;
+    }
+    error("TDC269",
+        "if= is not read on a <gen> inside a <case>: a case body is several parts joined, so a "
+            + "condition on one part has no value to fall back to",
+        "Put the condition on the branch \u2014 <case if=\"\u2026\"> \u2014 or move the <gen> "
+            + "into a <sequence> of its own, where a false condition falls through to the next "
+            + "<gen>.",
+        pos[0], pos[1]);
+  }
+
+  /**
    * A `<gen>` written inside a `<case>`.
    *
    * <p>`anomaly_flag="NAME"` mints a ground-truth column beside a sequence's value. A case body
@@ -3574,6 +3596,7 @@ public final class Validator {
       TDCParser.SelfClosingElementContext self = child.selfClosingElement();
       if (self != null && "gen".equals(self.name.getText())) {
         checkCaseGenFlag(attributes(self.attr()).get("anomaly_flag"), at(self, "anomaly_flag"));
+        checkCaseGenIf(attributes(self.attr()).get("if"), at(self, "if"));
         continue;
       }
       TDCParser.OpenCloseElementContext open = child.openCloseElement();
@@ -3592,6 +3615,7 @@ public final class Validator {
       }
       if ("gen".equals(open.name.getText())) {
         checkCaseGenFlag(attributes(open.attr()).get("anomaly_flag"), at(open, "anomaly_flag"));
+        checkCaseGenIf(attributes(open.attr()).get("if"), at(open, "if"));
         continue;
       }
       error("TDC125", "unknown child of <case>: \"<" + open.name.getText() + ">\"",

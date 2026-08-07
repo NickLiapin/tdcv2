@@ -80,6 +80,16 @@ page — is tracked in that implementation's own changelog:
   written for the entry above. The value and the anomaly draw are both functions of the row
   on that path, so the flag is now computed there like everything else.
 
+<!-- covers: TDC269 -->
+
+- `if=` on a `<gen>` inside a `<case>` is refused by TDC269. A case body is several parts
+  JOINED into one value, so a condition on one part has no answer to give: if it were false,
+  the part would have to become something, and there is no honest candidate. It used to be
+  accepted and ignored, so `<gen if="K == p">` inside a case put its value on EVERY row —
+  including the ones the condition excluded — from a config `check` had called valid. The
+  branch already carries its own condition, `<case if="…">`, which is the question the shape
+  does raise; the same reasoning as TDC246 beside it.
+
 <!-- covers: abs, round, floor, ceil, trunc, min, max -->
 
 - `abs`, `round`, `floor`, `ceil`, `trunc`, `min` and `max` in `if=` and `filter=` kept
