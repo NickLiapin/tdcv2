@@ -17,6 +17,25 @@ page — is tracked in that implementation's own changelog:
 
 ### Added
 
+- **`<gen type="stat">` — one number for the whole run, on every row.** `op=` is `sum`,
+  `mean`, `median`, `min`, `max`, `count` or `stddev`, over a column declared above it.
+  "Is this row above average" cannot be asked any other way: the average is not knowable
+  until the last row exists, so the statistic has to be a column of its own. It draws
+  nothing, so adding one leaves every other column exactly where it was.
+
+- **A date measured from another date — `of=` and `plus=`.** The interval in almost every
+  real record: admitted and discharged, ordered and shipped, issued and expires.
+  `plus="3..10d"` draws a fresh gap per row, `plus="7d"` is the same distance every row,
+  and both bounds may be negative to measure backwards. The offset reads the source
+  column's VALUE, not the text in the cell, so a source rendered as `MMMM D` — which
+  throws the year away — still offsets correctly, and a month lands on the last day of
+  February rather than 30 days later.
+
+- **`<split>` in the compute layer — a string to a list.** The inverse of `<join>`, and
+  the fourth way to get a list. A `repeat=` column arrives at an expression as its joined
+  text; until now there was no way to read it back apart, so "sum quantity × price over
+  the items of this order" was unwritable.
+
 - **`<assert that="…" says="…"/>` — a config that checks its own output.** A statement
   about the whole run, in `<env>` beside `<uniq>` and `<distinct>`. What is worth
   asserting is the property the config does NOT state: you write `percent="70"`, a
@@ -31,6 +50,31 @@ page — is tracked in that implementation's own changelog:
   Every name the expression reads must be the same on every row, or a per-row column would
   be read at row 0 and the run called verified. A column left empty by a filter is refused
   for the same reason. TDC265 and TDC266 refuse the half-written forms.
+
+### Fixed
+
+- **A `uniq` group asked for more rows than its values can make now says so before
+  allocating.** The check existed and its message was right, but it ran over the finished
+  columns — so two lists of ten values and `count="1000000000"` died in the allocator with
+  a heap dump, and `count="5000000000"` with `Invalid array length`. Exactly where the
+  warning is worth most, since the alternative is an eight-hour run that was never going
+  to succeed. The ceiling is now computed from the specs, before a single column is built,
+  and it only ever answers "definitely impossible": a member whose capacity is not knowable
+  from its spec leaves the group unbounded and the old check does its work as before.
+
+- **An offset from a WALKED source (`order="sequential"`) came out empty, in silence.** A
+  walked date returns from a different branch of the builder than a drawn one, and that
+  branch was not filling the instant the column keeps beside its text — so the offset read
+  every row as "this row has no date". The safety net closes the whole class: the instants
+  are attached only when every applicable row filled one, because a sink asked for and left
+  unfilled means "this build never wrote one", which is the opposite answer to "no date
+  anywhere".
+
+- **The npm package told CommonJS callers a lie the runtime then refused.** `exports` and
+  `types` promised type definitions for `require()`, while the module is ESM-only, so the
+  editor type-checked a call that could not run. `attw --pack` is green on all four
+  resolutions now, and the CJS type IS the message: it resolves to a string telling the
+  reader to `import` instead. Kept runnable as `npm run types:pack`.
 
 ## [0.1.7] — 2026-08-04
 
