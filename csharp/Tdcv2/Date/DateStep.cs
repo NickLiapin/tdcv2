@@ -323,4 +323,107 @@ public static class DateStep
     }
 
     private static long FloorMod(long a, long b) => a - (FloorDiv(a, b) * b);
+
+    /// <summary>A drawn offset: <c>lo..hi</c> steps of one unit. <c>Lo == Hi</c> is a fixed offset.</summary>
+    /// <param name="Unit">One step, as <see cref="AddStep"/> takes it — so the calendar clamping is shared.</param>
+    public readonly record struct OffsetSpec(long Lo, long Hi, Spec Unit);
+
+    /// <summary>Why a <c>plus=</c> was refused.</summary>
+    public enum OffsetReason
+    {
+        /// <summary>A spelling this notation does not have.</summary>
+        Syntax,
+
+        /// <summary>The low bound is above the high one.</summary>
+        Order,
+    }
+
+    /// <summary>Either the offset, or why it was refused. <c>Why</c> is null on success.</summary>
+    public readonly record struct OffsetResult(OffsetSpec? Offset, OffsetReason? Why)
+    {
+        public bool Ok => Offset is not null;
+    }
+
+    /// <summary>What a <c>plus=</c> may say, for a diagnostic to quote.</summary>
+    public const string OffsetSyntax = "7d, 3..10d, 1..3mo, -5..-1d — units s, m, h, d, w, mo, y";
+
+    /// <summary><c>plus="3..10d"</c>, <c>plus="7d"</c>, <c>plus="-5..-1d"</c>, <c>plus="1..3mo"</c>.</summary>
+    /// <remarks>
+    /// A bare number means DAYS, matching <c>step=</c>. The low bound may not exceed the high one:
+    /// <c>10..3d</c> is a typo, and silently swapping it would hide the typo rather than report it.
+    /// The unit sits at the end rather than on both sides because <c>3d..10d</c> invites two
+    /// DIFFERENT units, and "three days to two months" has no whole number of steps to draw.
+    /// </remarks>
+    public static OffsetResult ParseOffset(string? raw)
+    {
+        string value = (raw ?? string.Empty).Trim().ToLowerInvariant();
+        if (value.Length == 0)
+        {
+            return new OffsetResult(null, OffsetReason.Syntax);
+        }
+
+        // The unit, if any, is the trailing run of letters; the rest is `lo` or `lo..hi`.
+        int split = value.Length;
+        for (int i = 0; i < value.Length; i++)
+        {
+            if (value[i] is >= 'a' and <= 'z')
+            {
+                split = i;
+                break;
+            }
+        }
+
+        string numbers = value[..split];
+        string unitName = split == value.Length ? "d" : value[split..];
+
+        int dots = numbers.IndexOf("..", StringComparison.Ordinal);
+        string loText = dots < 0 ? numbers : numbers[..dots];
+        string hiText = dots < 0 ? numbers : numbers[(dots + 2)..];
+        if (!TryBound(loText, out long lo) || !TryBound(hiText, out long hi))
+        {
+            return new OffsetResult(null, OffsetReason.Syntax);
+        }
+
+        if (lo > hi)
+        {
+            return new OffsetResult(null, OffsetReason.Order);
+        }
+
+        // Both lookups answer -1 for a unit this notation does not have, which is why the guard
+        // reads that way rather than testing for zero: a zero-length step is not the failure.
+        long fixedMs = FixedUnitMs(unitName);
+        long calendarMonths = CalendarUnitMonths(unitName);
+        if (fixedMs < 0 && calendarMonths < 0)
+        {
+            return new OffsetResult(null, OffsetReason.Syntax);
+        }
+
+        Spec unit = fixedMs >= 0 ? new Spec(fixedMs, 0) : new Spec(0, calendarMonths);
+        return new OffsetResult(new OffsetSpec(lo, hi, unit), null);
+    }
+
+    /// <summary>One bound of an offset: an optional minus and at least one digit, nothing else.</summary>
+    private static bool TryBound(string text, out long value)
+    {
+        value = 0;
+        string digits = text.StartsWith('-') ? text[1..] : text;
+        if (digits.Length == 0)
+        {
+            return false;
+        }
+
+        foreach (char c in digits)
+        {
+            if (c is < '0' or > '9')
+            {
+                return false;
+            }
+        }
+
+        return long.TryParse(text, NumberStyles.AllowLeadingSign, CultureInfo.InvariantCulture, out value);
+    }
+
+    /// <summary>The source date moved by <c>n</c> steps of the offset's unit.</summary>
+    public static PlainDateTime ApplyOffset(PlainDateTime start, OffsetSpec offset, long n) =>
+        AddStep(start, offset.Unit, n);
 }

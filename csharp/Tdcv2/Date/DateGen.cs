@@ -47,13 +47,25 @@ public static class DateGen
 
     public static IReadOnlyList<string> Generate(
         IReadOnlyDictionary<string, string> attrs, string? locale, long nowMillis, int count,
-        Sfc32 prng)
+        Sfc32 prng) =>
+        Generate(attrs, locale, nowMillis, count, prng, null);
+
+    /// <summary><c>count</c> formatted dates, optionally keeping the value behind each one.</summary>
+    /// <param name="instants">
+    /// When given, receives the epoch millis the generator actually produced, before
+    /// <c>format=</c> turned it into one locale's spelling of it. A column another one measures
+    /// from asks for this; everything else passes null and nothing is collected.
+    /// </param>
+    public static IReadOnlyList<string> Generate(
+        IReadOnlyDictionary<string, string> attrs, string? locale, long nowMillis, int count,
+        Sfc32 prng, List<long?>? instants)
     {
         Plan plan = BuildPlan(attrs, locale, nowMillis);
         var result = new List<string>(count);
         for (int i = 0; i < count; i++)
         {
             PlainDateTime value = plan.Fixed ?? Pick(plan, prng);
+            instants?.Add(Calendar.ToEpochMillis(value));
             result.Add(DateFormatter.Format(value, plan.Format, plan.Locale));
         }
 

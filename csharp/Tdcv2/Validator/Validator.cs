@@ -126,7 +126,10 @@ public sealed class Validator
             ["ink_threshold"] = Set("pattern"),
 
             // The synthetic series.
-            ["of"] = Set("running", "stat"),
+            // On a date, `of=` measures from a sibling instead of drawing, and `plus=` is the
+            // distance.
+            ["of"] = Set("running", "stat", "date"),
+            ["plus"] = Set("date"),
             ["reset"] = Set("running"),
             ["op"] = Set("stat"),
             ["base"] = Set("timeseries", "running"),
@@ -287,7 +290,7 @@ public sealed class Validator
 
     private static readonly IReadOnlySet<string> GenAttrs = Set(
         "type", "value", "name", "if", "comment", "case", "mask", "order", "cycle", "repeat",
-        "separator", "accumulate", "of", "reset", "op", "missing", "missing_as", "anomaly",
+        "separator", "accumulate", "of", "plus", "reset", "op", "missing", "missing_as", "anomaly",
         "anomaly_factor",
         "anomaly_flag",
         "local", "weight", "percent", "first_zero", "include", "exclude",
@@ -3655,6 +3658,16 @@ public sealed class Validator
             return;
         }
 
+        // `of=` makes this an OFFSET rather than a draw: a different set of attributes configures
+        // it, and a different set of mistakes is possible. Its own checks REPLACE the ones below
+        // rather than joining them — everything here is about how a draw is bounded, so it would
+        // be a second complaint about the same attribute, naming a rule that no longer applies.
+        if ((attrs.GetValueOrDefault("of") ?? "").Trim().Length != 0)
+        {
+            CheckDateOffset(gen, attrs);
+            return;
+        }
+
         // `from=` alone is an OPEN axis when the range is WALKED: the end of such an axis is
         // start + count × step, a consequence rather than an input. On a DRAWN date one end
         // genuinely means nothing, and that is what this refuses.
@@ -4074,6 +4087,85 @@ public sealed class Validator
                 "TDC240", $"of=\"{of}\" is not a sequence declared above this one",
                 _declaredOrder.Count == 0
                     ? "A statistic is built from a column that already exists, so the column it "
+                      + "reads has to come first."
+                    : "Declared above: " + string.Join(", ", _declaredOrder) + ".",
+                line, column);
+        }
+    }
+
+    /// <summary>Everything a date offset needs said, and nothing that contradicts it.</summary>
+    /// <remarks>
+    /// <c>of=</c> is what turns a date generator from a DRAW into an OFFSET, and the two are
+    /// configured by different attributes entirely. That makes the mistakes here silent ones by
+    /// nature: a <c>from=</c> written beside an <c>of=</c> looks like it bounds the result and does
+    /// nothing at all, because the result is wherever the source plus the offset lands.
+    /// <para>
+    /// The declaration-order complaint is TDC240, shared with <c>running</c> and <c>stat</c> — the
+    /// same rule with the same fix.
+    /// </para>
+    /// </remarks>
+    private void CheckDateOffset(
+        TDCParser.SelfClosingElementContext gen, IReadOnlyDictionary<string, string> attrs)
+    {
+        string of = (attrs.GetValueOrDefault("of") ?? "").Trim();
+        string plus = (attrs.GetValueOrDefault("plus") ?? "").Trim();
+        if (plus.Length == 0)
+        {
+            Error(
+                "TDC264", $"<gen type=\"date\" of=\"{of}\"> does not say how far from it",
+                $"Add plus=\"…\" — {DateStep.OffsetSyntax}. A range is drawn per row, so "
+                + "plus=\"3..10d\" is the length of the stay; a single value is the same distance "
+                + "on every row.",
+                Line(gen), Column(gen));
+        }
+        else
+        {
+            DateStep.OffsetResult parsed = DateStep.ParseOffset(plus);
+            if (!parsed.Ok)
+            {
+                (int line, int column) = At(gen, "plus");
+                bool order = parsed.Why == DateStep.OffsetReason.Order;
+                Error(
+                    "TDC264",
+                    order
+                        ? $"plus=\"{plus}\" counts down, not up — the low bound is above the high one"
+                        : $"plus=\"{plus}\" is not an offset",
+                    order
+                        ? "Write the smaller number first. To measure BACKWARDS, make both "
+                          + "negative: plus=\"-10..-3d\"."
+                        : $"One of: {DateStep.OffsetSyntax}. A bare number means days.",
+                    line, column);
+            }
+        }
+
+        // Attributes that place a date generator's OWN draw, and so say nothing once `of=` has
+        // placed it relative to another column. Listed by name because ignoring them is exactly
+        // the failure this exists to prevent.
+        foreach (string name in new[]
+                 { "value", "from", "to", "range", "oldest", "youngest", "order", "step" })
+        {
+            if (!attrs.ContainsKey(name))
+            {
+                continue;
+            }
+
+            (int line, int column) = At(gen, name);
+            Error(
+                "TDC264",
+                $"{name}= is not read when the date is measured from of=\"{of}\"",
+                $"An offset lands wherever {of} plus the offset lands — {name}= would have to "
+                + "contradict that to mean anything. Drop it, or drop of= and bound the draw "
+                + "itself.",
+                line, column);
+        }
+
+        if (of.Length != 0 && !_declaredOrder.Contains(of, StringComparer.Ordinal))
+        {
+            (int line, int column) = At(gen, "of");
+            Error(
+                "TDC240", $"of=\"{of}\" is not a sequence declared above this one",
+                _declaredOrder.Count == 0
+                    ? "A date is measured from a column that already exists, so the column it "
                       + "reads has to come first."
                     : "Declared above: " + string.Join(", ", _declaredOrder) + ".",
                 line, column);

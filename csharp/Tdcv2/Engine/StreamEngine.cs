@@ -426,6 +426,17 @@ public sealed class StreamEngine
                     + "engine)");
             }
 
+            // A date measured from another date reads a SIBLING column as the row is built, and
+            // the streaming path has no way to do that yet — the same reason a dynamic template
+            // defers. Refused by name, and the router hands the config to the in-memory engine.
+            if (spec.Gen is not null && DateOffset.IsOffset(spec.Gen.Type, spec.Gen.Attrs))
+            {
+                throw new UnsupportedHere(
+                    $"a date measured from another column (\"{spec.Name}\") reads that column as "
+                    + "the row is built, and the streaming path has no way to do that yet; the "
+                    + "in-memory engine handles it (run without a forced streaming engine)");
+            }
+
             if (spec.Gen is not null && spec.Gen.Type == "pool")
             {
                 if (!string.IsNullOrWhiteSpace(spec.Parent))

@@ -468,6 +468,24 @@ public static class MemoryEngine
         Config config = ctx.Config;
         int count = config.Count;
         var columns = new Dictionary<string, string[]>();
+        // The REAL value behind a date column's text, for the columns some offset measures from.
+        //
+        // A date cell holds a PRESENTATION: `02/03/2026` in an en locale, `03.02.2026` in a ru
+        // one, `March 2` under format="MMMM D". Reading a date back out of that is guesswork at
+        // best and impossible at worst — the last form has thrown the year away. So the column
+        // that produced it keeps what it actually generated, and an offset measures from THAT.
+        // Only the columns named by some `of=` are kept, so a config with no offset pays nothing.
+        var instants = new Dictionary<string, long?[]>(StringComparer.Ordinal);
+        var wantsInstant = new HashSet<string>(StringComparer.Ordinal);
+        foreach (SequenceSpec candidate in config.Sequences)
+        {
+            if (candidate.Gen is not null
+                && DateOffset.IsOffset(candidate.Gen.Type, candidate.Gen.Attrs))
+            {
+                wantsInstant.Add(DateOffset.SourceOf(candidate.Gen.Attrs));
+            }
+        }
+
         // Handed to every builder below, so a nested <switch> can look its subject up. The
         // dictionary is filled as the loop runs and read only when a row is resolved, by which
         // time the subject — declared earlier, as the validator insists — is in it.
@@ -536,6 +554,32 @@ public static class MemoryEngine
             if (spec.Gen is not null && spec.Gen.Type == "stat")
             {
                 StatColumn(spec, columns, count);
+                continue;
+            }
+
+            // A date measured from another date, for the same reason and by the same rule: it
+            // reads a column that already exists.
+            if (spec.Gen is not null && DateOffset.IsOffset(spec.Gen.Type, spec.Gen.Attrs))
+            {
+                string of = DateOffset.SourceOf(spec.Gen.Attrs);
+                if (columns.TryGetValue(of, out string[]? offsetSource))
+                {
+                    (string[] offsetValues, long?[]? own) = DateOffset.Build(
+                        spec.Name,
+                        spec.Gen.Attrs,
+                        offsetSource,
+                        instants.GetValueOrDefault(of),
+                        count,
+                        prng,
+                        ctx.Locale,
+                        wantsInstant.Contains(spec.Name));
+                    columns[spec.Name] = offsetValues;
+                    if (own is not null)
+                    {
+                        instants[spec.Name] = own;
+                    }
+                }
+
                 continue;
             }
 
@@ -803,8 +847,28 @@ public static class MemoryEngine
             }
             else
             {
+                // A column some `<gen type="date" of="…">` measures from keeps the instant it
+                // generated beside the text it renders. Nothing else asks, so nothing else
+                // allocates.
+                List<long?>? collected =
+                    spec.Gen!.Type == "date" && wantsInstant.Contains(spec.Name)
+                        ? new List<long?>(applicable)
+                        : null;
                 values = ColumnValues(
-                    spec.Gen!, applicable, prng, ctx, stream, anomalyFlags, layouts);
+                    spec.Gen!, applicable, prng, ctx, stream, anomalyFlags, layouts, collected);
+                if (collected is not null)
+                {
+                    // Laid over the real rows exactly as the values are: a filtered column builds
+                    // compacted and is spread afterwards, so the two must be spread the same way
+                    // or an offset would measure row 3 from row 1's date.
+                    var over = new long?[count];
+                    for (int at = 0; at < rows.Count; at++)
+                    {
+                        over[rows[at]] = at < collected.Count ? collected[at] : null;
+                    }
+
+                    instants[spec.Name] = over;
+                }
             }
 
             columns[spec.Name] = Spread(rows, values, count);
@@ -837,7 +901,20 @@ public static class MemoryEngine
     /// to the row. Two copies of this dispatch would be two places for the languages to drift apart
     /// from each other and from themselves.
     /// </remarks>
-    internal static IReadOnlyList<string> Generate(Gen gen, int count, Sfc32 prng, Ctx ctx)
+    internal static IReadOnlyList<string> Generate(Gen gen, int count, Sfc32 prng, Ctx ctx) =>
+        Generate(gen, count, prng, ctx, null);
+
+    /// <summary>
+    /// One generator's values, optionally keeping the instants behind a date column.
+    /// </summary>
+    /// <remarks>
+    /// Threaded rather than derived afterwards because a date's cell is a RENDERING —
+    /// <c>02/03/2026</c> in an en locale, <c>03.02.2026</c> in a ru one — and reading a date back
+    /// out of that is a guess. The column that produced it keeps what it generated, and an offset
+    /// measures from THAT.
+    /// </remarks>
+    internal static IReadOnlyList<string> Generate(
+        Gen gen, int count, Sfc32 prng, Ctx ctx, List<long?>? instants)
     {
         switch (gen.Type)
         {
@@ -916,7 +993,8 @@ public static class MemoryEngine
                     return walked;
                 }
 
-                return DateGen.Generate(gen.Attrs, ctx.Locale, ctx.NowMillis, count, prng);
+                return DateGen.Generate(
+                    gen.Attrs, ctx.Locale, ctx.NowMillis, count, prng, instants);
             }
             case "timeseries":
                 return Stats.Timeseries.Generate(gen.Attrs, count, prng);
@@ -2592,11 +2670,13 @@ public static class MemoryEngine
         Ctx ctx,
         PerRow.Stream? stream,
         bool[]? anomalyFlags = null,
-        Dictionary<string, PerRow.ExactLayout>? layouts = null)
+        Dictionary<string, PerRow.ExactLayout>? layouts = null,
+        List<long?>? instants = null)
     {
         if (stream is null)
         {
-            return Finish(Generate(gen, count, prng, ctx), gen.Attrs, prng, anomalyFlags);
+            return Finish(
+                Generate(gen, count, prng, ctx, instants), gen.Attrs, prng, anomalyFlags, instants);
         }
 
         (IReadOnlyList<string> Values, double[] Percents)? listed = ListedValues(gen, ctx);
@@ -2634,13 +2714,18 @@ public static class MemoryEngine
             {
                 Sfc32 rowPrng = PerRow.RowGenerator(stream, stream.RowAt(i));
                 var one = new bool[1];
+                // One row's instant lands in its own scratch: the inner call knows nothing of
+                // `i`, and a later `missing=` pass has to line up with the values it blanked.
+                List<long?>? scratch = instants is null ? null : new List<long?>(1);
                 IReadOnlyList<string> done = Finish(
-                    Generate(gen, 1, rowPrng, ctx), gen.Attrs, rowPrng, one);
+                    Generate(gen, 1, rowPrng, ctx, scratch), gen.Attrs, rowPrng, one, scratch);
                 built.Add(done.Count > 0 ? done[0] : "");
                 if (anomalyFlags is not null)
                 {
                     anomalyFlags[i] = one[0];
                 }
+
+                instants?.Add(scratch is { Count: > 0 } ? scratch[0] : null);
             }
 
             return built;
@@ -2908,7 +2993,7 @@ public static class MemoryEngine
 
     internal static IReadOnlyList<string> Finish(
         IReadOnlyList<string> values, IReadOnlyDictionary<string, string> attrs, Sfc32 prng,
-        bool[]? anomalyFlags = null)
+        bool[]? anomalyFlags = null, List<long?>? instants = null)
     {
         var result = new List<string>(values);
 
@@ -2921,7 +3006,22 @@ public static class MemoryEngine
         Imperfections.Missing? missing = Imperfections.ParseMissing(attrs);
         if (missing is not null)
         {
+            var before = new List<string>(result);
             Imperfections.ApplyMissing(result, missing.Value, prng);
+            // A cell `missing=` blanked no longer shows the date it was built from, so the instant
+            // behind it goes too — otherwise a column measuring from this one would produce a date
+            // on a row whose source says nothing. `mask=`/`case=` below change only the SPELLING,
+            // which is exactly what the instant outlives.
+            if (instants is not null)
+            {
+                for (int i = 0; i < Math.Min(result.Count, instants.Count); i++)
+                {
+                    if (result[i] != before[i])
+                    {
+                        instants[i] = null;
+                    }
+                }
+            }
         }
 
         return FormatValues(result, attrs);
