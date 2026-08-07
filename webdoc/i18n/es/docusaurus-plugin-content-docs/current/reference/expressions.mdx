@@ -99,6 +99,9 @@ Un borde que conviene saber: −2⁶³ se alcanza con aritmética pero no se esc
 :::caution[`%` es euclidiano, y eso no es lo que hace su lenguaje]
 `-3 % 2` es **1** aquí. JavaScript, Java, C# y Rust responden −1; Python responde 1.
 
+Un DIVISOR negativo es donde Python también se separa: `7 % -3` es **1** aquí y −2 allí.
+El resultado nunca lleva signo — siempre está en `0 … |divisor| - 1`.
+
 La razón no es de gusto. La [capa compute](compute.mdx) ya tenía `<mod>` y ya respondía 1, así
 que un `%` que tomara prestada la convención del anfitrión haría que un mismo motor diera dos
 respuestas distintas a la misma pregunta según a qué capa acudiera usted.

@@ -111,6 +111,9 @@ One edge worth knowing: −2⁶³ can be reached by arithmetic but not written a
 >
 > `-3 % 2` is **1** here. JavaScript, Java, C# and Rust all answer −1; Python answers 1.
 >
+> A negative DIVISOR is where Python parts company too: `7 % -3` is **1** here and −2 there.
+> The result never carries a sign — it is always in `0 … |divisor| - 1`.
+>
 > The reason is not taste. The [compute layer](compute.md#top) already had `<mod>` and already
 > answered 1, so a `%` that borrowed the host convention would make one engine give two
 > different answers to the same question depending on which layer you reached for.

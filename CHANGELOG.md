@@ -26,6 +26,13 @@ page — is tracked in that implementation's own changelog:
   `9007199254740992`. All five implementations agreed on the wrong answer, so no test
   caught it; a shared case now pins the exact one.
 
+### Documentation
+
+- The whole-number table in the expression reference now lists the rounding and selection
+  functions, which stay whole like `+ - *` do, and the `%` caution names the negative
+  DIVISOR — `7 % -3` is 1 here and −2 in Python, the one place Euclidean and floored
+  disagree that the old text did not cover.
+
 ## [0.2.0] — 2026-08-07
 
 The first release since the expression language, the walked date axis and four new

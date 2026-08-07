@@ -832,6 +832,164 @@
         "lines": ["2024-02-28", "2024-02-29", "2024-03-01"]
       }
     },
+    "expressions-math-2/pow-and-log2-are-exact-where-they-can-be": {
+      "engine2": {
+        "lines": [
+          "p2_53=ok p10_15=ok p_neg=ok p_zero=ok p_half=ok p_negbase=ok l2_1=ok l2_512=ok l2_quarter=ok l10_1e6=ok"
+        ]
+      },
+      "engine3": {
+        "lines": [
+          "p2_53=ok p10_15=ok p_neg=ok p_zero=ok p_half=ok p_negbase=ok l2_1=ok l2_512=ok l2_quarter=ok l10_1e6=ok"
+        ]
+      }
+    },
+    "expressions-math-2/atan2-covers-all-four-quadrants": {
+      "engine2": {
+        "lines": ["q1=ok q2=ok q3=ok q4=ok up=ok down=ok left=ok right=ok"]
+      },
+      "engine3": {
+        "lines": ["q1=ok q2=ok q3=ok q4=ok up=ok down=ok left=ok right=ok"]
+      }
+    },
+    "expressions-math-2/nan-and-infinity-behave-as-ieee-says": {
+      "engine2": {
+        "lines": [
+          "ne_self=ok not_gt=ok not_lt=ok not_eq0=ok div0_inf=ok log0_neginf=ok zero_over_zero=ok abs_inf=ok"
+        ]
+      },
+      "engine3": {
+        "lines": [
+          "ne_self=ok not_gt=ok not_lt=ok not_eq0=ok div0_inf=ok log0_neginf=ok zero_over_zero=ok abs_inf=ok"
+        ]
+      }
+    },
+    "expressions-math-2/the-list-functions-over-one-split-string": {
+      "engine2": {
+        "lines": [
+          "min=ok max=ok sum=ok count=ok at0=ok at1=ok mean=ok median_odd=ok median_even=ok stddev=ok join=ok empty=ok"
+        ]
+      },
+      "engine3": {
+        "lines": [
+          "min=ok max=ok sum=ok count=ok at0=ok at1=ok mean=ok median_odd=ok median_even=ok stddev=ok join=ok empty=ok"
+        ]
+      }
+    },
+    "expressions-math-2/precedence-holds-when-functions-are-mixed-in": {
+      "engine2": {
+        "lines": [
+          "times_before_plus=ok parens_win=ok minus_before_call=ok arg_is_an_expression=ok minus_is_left_associative=ok mod_binds_like_times=ok not_binds_tightest=ok two_calls_one_sum=ok calls_then_multiply=ok pythagoras=ok comparison_is_last=ok ternary_after_math=ok"
+        ]
+      },
+      "engine3": {
+        "lines": [
+          "times_before_plus=ok parens_win=ok minus_before_call=ok arg_is_an_expression=ok minus_is_left_associative=ok mod_binds_like_times=ok not_binds_tightest=ok two_calls_one_sum=ok calls_then_multiply=ok pythagoras=ok comparison_is_last=ok ternary_after_math=ok"
+        ]
+      }
+    },
+    "expressions-math-2/comparing-a-whole-number-against-a-float": {
+      "engine2": {
+        "lines": [
+          "whole_eq_float=ok whole_lt_float=ok float_gt_whole=ok float_drops_exactness=ok max_stays_exact=ok min_stays_exact=ok mod_negative_left=ok mod_negative_right=ok mod_float=ok div_makes_float=ok in_numbers=ok not_in=ok in_after_math=ok chained_ternary=ok"
+        ]
+      },
+      "engine3": {
+        "lines": [
+          "whole_eq_float=ok whole_lt_float=ok float_gt_whole=ok float_drops_exactness=ok max_stays_exact=ok min_stays_exact=ok mod_negative_left=ok mod_negative_right=ok mod_float=ok div_makes_float=ok in_numbers=ok not_in=ok in_after_math=ok chained_ternary=ok"
+        ]
+      }
+    },
+    "expressions-math-2/math-reads-a-column-not-only-a-literal": {
+      "engine2": {
+        "lines": [
+          "100 doubled=ok near=other digits=three root=ten",
+          "250 doubled=no near=mid digits=three root=not",
+          "7 doubled=no near=other digits=one root=not",
+          "100 doubled=ok near=other digits=three root=ten",
+          "250 doubled=no near=mid digits=three root=not",
+          "7 doubled=no near=other digits=one root=not"
+        ]
+      },
+      "engine3": {
+        "lines": [
+          "100 doubled=ok near=other digits=three root=ten",
+          "250 doubled=no near=mid digits=three root=not",
+          "7 doubled=no near=other digits=one root=not",
+          "100 doubled=ok near=other digits=three root=ten",
+          "250 doubled=no near=mid digits=three root=not",
+          "7 doubled=no near=other digits=one root=not"
+        ]
+      }
+    },
+    "expressions-math-2/the-record-number-is-a-number": {
+      "engine2": {
+        "lines": [
+          "n=1/6 odd early quarter=ok square",
+          "n=2/6 even early quarter=ok not",
+          "n=3/6 odd early quarter=ok not",
+          "n=4/6 even late quarter=ok square",
+          "n=5/6 odd late quarter=ok not",
+          "n=6/6 even late quarter=ok not"
+        ]
+      },
+      "engine3": {
+        "lines": [
+          "n=1/6 odd early quarter=ok square",
+          "n=2/6 even early quarter=ok not",
+          "n=3/6 odd early quarter=ok not",
+          "n=4/6 even late quarter=ok square",
+          "n=5/6 odd late quarter=ok not",
+          "n=6/6 even late quarter=ok not"
+        ]
+      }
+    },
+    "expressions-math-2/a-conditional-chain-where-the-math-picks-the-branch": {
+      "engine2": {
+        "lines": [
+          "3 -> tiny",
+          "50 -> small",
+          "100 -> medium",
+          "999 -> medium",
+          "1000 -> large",
+          "7500 -> large",
+          "20000 -> huge"
+        ]
+      },
+      "engine3": {
+        "lines": [
+          "3 -> tiny",
+          "50 -> small",
+          "100 -> medium",
+          "999 -> medium",
+          "1000 -> large",
+          "7500 -> large",
+          "20000 -> huge"
+        ]
+      }
+    },
+    "expressions-math-2/filter-narrows-a-pool-by-arithmetic": {
+      "engine2": {
+        "lines": [
+          "need=15 fits=40 ok near=20 ok round=40 ok",
+          "need=45 fits=50 ok near=40 ok round=20 ok",
+          "need=15 fits=20 ok near=10 ok round=40 ok",
+          "need=45 fits=50 ok near=50 ok round=40 ok",
+          "need=15 fits=60 ok near=20 ok round=40 ok",
+          "need=45 fits=50 ok near=50 ok round=20 ok"
+        ]
+      },
+      "engine3": {
+        "lines": [
+          "need=15 fits=40 ok near=20 ok round=40 ok",
+          "need=45 fits=50 ok near=40 ok round=20 ok",
+          "need=15 fits=20 ok near=10 ok round=40 ok",
+          "need=45 fits=50 ok near=50 ok round=40 ok",
+          "need=15 fits=60 ok near=20 ok round=40 ok",
+          "need=45 fits=50 ok near=50 ok round=20 ok"
+        ]
+      }
+    },
     "expressions-math/landmarks-every-implementation-must-agree-on": {
       "engine2": {
         "lines": [

@@ -1,0 +1,104 @@
+{
+  "schemaVersion": 1,
+  "cases": [
+    {
+      "name": "pow-and-log2-are-exact-where-they-can-be",
+      "description": "pow with a whole exponent goes through repeated squaring rather than exp(y * log(x)), and log2 reads the exponent of a power of two rather than dividing two logarithms. Both are the difference between 1000 and 999.9999999999999, and a port that reaches for its host's library gets the second one.",
+      "config": "<tdc><env count=\"1\" seed=\"m\" local=\"en\" mode=\"memory\"><sequence name=\"C0\"><gen if=\"pow(2, 53) == 9007199254740992\" type=\"text\" value=\"ok\"/><gen type=\"text\" value=\"WRONG\"/></sequence><sequence name=\"C1\"><gen if=\"pow(10, 15) == 1000000000000000\" type=\"text\" value=\"ok\"/><gen type=\"text\" value=\"WRONG\"/></sequence><sequence name=\"C2\"><gen if=\"pow(2, -2) == 0.25\" type=\"text\" value=\"ok\"/><gen type=\"text\" value=\"WRONG\"/></sequence><sequence name=\"C3\"><gen if=\"pow(7, 0) == 1\" type=\"text\" value=\"ok\"/><gen type=\"text\" value=\"WRONG\"/></sequence><sequence name=\"C4\"><gen if=\"pow(9, 0.5) == 3\" type=\"text\" value=\"ok\"/><gen type=\"text\" value=\"WRONG\"/></sequence><sequence name=\"C5\"><gen if=\"pow(-2, 3) == -8\" type=\"text\" value=\"ok\"/><gen type=\"text\" value=\"WRONG\"/></sequence><sequence name=\"C6\"><gen if=\"log2(1) == 0\" type=\"text\" value=\"ok\"/><gen type=\"text\" value=\"WRONG\"/></sequence><sequence name=\"C7\"><gen if=\"log2(512) == 9\" type=\"text\" value=\"ok\"/><gen type=\"text\" value=\"WRONG\"/></sequence><sequence name=\"C8\"><gen if=\"log2(0.25) == -2\" type=\"text\" value=\"ok\"/><gen type=\"text\" value=\"WRONG\"/></sequence><sequence name=\"C9\"><gen if=\"log10(1000000) == 6\" type=\"text\" value=\"ok\"/><gen type=\"text\" value=\"WRONG\"/></sequence></env><block><line><data>p2_53=${{C0}} p10_15=${{C1}} p_neg=${{C2}} p_zero=${{C3}} p_half=${{C4}} p_negbase=${{C5}} l2_1=${{C6}} l2_512=${{C7}} l2_quarter=${{C8}} l10_1e6=${{C9}}</data></line></block></tdc>",
+      "expected": [
+        "p2_53=ok p10_15=ok p_neg=ok p_zero=ok p_half=ok p_negbase=ok l2_1=ok l2_512=ok l2_quarter=ok l10_1e6=ok"
+      ]
+    },
+    {
+      "name": "atan2-covers-all-four-quadrants",
+      "description": "atan2 is the one trigonometric function whose answer depends on the SIGNS of both arguments, so a port that forwards to a two-argument arctangent with the arguments the other way round passes every first-quadrant test and fails the other three. Read in whole degrees on purpose: comparing the raw radians against radians(45) would pin an accident of the last bit rather than the quadrant.",
+      "config": "<tdc><env count=\"1\" seed=\"m\" local=\"en\" mode=\"memory\"><sequence name=\"C0\"><gen if=\"round(degrees(atan2(1, 1))) == 45\" type=\"text\" value=\"ok\"/><gen type=\"text\" value=\"WRONG\"/></sequence><sequence name=\"C1\"><gen if=\"round(degrees(atan2(1, -1))) == 135\" type=\"text\" value=\"ok\"/><gen type=\"text\" value=\"WRONG\"/></sequence><sequence name=\"C2\"><gen if=\"round(degrees(atan2(-1, -1))) == -135\" type=\"text\" value=\"ok\"/><gen type=\"text\" value=\"WRONG\"/></sequence><sequence name=\"C3\"><gen if=\"round(degrees(atan2(-1, 1))) == -45\" type=\"text\" value=\"ok\"/><gen type=\"text\" value=\"WRONG\"/></sequence><sequence name=\"C4\"><gen if=\"round(degrees(atan2(1, 0))) == 90\" type=\"text\" value=\"ok\"/><gen type=\"text\" value=\"WRONG\"/></sequence><sequence name=\"C5\"><gen if=\"round(degrees(atan2(-1, 0))) == -90\" type=\"text\" value=\"ok\"/><gen type=\"text\" value=\"WRONG\"/></sequence><sequence name=\"C6\"><gen if=\"round(degrees(atan2(0, -1))) == 180\" type=\"text\" value=\"ok\"/><gen type=\"text\" value=\"WRONG\"/></sequence><sequence name=\"C7\"><gen if=\"round(degrees(atan2(0, 1))) == 0\" type=\"text\" value=\"ok\"/><gen type=\"text\" value=\"WRONG\"/></sequence></env><block><line><data>q1=${{C0}} q2=${{C1}} q3=${{C2}} q4=${{C3}} up=${{C4}} down=${{C5}} left=${{C6}} right=${{C7}}</data></line></block></tdc>",
+      "expected": ["q1=ok q2=ok q3=ok q4=ok up=ok down=ok left=ok right=ok"]
+    },
+    {
+      "name": "nan-and-infinity-behave-as-ieee-says",
+      "description": "An undefined answer must not quietly become zero and an overflow must not quietly become the largest double, because either one turns a broken config into a plausible file. The property that pins it is the one every language shares and none of them advertise: a NaN is not equal to itself, and EVERY comparison against it is false — so a row driven by such a condition falls through to the last branch rather than taking the first.",
+      "config": "<tdc><env count=\"1\" seed=\"m\" local=\"en\" mode=\"memory\"><sequence name=\"C0\"><gen if=\"sqrt(-1) != sqrt(-1)\" type=\"text\" value=\"ok\"/><gen type=\"text\" value=\"WRONG\"/></sequence><sequence name=\"C1\"><gen if=\"!(sqrt(-1) > 0)\" type=\"text\" value=\"ok\"/><gen type=\"text\" value=\"WRONG\"/></sequence><sequence name=\"C2\"><gen if=\"!(sqrt(-1) < 0)\" type=\"text\" value=\"ok\"/><gen type=\"text\" value=\"WRONG\"/></sequence><sequence name=\"C3\"><gen if=\"!(sqrt(-1) == 0)\" type=\"text\" value=\"ok\"/><gen type=\"text\" value=\"WRONG\"/></sequence><sequence name=\"C4\"><gen if=\"1 / 0 > 100000000000000000000\" type=\"text\" value=\"ok\"/><gen type=\"text\" value=\"WRONG\"/></sequence><sequence name=\"C5\"><gen if=\"log(0) < -100000000000000000000\" type=\"text\" value=\"ok\"/><gen type=\"text\" value=\"WRONG\"/></sequence><sequence name=\"C6\"><gen if=\"0 / 0 != 0\" type=\"text\" value=\"ok\"/><gen type=\"text\" value=\"WRONG\"/></sequence><sequence name=\"C7\"><gen if=\"abs(0 - 1 / 0) > 100000000000000000000\" type=\"text\" value=\"ok\"/><gen type=\"text\" value=\"WRONG\"/></sequence></env><block><line><data>ne_self=${{C0}} not_gt=${{C1}} not_lt=${{C2}} not_eq0=${{C3}} div0_inf=${{C4}} log0_neginf=${{C5}} zero_over_zero=${{C6}} abs_inf=${{C7}}</data></line></block></tdc>",
+      "expected": [
+        "ne_self=ok not_gt=ok not_lt=ok not_eq0=ok div0_inf=ok log0_neginf=ok zero_over_zero=ok abs_inf=ok"
+      ]
+    },
+    {
+      "name": "the-list-functions-over-one-split-string",
+      "description": "split turns one field into a list and everything after it reads that list: the aggregates, the positional one, and join going back the other way. Three of these are where a port diverges while the rest still pass — the median of an EVEN count is the mean of the middle two, stddev is the POPULATION one divided by n rather than n-1, and splitting the empty string gives no elements rather than one empty one.",
+      "config": "<tdc><env count=\"1\" seed=\"m\" local=\"en\" mode=\"memory\"><sequence name=\"C0\"><gen if=\"min(split('9,3,27', ',')) == 3\" type=\"text\" value=\"ok\"/><gen type=\"text\" value=\"WRONG\"/></sequence><sequence name=\"C1\"><gen if=\"max(split('9,3,27', ',')) == 27\" type=\"text\" value=\"ok\"/><gen type=\"text\" value=\"WRONG\"/></sequence><sequence name=\"C2\"><gen if=\"sum(split('9,3,27', ',')) == 39\" type=\"text\" value=\"ok\"/><gen type=\"text\" value=\"WRONG\"/></sequence><sequence name=\"C3\"><gen if=\"count(split('9,3,27', ',')) == 3\" type=\"text\" value=\"ok\"/><gen type=\"text\" value=\"WRONG\"/></sequence><sequence name=\"C4\"><gen if=\"at(split('9,3,27', ','), 0) == 9\" type=\"text\" value=\"ok\"/><gen type=\"text\" value=\"WRONG\"/></sequence><sequence name=\"C5\"><gen if=\"at(split('9,3,27', ','), 1) == 3\" type=\"text\" value=\"ok\"/><gen type=\"text\" value=\"WRONG\"/></sequence><sequence name=\"C6\"><gen if=\"mean(split('2,4,6', ',')) == 4\" type=\"text\" value=\"ok\"/><gen type=\"text\" value=\"WRONG\"/></sequence><sequence name=\"C7\"><gen if=\"median(split('9,3,27', ',')) == 9\" type=\"text\" value=\"ok\"/><gen type=\"text\" value=\"WRONG\"/></sequence><sequence name=\"C8\"><gen if=\"median(split('1,2,3,4', ',')) == 2.5\" type=\"text\" value=\"ok\"/><gen type=\"text\" value=\"WRONG\"/></sequence><sequence name=\"C9\"><gen if=\"stddev(split('2,4,6', ',')) == sqrt(8 / 3)\" type=\"text\" value=\"ok\"/><gen type=\"text\" value=\"WRONG\"/></sequence><sequence name=\"C10\"><gen if=\"join(split('9,3,27', ','), '-') == '9-3-27'\" type=\"text\" value=\"ok\"/><gen type=\"text\" value=\"WRONG\"/></sequence><sequence name=\"C11\"><gen if=\"count(split('', ',')) == 0\" type=\"text\" value=\"ok\"/><gen type=\"text\" value=\"WRONG\"/></sequence></env><block><line><data>min=${{C0}} max=${{C1}} sum=${{C2}} count=${{C3}} at0=${{C4}} at1=${{C5}} mean=${{C6}} median_odd=${{C7}} median_even=${{C8}} stddev=${{C9}} join=${{C10}} empty=${{C11}}</data></line></block></tdc>",
+      "expected": [
+        "min=ok max=ok sum=ok count=ok at0=ok at1=ok mean=ok median_odd=ok median_even=ok stddev=ok join=ok empty=ok"
+      ]
+    },
+    {
+      "name": "precedence-holds-when-functions-are-mixed-in",
+      "description": "A call binds tighter than any operator, and the operators keep their own order around it. Every line here has a second reading that a hand-written parser produces by accident, and the second reading gives a different number — which is the point: the check cannot pass by luck.",
+      "config": "<tdc><env count=\"1\" seed=\"m\" local=\"en\" mode=\"memory\"><sequence name=\"C0\"><gen if=\"2 + 3 * abs(-4) == 14\" type=\"text\" value=\"ok\"/><gen type=\"text\" value=\"WRONG\"/></sequence><sequence name=\"C1\"><gen if=\"(2 + 3) * abs(-4) == 20\" type=\"text\" value=\"ok\"/><gen type=\"text\" value=\"WRONG\"/></sequence><sequence name=\"C2\"><gen if=\"0 - abs(-4) == -4\" type=\"text\" value=\"ok\"/><gen type=\"text\" value=\"WRONG\"/></sequence><sequence name=\"C3\"><gen if=\"abs(2 - 5) * 2 == 6\" type=\"text\" value=\"ok\"/><gen type=\"text\" value=\"WRONG\"/></sequence><sequence name=\"C4\"><gen if=\"10 - 2 - 3 == 5\" type=\"text\" value=\"ok\"/><gen type=\"text\" value=\"WRONG\"/></sequence><sequence name=\"C5\"><gen if=\"2 * 3 % 4 == 2\" type=\"text\" value=\"ok\"/><gen type=\"text\" value=\"WRONG\"/></sequence><sequence name=\"C6\"><gen if=\"!(1 > 2) && 3 > 2\" type=\"text\" value=\"ok\"/><gen type=\"text\" value=\"WRONG\"/></sequence><sequence name=\"C7\"><gen if=\"min(1, 2) + max(3, 4) == 5\" type=\"text\" value=\"ok\"/><gen type=\"text\" value=\"WRONG\"/></sequence><sequence name=\"C8\"><gen if=\"round(1.5) * round(2.5) == 6\" type=\"text\" value=\"ok\"/><gen type=\"text\" value=\"WRONG\"/></sequence><sequence name=\"C9\"><gen if=\"sqrt(pow(3, 2) + pow(4, 2)) == 5\" type=\"text\" value=\"ok\"/><gen type=\"text\" value=\"WRONG\"/></sequence><sequence name=\"C10\"><gen if=\"1 + 1 == 2 && 2 * 2 == 4\" type=\"text\" value=\"ok\"/><gen type=\"text\" value=\"WRONG\"/></sequence><sequence name=\"C11\"><gen if=\"(2 + 2 == 4 ? 10 : 20) == 10\" type=\"text\" value=\"ok\"/><gen type=\"text\" value=\"WRONG\"/></sequence></env><block><line><data>times_before_plus=${{C0}} parens_win=${{C1}} minus_before_call=${{C2}} arg_is_an_expression=${{C3}} minus_is_left_associative=${{C4}} mod_binds_like_times=${{C5}} not_binds_tightest=${{C6}} two_calls_one_sum=${{C7}} calls_then_multiply=${{C8}} pythagoras=${{C9}} comparison_is_last=${{C10}} ternary_after_math=${{C11}}</data></line></block></tdc>",
+      "expected": [
+        "times_before_plus=ok parens_win=ok minus_before_call=ok arg_is_an_expression=ok minus_is_left_associative=ok mod_binds_like_times=ok not_binds_tightest=ok two_calls_one_sum=ok calls_then_multiply=ok pythagoras=ok comparison_is_last=ok ternary_after_math=ok"
+      ]
+    },
+    {
+      "name": "comparing-a-whole-number-against-a-float",
+      "description": "The rule the docs state, made checkable: while both sides are whole the comparison is exact, and one float anywhere drops the WHOLE comparison to floating point. So the big number here compares as equal to a float it is not equal to — and that is correct, not a bug, because there is no exact ordering between a 64-bit integer and a double that is not one. Euclidean % is pinned on a negative DIVISOR too: the usual patch for a negative dividend, ((a % b) + b) % b, gets that one wrong.",
+      "config": "<tdc><env count=\"1\" seed=\"m\" local=\"en\" mode=\"memory\"><sequence name=\"C0\"><gen if=\"2 == 2.0\" type=\"text\" value=\"ok\"/><gen type=\"text\" value=\"WRONG\"/></sequence><sequence name=\"C1\"><gen if=\"2 < 2.5\" type=\"text\" value=\"ok\"/><gen type=\"text\" value=\"WRONG\"/></sequence><sequence name=\"C2\"><gen if=\"2.5 > 2\" type=\"text\" value=\"ok\"/><gen type=\"text\" value=\"WRONG\"/></sequence><sequence name=\"C3\"><gen if=\"!(9007199254740993 > 9007199254740992.0)\" type=\"text\" value=\"ok\"/><gen type=\"text\" value=\"WRONG\"/></sequence><sequence name=\"C4\"><gen if=\"max(9007199254740993, 1) == 9007199254740993\" type=\"text\" value=\"ok\"/><gen type=\"text\" value=\"WRONG\"/></sequence><sequence name=\"C5\"><gen if=\"min(9007199254740993, 1) == 1\" type=\"text\" value=\"ok\"/><gen type=\"text\" value=\"WRONG\"/></sequence><sequence name=\"C6\"><gen if=\"(0 - 7) % 3 == 2\" type=\"text\" value=\"ok\"/><gen type=\"text\" value=\"WRONG\"/></sequence><sequence name=\"C7\"><gen if=\"7 % (0 - 3) == 1\" type=\"text\" value=\"ok\"/><gen type=\"text\" value=\"WRONG\"/></sequence><sequence name=\"C8\"><gen if=\"7.5 % 2 == 1.5\" type=\"text\" value=\"ok\"/><gen type=\"text\" value=\"WRONG\"/></sequence><sequence name=\"C9\"><gen if=\"7 / 2 == 3.5\" type=\"text\" value=\"ok\"/><gen type=\"text\" value=\"WRONG\"/></sequence><sequence name=\"C10\"><gen if=\"3 in [1, 2, 3]\" type=\"text\" value=\"ok\"/><gen type=\"text\" value=\"WRONG\"/></sequence><sequence name=\"C11\"><gen if=\"!(4 in [1, 2, 3])\" type=\"text\" value=\"ok\"/><gen type=\"text\" value=\"WRONG\"/></sequence><sequence name=\"C12\"><gen if=\"1 + 2 in [1, 2, 3]\" type=\"text\" value=\"ok\"/><gen type=\"text\" value=\"WRONG\"/></sequence><sequence name=\"C13\"><gen if=\"(1 > 2 ? 10 : 3 > 2 ? 20 : 30) == 20\" type=\"text\" value=\"ok\"/><gen type=\"text\" value=\"WRONG\"/></sequence></env><block><line><data>whole_eq_float=${{C0}} whole_lt_float=${{C1}} float_gt_whole=${{C2}} float_drops_exactness=${{C3}} max_stays_exact=${{C4}} min_stays_exact=${{C5}} mod_negative_left=${{C6}} mod_negative_right=${{C7}} mod_float=${{C8}} div_makes_float=${{C9}} in_numbers=${{C10}} not_in=${{C11}} in_after_math=${{C12}} chained_ternary=${{C13}}</data></line></block></tdc>",
+      "expected": [
+        "whole_eq_float=ok whole_lt_float=ok float_gt_whole=ok float_drops_exactness=ok max_stays_exact=ok min_stays_exact=ok mod_negative_left=ok mod_negative_right=ok mod_float=ok div_makes_float=ok in_numbers=ok not_in=ok in_after_math=ok chained_ternary=ok"
+      ]
+    },
+    {
+      "name": "math-reads-a-column-not-only-a-literal",
+      "description": "Every check above is a constant folded before the run. Here the operand is a COLUMN, so the value arrives as text and has to read as a number on the way into each function — the step where a port that parses eagerly and one that parses lazily part company.",
+      "config": "<tdc><env count=\"6\" seed=\"m\" local=\"en\" mode=\"memory\"><sequence name=\"Amount\"><gen type=\"text\" value=\"100,250,7\" order=\"sequential\"/></sequence><sequence name=\"Doubled\"><gen if=\"Amount * 2 == 200\" type=\"text\" value=\"ok\"/><gen type=\"text\" value=\"no\"/></sequence><sequence name=\"Near\"><gen if=\"abs(Amount - 250) < 1\" type=\"text\" value=\"mid\"/><gen type=\"text\" value=\"other\"/></sequence><sequence name=\"Digits\"><gen if=\"len(Amount) == 3\" type=\"text\" value=\"three\"/><gen if=\"len(Amount) == 1\" type=\"text\" value=\"one\"/><gen type=\"text\" value=\"other\"/></sequence><sequence name=\"Root\"><gen if=\"round(sqrt(Amount)) == 10\" type=\"text\" value=\"ten\"/><gen type=\"text\" value=\"not\"/></sequence></env><block><line><data>${{Amount}} doubled=${{Doubled}} near=${{Near}} digits=${{Digits}} root=${{Root}}</data></line></block></tdc>",
+      "expected": [
+        "100 doubled=ok near=other digits=three root=ten",
+        "250 doubled=no near=mid digits=three root=not",
+        "7 doubled=no near=other digits=one root=not",
+        "100 doubled=ok near=other digits=three root=ten",
+        "250 doubled=no near=mid digits=three root=not",
+        "7 doubled=no near=other digits=one root=not"
+      ]
+    },
+    {
+      "name": "the-record-number-is-a-number",
+      "description": "_count and _total are the two builtins arithmetic reaches for, and the boundary is the whole point: on record 3 of 6, _count > _total / 2 is false, because three is not more than three. A port that rounds the division, or compares as text, gets a different row here and nowhere else.",
+      "config": "<tdc><env count=\"6\" seed=\"m\" local=\"en\" mode=\"memory\"><sequence name=\"Parity\"><gen if=\"_count % 2 == 0\" type=\"text\" value=\"even\"/><gen type=\"text\" value=\"odd\"/></sequence><sequence name=\"Half\"><gen if=\"_count > _total / 2\" type=\"text\" value=\"late\"/><gen type=\"text\" value=\"early\"/></sequence><sequence name=\"Quarter\"><gen if=\"floor(_total / 4) == 1\" type=\"text\" value=\"ok\"/><gen type=\"text\" value=\"WRONG\"/></sequence><sequence name=\"Square\"><gen if=\"_count == pow(round(sqrt(_count)), 2)\" type=\"text\" value=\"square\"/><gen type=\"text\" value=\"not\"/></sequence></env><block><line><data>n=${{_count}}/${{_total}} ${{Parity}} ${{Half}} quarter=${{Quarter}} ${{Square}}</data></line></block></tdc>",
+      "expected": [
+        "n=1/6 odd early quarter=ok square",
+        "n=2/6 even early quarter=ok not",
+        "n=3/6 odd early quarter=ok not",
+        "n=4/6 even late quarter=ok square",
+        "n=5/6 odd late quarter=ok not",
+        "n=6/6 even late quarter=ok not"
+      ]
+    },
+    {
+      "name": "a-conditional-chain-where-the-math-picks-the-branch",
+      "description": "Five branches in order, each a logarithm, so the value that lands on a boundary decides between two of them: log10(1000) is 3 exactly and takes the branch above, log10(999) is not and takes the one below. This is the landmark case turned into a row — if log10 were 2.9999999999999996, the file would differ rather than a test failing.",
+      "config": "<tdc><env count=\"7\" seed=\"m\" local=\"en\" mode=\"memory\"><sequence name=\"Amount\"><gen type=\"text\" value=\"3,50,100,999,1000,7500,20000\" order=\"sequential\"/></sequence><sequence name=\"Band\"><gen if=\"log10(Amount) >= 4\" type=\"text\" value=\"huge\"/><gen if=\"log10(Amount) >= 3\" type=\"text\" value=\"large\"/><gen if=\"log10(Amount) >= 2\" type=\"text\" value=\"medium\"/><gen if=\"log10(Amount) >= 1\" type=\"text\" value=\"small\"/><gen type=\"text\" value=\"tiny\"/></sequence></env><block><line><data>${{Amount}} -> ${{Band}}</data></line></block></tdc>",
+      "expected": [
+        "3 -> tiny",
+        "50 -> small",
+        "100 -> medium",
+        "999 -> medium",
+        "1000 -> large",
+        "7500 -> large",
+        "20000 -> huge"
+      ]
+    },
+    {
+      "name": "filter-narrows-a-pool-by-arithmetic",
+      "description": "filter= is the other place an expression runs, and it runs once per candidate rather than once per row. Three filters over one pool: a comparison against a column of this row, a distance, and a remainder. Each drawn member is then read back in an if= that restates the filter's own promise, so a divergence names itself instead of showing up as a different number.",
+      "config": "<tdc><env count=\"6\" seed=\"pf\" local=\"en\" mode=\"memory\"><pool name=\"Boxes\" count=\"6\"><sequence name=\"cap\"><gen type=\"text\" value=\"10,20,30,40,50,60\" order=\"sequential\"/></sequence></pool><sequence name=\"Need\"><gen type=\"text\" value=\"15,45\" order=\"sequential\"/></sequence><sequence name=\"Fits\"><gen type=\"pool\" value=\"Boxes\" filter=\"cap >= Need\"/></sequence><sequence name=\"Near\"><gen type=\"pool\" value=\"Boxes\" filter=\"abs(cap - Need) <= 5\"/></sequence><sequence name=\"Round\"><gen type=\"pool\" value=\"Boxes\" filter=\"cap % 20 == 0\"/></sequence><sequence name=\"V1\"><gen if=\"Fits.cap >= Need\" type=\"text\" value=\"ok\"/><gen type=\"text\" value=\"WRONG\"/></sequence><sequence name=\"V2\"><gen if=\"abs(Near.cap - Need) <= 5\" type=\"text\" value=\"ok\"/><gen type=\"text\" value=\"WRONG\"/></sequence><sequence name=\"V3\"><gen if=\"Round.cap % 20 == 0\" type=\"text\" value=\"ok\"/><gen type=\"text\" value=\"WRONG\"/></sequence></env><block><line><data>need=${{Need}} fits=${{Fits.cap}} ${{V1}} near=${{Near.cap}} ${{V2}} round=${{Round.cap}} ${{V3}}</data></line></block></tdc>",
+      "expected": [
+        "need=15 fits=40 ok near=20 ok round=40 ok",
+        "need=45 fits=50 ok near=40 ok round=20 ok",
+        "need=15 fits=20 ok near=10 ok round=40 ok",
+        "need=45 fits=50 ok near=50 ok round=40 ok",
+        "need=15 fits=60 ok near=20 ok round=40 ok",
+        "need=45 fits=50 ok near=50 ok round=20 ok"
+      ]
+    }
+  ]
+}
