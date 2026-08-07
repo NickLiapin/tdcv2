@@ -233,6 +233,35 @@ public final class Compute {
         }
         return Value.of(String.join(sep, parts));
       }
+      // The exact inverse of <join>, and the fourth way to get a list.
+      //
+      // Before it there were three — a literal <list v="…">, the result of <each>, and a string
+      // walked CHARACTER by character — and none of them could read back a column that `repeat=`
+      // had joined. So "sum quantity x price over the lines of this order" could not be said at
+      // all unless the two lists happened to have the same length.
+      case "split": {
+        String sep = n.attrs().getOrDefault("sep", "");
+        // An empty separator is refused rather than given a meaning. Java would answer with every
+        // character, Python not at all, and the other three differ again — so any reading here
+        // would make one implementation disagree with the rest. Walking a string character by
+        // character already has a spelling: <over> takes a string directly.
+        if (sep.isEmpty()) {
+          throw new ComputeError(
+              "<split>: sep= is empty — to walk a string character by character, put it in <over> "
+                  + "directly, which is what an empty separator would have to mean");
+        }
+        Value target = evalSlot(n.children(), scope);
+        if (!(target instanceof Value.Str text)) {
+          throw new ComputeError("<split>: expected a string, got a list");
+        }
+        List<Value> pieces = new ArrayList<>();
+        // -1 keeps the trailing empty pieces: `a|b|` is three lines, the last one blank, and
+        // dropping it would make the list shorter than the row it describes.
+        for (String piece : text.v().split(java.util.regex.Pattern.quote(sep), -1)) {
+          pieces.add(Value.of(piece));
+        }
+        return Value.of(pieces);
+      }
       case "at": {
         Value coll = evalWrapper(n, "in", scope);
         if (!(coll instanceof Value.Lst l)) {

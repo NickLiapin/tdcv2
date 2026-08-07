@@ -35,7 +35,7 @@ hay ciclos sin cota.
 
 ## De dónde sale una lista
 
-Hay tres fuentes, y solo tres. Toda lista de esta página es una de ellas.
+Hay cuatro fuentes, y solo cuatro. Toda lista de esta página es una de ellas.
 
 1. **Escrita a mano** — `<list v="10,20,30"/>`.
 2. **Un string, recorrido carácter a carácter** — donde se espera una lista, un string
@@ -43,6 +43,8 @@ Hay tres fuentes, y solo tres. Toda lista de esta página es una de ellas.
    configuración no dice "divide" en ninguna parte, la ranura `<over>` simplemente acepta
    un string.
 3. **El resultado de `<each>`** — lista que entra, lista que sale.
+4. **Un string cortado por un separador** — `<split sep="|">`, el inverso de `<join>`, y la
+   forma de volver a leer una columna que `repeat=` pegó.
 
 Las tres en una configuración:
 
@@ -592,6 +594,92 @@ Cada línea es `${{Card}} -> ${{Spaced}}`:
 `<each>`), o cuando arme un valor compuesto — una versión, una ruta, unas coordenadas.
 Para agrupar de derecha a izquierda un solo string con un tamaño fijo,
 [`<group>`](strings.md#top) es más sencillo; `<join>` une elementos de una lista.
+
+## `<split>` — una cadena a una lista
+
+**Toma** la ranura que se va a cortar más `sep=` → **da** una lista de cadenas.
+
+El inverso exacto de [`<join>`](#join--de-lista-a-string) y la **cuarta** fuente de una
+lista. Existe por una forma en concreto: una columna construida con
+[`repeat=`](../generators/overview.md#top) llega con sus elementos pegados en una sola cadena, y
+hasta `<split>` no había manera de volver a separarlos. «Suma cantidad × precio sobre las
+líneas de este pedido» no se podía escribir en absoluto salvo que las dos listas tuvieran la
+misma longitud.
+
+| Atributo | Obligatorio | Por defecto | Qué fija                |
+| :------- | :---------- | :---------- | :---------------------- |
+| `sep`    | **sí**      | —           | el separador por el que cortar |
+
+- Los trozos son **cadenas**, como cualquier otro texto de esta capa. Envuelva uno en
+  [`<to_number>`](./arithmetic.md#top) para operar con él.
+- `sep=` es un separador, no un conjunto de caracteres: `sep=", "` corta por coma y espacio.
+- Un **trozo vacío se conserva**. `a||c` son tres elementos con uno en blanco en medio;
+  descartarlo desplazaría cada elemento posterior a la posición equivocada.
+- Un separador que no aparece da toda la cadena como **un** trozo.
+- `sep=""` se **rechaza**. Recorrer una cadena carácter a carácter es lo que hace `<over>` con
+  una cadena normal, y un separador vacío tendría que significar lo mismo, escrito de una
+  segunda forma y distinta en cada lenguaje.
+
+### Σ cantidad × precio sobre las líneas de un pedido
+
+```xml
+<sequence name="Qty"><gen type="number" value="1..5" repeat="3" separator="|"/></sequence>
+<sequence name="Price"><gen type="number" value="10..99" repeat="3" separator="|"/></sequence>
+<sequence name="Total">
+    <compute><result>
+        <reduce>
+            <over><split sep="|"><field name="Qty"/></split></over>
+            <init><int v="0"/></init>
+            <do>
+                <add>
+                    <acc/>
+                    <multiply>
+                        <to_number><current/></to_number>
+                        <to_number>
+                            <at>
+                                <in><split sep="|"><field name="Price"/></split></in>
+                                <index><current_index/></index>
+                            </at>
+                        </to_number>
+                    </multiply>
+                </add>
+            </do>
+        </reduce>
+    </result></compute>
+</sequence>
+```
+
+`./run order.tdc (3 filas)`
+
+```
+5|1|1 @ 22|14|77 -> 201
+4|3|3 @ 58|91|62 -> 691
+2|5|2 @ 42|13|72 -> 293
+```
+
+`<current_index/>` es lo que empareja las dos listas: el elemento *k* de las cantidades
+multiplica al elemento *k* de los precios.
+
+### Contar e indexar
+
+```xml
+<sequence name="Tags"><gen type="text" value="red;green;blue"/></sequence>
+<sequence name="Count">
+    <compute><result><length><split sep=";"><field name="Tags"/></split></length></result></compute>
+</sequence>
+<sequence name="Second">
+    <compute><result><at>
+        <in><split sep=";"><field name="Tags"/></split></in>
+        <index><int v="1"/></index>
+    </at></result></compute>
+</sequence>
+```
+
+`./run tags.tdc (1 fila)`
+
+```
+3 tags, the second is "green"
+```
 
 ## `<at>` — indexar una lista
 

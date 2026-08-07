@@ -58,6 +58,7 @@ export const COMPUTE_TAGS = new Set([
   'each',
   'reduce',
   'join',
+  'split',
   'at',
   'length',
   // arithmetic
@@ -339,6 +340,7 @@ function walkExpr(el: ElementContext, scope: VScope, diags: Diagnostic[]): void 
       return;
     }
     case 'join':
+    case 'split':
     case 'length':
     case 'to_number':
     case 'pad':

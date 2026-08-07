@@ -17,7 +17,7 @@ use crate::parser::ast::{Element, Kind};
 
 const ENCODINGS: [&str; 6] = ["base36", "ascii", "unicode", "hex", "binary", "octal"];
 
-const KNOWN_TAGS: [&str; 47] = [
+const KNOWN_TAGS: [&str; 48] = [
     // literals and references
     "int",
     "str",
@@ -33,6 +33,7 @@ const KNOWN_TAGS: [&str; 47] = [
     "each",
     "reduce",
     "join",
+    "split",
     "at",
     "length",
     // arithmetic

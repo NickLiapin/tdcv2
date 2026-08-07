@@ -121,3 +121,58 @@ describe('contextual tags outside iteration', () => {
     expect(() => evalExpr('<acc/>')).toThrow(/outside a <reduce>/);
   });
 });
+
+describe('split — the fourth way to get a list', () => {
+  it('cuts a string the way join glued it, and is its exact inverse', () => {
+    expect(
+      evalExpr('<join sep="-"><split sep="|"><field name="s"/></split></join>', { s: 'a|b|c' }),
+    ).toBe('a-b-c');
+  });
+
+  it('reads back a column repeat= joined, which is what it exists for', () => {
+    // Σ qty × price over the lines of one order — the sum that could not be written while a
+    // repeating column was only ever a single glued string.
+    expect(
+      evalExpr(
+        '<reduce><over><split sep="|"><field name="q"/></split></over>' +
+          '<init><int v="0"/></init>' +
+          '<do><add><acc/><multiply>' +
+          '<to_number><current/></to_number>' +
+          '<to_number><at><in><split sep="|"><field name="p"/></split></in>' +
+          '<index><current_index/></index></at></to_number>' +
+          '</multiply></add></do></reduce>',
+        { q: '2|3|1', p: '24|81|61' },
+      ),
+    ).toBe('352');
+  });
+
+  it('a multi-character separator is one separator, not a set of them', () => {
+    expect(
+      evalExpr('<length><split sep=", "><field name="s"/></split></length>', { s: 'a, b, c' }),
+    ).toBe('3');
+  });
+
+  it('keeps an empty piece rather than dropping it, so positions line up', () => {
+    // `a||c` is three lines, the middle one blank. Dropping it would slide `c` into index 1 and
+    // pair it with the wrong price.
+    expect(
+      evalExpr('<length><split sep="|"><field name="s"/></split></length>', { s: 'a||c' }),
+    ).toBe('3');
+  });
+
+  it('a separator that does not occur gives the whole string as one piece', () => {
+    expect(
+      evalExpr('<length><split sep="|"><field name="s"/></split></length>', { s: 'solo' }),
+    ).toBe('1');
+  });
+
+  it('refuses an empty separator instead of picking one language’s answer', () => {
+    expect(() => evalExpr('<split sep=""><field name="s"/></split>', { s: 'abc' })).toThrow(
+      /sep= is empty/,
+    );
+  });
+
+  it('refuses a list, which has nothing to cut', () => {
+    expect(() => evalExpr('<split sep="|"><list v="1,2"/></split>')).toThrow(/expected a string/);
+  });
+});

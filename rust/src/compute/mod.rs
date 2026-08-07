@@ -242,6 +242,31 @@ fn eval(el: &Element, scope: &Scope) -> ComputeResult<Value> {
             let parts: ComputeResult<Vec<String>> = list.iter().map(as_str).collect();
             Ok(Value::str(parts?.join(sep)))
         }
+        // The exact inverse of `join`, and the fourth way to get a list.
+        //
+        // Before it there were three — a literal `<list v="…">`, the result of `<each>`, and a
+        // string walked CHARACTER by character — and none of them could read back a column that
+        // `repeat=` had joined. So "sum quantity x price over the lines of this order" could not
+        // be said at all unless the two lists happened to have the same length.
+        "split" => {
+            let sep = attr("sep").unwrap_or("");
+            // An empty separator is refused rather than given a meaning. Rust would answer with
+            // an empty piece at each end, JavaScript with every character, Python not at all —
+            // so any reading here would make one implementation disagree with the rest. Walking
+            // a string character by character already has a spelling: `<over>` takes a string.
+            if sep.is_empty() {
+                return err(
+                    "<split>: sep= is empty — to walk a string character by character, put it in \
+                     <over> directly, which is what an empty separator would have to mean",
+                );
+            }
+            let Value::Str(text) = eval_slot(&el.children, scope)? else {
+                return err("<split>: expected a string, got a list");
+            };
+            Ok(Value::Lst(
+                text.split(sep).map(|piece| Value::str(piece)).collect(),
+            ))
+        }
         "at" => {
             let Value::Lst(list) = eval_wrapper(el, "in", scope)? else {
                 return err("<at>: <in> must be a list");

@@ -282,6 +282,42 @@ public static class Compute
                 return Value.Of(string.Join(sep, list.V.Select(Value.AsStr)));
             }
 
+            // The exact inverse of <join>, and the fourth way to get a list.
+            //
+            // Before it there were three — a literal <list v="…">, the result of <each>, and a
+            // string walked CHARACTER by character — and none of them could read back a column
+            // that `repeat=` had joined. So "sum quantity x price over the lines of this order"
+            // could not be said at all unless the two lists happened to have the same length.
+            case "split":
+            {
+                string sep = n.Attrs.GetValueOrDefault("sep", "");
+                // An empty separator is refused rather than given a meaning. C# would answer with
+                // the whole string as one piece, JavaScript with every character, Python not at
+                // all — so any reading here would make one implementation disagree with the rest.
+                // Walking a string character by character already has a spelling: <over> takes a
+                // string directly.
+                if (sep.Length == 0)
+                {
+                    throw new ComputeError(
+                        "<split>: sep= is empty — to walk a string character by character, put it "
+                        + "in <over> directly, which is what an empty separator would have to mean");
+                }
+
+                Value target = EvalSlot(n.Children, scope);
+                if (target is not Value.Str text)
+                {
+                    throw new ComputeError("<split>: expected a string, got a list");
+                }
+
+                var pieces = new List<Value>();
+                foreach (string piece in text.V.Split(sep))
+                {
+                    pieces.Add(Value.Of(piece));
+                }
+
+                return Value.Of(pieces);
+            }
+
             case "at":
             {
                 Value coll = EvalWrapper(n, "in", scope);

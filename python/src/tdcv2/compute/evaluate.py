@@ -246,6 +246,27 @@ def _element(element, scope: Scope) -> Value:
         if value.kind != "list":
             raise ComputeError("<join>: expected a list")
         return str_value(n.attrs.get("sep", "").join(coerce_str(v) for v in value.items))
+    # The exact inverse of <join>, and the fourth way to get a list.
+    #
+    # Before it there were three — a literal <list v="…">, the result of <each>, and a string
+    # walked CHARACTER by character — and none of them could read back a column that `repeat=`
+    # had joined. So "sum quantity x price over the lines of this order" could not be said at all
+    # unless the two lists happened to have the same length.
+    if name == "split":
+        sep = n.attrs.get("sep", "")
+        # An empty separator is refused rather than given a meaning. Python refuses it outright,
+        # JavaScript answers with every character, and the other three differ again — so any
+        # reading here would make one implementation disagree with the rest. Walking a string
+        # character by character already has a spelling: <over> takes a string directly.
+        if sep == "":
+            raise ComputeError(
+                "<split>: sep= is empty — to walk a string character by character, put it in "
+                "<over> directly, which is what an empty separator would have to mean"
+            )
+        value = _slot(n.children, scope)
+        if value.kind != "str":
+            raise ComputeError("<split>: expected a string, got a list")
+        return list_value([str_value(piece) for piece in value.text.split(sep)])
     if name == "at":
         collection = _wrapper(n, "in", scope)
         if collection.kind != "list":

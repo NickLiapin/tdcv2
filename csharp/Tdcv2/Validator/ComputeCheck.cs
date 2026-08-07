@@ -36,7 +36,7 @@ internal sealed class ComputeCheck
         "let",
 
         // collections
-        "each", "reduce", "join", "at", "length",
+        "each", "reduce", "join", "split", "at", "length",
 
         // arithmetic
         "add", "subtract", "multiply", "divide", "mod",

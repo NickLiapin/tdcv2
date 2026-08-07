@@ -43,6 +43,7 @@
 | [`<each>`](../compute/lists.md#each--перебор-списка)              | `<over>` `<do>` → `list`                    | Преобразовать каждый элемент → список     |
 | [`<reduce>`](../compute/lists.md#reduce--свёртка-в-одно-значение) | `<over>` `<init>` `<do>` → `int\|str\|list` | Свернуть список в одно значение (`<acc>`) |
 | [`<join>`](../compute/lists.md#join--список-в-строку)             | `list` + `sep=?` → `str`                    | Список → строка (атрибут `sep`)           |
+| [`<split>`](../compute/lists.md#split--строка-в-список)           | `str` + `sep=` → `list`                     | Строка → список, рез по `sep` (обязателен) |
 | [`<at>`](../compute/lists.md#at--доступ-по-индексу)               | `<in>` `<index>` + `default=?` → `int\|str` | Элемент по индексу (атрибут `default`)    |
 | [`<length>`](../compute/lists.md#length--длина-строки-или-списка) | `str\|list` → `int`                         | Длина строки или списка                   |
 

@@ -237,6 +237,33 @@ function evalElement(el: ElementContext, scope: EvalScope): Value {
       if (value.t !== 'list') throw new ComputeError('<join>: expected a list');
       return str(value.v.map(coerceStr).join(sep));
     }
+    // The exact inverse of <join>, and the fourth way to get a list.
+    //
+    // Before it there were three — a literal <list v="…">, the result of <each>, and a string
+    // walked CHARACTER by character — and none of them could read back a column that `repeat=`
+    // had joined. So "sum quantity × price over the lines of this order" could not be said at
+    // all unless the two lists happened to have the same length.
+    //
+    // The pieces are STRINGS, like every other piece of text in this layer: <to_number> turns
+    // one into an integer, and the arithmetic tags say so when they are handed text.
+    case 'split': {
+      const sep = n.attrs['sep'] ?? '';
+      // An empty separator is refused rather than given a meaning. JavaScript would answer with
+      // every character, Python would refuse outright, and the other three differ again — so any
+      // reading here would make one implementation disagree with the rest. Walking a string
+      // character by character already has a spelling: <over> takes a string directly.
+      if (sep === '') {
+        throw new ComputeError(
+          '<split>: sep= is empty — to walk a string character by character, put it in <over> ' +
+            'directly, which is what an empty separator would have to mean',
+        );
+      }
+      const value = evalSlot(n.children, scope);
+      if (value.t !== 'str') {
+        throw new ComputeError('<split>: expected a string, got a list');
+      }
+      return list(value.v.split(sep).map((piece) => str(piece)));
+    }
     case 'at': {
       const coll = evalWrapper(n, 'in', scope);
       if (coll.t !== 'list') throw new ComputeError('<at>: <in> must be a list');

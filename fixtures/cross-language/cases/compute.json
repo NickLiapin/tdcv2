@@ -90,6 +90,16 @@
       "description": "<each> over a list with <multiply> in its body, folded by <join>, and <equals> inside a <test>. Both appeared only in diagnostics/ before — their REFUSALS were pinned five ways and their results by nothing. <each> is the map operation the list page is built around, so it is the last one that should have been unpinned.",
       "config": "<tdc><env count=\"1\" seed=\"unit-test\" local=\"en\" mode=\"memory\"><sequence name=\"Doubled\"><compute><result><join sep=\",\"><each><over><list v=\"3,5,8\"/></over><do><multiply><current/><int v=\"2\"/></multiply></do></each></join></result></compute></sequence><sequence name=\"Eq\"><compute><result><choose><when><test><equals><int v=\"7\"/><int v=\"7\"/></equals></test><then><str v=\"same\"/></then></when><otherwise><str v=\"different\"/></otherwise></choose></result></compute></sequence></env><block><line><data>${{Doubled}}|${{Eq}}</data></line></block></tdc>",
       "expected": ["6,10,16|same"]
+    },
+    {
+      "name": "split-reads-back-a-repeating-column",
+      "description": "The fourth way to get a list, and the reason it exists: `repeat=` joins a column's elements into one string, and until <split> there was no way to cut it up again. Σ qty × price over the lines of one order could not be written unless the two lists happened to be the same length. The pieces are STRINGS like every other piece of text in this layer, so <to_number> converts them; an empty piece is kept rather than dropped, because dropping one would slide every later element into the wrong position and pair it with the wrong price.",
+      "config": "<tdc><env count=\"3\" seed=\"s\" local=\"en\" mode=\"memory\"><sequence name=\"Qty\"><gen type=\"number\" value=\"1..5\" repeat=\"3\" separator=\"|\"/></sequence><sequence name=\"Price\"><gen type=\"number\" value=\"10..99\" repeat=\"3\" separator=\"|\"/></sequence><sequence name=\"Total\"><compute><reduce><over><split sep=\"|\"><field name=\"Qty\"/></split></over><init><int v=\"0\"/></init><do><add><acc/><multiply><to_number><current/></to_number><to_number><at><in><split sep=\"|\"><field name=\"Price\"/></split></in><index><current_index/></index></at></to_number></multiply></add></do></reduce></compute></sequence></env><block><line><data>${{Qty}} x ${{Price}} = ${{Total}}</data></line></block></tdc>",
+      "expected": [
+        "1|3|2 x 70|31|31 = 225",
+        "5|5|2 x 19|30|97 = 439",
+        "2|3|1 x 24|81|61 = 352"
+      ]
     }
   ]
 }

@@ -43,6 +43,7 @@ A fondo: [Listas e iteración](../compute/lists.md#top)
 | [`<each>`](../compute/lists.md#each--mapear-sobre-una-lista)          | `<over>` `<do>` → `list`                    | Transforma cada elemento → una lista        |
 | [`<reduce>`](../compute/lists.md#reduce--plegar-a-un-solo-valor)      | `<over>` `<init>` `<do>` → `int\|str\|list` | Pliega una lista en un solo valor (`<acc>`) |
 | [`<join>`](../compute/lists.md#join--de-lista-a-string)               | `list` + `sep=?` → `str`                    | Lista → cadena (atributo `sep`)             |
+| [`<split>`](../compute/lists.md#split--una-cadena-a-una-lista)        | `str` + `sep=` → `list`                     | Cadena → lista, corte por `sep` (obligatorio) |
 | [`<at>`](../compute/lists.md#at--indexar-una-lista)                   | `<in>` `<index>` + `default=?` → `int\|str` | Elemento por índice (atributo `default`)    |
 | [`<length>`](../compute/lists.md#length--medir-un-string-o-una-lista) | `str\|list` → `int`                         | Largo de una cadena o de una lista          |
 

@@ -38,6 +38,7 @@ sidebar_position: 5
 | [`<each>`](../compute/lists.mdx#each--перебор-списка)              | `<over>` `<do>` → `list`                    | Преобразовать каждый элемент → список     |
 | [`<reduce>`](../compute/lists.mdx#reduce--свёртка-в-одно-значение) | `<over>` `<init>` `<do>` → `int\|str\|list` | Свернуть список в одно значение (`<acc>`) |
 | [`<join>`](../compute/lists.mdx#join--список-в-строку)             | `list` + `sep=?` → `str`                    | Список → строка (атрибут `sep`)           |
+| [`<split>`](../compute/lists.mdx#split--строка-в-список)           | `str` + `sep=` → `list`                     | Строка → список, рез по `sep` (обязателен) |
 | [`<at>`](../compute/lists.mdx#at--доступ-по-индексу)               | `<in>` `<index>` + `default=?` → `int\|str` | Элемент по индексу (атрибут `default`)    |
 | [`<length>`](../compute/lists.mdx#length--длина-строки-или-списка) | `str\|list` → `int`                         | Длина строки или списка                   |
 

@@ -44,6 +44,7 @@ In depth: [Lists & iteration](../compute/lists.md#top)
 | [`<each>`](../compute/lists.md#each--map-over-a-list)              | `<over>` `<do>` → `list`                    | Transform every element → a new list      |
 | [`<reduce>`](../compute/lists.md#reduce--fold-to-one-value)        | `<over>` `<init>` `<do>` → `int\|str\|list` | Fold a list into one value (`<acc>`)      |
 | [`<join>`](../compute/lists.md#join--a-list-to-a-string)           | `list` + `sep=?` → `str`                    | List → string (attribute `sep`)           |
+| [`<split>`](../compute/lists.md#split--a-string-to-a-list)         | `str` + `sep=` → `list`                     | String → list, cut on `sep` (required)    |
 | [`<at>`](../compute/lists.md#at--index-into-a-list)                | `<in>` `<index>` + `default=?` → `int\|str` | An element by index (attribute `default`) |
 | [`<length>`](../compute/lists.md#length--measure-a-string-or-list) | `str\|list` → `int`                         | Length of a string or a list              |
 
