@@ -1,0 +1,68 @@
+{
+  "schemaVersion": 1,
+  "cases": [
+    {
+      "name": "an-assertion-that-holds-changes-nothing",
+      "description": "The first thing an assertion must do is not exist as far as the data is concerned. These two configs are the same run — one carries <assert>, one does not — and the lines below are what BOTH produce, so an implementation that drew a value while evaluating the condition, or that let an extra <env> child shift the keys its columns derive from, is caught by a diff rather than by a passing check. The condition itself is true: seventy percent of ten rows is seven, and the parent filter is the only thing standing between the percentage and the column.",
+      "config": "<tdc><env count=\"10\" seed=\"s\" local=\"en\"><sequence name=\"Kind\"><gen type=\"text\" value=\"a,b\" percent=\"70,30\"/></sequence><sequence name=\"Amount\" parent=\"Kind.a\"><gen type=\"number\" value=\"1..100\"/></sequence><sequence name=\"Rows\"><gen type=\"stat\" of=\"Amount\" op=\"count\"/></sequence><assert that=\"Rows == 7\" says=\"every a-row carries an amount\"/></env><block><line><data>${{Kind}},${{Amount}}</data></line></block></tdc>",
+      "expected": [
+        "a,55",
+        "a,80",
+        "a,78",
+        "a,93",
+        "b,",
+        "b,",
+        "a,95",
+        "a,60",
+        "a,41",
+        "b,"
+      ]
+    },
+    {
+      "name": "the-same-run-without-the-assertion",
+      "description": "The twin of the case above, written out rather than described, because a claim about two configs is only checked when both are run. Every line here must match its neighbour's exactly.",
+      "config": "<tdc><env count=\"10\" seed=\"s\" local=\"en\"><sequence name=\"Kind\"><gen type=\"text\" value=\"a,b\" percent=\"70,30\"/></sequence><sequence name=\"Amount\" parent=\"Kind.a\"><gen type=\"number\" value=\"1..100\"/></sequence><sequence name=\"Rows\"><gen type=\"stat\" of=\"Amount\" op=\"count\"/></sequence></env><block><line><data>${{Kind}},${{Amount}}</data></line></block></tdc>",
+      "expected": [
+        "a,55",
+        "a,80",
+        "a,78",
+        "a,93",
+        "b,",
+        "b,",
+        "a,95",
+        "a,60",
+        "a,41",
+        "b,"
+      ]
+    },
+    {
+      "name": "_total-is-whole-run-constant",
+      "description": "The one built-in an assertion may read. _count is deliberately not: it says which row you are on, which is exactly what an assertion must not depend on — a condition that reads it would report on row 0 and call the run verified.",
+      "config": "<tdc><env count=\"4\" seed=\"s\" local=\"en\"><sequence name=\"N\"><gen type=\"number\" value=\"1..9\"/></sequence><assert that=\"_total == 4\" says=\"the run is four rows\"/></env><block><line><data>${{N}}</data></line></block></tdc>",
+      "expected": ["7", "4", "4", "3"]
+    },
+    {
+      "name": "a-one-value-column-counts-as-whole-run-constant",
+      "description": "The rule is about the DATA, not about the spelling. A stat column is constant by construction, but so is a text column with one value in it, and refusing that would make the rule a list of approved generator types rather than a statement about the run. Every implementation therefore has to READ the column rather than look at how it was written.",
+      "config": "<tdc><env count=\"3\" seed=\"s\" local=\"en\"><sequence name=\"Env\"><gen type=\"text\" value=\"prod\"/></sequence><sequence name=\"N\"><gen type=\"number\" value=\"1..9\"/></sequence><assert that=\"Env == 'prod'\" says=\"the fixture is built for production\"/></env><block><line><data>${{Env}}-${{N}}</data></line></block></tdc>",
+      "expected": ["prod-7", "prod-4", "prod-4"]
+    },
+    {
+      "name": "several-assertions-all-hold",
+      "description": "Two conditions over two stat columns, plus arithmetic between them. Nothing here fails, so what is pinned is that a run carrying several assertions still produces exactly its data — and that reading a name twice, across two assertions, does not consume anything the second reader then misses.",
+      "config": "<tdc><env count=\"10\" seed=\"s\" local=\"en\"><sequence name=\"Plan\"><gen type=\"text\" value=\"free,paid\" percent=\"80,20\"/></sequence><sequence name=\"Paid\" parent=\"Plan.paid\"><gen type=\"number\" value=\"1..9\"/></sequence><sequence name=\"Free\" parent=\"Plan.free\"><gen type=\"number\" value=\"1..9\"/></sequence><sequence name=\"P\"><gen type=\"stat\" of=\"Paid\" op=\"count\"/></sequence><sequence name=\"F\"><gen type=\"stat\" of=\"Free\" op=\"count\"/></sequence><assert that=\"P + F == _total\" says=\"every row belongs to exactly one plan\"/><assert that=\"P == 2\" says=\"a fifth of ten rows is two\"/></env><block><line><data>${{Plan}}:${{Paid}}${{Free}}</data></line></block></tdc>",
+      "expected": [
+        "free:6",
+        "free:5",
+        "free:9",
+        "free:4",
+        "free:3",
+        "free:6",
+        "free:1",
+        "paid:4",
+        "free:8",
+        "paid:2"
+      ]
+    }
+  ]
+}

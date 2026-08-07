@@ -42,7 +42,7 @@
 
 import { evaluateInScope } from '../expr/evaluate.js';
 import { sequenceValueAt } from './types.js';
-import type { Sequence, SequenceRegistry } from './types.js';
+import type { Sequence, SequenceRegistry, SequenceSpec } from './types.js';
 
 /** One `<assert>` as written. */
 export interface AssertSpec {
@@ -66,21 +66,71 @@ export class AssertionError extends Error {
  */
 const WHOLE_RUN_BUILTINS: ReadonlySet<string> = new Set(['_total']);
 
-/** True when this column holds the same value on every row it applies to. */
-function isWholeRunConstant(name: string, seq: Sequence | undefined, count: number): boolean {
-  if (WHOLE_RUN_BUILTINS.has(name)) return true;
-  if (!seq) return false;
-  // Read rather than trusted: a `stat` column is constant by construction, but so
-  // is a one-value `text` column, and refusing that would be a rule about the
-  // spelling rather than about the data. Cheap — these columns are already built.
+/**
+ * Constant from the SPEC alone, without reading a single row.
+ *
+ * Reading the column is the honest test and stays below, but it costs a pass
+ * over the run — and on a streaming engine, where the counts get large, that
+ * pass regenerates every value. Measured at two million rows: a third of a
+ * second per name, which at a billion rows is minutes spent proving something
+ * the spec already said.
+ *
+ * So the cheap proof runs first, and like the `uniq` capacity check it only ever
+ * answers "definitely constant". Anything it cannot prove falls through to the
+ * scan, so no config is refused that would have been accepted.
+ */
+function constantByConstruction(spec: SequenceSpec | undefined): boolean {
+  const gen = spec?.gen;
+  if (!gen) return false; // a compound, a mix, a switch — read it
+  // A filtered column is empty on the rows the filter excluded, and `missing=`
+  // and a conditional body both make a cell that may or may not be there. None
+  // of those is settled by the spec.
+  if (spec.parent !== undefined) return false;
+  for (const attr of ['missing', 'anomaly', 'if', 'repeat']) {
+    if (gen.attrs[attr] !== undefined) return false;
+  }
+  // One number for the whole run, by definition.
+  if (gen.type === 'stat') return true;
+  // A list of one is the same value on every row.
+  if (gen.type === 'text') {
+    const raw = gen.attrs['value'];
+    return raw !== undefined && !raw.includes(',');
+  }
+  return false;
+}
+
+/** What reading the column found: one value throughout, several, or a gap. */
+type Constancy = 'constant' | 'varies' | 'empty-on-some-rows';
+
+/** Whether this column holds one and the same value on every row of the run. */
+function wholeRunConstancy(
+  name: string,
+  seq: Sequence | undefined,
+  spec: SequenceSpec | undefined,
+  count: number,
+): Constancy {
+  if (WHOLE_RUN_BUILTINS.has(name)) return 'constant';
+  if (!seq) return 'varies';
+  if (constantByConstruction(spec)) return 'constant';
+  // Read rather than trusted: a one-value `text` column is as constant as a
+  // `stat` one, and a rule that named approved generator types would be about
+  // the spelling rather than about the data. A column that varies gives itself
+  // away at the first difference, so this is a full pass only for one that does
+  // not — and then the pass is the proof.
+  //
+  // An EMPTY cell fails the rule as surely as a different one. A column that a
+  // `parent=` filter leaves blank on half the run has no whole-run value at all;
+  // it is a per-row column that happens to hold one distinct string, and reading
+  // it as though it described the run is the same trap in a better disguise —
+  // the expression would compare against whatever row 0 happened to hold.
   let seen: string | undefined;
   for (let i = 0; i < count; i++) {
     const value = sequenceValueAt(seq, i);
-    if (value === undefined) continue; // a filtered row says nothing either way
+    if (value === undefined) return 'empty-on-some-rows';
     if (seen === undefined) seen = value;
-    else if (value !== seen) return false;
+    else if (value !== seen) return 'varies';
   }
-  return seen !== undefined;
+  return seen === undefined ? 'empty-on-some-rows' : 'constant';
 }
 
 /**
@@ -93,8 +143,12 @@ function isWholeRunConstant(name: string, seq: Sequence | undefined, count: numb
 export function checkAssertions(
   asserts: readonly AssertSpec[],
   registry: SequenceRegistry,
+  specs: readonly SequenceSpec[],
   count: number,
 ): void {
+  const byName = new Map<string, SequenceSpec>();
+  for (const spec of specs) byName.set(spec.name, spec);
+
   for (const spec of asserts) {
     const read = new Map<string, string | undefined>();
     const scope = (name: string): string | undefined => {
@@ -117,15 +171,18 @@ export function checkAssertions(
     // five implementations, since they share this walk — so which names are
     // checked does not depend on the order the operands happen to be in.
     for (const name of read.keys()) {
-      if (!isWholeRunConstant(name, registry[name], count)) {
-        throw new AssertionError(
-          `assert ("${spec.that}"): "${name}" is not the same on every row, so this would ` +
-            'have checked the first row and called the run verified. An assertion reads ' +
-            'whole-run values: give it a <gen type="stat" of="' +
-            name +
-            '" op="…"/> column, or _total.',
-        );
-      }
+      const constancy = wholeRunConstancy(name, registry[name], byName.get(name), count);
+      if (constancy === 'constant') continue;
+      const why =
+        constancy === 'varies'
+          ? `"${name}" is not the same on every row, so this would have checked the first row ` +
+            'and called the run verified'
+          : `"${name}" is empty on some rows, so the run has no single value for it — this ` +
+            'would have checked whatever the first row happened to hold';
+      throw new AssertionError(
+        `assert ("${spec.that}"): ${why}. An assertion reads whole-run values: give it a ` +
+          `<gen type="stat" of="${name}" op="…"/> column, or _total.`,
+      );
     }
 
     if (!held) {

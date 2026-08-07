@@ -120,6 +120,33 @@ describe('<assert> — the run checks itself', () => {
     }
   });
 
+  it('refuses a column a filter leaves empty on some rows', () => {
+    // One distinct string is not a whole-run value when half the rows have no
+    // value at all: the condition would compare against whatever row 0 held.
+    expect(() =>
+      run(
+        `${KIND}<sequence name="Env" parent="Kind.a"><gen type="text" value="prod"/></sequence>` +
+          `<assert that="Env == 'prod'" says="…"/>`,
+      ),
+    ).toThrow(/"Env" is empty on some rows/);
+  });
+
+  it('proves a stat column constant without reading a million rows', () => {
+    // Reading the column is the honest test and stays, but on a streaming engine
+    // it regenerates every value — a third of a second per name at two million
+    // rows. What the spec settles is not re-derived from the data.
+    const started = Date.now();
+    expect(() =>
+      run(
+        '<sequence name="N"><gen type="number" value="1..9"/></sequence>' +
+          '<sequence name="Rows"><gen type="stat" of="N" op="count"/></sequence>' +
+          '<assert that="Rows == 1" says="…"/>',
+        200_000,
+      ),
+    ).toThrow(/Rows = 200000/);
+    expect(Date.now() - started).toBeLessThan(20_000);
+  });
+
   it('catches the shape percentages cannot: a share that no longer sums to the whole', () => {
     const env =
       '<sequence name="Plan"><gen type="text" value="free,paid" percent="80,20"/></sequence>' +

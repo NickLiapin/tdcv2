@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "cases": [
+    {
+      "name": "an-assertion-with-no-condition",
+      "demonstrates": "TDC265",
+      "description": "An assertion is the one construct whose whole worth is that it fails. Without a condition it never can, and the config carries a check that reads as verification and compares nothing.",
+      "config": "<tdc><env count=\"3\" seed=\"s\" local=\"en\"><sequence name=\"N\"><gen type=\"number\" value=\"1..9\"/></sequence><assert says=\"something\"/></env><block><line><data>${{N}}</data></line></block></tdc>",
+      "expected": ["error TDC265 1:103"]
+    },
+    {
+      "name": "a-condition-that-is-only-whitespace",
+      "demonstrates": "TDC265",
+      "description": "Written but empty is the same as absent, and easier to produce by accident — a generated config, or an attribute whose value was edited away.",
+      "config": "<tdc><env count=\"3\" seed=\"s\" local=\"en\"><sequence name=\"N\"><gen type=\"number\" value=\"1..9\"/></sequence><assert that=\"   \" says=\"something\"/></env><block><line><data>${{N}}</data></line></block></tdc>",
+      "expected": ["error TDC265 1:117"]
+    },
+    {
+      "name": "an-assertion-with-nothing-to-tell-the-reader",
+      "demonstrates": "TDC266",
+      "description": "says= is what a person reads in a CI log months later. An expression on its own leaves them to reconstruct what property was being defended and why it mattered.",
+      "config": "<tdc><env count=\"3\" seed=\"s\" local=\"en\"><sequence name=\"N\"><gen type=\"number\" value=\"1..9\"/></sequence><sequence name=\"Rows\"><gen type=\"stat\" of=\"N\" op=\"count\"/></sequence><assert that=\"Rows == 3\"/></env><block><line><data>${{N}}</data></line></block></tdc>",
+      "expected": ["error TDC266 1:172"]
+    },
+    {
+      "name": "a-typo-in-a-column-name",
+      "demonstrates": "TDC215",
+      "description": "that= is the if= language, so a name that is not a name is the same mistake with the same code. An implementation that gave assertions their own name resolution would either invent a second code for one error or, worse, read the misspelling as literal text and check a string against a number.",
+      "config": "<tdc><env count=\"3\" seed=\"s\" local=\"en\"><sequence name=\"N\"><gen type=\"number\" value=\"1..9\"/></sequence><sequence name=\"Rows\"><gen type=\"stat\" of=\"N\" op=\"count\"/></sequence><assert that=\"Rowss == 3\" says=\"…\"/></env><block><line><data>${{N}}</data></line></block></tdc>",
+      "expected": ["error TDC215 1:186"]
+    },
+    {
+      "name": "an-assertion-outside-env",
+      "demonstrates": "TDC010",
+      "description": "An assertion is a statement about the whole run, like <uniq> and <distinct>, so <env> is the only place it means anything. Inside a <sequence> it would be a claim about a column made from inside that column.",
+      "config": "<tdc><env count=\"3\" seed=\"s\" local=\"en\"><sequence name=\"N\"><gen type=\"number\" value=\"1..9\"/></sequence></env><assert that=\"1 == 1\" says=\"…\"/><block><line><data>${{N}}</data></line></block></tdc>",
+      "expected": ["error TDC010 1:109"]
+    }
+  ]
+}

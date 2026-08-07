@@ -1,26 +1,13 @@
 {
   "comment": "Streaming-engine output for every shared case, from the reference implementation. It MATCHES the `expected` in the cases themselves — all three engines agree, and this file is where that is checked. What it adds is which cases an engine refuses. Regenerate with: npm run fixtures:engines -- --update",
-  "engines": [
-    2,
-    3
-  ],
+  "engines": [2, 3],
   "cases": {
     "accumulate/a-running-total-inside-one-record": {
       "engine2": {
-        "lines": [
-          "58,144,204",
-          "33,121,173",
-          "34,102,118",
-          "68,80,114"
-        ]
+        "lines": ["58,144,204", "33,121,173", "34,102,118", "68,80,114"]
       },
       "engine3": {
-        "lines": [
-          "58,144,204",
-          "33,121,173",
-          "34,102,118",
-          "68,80,114"
-        ]
+        "lines": ["58,144,204", "33,121,173", "34,102,118", "68,80,114"]
       }
     },
     "accumulate/a-running-total-of-decimals-is-exact": {
@@ -41,34 +28,18 @@
     },
     "accumulate/a-running-maximum-keeps-the-winning-element": {
       "engine2": {
-        "lines": [
-          "063,084,084,084",
-          "087,087,087,087",
-          "021,098,098,098"
-        ]
+        "lines": ["063,084,084,084", "087,087,087,087", "021,098,098,098"]
       },
       "engine3": {
-        "lines": [
-          "063,084,084,084",
-          "087,087,087,087",
-          "021,098,098,098"
-        ]
+        "lines": ["063,084,084,084", "087,087,087,087", "021,098,098,098"]
       }
     },
     "accumulate/a-running-minimum": {
       "engine2": {
-        "lines": [
-          "91,29,23,23",
-          "36,36,26,26",
-          "72,64,14,14"
-        ]
+        "lines": ["91,29,23,23", "36,36,26,26", "72,64,14,14"]
       },
       "engine3": {
-        "lines": [
-          "91,29,23,23",
-          "36,36,26,26",
-          "72,64,14,14"
-        ]
+        "lines": ["91,29,23,23", "36,36,26,26", "72,64,14,14"]
       }
     },
     "accumulate/a-running-total-over-a-variable-length-list": {
@@ -171,6 +142,79 @@
         ]
       }
     },
+    "assert/an-assertion-that-holds-changes-nothing": {
+      "engine2": {
+        "refused": "a statistic (\"Rows\") is computed over every row of the run, including the ones after this one, so it cannot be computed one row at a time; the in-memory engine handles it (run without a forced streaming engine)"
+      },
+      "engine3": {
+        "lines": [
+          "a,55",
+          "a,80",
+          "a,78",
+          "a,93",
+          "b,",
+          "b,",
+          "a,95",
+          "a,60",
+          "a,41",
+          "b,"
+        ]
+      }
+    },
+    "assert/the-same-run-without-the-assertion": {
+      "engine2": {
+        "refused": "a statistic (\"Rows\") is computed over every row of the run, including the ones after this one, so it cannot be computed one row at a time; the in-memory engine handles it (run without a forced streaming engine)"
+      },
+      "engine3": {
+        "lines": [
+          "a,55",
+          "a,80",
+          "a,78",
+          "a,93",
+          "b,",
+          "b,",
+          "a,95",
+          "a,60",
+          "a,41",
+          "b,"
+        ]
+      }
+    },
+    "assert/_total-is-whole-run-constant": {
+      "engine2": {
+        "lines": ["7", "4", "4", "3"]
+      },
+      "engine3": {
+        "lines": ["7", "4", "4", "3"]
+      }
+    },
+    "assert/a-one-value-column-counts-as-whole-run-constant": {
+      "engine2": {
+        "lines": ["prod-7", "prod-4", "prod-4"]
+      },
+      "engine3": {
+        "lines": ["prod-7", "prod-4", "prod-4"]
+      }
+    },
+    "assert/several-assertions-all-hold": {
+      "engine2": {
+        "refused": "a statistic (\"P\") is computed over every row of the run, including the ones after this one, so it cannot be computed one row at a time; the in-memory engine handles it (run without a forced streaming engine)"
+      },
+      "engine3": {
+        "lines": [
+          "free:6",
+          "free:5",
+          "free:9",
+          "free:4",
+          "free:3",
+          "free:6",
+          "free:1",
+          "paid:4",
+          "free:8",
+          "paid:2"
+        ]
+      }
+    },
     "compute/compute-aba-routing": {
       "engine2": {
         "lines": [
@@ -195,24 +239,10 @@
     },
     "compute/compute-ordinal-suffix": {
       "engine2": {
-        "lines": [
-          "Sunset",
-          "109th",
-          "145th",
-          "Birch",
-          "120th",
-          "Hickory"
-        ]
+        "lines": ["Sunset", "109th", "145th", "Birch", "120th", "Hickory"]
       },
       "engine3": {
-        "lines": [
-          "Sunset",
-          "109th",
-          "145th",
-          "Birch",
-          "120th",
-          "Hickory"
-        ]
+        "lines": ["Sunset", "109th", "145th", "Birch", "120th", "Hickory"]
       }
     },
     "compute/compute-uuid-pack": {
@@ -235,128 +265,82 @@
     },
     "compute/compute-takes-no-draws": {
       "engine2": {
-        "lines": [
-          "448,448,139",
-          "729,729,341",
-          "901,901,564",
-          "817,817,554"
-        ]
+        "lines": ["448,448,139", "729,729,341", "901,901,564", "817,817,554"]
       },
       "engine3": {
-        "lines": [
-          "448,448,139",
-          "729,729,341",
-          "901,901,564",
-          "817,817,554"
-        ]
+        "lines": ["448,448,139", "729,729,341", "901,901,564", "817,817,554"]
       }
     },
     "compute/compute-reduce-and-encode": {
       "engine2": {
-        "lines": [
-          "AB12=24"
-        ]
+        "lines": ["AB12=24"]
       },
       "engine3": {
-        "lines": [
-          "AB12=24"
-        ]
+        "lines": ["AB12=24"]
       }
     },
     "compute/compute-euclidean-mod": {
       "engine2": {
-        "lines": [
-          "2 1 -3"
-        ]
+        "lines": ["2 1 -3"]
       },
       "engine3": {
-        "lines": [
-          "2 1 -3"
-        ]
+        "lines": ["2 1 -3"]
       }
     },
     "compute/compute-pad-and-slice": {
       "engine2": {
-        "lines": [
-          "000042|****42|5"
-        ]
+        "lines": ["000042|****42|5"]
       },
       "engine3": {
-        "lines": [
-          "000042|****42|5"
-        ]
+        "lines": ["000042|****42|5"]
       }
     },
     "compute/case-transforms-and-trim": {
       "engine2": {
-        "lines": [
-          "wide open road|WIDE OPEN ROAD|loud|One two|One Two"
-        ]
+        "lines": ["wide open road|WIDE OPEN ROAD|loud|One two|One Two"]
       },
       "engine3": {
-        "lines": [
-          "wide open road|WIDE OPEN ROAD|loud|One two|One Two"
-        ]
+        "lines": ["wide open road|WIDE OPEN ROAD|loud|One two|One Two"]
       }
     },
     "compute/string-surgery-mask-replace-slice-group": {
       "engine2": {
-        "lines": [
-          "378-98-4323|2026/08/03|cde|fgh|4111 1111 1111 1111"
-        ]
+        "lines": ["378-98-4323|2026/08/03|cde|fgh|4111 1111 1111 1111"]
       },
       "engine3": {
-        "lines": [
-          "378-98-4323|2026/08/03|cde|fgh|4111 1111 1111 1111"
-        ]
+        "lines": ["378-98-4323|2026/08/03|cde|fgh|4111 1111 1111 1111"]
       }
     },
     "compute/lists-at-index-and-current-index": {
       "engine2": {
-        "lines": [
-          "10-20-30|8|0|10|8"
-        ]
+        "lines": ["10-20-30|8|0|10|8"]
       },
       "engine3": {
-        "lines": [
-          "10-20-30|8|0|10|8"
-        ]
+        "lines": ["10-20-30|8|0|10|8"]
       }
     },
     "compute/predicates-less-greater-is-digit": {
       "engine2": {
-        "lines": [
-          "low|big|numeric"
-        ]
+        "lines": ["low|big|numeric"]
       },
       "engine3": {
-        "lines": [
-          "low|big|numeric"
-        ]
+        "lines": ["low|big|numeric"]
       }
     },
     "compute/every-encoding": {
       "engine2": {
-        "lines": [
-          "65|65|41|101|1000001"
-        ]
+        "lines": ["65|65|41|101|1000001"]
       },
       "engine3": {
-        "lines": [
-          "65|65|41|101|1000001"
-        ]
+        "lines": ["65|65|41|101|1000001"]
       }
     },
     "compute/each-maps-a-list-and-equals-compares": {
       "engine2": {
-        "lines": [
-          "6,10,16|same"
-        ]
+        "lines": ["6,10,16|same"]
       },
       "engine3": {
-        "lines": [
-          "6,10,16|same"
-        ]
+        "lines": ["6,10,16|same"]
       }
     },
     "compute/split-reads-back-a-repeating-column": {
@@ -377,30 +361,18 @@
     },
     "containers/a-tag-inside-data-is-text-not-a-mistake": {
       "engine2": {
-        "lines": [
-          "x<bogus_tag/>y",
-          "x<bogus_tag/>y"
-        ]
+        "lines": ["x<bogus_tag/>y", "x<bogus_tag/>y"]
       },
       "engine3": {
-        "lines": [
-          "x<bogus_tag/>y",
-          "x<bogus_tag/>y"
-        ]
+        "lines": ["x<bogus_tag/>y", "x<bogus_tag/>y"]
       }
     },
     "containers/an-open-close-gen-is-the-same-generator": {
       "engine2": {
-        "lines": [
-          "a",
-          "b"
-        ]
+        "lines": ["a", "b"]
       },
       "engine3": {
-        "lines": [
-          "a",
-          "b"
-        ]
+        "lines": ["a", "b"]
       }
     },
     "containers/the-per-line-fixtures-see-output-lines-not-line-elements": {
@@ -445,18 +417,10 @@
     },
     "containers/a-delimiter-follows-the-lines-that-survive": {
       "engine2": {
-        "lines": [
-          "first",
-          ",",
-          "last"
-        ]
+        "lines": ["first", ",", "last"]
       },
       "engine3": {
-        "lines": [
-          "first",
-          ",",
-          "last"
-        ]
+        "lines": ["first", ",", "last"]
       }
     },
     "containers/a-fixture-reads-the-row-it-stands-beside": {
@@ -577,11 +541,7 @@
         "refused": "a date measured from another column (\"Follow\") reads that column as the row is built, and the streaming path has no way to do that yet; the in-memory engine handles it (run without a forced streaming engine)"
       },
       "engine3": {
-        "lines": [
-          "[][]",
-          "[][]",
-          "[][]"
-        ]
+        "lines": ["[][]", "[][]", "[][]"]
       }
     },
     "date-offset/an-offset-with-no-mode-goes-where-it-must": {
@@ -642,18 +602,10 @@
     },
     "dates/date-today": {
       "engine2": {
-        "lines": [
-          "2026-04-23",
-          "2026-04-23",
-          "2026-04-23"
-        ]
+        "lines": ["2026-04-23", "2026-04-23", "2026-04-23"]
       },
       "engine3": {
-        "lines": [
-          "2026-04-23",
-          "2026-04-23",
-          "2026-04-23"
-        ]
+        "lines": ["2026-04-23", "2026-04-23", "2026-04-23"]
       }
     },
     "dates/date-now": {
@@ -730,14 +682,10 @@
     },
     "dates/the-two-long-localized-formats": {
       "engine2": {
-        "lines": [
-          "March 5, 2026 07:09 / Thursday, March 5, 2026 07:09"
-        ]
+        "lines": ["March 5, 2026 07:09 / Thursday, March 5, 2026 07:09"]
       },
       "engine3": {
-        "lines": [
-          "March 5, 2026 07:09 / Thursday, March 5, 2026 07:09"
-        ]
+        "lines": ["March 5, 2026 07:09 / Thursday, March 5, 2026 07:09"]
       }
     },
     "dates/walked-day": {
@@ -784,102 +732,50 @@
     },
     "dates/walked-calendar-clamp": {
       "engine2": {
-        "lines": [
-          "2026-01-31",
-          "2026-02-28",
-          "2026-03-31",
-          "2026-04-30"
-        ]
+        "lines": ["2026-01-31", "2026-02-28", "2026-03-31", "2026-04-30"]
       },
       "engine3": {
-        "lines": [
-          "2026-01-31",
-          "2026-02-28",
-          "2026-03-31",
-          "2026-04-30"
-        ]
+        "lines": ["2026-01-31", "2026-02-28", "2026-03-31", "2026-04-30"]
       }
     },
     "dates/walked-step-minutes": {
       "engine2": {
-        "lines": [
-          "2026-01-01 00:00",
-          "2026-01-01 00:15",
-          "2026-01-01 00:30"
-        ]
+        "lines": ["2026-01-01 00:00", "2026-01-01 00:15", "2026-01-01 00:30"]
       },
       "engine3": {
-        "lines": [
-          "2026-01-01 00:00",
-          "2026-01-01 00:15",
-          "2026-01-01 00:30"
-        ]
+        "lines": ["2026-01-01 00:00", "2026-01-01 00:15", "2026-01-01 00:30"]
       }
     },
     "dates/walked-step-composed": {
       "engine2": {
-        "lines": [
-          "2026-01-01 00:00",
-          "2026-01-01 01:30",
-          "2026-01-01 03:00"
-        ]
+        "lines": ["2026-01-01 00:00", "2026-01-01 01:30", "2026-01-01 03:00"]
       },
       "engine3": {
-        "lines": [
-          "2026-01-01 00:00",
-          "2026-01-01 01:30",
-          "2026-01-01 03:00"
-        ]
+        "lines": ["2026-01-01 00:00", "2026-01-01 01:30", "2026-01-01 03:00"]
       }
     },
     "dates/walked-step-calendar-composed": {
       "engine2": {
-        "lines": [
-          "2026-01-01",
-          "2027-07-01",
-          "2029-01-01"
-        ]
+        "lines": ["2026-01-01", "2027-07-01", "2029-01-01"]
       },
       "engine3": {
-        "lines": [
-          "2026-01-01",
-          "2027-07-01",
-          "2029-01-01"
-        ]
+        "lines": ["2026-01-01", "2027-07-01", "2029-01-01"]
       }
     },
     "dates/walked-step-bare-number": {
       "engine2": {
-        "lines": [
-          "2026-01-01",
-          "2026-01-03",
-          "2026-01-05"
-        ]
+        "lines": ["2026-01-01", "2026-01-03", "2026-01-05"]
       },
       "engine3": {
-        "lines": [
-          "2026-01-01",
-          "2026-01-03",
-          "2026-01-05"
-        ]
+        "lines": ["2026-01-01", "2026-01-03", "2026-01-05"]
       }
     },
     "dates/walked-weekdays-span": {
       "engine2": {
-        "lines": [
-          "2026-01-01",
-          "2026-01-02",
-          "2026-01-05",
-          "2026-01-06"
-        ]
+        "lines": ["2026-01-01", "2026-01-02", "2026-01-05", "2026-01-06"]
       },
       "engine3": {
-        "lines": [
-          "2026-01-01",
-          "2026-01-02",
-          "2026-01-05",
-          "2026-01-06"
-        ]
+        "lines": ["2026-01-01", "2026-01-02", "2026-01-05", "2026-01-06"]
       }
     },
     "dates/walked-weekdays-wrapping-span": {
@@ -904,18 +800,10 @@
     },
     "dates/walked-weekdays-list": {
       "engine2": {
-        "lines": [
-          "2026-01-04",
-          "2026-01-07",
-          "2026-01-11"
-        ]
+        "lines": ["2026-01-04", "2026-01-07", "2026-01-11"]
       },
       "engine3": {
-        "lines": [
-          "2026-01-04",
-          "2026-01-07",
-          "2026-01-11"
-        ]
+        "lines": ["2026-01-04", "2026-01-07", "2026-01-11"]
       }
     },
     "dates/walked-step-and-weekdays": {
@@ -938,60 +826,26 @@
     },
     "dates/walked-leap-day": {
       "engine2": {
-        "lines": [
-          "2024-02-28",
-          "2024-02-29",
-          "2024-03-01"
-        ]
+        "lines": ["2024-02-28", "2024-02-29", "2024-03-01"]
       },
       "engine3": {
-        "lines": [
-          "2024-02-28",
-          "2024-02-29",
-          "2024-03-01"
-        ]
+        "lines": ["2024-02-28", "2024-02-29", "2024-03-01"]
       }
     },
     "expressions/modulo-picks-every-second-row": {
       "engine2": {
-        "lines": [
-          "odd",
-          "even",
-          "odd",
-          "even",
-          "odd",
-          "even"
-        ]
+        "lines": ["odd", "even", "odd", "even", "odd", "even"]
       },
       "engine3": {
-        "lines": [
-          "odd",
-          "even",
-          "odd",
-          "even",
-          "odd",
-          "even"
-        ]
+        "lines": ["odd", "even", "odd", "even", "odd", "even"]
       }
     },
     "expressions/modulo-is-euclidean-not-the-host-languages": {
       "engine2": {
-        "lines": [
-          "-4%3=2",
-          "-3%3=0",
-          "-2%3=1",
-          "-1%3=2",
-          "0%3=0"
-        ]
+        "lines": ["-4%3=2", "-3%3=0", "-2%3=1", "-1%3=2", "0%3=0"]
       },
       "engine3": {
-        "lines": [
-          "-4%3=2",
-          "-3%3=0",
-          "-2%3=1",
-          "-1%3=2",
-          "0%3=0"
-        ]
+        "lines": ["-4%3=2", "-3%3=0", "-2%3=1", "-1%3=2", "0%3=0"]
       }
     },
     "expressions/round-sends-a-half-away-from-zero": {
@@ -1018,30 +872,18 @@
     },
     "expressions/abs-floor-ceil-trunc-on-a-negative-fraction": {
       "engine2": {
-        "lines": [
-          "abs=ok floor=ok ceil=ok trunc=ok"
-        ]
+        "lines": ["abs=ok floor=ok ceil=ok trunc=ok"]
       },
       "engine3": {
-        "lines": [
-          "abs=ok floor=ok ceil=ok trunc=ok"
-        ]
+        "lines": ["abs=ok floor=ok ceil=ok trunc=ok"]
       }
     },
     "expressions/min-and-max-are-variadic-and-compose": {
       "engine2": {
-        "lines": [
-          "N=-9 -> odd-max",
-          "N=4 -> min-is-3",
-          "N=-2 -> odd-max"
-        ]
+        "lines": ["N=-9 -> odd-max", "N=4 -> min-is-3", "N=-2 -> odd-max"]
       },
       "engine3": {
-        "lines": [
-          "N=-9 -> odd-max",
-          "N=4 -> min-is-3",
-          "N=-2 -> odd-max"
-        ]
+        "lines": ["N=-9 -> odd-max", "N=4 -> min-is-3", "N=-2 -> odd-max"]
       }
     },
     "expressions/the-row-counter-is-a-number-past-the-ninth-row": {
@@ -1080,38 +922,18 @@
     },
     "expressions/in-tests-membership-of-a-bare-word-list": {
       "engine2": {
-        "lines": [
-          "US=NAFTA",
-          "FR=other",
-          "CA=NAFTA",
-          "JP=other",
-          "MX=NAFTA"
-        ]
+        "lines": ["US=NAFTA", "FR=other", "CA=NAFTA", "JP=other", "MX=NAFTA"]
       },
       "engine3": {
-        "lines": [
-          "US=NAFTA",
-          "FR=other",
-          "CA=NAFTA",
-          "JP=other",
-          "MX=NAFTA"
-        ]
+        "lines": ["US=NAFTA", "FR=other", "CA=NAFTA", "JP=other", "MX=NAFTA"]
       }
     },
     "expressions/in-compares-as-loosely-as-equals-does": {
       "engine2": {
-        "lines": [
-          "1=in",
-          "3=in",
-          "7=out"
-        ]
+        "lines": ["1=in", "3=in", "7=out"]
       },
       "engine3": {
-        "lines": [
-          "1=in",
-          "3=in",
-          "7=out"
-        ]
+        "lines": ["1=in", "3=in", "7=out"]
       }
     },
     "expressions/string-predicates-read-a-value-as-text": {
@@ -1134,134 +956,82 @@
     },
     "expressions/len-counts-code-points-and-never-numbers": {
       "engine2": {
-        "lines": [
-          "[ab] len=2",
-          "[😀ab] len=3",
-          "[10] len=2"
-        ]
+        "lines": ["[ab] len=2", "[😀ab] len=3", "[10] len=2"]
       },
       "engine3": {
-        "lines": [
-          "[ab] len=2",
-          "[😀ab] len=3",
-          "[10] len=2"
-        ]
+        "lines": ["[ab] len=2", "[😀ab] len=3", "[10] len=2"]
       }
     },
     "expressions/upper-lower-and-is-empty": {
       "engine2": {
-        "lines": [
-          "[aB]=up-AB",
-          "[]=empty",
-          "[CD]=low-cd"
-        ]
+        "lines": ["[aB]=up-AB", "[]=empty", "[CD]=low-cd"]
       },
       "engine3": {
-        "lines": [
-          "[aB]=up-AB",
-          "[]=empty",
-          "[CD]=low-cd"
-        ]
+        "lines": ["[aB]=up-AB", "[]=empty", "[CD]=low-cd"]
       }
     },
     "expressions/the-ternary-picks-a-value-then-it-is-compared": {
       "engine2": {
-        "lines": [
-          "10=low",
-          "50=mid",
-          "90=high"
-        ]
+        "lines": ["10=low", "50=mid", "90=high"]
       },
       "engine3": {
-        "lines": [
-          "10=low",
-          "50=mid",
-          "90=high"
-        ]
+        "lines": ["10=low", "50=mid", "90=high"]
       }
     },
     "expressions/tdcmath-produces-the-same-double-everywhere": {
       "engine2": {
-        "lines": [
-          "sqrt exp log sin cos tan pow"
-        ]
+        "lines": ["sqrt exp log sin cos tan pow"]
       },
       "engine3": {
-        "lines": [
-          "sqrt exp log sin cos tan pow"
-        ]
+        "lines": ["sqrt exp log sin cos tan pow"]
       }
     },
     "expressions/tdcmath-second-wave-produces-the-same-double-everywhere": {
       "engine2": {
-        "lines": [
-          "atan asin acos atan2 sinh cosh tanh cbrt"
-        ]
+        "lines": ["atan asin acos atan2 sinh cosh tanh cbrt"]
       },
       "engine3": {
-        "lines": [
-          "atan asin acos atan2 sinh cosh tanh cbrt"
-        ]
+        "lines": ["atan asin acos atan2 sinh cosh tanh cbrt"]
       }
     },
     "expressions/tdcmath-third-wave-produces-the-same-double-everywhere": {
       "engine2": {
-        "lines": [
-          "expm1 log1p log2 asinh acosh atanh hypot sign"
-        ]
+        "lines": ["expm1 log1p log2 asinh acosh atanh hypot sign"]
       },
       "engine3": {
-        "lines": [
-          "expm1 log1p log2 asinh acosh atanh hypot sign"
-        ]
+        "lines": ["expm1 log1p log2 asinh acosh atanh hypot sign"]
       }
     },
     "expressions/a-number-may-carry-an-exponent": {
       "engine2": {
-        "lines": [
-          "bare plus minus capital name-intact"
-        ]
+        "lines": ["bare plus minus capital name-intact"]
       },
       "engine3": {
-        "lines": [
-          "bare plus minus capital name-intact"
-        ]
+        "lines": ["bare plus minus capital name-intact"]
       }
     },
     "expressions/tdcmath-fourth-wave-produces-the-same-double-everywhere": {
       "engine2": {
-        "lines": [
-          "erf erfc gamma lgamma gamma-whole erfc-tail"
-        ]
+        "lines": ["erf erfc gamma lgamma gamma-whole erfc-tail"]
       },
       "engine3": {
-        "lines": [
-          "erf erfc gamma lgamma gamma-whole erfc-tail"
-        ]
+        "lines": ["erf erfc gamma lgamma gamma-whole erfc-tail"]
       }
     },
     "expressions/tdcmath-fifth-wave-produces-the-same-double-everywhere": {
       "engine2": {
-        "lines": [
-          "degrees radians beta digamma zeta zeta-pi2"
-        ]
+        "lines": ["degrees radians beta digamma zeta zeta-pi2"]
       },
       "engine3": {
-        "lines": [
-          "degrees radians beta digamma zeta zeta-pi2"
-        ]
+        "lines": ["degrees radians beta digamma zeta zeta-pi2"]
       }
     },
     "expressions/log10-is-whole-on-a-power-of-ten": {
       "engine2": {
-        "lines": [
-          "log10-whole log10-negative log10-bits log10-edge"
-        ]
+        "lines": ["log10-whole log10-negative log10-bits log10-edge"]
       },
       "engine3": {
-        "lines": [
-          "log10-whole log10-negative log10-bits log10-edge"
-        ]
+        "lines": ["log10-whole log10-negative log10-bits log10-edge"]
       }
     },
     "expressions/whole-numbers-stay-whole-past-two-to-the-fifty-three": {
@@ -1290,378 +1060,186 @@
     },
     "formatting/mask-phone": {
       "engine2": {
-        "lines": [
-          "555-123-4567"
-        ]
+        "lines": ["555-123-4567"]
       },
       "engine3": {
-        "lines": [
-          "555-123-4567"
-        ]
+        "lines": ["555-123-4567"]
       }
     },
     "formatting/mask-swap-words": {
       "engine2": {
-        "lines": [
-          "Smith John"
-        ]
+        "lines": ["Smith John"]
       },
       "engine3": {
-        "lines": [
-          "Smith John"
-        ]
+        "lines": ["Smith John"]
       }
     },
     "formatting/mask-copy-and-rest": {
       "engine2": {
-        "lines": [
-          "J. ohn Smith"
-        ]
+        "lines": ["J. ohn Smith"]
       },
       "engine3": {
-        "lines": [
-          "J. ohn Smith"
-        ]
+        "lines": ["J. ohn Smith"]
       }
     },
     "formatting/mask-reversed-range": {
       "engine2": {
-        "lines": [
-          "cba"
-        ]
+        "lines": ["cba"]
       },
       "engine3": {
-        "lines": [
-          "cba"
-        ]
+        "lines": ["cba"]
       }
     },
     "formatting/mask-out-of-range": {
       "engine2": {
-        "lines": [
-          "[]"
-        ]
+        "lines": ["[]"]
       },
       "engine3": {
-        "lines": [
-          "[]"
-        ]
+        "lines": ["[]"]
       }
     },
     "formatting/mask-literal-brackets": {
       "engine2": {
-        "lines": [
-          "[tel.] 555"
-        ]
+        "lines": ["[tel.] 555"]
       },
       "engine3": {
-        "lines": [
-          "[tel.] 555"
-        ]
+        "lines": ["[tel.] 555"]
       }
     },
     "formatting/case-transforms": {
       "engine2": {
-        "lines": [
-          "JOHN MCDONALD|john mcdonald|JOHN mcDONALD|JOHN McDONALD"
-        ]
+        "lines": ["JOHN MCDONALD|john mcdonald|JOHN mcDONALD|JOHN McDONALD"]
       },
       "engine3": {
-        "lines": [
-          "JOHN MCDONALD|john mcdonald|JOHN mcDONALD|JOHN McDONALD"
-        ]
+        "lines": ["JOHN MCDONALD|john mcdonald|JOHN mcDONALD|JOHN McDONALD"]
       }
     },
     "formatting/filter-slice-and-group": {
       "engine2": {
-        "lines": [
-          "123|34567890|1 234 567 890|12-3456-7890"
-        ]
+        "lines": ["123|34567890|1 234 567 890|12-3456-7890"]
       },
       "engine3": {
-        "lines": [
-          "123|34567890|1 234 567 890|12-3456-7890"
-        ]
+        "lines": ["123|34567890|1 234 567 890|12-3456-7890"]
       }
     },
     "formatting/filter-compact": {
       "engine2": {
-        "lines": [
-          "lfls|f4240"
-        ]
+        "lines": ["lfls|f4240"]
       },
       "engine3": {
-        "lines": [
-          "lfls|f4240"
-        ]
+        "lines": ["lfls|f4240"]
       }
     },
     "formatting/filter-csv-and-sql": {
       "engine2": {
-        "lines": [
-          "\"Jr\" Jr"
-        ]
+        "lines": ["\"Jr\" Jr"]
       },
       "engine3": {
-        "lines": [
-          "\"Jr\" Jr"
-        ]
+        "lines": ["\"Jr\" Jr"]
       }
     },
     "formatting/filter-chain": {
       "engine2": {
-        "lines": [
-          "O''BRIEN"
-        ]
+        "lines": ["O''BRIEN"]
       },
       "engine3": {
-        "lines": [
-          "O''BRIEN"
-        ]
+        "lines": ["O''BRIEN"]
       }
     },
     "formatting/custom-inject": {
       "engine2": {
-        "lines": [
-          "hi Ann and ${{V}}"
-        ]
+        "lines": ["hi Ann and ${{V}}"]
       },
       "engine3": {
-        "lines": [
-          "hi Ann and ${{V}}"
-        ]
+        "lines": ["hi Ann and ${{V}}"]
       }
     },
     "formatting/filters-mask-trim-replace": {
       "engine2": {
-        "lines": [
-          "378-98-4323|spaced out|2026/08/03"
-        ]
+        "lines": ["378-98-4323|spaced out|2026/08/03"]
       },
       "engine3": {
-        "lines": [
-          "378-98-4323|spaced out|2026/08/03"
-        ]
+        "lines": ["378-98-4323|spaced out|2026/08/03"]
       }
     },
     "generators/number-padded-range": {
       "engine2": {
-        "lines": [
-          "6031",
-          "2219",
-          "9836",
-          "2213",
-          "8452",
-          "7620"
-        ]
+        "lines": ["6031", "2219", "9836", "2213", "8452", "7620"]
       },
       "engine3": {
-        "lines": [
-          "6031",
-          "2219",
-          "9836",
-          "2213",
-          "8452",
-          "7620"
-        ]
+        "lines": ["6031", "2219", "9836", "2213", "8452", "7620"]
       }
     },
     "generators/number-negative-range": {
       "engine2": {
-        "lines": [
-          "1",
-          "-3",
-          "5",
-          "-3",
-          "4",
-          "3"
-        ]
+        "lines": ["1", "-3", "5", "-3", "4", "3"]
       },
       "engine3": {
-        "lines": [
-          "1",
-          "-3",
-          "5",
-          "-3",
-          "4",
-          "3"
-        ]
+        "lines": ["1", "-3", "5", "-3", "4", "3"]
       }
     },
     "generators/number-bit": {
       "engine2": {
-        "lines": [
-          "1",
-          "0",
-          "1",
-          "0",
-          "1",
-          "1"
-        ]
+        "lines": ["1", "0", "1", "0", "1", "1"]
       },
       "engine3": {
-        "lines": [
-          "1",
-          "0",
-          "1",
-          "0",
-          "1",
-          "1"
-        ]
+        "lines": ["1", "0", "1", "0", "1", "1"]
       }
     },
     "generators/number-digit-string": {
       "engine2": {
-        "lines": [
-          "6093",
-          "2515",
-          "9110",
-          "2420",
-          "8477",
-          "7896"
-        ]
+        "lines": ["6093", "2515", "9110", "2420", "8477", "7896"]
       },
       "engine3": {
-        "lines": [
-          "6093",
-          "2515",
-          "9110",
-          "2420",
-          "8477",
-          "7896"
-        ]
+        "lines": ["6093", "2515", "9110", "2420", "8477", "7896"]
       }
     },
     "generators/number-range-list": {
       "engine2": {
-        "lines": [
-          "100",
-          "2",
-          "100",
-          "2",
-          "101",
-          "102"
-        ]
+        "lines": ["100", "2", "100", "2", "101", "102"]
       },
       "engine3": {
-        "lines": [
-          "100",
-          "2",
-          "100",
-          "2",
-          "101",
-          "102"
-        ]
+        "lines": ["100", "2", "100", "2", "101", "102"]
       }
     },
     "generators/number-exclude": {
       "engine2": {
-        "lines": [
-          "6",
-          "1",
-          "9",
-          "1",
-          "8",
-          "7"
-        ]
+        "lines": ["6", "1", "9", "1", "8", "7"]
       },
       "engine3": {
-        "lines": [
-          "6",
-          "1",
-          "9",
-          "1",
-          "8",
-          "7"
-        ]
+        "lines": ["6", "1", "9", "1", "8", "7"]
       }
     },
     "generators/number-decimals": {
       "engine2": {
-        "lines": [
-          "1.60",
-          "1.22",
-          "1.99",
-          "1.22",
-          "1.85",
-          "1.76"
-        ]
+        "lines": ["1.60", "1.22", "1.99", "1.22", "1.85", "1.76"]
       },
       "engine3": {
-        "lines": [
-          "1.60",
-          "1.22",
-          "1.99",
-          "1.22",
-          "1.85",
-          "1.76"
-        ]
+        "lines": ["1.60", "1.22", "1.99", "1.22", "1.85", "1.76"]
       }
     },
     "generators/regex-pattern": {
       "engine2": {
-        "lines": [
-          "BY-546",
-          "NC-665",
-          "EE-623",
-          "LF-045",
-          "KU-864",
-          "WX-575"
-        ]
+        "lines": ["BY-546", "NC-665", "EE-623", "LF-045", "KU-864", "WX-575"]
       },
       "engine3": {
-        "lines": [
-          "BY-546",
-          "NC-665",
-          "EE-623",
-          "LF-045",
-          "KU-864",
-          "WX-575"
-        ]
+        "lines": ["BY-546", "NC-665", "EE-623", "LF-045", "KU-864", "WX-575"]
       }
     },
     "generators/regex-backreference": {
       "engine2": {
-        "lines": [
-          "b-b",
-          "a-a",
-          "b-b",
-          "a-a",
-          "b-b",
-          "b-b"
-        ]
+        "lines": ["b-b", "a-a", "b-b", "a-a", "b-b", "b-b"]
       },
       "engine3": {
-        "lines": [
-          "b-b",
-          "a-a",
-          "b-b",
-          "a-a",
-          "b-b",
-          "b-b"
-        ]
+        "lines": ["b-b", "a-a", "b-b", "a-a", "b-b", "b-b"]
       }
     },
     "generators/regex-bounded-repeat": {
       "engine2": {
-        "lines": [
-          "xx",
-          "",
-          "xxx",
-          "",
-          "xxx",
-          "xxx"
-        ]
+        "lines": ["xx", "", "xxx", "", "xxx", "xxx"]
       },
       "engine3": {
-        "lines": [
-          "xx",
-          "",
-          "xxx",
-          "",
-          "xxx",
-          "xxx"
-        ]
+        "lines": ["xx", "", "xxx", "", "xxx", "xxx"]
       }
     },
     "generators/advanced-regex-weighted": {
@@ -1669,18 +1247,7 @@
         "refused": "stream mode: advanced_regex weighted choice \"(?%{…})\" (\"V\") is not supported yet — run without mode=\"stream\" (the in-memory engine handles it), or remove it."
       },
       "engine3": {
-        "lines": [
-          "RU",
-          "RU",
-          "DE",
-          "RU",
-          "US",
-          "RU",
-          "RU",
-          "RU",
-          "US",
-          "RU"
-        ]
+        "lines": ["RU", "RU", "DE", "RU", "US", "RU", "RU", "RU", "US", "RU"]
       }
     },
     "generators/advanced-regex-nested": {
@@ -1688,18 +1255,7 @@
         "refused": "stream mode: advanced_regex weighted choice \"(?%{…})\" (\"V\") is not supported yet — run without mode=\"stream\" (the in-memory engine handles it), or remove it."
       },
       "engine3": {
-        "lines": [
-          "aa",
-          "ab",
-          "b",
-          "ab",
-          "b",
-          "aa",
-          "ab",
-          "aa",
-          "b",
-          "b"
-        ]
+        "lines": ["aa", "ab", "b", "ab", "b", "aa", "ab", "aa", "b", "b"]
       }
     },
     "generators/advanced-regex-branches-are-patterns": {
@@ -1707,128 +1263,47 @@
         "refused": "stream mode: advanced_regex weighted choice \"(?%{…})\" (\"V\") is not supported yet — run without mode=\"stream\" (the in-memory engine handles it), or remove it."
       },
       "engine3": {
-        "lines": [
-          "58",
-          "02",
-          "OU",
-          "49",
-          "NE",
-          "13",
-          "CL",
-          "78",
-          "ZZ",
-          "EE"
-        ]
+        "lines": ["58", "02", "OU", "49", "NE", "13", "CL", "78", "ZZ", "EE"]
       }
     },
     "generators/symbol-alphabet": {
       "engine2": {
-        "lines": [
-          "pby",
-          "fnc",
-          "zee",
-          "flf",
-          "vku",
-          "twx"
-        ]
+        "lines": ["pby", "fnc", "zee", "flf", "vku", "twx"]
       },
       "engine3": {
-        "lines": [
-          "pby",
-          "fnc",
-          "zee",
-          "flf",
-          "vku",
-          "twx"
-        ]
+        "lines": ["pby", "fnc", "zee", "flf", "vku", "twx"]
       }
     },
     "generators/symbol-exclude": {
       "engine2": {
-        "lines": [
-          "caca",
-          "acac",
-          "caaa",
-          "aaaa",
-          "cacc",
-          "cccc"
-        ]
+        "lines": ["caca", "acac", "caaa", "aaaa", "cacc", "cccc"]
       },
       "engine3": {
-        "lines": [
-          "caca",
-          "acac",
-          "caaa",
-          "aaaa",
-          "cacc",
-          "cccc"
-        ]
+        "lines": ["caca", "acac", "caaa", "aaaa", "cacc", "cccc"]
       }
     },
     "generators/counter-increment": {
       "engine2": {
-        "lines": [
-          "1000",
-          "1005",
-          "1010",
-          "1015",
-          "1020"
-        ]
+        "lines": ["1000", "1005", "1010", "1015", "1020"]
       },
       "engine3": {
-        "lines": [
-          "1000",
-          "1005",
-          "1010",
-          "1015",
-          "1020"
-        ]
+        "lines": ["1000", "1005", "1010", "1015", "1020"]
       }
     },
     "generators/counter-decrement": {
       "engine2": {
-        "lines": [
-          "100",
-          "93",
-          "86",
-          "79",
-          "72"
-        ]
+        "lines": ["100", "93", "86", "79", "72"]
       },
       "engine3": {
-        "lines": [
-          "100",
-          "93",
-          "86",
-          "79",
-          "72"
-        ]
+        "lines": ["100", "93", "86", "79", "72"]
       }
     },
     "generators/text-percent": {
       "engine2": {
-        "lines": [
-          "B",
-          "A",
-          "C",
-          "B",
-          "A",
-          "B",
-          "B",
-          "C"
-        ]
+        "lines": ["B", "A", "C", "B", "A", "B", "B", "C"]
       },
       "engine3": {
-        "lines": [
-          "B",
-          "A",
-          "C",
-          "B",
-          "A",
-          "B",
-          "B",
-          "C"
-        ]
+        "lines": ["B", "A", "C", "B", "A", "B", "B", "C"]
       }
     },
     "generators/template-weighted-pack": {
@@ -1907,32 +1382,10 @@
     },
     "mix-switch/mix-exact-percents": {
       "engine2": {
-        "lines": [
-          "A",
-          "B",
-          "A",
-          "B",
-          "B",
-          "B",
-          "B",
-          "A",
-          "B",
-          "B"
-        ]
+        "lines": ["A", "B", "A", "B", "B", "B", "B", "A", "B", "B"]
       },
       "engine3": {
-        "lines": [
-          "A",
-          "B",
-          "A",
-          "B",
-          "B",
-          "B",
-          "B",
-          "A",
-          "B",
-          "B"
-        ]
+        "lines": ["A", "B", "A", "B", "B", "B", "B", "A", "B", "B"]
       }
     },
     "mix-switch/mix-nested": {
@@ -2610,28 +2063,10 @@
     },
     "mix-switch/switch-branch-draws-over-its-own-rows": {
       "engine2": {
-        "lines": [
-          "F-x",
-          "F-w",
-          "M-b",
-          "M-a",
-          "F-z",
-          "M-d",
-          "F-y",
-          "M-c"
-        ]
+        "lines": ["F-x", "F-w", "M-b", "M-a", "F-z", "M-d", "F-y", "M-c"]
       },
       "engine3": {
-        "lines": [
-          "F-x",
-          "F-w",
-          "M-b",
-          "M-a",
-          "F-z",
-          "M-d",
-          "F-y",
-          "M-c"
-        ]
+        "lines": ["F-x", "F-w", "M-b", "M-a", "F-z", "M-d", "F-y", "M-c"]
       }
     },
     "mix-switch/switch-multi-key-branch-percent-is-exact": {
@@ -2725,60 +2160,26 @@
     },
     "ordering/sequential-text-loops": {
       "engine2": {
-        "lines": [
-          "Jan",
-          "Feb",
-          "Mar",
-          "Jan",
-          "Feb",
-          "Mar",
-          "Jan"
-        ]
+        "lines": ["Jan", "Feb", "Mar", "Jan", "Feb", "Mar", "Jan"]
       },
       "engine3": {
-        "lines": [
-          "Jan",
-          "Feb",
-          "Mar",
-          "Jan",
-          "Feb",
-          "Mar",
-          "Jan"
-        ]
+        "lines": ["Jan", "Feb", "Mar", "Jan", "Feb", "Mar", "Jan"]
       }
     },
     "ordering/sequential-exact-length": {
       "engine2": {
-        "lines": [
-          "Jan",
-          "Feb",
-          "Mar"
-        ]
+        "lines": ["Jan", "Feb", "Mar"]
       },
       "engine3": {
-        "lines": [
-          "Jan",
-          "Feb",
-          "Mar"
-        ]
+        "lines": ["Jan", "Feb", "Mar"]
       }
     },
     "ordering/sequential-takes-no-draws": {
       "engine2": {
-        "lines": [
-          "Jan 845",
-          "Feb 908",
-          "Mar 421",
-          "Jan 573"
-        ]
+        "lines": ["Jan 845", "Feb 908", "Mar 421", "Jan 573"]
       },
       "engine3": {
-        "lines": [
-          "Jan 845",
-          "Feb 908",
-          "Mar 421",
-          "Jan 573"
-        ]
+        "lines": ["Jan 845", "Feb 908", "Mar 421", "Jan 573"]
       }
     },
     "patterns/pattern-signal": {
@@ -2965,60 +2366,26 @@
     },
     "patterns/pattern-averaged": {
       "engine2": {
-        "lines": [
-          "2.500",
-          "4.000",
-          "0.000"
-        ]
+        "lines": ["2.500", "4.000", "0.000"]
       },
       "engine3": {
-        "lines": [
-          "2.500",
-          "4.000",
-          "0.000"
-        ]
+        "lines": ["2.500", "4.000", "0.000"]
       }
     },
     "pool/a-pool-hands-a-whole-member-to-a-row": {
       "engine2": {
-        "lines": [
-          "z1",
-          "z1",
-          "y3",
-          "x2",
-          "y3",
-          "x2"
-        ]
+        "lines": ["z1", "z1", "y3", "x2", "y3", "x2"]
       },
       "engine3": {
-        "lines": [
-          "z1",
-          "z1",
-          "y3",
-          "x2",
-          "y3",
-          "x2"
-        ]
+        "lines": ["z1", "z1", "y3", "x2", "y3", "x2"]
       }
     },
     "pool/a-pool-is-drawn-from-a-derived-seed": {
       "engine2": {
-        "lines": [
-          "1,41",
-          "2,65",
-          "3,46",
-          "4,22",
-          "5,83"
-        ]
+        "lines": ["1,41", "2,65", "3,46", "4,22", "5,83"]
       },
       "engine3": {
-        "lines": [
-          "1,41",
-          "2,65",
-          "3,46",
-          "4,22",
-          "5,83"
-        ]
+        "lines": ["1,41", "2,65", "3,46", "4,22", "5,83"]
       }
     },
     "pool/a-pool-reference-filtered-by-a-column": {
@@ -3049,28 +2416,10 @@
     },
     "pool/a-pool-filter-is-an-expression-not-a-pair-of-names": {
       "engine2": {
-        "lines": [
-          "N5",
-          "N5",
-          "N1",
-          "N5",
-          "N4",
-          "N2",
-          "N4",
-          "N5"
-        ]
+        "lines": ["N5", "N5", "N1", "N5", "N4", "N2", "N4", "N5"]
       },
       "engine3": {
-        "lines": [
-          "N5",
-          "N5",
-          "N1",
-          "N5",
-          "N4",
-          "N2",
-          "N4",
-          "N5"
-        ]
+        "lines": ["N5", "N5", "N1", "N5", "N4", "N2", "N4", "N5"]
       }
     },
     "pool/uniq-inside-a-pool-makes-the-members-differ": {
@@ -3125,24 +2474,10 @@
     },
     "pool/a-pool-member-draws-from-another-pool": {
       "engine2": {
-        "lines": [
-          "zs2",
-          "zs2",
-          "xn1",
-          "yn1",
-          "xn1",
-          "yn1"
-        ]
+        "lines": ["zs2", "zs2", "xn1", "yn1", "xn1", "yn1"]
       },
       "engine3": {
-        "lines": [
-          "zs2",
-          "zs2",
-          "xn1",
-          "yn1",
-          "xn1",
-          "yn1"
-        ]
+        "lines": ["zs2", "zs2", "xn1", "yn1", "xn1", "yn1"]
       }
     },
     "running/a-running-total-down-a-column": {
@@ -3183,14 +2518,7 @@
         "refused": "a running total (\"Peak\") is the accumulation of every row before it, so it cannot be computed one row at a time; the in-memory engine handles it (run without a forced streaming engine)"
       },
       "engine3": {
-        "lines": [
-          "29 29",
-          "49 49",
-          "83 83",
-          "59 83",
-          "92 92",
-          "94 94"
-        ]
+        "lines": ["29 29", "49 49", "83 83", "59 83", "92 92", "94 94"]
       }
     },
     "running/a-running-total-with-no-mode-goes-where-it-must": {
@@ -3230,11 +2558,7 @@
         "refused": "a statistic (\"Total\") is computed over every row of the run, including the ones after this one, so it cannot be computed one row at a time; the in-memory engine handles it (run without a forced streaming engine)"
       },
       "engine3": {
-        "lines": [
-          "20.01 007 117.05",
-          "20.01 007 117.05",
-          "20.01 007 117.05"
-        ]
+        "lines": ["20.01 007 117.05", "20.01 007 117.05", "20.01 007 117.05"]
       }
     },
     "stat/a-row-that-knows-whether-it-is-above-average": {
@@ -3257,188 +2581,71 @@
         "refused": "a statistic (\"Average\") is computed over every row of the run, including the ones after this one, so it cannot be computed one row at a time; the in-memory engine handles it (run without a forced streaming engine)"
       },
       "engine3": {
-        "lines": [
-          "182,154.00",
-          "86,154.00",
-          "169,154.00",
-          "179,154.00"
-        ]
+        "lines": ["182,154.00", "86,154.00", "169,154.00", "179,154.00"]
       }
     },
     "statistics/distribution-normal": {
       "engine2": {
-        "lines": [
-          "179.38",
-          "152.83",
-          "170.71",
-          "153.99",
-          "165.24",
-          "174.37"
-        ]
+        "lines": ["179.38", "152.83", "170.71", "153.99", "165.24", "174.37"]
       },
       "engine3": {
-        "lines": [
-          "179.38",
-          "152.83",
-          "170.71",
-          "153.99",
-          "165.24",
-          "174.37"
-        ]
+        "lines": ["179.38", "152.83", "170.71", "153.99", "165.24", "174.37"]
       }
     },
     "statistics/distribution-lognormal": {
       "engine2": {
-        "lines": [
-          "56256",
-          "3956",
-          "23638",
-          "4443",
-          "13689",
-          "34108"
-        ]
+        "lines": ["56256", "3956", "23638", "4443", "13689", "34108"]
       },
       "engine3": {
-        "lines": [
-          "56256",
-          "3956",
-          "23638",
-          "4443",
-          "13689",
-          "34108"
-        ]
+        "lines": ["56256", "3956", "23638", "4443", "13689", "34108"]
       }
     },
     "statistics/distribution-exponential": {
       "engine2": {
-        "lines": [
-          "1.011",
-          "3.011",
-          "0.033",
-          "3.016",
-          "0.336",
-          "0.543"
-        ]
+        "lines": ["1.011", "3.011", "0.033", "3.016", "0.336", "0.543"]
       },
       "engine3": {
-        "lines": [
-          "1.011",
-          "3.011",
-          "0.033",
-          "3.016",
-          "0.336",
-          "0.543"
-        ]
+        "lines": ["1.011", "3.011", "0.033", "3.016", "0.336", "0.543"]
       }
     },
     "statistics/distribution-pareto": {
       "engine2": {
-        "lines": [
-          "185.2",
-          "118.2",
-          "1554.1",
-          "118.2",
-          "346.9",
-          "260.4"
-        ]
+        "lines": ["185.2", "118.2", "1554.1", "118.2", "346.9", "260.4"]
       },
       "engine3": {
-        "lines": [
-          "185.2",
-          "118.2",
-          "1554.1",
-          "118.2",
-          "346.9",
-          "260.4"
-        ]
+        "lines": ["185.2", "118.2", "1554.1", "118.2", "346.9", "260.4"]
       }
     },
     "statistics/distribution-weibull": {
       "engine2": {
-        "lines": [
-          "3.555",
-          "6.135",
-          "0.641",
-          "6.140",
-          "2.050",
-          "2.606"
-        ]
+        "lines": ["3.555", "6.135", "0.641", "6.140", "2.050", "2.606"]
       },
       "engine3": {
-        "lines": [
-          "3.555",
-          "6.135",
-          "0.641",
-          "6.140",
-          "2.050",
-          "2.606"
-        ]
+        "lines": ["3.555", "6.135", "0.641", "6.140", "2.050", "2.606"]
       }
     },
     "statistics/distribution-poisson": {
       "engine2": {
-        "lines": [
-          "4",
-          "2",
-          "9",
-          "2",
-          "6",
-          "5"
-        ]
+        "lines": ["4", "2", "9", "2", "6", "5"]
       },
       "engine3": {
-        "lines": [
-          "4",
-          "2",
-          "9",
-          "2",
-          "6",
-          "5"
-        ]
+        "lines": ["4", "2", "9", "2", "6", "5"]
       }
     },
     "statistics/distribution-zipf": {
       "engine2": {
-        "lines": [
-          "4",
-          "1",
-          "19",
-          "1",
-          "10",
-          "7"
-        ]
+        "lines": ["4", "1", "19", "1", "10", "7"]
       },
       "engine3": {
-        "lines": [
-          "4",
-          "1",
-          "19",
-          "1",
-          "10",
-          "7"
-        ]
+        "lines": ["4", "1", "19", "1", "10", "7"]
       }
     },
     "statistics/distribution-gamma": {
       "engine2": {
-        "lines": [
-          "6.1027",
-          "2.6540",
-          "18.2137",
-          "2.6497",
-          "9.9951",
-          "8.2805"
-        ]
+        "lines": ["6.1027", "2.6540", "18.2137", "2.6497", "9.9951", "8.2805"]
       },
       "engine3": {
-        "lines": [
-          "6.1027",
-          "2.6540",
-          "18.2137",
-          "2.6497",
-          "9.9951",
-          "8.2805"
-        ]
+        "lines": ["6.1027", "2.6540", "18.2137", "2.6497", "9.9951", "8.2805"]
       }
     },
     "statistics/distribution-beta": {
@@ -3465,134 +2672,50 @@
     },
     "statistics/distribution-clipped": {
       "engine2": {
-        "lines": [
-          "0.9",
-          "-1.0",
-          "0.1",
-          "-1.0",
-          "-0.5",
-          "0.4"
-        ]
+        "lines": ["0.9", "-1.0", "0.1", "-1.0", "-0.5", "0.4"]
       },
       "engine3": {
-        "lines": [
-          "0.9",
-          "-1.0",
-          "0.1",
-          "-1.0",
-          "-0.5",
-          "0.4"
-        ]
+        "lines": ["0.9", "-1.0", "0.1", "-1.0", "-0.5", "0.4"]
       }
     },
     "statistics/timeseries-trend": {
       "engine2": {
-        "lines": [
-          "100",
-          "102",
-          "104",
-          "106",
-          "108",
-          "110"
-        ]
+        "lines": ["100", "102", "104", "106", "108", "110"]
       },
       "engine3": {
-        "lines": [
-          "100",
-          "102",
-          "104",
-          "106",
-          "108",
-          "110"
-        ]
+        "lines": ["100", "102", "104", "106", "108", "110"]
       }
     },
     "statistics/timeseries-seasonal": {
       "engine2": {
-        "lines": [
-          "100.00",
-          "110.50",
-          "101.00",
-          "91.50",
-          "102.00",
-          "112.50"
-        ]
+        "lines": ["100.00", "110.50", "101.00", "91.50", "102.00", "112.50"]
       },
       "engine3": {
-        "lines": [
-          "100.00",
-          "110.50",
-          "101.00",
-          "91.50",
-          "102.00",
-          "112.50"
-        ]
+        "lines": ["100.00", "110.50", "101.00", "91.50", "102.00", "112.50"]
       }
     },
     "statistics/timeseries-noise": {
       "engine2": {
-        "lines": [
-          "47.025",
-          "51.433",
-          "52.662",
-          "50.269",
-          "45.629",
-          "50.088"
-        ]
+        "lines": ["47.025", "51.433", "52.662", "50.269", "45.629", "50.088"]
       },
       "engine3": {
-        "lines": [
-          "47.025",
-          "51.433",
-          "52.662",
-          "50.269",
-          "45.629",
-          "50.088"
-        ]
+        "lines": ["47.025", "51.433", "52.662", "50.269", "45.629", "50.088"]
       }
     },
     "statistics/missing-token": {
       "engine2": {
-        "lines": [
-          "a",
-          "NULL",
-          "a",
-          "a",
-          "a",
-          "a"
-        ]
+        "lines": ["a", "NULL", "a", "a", "a", "a"]
       },
       "engine3": {
-        "lines": [
-          "a",
-          "NULL",
-          "a",
-          "a",
-          "a",
-          "a"
-        ]
+        "lines": ["a", "NULL", "a", "a", "a", "a"]
       }
     },
     "statistics/anomaly-spike": {
       "engine2": {
-        "lines": [
-          "60",
-          "2",
-          "90",
-          "2",
-          "8",
-          "7"
-        ]
+        "lines": ["60", "2", "90", "2", "8", "7"]
       },
       "engine3": {
-        "lines": [
-          "60",
-          "2",
-          "90",
-          "2",
-          "8",
-          "7"
-        ]
+        "lines": ["60", "2", "90", "2", "8", "7"]
       }
     },
     "statistics/timeseries-peak-at-moves-the-peak": {
@@ -3733,100 +2856,34 @@
     },
     "structure/if-on-data-drops-comma": {
       "engine2": {
-        "lines": [
-          "1,",
-          "2,",
-          "3,",
-          "4"
-        ]
+        "lines": ["1,", "2,", "3,", "4"]
       },
       "engine3": {
-        "lines": [
-          "1,",
-          "2,",
-          "3,",
-          "4"
-        ]
+        "lines": ["1,", "2,", "3,", "4"]
       }
     },
     "structure/if-on-line-drops-the-row": {
       "engine2": {
-        "lines": [
-          "61",
-          "34",
-          "56",
-          "72",
-          "34",
-          "75",
-          "44",
-          "25",
-          "51"
-        ]
+        "lines": ["61", "34", "56", "72", "34", "75", "44", "25", "51"]
       },
       "engine3": {
-        "lines": [
-          "61",
-          "34",
-          "56",
-          "72",
-          "34",
-          "75",
-          "44",
-          "25",
-          "51"
-        ]
+        "lines": ["61", "34", "56", "72", "34", "75", "44", "25", "51"]
       }
     },
     "structure/expression-precedence": {
       "engine2": {
-        "lines": [
-          "18*",
-          "74",
-          "60",
-          "96",
-          "90",
-          "87",
-          "18*",
-          "35",
-          "65",
-          "63"
-        ]
+        "lines": ["18*", "74", "60", "96", "90", "87", "18*", "35", "65", "63"]
       },
       "engine3": {
-        "lines": [
-          "18*",
-          "74",
-          "60",
-          "96",
-          "90",
-          "87",
-          "18*",
-          "35",
-          "65",
-          "63"
-        ]
+        "lines": ["18*", "74", "60", "96", "90", "87", "18*", "35", "65", "63"]
       }
     },
     "structure/dotted-value-test": {
       "engine2": {
-        "lines": [
-          "Male!",
-          "Male!",
-          "Female",
-          "Female",
-          "Male!",
-          "Female"
-        ]
+        "lines": ["Male!", "Male!", "Female", "Female", "Male!", "Female"]
       },
       "engine3": {
-        "lines": [
-          "Male!",
-          "Male!",
-          "Female",
-          "Female",
-          "Male!",
-          "Female"
-        ]
+        "lines": ["Male!", "Male!", "Female", "Female", "Male!", "Female"]
       }
     },
     "structure/parent-filter": {
@@ -3853,20 +2910,10 @@
     },
     "structure/compound-sequence": {
       "engine2": {
-        "lines": [
-          "9/76",
-          "5/87",
-          "2/54",
-          "7/50"
-        ]
+        "lines": ["9/76", "5/87", "2/54", "7/50"]
       },
       "engine3": {
-        "lines": [
-          "9/76",
-          "5/87",
-          "2/54",
-          "7/50"
-        ]
+        "lines": ["9/76", "5/87", "2/54", "7/50"]
       }
     },
     "structure/conditional-sequence": {
@@ -4005,18 +3052,10 @@
     },
     "structure/dotted-version-is-accepted": {
       "engine2": {
-        "lines": [
-          "id=1",
-          "id=2",
-          "id=3"
-        ]
+        "lines": ["id=1", "id=2", "id=3"]
       },
       "engine3": {
-        "lines": [
-          "id=1",
-          "id=2",
-          "id=3"
-        ]
+        "lines": ["id=1", "id=2", "id=3"]
       }
     },
     "structure/template-address-named-by-another-column": {
@@ -4062,46 +3101,18 @@
     },
     "structure/composed-sequence-joins-its-unnamed-gens": {
       "engine2": {
-        "lines": [
-          "b-31",
-          "b-26",
-          "a-67",
-          "a-41",
-          "a-13",
-          "b-49"
-        ]
+        "lines": ["b-31", "b-26", "a-67", "a-41", "a-13", "b-49"]
       },
       "engine3": {
-        "lines": [
-          "b-31",
-          "b-26",
-          "a-67",
-          "a-41",
-          "a-13",
-          "b-49"
-        ]
+        "lines": ["b-31", "b-26", "a-67", "a-41", "a-13", "b-49"]
       }
     },
     "structure/composed-sequence-keeps-named-gens-as-fields": {
       "engine2": {
-        "lines": [
-          "b-31|y",
-          "b-26|x",
-          "a-67|x",
-          "a-41|x",
-          "a-13|y",
-          "b-49|y"
-        ]
+        "lines": ["b-31|y", "b-26|x", "a-67|x", "a-41|x", "a-13|y", "b-49|y"]
       },
       "engine3": {
-        "lines": [
-          "b-31|y",
-          "b-26|x",
-          "a-67|x",
-          "a-41|x",
-          "a-13|y",
-          "b-49|y"
-        ]
+        "lines": ["b-31|y", "b-26|x", "a-67|x", "a-41|x", "a-13|y", "b-49|y"]
       }
     },
     "structure/named-data-is-a-constant-field": {
@@ -4126,62 +3137,26 @@
     },
     "structure/a-constant-field-costs-no-draw": {
       "engine2": {
-        "lines": [
-          "21|22|F",
-          "84|82|F",
-          "76|57|F",
-          "92|35|F",
-          "74|58|F"
-        ]
+        "lines": ["21|22|F", "84|82|F", "76|57|F", "92|35|F", "74|58|F"]
       },
       "engine3": {
-        "lines": [
-          "21|22|F",
-          "84|82|F",
-          "76|57|F",
-          "92|35|F",
-          "74|58|F"
-        ]
+        "lines": ["21|22|F", "84|82|F", "76|57|F", "92|35|F", "74|58|F"]
       }
     },
     "structure/composed-sequence-with-a-literal-at-each-end": {
       "engine2": {
-        "lines": [
-          "b-d!",
-          "b-d!",
-          "a-d!",
-          "a-c!",
-          "a-c!"
-        ]
+        "lines": ["b-d!", "b-d!", "a-d!", "a-c!", "a-c!"]
       },
       "engine3": {
-        "lines": [
-          "b-d!",
-          "b-d!",
-          "a-d!",
-          "a-c!",
-          "a-c!"
-        ]
+        "lines": ["b-d!", "b-d!", "a-d!", "a-c!", "a-c!"]
       }
     },
     "structure/composed-value-of-a-literals-only-body": {
       "engine2": {
-        "lines": [
-          "-LIT-|b",
-          "-LIT-|a",
-          "-LIT-|a",
-          "-LIT-|a",
-          "-LIT-|b"
-        ]
+        "lines": ["-LIT-|b", "-LIT-|a", "-LIT-|a", "-LIT-|a", "-LIT-|b"]
       },
       "engine3": {
-        "lines": [
-          "-LIT-|b",
-          "-LIT-|a",
-          "-LIT-|a",
-          "-LIT-|a",
-          "-LIT-|b"
-        ]
+        "lines": ["-LIT-|b", "-LIT-|a", "-LIT-|a", "-LIT-|a", "-LIT-|b"]
       }
     },
     "structure/a-literals-only-composed-value-still-obeys-its-parent": {
@@ -4208,94 +3183,50 @@
     },
     "structure/paired-data-emits-a-literal-close-tag": {
       "engine2": {
-        "lines": [
-          "row 1 prints <data>x</data>",
-          "row 2 prints <data>x</data>"
-        ]
+        "lines": ["row 1 prints <data>x</data>", "row 2 prints <data>x</data>"]
       },
       "engine3": {
-        "lines": [
-          "row 1 prints <data>x</data>",
-          "row 2 prints <data>x</data>"
-        ]
+        "lines": ["row 1 prints <data>x</data>", "row 2 prints <data>x</data>"]
       }
     },
     "structure/paired-data-body-may-close-twice": {
       "engine2": {
-        "lines": [
-          "a</data>b</data>c",
-          "a</data>b</data>c"
-        ]
+        "lines": ["a</data>b</data>c", "a</data>b</data>c"]
       },
       "engine3": {
-        "lines": [
-          "a</data>b</data>c",
-          "a</data>b</data>c"
-        ]
+        "lines": ["a</data>b</data>c", "a</data>b</data>c"]
       }
     },
     "structure/paired-data-inner-close-keeps-its-own-pair": {
       "engine2": {
-        "lines": [
-          "a</data pair=\"q\">b",
-          "a</data pair=\"q\">b"
-        ]
+        "lines": ["a</data pair=\"q\">b", "a</data pair=\"q\">b"]
       },
       "engine3": {
-        "lines": [
-          "a</data pair=\"q\">b",
-          "a</data pair=\"q\">b"
-        ]
+        "lines": ["a</data pair=\"q\">b", "a</data pair=\"q\">b"]
       }
     },
     "structure/paired-data-neighbours-render-unchanged": {
       "engine2": {
-        "lines": [
-          "1</data>-2</data>",
-          "1</data>-2</data>"
-        ]
+        "lines": ["1</data>-2</data>", "1</data>-2</data>"]
       },
       "engine3": {
-        "lines": [
-          "1</data>-2</data>",
-          "1</data>-2</data>"
-        ]
+        "lines": ["1</data>-2</data>", "1</data>-2</data>"]
       }
     },
     "structure/paired-data-spans-lines": {
       "engine2": {
-        "lines": [
-          "first",
-          "</data>",
-          "second",
-          "first",
-          "</data>",
-          "second"
-        ]
+        "lines": ["first", "</data>", "second", "first", "</data>", "second"]
       },
       "engine3": {
-        "lines": [
-          "first",
-          "</data>",
-          "second",
-          "first",
-          "</data>",
-          "second"
-        ]
+        "lines": ["first", "</data>", "second", "first", "</data>", "second"]
       }
     },
     "structure/paired-data-self-closing-needs-no-closer": {
       "engine2": {
-        "lines": [
-          "ab",
-          "ab"
-        ]
+        "lines": ["ab", "ab"]
       },
       "engine3": {
-        "lines": [
-          "ab",
-          "ab"
-        ]
+        "lines": ["ab", "ab"]
       }
     },
     "uniq-distinct/distinct-pair": {
@@ -4546,14 +3477,7 @@
         "refused": "stream mode: <uniq> across sequences (a whole-column rearrangement) (\"A × B\") is not supported yet — run without mode=\"stream\" (the in-memory engine handles it), or remove it."
       },
       "engine3": {
-        "lines": [
-          "yq|k2",
-          "xr|k2",
-          "ws|k1",
-          "vo|k1",
-          "zt|k1",
-          "up|k2"
-        ]
+        "lines": ["yq|k2", "xr|k2", "ws|k1", "vo|k1", "zt|k1", "up|k2"]
       }
     },
     "uniq-distinct/env-distinct-across-sequences": {
@@ -4588,28 +3512,10 @@
     },
     "uniq-distinct/env-distinct-three-members": {
       "engine2": {
-        "lines": [
-          "243",
-          "341",
-          "124",
-          "134",
-          "421",
-          "412",
-          "231",
-          "321"
-        ]
+        "lines": ["243", "341", "124", "134", "421", "412", "231", "321"]
       },
       "engine3": {
-        "lines": [
-          "243",
-          "341",
-          "124",
-          "134",
-          "421",
-          "412",
-          "231",
-          "321"
-        ]
+        "lines": ["243", "341", "124", "134", "421", "412", "231", "321"]
       }
     },
     "uniq-distinct/uniq-simple-list": {
@@ -4617,13 +3523,7 @@
         "refused": "stream mode: uniq (a whole-column rearrangement) (\"G\") is not supported yet — run without mode=\"stream\" (the in-memory engine handles it), or remove it."
       },
       "engine3": {
-        "lines": [
-          "c",
-          "a",
-          "d",
-          "e",
-          "b"
-        ]
+        "lines": ["c", "a", "d", "e", "b"]
       }
     },
     "uniq-distinct/uniq-simple-int-range": {
@@ -4671,12 +3571,7 @@
         "refused": "stream mode: <uniq> across sequences (a whole-column rearrangement) (\"K × N\") is not supported yet — run without mode=\"stream\" (the in-memory engine handles it), or remove it."
       },
       "engine3": {
-        "lines": [
-          "A2",
-          "B1",
-          "A3",
-          "B3"
-        ]
+        "lines": ["A2", "B1", "A3", "B3"]
       }
     },
     "uniq-distinct/uniq-group-with-a-switch-member": {
@@ -4684,12 +3579,7 @@
         "refused": "stream mode: <uniq> across sequences (a whole-column rearrangement) (\"N × S\") is not supported yet — run without mode=\"stream\" (the in-memory engine handles it), or remove it."
       },
       "engine3": {
-        "lines": [
-          "M-bob-1",
-          "M-ann-3",
-          "F-cat-3",
-          "F-dot-2"
-        ]
+        "lines": ["M-bob-1", "M-ann-3", "F-cat-3", "F-dot-2"]
       }
     }
   }

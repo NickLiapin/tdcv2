@@ -580,7 +580,7 @@ export function prepareRender(
   // than in the output half so both the sync and the async path are covered, and
   // so a failed assertion stops before a single line is written — a file that
   // exists is a file someone will use.
-  checkAssertions(extractAsserts(envEl), registry, env.count);
+  checkAssertions(extractAsserts(envEl), registry, sequenceSpecs, env.count);
 
   return { tdc, blockEl, env, registry, now, prng, eachInfo, sequenceSpecs };
 }
