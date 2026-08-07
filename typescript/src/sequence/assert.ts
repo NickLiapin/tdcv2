@@ -126,7 +126,10 @@ function wholeRunConstancy(
   let seen: string | undefined;
   for (let i = 0; i < count; i++) {
     const value = sequenceValueAt(seq, i);
-    if (value === undefined) return 'empty-on-some-rows';
+    // An unset cell and an empty one are the same thing to a reader of the
+    // output, and the ports store a filtered row as the empty string rather than
+    // as nothing. Treating them alike is what keeps the five in step.
+    if (value === undefined || value === '') return 'empty-on-some-rows';
     if (seen === undefined) seen = value;
     else if (value !== seen) return 'varies';
   }
@@ -152,7 +155,13 @@ export function checkAssertions(
   for (const spec of asserts) {
     const read = new Map<string, string | undefined>();
     const scope = (name: string): string | undefined => {
-      const value = registry[name] ? sequenceValueAt(registry[name], 0) : undefined;
+      const column = registry[name];
+      // Only a real column is recorded. A name that is not declared is not data
+      // at all — the expression language reads it as its own literal text, which
+      // is what lets `Kind == a` go unquoted — so it has nothing to be constant
+      // about, and the validator is the one that asks whether it was a typo.
+      if (!column) return undefined;
+      const value = sequenceValueAt(column, 0);
       read.set(name, value);
       return value;
     };

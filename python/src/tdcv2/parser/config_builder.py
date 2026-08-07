@@ -11,6 +11,7 @@ from dataclasses import dataclass
 from typing import Any
 
 from ..model.config import (
+    AssertSpec,
     Branch,
     Case,
     CasePart,
@@ -97,9 +98,20 @@ def build(document: TDCParser.DocumentContext, default_locale: str | None = None
     env_uniq: list[list[str]] = []
     env_distinct: list[list[str]] = []
     pools: list[PoolSpec] = []
+    asserts: list[AssertSpec] = []
 
     if env is not None:
         for child in env.content().element():
+            # `<assert/>` is the one env child written self-closing, so it is read before the
+            # open/close walk rather than lost by it.
+            self_el = child.selfClosingElement()
+            if self_el is not None:
+                if self_el.name.text == "assert":
+                    attrs = attributes(self_el.attr())
+                    asserts.append(
+                        AssertSpec(that=attrs.get("that", ""), says=attrs.get("says", ""))
+                    )
+                continue
             open_el = child.openCloseElement()
             if open_el is None:
                 continue
@@ -139,6 +151,7 @@ def build(document: TDCParser.DocumentContext, default_locale: str | None = None
         env_uniq_groups=env_uniq,
         env_distinct_groups=env_distinct,
         pools=pools,
+        asserts=asserts,
     )
 
 

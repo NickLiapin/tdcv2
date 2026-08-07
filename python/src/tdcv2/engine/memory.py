@@ -26,12 +26,12 @@ from ..format import interpolate
 from ..format.mask import apply_mask
 from ..format.transforms import apply_case, is_case_transform
 from ..generators import accumulate as accumulate_gen
-from ..generators import date_offset as date_offset_gen
-from ..generators import stat as stat_gen
 from ..generators import advanced_regex, counter, imperfections, number, regex, symbol
+from ..generators import date_offset as date_offset_gen
 from ..generators import file as file_gen
 from ..generators import http as http_gen
 from ..generators import repeat as repeat_gen
+from ..generators import stat as stat_gen
 from ..model.config import Config, Gen, Item, Line, SequenceSpec
 from ..packs import DataPacks
 from ..parser import config_builder
@@ -39,9 +39,9 @@ from ..pattern import gen as patterns
 from ..prng import permute, rand, seekable
 from ..prng.prng import Sfc32, create
 from ..prng.seekable import open_unit
+from ..sequence import assertions, uniq_simple
 from ..sequence import pool as pool_mod
 from ..sequence import uniq as uniq_lib
-from ..sequence import uniq_simple
 from ..stats import distribution as dist
 from ..stats import timeseries
 from . import per_row, repeat_keyed
@@ -129,6 +129,16 @@ def build(
 ) -> Rendered:
     count = config.count
     columns = _build_columns(config, count, packs, now_millis, base_dir)
+
+    # The run is finished; now the config gets to check its own output — before a single line
+    # is written, because a file that exists is a file someone will use.
+    assertions.check(
+        config.asserts,
+        config.sequences,
+        lambda name, row: (columns[name][row] if name in columns else None),
+        lambda name: name in columns,
+        count,
+    )
 
     each_info = _each_info(config)
     fx = config.fixtures

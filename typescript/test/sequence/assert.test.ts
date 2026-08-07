@@ -147,6 +147,19 @@ describe('<assert> — the run checks itself', () => {
     expect(Date.now() - started).toBeLessThan(20_000);
   });
 
+  it('an undeclared name is literal text, not a column that failed the rule', () => {
+    // `prod` unquoted is how the expression language already reads an unknown
+    // name, and the validator is what asks whether it was meant to be one. An
+    // assertion that refused it here would report a constancy problem about
+    // something that is not data.
+    expect(() =>
+      run(
+        '<sequence name="Env"><gen type="text" value="prod"/></sequence>' +
+          '<assert that="Env == prod" says="…"/>',
+      ),
+    ).not.toThrow();
+  });
+
   it('catches the shape percentages cannot: a share that no longer sums to the whole', () => {
     const env =
       '<sequence name="Plan"><gen type="text" value="free,paid" percent="80,20"/></sequence>' +

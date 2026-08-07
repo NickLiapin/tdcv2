@@ -41,6 +41,7 @@ from ..packs import DataPacks
 from ..pattern import gen as patterns
 from ..prng import permute, seekable
 from ..prng.prng import create
+from ..sequence import assertions
 from ..sequence import pool as pool_mod
 from ..stats import timeseries
 from . import memory
@@ -155,6 +156,15 @@ class StreamEngine:
         # bounded-memory promise is untouched and no other column moves.
         self.pool_tables = memory.build_pool_tables(config, packs, now_millis, base_dir)
         self._build_columns()
+        # Same check the in-memory engine makes, on the same finished run — an assertion that
+        # only held on one engine would be a check that depends on how the file was produced.
+        assertions.check(
+            config.asserts,
+            config.sequences,
+            self.value,
+            lambda name: name in self.columns,
+            self.count,
+        )
 
     # ── the public shape ────────────────────────────────────────────────────────────────────
 

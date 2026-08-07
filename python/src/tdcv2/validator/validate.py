@@ -27,7 +27,6 @@ from ..date.plain import Precision
 from ..distribution import percent_mask
 from ..errors import Diagnostic
 from ..expr import parse as expr_parse
-from ..lib import numbers
 from ..expr.parse import (
     Array,
     Binary,
@@ -49,6 +48,7 @@ from ..generators import accumulate as accumulate_gen
 from ..generators import file as file_gen
 from ..generators import regex
 from ..generators import stat as stat_gen
+from ..lib import numbers
 from ..output import column_type
 from ..packs import DataPacks
 from ..parser import paired_data
@@ -225,7 +225,8 @@ SUPPORTED_UNARY = ("!", "-", "+")
 # What may sit directly inside <env>.
 ENV_CHILDREN = frozenset(
     {
-        "sequence", "mix", "switch", "pool", "uniq", "distinct", "before", "after", "before_block",
+        "sequence", "mix", "switch", "pool", "uniq", "distinct", "assert", "before", "after",
+        "before_block",
         "after_block", "delimiter_block", "before_line", "after_line", "delimiter_line",
     }
 )  # fmt: skip
@@ -914,6 +915,7 @@ class _Validator:
         self._check_small_shares(env)
 
         self._check_children(env.content(), "env", ENV_CHILDREN)
+        self._check_asserts(env)
         # A fixture holds text and <line>s. Anything else was ignored in silence unless
         # it happened to be a generator inside a <line>.
         for child in _elements(env):
@@ -1556,6 +1558,58 @@ class _Validator:
             _line(wrapper),
             _column(wrapper),
         )
+
+    def _check_asserts(self, env) -> None:
+        """``<assert that="…" says="…"/>`` — the two attributes it cannot do without.
+
+        An assertion is the one construct whose whole worth is that it FAILS, so a half-written
+        one is worse than none: the config carries a check, the reader believes the run was
+        verified, and nothing was ever compared.
+
+        The expression is not re-checked here. ``that=`` is the ``if=`` language, so it takes the
+        same syntax pass now and the same put-aside name pass once every sequence is known — a
+        typo in a column name is reported exactly as it is in ``if=``, because it IS that mistake.
+        """
+        for child in _elements(env):
+            self_closing = child.selfClosingElement()
+            if self_closing is None or self_closing.name.text != "assert":
+                continue
+            attrs = _attrs(self_closing.attr())
+            that = (attrs.get("that") or "").strip()
+            says = (attrs.get("says") or "").strip()
+            if not that:
+                line, column = _at_attrs(
+                    self_closing.attr(), "that", _line(self_closing), _column(self_closing)
+                )
+                self._error(
+                    "TDC265",
+                    "<assert> has no condition — that= is required",
+                    "Write the property the run must have, in the if= language, over whole-run "
+                    'columns: <assert that="Rows == 700" says="…"/>. The numbers come from '
+                    "<gen type=\"stat\">.",
+                    line,
+                    column,
+                )
+                continue
+            if not says:
+                line, column = _at_attrs(
+                    self_closing.attr(), "says", _line(self_closing), _column(self_closing)
+                )
+                self._error(
+                    "TDC266",
+                    f'<assert that="{that}"> has no message — says= is required',
+                    "When this fails, says= is what the reader is told. An expression alone "
+                    "leaves them to work out what it was for, months later, in a CI log.",
+                    line,
+                    column,
+                )
+            where = _at_attrs(
+                self_closing.attr(), "that", _line(self_closing), _column(self_closing)
+            )
+            self._check_if_expression(that, where[0], where[1])
+            self.pending_expressions.append(
+                (len(self.diagnostics), that, where[0], where[1], False)
+            )
 
     def _check_env_group_member(self, sequence, tag: str) -> None:
         """A member of an env-level group has to produce one value per row.

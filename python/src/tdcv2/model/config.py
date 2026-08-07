@@ -233,6 +233,18 @@ class PoolSpec:
 
 
 @dataclass(frozen=True, slots=True)
+class AssertSpec:
+    """One ``<assert that="…" says="…"/>`` as written.
+
+    A statement about the whole run, like ``<uniq>`` and ``<distinct>``, which is why it sits
+    in ``<env>`` rather than beside a column.
+    """
+
+    that: str
+    says: str
+
+
+@dataclass(frozen=True, slots=True)
 class Config:
     """Everything a run needs, parsed out of the document."""
 
@@ -249,7 +261,7 @@ class Config:
     env_uniq_groups: list[list[str]] = field(default_factory=list)
     env_distinct_groups: list[list[str]] = field(default_factory=list)
     pools: list[PoolSpec] = field(default_factory=list)
-    pools: list[PoolSpec] = field(default_factory=list)
+    asserts: list[AssertSpec] = field(default_factory=list)
 
     def override(
         self, count: int | None = None, seed: str | None = None, locale: str | None = None
