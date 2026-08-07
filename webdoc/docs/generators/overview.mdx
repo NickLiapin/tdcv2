@@ -111,6 +111,18 @@ That covers [`text`](text.mdx) and [`<mix>`](../constructs/mix.mdx), and
 [`number`](number.mdx) **when its `percent` splits `length` groups** — `length="2,3"
 percent="70,30"` over a thousand rows is 700 and 300 exactly.
 
+:::caution[`missing=` on the same generator changes the counts]
+The quota is laid over the whole column first, and `missing=` then blanks cells without
+regard to which value they hold. So `percent="90,10" missing="0.5"` over a thousand rows
+gives about 450 / 50 / 500 blank: the RATIO of the surviving values is still 90:10, and
+the absolute counts are not what `percent` alone would give.
+
+That is not a rounding slip, and no ordering fixes it — the two requests are inconsistent.
+Exactly 100 `fail` rows AND half the file blank would make `fail` 100 of the 500 surviving
+values, which is 20%, not the 10% asked for. If you need an exact number of a value in the
+finished file, keep `missing=` off that generator.
+:::
+
 A plain numeric range is the other kind. `value="1..10"` draws, and over a thousand rows
 the ten values come out `97 84 106 112 107 102 90 95 86 121` — the spread of a draw, not
 a quota. The rule is what the config wrote down: shares written out are honoured exactly,

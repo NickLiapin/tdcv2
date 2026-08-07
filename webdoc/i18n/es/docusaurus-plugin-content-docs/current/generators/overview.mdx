@@ -113,6 +113,18 @@ Eso cubre [`text`](text.mdx) y [`<mix>`](../constructs/mix.mdx), y
 [`number`](number.mdx) **cuando su `percent` reparte grupos de `length`**: `length="2,3"
 percent="70,30"` sobre mil filas da exactamente 700 y 300.
 
+:::caution[`missing=` en el mismo generador cambia los conteos]
+La cuota se reparte primero sobre toda la columna, y `missing=` vacía celdas después sin
+mirar qué valor tienen. Así que `percent="90,10" missing="0.5"` sobre mil filas da unos
+450 / 50 / 500 vacías: la PROPORCIÓN de los valores que sobreviven sigue siendo 90:10, y
+los conteos absolutos no son los que daría `percent` por sí solo.
+
+No es un desliz de redondeo, y ningún orden lo arregla: las dos peticiones son
+incompatibles. Exactamente 100 filas `fail` Y medio archivo vacío haría que `fail` fuera
+100 de los 500 valores supervivientes, es decir un 20 %, no el 10 % pedido. Si necesita un
+número exacto de un valor en el archivo terminado, no ponga `missing=` en ese generador.
+:::
+
 Un rango numérico simple es de la otra clase. `value="1..10"` sortea, y sobre mil filas
 los diez valores salen `97 84 106 112 107 102 90 95 86 121` — la dispersión de un sorteo,
 no una cuota. La regla es lo que escribió el config: las proporciones escritas se cumplen

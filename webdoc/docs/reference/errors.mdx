@@ -307,6 +307,7 @@ have them: they compile a config into a model that has no place to put such a `<
 | `TDC268` | `if=` on a `<gen type="pool">` | A reference publishes a whole MEMBER, and a `<gen>` carrying `if=` becomes a conditional branch the pool resolver does not recognise — so no `Ref.field` column was registered and `${{Ref.name}}` reached the output as its own literal text. Use `parent=` to leave rows without a member |
 | `TDC269` | `if=` on a `<gen>` inside a `<case>` | A case body is several parts joined into one value, so a condition on one part has no value to fall back to. It was accepted and ignored, and the part appeared on every row — including the ones the condition excluded. Put the condition on the branch: `<case if="…">` |
 | `TDC270` | `<tdc>` holds a second `<env>` or `<block>` | Both are read by taking the FIRST of their kind, so a second one is discarded whole — every sequence it declares, every line it lays out — while the run finishes looking healthy. Reported on the second one |
+| `TDC271` | `percent=` beside `order="sequential"` | Walking the list in order fixes which value each row gets, so there is no share left to apportion. The percentage was accepted and dropped: `percent="98,1,1"` over a hundred rows came out 34 / 33 / 33 |
 
 ## See also
 

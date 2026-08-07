@@ -25,6 +25,7 @@ export function checkGenText(
 ): void {
   const attrs = gen.attr();
   const attrMap = extractAttrs(attrs);
+  checkSequentialDropsPercent(gen, diagnostics);
   const valueAttr = findAttr(attrs, 'value');
   if (!valueAttr) {
     diagnostics.push({
@@ -61,4 +62,37 @@ export function checkGenText(
       code,
     });
   }
+}
+
+/**
+ * `percent=` on a generator that walks its list in order — accepted, and read by
+ * nothing.
+ *
+ * `order="sequential"` gives row r element `r mod N`, which is a rule about
+ * POSITION and leaves no room for a rule about SHARE. The engine's own comment
+ * says so ("ignoring the random pick and any percent"), and nothing told the
+ * user: `percent="98,1,1"` over a hundred rows came out 34 / 33 / 33 from a
+ * config `check` had called valid, which is the shape of the request answered
+ * by its exact opposite.
+ *
+ * Shared by `type="text"` and `type="file"` — both walk a list, and both
+ * dropped the shares the same way.
+ */
+export function checkSequentialDropsPercent(
+  gen: OpenCloseElementContext | SelfClosingElementContext,
+  diagnostics: Diagnostic[],
+): void {
+  const attrs = gen.attr();
+  const attrMap = extractAttrs(attrs);
+  if ((attrMap['order'] ?? '').trim() !== 'sequential') return;
+  const percentAttr = findAttr(attrs, 'percent');
+  if (!percentAttr) return;
+  diagnostics.push({
+    severity: 'error',
+    source: 'validator',
+    ...attrValueRange(percentAttr),
+    message: `percent="${attrMap['percent'] ?? ''}" is not read beside order="sequential": walking the list in order fixes which value each row gets, so there is no share left to apportion`,
+    hint: 'Drop order="sequential" to have the shares apportioned exactly, or drop percent= and take the values in the order they are written — each one as often as the others.',
+    code: 'TDC271',
+  });
 }

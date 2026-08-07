@@ -2696,6 +2696,26 @@ public sealed class Validator
         CheckCaseAndOrder(gen, attrs);
         this.CheckImperfections(gen, attrs, type);
 
+        // order="sequential" gives row r element `r mod N` — a rule about POSITION, which leaves
+        // no room for a rule about SHARE. The engine ignores the percent outright, and nothing
+        // told the user: percent="98,1,1" over a hundred rows came out 34/33/33 from a config
+        // check had called valid.
+        if (type is "text" or "file"
+            && attrs.GetValueOrDefault("order")?.Trim() == "sequential"
+            && attrs.ContainsKey("percent"))
+        {
+            (int line, int column) = At(gen, "percent");
+            Error(
+                "TDC271",
+                $"percent=\"{attrs["percent"]}\" is not read beside order=\"sequential\": "
+                + "walking the list in order fixes which value each row gets, so there is no "
+                + "share left to apportion",
+                "Drop order=\"sequential\" to have the shares apportioned exactly, or drop "
+                + "percent= and take the values in the order they are written \u2014 each one "
+                + "as often as the others.",
+                line, column);
+        }
+
         if (type == "text" && attrs.ContainsKey("percent"))
         {
             (int line, int column) = At(gen, "percent");

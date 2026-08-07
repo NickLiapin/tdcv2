@@ -1901,6 +1901,29 @@ impl Validator {
         self.check_case_and_order(gen, &attrs);
         self.check_imperfections(gen, &attrs, gen_type);
 
+        // `order="sequential"` gives row r element `r mod N` — a rule about POSITION,
+        // which leaves no room for a rule about SHARE. The engine ignores the percent
+        // outright, and nothing told the user: percent="98,1,1" over a hundred rows came
+        // out 34/33/33 from a config `check` had called valid.
+        if matches!(gen_type, Some("text") | Some("file"))
+            && attrs.get("order").map(|o| o.trim()) == Some("sequential")
+        {
+            if let Some(percent) = attrs.get("percent") {
+                self.error(
+                    "TDC271",
+                    format!(
+                        "percent=\"{percent}\" is not read beside order=\"sequential\": \
+                         walking the list in order fixes which value each row gets, so there \
+                         is no share left to apportion"
+                    ),
+                    "Drop order=\"sequential\" to have the shares apportioned exactly, or drop \
+                     percent= and take the values in the order they are written \u{2014} each \
+                     one as often as the others.",
+                    gen.at("percent"),
+                );
+            }
+        }
+
         if gen_type == Some("text") {
             if let Some(percent) = attrs.get("percent") {
                 let count = split_count(attrs.get("value").map(String::as_str).unwrap_or(""));

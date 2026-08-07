@@ -11,6 +11,7 @@ import type {
 } from '../generated/TDCParser.js';
 import { loadFileValues } from '../generators/file.js';
 import { extractAttrs } from '../processor/walk.js';
+import { checkSequentialDropsPercent } from './text.js';
 
 export interface FileValidationContext {
   readonly diagnostics: Diagnostic[];
@@ -23,6 +24,7 @@ export function checkGenFile(
 ): void {
   const attrs = gen.attr();
   const attrMap = extractAttrs(attrs);
+  checkSequentialDropsPercent(gen, ctx.diagnostics);
   const srcAttr = findAttr(attrs, 'src');
   if (!srcAttr) {
     ctx.diagnostics.push({

@@ -98,6 +98,24 @@ page — is tracked in that implementation's own changelog:
   config had produced nothing. `check` called such a document valid. The same silent discard
   TDC014 already refuses for the self-closing spelling, one level up.
 
+<!-- covers: TDC271 -->
+
+- `percent=` beside `order="sequential"` is refused by TDC271. Walking the list in order
+  gives row `r` element `r mod N` — a rule about POSITION, which leaves no room for a rule
+  about SHARE. The engine ignored the percentage outright and said nothing:
+  `percent="98,1,1"` over a hundred rows came out 34 / 33 / 33 from a config `check` had
+  called valid. Both `type="text"` and `type="file"` walk a list, and both dropped it.
+
+### Documentation
+
+- The exact-shares promise now carries the one thing that breaks it: `missing=` on the same
+  generator. The quota is laid over the whole column first and blanks are applied without
+  regard to which value a cell holds, so `percent="90,10" missing="0.5"` gives about
+  450 / 50 / 500 blank — the RATIO survives, the absolute counts do not. No ordering could
+  fix it: exactly 100 `fail` rows AND half the file blank would make `fail` 20% of the
+  surviving values, not the 10% asked for. The two requests are inconsistent, so the page
+  says which one `missing=` wins.
+
 <!-- covers: abs, round, floor, ceil, trunc, min, max -->
 
 - `abs`, `round`, `floor`, `ceil`, `trunc`, `min` and `max` in `if=` and `filter=` kept
