@@ -20,6 +20,7 @@ from pathlib import Path
 from urllib.parse import urlparse
 
 from ..date import calendar
+from ..date import locales as date_locales
 from ..date import formatter as date_formatter
 from ..date import gen as date_gen
 from ..date import parse as date_parse
@@ -3008,10 +3009,48 @@ class _Validator:
                 line,
                 column,
             )
+        self._check_env_locale_has_dates(gen, attrs)
         self._check_date_step(gen, attrs)
         self._check_date_weekdays(gen, attrs)
         self._check_date_common(gen, attrs)
         self._check_date_values(gen, attrs)
+
+    #: Tokens whose OUTPUT is words rather than digits, plus the ``L`` family, whose layout is
+    #: itself a per-locale fact (``M/D/YYYY`` against ``D.M.YYYY``).
+    _LOCALE_TOKENS = re.compile(r"MMMM|MMM|dddd|ddd|L")
+
+    def _check_env_locale_has_dates(self, gen, attrs: dict[str, str]) -> None:
+        """``<env local="af">`` with a date the run will render in ENGLISH.
+
+        The same value is refused outright on ``<gen type="date" local="af">`` (TDC153) and was
+        silently downgraded here. Refusing it on ``<env local=>`` would be wrong — a locale can
+        be a perfectly good source of NAMES and still ship no month names, and refusing would
+        forbid the Afrikaans name pack because Afrikaans dates are missing.
+
+        So this warns, and only when the format actually reads the locale. ``YYYY-MM-DD`` is the
+        same in every language and says nothing; a missing ``format=`` does, because the default
+        ``L`` is a layout the locale chooses. Bracketed text is stripped first: ``[LL]`` is a
+        literal, not a token.
+        """
+        if not self.locale or checks.is_known_date_locale(self.locale):
+            return
+        if attrs.get("local") is not None:
+            return  # its own local= is TDC153's business
+        fmt = attrs.get("format")
+        if fmt is not None and fmt.strip():
+            outside = re.sub(r"\[[^\]]*\]", "", fmt)
+            if not self._LOCALE_TOKENS.search(outside):
+                return
+        self._warn(
+            "TDC272",
+            f'<env local="{self.locale}"> ships no date translations, so this date renders in '
+            "English",
+            f"Date locales: {', '.join(date_locales.NAMES)}. Use format=\"YYYY-MM-DD\" "
+            "\u2014 or any format without month or weekday names \u2014 to get the same text in "
+            "every language, or accept the English month names.",
+            _line(gen),
+            _column(gen),
+        )
 
     def _check_date_step(self, gen, attrs: dict[str, str]) -> None:
         """``step=`` on a walked date axis: what it may say, and that anything reads it."""

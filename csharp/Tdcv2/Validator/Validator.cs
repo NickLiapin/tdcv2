@@ -3764,8 +3764,65 @@ public sealed class Validator
                 line, column);
         }
 
+        CheckEnvLocaleHasDates(gen, attrs);
         CheckDateCommonAttrs(gen, attrs);
         CheckDateValues(gen, attrs);
+    }
+
+    /// <summary>
+    /// <c>&lt;env local="af"&gt;</c> with a date the run will render in ENGLISH.
+    /// </summary>
+    /// <remarks>
+    /// The same value is refused outright on <c>&lt;gen type="date" local="af"&gt;</c> (TDC153)
+    /// and was silently downgraded here. Refusing it on <c>&lt;env local=&gt;</c> would be wrong —
+    /// a locale can be a perfectly good source of NAMES and still ship no month names, and
+    /// refusing would forbid the Afrikaans name pack because Afrikaans dates are missing. So this
+    /// warns, and only when the format actually reads the locale: <c>YYYY-MM-DD</c> is the same
+    /// in every language, while a missing <c>format=</c> is not, because the default <c>L</c> is
+    /// a layout the locale chooses. Bracketed text is stripped first — <c>[LL]</c> is a literal.
+    /// </remarks>
+    private void CheckEnvLocaleHasDates(
+        TDCParser.SelfClosingElementContext gen, IReadOnlyDictionary<string, string> attrs)
+    {
+        if (string.IsNullOrEmpty(_locale) || Checks.IsKnownDateLocale(_locale))
+        {
+            return;
+        }
+
+        if (attrs.ContainsKey("local"))
+        {
+            return; // its own local= is TDC153's business
+        }
+
+        string? format = attrs.GetValueOrDefault("format");
+        if (!string.IsNullOrWhiteSpace(format))
+        {
+            var outside = new System.Text.StringBuilder();
+            bool inside = false;
+            foreach (char ch in format)
+            {
+                if (ch == '[') { inside = true; }
+                else if (ch == ']') { inside = false; }
+                else if (!inside) { outside.Append(ch); }
+            }
+
+            string plain = outside.ToString();
+            bool readsLocale = new[] { "MMMM", "MMM", "dddd", "ddd", "L" }
+                .Any(t => plain.Contains(t, StringComparison.Ordinal));
+            if (!readsLocale)
+            {
+                return;
+            }
+        }
+
+        Warn(
+            "TDC272",
+            $"<env local=\"{_locale}\"> ships no date translations, so this date renders in "
+            + "English",
+            $"Date locales: {string.Join(", ", DateLocales.Names)}. Use format=\"YYYY-MM-DD\" "
+            + "\u2014 or any format without month or weekday names \u2014 to get the same text "
+            + "in every language, or accept the English month names.",
+            Line(gen), Column(gen));
     }
 
     /// <summary>

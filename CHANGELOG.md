@@ -106,6 +106,17 @@ page — is tracked in that implementation's own changelog:
   `percent="98,1,1"` over a hundred rows came out 34 / 33 / 33 from a config `check` had
   called valid. Both `type="text"` and `type="file"` walk a list, and both dropped it.
 
+<!-- covers: TDC272 -->
+
+- `<env local="af">` with a date now warns (TDC272) instead of quietly rendering it in
+  English. The same value is an ERROR on `<gen type="date" local="af">` (TDC153) and was a
+  silent downgrade here — an asymmetry the user could not see. Refusing it on `<env>` would
+  be wrong: a locale can be a perfectly good source of names and still ship no month names,
+  and refusing would forbid the Afrikaans name pack because Afrikaans dates are missing. The
+  warning fires only when the format actually reads the locale, so `format="YYYY-MM-DD"`
+  stays silent while a missing `format=` does not — the default `L` is a layout the locale
+  chooses.
+
 ### Documentation
 
 - The exact-shares promise now carries the one thing that breaks it: `missing=` on the same

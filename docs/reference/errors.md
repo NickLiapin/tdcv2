@@ -314,6 +314,7 @@ but the combination it asks for can't be carried out.
 | `TDC269` | `if=` on a `<gen>` inside a `<case>` | A case body is several parts joined into one value, so a condition on one part has no value to fall back to. It was accepted and ignored, and the part appeared on every row — including the ones the condition excluded. Put the condition on the branch: `<case if="…">` |
 | `TDC270` | `<tdc>` holds a second `<env>` or `<block>` | Both are read by taking the FIRST of their kind, so a second one is discarded whole — every sequence it declares, every line it lays out — while the run finishes looking healthy. Reported on the second one |
 | `TDC271` | `percent=` beside `order="sequential"` | Walking the list in order fixes which value each row gets, so there is no share left to apportion. The percentage was accepted and dropped: `percent="98,1,1"` over a hundred rows came out 34 / 33 / 33 |
+| `TDC272` (warning) | `<env local=…>` names a locale with no date translations | The locale is a fine source of NAMES and ships no month names, so the dates render in English. Refused outright on `<gen type="date" local=…>` (TDC153) and silent here until now. Fires only when the format reads the locale — `format="YYYY-MM-DD"` is the same in every language |
 
 ## See also
 

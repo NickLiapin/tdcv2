@@ -3183,8 +3183,63 @@ impl Validator {
             }
         }
 
+        self.check_env_locale_has_dates(gen, attrs);
         self.check_date_common_attrs(gen, attrs);
         self.check_date_values(gen, attrs);
+    }
+
+    /// `<env local="af">` with a date the run will render in ENGLISH.
+    ///
+    /// The same value is refused outright on `<gen type="date" local="af">`
+    /// (TDC153) and was silently downgraded here. Refusing it on `<env local=>`
+    /// would be wrong — a locale can be a perfectly good source of NAMES and
+    /// still ship no month names, and refusing would forbid the Afrikaans name
+    /// pack because Afrikaans dates are missing.
+    ///
+    /// So this warns, and only when the format actually reads the locale.
+    /// `YYYY-MM-DD` is the same in every language and says nothing; a missing
+    /// `format=` does, because the default `L` is a layout the locale chooses.
+    /// Bracketed text is stripped first: `[LL]` is a literal, not a token.
+    fn check_env_locale_has_dates(&mut self, gen: &Element, attrs: &Attrs) {
+        if self.locale.is_empty() || date::locales::is_known(&self.locale) {
+            return;
+        }
+        if attrs.get("local").is_some() {
+            return; // its own local= is TDC153's business
+        }
+        if let Some(format) = attrs.get("format").filter(|f| !f.trim().is_empty()) {
+            let mut outside = String::new();
+            let mut inside = false;
+            for ch in format.chars() {
+                match ch {
+                    '[' => inside = true,
+                    ']' => inside = false,
+                    c if !inside => outside.push(c),
+                    _ => {}
+                }
+            }
+            let reads_locale = ["MMMM", "MMM", "dddd", "ddd", "L"]
+                .iter()
+                .any(|t| outside.contains(t));
+            if !reads_locale {
+                return;
+            }
+        }
+        let locale = self.locale.clone();
+        self.warn(
+            "TDC272",
+            format!(
+                "<env local=\"{locale}\"> ships no date translations, so this date renders in \
+                 English"
+            ),
+            &format!(
+                "Date locales: {}. Use format=\"YYYY-MM-DD\" \u{2014} or any format without \
+                 month or weekday names \u{2014} to get the same text in every language, or \
+                 accept the English month names.",
+                date::locales::NAMES.join(", ")
+            ),
+            gen.pos,
+        );
     }
 
     /// The dates themselves parse.

@@ -3222,8 +3222,62 @@ public final class Validator {
           "A date locale has to be translated deliberately — month names inflect.",
           at(gen, "local")[0], at(gen, "local")[1]);
     }
+    checkEnvLocaleHasDates(gen, attrs);
     checkDateCommonAttrs(gen, attrs);
     checkDateValues(gen, attrs);
+  }
+
+  /**
+   * {@code <env local="af">} with a date the run will render in ENGLISH.
+   *
+   * <p>The same value is refused outright on {@code <gen type="date" local="af">} (TDC153) and
+   * was silently downgraded here. Refusing it on {@code <env local=>} would be wrong — a locale
+   * can be a perfectly good source of NAMES and still ship no month names, and refusing would
+   * forbid the Afrikaans name pack because Afrikaans dates are missing. So this warns, and only
+   * when the format actually reads the locale: {@code YYYY-MM-DD} is the same in every language,
+   * while a missing {@code format=} is not, because the default {@code L} is a layout the locale
+   * chooses. Bracketed text is stripped first — {@code [LL]} is a literal.
+   */
+  private void checkEnvLocaleHasDates(
+      TDCParser.SelfClosingElementContext gen, Map<String, String> attrs) {
+    if (locale == null || locale.isEmpty() || Checks.isKnownDateLocale(locale)) {
+      return;
+    }
+    if (attrs.containsKey("local")) {
+      return; // its own local= is TDC153's business
+    }
+    String format = attrs.get("format");
+    if (format != null && !format.isBlank()) {
+      StringBuilder outside = new StringBuilder();
+      boolean inside = false;
+      for (char ch : format.toCharArray()) {
+        if (ch == '[') {
+          inside = true;
+        } else if (ch == ']') {
+          inside = false;
+        } else if (!inside) {
+          outside.append(ch);
+        }
+      }
+      String plain = outside.toString();
+      boolean readsLocale = false;
+      for (String token : new String[] {"MMMM", "MMM", "dddd", "ddd", "L"}) {
+        if (plain.contains(token)) {
+          readsLocale = true;
+          break;
+        }
+      }
+      if (!readsLocale) {
+        return;
+      }
+    }
+    warn("TDC272",
+        "<env local=\"" + locale + "\"> ships no date translations, so this date renders in "
+            + "English",
+        "Date locales: " + String.join(", ", io.github.nickliapin.tdc.date.DateLocales.NAMES) + ". Use format=\"YYYY-MM-DD\" "
+            + "\u2014 or any format without month or weekday names \u2014 to get the same text "
+            + "in every language, or accept the English month names.",
+        line(gen), column(gen));
   }
 
   /**

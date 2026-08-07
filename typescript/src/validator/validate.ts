@@ -908,7 +908,7 @@ function checkGen(
       checkGenSymbol(gen, ctx.diagnostics);
       break;
     case 'date':
-      checkGenDate(gen, ctx.declaredSequences, ctx.diagnostics);
+      checkGenDate(gen, ctx.declaredSequences, ctx.diagnostics, ctx.locale);
       break;
     case 'timeseries':
       checkGenTimeseries(gen, ctx.diagnostics);

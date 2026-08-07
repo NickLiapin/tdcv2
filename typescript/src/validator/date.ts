@@ -34,9 +34,11 @@ export function checkGenDate(
   gen: OpenCloseElementContext | SelfClosingElementContext,
   declaredAbove: readonly string[],
   diagnostics: Diagnostic[],
+  envLocale = '',
 ): void {
   const attrs = gen.attr();
   const attrMap = extractAttrs(attrs);
+  checkEnvLocaleHasDates(gen, attrMap, envLocale, diagnostics);
   // `of=` makes this an OFFSET rather than a draw: a different set of attributes
   // configures it, and a different set of mistakes is possible. Its own checks
   // REPLACE the ones below rather than joining them — everything here is about
@@ -360,4 +362,49 @@ function checkDateWeekdays(
       code: 'TDC250',
     });
   }
+}
+
+/**
+ * Tokens whose OUTPUT is words rather than digits, plus the `L` family, whose
+ * layout is itself a per-locale fact (`M/D/YYYY` against `D.M.YYYY`).
+ *
+ * Bracketed text is stripped first: `[LL]` is a literal, not a token.
+ */
+function formatReadsTheLocale(format: string | undefined): boolean {
+  if (format === undefined || format.trim() === '') return true; // the default is `L`
+  const outside = format.replace(/\[[^\]]*\]/g, '');
+  return /MMMM|MMM|dddd|ddd|L/.test(outside);
+}
+
+/**
+ * `<env local="af">` with a date the run will render in ENGLISH.
+ *
+ * The same value is refused outright on `<gen type="date" local="af">` (TDC153)
+ * and silently downgraded here, which is the asymmetry worth ending: a locale
+ * can be a perfectly good source of NAMES and still ship no month names, and
+ * `<env local=>` is the one place where refusing it would be wrong — it would
+ * forbid the Afrikaans name pack because Afrikaans dates are missing.
+ *
+ * So this warns rather than refuses, and only when the format actually reads
+ * the locale. `format="YYYY-MM-DD"` is the same in every language and says
+ * nothing here; a missing `format=` does, because the default `L` is a layout
+ * the locale chooses.
+ */
+function checkEnvLocaleHasDates(
+  gen: OpenCloseElementContext | SelfClosingElementContext,
+  attrMap: Record<string, string>,
+  envLocale: string,
+  diagnostics: Diagnostic[],
+): void {
+  if (envLocale === '' || isKnownDateLocale(envLocale)) return;
+  if (attrMap['local'] !== undefined) return; // its own local= is TDC153's business
+  if (!formatReadsTheLocale(attrMap['format'])) return;
+  diagnostics.push({
+    severity: 'warning',
+    source: 'validator',
+    ...nodeRange(gen),
+    message: `<env local="${envLocale}"> ships no date translations, so this date renders in English`,
+    hint: `Date locales: ${formatCandidates(DATE_LOCALE_NAMES)}. Use format="YYYY-MM-DD" — or any format without month or weekday names — to get the same text in every language, or accept the English month names.`,
+    code: 'TDC272',
+  });
 }

@@ -98,6 +98,13 @@
       "description": "from= with no end is an OPEN axis when the range is walked: no diagnostic at all",
       "config": "<tdc><env count=\"2\" seed=\"s\"><sequence name=\"G\"><gen type=\"date\" from=\"2026-01-01\" order=\"sequential\"/></sequence></env><block><line><data>x</data></line></block></tdc>",
       "expected": []
+    },
+    {
+      "name": "an-env-locale-with-no-date-translations-says-so",
+      "demonstrates": "TDC272",
+      "description": "The same value is refused outright on <gen type=\"date\" local=\"af\"> (TDC153) and was silently downgraded to English here. Refusing it on <env local=> would be wrong — a locale can be a perfectly good source of NAMES and still ship no month names, and refusing would forbid the Afrikaans name pack because Afrikaans dates are missing. So this warns, and only when the format actually reads the locale: format=\"YYYY-MM-DD\" is the same in every language and says nothing, while a missing format= does, because the default L is a layout the locale chooses.",
+      "config": "<tdc><env count=\"2\" seed=\"s\" local=\"af\"><sequence name=\"D\"><gen type=\"date\" value=\"2026-03-01..2026-03-05\" format=\"LL\"/></sequence></env><block><line><data>${{D}}</data></line></block></tdc>",
+      "expected": ["warning TDC272 1:59"]
     }
   ]
 }
