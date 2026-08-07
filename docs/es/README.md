@@ -56,6 +56,7 @@
 - [Varios valores en una celda (repeat)](./constructs/multiple-values.md#top)
 - [Una fila por elemento (each)](./constructs/relational-tables.md#top)
 - [Unicidad (uniq, distinct)](./constructs/unique-values.md#top)
+- [Configuraciones que se comprueban solas (assert)](./constructs/self-checking.md#top)
 
 ## Lenguaje de cálculo
 

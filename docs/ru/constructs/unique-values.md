@@ -4,7 +4,7 @@
 
 📖 **[Открыть на сайте документации →](https://nickliapin.github.io/tdcv2/ru/docs/constructs/unique-values)**
 
-← Назад: [Строка на элемент (each)](./relational-tables.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Обзор](../compute/overview.md#top) →
+← Назад: [Строка на элемент (each)](./relational-tables.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Самопроверяющиеся конфиги (assert)](./self-checking.md#top) →
 
 ---
 
@@ -393,6 +393,6 @@ but 5 unique rows were requested.
 
 ---
 
-← Назад: [Строка на элемент (each)](./relational-tables.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Обзор](../compute/overview.md#top) →
+← Назад: [Строка на элемент (each)](./relational-tables.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Самопроверяющиеся конфиги (assert)](./self-checking.md#top) →
 
 📖 **[Открыть на сайте документации →](https://nickliapin.github.io/tdcv2/ru/docs/constructs/unique-values)**

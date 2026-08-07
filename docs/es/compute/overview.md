@@ -4,7 +4,7 @@
 
 📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/compute/overview)**
 
-← Anterior: [Unicidad (uniq, distinct)](../constructs/unique-values.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Aritmética](./arithmetic.md#top) →
+← Anterior: [Configuraciones que se comprueban solas (assert)](../constructs/self-checking.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Aritmética](./arithmetic.md#top) →
 
 ---
 
@@ -441,6 +441,6 @@ filas buenas.
 
 ---
 
-← Anterior: [Unicidad (uniq, distinct)](../constructs/unique-values.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Aritmética](./arithmetic.md#top) →
+← Anterior: [Configuraciones que se comprueban solas (assert)](../constructs/self-checking.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Aritmética](./arithmetic.md#top) →
 
 📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/compute/overview)**

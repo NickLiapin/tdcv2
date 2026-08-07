@@ -4,7 +4,7 @@
 
 📖 **[Открыть на сайте документации →](https://nickliapin.github.io/tdcv2/ru/docs/compute/overview)**
 
-← Назад: [Уникальность (uniq, distinct)](../constructs/unique-values.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Арифметика](./arithmetic.md#top) →
+← Назад: [Самопроверяющиеся конфиги (assert)](../constructs/self-checking.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Арифметика](./arithmetic.md#top) →
 
 ---
 
@@ -429,6 +429,6 @@ _недопустимым_ для предметной области (невы�
 
 ---
 
-← Назад: [Уникальность (uniq, distinct)](../constructs/unique-values.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Арифметика](./arithmetic.md#top) →
+← Назад: [Самопроверяющиеся конфиги (assert)](../constructs/self-checking.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Арифметика](./arithmetic.md#top) →
 
 📖 **[Открыть на сайте документации →](https://nickliapin.github.io/tdcv2/ru/docs/compute/overview)**

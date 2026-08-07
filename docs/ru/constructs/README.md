@@ -17,6 +17,7 @@
 - [Несколько значений в ячейке (repeat)](./multiple-values.md#top)
 - [Строка на элемент (each)](./relational-tables.md#top)
 - [Уникальность (uniq, distinct)](./unique-values.md#top)
+- [Самопроверяющиеся конфиги (assert)](./self-checking.md#top)
 
 ---
 

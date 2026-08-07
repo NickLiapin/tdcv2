@@ -56,6 +56,7 @@
 - [Multiple values in a cell (repeat)](./constructs/multiple-values.md#top)
 - [One row per element (each)](./constructs/relational-tables.md#top)
 - [Uniqueness (uniq, distinct)](./constructs/unique-values.md#top)
+- [Self-checking configs (assert)](./constructs/self-checking.md#top)
 
 ## Compute Language
 

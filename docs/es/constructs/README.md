@@ -17,6 +17,7 @@
 - [Varios valores en una celda (repeat)](./multiple-values.md#top)
 - [Una fila por elemento (each)](./relational-tables.md#top)
 - [Unicidad (uniq, distinct)](./unique-values.md#top)
+- [Configuraciones que se comprueban solas (assert)](./self-checking.md#top)
 
 ---
 

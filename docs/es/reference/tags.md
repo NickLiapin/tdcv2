@@ -58,6 +58,12 @@ Todas las etiquetas del DSL de TDC, con el lugar donde se explican a fondo.
 | `<distinct>` | Campos/secuencias que deben diferir dentro de una fila | [Sin repeticiones dentro de una fila](../guides/distinct.md#top) |
 | `<uniq>`     | La combinación de secuencias única en todas las filas  | [Valores únicos](../constructs/unique-values.md#top)             |
 
+## Comprobar la ejecución
+
+| Etiqueta   | Qué es                                                              | Véase                                                        |
+| :--------- | :------------------------------------------------------------------ | :------------------------------------------------------------ |
+| `<assert>` | Una propiedad que la ejecución terminada debe cumplir, o se detiene con un mensaje | [Configuraciones que se comprueban solas](../constructs/self-checking.md#top) |
+
 `<data>` aparece dos veces porque se lee de dos maneras. Dentro de una `<line>` es
 salida: texto literal en el que se interpolan los `${{…}}`. Dentro de una
 `<sequence>` es dato: sin nombre, es el pegamento entre los generadores de una

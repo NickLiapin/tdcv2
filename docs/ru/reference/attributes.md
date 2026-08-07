@@ -42,6 +42,8 @@
 | `of`        | На `<gen type="running">`: какую колонку накапливать. На `<gen type="stat">`: по какой колонке считать. На `<gen type="date">`: от какой колонки отсчитывать                                                                            | [Нарастающий итог](../generators/running.md#top), [Статистика](../generators/stat.md#top) |
 | `plus`      | На `<gen type="date" of="…">`: насколько далеко от той колонки — `7d`, `3..10d`, `1..3mo`, `-10..-3d`; голое число означает дни | [Интервал](../generators/date.md#top) |
 | `op`        | На `<gen type="stat">`: какая статистика — `sum`, `mean`, `median`, `min`, `max`, `count` или `stddev`                                                                            | [Статистика](../generators/stat.md#top)                                  |
+| `that`      | На `<assert>`: условие, которому обязан удовлетворять готовый запуск, на языке `if=`                                                                          | [Самопроверяющиеся конфиги](../constructs/self-checking.md#top)          |
+| `says`      | На `<assert>`: фраза, которую получит читатель, если условие не сошлось                                                                                      | [Самопроверяющиеся конфиги](../constructs/self-checking.md#top)          |
 | `reset`     | На `<gen type="running">`: колонка, смена значения которой перезапускает итог                                                                                                     | [Нарастающий итог](../generators/running.md#top)                         |
 
 ## Значения генераторов

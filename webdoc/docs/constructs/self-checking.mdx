@@ -1,0 +1,133 @@
+---
+title: Self-checking configs (assert)
+sidebar_position: 8
+---
+
+import Terminal from '@site/src/components/Terminal';
+
+# `<assert>` — a config that checks its own output
+
+**Use it when** the shape of your data matters to whoever consumes it, and you want the
+run to stop rather than hand over a file that quietly drifted.
+
+An assertion states a property the finished run must have. If it holds, nothing happens.
+If it doesn't, the run stops with your own sentence, before a single line is written.
+
+```xml
+<assert that="Tracked == 700" says="every shipped order should carry a tracking number"/>
+```
+
+It lives in `<env>`, beside [`<uniq>` and `<distinct>`](unique-values.mdx), because like
+them it says something about the whole run rather than about one column.
+
+## What is worth asserting
+
+Not what the config already states. You wrote `percent="70"` and you assert 70 percent —
+you have tested that TDC can count.
+
+The value is in what the config does **not** state. Here a filter and a condition stack
+up, and the share that reaches the file is nowhere in the text:
+
+```xml
+<tdc>
+  <env count="1000" seed="orders" local="en">
+    <sequence name="Status"><gen type="text" value="shipped,pending" percent="70,30"/></sequence>
+    <sequence name="Tracking" parent="Status.shipped">
+      <gen type="regex" value="[A-Z]{2}[0-9]{9}" if="Status == 'shipped' && _count % 4 != 0"/>
+    </sequence>
+    <sequence name="Tracked"><gen type="stat" of="Tracking" op="count"/></sequence>
+
+    <assert that="Tracked == 700" says="every shipped order should carry a tracking number"/>
+  </env>
+  <block>
+    <line><data>${{Status}},${{Tracking}}</data></line>
+  </block>
+</tdc>
+```
+
+<Terminal title="./run orders.tdc">
+{`tdcv2: assert failed: every shipped order should carry a tracking number
+  Tracked == 700   with Tracked = 522`}
+</Terminal>
+
+Nothing else in TDC has an opinion about this config. It parses, it validates, it runs,
+and 178 shipped orders come out with an empty tracking number. That is the failure an
+assertion is for.
+
+The exit code is 1, so CI stops on it.
+
+## At a glance
+
+| Attribute | Required | What it does                                                    |
+| :-------- | :------- | :-------------------------------------------------------------- |
+| `that`    | yes      | The condition, in the same language as [`if=`](../reference/expressions.mdx) |
+| `says`    | yes      | The sentence a reader is given when it fails                     |
+
+Both are required. An assertion that fires with only its expression to show has made the
+reader work out what it was for, months later, in a CI log.
+
+There is **no flag**. An assertion runs because it is written: a check that has to be
+remembered is a check nobody ran, on a config that looks verified.
+
+## Where the numbers come from
+
+`that=` reads columns, and the columns worth reading are usually
+[`<gen type="stat">`](../generators/stat.mdx) — one number for the whole run.
+
+```xml
+<env count="500" seed="clinic" local="en">
+    <sequence name="Visit"><gen type="date" from="2026-01-01" to="2026-06-30" format="YYYY-MM-DD"/></sequence>
+    <sequence name="Follow"><gen type="date" of="Visit" plus="7..30d" format="YYYY-MM-DD"/></sequence>
+    <sequence name="Ward"><gen type="text" value="A,B,C" percent="50,30,20"/></sequence>
+
+    <sequence name="Rows"><gen type="stat" of="Visit" op="count"/></sequence>
+    <sequence name="Wards"><gen type="stat" of="Ward" op="count"/></sequence>
+
+    <assert that="Rows == _total" says="every row has a visit date"/>
+    <assert that="Wards == _total" says="every row has a ward"/>
+</env>
+```
+
+`_total` is the row count, and it is the one built-in an assertion may read.
+
+## The rule that keeps it honest
+
+**Every name in `that=` must be the same on every row.** A `stat` column is, by
+construction. A one-value `text` column is, as a matter of fact. A drawn column is not,
+and is refused:
+
+```xml
+<sequence name="Amount"><gen type="number" value="1..500"/></sequence>
+<assert that="Amount > 0" says="every amount is positive"/>
+```
+
+<Terminal title="./run amounts.tdc">
+{`tdcv2: assert ("Amount > 0"): "Amount" is not the same on every row, so this would have checked the first row and called the run verified. An assertion reads whole-run values: give it a <gen type="stat" of="Amount" op="…"/> column, or _total.`}
+</Terminal>
+
+Without this rule, `that="Amount > 0"` would read row 0 and report on one row out of five
+hundred — a check that passed because it barely looked, wearing a badge that says
+verified. That is the same disease the whole feature exists to cure.
+
+A column that a `parent=` filter leaves **empty** on some rows is refused for the same
+reason: it has no single value for the run, so the condition would compare against
+whatever row 0 happened to hold. Summarise it with `op="count"` instead.
+
+## What it does not do yet
+
+- **Per-row assertions** ("every amount is positive"). A different feature: it needs a row
+  loop and a report that names failing rows rather than one number.
+- **Asserting a check digit.** That is the trap — [`<compute>`](../compute/overview.mdx)
+  produced it, and recomputing it asserts that the same code agrees with itself.
+
+## Engines
+
+An assertion reads `stat` columns, and `stat` already routes a config to the in-memory
+engine. So assertions add no engine consequence of their own; see
+[large outputs](../guides/large-outputs.mdx).
+
+## See also
+
+- [`stat`](../generators/stat.mdx) — where the numbers come from
+- [Expressions](../reference/expressions.mdx) — the language `that=` is written in
+- [Uniqueness](unique-values.mdx) — the other whole-run statements

@@ -36,6 +36,8 @@ covered where that tag is explained — see the [compute reference](compute.mdx)
 | `of`        | On `<gen type="running">`: the column to accumulate. On `<gen type="stat">`: the column to summarise. On `<gen type="date">`: the column to measure from                                                        | [Running total](../generators/running.mdx), [Statistic](../generators/stat.mdx) |
 | `plus`      | On `<gen type="date" of="…">`: how far from that column — `7d`, `3..10d`, `1..3mo`, `-10..-3d`; a bare number means days                                     | [An interval](../generators/date.mdx#an-interval-a-date-measured-from-another-date) |
 | `op`        | On `<gen type="stat">`: which statistic — `sum`, `mean`, `median`, `min`, `max`, `count` or `stddev`                                                        | [Statistic](../generators/stat.mdx)                                  |
+| `that`      | On `<assert>`: the condition the finished run must satisfy, in the `if=` language                                                                            | [Self-checking configs](../constructs/self-checking.mdx)             |
+| `says`      | On `<assert>`: the sentence a reader is given when it does not hold                                                                                         | [Self-checking configs](../constructs/self-checking.mdx)             |
 | `reset`     | On `<gen type="running">`: a column whose change restarts the total                                                                                         | [Running total](../generators/running.mdx)                           |
 
 ## Generator values

@@ -4,7 +4,7 @@
 
 📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/constructs/unique-values)**
 
-← Anterior: [Una fila por elemento (each)](./relational-tables.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Descripción general](../compute/overview.md#top) →
+← Anterior: [Una fila por elemento (each)](./relational-tables.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Configuraciones que se comprueban solas (assert)](./self-checking.md#top) →
 
 ---
 
@@ -395,6 +395,6 @@ las formas de `uniq` — exacto, pero acotado por la RAM. Vea **[Salidas grandes
 
 ---
 
-← Anterior: [Una fila por elemento (each)](./relational-tables.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Descripción general](../compute/overview.md#top) →
+← Anterior: [Una fila por elemento (each)](./relational-tables.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Configuraciones que se comprueban solas (assert)](./self-checking.md#top) →
 
 📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/constructs/unique-values)**

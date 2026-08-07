@@ -56,6 +56,7 @@
 - [Несколько значений в ячейке (repeat)](./constructs/multiple-values.md#top)
 - [Строка на элемент (each)](./constructs/relational-tables.md#top)
 - [Уникальность (uniq, distinct)](./constructs/unique-values.md#top)
+- [Самопроверяющиеся конфиги (assert)](./constructs/self-checking.md#top)
 
 ## Язык вычислений
 

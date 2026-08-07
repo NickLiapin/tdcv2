@@ -4,7 +4,7 @@
 
 📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/compute/overview)**
 
-← Previous: [Uniqueness (uniq, distinct)](../constructs/unique-values.md#top) · **[Contents](../README.md#top)** · Next: [Arithmetic](./arithmetic.md#top) →
+← Previous: [Self-checking configs (assert)](../constructs/self-checking.md#top) · **[Contents](../README.md#top)** · Next: [Arithmetic](./arithmetic.md#top) →
 
 ---
 
@@ -436,6 +436,6 @@ range, a forbidden check digit — and you want the pack to emit nothing but goo
 
 ---
 
-← Previous: [Uniqueness (uniq, distinct)](../constructs/unique-values.md#top) · **[Contents](../README.md#top)** · Next: [Arithmetic](./arithmetic.md#top) →
+← Previous: [Self-checking configs (assert)](../constructs/self-checking.md#top) · **[Contents](../README.md#top)** · Next: [Arithmetic](./arithmetic.md#top) →
 
 📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/compute/overview)**

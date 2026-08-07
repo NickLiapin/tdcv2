@@ -58,6 +58,12 @@ Every tag in the TDC DSL, and where each one is covered in depth.
 | `<distinct>` | Fields or sequences that must differ within one row            | [No repeats within a row](../guides/distinct.md#top) |
 | `<uniq>`     | A combination of sequences that must be unique across all rows | [Unique values](../constructs/unique-values.md#top)  |
 
+## Checking the run
+
+| Tag        | What it is                                                    | See                                                             |
+| :--------- | :------------------------------------------------------------ | :-------------------------------------------------------------- |
+| `<assert>` | A property the finished run must have, or it stops with a message | [Self-checking configs](../constructs/self-checking.md#top) |
+
 `<data>` is listed twice because it reads two ways. Inside a `<line>` it is output:
 literal text with `${{…}}` interpolated into it. Inside a `<sequence>` it is data:
 bare, it is the glue between the generators of a

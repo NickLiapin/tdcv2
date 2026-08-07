@@ -17,6 +17,7 @@
 - [Multiple values in a cell (repeat)](./multiple-values.md#top)
 - [One row per element (each)](./relational-tables.md#top)
 - [Uniqueness (uniq, distinct)](./unique-values.md#top)
+- [Self-checking configs (assert)](./self-checking.md#top)
 
 ---
 
