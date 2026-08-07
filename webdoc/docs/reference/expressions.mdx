@@ -71,6 +71,8 @@ carried as one, and only becomes a double when something asks it to:
 | a literal without a point or an exponent | stays whole |
 | a column whose value reads as digits | compares as whole against another whole |
 | `+ - * %` on two whole numbers | stay whole |
+| `abs` `round` `floor` `ceil` `trunc` on a whole number | stay whole — rounding a whole number is that number, whatever its size |
+| `min` `max` `sum` while every argument is whole | stay whole |
 | `/` | **always** floating point — division is not closed over the whole numbers |
 | anything handed to `sqrt`, `log`, `sin`… | becomes a double, because those have no exact answer to give |
 

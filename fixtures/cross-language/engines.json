@@ -832,6 +832,102 @@
         "lines": ["2024-02-28", "2024-02-29", "2024-03-01"]
       }
     },
+    "expressions-math/landmarks-every-implementation-must-agree-on": {
+      "engine2": {
+        "lines": [
+          "log10_1000=ok exp0=ok log1=ok sqrt4=ok cbrt27=ok hypot=ok pow=ok log2=ok sin0=ok cos0=ok tan0=ok atan2=ok"
+        ]
+      },
+      "engine3": {
+        "lines": [
+          "log10_1000=ok exp0=ok log1=ok sqrt4=ok cbrt27=ok hypot=ok pow=ok log2=ok sin0=ok cos0=ok tan0=ok atan2=ok"
+        ]
+      }
+    },
+    "expressions-math/degrees-and-radians-are-each-others-inverse": {
+      "engine2": {
+        "lines": ["d180=ok d90=ok d0=ok asin1=ok acos1=ok atan0=ok"]
+      },
+      "engine3": {
+        "lines": ["d180=ok d90=ok d0=ok asin1=ok acos1=ok atan0=ok"]
+      }
+    },
+    "expressions-math/rounding-is-half-away-from-zero-in-all-five": {
+      "engine2": {
+        "lines": ["r05=ok rm05=ok r15=ok r25=ok rm25=ok"]
+      },
+      "engine3": {
+        "lines": ["r05=ok rm05=ok r15=ok r25=ok rm25=ok"]
+      }
+    },
+    "expressions-math/floor-ceil-and-trunc-part-company-on-negatives": {
+      "engine2": {
+        "lines": ["f=ok c=ok t=ok fp=ok cp=ok tp=ok abs=ok sgn=ok sgn0=ok"]
+      },
+      "engine3": {
+        "lines": ["f=ok c=ok t=ok fp=ok cp=ok tp=ok abs=ok sgn=ok sgn0=ok"]
+      }
+    },
+    "expressions-math/hyperbolics-and-their-inverses-round-trip": {
+      "engine2": {
+        "lines": [
+          "sinh0=ok cosh0=ok tanh0=ok asinh0=ok acosh1=ok atanh0=ok expm1=ok log1p=ok"
+        ]
+      },
+      "engine3": {
+        "lines": [
+          "sinh0=ok cosh0=ok tanh0=ok asinh0=ok acosh1=ok atanh0=ok expm1=ok log1p=ok"
+        ]
+      }
+    },
+    "expressions-math/the-special-functions-at-the-points-they-are-defined-by": {
+      "engine2": {
+        "lines": ["erf0=ok erfc0=ok gamma1=ok gamma5=ok lgamma1=ok beta=ok"]
+      },
+      "engine3": {
+        "lines": ["erf0=ok erfc0=ok gamma1=ok gamma5=ok lgamma1=ok beta=ok"]
+      }
+    },
+    "expressions-math/min-and-max-take-as-many-arguments-as-they-are-given": {
+      "engine2": {
+        "lines": [
+          "min2=ok max2=ok min5=ok max5=ok minneg=ok maxneg=ok minmix=ok maxstr=ok"
+        ]
+      },
+      "engine3": {
+        "lines": [
+          "min2=ok max2=ok min5=ok max5=ok minneg=ok maxneg=ok minmix=ok maxstr=ok"
+        ]
+      }
+    },
+    "expressions-math/whole-numbers-stay-whole-past-two-to-the-fifty-three": {
+      "engine2": {
+        "lines": ["ne=ok diff=ok big=ok mul=ok abs=ok"]
+      },
+      "engine3": {
+        "lines": ["ne=ok diff=ok big=ok mul=ok abs=ok"]
+      }
+    },
+    "expressions-math/functions-nest-and-compose": {
+      "engine2": {
+        "lines": ["a=ok b=ok c=ok d=ok e=ok f=ok"]
+      },
+      "engine3": {
+        "lines": ["a=ok b=ok c=ok d=ok e=ok f=ok"]
+      }
+    },
+    "expressions-math/string-predicates-at-their-edges": {
+      "engine2": {
+        "lines": [
+          "c1=ok c2=ok s1=ok s2=ok e1=ok e2=ok l=ok u=ok emp=ok nemp=ok"
+        ]
+      },
+      "engine3": {
+        "lines": [
+          "c1=ok c2=ok s1=ok s2=ok e1=ok e2=ok l=ok u=ok emp=ok nemp=ok"
+        ]
+      }
+    },
     "expressions/modulo-picks-every-second-row": {
       "engine2": {
         "lines": ["odd", "even", "odd", "even", "odd", "even"]

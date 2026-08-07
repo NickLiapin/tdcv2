@@ -226,38 +226,46 @@ public final class Evaluate {
           "if expression: a function needs at least one argument");
     }
     switch (name) {
-      case "abs":
+      // A whole number already IS its own rounding, whatever its size, and taking it through
+      // a double first throws that answer away past 2^53. Arithmetic stayed exact, so the
+      // value arrives intact and must not be destroyed on the way out.
+      case "abs": {
+        Long whole = whole(args, 0);
+        if (whole != null) {
+          return whole < 0 ? checkedNegate(whole) : whole;
+        }
         return Math.abs(num(args, 0));
-      case "ceil":
-        return Math.ceil(num(args, 0));
-      case "floor":
-        return Math.floor(num(args, 0));
+      }
+      case "ceil": {
+        Long whole = whole(args, 0);
+        return whole == null ? (Object) Math.ceil(num(args, 0)) : whole;
+      }
+      case "floor": {
+        Long whole = whole(args, 0);
+        return whole == null ? (Object) Math.floor(num(args, 0)) : whole;
+      }
       case "trunc": {
+        Long whole = whole(args, 0);
+        if (whole != null) {
+          return whole;
+        }
         double x = num(args, 0);
         return x < 0 ? Math.ceil(x) : Math.floor(x);
       }
       case "round": {
+        Long whole = whole(args, 0);
+        if (whole != null) {
+          return whole;
+        }
         double x = num(args, 0);
         return x < 0 ? -Math.floor(-x + 0.5) : Math.floor(x + 0.5);
       }
-      case "max": {
-        // One list argument spread out, or the arguments themselves — so
-        // max(split(Prices, ",")) and max(1, 9, 4) both work.
-        java.util.List<Object> items = spread(args);
-        double best = asNumber(items.get(0));
-        for (Object v : items) {
-          best = Math.max(best, asNumber(v));
-        }
-        return best;
-      }
-      case "min": {
-        java.util.List<Object> items = spread(args);
-        double best = asNumber(items.get(0));
-        for (Object v : items) {
-          best = Math.min(best, asNumber(v));
-        }
-        return best;
-      }
+      // One list argument spread out, or the arguments themselves — so
+      // max(split(Prices, ",")) and max(1, 9, 4) both work.
+      case "max":
+        return extremum(args, true);
+      case "min":
+        return extremum(args, false);
       case "contains":
         return str(args, 0).contains(str(args, 1));
       case "ends_with":
@@ -404,6 +412,44 @@ public final class Evaluate {
 
   /** One list argument spread out, or the arguments themselves. */
   @SuppressWarnings("unchecked")
+  /** The argument as an exact whole number, or null when it is not one. */
+  private static Long whole(Object[] args, int i) {
+    return i < args.length ? asExactInt(args[i]) : null;
+  }
+
+  /**
+   * {@code min} / {@code max}, exact while EVERY argument is a whole number.
+   *
+   * <p>One float among them and the whole comparison falls to floating point, which is honest:
+   * there is no exact ordering between a big integer and a float that is not one. The winner is
+   * handed back as it was given, so {@code max(9007199254740993, 1)} answers with the number
+   * somebody wrote.
+   */
+  private static Object extremum(Object[] args, boolean wantsMax) {
+    java.util.List<Object> items = spread(args);
+    java.util.List<Long> whole = new java.util.ArrayList<>(items.size());
+    for (Object v : items) {
+      Long n = asExactInt(v);
+      if (n == null) {
+        whole.clear();
+        break;
+      }
+      whole.add(n);
+    }
+    if (whole.size() == items.size() && !whole.isEmpty()) {
+      long best = whole.get(0);
+      for (long n : whole) {
+        best = wantsMax ? Math.max(best, n) : Math.min(best, n);
+      }
+      return best;
+    }
+    double best = asNumber(items.get(0));
+    for (Object v : items) {
+      best = wantsMax ? Math.max(best, asNumber(v)) : Math.min(best, asNumber(v));
+    }
+    return best;
+  }
+
   private static java.util.List<Object> spread(Object[] args) {
     if (args.length == 1 && args[0] instanceof java.util.List<?> only) {
       return (java.util.List<Object>) only;

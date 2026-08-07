@@ -72,6 +72,8 @@ ES un número entero se lleva como tal:
 | un literal sin punto ni exponente | sigue siendo entero |
 | una columna cuyo valor se lee como dígitos | compara como entero contra otro entero |
 | `+ - * %` sobre dos enteros | siguen siendo enteros |
+| `abs` `round` `floor` `ceil` `trunc` sobre un entero | siguen siendo enteros: redondear un entero es ese mismo entero, del tamaño que sea |
+| `min` `max` `sum` mientras todos los argumentos sean enteros | siguen siendo enteros |
 | `/` | **siempre** en coma flotante — la división no es cerrada sobre los enteros |
 | lo que se pasa a `sqrt`, `log`, `sin`… | pasa a double: esas no tienen respuesta exacta que dar |
 

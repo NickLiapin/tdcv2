@@ -15,6 +15,17 @@ page — is tracked in that implementation's own changelog:
 
 ## [Unreleased]
 
+### Fixed
+
+<!-- covers: abs, round, floor, ceil, trunc, min, max -->
+
+- `abs`, `round`, `floor`, `ceil`, `trunc`, `min` and `max` in `if=` and `filter=` kept
+  the exact answer only up to 2^53. Arithmetic already carried a whole number as one, so
+  `9007199254740993 - 1` was right, but handing that number to `round` — which for a whole
+  number is the number itself — pushed it through a double and gave back
+  `9007199254740992`. All five implementations agreed on the wrong answer, so no test
+  caught it; a shared case now pins the exact one.
+
 ## [0.2.0] — 2026-08-07
 
 The first release since the expression language, the walked date axis and four new

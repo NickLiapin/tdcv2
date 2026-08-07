@@ -180,19 +180,26 @@ public static class Evaluate
 
         switch (name)
         {
-            case "abs": return Math.Abs(Num(0));
-            case "ceil": return Math.Ceiling(Num(0));
-            case "floor": return Math.Floor(Num(0));
-            case "trunc": return Math.Truncate(Num(0));
+            // A whole number already IS its own rounding, whatever its size, and taking it
+            // through a double first throws that answer away past 2^53. Arithmetic stayed
+            // exact, so the value arrives intact and must not be destroyed on the way out.
+            case "abs":
+                return AsExactInt(args.Length > 0 ? args[0] : null) is long toAbs
+                    ? (toAbs < 0 ? CheckedNegate(toAbs) : toAbs)
+                    : Math.Abs(Num(0));
+            case "ceil": return Whole(args, 0) ?? Math.Ceiling(Num(0));
+            case "floor": return Whole(args, 0) ?? Math.Floor(Num(0));
+            case "trunc": return Whole(args, 0) ?? Math.Truncate(Num(0));
             case "round":
             {
+                if (Whole(args, 0) is object already) return already;
                 double x = Num(0);
                 return x < 0 ? -Math.Floor(-x + 0.5) : Math.Floor(x + 0.5);
             }
             // Spread: one list argument read as the arguments themselves, so
             // max(split(Prices, ",")) and max(1, 9, 4) both work.
-            case "max": return Spread(args).Select(AsNumber).Aggregate((a, b) => b > a ? b : a);
-            case "min": return Spread(args).Select(AsNumber).Aggregate((a, b) => b < a ? b : a);
+            case "max": return Extremum(args, wantsMax: true);
+            case "min": return Extremum(args, wantsMax: false);
             case "contains": return Str(0).Contains(Str(1), StringComparison.Ordinal);
             case "ends_with": return Str(0).EndsWith(Str(1), StringComparison.Ordinal);
             case "starts_with": return Str(0).StartsWith(Str(1), StringComparison.Ordinal);
@@ -388,6 +395,37 @@ public static class Evaluate
     }
 
     /// <summary>One list argument spread out, or the arguments themselves.</summary>
+    /// <summary>The argument as an exact whole number, boxed, or null when it is not one.</summary>
+    private static object? Whole(object?[] args, int i) =>
+        i < args.Length && AsExactInt(args[i]) is long w ? w : null;
+
+    /// <summary>
+    /// <c>min</c> / <c>max</c>, exact while EVERY argument is a whole number.
+    ///
+    /// <para>One float among them and the whole comparison falls to floating point, which is
+    /// honest: there is no exact ordering between a big integer and a float that is not one.
+    /// The winner is handed back as it was given, so <c>max(9007199254740993, 1)</c> answers
+    /// with the number somebody wrote.</para>
+    /// </summary>
+    private static object Extremum(object?[] args, bool wantsMax)
+    {
+        var values = Spread(args).ToList();
+        var whole = new List<long>(values.Count);
+        foreach (object? v in values)
+        {
+            if (AsExactInt(v) is not long n) { whole.Clear(); break; }
+
+            whole.Add(n);
+        }
+
+        if (whole.Count == values.Count && whole.Count > 0)
+        {
+            return whole.Aggregate((a, b) => (wantsMax ? b > a : b < a) ? b : a);
+        }
+
+        return values.Select(AsNumber).Aggregate((a, b) => (wantsMax ? b > a : b < a) ? b : a);
+    }
+
     private static IEnumerable<object?> Spread(object?[] args) =>
         args.Length == 1 && args[0] is List<object?> only ? only : args;
 

@@ -149,19 +149,38 @@ fn call_function(name: &str, args: &[V]) -> EngineResult<V> {
             Some(v) => Ok(text(v)),
         }
     };
+    // A whole number already IS its own rounding, whatever its size, and taking it
+    // through an f64 first throws the answer away past 2^53. Arithmetic stayed exact,
+    // so the value arrives intact and must not be destroyed on the way out.
+    let whole = |i: usize| -> Option<i64> { args.get(i).and_then(as_exact_int) };
     Ok(match name {
-        "abs" => V::Num(num(0)?.abs()),
-        "ceil" => V::Num(num(0)?.ceil()),
-        "floor" => V::Num(num(0)?.floor()),
-        "trunc" => V::Num(num(0)?.trunc()),
-        "round" => {
-            let x = num(0)?;
-            V::Num(if x < 0.0 {
-                -(-x + 0.5).floor()
-            } else {
-                (x + 0.5).floor()
-            })
-        }
+        "abs" => match whole(0) {
+            Some(w) => V::Int(checked_int(w.checked_abs(), i128::from(w).abs())?),
+            None => V::Num(num(0)?.abs()),
+        },
+        "ceil" => match whole(0) {
+            Some(w) => V::Int(w),
+            None => V::Num(num(0)?.ceil()),
+        },
+        "floor" => match whole(0) {
+            Some(w) => V::Int(w),
+            None => V::Num(num(0)?.floor()),
+        },
+        "trunc" => match whole(0) {
+            Some(w) => V::Int(w),
+            None => V::Num(num(0)?.trunc()),
+        },
+        "round" => match whole(0) {
+            Some(w) => V::Int(w),
+            None => {
+                let x = num(0)?;
+                V::Num(if x < 0.0 {
+                    -(-x + 0.5).floor()
+                } else {
+                    (x + 0.5).floor()
+                })
+            }
+        },
         "max" | "min" => {
             // One list argument spread out, or the arguments themselves — so
             // max(split(Prices, ",")) and max(1, 9, 4) both work.
@@ -173,14 +192,31 @@ fn call_function(name: &str, args: &[V]) -> EngineResult<V> {
                 return invalid("if expression: a function needs at least one argument");
             }
             let wants_max = name == "max";
-            let mut best = as_number(&spread[0]);
-            for v in spread.iter().skip(1) {
-                let n = as_number(v);
-                if (wants_max && n > best) || (!wants_max && n < best) {
-                    best = n;
+            // Exact while EVERY argument is whole. One float among them and the whole
+            // comparison falls to floating point, which is honest: there is no exact
+            // ordering between a big integer and a float that is not one.
+            let whole: Option<Vec<i64>> = spread.iter().map(as_exact_int).collect();
+            match whole {
+                Some(numbers) => {
+                    let mut best = numbers[0];
+                    for n in numbers.into_iter().skip(1) {
+                        if (wants_max && n > best) || (!wants_max && n < best) {
+                            best = n;
+                        }
+                    }
+                    V::Int(best)
+                }
+                None => {
+                    let mut best = as_number(&spread[0]);
+                    for v in spread.iter().skip(1) {
+                        let n = as_number(v);
+                        if (wants_max && n > best) || (!wants_max && n < best) {
+                            best = n;
+                        }
+                    }
+                    V::Num(best)
                 }
             }
-            V::Num(best)
         }
         "contains" => V::Bool(text(0)?.contains(&text(1)?)),
         "ends_with" => V::Bool(text(0)?.ends_with(&text(1)?)),

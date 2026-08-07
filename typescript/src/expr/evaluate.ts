@@ -282,26 +282,35 @@ const FUNCTIONS: Readonly<Record<string, (args: readonly unknown[]) => unknown>>
   // for everyone, because the string functions below must NOT be coerced:
   // `len("10")` is 2, and a registry that pre-numbered every argument could not
   // tell the two families apart.
-  abs: (a) => Math.abs(num(a, 0)),
-  ceil: (a) => Math.ceil(num(a, 0)),
-  floor: (a) => Math.floor(num(a, 0)),
+  // These six have an EXACT answer for a whole number, and taking it through a
+  // double throws that answer away past 2^53: `abs(-9007199254740993)` came back
+  // 9007199254740992, larger than its own input's magnitude by nothing anyone
+  // asked for. Arithmetic already stayed exact — `x - y` and `x * 1` were right —
+  // so the value arrived intact and was destroyed on the way out.
+  //
+  // Rounding a whole number is the number: floor, ceil, round and trunc are the
+  // identity on an integer, whatever its size. abs negates a negative one. min
+  // and max compare, and comparison over bigint is exact.
+  abs: (a) => {
+    const whole = asExactInteger(at(a, 0));
+    if (whole !== null) return checkedInteger(whole < 0n ? -whole : whole);
+    return Math.abs(num(a, 0));
+  },
+  ceil: (a) => asExactInteger(at(a, 0)) ?? Math.ceil(num(a, 0)),
+  floor: (a) => asExactInteger(at(a, 0)) ?? Math.floor(num(a, 0)),
   // Given a single list, they range over it; given loose arguments, over those.
   // A caller writing max(Prices) after splitting means the list, and having to
   // write max(at(l,0), at(l,1), …) instead would be absurd.
-  max: (a) =>
-    spread(a)
-      .map((v) => asNumber(v))
-      .reduce((x, y) => (y > x ? y : x)),
-  min: (a) =>
-    spread(a)
-      .map((v) => asNumber(v))
-      .reduce((x, y) => (y < x ? y : x)),
+  max: (a) => extremum(a, 'max'),
+  min: (a) => extremum(a, 'min'),
   radians: (a) => TdcMath.radians(num(a, 0)),
   round: (a) => {
+    const whole = asExactInteger(at(a, 0));
+    if (whole !== null) return whole;
     const x = num(a, 0);
     return x < 0 ? -Math.floor(-x + 0.5) : Math.floor(x + 0.5);
   },
-  trunc: (a) => Math.trunc(num(a, 0)),
+  trunc: (a) => asExactInteger(at(a, 0)) ?? Math.trunc(num(a, 0)),
 
   // Strings. The predicates people actually reach for — a prefix, a substring,
   // a length — and none of them touches floating point, so all five agree for
@@ -720,6 +729,31 @@ function coerce(left: unknown, right: unknown, op: (a: unknown, b: unknown) => b
     if (!Number.isNaN(n)) return op(n, right);
   }
   return op(left, right);
+}
+
+/**
+ * `min` / `max` over arguments that may be exact integers.
+ *
+ * Every value is compared in the widest domain that holds them all: while each
+ * one is a whole number the comparison runs over bigint and the ANSWER is the
+ * original value rather than a re-derived one, so `max(9007199254740993, 1)`
+ * gives back the number that was written. One float among them and the whole
+ * comparison falls to floating point, which is the honest answer — there is no
+ * exact ordering between a bigint and a double that is not one.
+ */
+function extremum(args: readonly unknown[], wanted: 'max' | 'min'): unknown {
+  const values = spread(args);
+  if (values.length === 0) return Number.NaN;
+
+  const whole = values.map((v) => asExactInteger(v));
+  if (whole.every((v): v is bigint => v !== null)) {
+    // Compared as bigint, and the winner is handed back as the bigint it was —
+    // going through Number to compare would reintroduce the very rounding this
+    // exists to avoid.
+    return whole.reduce((x, y) => ((wanted === 'max' ? y > x : y < x) ? y : x));
+  }
+  const numbers = values.map((v) => asNumber(v));
+  return numbers.reduce((x, y) => ((wanted === 'max' ? y > x : y < x) ? y : x));
 }
 
 function asNumber(v: unknown): number {

@@ -238,13 +238,18 @@ _FUNCTIONS: dict[str, Callable[[list], object]] = {
     # Numbers. Each coerces its own arguments rather than the registry doing it for
     # everyone, because the string family must NOT be coerced: len("10") is 2, and a
     # registry that pre-numbered every argument could not tell the two apart.
-    "abs": lambda a: abs(_num(a, 0)),
-    "ceil": lambda a: float(math.ceil(_num(a, 0))),
-    "floor": lambda a: float(math.floor(_num(a, 0))),
-    "max": lambda a: max(as_number(v) for v in _nonempty(_spread(a))),
-    "min": lambda a: min(as_number(v) for v in _nonempty(_spread(a))),
-    "round": lambda a: _round_half_away_from_zero(_num(a, 0)),
-    "trunc": lambda a: float(math.trunc(_num(a, 0))),
+    # These six have an EXACT answer for a whole number, and taking it through a float
+    # throws that answer away past 2**53. Rounding a whole number IS the number, whatever
+    # its size; abs negates a negative one; min and max compare, and the comparison is
+    # exact while every argument is whole. Arithmetic already stayed exact, so the value
+    # arrived intact and was being destroyed on the way out.
+    "abs": lambda a: _exact_or(a, lambda w: abs(w), lambda x: abs(x)),
+    "ceil": lambda a: _exact_or(a, lambda w: w, lambda x: float(math.ceil(x))),
+    "floor": lambda a: _exact_or(a, lambda w: w, lambda x: float(math.floor(x))),
+    "max": lambda a: _extremum(a, True),
+    "min": lambda a: _extremum(a, False),
+    "round": lambda a: _exact_or(a, lambda w: w, _round_half_away_from_zero),
+    "trunc": lambda a: _exact_or(a, lambda w: w, lambda x: float(math.trunc(x))),
     # Strings. None of these touches floating point, so all five agree for free.
     "contains": lambda a: _arg_text(a, 1) in _arg_text(a, 0),
     "ends_with": lambda a: _arg_text(a, 0).endswith(_arg_text(a, 1)),
@@ -356,6 +361,31 @@ def _unary(op: str, arg):
 
 _INT64_MIN = -9223372036854775808
 _INT64_MAX = 9223372036854775807
+
+
+
+def _exact_or(args: list, whole_answer, float_answer):
+    """Answer exactly when the argument is a whole number, else in floating point."""
+    whole = _as_exact_int(_at(args, 0))
+    if whole is not None:
+        return whole_answer(whole)
+    return float_answer(_num(args, 0))
+
+
+def _extremum(args: list, want_max: bool):
+    """``min`` / ``max``, exact while every argument is a whole number.
+
+    The winner is handed back as the value that was given rather than re-derived, so
+    ``max(9007199254740993, 1)`` answers with the number somebody wrote. One float among
+    them and the whole comparison falls to floating point, which is honest: there is no
+    exact ordering between a big integer and a float that is not one.
+    """
+    values = _nonempty(_spread(args))
+    whole = [_as_exact_int(v) for v in values]
+    if whole and all(w is not None for w in whole):
+        return max(whole) if want_max else min(whole)
+    numbers = [as_number(v) for v in values]
+    return max(numbers) if want_max else min(numbers)
 
 
 def _as_exact_int(v):
