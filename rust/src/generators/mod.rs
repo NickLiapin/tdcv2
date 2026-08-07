@@ -4,6 +4,7 @@
 pub mod accumulate;
 pub mod advanced_regex;
 pub mod counter;
+pub mod date_offset;
 pub mod file;
 pub mod http;
 pub mod imperfections;

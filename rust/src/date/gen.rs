@@ -48,6 +48,23 @@ pub fn generate(
     count: usize,
     prng: &mut Sfc32,
 ) -> EngineResult<Vec<String>> {
+    generate_into(attrs, locale, now_millis, count, prng, None)
+}
+
+/// `count` formatted dates, optionally keeping the value behind each one.
+///
+/// `instants`, when given, receives the epoch millis the generator actually
+/// produced, before `format=` turned it into one locale's spelling of it. A
+/// column another one measures from asks for this; everything else passes `None`
+/// and nothing is collected.
+pub fn generate_into(
+    attrs: &BTreeMap<String, String>,
+    locale: Option<&str>,
+    now_millis: i64,
+    count: usize,
+    prng: &mut Sfc32,
+    mut instants: Option<&mut Vec<Option<i64>>>,
+) -> EngineResult<Vec<String>> {
     let plan = build_plan(attrs, locale, now_millis)?;
     format::check_format(&plan.format)?;
     let mut result = Vec::with_capacity(count);
@@ -56,6 +73,9 @@ pub fn generate(
             Some(fixed) => fixed,
             None => pick(&plan, prng),
         };
+        if let Some(sink) = instants.as_deref_mut() {
+            sink.push(Some(to_epoch_millis(value)));
+        }
         result.push(format::format(
             value,
             Some(&plan.format),

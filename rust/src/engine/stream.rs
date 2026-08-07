@@ -38,7 +38,7 @@ use crate::engine::exact_uniq;
 use crate::expr::evaluate;
 use crate::format::interpolate::{self, Lookup};
 use crate::format::{mask, transforms};
-use crate::generators::{file, imperfections, number, repeat};
+use crate::generators::{date_offset, file, imperfections, number, repeat};
 use crate::model::{
     Case, CasePart, Config, Field, Gen, Item, Line, Mix, SequenceSpec, Source, Switch,
 };
@@ -626,6 +626,19 @@ impl<'a> StreamEngine<'a> {
                         "a statistic (\"{}\") is computed over every row of the run, including \
                          the ones after this one, so it cannot be computed one row at a time; \
                          the in-memory engine handles it (run without a forced streaming engine)",
+                        spec.name
+                    ));
+                }
+
+                // A date measured from another date reads a SIBLING column as the row is
+                // built, and the streaming path has no way to do that yet — the same reason
+                // a dynamic template defers. Refused by name, and the router hands the config
+                // to the in-memory engine.
+                if date_offset::is_offset(&gen.gen_type, &gen.attrs) {
+                    return unsupported(&format!(
+                        "a date measured from another column (\"{}\") reads that column as the \
+                         row is built, and the streaming path has no way to do that yet; the \
+                         in-memory engine handles it (run without a forced streaming engine)",
                         spec.name
                     ));
                 }

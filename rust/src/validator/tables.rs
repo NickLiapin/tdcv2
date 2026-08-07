@@ -101,7 +101,7 @@ pub const MISPLACED_IN_SEQUENCE: [&str; 5] = ["mix", "switch", "case", "default"
 /// to `<case>`; `on` to `<switch>`; `v` to `<tdc>`. The list was one flat union of
 /// every attribute name in the language, so writing any of them on a `<gen>`
 /// passed in silence while the reference refused it.
-pub const GEN_ATTRS: [&str; 78] = [
+pub const GEN_ATTRS: [&str; 79] = [
     "type",
     "value",
     "name",
@@ -118,6 +118,7 @@ pub const GEN_ATTRS: [&str; 78] = [
     "separator",
     "accumulate",
     "of",
+    "plus",
     "reset",
     "op",
     "missing",
@@ -125,8 +126,8 @@ pub const GEN_ATTRS: [&str; 78] = [
     "anomaly",
     "anomaly_factor",
     "anomaly_flag",
-        "local",
-        "weight",
+    "local",
+    "weight",
     "percent",
     "first_zero",
     "include",
@@ -206,7 +207,7 @@ pub const GEN_TYPES: [&str; 16] = [
 /// An attribute in [`GEN_ATTRS`] is spelled correctly for SOME generator; this
 /// says whether it means anything for THIS one. Without it a `min=`/`max=` on a
 /// number and a `range=` on anything but a date pass silently and are dropped.
-pub const ATTRIBUTE_OWNERS: [(&str, &[&str]); 30] = [
+pub const ATTRIBUTE_OWNERS: [(&str, &[&str]); 31] = [
     // A list to walk — or, on a date, a range walked instead of drawn.
     ("order", &["text", "file", "date"]),
     ("cycle", &["text", "file", "date"]),
@@ -238,7 +239,10 @@ pub const ATTRIBUTE_OWNERS: [(&str, &[&str]); 30] = [
     ("spread", &["pattern"]),
     ("ink_threshold", &["pattern"]),
     // The synthetic series.
-    ("of", &["running", "stat"]),
+    // On a date, `of=` measures from a sibling instead of drawing, and `plus=` is
+    // the distance.
+    ("of", &["running", "stat", "date"]),
+    ("plus", &["date"]),
     ("reset", &["running"]),
     ("op", &["stat"]),
     ("base", &["timeseries", "running"]),
@@ -319,8 +323,7 @@ pub const COMPARISON_OPERATORS: &[&str] = &["==", "!=", "===", "!==", "<", ">", 
 pub const SUPPORTED_BINARY_OPERATORS: [&str; 16] = [
     "==", "!=", "===", "!==", "<", ">", "<=", ">=", "&&", "||", "+", "-", "*", "/",
     // Euclidean, matching <mod>: -3 % 2 is 1 here and -1 in Rust's own `%`.
-    "%",
-    // Set membership: `Country in [US, CA, MX]`.
+    "%", // Set membership: `Country in [US, CA, MX]`.
     "in",
 ];
 
@@ -392,11 +395,53 @@ pub const EXPR_FUNCTIONS: [(&str, usize, usize); 55] = [
 ];
 
 pub const EXPR_FUNCTION_NAMES: [&str; 47] = [
-    "abs", "acos", "acosh", "asin", "asinh", "atan", "atan2", "atanh", "beta", "cbrt", "ceil",
-    "contains", "cos", "cosh", "degrees", "digamma", "ends_with", "erf", "erfc", "exp", "expm1",
-    "floor", "gamma", "hypot", "is_empty", "len", "lgamma", "log", "log10", "log1p", "log2",
-    "lower", "max", "min", "pow", "radians", "round", "sign", "sin", "sinh", "sqrt",
-    "starts_with", "tan", "tanh", "trunc", "upper", "zeta",
+    "abs",
+    "acos",
+    "acosh",
+    "asin",
+    "asinh",
+    "atan",
+    "atan2",
+    "atanh",
+    "beta",
+    "cbrt",
+    "ceil",
+    "contains",
+    "cos",
+    "cosh",
+    "degrees",
+    "digamma",
+    "ends_with",
+    "erf",
+    "erfc",
+    "exp",
+    "expm1",
+    "floor",
+    "gamma",
+    "hypot",
+    "is_empty",
+    "len",
+    "lgamma",
+    "log",
+    "log10",
+    "log1p",
+    "log2",
+    "lower",
+    "max",
+    "min",
+    "pow",
+    "radians",
+    "round",
+    "sign",
+    "sin",
+    "sinh",
+    "sqrt",
+    "starts_with",
+    "tan",
+    "tanh",
+    "trunc",
+    "upper",
+    "zeta",
 ];
 
 /// Not available, and not typos either. Someone writing `besselj(_count)` knows

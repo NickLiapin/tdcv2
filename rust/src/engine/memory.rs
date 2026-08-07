@@ -26,6 +26,7 @@ use crate::expr::evaluate as expr;
 use crate::format::interpolate::{self, Lookup};
 use crate::format::{mask, transforms};
 use crate::generators::accumulate;
+use crate::generators::date_offset;
 use crate::generators::stat;
 use crate::generators::{
     advanced_regex, counter, file, http, imperfections, number, rand, regex, repeat, symbol,
@@ -218,6 +219,40 @@ fn stat_column(
         }
         Err(message) => invalid(&message),
     }
+}
+
+/// A date measured from another date. Reads a sibling column, so it lives here
+/// beside `running` and `stat` rather than in the generator dispatch.
+#[allow(clippy::too_many_arguments)]
+fn date_offset_column(
+    spec: &SequenceSpec,
+    gen: &Gen,
+    columns: &mut BTreeMap<String, Vec<Option<String>>>,
+    instants: &mut BTreeMap<String, Vec<Option<i64>>>,
+    wants_instant: &BTreeSet<String>,
+    count: usize,
+    prng: &mut Sfc32,
+    locale: Option<&str>,
+) -> EngineResult<()> {
+    let of = date_offset::source_of(&gen.attrs).to_string();
+    let Some(source) = columns.get(&of).cloned() else {
+        return Ok(()); // unknown column — the validator reports it
+    };
+    let (values, own) = date_offset::build(
+        &spec.name,
+        &gen.attrs,
+        &source,
+        instants.get(&of),
+        count,
+        prng,
+        locale,
+        wants_instant.contains(&spec.name),
+    )?;
+    columns.insert(spec.name.clone(), values);
+    if let Some(kept) = own {
+        instants.insert(spec.name.clone(), kept);
+    }
+    Ok(())
 }
 
 fn running_column(
@@ -467,6 +502,26 @@ fn build_columns_with(
 ) -> EngineResult<BTreeMap<String, Vec<Option<String>>>> {
     let count = env.config.count.max(0) as usize;
     let mut columns: BTreeMap<String, Vec<Option<String>>> = BTreeMap::new();
+    // The REAL value behind a date column's text, for the columns some offset reads.
+    //
+    // A date cell holds a PRESENTATION: `02/03/2026` in an en locale, `03.02.2026`
+    // in a ru one, `March 2` under format="MMMM D". Reading a date back out of that
+    // is guesswork at best and impossible at worst — the last form has thrown the
+    // year away. So the column that produced it keeps what it actually generated,
+    // and an offset measures from THAT. Only the columns named by some `of=` are
+    // kept, so a config with no offset in it pays nothing.
+    let mut instants: BTreeMap<String, Vec<Option<i64>>> = BTreeMap::new();
+    let wants_instant: BTreeSet<String> = env
+        .config
+        .sequences
+        .iter()
+        .filter_map(|spec| match &spec.source {
+            Source::Gen(gen) if date_offset::is_offset(&gen.gen_type, &gen.attrs) => {
+                Some(date_offset::source_of(&gen.attrs).to_string())
+            }
+            _ => None,
+        })
+        .collect();
 
     // Built-ins first. They are positional, consume no randomness, and are
     // therefore identical for a given count no matter what else the config does.
@@ -538,6 +593,21 @@ fn build_columns_with(
             // `of=` has to name a sequence declared above it.
             if gen.gen_type == "stat" {
                 stat_column(spec, gen, &mut columns, count)?;
+                continue;
+            }
+            // A date measured from another date, for the same reason and by the
+            // same rule: it reads a column that already exists.
+            if date_offset::is_offset(&gen.gen_type, &gen.attrs) {
+                date_offset_column(
+                    spec,
+                    gen,
+                    &mut columns,
+                    &mut instants,
+                    &wants_instant,
+                    count,
+                    &mut prng,
+                    env.config.locale.as_deref(),
+                )?;
                 continue;
             }
         }
@@ -615,15 +685,36 @@ fn build_columns_with(
                             built
                         }
                     },
-                    None => column_values(
-                        gen,
-                        applicable,
-                        &mut prng,
-                        env,
-                        Some(&stream),
-                        Some(&mut anomaly_flags),
-                        Some(&mut layouts),
-                    )?,
+                    None => {
+                        // A column some `<gen type="date" of="…">` measures from keeps the
+                        // instant it generated beside the text it renders. Nothing else asks,
+                        // so nothing else allocates.
+                        let mut collected: Option<Vec<Option<i64>>> = (gen.gen_type == "date"
+                            && wants_instant.contains(&spec.name))
+                        .then(Vec::new);
+                        let built = column_values_into(
+                            gen,
+                            applicable,
+                            &mut prng,
+                            env,
+                            Some(&stream),
+                            Some(&mut anomaly_flags),
+                            Some(&mut layouts),
+                            collected.as_mut(),
+                        )?;
+                        if let Some(drawn) = collected {
+                            // Laid over the real rows exactly as the values are: a filtered
+                            // column builds compacted and is spread afterwards, so the two must
+                            // be spread the same way or an offset would measure row 3 from
+                            // row 1's date.
+                            let mut over = vec![None; count];
+                            for (i, row) in rows.iter().enumerate() {
+                                over[*row] = drawn.get(i).copied().flatten();
+                            }
+                            instants.insert(spec.name.clone(), over);
+                        }
+                        built
+                    }
                 };
                 columns.insert(spec.name.clone(), spread(&rows, values, count));
 
@@ -1337,16 +1428,40 @@ fn one_scalar(spec: &SequenceSpec, prng: &mut Sfc32, env: &Env) -> EngineResult<
 /// string, and formatting before either would format a value that is about to be
 /// replaced.
 pub(super) fn finish(
+    values: Vec<String>,
+    attrs: &BTreeMap<String, String>,
+    prng: &mut Sfc32,
+    anomaly_flags: Option<&mut [bool]>,
+) -> EngineResult<Vec<String>> {
+    finish_into(values, attrs, prng, anomaly_flags, None)
+}
+
+/// `finish`, also clearing the instant behind any cell `missing=` blanked.
+///
+/// A blanked cell no longer shows the date it was built from, so a column
+/// measuring from this one must find nothing there rather than produce a date on
+/// a row whose source says nothing. `mask=`/`case=` change only the SPELLING,
+/// which is exactly what the instant outlives.
+pub(super) fn finish_into(
     mut values: Vec<String>,
     attrs: &BTreeMap<String, String>,
     prng: &mut Sfc32,
     anomaly_flags: Option<&mut [bool]>,
+    instants: Option<&mut Vec<Option<i64>>>,
 ) -> EngineResult<Vec<String>> {
     if let Some(anomaly) = imperfections::parse_anomaly(attrs)? {
         imperfections::apply_anomaly(&mut values, anomaly, prng, anomaly_flags);
     }
     if let Some(missing) = imperfections::parse_missing(attrs)? {
+        let before = values.clone();
         imperfections::apply_missing(&mut values, &missing, prng);
+        if let Some(sink) = instants {
+            for i in 0..values.len().min(sink.len()) {
+                if values[i] != before[i] {
+                    sink[i] = None;
+                }
+            }
+        }
     }
     format_values(values, attrs)
 }
@@ -1487,9 +1602,24 @@ pub(super) fn column_values(
     anomaly_flags: Option<&mut [bool]>,
     layouts: Option<&mut BTreeMap<String, per_row::ExactLayout>>,
 ) -> EngineResult<Vec<String>> {
+    column_values_into(gen, count, prng, env, stream, anomaly_flags, layouts, None)
+}
+
+/// `column_values`, also keeping the instants behind a date column some offset reads.
+#[allow(clippy::too_many_arguments)]
+pub(super) fn column_values_into(
+    gen: &Gen,
+    count: usize,
+    prng: &mut Sfc32,
+    env: &Env,
+    stream: Option<&per_row::Stream>,
+    anomaly_flags: Option<&mut [bool]>,
+    layouts: Option<&mut BTreeMap<String, per_row::ExactLayout>>,
+    mut instants: Option<&mut Vec<Option<i64>>>,
+) -> EngineResult<Vec<String>> {
     let Some(stream) = stream else {
-        let drawn = generate(gen, count, prng, env)?;
-        return finish(drawn, &gen.attrs, prng, anomaly_flags);
+        let drawn = generate_into(gen, count, prng, env, instants.as_deref_mut())?;
+        return finish_into(drawn, &gen.attrs, prng, anomaly_flags, instants);
     };
 
     if let Some((values, percents)) = listed_values(gen, env)? {
@@ -1523,12 +1653,24 @@ pub(super) fn column_values(
         let mut flags = anomaly_flags;
         for i in 0..count {
             let mut row_prng = per_row::row_generator(stream, stream.row_at(i));
-            let drawn = generate(gen, 1, &mut row_prng, env)?;
+            // One row's instant lands in its own scratch: the inner call knows nothing of `i`,
+            // and a later `missing=` pass has to line up with the values it just blanked.
+            let mut scratch: Option<Vec<Option<i64>>> = instants.as_ref().map(|_| Vec::new());
+            let drawn = generate_into(gen, 1, &mut row_prng, env, scratch.as_mut())?;
             let mut one = [false];
-            let done = finish(drawn, &gen.attrs, &mut row_prng, Some(&mut one))?;
+            let done = finish_into(
+                drawn,
+                &gen.attrs,
+                &mut row_prng,
+                Some(&mut one),
+                scratch.as_mut(),
+            )?;
             out.push(done.into_iter().next().unwrap_or_default());
             if let Some(store) = flags.as_deref_mut() {
                 store[i] = one[0];
+            }
+            if let (Some(sink), Some(row)) = (instants.as_deref_mut(), scratch) {
+                sink.push(row.into_iter().next().flatten());
             }
         }
         return Ok(out);
@@ -1694,6 +1836,22 @@ pub(super) fn generate(
     prng: &mut Sfc32,
     env: &Env,
 ) -> EngineResult<Vec<String>> {
+    generate_into(gen, count, prng, env, None)
+}
+
+/// One generator's values, optionally keeping the instants behind a date column.
+///
+/// `instants` is threaded rather than derived afterwards because a date's cell is
+/// a RENDERING — `02/03/2026` in an en locale, `03.02.2026` in a ru one — and
+/// reading a date back out of that is a guess. The column that produced it keeps
+/// what it generated, and an offset measures from THAT.
+pub(super) fn generate_into(
+    gen: &Gen,
+    count: usize,
+    prng: &mut Sfc32,
+    env: &Env,
+    instants: Option<&mut Vec<Option<i64>>>,
+) -> EngineResult<Vec<String>> {
     // Attributes that change what a generator produces are refused before the
     // generator runs, so a column never silently ignores one it was given.
     // `anomaly`, `missing`, `case` and `mask` are NOT here: those are passes over
@@ -1732,12 +1890,13 @@ pub(super) fn generate(
                 })
                 .collect()
         }
-        "date" => date::gen::generate(
+        "date" => date::gen::generate_into(
             &gen.attrs,
             env.config.locale.as_deref(),
             env.now_millis,
             count,
             prng,
+            instants,
         ),
         "regex" => regex::generate(&gen.attrs, count, env.config.regex_max_length, prng),
         "advanced_regex" => {

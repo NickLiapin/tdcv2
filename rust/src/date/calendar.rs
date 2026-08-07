@@ -240,3 +240,100 @@ pub fn parse_weekdays(raw: Option<&str>) -> Option<[bool; 7]> {
 pub fn weekday_of(value: PlainDateTime) -> usize {
     weekday(value)
 }
+
+/// A drawn offset: `lo..hi` steps of one unit. `lo == hi` is a fixed offset.
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct OffsetSpec {
+    pub lo: i64,
+    pub hi: i64,
+    /// One step, as `add_step` takes it — so the calendar clamping is shared.
+    pub unit: StepSpec,
+}
+
+/// Why a `plus=` was refused.
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum OffsetError {
+    /// A spelling this notation does not have.
+    Syntax,
+    /// The low bound is above the high one.
+    Order,
+}
+
+/// What a `plus=` may say, for a diagnostic to quote.
+pub const OFFSET_SYNTAX: &str = "7d, 3..10d, 1..3mo, -5..-1d — units s, m, h, d, w, mo, y";
+
+/// `plus="3..10d"`, `plus="7d"`, `plus="-5..-1d"`, `plus="1..3mo"`.
+///
+/// A bare number means DAYS, matching `step=`. The low bound may not exceed the
+/// high one: `10..3d` is a typo, and silently swapping it would hide the typo
+/// rather than report it.
+///
+/// The unit sits at the end rather than on both sides because `3d..10d` invites
+/// two DIFFERENT units, and "three days to two months" has no whole number of
+/// steps to draw.
+pub fn parse_offset(raw: Option<&str>) -> Result<OffsetSpec, OffsetError> {
+    let value = raw.unwrap_or("").trim().to_ascii_lowercase();
+    if value.is_empty() {
+        return Err(OffsetError::Syntax);
+    }
+    // The unit, if any, is the trailing run of letters; the rest is `lo` or `lo..hi`.
+    let split = value
+        .find(|c: char| c.is_ascii_alphabetic())
+        .unwrap_or(value.len());
+    let (numbers, unit_name) = value.split_at(split);
+    let unit_name = if unit_name.is_empty() { "d" } else { unit_name };
+
+    let (lo_text, hi_text) = match numbers.find("..") {
+        Some(at) => (&numbers[..at], &numbers[at + 2..]),
+        None => (numbers, numbers),
+    };
+    let lo = parse_bound(lo_text)?;
+    let hi = parse_bound(hi_text)?;
+    if lo > hi {
+        return Err(OffsetError::Order);
+    }
+
+    let unit = match fixed_unit_ms(unit_name) {
+        Some(ms) => StepSpec { ms, months: 0 },
+        None => match calendar_unit_months(unit_name) {
+            Some(months) => StepSpec { ms: 0, months },
+            None => return Err(OffsetError::Syntax),
+        },
+    };
+    Ok(OffsetSpec { lo, hi, unit })
+}
+
+/// One bound of an offset: an optional minus and at least one digit, nothing else.
+fn parse_bound(text: &str) -> Result<i64, OffsetError> {
+    let digits = text.strip_prefix('-').unwrap_or(text);
+    if digits.is_empty() || !digits.chars().all(|c| c.is_ascii_digit()) {
+        return Err(OffsetError::Syntax);
+    }
+    text.parse::<i64>().map_err(|_| OffsetError::Syntax)
+}
+
+/// The source date moved by `n` steps of the offset's unit.
+pub fn apply_offset(start: PlainDateTime, offset: OffsetSpec, n: i64) -> PlainDateTime {
+    add_step(start, offset.unit, n)
+}
+
+#[cfg(test)]
+mod offset_tests {
+    use super::*;
+
+    #[test]
+    fn an_offset_is_read_the_way_the_reference_reads_it() {
+        assert_eq!(parse_offset(Some("3..10d")).unwrap().lo, 3);
+        assert_eq!(parse_offset(Some("3..10d")).unwrap().hi, 10);
+        assert_eq!(parse_offset(Some("7d")).unwrap().lo, 7);
+        // A bare number means days, matching `step=`.
+        assert_eq!(parse_offset(Some("45")).unwrap().unit.ms, MS_PER_DAY);
+        assert_eq!(parse_offset(Some("1..3mo")).unwrap().unit.months, 1);
+        assert_eq!(parse_offset(Some("-5..-1d")).unwrap().lo, -5);
+        // Largest first is a typo, not a range to be turned around silently.
+        assert_eq!(parse_offset(Some("10..3d")), Err(OffsetError::Order));
+        assert_eq!(parse_offset(Some("3q")), Err(OffsetError::Syntax));
+        assert_eq!(parse_offset(Some("")), Err(OffsetError::Syntax));
+        assert_eq!(parse_offset(None), Err(OffsetError::Syntax));
+    }
+}

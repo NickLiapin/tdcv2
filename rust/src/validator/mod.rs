@@ -22,6 +22,7 @@ use crate::sequence::pool;
 use std::collections::{BTreeMap, BTreeSet};
 
 use crate::date;
+use crate::date::calendar;
 use crate::distribution::percent_mask;
 use crate::errors::Diagnostic;
 use crate::expr;
@@ -1938,6 +1939,96 @@ impl Validator {
         }
     }
 
+    /// Everything a date offset needs said, and nothing that contradicts it.
+    ///
+    /// `of=` is what turns a date generator from a DRAW into an OFFSET, and the
+    /// two are configured by different attributes entirely. That makes the
+    /// mistakes here silent ones by nature: a `from=` written beside an `of=`
+    /// looks like it bounds the result and does nothing at all, because the
+    /// result is wherever the source plus the offset lands.
+    ///
+    /// The declaration-order complaint is TDC240, shared with `running` and
+    /// `stat` — the same rule with the same fix.
+    fn check_date_offset(&mut self, gen: &Element, attrs: &Attrs) {
+        let of = attrs.get("of").map(|s| s.trim()).unwrap_or("").to_string();
+        let plus = attrs
+            .get("plus")
+            .map(|s| s.trim())
+            .unwrap_or("")
+            .to_string();
+        if plus.is_empty() {
+            self.error(
+                "TDC264",
+                format!("<gen type=\"date\" of=\"{of}\"> does not say how far from it"),
+                &format!(
+                    "Add plus=\"…\" — {}. A range is drawn per row, so plus=\"3..10d\" is the \
+                     length of the stay; a single value is the same distance on every row.",
+                    calendar::OFFSET_SYNTAX
+                ),
+                gen.pos,
+            );
+        } else {
+            match calendar::parse_offset(Some(&plus)) {
+                Ok(_) => {}
+                Err(calendar::OffsetError::Order) => self.error(
+                    "TDC264",
+                    format!(
+                        "plus=\"{plus}\" counts down, not up — the low bound is above the high one"
+                    ),
+                    "Write the smaller number first. To measure BACKWARDS, make both negative: \
+                     plus=\"-10..-3d\".",
+                    gen.at("plus"),
+                ),
+                Err(_) => self.error(
+                    "TDC264",
+                    format!("plus=\"{plus}\" is not an offset"),
+                    &format!(
+                        "One of: {}. A bare number means days.",
+                        calendar::OFFSET_SYNTAX
+                    ),
+                    gen.at("plus"),
+                ),
+            }
+        }
+
+        // Attributes that place a date generator's OWN draw, and so say nothing
+        // once `of=` has placed it relative to another column. Listed by name
+        // because ignoring them is exactly the failure this exists to prevent.
+        for name in [
+            "value", "from", "to", "range", "oldest", "youngest", "order", "step",
+        ] {
+            if !attrs.contains_key(name) {
+                continue;
+            }
+            self.error(
+                "TDC264",
+                format!("{name}= is not read when the date is measured from of=\"{of}\""),
+                &format!(
+                    "An offset lands wherever {of} plus the offset lands — {name}= would have to \
+                     contradict that to mean anything. Drop it, or drop of= and bound the draw \
+                     itself."
+                ),
+                gen.at(name),
+            );
+        }
+
+        if !of.is_empty() && !self.declared_order.contains(&of) {
+            let hint = if self.declared_order.is_empty() {
+                "A date is measured from a column that already exists, so the column it reads \
+                 has to come first."
+                    .to_string()
+            } else {
+                format!("Declared above: {}.", self.declared_order.join(", "))
+            };
+            self.error(
+                "TDC240",
+                format!("of=\"{of}\" is not a sequence declared above this one"),
+                &hint,
+                gen.at("of"),
+            );
+        }
+    }
+
     /// `${{Name}}` written into an attribute that does not read it.
     ///
     /// Interpolation reaches exactly two places: the TEXT inside `<data>`, and
@@ -2912,6 +3003,16 @@ impl Validator {
 
     fn check_date(&mut self, gen: &Element, attrs: &Attrs, gen_type: Option<&str>) {
         if gen_type != Some("date") {
+            return;
+        }
+        // `of=` makes this an OFFSET rather than a draw: a different set of
+        // attributes configures it, and a different set of mistakes is possible.
+        // Its own checks REPLACE the ones below rather than joining them —
+        // everything here is about how a draw is bounded, so it would be a second
+        // complaint about the same attribute, naming a rule that no longer
+        // applies to it.
+        if !attrs.get("of").map(|s| s.trim()).unwrap_or("").is_empty() {
+            self.check_date_offset(gen, attrs);
             return;
         }
 
@@ -4020,10 +4121,7 @@ impl Validator {
                                     tables::EXPR_FUNCTION_NAMES.join(", ")
                                 )
                             } else {
-                                format!(
-                                    "Available: {}.",
-                                    tables::EXPR_FUNCTION_NAMES.join(", ")
-                                )
+                                format!("Available: {}.", tables::EXPR_FUNCTION_NAMES.join(", "))
                             },
                             at,
                         );
