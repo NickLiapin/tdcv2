@@ -47,7 +47,29 @@ export function checkFixture(
 ): void {
   for (const el of contentElements(fixtureEl.content())) {
     const name = childTagName(el);
-    if (name === null || name === 'data') continue;
+    if (name === null) continue;
+    // A `<data>` written straight into a fixture, with no `<line>` around it.
+    // The validator used to skip it here and the renderer only ever walks
+    // `<line>` children, so the text was dropped without a word — the config
+    // said something and got nothing, which is the failure this project exists
+    // to refuse. Named rather than rendered: a bare `<data>` would have to
+    // invent whether it ends the line, and `<line><data>` already says.
+    if (name === 'data') {
+      const node = childNode(el);
+      if (node) {
+        diagnostics.push({
+          severity: 'error',
+          source: 'validator',
+          ...nodeRange(node),
+          message: `<data> directly inside <${fixtureName}> renders nothing`,
+          hint:
+            `A fixture body is made of <line>s. Wrap it: ` +
+            `<${fixtureName}><line><data>…</data></line></${fixtureName}>.`,
+          code: 'TDC131',
+        });
+      }
+      continue;
+    }
     const k = elementKind(el);
     // A fixture holds text and <line>s. Anything else was ignored in silence
     // unless it happened to be a generator inside a <line> — so an invented tag

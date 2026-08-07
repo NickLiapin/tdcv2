@@ -168,6 +168,20 @@
       "description": "local= on a <gen> DOES override the locale for that generator — the sweep called it a no-op and measuring said otherwise",
       "config": "<tdc><env count=\"3\" seed=\"s\" local=\"en\"><sequence name=\"A\"><gen type=\"template\" value=\"person.lastName\" local=\"ru\"/></sequence></env><block><line><data>${{A}}</data></line></block></tdc>",
       "expected": []
+    },
+    {
+      "name": "interpolation-in-an-attribute-that-does-not-expand-it",
+      "demonstrates": "TDC263",
+      "description": "Interpolation reaches the text inside <data> and <gen type=\"template\" value=>, and nowhere else. Written anywhere else the braces are literal characters, and the generator that receives them used to complain about whatever it happened to be parsing: an invalid number range here, an invalid date on a date, a bad quantifier on a regex, an unknown alphabet on a symbol — and type=\"text\" said nothing at all and emitted the braces. One cause, six answers, none of them naming it. TDC263 names it, and REPLACES the generator's own complaint rather than sitting beside it.",
+      "config": "<tdc><env count=\"1\" seed=\"s\" local=\"en\"><sequence name=\"N\"><gen type=\"text\" value=\"5\"/></sequence><sequence name=\"X\"><gen type=\"number\" value=\"1..${{N}}\"/></sequence></env><block><line><data>${{X}}</data></line></block></tdc>",
+      "expected": ["error TDC263 1:143"]
+    },
+    {
+      "name": "interpolation-in-a-date-bound",
+      "demonstrates": "TDC263",
+      "description": "The same mistake one generator across: from= reads a date, not a column. The reader has seen ${{}} work in a template value and moved it, which is the most natural thing in the world.",
+      "config": "<tdc><env count=\"1\" seed=\"s\" local=\"en\"><sequence name=\"N\"><gen type=\"text\" value=\"5\"/></sequence><sequence name=\"X\"><gen type=\"date\" from=\"${{N}}\" to=\"2026-12-31\"/></sequence></env><block><line><data>${{X}}</data></line></block></tdc>",
+      "expected": ["error TDC263 1:140"]
     }
   ]
 }

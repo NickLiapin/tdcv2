@@ -286,6 +286,54 @@
         "lines": ["a", "b"]
       }
     },
+    "containers/the-per-line-fixtures-see-output-lines-not-line-elements": {
+      "engine2": {
+        "lines": [
+          "[x]",
+          ",",
+          "[x]",
+          ",",
+          "[x]",
+          ",",
+          "total",
+          "--",
+          "[x]",
+          ",",
+          "[x]",
+          ",",
+          "[x]",
+          ",",
+          "total"
+        ]
+      },
+      "engine3": {
+        "lines": [
+          "[x]",
+          ",",
+          "[x]",
+          ",",
+          "[x]",
+          ",",
+          "total",
+          "--",
+          "[x]",
+          ",",
+          "[x]",
+          ",",
+          "[x]",
+          ",",
+          "total"
+        ]
+      }
+    },
+    "containers/a-delimiter-follows-the-lines-that-survive": {
+      "engine2": {
+        "lines": ["first", ",", "last"]
+      },
+      "engine3": {
+        "lines": ["first", ",", "last"]
+      }
+    },
     "dates/date-range-day": {
       "engine2": {
         "lines": [

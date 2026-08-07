@@ -366,7 +366,15 @@ export const KNOWN_POOL_CHILDREN: readonly string[] = [
 ] as const;
 
 /** Tag names valid inside a fixture (`<before>`, `<after>`, the delimiters…). */
-export const KNOWN_FIXTURE_CHILDREN: readonly string[] = ['data', 'line'] as const;
+/**
+ * A fixture body is made of `<line>`s and nothing else.
+ *
+ * `data` used to be on this list, and the renderer only ever walked `<line>` —
+ * so `<before><data>x</data></before>` validated and emitted nothing at all.
+ * The list is what the "Allowed inside" note prints, so it has to say what the
+ * renderer actually does.
+ */
+export const KNOWN_FIXTURE_CHILDREN: readonly string[] = ['line'] as const;
 
 /** Tag names valid inside the open/close form of `<gen>`. */
 export const KNOWN_GEN_CHILDREN: readonly string[] = ['data'] as const;

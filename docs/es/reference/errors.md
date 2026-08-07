@@ -183,6 +183,7 @@ Ver [Registros coherentes](../pools/overview.md#top).
 | `TDC260` | `at()` recibe algo que no es una lista | Una lista de `repeat` llega a la expresión como su texto unido, así que `at(Items, 1)` pide el segundo elemento de una lista de uno y responde con nada. Córtela primero: `at(split(Items, ","), 1)` |
 | `TDC261` | `at()` recibe un índice que no lo es | Un índice es un número entero, cero o más. Pasado el final el resultado es texto vacío a propósito — las filas de `repeat="1..4"` tienen longitudes distintas — pero `-1`, `1.5` y `"one"` son errores, y cada uno producía esa misma columna en blanco |
 | `TDC262` | `<gen type="stat">` no dice qué resumir (`of=`) ni qué estadística (`op=`), o nombra una que no existe | Una estadística lee otra columna y no genera nada propio, así que ambas son obligatorias. `op=` es una de `sum`, `mean`, `median`, `min`, `max`, `count`, `stddev`; `decimals=` va de 0 a 10 |
+| `TDC263` | `${{Name}}` en un atributo que no lo expande | La interpolación llega al texto dentro de `<data>` y a `<gen type="template" value=>`, y a ningún otro sitio — en cualquier otro las llaves son caracteres literales. Para que una columna dependa de otra, léala en una condición `if=` o construya el valor en una secuencia `<compute>` |
 | `TDC244` | `type="pattern"` sin `points`, `src` ni `upper`                             | Un dibujo necesita una forma de la que leer: `points="0,0 1,5 2,3"`, un archivo en `src`, o `upper`/`lower` para una banda                                                                                                                                  |
 
 ## Totales acumulados
@@ -222,7 +223,7 @@ y [`<gen type="running">`](../generators/running.md#top).
 | `TDC123` | `percent` sobre un `<mix>`/`<switch>` no suma 100                                                                   | Ajuste los valores a 100                                             |
 | `TDC124` | `<mix>` tiene un hijo que no es `<case>`                                                                            | Allí solo puede ir `<case>`                                          |
 | `TDC125` | `<case>` tiene un hijo desconocido                                                                                  | Se permiten `<data>`, `<gen>`, `<mix>`                               |
-| `TDC131` | Dentro de una fixture hay una etiqueta que las fixtures no aceptan                                                  | Las fixtures solo llevan `<line>` y `<data>`                         |
+| `TDC131` | Una fixture lleva una etiqueta que no acepta, o un `<data>` sin `<line>` alrededor                                  | El cuerpo de una fixture se compone de `<line>`. Un `<data>` suelto validaba y no renderizaba nada |
 | `TDC132` | Dentro de `<line>` hay una etiqueta que no corresponde                                                              | El bloque de salida es disposición; los generadores viven en `<env>` |
 | `TDC133` | `<switch>` no tiene `on`                                                                                            | Nombre la secuencia sobre la que se conmuta                          |
 | `TDC134` | `on` nombra una secuencia, o un campo suyo, que no existe                                                           | Revise el nombre — el mensaje dice cuál de las dos mitades falla     |

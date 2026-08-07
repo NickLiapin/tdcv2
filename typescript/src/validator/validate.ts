@@ -112,6 +112,7 @@ import { checkAnomalyFlag, checkGenImperfections } from './imperfections.js';
 import { checkParentRef } from './parent-ref.js';
 import { checkAllUnknownAttrs, checkUnknownAttrs } from './unknown-attrs.js';
 import { checkGenHttp } from './http.js';
+import { checkAttrInterpolation } from './interpolation.js';
 import { checkGenStat } from './stat.js';
 import { checkGenRunning } from './running.js';
 import { checkGenText } from './text.js';
@@ -865,6 +866,11 @@ function checkGen(
   checkAnomalyFlag(gen, ctx.diagnostics, ctx.declaredSequences, inCase);
   // Type-independent: text, file and date all take order="sequential".
   checkSequentialRepeat(gen, ctx.diagnostics);
+  // Before the per-type checks, and INSTEAD of them when it fires: a value
+  // holding ${{…}} is not the value its generator will try to parse, so letting
+  // the generator also complain would put a wrong explanation beside the right
+  // one. Five generators used to each blame what they happened to be parsing.
+  if (checkAttrInterpolation(attrs, ctx.diagnostics)) return;
 
   switch (type) {
     case 'text':

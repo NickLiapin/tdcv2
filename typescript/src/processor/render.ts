@@ -616,28 +616,38 @@ export function* streamFromPrepared(
     // byte-exact output contract.
     let card = env.beforeBlock;
     const activeLines = lines.filter((line) => lineIfPasses(line, registry, i));
-    for (let lineIdx = 0; lineIdx < activeLines.length; lineIdx++) {
-      const line = activeLines[lineIdx];
-      if (!line) continue;
+    // The OUTPUT lines, not the <line> ELEMENTS. One `<line each="Items">`
+    // produces as many output lines as the list has elements, and the three
+    // per-line fixtures are documented as wrapping "the lines of a record" — so
+    // they have to see what the reader sees. They used to see the elements, and
+    // `<delimiter_line>` between the repetitions of an each= line therefore did
+    // nothing at all: no comma between the members of an array, in silence.
+    const output: string[] = [];
+    for (const line of activeLines) {
+      output.push(
+        ...renderLine({
+          line,
+          eachInfo,
+          prng,
+          locale: env.locale,
+          now,
+          baseDir: options.baseDir,
+          dataPaths: options.dataPaths,
+          inject: env.inject,
+          iteration: i,
+          registry,
+          state,
+          regexMaxLength: env.regexMaxLength,
+          source: options.source,
+          packs: options.packs ?? bundledPacks(),
+        }),
+      );
+    }
+    for (let lineIdx = 0; lineIdx < output.length; lineIdx++) {
       card += env.beforeLine;
-      card += renderLine({
-        line,
-        eachInfo,
-        prng,
-        locale: env.locale,
-        now,
-        baseDir: options.baseDir,
-        dataPaths: options.dataPaths,
-        inject: env.inject,
-        iteration: i,
-        registry,
-        state,
-        regexMaxLength: env.regexMaxLength,
-        source: options.source,
-        packs: options.packs ?? bundledPacks(),
-      });
+      card += output[lineIdx] ?? '';
       card += env.afterLine;
-      if (lineIdx < activeLines.length - 1) card += env.delimiterLine;
+      if (lineIdx < output.length - 1) card += env.delimiterLine;
     }
     card += env.afterBlock;
     if (i < env.count - 1) card += env.delimiterBlock;
@@ -997,6 +1007,9 @@ function renderFixtureLines(el: OpenCloseElementContext | undefined): string {
       // fixture embeds a <gen>, the caller can pre-compute fixtures at
       // init time with the real prng. No interpolation is applied to
       // fixtures (before/after are logically outside the iteration).
+      // renderLine returns the OUTPUT lines; a fixture line is one of them, but
+      // joining rather than concatenating is what keeps a two-line fixture from
+      // coming out with a comma between its lines.
       out += renderLine({
         line: k.node,
         prng: () => 0,
@@ -1009,7 +1022,7 @@ function renderFixtureLines(el: OpenCloseElementContext | undefined): string {
         registry: {},
         state: createRenderState(1),
         regexMaxLength: DEFAULT_REGEX_MAX_LENGTH,
-      });
+      }).join('');
     }
   }
   return out;
@@ -1025,10 +1038,10 @@ function renderFixtureLines(el: OpenCloseElementContext | undefined): string {
  * Zero elements emits nothing at all, exactly as `if=` suppresses a line — a
  * customer with no orders must not leave a blank row behind.
  */
-function renderLine(ctx: RenderContext & { readonly line: OpenCloseElementContext }): string {
+function renderLine(ctx: RenderContext & { readonly line: OpenCloseElementContext }): string[] {
   const name = elementAttrs(ctx.line)['each'];
   if (name === undefined || name.trim() === '') {
-    return renderContent(ctx.line.content(), ctx) + '\n';
+    return [renderContent(ctx.line.content(), ctx) + '\n'];
   }
 
   const listName = name.trim();
@@ -1039,7 +1052,7 @@ function renderLine(ctx: RenderContext & { readonly line: OpenCloseElementContex
   const cell = source ? sequenceValueAt(source, ctx.iteration) : undefined;
   const elements = splitElements(cell, info?.separator ?? ',');
 
-  let out = '';
+  const out: string[] = [];
   for (let k = 0; k < elements.length; k++) {
     const registry = elementRegistry(
       ctx.registry,
@@ -1050,7 +1063,7 @@ function renderLine(ctx: RenderContext & { readonly line: OpenCloseElementContex
       info?.lane ?? 0,
       info?.stride ?? elements.length,
     );
-    out += renderContent(ctx.line.content(), { ...ctx, registry }) + '\n';
+    out.push(renderContent(ctx.line.content(), { ...ctx, registry }) + '\n');
   }
   return out;
 }

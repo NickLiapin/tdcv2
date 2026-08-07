@@ -12,6 +12,34 @@
       "description": "<gen …></gen> is the ordinary alternative spelling of <gen …/>, and must be accepted. Four of the five refused it and blamed the sequence — \"has no <gen> child\" about a <gen> standing in plain sight — because their collectors only ever looked at the self-closing form.",
       "config": "<tdc><env count=\"2\" seed=\"p\" local=\"en\"><sequence name=\"A\"><gen type=\"text\" value=\"a,b\"></gen></sequence></env><block><line><data>${{A}}</data></line></block></tdc>",
       "expected": ["a", "b"]
+    },
+    {
+      "name": "the-per-line-fixtures-see-output-lines-not-line-elements",
+      "description": "A <line each=\"Items\"> produces one OUTPUT line per element, and <delimiter_line> is documented as sitting \"between the lines of a record\". It used to sit between the <line> ELEMENTS, so between the repetitions of an each= line it produced nothing at all — which is exactly why a JSON array of objects could not be written: no comma between the members, and no word about it. The delimiter now falls between consecutive output lines, whether they came from different <line> elements or from the same one repeated. Every element of Items is the same value on purpose: the case is about WHERE the fixture falls, not about what was drawn.",
+      "config": "<tdc><env count=\"2\" seed=\"ord\" local=\"en\" mode=\"memory\"><sequence name=\"Items\"><gen type=\"text\" value=\"x\" repeat=\"3\" separator=\",\"/></sequence><delimiter_line><line><data>,</data></line></delimiter_line><delimiter_block><line><data>--</data></line></delimiter_block></env><block><line each=\"Items\"><data>[${{Items}}]</data></line><line><data>total</data></line></block></tdc>",
+      "expected": [
+        "[x]",
+        ",",
+        "[x]",
+        ",",
+        "[x]",
+        ",",
+        "total",
+        "--",
+        "[x]",
+        ",",
+        "[x]",
+        ",",
+        "[x]",
+        ",",
+        "total"
+      ]
+    },
+    {
+      "name": "a-delimiter-follows-the-lines-that-survive",
+      "description": "The delimiter goes between the lines that SURVIVE an if=, not between the ones that were written — otherwise a suppressed middle line leaves a stray comma standing where nothing is.",
+      "config": "<tdc><env count=\"1\" seed=\"s\" local=\"en\" mode=\"memory\"><sequence name=\"A\"><gen type=\"text\" value=\"x\"/></sequence><delimiter_line><line><data>,</data></line></delimiter_line></env><block><line><data>first</data></line><line if=\"A == nothing\"><data>never</data></line><line><data>last</data></line></block></tdc>",
+      "expected": ["first", ",", "last"]
     }
   ]
 }

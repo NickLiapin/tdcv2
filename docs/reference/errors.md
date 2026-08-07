@@ -220,7 +220,7 @@ and [`<gen type="running">`](../generators/running.md#top).
 | `TDC123` | The `percent` values on a `<mix>`/`<switch>` don't add up to 100                                           | Adjust them to total 100                                    |
 | `TDC124` | `<mix>` has a child that isn't a `<case>`                                                                  | Only `<case>` belongs there                                 |
 | `TDC125` | `<case>` has an unknown child                                                                              | Allowed: `<data>`, `<gen>`, `<mix>`                         |
-| `TDC131` | A fixture contains a tag that fixtures don't accept                                                        | Fixtures hold `<line>` and `<data>` only                    |
+| `TDC131` | A fixture holds a tag it does not accept, or a `<data>` with no `<line>` around it                          | A fixture body is made of `<line>`s. A bare `<data>` used to validate and render nothing at all |
 | `TDC132` | A tag that doesn't belong there sits inside `<line>`                                                       | The output block is for layout — generators live in `<env>` |
 | `TDC133` | `<switch>` has no `on`                                                                                     | Name the sequence being switched on                         |
 | `TDC134` | `on` names a sequence, or a field of one, that doesn't exist                                               | Check the name — the message says which half is wrong       |
@@ -305,6 +305,7 @@ but the combination it asks for can't be carried out.
 | `TDC260` | `at()` is given something that is not a list | A `repeat` list reaches an expression as its joined text, so `at(Items, 1)` asks for the second element of a one-element list and answers with nothing. Cut it first: `at(split(Items, ","), 1)` |
 | `TDC261` | `at()` is given an index that is not one | An index is a whole number, zero or more. Past the end is empty text on purpose — rows made by `repeat="1..4"` have different lengths — but `-1`, `1.5` and `"one"` are mistakes, and each of them used to produce that same blank column |
 | `TDC262` | `<gen type="stat">` does not say what (`of=`) or which statistic (`op=`), or names one that does not exist | A statistic reads another column and draws nothing of its own, so both are required. `op=` is one of `sum`, `mean`, `median`, `min`, `max`, `count`, `stddev`; `decimals=` is 0 to 10 |
+| `TDC263` | `${{Name}}` in an attribute that does not expand it | Interpolation reaches the text inside `<data>` and `<gen type="template" value=>`, and nowhere else — anywhere else the braces are literal characters. To make one column depend on another, read it in an `if=` condition, or build the value in a `<compute>` sequence |
 
 ## See also
 
