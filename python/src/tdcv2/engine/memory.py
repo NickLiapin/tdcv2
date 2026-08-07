@@ -25,6 +25,7 @@ from ..format import interpolate
 from ..format.mask import apply_mask
 from ..format.transforms import apply_case, is_case_transform
 from ..generators import accumulate as accumulate_gen
+from ..generators import date_offset as date_offset_gen
 from ..generators import stat as stat_gen
 from ..generators import advanced_regex, counter, imperfections, number, regex, symbol
 from ..generators import file as file_gen
@@ -343,6 +344,19 @@ def _build_columns(
     empty rather than as a neighbour's value shifted up.
     """
     columns: dict[str, list[str | None]] = {}
+    # The REAL value behind a date column's text, for the columns some offset measures from.
+    #
+    # A date cell holds a PRESENTATION: `02/03/2026` in an en locale, `03.02.2026` in a ru one,
+    # `March 2` under format="MMMM D". Reading a date back out of that is guesswork at best and
+    # impossible at worst — the last form has thrown the year away. So the column that produced
+    # it keeps what it actually generated, and an offset measures from THAT. Only the columns
+    # named by some `of=` are kept, so a config with no offset in it pays nothing.
+    instants: dict[str, list[int | None]] = {}
+    wants_instant = {
+        date_offset_gen.source_of(spec.gen.attrs)
+        for spec in config.sequences
+        if date_offset_gen.is_offset(spec.gen)
+    }
 
     # The built-ins first. They are positional, consume no randomness, and are therefore
     # identical for a given count no matter what else the config does.
@@ -402,6 +416,27 @@ def _build_columns(
             _stat(spec, columns, count)
             continue
 
+        # A date measured from another date. Resolved here for the same reason: it reads a
+        # column that already exists, so `of=` has to name a sequence above it.
+        if date_offset_gen.is_offset(spec.gen):
+            name = spec.name or ""
+            source = columns.get(date_offset_gen.source_of(spec.gen.attrs))
+            if source is not None:
+                values, own = date_offset_gen.build(
+                    name,
+                    spec.gen.attrs,
+                    source,
+                    instants.get(date_offset_gen.source_of(spec.gen.attrs)),
+                    count,
+                    run.prng,
+                    config.locale,
+                    name in wants_instant,
+                )
+                columns[name] = values
+                if own is not None:
+                    instants[name] = own
+            continue
+
         if spec.is_composed:
             _composed(spec, columns, rows, applicable, count, run)
             continue
@@ -454,7 +489,16 @@ def _build_columns(
             columns[spec.name or ""] = _spread(rows, produced, count)
             continue
 
-        _plain_column(spec, columns, rows, applicable, count, run)
+        _plain_column(
+            spec,
+            columns,
+            rows,
+            applicable,
+            count,
+            run,
+            instants,
+            (spec.name or "") in wants_instant,
+        )
 
     _enforce_env_distinct(config, columns, count, run)
     _enforce_env_uniq(config, columns, count)
@@ -600,10 +644,22 @@ def _mix_column(
 
 
 def _plain_column(
-    spec: SequenceSpec, columns, rows: list[int], applicable: int, count: int, run: _Run
+    spec: SequenceSpec,
+    columns,
+    rows: list[int],
+    applicable: int,
+    count: int,
+    run: _Run,
+    instants: dict[str, list[int | None]] | None = None,
+    keep_instants: bool = False,
 ) -> None:
     assert spec.gen is not None
     anomaly_flags = [False] * applicable
+    # A column some `<gen type="date" of="…">` measures from keeps the instant it generated
+    # beside the text it renders. Nothing else asks, so nothing else allocates.
+    instants_out: list[int | None] | None = (
+        [] if keep_instants and instants is not None and spec.gen.type == "date" else None
+    )
     repeat = repeat_gen.parse(spec.gen.attrs)
     run = per_row.with_rows(run, spec.name or "", rows)
 
@@ -657,9 +713,17 @@ def _plain_column(
             ),
         )
     else:
-        produced = _column_values(spec.gen, applicable, run, anomaly_flags)
+        produced = _column_values(spec.gen, applicable, run, anomaly_flags, instants_out)
 
     columns[spec.name or ""] = _spread(rows, produced, count)
+    if instants_out is not None and instants is not None:
+        # Laid over the real rows exactly as the values are: a filtered column builds compacted
+        # and is spread afterwards, so the two must be spread the same way or an offset would
+        # measure row 3 from row 1's date.
+        spread: list[int | None] = [None] * count
+        for i, row in enumerate(rows):
+            spread[row] = instants_out[i] if i < len(instants_out) else None
+        instants[spec.name or ""] = spread
 
     if flag_name and flag_name.strip():
         # Which rows the run chose to spike. It shares the parent mask, so the label is absent on
@@ -779,6 +843,7 @@ def _finish(
     anomaly_flags: list[bool],
     run: _Run | None = None,
     gen_type: str | None = None,
+    instants_out: list[int | None] | None = None,
 ) -> list[str]:
     """Outliers, then blanks, then formatting — and the order is the contract.
 
@@ -808,7 +873,16 @@ def _finish(
         imperfections.apply_anomaly(out, anomaly, draw_on("#anom"), anomaly_flags)
     missing = imperfections.parse_missing(attrs)
     if missing is not None:
+        before = list(out)
         imperfections.apply_missing(out, missing, draw_on("#miss"))
+        # A cell `missing=` blanked no longer shows the date it was built from, so the instant
+        # behind it goes too — otherwise a column measuring from this one would produce a date on
+        # a row whose source says nothing. `mask=`/`case=` below change only the SPELLING, which
+        # is exactly what the instant outlives.
+        if instants_out is not None:
+            for i in range(min(len(out), len(instants_out))):
+                if out[i] != before[i]:
+                    instants_out[i] = None
 
     mask = attrs.get("mask")
     if mask is not None:
@@ -1493,7 +1567,11 @@ def _one_scalar(spec: SequenceSpec, run: _Run) -> str:
 
 
 def _column_values(
-    gen: Gen, count: int, run: _Run, anomaly_flags: list[bool] | None = None
+    gen: Gen,
+    count: int,
+    run: _Run,
+    anomaly_flags: list[bool] | None = None,
+    instants_out: list[int | None] | None = None,
 ) -> list[str]:
     """One generator's finished values for a whole column.
 
@@ -1507,7 +1585,15 @@ def _column_values(
     """
     flags = anomaly_flags if anomaly_flags is not None else [False] * count
     if not per_row.per_row_buildable(gen, count, run):
-        return _finish(_generate(gen, count, run), gen.attrs, run.prng, flags, run, gen.type)
+        return _finish(
+            _generate(gen, count, run, instants_out),
+            gen.attrs,
+            run.prng,
+            flags,
+            run,
+            gen.type,
+            instants_out,
+        )
 
     seed, stream_id = per_row.keyed(run)  # type: ignore[misc]
     out: list[str] = []
@@ -1515,12 +1601,30 @@ def _column_values(
         row = per_row.absolute_row(run, i)
         one = replace(run, prng=seekable.generator(seed, stream_id, row))
         single = [False]
-        out.append(_finish(_generate(gen, 1, one), gen.attrs, one.prng, single)[0])
+        # One row's instant lands in its own scratch list: the inner call knows nothing of `i`,
+        # and handing it `instants_out` would append rows that a later `missing=` pass could no
+        # longer line up with.
+        scratch: list[int | None] | None = [] if instants_out is not None else None
+        out.append(
+            _finish(
+                _generate(gen, 1, one, scratch),
+                gen.attrs,
+                one.prng,
+                single,
+                None,
+                None,
+                scratch,
+            )[0]
+        )
         flags[i] = single[0]
+        if instants_out is not None and scratch is not None:
+            instants_out.append(scratch[0] if scratch else None)
     return out
 
 
-def _generate(gen: Gen, count: int, run: _Run) -> list[str]:
+def _generate(
+    gen: Gen, count: int, run: _Run, instants_out: list[int | None] | None = None
+) -> list[str]:
     """One generator's values.
 
     Shared with the streaming engine, which calls it with a count of one and a generator private
@@ -1602,7 +1706,7 @@ def _generate(gen: Gen, count: int, run: _Run) -> list[str]:
     if gen.type == "symbol":
         return symbol.generate(attrs, count, prng)
     if gen.type == "date":
-        return date_gen.generate(attrs, count, locale, run.now_millis, prng)
+        return date_gen.generate(attrs, count, locale, run.now_millis, prng, instants_out)
 
     if gen.type == "text":
         values = _split_text(gen.attr("value"))

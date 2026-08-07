@@ -306,7 +306,7 @@ _NOT_A_PACK_PARAM = frozenset({"parent", "count", "flag"})
 GEN_ATTRS = frozenset(
     {
         "type", "value", "name", "if", "comment", "case", "mask", "order", "cycle", "repeat",
-        "separator", "accumulate", "of", "reset", "op", "missing", "missing_as", "anomaly",
+        "separator", "accumulate", "of", "plus", "reset", "op", "missing", "missing_as", "anomaly",
         "anomaly_factor",
         "anomaly_flag",
         "local", "weight", "percent", "first_zero", "include", "exclude",
@@ -354,10 +354,12 @@ ATTRIBUTE_OWNERS: dict[str, frozenset[str]] = {
     "interp": frozenset({"pattern"}),
     "spread": frozenset({"pattern"}),
     "ink_threshold": frozenset({"pattern"}),
-    # The column a whole-column construct reads, and what it does with it.
-    "of": frozenset({"running", "stat"}),
+    # The column a whole-column construct reads, and what it does with it. On a date, `of=`
+    # measures from a sibling instead of drawing, and `plus=` is the distance.
+    "of": frozenset({"running", "stat", "date"}),
     "reset": frozenset({"running"}),
     "op": frozenset({"stat"}),
+    "plus": frozenset({"date"}),
     # The synthetic series.
     "base": frozenset({"timeseries", "running"}),
     "trend": frozenset({"timeseries"}),
@@ -2801,6 +2803,13 @@ class _Validator:
     def _check_date(self, gen, attrs: dict[str, str], type_: str | None) -> None:
         if type_ != "date":
             return
+        # `of=` makes this an OFFSET rather than a draw: a different set of attributes configures
+        # it, and a different set of mistakes is possible. Its own checks REPLACE the ones below
+        # rather than joining them — everything here is about how a draw is bounded, so it would
+        # be a second complaint about the same attribute, naming a rule that no longer applies.
+        if (attrs.get("of") or "").strip():
+            self._check_date_offset(gen, attrs)
+            return
         # `from=` alone is an OPEN axis when the range is WALKED: the end of such an axis is
         # start + count x step, a consequence rather than an input. On a DRAWN date one end
         # genuinely means nothing, and that is what this refuses.
@@ -3255,6 +3264,81 @@ class _Validator:
                 "has to come first."
                 if not self.declared_order
                 else "Declared above: " + ", ".join(self.declared_order) + ".",
+                at_line,
+                at_column,
+            )
+
+    #: Attributes that place a date generator's OWN draw, and so say nothing once `of=` has
+    #: placed it relative to another column. Listed by name because ignoring them is exactly the
+    #: failure this exists to prevent — a config that says from="2026-06-01" and gets January
+    #: dates is right about what it asked for and wrong about what it got.
+    _DRAW_ATTRS = ("value", "from", "to", "range", "oldest", "youngest", "order", "step")
+
+    def _check_date_offset(self, gen, attrs: dict[str, str]) -> None:
+        """Everything a date offset needs said, and nothing that contradicts it.
+
+        The declaration-order complaint is TDC240, shared with ``running`` and ``stat`` — the
+        same rule, the same fix, and the offset is built in declaration order for the same
+        reason they are: it reads a column that has to exist already.
+        """
+        of = (attrs.get("of") or "").strip()
+        plus = (attrs.get("plus") or "").strip()
+        if not plus:
+            self._error(
+                "TDC264",
+                f'<gen type="date" of="{of}"> does not say how far from it',
+                f'Add plus="…" — {calendar.OFFSET_SYNTAX}. A range is drawn per row, so '
+                'plus="3..10d" is the length of the stay; a single value is the same distance '
+                "on every row.",
+                _line(gen),
+                _column(gen),
+            )
+        else:
+            parsed = calendar.parse_offset(plus)
+            if not parsed.ok:
+                at_line, at_column = _at(gen, "plus")
+                if parsed.reason == "order":
+                    message = (
+                        f'plus="{plus}" counts down, not up — the low bound is above the high one'
+                    )
+                    hint = (
+                        "Write the smaller number first. To measure BACKWARDS, make both "
+                        'negative: plus="-10..-3d".'
+                    )
+                else:
+                    message = f'plus="{plus}" is not an offset'
+                    hint = f"One of: {calendar.OFFSET_SYNTAX}. A bare number means days."
+                self._error("TDC264", message, hint, at_line, at_column)
+
+        for name in self._DRAW_ATTRS:
+            if attrs.get(name) is None:
+                continue
+            at_line, at_column = _at(gen, name)
+            self._error(
+                "TDC264",
+                f'{name}= is not read when the date is measured from of="{of}"',
+                f"An offset lands wherever {of} plus the offset lands — {name}= would have to "
+                f"contradict that to mean anything. Drop it, or drop of= and bound the draw "
+                f"itself.",
+                at_line,
+                at_column,
+            )
+
+        if of and of not in self.declared_order:
+            at_line, at_column = _at(gen, "of")
+            near = _nearest(of, self.declared_order)
+            hint = (
+                "A date is measured from a column that already exists, so the column it reads "
+                "has to come first."
+                if not self.declared_order
+                else "Declared above: " + ", ".join(self.declared_order) + "."
+            )
+            if near:
+                hint = f'Did you mean "{near}"? ' + hint
+            self._error(
+                "TDC240",
+                f'of="{of}" is not a sequence declared above this one',
+                hint,
                 at_line,
                 at_column,
             )

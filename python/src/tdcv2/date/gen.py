@@ -51,14 +51,29 @@ class Plan:
     locale: str
 
 
-def generate(attrs: dict[str, str], count: int, locale: str, now: int, prng: Sfc32) -> list[str]:
+def generate(
+    attrs: dict[str, str],
+    count: int,
+    locale: str,
+    now: int,
+    prng: Sfc32,
+    instants_out: list[int | None] | None = None,
+) -> list[str]:
+    """``count`` formatted dates.
+
+    ``instants_out``, when given, receives the epoch millis behind each rendered cell — the value
+    the generator actually produced, before ``format=`` turned it into one locale's spelling of
+    it. A column another one measures from asks for this; everything else passes nothing and the
+    list is never built.
+    """
     plan = build_plan(attrs, locale, now)
-    return [
-        format_date_time(
-            plan.fixed if plan.fixed is not None else _pick(plan, prng), plan.format, plan.locale
-        )
-        for _ in range(count)
-    ]
+    out: list[str] = []
+    for _ in range(count):
+        value = plan.fixed if plan.fixed is not None else _pick(plan, prng)
+        if instants_out is not None:
+            instants_out.append(to_epoch_millis(value))
+        out.append(format_date_time(value, plan.format, plan.locale))
+    return out
 
 
 def build_plan(attrs: dict[str, str], locale: str, now: int) -> Plan:

@@ -204,3 +204,66 @@ def parse_weekdays(raw: str | None) -> frozenset[int] | None:
 def weekday_of(value: PlainDateTime) -> int:
     """The weekday of a date, 0 = Sunday, matching :func:`parse_weekdays`."""
     return _weekday_of(value)
+
+
+@dataclass(frozen=True, slots=True)
+class OffsetSpec:
+    """A drawn offset: ``lo..hi`` steps of one unit. ``lo == hi`` is a fixed offset."""
+
+    lo: int
+    hi: int
+    #: One step, as ``add_step`` takes it — so the calendar clamping is shared.
+    unit: StepSpec
+
+
+#: What a ``plus=`` may say, for a diagnostic to quote.
+OFFSET_SYNTAX = "7d, 3..10d, 1..3mo, -5..-1d — units s, m, h, d, w, mo, y"
+
+_OFFSET = re.compile(r"^(-?\d+)(?:\.\.(-?\d+))?(mo|[smhdwy])?$")
+
+
+@dataclass(frozen=True, slots=True)
+class OffsetResult:
+    """Either the offset, or why it was refused: ``"syntax"`` or ``"order"``."""
+
+    offset: OffsetSpec | None
+    reason: str | None
+
+    @property
+    def ok(self) -> bool:
+        return self.offset is not None
+
+
+def parse_offset(raw: str | None) -> OffsetResult:
+    """``plus="3..10d"``, ``plus="7d"``, ``plus="-5..-1d"``, ``plus="1..3mo"``.
+
+    A bare number means DAYS, matching ``step=``. The low bound may not exceed the high one:
+    ``10..3d`` is a typo, and silently swapping it would hide the typo rather than report it.
+
+    The unit sits at the end rather than on both sides because ``3d..10d`` invites two DIFFERENT
+    units, and "three days to two months" has no whole number of steps to draw.
+    """
+    value = (raw or "").strip().lower()
+    if value == "":
+        return OffsetResult(None, "syntax")
+    shape = _OFFSET.match(value)
+    if shape is None:
+        return OffsetResult(None, "syntax")
+    lo_text, hi_text, unit_name = shape.group(1), shape.group(2), shape.group(3)
+    lo = int(lo_text)
+    hi = lo if hi_text is None else int(hi_text)
+    if lo > hi:
+        return OffsetResult(None, "order")
+
+    name = unit_name or "d"
+    fixed = _FIXED_UNIT_MS.get(name)
+    months = _CALENDAR_UNIT_MONTHS.get(name)
+    unit = StepSpec(0, months or 0) if fixed is None else StepSpec(fixed, 0)
+    if unit.ms == 0 and unit.months == 0:
+        return OffsetResult(None, "syntax")
+    return OffsetResult(OffsetSpec(lo, hi, unit), None)
+
+
+def apply_offset(start: PlainDateTime, offset: OffsetSpec, n: int) -> PlainDateTime:
+    """The source date moved by ``n`` steps of the offset's unit."""
+    return add_step(start, offset.unit, n)

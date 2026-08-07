@@ -32,6 +32,7 @@ from ..format import interpolate
 from ..format.mask import apply_mask
 from ..format.transforms import apply_case, is_case_transform
 from ..generators import advanced_regex, imperfections, number
+from ..generators import date_offset as date_offset_gen
 from ..generators import file as file_gen
 from ..generators import repeat as repeat_gen
 from ..lib import numbers
@@ -323,6 +324,15 @@ class StreamEngine:
                     "including the ones after this one, so it cannot be computed one row at a "
                     "time; the in-memory engine handles it (run without a forced streaming "
                     "engine)"
+                )
+            # A date measured from another date reads a SIBLING column as the row is built,
+            # and the streaming path has no way to do that yet — the same reason a dynamic
+            # template defers. Refused by name, and the router hands the config to memory.
+            if date_offset_gen.is_offset(spec.gen):
+                raise UnsupportedError(
+                    f'a date measured from another column ("{spec.name}") reads that column as '
+                    "the row is built, and the streaming path has no way to do that yet; the "
+                    "in-memory engine handles it (run without a forced streaming engine)"
                 )
             if spec.uniq:
                 self._build_uniq(spec)
