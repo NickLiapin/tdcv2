@@ -24,16 +24,18 @@ item below holds in all five implementations.
 ### Added
 
 - **The expression language grew from comparisons to a language.** `if=` now takes `%`,
-  arithmetic on the row counters (`_count` and `_total` are numbers, not text), function
-  calls — `abs`, `ceil`, `floor`, `max`, `min`, `round`, `trunc` — membership (`Country in
+arithmetic on the row counters (`_count` and `_total` are numbers, not text), function
+calls — `abs`, `ceil`, `floor`, `max`, `min`, `round`, `trunc` — membership (`Country in
 [US, CA, MX]`), string predicates and the ternary. `TDC101` shows what is available when
-  a name is not.
+a name is not.
+  <!-- covers: TDC257-TDC261, contains, starts_with, ends_with, lower, is_empty, pow, cbrt, log10 -->
 
 - **`TdcMath` — the transcendentals are computed by TDC rather than by the host.** `sqrt`,
   `exp`, `log`, the trigonometric and hyperbolic functions and their inverses, `erf`,
   `erfc`, `gamma`, `lgamma`, `expm1`, `log1p`, `log2`, `hypot`, `sign`. Every host language
   rounds these slightly differently, and one last-bit difference turns a comparison into a
   different row, so TDC computes them itself and all five agree bit for bit.
+  <!-- covers: acos, acosh, asin, asinh, atan, atan2, atanh, cos, cosh, sin, sinh, tan, tanh, degrees, radians, beta, digamma, zeta -->
 
 - **Whole numbers stay whole past 2^53.** The expression language works in a signed 64-bit
   integer domain, so `9007199254740993 == 9007199254740992` is false and their difference
@@ -44,6 +46,7 @@ item below holds in all five implementations.
   "Is this row above average" cannot be asked any other way: the average is not knowable
   until the last row exists, so the statistic has to be a column of its own. It draws
   nothing, so adding one leaves every other column exactly where it was.
+  <!-- covers: TDC262 -->
 
 - **A date measured from another date — `of=` and `plus=`.** The interval in almost every
   real record: admitted and discharged, ordered and shipped, issued and expires.
@@ -52,10 +55,12 @@ item below holds in all five implementations.
   column's VALUE, not the text in the cell, so a source rendered as `MMMM D` — which throws
   the year away — still offsets correctly, and a month lands on the last day of February
   rather than 30 days later.
+  <!-- covers: TDC264 -->
 
 - **A date range can be WALKED, not only drawn.** `order="sequential"` marches down the
   calendar; `step=` takes one notation (`15m`, `1h30m`, `3mo`); `weekdays="mon..fri"` keeps
   only some days; and with no upper bound the axis grows with the run.
+  <!-- covers: TDC247-TDC250 -->
 
 - **`<split>` in the compute layer — a string to a list.** The inverse of `<join>`, and the
   fourth way to get a list. A `repeat=` column arrives at an expression as its joined text;
@@ -73,12 +78,15 @@ item below holds in all five implementations.
   so. If the condition holds nothing happens; if not, the run stops with the author's own
   sentence and exit code 1, before a line is written. Every name it reads must be the same
   on every row, or a per-row column would be read at row 0 and the run called verified.
+  <!-- covers: TDC265, TDC266 -->
 
 - **`peak_at` on `timeseries` — which row the wave is highest on.** "Warmer in July" is now
   writable; before, the peak sat a quarter period in and could not be moved.
+  <!-- covers: TDC252, TDC253 -->
 
 - **Fixtures interpolate.** `${{Name}}` in `<before>`, `<after>` and their siblings expands,
   in the reference as it already did in the four ports.
+  <!-- covers: TDC263 -->
 
 - **`check --brief` — one line per diagnostic**, for a tool rather than a person. It also
   made three faults visible that the full report had been hiding.
@@ -106,6 +114,7 @@ item below holds in all five implementations.
   `include=`/`exclude=`, `repeat=` with `order="sequential"` (where the three engines
   disagreed), a `<gen>` attribute nothing reads (TDC015 now catches it per generator type),
   and a closing tag that does not name the element it opened.
+  <!-- covers: TDC254, TDC255, TDC256 -->
 
 - **TDC251 — a `percent` share that asks for less than one whole row.** Ten percent of five
   rows is half a record, the engine rounded it away, and the column read like one nobody had
