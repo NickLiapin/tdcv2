@@ -1,0 +1,66 @@
+{
+  "schemaVersion": 1,
+  "cases": [
+    {
+      "name": "an-interval-drawn-per-row",
+      "description": "The interval that is in almost every real record — admitted and discharged, ordered and shipped, issued and expires — and that two independent date columns cannot express: they put the second date BEFORE the first on a third of the rows. Here every discharge is 3 to 10 days after its own admission, and the gaps differ from row to row, which is the whole point: the LENGTH of the stay is what the config is describing. A fixed plus= would collapse them all to one number and still pass a test that only checked ordering, so the expected lines pin the exact dates.",
+      "config": "<tdc><env count=\"6\" seed=\"s\" local=\"en\" mode=\"memory\"><sequence name=\"Admitted\"><gen type=\"date\" from=\"2026-01-01\" to=\"2026-03-01\" format=\"YYYY-MM-DD\"/></sequence><sequence name=\"Discharged\"><gen type=\"date\" of=\"Admitted\" plus=\"3..10d\" format=\"YYYY-MM-DD\"/></sequence></env><block><line><data>${{Admitted}} ${{Discharged}}</data></line></block></tdc>",
+      "expected": [
+        "2026-01-31 2026-02-06",
+        "2026-01-19 2026-01-24",
+        "2026-01-28 2026-02-07",
+        "2026-02-26 2026-03-06",
+        "2026-02-25 2026-02-28",
+        "2026-02-27 2026-03-08"
+      ]
+    },
+    {
+      "name": "a-fixed-offset-is-the-same-distance-every-row",
+      "description": "plus=\"7d\" is one distance rather than a range: every shipment is exactly a week after its own order, and the dates still differ because the orders do. The Marker column is there to pin the independence of the streams — it draws after the offset and its values are what they would be with no offset column at all, because each column derives its randomness from its own name rather than from a shared sequence of draws.",
+      "config": "<tdc><env count=\"4\" seed=\"s\" local=\"en\" mode=\"memory\"><sequence name=\"Ordered\"><gen type=\"date\" from=\"2026-01-01\" to=\"2026-01-31\" format=\"YYYY-MM-DD\"/></sequence><sequence name=\"Shipped\"><gen type=\"date\" of=\"Ordered\" plus=\"7d\" format=\"YYYY-MM-DD\"/></sequence><sequence name=\"Marker\"><gen type=\"number\" value=\"100..999\"/></sequence></env><block><line><data>${{Ordered}} ${{Shipped}} ${{Marker}}</data></line></block></tdc>",
+      "expected": [
+        "2026-01-12 2026-01-19 593",
+        "2026-01-27 2026-02-03 138",
+        "2026-01-10 2026-01-17 984",
+        "2026-01-03 2026-01-10 284"
+      ]
+    },
+    {
+      "name": "the-offset-measures-the-value-not-its-spelling",
+      "description": "The reason a date column carries its own value beside the text it renders. format=\"MMMM D\" throws the YEAR away entirely, so no reader of the source cell could work out that a month later is February 2026 — and yet it is, because the offset never reads the cell. The same config under a locale whose default format reverses day and month would be a second way to get this wrong, and it is the same fix: 2026-01-31 plus one month is the last day of February, clamped by the calendar rather than by adding 30 days.",
+      "config": "<tdc><env count=\"3\" seed=\"s\" local=\"en\" mode=\"memory\"><sequence name=\"Issued\"><gen type=\"date\" value=\"2026-01-31\" format=\"MMMM D\"/></sequence><sequence name=\"Expires\"><gen type=\"date\" of=\"Issued\" plus=\"1mo\" format=\"YYYY-MM-DD\"/></sequence><sequence name=\"Renewed\"><gen type=\"date\" of=\"Issued\" plus=\"1y\" format=\"YYYY-MM-DD\"/></sequence></env><block><line><data>${{Issued}} | ${{Expires}} | ${{Renewed}}</data></line></block></tdc>",
+      "expected": [
+        "January 31 | 2026-02-28 | 2027-01-31",
+        "January 31 | 2026-02-28 | 2027-01-31",
+        "January 31 | 2026-02-28 | 2027-01-31"
+      ]
+    },
+    {
+      "name": "an-offset-counts-backwards-too",
+      "description": "Both bounds negative means the second date comes BEFORE the first — a birth date measured back from a visit, a manufacture date back from a sale. The order rule is what makes this readable: -10..-3 is written smallest first like every other range, so it is the LOWER bound that is furthest back.",
+      "config": "<tdc><env count=\"4\" seed=\"s\" local=\"en\" mode=\"memory\"><sequence name=\"Sold\"><gen type=\"date\" from=\"2026-06-01\" to=\"2026-06-30\" format=\"YYYY-MM-DD\"/></sequence><sequence name=\"Made\"><gen type=\"date\" of=\"Sold\" plus=\"-10..-3d\" format=\"YYYY-MM-DD\"/></sequence></env><block><line><data>${{Sold}} ${{Made}}</data></line></block></tdc>",
+      "expected": [
+        "2026-06-26 2026-06-19",
+        "2026-06-27 2026-06-19",
+        "2026-06-21 2026-06-18",
+        "2026-06-23 2026-06-18"
+      ]
+    },
+    {
+      "name": "a-source-cell-with-no-date-measures-nothing",
+      "description": "missing=\"1.0\" blanks every source cell, so there is no date to measure from and the derived column is empty too. The alternative an implementation might reach for — measuring from whatever text the missing token left behind, or from the epoch — puts a confident-looking date in a row whose source says nothing at all.",
+      "config": "<tdc><env count=\"3\" seed=\"s\" local=\"en\" mode=\"memory\"><sequence name=\"Seen\"><gen type=\"date\" from=\"2026-01-01\" to=\"2026-03-01\" format=\"YYYY-MM-DD\" missing=\"1.0\"/></sequence><sequence name=\"Follow\"><gen type=\"date\" of=\"Seen\" plus=\"7d\" format=\"YYYY-MM-DD\"/></sequence></env><block><line><data>[${{Seen}}][${{Follow}}]</data></line></block></tdc>",
+      "expected": ["[][]", "[][]", "[][]"]
+    },
+    {
+      "name": "an-offset-with-no-mode-goes-where-it-must",
+      "description": "The shape a reader actually writes: no mode=, just an offset. The other cases here pin mode=\"memory\", so the ROUTER is never exercised by them and a port that sent this config to the streaming engine and let the refusal escape would look green. The streaming path cannot read a sibling column lazily, so it refuses; when nobody named an engine, that refusal is answered by building the run in memory rather than by failing.",
+      "config": "<tdc><env count=\"3\" seed=\"s\" local=\"en\"><sequence name=\"Start\"><gen type=\"date\" from=\"2026-01-01\" to=\"2026-01-31\" format=\"YYYY-MM-DD\"/></sequence><sequence name=\"End\"><gen type=\"date\" of=\"Start\" plus=\"2..4d\" format=\"YYYY-MM-DD\"/></sequence></env><block><line><data>${{Start}}/${{End}}</data></line></block></tdc>",
+      "expected": [
+        "2026-01-30/2026-02-02",
+        "2026-01-16/2026-01-19",
+        "2026-01-19/2026-01-23"
+      ]
+    }
+  ]
+}

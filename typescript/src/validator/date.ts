@@ -28,13 +28,24 @@ import type {
 import { parsePrecision } from '../generators/date.js';
 import { fixesWeekday, parseStep, parseWeekdays } from '../date/index.js';
 import { extractAttrs } from '../processor/walk.js';
+import { checkGenDateOffset } from './date-offset.js';
 
 export function checkGenDate(
   gen: OpenCloseElementContext | SelfClosingElementContext,
+  declaredAbove: readonly string[],
   diagnostics: Diagnostic[],
 ): void {
   const attrs = gen.attr();
   const attrMap = extractAttrs(attrs);
+  // `of=` makes this an OFFSET rather than a draw: a different set of attributes
+  // configures it, and a different set of mistakes is possible. Its own checks
+  // REPLACE the ones below rather than joining them — everything here is about
+  // how a draw is bounded, so it would be a second complaint about the same
+  // attribute, naming a rule that no longer applies to it.
+  if ((attrMap['of'] ?? '').trim() !== '') {
+    checkGenDateOffset(gen, declaredAbove, diagnostics);
+    return;
+  }
   checkDateCommonAttrs(attrs, diagnostics);
   checkDateStep(attrs, attrMap, diagnostics);
   checkDateWeekdays(attrs, attrMap, diagnostics);

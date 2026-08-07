@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "cases": [
+    {
+      "name": "an-offset-that-does-not-say-how-far",
+      "demonstrates": "TDC264",
+      "description": "of= turns a date generator from a draw into an offset, and an offset without a distance is only half a sentence. There is no sensible default: zero would make the two columns identical and one day would be an invention.",
+      "config": "<tdc><env count=\"2\" seed=\"s\" local=\"en\"><sequence name=\"In\"><gen type=\"date\" from=\"2026-01-01\" to=\"2026-02-01\"/></sequence><sequence name=\"Out\"><gen type=\"date\" of=\"In\"/></sequence></env><block><line><data>${{Out}}</data></line></block></tdc>",
+      "expected": ["error TDC264 1:144"]
+    },
+    {
+      "name": "an-offset-written-largest-first",
+      "demonstrates": "TDC264",
+      "description": "10..3 is a typo for 3..10, and swapping the bounds silently would hide it. To measure BACKWARDS the config makes both bounds negative, which is a different thing said a different way.",
+      "config": "<tdc><env count=\"2\" seed=\"s\" local=\"en\"><sequence name=\"In\"><gen type=\"date\" from=\"2026-01-01\" to=\"2026-02-01\"/></sequence><sequence name=\"Out\"><gen type=\"date\" of=\"In\" plus=\"10..3d\"/></sequence></env><block><line><data>${{Out}}</data></line></block></tdc>",
+      "expected": ["error TDC264 1:175"]
+    },
+    {
+      "name": "an-offset-in-a-unit-that-does-not-exist",
+      "demonstrates": "TDC264",
+      "description": "The units are the ones step= already uses — s, m, h, d, w, mo, y — so a quarter is written as 3mo. A bare number means days.",
+      "config": "<tdc><env count=\"2\" seed=\"s\" local=\"en\"><sequence name=\"In\"><gen type=\"date\" from=\"2026-01-01\" to=\"2026-02-01\"/></sequence><sequence name=\"Out\"><gen type=\"date\" of=\"In\" plus=\"3q\"/></sequence></env><block><line><data>${{Out}}</data></line></block></tdc>",
+      "expected": ["error TDC264 1:175"]
+    },
+    {
+      "name": "an-offset-that-also-bounds-its-own-draw",
+      "demonstrates": "TDC264",
+      "description": "from= and to= place a date generator's OWN draw and say nothing once of= has placed it relative to another column. Ignoring them is the silent failure this exists to prevent: a config that asks for June dates and gets January ones is right about what it asked for and wrong about what it got.",
+      "config": "<tdc><env count=\"2\" seed=\"s\" local=\"en\"><sequence name=\"In\"><gen type=\"date\" from=\"2026-01-01\" to=\"2026-02-01\"/></sequence><sequence name=\"Out\"><gen type=\"date\" of=\"In\" plus=\"7d\" from=\"2026-06-01\"/></sequence></env><block><line><data>${{Out}}</data></line></block></tdc>",
+      "expected": ["error TDC264 1:185"]
+    },
+    {
+      "name": "an-offset-reading-a-column-that-is-not-declared-above-it",
+      "demonstrates": "TDC240",
+      "description": "An offset is built in declaration order out of a column that already exists, so of= takes the same rule parent=, a running total and a statistic take. The code is shared with those deliberately — the same rule with the same fix.",
+      "config": "<tdc><env count=\"2\" seed=\"s\" local=\"en\"><sequence name=\"Out\"><gen type=\"date\" of=\"In\" plus=\"7d\"/></sequence><sequence name=\"In\"><gen type=\"date\" from=\"2026-01-01\" to=\"2026-02-01\"/></sequence></env><block><line><data>${{Out}}</data></line></block></tdc>",
+      "expected": ["error TDC240 1:82"]
+    }
+  ]
+}
