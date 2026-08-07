@@ -1634,6 +1634,58 @@
         ]
       }
     },
+    "generators/anomaly-flag-marks-what-happened-not-what-was-selected": {
+      "engine2": {
+        "lines": [
+          "Brown,false",
+          "Miller,false",
+          "Johnson,false",
+          "Jones,false",
+          "Davis,false",
+          "Williams,false",
+          "Garcia,false",
+          "Smith,false"
+        ]
+      },
+      "engine3": {
+        "lines": [
+          "Brown,false",
+          "Miller,false",
+          "Johnson,false",
+          "Jones,false",
+          "Davis,false",
+          "Williams,false",
+          "Garcia,false",
+          "Smith,false"
+        ]
+      }
+    },
+    "generators/an-anomaly-flag-survives-the-exact-quota-path": {
+      "engine2": {
+        "lines": [
+          "20,false",
+          "3000,true",
+          "10,false",
+          "30,false",
+          "2000,true",
+          "10,false",
+          "1000,true",
+          "30,false"
+        ]
+      },
+      "engine3": {
+        "lines": [
+          "20,false",
+          "3000,true",
+          "10,false",
+          "30,false",
+          "2000,true",
+          "10,false",
+          "1000,true",
+          "30,false"
+        ]
+      }
+    },
     "mix-switch/mix-exact-percents": {
       "engine2": {
         "lines": ["A", "B", "A", "B", "B", "B", "B", "A", "B", "B"]

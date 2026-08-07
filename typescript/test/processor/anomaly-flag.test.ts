@@ -124,3 +124,34 @@ describe('anomaly_flag drives if=', () => {
     expect(out.every((l) => Number(l) >= 1000)).toBe(true);
   });
 });
+
+describe('anomaly_flag on a column the spike cannot touch', () => {
+  /**
+   * The flag records what HAPPENED, not what was selected.
+   *
+   * It used to record the draw, on the reasoning that anomaly is numeric-only so
+   * selected == spiked. A `type="template"` column of surnames is selected like
+   * any other and then left alone — and came out flagged `true` beside an
+   * untouched ordinary name, while the page promised the flag and the spike
+   * "can never disagree". Worse than a wrong number: an anomaly detector trained
+   * on this learns that Smith is an outlier.
+   */
+  it('never marks a row nothing happened to', () => {
+    const cfg =
+      `<tdc><env count="200" seed="afx" local="en" inject="\${{%}}">` +
+      `<sequence name="W">` +
+      `<gen type="template" value="person.lastName" anomaly="0.5" anomaly_factor="10" anomaly_flag="Bad"/>` +
+      `</sequence></env>` +
+      `<block><line><data>\${{W}}|\${{Bad}}</data></line></block></tdc>`;
+    for (const [name, options] of ENGINES) {
+      const rows = render(parseStrict(cfg), options).split('\n').filter(Boolean);
+      expect(rows, name).toHaveLength(200);
+      // Half the rows were SELECTED by the draw; none could be spiked, so none
+      // may be flagged. A test that only counted flags would pass at 50%.
+      expect(
+        rows.every((r) => r.endsWith('|false')),
+        name,
+      ).toBe(true);
+    }
+  });
+});

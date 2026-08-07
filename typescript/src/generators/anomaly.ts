@@ -42,10 +42,17 @@ export function parseAnomaly(attrs: Record<string, string | undefined>): Anomaly
  * Non-numeric values are left untouched (outliers only make sense for numbers).
  * Mutates and returns `values`.
  *
- * `flagsOut`, when given, records the per-row SELECTION (`draw < p`) so a
- * `anomaly_flag` ground-truth column can mark exactly these rows. It reflects the
- * draw, not whether the value happened to be numeric — anomaly is a numeric-only
- * feature, so for supported gens selected == spiked.
+ * `flagsOut`, when given, records what ACTUALLY HAPPENED to the row, so an
+ * `anomaly_flag` column is ground truth rather than a record of intent.
+ *
+ * It used to record the SELECTION (`draw < p`) on the reasoning that anomaly is a
+ * numeric-only feature, so selected == spiked. That holds only for the gens whose
+ * output is numeric by construction. A `type="template"` column of surnames is
+ * selected like any other and then left alone here — and came out flagged `true`
+ * beside an untouched ordinary name, while the page promised the flag and the
+ * spike "can never disagree". A label that marks a row nothing happened to is
+ * worse than no label: it is training data for an anomaly detector, and every
+ * such row teaches it something false.
  *
  * `draw` is asked for the uniform of row i rather than for "the next" one: the
  * streaming engine derives it from the row, and the in-memory engine passes a
@@ -58,11 +65,14 @@ export function applyAnomaly(
   flagsOut?: boolean[],
 ): string[] {
   for (let i = 0; i < values.length; i++) {
+    // The draw is asked for on every row whether or not it is used, so the
+    // stream stays aligned: a column that skipped the draw on its text rows
+    // would give different values to every row after the first one.
     const selected = spec.p > 0 && draw(i) < spec.p;
-    if (flagsOut) flagsOut[i] = selected;
-    if (!selected) continue;
-    const n = Number(values[i]);
-    if (Number.isFinite(n)) values[i] = String(n * spec.factor);
+    const n = selected ? Number(values[i]) : Number.NaN;
+    const spiked = selected && Number.isFinite(n);
+    if (flagsOut) flagsOut[i] = spiked;
+    if (spiked) values[i] = String(n * spec.factor);
   }
   return values;
 }

@@ -101,6 +101,21 @@ public final class Imperfections {
   }
 
   /**
+   * Whether {@link #spike} would actually change this value: it is a finite number.
+   *
+   * <p>Split out so the flag can be computed WITHOUT comparing before and after. That comparison
+   * looks equivalent and is not — {@code 0} times any factor is still {@code 0}, and a row that
+   * really was spiked would come back unflagged.
+   */
+  public static boolean isSpikeable(String value) {
+    try {
+      return Double.isFinite(Double.parseDouble(value.trim()));
+    } catch (NumberFormatException notANumber) {
+      return false;
+    }
+  }
+
+  /**
    * One value made an outlier, or returned untouched when it is not a number.
    *
    * <p>Shared with the streaming engine, which decides row by row rather than over a column but

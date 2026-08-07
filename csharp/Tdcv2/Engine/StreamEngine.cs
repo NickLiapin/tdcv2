@@ -984,7 +984,7 @@ public sealed class StreamEngine
             }
 
             return QuotaColumn(
-                streamId, values, percents, domain, repeat, repeatPlan, repeatPosAt, mod);
+                streamId, values, percents, domain, repeat, repeatPlan, repeatPosAt, mod, attrs);
         }
 
         // `length="2,10-12" percent="85,15"`: which length group a row gets is an exact quota over
@@ -1192,7 +1192,8 @@ public sealed class StreamEngine
     /// </remarks>
     private Built QuotaColumn(
         string streamId, IReadOnlyList<string> values, double[] percents, Domain domain,
-        Repeat.Spec? repeat, RepeatPlan? repeatPlan, Func<int, int?> repeatPosAt, Modifier? mod)
+        Repeat.Spec? repeat, RepeatPlan? repeatPlan, Func<int, int?> repeatPosAt, Modifier? mod,
+        IReadOnlyDictionary<string, string> attrs)
     {
         int slotCount = repeatPlan?.TotalSlots ?? domain.Size;
         int[] counts = Hamilton.CountsPerValue(
@@ -1250,7 +1251,62 @@ public sealed class StreamEngine
         // the cell holds a LIST, in which case parent="Name.value" has nothing coherent to match.
         bool repeating = repeat is not null;
         var parent = new QuotaParent(values, counts, cumHi, repeating, SlotAt);
-        return new Built(column, parent, null, null);
+
+        // The anomaly_flag beside an exactly-apportioned column. This path used to publish no
+        // flag at all, so a declared anomaly_flag="Bad" registered nothing and ${{Bad}} reached
+        // the output as its own literal text — a column of ${{Bad}} in the data, from a config
+        // the in-memory engine renders correctly. The value and the anomaly draw are both
+        // functions of the row here, so the flag is computable one row at a time.
+        string? flagName = AnomalyFlagName(attrs);
+        Imperfections.Anomaly? parsed = Imperfections.ParseAnomaly(attrs);
+        if (flagName is null || parsed is not { } anomaly)
+        {
+            return new Built(column, parent, null, null);
+        }
+
+        int elementDraws = repeat is { } rs ? Math.Max(rs.Max, 1) : 1;
+
+        // What HAPPENED, not what was selected: anomaly multiplies a number and leaves anything
+        // else alone, so a selected word is not an outlier and must not be marked.
+        bool SpikedAt(int row, int k)
+        {
+            int? slot = SlotAt(row, k);
+            if (slot is null)
+            {
+                return false;
+            }
+
+            string raw = values[RunFor(cumHi, slot.Value)];
+            double[] draws = Seekable.Uniforms(_seed, streamId + "#anom", row, elementDraws);
+            double drawn = k < draws.Length ? draws[k] : 1.0;
+            return drawn < anomaly.Probability && Imperfections.IsSpikeable(raw);
+        }
+
+        string? Flag(int row)
+        {
+            if (repeat is not { } r3)
+            {
+                return SlotAt(row, 0) is null ? null : SpikedAt(row, 0) ? "true" : "false";
+            }
+
+            int? p = repeatPosAt(row);
+            if (p is null)
+            {
+                return null;
+            }
+
+            // With repeat the flag is a LIST parallel to the values: one boolean could not say
+            // which element of the batch was the one that spiked.
+            var parts = new List<string>();
+            for (int k = 0; k < repeatPlan!.LengthAt(p.Value); k++)
+            {
+                parts.Add(SpikedAt(row, k) ? "true" : "false");
+            }
+
+            return Repeat.Join(parts, r3);
+        }
+
+        return new Built(column, parent, flagName, Flag);
     }
 
     private sealed class QuotaParent : IParentCapable

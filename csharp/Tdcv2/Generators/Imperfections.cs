@@ -118,6 +118,18 @@ public static class Imperfections
         }
     }
 
+    /// <summary>Whether <see cref="Spike"/> would actually change this value: it is a finite number.</summary>
+    /// <remarks>
+    /// Split out so the flag can be computed WITHOUT comparing before and after. That comparison
+    /// looks equivalent and is not — <c>0</c> times any factor is still <c>0</c>, and a row that
+    /// really was spiked would come back unflagged.
+    /// </remarks>
+    public static bool IsSpikeable(string value) =>
+        double.TryParse(
+            value.Trim(), System.Globalization.NumberStyles.Float,
+            System.Globalization.CultureInfo.InvariantCulture, out double n)
+        && double.IsFinite(n);
+
     /// <summary>
     /// One value made an outlier, or returned untouched when it is not a number.
     /// </summary>

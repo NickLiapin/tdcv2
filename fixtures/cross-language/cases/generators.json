@@ -151,6 +151,36 @@
         "Raquel Marcia Anaya Tovar",
         "Rocío Luisa Guerrero Ovalle"
       ]
+    },
+    {
+      "name": "anomaly-flag-marks-what-happened-not-what-was-selected",
+      "description": "anomaly= multiplies a NUMBER by anomaly_factor and leaves anything else alone. The flag used to record the per-row SELECTION instead of the outcome, on the reasoning that anomaly is numeric-only so selected == spiked — which holds only for the gens whose output is numeric by construction. A template column of surnames is selected like any other and then left untouched, and came out flagged `true` beside an ordinary name, while the docs promise the flag and the spike can never disagree. Half these rows are selected by the draw; none can be spiked, so every flag must be false.",
+      "config": "<tdc><env count=\"8\" seed=\"afx\" local=\"en\"><sequence name=\"W\"><gen type=\"template\" value=\"person.lastName\" anomaly=\"0.5\" anomaly_factor=\"10\" anomaly_flag=\"Bad\"/></sequence></env><block><line><data>${{W}},${{Bad}}</data></line></block></tdc>",
+      "expected": [
+        "Brown,false",
+        "Miller,false",
+        "Johnson,false",
+        "Jones,false",
+        "Davis,false",
+        "Williams,false",
+        "Garcia,false",
+        "Smith,false"
+      ]
+    },
+    {
+      "name": "an-anomaly-flag-survives-the-exact-quota-path",
+      "description": "A column whose values are apportioned exactly — type=\"text\", a weighted file column, a weighted pack — is resolved by a different path on the streaming engines, and that path registered no anomaly_flag column at all: ${{Bad}} reached the output as its own literal text while the in-memory engine rendered it correctly. The value and the anomaly draw are both functions of the row here, so the flag is computable one row at a time like everything else on that engine. Three of these values are numbers, so the flag also has to be true on a real spike, not merely false everywhere.",
+      "config": "<tdc><env count=\"8\" seed=\"aft\" local=\"en\"><sequence name=\"V\"><gen type=\"text\" value=\"10,20,30\" anomaly=\"0.5\" anomaly_factor=\"100\" anomaly_flag=\"Bad\"/></sequence></env><block><line><data>${{V}},${{Bad}}</data></line></block></tdc>",
+      "expected": [
+        "20,false",
+        "3000,true",
+        "10,false",
+        "30,false",
+        "2000,true",
+        "10,false",
+        "1000,true",
+        "30,false"
+      ]
     }
   ]
 }

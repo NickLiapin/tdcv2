@@ -64,6 +64,22 @@ page — is tracked in that implementation's own changelog:
   conditional reference would have to answer what `${{Ref.field}}` means on a row that took
   the other branch. The pool pages now document `parent=` for that job.
 
+<!-- covers: anomaly_flag -->
+
+- `anomaly_flag` recorded the per-row SELECTION rather than the outcome. `anomaly=`
+  multiplies a NUMBER and leaves anything else alone, so a `type="template"` column of
+  surnames was selected like any other and then left untouched — and came out flagged
+  `true` beside an ordinary name, while the page promised the flag and the spike "can never
+  disagree". Worse than a wrong number: the flag is training data for an anomaly detector,
+  and every such row teaches it something false. It now records what happened.
+
+- On the streaming and exact-on-disk engines of Python, Rust, C# and Java, a column whose
+  values are apportioned exactly — `type="text"`, a weighted file column, a weighted pack —
+  published NO `anomaly_flag` column at all, so `${{Flag}}` reached the output as its own
+  literal text while the in-memory engine rendered it correctly. Found by the shared case
+  written for the entry above. The value and the anomaly draw are both functions of the row
+  on that path, so the flag is now computed there like everything else.
+
 <!-- covers: abs, round, floor, ceil, trunc, min, max -->
 
 - `abs`, `round`, `floor`, `ceil`, `trunc`, `min` and `max` in `if=` and `filter=` kept

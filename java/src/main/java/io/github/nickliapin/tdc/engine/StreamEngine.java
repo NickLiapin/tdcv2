@@ -894,7 +894,8 @@ public final class StreamEngine {
                 ? PercentMask.expand(percentAttr, values.size())
                 : evenly(values.size());
       }
-      return quotaColumn(streamId, values, percents, domain, repeat, repeatPlan, repeatPosAt, mod);
+      return quotaColumn(
+          streamId, values, percents, domain, repeat, repeatPlan, repeatPosAt, mod, attrs);
     }
 
     // `length="2,10-12" percent="85,15"`: which length group a row gets is an exact quota over
@@ -1076,7 +1077,8 @@ public final class StreamEngine {
       Repeat.Spec repeat,
       Repeat.Plan repeatPlan,
       IntFunction<Integer> repeatPosAt,
-      Modifier mod) {
+      Modifier mod,
+      Map<String, String> attrs) {
     int slotCount = repeatPlan != null ? repeatPlan.totalSlots() : domain.size();
     int[] counts =
         Hamilton.countsPerValue(slotCount, percents, Prng.create(seed + "|" + streamId + "|pct"));
@@ -1148,7 +1150,53 @@ public final class StreamEngine {
             return slot >= lo && slot < cumHi[i] ? slot - lo : null;
           }
         };
-    return new Built(column, parent, null, null);
+
+    // The anomaly_flag beside an exactly-apportioned column. This path used to publish no flag
+    // at all, so a declared anomaly_flag="Bad" registered nothing and ${{Bad}} reached the output
+    // as its own literal text — a column of ${{Bad}} in the data, from a config the in-memory
+    // engine renders correctly. The value and the anomaly draw are both functions of the row
+    // here, so the flag is computable one row at a time.
+    String flagName = anomalyFlagName(attrs);
+    Imperfections.Anomaly anomaly = Imperfections.parseAnomaly(attrs);
+    if (flagName == null || anomaly == null) {
+      return new Built(column, parent, null, null);
+    }
+
+    int elementDraws = repeat != null ? Math.max(repeat.max(), 1) : 1;
+
+    // What HAPPENED, not what was selected: anomaly multiplies a number and leaves anything else
+    // alone, so a selected word is not an outlier and must not be marked.
+    java.util.function.BiFunction<Integer, Integer, Boolean> spikedAt =
+        (row, k) -> {
+          Integer slot = slotAt.apply(row, k);
+          if (slot == null) {
+            return false;
+          }
+          String raw = values.get(runFor(cumHi, slot));
+          double[] draws = Seekable.uniforms(seed, streamId + "#anom", row, elementDraws);
+          double drawn = k < draws.length ? draws[k] : 1.0;
+          return drawn < anomaly.probability() && Imperfections.isSpikeable(raw);
+        };
+
+    Column flag =
+        row -> {
+          if (repeat == null) {
+            return slotAt.apply(row, 0) == null ? null : String.valueOf(spikedAt.apply(row, 0));
+          }
+          Integer p = repeatPosAt.apply(row);
+          if (p == null) {
+            return null;
+          }
+          // With repeat the flag is a LIST parallel to the values: one boolean could not say
+          // which element of the batch was the one that spiked.
+          List<String> parts = new ArrayList<>();
+          for (int k = 0; k < repeatPlan.lengthAt(p); k++) {
+            parts.add(String.valueOf(spikedAt.apply(row, k)));
+          }
+          return Repeat.join(parts, repeat);
+        };
+
+    return new Built(column, parent, flagName, flag);
   }
 
   // ── mix, switch, conditional ─────────────────────────────────────────────────────────────

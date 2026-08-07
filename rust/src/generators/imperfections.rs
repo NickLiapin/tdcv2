@@ -127,6 +127,15 @@ pub fn apply_anomaly(
 ///
 /// Shared with the streaming engine, which decides row by row rather than over a
 /// column but has to spike a selected value in exactly the same way.
+/// Whether `spike` would actually change this value: it is a finite number.
+///
+/// Split out so the flag can be computed WITHOUT comparing before and after.
+/// That comparison looks equivalent and is not — `0` times any factor is still
+/// `0`, and a row that really was spiked would come back unflagged.
+pub fn is_spikeable(value: &str) -> bool {
+    matches!(value.trim().parse::<f64>(), Ok(n) if n.is_finite())
+}
+
 pub fn spike(value: &str, factor: f64) -> String {
     match value.trim().parse::<f64>() {
         Ok(n) if n.is_finite() => numbers::to_text(n * factor),

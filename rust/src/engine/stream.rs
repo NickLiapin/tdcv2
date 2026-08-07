@@ -231,6 +231,15 @@ enum Column {
         modifier: Option<Modifier>,
     },
     Quota(Box<Quota>),
+    /// The `anomaly_flag` beside an exactly-apportioned column.
+    ///
+    /// This path used to publish no flag at all, so a declared
+    /// `anomaly_flag="Bad"` registered nothing and `${{Bad}}` reached the output
+    /// as its own literal text — a column of `${{Bad}}` in the data, from a
+    /// config the in-memory engine renders correctly. The value and the anomaly
+    /// draw are both functions of the row here, so the flag is computable one row
+    /// at a time like everything else on this engine.
+    QuotaFlag(Box<Quota>),
     /// `length="2,10-12" percent="85,15"` — the group is a quota, the digits are
     /// still the row's own draw.
     LengthGroups {
@@ -1086,7 +1095,15 @@ impl StreamEngine<'_> {
                 }
             };
             return Ok(self.quota_column(
-                stream_id, values, &percents, domain, repeat, plan, repeat_key, modifier,
+                stream_id,
+                values,
+                &percents,
+                domain,
+                repeat,
+                plan,
+                repeat_key,
+                modifier,
+                attrs.get("anomaly_flag").map(|n| n.trim().to_string()).filter(|n| !n.is_empty()),
             ));
         }
 
@@ -1679,6 +1696,7 @@ impl StreamEngine<'_> {
         plan: Option<RepeatPlan>,
         repeat_key: i32,
         modifier: Option<Modifier>,
+        flag_name: Option<String>,
     ) -> Built {
         // With `repeat=` the quota is planned over ELEMENTS rather than rows,
         // because a row holding three values consumes three of them.
@@ -1702,9 +1720,9 @@ impl StreamEngine<'_> {
             // A finite set of values with known quotas is exactly what a child
             // can filter on — unless the cell holds a LIST, in which case
             // parent="Name.value" has nothing coherent to match.
-            parent: Some(quota),
-            flag_name: None,
-            flag: None,
+            parent: Some(quota.clone()),
+            flag_name: flag_name.clone(),
+            flag: flag_name.map(|_| Column::QuotaFlag(Box::new(quota))),
         }
     }
 
@@ -2025,6 +2043,7 @@ impl StreamEngine<'_> {
             }
 
             Column::Quota(quota) => self.quota_value(quota, row),
+            Column::QuotaFlag(quota) => self.quota_flag(quota, row),
 
             Column::LengthGroups {
                 domain,
@@ -2261,6 +2280,49 @@ impl StreamEngine<'_> {
             text.push_str(&self.value_of(part, row)?.unwrap_or_default());
         }
         Ok(text)
+    }
+
+    /// The flag beside a quota column: what HAPPENED on this row, not what was
+    /// selected. `anomaly` multiplies a number and leaves anything else alone, so
+    /// a selected word is not an outlier and must not be marked.
+    fn quota_flag(&self, quota: &Quota, row: i32) -> EngineResult<Option<String>> {
+        let Some(modifier) = &quota.modifier else {
+            return Ok(None);
+        };
+        let Some(anomaly) = &modifier.anomaly else {
+            return Ok(None);
+        };
+        let spiked_at = |row: i32, k: i32| -> EngineResult<bool> {
+            let Some(slot) = self.slot_at(quota, row, k)? else {
+                return Ok(false);
+            };
+            let raw = &quota.values[run_for(&quota.cum_hi, slot)];
+            let draws = seekable::uniforms(
+                &self.seed,
+                &format!("{}#anom", modifier.stream),
+                row,
+                modifier.element_draws,
+            );
+            let drawn = draws.get(k as usize).copied().unwrap_or(1.0);
+            Ok(drawn < anomaly.probability && imperfections::is_spikeable(raw))
+        };
+        let Some(spec) = &quota.repeat else {
+            if self.slot_at(quota, row, 0)?.is_none() {
+                return Ok(None);
+            }
+            return Ok(Some(spiked_at(row, 0)?.to_string()));
+        };
+        let plan = quota.plan.as_ref().expect("built beside the spec");
+        let Some(p) = self.repeat_pos_at(&quota.domain, quota.repeat_key, row)? else {
+            return Ok(None);
+        };
+        // With `repeat` the flag is a LIST parallel to the values: one boolean
+        // could not say which element of the batch was the one that spiked.
+        let mut parts = Vec::new();
+        for k in 0..plan.length_at(p) {
+            parts.push(spiked_at(row, k)?.to_string());
+        }
+        Ok(Some(repeat::join(&parts, spec)?))
     }
 
     fn quota_value(&self, quota: &Quota, row: i32) -> EngineResult<Option<String>> {

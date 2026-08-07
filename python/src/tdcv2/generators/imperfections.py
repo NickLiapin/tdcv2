@@ -93,12 +93,20 @@ def apply_anomaly(
     PRNG. Same rows selected either way, and one function serves both.
     """
     for i in range(len(values)):
+        # The draw is taken on EVERY row whether or not it is used, so the stream stays
+        # aligned: a column that skipped it would give different values to every row after
+        # the first one.
         selected = spec.probability > 0 and draw(i) < spec.probability
+        spiked = selected and is_spikeable(values[i])
         if flags is not None:
-            flags[i] = selected
-        if not selected:
-            continue
-        values[i] = spike(values[i], spec.factor)
+            # What HAPPENED, not what was selected. Recording the selection was right only
+            # for the gens whose output is numeric by construction; a template column of
+            # surnames is selected like any other and then left alone, and came out flagged
+            # true beside an ordinary name — while the docs promise the flag and the spike
+            # can never disagree.
+            flags[i] = spiked
+        if spiked:
+            values[i] = spike(values[i], spec.factor)
 
 
 def spike(value: str, factor: float) -> str:
@@ -128,3 +136,16 @@ def _probability(raw: str, label: str) -> float:
     if not math.isfinite(p) or p < 0 or p > 1:
         raise ValueError(f'{label}: probability "{raw}" must be a number in [0, 1]')
     return p
+
+def is_spikeable(value: str) -> bool:
+    """Whether ``spike`` would actually change this value: it is a finite number.
+
+    Split out so the flag can be computed WITHOUT comparing before and after. That comparison
+    looks equivalent and is not — ``0`` times any factor is still ``0``, and a row that really
+    was spiked would come back unflagged.
+    """
+    try:
+        n = float(value.strip())
+    except (ValueError, AttributeError):
+        return False
+    return math.isfinite(n)

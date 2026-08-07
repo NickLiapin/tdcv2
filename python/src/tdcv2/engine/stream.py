@@ -675,7 +675,7 @@ class StreamEngine:
                     else _evenly(len(values))
                 )
             return self._quota_column(
-                stream_id, values, percents, domain, repeat, repeat_plan, repeat_pos_at, mod
+                stream_id, values, percents, domain, repeat, repeat_plan, repeat_pos_at, mod, attrs
             )
 
         # `length="2,10-12" percent="85,15"`: which length group a row gets is an exact quota over
@@ -828,7 +828,7 @@ class StreamEngine:
         return (entry.values, entry.percents) if entry.weighted and entry.percents else None
 
     def _quota_column(
-        self, stream_id, values, percents, domain, repeat, repeat_plan, repeat_pos_at, mod
+        self, stream_id, values, percents, domain, repeat, repeat_plan, repeat_pos_at, mod, attrs
     ) -> Built:
         """A column whose values are apportioned exactly, resolved one row at a time.
 
@@ -896,7 +896,52 @@ class StreamEngine:
             quota_of=lambda value: counts[values.index(value)] if value in values else 0,
             child_rank_at=child_rank_at,
         )
-        return Built(column, parent, None, None)
+        return Built(column, parent, _anomaly_flag_name(attrs), self._quota_flags(
+            stream_id, values, cum_hi, slot_at, repeat, repeat_plan, repeat_pos_at, attrs
+        ))
+
+    def _quota_flags(
+        self, stream_id, values, cum_hi, slot_at, repeat, repeat_plan, repeat_pos_at, attrs
+    ):
+        """The ``anomaly_flag`` column beside an exactly-apportioned one.
+
+        It used to be absent: this path returned no flag at all, so a declared
+        ``anomaly_flag="Bad"`` registered nothing and ``${{Bad}}`` reached the output as its own
+        literal text — a column of `${{Bad}}` in the data, from a config the reference renders
+        correctly. The value and the draw are both functions of the row here, so the flag is
+        computable one row at a time like everything else on this engine.
+
+        It reports what HAPPENED, not what was selected: ``anomaly`` multiplies a number and
+        leaves anything else alone, so a selected word is not an outlier and must not be marked.
+        """
+        anomaly = imperfections.parse_anomaly(attrs)
+        if anomaly is None or _anomaly_flag_name(attrs) is None:
+            return None
+        element_draws = 1 if repeat is None else repeat.max
+
+        def spiked_at(row: int, k: int) -> bool:
+            slot = slot_at(row, k)
+            if slot is None:
+                return False
+            raw = values[_run_for(cum_hi, slot)]
+            drawn = seekable.uniforms(self.seed, f"{stream_id}#anom", row, element_draws)[k]
+            if drawn >= anomaly.probability:
+                return False
+            return imperfections.is_spikeable(raw)
+
+        def flag(row: int) -> str | None:
+            if repeat is None:
+                return None if slot_at(row, 0) is None else str(spiked_at(row, 0)).lower()
+            p = repeat_pos_at(row)
+            if p is None:
+                return None
+            # With `repeat` the flag is a LIST parallel to the values: one boolean could not say
+            # which element of the batch was the one that spiked.
+            return repeat_gen.join(
+                [str(spiked_at(row, k)).lower() for k in range(repeat_plan.length_at(p))], repeat
+            )
+
+        return flag
 
     # ── mix, switch, conditional ────────────────────────────────────────────────────────────
 
