@@ -408,6 +408,18 @@
         ]
       }
     },
+    "date-offset/an-offset-can-be-measured-from-another-offset": {
+      "engine2": {
+        "refused": "a date measured from another column (\"Expires\") reads that column as the row is built, and the streaming path has no way to do that yet; the in-memory engine handles it (run without a forced streaming engine)"
+      },
+      "engine3": {
+        "lines": [
+          "24 January 2026 | 24 January 2027 | 25 December 2026",
+          "11 February 2026 | 11 February 2027 | 12 January 2027",
+          "27 January 2026 | 27 January 2027 | 28 December 2026"
+        ]
+      }
+    },
     "date-offset/an-offset-counts-backwards-too": {
       "engine2": {
         "refused": "a date measured from another column (\"Made\") reads that column as the row is built, and the streaming path has no way to do that yet; the in-memory engine handles it (run without a forced streaming engine)"

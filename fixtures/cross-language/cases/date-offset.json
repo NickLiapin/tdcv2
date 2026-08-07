@@ -36,6 +36,16 @@
       ]
     },
     {
+      "name": "an-offset-can-be-measured-from-another-offset",
+      "description": "Signed, expires a year later, remind a month before that. The middle column is itself an offset, so the chain only holds if an offset keeps its own value the way a drawn date does — and every cell here is rendered as \"5 February 2027\", which no parser is asked to read back. An implementation that re-read the text would break at the second link.",
+      "config": "<tdc><env count=\"3\" seed=\"s\" local=\"en\" mode=\"memory\"><sequence name=\"Signed\"><gen type=\"date\" from=\"2026-01-15\" to=\"2026-02-15\" format=\"D MMMM YYYY\"/></sequence><sequence name=\"Expires\"><gen type=\"date\" of=\"Signed\" plus=\"1y\" format=\"D MMMM YYYY\"/></sequence><sequence name=\"Remind\"><gen type=\"date\" of=\"Expires\" plus=\"-30d\" format=\"D MMMM YYYY\"/></sequence></env><block><line><data>${{Signed}} | ${{Expires}} | ${{Remind}}</data></line></block></tdc>",
+      "expected": [
+        "24 January 2026 | 24 January 2027 | 25 December 2026",
+        "11 February 2026 | 11 February 2027 | 12 January 2027",
+        "27 January 2026 | 27 January 2027 | 28 December 2026"
+      ]
+    },
+    {
       "name": "an-offset-counts-backwards-too",
       "description": "Both bounds negative means the second date comes BEFORE the first — a birth date measured back from a visit, a manufacture date back from a sale. The order rule is what makes this readable: -10..-3 is written smallest first like every other range, so it is the LOWER bound that is furthest back.",
       "config": "<tdc><env count=\"4\" seed=\"s\" local=\"en\" mode=\"memory\"><sequence name=\"Sold\"><gen type=\"date\" from=\"2026-06-01\" to=\"2026-06-30\" format=\"YYYY-MM-DD\"/></sequence><sequence name=\"Made\"><gen type=\"date\" of=\"Sold\" plus=\"-10..-3d\" format=\"YYYY-MM-DD\"/></sequence></env><block><line><data>${{Sold}} ${{Made}}</data></line></block></tdc>",

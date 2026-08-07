@@ -116,6 +116,20 @@ describe('date offset — the value, not its spelling', () => {
     }
   });
 
+  it('chains: an offset is itself a date the next offset can measure from', () => {
+    // Signed, expires a year later, remind a month before that — and every cell
+    // rendered in a format nothing could parse back. The chain holds because
+    // each link keeps its own value, not because the middle one is re-read.
+    const config =
+      '<tdc><env count="1" seed="s1" local="en">' +
+      '<sequence name="Signed"><gen type="date" value="2026-02-05" format="D MMMM YYYY"/></sequence>' +
+      '<sequence name="Expires"><gen type="date" of="Signed" plus="1y" format="D MMMM YYYY"/></sequence>' +
+      '<sequence name="Remind"><gen type="date" of="Expires" plus="-30d" format="D MMMM YYYY"/></sequence>' +
+      '</env><block><line><data>${{Signed}}|${{Expires}}|${{Remind}}</data></line></block></tdc>';
+    const line = new TDC({ configString: config, now: NOW }).toString().trim();
+    expect(line).toBe('5 February 2026|5 February 2027|6 January 2027');
+  });
+
   it('a source cell "missing" blanked measures nothing, rather than a wrong date', () => {
     const out = rows(`${WINDOW} missing="1.0"`, 'plus="7d" format="YYYY-MM-DD"', 5);
     for (const line of out) expect(pair(line)).toEqual(['', '']);

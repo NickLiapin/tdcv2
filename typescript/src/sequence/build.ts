@@ -412,7 +412,7 @@ export function buildSequences(
     // one declared above it. Unlike them it needs only the SAME row of that
     // column — nothing accumulates and nothing waits for the last row.
     if (isDateOffset(spec)) {
-      registerDateOffset(spec, registry, count, prng, locale);
+      registerDateOffset(spec, registry, count, prng, locale, ctx.instantColumns);
       continue;
     }
     if (spec.items) {

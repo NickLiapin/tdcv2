@@ -32,6 +32,8 @@ can differ by core version. What stays fixed is the shape and the format.
 | `local`               | `ar`, `de`, `el`, `en`, `es`, `fr`, `it`, `pl`, `pt`, `ru`, `zh-cn` (three-letter aliases too: `eng`, `spa`, `fra`, …); inherited from [`<env>`](../reference/tags.mdx) if omitted |
 | `oldest` / `youngest` | Age window in years for `value="birth"` (defaults `80` and `10`)                         |
 | `precision`           | `day`, `second`, or `millisecond`                                                        |
+| `of`                  | Measure from another date column instead of drawing — see [An interval](#an-interval-a-date-measured-from-another-date) |
+| `plus`                | How far from it: `7d`, `3..10d`, `1..3mo`, `-10..-3d`                                    |
 
 Use only one of `value`, `range`, or the `from`/`to` pair to describe a range — they
 are three spellings of the same thing. Give none of them and the range runs from
@@ -396,6 +398,140 @@ Use `precision="second"` whenever you want clean, human-looking timestamps inste
 millisecond noise; use `precision="millisecond"` (the date-time default) when you need
 sub-second resolution.
 
+## An interval: a date measured from another date
+
+Real records are full of pairs: admitted and discharged, ordered and shipped,
+issued and expires, the start and the end of a shift. The second date is not
+independent of the first — it is the first plus a length — and two separate
+ranges cannot say so. They put the discharge *before* the admission on a good
+share of the rows.
+
+`of` names the column to measure from and `plus` says how far:
+
+```xml
+<sequence name="Admitted">
+  <gen type="date" from="2026-01-01" to="2026-03-01" format="YYYY-MM-DD"/>
+</sequence>
+<sequence name="Discharged">
+  <gen type="date" of="Admitted" plus="2..14d" format="YYYY-MM-DD"/>
+</sequence>
+```
+
+<Terminal title="./run stay.tdc (6 rows)">
+{`2026-02-06  2026-02-16
+2026-02-14  2026-02-23
+2026-01-11  2026-01-16
+2026-01-11  2026-01-24
+2026-02-27  2026-03-06
+2026-01-08  2026-01-14`}
+</Terminal>
+
+Every discharge is after its own admission, by 2 to 14 days — and the *length*
+of each stay is drawn per row, which is the thing two independent ranges throw
+away.
+
+### `plus` — the distance
+
+| Written as   | Means                                                     |
+| :----------- | :-------------------------------------------------------- |
+| `7d`         | exactly seven days, on every row                          |
+| `3..10d`     | three to ten days, drawn per row (both ends inclusive)    |
+| `1..3mo`     | one to three months, by the calendar                      |
+| `-10..-3d`   | three to ten days **before** the source                   |
+| `45`         | a bare number means days                                  |
+
+The units are the ones [`step`](#step--how-far-each-row-moves) already uses:
+`s`, `m`, `h`, `d`, `w`, `mo`, `y` — and as there, `m` is the minute and `mo` is
+the month.
+
+A single value is the same distance on every row:
+
+```xml
+<sequence name="Shipped">
+  <gen type="date" of="Ordered" plus="1d" format="YYYY-MM-DD"/>
+</sequence>
+```
+
+<Terminal title="./run ship.tdc (4 rows)">
+{`2026-05-23  2026-05-24
+2026-05-06  2026-05-07
+2026-05-13  2026-05-14
+2026-05-21  2026-05-22`}
+</Terminal>
+
+Write the smaller bound first, as in every other range. To count **backwards**,
+make both bounds negative — `plus="-10..-3d"` is three to ten days earlier.
+`plus="10..3d"` is a typo and is refused (`TDC264`) rather than quietly swapped.
+
+Months and years move by the calendar rather than by a fixed number of days, so
+`2026-01-31` plus one month is `2026-02-28` — the same clamping
+[`step`](#a-calendar-step-keeps-the-day-of-the-month) does.
+
+### The offset reads the value, not the printed text
+
+A date column prints a *rendering* of its date. `03/02/2026` is the 3rd of
+February under `local="en"` and the 2nd of March under `local="ru"`, and
+`format="MMMM D"` throws the year away entirely. So the offset does not read the
+cell at all: the column it measures from keeps the date it generated, and the
+arithmetic runs on that. Any `format` works, under any locale.
+
+```xml
+<env count="4" seed="visit" local="ru">
+  <sequence name="Visit"><gen type="date" from="2026-03-01" to="2026-03-31"/></sequence>
+  <sequence name="Followup"><gen type="date" of="Visit" plus="2w"/></sequence>
+</env>
+```
+
+<Terminal title="./run visit.tdc (4 rows)">
+{`20.03.2026  03.04.2026
+22.03.2026  05.04.2026
+27.03.2026  10.04.2026
+09.03.2026  23.03.2026`}
+</Terminal>
+
+The one case with nothing to read from is a date TDC did not generate — a column
+loaded by [`file`](./file.mdx), for instance. There only the text exists, so it
+must be in ISO form (`YYYY-MM-DD`), which means one thing in every locale.
+Anything else is refused rather than guessed at.
+
+### Chaining, and empty cells
+
+An offset is itself a date this engine produced, so a third column can measure
+from it: signed, expires a year later, remind a month before that.
+
+```xml
+<sequence name="Signed"><gen type="date" from="2026-01-15" to="2026-02-15" format="D MMMM YYYY"/></sequence>
+<sequence name="Expires"><gen type="date" of="Signed" plus="1y" format="D MMMM YYYY"/></sequence>
+<sequence name="Remind"><gen type="date" of="Expires" plus="-30d" format="D MMMM YYYY"/></sequence>
+```
+
+<Terminal title="./run lease.tdc (4 rows)">
+{`5 February 2026 | 5 February 2027 | 6 January 2027
+31 January 2026 | 31 January 2027 | 1 January 2027
+13 February 2026 | 13 February 2027 | 14 January 2027
+20 January 2026 | 20 January 2027 | 21 December 2026`}
+</Terminal>
+
+A row whose source has no date — one that a `parent` filter left out, or one
+[`missing`](../guides/missing-data.mdx) blanked — gets no date either. There is
+nothing to measure from, and inventing one would put a confident-looking value
+in a cell the config said should be empty.
+
+### What `of` rules out
+
+`of` places the date relative to another column, so the attributes that place its
+**own** draw say nothing any more: `value`, `from`, `to`, `range`, `oldest`,
+`youngest`, `order` and `step`. Writing one beside `of` is refused (`TDC264`)
+rather than ignored — a config that asks for June dates and gets January ones is
+right about what it asked for and wrong about what it got.
+
+The column named by `of` must be declared **above** the offset (`TDC240`), the
+same rule [`running`](./running.mdx) and [`stat`](./stat.mdx) follow.
+
+An offset reads a sibling column as the row is built, which the streaming path
+cannot do yet, so a config using one is built [in memory](../guides/large-outputs.mdx).
+TDC routes it there on its own; you only notice if you force `mode="disk"`.
+
 ## Formatting the output
 
 `format` is a template of tokens. It changes only how a date is **written** — the
@@ -503,6 +639,12 @@ local="ru"     15 марта 2024 г.`}
 - `today`, `now`, `value="birth"` and a generator with **no** bounds read the clock, so
   the seed alone does not reproduce them — pin the clock with
   [`--now`](../reference/cli.mdx#--now--pin-the-clock).
+- `of` measures from another column and `plus` says how far. The column named must be
+  declared **above**, and the attributes that bound the generator's own draw (`from`, `to`,
+  `value`, `range`, `order`, `step`, `oldest`, `youngest`) are refused beside it.
+- An offset works from the date the source column generated, not from the text it printed,
+  so any `format` and any `local` are fine. Only a date TDC did not generate — one read from
+  a file — has to be in ISO form.
 - `format` applies **only** to dates. On template identifiers (SSN, IBAN, phone…) it is an error — shape those with [interpolation filters](../core-concepts/output-formatting.mdx) instead.
 
 ## See also

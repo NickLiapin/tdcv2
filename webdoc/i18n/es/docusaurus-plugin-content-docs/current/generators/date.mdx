@@ -35,6 +35,8 @@ formato.
 | `local`               | `ar`, `de`, `el`, `en`, `es`, `fr`, `it`, `pl`, `pt`, `ru`, `zh-cn` (también alias de tres letras: `eng`, `spa`, `fra`, …); se hereda de [`<env>`](../reference/tags.mdx) si se omite |
 | `oldest` / `youngest` | Ventana de edad en años para `value="birth"` (por omisión `80` y `10`)                 |
 | `precision`           | `day`, `second` o `millisecond`                                                        |
+| `of`                  | Medir desde otra columna de fechas en vez de sortear — vea «Un intervalo» más abajo    |
+| `plus`                | Cuánto desde ella: `7d`, `3..10d`, `1..3mo`, `-10..-3d`                                |
 
 Solo uno de `value`, `range` o el par `from`/`to` se usa para describir un rango — son
 tres escrituras de lo mismo. No dé ninguno y el rango va de `1970-01-01` al momento
@@ -404,6 +406,143 @@ Use `precision="second"` cuando quiera marcas de tiempo limpias y de aspecto hum
 lugar de ruido de milisegundos; use `precision="millisecond"` (el valor por omisión para
 fecha y hora) cuando necesite resolución por debajo del segundo.
 
+## Un intervalo: una fecha medida desde otra fecha
+
+Los registros reales están llenos de parejas: ingreso y alta, pedido y envío,
+emisión y caducidad, el principio y el final de un turno. La segunda fecha no es
+independiente de la primera — es la primera más una duración — y dos rangos
+separados no pueden decirlo. Ponen el alta *antes* del ingreso en buena parte de
+las filas.
+
+`of` nombra la columna desde la que medir y `plus` dice cuánto:
+
+```xml
+<sequence name="Admitted">
+  <gen type="date" from="2026-01-01" to="2026-03-01" format="YYYY-MM-DD"/>
+</sequence>
+<sequence name="Discharged">
+  <gen type="date" of="Admitted" plus="2..14d" format="YYYY-MM-DD"/>
+</sequence>
+```
+
+<Terminal title="./run stay.tdc (6 filas)">
+{`2026-02-06  2026-02-16
+2026-02-14  2026-02-23
+2026-01-11  2026-01-16
+2026-01-11  2026-01-24
+2026-02-27  2026-03-06
+2026-01-08  2026-01-14`}
+</Terminal>
+
+Cada alta es posterior a su propio ingreso, entre 2 y 14 días — y la *duración*
+de cada estancia se sortea por fila, que es justo lo que dos rangos
+independientes tiran a la basura.
+
+### `plus` — la distancia
+
+| Escrito como | Significa                                                       |
+| :----------- | :--------------------------------------------------------------- |
+| `7d`         | exactamente siete días, en cada fila                             |
+| `3..10d`     | de tres a diez días, sorteado por fila (ambos extremos incluidos) |
+| `1..3mo`     | de uno a tres meses, por el calendario                           |
+| `-10..-3d`   | de tres a diez días **antes** de la fuente                       |
+| `45`         | un número a secas significa días                                 |
+
+Las unidades son las que [`step`](#step--cuánto-avanza-cada-fila) ya usa:
+`s`, `m`, `h`, `d`, `w`, `mo`, `y` — y como allí, `m` es el minuto y `mo` el mes.
+
+Un solo valor es la misma distancia en cada fila:
+
+```xml
+<sequence name="Shipped">
+  <gen type="date" of="Ordered" plus="1d" format="YYYY-MM-DD"/>
+</sequence>
+```
+
+<Terminal title="./run ship.tdc (4 filas)">
+{`2026-05-23  2026-05-24
+2026-05-06  2026-05-07
+2026-05-13  2026-05-14
+2026-05-21  2026-05-22`}
+</Terminal>
+
+Escriba primero el límite menor, como en cualquier otro rango. Para contar hacia
+**atrás**, ponga ambos límites en negativo: `plus="-10..-3d"` son de tres a diez
+días antes. `plus="10..3d"` es una errata y se rechaza (`TDC264`) en vez de
+darse la vuelta en silencio.
+
+Meses y años avanzan por el calendario y no por un número fijo de días, así que
+`2026-01-31` más un mes es `2026-02-28` — el mismo ajuste que hace
+[`step`](#un-paso-de-calendario-conserva-el-día-del-mes).
+
+### El desplazamiento lee el valor, no el texto impreso
+
+Una columna de fechas imprime una *representación* de su fecha. `03/02/2026` es
+el 3 de febrero con `local="en"` y el 2 de marzo con `local="ru"`, y
+`format="MMMM D"` tira el año por completo. Por eso el desplazamiento no lee la
+celda en absoluto: la columna desde la que mide guarda la fecha que generó, y la
+aritmética corre sobre ella. Vale cualquier `format` y cualquier locale.
+
+```xml
+<env count="4" seed="visit" local="ru">
+  <sequence name="Visit"><gen type="date" from="2026-03-01" to="2026-03-31"/></sequence>
+  <sequence name="Followup"><gen type="date" of="Visit" plus="2w"/></sequence>
+</env>
+```
+
+<Terminal title="./run visit.tdc (4 filas)">
+{`20.03.2026  03.04.2026
+22.03.2026  05.04.2026
+27.03.2026  10.04.2026
+09.03.2026  23.03.2026`}
+</Terminal>
+
+El único caso en que no hay nada que leer es una fecha que TDC no generó — una
+columna cargada con [`file`](./file.mdx), por ejemplo. Allí solo existe el texto,
+así que debe estar en forma ISO (`YYYY-MM-DD`), que significa lo mismo en
+cualquier locale. Lo demás se rechaza en vez de adivinarse.
+
+### Encadenar, y celdas vacías
+
+Un desplazamiento es en sí mismo una fecha que produjo este motor, así que una
+tercera columna puede medir desde él: firmado, caduca un año después, avisar un
+mes antes de eso.
+
+```xml
+<sequence name="Signed"><gen type="date" from="2026-01-15" to="2026-02-15" format="D MMMM YYYY"/></sequence>
+<sequence name="Expires"><gen type="date" of="Signed" plus="1y" format="D MMMM YYYY"/></sequence>
+<sequence name="Remind"><gen type="date" of="Expires" plus="-30d" format="D MMMM YYYY"/></sequence>
+```
+
+<Terminal title="./run lease.tdc (4 filas)">
+{`5 February 2026 | 5 February 2027 | 6 January 2027
+31 January 2026 | 31 January 2027 | 1 January 2027
+13 February 2026 | 13 February 2027 | 14 January 2027
+20 January 2026 | 20 January 2027 | 21 December 2026`}
+</Terminal>
+
+Una fila cuya fuente no tiene fecha — una que un filtro `parent` dejó fuera, o
+una que [`missing`](../guides/missing-data.mdx) vació — tampoco recibe fecha. No
+hay desde dónde medir, e inventarla pondría un valor de aspecto convincente en
+una celda que la configuración dijo que debía estar vacía.
+
+### Qué descarta `of`
+
+`of` sitúa la fecha respecto a otra columna, así que los atributos que acotan su
+sorteo **propio** ya no dicen nada: `value`, `from`, `to`, `range`, `oldest`,
+`youngest`, `order` y `step`. Escribir alguno junto a `of` se rechaza (`TDC264`)
+en vez de ignorarse — una configuración que pide fechas de junio y obtiene fechas
+de enero tiene razón sobre lo que pidió y no sobre lo que obtuvo.
+
+La columna nombrada en `of` debe estar declarada **encima** del desplazamiento
+(`TDC240`), la misma regla que siguen [`running`](./running.mdx) y
+[`stat`](./stat.mdx).
+
+Un desplazamiento lee una columna hermana mientras se construye la fila, algo que
+la vía de streaming aún no sabe hacer, así que una configuración que lo use se
+construye [en memoria](../guides/large-outputs.mdx). TDC la encamina allí por su
+cuenta; solo se nota si se fuerza `mode="disk"`.
+
 ## Formato de la salida
 
 `format` es una plantilla de marcadores. Cambia únicamente cómo se **escribe** una
@@ -513,6 +652,12 @@ local="ru"     15 марта 2024 г.`}
 - `today`, `now`, `value="birth"` y un generador **sin** límites leen el reloj, así que
   la semilla sola no los reproduce — fije el reloj con
   [`--now`](../reference/cli.mdx#--now--fijar-el-reloj).
+- `of` mide desde otra columna y `plus` dice cuánto. La columna nombrada debe estar declarada
+  **encima**, y los atributos que acotan el sorteo propio del generador (`from`, `to`, `value`,
+  `range`, `order`, `step`, `oldest`, `youngest`) se rechazan a su lado.
+- Un desplazamiento trabaja sobre la fecha que generó la columna fuente, no sobre el texto que
+  imprimió, así que vale cualquier `format` y cualquier `local`. Solo una fecha que TDC no
+  generó — leída de un fichero — tiene que estar en forma ISO.
 - `format` aplica **solo** a fechas. Sobre identificadores de plantilla (SSN, IBAN, teléfono…) es un error — dele forma a esos con [filtros de interpolación](../core-concepts/output-formatting.mdx).
 
 ## Vea también

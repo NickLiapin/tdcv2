@@ -30,7 +30,7 @@
 
 import { formatDateTime, parseDateTimeStrict } from '../date/index.js';
 import type { PlainDateTime } from '../date/index.js';
-import { applyOffset, fromEpochMillis, parseOffset } from '../date/calendar.js';
+import { applyOffset, fromEpochMillis, parseOffset, toEpochMillis } from '../date/calendar.js';
 import type { OffsetSpec } from '../date/calendar.js';
 import { sequenceInstantAt, sequenceValueAt } from './types.js';
 import type { Sequence, SequenceSpec } from './types.js';
@@ -67,6 +67,7 @@ export function registerDateOffset(
   count: number,
   prng: () => number,
   locale: string,
+  instantColumns?: ReadonlySet<string>,
 ): void {
   const source = registry[offsetOf(spec)];
   if (!source) return; // unknown column — the validator reports it
@@ -78,6 +79,15 @@ export function registerDateOffset(
 
   const format = (attrs['format'] ?? '').trim() || 'L';
   const values = new Array<string | undefined>(count);
+  // An offset is itself a date this engine produced, so it keeps its own value
+  // when a THIRD column measures from it — signed, expires a year later, remind
+  // a month before that. Without this the chain would break at the second link,
+  // and break by reading the text of a cell whose format the config chose for a
+  // human to read.
+  const instants: (number | undefined)[] | undefined = instantColumns?.has(spec.name)
+    ? new Array<number | undefined>(count).fill(undefined)
+    : undefined;
+
   for (let i = 0; i < count; i++) {
     const from = sequenceValueAt(source, i);
     if (from === undefined || from.trim() === '') {
@@ -90,9 +100,13 @@ export function registerDateOffset(
       continue;
     }
     const steps = drawSteps(offset, prng);
-    values[i] = formatDateTime(applyOffset(start, offset, steps), format, locale);
+    const landed = applyOffset(start, offset, steps);
+    if (instants) instants[i] = toEpochMillis(landed);
+    values[i] = formatDateTime(landed, format, locale);
   }
-  registry[spec.name] = { name: spec.name, values };
+  registry[spec.name] = instants
+    ? { name: spec.name, values, instants }
+    : { name: spec.name, values };
 }
 
 /**

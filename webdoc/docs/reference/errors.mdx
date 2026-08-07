@@ -300,6 +300,7 @@ have them: they compile a config into a model that has no place to put such a `<
 | `TDC261` | `at()` is given an index that is not one | An index is a whole number, zero or more. Past the end is empty text on purpose — rows made by `repeat="1..4"` have different lengths — but `-1`, `1.5` and `"one"` are mistakes, and each of them used to produce that same blank column |
 | `TDC262` | `<gen type="stat">` does not say what (`of=`) or which statistic (`op=`), or names one that does not exist | A statistic reads another column and draws nothing of its own, so both are required. `op=` is one of `sum`, `mean`, `median`, `min`, `max`, `count`, `stddev`; `decimals=` is 0 to 10 |
 | `TDC263` | `${{Name}}` in an attribute that does not expand it | Interpolation reaches the text inside `<data>` and `<gen type="template" value=>`, and nowhere else — anywhere else the braces are literal characters. To make one column depend on another, read it in an `if=` condition, or build the value in a `<compute>` sequence |
+| `TDC264` | `<gen type="date" of="…">` is written wrong | An offset needs `plus=` (`7d`, `3..10d`, `1..3mo`, `-10..-3d`), written smallest bound first, in a unit `step=` also uses. The attributes that bound the generator's OWN draw — `value`, `from`, `to`, `range`, `oldest`, `youngest`, `order`, `step` — say nothing once `of=` has placed the date relative to another column, so they are refused rather than ignored |
 
 ## See also
 
