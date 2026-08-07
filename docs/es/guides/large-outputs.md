@@ -440,6 +440,12 @@ una corrida entre núcleos, así que todo lo que [se rutea fuera de
 de fila ponderado — corre en un solo hilo. Auto se queda callado al respecto, pero si pidió
 `--jobs` explícitamente TDC le dice por qué. La salida es correcta de cualquier forma.
 
+**Tampoco entra por debajo de 100 000 filas.** Por debajo de esa cifra levantar los hilos y
+unir las piezas cuesta más de lo que ahorra el reparto, así que auto se queda en uno. Vale
+la pena saber el número por una razón: es lo único que cambia entre una corrida de 99 999
+filas y una de 100 000, así que si esas dos llegan a diferir en algo más que la longitud,
+el reparto es donde hay que mirar.
+
 ## El motor se elige por su configuración, no por su hardware
 
 Cuál de los tres motores corre lo decide TDC **por el contenido de la configuración**,

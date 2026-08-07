@@ -12,6 +12,7 @@
 import { closeSync, openSync, writeSync } from 'node:fs';
 import { parentPort, workerData } from 'node:worker_threads';
 
+import { bundledPacksDir, scanPacks } from '../data-pack/load.js';
 import { parseStrict } from '../parser/index.js';
 import { renderStream } from '../processor/render.js';
 
@@ -21,7 +22,10 @@ export interface RenderWorkerInput {
   readonly source: string;
   readonly seed: string;
   readonly count: number;
-  readonly locale: string;
+  /** An override the caller asked for; `undefined` leaves the config's own `local=` alone. */
+  readonly locale?: string | undefined;
+  /** The project config's locale — a fallback, never an override. */
+  readonly defaultLocale?: string | undefined;
   readonly now: number;
   readonly dataPaths?: readonly string[] | undefined;
   readonly baseDir?: string | undefined;
@@ -35,10 +39,20 @@ function run(input: RenderWorkerInput): void {
   const fd = openSync(input.tmpPath, 'w');
   try {
     let buf = '';
+    // A PackRegistry cannot cross the worker boundary, so the worker rebuilds
+    // it from the SAME roots the main thread scanned. Leaving this out let
+    // `renderStream` fall back to the bundled packs alone, and every pack the
+    // user had installed vanished — silently, and only above the row count at
+    // which parallelism turns itself on.
+    const roots = [bundledPacksDir(), ...(input.dataPaths ?? [])].filter(
+      (p): p is string => p !== undefined,
+    );
     for (const chunk of renderStream(document, {
       seed: input.seed,
       count: input.count,
-      locale: input.locale,
+      ...(input.locale !== undefined ? { locale: input.locale } : {}),
+      ...(input.defaultLocale !== undefined ? { defaultLocale: input.defaultLocale } : {}),
+      packs: scanPacks(roots).registry,
       now: input.now,
       stream: true,
       dataPaths: input.dataPaths,

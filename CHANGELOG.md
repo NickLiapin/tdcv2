@@ -17,6 +17,18 @@ page — is tracked in that implementation's own changelog:
 
 ### Fixed
 
+<!-- covers: --jobs -->
+
+- A parallel run silently disagreed with a single-threaded one. The coordinator built its
+  workers from the COMMAND LINE rather than from the resolved config, so three things were
+  dropped on the way in: the config's own `local=` (the locale flag's default `en` won
+  instead), every installed data pack (the worker fell back to the bundled set), and the
+  config file's directory (a relative `src=` and the project config's `dataPaths` stopped
+  resolving). No diagnostic, and no flag needed to trigger it — parallelism turns itself on
+  above 100,000 rows, so the same file came out in a different language one row past the
+  threshold. Both the text and the Parquet parallel paths carried the defect; the four ports
+  build their workers from the config and never had it.
+
 <!-- covers: abs, round, floor, ceil, trunc, min, max -->
 
 - `abs`, `round`, `floor`, `ceil`, `trunc`, `min` and `max` in `if=` and `filter=` kept

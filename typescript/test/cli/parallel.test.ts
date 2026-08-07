@@ -8,7 +8,7 @@
  */
 
 import { execFileSync } from 'node:child_process';
-import { mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
+import { mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -216,6 +216,47 @@ describe('--jobs end-to-end (real worker threads)', () => {
     // test in this file carries this budget; this one was left on the 10s
     // default and passed alone while timing out inside the full suite, where
     // the machine is busy — a red run that says nothing about the code.
+  }, 120_000);
+
+  /**
+   * The config's OWN settings have to reach the worker, and for a long time
+   * they did not. The coordinator built worker parameters from the command
+   * line, whose locale defaults to 'en' — so `local="ru"` came back English —
+   * and a worker had no pack registry, so it fell back to the bundled set and
+   * every installed pack vanished. Neither showed up in a diagnostic, and
+   * neither needed a flag: parallelism turns itself on by row count.
+   *
+   * The e2e case above could not catch it. Its config names no locale, uses no
+   * pack and reads no file — the three things that were being dropped.
+   */
+  it("a worker gets the config's locale, its packs and its relative sources", () => {
+    const packs = join(dir, 'packs', 'common', 'custom');
+    mkdirSync(packs, { recursive: true });
+    writeFileSync(join(packs, 'codes.txt'), 'ALPHA\nBRAVO\nCHARLIE\n');
+    writeFileSync(join(dir, 'rows.csv'), 'x\ny\nz\n');
+    const cfg = join(dir, 'carry.tdc');
+    writeFileSync(
+      cfg,
+      `<tdc><env count="600" seed="carry" local="ru" mode="stream">` +
+        `<sequence name="N"><gen type="template" value="person.lastName"/></sequence>` +
+        `<sequence name="C"><gen type="template" value="custom.codes" local="common"/></sequence>` +
+        `<sequence name="R"><gen type="file" src="rows.csv"/></sequence>` +
+        `</env><block><line><data>\${{N}},\${{C}},\${{R}}</data></line></block></tdc>`,
+    );
+    const write = (jobs: number): string => {
+      const out = join(dir, `carry-${String(jobs)}.csv`);
+      runCli([distMain, cfg, '--data-path', join(dir, 'packs'), '--jobs', String(jobs), '-o', out]);
+      return readFileSync(out, 'utf8');
+    };
+    const single = write(1);
+    expect(write(4)).toBe(single);
+
+    // Assert on the CONTENT too, not only on the agreement: two runs that both
+    // lost the locale would agree with each other perfectly.
+    const rows = single.split('\n').filter(Boolean);
+    expect(rows).toHaveLength(600);
+    expect(rows.every((r) => /^[\u0400-\u04FF]/.test(r))).toBe(true);
+    expect(rows.every((r) => /,(ALPHA|BRAVO|CHARLIE),[xyz]$/.test(r))).toBe(true);
   }, 120_000);
 
   /**

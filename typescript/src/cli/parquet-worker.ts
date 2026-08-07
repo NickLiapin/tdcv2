@@ -16,13 +16,17 @@ import { parentPort, workerData } from 'node:worker_threads';
 
 import { renderParquetBlocks, ROW_GROUP_ROWS } from '../output/render-parquet.js';
 import type { ChunkMeta } from '../output/parquet/writer.js';
+import { bundledPacksDir, scanPacks } from '../data-pack/load.js';
 import { parseStrict } from '../parser/index.js';
 
 export interface ParquetWorkerInput {
   readonly source: string;
   readonly seed: string;
   readonly count: number;
-  readonly locale: string;
+  /** An override the caller asked for; `undefined` leaves the config's own `local=` alone. */
+  readonly locale?: string | undefined;
+  /** The project config's locale — a fallback, never an override. */
+  readonly defaultLocale?: string | undefined;
   readonly now: number;
   readonly dataPaths?: readonly string[] | undefined;
   readonly baseDir?: string | undefined;
@@ -57,7 +61,16 @@ function run(input: ParquetWorkerInput): ParquetWorkerResult {
       {
         seed: input.seed,
         count: input.count,
-        locale: input.locale,
+        ...(input.locale !== undefined ? { locale: input.locale } : {}),
+        ...(input.defaultLocale !== undefined ? { defaultLocale: input.defaultLocale } : {}),
+        // Rebuilt here for the same reason as in the text worker: a
+        // PackRegistry cannot cross the boundary, and without this the
+        // fallback is the bundled set alone.
+        packs: scanPacks(
+          [bundledPacksDir(), ...(input.dataPaths ?? [])].filter(
+            (p): p is string => p !== undefined,
+          ),
+        ).registry,
         now: input.now,
         stream: true,
         dataPaths: input.dataPaths,

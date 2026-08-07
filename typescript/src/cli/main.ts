@@ -648,13 +648,13 @@ function runFormat(argv: readonly string[]): number {
  * single-threaded run.
  */
 async function renderParallel(tdc: TDC, args: CliArgs, jobs: number): Promise<void> {
+  // From the TDC instance, not from `args`: the instance has already folded in
+  // the project config, so its locale, its data paths and its base directory
+  // are the ones the single-threaded run would have used. Reading `args` here
+  // instead is what made a parallel run silently differ from a serial one.
   const params = {
-    source: tdc.source,
-    seed: tdc.seedInfo().seed,
-    count: tdc.effectiveCount(),
-    locale: args.locale,
+    ...tdc.workerOptions(),
     now: args.now ?? Date.now(),
-    dataPaths: args.dataPaths.length > 0 ? args.dataPaths : undefined,
     jobs,
   };
   if (args.output) {
@@ -676,26 +676,19 @@ async function renderParallel(tdc: TDC, args: CliArgs, jobs: number): Promise<vo
  * where each group landed.
  */
 async function renderParquetParallel(
-  tdc: { source: string; seedInfo(): { seed: string }; effectiveCount(): number },
-  args: {
-    output?: string | undefined;
-    locale?: string | undefined;
-    now?: number | undefined;
-    dataPaths: readonly string[];
-  },
+  tdc: TDC,
+  args: { output?: string | undefined; now?: number | undefined },
   jobs: number,
 ): Promise<void> {
   const now = args.now ?? Date.now();
-  const seed = tdc.seedInfo().seed;
+  // From the instance, like the text path: the command line does not know what
+  // the project config added.
+  const worker = tdc.workerOptions();
   const params = {
-    source: tdc.source,
-    seed,
-    count: tdc.effectiveCount(),
-    locale: args.locale,
+    ...worker,
     now,
-    dataPaths: args.dataPaths.length > 0 ? args.dataPaths : undefined,
     // Never more workers than there are groups to hand out.
-    jobs: parquetJobLimit(tdc.source, jobs, now, seed),
+    jobs: parquetJobLimit(worker.source, jobs, now, worker.seed),
   };
   const fd = openSync(args.output ?? '', 'w');
   try {

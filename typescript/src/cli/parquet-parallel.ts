@@ -42,7 +42,10 @@ export interface ParquetParallelParams {
   readonly source: string;
   readonly seed: string;
   readonly count: number;
+  /** An override the caller asked for — never a default, or it beats the config's `local=`. */
   readonly locale: string | undefined;
+  /** The project config's locale: a fallback for a config that names none. */
+  readonly defaultLocale?: string | undefined;
   readonly now: number;
   readonly dataPaths?: readonly string[] | undefined;
   readonly baseDir?: string | undefined;
@@ -107,7 +110,8 @@ export async function runParquetParallel(params: ParquetParallelParams): Promise
           source: params.source,
           seed: params.seed,
           count: params.count,
-          locale: params.locale ?? 'en',
+          locale: params.locale,
+          defaultLocale: params.defaultLocale,
           now: params.now,
           dataPaths: params.dataPaths,
           baseDir: params.baseDir,

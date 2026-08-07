@@ -208,6 +208,41 @@ export class TDC {
   }
 
   /**
+   * What a worker thread needs to reproduce this run's rows.
+   *
+   * NOT the command line. `locale` is present only when the caller actually
+   * asked for one, so a config's own `local=` survives; `dataPaths` is the
+   * POST-cascade list, so a folder from `tdcv2.config.json` — and every pack
+   * installed into it — reaches the worker; `baseDir` is the config file's own
+   * directory, so a relative `src=` resolves where it did single-threaded.
+   *
+   * Each of those was missing from the parallel path, and the run came out in
+   * the wrong language, with the bundled packs, unable to find its own files.
+   * Silently, and without a flag: parallelism turns itself on by row count.
+   *
+   * @internal Used by the CLI's parallel path; not part of the published API.
+   */
+  public workerOptions(): {
+    readonly source: string;
+    readonly seed: string;
+    readonly count: number;
+    readonly locale: string | undefined;
+    readonly defaultLocale: string | undefined;
+    readonly dataPaths: readonly string[] | undefined;
+    readonly baseDir: string;
+  } {
+    return {
+      source: this.source,
+      seed: this.seedInfo().seed,
+      count: this.effectiveCount(),
+      locale: this.options.locale,
+      defaultLocale: this.options.defaultLocale,
+      dataPaths: this.options.dataPaths,
+      baseDir: this.baseDir,
+    };
+  }
+
+  /**
    * Whether this config contains a `type="http"` generator, which makes a
    * network call and so can only be rendered on the async path
    * ({@link toStringAsync}). The CLI checks this to pick the right path.

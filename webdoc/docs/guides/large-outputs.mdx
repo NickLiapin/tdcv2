@@ -406,6 +406,11 @@ across cores, so anything [routed away from it](#which-engine-runs-your-config) 
 about it, but if you asked for `--jobs` explicitly, TDC tells you why. The output is
 correct either way.
 
+**Nor does it below 100,000 rows.** Under that, spawning the threads and joining the
+pieces costs more than the split saves, so auto stays on one. The number is worth knowing
+for one reason: it is the only thing that changes between a run of 99,999 rows and one of
+100,000, so if those two ever differ in anything but length, the split is where to look.
+
 ## The engine is chosen from your config, not your hardware
 
 Which of the three engines runs is decided by TDC **from the config's contents**, never

@@ -32,7 +32,15 @@ export interface ParallelParams {
   readonly source: string;
   readonly seed: string;
   readonly count: number;
+  /**
+   * An OVERRIDE the caller actually asked for, never a default. `undefined`
+   * means "whatever the config says", and it has to survive as `undefined` all
+   * the way into the worker — filling it in with 'en' here is what made a
+   * `local="ru"` config produce English data above the auto-parallel threshold.
+   */
   readonly locale: string | undefined;
+  /** The project config's locale: a fallback for a config that names none. */
+  readonly defaultLocale?: string | undefined;
   readonly now: number;
   readonly dataPaths?: readonly string[] | undefined;
   readonly baseDir?: string | undefined;
@@ -113,7 +121,8 @@ export async function runParallel(params: ParallelParams): Promise<void> {
           source: params.source,
           seed: params.seed,
           count: params.count,
-          locale: params.locale ?? 'en',
+          locale: params.locale,
+          defaultLocale: params.defaultLocale,
           now: params.now,
           dataPaths: params.dataPaths,
           baseDir: params.baseDir,
