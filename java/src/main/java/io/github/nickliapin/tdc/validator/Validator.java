@@ -118,7 +118,10 @@ public final class Validator {
           Map.entry("ink_threshold", java.util.Set.of("pattern")),
           // The synthetic series.
           Map.entry("base", java.util.Set.of("timeseries", "running")),
-          Map.entry("of", java.util.Set.of("running", "stat")),
+          // On a date, `of=` measures from a sibling instead of drawing, and `plus=` is the
+          // distance.
+          Map.entry("of", java.util.Set.of("running", "stat", "date")),
+          Map.entry("plus", java.util.Set.of("date")),
           Map.entry("op", java.util.Set.of("stat")),
           Map.entry("reset", java.util.Set.of("running")),
           Map.entry("trend", java.util.Set.of("timeseries")),
@@ -309,7 +312,7 @@ public final class Validator {
           "type", "value", "name", "if", "comment", "case", "mask", "order", "cycle", "repeat",
           "separator", "missing", "missing_as", "anomaly", "anomaly_factor", "anomaly_flag",
           "local", "weight", "percent", "first_zero", "include", "exclude",
-          "accumulate", "of", "reset", "op", "length", "decimals", "distribution", "regex_max_length", "alphabet",
+          "accumulate", "of", "plus", "reset", "op", "length", "decimals", "distribution", "regex_max_length", "alphabet",
           "format", "from",
           "to", "oldest", "youngest", "precision", "range", "step", "weekdays", "peak_at", "src",
           "column",
@@ -2828,6 +2831,69 @@ public final class Validator {
   }
 
   /** {@code step=} on a walked date axis: what it may say, and that anything reads it. */
+  /**
+   * Everything a date offset needs said, and nothing that contradicts it.
+   *
+   * <p>{@code of=} is what turns a date generator from a DRAW into an OFFSET, and the two are
+   * configured by different attributes entirely. That makes the mistakes here silent ones by
+   * nature: a {@code from=} written beside an {@code of=} looks like it bounds the result and does
+   * nothing at all, because the result is wherever the source plus the offset lands.
+   *
+   * <p>The declaration-order complaint is TDC240, shared with {@code running} and {@code stat} —
+   * the same rule with the same fix.
+   */
+  private void checkDateOffset(
+      TDCParser.SelfClosingElementContext gen, Map<String, String> attrs) {
+    String of = trimmed(attrs.get("of"));
+    String plus = trimmed(attrs.get("plus"));
+    if (plus.isEmpty()) {
+      error("TDC264", "<gen type=\"date\" of=\"" + of + "\"> does not say how far from it",
+          "Add plus=\"…\" — " + DateStep.OFFSET_SYNTAX + ". A range is drawn per row, so "
+              + "plus=\"3..10d\" is the length of the stay; a single value is the same distance on "
+              + "every row.",
+          line(gen), column(gen));
+    } else {
+      DateStep.OffsetResult parsed = DateStep.parseOffset(plus);
+      if (!parsed.ok()) {
+        boolean order = parsed.why() == DateStep.OffsetReason.ORDER;
+        error("TDC264",
+            order
+                ? "plus=\"" + plus + "\" counts down, not up — the low bound is above the high one"
+                : "plus=\"" + plus + "\" is not an offset",
+            order
+                ? "Write the smaller number first. To measure BACKWARDS, make both negative: "
+                    + "plus=\"-10..-3d\"."
+                : "One of: " + DateStep.OFFSET_SYNTAX + ". A bare number means days.",
+            at(gen, "plus")[0], at(gen, "plus")[1]);
+      }
+    }
+
+    // Attributes that place a date generator's OWN draw, and so say nothing once `of=` has placed
+    // it relative to another column. Listed by name because ignoring them is exactly the failure
+    // this exists to prevent.
+    for (String name :
+        new String[] {"value", "from", "to", "range", "oldest", "youngest", "order", "step"}) {
+      if (attrs.get(name) == null) {
+        continue;
+      }
+      error("TDC264",
+          name + "= is not read when the date is measured from of=\"" + of + "\"",
+          "An offset lands wherever " + of + " plus the offset lands — " + name + "= would have "
+              + "to contradict that to mean anything. Drop it, or drop of= and bound the draw "
+              + "itself.",
+          at(gen, name)[0], at(gen, name)[1]);
+    }
+
+    if (!of.isEmpty() && !declaredOrder.contains(of)) {
+      error("TDC240", "of=\"" + of + "\" is not a sequence declared above this one",
+          declaredOrder.isEmpty()
+              ? "A date is measured from a column that already exists, so the column it reads has "
+                  + "to come first."
+              : "Declared above: " + String.join(", ", declaredOrder) + ".",
+          at(gen, "of")[0], at(gen, "of")[1]);
+    }
+  }
+
   private void checkDateStep(
       TDCParser.SelfClosingElementContext gen, Map<String, String> attrs) {
     if (attrs.get("step") == null) {
@@ -3013,6 +3079,14 @@ public final class Validator {
   private void checkDate(
       TDCParser.SelfClosingElementContext gen, Map<String, String> attrs, String type) {
     if (!"date".equals(type)) {
+      return;
+    }
+    // `of=` makes this an OFFSET rather than a draw: a different set of attributes configures it,
+    // and a different set of mistakes is possible. Its own checks REPLACE the ones below rather
+    // than joining them — everything here is about how a draw is bounded, so it would be a second
+    // complaint about the same attribute, naming a rule that no longer applies to it.
+    if (!trimmed(attrs.get("of")).isEmpty()) {
+      checkDateOffset(gen, attrs);
       return;
     }
     boolean from = attrs.get("from") != null;

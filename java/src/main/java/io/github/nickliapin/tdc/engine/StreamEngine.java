@@ -7,6 +7,7 @@ import io.github.nickliapin.tdc.expr.Evaluate;
 import io.github.nickliapin.tdc.format.Interpolate;
 import io.github.nickliapin.tdc.format.Mask;
 import io.github.nickliapin.tdc.format.Transforms;
+import io.github.nickliapin.tdc.generators.DateOffset;
 import io.github.nickliapin.tdc.generators.AdvancedRegexGen;
 import io.github.nickliapin.tdc.generators.FileGen;
 import io.github.nickliapin.tdc.generators.Imperfections;
@@ -298,6 +299,18 @@ public final class StreamEngine {
             "a statistic (\"" + spec.name() + "\") is computed over every row of the run, "
                 + "including the ones after this one, so it cannot be computed one row at a time; "
                 + "the in-memory engine handles it (run without a forced streaming engine)");
+      }
+
+      // A date measured from another date reads a SIBLING column as the row is built, and the
+      // streaming path has no way to do that yet — the same reason a dynamic template defers.
+      // Refused by name, and the router hands the config to the in-memory engine.
+      if (DateOffset.isOffset(spec.gen())) {
+        throw new Unsupported(
+            "a date measured from another column (\""
+                + spec.name()
+                + "\") reads that column as the row is built, and the streaming path has no way "
+                + "to do that yet; the in-memory engine handles it (run without a forced "
+                + "streaming engine)");
       }
 
       if (spec.gen() != null && "pool".equals(spec.gen().type())) {

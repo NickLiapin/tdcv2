@@ -266,4 +266,103 @@ public final class DateStep {
     }
     return offsets;
   }
+
+  /** A drawn offset: {@code lo..hi} steps of one unit. {@code lo == hi} is a fixed offset. */
+  public record OffsetSpec(long lo, long hi, Spec unit) {}
+
+  /** Why a {@code plus=} was refused. */
+  public enum OffsetReason {
+    /** A spelling this notation does not have. */
+    SYNTAX,
+    /** The low bound is above the high one. */
+    ORDER
+  }
+
+  /** Either the offset, or why it was refused. {@code why} is null on success. */
+  public record OffsetResult(OffsetSpec offset, OffsetReason why) {
+    public boolean ok() {
+      return offset != null;
+    }
+  }
+
+  /** What a {@code plus=} may say, for a diagnostic to quote. */
+  public static final String OFFSET_SYNTAX =
+      "7d, 3..10d, 1..3mo, -5..-1d — units s, m, h, d, w, mo, y";
+
+  /**
+   * {@code plus="3..10d"}, {@code plus="7d"}, {@code plus="-5..-1d"}, {@code plus="1..3mo"}.
+   *
+   * <p>A bare number means DAYS, matching {@code step=}. The low bound may not exceed the high
+   * one: {@code 10..3d} is a typo, and silently swapping it would hide the typo rather than
+   * report it.
+   *
+   * <p>The unit sits at the end rather than on both sides because {@code 3d..10d} invites two
+   * DIFFERENT units, and "three days to two months" has no whole number of steps to draw.
+   */
+  public static OffsetResult parseOffset(String raw) {
+    String value = raw == null ? "" : raw.trim().toLowerCase(java.util.Locale.ROOT);
+    if (value.isEmpty()) {
+      return new OffsetResult(null, OffsetReason.SYNTAX);
+    }
+
+    // The unit, if any, is the trailing run of letters; the rest is `lo` or `lo..hi`.
+    int split = value.length();
+    for (int i = 0; i < value.length(); i++) {
+      char c = value.charAt(i);
+      if (c >= 'a' && c <= 'z') {
+        split = i;
+        break;
+      }
+    }
+
+    String numbers = value.substring(0, split);
+    String unitName = split == value.length() ? "d" : value.substring(split);
+
+    int dots = numbers.indexOf("..");
+    String loText = dots < 0 ? numbers : numbers.substring(0, dots);
+    String hiText = dots < 0 ? numbers : numbers.substring(dots + 2);
+    Long lo = bound(loText);
+    Long hi = bound(hiText);
+    if (lo == null || hi == null) {
+      return new OffsetResult(null, OffsetReason.SYNTAX);
+    }
+    if (lo > hi) {
+      return new OffsetResult(null, OffsetReason.ORDER);
+    }
+
+    // Both lookups answer -1 for a unit this notation does not have, which is why the guard reads
+    // that way rather than testing for zero: a zero-length step is not the failure.
+    long fixed = fixedUnitMs(unitName);
+    long calendar = calendarUnitMonths(unitName);
+    if (fixed < 0 && calendar < 0) {
+      return new OffsetResult(null, OffsetReason.SYNTAX);
+    }
+
+    Spec unit = fixed >= 0 ? new Spec(fixed, 0) : new Spec(0, calendar);
+    return new OffsetResult(new OffsetSpec(lo, hi, unit), null);
+  }
+
+  /** One bound of an offset: an optional minus and at least one digit, nothing else. */
+  private static Long bound(String text) {
+    String digits = text.startsWith("-") ? text.substring(1) : text;
+    if (digits.isEmpty()) {
+      return null;
+    }
+    for (int i = 0; i < digits.length(); i++) {
+      char c = digits.charAt(i);
+      if (c < '0' || c > '9') {
+        return null;
+      }
+    }
+    try {
+      return Long.valueOf(text);
+    } catch (NumberFormatException e) {
+      return null;
+    }
+  }
+
+  /** The source date moved by {@code n} steps of the offset's unit. */
+  public static PlainDateTime applyOffset(PlainDateTime start, OffsetSpec offset, long n) {
+    return addStep(start, offset.unit(), n);
+  }
 }

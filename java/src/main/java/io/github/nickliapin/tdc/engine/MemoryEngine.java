@@ -8,6 +8,7 @@ import io.github.nickliapin.tdc.expr.Evaluate;
 import io.github.nickliapin.tdc.format.Interpolate;
 import io.github.nickliapin.tdc.format.Mask;
 import io.github.nickliapin.tdc.format.Transforms;
+import io.github.nickliapin.tdc.generators.DateOffset;
 import io.github.nickliapin.tdc.generators.AdvancedRegexGen;
 import io.github.nickliapin.tdc.generators.Counter;
 import io.github.nickliapin.tdc.generators.FileGen;
@@ -416,6 +417,21 @@ public final class MemoryEngine {
       Path baseDir,
       Map<String, Pool.Table> prebuilt) {
     Map<String, String[]> columns = new LinkedHashMap<>();
+    // The REAL value behind a date column's text, for the columns some offset measures from.
+    //
+    // A date cell holds a PRESENTATION: `02/03/2026` in an en locale, `03.02.2026` in a ru one,
+    // `March 2` under format="MMMM D". Reading a date back out of that is guesswork at best and
+    // impossible at worst — the last form has thrown the year away. So the column that produced
+    // it keeps what it actually generated, and an offset measures from THAT. Only the columns
+    // named by some `of=` are kept, so a config with no offset in it pays nothing.
+    Map<String, Long[]> instants = new LinkedHashMap<>();
+    Set<String> wantsInstant = new java.util.LinkedHashSet<>();
+    for (Config.SequenceSpec candidate : config.sequences()) {
+      if (DateOffset.isOffset(candidate.gen())) {
+        wantsInstant.add(DateOffset.sourceOf(candidate.gen().attrs()));
+      }
+    }
+
     // Row links are shared across the whole render: two sequences naming one key must land on
     // the same rows, whichever sequence reaches it first.
     Map<String, RowLinkPlan> rowLinks = new LinkedHashMap<>();
@@ -473,6 +489,29 @@ public final class MemoryEngine {
       // it reads a column that already exists, so `of=` has to name a sequence above it.
       if (spec.gen() != null && "stat".equals(spec.gen().type())) {
         statColumn(spec, columns, count);
+        continue;
+      }
+      // A date measured from another date, for the same reason and by the same rule: it reads a
+      // column that already exists.
+      if (DateOffset.isOffset(spec.gen())) {
+        String of = DateOffset.sourceOf(spec.gen().attrs());
+        String[] offsetSource = columns.get(of);
+        if (offsetSource != null) {
+          DateOffset.Column built =
+              DateOffset.build(
+                  spec.name(),
+                  spec.gen().attrs(),
+                  offsetSource,
+                  instants.get(of),
+                  count,
+                  prng,
+                  config.locale(),
+                  wantsInstant.contains(spec.name()));
+          columns.put(spec.name(), built.values());
+          if (built.instants() != null) {
+            instants.put(spec.name(), built.instants());
+          }
+        }
         continue;
       }
       if (spec.isComposed()) {
@@ -774,10 +813,26 @@ public final class MemoryEngine {
                   repeatFlags);
         }
       } else {
+        // A column some `<gen type="date" of="…">` measures from keeps the instant it generated
+        // beside the text it renders. Nothing else asks, so nothing else allocates.
+        List<Long> collected =
+            "date".equals(spec.gen().type()) && wantsInstant.contains(spec.name())
+                ? new ArrayList<>(applicable)
+                : null;
         produced =
             columnValues(
                 spec.gen(), applicable, prng, packs, config, nowMillis, baseDir, rowLinks,
-                stream, anomalyFlags, layouts);
+                stream, anomalyFlags, layouts, collected);
+        if (collected != null) {
+          // Laid over the real rows exactly as the values are: a filtered column builds compacted
+          // and is spread afterwards, so the two must be spread the same way or an offset would
+          // measure row 3 from row 1's date.
+          Long[] over = new Long[count];
+          for (int at = 0; at < rows.size(); at++) {
+            over[rows.get(at)] = at < collected.size() ? collected.get(at) : null;
+          }
+          instants.put(spec.name(), over);
+        }
       }
       columns.put(spec.name(), spread(rows, produced, count));
 
@@ -1917,12 +1972,32 @@ public final class MemoryEngine {
       PerRow.Stream stream,
       boolean[] anomalyFlags,
       Map<String, PerRow.ExactLayout> layouts) {
+    return columnValues(
+        gen, count, prng, packs, config, nowMillis, baseDir, rowLinks, stream, anomalyFlags,
+        layouts, null);
+  }
+
+  /** {@link #columnValues}, also keeping the instants behind a date column some offset reads. */
+  private static List<String> columnValues(
+      Config.Gen gen,
+      int count,
+      Prng.Sfc32 prng,
+      DataPacks packs,
+      Config config,
+      long nowMillis,
+      Path baseDir,
+      Map<String, RowLinkPlan> rowLinks,
+      PerRow.Stream stream,
+      boolean[] anomalyFlags,
+      Map<String, PerRow.ExactLayout> layouts,
+      List<Long> instants) {
     if (stream == null) {
       return finish(
-          generate(gen, count, prng, packs, config, nowMillis, baseDir, rowLinks),
+          generate(gen, count, prng, packs, config, nowMillis, baseDir, rowLinks, instants),
           gen.attrs(),
           prng,
-          anomalyFlags);
+          anomalyFlags,
+          instants);
     }
 
     Listed listed = listedValues(gen, packs, config, baseDir);
@@ -1958,15 +2033,22 @@ public final class MemoryEngine {
       for (int i = 0; i < count; i++) {
         Prng.Sfc32 rowPrng = PerRow.rowGenerator(stream, stream.rowAt(i));
         boolean[] one = new boolean[1];
+        // One row's instant lands in its own scratch: the inner call knows nothing of `i`, and a
+        // later `missing=` pass has to line up with the values it just blanked.
+        List<Long> scratch = instants == null ? null : new ArrayList<>(1);
         List<String> done =
             finish(
-                generate(gen, 1, rowPrng, packs, config, nowMillis, baseDir, rowLinks),
+                generate(gen, 1, rowPrng, packs, config, nowMillis, baseDir, rowLinks, scratch),
                 gen.attrs(),
                 rowPrng,
-                one);
+                one,
+                scratch);
         out.add(done.isEmpty() ? "" : done.get(0));
         if (anomalyFlags != null && i < anomalyFlags.length) {
           anomalyFlags[i] = one[0];
+        }
+        if (instants != null) {
+          instants.add(scratch != null && !scratch.isEmpty() ? scratch.get(0) : null);
         }
       }
       return out;
@@ -2183,6 +2265,23 @@ public final class MemoryEngine {
 
   static List<String> finish(
       List<String> values, Map<String, String> attrs, Prng.Sfc32 prng, boolean[] anomalyFlags) {
+    return finish(values, attrs, prng, anomalyFlags, null);
+  }
+
+  /**
+   * {@link #finish}, also clearing the instant behind any cell {@code missing=} blanked.
+   *
+   * <p>A blanked cell no longer shows the date it was built from, so a column measuring from this
+   * one must find nothing there rather than produce a date on a row whose source says nothing.
+   * {@code mask=}/{@code case=} change only the SPELLING, which is exactly what the instant
+   * outlives.
+   */
+  static List<String> finish(
+      List<String> values,
+      Map<String, String> attrs,
+      Prng.Sfc32 prng,
+      boolean[] anomalyFlags,
+      List<Long> instants) {
     List<String> out = new ArrayList<>(values);
 
     Imperfections.Anomaly anomaly = Imperfections.parseAnomaly(attrs);
@@ -2191,7 +2290,15 @@ public final class MemoryEngine {
     }
     Imperfections.Missing missing = Imperfections.parseMissing(attrs);
     if (missing != null) {
+      List<String> before = new ArrayList<>(out);
       Imperfections.applyMissing(out, missing, prng);
+      if (instants != null) {
+        for (int i = 0; i < Math.min(out.size(), instants.size()); i++) {
+          if (!java.util.Objects.equals(out.get(i), before.get(i))) {
+            instants.set(i, null);
+          }
+        }
+      }
     }
 
     return formatValues(out, attrs);
@@ -2733,6 +2840,27 @@ public final class MemoryEngine {
       long nowMillis,
       Path baseDir,
       Map<String, RowLinkPlan> rowLinks) {
+    return generate(gen, count, prng, packs, config, nowMillis, baseDir, rowLinks, null);
+  }
+
+  /**
+   * One generator's values, optionally keeping the instants behind a date column.
+   *
+   * <p>Threaded rather than derived afterwards because a date's cell is a RENDERING —
+   * {@code 02/03/2026} in an en locale, {@code 03.02.2026} in a ru one — and reading a date back
+   * out of that is a guess. The column that produced it keeps what it generated, and an offset
+   * measures from THAT.
+   */
+  static List<String> generate(
+      Config.Gen gen,
+      int count,
+      Prng.Sfc32 prng,
+      DataPacks packs,
+      Config config,
+      long nowMillis,
+      Path baseDir,
+      Map<String, RowLinkPlan> rowLinks,
+      List<Long> instants) {
     String locale = config.locale();
 
     // order="sequential" comes before everything else: it replaces the draw entirely, so the
@@ -2822,7 +2950,7 @@ public final class MemoryEngine {
         return SymbolGen.generate(gen.attrs(), count, prng);
       }
       case "date" -> {
-        return DateGen.generate(gen.attrs(), locale, nowMillis, count, prng);
+        return DateGen.generate(gen.attrs(), locale, nowMillis, count, prng, instants);
       }
       case "text" -> {
         values = splitText(gen.attr("value", ""));

@@ -46,10 +46,30 @@ public final class DateGen {
 
   public static List<String> generate(
       Map<String, String> attrs, String locale, long nowMillis, int count, Prng.Sfc32 prng) {
+    return generate(attrs, locale, nowMillis, count, prng, null);
+  }
+
+  /**
+   * {@code count} formatted dates, optionally keeping the value behind each one.
+   *
+   * <p>{@code instants}, when given, receives the epoch millis the generator actually produced,
+   * before {@code format=} turned it into one locale's spelling of it. A column another one
+   * measures from asks for this; everything else passes null and nothing is collected.
+   */
+  public static List<String> generate(
+      Map<String, String> attrs,
+      String locale,
+      long nowMillis,
+      int count,
+      Prng.Sfc32 prng,
+      List<Long> instants) {
     Plan plan = plan(attrs, locale, nowMillis);
     List<String> out = new ArrayList<>(count);
     for (int i = 0; i < count; i++) {
       PlainDateTime value = plan.fixed() != null ? plan.fixed() : pick(plan, prng);
+      if (instants != null) {
+        instants.add(Calendar.toEpochMillis(value));
+      }
       out.add(DateFormatter.format(value, plan.format(), plan.locale()));
     }
     return out;
