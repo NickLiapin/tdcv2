@@ -15,6 +15,18 @@
       ]
     },
     {
+      "name": "measured-from-a-walked-source",
+      "description": "The pairing a real record asks for most: orders march down the calendar day by day, and delivery is a few days after ITS OWN order. A walked axis (order=\"sequential\") returns from a different branch of the builder than a drawn date, so the value it keeps beside its text has to be filled there too — without it the offset read every row as \"this row has no date\" and the column came out empty, in silence, from a config that was right. The source dates here are consecutive, which is what a second independent draw could not produce.",
+      "config": "<tdc><env count=\"5\" seed=\"s\" local=\"en\" mode=\"memory\"><sequence name=\"Ordered\"><gen type=\"date\" from=\"2026-01-01\" order=\"sequential\" step=\"1d\" format=\"YYYY-MM-DD\"/></sequence><sequence name=\"Delivered\"><gen type=\"date\" of=\"Ordered\" plus=\"2..9d\" format=\"YYYY-MM-DD\"/></sequence></env><block><line><data>${{Ordered}},${{Delivered}}</data></line></block></tdc>",
+      "expected": [
+        "2026-01-01,2026-01-06",
+        "2026-01-02,2026-01-06",
+        "2026-01-03,2026-01-12",
+        "2026-01-04,2026-01-11",
+        "2026-01-05,2026-01-07"
+      ]
+    },
+    {
       "name": "a-fixed-offset-is-the-same-distance-every-row",
       "description": "plus=\"7d\" is one distance rather than a range: every shipment is exactly a week after its own order, and the dates still differ because the orders do. The Marker column is there to pin the independence of the streams — it draws after the offset and its values are what they would be with no offset column at all, because each column derives its randomness from its own name rather than from a shared sequence of draws.",
       "config": "<tdc><env count=\"4\" seed=\"s\" local=\"en\" mode=\"memory\"><sequence name=\"Ordered\"><gen type=\"date\" from=\"2026-01-01\" to=\"2026-01-31\" format=\"YYYY-MM-DD\"/></sequence><sequence name=\"Shipped\"><gen type=\"date\" of=\"Ordered\" plus=\"7d\" format=\"YYYY-MM-DD\"/></sequence><sequence name=\"Marker\"><gen type=\"number\" value=\"100..999\"/></sequence></env><block><line><data>${{Ordered}} ${{Shipped}} ${{Marker}}</data></line></block></tdc>",
@@ -60,7 +72,11 @@
       "name": "a-source-cell-with-no-date-measures-nothing",
       "description": "missing=\"1.0\" blanks every source cell, so there is no date to measure from and the derived column is empty too. The alternative an implementation might reach for — measuring from whatever text the missing token left behind, or from the epoch — puts a confident-looking date in a row whose source says nothing at all.",
       "config": "<tdc><env count=\"3\" seed=\"s\" local=\"en\" mode=\"memory\"><sequence name=\"Seen\"><gen type=\"date\" from=\"2026-01-01\" to=\"2026-03-01\" format=\"YYYY-MM-DD\" missing=\"1.0\"/></sequence><sequence name=\"Follow\"><gen type=\"date\" of=\"Seen\" plus=\"7d\" format=\"YYYY-MM-DD\"/></sequence></env><block><line><data>[${{Seen}}][${{Follow}}]</data></line></block></tdc>",
-      "expected": ["[][]", "[][]", "[][]"]
+      "expected": [
+        "[][]",
+        "[][]",
+        "[][]"
+      ]
     },
     {
       "name": "an-offset-with-no-mode-goes-where-it-must",

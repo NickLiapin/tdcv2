@@ -19,6 +19,7 @@ from pathlib import Path
 from ..compute import evaluate as compute_evaluate
 from ..compute import evaluate_predicate
 from ..date import gen as date_gen
+from ..date.plain import to_epoch_millis
 from ..distribution import hamilton, percent_mask
 from ..expr import as_condition
 from ..format import interpolate
@@ -716,7 +717,11 @@ def _plain_column(
         produced = _column_values(spec.gen, applicable, run, anomaly_flags, instants_out)
 
     columns[spec.name or ""] = _spread(rows, produced, count)
-    if instants_out is not None and instants is not None:
+    # Attach the instants only if the build actually filled them for every row. A sink that was
+    # asked for and left empty is NOT "this column has no date on any row" — it is "this build
+    # never wrote one", and the two answers are opposite. Refusing to attach gives the text
+    # reading, which either works or names the problem out loud.
+    if instants_out is not None and instants is not None and len(instants_out) == applicable:
         # Laid over the real rows exactly as the values are: a filtered column builds compacted
         # and is spread afterwards, so the two must be spread the same way or an offset would
         # measure row 3 from row 1's date.
@@ -1660,11 +1665,20 @@ def _generate(
     if gen.type == "date" and attrs.get("order") == "sequential":
         axis = date_gen.date_axis(attrs, locale, run.now_millis)
         cycle = attrs.get("cycle") != "false"
+
         # An OPEN axis has no size and never wraps: row i is simply the i-th step.
-        return [
-            axis.at(i) if axis.size is None else axis.at(sequential_index(axis.size, i, cycle))
-            for i in range(count)
-        ]
+        def step_at(i: int) -> int:
+            return i if axis.size is None else sequential_index(axis.size, i, cycle)
+
+        # A WALKED date keeps its instant too. It is the pairing a real record asks for most —
+        # orders march down the calendar, delivery is a few days after its own order — and this
+        # branch returns before the drawn-date one, so without this the sink stayed empty and
+        # the offset read every row as "this row has no date". A silent empty column, from a
+        # config that was right.
+        if instants_out is not None:
+            for i in range(count):
+                instants_out.append(to_epoch_millis(axis.value_at(step_at(i))))
+        return [axis.at(step_at(i)) for i in range(count)]
 
     if gen.type == "increment":
         return counter.generate(attrs, count, True)

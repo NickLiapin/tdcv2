@@ -823,7 +823,11 @@ public final class MemoryEngine {
             columnValues(
                 spec.gen(), applicable, prng, packs, config, nowMillis, baseDir, rowLinks,
                 stream, anomalyFlags, layouts, collected);
-        if (collected != null) {
+        // Attach the instants only if the build actually filled them for every row. A sink that
+        // was asked for and left empty is NOT "this column has no date on any row" — it is "this
+        // build never wrote one", and the two answers are opposite. Refusing to attach gives the
+        // text reading, which either works or names the problem out loud.
+        if (collected != null && collected.size() == applicable) {
           // Laid over the real rows exactly as the values are: a filtered column builds compacted
           // and is spread afterwards, so the two must be spread the same way or an offset would
           // measure row 3 from row 1's date.
@@ -2890,7 +2894,16 @@ public final class MemoryEngine {
       List<String> out = new ArrayList<>(count);
       for (int i = 0; i < count; i++) {
         // An OPEN axis has no size and never wraps: row i is simply the i-th step.
-        out.add(axis.size() == null ? axis.at(i) : axis.at(sequentialIndex(axis.size(), i, cycle)));
+        long k = axis.size() == null ? i : sequentialIndex(axis.size(), i, cycle);
+        // A WALKED date keeps its instant too. It is the pairing a real record asks for most —
+        // orders march down the calendar, delivery is a few days after its own order — and this
+        // branch returns before the drawn-date one, so without this the sink stayed empty and
+        // the offset read every row as "this row has no date". A silent empty column, from a
+        // config that was right.
+        if (instants != null) {
+          instants.add(io.github.nickliapin.tdc.date.Calendar.toEpochMillis(axis.valueAt(k)));
+        }
+        out.add(axis.at(k));
       }
       return out;
     }

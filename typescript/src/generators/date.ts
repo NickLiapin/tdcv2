@@ -123,7 +123,7 @@ export function dateAxis(
   attrs: DateGenAttrs,
   locale: string,
   now: number,
-): { size: number | undefined; at: (k: number) => string } {
+): { size: number | undefined; at: (k: number) => string; valueAt: (k: number) => PlainDateTime } {
   const parsed = parseStep(attrs.step);
   const step: StepSpec = parsed.ok ? parsed.step : DEFAULT_STEP;
   const keep = parseWeekdays(attrs.weekdays);
@@ -133,7 +133,7 @@ export function dateAxis(
   if (plan.kind !== 'range' || !plan.start) {
     const fixed = plan.fixed ?? plan.start;
     if (!fixed) throw new DateRuntimeError('date generator: invalid generation plan');
-    return { size: 1, at: () => render(fixed) };
+    return { size: 1, at: () => render(fixed), valueAt: () => fixed };
   }
   const start = plan.start;
 
@@ -160,11 +160,11 @@ export function dateAxis(
   };
 
   if (isOpenAxis(attrs)) {
-    return { size: undefined, at: (k) => render(candidateAt(k)) };
+    return { size: undefined, at: (k) => render(candidateAt(k)), valueAt: candidateAt };
   }
 
   const end = plan.end;
-  if (!end) return { size: undefined, at: (k) => render(candidateAt(k)) };
+  if (!end) return { size: undefined, at: (k) => render(candidateAt(k)), valueAt: candidateAt };
   const candidates = stepsBetween(start, end, step);
   const size = filtered
     ? Math.max(
@@ -173,7 +173,7 @@ export function dateAxis(
           filtered.offsets.filter((o) => o < candidates % filtered.perCycle).length,
       )
     : candidates;
-  return { size, at: (k) => render(candidateAt(k)) };
+  return { size, at: (k) => render(candidateAt(k)), valueAt: candidateAt };
 }
 
 function buildDatePlan(attrs: DateGenAttrs, locale: string, now: number): DatePlan {

@@ -494,6 +494,32 @@ loaded by [`file`](./file.mdx), for instance. There only the text exists, so it
 must be in ISO form (`YYYY-MM-DD`), which means one thing in every locale.
 Anything else is refused rather than guessed at.
 
+### The source may be walked, drawn, or another offset
+
+`of=` reads whatever the named column produced. A **walked** source is the pairing real
+records ask for most — orders march down the calendar day by day, and delivery is a few
+days after **its own** order:
+
+```xml
+<sequence name="Ordered">
+  <gen type="date" from="2026-01-01" order="sequential" step="1d" format="YYYY-MM-DD"/>
+</sequence>
+<sequence name="Delivered">
+  <gen type="date" of="Ordered" plus="2..9d" format="YYYY-MM-DD"/>
+</sequence>
+```
+
+<Terminal title="./run orders.tdc (4 rows)">
+{`2026-01-01  2026-01-06
+2026-01-02  2026-01-06
+2026-01-03  2026-01-12
+2026-01-04  2026-01-11`}
+</Terminal>
+
+The one source that has no single date to measure from is a **repeating** one: a cell built
+with `repeat=` holds several dates joined by a separator. That is refused by name rather
+than answered with an empty column.
+
 ### Chaining, and empty cells
 
 An offset is itself a date this engine produced, so a third column can measure

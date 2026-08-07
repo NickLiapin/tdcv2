@@ -320,16 +320,21 @@ public final class DateGen {
 
     /** The k-th value of the axis, rendered. */
     public String at(long k) {
-      PlainDateTime candidate;
+      return DateFormatter.format(valueAt(k), format, locale);
+    }
+
+    /**
+     * The k-th value BEFORE {@code format=} turns it into one locale's spelling of it — what a
+     * column measuring from this one has to read.
+     */
+    public PlainDateTime valueAt(long k) {
       if (offsets.isEmpty()) {
-        candidate = DateStep.addStep(start, step, k);
-      } else {
-        long n = offsets.size();
-        long cycles = Math.floorDiv(k, n);
-        long within = offsets.get((int) Math.floorMod(k, n));
-        candidate = DateStep.addStep(start, step, cycles * perCycle + within);
+        return DateStep.addStep(start, step, k);
       }
-      return DateFormatter.format(candidate, format, locale);
+      long n = offsets.size();
+      long cycles = Math.floorDiv(k, n);
+      long within = offsets.get((int) Math.floorMod(k, n));
+      return DateStep.addStep(start, step, cycles * perCycle + within);
     }
   }
 

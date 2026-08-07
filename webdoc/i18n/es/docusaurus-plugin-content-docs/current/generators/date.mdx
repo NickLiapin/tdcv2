@@ -502,6 +502,32 @@ columna cargada con [`file`](./file.mdx), por ejemplo. Allí solo existe el text
 así que debe estar en forma ISO (`YYYY-MM-DD`), que significa lo mismo en
 cualquier locale. Lo demás se rechaza en vez de adivinarse.
 
+### La fuente puede estar recorrida, sorteada o ser otro desplazamiento
+
+`of=` lee lo que sea que produjo la columna nombrada. Una fuente **recorrida** es la pareja
+que los registros reales piden más a menudo: los pedidos avanzan por el calendario día a día,
+y la entrega es unos días después de **su propio** pedido:
+
+```xml
+<sequence name="Ordered">
+  <gen type="date" from="2026-01-01" order="sequential" step="1d" format="YYYY-MM-DD"/>
+</sequence>
+<sequence name="Delivered">
+  <gen type="date" of="Ordered" plus="2..9d" format="YYYY-MM-DD"/>
+</sequence>
+```
+
+<Terminal title="./run orders.tdc (4 filas)">
+{`2026-01-01  2026-01-06
+2026-01-02  2026-01-06
+2026-01-03  2026-01-12
+2026-01-04  2026-01-11`}
+</Terminal>
+
+La única fuente desde la que no hay una fecha que medir es una **repetida**: una celda
+construida con `repeat=` contiene varias fechas unidas por un separador. Eso se rechaza por
+su nombre en lugar de responderse con una columna vacía.
+
 ### Encadenar, y celdas vacías
 
 Un desplazamiento es en sí mismo una fecha que produjo este motor, así que una

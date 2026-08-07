@@ -312,22 +312,23 @@ public static class DateGen
         public long? Size { get; }
 
         /// <summary>The k-th value of the axis, rendered.</summary>
-        public string At(long k)
+        public string At(long k) => DateFormatter.Format(ValueAt(k), _format, _locale);
+
+        /// <summary>
+        /// The k-th value BEFORE <c>format=</c> turns it into one locale's spelling of it —
+        /// what a column measuring from this one has to read.
+        /// </summary>
+        public PlainDateTime ValueAt(long k)
         {
-            PlainDateTime candidate;
             if (_offsets.Count == 0)
             {
-                candidate = DateStep.AddStep(_start, _step, k);
-            }
-            else
-            {
-                long n = _offsets.Count;
-                long cycles = k / n;
-                long within = _offsets[(int)(k % n)];
-                candidate = DateStep.AddStep(_start, _step, (cycles * _perCycle) + within);
+                return DateStep.AddStep(_start, _step, k);
             }
 
-            return DateFormatter.Format(candidate, _format, _locale);
+            long n = _offsets.Count;
+            long cycles = k / n;
+            long within = _offsets[(int)(k % n)];
+            return DateStep.AddStep(_start, _step, (cycles * _perCycle) + within);
         }
     }
 

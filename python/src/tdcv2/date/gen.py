@@ -187,6 +187,9 @@ class Axis:
 
     size: int | None
     at: Callable[[int], str]
+    #: The k-th value BEFORE ``format=`` turns it into one locale's spelling of it — what a
+    #: column measuring from this one has to read.
+    value_at: Callable[[int], PlainDateTime]
 
 
 def date_axis(attrs: dict[str, str], locale: str, now: int) -> Axis:
@@ -209,7 +212,7 @@ def date_axis(attrs: dict[str, str], locale: str, now: int) -> Axis:
         fixed = plan.fixed
         if fixed is None:
             raise DateError("date generator: invalid generation plan")
-        return Axis(1, lambda _k: render(fixed))
+        return Axis(1, lambda _k: render(fixed), lambda _k: fixed)
     start = plan.start
 
     # `weekdays=` keeps only some of the candidates, so the k-th KEPT one is wanted rather than
@@ -233,7 +236,7 @@ def date_axis(attrs: dict[str, str], locale: str, now: int) -> Axis:
         return calendar.add_step(start, step, cycles * per_cycle + offsets[within])
 
     if _is_open_axis(attrs) or plan.end is None:
-        return Axis(None, lambda k: render(candidate_at(k)))
+        return Axis(None, lambda k: render(candidate_at(k)), candidate_at)
 
     candidates = calendar.steps_between(start, plan.end, step)
     if keep is not None and offsets:
@@ -246,7 +249,7 @@ def date_axis(attrs: dict[str, str], locale: str, now: int) -> Axis:
         size = 1
     else:
         size = candidates
-    return Axis(size, lambda k: render(candidate_at(k)))
+    return Axis(size, lambda k: render(candidate_at(k)), candidate_at)
 
 
 def parse_precision(raw: str | None, fallback: Precision = Precision.DAY) -> Precision:

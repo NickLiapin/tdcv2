@@ -130,6 +130,48 @@ describe('date offset — the value, not its spelling', () => {
     expect(line).toBe('5 February 2026|5 February 2027|6 January 2027');
   });
 
+  it('measures from a WALKED source — the pairing real records ask for most', () => {
+    // Orders march down the calendar and delivery is a few days after its own order. The
+    // walked axis returns before the drawn-date branch, so its instants have to be filled
+    // there too; without that every row read as "this row has no date" and the column came
+    // out empty, in silence, from a config that was right.
+    const config =
+      '<tdc><env count="4" seed="s" local="en">' +
+      '<sequence name="Ordered"><gen type="date" from="2026-01-01" order="sequential" step="1d" format="YYYY-MM-DD"/></sequence>' +
+      '<sequence name="Delivered"><gen type="date" of="Ordered" plus="2..9d" format="YYYY-MM-DD"/></sequence>' +
+      '</env><block><line><data>${{Ordered}}|${{Delivered}}</data></line></block></tdc>';
+    const out = new TDC({ configString: config, now: NOW })
+      .toString()
+      .split('\n')
+      .filter((l) => l.length > 0);
+    expect(out).toHaveLength(4);
+    for (const line of out) {
+      const [from, to] = pair(line);
+      expect(to).not.toBe('');
+      const gap = daysBetween(from, to);
+      expect(gap).toBeGreaterThanOrEqual(2);
+      expect(gap).toBeLessThanOrEqual(9);
+    }
+    // And it really walked: consecutive days, not four independent draws.
+    expect(out.map((l) => pair(l)[0])).toEqual([
+      '2026-01-01',
+      '2026-01-02',
+      '2026-01-03',
+      '2026-01-04',
+    ]);
+  });
+
+  it('a repeating source is refused out loud, not answered with an empty column', () => {
+    // A cell holding several dates has no single date to measure from. The honest answer is
+    // the refusal by name — silence here is the same defect the walked axis had.
+    const config =
+      '<tdc><env count="2" seed="s" local="en">' +
+      '<sequence name="Visits"><gen type="date" from="2026-01-01" to="2026-03-01" format="YYYY-MM-DD" repeat="2"/></sequence>' +
+      '<sequence name="Follow"><gen type="date" of="Visits" plus="7d" format="YYYY-MM-DD"/></sequence>' +
+      '</env><block><line><data>${{Follow}}</data></line></block></tdc>';
+    expect(() => new TDC({ configString: config, now: NOW }).toString()).toThrow(/is not a date/);
+  });
+
   it('a source cell "missing" blanked measures nothing, rather than a wrong date', () => {
     const out = rows(`${WINDOW} missing="1.0"`, 'plus="7d" format="YYYY-MM-DD"', 5);
     for (const line of out) expect(pair(line)).toEqual(['', '']);

@@ -29,6 +29,7 @@ import { resolveExistingDataSourcePath, type DataSourceOptions } from '../data-s
 import { advancedRegexGenerator } from '../generators/advanced-regex.js';
 import { decrementGenerator, incrementGenerator } from '../generators/counter.js';
 import { dateAxis, dateGenerator } from '../generators/date.js';
+import { toEpochMillis } from '../date/index.js';
 import { loadCsvColumnFile, loadListFile } from '../generators/file.js';
 import { formatSample, parseDistribution, sampleDistribution } from '../generators/distribution.js';
 
@@ -734,7 +735,16 @@ function materializeSimple(
         );
 
   const sequence = assembleAt(spec.name, rows, produced, count);
-  return instants ? { ...sequence, instants: spreadInstants(rows, instants, count) } : sequence;
+  // Attach the instants only if the build actually filled them for every row.
+  //
+  // A sink that was asked for and left empty is NOT "this column has no date on any row" —
+  // it is "this build never wrote one", and the two answers are opposite. Reading an empty
+  // sink as the first gave a silent empty column for a walked axis and for a repeating date,
+  // from configs that were right; refusing to attach gives the text reading instead, which
+  // either works or names the problem out loud. Any path added later that forgets the sink
+  // now degrades the same safe way.
+  const filled = instants !== undefined && instants.length === applicableCount;
+  return filled ? { ...sequence, instants: spreadInstants(rows, instants, count) } : sequence;
 }
 
 /** Put each drawn instant on the row its value landed on. */
@@ -1134,9 +1144,17 @@ function buildGenValuesRaw(
     const axis = dateAxis(gen.attrs, locale, now);
     const cycle = gen.attrs['cycle'] !== 'false';
     // An OPEN axis has no size and never wraps: row i is simply the i-th step.
-    return Array.from({ length: count }, (_, i) =>
-      axis.size === undefined ? axis.at(i) : axis.at(sequentialIndex(axis.size, i, cycle)),
-    );
+    const stepAt = (i: number): number =>
+      axis.size === undefined ? i : sequentialIndex(axis.size, i, cycle);
+    // A WALKED date keeps its instant too. It is the pairing a real record asks for most —
+    // orders march down the calendar, delivery is a few days after its own order — and this
+    // branch returns before the drawn-date one, so without this the sink stayed empty and the
+    // offset read every row as "this row has no date". A silent empty column, from a config
+    // that was right.
+    if (instantsOut) {
+      for (let i = 0; i < count; i++) instantsOut[i] = toEpochMillis(axis.valueAt(stepAt(i)));
+    }
+    return Array.from({ length: count }, (_, i) => axis.at(stepAt(i)));
   }
   switch (gen.type) {
     case 'text': {

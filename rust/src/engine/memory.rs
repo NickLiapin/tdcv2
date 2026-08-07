@@ -25,6 +25,7 @@ use crate::expr::evaluate;
 use crate::expr::evaluate as expr;
 use crate::format::interpolate::{self, Lookup};
 use crate::format::{mask, transforms};
+use crate::date::to_epoch_millis;
 use crate::generators::accumulate;
 use crate::generators::date_offset;
 use crate::generators::stat;
@@ -702,7 +703,12 @@ fn build_columns_with(
                             Some(&mut layouts),
                             collected.as_mut(),
                         )?;
-                        if let Some(drawn) = collected {
+                        // Attach the instants only if the build actually filled them for
+                        // every row. A sink that was asked for and left empty is NOT "this
+                        // column has no date on any row" — it is "this build never wrote
+                        // one", and the two answers are opposite. Refusing to attach gives
+                        // the text reading, which either works or names the problem out loud.
+                        if let Some(drawn) = collected.filter(|d| d.len() == applicable) {
                             // Laid over the real rows exactly as the values are: a filtered
                             // column builds compacted and is spread afterwards, so the two must
                             // be spread the same way or an offset would measure row 3 from
@@ -1881,14 +1887,23 @@ pub(super) fn generate_into(
             let axis =
                 date::gen::date_axis(&gen.attrs, env.config.locale.as_deref(), env.now_millis)?;
             let cycle = gen.attrs.get("cycle").map(String::as_str) != Some("false");
-            (0..count)
-                .map(|i| match axis.size {
-                    // An OPEN axis has no size and never wraps: row i is simply
-                    // the i-th step.
-                    None => Ok(axis.at(i as i64)),
-                    Some(size) => Ok(axis.at(sequential_index(size as usize, i, cycle)? as i64)),
+            // An OPEN axis has no size and never wraps: row i is simply the i-th step.
+            let step_at = |i: usize| -> EngineResult<i64> {
+                Ok(match axis.size {
+                    None => i as i64,
+                    Some(size) => sequential_index(size as usize, i, cycle)? as i64,
                 })
-                .collect()
+            };
+            // A WALKED date keeps its instant too. It is the pairing a real record asks for
+            // most — orders march down the calendar, delivery is a few days after its own
+            // order — and this arm returns before the drawn-date one, so without this the
+            // sink stayed empty and the offset read every row as "this row has no date".
+            if let Some(sink) = instants {
+                for i in 0..count {
+                    sink.push(Some(to_epoch_millis(axis.value_at(step_at(i)?))));
+                }
+            }
+            (0..count).map(|i| Ok(axis.at(step_at(i)?))).collect()
         }
         "date" => date::gen::generate_into(
             &gen.attrs,

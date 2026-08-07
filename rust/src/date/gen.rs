@@ -371,15 +371,20 @@ pub struct Axis {
 impl Axis {
     /// The k-th value of the axis, rendered.
     pub fn at(&self, k: i64) -> String {
-        let candidate = if self.offsets.is_empty() {
+        format::format(self.value_at(k), Some(&self.format), self.locale.as_deref())
+    }
+
+    /// The k-th value of the axis, BEFORE `format=` turns it into one locale's
+    /// spelling of it — what a column measuring from this one has to read.
+    pub fn value_at(&self, k: i64) -> PlainDateTime {
+        if self.offsets.is_empty() {
             calendar::add_step(self.start, self.step, k)
         } else {
             let n = self.offsets.len() as i64;
             let cycles = k.div_euclid(n);
             let within = self.offsets[k.rem_euclid(n) as usize];
             calendar::add_step(self.start, self.step, cycles * self.per_cycle + within)
-        };
-        format::format(candidate, Some(&self.format), self.locale.as_deref())
+        }
     }
 }
 
