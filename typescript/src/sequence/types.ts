@@ -228,11 +228,33 @@ export interface Sequence {
    * O(1) per sequence instead of O(count). See `sequenceValueAt`.
    */
   readonly resolve?: (i: number) => string | undefined;
+  /**
+   * The REAL value behind the text, for a date column another column measures
+   * from — epoch milliseconds, row by row.
+   *
+   * `values[i]` holds a date's PRESENTATION: `02/03/2026` in an en locale,
+   * `03.02.2026` in a ru one, `March 2` under `format="MMMM D"`. Reading a date
+   * back out of that text is guesswork at best and impossible at worst — the
+   * last form has thrown the year away. So the column that produced it keeps
+   * what it actually generated, and an offset measures from THAT: the variable
+   * holds the value, the cell shows a rendering of it.
+   *
+   * Present only when some `<gen type="date" of="…">` names this column, so a
+   * config that uses no offset pays nothing. Everything else — a date read from
+   * a file or a pack, or built by a construct this does not reach yet — has no
+   * instant, and the offset falls back to reading ISO text.
+   */
+  readonly instants?: readonly (number | undefined)[];
 }
 
 /** Read a sequence's value for row `i` — lazy resolver if present, else array. */
 export function sequenceValueAt(seq: Sequence, i: number): string | undefined {
   return seq.resolve ? seq.resolve(i) : seq.values[i];
+}
+
+/** The instant behind row `i`'s text, when this column kept one. */
+export function sequenceInstantAt(seq: Sequence, i: number): number | undefined {
+  return seq.instants?.[i];
 }
 
 /** Map of materialized sequences, keyed by sequence name. */

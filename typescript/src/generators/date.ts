@@ -63,13 +63,25 @@ interface DatePlan {
 const DEFAULT_DATE_START = '1970-01-01';
 const DEFAULT_FORMAT = 'L';
 
-export function dateGenerator(attrs: DateGenAttrs, locale: string, now: number): Generator {
+/**
+ * @param instantsOut when given, receives the epoch millis behind each rendered
+ *   cell — the value the generator actually produced, before `format=` turned it
+ *   into one locale's spelling of it. A column another one measures from asks for
+ *   this; everything else passes nothing and the array is never built.
+ */
+export function dateGenerator(
+  attrs: DateGenAttrs,
+  locale: string,
+  now: number,
+  instantsOut?: (number | undefined)[],
+): Generator {
   const plan = buildDatePlan(attrs, locale, now);
   return (count, prng) => {
     const out: string[] = new Array<string>(count);
     for (let i = 0; i < count; i++) {
       const value = plan.kind === 'fixed' ? plan.fixed : pickRangeDate(plan, prng);
       if (!value) throw new DateRuntimeError('date generator: invalid generation plan');
+      if (instantsOut) instantsOut[i] = toEpochMillis(value);
       out[i] = formatDateTime(value, plan.format, plan.locale);
     }
     return out;

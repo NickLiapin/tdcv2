@@ -29,9 +29,10 @@
  */
 
 import { formatDateTime, parseDateTimeStrict } from '../date/index.js';
-import { applyOffset, parseOffset } from '../date/calendar.js';
+import type { PlainDateTime } from '../date/index.js';
+import { applyOffset, fromEpochMillis, parseOffset } from '../date/calendar.js';
 import type { OffsetSpec } from '../date/calendar.js';
-import { sequenceValueAt } from './types.js';
+import { sequenceInstantAt, sequenceValueAt } from './types.js';
 import type { Sequence, SequenceSpec } from './types.js';
 
 /** A source column an offset cannot read. */
@@ -83,26 +84,59 @@ export function registerDateOffset(
       values[i] = undefined;
       continue;
     }
-    let start;
-    try {
-      start = parseDateTimeStrict(from.trim()).value;
-    } catch {
-      // A column holds the TEXT it was formatted to, and the default format is
-      // the locale's short one — `02/03/2026` in en, `03.02.2026` in ru. There
-      // is no reading of `02/03/2026` that is right in both, so this refuses
-      // instead of guessing, and names the one-attribute fix. Making any format
-      // work means carrying the source's own date beside its text, which is the
-      // next piece of work rather than a guess made here.
-      throw new DateOffsetError(
-        `date offset ("${spec.name}"): "${from}" in column "${offsetOf(spec)}" is not a date ` +
-          'this can measure from. Give that column format="YYYY-MM-DD" — an offset reads the ' +
-          'text the column holds, and only the ISO form has one reading in every locale.',
-      );
+    const start = startOfRow(spec, source, i, from);
+    if (!start) {
+      values[i] = undefined;
+      continue;
     }
     const steps = drawSteps(offset, prng);
     values[i] = formatDateTime(applyOffset(start, offset, steps), format, locale);
   }
   registry[spec.name] = { name: spec.name, values };
+}
+
+/**
+ * The date row `i` is measured FROM, or `undefined` when the row has none.
+ *
+ * Three readings, in this order:
+ *
+ *   1. **The instant the source column kept.** A `<gen type="date">` this engine
+ *      built remembers what it generated, so the offset works from the value and
+ *      `format=` is free to be anything at all — the cell may read `March 2` or
+ *      `02.03.2026` and the arithmetic is the same either way. This is the whole
+ *      point of keeping the value beside its rendering.
+ *   2. **No instant on a column that carries them.** `missing="0.1"` blanked
+ *      that cell: the source column HAS a date for other rows and none for this
+ *      one. The offset has nothing to measure and the cell stays empty — the
+ *      same answer a parent filter gets, and the reason this is worth
+ *      distinguishing from a text it cannot read.
+ *   3. **The text, read as ISO.** A date that came from a file, a pack, or a
+ *      construct that does not carry an instant has only its spelling left. The
+ *      ISO form has one reading in every locale, so it is accepted; anything
+ *      else is refused rather than guessed at, because `02/03/2026` is the 2nd
+ *      of March in one locale and the 3rd of February in another, and picking
+ *      one silently would put a wrong date in a column that looks right.
+ */
+function startOfRow(
+  spec: SequenceSpec,
+  source: Sequence,
+  i: number,
+  from: string,
+): PlainDateTime | undefined {
+  if (source.instants) {
+    const instant = sequenceInstantAt(source, i);
+    return instant === undefined ? undefined : fromEpochMillis(instant);
+  }
+  try {
+    return parseDateTimeStrict(from.trim()).value;
+  } catch {
+    throw new DateOffsetError(
+      `date offset ("${spec.name}"): "${from}" in column "${offsetOf(spec)}" is not a date ` +
+        'this can measure from. A date TDC generated carries its own value and any format= ' +
+        'works; one read from a file or a pack has only its text, and only the ISO form ' +
+        '(YYYY-MM-DD) means the same thing in every locale.',
+    );
+  }
 }
 
 /**

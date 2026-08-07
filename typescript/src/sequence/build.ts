@@ -98,7 +98,7 @@ import { enforceUniqRedrawing } from './enforce-uniq.js';
 import { enforceEnvDistinct, enforceEnvUniq } from './env-groups.js';
 import { poolRefName, type PoolTables } from './pool.js';
 import { registerPoolRef } from './pool-ref.js';
-import { isDateOffset, registerDateOffset } from './date-offset.js';
+import { isDateOffset, offsetOf, registerDateOffset } from './date-offset.js';
 import { registerStat } from './stat.js';
 import { registerRunning } from './running.js';
 
@@ -297,6 +297,23 @@ function enforceValid(
   }
 }
 
+/**
+ * The date columns some offset measures from, by name.
+ *
+ * A date's cell holds a RENDERING — `02/03/2026` in an en locale, `03.02.2026`
+ * in a ru one — and reading a date back out of that is a guess. So a column
+ * another one is measured from keeps what it actually generated, and the offset
+ * works from the value rather than from its spelling. Only the named columns do:
+ * a config with no offset in it allocates nothing extra.
+ */
+function instantColumnsOf(specs: readonly SequenceSpec[]): ReadonlySet<string> {
+  const wanted = new Set<string>();
+  for (const spec of specs) {
+    if (isDateOffset(spec)) wanted.add(offsetOf(spec));
+  }
+  return wanted;
+}
+
 export function buildSequences(
   specs: readonly SequenceSpec[],
   count: number,
@@ -320,6 +337,7 @@ export function buildSequences(
       const seq = registry[name];
       return seq ? sequenceValueAt(seq, row) : undefined;
     },
+    instantColumns: instantColumnsOf(specs),
   };
 
   // Built-in positional sequences. All deterministic by iteration index,
@@ -694,12 +712,43 @@ function materializeSimple(
     return assembleAt(spec.name, rows, produced, count);
   }
 
+  // A column some `<gen type="date" of="…">` measures from keeps the instant it
+  // generated beside the text it renders. Nothing else asks, so nothing else
+  // allocates — and the array is built in the compacted order `produced` is in,
+  // then spread over the real rows by `assembleAt`, exactly like the values.
+  const wantsInstants = gen.type === 'date' && ctx.instantColumns?.has(spec.name) === true;
+  const instants: (number | undefined)[] | undefined = wantsInstants ? [] : undefined;
+
   const produced =
     applicableCount === 0
       ? []
-      : buildGenValues(gen, applicableCount, prng, locale, now, withRows(ctx, spec.name, rows));
+      : buildGenValues(
+          gen,
+          applicableCount,
+          prng,
+          locale,
+          now,
+          withRows(ctx, spec.name, rows),
+          undefined,
+          instants,
+        );
 
-  return assembleAt(spec.name, rows, produced, count);
+  const sequence = assembleAt(spec.name, rows, produced, count);
+  return instants ? { ...sequence, instants: spreadInstants(rows, instants, count) } : sequence;
+}
+
+/** Put each drawn instant on the row its value landed on. */
+function spreadInstants(
+  rows: readonly number[],
+  instants: readonly (number | undefined)[],
+  count: number,
+): (number | undefined)[] {
+  const out = new Array<number | undefined>(count).fill(undefined);
+  for (let i = 0; i < rows.length; i++) {
+    const row = rows[i];
+    if (row !== undefined) out[row] = instants[i];
+  }
+  return out;
 }
 
 /**
@@ -867,6 +916,7 @@ export function buildGenValues(
   now: number,
   ctx: SequenceBuildContext,
   flagTextOut?: string[],
+  instantsOut?: (number | undefined)[],
 ): string[] {
   // Row by row, off the very stream the streaming engine uses, so the two
   // engines produce the same bytes from one seed. `gen-resolve.ts` already
@@ -880,10 +930,16 @@ export function buildGenValues(
     const out = new Array<string>(count);
     for (let i = 0; i < count; i++) {
       const flags: string[] | undefined = flagTextOut ? [] : undefined;
+      // One row's instant lands at index 0 of its own scratch: the recursive
+      // call knows nothing of `i`, and reusing `instantsOut` here would have
+      // every row overwrite slot 0 before it was copied out.
+      const one: (number | undefined)[] | undefined = instantsOut ? [] : undefined;
       const row = ctx.rows ? (ctx.rows[i] ?? i) : i;
       out[i] =
-        buildGenValues(gen, 1, seekableGen(seed, streamId, row), locale, now, ctx, flags)[0] ?? '';
+        buildGenValues(gen, 1, seekableGen(seed, streamId, row), locale, now, ctx, flags, one)[0] ??
+        '';
       if (flagTextOut && flags) flagTextOut[i] = flags[0] ?? 'false';
+      if (instantsOut && one) instantsOut[i] = one[0];
     }
     return out;
   }
@@ -891,7 +947,7 @@ export function buildGenValues(
   const repeat = parseRepeat(gen.attrs);
   if (!repeat) {
     const flags: boolean[] | undefined = flagTextOut ? [] : undefined;
-    const out = buildGenValuesOnce(gen, count, prng, locale, now, ctx, flags, true);
+    const out = buildGenValuesOnce(gen, count, prng, locale, now, ctx, flags, true, instantsOut);
     if (flagTextOut && flags) {
       for (let i = 0; i < count; i++) flagTextOut[i] = flags[i] === true ? 'true' : 'false';
     }
@@ -978,8 +1034,9 @@ function buildGenValuesOnce(
   ctx: SequenceBuildContext,
   anomalyFlagsOut?: boolean[],
   rowKeyed = false,
+  instantsOut?: (number | undefined)[],
 ): string[] {
-  const values = buildGenValuesRaw(gen, count, prng, locale, now, ctx);
+  const values = buildGenValuesRaw(gen, count, prng, locale, now, ctx, instantsOut);
   // The inline-built types never reach the per-row path — their value follows
   // the position — so their two modifier draws are keyed here, on the same
   // `#anom` and `#miss` streams the streaming engine uses. Every other type got
@@ -995,6 +1052,15 @@ function buildGenValuesOnce(
   const spiked = anomaly ? applyAnomaly(values, anomaly, drawOn('#anom'), anomalyFlagsOut) : values;
   const missing = parseMissing(gen.attrs);
   const withMissing = missing ? applyMissing(spiked, missing, drawOn('#miss')) : spiked;
+  // A cell `missing=` blanked no longer shows the date it was built from, so the
+  // instant behind it goes too — otherwise a column measuring from this one
+  // would produce a date on a row whose source says nothing. `mask=`/`case=`
+  // below change only the SPELLING, which is exactly what the instant outlives.
+  if (instantsOut && withMissing !== spiked) {
+    for (let i = 0; i < count; i++) {
+      if (withMissing[i] !== spiked[i]) instantsOut[i] = undefined;
+    }
+  }
   // Output formatting: `mask=`/`case=` post-process each value (mask then case).
   const fmt = genFormatter(gen.attrs['mask'], gen.attrs['case']);
   return fmt ? withMissing.map((v) => fmt(v)) : withMissing;
@@ -1053,6 +1119,7 @@ function buildGenValuesRaw(
   locale: string,
   now: number,
   ctx: SequenceBuildContext,
+  instantsOut?: (number | undefined)[],
 ): string[] {
   // order="sequential": emit list/file values in order (looping), ignoring the
   // random pick and any `percent`. Row i → element i mod N.
@@ -1217,6 +1284,7 @@ function buildGenValuesRaw(
         },
         locale,
         now,
+        instantsOut,
       );
       return dGen(count, prng).slice();
     }

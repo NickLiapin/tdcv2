@@ -79,4 +79,13 @@ export interface SequenceBuildContext {
    * streaming engine passes the same function over its own lazy columns.
    */
   readonly valueAt?: ((name: string, row: number) => string | undefined) | undefined;
+  /**
+   * Date columns that must keep their instant beside their text, because some
+   * `<gen type="date" of="…">` measures from them.
+   *
+   * Collected once, before any column is built, so the cost of remembering the
+   * real value falls only on the columns a config actually reads back — every
+   * other date column stays a plain array of strings.
+   */
+  readonly instantColumns?: ReadonlySet<string> | undefined;
 }
