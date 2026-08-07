@@ -19,6 +19,7 @@ import io.github.nickliapin.tdc.pattern.PatternGen;
 import io.github.nickliapin.tdc.prng.Permute;
 import io.github.nickliapin.tdc.prng.Prng;
 import io.github.nickliapin.tdc.prng.Seekable;
+import io.github.nickliapin.tdc.sequence.Assertions;
 import io.github.nickliapin.tdc.sequence.Pool;
 import io.github.nickliapin.tdc.stats.Timeseries;
 import java.io.IOException;
@@ -360,6 +361,10 @@ public final class StreamEngine {
     for (List<String> group : config.envDistinctGroups()) {
       applyEnvDistinct(group, byName);
     }
+
+    // The same check the in-memory engine makes, on the same finished run: an assertion that only
+    // held on one engine would be a check that depends on how the file was produced.
+    Assertions.check(config, this::valueAt, columns::containsKey);
   }
 
   /**

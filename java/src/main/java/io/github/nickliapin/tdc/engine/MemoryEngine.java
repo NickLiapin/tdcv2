@@ -25,6 +25,7 @@ import io.github.nickliapin.tdc.packs.DataPacks;
 import io.github.nickliapin.tdc.pattern.PatternGen;
 import io.github.nickliapin.tdc.parser.ConfigBuilder;
 import io.github.nickliapin.tdc.parser.generated.TDCParser;
+import io.github.nickliapin.tdc.sequence.Assertions;
 import io.github.nickliapin.tdc.sequence.Pool;
 import io.github.nickliapin.tdc.prng.Permute;
 import io.github.nickliapin.tdc.prng.Prng;
@@ -100,6 +101,16 @@ public final class MemoryEngine {
   public static Rendered build(Config config, DataPacks packs, long nowMillis, Path baseDir) {
     int count = config.count();
     Map<String, String[]> columns = buildColumns(config, count, packs, nowMillis, baseDir);
+
+    // The run is finished; now the config gets to check its own output — before a single line is
+    // written, because a file that exists is a file someone will use.
+    Assertions.check(
+        config,
+        (name, row) -> {
+          String[] column = columns.get(name);
+          return column == null || row >= column.length ? null : column[row];
+        },
+        columns::containsKey);
 
     Map<String, Repeat.Spec> eachInfo = eachInfo(config);
     Config.Fixtures fx = config.fixtures();

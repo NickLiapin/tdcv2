@@ -62,9 +62,21 @@ public final class ConfigBuilder {
     List<List<String>> envUniq = new ArrayList<>();
     List<List<String>> envDistinct = new ArrayList<>();
     List<Config.PoolSpec> pools = new ArrayList<>();
+    List<Config.AssertSpec> asserts = new ArrayList<>();
 
     if (env != null) {
       for (TDCParser.ElementContext child : env.content().element()) {
+        // `<assert/>` is the one env child written self-closing, so it is read here rather than
+        // lost by the open/close walk below.
+        TDCParser.SelfClosingElementContext self = child.selfClosingElement();
+        if (self != null) {
+          if (self.name.getText().equals("assert")) {
+            Map<String, String> a = attributes(self.attr());
+            asserts.add(
+                new Config.AssertSpec(a.getOrDefault("that", ""), a.getOrDefault("says", "")));
+          }
+          continue;
+        }
         TDCParser.OpenCloseElementContext open = child.openCloseElement();
         if (open == null) {
           continue;
@@ -133,7 +145,8 @@ public final class ConfigBuilder {
         envAttrs.get("engine"),
         envUniq,
         envDistinct,
-        pools);
+        pools,
+        asserts);
   }
 
   /**

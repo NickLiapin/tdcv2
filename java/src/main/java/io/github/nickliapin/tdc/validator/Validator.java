@@ -285,7 +285,7 @@ public final class Validator {
   /** What may sit directly inside {@code <env>}. */
   private static final Set<String> ENV_CHILDREN =
       Set.of(
-          "sequence", "mix", "switch", "uniq", "distinct", "pool", "before", "after",
+          "sequence", "mix", "switch", "uniq", "distinct", "pool", "assert", "before", "after",
           "before_block", "after_block", "delimiter_block", "before_line", "after_line",
           "delimiter_line");
 
@@ -888,6 +888,7 @@ public final class Validator {
     collectPoolFieldValues(env);
     collectPoolReferences(env);
     checkChildren(env.content(), "env", ENV_CHILDREN);
+    checkAsserts(env);
     for (TDCParser.ElementContext c : env.content().element()) {
       TDCParser.OpenCloseElementContext el = c.openCloseElement();
       if (el == null) {
@@ -4298,6 +4299,55 @@ public final class Validator {
   }
 
   // ── helpers ──────────────────────────────────────────────────────────────────────────────
+
+  /**
+   * {@code <assert that="…" says="…"/>} — the two attributes it cannot do without.
+   *
+   * <p>An assertion is the one construct whose whole worth is that it FAILS, so a half-written one
+   * is worse than none: the config carries a check, the reader believes the run was verified, and
+   * nothing was ever compared.
+   *
+   * <p>The expression is not re-checked here. {@code that=} is the {@code if=} language, so it
+   * takes the same syntax pass now and the same put-aside name pass once every sequence is known —
+   * a typo in a column name is reported exactly as it is in {@code if=}, because it IS that
+   * mistake.
+   */
+  private void checkAsserts(TDCParser.OpenCloseElementContext env) {
+    for (TDCParser.ElementContext child : env.content().element()) {
+      TDCParser.SelfClosingElementContext self = child.selfClosingElement();
+      if (self == null || !self.name.getText().equals("assert")) {
+        continue;
+      }
+      Map<String, String> attrs = attributes(self.attr());
+      String that = attrs.getOrDefault("that", "").trim();
+      String says = attrs.getOrDefault("says", "").trim();
+      if (that.isEmpty()) {
+        int[] where = at(self, "that");
+        error(
+            "TDC265",
+            "<assert> has no condition — that= is required",
+            "Write the property the run must have, in the if= language, over whole-run columns: "
+                + "<assert that=\"Rows == 700\" says=\"…\"/>. The numbers come from "
+                + "<gen type=\"stat\">.",
+            where[0],
+            where[1]);
+        continue;
+      }
+      if (says.isEmpty()) {
+        int[] where = at(self, "says");
+        error(
+            "TDC266",
+            "<assert that=\"" + that + "\"> has no message — says= is required",
+            "When this fails, says= is what the reader is told. An expression alone leaves them to "
+                + "work out what it was for, months later, in a CI log.",
+            where[0],
+            where[1]);
+      }
+      int[] where = at(self, "that");
+      checkIfExpression(that, where[0], where[1]);
+      pendingExpressions.add(new Pending(diagnostics.size(), that, where[0], where[1], false));
+    }
+  }
 
   private void error(String code, String message, String hint, int line, int column) {
     diagnostics.add(Diagnostic.error(code, message, hint, line, column));

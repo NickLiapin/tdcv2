@@ -253,6 +253,7 @@ public final class Config {
   private final List<List<String>> envUniqGroups;
   private final List<List<String>> envDistinctGroups;
   private final List<PoolSpec> pools;
+  private final List<AssertSpec> asserts;
 
   /**
    * A {@code <pool>}: a small table computed once, before the rows.
@@ -262,6 +263,14 @@ public final class Config {
    * thing by them. So it carries the fields an {@code <env>} does, and the engine builds it with
    * the ordinary machinery, handed the member count where it usually gets the row count.
    */
+  /**
+   * One {@code <assert that="…" says="…"/>} as written.
+   *
+   * <p>A statement about the whole run, like {@code <uniq>} and {@code <distinct>}, which is why
+   * it sits in {@code <env>} rather than beside a column.
+   */
+  public record AssertSpec(String that, String says) {}
+
   public record PoolSpec(
       String name,
       int count,
@@ -315,7 +324,28 @@ public final class Config {
       List<List<String>> envUniqGroups,
       List<List<String>> envDistinctGroups,
       List<PoolSpec> pools) {
+    this(
+        count, seed, locale, inject, regexMaxLength, sequences, block, fixtures, mode, engine,
+        envUniqGroups, envDistinctGroups, pools, List.of());
+  }
+
+  public Config(
+      int count,
+      String seed,
+      String locale,
+      String inject,
+      int regexMaxLength,
+      List<SequenceSpec> sequences,
+      List<Line> block,
+      Fixtures fixtures,
+      String mode,
+      String engine,
+      List<List<String>> envUniqGroups,
+      List<List<String>> envDistinctGroups,
+      List<PoolSpec> pools,
+      List<AssertSpec> asserts) {
     this.pools = List.copyOf(pools);
+    this.asserts = List.copyOf(asserts);
     this.mode = mode;
     this.engine = engine;
     this.envUniqGroups = deepCopy(envUniqGroups);
@@ -352,7 +382,13 @@ public final class Config {
         engine,
         envUniqGroups,
         envDistinctGroups,
-        pools);
+        pools,
+        asserts);
+  }
+
+  /** Every {@code <assert>} declared in {@code <env>}. */
+  public List<AssertSpec> asserts() {
+    return asserts;
   }
 
   /** Every {@code <pool>} declared in {@code <env>}. */
@@ -381,7 +417,7 @@ public final class Config {
   public Config withEngine(String newEngine) {
     return new Config(
         count, seed, locale, inject, regexMaxLength, sequences, block, fixtures, mode, newEngine,
-        envUniqGroups, envDistinctGroups, pools);
+        envUniqGroups, envDistinctGroups, pools, asserts);
   }
 
   /**
