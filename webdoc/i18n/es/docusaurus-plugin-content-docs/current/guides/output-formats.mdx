@@ -375,51 +375,48 @@ líneas que ve el lector, así que una línea multiplicada por `each=` son varia
 
 ```xml
 <tdc>
-  <env count="3" seed="orders" local="en">
+  <env count="2" seed="orders" local="en">
+    <sequence name="OrderId"><gen type="increment" value="5001"/></sequence>
     <sequence name="Sku"><gen type="regex" value="SKU-[0-9]{4}" repeat="1..3" separator="|"/></sequence>
     <before><line><data>[</data></line></before>
     <after><line><data>]</data></line></after>
-    <before_block><line><data>  [</data></line></before_block>
-    <after_block><line><data>  ]</data></line></after_block>
+    <before_block><line><data>  { "order": ${{OrderId}}, "lines": [</data></line></before_block>
+    <after_block><line><data>  ] }</data></line></after_block>
     <delimiter_block><line><data>  ,</data></line></delimiter_block>
     <delimiter_line><line><data>    ,</data></line></delimiter_line>
   </env>
   <block>
-    <line each="Sku"><data>    "${{Sku}}"</data></line>
+    <line each="Sku"><data>    { "sku": "${{Sku}}", "qty": ${{_item}} }</data></line>
   </block>
 </tdc>
 ```
 
 <Terminal title="./run orders.tdc">
 {`[
-  [
-    "SKU-3547"
+  { "order": 5001, "lines": [
+    { "sku": "SKU-3547", "qty": 1 }
     ,
-    "SKU-8121"
+    { "sku": "SKU-8121", "qty": 2 }
     ,
-    "SKU-7610"
-  ]
+    { "sku": "SKU-7610", "qty": 3 }
+  ] }
   ,
-  [
-    "SKU-4917"
-  ]
-  ,
-  [
-    "SKU-2540"
+  { "order": 5002, "lines": [
+    { "sku": "SKU-4917", "qty": 1 }
     ,
-    "SKU-4232"
-  ]
+    { "sku": "SKU-8482", "qty": 2 }
+  ] }
 ]`}
 </Terminal>
 
 `repeat="1..3"` da a cada registro un número distinto de elementos, y el delimitador lo sigue: una
 coma menos que líneas, siempre, incluido el registro que solo tiene una.
 
-:::note[El envoltorio no lleva valores]
-Las fixtures son **texto literal**: un `${{Name}}` escrito en una no se expande, y un `<gen>` dentro
-de una se rechaza (`TDC131`). Así que los corchetes van en las fixtures y todo lo que varía va en el
-`<block>`. Un registro que necesita sus propios campos *junto a* una lista anidada es la forma a la
-que esto todavía no llega.
+:::note[El envoltorio lee la fila]
+Un `${{Name}}` en una fixture SÍ se expande y lee la fila junto a la que está, así que los campos
+propios del registro van en `<before_block>`, justo al lado del corchete de apertura, y los
+elementos del array en el `<block>`. Lo que una fixture **no** puede llevar es un `<gen>`
+(`TDC131`): un generador ahí emitiría una constante con aspecto de valor sorteado.
 :::
 
 ## SQL

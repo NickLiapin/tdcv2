@@ -40,6 +40,25 @@
       "description": "The delimiter goes between the lines that SURVIVE an if=, not between the ones that were written — otherwise a suppressed middle line leaves a stray comma standing where nothing is.",
       "config": "<tdc><env count=\"1\" seed=\"s\" local=\"en\" mode=\"memory\"><sequence name=\"A\"><gen type=\"text\" value=\"x\"/></sequence><delimiter_line><line><data>,</data></line></delimiter_line></env><block><line><data>first</data></line><line if=\"A == nothing\"><data>never</data></line><line><data>last</data></line></block></tdc>",
       "expected": ["first", ",", "last"]
+    },
+    {
+      "name": "a-fixture-reads-the-row-it-stands-beside",
+      "description": "A fixture is LITERAL TEXT in the sense that a <gen> inside one is refused (TDC131) — a generator there would emit a constant that looks like a drawn value. Reading a column that has already been drawn is a different thing, and it is what lets a record wrap a nested list in its own fields: the brackets go in the fixtures, the array elements in the block, and the order id is needed in both. Four implementations always expanded ${{Name}} here and the reference did not, so this case is what stops the five drifting apart again. Which row each fixture reads is part of the contract: before sees the first, after the last, and the rest the row they stand beside.",
+      "config": "<tdc><env count=\"2\" seed=\"ord\" local=\"en\" mode=\"memory\"><sequence name=\"OrderId\"><gen type=\"increment\" value=\"5001\"/></sequence><sequence name=\"Sku\"><gen type=\"text\" value=\"A\" repeat=\"2\" separator=\"|\"/></sequence><before><line><data>first=${{OrderId}}</data></line></before><after><line><data>last=${{OrderId}}</data></line></after><before_block><line><data>{ \"order\": ${{OrderId}}, \"lines\": [</data></line></before_block><after_block><line><data>] }</data></line></after_block><delimiter_line><line><data>,</data></line></delimiter_line></env><block><line each=\"Sku\"><data>  \"${{Sku}}${{_item}}\"</data></line></block></tdc>",
+      "expected": [
+        "first=5001",
+        "{ \"order\": 5001, \"lines\": [",
+        "  \"A1\"",
+        ",",
+        "  \"A2\"",
+        "] }",
+        "{ \"order\": 5002, \"lines\": [",
+        "  \"A1\"",
+        ",",
+        "  \"A2\"",
+        "] }",
+        "last=5002"
+      ]
     }
   ]
 }

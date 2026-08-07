@@ -386,17 +386,18 @@ JSONDecodeError: Expecting ',' delimiter
 
 ```xml
 <tdc>
-  <env count="3" seed="orders" local="en">
+  <env count="2" seed="orders" local="en">
+    <sequence name="OrderId"><gen type="increment" value="5001"/></sequence>
     <sequence name="Sku"><gen type="regex" value="SKU-[0-9]{4}" repeat="1..3" separator="|"/></sequence>
     <before><line><data>[</data></line></before>
     <after><line><data>]</data></line></after>
-    <before_block><line><data>  [</data></line></before_block>
-    <after_block><line><data>  ]</data></line></after_block>
+    <before_block><line><data>  { "order": ${{OrderId}}, "lines": [</data></line></before_block>
+    <after_block><line><data>  ] }</data></line></after_block>
     <delimiter_block><line><data>  ,</data></line></delimiter_block>
     <delimiter_line><line><data>    ,</data></line></delimiter_line>
   </env>
   <block>
-    <line each="Sku"><data>    "${{Sku}}"</data></line>
+    <line each="Sku"><data>    { "sku": "${{Sku}}", "qty": ${{_item}} }</data></line>
   </block>
 </tdc>
 ```
@@ -405,23 +406,19 @@ JSONDecodeError: Expecting ',' delimiter
 
 ```
 [
-  [
-    "SKU-3547"
+  { "order": 5001, "lines": [
+    { "sku": "SKU-3547", "qty": 1 }
     ,
-    "SKU-8121"
+    { "sku": "SKU-8121", "qty": 2 }
     ,
-    "SKU-7610"
-  ]
+    { "sku": "SKU-7610", "qty": 3 }
+  ] }
   ,
-  [
-    "SKU-4917"
-  ]
-  ,
-  [
-    "SKU-2540"
+  { "order": 5002, "lines": [
+    { "sku": "SKU-4917", "qty": 1 }
     ,
-    "SKU-4232"
-  ]
+    { "sku": "SKU-8482", "qty": 2 }
+  ] }
 ]
 ```
 
@@ -429,12 +426,12 @@ JSONDecodeError: Expecting ',' delimiter
 всегда на одну меньше, чем строк, включая запись, где элемент один.
 
 > [!NOTE]
-> **В обёртке значений нет**
+> **Обёртка читает строку**
 >
-> Фикстуры — это **буквальный текст**: `${{Name}}`, написанный в фикстуре, не раскрывается, а `<gen>`
-> внутри неё отвергается (`TDC131`). Поэтому скобки живут в фикстурах, а всё, что меняется, — в
-> `<block>`. Запись, которой нужны собственные поля *рядом* с вложенным списком, — это форма, до
-> которой пока не дотягивается.
+> `${{Name}}` в фикстуре раскрывается и читает ту строку, рядом с которой фикстура стоит, — поэтому
+> собственные поля записи живут в `<before_block>` прямо у открывающей скобки, а элементы массива —
+> в `<block>`. Чего фикстура держать **не** может, так это `<gen>` (`TDC131`): генератор там выдал бы
+> константу, похожую на разыгранное значение.
 
 ## SQL
 

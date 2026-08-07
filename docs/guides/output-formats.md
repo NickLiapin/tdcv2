@@ -363,17 +363,18 @@ lines a reader sees, so a line multiplied by `each=` is several of them:
 
 ```xml
 <tdc>
-  <env count="3" seed="orders" local="en">
+  <env count="2" seed="orders" local="en">
+    <sequence name="OrderId"><gen type="increment" value="5001"/></sequence>
     <sequence name="Sku"><gen type="regex" value="SKU-[0-9]{4}" repeat="1..3" separator="|"/></sequence>
     <before><line><data>[</data></line></before>
     <after><line><data>]</data></line></after>
-    <before_block><line><data>  [</data></line></before_block>
-    <after_block><line><data>  ]</data></line></after_block>
+    <before_block><line><data>  { "order": ${{OrderId}}, "lines": [</data></line></before_block>
+    <after_block><line><data>  ] }</data></line></after_block>
     <delimiter_block><line><data>  ,</data></line></delimiter_block>
     <delimiter_line><line><data>    ,</data></line></delimiter_line>
   </env>
   <block>
-    <line each="Sku"><data>    "${{Sku}}"</data></line>
+    <line each="Sku"><data>    { "sku": "${{Sku}}", "qty": ${{_item}} }</data></line>
   </block>
 </tdc>
 ```
@@ -382,23 +383,19 @@ lines a reader sees, so a line multiplied by `each=` is several of them:
 
 ```
 [
-  [
-    "SKU-3547"
+  { "order": 5001, "lines": [
+    { "sku": "SKU-3547", "qty": 1 }
     ,
-    "SKU-8121"
+    { "sku": "SKU-8121", "qty": 2 }
     ,
-    "SKU-7610"
-  ]
+    { "sku": "SKU-7610", "qty": 3 }
+  ] }
   ,
-  [
-    "SKU-4917"
-  ]
-  ,
-  [
-    "SKU-2540"
+  { "order": 5002, "lines": [
+    { "sku": "SKU-4917", "qty": 1 }
     ,
-    "SKU-4232"
-  ]
+    { "sku": "SKU-8482", "qty": 2 }
+  ] }
 ]
 ```
 
@@ -406,12 +403,12 @@ lines a reader sees, so a line multiplied by `each=` is several of them:
 one comma fewer than there are lines, every time, including the record that has only one.
 
 > [!NOTE]
-> **The wrapper holds no values**
+> **The wrapper reads the row**
 >
-> Fixtures are **literal text**: a `${{Name}}` written in one is not expanded, and a `<gen>` inside
-> one is refused (`TDC131`). So the brackets go in the fixtures and everything that varies goes in
-> the `<block>`. A record that needs its own fields *beside* a nested list is the shape this does
-> not reach yet.
+> A `${{Name}}` in a fixture IS expanded, and reads the row that fixture stands beside — so the
+> record's own fields go in `<before_block>` right next to the opening bracket, and the array
+> elements in the `<block>`. What a fixture may **not** hold is a `<gen>` (`TDC131`): a generator
+> there would emit a constant that looks like a drawn value.
 
 ### Many records: NDJSON
 

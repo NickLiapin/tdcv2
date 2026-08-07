@@ -53,11 +53,7 @@ import { fetchHttpValues, HttpServiceError } from '../generators/http.js';
 import { fileUniform } from '../generators/file.js';
 import { isDynamicTemplateValue } from '../validator/known.js';
 import { numberGenerator } from '../generators/number.js';
-import {
-  DEFAULT_REGEX_MAX_LENGTH,
-  parseRegexMaxLength,
-  regexGenerator,
-} from '../generators/regex.js';
+import { parseRegexMaxLength, regexGenerator } from '../generators/regex.js';
 import { symbolGenerator } from '../generators/symbol.js';
 import { createPrng, cyrb128 } from '../prng/prng.js';
 import { randomPick } from '../prng/random.js';
@@ -150,14 +146,20 @@ interface EnvConfig {
   readonly seed: string;
   readonly locale: string;
   readonly inject: string;
-  readonly before: string;
-  readonly after: string;
-  readonly beforeBlock: string;
-  readonly afterBlock: string;
-  readonly delimiterBlock: string;
-  readonly beforeLine: string;
-  readonly afterLine: string;
-  readonly delimiterLine: string;
+  /* The fixture ELEMENTS, not pre-rendered text.
+   *
+   * They used to be rendered once, at config time, against an empty registry —
+   * which is why `${{Name}}` in a fixture came out as eight literal characters
+   * in this implementation while all four ports expanded it. Held as elements
+   * so each is rendered beside the row it belongs to. */
+  readonly before: OpenCloseElementContext | undefined;
+  readonly after: OpenCloseElementContext | undefined;
+  readonly beforeBlock: OpenCloseElementContext | undefined;
+  readonly afterBlock: OpenCloseElementContext | undefined;
+  readonly delimiterBlock: OpenCloseElementContext | undefined;
+  readonly beforeLine: OpenCloseElementContext | undefined;
+  readonly afterLine: OpenCloseElementContext | undefined;
+  readonly delimiterLine: OpenCloseElementContext | undefined;
   readonly regexMaxLength: number;
   /** How the engine was selected — a user mode ("memory"/"disk") or a forced id. */
   readonly engineSelection: EngineSelection;
@@ -607,14 +609,37 @@ export function* streamFromPrepared(
   const start = Math.max(0, Math.min(options.range?.start ?? 0, env.count));
   const end = Math.max(start, Math.min(options.range?.end ?? env.count, env.count));
 
-  if (start === 0 && env.before.length > 0) yield env.before;
+  // Which row a fixture reads is the contract the four ports already keep:
+  // `before` sees the first row, `after` the last, and everything else the row
+  // it stands beside. A fixture draws nothing, so the prng is a constant zero.
+  const fixtureCtx = (iteration: number): RenderContext => ({
+    eachInfo,
+    prng: () => 0,
+    locale: env.locale,
+    now,
+    baseDir: options.baseDir,
+    dataPaths: options.dataPaths,
+    inject: env.inject,
+    iteration,
+    registry,
+    state,
+    regexMaxLength: env.regexMaxLength,
+    source: options.source,
+    packs: options.packs ?? bundledPacks(),
+  });
+
+  if (start === 0) {
+    const head = renderFixture(env.before, fixtureCtx(0));
+    if (head.length > 0) yield head;
+  }
 
   for (let i = start; i < end; i++) {
     // Build ONE card's worth of output in a local string, then yield
     // it as a single chunk. This keeps memory bounded by the size of
     // one card (rather than the whole output) while preserving the
     // byte-exact output contract.
-    let card = env.beforeBlock;
+    const fx = fixtureCtx(i);
+    let card = renderFixture(env.beforeBlock, fx);
     const activeLines = lines.filter((line) => lineIfPasses(line, registry, i));
     // The OUTPUT lines, not the <line> ELEMENTS. One `<line each="Items">`
     // produces as many output lines as the list has elements, and the three
@@ -644,17 +669,20 @@ export function* streamFromPrepared(
       );
     }
     for (let lineIdx = 0; lineIdx < output.length; lineIdx++) {
-      card += env.beforeLine;
+      card += renderFixture(env.beforeLine, fx);
       card += output[lineIdx] ?? '';
-      card += env.afterLine;
-      if (lineIdx < output.length - 1) card += env.delimiterLine;
+      card += renderFixture(env.afterLine, fx);
+      if (lineIdx < output.length - 1) card += renderFixture(env.delimiterLine, fx);
     }
-    card += env.afterBlock;
-    if (i < env.count - 1) card += env.delimiterBlock;
+    card += renderFixture(env.afterBlock, fx);
+    if (i < env.count - 1) card += renderFixture(env.delimiterBlock, fx);
     if (card.length > 0) yield card;
   }
 
-  if (end === env.count && env.after.length > 0) yield env.after;
+  if (end === env.count) {
+    const tail = renderFixture(env.after, fixtureCtx(Math.max(0, env.count - 1)));
+    if (tail.length > 0) yield tail;
+  }
 }
 
 function lineIfPasses(
@@ -688,22 +716,22 @@ function extractEnvConfig(
   const locale = options.locale ?? attrs['local'] ?? options.defaultLocale ?? 'en';
   const regexMaxLength = parseRegexMaxLength(tdcAttrs['regex_max_length']);
 
-  const fixtureStr = (name: string): string =>
-    envEl ? renderFixtureLines(findChildElement(envEl.content(), name)) : '';
+  const fixtureEl = (name: string): OpenCloseElementContext | undefined =>
+    envEl ? findChildElement(envEl.content(), name) : undefined;
 
   return {
     count,
     seed,
     locale,
     inject: attrs['inject'] ?? '${{%}}',
-    before: fixtureStr('before'),
-    after: fixtureStr('after'),
-    beforeBlock: fixtureStr('before_block'),
-    afterBlock: fixtureStr('after_block'),
-    delimiterBlock: fixtureStr('delimiter_block'),
-    beforeLine: fixtureStr('before_line'),
-    afterLine: fixtureStr('after_line'),
-    delimiterLine: fixtureStr('delimiter_line'),
+    before: fixtureEl('before'),
+    after: fixtureEl('after'),
+    beforeBlock: fixtureEl('before_block'),
+    afterBlock: fixtureEl('after_block'),
+    delimiterBlock: fixtureEl('delimiter_block'),
+    beforeLine: fixtureEl('before_line'),
+    afterLine: fixtureEl('after_line'),
+    delimiterLine: fixtureEl('delimiter_line'),
     regexMaxLength,
     engineSelection: resolveEngineSelection(attrs, options),
   };
@@ -990,39 +1018,26 @@ export function needsExactEngine(
 }
 
 /**
- * Render a fixture (<before>, <after>, <before_block>, etc.) into a
- * literal string. Fixtures contain only <line> children whose contents
- * are themselves plain <data> in every canonical fixture; we still
- * accept <gen> for completeness — render-time prng/now/locale will
- * come from the caller if/when that matters.
+ * A fixture, rendered beside the row it belongs to.
+ *
+ * `${{Name}}` IS expanded here — the four ports always expanded it and this
+ * implementation did not, which made a header naming a column come out as eight
+ * literal characters in one implementation out of five. What stays refused is a
+ * `<gen>` inside a fixture (TDC131): a generator there would emit a CONSTANT
+ * that looks like a drawn value. Reading a column already drawn is a different
+ * thing, and it is what lets a record wrap a nested list in its own fields.
+ *
+ * The prng is a constant zero and nothing draws from it, so adding a fixture
+ * leaves every column exactly where it was.
  */
-function renderFixtureLines(el: OpenCloseElementContext | undefined): string {
+function renderFixture(el: OpenCloseElementContext | undefined, ctx: RenderContext): string {
   if (!el) return '';
   let out = '';
   for (const child of contentElements(el.content())) {
     const k = elementKind(child);
     if (k?.kind === 'open' && elementName(k.node) === 'line') {
-      // Fixture lines have no runtime generators in any current fixture;
-      // pass placeholder prng/now so the signature matches. If a future
-      // fixture embeds a <gen>, the caller can pre-compute fixtures at
-      // init time with the real prng. No interpolation is applied to
-      // fixtures (before/after are logically outside the iteration).
-      // renderLine returns the OUTPUT lines; a fixture line is one of them, but
-      // joining rather than concatenating is what keeps a two-line fixture from
-      // coming out with a comma between its lines.
-      out += renderLine({
-        line: k.node,
-        prng: () => 0,
-        locale: 'en',
-        now: 0,
-        baseDir: undefined,
-        dataPaths: undefined,
-        inject: '${{%}}',
-        iteration: 0,
-        registry: {},
-        state: createRenderState(1),
-        regexMaxLength: DEFAULT_REGEX_MAX_LENGTH,
-      }).join('');
+      // A fixture line is one output line, and renderLine hands back the LINES.
+      out += renderLine({ ...ctx, line: k.node }).join('');
     }
   }
   return out;

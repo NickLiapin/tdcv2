@@ -332,13 +332,13 @@ The full set — `mask`, `upper`/`lower`/`capitalize`/`title`, `slice`, `replace
 
 ### Where interpolation does _not_ run
 
-- **Not in fixtures.** `${{…}}` is left untouched inside
-  [`<before>`](#fixtures--text-around-the-records) / `<after>` / `<before_block>` and
-  the rest — they sit outside the per-row loop.
 - **Not in attributes.** Interpolation happens only in `<data>` text, never inside a
   tag's attribute value.
 - **No nesting.** Interpolation is single-pass. If a sequence value itself contains
   `${{Something}}`, that inner marker is **not** processed again — it goes out as-is.
+
+Fixtures are the one place people expect it not to reach, and it does: see
+[Fixtures](#fixtures--text-around-the-records) below.
 
 ## Conditional text with `if`
 
@@ -419,8 +419,11 @@ The `[` printed exactly once at the top and the `]` exactly once at the bottom, 
 
 Two caveats, both enforced:
 
-- **Interpolation doesn't run in fixtures** (they're outside the loop) — a `${{…}}`
-  there stays literal text.
+- **Interpolation DOES run in fixtures.** A `${{Name}}` reads the row the fixture stands
+  beside: `<before>` sees the first row, `<after>` the last, and the per-card and per-line
+  fixtures the row they wrap. That is what lets a record put its own fields around a nested
+  list. (This is one of the few behaviours the reference implementation had to be corrected
+  on: it printed the braces literally while all four ports expanded them.)
 - **Generators don't run in fixtures either.** A `<gen>`, `<mix>`, or `<switch>` inside
   a fixture is error `TDC131`. This used to fail silently: a `value="500..999"`
   generator in a fixture always emitted `500`, the low bound, which looked like a real

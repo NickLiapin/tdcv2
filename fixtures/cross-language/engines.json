@@ -334,6 +334,40 @@
         "lines": ["first", ",", "last"]
       }
     },
+    "containers/a-fixture-reads-the-row-it-stands-beside": {
+      "engine2": {
+        "lines": [
+          "first=5001",
+          "{ \"order\": 5001, \"lines\": [",
+          "  \"A1\"",
+          ",",
+          "  \"A2\"",
+          "] }",
+          "{ \"order\": 5002, \"lines\": [",
+          "  \"A1\"",
+          ",",
+          "  \"A2\"",
+          "] }",
+          "last=5002"
+        ]
+      },
+      "engine3": {
+        "lines": [
+          "first=5001",
+          "{ \"order\": 5001, \"lines\": [",
+          "  \"A1\"",
+          ",",
+          "  \"A2\"",
+          "] }",
+          "{ \"order\": 5002, \"lines\": [",
+          "  \"A1\"",
+          ",",
+          "  \"A2\"",
+          "] }",
+          "last=5002"
+        ]
+      }
+    },
     "dates/date-range-day": {
       "engine2": {
         "lines": [

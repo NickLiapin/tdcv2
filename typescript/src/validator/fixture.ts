@@ -1,9 +1,11 @@
 /**
- * Fixtures hold literal text only.
+ * A fixture emits text, not draws.
  *
  * `<before>`, `<after>`, the per-card and per-line variants and the two
- * delimiters emit text around the generated rows. Interpolation and generators
- * do not run there — every fixture page says so — but nothing enforced it, so a
+ * delimiters emit text around the generated rows. Interpolation DOES run there —
+ * a `${{Name}}` reads the row the fixture stands beside, which is what lets a
+ * record put its own fields around a nested list. A GENERATOR does not, and
+ * nothing enforced that, so a
  * `<gen>` inside one was accepted in silence and emitted a CONSTANT:
  * `value="500..999"` produced `500` on every card and under every seed. A
  * constant that looks like a generated value is worse than either honouring the
@@ -31,10 +33,9 @@ export const FIXTURE_TAGS: readonly string[] = [
 ];
 
 /**
- * Fixtures hold literal text only — interpolation and generators do not run
- * there, which every fixture page already states.
+ * A generator does not run in a fixture — interpolation does.
  *
- * Nothing enforced it, so a `<gen>` inside one was accepted in silence and
+ * Nothing enforced the first half, so a `<gen>` inside one was accepted in silence and
  * emitted a CONSTANT: `value="500..999"` produced `500` on every card and under
  * every seed. A constant that looks like a generated value is worse than either
  * honouring the generator or refusing it, and the identical tag inside

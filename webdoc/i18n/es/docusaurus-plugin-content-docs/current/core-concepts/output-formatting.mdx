@@ -315,10 +315,6 @@ escapes `csv`/`sql`— está en **[Máscaras y mayúsculas](../guides/masks-and-
 
 ### Dónde _no_ se ejecuta la interpolación
 
-- **No en las fixtures.** `${{…}}` queda intacto dentro de
-  [`<before>`](#fixtures--texto-alrededor-de-los-registros) / `<after>` /
-  `<before_block>` y las demás fixtures — quedan lógicamente fuera de la iteración por
-  fila.
 - **No en los atributos.** La interpolación ocurre solo dentro del texto de `<data>`,
   nunca dentro del valor de un atributo.
 - **Sin anidamiento.** La interpolación es de una sola pasada. Si el valor de una
@@ -400,8 +396,12 @@ importar si `count` es 3 o 3 000.
 
 Dos advertencias, ambas obligadas:
 
-- **La interpolación no se ejecuta en las fixtures** (quedan fuera de la iteración): un
-  `${{…}}` ahí se queda como texto literal.
+- **La interpolación SÍ se ejecuta en las fixtures.** Un `${{Name}}` lee la fila junto a
+  la que está la fixture: `<before>` ve la primera, `<after>` la última, y las de registro
+  y de línea la fila que envuelven. Eso es lo que permite que un registro ponga sus propios
+  campos alrededor de una lista anidada. (Es uno de los pocos comportamientos que hubo que
+  corregir en la implementación de referencia: imprimía las llaves literalmente mientras
+  los cuatro ports las expandían.)
 - **Los generadores tampoco corren en las fixtures.** Un `<gen>`, `<mix>` o `<switch>`
   dentro de una fixture es el error `TDC131`. Antes esto fallaba en silencio: un generador
   `value="500..999"` en una fixture siempre emitía `500` (la cota inferior), lo que parecía
