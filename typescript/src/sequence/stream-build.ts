@@ -197,6 +197,19 @@ export function buildLazyRegistry(
       );
     }
 
+    // A date measured from another date needs only the SAME row of its source,
+    // so unlike a running total it is not the idea that resists streaming — the
+    // streaming path simply has no way to read a sibling column lazily, which is
+    // why a dynamic template defers here too. Refused by name until it has one,
+    // and the router hands the config to the in-memory engine.
+    if (spec.gen?.type === 'date' && (spec.gen.attrs['of'] ?? '').trim() !== '') {
+      throw new StreamUnsupportedError(
+        `a date measured from another column ("${spec.name}") reads that column as the row is ` +
+          'built, and the streaming path has no way to do that yet; the in-memory engine ' +
+          'handles it (run without a forced streaming engine)',
+      );
+    }
+
     // A network call is not a draw: it is neither reproducible from a row index
     // nor answerable synchronously, which is what a lazy per-row resolver needs.
     // Refused here rather than left to fall through, because the fall-through

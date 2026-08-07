@@ -285,3 +285,68 @@ export function parseWeekdays(raw: string | undefined): ReadonlySet<number> | un
 export function weekdayOf(value: PlainDateTime): number {
   return utcWeekday(value);
 }
+
+/* ── An offset from another date ──────────────────────────────────────────────
+ *
+ * `plus="3..10d"` — a discharge three to ten days after an admission, a delivery
+ * one to three months after an order. The interval is the part of a real record
+ * that could not be said at all: two independent date columns give a discharge
+ * before its admission on a third of the rows, and non-overlapping windows
+ * ("admitted in January, discharged April to June") throw away the very thing
+ * the interval is for — its length and how that length is distributed.
+ *
+ * The notation is `count`, or `lo..hi`, followed by ONE unit — the same units
+ * `step=` uses, so a reader who has written `step="3mo"` already knows this. The
+ * unit sits at the end rather than on both sides because `3d..10d` invites two
+ * DIFFERENT units, and "three days to two months" has no whole number of steps
+ * to draw.
+ */
+
+/** A drawn offset: `lo..hi` steps of one unit. `lo === hi` is a fixed offset. */
+export interface OffsetSpec {
+  readonly lo: number;
+  readonly hi: number;
+  /** One step, as `addStep` takes it — so the calendar clamping is shared. */
+  readonly unit: StepSpec;
+}
+
+/** What a `plus=` may say, for a diagnostic to quote. */
+export const OFFSET_SYNTAX = '7d, 3..10d, 1..3mo, -5..-1d — units s, m, h, d, w, mo, y';
+
+export type OffsetResult =
+  | { readonly ok: true; readonly offset: OffsetSpec }
+  | { readonly ok: false; readonly reason: 'syntax' | 'order' };
+
+/**
+ * `plus="3..10d"`, `plus="7d"`, `plus="-5..-1d"`, `plus="1..3mo"`.
+ *
+ * A bare number means DAYS, matching `step=`. The low bound may exceed neither
+ * the high one nor the other way round — `10..3d` is a typo, and silently
+ * swapping it would hide the typo rather than report it.
+ */
+export function parseOffset(raw: string | undefined): OffsetResult {
+  const value = (raw ?? '').trim().toLowerCase();
+  if (value === '') return { ok: false, reason: 'syntax' };
+
+  const shape = /^(-?\d+)(?:\.\.(-?\d+))?(mo|[smhdwy])?$/.exec(value);
+  if (!shape) return { ok: false, reason: 'syntax' };
+  const [, loText, hiText, unitName] = shape;
+  const lo = Number(loText);
+  const hi = hiText === undefined ? lo : Number(hiText);
+  if (!Number.isSafeInteger(lo) || !Number.isSafeInteger(hi))
+    return { ok: false, reason: 'syntax' };
+  if (lo > hi) return { ok: false, reason: 'order' };
+
+  const name = unitName ?? 'd';
+  const fixed = FIXED_UNIT_MS[name];
+  const months = CALENDAR_UNIT_MONTHS[name];
+  const unit: StepSpec =
+    fixed === undefined ? { ms: 0, months: months ?? 0 } : { ms: fixed, months: 0 };
+  if (unit.ms === 0 && unit.months === 0) return { ok: false, reason: 'syntax' };
+  return { ok: true, offset: { lo, hi, unit } };
+}
+
+/** The source date moved by `n` steps of the offset's unit. */
+export function applyOffset(start: PlainDateTime, offset: OffsetSpec, n: number): PlainDateTime {
+  return addStep(start, offset.unit, n);
+}

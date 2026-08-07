@@ -98,6 +98,7 @@ import { enforceUniqRedrawing } from './enforce-uniq.js';
 import { enforceEnvDistinct, enforceEnvUniq } from './env-groups.js';
 import { poolRefName, type PoolTables } from './pool.js';
 import { registerPoolRef } from './pool-ref.js';
+import { isDateOffset, registerDateOffset } from './date-offset.js';
 import { registerStat } from './stat.js';
 import { registerRunning } from './running.js';
 
@@ -386,6 +387,14 @@ export function buildSequences(
     // a sequence declared above it.
     if (spec.gen?.type === 'stat') {
       registerStat(spec, registry, count);
+      continue;
+    }
+    // A date measured from another date. Resolved here, in declaration order,
+    // for the same reason as the two above: it reads a column, so `of=` names
+    // one declared above it. Unlike them it needs only the SAME row of that
+    // column — nothing accumulates and nothing waits for the last row.
+    if (isDateOffset(spec)) {
+      registerDateOffset(spec, registry, count, prng, locale);
       continue;
     }
     if (spec.items) {
