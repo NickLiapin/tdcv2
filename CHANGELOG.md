@@ -44,6 +44,15 @@ page — is tracked in that implementation's own changelog:
   validation as a uniqueness promise and then drew with replacement. Every other boolean
   attribute in the DSL is read case-insensitively; `uniq` now is too, in all five.
 
+<!-- covers: distinct -->
+
+- A `<switch>` member of an env-level `<distinct>` came out **blank** on the rows where it
+  collided, on every engine and with no diagnostic. The redraw was given no row, so it could
+  not tell which branch the subject had selected and returned the empty string — which the
+  caller then accepted as a value different from all the others and wrote into the cell. It
+  now redraws inside the branch the row belongs to: a `<case is="p">` row comes back with
+  another p value. The function's own comment had claimed the switch case was handled.
+
 <!-- covers: abs, round, floor, ceil, trunc, min, max -->
 
 - `abs`, `round`, `floor`, `ceil`, `trunc`, `min` and `max` in `if=` and `filter=` kept

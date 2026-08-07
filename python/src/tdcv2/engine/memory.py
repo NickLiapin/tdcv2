@@ -1467,7 +1467,7 @@ def _enforce_env_distinct(config: Config, columns, count: int, run: _Run) -> Non
                         redraw_run,
                         prng=seekable.generator(seed, f"{name}#ed{attempts}", i),
                     )
-                    value = _one_scalar(by_name[name], one)
+                    value = _one_scalar(by_name[name], one, columns, i)
                 values[i] = value
                 seen.append(value)
 
@@ -1647,15 +1647,46 @@ def _scalar_members(group: list[str], by_name, columns) -> list[str]:
     return out
 
 
-def _one_scalar(spec: SequenceSpec, run: _Run) -> str:
-    """One fresh value from a sequence — what a ``<distinct>`` collision redraws."""
+def _one_scalar(spec: SequenceSpec, run: _Run, columns=None, row: int = 0) -> str:
+    """One fresh value from a sequence — what a ``<distinct>`` collision redraws.
+
+    A switch needs the ROW, which the other two do not: its branch is chosen by the subject
+    column's value on that row, so a redraw has to land in the branch the original did — a
+    ``<case is="p">`` row must come back with another p value. Without the row this returned the
+    empty string, which the caller then accepted as "different from the others" and wrote into
+    the cell: colliding rows came out BLANK, with no diagnostic, from a config the docs describe
+    as supported.
+    """
     if spec.gen is not None:
         built = _finish(_generate(spec.gen, 1, run), spec.gen.attrs, run.prng, [False])
         return built[0] if built else ""
     if spec.is_mix:
         built = _mix_values(spec.mix, 1, run, [False])
         return built[0] if built else ""
+    if spec.is_switch and spec.switch_spec is not None:
+        return _one_switch(spec.switch_spec, run, columns, row)
     return ""
+
+
+def _one_switch(switch_spec, run: _Run, columns, row: int) -> str:
+    """One fresh value from the branch this row's subject selects.
+
+    The FIRST entry whose keys hold the subject's value, else ``<default>``, else the empty
+    string — exactly the precedence ``_switch_values`` uses when it builds the whole column.
+    """
+    subject = None if columns is None else columns.get(switch_spec.on)
+    key = "" if subject is None or subject[row] is None else subject[row]
+    chosen = None
+    for entry in switch_spec.entries:
+        if key in entry.keys:
+            chosen = entry.value
+            break
+    if chosen is None:
+        chosen = switch_spec.fallback
+    if chosen is None:
+        return ""
+    built = _case_values(chosen, 1, run)
+    return built[0] if built else ""
 
 
 # ── generating ──────────────────────────────────────────────────────────────────────────────

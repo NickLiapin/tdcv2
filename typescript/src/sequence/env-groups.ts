@@ -23,10 +23,10 @@ import { seekableGen } from '../prng/seekable.js';
 
 import { buildGenValues } from './build.js';
 import type { SequenceBuildContext } from './context.js';
-import { buildMixValues } from './mix-values.js';
+import { buildCaseValues, buildMixValues } from './mix-values.js';
 import { redrawCtx } from './per-row.js';
 import { arrangeUnique, uniqUpperBound, valueCounts } from './uniq.js';
-import type { Sequence, SequenceSpec } from './types.js';
+import { type Sequence, type SequenceSpec, type SwitchSpec, sequenceValueAt } from './types.js';
 
 /** Maximum redraws for one field of a `<distinct>` group before giving up. */
 const DISTINCT_FUSE = 1000;
@@ -212,7 +212,7 @@ export function enforceEnvDistinct(
           const memberSpec = specByName.get(name);
           const draw = keyed ? seekableGen(keyed.seed, `${name}#ed${String(attempts)}`, i) : prng;
           value = memberSpec
-            ? produceOneScalar(memberSpec, draw, locale, now, keyed ? redraw : ctx)
+            ? produceOneScalar(memberSpec, draw, locale, now, keyed ? redraw : ctx, registry, i)
             : value;
         }
         values[i] = value;
@@ -226,15 +226,53 @@ export function enforceEnvDistinct(
   }
 }
 
-/** Draw one fresh scalar value from a simple or switch sequence spec. */
+/**
+ * Draw one fresh scalar value from a simple, mix or switch sequence spec.
+ *
+ * A switch needs the ROW, which the other two do not: its branch is chosen by
+ * the subject column's value on that row, so a redraw has to land in the same
+ * branch the original did — a `<case is="Male">` row must stay a male name.
+ * Without the row this function had nothing to select with and returned the
+ * empty string, which the caller then accepted as a value different from every
+ * other: the colliding row came out BLANK, on every engine, with no diagnostic.
+ * The construct said it could redraw and produced nothing, which is the failure
+ * this codebase keeps meeting; the doc comment even claimed the switch case was
+ * handled.
+ */
 function produceOneScalar(
   spec: SequenceSpec,
   prng: () => number,
   locale: string,
   now: number,
   ctx: SequenceBuildContext,
+  registry: Record<string, Sequence>,
+  row: number,
 ): string {
   if (spec.gen) return buildGenValues(spec.gen, 1, prng, locale, now, ctx)[0] ?? '';
   if (spec.mixSpec) return buildMixValues(spec.mixSpec, 1, prng, locale, now, ctx)[0] ?? '';
+  if (spec.switchSpec)
+    return produceOneSwitch(spec.switchSpec, prng, locale, now, ctx, registry, row);
   return '';
+}
+
+/**
+ * One fresh value from the branch this row's subject selects — the FIRST entry
+ * whose keys hold the subject's value, else `<default>`, else the empty string,
+ * exactly the precedence materializeSwitch uses when it builds the column.
+ */
+function produceOneSwitch(
+  switchSpec: SwitchSpec,
+  prng: () => number,
+  locale: string,
+  now: number,
+  ctx: SequenceBuildContext,
+  registry: Record<string, Sequence>,
+  row: number,
+): string {
+  const subject = registry[switchSpec.on];
+  const key = subject ? (sequenceValueAt(subject, row) ?? '') : '';
+  const entry = switchSpec.entries.find((e) => e.keys.includes(key));
+  const chosen = entry?.value ?? switchSpec.fallback;
+  if (chosen === undefined) return '';
+  return buildCaseValues(chosen, 1, prng, locale, now, ctx)[0] ?? '';
 }

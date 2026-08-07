@@ -176,6 +176,43 @@ describe('<distinct> at config level — around whole sequences', () => {
     );
   });
 
+  /**
+   * A `<switch>` member is redrawn INSIDE the branch its subject chose, not from
+   * the whole table: a `<case is="p">` row that collides must come back with
+   * another p-value, never a q-value and never nothing.
+   *
+   * The redraw used to have no row to select a branch with, so it produced the
+   * empty string — which the caller then accepted as "different from the others"
+   * and wrote into the cell. Colliding rows came out BLANK, on every engine, with
+   * no diagnostic, from a config the page documents as supported. This asserts on
+   * the values, not just on the inequality: a blank differs from everything too,
+   * so a test that only checked A !== B would have passed throughout.
+   */
+  it('a <switch> member is redrawn within its own branch, never blanked', () => {
+    const dsl = `
+      <tdc>
+        <env count="40" seed="cfg-switch" inject="\${{%}}">
+          <sequence name="K"><gen type="text" value="p,q"/></sequence>
+          <distinct>
+            <sequence name="A"><gen type="text" value="x,y,z"/></sequence>
+            <switch name="B" on="K">
+              <case is="p"><gen type="text" value="x,y,z"/></case>
+              <case is="q"><gen type="text" value="x,y,z"/></case>
+            </switch>
+          </distinct>
+        </env>
+        <block><line><data>\${{A}}|\${{B}}</data></line></block>
+      </tdc>`;
+    const rows = render(parseStrict(dsl), { now: FIXED_NOW }).split('\n').filter(Boolean);
+    expect(rows).toHaveLength(40);
+    for (const row of rows) {
+      const [a, b] = row.split('|');
+      expect(b).not.toBe('');
+      expect(['x', 'y', 'z']).toContain(b);
+      expect(a).not.toBe(b);
+    }
+  });
+
   it('rejects a compound sequence inside a config-level <distinct>', () => {
     const dsl = `
       <tdc>

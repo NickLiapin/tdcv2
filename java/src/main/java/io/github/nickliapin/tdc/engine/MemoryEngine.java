@@ -925,7 +925,7 @@ public final class MemoryEngine {
             // Named for the sequence and the attempt, exactly as the streaming engine names it,
             // so the replacement is the same value on both engines.
             Prng.Sfc32 one = Seekable.generator(config.seed(), name + "#ed" + attempts, i);
-            value = oneScalar(byName.get(name), one, packs, config, nowMillis, baseDir);
+            value = oneScalar(byName.get(name), one, packs, config, nowMillis, baseDir, columns, i);
           }
           values[i] = value;
           seen.add(value);
@@ -1206,13 +1206,25 @@ public final class MemoryEngine {
   }
 
   /** One fresh value from a sequence — what a {@code <distinct>} collision redraws. */
+  /**
+   * One fresh value from a sequence — what a {@code <distinct>} collision redraws.
+   *
+   * <p>A switch needs the ROW, which the other two do not: its branch is chosen by the subject
+   * column's value on that row, so a redraw has to land in the branch the original did — a
+   * {@code <case is="p">} row must come back with another p value. Without the row this returned
+   * the empty string, which the caller then accepted as "different from the others" and wrote
+   * into the cell: colliding rows came out BLANK, with no diagnostic, from a config the docs
+   * describe as supported.
+   */
   private static String oneScalar(
       Config.SequenceSpec spec,
       Prng.Sfc32 prng,
       DataPacks packs,
       Config config,
       long nowMillis,
-      Path baseDir) {
+      Path baseDir,
+      Map<String, String[]> columns,
+      int row) {
     if (spec.gen() != null) {
       List<String> built =
           finish(
@@ -1227,6 +1239,32 @@ public final class MemoryEngine {
           mixValues(
               spec.mix(), 1, prng, packs, config, nowMillis, baseDir, new LinkedHashMap<>(),
               new boolean[1], null, Map.of());
+      return built.isEmpty() ? "" : built.get(0);
+    }
+    if (spec.isSwitch()) {
+      // The FIRST entry whose keys hold the subject's value, else <default>, else empty — the
+      // precedence switchValues builds the whole column with.
+      Config.Switch sw = spec.switchSpec();
+      String[] subject = columns.get(sw.on());
+      String key = subject != null && row < subject.length && subject[row] != null
+          ? subject[row]
+          : "";
+      Config.Case chosen = null;
+      for (Config.SwitchEntry entry : sw.entries()) {
+        if (entry.keys().contains(key)) {
+          chosen = entry.value();
+          break;
+        }
+      }
+      if (chosen == null) {
+        chosen = sw.fallback();
+      }
+      if (chosen == null) {
+        return "";
+      }
+      List<String> built =
+          caseValues(
+              chosen, 1, prng, packs, config, nowMillis, baseDir, Map.of(), null, columns);
       return built.isEmpty() ? "" : built.get(0);
     }
     return "";

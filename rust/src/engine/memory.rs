@@ -1249,7 +1249,7 @@ fn enforce_env_distinct(
                         &format!("{name}#ed{attempts}"),
                         i as i32,
                     );
-                    value = one_scalar(spec, &mut one, env)?;
+                    value = one_scalar(spec, &mut one, env, columns, i)?;
                 }
                 if let Some(column) = columns.get_mut(name) {
                     column[i] = Some(value.clone());
@@ -1530,7 +1530,22 @@ fn scalar_members(
 }
 
 /// One fresh value from a sequence — what a `<distinct>` collision redraws.
-fn one_scalar(spec: &SequenceSpec, prng: &mut Sfc32, env: &Env) -> EngineResult<String> {
+/// One fresh value from a sequence — what a `<distinct>` collision redraws.
+///
+/// A switch needs the ROW, which the other two do not: its branch is chosen by
+/// the subject column's value on that row, so a redraw has to land in the branch
+/// the original did — a `<case is="p">` row must come back with another p value.
+/// Without the row this returned the empty string, which the caller then
+/// accepted as "different from the others" and wrote into the cell: colliding
+/// rows came out BLANK, with no diagnostic, from a config the docs describe as
+/// supported.
+fn one_scalar(
+    spec: &SequenceSpec,
+    prng: &mut Sfc32,
+    env: &Env,
+    columns: &BTreeMap<String, Vec<Option<String>>>,
+    row: usize,
+) -> EngineResult<String> {
     match &spec.source {
         Source::Gen(gen) => {
             let drawn = generate(gen, 1, prng, env)?;
@@ -1547,6 +1562,28 @@ fn one_scalar(spec: &SequenceSpec, prng: &mut Sfc32, env: &Env) -> EngineResult<
                     .next()
                     .unwrap_or_default(),
             )
+        }
+        // The FIRST entry whose keys hold the subject's value, else `<default>`,
+        // else the empty string — the precedence `switch_values` builds with.
+        Source::Switch(sw) => {
+            let key = columns
+                .get(&sw.on)
+                .and_then(|c| c.get(row))
+                .and_then(|v| v.as_deref())
+                .unwrap_or("");
+            let chosen = sw
+                .entries
+                .iter()
+                .find(|e| e.keys.iter().any(|k| k == key))
+                .map(|e| &e.value)
+                .or(sw.fallback.as_ref());
+            match chosen {
+                None => Ok(String::new()),
+                Some(case) => Ok(case_values(case, 1, prng, env, None, columns)?
+                    .into_iter()
+                    .next()
+                    .unwrap_or_default()),
+            }
         }
         _ => Ok(String::new()),
     }

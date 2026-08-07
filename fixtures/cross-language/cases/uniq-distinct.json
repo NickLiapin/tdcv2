@@ -242,6 +242,21 @@
       "description": "Every other boolean attribute in the DSL is read case-insensitively; uniq alone was compared against the bare lowercase literal, so `uniq=\"True\"` validated as a uniqueness promise and then drew with replacement. Both columns here exhaust the same eight values, and they must agree — a port that keeps the strict comparison produces duplicates in the second column only.",
       "config": "<tdc><env count=\"8\" seed=\"s\" local=\"en\" mode=\"memory\"><sequence name=\"Lower\" uniq=\"true\"><gen type=\"number\" value=\"1..8\"/></sequence><sequence name=\"Upper\" uniq=\"True\"><gen type=\"number\" value=\"1..8\"/></sequence></env><block><line><data>${{Lower}},${{Upper}}</data></line></block></tdc>",
       "expected": ["4,2", "3,7", "8,1", "6,3", "1,8", "7,6", "5,5", "2,4"]
+    },
+    {
+      "name": "a-switch-in-a-distinct-group-is-redrawn-inside-its-own-branch",
+      "description": "An env-level <distinct> redraws a colliding member until it differs. A <switch> member has to be redrawn inside the branch its subject chose — a p row must come back with another p value. The redraw had no row to select a branch with, so it produced the empty string, which the caller accepted as different from everything and wrote into the cell: colliding rows came out blank on every engine, with no diagnostic, from a config the docs describe as supported. The bracketed column pins that the value is present, not merely different.",
+      "config": "<tdc><env count=\"8\" seed=\"dsw\" local=\"en\"><sequence name=\"K\"><gen type=\"text\" value=\"p,q\"/></sequence><distinct><sequence name=\"A\"><gen type=\"text\" value=\"x,y,z\"/></sequence><switch name=\"B\" on=\"K\"><case is=\"p\"><gen type=\"text\" value=\"x,y,z\"/></case><case is=\"q\"><gen type=\"text\" value=\"x,y,z\"/></case></switch></distinct></env><block><line><data>${{K}} ${{A}} [${{B}}]</data></line></block></tdc>",
+      "expected": [
+        "q x [z]",
+        "q y [z]",
+        "p y [x]",
+        "p z [x]",
+        "p y [z]",
+        "q x [z]",
+        "q x [z]",
+        "p z [y]"
+      ]
     }
   ]
 }

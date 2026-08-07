@@ -1653,7 +1653,7 @@ public static class MemoryEngine
                         // engine names it, so the replacement is the same on both engines.
                         Sfc32 one = Seekable.Generator(
                             ctx.Config.Seed, $"{name}#ed{attempts}", i);
-                        value = OneScalar(byName[name], one, ctx);
+                        value = OneScalar(byName[name], one, ctx, columns, i);
                     }
 
                     values[i] = value;
@@ -1979,7 +1979,18 @@ public static class MemoryEngine
             .ToList();
 
     /// <summary>One fresh value from a sequence — what a <c>&lt;distinct&gt;</c> collision redraws.</summary>
-    private static string OneScalar(SequenceSpec spec, Sfc32 prng, Ctx ctx)
+    /// <summary>One fresh value from a sequence — what a <c>&lt;distinct&gt;</c> collision redraws.</summary>
+    /// <remarks>
+    /// A switch needs the ROW, which the other two do not: its branch is chosen by the subject
+    /// column's value on that row, so a redraw has to land in the branch the original did — a
+    /// <c>&lt;case is="p"&gt;</c> row must come back with another p value. Without the row this
+    /// returned the empty string, which the caller then accepted as "different from the others"
+    /// and wrote into the cell: colliding rows came out BLANK, with no diagnostic, from a config
+    /// the docs describe as supported.
+    /// </remarks>
+    private static string OneScalar(
+        SequenceSpec spec, Sfc32 prng, Ctx ctx,
+        IReadOnlyDictionary<string, string[]> columns, int row)
     {
         if (spec.Gen is not null)
         {
@@ -1991,6 +2002,24 @@ public static class MemoryEngine
         if (spec.IsMix)
         {
             IReadOnlyList<string> built = MixValues(spec.Mix!, 1, prng, new bool[1], ctx, null);
+            return built.Count == 0 ? "" : built[0];
+        }
+
+        if (spec.SwitchSpec is not null)
+        {
+            // The FIRST entry whose keys hold the subject's value, else <default>, else empty —
+            // the precedence SwitchValues builds the whole column with.
+            string key = columns.TryGetValue(spec.SwitchSpec.On, out string[]? subject)
+                && row < subject.Length ? subject[row] ?? "" : "";
+            Case? chosen = spec.SwitchSpec.Entries
+                .FirstOrDefault(e => e.Keys.Contains(key, StringComparer.Ordinal))?.Value
+                ?? spec.SwitchSpec.Fallback;
+            if (chosen is null)
+            {
+                return "";
+            }
+
+            IReadOnlyList<string> built = CaseValues(chosen, 1, prng, ctx, null);
             return built.Count == 0 ? "" : built[0];
         }
 

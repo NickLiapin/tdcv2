@@ -3843,6 +3843,23 @@
       "engine3": {
         "lines": ["4,2", "3,7", "8,1", "6,3", "1,8", "7,6", "5,5", "2,4"]
       }
+    },
+    "uniq-distinct/a-switch-in-a-distinct-group-is-redrawn-inside-its-own-branch": {
+      "engine2": {
+        "refused": "stream mode: <distinct> member \"B\" is a <switch> (\"B\") is not supported yet — run without mode=\"stream\" (the in-memory engine handles it), or remove it."
+      },
+      "engine3": {
+        "lines": [
+          "q x [z]",
+          "q y [z]",
+          "p y [x]",
+          "p z [x]",
+          "p y [z]",
+          "q x [z]",
+          "q x [z]",
+          "p z [y]"
+        ]
+      }
     }
   }
 }
