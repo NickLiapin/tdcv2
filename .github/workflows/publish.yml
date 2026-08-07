@@ -206,15 +206,27 @@ jobs:
           # `{"error":{"message":"Invalid token"}}` the script put that JSON in the status URL
           # and polled it twenty times, so the log said "Invalid token" in a place that looked
           # like a deployment id and the real problem — the credentials — was never named.
-          # `name=` is what the Portal shows in its deployment list. Without it every entry is
-          # called "bundle.zip", which is the filename, and telling one release from another
-          # means opening each in turn. No publishingType: the default publishes on its own,
-          # where USER_MANAGED would leave a validated bundle waiting for a click nobody is
-          # watching for.
+          # NO `name=`, deliberately, 2026-08-07. It is the label the Portal shows in its
+          # deployment list, and it was added in 184fe9b6 so that ten releases would not
+          # all read "bundle.zip". It is being given up because Central's monthly release
+          # limit is worth more than a readable list: Nick watched the counter rise
+          # promptly after every upload up to 0.1.6, then watched 0.1.7 — the one release
+          # sent without `name=` — leave it unmoved, still unmoved a day later.
+          #
+          # Said plainly because it will look like an oversight to whoever reads this
+          # next: the numbers visible from outside fit that reading and the opposite one
+          # equally (both give the 290 files the Usage Center reports, because the first
+          # release carries 50 files where the rest carry 60), so this rests on watching
+          # the counter rather than on anything provable from here. If a release ever does
+          # move the count while unnamed, this comment is wrong and `name=` should come
+          # back — the list is genuinely better with it.
+          #
+          # No publishingType either: the default publishes on its own, where USER_MANAGED
+          # would leave a validated bundle waiting for a click nobody is watching for.
           code=$(curl -sS -o /tmp/upload.out -w '%{http_code}' -X POST \
             -H "Authorization: Bearer $token" \
             -F bundle=@java/build/bundle.zip \
-            "https://central.sonatype.com/api/v1/publisher/upload?name=tdcv2-${GITHUB_REF_NAME#v}")
+            "https://central.sonatype.com/api/v1/publisher/upload")
           id=$(cat /tmp/upload.out)
           if [ "$code" != "201" ] && [ "$code" != "200" ]; then
             echo "the Portal refused the upload (HTTP $code): $id" >&2
