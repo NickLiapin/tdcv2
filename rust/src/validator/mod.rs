@@ -4028,6 +4028,9 @@ impl Validator {
             .iter()
             .filter(|c| c.kind == Kind::SelfClosing && c.name == "assert")
         {
+            // A self-closing tag is not reached by the walk that checks closed-tag
+            // attributes, so an unknown one on <assert> would pass in silence.
+            self.check_closed_tag_attrs("assert", child);
             let that = child.attr_value("that").unwrap_or("").trim().to_string();
             let says = child.attr_value("says").unwrap_or("").trim().to_string();
             if that.is_empty() {

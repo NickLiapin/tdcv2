@@ -15,6 +15,23 @@ page — is tracked in that implementation's own changelog:
 
 ## [Unreleased]
 
+### Added
+
+- **`<assert that="…" says="…"/>` — a config that checks its own output.** A statement
+  about the whole run, in `<env>` beside `<uniq>` and `<distinct>`. What is worth
+  asserting is the property the config does NOT state: you write `percent="70"`, a
+  `parent=` filter and a condition stack up, and the share that reaches the file is 42
+  percent with nothing to say so. If the condition holds, nothing happens; if it does not,
+  the run stops with the author's own sentence and exit code 1, before a line is written.
+
+  Three existing mechanisms, no new language: `that=` is the `if=` expression language,
+  the numbers come from `<gen type="stat">`, `says=` is the sentence a reader gets. There
+  is no flag — an assertion runs because it is written.
+
+  Every name the expression reads must be the same on every row, or a per-row column would
+  be read at row 0 and the run called verified. A column left empty by a filter is refused
+  for the same reason. TDC265 and TDC266 refuse the half-written forms.
+
 ## [0.1.7] — 2026-08-04
 
 ### Fixed (Java packaging)

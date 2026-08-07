@@ -66,7 +66,7 @@ pub const LINE_CHILDREN: [&str; 4] = ["data", "gen", "mix", "switch"];
 pub const SWITCH_CHILDREN: [&str; 3] = ["map", "case", "default"];
 
 /// What each closed tag reads.
-pub const CLOSED_TAG_ATTRIBUTES: [(&str, &[&str]); 13] = [
+pub const CLOSED_TAG_ATTRIBUTES: [(&str, &[&str]); 14] = [
     (
         "env",
         &[
@@ -74,6 +74,8 @@ pub const CLOSED_TAG_ATTRIBUTES: [(&str, &[&str]); 13] = [
         ],
     ),
     ("sequence", &["name", "parent", "uniq", "comment"]),
+    // An assertion is its two attributes and nothing else.
+    ("assert", &["that", "says", "comment"]),
     ("line", &["if", "each", "comment"]),
     ("tdc", &["version", "v", "regex_max_length", "comment"]),
     ("mix", &["name", "percent", "parent", "flag", "comment"]),

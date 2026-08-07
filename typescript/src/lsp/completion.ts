@@ -60,6 +60,7 @@ const TAGS: readonly string[] = [
   'switch',
   'distinct',
   'uniq',
+  'assert',
   // inside sequence / mix / switch
   'gen',
   'compute',

@@ -67,6 +67,9 @@ public sealed class Validator
             // no settings of its own. uniq="true" is an attribute of <sequence>, not of
             // <uniq> — writing it on the wrapper is a common slip and now says so.
             ["uniq"] = Set("comment"),
+
+            // An assertion is its two attributes and nothing else.
+            ["assert"] = Set("that", "says", "comment"),
             ["distinct"] = Set("comment"),
         };
 
@@ -5014,6 +5017,9 @@ public sealed class Validator
                 continue;
             }
 
+            // A self-closing tag is not reached by the walk that checks closed-tag attributes,
+            // so an unknown one on <assert> would pass in silence.
+            this.CheckClosedTagAttrs("assert", self.attr(), Line(self), Column(self));
             IReadOnlyDictionary<string, string> attrs = Attributes(self.attr());
             string that = (attrs.GetValueOrDefault("that") ?? "").Trim();
             string says = (attrs.GetValueOrDefault("says") ?? "").Trim();

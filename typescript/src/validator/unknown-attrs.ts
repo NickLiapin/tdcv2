@@ -85,6 +85,9 @@ export const CLOSED_TAG_ATTRIBUTES: ReadonlyMap<string, ReadonlySet<string>> = n
   // <uniq> — writing it on the wrapper is a common slip and now says so.
   ['uniq', new Set(['comment'])],
   ['distinct', new Set(['comment'])],
+  // An assertion is its two attributes and nothing else: the condition, and the
+  // sentence a reader gets when it does not hold.
+  ['assert', new Set(['that', 'says', 'comment'])],
 ]);
 
 /**

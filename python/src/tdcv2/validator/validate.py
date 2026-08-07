@@ -85,6 +85,8 @@ CLOSED_TAG_ATTRIBUTES = {
     # writing it on the wrapper is a common slip and now says so.
     "uniq": {"comment"},
     "distinct": {"comment"},
+    # An assertion is its two attributes and nothing else.
+    "assert": {"that", "says", "comment"},
 }
 
 # Where each construct belongs — the "put it in X" half of a placement complaint.
@@ -1574,6 +1576,11 @@ class _Validator:
             self_closing = child.selfClosingElement()
             if self_closing is None or self_closing.name.text != "assert":
                 continue
+            # A self-closing tag is not reached by the walk that checks closed-tag
+            # attributes, so an unknown one on <assert> would pass in silence.
+            self._check_closed_tag_attrs(
+                "assert", self_closing.attr(), _line(self_closing), _column(self_closing)
+            )
             attrs = _attrs(self_closing.attr())
             that = (attrs.get("that") or "").strip()
             says = (attrs.get("says") or "").strip()

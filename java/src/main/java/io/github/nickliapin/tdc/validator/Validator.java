@@ -66,6 +66,8 @@ public final class Validator {
           // settings of its own. uniq="true" is an attribute of <sequence>, not of <uniq> —
           // writing it on the wrapper is a common slip and now says so.
           Map.entry("uniq", Set.of("comment")),
+          // An assertion is its two attributes and nothing else.
+          Map.entry("assert", Set.of("that", "says", "comment")),
           Map.entry("distinct", Set.of("comment")));
 
   /** Where each construct belongs — the "put it in X" half of a placement complaint. */
@@ -4318,6 +4320,9 @@ public final class Validator {
       if (self == null || !self.name.getText().equals("assert")) {
         continue;
       }
+      // A self-closing tag is not reached by the walk that checks closed-tag attributes, so an
+      // unknown one on <assert> would pass in silence.
+      checkClosedTagAttrs("assert", self.attr(), line(self), column(self));
       Map<String, String> attrs = attributes(self.attr());
       String that = attrs.getOrDefault("that", "").trim();
       String says = attrs.getOrDefault("says", "").trim();
