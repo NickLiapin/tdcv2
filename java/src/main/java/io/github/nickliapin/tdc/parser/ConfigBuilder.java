@@ -746,7 +746,7 @@ public final class ConfigBuilder {
           parent,
           items,
           distinctGroups.isEmpty() ? null : distinctGroups,
-          "true".equals(attrs.get("uniq")));
+          isTrue(attrs.get("uniq")));
     }
 
     // Compound when there is more than one gen, or when the only one is named — the second
@@ -773,7 +773,7 @@ public final class ConfigBuilder {
           null,
           null,
           distinctGroups.isEmpty() ? null : distinctGroups,
-          "true".equals(attrs.get("uniq")));
+          isTrue(attrs.get("uniq")));
     }
 
     // `uniq` travels to the simple shape too — a draw without replacement
@@ -791,7 +791,7 @@ public final class ConfigBuilder {
         null,
         null,
         null,
-        "true".equals(attrs.get("uniq")));
+        isTrue(attrs.get("uniq")));
   }
 
   /** Every {@code <line>} under a container, each flattened to its {@code <data>} text. */
@@ -884,4 +884,16 @@ public final class ConfigBuilder {
     return null;
   }
 
+
+  /**
+   * A boolean attribute, read the way every other one in the DSL is read.
+   *
+   * <p>{@code uniq} alone used to be compared against the bare literal {@code "true"} while the
+   * validator lowercased it first, so {@code uniq="True"} passed validation as a uniqueness
+   * promise and then did nothing — a column with duplicates that {@code check} had already called
+   * valid.
+   */
+  private static boolean isTrue(String raw) {
+    return raw != null && raw.trim().equalsIgnoreCase("true");
+  }
 }

@@ -3835,6 +3835,14 @@
       "engine3": {
         "lines": ["M-bob-1", "M-ann-3", "F-cat-3", "F-dot-2"]
       }
+    },
+    "uniq-distinct/uniq-true-and-uniq-True-mean-the-same-thing": {
+      "engine2": {
+        "refused": "stream mode: uniq (a whole-column rearrangement) (\"Lower\") is not supported yet — run without mode=\"stream\" (the in-memory engine handles it), or remove it."
+      },
+      "engine3": {
+        "lines": ["4,2", "3,7", "8,1", "6,3", "1,8", "7,6", "5,5", "2,4"]
+      }
     }
   }
 }

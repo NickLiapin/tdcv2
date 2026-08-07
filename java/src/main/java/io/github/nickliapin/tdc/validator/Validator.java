@@ -1866,6 +1866,7 @@ public final class Validator {
     }
 
     uniqOnComposed(open, name, gens);
+    uniqDropsGenAttrs(open, name, gens);
 
     // Three readings, and the body says which: every gen named is a compound (several columns, no
     // value of its own), one unnamed gen alone is a simple sequence, and anything else COMPOSES —
@@ -2513,6 +2514,62 @@ public final class Validator {
    * a unique join — {@code 9} + {@code 15} and {@code 91} + {@code 5} are the same three
    * characters.
    */
+  /**
+   * Attributes that reach the value AFTER it is drawn, and so cannot survive a draw without
+   * replacement. Each can make two distinct draws print the same text — a mask hides the digits
+   * that told them apart, {@code case} folds {@code ab} and {@code AB} together, {@code missing}
+   * writes the same blank on many rows, {@code repeat} turns the cell into a list.
+   */
+  private static final String[] DROPPED_BY_UNIQ = {
+    "mask", "case", "missing", "missing_as", "repeat", "separator", "anomaly", "anomaly_flag"
+  };
+
+  /**
+   * {@code uniq="true"} on a simple sequence whose {@code <gen>} also asks for formatting.
+   *
+   * <p>The uniq path produces the column directly and never reaches the pipeline that applies
+   * these attributes, so they used to vanish in silence. Applying them instead would break the
+   * promise the other way round: a mask maps two distinct draws onto the same characters. So the
+   * combination is refused and the attribute is named. {@code increment} and {@code decrement}
+   * are exempt — unique by construction, they keep their ordinary build.
+   */
+  private void uniqDropsGenAttrs(
+      TDCParser.OpenCloseElementContext open,
+      String name,
+      java.util.List<java.util.Map<String, String>> gens) {
+    String uniq = attributes(open.attr()).get("uniq");
+    if (uniq == null || !"true".equals(uniq.trim().toLowerCase(java.util.Locale.ROOT))) {
+      return;
+    }
+    if (gens.size() != 1 || gens.get(0).containsKey("name")) {
+      return;
+    }
+    java.util.Map<String, String> gen = gens.get(0);
+    String kind = gen.getOrDefault("type", "");
+    if ("increment".equals(kind) || "decrement".equals(kind)) {
+      return;
+    }
+    java.util.List<String> asked = new java.util.ArrayList<>();
+    for (String a : DROPPED_BY_UNIQ) {
+      if (gen.containsKey(a)) {
+        asked.add(a + "=");
+      }
+    }
+    if (asked.isEmpty()) {
+      return;
+    }
+    String listed = String.join(", ", asked);
+    int[] pos = at(open.attr(), "uniq", line(open), column(open));
+    error("TDC267",
+        "uniq=\"true\" on <sequence name=\"" + (name == null ? "?" : name) + "\"> cannot be "
+            + "combined with " + listed + " on its <gen>: a draw without replacement produces the "
+            + "values directly, so nothing that rewrites them afterwards runs",
+        "Two ways out. Drop the attribute if the uniqueness is what you wanted \u2014 or drop "
+            + "uniq= and keep the formatting, since a masked, blanked or repeated column cannot "
+            + "be unique as text anyway: a mask maps different values onto the same characters.",
+        pos[0], pos[1]);
+  }
+
   private void uniqOnComposed(
       TDCParser.OpenCloseElementContext open, String name, List<Map<String, String>> gens) {
     String uniq = attributes(open.attr()).get("uniq");

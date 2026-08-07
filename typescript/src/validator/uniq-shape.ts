@@ -92,3 +92,68 @@ export function checkUniqOnComposed(
     code: 'TDC220',
   });
 }
+
+/**
+ * Attributes that reach the value AFTER it is drawn, and so cannot survive a
+ * draw without replacement.
+ *
+ * Every one of them can make two distinct draws print the same text — a mask
+ * hides the digits that told them apart, `case` folds `ab` and `AB` together,
+ * `missing` writes the same blank on many rows, `repeat` turns the cell into a
+ * list. The formatting pipeline is skipped entirely on the uniq path, so today
+ * they simply vanish; applying them instead would keep the attribute and break
+ * the promise. Neither is acceptable in silence, so the config is refused and
+ * the attribute is named.
+ */
+const DROPPED_BY_UNIQ = [
+  'mask',
+  'case',
+  'missing',
+  'missing_as',
+  'repeat',
+  'separator',
+  'anomaly',
+  'anomaly_flag',
+] as const;
+
+/**
+ * `uniq="true"` on a simple sequence whose `<gen>` also asks for formatting,
+ * blanking or repetition.
+ *
+ * `increment` and `decrement` are exempt: they are unique by construction, keep
+ * their ordinary build, and their formatting runs as it does anywhere else.
+ */
+export function checkUniqDropsAttrs(
+  seqEl: OpenCloseElementContext,
+  name: string | undefined,
+  gens: readonly (OpenCloseElementContext | SelfClosingElementContext)[],
+  hasLiteral: boolean,
+  diagnostics: Diagnostic[],
+): void {
+  const attr = declaredUniq(seqEl);
+  if (attr === undefined) return;
+  // A simple sequence is ONE unnamed <gen> and no literal beside it. That is the
+  // body the uniq draw replaces wholesale, taking the formatting layer with it.
+  const gen = gens.length === 1 && !hasLiteral ? gens[0] : undefined;
+  if (gen === undefined || extractAttrs(gen.attr())['name'] !== undefined) return;
+  const genAttrs = extractAttrs(gen.attr());
+  const type = genAttrs['type'] ?? '';
+  if (type === 'increment' || type === 'decrement') return;
+  const asked = DROPPED_BY_UNIQ.filter((a) => genAttrs[a] !== undefined);
+  if (asked.length === 0) return;
+  const list = asked.map((a) => `${a}=`).join(', ');
+  diagnostics.push({
+    severity: 'error',
+    source: 'validator',
+    ...attrValueRange(attr),
+    message:
+      `uniq="true" on <sequence name="${name ?? '?'}"> cannot be combined with ${list} on its ` +
+      '<gen>: a draw without replacement produces the values directly, so nothing that ' +
+      'rewrites them afterwards runs',
+    hint:
+      'Two ways out. Drop the attribute if the uniqueness is what you wanted — or drop uniq= ' +
+      'and keep the formatting, since a masked, blanked or repeated column cannot be unique ' +
+      'as text anyway: a mask maps different values onto the same characters.',
+    code: 'TDC267',
+  });
+}

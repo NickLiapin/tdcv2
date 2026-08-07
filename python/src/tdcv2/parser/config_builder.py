@@ -228,6 +228,16 @@ def _wrapped_sequences(wrapper, sequences: list[SequenceSpec]) -> list[str]:
     return names
 
 
+
+def _is_true(raw: str | None) -> bool:
+    """A boolean attribute, read the way every other one in the DSL is read.
+
+    ``uniq`` alone used to be compared against the bare literal ``"true"`` while the validator
+    lowercased it first, so ``uniq="True"`` passed validation as a uniqueness promise and then
+    did nothing — a column with duplicates that ``check`` had already called valid.
+    """
+    return (raw or "").strip().lower() == "true"
+
 def _sequence(element) -> SequenceSpec:
     attrs = attributes(element.attr())
     name = attrs.get("name")
@@ -309,7 +319,7 @@ def _sequence(element) -> SequenceSpec:
             parent=parent,
             items=items,
             distinct_groups=distinct_groups or None,
-            uniq=attrs.get("uniq") == "true",
+            uniq=_is_true(attrs.get("uniq")),
         )
 
     # Compound when there is more than one gen, or when the only one is named — the second case
@@ -321,7 +331,7 @@ def _sequence(element) -> SequenceSpec:
             parent=parent,
             fields=fields,
             distinct_groups=distinct_groups or None,
-            uniq=attrs.get("uniq") == "true",
+            uniq=_is_true(attrs.get("uniq")),
         )
 
     # `uniq` travels to the simple shape too — a draw without replacement
@@ -331,7 +341,7 @@ def _sequence(element) -> SequenceSpec:
         name=name,
         parent=parent,
         gen=Gen(gens[0].get("type", ""), gens[0]),
-        uniq=attrs.get("uniq") == "true",
+        uniq=_is_true(attrs.get("uniq")),
     )
 
 

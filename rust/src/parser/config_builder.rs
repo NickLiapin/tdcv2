@@ -524,7 +524,7 @@ fn sequence(element: &Element) -> Result<SequenceSpec, BuildError> {
             parent,
             source: Source::Items(items),
             distinct_groups,
-            uniq: attrs.get("uniq").map(String::as_str) == Some("true"),
+            uniq: is_true(attrs.get("uniq").map(String::as_str)),
         });
     }
 
@@ -551,7 +551,7 @@ fn sequence(element: &Element) -> Result<SequenceSpec, BuildError> {
             parent,
             source: Source::Fields(fields),
             distinct_groups,
-            uniq: attrs.get("uniq").map(String::as_str) == Some("true"),
+            uniq: is_true(attrs.get("uniq").map(String::as_str)),
         });
     }
 
@@ -565,7 +565,7 @@ fn sequence(element: &Element) -> Result<SequenceSpec, BuildError> {
         parent,
         source: Source::Gen(Gen::new(gen_type, only)),
         distinct_groups: Vec::new(),
-        uniq: attrs.get("uniq").map(String::as_str) == Some("true"),
+        uniq: is_true(attrs.get("uniq").map(String::as_str)),
     })
 }
 
@@ -846,4 +846,14 @@ pub fn parse_pack_body(body: &str) -> Result<PackGenerator, BuildError> {
         output,
         validate: open_child(env, "valid").cloned(),
     })
+}
+
+/// A boolean attribute, read the way every other one in the DSL is read.
+///
+/// `uniq` alone used to be compared against the bare literal `"true"` while the
+/// validator lowercased it first, so `uniq="True"` passed validation as a
+/// uniqueness promise and then did nothing — a column with duplicates that
+/// `check` had already called valid.
+fn is_true(raw: Option<&str>) -> bool {
+    raw.unwrap_or("").trim().eq_ignore_ascii_case("true")
 }

@@ -29,6 +29,21 @@ page — is tracked in that implementation's own changelog:
   threshold. Both the text and the Parquet parallel paths carried the defect; the four ports
   build their workers from the config and never had it.
 
+<!-- covers: TDC267 -->
+
+- `uniq="true"` on a simple sequence silently discarded `mask=`, `case=`, `missing=`,
+  `missing_as=`, `repeat=`, `separator=` and `anomaly=` on its `<gen>`. A draw without
+  replacement produces the column directly and never reaches the layer that rewrites
+  values, so a masked column came out unmasked and a `missing="1"` column came out
+  complete — with `check` reporting the config valid. The combination is now refused by
+  TDC267, which names the attribute. Applying them instead would have broken the promise
+  from the other side: a mask maps two distinct draws onto the same characters.
+
+- `uniq="True"` was a silent no-op. The engine compared the raw attribute against the
+  lowercase literal while the validator lowercased it first, so a capitalised value passed
+  validation as a uniqueness promise and then drew with replacement. Every other boolean
+  attribute in the DSL is read case-insensitively; `uniq` now is too, in all five.
+
 <!-- covers: abs, round, floor, ceil, trunc, min, max -->
 
 - `abs`, `round`, `floor`, `ceil`, `trunc`, `min` and `max` in `if=` and `filter=` kept

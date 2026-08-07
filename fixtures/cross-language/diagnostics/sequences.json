@@ -112,6 +112,20 @@
       "description": "A repeating column on its own is unaffected",
       "config": "<tdc><env count=\"3\" seed=\"s\" local=\"en\"><sequence name=\"A\"><gen type=\"text\" value=\"a,b,c\" repeat=\"3\"/></sequence></env><block><line><data>${{A}}</data></line></block></tdc>",
       "expected": []
+    },
+    {
+      "name": "uniq-drops-the-formatting-layer-so-it-is-refused",
+      "demonstrates": "TDC267",
+      "description": "A draw without replacement produces the column directly and never reaches the pipeline that applies mask=, case=, missing=, repeat=, separator= and anomaly=. Those attributes used to vanish in silence, with `check` calling the config valid — a mask asked for and not applied. Applying them instead would break the promise the other way: a mask maps two distinct draws onto the same characters. So the combination is refused and the attribute is named.",
+      "config": "<tdc><env count=\"4\" seed=\"s\"><sequence name=\"X\" uniq=\"true\"><gen type=\"number\" value=\"10..99\" mask=\"x\"/></sequence></env><block><line><data>${{X}}</data></line></block></tdc>",
+      "expected": ["error TDC267 1:54"]
+    },
+    {
+      "name": "uniq-is-read-case-insensitively-like-every-other-boolean",
+      "demonstrates": "TDC267",
+      "description": "`uniq=\"True\"` must mean what `uniq=\"true\"` means. The reference compared the raw attribute against the lowercase literal while the validator lowercased it first, so a capitalised value passed validation as a uniqueness promise and then did nothing — a column with duplicates that `check` had already called valid. This case pins the two sides together: the capitalised form reaches the same refusal.",
+      "config": "<tdc><env count=\"4\" seed=\"s\"><sequence name=\"X\" uniq=\"True\"><gen type=\"number\" value=\"10..99\" mask=\"x\"/></sequence></env><block><line><data>${{X}}</data></line></block></tdc>",
+      "expected": ["error TDC267 1:54"]
     }
   ]
 }

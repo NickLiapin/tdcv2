@@ -1529,6 +1529,7 @@ impl Validator {
         }
 
         self.uniq_on_composed(open, name, &gens);
+        self.uniq_drops_gen_attrs(open, name, &gens);
 
         // Three readings, and the body says which: every gen named is a compound
         // (several columns, no value of its own), one unnamed gen alone is a
@@ -1617,6 +1618,72 @@ impl Validator {
             "Give each part its own <sequence> and wrap them in <uniq>\u{2026}</uniq>, with a \
              fixed width per part (length= plus first_zero=\"true\" on a number). Then the join \
              can be split back one way only, so a unique combination is a unique result.",
+            open.at("uniq"),
+        );
+    }
+
+    /// Attributes that reach the value AFTER it is drawn, and so cannot survive
+    /// a draw without replacement. Each can make two distinct draws print the
+    /// same text — a mask hides the digits that told them apart, `case` folds
+    /// `ab` and `AB` together, `missing` writes the same blank on many rows,
+    /// `repeat` turns the cell into a list.
+    const DROPPED_BY_UNIQ: [&str; 8] = [
+        "mask",
+        "case",
+        "missing",
+        "missing_as",
+        "repeat",
+        "separator",
+        "anomaly",
+        "anomaly_flag",
+    ];
+
+    /// `uniq="true"` on a simple sequence whose `<gen>` also asks for formatting.
+    ///
+    /// The uniq path produces the column directly and never reaches the pipeline
+    /// that applies these attributes, so they used to vanish in silence.
+    /// Applying them instead would break the promise the other way round. So the
+    /// combination is refused, and the attribute is named.
+    ///
+    /// `increment` and `decrement` are exempt: unique by construction, they keep
+    /// their ordinary build and their formatting runs as it does anywhere else.
+    fn uniq_drops_gen_attrs(&mut self, open: &Element, name: Option<&str>, gens: &[&Element]) {
+        let declared = open.attr("uniq").map(|a| a.value()).unwrap_or("");
+        if !declared.trim().eq_ignore_ascii_case("true") {
+            return;
+        }
+        let [gen] = gens else { return };
+        if gen.attr("name").is_some() {
+            return;
+        }
+        let kind = gen.attr("type").map(|a| a.value()).unwrap_or("");
+        if kind == "increment" || kind == "decrement" {
+            return;
+        }
+        let asked: Vec<&str> = Self::DROPPED_BY_UNIQ
+            .into_iter()
+            .filter(|a| gen.attr(a).is_some())
+            .collect();
+        if asked.is_empty() {
+            return;
+        }
+        let listed = asked
+            .iter()
+            .map(|a| format!("{a}="))
+            .collect::<Vec<_>>()
+            .join(", ");
+        self.error(
+            "TDC267",
+            format!(
+                "uniq=\"true\" on <sequence name=\"{}\"> cannot be combined with {listed} on \
+                 its <gen>: a draw without replacement produces the values directly, so nothing \
+                 that rewrites them afterwards runs",
+                name.unwrap_or("?")
+            ),
+            "Two ways out. Drop the attribute if the uniqueness is what you wanted \u{2014} or \
+             drop uniq= and keep the formatting, since a masked, blanked or repeated column \
+             cannot be unique as text anyway: a mask maps different values onto the same \
+             characters.",
             open.at("uniq"),
         );
     }

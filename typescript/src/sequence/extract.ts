@@ -125,6 +125,18 @@ export function extractAsserts(env: OpenCloseElementContext | undefined): Assert
 }
 
 /**
+ * A boolean attribute, read the way every other one in the DSL is read.
+ *
+ * `uniq` alone used to be compared against the bare literal `'true'` while the
+ * validator lowercased it first. `uniq="True"` therefore passed validation as a
+ * uniqueness promise and then did nothing at all — a column with duplicates that
+ * `check` had already called valid.
+ */
+function isTrue(raw: string | undefined): boolean {
+  return (raw ?? '').trim().toLowerCase() === 'true';
+}
+
+/**
  * All `<sequence>` and standalone `<mix>` nodes declared directly under
  * `<env>` OR wrapped in an env-level `<distinct>` / `<uniq>`, in document
  * order — so PRNG-consumption order and parent-reference order (parent must
@@ -206,7 +218,7 @@ function specFromSequence(node: OpenCloseElementContext): SequenceSpec | undefin
       items,
       ...(parent ? { parent } : {}),
       ...(distinctGroups.length > 0 ? { distinctGroups } : {}),
-      ...(seqAttrs['uniq'] === 'true' ? { uniq: true } : {}),
+      ...(isTrue(seqAttrs['uniq']) ? { uniq: true } : {}),
     };
   }
 
@@ -224,7 +236,7 @@ function specFromSequence(node: OpenCloseElementContext): SequenceSpec | undefin
       gens: fields,
       ...(parent ? { parent } : {}),
       ...(distinctGroups.length > 0 ? { distinctGroups } : {}),
-      ...(seqAttrs['uniq'] === 'true' ? { uniq: true } : {}),
+      ...(isTrue(seqAttrs['uniq']) ? { uniq: true } : {}),
     };
   }
 
@@ -234,7 +246,7 @@ function specFromSequence(node: OpenCloseElementContext): SequenceSpec | undefin
   const first = genNodes[0];
   if (!first) return undefined;
   const firstAttrs = extractAttrs(first.attr());
-  const uniq = seqAttrs['uniq'] === 'true' ? { uniq: true as const } : {};
+  const uniq = isTrue(seqAttrs['uniq']) ? { uniq: true as const } : {};
   return parent
     ? { name, parent, gen: toGenSpec(firstAttrs), ...uniq }
     : { name, gen: toGenSpec(firstAttrs), ...uniq };

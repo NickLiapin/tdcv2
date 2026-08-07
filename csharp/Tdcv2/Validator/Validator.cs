@@ -2264,6 +2264,7 @@ public sealed class Validator
         }
 
         UniqOnComposed(open, name, gens);
+        UniqDropsGenAttrs(open, name, gens);
 
         // Three readings, and the body says which: every gen named is a compound (several columns,
         // no value of its own), one unnamed gen alone is a simple sequence, and anything else
@@ -5442,6 +5443,67 @@ public sealed class Validator
             "Give each part its own <sequence> and wrap them in <uniq>\u2026</uniq>, with a fixed "
                 + "width per part (length= plus first_zero=\"true\" on a number). Then the join "
                 + "can be split back one way only, so a unique combination is a unique result.",
+            line, column);
+    }
+
+    /// <summary>
+    /// Attributes that reach the value AFTER it is drawn, and so cannot survive a draw without
+    /// replacement. Each can make two distinct draws print the same text.
+    /// </summary>
+    private static readonly string[] DroppedByUniq =
+    {
+        "mask", "case", "missing", "missing_as", "repeat", "separator", "anomaly", "anomaly_flag",
+    };
+
+    /// <summary>
+    /// <c>uniq="true"</c> on a simple sequence whose <c>&lt;gen&gt;</c> also asks for formatting.
+    /// </summary>
+    /// <remarks>
+    /// The uniq path produces the column directly and never reaches the pipeline that applies
+    /// these attributes, so they used to vanish in silence. Applying them instead would break the
+    /// promise the other way round: a mask maps two distinct draws onto the same characters. So
+    /// the combination is refused and the attribute is named. <c>increment</c> and
+    /// <c>decrement</c> are exempt — unique by construction, they keep their ordinary build.
+    /// </remarks>
+    private void UniqDropsGenAttrs(
+        TDCParser.OpenCloseElementContext open, string? name,
+        List<IReadOnlyDictionary<string, string>> gens)
+    {
+        string? uniq = Attributes(open.attr()).GetValueOrDefault("uniq");
+        if (uniq is null || !string.Equals(uniq.Trim(), "true", StringComparison.OrdinalIgnoreCase))
+        {
+            return;
+        }
+
+        if (gens.Count != 1 || gens[0].ContainsKey("name"))
+        {
+            return;
+        }
+
+        IReadOnlyDictionary<string, string> gen = gens[0];
+        string kind = gen.GetValueOrDefault("type") ?? string.Empty;
+        if (kind is "increment" or "decrement")
+        {
+            return;
+        }
+
+        string[] asked = DroppedByUniq.Where(gen.ContainsKey).ToArray();
+        if (asked.Length == 0)
+        {
+            return;
+        }
+
+        string listed = string.Join(", ", asked.Select(a => a + "="));
+        (int line, int column) = At(open, "uniq");
+        Error(
+            "TDC267",
+            $"uniq=\"true\" on <sequence name=\"{name ?? "?"}\"> cannot be combined with "
+                + $"{listed} on its <gen>: a draw without replacement produces the values "
+                + "directly, so nothing that rewrites them afterwards runs",
+            "Two ways out. Drop the attribute if the uniqueness is what you wanted \u2014 or drop "
+                + "uniq= and keep the formatting, since a masked, blanked or repeated column "
+                + "cannot be unique as text anyway: a mask maps different values onto the same "
+                + "characters.",
             line, column);
     }
 

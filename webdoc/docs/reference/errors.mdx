@@ -303,6 +303,7 @@ have them: they compile a config into a model that has no place to put such a `<
 | `TDC264` | `<gen type="date" of="…">` is written wrong | An offset needs `plus=` (`7d`, `3..10d`, `1..3mo`, `-10..-3d`), written smallest bound first, in a unit `step=` also uses. The attributes that bound the generator's OWN draw — `value`, `from`, `to`, `range`, `oldest`, `youngest`, `order`, `step` — say nothing once `of=` has placed the date relative to another column, so they are refused rather than ignored |
 | `TDC265` | `<assert>` has no condition | An assertion is the one construct whose whole worth is that it fails, and without `that=` it never can. Write the property the run must have, in the `if=` language, over whole-run columns |
 | `TDC266` | `<assert>` has no message | `says=` is what a reader is told when it fires, months later, in a CI log. An expression on its own leaves them to work out what it was defending |
+| `TDC267` | `uniq="true"` together with `mask=`, `case=`, `missing=`, `repeat=`, `separator=` or `anomaly=` | A draw without replacement produces the column directly and never reaches the layer that rewrites values, so the attribute could only ever be dropped. Applying it would break the other promise: a mask maps two distinct draws onto the same characters |
 
 ## See also
 

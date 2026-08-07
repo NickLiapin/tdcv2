@@ -102,7 +102,7 @@ import {
   type MemberCheckers,
 } from './members.js';
 import { checkUniqMemory } from './uniq-memory.js';
-import { checkUniqOnComposed, checkUniqUnsupported } from './uniq-shape.js';
+import { checkUniqDropsAttrs, checkUniqOnComposed, checkUniqUnsupported } from './uniq-shape.js';
 import { checkMixFlag } from './mix-flag.js';
 import { checkGenRepeat, checkMixRepeat } from './repeat.js';
 import { checkLineEach } from './each.js';
@@ -726,6 +726,7 @@ function checkSequence(seqEl: OpenCloseElementContext, ctx: Ctx): void {
   } else {
     checkSequenceDataAttrs(seqEl, ctx.diagnostics);
     checkUniqOnComposed(seqEl, name, gens, ctx.diagnostics);
+    checkUniqDropsAttrs(seqEl, name, gens, hasDataLiteral(seqEl), ctx.diagnostics);
 
     const shape = sequenceShape(
       gens.map((g) => genAttrName(g) !== undefined),

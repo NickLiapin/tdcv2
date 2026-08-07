@@ -1821,6 +1821,7 @@ class _Validator:
             return
 
         self._uniq_on_composed(open_el, label, gens, gen_nodes)
+        self._uniq_drops_gen_attrs(open_el, label, gens, gen_nodes)
 
         # Three readings, and the body says which: every gen named is a compound (several
         # columns, no value of its own), one unnamed gen alone is a simple sequence, and anything
@@ -1886,6 +1887,57 @@ class _Validator:
                     line,
                     column,
                 )
+
+    #: Attributes that reach the value AFTER it is drawn, and so cannot survive a draw without
+    #: replacement. Each can make two distinct draws print the same text — a mask hides the
+    #: digits that told them apart, ``case`` folds ``ab`` and ``AB`` together, ``missing``
+    #: writes the same blank on many rows, ``repeat`` turns the cell into a list.
+    _DROPPED_BY_UNIQ = (
+        "mask",
+        "case",
+        "missing",
+        "missing_as",
+        "repeat",
+        "separator",
+        "anomaly",
+        "anomaly_flag",
+    )
+
+    def _uniq_drops_gen_attrs(self, open_el, label: str, gens, gen_nodes) -> None:
+        """``uniq="true"`` on a simple sequence whose ``<gen>`` also asks for formatting.
+
+        The uniq path produces the column directly and never reaches the pipeline that applies
+        these attributes, so today they vanish in silence. Applying them instead would break the
+        promise the other way: a mask maps two distinct draws onto the same characters. Neither
+        is acceptable without a word, so the combination is refused and the attribute is named.
+
+        ``increment`` and ``decrement`` are exempt — unique by construction, they keep their
+        ordinary build and their formatting runs as it does anywhere else.
+        """
+        attrs = _attrs(open_el.attr())
+        if (attrs.get("uniq") or "").strip().lower() != "true":
+            return
+        if len(gens) != 1 or "name" in gens[0]:
+            return
+        gen = gens[0]
+        if gen.get("type") in ("increment", "decrement"):
+            return
+        asked = [a for a in self._DROPPED_BY_UNIQ if a in gen]
+        if not asked:
+            return
+        listed = ", ".join(f"{a}=" for a in asked)
+        line, column = _at(open_el, "uniq")
+        self._error(
+            "TDC267",
+            f'uniq="true" on <sequence name="{label}"> cannot be combined with {listed} on its '
+            "<gen>: a draw without replacement produces the values directly, so nothing that "
+            "rewrites them afterwards runs",
+            "Two ways out. Drop the attribute if the uniqueness is what you wanted \u2014 or drop "
+            "uniq= and keep the formatting, since a masked, blanked or repeated column cannot be "
+            "unique as text anyway: a mask maps different values onto the same characters.",
+            line,
+            column,
+        )
 
     def _uniq_on_composed(self, open_el, label: str, gens, gen_nodes) -> None:
         """`uniq="true"` on a composed value that joins two or more DRAWN parts.

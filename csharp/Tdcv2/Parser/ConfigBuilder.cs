@@ -616,7 +616,7 @@ public static class ConfigBuilder
             return new SequenceSpec(
                 name, parent, null, Items: items,
                 DistinctGroups: distinctGroups.Count == 0 ? null : distinctGroups,
-                Uniq: attrs.GetValueOrDefault("uniq") == "true");
+                Uniq: IsTrue(attrs.GetValueOrDefault("uniq")));
         }
 
         // Compound when there is more than one gen, or when the only one is named — the second case
@@ -641,7 +641,7 @@ public static class ConfigBuilder
                 null,
                 Fields: fields,
                 DistinctGroups: distinctGroups.Count == 0 ? null : distinctGroups,
-                Uniq: attrs.GetValueOrDefault("uniq") == "true");
+                Uniq: IsTrue(attrs.GetValueOrDefault("uniq")));
         }
 
         IReadOnlyDictionary<string, string> only = gens[0];
@@ -652,7 +652,7 @@ public static class ConfigBuilder
             name,
             parent,
             new Gen(only.GetValueOrDefault("type") ?? "", only),
-            Uniq: attrs.GetValueOrDefault("uniq") == "true");
+            Uniq: IsTrue(attrs.GetValueOrDefault("uniq")));
     }
 
     /// <summary>Every <c>&lt;line&gt;</c> under a container, each flattened to its data text.</summary>
@@ -1027,6 +1027,18 @@ public static class ConfigBuilder
 
         return null;
     }
+
+    /// <summary>
+    /// A boolean attribute, read the way every other one in the DSL is read.
+    /// </summary>
+    /// <remarks>
+    /// <c>uniq</c> alone used to be compared against the bare literal <c>"true"</c> while the
+    /// validator lowercased it first, so <c>uniq="True"</c> passed validation as a uniqueness
+    /// promise and then did nothing — a column with duplicates that <c>check</c> had already
+    /// called valid.
+    /// </remarks>
+    private static bool IsTrue(string? raw) =>
+        string.Equals(raw?.Trim(), "true", StringComparison.OrdinalIgnoreCase);
 
     /// <summary>
     /// The attributes of a <c>&lt;gen&gt;</c>, whichever way it was punctuated.
