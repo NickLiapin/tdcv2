@@ -313,6 +313,12 @@ across the first half of 2026. Which rows survive a weekday filter would follow 
 calendar rather than anything written in the config, so the step and the filter are asked
 to be one or the other.
 
+If what you wanted was a **monthly date moved onto the next working day** — the way a
+billing system moves an invoice off a Sunday — that is not expressible today, and the
+filter would not do it: it would drop February entirely rather than move it. A
+**working-day calendar** is a different thing and does work: `step="1d"` with
+`weekdays="mon..fri"`, as above.
+
 ### A bounded range wraps
 
 Give a walked range both ends and it loops when it runs out, the way a short list does:

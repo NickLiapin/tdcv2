@@ -319,6 +319,12 @@ y lunes a lo largo de la primera mitad de 2026. Qué filas sobrevivirían al fil
 decidiría el calendario y no lo que dice la configuración, así que el paso y el filtro
 piden elegir uno de los dos.
 
+Si lo que querías era una **fecha mensual desplazada al siguiente día hábil** — como un
+sistema de facturación mueve una factura que cae en domingo —, hoy eso no se puede
+expresar, y el filtro no lo haría: descartaría febrero entero en lugar de moverlo. Un
+**calendario de días hábiles** es otra cosa y sí funciona: `step="1d"` junto con
+`weekdays="mon..fri"`, como arriba.
+
 ### Un rango acotado da la vuelta
 
 Déle los dos extremos a un rango recorrido y volverá al principio cuando se acabe, como hace
