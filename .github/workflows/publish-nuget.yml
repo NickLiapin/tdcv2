@@ -24,9 +24,17 @@ name: Publish to NuGet
 # The version comes from the .csproj, not from the tag. A tag that disagrees with
 # it is a mistake worth stopping for, so the job checks and refuses.
 
+# TAG TRIGGER REMOVED 2026-08-07. This workflow published on its own tag until the
+# five registries were merged into `publish.yml`, and then it kept doing so — so
+# cutting 0.2.0 with the three tags the runbook still named uploaded the SAME
+# artefact twice, and the Central Portal held two identical validated deployments
+# of tdcv2-0.2.0 waiting for somebody to notice.
+#
+# `publish.yml` on a `v*` tag is now the only automatic path. What is left here is
+# the dry run the comment below describes: `workflow_dispatch`, so packaging can be
+# proven, or one registry re-run by hand after a partial failure, without a second
+# upload racing the first.
 on:
-  push:
-    tags: ["csharp-v*"]
   # A dry run any time, so the packaging can be proven without publishing.
   workflow_dispatch:
 
