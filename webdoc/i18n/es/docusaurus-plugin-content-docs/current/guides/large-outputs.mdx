@@ -311,11 +311,17 @@ horas después, a media escritura del archivo:
 {`tdcv2: uniq: group "K1 × K2" cannot produce 10000000 unique combinations — the values drawn for these sequences allow at most 100 distinct rows. Add more values to a member (more distinct names, wider ranges…) or lower the count.`}
 </Terminal>
 
-:::caution[El propio chequeo tiene un techo]
-Pasados unos cien millones de filas el chequeo de capacidad deja de llegar primero: el run
-pide memoria antes de terminar la aritmética, y lo que vuelve es un fallo en vez del
-mensaje de arriba. Mantenga `count=` dentro de un rango que realmente generaría y el
-chequeo cumple su función.
+:::note[Llega a cualquier tamaño]
+El chequeo corre **antes de construir una sola fila**, solo a partir de la configuración:
+una lista de diez nombres da diez valores, un rango entero `1..100` da cien, y su producto
+es el máximo de filas distintas que el grupo podría contener. Un `count=` de miles de
+millones se responde así en milisegundos, y no después de que el run haya pedido memoria
+que no va a conseguir.
+
+Lo único que no hace es adivinar. Si la capacidad de algún miembro no se puede saber por su
+escritura — una regex, un sorteo de un pack, un fichero — el grupo queda sin cota aquí y la
+respuesta viene del chequeo sobre las columnas ya construidas, igual que antes. Un rechazo
+es siempre una prueba.
 :::
 
 ### `<mix>` en el stream

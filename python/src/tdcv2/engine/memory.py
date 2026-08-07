@@ -344,6 +344,11 @@ def _build_columns(
     A value of ``None`` means "this row is outside the column's parent filter", which renders as
     empty rather than as a neighbour's value shifted up.
     """
+    # Before a single row exists: can the uniq groups cover `count` at all? The post-build check
+    # asks the same question over the finished columns, which means reaching it costs the
+    # allocation this refusal is meant to save.
+    _check_env_uniq_capacity(config, count)
+
     columns: dict[str, list[str | None]] = {}
     # The REAL value behind a date column's text, for the columns some offset measures from.
     #
@@ -1502,6 +1507,81 @@ def _enforce_env_uniq(config: Config, columns, count: int) -> None:
         for m, name in enumerate(members):
             for row in rows:
                 columns[name][row] = by_row[row][m]
+
+
+def _static_capacity(spec: SequenceSpec) -> int | None:
+    """The most distinct values this spec can produce, or ``None`` when unknowable."""
+    gen = spec.gen
+    if gen is None:
+        return None  # a mix, a switch, a compound — not bounded here
+    # `repeat=` makes the cell a LIST of draws, whose distinct combinations are a different and
+    # larger count than one draw's. Not bounded here.
+    if gen.attrs.get("repeat") is not None:
+        return None
+
+    if gen.type == "text":
+        raw = gen.attrs.get("value")
+        if raw is None:
+            return None
+        return len({part.strip() for part in raw.split(",")})
+
+    if gen.type == "number":
+        # A decimal range holds far more than its integer span, and `distribution=` draws a real
+        # number: neither is the count of whole numbers between the bounds.
+        if gen.attrs.get("decimals") is not None or gen.attrs.get("distribution") is not None:
+            return None
+        source = (gen.attrs.get("value") or gen.attrs.get("range") or "").strip()
+        if not source:
+            return None
+        try:
+            total = sum(r.max - r.min + 1 for r in number.parse_ranges(source))
+        except Exception:
+            # A range this cannot read is the validator's to report, not this check's.
+            return None
+        return total if total > 0 else None
+
+    return None
+
+
+def _check_env_uniq_capacity(config: Config, count: int) -> None:
+    """Can each ``<uniq>`` group cover ``count`` at all — asked before a single row is built.
+
+    The group already had this check, and its message is the right one. But it ran over the
+    FINISHED columns, so reaching it meant materialising them first: two lists of ten values and
+    ``count="1000000000"`` died in the allocator instead, exactly where the warning is worth most,
+    because the alternative is a long run that was never going to succeed.
+
+    A member whose capacity is not knowable from its spec makes the group unbounded, and then this
+    says nothing and the post-build check does its work as before. A refusal here is a PROOF, never
+    a guess: no config that could have worked is turned away.
+    """
+    by_name = {spec.name: spec for spec in config.sequences}
+    for group in config.env_uniq_groups:
+        members = [
+            by_name[name]
+            for name in group
+            if name in by_name
+            and (by_name[name].gen is not None or by_name[name].is_mix or by_name[name].is_switch)
+        ]
+        if len(members) < 2:
+            continue
+        # A parent filter means fewer rows carry the tuple than `count`, and the exact number is
+        # not known until the parent is built.
+        if any(spec.parent for spec in members):
+            continue
+
+        ceiling: float = 1
+        for spec in members:
+            capacity = _static_capacity(spec)
+            if capacity is None:
+                ceiling = float("inf")
+                break
+            ceiling *= capacity
+            if ceiling >= count:
+                break
+
+        if count > ceiling:
+            raise EngineError(_uniq_group_message(" × ".join(group), count, int(ceiling)))
 
 
 def _uniq_group_message(label: str, need: int, available: int) -> str:

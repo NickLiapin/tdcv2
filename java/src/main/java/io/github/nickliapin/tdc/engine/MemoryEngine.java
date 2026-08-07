@@ -416,6 +416,11 @@ public final class MemoryEngine {
       long nowMillis,
       Path baseDir,
       Map<String, Pool.Table> prebuilt) {
+    // Before a single row exists: can the uniq groups cover `count` at all? The post-build check
+    // asks the same question over the finished columns, which means reaching it costs the
+    // allocation this refusal is meant to save.
+    checkEnvUniqCapacity(config, count);
+
     Map<String, String[]> columns = new LinkedHashMap<>();
     // The REAL value behind a date column's text, for the columns some offset measures from.
     //
@@ -1004,6 +1009,118 @@ public final class MemoryEngine {
         for (int row : rows) {
           values[row] = byRow.get(row).get(m);
         }
+      }
+    }
+  }
+
+  /** The most distinct values this spec can produce, or null when unknowable. */
+  private static Long staticCapacity(Config.SequenceSpec spec) {
+    Config.Gen gen = spec.gen();
+    if (gen == null) {
+      return null; // a mix, a switch, a compound — not bounded here
+    }
+    // `repeat=` makes the cell a LIST of draws, whose distinct combinations are a different and
+    // larger count than one draw's. Not bounded here.
+    if (gen.attrs().get("repeat") != null) {
+      return null;
+    }
+
+    if ("text".equals(gen.type())) {
+      String raw = gen.attrs().get("value");
+      if (raw == null) {
+        return null;
+      }
+      Set<String> items = new java.util.LinkedHashSet<>();
+      for (String part : raw.split(",", -1)) {
+        items.add(part.trim());
+      }
+      return (long) items.size();
+    }
+
+    if ("number".equals(gen.type())) {
+      // A decimal range holds far more than its integer span, and `distribution=` draws a real
+      // number: neither is the count of whole numbers between the bounds.
+      if (gen.attrs().get("decimals") != null || gen.attrs().get("distribution") != null) {
+        return null;
+      }
+      String source = gen.attrs().getOrDefault("value", gen.attrs().getOrDefault("range", ""));
+      source = source.trim();
+      if (source.isEmpty()) {
+        return null;
+      }
+      try {
+        long total = 0;
+        for (NumberGen.Range range : NumberGen.parseRanges(source)) {
+          total += range.max() - range.min() + 1;
+        }
+        return total > 0 ? total : null;
+      } catch (RuntimeException e) {
+        // A range this cannot read is the validator's to report, not this check's.
+        return null;
+      }
+    }
+
+    return null;
+  }
+
+  /**
+   * Can each {@code <uniq>} group cover {@code count} at all — asked before a single row is built.
+   *
+   * <p>The group already had this check, and its message is the right one. But it ran over the
+   * FINISHED columns, so reaching it meant materialising them first: two lists of ten values and
+   * {@code count="1000000000"} died in the allocator instead, exactly where the warning is worth
+   * most, because the alternative is a long run that was never going to succeed.
+   *
+   * <p>A member whose capacity is not knowable from its spec makes the group unbounded, and then
+   * this says nothing and the post-build check does its work as before. A refusal here is a PROOF,
+   * never a guess: no config that could have worked is turned away.
+   */
+  private static void checkEnvUniqCapacity(Config config, int count) {
+    Map<String, Config.SequenceSpec> byName = new LinkedHashMap<>();
+    for (Config.SequenceSpec spec : config.sequences()) {
+      byName.put(spec.name(), spec);
+    }
+
+    for (List<String> group : config.envUniqGroups()) {
+      List<Config.SequenceSpec> members = new ArrayList<>();
+      for (String name : group) {
+        Config.SequenceSpec spec = byName.get(name);
+        if (spec != null && (spec.gen() != null || spec.isMix() || spec.isSwitch())) {
+          members.add(spec);
+        }
+      }
+      if (members.size() < 2) {
+        continue;
+      }
+      // A parent filter means fewer rows carry the tuple than `count`, and the exact number is not
+      // known until the parent is built.
+      boolean filtered = false;
+      for (Config.SequenceSpec spec : members) {
+        if (spec.parent() != null && !spec.parent().isBlank()) {
+          filtered = true;
+          break;
+        }
+      }
+      if (filtered) {
+        continue;
+      }
+
+      double ceiling = 1;
+      for (Config.SequenceSpec spec : members) {
+        Long capacity = staticCapacity(spec);
+        if (capacity == null) {
+          ceiling = Double.POSITIVE_INFINITY;
+          break;
+        }
+        ceiling *= capacity;
+        if (ceiling >= count) {
+          break;
+        }
+      }
+
+      if (count > ceiling) {
+        throw new IllegalStateException(
+            uniqGroupMessage(String.join(" × ", group), count, (int) ceiling));
       }
     }
   }

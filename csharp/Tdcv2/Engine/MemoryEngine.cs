@@ -467,6 +467,11 @@ public static class MemoryEngine
     {
         Config config = ctx.Config;
         int count = config.Count;
+        // Before a single row exists: can the uniq groups cover `count` at all? The post-build
+        // check asks the same question over the finished columns, which means reaching it costs
+        // the allocation this refusal is meant to save.
+        CheckEnvUniqCapacity(config, count);
+
         var columns = new Dictionary<string, string[]>();
         // The REAL value behind a date column's text, for the columns some offset measures from.
         //
@@ -1748,6 +1753,148 @@ public static class MemoryEngine
                 {
                     values[row] = byRow[row][m];
                 }
+            }
+        }
+    }
+
+    /// <summary>The most distinct values this spec can produce, or null when unknowable.</summary>
+    private static long? StaticCapacity(SequenceSpec spec)
+    {
+        Gen? gen = spec.Gen;
+        if (gen is null)
+        {
+            return null; // a mix, a switch, a compound — not bounded here
+        }
+
+        // `repeat=` makes the cell a LIST of draws, whose distinct combinations are a different
+        // and larger count than one draw's. Not bounded here.
+        if (gen.Attrs.ContainsKey("repeat"))
+        {
+            return null;
+        }
+
+        if (gen.Type == "text")
+        {
+            string? raw = gen.Attrs.GetValueOrDefault("value");
+            if (raw is null)
+            {
+                return null;
+            }
+
+            var items = new HashSet<string>(StringComparer.Ordinal);
+            foreach (string part in raw.Split(','))
+            {
+                items.Add(part.Trim());
+            }
+
+            return items.Count;
+        }
+
+        if (gen.Type == "number")
+        {
+            // A decimal range holds far more than its integer span, and `distribution=` draws a
+            // real number: neither is the count of whole numbers between the bounds.
+            if (gen.Attrs.ContainsKey("decimals") || gen.Attrs.ContainsKey("distribution"))
+            {
+                return null;
+            }
+
+            string source =
+                (gen.Attrs.GetValueOrDefault("value") ?? gen.Attrs.GetValueOrDefault("range") ?? "")
+                    .Trim();
+            if (source.Length == 0)
+            {
+                return null;
+            }
+
+            try
+            {
+                long total = 0;
+                foreach (NumberGen.Range range in NumberGen.ParseRanges(source))
+                {
+                    total += range.Max - range.Min + 1;
+                }
+
+                return total > 0 ? total : null;
+            }
+            catch (Exception)
+            {
+                // A range this cannot read is the validator's to report, not this check's.
+                return null;
+            }
+        }
+
+        return null;
+    }
+
+    /// <summary>
+    /// Can each <c>&lt;uniq&gt;</c> group cover <c>count</c> at all — asked before a single row
+    /// is built.
+    /// </summary>
+    /// <remarks>
+    /// The group already had this check, and its message is the right one. But it ran over the
+    /// FINISHED columns, so reaching it meant materialising them first: two lists of ten values
+    /// and <c>count="1000000000"</c> died in the allocator instead, exactly where the warning is
+    /// worth most, because the alternative is a long run that was never going to succeed.
+    /// <para>
+    /// A member whose capacity is not knowable from its spec makes the group unbounded, and then
+    /// this says nothing and the post-build check does its work as before. A refusal here is a
+    /// PROOF, never a guess: no config that could have worked is turned away.
+    /// </para>
+    /// </remarks>
+    private static void CheckEnvUniqCapacity(Config config, int count)
+    {
+        var byName = new Dictionary<string, SequenceSpec>(StringComparer.Ordinal);
+        foreach (SequenceSpec spec in config.Sequences)
+        {
+            byName[spec.Name] = spec;
+        }
+
+        foreach (IReadOnlyList<string> group in config.EnvUniqGroups)
+        {
+            var members = new List<SequenceSpec>();
+            foreach (string name in group)
+            {
+                if (byName.TryGetValue(name, out SequenceSpec? spec)
+                    && (spec.Gen is not null || spec.IsMix || spec.IsSwitch))
+                {
+                    members.Add(spec);
+                }
+            }
+
+            if (members.Count < 2)
+            {
+                continue;
+            }
+
+            // A parent filter means fewer rows carry the tuple than `count`, and the exact number
+            // is not known until the parent is built.
+            if (members.Exists(s => !string.IsNullOrEmpty(s.Parent)))
+            {
+                continue;
+            }
+
+            double ceiling = 1;
+            foreach (SequenceSpec spec in members)
+            {
+                long? capacity = StaticCapacity(spec);
+                if (capacity is not { } known)
+                {
+                    ceiling = double.PositiveInfinity;
+                    break;
+                }
+
+                ceiling *= known;
+                if (ceiling >= count)
+                {
+                    break;
+                }
+            }
+
+            if (count > ceiling)
+            {
+                throw new InvalidOperationException(
+                    UniqGroupMessage(string.Join(" × ", group), count, (int)ceiling));
             }
         }
     }

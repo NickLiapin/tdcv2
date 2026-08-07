@@ -264,7 +264,7 @@ fn eval(el: &Element, scope: &Scope) -> ComputeResult<Value> {
                 return err("<split>: expected a string, got a list");
             };
             Ok(Value::Lst(
-                text.split(sep).map(|piece| Value::str(piece)).collect(),
+                text.split(sep).map(Value::str).collect(),
             ))
         }
         "at" => {

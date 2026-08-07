@@ -511,6 +511,11 @@ fn build_columns_with(
     // year away. So the column that produced it keeps what it actually generated,
     // and an offset measures from THAT. Only the columns named by some `of=` are
     // kept, so a config with no offset in it pays nothing.
+    // Before a single row exists: can the uniq groups cover `count` at all? The
+    // post-build check asks the same question over the finished columns, which means
+    // reaching it costs the allocation this refusal is meant to save.
+    check_env_uniq_capacity(env.config, count)?;
+
     let mut instants: BTreeMap<String, Vec<Option<i64>>> = BTreeMap::new();
     let wants_instant: BTreeSet<String> = env
         .config
@@ -1324,6 +1329,111 @@ fn enforce_env_uniq(
                         column[*row] = Some(values[m].clone());
                     }
                 }
+            }
+        }
+    }
+    Ok(())
+}
+
+/// The most distinct values this spec can produce, or `None` when unknowable.
+fn static_capacity(spec: &SequenceSpec) -> Option<u128> {
+    let Source::Gen(gen) = &spec.source else {
+        return None; // a mix, a switch, a compound — not bounded here
+    };
+    // `repeat=` makes the cell a LIST of draws, whose distinct combinations are a
+    // different and larger count than one draw's. Not bounded here.
+    if gen.attrs.contains_key("repeat") {
+        return None;
+    }
+
+    match gen.gen_type.as_str() {
+        "text" => {
+            let raw = gen.attrs.get("value")?;
+            let items: BTreeSet<&str> = raw.split(',').map(str::trim).collect();
+            Some(items.len() as u128)
+        }
+        "number" => {
+            // A decimal range holds far more than its integer span, and
+            // `distribution=` draws a real number: neither is the count of whole
+            // numbers between the bounds.
+            if gen.attrs.contains_key("decimals") || gen.attrs.contains_key("distribution") {
+                return None;
+            }
+            let source = gen
+                .attrs
+                .get("value")
+                .or_else(|| gen.attrs.get("range"))
+                .map(|s| s.trim())
+                .filter(|s| !s.is_empty())?;
+            // A range this cannot read is the validator's to report, not this check's.
+            let ranges = number::parse_ranges(source).ok()?;
+            let mut total: u128 = 0;
+            for range in ranges {
+                total += (range.max - range.min + 1) as u128;
+            }
+            (total > 0).then_some(total)
+        }
+        _ => None,
+    }
+}
+
+/// Can each `<uniq>` group cover `count` at all — asked before a single row is built.
+///
+/// The group already had this check, and its message is the right one. But it ran
+/// over the FINISHED columns, so reaching it meant materialising them first: two
+/// lists of ten values and `count="1000000000"` died in the allocator instead,
+/// exactly where the warning is worth most, because the alternative is a long run
+/// that was never going to succeed.
+///
+/// A member whose capacity is not knowable from its spec makes the group unbounded,
+/// and then this says nothing and the post-build check does its work as before. A
+/// refusal here is a PROOF, never a guess: no config that could have worked is
+/// turned away.
+fn check_env_uniq_capacity(config: &Config, count: usize) -> EngineResult<()> {
+    for group in &config.env_uniq_groups {
+        let members: Vec<&SequenceSpec> = group
+            .iter()
+            .filter_map(|name| config.sequences.iter().find(|s| &s.name == name))
+            .filter(|s| {
+                matches!(
+                    s.source,
+                    Source::Gen(_) | Source::Mix(_) | Source::Switch(_)
+                )
+            })
+            .collect();
+        if members.len() < 2 {
+            continue;
+        }
+        // A parent filter means fewer rows carry the tuple than `count`, and the
+        // exact number is not known until the parent is built.
+        if members.iter().any(|s| s.parent.is_some()) {
+            continue;
+        }
+
+        let mut ceiling: Option<u128> = Some(1);
+        for spec in &members {
+            match static_capacity(spec) {
+                None => {
+                    ceiling = None;
+                    break;
+                }
+                Some(capacity) => {
+                    let so_far = ceiling.unwrap_or(1).saturating_mul(capacity);
+                    ceiling = Some(so_far);
+                    if so_far >= count as u128 {
+                        break;
+                    }
+                }
+            }
+        }
+
+        if let Some(bound) = ceiling {
+            if (count as u128) > bound {
+                return invalid(&uniq_group_message(
+                    &group.join(" × "),
+                    count,
+                    bound as usize,
+                ));
             }
         }
     }

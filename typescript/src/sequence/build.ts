@@ -97,6 +97,7 @@ import {
 } from './repeat-keyed.js';
 import { enforceUniqRedrawing } from './enforce-uniq.js';
 import { enforceEnvDistinct, enforceEnvUniq } from './env-groups.js';
+import { checkEnvUniqCapacity } from './uniq-capacity.js';
 import { poolRefName, type PoolTables } from './pool.js';
 import { registerPoolRef } from './pool-ref.js';
 import { isDateOffset, offsetOf, registerDateOffset } from './date-offset.js';
@@ -340,6 +341,11 @@ export function buildSequences(
     },
     instantColumns: instantColumnsOf(specs),
   };
+
+  // Before a single row exists: can the uniq groups cover `count` at all? The
+  // post-build check asks the same question over the finished columns, which
+  // means reaching it costs the allocation this refusal is meant to save.
+  checkEnvUniqCapacity(options.envUniqGroups ?? [], specs, count);
 
   // Built-in positional sequences. All deterministic by iteration index,
   // so they consume zero prng state and always produce the same values
@@ -743,7 +749,7 @@ function materializeSimple(
   // from configs that were right; refusing to attach gives the text reading instead, which
   // either works or names the problem out loud. Any path added later that forgets the sink
   // now degrades the same safe way.
-  const filled = instants !== undefined && instants.length === applicableCount;
+  const filled = instants?.length === applicableCount;
   return filled ? { ...sequence, instants: spreadInstants(rows, instants, count) } : sequence;
 }
 

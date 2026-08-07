@@ -300,11 +300,15 @@ halfway through the file:
 {`tdcv2: uniq: group "K1 × K2" cannot produce 10000000 unique combinations — the values drawn for these sequences allow at most 100 distinct rows. Add more values to a member (more distinct names, wider ranges…) or lower the count.`}
 </Terminal>
 
-:::caution[The check has a ceiling of its own]
-Past roughly a hundred million rows the capacity check stops arriving first: the run
-reaches for memory before the arithmetic is done, and what comes back is a crash rather
-than the message above. Keep `count=` inside a range you would actually generate, and the
-check does its job.
+:::note[It arrives at any size]
+The check runs **before a single row is built**, from the config alone: a list of ten names
+can make ten values, an integer range `1..100` can make a hundred, and the product is the
+most distinct rows the group could ever hold. A `count=` in the billions is therefore
+answered in milliseconds rather than after the run has reached for memory it will not get.
+
+The one thing it will not do is guess. If any member's capacity is not knowable from its
+spec — a regex, a pack draw, a file — the group is unbounded here and the answer comes from
+the check over the built columns instead, exactly as before. A refusal is always a proof.
 :::
 
 ### `<mix>` in the stream
