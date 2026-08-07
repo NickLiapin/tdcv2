@@ -47,9 +47,14 @@
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.js",
-      "require": "./esm-only.cjs"
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./esm-only.d.cts",
+        "default": "./esm-only.cjs"
+      }
     }
   },
   "bin": {
@@ -63,6 +68,7 @@
     "README.md",
     "CHANGELOG.md",
     "LICENSE",
+    "esm-only.d.cts",
     "esm-only.cjs"
   ],
   "scripts": {
@@ -85,6 +91,7 @@
     "format:check": "prettier --check .",
     "pretypecheck": "npm run generate",
     "typecheck": "tsc --noEmit",
+    "types:pack": "npx --yes @arethetypeswrong/cli --pack .",
     "check": "npm run lint && npm run typecheck && npm run test && npm run cases && npm run fixtures && npm run diagnostics && npm run engines && npm run parquet && npm run test:pack && npm run packs:ranges && npm run docs:examples && npm run quick:check && npm run quick:vectors",
     "postpack": "node scripts/bundle-packs.mjs remove",
     "cases": "npx tsx scripts/cross-language-cases.mjs",

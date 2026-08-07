@@ -22,6 +22,10 @@ export default tseslint.config(
       // ERR_PACKAGE_PATH_NOT_EXPORTED. Outside tsconfig by design, which is
       // exactly what the type-aware parser refuses to read.
       'esm-only.cjs',
+      // The types the require() side gets. Not part of the compiled sources — it
+      // describes what require() DOES (throw), so the project service has no
+      // tsconfig that owns it.
+      'esm-only.d.cts',
     ],
   },
   eslint.configs.recommended,
