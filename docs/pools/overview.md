@@ -96,7 +96,7 @@ Everything else on this page follows from those two sentences.
 | :--------------------- | :------- | :------------------------------------------------------------------------------- |
 | `value`                | yes      | The pool to draw from                                                            |
 | `filter`               | no       | Which members this row may draw from — [Narrowing](filter.md#top)                   |
-| `if`                   | no       | Whether this row gets a member at all — [Narrowing](filter.md#filter-is-not-if) |
+| `parent`               | no       | Leave some rows without a member at all — [Narrowing](filter.md#filter-is-not-if-and-if-is-not-available-here) |
 
 ## A pool is a miniature `<env>`
 

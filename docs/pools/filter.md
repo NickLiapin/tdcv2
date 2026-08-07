@@ -165,27 +165,23 @@ Both are correct. The difference is why a pool has a
 [size ceiling](overview.md#size) at all: a scan over a million members, two thousand
 times, is a real cost, and the ceiling is where the tool says so.
 
-## `filter` is not `if`
+## `filter` is not `if`, and `if` is not available here
 
-Both narrow something, and both may appear on the same `<gen>`. They differ in **what
-comes out**:
+Elsewhere `if` narrows by asking about the **row**, once per row. `filter` asks about
+each **candidate**, once per member — thirty questions per row for a pool of thirty.
 
-|          | The question it asks                             | When it says no                                           |
-| :------- | :----------------------------------------------- | :-------------------------------------------------------- |
-| `if`     | about the **row** — one answer per row           | nothing is generated; the cell is empty                   |
-| `filter` | about each **candidate** — one answer per member | a matching member is substituted; the cell is never empty |
+On a pool reference only `filter` exists. `if` is [refused](../reference/errors.md#top),
+because a reference publishes a whole MEMBER rather than a value: a conditional one
+would register no `Ref.field` columns at all, and `${{Doctor.name}}` would reach the
+output as its own literal text.
 
-So `if="Age >= 18"` leaves minors without a doctor, and `filter="clinic == Clinic"`
-gives everyone a doctor from the right clinic. Together they read as "adults only, and
-from their own clinic":
+To leave some rows without a member, use `parent`. It masks the reference exactly as it
+masks any other sequence, and the fields come out empty on the rows it excludes:
 
 ```xml
-<gen type="pool" value="Doctors" if="Age >= 18" filter="clinic == Clinic"/>
+<sequence name="Adult"><gen type="text" value="yes" if="Age >= 18"/></sequence>
+<sequence name="Seen" parent="Adult"><gen type="pool" value="Doctors" filter="clinic == Clinic"/></sequence>
 ```
-
-The two also ask about different things, which is why one attribute could not do both
-jobs. `if` asks once per row. `filter` asks once per candidate — thirty questions per
-row for a pool of thirty.
 
 ## When nobody matches
 

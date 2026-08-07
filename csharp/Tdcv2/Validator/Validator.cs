@@ -2595,6 +2595,22 @@ public sealed class Validator
             (int gl, int gc) = At(gen.attr(), "if", Line(gen), Column(gen));
             CheckIfExpression(genCondition, gl, gc);
             _pendingExpressions.Add((_diagnostics.Count, genCondition, gl, gc, false));
+
+            // A pool reference publishes a whole MEMBER, and a <gen> carrying `if` becomes a
+            // conditional branch the pool resolver does not recognise — so no Ref.field column
+            // was registered and ${{Ref.name}} reached the output as its own literal text, on
+            // every row including the ones the condition selected.
+            if (Attributes(gen.attr()).GetValueOrDefault("type") == "pool")
+            {
+                Error(
+                    "TDC268",
+                    "if= is not supported on <gen type=\"pool\">: the reference publishes a "
+                        + "whole MEMBER, and a conditional one would register no fields at all",
+                    "To leave some rows without a member, use parent=\"\u2026\" \u2014 it masks "
+                        + "the reference the same way it masks any other sequence, and the fields "
+                        + "come out empty on the rows it excludes.",
+                    gl, gc);
+            }
         }
 
         IReadOnlyDictionary<string, string> attrs = Attributes(gen.attr());

@@ -1802,6 +1802,23 @@ impl Validator {
             self.check_if_expression(&condition, gen.at("if"));
             self.pending_expressions
                 .push((self.diagnostics.len(), condition, gen.at("if"), false));
+            // A pool reference publishes a whole MEMBER, and a `<gen>` carrying
+            // `if` becomes a conditional branch the pool resolver does not
+            // recognise — so no `Ref.field` column was registered and
+            // `${{Ref.name}}` reached the output as its own literal text, on
+            // every row including the ones the condition selected.
+            if attrs.get("type").map(String::as_str) == Some("pool") {
+                self.error(
+                    "TDC268",
+                    "if= is not supported on <gen type=\"pool\">: the reference publishes a \
+                     whole MEMBER, and a conditional one would register no fields at all"
+                        .to_string(),
+                    "To leave some rows without a member, use parent=\"\u{2026}\" \u{2014} it \
+                     masks the reference the same way it masks any other sequence, and the \
+                     fields come out empty on the rows it excludes.",
+                    gen.at("if"),
+                );
+            }
         }
         let gen_type = attrs
             .get("type")

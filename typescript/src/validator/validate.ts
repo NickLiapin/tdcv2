@@ -40,13 +40,14 @@ import type {
 import {
   collectSequenceGens,
   contentElements,
+  dataFieldNames,
   elementKind,
   elementName,
   extractAttrs,
   extractDataAttrs,
   extractDataText,
+  findAttr,
   findChildElement,
-  dataFieldNames,
   hasDataLiteral,
 } from '../processor/walk.js';
 import { checkSequenceDataAttrs, type SequenceShape, sequenceShape } from './sequence-body.js';
@@ -88,12 +89,13 @@ import { checkSmallShares } from './small-share.js';
 import { checkGenBody, checkGroupBody, openChild } from './container-children.js';
 import {
   checkPoolIsRead,
+  checkPoolRefHasNoIf,
   collectPoolFieldValues,
   collectPoolFields,
   collectPoolReferences,
-  type PendingPoolFilter,
   registerPoolReference,
   runPendingPoolFilters,
+  type PendingPoolFilter,
 } from './pool.js';
 import {
   checkEnvSequenceGroup,
@@ -818,6 +820,7 @@ function checkGen(
   checkGenWeight(gen, ctx.diagnostics);
   checkGenMask(gen, ctx.diagnostics);
   checkGenImperfections(gen, ctx.diagnostics);
+  checkPoolRefHasNoIf(gen, ctx.diagnostics);
 
   if (!type) {
     ctx.diagnostics.push({
@@ -1361,14 +1364,6 @@ function findTdc(doc: DocumentContext): OpenCloseElementContext | undefined {
   for (const el of doc.element()) {
     const k = elementKind(el);
     if (k?.kind === 'open' && elementName(k.node) === 'tdc') return k.node;
-  }
-  return undefined;
-}
-
-/** Attribute lookup that preserves access to the `AttrContext` (for position info). */
-function findAttr(attrs: readonly AttrContext[], name: string): AttrContext | undefined {
-  for (const a of attrs) {
-    if (a._attrName?.text === name) return a;
   }
   return undefined;
 }

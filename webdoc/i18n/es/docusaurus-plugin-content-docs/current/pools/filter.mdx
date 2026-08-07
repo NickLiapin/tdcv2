@@ -155,27 +155,24 @@ Los dos son correctos. La diferencia es la razón de que un pool tenga un
 [techo de tamaño](overview.mdx#tamaño): recorrer un millón de miembros, dos mil veces, es
 un coste real, y el techo es donde la herramienta lo dice.
 
-## `filter` no es `if`
+## `filter` no es `if`, y `if` no está disponible aquí
 
-Los dos acotan algo, y los dos pueden aparecer en el mismo `<gen>`. Se diferencian en **lo
-que sale**:
+En otros sitios `if` acota preguntando por la **fila**, una vez por fila. `filter` pregunta
+por cada **candidato**, una vez por miembro: treinta preguntas por fila para un pool de
+treinta.
 
-|          | Qué pregunta                                       | Cuando dice que no                                             |
-| :------- | :------------------------------------------------- | :------------------------------------------------------------- |
-| `if`     | por la **fila** — una respuesta por fila           | no se genera nada; la celda queda vacía                        |
-| `filter` | por cada **candidato** — una respuesta por miembro | se sustituye un miembro que encaja; la celda nunca queda vacía |
+En una referencia a un pool solo existe `filter`. `if` se
+[rechaza](../reference/errors.mdx), porque una referencia publica un REGISTRO entero y no
+un valor: una condicional no registraría ninguna columna `Ref.field`, y `${{Doctor.name}}`
+llegaría a la salida como su propio texto literal.
 
-Así, `if="Age >= 18"` deja a los menores sin médico, y `filter="clinic == Clinic"` da
-médico a todos, pero de su clínica. Juntos se leen como «solo adultos, y de su propia
-clínica»:
+Para dejar algunas filas sin miembro, use `parent`. Enmascara la referencia igual que
+enmascara cualquier otra secuencia, y en las filas que excluye los campos salen vacíos:
 
 ```xml
-<gen type="pool" value="Doctors" if="Age >= 18" filter="clinic == Clinic"/>
+<sequence name="Adult"><gen type="text" value="yes" if="Age >= 18"/></sequence>
+<sequence name="Seen" parent="Adult"><gen type="pool" value="Doctors" filter="clinic == Clinic"/></sequence>
 ```
-
-También preguntan por cosas distintas, y por eso un solo atributo no podía hacer los dos
-trabajos. `if` pregunta una vez por fila. `filter` pregunta una vez por candidato: treinta
-preguntas por fila para un pool de treinta.
 
 ## Cuando no encaja nadie
 

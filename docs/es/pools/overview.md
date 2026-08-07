@@ -97,7 +97,7 @@ Todo lo demás en esta página se sigue de esas dos frases.
 | :--------------------- | :---------- | :----------------------------------------------------------------------------- |
 | `value`                | sí          | De qué pool sortear                                                            |
 | `filter`               | no          | De qué miembros puede sortear esta fila — [Acotar](filter.md#top)                 |
-| `if`                   | no          | Si esta fila recibe un miembro siquiera — [Acotar](filter.md#filter-no-es-if) |
+| `parent`               | no          | Dejar algunas filas sin miembro — [Acotar](filter.md#filter-no-es-if-y-if-no-está-disponible-aquí) |
 
 ## Un pool es un `<env>` en miniatura
 

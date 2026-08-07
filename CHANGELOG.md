@@ -53,6 +53,17 @@ page — is tracked in that implementation's own changelog:
   now redraws inside the branch the row belongs to: a `<case is="p">` row comes back with
   another p value. The function's own comment had claimed the switch case was handled.
 
+<!-- covers: TDC268 -->
+
+- `if=` on a `<gen type="pool">` is refused by TDC268 instead of leaking. A `<gen>` carrying
+  `if=` becomes a conditional branch, and the pool resolver only recognises a plain
+  `<gen type="pool">` — so the reference registered no `Ref.field` column at all and
+  `${{Ref.name}}` reached the output as its own literal text, on EVERY row including the ones
+  the condition selected, from a config `check` had called valid. Refused rather than
+  implemented: leaving a row without a member is what `parent=` already does, and a
+  conditional reference would have to answer what `${{Ref.field}}` means on a row that took
+  the other branch. The pool pages now document `parent=` for that job.
+
 <!-- covers: abs, round, floor, ceil, trunc, min, max -->
 
 - `abs`, `round`, `floor`, `ceil`, `trunc`, `min` and `max` in `if=` and `filter=` kept

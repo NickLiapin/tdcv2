@@ -253,3 +253,17 @@ export function hasDataLiteral(seq: OpenCloseElementContext): boolean {
   }
   return false;
 }
+
+/**
+ * Attribute lookup that keeps the `AttrContext` — the node a diagnostic needs to
+ * point at a position rather than at a whole element.
+ *
+ * Lives here beside `extractAttrs`, which answers the same question and throws
+ * the position away.
+ */
+export function findAttr(attrs: readonly AttrContext[], name: string): AttrContext | undefined {
+  for (const a of attrs) {
+    if (a._attrName?.text === name) return a;
+  }
+  return undefined;
+}

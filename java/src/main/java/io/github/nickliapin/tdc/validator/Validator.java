@@ -2122,6 +2122,19 @@ public final class Validator {
       checkIfExpression(condition, where[0], where[1]);
       pendingExpressions.add(
           new Pending(diagnostics.size(), condition, where[0], where[1], false));
+      // A pool reference publishes a whole MEMBER, and a <gen> carrying `if` becomes a
+      // conditional branch the pool resolver does not recognise — so no Ref.field column was
+      // registered and ${{Ref.name}} reached the output as its own literal text, on every row
+      // including the ones the condition selected.
+      if ("pool".equals(type)) {
+        error("TDC268",
+            "if= is not supported on <gen type=\"pool\">: the reference publishes a whole MEMBER,"
+                + " and a conditional one would register no fields at all",
+            "To leave some rows without a member, use parent=\"\u2026\" \u2014 it masks the "
+                + "reference the same way it masks any other sequence, and the fields come out "
+                + "empty on the rows it excludes.",
+            where[0], where[1]);
+      }
     }
 
     if (type == null || type.isBlank()) {

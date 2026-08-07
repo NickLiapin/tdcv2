@@ -24,7 +24,7 @@ import type { Diagnostic } from '../errors/index.js';
 import type { OpenCloseElementContext, SelfClosingElementContext } from '../generated/TDCParser.js';
 import { contentElements, elementKind, elementName, extractAttrs } from '../processor/walk.js';
 
-import { nodeRange } from '../errors/source-map.js';
+import { attrValueRange, nodeRange } from '../errors/source-map.js';
 import { closestMatch } from '../errors/suggestions.js';
 
 /**
@@ -640,4 +640,37 @@ function checkPoolSize(
       code: 'TDC234',
     });
   }
+}
+
+/**
+ * `if=` on a `<gen type="pool">` — accepted by the grammar, honoured by nothing.
+ *
+ * A `<gen>` carrying `if=` becomes a CONDITIONAL branch, and the pool resolver
+ * only recognises a plain `<gen type="pool">`. So the reference registered no
+ * `Ref.field` columns at all and `${{Ref.name}}` reached the output as its own
+ * literal text — on EVERY row, including the ones the condition selected. The
+ * config validated clean and the file filled up with `${{Doctor.name}}`.
+ *
+ * Refused rather than implemented: giving a row no member at all is what
+ * `parent=` already does, and a conditional reference would have to answer a
+ * question the shape does not raise — what `${{Ref.field}}` means on a row that
+ * took the other branch. Until that has an answer, silence is the worst of the
+ * three options and this is the cheapest way out of it.
+ */
+export function checkPoolRefHasNoIf(
+  gen: OpenCloseElementContext | SelfClosingElementContext,
+  diagnostics: Diagnostic[],
+): void {
+  const attrs = extractAttrs(gen.attr());
+  if (attrs['type'] !== 'pool' || attrs['if'] === undefined) return;
+  const attr = gen.attr().find((a) => a._attrName?.text === 'if');
+  diagnostics.push({
+    severity: 'error',
+    source: 'validator',
+    ...(attr ? attrValueRange(attr) : nodeRange(gen)),
+    message:
+      'if= is not supported on <gen type="pool">: the reference publishes a whole MEMBER, and a conditional one would register no fields at all',
+    hint: 'To leave some rows without a member, use parent="…" — it masks the reference the same way it masks any other sequence, and the fields come out empty on the rows it excludes.',
+    code: 'TDC268',
+  });
 }

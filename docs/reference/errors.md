@@ -310,6 +310,7 @@ but the combination it asks for can't be carried out.
 | `TDC265` | `<assert>` has no condition | An assertion is the one construct whose whole worth is that it fails, and without `that=` it never can. Write the property the run must have, in the `if=` language, over whole-run columns |
 | `TDC266` | `<assert>` has no message | `says=` is what a reader is told when it fires, months later, in a CI log. An expression on its own leaves them to work out what it was defending |
 | `TDC267` | `uniq="true"` together with `mask=`, `case=`, `missing=`, `repeat=`, `separator=` or `anomaly=` | A draw without replacement produces the column directly and never reaches the layer that rewrites values, so the attribute could only ever be dropped. Applying it would break the other promise: a mask maps two distinct draws onto the same characters |
+| `TDC268` | `if=` on a `<gen type="pool">` | A reference publishes a whole MEMBER, and a `<gen>` carrying `if=` becomes a conditional branch the pool resolver does not recognise — so no `Ref.field` column was registered and `${{Ref.name}}` reached the output as its own literal text. Use `parent=` to leave rows without a member |
 
 ## See also
 
