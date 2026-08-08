@@ -20,6 +20,8 @@ from .source import Source
 #: `<sequence name="…">` in a pack generator body — the pack's parameter list. Read by
 #: scanning rather than by parsing: the validator asks before anything is built, and
 #: parsing a pack body there would report a pack author's syntax error at the caller's line.
+from .param_width import parameter_widths
+
 _SEQUENCE_NAME = re.compile(r'<sequence\s+[^>]*name\s*=\s*"([^"]+)"')
 
 #: The extensions a dotted address is tried against, in order. Nearly every pack is a ``.txt``
@@ -307,6 +309,27 @@ class DataPacks:
             # does nothing is indistinguishable from a typo.
             return set()
         return {m.group(1) for m in _SEQUENCE_NAME.finditer(entry.generator)}
+
+    def parameter_widths(self, dotted_path: str, locale: str) -> dict[str, int]:
+        """How many characters each parameter's own sequence produces, where that is a FACT.
+
+        A pinned parameter replaces the pack's own sequence for the run. The packs that carry
+        a CHECK DIGIT compute it over a fixed layout, so a value of the wrong width does not
+        shift the layout — it breaks it. Measured on ``usa.finance.aba_routing``, whose own
+        ``prefix`` is 2 characters and ``tail`` 6: ``prefix="12345"`` aborted the run inside
+        the pack's compute, and ``tail="678"`` silently wrote a six-digit number that is not
+        a routing number. ``check`` passed on both.
+
+        Only the shapes whose width can be READ OFF the body are here; everything else is
+        absent and the caller must stay silent, because a refusal has to be a proof.
+        """
+        try:
+            entry = self.load(dotted_path, locale)
+        except Exception:
+            return {}
+        if entry.generator is None:
+            return {}
+        return parameter_widths(entry.generator)
 
     def exists(self, dotted_path: str, locale: str) -> bool:
         """Whether an address resolves, without loading it.

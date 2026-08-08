@@ -2597,8 +2597,35 @@ class _Validator:
         if declared is None:
             return False
 
+        widths = self.packs.parameter_widths(path, self.locale)
+
         for name, value in attrs.items():
-            if name in GEN_ATTRS or name in declared or name in _NOT_A_PACK_PARAM:
+            if name in GEN_ATTRS or name in _NOT_A_PACK_PARAM:
+                continue
+            if name in declared:
+                # A parameter the pack DOES accept, pinned to a value of the wrong width.
+                #
+                # The packs that carry a check digit compute it over a fixed layout, so a
+                # wrong-width value does not shift the layout — it breaks it. Measured on
+                # ``usa.finance.aba_routing``, whose own ``prefix`` is 2 characters:
+                # ``prefix="12345"`` aborted the run with ``<at>: index 8 is out of range``,
+                # naming no file, line or code, and ``tail="678"`` said nothing at all and
+                # wrote a six-digit number that is not a routing number. ``check`` passed on
+                # both. Only reported where the width is a FACT read off the pack's own body.
+                want = widths.get(name)
+                if want is not None and len(value) != want:
+                    line, column = _at(gen, name)
+                    self._error(
+                        "TDC276",
+                        f'"{name}" is pinned to {len(value)} characters, and "{path}" builds '
+                        f"its value around a {name}= of exactly {want}",
+                        f"A pinned parameter replaces the pack's own value, and this pack has "
+                        f"a fixed layout — a check digit is computed over the whole of it. Use "
+                        f"a {name}= of {want} characters, or drop it and let the pack draw its "
+                        "own.",
+                        line,
+                        column,
+                    )
                 continue
             line, column = _at(gen, name)
             if declared:

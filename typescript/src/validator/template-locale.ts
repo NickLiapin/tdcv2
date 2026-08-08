@@ -27,7 +27,7 @@ import {
   templatePathKnown,
 } from './known.js';
 import { checkBirthDateTemplate, checkDateRangeTemplate } from './date.js';
-import { checkTemplateParams, type PackParams } from './pack-params.js';
+import { checkTemplateParams, type PackParamWidths, type PackParams } from './pack-params.js';
 
 import type { Diagnostic } from '../errors/diagnostic.js';
 import { BUILTIN_TEMPLATE_PATHS, localesHavingPath } from './known.js';
@@ -48,6 +48,7 @@ export interface TemplateLocaleCtx {
   readonly packAddresses: readonly string[];
   readonly locale: string;
   readonly packParams: PackParams | undefined;
+  readonly packParamWidths: PackParamWidths | undefined;
 }
 
 /**
@@ -143,7 +144,7 @@ export function checkGenTemplate(
   }
   checkTemplateLocale(path, attrMap, valueAttr, ctx);
 
-  checkTemplateParams(gen.attr(), attrMap, path, ctx.locale, ctx.packParams, ctx.diagnostics);
+  checkTemplateParams(gen.attr(), attrMap, path, ctx, ctx.diagnostics);
 
   if (path === 'person.b_day') {
     checkBirthDateTemplate(gen, ctx.diagnostics);

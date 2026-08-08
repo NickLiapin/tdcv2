@@ -486,6 +486,25 @@ public final class DataPacks {
   }
 
   /**
+   * How many characters each parameter's own sequence produces, where that is a FACT.
+   *
+   * <p>A pinned parameter replaces the pack's own sequence for the run, and the packs that carry
+   * a check digit compute it over a fixed layout — see {@link ParamWidth} for what counts as
+   * provable.
+   */
+  public java.util.Map<String, Integer> parameterWidths(String dottedPath, String locale) {
+    Entry entry;
+    try {
+      entry = load(dottedPath, locale);
+    } catch (RuntimeException ignored) {
+      return java.util.Map.of();
+    }
+    return entry.generator() == null
+        ? java.util.Map.of()
+        : ParamWidth.parameterWidths(entry.generator());
+  }
+
+  /**
    * Every address these packs can answer to, in no particular order.
    *
    * <p>The quick API needs the whole list rather than a yes-or-no about one address: to say "did

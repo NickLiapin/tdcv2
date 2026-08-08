@@ -20,7 +20,7 @@ import { readdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-import { bundledPacks, packParameterNames } from '../src/data-pack/load.ts';
+import { bundledPacks, packParameterNames, packParameterWidths } from '../src/data-pack/load.ts';
 import { parse } from '../src/parser/index.ts';
 import { validate } from '../src/validator/index.ts';
 
@@ -36,6 +36,7 @@ const update = process.argv.includes('--update');
 const PACKS = bundledPacks();
 const PACK_ADDRESSES = [...PACKS.keys()];
 const PACK_PARAMS = packParameterNames(PACKS);
+const PACK_PARAM_WIDTHS = packParameterWidths(PACKS);
 
 /**
  * Parse and validate, returning `severity code line:column` per diagnostic, in report order.
@@ -55,6 +56,7 @@ function diagnose(source) {
   return validate(parsed.tree, {
     packAddresses: PACK_ADDRESSES,
     packParams: PACK_PARAMS,
+    packParamWidths: PACK_PARAM_WIDTHS,
   }).diagnostics.map((d) => `${d.severity} ${d.code ?? '?'} ${d.line}:${d.column}`);
 }
 

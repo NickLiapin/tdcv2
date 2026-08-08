@@ -312,6 +312,7 @@ have them: they compile a config into a model that has no place to put such a `<
 | `TDC273` | a filter argument the filter cannot use | `slice:5,2` ends before it starts and empties the column; `slice:abc`, `group:abc`, `group:0`, `compact:1` and `compact:99` leave the value untouched. `group` and `compact` with NO argument keep their documented defaults (3, base 36) |
 | `TDC274` | an argument on a filter that reads none | `trim`, `sql`, `upper`, `lower`, `capitalize` and `title` are whole transforms; `${{X|trim:junk}}` silently ignored the `junk`. Chain instead: `${{X|trim\|upper}}` |
 | `TDC275` | `replace` with nothing to look for | `${{X|replace}}` and `${{X|replace:,to}}` change nothing at all. Write both parts: `${{X|replace:from,to}}` |
+| `TDC276` | a pinned pack parameter of the wrong width | An identifier with a check digit has a fixed layout, so a wider or narrower part breaks it rather than shifting it. `usa.finance.aba_routing prefix="12345"` aborted the run; `tail="678"` wrote a six-digit non-number. Only reported where the width can be PROVEN from the pack's own body |
 
 ## See also
 

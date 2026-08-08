@@ -428,6 +428,31 @@ public sealed class DataPacks
         return names;
     }
 
+    /// <summary>
+    /// How many characters each parameter's own sequence produces, where that is a FACT.
+    /// </summary>
+    /// <remarks>
+    /// A pinned parameter replaces the pack's own sequence for the run, and the packs that
+    /// carry a check digit compute it over a fixed layout — see <see cref="ParamWidth"/> for
+    /// what counts as provable.
+    /// </remarks>
+    public IReadOnlyDictionary<string, int> ParameterWidths(string dottedPath, string? locale)
+    {
+        Entry entry;
+        try
+        {
+            entry = Load(dottedPath, locale);
+        }
+        catch (Exception)
+        {
+            return new Dictionary<string, int>(StringComparer.Ordinal);
+        }
+
+        return entry.Generator is null
+            ? new Dictionary<string, int>(StringComparer.Ordinal)
+            : ParamWidth.ParameterWidths(entry.Generator);
+    }
+
     private static readonly System.Text.RegularExpressions.Regex SequenceName =
         new("<sequence\\s+[^>]*name\\s*=\\s*\"([^\"]+)\"",
             System.Text.RegularExpressions.RegexOptions.Compiled);

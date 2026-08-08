@@ -74,6 +74,13 @@ corrientes en [`<gen>`](./tags.md#top). Cualquier parámetro que omita se extrae
 que fije queda **clavado** en todas las filas, y el dígito de control siempre se vuelve a
 calcular para seguir siendo válido.
 
+Un valor clavado tiene que tener el **mismo ancho** que la parte propia del identificador.
+Son diseños fijos —el dígito de control se calcula sobre todo el valor—, así que una parte
+más ancha o más estrecha no desplaza el diseño: lo rompe. `usa.finance.aba_routing`
+aceptaba `prefix="12345"` y luego abortaba a media ejecución, y `tail="678"` y escribía un
+número de seis dígitos que no es un número de ruta. Ahora ambos son TDC276, antes de la
+primera fila.
+
 Por ejemplo, clave la parte de área de todos los números de seguro social de EE. UU.:
 
 ```xml

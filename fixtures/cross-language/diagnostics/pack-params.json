@@ -22,6 +22,34 @@
       "description": "person.lastName is a list of values — it has no parameters at all, so the attribute does nothing",
       "config": "<tdc><env count=\"2\" seed=\"s\" local=\"en\"><sequence name=\"N\"><gen type=\"template\" value=\"person.lastName\" domain=\"x\"/></sequence></env><block><line><data>${{N}}</data></line></block></tdc>",
       "expected": ["error TDC072 1:112"]
+    },
+    {
+      "name": "pinned-parameter-of-the-right-width-is-accepted",
+      "demonstrates": "",
+      "description": "`prefix` is the pack's own 2-character code, so pinning a 2-character value is fine",
+      "config": "<tdc><env count=\"2\" seed=\"s\" local=\"en\"><sequence name=\"R\"><gen type=\"template\" value=\"usa.finance.aba_routing\" prefix=\"12\"/></sequence></env><block><line><data>${{R}}</data></line></block></tdc>",
+      "expected": []
+    },
+    {
+      "name": "pinned-parameter-too-long-for-the-pack-layout",
+      "demonstrates": "TDC276",
+      "description": "a 5-character prefix used to pass check and then abort the run inside the pack's compute",
+      "config": "<tdc><env count=\"2\" seed=\"s\" local=\"en\"><sequence name=\"R\"><gen type=\"template\" value=\"usa.finance.aba_routing\" prefix=\"12345\"/></sequence></env><block><line><data>${{R}}</data></line></block></tdc>",
+      "expected": ["error TDC276 1:120"]
+    },
+    {
+      "name": "pinned-parameter-too-short-for-the-pack-layout",
+      "demonstrates": "TDC276",
+      "description": "a 3-character tail used to pass check and write a six-digit value that is not a routing number",
+      "config": "<tdc><env count=\"2\" seed=\"s\" local=\"en\"><sequence name=\"R\"><gen type=\"template\" value=\"usa.finance.aba_routing\" tail=\"678\"/></sequence></env><block><line><data>${{R}}</data></line></block></tdc>",
+      "expected": ["error TDC276 1:118"]
+    },
+    {
+      "name": "a-parameter-with-no-provable-width-stays-silent",
+      "demonstrates": "",
+      "description": "common.internet.email's domain is a name list of differing lengths, so no width can be proven",
+      "config": "<tdc><env count=\"2\" seed=\"s\" local=\"en\"><sequence name=\"R\"><gen type=\"template\" value=\"common.internet.email\" domain=\"a.test\"/></sequence></env><block><line><data>${{R}}</data></line></block></tdc>",
+      "expected": []
     }
   ]
 }

@@ -61,6 +61,16 @@ const GEN_ATTRIBUTES: ReadonlySet<string> = new Set([
 
 export type PackParams = ReadonlyMap<string, ReadonlySet<string>>;
 
+/** Address → parameter → the width the pack's own sequence always produces. */
+export type PackParamWidths = ReadonlyMap<string, ReadonlyMap<string, number>>;
+
+/** The two lookups these checks read, plus the locale that resolves the address. */
+export interface PackParamCtx {
+  readonly locale: string;
+  readonly packParams: PackParams | undefined;
+  readonly packParamWidths: PackParamWidths | undefined;
+}
+
 /**
  * Report attributes on a template `<gen>` that the target pack cannot act on.
  *
@@ -72,10 +82,10 @@ export function checkTemplateParams(
   attrs: readonly AttrContext[],
   attrMap: Readonly<Record<string, string>>,
   path: string,
-  locale: string,
-  packParams: PackParams | undefined,
+  ctx: PackParamCtx,
   diagnostics: Diagnostic[],
 ): void {
+  const { locale, packParams } = ctx;
   // A bare address is read against the active locale, exactly as the engine reads
   // it: `person.lastName` under `en` is the pack `en.person.lastName`. Looking up
   // only the literal text left every locale-relative address unchecked, so the
@@ -84,9 +94,47 @@ export function checkTemplateParams(
   const declared = packParams?.get(path) ?? packParams?.get(`${locale}.${path}`);
   if (!declared) return;
 
+  const widths = ctx.packParamWidths?.get(path) ?? ctx.packParamWidths?.get(`${locale}.${path}`);
+
   for (const attr of attrs) {
     const name = attr._attrName?.text;
-    if (!name || GEN_ATTRIBUTES.has(name) || declared.has(name)) continue;
+    if (!name || GEN_ATTRIBUTES.has(name)) continue;
+
+    // A parameter the pack DOES accept, pinned to a value of the wrong width.
+    //
+    // The packs that carry a check digit compute it over a fixed layout, so a
+    // wrong-width value does not shift the layout — it breaks it. Measured on
+    // `usa.finance.aba_routing`, whose own `prefix` is 2 characters:
+    // `prefix="12345"` aborted the run with `<at>: index 8 is out of range`,
+    // naming no file, line or code, and `tail="678"` said nothing at all and
+    // wrote a six-digit number that is not a routing number. `check` passed on
+    // both.
+    //
+    // Only reported where the width is a FACT read off the pack's own body —
+    // an alternation whose items are all the same length, a regex with an exact
+    // count, a zero-padded range. Anything else has no proven width and is
+    // silent, because a refusal has to be a proof.
+    if (declared.has(name)) {
+      const want = widths?.get(name);
+      const got = attrMap[name];
+      const width = got === undefined ? undefined : Array.from(got).length;
+      if (want !== undefined && width !== undefined && width !== want) {
+        diagnostics.push({
+          severity: 'error',
+          source: 'validator',
+          ...attrValueRange(attr),
+          message:
+            `"${name}" is pinned to ${String(width)} characters, and "${path}" ` +
+            `builds its value around a ${name}= of exactly ${String(want)}`,
+          hint:
+            `A pinned parameter replaces the pack's own value, and this pack has a fixed ` +
+            `layout — a check digit is computed over the whole of it. Use a ${name}= of ` +
+            `${String(want)} characters, or drop it and let the pack draw its own.`,
+          code: 'TDC276',
+        });
+      }
+      continue;
+    }
 
     const suggestion = closestMatch(name, [...declared]);
     diagnostics.push({

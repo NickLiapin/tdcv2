@@ -7,6 +7,7 @@
 //! contains precisely as many Jameses as the census says, not approximately.
 
 pub mod bundled_files;
+pub mod param_width;
 pub mod project;
 pub mod registry;
 pub mod source;
@@ -355,6 +356,27 @@ impl DataPacks {
             rest = &rest[end..];
         }
         Some(names)
+    }
+
+    /// How many characters each parameter's own sequence produces, where that is a FACT.
+    ///
+    /// A pinned parameter replaces the pack's own sequence for the run. The packs
+    /// that carry a CHECK DIGIT compute it over a fixed layout, so a value of the
+    /// wrong width does not shift the layout — it breaks it. See
+    /// [`param_width`](crate::packs::param_width) for what counts as provable.
+    pub fn parameter_widths(
+        &self,
+        dotted_path: &str,
+        locale: &str,
+    ) -> std::collections::BTreeMap<String, usize> {
+        let Ok(entry) = self.load(dotted_path, locale) else {
+            return std::collections::BTreeMap::new();
+        };
+        entry
+            .generator
+            .as_ref()
+            .map(|body| param_width::parameter_widths(body))
+            .unwrap_or_default()
     }
 
     /// Every address these packs can answer to, in no particular order.

@@ -3147,13 +3147,44 @@ public sealed class Validator
             return false;
         }
 
+        IReadOnlyDictionary<string, int> widths = _packs.ParameterWidths(path, _locale);
+
         foreach (KeyValuePair<string, string> attr in attrs)
         {
             // parent, count and flag may sit on a <gen> and are each reported by their own
             // rule; a pack-parameter check must not read them as typos.
-            if (GenAttrs.Contains(attr.Key) || declared.Contains(attr.Key)
-                || NotAPackParam.Contains(attr.Key))
+            if (GenAttrs.Contains(attr.Key) || NotAPackParam.Contains(attr.Key))
             {
+                continue;
+            }
+
+            if (declared.Contains(attr.Key))
+            {
+                // A parameter the pack DOES accept, pinned to a value of the wrong width.
+                //
+                // The packs that carry a check digit compute it over a fixed layout, so a
+                // wrong-width value does not shift the layout — it breaks it. Measured on
+                // usa.finance.aba_routing, whose own prefix is 2 characters: prefix="12345"
+                // aborted the run with "<at>: index 8 is out of range", naming no file, line
+                // or code, and tail="678" said nothing at all and wrote a six-digit number
+                // that is not a routing number. check passed on both. Only reported where the
+                // width is a FACT read off the pack's own body.
+                if (widths.TryGetValue(attr.Key, out int want)
+                    && attr.Value.Length != want)
+                {
+                    (int wl, int wc) = At(gen, attr.Key);
+                    Error(
+                        "TDC276",
+                        $"\"{attr.Key}\" is pinned to {attr.Value.Length} characters, and "
+                        + $"\"{path}\" builds its value around a {attr.Key}= of exactly {want}",
+                        "A pinned parameter replaces the pack's own value, and this pack has a "
+                        + "fixed layout — a check digit is computed over the whole of it. Use a "
+                        + $"{attr.Key}= of {want} characters, or drop it and let the pack draw "
+                        + "its own.",
+                        wl,
+                        wc);
+                }
+
                 continue;
             }
 

@@ -22,6 +22,7 @@ export {
   type PackEntry,
   type PackRegistry,
   packParameterNames,
+  packParameterWidths,
   type ScanResult,
 } from './load.js';
 export {

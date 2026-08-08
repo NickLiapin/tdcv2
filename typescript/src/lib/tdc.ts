@@ -28,6 +28,7 @@ import {
   type PackRegistry,
   bundledPacksDir,
   packParameterNames,
+  packParameterWidths,
   scanPacks,
 } from '../data-pack/index.js';
 import { type Diagnostic, TdcDiagnosticError, hasErrors } from '../errors/index.js';
@@ -190,6 +191,7 @@ export class TDC {
       dataSources: { baseDir: resolved.baseDir, dataPaths: effective.dataPaths },
       packAddresses: [...this.packs.keys()],
       packParams: packParameterNames(this.packs),
+      packParamWidths: packParameterWidths(this.packs),
     });
     const combined: Diagnostic[] = [...packScan.diagnostics, ...validation.diagnostics];
     if (hasErrors(combined)) {

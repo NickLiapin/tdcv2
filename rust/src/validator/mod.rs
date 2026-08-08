@@ -2586,6 +2586,43 @@ impl Validator {
             return false;
         };
 
+        let widths = packs.parameter_widths(path, &locale);
+
+        // A parameter the pack DOES accept, pinned to a value of the wrong width.
+        //
+        // The packs that carry a check digit compute it over a fixed layout, so a
+        // wrong-width value does not shift the layout — it breaks it. Measured on
+        // `usa.finance.aba_routing`, whose own `prefix` is 2 characters:
+        // `prefix="12345"` aborted the run with `<at>: index 8 is out of range`,
+        // naming no file, line or code, and `tail="678"` said nothing at all and
+        // wrote a six-digit number that is not a routing number. `check` passed on
+        // both. Only reported where the width is a FACT read off the pack's own body.
+        let mismatched: Vec<(String, usize, usize)> = attrs
+            .iter()
+            .filter_map(|(name, value)| {
+                let want = *widths.get(name.as_str())?;
+                let got = value.chars().count();
+                (got != want).then_some((name.clone(), got, want))
+            })
+            .collect();
+
+        for (name, got, want) in mismatched {
+            let at = gen.at(&name);
+            self.error(
+                "TDC276",
+                format!(
+                    "\"{name}\" is pinned to {got} characters, and \"{path}\" builds its \
+                     value around a {name}= of exactly {want}"
+                ),
+                &format!(
+                    "A pinned parameter replaces the pack's own value, and this pack has a \
+                     fixed layout — a check digit is computed over the whole of it. Use a \
+                     {name}= of {want} characters, or drop it and let the pack draw its own."
+                ),
+                at,
+            );
+        }
+
         let offenders: Vec<(String, String)> = attrs
             .iter()
             .filter(|(name, _)| {

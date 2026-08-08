@@ -73,7 +73,6 @@ import {
   reportUnknownChild,
 } from './placement.js';
 import { checkIfExpression, type PendingExpression, runPendingExpressions } from './expr-check.js';
-import { DEFAULT_REGEX_MAX_LENGTH, parseRegexMaxLength } from '../generators/regex.js';
 import { checkGenAdvancedRegex } from './advanced-regex.js';
 import { checkGenDate } from './date.js';
 import { checkGenDrawing, checkGenFile } from './file.js';
@@ -125,7 +124,8 @@ import { FIXTURE_TAGS, checkFixture } from './fixture.js';
 import { checkDataColumnType } from './column-type.js';
 import { isCaseTransform } from '../format/transforms.js';
 import { checkDocumentVersion } from './version.js';
-import type { PackParams } from './pack-params.js';
+import type { PackParams, PackParamWidths } from './pack-params.js';
+import { checkRootRegexMaxLength } from './regex-max-length.js';
 import { checkBlockDataRefs, checkInterpolationFilters } from './data-refs.js';
 
 export interface ValidationResult {
@@ -144,6 +144,11 @@ export interface ValidationOptions {
    * names). Lets the validator catch an attribute the pack cannot act on.
    */
   readonly packParams?: PackParams | undefined;
+  /**
+   * Address → parameter → the width the pack's own sequence always produces.
+   * Only the ones that can be PROVEN are here; the rest are simply absent.
+   */
+  readonly packParamWidths?: PackParamWidths | undefined;
 }
 
 export function validate(tree: DocumentContext, options: ValidationOptions = {}): ValidationResult {
@@ -170,6 +175,7 @@ export function validate(tree: DocumentContext, options: ValidationOptions = {})
     options.dataSources ?? {},
     options.packAddresses ?? [],
     options.packParams,
+    options.packParamWidths,
   );
 
   checkOneEnvOneBlock(tdc, diags);
@@ -353,6 +359,7 @@ class Ctx {
     public readonly dataSources: DataSourceOptions,
     public readonly packAddresses: readonly string[],
     public readonly packParams: PackParams | undefined,
+    public readonly packParamWidths: PackParamWidths | undefined,
   ) {}
 
   public known(name: string): boolean {
@@ -934,25 +941,6 @@ function checkGen(
   if (ifAttr) {
     checkIfExpression(ifAttr, attrMap['if'] ?? '', ctx);
     ctx.rememberExpression(ifAttr, attrMap['if'] ?? '');
-  }
-}
-
-function checkRootRegexMaxLength(tdc: OpenCloseElementContext, diagnostics: Diagnostic[]): number {
-  const attr = findAttr(tdc.attr(), 'regex_max_length');
-  if (!attr) return DEFAULT_REGEX_MAX_LENGTH;
-  const raw = extractAttrs(tdc.attr())['regex_max_length'];
-  try {
-    return parseRegexMaxLength(raw);
-  } catch (err) {
-    diagnostics.push({
-      severity: 'error',
-      source: 'validator',
-      ...attrValueRange(attr),
-      message: err instanceof Error ? err.message : String(err),
-      hint: 'Use a positive integer, e.g. regex_max_length="64".',
-      code: 'TDC096',
-    });
-    return DEFAULT_REGEX_MAX_LENGTH;
   }
 }
 

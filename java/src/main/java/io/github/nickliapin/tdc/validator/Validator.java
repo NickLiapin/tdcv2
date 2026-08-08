@@ -2682,11 +2682,36 @@ public final class Validator {
     if (declared == null) {
       return false;
     }
+    java.util.Map<String, Integer> widths = packs.parameterWidths(path, locale);
+
     for (Map.Entry<String, String> attr : attrs.entrySet()) {
       // parent, count and flag may sit on a <gen> and are each reported by their own rule;
       // a pack-parameter check must not read them as typos.
-      if (GEN_ATTRS.contains(attr.getKey()) || declared.contains(attr.getKey())
-          || NOT_A_PACK_PARAM.contains(attr.getKey())) {
+      if (GEN_ATTRS.contains(attr.getKey()) || NOT_A_PACK_PARAM.contains(attr.getKey())) {
+        continue;
+      }
+      if (declared.contains(attr.getKey())) {
+        // A parameter the pack DOES accept, pinned to a value of the wrong width.
+        //
+        // The packs that carry a check digit compute it over a fixed layout, so a wrong-width
+        // value does not shift the layout — it breaks it. Measured on usa.finance.aba_routing,
+        // whose own prefix is 2 characters: prefix="12345" aborted the run with "<at>: index 8
+        // is out of range", naming no file, line or code, and tail="678" said nothing at all
+        // and wrote a six-digit number that is not a routing number. check passed on both.
+        // Only reported where the width is a FACT read off the pack's own body.
+        Integer want = widths.get(attr.getKey());
+        if (want != null && attr.getValue().length() != want) {
+          int[] pos = at(gen, attr.getKey());
+          error("TDC276",
+              "\"" + attr.getKey() + "\" is pinned to " + attr.getValue().length()
+                  + " characters, and \"" + path + "\" builds its value around a "
+                  + attr.getKey() + "= of exactly " + want,
+              "A pinned parameter replaces the pack's own value, and this pack has a fixed "
+                  + "layout — a check digit is computed over the whole of it. Use a "
+                  + attr.getKey() + "= of " + want + " characters, or drop it and let the pack "
+                  + "draw its own.",
+              pos[0], pos[1]);
+        }
         continue;
       }
       String hint =

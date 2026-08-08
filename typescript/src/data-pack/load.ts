@@ -29,6 +29,7 @@ import { loadWeightedValues } from '../generators/weighted.js';
 import { templatePathKnown } from '../validator/known.js';
 
 import { type GeneratorBody, parseGeneratorSpec } from './generator.js';
+import { parameterWidths } from './param-width.js';
 import {
   CANONICAL_LOCALES,
   CANONICAL_COUNTRIES,
@@ -653,6 +654,24 @@ export function packParameterNames(packs: PackRegistry): ReadonlyMap<string, Rea
       address,
       body?.kind === 'composed' ? new Set(body.sequences.map((s) => s.name)) : new Set<string>(),
     );
+  }
+  return out;
+}
+
+/**
+ * Address → the widths its parameters always produce, where that is provable.
+ *
+ * Only composed packs have parameters, and only some of their sequences have a
+ * width that can be read off the spec. An address absent from the inner map
+ * simply has no proven width, and the caller must stay silent about it.
+ */
+export function packParameterWidths(
+  packs: PackRegistry,
+): ReadonlyMap<string, ReadonlyMap<string, number>> {
+  const out = new Map<string, ReadonlyMap<string, number>>();
+  for (const [address, entry] of packs) {
+    const body = entry.generator;
+    if (body?.kind === 'composed') out.set(address, parameterWidths(body.sequences));
   }
   return out;
 }

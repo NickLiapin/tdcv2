@@ -65,6 +65,12 @@ Many identifiers accept **parameters** — pass them as ordinary attributes on
 are **pinned** across every row, and the check digit is recomputed each time so the value
 stays valid.
 
+A pinned value has to be the **same width** the identifier's own part is. These are fixed
+layouts — a check digit is computed over the whole of the value — so a wider or narrower
+part does not shift the layout, it breaks it. `usa.finance.aba_routing` used to accept
+`prefix="12345"` and then abort mid-run, and `tail="678"` and then write a six-digit
+number that is not a routing number. Both are TDC276 now, before a single row is made.
+
 For example, pin the area part of every US Social Security number:
 
 ```xml

@@ -131,6 +131,24 @@ page — is tracked in that implementation's own changelog:
   purpose), and a negative `slice` index — only a from/to pair of the SAME sign can be
   proven empty, and a refusal has to be a proof.
 
+<!-- covers: TDC276 -->
+
+- A pinned pack parameter of the wrong width is refused (TDC276) instead of breaking the
+  run or the data. `<gen type="template" value="usa.finance.aba_routing" prefix="12345"/>`
+  passed `check` and then aborted with `<at>: index 8 is out of range and no default is
+set` — a message naming no file, no line and no code. `tail="678"` passed `check`, said
+  nothing at all, and wrote `326784`: six digits, and not a routing number. These packs
+  compute a check digit over a FIXED layout, so a wider or narrower part does not shift
+  the layout, it breaks it.
+
+  Only reported where the width is a fact read off the pack's own body — an alternation
+  whose items are all the same length, a regex with an exact count, a zero-padded range —
+  which covers 305 parameters across 173 bundled packs, the whole check-digit family. A
+  parameter whose own generator varies in width (a name, a word list) has no proven width
+  and stays silent, because a refusal has to be a proof. The reference reads the width off
+  the parsed spec and the four ports scan the body; the two were diffed across every
+  bundled pack and agree on all 173.
+
 ### Documentation
 
 - The exact-shares promise now carries the one thing that breaks it: `missing=` on the same
