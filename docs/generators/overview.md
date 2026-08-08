@@ -207,6 +207,11 @@ value in order, cycling back to the start when the list runs out. `cycle="false"
 turns that wrap-around into a clear error instead — useful when running out of
 values should be a failure, not a silent repeat.
 
+Both are read by the three generators that have an **order to walk**: `text` (its
+comma-separated list), `file` (its lines or CSV column) and `date` (its `range=`, walked
+in `step=` units). On any other type there is nothing to walk — a draw never runs out —
+so the engine refuses them (TDC015) rather than accepting a request it cannot honour.
+
 ```xml
 <sequence name="Rand"><gen type="text" value="Jan,Feb,Mar"/></sequence>
 <sequence name="Seq"><gen type="text" value="Jan,Feb,Mar" order="sequential"/></sequence>

@@ -229,6 +229,11 @@ type="timeseries"`. The pack declares `<sequence name="base">`, the ENGINE was a
   Three shared cases pin it, including one that checks the same wrappers still work on a
   plain `number`.
 
+- `order=` and `cycle=` were presented as attributes of any generator. They are read by
+  the three that have an order to walk — `text`, `file` and `date` — and refused (TDC015)
+  everywhere else, which is what the engine has done all along. Checked against ten
+  generator types; the pages now say which three.
+
 - Parquet: the footer now declares `column_orders`, so the column statistics can actually
   be used. The min/max bounds were written and correct; the format says a reader must
   ignore them until `FileMetaData.column_orders` declares the sort order, and parquet-mr

@@ -202,6 +202,12 @@ _i_-ésimo valor en orden, volviendo al inicio cuando la lista se acaba.
 `cycle="false"` convierte esa vuelta al inicio en un error explícito — útil cuando
 quedarse sin valores debe ser una falla y no una repetición silenciosa.
 
+Ambos los leen los tres generadores que tienen **algo que recorrer**: `text` (su lista
+separada por comas), `file` (sus líneas o su columna CSV) y `date` (su `range=`,
+recorrido en unidades de `step=`). En cualquier otro tipo no hay nada que recorrer —un
+sorteo nunca se agota—, así que el motor los rechaza (TDC015) en vez de aceptar una
+petición que no puede cumplir.
+
 ```xml
 <sequence name="Rand"><gen type="text" value="Jan,Feb,Mar"/></sequence>
 <sequence name="Seq"><gen type="text" value="Jan,Feb,Mar" order="sequential"/></sequence>
