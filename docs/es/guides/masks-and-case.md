@@ -530,6 +530,12 @@ más chico que un grupo, así que vuelve sin cambios. Vea
 | `csv`     | `csv`                    | — (sin etiqueta)                                                       |
 | `sql`     | `sql`                    | — (sin etiqueta)                                                       |
 
+El argumento se comprueba antes de la ejecución. `slice:5,2` termina antes de empezar y
+habría dejado la columna vacía; `group:0`, `compact:1` y `compact:99` son números que el
+filtro no puede usar y el valor habría pasado sin cambios; `trim:junk` pone un argumento a
+un filtro que no lee ninguno. Los cinco se aceptaban en silencio: la configuración decía
+una cosa y la salida hacía otra. Ahora son TDC273, TDC274 y TDC275.
+
 ## Orden — `order="sequential"`
 
 **Problema.** Por omisión, [`text`](../generators/text.md#top) y

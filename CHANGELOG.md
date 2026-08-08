@@ -117,6 +117,20 @@ page — is tracked in that implementation's own changelog:
   stays silent while a missing `format=` does not — the default `L` is a layout the locale
   chooses.
 
+<!-- covers: TDC273, TDC274, TDC275 -->
+
+- The ARGUMENT of an interpolation filter is checked. The filter NAME has been checked
+  since TDC192 and a mask pattern since TDC199/TDC256; everything after the colon reached
+  the renderer unread. The renderer is lenient by design — one bad row must not abort a
+  million-row run — so `group:abc`, `group:0`, `compact:1`, `compact:99` and `slice:abc`
+  all passed the value through untouched, `slice:5,2` emptied the column, and `trim:junk`
+  ignored the argument. Every one of them said nothing. TDC273 names an argument the filter
+  cannot use, TDC274 an argument on a filter that reads none, TDC275 a `replace` with
+  nothing to look for. Not refused, deliberately: `group` and `compact` with no argument at
+  all (both have a documented default), `csv:;` (the delimiter is accepted and ignored on
+  purpose), and a negative `slice` index — only a from/to pair of the SAME sign can be
+  proven empty, and a refusal has to be a proof.
+
 ### Documentation
 
 - The exact-shares promise now carries the one thing that breaks it: `missing=` on the same

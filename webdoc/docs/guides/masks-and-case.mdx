@@ -494,6 +494,12 @@ single group, so it comes back unchanged. See
 | `csv`     | `csv`                     | — (no tag)                                                      |
 | `sql`     | `sql`                     | — (no tag)                                                      |
 
+The argument is checked before the run. `slice:5,2` ends before it starts and would have
+emptied the column; `group:0`, `compact:1` and `compact:99` are numbers the filter cannot
+use and would have passed the value through unchanged; `trim:junk` puts an argument on a
+filter that reads none. All five used to be accepted in silence — the config said one
+thing and the output did another. They are now TDC273, TDC274 and TDC275.
+
 ## Order — `order="sequential"`
 
 **Problem.** By default, [`text`](../generators/text.mdx) and

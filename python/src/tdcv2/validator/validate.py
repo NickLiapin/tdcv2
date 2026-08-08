@@ -4053,6 +4053,118 @@ class _Validator:
                         line,
                         column,
                     )
+                    continue
+                # The name is known. Now the part after the colon, which reached the renderer
+                # unread until TDC273/TDC274/TDC275.
+                self._check_filter_arg(kind, arg, line, column)
+
+    # Filters whose whole job is the transform; an argument reaches nothing.
+    _NO_ARGUMENT_FILTERS = ("trim", "sql", "upper", "lower", "capitalize", "title")
+
+    @staticmethod
+    def _whole_number(text: str) -> int | None:
+        """``-3``, ``0``, ``12`` — nothing else. ``int()`` alone accepts ``1_0`` and ``+5``."""
+        stripped = text.strip()
+        body = stripped[1:] if stripped.startswith("-") else stripped
+        return int(stripped) if body.isdigit() and body.isascii() else None
+
+    def _check_filter_arg(self, kind: str, arg: str | None, line: int, column: int) -> None:
+        """The ARGUMENT of an interpolation filter — the part after the colon.
+
+        The filter NAME has been checked since TDC192, and a mask pattern since TDC199/TDC256.
+        The argument of every other filter reached the renderer unread, and the renderer is
+        lenient by design: ``apply_group`` returns the value untouched when the size is not a
+        usable number, ``apply_compact`` when the base is outside 2..36. That leniency is right
+        at render time — one bad row must not abort a million-row run — but it means the config
+        says one thing and the output does another, with nothing said anywhere.
+
+        Not refused, deliberately: ``group`` and ``compact`` with no argument (both have a
+        documented default), ``csv:;`` (the delimiter is accepted and ignored on purpose), and a
+        negative ``slice`` index. Only a from/to pair of the SAME sign can be proven empty; with
+        mixed signs the answer depends on the value's length, and a refusal has to be a proof.
+        """
+        if kind in self._NO_ARGUMENT_FILTERS and arg is not None:
+            self._error(
+                "TDC274",
+                f'the "{kind}" filter takes no argument — ":{arg}" is read by nothing',
+                f"Write ${{{{X|{kind}}}}}. Chain filters with more pipes instead: "
+                f"${{{{X|trim|{kind}}}}}.",
+                line,
+                column,
+            )
+            return
+        if kind == "replace" and (arg is None or arg == "" or arg.startswith(",")):
+            self._error(
+                "TDC275",
+                'the "replace" filter needs something to look for — ${{X|replace}} changes '
+                "nothing",
+                "Write both parts: ${{X|replace:from,to}}. Leave the second empty to delete: "
+                "${{X|replace:-,}}.",
+                line,
+                column,
+            )
+            return
+        if kind == "slice":
+            if arg is None or not arg.strip():
+                self._error(
+                    "TDC273",
+                    'the "slice" filter needs a start index — ${{X|slice}} keeps the whole value',
+                    "Write ${{X|slice:0,4}} for the first four characters, or ${{X|slice:-3}} "
+                    "for the last three. Indices are 0-based and the end is exclusive.",
+                    line,
+                    column,
+                )
+                return
+            parts = arg.split(",")
+            start = self._whole_number(parts[0])
+            raw_to = parts[1] if len(parts) > 1 else None
+            end = None if raw_to is None or not raw_to.strip() else self._whole_number(raw_to)
+            if start is None or (raw_to is not None and raw_to.strip() and end is None):
+                self._error(
+                    "TDC273",
+                    f'"slice:{arg}" is not a pair of indices — the value comes out unsliced',
+                    "Indices are whole numbers, 0-based, end exclusive: ${{X|slice:0,4}}. A "
+                    "negative index counts from the end: ${{X|slice:-3}}.",
+                    line,
+                    column,
+                )
+                return
+            # Same sign, so the ORDER is decidable without knowing the value's length.
+            if end is not None and (start >= 0) == (end >= 0) and start > end:
+                self._error(
+                    "TDC273",
+                    f'"slice:{arg}" ends before it starts — the column comes out empty',
+                    f"Swap them: ${{{{X|slice:{end},{start}}}}}. The end is exclusive, so 0,4 is "
+                    "four characters.",
+                    line,
+                    column,
+                )
+            return
+        if kind == "group" and arg:
+            size = self._whole_number(arg.split(",")[0])
+            if size is None or size <= 0:
+                self._error(
+                    "TDC273",
+                    f'"group:{arg}" is not a group size — the value comes out ungrouped',
+                    "The size is a whole number above zero, counted from the RIGHT: "
+                    "${{X|group:3}} \u2192 1 234 567. A separator follows it: ${{X|group:4,-}}.",
+                    line,
+                    column,
+                )
+            return
+        if kind == "compact" and arg:
+            base = self._whole_number(arg)
+            if base is None or base < 2 or base > 36:
+                self._error(
+                    "TDC273",
+                    f'"compact:{arg}" is not a base between 2 and 36 — the number comes out '
+                    "unchanged",
+                    "The base is a whole number from 2 to 36; 36 is the default and the "
+                    "shortest. Base 1 has no digits to write with, and there are only 36 "
+                    "letters and digits.",
+                    line,
+                    column,
+                )
 
     def _check_expression_names(self, expression: str, line: int, column: int, each: bool) -> None:
         """The names an ``if=`` expression uses, checked against what exists.

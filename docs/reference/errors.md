@@ -315,6 +315,9 @@ but the combination it asks for can't be carried out.
 | `TDC270` | `<tdc>` holds a second `<env>` or `<block>` | Both are read by taking the FIRST of their kind, so a second one is discarded whole — every sequence it declares, every line it lays out — while the run finishes looking healthy. Reported on the second one |
 | `TDC271` | `percent=` beside `order="sequential"` | Walking the list in order fixes which value each row gets, so there is no share left to apportion. The percentage was accepted and dropped: `percent="98,1,1"` over a hundred rows came out 34 / 33 / 33 |
 | `TDC272` (warning) | `<env local=…>` names a locale with no date translations | The locale is a fine source of NAMES and ships no month names, so the dates render in English. Refused outright on `<gen type="date" local=…>` (TDC153) and silent here until now. Fires only when the format reads the locale — `format="YYYY-MM-DD"` is the same in every language |
+| `TDC273` | a filter argument the filter cannot use | `slice:5,2` ends before it starts and empties the column; `slice:abc`, `group:abc`, `group:0`, `compact:1` and `compact:99` leave the value untouched. `group` and `compact` with NO argument keep their documented defaults (3, base 36) |
+| `TDC274` | an argument on a filter that reads none | `trim`, `sql`, `upper`, `lower`, `capitalize` and `title` are whole transforms; `${{X|trim:junk}}` silently ignored the `junk`. Chain instead: `${{X|trim\|upper}}` |
+| `TDC275` | `replace` with nothing to look for | `${{X|replace}}` and `${{X|replace:,to}}` change nothing at all. Write both parts: `${{X|replace:from,to}}` |
 
 ## See also
 

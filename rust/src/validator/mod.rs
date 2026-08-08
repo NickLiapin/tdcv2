@@ -4081,6 +4081,143 @@ impl Validator {
                         &format!("Supported: {}.", transforms::FILTER_NAMES.join(", ")),
                         at,
                     );
+                    continue;
+                }
+                // The name is known. Now the part after the colon, which reached
+                // the renderer unread until TDC273/TDC274/TDC275.
+                self.check_filter_arg(&kind, arg.as_deref(), at);
+            }
+        }
+    }
+
+    /// The ARGUMENT of an interpolation filter — the part after the colon.
+    ///
+    /// The filter NAME has been checked since TDC192, and a mask pattern since
+    /// TDC199/TDC256. The argument of every other filter reached the renderer
+    /// unread, and the renderer is lenient by design: `apply_group` returns the
+    /// value untouched when the size is not a usable number, `apply_compact`
+    /// when the base is outside 2..36. That leniency is right at render time —
+    /// one bad row must not abort a million-row run — but it means the config
+    /// says one thing and the output does another, with nothing said anywhere.
+    ///
+    /// Not refused, deliberately: `group` and `compact` with no argument (both
+    /// have a documented default), `csv:;` (the delimiter is accepted and
+    /// ignored on purpose), and a negative `slice` index. Only a from/to pair of
+    /// the SAME sign can be proven empty; with mixed signs the answer depends on
+    /// the value's length, and a refusal has to be a proof.
+    fn check_filter_arg(&mut self, kind: &str, arg: Option<&str>, at: Pos) {
+        /// `-3`, `0`, `12` — nothing else. `parse::<i64>()` alone accepts `+5`.
+        fn whole_number(text: &str) -> Option<i64> {
+            let t = text.trim();
+            let body = t.strip_prefix('-').unwrap_or(t);
+            if body.is_empty() || !body.bytes().all(|b| b.is_ascii_digit()) {
+                return None;
+            }
+            t.parse::<i64>().ok()
+        }
+
+        const NO_ARGUMENT: [&str; 6] = ["trim", "sql", "upper", "lower", "capitalize", "title"];
+
+        if NO_ARGUMENT.contains(&kind) {
+            if let Some(a) = arg {
+                self.error(
+                    "TDC274",
+                    format!("the \"{kind}\" filter takes no argument — \":{a}\" is read by nothing"),
+                    &format!(
+                        "Write ${{{{X|{kind}}}}}. Chain filters with more pipes instead: \
+                         ${{{{X|trim|{kind}}}}}."
+                    ),
+                    at,
+                );
+            }
+            return;
+        }
+        if kind == "replace" && arg.map(|a| a.is_empty() || a.starts_with(',')) != Some(false) {
+            self.error(
+                "TDC275",
+                "the \"replace\" filter needs something to look for — ${{X|replace}} changes \
+                 nothing"
+                    .to_string(),
+                "Write both parts: ${{X|replace:from,to}}. Leave the second empty to delete: \
+                 ${{X|replace:-,}}.",
+                at,
+            );
+            return;
+        }
+        if kind == "slice" {
+            let Some(a) = arg.filter(|a| !a.trim().is_empty()) else {
+                self.error(
+                    "TDC273",
+                    "the \"slice\" filter needs a start index — ${{X|slice}} keeps the whole \
+                     value"
+                        .to_string(),
+                    "Write ${{X|slice:0,4}} for the first four characters, or ${{X|slice:-3}} \
+                     for the last three. Indices are 0-based and the end is exclusive.",
+                    at,
+                );
+                return;
+            };
+            let mut parts = a.splitn(2, ',');
+            let start = whole_number(parts.next().unwrap_or(""));
+            let raw_to = parts.next();
+            let end = raw_to.filter(|t| !t.trim().is_empty()).map(whole_number);
+            if start.is_none() || end == Some(None) {
+                self.error(
+                    "TDC273",
+                    format!("\"slice:{a}\" is not a pair of indices — the value comes out unsliced"),
+                    "Indices are whole numbers, 0-based, end exclusive: ${{X|slice:0,4}}. A \
+                     negative index counts from the end: ${{X|slice:-3}}.",
+                    at,
+                );
+                return;
+            }
+            // Same sign, so the ORDER is decidable without knowing the length.
+            if let (Some(f), Some(Some(t))) = (start, end) {
+                if (f >= 0) == (t >= 0) && f > t {
+                    self.error(
+                        "TDC273",
+                        format!("\"slice:{a}\" ends before it starts — the column comes out empty"),
+                        &format!(
+                            "Swap them: ${{{{X|slice:{t},{f}}}}}. The end is exclusive, so 0,4 is \
+                             four characters."
+                        ),
+                        at,
+                    );
+                }
+            }
+            return;
+        }
+        if kind == "group" {
+            if let Some(a) = arg.filter(|a| !a.is_empty()) {
+                let size = whole_number(a.split(',').next().unwrap_or(""));
+                if size.is_none_or(|n| n <= 0) {
+                    self.error(
+                        "TDC273",
+                        format!("\"group:{a}\" is not a group size — the value comes out ungrouped"),
+                        "The size is a whole number above zero, counted from the RIGHT: \
+                         ${{X|group:3}} \u{2192} 1 234 567. A separator follows it: \
+                         ${{X|group:4,-}}.",
+                        at,
+                    );
+                }
+            }
+            return;
+        }
+        if kind == "compact" {
+            if let Some(a) = arg.filter(|a| !a.is_empty()) {
+                let base = whole_number(a);
+                if base.is_none_or(|n| !(2..=36).contains(&n)) {
+                    self.error(
+                        "TDC273",
+                        format!(
+                            "\"compact:{a}\" is not a base between 2 and 36 — the number comes \
+                             out unchanged"
+                        ),
+                        "The base is a whole number from 2 to 36; 36 is the default and the \
+                         shortest. Base 1 has no digits to write with, and there are only 36 \
+                         letters and digits.",
+                        at,
+                    );
                 }
             }
         }

@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "cases": [
+    {
+      "name": "filter-slice-ends-before-it-starts",
+      "demonstrates": "TDC273",
+      "description": "slice:from,to with from past to empties the column",
+      "config": "<tdc><env count=\"2\" seed=\"s\"><sequence name=\"N\"><gen type=\"text\" value=\"123456789012\"/></sequence></env><block><line><data>${{N|slice:5,2}}</data></line></block></tdc>",
+      "expected": ["error TDC273 1:117"]
+    },
+    {
+      "name": "filter-group-size-is-not-a-number",
+      "demonstrates": "TDC273",
+      "description": "a group size the engine cannot use, so the value comes out ungrouped",
+      "config": "<tdc><env count=\"2\" seed=\"s\"><sequence name=\"N\"><gen type=\"text\" value=\"123456789012\"/></sequence></env><block><line><data>${{N|group:abc}}</data></line></block></tdc>",
+      "expected": ["error TDC273 1:117"]
+    },
+    {
+      "name": "filter-compact-base-out-of-range",
+      "demonstrates": "TDC273",
+      "description": "a base outside 2..36 leaves the number unchanged",
+      "config": "<tdc><env count=\"2\" seed=\"s\"><sequence name=\"N\"><gen type=\"text\" value=\"123456789012\"/></sequence></env><block><line><data>${{N|compact:99}}</data></line></block></tdc>",
+      "expected": ["error TDC273 1:117"]
+    },
+    {
+      "name": "filter-argument-on-a-filter-that-reads-none",
+      "demonstrates": "TDC274",
+      "description": "trim takes no argument, so anything after the colon reaches nothing",
+      "config": "<tdc><env count=\"2\" seed=\"s\"><sequence name=\"N\"><gen type=\"text\" value=\"123456789012\"/></sequence></env><block><line><data>${{N|trim:junk}}</data></line></block></tdc>",
+      "expected": ["error TDC274 1:117"]
+    },
+    {
+      "name": "filter-replace-with-nothing-to-look-for",
+      "demonstrates": "TDC275",
+      "description": "replace with no from= changes nothing at all",
+      "config": "<tdc><env count=\"2\" seed=\"s\"><sequence name=\"N\"><gen type=\"text\" value=\"123456789012\"/></sequence></env><block><line><data>${{N|replace}}</data></line></block></tdc>",
+      "expected": ["error TDC275 1:117"]
+    }
+  ]
+}

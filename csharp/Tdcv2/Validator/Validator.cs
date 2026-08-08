@@ -4938,7 +4938,159 @@ public sealed class Validator
                         "TDC192", $"unknown interpolation filter \"{kind}\"",
                         "Supported: " + string.Join(", ", Transforms.FilterNames) + ".",
                         line, column);
+                    continue;
                 }
+
+                // The name is known. Now the part after the colon, which reached the renderer
+                // unread until TDC273/TDC274/TDC275.
+                CheckFilterArg(kind, arg, line, column);
+            }
+        }
+    }
+
+    /// <summary>Filters whose whole job is the transform; an argument reaches nothing.</summary>
+    private static readonly string[] NoArgumentFilters =
+        new[] { "trim", "sql", "upper", "lower", "capitalize", "title" };
+
+    /// <summary><c>-3</c>, <c>0</c>, <c>12</c> — nothing else.</summary>
+    private static long? WholeNumber(string text)
+    {
+        string t = text.Trim();
+        string body = t.StartsWith("-", StringComparison.Ordinal) ? t.Substring(1) : t;
+        if (body.Length == 0)
+        {
+            return null;
+        }
+
+        foreach (char ch in body)
+        {
+            if (ch < '0' || ch > '9')
+            {
+                return null;
+            }
+        }
+
+        return long.TryParse(t, out long value) ? value : null;
+    }
+
+    /// <summary>The ARGUMENT of an interpolation filter — the part after the colon.</summary>
+    /// <remarks>
+    /// The filter NAME has been checked since TDC192, and a mask pattern since TDC199/TDC256.
+    /// The argument of every other filter reached the renderer unread, and the renderer is
+    /// lenient by design: <c>ApplyGroup</c> returns the value untouched when the size is not a
+    /// usable number, <c>ApplyCompact</c> when the base is outside 2..36. That leniency is right
+    /// at render time — one bad row must not abort a million-row run — but it means the config
+    /// says one thing and the output does another, with nothing said anywhere.
+    /// <para>
+    /// Not refused, deliberately: <c>group</c> and <c>compact</c> with no argument (both have a
+    /// documented default), <c>csv:;</c> (the delimiter is accepted and ignored on purpose), and
+    /// a negative <c>slice</c> index. Only a from/to pair of the SAME sign can be proven empty;
+    /// with mixed signs the answer depends on the value's length, and a refusal has to be a
+    /// proof.
+    /// </para>
+    /// </remarks>
+    private void CheckFilterArg(string kind, string? arg, int line, int column)
+    {
+        if (Array.IndexOf(NoArgumentFilters, kind) >= 0)
+        {
+            if (arg != null)
+            {
+                Error(
+                    "TDC274",
+                    $"the \"{kind}\" filter takes no argument — \":{arg}\" is read by nothing",
+                    $"Write ${{{{X|{kind}}}}}. Chain filters with more pipes instead: "
+                    + $"${{{{X|trim|{kind}}}}}.",
+                    line, column);
+            }
+
+            return;
+        }
+
+        if (kind == "replace" && (arg == null || arg.Length == 0 || arg[0] == ','))
+        {
+            Error(
+                "TDC275",
+                "the \"replace\" filter needs something to look for — ${{X|replace}} changes "
+                + "nothing",
+                "Write both parts: ${{X|replace:from,to}}. Leave the second empty to delete: "
+                + "${{X|replace:-,}}.",
+                line, column);
+            return;
+        }
+
+        if (kind == "slice")
+        {
+            if (string.IsNullOrWhiteSpace(arg))
+            {
+                Error(
+                    "TDC273",
+                    "the \"slice\" filter needs a start index — ${{X|slice}} keeps the whole "
+                    + "value",
+                    "Write ${{X|slice:0,4}} for the first four characters, or ${{X|slice:-3}} "
+                    + "for the last three. Indices are 0-based and the end is exclusive.",
+                    line, column);
+                return;
+            }
+
+            string[] parts = arg!.Split(',');
+            long? start = WholeNumber(parts[0]);
+            string? rawTo = parts.Length > 1 ? parts[1] : null;
+            bool hasTo = rawTo != null && rawTo.Trim().Length > 0;
+            long? end = hasTo ? WholeNumber(rawTo!) : null;
+            if (start == null || (hasTo && end == null))
+            {
+                Error(
+                    "TDC273",
+                    $"\"slice:{arg}\" is not a pair of indices — the value comes out unsliced",
+                    "Indices are whole numbers, 0-based, end exclusive: ${{X|slice:0,4}}. A "
+                    + "negative index counts from the end: ${{X|slice:-3}}.",
+                    line, column);
+                return;
+            }
+
+            // Same sign, so the ORDER is decidable without knowing the value's length.
+            if (end != null && (start >= 0) == (end >= 0) && start > end)
+            {
+                Error(
+                    "TDC273",
+                    $"\"slice:{arg}\" ends before it starts — the column comes out empty",
+                    $"Swap them: ${{{{X|slice:{end},{start}}}}}. The end is exclusive, so 0,4 is "
+                    + "four characters.",
+                    line, column);
+            }
+
+            return;
+        }
+
+        if (kind == "group" && !string.IsNullOrEmpty(arg))
+        {
+            long? size = WholeNumber(arg!.Split(',')[0]);
+            if (size == null || size <= 0)
+            {
+                Error(
+                    "TDC273",
+                    $"\"group:{arg}\" is not a group size — the value comes out ungrouped",
+                    "The size is a whole number above zero, counted from the RIGHT: "
+                    + "${{X|group:3}} \u2192 1 234 567. A separator follows it: ${{X|group:4,-}}.",
+                    line, column);
+            }
+
+            return;
+        }
+
+        if (kind == "compact" && !string.IsNullOrEmpty(arg))
+        {
+            long? logBase = WholeNumber(arg!);
+            if (logBase == null || logBase < 2 || logBase > 36)
+            {
+                Error(
+                    "TDC273",
+                    $"\"compact:{arg}\" is not a base between 2 and 36 — the number comes out "
+                    + "unchanged",
+                    "The base is a whole number from 2 to 36; 36 is the default and the "
+                    + "shortest. Base 1 has no digits to write with, and there are only 36 "
+                    + "letters and digits.",
+                    line, column);
             }
         }
     }

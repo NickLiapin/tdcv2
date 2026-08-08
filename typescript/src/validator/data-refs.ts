@@ -3,6 +3,7 @@ import { type Diagnostic, closestMatch, nodeRange } from '../errors/index.js';
 import type { DataElementContext } from '../generated/TDCParser.js';
 
 import { BUILTIN_SEQUENCES } from './known.js';
+import { checkFilterArg } from './filter-args.js';
 import { FILTER_NAMES, isFilterName } from '../format/transforms.js';
 
 /** `${{Name}}` / `${{Name | filter}}` in a `<data>` body. */
@@ -170,7 +171,12 @@ export function checkInterpolationFilters(
           hint: `Supported: ${FILTER_NAMES.join(', ')}.`,
           code: 'TDC192',
         });
+        continue;
       }
+
+      // The name is known. Now the part after the colon, which reached the
+      // renderer unread until TDC273/TDC274/TDC275.
+      checkFilterArg(kind, arg, node, diagnostics);
     }
   }
 }

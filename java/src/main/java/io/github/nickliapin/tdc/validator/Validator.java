@@ -4039,7 +4039,128 @@ public final class Validator {
           error("TDC192", "unknown interpolation filter \"" + kind + "\"",
               "Supported: " + String.join(", ", io.github.nickliapin.tdc.format.Transforms.FILTER_NAMES) + ".",
               line, column);
+          continue;
         }
+        // The name is known. Now the part after the colon, which reached the renderer unread
+        // until TDC273/TDC274/TDC275.
+        checkFilterArg(kind, arg, line, column);
+      }
+    }
+  }
+
+  /** Filters whose whole job is the transform; an argument reaches nothing. */
+  private static final String[] NO_ARGUMENT_FILTERS =
+      {"trim", "sql", "upper", "lower", "capitalize", "title"};
+
+  /** {@code -3}, {@code 0}, {@code 12} — nothing else. */
+  private static Long wholeNumber(String text) {
+    String t = text.trim();
+    String body = t.startsWith("-") ? t.substring(1) : t;
+    if (body.isEmpty()) {
+      return null;
+    }
+    for (int i = 0; i < body.length(); i++) {
+      char ch = body.charAt(i);
+      if (ch < '0' || ch > '9') {
+        return null;
+      }
+    }
+    try {
+      return Long.valueOf(t);
+    } catch (NumberFormatException e) {
+      return null;
+    }
+  }
+
+  /**
+   * The ARGUMENT of an interpolation filter — the part after the colon.
+   *
+   * <p>The filter NAME has been checked since TDC192, and a mask pattern since TDC199/TDC256.
+   * The argument of every other filter reached the renderer unread, and the renderer is lenient
+   * by design: {@code applyGroup} returns the value untouched when the size is not a usable
+   * number, {@code applyCompact} when the base is outside 2..36. That leniency is right at
+   * render time — one bad row must not abort a million-row run — but it means the config says
+   * one thing and the output does another, with nothing said anywhere.
+   *
+   * <p>Not refused, deliberately: {@code group} and {@code compact} with no argument (both have
+   * a documented default), {@code csv:;} (the delimiter is accepted and ignored on purpose), and
+   * a negative {@code slice} index. Only a from/to pair of the SAME sign can be proven empty;
+   * with mixed signs the answer depends on the value's length, and a refusal has to be a proof.
+   */
+  private void checkFilterArg(String kind, String arg, int line, int column) {
+    for (String name : NO_ARGUMENT_FILTERS) {
+      if (name.equals(kind)) {
+        if (arg != null) {
+          error("TDC274",
+              "the \"" + kind + "\" filter takes no argument — \":" + arg
+                  + "\" is read by nothing",
+              "Write ${{X|" + kind + "}}. Chain filters with more pipes instead: ${{X|trim|"
+                  + kind + "}}.",
+              line, column);
+        }
+        return;
+      }
+    }
+    if ("replace".equals(kind) && (arg == null || arg.isEmpty() || arg.charAt(0) == ',')) {
+      error("TDC275",
+          "the \"replace\" filter needs something to look for — ${{X|replace}} changes nothing",
+          "Write both parts: ${{X|replace:from,to}}. Leave the second empty to delete: "
+              + "${{X|replace:-,}}.",
+          line, column);
+      return;
+    }
+    if ("slice".equals(kind)) {
+      if (arg == null || arg.trim().isEmpty()) {
+        error("TDC273",
+            "the \"slice\" filter needs a start index — ${{X|slice}} keeps the whole value",
+            "Write ${{X|slice:0,4}} for the first four characters, or ${{X|slice:-3}} for the "
+                + "last three. Indices are 0-based and the end is exclusive.",
+            line, column);
+        return;
+      }
+      String[] parts = arg.split(",", -1);
+      Long start = wholeNumber(parts[0]);
+      String rawTo = parts.length > 1 ? parts[1] : null;
+      boolean hasTo = rawTo != null && !rawTo.trim().isEmpty();
+      Long end = hasTo ? wholeNumber(rawTo) : null;
+      if (start == null || (hasTo && end == null)) {
+        error("TDC273",
+            "\"slice:" + arg + "\" is not a pair of indices — the value comes out unsliced",
+            "Indices are whole numbers, 0-based, end exclusive: ${{X|slice:0,4}}. A negative "
+                + "index counts from the end: ${{X|slice:-3}}.",
+            line, column);
+        return;
+      }
+      // Same sign, so the ORDER is decidable without knowing the value's length.
+      if (end != null && (start >= 0) == (end >= 0) && start > end) {
+        error("TDC273",
+            "\"slice:" + arg + "\" ends before it starts — the column comes out empty",
+            "Swap them: ${{X|slice:" + end + "," + start + "}}. The end is exclusive, so 0,4 is "
+                + "four characters.",
+            line, column);
+      }
+      return;
+    }
+    if ("group".equals(kind) && arg != null && !arg.isEmpty()) {
+      Long size = wholeNumber(arg.split(",", -1)[0]);
+      if (size == null || size <= 0) {
+        error("TDC273",
+            "\"group:" + arg + "\" is not a group size — the value comes out ungrouped",
+            "The size is a whole number above zero, counted from the RIGHT: ${{X|group:3}} "
+                + "\u2192 1 234 567. A separator follows it: ${{X|group:4,-}}.",
+            line, column);
+      }
+      return;
+    }
+    if ("compact".equals(kind) && arg != null && !arg.isEmpty()) {
+      Long radix = wholeNumber(arg);
+      if (radix == null || radix < 2 || radix > 36) {
+        error("TDC273",
+            "\"compact:" + arg + "\" is not a base between 2 and 36 — the number comes out "
+                + "unchanged",
+            "The base is a whole number from 2 to 36; 36 is the default and the shortest. "
+                + "Base 1 has no digits to write with, and there are only 36 letters and digits.",
+            line, column);
       }
     }
   }
