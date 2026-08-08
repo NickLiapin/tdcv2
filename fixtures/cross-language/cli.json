@@ -981,6 +981,20 @@
       "argv": ["{dir}/a.tdc"],
       "exit": 1,
       "stderrContains": ["only 3 values", "row 4 has none"]
+    },
+    {
+      "name": "a pack sequence named after an engine attribute is refused, not shipped unreachable",
+      "note": "A pack's parameters ARE its sequence names, and a handful of names are read by the engine off the calling <gen> first. A sequence called one of those can never be set from outside: the pack works and the parameter does not exist. 34 shipped packs were in that state — common.internet.email declared `local`, so its documented local= chose a LOCALE instead of the address's local part.",
+      "files": {
+        "packs/pl/probe/taken.tdc": "---\ndescription: A pack whose parameter name the engine takes for itself.\ngenerator: tdc\nlocale: pl\n---\n<sequence name=\"local\"><gen type=\"text\" value=\"a,b\"/></sequence>\n<data>${{local}}</data>\n",
+        "taken.tdc": "<tdc>\n    <env count=\"2\" seed=\"packs\" local=\"pl\">\n        <sequence name=\"P\"><gen type=\"template\" value=\"pl.probe.taken\"/></sequence>\n    </env>\n    <block><line><data>${{P}}</data></line></block>\n</tdc>\n"
+      },
+      "argv": ["{dir}/taken.tdc", "--data-path", "{dir}/packs"],
+      "exit": 1,
+      "stderrContains": [
+        "generator declares <sequence name=\"local\">",
+        "is read by the engine off the calling <gen> before this pack runs, so no caller can ever set it"
+      ]
     }
   ],
   "gaps": {

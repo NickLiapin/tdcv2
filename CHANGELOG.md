@@ -171,6 +171,24 @@ type="timeseries"`. The pack declares `<sequence name="base">`, the ENGINE was a
   ownership check stopped guessing. All five now skip the same twenty wrapper names, and
   three shared cases pin it.
 
+- A data pack can no longer ship a parameter nobody can set. A pack's parameters ARE its
+  sequence names, and a handful of names are read by the ENGINE off the calling `<gen>`
+  first — `local=` is the locale override, `order=`/`case=`/`mask=` are wrappers around
+  whatever the pack produces. A `<sequence>` called one of those works fine inside the
+  pack and can never be set from outside, so the reference table generated from the pack
+  bodies listed a parameter that does not exist.
+
+  34 shipped packs were in that state. `common.internet.email` declared `local`, so the
+  documented `local="bob"` chose a LOCALE instead of the address's local part; 32
+  street-name packs declared `type`, which cannot even be written twice on one tag; and
+  `france.docs.nir` declared `order`. All three were renamed — `user`, `kind`, `serial` —
+  and the output of every one of the 34 is byte-identical, because a pack's internal
+  sequence name reaches nothing outside the pack. The rename was verified that way before
+  it was kept.
+
+  Loading such a pack is now an error in all five implementations, with a shared CLI case
+  pinning it, so the state cannot come back.
+
 - Parquet: the footer now declares `column_orders`, so the column statistics can actually
   be used. The min/max bounds were written and correct; the format says a reader must
   ignore them until `FileMetaData.column_orders` declares the sort order, and parquet-mr

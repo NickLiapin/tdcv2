@@ -4,6 +4,6 @@ description: Chilean street with its vía type — Calle / Avenida / Pasaje are 
 generator: tdc
 locale: es
 ---
-<sequence name="type"><gen type="text" value="Calle,Calle,Calle,Avenida,Avenida,Avenida,Pasaje,Pasaje,Camino,Costanera,Rotonda,Alameda,Diagonal,Subida,Callejón"/></sequence>
+<sequence name="kind"><gen type="text" value="Calle,Calle,Calle,Avenida,Avenida,Avenida,Pasaje,Pasaje,Camino,Costanera,Rotonda,Alameda,Diagonal,Subida,Callejón"/></sequence>
 <sequence name="named"><gen type="template" value="chile.geo.streetNamed"/></sequence>
-<data>${{type}} ${{named}}</data>
+<data>${{kind}} ${{named}}</data>

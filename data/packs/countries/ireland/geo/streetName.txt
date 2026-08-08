@@ -5,7 +5,7 @@ generator: tdc
 locale: en
 ---
 <sequence name="mode"><gen type="number" value="1..10"/></sequence>
-<sequence name="type"><gen type="text" value="Street,Street,Street,Road,Road,Avenue,Lane,Terrace,Close,Drive,Park,Court,Crescent,Grove,Green,Place,Row,Walk,Rise,View,Gardens,Quay"/></sequence>
+<sequence name="kind"><gen type="text" value="Street,Street,Street,Road,Road,Avenue,Lane,Terrace,Close,Drive,Park,Court,Crescent,Grove,Green,Place,Row,Walk,Rise,View,Gardens,Quay"/></sequence>
 <sequence name="named"><gen type="template" value="ireland.geo.streetNamed"/></sequence>
 <sequence name="theKind"><gen type="text" value="Square,Mall,Green,Diamond,Crescent,Quay"/></sequence>
 <sequence name="street"><compute>
@@ -13,7 +13,7 @@ locale: en
     <choose>
       <when><test><greater_than><to_number><field name="mode"/></to_number><int v="9"/></greater_than></test>
         <then><concat><str v="The "/><field name="theKind"/></concat></then></when>
-      <otherwise><concat><field name="named"/><str v=" "/><field name="type"/></concat></otherwise>
+      <otherwise><concat><field name="named"/><str v=" "/><field name="kind"/></concat></otherwise>
     </choose>
   </result>
 </compute></sequence>

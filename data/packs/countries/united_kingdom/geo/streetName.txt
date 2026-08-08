@@ -4,5 +4,5 @@ description: UK street name — a named base plus its thoroughfare designation (
 generator: tdc
 ---
 <sequence name="named"><gen type="template" value="united_kingdom.geo.streetNamed"/></sequence>
-<sequence name="type"><gen type="template" value="united_kingdom.geo.streetType"/></sequence>
-<data>${{named}} ${{type}}</data>
+<sequence name="kind"><gen type="template" value="united_kingdom.geo.streetType"/></sequence>
+<data>${{named}} ${{kind}}</data>

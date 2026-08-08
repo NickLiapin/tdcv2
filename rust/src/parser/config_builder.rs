@@ -767,6 +767,31 @@ fn descendants(element: &Element) -> Vec<&Element> {
 /// rely on it to keep a person's two surnames from coming out the same.
 const WHOLE_COLUMN_ATTRS: [&str; 2] = ["uniq", "order"];
 
+/// What the ENGINE reads off the calling `<gen type="template">` before the pack
+/// runs. A `<sequence>` named one of these can never be set by a caller: the
+/// parameter simply does not exist, however plainly the pack declares it.
+const RESERVED_TEMPLATE_NAMES: [&str; 15] = [
+    "type", "value", "local", "name", "if", "comment", "anomaly", "anomaly_factor",
+    "anomaly_flag", "missing", "missing_as", "mask", "case", "order", "cycle",
+];
+
+/// A pack sequence whose name the engine takes for itself, so no caller can set it.
+///
+/// Measured before this was added: 34 shipped packs were in that state, including
+/// `common.internet.email`, whose documented `local=` chose a LOCALE instead of the
+/// address's local part.
+fn unreachable_parameter(sequence: &Element) -> Option<String> {
+    let name = sequence.attr_value("name")?;
+    if !RESERVED_TEMPLATE_NAMES.contains(&name) {
+        return None;
+    }
+    Some(format!(
+        "generator declares <sequence name=\"{name}\">, and \"{name}\" is read by the engine \
+         off the calling <gen> before this pack runs, so no caller can ever set it. Rename the \
+         sequence: a pack's parameters are its sequence names, and this one is taken."
+    ))
+}
+
 /// Why this pack sequence is refused, or `None` when there is nothing wrong.
 fn whole_column_declaration(sequence: &Element) -> Option<String> {
     let where_ = match sequence.attr_value("name") {
@@ -815,7 +840,9 @@ pub fn parse_pack_body(body: &str) -> Result<PackGenerator, BuildError> {
             // eight literal characters.
             match child.name.as_str() {
                 "sequence" => {
-                    if let Some(refused) = whole_column_declaration(child) {
+                    if let Some(refused) =
+                        whole_column_declaration(child).or_else(|| unreachable_parameter(child))
+                    {
                         return err(refused);
                     }
                     if let Some(refused) = misplaced_in_sequence(child) {

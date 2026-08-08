@@ -4,6 +4,6 @@ description: Spanish street with its tipo de vía — spain.geo.streetType + spa
 generator: tdc
 locale: es
 ---
-<sequence name="type"><gen type="template" value="spain.geo.streetType"/></sequence>
+<sequence name="kind"><gen type="template" value="spain.geo.streetType"/></sequence>
 <sequence name="named"><gen type="template" value="spain.geo.streetNamed"/></sequence>
-<data>${{type}} ${{named}}</data>
+<data>${{kind}} ${{named}}</data>

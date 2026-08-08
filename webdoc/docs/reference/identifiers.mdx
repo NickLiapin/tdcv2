@@ -65,6 +65,11 @@ Many identifiers accept **parameters** — pass them as ordinary attributes on
 are **pinned** across every row, and the check digit is recomputed each time so the value
 stays valid.
 
+A parameter name can never be one the engine itself reads off the `<gen>` — `local`,
+`order`, `case`, `mask` and the other wrappers. A pack that declares one is refused when it
+loads, because the parameter would look real and be unsettable. That is why the email
+generator's local part is `user=` and not `local=`: `local=` is the locale override.
+
 A pinned value has to be the **same width** the identifier's own part is. These are fixed
 layouts — a check digit is computed over the whole of the value — so a wider or narrower
 part does not shift the layout, it breaks it. `usa.finance.aba_routing` used to accept
@@ -109,7 +114,7 @@ A few representative paths and the parameters they expose:
 
 | Path                      | Parameters                 |
 | :------------------------ | :------------------------- |
-| `common.internet.email`   | `local`, `domain`          |
+| `common.internet.email`   | `user`, `domain`          |
 | `common.internet.url`     | `scheme`, `domain`, `slug` |
 | `common.internet.domain`  | `word`, `token`, `suffix`  |
 | `common.finance.iban`     | `bban`                     |

@@ -4,6 +4,6 @@ description: Belgian street name — a voie type followed by a bare name; e.g. "
 generator: tdc
 locale: fr
 ---
-<sequence name="type"><gen type="text" value="Rue,Rue,Rue,Avenue,Avenue,Chaussée,Boulevard,Place,Quai,Rue,Impasse,Clos"/></sequence>
+<sequence name="kind"><gen type="text" value="Rue,Rue,Rue,Avenue,Avenue,Chaussée,Boulevard,Place,Quai,Rue,Impasse,Clos"/></sequence>
 <sequence name="named"><gen type="template" value="belgium.geo.streetNamed"/></sequence>
-<data>${{type}} ${{named}}</data>
+<data>${{kind}} ${{named}}</data>

@@ -68,6 +68,11 @@ corrientes en [`<gen>`](./tags.mdx). Cualquier parámetro que omita se extrae al
 que fije queda **clavado** en todas las filas, y el dígito de control siempre se vuelve a
 calcular para seguir siendo válido.
 
+El nombre de un parámetro nunca puede ser uno que el motor lea del propio `<gen>`:
+`local`, `order`, `case`, `mask` y las demás envolturas. Un paquete que declare uno se
+rechaza al cargarse, porque el parámetro parecería real y no se podría fijar. Por eso la
+parte local del generador de correo es `user=` y no `local=`: `local=` fija el locale.
+
 Un valor clavado tiene que tener el **mismo ancho** que la parte propia del identificador.
 Son diseños fijos —el dígito de control se calcula sobre todo el valor—, así que una parte
 más ancha o más estrecha no desplaza el diseño: lo rompe. `usa.finance.aba_routing`
@@ -114,7 +119,7 @@ Unas cuantas rutas representativas y los parámetros que exponen:
 
 | Ruta                      | Parámetros                 |
 | :------------------------ | :------------------------- |
-| `common.internet.email`   | `local`, `domain`          |
+| `common.internet.email`   | `user`, `domain`          |
 | `common.internet.url`     | `scheme`, `domain`, `slug` |
 | `common.internet.domain`  | `word`, `token`, `suffix`  |
 | `common.finance.iban`     | `bban`                     |

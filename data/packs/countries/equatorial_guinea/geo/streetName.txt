@@ -5,14 +5,14 @@ generator: tdc
 locale: es
 ---
 <sequence name="mode"><gen type="number" value="1..12"/></sequence>
-<sequence name="type"><gen type="text" value="Calle,Calle,Calle,Avenida,Avenida,Avenida,Paseo,Carretera,Barrio"/></sequence>
+<sequence name="kind"><gen type="text" value="Calle,Calle,Calle,Avenida,Avenida,Avenida,Paseo,Carretera,Barrio"/></sequence>
 <sequence name="named"><gen type="template" value="equatorial_guinea.geo.streetNamed"/></sequence>
 <sequence name="street"><compute>
   <result>
     <choose>
       <when><test><equals><to_number><field name="mode"/></to_number><int v="1"/></equals></test>
         <then><str v="Paseo Marítimo"/></then></when>
-      <otherwise><concat><field name="type"/><str v=" "/><field name="named"/></concat></otherwise>
+      <otherwise><concat><field name="kind"/><str v=" "/><field name="named"/></concat></otherwise>
     </choose>
   </result>
 </compute></sequence>

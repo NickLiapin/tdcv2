@@ -781,7 +781,7 @@ public static class ConfigBuilder
             TDCParser.OpenCloseElementContext open = child.openCloseElement();
             if (open is not null && open.name.Text == "sequence")
             {
-                string? refused = WholeColumnDeclaration(open);
+                string? refused = WholeColumnDeclaration(open) ?? UnreachableParameter(open);
                 if (refused is not null)
                 {
                     throw new ArgumentException(refused);
@@ -965,6 +965,41 @@ public static class ConfigBuilder
     /// </para>
     /// </remarks>
     private static readonly string[] WholeColumnAttrs = { "uniq", "order" };
+
+    /// <summary>
+    /// What the ENGINE reads off the calling <c>&lt;gen type="template"&gt;</c> before the pack
+    /// runs. A <c>&lt;sequence&gt;</c> named one of these can never be set by a caller: the
+    /// parameter simply does not exist, however plainly the pack declares it.
+    /// </summary>
+    private static readonly string[] ReservedTemplateNames =
+        new[]
+        {
+            "type", "value", "local", "name", "if", "comment", "anomaly", "anomaly_factor",
+            "anomaly_flag", "missing", "missing_as", "mask", "case", "order", "cycle",
+        };
+
+    /// <summary>
+    /// A pack sequence whose name the engine takes for itself, so no caller can set it.
+    /// </summary>
+    /// <remarks>
+    /// Measured before this was added: 34 shipped packs were in that state, including
+    /// <c>common.internet.email</c>, whose documented <c>local=</c> chose a LOCALE instead of
+    /// the address's local part.
+    /// </remarks>
+    private static string? UnreachableParameter(TDCParser.OpenCloseElementContext sequence)
+    {
+        IReadOnlyDictionary<string, string> attrs = Attributes(sequence.attr());
+        if (!attrs.TryGetValue("name", out string? name)
+            || Array.IndexOf(ReservedTemplateNames, name) < 0)
+        {
+            return null;
+        }
+
+        return $"generator declares <sequence name=\"{name}\">, and \"{name}\" is read by the "
+            + "engine off the calling <gen> before this pack runs, so no caller can ever set it. "
+            + "Rename the sequence: a pack's parameters are its sequence names, and this one is "
+            + "taken.";
+    }
 
     /// <summary>Why this pack sequence is refused, or null when there is nothing wrong.</summary>
     private static string? WholeColumnDeclaration(TDCParser.OpenCloseElementContext sequence)

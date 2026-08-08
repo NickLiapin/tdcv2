@@ -10,11 +10,11 @@ generator: tdc
      Corsica codes 2A/2B are intentionally not emitted. -->
 <sequence name="dept"><gen type="number" value="1..95" length="2" first_zero="true"/></sequence>
 <sequence name="commune"><gen type="regex" value="[0-9]{3}"/></sequence>
-<sequence name="order"><gen type="regex" value="[0-9]{3}"/></sequence>
+<sequence name="serial"><gen type="regex" value="[0-9]{3}"/></sequence>
 <sequence name="nir"><compute>
   <let name="body"><concat>
     <field name="sex"/><field name="year"/><field name="month"/>
-    <field name="dept"/><field name="commune"/><field name="order"/>
+    <field name="dept"/><field name="commune"/><field name="serial"/>
   </concat></let>
   <!-- Control key = 97 - (body mod 97). Horner fold keeps the 13-digit body
        from ever becoming one number; a remainder of 0 yields the key 97. -->
@@ -26,7 +26,7 @@ generator: tdc
   <let name="ctrl"><subtract><int v="97"/><var name="rem"/></subtract></let>
   <result><concat>
     <field name="sex"/><field name="year"/><field name="month"/>
-    <field name="dept"/><field name="commune"/><field name="order"/>
+    <field name="dept"/><field name="commune"/><field name="serial"/>
     <pad width="2" fill="0"><var name="ctrl"/></pad>
   </concat></result>
 </compute></sequence>

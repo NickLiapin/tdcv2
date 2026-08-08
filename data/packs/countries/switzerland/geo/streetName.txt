@@ -4,6 +4,6 @@ description: Swiss-French street name — a voie type followed by a bare name; e
 generator: tdc
 locale: fr
 ---
-<sequence name="type"><gen type="text" value="Rue,Rue,Rue,Avenue,Avenue,Chemin,Chemin,Route,Boulevard,Place,Quai,Promenade"/></sequence>
+<sequence name="kind"><gen type="text" value="Rue,Rue,Rue,Avenue,Avenue,Chemin,Chemin,Route,Boulevard,Place,Quai,Promenade"/></sequence>
 <sequence name="named"><gen type="template" value="switzerland.geo.streetNamed"/></sequence>
-<data>${{type}} ${{named}}</data>
+<data>${{kind}} ${{named}}</data>

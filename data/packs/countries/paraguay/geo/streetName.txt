@@ -4,6 +4,6 @@ description: Paraguayan street name with its vía type — Calle and Avenida (of
 generator: tdc
 locale: es
 ---
-<sequence name="type"><gen type="text" value="Calle,Calle,Calle,Calle,Avenida,Avenida,Avda.,Avda.,Pasaje,Ruta,Callejón,Camino"/></sequence>
+<sequence name="kind"><gen type="text" value="Calle,Calle,Calle,Calle,Avenida,Avenida,Avda.,Avda.,Pasaje,Ruta,Callejón,Camino"/></sequence>
 <sequence name="named"><gen type="template" value="paraguay.geo.streetNamed"/></sequence>
-<data>${{type}} ${{named}}</data>
+<data>${{kind}} ${{named}}</data>

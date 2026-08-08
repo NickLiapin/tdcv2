@@ -299,6 +299,9 @@ public final class ConfigBuilder {
       TDCParser.OpenCloseElementContext open = child.openCloseElement();
       if (open != null && "sequence".equals(open.name.getText())) {
         String refused = wholeColumnDeclaration(open);
+        if (refused == null) {
+          refused = unreachableParameter(open);
+        }
         if (refused != null) {
           throw new IllegalArgumentException(refused);
         }
@@ -458,6 +461,35 @@ public final class ConfigBuilder {
    * surnames from coming out the same.
    */
   private static final String[] WHOLE_COLUMN_ATTRS = {"uniq", "order"};
+
+  /**
+   * What the ENGINE reads off the calling {@code <gen type="template">} before the pack runs.
+   *
+   * <p>A {@code <sequence>} named one of these can never be set by a caller: the parameter
+   * simply does not exist, however plainly the pack declares it.
+   */
+  private static final java.util.Set<String> RESERVED_TEMPLATE_NAMES =
+      java.util.Set.of(
+          "type", "value", "local", "name", "if", "comment", "anomaly", "anomaly_factor",
+          "anomaly_flag", "missing", "missing_as", "mask", "case", "order", "cycle");
+
+  /**
+   * A pack sequence whose name the engine takes for itself, so no caller can set it.
+   *
+   * <p>Measured before this was added: 34 shipped packs were in that state, including
+   * {@code common.internet.email}, whose documented {@code local=} chose a LOCALE instead of
+   * the address's local part.
+   */
+  private static String unreachableParameter(TDCParser.OpenCloseElementContext sequence) {
+    String name = attributes(sequence.attr()).get("name");
+    if (name == null || !RESERVED_TEMPLATE_NAMES.contains(name)) {
+      return null;
+    }
+    return "generator declares <sequence name=\"" + name + "\">, and \"" + name
+        + "\" is read by the engine off the calling <gen> before this pack runs, so no caller "
+        + "can ever set it. Rename the sequence: a pack's parameters are its sequence names, "
+        + "and this one is taken.";
+  }
 
   /** Why this pack sequence is refused, or null when there is nothing wrong with it. */
   private static String wholeColumnDeclaration(TDCParser.OpenCloseElementContext sequence) {

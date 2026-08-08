@@ -5,8 +5,8 @@ generator: tdc
 locale: en
 ---
 <sequence name="named"><gen type="template" value="new_zealand.geo.streetNamed"/></sequence>
-<sequence name="type"><gen type="text" value="Street,Street,Street,Street,Street,Road,Road,Road,Road,Road,Avenue,Avenue,Avenue,Drive,Drive,Place,Place,Lane,Terrace,Crescent,Way,Close,Grove,Court,Parade,Rise,Quay,Grove"/></sequence>
+<sequence name="kind"><gen type="text" value="Street,Street,Street,Street,Street,Road,Road,Road,Road,Road,Avenue,Avenue,Avenue,Drive,Drive,Place,Place,Lane,Terrace,Crescent,Way,Close,Grove,Court,Parade,Rise,Quay,Grove"/></sequence>
 <sequence name="street"><compute>
-  <result><concat><field name="named"/><str v=" "/><field name="type"/></concat></result>
+  <result><concat><field name="named"/><str v=" "/><field name="kind"/></concat></result>
 </compute></sequence>
 <data>${{street}}</data>

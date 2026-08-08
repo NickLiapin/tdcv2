@@ -528,7 +528,7 @@ def parse_pack_body(body: str) -> PackGenerator:
     for child in env.content().element():
         open_el = child.openCloseElement()
         if open_el is not None and open_el.name.text == "sequence":
-            refused = _whole_column_declaration(open_el)
+            refused = _whole_column_declaration(open_el) or _unreachable_parameter(open_el)
             if refused is not None:
                 raise ValueError(refused)
             refused = _misplaced_in_sequence(open_el)
@@ -644,6 +644,50 @@ def _descendant_elements(element):
 #: its own — and five shipped full-name packs rely on it to keep a person's two surnames from
 #: coming out the same.
 WHOLE_COLUMN_ATTRS = ("uniq", "order")
+
+
+#: What the ENGINE reads off the calling ``<gen type="template">`` before the pack runs. A
+#: ``<sequence>`` named one of these can never be set by a caller: the parameter simply does not
+#: exist, however plainly the pack declares it. Kept in step with the reference.
+_RESERVED_TEMPLATE_NAMES = frozenset(
+    {
+        "type",
+        "value",
+        "local",
+        "name",
+        "if",
+        "comment",
+        "anomaly",
+        "anomaly_factor",
+        "anomaly_flag",
+        "missing",
+        "missing_as",
+        "mask",
+        "case",
+        "order",
+        "cycle",
+    }
+)
+
+
+def _unreachable_parameter(sequence) -> str | None:
+    """A pack sequence whose name the engine takes for itself, so no caller can set it.
+
+    A pack's parameters ARE its sequence names, and a handful of those names are read by the
+    engine first — ``local=`` is the locale override, ``order=``/``case=``/``mask=`` are wrappers
+    around whatever the pack produces. Measured before this was added: 34 shipped packs were in
+    that state, including ``common.internet.email``, whose documented ``local=`` chose a LOCALE
+    instead of the address's local part.
+    """
+    attrs = attributes(sequence.attr())
+    name = attrs.get("name")
+    if name is None or name not in _RESERVED_TEMPLATE_NAMES:
+        return None
+    return (
+        f'generator declares <sequence name="{name}">, and "{name}" is read by the engine '
+        "off the calling <gen> before this pack runs, so no caller can ever set it. Rename "
+        "the sequence: a pack's parameters are its sequence names, and this one is taken."
+    )
 
 
 def _whole_column_declaration(sequence) -> str | None:

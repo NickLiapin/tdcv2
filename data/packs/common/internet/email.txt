@@ -3,6 +3,6 @@ address: common.internet.email
 description: Safe email — 10-char local part @ safe fake domain
 generator: tdc
 ---
-<sequence name="local"><gen type="regex" value="[a-z][a-z0-9_]{9}"/></sequence>
+<sequence name="user"><gen type="regex" value="[a-z][a-z0-9_]{9}"/></sequence>
 <sequence name="domain"><gen type="template" value="common.internet.domain"/></sequence>
-<data>${{local}}@${{domain}}</data>
+<data>${{user}}@${{domain}}</data>

@@ -4,6 +4,6 @@ description: Luxembourg street name — a voie type followed by a bare name; e.g
 generator: tdc
 locale: fr
 ---
-<sequence name="type"><gen type="text" value="Rue,Rue,Rue,Avenue,Avenue,Boulevard,Place,Montée,Route,Allée,Impasse,Val"/></sequence>
+<sequence name="kind"><gen type="text" value="Rue,Rue,Rue,Avenue,Avenue,Boulevard,Place,Montée,Route,Allée,Impasse,Val"/></sequence>
 <sequence name="named"><gen type="template" value="luxembourg.geo.streetNamed"/></sequence>
-<data>${{type}} ${{named}}</data>
+<data>${{kind}} ${{named}}</data>

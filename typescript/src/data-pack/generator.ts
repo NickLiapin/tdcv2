@@ -26,6 +26,7 @@
  */
 
 import type { DocumentContext, OpenCloseElementContext } from '../generated/TDCParser.js';
+import { RESERVED_TEMPLATE_ATTRS } from '../sequence/build.js';
 import { parse } from '../parser/index.js';
 import { extractSequenceSpecs } from '../sequence/extract.js';
 import type { CaseSpec, GenSpec, SequenceSpec, MixSpec, SwitchSpec } from '../sequence/types.js';
@@ -136,6 +137,8 @@ export function parseGeneratorSpec(body: string, inject?: string): GeneratorPars
     if (misplaced !== undefined) return { error: misplaced };
     const wholeColumn = firstWholeColumnDeclaration(env);
     if (wholeColumn !== undefined) return { error: wholeColumn };
+    const unreachable = firstUnreachableParameter(env);
+    if (unreachable !== undefined) return { error: unreachable };
     // A `<compute>` sequence carries no <gen> (it derives its value), so it is
     // implicitly allowed here — this is how checksum generators (INN, IBAN,
     // Luhn) live as editable pack data. Its tree is validated at render time by
@@ -264,6 +267,44 @@ function firstWholeColumnDeclaration(env: OpenCloseElementContext): string | und
         'column. Declare it on the sequence in the config that draws from this pack instead.'
       );
     }
+  }
+  return undefined;
+}
+
+/**
+ * A `<sequence>` whose name the ENGINE reads off the calling `<gen>` first.
+ *
+ * A pack's parameters ARE its sequence names: `domain="example.test"` replaces
+ * the sequence called `domain`. But a handful of names are read by the engine
+ * before the pack ever runs — `local=` is the locale override, `order=` and
+ * `case=` and `mask=` are wrappers around whatever the pack produces — so a
+ * sequence called one of those can never be set from outside. The pack works;
+ * the parameter simply does not exist, and the reference table generated from
+ * the pack bodies listed it as if it did.
+ *
+ * Measured before this was added: 34 shipped packs were in that state.
+ * `common.internet.email` declared `local`, so the documented `local=` silently
+ * chose a LOCALE instead of the address's local part; 32 street-name packs
+ * declared `type`, which cannot even be written twice on one tag; and
+ * `france.docs.nir` declared `order`. All three were renamed — `user`, `kind`,
+ * `serial` — and the output of every one of the 34 is byte-identical, because a
+ * pack's internal sequence name reaches nothing outside the pack.
+ *
+ * An error rather than a warning: unlike a caller's mistake, this is the pack
+ * author's, it is decidable from the file alone, and shipping it means shipping
+ * a parameter nobody can use.
+ */
+function firstUnreachableParameter(env: OpenCloseElementContext): string | undefined {
+  for (const el of contentElements(env.content())) {
+    const k = elementKind(el);
+    if (!k || k.kind === 'data' || elementName(k.node) !== 'sequence') continue;
+    const name = extractAttrs(k.node.attr())['name'];
+    if (name === undefined || !RESERVED_TEMPLATE_ATTRS.has(name)) continue;
+    return (
+      `generator declares <sequence name="${name}">, and "${name}" is read by the engine ` +
+      'off the calling <gen> before this pack runs, so no caller can ever set it. Rename ' +
+      "the sequence: a pack's parameters are its sequence names, and this one is taken."
+    );
   }
   return undefined;
 }

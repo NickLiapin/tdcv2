@@ -4,6 +4,6 @@ description: Saudi street name — a thoroughfare type followed by a bare name; 
 generator: tdc
 locale: ar
 ---
-<sequence name="type"><gen type="text" value="شارع,شارع,طريق,طريق,حي,ممر,ميدان,دوار"/></sequence>
+<sequence name="kind"><gen type="text" value="شارع,شارع,طريق,طريق,حي,ممر,ميدان,دوار"/></sequence>
 <sequence name="named"><gen type="template" value="saudi_arabia.geo.streetNamed"/></sequence>
-<data>${{type}} ${{named}}</data>
+<data>${{kind}} ${{named}}</data>

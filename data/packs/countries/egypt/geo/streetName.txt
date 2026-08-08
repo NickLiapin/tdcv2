@@ -4,6 +4,6 @@ description: Egyptian street name — a thoroughfare type followed by a bare nam
 generator: tdc
 locale: ar
 ---
-<sequence name="type"><gen type="text" value="شارع,شارع,شارع,ميدان,طريق,كوبري,حي,ممر,كورنيش"/></sequence>
+<sequence name="kind"><gen type="text" value="شارع,شارع,شارع,ميدان,طريق,كوبري,حي,ممر,كورنيش"/></sequence>
 <sequence name="named"><gen type="template" value="egypt.geo.streetNamed"/></sequence>
-<data>${{type}} ${{named}}</data>
+<data>${{kind}} ${{named}}</data>
