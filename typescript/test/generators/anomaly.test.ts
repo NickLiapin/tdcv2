@@ -60,4 +60,61 @@ describe('anomaly="p" — outlier injection, both engines', () => {
     expect(lines.some((l) => l === '[]')).toBe(true); // some blanked
     expect(lines.some((l) => Number(l.slice(1, -1)) >= 1000)).toBe(true); // some spiked
   });
+
+  /**
+   * A spike used to be multiplied and re-stringified, which threw away
+   * everything the column had already been rendered with. The outlier rows were
+   * the only ones in the file with a different shape:
+   *
+   *     length="5"    00014 00046 …  and then  117
+   *     decimals="2"  85.66 40.97 …  and then  6.445
+   *
+   * A column of fixed-width identifiers stopped being fixed width on exactly
+   * the rows a test is about to exercise, and a column declared with `decimals`
+   * is typed a float in Parquet — a third place is a value the declared type
+   * never promised.
+   */
+  it('a spike keeps the width the column was padded to', () => {
+    const lines = render(
+      parseStrict(
+        `<tdc><env count="200" seed="shape"><sequence name="V"><gen type="number" value="1..99" length="5" anomaly="0.4" anomaly_factor="3"/></sequence></env>` +
+          `<block><line><data>\${{V}}</data></line></block></tdc>`,
+      ),
+      { now: NOW, engine: 1 },
+    )
+      .split('\n')
+      .filter(Boolean);
+    expect(lines.every((l) => l.length === 5)).toBe(true);
+    expect(lines.some((l) => Number(l) > 99)).toBe(true); // some really were spiked
+  });
+
+  it('a spike keeps the decimal places the column declared', () => {
+    const lines = render(
+      parseStrict(
+        `<tdc><env count="200" seed="shape"><sequence name="V"><gen type="number" value="1..99" decimals="2" anomaly="0.4" anomaly_factor="100"/></sequence></env>` +
+          `<block><line><data>\${{V}}</data></line></block></tdc>`,
+      ),
+      { now: NOW, engine: 1 },
+    )
+      .split('\n')
+      .filter(Boolean);
+    expect(lines.every((l) => /^\d+\.\d{2}$/.test(l))).toBe(true);
+    // Above the range's own ceiling, so these rows can only be spikes.
+    expect(lines.some((l) => Number(l) > 99)).toBe(true);
+  });
+
+  /** And a column that was never padded does not acquire padding. */
+  it('a plain integer column stays plain', () => {
+    const lines = render(
+      parseStrict(
+        `<tdc><env count="200" seed="shape"><sequence name="V"><gen type="number" value="10..99" anomaly="0.4" anomaly_factor="10"/></sequence></env>` +
+          `<block><line><data>\${{V}}</data></line></block></tdc>`,
+      ),
+      { now: NOW, engine: 1 },
+    )
+      .split('\n')
+      .filter(Boolean);
+    expect(lines.some((l) => l.length === 3)).toBe(true); // spiked, three digits
+    expect(lines.every((l) => !l.startsWith('0'))).toBe(true);
+  });
 });

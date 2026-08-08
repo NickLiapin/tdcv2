@@ -138,10 +138,75 @@ pub fn is_spikeable(value: &str) -> bool {
 
 pub fn spike(value: &str, factor: f64) -> String {
     match value.trim().parse::<f64>() {
-        Ok(n) if n.is_finite() => numbers::to_text(n * factor),
+        Ok(n) if n.is_finite() => keep_shape(value, n * factor),
         // Not a number, so there is no outlier to make. Left exactly as it was.
         _ => value.to_string(),
     }
+}
+
+/// The spike keeps the SHAPE of the value it replaced.
+/// 
+/// Multiplying and re-stringifying threw away everything the column had already been
+/// rendered with — the zero padding length= asked for, and the decimal places decimals=
+/// asked for — so the outlier rows were the only ones in the file with a different shape:
+/// 
+/// ```text
+/// length="5"    00014 00046 00053 ...  and then  117
+/// decimals="2"  85.66 40.97 11.52 ...  and then  6.445
+/// ```
+/// 
+/// A column of fixed-width identifiers stopped being fixed width on exactly the rows a test
+/// is about to exercise, and a column declared with decimals is typed a float in Parquet — a
+/// third place is a value the declared type never promised. An outlier is meant to be far
+/// from the others in VALUE, not in format.
+///
+/// So: the same number of decimal places, and at least the same digit width where the
+/// column was zero-padded. The padding only ever adds, so a spike that genuinely
+/// outgrew the width keeps its extra digits — which is the whole point of one.
+fn keep_shape(original: &str, spiked: f64) -> String {
+    let dot = original.find('.');
+    let places = match dot {
+        None => 0usize,
+        Some(i) => original.len() - i - 1,
+    };
+
+    // Rounded on the SCALED integer, half away from zero, rather than by handing an
+    // arbitrary product to a host formatter: `round` already means that everywhere else
+    // in TDC, and it is the one rule all five spell the same.
+    let scale = 10f64.powi(places as i32);
+    let scaled = spiked * scale;
+    let rounded = if scaled < 0.0 {
+        -(-scaled + 0.5).floor()
+    } else {
+        (scaled + 0.5).floor()
+    };
+    let text = format!("{:.*}", places, rounded / scale);
+
+    // Only a value that was ZERO-PADDED has a width to preserve. `12.89` is five
+    // characters wide because the number is, not because the column asked for five.
+    let bare = original.strip_prefix('-').unwrap_or(original);
+    let whole_part = match bare.find('.') {
+        None => bare,
+        Some(i) => &bare[..i],
+    };
+    if !whole_part.starts_with('0') || whole_part.len() < 2 {
+        return text;
+    }
+
+    let negative = text.starts_with('-');
+    let body = text.strip_prefix('-').unwrap_or(&text);
+    let (whole, rest) = match body.find('.') {
+        None => (body, ""),
+        Some(i) => (&body[..i], &body[i..]),
+    };
+    let pad = whole_part.len().saturating_sub(whole.len());
+    format!(
+        "{}{}{}{}",
+        if negative { "-" } else { "" },
+        "0".repeat(pad),
+        whole,
+        rest
+    )
 }
 
 fn probability(raw: &str, label: &str) -> EngineResult<f64> {

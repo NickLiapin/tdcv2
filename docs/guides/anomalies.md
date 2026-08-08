@@ -59,6 +59,13 @@ untouched, and a list with no numbers at all is refused outright (`TDC243`) rath
 decorated with an attribute that could never fire (see
 [Details](#details)).
 
+A spike keeps the **shape** of the value it replaced: the same number of decimal places,
+and the same width where [`length=`](../generators/number.md#top) padded it with zeros. An
+outlier is far from the others in value, not in format — a column of five-digit
+identifiers stays five digits wide, and a column declared with `decimals="2"` keeps two
+places, so it still loads as the type it was declared. The padding only ever adds, so a
+spike that genuinely outgrew the width keeps its extra digits.
+
 ## Before and after — the same series, with and without spikes
 
 **Problem.** Show only the dirty column and you can't tell a spike from a genuinely

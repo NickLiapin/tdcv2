@@ -148,7 +148,50 @@ public static class Imperfections
             return value ?? "";
         }
 
-        return NumberToString(n * factor);
+        return KeepShape(value, n * factor);
+    }
+
+    /// <summary>The spike keeps the SHAPE of the value it replaced.</summary>
+    /// <remarks>
+    /// Multiplying and re-stringifying threw away everything the column had already been
+    /// rendered with — the zero padding <c>length=</c> asked for, and the decimal places
+    /// <c>decimals=</c> asked for — so the outlier rows were the only ones in the file with a
+    /// different shape: <c>length="5"</c> gave 00014, 00046 and then 117; <c>decimals="2"</c>
+    /// gave 85.66, 40.97 and then 6.445. A column of fixed-width identifiers stopped being
+    /// fixed width on exactly the rows a test is about to exercise, and a column declared with
+    /// decimals is typed a float in Parquet — a third place is a value the declared type never
+    /// promised. An outlier is meant to be far from the others in VALUE, not in format.
+    /// </remarks>
+    private static string KeepShape(string original, double spiked)
+    {
+        int dot = original.IndexOf('.');
+        int places = dot < 0 ? 0 : original.Length - dot - 1;
+
+        // Rounded on the SCALED integer, half away from zero, rather than by handing an
+        // arbitrary product to a host formatter: `round` already means that everywhere else in
+        // TDC, and it is the one rule all five spell the same.
+        double scale = Math.Pow(10, places);
+        double scaled = spiked * scale;
+        double rounded = scaled < 0 ? -Math.Floor(-scaled + 0.5) : Math.Floor(scaled + 0.5);
+        string text = (rounded / scale).ToString(
+            "F" + places.ToString(CultureInfo.InvariantCulture), CultureInfo.InvariantCulture);
+
+        // Only a value that was ZERO-PADDED has a width to preserve. `12.89` is five
+        // characters wide because the number is, not because the column asked for five.
+        string bare = original.StartsWith('-') ? original[1..] : original;
+        int bareDot = bare.IndexOf('.');
+        string wholePart = bareDot < 0 ? bare : bare[..bareDot];
+        if (!wholePart.StartsWith('0') || wholePart.Length < 2)
+        {
+            return text;
+        }
+
+        bool negative = text.StartsWith('-');
+        string body = negative ? text[1..] : text;
+        int cut = body.IndexOf('.');
+        string whole = cut < 0 ? body : body[..cut];
+        string rest = cut < 0 ? "" : body[cut..];
+        return (negative ? "-" : "") + whole.PadLeft(wholePart.Length, '0') + rest;
     }
 
     /// <summary><c>String(n)</c> as JavaScript writes it: a whole number carries no decimal point.</summary>

@@ -69,10 +69,59 @@ export function applyAnomaly(
     // stream stays aligned: a column that skipped the draw on its text rows
     // would give different values to every row after the first one.
     const selected = spec.p > 0 && draw(i) < spec.p;
-    const n = selected ? Number(values[i]) : Number.NaN;
+    const original = values[i] ?? '';
+    const n = selected ? Number(original) : Number.NaN;
     const spiked = selected && Number.isFinite(n);
     if (flagsOut) flagsOut[i] = spiked;
-    if (spiked) values[i] = String(n * spec.factor);
+    if (spiked) values[i] = keepShape(original, n * spec.factor);
   }
   return values;
+}
+
+/**
+ * The spike keeps the SHAPE of the value it replaced.
+ *
+ * Multiplying and re-stringifying threw away everything the column had already
+ * been rendered with — the zero padding `length=` asked for, and the decimal
+ * places `decimals=` asked for — so the outlier rows were the only ones in the
+ * file with a different shape:
+ *
+ *     length="5"    00014 00046 00053 …  and then  117
+ *     decimals="2"  85.66 40.97 11.52 …  and then  6.445
+ *
+ * That is worse than it looks. A column of fixed-width identifiers stops being
+ * fixed width on exactly the rows a test is about to exercise, and a column
+ * declared with `decimals` is typed a float in Parquet — a spike with a third
+ * place is a value the declared type never promised. An outlier is meant to be
+ * far from the others in VALUE, not in format.
+ *
+ * So: the same number of decimal places, and at least the same digit width. The
+ * padding only ever adds, so a spike that genuinely outgrew the width keeps its
+ * extra digits — which is the whole point of one.
+ */
+function keepShape(original: string, spiked: number): string {
+  const dot = original.indexOf('.');
+  const places = dot < 0 ? 0 : original.length - dot - 1;
+
+  // Rounded on the SCALED integer, half away from zero, rather than by handing
+  // an arbitrary product to a host formatter: `round` already means that
+  // everywhere else in TDC, and it is the one rule all five spell the same.
+  const scale = 10 ** places;
+  const scaled = spiked * scale;
+  const rounded = scaled < 0 ? -Math.floor(-scaled + 0.5) : Math.floor(scaled + 0.5);
+  const text = (rounded / scale).toFixed(places);
+
+  // Only a value that was ZERO-PADDED has a width to preserve. `12.89` is five
+  // characters wide because the number is, not because the column asked for
+  // five, and padding its spike to five would invent an `06.45`.
+  const bare = original.startsWith('-') ? original.slice(1) : original;
+  const wholePart = dot < 0 ? bare : bare.slice(0, bare.indexOf('.'));
+  if (!wholePart.startsWith('0') || wholePart.length < 2) return text;
+
+  const negative = text.startsWith('-');
+  const body = negative ? text.slice(1) : text;
+  const cut = body.indexOf('.');
+  const whole = cut < 0 ? body : body.slice(0, cut);
+  const rest = cut < 0 ? '' : body.slice(cut);
+  return (negative ? '-' : '') + whole.padStart(wholePart.length, '0') + rest;
 }

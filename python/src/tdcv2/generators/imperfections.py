@@ -118,7 +118,52 @@ def spike(value: str, factor: float) -> str:
         return value
     if not math.isfinite(n):
         return value
-    return _number_to_string(n * factor)
+    return _keep_shape(value, n * factor)
+
+
+def _keep_shape(original: str, spiked: float) -> str:
+    """The spike keeps the SHAPE of the value it replaced.
+    
+    Multiplying and re-stringifying threw away everything the column had already been
+    rendered with — the zero padding length= asked for, and the decimal places decimals=
+    asked for — so the outlier rows were the only ones in the file with a different shape:
+    
+        length="5"    00014 00046 00053 ...  and then  117
+        decimals="2"  85.66 40.97 11.52 ...  and then  6.445
+    
+    A column of fixed-width identifiers stopped being fixed width on exactly the rows a test
+    is about to exercise, and a column declared with decimals is typed a float in Parquet — a
+    third place is a value the declared type never promised. An outlier is meant to be far
+    from the others in VALUE, not in format.
+
+    So: the same number of decimal places, and at least the same digit width where the
+    column was zero-padded. The padding only ever adds, so a spike that genuinely outgrew
+    the width keeps its extra digits — which is the whole point of one.
+    """
+    dot = original.find(".")
+    places = 0 if dot < 0 else len(original) - dot - 1
+
+    # Rounded on the SCALED integer, half away from zero, rather than by handing an
+    # arbitrary product to a host formatter: `round` already means that everywhere else in
+    # TDC, and it is the one rule all five spell the same.
+    scale = 10**places
+    scaled = spiked * scale
+    rounded = -math.floor(-scaled + 0.5) if scaled < 0 else math.floor(scaled + 0.5)
+    text = f"{rounded / scale:.{places}f}"
+
+    # Only a value that was ZERO-PADDED has a width to preserve. `12.89` is five characters
+    # wide because the number is, not because the column asked for five.
+    bare = original[1:] if original.startswith("-") else original
+    whole_part = bare if dot < 0 else bare[: bare.find(".")]
+    if not whole_part.startswith("0") or len(whole_part) < 2:
+        return text
+
+    negative = text.startswith("-")
+    body = text[1:] if negative else text
+    cut = body.find(".")
+    whole = body if cut < 0 else body[:cut]
+    rest = "" if cut < 0 else body[cut:]
+    return ("-" if negative else "") + whole.rjust(len(whole_part), "0") + rest
 
 
 def _number_to_string(n: float) -> str:

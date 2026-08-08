@@ -45,6 +45,21 @@
         "a|1|false",
         "b|7|false"
       ]
+    },
+    {
+      "name": "a-spike-keeps-the-columns-shape",
+      "description": "A spike used to be multiplied and re-stringified, which threw away the zero padding length= asked for and the decimal places decimals= asked for — so the outlier rows were the only ones in the file with a different shape: 00014 then 117, 85.66 then 6.445. An outlier is far from the others in VALUE, not in format.",
+      "config": "<tdc><env count=\"8\" seed=\"s7\" local=\"en\" mode=\"memory\"><sequence name=\"Z\"><gen type=\"number\" value=\"1..99\" length=\"5\" anomaly=\"0.4\" anomaly_factor=\"3\"/></sequence><sequence name=\"D\"><gen type=\"number\" value=\"1..99\" decimals=\"2\" anomaly=\"0.4\" anomaly_factor=\"0.5\"/></sequence><sequence name=\"P\"><gen type=\"number\" value=\"10..99\" anomaly=\"0.4\" anomaly_factor=\"10\"/></sequence></env><block><line><data>${{Z}} ${{D}} ${{P}}</data></line></block></tdc>",
+      "expected": [
+        "00014 85.66 28",
+        "00117 6.45 740",
+        "00046 40.97 740",
+        "00261 29.91 980",
+        "00053 11.52 690",
+        "00054 19.55 31",
+        "00090 20.69 31",
+        "00089 17.56 61"
+      ]
     }
   ]
 }

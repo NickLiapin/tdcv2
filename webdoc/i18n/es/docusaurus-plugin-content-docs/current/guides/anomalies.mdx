@@ -60,6 +60,13 @@ números**; los valores no numéricos de una lista mixta pasan intactos, y una l
 ningún número se rechaza de plano (`TDC243`) en vez de llevar un atributo que nunca podría
 dispararse (vea [Detalles](#detalles)).
 
+Un pico conserva la **forma** del valor al que sustituye: los mismos decimales y el mismo
+ancho donde [`length=`](../generators/number.mdx) lo rellenaba con ceros. Un valor atípico
+está lejos de los demás en valor, no en formato — una columna de identificadores de cinco
+dígitos sigue teniendo cinco, y una columna declarada con `decimals="2"` conserva dos
+decimales, así que sigue cargándose con el tipo con el que se declaró. El relleno solo añade,
+así que un pico que de verdad superó el ancho conserva sus dígitos de más.
+
 ## Antes y después — la misma serie, con y sin picos
 
 **Problema.** Si solo muestra la columna sucia, no puede distinguir un pico de un valor

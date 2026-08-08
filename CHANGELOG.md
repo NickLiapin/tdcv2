@@ -31,6 +31,23 @@ page — is tracked in that implementation's own changelog:
 
 ### Fixed
 
+<!-- covers: anomaly anomaly_factor -->
+
+- An `anomaly=` spike broke the shape of the column it was in. The value had already been
+  rendered — zero-padded to `length=`, or fixed to `decimals=` places — and the spike
+  multiplied the raw number and re-stringified it, discarding both:
+
+  ```
+  length="5"    00014 00046 00053 …   and then   117
+  decimals="2"  85.66 40.97 11.52 …   and then   6.445
+  ```
+
+  So a column of fixed-width identifiers stopped being fixed width on exactly the rows a
+  test is about to exercise, and a column declared with `decimals` — typed a float in
+  Parquet — carried a value with a place the declared type never promised. A spike now
+  keeps the same decimal places and the same padded width. The padding only ever adds, so
+  an outlier that genuinely outgrew the width keeps its extra digits.
+
 <!-- covers: decimals first_zero -->
 
 - Three number attributes were accepted and then discarded inside the generator, each
