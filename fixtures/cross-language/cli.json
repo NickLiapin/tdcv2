@@ -995,6 +995,17 @@
         "generator declares <sequence name=\"local\">",
         "is read by the engine off the calling <gen> before this pack runs, so no caller can ever set it"
       ]
+    },
+    {
+      "name": "a blank cell in a file column is refused, not skipped",
+      "note": "Skipping it takes the whole row out of the pool, so the file's own proportions stop being the run's. Measured on this CSV over 60 rows before the fix: 28 ann@x.com, 32 cid@x.com, and no sign of Bob at all — a value that vanished because one cell in an export was blank, discovered far too late. The weighted path already refused the same shape one column over.",
+      "files": {
+        "people.csv": "name,email\nAnn,ann@x.com\nBob,\nCid,cid@x.com\n",
+        "a.tdc": "<tdc><env count=\"4\" seed=\"s\" local=\"en\"><sequence name=\"E\"><gen type=\"file\" src=\"./people.csv\" column=\"email\"/></sequence></env><block><line><data>${{E}}</data></line></block></tdc>"
+      },
+      "argv": ["{dir}/a.tdc"],
+      "exit": 1,
+      "stderrContains": ["is empty on value row 2"]
     }
   ],
   "gaps": {

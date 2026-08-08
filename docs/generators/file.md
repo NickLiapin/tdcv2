@@ -100,7 +100,7 @@ Denver
 Austin
 ```
 
-Empty lines are skipped in list mode. For strict file order instead of random
+Empty lines are skipped in list mode. A blank CELL in column mode is a different thing and is refused: skipping it would take the whole row out of the pool, so the file's own proportions would stop being the run's. Fill it in, remove the row, or point `column=` at a column that is complete. For strict file order instead of random
 picks, add `order="sequential"` — it emits the lines in exactly the order they
 appear in the file (see [`order=` / `cycle=`](overview.md#top)).
 

@@ -31,6 +31,16 @@ page — is tracked in that implementation's own changelog:
 
 ### Fixed
 
+<!-- covers: column weight -->
+
+- A blank cell in a file column silently deleted its row from the values. The row left the
+  pool entirely, so the file's own proportions stopped being the run's — measured on a
+  three-person CSV with one empty email, 60 rows came out 28 / 32 between the other two and
+  no sign of the third at all. It is now refused, and the message names the value row. The
+  weighted path already refused the same shape one column over, with the reason written
+  out: a value that vanished because one cell in an export was blank is discovered far too
+  late. It was doing exactly that to the value itself.
+
 <!-- covers: anomaly anomaly_factor -->
 
 - An `anomaly=` spike broke the shape of the column it was in. The value had already been

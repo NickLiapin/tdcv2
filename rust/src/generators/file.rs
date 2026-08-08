@@ -405,8 +405,20 @@ fn csv_column(
         .iter()
         .skip(usize::from(skip_header))
         .map(|row| cell(row, index))
-        .filter(|c| !c.is_empty())
         .collect();
+
+    // A blank cell is REFUSED, not skipped. Dropping it takes the row out of
+    // the pool, so the file's own proportions stop being the run's: measured on
+    // a three-person CSV with one empty email, 60 rows produced 28 and 32 of
+    // the other two and no sign of the third. The weighted path refuses the
+    // same shape one column over, for the same stated reason.
+    if let Some(position) = values.iter().position(String::is_empty) {
+        return invalid(&format!(
+            "file generator: column \"{column}\" is empty on value row {} of \"{path}\" — \
+             a blank cell would drop that row from the values and quietly change the proportions. Fill it in, remove the row, or point column= at a column that is complete.",
+            position + 1
+        ));
+    }
 
     if values.is_empty() {
         return invalid(&format!(

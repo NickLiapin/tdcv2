@@ -121,10 +121,14 @@ def load_weighted(
 
     values: list[str] = []
     counts: list[float] = []
-    for row in rows[1:]:
+    for position, row in enumerate(rows[1:]):
         value = _cell(row, value_index)
+        # The same refusal the plain path makes, for the same reason.
         if not value:
-            continue
+            raise ValueError(
+                f'file generator: column "{column}" is empty on value row {position + 1} '
+                f'— a blank cell would drop that row from the values and quietly change the proportions. Fill it in, remove the row, or point column= at a column that is complete.'
+            )
         weight = _weight_of(row, weight_index, weight_column, value)
         # A zero weight means never drawn, so carrying it costs memory and buys nothing.
         if weight == 0:
@@ -359,7 +363,17 @@ def _csv_column(content: str, column: str, attrs: dict[str, str], path: Path) ->
     # file of pure data has no header to skip.
     skip_header = _parse_header_flag(attrs.get("header")) or not _NUMBERED.match(column)
 
-    values = [cell for row in rows[1 if skip_header else 0 :] if (cell := _cell(row, index))]
+    # A blank cell is REFUSED, not skipped. Dropping it takes the row out of the pool, so the
+    # file's own proportions stop being the run's: measured on a three-person CSV with one
+    # empty email, 60 rows produced 28 and 32 of the other two and no sign of the third. The
+    # weighted path refuses the same shape one column over, for the same stated reason.
+    values = [_cell(row, index) for row in rows[1 if skip_header else 0 :]]
+    for position, cell in enumerate(values):
+        if not cell:
+            raise ValueError(
+                f'file generator: column "{column}" is empty on value row {position + 1} of '
+                f'"{path}" — a blank cell would drop that row from the values and quietly change the proportions. Fill it in, remove the row, or point column= at a column that is complete.'
+            )
     if not values:
         raise ValueError(f'file generator: CSV column "{column}" at "{path}" has no values')
     return values

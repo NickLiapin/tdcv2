@@ -98,7 +98,7 @@ Tijuana
 Monterrey`}
 </Terminal>
 
-Las líneas vacías se omiten en modo lista. Para respetar el orden estricto del archivo
+Las líneas vacías se omiten en modo lista. Una CELDA vacía en modo columna es otra cosa y se rechaza: omitirla sacaría la fila entera del conjunto, así que las proporciones del propio archivo dejarían de ser las de la corrida. Rellénela, quite la fila o apunte `column=` a una columna completa. Para respetar el orden estricto del archivo
 en lugar de elegir al azar, agregue `order="sequential"` — emite las líneas exactamente
 en el orden en que aparecen en el archivo (vea [`order=` / `cycle=`](overview.mdx)).
 

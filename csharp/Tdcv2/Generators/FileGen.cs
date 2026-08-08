@@ -380,15 +380,23 @@ public static class FileGen
         bool skipHeader =
             ParseHeaderFlag(attrs.GetValueOrDefault("header")) || !Numbered.IsMatch(column);
 
+        // A blank cell is REFUSED, not skipped. Dropping it takes the row out of the pool, so
+        // the file's own proportions stop being the run's: measured on a three-person CSV with
+        // one empty email, 60 rows produced 28 and 32 of the other two and no sign of the
+        // third. The weighted path refuses the same shape one column over.
         var values = new List<string>();
         for (int i = skipHeader ? 1 : 0; i < rows.Count; i++)
         {
             List<string> row = rows[i];
             string cell = columnIndex < row.Count ? row[columnIndex].Trim() : "";
-            if (cell.Length > 0)
+            if (cell.Length == 0)
             {
-                values.Add(cell);
+                throw new ArgumentException(
+                    $"file generator: column \"{column}\" is empty on value row "
+                    + $"{values.Count + 1} of \"{path}\" — a blank cell would drop that row from the values and quietly change the proportions. Fill it in, remove the row, or point column= at a column that is complete.");
             }
+
+            values.Add(cell);
         }
 
         if (values.Count == 0)

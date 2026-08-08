@@ -62,9 +62,19 @@ export function loadWeightedValues(
   const counts: number[] = [];
   let total = 0;
 
-  for (const row of source.rows) {
+  for (const [index, row] of source.rows.entries()) {
     const value = csvColumnCell(row, source.columnIndex);
-    if (value === '') continue;
+    // The same refusal the plain path makes, for the same reason: skipping the
+    // row takes it out of the run entirely, and a value that vanished because
+    // one cell in the export was blank is discovered far too late. The weight
+    // beside it has been refused on those grounds since this was written.
+    if (value === '') {
+      throw new WeightedFileError(
+        `file generator: column "${source.column}" is empty on value row ${String(index + 1)} ` +
+          '— a blank cell would drop that row from the values and quietly change the ' +
+          'proportions. Fill it in, remove the row, or point column= at a complete column',
+      );
+    }
     const raw = csvColumnCell(row, weightIndex);
     // An empty cell must not slide through as a weight of zero. `Number('')`
     // is 0, which would silently DELETE the value from the run — a product

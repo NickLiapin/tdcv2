@@ -69,14 +69,38 @@ export function loadFileValues(path: string, options: FileSourceOptions = {}): s
 
 export function loadCsvColumnFile(path: string, options: FileSourceOptions): string[] {
   const source = loadCsvColumnSource(path, options);
-  const values = source.rows
-    .map((row) => csvColumnCell(row, source.columnIndex))
-    .filter((cell) => cell.length > 0);
+  const values = source.rows.map((row) => csvColumnCell(row, source.columnIndex));
+  const blank = values.findIndex((cell) => cell.length === 0);
+  if (blank >= 0) throw blankCellError(source.column, path, blank);
 
   if (values.length === 0) {
     throw new Error(`file generator: CSV column "${source.column}" at "${path}" has no values`);
   }
   return values;
+}
+
+/**
+ * A blank cell in the value column, refused rather than skipped.
+ *
+ * Dropping it looks harmless and is not: the row leaves the pool entirely, so
+ * the file's own proportions stop being the run's proportions. Measured on a
+ * three-person CSV with one empty email, over 60 rows:
+ *
+ *     28 ann@x.com    32 cid@x.com    and no sign of Bob at all
+ *
+ * The weighted path already refuses the same shape one column over, with the
+ * reason written out: "a product that vanishes from the catalogue because one
+ * cell in the export was blank is discovered far too late". The plain path was
+ * doing exactly that to the value itself.
+ */
+function blankCellError(column: string, path: string, index: number): Error {
+  // Counted over the VALUE rows, because whether a header was skipped depends
+  // on `header=` and the reader should not have to work that out to find it.
+  return new Error(
+    `file generator: column "${column}" is empty on value row ${String(index + 1)} ` +
+      `of "${path}" — a blank cell would drop that row from the values and quietly change ` +
+      'the proportions. Fill it in, remove the row, or point column= at a column that is complete.',
+  );
 }
 
 export function loadCsvColumnSource(path: string, options: FileSourceOptions): CsvColumnSource {

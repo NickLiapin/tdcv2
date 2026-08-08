@@ -107,8 +107,11 @@ public final class FileGen {
     for (int i = 1; i < rows.size(); i++) {
       List<String> row = rows.get(i);
       String value = valueIndex < row.size() ? row.get(valueIndex).trim() : "";
+      // The same refusal the plain path makes, for the same reason.
       if (value.isEmpty()) {
-        continue;
+        throw new IllegalArgumentException(
+            "file generator: column \"" + column + "\" is empty on value row " + i
+                + " — a blank cell would drop that row from the values and quietly change the proportions. Fill it in, remove the row, or point column= at a column that is complete.");
       }
       String raw = weightIndex < row.size() ? row.get(weightIndex).trim() : "";
       // A blank cell must not slide through as a weight of zero, which would delete the value
@@ -442,13 +445,20 @@ public final class FileGen {
     // a file of pure data has no header to skip.
     boolean skipHeader = parseHeaderFlag(attrs.get("header")) || !numbered;
 
+    // A blank cell is REFUSED, not skipped. Dropping it takes the row out of the pool, so the
+    // file's own proportions stop being the run's: measured on a three-person CSV with one
+    // empty email, 60 rows produced 28 and 32 of the other two and no sign of the third. The
+    // weighted path refuses the same shape one column over.
     List<String> values = new ArrayList<>();
     for (int i = skipHeader ? 1 : 0; i < rows.size(); i++) {
       List<String> row = rows.get(i);
       String cell = columnIndex < row.size() ? row.get(columnIndex).trim() : "";
-      if (!cell.isEmpty()) {
-        values.add(cell);
+      if (cell.isEmpty()) {
+        throw new IllegalArgumentException(
+            "file generator: column \"" + column + "\" is empty on value row "
+                + (values.size() + 1) + " of \"" + path + "\" — a blank cell would drop that row from the values and quietly change the proportions. Fill it in, remove the row, or point column= at a column that is complete.");
       }
+      values.add(cell);
     }
     if (values.isEmpty()) {
       throw new IllegalArgumentException(
