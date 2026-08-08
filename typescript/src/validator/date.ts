@@ -9,6 +9,7 @@ import {
   parseDateRangeValue,
   parseDateTimeStrict,
   parseLegacyDateRange,
+  toEpochMillis,
   STEP_SYNTAX,
   WEEKDAY_NAMES,
   validateDateFormat,
@@ -75,12 +76,15 @@ export function checkGenDate(
     return;
   }
 
+  checkOneSpelling(gen, value, fromAttr ?? toAttr, rangeAttr, diagnostics);
+
   try {
     if (fromAttr) parseDateTimeStrict(attrMap['from'] ?? '');
     if (toAttr) parseDateTimeStrict(attrMap['to'] ?? '');
     if (rangeAttr) parseDateRangeValue(attrMap['range'] ?? '');
     if (value !== undefined && value.length > 0) validateDateValue(value);
     checkBirthAges(attrs);
+    checkNotReversed(gen, attrs, attrMap, diagnostics);
   } catch (err) {
     const attr = findPrimaryDateAttr(attrs);
     diagnostics.push({
@@ -407,4 +411,98 @@ function checkEnvLocaleHasDates(
     hint: `Date locales: ${formatCandidates(DATE_LOCALE_NAMES)}. Use format="YYYY-MM-DD" — or any format without month or weekday names — to get the same text in every language, or accept the English month names.`,
     code: 'TDC272',
   });
+}
+
+/**
+ * One spelling of the range, not two.
+ *
+ * `value=`, the `from`/`to` pair and `range=` are three ways to say the same
+ * thing, and the generator reads them in that order and stops. Writing two put
+ * one of them in the file and did nothing with the other, without a word:
+ *
+ *     value="2020-05-05" from="1990-01-01" to="1990-12-31"   ->  1990-05-11
+ *     value="2020-05-05" range="1970-01-01..1970-12-31"      ->  1970-06-01
+ *     value="today" from="1990-01-01" to="1990-12-31"        ->  2026-08-08
+ *
+ * The page already told the reader to use only one. It did not say what happens
+ * if you do not, and the engine did not enforce it — while refusing `step=` on a
+ * drawn date two lines later on exactly the "it would be silently ignored"
+ * grounds that apply here.
+ */
+function checkOneSpelling(
+  gen: OpenCloseElementContext | SelfClosingElementContext,
+  value: string | undefined,
+  fromOrTo: AttrContext | undefined,
+  rangeAttr: AttrContext | undefined,
+  diagnostics: Diagnostic[],
+): void {
+  const spellings: string[] = [];
+  if (value !== undefined && value.length > 0) spellings.push('value=');
+  if (fromOrTo !== undefined) spellings.push('from=/to=');
+  if (rangeAttr !== undefined) spellings.push('range=');
+  if (spellings.length < 2) return;
+
+  diagnostics.push({
+    severity: 'error',
+    source: 'validator',
+    ...nodeRange(gen),
+    message: `<gen type="date"> carries ${formatList(spellings)} — they are ${
+      spellings.length === 2 ? 'two spellings' : 'three spellings'
+    } of the same range, and only the first is read`,
+    hint:
+      'Keep one: value="2020-01-01..2025-12-31", or from="2020-01-01" to="2025-12-31", or ' +
+      'range="2020-01-01..2025-12-31". `value="today"`, `"now"` and `"birth"` are spellings ' +
+      'too, so they cannot carry a from/to either.',
+    code: 'TDC280',
+  });
+}
+
+/**
+ * A range whose end is before its start, refused rather than swapped.
+ *
+ * The draw took `min` and `max` of the two ends, so `from="2020-01-01"
+ * to="2010-01-01"` produced perfectly plausible dates from the range the author
+ * did NOT write. The date page already states the rule for the other range
+ * attribute — "write the smaller bound first… `plus="10..3d"` is a typo and is
+ * refused rather than quietly swapped" — and this is the same typo.
+ */
+function checkNotReversed(
+  gen: OpenCloseElementContext | SelfClosingElementContext,
+  attrs: readonly AttrContext[],
+  attrMap: Record<string, string | undefined>,
+  diagnostics: Diagnostic[],
+): void {
+  const pairs: [string, string, AttrContext | undefined][] = [
+    [attrMap['from'] ?? '', attrMap['to'] ?? '', findAttr(attrs, 'to')],
+  ];
+  const rangeRaw = (attrMap['range'] ?? attrMap['value'] ?? '').trim();
+  const dots = rangeRaw.indexOf('..');
+  if (dots > 0) {
+    pairs.push([
+      rangeRaw.slice(0, dots),
+      rangeRaw.slice(dots + 2),
+      findAttr(attrs, attrMap['range'] !== undefined ? 'range' : 'value'),
+    ]);
+  }
+
+  for (const [rawStart, rawEnd, attr] of pairs) {
+    if (rawStart === '' || rawEnd === '') continue;
+    const start = parseDateTimeStrict(rawStart);
+    const end = parseDateTimeStrict(rawEnd);
+    if (toEpochMillis(start.value) <= toEpochMillis(end.value)) continue;
+    diagnostics.push({
+      severity: 'error',
+      source: 'validator',
+      ...(attr ? attrValueRange(attr) : nodeRange(gen)),
+      message: `the range ends before it starts — "${rawEnd}" is earlier than "${rawStart}"`,
+      hint: `Write the smaller bound first: "${rawEnd}".."${rawStart}". A reversed range used to be swapped silently, which meant drawing from a range nobody wrote.`,
+      code: 'TDC281',
+    });
+  }
+}
+
+/** `a`, `a and b`, `a, b and c` — the same list style the other messages use. */
+function formatList(items: readonly string[]): string {
+  if (items.length <= 1) return items[0] ?? '';
+  return `${items.slice(0, -1).join(', ')} and ${items[items.length - 1] ?? ''}`;
 }

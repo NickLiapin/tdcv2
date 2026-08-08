@@ -322,6 +322,8 @@ but the combination it asks for can't be carried out.
 | `TDC277` | `decimals=` with no range to round | Without `value=` the generator produces a digit STRING — an identifier — so there is nothing to round. `<gen type="number" length="4" decimals="2"/>` emitted 4566, 5773, 5192 |
 | `TDC278` | `decimals=` beside `length=` | A fractional value has no integer width to pad to, so `length=` was the one discarded: `value="1..9" length="3" decimals="2"` emitted 3.78, 2.89 |
 | `TDC279` | `first_zero="false"` the range can never satisfy | Every draw from `0..5` is one digit, so a three-wide rendering always pads. The generator redrew a hundred times per row and emitted the forbidden shape anyway: 005, 002, 003. Only reported where the range PROVES it |
+| `TDC280` | two spellings of the same date range | `value=`, the `from`/`to` pair and `range=` say one thing, and the generator reads them in that order and stops. `value="2020-05-05" from="1990-01-01" to="1990-12-31"` produced 1990-05-11 and discarded the rest without a word. `value="today"`, `"now"` and `"birth"` are spellings too |
+| `TDC281` | a date range that ends before it starts | The draw took the min and max of the two ends, so `from="2020-01-01" to="2010-01-01"` produced perfectly plausible dates from a range nobody wrote. `plus="10..3d"` has been refused as a typo rather than swapped since it was written; this is the same typo |
 
 ## See also
 

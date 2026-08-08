@@ -31,6 +31,24 @@ page — is tracked in that implementation's own changelog:
 
 ### Fixed
 
+<!-- covers: range -->
+
+- Two spellings of the same date range on one `<gen>`: one silently won and the rest were
+  discarded. `value=`, the `from`/`to` pair and `range=` are three ways to say one thing, and
+  the generator read them in that order and stopped:
+
+  ```
+  value="2020-05-05" from="1990-01-01" to="1990-12-31"   ->  1990-05-11
+  value="today" from="1990-01-01" to="1990-12-31"        ->  2026-08-08
+  ```
+
+  The page already said to use only one; nothing enforced it. TDC280 now does.
+
+- A reversed range was quietly swapped. The draw took the min and max of the two ends, so
+  `from="2020-01-01" to="2010-01-01"` produced perfectly plausible dates from a range nobody
+  wrote. `plus="10..3d"` has been refused as a typo rather than swapped since it was written;
+  this is the same typo, and TDC281 refuses it the same way.
+
 <!-- covers: column weight -->
 
 - A blank cell in a file column silently deleted its row from the values. The row left the

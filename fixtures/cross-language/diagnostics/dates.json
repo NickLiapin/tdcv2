@@ -105,6 +105,41 @@
       "description": "The same value is refused outright on <gen type=\"date\" local=\"af\"> (TDC153) and was silently downgraded to English here. Refusing it on <env local=> would be wrong — a locale can be a perfectly good source of NAMES and still ship no month names, and refusing would forbid the Afrikaans name pack because Afrikaans dates are missing. So this warns, and only when the format actually reads the locale: format=\"YYYY-MM-DD\" is the same in every language and says nothing, while a missing format= does, because the default L is a layout the locale chooses.",
       "config": "<tdc><env count=\"2\" seed=\"s\" local=\"af\"><sequence name=\"D\"><gen type=\"date\" value=\"2026-03-01..2026-03-05\" format=\"LL\"/></sequence></env><block><line><data>${{D}}</data></line></block></tdc>",
       "expected": ["warning TDC272 1:59"]
+    },
+    {
+      "name": "two-spellings-of-the-same-range",
+      "demonstrates": "TDC280",
+      "description": "value=, the from/to pair and range= are three ways to say one thing, and the generator reads them in that order and stops. Writing two put one in the file and did nothing with the other: value=\"2020-05-05\" from=\"1990-01-01\" to=\"1990-12-31\" produced 1990-05-11.",
+      "config": "<tdc><env count=\"2\" seed=\"s\"><sequence name=\"D\"><gen type=\"date\" value=\"2020-05-05\" from=\"1990-01-01\" to=\"1990-12-31\" format=\"YYYY-MM-DD\"/></sequence></env><block><line><data>${{D}}</data></line></block></tdc>",
+      "expected": ["error TDC280 1:48"]
+    },
+    {
+      "name": "today-cannot-also-carry-a-range",
+      "demonstrates": "TDC280",
+      "description": "value=\"today\" is a spelling of the range too, so it cannot carry a from/to: the from/to was discarded and every row came out as today.",
+      "config": "<tdc><env count=\"2\" seed=\"s\"><sequence name=\"D\"><gen type=\"date\" value=\"today\" from=\"1990-01-01\" to=\"1990-12-31\" format=\"YYYY-MM-DD\"/></sequence></env><block><line><data>${{D}}</data></line></block></tdc>",
+      "expected": ["error TDC280 1:48"]
+    },
+    {
+      "name": "a-reversed-from-to-is-refused-not-swapped",
+      "demonstrates": "TDC281",
+      "description": "The draw took min and max of the two ends, so a reversed pair produced perfectly plausible dates from a range nobody wrote. The date page already states the rule for plus=: write the smaller bound first, and a typo is refused rather than quietly swapped.",
+      "config": "<tdc><env count=\"2\" seed=\"s\"><sequence name=\"D\"><gen type=\"date\" from=\"2020-01-01\" to=\"2010-01-01\" format=\"YYYY-MM-DD\"/></sequence></env><block><line><data>${{D}}</data></line></block></tdc>",
+      "expected": ["error TDC281 1:87"]
+    },
+    {
+      "name": "a-reversed-value-range-is-refused-too",
+      "demonstrates": "TDC281",
+      "description": "The same typo written the other way.",
+      "config": "<tdc><env count=\"2\" seed=\"s\"><sequence name=\"D\"><gen type=\"date\" value=\"2020-01-01..2010-12-31\" format=\"YYYY-MM-DD\"/></sequence></env><block><line><data>${{D}}</data></line></block></tdc>",
+      "expected": ["error TDC281 1:72"]
+    },
+    {
+      "name": "a-range-in-order-is-accepted",
+      "demonstrates": "",
+      "description": "The line the check must not cross: an ordinary range, and value=\"birth\" with its own age window, stay accepted.",
+      "config": "<tdc><env count=\"2\" seed=\"s\"><sequence name=\"D\"><gen type=\"date\" from=\"2010-01-01\" to=\"2020-01-01\" format=\"YYYY-MM-DD\"/></sequence></env><block><line><data>${{D}}</data></line></block></tdc>",
+      "expected": []
     }
   ]
 }

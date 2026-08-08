@@ -3450,6 +3450,8 @@ public final class Validator {
     checkEnvLocaleHasDates(gen, attrs);
     checkDateCommonAttrs(gen, attrs);
     checkDateValues(gen, attrs);
+    checkOneDateSpelling(gen, attrs);
+    checkDateRangeNotReversed(gen, attrs);
   }
 
   /**
@@ -3512,6 +3514,92 @@ public final class Validator {
    * crash at render time instead of a diagnostic at validation time — and the reference reports
    * it here.
    */
+  /**
+   * One spelling of the range, not two.
+   *
+   * <p>{@code value=}, the {@code from}/{@code to} pair and {@code range=} are three ways to say
+   * the same thing, and the generator reads them in that order and stops. Writing two put one of
+   * them in the file and did nothing with the other, without a word: {@code value="2020-05-05"
+   * from="1990-01-01" to="1990-12-31"} produced 1990-05-11.
+   */
+  private void checkOneDateSpelling(
+      TDCParser.SelfClosingElementContext gen, Map<String, String> attrs) {
+    List<String> spellings = new ArrayList<>();
+    String value = attrs.get("value");
+    if (value != null && !value.trim().isEmpty()) {
+      spellings.add("value=");
+    }
+    if (attrs.containsKey("from") || attrs.containsKey("to")) {
+      spellings.add("from=/to=");
+    }
+    if (attrs.containsKey("range")) {
+      spellings.add("range=");
+    }
+    if (spellings.size() < 2) {
+      return;
+    }
+    String listed = String.join(", ", spellings.subList(0, spellings.size() - 1))
+        + " and " + spellings.get(spellings.size() - 1);
+    String count = spellings.size() == 2 ? "two spellings" : "three spellings";
+    error("TDC280",
+        "<gen type=\"date\"> carries " + listed + " — they are " + count
+            + " of the same range, and only the first is read",
+        "Keep one: value=\"2020-01-01..2025-12-31\", or from=\"2020-01-01\" to=\"2025-12-31\", "
+            + "or range=\"2020-01-01..2025-12-31\". value=\"today\", \"now\" and \"birth\" are "
+            + "spellings too, so they cannot carry a from/to either.",
+        line(gen), column(gen));
+  }
+
+  /**
+   * A range whose end is before its start, refused rather than swapped.
+   *
+   * <p>The draw took min and max of the two ends, so {@code from="2020-01-01" to="2010-01-01"}
+   * produced perfectly plausible dates from the range the author did NOT write. The date page
+   * already states the rule for {@code plus=}: write the smaller bound first, and a typo is
+   * refused rather than quietly swapped.
+   */
+  private void checkDateRangeNotReversed(
+      TDCParser.SelfClosingElementContext gen, Map<String, String> attrs) {
+    List<String[]> pairs = new ArrayList<>();
+    pairs.add(new String[] {
+        attrs.getOrDefault("from", "").trim(), attrs.getOrDefault("to", "").trim(), "to"});
+    String raw = attrs.get("range") != null
+        ? attrs.get("range").trim()
+        : attrs.getOrDefault("value", "").trim();
+    int dots = raw.indexOf("..");
+    if (dots > 0) {
+      pairs.add(new String[] {
+          raw.substring(0, dots), raw.substring(dots + 2),
+          attrs.get("range") != null ? "range" : "value"});
+    }
+    for (String[] pair : pairs) {
+      if (pair[0].isEmpty() || pair[1].isEmpty()) {
+        continue;
+      }
+      long start;
+      long end;
+      try {
+        start = io.github.nickliapin.tdc.date.Calendar.toEpochMillis(
+            io.github.nickliapin.tdc.date.DateParse.dateTime(pair[0]).value());
+        end = io.github.nickliapin.tdc.date.Calendar.toEpochMillis(
+            io.github.nickliapin.tdc.date.DateParse.dateTime(pair[1]).value());
+      } catch (RuntimeException e) {
+        continue; // already reported by the value checks above
+      }
+      if (start <= end) {
+        continue;
+      }
+      int[] where = at(gen, pair[2]);
+      error("TDC281",
+          "the range ends before it starts — \"" + pair[1] + "\" is earlier than \"" + pair[0]
+              + "\"",
+          "Write the smaller bound first: \"" + pair[1] + "\"..\"" + pair[0]
+              + "\". A reversed range used to be swapped silently, which meant drawing from a "
+              + "range nobody wrote.",
+          where[0], where[1]);
+    }
+  }
+
   private void checkDateValues(
       TDCParser.SelfClosingElementContext gen, Map<String, String> attrs) {
     try {

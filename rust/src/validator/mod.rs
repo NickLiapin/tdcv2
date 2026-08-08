@@ -3383,6 +3383,8 @@ impl Validator {
         self.check_env_locale_has_dates(gen, attrs);
         self.check_date_common_attrs(gen, attrs);
         self.check_date_values(gen, attrs);
+        self.check_one_date_spelling(gen, attrs);
+        self.check_date_range_not_reversed(gen, attrs);
     }
 
     /// `<env local="af">` with a date the run will render in ENGLISH.
@@ -3444,6 +3446,103 @@ impl Validator {
     /// Without this a `from="notadate"` reached the generator and failed there,
     /// which is a crash at render time instead of a diagnostic at validation
     /// time — and the reference reports it here.
+    /// One spelling of the range, not two.
+    ///
+    /// `value=`, the `from`/`to` pair and `range=` are three ways to say the
+    /// same thing, and the generator reads them in that order and stops.
+    /// Writing two put one of them in the file and did nothing with the other,
+    /// without a word:
+    ///
+    /// ```text
+    /// value="2020-05-05" from="1990-01-01" to="1990-12-31"   ->  1990-05-11
+    /// value="today" from="1990-01-01" to="1990-12-31"        ->  2026-08-08
+    /// ```
+    fn check_one_date_spelling(&mut self, gen: &Element, attrs: &Attrs) {
+        let mut spellings: Vec<&str> = Vec::new();
+        if attrs.get("value").map(|v| !v.trim().is_empty()) == Some(true) {
+            spellings.push("value=");
+        }
+        if attrs.get("from").is_some() || attrs.get("to").is_some() {
+            spellings.push("from=/to=");
+        }
+        if attrs.get("range").is_some() {
+            spellings.push("range=");
+        }
+        if spellings.len() < 2 {
+            return;
+        }
+        let listed = format!(
+            "{} and {}",
+            spellings[..spellings.len() - 1].join(", "),
+            spellings[spellings.len() - 1]
+        );
+        let count = if spellings.len() == 2 {
+            "two spellings"
+        } else {
+            "three spellings"
+        };
+        self.error(
+            "TDC280",
+            format!(
+                "<gen type=\"date\"> carries {listed} — they are {count} of the same range, and only the first is read"
+            ),
+            "Keep one: value=\"2020-01-01..2025-12-31\", or from=\"2020-01-01\" to=\"2025-12-31\", or range=\"2020-01-01..2025-12-31\". value=\"today\", \"now\" and \"birth\" are spellings too, so they cannot carry a from/to either.",
+            gen.pos,
+        );
+    }
+
+    /// A range whose end is before its start, refused rather than swapped.
+    ///
+    /// The draw took `min` and `max` of the two ends, so `from="2020-01-01"
+    /// to="2010-01-01"` produced perfectly plausible dates from the range the
+    /// author did NOT write. The date page already states the rule for `plus=`:
+    /// write the smaller bound first, and a typo is refused rather than quietly
+    /// swapped.
+    fn check_date_range_not_reversed(&mut self, gen: &Element, attrs: &Attrs) {
+        let mut pairs: Vec<(String, String, &str)> = vec![(
+            attrs.get("from").map(|v| v.trim()).unwrap_or("").to_string(),
+            attrs.get("to").map(|v| v.trim()).unwrap_or("").to_string(),
+            "to",
+        )];
+        let raw = attrs
+            .get("range")
+            .or_else(|| attrs.get("value"))
+            .map(|v| v.trim())
+            .unwrap_or("")
+            .to_string();
+        if let Some(dots) = raw.find("..") {
+            if dots > 0 {
+                let where_ = if attrs.get("range").is_some() { "range" } else { "value" };
+                pairs.push((raw[..dots].to_string(), raw[dots + 2..].to_string(), where_));
+            }
+        }
+        for (start_raw, end_raw, where_) in pairs {
+            if start_raw.is_empty() || end_raw.is_empty() {
+                continue;
+            }
+            // Already reported by the value checks above when unparseable.
+            let (Ok(start), Ok(end)) = (
+                date::parse::date_time(&start_raw),
+                date::parse::date_time(&end_raw),
+            ) else {
+                continue;
+            };
+            if date::to_epoch_millis(start.value) <= date::to_epoch_millis(end.value) {
+                continue;
+            }
+            self.error(
+                "TDC281",
+                format!(
+                    "the range ends before it starts — \"{end_raw}\" is earlier than \"{start_raw}\""
+                ),
+                &format!(
+                    "Write the smaller bound first: \"{end_raw}\"..\"{start_raw}\". A reversed range used to be swapped silently, which meant drawing from a range nobody wrote."
+                ),
+                gen.at(where_),
+            );
+        }
+    }
+
     fn check_date_values(&mut self, gen: &Element, attrs: &Attrs) {
         let problem = date_values_problem(attrs);
         if let Some(message) = problem {

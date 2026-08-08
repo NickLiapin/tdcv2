@@ -4025,6 +4025,8 @@ public sealed class Validator
         CheckEnvLocaleHasDates(gen, attrs);
         CheckDateCommonAttrs(gen, attrs);
         CheckDateValues(gen, attrs);
+        this.CheckOneDateSpelling(gen, attrs);
+        this.CheckDateRangeNotReversed(gen, attrs);
     }
 
     /// <summary>
@@ -4091,6 +4093,108 @@ public sealed class Validator
     /// crash at render time instead of a diagnostic at validation time — and the reference reports
     /// it here.
     /// </remarks>
+    /// <summary>One spelling of the range, not two.</summary>
+    /// <remarks>
+    /// <c>value=</c>, the <c>from</c>/<c>to</c> pair and <c>range=</c> are three ways to say the
+    /// same thing, and the generator reads them in that order and stops. Writing two put one of
+    /// them in the file and did nothing with the other, without a word: <c>value="2020-05-05"
+    /// from="1990-01-01" to="1990-12-31"</c> produced 1990-05-11.
+    /// </remarks>
+    private void CheckOneDateSpelling(
+        TDCParser.SelfClosingElementContext gen, IReadOnlyDictionary<string, string> attrs)
+    {
+        var spellings = new List<string>();
+        if (!string.IsNullOrWhiteSpace(attrs.GetValueOrDefault("value")))
+        {
+            spellings.Add("value=");
+        }
+
+        if (attrs.ContainsKey("from") || attrs.ContainsKey("to"))
+        {
+            spellings.Add("from=/to=");
+        }
+
+        if (attrs.ContainsKey("range"))
+        {
+            spellings.Add("range=");
+        }
+
+        if (spellings.Count < 2)
+        {
+            return;
+        }
+
+        string listed = string.Join(", ", spellings.Take(spellings.Count - 1))
+            + " and " + spellings[^1];
+        string count = spellings.Count == 2 ? "two spellings" : "three spellings";
+        Error(
+            "TDC280",
+            $"<gen type=\"date\"> carries {listed} — they are {count} of the same range, and "
+            + "only the first is read",
+            "Keep one: value=\"2020-01-01..2025-12-31\", or from=\"2020-01-01\" to=\"2025-12-31\", "
+                + "or range=\"2020-01-01..2025-12-31\". value=\"today\", \"now\" and \"birth\" are "
+                + "spellings too, so they cannot carry a from/to either.",
+            Line(gen), Column(gen));
+    }
+
+    /// <summary>A range whose end is before its start, refused rather than swapped.</summary>
+    /// <remarks>
+    /// The draw took min and max of the two ends, so <c>from="2020-01-01" to="2010-01-01"</c>
+    /// produced perfectly plausible dates from the range the author did NOT write. The date page
+    /// already states the rule for <c>plus=</c>: write the smaller bound first, and a typo is
+    /// refused rather than quietly swapped.
+    /// </remarks>
+    private void CheckDateRangeNotReversed(
+        TDCParser.SelfClosingElementContext gen, IReadOnlyDictionary<string, string> attrs)
+    {
+        var pairs = new List<(string Start, string End, string Where)>
+        {
+            ((attrs.GetValueOrDefault("from") ?? "").Trim(),
+             (attrs.GetValueOrDefault("to") ?? "").Trim(), "to"),
+        };
+        string raw = (attrs.GetValueOrDefault("range") ?? attrs.GetValueOrDefault("value") ?? "")
+            .Trim();
+        int dots = raw.IndexOf("..", StringComparison.Ordinal);
+        if (dots > 0)
+        {
+            pairs.Add((raw[..dots], raw[(dots + 2)..],
+                attrs.ContainsKey("range") ? "range" : "value"));
+        }
+
+        foreach ((string startRaw, string endRaw, string where) in pairs)
+        {
+            if (startRaw.Length == 0 || endRaw.Length == 0)
+            {
+                continue;
+            }
+
+            DateParse.Parsed start;
+            DateParse.Parsed end;
+            try
+            {
+                start = DateParse.DateTime(startRaw);
+                end = DateParse.DateTime(endRaw);
+            }
+            catch (Exception)
+            {
+                continue; // already reported by the value checks above
+            }
+
+            if (Tdcv2.Date.Calendar.ToEpochMillis(start.Value) <= Tdcv2.Date.Calendar.ToEpochMillis(end.Value))
+            {
+                continue;
+            }
+
+            (int line, int column) = At(gen, where);
+            Error(
+                "TDC281",
+                $"the range ends before it starts — \"{endRaw}\" is earlier than \"{startRaw}\"",
+                $"Write the smaller bound first: \"{endRaw}\"..\"{startRaw}\". A reversed range "
+                + "used to be swapped silently, which meant drawing from a range nobody wrote.",
+                line, column);
+        }
+    }
+
     private void CheckDateValues(
         TDCParser.SelfClosingElementContext gen, IReadOnlyDictionary<string, string> attrs)
     {

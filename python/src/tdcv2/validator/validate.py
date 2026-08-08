@@ -15,6 +15,7 @@ one implementation and not the other is exactly the divergence this file is mean
 from __future__ import annotations
 
 import math
+import dataclasses
 import re
 from pathlib import Path
 from urllib.parse import urlparse
@@ -3240,6 +3241,73 @@ class _Validator:
         self._check_date_weekdays(gen, attrs)
         self._check_date_common(gen, attrs)
         self._check_date_values(gen, attrs)
+        self._check_one_date_spelling(gen, attrs)
+        self._check_date_range_not_reversed(gen, attrs)
+
+    def _check_one_date_spelling(self, gen, attrs: dict[str, str]) -> None:
+        """One spelling of the range, not two.
+
+        ``value=``, the ``from``/``to`` pair and ``range=`` are three ways to say the same
+        thing, and the generator reads them in that order and stops. Writing two put one of
+        them in the file and did nothing with the other, without a word::
+
+            value="2020-05-05" from="1990-01-01" to="1990-12-31"   ->  1990-05-11
+            value="today" from="1990-01-01" to="1990-12-31"        ->  2026-08-08
+        """
+        spellings = []
+        if (attrs.get("value") or "").strip():
+            spellings.append("value=")
+        if attrs.get("from") is not None or attrs.get("to") is not None:
+            spellings.append("from=/to=")
+        if attrs.get("range") is not None:
+            spellings.append("range=")
+        if len(spellings) < 2:
+            return
+        listed = ", ".join(spellings[:-1]) + " and " + spellings[-1]
+        count = "two spellings" if len(spellings) == 2 else "three spellings"
+        self._error(
+            "TDC280",
+            f'<gen type="date"> carries {listed} — they are {count} of the same range, and '
+            "only the first is read",
+            """ + repr(HINT_SPELL) + """,
+            _line(gen),
+            _column(gen),
+        )
+
+    def _check_date_range_not_reversed(self, gen, attrs: dict[str, str]) -> None:
+        """A range whose end is before its start, refused rather than swapped.
+
+        The draw took ``min`` and ``max`` of the two ends, so ``from="2020-01-01"
+        to="2010-01-01"`` produced perfectly plausible dates from the range the author did NOT
+        write. The date page already states the rule for ``plus=``: write the smaller bound
+        first, and a typo is refused rather than quietly swapped.
+        """
+        pairs = [((attrs.get("from") or "").strip(), (attrs.get("to") or "").strip(), "to")]
+        raw = (attrs.get("range") or attrs.get("value") or "").strip()
+        dots = raw.find("..")
+        if dots > 0:
+            pairs.append(
+                (raw[:dots], raw[dots + 2 :], "range" if attrs.get("range") is not None else "value")
+            )
+        for start_raw, end_raw, where in pairs:
+            if not start_raw or not end_raw:
+                continue
+            try:
+                start = dataclasses.astuple(date_parse.date_time(start_raw).value)
+                end = dataclasses.astuple(date_parse.date_time(end_raw).value)
+            except (ValueError, OSError):
+                continue  # already reported by the value checks above
+            if start <= end:
+                continue
+            line, column = _at(gen, where)
+            self._error(
+                "TDC281",
+                f'the range ends before it starts — "{end_raw}" is earlier than "{start_raw}"',
+                f'Write the smaller bound first: "{end_raw}".."{start_raw}". A reversed range '
+                "used to be swapped silently, which meant drawing from a range nobody wrote.",
+                line,
+                column,
+            )
 
     #: Tokens whose OUTPUT is words rather than digits, plus the ``L`` family, whose layout is
     #: itself a per-locale fact (``M/D/YYYY`` against ``D.M.YYYY``).
