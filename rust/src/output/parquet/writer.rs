@@ -450,6 +450,33 @@ fn dictionary_page_header(raw_size: usize, compressed_size: usize, num_values: i
     w.into_bytes()
 }
 
+/// `column_orders` — the field that makes the statistics USABLE.
+///
+/// The spec is explicit: a reader must ignore `min_value`/`max_value` unless
+/// `FileMetaData.column_orders` says the sort order is TypeDefinedOrder.
+/// Without it the bounds are there in the bytes and no conforming reader may
+/// act on them, so every row group is decoded in full — which is exactly what
+/// the statistics exist to avoid. The values were correct; nothing was allowed
+/// to read them.
+///
+/// One entry per LEAF column, in schema order — the same order the row groups
+/// list their chunks in, which is one per column (a list column contributes
+/// three schema elements but still exactly one leaf).
+///
+/// `ColumnOrder` is a union whose only member, `TYPE_ORDER`, holds an EMPTY
+/// struct, so each entry is three bytes: the union's field header, the empty
+/// struct's stop byte, and the union's own stop byte.
+fn write_column_orders(w: &mut Thrift, leaves: usize) {
+    w.list_begin(7, thrift::STRUCT_TYPE, leaves);
+    for _ in 0..leaves {
+        w.struct_begin(); // ColumnOrder
+        w.field_begin(1, thrift::STRUCT_TYPE); // TYPE_ORDER
+        w.struct_begin(); // TypeDefinedOrder {}
+        w.struct_end();
+        w.struct_end();
+    }
+}
+
 /// The footer: schema, row-group directory, then the trailing length and magic.
 fn footer(columns: &[Column], groups: &[GroupMeta], num_rows: i64) -> EngineResult<Vec<u8>> {
     let mut w = Thrift::new();
@@ -459,6 +486,7 @@ fn footer(columns: &[Column], groups: &[GroupMeta], num_rows: i64) -> EngineResu
     w.i64(3, num_rows);
     write_row_groups(&mut w, columns, groups)?;
     w.string(6, CREATED_BY);
+    write_column_orders(&mut w, columns.len());
     w.struct_end();
 
     let bytes = w.into_bytes();

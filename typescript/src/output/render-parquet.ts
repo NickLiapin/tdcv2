@@ -13,7 +13,7 @@
 
 import type { DocumentContext } from '../generated/TDCParser.js';
 import { interpolate } from '../processor/interpolate.js';
-import { prepareRender, type RenderOptions } from '../processor/render.js';
+import { prepareRender, prepareRenderAsync, type RenderOptions } from '../processor/render.js';
 import { findChildElement } from '../processor/walk.js';
 import { extractSequenceSpecs } from '../sequence/index.js';
 
@@ -57,13 +57,31 @@ interface Plan {
 }
 
 function plan(document: DocumentContext, options: RenderOptions): Plan {
+  return planFrom(document, options, prepareRender(document, options));
+}
+
+/**
+ * The same plan, from a render prepared elsewhere.
+ *
+ * A `type="http"` config can only be prepared ASYNCHRONOUSLY — the service call
+ * is the preparation — so the two entry points differ in nothing but how the
+ * registry arrives. Splitting here is what let the async path exist at all: it
+ * did not, and `-o out.parquet` on an http config wrote the TEXT rendering under
+ * a `.parquet` name and exited 0, so every reader downstream failed on a file
+ * TDC had said it had written.
+ */
+function planFrom(
+  document: DocumentContext,
+  options: RenderOptions,
+  prepared: ReturnType<typeof prepareRender>,
+): Plan {
   const declared = extractDeclaredColumns(document);
   if (declared.length === 0) {
     throw new Error(
       'Parquet output needs at least one named column — add name="…" to a <data> in the <block>',
     );
   }
-  const { tdc, env, registry } = prepareRender(document, options);
+  const { tdc, env, registry } = prepared;
   const specs = extractSequenceSpecs(findChildElement(tdc.content(), 'env'));
   // Resolution order: an explicit type= wins; otherwise ask the generator that
   // feeds the column; otherwise fall back to text. We never guess from values.
@@ -130,6 +148,20 @@ export function* renderParquetChunks(
   options: RenderOptions = {},
 ): Generator<Uint8Array> {
   const p = plan(document, options);
+  yield* writeParquetChunks(p.schema, batches(p));
+}
+
+/**
+ * The same stream for a config that had to be prepared asynchronously.
+ *
+ * `type="http"` is the only such config today: the values come from a service,
+ * so there is nothing to lay out until the call has answered.
+ */
+export async function* renderParquetChunksAsync(
+  document: DocumentContext,
+  options: RenderOptions = {},
+): AsyncGenerator<Uint8Array> {
+  const p = planFrom(document, options, await prepareRenderAsync(document, options));
   yield* writeParquetChunks(p.schema, batches(p));
 }
 

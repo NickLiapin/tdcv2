@@ -261,6 +261,11 @@ UTF-8 bytes**. In ASCII an uppercase letter sorts before a lowercase one, so
 `"Apple" < "apple" < "zebra"`, and any non-ASCII text sorts after all ASCII — a stable,
 portable order every Parquet reader agrees on.
 
+The file also declares that order in its footer (`column_orders`). Without that
+declaration the format says a reader **must ignore** the bounds, however correct they
+are — Java-based readers drop string min/max outright. TDC had been writing correct
+bounds no reader was permitted to use; it now writes the declaration beside them.
+
 ## Repeated values are stored once
 
 When a column has few distinct values — cities, statuses, categories — TDC stores them

@@ -149,6 +149,23 @@ set` — a message naming no file, no line and no code. `tail="678"` passed `che
   the parsed spec and the four ports scan the body; the two were diffed across every
   bundled pack and agree on all 173.
 
+- Parquet: the footer now declares `column_orders`, so the column statistics can actually
+  be used. The min/max bounds were written and correct; the format says a reader must
+  ignore them until `FileMetaData.column_orders` declares the sort order, and parquet-mr
+  (Spark, Hive, Impala) drops BYTE_ARRAY bounds outright without it. So every row group
+  was decoded in full — exactly what the statistics exist to avoid. Nine bytes of footer
+  per column, and all five implementations write the same ones: verified byte-identical
+  across TypeScript, Python, Rust, C# and Java, and the golden file re-read in pyarrow
+  (an independent reader) to confirm the rows, the NULL, the anomaly flags, the decimals
+  and the dates all survive.
+
+- Parquet: `<gen type="http">` with `-o out.parquet` wrote the TEXT rendering under a
+  `.parquet` name and exited 0. An http config can only be prepared asynchronously — the
+  service call IS the preparation — and the CLI's async path ignored the file extension
+  entirely. The extension now chooses the container on both paths. TypeScript only: the
+  four ports call their services synchronously and were already writing Parquet here.
+  Checked by generating the same config in all five and comparing bytes.
+
 ### Documentation
 
 - The exact-shares promise now carries the one thing that breaks it: `missing=` on the same

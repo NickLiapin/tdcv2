@@ -7,43 +7,43 @@
       "name": "every-scalar-type",
       "description": "each scalar kind, a NULL column from missing=, and a ground-truth flag",
       "config": "<tdc><env count=\"7\" seed=\"golden-flat\" inject=\"${{%}}\">\n<sequence name=\"Id\"><gen type=\"increment\" value=\"1\"/></sequence>\n<sequence name=\"N\"><gen type=\"number\" value=\"10..99\" missing=\"0.3\"/></sequence>\n<sequence name=\"P\"><gen type=\"number\" value=\"1..999\" decimals=\"2\"/></sequence>\n<sequence name=\"C\"><gen type=\"text\" value=\"Moscow,Paris,Berlin\" percent=\"50,30,20\"/></sequence>\n<sequence name=\"D\"><gen type=\"date\" range=\"1990-01-01..2000-12-31\" format=\"YYYY-MM-DD\"/></sequence>\n<sequence name=\"K\"><gen type=\"template\" value=\"common.id.uuid\"/></sequence>\n<sequence name=\"R\"><gen type=\"number\" value=\"10..20\" anomaly=\"0.4\" anomaly_flag=\"F\"/></sequence>\n</env><block><line>\n<data name=\"id\">${{Id}}</data><data name=\"n\">${{N}}</data><data name=\"p\">${{P}}</data>\n<data name=\"city\">${{C}}</data><data name=\"born\">${{D}}</data><data name=\"key\">${{K}}</data>\n<data name=\"r\">${{R}}</data><data name=\"flag\">${{F}}</data>\n<data name=\"money\" type=\"decimal(18,2)\">${{P}}</data>\n</line></block></tdc>",
-      "size": 1162,
-      "sha256": "34765e592f589dde78546c45c4ee43d70dbf4eeb45c6222ed01bee94d886273c"
+      "size": 1191,
+      "sha256": "180e8e790c6fb18c0058ff83faf3ff19ec71464f7666c034f642f57fd11f1404"
     },
     {
       "name": "variable-length-lists",
       "description": "repeat= makes a list column; the repetition levels carry the shape",
       "config": "<tdc><env count=\"12\" seed=\"pq-list\" inject=\"${{%}}\">\n<sequence name=\"T\"><gen type=\"number\" value=\"1..9\" repeat=\"1..3\"/></sequence>\n</env><block><line><data name=\"tags\">${{T}}</data></line></block></tdc>",
-      "size": 271,
-      "sha256": "0a3c49a3d9f877885a7aaafb8d72d59528933757276bb70a20e7dd284430f5d3"
+      "size": 276,
+      "sha256": "6d8590088aba80a02ad508549c5f749abb51cff218b089e335bc41d0aa15b0aa"
     },
     {
       "name": "lists-with-null-elements",
       "description": "missing= on a repeating gen blanks ELEMENTS, not the list",
       "config": "<tdc><env count=\"10\" seed=\"pq-list-null\" inject=\"${{%}}\">\n<sequence name=\"T\"><gen type=\"number\" value=\"18..24\" repeat=\"0..3\" missing=\"0.4\"/></sequence>\n</env><block><line><data name=\"ages\">${{T}}</data></line></block></tdc>",
-      "size": 254,
-      "sha256": "b6cbf68c7dab2fa30a35c8192795ab143256b13c8fc1ca080c8cc6de9c785a16"
+      "size": 259,
+      "sha256": "659b398914f1d56423d2d68b98f9f3f8b0c42fe83510da36830d91ad93be1bcc"
     },
     {
       "name": "declared-types",
       "description": "types written by hand rather than derived: uint, float16, enum, json, timestamp",
       "config": "<tdc><env count=\"9\" seed=\"pq-declared\" inject=\"${{%}}\">\n<sequence name=\"U\"><gen type=\"number\" value=\"0..250\"/></sequence>\n<sequence name=\"H\"><gen type=\"number\" value=\"1..99\" decimals=\"1\"/></sequence>\n<sequence name=\"E\"><gen type=\"text\" value=\"new,active,closed\"/></sequence>\n<sequence name=\"B\"><gen type=\"text\" value=\"true,false\"/></sequence>\n</env><block><line>\n<data name=\"small\" type=\"uint8\">${{U}}</data><data name=\"half\" type=\"float16\">${{H}}</data>\n<data name=\"state\" type=\"enum\">${{E}}</data><data name=\"ok\" type=\"bool\">${{B}}</data>\n<data name=\"wide\" type=\"uint64\">${{U}}</data>\n</line></block></tdc>",
-      "size": 582,
-      "sha256": "693f83fe639a683a67d4264d7791a930281348166fe9a5a1178c67bc0daaa198"
+      "size": 599,
+      "sha256": "91572362167dbf2cc313360c9d4a433c90b600322c123e46ecdc91b45cf36ace"
     },
     {
       "name": "repeated-categories-dictionary",
       "description": "a column of few distinct values, where a dictionary has to pay for itself",
       "config": "<tdc><env count=\"400\" seed=\"pq-dict\" inject=\"${{%}}\">\n<sequence name=\"C\"><gen type=\"text\" value=\"Moscow,Paris,Berlin,Rome\" percent=\"40,30,20,10\"/></sequence>\n</env><block><line><data name=\"city\">${{C}}</data></line></block></tdc>",
-      "size": 287,
-      "sha256": "5b4bb8871bb11beb1f0ce7a0af28e6f612834d82a57a65e4fc79cf078451b771"
+      "size": 292,
+      "sha256": "5f09c5715d1cb6aea6899fb468d60b981198553d7c71709b650c076278d8c1a3"
     },
     {
       "name": "two-row-groups",
       "description": "more rows than one group holds — the offsets in the footer have to follow",
       "config": "<tdc><env count=\"60000\" seed=\"pq-groups\" inject=\"${{%}}\">\n<sequence name=\"Id\"><gen type=\"increment\" value=\"1\"/></sequence>\n</env><block><line><data name=\"id\">${{Id}}</data></line></block></tdc>",
-      "size": 240301,
-      "sha256": "cd682a7b9fdaf89d40760ca543753fd249b98f7a26053f53c228731ca10fa88b"
+      "size": 240306,
+      "sha256": "c212034b69bb4f6bf51cbd134e02c3ec6615cfd713b39ebe0a6e5d52d2f4a7ad"
     }
   ]
 }

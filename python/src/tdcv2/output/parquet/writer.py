@@ -343,6 +343,32 @@ def _dictionary_page_header(raw_size: int, compressed_size: int, num_values: int
     return w.bytes()
 
 
+def _write_column_orders(w: "thrift.Writer", leaves: int) -> None:
+    """``column_orders`` — the field that makes the statistics USABLE.
+
+    The spec is explicit: a reader must ignore ``min_value``/``max_value`` unless
+    ``FileMetaData.column_orders`` says the sort order is TypeDefinedOrder. Without it the
+    bounds are there in the bytes and no conforming reader may act on them, so every row group
+    is decoded in full — which is exactly what the statistics exist to avoid. The values were
+    correct; nothing was allowed to read them.
+
+    One entry per LEAF column, in schema order — the same order the row groups list their
+    chunks in, which is one per column (a list column contributes three schema elements but
+    still exactly one leaf).
+
+    ``ColumnOrder`` is a union whose only member, ``TYPE_ORDER``, holds an EMPTY struct, so
+    each entry is three bytes: the union's field header, the empty struct's stop byte, and the
+    union's own stop byte.
+    """
+    w.list_begin(7, thrift.STRUCT, leaves)
+    for _ in range(leaves):
+        w.struct_begin()  # ColumnOrder
+        w.field_begin(1, thrift.STRUCT)  # TYPE_ORDER
+        w.struct_begin()  # TypeDefinedOrder {}
+        w.struct_end()
+        w.struct_end()
+
+
 def footer(columns: list[Column], groups: list[GroupMeta], num_rows: int) -> bytes:
     """The schema, the row-group directory, then the trailing length and magic."""
     w = thrift.Writer()
@@ -352,6 +378,7 @@ def footer(columns: list[Column], groups: list[GroupMeta], num_rows: int) -> byt
     w.i64(3, num_rows)
     _write_row_groups(w, columns, groups)
     w.string(6, CREATED_BY)
+    _write_column_orders(w, len(columns))
     w.struct_end()
     body = w.bytes()
     return body + struct.pack("<I", len(body)) + MAGIC

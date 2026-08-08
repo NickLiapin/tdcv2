@@ -399,6 +399,33 @@ public static class Writer
         return w.Bytes();
     }
 
+    /// <summary><c>column_orders</c> — the field that makes the statistics USABLE.</summary>
+    /// <remarks>
+    /// The spec is explicit: a reader must ignore <c>min_value</c>/<c>max_value</c> unless
+    /// <c>FileMetaData.column_orders</c> says the sort order is TypeDefinedOrder. Without it the
+    /// bounds are there in the bytes and no conforming reader may act on them, so every row
+    /// group is decoded in full — which is exactly what the statistics exist to avoid. The
+    /// values were correct; nothing was allowed to read them.
+    /// <para>
+    /// One entry per LEAF column, in schema order — the same order the row groups list their
+    /// chunks in, which is one per column (a list column contributes three schema elements but
+    /// still exactly one leaf). <c>ColumnOrder</c> is a union whose only member,
+    /// <c>TYPE_ORDER</c>, holds an EMPTY struct, so each entry is three bytes.
+    /// </para>
+    /// </remarks>
+    private static void WriteColumnOrders(Thrift w, int leaves)
+    {
+        w.ListBegin(7, Thrift.StructType, leaves);
+        for (int i = 0; i < leaves; i++)
+        {
+            w.StructBegin(); // ColumnOrder
+            w.FieldBegin(1, Thrift.StructType); // TYPE_ORDER
+            w.StructBegin(); // TypeDefinedOrder {}
+            w.StructEnd();
+            w.StructEnd();
+        }
+    }
+
     /// <summary>The footer: schema, row-group directory, then the trailing length and magic.</summary>
     public static byte[] Footer(
         IReadOnlyList<Column> columns, IReadOnlyList<GroupMeta> groups, long numRows)
@@ -410,6 +437,7 @@ public static class Writer
         w.I64(3, numRows);
         WriteRowGroups(w, columns, groups);
         w.String(6, CreatedBy);
+        WriteColumnOrders(w, columns.Count);
         w.StructEnd();
         byte[] bytes = w.Bytes();
 

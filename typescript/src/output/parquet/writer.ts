@@ -540,6 +540,35 @@ export function shiftChunks(chunks: readonly ChunkMeta[], by: number): ChunkMeta
   }));
 }
 
+/**
+ * `column_orders` — the field that makes the statistics USABLE.
+ *
+ * The spec is explicit: a reader must ignore `min_value`/`max_value` unless
+ * `FileMetaData.column_orders` says the sort order is TypeDefinedOrder. Without
+ * it the bounds are there in the bytes and no conforming reader may act on
+ * them, so every row group is decoded in full — which is exactly what the
+ * statistics exist to avoid. The values we wrote were correct; nothing was
+ * allowed to read them.
+ *
+ * One entry per LEAF column, in schema order — the same order the row groups
+ * list their chunks in, which is one per `ParquetSchemaColumn` (a list column
+ * contributes three schema elements but still exactly one leaf).
+ *
+ * `ColumnOrder` is a union whose only member, `TYPE_ORDER`, holds an EMPTY
+ * struct, so each entry is three bytes: the union's field header, the empty
+ * struct's stop byte, and the union's own stop byte.
+ */
+function writeColumnOrders(w: CompactWriter, leaves: number): void {
+  w.listBegin(7, CompactType.STRUCT, leaves);
+  for (let i = 0; i < leaves; i++) {
+    w.structBegin(); // ColumnOrder
+    w.fieldBegin(1, CompactType.STRUCT); // TYPE_ORDER
+    w.structBegin(); // TypeDefinedOrder {}
+    w.structEnd();
+    w.structEnd();
+  }
+}
+
 /** The footer: schema, row-group directory, and the trailing length + magic. */
 export function parquetFooter(
   columns: readonly ParquetSchemaColumn[],
@@ -553,6 +582,7 @@ export function parquetFooter(
   footer.i64(3, numRows);
   writeRowGroups(footer, columns, groups);
   footer.string(6, CREATED_BY);
+  writeColumnOrders(footer, columns.length);
   footer.structEnd();
   const bytes = footer.bytes();
 

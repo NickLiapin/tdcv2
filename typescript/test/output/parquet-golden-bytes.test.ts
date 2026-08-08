@@ -32,6 +32,14 @@
  *     been silently ignored there, so this very fixture's `p` (DOUBLE) and
  *     `money` (DECIMAL(18,2)) columns had only ever held whole numbers — the
  *     decimal path was never actually exercised. They now carry 467.12.
+ *   - 1162 → 1191 bytes when `column_orders` was added to the footer: nine
+ *     columns × three bytes, plus the list header. The statistics had been
+ *     written and correct all along, and the spec forbids a reader from acting
+ *     on them until this field declares the sort order. Verified in pyarrow
+ *     (an independent reader, and not the one the tests below use): all seven
+ *     rows, the NULL in `n`, the anomaly flags beside the spiked values, the
+ *     decimals and the dates all read back, and the per-column min/max are now
+ *     reported for every column pyarrow can type.
  */
 
 import { createHash } from 'node:crypto';
@@ -60,8 +68,8 @@ const FLAT = `<tdc><env count="7" seed="golden-flat" inject="\${{%}}">
 <data name="money" type="decimal(18,2)">\${{P}}</data>
 </line></block></tdc>`;
 
-const GOLDEN_SIZE = 1162;
-const GOLDEN_SHA256 = '34765e592f589dde78546c45c4ee43d70dbf4eeb45c6222ed01bee94d886273c';
+const GOLDEN_SIZE = 1191;
+const GOLDEN_SHA256 = '180e8e790c6fb18c0058ff83faf3ff19ec71464f7666c034f642f57fd11f1404';
 
 const build = (): Uint8Array => renderParquet(parseStrict(FLAT), { now: NOW });
 

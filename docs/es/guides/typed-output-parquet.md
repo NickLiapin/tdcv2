@@ -280,6 +280,11 @@ comparan **por sus bytes UTF-8**. En ASCII una mayúscula va antes que una minú
 que `"Apple" < "apple" < "zebra"`, y cualquier texto no ASCII va después de todo lo
 ASCII — un orden estable y portable en el que todos los lectores de Parquet coinciden.
 
+El archivo además declara ese orden en su pie (`column_orders`). Sin esa declaración el
+formato exige que un lector **ignore** los límites, por correctos que sean: los lectores
+basados en Java descartan directamente el min/max de las cadenas. TDC escribía límites
+correctos que nadie tenía permiso de usar; ahora escribe la declaración junto a ellos.
+
 ## Los valores repetidos se guardan una sola vez
 
 Cuando una columna tiene pocos valores distintos — ciudades, estatus, categorías — TDC

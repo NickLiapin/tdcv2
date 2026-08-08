@@ -422,6 +422,31 @@ public final class Writer {
     return w.bytes();
   }
 
+  /**
+   * {@code column_orders} — the field that makes the statistics USABLE.
+   *
+   * <p>The spec is explicit: a reader must ignore {@code min_value}/{@code max_value} unless
+   * {@code FileMetaData.column_orders} says the sort order is TypeDefinedOrder. Without it the
+   * bounds are there in the bytes and no conforming reader may act on them, so every row group
+   * is decoded in full — which is exactly what the statistics exist to avoid. The values were
+   * correct; nothing was allowed to read them.
+   *
+   * <p>One entry per LEAF column, in schema order — the same order the row groups list their
+   * chunks in, which is one per column (a list column contributes three schema elements but
+   * still exactly one leaf). {@code ColumnOrder} is a union whose only member, {@code
+   * TYPE_ORDER}, holds an EMPTY struct, so each entry is three bytes.
+   */
+  private static void writeColumnOrders(Thrift w, int leaves) {
+    w.listBegin(7, Thrift.STRUCT, leaves);
+    for (int i = 0; i < leaves; i++) {
+      w.structBegin(); // ColumnOrder
+      w.fieldBegin(1, Thrift.STRUCT); // TYPE_ORDER
+      w.structBegin(); // TypeDefinedOrder {}
+      w.structEnd();
+      w.structEnd();
+    }
+  }
+
   /** The footer: schema, row-group directory, then the trailing length and magic. */
   public static byte[] footer(List<Column> columns, List<GroupMeta> groups, long numRows) {
     Thrift w = new Thrift();
@@ -431,6 +456,7 @@ public final class Writer {
     w.i64(3, numRows);
     writeRowGroups(w, columns, groups);
     w.string(6, CREATED_BY);
+    writeColumnOrders(w, columns.size());
     w.structEnd();
     byte[] bytes = w.bytes();
 

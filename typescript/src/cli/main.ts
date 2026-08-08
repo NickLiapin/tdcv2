@@ -470,9 +470,11 @@ export async function main(argv: readonly string[]): Promise<number> {
     // the async path. It is Engine-1 only (materialised in memory anyway), so a
     // whole-output render costs nothing extra over the streaming path here.
     if (tdc.usesHttp()) {
-      const out = await tdc.toStringAsync();
-      if (args.output) writeFileSync(args.output, out);
-      else cliIo.writeStdout(out);
+      // The extension decides the CONTAINER here exactly as it does on the
+      // synchronous path. Writing the text rendering to `-o out.parquet` and
+      // exiting 0 was the one failure nothing downstream could catch.
+      if (args.output) await tdc.writeFileAsync(args.output);
+      else cliIo.writeStdout(await tdc.toStringAsync());
       return 0;
     }
 

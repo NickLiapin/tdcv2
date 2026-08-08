@@ -19,7 +19,7 @@
  * deterministic per (config, seed, now).
  */
 
-import { closeSync, openSync, readFileSync, writeSync } from 'node:fs';
+import { closeSync, openSync, readFileSync, writeFileSync, writeSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { Readable } from 'node:stream';
 
@@ -34,7 +34,7 @@ import {
 import { type Diagnostic, TdcDiagnosticError, hasErrors } from '../errors/index.js';
 import { estimateMemoryUsage, memoryWarning } from '../errors/memory-estimate.js';
 import type { DocumentContext, OpenCloseElementContext } from '../generated/TDCParser.js';
-import { renderParquetChunks } from '../output/render-parquet.js';
+import { renderParquetChunks, renderParquetChunksAsync } from '../output/render-parquet.js';
 import { parse } from '../parser/index.js';
 import { extractAttrs, findChildElement, elementKind, elementName } from '../processor/walk.js';
 import {
@@ -376,6 +376,29 @@ export class TDC {
       else slots += 1;
     }
     return slots;
+  }
+
+  /**
+   * Write to disk from a config that must be prepared asynchronously.
+   *
+   * `type="http"` is the only one today. The CLI used to send it down a single
+   * `toStringAsync()` path that ignored the file extension, so `-o out.parquet`
+   * wrote the TEXT rendering under a `.parquet` name and exited 0 — the worst
+   * shape a failure can take, because everything downstream trusted the name.
+   */
+  public async writeFileAsync(path: string): Promise<void> {
+    if (path.toLowerCase().endsWith('.parquet')) {
+      const pq = openSync(path, 'w');
+      try {
+        for await (const chunk of renderParquetChunksAsync(this.tree, this.renderOptions())) {
+          writeSync(pq, chunk);
+        }
+      } finally {
+        closeSync(pq);
+      }
+      return;
+    }
+    writeFileSync(path, await this.toStringAsync());
   }
 
   /**
