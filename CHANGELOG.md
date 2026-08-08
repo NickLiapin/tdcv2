@@ -252,6 +252,23 @@ type="timeseries"`. The pack declares `<sequence name="base">`, the ENGINE was a
   swapping the two produces identical output and passes `check`, because the pool tables
   are built before any row is drawn.
 
+- The error transcripts are checked now. `docs:examples` runs the examples that pair a
+  complete `<tdc>…</tdc>` with their output; a transcript showing an ERROR almost never
+  has that shape — the config above it is a fragment, or the block is a terminal session
+  — so the error transcripts were the one part of the site nothing checked, and they
+  rotted quietly. `docs:diagnostics` reads every diagnostic the documentation quotes and
+  matches it, by code and by wording, against messages the engine actually emits: the
+  corpus comes from RUNNING all 287 shared diagnostic cases, with the message templates
+  read out of the source as a fallback for codes no case covers.
+
+  It found six stale transcripts across the three languages. `TDC014` printed a sentence
+  the engine had replaced (`<env> must not be self-closing` for `<env/> cannot be
+self-closing — its attributes and children would be ignored`); `TDC101` still showed
+  `%` being refused, which stopped being true when `%` became the Euclidean remainder;
+  `TDC207` and both `TDC062` lines were a rewrite behind; and one page printed
+  `suggestion:` where the engine writes `help:`. It also found a message quoted on the
+  pools page with no shared case behind it, so `TDC236` now has one.
+
 - Parquet: the footer now declares `column_orders`, so the column statistics can actually
   be used. The min/max bounds were written and correct; the format says a reader must
   ignore them until `FileMetaData.column_orders` declares the sort order, and parquet-mr

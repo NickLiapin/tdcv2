@@ -240,8 +240,8 @@ INSERT INTO orders VALUES (17, 4, 2324);`}
 | `<data name="…">` внутри строки с `each`                                     | именованный `<data>` — это **колонка** для Parquet, а Parquet собирает колонки по карточке, а не по обходимой строке | `TDC209` |
 
 <Terminal title="./run broken.tdc  (each на не-списке)">
-{`error[TDC207]: sequence "Tier" has no repeat, so each has nothing to iterate
-note: add repeat="…" to its generator, or point each at a list sequence`}
+{`error[TDC207]: each="Tier" — that sequence holds one value, not a list
+note: Add repeat= to its <gen>, e.g. <gen … repeat="1..5"/>, or drop each=.`}
 </Terminal>
 
 Для вывода в **Parquet** `each` вообще не нужен: список из

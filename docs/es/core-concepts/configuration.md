@@ -384,7 +384,7 @@ Escribir `<env … />` es el error `TDC014`:
 `./run selfclose.tdc`
 
 ```
-error[TDC014]: <env> must not be self-closing — write <env> ... </env>
+error[TDC014]: <env/> cannot be self-closing — its attributes and children would be ignored
 ```
 
 Es una protección contra un bug de datos silencioso: un `<env>` autocerrado descartaba

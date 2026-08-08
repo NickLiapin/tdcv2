@@ -264,9 +264,8 @@ INSERT INTO customers VALUES (2, 'John', 'Paris');`}
 3. **Необъявленное имя** (опечатка, забытое объявление) → ошибка `TDC193` с подсказкой:
 
 <Terminal title="./run typo.tdc">
-{`error[TDC193]: "Nmae" is not a declared sequence — it would be
-printed literally
-suggestion: did you mean "Name"?`}
+{`error[TDC193]: "Nmae" is not a declared sequence — it would be printed literally
+help: did you mean "Name"?`}
 </Terminal>
 
 Эта проверка окупается в типизированном выводе: в CSV случайный `${{Nmae}}` ещё можно

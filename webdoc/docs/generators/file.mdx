@@ -211,9 +211,9 @@ mary.johnson@example.com`}
 
 - `column="0"` is **not** a valid index (numbering starts at 1) — it's read as the
   literal name `0`, which isn't in the header, so you get
-  `error[TDC062]: CSV column "0" was not found in the header row`.
+  `error[TDC062]: file generator: CSV column "0" was not found in the header row`.
 - A number past the last column (`column="9"` on a four-column file) fails with
-  `error[TDC062]: CSV column "9" ... has no values`.
+  `error[TDC062]: file generator: CSV column "9" at "people.csv" has no values`.
 - If the file's separator isn't a comma, set [`delimiter`](../reference/attributes.mdx)
   — otherwise the whole line lands in one cell and no column is found.
 

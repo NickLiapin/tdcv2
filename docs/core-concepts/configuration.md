@@ -376,7 +376,7 @@ Writing `<env … />` is error `TDC014`:
 `./run selfclose.tdc`
 
 ```
-error[TDC014]: <env> must not be self-closing — write <env> ... </env>
+error[TDC014]: <env/> cannot be self-closing — its attributes and children would be ignored
 ```
 
 This guards against a silent-data bug: a self-closing `<env>` used to drop both `count`

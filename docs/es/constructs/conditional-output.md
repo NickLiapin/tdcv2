@@ -362,9 +362,12 @@ agregar toda una secuencia extra solo para guardar el número derivado.
 > [!CAUTION]
 > **Operadores no soportados**
 >
-> `%` (resto) y `??` (nullish) los rechaza la validación, antes de generar una sola fila:
-> `if="_count % 2 == 0"` falla con `error[TDC101]: unsupported operator "%" in if
-> expression` y no produce ninguna salida.
+> `??` (nullish) lo rechaza la validación, antes de generar una sola fila:
+> `error[TDC101]: unsupported operator "??" in if expression`, y no produce ninguna salida.
+> El propio mensaje enumera todos los operadores y funciones que SÍ están.
+>
+> `%` ya no está entre los rechazados: es el resto, y es euclidiano, así que `-7 % 3` da
+> `2`. `if="_count % 2 == 0"` selecciona una fila de cada dos.
 >
 > `?.` (encadenamiento opcional) es peor porque falla **en silencio**: el parser lee
 > `X?.length` como un acceso con punto corriente `X.length`, que el atajo `X.Value`

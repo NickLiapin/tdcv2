@@ -242,8 +242,8 @@ The same shape covers anything with a fixed vocabulary of steps: a support ticke
 `./run broken.tdc  (each on a non-list)`
 
 ```
-error[TDC207]: sequence "Tier" has no repeat, so each has nothing to iterate
-note: add repeat="…" to its generator, or point each at a list sequence
+error[TDC207]: each="Tier" — that sequence holds one value, not a list
+note: Add repeat= to its <gen>, e.g. <gen … repeat="1..5"/>, or drop each=.
 ```
 
 For **Parquet** output you don't need `each` at all: a

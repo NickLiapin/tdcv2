@@ -153,8 +153,8 @@ Orlova
 `./run example.tdc --data-path ./data`
 
 ```
-column="0"  ->  error[TDC062]: CSV column "0" was not found in the header row
-column="9"  ->  error[TDC062]: CSV column "9" ... has no values
+column="0"  ->  error[TDC062]: file generator: CSV column "0" was not found in the header row
+column="9"  ->  error[TDC062]: file generator: CSV column "9" at "people.csv" has no values
 ```
 
 - `column="0"` — не номер (нумерация с 1): он читается как буквальное имя `0`,

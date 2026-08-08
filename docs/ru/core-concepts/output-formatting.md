@@ -285,9 +285,8 @@ INSERT INTO customers VALUES (2, 'John', 'Paris');
 `./run typo.tdc`
 
 ```
-error[TDC193]: "Nmae" is not a declared sequence — it would be
-printed literally
-suggestion: did you mean "Name"?
+error[TDC193]: "Nmae" is not a declared sequence — it would be printed literally
+help: did you mean "Name"?
 ```
 
 Эта проверка окупается в типизированном выводе: в CSV случайный `${{Nmae}}` ещё можно

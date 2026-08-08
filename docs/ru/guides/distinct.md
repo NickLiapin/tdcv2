@@ -253,11 +253,9 @@ a value for field "B" different from the others after 1000 attempts
 `./run migration.tdc`
 
 ```
-error[TDC129]: <sequence name="Person"> inside a config-level
-<distinct> must produce a single value
-note: A <distinct> around sequences uses one value per sequence.
-Use a simple <gen> or a <switch> sequence, not a compound
-(multi-field) one.
+error[TDC129]: <sequence name="Person"> inside a config-level <distinct> must produce a single value
+note: A <distinct> around sequences uses one value per sequence. Use a simple
+<gen> or a <switch> sequence, not a compound (multi-field) one.
 ```
 
 **Почему:** горизонтальному правилу нужно по одному значению на каждого ребёнка

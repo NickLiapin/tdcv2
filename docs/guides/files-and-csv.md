@@ -150,8 +150,8 @@ spot:
 `./run example.tdc --data-path ./data`
 
 ```
-column="0"  ->  error[TDC062]: CSV column "0" was not found in the header row
-column="9"  ->  error[TDC062]: CSV column "9" ... has no values
+column="0"  ->  error[TDC062]: file generator: CSV column "0" was not found in the header row
+column="9"  ->  error[TDC062]: file generator: CSV column "9" at "people.csv" has no values
 ```
 
 - `column="0"` isn't a valid index (numbering starts at 1) — it's read as the literal

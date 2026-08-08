@@ -353,9 +353,12 @@ sequence just to hold the derived number.
 > [!CAUTION]
 > **Unsupported operators**
 >
-> `%` (remainder) and `??` (nullish) are refused by validation, before a single row is
-> drawn — `if="_count % 2 == 0"` fails with `error[TDC101]: unsupported operator "%" in if
-> expression` and produces no output at all.
+> `??` (nullish) is refused by validation, before a single row is drawn —
+> `error[TDC101]: unsupported operator "??" in if expression`, and no output at all. The
+> message lists every operator and function that IS available.
+>
+> `%` is not among the refused any more: it is the remainder, and it is Euclidean, so
+> `-7 % 3` is `2`. `if="_count % 2 == 0"` selects every second row.
 >
 > `?.` (optional chaining) is worse because it fails **silently**: the parser reads
 > `X?.length` as a plain dotted access `X.length`, which the `X.Value` shorthand turns

@@ -130,6 +130,13 @@
       "description": "A `<gen>` carrying `if=` becomes a conditional branch, and the pool resolver only recognises a plain `<gen type=\"pool\">`. So the reference registered no `Ref.field` columns at all and `${{Ref.name}}` reached the output as its own literal text — on EVERY row, including the ones the condition selected — from a config `check` had called valid. Refused rather than implemented: leaving a row without a member is what `parent=` already does, and a conditional reference would have to answer what `${{Ref.field}}` means on a row that took the other branch.",
       "config": "<tdc><env count=\"4\" seed=\"s\"><pool name=\"P\" count=\"2\"><sequence name=\"n\"><gen type=\"text\" value=\"a,b\"/></sequence></pool><sequence name=\"K\"><gen type=\"text\" value=\"y,n\"/></sequence><sequence name=\"R\"><gen if=\"K == y\" type=\"pool\" value=\"P\"/></sequence></env><block><line><data>${{R.n}}</data></line></block></tdc>",
       "expected": ["error TDC268 1:209"]
+    },
+    {
+      "name": "a-pool-that-draws-from-one-declared-below-it",
+      "demonstrates": "TDC236",
+      "description": "Pools are built in declaration order, so a pool can only read the pools above it — which is also why a cycle between pools cannot be written down. Added when the documentation checker found the message quoted on the pools page with no case behind it.",
+      "config": "<tdc><env count=\"2\" seed=\"s\"><pool name=\"Doctors\" count=\"2\"><sequence name=\"at\"><gen type=\"pool\" value=\"Clinics\"/></sequence></pool><pool name=\"Clinics\" count=\"2\"><sequence name=\"city\"><gen type=\"text\" value=\"N,S\"/></sequence></pool><sequence name=\"X\"><gen type=\"pool\" value=\"Doctors\"/></sequence></env><block><line><data>${{X.at}}</data></line></block></tdc>",
+      "expected": ["error TDC236 1:60"]
     }
   ]
 }

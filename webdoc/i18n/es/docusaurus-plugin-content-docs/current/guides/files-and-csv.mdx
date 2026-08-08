@@ -146,8 +146,8 @@ Dos deslices típicos (el de contar desde cero y el del delimitador) fallan de f
 ruidosa en vez de silenciosa, así que son fáciles de detectar:
 
 <Terminal title="./run example.tdc --data-path ./data">
-{`column="0"  ->  error[TDC062]: CSV column "0" was not found in the header row
-column="9"  ->  error[TDC062]: CSV column "9" ... has no values`}
+{`column="0"  ->  error[TDC062]: file generator: CSV column "0" was not found in the header row
+column="9"  ->  error[TDC062]: file generator: CSV column "9" at "people.csv" has no values`}
 </Terminal>
 
 - `column="0"` no es un índice válido (la numeración empieza en 1) — se lee como el

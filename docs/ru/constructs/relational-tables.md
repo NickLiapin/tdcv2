@@ -245,8 +245,8 @@ INSERT INTO orders VALUES (17, 4, 2324);
 `./run broken.tdc  (each на не-списке)`
 
 ```
-error[TDC207]: sequence "Tier" has no repeat, so each has nothing to iterate
-note: add repeat="…" to its generator, or point each at a list sequence
+error[TDC207]: each="Tier" — that sequence holds one value, not a list
+note: Add repeat= to its <gen>, e.g. <gen … repeat="1..5"/>, or drop each=.
 ```
 
 Для вывода в **Parquet** `each` вообще не нужен: список из

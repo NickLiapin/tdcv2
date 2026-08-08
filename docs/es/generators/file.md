@@ -223,9 +223,9 @@ maria.rodriguez@example.com
 
 - `column="0"` **no** es un índice válido (la numeración empieza en 1) — se lee como el
   nombre literal `0`, que no está en el encabezado, así que se obtiene
-  `error[TDC062]: CSV column "0" was not found in the header row`.
+  `error[TDC062]: file generator: CSV column "0" was not found in the header row`.
 - Un número más allá de la última columna (`column="9"` en un archivo de cuatro
-  columnas) falla con `error[TDC062]: CSV column "9" ... has no values`.
+  columnas) falla con `error[TDC062]: file generator: CSV column "9" at "people.csv" has no values`.
 - Si el separador del archivo no es una coma, configure
   [`delimiter`](../reference/attributes.md#top) — de lo contrario toda la línea cae en una
   sola celda y no se encuentra ninguna columna.

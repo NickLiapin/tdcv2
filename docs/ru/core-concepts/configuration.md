@@ -381,7 +381,7 @@ id=2
 `./run selfclose.tdc`
 
 ```
-error[TDC014]: <env> must not be self-closing — write <env> ... </env>
+error[TDC014]: <env/> cannot be self-closing — its attributes and children would be ignored
 ```
 
 Это защита от бага с тихой потерей данных: самозакрывающийся `<env>` раньше терял и

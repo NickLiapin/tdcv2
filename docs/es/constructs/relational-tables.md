@@ -247,8 +247,8 @@ adivinar:
 `./run broken.tdc  (each sobre algo que no es una lista)`
 
 ```
-error[TDC207]: sequence "Tier" has no repeat, so each has nothing to iterate
-note: add repeat="…" to its generator, or point each at a list sequence
+error[TDC207]: each="Tier" — that sequence holds one value, not a list
+note: Add repeat= to its <gen>, e.g. <gen … repeat="1..5"/>, or drop each=.
 ```
 
 Para la salida en **Parquet** no necesita `each` para nada: una lista con

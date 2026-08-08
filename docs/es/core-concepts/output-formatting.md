@@ -295,9 +295,8 @@ Para cada `${{Name}}`:
 `./run typo.tdc`
 
 ```
-error[TDC193]: "Nmae" is not a declared sequence — it would be
-printed literally
-suggestion: did you mean "Name"?
+error[TDC193]: "Nmae" is not a declared sequence — it would be printed literally
+help: did you mean "Name"?
 ```
 
 Esta verificación se gana su lugar en la salida tipada: en un CSV quizá alcance a
