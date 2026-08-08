@@ -96,6 +96,16 @@ datasets reales suelen señalar el hueco de forma explícita — `NULL`, `NA`, `
 filas que se pierden son **las mismas** (las elige el `seed` y el nombre de la columna,
 no el marcador); lo único que cambia es qué queda parado en el hueco:
 
+> [!NOTE]
+> **El marcador se formatea como cualquier otro valor**
+>
+>
+> `mask=` y `case=` corren **después** de rellenar el hueco, así que también reforman el
+> marcador: `missing_as="n/a" case="upper"` escribe `N/A`. Escriba el marcador tal como
+> quiere que aparezca y, si una máscara lo estropea, ponga el formato en una secuencia
+> aparte.
+>
+
 ```xml
 <sequence name="Holey">
   <gen type="text" value="Toluca,Mérida,Colima,Puebla,Durango,Morelia,Tijuana,Cancún"

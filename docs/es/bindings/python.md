@@ -34,15 +34,19 @@ garantía entre lenguajes es una promesa central de TDC.
 from tdcv2 import TDC
 
 data = TDC(config_file="users.tdc")
-print(data.to_string())
+print(data)
 
-for row in data.iterate():
+for row in data:
     print(row["Gender"])
+
+data.write_file("users.csv")
 ```
 
-Los nombres de los métodos son un espejo de la [API de TypeScript](typescript.md#top)
-—`to_string`, `write_file`, `iterate`, `to_array`, `get_at`, `preflight`— en el
-snake_case de Python.
+La salida completa es `str(data)`, las filas son lo que se recorre, una fila es
+`data[3]` y cuántas hay es `len(data)`: el objeto se comporta como el Python que ya
+escribe. El resto de la [API de TypeScript](typescript.md#top) está bajo nombres en
+snake_case: `write_file`, `to_list`, `preflight`, `seed_info`, `uses_http`,
+`diagnostics`, `count`, `engine`.
 
 Para leer los diagnósticos conviene el [CLI](../reference/cli.md#top): `tdcv2 check`
 imprime los mismos errores señalando el lugar exacto en la configuración.

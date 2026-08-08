@@ -381,14 +381,15 @@ banda: la ensancha `N` de cada lado.
 
 ## `ink_threshold` — el umbral oscuro/claro para PNG
 
-Cuando un PNG tiene fondo sólido, la tinta se decide por oscuridad. `ink_threshold`
-define qué tan oscuro debe ser un píxel para contar, en una escala `0..1` (por omisión
-`0.5`). Bájelo hacia `0` para recoger bordes tenues y suavizados; súbalo hacia `1`
-para ignorar el gris y quedarse solo con los trazos casi negros. No tiene efecto en un
-PNG dibujado sobre transparencia, donde el canal alfa ya dice qué está dibujado.
+Cuando un PNG tiene fondo sólido, la tinta se decide por oscuridad. `ink_threshold` es
+el umbral en una escala `0..1` (por omisión `0.5`): un píxel cuenta como tinta cuando es
+**igual de oscuro o más** que el umbral. Así que **súbalo** hacia `1` para recoger bordes
+tenues y suavizados y el gris claro, y **bájelo** hacia `0` para quedarse solo con los
+trazos casi negros. No tiene efecto en un PNG dibujado sobre transparencia, donde el canal
+alfa ya dice qué está dibujado.
 
 ```xml
-<gen type="pattern" src="faint-curve.png" ink_threshold="0.3" y_range="0..100"/>
+<gen type="pattern" src="faint-curve.png" ink_threshold="0.8" y_range="0..100"/>
 ```
 
 Este archivo tiene dos trazos sobre un lienzo blanco — uno negro y uno gris claro — y

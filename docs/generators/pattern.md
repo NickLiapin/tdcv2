@@ -369,14 +369,15 @@ both sides.
 
 ## `ink_threshold` — the dark/light cutoff for PNGs
 
-When a PNG has a solid background, ink is decided by darkness. `ink_threshold` sets
-how dark a pixel must be to count, on a `0..1` scale (default `0.5`). Lower it toward
-`0` to pick up faint, anti-aliased edges; raise it toward `1` to ignore gray and keep
-only near-black strokes. It has no effect on a PNG drawn on transparency, where the
-alpha channel already says what is drawn.
+When a PNG has a solid background, ink is decided by darkness. `ink_threshold` is the
+cutoff on a `0..1` scale (default `0.5`): a pixel counts as ink when it is **at or
+darker than** the cutoff. So **raise** it toward `1` to take in faint, anti-aliased
+edges and light gray, and **lower** it toward `0` to keep only near-black strokes. It
+has no effect on a PNG drawn on transparency, where the alpha channel already says what
+is drawn.
 
 ```xml
-<gen type="pattern" src="faint-curve.png" ink_threshold="0.3" y_range="0..100"/>
+<gen type="pattern" src="faint-curve.png" ink_threshold="0.8" y_range="0..100"/>
 ```
 
 This file has two strokes on a white canvas — one black, one light gray — and the

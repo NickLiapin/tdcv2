@@ -635,6 +635,11 @@ le gana a una adivinanza que tarde o temprano se topa con una coma o un salto de
 cualquier lector de CSV acepta las comillas de más. Vea también
 [Formatos de salida → CSV](../guides/output-formats.md#csv).
 
+El filtro acepta un delimitador — `csv:;` — y **no lo lee**. Como el entrecomillado es
+incondicional, el delimitador no puede cambiar la respuesta; el argumento se permite para
+que un archivo con punto y coma lo diga en el lugar de la llamada, y es el único argumento
+de filtro que se ignora a propósito en vez de [rechazarse](../reference/errors.md#top).
+
 Lo que el filtro deliberadamente **no** hace: los valores que empiezan con `=`, `+`, `-`
 o `@` se convierten en fórmulas vivas al abrir el archivo en una hoja de cálculo. Los
 datos generados conservan sus bytes tal cual — si el archivo va a Excel y eso importa,

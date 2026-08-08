@@ -394,6 +394,10 @@ a larger `s` skews harder toward the first ranks. At `s≈1` this is the classic
 <gen type="number" distribution="zipf" n="100" s="1.1"/>
 ```
 
+`n` has a ceiling of **10 000 000**. Above it the run is refused (TDC089) rather than
+slowed to a crawl: the table of rank weights is built once and held whole, so a larger
+`n` costs memory linear in `n` for ranks nobody will ever draw.
+
 `./run zipf.tdc (300 rows)`
 
 ```

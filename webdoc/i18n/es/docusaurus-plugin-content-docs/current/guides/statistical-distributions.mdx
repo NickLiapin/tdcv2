@@ -393,6 +393,10 @@ ciudades por población, cantidad de seguidores, ventas de productos.
 <gen type="number" distribution="zipf" n="100" s="1.1"/>
 ```
 
+`n` tiene un techo de **10 000 000**. Por encima la ejecución se rechaza (TDC089) en vez
+de arrastrarse: la tabla de pesos por rango se construye una vez y se mantiene entera, así
+que un `n` mayor cuesta memoria lineal en `n` para rangos que nadie va a sacar.
+
 <Terminal title="./run zipf.tdc (300 filas)">
 {` 1 | ######################################## 174
 11 | ########## 42

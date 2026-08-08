@@ -189,6 +189,29 @@ type="timeseries"`. The pack declares `<sequence name="base">`, the ENGINE was a
   Loading such a pack is now an error in all five implementations, with a shared CLI case
   pinning it, so the state cannot come back.
 
+### Documentation
+
+- The Python binding page's first example did not run. It called `to_string()`,
+  `iterate()`, `to_array()` and `get_at()` — four names Python does not have, because
+  Python spells them `str(data)`, `for row in data`, `data.to_list()` and `data[3]`. The
+  capabilities were never missing, only the page. It survived because the documentation
+  checker runs the `.tdc` configs in the docs and not the language snippets; a Python test
+  now runs every call the page shows, so a rename fails the build. The other four binding
+  pages were checked the same way and were already correct.
+
+- `ink_threshold` was documented backwards, which made the value the page prescribed a
+  no-op. A pixel is ink when it is at or DARKER than the cutoff, so raising it takes in
+  faint gray and lowering it keeps only near-black. Measured on the page's own figure:
+  `0.3` produces exactly the default's output, `0.8` picks up the gray stroke. The figure
+  caption underneath had been right all along.
+
+- Six behaviours the engine had never written down: the 64-level nesting cap behind
+  TDC001; `distribution="zipf"` refusing an `n` above 10 000 000; `missing_as=` being
+  reshaped by `mask=` and `case=` like any other value; `local=` working per generator as
+  well as per run; the `csv` filter accepting a delimiter it deliberately ignores; and
+  what the object API costs — `getAt(index)` is one row's work at any index (2 ms against
+  `toArray()`'s 210 ms on 200 000 rows).
+
 - Parquet: the footer now declares `column_orders`, so the column statistics can actually
   be used. The min/max bounds were written and correct; the format says a reader must
   ignore them until `FileMetaData.column_orders` declares the sort order, and parquet-mr

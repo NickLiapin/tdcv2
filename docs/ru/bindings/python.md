@@ -34,15 +34,18 @@
 from tdcv2 import TDC
 
 data = TDC(config_file="users.tdc")
-print(data.to_string())
+print(data)
 
-for row in data.iterate():
+for row in data:
     print(row["Gender"])
+
+data.write_file("users.csv")
 ```
 
-Имена методов повторяют [TypeScript API](typescript.md#top) — `to_string`,
-`write_file`, `iterate`, `to_array`, `get_at`, `preflight` — в питоновском
-snake_case.
+Весь вывод — это `str(data)`, строки — то, по чему идёт цикл, одна строка — `data[3]`,
+а сколько их всего — `len(data)`: объект ведёт себя как обычный питоновский. Остальное
+из [TypeScript API](typescript.md#top) есть под snake_case-именами: `write_file`,
+`to_list`, `preflight`, `seed_info`, `uses_http`, `diagnostics`, `count`, `engine`.
 
 Разбираться в диагностике удобно через [CLI](../reference/cli.md#top): `tdcv2 check`
 печатает те же ошибки с подсветкой места в конфиге.

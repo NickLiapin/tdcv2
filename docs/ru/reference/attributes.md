@@ -24,7 +24,7 @@
 | `version` / `v` | Версия DSL, которую требует файл                   | [Конфигурация](../core-concepts/configuration.md#top)               |
 | `count`         | Количество карточек                                | [Детерминизм](../core-concepts/determinism.md#top)                  |
 | `seed`          | Сид генератора случайных чисел (воспроизводимость) | [Детерминизм](../core-concepts/determinism.md#top)                  |
-| `local`         | Локаль для шаблонных данных                        | [Шаблоны](../generators/template.md#top)                            |
+| `local`         | Локаль для шаблонных данных — на `<env>` для всего запуска и на отдельном `<gen type="template">`, чтобы перебить её только для этой последовательности | [Шаблоны](../generators/template.md#top)                            |
 | `inject`        | Свой маркер интерполяции                           | [Вывод и форматирование](../core-concepts/output-formatting.md#top) |
 | `mode`          | `memory` / `disk` — семейство движков; `stream` — легаси-псевдоним, форсирующий движок 2 | [Большие объёмы](../guides/large-outputs.md#top)                    |
 | `engine`        | `1` / `2` / `3` — форсировать движок (продвинутое) | [Большие объёмы](../guides/large-outputs.md#top)                    |

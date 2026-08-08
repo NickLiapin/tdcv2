@@ -19,7 +19,7 @@ sidebar_position: 3
 | `version` / `v` | Версия DSL, которую требует файл                   | [Конфигурация](../core-concepts/configuration.mdx)               |
 | `count`         | Количество карточек                                | [Детерминизм](../core-concepts/determinism.mdx)                  |
 | `seed`          | Сид генератора случайных чисел (воспроизводимость) | [Детерминизм](../core-concepts/determinism.mdx)                  |
-| `local`         | Локаль для шаблонных данных                        | [Шаблоны](../generators/template.mdx)                            |
+| `local`         | Локаль для шаблонных данных — на `<env>` для всего запуска и на отдельном `<gen type="template">`, чтобы перебить её только для этой последовательности | [Шаблоны](../generators/template.mdx)                            |
 | `inject`        | Свой маркер интерполяции                           | [Вывод и форматирование](../core-concepts/output-formatting.mdx) |
 | `mode`          | `memory` / `disk` — семейство движков; `stream` — легаси-псевдоним, форсирующий движок 2 | [Большие объёмы](../guides/large-outputs.mdx)                    |
 | `engine`        | `1` / `2` / `3` — форсировать движок (продвинутое) | [Большие объёмы](../guides/large-outputs.mdx)                    |

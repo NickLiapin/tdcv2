@@ -104,6 +104,11 @@ las `<sequence>` materializadas:
 - una secuencia filtrada por `parent` queda como `undefined` en las filas donde no
   aplica.
 
+`getAt(index)` es el trabajo de **una sola fila**, y el índice da igual: en una
+configuración de 200 000 filas, `getAt(0)` y `getAt(199999)` vuelven en unos 2 ms, mientras
+que `toArray()` tarda unos 210 ms en la misma corrida. `iterate()` cuesta lo mismo en
+total que `toArray()`, pero nunca sostiene el arreglo.
+
 ```ts
 const tdc = new TDC({
   configString: `<tdc>

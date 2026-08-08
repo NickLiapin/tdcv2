@@ -591,6 +591,11 @@ Quotes are **always** added, not added "when needed" — a rule with no exceptio
 guess that eventually runs into a comma or a newline, and any CSV reader takes the extra
 quotes in stride. See also [Output formats → CSV](../guides/output-formats.mdx#csv).
 
+The filter accepts a delimiter — `csv:;` — and **does not read it**. Because the quoting
+is unconditional, the delimiter cannot change the answer; the argument is allowed so a
+semicolon file can say so at the call site, and it is the one filter argument that is
+deliberately ignored rather than [refused](../reference/errors.mdx).
+
 One thing the filter deliberately does **not** do: values starting with `=`, `+`, `-` or
 `@` become live formulas when the file is opened in a spreadsheet. Generated data keeps
 its bytes as generated — if your file is destined for Excel and that matters, prefix

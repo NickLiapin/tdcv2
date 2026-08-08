@@ -34,15 +34,19 @@ cross-language guarantee is one of TDC's core promises.
 from tdcv2 import TDC
 
 data = TDC(config_file="users.tdc")
-print(data.to_string())
+print(data)
 
-for row in data.iterate():
+for row in data:
     print(row["Gender"])
+
+data.write_file("users.csv")
 ```
 
-The method names mirror the [TypeScript API](typescript.md#top) — `to_string`,
-`write_file`, `iterate`, `to_array`, `get_at`, `preflight` — written in Python's
-snake_case.
+The whole output is `str(data)`, the rows are what you iterate over, one row is
+`data[3]`, and `len(data)` is how many there are — the object behaves like the Python
+you already write. The rest of the [TypeScript API](typescript.md#top) is there under
+snake_case names: `write_file`, `to_list`, `preflight`, `seed_info`, `uses_http`,
+`diagnostics`, `count`, `engine`.
 
 ## One value, without a config
 

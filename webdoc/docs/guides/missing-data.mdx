@@ -96,6 +96,14 @@ looking. Real datasets usually flag a hole explicitly — `NULL`, `NA`, `—`.
 The rows that go missing are **the same ones** (they're chosen by the `seed` and
 the column name, not by the marker); only what fills the hole changes:
 
+:::note[The marker is formatted like any other value]
+
+`mask=` and `case=` run **after** the hole is filled, so they reshape the marker too:
+`missing_as="n/a" case="upper"` writes `N/A`. Write the marker as you want it to appear,
+and if a mask would mangle it, put the formatting on a separate sequence.
+
+:::
+
 ```xml
 <sequence name="Holey">
   <gen type="text" value="Austin,Denver,Boston,Seattle,Chicago,Dallas,Portland,Miami"

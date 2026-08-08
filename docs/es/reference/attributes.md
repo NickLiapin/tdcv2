@@ -25,7 +25,7 @@ etiqueta y se explica donde se explica esa etiqueta — ver la
 | `version` / `v` | Versión del DSL que requiere el archivo            | [Configuración](../core-concepts/configuration.md#top)        |
 | `count`         | Cantidad de registros                              | [Determinismo](../core-concepts/determinism.md#top)           |
 | `seed`          | Semilla del generador aleatorio (reproducibilidad) | [Determinismo](../core-concepts/determinism.md#top)           |
-| `local`         | Locale de los datos de plantilla                   | [Template](../generators/template.md#top)                     |
+| `local`         | Locale de los datos de plantilla — en `<env>` para toda la ejecución y en un `<gen type="template">` para sobrescribirlo solo en esa secuencia | [Template](../generators/template.md#top)                     |
 | `inject`        | Marcador de interpolación propio                   | [Salida y formato](../core-concepts/output-formatting.md#top) |
 | `mode`          | `memory` / `disk` — familia de motores; `stream` es un alias heredado que fuerza el motor 2 | [Salidas grandes](../guides/large-outputs.md#top)             |
 | `engine`        | `1` / `2` / `3` — forzar un motor (avanzado)       | [Salidas grandes](../guides/large-outputs.md#top)             |
