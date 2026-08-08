@@ -15,7 +15,44 @@ page — is tracked in that implementation's own changelog:
 
 ## [Unreleased]
 
+### Changed
+
+<!-- covers: === !== -->
+
+- `===` and `!==` now ask whether both sides print the same CHARACTERS. They used to be the
+  host language's identity test — "same type and same value" — which is a fine question in
+  a language with types and a meaningless one here, because every column TDC produces is
+  text and the only things that are not are the literals you write. Measured with `N` a
+  column holding `1`, `N === 1` was false for every number on every row, and `N !== 1` true
+  for the same reason. `check` passed, the run finished, the tagged rows were simply
+  absent. Between two columns the operator already compared text, so this changes nothing
+  there; against a number it now answers. `==` is unchanged and still asks whether both
+  sides are the same NUMBER.
+
 ### Fixed
+
+<!-- covers: == != -->
+
+- A column of amounts failed its own equality test. `Total == 100` was false while
+  `Total > 99` was true, because 100 is a whole number and `100.00` is not, so the two
+  never met. The ordering operators had always read the column as a hundred; only equality
+  disagreed, and said nothing.
+
+<!-- covers: if -->
+
+- A whole number written in a condition was false at zero in three implementations and true
+  in two, so `if="1 - 1"` answered differently depending on which one ran it. It is false
+  everywhere now, like the double beside it. Text is unaffected: `""` and `"false"` are
+  false, and every other text — `"0"` included — is true.
+
+<!-- covers: filter -->
+
+- A pool filter refused a config its own twin accepted. `field == Column` is bucketed
+  rather than evaluated, and the bucket was keyed by raw text where `==` compares whole
+  numbers. On a pool holding `01,02,03` against a column producing `1,2,3`,
+  `filter="code == Want"` was refused by TDC225 as unmatchable, while
+  `filter="code == Want && 1 == 1"` — the same question with one term that changes nothing
+  — matched every row.
 
 <!-- covers: --jobs -->
 
