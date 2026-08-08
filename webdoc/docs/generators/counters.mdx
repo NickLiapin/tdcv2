@@ -27,6 +27,19 @@ next value in the run. They ignore the [`seed`](../core-concepts/determinism.mdx
 entirely (unlike the random generators), so the sequence is identical on every run —
 the outputs on this page are exact, not just illustrative.
 
+:::note[Under `parent=` the numbers are still 1..N, in an order the seed picks]
+A counter on a [child sequence](../guides/hierarchical-dependencies.mdx) numbers only the
+rows the parent kept. Those rows carry exactly `1..N` with no gaps and no repeats — but
+WHICH kept row gets which number is decided by the seed, so reading down the file you may
+see 6, 4, 5, 1, 2, 3 rather than 1, 2, 3, 4, 5, 6.
+
+That is the price of a value every engine can compute from the row alone. Numbering the
+kept rows in file order would mean counting the kept rows BEFORE each one, and the
+streaming engine has no such running total — it answers row 900,000 without the 899,999
+before it existing. Where you need the file order too, add `order="sequential"` to the
+parent so the kept rows are contiguous.
+:::
+
 ## `increment` — a rising counter
 
 Each row is the previous value plus [`step`](#step--the-stride). With the defaults

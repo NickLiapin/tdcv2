@@ -34,6 +34,20 @@ Además de estos, `text` acepta los atributos transversales de los generadores:
 El parámetro principal. Para `text`, `value` es una **lista separada por comas** con
 las opciones de dónde tomar valores; el generador elige una al azar para cada fila.
 
+> [!CAUTION]
+> **La coma es el separador, y no hay forma de escaparla**
+>
+> Tres consecuencias que conviene conocer de antemano:
+>
+> - **Los espacios alrededor de una opción se recortan.** `value=" x , y "` da `x` e `y`,
+>   no `" x "` ni `" y "`. Una opción que deba conservar un espacio al principio o al final
+>   tiene que venir de un [archivo](file.md#top).
+> - **Una opción no puede contener una coma.** `value="Smith, Jr.,Brown"` son tres opciones
+>   — `Smith`, `Jr.` y `Brown` —, no las dos que quería el autor.
+> - **Una coma suelta crea una opción VACÍA.** `value="a,,b"` son tres opciones, una de
+>   ellas la cadena vacía, así que un tercio de las filas sale en blanco. Para dejar filas
+>   en blanco a propósito está [`missing=`](../guides/missing-data.md#top), que lo dice.
+
 ```xml
 <sequence name="Color">
     <gen type="text" value="red,green,blue"/>

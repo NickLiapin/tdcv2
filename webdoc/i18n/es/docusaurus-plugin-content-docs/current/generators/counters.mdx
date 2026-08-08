@@ -29,6 +29,19 @@ siguiente valor de la corrida. Ignoran por completo el
 aleatorios), así que la secuencia es idéntica en cada ejecución — las salidas de esta
 página son exactas, no solo ilustrativas.
 
+:::note[Bajo `parent=` los números siguen siendo 1..N, en un orden que elige la semilla]
+Un contador en una [secuencia hija](../guides/hierarchical-dependencies.mdx) numera solo las
+filas que el padre conservó. Esas filas llevan exactamente `1..N` sin huecos ni repeticiones,
+pero CUÁL de ellas recibe qué número lo decide la semilla, así que al leer el archivo de
+arriba abajo puede ver 6, 4, 5, 1, 2, 3 en lugar de 1, 2, 3, 4, 5, 6.
+
+Ese es el precio de un valor que cualquier motor calcula solo a partir de la fila. Numerar
+las filas conservadas en orden de archivo exigiría contar las conservadas ANTES de cada una,
+y el motor de streaming no lleva esa suma acumulada — responde por la fila 900.000 sin que
+existan las 899.999 anteriores. Donde también necesite el orden del archivo, dé al padre
+`order="sequential"` para que las filas conservadas queden contiguas.
+:::
+
 ## `increment` — un contador que sube
 
 Cada fila es el valor anterior más [`step`](#step--el-paso). Con los valores por

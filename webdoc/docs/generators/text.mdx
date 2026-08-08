@@ -31,6 +31,19 @@ On top of these, `text` accepts the cross-cutting generator attributes —
 The core parameter. For `text`, `value` is a **comma-separated list** of the
 options to draw from; the generator picks one at random for each row.
 
+:::caution[The comma is the separator, and there is no escape]
+Three consequences worth knowing before an option surprises you:
+
+- **Spaces around an option are trimmed.** `value=" x , y "` gives `x` and `y`, not
+  `" x "` and `" y "`. An option that must keep a leading or trailing space has to come
+  from a [file](file.mdx) instead.
+- **An option cannot contain a comma.** `value="Smith, Jr.,Brown"` is three options —
+  `Smith`, `Jr.` and `Brown` — not the two the author meant.
+- **A bare comma makes an EMPTY option.** `value="a,,b"` is three options, one of which
+  is the empty string, so about a third of the rows come out blank. To blank rows on
+  purpose use [`missing=`](../guides/missing-data.mdx), which says so.
+:::
+
 ```xml
 <sequence name="Color">
     <gen type="text" value="red,green,blue"/>
