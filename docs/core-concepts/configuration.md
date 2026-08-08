@@ -230,9 +230,9 @@ Run it twice — byte for byte identical:
 `./run names.tdc   (run 1  |  run 2)`
 
 ```
-James      James
 Robert     Robert
-Michael    Michael
+John       John
+James      James
 ```
 
 Change the seed and you get a different set that's just as stable. The full story,
@@ -254,9 +254,9 @@ the examples above produce English names with no extra configuration.
 `./run names.tdc  (local=en)`
 
 ```
-James
 Robert
-Michael
+John
+James
 ```
 
 Switching the locale is how you get the same layout in another language, which makes it
@@ -266,9 +266,9 @@ Russian name pack instead:
 `./run names.tdc  (local=ru)`
 
 ```
-Иван
-Пётр
-Алексей
+Владимир
+Сергей
+Александр
 ```
 
 Only the _data_ changes — the structure, the seed behavior, and everything else stay

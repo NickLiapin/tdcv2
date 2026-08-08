@@ -178,8 +178,9 @@ data is a series rather than a sample: readings, transactions, a log.
 
 ### `from` alone — an axis with no end
 
-A walked axis takes only a start. Its end is `start + count × step`, which is a
-consequence of the run's length rather than something you work out and write down:
+A walked axis takes only a start. Its last row is `start + (count − 1) × step` — row 0 is
+the start itself — which is a consequence of the run's length rather than something you
+work out and write down:
 
 ```xml
 <gen type="date" from="2026-01-01" order="sequential" format="YYYY-MM-DD"/>

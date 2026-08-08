@@ -235,9 +235,9 @@ Ejecútelo dos veces: idéntico byte por byte.
 `./run names.tdc   (run 1  |  run 2)`
 
 ```
-James      James
 Robert     Robert
-Michael    Michael
+John       John
+James      James
 ```
 
 Cambie la semilla para obtener un conjunto distinto pero igual de estable. La historia
@@ -259,9 +259,9 @@ anteriores producen nombres en inglés sin configuración adicional.
 `./run names.tdc  (local=en)`
 
 ```
-James
 Robert
-Michael
+John
+James
 ```
 
 Cambiar el locale es lo que hace que el mismo diseño produzca datos en otro idioma: una

@@ -215,9 +215,9 @@ id=3`}
 Запустите дважды — байт в байт одинаково:
 
 <Terminal title="./run names.tdc   (запуск 1  |  запуск 2)">
-{`James      James
-Robert     Robert
-Michael    Michael`}
+{`Robert     Robert
+John       John
+James      James`}
 </Terminal>
 
 Смените сид — получите другой, но столь же стабильный набор. Полная история, включая
@@ -236,9 +236,9 @@ Michael    Michael`}
 ```
 
 <Terminal title="./run names.tdc  (local=en)">
-{`James
-Robert
-Michael`}
+{`Robert
+John
+James`}
 </Terminal>
 
 Переключение локали — вот что заставляет тот же макет выдавать данные на другом языке:
@@ -246,9 +246,9 @@ Michael`}
 русского набора имён:
 
 <Terminal title="./run names.tdc  (local=ru)">
-{`Иван
-Пётр
-Алексей`}
+{`Владимир
+Сергей
+Александр`}
 </Terminal>
 
 Меняются только _данные_ — структура, поведение сида и всё остальное остаётся тем же.

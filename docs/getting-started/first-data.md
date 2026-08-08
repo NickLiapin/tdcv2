@@ -107,11 +107,11 @@ volume or a different draw for a one-off run:
 `./run demo.tdc --count 5 --seed alt`
 
 ```
-Bob, age 44
-Emma, age 27
-Alice, age 61
-David, age 19
-Carol, age 38
+Alice, age 20
+Bob, age 48
+Carol, age 65
+Emma, age 22
+David, age 22
 ```
 
 A new seed gives you a different set that's just as reproducible: rerun with

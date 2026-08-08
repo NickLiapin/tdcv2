@@ -221,7 +221,13 @@ way around and rendering fails immediately:
 `./run demo.tdc`
 
 ```
-Error: parent sequence "Country" is not declared before this sequence
+error[TDC035]: parent sequence "Country" is not declared before this sequence
+ --> demo.tdc:3:35
+  |
+3 |     <sequence name="City" parent="Country.Russia">…
+  |                                   ^^^^^^^^^^^^^^
+  |
+note: Parent sequences must be declared earlier in the same <env>. Forward references and cycles are not supported.
 ```
 
 The error names the offending line and column. Cyclic dependencies and forward

@@ -354,7 +354,7 @@ t.person.lastName(); // Jones, today and next year
 
 const ru = tdc.seed('fixtures').locale('ru');
 const en = tdc.seed('fixtures').locale('en');
-ru.person.lastName(); // Ткаченко
+ru.person.lastName(); // Романенко
 en.person.lastName(); // Pearson
 ```
 
@@ -366,7 +366,7 @@ t.person.lastName()   # Jones, today and next year
 
 ru = tdc.seed("fixtures").locale("ru")
 en = tdc.seed("fixtures").locale("en")
-ru.person.lastName()  # Ткаченко
+ru.person.lastName()  # Романенко
 en.person.lastName()  # Pearson
 ```
 
@@ -378,7 +378,7 @@ t.get("person.lastName");   // Jones, today and next year
 
 Quick ru = Quick.seeded("fixtures").locale("ru");
 Quick en = Quick.seeded("fixtures").locale("en");
-ru.get("person.lastName");  // Ткаченко
+ru.get("person.lastName");  // Романенко
 en.get("person.lastName");  // Pearson
 ```
 
@@ -390,7 +390,7 @@ t.person.lastName();   // Jones, today and next year
 
 dynamic ru = Quick.Seed("fixtures").locale("ru");
 dynamic en = Quick.Seed("fixtures").locale("en");
-ru.person.lastName();  // Ткаченко
+ru.person.lastName();  // Романенко
 en.person.lastName();  // Pearson
 ```
 
@@ -402,7 +402,7 @@ t.get("person.lastName")?;   // Jones, today and next year
 
 let mut ru = Quick::seeded("fixtures").locale("ru");
 let mut en = Quick::seeded("fixtures").locale("en");
-ru.get("person.lastName")?;  // Ткаченко
+ru.get("person.lastName")?;  // Романенко
 en.get("person.lastName")?;  // Pearson
 ```
 

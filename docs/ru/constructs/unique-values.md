@@ -273,9 +273,8 @@
 `./run big.tdc`
 
 ```
-uniq: sequence "Person" requested 10000 unique combinations, but its
-data supports at most 5000. Add more values to a field, or lower
-the count.
+tdcv2: uniq "Person" is infeasible — its data supports at most 5000 distinct rows,
+but 10000 were requested. Widen a column's values or lower count.
 ```
 
 Крохотный набор показывает то же самое. Пар всего 4; просим `count="5"` — и TDC
@@ -284,8 +283,8 @@ the count.
 `./run p5.tdc`
 
 ```
-tdc: uniq "P" is infeasible — only 4 distinct combinations exist,
-but 5 unique rows were requested.
+tdcv2: uniq "P" is infeasible — its data supports at most 4 distinct rows,
+but 5 were requested. Widen a column's values or lower count.
 ```
 
 > [!NOTE]

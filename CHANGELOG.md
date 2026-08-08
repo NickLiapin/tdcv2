@@ -286,6 +286,19 @@ self-closing — its attributes and children would be ignored`); `TDC101` still 
   re-measured since, and which part of them — the shape, not the absolute seconds — is
   the part to trust.
 
+- Nine more transcripts re-run and replaced with what the engine prints. The two `uniq`
+  infeasibility messages and the parent-declaration-order error were in retired formats
+  (`uniq: …`, `tdc: …`, `Error: …`) that no version prints any more; the
+  `--count 5 --seed alt` run on the first-run page, both name runs on the configuration
+  page (English and Russian), the seeded Russian surname on the quick-API page and the
+  TypeScript object-output block had all drifted with the data packs. The walked date
+  axis was documented as ending at `start + count × step`, one step past its last row —
+  the line above it, `row i is start + i × step`, had been right all along.
+
+  Each was verified by running its own config, not by editing to taste: a blanket
+  substitution of the quick-API surname reached two blocks it should not have, and
+  `docs:examples` failed on one of them, which is the whole reason that check exists.
+
 - Parquet: the footer now declares `column_orders`, so the column statistics can actually
   be used. The min/max bounds were written and correct; the format says a reader must
   ignore them until `FileMetaData.column_orders` declares the sort order, and parquet-mr

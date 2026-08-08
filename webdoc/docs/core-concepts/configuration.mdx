@@ -210,9 +210,9 @@ different, and you lose any way to get a particular output back.
 Run it twice — byte for byte identical:
 
 <Terminal title="./run names.tdc   (run 1  |  run 2)">
-{`James      James
-Robert     Robert
-Michael    Michael`}
+{`Robert     Robert
+John       John
+James      James`}
 </Terminal>
 
 Change the seed and you get a different set that's just as stable. The full story,
@@ -232,9 +232,9 @@ the examples above produce English names with no extra configuration.
 ```
 
 <Terminal title="./run names.tdc  (local=en)">
-{`James
-Robert
-Michael`}
+{`Robert
+John
+James`}
 </Terminal>
 
 Switching the locale is how you get the same layout in another language, which makes it
@@ -242,9 +242,9 @@ an easy way to demo localization. With `local="ru"` the identical config draws f
 Russian name pack instead:
 
 <Terminal title="./run names.tdc  (local=ru)">
-{`Иван
-Пётр
-Алексей`}
+{`Владимир
+Сергей
+Александр`}
 </Terminal>
 
 Only the _data_ changes — the structure, the seed behavior, and everything else stay

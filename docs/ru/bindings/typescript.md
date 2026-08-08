@@ -136,13 +136,13 @@ console.log(tdc.getAt(1)); // мужская строка
 ```
 {
   Gender: 'Женщина',
-  Person: { Code: '5218' },
+  Person: { Code: '7541' },
   MaleName: undefined,
   FemaleName: 'Милана'
 }
 {
   Gender: 'Мужчина',
-  Person: { Code: '7698' },
+  Person: { Code: '1506' },
   MaleName: 'Иван',
   FemaleName: undefined
 }

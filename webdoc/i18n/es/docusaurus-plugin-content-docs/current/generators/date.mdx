@@ -170,8 +170,9 @@ transacciones, una bitácora.
 
 ### `from` solo — un eje sin final
 
-Un eje recorrido toma solo un comienzo. Su final es `comienzo + count × paso`, o sea una
-consecuencia del largo de la ejecución y no algo que usted calcule y escriba:
+Un eje recorrido toma solo un comienzo. Su última fila es `comienzo + (count − 1) × paso`
+—la fila 0 es el comienzo mismo—, o sea una consecuencia del largo de la ejecución y no
+algo que usted calcule y escriba:
 
 ```xml
 <gen type="date" from="2026-01-01" order="sequential" format="YYYY-MM-DD"/>
