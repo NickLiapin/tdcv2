@@ -3007,6 +3007,103 @@ public final class Validator {
       error("TDC087", "<gen type=\"number\"> include/exclude require a numeric range in \"value\"",
           "Add a range first, e.g. value=\"0..9\" exclude=\"3\".", line(gen), column(gen));
     }
+    checkDecimalsReachSomething(gen, attrs);
+    checkFirstZeroIsReachable(gen, attrs);
+  }
+
+  /**
+   * {@code decimals=} only describes a draw that HAS a fractional part.
+   *
+   * <p>Two shapes reached the generator and were dropped there: {@code <gen type="number"
+   * length="4" decimals="2"/>} emitted 4566, and {@code <gen type="number" value="1..9"
+   * length="3" decimals="2"/>} emitted 3.78. The first has no range, so the generator produces
+   * a digit STRING — an identifier — and there is nothing to round. The second has one, so
+   * decimals wins and length is discarded instead: a fractional value has no integer width to
+   * pad to.
+   */
+  private void checkDecimalsReachSomething(
+      TDCParser.SelfClosingElementContext gen, Map<String, String> attrs) {
+    String decimals = attrs.getOrDefault("decimals", "").trim();
+    if (decimals.isEmpty() || "0".equals(decimals)) {
+      return;
+    }
+    String range = attrs.getOrDefault("value", "").trim();
+    if (range.isEmpty()) {
+      error("TDC277",
+          "decimals=\"" + decimals
+              + "\" has nothing to round — without value= this generator produces a digit string",
+          "Give it a range to draw from: value=\"0..100\" decimals=\"2\". A number with only "
+              + "length= is an identifier of that many digits, and an identifier has no decimal "
+              + "places.",
+          at(gen, "decimals")[0], at(gen, "decimals")[1]);
+      return;
+    }
+    String length = attrs.getOrDefault("length", "").trim();
+    if (!length.isEmpty()) {
+      error("TDC278",
+          "length=\"" + length + "\" is not read beside decimals=\"" + decimals
+              + "\" — a fractional value has no integer width to pad",
+          "Keep one of them: decimals= for a fractional value over the range, or length= for a "
+              + "whole number padded to a fixed width.",
+          at(gen, "length")[0], at(gen, "length")[1]);
+    }
+  }
+
+  /**
+   * {@code first_zero="false"} the range can never satisfy.
+   *
+   * <p>A drawn value is padded to {@code length} with zeros, so it avoids a leading one only by
+   * being wide enough on its own. When the range's largest value has fewer digits than the
+   * width, EVERY draw needs padding — and the generator answered by redrawing a hundred times
+   * and emitting the forbidden shape anyway.
+   */
+  private void checkFirstZeroIsReachable(
+      TDCParser.SelfClosingElementContext gen, Map<String, String> attrs) {
+    if (!"false".equals(attrs.getOrDefault("first_zero", "").trim())) {
+      return;
+    }
+    String range = attrs.getOrDefault("value", "").trim();
+    String length = attrs.getOrDefault("length", "").trim();
+    if (range.isEmpty() || length.isEmpty()) {
+      return;
+    }
+    java.util.List<Integer> widths = new java.util.ArrayList<>();
+    long biggest;
+    try {
+      for (io.github.nickliapin.tdc.generators.NumberGen.LengthChoice choice : io.github.nickliapin.tdc.generators.NumberGen.parseLengthChoices(length)) {
+        for (int w = choice.min(); w <= choice.max(); w++) {
+          widths.add(w);
+        }
+      }
+      long found = Long.MIN_VALUE;
+      for (io.github.nickliapin.tdc.generators.NumberGen.Range r : io.github.nickliapin.tdc.generators.NumberGen.parseRanges(range)) {
+        found = Math.max(found, r.max());
+      }
+      biggest = found;
+    } catch (RuntimeException e) {
+      return; // a malformed range or length is already reported above
+    }
+    // A value renders without a leading zero at width W only if it has at least W digits of
+    // its own, which needs max >= 10^(W-1).
+    java.util.List<Integer> unreachable = new java.util.ArrayList<>();
+    for (int w : widths) {
+      if (w > 1 && biggest < Math.pow(10, w - 1)) {
+        unreachable.add(w);
+      }
+    }
+    if (unreachable.isEmpty()) {
+      return;
+    }
+    int smallest = java.util.Collections.min(unreachable);
+    String digits = unreachable.size() == 1 ? unreachable.get(0) + " digits" : smallest + " digits";
+    long low = (long) Math.pow(10, smallest - 1);
+    long high = (long) Math.pow(10, smallest) - 1;
+    error("TDC279",
+        "first_zero=\"false\" cannot be honoured — no value in \"" + range + "\" reaches "
+            + digits + ", so every draw has to be padded",
+        "The widest value the range offers is " + biggest + ". Widen the range — value=\"" + low
+            + ".." + high + "\" — or drop length=, or allow the zero.",
+        at(gen, "first_zero")[0], at(gen, "first_zero")[1]);
   }
 
   private void checkRegexes(

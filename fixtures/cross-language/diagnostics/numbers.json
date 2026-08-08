@@ -84,6 +84,34 @@
       "description": "A set without decimals is untouched",
       "config": "<tdc><env count=\"3\" seed=\"s\" local=\"en\"><sequence name=\"N\"><gen type=\"number\" value=\"1..10\" exclude=\"5\"/></sequence></env><block><line><data>${{N}}</data></line></block></tdc>",
       "expected": []
+    },
+    {
+      "name": "decimals-with-no-range-to-round",
+      "demonstrates": "TDC277",
+      "description": "Without value= the generator produces a digit STRING — an identifier — and decimals reached nothing: <gen type=\"number\" length=\"4\" decimals=\"2\"/> emitted 4566, 5773, 5192.",
+      "config": "<tdc><env count=\"2\" seed=\"s\"><sequence name=\"G\"><gen type=\"number\" length=\"4\" decimals=\"2\"/></sequence></env><block><line><data>${{G}}</data></line></block></tdc>",
+      "expected": ["error TDC277 1:88"]
+    },
+    {
+      "name": "decimals-beside-a-width",
+      "demonstrates": "TDC278",
+      "description": "A fractional value has no integer width to pad to, so length= was the one discarded: <gen type=\"number\" value=\"1..9\" length=\"3\" decimals=\"2\"/> emitted 3.78, 2.89.",
+      "config": "<tdc><env count=\"2\" seed=\"s\"><sequence name=\"G\"><gen type=\"number\" value=\"1..9\" length=\"3\" decimals=\"2\"/></sequence></env><block><line><data>${{G}}</data></line></block></tdc>",
+      "expected": ["error TDC278 1:88"]
+    },
+    {
+      "name": "first-zero-the-range-can-never-satisfy",
+      "demonstrates": "TDC279",
+      "description": "Every draw from 0..5 is one digit, so a three-wide rendering always pads. The generator redrew a hundred times per row and emitted the forbidden shape anyway: 005, 002, 003.",
+      "config": "<tdc><env count=\"2\" seed=\"s\"><sequence name=\"G\"><gen type=\"number\" value=\"0..5\" length=\"3\" first_zero=\"false\"/></sequence></env><block><line><data>${{G}}</data></line></block></tdc>",
+      "expected": ["error TDC279 1:103"]
+    },
+    {
+      "name": "first-zero-a-wide-enough-range-satisfies",
+      "demonstrates": "",
+      "description": "The line the check must not cross: 1..999 can produce a three-digit value on its own, so whether a given row does is the draw's business, not the validator's.",
+      "config": "<tdc><env count=\"2\" seed=\"s\"><sequence name=\"G\"><gen type=\"number\" value=\"1..999\" length=\"3\" first_zero=\"false\"/></sequence></env><block><line><data>${{G}}</data></line></block></tdc>",
+      "expected": []
     }
   ]
 }

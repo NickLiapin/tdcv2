@@ -412,9 +412,31 @@ describe('validator — <gen> checks', () => {
     expect(r.diagnostics.find((d) => d.code === 'TDC084')).toBeDefined();
   });
 
-  it('accepts number length and first_zero when valid', () => {
-    const r = run(wrap('<gen type="number" value="1..9" length="3" first_zero="false"/>'));
+  it('accepts number length and first_zero when the range can reach the width', () => {
+    const r = run(wrap('<gen type="number" value="1..999" length="3" first_zero="false"/>'));
     expect(hasErrors(r.diagnostics)).toBe(false);
+  });
+
+  /**
+   * This case used to be asserted VALID, which was asserting the defect. The
+   * range tops out at 9, so a three-wide rendering always pads — and measured
+   * on the generator directly, `value="1..9" length="3" first_zero="false"`
+   * produced `005 007 004 009`, the forbidden shape on every row, after a
+   * hundred wasted redraws each.
+   */
+  it('refuses first_zero="false" the range can never satisfy', () => {
+    const r = run(wrap('<gen type="number" value="1..9" length="3" first_zero="false"/>'));
+    expect(r.diagnostics.find((d) => d.code === 'TDC279')).toBeDefined();
+  });
+
+  it('refuses decimals with no range to round, and beside a width', () => {
+    const none = run(wrap('<gen type="number" length="4" decimals="2"/>'));
+    expect(none.diagnostics.find((d) => d.code === 'TDC277')).toBeDefined();
+    const both = run(wrap('<gen type="number" value="1..9" length="3" decimals="2"/>'));
+    expect(both.diagnostics.find((d) => d.code === 'TDC278')).toBeDefined();
+    // And says nothing about the shape that works.
+    const fine = run(wrap('<gen type="number" value="1..100" decimals="2"/>'));
+    expect(hasErrors(fine.diagnostics)).toBe(false);
   });
 
   it('accepts finite regex generators', () => {

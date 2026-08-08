@@ -1119,7 +1119,7 @@ impl Validator {
     /// through the same checks the top level gets, which is the whole point of
     /// the construct.
     fn check_pool(&mut self, node: &Element) {
-        let name = node.attr_value("name").map(str::trim).unwrap_or("");
+        let name = node.attr_value("name").map(|s| s.trim()).unwrap_or("");
         if name.is_empty() {
             self.error(
                 "TDC222",
@@ -1129,7 +1129,7 @@ impl Validator {
                 node.pos,
             );
         }
-        let raw = node.attr_value("count").map(str::trim).unwrap_or("");
+        let raw = node.attr_value("count").map(|s| s.trim()).unwrap_or("");
         if raw.is_empty() {
             let shown = if name.is_empty() {
                 String::new()
@@ -1224,7 +1224,7 @@ impl Validator {
             if child.name != "gen" || child.attr_value("type") != Some("pool") {
                 continue;
             }
-            let pool_name = child.attr_value("value").map(str::trim).unwrap_or("");
+            let pool_name = child.attr_value("value").map(|s| s.trim()).unwrap_or("");
             let Some(fields) = self.pool_fields.get(pool_name).cloned() else {
                 let declared: Vec<String> = self.pool_fields.keys().cloned().collect();
                 self.error(
@@ -2952,6 +2952,113 @@ impl Validator {
                 gen.pos,
             );
         }
+        self.check_decimals_reach_something(gen, attrs);
+        self.check_first_zero_is_reachable(gen, attrs);
+    }
+
+    /// `decimals=` only describes a draw that HAS a fractional part.
+    ///
+    /// Two shapes reached the generator and were dropped there:
+    ///
+    /// ```text
+    /// <gen type="number" length="4" decimals="2"/>               -> 4566
+    /// <gen type="number" value="1..9" length="3" decimals="2"/>  -> 3.78
+    /// ```
+    ///
+    /// The first has no range, so the generator produces a digit STRING — an
+    /// identifier — and there is nothing to round. The second has one, so
+    /// `decimals` wins and `length` is discarded instead: a fractional value
+    /// has no integer width to pad to.
+    fn check_decimals_reach_something(&mut self, gen: &Element, attrs: &Attrs) {
+        let decimals = attrs.get("decimals").map(|s| s.trim()).unwrap_or("");
+        if decimals.is_empty() || decimals == "0" {
+            return;
+        }
+        let value = attrs.get("value").map(|s| s.trim()).unwrap_or("");
+        if value.is_empty() {
+            self.error(
+                "TDC277",
+                format!(
+                    "decimals=\"{decimals}\" has nothing to round — without value= this \
+                     generator produces a digit string"
+                ),
+                "Give it a range to draw from: value=\"0..100\" decimals=\"2\". A number with \
+                 only length= is an identifier of that many digits, and an identifier has no \
+                 decimal places.",
+                gen.at("decimals"),
+            );
+            return;
+        }
+        let length = attrs.get("length").map(|s| s.trim()).unwrap_or("");
+        if !length.is_empty() {
+            self.error(
+                "TDC278",
+                format!(
+                    "length=\"{length}\" is not read beside decimals=\"{decimals}\" — a \
+                     fractional value has no integer width to pad"
+                ),
+                "Keep one of them: decimals= for a fractional value over the range, or length= \
+                 for a whole number padded to a fixed width.",
+                gen.at("length"),
+            );
+        }
+    }
+
+    /// `first_zero="false"` the range can never satisfy.
+    ///
+    /// A drawn value is padded to `length` with zeros, so it avoids a leading
+    /// one only by being wide enough on its own. When the range's largest value
+    /// has fewer digits than the width, EVERY draw needs padding — and the
+    /// generator answered by redrawing a hundred times and emitting the
+    /// forbidden shape anyway.
+    fn check_first_zero_is_reachable(&mut self, gen: &Element, attrs: &Attrs) {
+        if attrs.get("first_zero").map(|s| s.trim()) != Some("false") {
+            return;
+        }
+        let value = attrs.get("value").map(|s| s.trim()).unwrap_or("").to_string();
+        let length = attrs.get("length").map(|s| s.trim()).unwrap_or("");
+        if value.is_empty() || length.is_empty() {
+            return;
+        }
+        // A malformed range or length is already reported above.
+        let (Ok(choices), Ok(ranges)) = (
+            crate::generators::number::parse_length_choices(length),
+            crate::generators::number::parse_ranges(&value),
+        ) else {
+            return;
+        };
+        let Some(biggest) = ranges.iter().map(|r| r.max).max() else {
+            return;
+        };
+        // A value renders without a leading zero at width W only if it has at
+        // least W digits of its own, which needs max >= 10^(W-1).
+        let unreachable: Vec<i64> = choices
+            .iter()
+            .flat_map(|c| i64::from(c.min)..=i64::from(c.max))
+            .filter(|&w| w > 1 && (biggest as f64) < 10f64.powi(w as i32 - 1))
+            .collect();
+        let Some(&smallest) = unreachable.iter().min() else {
+            return;
+        };
+        let digits = if unreachable.len() == 1 {
+            format!("{} digits", unreachable[0])
+        } else {
+            format!("{smallest} digits")
+        };
+        let low = 10i64.pow(u32::try_from(smallest - 1).unwrap_or(0));
+        let high = 10i64.pow(u32::try_from(smallest).unwrap_or(1)) - 1;
+        self.error(
+            "TDC279",
+            format!(
+                "first_zero=\"false\" cannot be honoured — no value in \"{value}\" reaches \
+                 {digits}, so every draw has to be padded"
+            ),
+            &format!(
+                "The widest value the range offers is {biggest}. Widen the range — \
+                 value=\"{low}..{high}\" — or drop length=, or allow the zero."
+            ),
+            gen.at("first_zero"),
+        );
     }
 
     fn check_regexes(&mut self, gen: &Element, attrs: &Attrs, gen_type: Option<&str>) {

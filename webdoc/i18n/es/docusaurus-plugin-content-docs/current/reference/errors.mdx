@@ -192,6 +192,9 @@ Ver [Registros coherentes](../pools/overview.mdx).
 | `TDC274` | un argumento en un filtro que no lee ninguno | `trim`, `sql`, `upper`, `lower`, `capitalize` y `title` son transformaciones completas; `${{X\|trim:junk}}` ignoraba `junk` en silencio. Encadena en su lugar: `${{X\|trim\|upper}}` |
 | `TDC275` | `replace` sin nada que buscar | `${{X\|replace}}` y `${{X\|replace:,to}}` no cambian nada. Escribe las dos partes: `${{X\|replace:from,to}}` |
 | `TDC276` | un parámetro clavado con el ancho equivocado | Un identificador con dígito de control tiene un diseño fijo, así que una parte de otro ancho lo rompe en vez de desplazarlo. `usa.finance.aba_routing prefix="12345"` abortaba la ejecución; `tail="678"` escribía un número de seis dígitos que no lo es. Solo se informa donde el ancho se puede DEMOSTRAR a partir del cuerpo del propio paquete |
+| `TDC277` | `decimals=` sin rango que redondear | Sin `value=` el generador produce una cadena de DÍGITOS — un identificador — y no hay nada que redondear. `<gen type="number" length="4" decimals="2"/>` emitía 4566, 5773, 5192 |
+| `TDC278` | `decimals=` junto a `length=` | Un valor fraccionario no tiene ancho entero al que rellenar, así que el descartado era `length=`: `value="1..9" length="3" decimals="2"` emitía 3.78, 2.89 |
+| `TDC279` | `first_zero="false"` que el rango no puede cumplir | Todo valor de `0..5` es de un dígito, así que una escritura de tres siempre rellena. El generador volvía a sortear cien veces por fila y emitía la forma prohibida igualmente: 005, 002, 003. Solo se informa donde el rango lo DEMUESTRA |
 | `TDC244` | `type="pattern"` sin `points`, `src` ni `upper`                             | Un dibujo necesita una forma de la que leer: `points="0,0 1,5 2,3"`, un archivo en `src`, o `upper`/`lower` para una banda                                                                                                                                  |
 
 ## Totales acumulados

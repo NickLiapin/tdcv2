@@ -313,6 +313,9 @@ have them: they compile a config into a model that has no place to put such a `<
 | `TDC274` | an argument on a filter that reads none | `trim`, `sql`, `upper`, `lower`, `capitalize` and `title` are whole transforms; `${{X\|trim:junk}}` silently ignored the `junk`. Chain instead: `${{X\|trim\|upper}}` |
 | `TDC275` | `replace` with nothing to look for | `${{X\|replace}}` and `${{X\|replace:,to}}` change nothing at all. Write both parts: `${{X\|replace:from,to}}` |
 | `TDC276` | a pinned pack parameter of the wrong width | An identifier with a check digit has a fixed layout, so a wider or narrower part breaks it rather than shifting it. `usa.finance.aba_routing prefix="12345"` aborted the run; `tail="678"` wrote a six-digit non-number. Only reported where the width can be PROVEN from the pack's own body |
+| `TDC277` | `decimals=` with no range to round | Without `value=` the generator produces a digit STRING — an identifier — so there is nothing to round. `<gen type="number" length="4" decimals="2"/>` emitted 4566, 5773, 5192 |
+| `TDC278` | `decimals=` beside `length=` | A fractional value has no integer width to pad to, so `length=` was the one discarded: `value="1..9" length="3" decimals="2"` emitted 3.78, 2.89 |
+| `TDC279` | `first_zero="false"` the range can never satisfy | Every draw from `0..5` is one digit, so a three-wide rendering always pads. The generator redrew a hundred times per row and emitted the forbidden shape anyway: 005, 002, 003. Only reported where the range PROVES it |
 
 ## See also
 

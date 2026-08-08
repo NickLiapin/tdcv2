@@ -51,6 +51,7 @@ from ..generators import accumulate as accumulate_gen
 from ..generators import file as file_gen
 from ..generators import regex
 from ..generators import stat as stat_gen
+from ..generators import number as number_gen
 from ..lib import numbers
 from ..output import column_type
 from ..packs import DataPacks
@@ -2963,6 +2964,93 @@ class _Validator:
                 _line(gen),
                 _column(gen),
             )
+
+        self._check_decimals_reach_something(gen, attrs)
+        self._check_first_zero_is_reachable(gen, attrs)
+
+    def _check_decimals_reach_something(self, gen, attrs: dict[str, str]) -> None:
+        """``decimals=`` only describes a draw that HAS a fractional part.
+
+        Two shapes reached the generator and were dropped there::
+
+            <gen type="number" length="4" decimals="2"/>               -> 4566
+            <gen type="number" value="1..9" length="3" decimals="2"/>  -> 3.78
+
+        The first has no range, so the generator produces a digit STRING — an identifier —
+        and there is nothing to round. The second has one, so ``decimals`` wins and ``length``
+        is discarded instead: a fractional value has no integer width to pad to.
+        """
+        decimals = (attrs.get("decimals") or "").strip()
+        if not decimals or decimals == "0":
+            return
+        value = (attrs.get("value") or "").strip()
+        if not value:
+            line, column = _at(gen, "decimals")
+            self._error(
+                "TDC277",
+                f'decimals="{decimals}" has nothing to round — without value= this generator '
+                "produces a digit string",
+                'Give it a range to draw from: value="0..100" decimals="2". A number with only '
+                "length= is an identifier of that many digits, and an identifier has no decimal "
+                "places.",
+                line,
+                column,
+            )
+            return
+        length = (attrs.get("length") or "").strip()
+        if length:
+            line, column = _at(gen, "length")
+            self._error(
+                "TDC278",
+                f'length="{length}" is not read beside decimals="{decimals}" — a fractional '
+                "value has no integer width to pad",
+                "Keep one of them: decimals= for a fractional value over the range, or length= "
+                "for a whole number padded to a fixed width.",
+                line,
+                column,
+            )
+
+    def _check_first_zero_is_reachable(self, gen, attrs: dict[str, str]) -> None:
+        """``first_zero="false"`` the range can never satisfy.
+
+        A drawn value is padded to ``length`` with zeros, so it avoids a leading one only by
+        being wide enough on its own. When the range's largest value has fewer digits than the
+        width, EVERY draw needs padding — and the generator answered by redrawing a hundred
+        times and emitting the forbidden shape anyway.
+        """
+        if (attrs.get("first_zero") or "") != "false":
+            return
+        value = (attrs.get("value") or "").strip()
+        length = (attrs.get("length") or "").strip()
+        if not value or not length:
+            return
+        try:
+            widths = [
+                w
+                for choice in number_gen.parse_length_choices(length)
+                for w in range(choice.min, choice.max + 1)
+            ]
+            biggest = max(r.max for r in number_gen.parse_ranges(value))
+        except Exception:
+            return  # a malformed range or length is already reported above
+        unreachable = [w for w in widths if w > 1 and biggest < 10 ** (w - 1)]
+        if not unreachable:
+            return
+        smallest = min(unreachable)
+        digits = (
+            f"{unreachable[0]} digits" if len(unreachable) == 1 else f"{smallest} digits"
+        )
+        line, column = _at(gen, "first_zero")
+        self._error(
+            "TDC279",
+            f'first_zero="false" cannot be honoured — no value in "{value}" reaches {digits}, '
+            "so every draw has to be padded",
+            f"The widest value the range offers is {biggest}. Widen the range — "
+            f'value="{10 ** (smallest - 1)}..{10 ** smallest - 1}" — or drop length=, or allow '
+            "the zero.",
+            line,
+            column,
+        )
 
     def _check_regexes(self, gen, attrs: dict[str, str], type_: str | None) -> None:
         value = attrs.get("value")

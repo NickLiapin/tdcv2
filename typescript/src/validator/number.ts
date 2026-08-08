@@ -154,6 +154,9 @@ export function checkGenNumber(
     }
   }
 
+  checkDecimalsReachSomething(attrs, attrMap, diagnostics);
+  checkFirstZeroIsReachable(attrs, attrMap, diagnostics);
+
   const percentAttr = findAttr(attrs, 'percent');
   if (!percentAttr) return;
 
@@ -175,6 +178,123 @@ export function checkGenNumber(
       code,
     });
   }
+}
+
+/**
+ * `decimals=` only describes a draw that HAS a fractional part.
+ *
+ * Two shapes reached the generator and were dropped there, each leaving a
+ * column that looks fine and is not what the config asked for:
+ *
+ *     <gen type="number" length="4" decimals="2"/>            ->  4566
+ *     <gen type="number" value="1..9" length="3" decimals="2"/>  ->  3.78
+ *
+ * The first has no range at all, so the generator produces a digit STRING — an
+ * id, not a number — and there is nothing to round. The second does have a
+ * range, so `decimals` wins and `length` is discarded instead: a fractional
+ * value has no integer width to pad to. Either way one attribute was written
+ * and read by nothing, which is the whole reason TDC015 exists; these two are
+ * the same mistake spelled with attributes that ARE owned by this generator.
+ *
+ * The include/exclude pairing is refused separately, by TDC255 above.
+ */
+function checkDecimalsReachSomething(
+  attrs: readonly AttrContext[],
+  attrMap: Record<string, string | undefined>,
+  diagnostics: Diagnostic[],
+): void {
+  const decimalsAttr = findAttr(attrs, 'decimals');
+  const decimals = (attrMap['decimals'] ?? '').trim();
+  if (!decimalsAttr || decimals === '' || decimals === '0') return;
+
+  const range = (attrMap['value'] ?? '').trim();
+  if (range === '') {
+    diagnostics.push({
+      severity: 'error',
+      source: 'validator',
+      ...attrValueRange(decimalsAttr),
+      message: `decimals="${decimals}" has nothing to round — without value= this generator produces a digit string`,
+      hint:
+        'Give it a range to draw from: value="0..100" decimals="2". A number with only ' +
+        'length= is an identifier of that many digits, and an identifier has no decimal places.',
+      code: 'TDC277',
+    });
+    return;
+  }
+
+  const lengthAttr = findAttr(attrs, 'length');
+  if (lengthAttr && (attrMap['length'] ?? '').trim() !== '') {
+    diagnostics.push({
+      severity: 'error',
+      source: 'validator',
+      ...attrValueRange(lengthAttr),
+      message: `length="${(attrMap['length'] ?? '').trim()}" is not read beside decimals="${decimals}" — a fractional value has no integer width to pad`,
+      hint:
+        'Keep one of them: decimals= for a fractional value over the range, or length= for a ' +
+        'whole number padded to a fixed width.',
+      code: 'TDC278',
+    });
+  }
+}
+
+/**
+ * `first_zero="false"` that the range can never satisfy.
+ *
+ * A value drawn from a range is padded to `length` with zeros, so it can only
+ * avoid a leading one by being wide enough on its own. When the range's largest
+ * value has fewer digits than the width, EVERY draw needs padding — and the
+ * generator answered by redrawing a hundred times and then emitting the
+ * forbidden shape anyway:
+ *
+ *     <gen type="number" value="0..5" length="3" first_zero="false"/>  ->  005 002 003
+ *
+ * A hundred wasted draws per row, and the attribute honoured on none of them.
+ * Only reported where it is PROVABLE from the range and the width; a range that
+ * can produce a wide enough value is left alone, because whether a given row
+ * does is the draw's business.
+ */
+function checkFirstZeroIsReachable(
+  attrs: readonly AttrContext[],
+  attrMap: Record<string, string | undefined>,
+  diagnostics: Diagnostic[],
+): void {
+  const firstZeroAttr = findAttr(attrs, 'first_zero');
+  if (!firstZeroAttr || (attrMap['first_zero'] ?? '') !== 'false') return;
+  const raw = (attrMap['value'] ?? '').trim();
+  const lengthRaw = (attrMap['length'] ?? '').trim();
+  if (raw === '' || lengthRaw === '') return;
+
+  let widths: number[];
+  let biggest: number;
+  try {
+    widths = parseNumberLengthChoices(lengthRaw).flatMap((c) =>
+      Array.from({ length: c.max - c.min + 1 }, (_, i) => c.min + i),
+    );
+    biggest = Math.max(...parseNumberRanges(raw).map((r) => r.max));
+  } catch {
+    return; // a malformed range or length is already reported above
+  }
+  if (widths.length === 0 || !Number.isFinite(biggest)) return;
+
+  // A value renders without a leading zero at width W only if it has at least
+  // W digits of its own, which needs max >= 10^(W-1).
+  const unreachable = widths.filter((w) => w > 1 && biggest < 10 ** (w - 1));
+  if (unreachable.length === 0) return;
+
+  diagnostics.push({
+    severity: 'error',
+    source: 'validator',
+    ...attrValueRange(firstZeroAttr),
+    message: `first_zero="false" cannot be honoured — no value in "${raw}" reaches ${
+      unreachable.length === 1
+        ? `${String(unreachable[0])} digits`
+        : `${String(Math.min(...unreachable))} digits`
+    }, so every draw has to be padded`,
+    hint:
+      `The widest value the range offers is ${String(biggest)}. Widen the range — ` +
+      `value="${String(10 ** (Math.min(...unreachable) - 1))}..${String(10 ** Math.min(...unreachable) - 1)}" — or drop length=, or allow the zero.`,
+    code: 'TDC279',
+  });
 }
 
 /** Attributes that describe a range/percent — meaningless alongside a distribution. */

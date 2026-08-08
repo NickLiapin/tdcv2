@@ -31,6 +31,24 @@ page — is tracked in that implementation's own changelog:
 
 ### Fixed
 
+<!-- covers: decimals first_zero -->
+
+- Three number attributes were accepted and then discarded inside the generator, each
+  leaving a column that looks right:
+
+  ```
+  <gen type="number" length="4" decimals="2"/>               ->  4566
+  <gen type="number" value="1..9" length="3" decimals="2"/>  ->  3.78
+  <gen type="number" value="0..5" length="3" first_zero="false"/>  ->  005 002 003
+  ```
+
+  Without a range there is nothing to round — the generator makes a digit string, an
+  identifier (TDC277). Beside a range, `decimals` wins and `length` is the one dropped,
+  because a fractional value has no integer width to pad to (TDC278). And
+  `first_zero="false"` over a range whose largest value is one digit redrew a hundred times
+  per row and then emitted the leading zero anyway (TDC279) — the attribute honoured on no
+  row at all. All three are now refused, and only where the range and the width prove it.
+
 <!-- covers: from to format precision oldest youngest length include exclude decimals distribution regex_max_length mode -->
 
 - Thirteen real attributes were accepted on generator types that never read them, and the

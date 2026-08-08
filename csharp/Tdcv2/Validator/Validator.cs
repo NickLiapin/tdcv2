@@ -3570,6 +3570,123 @@ public sealed class Validator
                 "<gen type=\"number\"> include/exclude require a numeric range in \"value\"",
                 "Add a range first, e.g. value=\"0..9\" exclude=\"3\".", Line(gen), Column(gen));
         }
+
+        this.CheckDecimalsReachSomething(gen, attrs);
+        this.CheckFirstZeroIsReachable(gen, attrs);
+    }
+
+    /// <summary>
+    /// <c>decimals=</c> only describes a draw that HAS a fractional part.
+    /// </summary>
+    /// <remarks>
+    /// Two shapes reached the generator and were dropped there:
+    /// <c>&lt;gen type="number" length="4" decimals="2"/&gt;</c> emitted 4566, and
+    /// <c>&lt;gen type="number" value="1..9" length="3" decimals="2"/&gt;</c> emitted 3.78. The
+    /// first has no range, so the generator produces a digit STRING — an identifier — and
+    /// there is nothing to round. The second has one, so decimals wins and length is discarded
+    /// instead: a fractional value has no integer width to pad to.
+    /// </remarks>
+    private void CheckDecimalsReachSomething(
+        TDCParser.SelfClosingElementContext gen, IReadOnlyDictionary<string, string> attrs)
+    {
+        string decimals = (attrs.GetValueOrDefault("decimals") ?? "").Trim();
+        if (decimals.Length == 0 || decimals == "0")
+        {
+            return;
+        }
+
+        string range = (attrs.GetValueOrDefault("value") ?? "").Trim();
+        if (range.Length == 0)
+        {
+            (int line, int column) = At(gen, "decimals");
+            Error(
+                "TDC277",
+                $"decimals=\"{decimals}\" has nothing to round — without value= this generator "
+                + "produces a digit string",
+                "Give it a range to draw from: value=\"0..100\" decimals=\"2\". A number with "
+                + "only length= is an identifier of that many digits, and an identifier has no "
+                + "decimal places.",
+                line, column);
+            return;
+        }
+
+        string length = (attrs.GetValueOrDefault("length") ?? "").Trim();
+        if (length.Length > 0)
+        {
+            (int line, int column) = At(gen, "length");
+            Error(
+                "TDC278",
+                $"length=\"{length}\" is not read beside decimals=\"{decimals}\" — a fractional "
+                + "value has no integer width to pad",
+                "Keep one of them: decimals= for a fractional value over the range, or length= "
+                + "for a whole number padded to a fixed width.",
+                line, column);
+        }
+    }
+
+    /// <summary>
+    /// <c>first_zero="false"</c> the range can never satisfy.
+    /// </summary>
+    /// <remarks>
+    /// A drawn value is padded to <c>length</c> with zeros, so it avoids a leading one only by
+    /// being wide enough on its own. When the range's largest value has fewer digits than the
+    /// width, EVERY draw needs padding — and the generator answered by redrawing a hundred
+    /// times and emitting the forbidden shape anyway.
+    /// </remarks>
+    private void CheckFirstZeroIsReachable(
+        TDCParser.SelfClosingElementContext gen, IReadOnlyDictionary<string, string> attrs)
+    {
+        if ((attrs.GetValueOrDefault("first_zero") ?? "").Trim() != "false")
+        {
+            return;
+        }
+
+        string range = (attrs.GetValueOrDefault("value") ?? "").Trim();
+        string length = (attrs.GetValueOrDefault("length") ?? "").Trim();
+        if (range.Length == 0 || length.Length == 0)
+        {
+            return;
+        }
+
+        List<int> widths = new();
+        long biggest;
+        try
+        {
+            foreach (var choice in NumberGen.ParseLengthChoices(length))
+            {
+                for (int w = choice.Min; w <= choice.Max; w++)
+                {
+                    widths.Add(w);
+                }
+            }
+
+            biggest = NumberGen.ParseRanges(range).Max(r => r.Max);
+        }
+        catch (Exception)
+        {
+            return; // a malformed range or length is already reported above
+        }
+
+        // A value renders without a leading zero at width W only if it has at least W digits
+        // of its own, which needs max >= 10^(W-1).
+        List<int> unreachable = widths.Where(w => w > 1 && biggest < Math.Pow(10, w - 1)).ToList();
+        if (unreachable.Count == 0)
+        {
+            return;
+        }
+
+        int smallest = unreachable.Min();
+        string digits = unreachable.Count == 1 ? $"{unreachable[0]} digits" : $"{smallest} digits";
+        long low = (long)Math.Pow(10, smallest - 1);
+        long high = (long)Math.Pow(10, smallest) - 1;
+        (int fzLine, int fzColumn) = At(gen, "first_zero");
+        Error(
+            "TDC279",
+            $"first_zero=\"false\" cannot be honoured — no value in \"{range}\" reaches {digits}, "
+            + "so every draw has to be padded",
+            $"The widest value the range offers is {biggest}. Widen the range — "
+            + $"value=\"{low}..{high}\" — or drop length=, or allow the zero.",
+            fzLine, fzColumn);
     }
 
     private void CheckRegexes(
