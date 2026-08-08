@@ -335,6 +335,22 @@ azul,
 gris
 ```
 
+## Dos selectores que siempre son texto
+
+`parent="Code.1"` y `<case is="1">` no son comparaciones, sino **selectores de valor**:
+preguntan qué valor produjo la columna en esta fila. Coinciden por los caracteres, igual
+que `===`, y no se lee nada como número:
+
+| La columna contiene | `parent="Code.1"` | `<case is="1">` | `== 1`    |
+| :------------------ | :---------------- | :-------------- | :-------- |
+| `1`                 | coincide          | coincide        | verdadero |
+| `01`                | no                | no              | verdadero |
+| `1.0`               | no                | no              | verdadero |
+
+Si hay que emparejar una columna de dígitos por su número, hágalo con `if=` y `==`. Y un
+`case` admite varias claves a la vez — `<case is="1|01|1.0">` —, que es la respuesta más
+corta cuando la columna guarda un conjunto fijo de grafías.
+
 ## `in`
 
 `in` toma una lista a su derecha y pregunta si el valor de la izquierda es uno de sus

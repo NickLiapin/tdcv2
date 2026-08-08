@@ -307,6 +307,22 @@ blue,
 gray`}
 </Terminal>
 
+## Two selectors that are always text
+
+`parent="Code.1"` and `<case is="1">` are not comparisons — they are **value selectors**,
+asking which value the column produced on this row. They match the characters exactly, the
+way `===` does, and no reading as a number happens:
+
+| The column holds | `parent="Code.1"` | `<case is="1">` | `== 1` |
+| :--------------- | :---------------- | :-------------- | :----- |
+| `1`              | matches           | matches         | true   |
+| `01`             | no                | no              | true   |
+| `1.0`            | no                | no              | true   |
+
+If a column of digits has to be matched by its number, do it with `if=` and `==`. A `case`
+takes several keys at once — `<case is="1|01|1.0">` — which is the shorter answer when the
+column holds a fixed set of spellings.
+
 ## `in`
 
 `in` takes a list on its right and asks whether the left value is one of its members. It
