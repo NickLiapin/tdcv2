@@ -22,7 +22,7 @@ import { cpSync, existsSync, mkdirSync, readFileSync, readdirSync, rmSync, statS
 import { dirname, join, relative, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-import { TOKEN, VERSION } from '../plugins/remark-version.mjs';
+import { TOKENS } from '../plugins/remark-version.mjs';
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const WEBSITE = join(HERE, '..');
@@ -281,7 +281,7 @@ function convert(body, page, code) {
   // alone; this is the one rewrite that must reach into it. Both this and the
   // site build read VERSION from the same module, so the copy GitHub renders and
   // the copy the site renders cannot name different numbers.
-  t = t.split(TOKEN).join(VERSION);
+  for (const [token, value] of Object.entries(TOKENS)) t = t.split(token).join(value);
 
   // Fenced code next: nothing below may rewrite what a reader will copy.
   t = t.replace(/^(```|~~~)[^\n]*\n[\s\S]*?^\1[ \t]*$/gm, (m) => hold(m));

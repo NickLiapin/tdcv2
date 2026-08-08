@@ -331,9 +331,9 @@ tema mismo: **un paquete de país nombra sus divisiones como las nombra ese paí
 | `geo.zip`         | 16                            |
 | `geo.municipality`| 13                            |
 
-Alguna división existe en 95 de los 111 paquetes y algún código postal en 48, bajo
-nombres como `department`, `canton`, `governorate`, `voivodeship`, `prefecture`,
-`eircode`, `cep` y `cap`. Por eso `usa.geo.province` no es una ruta: Estados Unidos tiene
+Alguna división existe en 95 de los 111 paquetes de país y un código postal en 46, bajo
+nombres como `department`, `canton`, `governorate`, `voivodeship`, `prefecture`, `zip`,
+`postalCode`, `eircode`, `cep`, `cap` y `cpa`. Por eso `usa.geo.province` no es una ruta: Estados Unidos tiene
 `usa.geo.state` y `usa.geo.zip`.
 
 **Adivinar es la forma prevista de averiguarlo.** Escriba la hoja que espera y ejecute

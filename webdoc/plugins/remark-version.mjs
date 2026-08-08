@@ -39,6 +39,38 @@ export const VERSION = JSON.parse(
 
 export const TOKEN = '%%TDC_VERSION%%';
 
+/**
+ * The catalogue's own arithmetic, read from the manifest the bundles are built
+ * from.
+ *
+ * Same disease as the version, same cure. `installing-packs.mdx` said "108 sets
+ * today: common, ten languages, and 97 countries" one release after the answer
+ * became 109 and 98 — a sentence nobody thinks to revisit when a country pack
+ * lands, because the pack does not live anywhere near the page. Now the page
+ * states no number; it asks for one.
+ *
+ *   %%TDC_PACK_SETS%%       every downloadable bundle
+ *   %%TDC_PACK_COUNTRIES%%  the ones that are a country
+ *   %%TDC_PACK_LANGUAGES%%  the rest, minus `common`
+ */
+function packCounts() {
+  const manifest = JSON.parse(
+    readFileSync(join(HERE, '..', '..', 'data', 'bundles.json'), 'utf8'),
+  );
+  const bundles = manifest.bundles;
+  const countries = bundles.filter((b) =>
+    b.packs.some((p) => p.startsWith('packs/countries/')),
+  ).length;
+  return {
+    '%%TDC_PACK_SETS%%': String(bundles.length),
+    '%%TDC_PACK_COUNTRIES%%': String(countries),
+    '%%TDC_PACK_LANGUAGES%%': String(bundles.length - countries - 1),
+  };
+}
+
+/** Every token the build substitutes, resolved once. */
+export const TOKENS = { [TOKEN]: VERSION, ...packCounts() };
+
 /** Every node kind whose value a reader can end up copying. */
 const CARRIES_TEXT = ['text', 'code', 'inlineCode', 'html', 'yaml'];
 
@@ -46,8 +78,9 @@ export default function remarkVersion() {
   return (tree) => {
     for (const type of CARRIES_TEXT) {
       visit(tree, type, (node) => {
-        if (typeof node.value === 'string' && node.value.includes(TOKEN)) {
-          node.value = node.value.split(TOKEN).join(VERSION);
+        if (typeof node.value !== 'string') return;
+        for (const [token, value] of Object.entries(TOKENS)) {
+          if (node.value.includes(token)) node.value = node.value.split(token).join(value);
         }
       });
     }
@@ -60,8 +93,9 @@ export default function remarkVersion() {
     visit(tree, (node) => {
       if (!Array.isArray(node.attributes)) return;
       for (const attr of node.attributes) {
-        if (typeof attr.value === 'string' && attr.value.includes(TOKEN)) {
-          attr.value = attr.value.split(TOKEN).join(VERSION);
+        if (typeof attr.value !== 'string') continue;
+        for (const [token, value] of Object.entries(TOKENS)) {
+          if (attr.value.includes(token)) attr.value = attr.value.split(token).join(value);
         }
       }
     });

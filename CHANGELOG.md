@@ -269,6 +269,23 @@ self-closing — its attributes and children would be ignored`); `TDC101` still 
   `suggestion:` where the engine writes `help:`. It also found a message quoted on the
   pools page with no shared case behind it, so `TDC236` now has one.
 
+- The catalogue counts are generated, not written. "108 sets today: `common`, ten
+  languages, and 97 countries" was a release behind — the answer had become 109 and 98,
+  and it is a sentence nobody thinks to revisit when a country pack lands, because the
+  pack does not live anywhere near the page. The build already substituted the version
+  this way, for exactly this reason; it now substitutes the counts too, read from
+  `data/bundles.json`. The page states no number, it asks for one.
+
+- The postal-code count on the template page said 48; counting the country packs that
+  ship a postal-code address gives 46. The sentence now names the address names it
+  counted (`zip`, `postalCode`, `eircode`, `cep`, `cap`, `cpa`), so the number can be
+  reproduced instead of trusted.
+
+- The performance page said "the figures stand for 0.1.5" while the engine shipped 0.2.0.
+  It now says plainly that the numbers were measured on 0.1.4/0.1.5 and have not been
+  re-measured since, and which part of them — the shape, not the absolute seconds — is
+  the part to trust.
+
 - Parquet: the footer now declares `column_orders`, so the column statistics can actually
   be used. The min/max bounds were written and correct; the format says a reader must
   ignore them until `FileMetaData.column_orders` declares the sort order, and parquet-mr
