@@ -111,6 +111,8 @@ tdcv2 init --yes
 Wrote project config: /path/to/project/tdcv2.config.json
   data packs → /path/to/project/tdcv2-packs
   locale     → en
+
+Next: run `tdcv2 pack` to download data packs into that folder.
 ```
 
 ### `--global` / `-g` — one config for every project
