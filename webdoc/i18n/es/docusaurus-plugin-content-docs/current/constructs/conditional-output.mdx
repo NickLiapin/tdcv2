@@ -186,16 +186,20 @@ No hay ninguna secuencia llamada `admin`, así que `admin` es simplemente la pal
 
 ## Operadores de comparación
 
-| Operador | Significado                          |
-| :------- | :----------------------------------- |
-| `==`     | Igual (con promoción numérica suave) |
-| `!=`     | Distinto (espejo de `==`)            |
-| `===`    | Igualdad estricta (valor **y** tipo) |
-| `!==`    | Desigualdad estricta                 |
-| `<`      | Menor que                            |
-| `>`      | Mayor que                            |
-| `<=`     | Menor o igual                        |
-| `>=`     | Mayor o igual                        |
+| Operador | Significado                                |
+| :------- | :----------------------------------------- |
+| `==`     | El mismo **número**                        |
+| `!=`     | No el mismo número                         |
+| `===`    | El mismo **texto**, carácter por carácter   |
+| `!==`    | No el mismo texto                          |
+| `<`      | Menor que                                  |
+| `>`      | Mayor que                                  |
+| `<=`     | Menor o igual                              |
+| `>=`     | Mayor o igual                              |
+
+Cada columna que produce TDC es texto, así que «igual» tiene dos lecturas y cada una recibe
+su operador. El relato completo está en
+[Comparación y verdad](../reference/comparison.mdx).
 
 Los operadores de orden `<`, `>`, `<=`, `>=` siempre convierten ambos operandos a
 números.
@@ -241,43 +245,53 @@ límites de edad, umbrales, puntos de corte de puntaje.
 `==` y `!=` parten las filas exactamente por la mitad de la condición: donde uno es
 verdadero, el otro es falso.
 
-### El `==` suave frente al `===` estricto
+### `==` es el número, `===` es el texto
 
-`==` compara de forma **suave**: si un lado es un número y el otro una cadena
-numérica, se comparan como números. `===` exige además el mismo tipo.
-[`_count`](../reference/builtins.mdx) se guarda como cadena, así que frente al número
-`3` los dos operadores no se ponen de acuerdo:
+`==` pregunta si los dos lados son el mismo **número**, así que lee una columna de dígitos
+como uno. `===` pregunta si se imprimen con los mismos **caracteres**, y no lee nada como
+nada. Se separan exactamente donde el número y los caracteres difieren:
 
 ```xml
-<line><data>_count=${{_count}}:</data><data if="_count == 3"> ==3</data><data if="_count === 3"> ===3</data><data if="_count !== 3"> !==3</data></line>
+<tdc>
+  <env count="5" seed="strict" local="es">
+    <sequence name="Order"><gen type="text" value="7,07,7.0,x,7" order="sequential"/></sequence>
+  </env>
+  <block>
+    <line><data>"${{Order}}":</data><data if="Order == 7"> ==7</data><data if="Order === 7"> ===7</data><data if="Order !== 7"> !==7</data></line>
+  </block>
+</tdc>
 ```
 
-<Terminal title="./run strict.tdc (5 filas)">
-{`_count=1: !==3
-_count=2: !==3
-_count=3: ==3 !==3
-_count=4: !==3
-_count=5: !==3`}
+<Terminal title="./run strict.tdc">
+{`"7": ==7 ===7
+"07": ==7 !==7
+"7.0": ==7 !==7
+"x": !==7
+"7": ==7 ===7`}
 </Terminal>
 
-En la fila 3 la diferencia se ve: `_count == 3` es verdadero (suave: `"3"` equivale a
-`3` como números), pero `_count === 3` es **falso** (la cadena `"3"` no es el número
-`3` por tipo), lo que hace que `_count !== 3` sea verdadero en **todas** las filas,
-la 3 incluida. La marca `===3` no aparece nunca — la igualdad estricta entre una
-cadena y un número jamás coincide.
+`07` y `7.0` **son** siete, así que `== 7` se cumple; ninguno **se imprime** como `7`, así
+que `=== 7` no.
 
-**Por qué / cuándo:** eche mano de `===` solo cuando importe la distinción de tipos.
-Para las revisiones de campos corrientes, el `==` suave es lo que usted quiere,
-porque los valores generados son cadenas.
+**Por qué / cuándo:** `==` es la elección de cada día — importes, edades, contadores,
+palabras de categoría. Eche mano de `===` cuando importen los caracteres exactos: un
+identificador de ancho fijo, un código que debe conservar su cero a la izquierda, una columna
+de bandera con la palabra `true`.
 
-### La regla de la promoción suave
+### La regla que sigue `==`
 
-Cuando un operando es un número y el otro una cadena, TDC intenta primero leer la
-cadena como número:
+1. Ambos lados enteros → compararlos como enteros, exactamente.
+2. Un lado un número escrito por usted y el otro texto que se lee como número → compararlos
+   como números.
+3. Si no → compararlos como texto.
 
-- `_count == 5` — `_count` es la cadena `"5"`, pero `==` los compara como números. ✓
-- `Age == 18` — una cadena `Age` contra el número `18` se compara numéricamente. ✓
-- `Gender == Hombre` — ambos lados son cadenas, así que se comparan como cadenas. ✓
+- `_count == 5` — `_count` es el texto `5`, y el paso 1 deja ambos lados enteros. ✓
+- `Age == 18` — lo mismo. ✓
+- `Total == 100`, con `100.00` en `Total` — paso 2. ✓
+- `Gender == Hombre` — no hay número por ningún lado, así que el paso 3 compara texto. ✓
+
+[Comparación y verdad](../reference/comparison.mdx) recorre los rincones: qué cuenta como
+número, qué cuenta como verdadero y qué operador responde a cada pregunta.
 
 ## Operadores lógicos
 

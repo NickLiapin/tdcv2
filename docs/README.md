@@ -100,6 +100,7 @@
 - [Identifier catalog](./reference/identifiers.md#top)
 - [Error codes](./reference/errors.md#top)
 - [Expressions](./reference/expressions.md#top)
+- [Comparison and truth](./reference/comparison.md#top)
 
 ## Language Bindings
 

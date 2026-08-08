@@ -4,7 +4,7 @@
 
 📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/bindings/typescript)**
 
-← Previous: [Expressions](../reference/expressions.md#top) · **[Contents](../README.md#top)** · Next: [Python](./python.md#top) →
+← Previous: [Comparison and truth](../reference/comparison.md#top) · **[Contents](../README.md#top)** · Next: [Python](./python.md#top) →
 
 ---
 
@@ -187,6 +187,6 @@ time](../core-concepts/quick-api.md#top) is the whole surface.
 
 ---
 
-← Previous: [Expressions](../reference/expressions.md#top) · **[Contents](../README.md#top)** · Next: [Python](./python.md#top) →
+← Previous: [Comparison and truth](../reference/comparison.md#top) · **[Contents](../README.md#top)** · Next: [Python](./python.md#top) →
 
 📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/bindings/typescript)**

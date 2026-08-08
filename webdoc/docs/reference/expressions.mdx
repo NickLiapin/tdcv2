@@ -97,6 +97,11 @@ One edge worth knowing: −2⁶³ can be reached by arithmetic but not written a
 | membership | `in`                             |
 | choice     | `a ? b : c`                      |
 
+`==` asks whether both sides are the same **number**; `===` asks whether they print the same
+**characters**. Every column is text, so the two questions are genuinely different — see
+[Comparison and truth](comparison.mdx), which also settles what counts as true for a bare
+`if="Flag"`.
+
 :::caution[`%` is Euclidean, and that is not what your language does]
 `-3 % 2` is **1** here. JavaScript, Java, C# and Rust all answer −1; Python answers 1.
 

@@ -100,6 +100,7 @@
 - [Catálogo de identificadores](./reference/identifiers.md#top)
 - [Códigos de error](./reference/errors.md#top)
 - [Expresiones](./reference/expressions.md#top)
+- [Comparación y verdad](./reference/comparison.md#top)
 
 ## Bibliotecas por lenguaje
 

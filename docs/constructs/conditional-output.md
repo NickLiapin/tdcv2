@@ -192,16 +192,19 @@ equivalent to `Role == "admin"`.
 
 ## Comparison operators
 
-| Operator | Meaning                             |
-| :------- | :---------------------------------- |
-| `==`     | Equal (with soft numeric promotion) |
-| `!=`     | Not equal (mirror of `==`)          |
-| `===`    | Strict equal (value **and** type)   |
-| `!==`    | Strict not-equal                    |
-| `<`      | Less than                           |
-| `>`      | Greater than                        |
-| `<=`     | Less than or equal                  |
-| `>=`     | Greater than or equal               |
+| Operator | Meaning                            |
+| :------- | :--------------------------------- |
+| `==`     | The same **number**                |
+| `!=`     | Not the same number                |
+| `===`    | The same **text**, character for character |
+| `!==`    | Not the same text                  |
+| `<`      | Less than                          |
+| `>`      | Greater than                       |
+| `<=`     | Less than or equal                 |
+| `>=`     | Greater than or equal              |
+
+Every column TDC produces is text, so "equal" has two readings and each gets its own
+operator. [Comparison and truth](../reference/comparison.md#top) is the full account.
 
 The ordering operators `<`, `>`, `<=`, `>=` always coerce both operands to numbers.
 
@@ -250,43 +253,52 @@ score cutoffs.
 `==` and `!=` cut the rows into two complementary groups: wherever one is true, the
 other is false.
 
-### Soft `==` vs strict `===`
+### `==` is the number, `===` is the text
 
-`==` compares **softly** — if one side is a number and the other a numeric string,
-they're compared as numbers. `===` demands the same type as well.
-[`_count`](../reference/builtins.md#top) is stored as a string, so against the number
-`3` the two operators disagree:
+`==` asks whether the two sides are the same **number**, so it reads a column of digits as
+one. `===` asks whether they print the same **characters**, and reads nothing as anything.
+They part company exactly where the number and the characters differ:
 
 ```xml
-<line><data>_count=${{_count}}:</data><data if="_count == 3"> ==3</data><data if="_count === 3"> ===3</data><data if="_count !== 3"> !==3</data></line>
+<tdc>
+  <env count="5" seed="strict" local="en">
+    <sequence name="Order"><gen type="text" value="7,07,7.0,x,7" order="sequential"/></sequence>
+  </env>
+  <block>
+    <line><data>"${{Order}}":</data><data if="Order == 7"> ==7</data><data if="Order === 7"> ===7</data><data if="Order !== 7"> !==7</data></line>
+  </block>
+</tdc>
 ```
 
-`./run strict.tdc (5 rows)`
+`./run strict.tdc`
 
 ```
-_count=1: !==3
-_count=2: !==3
-_count=3: ==3 !==3
-_count=4: !==3
-_count=5: !==3
+"7": ==7 ===7
+"07": ==7 !==7
+"7.0": ==7 !==7
+"x": !==7
+"7": ==7 ===7
 ```
 
-Row 3 shows the difference: `_count == 3` is true (soft: `"3"` equals `3` as
-numbers), but `_count === 3` is **false** (the string `"3"` is not the number `3`),
-which makes `_count !== 3` true on **every** row, row 3 included. The `===3` tag
-never appears — strict equality between a string and a number never matches.
+`07` and `7.0` **are** seven, so `== 7` holds; neither **prints** as `7`, so `=== 7` does not.
 
-**Why/when:** reach for `===` only when the type distinction matters. For ordinary
-field checks, soft `==` is what you want, because generated values are strings.
+**Why/when:** `==` is the everyday choice — amounts, ages, counts, category words. Reach for
+`===` when the exact characters matter: an id of fixed width, a code that must keep its
+leading zero, a flag column holding the word `true`.
 
-### The soft-promotion rule
+### The rule `==` follows
 
-When one operand is a number and the other a string, TDC first tries to read the
-string as a number:
+1. Both sides whole numbers → compare as whole numbers, exactly.
+2. One side a number you wrote, the other text that reads as a number → compare as numbers.
+3. Otherwise → compare as text.
 
-- `_count == 5` — `_count` is the string `"5"`, but `==` compares them as numbers. ✓
-- `Age == 18` — a string `Age` against the number `18` compares numerically. ✓
-- `Gender == Male` — both sides are strings, so they compare as strings. ✓
+- `_count == 5` — `_count` is the text `5`, and step 1 makes both sides whole. ✓
+- `Age == 18` — same. ✓
+- `Total == 100` where `Total` holds `100.00` — step 2. ✓
+- `Gender == Male` — no number anywhere, so step 3 compares text. ✓
+
+[Comparison and truth](../reference/comparison.md#top) covers the corners: what counts as a
+number, what counts as true, and which operator answers which question.
 
 ## Logical operators
 

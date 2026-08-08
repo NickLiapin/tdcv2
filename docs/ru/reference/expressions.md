@@ -4,7 +4,7 @@
 
 📖 **[Открыть на сайте документации →](https://nickliapin.github.io/tdcv2/ru/docs/reference/expressions)**
 
-← Назад: [Коды ошибок](./errors.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [TypeScript](../bindings/typescript.md#top) →
+← Назад: [Коды ошибок](./errors.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Сравнение и истинность](./comparison.md#top) →
 
 ---
 
@@ -105,6 +105,11 @@ tdcv2: integer overflow: 10000000000000000000 is outside the signed 64-bit range
 | арифметика     | `+ - * / %`                      |
 | принадлежность | `in`                             |
 | выбор          | `a ? b : c`                      |
+
+`==` спрашивает, одно ли это **число**; `===` — печатаются ли обе стороны одними и теми же
+**символами**. Каждая колонка — текст, поэтому эти два вопроса действительно разные: см.
+[Сравнение и истинность](comparison.md#top), где заодно разобрано, что считается истиной для
+голого `if="Flag"`.
 
 > [!CAUTION]
 > **`%` евклидов, и это не то, что делает ваш язык**
@@ -393,6 +398,6 @@ TDC не разворачивает сущности, поэтому `&lt;` — 
 
 ---
 
-← Назад: [Коды ошибок](./errors.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [TypeScript](../bindings/typescript.md#top) →
+← Назад: [Коды ошибок](./errors.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Сравнение и истинность](./comparison.md#top) →
 
 📖 **[Открыть на сайте документации →](https://nickliapin.github.io/tdcv2/ru/docs/reference/expressions)**

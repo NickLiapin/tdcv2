@@ -100,6 +100,7 @@
 - [Каталог идентификаторов](./reference/identifiers.md#top)
 - [Коды ошибок](./reference/errors.md#top)
 - [Выражения](./reference/expressions.md#top)
+- [Сравнение и истинность](./reference/comparison.md#top)
 
 ## Библиотеки для языков
 

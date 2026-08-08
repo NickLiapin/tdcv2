@@ -1,0 +1,389 @@
+<a name="top"></a>
+
+[English](../../reference/comparison.md#top) · [Русский](../../ru/reference/comparison.md#top) · **Español**
+
+📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/reference/comparison)**
+
+← Anterior: [Expresiones](./expressions.md#top) · **[Contenido](../README.md#top)** · Siguiente: [TypeScript](../bindings/typescript.md#top) →
+
+---
+
+# Comparación y verdad
+
+Todo lo que produce una configuración de TDC es **texto**. Un `<gen type="number">` produce
+el texto `42`, un paquete de datos produce el texto `García`, y cada
+[variable integrada](builtins.md#top) también es texto. Nada lleva un tipo al lado, porque nada
+lo necesita: el texto es lo que acaba en el archivo CSV.
+
+Los únicos valores que **no** son texto son los que escribe usted dentro de una expresión: el
+`1` de `if="N == 1"`, el `admin` de `if="Role == admin"`.
+
+De ese único hecho sale cada regla de esta página.
+
+## Dos preguntas, dos operadores
+
+Al preguntar si dos cosas son iguales, usted hace una de dos preguntas distintas:
+
+- ¿Son el **mismo número**? `01` y `1` lo son.
+- ¿Son el **mismo texto**? `01` y `1` no lo son.
+
+Ambas preguntas valen la pena, así que cada una tiene su operador.
+
+| Operador     | Pregunta                       | `"01"` contra `1` |
+| :----------- | :----------------------------- | :---------------- |
+| `==`  `!=`   | ¿el mismo **número**?          | verdadero         |
+| `===` `!==`  | ¿el mismo **texto**?           | falso             |
+
+Es la forma a la que llegó Perl, y por la misma razón: allí un valor también es texto que
+puede leerse como número, así que un operador pregunta por el número y otro por los
+caracteres.
+
+```xml
+<tdc>
+  <env count="4" seed="cmp" local="es">
+    <sequence name="Code"><gen type="text" value="1,01,1.0,+1" order="sequential"/></sequence>
+  </env>
+  <block>
+    <line><data>Code = "${{Code}}":</data><data if="Code == 1"> == 1</data><data if="Code === 1"> === 1</data></line>
+  </block>
+</tdc>
+```
+
+`./run code.tdc`
+
+```
+Code = "1": == 1 === 1
+Code = "01": == 1
+Code = "1.0": == 1
+Code = "+1": == 1
+```
+
+Las cuatro columnas **son** el número uno, así que `== 1` es verdadero en las cuatro. Solo la
+primera **se imprime** como `1`, así que `=== 1` es verdadero una vez.
+
+## `==` — el mismo número
+
+La regla, en orden:
+
+1. Si ambos lados son **números enteros**, compárelos como enteros. Exactamente: un
+   identificador de 19 dígitos conserva cada cifra, porque aquí los enteros nunca se
+   convierten en flotantes. Vea [Números enteros](expressions.md#números-enteros).
+2. Si no, y un lado es un número que **escribió usted** y el otro es texto que se lee como
+   número, compárelos como números.
+3. Si no, compárelos como texto.
+
+El paso 3 es lo que hace funcionar `Role == admin`: no hay número por ningún lado, así que
+ambos siguen siendo texto.
+
+El paso 2 es lo que hace funcionar una columna de importes:
+
+```xml
+<tdc>
+  <env count="3" seed="money" local="es">
+    <sequence name="Total"><gen type="text" value="100.00,0.00,99.50" order="sequential"/></sequence>
+  </env>
+  <block>
+    <line><data>${{Total}}:</data><data if="Total == 100"> cien</data><data if="Total == 0"> cero</data><data if="Total < 100"> menos</data></line>
+  </block>
+</tdc>
+```
+
+`./run money.tdc`
+
+```
+100.00: cien
+0.00: cero menos
+99.50: menos
+```
+
+> [!NOTE]
+> **Dos textos siguen siendo texto**
+>
+> El paso 2 necesita un número **escrito por usted**. Dos columnas comparadas entre sí no
+> entran en aritmética por él, pero el paso 1 sigue aplicándose, así que dos columnas de
+> dígitos sí se comparan como enteros. `"01" == "1"` es verdadero; `"" == " "` es falso, aunque
+> ambos se lean como cero.
+
+## `===` — el mismo texto
+
+Una sola regla, sin pasos: imprima ambos lados y compare los caracteres.
+
+- Una columna se imprime como lo que contiene.
+- Un número que usted escribió se imprime como saldría en la salida: `1` es `1`, `1.5` es
+  `1.5`.
+- `true` y `false` se imprimen con esas cuatro y cinco letras.
+- La nada — una columna vacía — se imprime como el texto vacío.
+
+```xml
+<tdc>
+  <env count="5" seed="http" local="es">
+    <sequence name="Status"><gen type="text" value="200,404,500,200,301" order="sequential"/></sequence>
+  </env>
+  <block>
+    <line><data>${{Status}}</data><data if="Status === 200"> correcto</data><data if="Status >= 400"> fallo</data></line>
+  </block>
+</tdc>
+```
+
+`./run status.tdc`
+
+```
+200 correcto
+404 fallo
+500 fallo
+200 correcto
+301
+```
+
+## Dónde discrepan
+
+Solo donde el número y los caracteres difieren de verdad. Estas son las formas que se
+encuentran en la práctica:
+
+| La columna contiene | `== 1`    | `=== 1` | Por qué                                    |
+| :------------------ | :-------- | :------ | :----------------------------------------- |
+| `1`                 | verdadero | verdadero | mismo número, mismos caracteres          |
+| `01`                | verdadero | falso   | un cero a la izquierda es un carácter      |
+| `1.0`               | verdadero | falso   | los decimales escritos también lo son      |
+| `+1`                | verdadero | falso   | y el signo más también                     |
+| `1 ` (con espacio)  | verdadero | falso   | y el espacio también                       |
+| `uno`               | falso     | falso   | ni número ni esos caracteres               |
+
+Entre dos columnas el reparto es el mismo, y no hay literal a la vista:
+
+```xml
+<tdc>
+  <env count="4" seed="pair" local="es">
+    <sequence name="A"><gen type="text" value="01,7,x,0" order="sequential"/></sequence>
+    <sequence name="B"><gen type="text" value="1,7,x,00" order="sequential"/></sequence>
+  </env>
+  <block>
+    <line><data>${{A}} y ${{B}}:</data><data if="A == B"> mismo número</data><data if="A === B"> mismo texto</data></line>
+  </block>
+</tdc>
+```
+
+`./run pair.tdc`
+
+```
+01 y 1: mismo número
+7 y 7: mismo número mismo texto
+x y x: mismo número mismo texto
+0 y 00: mismo número
+```
+
+## Leer texto como número es generoso
+
+El paso 2 de `==` usa la misma lectura que el resto del lenguaje, y acepta más de lo que cabe
+esperar: los espacios de los extremos se ignoran, un valor vacío se lee como cero y `0x10` se
+lee como dieciséis.
+
+```xml
+<tdc>
+  <env count="4" seed="loose" local="es">
+    <sequence name="Field"><gen type="text" value="7,0x10,007,x" order="sequential"/></sequence>
+  </env>
+  <block>
+    <line><data>"${{Field}}":</data><data if="Field == 7"> == 7</data><data if="Field == 16"> == 16</data><data if="Field === '007'"> === '007'</data></line>
+  </block>
+</tdc>
+```
+
+`./run loose.tdc`
+
+```
+"7": == 7
+"0x10": == 16
+"007": == 7 === '007'
+"x":
+```
+
+Nada de eso ocurre con `===`, que no lee nada como nada. Cuando la pregunta es por los
+caracteres — un identificador de ancho fijo, un código que debe conservar su cero a la
+izquierda, un campo hexadecimal — el operador que responde es `===`.
+
+## Orden
+
+`<`, `>`, `<=` y `>=` leen siempre ambos lados como números. No hay orden textual: dos
+valores que no son números no son ni menores ni mayores el uno que el otro, así que ambas
+comparaciones salen falsas.
+
+```xml
+<tdc>
+  <env count="6" seed="ord" local="es">
+    <sequence name="Age"><gen type="text" value="15,17,18,25,40,70" order="sequential"/></sequence>
+  </env>
+  <block>
+    <line><data>edad ${{Age}}:</data><data if="Age < 18"> menor</data><data if="Age >= 18"> adulto</data><data if="Age > 65"> jubilado</data></line>
+  </block>
+</tdc>
+```
+
+`./run ages.tdc`
+
+```
+edad 15: menor
+edad 17: menor
+edad 18: adulto
+edad 25: adulto
+edad 40: adulto
+edad 70: adulto jubilado
+```
+
+Dos enteros se ordenan de forma exacta, más allá del punto donde un flotante empezaría a
+redondear.
+
+## Qué cuenta como verdadero
+
+Un nombre a secas ya es una condición: `if="Flag"`. También lo es cualquier cosa que reciban
+`!`, `&&` y `||`. Dos textos son falsos y **cualquier otro texto es verdadero**:
+
+| Valor            | Verdad      | Razón                                       |
+| :--------------- | :---------- | :------------------------------------------ |
+| `` (vacío)       | **falso**   | la columna no produjo ningún valor           |
+| `false`          | **falso**   | una columna de bandera que dice que no       |
+| `0`              | verdadero   | el cero es un valor, no una ausencia         |
+| `00`, `0.0`      | verdadero   | lo mismo                                     |
+| ` ` (un espacio) | verdadero   | un espacio es un carácter                    |
+| cualquier otro   | verdadero   |                                              |
+
+```xml
+<tdc>
+  <env count="6" seed="truth" local="es">
+    <sequence name="V"><gen type="text" value="x,0,00,0.0,false,true" order="sequential"/></sequence>
+  </env>
+  <block>
+    <line><data>"${{V}}"</data><data if="V"> verdadero</data><data if="!V"> falso</data></line>
+  </block>
+</tdc>
+```
+
+`./run truth.tdc`
+
+```
+"x" verdadero
+"0" verdadero
+"00" verdadero
+"0.0" verdadero
+"false" falso
+"true" verdadero
+```
+
+Es la regla de Lua y de Ruby — solo «nada» y «no» son falsos — llevada a un lenguaje cuyo
+único portador es el texto. Los dos textos falsos de TDC son exactamente esas dos cosas:
+
+- **vacío** es como una columna dice que no produjo nada: `missing=`, un `if=` que no se
+  cumplió, una rama de `parent=` que no es la de esta fila;
+- **`false`** es el booleano escrito de la única manera en que una columna puede escribirlo.
+
+> [!CAUTION]
+> **`0` es verdadero, y eso es lo que hay que recordar**
+>
+> `if="Count"` pregunta si la columna produjo un valor. Un contador a cero lo produjo. Si la
+> pregunta es por el número, use el operador que significa el número: `if="Count != 0"`.
+
+### Por qué funciona una columna de bandera
+
+`_first`, `_last` y cada columna [`anomaly_flag`](../guides/anomalies.md#top) contienen el texto
+literal `true` o `false`. Como `false` es falso, la bandera se lee como condición
+directamente:
+
+```xml
+<tdc>
+  <env count="6" seed="flag" local="es">
+    <sequence name="Amount"><gen type="number" value="10..99" anomaly="0.4" anomaly_factor="20" anomaly_flag="Spike"/></sequence>
+  </env>
+  <block>
+    <line><data>${{Amount}} Spike=${{Spike}}</data><data if="Spike"> ATIPICO</data><data if="Spike === 'true'"> ===true</data><data if="Spike == true"> ==true</data></line>
+  </block>
+</tdc>
+```
+
+`./run spike.tdc`
+
+```
+89 Spike=false
+30 Spike=false
+76 Spike=false
+47 Spike=false
+1500 Spike=true ATIPICO ===true
+1000 Spike=true ATIPICO ===true
+```
+
+Fíjese en la tercera marca: `Spike == true` no aparece nunca. `==` compara **números**, y ni
+el texto `true` ni el booleano lo son. Escriba el nombre a secas, o `=== 'true'`.
+
+La misma regla hace funcionar el truco de la coma entre elementos:
+
+```xml
+<tdc>
+  <env count="4" seed="join" local="es">
+    <sequence name="Tag"><gen type="text" value="rojo,verde,azul,gris" order="sequential"/></sequence>
+  </env>
+  <block>
+    <line><data>${{Tag}}</data><data if="!_last">, </data></line>
+  </block>
+</tdc>
+```
+
+`./run join.tdc`
+
+```
+rojo, 
+verde, 
+azul, 
+gris
+```
+
+## `in`
+
+`in` toma una lista a su derecha y pregunta si el valor de la izquierda es uno de sus
+miembros. Compara con la misma holgura que `==`, así que una columna de dígitos sigue
+coincidiendo con una lista de números.
+
+```xml
+<gen if="Country in [US, CA, MX]" type="text" value="NAFTA"/>
+```
+
+Las palabras sueltas dentro de la lista siguen siendo palabras sueltas, igual que junto a
+`==`. Una lista no se admite en ningún otro sitio — vea [TDC259](errors.md#top).
+
+## Cuál elegir
+
+| La pregunta                                        | El operador       |
+| :------------------------------------------------- | :---------------- |
+| ¿Este importe / edad / contador vale N?             | `==`              |
+| ¿Esta categoría o estado es esta?                   | `==` o `===`      |
+| ¿Este identificador tiene exactamente estos caracteres? | `===`         |
+| ¿Este código conserva su cero a la izquierda?       | `===`             |
+| ¿Está puesta esta bandera?                          | el nombre a secas |
+| ¿La columna produjo algo?                           | el nombre a secas |
+| ¿Este número es mayor o menor?                      | `<` `>` `<=` `>=` |
+| ¿Es uno de varios?                                  | `in`              |
+
+Cuando ambos servirían, `==` se lee con más naturalidad y es la elección de cada día. Eche
+mano de `===` en cuanto importen los caracteres exactos.
+
+## Precedencia
+
+De mayor a menor:
+
+`orden de asociación`
+
+```
+!   →   * / %   →   + -   →   < > <= >=   →   == != === !==   →   &&   →   ||
+```
+
+Los paréntesis la anulan. `a ? b : c` asocia más flojo que todo lo demás.
+
+## Las mismas cinco respuestas
+
+Las cinco implementaciones — TypeScript, Python, Rust, C# y Java — responden idénticamente a
+cada comparación de esta página, y las fixtures compartidas las mantienen ahí. Vea
+[Determinismo](../core-concepts/determinism.md#top).
+
+---
+
+← Anterior: [Expresiones](./expressions.md#top) · **[Contenido](../README.md#top)** · Siguiente: [TypeScript](../bindings/typescript.md#top) →
+
+📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/reference/comparison)**

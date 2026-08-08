@@ -4,7 +4,7 @@
 
 📖 **[Открыть на сайте документации →](https://nickliapin.github.io/tdcv2/ru/docs/bindings/typescript)**
 
-← Назад: [Выражения](../reference/expressions.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Python](./python.md#top) →
+← Назад: [Сравнение и истинность](../reference/comparison.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Python](./python.md#top) →
 
 ---
 
@@ -185,6 +185,6 @@ tdc.seed("demo").locale("ru").person.lastName(); // закреплено и по
 
 ---
 
-← Назад: [Выражения](../reference/expressions.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Python](./python.md#top) →
+← Назад: [Сравнение и истинность](../reference/comparison.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Python](./python.md#top) →
 
 📖 **[Открыть на сайте документации →](https://nickliapin.github.io/tdcv2/ru/docs/bindings/typescript)**

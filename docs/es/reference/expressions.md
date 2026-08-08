@@ -4,7 +4,7 @@
 
 📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/reference/expressions)**
 
-← Anterior: [Códigos de error](./errors.md#top) · **[Contenido](../README.md#top)** · Siguiente: [TypeScript](../bindings/typescript.md#top) →
+← Anterior: [Códigos de error](./errors.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Comparación y verdad](./comparison.md#top) →
 
 ---
 
@@ -104,6 +104,11 @@ Un borde que conviene saber: −2⁶³ se alcanza con aritmética pero no se esc
 | aritmética     | `+ - * / %`                      |
 | pertenencia    | `in`                             |
 | elección       | `a ? b : c`                      |
+
+`==` pregunta si ambos lados son el mismo **número**; `===`, si se imprimen con los mismos
+**caracteres**. Cada columna es texto, así que las dos preguntas son de verdad distintas —
+vea [Comparación y verdad](comparison.md#top), que además fija qué cuenta como verdadero para un
+`if="Flag"` a secas.
 
 > [!CAUTION]
 > **`%` es euclidiano, y eso no es lo que hace su lenguaje**
@@ -400,6 +405,6 @@ carácter directamente:
 
 ---
 
-← Anterior: [Códigos de error](./errors.md#top) · **[Contenido](../README.md#top)** · Siguiente: [TypeScript](../bindings/typescript.md#top) →
+← Anterior: [Códigos de error](./errors.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Comparación y verdad](./comparison.md#top) →
 
 📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/reference/expressions)**

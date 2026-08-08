@@ -4,7 +4,7 @@
 
 📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/reference/expressions)**
 
-← Previous: [Error codes](./errors.md#top) · **[Contents](../README.md#top)** · Next: [TypeScript](../bindings/typescript.md#top) →
+← Previous: [Error codes](./errors.md#top) · **[Contents](../README.md#top)** · Next: [Comparison and truth](./comparison.md#top) →
 
 ---
 
@@ -105,6 +105,11 @@ One edge worth knowing: −2⁶³ can be reached by arithmetic but not written a
 | arithmetic | `+ - * / %`                      |
 | membership | `in`                             |
 | choice     | `a ? b : c`                      |
+
+`==` asks whether both sides are the same **number**; `===` asks whether they print the same
+**characters**. Every column is text, so the two questions are genuinely different — see
+[Comparison and truth](comparison.md#top), which also settles what counts as true for a bare
+`if="Flag"`.
 
 > [!CAUTION]
 > **`%` is Euclidean, and that is not what your language does**
@@ -399,6 +404,6 @@ raw character:
 
 ---
 
-← Previous: [Error codes](./errors.md#top) · **[Contents](../README.md#top)** · Next: [TypeScript](../bindings/typescript.md#top) →
+← Previous: [Error codes](./errors.md#top) · **[Contents](../README.md#top)** · Next: [Comparison and truth](./comparison.md#top) →
 
 📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/reference/expressions)**

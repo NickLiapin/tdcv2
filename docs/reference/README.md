@@ -19,6 +19,7 @@
 - [Identifier catalog](./identifiers.md#top)
 - [Error codes](./errors.md#top)
 - [Expressions](./expressions.md#top)
+- [Comparison and truth](./comparison.md#top)
 
 ---
 

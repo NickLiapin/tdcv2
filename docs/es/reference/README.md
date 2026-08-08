@@ -19,6 +19,7 @@
 - [Catálogo de identificadores](./identifiers.md#top)
 - [Códigos de error](./errors.md#top)
 - [Expresiones](./expressions.md#top)
+- [Comparación y verdad](./comparison.md#top)
 
 ---
 
