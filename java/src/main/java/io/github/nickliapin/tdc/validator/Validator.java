@@ -172,6 +172,38 @@ public final class Validator {
           Map.entry("noise", java.util.Set.of("timeseries")),
           // Zero-padding a numeric range.
           Map.entry("first_zero", java.util.Set.of("number")),
+          // ── The date's own vocabulary ───────────────────────────────────────────────
+          //
+          // from=/to= are the trap that reopened this table. They are the natural words for a
+          // numeric range, they are real attributes, and a number generator has never read
+          // them: <gen type="number" from="1000" to="9999"/> produced 3 4 4 6 — four-digit ids
+          // asked for, single digits produced, check calling the config valid.
+          Map.entry("from", java.util.Set.of("date")),
+          Map.entry("to", java.util.Set.of("date")),
+          Map.entry("format", java.util.Set.of("date")),
+          Map.entry("precision", java.util.Set.of("date")),
+          // The birth window, read only where a birthday is drawn.
+          Map.entry("oldest", java.util.Set.of("date")),
+          Map.entry("youngest", java.util.Set.of("date")),
+          // ── The shape of a drawn value ──────────────────────────────────────────────
+          //
+          // length= on a text or a regex is the second-most natural thing to write and does
+          // nothing: a text walks the list you gave it, and a regex is as long as its pattern
+          // says.
+          Map.entry("length", java.util.Set.of("number", "symbol")),
+          Map.entry("include", java.util.Set.of("number", "symbol")),
+          Map.entry("exclude", java.util.Set.of("number", "symbol")),
+          // How many places the answer is printed to. Four generators produce a number they may
+          // have to round; the rest produce text, which has no places.
+          Map.entry("decimals", java.util.Set.of("number", "timeseries", "pattern", "stat")),
+          Map.entry("distribution", java.util.Set.of("number")),
+          // The ceiling on what an unbounded pattern may expand to.
+          Map.entry("regex_max_length", java.util.Set.of("regex", "advanced_regex")),
+          // How a drawing is read — as a curve or as a density.
+          Map.entry("mode", java.util.Set.of("pattern")),
+          // percent= is deliberately ABSENT: only text and number read it as a share of their
+          // own values, but the engine routes ANY generator carrying it through the share
+          // machinery.
           // The legacy two-date span, read by the date generator and by the `date.range` builtin
           // template. On a number it is the wrong word for value="10..99" — and silently gave
           // single digits.

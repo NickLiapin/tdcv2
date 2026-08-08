@@ -210,7 +210,7 @@ pub const GEN_TYPES: [&str; 16] = [
 /// An attribute in [`GEN_ATTRS`] is spelled correctly for SOME generator; this
 /// says whether it means anything for THIS one. Without it a `min=`/`max=` on a
 /// number and a `range=` on anything but a date pass silently and are dropped.
-pub const ATTRIBUTE_OWNERS: [(&str, &[&str]); 31] = [
+pub const ATTRIBUTE_OWNERS: [(&str, &[&str]); 44] = [
     // A list to walk — or, on a date, a range walked instead of drawn.
     ("order", &["text", "file", "date"]),
     ("cycle", &["text", "file", "date"]),
@@ -255,6 +255,39 @@ pub const ATTRIBUTE_OWNERS: [(&str, &[&str]); 31] = [
     ("noise", &["timeseries"]),
     // Zero-padding a numeric range.
     ("first_zero", &["number"]),
+    // ── The date's own vocabulary ───────────────────────────────────────────
+    //
+    // from=/to= are the trap that reopened this table. They are the natural
+    // words for a numeric range, they are real attributes, and a number
+    // generator has never read them: `<gen type="number" from="1000"
+    // to="9999"/>` produced 3 4 4 6 — four-digit ids asked for, single digits
+    // produced, `check` calling the config valid.
+    ("from", &["date"]),
+    ("to", &["date"]),
+    ("format", &["date"]),
+    ("precision", &["date"]),
+    // The birth window, read only where a birthday is drawn.
+    ("oldest", &["date"]),
+    ("youngest", &["date"]),
+    // ── The shape of a drawn value ──────────────────────────────────────────
+    //
+    // `length=` on a text or a regex is the second-most natural thing to write
+    // and does nothing: a text walks the list you gave it, and a regex is as
+    // long as its pattern says.
+    ("length", &["number", "symbol"]),
+    ("include", &["number", "symbol"]),
+    ("exclude", &["number", "symbol"]),
+    // How many places the answer is printed to. Four generators produce a
+    // number they may have to round; the rest produce text, which has none.
+    ("decimals", &["number", "timeseries", "pattern", "stat"]),
+    ("distribution", &["number"]),
+    // The ceiling on what an unbounded pattern may expand to.
+    ("regex_max_length", &["regex", "advanced_regex"]),
+    // How a drawing is read — as a curve or as a density.
+    ("mode", &["pattern"]),
+    // `percent` is deliberately ABSENT: only text and number read it as a share
+    // of their own values, but the engine routes ANY generator carrying it
+    // through the share machinery.
 ];
 
 /// `range=` is read by the date generator and by the `date.range` builtin

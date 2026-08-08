@@ -269,6 +269,55 @@ export const ATTRIBUTE_OWNERS: ReadonlyMap<string, ReadonlySet<string>> = new Ma
   // `date.range` builtin template. On a number it is the wrong word for
   // `value="10..99"` — and silently gave single digits.
   ['range', new Set(['date', 'template'])],
+
+  /* ── The date's own vocabulary ────────────────────────────────────────────
+   *
+   * `from`/`to` are the trap that reopened this table. They are the natural
+   * words for a numeric range, they are real attributes, and a number
+   * generator has never read them:
+   *
+   *     <gen type="number" from="1000" to="9999"/>   ->  3 4 4 6
+   *
+   * Four-digit ids asked for, single digits produced, `check` calling the
+   * config valid. Same shape as the `range=` entry above, which is why they
+   * belong beside it.
+   */
+  ['from', new Set(['date'])],
+  ['to', new Set(['date'])],
+  ['format', new Set(['date'])],
+  ['precision', new Set(['date'])],
+  // The birth window, read only where a birthday is drawn.
+  ['oldest', new Set(['date'])],
+  ['youngest', new Set(['date'])],
+
+  /* ── The shape of a drawn value ───────────────────────────────────────────
+   *
+   * `length=` on a text or a regex is the second-most natural thing to write
+   * and does nothing: a `text` walks the list you gave it, and a regex is as
+   * long as its pattern says.
+   */
+  ['length', new Set(['number', 'symbol'])],
+  ['include', new Set(['number', 'symbol'])],
+  ['exclude', new Set(['number', 'symbol'])],
+  // How many places the answer is printed to. Four generators produce a number
+  // they may have to round; the rest produce text, which has no places.
+  ['decimals', new Set(['number', 'timeseries', 'pattern', 'stat'])],
+  ['distribution', new Set(['number'])],
+  // The ceiling on what an unbounded pattern may expand to.
+  ['regex_max_length', new Set(['regex', 'advanced_regex'])],
+  // How a drawing is read — as a curve or as a density.
+  ['mode', new Set(['pattern'])],
+
+  /* `percent` is deliberately ABSENT, and this is the line worth not crossing.
+   * It looks type-specific — only `text` and `number` read it as a share of
+   * their own values — but a `<gen>` inside a `<mix>` carries it whatever its
+   * type, to apportion the mix. Listing it would refuse those. The table's own
+   * rule holds: only an UNAMBIGUOUS owner is listed.
+   *
+   * `type="template"` is exempt from all of this before the lookup happens —
+   * see `checkOwnershipOnly`. Every name here is outside
+   * RESERVED_TEMPLATE_ATTRS, so a pack may still claim any of them as a
+   * parameter. */
 ]);
 
 /**

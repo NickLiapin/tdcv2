@@ -31,6 +31,30 @@ page — is tracked in that implementation's own changelog:
 
 ### Fixed
 
+<!-- covers: from to format precision oldest youngest length include exclude decimals distribution regex_max_length mode -->
+
+- Thirteen real attributes were accepted on generator types that never read them, and the
+  column came out wrong without a word. `from`/`to` were the worst of them — they are the
+  natural way to write a numeric range, they are real attributes, and a number generator has
+  never read either:
+
+  ```
+  <gen type="number" from="1000" to="9999"/>   ->  3 4 4 6
+  ```
+
+  Four-digit ids asked for, single digits produced, `check` calling the config valid. The same
+  silence covered `format`, `precision`, `oldest` and `youngest` outside a date; `length`,
+  `include` and `exclude` outside a number or a symbol; `decimals` outside the four generators
+  that produce a number; `distribution` outside a number; `regex_max_length` outside the two
+  regex generators; and `mode` outside a pattern. TDC015 now names the owner for every one of
+  them.
+
+  The ownership table was measured, not read off the switch: every (type, attribute) pair was
+  rendered with and without the attribute and the outputs compared, then confirmed against the
+  generator sources. `percent` is deliberately still unowned — only `text` and `number` read it
+  as a share of their own values, but the engine routes any generator carrying it through the
+  share machinery, so owning the name would refuse configs that work today.
+
 <!-- covers: == != -->
 
 - A column of amounts failed its own equality test. `Total == 100` was false while

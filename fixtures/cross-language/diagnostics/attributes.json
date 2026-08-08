@@ -182,6 +182,62 @@
       "description": "The same mistake one generator across: from= reads a date, not a column. The reader has seen ${{}} work in a template value and moved it, which is the most natural thing in the world.",
       "config": "<tdc><env count=\"1\" seed=\"s\" local=\"en\"><sequence name=\"N\"><gen type=\"text\" value=\"5\"/></sequence><sequence name=\"X\"><gen type=\"date\" from=\"${{N}}\" to=\"2026-12-31\"/></sequence></env><block><line><data>${{X}}</data></line></block></tdc>",
       "expected": ["error TDC263 1:140"]
+    },
+    {
+      "name": "date-vocabulary-on-a-number",
+      "demonstrates": "TDC015",
+      "description": "from=/to= are the natural words for a numeric range and a number generator has never read them: <gen type=\"number\" from=\"1000\" to=\"9999\"/> produced single digits and check called it valid.",
+      "config": "<tdc><env count=\"2\" seed=\"s\"><sequence name=\"G\"><gen type=\"number\" from=\"1000\" to=\"9999\"/></sequence></env><block><line><data>x</data></line></block></tdc>",
+      "expected": ["error TDC015 1:73", "error TDC015 1:83"]
+    },
+    {
+      "name": "date-format-on-a-number",
+      "demonstrates": "TDC015",
+      "description": "format= and precision= belong to the date generator; on a number they are accepted and read by nothing.",
+      "config": "<tdc><env count=\"2\" seed=\"s\"><sequence name=\"G\"><gen type=\"number\" value=\"1..100\" format=\"YYYY-MM-DD\"/></sequence></env><block><line><data>x</data></line></block></tdc>",
+      "expected": ["error TDC015 1:90"]
+    },
+    {
+      "name": "the-birth-window-on-a-text",
+      "demonstrates": "TDC015",
+      "description": "oldest=/youngest= bound the year a birthday is drawn from. Nothing else reads them.",
+      "config": "<tdc><env count=\"2\" seed=\"s\"><sequence name=\"G\"><gen type=\"text\" value=\"a,b\" oldest=\"80\"/></sequence></env><block><line><data>x</data></line></block></tdc>",
+      "expected": ["error TDC015 1:85"]
+    },
+    {
+      "name": "number-shape-on-a-text",
+      "demonstrates": "TDC015",
+      "description": "length= sizes a drawn number or symbol string. A text walks the list you gave it, so the attribute reached nothing.",
+      "config": "<tdc><env count=\"2\" seed=\"s\"><sequence name=\"G\"><gen type=\"text\" value=\"a,b\" length=\"5\"/></sequence></env><block><line><data>x</data></line></block></tdc>",
+      "expected": ["error TDC015 1:85"]
+    },
+    {
+      "name": "number-shape-on-a-regex",
+      "demonstrates": "TDC015",
+      "description": "A regex is as long as its pattern says; length= there is read by nothing.",
+      "config": "<tdc><env count=\"2\" seed=\"s\"><sequence name=\"G\"><gen type=\"regex\" value=\"[a-z]\" length=\"8\"/></sequence></env><block><line><data>x</data></line></block></tdc>",
+      "expected": ["error TDC015 1:88"]
+    },
+    {
+      "name": "decimals-on-a-text",
+      "demonstrates": "TDC015",
+      "description": "decimals= rounds a number. Four generators produce one; a text produces characters, which have no places.",
+      "config": "<tdc><env count=\"2\" seed=\"s\"><sequence name=\"G\"><gen type=\"text\" value=\"a,b\" decimals=\"3\"/></sequence></env><block><line><data>x</data></line></block></tdc>",
+      "expected": ["error TDC015 1:87"]
+    },
+    {
+      "name": "regex-ceiling-on-a-text",
+      "demonstrates": "TDC015",
+      "description": "regex_max_length= caps what an unbounded pattern may expand to, and only the two regex generators expand patterns.",
+      "config": "<tdc><env count=\"2\" seed=\"s\"><sequence name=\"G\"><gen type=\"text\" value=\"a,b\" regex_max_length=\"3\"/></sequence></env><block><line><data>x</data></line></block></tdc>",
+      "expected": ["error TDC015 1:95"]
+    },
+    {
+      "name": "percent-is-deliberately-not-owned",
+      "demonstrates": "",
+      "description": "The line the ownership table must not cross. Only text and number read percent= as a share of their own values, yet the engine routes ANY generator carrying it through the share machinery, and both shapes below validate today. Owning the name would refuse them.",
+      "config": "<tdc><env count=\"4\" seed=\"s\" local=\"en\"><sequence name=\"G\"><gen type=\"regex\" value=\"[a-z]{3}\" percent=\"70\"/><gen type=\"regex\" value=\"[0-9]{3}\"/></sequence></env><block><line><data>${{G}}</data></line></block></tdc>",
+      "expected": []
     }
   ]
 }

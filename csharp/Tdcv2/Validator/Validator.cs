@@ -184,6 +184,45 @@ public sealed class Validator
             // Zero-padding a numeric range.
             ["first_zero"] = Set("number"),
 
+            // ── The date's own vocabulary ─────────────────────────────────────────────
+            //
+            // from=/to= are the trap that reopened this table. They are the natural words for
+            // a numeric range, they are real attributes, and a number generator has never read
+            // them: <gen type="number" from="1000" to="9999"/> produced 3 4 4 6 — four-digit
+            // ids asked for, single digits produced, check calling the config valid.
+            ["from"] = Set("date"),
+            ["to"] = Set("date"),
+            ["format"] = Set("date"),
+            ["precision"] = Set("date"),
+
+            // The birth window, read only where a birthday is drawn.
+            ["oldest"] = Set("date"),
+            ["youngest"] = Set("date"),
+
+            // ── The shape of a drawn value ────────────────────────────────────────────
+            //
+            // length= on a text or a regex is the second-most natural thing to write and does
+            // nothing: a text walks the list you gave it, and a regex is as long as its
+            // pattern says.
+            ["length"] = Set("number", "symbol"),
+            ["include"] = Set("number", "symbol"),
+            ["exclude"] = Set("number", "symbol"),
+
+            // How many places the answer is printed to. Four generators produce a number they
+            // may have to round; the rest produce text, which has no places.
+            ["decimals"] = Set("number", "timeseries", "pattern", "stat"),
+            ["distribution"] = Set("number"),
+
+            // The ceiling on what an unbounded pattern may expand to.
+            ["regex_max_length"] = Set("regex", "advanced_regex"),
+
+            // How a drawing is read — as a curve or as a density.
+            ["mode"] = Set("pattern"),
+
+            // percent= is deliberately ABSENT: only text and number read it as a share of
+            // their own values, but the engine routes ANY generator carrying it through the
+            // share machinery.
+
             // The legacy two-date span, read by the date generator and by the `date.range` builtin
             // template. On a number it is the wrong word for value="10..99" — and silently gave
             // single digits.

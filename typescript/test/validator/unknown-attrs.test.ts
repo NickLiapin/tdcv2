@@ -222,6 +222,83 @@ describe('unknown attributes on closed tags', () => {
     });
 
     /**
+     * The second wave of the same class, found by auditing the engine against
+     * the docs rather than the other way round. Each of these ran, validated
+     * clean, and produced a column nobody asked for:
+     *
+     *     <gen type="number" from="1000" to="9999"/>   ->  3 4 4 6
+     *     <gen type="text" value="a,b" length="5"/>    ->  a
+     *     <gen type="number" value="1..100" format="YYYY-MM-DD"/>  ->  42
+     *
+     * `from`/`to` is the worst of them: they are the natural words for a
+     * numeric range, they are real attributes, and the ids came out one digit
+     * wide.
+     */
+    it('catches the date vocabulary and the number shape on the wrong type', () => {
+      const cases: readonly (readonly [string, string])[] = [
+        ['from', '<gen type="number" from="1000" to="9999"/>'],
+        ['to', '<gen type="text" value="a,b" to="9999"/>'],
+        ['format', '<gen type="number" value="1..100" format="YYYY-MM-DD"/>'],
+        ['precision', '<gen type="number" value="1..100" precision="second"/>'],
+        ['oldest', '<gen type="text" value="a,b" oldest="80"/>'],
+        ['youngest', '<gen type="text" value="a,b" youngest="20"/>'],
+        ['length', '<gen type="text" value="a,b" length="5"/>'],
+        ['length', '<gen type="regex" value="[a-z]" length="8"/>'],
+        ['include', '<gen type="text" value="a,b" include="5"/>'],
+        ['exclude', '<gen type="date" range="2020-01-01..2020-12-31" exclude="5"/>'],
+        ['decimals', '<gen type="text" value="a,b" decimals="3"/>'],
+        ['distribution', '<gen type="text" value="a,b" distribution="normal"/>'],
+        ['regex_max_length', '<gen type="text" value="a,b" regex_max_length="3"/>'],
+        ['mode', '<gen type="text" value="a,b" mode="density"/>'],
+      ];
+      for (const [attr, gen] of cases) {
+        const d = diag(wrap(`<sequence name="A">${gen}</sequence>`));
+        expect(
+          d.some((x) => x.code === 'TDC015' && x.message.includes(`"${attr}"`)),
+          `${attr} should be reported on ${gen}`,
+        ).toBe(true);
+      }
+    });
+
+    /** And stays silent everywhere the engine really does read the name. */
+    it('says nothing where the type reads it', () => {
+      const fine: readonly string[] = [
+        '<gen type="number" value="1..100" length="4"/>',
+        '<gen type="number" value="1..100" decimals="2"/>',
+        '<gen type="number" value="1..100" include="5"/>',
+        '<gen type="symbol" value="[a-z]" length="4"/>',
+        '<gen type="symbol" value="[a-z]" exclude="q"/>',
+        '<gen type="date" from="1990-01-01" to="1999-12-31" format="YYYY"/>',
+        '<gen type="date" value="birth" oldest="80" youngest="20" precision="day"/>',
+        '<gen type="regex" value="[a-z]+" regex_max_length="8"/>',
+        '<gen type="advanced_regex" value="[a-z]+" regex_max_length="8"/>',
+        '<gen type="timeseries" base="100" trend="1" decimals="2"/>',
+      ];
+      for (const gen of fine) {
+        const d = diag(wrap(`<sequence name="A">${gen}</sequence>`));
+        expect(
+          d.filter((x) => x.code === 'TDC015'),
+          `nothing should be reported on ${gen}`,
+        ).toStrictEqual([]);
+      }
+    });
+
+    /**
+     * `percent` is the one that must NOT be owned. Only `text` and `number`
+     * read it as a share of their own values, but a `<gen>` inside a `<mix>`
+     * carries it whatever its type, to apportion the mix.
+     */
+    it('leaves percent alone, because a mix gives it to any generator', () => {
+      const d = diag(
+        wrap(
+          '<mix name="A"><gen type="regex" value="[a-z]{3}" percent="70"/>' +
+            '<gen type="date" range="2020-01-01..2020-12-31" percent="30"/></mix>',
+        ),
+      );
+      expect(d.filter((x) => x.code === 'TDC015')).toStrictEqual([]);
+    });
+
+    /**
      * `min`/`max` shape a named distribution's draw. Without `distribution=`
      * they mean nothing, and `<gen type="number" min="10" max="20"/>` — the
      * obvious thing to write — silently produced single digits.
