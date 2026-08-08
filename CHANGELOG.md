@@ -149,6 +149,28 @@ set` — a message naming no file, no line and no code. `tail="678"` passed `che
   the parsed spec and the four ports scan the body; the two were diffed across every
   bundled pack and agree on all 173.
 
+- A pack parameter that shares a name with another generator's attribute is no longer
+  refused. `<gen type="template" value="common.payment.card.pan" base="4111111111111"/>`
+  was answered with `TDC015: <gen> does not read "base" — it belongs to type="running",
+type="timeseries"`. The pack declares `<sequence name="base">`, the ENGINE was already
+  handing `base=` to it, and only the validator objected — on 39 packs, every one that
+  builds a value around a pinned prefix, which is the whole check-digit family (ISBN13,
+  IMEI, ICCID, IBAN, EAN13, card PANs…).
+
+  The line between "an attribute the engine reads" and "a parameter the pack may claim"
+  is now taken from the engine's own `RESERVED_TEMPLATE_ATTRS` rather than restated in
+  the validator, so the two cannot drift apart again. `order=` and `cycle=` are reserved
+  and stay refused; everything else goes to the pack-parameter check, which has the
+  registry in hand.
+
+  The same mistake printed TWO errors for a name the pack does NOT declare — the
+  ownership one, naming the wrong reason, beside the TDC072 that names the right one.
+  Now one. Fixing that exposed a second divergence the shared cases had not covered: the
+  four ports were skipping the pack-parameter check for the union of EVERY generator's
+  attributes, so `points=` on a pack that does not declare it went unreported once the
+  ownership check stopped guessing. All five now skip the same twenty wrapper names, and
+  three shared cases pin it.
+
 - Parquet: the footer now declares `column_orders`, so the column statistics can actually
   be used. The min/max bounds were written and correct; the format says a reader must
   ignore them until `FileMetaData.column_orders` declares the sort order, and parquet-mr

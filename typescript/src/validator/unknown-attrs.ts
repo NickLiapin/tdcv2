@@ -38,6 +38,7 @@
  * no-op being fixed.
  */
 
+import { RESERVED_TEMPLATE_ATTRS } from '../sequence/build.js';
 import {
   type Diagnostic,
   attrValueRange,
@@ -477,7 +478,16 @@ export function checkGenAttrs(attrs: readonly AttrContext[], diagnostics: Diagno
  *
  * `type="template"` takes whatever parameters its pack declares, so an unknown
  * name there is not a mistake. Which type reads `order=` is a different
- * question, and it has an answer regardless of the pack.
+ * question — but only for a name the ENGINE reads before the pack runs.
+ *
+ * That line is drawn by `RESERVED_TEMPLATE_ATTRS`, imported from the engine
+ * rather than restated here: everything outside it is handed to the pack as a
+ * parameter, so the ownership table has no jurisdiction over it. Getting this
+ * wrong cost 39 packs — every one that declares a `<sequence name="base">`,
+ * which is the whole check-digit family — a `TDC015: <gen> does not read
+ * "base"` on a config the engine would have run correctly. The same mistake
+ * printed TWO errors for a name the pack does NOT declare: this one, naming
+ * the wrong reason, beside the TDC072 that names the right one.
  */
 function checkOwnershipOnly(
   attrs: readonly AttrContext[],
@@ -491,6 +501,9 @@ function checkOwnershipOnly(
       reportIgnored(attr, name, '', [...GEN_ATTRIBUTES], diagnostics);
       continue;
     }
+    // A name the pack may claim is the pack's business, and `pack-params.ts`
+    // judges it with the registry in hand.
+    if (type === 'template' && !RESERVED_TEMPLATE_ATTRS.has(name)) continue;
     const owners = ATTRIBUTE_OWNERS.get(name);
     if (owners !== undefined && !owners.has(type)) {
       reportIgnored(

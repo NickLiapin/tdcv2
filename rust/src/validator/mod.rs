@@ -2432,7 +2432,13 @@ impl Validator {
                         "parent= selects which rows a whole <sequence> or <mix> builds on; move \
                          it there. A <gen> inside one is already filtered by it.",
                     );
-                } else if let Some(owners) = tables::lookup(&tables::ATTRIBUTE_OWNERS, name) {
+                } else if let Some(owners) = tables::lookup(&tables::ATTRIBUTE_OWNERS, name)
+                    .filter(|_| tables::RESERVED_TEMPLATE_ATTRS.contains(&name.as_str()))
+                {
+                    // A name the pack may claim is the pack's business, and the
+                    // pack-parameter check judges it with the registry in hand.
+                    // The line is drawn by what the ENGINE reads before the pack
+                    // runs; everything else is handed to the pack as an override.
                     if !owners.contains(&"template") {
                         let belongs = owners
                             .iter()
@@ -2628,7 +2634,7 @@ impl Validator {
             .filter(|(name, _)| {
                 // `parent`, `count` and `flag` may sit on a <gen> and are each reported
                 // by their own rule; a pack-parameter check must not read them as typos.
-                !tables::GEN_ATTRS.contains(&name.as_str())
+                !tables::PACK_WRAPPER_ATTRS.contains(&name.as_str())
                     && !declared.contains(*name)
                     && !matches!(name.as_str(), "parent" | "count" | "flag")
             })

@@ -85,6 +85,29 @@ public sealed class Validator
     /// whether it means anything for THIS one. Without it a <c>min=</c>/<c>max=</c> on a number and
     /// a <c>range=</c> on anything but a date pass silently and are dropped.
     /// </remarks>
+    /// <summary>
+    /// What the ENGINE reads off a <c>&lt;gen type="template"&gt;</c> before the pack runs.
+    /// </summary>
+    /// <remarks>
+    /// Kept in step with <c>MemoryEngine.ReservedTemplateAttrs</c>. A pack may claim any OTHER
+    /// name, which is why the ownership table has no jurisdiction there: it refused
+    /// <c>base=</c> on the 39 packs that declare a <c>&lt;sequence name="base"&gt;</c> — the
+    /// whole check-digit family — on configs the engine would have run.
+    /// </remarks>
+    private static readonly IReadOnlySet<string> ReservedTemplateAttrs = Set(
+        "type", "value", "local", "name", "if", "comment", "anomaly", "anomaly_factor",
+        "anomaly_flag", "missing", "missing_as", "mask", "case", "order", "cycle");
+
+    /// <summary>
+    /// What the pack-parameter check may skip: the engine-reserved names plus the wrappers
+    /// applied around the produced value. Using the union of EVERY generator's attributes
+    /// instead meant a name like <c>points=</c> was reported by nobody once the ownership
+    /// check stopped guessing.
+    /// </summary>
+    private static readonly IReadOnlySet<string> PackWrapperAttrs = Set(
+        "anomaly", "anomaly_factor", "anomaly_flag", "case", "comment", "count", "cycle", "flag", "if", "local",
+        "mask", "missing", "missing_as", "name", "order", "parent", "repeat", "separator", "type", "value");
+
     private static readonly IReadOnlyDictionary<string, IReadOnlySet<string>> AttributeOwners =
         new Dictionary<string, IReadOnlySet<string>>(StringComparer.Ordinal)
         {
@@ -3013,9 +3036,13 @@ public sealed class Validator
                 {
                     Ignored(gen, name, MisplacedGenParent);
                 }
-                else if (AttributeOwners.TryGetValue(name, out IReadOnlySet<string>? owns)
+                else if (ReservedTemplateAttrs.Contains(name)
+                    && AttributeOwners.TryGetValue(name, out IReadOnlySet<string>? owns)
                     && !owns.Contains("template"))
                 {
+                    // A name the pack may claim is the pack's business, and the pack-parameter
+                    // check judges it with the registry in hand. The line is drawn by what the
+                    // ENGINE reads before the pack runs; everything else is handed to the pack.
                     string owned = string.Join(
                         ", ",
                         owns.OrderBy(o => o, StringComparer.Ordinal).Select(o => $"type=\"{o}\""));
@@ -3153,7 +3180,7 @@ public sealed class Validator
         {
             // parent, count and flag may sit on a <gen> and are each reported by their own
             // rule; a pack-parameter check must not read them as typos.
-            if (GenAttrs.Contains(attr.Key) || NotAPackParam.Contains(attr.Key))
+            if (PackWrapperAttrs.Contains(attr.Key) || NotAPackParam.Contains(attr.Key))
             {
                 continue;
             }

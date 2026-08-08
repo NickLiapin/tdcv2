@@ -83,6 +83,30 @@ public final class Validator {
    * whether it means anything for THIS one. Without it a {@code min=}/{@code max=} on a number
    * and a {@code range=} on anything but a date pass silently and are dropped.
    */
+  /**
+   * What the ENGINE reads off a {@code <gen type="template">} before the pack runs.
+   *
+   * <p>Kept in step with {@code MemoryEngine.RESERVED_TEMPLATE_ATTRS}. A pack may claim any
+   * OTHER name, which is why the ownership table has no jurisdiction there: it refused
+   * {@code base=} on the 39 packs that declare a {@code <sequence name="base">} — the whole
+   * check-digit family — on configs the engine would have run.
+   */
+  private static final java.util.Set<String> RESERVED_TEMPLATE_ATTRS =
+      java.util.Set.of("type", "value", "local", "name", "if", "comment", "anomaly",
+          "anomaly_factor", "anomaly_flag", "missing", "missing_as", "mask", "case", "order",
+          "cycle");
+
+  /**
+   * What the pack-parameter check may skip: the engine-reserved names plus the wrappers applied
+   * around the produced value. Using the union of EVERY generator's attributes instead meant a
+   * name like {@code points=} was reported by nobody once the ownership check stopped guessing.
+   */
+  private static final java.util.Set<String> PACK_WRAPPER_ATTRS =
+      java.util.Set.of(
+          "anomaly", "anomaly_factor", "anomaly_flag", "case", "comment", "count", "cycle", "flag",
+          "if", "local", "mask", "missing", "missing_as", "name", "order", "parent",
+          "repeat", "separator", "type", "value");
+
   private static final Map<String, java.util.Set<String>> ATTRIBUTE_OWNERS =
       Map.ofEntries(
           // A list to walk — or, on a date, a range walked instead of drawn.
@@ -2461,7 +2485,11 @@ public final class Validator {
           ignored(gen, name, MISPLACED_GEN_PARENT);
           continue;
         }
-        java.util.Set<String> owns = ATTRIBUTE_OWNERS.get(name);
+        // A name the pack may claim is the pack's business, and the pack-parameter check
+        // judges it with the registry in hand. The line is drawn by what the ENGINE reads
+        // before the pack runs; everything else is handed to the pack as an override.
+        java.util.Set<String> owns =
+            RESERVED_TEMPLATE_ATTRS.contains(name) ? ATTRIBUTE_OWNERS.get(name) : null;
         if (owns != null && !owns.contains("template")) {
           List<String> sortedOwners = new ArrayList<>(owns);
           java.util.Collections.sort(sortedOwners);
@@ -2687,7 +2715,8 @@ public final class Validator {
     for (Map.Entry<String, String> attr : attrs.entrySet()) {
       // parent, count and flag may sit on a <gen> and are each reported by their own rule;
       // a pack-parameter check must not read them as typos.
-      if (GEN_ATTRS.contains(attr.getKey()) || NOT_A_PACK_PARAM.contains(attr.getKey())) {
+      if (PACK_WRAPPER_ATTRS.contains(attr.getKey())
+          || NOT_A_PACK_PARAM.contains(attr.getKey())) {
         continue;
       }
       if (declared.contains(attr.getKey())) {

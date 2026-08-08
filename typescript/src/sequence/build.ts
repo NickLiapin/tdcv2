@@ -172,7 +172,19 @@ export interface SequenceBuildOptions {
  * rather than parameterize the pack generator. Everything else is a parameter
  * that may override a same-named local sequence (spec §4.1).
  */
-const RESERVED_TEMPLATE_ATTRS = new Set([
+/**
+ * What the ENGINE reads off a `<gen type="template">` before the pack runs.
+ *
+ * This set is the authority on which names a pack may claim: anything NOT here
+ * is handed to the pack as a parameter override by `paramOverrides` below, so a
+ * pack is free to declare a `<sequence name="base">` and have the caller pin it.
+ * The validator imports it for exactly that reason — it used to keep its own
+ * idea of which names belong to which generator type, and refused `base=` on
+ * `usa.finance.aba_routing`, `common.payment.card.pan` and 37 other packs that
+ * declare it, with `TDC015: <gen> does not read "base"`. The engine had been
+ * reading it all along.
+ */
+export const RESERVED_TEMPLATE_ATTRS = new Set([
   'type',
   'value',
   'local',

@@ -50,6 +50,27 @@
       "description": "common.internet.email's domain is a name list of differing lengths, so no width can be proven",
       "config": "<tdc><env count=\"2\" seed=\"s\" local=\"en\"><sequence name=\"R\"><gen type=\"template\" value=\"common.internet.email\" domain=\"a.test\"/></sequence></env><block><line><data>${{R}}</data></line></block></tdc>",
       "expected": []
+    },
+    {
+      "name": "pinned-base-is-a-pack-parameter-not-a-timeseries-attribute",
+      "demonstrates": "",
+      "description": "common.payment.card.pan declares <sequence name=\"base\">, so base= is its parameter — the ownership table has no jurisdiction over a name the engine hands to the pack",
+      "config": "<tdc><env count=\"2\" seed=\"s\" local=\"en\"><sequence name=\"C\"><gen type=\"template\" value=\"common.payment.card.pan\" base=\"4111111111111\"/></sequence></env><block><line><data>${{C}}</data></line></block></tdc>",
+      "expected": []
+    },
+    {
+      "name": "a-name-the-pack-does-not-declare-gets-one-message-not-two",
+      "demonstrates": "TDC072",
+      "description": "points= belongs to type=\"pattern\", but on a template the only true answer is that this pack has no such parameter",
+      "config": "<tdc><env count=\"2\" seed=\"s\" local=\"en\"><sequence name=\"C\"><gen type=\"template\" value=\"common.payment.card.pan\" points=\"1,2\"/></sequence></env><block><line><data>${{C}}</data></line></block></tdc>",
+      "expected": ["error TDC072 1:120"]
+    },
+    {
+      "name": "order-on-a-template-is-still-refused",
+      "demonstrates": "TDC015",
+      "description": "order= is read by the ENGINE before the pack runs, so no pack can claim it",
+      "config": "<tdc><env count=\"2\" seed=\"s\" local=\"en\"><sequence name=\"C\"><gen type=\"template\" value=\"common.payment.card.pan\" order=\"sequential\"/></sequence></env><block><line><data>${{C}}</data></line></block></tdc>",
+      "expected": ["error TDC015 1:119"]
     }
   ]
 }

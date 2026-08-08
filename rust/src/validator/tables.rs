@@ -465,3 +465,41 @@ pub const PLANNED_EXPR_FUNCTIONS: [&str; 6] = [
 pub fn lookup<'a>(table: &'a [(&'a str, &'a [&'a str])], key: &str) -> Option<&'a [&'a str]> {
     table.iter().find(|(k, _)| *k == key).map(|(_, v)| *v)
 }
+
+/// What the ENGINE reads off a `<gen type="template">` before the pack runs.
+///
+/// Kept in step with `engine::memory::RESERVED_TEMPLATE_ATTRS`. A pack may claim
+/// any OTHER name, which is why the ownership table has no jurisdiction there:
+/// it refused `base=` on the 39 packs that declare a `<sequence name="base">`,
+/// the whole check-digit family, on configs the engine would have run.
+pub const RESERVED_TEMPLATE_ATTRS: [&str; 15] = [
+    "type", "value", "local", "name", "if", "comment", "anomaly", "anomaly_factor",
+    "anomaly_flag", "missing", "missing_as", "mask", "case", "order", "cycle",
+];
+
+/// What the pack-parameter check may skip: the engine-reserved names plus the
+/// wrappers applied around the produced value. Using the union of EVERY
+/// generator's attributes instead meant a name like `points=` was reported by
+/// nobody once the ownership check stopped guessing.
+pub const PACK_WRAPPER_ATTRS: [&str; 20] = [
+    "anomaly",
+    "anomaly_factor",
+    "anomaly_flag",
+    "case",
+    "comment",
+    "count",
+    "cycle",
+    "flag",
+    "if",
+    "local",
+    "mask",
+    "missing",
+    "missing_as",
+    "name",
+    "order",
+    "parent",
+    "repeat",
+    "separator",
+    "type",
+    "value",
+];

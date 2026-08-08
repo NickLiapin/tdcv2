@@ -26,6 +26,7 @@ from ..date import gen as date_gen
 from ..date import parse as date_parse
 from ..date.plain import Precision
 from ..distribution import percent_mask
+from ..engine.memory import RESERVED_TEMPLATE_ATTRS
 from ..errors import Diagnostic
 from ..expr import parse as expr_parse
 from ..expr.parse import (
@@ -306,6 +307,36 @@ _MISPLACED_GEN_PARENT = (
 #: mistake them for typos. They are each reported by their own rule instead — `parent=` belongs on
 #: the <sequence>, and `count=`/`flag=` belong to other tags entirely.
 _NOT_A_PACK_PARAM = frozenset({"parent", "count", "flag"})
+
+#: What the ENGINE reads off a <gen type="template"> before the pack runs, plus the
+#: wrappers it applies around the produced value. A pack may claim any OTHER name, so
+#: this — not the union of every generator's attributes — is what the pack-parameter
+#: check may skip. Using the union meant `points=` on a pack that does not declare it
+#: was reported by nobody once the ownership check stopped guessing.
+PACK_WRAPPER_ATTRS = frozenset(
+    {
+        "anomaly",
+        "anomaly_factor",
+        "anomaly_flag",
+        "case",
+        "comment",
+        "count",
+        "cycle",
+        "flag",
+        "if",
+        "local",
+        "mask",
+        "missing",
+        "missing_as",
+        "name",
+        "order",
+        "parent",
+        "repeat",
+        "separator",
+        "type",
+        "value",
+    }
+)
 
 GEN_ATTRS = frozenset(
     {
@@ -2506,6 +2537,17 @@ class _Validator:
             # here — but which type reads `order=` does not depend on the pack, and that half is
             # why `order=` and `parent=` sat on a template generator doing nothing.
             for name in attrs:
+                if name == "parent":
+                    self._ignored(gen, name, _MISPLACED_GEN_PARENT)
+                    continue
+                # A name the pack may claim is the pack's business, and the pack-parameter
+                # check judges it with the registry in hand. The line is drawn by what the
+                # ENGINE reads before the pack runs — everything else is handed to the pack as
+                # an override. Getting this wrong refused `base=` on the 39 packs that declare
+                # a `<sequence name="base">`, the whole check-digit family, on configs the
+                # engine would have run correctly.
+                if name not in RESERVED_TEMPLATE_ATTRS:
+                    continue
                 owners = ATTRIBUTE_OWNERS.get(name)
                 if owners is not None and "template" not in owners:
                     belongs = ", ".join(f'type="{t}"' for t in sorted(owners))
@@ -2514,8 +2556,6 @@ class _Validator:
                         name,
                         f'"{name}" belongs to {belongs} — a type="template" generator ignores it.',
                     )
-                elif name == "parent":
-                    self._ignored(gen, name, _MISPLACED_GEN_PARENT)
             return
 
         has_distribution = bool((attrs.get("distribution") or "").strip())
@@ -2600,7 +2640,7 @@ class _Validator:
         widths = self.packs.parameter_widths(path, self.locale)
 
         for name, value in attrs.items():
-            if name in GEN_ATTRS or name in _NOT_A_PACK_PARAM:
+            if name in PACK_WRAPPER_ATTRS or name in _NOT_A_PACK_PARAM:
                 continue
             if name in declared:
                 # A parameter the pack DOES accept, pinned to a value of the wrong width.
