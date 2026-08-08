@@ -93,7 +93,8 @@ completo está en [Tablas relacionales](../constructs/relational-tables.md#top):
 | `_item`    | La posición **dentro de esta tarjeta** — `1`, `2`, `3`, reiniciando cada una |
 | `_item_id` | Un número **único en todo el run** — una clave primaria lista para usar      |
 
-Existen solo en una línea con `each=`; en una línea común no nombran nada.
+Existen solo en una línea con `each=`. En una línea común el nombre no resuelve a nada, y
+[TDC193](errors.md#top) rechaza la configuración en vez de imprimir `${{_item}}` literalmente.
 
 ## Nombres reservados
 

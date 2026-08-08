@@ -397,22 +397,27 @@ function checkEnv(envEl: OpenCloseElementContext, ctx: Ctx): void {
     }
   }
 
-  // inject: must contain exactly one `%`.
+  // inject: the renderer splits on `(.+)%(.+)`, so the pattern needs a `%`
+  // with something on BOTH sides of it. Counting the `%` alone let `"%%"` and
+  // `"%x"` through: they have one, they cannot be split, and the renderer
+  // quietly stopped interpolating — every `${{Name}}` in the file reached the
+  // output verbatim with nothing said.
   const injectAttr = findAttr(attrs, 'inject');
   if (injectAttr) {
     ctx.inject = attrMap['inject'] ?? '${{%}}';
     const pattern = attrMap['inject'] ?? '';
-    let pctCount = 0;
-    for (const ch of pattern) {
-      if (ch === '%') pctCount += 1;
-    }
-    if (pctCount === 0) {
+    if (!/(.+)%(.+)/.test(pattern)) {
+      const hasPct = pattern.includes('%');
       ctx.diagnostics.push({
         severity: 'error',
         source: 'validator',
         ...attrValueRange(injectAttr),
-        message: `inject pattern "${pattern}" has no "%" placeholder — interpolation will never match`,
-        hint: 'Use a single "%" where the sequence name should go, e.g. inject="${{%}}" or inject="[%]".',
+        message: hasPct
+          ? `inject pattern "${pattern}" has nothing on both sides of its "%" — interpolation will never match`
+          : `inject pattern "${pattern}" has no "%" placeholder — interpolation will never match`,
+        hint:
+          'The `%` is where the sequence name goes, and it needs an opening and a closing part ' +
+          'around it: inject="${{%}}", inject="[%]", inject="%{%}%".',
         code: 'TDC021',
       });
     }

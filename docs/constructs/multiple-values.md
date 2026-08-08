@@ -46,7 +46,9 @@ nothing to join.
 >
 > `repeat="1..4"` does **not** roll a die per row. TDC hands each length an exact
 > share of the run, the same way [`percent`](../generators/text.md#top) does — 200 rows
-> come out 50 / 50 / 50 / 50, and 201 rows come out 51 / 50 / 50 / 50. That is what
+> come out 50 / 50 / 50 / 50. When the count does not divide evenly the remainder goes
+> to one length and the [seed](../core-concepts/determinism.md#top) decides which, so 201 rows come out
+> 51 / 50 / 50 / 50 in some order. The lengths always sum to the count, which is what
 > keeps the value proportions exact too ([below](#word-lists-and-exact-proportions)).
 >
 > The price is the one every whole-run layout pays: **change `count` and the lengths

@@ -242,15 +242,15 @@ Kazajistán
 ```
 
 El nombre sale en el idioma del locale activo — `Kirguistán` bajo `es`, `Kyrgyzstan`
-bajo `en`, `Киргизия` bajo `ru`. Ojo: las tres listas **no** tienen el mismo largo (241
-países en `en`, 237 en `es`, 115 en `ru`), así que una misma semilla no cae en el mismo país
-en los tres locales; lo que se conserva es la reproducibilidad dentro de cada uno.
+bajo `en`, `Киргизия` bajo `ru`. Ojo: `en` lleva cuatro países más que
+los demás (237 frente a 233), así que una misma semilla no cae en el mismo país en los tres
+locales; lo que se conserva es la reproducibilidad dentro de cada uno.
 
 > [!NOTE]
 > **Cada locale que tiene un paquete**
 >
-> `location.country` viene en los diez paquetes de idioma que trae el registro — **ar**,
-> **de**, **el**, **en**, **es**, **fr**, **it**, **pl**, **pt** y **ru** — cada uno con
+> `location.country` viene en los once paquetes de idioma que trae el registro — **ar**,
+> **de**, **el**, **en**, **es**, **fr**, **it**, **pl**, **pt**, **ru** y **zh-cn** — cada uno con
 > los mismos 233 países y territorios (el inglés trae 237). Un locale sin paquete tampoco
 > tiene lista: ahí la ruta da un error en vez de caer al inglés.
 
@@ -300,8 +300,8 @@ sencillamente donde usted se lo encuentra primero.
 
 ## `geo.*` — geografía de los paquetes de país
 
-`location.*` es el paquete de **idioma** hablando: nombres de países en el idioma del lector,
-los mismos 233 en todas partes. `geo.*` es un paquete de **país** hablando: los lugares
+`location.*` es el paquete de **idioma** hablando: nombres de países en el idioma del lector —
+los mismos 233 en todos los locales salvo el inglés, que trae 237. `geo.*` es un paquete de **país** hablando: los lugares
 dentro de un país, y una lista de países ponderada por cuánta gente vive en ellos.
 
 | Ruta                          | De dónde viene    | Qué produce                                     |

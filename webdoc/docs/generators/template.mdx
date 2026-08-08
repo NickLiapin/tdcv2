@@ -216,9 +216,9 @@ The list is localized: `local="ru"` yields `Греция`, `Никарагуа`,
 `local="es"` yields `Surinam`, `Burundi`, `Guyana`.
 
 :::note[Every locale that has a pack]
-`location.country` ships in all ten language packs the registry carries — **ar**,
-**de**, **el**, **en**, **es**, **fr**, **it**, **pl**, **pt** and **ru** — each with
-the same 233 countries and territories (English carries 237). A locale with no pack has
+`location.country` ships in all eleven language packs the registry carries — **ar**,
+**de**, **el**, **en**, **es**, **fr**, **it**, **pl**, **pt**, **ru** and **zh-cn** —
+each with the same 233 countries and territories (English carries 237). A locale with no pack has
 no list either: the path raises an error there instead of falling back to English.
 :::
 
@@ -263,8 +263,8 @@ answer for all of them, and a column of country names is simply where you meet i
 
 ## `geo.*` — geography from the country packs
 
-`location.*` is the **language** pack talking: country names in the reader's language, the
-same 233 everywhere. `geo.*` is a **country** pack talking: the places inside one country,
+`location.*` is the **language** pack talking: country names in the reader's language — the
+same 233 in every locale but English, which carries 237. `geo.*` is a **country** pack talking: the places inside one country,
 and a country list weighted by how many people live there.
 
 | Path                          | Comes from     | Produces                                     |

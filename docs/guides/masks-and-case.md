@@ -465,7 +465,9 @@ does not do, each of which fails quietly rather than loudly:
   looks for the five characters `[abc]` and, finding none, changes nothing.
 - **`from` cannot contain a comma.** The first comma ends it, so everything after
   belongs to `to` — `replace:-,+,x` replaces each `-` with `+,x`.
-- **An empty `from` does nothing.** `replace:,+` returns the value untouched.
+- **An empty `from` is refused.** `replace:,+` and `replace` on their own have nothing to
+  look for, so [TDC275](../reference/errors.md#top) stops the run rather than letting the
+  filter do nothing quietly. To DELETE, give the second part instead: `replace:-,`.
 
 Where any of those matter, use the [`<replace>`](../compute/strings.md#reshaping) tag
 in `<compute>` instead: it takes `from=` and `to=` as separate attributes, so a comma is

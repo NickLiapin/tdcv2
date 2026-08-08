@@ -968,11 +968,19 @@ public final class Validator {
       }
     }
 
+    // The renderer splits on `(.+)%(.+)`, so the pattern needs a `%` with something on BOTH
+    // sides. Counting the `%` alone let "%%" and "%x" through: they have one, they cannot be
+    // split, and the renderer quietly stopped interpolating.
     String inject = envAttrs.get("inject");
-    if (inject != null && !inject.contains("%")) {
+    if (inject != null && !java.util.regex.Pattern.compile("(.+)%(.+)").matcher(inject).find()) {
       error("TDC021",
-          "inject pattern \"" + inject + "\" has no \"%\" placeholder — interpolation will never match",
-          "Use a single \"%\" where the sequence name should go, e.g. inject=\"${{%}}\".",
+          inject.contains("%")
+              ? "inject pattern \"" + inject
+                  + "\" has nothing on both sides of its \"%\" — interpolation will never match"
+              : "inject pattern \"" + inject
+                  + "\" has no \"%\" placeholder — interpolation will never match",
+          "The `%` is where the sequence name goes, and it needs an opening and a closing part "
+              + "around it: inject=\"${{%}}\", inject=\"[%]\", inject=\"%{%}%\".",
           at(env, "inject")[0], at(env, "inject")[1]);
     }
 

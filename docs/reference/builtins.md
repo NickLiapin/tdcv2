@@ -92,7 +92,8 @@ and two more built-ins are available **only there** — see
 | `_item`    | The position **within this record** — `1`, `2`, `3`, restarting on each record |
 | `_item_id` | A number **unique across the whole run** — a ready-made primary key            |
 
-They exist only on an `each=` line; on an ordinary line they refer to nothing.
+They exist only on an `each=` line. On an ordinary line the name resolves to nothing, and
+[TDC193](errors.md#top) refuses the config rather than printing `${{_item}}` literally.
 
 ## Reserved names
 

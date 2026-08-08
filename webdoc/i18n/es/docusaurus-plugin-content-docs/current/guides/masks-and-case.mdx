@@ -444,7 +444,9 @@ que no hace, y cada una falla en silencio en vez de avisar:
   los cinco caracteres `[abc]` y, al no encontrarlos, no cambia nada.
 - **`from` no puede contener una coma.** La primera coma lo termina, así que todo lo que
   sigue pertenece a `to`: `replace:-,+,x` reemplaza cada `-` por `+,x`.
-- **Un `from` vacío no hace nada.** `replace:,+` devuelve el valor intacto.
+- **Un `from` vacío se rechaza.** `replace:,+` y `replace` a secas no tienen nada que buscar,
+  así que [TDC275](../reference/errors.mdx) detiene la ejecución en lugar de dejar que el
+  filtro no haga nada en silencio. Para BORRAR, dé la segunda parte: `replace:-,`.
 
 Donde algo de esto importe, use la etiqueta
 [`<replace>`](../compute/strings.mdx#reestructuración) dentro de `<compute>`: toma `from=`

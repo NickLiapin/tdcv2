@@ -1002,14 +1002,23 @@ class _Validator:
                     column,
                 )
 
+        # The renderer splits on `(.+)%(.+)`, so the pattern needs a `%` with something on
+        # BOTH sides. Counting the `%` alone let "%%" and "%x" through: they have one, they
+        # cannot be split, and the renderer quietly stopped interpolating.
         inject = env_attrs.get("inject")
-        if inject is not None and "%" not in inject:
+        if inject is not None and re.search(r"(.+)%(.+)", inject) is None:
             line, column = _at(env, "inject")
             self._error(
                 "TDC021",
-                f'inject pattern "{inject}" has no "%" placeholder — interpolation will never '
-                "match",
-                'Use a single "%" where the sequence name should go, e.g. inject="${{%}}".',
+                (
+                    f'inject pattern "{inject}" has nothing on both sides of its "%" — '
+                    "interpolation will never match"
+                    if "%" in inject
+                    else f'inject pattern "{inject}" has no "%" placeholder — interpolation '
+                    "will never match"
+                ),
+                "The `%` is where the sequence name goes, and it needs an opening and a closing "
+                'part around it: inject="${{%}}", inject="[%]", inject="%{%}%".',
                 line,
                 column,
             )

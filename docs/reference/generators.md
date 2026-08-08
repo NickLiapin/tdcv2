@@ -40,16 +40,18 @@ These work on **any** generator (see [Masks & case](../guides/masks-and-case.md#
 The next two only work when the generator produces something they can act on. Everywhere
 else they're ignored:
 
-- `order=` / `cycle=` — value order: random by default, or `sequential`. Ordering walks a
-  list, so it applies to [`text`](../generators/text.md#top) and
-  [`file`](../generators/file.md#top). A [`number`](../generators/number.md#top) or a
-  [`date`](../generators/date.md#top) draws from a range rather than a list, so it ignores
-  the attribute.
+- `order=` / `cycle=` — value order: random by default, or `sequential`. Ordering walks
+  something, so it applies to [`text`](../generators/text.md#top),
+  [`file`](../generators/file.md#top) and [`date`](../generators/date.md#top) — a date range is
+  walked a step at a time. A [`number`](../generators/number.md#top) draws from a range and
+  has no order to walk, so it is refused there ([TDC015](errors.md#top)).
 - `anomaly=` — push a share of the values out of range by multiplying them. The rule is
   about the **value**, not the generator: anything that reads as a number is multiplied,
   including a numeric string from [`text`](../generators/text.md#top),
-  [`file`](../generators/file.md#top) or a pack. Anything else — a name, a city — passes
-  through unchanged and **without a warning**, because there is no "further out" for it.
+  [`file`](../generators/file.md#top) or a pack. A non-numeric value beside numeric ones — a
+  name in a mixed list — passes through unchanged, because there is no "further out" for
+  it. A list with **no** numbers at all is refused ([TDC243](errors.md#top)): nothing there
+  could ever be pushed out of range, so the attribute would do nothing on every row.
   See [Anomalies & missing values](../guides/anomalies.md#top).
 
 See also the [Generators overview](../generators/overview.md#top).

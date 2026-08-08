@@ -638,15 +638,34 @@ impl Validator {
         self.check_small_shares(env);
 
         if let Some(inject) = env.attr_value("inject").map(str::to_string) {
-            if !inject.contains('%') {
-                self.error(
-                    "TDC021",
+            // The renderer splits on `(.+)%(.+)`, so the pattern needs a `%` with
+            // something on BOTH sides. Counting the `%` alone let "%%" and "%x"
+            // through: they have one, they cannot be split, and the renderer
+            // quietly stopped interpolating.
+            // Exactly what `(.+)%(.+)` asks: SOME `%` with at least one
+            // character on each side. Testing only the first one would refuse
+            // the documented `%{%}%`, whose usable `%` is the middle one.
+            let splittable = inject
+                .char_indices()
+                .any(|(i, c)| c == '%' && i > 0 && i + c.len_utf8() < inject.len());
+            if !splittable {
+                let message = if inject.contains('%') {
+                    format!(
+                        "inject pattern \"{inject}\" has nothing on both sides of its \"%\" \
+                         — interpolation will never match"
+                    )
+                } else {
                     format!(
                         "inject pattern \"{inject}\" has no \"%\" placeholder — interpolation \
                          will never match"
-                    ),
-                    "Use a single \"%\" where the sequence name should go, e.g. \
-                     inject=\"${{{{%}}}}\".",
+                    )
+                };
+                self.error(
+                    "TDC021",
+                    message,
+                    "The `%` is where the sequence name goes, and it needs an opening and a \
+                     closing part around it: inject=\"${{{{%}}}}\", inject=\"[%]\", \
+                     inject=\"%{{%}}%\".",
                     env.at("inject"),
                 );
             }

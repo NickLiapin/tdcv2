@@ -47,7 +47,10 @@ El límite superior es **64**. `separator` sin `repeat` es un error — no hay n
 >
 > `repeat="1..4"` **no** tira un dado por fila. TDC le da a cada longitud una parte exacta
 > de la corrida, igual que [`percent`](../generators/text.md#top): 200 filas salen
-> 50 / 50 / 50 / 50 y 201 filas salen 51 / 50 / 50 / 50. Eso es lo que mantiene exactas
+> 50 / 50 / 50 / 50. Cuando el count no divide exacto, el resto va a una de las longitudes y
+> la [semilla](../core-concepts/determinism.md#top) decide a cuál, así que 201 filas salen
+> 51 / 50 / 50 / 50 en algún orden. Las longitudes siempre suman el count, que es lo que
+> mantiene exactas
 > también las proporciones de los valores (vea «Listas de palabras y proporciones exactas»
 > más abajo).
 >

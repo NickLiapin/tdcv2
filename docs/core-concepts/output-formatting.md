@@ -431,13 +431,14 @@ Two caveats, both enforced:
 ## A custom interpolation marker
 
 [`inject`](../reference/attributes.md#top) on [`<env>`](configuration.md#top) changes the
-interpolation markers. The string must contain exactly one `%`, which is where the name
-goes:
+interpolation markers. The `%` is where the name goes, and it needs an opening and a
+closing part around it — TDC splits the pattern at the **rightmost** `%` that leaves both
+sides non-empty, which is what lets `%` itself appear in the wrapper:
 
 ```xml
 <env inject="${{%}}">…</env>   <!-- the default -->
 <env inject="[%]">…</env>       <!-- then write [Name] in <data> -->
-<env inject="%{%}%">…</env>     <!-- then write %{Name}% in <data> -->
+<env inject="%{%}%">…</env>     <!-- split at the middle %: write %{Name}% -->
 ```
 
 With `inject="[%]"` and `<data>Name: [Name]</data>`:

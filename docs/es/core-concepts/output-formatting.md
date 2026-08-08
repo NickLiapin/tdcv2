@@ -436,13 +436,14 @@ Dos advertencias, ambas obligadas:
 ## Un marcador de interpolación personalizado
 
 [`inject`](../reference/attributes.md#top) en [`<env>`](configuration.md#top) cambia los
-marcadores de interpolación. La cadena debe contener exactamente un `%`, donde va el
-nombre:
+marcadores de interpolación. El `%` es donde va el nombre, y necesita una parte de apertura
+y otra de cierre a su alrededor — TDC corta el patrón por el `%` **más a la derecha** que
+deja ambos lados no vacíos, que es lo que permite que el propio `%` aparezca en la envoltura:
 
 ```xml
 <env inject="${{%}}">…</env>   <!-- el valor por omisión -->
 <env inject="[%]">…</env>       <!-- entonces en <data> se escribe [Name] -->
-<env inject="%{%}%">…</env>     <!-- entonces en <data> se escribe %{Name}% -->
+<env inject="%{%}%">…</env>     <!-- corta por el % central: se escribe %{Name}% -->
 ```
 
 Con `inject="[%]"` y `<data>Nombre: [Name]</data>`:

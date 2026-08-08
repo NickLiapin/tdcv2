@@ -247,8 +247,8 @@ Both attach to any generator and change what the column looks like as a whole â€
 cells empty, a few values far out of range â€” rather than how the underlying value is
 drawn. They differ in what they can act on: `missing=` blanks a cell whatever was in it,
 while `anomaly=` **multiplies**, so it only bites on values that read as numbers. A
-numeric string from a `text` list is multiplied; a name is passed through unchanged and
-without a warning. Full rules on
+numeric string from a `text` list is multiplied; a name beside it is passed through
+unchanged, and a list with no numbers at all is refused outright. Full rules on
 **[Anomalies & missing values](../guides/anomalies.md#top)**.
 
 ---

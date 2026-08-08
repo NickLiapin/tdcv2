@@ -1097,15 +1097,22 @@ public sealed class Validator
                 "count is how many records to generate.", line, column);
         }
 
+        // The renderer splits on `(.+)%(.+)`, so the pattern needs a `%` with something on
+        // BOTH sides. Counting the `%` alone let "%%" and "%x" through: they have one, they
+        // cannot be split, and the renderer quietly stopped interpolating.
         string? inject = envAttrs.GetValueOrDefault("inject");
-        if (inject is not null && !inject.Contains('%'))
+        if (inject is not null && !System.Text.RegularExpressions.Regex.IsMatch(inject, "(.+)%(.+)"))
         {
             (int line, int column) = At(env, "inject");
             Error(
                 "TDC021",
-                $"inject pattern \"{inject}\" has no \"%\" placeholder — interpolation will never "
-                + "match",
-                "Use a single \"%\" where the sequence name should go, e.g. inject=\"${{%}}\".",
+                inject.Contains('%')
+                    ? $"inject pattern \"{inject}\" has nothing on both sides of its \"%\" — "
+                        + "interpolation will never match"
+                    : $"inject pattern \"{inject}\" has no \"%\" placeholder — interpolation will "
+                        + "never match",
+                "The `%` is where the sequence name goes, and it needs an opening and a closing "
+                + "part around it: inject=\"${{%}}\", inject=\"[%]\", inject=\"%{%}%\".",
                 line, column);
         }
 

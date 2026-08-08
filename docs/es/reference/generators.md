@@ -41,10 +41,10 @@ Estos dos necesitan que el generador produzca algo sobre lo que puedan actuar, y
 los demás casos se ignoran:
 
 - `order=` / `cycle=` — orden de los valores (aleatorio por omisión, o `sequential`).
-  Recorre una lista, así que aplica a [`text`](../generators/text.md#top) y
-  [`file`](../generators/file.md#top). [`number`](../generators/number.md#top) y
-  [`date`](../generators/date.md#top) toman su valor de un rango, no de una lista, y no
-  lo leen.
+  Recorre algo, así que aplica a [`text`](../generators/text.md#top),
+  [`file`](../generators/file.md#top) y [`date`](../generators/date.md#top) — un rango de
+  fechas se recorre paso a paso. [`number`](../generators/number.md#top) toma su valor de un
+  rango y no tiene nada que recorrer, así que allí se rechaza ([TDC015](errors.md#top)).
 - `anomaly=` — empuja una parte de los valores fuera del rango multiplicándolos. La
   regla es sobre el **valor**, no sobre el generador: se multiplica todo lo que se lea
   como número, incluida una cadena numérica de [`text`](../generators/text.md#top),
