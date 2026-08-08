@@ -48,6 +48,12 @@ _HINTS_BY_TAG = {
     )
 }
 
+#: The four tags that answer TRUE or FALSE rather than producing a value. They are compute
+#: tags, so the unknown-tag check waves them through wherever they appear; this set is what
+#: keeps a predicate out of a value position, where the evaluator's own complaint arrived
+#: only at render time and named no file, line or code.
+_PREDICATE_TAGS = frozenset({"equals", "greater_than", "less_than", "is_digit"})
+
 _INTEGER = re.compile(r"^-?\d+$")
 
 
@@ -147,6 +153,20 @@ class ComputeCheck:
         if node is None:
             return
         name = node.name
+        # A predicate answers TRUE or FALSE, so it is not a value. It is a compute tag, so
+        # the unknown-tag check below waves it through wherever it appears — and
+        # `<result><greater_than>…</greater_than></result>` then passed check and died
+        # mid-run with a message carrying no code, no line and no file.
+        if name in _PREDICATE_TAGS:
+            self._report(
+                node,
+                "TDC180",
+                f'<{name}> is a predicate, not a value — it is valid only inside <test>',
+                "A predicate answers true or false, and this position wants something to "
+                f"print. Wrap it: <choose><when><test><{name}>…</{name}></test></when>"
+                "<then>…</then></choose>.",
+            )
+            return
         if name not in _KNOWN_TAGS:
             self._report(node, "TDC180", f"unknown compute tag <{name}>", _HINTS_BY_TAG.get(name))
             return

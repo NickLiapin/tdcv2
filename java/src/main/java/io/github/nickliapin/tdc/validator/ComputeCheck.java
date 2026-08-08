@@ -25,6 +25,16 @@ final class ComputeCheck {
 
   private static final Set<String> ENCODINGS =
       Set.of("base36", "ascii", "unicode", "hex", "binary", "octal");
+  /**
+   * The four tags that answer TRUE or FALSE rather than producing a value.
+   *
+   * <p>They are compute tags, so the unknown-tag check waves them through wherever they
+   * appear; this set is what keeps a predicate out of a value position, where the evaluator's
+   * own complaint arrived only at render time and named no file, line or code.
+   */
+  private static final java.util.Set<String> PREDICATE_TAGS =
+      java.util.Set.of("equals", "greater_than", "less_than", "is_digit");
+
 
   private static final Set<String> KNOWN_TAGS =
       Set.of(
@@ -146,6 +156,18 @@ final class ComputeCheck {
   private void walkExpr(TDCParser.ElementContext element, Scope scope) {
     Node node = node(element);
     if (node == null) {
+      return;
+    }
+    // A predicate answers TRUE or FALSE, so it is not a value. It is a compute tag, so the
+    // unknown-tag check below waves it through wherever it appears — and
+    // <result><greater_than>…</greater_than></result> then passed check and died mid-run with
+    // a message carrying no code, no line and no file.
+    if (PREDICATE_TAGS.contains(node.name())) {
+      report(node, "TDC180",
+          "<" + node.name() + "> is a predicate, not a value — it is valid only inside <test>",
+          "A predicate answers true or false, and this position wants something to print. "
+              + "Wrap it: <choose><when><test><" + node.name() + ">…</" + node.name()
+              + "></test></when><then>…</then></choose>.");
       return;
     }
     if (!KNOWN_TAGS.contains(node.name())) {

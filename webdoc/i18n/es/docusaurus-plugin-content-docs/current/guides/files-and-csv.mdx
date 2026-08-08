@@ -301,9 +301,12 @@ incoherentes en silencio. Vea
   bloque de salida no tiene generadores, así que ahí la pregunta ni surge.
 - `row` requiere [`column`](../generators/file.mdx) — es una función de CSV, no de una
   lista de texto plano.
-- La misma clave `row` con fuentes **distintas** no las enlaza: TDC mantiene un grupo de
-  filas separado por cada combinación de fuente, delimitador y modo de encabezado. Esto
-  no es un error, solo algo que hay que tener presente.
+- La misma clave `row` con fuentes **distintas** las enlaza PROPORCIONALMENTE, no por
+  número de línea. La clave es un sorteo por fila y cada archivo la escala a su propio
+  largo: un archivo de 8 líneas en su línea 8 se empareja con uno de 4 en su línea 4, y su
+  línea 2 con la línea 1. Dos archivos del mismo largo coinciden exactamente; de largos
+  distintos van a la par, pero no línea por línea. Si necesita correspondencia exacta,
+  ponga las columnas en un solo archivo.
 
 ## Escribir CSV de vuelta
 

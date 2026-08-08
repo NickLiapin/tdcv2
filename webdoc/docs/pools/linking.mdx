@@ -147,9 +147,11 @@ doctor's clinic's city. Nothing special makes that work — `Seen.at.city` is a 
 the row by the time `Assisted` is built, because references resolve in **declaration
 order**, exactly as sequences do.
 
-Which means the same rule applies here as everywhere else in `<env>`: **the reference you
-filter on must be declared above the one that filters.** Swap `Seen` and `Assisted` and
-the filter reads a name nothing has produced yet.
+Declaring the reference you filter on **above** the one that filters is the habit to keep
+— it reads in the order it happens. It is not, however, a requirement the engine enforces:
+swapping `Seen` and `Assisted` in this example produces identical output and passes
+`check`, because the pool TABLES are built before any row is drawn, so the filter finds
+what it needs whichever line it sits on.
 
 ## A worked example
 

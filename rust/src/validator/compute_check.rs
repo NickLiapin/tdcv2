@@ -17,6 +17,14 @@ use crate::parser::ast::{Element, Kind};
 
 const ENCODINGS: [&str; 6] = ["base36", "ascii", "unicode", "hex", "binary", "octal"];
 
+/// The four tags that answer TRUE or FALSE rather than producing a value.
+///
+/// They are compute tags, so the unknown-tag check waves them through wherever
+/// they appear; this set is what keeps a predicate out of a value position,
+/// where the evaluator's own complaint arrived only at render time and named no
+/// file, line or code.
+const PREDICATE_TAGS: [&str; 4] = ["equals", "greater_than", "less_than", "is_digit"];
+
 const KNOWN_TAGS: [&str; 48] = [
     // literals and references
     "int",
@@ -203,6 +211,23 @@ impl<'a> ComputeCheck<'a> {
             return;
         }
         let name = node.name.as_str();
+        // A predicate answers TRUE or FALSE, so it is not a value. It is a compute
+        // tag, so the unknown-tag check below waves it through wherever it appears —
+        // and `<result><greater_than>…</greater_than></result>` then passed check and
+        // died mid-run with a message carrying no code, no line and no file.
+        if PREDICATE_TAGS.contains(&name) {
+            self.report(
+                node,
+                "TDC180",
+                format!("<{name}> is a predicate, not a value — it is valid only inside <test>"),
+                &format!(
+                    "A predicate answers true or false, and this position wants something to \
+                     print. Wrap it: <choose><when><test><{name}>…</{name}></test></when>\
+                     <then>…</then></choose>."
+                ),
+            );
+            return;
+        }
         if !KNOWN_TAGS.contains(&name) {
             self.report(
                 node,

@@ -312,9 +312,11 @@ See [Coherent & relational data](coherent-data.md#top) for the full picture.
   block has no generators, so the question never comes up there.
 - `row` requires [`column`](../generators/file.md#top) — it's a CSV feature, not something
   a plain text list can use.
-- The same `row` key does **not** link generators that read different sources: TDC keeps
-  a separate row group for each combination of source, delimiter, and header mode.
-  That's not an error, just something to be aware of.
+- The same `row` key across **different sources** links them PROPORTIONALLY, not by line
+  number. The key is one draw per row, and each file scales it to its own length — so an
+  8-line file at its line 8 pairs with a 4-line file at its line 4, and its line 2 pairs
+  with line 1. Two files of the same length line up exactly; two of different lengths stay
+  in step but not in lockstep. If you need line-for-line, put the columns in one file.
 
 ## Writing CSV back out
 

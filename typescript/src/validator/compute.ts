@@ -206,9 +206,41 @@ const HINTS_BY_TAG: Record<string, string> = {
     'An inline <compute> takes no parameters — read the value with <field name="…"/> instead.',
 };
 
+/**
+ * The four tags that answer TRUE or FALSE rather than producing a value.
+ *
+ * They are compute tags, so the unknown-tag check waves them through wherever
+ * they appear — and a `<result><greater_than>…</greater_than></result>` then
+ * passed `check` and died mid-run with `unknown compute tag <greater_than>`:
+ * no code, no line, no file. The evaluator's own message names the rule
+ * ("valid only inside <test>"); it just arrived too late to be useful, and the
+ * errors reference had been claiming TDC180 caught this all along.
+ */
+const PREDICATE_TAGS: ReadonlySet<string> = new Set([
+  'equals',
+  'greater_than',
+  'less_than',
+  'is_digit',
+]);
+
 function walkExpr(el: ElementContext, scope: VScope, diags: Diagnostic[]): void {
   const n = cnode(el);
   if (!n) return;
+  if (PREDICATE_TAGS.has(n.name)) {
+    report(
+      diags,
+      n.node,
+      'TDC180',
+      `<${n.name}> is a predicate, not a value — it is valid only inside <test>`,
+      'A predicate answers true or false, and this position wants something to print. ' +
+        'Wrap it: <choose><when><test><' +
+        n.name +
+        '>…</' +
+        n.name +
+        '></test></when><then>…</then></choose>.',
+    );
+    return;
+  }
   if (!COMPUTE_TAGS.has(n.name)) {
     // A tag with a note of its own keeps it — those explain a real confusion.
     // Everything else gets the same "Allowed inside <X>" list every container

@@ -234,6 +234,24 @@ type="timeseries"`. The pack declares `<sequence name="base">`, the ENGINE was a
   everywhere else, which is what the engine has done all along. Checked against ten
   generator types; the pages now say which three.
 
+- A predicate written where a value belongs — `<result><greater_than>…</greater_than>` —
+  passed `check` and then died mid-run with `unknown compute tag <greater_than>`: no code,
+  no line, no file. The four predicates are compute tags, so the unknown-tag check waved
+  them through wherever they appeared, and the errors reference had been claiming TDC180
+  caught this all along. It does now, in all five, with a hint that shows the `<choose>`
+  wrapper. Pinned by a shared case.
+
+- Four claims in the reference that the engine does not make. `TDC183` said `<add>` and
+  `<subtract>` "take exactly two operands" — only `<divide>` and `<mod>` are binary; the
+  other three are variadic, and `<add>` over nothing is `0`. `TDC125` listed three allowed
+  children of `<case>`; there are four, and the fourth, `<switch>`, has its own error code
+  next to it. The same `row` key across files of different lengths does link them, and
+  proportionally — an 8-line file's line 8 pairs with a 4-line file's line 4 — where the
+  page said it does not link them at all. And the pool "declare the reference above the
+  one that filters" rule is a readability habit, not something the engine enforces:
+  swapping the two produces identical output and passes `check`, because the pool tables
+  are built before any row is drawn.
+
 - Parquet: the footer now declares `column_orders`, so the column statistics can actually
   be used. The min/max bounds were written and correct; the format says a reader must
   ignore them until `FileMetaData.column_orders` declares the sort order, and parquet-mr

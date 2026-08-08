@@ -119,6 +119,13 @@
       "description": "Written as a filter the pattern reached the renderer unchecked; only the mask= attribute was parsed",
       "config": "<tdc><env count=\"2\" seed=\"s\" local=\"en\"><sequence name=\"A\"><gen type=\"text\" value=\"hello\"/></sequence></env><block><line><data>${{A|mask:x[1-2]}}</data></line></block></tdc>",
       "expected": ["error TDC199 1:121"]
+    },
+    {
+      "name": "a-predicate-in-a-value-position-is-caught-before-the-run",
+      "demonstrates": "TDC180",
+      "description": "<greater_than> answers true or false, so it is valid only inside <test>. It used to pass check and die mid-run with a message carrying no code, no line and no file.",
+      "config": "<tdc><env count=\"2\" seed=\"s\"><sequence name=\"C\"><compute><result><greater_than><int v=\"2\"/><int v=\"1\"/></greater_than></result></compute></sequence></env><block><line><data>${{C}}</data></line></block></tdc>",
+      "expected": ["error TDC180 1:65"]
     }
   ]
 }

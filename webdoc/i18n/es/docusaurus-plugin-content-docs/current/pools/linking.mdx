@@ -152,9 +152,11 @@ clínica del médico de la fila. Nada especial lo hace posible — `Seen.at.city
 columna de la fila cuando se construye `Assisted`, porque las referencias se resuelven en
 **orden de declaración**, igual que las secuencias.
 
-Lo que significa que aquí rige la misma regla que en todo `<env>`: **la referencia por la
-que filtras tiene que estar declarada encima de la que filtra.** Intercambia `Seen` y
-`Assisted` y el filtro leerá un nombre que nada ha producido todavía.
+Declarar la referencia por la que filtras **encima** de la que filtra es la costumbre que
+conviene mantener: se lee en el orden en que ocurre. No es, sin embargo, un requisito que
+el motor imponga: intercambiar `Seen` y `Assisted` en este ejemplo produce una salida
+idéntica y pasa `check`, porque las TABLAS de los pools se construyen antes de sacar
+ninguna fila, así que el filtro encuentra lo que necesita esté en la línea que esté.
 
 ## Un ejemplo completo
 

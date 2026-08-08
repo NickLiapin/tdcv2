@@ -26,6 +26,17 @@ internal sealed class ComputeCheck
     {
         "base36", "ascii", "unicode", "hex", "binary", "octal",
     };
+    /// <summary>
+    /// The four tags that answer TRUE or FALSE rather than producing a value.
+    /// </summary>
+    /// <remarks>
+    /// They are compute tags, so the unknown-tag check waves them through wherever they
+    /// appear; this set is what keeps a predicate out of a value position, where the
+    /// evaluator's own complaint arrived only at render time and named no file, line or code.
+    /// </remarks>
+    private static readonly HashSet<string> PredicateTags =
+        new(StringComparer.Ordinal) { "equals", "greater_than", "less_than", "is_digit" };
+
 
     private static readonly HashSet<string> KnownTags = new(StringComparer.Ordinal)
     {
@@ -185,6 +196,21 @@ internal sealed class ComputeCheck
         Node? node = ToNode(element);
         if (node is null)
         {
+            return;
+        }
+
+        // A predicate answers TRUE or FALSE, so it is not a value. It is a compute tag, so
+        // the unknown-tag check below waves it through wherever it appears — and
+        // <result><greater_than>…</greater_than></result> then passed check and died mid-run
+        // with a message carrying no code, no line and no file.
+        if (PredicateTags.Contains(node.Name))
+        {
+            Report(
+                node, "TDC180",
+                $"<{node.Name}> is a predicate, not a value — it is valid only inside <test>",
+                "A predicate answers true or false, and this position wants something to print. "
+                + $"Wrap it: <choose><when><test><{node.Name}>…</{node.Name}></test></when>"
+                + "<then>…</then></choose>.");
             return;
         }
 
