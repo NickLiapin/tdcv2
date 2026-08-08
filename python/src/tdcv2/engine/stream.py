@@ -24,6 +24,7 @@ from collections.abc import Callable
 from dataclasses import dataclass
 from pathlib import Path
 
+from ..expr.match_key import match_key
 from ..compute import evaluate as compute_evaluate
 from ..date import gen as date_gen
 from ..distribution import hamilton, percent_mask
@@ -259,7 +260,7 @@ class StreamEngine:
             if equality and buckets is not None:
                 driver = self.columns.get(equality[1])
                 wanted = driver(row) if driver else ""
-                eligible = buckets.get(wanted or "", [])
+                eligible = buckets.get(match_key(wanted or ""), [])
                 detail = f''' ({equality[1]}="{wanted or ""}")'''
             else:
                 eligible = pool_mod.eligible_members(

@@ -272,7 +272,7 @@ public sealed class StreamEngine
                 string wanted = _columns.TryGetValue(equality.Value.Column, out Column? driver)
                     ? driver(row) ?? ""
                     : "";
-                eligible = buckets.TryGetValue(wanted, out List<int>? found) ? found : new List<int>();
+                eligible = buckets.TryGetValue(MatchKey.Of(wanted), out List<int>? found) ? found : new List<int>();
                 detail = $" ({equality.Value.Column}=\"{wanted}\")";
             }
             else

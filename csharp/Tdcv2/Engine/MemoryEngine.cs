@@ -367,7 +367,7 @@ public static class MemoryEngine
                 string wanted = columns.TryGetValue(equality.Value.Column, out string[]? driver)
                     ? driver[row] ?? ""
                     : "";
-                eligible = buckets.TryGetValue(wanted, out List<int>? found)
+                eligible = buckets.TryGetValue(MatchKey.Of(wanted), out List<int>? found)
                     ? found
                     : new List<int>();
                 detail = $" ({equality.Value.Column}=\"{wanted}\")";

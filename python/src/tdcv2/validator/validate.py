@@ -19,6 +19,7 @@ import re
 from pathlib import Path
 from urllib.parse import urlparse
 
+from ..expr.match_key import match_key
 from ..date import calendar
 from ..date import locales as date_locales
 from ..date import formatter as date_formatter
@@ -1243,7 +1244,12 @@ class _Validator:
             other_values = self.finite_values.get(other) if is_column else [other]
             if not other_values:
                 continue
-            if any(value in field_values for value in other_values):
+            # Compared the way `==` compares two texts, so the check cannot refuse a config
+            # the run would have answered. Raw text refused `code == Want` where the members
+            # hold 01,02,03 and the column produces 1,2,3 — the same question written with
+            # one extra term matched every row.
+            field_keys = {match_key(v) for v in field_values}
+            if any(match_key(value) in field_keys for value in other_values):
                 continue
             listed = ", ".join(field_values)
             produced = f'"{other}" produces: {", ".join(other_values)}. ' if is_column else ""

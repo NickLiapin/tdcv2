@@ -12,6 +12,7 @@
 
 use std::collections::BTreeMap;
 
+use crate::expr::match_key::match_key;
 use crate::prng::seekable;
 
 /// Measured on the reference: ~320 bytes a member with four fields.
@@ -91,12 +92,16 @@ fn plain(text: &str) -> bool {
 }
 
 /// member value → the members holding it. Built once per reference.
+///
+/// Keyed by `match_key` rather than by the raw text, so the bucket answers the
+/// same question `==` would: a member holding `"01"` is found by a row
+/// producing `"1"`, exactly as the general expression path finds it.
 pub fn bucket_by_field(table: &PoolTable, field: &str) -> BTreeMap<String, Vec<usize>> {
     let mut buckets: BTreeMap<String, Vec<usize>> = BTreeMap::new();
     let empty = Vec::new();
     let column = table.columns.get(field).unwrap_or(&empty);
     for m in 0..table.count {
-        let key = column.get(m).cloned().unwrap_or_default();
+        let key = match_key(column.get(m).map(String::as_str).unwrap_or_default());
         buckets.entry(key).or_default().push(m);
     }
     buckets

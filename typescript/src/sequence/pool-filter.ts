@@ -26,6 +26,7 @@
  */
 
 import { evaluateInScope } from '../expr/evaluate.js';
+import { matchKey } from '../expr/match-key.js';
 import type { PoolTable } from './pool.js';
 
 /** `field == Column` — the shape worth bucketing for. */
@@ -69,12 +70,18 @@ function isPlainName(s: string): boolean {
   return /^[A-Za-z_][A-Za-z0-9_]*$/.test(s);
 }
 
-/** member value → the members holding it. Built once per reference. */
+/**
+ * member value → the members holding it. Built once per reference.
+ *
+ * Keyed by `matchKey` rather than by the raw text, so the bucket answers the
+ * same question `==` would: a member holding `"01"` is found by a row producing
+ * `"1"`, exactly as the general expression path finds it.
+ */
 export function bucketByField(table: PoolTable, field: string): Map<string, number[]> {
   const buckets = new Map<string, number[]>();
   const column = table.columns[field] ?? [];
   for (let m = 0; m < table.count; m++) {
-    const key = column[m] ?? '';
+    const key = matchKey(column[m] ?? '');
     const bucket = buckets.get(key);
     if (bucket) bucket.push(m);
     else buckets.set(key, [m]);

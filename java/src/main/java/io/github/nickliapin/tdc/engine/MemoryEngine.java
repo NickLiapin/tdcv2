@@ -1,5 +1,6 @@
 package io.github.nickliapin.tdc.engine;
 
+import io.github.nickliapin.tdc.expr.MatchKey;
 import io.github.nickliapin.tdc.compute.Compute;
 import io.github.nickliapin.tdc.date.DateGen;
 import io.github.nickliapin.tdc.distribution.Hamilton;
@@ -345,7 +346,7 @@ public final class MemoryEngine {
       if (equality != null) {
         String[] driver = columns.get(equality[1]);
         String wanted = driver == null || driver[row] == null ? "" : driver[row];
-        eligible = buckets.getOrDefault(wanted, List.of());
+        eligible = buckets.getOrDefault(MatchKey.of(wanted), List.of());
         detail = " (" + equality[1] + "=\"" + wanted + "\")";
       } else {
         eligible = new ArrayList<>();

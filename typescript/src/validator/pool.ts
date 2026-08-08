@@ -26,6 +26,7 @@ import { contentElements, elementKind, elementName, extractAttrs } from '../proc
 
 import { attrValueRange, nodeRange } from '../errors/source-map.js';
 import { closestMatch } from '../errors/suggestions.js';
+import { matchKey } from '../expr/match-key.js';
 
 /**
  * The field names each pool declares, collected before the members are walked.
@@ -431,7 +432,12 @@ export function runPendingPoolFilters(
     const isColumn = declared.includes(item.other);
     const otherValues = isColumn ? finiteValues.get(item.other) : [item.other];
     if (!otherValues || otherValues.length === 0) continue;
-    if (otherValues.some((v) => fieldValues.includes(v))) continue;
+    // Compared the way `==` compares two texts, so the check cannot refuse a
+    // config the run would have answered. Raw text refused `code == Want` where
+    // the members hold `01,02,03` and the column produces `1,2,3` — the same
+    // question written with one extra term matched every row.
+    const fieldKeys = new Set(fieldValues.map(matchKey));
+    if (otherValues.some((v) => fieldKeys.has(matchKey(v)))) continue;
 
     const found: Diagnostic = {
       severity: 'error',

@@ -31,6 +31,7 @@ use std::collections::BTreeMap;
 
 use super::memory::{self, Env};
 use super::{invalid, unsupported, EngineError, EngineResult, RowSource};
+use crate::expr::match_key::match_key;
 use crate::compute;
 use crate::date;
 use crate::distribution::percent_mask;
@@ -1836,7 +1837,7 @@ impl StreamEngine<'_> {
             (Some((_, column)), Some(buckets)) => {
                 let wanted = self.value_at(column, row)?.unwrap_or_default();
                 (
-                    buckets.get(&wanted).cloned().unwrap_or_default(),
+                    buckets.get(&match_key(&wanted)).cloned().unwrap_or_default(),
                     format!(" ({column}=\"{wanted}\")"),
                 )
             }

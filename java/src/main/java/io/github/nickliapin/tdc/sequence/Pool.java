@@ -1,5 +1,6 @@
 package io.github.nickliapin.tdc.sequence;
 
+import io.github.nickliapin.tdc.expr.MatchKey;
 import io.github.nickliapin.tdc.prng.Seekable;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
@@ -82,12 +83,18 @@ public final class Pool {
     return null;
   }
 
-  /** member value → the members holding it. Built once per reference. */
+  /**
+   * member value → the members holding it. Built once per reference.
+   *
+   * <p>Keyed by {@link MatchKey} rather than by the raw text, so the bucket answers the same
+   * question {@code ==} would: a member holding {@code "01"} is found by a row producing {@code
+   * "1"}, exactly as the general expression path finds it.
+   */
   public static Map<String, List<Integer>> bucketByField(Table table, String field) {
     Map<String, List<Integer>> buckets = new LinkedHashMap<>();
     List<String> column = table.columns().getOrDefault(field, List.of());
     for (int m = 0; m < table.count(); m++) {
-      String key = m < column.size() ? column.get(m) : "";
+      String key = MatchKey.of(m < column.size() ? column.get(m) : "");
       buckets.computeIfAbsent(key, k -> new ArrayList<>()).add(m);
     }
     return buckets;

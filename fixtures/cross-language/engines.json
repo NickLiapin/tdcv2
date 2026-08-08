@@ -2896,6 +2896,14 @@
         "lines": ["zs2", "zs2", "xn1", "yn1", "xn1", "yn1"]
       }
     },
+    "pool/a-filter-compares-the-way-loose-equality-does": {
+      "engine2": {
+        "lines": ["1 -> alpha", "2 -> beta", "3 -> gamma"]
+      },
+      "engine3": {
+        "lines": ["1 -> alpha", "2 -> beta", "3 -> gamma"]
+      }
+    },
     "running/a-running-total-down-a-column": {
       "engine2": {
         "refused": "a running total (\"Balance\") is the accumulation of every row before it, so it cannot be computed one row at a time; the in-memory engine handles it (run without a forced streaming engine)"

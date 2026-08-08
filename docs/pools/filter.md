@@ -111,6 +111,9 @@ doctors only" without declaring anything.
 [expression language](../constructs/conditional-output.md#comparison-operators)
 understands: `!=`, `<`, `>`, `<=`, `>=`, `&&`, `||`, `!`, and arithmetic.
 
+Comparison inside a filter follows the same rules as everywhere else, so a member holding
+`01` is found by a row producing `1` — see [Comparison and truth](../reference/comparison.md#top).
+
 That opens up the cases worth more than the clinic — a customer buying something they
 can afford:
 

@@ -15,6 +15,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 
+from ..expr.match_key import match_key
 from ..expr import evaluate as expr
 from ..prng import seekable
 
@@ -86,11 +87,16 @@ def _plain(text: str) -> bool:
 
 
 def bucket_by_field(table: PoolTable, field: str) -> dict[str, list[int]]:
-    """member value → the members holding it. Built once per reference."""
+    """member value → the members holding it. Built once per reference.
+
+    Keyed by ``match_key`` rather than by the raw text, so the bucket answers the same question
+    ``==`` would: a member holding ``"01"`` is found by a row producing ``"1"``, exactly as the
+    general expression path finds it.
+    """
     buckets: dict[str, list[int]] = {}
     column = table.columns.get(field, [])
     for m in range(table.count):
-        buckets.setdefault(column[m] if m < len(column) else "", []).append(m)
+        buckets.setdefault(match_key(column[m] if m < len(column) else ""), []).append(m)
     return buckets
 
 

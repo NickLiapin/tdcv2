@@ -13,6 +13,7 @@
 //! without quoting "Male", which is how configs have always been written.
 
 pub mod evaluate;
+pub mod match_key;
 
 use crate::engine::{invalid, EngineResult};
 

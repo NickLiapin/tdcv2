@@ -8,6 +8,7 @@
  * import from pointing back.
  */
 
+import { matchKey } from '../expr/match-key.js';
 import { seekableInt } from '../prng/seekable.js';
 import { computeParentMask } from './assemble.js';
 import {
@@ -105,7 +106,7 @@ function pickFilteredMembers(
     if (equality && buckets) {
       const driver = registry[equality.column];
       const wanted = driver ? (sequenceValueAt(driver, i) ?? '') : '';
-      eligible = buckets.get(wanted) ?? [];
+      eligible = buckets.get(matchKey(wanted)) ?? [];
       detail = ` (${equality.column}="${wanted}")`;
     } else {
       eligible = eligibleMembers(filter, table, rowValue(i));
@@ -157,7 +158,7 @@ export function lazyPoolRefColumns(
     if (equality && buckets) {
       const driver = registry[equality.column];
       const wanted = driver ? (sequenceValueAt(driver, i) ?? '') : '';
-      eligible = buckets.get(wanted) ?? [];
+      eligible = buckets.get(matchKey(wanted)) ?? [];
       detail = ` (${equality.column}="${wanted}")`;
     } else {
       eligible = eligibleMembers(filter, table, (name) => {

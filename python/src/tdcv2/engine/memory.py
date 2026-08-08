@@ -16,6 +16,7 @@ from collections.abc import Callable
 from dataclasses import dataclass, field, replace
 from pathlib import Path
 
+from ..expr.match_key import match_key
 from ..compute import evaluate as compute_evaluate
 from ..compute import evaluate_predicate
 from ..date import gen as date_gen
@@ -317,7 +318,7 @@ def _pool_reference(
             continue
         if equality and buckets is not None:
             wanted = (columns.get(equality[1]) or [None] * count)[row] or ""
-            eligible = buckets.get(wanted, [])
+            eligible = buckets.get(match_key(wanted), [])
             detail = f' ({equality[1]}="{wanted}")'
         else:
             eligible = pool_mod.eligible_members(

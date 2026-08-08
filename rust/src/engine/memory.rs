@@ -18,6 +18,7 @@ use std::collections::{BTreeMap, BTreeSet};
 
 use super::per_row;
 use super::{invalid, not_ported, EngineError, EngineResult, RowSource};
+use crate::expr::match_key::match_key;
 use crate::compute;
 use crate::date;
 use crate::date::to_epoch_millis;
@@ -403,7 +404,7 @@ fn pool_reference(
                     .get(column)
                     .and_then(|c| c.get(row).cloned().flatten())
                     .unwrap_or_default();
-                let found = buckets.get(&wanted).cloned().unwrap_or_default();
+                let found = buckets.get(&match_key(&wanted)).cloned().unwrap_or_default();
                 (found, format!(" ({column}=\"{wanted}\")"))
             }
             _ => {

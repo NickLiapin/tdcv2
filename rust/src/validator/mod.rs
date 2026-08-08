@@ -17,6 +17,7 @@
 mod compute_check;
 mod tables;
 
+use crate::expr::match_key::match_key;
 use crate::sequence::pool;
 
 use std::collections::{BTreeMap, BTreeSet};
@@ -1012,7 +1013,13 @@ impl Validator {
             let Some(other_values) = other_values.filter(|values| !values.is_empty()) else {
                 continue;
             };
-            if other_values.iter().any(|v| field_values.contains(v)) {
+            // Compared the way `==` compares two texts, so the check cannot refuse a
+            // config the run would have answered. Raw text refused `code == Want`
+            // where the members hold 01,02,03 and the column produces 1,2,3 — the
+            // same question written with one extra term matched every row.
+            let field_keys: BTreeSet<String> =
+                field_values.iter().map(|v| match_key(v)).collect();
+            if other_values.iter().any(|v| field_keys.contains(&match_key(v))) {
                 continue;
             }
 

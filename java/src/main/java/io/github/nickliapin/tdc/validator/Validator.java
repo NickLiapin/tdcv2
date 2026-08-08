@@ -1,5 +1,6 @@
 package io.github.nickliapin.tdc.validator;
 
+import io.github.nickliapin.tdc.expr.MatchKey;
 import io.github.nickliapin.tdc.date.DateParse;
 import io.github.nickliapin.tdc.date.DateStep;
 import io.github.nickliapin.tdc.errors.Diagnostic;
@@ -15,6 +16,7 @@ import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.HashSet;
 import java.util.Set;
 import org.antlr.v4.runtime.Token;
 import org.antlr.v4.runtime.tree.ParseTree;
@@ -1635,9 +1637,17 @@ public final class Validator {
       if (otherValues == null || otherValues.isEmpty()) {
         continue;
       }
+      // Compared the way `==` compares two texts, so the check cannot refuse a config the run
+      // would have answered. Raw text refused `code == Want` where the members hold 01,02,03 and
+      // the column produces 1,2,3 — the same question written with one extra term matched every
+      // row.
+      Set<String> fieldKeys = new HashSet<>();
+      for (String value : fieldValues) {
+        fieldKeys.add(MatchKey.of(value));
+      }
       boolean overlaps = false;
       for (String value : otherValues) {
-        if (fieldValues.contains(value)) {
+        if (fieldKeys.contains(MatchKey.of(value))) {
           overlaps = true;
           break;
         }

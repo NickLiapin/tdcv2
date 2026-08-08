@@ -1,5 +1,6 @@
 package io.github.nickliapin.tdc.engine;
 
+import io.github.nickliapin.tdc.expr.MatchKey;
 import io.github.nickliapin.tdc.date.DateGen;
 import io.github.nickliapin.tdc.distribution.Hamilton;
 import io.github.nickliapin.tdc.distribution.PercentMask;
@@ -497,7 +498,7 @@ public final class StreamEngine {
             if (wanted == null) {
               wanted = "";
             }
-            eligible = buckets.getOrDefault(wanted, List.of());
+            eligible = buckets.getOrDefault(MatchKey.of(wanted), List.of());
             detail = " (" + equality[1] + "=\"" + wanted + "\")";
           } else {
             eligible = new ArrayList<>();

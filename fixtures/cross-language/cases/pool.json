@@ -66,6 +66,12 @@
       "description": "A member of one pool draws a whole member of another, declared above it. The inner reference publishes no bare column — only `at.k` and `at.t` — so a row reads `${{R.at.k}}` and the clinic a doctor works at is fixed per MEMBER, not per row. The inner pool is built off its own derived seed, which is why the same pair travels together everywhere the doctor appears.",
       "config": "<tdc><env count=\"6\" seed=\"pool\" local=\"en\"><pool name=\"C\" count=\"2\"><sequence name=\"k\" uniq=\"true\"><gen type=\"text\" value=\"n,s\"/></sequence><sequence name=\"t\"><gen type=\"text\" value=\"1,2\"/></sequence></pool><pool name=\"D\" count=\"3\"><sequence name=\"a\"><gen type=\"text\" value=\"x,y,z\"/></sequence><sequence name=\"at\"><gen type=\"pool\" value=\"C\"/></sequence></pool><sequence name=\"R\"><gen type=\"pool\" value=\"D\"/></sequence></env><block><line><data>${{R.a}}${{R.at.k}}${{R.at.t}}</data></line></block></tdc>",
       "expected": ["zs2", "zs2", "xn1", "yn1", "xn1", "yn1"]
+    },
+    {
+      "name": "a-filter-compares-the-way-loose-equality-does",
+      "description": "`field == Column` is bucketed rather than evaluated, and the bucket used to be keyed by raw text. A pool holding 01,02,03 against a column producing 1,2,3 was REFUSED by TDC225 as unmatchable, while the same filter with one term that changes nothing matched every row.",
+      "config": "<tdc><env count=\"3\" seed=\"p\" local=\"en\" mode=\"memory\"><pool name=\"Codes\" count=\"3\"><sequence name=\"code\"><gen type=\"text\" value=\"01,02,03\" order=\"sequential\"/></sequence><sequence name=\"label\"><gen type=\"text\" value=\"alpha,beta,gamma\" order=\"sequential\"/></sequence></pool><sequence name=\"Want\"><gen type=\"text\" value=\"1,2,3\" order=\"sequential\"/></sequence><sequence name=\"Hit\"><gen type=\"pool\" value=\"Codes\" filter=\"code == Want\"/></sequence></env><block><line><data>${{Want}} -> ${{Hit.label}}</data></line></block></tdc>",
+      "expected": ["1 -> alpha", "2 -> beta", "3 -> gamma"]
     }
   ]
 }

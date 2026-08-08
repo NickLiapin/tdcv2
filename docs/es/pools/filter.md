@@ -113,6 +113,10 @@ expresiones lee una palabra suelta como cadena literal, y así es como
 [lenguaje de expresiones](../constructs/conditional-output.md#operadores-de-comparación):
 `!=`, `<`, `>`, `<=`, `>=`, `&&`, `||`, `!` y aritmética.
 
+La comparación dentro de un filtro sigue las mismas reglas que en todas partes, así que un
+miembro que contiene `01` lo encuentra una fila que produce `1` — vea
+[Comparación y verdad](../reference/comparison.md#top).
+
 Eso abre los casos que valen más que el de la clínica — un cliente que compra lo que puede
 pagar:
 

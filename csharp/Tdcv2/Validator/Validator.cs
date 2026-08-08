@@ -12,6 +12,8 @@ using Tdcv2.Output;
 using Tdcv2.Packs;
 using Tdcv2.Parser;
 
+using Tdcv2.Expr;
+
 namespace Tdcv2.Validation;
 
 /// <summary>
@@ -1855,7 +1857,12 @@ public sealed class Validator
                 continue;
             }
 
-            if (otherValues.Any(fieldValues.Contains))
+            // Compared the way `==` compares two texts, so the check cannot refuse a config
+            // the run would have answered. Raw text refused `code == Want` where the members
+            // hold 01,02,03 and the column produces 1,2,3 — the same question written with one
+            // extra term matched every row.
+            var fieldKeys = new HashSet<string>(fieldValues.Select(MatchKey.Of), StringComparer.Ordinal);
+            if (otherValues.Any(v => fieldKeys.Contains(MatchKey.Of(v))))
             {
                 continue;
             }

@@ -1,3 +1,5 @@
+using Tdcv2.Expr;
+
 namespace Tdcv2.Sequence;
 
 using Tdcv2.Prng;
@@ -78,7 +80,10 @@ public static class Pool
             : Array.Empty<string>();
         for (int m = 0; m < table.Count; m++)
         {
-            string key = m < column.Count ? column[m] : "";
+            // Keyed by MatchKey rather than by the raw text, so the bucket answers the same
+            // question `==` would: a member holding "01" is found by a row producing "1",
+            // exactly as the general expression path finds it.
+            string key = MatchKey.Of(m < column.Count ? column[m] : "");
             if (!buckets.TryGetValue(key, out List<int>? bucket))
             {
                 bucket = new List<int>();
