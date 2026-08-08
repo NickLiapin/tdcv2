@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "cases": [
+    {
+      "name": "strict-equality-matches-the-number-written-beside-it",
+      "description": "The defect === was fixed for. A column is text and a literal is a number, so the host language's identity test answered \"different types\" — and `N === 1` was false for every number on every row, silently, with check passing.",
+      "config": "<tdc><env count=\"4\" seed=\"cmp\" local=\"en\" mode=\"memory\"><sequence name=\"N\"><gen type=\"text\" value=\"0,1,2,3\" order=\"sequential\"/></sequence></env><block><line><data>${{N}}:</data><data if=\"N === 0\"> is0</data><data if=\"N === 1\"> is1</data><data if=\"N !== 1\"> not1</data></line></block></tdc>",
+      "expected": ["0: is0 not1", "1: is1", "2: not1", "3: not1"]
+    },
+    {
+      "name": "strict-equality-is-text-so-the-printed-shape-decides",
+      "description": "Four columns that all READ as the number one and print differently. `== 1` is true for every one of them; `=== 1` only for the one that prints \"1\".",
+      "config": "<tdc><env count=\"4\" seed=\"cmp\" local=\"en\" mode=\"memory\"><sequence name=\"N\"><gen type=\"text\" value=\"1,01,1.0,+1\" order=\"sequential\"/></sequence></env><block><line><data>\"${{N}}\"</data><data if=\"N == 1\"> ==1</data><data if=\"N === 1\"> ===1</data></line></block></tdc>",
+      "expected": ["\"1\" ==1 ===1", "\"01\" ==1", "\"1.0\" ==1", "\"+1\" ==1"]
+    },
+    {
+      "name": "loose-equality-reads-a-decimal-column-as-a-number",
+      "description": "A money column holding \"100.00\" used to fail `== 100` while passing `> 99` — the ordering operators read it as a hundred and only equality disagreed, and said nothing. Both now agree.",
+      "config": "<tdc><env count=\"3\" seed=\"cmp\" local=\"en\" mode=\"memory\"><sequence name=\"Total\"><gen type=\"text\" value=\"100.00,0.00,99.50\" order=\"sequential\"/></sequence></env><block><line><data>${{Total}}:</data><data if=\"Total == 100\"> eq100</data><data if=\"Total > 99\"> over99</data><data if=\"Total == 0\"> eq0</data></line></block></tdc>",
+      "expected": ["100.00: eq100 over99", "0.00: eq0", "99.50: over99"]
+    },
+    {
+      "name": "the-two-texts-that-count-as-false",
+      "description": "Only the empty text and \"false\" are false; every other text is true, \"0\" included. Lua's and Ruby's rule, carried into a language whose only carrier is text.",
+      "config": "<tdc><env count=\"6\" seed=\"cmp\" local=\"en\" mode=\"memory\"><sequence name=\"V\"><gen type=\"text\" value=\"x,0,00,0.0,false,true\" order=\"sequential\"/></sequence><sequence name=\"Blank\"><gen type=\"text\" value=\"x\" missing=\"1\"/></sequence></env><block><line><data>\"${{V}}\":</data><data if=\"V\"> true</data><data if=\"!V\"> false</data><data> blank:</data><data if=\"Blank\">true</data><data if=\"!Blank\">false</data></line></block></tdc>",
+      "expected": [
+        "\"x\": true blank:false",
+        "\"0\": true blank:false",
+        "\"00\": true blank:false",
+        "\"0.0\": true blank:false",
+        "\"false\": false blank:false",
+        "\"true\": true blank:false"
+      ]
+    },
+    {
+      "name": "a-flag-column-holds-the-word-not-the-boolean",
+      "description": "_last and every anomaly_flag column hold the TEXT \"true\" or \"false\". `==` compares numbers and neither is one, so it answers false; `===` compares what both print, and both print \"true\".",
+      "config": "<tdc><env count=\"3\" seed=\"cmp\" local=\"en\" mode=\"memory\"><sequence name=\"Flag\"><gen type=\"text\" value=\"true,false,true\" order=\"sequential\"/></sequence></env><block><line><data>${{Flag}}:</data><data if=\"Flag\"> bare</data><data if=\"Flag == true\"> ==true</data><data if=\"Flag === true\"> ===true</data><data if=\"Flag === 'true'\"> ==='true'</data></line></block></tdc>",
+      "expected": [
+        "true: bare ===true ==='true'",
+        "false:",
+        "true: bare ===true ==='true'"
+      ]
+    },
+    {
+      "name": "strict-equality-between-two-columns-is-plain-text-equality",
+      "description": "No coercion in either direction: `\"01\" === \"1\"` is false where `\"01\" == \"1\"` is true, because the first asks about the characters and the second about the number.",
+      "config": "<tdc><env count=\"4\" seed=\"cmp\" local=\"en\" mode=\"memory\"><sequence name=\"A\"><gen type=\"text\" value=\"01,1,x,0\" order=\"sequential\"/></sequence><sequence name=\"B\"><gen type=\"text\" value=\"1,1,x,00\" order=\"sequential\"/></sequence></env><block><line><data>${{A}}/${{B}}:</data><data if=\"A == B\"> ==</data><data if=\"A === B\"> ===</data></line></block></tdc>",
+      "expected": ["01/1: ==", "1/1: == ===", "x/x: == ===", "0/00: =="]
+    },
+    {
+      "name": "the-built-in-last-row-flag-reads-as-a-bare-name",
+      "description": "`if=\"!_last\"` is the comma-between-items idiom, and it works only because the text \"false\" is falsy — _last interpolates as a word, not a boolean.",
+      "config": "<tdc><env count=\"4\" seed=\"cmp\" local=\"en\" mode=\"memory\"><sequence name=\"N\"><gen type=\"text\" value=\"a,b,c,d\" order=\"sequential\"/></sequence></env><block><line><data>${{N}}</data><data if=\"!_last\">,</data></line></block></tdc>",
+      "expected": ["a,", "b,", "c,", "d"]
+    },
+    {
+      "name": "in-is-the-operator-for-lists",
+      "description": "A list is only ever the right side of `in` — TDC259 refuses one anywhere else, so `===` never meets a list in a config that validates. Comparison inside `in` is as loose as `==`.",
+      "config": "<tdc><env count=\"3\" seed=\"cmp\" local=\"en\" mode=\"memory\"><sequence name=\"N\"><gen type=\"text\" value=\"1,01,x\" order=\"sequential\"/></sequence></env><block><line><data>${{N}}:</data><data if=\"N in [1, 2]\"> in</data><data if=\"N in [x, y]\"> word</data></line></block></tdc>",
+      "expected": ["1: in", "01: in", "x: word"]
+    },
+    {
+      "name": "an-exact-whole-number-stays-exact-under-both-equalities",
+      "description": "One past 2^53, where a double stops knowing which integer it is. `==` compares the two as whole numbers and `===` compares the digits, so neither can round the answer away.",
+      "config": "<tdc><env count=\"2\" seed=\"cmp\" local=\"en\" mode=\"memory\"><sequence name=\"N\"><gen type=\"text\" value=\"9007199254740993,9007199254740992\" order=\"sequential\"/></sequence></env><block><line><data>${{N}}:</data><data if=\"N == 9007199254740993\"> ==</data><data if=\"N === 9007199254740993\"> ===</data></line></block></tdc>",
+      "expected": ["9007199254740993: == ===", "9007199254740992:"]
+    },
+    {
+      "name": "reading-text-as-a-number-is-generous-and-strict-is-not",
+      "description": "An empty column reads as zero and \"0x10\" reads as sixteen — the rule working as specified, and the reason to reach for === whenever the characters are the question.",
+      "config": "<tdc><env count=\"3\" seed=\"cmp\" local=\"en\" mode=\"memory\"><sequence name=\"V\"><gen type=\"text\" value=\" ,0x10,7\" order=\"sequential\"/></sequence></env><block><line><data>\"${{V}}\":</data><data if=\"V == 0\"> ==0</data><data if=\"V == 16\"> ==16</data><data if=\"V === 16\"> ===16</data><data if=\"V == 7\"> ==7</data></line></block></tdc>",
+      "expected": ["\"\": ==0", "\"0x10\": ==16", "\"7\": ==7"]
+    },
+    {
+      "name": "a-written-number-is-false-only-at-zero",
+      "description": "The other half of truthiness. A column is text and \"0\" is true, but a number the config WROTE is false at zero, like the double beside it. Two of the five used to answer true here; nothing in the fixtures said which was right.",
+      "config": "<tdc><env count=\"1\" seed=\"cmp\" local=\"en\" mode=\"memory\"><sequence name=\"Zero\"><gen type=\"text\" value=\"0\"/></sequence></env><block><line><data>flags:</data><data if=\"0\"> lit0</data><data if=\"1 - 1\"> sub0</data><data if=\"1\"> lit1</data><data if=\"Zero\"> col0</data></line></block></tdc>",
+      "expected": ["flags: lit1 col0"]
+    }
+  ]
+}

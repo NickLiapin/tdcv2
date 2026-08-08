@@ -292,21 +292,25 @@ public static class Evaluate
         {
             return wa.Value == wb!.Value;
         }
-        if (left is double a1 && right is string s1)
+        // A number the config WROTE, beside text that reads as one. Both shapes of number
+        // count, and the whole-number half is the repair of a bug that had every money column
+        // silently failing its own equality test: `Total == 100` was false while `Total > 99`
+        // was true, because 100 is a whole number and "100.00" is not, so the two never met.
+        if (IsWritten(left) && right is string s1)
         {
             double b = JsNumber(s1);
             if (!double.IsNaN(b))
             {
-                return a1 == b;
+                return AsNumber(left) == b;
             }
         }
 
-        if (right is double b2 && left is string s2)
+        if (IsWritten(right) && left is string s2)
         {
             double a = JsNumber(s2);
             if (!double.IsNaN(a))
             {
-                return a == b2;
+                return a == AsNumber(right);
             }
         }
 
@@ -325,25 +329,84 @@ public static class Evaluate
             return a3 == b3;
         }
 
+        // Two texts stay text, whatever they look like: an empty column and a blank one are not
+        // equal even though both read as zero. Only a literal drags a column into numbers.
         return Text(left) == Text(right);
     }
 
+    /// <summary>A number as the config wrote it, rather than as a column produced it.</summary>
+    private static bool IsWritten(object? v) => v is double or long;
+
+    /* ── The two equalities ───────────────────────────────────────────────────
+     *
+     * A TDC column is TEXT. Every generator produces text, every built-in is
+     * text, and the only things that are not text are the literals someone
+     * writes inside an expression. So "are these equal?" has two honest
+     * readings, and TDC gives each one its own operator — the shape Perl
+     * settled on for the same reason, where a scalar is likewise text that
+     * might be a number:
+     *
+     *     ==   the same NUMBER   "01" == 1     true
+     *     ===  the same TEXT     "01" === 1    false
+     *
+     * `===` used to be the host language's identity test — "same type AND same
+     * value". That is a fine question in a language with types and a
+     * meaningless one here, because there is only ever one type: `N === 1` was
+     * false for EVERY number on every row, silently, with `check` passing.
+     */
+
+    /// <summary>
+    /// <c>===</c> — do both sides print the same characters?
+    /// </summary>
+    /// <remarks>
+    /// A list never matches, itself included: <c>in</c> is the operator for lists, and TDC259
+    /// refuses one anywhere else before the run. Answering false keeps all five implementations
+    /// saying the same thing rather than leaving each host's idea of list equality to decide.
+    /// </remarks>
     private static bool StrictEquals(object? left, object? right)
     {
-        if (left is null || right is null)
+        if (left is List<object?> || right is List<object?>)
         {
-            return left is null && right is null;
+            return false;
         }
 
-        return left.GetType() == right.GetType() && left.Equals(right);
+        return StrictText(left) == StrictText(right);
     }
 
+    /// <summary>
+    /// The characters a value prints as. Nothing — an absent column, the <c>null</c> literal —
+    /// is the EMPTY text, the same thing a column that produced no value holds.
+    /// </summary>
+    private static string StrictText(object? v) => v switch
+    {
+        null => string.Empty,
+        string s => s,
+        bool b => b ? "true" : "false",
+        // Printed from the integer itself, not through a double: past 2^53 the round trip would
+        // put back the digit the exact domain exists to keep.
+        long n => n.ToString(CultureInfo.InvariantCulture),
+        _ => Text(v),
+    };
+
+    /// <summary>
+    /// What counts as TRUE — for a bare <c>if="X"</c>, and for <c>!</c>, <c>&amp;&amp;</c> and
+    /// <c>||</c>.
+    /// </summary>
+    /// <remarks>
+    /// Two texts are false and every other text is true: the empty one (the column produced
+    /// nothing) and "false" (a flag column saying no). "0" is TRUE — zero is a value, not an
+    /// absence. That is Lua's and Ruby's rule carried into a language whose single carrier is
+    /// text. <c>_last</c>, <c>_first</c> and every <c>anomaly_flag</c> column hold literally
+    /// "true" or "false", so without this <c>if="!_last"</c> would be true on every row.
+    /// </remarks>
     public static bool ToBoolean(object? v) => v switch
     {
         null => false,
         string s => s.Length > 0 && s != "false",
         bool b => b,
         double d => d != 0 && !double.IsNaN(d),
+        // A whole number is false only at zero, like the double beside it.
+        long n => n != 0,
         _ => true,
     };
 

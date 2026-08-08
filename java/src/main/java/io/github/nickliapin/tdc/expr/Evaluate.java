@@ -1,5 +1,6 @@
 package io.github.nickliapin.tdc.expr;
 
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -657,16 +658,20 @@ public final class Evaluate {
     if (w != null) {
       return w[0] == w[1];
     }
-    if (left instanceof Double a && right instanceof String s) {
+    // A number the config WROTE, beside text that reads as one. Both shapes of number count,
+    // and the whole-number half is the repair of a bug that had every money column silently
+    // failing its own equality test: `Total == 100` was false while `Total > 99` was true,
+    // because 100 is a whole number and "100.00" is not, so the two never met.
+    if (isWritten(left) && right instanceof String s) {
       double b = jsNumber(s);
       if (!Double.isNaN(b)) {
-        return a == b;
+        return asNumber(left) == b;
       }
     }
-    if (right instanceof Double b && left instanceof String s) {
+    if (isWritten(right) && left instanceof String s) {
       double a = jsNumber(s);
       if (!Double.isNaN(a)) {
-        return a == b;
+        return a == asNumber(right);
       }
     }
     if (left == null || right == null) {
@@ -678,16 +683,82 @@ public final class Evaluate {
     if (left instanceof Double a && right instanceof Double b) {
       return a.doubleValue() == b.doubleValue();
     }
+    // Two texts stay text, whatever they look like: an empty column and a blank one are not
+    // equal even though both read as zero. Only a literal drags a column into numbers.
     return text(left).equals(text(right));
   }
 
-  private static boolean strictEquals(Object left, Object right) {
-    if (left == null || right == null) {
-      return left == right;
-    }
-    return left.getClass() == right.getClass() && left.equals(right);
+  /** A number as the config wrote it, rather than as a column produced it. */
+  private static boolean isWritten(Object v) {
+    return v instanceof Double || v instanceof Long;
   }
 
+  /* ── The two equalities ──────────────────────────────────────────────────────
+   *
+   * A TDC column is TEXT. Every generator produces text, every built-in is text, and the only
+   * things that are not text are the literals someone writes inside an expression. So "are
+   * these equal?" has two honest readings, and TDC gives each one its own operator — the shape
+   * Perl settled on for the same reason, where a scalar is likewise text that might be a
+   * number:
+   *
+   *     ==   the same NUMBER   "01" == 1     true
+   *     ===  the same TEXT     "01" === 1    false
+   *
+   * `===` used to be the host language's identity test — "same type AND same value". That is a
+   * fine question in a language with types and a meaningless one here, because there is only
+   * ever one type: `N === 1` was false for EVERY number on every row, silently, with `check`
+   * passing.
+   */
+
+  /**
+   * {@code ===} — do both sides print the same characters?
+   *
+   * <p>A list never matches, itself included: {@code in} is the operator for lists, and TDC259
+   * refuses one anywhere else before the run. Answering false keeps all five implementations
+   * saying the same thing rather than leaving each host's idea of list equality to decide it.
+   */
+  private static boolean strictEquals(Object left, Object right) {
+    if (left instanceof List<?> || right instanceof List<?>) {
+      return false;
+    }
+    return strictText(left).equals(strictText(right));
+  }
+
+  /**
+   * The characters a value prints as.
+   *
+   * <p>Nothing — an absent column, the {@code null} literal — is the EMPTY text, the same thing
+   * a column that produced no value holds. One rule instead of two: absent is empty, here and
+   * in {@code toBoolean} and in the output.
+   */
+  private static String strictText(Object v) {
+    if (v == null) {
+      return "";
+    }
+    if (v instanceof String s) {
+      return s;
+    }
+    if (v instanceof Boolean b) {
+      return b ? "true" : "false";
+    }
+    // Printed from the integer itself, not through a double: past 2^53 the round trip would put
+    // back the digit the exact domain exists to keep.
+    if (v instanceof Long n) {
+      return n.toString();
+    }
+    return text(v);
+  }
+
+  /**
+   * What counts as TRUE — for a bare {@code if="X"}, and for {@code !}, {@code &&} and {@code
+   * ||}.
+   *
+   * <p>Two texts are false and every other text is true: the empty one (the column produced
+   * nothing) and "false" (a flag column saying no). {@code "0"} is TRUE — zero is a value, not
+   * an absence. That is Lua's and Ruby's rule carried into a language whose single carrier is
+   * text. {@code _last}, {@code _first} and every {@code anomaly_flag} column hold literally
+   * "true" or "false", so without this {@code if="!_last"} would be true on every row.
+   */
   public static boolean toBoolean(Object v) {
     if (v == null) {
       return false;
@@ -700,6 +771,10 @@ public final class Evaluate {
     }
     if (v instanceof Double d) {
       return d != 0 && !Double.isNaN(d);
+    }
+    // A whole number is false only at zero, like the double beside it.
+    if (v instanceof Long n) {
+      return n != 0;
     }
     return true;
   }

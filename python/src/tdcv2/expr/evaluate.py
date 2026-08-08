@@ -496,41 +496,105 @@ def _loose_equals(left, right) -> bool:
     whole = _both_whole(left, right)
     if whole:
         return whole[0] == whole[1]
-    if isinstance(left, float) and isinstance(right, str):
+    # A number the config WROTE, beside text that reads as one. Both shapes of number count,
+    # and the whole-number half is the repair of a bug that had every money column silently
+    # failing its own equality test: `Total == 100` was false while `Total > 99` was true,
+    # because 100 is a whole number and "100.00" is not, so the two never met.
+    if _is_written(left) and isinstance(right, str):
         b = numbers.parse(right)
         if not math.isnan(b):
-            return left == b
-    if isinstance(right, float) and isinstance(left, str):
+            return as_number(left) == b
+    if _is_written(right) and isinstance(left, str):
         a = numbers.parse(left)
         if not math.isnan(a):
-            return a == right
+            return a == as_number(right)
     if left is None or right is None:
         return left is None and right is None
     if isinstance(left, bool) or isinstance(right, bool):
         return as_number(left) == as_number(right)
     if isinstance(left, float) and isinstance(right, float):
         return left == right
+    # Two texts stay text, whatever they look like: `Empty == Space` is false even though both
+    # read as zero. Only a literal drags a column into numbers.
     return _text(left) == _text(right)
 
 
+def _is_written(v) -> bool:
+    """A number as the config wrote it, rather than as a column produced it."""
+    return isinstance(v, (int, float)) and not isinstance(v, bool)
+
+
+# ── The two equalities ────────────────────────────────────────────────────────────────────
+#
+# A TDC column is TEXT. Every generator produces text, every built-in is text, and the only
+# things that are not text are the literals someone writes inside an expression. So "are these
+# equal?" has two honest readings, and TDC gives each one its own operator — the shape Perl
+# settled on for the same reason, where a scalar is likewise text that might be a number:
+#
+#     ==   the same NUMBER   "01" == 1     True
+#     ===  the same TEXT     "01" === 1    False
+#
+# `===` used to be the host language's identity test — "same type AND same value". That is a
+# fine question in a language with types and a meaningless one here, because there is only ever
+# one type: `N === 1` was false for EVERY number on every row, silently, with check passing.
+
+
 def _strict_equals(left, right) -> bool:
-    if left is None or right is None:
-        return left is right
-    return type(left) is type(right) and left == right
+    """``===`` — do both sides print the same characters?
+
+    A list never matches, itself included: ``in`` is the operator for lists, and TDC259 refuses
+    one anywhere else before the run. Answering False keeps all five implementations saying the
+    same thing rather than leaving each host's idea of list equality to decide it.
+    """
+    if isinstance(left, list) or isinstance(right, list):
+        return False
+    return _strict_text(left) == _strict_text(right)
+
+
+def _strict_text(v) -> str:
+    """The characters a value prints as.
+
+    Nothing — an absent column, the ``null`` literal — is the EMPTY text, the same thing a
+    column that produced no value holds. One rule instead of two: absent is empty, here and in
+    ``to_boolean`` and in the output.
+    """
+    if v is None:
+        return ""
+    if isinstance(v, str):
+        return v
+    if isinstance(v, bool):
+        return "true" if v else "false"
+    if isinstance(v, float):
+        return numbers.to_text(v)
+    return str(v)
 
 
 def to_boolean(v) -> bool:
-    """The boolean projection ``if`` uses, and ``!``, ``&&`` and ``||`` with it."""
+    """What counts as TRUE — for a bare ``if="X"``, and for ``!``, ``&&`` and ``||``.
+
+    Two texts are false and every other text is true::
+
+        ""       False    the column produced nothing
+        "false"  False    a flag column saying no
+        "0"      TRUE     zero is a value, not an absence
+
+    That is Lua's and Ruby's rule — only "nothing" and "no" are false — carried into a language
+    whose single carrier is text. ``_last``, ``_first`` and every ``anomaly_flag`` column hold
+    literally "true" or "false", so without this ``if="!_last"`` would be true on every row
+    including the last. ``"0"`` being true is deliberate: ask about the number with the operator
+    that means the number, ``if="Count != 0"``.
+    """
     if v is None:
         return False
     if isinstance(v, str):
-        # "false" is falsy, unlike every other non-empty string. Without it `if="!_last"` would
-        # be true on every row, because _last interpolates as the text "false".
         return v != "" and v != "false"
     if isinstance(v, bool):
         return v
     if isinstance(v, float):
         return v != 0 and not math.isnan(v)
+    # A whole number is false only at zero, like the double beside it.
+    if isinstance(v, int):
+        return v != 0
     return True
 
 

@@ -82,9 +82,26 @@ export function evaluateInScope(expr: string, scope: ExprScope): boolean {
 }
 
 /**
- * Project a value to the boolean domain used by `if` expressions and
- * by the `!`, `&&`, `||` operators. Matches JS truthiness EXCEPT that
- * the literal string `"false"` is also falsy.
+ * What counts as TRUE — for a bare `if="X"`, and for `!`, `&&` and `||`.
+ *
+ * Two texts are false and every other text is true:
+ *
+ *     ""       false    the column produced nothing
+ *     "false"  false    a flag column saying no
+ *     "0"      TRUE     zero is a value, not an absence
+ *
+ * That is Lua's and Ruby's rule — only "nothing" and "no" are false — carried
+ * into a language whose single carrier is text. TDC's two falsy texts ARE those
+ * two things: an empty column is the absent value (`missing=`, an `if=` that
+ * did not fire, a branch of `parent=` that is not this row's), and `"false"` is
+ * the boolean written the only way a column can write it. `_last`, `_first` and
+ * every `anomaly_flag` column hold literally `"true"` or `"false"`, so without
+ * this `if="!_last"` would be true on every row including the last.
+ *
+ * `"0"` being true is the half people trip on, and it is deliberate: a column
+ * of counts holding zero has a value, and `if="Count"` asks whether the column
+ * produced one. Ask about the number with the operator that means the number:
+ * `if="Count != 0"`.
  */
 function toBoolean(v: unknown): boolean {
   if (v === null || v === undefined) return false;
@@ -598,9 +615,9 @@ function applyBinary(op: string, left: unknown, right: unknown): unknown {
     case '!=':
       return coerce(left, right, (a, b) => a != b);
     case '===':
-      return left === right;
+      return sameText(left, right);
     case '!==':
-      return left !== right;
+      return !sameText(left, right);
     case '<':
       return compareNumeric(
         left,
@@ -711,6 +728,64 @@ function compareNumeric(
   return pair ? whole(pair[0], pair[1]) : loose(asNumber(left), asNumber(right));
 }
 
+/* ── The two equalities ───────────────────────────────────────────────────────
+ *
+ * A TDC column is TEXT. Every generator produces text, every built-in is text,
+ * and the only things that are not text are the literals someone writes inside
+ * an expression. So "are these equal?" has two honest readings, and TDC gives
+ * each one its own operator — the shape Perl settled on for the same reason,
+ * where a scalar is likewise text that might be a number:
+ *
+ *     ==   the same NUMBER   "01" == 1     true    (coerce, see `coerce` below)
+ *     ===  the same TEXT     "01" === 1    false   (print both, compare)
+ *
+ * `===` used to be the host language's identity test — "same type AND same
+ * value". That is a fine question in a language with types and a meaningless
+ * one here, because there is only ever one type. Measured on the old engine,
+ * with N a column holding "1":
+ *
+ *     N === 1     false        and false for EVERY number, on every row
+ *     N !== 1     true         so the negation was true on every row too
+ *
+ * A config could not say "exactly one, not zero-one" at all, and the way it
+ * failed was silence: `check` passed, the run finished, the tagged rows were
+ * simply absent. Between two COLUMNS it already did the right thing — both
+ * sides were text — which is why the defect could sit unnoticed.
+ */
+
+/**
+ * `===` — do both sides print the same characters?
+ *
+ * A list never matches, itself included: `in` is the operator for lists, and a
+ * list in a comparison is refused before the run by TDC259. Saying false here
+ * keeps the answer definite in all five implementations rather than leaving
+ * each host's idea of list equality to decide it.
+ */
+function sameText(left: unknown, right: unknown): boolean {
+  if (Array.isArray(left) || Array.isArray(right)) return false;
+  return strictText(left) === strictText(right);
+}
+
+/**
+ * The characters a value prints as.
+ *
+ * Nothing — an absent column, the `null` literal — is the EMPTY text, the same
+ * thing a column that produced no value holds. That keeps one rule instead of
+ * two: absent is empty, here and in `toBoolean` and in the output.
+ */
+function strictText(v: unknown): string {
+  if (v === null || v === undefined) return '';
+  if (typeof v === 'string') return v;
+  if (typeof v === 'boolean') return v ? 'true' : 'false';
+  // A whole number prints its own digits; past 2^53 going through a double
+  // would put back a digit the exact domain exists to keep.
+  if (typeof v === 'bigint') return v.toString();
+  if (typeof v === 'number') return String(v);
+  // Unreachable: a list is turned away by `sameText` above, and the evaluator
+  // produces nothing else. Empty rather than "[object Object]" if it ever is.
+  return '';
+}
+
 function coerce(left: unknown, right: unknown, op: (a: unknown, b: unknown) => boolean): boolean {
   // `==` compares loosely: if one side is a number and the other a
   // numeric string, compare as numbers; otherwise compare as strings.
@@ -720,15 +795,28 @@ function coerce(left: unknown, right: unknown, op: (a: unknown, b: unknown) => b
   // arrived in — a generated id is a string, the literal beside it is not.
   const pair = bothWhole(left, right);
   if (pair) return op(pair[0], pair[1]);
-  if (typeof left === 'number' && typeof right === 'string') {
+  // A number the config WROTE, beside text that reads as one. Both shapes of
+  // number count, and the bigint half is the repair of a bug that had every
+  // money column silently failing its own equality test: `Total == 100` was
+  // false while `Total > 99` was true, because 100 is a whole number and
+  // "100.00" is not, so the two never met. The ordering operators had always
+  // read the column as 100; only equality disagreed, and said nothing.
+  if (isWritten(left) && typeof right === 'string') {
     const n = Number(right);
-    if (!Number.isNaN(n)) return op(left, n);
+    if (!Number.isNaN(n)) return op(asNumber(left), n);
   }
-  if (typeof right === 'number' && typeof left === 'string') {
+  if (isWritten(right) && typeof left === 'string') {
     const n = Number(left);
-    if (!Number.isNaN(n)) return op(n, right);
+    if (!Number.isNaN(n)) return op(n, asNumber(right));
   }
+  // Two texts stay text, whatever they look like: `Empty == Space` is false
+  // even though both read as zero. Only a literal drags a column into numbers.
   return op(left, right);
+}
+
+/** A number as the config wrote it, rather than as a column produced it. */
+function isWritten(v: unknown): boolean {
+  return typeof v === 'number' || typeof v === 'bigint';
 }
 
 /**

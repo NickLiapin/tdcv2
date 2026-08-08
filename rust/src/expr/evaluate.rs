@@ -537,16 +537,30 @@ fn binary_op(op: &str, left: &V, right: &V) -> EngineResult<V> {
 /// `_count == 5` works even though `_count` arrives as text; everything else
 /// compares as text.
 fn loose_equals(left: &V, right: &V) -> bool {
-    if let (V::Num(a), V::Str(s)) = (left, right) {
-        let b = js_number(s);
-        if !b.is_nan() {
-            return *a == b;
+    // Two whole numbers compare as whole numbers, whichever shape they arrived
+    // in — a generated id is a string, the literal beside it is not.
+    if let Some((a, b)) = both_whole(left, right) {
+        return a == b;
+    }
+    // A number the config WROTE, beside text that reads as one. Both shapes of
+    // number count, and the whole-number half is the repair of a bug that had
+    // every money column silently failing its own equality test: `Total == 100`
+    // was false while `Total > 99` was true, because 100 is a whole number and
+    // "100.00" is not, so the two never met.
+    if is_written(left) {
+        if let V::Str(s) = right {
+            let b = js_number(s);
+            if !b.is_nan() {
+                return as_number(left) == b;
+            }
         }
     }
-    if let (V::Str(s), V::Num(b)) = (left, right) {
-        let a = js_number(s);
-        if !a.is_nan() {
-            return a == *b;
+    if is_written(right) {
+        if let V::Str(s) = left {
+            let a = js_number(s);
+            if !a.is_nan() {
+                return a == as_number(right);
+            }
         }
     }
     if matches!(left, V::Null) || matches!(right, V::Null) {
@@ -558,27 +572,83 @@ fn loose_equals(left: &V, right: &V) -> bool {
     if let (V::Num(a), V::Num(b)) = (left, right) {
         return a == b;
     }
+    // Two texts stay text, whatever they look like: an empty column and a blank
+    // one are not equal even though both read as zero. Only a literal drags a
+    // column into numbers.
     text(left) == text(right)
 }
 
+/// A number as the config wrote it, rather than as a column produced it.
+fn is_written(v: &V) -> bool {
+    matches!(v, V::Num(_) | V::Int(_))
+}
+
+/* ── The two equalities ──────────────────────────────────────────────────────
+ *
+ * A TDC column is TEXT. Every generator produces text, every built-in is text,
+ * and the only things that are not text are the literals someone writes inside
+ * an expression. So "are these equal?" has two honest readings, and TDC gives
+ * each one its own operator — the shape Perl settled on for the same reason,
+ * where a scalar is likewise text that might be a number:
+ *
+ *     ==   the same NUMBER   "01" == 1     true
+ *     ===  the same TEXT     "01" === 1    false
+ *
+ * `===` used to be the host language's identity test — "same type AND same
+ * value". That is a fine question in a language with types and a meaningless
+ * one here, because there is only ever one type: `N === 1` was false for EVERY
+ * number on every row, silently, with `check` passing.
+ */
+
+/// `===` — do both sides print the same characters?
+///
+/// A list never matches, itself included: `in` is the operator for lists, and
+/// TDC259 refuses one anywhere else before the run. Answering false keeps all
+/// five implementations saying the same thing rather than leaving each host's
+/// idea of list equality to decide it.
 fn strict_equals(left: &V, right: &V) -> bool {
-    match (left, right) {
-        (V::Null, V::Null) => true,
-        (V::Null, _) | (_, V::Null) => false,
-        (V::Num(a), V::Num(b)) => a == b,
-        (V::Str(a), V::Str(b)) => a == b,
-        (V::Bool(a), V::Bool(b)) => a == b,
-        // Different types are never strictly equal.
-        _ => false,
+    if matches!(left, V::Lst(_)) || matches!(right, V::Lst(_)) {
+        return false;
+    }
+    strict_text(left) == strict_text(right)
+}
+
+/// The characters a value prints as.
+///
+/// Nothing — an absent column, the `null` literal — is the EMPTY text, the same
+/// thing a column that produced no value holds. One rule instead of two: absent
+/// is empty, here and in `to_boolean` and in the output.
+fn strict_text(v: &V) -> String {
+    match v {
+        V::Null => String::new(),
+        V::Str(s) => s.clone(),
+        V::Bool(b) => if *b { "true" } else { "false" }.to_string(),
+        // Printed from the integer itself, not through a double: past 2^53 the
+        // round trip would put back the digit the exact domain exists to keep.
+        V::Int(n) => n.to_string(),
+        V::Num(d) => numbers::to_text(*d),
+        // Unreachable: a list is turned away by `strict_equals` above.
+        V::Lst(_) => String::new(),
     }
 }
 
+/// What counts as TRUE — for a bare `if="X"`, and for `!`, `&&` and `||`.
+///
+/// Two texts are false and every other text is true:
+///
+/// ```text
+/// ""       false    the column produced nothing
+/// "false"  false    a flag column saying no
+/// "0"      TRUE     zero is a value, not an absence
+/// ```
+///
+/// That is Lua's and Ruby's rule — only "nothing" and "no" are false — carried
+/// into a language whose single carrier is text. `_last`, `_first` and every
+/// `anomaly_flag` column hold literally "true" or "false", so without this
+/// `if="!_last"` would be true on every row including the last.
 fn to_boolean(v: &V) -> bool {
     match v {
         V::Null => false,
-        // The one deliberate departure from JavaScript, and the reference makes
-        // it too: the string "false" is falsy. Every boolean column in TDC is
-        // text, so without this `if="!_last"` would be true on every row.
         V::Str(s) => !s.is_empty() && s != "false",
         V::Int(n) => *n != 0,
         V::Bool(b) => *b,

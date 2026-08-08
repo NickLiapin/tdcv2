@@ -215,6 +215,116 @@
         ]
       }
     },
+    "comparisons/strict-equality-matches-the-number-written-beside-it": {
+      "engine2": {
+        "lines": ["0: is0 not1", "1: is1", "2: not1", "3: not1"]
+      },
+      "engine3": {
+        "lines": ["0: is0 not1", "1: is1", "2: not1", "3: not1"]
+      }
+    },
+    "comparisons/strict-equality-is-text-so-the-printed-shape-decides": {
+      "engine2": {
+        "lines": ["\"1\" ==1 ===1", "\"01\" ==1", "\"1.0\" ==1", "\"+1\" ==1"]
+      },
+      "engine3": {
+        "lines": ["\"1\" ==1 ===1", "\"01\" ==1", "\"1.0\" ==1", "\"+1\" ==1"]
+      }
+    },
+    "comparisons/loose-equality-reads-a-decimal-column-as-a-number": {
+      "engine2": {
+        "lines": ["100.00: eq100 over99", "0.00: eq0", "99.50: over99"]
+      },
+      "engine3": {
+        "lines": ["100.00: eq100 over99", "0.00: eq0", "99.50: over99"]
+      }
+    },
+    "comparisons/the-two-texts-that-count-as-false": {
+      "engine2": {
+        "lines": [
+          "\"x\": true blank:false",
+          "\"0\": true blank:false",
+          "\"00\": true blank:false",
+          "\"0.0\": true blank:false",
+          "\"false\": false blank:false",
+          "\"true\": true blank:false"
+        ]
+      },
+      "engine3": {
+        "lines": [
+          "\"x\": true blank:false",
+          "\"0\": true blank:false",
+          "\"00\": true blank:false",
+          "\"0.0\": true blank:false",
+          "\"false\": false blank:false",
+          "\"true\": true blank:false"
+        ]
+      }
+    },
+    "comparisons/a-flag-column-holds-the-word-not-the-boolean": {
+      "engine2": {
+        "lines": [
+          "true: bare ===true ==='true'",
+          "false:",
+          "true: bare ===true ==='true'"
+        ]
+      },
+      "engine3": {
+        "lines": [
+          "true: bare ===true ==='true'",
+          "false:",
+          "true: bare ===true ==='true'"
+        ]
+      }
+    },
+    "comparisons/strict-equality-between-two-columns-is-plain-text-equality": {
+      "engine2": {
+        "lines": ["01/1: ==", "1/1: == ===", "x/x: == ===", "0/00: =="]
+      },
+      "engine3": {
+        "lines": ["01/1: ==", "1/1: == ===", "x/x: == ===", "0/00: =="]
+      }
+    },
+    "comparisons/the-built-in-last-row-flag-reads-as-a-bare-name": {
+      "engine2": {
+        "lines": ["a,", "b,", "c,", "d"]
+      },
+      "engine3": {
+        "lines": ["a,", "b,", "c,", "d"]
+      }
+    },
+    "comparisons/in-is-the-operator-for-lists": {
+      "engine2": {
+        "lines": ["1: in", "01: in", "x: word"]
+      },
+      "engine3": {
+        "lines": ["1: in", "01: in", "x: word"]
+      }
+    },
+    "comparisons/an-exact-whole-number-stays-exact-under-both-equalities": {
+      "engine2": {
+        "lines": ["9007199254740993: == ===", "9007199254740992:"]
+      },
+      "engine3": {
+        "lines": ["9007199254740993: == ===", "9007199254740992:"]
+      }
+    },
+    "comparisons/reading-text-as-a-number-is-generous-and-strict-is-not": {
+      "engine2": {
+        "lines": ["\"\": ==0", "\"0x10\": ==16", "\"7\": ==7"]
+      },
+      "engine3": {
+        "lines": ["\"\": ==0", "\"0x10\": ==16", "\"7\": ==7"]
+      }
+    },
+    "comparisons/a-written-number-is-false-only-at-zero": {
+      "engine2": {
+        "lines": ["flags: lit1 col0"]
+      },
+      "engine3": {
+        "lines": ["flags: lit1 col0"]
+      }
+    },
     "compute/compute-aba-routing": {
       "engine2": {
         "lines": [
