@@ -50,9 +50,15 @@ y `)` los convierte en caracteres comunes). El `\+1` es un `+1` literal, y los g
 `[0-9]{…}` son huecos que reciben dígitos aleatorios. La forma es siempre la misma; los
 valores cambian.
 
-Todos los ejemplos de esta página se renderizan con `seed="demo"` — la misma semilla da los
-mismos strings. Los valores de salida son ilustrativos; los strings exactos pueden
-cambiar según la versión del core, pero la forma nunca.
+Todos los ejemplos de esta página se renderizan con `seed="demo"`. Pero el sorteo lo
+deciden dos cosas, y la segunda sorprende: la semilla **y el nombre de la secuencia**. Cada
+columna saca de su propio flujo, derivado de ambos, para que agregar una columna nunca
+desplace a las de al lado — así que el mismo patrón bajo `<sequence name="Phone">` y bajo
+`<sequence name="V">` da strings distintos con la misma semilla. Si copia un patrón de esta
+página a una secuencia con otro nombre, espere otros valores.
+
+Los valores de salida son ilustrativos; los strings exactos pueden cambiar según la
+versión del core, pero la forma nunca.
 
 Otras formas de todos los días:
 

@@ -299,6 +299,20 @@ self-closing — its attributes and children would be ignored`); `TDC101` still 
   substitution of the quick-API surname reached two blocks it should not have, and
   `docs:examples` failed on one of them, which is the whole reason that check exists.
 
+- The `accumulate=` transcript paired two different draws, so the arithmetic it invited
+  you to check did not hold: `792.47` on the left against `459.93` on the right, and
+  `792.47 + 325.07` nowhere near the `1277.62` beside it. A reader who checked it would
+  conclude `accumulate` was broken; the engine was fine, the transcript was two runs
+  spliced. Re-run as one pair, every subtotal now verifies.
+
+- The regex page promised that `seed="demo"` alone reproduces its strings. Two things
+  decide a draw — the seed **and the sequence's name** — because each column draws from
+  its own derived stream, which is what keeps adding a column from shifting the ones
+  beside it. The same pattern under `<sequence name="Phone">` and under
+  `<sequence name="V">` gives different values on one seed, so a reader copying a pattern
+  off the page and getting different strings was seeing the design, not a bug. The page
+  says so now.
+
 - Parquet: the footer now declares `column_orders`, so the column statistics can actually
   be used. The min/max bounds were written and correct; the format says a reader must
   ignore them until `FileMetaData.column_orders` declares the sort order, and parquet-mr

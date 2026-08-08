@@ -50,9 +50,15 @@ makes them ordinary characters). The `\+1` is a literal `+1`, and the `[0-9]{…
 groups are slots that get random digits. The shape is always the same; only the
 values differ.
 
-Every example on this page is rendered with `seed="demo"` — the same seed gives you
-the same strings. Output values are illustrative; the exact strings can differ by
-core version, but the shape never does.
+Every example on this page is rendered with `seed="demo"`. Two things decide the draw,
+though, and the second one surprises people: the seed **and the sequence's name**. Each
+column draws from its own stream, derived from both, so that adding a column never shifts
+the ones beside it — which means the same pattern under `<sequence name="Phone">` and
+under `<sequence name="V">` gives different strings, on the same seed. Copy a pattern out
+of this page into a differently named sequence and expect different values.
+
+Output values are illustrative; the exact strings can differ by core version, but the
+shape never does.
 
 Other everyday shapes:
 
