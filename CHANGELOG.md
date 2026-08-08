@@ -212,6 +212,23 @@ type="timeseries"`. The pack declares `<sequence name="base">`, the ENGINE was a
   what the object API costs — `getAt(index)` is one row's work at any index (2 ms against
   `toArray()`'s 210 ms on 200 000 rows).
 
+### Fixed
+
+- `mask=`, `case=`, `missing=`, `repeat=` and `anomaly=` on `<gen type="running">` and
+  `<gen type="stat">` are refused (TDC015) instead of accepted and ignored. Both resolve
+  before the formatting layer — they read a column that already exists and publish the
+  number as it stands — so all five sat there doing nothing while `check` called the
+  config valid. Measured: `mask="x"` turns `33` into `3` on a `number` and leaves `77`
+  alone on a `running`.
+
+  Refused rather than implemented, because the answer already exists one step later and
+  is better: the interpolation filter runs where the value is PRINTED, so
+  `${{Total|mask:x}}` gives `7` today. Implementing the attributes would also have to
+  invent a meaning for `repeat=` on a value that is one per row by definition, and for
+  `anomaly=` on a running total, which stops being the total the moment it is multiplied.
+  Three shared cases pin it, including one that checks the same wrappers still work on a
+  plain `number`.
+
 - Parquet: the footer now declares `column_orders`, so the column statistics can actually
   be used. The min/max bounds were written and correct; the format says a reader must
   ignore them until `FileMetaData.column_orders` declares the sort order, and parquet-mr

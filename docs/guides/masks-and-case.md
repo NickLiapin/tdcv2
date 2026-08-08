@@ -50,6 +50,16 @@ values **in order** instead of at random.
 > Example outputs are illustrative — exact values can differ from one core version to the
 > next. What matters is the shape of each transformation.
 
+> [!WARNING]
+> **Two generators do not go through this layer**
+>
+>
+> `running` and `stat` read a column that already exists and publish the number as it
+> stands, so `mask=`, `case=`, `missing=`, `repeat=` and `anomaly=` **on those two** are
+> refused (TDC015) rather than accepted and ignored. Reach for the filter at the point the
+> value is printed instead — `${{Total|mask:x}}` — which runs after the number is final.
+>
+
 ![](../img/concepts/mask.svg)
 
 *One real value going through one real mask.*

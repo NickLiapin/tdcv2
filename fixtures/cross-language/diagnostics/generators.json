@@ -343,6 +343,27 @@
       "description": "order=\"sequential\" gives row r element `r mod N` — a rule about POSITION, which leaves no room for a rule about SHARE. The engine's own comment says it ignores the percent, and nothing told the user: percent=\"98,1,1\" over a hundred rows came out 34/33/33 from a config `check` had called valid. The same list-walking applies to type=\"file\", which dropped the shares the same way.",
       "config": "<tdc><env count=\"100\" seed=\"s\"><sequence name=\"S\"><gen type=\"text\" value=\"a,b,c\" percent=\"98,1,1\" order=\"sequential\"/></sequence></env><block><line><data>${{S}}</data></line></block></tdc>",
       "expected": ["error TDC271 1:90"]
+    },
+    {
+      "name": "mask-on-a-running-total-is-refused-not-ignored",
+      "demonstrates": "TDC015",
+      "description": "running resolves before the formatting layer, so mask= sat there doing nothing; the filter at the print site is the working route",
+      "config": "<tdc><env count=\"4\" seed=\"s\"><sequence name=\"N\"><gen type=\"number\" value=\"10..99\"/></sequence><sequence name=\"X\"><gen type=\"running\" of=\"N\" accumulate=\"sum\" mask=\"x\"/></sequence></env><block><line><data>[${{X}}]</data></line></block></tdc>",
+      "expected": ["error TDC015 1:163"]
+    },
+    {
+      "name": "missing-on-a-stat-is-refused-not-ignored",
+      "demonstrates": "TDC015",
+      "description": "stat publishes one number for the whole run and never goes through the formatting layer",
+      "config": "<tdc><env count=\"4\" seed=\"s\"><sequence name=\"N\"><gen type=\"number\" value=\"10..99\"/></sequence><sequence name=\"X\"><gen type=\"stat\" of=\"N\" op=\"sum\" missing=\"0.5\"/></sequence></env><block><line><data>[${{X}}]</data></line></block></tdc>",
+      "expected": ["error TDC015 1:155"]
+    },
+    {
+      "name": "the-same-wrappers-still-work-on-a-number",
+      "demonstrates": "",
+      "description": "the refusal is per type: a number puts its value through the whole formatting layer",
+      "config": "<tdc><env count=\"4\" seed=\"s\"><sequence name=\"N\"><gen type=\"number\" value=\"10..99\"/></sequence><sequence name=\"X\"><gen type=\"number\" value=\"10..99\" mask=\"x\" missing=\"0.5\" anomaly=\"0.5\"/></sequence></env><block><line><data>[${{X}}]</data></line></block></tdc>",
+      "expected": []
     }
   ]
 }

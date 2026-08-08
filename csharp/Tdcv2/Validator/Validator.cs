@@ -108,6 +108,21 @@ public sealed class Validator
         "anomaly", "anomaly_factor", "anomaly_flag", "case", "comment", "count", "cycle", "flag", "if", "local",
         "mask", "missing", "missing_as", "name", "order", "parent", "repeat", "separator", "type", "value");
 
+    /// <summary>The output wrappers a generator type does NOT put its value through.</summary>
+    /// <remarks>
+    /// <c>running</c> and <c>stat</c> are resolved before the formatting layer runs — they read
+    /// a column that already exists and publish the number as it stands — so these sat on them
+    /// doing nothing while <c>check</c> called the config valid. Refused rather than
+    /// implemented: the interpolation filter runs where the value is PRINTED, so
+    /// <c>${{Total|mask:x}}</c> works today.
+    /// </remarks>
+    private static readonly IReadOnlyDictionary<string, IReadOnlySet<string>> WrappersNotRead =
+        new Dictionary<string, IReadOnlySet<string>>(StringComparer.Ordinal)
+        {
+            ["running"] = Set("mask", "case", "missing", "missing_as", "repeat", "anomaly", "anomaly_factor"),
+            ["stat"] = Set("mask", "case", "missing", "missing_as", "repeat", "anomaly", "anomaly_factor"),
+        };
+
     private static readonly IReadOnlyDictionary<string, IReadOnlySet<string>> AttributeOwners =
         new Dictionary<string, IReadOnlySet<string>>(StringComparer.Ordinal)
         {
@@ -3086,6 +3101,21 @@ public sealed class Validator
                     "cycle= says what happens when order=\"sequential\" reaches the end of its "
                     + "source. Without order=\"sequential\" the generator draws, and a draw never "
                     + "runs out.");
+                continue;
+            }
+
+            // A wrapper the type never puts its value through. Separate from the ownership
+            // table because the name IS a general wrapper — it works on almost every type,
+            // and these two resolve before the layer that applies it.
+            if (type is not null
+                && WrappersNotRead.TryGetValue(type, out IReadOnlySet<string>? unread)
+                && unread.Contains(name))
+            {
+                Ignored(
+                    gen, name,
+                    $"a type=\"{type}\" generator publishes its number as it stands — the "
+                    + "formatting layer does not run for it. Apply it where the value is printed "
+                    + "instead: ${{Total|mask:x}}, ${{Total|upper}}.");
                 continue;
             }
 

@@ -503,3 +503,15 @@ pub const PACK_WRAPPER_ATTRS: [&str; 20] = [
     "type",
     "value",
 ];
+
+/// The output wrappers a generator type does NOT put its value through.
+///
+/// `running` and `stat` are resolved before the formatting layer runs — they
+/// read a column that already exists and publish the number as it stands — so
+/// these sat on them doing nothing while `check` called the config valid.
+/// Refused rather than implemented: the interpolation filter runs where the
+/// value is PRINTED, so `${{Total|mask:x}}` works today.
+pub const WRAPPERS_NOT_READ: [(&str, &[&str]); 2] = [
+    ("running", &["mask", "case", "missing", "missing_as", "repeat", "anomaly", "anomaly_factor"]),
+    ("stat", &["mask", "case", "missing", "missing_as", "repeat", "anomaly", "anomaly_factor"]),
+];

@@ -107,6 +107,20 @@ public final class Validator {
           "if", "local", "mask", "missing", "missing_as", "name", "order", "parent",
           "repeat", "separator", "type", "value");
 
+  /**
+   * The output wrappers a generator type does NOT put its value through.
+   *
+   * <p>{@code running} and {@code stat} are resolved before the formatting layer runs — they
+   * read a column that already exists and publish the number as it stands — so these sat on
+   * them doing nothing while {@code check} called the config valid. Refused rather than
+   * implemented: the interpolation filter runs where the value is PRINTED, so
+   * {@code ${{Total|mask:x}}} works today.
+   */
+  private static final Map<String, java.util.Set<String>> WRAPPERS_NOT_READ =
+      Map.of(
+          "running", java.util.Set.of("mask", "case", "missing", "missing_as", "repeat", "anomaly", "anomaly_factor"),
+          "stat", java.util.Set.of("mask", "case", "missing", "missing_as", "repeat", "anomaly", "anomaly_factor"));
+
   private static final Map<String, java.util.Set<String>> ATTRIBUTE_OWNERS =
       Map.ofEntries(
           // A list to walk — or, on a date, a range walked instead of drawn.
@@ -2528,6 +2542,16 @@ public final class Validator {
         ignored(gen, name,
             "cycle= says what happens when order=\"sequential\" reaches the end of its source. "
                 + "Without order=\"sequential\" the generator draws, and a draw never runs out.");
+        continue;
+      }
+      // A wrapper the type never puts its value through. Separate from the ownership table
+      // because the name IS a general wrapper — it works on almost every type, and these two
+      // resolve before the layer that applies it.
+      if (type != null && WRAPPERS_NOT_READ.getOrDefault(type, java.util.Set.of()).contains(name)) {
+        ignored(gen, name,
+            "a type=\"" + type + "\" generator publishes its number as it stands — the "
+                + "formatting layer does not run for it. Apply it where the value is printed "
+                + "instead: ${{Total|mask:x}}, ${{Total|upper}}.");
         continue;
       }
       java.util.Set<String> owners = ATTRIBUTE_OWNERS.get(name);

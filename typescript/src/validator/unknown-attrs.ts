@@ -316,6 +316,33 @@ const BUILTIN_TEMPLATE_PARAMS: ReadonlyMap<string, ReadonlySet<string>> = new Ma
 ]);
 
 /**
+ * The output wrappers a generator type does NOT put its value through.
+ *
+ * `running` and `stat` are resolved before the formatting layer runs — they read
+ * a column that already exists and publish the number as it stands — so `mask=`,
+ * `case=`, `missing=`, `repeat=` and `anomaly=` sat on them doing nothing while
+ * `check` called the config valid. Measured: `mask="x"` turns `33` into `3` on a
+ * `number` and leaves `77` alone on a `running`.
+ *
+ * Refused rather than implemented, because the answer already exists one step
+ * later and is better: the interpolation filter runs where the value is PRINTED,
+ * so `${{Total|mask:x}}` gives `7` today. Implementing the attributes would also
+ * have to invent a meaning for `repeat=` on a value that is one per row by
+ * definition, and for `anomaly=` on a running total, which stops being the total
+ * the moment it is multiplied.
+ */
+const WRAPPERS_NOT_READ: ReadonlyMap<string, ReadonlySet<string>> = new Map([
+  [
+    'running',
+    new Set(['mask', 'case', 'missing', 'missing_as', 'repeat', 'anomaly', 'anomaly_factor']),
+  ],
+  [
+    'stat',
+    new Set(['mask', 'case', 'missing', 'missing_as', 'repeat', 'anomaly', 'anomaly_factor']),
+  ],
+]);
+
+/**
  * Attributes that exist in the language but on a DIFFERENT tag.
  *
  * Both of these were on their tag's accepted list and read by nobody, which is
@@ -452,6 +479,22 @@ export function checkGenAttrs(attrs: readonly AttrContext[], diagnostics: Diagno
         name,
         'cycle= says what happens when order="sequential" reaches the end of its source. ' +
           'Without order="sequential" the generator draws, and a draw never runs out.',
+        [...GEN_ATTRIBUTES],
+        diagnostics,
+      );
+      continue;
+    }
+
+    // A wrapper the type never puts its value through. Separate from the
+    // ownership table because the name IS a general wrapper — it works on
+    // almost every type, and these two resolve before the layer that applies it.
+    if (type !== undefined && WRAPPERS_NOT_READ.get(type)?.has(name) === true) {
+      reportIgnored(
+        attr,
+        name,
+        `a type="${type}" generator publishes its number as it stands — the formatting ` +
+          'layer does not run for it. Apply it where the value is printed instead: ' +
+          '${{Total|mask:x}}, ${{Total|upper}}.',
         [...GEN_ATTRIBUTES],
         diagnostics,
       );

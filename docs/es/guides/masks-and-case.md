@@ -52,6 +52,16 @@ orden** en vez de al azar.
 > Las salidas de ejemplo son ilustrativas — los valores exactos pueden variar entre
 > versiones del core. Lo que importa es la forma de cada transformación.
 
+> [!WARNING]
+> **Dos generadores no pasan por esta capa**
+>
+>
+> `running` y `stat` leen una columna que ya existe y publican el número tal cual, así que
+> `mask=`, `case=`, `missing=`, `repeat=` y `anomaly=` **en esos dos** se rechazan (TDC015)
+> en vez de aceptarse en silencio. Use el filtro en el punto donde se imprime el valor —
+> `${{Total|mask:x}}` —, que corre cuando el número ya es definitivo.
+>
+
 ![](../../img/concepts/mask.svg)
 
 *Un valor real pasando por una máscara real.*

@@ -2507,6 +2507,27 @@ impl Validator {
                 continue;
             }
 
+            // A wrapper the type never puts its value through. Separate from the
+            // ownership table because the name IS a general wrapper — it works
+            // on almost every type, and these two resolve before the layer that
+            // applies it.
+            if let Some(t) = gen_type {
+                if tables::lookup(&tables::WRAPPERS_NOT_READ, t)
+                    .is_some_and(|names| names.contains(&name.as_str()))
+                {
+                    self.ignored(
+                        gen,
+                        name,
+                        &format!(
+                            "a type=\"{t}\" generator publishes its number as it stands — the \
+                             formatting layer does not run for it. Apply it where the value is \
+                             printed instead: ${{{{Total|mask:x}}}}, ${{{{Total|upper}}}}."
+                        ),
+                    );
+                    continue;
+                }
+            }
+
             let owners = if name == "range" {
                 Some(&tables::RANGE_OWNERS[..])
             } else {

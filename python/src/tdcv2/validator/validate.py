@@ -358,6 +358,18 @@ GEN_ATTRS = frozenset(
 #: Which generator types actually read a given attribute. An attribute in `GEN_ATTRS` is spelled
 #: correctly for SOME generator; this says whether it means anything for THIS one. Without it a
 #: `min=`/`max=` on a number and a `range=` on anything but a date pass silently and are dropped.
+#: The output wrappers a generator type does NOT put its value through.
+#:
+#: ``running`` and ``stat`` are resolved before the formatting layer runs — they read a column
+#: that already exists and publish the number as it stands — so these sat on them doing nothing
+#: while ``check`` called the config valid. Refused rather than implemented: the answer already
+#: exists one step later and is better, because the interpolation filter runs where the value is
+#: PRINTED, so ``${{Total|mask:x}}`` works today.
+WRAPPERS_NOT_READ: dict[str, frozenset[str]] = {
+    "running": frozenset({"mask", "case", "missing", "missing_as", "repeat", "anomaly", "anomaly_factor"}),
+    "stat": frozenset({"mask", "case", "missing", "missing_as", "repeat", "anomaly", "anomaly_factor"}),
+}
+
 ATTRIBUTE_OWNERS: dict[str, frozenset[str]] = {
     # A list to walk — or, on a date, a range walked instead of drawn.
     "order": frozenset({"text", "file", "date"}),
@@ -2583,6 +2595,18 @@ class _Validator:
                     'cycle= says what happens when order="sequential" reaches the end of its '
                     'source. Without order="sequential" the generator draws, and a draw never '
                     "runs out.",
+                )
+                continue
+            # A wrapper the type never puts its value through. Separate from the ownership
+            # table because the name IS a general wrapper — it works on almost every type,
+            # and these two resolve before the layer that applies it.
+            if type_ is not None and name in WRAPPERS_NOT_READ.get(type_, frozenset()):
+                self._ignored(
+                    gen,
+                    name,
+                    f'a type="{type_}" generator publishes its number as it stands — the '
+                    "formatting layer does not run for it. Apply it where the value is "
+                    "printed instead: ${{Total|mask:x}}, ${{Total|upper}}.",
                 )
                 continue
             owners = ATTRIBUTE_OWNERS.get(name)
