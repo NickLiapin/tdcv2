@@ -71,16 +71,41 @@ public final class Pool {
     }
     String left = parts[0].trim();
     String right = parts[1].trim();
-    if (!plain(left) || !plain(right)) {
+    // A dotted name is a name too. `Doctors.clinic` is the qualified spelling TDC232 tells the
+    // author to reach for when a name is both a field and a column — and it used to fall off this
+    // fast path and scan every member: measured at 108 s against 0.05 s for the bare spelling of
+    // the same filter, on 40,000 rows over a pool of 2,000.
+    if (!name(left) || !name(right)) {
       return null;
     }
-    if (table.fields().contains(left) && isColumn.test(right)) {
-      return new String[] {left, right};
+    String leftField = asField(table, left);
+    if (leftField != null && isColumn.test(right)) {
+      return new String[] {leftField, right};
     }
-    if (table.fields().contains(right) && isColumn.test(left)) {
-      return new String[] {right, left};
+    String rightField = asField(table, right);
+    if (rightField != null && isColumn.test(left)) {
+      return new String[] {rightField, left};
     }
     return null;
+  }
+
+  private static String asField(Table table, String text) {
+    String prefix = table.name() + ".";
+    String bare = text.startsWith(prefix) ? text.substring(prefix.length()) : text;
+    return table.fields().contains(bare) ? bare : null;
+  }
+
+  /** A bare name, or one qualified with a dot — {@code clinic}, {@code Doctors.clinic}. */
+  private static boolean name(String text) {
+    if (text.isEmpty()) {
+      return false;
+    }
+    for (String part : text.split("\\.", -1)) {
+      if (!plain(part)) {
+        return false;
+      }
+    }
+    return true;
   }
 
   /**

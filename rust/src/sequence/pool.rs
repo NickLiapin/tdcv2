@@ -69,17 +69,35 @@ pub fn parse_equality_filter(
     }
     let left = parts[0].trim();
     let right = parts[1].trim();
-    if !plain(left) || !plain(right) {
+    // A dotted name is a name too. `Doctors.clinic` is the qualified spelling
+    // TDC232 tells the author to reach for when a name is both a field and a
+    // column — and it used to fall off this fast path and scan every member:
+    // measured at 108 s against 0.05 s for the bare spelling of the same
+    // filter, on 40,000 rows over a pool of 2,000.
+    if !name(left) || !name(right) {
         return None;
     }
-    let has = |name: &str| table.fields.iter().any(|f| f == name);
-    if has(left) && is_column(right) {
-        return Some((left.to_string(), right.to_string()));
+    let prefix = format!("{}.", table.name);
+    let as_field = |text: &str| -> Option<String> {
+        let bare = text.strip_prefix(&prefix).unwrap_or(text);
+        table
+            .fields
+            .iter()
+            .any(|f| f == bare)
+            .then(|| bare.to_string())
+    };
+    if let (Some(field), true) = (as_field(left), is_column(right)) {
+        return Some((field, right.to_string()));
     }
-    if has(right) && is_column(left) {
-        return Some((right.to_string(), left.to_string()));
+    if let (Some(field), true) = (as_field(right), is_column(left)) {
+        return Some((field, left.to_string()));
     }
     None
+}
+
+/// A bare name, or one qualified with a dot — `clinic`, `Doctors.clinic`.
+fn name(text: &str) -> bool {
+    !text.is_empty() && text.split('.').all(plain)
 }
 
 fn plain(text: &str) -> bool {

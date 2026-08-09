@@ -58,18 +58,38 @@ public static class Pool
 
         string left = parts[0].Trim();
         string right = parts[1].Trim();
-        if (!Plain(left) || !Plain(right))
+
+        // A dotted name is a name too. `Doctors.clinic` is the qualified spelling TDC232 tells
+        // the author to reach for when a name is both a field and a column — and it used to fall
+        // off this fast path and scan every member: measured at 108 s against 0.05 s for the bare
+        // spelling of the same filter, on 40,000 rows over a pool of 2,000.
+        if (!Name(left) || !Name(right))
         {
             return null;
         }
 
-        if (table.Fields.Contains(left) && isColumn(right))
+        string? leftField = AsField(table, left);
+        if (leftField is not null && isColumn(right))
         {
-            return (left, right);
+            return (leftField, right);
         }
 
-        return table.Fields.Contains(right) && isColumn(left) ? (right, left) : null;
+        string? rightField = AsField(table, right);
+        return rightField is not null && isColumn(left) ? (rightField, left) : null;
     }
+
+    private static string? AsField(PoolTable table, string text)
+    {
+        string prefix = table.Name + ".";
+        string bare = text.StartsWith(prefix, StringComparison.Ordinal)
+            ? text.Substring(prefix.Length)
+            : text;
+        return table.Fields.Contains(bare) ? bare : null;
+    }
+
+    /// <summary>A bare name, or one qualified with a dot — <c>clinic</c>, <c>Doctors.clinic</c>.</summary>
+    private static bool Name(string text) =>
+        text.Length > 0 && text.Split('.').All(Plain);
 
     /// <summary>member value → the members holding it. Built once per reference.</summary>
     public static Dictionary<string, List<int>> BucketByField(PoolTable table, string field)

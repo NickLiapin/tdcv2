@@ -54,20 +54,33 @@ export function parseEqualityFilter(
   if (parts.length !== 2) return undefined;
   const left = (parts[0] ?? '').trim();
   const right = (parts[1] ?? '').trim();
-  if (!isPlainName(left) || !isPlainName(right)) return undefined;
+  // A dotted name is a name too. `Doctors.clinic` is the qualified spelling
+  // TDC232 tells the author to reach for when a name is both a field and a
+  // column — and it used to fall off the fast path here and scan every member,
+  // measured at 24.88 s against 1.18 s for the bare spelling of the same
+  // filter. Taking the advice must not cost twenty times the run.
+  if (!isName(left) || !isName(right)) return undefined;
   // BOTH sides must be what they look like. Without the `isColumn` test,
   // `filter="clinic == North"` — where North is a bare word, which the
   // expression language has always allowed and which is the obvious way to
   // write "northern doctors only" — was read as a comparison against a column
   // named North, found nothing, and refused the run. The general path handles
   // it correctly, so the fast path simply declines.
-  if (table.fields.includes(left) && isColumn(right)) return { field: left, column: right };
-  if (table.fields.includes(right) && isColumn(left)) return { field: right, column: left };
+  const asField = (name: string): string | undefined => {
+    const prefix = `${table.name}.`;
+    const bare = name.startsWith(prefix) ? name.slice(prefix.length) : name;
+    return table.fields.includes(bare) ? bare : undefined;
+  };
+  const leftField = asField(left);
+  if (leftField !== undefined && isColumn(right)) return { field: leftField, column: right };
+  const rightField = asField(right);
+  if (rightField !== undefined && isColumn(left)) return { field: rightField, column: left };
   return undefined;
 }
 
-function isPlainName(s: string): boolean {
-  return /^[A-Za-z_][A-Za-z0-9_]*$/.test(s);
+/** A bare name, or one qualified with a dot — `clinic`, `Doctors.clinic`. */
+function isName(s: string): boolean {
+  return /^[A-Za-z_][A-Za-z0-9_]*(\.[A-Za-z_][A-Za-z0-9_]*)*$/.test(s);
 }
 
 /**

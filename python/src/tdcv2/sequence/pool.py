@@ -66,18 +66,37 @@ def parse_equality_filter(
     ``filter="clinic == North"`` — where North is a bare word, which the expression language has
     always allowed and which is the obvious way to write "northern doctors only" — reads as a
     comparison against a column named North, finds nothing, and refuses the run.
+
+    A dotted name is a name too. ``Doctors.clinic`` is the qualified spelling TDC232 tells the
+    author to reach for when a name is both a field and a column — and it used to fall off this
+    fast path and scan every member: measured at 108 s against 0.05 s for the bare spelling of
+    the same filter, on 40,000 rows over a pool of 2,000. Taking the advice must not cost that.
     """
     parts = expression.split("==")
     if len(parts) != 2:
         return None
     left, right = parts[0].strip(), parts[1].strip()
-    if not _plain(left) or not _plain(right):
+    if not _name(left) or not _name(right):
         return None
-    if left in table.fields and is_column(right):
-        return (left, right)
-    if right in table.fields and is_column(left):
-        return (right, left)
+
+    def as_field(text: str) -> str | None:
+        prefix = f"{table.name}."
+        bare = text[len(prefix) :] if text.startswith(prefix) else text
+        return bare if bare in table.fields else None
+
+    left_field = as_field(left)
+    if left_field is not None and is_column(right):
+        return (left_field, right)
+    right_field = as_field(right)
+    if right_field is not None and is_column(left):
+        return (right_field, left)
     return None
+
+
+def _name(text: str) -> bool:
+    """A bare name, or one qualified with a dot — ``clinic``, ``Doctors.clinic``."""
+    parts = text.split(".")
+    return bool(parts) and all(_plain(part) for part in parts)
 
 
 def _plain(text: str) -> bool:
