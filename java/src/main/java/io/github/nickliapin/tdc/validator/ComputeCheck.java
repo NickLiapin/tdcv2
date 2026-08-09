@@ -213,7 +213,24 @@ final class ComputeCheck {
       case "str" -> {
         // A literal string: nothing about it can be wrong here.
       }
+      case "group" -> {
+        // A size the engine cannot use turns grouping OFF and says nothing, so the column comes
+        // out looking like the tag was never written. size="2.5" is worse: measured "12 34 567",
+        // grouped by neither 2 nor 3.
+        String size = node.attrs().get("size");
+        if (size != null && !size.trim().matches("[1-9][0-9]*")) {
+          report(node, "TDC188",
+              "<group size=\"" + size.trim() + "\"> is not a whole number of characters",
+              "Write a positive whole number. A size the engine cannot use would turn grouping off and leave the value unchanged, with nothing to show why.");
+        }
+        walkSlot(node.children(), scope);
+      }
       case "list", "add", "multiply", "concat" -> {
+        // <list> has two spellings and reads only the first: with v= set the children are never
+        // evaluated, so writing both keeps whichever the author was not looking at.
+        if ("list".equals(node.name()) && node.attrs().get("v") != null && hasElementChild(node)) {
+          report(node, "TDC189", "<list> has both v= and children", "Only v= is read; the children are silently dropped. Keep one spelling: v=\"1,2,3\" for a literal list, or child elements for a computed one.");
+        }
         for (TDCParser.ElementContext child : node.children()) {
           walkExpr(child, scope);
         }
@@ -237,15 +254,18 @@ final class ComputeCheck {
         }
       }
       case "each" -> {
+        checkSlotNames(node, "over", "do");
         walkWrapper(node, "over", scope);
         walkWrapper(node, "do", scope.iterating(false));
       }
       case "reduce" -> {
+        checkSlotNames(node, "over", "init", "do");
         walkWrapper(node, "over", scope);
         walkWrapper(node, "init", scope);
         walkWrapper(node, "do", scope.iterating(true));
       }
       case "at" -> {
+        checkSlotNames(node, "in", "index");
         walkWrapper(node, "in", scope);
         walkWrapper(node, "index", scope);
       }
@@ -272,7 +292,54 @@ final class ComputeCheck {
     }
   }
 
+  /**
+   * A child in a SLOT position that names no slot this tag has.
+   *
+   * <p>{@code <choose>}, {@code <when>}, {@code <each>}, {@code <reduce>} and {@code <at>} do not
+   * evaluate their children in order — each looks up the slots it knows by name and ignores
+   * everything else. So a misspelled slot name was never walked, never validated, and never run.
+   * Measured on the compute overview's own Luhn example with {@code <when>} spelled {@code <wen>}:
+   * the {@code <otherwise>} won every row and every card number came out invalid, while
+   * {@code check} called the config valid.
+   *
+   * <p>The stray part is deliberately NOT walked: what the author meant is unknown, so every rule
+   * applied inside is a guess about the intended shape.
+   */
+  private boolean hasElementChild(Node node) {
+    for (TDCParser.ElementContext child : node.children()) {
+      if (node(child) != null) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  private void checkSlotNames(Node node, String... slots) {
+    java.util.Set<String> known = java.util.Set.of(slots);
+    for (TDCParser.ElementContext child : node.children()) {
+      Node inner = node(child);
+      if (inner == null || known.contains(inner.name())) {
+        continue;
+      }
+      StringBuilder allowed = new StringBuilder();
+      for (int i = 0; i < slots.length; i++) {
+        if (i > 0) {
+          allowed.append(" and ");
+        }
+        allowed.append('<').append(slots[i]).append('>');
+      }
+      report(
+          inner,
+          "TDC180",
+          "<" + node.name() + "> has no <" + inner.name() + "> part",
+          "Inside <" + node.name() + "> only " + allowed
+              + " are read; anything else is silently ignored, so a misspelling here changes the"
+              + " result without any other sign.");
+    }
+  }
+
   private void walkChoose(Node node, Scope scope) {
+    checkSlotNames(node, "when", "otherwise");
     boolean hasOtherwise = false;
     for (TDCParser.ElementContext child : node.children()) {
       Node inner = node(child);
@@ -294,6 +361,7 @@ final class ComputeCheck {
   }
 
   private void walkWhen(Node node, Scope scope) {
+    checkSlotNames(node, "test", "then");
     Node test = null;
     for (TDCParser.ElementContext child : node.children()) {
       Node inner = node(child);

@@ -288,10 +288,45 @@ internal sealed class ComputeCheck
                 // A literal string: nothing about it can be wrong here.
                 return;
 
+            case "group":
+                {
+                    // A size the engine cannot use turns grouping OFF and says nothing, so the
+                    // column comes out looking like the tag was never written. size="2.5" is
+                    // worse: measured "12 34 567", grouped by neither 2 nor 3.
+                    string? size = node.Attrs.GetValueOrDefault("size");
+                    if (size is not null
+                        && !System.Text.RegularExpressions.Regex.IsMatch(size.Trim(), "^[1-9][0-9]*$"))
+                    {
+                        Report(
+                            node,
+                            "TDC188",
+                            $"<group size=\"{size.Trim()}\"> is not a whole number of characters",
+                            "Write a positive whole number. A size the engine cannot use would turn "
+                        + "grouping off and leave the value unchanged, with nothing to show why.");
+                    }
+                }
+
+                WalkSlot(node.Children, scope);
+                return;
+
             case "list":
             case "add":
             case "multiply":
             case "concat":
+                // <list> has two spellings and reads only the first: with v= set the children are
+                // never evaluated, so writing both keeps whichever the author was not looking at.
+                if (node.Name == "list"
+                    && node.Attrs.ContainsKey("v")
+                    && CountNodes(node) > 0)
+                {
+                    Report(
+                        node,
+                        "TDC189",
+                        "<list> has both v= and children",
+                        "Only v= is read; the children are silently dropped. Keep one spelling: "
+                            + "v=\"1,2,3\" for a literal list, or child elements for a computed one.");
+                }
+
                 foreach (TDCParser.ElementContext child in node.Children)
                 {
                     WalkExpr(child, scope);
@@ -332,17 +367,20 @@ internal sealed class ComputeCheck
                 return;
 
             case "each":
+                CheckSlotNames(node, "over", "do");
                 WalkWrapper(node, "over", scope);
                 WalkWrapper(node, "do", scope.Iterating(false));
                 return;
 
             case "reduce":
+                CheckSlotNames(node, "over", "init", "do");
                 WalkWrapper(node, "over", scope);
                 WalkWrapper(node, "init", scope);
                 WalkWrapper(node, "do", scope.Iterating(true));
                 return;
 
             case "at":
+                CheckSlotNames(node, "in", "index");
                 WalkWrapper(node, "in", scope);
                 WalkWrapper(node, "index", scope);
                 return;
@@ -391,8 +429,41 @@ internal sealed class ComputeCheck
         }
     }
 
+    /// <summary>
+    /// A child in a SLOT position that names no slot this tag has.
+    /// </summary>
+    /// <remarks>
+    /// <c>&lt;choose&gt;</c>, <c>&lt;when&gt;</c>, <c>&lt;each&gt;</c>, <c>&lt;reduce&gt;</c> and
+    /// <c>&lt;at&gt;</c> do not evaluate their children in order — each looks up the slots it
+    /// knows by name and ignores everything else. So a misspelled slot name was never walked,
+    /// never validated, and never run. Measured on the compute overview's own Luhn example with
+    /// <c>&lt;when&gt;</c> spelled <c>&lt;wen&gt;</c>: the <c>&lt;otherwise&gt;</c> won every row
+    /// and every card number came out invalid, while <c>check</c> called the config valid.
+    /// The stray part is deliberately NOT walked — what the author meant is unknown.
+    /// </remarks>
+    private void CheckSlotNames(Node node, params string[] slots)
+    {
+        foreach (TDCParser.ElementContext child in node.Children)
+        {
+            Node? inner = ToNode(child);
+            if (inner is null || Array.IndexOf(slots, inner.Name) >= 0)
+            {
+                continue;
+            }
+
+            string allowed = string.Join(" and ", Array.ConvertAll(slots, s => $"<{s}>"));
+            Report(
+                inner,
+                "TDC180",
+                $"<{node.Name}> has no <{inner.Name}> part",
+                $"Inside <{node.Name}> only {allowed} are read; anything else is silently "
+                    + "ignored, so a misspelling here changes the result without any other sign.");
+        }
+    }
+
     private void WalkChoose(Node node, Scope scope)
     {
+        CheckSlotNames(node, "when", "otherwise");
         bool hasOtherwise = false;
         foreach (TDCParser.ElementContext child in node.Children)
         {
@@ -423,6 +494,7 @@ internal sealed class ComputeCheck
 
     private void WalkWhen(Node node, Scope scope)
     {
+        CheckSlotNames(node, "test", "then");
         Node? test = null;
         foreach (TDCParser.ElementContext child in node.Children)
         {

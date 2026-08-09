@@ -300,7 +300,39 @@ impl<'a> ComputeCheck<'a> {
             // A literal string: nothing about it can be wrong here.
             "str" => {}
 
+            "group" => {
+                // A size the engine cannot use turns grouping OFF and says nothing, so the
+                // column comes out looking like the tag was never written. `size="2.5"` is
+                // worse: measured "12 34 567", grouped by neither 2 nor 3.
+                if let Some(size) = node.attr_value("size") {
+                    let t = size.trim();
+                    let ok = !t.is_empty()
+                        && !t.starts_with('0')
+                        && t.chars().all(|c| c.is_ascii_digit());
+                    if !ok {
+                        self.report(
+                            node,
+                            "TDC188",
+                            format!("<group size=\"{t}\"> is not a whole number of characters"),
+                            "Write a positive whole number. A size the engine cannot use would turn grouping off and leave the value unchanged, with nothing to show why.",
+                        );
+                    }
+                }
+                self.walk_slot(&node.children, scope);
+            }
+
             "list" | "add" | "multiply" | "concat" => {
+                // `<list>` has two spellings and reads only the first: with `v=` set the
+                // children are never evaluated, so writing both keeps whichever the author
+                // was not looking at.
+                if node.name == "list" && node.attr_value("v").is_some() && nodes(node).next().is_some() {
+                    self.report(
+                        node,
+                        "TDC189",
+                        "<list> has both v= and children".to_string(),
+                        "Only v= is read; the children are silently dropped. Keep one spelling: v=\"1,2,3\" for a literal list, or child elements for a computed one.",
+                    );
+                }
                 for child in nodes(node) {
                     self.walk_expr(child, scope);
                 }
@@ -336,17 +368,20 @@ impl<'a> ComputeCheck<'a> {
             }
 
             "each" => {
+                self.check_slot_names(node, &["over", "do"]);
                 self.walk_wrapper(node, "over", scope);
                 self.walk_wrapper(node, "do", &scope.iterating(false));
             }
 
             "reduce" => {
+                self.check_slot_names(node, &["over", "init", "do"]);
                 self.walk_wrapper(node, "over", scope);
                 self.walk_wrapper(node, "init", scope);
                 self.walk_wrapper(node, "do", &scope.iterating(true));
             }
 
             "at" => {
+                self.check_slot_names(node, &["in", "index"]);
                 self.walk_wrapper(node, "in", scope);
                 self.walk_wrapper(node, "index", scope);
             }
@@ -393,7 +428,44 @@ impl<'a> ComputeCheck<'a> {
         }
     }
 
+    /// A child in a SLOT position that names no slot this tag has.
+    ///
+    /// `<choose>`, `<when>`, `<each>`, `<reduce>` and `<at>` do not evaluate
+    /// their children in order — each looks up the slots it knows by name and
+    /// ignores everything else. So a misspelled slot name was never walked,
+    /// never validated, and never run. Measured on the compute overview's own
+    /// Luhn example with `<when>` spelled `<wen>`: the `<otherwise>` won every
+    /// row and every card number came out invalid, while `check` said valid.
+    ///
+    /// The stray part is deliberately NOT walked: what the author meant is
+    /// unknown, so every rule applied inside is a guess about the intended
+    /// shape — and walking a misspelled `<wen>` as a value slot reported its
+    /// perfectly correct `<test><equals>` as a predicate in a value position.
+    fn check_slot_names(&mut self, node: &Element, slots: &[&str]) {
+        for child in nodes(node) {
+            if slots.contains(&child.name.as_str()) {
+                continue;
+            }
+            let allowed = slots
+                .iter()
+                .map(|s| format!("<{s}>"))
+                .collect::<Vec<_>>()
+                .join(" and ");
+            self.report(
+                child,
+                "TDC180",
+                format!("<{}> has no <{}> part", node.name, child.name),
+                &format!(
+                    "Inside <{}> only {allowed} are read; anything else is silently ignored, so \
+                     a misspelling here changes the result without any other sign.",
+                    node.name
+                ),
+            );
+        }
+    }
+
     fn walk_choose(&mut self, node: &Element, scope: &Scope) {
+        self.check_slot_names(node, &["when", "otherwise"]);
         let mut has_otherwise = false;
         for child in nodes(node) {
             if child.name == "when" {
@@ -417,6 +489,7 @@ impl<'a> ComputeCheck<'a> {
     }
 
     fn walk_when(&mut self, node: &Element, scope: &Scope) {
+        self.check_slot_names(node, &["test", "then"]);
         match nodes(node).find(|c| c.name == "test") {
             None => self.report(
                 node,
