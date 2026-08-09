@@ -70,6 +70,35 @@ public final class HttpGen {
     }
   }
 
+  /**
+   * {@code hex(HMAC-SHA256(secret, timestamp \n seed \n count \n body))}.
+   *
+   * <p>Everything that decides what comes back is inside: change the body, the count, the seed or
+   * the minute, and the signature no longer matches. The secret is the key, so it is never sent —
+   * which is what makes this safe over plain http on a trusted network, and what makes a captured
+   * request useless tomorrow once the service checks the timestamp.
+   */
+  public static String signRequest(
+      String secret, String timestamp, String seed, int count, String body) {
+    String message = timestamp + "\n" + seed + "\n" + count + "\n" + body;
+    try {
+      javax.crypto.Mac mac = javax.crypto.Mac.getInstance("HmacSHA256");
+      mac.init(
+          new javax.crypto.spec.SecretKeySpec(
+              secret.getBytes(java.nio.charset.StandardCharsets.UTF_8), "HmacSHA256"));
+      byte[] digest = mac.doFinal(message.getBytes(java.nio.charset.StandardCharsets.UTF_8));
+      StringBuilder out = new StringBuilder(digest.length * 2);
+      for (byte b : digest) {
+        out.append(Character.forDigit((b >> 4) & 0xf, 16)).append(Character.forDigit(b & 0xf, 16));
+      }
+      return out.toString();
+    } catch (java.security.NoSuchAlgorithmException | java.security.InvalidKeyException e) {
+      // HmacSHA256 is required of every Java runtime, so this cannot happen on a
+      // working install — and a silently unsigned request would be worse than a stop.
+      throw new IllegalStateException("HmacSHA256 is unavailable in this Java runtime", e);
+    }
+  }
+
   private static final HttpClient CLIENT =
       HttpClient.newBuilder().connectTimeout(Duration.ofSeconds(10)).build();
 
@@ -82,6 +111,23 @@ public final class HttpGen {
    */
   public static List<String> fetch(
       String src, int count, List<String> inputs, String seed, OnError onError, long timeoutMs) {
+    return fetch(src, count, inputs, seed, onError, timeoutMs, null);
+  }
+
+  /**
+   * The same, signed with an already-resolved {@code secret=}.
+   *
+   * @param secret the key to sign with, or {@code null} to send the request unsigned; the secret
+   *     itself never goes on the wire — see {@link #signRequest}
+   */
+  public static List<String> fetch(
+      String src,
+      int count,
+      List<String> inputs,
+      String seed,
+      OnError onError,
+      long timeoutMs,
+      String secret) {
     if (count <= 0) {
       return List.of();
     }
@@ -95,6 +141,23 @@ public final class HttpGen {
             .POST(HttpRequest.BodyPublishers.ofString(body));
     if (seed != null) {
       request.header("X-TDC-Seed", seed);
+    }
+    // `X-TDC-Input` closes an ambiguity the body alone cannot: `in=` naming a column of one empty
+    // value sends an empty body, byte for byte what a pure source sends, and the service invented
+    // a value where it had been asked to process one. Absent keeps the old reading, so a service
+    // written before this header is unaffected.
+    if (inputs != null) {
+      request.header("X-TDC-Input", String.valueOf(inputs.size()));
+    }
+    if (secret != null && !secret.isEmpty()) {
+      // The REAL clock, not the run's pinned `now`: the timestamp exists so a service can refuse
+      // a request replayed tomorrow, and a config pinned to last year would otherwise be refused
+      // by every service that checks.
+      String timestamp = String.valueOf(System.currentTimeMillis() / 1000L);
+      request.header("X-TDC-Timestamp", timestamp);
+      request.header(
+          "X-TDC-Signature",
+          signRequest(secret, timestamp, seed == null ? "" : seed, count, body));
     }
 
     HttpResponse<java.io.InputStream> response;
@@ -207,4 +270,80 @@ public final class HttpGen {
   public static OnError onError(Map<String, String> attrs) {
     return "empty".equals(attrs.get("on_error")) ? OnError.EMPTY : OnError.FAIL;
   }
+
+  /** Why a {@code secret=} could not be turned into bytes. The caller names the sequence. */
+  public static final class SecretException extends RuntimeException {
+    private static final long serialVersionUID = 1L;
+
+    SecretException(String message) {
+      super(message);
+    }
+  }
+
+  /**
+   * {@code secret="…"} → the bytes to sign with.
+   *
+   * <p>The secret is the one thing in a run that must not travel: it never goes on the wire (only
+   * a signature derived from it does) and it should not travel into version control either, which
+   * is what a config does. So the two spellings that keep it out of the file come first, and the
+   * literal is accepted — with TDC284 saying why it is a poor idea — rather than refused, because
+   * a service on 127.0.0.1 for an afternoon is a real use.
+   *
+   * <p>An empty secret is refused wherever it came from: signing with nothing produces a signature
+   * every caller could forge, which is worse than not signing at all.
+   */
+  public static String resolveSecret(String spec, java.nio.file.Path baseDir) {
+    String trimmed = spec.trim();
+    if (trimmed.startsWith("env:")) {
+      String name = trimmed.substring(4).trim();
+      if (name.isEmpty()) {
+        throw new SecretException("secret=\"env:\" names no variable");
+      }
+      String value = System.getenv(name);
+      if (value == null || value.trim().isEmpty()) {
+        throw new SecretException(
+            "secret=\"env:" + name + "\" — the environment variable is not set, or is empty");
+      }
+      return value.trim();
+    }
+    if (trimmed.startsWith("file:")) {
+      String raw = trimmed.substring(5).trim();
+      if (raw.isEmpty()) {
+        throw new SecretException("secret=\"file:\" names no file");
+      }
+      java.nio.file.Path path = expandHome(raw);
+      if (!path.isAbsolute() && baseDir != null) {
+        path = baseDir.resolve(path);
+      }
+      String text;
+      try {
+        text = java.nio.file.Files.readString(path);
+      } catch (IOException e) {
+        throw new SecretException(
+            "secret=\"file:" + raw + "\" could not be read (" + e.getMessage() + ")");
+      }
+      // Trimmed because a key file written by a person almost always ends in a newline, and a
+      // signature that silently includes it agrees with nothing.
+      String value = text.trim();
+      if (value.isEmpty()) {
+        throw new SecretException("secret=\"file:" + raw + "\" is empty");
+      }
+      return value;
+    }
+    if (trimmed.isEmpty()) {
+      throw new SecretException("secret=\"\" is empty");
+    }
+    return trimmed;
+  }
+
+  private static java.nio.file.Path expandHome(String path) {
+    String home = System.getProperty("user.home", "");
+    if ("~".equals(path)) {
+      return java.nio.file.Path.of(home);
+    }
+    return path.startsWith("~/") && !home.isEmpty()
+        ? java.nio.file.Path.of(home, path.substring(2))
+        : java.nio.file.Path.of(path);
+  }
+
 }

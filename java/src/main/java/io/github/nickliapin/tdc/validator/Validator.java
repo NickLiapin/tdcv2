@@ -153,6 +153,7 @@ public final class Validator {
           Map.entry("in", java.util.Set.of("http")),
           Map.entry("on_error", java.util.Set.of("http")),
           Map.entry("timeout", java.util.Set.of("http")),
+          Map.entry("secret", java.util.Set.of("http")),
           // The drawn curve.
           Map.entry("points", java.util.Set.of("pattern")),
           Map.entry("upper", java.util.Set.of("pattern")),
@@ -396,7 +397,8 @@ public final class Validator {
           "header",
           "delimiter", "row", "base", "trend", "period", "amplitude", "noise", "points", "upper",
           "lower", "y_range", "interp", "spread", "ink_threshold", "mode", "in", "on_error",
-          "timeout", "mean", "sd", "meanlog", "sdlog", "rate", "alpha", "xmin", "shape", "scale",
+          "timeout", "secret", "mean", "sd", "meanlog", "sdlog", "rate", "alpha", "xmin",
+          "shape", "scale",
           "lambda", "n", "s", "beta", "min", "max", "filter");
 
   private static final Set<String> GEN_TYPES =
@@ -2472,6 +2474,30 @@ public final class Validator {
           "invalid timeout \"" + timeout.trim() + "\" — expected a positive number of seconds",
           "timeout=\"30\" waits thirty seconds for one answer. Omit it for the default of 30.",
           at(gen, "timeout")[0], at(gen, "timeout")[1]);
+    }
+
+    // secret — the key a request is signed with. Three spellings, and only the literal is worth
+    // saying anything about: a config travels into version control, and the secret would travel
+    // with it. A warning rather than an error, because a service on 127.0.0.1 for an afternoon is
+    // a real use and refusing it would only teach people to write it somewhere worse.
+    String secret = attrs.get("secret");
+    if (secret != null) {
+      String raw = secret.trim();
+      int[] where = at(gen, "secret");
+      if (raw.isEmpty()) {
+        error("TDC284", "secret=\"\" has no key to sign with",
+            "Name where the key lives: secret=\"env:TDC_HTTP_SECRET\" or "
+                + "secret=\"file:~/.tdc/service.key\". Remove the attribute to send the request "
+                + "unsigned.",
+            where[0], where[1]);
+      } else if (!raw.startsWith("env:") && !raw.startsWith("file:")) {
+        warn("TDC284",
+            "secret= is written into the config, so it travels wherever the config does",
+            "A config goes into version control and the key goes with it. "
+                + "secret=\"env:TDC_HTTP_SECRET\" reads it from the environment, "
+                + "secret=\"file:~/.tdc/service.key\" from a file the repository does not hold.",
+            where[0], where[1]);
+      }
     }
   }
 

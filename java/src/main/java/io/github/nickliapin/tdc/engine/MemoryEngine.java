@@ -886,7 +886,7 @@ public final class MemoryEngine {
     }
     enforceEnvDistinct(config, columns, count, prng, packs, nowMillis, baseDir);
     enforceEnvUniq(config, columns, count);
-    resolveHttp(config, columns, count);
+    resolveHttp(config, columns, count, baseDir);
     return columns;
   }
 
@@ -2867,7 +2867,8 @@ public final class MemoryEngine {
    * cannot make an http column reproducible, since the service decides the values; what it can
    * do is give the service everything it needs to be reproducible on its own.
    */
-  private static void resolveHttp(Config config, Map<String, String[]> columns, int count) {
+  private static void resolveHttp(
+      Config config, Map<String, String[]> columns, int count, Path baseDir) {
     for (Config.SequenceSpec spec : config.sequences()) {
       if (spec.gen() == null || !"http".equals(spec.gen().type())) {
         continue;
@@ -2883,6 +2884,20 @@ public final class MemoryEngine {
         }
       }
 
+      // Resolved per sequence and never cached: two sequences may sign with two different
+      // secrets, and a config naming an unset variable should say so in terms of the sequence the
+      // reader wrote.
+      String secretSpec = attrs.get("secret");
+      String secret = null;
+      if (secretSpec != null && !secretSpec.isBlank()) {
+        try {
+          secret = HttpGen.resolveSecret(secretSpec, baseDir);
+        } catch (HttpGen.SecretException e) {
+          throw new IllegalStateException(
+              "http service for sequence \"" + spec.name() + "\": " + e.getMessage(), e);
+        }
+      }
+
       List<String> values;
       try {
         values =
@@ -2892,7 +2907,8 @@ public final class MemoryEngine {
                 inputs,
                 HttpGen.seedFor(config.seed(), spec.name()),
                 HttpGen.onError(attrs),
-                HttpGen.timeoutMs(attrs.get("timeout")));
+                HttpGen.timeoutMs(attrs.get("timeout")),
+                secret);
       } catch (HttpGen.ServiceException e) {
         throw new IllegalStateException(
             "http service for sequence \"" + spec.name() + "\" at " + e.url + " " + e.getMessage(), e);

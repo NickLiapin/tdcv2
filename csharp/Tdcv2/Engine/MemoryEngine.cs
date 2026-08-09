@@ -1253,6 +1253,24 @@ public static class MemoryEngine
                     .ToArray();
             }
 
+            // Resolved per sequence and never cached: two sequences may sign with two different
+            // secrets, and a config naming an unset variable should say so in terms of the
+            // sequence the reader wrote.
+            string? secretSpec = attrs.GetValueOrDefault("secret");
+            string? secret = null;
+            if (!string.IsNullOrWhiteSpace(secretSpec))
+            {
+                try
+                {
+                    secret = HttpGen.ResolveSecret(secretSpec, ctx.BaseDir ?? ".");
+                }
+                catch (HttpGen.SecretException e)
+                {
+                    throw new InvalidOperationException(
+                        $"http service for sequence \"{spec.Name}\": {e.Message}", e);
+                }
+            }
+
             IReadOnlyList<string> values;
             try
             {
@@ -1262,7 +1280,8 @@ public static class MemoryEngine
                     inputs,
                     HttpGen.SeedFor(ctx.Config.Seed, spec.Name),
                     HttpGen.OnError(attrs),
-                    HttpGen.TimeoutMs(attrs.GetValueOrDefault("timeout")));
+                    HttpGen.TimeoutMs(attrs.GetValueOrDefault("timeout")),
+                    secret);
             }
             catch (HttpGen.ServiceException e)
             {

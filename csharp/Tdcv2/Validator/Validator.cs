@@ -161,6 +161,7 @@ public sealed class Validator
             ["in"] = Set("http"),
             ["on_error"] = Set("http"),
             ["timeout"] = Set("http"),
+            ["secret"] = Set("http"),
 
             // The drawn curve.
             ["points"] = Set("pattern"),
@@ -386,7 +387,8 @@ public sealed class Validator
         "header",
         "delimiter", "row", "base", "trend", "period", "amplitude", "noise", "points", "upper",
         "lower", "y_range", "interp", "spread", "ink_threshold", "mode", "in", "on_error",
-        "timeout", "mean", "sd", "meanlog", "sdlog", "rate", "alpha", "xmin", "shape", "scale",
+        "timeout", "secret", "mean", "sd", "meanlog", "sdlog", "rate", "alpha", "xmin",
+        "shape", "scale",
         "lambda", "n", "s", "beta", "min", "max", "filter");
 
     private static readonly IReadOnlySet<string> GenTypes = Set(
@@ -3017,6 +3019,39 @@ public sealed class Validator
                 $"invalid timeout \"{timeout.Trim()}\" — expected a positive number of seconds",
                 "timeout=\"30\" waits thirty seconds for one answer. Omit it for the default of 30.",
                 line, column);
+        }
+
+        // secret — the key a request is signed with. Three spellings, and only the literal is
+        // worth saying anything about: a config travels into version control, and the secret would
+        // travel with it. A warning rather than an error, because a service on 127.0.0.1 for an
+        // afternoon is a real use and refusing it would only teach people to write it somewhere
+        // worse.
+        string? secret = attrs.GetValueOrDefault("secret");
+        if (secret is not null)
+        {
+            string raw = secret.Trim();
+            (int line, int column) = At(gen, "secret");
+            if (raw.Length == 0)
+            {
+                Error(
+                    "TDC284",
+                    "secret=\"\" has no key to sign with",
+                    "Name where the key lives: secret=\"env:TDC_HTTP_SECRET\" or "
+                    + "secret=\"file:~/.tdc/service.key\". Remove the attribute to send the "
+                    + "request unsigned.",
+                    line, column);
+            }
+            else if (!raw.StartsWith("env:", StringComparison.Ordinal)
+                && !raw.StartsWith("file:", StringComparison.Ordinal))
+            {
+                Warn(
+                    "TDC284",
+                    "secret= is written into the config, so it travels wherever the config does",
+                    "A config goes into version control and the key goes with it. "
+                    + "secret=\"env:TDC_HTTP_SECRET\" reads it from the environment, "
+                    + "secret=\"file:~/.tdc/service.key\" from a file the repository does not hold.",
+                    line, column);
+            }
         }
     }
 

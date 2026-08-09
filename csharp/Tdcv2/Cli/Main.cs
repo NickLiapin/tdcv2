@@ -248,7 +248,7 @@ See https://github.com/NickLiapin/tdcv2 for the DSL reference.
         }
 
         IReadOnlyList<Diagnostic> problems = data.Diagnostics;
-        Report(stderr, problems, files[0], data.Source);
+        Report(stderr, problems, files[0], data.Source, brief);
         if (problems.Count == 0)
         {
             stderr.Write($"tdcv2: {files[0]} is valid\n");

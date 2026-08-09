@@ -246,7 +246,7 @@ public final class Main {
     }
 
     List<Diagnostic> problems = data.diagnostics();
-    report(problems, files.get(0), data.source());
+    report(problems, files.get(0), data.source(), brief);
     if (problems.isEmpty()) {
       System.err.println("tdcv2: " + files.get(0) + " is valid");
     }

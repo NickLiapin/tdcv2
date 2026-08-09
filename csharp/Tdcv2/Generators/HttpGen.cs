@@ -85,12 +85,39 @@ public static class HttpGen
     };
 
     /// <summary>
+    /// <c>hex(HMAC-SHA256(secret, timestamp \n seed \n count \n body))</c>.
+    /// </summary>
+    /// <remarks>
+    /// Everything that decides what comes back is inside: change the body, the count, the seed or
+    /// the minute, and the signature no longer matches. The secret is the key, so it is never
+    /// sent — which is what makes this safe over plain http on a trusted network, and what makes a
+    /// captured request useless tomorrow once the service checks the timestamp.
+    /// </remarks>
+    public static string SignRequest(
+        string secret, string timestamp, string seed, int count, string body)
+    {
+        string message = $"{timestamp}\n{seed}\n{count.ToString(CultureInfo.InvariantCulture)}\n{body}";
+        using var mac = new System.Security.Cryptography.HMACSHA256(Encoding.UTF8.GetBytes(secret));
+        return Convert.ToHexString(mac.ComputeHash(Encoding.UTF8.GetBytes(message))).ToLowerInvariant();
+    }
+
+    /// <summary>
     /// Run one batch and return exactly <paramref name="count"/> values.
     /// </summary>
     /// <param name="inputs">One line per input value, in row order; <c>null</c> for a pure source.</param>
     public static IReadOnlyList<string> Fetch(
         string src, int count, IReadOnlyList<string>? inputs, string? seed, OnErrorMode onError,
         long timeoutMs)
+        => Fetch(src, count, inputs, seed, onError, timeoutMs, null);
+
+    /// <summary>The same, signed with an already-resolved <c>secret=</c>.</summary>
+    /// <param name="secret">
+    /// The key to sign with, or <c>null</c> to send the request unsigned. The secret itself never
+    /// goes on the wire — see <see cref="SignRequest"/>.
+    /// </param>
+    public static IReadOnlyList<string> Fetch(
+        string src, int count, IReadOnlyList<string>? inputs, string? seed, OnErrorMode onError,
+        long timeoutMs, string? secret)
     {
         if (count <= 0)
         {
@@ -108,6 +135,28 @@ public static class HttpGen
         if (seed is not null)
         {
             request.Headers.TryAddWithoutValidation("X-TDC-Seed", seed);
+        }
+
+        // `X-TDC-Input` closes an ambiguity the body alone cannot: `in=` naming a column of one
+        // empty value sends an empty body, byte for byte what a pure source sends, and the service
+        // invented a value where it had been asked to process one. Absent keeps the old reading,
+        // so a service written before this header is unaffected.
+        if (inputs is not null)
+        {
+            request.Headers.TryAddWithoutValidation(
+                "X-TDC-Input", inputs.Count.ToString(CultureInfo.InvariantCulture));
+        }
+
+        if (!string.IsNullOrEmpty(secret))
+        {
+            // The REAL clock, not the run's pinned `now`: the timestamp exists so a service can
+            // refuse a request replayed tomorrow, and a config pinned to last year would otherwise
+            // be refused by every service that checks.
+            string timestamp = DateTimeOffset.UtcNow.ToUnixTimeSeconds()
+                .ToString(CultureInfo.InvariantCulture);
+            request.Headers.TryAddWithoutValidation("X-TDC-Timestamp", timestamp);
+            request.Headers.TryAddWithoutValidation(
+                "X-TDC-Signature", SignRequest(secret, timestamp, seed ?? "", count, body));
         }
 
         HttpResponseMessage response;
@@ -246,4 +295,102 @@ public static class HttpGen
 
     public static OnErrorMode OnError(IReadOnlyDictionary<string, string> attrs) =>
         attrs.GetValueOrDefault("on_error") == "empty" ? OnErrorMode.Empty : OnErrorMode.Fail;
+
+    /// <summary>Why a <c>secret=</c> could not be turned into bytes.</summary>
+    public sealed class SecretException : Exception
+    {
+        public SecretException(string message)
+            : base(message)
+        {
+        }
+    }
+
+    /// <summary><c>secret="…"</c> → the bytes to sign with.</summary>
+    /// <remarks>
+    /// The secret is the one thing in a run that must not travel: it never goes on the wire (only
+    /// a signature derived from it does) and it should not travel into version control either,
+    /// which is what a config does. So the two spellings that keep it out of the file come first,
+    /// and the literal is accepted — with TDC284 saying why it is a poor idea — rather than
+    /// refused, because a service on 127.0.0.1 for an afternoon is a real use. An empty secret is
+    /// refused wherever it came from: signing with nothing produces a signature every caller could
+    /// forge, which is worse than not signing at all.
+    /// </remarks>
+    public static string ResolveSecret(string spec, string baseDir)
+    {
+        string trimmed = spec.Trim();
+        if (trimmed.StartsWith("env:", StringComparison.Ordinal))
+        {
+            string name = trimmed.Substring(4).Trim();
+            if (name.Length == 0)
+            {
+                throw new SecretException("secret=\"env:\" names no variable");
+            }
+
+            string? value = Environment.GetEnvironmentVariable(name);
+            if (string.IsNullOrWhiteSpace(value))
+            {
+                throw new SecretException(
+                    $"secret=\"env:{name}\" — the environment variable is not set, or is empty");
+            }
+
+            return value.Trim();
+        }
+
+        if (trimmed.StartsWith("file:", StringComparison.Ordinal))
+        {
+            string raw = trimmed.Substring(5).Trim();
+            if (raw.Length == 0)
+            {
+                throw new SecretException("secret=\"file:\" names no file");
+            }
+
+            string path = ExpandHome(raw);
+            if (!Path.IsPathRooted(path))
+            {
+                path = Path.Combine(baseDir, path);
+            }
+
+            string text;
+            try
+            {
+                text = File.ReadAllText(path);
+            }
+            catch (Exception e) when (e is IOException or UnauthorizedAccessException)
+            {
+                throw new SecretException(
+                    $"secret=\"file:{raw}\" could not be read ({e.Message})");
+            }
+
+            // Trimmed because a key file written by a person almost always ends in a newline, and
+            // a signature that silently includes it agrees with nothing.
+            string value = text.Trim();
+            if (value.Length == 0)
+            {
+                throw new SecretException($"secret=\"file:{raw}\" is empty");
+            }
+
+            return value;
+        }
+
+        if (trimmed.Length == 0)
+        {
+            throw new SecretException("secret=\"\" is empty");
+        }
+
+        return trimmed;
+    }
+
+    private static string ExpandHome(string path)
+    {
+        string home = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
+        if (path == "~")
+        {
+            return home;
+        }
+
+        return path.StartsWith("~/", StringComparison.Ordinal) && home.Length > 0
+            ? Path.Combine(home, path.Substring(2))
+            : path;
+    }
+
 }
