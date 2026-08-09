@@ -793,6 +793,22 @@ function checkSequence(seqEl: OpenCloseElementContext, ctx: Ctx): void {
   if (name) {
     ctx.declaredSequences.push(name);
     registerPoolReference(name, collectSequenceGens(seqEl).nodes, ctx);
+    // A pool reference hands the row a whole MEMBER from a table built before
+    // the run. It draws no column of its own, so there is nothing to take
+    // without replacement and nothing to rearrange — `uniq="true"` sat on it
+    // doing nothing, and six rows over a four-member pool came out byte-identical
+    // with and without it. `uniq` INSIDE the <pool> is the working spelling: it
+    // makes the members themselves distinct.
+    if (collectSequenceGens(seqEl).nodes.some((g) => extractAttrs(g.attr())['type'] === 'pool')) {
+      checkUniqUnsupported(
+        seqEl,
+        name,
+        'it draws a whole member from a <pool> rather than a column of its own, so there is ' +
+          'nothing to draw without replacement — put uniq= on a <sequence> inside the <pool> ' +
+          'to make the members distinct',
+        ctx.diagnostics,
+      );
+    }
     // `<gen>` is usually self-closing, so collect it the way the rest of the
     // validator does rather than looking for a paired tag. A sequence whose gen
     // repeats is the only kind `each=` can walk.

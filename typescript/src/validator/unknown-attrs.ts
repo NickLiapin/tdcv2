@@ -389,6 +389,32 @@ const WRAPPERS_NOT_READ: ReadonlyMap<string, ReadonlySet<string>> = new Map([
     'stat',
     new Set(['mask', 'case', 'missing', 'missing_as', 'repeat', 'anomaly', 'anomaly_factor']),
   ],
+  // A pool reference hands the row a whole MEMBER, drawn from a table that was
+  // built before the run. There is no value of its own for the formatting layer
+  // to reach, so every one of these sat on it doing nothing while `check` called
+  // the config valid. Measured over six rows, each of the six byte-identical to
+  // the plain run:
+  //
+  //     plain / case="upper" / mask="xxxx" / missing="0.5" / percent="90,10"
+  //         [Smith] [Brown] [Brown] [Brown] [Williams] [Williams]
+  //
+  // `missing=` is the sharpest: the filter page tells the reader to use `parent=`
+  // "to leave some rows without a member", and the obvious other reach produces
+  // no gaps at all. Shape a member inside the <pool> instead — its own sequences
+  // take the whole formatting layer.
+  [
+    'pool',
+    new Set([
+      'mask',
+      'case',
+      'missing',
+      'missing_as',
+      'repeat',
+      'anomaly',
+      'anomaly_factor',
+      'percent',
+    ]),
+  ],
 ]);
 
 /**
