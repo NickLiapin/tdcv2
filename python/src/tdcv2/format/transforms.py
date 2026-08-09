@@ -107,10 +107,27 @@ def apply_group(value: str, size: float, separator: str) -> str:
     From the right because that is where the significant end of a number is: grouping
     ``1234567`` from the left gives ``123 456 7``, which no one writes.
     """
-    chars = list(value)
-    if not _finite(size) or size <= 0 or not chars:
+    if not _finite(size) or size <= 0 or not value:
         return value
     step = int(size)
+    # A decimal number is grouped where a person groups one: the digits BEFORE the separator,
+    # and nowhere else. Chunking the whole string from the right put the space in the fraction
+    # — 1234.56 came out "1 234 .56", a number in no locale, and nothing said so. Only this
+    # exact shape is treated as a number, so group:4 on a card number stays the blocks it was
+    # written for, and so does every other string.
+    decimal = _DECIMAL.match(value)
+    if decimal is not None:
+        return decimal.group(1) + _chunk_from_right(decimal.group(2), step, separator) + decimal.group(3)
+    return _chunk_from_right(value, step, separator)
+
+
+_DECIMAL = re.compile(r"^([+-]?)(\d+)(\.\d+)$")
+
+
+def _chunk_from_right(value: str, step: int, separator: str) -> str:
+    chars = list(value)
+    if not chars:
+        return value
     out: list[str] = []
     end = len(chars)
     while end > 0:

@@ -123,11 +123,50 @@ pub fn slice(s: &str, from: i32, to: Option<i32>) -> String {
 
 /// Group characters from the *right*, so a number's last group stays whole.
 pub fn group(s: &str, size: i32, sep: &str) -> String {
-    let cp: Vec<char> = s.chars().collect();
-    if size <= 0 || cp.is_empty() {
+    if size <= 0 || s.is_empty() {
         return s.to_string();
     }
-    let size = size as usize;
+    // A decimal number is grouped where a person groups one: the digits BEFORE
+    // the separator, and nowhere else. Chunking the whole string from the right
+    // put the space in the fraction — `1234.56` came out `1 234 .56`, which is a
+    // number in no locale, and nothing said so. Only this exact shape is treated
+    // as a number: `group:4` on a card number stays the blocks it was written
+    // for, and so does every other string.
+    if let Some((sign, whole, fraction)) = split_decimal(s) {
+        return format!(
+            "{sign}{}{fraction}",
+            chunk_from_right(whole, size as usize, sep)
+        );
+    }
+    chunk_from_right(s, size as usize, sep)
+}
+
+/// `-1234.56` → `("-", "1234", ".56")`. `None` for anything that is not exactly
+/// an optionally-signed integer, one dot, and at least one more digit.
+fn split_decimal(s: &str) -> Option<(&str, &str, &str)> {
+    let (sign, rest) = match s.as_bytes().first() {
+        Some(b'+') | Some(b'-') => s.split_at(1),
+        _ => ("", s),
+    };
+    let dot = rest.find('.')?;
+    let (whole, fraction) = rest.split_at(dot);
+    if whole.is_empty() || fraction.len() < 2 {
+        return None;
+    }
+    if !whole.bytes().all(|b| b.is_ascii_digit()) {
+        return None;
+    }
+    if !fraction[1..].bytes().all(|b| b.is_ascii_digit()) {
+        return None;
+    }
+    Some((sign, whole, fraction))
+}
+
+fn chunk_from_right(s: &str, size: usize, sep: &str) -> String {
+    let cp: Vec<char> = s.chars().collect();
+    if cp.is_empty() {
+        return s.to_string();
+    }
     let mut parts: Vec<String> = Vec::new();
     let mut end = cp.len();
     while end > 0 {

@@ -493,6 +493,11 @@ own separator, and `group:4` reads like the blocks on a card. `42` is shorter th
 single group, so it comes back unchanged. See
 [`<group>`](../compute/strings.mdx#reshaping).
 
+A **decimal number** is grouped the way a person groups one: the digits before the
+separator, and nowhere else — `1234567.89` becomes `1 234 567.89`, and a leading `-`
+stays outside the grouping. Only that exact shape counts as a number, so a card number
+and any other string keep the plain right-to-left chunking.
+
 ### Summary
 
 | Operation | Filter                    | `<compute>` tag                                                 |

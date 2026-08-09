@@ -90,8 +90,27 @@ public final class Transforms {
 
   /** Group characters from the <em>right</em>, so a number's last group stays whole. */
   public static String group(String s, int size, String sep) {
+    if (size <= 0 || s.isEmpty()) {
+      return s;
+    }
+    // A decimal number is grouped where a person groups one: the digits BEFORE the separator,
+    // and nowhere else. Chunking the whole string from the right put the space in the fraction —
+    // 1234.56 came out "1 234 .56", a number in no locale, and nothing said so. Only this exact
+    // shape is treated as a number, so group:4 on a card number stays the blocks it was written
+    // for, and so does every other string.
+    java.util.regex.Matcher decimal = DECIMAL.matcher(s);
+    if (decimal.matches()) {
+      return decimal.group(1) + chunkFromRight(decimal.group(2), size, sep) + decimal.group(3);
+    }
+    return chunkFromRight(s, size, sep);
+  }
+
+  private static final java.util.regex.Pattern DECIMAL =
+      java.util.regex.Pattern.compile("([+-]?)(\\d+)(\\.\\d+)");
+
+  private static String chunkFromRight(String s, int size, String sep) {
     List<String> cp = Mask.codePoints(s);
-    if (size <= 0 || cp.isEmpty()) {
+    if (cp.isEmpty()) {
       return s;
     }
     List<String> out = new ArrayList<>();

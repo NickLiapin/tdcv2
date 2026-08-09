@@ -78,6 +78,12 @@
       "description": "The interpolation-filter route: ${{X|mask:…}}, ${{X|trim}} and ${{X|replace:a,b}}. The same three transforms reachable through <compute>, reached the other way.",
       "config": "<tdc><env count=\"1\" seed=\"unit-test\" local=\"en\" mode=\"memory\"><sequence name=\"Raw\"><gen type=\"text\" value=\"378984323\"/></sequence><sequence name=\"Pad\"><gen type=\"text\" value=\"  spaced out  \"/></sequence><sequence name=\"Date\"><gen type=\"text\" value=\"2026-08-03\"/></sequence></env><block><line><data>${{Raw|mask:xxx-xx-xxxx}}|${{Pad|trim}}|${{Date|replace:-,/}}</data></line></block></tdc>",
       "expected": ["378-98-4323|spaced out|2026/08/03"]
+    },
+    {
+      "name": "filter-group-a-decimal",
+      "description": "group: chunks the digits BEFORE the decimal separator and leaves the fraction alone — 1234567.89 used to come out '1 234 567 .89', a number in no locale. The sign is not grouped with them. Only that exact shape counts as a number: a card number keeps the plain right-to-left chunking group:4 was written for, and so does 12.34.56, which holds two dots and is no number at all.",
+      "config": "<tdc><env count=\"1\" seed=\"unit-test\" local=\"en\" mode=\"memory\"><sequence name=\"A\"><gen type=\"text\" value=\"1234567.89\"/></sequence><sequence name=\"B\"><gen type=\"text\" value=\"-9876543.21\"/></sequence><sequence name=\"C\"><gen type=\"text\" value=\"4111111111111111\"/></sequence><sequence name=\"D\"><gen type=\"text\" value=\"12.34.56\"/></sequence></env><block><line><data>${{A|group:3}}|${{B|group:3}}|${{C|group:4}}|${{D|group:3}}</data></line></block></tdc>",
+      "expected": ["1 234 567.89|-9 876 543.21|4111 1111 1111 1111|12 .34 .56"]
     }
   ]
 }

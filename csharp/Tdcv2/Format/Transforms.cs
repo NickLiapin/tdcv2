@@ -109,8 +109,34 @@ public static class Transforms
     /// <summary>Group characters from the <em>right</em>, so a number's last group stays whole.</summary>
     public static string Group(string s, int size, string sep)
     {
+        if (size <= 0 || s.Length == 0)
+        {
+            return s;
+        }
+
+        // A decimal number is grouped where a person groups one: the digits BEFORE the
+        // separator, and nowhere else. Chunking the whole string from the right put the space in
+        // the fraction — 1234.56 came out "1 234 .56", a number in no locale, and nothing said
+        // so. Only this exact shape is treated as a number, so group:4 on a card number stays the
+        // blocks it was written for, and so does every other string.
+        System.Text.RegularExpressions.Match decimalValue = DecimalShape.Match(s);
+        if (decimalValue.Success)
+        {
+            return decimalValue.Groups[1].Value
+                + ChunkFromRight(decimalValue.Groups[2].Value, size, sep)
+                + decimalValue.Groups[3].Value;
+        }
+
+        return ChunkFromRight(s, size, sep);
+    }
+
+    private static readonly System.Text.RegularExpressions.Regex DecimalShape =
+        new(@"^([+-]?)(\d+)(\.\d+)$");
+
+    private static string ChunkFromRight(string s, int size, string sep)
+    {
         IReadOnlyList<string> cp = Mask.CodePoints(s);
-        if (size <= 0 || cp.Count == 0)
+        if (cp.Count == 0)
         {
             return s;
         }

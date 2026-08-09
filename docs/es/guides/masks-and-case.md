@@ -530,6 +530,8 @@ define un separador propio, y `group:4` se lee como bloques de tarjeta. Un `42` 
 más chico que un grupo, así que vuelve sin cambios. Vea
 [`<group>`](../compute/strings.md#reestructuración).
 
+Un **número decimal** se agrupa como lo agrupa una persona: los dígitos antes del separador y en ningún otro lugar — `1234567.89` da `1 234 567.89`, y un `-` inicial queda fuera. Solo esa forma cuenta como número, así que un número de tarjeta y cualquier otra cadena conservan el troceado de derecha a izquierda.
+
 ### Resumen
 
 | Operación | Filtro                   | Etiqueta de `<compute>`                                                |

@@ -78,8 +78,24 @@ export function applyTrim(s: string): string {
 
 /** Group characters from the RIGHT into chunks of `size`, joined by `sep`. */
 export function applyGroup(s: string, size: number, sep: string): string {
+  if (!Number.isFinite(size) || size <= 0 || s.length === 0) return s;
+  // A decimal number is grouped where a person groups one: the digits BEFORE
+  // the separator, and nowhere else. Chunking the whole string from the right
+  // put the space in the fraction — `1234.56` came out `1 234 .56`, which is a
+  // number in no locale, and nothing said so. Only this exact shape is treated
+  // as a number: `group:4` on a card number stays the blocks it was written for,
+  // and so does every other string.
+  const decimal = /^([+-]?)(\d+)(\.\d+)$/.exec(s);
+  if (decimal) {
+    const [, sign = '', whole = '', fraction = ''] = decimal;
+    return sign + chunkFromRight(whole, size, sep) + fraction;
+  }
+  return chunkFromRight(s, size, sep);
+}
+
+function chunkFromRight(s: string, size: number, sep: string): string {
   const cp = Array.from(s);
-  if (!Number.isFinite(size) || size <= 0 || cp.length === 0) return s;
+  if (cp.length === 0) return s;
   const out: string[] = [];
   for (let end = cp.length; end > 0; end -= size) {
     out.unshift(cp.slice(Math.max(0, end - size), end).join(''));
