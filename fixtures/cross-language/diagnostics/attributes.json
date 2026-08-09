@@ -245,6 +245,24 @@
       "description": "The line the ownership table must not cross. Only text and number read percent= as a share of their own values, yet the engine routes ANY generator carrying it through the share machinery, and both shapes below validate today. Owning the name would refuse them.",
       "config": "<tdc><env count=\"4\" seed=\"s\" local=\"en\"><sequence name=\"G\"><gen type=\"regex\" value=\"[a-z]{3}\" percent=\"70\"/><gen type=\"regex\" value=\"[0-9]{3}\"/></sequence></env><block><line><data>${{G}}</data></line></block></tdc>",
       "expected": []
+    },
+    {
+      "name": "row-link-with-mixed-order",
+      "demonstrates": "TDC282",
+      "description": "row= keeps a record together by making every member read the SAME line of the file. order=\"sequential\" on some members and not others breaks that: one picks by position while the other draws at random, so John was paired with Johnson when John's last name is Smith — and check called it valid. The two TDC061s are the missing users.csv, not part of what this pins.",
+      "config": "<tdc><env count=\"6\" seed=\"s\" local=\"en\"><sequence name=\"U\"><gen name=\"F\" type=\"file\" src=\"users.csv\" column=\"first_name\" row=\"u\" order=\"sequential\"/><gen name=\"L\" type=\"file\" src=\"users.csv\" column=\"last_name\" row=\"u\"/></sequence></env><block><line><data>${{U.F}} ${{U.L}}</data></line></block></tdc>",
+      "expected": [
+        "error TDC282 1:136",
+        "error TDC061 1:90",
+        "error TDC061 1:180"
+      ]
+    },
+    {
+      "name": "row-link-sequential-throughout",
+      "demonstrates": "",
+      "description": "The other side of the same boundary: every member of the link walks in step, so both rules pick by position and the records hold. Only the missing file is reported.",
+      "config": "<tdc><env count=\"6\" seed=\"s\" local=\"en\"><sequence name=\"U\"><gen name=\"F\" type=\"file\" src=\"users.csv\" column=\"first_name\" row=\"u\" order=\"sequential\"/><gen name=\"L\" type=\"file\" src=\"users.csv\" column=\"last_name\" row=\"u\" order=\"sequential\"/></sequence></env><block><line><data>${{U.F}} ${{U.L}}</data></line></block></tdc>",
+      "expected": ["error TDC061 1:90", "error TDC061 1:180"]
     }
   ]
 }

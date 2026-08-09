@@ -1661,9 +1661,34 @@ impl Validator {
             }
         }
 
-        // A simple body — one unnamed gen and nothing else — may say outright
-        // what it produces.
+        // The shape TDC246 refuses inside a `<case>`, one level out. A sequence
+        // mints the ground-truth column only where the flagged gen IS its value:
+        // a `name=` turns the gen into a FIELD and a second part makes it one
+        // piece of a joined string, and in both the engine minted nothing while
+        // `check` called the config valid. The anomaly still fired — the values
+        // came out perturbed — so the only thing missing was the record of WHICH
+        // rows, and `${{NAME}}` reached the output as its own literal text.
         let simple = gens.len() == 1 && field_names.is_empty() && !composes;
+        if !simple {
+            for gen in &gens {
+                let Some(flag) = gen.attr_value("anomaly_flag") else {
+                    continue;
+                };
+                self.error(
+                    "TDC283",
+                    format!(
+                        "anomaly_flag=\"{}\" is not read on a <gen> that is one part of its \
+                         <sequence>",
+                        flag.trim()
+                    ),
+                    "The flag records which ROWS were made outliers, and a sequence built from \
+                     several parts has no row-level column to put it in. Move this <gen> into a \
+                     <sequence> of its own \u{2014} that also gives you the value as its own \
+                     column.",
+                    gen.at("anomaly_flag"),
+                );
+            }
+        }
         if simple {
             if let (Some(n), Some(values)) = (name, finite_text_values(gens[0])) {
                 self.finite_values.insert(n.to_string(), values);

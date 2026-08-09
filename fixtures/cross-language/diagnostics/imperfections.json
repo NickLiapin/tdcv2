@@ -42,6 +42,20 @@
       "description": "anomaly_flag on a <gen> inside a <case>. A case body is a concatenation, so a flag on one part does not describe the row; <mix flag=\"NAME\"> is where the question has an answer. It used to be accepted and do nothing, and the only sign was ${{Out}} reaching the data as literal characters.",
       "config": "<tdc><env count=\"2\" seed=\"s\"><sequence name=\"K\"><gen type=\"text\" value=\"a,b\"/></sequence><switch name=\"S\" on=\"K\"><case is=\"a\"><gen type=\"number\" value=\"1..9\" anomaly=\"0.5\" anomaly_flag=\"Out\"/></case><default><data>x</data></default></switch></env><block><line><data>${{S}}</data></line></block></tdc>",
       "expected": ["error TDC246 1:186"]
+    },
+    {
+      "name": "anomaly-flag-on-a-compound-field",
+      "demonstrates": "TDC283",
+      "description": "The same shape one level out: a sequence mints the ground-truth column only where the flagged gen IS the sequence's value. Give the body a second part — another gen, a <data> literal, or a name= that makes this gen a field — and nothing was minted, while the anomaly still fired and ${{F}} reached the output as literal characters.",
+      "config": "<tdc><env count=\"4\" seed=\"s\" local=\"en\"><sequence name=\"Rec\"><gen type=\"text\" value=\"n=\"/><gen type=\"number\" value=\"10..99\" name=\"amt\" anomaly=\"0.5\" anomaly_flag=\"F\"/></sequence></env><block><line><data>${{Rec}} f=${{F}}</data></line></block></tdc>",
+      "expected": ["error TDC283 1:163"]
+    },
+    {
+      "name": "anomaly-flag-on-a-sequence-of-its-own",
+      "demonstrates": "",
+      "description": "The other side of the same boundary: one gen, one sequence, one flag column — this is what the refusal points the reader at, so it must stay valid.",
+      "config": "<tdc><env count=\"4\" seed=\"s\" local=\"en\"><sequence name=\"Amount\"><gen type=\"number\" value=\"10..99\" anomaly=\"0.5\" anomaly_flag=\"F\"/></sequence></env><block><line><data>${{Amount}} f=${{F}}</data></line></block></tdc>",
+      "expected": []
     }
   ]
 }

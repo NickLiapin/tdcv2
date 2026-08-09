@@ -772,7 +772,7 @@ function checkSequence(seqEl: OpenCloseElementContext, ctx: Ctx): void {
     for (const g of gens) {
       const fieldName = genAttrName(g);
       if (fieldName === undefined) {
-        if (shape !== 'compound') checkGen(g, ctx);
+        if (shape !== 'compound') checkGen(g, ctx, false, shape !== 'simple');
         continue;
       }
       if (seenNames.has(fieldName)) {
@@ -788,7 +788,9 @@ function checkSequence(seqEl: OpenCloseElementContext, ctx: Ctx): void {
         continue;
       }
       seenNames.add(fieldName);
-      checkGen(g, ctx);
+      // A named gen is a FIELD, so the sequence's own value is built from parts
+      // whatever the rest of the body looks like.
+      checkGen(g, ctx, false, true);
       // Register `Parent.Field` so a later reference to the field resolves.
       if (name) ctx.declaredSequences.push(`${name}.${fieldName}`);
     }
@@ -854,6 +856,7 @@ function checkGen(
   gen: OpenCloseElementContext | SelfClosingElementContext,
   ctx: Ctx,
   inCase = false,
+  inJoinedBody = false,
 ): void {
   checkGenBody(gen, ctx);
   const attrs = gen.attr();
@@ -916,7 +919,7 @@ function checkGen(
       code: 'TDC191',
     });
   }
-  checkAnomalyFlag(gen, ctx.diagnostics, ctx.declaredSequences, inCase);
+  checkAnomalyFlag(gen, ctx.diagnostics, ctx.declaredSequences, inCase, inJoinedBody);
   checkGenIfInCase(gen, ctx.diagnostics, inCase);
   // Type-independent: text, file and date all take order="sequential".
   checkSequentialRepeat(gen, ctx.diagnostics);

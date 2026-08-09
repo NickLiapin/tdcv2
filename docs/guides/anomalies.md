@@ -259,6 +259,12 @@ scoring a detector's precision and recall.
 **Why/when.** Any time you need to _measure_ a detector, not just feed it.
 `anomaly_flag` without `anomaly` is an error, because there is nothing to mark.
 
+The flag needs a sequence whose value is that one `<gen>`. Give the body a second
+part — another `<gen>`, a `<data>` literal, or a `name=` that turns the gen into a
+field — and there is no row-level column to put the flag in, so the config is
+refused ([`TDC283`](../reference/errors.md#top)) rather than run without it. Move the
+gen into a `<sequence>` of its own; that also gives you the value as its own column.
+
 ## A custom outlier — `flag` on a `<mix>`
 
 **Problem.** `anomaly="p"` can only multiply. Sometimes the outlier has to look

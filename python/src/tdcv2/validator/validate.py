@@ -2028,6 +2028,30 @@ class _Validator:
         if gens and len(field_names) == len(gens) and not composes and name is not None:
             self.valueless_names.add(name)
 
+        # The shape TDC246 refuses inside a <case>, one level out. A sequence mints the
+        # ground-truth column only where the flagged gen IS its value: a name= turns the gen into
+        # a FIELD and a second part makes it one piece of a joined string, and in both the engine
+        # minted nothing while `check` called the config valid. The anomaly still fired — the
+        # values came out perturbed — so the only thing missing was the record of WHICH rows, and
+        # ${{NAME}} reached the output as its own literal text.
+        if len(gens) > 1 or field_names or composes:
+            for gen, node in zip(gens, gen_nodes, strict=True):
+                flag = gen.get("anomaly_flag")
+                if flag is None:
+                    continue
+                line, column = _at(node, "anomaly_flag")
+                self._error(
+                    "TDC283",
+                    f'anomaly_flag="{flag.strip()}" is not read on a <gen> that is one part of '
+                    "its <sequence>",
+                    "The flag records which ROWS were made outliers, and a sequence built from "
+                    "several parts has no row-level column to put it in. Move this <gen> into a "
+                    "<sequence> of its own \u2014 that also gives you the value as its own "
+                    "column.",
+                    line,
+                    column,
+                )
+
         # A simple body — one unnamed gen and nothing else — may say outright what it produces.
         if len(gens) == 1 and not field_names and not composes and name is not None:
             values = _finite_text_values(gens[0])

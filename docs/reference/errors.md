@@ -326,6 +326,7 @@ but the combination it asks for can't be carried out.
 | `TDC280` | two spellings of the same date range | `value=`, the `from`/`to` pair and `range=` say one thing, and the generator reads them in that order and stops. `value="2020-05-05" from="1990-01-01" to="1990-12-31"` produced 1990-05-11 and discarded the rest without a word. `value="today"`, `"now"` and `"birth"` are spellings too |
 | `TDC281` | a date range that ends before it starts | The draw took the min and max of the two ends, so `from="2020-01-01" to="2010-01-01"` produced perfectly plausible dates from a range nobody wrote. `plus="10..3d"` has been refused as a typo rather than swapped since it was written; this is the same typo |
 | `TDC282` | `order="sequential"` on only some members of a `row=` link                                           | Either give every member of the link `order="sequential"`, or drop it — a mixed link stops reading one line per record                                                          |
+| `TDC283` | `anomaly_flag` on a `<gen>` that is only one part of its `<sequence>` | The flag records which ROWS were made outliers, and a sequence built from several parts — a second `<gen>`, a `<data>` literal, or a `name=` that makes this gen a field — has no row-level column to put it in. Move the `<gen>` into a `<sequence>` of its own; that also gives you the value as its own column. The same reasoning as `TDC246`, one level out |
 
 ## See also
 

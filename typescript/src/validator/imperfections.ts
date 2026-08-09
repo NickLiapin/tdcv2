@@ -100,6 +100,7 @@ export function checkAnomalyFlag(
   diagnostics: Diagnostic[],
   declaredSequences: string[],
   inCase: boolean,
+  inJoinedBody = false,
 ): void {
   const attrs = gen.attr();
   const flagAttr = findAttr(attrs, 'anomaly_flag');
@@ -118,6 +119,24 @@ export function checkAnomalyFlag(
       message: `anomaly_flag="${flagVal}" is not read on a <gen> inside a <case>`,
       hint: 'A case body is several parts joined, so a flag on one part does not describe the row. Put flag="NAME" on the <mix> instead, or move the <gen> into a <sequence> of its own.',
       code: 'TDC246',
+    });
+    return;
+  }
+
+  // The same shape one level out. A sequence mints the flag column only where
+  // this gen IS the sequence's value: a compound makes it a FIELD and a composed
+  // body makes it one part of a joined string, and in both the engine minted
+  // nothing while `check` called the config valid. The anomaly still fires — the
+  // values come out perturbed — so the only thing missing was the record of
+  // which rows, and `${{NAME}}` reached the output as its own literal text.
+  if (inJoinedBody) {
+    diagnostics.push({
+      severity: 'error',
+      source: 'validator',
+      ...attrValueRange(flagAttr),
+      message: `anomaly_flag="${flagVal}" is not read on a <gen> that is one part of its <sequence>`,
+      hint: 'The flag records which ROWS were made outliers, and a sequence built from several parts has no row-level column to put it in. Move this <gen> into a <sequence> of its own — that also gives you the value as its own column.',
+      code: 'TDC283',
     });
     return;
   }

@@ -2096,6 +2096,30 @@ public final class Validator {
       valuelessNames.add(name);
     }
 
+    // The shape TDC246 refuses inside a <case>, one level out. A sequence mints the ground-truth
+    // column only where the flagged gen IS its value: a name= turns the gen into a FIELD and a
+    // second part makes it one piece of a joined string, and in both the engine minted nothing
+    // while `check` called the config valid. The anomaly still fired — the values came out
+    // perturbed — so the only thing missing was the record of WHICH rows, and ${{NAME}} reached
+    // the output as its own literal text.
+    if (gens.size() != 1 || !fieldNames.isEmpty() || composes) {
+      for (int g = 0; g < gens.size(); g++) {
+        String flag = gens.get(g).get("anomaly_flag");
+        if (flag == null) {
+          continue;
+        }
+        GenNode node = genNodes.get(g);
+        int[] where = at(node.attrs(), "anomaly_flag", node.line(), node.column());
+        error("TDC283",
+            "anomaly_flag=\"" + flag.trim()
+                + "\" is not read on a <gen> that is one part of its <sequence>",
+            "The flag records which ROWS were made outliers, and a sequence built from several "
+                + "parts has no row-level column to put it in. Move this <gen> into a <sequence> "
+                + "of its own \u2014 that also gives you the value as its own column.",
+            where[0], where[1]);
+      }
+    }
+
     // A simple body — one unnamed gen and nothing else — may say outright what it produces.
     if (gens.size() == 1 && fieldNames.isEmpty() && !composes && name != null) {
       List<String> values = finiteTextValues(gens.get(0));

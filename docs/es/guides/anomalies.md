@@ -266,6 +266,8 @@ precisión y el recall de un detector.
 **Por qué/cuándo.** Cada vez que necesite _medir_ un detector, no solo alimentarlo. Note
 que `anomaly_flag` sin `anomaly` es un error: no hay nada que marcar.
 
+La bandera necesita una secuencia cuyo valor sea ese único `<gen>`. Añada al cuerpo una segunda parte — otro `<gen>`, un literal `<data>` o un `name=` que convierta el generador en un campo — y no queda dónde poner una columna por fila, así que la configuración se rechaza ([`TDC283`](../reference/errors.md#top)) en lugar de ejecutarse sin ella. Mueva el generador a su propia `<sequence>`; así también obtiene el valor como columna propia.
+
 ## Un valor atípico a la medida — `flag` en un `<mix>`
 
 **Problema.** `anomaly="p"` solo sabe multiplicar. A veces el valor atípico tiene que
