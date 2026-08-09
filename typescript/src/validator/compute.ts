@@ -195,6 +195,58 @@ function walkWrapper(n: CN, wrapper: string, scope: VScope, diags: Diagnostic[])
 }
 
 /**
+ * A child in a SLOT position that names no slot this tag has.
+ *
+ * `<choose>`, `<when>`, `<each>`, `<reduce>` and `<at>` do not evaluate their
+ * children in order — each looks up the slots it knows by name and ignores
+ * everything else. So the walk below descended only into those slots, and a
+ * misspelled slot name was never walked, never validated, and never run:
+ *
+ *     <choose>
+ *       <wen> … </wen>          <- one dropped letter
+ *       <otherwise><current/></otherwise>
+ *     </choose>
+ *
+ * `check` called that valid. Measured on the compute overview's own Luhn
+ * example, whose whole point is a correct check digit:
+ *
+ *     <when>   5651468319671434  4592454318080046  6795599553235471   all VALID
+ *     <wen>    5651468319671431  4592454318080043  6795599553235476   all INVALID
+ *
+ * The `<otherwise>` won every row, so every card number was wrong — and nothing
+ * anywhere said so. Worse, the dead subtree escaped every other check too: an
+ * unknown tag or an unbound `<var>` inside it went unreported, because no walk
+ * ever reached it.
+ *
+ * The refusal is a proof rather than a guess: the evaluator looks these slots up
+ * by name, so an element that matches none of them is unreachable by
+ * construction — it cannot be doing anything, whatever the author meant.
+ */
+function checkSlotNames(n: CN, slots: readonly string[], diags: Diagnostic[]): void {
+  const known = new Set(slots);
+  for (const child of n.children) {
+    const cn = cnode(child);
+    if (!cn || known.has(cn.name)) continue;
+    report(
+      diags,
+      cn.node,
+      'TDC180',
+      `<${n.name}> has no <${cn.name}> part`,
+      `Inside <${n.name}> only ${slots.map((s) => `<${s}>`).join(' and ')} ` +
+        'are read; anything else is silently ignored, so a misspelling here changes ' +
+        'the result without any other sign.',
+    );
+    // Deliberately NOT walked. What the author meant is unknown, so every rule
+    // that could be applied inside is a guess about the intended shape — and the
+    // guess is wrong in the ordinary case. Walking the misspelled `<wen>` above
+    // as a value slot reported its perfectly correct `<test><equals>` as a
+    // predicate in a value position: a second error, on markup that needs no
+    // change, which disappears once the FIRST one is fixed. One true error beats
+    // a true one plus a false one.
+  }
+}
+
+/**
  * Tags the compute spec describes but this phase does not ship, so that the
  * diagnostic explains the gap instead of reading like a typo. `<param>` belongs
  * to the `compute-def`/`use` feature, which the spec defers to phase 2; the
@@ -306,6 +358,20 @@ function walkExpr(el: ElementContext, scope: VScope, diags: Diagnostic[]): void 
     case 'str':
       return;
     case 'list':
+      // `<list>` has two spellings and reads only the first: with `v=` set, the
+      // children are never evaluated. Writing both is not a choice anyone makes
+      // on purpose — it means one was meant to replace the other, and the engine
+      // kept whichever the author was not looking at.
+      if (n.attrs['v'] !== undefined && n.children.some((c) => cnode(c))) {
+        report(
+          diags,
+          n.node,
+          'TDC189',
+          '<list> has both v= and children',
+          'Only v= is read; the children are silently dropped. Keep one spelling: ' +
+            'v="1,2,3" for a literal list, or child elements for a computed one.',
+        );
+      }
       for (const c of n.children) walkExpr(c, scope, diags);
       return;
     case 'mod':
@@ -332,15 +398,18 @@ function walkExpr(el: ElementContext, scope: VScope, diags: Diagnostic[]): void 
       for (const c of n.children) walkExpr(c, scope, diags);
       return;
     case 'each':
+      checkSlotNames(n, ['over', 'do'], diags);
       walkWrapper(n, 'over', scope, diags);
       walkWrapper(n, 'do', { ...scope, inIteration: true }, diags);
       return;
     case 'reduce':
+      checkSlotNames(n, ['over', 'init', 'do'], diags);
       walkWrapper(n, 'over', scope, diags);
       walkWrapper(n, 'init', scope, diags);
       walkWrapper(n, 'do', { ...scope, inIteration: true, inReduce: true }, diags);
       return;
     case 'at':
+      checkSlotNames(n, ['in', 'index'], diags);
       walkWrapper(n, 'in', scope, diags);
       walkWrapper(n, 'index', scope, diags);
       return;
@@ -348,6 +417,24 @@ function walkExpr(el: ElementContext, scope: VScope, diags: Diagnostic[]): void 
       const as = n.attrs['as'] ?? '';
       if (!ENCODINGS.has(as)) {
         report(diags, n.node, 'TDC186', `<encode>: unknown encoding "${as}"`);
+      }
+      walkSlot(n.children, scope, diags);
+      return;
+    }
+    case 'group': {
+      // A size the engine cannot use disables grouping entirely and says nothing,
+      // so the column comes out ungrouped and looks like the tag was never
+      // written. `size="2.5"` is worse: it groups by neither 2 nor 3.
+      const size = n.attrs['size'];
+      if (size !== undefined && !/^[1-9][0-9]*$/.test(size.trim())) {
+        report(
+          diags,
+          n.node,
+          'TDC188',
+          `<group size="${size}"> is not a whole number of characters`,
+          'Write a positive whole number. A size the engine cannot use would turn ' +
+            'grouping off and leave the value unchanged, with nothing to show why.',
+        );
       }
       walkSlot(n.children, scope, diags);
       return;
@@ -383,7 +470,6 @@ function walkExpr(el: ElementContext, scope: VScope, diags: Diagnostic[]): void 
     case 'slice':
     case 'replace':
     case 'trim':
-    case 'group':
     case 'result':
     case 'do':
     case 'init':
@@ -415,6 +501,7 @@ function walkExpr(el: ElementContext, scope: VScope, diags: Diagnostic[]): void 
 }
 
 function walkChoose(n: CN, scope: VScope, diags: Diagnostic[]): void {
+  checkSlotNames(n, ['when', 'otherwise'], diags);
   let hasOtherwise = false;
   for (const child of n.children) {
     const cn = cnode(child);
@@ -432,6 +519,7 @@ function walkChoose(n: CN, scope: VScope, diags: Diagnostic[]): void {
 }
 
 function walkWhen(n: CN, scope: VScope, diags: Diagnostic[]): void {
+  checkSlotNames(n, ['test', 'then'], diags);
   const test = n.children.map(cnode).find((c) => c?.name === 'test');
   if (!test) {
     report(diags, n.node, 'TDC187', '<when> requires a <test> child');

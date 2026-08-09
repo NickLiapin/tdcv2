@@ -46,11 +46,28 @@ function markdownFiles(dir: string, acc: string[] = []): string[] {
   return acc;
 }
 
+/**
+ * A config the engine cannot run WITHOUT SOMETHING ELSE RUNNING TOO.
+ *
+ * `<gen type="http">` hands the decision to a service over a socket. There is no
+ * service here, so such a config cannot execute in a unit test however correct
+ * it is — the writing-a-service guide's demo prints real values only while one of
+ * that page's own five services is listening on 127.0.0.1:5701.
+ *
+ * Keyed on the generator rather than on the page, because the reason belongs to
+ * the generator: any future documented `http` config is unrunnable here for
+ * exactly the same reason, and should not have to be added by hand. The output of
+ * these examples is not unchecked — `check-doc-examples.mjs` carries them with a
+ * `doc-check: skip` mark naming what has to be listening.
+ */
+const NEEDS_A_SERVICE = /<gen[^>]*\btype="http"/;
+
 function configsIn(markdown: string): string[] {
   return [...markdown.matchAll(/```xml\n([\s\S]*?)\n```/g)]
     .map((m) => m[1] ?? '')
     .filter((block) => /<tdc[\s>]/.test(block))
-    .filter((block) => !DELIBERATELY_INVALID.some((re) => re.test(block)));
+    .filter((block) => !DELIBERATELY_INVALID.some((re) => re.test(block)))
+    .filter((block) => !NEEDS_A_SERVICE.test(block));
 }
 
 const pages = markdownFiles(DOCS)

@@ -74,6 +74,18 @@ export function coerceInt(value: Value, context = 'arithmetic'): bigint {
   throw new ComputeError(`expected an integer in ${context}, got a list`);
 }
 
+/**
+ * What a value IS, for a message that has to say so.
+ *
+ * Worth a helper rather than a literal at each site: `<split>` of an `<int>`
+ * reported "expected a string, got a list", because the one branch that could
+ * not be a string had the wrong type written into it by hand. A reader who
+ * believes that message goes looking for a list they never wrote.
+ */
+export function typeName(value: Value): string {
+  return value.t === 'int' ? 'a number' : value.t === 'str' ? 'a string' : 'a list';
+}
+
 /** Coerce an int or str to its string form. A list is never a string. */
 export function coerceStr(value: Value): string {
   if (value.t === 'str') return value.v;

@@ -38,6 +38,7 @@ import {
   list,
   parseIntStrict,
   str,
+  typeName,
   valueToOutput,
   type Value,
 } from './value.js';
@@ -105,9 +106,23 @@ function withVar(scope: EvalScope, name: string, value: Value): EvalScope {
   return { ...scope, vars };
 }
 
+/**
+ * `current` and `currentIndex` are REPLACED — a nested loop's element is its
+ * own. `acc` is INHERITED, because a nested `<each>` has no accumulator of its
+ * own and the enclosing `<reduce>`'s is still the one in scope.
+ *
+ * This used to rebuild the scope from scratch, so an `<each>` inside a
+ * `<reduce>`'s `<do>` dropped `acc` on the way in. The validator disagreed — it
+ * propagates `inReduce` through exactly that path — so `<acc/>` there passed
+ * `check` and then died mid-run with a bare `<acc/> used outside a <reduce>`:
+ * no code, no line, no file. Two answers were possible and only one matches
+ * what is already written down: lists.mdx says "Inside `<do>` you get `<acc/>`",
+ * and a nested `<each>`'s body is still inside that `<do>`.
+ */
 function withIter(scope: EvalScope, current: Value, currentIndex: bigint, acc?: Value): EvalScope {
   const base = { fields: scope.fields, vars: scope.vars, current, currentIndex };
-  return acc === undefined ? base : { ...base, acc };
+  const inherited = acc ?? scope.acc;
+  return inherited === undefined ? base : { ...base, acc: inherited };
 }
 
 /** Turn a collection value into the list of elements iteration walks. */
@@ -260,7 +275,7 @@ function evalElement(el: ElementContext, scope: EvalScope): Value {
       }
       const value = evalSlot(n.children, scope);
       if (value.t !== 'str') {
-        throw new ComputeError('<split>: expected a string, got a list');
+        throw new ComputeError(`<split>: expected a string, got ${typeName(value)}`);
       }
       return list(value.v.split(sep).map((piece) => str(piece)));
     }
