@@ -121,7 +121,10 @@ public final class Validator {
   private static final Map<String, java.util.Set<String>> WRAPPERS_NOT_READ =
       Map.of(
           "running", java.util.Set.of("mask", "case", "missing", "missing_as", "repeat", "anomaly", "anomaly_factor"),
-          "stat", java.util.Set.of("mask", "case", "missing", "missing_as", "repeat", "anomaly", "anomaly_factor"));
+          "stat", java.util.Set.of("mask", "case", "missing", "missing_as", "repeat", "anomaly", "anomaly_factor"),
+          // A pool reference hands the row a whole MEMBER from a table built before the run,
+          // so there is no value of its own for the formatting layer to reach.
+          "pool", java.util.Set.of("mask", "case", "missing", "missing_as", "repeat", "anomaly", "anomaly_factor", "percent"));
 
   private static final Map<String, java.util.Set<String>> ATTRIBUTE_OWNERS =
       Map.ofEntries(

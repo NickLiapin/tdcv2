@@ -544,7 +544,13 @@ pub const PACK_WRAPPER_ATTRS: [&str; 20] = [
 /// these sat on them doing nothing while `check` called the config valid.
 /// Refused rather than implemented: the interpolation filter runs where the
 /// value is PRINTED, so `${{Total|mask:x}}` works today.
-pub const WRAPPERS_NOT_READ: [(&str, &[&str]); 2] = [
+pub const WRAPPERS_NOT_READ: [(&str, &[&str]); 3] = [
     ("running", &["mask", "case", "missing", "missing_as", "repeat", "anomaly", "anomaly_factor"]),
     ("stat", &["mask", "case", "missing", "missing_as", "repeat", "anomaly", "anomaly_factor"]),
+    // A pool reference hands the row a whole MEMBER from a table built before the
+    // run, so there is no value of its own for the formatting layer to reach.
+    (
+        "pool",
+        &["mask", "case", "missing", "missing_as", "repeat", "anomaly", "anomaly_factor", "percent"],
+    ),
 ];

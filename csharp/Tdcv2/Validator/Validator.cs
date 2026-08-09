@@ -123,6 +123,9 @@ public sealed class Validator
         {
             ["running"] = Set("mask", "case", "missing", "missing_as", "repeat", "anomaly", "anomaly_factor"),
             ["stat"] = Set("mask", "case", "missing", "missing_as", "repeat", "anomaly", "anomaly_factor"),
+            // A pool reference hands the row a whole MEMBER from a table built before the run,
+            // so there is no value of its own for the formatting layer to reach.
+            ["pool"] = Set("mask", "case", "missing", "missing_as", "repeat", "anomaly", "anomaly_factor", "percent"),
         };
 
     private static readonly IReadOnlyDictionary<string, IReadOnlySet<string>> AttributeOwners =

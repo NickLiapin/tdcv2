@@ -54,6 +54,7 @@ _HINTS_BY_TAG = {
 #: only at render time and named no file, line or code.
 _PREDICATE_TAGS = frozenset({"equals", "greater_than", "less_than", "is_digit"})
 
+_POSITIVE_INT = re.compile(r"^[1-9][0-9]*$")
 _INTEGER = re.compile(r"^-?\d+$")
 
 
@@ -208,8 +209,33 @@ class ComputeCheck:
         elif name == "str":
             pass  # A literal string: nothing about it can be wrong here.
         elif name in ("list", "add", "multiply", "concat"):
+            # `<list>` has two spellings and reads only the first: with `v=` set, the children are
+            # never evaluated. Nobody writes both on purpose — it means one was meant to replace
+            # the other, and the engine kept whichever the author was not looking at.
+            if name == "list" and node.attrs.get("v") is not None and _count_nodes(node) > 0:
+                self._report(
+                    node,
+                    "TDC189",
+                    "<list> has both v= and children",
+                    "Only v= is read; the children are silently dropped. Keep one spelling: "
+                    'v="1,2,3" for a literal list, or child elements for a computed one.',
+                )
             for child in node.children:
                 self._expr(child, scope)
+        elif name == "group":
+            # A size the engine cannot use turns grouping OFF and says nothing, so the column
+            # comes out looking like the tag was never written. `size="2.5"` is worse: measured
+            # "12 34 567", grouped by neither 2 nor 3.
+            size = node.attrs.get("size")
+            if size is not None and not _POSITIVE_INT.match(size.strip()):
+                self._report(
+                    node,
+                    "TDC188",
+                    f'<group size="{size}"> is not a whole number of characters',
+                    "Write a positive whole number. A size the engine cannot use would turn "
+                    "grouping off and leave the value unchanged, with nothing to show why.",
+                )
+            self._slot(node.children, scope)
         elif name in ("mod", "divide"):
             count = _count_nodes(node)
             if count != 2:
@@ -224,13 +250,16 @@ class ComputeCheck:
             for child in node.children:
                 self._expr(child, scope)
         elif name == "each":
+            self._slot_names(node, ("over", "do"))
             self._wrapper(node, "over", scope)
             self._wrapper(node, "do", scope.iterating(False))
         elif name == "reduce":
+            self._slot_names(node, ("over", "init", "do"))
             self._wrapper(node, "over", scope)
             self._wrapper(node, "init", scope)
             self._wrapper(node, "do", scope.iterating(True))
         elif name == "at":
+            self._slot_names(node, ("in", "index"))
             self._wrapper(node, "in", scope)
             self._wrapper(node, "index", scope)
         elif name == "encode":
@@ -262,7 +291,36 @@ class ComputeCheck:
         else:
             self._slot(node.children, scope)
 
+    def _slot_names(self, node: _Node, slots: tuple[str, ...]) -> None:
+        """A child in a SLOT position that names no slot this tag has.
+
+        ``<choose>``, ``<when>``, ``<each>``, ``<reduce>`` and ``<at>`` do not evaluate their
+        children in order — each looks up the slots it knows by name and ignores everything else.
+        So a misspelled slot name was never walked, never validated, and never run. Measured on
+        the compute overview's own Luhn example with ``<when>`` spelled ``<wen>``: the
+        ``<otherwise>`` won every row and every card number came out invalid, while ``check``
+        called the config valid.
+
+        The stray part is deliberately NOT walked: what the author meant is unknown, so every
+        rule applied inside is a guess about the intended shape — and walking the misspelled
+        ``<wen>`` as a value slot reported its perfectly correct ``<test><equals>`` as a predicate
+        in a value position, a second error on markup that needs no change.
+        """
+        for child in node.children:
+            inner = _node(child)
+            if inner is None or inner.name in slots:
+                continue
+            allowed = " and ".join(f"<{s}>" for s in slots)
+            self._report(
+                inner,
+                "TDC180",
+                f"<{node.name}> has no <{inner.name}> part",
+                f"Inside <{node.name}> only {allowed} are read; anything else is silently "
+                "ignored, so a misspelling here changes the result without any other sign.",
+            )
+
     def _choose(self, node: _Node, scope: _Scope) -> None:
+        self._slot_names(node, ("when", "otherwise"))
         has_otherwise = False
         for child in node.children:
             inner = _node(child)
@@ -279,6 +337,7 @@ class ComputeCheck:
             self._report(node, "TDC184", "<choose> requires an <otherwise> branch", None)
 
     def _when(self, node: _Node, scope: _Scope) -> None:
+        self._slot_names(node, ("test", "then"))
         test = None
         for child in node.children:
             inner = _node(child)

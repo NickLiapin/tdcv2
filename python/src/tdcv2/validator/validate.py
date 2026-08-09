@@ -371,6 +371,11 @@ GEN_ATTRS = frozenset(
 WRAPPERS_NOT_READ: dict[str, frozenset[str]] = {
     "running": frozenset({"mask", "case", "missing", "missing_as", "repeat", "anomaly", "anomaly_factor"}),
     "stat": frozenset({"mask", "case", "missing", "missing_as", "repeat", "anomaly", "anomaly_factor"}),
+    # A pool reference hands the row a whole MEMBER from a table built before the run. There is
+    # no value of its own for the formatting layer to reach, so every one of these sat on it doing
+    # nothing while `check` called the config valid — six rows over a four-member pool came out
+    # byte-identical with and without each of them.
+    "pool": frozenset({"mask", "case", "missing", "missing_as", "repeat", "anomaly", "anomaly_factor", "percent"}),
 }
 
 ATTRIBUTE_OWNERS: dict[str, frozenset[str]] = {
@@ -1152,6 +1157,21 @@ class _Validator:
                 # be for a compound. That one registration is what lets every later name check
                 # work on a pool while knowing nothing about pools.
                 self._register_pool_reference(open_el, name)
+                # A pool reference draws no column of its own — it hands the row a whole member
+                # from a table built before the run — so there is nothing to take without
+                # replacement. `uniq="true"` sat on it doing nothing.
+                if any(
+                    (_attrs(g.attr()).get("type") or "") == "pool"
+                    for g in _child_elements(open_el)
+                    if _element_name(g) == "gen"
+                ):
+                    self._uniq_unsupported(
+                        open_el,
+                        name,
+                        "it draws a whole member from a <pool> rather than a column of its own, "
+                        "so there is nothing to draw without replacement \u2014 put uniq= on a "
+                        "<sequence> inside the <pool> to make the members distinct",
+                    )
                 # A compound's fields are referenced as Name.Field, and a flag column is a name
                 # too. Fields inside a <distinct> wrapper are ordinary fields, so they count.
                 self._collect_field_names(open_el, name)
@@ -1940,6 +1960,8 @@ class _Validator:
 
         self._uniq_on_composed(open_el, label, gens, gen_nodes)
         self._uniq_drops_gen_attrs(open_el, label, gens, gen_nodes)
+        self._uniq_with_distinct(open_el, label)
+        self._row_link_order(gens, gen_nodes)
 
         # Three readings, and the body says which: every gen named is a compound (several
         # columns, no value of its own), one unnamed gen alone is a simple sequence, and anything
@@ -2035,12 +2057,20 @@ class _Validator:
         attrs = _attrs(open_el.attr())
         if (attrs.get("uniq") or "").strip().lower() != "true":
             return
-        if len(gens) != 1 or "name" in gens[0]:
+        # Every <gen> the uniq construction replaces: the ONE unnamed gen of a simple sequence,
+        # or ALL the fields of a compound one. Looking only at the simple shape missed the case
+        # that mattered — a compound with missing="0.4" produced ZERO blanks over twelve rows.
+        simple = len(gens) == 1 and "name" not in gens[0]
+        members = [gens[0]] if simple else [g for g in gens if "name" in g]
+        if not members:
             return
-        gen = gens[0]
-        if gen.get("type") in ("increment", "decrement"):
-            return
-        asked = [a for a in self._DROPPED_BY_UNIQ if a in gen]
+        asked = []
+        for gen in members:
+            if gen.get("type") in ("increment", "decrement"):
+                continue
+            for a in self._DROPPED_BY_UNIQ:
+                if a in gen and a not in asked:
+                    asked.append(a)
         if not asked:
             return
         listed = ", ".join(f"{a}=" for a in asked)
@@ -2053,6 +2083,69 @@ class _Validator:
             "Two ways out. Drop the attribute if the uniqueness is what you wanted \u2014 or drop "
             "uniq= and keep the formatting, since a masked, blanked or repeated column cannot be "
             "unique as text anyway: a mask maps different values onto the same characters.",
+            line,
+            column,
+        )
+
+    def _row_link_order(self, gens, gen_nodes) -> None:
+        """``order="sequential"`` on SOME members of a ``row=`` link.
+
+        ``row="k"`` exists to keep a record together: every generator carrying the key reads the
+        SAME line of the CSV. ``order="sequential"`` picks a line too, by the row's position. Two
+        rules choosing the same line, and only one can win. Measured on the files guide's own
+        users.csv with one member sequential, John was paired with Johnson — John is Smith.
+
+        Narrow on purpose: when EVERY member is sequential they agree (both pick by position) and
+        the records hold. Only a MIXED link is proof of a contradiction.
+        """
+        links: dict[str, list[int]] = {}
+        for index, gen in enumerate(gens):
+            key = (gen.get("row") or "").strip()
+            if key:
+                links.setdefault(key, []).append(index)
+        for key, indexes in links.items():
+            if len(indexes) < 2:
+                continue
+            walking = [i for i in indexes if (gens[i].get("order") or "").strip() == "sequential"]
+            if not walking or len(walking) == len(indexes):
+                continue
+            plain = len(indexes) - len(walking)
+            line, column = _at(gen_nodes[walking[0]], "order")
+            self._error(
+                "TDC282",
+                f'order="sequential" on part of the row="{key}" link: {len(walking)} of '
+                f"{len(indexes)} members walk the file in order and {plain} pick a line per "
+                "record, so they stop reading the same line",
+                "row= exists to keep the fields of one record together. Either give every member "
+                'of the link order="sequential", so they walk in step, or drop it from this one.',
+                line,
+                column,
+            )
+
+    def _uniq_with_distinct(self, open_el, label: str) -> None:
+        """``<distinct>`` inside a ``uniq="true"`` sequence.
+
+        They are documented as independent and they are not. ``<distinct>`` repairs a row so its
+        fields differ; ``uniq`` afterwards rearranges the whole columns and knows nothing about
+        which pairings the repair ruled out. Measured on twelve rows over exactly twelve legal
+        distinct pairs, the run still produced ``s,s`` and ``q,q``.
+        """
+        attrs = _attrs(open_el.attr())
+        if (attrs.get("uniq") or "").strip().lower() != "true":
+            return
+        has_distinct = any(_element_name(child) == "distinct" for child in _child_elements(open_el))
+        if not has_distinct:
+            return
+        line, column = _at(open_el, "uniq")
+        self._error(
+            "TDC267",
+            f'uniq="true" on <sequence name="{label}"> cannot be combined with <distinct>: the '
+            "uniq arrangement rearranges the finished columns and does not know which pairings "
+            "<distinct> ruled out, so the repair is undone",
+            "Keep one of the two. <distinct> is about a single record (its fields differ); uniq= "
+            "is about the whole column (no record repeats). For both at once, give each field "
+            "its own <sequence>, wrap them in <uniq>\u2026</uniq>, and put the <distinct> at env "
+            "level.",
             line,
             column,
         )
@@ -4198,6 +4291,7 @@ class _Validator:
         # condition and every <data> inside it may name them.
         walks_a_list = _attrs(line_el.attr()).get("each") is not None
         line_condition = _attrs(line_el.attr()).get("if")
+        line_condition = _attrs(line_el.attr()).get("if")
         if line_condition is not None:
             where = _at_attrs(line_el.attr(), "if", _line(line_el), _column(line_el))
             self._check_if_expression(line_condition, where[0], where[1])
@@ -4256,6 +4350,23 @@ class _Validator:
                 continue
             data = child.dataElement()
             if data is not None and _has_body(data):
+                # The same rule one level up: a conditional <line> that holds a typed column.
+                # The column is collected once per card either way, so the condition is dropped.
+                if line_condition is not None and (_attrs(data.attr()).get("name") or "").strip():
+                    named = (_attrs(data.attr()).get("name") or "").strip()
+                    self._error(
+                        "TDC209",
+                        f'<line if="\u2026"> holds the typed column <data name="{named}">, so '
+                        "the condition cannot be honoured",
+                        "A column has one cell per card, collected whether or not the line was "
+                        "rendered \u2014 the condition would be dropped and the typed file would "
+                        "disagree with the text one. Put the condition on the sequence instead "
+                        "(<gen if=\u2026>) and declare the column nullable: an empty cell in a "
+                        "nullable column is a NULL.",
+                        _line(line_el),
+                        _column(line_el),
+                    )
+                    line_condition = None  # one message per line, not one per column
                 self._check_closed_tag_attrs("data", data.attr(), _line(line_el), _column(line_el))
                 self._check_data_type(data, _line(line_el), _column(line_el))
                 # The <data> element, not the <line> around it: several <data> pieces can share a
@@ -4264,6 +4375,23 @@ class _Validator:
                 condition = _attrs(data.attr()).get("if")
                 if condition is not None:
                     where = _at_attrs(data.attr(), "if", _line(line_el), _column(line_el))
+                    # A named <data> declares a typed output COLUMN, and a column has one cell
+                    # per card — the columnar writer collects it whether or not the line was
+                    # rendered, so the condition was dropped and the typed file disagreed with
+                    # the text rendering of the same config.
+                    column_name = (_attrs(data.attr()).get("name") or "").strip()
+                    if column_name:
+                        self._error(
+                            "TDC209",
+                            f'<data name="{column_name}"> declares a typed column, so its if= '
+                            "cannot be honoured",
+                            "A column has one cell per card, collected whether or not the line was rendered "
+            "\u2014 the condition would be dropped and the typed file would disagree with the "
+            "text one. Put the condition on the sequence instead (<gen if=\u2026>) and declare "
+            "the column nullable: an empty cell in a nullable column is a NULL.",
+                            where[0],
+                            where[1],
+                        )
                     self._check_if_expression(condition, where[0], where[1])
                     self.pending_expressions.append(
                         (len(self.diagnostics), condition, where[0], where[1], walks_a_list)
