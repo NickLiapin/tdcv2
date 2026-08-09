@@ -10,6 +10,12 @@
 
 # TDC — The Data Constructor
 
+> [!IMPORTANT]
+> **Sobre esta documentación**
+>
+> Cubre TDC **0.2.0**, última actualización **2026-08-09** — la fecha del
+> cambio más reciente en cualquier página, no la fecha en que se compiló este sitio.
+
 TDC genera datos de prueba coherentes dentro de cada registro. En una misma fila, los
 nombres corresponden a la categoría de sexo, las ciudades pertenecen al país correcto y
 los diagnósticos encajan con el perfil del paciente. Ejecute TDC de nuevo con la misma

@@ -5,7 +5,7 @@ import {themes as prismThemes} from 'prism-react-renderer';
 
 // The released version is substituted into every page at build time, so no page
 // carries it and none can drift. See plugins/remark-version.mjs.
-import remarkVersion from './plugins/remark-version.mjs';
+import remarkVersion, { TOKENS, VERSION } from './plugins/remark-version.mjs';
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -132,7 +132,9 @@ const config = {
             ],
           },
         ],
-        copyright: 'Copyright © 2026 Nick Liapin. Built with Docusaurus.',
+        // The version and the last-changed date on every page, from the same two
+        // values the pages themselves ask for — so the footer cannot drift either.
+        copyright: `TDC ${VERSION} \u2014 documentation updated ${TOKENS['%%TDC_UPDATED%%']}. \u00a9 2026 Nick Liapin. Built with Docusaurus.`,
       },
       prism: {
         theme: prismThemes.github,

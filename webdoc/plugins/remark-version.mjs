@@ -25,6 +25,7 @@
  * number too. Both read this file's `VERSION`; there is no second definition.
  */
 
+import { execFileSync } from 'node:child_process';
 import { readFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -68,8 +69,41 @@ function packCounts() {
   };
 }
 
+/**
+ * When the documentation last CHANGED — the date of the newest commit touching a
+ * page, in any language.
+ *
+ * The commit date rather than the build clock, and that is the whole point. A
+ * page stamped with `new Date()` answers "when was this rebuilt", which is not
+ * the question a reader has; it also makes every rebuild differ from the last for
+ * no reason, so a diff of the built site stops meaning anything. The commit date
+ * answers "how old is what I am reading", and two builds of one commit agree.
+ *
+ * Falls back to today when git cannot answer — a source tarball, a shallow
+ * checkout — because a date that is roughly right beats a page with a hole in it.
+ *
+ *   %%TDC_UPDATED%%   ->  2026-08-09
+ */
+function lastUpdated() {
+  try {
+    const out = execFileSync(
+      'git',
+      ['log', '-1', '--format=%cs', '--', 'webdoc/docs', 'webdoc/i18n'],
+      { cwd: join(HERE, '..', '..'), encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] },
+    ).trim();
+    if (/^\d{4}-\d{2}-\d{2}$/.test(out)) return out;
+  } catch {
+    // git absent, or not a checkout: fall through.
+  }
+  return new Date().toISOString().slice(0, 10);
+}
+
 /** Every token the build substitutes, resolved once. */
-export const TOKENS = { [TOKEN]: VERSION, ...packCounts() };
+export const TOKENS = {
+  [TOKEN]: VERSION,
+  '%%TDC_UPDATED%%': lastUpdated(),
+  ...packCounts(),
+};
 
 /** Every node kind whose value a reader can end up copying. */
 const CARRIES_TEXT = ['text', 'code', 'inlineCode', 'html', 'yaml'];

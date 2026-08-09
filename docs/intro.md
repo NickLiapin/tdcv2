@@ -10,6 +10,12 @@
 
 # TDC — The Data Constructor
 
+> [!IMPORTANT]
+> **This documentation**
+>
+> Covers TDC **0.2.0**, last updated **2026-08-09** — the date of the newest
+> change to any page, not the date this site was built.
+
 TDC generates internally consistent test data. Within each row, names match gender
 categories, cities belong to the correct countries, and diagnoses fit patient profiles.
 Run TDC again with the same seed and core version, and it produces the same rows, byte
