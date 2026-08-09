@@ -296,6 +296,11 @@ error names the tag that received the wrong type.
 
 The reverse crossing is automatic: a number placed in `<concat>` becomes its digits.
 
+Two names are the exception, because they are counts rather than data: `_count` and
+`_total` arrive as **numbers**. They go straight into `<mod>` or `<add>` with no
+`<to_number>` — and, for the same reason, `<is_digit>` and `<encode>` will not take them,
+since both expect a single character of text.
+
 ## The tag families
 
 Each family has its own page with worked examples; the full alphabetical catalog is in

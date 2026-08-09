@@ -105,7 +105,9 @@ example below.
 
 ### `<upper>` / `<lower>` / `<capitalize>` / `<title>` — case
 
-**Takes** one string → **gives** a string of the same length.
+**Takes** one string → **gives** a string. Usually the same length, but not always: `straße`
+upper-cases to `STRASSE`, seven characters from six, and `ﬁ` becomes `FI`. Do not build a
+fixed-width pipeline on the assumption that the count survives.
 
 Four case transforms, each taking one string child:
 
@@ -178,7 +180,12 @@ each **slot** eats a piece of the input, and everything else is printed as a lit
 | `w`           | one word (letters up to a space) and **swallows one** space |
 | `*`           | all remaining input                                         |
 | `\`           | escapes the next character (`\x` → a literal `x`)           |
+| `x[2]` `w[1]` | a piece BY POSITION, so it can be reordered or repeated     |
 | anything else | a literal: dash, dot, space, brackets — printed as-is       |
+
+The indexed forms are the same ones the `mask:` filter takes — `x[0..2]` for a range,
+`x[-1]` counting from the end — and the [masks guide](../guides/masks-and-case.md#moving-pieces--x0-w0-and-ranges)
+works through them. `pattern="x[2]x[1]x[0]"` over `ABC` gives `CBA`.
 
 `pattern` is the only attribute, and it's required. A mask is **lenient and never fails**: if
 `x` / `w` run past the end of the input they print nothing, and any leftover tail is
@@ -255,7 +262,7 @@ take four characters.
 
 ### `<slice>` — substring by index
 
-**Takes** one string plus `from=` and optional `to=` → **gives** a string. Counting starts at 0, a negative `from` counts from the end, and a range past the end yields an empty string rather than an error. `from=` is treated as 0 when it is left out, so a `<slice>` with only `to=` cuts from the start.
+**Takes** one string plus `from=` and optional `to=` → **gives** a string. Counting starts at 0, a negative `from` **or** `to` counts from the end (`to="-2"` stops two characters short), and a range past the end yields an empty string rather than an error. `from=` is treated as 0 when it is left out, so a `<slice>` with only `to=` cuts from the start.
 
 `<slice from="…" to="…">` cuts a substring over the half-open range `[from, to)`: the
 character at `from` is included, the character at `to` is not — so the length is

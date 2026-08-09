@@ -101,7 +101,9 @@ de `<trim>` de más abajo.
 
 ### `<upper>` / `<lower>` / `<capitalize>` / `<title>` — mayúsculas y minúsculas
 
-**Toma** un string → **da** un string del mismo largo.
+**Toma** un string → **da** un string. Normalmente del mismo largo, pero no siempre: `straße`
+en mayúsculas es `STRASSE`, siete caracteres a partir de seis, y `ﬁ` se vuelve `FI`. No arme
+una tubería de ancho fijo suponiendo que la cuenta sobrevive.
 
 Cuatro transformaciones de mayúsculas y minúsculas, cada una con un hijo de tipo string:
 

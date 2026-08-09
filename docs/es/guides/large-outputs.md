@@ -41,10 +41,17 @@ configuración**:
   la fila actual: un grupo [`<uniq>`](../constructs/unique-values.md#top) a nivel de env,
   [`uniq="true"`](../constructs/unique-values.md#top) en una secuencia compuesta o en un
   contador, y un [`parent`](hierarchical-dependencies.md#top) cuyo padre no es una secuencia
-  de texto. Garantiza el resultado de forma exacta y su memoria se mantiene acotada — pero
-  lo paga revisando los datos con un ordenamiento externo y una pasada de reparación, y
-  **esa revisión se vuelve drásticamente más lenta a medida que crece el número de filas**
-  (vea la advertencia abajo).
+  de texto. Garantiza el resultado de forma exacta y lo paga revisando los datos con un
+  ordenamiento externo y una pasada de reparación — una revisión que **se vuelve
+  drásticamente más lenta a medida que crece el número de filas** (vea la advertencia
+  abajo).
+
+  La memoria acotada es la promesa más estrecha. Medido, en un solo hilo, sobre 3,2 M de
+  filas: un `uniq` compuesto ocupa ~1 GB y deja de crecer — ese es el bloque del
+  ordenamiento externo. Las otras tres formas caen al motor en memoria cuando el
+  constructor de streaming las rechaza, así que su memoria sigue el número de filas como
+  en el motor 1: un grupo `<uniq>` a nivel de env llegó a 1,9 GB con 800 k filas, y nada
+  lo advirtió.
 
   La unicidad es una promesa sobre el **conjunto terminado**, no sobre una fila, y no se
   puede resolver fila a fila. Por eso mismo `--jobs` se niega a repartir una configuración
@@ -84,9 +91,9 @@ Así que `uniq` cae en dos motores distintos según cómo esté escrito:
 | :----------------------------------------------------------------------------------- | :-------------- | :---------------- |
 | `uniq="true"` sobre una sola columna sorteada — `text`, `number`, `date`, `template` | en memoria      | crece con `count` |
 | `uniq="true"` sobre una columna hecha de una parte sorteada y literales `<data>`     | en memoria      | crece con `count` |
-| `uniq="true"` sobre un [contador](../generators/counters.md#top)                        | exacto en disco | acotada           |
-| `uniq="true"` sobre una secuencia compuesta (campos `<gen>` con nombre)              | exacto en disco | acotada           |
-| Un grupo [`<uniq>`](../constructs/unique-values.md#top) a nivel de env                  | exacto en disco | acotada           |
+| `uniq="true"` sobre un [contador](../generators/counters.md#top)                        | en memoria      | crece con `count` |
+| `uniq="true"` sobre una secuencia compuesta (campos `<gen>` con nombre)              | exacto en disco | acotada en ~1 GB  |
+| Un grupo [`<uniq>`](../constructs/unique-values.md#top) a nivel de env                  | en memoria      | crece con `count` |
 
 **Ninguna forma de `uniq` corre en el motor rápido de streaming.** Rechaza `uniq` por su
 nombre, así que a una configuración que pidió streaming se le dice, en vez de entregarle

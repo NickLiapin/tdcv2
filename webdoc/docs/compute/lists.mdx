@@ -36,7 +36,7 @@ there are no unbounded loops.
 There are four sources, and only four. Every list on this page is one of them.
 
 1. **Written out** — `<list v="10,20,30"/>`.
-2. **A string, walked by character** — anywhere a list is expected, a string stands in
+2. **A string, walked by character** — the `<over>` slot accepts a string and stands in
    for the list of its characters. This is the one that surprises people: nothing in the
    config says "split", the `<over>` slot simply accepts a string.
 3. **The result of `<each>`** — a list in, a list out.

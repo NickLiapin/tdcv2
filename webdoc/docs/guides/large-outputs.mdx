@@ -40,9 +40,15 @@ Two engines run under "disk", and TDC picks between them **from your config**:
   the current row: an env-level [`<uniq>`](../constructs/unique-values.mdx) group,
   [`uniq="true"`](../constructs/unique-values.mdx) on a compound sequence or on a counter,
   and a [`parent`](hierarchical-dependencies.mdx) whose parent is not a text sequence.
-  It guarantees the result exactly, and its memory stays bounded — but it pays for that by
-  checking the data with an external sort and a repair pass, and **that check gets
-  dramatically slower as the row count grows** (see the warning below).
+  It guarantees the result exactly, and it pays for that by checking the data with an
+  external sort and a repair pass — a check that **gets dramatically slower as the row
+  count grows** (see the warning below).
+
+  Bounded memory is the narrower claim. Measured, single-threaded, over 3.2 M rows: a
+  compound `uniq` holds ~1 GB and stops climbing, which is the external sort's chunk. The
+  other three shapes fall back to the in-memory engine when the streaming builder refuses
+  them, so their memory tracks the row count like engine 1 — an env-level `<uniq>` reached
+  1.9 GB at 800 k rows, and nothing warned about it.
 
   Uniqueness is a promise about the **finished dataset**, not about any one row, so it
   cannot be settled a row at a time. That is also why `--jobs` refuses a config that asks
@@ -82,9 +88,9 @@ So `uniq` lands on two different engines depending on how it is written:
 | :----------------------------------------------------------------------- | :------------ | :----------------- |
 | `uniq="true"` on one drawn column — `text`, `number`, `date`, `template` | in-memory     | grows with `count` |
 | `uniq="true"` on a column composed of a drawn part and `<data>` literals | in-memory     | grows with `count` |
-| `uniq="true"` on a [counter](../generators/counters.mdx)                 | exact on-disk | bounded            |
-| `uniq="true"` on a compound sequence (named `<gen>` fields)              | exact on-disk | bounded            |
-| An env-level [`<uniq>`](../constructs/unique-values.mdx) group           | exact on-disk | bounded            |
+| `uniq="true"` on a [counter](../generators/counters.mdx)                 | in-memory     | grows with `count` |
+| `uniq="true"` on a compound sequence (named `<gen>` fields)              | exact on-disk | bounded at ~1 GB   |
+| An env-level [`<uniq>`](../constructs/unique-values.mdx) group           | in-memory     | grows with `count` |
 
 **No form of `uniq` runs on the fast streaming engine.** It refuses `uniq` by name, so a
 config that asked for streaming is told rather than handed data that quietly repeats:

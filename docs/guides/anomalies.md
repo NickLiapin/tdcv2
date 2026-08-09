@@ -325,9 +325,23 @@ TDC checks that the label and the column are both present:
 ### In Parquet — a real type
 
 When you export to Parquet, the ground-truth column becomes a genuine `BOOLEAN` and
-the values keep their numeric type, with no `type=` anywhere:
+the values keep their numeric type, with no `type=` anywhere. A typed file needs its
+columns **named**, so the `<block>` says so — one `<data name="…">` per column instead of
+one line of commas:
 
-`./run sensor.tdc --format parquet (schema)`
+```xml
+<block>
+  <line>
+    <data name="id">${{Id}}</data>
+    <data name="temp">${{Temp}}</data>
+    <data name="bad">${{Bad}}</data>
+  </line>
+</block>
+```
+
+The container is chosen by the output's extension — there is no `--format` flag:
+
+`tdcv2 sensor.tdc -o sensor.parquet (schema)`
 
 ```
 id     INT64    REQUIRED

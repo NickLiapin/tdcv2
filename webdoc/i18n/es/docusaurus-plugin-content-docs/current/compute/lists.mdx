@@ -38,7 +38,7 @@ hay ciclos sin cota.
 Hay cuatro fuentes, y solo cuatro. Toda lista de esta página es una de ellas.
 
 1. **Escrita a mano** — `<list v="10,20,30"/>`.
-2. **Un string, recorrido carácter a carácter** — donde se espera una lista, un string
+2. **Un string, recorrido carácter a carácter** — el hueco `<over>` acepta un string y
    ocupa su lugar como la lista de sus caracteres. Esta es la que sorprende: en la
    configuración no dice "divide" en ninguna parte, la ranura `<over>` simplemente acepta
    un string.

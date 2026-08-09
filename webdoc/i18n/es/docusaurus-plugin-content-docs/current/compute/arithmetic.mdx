@@ -303,7 +303,7 @@ es lo que esperan los algoritmos de checksum.
 
 ## `<mod>`
 
-**Toma** exactamente dos hijos → **da** un número entre `0` y `divisor-1`. Nunca es negativo, a diferencia de `%` en C, Java o JavaScript.
+**Toma** exactamente dos hijos → **da** un número entre `0` y `|divisor|-1`. Nunca es negativo, a diferencia de `%` en C, Java o JavaScript: `<mod>7, -5</mod>` da `2`.
 
 `<mod>` devuelve el **residuo** del primer hijo dividido entre el segundo — un entero,
 **siempre no negativo**. Toma **exactamente dos** hijos (si no, error `TDC183`), y dividir

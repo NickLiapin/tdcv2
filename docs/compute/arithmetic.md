@@ -318,7 +318,7 @@ checksum algorithms expect.
 
 ## `<mod>`
 
-**Takes** exactly two children → **gives** a number in `0 … divisor-1`. Never negative, unlike `%` in C, Java or JavaScript.
+**Takes** exactly two children → **gives** a number in `0 … |divisor|-1`. Never negative, unlike `%` in C, Java or JavaScript — `<mod>7, -5</mod>` is `2`.
 
 `<mod>` returns the **remainder** of the first child divided by the second — an
 integer, **always non-negative**. It takes **exactly two** children (otherwise error

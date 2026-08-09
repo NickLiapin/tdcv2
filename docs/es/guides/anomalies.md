@@ -333,9 +333,23 @@ TDC verifica que la etiqueta y la columna estén ambas presentes:
 ### En Parquet — un tipo de verdad
 
 Cuando exporta a Parquet, la columna de respuesta se vuelve un `BOOLEAN` genuino y los
-valores conservan su tipo numérico, sin un solo `type=` de por medio:
+valores conservan su tipo numérico, sin un solo `type=` de por medio. Un archivo tipado
+necesita sus columnas **con nombre**, así que el `<block>` lo dice — un
+`<data name="…">` por columna en lugar de una línea de comas:
 
-`./run sensor.tdc --format parquet (esquema)`
+```xml
+<block>
+  <line>
+    <data name="id">${{Id}}</data>
+    <data name="temp">${{Temp}}</data>
+    <data name="bad">${{Bad}}</data>
+  </line>
+</block>
+```
+
+El contenedor lo elige la extensión de la salida — no hay bandera `--format`:
+
+`tdcv2 sensor.tdc -o sensor.parquet (esquema)`
 
 ```
 id     INT64    REQUIRED

@@ -171,8 +171,10 @@ Peak resident set, megabytes. Lower is better.
 
 **This is the table to read if you read only one.** On engine 1 the memory column tracks the
 row count: ten times the rows, roughly ten times the memory, in every implementation. On
-engine 2 it does not move at all — Rust holds 3.7 MB whether you ask for ten thousand rows or
-two million, C# holds about 49 MB, Python about 32 MB.
+engine 2 it does not track the row count — Rust holds 3.7 MB whether you ask for ten thousand
+rows or two million, C# holds about 49 MB, Python about 32 MB. Node moves a little (130 MB at
+10 000 rows, 289 MB at two million) because its heap grows with the work, not with the data:
+2.2× over 200× the rows.
 
 That is the trade the streaming engine offers, and it is not "faster". It is sometimes very
 slightly slower. What you buy with those fractions of a second is a run whose memory you can
