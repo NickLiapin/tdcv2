@@ -22,7 +22,13 @@
 
 import type { Diagnostic } from '../errors/index.js';
 import type { OpenCloseElementContext, SelfClosingElementContext } from '../generated/TDCParser.js';
-import { contentElements, elementKind, elementName, extractAttrs } from '../processor/walk.js';
+import {
+  collectSequenceGens,
+  contentElements,
+  elementKind,
+  elementName,
+  extractAttrs,
+} from '../processor/walk.js';
 
 import { attrValueRange, nodeRange } from '../errors/source-map.js';
 import { closestMatch } from '../errors/suggestions.js';
@@ -89,9 +95,26 @@ function addMemberFields(
   const nested = inner === undefined ? undefined : byPool.get(inner);
   if (nested === undefined) {
     fields.push(name);
+    // A COMPOUND member publishes `Name.Field` for each of its named gens, and
+    // the pool exposes those under the same dotted name — `pool-build.ts` says
+    // so outright ("so `${{Doctor.address.city}}` reads the way the config wrote
+    // it"). Only nested pool REFERENCES were expanded here, so the engine shipped
+    // a feature the CLI refused: `${{Seen.addr.city}}` printed `Paris` on a run
+    // and was TDC193 on a check.
+    for (const field of compoundFieldNames(node)) fields.push(`${name}.${field}`);
     return;
   }
   for (const field of nested) fields.push(`${name}.${field}`);
+}
+
+/** The named `<gen>`s of a member — its own sub-fields, if it has any. */
+function compoundFieldNames(node: OpenCloseElementContext): string[] {
+  const out: string[] = [];
+  for (const gen of collectSequenceGens(node).nodes) {
+    const field = extractAttrs(gen.attr())['name'];
+    if (field !== undefined && field.trim() !== '') out.push(field.trim());
+  }
+  return out;
 }
 
 /**

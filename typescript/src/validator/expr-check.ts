@@ -565,6 +565,21 @@ export interface PendingExpression {
   readonly attr: AttrContext;
   readonly expr: string;
   readonly eachBuiltins: readonly string[];
+  /**
+   * The names visible where this expression was WRITTEN, when that is narrower
+   * than the run's.
+   *
+   * A `<pool>` member sees the pool's own fields and nothing else — the pool is
+   * built before any row exists, so an env column has no value to read. Deferring
+   * the check to the end and resolving against the run's names got this wrong in
+   * both directions at once: a sibling field was refused with TDC215 though the
+   * engine resolves it correctly, and an env column was ACCEPTED though the
+   * condition is then constant-false on every member. Measured, six rows:
+   *
+   *     if="role == surgeon"   TDC215        engine: yes/yes/yes/no/no/no
+   *     if="Age >= 18"         is valid      engine: badge=[] on every row
+   */
+  readonly scope?: readonly string[] | undefined;
 }
 
 /**
@@ -576,6 +591,23 @@ export interface PendingExpression {
  * back at the position its attribute was found, so the report still reads top to
  * bottom.
  */
+/**
+ * Narrow the expressions put aside since `from` to the names they could actually
+ * see. Used for a `<pool>`, whose members read each other and nothing from the
+ * run — see `PendingExpression.scope` for what went wrong without it.
+ */
+export function scopePending(
+  pending: PendingExpression[],
+  from: number,
+  names: readonly string[],
+): void {
+  const scope = [...names];
+  for (let i = from; i < pending.length; i++) {
+    const item = pending[i];
+    if (item && item.scope === undefined) pending[i] = { ...item, scope };
+  }
+}
+
 export function runPendingExpressions(
   pending: readonly PendingExpression[],
   diagnostics: Diagnostic[],
@@ -590,10 +622,10 @@ export function runPendingExpressions(
       item.attr,
       item.expr,
       { diagnostics: found },
-      known,
-      compounds,
+      item.scope ?? known,
+      item.scope ? [] : compounds,
       item.eachBuiltins,
-      finiteValues,
+      item.scope ? new Map() : finiteValues,
     );
     diagnostics.splice(item.at + shift, 0, ...found);
     shift += found.length;

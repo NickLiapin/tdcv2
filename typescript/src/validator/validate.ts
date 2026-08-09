@@ -484,7 +484,17 @@ function checkEnv(envEl: OpenCloseElementContext, ctx: Ctx): void {
       // `poolsAbove` grows as the walk goes: a member may draw from a pool
       // already seen and from nothing else, which makes a cycle unwritable.
       const checkers = memberCheckers(ctx);
-      checkPoolDeclaration(k.node, poolsAbove, ctx.diagnostics, checkers, ctx.declaredSequences);
+      // A pool's members read each other and nothing from the run — the table is
+      // built before any row exists — so every `if=` written inside is checked
+      // against the pool's own field names.
+      checkPoolDeclaration(
+        k.node,
+        poolsAbove,
+        ctx.diagnostics,
+        checkers,
+        ctx.declaredSequences,
+        ctx.pendingExpressions,
+      );
       checkPoolIsRead(k.node, poolsRead, ctx.diagnostics);
       continue;
     }

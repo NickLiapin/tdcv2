@@ -23,6 +23,7 @@ import {
 
 import { nodeRange } from '../errors/source-map.js';
 import { checkGroupSize } from './group-size.js';
+import { type PendingExpression, scopePending } from './expr-check.js';
 import { KNOWN_POOL_CHILDREN } from './known.js';
 import { reportUnknownChild } from './placement.js';
 import { checkPool, checkPoolMemberRefs } from './pool.js';
@@ -62,10 +63,19 @@ export function checkPoolDeclaration(
   diagnostics: Diagnostic[],
   checkers: MemberCheckers,
   declaredSequences: string[],
+  /**
+   * The expressions put aside so far. A pool's members read each other and
+   * nothing from the run, so every `if=` written inside is narrowed to the
+   * pool's own field names before they leave scope.
+   */
+  pending?: PendingExpression[],
 ): void {
   checkPool(pool, diagnostics);
   checkPoolMemberRefs(pool, above, diagnostics);
-  checkPoolMembers(pool, diagnostics, checkers, declaredSequences);
+  const from = pending?.length ?? 0;
+  checkPoolMembers(pool, diagnostics, checkers, declaredSequences, (names) => {
+    if (pending) scopePending(pending, from, names);
+  });
   const declared = extractAttrs(pool.attr())['name'];
   if (!declared) return;
   if (above.includes(declared)) {
@@ -91,6 +101,7 @@ export function checkPoolMembers(
   diagnostics: Diagnostic[],
   checkers: MemberCheckers,
   declaredSequences: string[],
+  onFields?: (names: readonly string[]) => void,
 ): void {
   // A pool's members are ITS columns, not the run's. They have to see each
   // other while the pool is walked — `if="Gender.Male"` inside a pool reads
@@ -124,6 +135,10 @@ export function checkPoolMembers(
       checkEnvSequenceGroup(k.node, diagnostics, name, checkers);
     }
   }
+  // Handed over BEFORE the truncation below: an `if=` written inside the pool is
+  // checked later, when these names are gone, and it has to be checked against
+  // them rather than against the run's.
+  onFields?.(declaredSequences.slice(outerNames));
   declaredSequences.length = outerNames;
 }
 
