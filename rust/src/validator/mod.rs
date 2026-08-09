@@ -845,6 +845,20 @@ impl Validator {
                 if !in_pool {
                     self.env_names.insert(n.to_string());
                     self.register_pool_reference(open, n);
+                    // A pool reference draws no column of its own — it hands the row a
+                    // whole member from a table built before the run — so there is
+                    // nothing to take without replacement.
+                    if open
+                        .children
+                        .iter()
+                        .any(|c| c.name == "gen" && c.attr("type").map(|a| a.value()) == Some("pool"))
+                    {
+                        self.uniq_unsupported(
+                            open,
+                            Some(n),
+                            "it draws a whole member from a <pool> rather than a column of its own, so there is nothing to draw without replacement — put uniq= on a <sequence> inside the <pool> to make the members distinct",
+                        );
+                    }
                 }
                 // A compound's fields are referenced as Name.Field, and a flag
                 // column is a name too. Fields inside a <distinct> wrapper are
@@ -1585,6 +1599,8 @@ impl Validator {
 
         self.uniq_on_composed(open, name, &gens);
         self.uniq_drops_gen_attrs(open, name, &gens);
+        self.uniq_with_distinct(open, name);
+        self.row_link_order(&gens);
 
         // Three readings, and the body says which: every gen named is a compound
         // (several columns, no value of its own), one unnamed gen alone is a
@@ -1653,6 +1669,87 @@ impl Validator {
     /// cannot make two different draws collide. Two drawn parts have no fixed
     /// widths, so a unique set of parts is not a unique join — `9` + `15` and
     /// `91` + `5` are the same three characters.
+    /// `<distinct>` inside a `uniq="true"` sequence.
+    ///
+    /// They are documented as independent and they are not. `<distinct>` repairs
+    /// a row so its fields differ; `uniq` afterwards rearranges the whole columns
+    /// and knows nothing about which pairings the repair ruled out. Measured on
+    /// twelve rows over exactly twelve legal distinct pairs, the run still
+    /// produced `s,s` and `q,q`.
+    fn uniq_with_distinct(&mut self, open: &Element, name: Option<&str>) {
+        let declared = open.attr("uniq").map(|a| a.value()).unwrap_or("");
+        if !declared.trim().eq_ignore_ascii_case("true") {
+            return;
+        }
+        if !open.children.iter().any(|c| c.name == "distinct") {
+            return;
+        }
+        self.error(
+            "TDC267",
+            format!(
+                "uniq=\"true\" on <sequence name=\"{}\"> cannot be combined with <distinct>: \
+                 the uniq arrangement rearranges the finished columns and does not know which \
+                 pairings <distinct> ruled out, so the repair is undone",
+                name.unwrap_or("?")
+            ),
+            "Keep one of the two. <distinct> is about a single record (its fields differ); uniq= \
+             is about the whole column (no record repeats). For both at once, give each field \
+             its own <sequence>, wrap them in <uniq>\u{2026}</uniq>, and put the <distinct> at \
+             env level.",
+            open.at("uniq"),
+        );
+    }
+
+    /// `order="sequential"` on SOME members of a `row=` link.
+    ///
+    /// `row="k"` exists to keep a record together: every generator carrying the
+    /// key reads the SAME line. `order="sequential"` picks a line too, by the
+    /// row's position. Two rules choosing the same line, and only one can win —
+    /// measured on the files guide's own users.csv, John was paired with Johnson
+    /// when John is Smith. Narrow on purpose: when EVERY member is sequential
+    /// they agree, and the records hold.
+    fn row_link_order(&mut self, gens: &[&Element]) {
+        let mut keys: Vec<&str> = Vec::new();
+        for gen in gens {
+            if let Some(k) = gen.attr("row").map(|a| a.value().trim()) {
+                if !k.is_empty() && !keys.contains(&k) {
+                    keys.push(k);
+                }
+            }
+        }
+        for key in keys {
+            let group: Vec<&&Element> = gens
+                .iter()
+                .filter(|g| g.attr("row").map(|a| a.value().trim()) == Some(key))
+                .collect();
+            if group.len() < 2 {
+                continue;
+            }
+            let walking: Vec<&&&Element> = group
+                .iter()
+                .filter(|g| g.attr("order").map(|a| a.value().trim()) == Some("sequential"))
+                .collect();
+            if walking.is_empty() || walking.len() == group.len() {
+                continue;
+            }
+            let plain = group.len() - walking.len();
+            let offender = walking[0];
+            self.error(
+                "TDC282",
+                format!(
+                    "order=\"sequential\" on part of the row=\"{key}\" link: {} of {} members \
+                     walk the file in order and {plain} pick a line per record, so they stop \
+                     reading the same line",
+                    walking.len(),
+                    group.len()
+                ),
+                "row= exists to keep the fields of one record together. Either give every member \
+                 of the link order=\"sequential\", so they walk in step, or drop it from this one.",
+                offender.at("order"),
+            );
+        }
+    }
+
     fn uniq_on_composed(&mut self, open: &Element, name: Option<&str>, gens: &[&Element]) {
         let declared = open.attr("uniq").map(|a| a.value()).unwrap_or("");
         if !declared.trim().eq_ignore_ascii_case("true") {
@@ -1707,18 +1804,31 @@ impl Validator {
         if !declared.trim().eq_ignore_ascii_case("true") {
             return;
         }
-        let [gen] = gens else { return };
-        if gen.attr("name").is_some() {
+        // Every <gen> the uniq construction replaces: the ONE unnamed gen of a
+        // simple sequence, or ALL the fields of a compound one. Looking only at
+        // the simple shape missed the case that mattered — a compound carrying
+        // missing="0.4" produced ZERO blanks over twelve rows.
+        let simple = gens.len() == 1 && gens[0].attr("name").is_none();
+        let members: Vec<&&Element> = if simple {
+            gens.iter().collect()
+        } else {
+            gens.iter().filter(|g| g.attr("name").is_some()).collect()
+        };
+        if members.is_empty() {
             return;
         }
-        let kind = gen.attr("type").map(|a| a.value()).unwrap_or("");
-        if kind == "increment" || kind == "decrement" {
-            return;
+        let mut asked: Vec<&str> = Vec::new();
+        for gen in &members {
+            let kind = gen.attr("type").map(|a| a.value()).unwrap_or("");
+            if kind == "increment" || kind == "decrement" {
+                continue;
+            }
+            for a in Self::DROPPED_BY_UNIQ {
+                if gen.attr(a).is_some() && !asked.contains(&a) {
+                    asked.push(a);
+                }
+            }
         }
-        let asked: Vec<&str> = Self::DROPPED_BY_UNIQ
-            .into_iter()
-            .filter(|a| gen.attr(a).is_some())
-            .collect();
         if asked.is_empty() {
             return;
         }
@@ -4167,6 +4277,7 @@ impl Validator {
         // `_item` and `_item_id` exist only while a line walks a list, and both
         // the line's own condition and every <data> inside it may name them.
         let walks_a_list = line.attr_value("each").is_some();
+        let mut line_condition = line.attr_value("if").map(str::to_string);
 
         // `if=` sits on the <line> as well as on each <data> inside it, and an
         // unparsable one has to be caught in both places or a whole line silently
@@ -4233,6 +4344,29 @@ impl Validator {
             }
 
             if child.kind == Kind::Data {
+                // The same rule one level up: a conditional <line> holding a typed column. The
+                // column is collected once per card either way, so the condition is dropped.
+                if line_condition.is_some() {
+                    if let Some(column) = child.attr_value("name").map(str::trim) {
+                        if !column.is_empty() {
+                            self.error(
+                                "TDC209",
+                                format!(
+                                    "<line if=\"\u{2026}\"> holds the typed column <data \
+                                     name=\"{column}\">, so the condition cannot be honoured"
+                                ),
+                                "A column has one cell per card, collected whether or not the \
+                                 line was rendered \u{2014} the condition would be dropped and \
+                                 the typed file would disagree with the text one. Put the \
+                                 condition on the sequence instead (<gen if=\u{2026}>) and \
+                                 declare the column nullable: an empty cell in a nullable column \
+                                 is a NULL.",
+                                line.at("if"),
+                            );
+                            line_condition = None;
+                        }
+                    }
+                }
                 self.check_closed_tag_attrs("data", child);
                 self.check_data_type(child, line.pos);
                 // The <data> element, not the <line> around it: several <data>
@@ -4240,6 +4374,25 @@ impl Validator {
                 // the wrong one whenever they do.
                 let text = child.text.clone();
                 self.check_interpolation(&text, child.pos);
+                // A named <data> declares a typed output COLUMN, and a column has one
+                // cell per card — the columnar writer collects it whether or not the
+                // line was rendered, so the condition was dropped and the typed file
+                // disagreed with the text rendering of the same config.
+                if child.attr_value("if").is_some() {
+                    if let Some(column) = child.attr_value("name").map(str::trim) {
+                        if !column.is_empty() {
+                            self.error(
+                                "TDC209",
+                                format!(
+                                    "<data name=\"{column}\"> declares a typed column, so its \
+                                     if= cannot be honoured"
+                                ),
+                                "A column has one cell per card, collected whether or not the line was rendered \u{2014} the condition would be dropped and the typed file would disagree with the text one. Put the condition on the sequence instead (<gen if=\u{2026}>) and declare the column nullable: an empty cell in a nullable column is a NULL.",
+                                child.at("if"),
+                            );
+                        }
+                    }
+                }
                 if let Some(condition) = child.attr_value("if").map(str::to_string) {
                     self.check_if_expression(&condition, child.at("if"));
                     self.pending_expressions.push((

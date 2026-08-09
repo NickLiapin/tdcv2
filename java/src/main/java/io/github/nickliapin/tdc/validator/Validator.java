@@ -1098,6 +1098,20 @@ public final class Validator {
         if (!poolMemberNodes.contains(open)) {
           envNames.add(name);
           registerPoolReference(open, name);
+          // A pool reference draws no column of its own — it hands the row a whole member from a
+          // table built before the run — so there is nothing to take without replacement.
+          boolean drawsPool = false;
+          for (TDCParser.ElementContext child : open.content().element()) {
+            GenNode gn = genNodeOf(child);
+            if (gn != null && "pool".equals(attributes(gn.attrs()).get("type"))) {
+              drawsPool = true;
+              break;
+            }
+          }
+          if (drawsPool) {
+            uniqUnsupported(open, name,
+                "it draws a whole member from a <pool> rather than a column of its own, so there is nothing to draw without replacement \u2014 put uniq= on a <sequence> inside the <pool> to make the members distinct");
+          }
         }
         // A compound's fields are referenced as Name.Field, and a flag column is a name too.
         // Fields inside a <distinct> wrapper are ordinary fields, so they count as well.
@@ -1982,6 +1996,8 @@ public final class Validator {
 
     uniqOnComposed(open, name, gens);
     uniqDropsGenAttrs(open, name, gens);
+    uniqWithDistinct(open, name);
+    rowLinkOrder(gens, genNodes);
 
     // Three readings, and the body says which: every gen named is a compound (several columns, no
     // value of its own), one unnamed gen alone is a simple sequence, and anything else COMPOSES —
@@ -2718,18 +2734,33 @@ public final class Validator {
     if (uniq == null || !"true".equals(uniq.trim().toLowerCase(java.util.Locale.ROOT))) {
       return;
     }
-    if (gens.size() != 1 || gens.get(0).containsKey("name")) {
-      return;
+    // Every <gen> the uniq construction replaces: the ONE unnamed gen of a simple sequence, or
+    // ALL the fields of a compound one. Looking only at the simple shape missed the case that
+    // mattered — a compound carrying missing="0.4" produced ZERO blanks over twelve rows.
+    boolean simple = gens.size() == 1 && !gens.get(0).containsKey("name");
+    java.util.List<java.util.Map<String, String>> members = new java.util.ArrayList<>();
+    if (simple) {
+      members.add(gens.get(0));
+    } else {
+      for (java.util.Map<String, String> g : gens) {
+        if (g.containsKey("name")) {
+          members.add(g);
+        }
+      }
     }
-    java.util.Map<String, String> gen = gens.get(0);
-    String kind = gen.getOrDefault("type", "");
-    if ("increment".equals(kind) || "decrement".equals(kind)) {
+    if (members.isEmpty()) {
       return;
     }
     java.util.List<String> asked = new java.util.ArrayList<>();
-    for (String a : DROPPED_BY_UNIQ) {
-      if (gen.containsKey(a)) {
-        asked.add(a + "=");
+    for (java.util.Map<String, String> gen : members) {
+      String kind = gen.getOrDefault("type", "");
+      if ("increment".equals(kind) || "decrement".equals(kind)) {
+        continue;
+      }
+      for (String a : DROPPED_BY_UNIQ) {
+        if (gen.containsKey(a) && !asked.contains(a + "=")) {
+          asked.add(a + "=");
+        }
       }
     }
     if (asked.isEmpty()) {
@@ -2745,6 +2776,86 @@ public final class Validator {
             + "uniq= and keep the formatting, since a masked, blanked or repeated column cannot "
             + "be unique as text anyway: a mask maps different values onto the same characters.",
         pos[0], pos[1]);
+  }
+
+  /**
+   * {@code <distinct>} inside a {@code uniq="true"} sequence.
+   *
+   * <p>Documented as independent and they are not: {@code <distinct>} repairs a row so its fields
+   * differ, and {@code uniq} afterwards rearranges the whole columns without knowing which
+   * pairings the repair ruled out. Measured on twelve rows over exactly twelve legal distinct
+   * pairs, the run still produced {@code s,s} and {@code q,q}.
+   */
+  private void uniqWithDistinct(TDCParser.OpenCloseElementContext open, String name) {
+    String uniq = attributes(open.attr()).get("uniq");
+    if (uniq == null || !"true".equals(uniq.trim().toLowerCase(java.util.Locale.ROOT))) {
+      return;
+    }
+    boolean hasDistinct = false;
+    for (TDCParser.ElementContext child : open.content().element()) {
+      TDCParser.OpenCloseElementContext inner = child.openCloseElement();
+      if (inner != null && "distinct".equals(inner.name.getText())) {
+        hasDistinct = true;
+        break;
+      }
+    }
+    if (!hasDistinct) {
+      return;
+    }
+    int[] pos = at(open.attr(), "uniq", line(open), column(open));
+    error("TDC267",
+        "uniq=\"true\" on <sequence name=\"" + (name == null ? "?" : name) + "\"> cannot be "
+            + "combined with <distinct>: the uniq arrangement rearranges the finished columns and "
+            + "does not know which pairings <distinct> ruled out, so the repair is undone",
+        "Keep one of the two. <distinct> is about a single record (its fields differ); uniq= is "
+            + "about the whole column (no record repeats). For both at once, give each field its "
+            + "own <sequence>, wrap them in <uniq>\u2026</uniq>, and put the <distinct> at env "
+            + "level.",
+        pos[0], pos[1]);
+  }
+
+  /**
+   * {@code order="sequential"} on SOME members of a {@code row=} link.
+   *
+   * <p>{@code row="k"} exists to keep a record together; {@code order="sequential"} picks a line
+   * by position. Two rules choosing the same line, and only one can win — measured on the files
+   * guide's own users.csv, John was paired with Johnson when John is Smith. Narrow on purpose:
+   * when EVERY member is sequential they agree and the records hold.
+   */
+  private void rowLinkOrder(
+      java.util.List<java.util.Map<String, String>> gens, java.util.List<GenNode> genNodes) {
+    java.util.Map<String, java.util.List<Integer>> links = new java.util.LinkedHashMap<>();
+    for (int i = 0; i < gens.size(); i++) {
+      String key = gens.get(i).getOrDefault("row", "").trim();
+      if (!key.isEmpty()) {
+        links.computeIfAbsent(key, k -> new java.util.ArrayList<>()).add(i);
+      }
+    }
+    for (java.util.Map.Entry<String, java.util.List<Integer>> entry : links.entrySet()) {
+      java.util.List<Integer> group = entry.getValue();
+      if (group.size() < 2) {
+        continue;
+      }
+      java.util.List<Integer> walking = new java.util.ArrayList<>();
+      for (int i : group) {
+        if ("sequential".equals(gens.get(i).getOrDefault("order", "").trim())) {
+          walking.add(i);
+        }
+      }
+      if (walking.isEmpty() || walking.size() == group.size()) {
+        continue;
+      }
+      int plain = group.size() - walking.size();
+      GenNode node = genNodes.get(walking.get(0));
+      int[] pos = at(node.attrs(), "order", node.line(), node.column());
+      error("TDC282",
+          "order=\"sequential\" on part of the row=\"" + entry.getKey() + "\" link: "
+              + walking.size() + " of " + group.size() + " members walk the file in order and "
+              + plain + " pick a line per record, so they stop reading the same line",
+          "row= exists to keep the fields of one record together. Either give every member of the "
+              + "link order=\"sequential\", so they walk in step, or drop it from this one.",
+          pos[0], pos[1]);
+    }
   }
 
   private void uniqOnComposed(
@@ -4276,6 +4387,22 @@ public final class Validator {
       }
       TDCParser.DataElementContext data = child.dataElement();
       if (data instanceof TDCParser.DataWithBodyContext body) {
+        // The same rule one level up: a conditional <line> holding a typed column. The column is
+        // collected once per card either way, so the condition is dropped.
+        String lineColumn = attributes(body.attr()).getOrDefault("name", "").trim();
+        if (lineCondition != null && !lineColumn.isEmpty()) {
+          int[] lw = at(line.attr(), "if", line(line), column(line));
+          error("TDC209",
+              "<line if=\"\u2026\"> holds the typed column <data name=\"" + lineColumn
+                  + "\">, so the condition cannot be honoured",
+              "A column has one cell per card, collected whether or not the line was rendered "
+                  + "\u2014 the condition would be dropped and the typed file would "
+                  + "disagree with the text one. Put the condition on the sequence "
+                  + "instead (<gen if=\u2026>) and declare the column nullable: an empty "
+                  + "cell in a nullable column is a NULL.",
+              lw[0], lw[1]);
+          lineCondition = null;
+        }
         checkClosedTagAttrs("data", body.attr(), line(line), column(line));
         checkDataType(body, line(line), column(line));
         // The <data> element, not the <line> around it: several <data> pieces can share a
@@ -4287,6 +4414,21 @@ public final class Validator {
         String condition = attributes(body.attr()).get("if");
         if (condition != null) {
           int[] where = at(body.attr(), "if", line(line), column(line));
+          // A named <data> declares a typed output COLUMN, and a column has one cell per card —
+          // the columnar writer collects it whether or not the line was rendered, so the
+          // condition was dropped and the typed file disagreed with the text rendering.
+          String columnName = attributes(body.attr()).getOrDefault("name", "").trim();
+          if (!columnName.isEmpty()) {
+            error("TDC209",
+                "<data name=\"" + columnName + "\"> declares a typed column, so its if= cannot "
+                    + "be honoured",
+                "A column has one cell per card, collected whether or not the line was rendered "
+                  + "\u2014 the condition would be dropped and the typed file would "
+                  + "disagree with the text one. Put the condition on the sequence "
+                  + "instead (<gen if=\u2026>) and declare the column nullable: an empty "
+                  + "cell in a nullable column is a NULL.",
+                where[0], where[1]);
+          }
           checkIfExpression(condition, where[0], where[1]);
           pendingExpressions.add(
               new Pending(diagnostics.size(), condition, where[0], where[1], walksAList));

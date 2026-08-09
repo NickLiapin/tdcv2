@@ -1278,6 +1278,20 @@ public sealed class Validator
                 {
                     _envNames.Add(name);
                     this.RegisterPoolReference(open, name);
+
+                    // A pool reference draws no column of its own — it hands the row a whole
+                    // member from a table built before the run — so there is nothing to take
+                    // without replacement.
+                    bool drawsPool = open.content().element()
+                        .Select(GenNodeOf)
+                        .Any(gn => gn is not null
+                            && Attributes(gn.Attrs).GetValueOrDefault("type") == "pool");
+                    if (drawsPool)
+                    {
+                        this.UniqUnsupported(
+                            open, name,
+                            "it draws a whole member from a <pool> rather than a column of its own, so there is nothing to draw without replacement \u2014 put uniq= on a <sequence> inside the <pool> to make the members distinct");
+                    }
                 }
                 // A compound's fields are referenced as Name.Field, and a flag column is a name
                 // too. Fields inside a <distinct> wrapper are ordinary fields, so they count as
@@ -2386,6 +2400,8 @@ public sealed class Validator
 
         UniqOnComposed(open, name, gens);
         UniqDropsGenAttrs(open, name, gens);
+        UniqWithDistinct(open, name);
+        RowLinkOrder(gens, genNodes);
 
         // Three readings, and the body says which: every gen named is a compound (several columns,
         // no value of its own), one unnamed gen alone is a simple sequence, and anything else
@@ -5135,7 +5151,8 @@ public sealed class Validator
         // `_item` and `_item_id` exist only while a line walks a list, and both the line's own
         // condition and every <data> inside it may name them.
         bool walksAList = lineAttrs.ContainsKey("each");
-        if (lineAttrs.TryGetValue("if", out string? lineCondition))
+        string? lineCondition = lineAttrs.GetValueOrDefault("if");
+        if (lineCondition is not null)
         {
             (int l, int c) = At(line.attr(), "if", Line(line), Column(line));
             CheckIfExpression(lineCondition, l, c);
@@ -5199,6 +5216,26 @@ public sealed class Validator
 
             if (child.dataElement() is TDCParser.DataWithBodyContext body)
             {
+                // The same rule one level up: a conditional <line> holding a typed column. The
+                // column is collected once per card either way, so the condition is dropped.
+                string lineColumn =
+                    (Attributes(body.attr()).GetValueOrDefault("name") ?? string.Empty).Trim();
+                if (lineCondition is not null && lineColumn.Length > 0)
+                {
+                    (int lw, int cw) = At(line, "if");
+                    Error(
+                        "TDC209",
+                        $"<line if=\"\u2026\"> holds the typed column <data name=\"{lineColumn}\">, "
+                            + "so the condition cannot be honoured",
+                        "A column has one cell per card, collected whether or not the line was "
+                            + "rendered \u2014 the condition would be dropped and the typed file "
+                            + "would disagree with the text one. Put the condition on the sequence "
+                            + "instead (<gen if=\u2026>) and declare the column nullable: an empty "
+                            + "cell in a nullable column is a NULL.",
+                        lw, cw);
+                    lineCondition = null;
+                }
+
                 CheckClosedTagAttrs("data", body.attr(), Line(line), Column(line));
                 CheckDataType(body, Line(line), Column(line));
                 // The <data> element, not the <line> around it: several <data> pieces can share a
@@ -5210,6 +5247,26 @@ public sealed class Validator
                 if (Attributes(body.attr()).TryGetValue("if", out string? condition))
                 {
                     (int l, int c) = At(body.attr(), "if", Line(line), Column(line));
+
+                    // A named <data> declares a typed output COLUMN, and a column has one cell per
+                    // card — the columnar writer collects it whether or not the line was rendered,
+                    // so the condition was dropped and the typed file disagreed with the text one.
+                    string conditionalColumn =
+                        (Attributes(body.attr()).GetValueOrDefault("name") ?? string.Empty).Trim();
+                    if (conditionalColumn.Length > 0)
+                    {
+                        Error(
+                            "TDC209",
+                            $"<data name=\"{conditionalColumn}\"> declares a typed column, so its "
+                                + "if= cannot be honoured",
+                            "A column has one cell per card, collected whether or not the line was "
+                                + "rendered \u2014 the condition would be dropped and the typed "
+                                + "file would disagree with the text one. Put the condition on the "
+                                + "sequence instead (<gen if=\u2026>) and declare the column "
+                                + "nullable: an empty cell in a nullable column is a NULL.",
+                            l, c);
+                    }
+
                     CheckIfExpression(condition, l, c);
                     _pendingExpressions.Add((_diagnostics.Count, condition, l, c, walksAList));
                 }
@@ -6162,19 +6219,37 @@ public sealed class Validator
             return;
         }
 
-        if (gens.Count != 1 || gens[0].ContainsKey("name"))
+        // Every <gen> the uniq construction replaces: the ONE unnamed gen of a simple sequence,
+        // or ALL the fields of a compound one. Looking only at the simple shape missed the case
+        // that mattered — a compound carrying missing="0.4" produced ZERO blanks over twelve rows.
+        bool simple = gens.Count == 1 && !gens[0].ContainsKey("name");
+        List<IReadOnlyDictionary<string, string>> members = simple
+            ? new List<IReadOnlyDictionary<string, string>> { gens[0] }
+            : gens.Where(g => g.ContainsKey("name")).ToList();
+        if (members.Count == 0)
         {
             return;
         }
 
-        IReadOnlyDictionary<string, string> gen = gens[0];
-        string kind = gen.GetValueOrDefault("type") ?? string.Empty;
-        if (kind is "increment" or "decrement")
+        var askedList = new List<string>();
+        foreach (IReadOnlyDictionary<string, string> gen in members)
         {
-            return;
+            string kind = gen.GetValueOrDefault("type") ?? string.Empty;
+            if (kind is "increment" or "decrement")
+            {
+                continue;
+            }
+
+            foreach (string a in DroppedByUniq.Where(gen.ContainsKey))
+            {
+                if (!askedList.Contains(a))
+                {
+                    askedList.Add(a);
+                }
+            }
         }
 
-        string[] asked = DroppedByUniq.Where(gen.ContainsKey).ToArray();
+        string[] asked = askedList.ToArray();
         if (asked.Length == 0)
         {
             return;
@@ -6192,6 +6267,100 @@ public sealed class Validator
                 + "cannot be unique as text anyway: a mask maps different values onto the same "
                 + "characters.",
             line, column);
+    }
+
+    /// <summary><c>&lt;distinct&gt;</c> inside a <c>uniq="true"</c> sequence.</summary>
+    /// <remarks>
+    /// Documented as independent and they are not: <c>&lt;distinct&gt;</c> repairs a row so its
+    /// fields differ, and <c>uniq</c> afterwards rearranges the whole columns without knowing
+    /// which pairings the repair ruled out. Measured on twelve rows over exactly twelve legal
+    /// distinct pairs, the run still produced <c>s,s</c> and <c>q,q</c>.
+    /// </remarks>
+    private void UniqWithDistinct(TDCParser.OpenCloseElementContext open, string? name)
+    {
+        string? uniq = Attributes(open.attr()).GetValueOrDefault("uniq");
+        if (uniq is null || !string.Equals(uniq.Trim(), "true", StringComparison.OrdinalIgnoreCase))
+        {
+            return;
+        }
+
+        bool hasDistinct = open.content().element()
+            .Any(c => c.openCloseElement()?.name.Text == "distinct");
+        if (!hasDistinct)
+        {
+            return;
+        }
+
+        (int line, int column) = At(open, "uniq");
+        Error(
+            "TDC267",
+            $"uniq=\"true\" on <sequence name=\"{name ?? "?"}\"> cannot be combined with "
+                + "<distinct>: the uniq arrangement rearranges the finished columns and does not "
+                + "know which pairings <distinct> ruled out, so the repair is undone",
+            "Keep one of the two. <distinct> is about a single record (its fields differ); uniq= "
+                + "is about the whole column (no record repeats). For both at once, give each "
+                + "field its own <sequence>, wrap them in <uniq>\u2026</uniq>, and put the "
+                + "<distinct> at env level.",
+            line, column);
+    }
+
+    /// <summary><c>order="sequential"</c> on SOME members of a <c>row=</c> link.</summary>
+    /// <remarks>
+    /// <c>row="k"</c> exists to keep a record together; <c>order="sequential"</c> picks a line by
+    /// position. Two rules choosing the same line, and only one can win — measured on the files
+    /// guide's own users.csv, John was paired with Johnson when John is Smith. Narrow on purpose:
+    /// when EVERY member is sequential they agree and the records hold.
+    /// </remarks>
+    private void RowLinkOrder(
+        List<IReadOnlyDictionary<string, string>> gens, List<GenNode> genNodes)
+    {
+        var links = new Dictionary<string, List<int>>(StringComparer.Ordinal);
+        for (int i = 0; i < gens.Count; i++)
+        {
+            string key = (gens[i].GetValueOrDefault("row") ?? string.Empty).Trim();
+            if (key.Length == 0)
+            {
+                continue;
+            }
+
+            if (!links.TryGetValue(key, out List<int>? group))
+            {
+                group = new List<int>();
+                links[key] = group;
+            }
+
+            group.Add(i);
+        }
+
+        foreach ((string key, List<int> group) in links)
+        {
+            if (group.Count < 2)
+            {
+                continue;
+            }
+
+            List<int> walking = group
+                .Where(i => (gens[i].GetValueOrDefault("order") ?? string.Empty).Trim()
+                    == "sequential")
+                .ToList();
+            if (walking.Count == 0 || walking.Count == group.Count)
+            {
+                continue;
+            }
+
+            int plain = group.Count - walking.Count;
+            GenNode node = genNodes[walking[0]];
+            (int line, int column) = At(node.Attrs, "order", node.Line, node.Column);
+            Error(
+                "TDC282",
+                $"order=\"sequential\" on part of the row=\"{key}\" link: {walking.Count} of "
+                    + $"{group.Count} members walk the file in order and {plain} pick a line per "
+                    + "record, so they stop reading the same line",
+                "row= exists to keep the fields of one record together. Either give every member "
+                    + "of the link order=\"sequential\", so they walk in step, or drop it from "
+                    + "this one.",
+                line, column);
+        }
     }
 
     private void UniqUnsupported(TDCParser.OpenCloseElementContext open, string? name, string why)
