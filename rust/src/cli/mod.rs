@@ -228,7 +228,16 @@ fn check(argv: &[String], stderr: &mut dyn Write) -> std::io::Result<i32> {
     }
     let file = files[0];
 
-    let data = match Tdc::from_file(file) {
+    // A PLAN, not a built run. `Tdc::from_file` here IS the finished run in this
+    // implementation — every column materialised — so checking a config with a
+    // `<gen type="http">` in it called the service, from a command whose own help
+    // says it validates "without generating anything". The other four never did:
+    // measured on a dead port, they printed "is valid" while this one reported a
+    // connection failure. A check in CI must not reach a production service.
+    let data = match Tdc::plan(Options {
+        config_file: Some(file.clone()),
+        ..Options::default()
+    }) {
         Ok(data) => data,
         Err(e) => {
             report_error(stderr, &e, file, brief)?;

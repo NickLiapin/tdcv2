@@ -104,7 +104,7 @@ pub const MISPLACED_IN_SEQUENCE: [&str; 5] = ["mix", "switch", "case", "default"
 /// to `<case>`; `on` to `<switch>`; `v` to `<tdc>`. The list was one flat union of
 /// every attribute name in the language, so writing any of them on a `<gen>`
 /// passed in silence while the reference refused it.
-pub const GEN_ATTRS: [&str; 79] = [
+pub const GEN_ATTRS: [&str; 80] = [
     "type",
     "value",
     "name",
@@ -169,6 +169,7 @@ pub const GEN_ATTRS: [&str; 79] = [
     "in",
     "on_error",
     "timeout",
+    "secret",
     "mean",
     "sd",
     "meanlog",
@@ -210,7 +211,7 @@ pub const GEN_TYPES: [&str; 16] = [
 /// An attribute in [`GEN_ATTRS`] is spelled correctly for SOME generator; this
 /// says whether it means anything for THIS one. Without it a `min=`/`max=` on a
 /// number and a `range=` on anything but a date pass silently and are dropped.
-pub const ATTRIBUTE_OWNERS: [(&str, &[&str]); 44] = [
+pub const ATTRIBUTE_OWNERS: [(&str, &[&str]); 45] = [
     // A list to walk — or, on a date, a range walked instead of drawn.
     ("order", &["text", "file", "date"]),
     ("cycle", &["text", "file", "date"]),
@@ -233,6 +234,7 @@ pub const ATTRIBUTE_OWNERS: [(&str, &[&str]); 44] = [
     ("in", &["http"]),
     ("on_error", &["http"]),
     ("timeout", &["http"]),
+    ("secret", &["http"]),
     // The drawn curve.
     ("points", &["pattern"]),
     ("upper", &["pattern"]),

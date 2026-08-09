@@ -213,3 +213,68 @@ mod tests {
         );
     }
 }
+
+/// `HMAC-SHA256(key, message)` as lowercase hex — RFC 2104 over the digest above.
+///
+/// Written out rather than pulled in: this crate has no dependencies, and the
+/// construction is six lines once a hash exists. A key longer than the block is
+/// hashed first, a shorter one is zero-padded; the two pads are the constants
+/// the RFC names, and the result must agree byte for byte with `crypto.createHmac`
+/// in Node, `hmac` in Python, `Mac` in Java and `HMACSHA256` in .NET — a service
+/// checks one signature, whichever runtime sent it.
+pub fn hmac_hex(key: &[u8], message: &[u8]) -> String {
+    const BLOCK: usize = 64;
+    let mut padded = [0u8; BLOCK];
+    if key.len() > BLOCK {
+        padded[..32].copy_from_slice(&digest(key));
+    } else {
+        padded[..key.len()].copy_from_slice(key);
+    }
+
+    let mut inner = Vec::with_capacity(BLOCK + message.len());
+    inner.extend(padded.iter().map(|b| b ^ 0x36));
+    inner.extend_from_slice(message);
+
+    let mut outer = Vec::with_capacity(BLOCK + 32);
+    outer.extend(padded.iter().map(|b| b ^ 0x5c));
+    outer.extend_from_slice(&digest(&inner));
+
+    hex(&outer)
+}
+
+#[cfg(test)]
+mod hmac_tests {
+    use super::hmac_hex;
+
+    /// The value the other four implementations produce for the same inputs.
+    ///
+    /// A service checks ONE signature, so this is the number that has to agree:
+    /// measured from `crypto.createHmac` in Node and `hmac` in Python, both of
+    /// which give the same 64 hex digits for these bytes.
+    #[test]
+    fn agrees_with_the_other_implementations() {
+        assert_eq!(
+            hmac_hex(b"k7Fm2p-test-secret", b"1786000000\nseed1\n4\nbody"),
+            "d0be9a276deb4802b0a2ec6d85050f7f90e1c44cf42c25773740b755f98803ce"
+        );
+    }
+
+    /// RFC 4231 case 2 — a short key, so the zero-padding branch is the one used.
+    #[test]
+    fn matches_rfc_4231() {
+        assert_eq!(
+            hmac_hex(b"Jefe", b"what do ya want for nothing?"),
+            "5bdcc146bf60754e6a042426089575c75a003f089d2739839dec58b964ec3843"
+        );
+    }
+
+    /// A key longer than the 64-byte block is hashed first — the other branch.
+    #[test]
+    fn hashes_an_over_long_key() {
+        let key = vec![0xaa_u8; 131];
+        assert_eq!(
+            hmac_hex(&key, b"Test Using Larger Than Block-Size Key - Hash Key First"),
+            "60e431591ee0b67f0d8a26aacbf5b77f8e0bc6213728c5140546040f0ee37f54"
+        );
+    }
+}

@@ -2450,6 +2450,36 @@ impl Validator {
                 );
             }
         }
+
+        // `secret=` is the key a request is signed with. Three spellings, and
+        // only the literal is worth saying anything about: a config travels into
+        // version control, and the secret would travel with it. A warning rather
+        // than an error, because a service on 127.0.0.1 for an afternoon is a
+        // real use and refusing it would only teach people to write it somewhere
+        // worse.
+        if let Some(secret) = attrs.get("secret") {
+            let raw = secret.trim();
+            if raw.is_empty() {
+                self.error(
+                    "TDC284",
+                    "secret=\"\" has no key to sign with".to_string(),
+                    "Name where the key lives: secret=\"env:TDC_HTTP_SECRET\" or \
+                     secret=\"file:~/.tdc/service.key\". Remove the attribute to send the \
+                     request unsigned.",
+                    gen.at("secret"),
+                );
+            } else if !raw.starts_with("env:") && !raw.starts_with("file:") {
+                self.warn(
+                    "TDC284",
+                    "secret= is written into the config, so it travels wherever the config does"
+                        .to_string(),
+                    "A config goes into version control and the key goes with it. \
+                     secret=\"env:TDC_HTTP_SECRET\" reads it from the environment, \
+                     secret=\"file:~/.tdc/service.key\" from a file the repository does not hold.",
+                    gen.at("secret"),
+                );
+            }
+        }
     }
 
     /// A `src=` that names a file nobody can read.

@@ -46,13 +46,24 @@ pub fn fetch(
     seed: Option<&str>,
     on_error: OnError,
     timeout_ms: i64,
+    // The already-resolved `secret=`, if the config carries one. Present means
+    // the request is SIGNED — the secret itself never goes on the wire.
+    secret: Option<&str>,
 ) -> EngineResult<Vec<String>> {
     if count == 0 {
         return Ok(Vec::new());
     }
 
     let body = inputs.map(|lines| lines.join("\n")).unwrap_or_default();
-    match post(src, &body, count, seed, timeout_ms) {
+    match post(
+        src,
+        &body,
+        count,
+        seed,
+        timeout_ms,
+        inputs.map(<[String]>::len),
+        secret,
+    ) {
         Ok(text) => {
             let lines = split_lines(&text);
             if lines.len() != count {
@@ -73,6 +84,28 @@ pub fn fetch(
         )),
         Err(Failure::Said(why)) => failed(src, &why, count, on_error),
     }
+}
+
+/// `hex(HMAC-SHA256(secret, timestamp \n seed \n count \n body))`.
+///
+/// Everything that decides what comes back is inside: change the body, the
+/// count, the seed or the minute, and the signature no longer matches. The
+/// secret is the key, so it is never sent — which is what makes this safe over
+/// plain http on a trusted network, and what makes a captured request useless
+/// tomorrow once the service checks the timestamp.
+pub fn sign_request(secret: &str, timestamp: &str, seed: &str, count: usize, body: &str) -> String {
+    let message = format!("{timestamp}\n{seed}\n{count}\n{body}");
+    crate::archive::sha256::hmac_hex(secret.as_bytes(), message.as_bytes())
+}
+
+/// The REAL clock, not the run's pinned `now`: the timestamp exists so a service
+/// can refuse a request replayed tomorrow, and a config pinned to last year
+/// would otherwise be refused by every service that checks.
+fn now_seconds() -> u64 {
+    std::time::SystemTime::now()
+        .duration_since(std::time::UNIX_EPOCH)
+        .map(|d| d.as_secs())
+        .unwrap_or(0)
 }
 
 /// A failure the caller may or may not be allowed to soften.
@@ -111,6 +144,8 @@ fn post(
     count: usize,
     seed: Option<&str>,
     timeout_ms: i64,
+    input_lines: Option<usize>,
+    secret: Option<&str>,
 ) -> Result<String, Failure> {
     use std::io::Write;
 
@@ -133,6 +168,23 @@ fn post(
         .arg(format!("X-TDC-Count: {count}"));
     if let Some(seed) = seed {
         command.arg("--header").arg(format!("X-TDC-Seed: {seed}"));
+    }
+    // `X-TDC-Input` closes an ambiguity the body alone cannot: `in=` naming a
+    // column of one empty value sends an empty body, byte for byte what a pure
+    // source sends, and the service invented a value where it had been asked to
+    // process one. Absent keeps the old reading, so a service written before
+    // this header is unaffected.
+    if let Some(lines) = input_lines {
+        command.arg("--header").arg(format!("X-TDC-Input: {lines}"));
+    }
+    if let Some(secret) = secret.filter(|s| !s.is_empty()) {
+        let timestamp = now_seconds().to_string();
+        let signature = sign_request(secret, &timestamp, seed.unwrap_or(""), count, body);
+        command
+            .arg("--header")
+            .arg(format!("X-TDC-Timestamp: {timestamp}"))
+            .arg("--header")
+            .arg(format!("X-TDC-Signature: {signature}"));
     }
     command
         .arg("--data-binary")
@@ -250,5 +302,69 @@ pub fn on_error(attrs: &BTreeMap<String, String>) -> OnError {
         OnError::Empty
     } else {
         OnError::Fail
+    }
+}
+
+/// `secret="…"` → the bytes to sign with.
+///
+/// The secret is the one thing in a run that must not travel: it never goes on
+/// the wire (only a signature derived from it does) and it should not travel
+/// into version control either, which is what a config does. So the two
+/// spellings that keep it out of the file come first, and the literal is
+/// accepted — with TDC284 saying why it is a poor idea — rather than refused,
+/// because a service on 127.0.0.1 for an afternoon is a real use.
+///
+/// An empty secret is refused wherever it came from: signing with nothing
+/// produces a signature every caller could forge, which is worse than not
+/// signing at all.
+pub fn resolve_secret(spec: &str, base_dir: &std::path::Path) -> Result<String, String> {
+    let trimmed = spec.trim();
+    if let Some(name) = trimmed.strip_prefix("env:") {
+        let name = name.trim();
+        if name.is_empty() {
+            return Err("secret=\"env:\" names no variable".to_string());
+        }
+        return match std::env::var(name) {
+            Ok(value) if !value.trim().is_empty() => Ok(value.trim().to_string()),
+            _ => Err(format!(
+                "secret=\"env:{name}\" — the environment variable is not set, or is empty"
+            )),
+        };
+    }
+    if let Some(raw) = trimmed.strip_prefix("file:") {
+        let raw = raw.trim();
+        if raw.is_empty() {
+            return Err("secret=\"file:\" names no file".to_string());
+        }
+        let expanded = expand_home(raw);
+        let path = if expanded.is_absolute() {
+            expanded
+        } else {
+            base_dir.join(expanded)
+        };
+        let text = std::fs::read_to_string(&path)
+            .map_err(|e| format!("secret=\"file:{raw}\" could not be read ({e})"))?;
+        // Trimmed because a key file written by a person almost always ends in a
+        // newline, and a signature that silently includes it agrees with nothing.
+        let value = text.trim();
+        if value.is_empty() {
+            return Err(format!("secret=\"file:{raw}\" is empty"));
+        }
+        return Ok(value.to_string());
+    }
+    if trimmed.is_empty() {
+        return Err("secret=\"\" is empty".to_string());
+    }
+    Ok(trimmed.to_string())
+}
+
+fn expand_home(path: &str) -> std::path::PathBuf {
+    let home = std::env::var("HOME").unwrap_or_default();
+    if path == "~" {
+        return std::path::PathBuf::from(home);
+    }
+    match path.strip_prefix("~/") {
+        Some(rest) if !home.is_empty() => std::path::PathBuf::from(home).join(rest),
+        _ => std::path::PathBuf::from(path),
     }
 }

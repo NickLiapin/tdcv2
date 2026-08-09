@@ -2155,6 +2155,25 @@ fn resolve_http(
             }
         };
 
+        // Resolved per sequence and never cached: two sequences may sign with
+        // two different secrets, and a config naming an unset variable should
+        // say so in terms of the sequence the reader wrote.
+        let secret = match gen.attr("secret").map(str::trim).filter(|s| !s.is_empty()) {
+            None => None,
+            Some(spec_text) => Some(
+                http::resolve_secret(
+                    spec_text,
+                    std::path::Path::new(env.base_dir.as_deref().unwrap_or(".")),
+                )
+                    .map_err(|why| {
+                        EngineError::Invalid(format!(
+                            "http service for sequence \"{}\": {why}",
+                            spec.name
+                        ))
+                    })?,
+            ),
+        };
+
         let values = http::fetch(
             gen.attr_or("src", ""),
             count,
@@ -2162,6 +2181,7 @@ fn resolve_http(
             Some(&http::seed_for(&env.config.seed, &spec.name)),
             http::on_error(&gen.attrs),
             http::timeout_ms(gen.attr("timeout")),
+            secret.as_deref(),
         )
         .map_err(|e| {
             EngineError::Invalid(format!(
