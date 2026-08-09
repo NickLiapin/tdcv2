@@ -78,6 +78,7 @@ how to make it reproducible from the seed — gets a page of its own:
 | `in`       | the sequence whose value is sent on each row — this is what turns the service into a **handler**. Omit it and the service is a **source**: it receives nothing and invents each value |
 | `on_error` | `fail` (default) — stop with a clear message; or `empty` — blank the cell and continue                                                                                                |
 | `timeout`  | seconds to wait for one answer before giving up. Default 30                                                                                                                           |
+| `secret`   | the key each request is **signed** with, so your service can tell TDC from anyone else who can reach the port. Three spellings — see [Proving the request came from TDC](#proving-the-request-came-from-tdc) |
 
 `in` names an **earlier** sequence — the value it produced on each row is what gets sent.
 
@@ -88,6 +89,15 @@ The engine speaks one small protocol and expects nothing else back:
 - **`POST`** to `src`, with a header **`X-TDC-Count: N`** — how many values are wanted.
 - The **body** is the `N` input values, **one per line**, in row order. With no `in`,
   the body is empty and `N` comes from the header.
+- **`X-TDC-Input: N`** travels whenever `in` is present, and says how many input lines the
+  body holds. It is what tells a handler from a source when the body cannot: `in` naming a
+  column of one empty value sends an empty body, which is byte for byte what a source sends.
+  A service that ignores the header reads the body exactly as it always did.
+- **`X-TDC-Seed`** is eight hex digits derived from the run's seed and the sequence name —
+  the same value every time, and different for every sequence, so a service that generates
+  from it can be reproducible on its own.
+- **`X-TDC-Timestamp`** and **`X-TDC-Signature`** travel only when the config carries
+  [`secret`](#proving-the-request-came-from-tdc).
 - The **response** must be exactly **`N` lines**, in the same order — line _i_ answers
   input line _i_. Plain text.
 
@@ -325,6 +335,74 @@ The service is outside TDC's control, so failures are handled, not hidden:
 - A service that **never answers** is cut off by `timeout` rather than hanging the run.
 - A service that **floods** — answering with far more than one value per line — is cut
   off at 64 MB with an error instead of being read into memory to the end.
+- A **`secret` that cannot be read** — an unset variable, a missing file — stops the run
+  before any request goes out, naming the sequence. Sending the batch unsigned instead
+  would be the one outcome the attribute exists to prevent.
+
+## Proving the request came from TDC
+
+A service that answers `http` requests is doing real work — hashing a password, minting an
+account number, calling a model that costs money. If it is reachable by anything other than
+your own machine, it should be able to tell TDC's requests from anyone else's.
+
+`secret=` does that **without ever putting the key on the wire**. Each request carries a
+timestamp and a signature computed from the secret; the service recomputes the same thing
+with its own copy and compares.
+
+```xml
+<sequence name="Hashed">
+  <gen type="http" src="https://svc.example.com/hash" in="Password"
+       secret="env:TDC_HTTP_SECRET"/>
+</sequence>
+```
+
+Two extra headers travel with the request:
+
+```
+X-TDC-Timestamp: 1786000000
+X-TDC-Signature: hex(HMAC-SHA256(secret, timestamp \n seed \n count \n body))
+```
+
+Everything that decides the answer is inside the signature — change the body, the count,
+the seed or the minute and it no longer matches. Verifying it is a few lines:
+
+```js
+const mine = crypto
+  .createHmac('sha256', process.env.TDC_HTTP_SECRET)
+  .update(`${ts}\n${seed}\n${count}\n${body}`)
+  .digest('hex');
+if (mine !== req.headers['x-tdc-signature']) return res.status(401).end();
+```
+
+All five implementations produce the **same** signature for the same request, so one
+service accepts requests from any of them.
+
+### Where the key lives
+
+| Spelling                            | Where it reads from                                              |
+| :---------------------------------- | :--------------------------------------------------------------- |
+| `secret="env:TDC_HTTP_SECRET"`      | an environment variable — **the recommended one**                |
+| `secret="file:~/.tdc/service.key"`  | a file, trimmed; relative paths resolve beside the config         |
+| `secret="k7Fm2p…"`                  | the value itself — works, and warns ([`TDC284`](../reference/errors.mdx)) |
+
+The literal warns rather than fails because a service on `127.0.0.1` for an afternoon is a
+real use. But a config goes into version control and the key goes with it, which is why the
+other two spellings exist. `secret=""` is an error: signing with nothing produces a
+signature anyone could forge.
+
+### What signing does and does not do
+
+- It proves the sender **holds the secret**, and that the request was not altered on the way.
+- The timestamp is what makes a captured request useless tomorrow — **how strict that
+  window is, is your service's decision.** TDC sends its real clock, not the run's
+  `--now`, so a config pinned to a past date still works.
+- The secret has **no expiry**. A test that runs once a quarter signs correctly with a key
+  set months ago, which is why this is a signature and not an expiring token.
+- It does **not hide the contents.** Over plain `http://` the body and reply are visible to
+  anyone listening. If real secrets travel through the service, use `https://` as well —
+  the two solve different problems.
+- The signature changes every run, because the timestamp does. That has no effect on the
+  data, which was never reproducible for `http` anyway.
 
 ## What it does not promise
 

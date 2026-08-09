@@ -141,6 +141,7 @@ engine family; on a `pattern` generator it picks what you're asking the drawing 
 | `in`       | Sequence whose value is sent with each row              | [HTTP service](../generators/http.md#top) |
 | `on_error` | `fail` (default) or `empty` when a request fails        | [HTTP service](../generators/http.md#top) |
 | `timeout`  | Seconds to wait for a response (default 30)             | [HTTP service](../generators/http.md#top) |
+| `secret`   | Key each request is signed with — `env:`, `file:` or a literal | [HTTP service](../generators/http.md#proving-the-request-came-from-tdc) |
 
 ## Output & formatting
 

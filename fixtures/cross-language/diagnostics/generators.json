@@ -364,6 +364,20 @@
       "description": "the refusal is per type: a number puts its value through the whole formatting layer",
       "config": "<tdc><env count=\"4\" seed=\"s\"><sequence name=\"N\"><gen type=\"number\" value=\"10..99\"/></sequence><sequence name=\"X\"><gen type=\"number\" value=\"10..99\" mask=\"x\" missing=\"0.5\" anomaly=\"0.5\"/></sequence></env><block><line><data>[${{X}}]</data></line></block></tdc>",
       "expected": []
+    },
+    {
+      "name": "http-secret-written-into-the-config",
+      "demonstrates": "TDC284",
+      "description": "A key written into a config travels wherever the config does, version control included. A WARNING rather than an error: a service on 127.0.0.1 for an afternoon is a real use, and refusing it would only teach people to put the key somewhere worse.",
+      "config": "<tdc><env count=\"2\" seed=\"s\" local=\"en\"><sequence name=\"M\"><gen type=\"http\" src=\"http://127.0.0.1:5599/gen\" secret=\"1234567890\"/></sequence></env><block><line><data>${{M}}</data></line></block></tdc>",
+      "expected": ["warning TDC284 1:116"]
+    },
+    {
+      "name": "http-secret-with-no-key",
+      "demonstrates": "TDC284",
+      "description": "The other half of the same code, and an error rather than a warning: signing with nothing produces a signature every caller could forge, which is worse than sending the request unsigned.",
+      "config": "<tdc><env count=\"2\" seed=\"s\" local=\"en\"><sequence name=\"M\"><gen type=\"http\" src=\"http://127.0.0.1:5599/gen\" secret=\"\"/></sequence></env><block><line><data>${{M}}</data></line></block></tdc>",
+      "expected": ["error TDC284 1:116"]
     }
   ]
 }

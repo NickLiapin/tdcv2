@@ -25,8 +25,28 @@ Para escribir uno bastan cuatro líneas de él:
 
 - llega un **`POST`** con `X-TDC-Count: N` y `X-TDC-Seed: <hex>`;
 - el **cuerpo** son `N` valores, uno por línea — o está **vacío**, lo que significa «invéntelos»;
+- **`X-TDC-Input: N`** está presente exactamente cuando quien llama envió entradas, y dice
+  cuántas líneas trae el cuerpo. Leerlo es opcional y vale la pena — vea abajo;
 - responda con exactamente **`N` líneas**, en el mismo orden;
 - texto plano, no hace falta JSON en ninguna parte.
+
+### Lea `X-TDC-Input` si puede
+
+«Cuerpo vacío significa invente los valores» es cierto casi siempre, y falso en un caso: una
+configuración cuya columna en `in=` guarda un único valor vacío también envía un cuerpo
+vacío. Sin la cabecera los dos casos son indistinguibles, y un servicio que adivinaba
+«fuente» inventaba un valor donde le habían pedido procesar uno.
+
+```js
+const declared = req.headers['x-tdc-input'];      // undefined → no enviaron entradas
+const inputs =
+  declared === undefined ? [] :
+  Number(declared) === 0 ? [] :
+  body.length === 0 ? [''] : body.split('\n');
+```
+
+Un servicio que ignore la cabecera sigue funcionando igual que antes — por eso esto es una
+cabecera y no un formato de cuerpo nuevo.
 
 ## El servicio, en cinco lenguajes
 
@@ -504,6 +524,41 @@ Vale la pena notarlo: `luhn()` nunca toca la semilla. Un manejador calcula su re
 partir del valor que usted le mandó**, así que es una función pura por naturaleza: misma
 entrada, misma salida, en cada corrida. Trabajar por la reproducibilidad le toca solo al
 modo **fuente**.
+
+## Si el servicio es alcanzable por alguien más
+
+Un servicio generador suele hacer algo que usted no querría que hiciera un desconocido:
+calcular el hash de una contraseña, emitir un número de cuenta, gastar dinero en una llamada
+a un modelo. En `127.0.0.1` la protección es el propio socket. En cualquier otro sitio, pida
+que quien llama firme.
+
+La configuración añade [`secret=`](../generators/http.mdx#probar-que-la-petición-viene-de-tdc);
+la petición lleva entonces dos cabeceras más, y el secreto no viaja nunca:
+
+```
+X-TDC-Timestamp: 1786000000
+X-TDC-Signature: hex(HMAC-SHA256(secret, timestamp \n seed \n count \n body))
+```
+
+Verificar son las mismas pocas líneas en cualquier lenguaje: recalcular y comparar.
+
+```js
+const mine = crypto
+  .createHmac('sha256', process.env.TDC_HTTP_SECRET)
+  .update(`${ts}\n${seed}\n${count}\n${body}`)
+  .digest('hex');
+if (mine !== req.headers['x-tdc-signature']) return res.status(401).end();
+```
+
+Tres cosas que conviene saber antes de escribir esa comprobación:
+
+- **La ventana la elige usted.** TDC estampa su reloj real y nada más; cuán vieja puede ser
+  una petición antes de que la rechace es su política. Unos minutos es un valor por omisión
+  sensato, y exige que los relojes de ambas máquinas coincidan más o menos.
+- **El secreto no caduca**, así que una suite que corre una vez por trimestre sigue firmando
+  bien. Esa es la razón de una firma y no de un token.
+- **Firmar no es cifrar.** Por `http://` simple el cuerpo sigue siendo legible para quien
+  esté en el camino. Use también `https://` cuando los valores mismos sean sensibles.
 
 ## Antes de apuntarle TDC
 

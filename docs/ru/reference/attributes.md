@@ -142,6 +142,7 @@
 | `in`       | Последовательность, чьё значение шлётся   | [HTTP-сервис](../generators/http.md#top) |
 | `on_error` | `fail` (по умолч.) / `empty` при отказе   | [HTTP-сервис](../generators/http.md#top) |
 | `timeout`  | Сколько секунд ждать ответ (по умолч. 30) | [HTTP-сервис](../generators/http.md#top) |
+| `secret`   | Ключ, которым подписывается запрос — `env:`, `file:` или литерал | [HTTP-сервис](../generators/http.md#доказать-что-запрос-от-tdc) |
 
 ## Вывод и форматирование
 

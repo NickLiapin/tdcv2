@@ -81,6 +81,7 @@ fuente**, y la cabecera `X-TDC-Count` dice cuántos valores inventar.
 | `in`       | la secuencia cuyo valor se envía en cada fila — esto es lo que convierte al servicio en **manejador**. Omítalo y el servicio es una **fuente**: no recibe nada e inventa cada valor |
 | `on_error` | `fail` (por omisión) — detenerse con un mensaje claro; o `empty` — dejar la celda vacía y seguir                                                                                    |
 | `timeout`  | segundos a esperar por una respuesta antes de rendirse. Por omisión 30                                                                                                              |
+| `secret`   | la clave con la que se **firma** cada petición, para que su servicio distinga a TDC de cualquier otro que alcance el puerto. Tres formas — vea [Probar que la petición viene de TDC](#probar-que-la-petición-viene-de-tdc) |
 
 `in` nombra una secuencia **anterior** — se envía el valor que produjo en cada fila.
 
@@ -91,6 +92,15 @@ El motor habla un protocolo pequeño y no espera nada más de vuelta:
 - **`POST`** a `src`, con una cabecera **`X-TDC-Count: N`** — cuántos valores se quieren.
 - El **cuerpo** son los `N` valores de entrada, **uno por línea**, en orden de fila. Sin
   `in`, el cuerpo está vacío y `N` viene de la cabecera.
+- **`X-TDC-Input: N`** viaja siempre que hay `in`, y dice cuántas líneas de entrada trae el
+  cuerpo. Es lo que distingue un manejador de una fuente donde el cuerpo no puede: un `in`
+  que nombra una columna con un solo valor vacío envía un cuerpo vacío — byte por byte lo
+  mismo que envía una fuente. Un servicio que ignore la cabecera lee el cuerpo como siempre.
+- **`X-TDC-Seed`** son ocho dígitos hexadecimales derivados de la semilla de la corrida y
+  del nombre de la secuencia: el mismo valor cada vez, y distinto para cada secuencia, para
+  que un servicio que genere a partir de él sea reproducible por su cuenta.
+- **`X-TDC-Timestamp`** y **`X-TDC-Signature`** viajan solo cuando la configuración lleva
+  [`secret`](#probar-que-la-petición-viene-de-tdc).
 - La **respuesta** debe ser exactamente **`N` líneas**, en el mismo orden — la línea _i_
   responde a la entrada _i_. Texto plano.
 
@@ -322,6 +332,74 @@ El servicio está fuera del control de TDC, así que los fallos se manejan, no s
 - Un servicio que **nunca responde** se corta por `timeout` en vez de colgar la corrida.
 - Un servicio que **inunda** — respondiendo mucho más que un valor por línea — se corta
   a los 64 MB con un error, en vez de leerse en memoria hasta el final.
+- Un **`secret` que no se puede leer** — variable sin definir, archivo ausente — detiene la
+  corrida antes de que salga ninguna petición, nombrando la secuencia. Enviar el lote sin
+  firmar sería justo el desenlace que el atributo existe para evitar.
+
+## Probar que la petición viene de TDC
+
+Un servicio que responde peticiones `http` hace trabajo de verdad — calcula el hash de una
+contraseña, emite un número de cuenta, llama a un modelo que cuesta dinero. Si algo más que
+su propia máquina lo alcanza, debería poder distinguir las peticiones de TDC de las ajenas.
+
+`secret=` hace eso **sin poner nunca la clave en la red**. Cada petición lleva una marca de
+tiempo y una firma calculada a partir del secreto; el servicio recalcula lo mismo con su
+propia copia y compara.
+
+```xml
+<sequence name="Hashed">
+  <gen type="http" src="https://svc.example.com/hash" in="Password"
+       secret="env:TDC_HTTP_SECRET"/>
+</sequence>
+```
+
+Con la petición viajan dos cabeceras más:
+
+```
+X-TDC-Timestamp: 1786000000
+X-TDC-Signature: hex(HMAC-SHA256(secret, timestamp \n seed \n count \n body))
+```
+
+Dentro de la firma está todo lo que decide la respuesta: cambie el cuerpo, la cuenta, la
+semilla o el minuto y deja de coincidir. Verificarla son unas pocas líneas:
+
+```js
+const mine = crypto
+  .createHmac('sha256', process.env.TDC_HTTP_SECRET)
+  .update(`${ts}\n${seed}\n${count}\n${body}`)
+  .digest('hex');
+if (mine !== req.headers['x-tdc-signature']) return res.status(401).end();
+```
+
+Las cinco implementaciones producen la **misma** firma para la misma petición, así que un
+solo servicio acepta peticiones de cualquiera de ellas.
+
+### Dónde vive la clave
+
+| Forma                               | De dónde se lee                                                   |
+| :---------------------------------- | :----------------------------------------------------------------- |
+| `secret="env:TDC_HTTP_SECRET"`      | una variable de entorno — **la recomendada**                       |
+| `secret="file:~/.tdc/service.key"`  | un archivo, sin espacios al borde; las rutas relativas se resuelven junto a la configuración |
+| `secret="k7Fm2p…"`                  | el valor mismo — funciona, y advierte ([`TDC284`](../reference/errors.md#top)) |
+
+El literal advierte en vez de fallar porque un servicio en `127.0.0.1` por una tarde es un
+uso real. Pero una configuración va al control de versiones y la clave va con ella: por eso
+existen las otras dos formas. `secret=""` es un error: firmar con nada produce una firma
+que cualquiera puede falsificar.
+
+### Qué hace la firma y qué no
+
+- Prueba que quien envía **tiene el secreto**, y que la petición no fue alterada en el camino.
+- La marca de tiempo es lo que vuelve inútil mañana una petición capturada. **Qué tan
+  estrecha es esa ventana lo decide su servicio.** TDC envía su reloj real, no el `--now` de
+  la corrida, así que una configuración fijada a una fecha pasada sigue funcionando.
+- El secreto **no caduca**. Una prueba que corre una vez por trimestre firma bien con una
+  clave puesta meses atrás — por eso aquí hay una firma y no un token que expira.
+- **No oculta el contenido.** Por `http://` simple, el cuerpo y la respuesta son visibles
+  para quien escuche el canal. Si por el servicio pasan secretos de verdad, use también
+  `https://` — resuelven problemas distintos.
+- La firma cambia en cada corrida, porque cambia la marca de tiempo. Eso no afecta a los
+  datos, que con `http` nunca fueron reproducibles.
 
 ## Lo que no promete
 

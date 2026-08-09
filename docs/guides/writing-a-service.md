@@ -26,8 +26,28 @@ Four lines of it are all you need to write one:
 
 - a **`POST`** arrives, carrying `X-TDC-Count: N` and `X-TDC-Seed: <hex>`;
 - the **body** is `N` values, one per line — or **empty**, which means "invent them";
+- **`X-TDC-Input: N`** is present exactly when the caller sent inputs, and says how many
+  lines the body holds. Reading it is optional and worth doing — see below;
 - answer with exactly **`N` lines**, in the same order;
 - plain text, no JSON needed anywhere.
+
+### Read `X-TDC-Input` if you can
+
+"Empty body means invent the values" is true almost always, and wrong in one case: a
+config whose `in=` column holds a single empty value sends an empty body too. Without the
+header the two are indistinguishable, and a service that guessed "source" invented a value
+where it had been asked to process one.
+
+```js
+const declared = req.headers['x-tdc-input'];      // undefined → the caller sent no inputs
+const inputs =
+  declared === undefined ? [] :
+  Number(declared) === 0 ? [] :
+  body.length === 0 ? [''] : body.split('\n');
+```
+
+A service that ignores the header keeps working exactly as before — which is why this is a
+header and not a new body format.
 
 ## The service, in five languages
 
@@ -502,6 +522,40 @@ Worth noting: `luhn()` never touches the seed. A handler computes its answer **f
 value you sent it**, so it's a pure function by nature — same input, same output, every
 run. Only the **source** mode has to work at reproducibility.
 
+## If the service is reachable by anyone else
+
+A generator service usually does something you would not want a stranger doing — hashing a
+password, minting an account number, spending money on a model call. On `127.0.0.1` the
+socket is the protection. Anywhere else, ask the caller to sign.
+
+A config adds [`secret=`](../generators/http.md#proving-the-request-came-from-tdc); the
+request then carries two more headers, and the secret itself never travels:
+
+```
+X-TDC-Timestamp: 1786000000
+X-TDC-Signature: hex(HMAC-SHA256(secret, timestamp \n seed \n count \n body))
+```
+
+Verifying is the same few lines in any language — recompute and compare:
+
+```js
+const mine = crypto
+  .createHmac('sha256', process.env.TDC_HTTP_SECRET)
+  .update(`${ts}\n${seed}\n${count}\n${body}`)
+  .digest('hex');
+if (mine !== req.headers['x-tdc-signature']) return res.status(401).end();
+```
+
+Three things worth knowing before you write that check:
+
+- **The window is yours to choose.** TDC stamps its real clock and nothing else; how old a
+  request may be before you refuse it is your policy. A few minutes is a sensible default,
+  and it means clocks on the two machines have to roughly agree.
+- **The secret does not expire**, so a suite that runs once a quarter still signs
+  correctly. That is the reason for a signature rather than a token.
+- **Signing is not encryption.** Over plain `http://` the body is still readable by anyone
+  on the path. Use `https://` as well when the values themselves are sensitive.
+
 ## Before you point TDC at it
 
 A short list, each item learned from the way this generator actually fails:
@@ -518,6 +572,8 @@ A short list, each item learned from the way this generator actually fails:
   coordinate its workers for you.
 - **Handle the whole batch in one request.** Don't fan out internally to one call per
   value; the batch is what keeps this fast.
+- **Refuse before you work.** If you check a signature, check it first — a service that
+  hashes a thousand passwords and then rejects the request has already spent the money.
 
 ## See also
 
