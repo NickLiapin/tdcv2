@@ -11,7 +11,7 @@
 # Writing a service generator
 
 The [`http` generator](../generators/http.md#top) lets a service you wrote decide values.
-This page is the other half: **how to write that service**, in Node, Python, or Java, so
+This page is the other half: **how to write that service**, in any of five languages, so
 that it is fast, correct, and **reproducible**. Reproducibility is the one that takes
 deliberate work, because a service is free to answer differently every time it is asked.
 
@@ -391,20 +391,27 @@ Run it with `cargo run`, then point `src` at `http://127.0.0.1:5705/`. No crates
 
 Any of the five, against the same config:
 
+<!-- doc-check: skip needs one of this page's own services listening on 127.0.0.1:5701 -->
+
 ```xml
-<env count="3" seed="demo">
-  <sequence name="Payload"><gen type="number" value="10000000..99999999"/></sequence>
-  <sequence name="Card"><gen type="http" src="http://127.0.0.1:5701/" in="Payload"/></sequence>
-  <sequence name="Acct"><gen type="http" src="http://127.0.0.1:5701/"/></sequence>
-</env>
+<tdc>
+  <env count="3" seed="demo">
+    <sequence name="Payload"><gen type="number" value="10000000..99999999"/></sequence>
+    <sequence name="Card"><gen type="http" src="http://127.0.0.1:5701/" in="Payload"/></sequence>
+    <sequence name="Acct"><gen type="http" src="http://127.0.0.1:5701/"/></sequence>
+  </env>
+  <block>
+    <line><data>${{Payload}} -> ${{Card}}   |  account: ${{Acct}}</data></line>
+  </block>
+</tdc>
 ```
 
 `./run demo.tdc`
 
 ```
-77737493 -> 777374935   |  account: 71102997
-14850763 -> 148507635   |  account: 54325378
-87262332 -> 872623327   |  account: 37547759
+10047634 -> 100476340   |  account: 71102997
+48577070 -> 485770705   |  account: 54325378
+44149883 -> 441498839   |  account: 37547759
 ```
 
 `Card` went through the handler — the payload came back with its check digit. `Acct` was
@@ -463,21 +470,30 @@ and it comes down to one line per language:
 
 Miss it in Python and the numbers grow forever, silently producing different values from
 the rest. TDC's own engine has to solve exactly this problem: its PRNG is written in
-terms of `Math.imul` and 32-bit operations precisely so every
-bindings agree — which means the constraint isn't an artifact of this example.
+terms of `Math.imul` and 32-bit operations precisely so that all five bindings agree —
+which means the constraint isn't an artifact of this example.
 
-The implementations above were run and compared:
+All five services above were started and asked the same question — eight values, one
+seed — and their replies compared:
+
+```bash
+for p in 5701 5702 5703 5704 5705; do
+  curl -s -X POST -H "X-TDC-Count: 8" -H "X-TDC-Seed: demo" --data-binary "" \
+    http://127.0.0.1:$p/ > out.$p.txt
+done
+```
 
 `shasum -a 256 out.*.txt`
 
 ```
-875cd44fe86e15d7  out.cs.txt
-875cd44fe86e15d7  out.java.txt
-875cd44fe86e15d7  out.node.txt
-875cd44fe86e15d7  out.py.txt
+1d7bf9b2a4ef1ded8558cc0afd0ef18d15321a9da2398dc72c87cb8629c2ca2d  out.node.txt
+1d7bf9b2a4ef1ded8558cc0afd0ef18d15321a9da2398dc72c87cb8629c2ca2d  out.py.txt
+1d7bf9b2a4ef1ded8558cc0afd0ef18d15321a9da2398dc72c87cb8629c2ca2d  out.java.txt
+1d7bf9b2a4ef1ded8558cc0afd0ef18d15321a9da2398dc72c87cb8629c2ca2d  out.cs.txt
+1d7bf9b2a4ef1ded8558cc0afd0ef18d15321a9da2398dc72c87cb8629c2ca2d  out.rs.txt
 ```
 
-Identical, not merely similar. If you port this to a fifth language, do the same check
+Identical, not merely similar. If you port this to a sixth language, do the same check
 before trusting it.
 
 ### The handler is usually reproducible already

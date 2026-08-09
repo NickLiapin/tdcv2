@@ -10,9 +10,9 @@ import Terminal from '@site/src/components/Terminal';
 # Escribir un generador de servicio
 
 El [generador `http`](../generators/http.mdx) deja que un servicio escrito por usted
-decida los valores. Esta página es la otra mitad: **cómo escribir ese servicio**, en Node,
-Python o Java, de modo que sea rápido, correcto y — la parte que todos fallan —
-**reproducible**.
+decida los valores. Esta página es la otra mitad: **cómo escribir ese servicio**, en
+cualquiera de cinco lenguajes, de modo que sea rápido, correcto y — la parte que todos
+fallan — **reproducible**.
 
 Abajo hay un servicio funcionando por lenguaje. Cada uno cubre los dos modos: inventa
 números de cuenta cuando le piden valores, y agrega un dígito de control de Luhn cuando le
@@ -398,18 +398,25 @@ dependencia: `wrapping_mul` da la aritmética de 32 bits que FNV-1a necesita.
 
 Cualquiera de los cinco, contra el mismo config:
 
+{/* doc-check: skip needs one of this page's own services listening on 127.0.0.1:5701 */}
+
 ```xml
-<env count="3" seed="demo">
-  <sequence name="Payload"><gen type="number" value="10000000..99999999"/></sequence>
-  <sequence name="Card"><gen type="http" src="http://127.0.0.1:5701/" in="Payload"/></sequence>
-  <sequence name="Acct"><gen type="http" src="http://127.0.0.1:5701/"/></sequence>
-</env>
+<tdc>
+  <env count="3" seed="demo">
+    <sequence name="Payload"><gen type="number" value="10000000..99999999"/></sequence>
+    <sequence name="Card"><gen type="http" src="http://127.0.0.1:5701/" in="Payload"/></sequence>
+    <sequence name="Acct"><gen type="http" src="http://127.0.0.1:5701/"/></sequence>
+  </env>
+  <block>
+    <line><data>${{Payload}} -> ${{Card}}   |  cuenta: ${{Acct}}</data></line>
+  </block>
+</tdc>
 ```
 
 <Terminal title="./run demo.tdc">
-{`77737493 -> 777374935   |  cuenta: 71102997
-14850763 -> 148507635   |  cuenta: 54325378
-87262332 -> 872623327   |  cuenta: 37547759`}
+{`10047634 -> 100476340   |  cuenta: 71102997
+48577070 -> 485770705   |  cuenta: 54325378
+44149883 -> 441498839   |  cuenta: 37547759`}
 </Terminal>
 
 `Card` pasó por el manejador — la carga volvió con su dígito de control. `Acct` se inventó
@@ -467,20 +474,28 @@ port ingenuo, y se arregla con una línea por lenguaje:
 
 Olvídelo en Python y los números crecen sin fin, produciendo en silencio valores distintos
 de los demás. El propio motor de TDC tiene que resolver exactamente este problema — su
-PRNG está escrito con `Math.imul` y operaciones de 32 bits justamente para que los
-bindings de todos los lenguajes coincidan — así que la restricción no es un invento
-de este ejemplo.
+PRNG está escrito con `Math.imul` y operaciones de 32 bits justamente para que las cinco
+implementaciones coincidan — así que la restricción no es un invento de este ejemplo.
 
-Las implementaciones de arriba se ejecutaron y se compararon:
+Los cinco servicios de arriba se arrancaron y recibieron la misma pregunta — ocho
+valores, una semilla — y sus respuestas se compararon:
+
+```bash
+for p in 5701 5702 5703 5704 5705; do
+  curl -s -X POST -H "X-TDC-Count: 8" -H "X-TDC-Seed: demo" --data-binary "" \
+    http://127.0.0.1:$p/ > out.$p.txt
+done
+```
 
 <Terminal title="shasum -a 256 out.*.txt">
-{`875cd44fe86e15d7  out.cs.txt
-875cd44fe86e15d7  out.java.txt
-875cd44fe86e15d7  out.node.txt
-875cd44fe86e15d7  out.py.txt`}
+{`1d7bf9b2a4ef1ded8558cc0afd0ef18d15321a9da2398dc72c87cb8629c2ca2d  out.node.txt
+1d7bf9b2a4ef1ded8558cc0afd0ef18d15321a9da2398dc72c87cb8629c2ca2d  out.py.txt
+1d7bf9b2a4ef1ded8558cc0afd0ef18d15321a9da2398dc72c87cb8629c2ca2d  out.java.txt
+1d7bf9b2a4ef1ded8558cc0afd0ef18d15321a9da2398dc72c87cb8629c2ca2d  out.cs.txt
+1d7bf9b2a4ef1ded8558cc0afd0ef18d15321a9da2398dc72c87cb8629c2ca2d  out.rs.txt`}
 </Terminal>
 
-Idénticas, no meramente parecidas. Si lo lleva a un quinto lenguaje, haga la misma
+Idénticas, no meramente parecidas. Si lo lleva a un sexto lenguaje, haga la misma
 comprobación antes de confiar en él.
 
 ### El manejador ya suele ser reproducible
