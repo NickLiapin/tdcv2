@@ -132,16 +132,28 @@ export function checkUniqDropsAttrs(
 ): void {
   const attr = declaredUniq(seqEl);
   if (attr === undefined) return;
-  // A simple sequence is ONE unnamed <gen> and no literal beside it. That is the
-  // body the uniq draw replaces wholesale, taking the formatting layer with it.
-  const gen = gens.length === 1 && !hasLiteral ? gens[0] : undefined;
-  if (gen === undefined || extractAttrs(gen.attr())['name'] !== undefined) return;
-  const genAttrs = extractAttrs(gen.attr());
-  const type = genAttrs['type'] ?? '';
-  if (type === 'increment' || type === 'decrement') return;
-  const asked = DROPPED_BY_UNIQ.filter((a) => genAttrs[a] !== undefined);
-  if (asked.length === 0) return;
-  const list = asked.map((a) => `${a}=`).join(', ');
+  // Every <gen> the uniq construction replaces — the ONE unnamed gen of a simple
+  // sequence, or ALL the fields of a compound one.
+  //
+  // This used to look only at the simple shape, and a compound was where it
+  // mattered most: `<sequence uniq="true">` over two named gens, one carrying
+  // `missing="0.4"`, produced ZERO blanks over twelve rows while the missing-data
+  // guide says `missing` "combines with anything". `check` called it valid.
+  const only = gens.length === 1 && !hasLiteral ? gens[0] : undefined;
+  const simple = only !== undefined && extractAttrs(only.attr())['name'] === undefined;
+  const members = simple
+    ? [only]
+    : gens.filter((g) => extractAttrs(g.attr())['name'] !== undefined);
+  if (members.length === 0) return;
+  const asked = new Set<string>();
+  for (const gen of members) {
+    const genAttrs = extractAttrs(gen.attr());
+    const type = genAttrs['type'] ?? '';
+    if (type === 'increment' || type === 'decrement') continue;
+    for (const a of DROPPED_BY_UNIQ) if (genAttrs[a] !== undefined) asked.add(a);
+  }
+  if (asked.size === 0) return;
+  const list = [...asked].map((a) => `${a}=`).join(', ');
   diagnostics.push({
     severity: 'error',
     source: 'validator',
@@ -154,6 +166,46 @@ export function checkUniqDropsAttrs(
       'Two ways out. Drop the attribute if the uniqueness is what you wanted — or drop uniq= ' +
       'and keep the formatting, since a masked, blanked or repeated column cannot be unique ' +
       'as text anyway: a mask maps different values onto the same characters.',
+    code: 'TDC267',
+  });
+}
+
+/**
+ * `<distinct>` inside a `uniq="true"` sequence.
+ *
+ * They are described as independent — "use either one, or both at once" — and
+ * they are not. `<distinct>` repairs a row so its fields differ; `uniq`
+ * afterwards REARRANGES the whole columns to make the records unique, and the
+ * rearrangement knows nothing about which pairings the repair ruled out. So the
+ * repair is undone, silently:
+ *
+ *     <sequence uniq="true"><distinct> A,B over p,q,r,s </distinct></sequence>
+ *     12 rows, 12 legal distinct pairs — and the run still produced s,s and q,q
+ *
+ * The request was exactly satisfiable and the answer still broke the rule the
+ * config states. Refused rather than half-kept: a row that violates `<distinct>`
+ * is the one thing the tag exists to prevent.
+ */
+export function checkUniqWithDistinct(
+  seqEl: OpenCloseElementContext,
+  name: string | undefined,
+  distinctGroups: readonly (readonly unknown[])[],
+  diagnostics: Diagnostic[],
+): void {
+  const attr = declaredUniq(seqEl);
+  if (attr === undefined || distinctGroups.length === 0) return;
+  diagnostics.push({
+    severity: 'error',
+    source: 'validator',
+    ...attrValueRange(attr),
+    message:
+      `uniq="true" on <sequence name="${name ?? '?'}"> cannot be combined with <distinct>: ` +
+      'the uniq arrangement rearranges the finished columns and does not know which pairings ' +
+      '<distinct> ruled out, so the repair is undone',
+    hint:
+      'Keep one of the two. <distinct> is about a single record (its fields differ); uniq= is ' +
+      'about the whole column (no record repeats). For both at once, give each field its own ' +
+      '<sequence>, wrap them in <uniq>…</uniq>, and put the <distinct> at env level.',
     code: 'TDC267',
   });
 }

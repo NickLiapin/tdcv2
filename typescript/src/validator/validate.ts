@@ -32,7 +32,6 @@ import {
 } from '../errors/index.js';
 import type {
   AttrContext,
-  DataElementContext,
   DocumentContext,
   OpenCloseElementContext,
   SelfClosingElementContext,
@@ -44,7 +43,6 @@ import {
   elementKind,
   elementName,
   extractAttrs,
-  extractDataAttrs,
   extractDataText,
   findAttr,
   findChildElement,
@@ -79,6 +77,7 @@ import { checkGenDrawing, checkGenFile } from './file.js';
 import { checkSwitchCaseAttrs, checkSwitchMap } from './switch-body.js';
 import { checkGenRegex } from './regex.js';
 import { checkGenSymbol } from './symbol.js';
+import { checkRowLinkOrder } from './row-link-order.js';
 import { checkSequentialRepeat } from './sequential-repeat.js';
 import { checkGenTimeseries } from './timeseries.js';
 import { checkCompute } from './compute.js';
@@ -104,7 +103,12 @@ import {
   type MemberCheckers,
 } from './members.js';
 import { checkUniqMemory } from './uniq-memory.js';
-import { checkUniqDropsAttrs, checkUniqOnComposed, checkUniqUnsupported } from './uniq-shape.js';
+import {
+  checkUniqDropsAttrs,
+  checkUniqOnComposed,
+  checkUniqUnsupported,
+  checkUniqWithDistinct,
+} from './uniq-shape.js';
 import { checkMixFlag } from './mix-flag.js';
 import { checkGenRepeat, checkMixRepeat } from './repeat.js';
 import { checkLineConditionalColumns, checkLineEach } from './each.js';
@@ -121,12 +125,12 @@ import { checkGenRunning } from './running.js';
 import { checkGenText } from './text.js';
 import { checkGenCounter } from './counter.js';
 import { FIXTURE_TAGS, checkFixture } from './fixture.js';
-import { checkDataColumnConditional, checkDataColumnType } from './column-type.js';
+import { checkData } from './data-element.js';
 import { isCaseTransform } from '../format/transforms.js';
 import { checkDocumentVersion } from './version.js';
 import type { PackParams, PackParamWidths } from './pack-params.js';
 import { checkRootRegexMaxLength } from './regex-max-length.js';
-import { checkBlockDataRefs, checkInterpolationFilters } from './data-refs.js';
+import { checkBlockDataRefs } from './data-refs.js';
 
 export interface ValidationResult {
   readonly diagnostics: readonly Diagnostic[];
@@ -743,6 +747,8 @@ function checkSequence(seqEl: OpenCloseElementContext, ctx: Ctx): void {
     checkSequenceDataAttrs(seqEl, ctx.diagnostics);
     checkUniqOnComposed(seqEl, name, gens, ctx.diagnostics);
     checkUniqDropsAttrs(seqEl, name, gens, hasDataLiteral(seqEl), ctx.diagnostics);
+    checkUniqWithDistinct(seqEl, name, collectSequenceGens(seqEl).distinctGroups, ctx.diagnostics);
+    checkRowLinkOrder(gens, ctx.diagnostics);
 
     const shape = sequenceShape(
       gens.map((g) => genAttrName(g) !== undefined),
@@ -1057,29 +1063,6 @@ function checkLine(lineEl: OpenCloseElementContext, ctx: Ctx): void {
     // Anything else in a <line> (<case>, <map>, <default>, or an arbitrary tag)
     // is misplaced.
     reportMisplaced(el, name, 'line', ctx);
-  }
-}
-
-/**
- * Flag unknown filters in `${{ name | filter | … }}`. Only runs for the default
- * `${{%}}` inject (custom delimiters are left unchecked, and any `${{…|…}}` under
- * the default IS a real interpolation, so there are no false positives).
- */
-function checkData(data: DataElementContext, ctx: Ctx, eachBuiltins: readonly string[] = []): void {
-  checkInterpolationFilters(extractDataText(data), data, ctx.inject, ctx.diagnostics);
-  const dAttrs = extractDataAttrs(data);
-  // Find the attribute contexts so diagnostics point at the exact attribute.
-  const node = data as unknown as { attr?: () => AttrContext[] };
-  const attrList = typeof node.attr === 'function' ? node.attr() : [];
-
-  checkDataColumnType(attrList, dAttrs, ctx.diagnostics);
-  checkDataColumnConditional(attrList, dAttrs, ctx.diagnostics);
-
-  if (dAttrs['if'] === undefined) return;
-  const ifA = findAttr(attrList, 'if');
-  if (ifA) {
-    checkIfExpression(ifA, dAttrs['if'], ctx);
-    ctx.rememberExpression(ifA, dAttrs['if'], eachBuiltins);
   }
 }
 
