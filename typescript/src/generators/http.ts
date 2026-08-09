@@ -12,6 +12,8 @@
  * billion rows to a thousand requests rather than a billion.
  */
 
+import { createHmac } from 'node:crypto';
+
 /** Why a service call failed. The caller turns this into a TDC diagnostic. */
 export type HttpFailureKind =
   | 'status' // a non-2xx response (not 429)
@@ -58,6 +60,74 @@ export interface HttpFetchOptions {
   readonly seed?: string | undefined;
   readonly onError: OnError;
   readonly timeoutMs: number;
+  /**
+   * The already-resolved `secret=`, if the config carries one.
+   *
+   * Present means the request is SIGNED: `X-TDC-Timestamp` and
+   * `X-TDC-Signature` travel with it and the service can tell the generator from
+   * anyone else who can reach the port. The secret itself never goes on the
+   * wire. Resolution is the caller's job — see `resolveHttpSecret`.
+   */
+  readonly secret?: string | undefined;
+  /**
+   * Wall-clock milliseconds stamped into the signature.
+   *
+   * The REAL clock, not the run's pinned `now`: it exists so a service can
+   * refuse a request replayed tomorrow, and a config pinned to last year would
+   * be refused by every service that checks. Injectable so a test can pin it.
+   */
+  readonly nowMs?: number | undefined;
+}
+
+/**
+ * The headers that say what this request IS, beyond its body.
+ *
+ * `X-TDC-Input` is the one that closes a real ambiguity: `in=` naming a column
+ * of one empty value produced an empty body, which is exactly what a pure
+ * source sends, and the service could not tell "process this empty value" from
+ * "invent one". It carries the number of input lines, so zero-versus-absent is
+ * the whole answer, and a service that ignores it behaves as it always did.
+ */
+export function contractHeaders(opts: HttpFetchOptions, body: string): Record<string, string> {
+  const headers: Record<string, string> = {
+    'Content-Type': 'text/plain',
+    'X-TDC-Count': String(opts.count),
+  };
+  if (opts.seed !== undefined) headers['X-TDC-Seed'] = opts.seed;
+  if (opts.inputs !== undefined) headers['X-TDC-Input'] = String(opts.inputs.length);
+  if (opts.secret !== undefined && opts.secret !== '') {
+    const timestamp = String(Math.floor((opts.nowMs ?? Date.now()) / 1000));
+    headers['X-TDC-Timestamp'] = timestamp;
+    headers['X-TDC-Signature'] = signRequest(
+      opts.secret,
+      timestamp,
+      opts.seed ?? '',
+      opts.count,
+      body,
+    );
+  }
+  return headers;
+}
+
+/**
+ * `hex(HMAC-SHA256(secret, timestamp \n seed \n count \n body))`.
+ *
+ * Everything that decides what comes back is inside: change the body, the count,
+ * the seed or the minute, and the signature no longer matches. The secret is the
+ * key, so it is never sent — which is what makes this safe over plain http on a
+ * trusted network, and what makes a captured request useless tomorrow once the
+ * service checks the timestamp.
+ */
+export function signRequest(
+  secret: string,
+  timestamp: string,
+  seed: string,
+  count: number,
+  body: string,
+): string {
+  return createHmac('sha256', secret)
+    .update(`${timestamp}\n${seed}\n${String(count)}\n${body}`)
+    .digest('hex');
 }
 
 /**
@@ -82,11 +152,7 @@ export async function fetchHttpValues(opts: HttpFetchOptions): Promise<string[]>
   try {
     response = await fetch(src, {
       method: 'POST',
-      headers: {
-        'Content-Type': 'text/plain',
-        'X-TDC-Count': String(count),
-        ...(opts.seed === undefined ? {} : { 'X-TDC-Seed': opts.seed }),
-      },
+      headers: contractHeaders(opts, body),
       body,
       signal: controller.signal,
     });

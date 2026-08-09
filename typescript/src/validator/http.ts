@@ -111,6 +111,35 @@ export function checkGenHttp(
       });
     }
   }
+
+  // secret — the key a request is signed with. Three spellings, and only the
+  // literal is worth saying anything about: a config travels into version
+  // control, and the secret would travel with it. A warning rather than an
+  // error, because a service on 127.0.0.1 for an afternoon is a real use and
+  // refusing it would only teach people to write it somewhere worse.
+  const secretAttr = findAttr(attrs, 'secret');
+  if (secretAttr) {
+    const raw = (map['secret'] ?? '').trim();
+    if (raw === '') {
+      ctx.diagnostics.push({
+        severity: 'error',
+        source: 'validator',
+        ...attrValueRange(secretAttr),
+        message: 'secret="" has no key to sign with',
+        hint: 'Name where the key lives: secret="env:TDC_HTTP_SECRET" or secret="file:~/.tdc/service.key". Remove the attribute to send the request unsigned.',
+        code: 'TDC284',
+      });
+    } else if (!raw.startsWith('env:') && !raw.startsWith('file:')) {
+      ctx.diagnostics.push({
+        severity: 'warning',
+        source: 'validator',
+        ...attrValueRange(secretAttr),
+        message: 'secret= is written into the config, so it travels wherever the config does',
+        hint: 'A config goes into version control and the key goes with it. secret="env:TDC_HTTP_SECRET" reads it from the environment, secret="file:~/.tdc/service.key" from a file the repository does not hold.',
+        code: 'TDC284',
+      });
+    }
+  }
 }
 
 /** A well-formed absolute http/https URL. */

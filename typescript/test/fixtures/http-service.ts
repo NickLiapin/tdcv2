@@ -17,6 +17,7 @@
  * nothing beyond loopback.
  */
 
+import { createHmac } from 'node:crypto';
 import { createServer, type IncomingMessage, type ServerResponse } from 'node:http';
 import { AddressInfo } from 'node:net';
 
@@ -45,6 +46,14 @@ export interface ServiceOptions {
   readonly latencyMs?: number;
   /** `ok`: drop this many lines from the reply, to force a count mismatch. */
   readonly dropLines?: number;
+  /**
+   * Demand a signed request, and check it with this secret.
+   *
+   * Unset means the service accepts anything that reaches it, which is what a
+   * service on a trusted socket may reasonably do — the point of the option is
+   * to prove the OTHER direction works.
+   */
+  readonly secret?: string;
 }
 
 export interface ServiceHandle {
@@ -57,6 +66,10 @@ export interface ServiceHandle {
   concurrentPeak(): number;
   /** The `X-TDC-Seed` of every request accepted, in order — '' when absent. */
   seeds(): readonly string[];
+  /** `X-TDC-Input` per request — `undefined` where the header was absent. */
+  inputCounts(): readonly (number | undefined)[];
+  /** The `X-TDC-Signature` of every request, in order — '' when absent. */
+  signatures(): readonly string[];
   close(): Promise<void>;
 }
 
@@ -106,6 +119,9 @@ export function startService(opts: ServiceOptions = {}): Promise<ServiceHandle> 
   const latencyMs = opts.latencyMs ?? 50;
 
   const seedsSeen: string[] = [];
+  /** `X-TDC-Input` per request — `undefined` where the header was absent. */
+  const inputsSeen: (number | undefined)[] = [];
+  const signaturesSeen: string[] = [];
   let seen = 0; // requests accepted, ever
   let inFlight = 0; // requests being handled right now
   let peak = 0;
@@ -130,10 +146,50 @@ export function startService(opts: ServiceOptions = {}): Promise<ServiceHandle> 
 
     try {
       const count = Number(req.headers['x-tdc-count'] ?? '0');
-      seedsSeen.push(String(req.headers['x-tdc-seed'] ?? ''));
+      const seed = String(req.headers['x-tdc-seed'] ?? '');
+      seedsSeen.push(seed);
       const body = await readBody(req);
-      const inputs = body.length === 0 ? [] : body.split('\n');
+      // `X-TDC-Input` is what tells a transform from a source. Without it an
+      // empty body was ambiguous — a column of one empty value looks exactly
+      // like "invent a value" — so a service that reads it can answer both
+      // honestly. Absent means source; present means that many input lines,
+      // zero included.
+      const inputHeader = req.headers['x-tdc-input'];
+      inputsSeen.push(inputHeader === undefined ? undefined : Number(inputHeader));
+      // Absent means "read the body as you always did" — a service written
+      // before the header keeps working unchanged, which is the whole reason
+      // this is a header and not a new body format. Present is what settles the
+      // one case the body alone cannot: an empty body with `1` is one empty
+      // input, with `0` it is none.
+      const declared = inputHeader === undefined ? undefined : Number(inputHeader);
+      const inputs =
+        declared === undefined
+          ? body.length === 0
+            ? []
+            : body.split('\n')
+          : declared === 0
+            ? []
+            : body.length === 0
+              ? ['']
+              : body.split('\n');
       const n = Number.isFinite(count) && count > 0 ? count : inputs.length;
+
+      // The signature, when the service is configured to demand one. Recomputed
+      // from the same four things the client signed, with the same secret; a
+      // request that does not match is refused before any work is done.
+      if (opts.secret !== undefined) {
+        const given = String(req.headers['x-tdc-signature'] ?? '');
+        const timestamp = String(req.headers['x-tdc-timestamp'] ?? '');
+        signaturesSeen.push(given);
+        const mine = createHmac('sha256', opts.secret)
+          .update(`${timestamp}\n${seed}\n${String(count)}\n${body}`)
+          .digest('hex');
+        if (given === '' || given !== mine) {
+          res.writeHead(401, { 'Content-Type': 'text/plain' });
+          res.end('bad signature');
+          return;
+        }
+      }
 
       // ---- failure modes, decided before doing any work ----
       if (mode === 'rate-limit' && requestIndex % rateLimitEvery === 0) {
@@ -216,6 +272,8 @@ export function startService(opts: ServiceOptions = {}): Promise<ServiceHandle> 
         port: addr.port,
         requests: () => seen,
         seeds: () => seedsSeen,
+        inputCounts: () => inputsSeen,
+        signatures: () => signaturesSeen,
         concurrentPeak: () => peak,
         close: () =>
           new Promise<void>((done) => {

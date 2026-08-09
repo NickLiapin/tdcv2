@@ -51,6 +51,7 @@ import {
 } from '../generators/advanced-regex.js';
 import { dateGenerator } from '../generators/date.js';
 import { fetchHttpValues, HttpServiceError } from '../generators/http.js';
+import { resolveHttpSecret } from '../generators/http-secret.js';
 import { fileUniform } from '../generators/file.js';
 import { isDynamicTemplateValue } from '../validator/known.js';
 import { numberGenerator } from '../generators/number.js';
@@ -287,7 +288,12 @@ export async function prepareRenderAsync(
   const prepared = prepareRender(document, options, true);
   const tdc = findTdc(document);
   const envEl = tdc ? findChildElement(tdc.content(), 'env') : undefined;
-  await resolveHttpSequences(prepared.registry, extractSequenceSpecs(envEl), prepared.env.seed);
+  await resolveHttpSequences(
+    prepared.registry,
+    extractSequenceSpecs(envEl),
+    prepared.env.seed,
+    options.baseDir ?? '.',
+  );
   return prepared;
 }
 
@@ -326,6 +332,7 @@ async function resolveHttpSequences(
   registry: SequenceRegistry,
   specs: readonly SequenceSpec[],
   seed: string,
+  baseDir: string,
 ): Promise<void> {
   for (const spec of specs) {
     if (spec.gen?.type !== 'http') continue;
@@ -337,6 +344,21 @@ async function resolveHttpSequences(
     const inputs =
       inName === undefined ? undefined : (registry[inName]?.values ?? []).map((v) => v ?? '');
 
+    // Resolved per sequence and never cached: two sequences may sign with two
+    // different secrets, and a config that names an unset variable should say so
+    // in terms of the sequence the reader wrote.
+    const secretSpec = spec.gen.attrs['secret'];
+    let secret: string | undefined;
+    if (secretSpec !== undefined && secretSpec.trim() !== '') {
+      try {
+        secret = resolveHttpSecret(secretSpec, baseDir);
+      } catch (err) {
+        throw new Error(
+          `http service for sequence "${spec.name}": ${err instanceof Error ? err.message : String(err)}`,
+        );
+      }
+    }
+
     let values: string[];
     try {
       values = await fetchHttpValues({
@@ -346,6 +368,7 @@ async function resolveHttpSequences(
         onError: spec.gen.attrs['on_error'] === 'empty' ? 'empty' : 'fail',
         timeoutMs: parseHttpTimeout(spec.gen.attrs['timeout']),
         seed: httpSeed(seed, spec.name),
+        secret,
       });
     } catch (err) {
       if (err instanceof HttpServiceError) {
