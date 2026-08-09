@@ -9,6 +9,21 @@ this package: the assembly and its library API.
 
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [Unreleased]
+
+### Fixed
+
+- **`check --brief` now keeps its promise for warnings.** Same cause as the Java port: the
+  successful-parse path — where warnings live, since errors throw earlier — called the
+  overload that defaults `brief` to false, so a warning came out through the full renderer
+  rather than as one line. `--brief` is what an editor panel reads.
+
+### Added
+
+- **`HttpGen.SignRequest` and `HttpGen.ResolveSecret`** are public, for a caller driving the
+  http generator through the library rather than a config. A test pins the signature to the
+  value the other four implementations produce.
+
 ## [0.1.4] — 2026-08-03
 
 ### Added

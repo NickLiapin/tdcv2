@@ -15,6 +15,37 @@ page — is tracked in that implementation's own changelog:
 
 ## [Unreleased]
 
+### Added
+
+<!-- covers: secret -->
+
+- `secret=` on a `<gen type="http">` signs each request, so a service can tell TDC from
+  anyone else who can reach the port. The secret is the key, never the message: two
+  headers travel with the request and the key itself does not.
+
+  ```
+  X-TDC-Timestamp: 1786000000
+  X-TDC-Signature: hex(HMAC-SHA256(secret, timestamp \n seed \n count \n body))
+  ```
+
+  Everything that decides the answer is inside the signature, so a changed body, count,
+  seed or minute produces a different one, and the timestamp is what makes a captured
+  request useless tomorrow — how strict that window is stays the service's decision. All
+  five implementations produce the same 64 hex digits for the same request, so one service
+  accepts requests from any of them. Three spellings, and only the literal is remarked on:
+  `env:NAME` and `file:PATH` keep the key out of the config, a literal works and warns
+  (TDC284), and `secret=""` is an error because signing with nothing produces a signature
+  anyone could forge. The engine sends its REAL clock rather than the run's `--now`, or a
+  config pinned to a past date would be refused by every service that checks.
+
+- `X-TDC-Input: N` travels with every `http` request that carries `in=`, and says how many
+  input lines the body holds. It closes an ambiguity that reached services as a wrong
+  answer: `in=` naming a column of one empty value sends an empty body, which is byte for
+  byte what a pure source sends, so the service invented a value where it had been asked
+  to process one — measured `city=[] handled=[68784219]`. A service that ignores the
+  header reads the body exactly as before, which is what makes the addition safe for
+  services already written.
+
 ### Changed
 
 <!-- covers: === !== -->
@@ -30,6 +61,58 @@ page — is tracked in that implementation's own changelog:
   sides are the same NUMBER.
 
 ### Fixed
+
+<!-- covers: secret anomaly_flag group filter parent -->
+
+- `anomaly_flag=` on a `<gen>` that is only one PART of its sequence minted no column at
+  all, while `check` called the config valid and the anomaly fired. A second `<gen>`, a
+  `<data>` literal, or a `name=` that turns the gen into a field is enough — the values
+  came out perturbed and `${{NAME}}` reached the output as its own literal text on every
+  row, so the ground truth the author asked for was simply absent. The boundary was
+  measured across five shapes: a lone gen and `<gen if=…>` branches mint the column, the
+  other three do not. TDC283 now refuses exactly those three, with the same reasoning
+  TDC246 already applies to a `<gen>` inside a `<case>`.
+
+- `group:` put the separator inside the fraction of a decimal number. Chunking ran over
+  the whole string from the right, blind to the decimal point, so a money column came out
+  `1 970 .30` — a number in no locale, from a config `check` called valid. The integer
+  part is now grouped and the fraction left alone (`1234567.89` → `1 234 567.89`, the sign
+  outside), and everything that is not exactly a decimal keeps the plain right-to-left
+  chunking `group:4` was written for: a card number is still `4111 1111 1111 1111`. One
+  function serves both the `group:` filter and the `<group>` compute tag, so both are
+  fixed.
+
+- A `<pool>` member's `if=` was checked against the RUN's names rather than the pool's, in
+  the four ports. Naming an env column passed `check` and was then constant-false on every
+  member — the table is built before any row exists — so the guarded column came out empty
+  on every row. TDC215 now refuses it in all five; reading a SIBLING field of the same pool
+  stays valid, which is the other direction of the same scope.
+
+- `order="sequential"` on only some members of a `row=` link had a refusal in all five and
+  no shared case behind it. TDC282 has one now, and the diagnostic surface is fully
+  covered again.
+
+- A pool `filter=` that matched nobody named the failing filter and the row number, and —
+  on the general expression path — nothing about the row itself, leaving the author unable
+  to tell a pool missing a member from a filter comparing against the wrong thing. The
+  bucketed `field == Column` path had named the value all along. Both now say it:
+  `no member satisfies filter="price < Budget" for row 1 (Budget="1")`. The names are
+  recorded during the scan rather than parsed back out of the expression, so what the
+  message reports is exactly what the filter read.
+
+- The qualified spelling of a pool filter fell off the bucketed fast path and scanned every
+  member. `Doctors.clinic == Clinic` is what TDC232 tells the author to write when a name
+  is both a member field and a row column — and following that advice cost, measured on
+  40,000 rows over a pool of 2,000:
+
+  ```
+  Doctors.clinic == Clinic    108.08 s
+  clinic == Clinic             0.05 s
+  ```
+
+  A name may now carry dots on either side and the pool's own prefix is stripped before
+  the field lookup, so both spellings reach the same bucket. A bare word on the right still
+  declines the fast path, which is what keeps `filter="clinic == North"` working.
 
 <!-- covers: range -->
 

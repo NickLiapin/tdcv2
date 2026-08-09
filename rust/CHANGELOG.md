@@ -9,6 +9,26 @@ this package: the crate, its library API and its binary.
 
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [Unreleased]
+
+### Fixed
+
+- **`tdcv2 check` no longer calls the service.** In this implementation `Tdc::from_file` IS
+  the finished run — every column materialised — so checking a config holding a
+  `<gen type="http">` made a real request, from a command whose own help says it validates
+  "without generating anything". Measured against a dead port, the other four printed
+  `is valid` while this one reported a connection failure; a check in CI must not reach a
+  production service. It now takes a `Plan`, which reads and validates without building
+  rows. A genuinely broken config still fails — verified with TDC066 on a malformed `src`.
+
+### Added
+
+- **HMAC-SHA256 without a dependency**, for the `secret=` request signature. Written over
+  the SHA-256 this crate already carried for the pack client, because the crate takes no
+  dependencies and the construction is twenty lines once a hash exists. Three tests pin it:
+  the value the other four implementations produce for the same inputs, and RFC 4231 cases
+  2 and 6 — the short-key and over-long-key branches.
+
 ## [0.1.4] — 2026-08-03
 
 ### Changed

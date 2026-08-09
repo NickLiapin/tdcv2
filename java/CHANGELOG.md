@@ -9,6 +9,22 @@ this package: the jar and the library API.
 
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [Unreleased]
+
+### Fixed
+
+- **`check --brief` now keeps its promise for warnings.** The flag prints one line per
+  diagnostic and no source excerpt, and errors always did — but warnings arrive on the
+  successful-parse path, which called the overload that defaults `brief` to false, so they
+  came out through the full renderer instead:
+
+  ```
+  TDC236 1:45 uniq on "U" holds all 200,000 values …     what the other implementations print
+  warning[TDC236]: uniq on "U" holds …                   what this one printed
+  ```
+
+  `--brief` is what an editor panel reads, so a second shape is not cosmetic. One line.
+
 ## [0.1.7]
 
 ### Fixed
