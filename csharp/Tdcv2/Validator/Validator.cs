@@ -1628,6 +1628,25 @@ public sealed class Validator
         if (target is null || !_poolFields.TryGetValue(target, out List<string>? nested))
         {
             fields.Add(name);
+
+            // A COMPOUND member publishes Name.Field for each of its named gens, and the pool
+            // exposes those under the same dotted name — the engine does it, so the CLI must
+            // accept it. ${{Seen.addr.city}} printed Paris on a run and was TDC193 on a check.
+            foreach (TDCParser.ElementContext child in node.content().element())
+            {
+                GenNode? gen = GenNodeOf(child);
+                if (gen is null)
+                {
+                    continue;
+                }
+
+                string field = (Attributes(gen.Attrs).GetValueOrDefault("name") ?? string.Empty).Trim();
+                if (field.Length > 0)
+                {
+                    fields.Add($"{name}.{field}");
+                }
+            }
+
             return;
         }
 

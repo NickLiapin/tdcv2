@@ -1411,6 +1411,19 @@ public final class Validator {
     List<String> nested = target == null ? null : poolFields.get(target);
     if (nested == null) {
       fields.add(field);
+      // A COMPOUND member publishes Name.Field for each of its named gens, and the pool exposes
+      // those under the same dotted name — the engine does it, so the CLI must accept it.
+      // ${{Seen.addr.city}} printed Paris on a run and was TDC193 on a check.
+      for (TDCParser.ElementContext child : node.content().element()) {
+        GenNode gen = genNodeOf(child);
+        if (gen == null) {
+          continue;
+        }
+        String sub = attributes(gen.attrs()).getOrDefault("name", "").trim();
+        if (!sub.isEmpty()) {
+          fields.add(field + "." + sub);
+        }
+      }
       return;
     }
     for (String inner : nested) {

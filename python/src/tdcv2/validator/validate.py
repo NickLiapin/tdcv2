@@ -1452,6 +1452,16 @@ class _Validator:
         nested = None if target is None else self.pool_fields.get(target)
         if nested is None:
             fields.append(name)
+            # A COMPOUND member publishes ``Name.Field`` for each of its named gens, and the
+            # pool exposes those under the same dotted name — the engine does it, so the CLI
+            # must accept it. ``${{Seen.addr.city}}`` printed ``Paris`` on a run and was
+            # TDC193 on a check.
+            for gen in _child_elements(node):
+                if _element_name(gen) != "gen":
+                    continue
+                field = (_attrs(gen.attr()).get("name") or "").strip()
+                if field:
+                    fields.append(f"{name}.{field}")
             return
         for field in nested:
             fields.append(f"{name}.{field}")

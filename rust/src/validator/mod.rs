@@ -5548,7 +5548,20 @@ fn add_member_fields(
     };
     let nested = member_pool_ref(node).and_then(|target| known.get(&target));
     match nested {
-        None => fields.push(name.to_string()),
+        None => {
+            fields.push(name.to_string());
+            // A COMPOUND member publishes `Name.Field` for each of its named gens, and the
+            // pool exposes those under the same dotted name — the engine does it, so the
+            // CLI must accept it. `${{Seen.addr.city}}` printed `Paris` on a run and was
+            // TDC193 on a check.
+            for gen in node.children.iter().filter(|c| c.name == "gen") {
+                if let Some(field) = gen.attr_value("name") {
+                    if !field.trim().is_empty() {
+                        fields.push(format!("{name}.{}", field.trim()));
+                    }
+                }
+            }
+        }
         Some(inner) => {
             for field in inner {
                 fields.push(format!("{name}.{field}"));
