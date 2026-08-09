@@ -107,6 +107,18 @@ single city.
 4. Any percentages inside the child are measured against the number of **active**
    rows — the filtered subset.
 
+:::note[The value compared is the one the parent DREW]
+
+`parent="Parent.Value"` is answered before the
+[formatting layer](../guides/masks-and-case.mdx) runs, so it compares against the value
+the parent's generator produced — not the one the row prints. A parent written
+`<gen type="text" value="alpha,beta" case="upper"/>` prints `ALPHA`, and the child that
+follows it must still say `parent="Kind.alpha"`. Writing the printed spelling stops the
+run rather than silently matching nothing: _filters on parent value "Kind.ALPHA", which
+the parent never produces_. The same holds for `mask=`.
+
+:::
+
 ## Names by gender
 
 The classic case: men need male names, women need female names. One shared name
@@ -260,6 +272,25 @@ UK |`}
 restricted it to New York alone. The valueless form says "inherit the parent's
 filter, don't add my own", which is exactly what you want for a field that hangs off
 whatever the parent produced.
+
+:::caution[`missing=` on the parent does not stop the child]
+
+"Any row where the parent has a value at all" is read as **any row the parent's own
+filter let through** — not as "any row where the parent came out non-empty". A parent
+that blanks some of its rows with [`missing=`](../guides/anomalies.mdx) still counts
+those rows as its own, so the child fills them:
+
+```
+P=[]  C=[child]
+P=[b] C=[child]
+P=[]  C=[child]
+```
+
+If the child must disappear together with the blanks, say so with a condition —
+`if="P"` is true exactly when `P` produced something — rather than relying on the
+valueless `parent=`.
+
+:::
 
 ## Interaction with `if`
 

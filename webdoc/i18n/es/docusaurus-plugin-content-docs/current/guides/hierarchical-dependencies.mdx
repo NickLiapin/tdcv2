@@ -111,6 +111,18 @@ que `${{CityRU}}${{CityFR}}` produce una sola ciudad.
 4. Cualquier porcentaje dentro del hijo se mide contra el número de filas **activas**,
    es decir, contra el subconjunto filtrado.
 
+:::note[Se compara el valor que el padre SACÓ]
+
+`parent="Parent.Value"` se resuelve antes de que corra la
+[capa de formato](../guides/masks-and-case.mdx), así que compara contra el valor que
+produjo el generador del padre, no contra el que imprime la fila. Un padre escrito
+`<gen type="text" value="alpha,beta" case="upper"/>` imprime `ALPHA`, y el hijo que lo
+sigue debe decir igualmente `parent="Kind.alpha"`. Escribir la forma impresa no coincide
+en silencio: detiene la corrida con _filters on parent value "Kind.ALPHA", which the
+parent never produces_. Lo mismo vale para `mask=`.
+
+:::
+
 ## Nombres según el género
 
 El caso clásico: los hombres necesitan nombres masculinos y las mujeres, nombres
@@ -266,6 +278,26 @@ UK |`}
 habría restringido únicamente a Nueva York. La forma sin valor dice «hereda el filtro
 del padre, no agregues el mío», que es justo lo que se quiere para un campo que cuelga
 de lo que sea que haya producido el padre.
+
+:::caution[`missing=` en el padre no detiene al hijo]
+
+«Cualquier fila donde el padre tenga un valor» se lee como **cualquier fila que dejó
+pasar el filtro propio del padre**, no como «cualquier fila donde el padre salió no
+vacío». Un padre que vacía parte de sus filas con
+[`missing=`](../guides/anomalies.mdx) sigue contando esas filas como suyas, y el hijo
+las llena:
+
+```
+P=[]  C=[child]
+P=[b] C=[child]
+P=[]  C=[child]
+```
+
+Si el hijo debe desaparecer junto con los vacíos, dígalo con una condición — `if="P"` es
+verdadero exactamente cuando `P` produjo algo — en vez de confiar en el `parent=` sin
+valor.
+
+:::
 
 ## Interacción con `if`
 
