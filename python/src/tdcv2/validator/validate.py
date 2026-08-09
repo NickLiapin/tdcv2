@@ -353,7 +353,8 @@ GEN_ATTRS = frozenset(
         "column", "header",
         "delimiter", "row", "base", "trend", "period", "amplitude", "noise", "points", "upper",
         "lower", "y_range", "interp", "spread", "ink_threshold", "mode", "in", "on_error",
-        "timeout", "mean", "sd", "meanlog", "sdlog", "rate", "alpha", "xmin", "shape", "scale",
+        "timeout", "secret", "mean", "sd", "meanlog", "sdlog", "rate", "alpha", "xmin",
+        "shape", "scale",
         "lambda", "n", "s", "beta", "min", "max", "filter", "peak_at",
     }
 )  # fmt: skip
@@ -401,6 +402,7 @@ ATTRIBUTE_OWNERS: dict[str, frozenset[str]] = {
     "in": frozenset({"http"}),
     "on_error": frozenset({"http"}),
     "timeout": frozenset({"http"}),
+    "secret": frozenset({"http"}),
     # The drawn curve.
     "points": frozenset({"pattern"}),
     "upper": frozenset({"pattern"}),
@@ -2659,6 +2661,36 @@ class _Validator:
                 line,
                 column,
             )
+
+        # secret — the key a request is signed with. Three spellings, and only the literal is
+        # worth saying anything about: a config travels into version control, and the secret would
+        # travel with it. A warning rather than an error, because a service on 127.0.0.1 for an
+        # afternoon is a real use and refusing it would only teach people to write it somewhere
+        # worse.
+        secret = attrs.get("secret")
+        if secret is not None:
+            raw = secret.strip()
+            line, column = _at(gen, "secret")
+            if not raw:
+                self._error(
+                    "TDC284",
+                    'secret="" has no key to sign with',
+                    'Name where the key lives: secret="env:TDC_HTTP_SECRET" or '
+                    'secret="file:~/.tdc/service.key". Remove the attribute to send the request '
+                    "unsigned.",
+                    line,
+                    column,
+                )
+            elif not raw.startswith("env:") and not raw.startswith("file:"):
+                self._warn(
+                    "TDC284",
+                    "secret= is written into the config, so it travels wherever the config does",
+                    "A config goes into version control and the key goes with it. "
+                    'secret="env:TDC_HTTP_SECRET" reads it from the environment, '
+                    'secret="file:~/.tdc/service.key" from a file the repository does not hold.',
+                    line,
+                    column,
+                )
 
     def _check_mask(self, gen, attrs: dict[str, str]) -> None:
         """A ``mask=`` that does not parse. Caught here rather than on the first row."""

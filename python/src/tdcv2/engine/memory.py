@@ -521,7 +521,7 @@ def _build_columns(
 
     _enforce_env_distinct(config, columns, count, run)
     _enforce_env_uniq(config, columns, count)
-    _resolve_http(config, columns, count)
+    _resolve_http(config, columns, count, base_dir)
     return columns
 
 
@@ -2179,7 +2179,7 @@ def _enforce_valid(pack, local, count: int, run: _Run) -> None:
 # ── http, resolved after everything else ────────────────────────────────────────────────────
 
 
-def _resolve_http(config: Config, columns, count: int) -> None:
+def _resolve_http(config: Config, columns, count: int, base_dir: Path | None) -> None:
     """Every ``type="http"`` column filled from its service, once the rest of the run exists.
 
     A second pass rather than a generator branch, because an http gen may read another sequence
@@ -2205,6 +2205,17 @@ def _resolve_http(config: Config, columns, count: int) -> None:
                 "" if column is None or column[i] is None else column[i] for i in range(count)
             ]
 
+        # Resolved per sequence and never cached: two sequences may sign with two different
+        # secrets, and a config naming an unset variable should say so in terms of the sequence
+        # the reader wrote.
+        secret_spec = attrs.get("secret")
+        secret = None
+        if secret_spec and secret_spec.strip():
+            try:
+                secret = http_gen.resolve_secret(secret_spec, str(base_dir) if base_dir else ".")
+            except http_gen.SecretError as e:
+                raise EngineError(f'http service for sequence "{spec.name}": {e}') from e
+
         request = http_gen.Request(
             src=attrs.get("src", ""),
             count=count,
@@ -2212,6 +2223,7 @@ def _resolve_http(config: Config, columns, count: int) -> None:
             seed=http_gen.seed_for(config.seed, spec.name or ""),
             on_error=http_gen.parse_on_error(attrs.get("on_error")),
             timeout_ms=http_gen.parse_timeout(attrs.get("timeout")),
+            secret=secret,
         )
         try:
             values = http_gen.fetch(request)
