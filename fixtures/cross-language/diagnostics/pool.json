@@ -137,6 +137,20 @@
       "description": "Pools are built in declaration order, so a pool can only read the pools above it — which is also why a cycle between pools cannot be written down. Added when the documentation checker found the message quoted on the pools page with no case behind it.",
       "config": "<tdc><env count=\"2\" seed=\"s\"><pool name=\"Doctors\" count=\"2\"><sequence name=\"at\"><gen type=\"pool\" value=\"Clinics\"/></sequence></pool><pool name=\"Clinics\" count=\"2\"><sequence name=\"city\"><gen type=\"text\" value=\"N,S\"/></sequence></pool><sequence name=\"X\"><gen type=\"pool\" value=\"Doctors\"/></sequence></env><block><line><data>${{X.at}}</data></line></block></tdc>",
       "expected": ["error TDC236 1:60"]
+    },
+    {
+      "name": "pool-member-if-reads-an-env-column",
+      "demonstrates": "TDC215",
+      "description": "A pool is built before any row exists, so a member's condition naming a run column is constant-false on every member — badge came out empty on every row while check called the config valid.",
+      "config": "<tdc><env count=\"6\" seed=\"clinic\" local=\"en\"><pool name=\"Doctors\" count=\"6\"><sequence name=\"name\"><gen type=\"template\" value=\"person.lastName\"/></sequence><sequence name=\"badge\"><gen type=\"text\" value=\"B\" if=\"Age >= 18\"/></sequence></pool><sequence name=\"Age\"><gen type=\"number\" value=\"1..10\"/></sequence><sequence name=\"Seen\"><gen type=\"pool\" value=\"Doctors\"/></sequence></env><block><line><data>badge=[${{Seen.badge}}]</data></line></block></tdc>",
+      "expected": ["error TDC215 1:209"]
+    },
+    {
+      "name": "pool-member-if-reads-a-sibling-field",
+      "demonstrates": "",
+      "description": "The other direction of the same scope: a member reads its pool's own fields, which the engine resolves, so this must not be refused.",
+      "config": "<tdc><env count=\"6\" seed=\"po\" local=\"en\"><pool name=\"Doctors\" count=\"6\"><sequence name=\"role\"><gen type=\"text\" value=\"surgeon,nurse\"/></sequence><sequence name=\"scalpel\"><gen type=\"text\" value=\"yes\" if=\"role == surgeon\"/></sequence></pool><sequence name=\"Seen\"><gen type=\"pool\" value=\"Doctors\"/></sequence></env><block><line><data>${{Seen.role}} s[${{Seen.scalpel}}]</data></line></block></tdc>",
+      "expected": []
     }
   ]
 }

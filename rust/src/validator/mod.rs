@@ -124,7 +124,13 @@ struct Validator {
     /// The names cannot be checked as the walk passes: an expression may name a
     /// sequence declared BELOW it, and the run resolves that happily, so
     /// checking mid-walk would invent errors on configs that work.
-    pending_expressions: Vec<(usize, String, Pos, bool)>,
+    pending_expressions: Vec<(usize, String, Pos, bool, Option<BTreeSet<String>>)>,
+    /// The names the expression being walked right now may see, where they are
+    /// NOT the run's. A `<pool>` member reads its own pool and nothing else: the
+    /// table is built before any row exists, so a condition naming an env column
+    /// is constant-false on every member. `None` is every expression outside a
+    /// pool.
+    expr_scope: Option<BTreeSet<String>>,
     /// Every `filter=` seen, and where its complaint belongs in the report.
     ///
     /// Held back for the same reason an `if=` is: the column a filter compares
@@ -243,9 +249,16 @@ impl Validator {
         // in source order.
         let pending = std::mem::take(&mut self.pending_expressions);
         let mut shift = 0usize;
-        for (at_index, condition, pos, each) in pending {
+        for (at_index, condition, pos, each, scope) in pending {
             let before = self.diagnostics.len();
+            let outer = match scope {
+                None => None,
+                Some(names) => Some(std::mem::replace(&mut self.declared_names, names)),
+            };
             self.check_expression_names(&condition, pos, each);
+            if let Some(names) = outer {
+                self.declared_names = names;
+            }
             let found: Vec<Diagnostic> = self.diagnostics.split_off(before);
             let count = found.len();
             for (offset, diagnostic) in found.into_iter().enumerate() {
@@ -731,7 +744,14 @@ impl Validator {
                     declaration.wrapped_in_group.unwrap(),
                 );
             }
-            let in_pool = declaration.in_pool;
+            let in_pool = declaration.pool.is_some();
+            // Every expression deferred while this declaration is walked is a
+            // pool member's or the run's, and the two see different names.
+            self.expr_scope = declaration
+                .pool
+                .as_ref()
+                .map(|p| self.pool_fields.get(p).cloned().unwrap_or_default())
+                .map(|fields| fields.into_iter().collect());
             let open = declaration.element;
             self.check_closed_tag_attrs(&tag, open);
             let name = open.attr_value("name").map(str::to_string);
@@ -875,6 +895,7 @@ impl Validator {
                 }
             }
         }
+        self.expr_scope = None;
     }
 
     /// A group of fewer than two sequences constrains nothing.
@@ -1965,8 +1986,7 @@ impl Validator {
         // branch nobody happened to hit.
         if let Some(condition) = gen.attr_value("if").map(str::to_string) {
             self.check_if_expression(&condition, gen.at("if"));
-            self.pending_expressions
-                .push((self.diagnostics.len(), condition, gen.at("if"), false));
+            self.defer_expression(condition, gen.at("if"), false);
             // A pool reference publishes a whole MEMBER, and a `<gen>` carrying
             // `if` becomes a conditional branch the pool resolver does not
             // recognise — so no `Ref.field` column was registered and
@@ -4284,12 +4304,7 @@ impl Validator {
         // never renders.
         if let Some(condition) = line.attr_value("if").map(str::to_string) {
             self.check_if_expression(&condition, line.at("if"));
-            self.pending_expressions.push((
-                self.diagnostics.len(),
-                condition.clone(),
-                line.at("if"),
-                walks_a_list,
-            ));
+            self.defer_expression(condition.clone(), line.at("if"), walks_a_list);
         }
 
         if let Some(each) = line.attr_value("each").map(str::to_string) {
@@ -4395,12 +4410,7 @@ impl Validator {
                 }
                 if let Some(condition) = child.attr_value("if").map(str::to_string) {
                     self.check_if_expression(&condition, child.at("if"));
-                    self.pending_expressions.push((
-                        self.diagnostics.len(),
-                        condition.clone(),
-                        child.at("if"),
-                        walks_a_list,
-                    ));
+                    self.defer_expression(condition.clone(), child.at("if"), walks_a_list);
                 }
                 continue;
             }
@@ -4869,9 +4879,25 @@ impl Validator {
             }
             let at = child.at("that");
             self.check_if_expression(&that, at);
-            self.pending_expressions
-                .push((self.diagnostics.len(), that, at, false));
+            self.defer_expression(that, at, false);
         }
+    }
+
+    /// Put an expression aside, together with the names it will be checked
+    /// against.
+    ///
+    /// The scope is taken HERE rather than at the end: by then a pool's members
+    /// have left the walk, and checking one of their conditions against the run's
+    /// names got it wrong in both directions — a sibling field read as
+    /// undeclared, and an env column read as fine.
+    fn defer_expression(&mut self, expression: String, at: Pos, each: bool) {
+        self.pending_expressions.push((
+            self.diagnostics.len(),
+            expression,
+            at,
+            each,
+            self.expr_scope.clone(),
+        ));
     }
 
     fn check_if_expression(&mut self, expression: &str, at: Pos) {
@@ -5294,10 +5320,11 @@ struct Declaration<'a> {
     element: &'a Element,
     name: String,
     wrapped_in_group: Option<&'a str>,
-    /// A member of a `<pool>`. Checked like any other declaration, but its name
-    /// belongs to the pool rather than to the run — a pool holding an `id` must
-    /// not collide with the run's own `id`, nor look like an ambiguity.
-    in_pool: bool,
+    /// The `<pool>` this is a member of, if any. Checked like any other
+    /// declaration, but its name belongs to the pool rather than to the run — a
+    /// pool holding an `id` must not collide with the run's own `id`, nor look
+    /// like an ambiguity — and its `if=` reads the pool's fields, not the run's.
+    pool: Option<String>,
 }
 
 /// Every sequence-like declaration in `<env>`, in the order they appear.
@@ -5318,12 +5345,13 @@ fn declarations(env: &Element) -> Vec<Declaration<'_>> {
                 element: child,
                 name: child.name.clone(),
                 wrapped_in_group: None,
-                in_pool: false,
+                pool: None,
             }),
             // A pool's members are declarations too — checked exactly as at the
             // top level — but its names are ITS columns, not the run's, so they
             // are marked and kept out of the shared namespace.
             "pool" => {
+                let pool_name = child.attr_value("name").map(str::to_string);
                 for inner in &child.children {
                     if inner.kind != Kind::OpenClose {
                         continue;
@@ -5333,7 +5361,7 @@ fn declarations(env: &Element) -> Vec<Declaration<'_>> {
                             element: inner,
                             name: inner.name.clone(),
                             wrapped_in_group: None,
-                            in_pool: true,
+                            pool: pool_name.clone(),
                         }),
                         "uniq" | "distinct" => {
                             for wrapped in &inner.children {
@@ -5346,7 +5374,7 @@ fn declarations(env: &Element) -> Vec<Declaration<'_>> {
                                         element: wrapped,
                                         name: wrapped.name.clone(),
                                         wrapped_in_group: None,
-                                        in_pool: true,
+                                        pool: pool_name.clone(),
                                     });
                                 }
                             }
@@ -5369,7 +5397,7 @@ fn declarations(env: &Element) -> Vec<Declaration<'_>> {
                             element: inner,
                             name: inner.name.clone(),
                             wrapped_in_group: Some(group),
-                            in_pool: false,
+                            pool: None,
                         });
                     }
                 }

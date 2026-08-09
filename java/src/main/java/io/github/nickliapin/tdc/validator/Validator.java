@@ -478,7 +478,32 @@ public final class Validator {
    * BELOW it, and the run resolves that happily, so checking mid-walk would invent errors on
    * configs that work.
    */
-  private record Pending(int at, String expression, int line, int column, boolean each) {}
+  private record Pending(
+      int at, String expression, int line, int column, boolean each, Set<String> scope) {}
+
+  /**
+   * The names a deferred expression may see, where they are NOT the run's.
+   *
+   * <p>A {@code <pool>} member reads its own pool and nothing else: the table is built before any
+   * row exists, so a condition naming an env column is constant-false on every member. Null is
+   * every expression outside a pool.
+   */
+  private Set<String> exprScope = null;
+
+  private final Map<TDCParser.OpenCloseElementContext, Set<String>> poolMemberScope =
+      new java.util.IdentityHashMap<>();
+
+  /**
+   * Put an expression aside, together with the names it will be checked against.
+   *
+   * <p>The scope is taken HERE rather than at the end: by then a pool's members have left the
+   * walk, and checking one of their conditions against the run's names got it wrong in both
+   * directions — a sibling field read as undeclared, and an env column read as fine.
+   */
+  private void deferExpression(String expression, int line, int column, boolean each) {
+    pendingExpressions.add(
+        new Pending(diagnostics.size(), expression, line, column, each, exprScope));
+  }
 
   private final List<Pending> pendingExpressions = new ArrayList<>();
 
@@ -583,7 +608,17 @@ public final class Validator {
     int shift = 0;
     for (Pending item : pending) {
       int before = diagnostics.size();
+      Set<String> outer = null;
+      if (item.scope() != null) {
+        outer = new LinkedHashSet<>(declaredNames);
+        declaredNames.clear();
+        declaredNames.addAll(item.scope());
+      }
       checkExpressionNames(item.expression(), item.line(), item.column(), item.each());
+      if (outer != null) {
+        declaredNames.clear();
+        declaredNames.addAll(outer);
+      }
       List<Diagnostic> found = new ArrayList<>(diagnostics.subList(before, diagnostics.size()));
       diagnostics.subList(before, diagnostics.size()).clear();
       for (int i = 0; i < found.size(); i++) {
@@ -1030,6 +1065,9 @@ public final class Validator {
 
     for (TDCParser.OpenCloseElementContext open : declarations(env)) {
       String tag = open.name.getText();
+      // Every expression deferred while this declaration is walked is a pool member's or the
+      // run's, and the two see different names.
+      exprScope = poolMemberScope.get(open);
       checkClosedTagAttrs(tag, open.attr(), line(open), column(open));
       Map<String, String> attrs = attributes(open.attr());
       String name = attrs.get("name");
@@ -1126,6 +1164,7 @@ public final class Validator {
         }
       }
     }
+    exprScope = null;
   }
 
   /**
@@ -1206,6 +1245,13 @@ public final class Validator {
   private List<TDCParser.OpenCloseElementContext> poolMembers(
       TDCParser.OpenCloseElementContext pool) {
     List<TDCParser.OpenCloseElementContext> out = new ArrayList<>();
+    // What a member of THIS pool may name in an `if=`: the pool's own fields, gathered by the
+    // pre-pass. A condition naming an env column is not merely out of scope — the pool is built
+    // before any row exists, so it is constant-false on every member, and the column it guards
+    // came out empty on every row.
+    String poolName = attributes(pool.attr()).get("name");
+    Set<String> scope =
+        new LinkedHashSet<>(poolFields.getOrDefault(poolName == null ? "" : poolName, List.of()));
     for (TDCParser.ElementContext member : pool.content().element()) {
       TDCParser.OpenCloseElementContext inner = member.openCloseElement();
       if (inner == null) {
@@ -1214,6 +1260,7 @@ public final class Validator {
       String tag = inner.name.getText();
       if (isDeclarationTag(tag)) {
         poolMemberNodes.add(inner);
+        poolMemberScope.put(inner, scope);
         out.add(inner);
       } else if ("uniq".equals(tag) || "distinct".equals(tag)) {
         int wrapped = 0;
@@ -1224,6 +1271,7 @@ public final class Validator {
           }
           wrapped++;
           poolMemberNodes.add(node);
+          poolMemberScope.put(node, scope);
           out.add(node);
         }
         checkGroupSize(inner, tag, wrapped);
@@ -2264,8 +2312,7 @@ public final class Validator {
     if (condition != null) {
       int[] where = at(gen.attr(), "if", line(gen), column(gen));
       checkIfExpression(condition, where[0], where[1]);
-      pendingExpressions.add(
-          new Pending(diagnostics.size(), condition, where[0], where[1], false));
+      deferExpression(condition, where[0], where[1], false);
       // A pool reference publishes a whole MEMBER, and a <gen> carrying `if` becomes a
       // conditional branch the pool resolver does not recognise — so no Ref.field column was
       // registered and ${{Ref.name}} reached the output as its own literal text, on every row
@@ -4356,8 +4403,7 @@ public final class Validator {
     if (lineCondition != null) {
       int[] where = at(line.attr(), "if", line(line), column(line));
       checkIfExpression(lineCondition, where[0], where[1]);
-      pendingExpressions.add(
-          new Pending(diagnostics.size(), lineCondition, where[0], where[1], walksAList));
+      deferExpression(lineCondition, where[0], where[1], walksAList);
     }
     String each = attributes(line.attr()).get("each");
     if (each != null) {
@@ -4443,8 +4489,7 @@ public final class Validator {
                 where[0], where[1]);
           }
           checkIfExpression(condition, where[0], where[1]);
-          pendingExpressions.add(
-              new Pending(diagnostics.size(), condition, where[0], where[1], walksAList));
+          deferExpression(condition, where[0], where[1], walksAList);
         }
         continue;
       }
@@ -5149,7 +5194,7 @@ public final class Validator {
       }
       int[] where = at(self, "that");
       checkIfExpression(that, where[0], where[1]);
-      pendingExpressions.add(new Pending(diagnostics.size(), that, where[0], where[1], false));
+      deferExpression(that, where[0], where[1], false);
     }
   }
 

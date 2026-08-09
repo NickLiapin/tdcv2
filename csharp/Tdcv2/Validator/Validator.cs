@@ -487,8 +487,32 @@ public sealed class Validator
     /// BELOW it, and the run resolves that happily, so checking mid-walk would invent errors on
     /// configs that work.
     /// </remarks>
-    private readonly List<(int At, string Expression, int Line, int Column, bool Each)>
-        _pendingExpressions = new();
+    private readonly List<(int At, string Expression, int Line, int Column, bool Each,
+        HashSet<string>? Scope)> _pendingExpressions = new();
+
+    /// <summary>
+    /// The names a deferred expression may see, where they are NOT the run's.
+    /// </summary>
+    /// <remarks>
+    /// A <c>&lt;pool&gt;</c> member reads its own pool and nothing else: the table is built before
+    /// any row exists, so a condition naming an env column is constant-false on every member. Null
+    /// is every expression outside a pool.
+    /// </remarks>
+    private HashSet<string>? _exprScope;
+
+    private readonly Dictionary<TDCParser.OpenCloseElementContext, HashSet<string>>
+        _poolMemberScope = new();
+
+    /// <summary>
+    /// Put an expression aside, together with the names it will be checked against.
+    /// </summary>
+    /// <remarks>
+    /// The scope is taken HERE rather than at the end: by then a pool's members have left the walk,
+    /// and checking one of their conditions against the run's names got it wrong in both directions
+    /// — a sibling field read as undeclared, and an env column read as fine.
+    /// </remarks>
+    private void DeferExpression(string expression, int line, int column, bool each) =>
+        _pendingExpressions.Add((_diagnostics.Count, expression, line, column, each, _exprScope));
 
     /// <summary>
     /// Every <c>filter=</c> seen, and where its complaint belongs in the report.
@@ -588,14 +612,29 @@ public sealed class Validator
 
         // Now that every name is known, the expressions can be checked — and each complaint goes
         // back where its attribute was, so the report stays in source order.
-        var pending = new List<(int At, string Expression, int Line, int Column, bool Each)>(
-            _pendingExpressions);
+        var pending = new List<(int At, string Expression, int Line, int Column, bool Each,
+            HashSet<string>? Scope)>(_pendingExpressions);
         _pendingExpressions.Clear();
         int shift = 0;
-        foreach ((int at, string expression, int line, int column, bool each) in pending)
+        foreach ((int at, string expression, int line, int column, bool each,
+            HashSet<string>? scope) in pending)
         {
             int before = _diagnostics.Count;
+            HashSet<string>? outer = null;
+            if (scope is not null)
+            {
+                outer = new HashSet<string>(_declaredNames, StringComparer.Ordinal);
+                _declaredNames.Clear();
+                _declaredNames.UnionWith(scope);
+            }
+
             CheckExpressionNames(expression, line, column, each);
+            if (outer is not null)
+            {
+                _declaredNames.Clear();
+                _declaredNames.UnionWith(outer);
+            }
+
             var found = _diagnostics.GetRange(before, _diagnostics.Count - before);
             _diagnostics.RemoveRange(before, _diagnostics.Count - before);
             _diagnostics.InsertRange(at + shift, found);
@@ -1171,6 +1210,10 @@ public sealed class Validator
         foreach (TDCParser.OpenCloseElementContext open in Declarations(env))
         {
             string tag = open.name.Text;
+
+            // Every expression deferred while this declaration is walked is a pool member's or the
+            // run's, and the two see different names.
+            _exprScope = this._poolMemberScope.GetValueOrDefault(open);
             CheckClosedTagAttrs(tag, open.attr(), Line(open), Column(open));
             IReadOnlyDictionary<string, string> attrs = Attributes(open.attr());
             string? name = attrs.GetValueOrDefault("name");
@@ -1307,6 +1350,8 @@ public sealed class Validator
                 }
             }
         }
+
+        _exprScope = null;
     }
 
     /// <summary>
@@ -2021,6 +2066,15 @@ public sealed class Validator
 
                 this.CheckPoolIsRead(open);
 
+                // What a member of THIS pool may name in an `if=`: the pool's own fields, gathered
+                // by the pre-pass. A condition naming an env column is not merely out of scope —
+                // the pool is built before any row exists, so it is constant-false on every member,
+                // and the column it guards came out empty on every row.
+                var scope = new HashSet<string>(
+                    declaredPool is not null && _poolFields.TryGetValue(declaredPool, out List<string>? poolOwn)
+                        ? poolOwn
+                        : Array.Empty<string>(),
+                    StringComparer.Ordinal);
                 foreach (TDCParser.ElementContext member in open.content().element())
                 {
                     TDCParser.OpenCloseElementContext inner = member.openCloseElement();
@@ -2032,6 +2086,7 @@ public sealed class Validator
                     if (inner.name.Text is "sequence" or "mix" or "switch")
                     {
                         this.poolMemberNodes.Add(inner);
+                        this._poolMemberScope[inner] = scope;
                         result.Add(inner);
                     }
                     else if (inner.name.Text is "uniq" or "distinct")
@@ -2045,6 +2100,7 @@ public sealed class Validator
                             {
                                 wrappedCount++;
                                 this.poolMemberNodes.Add(wrapped);
+                                this._poolMemberScope[wrapped] = scope;
                                 result.Add(wrapped);
                             }
                         }
@@ -2750,7 +2806,7 @@ public sealed class Validator
         {
             (int gl, int gc) = At(gen.attr(), "if", Line(gen), Column(gen));
             CheckIfExpression(genCondition, gl, gc);
-            _pendingExpressions.Add((_diagnostics.Count, genCondition, gl, gc, false));
+            this.DeferExpression(genCondition, gl, gc, false);
 
             // A pool reference publishes a whole MEMBER, and a <gen> carrying `if` becomes a
             // conditional branch the pool resolver does not recognise — so no Ref.field column
@@ -5175,7 +5231,7 @@ public sealed class Validator
         {
             (int l, int c) = At(line.attr(), "if", Line(line), Column(line));
             CheckIfExpression(lineCondition, l, c);
-            _pendingExpressions.Add((_diagnostics.Count, lineCondition, l, c, walksAList));
+            this.DeferExpression(lineCondition, l, c, walksAList);
         }
 
         if (lineAttrs.TryGetValue("each", out string? each))
@@ -5287,7 +5343,7 @@ public sealed class Validator
                     }
 
                     CheckIfExpression(condition, l, c);
-                    _pendingExpressions.Add((_diagnostics.Count, condition, l, c, walksAList));
+                    this.DeferExpression(condition, l, c, walksAList);
                 }
 
                 continue;
@@ -5815,7 +5871,7 @@ public sealed class Validator
 
             (int tl, int tc) = At(self.attr(), "that", Line(self), Column(self));
             this.CheckIfExpression(that, tl, tc);
-            _pendingExpressions.Add((_diagnostics.Count, that, tl, tc, false));
+            this.DeferExpression(that, tl, tc, false);
         }
     }
 

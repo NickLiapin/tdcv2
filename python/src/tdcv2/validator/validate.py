@@ -588,6 +588,7 @@ class _Validator:
         "document_regex_max_length",
         "env_count",
         "env_names",
+        "expr_scope",
         "finite_values",
         "locale",
         "packs",
@@ -596,6 +597,7 @@ class _Validator:
         "pool_field_values",
         "pool_fields",
         "pool_member_nodes",
+        "pool_member_scope",
         "pool_references",
         "pools_read",
         "repeating_names",
@@ -639,7 +641,13 @@ class _Validator:
         # Every if= seen, where its complaint belongs in the report, and whether the builtins of
         # an each= line are in scope. The names cannot be checked as the walk passes: an
         # expression may name a sequence declared BELOW it, and the run resolves that happily.
-        self.pending_expressions: list[tuple[int, str, int, int, bool]] = []
+        self.pending_expressions: list[tuple[int, str, int, int, bool, frozenset[str] | None]] = []
+        # The names a deferred expression may see, where they are NOT the run's. A <pool> member
+        # reads its own pool and nothing else: the table is built before any row exists, so a
+        # condition naming an env column is constant-false on every member. None means the run's
+        # own names, which is every expression outside a pool.
+        self.expr_scope: frozenset[str] | None = None
+        self.pool_member_scope: dict[int, frozenset[str]] = {}
         # Every filter= seen, held back for the same reason: the column it compares against may
         # be declared BELOW the reference, and the run resolves that happily.
         # (at, expression, pool, field, other, line, column)
@@ -699,9 +707,15 @@ class _Validator:
         # back where its attribute was, so the report stays in source order.
         pending, self.pending_expressions = self.pending_expressions, []
         shift = 0
-        for at_index, condition, line, column, each in pending:
+        for at_index, condition, line, column, each, scope in pending:
             before = len(self.diagnostics)
-            self._check_expression_names(condition, line, column, each)
+            outer = self.declared_names
+            if scope is not None:
+                self.declared_names = set(scope)
+            try:
+                self._check_expression_names(condition, line, column, each)
+            finally:
+                self.declared_names = outer
             found = self.diagnostics[before:]
             del self.diagnostics[before:]
             for offset, diagnostic in enumerate(found):
@@ -1052,6 +1066,9 @@ class _Validator:
 
         for open_el in self._declarations(env):
             tag = open_el.name.text
+            # Every expression deferred while this declaration is walked is a pool member's or
+            # the run's, and the two see different names.
+            self.expr_scope = self.pool_member_scope.get(id(open_el))
             self._check_closed_tag_attrs(tag, open_el.attr(), _line(open_el), _column(open_el))
             attrs = _attrs(open_el.attr())
             name = attrs.get("name")
@@ -1179,6 +1196,7 @@ class _Validator:
                     value = attrs.get(key)
                     if value is not None and value.strip():
                         self.declared_names.add(value)
+        self.expr_scope = None
 
     def _register_pool_reference(self, sequence, name: str) -> None:
         """Publish ``Ref.field`` for a ``<gen type="pool">``, and check what it names."""
@@ -1639,13 +1657,18 @@ class _Validator:
                 # A pool's members are ITS columns, not the run's: they must see each other while
                 # the pool is walked and be gone afterwards, or a pool holding an `id` collides
                 # with the run's own `id` over a clash that does not exist.
-                outer = set(self.declared_names)
+                # What a member of THIS pool may name in an `if=`: the pool's own fields, gathered
+                # by the pre-pass. A condition naming an env column is not merely out of scope —
+                # the pool is built before any row exists, so it is constant-false on every
+                # member, and the column it guards came out empty on every row.
+                scope = frozenset(self.pool_fields.get(_attrs(open_el.attr()).get("name") or "", []))
                 for member_el in _elements(open_el):
                     member = member_el.openCloseElement()
                     if member is None:
                         continue
                     if member.name.text in ("sequence", "mix", "switch"):
                         self.pool_member_nodes.add(id(member))
+                        self.pool_member_scope[id(member)] = scope
                         out.append(member)
                     elif member.name.text in ("uniq", "distinct"):
                         wrapped_count = 0
@@ -1656,9 +1679,9 @@ class _Validator:
                             if wrapped.name.text in ("sequence", "mix", "switch"):
                                 wrapped_count += 1
                                 self.pool_member_nodes.add(id(wrapped))
+                                self.pool_member_scope[id(wrapped)] = scope
                                 out.append(wrapped)
                         self._check_group_size(member, member.name.text, wrapped_count)
-                del outer
             elif tag in ("uniq", "distinct"):
                 self._check_closed_tag_attrs(tag, open_el.attr(), _line(open_el), _column(open_el))
                 members = 0
@@ -1762,9 +1785,7 @@ class _Validator:
                 self_closing.attr(), "that", _line(self_closing), _column(self_closing)
             )
             self._check_if_expression(that, where[0], where[1])
-            self.pending_expressions.append(
-                (len(self.diagnostics), that, where[0], where[1], False)
-            )
+            self._defer_expression(that, where[0], where[1], False)
 
     def _check_env_group_member(self, sequence, tag: str) -> None:
         """A member of an env-level group has to produce one value per row.
@@ -2411,9 +2432,7 @@ class _Validator:
         if condition is not None:
             where = _at_attrs(gen.attr(), "if", *_at(gen, "if"))
             self._check_if_expression(condition, where[0], where[1])
-            self.pending_expressions.append(
-                (len(self.diagnostics), condition, where[0], where[1], False)
-            )
+            self._defer_expression(condition, where[0], where[1], False)
             # A pool reference publishes a whole MEMBER, and a `<gen>` carrying `if` becomes a
             # conditional branch the pool resolver does not recognise — so no `Ref.field` column
             # was registered and `${{Ref.name}}` reached the output as its own literal text, on
@@ -4305,9 +4324,7 @@ class _Validator:
         if line_condition is not None:
             where = _at_attrs(line_el.attr(), "if", _line(line_el), _column(line_el))
             self._check_if_expression(line_condition, where[0], where[1])
-            self.pending_expressions.append(
-                (len(self.diagnostics), line_condition, where[0], where[1], walks_a_list)
-            )
+            self._defer_expression(line_condition, where[0], where[1], walks_a_list)
         each = _attrs(line_el.attr()).get("each")
         if each is not None:
             line, column = _at(line_el, "each")
@@ -4403,9 +4420,7 @@ class _Validator:
                             where[1],
                         )
                     self._check_if_expression(condition, where[0], where[1])
-                    self.pending_expressions.append(
-                        (len(self.diagnostics), condition, where[0], where[1], walks_a_list)
-                    )
+                    self._defer_expression(condition, where[0], where[1], walks_a_list)
                 continue
             open_el = child.openCloseElement()
             if open_el is not None and open_el.name.text != "data":
@@ -4609,6 +4624,17 @@ class _Validator:
                     line,
                     column,
                 )
+
+    def _defer_expression(self, expression: str, line: int, column: int, each: bool) -> None:
+        """Put an expression aside, together with the names it will be checked against.
+
+        The scope is taken HERE rather than at the end: by then a pool's members have left the
+        walk, and checking one of their conditions against the run's names got it wrong in both
+        directions — a sibling field read as undeclared, and an env column read as fine.
+        """
+        self.pending_expressions.append(
+            (len(self.diagnostics), expression, line, column, each, self.expr_scope)
+        )
 
     def _check_expression_names(self, expression: str, line: int, column: int, each: bool) -> None:
         """The names an ``if=`` expression uses, checked against what exists.
