@@ -99,7 +99,7 @@ export function applyAnomaly(
  * padding only ever adds, so a spike that genuinely outgrew the width keeps its
  * extra digits — which is the whole point of one.
  */
-function keepShape(original: string, spiked: number): string {
+export function keepShape(original: string, spiked: number): string {
   const dot = original.indexOf('.');
   const places = dot < 0 ? 0 : original.length - dot - 1;
 

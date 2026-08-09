@@ -33,7 +33,7 @@ import { toEpochMillis } from '../date/index.js';
 import { loadCsvColumnFile, loadListFile } from '../generators/file.js';
 import { formatSample, parseDistribution, sampleDistribution } from '../generators/distribution.js';
 
-import { applyAnomaly, parseAnomaly } from '../generators/anomaly.js';
+import { applyAnomaly, keepShape, parseAnomaly } from '../generators/anomaly.js';
 import { applyMissing, parseMissing } from '../generators/missing.js';
 import { numberGenerator } from '../generators/number.js';
 import { patternGenDraws, patternGenValue } from '../generators/pattern.js';
@@ -1046,7 +1046,10 @@ function elementModifier(
     let out = value;
     if (anomaly && anomAt && anomAt(row, k) < anomaly.p) {
       const n = Number(out);
-      if (Number.isFinite(n)) out = String(n * anomaly.factor);
+      // The `repeat=` path spikes each ELEMENT here rather than through
+      // `applyAnomaly`, and used to re-stringify — so a repeated column lost the
+      // shape the plain one kept: `rep=[73.5,73.5]` beside a plain `73.50`.
+      if (Number.isFinite(n)) out = keepShape(out, n * anomaly.factor);
     }
     if (missing && missAt && missAt(row, k) < missing.p) out = missing.token;
     return fmt ? fmt(out) : out;

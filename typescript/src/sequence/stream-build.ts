@@ -30,7 +30,6 @@
 
 import { advancedRegexHasWeightedChoice } from '../generators/advanced-regex.js';
 import { evaluateCompute } from '../compute/index.js';
-import { genFormatter } from '../format/transforms.js';
 import { computeCountsPerValue } from '../distribution/hamilton.js';
 import { evaluateIf } from '../expr/evaluate.js';
 import { expandPercentMask } from '../distribution/percent-mask.js';
@@ -43,9 +42,8 @@ import {
   timeseriesValueAt,
 } from '../generators/timeseries.js';
 import { parseAnomaly } from '../generators/anomaly.js';
-import { parseMissing } from '../generators/missing.js';
 import { permute, permuteKey } from '../prng/permute.js';
-import { INLINE_ANOMALY_TYPES } from './per-row.js';
+import { anomalyFlagSequence, missingAnomalyMod, type RawAt } from './stream-anomaly.js';
 import { buildMixSeq } from './stream-mix.js';
 import { lazy } from './stream-lazy.js';
 import { poolRefName } from './pool.js';
@@ -565,90 +563,10 @@ function domainOf(spec: SequenceSpec, count: number, parents: Map<string, Parent
   };
 }
 
-/**
- * A seekable per-row `missing`/`anomaly` modifier, or null if the gen sets
- * neither. The inline-built types (counters, timeseries, pattern, text) don't
- * route through `buildGenValues`, so they apply this to match the in-memory
- * engine. Each modifier draws one uniform on its OWN dedicated seekable stream
- * — deterministic, seekable, and independent of value generation.
- */
-function missingAnomalyMod(
-  gen: GenSpec,
-  seed: string,
-  streamId: string,
-  elementDraws = 1,
-): ((i: number, v: string | undefined, k?: number) => string | undefined) | null {
-  const anomaly = parseAnomaly(gen.attrs);
-  const missing = parseMissing(gen.attrs);
-  const hasAnomaly = anomaly !== undefined && anomaly.p > 0;
-  const hasMissing = missing !== undefined && missing.p > 0;
-  const fmt = genFormatter(gen.attrs['mask'], gen.attrs['case']);
-  if (!hasAnomaly && !hasMissing && !fmt) return null;
-
-  // With `repeat` a row needs one draw PER ELEMENT, so the whole row's draws
-  // are pulled at once and indexed by `k`. Elements of a row arrive
-  // consecutively, so a one-entry memo makes that a single pull per row rather
-  // than one per element. `elementDraws = 1` reproduces the pre-repeat stream
-  // exactly: seekableUniforms pulls sequentially, so [0] never depends on how
-  // many were asked for.
-  let cachedRow = -1;
-  let anomDraws: number[] = [];
-  let missDraws: number[] = [];
-  const drawsFor = (i: number): void => {
-    if (cachedRow === i) return;
-    cachedRow = i;
-    anomDraws = hasAnomaly ? seekableUniforms(seed, `${streamId}#anom`, i, elementDraws) : [];
-    missDraws = hasMissing ? seekableUniforms(seed, `${streamId}#miss`, i, elementDraws) : [];
-  };
-
-  return (i, v, k = 0) => {
-    if (v === undefined) return undefined; // an inactive row stays inactive
-    drawsFor(i);
-    let out = v;
-    if (anomaly && hasAnomaly && (anomDraws[k] ?? 1) < anomaly.p) {
-      const n = Number(out);
-      if (Number.isFinite(n)) out = String(n * anomaly.factor);
-    }
-    if (missing && hasMissing && (missDraws[k] ?? 1) < missing.p) {
-      out = missing.token;
-    }
-    return fmt ? fmt(out) : out;
-  };
-}
-
-/**
- * Build the `anomaly_flag="NAME"` companion column for a streaming simple gen, or
- * null when there is no flag. It mirrors HOW `build()` applies anomaly so the flag
- * agrees with the value on every row: inline types use the seekable `#anom` draw
- * (same as `missingAnomalyMod`); independent types re-run the per-row build via
- * `resolveGenAnomalyFlagAt`. Parent-filtered rows are `undefined`.
- */
-function anomalyFlagSequence(
-  gen: GenSpec,
-  seed: string,
-  streamId: string,
-  domain: Domain,
-  locale: string,
-  now: number,
-  options: SequenceBuildOptions,
-): { name: string; sequence: Sequence } | null {
-  const name = gen.attrs['anomaly_flag'];
-  if (name === undefined || name.trim() === '') return null;
-  const anomaly = parseAnomaly(gen.attrs);
-  if (!anomaly) return null;
-  const { popIndexAt } = domain;
-  const p = anomaly.p;
-  // Independent gens resolve the label as TEXT, because with `repeat` it is a
-  // LIST parallel to the value list — a single boolean could not say which
-  // element of the batch spiked. Inline types never carry `repeat` (the
-  // validator refuses it), so their single draw stays a plain boolean.
-  const decide = INLINE_ANOMALY_TYPES.has(gen.type)
-    ? (i: number): string =>
-        (seekableUniforms(seed, `${streamId}#anom`, i, 1)[0] ?? 1) < p ? 'true' : 'false'
-    : (i: number): string =>
-        resolveGenAnomalyFlagTextAt(gen, i, seed, streamId, locale, now, options);
-  const sequence = lazy(name, (i) => (popIndexAt(i) === undefined ? undefined : decide(i)));
-  return { name, sequence };
+interface BuildResult {
+  sequence: Sequence;
+  parentCapable?: ParentCapable;
+  flag?: { name: string; sequence: Sequence };
 }
 
 export function build(
@@ -659,11 +577,24 @@ export function build(
   locale: string,
   now: number,
   options: SequenceBuildOptions,
-): {
-  sequence: Sequence;
-  parentCapable?: ParentCapable;
-  flag?: { name: string; sequence: Sequence };
-} {
+): BuildResult {
+  const raw: { at?: RawAt } = {};
+  const result = buildValueSequence(streamId, gen, domain, seed, locale, now, options, raw);
+  if (result.flag || !raw.at) return result;
+  const flag = anomalyFlagSequence(gen, seed, streamId, domain, locale, now, options, raw.at);
+  return flag ? { ...result, flag } : result;
+}
+
+function buildValueSequence(
+  streamId: string,
+  gen: GenSpec,
+  domain: Domain,
+  seed: string,
+  locale: string,
+  now: number,
+  options: SequenceBuildOptions,
+  raw: { at?: RawAt },
+): BuildResult {
   const { size, popIndexAt } = domain;
 
   // advanced_regex weighted choice `(?%{…})` hits its exact percentages only
@@ -722,8 +653,12 @@ export function build(
     const r = popIndexAt(i);
     return r === undefined ? undefined : permute(r, size, repeatKey);
   };
-  const wrapLazy = (resolve: (i: number) => string | undefined): Sequence =>
-    lazy(streamId, mod ? (i) => mod(i, resolve(i)) : resolve);
+  const wrapLazy = (resolve: (i: number) => string | undefined): Sequence => {
+    // Publish the untouched value so `anomaly_flag` can ask whether the row was
+    // really spiked, rather than only whether it was selected.
+    raw.at = resolve;
+    return lazy(streamId, mod ? (i) => mod(i, resolve(i)) : resolve);
+  };
 
   // order="sequential": row i → the (population index mod N)-th list/file value,
   // in order (looping). Index-based, so it resolves seekably like the counters.
