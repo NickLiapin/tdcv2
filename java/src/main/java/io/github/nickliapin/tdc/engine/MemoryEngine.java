@@ -350,11 +350,13 @@ public final class MemoryEngine {
         detail = " (" + equality[1] + "=\"" + wanted + "\")";
       } else {
         eligible = new ArrayList<>();
+        Map<String, String> read = new java.util.LinkedHashMap<>();
         for (int m = 0; m < table.count(); m++) {
-          if (Evaluate.asCondition(expression, new MemberScope(columns, table, m, row))) {
+          if (Evaluate.asCondition(expression, new MemberScope(columns, table, m, row, read))) {
             eligible.add(m);
           }
         }
+        detail = Pool.rowValuesDetail(read);
       }
       if (eligible.isEmpty()) {
         throw new IllegalStateException(
@@ -383,7 +385,12 @@ public final class MemoryEngine {
    * and a column is refused by the validator, so this never has to guess.
    */
   private record MemberScope(
-      Map<String, String[]> columns, Pool.Table table, int member, int row)
+      Map<String, String[]> columns,
+      Pool.Table table,
+      int member,
+      int row,
+      /** The ROW columns the filter read, and what they held — see Pool.rowValuesDetail. */
+      Map<String, String> read)
       implements Evaluate.Scope {
 
     @Override
@@ -398,7 +405,11 @@ public final class MemoryEngine {
         return found;
       }
       String[] column = columns.get(name);
-      return column == null || column[row] == null ? "" : column[row];
+      String value = column == null || column[row] == null ? "" : column[row];
+      if (column != null) {
+        read.put(name, value);
+      }
+      return value;
     }
 
     private String field(String name) {

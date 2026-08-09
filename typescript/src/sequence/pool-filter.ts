@@ -99,6 +99,17 @@ export function eligibleMembers(
   expr: string,
   table: PoolTable,
   rowValue: (name: string) => string | undefined,
+  /**
+   * Filled with the ROW columns the expression actually read, and what they held.
+   *
+   * The refusal for "nobody matched" used to name them only on the bucketed
+   * `field == Column` path, so the general one told the author which filter
+   * failed and never what the row was looking for — the one fact that says
+   * whether the pool is missing a member or the filter is wrong. Recorded here
+   * rather than parsed out of the expression: what the evaluator asked for IS
+   * what the filter reads, including through `&&` and a ternary.
+   */
+  readRowValues?: Map<string, string>,
 ): number[] {
   const prefix = `${table.name}.`;
   const eligible: number[] = [];
@@ -116,11 +127,20 @@ export function eligibleMembers(
       // column is refused by the validator rather than silently resolved one
       // way here, so this branch never has to guess.
       if (column) return column[m] ?? '';
-      return rowValue(name);
+      const value = rowValue(name);
+      if (readRowValues && value !== undefined) readRowValues.set(name, value);
+      return value;
     });
     if (ok) eligible.push(m);
   }
   return eligible;
+}
+
+/** ` (Clinic="North", Budget="40")` — what the row held, for the refusal below. */
+export function rowValuesDetail(values: ReadonlyMap<string, string>): string {
+  if (values.size === 0) return '';
+  const parts = [...values].map(([name, value]) => `${name}="${value}"`);
+  return ` (${parts.join(', ')})`;
 }
 
 /** The refusal a row gets when the filter leaves it with no member at all. */

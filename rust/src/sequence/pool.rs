@@ -108,6 +108,24 @@ pub fn bucket_by_field(table: &PoolTable, field: &str) -> BTreeMap<String, Vec<u
 }
 
 /// The refusal a row gets when the filter leaves it with no member at all.
+/// ` (Clinic="North", Budget="40")` — what the row held, for the refusal below.
+///
+/// The bucketed `field == Column` path always named the value a row was looking
+/// for; the general one named nothing, so the reader could not tell a pool
+/// missing a member from a filter that is wrong. What the evaluator ASKED for is
+/// what the filter reads, so the names are recorded during the scan rather than
+/// parsed back out of the expression.
+pub fn row_values_detail(values: &std::collections::BTreeMap<String, String>) -> String {
+    if values.is_empty() {
+        return String::new();
+    }
+    let parts: Vec<String> = values
+        .iter()
+        .map(|(name, value)| format!("{name}=\"{value}\""))
+        .collect();
+    format!(" ({})", parts.join(", "))
+}
+
 pub fn no_candidate_message(pool_name: &str, expression: &str, row: usize, detail: &str) -> String {
     format!(
         "pool \"{pool_name}\": no member satisfies filter=\"{expression}\" for row {}{detail}. \

@@ -1842,6 +1842,7 @@ impl StreamEngine<'_> {
                 )
             }
             _ => {
+                let read = std::cell::RefCell::new(std::collections::BTreeMap::new());
                 let mut found = Vec::new();
                 for m in 0..table.count {
                     let scope = StreamMemberScope {
@@ -1849,12 +1850,14 @@ impl StreamEngine<'_> {
                         table,
                         member: m,
                         row,
+                        read: &read,
                     };
                     if evaluate::as_condition(filter, &scope)? {
                         found.push(m);
                     }
                 }
-                (found, String::new())
+                let detail = pool::row_values_detail(&read.borrow());
+                (found, detail)
             }
         };
         if eligible.is_empty() {
@@ -2710,6 +2713,10 @@ struct StreamMemberScope<'a> {
     table: &'a PoolTable,
     member: usize,
     row: i32,
+    /// The ROW columns the filter actually read, and what they held — see
+    /// [`pool::row_values_detail`]. Handed in from the caller so the values
+    /// survive the per-candidate scope.
+    read: &'a std::cell::RefCell<std::collections::BTreeMap<String, String>>,
 }
 
 impl StreamMemberScope<'_> {
@@ -2732,10 +2739,15 @@ impl evaluate::Scope for StreamMemberScope<'_> {
         if let Some(found) = self.field(name) {
             return found;
         }
-        self.engine
+        let value = self
+            .engine
             .value_at(name, self.row)
             .ok()
             .flatten()
-            .unwrap_or_default()
+            .unwrap_or_default();
+        if self.engine.columns.contains_key(name) {
+            self.read.borrow_mut().insert(name.to_string(), value.clone());
+        }
+        value
     }
 }

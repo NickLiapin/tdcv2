@@ -502,11 +502,13 @@ public final class StreamEngine {
             detail = " (" + equality[1] + "=\"" + wanted + "\")";
           } else {
             eligible = new ArrayList<>();
+            Map<String, String> read = new java.util.LinkedHashMap<>();
             for (int m = 0; m < table.count(); m++) {
-              if (Evaluate.asCondition(expression, new StreamMemberScope(table, m, row))) {
+              if (Evaluate.asCondition(expression, new StreamMemberScope(table, m, row, read))) {
                 eligible.add(m);
               }
             }
+            detail = Pool.rowValuesDetail(read);
           }
           if (eligible.isEmpty()) {
             throw new IllegalStateException(
@@ -533,11 +535,14 @@ public final class StreamEngine {
     private final Pool.Table table;
     private final int member;
     private final int row;
+    /** The ROW columns the filter read, and what they held — see Pool.rowValuesDetail. */
+    private final Map<String, String> read;
 
-    StreamMemberScope(Pool.Table table, int member, int row) {
+    StreamMemberScope(Pool.Table table, int member, int row, Map<String, String> read) {
       this.table = table;
       this.member = member;
       this.row = row;
+      this.read = read;
     }
 
     @Override
@@ -552,7 +557,11 @@ public final class StreamEngine {
         return found;
       }
       String value = valueAt(name, row);
-      return value == null ? "" : value;
+      String text = value == null ? "" : value;
+      if (columns.containsKey(name)) {
+        read.put(name, text);
+      }
+      return text;
     }
 
     private String field(String name) {

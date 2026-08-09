@@ -97,6 +97,25 @@ public static class Pool
     }
 
     /// <summary>The refusal a row gets when the filter leaves it with no member at all.</summary>
+    /// <summary>
+    /// <c>(Clinic="North", Budget="40")</c> — what the row held, for the refusal below.
+    /// </summary>
+    /// <remarks>
+    /// The bucketed <c>field == Column</c> path always named the value a row was looking for; the
+    /// general one named nothing, so the reader could not tell a pool missing a member from a
+    /// filter that is wrong. What the evaluator ASKED for is what the filter reads, so the names
+    /// are recorded during the scan rather than parsed back out of the expression.
+    /// </remarks>
+    public static string RowValuesDetail(IReadOnlyDictionary<string, string> values)
+    {
+        if (values.Count == 0)
+        {
+            return "";
+        }
+
+        return " (" + string.Join(", ", values.Select(v => $"{v.Key}=\"{v.Value}\"")) + ")";
+    }
+
     public static string NoCandidateMessage(
         string poolName,
         string expression,

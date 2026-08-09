@@ -412,6 +412,7 @@ fn pool_reference(
                     columns,
                     table,
                     row,
+                    read: std::cell::RefCell::new(BTreeMap::new()),
                 };
                 let mut found = Vec::new();
                 for m in 0..table.count {
@@ -423,7 +424,8 @@ fn pool_reference(
                         found.push(m);
                     }
                 }
-                (found, String::new())
+                let detail = pool::row_values_detail(&scope.read.borrow());
+                (found, detail)
             }
         };
         if eligible.is_empty() {
@@ -466,6 +468,10 @@ struct RowScope<'a> {
     columns: &'a BTreeMap<String, Vec<Option<String>>>,
     table: &'a PoolTable,
     row: usize,
+    /// The ROW columns the filter actually read, and what they held — see
+    /// [`pool::row_values_detail`]. Shared across the candidates, because the
+    /// row's values are the same for all of them.
+    read: std::cell::RefCell<BTreeMap<String, String>>,
 }
 
 /// A candidate member's fields first, then the row's columns.
@@ -499,11 +505,19 @@ impl expr::Scope for MemberScope<'_> {
         if let Some(found) = self.field(name) {
             return found;
         }
-        self.outer
+        let value = self
+            .outer
             .columns
             .get(name)
             .and_then(|c| c.get(self.outer.row).cloned().flatten())
-            .unwrap_or_default()
+            .unwrap_or_default();
+        if self.outer.columns.contains_key(name) {
+            self.outer
+                .read
+                .borrow_mut()
+                .insert(name.to_string(), value.clone());
+        }
+        value
     }
 }
 

@@ -375,13 +375,17 @@ public static class MemoryEngine
             else
             {
                 eligible = new List<int>();
+                var read = new Dictionary<string, string>(StringComparer.Ordinal);
                 for (int m = 0; m < table.Count; m++)
                 {
-                    if (Evaluate.AsCondition(expression, new MemberScope(columns, table, m, row)))
+                    if (Evaluate.AsCondition(
+                        expression, new MemberScope(columns, table, m, row, read)))
                     {
                         eligible.Add(m);
                     }
                 }
+
+                detail = Pool.RowValuesDetail(read);
             }
 
             if (eligible.Count == 0)
@@ -425,16 +429,21 @@ public static class MemoryEngine
         private readonly int member;
         private readonly int row;
 
+        /// <summary>The ROW columns the filter read — see <c>Pool.RowValuesDetail</c>.</summary>
+        private readonly Dictionary<string, string> read;
+
         public MemberScope(
             Dictionary<string, string[]> columns,
             PoolTable table,
             int member,
-            int row)
+            int row,
+            Dictionary<string, string> read)
         {
             this.columns = columns;
             this.table = table;
             this.member = member;
             this.row = row;
+            this.read = read;
         }
 
         public bool Has(string name) => Field(name) is not null || this.columns.ContainsKey(name);
@@ -447,9 +456,14 @@ public static class MemoryEngine
                 return found;
             }
 
-            return this.columns.TryGetValue(name, out string[]? column)
-                ? column[this.row] ?? ""
-                : "";
+            if (!this.columns.TryGetValue(name, out string[]? column))
+            {
+                return "";
+            }
+
+            string value = column[this.row] ?? "";
+            this.read[name] = value;
+            return value;
         }
 
         private string? Field(string name)

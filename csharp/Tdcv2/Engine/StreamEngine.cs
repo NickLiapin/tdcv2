@@ -278,13 +278,17 @@ public sealed class StreamEngine
             else
             {
                 eligible = new List<int>();
+                var read = new Dictionary<string, string>(StringComparer.Ordinal);
                 for (int m = 0; m < table.Count; m++)
                 {
-                    if (Evaluate.AsCondition(expression, new StreamMemberScope(this, table, m, row)))
+                    if (Evaluate.AsCondition(
+                        expression, new StreamMemberScope(this, table, m, row, read)))
                     {
                         eligible.Add(m);
                     }
                 }
+
+                detail = Pool.RowValuesDetail(read);
             }
 
             if (eligible.Count == 0)
@@ -322,12 +326,21 @@ public sealed class StreamEngine
         private readonly int member;
         private readonly int row;
 
-        public StreamMemberScope(StreamEngine engine, PoolTable table, int member, int row)
+        /// <summary>The ROW columns the filter read — see <c>Pool.RowValuesDetail</c>.</summary>
+        private readonly Dictionary<string, string> read;
+
+        public StreamMemberScope(
+            StreamEngine engine,
+            PoolTable table,
+            int member,
+            int row,
+            Dictionary<string, string> read)
         {
             this.engine = engine;
             this.table = table;
             this.member = member;
             this.row = row;
+            this.read = read;
         }
 
         public bool Has(string name) =>
@@ -341,9 +354,14 @@ public sealed class StreamEngine
                 return found;
             }
 
-            return this.engine._columns.TryGetValue(name, out Column? column)
-                ? column(this.row) ?? ""
-                : "";
+            if (!this.engine._columns.TryGetValue(name, out Column? column))
+            {
+                return "";
+            }
+
+            string value = column(this.row) ?? "";
+            this.read[name] = value;
+            return value;
         }
 
         private string? Field(string name)

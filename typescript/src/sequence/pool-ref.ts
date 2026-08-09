@@ -15,6 +15,7 @@ import {
   bucketByField,
   eligibleMembers,
   noCandidateMessage,
+  rowValuesDetail,
   parseEqualityFilter,
 } from './pool-filter.js';
 import { pickMember, poolRefStream, type PoolTable, type PoolTables } from './pool.js';
@@ -109,7 +110,9 @@ function pickFilteredMembers(
       eligible = buckets.get(matchKey(wanted)) ?? [];
       detail = ` (${equality.column}="${wanted}")`;
     } else {
-      eligible = eligibleMembers(filter, table, rowValue(i));
+      const read = new Map<string, string>();
+      eligible = eligibleMembers(filter, table, rowValue(i), read);
+      detail = rowValuesDetail(read);
     }
     if (eligible.length === 0) {
       throw new Error(noCandidateMessage(poolName, filter, i, detail));
@@ -161,10 +164,17 @@ export function lazyPoolRefColumns(
       eligible = buckets.get(matchKey(wanted)) ?? [];
       detail = ` (${equality.column}="${wanted}")`;
     } else {
-      eligible = eligibleMembers(filter, table, (name) => {
-        const seq = registry[name];
-        return seq ? (sequenceValueAt(seq, i) ?? '') : undefined;
-      });
+      const read = new Map<string, string>();
+      eligible = eligibleMembers(
+        filter,
+        table,
+        (name) => {
+          const seq = registry[name];
+          return seq ? (sequenceValueAt(seq, i) ?? '') : undefined;
+        },
+        read,
+      );
+      detail = rowValuesDetail(read);
     }
     if (eligible.length === 0) {
       throw new Error(noCandidateMessage(poolName, filter, i, detail));

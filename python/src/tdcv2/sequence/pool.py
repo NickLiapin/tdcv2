@@ -100,7 +100,16 @@ def bucket_by_field(table: PoolTable, field: str) -> dict[str, list[int]]:
     return buckets
 
 
-def eligible_members(expression: str, table: PoolTable, row_value) -> list[int]:
+def row_values_detail(values: dict[str, str]) -> str:
+    """``(Clinic="North", Budget="40")`` — what the row held, for the refusal below."""
+    if not values:
+        return ""
+    return " (" + ", ".join(f'{name}="{value}"' for name, value in values.items()) + ")"
+
+
+def eligible_members(
+    expression: str, table: PoolTable, row_value, read_row_values: dict[str, str] | None = None
+) -> list[int]:
     """The members for which ``expression`` holds on this row.
 
     A qualified ``Pool.field`` always means the member's field; a bare name means the member's
@@ -119,7 +128,15 @@ def eligible_members(expression: str, table: PoolTable, row_value) -> list[int]:
             column = table.columns.get(name)
             if column is not None:
                 return column[m] if m < len(column) else ""
-            return row_value(name)
+            # What the evaluator asked for IS what the filter reads, including through && and a
+            # ternary. Recorded rather than parsed out of the expression, so the "nobody matched"
+            # refusal can name the row's own values on the general path too — it used to name
+            # them only on the bucketed `field == Column` one, and the reader was left unable to
+            # tell a missing member from a wrong filter.
+            value = row_value(name)
+            if read_row_values is not None and value is not None:
+                read_row_values[name] = value
+            return value
 
         if expr.as_condition(
             expression,

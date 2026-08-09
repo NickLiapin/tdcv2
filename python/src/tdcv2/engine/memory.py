@@ -321,12 +321,14 @@ def _pool_reference(
             eligible = buckets.get(match_key(wanted), [])
             detail = f' ({equality[1]}="{wanted}")'
         else:
+            read: dict[str, str] = {}
             eligible = pool_mod.eligible_members(
                 expression,
                 table,
                 lambda n, r=row: (columns[n][r] or "") if n in columns else None,
+                read,
             )
-            detail = ""
+            detail = pool_mod.row_values_detail(read)
         if not eligible:
             raise ValueError(pool_mod.no_candidate_message(pool_name, expression, row, detail))
         slot = seekable.next_int(seed, pool_mod.ref_stream(name), row, len(eligible))
