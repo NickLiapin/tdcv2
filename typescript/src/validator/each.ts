@@ -10,6 +10,7 @@
  */
 
 import { type Diagnostic, attrValueRange } from '../errors/index.js';
+import { CONDITIONAL_COLUMN_HINT } from './column-type.js';
 import type { AttrContext, OpenCloseElementContext } from '../generated/TDCParser.js';
 import { contentElements, elementKind, extractDataAttrs, extractAttrs } from '../processor/walk.js';
 
@@ -88,6 +89,29 @@ export function checkLineEach(
       hint:
         'Typed columns are collected once per card. For columnar output keep the list ' +
         'as a list column (type="[]…"); each= is for text and SQL.',
+      code: 'TDC209',
+    });
+    return;
+  }
+}
+
+/** The same rule one level up: a conditional `<line>` that holds a typed column. */
+export function checkLineConditionalColumns(
+  lineEl: OpenCloseElementContext,
+  lineIf: AttrContext,
+  diagnostics: Diagnostic[],
+): void {
+  for (const el of contentElements(lineEl.content())) {
+    const k = elementKind(el);
+    if (k?.kind !== 'data') continue;
+    const name = (extractDataAttrs(k.node)['name'] ?? '').trim();
+    if (name === '') continue;
+    diagnostics.push({
+      severity: 'error',
+      source: 'validator',
+      ...attrValueRange(lineIf),
+      message: `<line if="…"> holds the typed column <data name="${name}">, so the condition cannot be honoured`,
+      hint: CONDITIONAL_COLUMN_HINT,
       code: 'TDC209',
     });
     return;

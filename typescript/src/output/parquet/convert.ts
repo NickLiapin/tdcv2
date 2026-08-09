@@ -41,6 +41,47 @@ function toDays(text: string): number {
   return Math.floor(dt.getTime() / MS_PER_DAY);
 }
 
+/**
+ * An ISO-8601 instant in milliseconds, with NO ZONE MEANING UTC.
+ *
+ * This used to be `Date.parse`, and ECMAScript says a date-time with no offset
+ * is LOCAL time. The column is written `isAdjustedToUTC=true`, so the same
+ * config on two machines produced two different instants under one label:
+ *
+ *     TZ=UTC         2020-06-05 00:00+00:00
+ *     TZ=Asia/Tokyo  2020-06-04 15:00+00:00     <- a different DAY
+ *
+ * and three different files, byte for byte. `toDays` above already builds its
+ * value with `Date.UTC` for exactly this reason; the two were inconsistent
+ * inside one file.
+ *
+ * The grammar is deliberately narrower than `Date.parse`, which also accepts
+ * things like "May 25, 1996" — an input nobody writes on purpose here, and one
+ * whose meaning varies by host.
+ */
+const ISO_INSTANT =
+  /^(\d{4})-(\d{2})-(\d{2})(?:[T ](\d{2}):(\d{2})(?::(\d{2})(?:\.(\d{1,3})\d*)?)?(Z|[+-]\d{2}:?\d{2})?)?$/;
+
+function toMillis(text: string): number {
+  const m = ISO_INSTANT.exec(text.trim());
+  if (!m) throw new Error(`"${text}" is not a timestamp (expected ISO-8601)`);
+  const [, y, mo, d, hh = '0', mi = '0', ss = '0', frac = '', zone] = m;
+  const ms = Date.UTC(
+    Number(y),
+    Number(mo) - 1,
+    Number(d),
+    Number(hh),
+    Number(mi),
+    Number(ss),
+    Number(frac.padEnd(3, '0')),
+  );
+  if (!Number.isFinite(ms)) throw new Error(`"${text}" is not a timestamp (expected ISO-8601)`);
+  if (zone === undefined || zone === 'Z') return ms;
+  const sign = zone.startsWith('-') ? 1 : -1;
+  const [zh, zm] = zone.slice(1).replace(':', '').match(/\d{2}/g) ?? ['0', '0'];
+  return ms + sign * (Number(zh) * 60 + Number(zm)) * 60_000;
+}
+
 function toDecimal(text: string, precision: number, scale: number): bigint {
   const m = /^([+-]?)(\d+)(?:\.(\d*))?$/.exec(text);
   if (!m) throw new Error(`"${text}" is not a decimal`);
@@ -144,11 +185,8 @@ export function convertValue(raw: string, type: ColumnType): TypedValue {
     }
     case 'date':
       return toDays(text);
-    case 'timestamp': {
-      const ms = Date.parse(text);
-      if (!Number.isFinite(ms)) throw new Error(`"${raw}" is not a timestamp (expected ISO-8601)`);
-      return BigInt(ms);
-    }
+    case 'timestamp':
+      return BigInt(toMillis(text));
     case 'decimal':
       return toDecimal(text, type.precision ?? 18, type.scale ?? 0);
     case 'uuid':

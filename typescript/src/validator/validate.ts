@@ -107,7 +107,7 @@ import { checkUniqMemory } from './uniq-memory.js';
 import { checkUniqDropsAttrs, checkUniqOnComposed, checkUniqUnsupported } from './uniq-shape.js';
 import { checkMixFlag } from './mix-flag.js';
 import { checkGenRepeat, checkMixRepeat } from './repeat.js';
-import { checkLineEach } from './each.js';
+import { checkLineConditionalColumns, checkLineEach } from './each.js';
 import { EACH_BUILTINS } from '../processor/each.js';
 import { checkGenWeight } from './weight.js';
 import { checkGenMask } from './mask.js';
@@ -121,7 +121,7 @@ import { checkGenRunning } from './running.js';
 import { checkGenText } from './text.js';
 import { checkGenCounter } from './counter.js';
 import { FIXTURE_TAGS, checkFixture } from './fixture.js';
-import { checkDataColumnType } from './column-type.js';
+import { checkDataColumnConditional, checkDataColumnType } from './column-type.js';
 import { isCaseTransform } from '../format/transforms.js';
 import { checkDocumentVersion } from './version.js';
 import type { PackParams, PackParamWidths } from './pack-params.js';
@@ -1004,6 +1004,8 @@ function checkLine(lineEl: OpenCloseElementContext, ctx: Ctx): void {
     );
   }
 
+  if (ifAttr) checkLineConditionalColumns(lineEl, ifAttr, ctx.diagnostics);
+
   for (const el of contentElements(lineEl.content())) {
     const name = childTagName(el);
     if (name === null) continue;
@@ -1071,6 +1073,7 @@ function checkData(data: DataElementContext, ctx: Ctx, eachBuiltins: readonly st
   const attrList = typeof node.attr === 'function' ? node.attr() : [];
 
   checkDataColumnType(attrList, dAttrs, ctx.diagnostics);
+  checkDataColumnConditional(attrList, dAttrs, ctx.diagnostics);
 
   if (dAttrs['if'] === undefined) return;
   const ifA = findAttr(attrList, 'if');

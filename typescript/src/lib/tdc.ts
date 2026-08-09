@@ -19,7 +19,15 @@
  * deterministic per (config, seed, now).
  */
 
-import { closeSync, openSync, readFileSync, writeFileSync, writeSync } from 'node:fs';
+import {
+  closeSync,
+  openSync,
+  readFileSync,
+  renameSync,
+  rmSync,
+  writeFileSync,
+  writeSync,
+} from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { Readable } from 'node:stream';
 
@@ -388,14 +396,11 @@ export class TDC {
    */
   public async writeFileAsync(path: string): Promise<void> {
     if (path.toLowerCase().endsWith('.parquet')) {
-      const pq = openSync(path, 'w');
-      try {
+      await writeParquetAtomically(path, async (write) => {
         for await (const chunk of renderParquetChunksAsync(this.tree, this.renderOptions())) {
-          writeSync(pq, chunk);
+          write(chunk);
         }
-      } finally {
-        closeSync(pq);
-      }
+      });
       return;
     }
     writeFileSync(path, await this.toStringAsync());
@@ -415,14 +420,11 @@ export class TDC {
     // or Parquet depending only on where you point the output.
     if (path.toLowerCase().endsWith('.parquet')) {
       // Chunk-by-chunk, like the text path: one row group is held at a time.
-      const pq = openSync(path, 'w');
-      try {
+      writeParquetAtomicallySync(path, (write) => {
         for (const chunk of renderParquetChunks(this.tree, this.renderOptions())) {
-          writeSync(pq, chunk);
+          write(chunk);
         }
-      } finally {
-        closeSync(pq);
-      }
+      });
       return;
     }
     // Synchronous file descriptor lets us stream chunks without
@@ -619,4 +621,60 @@ function findEnv(tree: DocumentContext): OpenCloseElementContext | undefined {
     return findChildElement(k.node.content(), 'env');
   }
   return undefined;
+}
+
+/**
+ * A Parquet file appears at `path` only when it is COMPLETE.
+ *
+ * The writer streams row groups and puts the footer last, so a run that stops
+ * partway leaves a file with no footer — 200 KB that no reader can open:
+ *
+ *     tdcv2: column "n", row 65536: "65536" is out of range for uint16
+ *     -rw-r--r--  200013  partial.parquet
+ *     ArrowInvalid: Parquet magic bytes not found in footer
+ *
+ * and the typed-output page promises "TDC never writes a corrupt file — it stops
+ * and says exactly where". The parallel writer was already safe, because it
+ * assembles only after every worker has succeeded; this is the single-threaded
+ * path catching up with it.
+ *
+ * The temporary sits BESIDE the destination so the rename is within one
+ * filesystem, and therefore atomic. The same shape as `format -w`.
+ */
+function parquetTempPath(path: string): string {
+  return `${path}.partial`;
+}
+
+function writeParquetAtomicallySync(
+  path: string,
+  produce: (write: (c: Uint8Array) => void) => void,
+): void {
+  const temp = parquetTempPath(path);
+  const fd = openSync(temp, 'w');
+  try {
+    produce((chunk) => void writeSync(fd, chunk));
+    closeSync(fd);
+  } catch (err) {
+    closeSync(fd);
+    rmSync(temp, { force: true });
+    throw err;
+  }
+  renameSync(temp, path);
+}
+
+async function writeParquetAtomically(
+  path: string,
+  produce: (write: (c: Uint8Array) => void) => Promise<void>,
+): Promise<void> {
+  const temp = parquetTempPath(path);
+  const fd = openSync(temp, 'w');
+  try {
+    await produce((chunk) => void writeSync(fd, chunk));
+    closeSync(fd);
+  } catch (err) {
+    closeSync(fd);
+    rmSync(temp, { force: true });
+    throw err;
+  }
+  renameSync(temp, path);
 }
