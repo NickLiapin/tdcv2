@@ -2359,6 +2359,25 @@ public final class Validator {
           "fail (default) stops the run; empty blanks the cell and continues.",
           at(gen, "on_error")[0], at(gen, "on_error")[1]);
     }
+
+    // `timeout=` is SECONDS. Left unchecked, the five implementations disagreed
+    // twice: four fell back to the default in silence, Python threw at run time
+    // — and Python read it as milliseconds, so `timeout="30"` gave up in 30ms.
+    String timeout = attrs.get("timeout");
+    if (timeout != null && !isPositiveSeconds(timeout)) {
+      error("TDC069",
+          "invalid timeout \"" + timeout.trim() + "\" — expected a positive number of seconds",
+          "timeout=\"30\" waits thirty seconds for one answer. Omit it for the default of 30.",
+          at(gen, "timeout")[0], at(gen, "timeout")[1]);
+    }
+  }
+
+  private static boolean isPositiveSeconds(String raw) {
+    try {
+      return Double.parseDouble(raw.trim()) > 0;
+    } catch (NumberFormatException e) {
+      return false;
+    }
   }
 
   private static boolean isHttpUrl(String value) {

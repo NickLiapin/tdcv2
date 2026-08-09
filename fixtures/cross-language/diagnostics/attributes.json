@@ -51,6 +51,13 @@
       "expected": ["error TDC067 1:101"]
     },
     {
+      "name": "http-bad-timeout",
+      "demonstrates": "TDC069",
+      "description": "timeout= that is not a positive number of SECONDS. Left unchecked the five disagreed twice over: four fell back to the default in silence, Python threw at run time, and Python read the attribute as milliseconds",
+      "config": "<tdc><env count=\"2\" seed=\"s\"><sequence name=\"G\"><gen type=\"http\" src=\"http://127.0.0.1:5566/gen\" timeout=\"abc\"/></sequence></env><block><line><data>x</data></line></block></tdc>",
+      "expected": ["error TDC069 1:106"]
+    },
+    {
       "name": "http-bad-on-error",
       "demonstrates": "TDC068",
       "description": "on_error outside the two allowed values",

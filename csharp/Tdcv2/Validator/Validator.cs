@@ -2879,7 +2879,26 @@ public sealed class Validator
                 "TDC068", $"invalid on_error \"{onError}\" — expected \"fail\" or \"empty\"",
                 "fail (default) stops the run; empty blanks the cell and continues.", line, column);
         }
+
+        // `timeout=` is SECONDS. Left unchecked, the five implementations
+        // disagreed twice: four fell back to the default in silence, Python threw
+        // at run time — and Python read it as milliseconds, so the documented
+        // `timeout="30"` gave up after 30ms.
+        string? timeout = attrs.GetValueOrDefault("timeout");
+        if (timeout is not null && !IsPositiveSeconds(timeout))
+        {
+            (int line, int column) = At(gen, "timeout");
+            Error(
+                "TDC069",
+                $"invalid timeout \"{timeout.Trim()}\" — expected a positive number of seconds",
+                "timeout=\"30\" waits thirty seconds for one answer. Omit it for the default of 30.",
+                line, column);
+        }
     }
+
+    private static bool IsPositiveSeconds(string raw) =>
+        double.TryParse(raw.Trim(), System.Globalization.NumberStyles.Float,
+            System.Globalization.CultureInfo.InvariantCulture, out double v) && v > 0;
 
     private static bool IsHttpUrl(string value) =>
         Uri.TryCreate(value, UriKind.Absolute, out Uri? uri)

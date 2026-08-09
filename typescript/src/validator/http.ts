@@ -87,6 +87,30 @@ export function checkGenHttp(
       code: 'TDC068',
     });
   }
+
+  // timeout — optional, but a positive number of SECONDS when written.
+  //
+  // It used to be read with no check anywhere, and the five implementations then
+  // disagreed twice over: four fell back to the default in silence, Python threw
+  // at run time — and Python read the attribute as MILLISECONDS, so the
+  // documented `timeout="30"` gave up after 30ms, in 0.185s. A number the engine
+  // cannot use is exactly the shape this validator exists to catch: the config
+  // asks for one thing and the run does another.
+  const timeoutAttr = findAttr(attrs, 'timeout');
+  if (timeoutAttr) {
+    const raw = (map['timeout'] ?? '').trim();
+    const seconds = Number(raw);
+    if (raw === '' || !Number.isFinite(seconds) || seconds <= 0) {
+      ctx.diagnostics.push({
+        severity: 'error',
+        source: 'validator',
+        ...attrValueRange(timeoutAttr),
+        message: `invalid timeout "${raw}" — expected a positive number of seconds`,
+        hint: 'timeout="30" waits thirty seconds for one answer. Omit it for the default of 30.',
+        code: 'TDC069',
+      });
+    }
+  }
 }
 
 /** A well-formed absolute http/https URL. */

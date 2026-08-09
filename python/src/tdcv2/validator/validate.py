@@ -2502,6 +2502,18 @@ class _Validator:
                 column,
             )
 
+        timeout = attrs.get("timeout")
+        if timeout is not None and not _positive_seconds(timeout):
+            line, column = _at(gen, "timeout")
+            self._error(
+                "TDC069",
+                f'invalid timeout "{timeout.strip()}" — expected a positive number of seconds',
+                'timeout="30" waits thirty seconds for one answer. '
+                "Omit it for the default of 30.",
+                line,
+                column,
+            )
+
     def _check_mask(self, gen, attrs: dict[str, str]) -> None:
         """A ``mask=`` that does not parse. Caught here rather than on the first row."""
         mask = attrs.get("mask")
@@ -5037,3 +5049,11 @@ def _clip(value: str) -> str:
         return value
     hidden = len(value) - _MESSAGE_ECHO_LIMIT
     return f"{value[:_MESSAGE_ECHO_LIMIT]}\u2026 ({hidden} more chars)"
+
+
+def _positive_seconds(raw: str) -> bool:
+    """A timeout the engine can actually use: a positive number of seconds."""
+    try:
+        return float(raw.strip()) > 0
+    except ValueError:
+        return False

@@ -16,7 +16,7 @@ import urllib.request
 from dataclasses import dataclass
 from enum import Enum
 
-DEFAULT_TIMEOUT_MS = 10_000
+DEFAULT_TIMEOUT_MS = 30_000
 
 
 # The most of a reply this client will hold; see the read below for why.
@@ -182,15 +182,22 @@ def parse_on_error(value: str | None) -> str:
 
 
 def parse_timeout(value: str | None) -> int:
+    """`timeout="30"` -> 30_000 ms.
+
+    The attribute is SECONDS, as it is in the other four implementations and as
+    the generator's page says. This read it as milliseconds, so the documented
+    default written out -- timeout="30" -- gave up after 30ms, in 0.185s, while
+    the same file waited 30s everywhere else. The validator (TDC069) refuses a
+    value that is not a positive number before the run, so this only has to
+    handle what got through.
+    """
     if value is None or not value.strip():
         return DEFAULT_TIMEOUT_MS
     try:
-        ms = int(value.strip())
+        seconds = float(value.strip())
     except ValueError:
-        raise ValueError(f'http generator: timeout "{value}" must be a positive integer') from None
-    if ms <= 0:
-        raise ValueError(f'http generator: timeout "{value}" must be a positive integer')
-    return ms
+        return DEFAULT_TIMEOUT_MS
+    return int(seconds * 1000) if seconds > 0 else DEFAULT_TIMEOUT_MS
 
 
 def _fail(request: Request, error: ServiceError) -> list[str]:

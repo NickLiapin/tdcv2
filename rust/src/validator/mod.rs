@@ -2276,6 +2276,25 @@ impl Validator {
                 );
             }
         }
+
+        // `timeout=` is SECONDS. Left unchecked, the five implementations
+        // disagreed twice: four fell back to the default in silence, Python
+        // threw at run time — and Python read the attribute as milliseconds,
+        // so the documented `timeout="30"` gave up after 30ms.
+        if let Some(timeout) = attrs.get("timeout") {
+            let ok = timeout.trim().parse::<f64>().map(|v| v > 0.0).unwrap_or(false);
+            if !ok {
+                self.error(
+                    "TDC069",
+                    format!(
+                        "invalid timeout \"{}\" — expected a positive number of seconds",
+                        timeout.trim()
+                    ),
+                    "timeout=\"30\" waits thirty seconds for one answer. Omit it for the default of 30.",
+                    gen.at("timeout"),
+                );
+            }
+        }
     }
 
     /// A `src=` that names a file nobody can read.
