@@ -47,13 +47,20 @@ pub fn split_inject(inject: Option<&str>) -> Option<(&str, &str)> {
         Some(m) if !m.is_empty() => m,
         _ => "${{%}}",
     };
-    let idx = marker.rfind('%')?;
+    // The rightmost `%` that leaves BOTH sides non-empty, which is not the same as
+    // the rightmost `%`. Taking the last one and giving up when the suffix came out
+    // empty is where this diverged: the reference's regex BACKTRACKS, so on the
+    // documented `inject="%{%}%"` it settles on the middle `%` and substitutes,
+    // while this took the trailing one, found nothing after it, and left every
+    // `%{Name}%` in the output verbatim. Measured before the fix — TypeScript,
+    // Python, Java and C# printed the value, Rust printed `%{Id}%`: the same
+    // config, different data.
+    let (idx, mark) = marker
+        .char_indices()
+        .rev()
+        .find(|&(i, c)| c == '%' && i > 0 && i + c.len_utf8() < marker.len())?;
     let (prefix, rest) = marker.split_at(idx);
-    let suffix = &rest['%'.len_utf8()..];
-    if prefix.is_empty() || suffix.is_empty() {
-        return None;
-    }
-    Some((prefix, suffix))
+    Some((prefix, &rest[mark.len_utf8()..]))
 }
 
 pub fn apply(text: &str, inject: Option<&str>, lookup: &dyn Lookup) -> EngineResult<String> {

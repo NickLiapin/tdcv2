@@ -84,6 +84,12 @@
       "description": "group: chunks the digits BEFORE the decimal separator and leaves the fraction alone — 1234567.89 used to come out '1 234 567 .89', a number in no locale. The sign is not grouped with them. Only that exact shape counts as a number: a card number keeps the plain right-to-left chunking group:4 was written for, and so does 12.34.56, which holds two dots and is no number at all.",
       "config": "<tdc><env count=\"1\" seed=\"unit-test\" local=\"en\" mode=\"memory\"><sequence name=\"A\"><gen type=\"text\" value=\"1234567.89\"/></sequence><sequence name=\"B\"><gen type=\"text\" value=\"-9876543.21\"/></sequence><sequence name=\"C\"><gen type=\"text\" value=\"4111111111111111\"/></sequence><sequence name=\"D\"><gen type=\"text\" value=\"12.34.56\"/></sequence></env><block><line><data>${{A|group:3}}|${{B|group:3}}|${{C|group:4}}|${{D|group:3}}</data></line></block></tdc>",
       "expected": ["1 234 567.89|-9 876 543.21|4111 1111 1111 1111|12 .34 .56"]
+    },
+    {
+      "name": "an-inject-marker-that-contains-the-marker-character",
+      "description": "`inject=\"%{%}%\"` holds three `%`, and the slot is the MIDDLE one — the rightmost that still leaves text on both sides. The reference finds it by backtracking inside `(.+)%(.+)`; Rust took the last `%`, found nothing after it and gave up, so every `%{Name}%` reached the output verbatim. Four implementations printed the value and one printed the marker: the same config, different data, and nothing said.",
+      "config": "<tdc><env count=\"3\" seed=\"inj\" local=\"en\" mode=\"memory\" inject=\"%{%}%\"><sequence name=\"Id\"><gen type=\"increment\" value=\"1\"/></sequence><sequence name=\"W\"><gen type=\"text\" value=\"a,b,c\" order=\"sequential\"/></sequence></env><block><line><data>%{Id}% %{W}% [%{Id}%]</data></line></block></tdc>",
+      "expected": ["1 a [1]", "2 b [2]", "3 c [3]"]
     }
   ]
 }

@@ -1560,6 +1560,14 @@
         "lines": ["1 234 567.89|-9 876 543.21|4111 1111 1111 1111|12 .34 .56"]
       }
     },
+    "formatting/an-inject-marker-that-contains-the-marker-character": {
+      "engine2": {
+        "lines": ["1 a [1]", "2 b [2]", "3 c [3]"]
+      },
+      "engine3": {
+        "lines": ["1 a [1]", "2 b [2]", "3 c [3]"]
+      }
+    },
     "generators/number-padded-range": {
       "engine2": {
         "lines": ["6031", "2219", "9836", "2213", "8452", "7620"]

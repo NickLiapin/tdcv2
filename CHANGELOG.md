@@ -62,7 +62,15 @@ page — is tracked in that implementation's own changelog:
 
 ### Fixed
 
-<!-- covers: secret anomaly_flag group filter parent value mode interp spread decimals percent -->
+<!-- covers: secret anomaly_flag group filter parent value mode interp spread decimals percent inject -->
+
+- Rust left an `inject` marker unsubstituted where the other four implementations replaced it —
+  the same config, different data, and nothing said. `inject="%{%}%"` holds three `%` and the
+  slot is the MIDDLE one, the rightmost that still leaves text on both sides. The reference
+  finds it by backtracking inside `(.+)%(.+)`; Rust took the last `%` with `rfind`, found
+  nothing after it, and gave up, so every `%{Name}%` reached the output verbatim. Measured
+  before the fix: four printed `1`, Rust printed `%{Id}%`. A shared case pins it, and it fails
+  in Rust with the fix reverted.
 
 - The reference counted a `text` option list one way and drew from it another, so a legal
   config could not be written. `value="a,,b"` is three options — measured over 300 rows, 100
