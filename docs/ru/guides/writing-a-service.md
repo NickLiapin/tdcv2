@@ -581,7 +581,7 @@ if (mine !== req.headers['x-tdc-signature']) return res.status(401).end();
 ## См. также
 
 - [Генератор `http`](../generators/http.md#top) — атрибуты, контракт, режимы отказа
-- [Коды ошибок](../reference/errors.md#top) — `TDC065`–`TDC068`
+- [Коды ошибок](../reference/errors.md#top) — `TDC065`–`TDC069` и `TDC284`
 
 ---
 

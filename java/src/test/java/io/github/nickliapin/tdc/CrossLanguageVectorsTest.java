@@ -6,6 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.github.nickliapin.tdc.distribution.Hamilton;
+import io.github.nickliapin.tdc.generators.HttpGen;
 import io.github.nickliapin.tdc.prng.Prng;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -167,6 +168,65 @@ class CrossLanguageVectorsTest {
         total += c;
       }
       assertEquals(count, total, "counts do not add up to " + count);
+    }
+  }
+
+  // ------------------------------------------------------------------ http wire contract
+
+  /**
+   * A service checks ONE signature and reads ONE seed, and cannot tell which of the five
+   * runtimes sent the request — so both are the wire contract rather than an implementation
+   * detail. Java signed requests and had no test for the number it produced: it could have
+   * differed from the other four and every suite here would still have been green, with the
+   * failure surfacing only as 401s in a user's own service.
+   */
+  @Test
+  @DisplayName("every signature in http-vectors.json")
+  void httpSignatureVectors() throws IOException {
+    JsonNode vectors = read("http-vectors.json").get("signature").get("vectors");
+    assertTrue(vectors.size() > 0, "an empty fixture would pass anything");
+    for (JsonNode v : vectors) {
+      assertEquals(
+          v.get("signature").asText(),
+          HttpGen.signRequest(
+              v.get("secret").asText(),
+              v.get("timestamp").asText(),
+              v.get("seed").asText(),
+              v.get("count").asInt(),
+              v.get("body").asText()),
+          v.get("name").asText());
+    }
+  }
+
+  /**
+   * Pinning one request pins nothing. The vectors differ from the canonical one in a single
+   * field each, so an implementation that dropped a field from the message would match the
+   * first and fail one of the others.
+   */
+  @Test
+  @DisplayName("every part of the signed message changes the answer")
+  void httpSignatureCoversEveryField() throws IOException {
+    JsonNode vectors = read("http-vectors.json").get("signature").get("vectors");
+    List<String> signatures = new ArrayList<>();
+    for (JsonNode v : vectors) {
+      signatures.add(v.get("signature").asText());
+    }
+    assertEquals(
+        signatures.size(),
+        signatures.stream().distinct().count(),
+        "two vectors share a signature");
+  }
+
+  @Test
+  @DisplayName("every derived seed in http-vectors.json")
+  void httpDerivedSeedVectors() throws IOException {
+    JsonNode vectors = read("http-vectors.json").get("derivedSeed").get("vectors");
+    assertTrue(vectors.size() > 0, "an empty fixture would pass anything");
+    for (JsonNode v : vectors) {
+      assertEquals(
+          v.get("derived").asText(),
+          HttpGen.seedFor(v.get("envSeed").asText(), v.get("sequence").asText()),
+          v.get("envSeed").asText() + "|" + v.get("sequence").asText());
     }
   }
 }

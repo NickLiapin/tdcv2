@@ -418,7 +418,7 @@ sí mismo antes de recurrir a él:
 
 - [Escribir un generador de servicio](../guides/writing-a-service.md#top) — servicios funcionando en Node, Python y Java
 - [Visión general de generadores](../generators/overview.md#top)
-- [Códigos de error](../reference/errors.md#top) — `TDC065`–`TDC068` y los fallos en corrida
+- [Códigos de error](../reference/errors.md#top) — `TDC065`–`TDC069`, `TDC284` y los fallos en corrida
 
 ---
 

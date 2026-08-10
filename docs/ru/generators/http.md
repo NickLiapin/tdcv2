@@ -418,7 +418,7 @@ if (mine !== req.headers['x-tdc-signature']) return res.status(401).end();
 
 - [Как написать сервис-генератор](../guides/writing-a-service.md#top) — рабочие сервисы на Node, Python и Java
 - [Обзор генераторов](../generators/overview.md#top)
-- [Коды ошибок](../reference/errors.md#top) — `TDC065`–`TDC068` и отказы во время прогона
+- [Коды ошибок](../reference/errors.md#top) — `TDC065`–`TDC069`, `TDC284` и отказы во время прогона
 
 ---
 

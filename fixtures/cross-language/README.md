@@ -13,6 +13,11 @@ same files and reproduce the same values byte-for-byte.
   surface — including a 600-value draw that crosses the 512-row batch boundary,
   draws under five locales, and the messages the API raises when it cannot draw
   at all.
+- `http-vectors.json` stores the two numbers a service recomputes: the request
+  signature and the derived `X-TDC-Seed`. Unlike the rest, these leave the
+  repository — a service written by a user checks one signature and cannot tell
+  which runtime sent the request, so a port that drifts here is not a portability
+  bug but a 401 in somebody else's deployment.
 - `runtime/*.tdc` contains focused DSL fixtures for newer runtime features.
 - `expected/*.out` contains byte-exact output for `runtime/*.tdc`.
 

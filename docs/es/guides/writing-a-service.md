@@ -580,7 +580,7 @@ Una lista corta, y cada punto sale de cómo falla este generador en la práctica
 ## Vea también
 
 - [El generador `http`](../generators/http.md#top) — los atributos, el contrato, los modos de fallo
-- [Códigos de error](../reference/errors.md#top) — `TDC065`–`TDC068`
+- [Códigos de error](../reference/errors.md#top) — `TDC065`–`TDC069` y `TDC284`
 
 ---
 

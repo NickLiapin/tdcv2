@@ -1,0 +1,93 @@
+{
+  "schemaVersion": 1,
+  "signature": {
+    "algorithm": "hex(HMAC-SHA256(secret, timestamp \\n seed \\n count \\n body))",
+    "note": "A service checks ONE signature and cannot tell which runtime sent the request, so these 64 hex digits are the contract rather than an implementation detail. Before this file the value was pinned in two of the five and the derived seed in one: a port could have computed something else entirely and four suites would still have been green, with the failure surfacing only as 401s in a user's service.",
+    "vectors": [
+      {
+        "name": "the canonical request",
+        "secret": "k7Fm2p-test-secret",
+        "timestamp": "1786000000",
+        "seed": "seed1",
+        "count": 4,
+        "body": "body",
+        "signature": "d0be9a276deb4802b0a2ec6d85050f7f90e1c44cf42c25773740b755f98803ce"
+      },
+      {
+        "name": "a pure source sends no body",
+        "secret": "k7Fm2p-test-secret",
+        "timestamp": "1786000000",
+        "seed": "seed1",
+        "count": 4,
+        "body": "",
+        "signature": "f929c86f551799dff138f80a1b46f4dd9088c1fabecb2726ab4a88f0e251d1e5"
+      },
+      {
+        "name": "one second later",
+        "secret": "k7Fm2p-test-secret",
+        "timestamp": "1786000001",
+        "seed": "seed1",
+        "count": 4,
+        "body": "body",
+        "signature": "32d290783677f65f661ef6dfe3a87e385403e78a1bd2e37b47d9f51c459f5adb"
+      },
+      {
+        "name": "another sequence, same run",
+        "secret": "k7Fm2p-test-secret",
+        "timestamp": "1786000000",
+        "seed": "seed2",
+        "count": 4,
+        "body": "body",
+        "signature": "72ed10b2572e2506983eb90303a8c30f16a31519fa56ac43acda9aacd9e5c18a"
+      },
+      {
+        "name": "one more row wanted",
+        "secret": "k7Fm2p-test-secret",
+        "timestamp": "1786000000",
+        "seed": "seed1",
+        "count": 5,
+        "body": "body",
+        "signature": "759877e60ce355c6c694d2c9a4a9d9cf212542d3c12659f1ef5c1ac6f76bdea4"
+      },
+      {
+        "name": "a two-line body and no seed — the newline is part of the message, not a separator to normalise",
+        "secret": "k7Fm2p-test-secret",
+        "timestamp": "1786000000",
+        "seed": "",
+        "count": 1,
+        "body": "a\nb",
+        "signature": "4bbb4e9994238eb3f28af06cbdcd4d601321d47b10d7f9a96aaff9f1192d831c"
+      },
+      {
+        "name": "a non-ASCII key and body — the key is UTF-8 bytes, not code points",
+        "secret": "ключ-в-юникоде",
+        "timestamp": "1786000000",
+        "seed": "seed1",
+        "count": 4,
+        "body": "körper",
+        "signature": "db0051d89e565b379d45cf7dec62400bfe5dd4a22b98602c65a31020ca4d5862"
+      },
+      {
+        "name": "everything at its smallest",
+        "secret": "x",
+        "timestamp": "0",
+        "seed": "",
+        "count": 0,
+        "body": "",
+        "signature": "2f45682ce943b4bba248a1d017448eabda204e720132e99a263523c9243207f0"
+      }
+    ]
+  },
+  "derivedSeed": {
+    "algorithm": "first word of cyrb128(envSeed | \"http\" | sequenceName), as eight lowercase hex digits",
+    "note": "What travels as X-TDC-Seed. A service reproduces its own answers from it, so it has to be the same number everywhere; two sequences in one run must never receive the same one, or a service that generates from the seed hands back two identical columns.",
+    "vectors": [
+      { "envSeed": "httpseed", "sequence": "V", "derived": "a49ff8ad" },
+      { "envSeed": "demo", "sequence": "Acct", "derived": "0f210b24" },
+      { "envSeed": "run", "sequence": "A", "derived": "e075dea9" },
+      { "envSeed": "run", "sequence": "B", "derived": "205f7393" },
+      { "envSeed": "", "sequence": "V", "derived": "91f6f6d2" },
+      { "envSeed": "s", "sequence": "Ünïcode", "derived": "e3572926" }
+    ]
+  }
+}

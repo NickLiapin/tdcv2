@@ -14,6 +14,8 @@
 
 import { createHmac } from 'node:crypto';
 
+import { cyrb128 } from '../prng/prng.js';
+
 /** Why a service call failed. The caller turns this into a TDC diagnostic. */
 export type HttpFailureKind =
   | 'status' // a non-2xx response (not 429)
@@ -128,6 +130,21 @@ export function signRequest(
   return createHmac('sha256', secret)
     .update(`${timestamp}\n${seed}\n${String(count)}\n${body}`)
     .digest('hex');
+}
+
+/**
+ * The value sent as `X-TDC-Seed`: eight hex digits derived from the env seed and
+ * the sequence name, using the same hash the engine uses for its own per-stream
+ * keys. Stable across runs, so a service can reproduce its own answers, and
+ * different for every sequence, so two of them never receive the same stream.
+ *
+ * Beside the signature rather than inside the renderer because it is part of the
+ * same wire contract, and because a service author reading either one wants both.
+ * The four ports have always kept it here.
+ */
+export function httpSeedFor(envSeed: string, sequenceName: string): string {
+  const [a] = cyrb128(`${envSeed}|http|${sequenceName}`);
+  return (a >>> 0).toString(16).padStart(8, '0');
 }
 
 /**

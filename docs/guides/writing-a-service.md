@@ -578,7 +578,7 @@ A short list, each item learned from the way this generator actually fails:
 ## See also
 
 - [The `http` generator](../generators/http.md#top) — the attributes, the contract, the failure modes
-- [Error codes](../reference/errors.md#top) — `TDC065`–`TDC068`
+- [Error codes](../reference/errors.md#top) — `TDC065`–`TDC069` and `TDC284`
 
 ---
 

@@ -50,14 +50,14 @@ import {
   parseAdvancedRegexProgram,
 } from '../generators/advanced-regex.js';
 import { dateGenerator } from '../generators/date.js';
-import { fetchHttpValues, HttpServiceError } from '../generators/http.js';
+import { fetchHttpValues, httpSeedFor, HttpServiceError } from '../generators/http.js';
 import { resolveHttpSecret } from '../generators/http-secret.js';
 import { fileUniform } from '../generators/file.js';
 import { isDynamicTemplateValue } from '../validator/known.js';
 import { numberGenerator } from '../generators/number.js';
 import { parseRegexMaxLength, regexGenerator } from '../generators/regex.js';
 import { symbolGenerator } from '../generators/symbol.js';
-import { createPrng, cyrb128 } from '../prng/prng.js';
+import { createPrng } from '../prng/prng.js';
 import { randomPick } from '../prng/random.js';
 import {
   buildExactDiskRegistry,
@@ -367,7 +367,7 @@ async function resolveHttpSequences(
         inputs,
         onError: spec.gen.attrs['on_error'] === 'empty' ? 'empty' : 'fail',
         timeoutMs: parseHttpTimeout(spec.gen.attrs['timeout']),
-        seed: httpSeed(seed, spec.name),
+        seed: httpSeedFor(seed, spec.name),
         secret,
       });
     } catch (err) {
@@ -379,17 +379,6 @@ async function resolveHttpSequences(
     const target = seq.values as (string | undefined)[];
     for (let i = 0; i < count; i++) target[i] = values[i];
   }
-}
-
-/**
- * The value sent as `X-TDC-Seed`: eight hex digits derived from the env seed and
- * the sequence name, using the same hash the engine uses for its own per-stream
- * keys. Stable across runs (so a service can reproduce), and different for every
- * sequence (so two of them never receive the same stream).
- */
-function httpSeed(envSeed: string, sequenceName: string): string {
-  const [a] = cyrb128(`${envSeed}|http|${sequenceName}`);
-  return (a >>> 0).toString(16).padStart(8, '0');
 }
 
 /** `timeout="30"` → 30_000 ms. Falls back to the default on absent/invalid input. */

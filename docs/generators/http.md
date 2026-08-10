@@ -415,7 +415,7 @@ to yourself before reaching for it:
 
 - [Writing a service generator](../guides/writing-a-service.md#top) — working services in Node, Python, and Java
 - [Generators overview](../generators/overview.md#top)
-- [Error codes](../reference/errors.md#top) — `TDC065`–`TDC068` and the run-time failures
+- [Error codes](../reference/errors.md#top) — `TDC065`–`TDC069`, `TDC284`, and the run-time failures
 
 ---
 

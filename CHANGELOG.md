@@ -64,6 +64,16 @@ page — is tracked in that implementation's own changelog:
 
 <!-- covers: secret anomaly_flag group filter parent value -->
 
+- The two numbers a service recomputes were pinned by value in one or two implementations
+  and nowhere else. The signature lived in Rust and C#; the derived `X-TDC-Seed` lived in
+  Rust alone; Python's http generator had no tests at all. A port could have computed
+  something entirely different and four suites would still have been green — the failure
+  would have surfaced as 401s in a user's own service rather than as a red test here.
+  `fixtures/cross-language/http-vectors.json` now holds eight signature vectors and six
+  derived seeds, and all five read it. The vectors differ from the canonical request in one
+  field each, so an implementation that dropped a field from the signed message matches the
+  first and fails the rest.
+
 - A blank `value=""` meant six different things across the five implementations, and one of
   them invented data. Every per-type check asked only whether the attribute NODE was there,
   so blank text walked past a guard meant to catch a missing list and each generator then
