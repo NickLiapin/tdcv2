@@ -14,7 +14,7 @@ from ..date import locales as date_locales
 from ..format import transforms
 from ..generators import advanced_regex, number, regex
 from ..generators import repeat as repeat_gen
-from ..unicode import alphabets
+from ..unicode import alphabets, char_set
 
 # Names the engine owns; a sequence may not claim one.
 BUILTINS = frozenset({"_count", "_first", "_last", "_total", "_item", "_item_id"})
@@ -99,3 +99,49 @@ def repeat_unsupported_reason(type_: str | None) -> str | None:
 
 def has_repeat(attrs: dict[str, str]) -> bool:
     return repeat_gen.parse(attrs) is not None
+
+
+def distinct_pool_size(type_: str | None, attrs: dict[str, str]) -> int | None:
+    """How many different values this generator can offer, when the config alone says so.
+
+    ``None`` means "not knowable here" — never a guess. A pack file, a regex or a date shape
+    is read while generating, so those fall to the run-time refusal instead.
+    """
+    value = (attrs.get("value") or "").strip()
+    if not value:
+        return None
+
+    if type_ == "text":
+        return len({v.strip() for v in value.split(",")})
+
+    # A one-character symbol draws from its inline set, so the set IS the pool. Only the
+    # plain shape is counted: a named `alphabet`, `include`/`exclude`, or a length above one
+    # all change the answer, and a refusal built on a guess is worse than no refusal.
+    if type_ == "symbol":
+        plain = (
+            not (attrs.get("alphabet") or "")
+            and not (attrs.get("include") or "")
+            and not (attrs.get("exclude") or "")
+            and (attrs.get("length") or "").strip() in ("", "1")
+        )
+        if not plain:
+            return None
+        try:
+            return len(set(char_set.parse(value)))
+        except ValueError:
+            return None  # A malformed set is the charset error, not this one.
+
+    if type_ == "number":
+        dots = value.find("..")
+        if dots < 0:
+            return None
+        if (attrs.get("decimals") or "").strip():
+            return None
+        try:
+            lo = int(value[:dots].strip())
+            hi = int(value[dots + 2 :].strip())
+        except ValueError:
+            return None  # Only whole-number ranges have a countable pool.
+        return hi - lo + 1 if hi >= lo else None
+
+    return None

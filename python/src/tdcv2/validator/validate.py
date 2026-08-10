@@ -52,6 +52,7 @@ from ..generators import accumulate as accumulate_gen
 from ..generators import file as file_gen
 from ..generators import number as number_gen
 from ..generators import regex
+from ..generators import repeat as repeat_gen
 from ..generators import stat as stat_gen
 from ..lib import numbers
 from ..output import column_type
@@ -339,13 +340,15 @@ PACK_WRAPPER_ATTRS = frozenset(
         "separator",
         "type",
         "value",
+        "distinct",
     }
 )
 
 GEN_ATTRS = frozenset(
     {
         "type", "value", "name", "if", "comment", "case", "mask", "order", "cycle", "repeat",
-        "separator", "accumulate", "of", "plus", "reset", "op", "missing", "missing_as", "anomaly",
+        "separator", "accumulate", "distinct", "of", "plus", "reset", "op",
+        "missing", "missing_as", "anomaly",
         "anomaly_factor",
         "anomaly_flag",
         "local", "weight", "percent", "first_zero", "include", "exclude",
@@ -566,7 +569,6 @@ def _megabytes(byte_count: int) -> str:
     return f"{mb / 1024:.1f} GB" if mb >= 1024 else f"{round(mb):,} MB"
 
 
-
 # The functions that hand back a list. `at` reads one, and nothing else does today; when a
 # second joins, it goes here and the check above stays put.
 LIST_RETURNING_FUNCTIONS = ("split",)
@@ -596,6 +598,7 @@ def _bad_index_literal(node) -> str | None:
         inner = node.operand.value
         return "-" + (numbers.to_text(float(inner)) if isinstance(inner, float) else str(inner))
     return None
+
 
 class _Validator:
     __slots__ = (
@@ -1787,7 +1790,7 @@ class _Validator:
                     "<assert> has no condition — that= is required",
                     "Write the property the run must have, in the if= language, over whole-run "
                     'columns: <assert that="Rows == 700" says="…"/>. The numbers come from '
-                    "<gen type=\"stat\">.",
+                    '<gen type="stat">.',
                     line,
                     column,
                 )
@@ -2117,6 +2120,7 @@ class _Validator:
         "missing_as",
         "repeat",
         "separator",
+        "distinct",
         "anomaly",
         "anomaly_flag",
     )
@@ -2611,7 +2615,7 @@ class _Validator:
             self._error(
                 "TDC263",
                 f"${{{{…}}}} in {name}= is not expanded — the braces are literal text here",
-                "Interpolation reaches the text inside <data> and <gen type=\"template\" "
+                'Interpolation reaches the text inside <data> and <gen type="template" '
                 "value=>, and nowhere else. To make one column depend on another, read it in an "
                 "if= condition, or build the value in a <compute> sequence.",
                 line,
@@ -2677,8 +2681,7 @@ class _Validator:
             self._error(
                 "TDC069",
                 f'invalid timeout "{timeout.strip()}" — expected a positive number of seconds',
-                'timeout="30" waits thirty seconds for one answer. '
-                "Omit it for the default of 30.",
+                'timeout="30" waits thirty seconds for one answer. Omit it for the default of 30.',
                 line,
                 column,
             )
@@ -3281,16 +3284,14 @@ class _Validator:
         if not unreachable:
             return
         smallest = min(unreachable)
-        digits = (
-            f"{unreachable[0]} digits" if len(unreachable) == 1 else f"{smallest} digits"
-        )
+        digits = f"{unreachable[0]} digits" if len(unreachable) == 1 else f"{smallest} digits"
         line, column = _at(gen, "first_zero")
         self._error(
             "TDC279",
             f'first_zero="false" cannot be honoured — no value in "{value}" reaches {digits}, '
             "so every draw has to be padded",
             f"The widest value the range offers is {biggest}. Widen the range — "
-            f'value="{10 ** (smallest - 1)}..{10 ** smallest - 1}" — or drop length=, or allow '
+            f'value="{10 ** (smallest - 1)}..{10**smallest - 1}" — or drop length=, or allow '
             "the zero.",
             line,
             column,
@@ -3586,7 +3587,7 @@ class _Validator:
             "TDC272",
             f'<env local="{self.locale}"> ships no date translations, so this date renders in '
             "English",
-            f"Date locales: {', '.join(date_locales.NAMES)}. Use format=\"YYYY-MM-DD\" "
+            f'Date locales: {", ".join(date_locales.NAMES)}. Use format="YYYY-MM-DD" '
             "\u2014 or any format without month or weekday names \u2014 to get the same text in "
             "every language, or accept the English month names.",
             _line(gen),
@@ -3885,6 +3886,7 @@ class _Validator:
             return
 
         self._check_accumulate(gen, attrs, repeats)
+        self._check_distinct(gen, attrs, repeats, type_)
 
         if repeats:
             reason = checks.repeat_unsupported_reason(type_)
@@ -3907,6 +3909,80 @@ class _Validator:
                 'separator joins the values a repeating gen produces. Add repeat="N", or drop it.',
                 line,
                 column,
+            )
+
+    def _check_distinct(self, gen, attrs: dict[str, str], repeats: bool, type_: str | None) -> None:
+        """``distinct="true"`` — the row's values are drawn without replacement.
+
+        Four refusals, and each one is a proof rather than a guess. They exist because the
+        alternative in every case is a config that says something and silently gets
+        something else.
+        """
+        raw = attrs.get("distinct")
+        if raw is None:
+            return
+        line, column = _at(gen, "distinct")
+        word = raw.strip()
+        if word not in ("true", "false"):
+            self._error(
+                "TDC289",
+                f'"distinct" takes true or false, not "{word}"',
+                'distinct="true" draws a repeat list without replacement. Omit it, or write '
+                'distinct="false".',
+                line,
+                column,
+            )
+            return
+        if word == "false":
+            return
+
+        # One value cannot repeat itself, so the attribute would be read and then do
+        # nothing — the accepted-and-ignored failure this project keeps closing.
+        if not repeats:
+            self._error(
+                "TDC290",
+                '"distinct" has no effect without "repeat"',
+                "distinct= stops one cell holding the same value twice, so there has to be a "
+                'list. Add repeat="N" or repeat="A..B", or drop distinct=.',
+                line,
+                column,
+            )
+            return
+
+        # `percent` is an EXACT quota over the whole run; `distinct` is a guarantee inside
+        # one row. Holding both would cost either streaming or the randomness of the
+        # sample, so the pair is refused.
+        if attrs.get("percent") is not None:
+            p_line, p_column = _at(gen, "percent")
+            self._error(
+                "TDC291",
+                '"percent" and "distinct" cannot both be on one <gen>',
+                "percent= promises exact proportions across the whole run; distinct= trades "
+                "that promise away for a guarantee inside each row, so the two cannot both "
+                "hold. Drop one — or put the proportions on a <mix> or <switch> outside, "
+                "with repeat= on the <gen> inside.",
+                p_line,
+                p_column,
+            )
+
+        # The pool is only knowable up front for the types that carry it in the config.
+        # Where it is not — a pack file, a regex — the same refusal fires at run time.
+        pool = checks.distinct_pool_size(type_, attrs)
+        try:
+            spec = repeat_gen.parse(attrs)
+        except ValueError:
+            return  # A malformed repeat= is already reported as TDC195.
+        longest = spec.max if spec is not None else None
+        if pool is not None and longest is not None and longest > pool:
+            r_line, r_column = _at(gen, "repeat")
+            self._error(
+                "TDC292",
+                f'"repeat" asks for up to {longest} different values, but the list holds '
+                f"only {pool}",
+                f'With distinct="true" a value cannot be used twice in one cell, so {longest} '
+                "of them cannot be found. Lower repeat=, or widen value=.",
+                r_line,
+                r_column,
             )
 
     def _check_running(self, gen, attrs: dict[str, str], type_: str | None) -> None:
@@ -4526,10 +4602,10 @@ class _Validator:
                             f'<data name="{column_name}"> declares a typed column, so its if= '
                             "cannot be honoured",
                             "A column has one cell per card, collected whether or not the "
-                            "line was rendered "
-            "\u2014 the condition would be dropped and the typed file would disagree with the "
-            "text one. Put the condition on the sequence instead (<gen if=\u2026>) and declare "
-            "the column nullable: an empty cell in a nullable column is a NULL.",
+                            "line was rendered \u2014 the condition would be dropped and the "
+                            "typed file would disagree with the text one. Put the condition on "
+                            "the sequence instead (<gen if=\u2026>) and declare the column "
+                            "nullable: an empty cell in a nullable column is a NULL.",
                             where[0],
                             where[1],
                         )
@@ -4669,8 +4745,7 @@ class _Validator:
         if kind == "replace" and (arg is None or arg == "" or arg.startswith(",")):
             self._error(
                 "TDC275",
-                'the "replace" filter needs something to look for — ${{X|replace}} changes '
-                "nothing",
+                'the "replace" filter needs something to look for — ${{X|replace}} changes nothing',
                 "Write both parts: ${{X|replace:from,to}}. Leave the second empty to delete: "
                 "${{X|replace:-,}}.",
                 line,

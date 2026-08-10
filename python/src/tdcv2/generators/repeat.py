@@ -21,6 +21,9 @@ from . import accumulate as accumulate_gen
 
 # A ceiling, so one careless attribute cannot make a run a thousand times slower.
 MAX_REPEAT = 64
+
+# Bounded retries before a `distinct` draw admits it cannot find a fresh value.
+DISTINCT_MAX_TRIES = 64
 DEFAULT_SEPARATOR = ","
 
 
@@ -31,6 +34,14 @@ class Spec:
     separator: str
     #: ``accumulate=``: the list is replaced by its running total before joining.
     accumulate: str | None = None
+    #: ``distinct=``: the row's values are drawn WITHOUT replacement.
+    #:
+    #: This changes the regime the column is built in, which is why ``percent`` is refused
+    #: beside it. Ordinarily a listed column lays its values out over the whole run as an
+    #: exact quota; under ``distinct`` it draws per row instead, because holding an exact
+    #: whole-run quota AND a per-row guarantee at once costs either streaming or the
+    #: randomness of the sample. Frequencies stay approximate, rows stay independent.
+    distinct: bool = False
 
 
 @dataclass(frozen=True, slots=True)
@@ -92,7 +103,94 @@ def parse(attrs: dict[str, str]) -> Spec | None:
         maximum,
         attrs.get("separator", DEFAULT_SEPARATOR),
         accumulate_gen.read(attrs),
+        read_distinct(attrs),
     )
+
+
+def read_distinct(attrs: dict[str, str]) -> bool:
+    """``distinct="true"``. Anything but the two words is refused by the validator."""
+    return attrs.get("distinct", "").strip() == "true"
+
+
+def draw_distinct(
+    values: list[str],
+    weights: list[float],
+    keep: int,
+    next_uniform: Callable[[], float],
+    describe_pool: Callable[[], str],
+) -> list[str]:
+    """Draw ``keep`` DIFFERENT values from a weighted list, one uniform per pick.
+
+    Weights survive — a frequent name is still likelier to be picked first — but the exact
+    whole-run quota does not, which is the documented price of ``distinct`` and the reason
+    ``percent`` may not appear beside it.
+
+    Running out throws rather than returning a short list: a cell quietly shorter than
+    ``repeat`` asked for is the silent-and-wrong outcome the feature exists to prevent.
+    """
+    if keep > len(values):
+        raise ValueError(
+            f'repeat with distinct="true" asks for {keep} different values, '
+            f"but {describe_pool()} holds only {len(values)}"
+        )
+
+    # Weighted draw without replacement: pick against the remaining weight, then swap the
+    # winner out with the last live candidate. The order of what remains is a pure function
+    # of the picks already made, so the draw stays deterministic.
+    pool = list(values)
+    w = list(weights) if len(weights) == len(values) else [1.0] * len(values)
+    total = sum(x for x in w if x > 0)
+
+    out: list[str] = []
+    for picked in range(keep):
+        size = len(pool) - picked
+        index = size - 1
+        if total > 0:
+            target = next_uniform() * total
+            for i in range(size):
+                target -= max(0.0, w[i])
+                if target < 0:
+                    index = i
+                    break
+        else:
+            index = min(size - 1, int(next_uniform() * size))
+        chosen = pool[index]
+        out.append(chosen)
+        total -= max(0.0, w[index])
+        last = size - 1
+        pool[index] = pool[last]
+        w[index] = w[last]
+        pool[last] = chosen
+    return out
+
+
+def redraw_until_fresh(
+    seen: list[str],
+    gen_type: str,
+    draw: Callable[[str], str],
+) -> str:
+    """Ask ``draw`` for a value that is not already in ``seen``.
+
+    A drawn generator has no pool to draw down, so ``distinct`` is rejection sampling.
+    ``draw`` receives the sub-stream suffix: empty for the first attempt (so a config
+    WITHOUT ``distinct`` reads the very same stream), then ``r1``, ``r2`` and so on.
+
+    Exhausting the tries throws rather than returning a duplicate or a short list.
+    ``regex="[01]"`` under ``repeat="5"`` cannot be satisfied by anything, and saying so is
+    the entire point of the attribute.
+    """
+    value = draw("")
+    attempt = 1
+    while value in seen and attempt <= DISTINCT_MAX_TRIES:
+        value = draw(f"r{attempt}")
+        attempt += 1
+    if value in seen:
+        raise ValueError(
+            f'repeat with distinct="true" could not find {len(seen) + 1} different values '
+            f'for <gen type="{gen_type}"> after {DISTINCT_MAX_TRIES} tries — '
+            "the generator does not produce that many"
+        )
+    return value
 
 
 def build(spec: Spec, count: int, prng: Sfc32, build_flat: Callable[[int], list[str]]) -> list[str]:

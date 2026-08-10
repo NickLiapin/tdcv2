@@ -68,9 +68,21 @@ def build_draws(
         marks: list[str] = []
         for k in range(keep):
             flags = [False]
-            one = replace(run, prng=seekable.generator(seed, f"{stream_id}#e{k}", row))
-            value = finish(generate(single, 1, one), single.attrs, one.prng, flags)
-            parts.append(value[0] if value else "")
+
+            # A drawn generator has no pool to draw down, so `distinct` is rejection
+            # sampling on fresh sub-streams — the same ids the reference uses, so the two
+            # agree value for value.
+            def draw_at(suffix: str, k: int = k, flags: list[bool] = flags, row: int = row) -> str:
+                one = replace(run, prng=seekable.generator(seed, f"{stream_id}#e{k}{suffix}", row))
+                value = finish(generate(single, 1, one), single.attrs, one.prng, flags)
+                return value[0] if value else ""
+
+            chosen = (
+                repeat_gen.redraw_until_fresh(parts, gen.type, draw_at)
+                if spec.distinct
+                else draw_at("")
+            )
+            parts.append(chosen)
             marks.append(str(flags[0]).lower())
         out.append(repeat_gen.join(parts, spec))
         # A parallel list of true/false, never a running total — accumulating it would mean
@@ -115,6 +127,12 @@ def build_layout(
                 lo = mid + 1
         return values[lo]
 
+    # `distinct` leaves the whole-run layout behind: a row that must not repeat itself has
+    # to CHOOSE from the pool, and a choice cannot be read off a pre-laid-out slot. One
+    # uniform per pick off the row's own stream, budgeted at the maximum length, so the row
+    # still resolves alone.
+    distinct_at = element_uniforms(seed, stream_id, "#dist", spec.max) if spec.distinct else None
+
     out: list[str] = []
     for i in range(count):
         p = position_at(i)
@@ -122,9 +140,25 @@ def build_layout(
         start = plan.slot_start_at(p)
         keep = plan.length_at(p)
         parts = []
-        for k in range(keep):
-            raw = value_for_slot(permute.permute(start + k, slot_count, key))
-            parts.append(modify(row, raw, k) if modify is not None else raw)
+        if distinct_at is not None:
+            counter = [0]
+
+            def next_uniform(row: int = row, counter: list[int] = counter) -> float:
+                assert distinct_at is not None
+                value = distinct_at(row, counter[0])
+                counter[0] += 1
+                return value
+
+            picked = repeat_gen.draw_distinct(
+                values, percents, keep, next_uniform, lambda: "the value list"
+            )
+            parts = [
+                modify(row, raw, at) if modify is not None else raw for at, raw in enumerate(picked)
+            ]
+        else:
+            for k in range(keep):
+                raw = value_for_slot(permute.permute(start + k, slot_count, key))
+                parts.append(modify(row, raw, k) if modify is not None else raw)
         out.append(repeat_gen.join(parts, spec))
     return out
 

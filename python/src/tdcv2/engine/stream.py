@@ -272,9 +272,7 @@ class StreamEngine:
                 )
                 detail = pool_mod.row_values_detail(read)
             if not eligible:
-                raise ValueError(
-                    pool_mod.no_candidate_message(pool_name, expression, row, detail)
-                )
+                raise ValueError(pool_mod.no_candidate_message(pool_name, expression, row, detail))
             slot = seekable.next_int(
                 self.config.seed, pool_mod.ref_stream(name), row, len(eligible)
             )
@@ -718,14 +716,26 @@ class StreamEngine:
                 p = repeat_pos_at(row)
                 if p is None:
                     return None
-                parts = [
-                    _first(
-                        self._gen_values(
-                            single, seekable.generator(self.seed, f"{stream_id}#e{k}", row), None
+                # A drawn generator has no pool to draw down, so `distinct` is rejection
+                # sampling on fresh sub-streams — the same ids the reference uses, so the
+                # two agree value for value.
+                parts: list[str] = []
+                for k in range(plan.length_at(p)):
+
+                    def draw_at(suffix: str, k: int = k, row: int = row) -> str:
+                        return _first(
+                            self._gen_values(
+                                single,
+                                seekable.generator(self.seed, f"{stream_id}#e{k}{suffix}", row),
+                                None,
+                            )
                         )
+
+                    parts.append(
+                        repeat_gen.redraw_until_fresh(parts, type_, draw_at)
+                        if repeat.distinct
+                        else draw_at("")
                     )
-                    for k in range(plan.length_at(p))
-                ]
                 return repeat_gen.join(parts, repeat)
 
             flag_name = _trim_to_none(attrs.get("anomaly_flag"))
@@ -866,6 +876,33 @@ class StreamEngine:
                 p = repeat_pos_at(row)
                 if p is None:
                     return None
+                # `distinct` cannot read a pre-laid-out slot — a row that must not repeat
+                # itself has to CHOOSE. One uniform per pick off the row's own `#dist`
+                # stream, budgeted at the maximum length, so the row still resolves alone
+                # and the in-memory engine lands on the same values.
+                if repeat.distinct:
+                    draws = seekable.uniforms(self.seed, f"{stream_id}#dist", row, repeat.max)
+                    counter = [0]
+
+                    def next_uniform() -> float:
+                        at = counter[0]
+                        counter[0] += 1
+                        return draws[at] if at < len(draws) else 1.0
+
+                    picked = repeat_gen.draw_distinct(
+                        values,
+                        percents,
+                        repeat_plan.length_at(p),
+                        next_uniform,
+                        lambda: "the value list",
+                    )
+                    return repeat_gen.join(
+                        [
+                            raw if mod is None else _none_to_empty(mod(row, raw, at))
+                            for at, raw in enumerate(picked)
+                        ],
+                        repeat,
+                    )
                 parts = []
                 for k in range(repeat_plan.length_at(p)):
                     slot = slot_at(row, k)
@@ -899,9 +936,14 @@ class StreamEngine:
             quota_of=lambda value: counts[values.index(value)] if value in values else 0,
             child_rank_at=child_rank_at,
         )
-        return Built(column, parent, _anomaly_flag_name(attrs), self._quota_flags(
-            stream_id, values, cum_hi, slot_at, repeat, repeat_plan, repeat_pos_at, attrs
-        ))
+        return Built(
+            column,
+            parent,
+            _anomaly_flag_name(attrs),
+            self._quota_flags(
+                stream_id, values, cum_hi, slot_at, repeat, repeat_plan, repeat_pos_at, attrs
+            ),
+        )
 
     def _quota_flags(
         self, stream_id, values, cum_hi, slot_at, repeat, repeat_plan, repeat_pos_at, attrs
@@ -1021,9 +1063,7 @@ class StreamEngine:
                 # A nested mix contributes its value only; flag= is a top-level idea.
                 parts.append(self._build_mix(f"{stream_id}#p{p}", part.mix, domain).column)
             else:
-                parts.append(
-                    self._nested_switch(f"{stream_id}#p{p}", part.switch, domain)
-                )
+                parts.append(self._nested_switch(f"{stream_id}#p{p}", part.switch, domain))
 
         def resolve(row: int) -> str:
             return "".join(_none_to_empty(part(row)) for part in parts)
@@ -1160,9 +1200,7 @@ class StreamEngine:
         if _case_carries_percent(sw.fallback):
             # <default> holds the rows no entry matched — a complement, which Parent does not
             # enumerate. Same refusal, same fallback.
-            raise unsupported(
-                f'a percentage inside <default> of <switch on="{sw.on}">', spec.name
-            )
+            raise unsupported(f'a percentage inside <default> of <switch on="{sw.on}">', spec.name)
         fallback = (
             None
             if sw.fallback is None
