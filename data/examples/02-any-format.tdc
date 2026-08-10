@@ -1,0 +1,44 @@
+<tdc>
+<!--
+  02-any-format.tdc — the output format is yours, not ours.
+
+  Run it:  npx tdcv2 tdcv2-examples/02-any-format.tdc -o seed.sql
+
+  There is no "format: sql" option anywhere in TDC, and there is no list of
+  supported formats to pick from. You spell the layout out: <before> prints
+  once at the top, <block> once per row, <after> once at the bottom. Change
+  the text between the tags and you have JSON, YAML, or a format nobody has
+  named yet.
+-->
+<env count="20" seed="orders" local="en">
+
+    <sequence name="Id"><gen type="increment" value="1000"/></sequence>
+    <sequence name="Customer"><gen type="template" value="person.lastName"/></sequence>
+    <sequence name="City"><gen type="template" value="usa.geo.city"/></sequence>
+    <sequence name="Total"><gen type="number" value="15..950"/></sequence>
+    <sequence name="Status"><gen type="text" value="paid,refunded" percent="90,10"/></sequence>
+
+    <!-- Printed once, before any row. -->
+    <before>
+        <line><data>BEGIN;</data></line>
+        <line><data>CREATE TABLE orders (</data></line>
+        <line><data>  id       INTEGER PRIMARY KEY,</data></line>
+        <line><data>  customer TEXT    NOT NULL,</data></line>
+        <line><data>  city     TEXT    NOT NULL,</data></line>
+        <line><data>  total    INTEGER NOT NULL,</data></line>
+        <line><data>  status   TEXT    NOT NULL</data></line>
+        <line><data>);</data></line>
+    </before>
+
+    <!-- Printed once, after every row. -->
+    <after>
+        <line><data>COMMIT;</data></line>
+    </after>
+
+</env>
+
+<block>
+    <line><data>INSERT INTO orders VALUES (${{Id}}, '${{Customer}}', '${{City}}', ${{Total}}, '${{Status}}');</data></line>
+</block>
+
+</tdc>

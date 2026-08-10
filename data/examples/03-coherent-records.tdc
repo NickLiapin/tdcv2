@@ -1,0 +1,51 @@
+<tdc>
+<!--
+  03-coherent-records.tdc — records that hold together.
+
+  Run it:  npx tdcv2 tdcv2-examples/03-coherent-records.tdc
+
+  A faker gives you a gender and a first name, drawn independently, and
+  sooner or later you get a "Male" called Patricia. Nobody notices until a
+  demo screen shows it to a customer.
+
+  parent= fixes that at the source: a sequence with parent="Gender.Male"
+  is drawn ONLY on the rows where Gender came out Male, and is empty on the
+  rest. Concatenating the two leaves exactly one name per row, and it always
+  matches the gender — because the engine never had the chance to disagree.
+
+  The same trick nests: ZipCode below City, City below State. Try changing
+  percent="55,45" and re-running.
+-->
+<env count="12" seed="coherent" local="en">
+
+    <sequence name="Id"><gen type="increment" value="1"/></sequence>
+
+    <sequence name="Gender">
+        <gen type="text" value="Male,Female" percent="55,45"/>
+    </sequence>
+
+    <!-- Drawn only on Male rows; empty on the others. -->
+    <sequence name="MaleName" parent="Gender.Male">
+        <gen type="template" value="person.male.firstName"/>
+    </sequence>
+
+    <!-- And the mirror image. -->
+    <sequence name="FemaleName" parent="Gender.Female">
+        <gen type="template" value="person.female.firstName"/>
+    </sequence>
+
+    <sequence name="Surname"><gen type="template" value="person.lastName"/></sequence>
+    <sequence name="State"><gen type="template" value="usa.geo.stateAbbr"/></sequence>
+
+    <before>
+        <line><data>id,name,gender,state</data></line>
+    </before>
+
+</env>
+
+<!-- One of the two names is always empty, so this prints exactly one. -->
+<block>
+    <line><data>${{Id}},${{MaleName}}${{FemaleName}} ${{Surname}},${{Gender}},${{State}}</data></line>
+</block>
+
+</tdc>

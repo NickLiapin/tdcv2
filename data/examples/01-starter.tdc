@@ -1,0 +1,58 @@
+<tdc>
+<!--
+  01-starter.tdc — your first TDC config.
+
+  Run it:            npx tdcv2 tdcv2-examples/01-starter.tdc
+  Write a file:      npx tdcv2 tdcv2-examples/01-starter.tdc -o people.csv
+
+  Three things to try, in order:
+    1. change count="10" to count="5"      — five rows instead of ten
+    2. change seed="starter" to seed="x"   — different people
+    3. change it back to seed="starter"    — the SAME people return
+
+  That last one is the point. A seed is not a random number: it names a
+  dataset. The same config and the same seed produce identical bytes today,
+  next year, on your laptop and on CI.
+-->
+<env count="10" seed="starter" local="en">
+
+    <!-- One <sequence> is one column. The name is how you refer to it below. -->
+    <sequence name="Id">
+        <gen type="increment" value="1"/>
+    </sequence>
+
+    <!-- type="template" draws from the data packs that ship with TDC. -->
+    <sequence name="Surname">
+        <gen type="template" value="person.lastName"/>
+    </sequence>
+
+    <sequence name="Department">
+        <gen type="template" value="work.department"/>
+    </sequence>
+
+    <!-- A range. Try value="30000..45000" and re-run. -->
+    <sequence name="Salary">
+        <gen type="number" value="40000..120000"/>
+    </sequence>
+
+    <!--
+      percent= is EXACT, not approximate. Over these 10 rows you get exactly
+      7 active and 3 on leave — not "roughly". Over 1000 rows: 700 and 300.
+    -->
+    <sequence name="Status">
+        <gen type="text" value="active,on leave" percent="70,30"/>
+    </sequence>
+
+    <!-- <before> prints once, above the rows: a CSV header. -->
+    <before>
+        <line><data>id,surname,department,salary,status</data></line>
+    </before>
+
+</env>
+
+<!-- <block> prints once PER ROW. ${{Name}} puts a sequence's value in place. -->
+<block>
+    <line><data>${{Id}},${{Surname}},${{Department}},${{Salary}},${{Status}}</data></line>
+</block>
+
+</tdc>

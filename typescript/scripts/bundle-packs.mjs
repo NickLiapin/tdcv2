@@ -23,6 +23,12 @@ import { fileURLToPath } from 'node:url';
 const here = dirname(fileURLToPath(import.meta.url));
 const source = resolve(here, '..', '..', 'data', 'packs');
 const target = resolve(here, '..', 'data', 'packs');
+// The worked examples `tdcv2 init` copies into a user's folder. They travel the
+// same way as the packs and for the same reason: one source at the repo root,
+// duplicated in only for the tarball, so the five implementations cannot drift
+// into shipping different first examples.
+const examplesSource = resolve(here, '..', '..', 'data', 'examples');
+const examplesTarget = resolve(here, '..', 'data', 'examples');
 
 /**
  * What ships inside the package: enough to run the documentation's first
@@ -57,6 +63,17 @@ if (mode === 'add') {
   mkdirSync(resolve(target, '..'), { recursive: true });
   renameSync(staging, target); // atomic: the path appears fully formed
   console.error(`bundle-packs: copied ${STARTER.join(', ')} into ${target}`);
+
+  if (!existsSync(examplesSource)) {
+    console.error(`bundle-packs: no examples at ${examplesSource}`);
+    process.exit(1);
+  }
+  const exampleStaging = resolve(here, '..', '.examples-staging');
+  rmSync(exampleStaging, { recursive: true, force: true });
+  cpSync(examplesSource, exampleStaging, { recursive: true });
+  rmSync(examplesTarget, { recursive: true, force: true });
+  renameSync(exampleStaging, examplesTarget);
+  console.error(`bundle-packs: copied the worked examples into ${examplesTarget}`);
 } else if (mode === 'remove') {
   const data = resolve(here, '..', 'data');
   const doomed = resolve(here, '..', '.packs-removing');
