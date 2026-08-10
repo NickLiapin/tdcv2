@@ -33,10 +33,13 @@ export function checkGenText(
     });
     return;
   }
-  const values = (attrMap['value'] ?? '')
-    .split(',')
-    .map((s) => s.trim())
-    .filter((s) => s.length > 0);
+  // Split exactly as the generator does — `sequence/build.ts` splits on the comma
+  // and trims, and stops there. Dropping the empty options here made the validator
+  // count two where the run draws three: `value="a,,b"` really is three options
+  // (measured over 300 rows: 100 `a`, 100 `b`, 100 empty), and the documented
+  // `percent="30,40,30"` beside it was refused as "3 entries but value has 2".
+  // A legal config was unreachable, and the four ports accepted it all along.
+  const values = (attrMap['value'] ?? '').split(',').map((s) => s.trim());
 
   const percentAttr = findAttr(attrs, 'percent');
   if (!percentAttr) return;

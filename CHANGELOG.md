@@ -64,6 +64,14 @@ page — is tracked in that implementation's own changelog:
 
 <!-- covers: secret anomaly_flag group filter parent value mode interp spread decimals percent -->
 
+- The reference counted a `text` option list one way and drew from it another, so a legal
+  config could not be written. `value="a,,b"` is three options — measured over 300 rows, 100
+  `a`, 100 `b` and 100 empty — but the validator dropped the empty one before counting and
+  refused the documented `percent="30,40,30"` beside it as _"3 entries but value has 2"_. The
+  four ports accepted it all along; only TypeScript refused. It now splits exactly as the
+  generator does, the shares come out 90/120/90, and a genuine mismatch (two options, three
+  shares) is still TDC051.
+
 - Documentation that measurement contradicted, in all three languages. Nothing here changes what
   the engine does; each entry is a page that described it wrongly.
   - The expression reference showed a refusal for an out-of-range integer LITERAL. There is
