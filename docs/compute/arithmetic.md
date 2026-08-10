@@ -417,7 +417,7 @@ Adding two multi-digit fields directly fails before any data is generated:
 `./run bad.tdc — error before generation`
 
 ```
-tdc: expected an integer in <add>, got the string "10" — wrap it in <to_number> to convert a multi-digit string
+tdcv2: expected an integer in <add>, got the string "10" — wrap it in <to_number> to convert a multi-digit string
 ```
 
 `"10"` is a two-digit string, so it isn't coerced on its own. The error message points

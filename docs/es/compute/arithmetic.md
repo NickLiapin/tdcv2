@@ -418,7 +418,7 @@ dato:
 `./run bad.tdc — error antes de la generación`
 
 ```
-tdc: expected an integer in <add>, got the string "10" — wrap it in <to_number> to convert a multi-digit string
+tdcv2: expected an integer in <add>, got the string "10" — wrap it in <to_number> to convert a multi-digit string
 ```
 
 `"10"` es un string de dos dígitos y no se convierte solo. El mensaje de error apunta

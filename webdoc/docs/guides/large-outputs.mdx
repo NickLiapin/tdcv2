@@ -295,8 +295,7 @@ z,m`}
 
 Memory stays bounded in both shapes: the columns are resolved from the row number, and the
 duplicate check runs externally rather than holding the dataset. Time is the cost, not
-RAM — see the warning above. **Limits:** the fields of a compound `uniq` have to be
-[`text`](../generators/text.mdx) lists.
+RAM — see the warning above.
 
 **Capacity is checked before the run starts.** If you ask for more unique rows than the
 data can produce, TDC fails immediately with a clear error — not eight hours later,

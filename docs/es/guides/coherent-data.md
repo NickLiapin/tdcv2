@@ -152,7 +152,7 @@ coherentes para marcas de autos, `food.cuisine`, `medical.specialtyCoherent`,
   resuelve una dirección por fila), así que la memoria crece con `count`. Se trata de
   coherencia realista, no de generar gigabytes en streaming; [Qué motor corre su
   configuración](large-outputs.md#qué-motor-corre-su-configuración) enumera esta forma y
-  las otras cuatro que se encaminan igual.
+  las otras cinco que se encaminan igual.
 
 ## El pariente CSV — `row` + `weight`
 
