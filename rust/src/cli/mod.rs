@@ -15,6 +15,7 @@
 //! process.
 
 pub mod args;
+pub mod examples_generated;
 pub mod init;
 pub mod pack;
 pub mod pack_picker;

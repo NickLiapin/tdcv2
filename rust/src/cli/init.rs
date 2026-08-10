@@ -11,6 +11,7 @@
 //! That is what the tests exercise, because a prompt is hard to test and a
 //! decision is not.
 
+use std::fs;
 use std::io::Write;
 use std::path::{Path, PathBuf};
 
@@ -238,12 +239,63 @@ pub fn run(
     writeln!(stdout, "Wrote {which} config: {}", plan.path)?;
     writeln!(stdout, "  data packs → {}", plan.pack_store)?;
     writeln!(stdout, "  locale     → {}", plan.locale)?;
-    writeln!(stdout)?;
-    writeln!(
-        stdout,
-        "Next: run `tdcv2 pack` to download data packs into that folder."
-    )?;
+
+    // Examples land beside the config, which for a global init is the user's home
+    // — not what anyone wants. A project init is the one that gets them.
+    let examples = if plan.is_global {
+        Vec::new()
+    } else {
+        write_examples(Path::new(&plan.path).parent().unwrap_or(Path::new(".")))
+    };
+
+    if examples.is_empty() {
+        writeln!(stdout)?;
+        writeln!(
+            stdout,
+            "Next: run `tdcv2 pack` to download data packs into that folder."
+        )?;
+    } else {
+        writeln!(stdout, "  examples   → {}", examples.join(", "))?;
+        writeln!(stdout)?;
+        writeln!(stdout, "Next: run it.")?;
+        writeln!(stdout, "    tdcv2 {}", examples[0])?;
+        writeln!(stdout)?;
+        writeln!(
+            stdout,
+            "The common, en and USA packs are already inside this install, so the"
+        )?;
+        writeln!(
+            stdout,
+            "examples run with nothing downloaded. `tdcv2 pack` adds more locales."
+        )?;
+    }
     Ok(0)
+}
+
+/// Where `init` puts the worked examples, beside the config it writes.
+pub const EXAMPLES_DIR_NAME: &str = "tdcv2-examples";
+
+/// Write the worked examples next to the config, and say what was written.
+///
+/// `init` used to leave a reader with a config file and no way to see output: it
+/// printed "Next: run `tdcv2 pack`" and there was still no `.tdc` anywhere. Every
+/// documented first command named a `demo.tdc` that nothing created, so the very
+/// first command a newcomer typed could only fail.
+pub fn write_examples(into_dir: &Path) -> Vec<String> {
+    let target = into_dir.join(EXAMPLES_DIR_NAME);
+    if fs::create_dir_all(&target).is_err() {
+        return Vec::new();
+    }
+    let mut written = Vec::new();
+    for (name, body) in super::examples_generated::EXAMPLES {
+        let path = target.join(name);
+        // A second `init` must not overwrite an example someone has been editing.
+        if !path.exists() && fs::write(&path, body).is_err() {
+            continue;
+        }
+        written.push(format!("{EXAMPLES_DIR_NAME}/{name}"));
+    }
+    written
 }
 
 fn ask(flags: &Flags, cwd: &str, stdout: &mut dyn Write) -> Result<Plan, InitError> {

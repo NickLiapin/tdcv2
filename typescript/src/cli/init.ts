@@ -17,6 +17,7 @@ import { existsSync, mkdirSync, writeFileSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
 
 import { PROJECT_CONFIG_NAME, globalConfigPath } from '../config/config.js';
+import { EXAMPLES } from './examples.generated.js';
 
 /**
  * The same text the other four implementations print, to the byte. `init` is
@@ -108,6 +109,30 @@ export function writeInitConfig(plan: InitPlan, opts: { force: boolean }): void 
   mkdirSync(plan.packStore, { recursive: true }); // so the store exists for `pack add`
 }
 
+/** Where `init` puts the worked examples, beside the config it writes. */
+export const EXAMPLES_DIR_NAME = 'tdcv2-examples';
+
+/**
+ * Write the worked examples next to the config, and return what was written.
+ *
+ * `init` used to leave a reader with a config file and no way to see output: it
+ * printed "Next: run `tdcv2 pack`" and there was still no `.tdc` anywhere. Every
+ * documented first command named a `demo.tdc` that nothing created, so the very
+ * first command a newcomer typed could only fail.
+ */
+export function writeExamples(intoDir: string): readonly string[] {
+  const target = join(intoDir, EXAMPLES_DIR_NAME);
+  mkdirSync(target, { recursive: true });
+  const written: string[] = [];
+  for (const example of EXAMPLES) {
+    const to = join(target, example.name);
+    // A second `init` must not overwrite an example someone has been editing.
+    if (!existsSync(to)) writeFileSync(to, example.body, 'utf8');
+    written.push(`${EXAMPLES_DIR_NAME}/${example.name}`);
+  }
+  return written;
+}
+
 interface InitFlags {
   readonly global: boolean;
   readonly force: boolean;
@@ -180,11 +205,20 @@ export async function runInit(argv: readonly string[], ctx: InitContext): Promis
     return 2;
   }
 
+  // Examples land beside the config, which for a global init is the user's
+  // home — not what anyone wants. A project init is the one that gets them.
+  const examples = plan.global ? [] : writeExamples(dirname(plan.path));
+
   process.stdout.write(
     `Wrote ${plan.global ? 'global' : 'project'} config: ${plan.path}\n` +
       `  data packs → ${plan.packStore}\n` +
       `  locale     → ${plan.locale}\n` +
-      `\nNext: run \`tdcv2 pack\` to download data packs into that folder.\n`,
+      (examples.length > 0 ? `  examples   → ${examples.join(', ')}\n` : '') +
+      (examples.length > 0
+        ? `\nNext: run it.\n    tdcv2 ${examples[0] ?? ''}\n` +
+          `\nThe common, en and USA packs are already inside this install, so the\n` +
+          `examples run with nothing downloaded. \`tdcv2 pack\` adds more locales.\n`
+        : `\nNext: run \`tdcv2 pack\` to download data packs into that folder.\n`),
   );
   return 0;
 }

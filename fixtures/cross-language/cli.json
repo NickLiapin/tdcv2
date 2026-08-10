@@ -304,9 +304,7 @@
       "wrote": {
         "tdcv2.config.json": "{\n  \"packStore\": \"./tdcv2-packs\",\n  \"locale\": \"en\"\n}\n"
       },
-      "stdoutContains": [
-        "Next: run `tdcv2 pack` to download data packs into that folder."
-      ]
+      "stdoutContains": ["Next: run it.", "tdcv2 tdcv2-examples/01-starter.tdc"]
     },
     {
       "name": "init honours --locale",

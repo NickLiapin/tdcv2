@@ -5,6 +5,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.UncheckedIOException;
+import java.util.ArrayList;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -210,9 +211,55 @@ public final class Init {
         "Wrote " + (plan.isGlobal() ? "global" : "project") + " config: " + plan.path());
     System.out.println("  data packs → " + plan.packStore());
     System.out.println("  locale     → " + plan.locale());
-    System.out.println();
-    System.out.println("Next: run `tdcv2 pack` to download data packs into that folder.");
+
+    // Examples land beside the config, which for a global init is the user's home —
+    // not what anyone wants. A project init is the one that gets them.
+    List<String> examples =
+        plan.isGlobal() ? List.<String>of() : writeExamples(plan.path().getParent());
+
+    if (examples.isEmpty()) {
+      System.out.println();
+      System.out.println("Next: run `tdcv2 pack` to download data packs into that folder.");
+    } else {
+      System.out.println("  examples   → " + String.join(", ", examples));
+      System.out.println();
+      System.out.println("Next: run it.");
+      System.out.println("    tdcv2 " + examples.get(0));
+      System.out.println();
+      System.out.println("The common, en and USA packs are already inside this install, so the");
+      System.out.println("examples run with nothing downloaded. `tdcv2 pack` adds more locales.");
+    }
     return 0;
+  }
+
+  /** Where {@code init} puts the worked examples, beside the config it writes. */
+  static final String EXAMPLES_DIR_NAME = "tdcv2-examples";
+
+  /**
+   * Write the worked examples next to the config, and say what was written.
+   *
+   * <p>{@code init} used to leave a reader with a config file and no way to see output: it printed
+   * "Next: run `tdcv2 pack`" and there was still no {@code .tdc} anywhere. Every documented first
+   * command named a {@code demo.tdc} that nothing created, so the very first command a newcomer
+   * typed could only fail.
+   */
+  static List<String> writeExamples(Path intoDir) {
+    Path target = (intoDir == null ? Path.of(".") : intoDir).resolve(EXAMPLES_DIR_NAME);
+    List<String> written = new ArrayList<>();
+    try {
+      Files.createDirectories(target);
+      for (String[] example : ExamplesGenerated.EXAMPLES) {
+        Path path = target.resolve(example[0]);
+        // A second `init` must not overwrite an example someone has been editing.
+        if (!Files.exists(path)) {
+          Files.writeString(path, example[1], StandardCharsets.UTF_8);
+        }
+        written.add(EXAMPLES_DIR_NAME + "/" + example[0]);
+      }
+    } catch (IOException e) {
+      return List.of();
+    }
+    return written;
   }
 
   private static Plan ask(Flags flags, Path cwd) {

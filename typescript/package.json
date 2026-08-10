@@ -92,7 +92,7 @@
     "pretypecheck": "npm run generate",
     "typecheck": "tsc --noEmit",
     "types:pack": "npx --yes @arethetypeswrong/cli --pack .",
-    "check": "npm run lint && npm run typecheck && npm run test && npm run cases && npm run fixtures && npm run diagnostics && npm run engines && npm run parquet && npm run test:pack && npm run packs:ranges && npm run docs:examples && npm run docs:diagnostics && npm run quick:check && npm run quick:vectors",
+    "check": "npm run lint && npm run typecheck && npm run test && npm run cases && npm run fixtures && npm run diagnostics && npm run engines && npm run parquet && npm run test:pack && npm run packs:ranges && npm run examples:check && npm run docs:examples && npm run docs:diagnostics && npm run quick:check && npm run quick:vectors",
     "postpack": "node scripts/bundle-packs.mjs remove",
     "cases": "npx tsx scripts/cross-language-cases.mjs",
     "cases:update": "npx tsx scripts/cross-language-cases.mjs --update",
@@ -110,7 +110,8 @@
     "docs:diagnostics": "node scripts/check-doc-diagnostics.mjs --quiet",
     "packs:ranges": "node scripts/check-pack-ranges.mjs",
     "quick:types": "npm run build && node scripts/generate-quick-types.mjs",
-    "quick:check": "node scripts/generate-quick-types.mjs --check"
+    "quick:check": "node scripts/generate-quick-types.mjs --check",
+    "examples:check": "node ../scripts/generate-examples.mjs --check"
   },
   "devDependencies": {
     "@types/node": "^20.16.5",

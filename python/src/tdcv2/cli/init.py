@@ -17,6 +17,7 @@ from dataclasses import dataclass
 from pathlib import Path
 
 from ..packs import project_config
+from .examples_generated import EXAMPLES
 
 USAGE = """Usage: tdcv2 init [options]
 
@@ -141,6 +142,29 @@ def plan_from_flags(flags: Flags, cwd: Path) -> Plan:
     return Plan(path, store, flags.locale or "en", flags.is_global)
 
 
+EXAMPLES_DIR_NAME = "tdcv2-examples"
+
+
+def write_examples(into_dir: Path) -> list[str]:
+    """Write the worked examples next to the config, and say what was written.
+
+    ``init`` used to leave a reader with a config file and no way to see output: it
+    printed "Next: run `tdcv2 pack`" and there was still no ``.tdc`` anywhere. Every
+    documented first command named a ``demo.tdc`` that nothing created, so the very
+    first command a newcomer typed could only fail.
+    """
+    target = into_dir / EXAMPLES_DIR_NAME
+    target.mkdir(parents=True, exist_ok=True)
+    written = []
+    for name, body in EXAMPLES:
+        path = target / name
+        # A second ``init`` must not overwrite an example someone has been editing.
+        if not path.exists():
+            path.write_text(body, encoding="utf-8")
+        written.append(f"{EXAMPLES_DIR_NAME}/{name}")
+    return written
+
+
 def run_init(argv: list[str], cwd: Path | None = None) -> int:
     here = (cwd or Path.cwd()).resolve()
 
@@ -170,11 +194,22 @@ def run_init(argv: list[str], cwd: Path | None = None) -> int:
         sys.stderr.write(f"tdcv2: {e}\n")
         return 2
 
+    # Examples land beside the config, which for a global init is the user's home —
+    # not what anyone wants. A project init is the one that gets them.
+    examples = [] if plan.is_global else write_examples(Path(plan.path).parent)
+
+    tail = (
+        f"  examples   → {', '.join(examples)}\n"
+        f"\nNext: run it.\n    tdcv2 {examples[0]}\n"
+        f"\nThe common, en and USA packs are already inside this install, so the\n"
+        f"examples run with nothing downloaded. `tdcv2 pack` adds more locales.\n"
+        if examples
+        else "\nNext: run `tdcv2 pack` to download data packs into that folder.\n"
+    )
     sys.stdout.write(
         f"Wrote {'global' if plan.is_global else 'project'} config: {plan.path}\n"
         f"  data packs → {plan.pack_store}\n"
-        f"  locale     → {plan.locale}\n"
-        f"\nNext: run `tdcv2 pack` to download data packs into that folder.\n"
+        f"  locale     → {plan.locale}\n" + tail
     )
     return 0
 

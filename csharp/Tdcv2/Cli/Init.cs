@@ -235,9 +235,69 @@ public static class Init
             $"Wrote {(plan.IsGlobal ? "global" : "project")} config: {plan.Path}\n");
         stdout.Write($"  data packs → {plan.PackStore}\n");
         stdout.Write($"  locale     → {plan.Locale}\n");
-        stdout.Write("\n");
-        stdout.Write("Next: run `tdcv2 pack` to download data packs into that folder.\n");
+
+        // Examples land beside the config, which for a global init is the user's home —
+        // not what anyone wants. A project init is the one that gets them.
+        List<string> examples = plan.IsGlobal
+            ? new List<string>()
+            : WriteExamples(System.IO.Path.GetDirectoryName(plan.Path) ?? ".");
+
+        if (examples.Count == 0)
+        {
+            stdout.Write("\n");
+            stdout.Write("Next: run `tdcv2 pack` to download data packs into that folder.\n");
+        }
+        else
+        {
+            stdout.Write($"  examples   → {string.Join(", ", examples)}\n");
+            stdout.Write("\n");
+            stdout.Write("Next: run it.\n");
+            stdout.Write($"    tdcv2 {examples[0]}\n");
+            stdout.Write("\n");
+            stdout.Write(
+                "The common, en and USA packs are already inside this install, so the\n");
+            stdout.Write(
+                "examples run with nothing downloaded. `tdcv2 pack` adds more locales.\n");
+        }
+
         return 0;
+    }
+
+    /// <summary>Where <c>init</c> puts the worked examples, beside the config it writes.</summary>
+    internal const string ExamplesDirName = "tdcv2-examples";
+
+    /// <summary>Write the worked examples next to the config, and say what was written.</summary>
+    /// <remarks>
+    /// <c>init</c> used to leave a reader with a config file and no way to see output: it printed
+    /// "Next: run `tdcv2 pack`" and there was still no <c>.tdc</c> anywhere. Every documented first
+    /// command named a <c>demo.tdc</c> that nothing created, so the very first command a newcomer
+    /// typed could only fail.
+    /// </remarks>
+    internal static List<string> WriteExamples(string intoDir)
+    {
+        string target = System.IO.Path.Combine(intoDir, ExamplesDirName);
+        List<string> written = new List<string>();
+        try
+        {
+            Directory.CreateDirectory(target);
+            foreach ((string name, string body) in ExamplesGenerated.Examples)
+            {
+                string path = System.IO.Path.Combine(target, name);
+                // A second `init` must not overwrite an example someone has been editing.
+                if (!File.Exists(path))
+                {
+                    File.WriteAllText(path, body);
+                }
+
+                written.Add($"{ExamplesDirName}/{name}");
+            }
+        }
+        catch (IOException)
+        {
+            return new List<string>();
+        }
+
+        return written;
     }
 
     private static Plan Ask(Flags flags, string cwd, TextWriter stdout)
