@@ -3205,6 +3205,42 @@ public sealed class Validator
             return;
         }
 
+        // `mode=`, `interp=`, `spread=` and `decimals=` — the four drawing attributes whose
+        // value is a fixed word or a number. They used to be read only by the generator, so
+        // `check` called mode="banana" valid and the run then refused it with a bare sentence
+        // and no code. The GENERATOR's own readers are called here rather than their rules
+        // repeated: a second copy is a second thing to keep in step, and drifting apart is
+        // exactly the failure being closed.
+        if (type == "pattern")
+        {
+            foreach (string name in new[] { "mode", "interp", "spread", "decimals" })
+            {
+                if (!attrs.ContainsKey(name))
+                {
+                    continue;
+                }
+
+                try
+                {
+                    switch (name)
+                    {
+                        case "mode": Pattern.PatternGen.Mode(attrs[name]); break;
+                        case "interp": Pattern.PatternGen.InterpOf(attrs[name]); break;
+                        case "spread": Pattern.PatternGen.Spread(attrs); break;
+                        default: Pattern.PatternGen.DecimalsOf(attrs); break;
+                    }
+                }
+                catch (Exception e) when (e is ArgumentException or FormatException)
+                {
+                    (int line, int column) = At(gen, name);
+                    Error(
+                        "TDC285", e.Message,
+                        "Every drawing attribute is checked before the run, so `check` and the "
+                        + "run agree.", line, column);
+                }
+            }
+        }
+
         string? src = attrs.GetValueOrDefault("src");
         if (string.IsNullOrWhiteSpace(src))
         {

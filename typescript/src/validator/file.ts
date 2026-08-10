@@ -10,6 +10,12 @@ import type {
   SelfClosingElementContext,
 } from '../generated/TDCParser.js';
 import { loadFileValues } from '../generators/file.js';
+import {
+  decimalsFromAttrs,
+  parseInterp,
+  parseMode,
+  spreadFromAttrs,
+} from '../generators/pattern.js';
 import { extractAttrs } from '../processor/walk.js';
 import { checkSequentialDropsPercent } from './text.js';
 
@@ -126,6 +132,8 @@ export function checkGenDrawing(
     return;
   }
 
+  checkDrawingValues(attrs, attrMap, ctx.diagnostics);
+
   const srcAttr = findAttr(attrs, 'src');
   const path = attrMap['src'] ?? '';
   if (!srcAttr || path.trim() === '') return;
@@ -152,4 +160,47 @@ function findAttr(attrs: readonly AttrContext[], name: string): AttrContext | un
     if (attr._attrName?.text === name) return attr;
   }
   return undefined;
+}
+
+/**
+ * `mode=`, `interp=`, `spread=` and `decimals=` — the four drawing attributes whose
+ * value is a fixed word or a number.
+ *
+ * They were read only by the generator, so `check` called `mode="banana"` valid and
+ * the run then refused it with a bare sentence and no code: `check` answers "would
+ * this run?" everywhere else, and here it answered wrongly for a config a reader
+ * would fix in a second.
+ *
+ * The validator calls the GENERATOR's own parsers rather than repeating their rules.
+ * A second copy of "linear, smooth or step" is a second thing to keep in step, and the
+ * failure that produces — `check` accepting what the run refuses — is exactly the one
+ * being closed here.
+ */
+function checkDrawingValues(
+  attrs: readonly AttrContext[],
+  attrMap: Record<string, string>,
+  diagnostics: Diagnostic[],
+): void {
+  const checks: readonly [string, () => unknown][] = [
+    ['mode', () => parseMode(attrMap['mode'])],
+    ['interp', () => parseInterp(attrMap['interp'])],
+    ['spread', () => spreadFromAttrs(attrMap)],
+    ['decimals', () => decimalsFromAttrs(attrMap)],
+  ];
+  for (const [name, run] of checks) {
+    const attr = findAttr(attrs, name);
+    if (!attr) continue;
+    try {
+      run();
+    } catch (err) {
+      diagnostics.push({
+        severity: 'error',
+        source: 'validator',
+        ...attrValueRange(attr),
+        message: err instanceof Error ? err.message : String(err),
+        hint: 'Every drawing attribute is checked before the run, so `check` and the run agree.',
+        code: 'TDC285',
+      });
+    }
+  }
 }

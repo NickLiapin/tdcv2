@@ -2569,6 +2569,33 @@ impl Validator {
             );
             return;
         }
+        // `mode=`, `interp=`, `spread=` and `decimals=` — the four drawing attributes whose
+        // value is a fixed word or a number. They used to be read only by the generator, so
+        // `check` called mode="banana" valid and the run then refused it with a bare sentence
+        // and no code. The GENERATOR's own readers are called here rather than their rules
+        // repeated: a second copy is a second thing to keep in step, and drifting apart is
+        // exactly the failure being closed.
+        if gen_type == Some("pattern") {
+            for name in ["mode", "interp", "spread", "decimals"] {
+                let Some(raw) = attrs.get(name) else { continue };
+                let problem = match name {
+                    "mode" => crate::pattern::read_mode(raw).err(),
+                    "interp" => crate::pattern::read_interp(raw).err(),
+                    "spread" => crate::pattern::read_spread(raw).err(),
+                    _ => crate::pattern::read_decimals(raw).err(),
+                };
+                if let Some(err) = problem {
+                    self.error(
+                        "TDC285",
+                        err.to_string(),
+                        "Every drawing attribute is checked before the run, so `check` and \
+                         the run agree.",
+                        gen.at(name),
+                    );
+                }
+            }
+        }
+
         let Some(src) = trim_to_none(attrs.get("src")) else {
             return;
         };

@@ -78,15 +78,15 @@ per run.
 `./run accounts.tdc`
 
 ```
-A  96.47  96.47
-A  29.18  125.65
-A  91.43  217.08
-B  15.65  15.65
-B  67.87  83.52
-C  48.03  48.03
-C  39.00  87.03
-C  56.04  143.07
-C  78.62  221.69
+A  49.86  49.86
+A  21.54  71.40
+A  35.12  106.52
+B  80.60  80.60
+B  98.09  178.69
+C  33.58  33.58
+C  23.09  56.67
+C  72.74  129.41
+C  94.78  224.19
 ```
 
 A segment ends when `reset=`'s value **changes from the previous row**, so the groups have
@@ -97,7 +97,7 @@ case is a column that already comes out grouped.
 ## Exact decimals
 
 The arithmetic runs on whole numbers scaled by the widest fraction in the column, never on
-floating point. `96.47 + 29.18` is `125.65` — and it is the same `125.65` in all five
+floating point. `49.86 + 21.54` is `71.40` — and it is the same `71.40` in all five
 implementations, which a float would not guarantee.
 
 `base=` joins that scale. An opening `1000.00` widens the whole column to two decimals,

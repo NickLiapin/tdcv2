@@ -57,6 +57,7 @@ from ..lib import numbers
 from ..output import column_type
 from ..packs import DataPacks
 from ..parser import paired_data
+from ..pattern import curve
 from ..stats import distribution as dist
 from . import checks
 from .compute_check import ComputeCheck
@@ -2748,6 +2749,35 @@ class _Validator:
                 _column(gen),
             )
             return
+
+        # `mode=`, `interp=`, `spread=` and `decimals=` — the four drawing attributes whose
+        # value is a fixed word or a number. They used to be read only by the generator, so
+        # `check` called mode="banana" valid and the run then refused it with a bare sentence
+        # and no code. The GENERATOR's own parsers are called here rather than their rules
+        # repeated: a second copy is a second thing to keep in step, and drifting apart is
+        # exactly the failure being closed.
+        if type_ == "pattern":
+            for name, parse in (
+                ("mode", lambda: curve.parse_mode(attrs.get("mode"))),
+                ("interp", lambda: curve.parse_interp(attrs.get("interp"))),
+                ("spread", lambda: curve.parse_spread(attrs)),
+                ("decimals", lambda: curve.parse_decimals(attrs)),
+            ):
+                if attrs.get(name) is None:
+                    continue
+                try:
+                    parse()
+                except ValueError as e:
+                    line, column = _at(gen, name)
+                    self._error(
+                        "TDC285",
+                        str(e),
+                        "Every drawing attribute is checked before the run, so `check` and "
+                        "the run agree.",
+                        line,
+                        column,
+                    )
+
         src = attrs.get("src")
         if src is None or not src.strip():
             return

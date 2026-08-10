@@ -378,6 +378,41 @@
       "description": "The other half of the same code, and an error rather than a warning: signing with nothing produces a signature every caller could forge, which is worse than sending the request unsigned.",
       "config": "<tdc><env count=\"2\" seed=\"s\" local=\"en\"><sequence name=\"M\"><gen type=\"http\" src=\"http://127.0.0.1:5599/gen\" secret=\"\"/></sequence></env><block><line><data>${{M}}</data></line></block></tdc>",
       "expected": ["error TDC284 1:116"]
+    },
+    {
+      "name": "a-drawing-mode-that-is-not-a-mode",
+      "demonstrates": "TDC285",
+      "description": "mode= was read only by the generator, so `check` called this valid and the run then refused it with a bare sentence and no code — the one place `check` did not answer \"would this run?\".",
+      "config": "<tdc><env count=\"3\" seed=\"s\" local=\"en\"><sequence name=\"V\"><gen type=\"pattern\" points=\"0,0 1,5\" mode=\"banana\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
+      "expected": ["error TDC285 1:102"]
+    },
+    {
+      "name": "a-drawing-interpolation-that-is-not-one",
+      "demonstrates": "TDC285",
+      "description": "The same hole in the attribute beside it.",
+      "config": "<tdc><env count=\"3\" seed=\"s\" local=\"en\"><sequence name=\"V\"><gen type=\"pattern\" points=\"0,0 1,5\" interp=\"banana\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
+      "expected": ["error TDC285 1:104"]
+    },
+    {
+      "name": "a-negative-drawing-spread",
+      "demonstrates": "TDC285",
+      "description": "A number rather than a word, held to the same rule: half a band cannot be negative.",
+      "config": "<tdc><env count=\"3\" seed=\"s\" local=\"en\"><sequence name=\"V\"><gen type=\"pattern\" points=\"0,0 1,5\" spread=\"-1\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
+      "expected": ["error TDC285 1:104"]
+    },
+    {
+      "name": "drawing-decimals-that-are-not-a-number",
+      "demonstrates": "TDC285",
+      "description": "The fourth and last of the drawing attributes whose value the generator alone used to read.",
+      "config": "<tdc><env count=\"3\" seed=\"s\" local=\"en\"><sequence name=\"V\"><gen type=\"pattern\" points=\"0,0 1,5\" decimals=\"x\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
+      "expected": ["error TDC285 1:106"]
+    },
+    {
+      "name": "a-drawing-mode-that-is-a-mode",
+      "demonstrates": "",
+      "description": "The other half of the rule: the two words the generator accepts stay accepted.",
+      "config": "<tdc><env count=\"3\" seed=\"s\" local=\"en\"><sequence name=\"V\"><gen type=\"pattern\" points=\"0,0 1,5\" mode=\"density\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
+      "expected": []
     }
   ]
 }

@@ -37,14 +37,17 @@ These work on **any** generator (see [Masks & case](../guides/masks-and-case.md#
 - `case=` / `mask=` — letter case and display masks.
 - `missing=` — leave a share of the cells blank.
 
-The next two only work when the generator produces something they can act on. Everywhere
-else they're ignored:
+The next two only work when the generator produces something they can act on — and they
+part ways on what happens elsewhere: `order=`/`cycle=` are REFUSED, `anomaly=` is about the
+value rather than the generator:
 
 - `order=` / `cycle=` — value order: random by default, or `sequential`. Ordering walks
-  something, so it applies to [`text`](../generators/text.md#top),
+  something, so exactly three generators read it: [`text`](../generators/text.md#top),
   [`file`](../generators/file.md#top) and [`date`](../generators/date.md#top) — a date range is
-  walked a step at a time. A [`number`](../generators/number.md#top) draws from a range and
-  has no order to walk, so it is refused there ([TDC015](errors.md#top)).
+  walked a step at a time. **On every other type it is refused** ([TDC015](errors.md#top)),
+  not ignored: a [`number`](../generators/number.md#top) draws from a range and has no order
+  to walk, and neither has a regex, a template, a symbol, a counter, a drawing, a series
+  or a statistic.
 - `anomaly=` — push a share of the values out of range by multiplying them. The rule is
   about the **value**, not the generator: anything that reads as a number is multiplied,
   including a numeric string from [`text`](../generators/text.md#top),

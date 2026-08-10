@@ -88,9 +88,9 @@ So `uniq` lands on two different engines depending on how it is written:
 | :----------------------------------------------------------------------- | :------------ | :----------------- |
 | `uniq="true"` on one drawn column — `text`, `number`, `date`, `template` | in-memory     | grows with `count` |
 | `uniq="true"` on a column composed of a drawn part and `<data>` literals | in-memory     | grows with `count` |
-| `uniq="true"` on a [counter](../generators/counters.mdx)                 | in-memory     | grows with `count` |
+| `uniq="true"` on a [counter](../generators/counters.mdx)                 | exact on-disk | bounded at ~1 GB   |
 | `uniq="true"` on a compound sequence (named `<gen>` fields)              | exact on-disk | bounded at ~1 GB   |
-| An env-level [`<uniq>`](../constructs/unique-values.mdx) group           | in-memory     | grows with `count` |
+| An env-level [`<uniq>`](../constructs/unique-values.mdx) group           | exact on-disk | bounded at ~1 GB   |
 
 **No form of `uniq` runs on the fast streaming engine.** It refuses `uniq` by name, so a
 config that asked for streaming is told rather than handed data that quietly repeats:

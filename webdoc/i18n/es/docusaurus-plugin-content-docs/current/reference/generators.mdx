@@ -32,14 +32,18 @@ Estos funcionan con **cualquier** generador (vea [Máscaras y mayúsculas](../gu
 - `case=` / `mask=` — mayúsculas/minúsculas y máscaras de despliegue;
 - `missing=` — deja en blanco una parte de las celdas.
 
-Estos dos necesitan que el generador produzca algo sobre lo que puedan actuar, y en
-los demás casos se ignoran:
+Estos dos necesitan que el generador produzca algo sobre lo que puedan actuar, y a
+partir de ahí se separan: `order=`/`cycle=` se RECHAZAN en los demás casos, mientras que
+`anomaly=` mira el valor y no el generador:
 
 - `order=` / `cycle=` — orden de los valores (aleatorio por omisión, o `sequential`).
-  Recorre algo, así que aplica a [`text`](../generators/text.mdx),
-  [`file`](../generators/file.mdx) y [`date`](../generators/date.mdx) — un rango de
-  fechas se recorre paso a paso. [`number`](../generators/number.mdx) toma su valor de un
-  rango y no tiene nada que recorrer, así que allí se rechaza ([TDC015](errors.mdx)).
+  Recorre algo, así que lo leen exactamente tres generadores:
+  [`text`](../generators/text.mdx), [`file`](../generators/file.mdx) y
+  [`date`](../generators/date.mdx) — un rango de fechas se recorre paso a paso. **En
+  cualquier otro tipo se rechaza** ([TDC015](errors.mdx)), no se ignora:
+  [`number`](../generators/number.mdx) toma su valor de un rango y no tiene nada que
+  recorrer, y lo mismo vale para una expresión regular, una plantilla, un símbolo, un
+  contador, un dibujo, una serie o un estadístico.
 - `anomaly=` — empuja una parte de los valores fuera del rango multiplicándolos. La
   regla es sobre el **valor**, no sobre el generador: se multiplica todo lo que se lea
   como número, incluida una cadena numérica de [`text`](../generators/text.mdx),

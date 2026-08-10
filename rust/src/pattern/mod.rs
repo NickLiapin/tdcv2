@@ -441,7 +441,7 @@ pub fn read_mode(raw: &str) -> EngineResult<String> {
     Ok(v)
 }
 
-fn read_spread(raw: &str) -> EngineResult<f64> {
+pub fn read_spread(raw: &str) -> EngineResult<f64> {
     if raw.trim().is_empty() {
         return Ok(0.0);
     }
@@ -451,7 +451,7 @@ fn read_spread(raw: &str) -> EngineResult<f64> {
     }
 }
 
-fn read_decimals(raw: &str) -> EngineResult<usize> {
+pub fn read_decimals(raw: &str) -> EngineResult<usize> {
     if raw.trim().is_empty() {
         return Ok(0);
     }

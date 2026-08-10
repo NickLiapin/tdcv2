@@ -418,7 +418,7 @@ public sealed class PatternGen
         return v;
     }
 
-    private static double Spread(IReadOnlyDictionary<string, string> attrs)
+    internal static double Spread(IReadOnlyDictionary<string, string> attrs)
     {
         string? raw = attrs.GetValueOrDefault("spread");
         if (string.IsNullOrWhiteSpace(raw))
@@ -435,7 +435,7 @@ public sealed class PatternGen
         return s;
     }
 
-    private static int DecimalsOf(IReadOnlyDictionary<string, string> attrs)
+    internal static int DecimalsOf(IReadOnlyDictionary<string, string> attrs)
     {
         string? raw = attrs.GetValueOrDefault("decimals");
         if (string.IsNullOrWhiteSpace(raw))

@@ -77,15 +77,15 @@ cada uno se acumula por su cuenta — un saldo por cuenta y no un saldo por corr
 `./run accounts.tdc`
 
 ```
-A  96.47  96.47
-A  29.18  125.65
-A  91.43  217.08
-B  15.65  15.65
-B  67.87  83.52
-C  48.03  48.03
-C  39.00  87.03
-C  56.04  143.07
-C  78.62  221.69
+A  49.86  49.86
+A  21.54  71.40
+A  35.12  106.52
+B  80.60  80.60
+B  98.09  178.69
+C  33.58  33.58
+C  23.09  56.67
+C  72.74  129.41
+C  94.78  224.19
 ```
 
 Un tramo termina donde el valor de `reset=` **cambia respecto de la fila anterior**, así
@@ -97,7 +97,7 @@ agrupada.
 ## Centavos exactos
 
 La aritmética corre sobre enteros escalados por la fracción más ancha de la columna, nunca
-sobre punto flotante. `96.47 + 29.18` es `125.65` — y es el mismo `125.65` en las cinco
+sobre punto flotante. `49.86 + 21.54` es `71.40` — y es el mismo `71.40` en las cinco
 implementaciones, cosa que un flotante no garantizaría.
 
 `base=` entra en esa misma escala. Una apertura de `1000.00` ensancha toda la columna a

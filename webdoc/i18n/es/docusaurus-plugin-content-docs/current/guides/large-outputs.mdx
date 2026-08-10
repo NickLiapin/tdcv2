@@ -92,9 +92,9 @@ Así que `uniq` cae en dos motores distintos según cómo esté escrito:
 | :----------------------------------------------------------------------------------- | :-------------- | :---------------- |
 | `uniq="true"` sobre una sola columna sorteada — `text`, `number`, `date`, `template` | en memoria      | crece con `count` |
 | `uniq="true"` sobre una columna hecha de una parte sorteada y literales `<data>`     | en memoria      | crece con `count` |
-| `uniq="true"` sobre un [contador](../generators/counters.mdx)                        | en memoria      | crece con `count` |
+| `uniq="true"` sobre un [contador](../generators/counters.mdx)                        | exacto en disco | acotada en ~1 GB  |
 | `uniq="true"` sobre una secuencia compuesta (campos `<gen>` con nombre)              | exacto en disco | acotada en ~1 GB  |
-| Un grupo [`<uniq>`](../constructs/unique-values.mdx) a nivel de env                  | en memoria      | crece con `count` |
+| Un grupo [`<uniq>`](../constructs/unique-values.mdx) a nivel de env                  | exacto en disco | acotada en ~1 GB  |
 
 **Ninguna forma de `uniq` corre en el motor rápido de streaming.** Rechaza `uniq` por su
 nombre, así que a una configuración que pidió streaming se le dice, en vez de entregarle

@@ -62,7 +62,15 @@ page — is tracked in that implementation's own changelog:
 
 ### Fixed
 
-<!-- covers: secret anomaly_flag group filter parent value -->
+<!-- covers: secret anomaly_flag group filter parent value mode interp spread decimals -->
+
+- `check` answered "would this run?" everywhere except one generator. A drawing's `mode=`,
+  `interp=`, `spread=` and `decimals=` were read only at render time, so `check` called
+  `mode="banana"` valid and exited 0, and the run then refused it with a bare sentence
+  carrying no TDC code — in the one command the docs sell for CI. TDC285 now checks all four
+  before the run in all five implementations, and the validator calls the GENERATOR's own
+  parsers rather than repeating their rules: a second copy of "linear, smooth or step" is a
+  second thing to keep in step, and drifting apart is the failure being closed.
 
 - The two numbers a service recomputes were pinned by value in one or two implementations
   and nowhere else. The signature lived in Rust and C#; the derived `X-TDC-Seed` lived in

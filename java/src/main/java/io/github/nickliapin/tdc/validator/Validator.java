@@ -2643,6 +2643,31 @@ public final class Validator {
         return;
       }
     }
+    // `mode=`, `interp=`, `spread=` and `decimals=` — the four drawing attributes whose value
+    // is a fixed word or a number. They used to be read only by the generator, so `check`
+    // called mode="banana" valid and the run then refused it with a bare sentence and no code.
+    // The GENERATOR's own readers are called here rather than their rules repeated: a second
+    // copy is a second thing to keep in step, and drifting apart is the failure being closed.
+    if ("pattern".equals(type)) {
+      for (String name : List.of("mode", "interp", "spread", "decimals")) {
+        if (attrs.get(name) == null) {
+          continue;
+        }
+        try {
+          switch (name) {
+            case "mode" -> io.github.nickliapin.tdc.pattern.PatternGen.mode(attrs.get(name));
+            case "interp" -> io.github.nickliapin.tdc.pattern.PatternGen.interp(attrs.get(name));
+            case "spread" -> io.github.nickliapin.tdc.pattern.PatternGen.spread(attrs);
+            default -> io.github.nickliapin.tdc.pattern.PatternGen.decimals(attrs);
+          }
+        } catch (RuntimeException e) {
+          error("TDC285", e.getMessage(),
+              "Every drawing attribute is checked before the run, so `check` and the run agree.",
+              at(gen, name)[0], at(gen, name)[1]);
+        }
+      }
+    }
+
     String src = attrs.get("src");
     if (src == null || src.isBlank()) {
       return;

@@ -495,7 +495,7 @@ export function asDensity(pg: PatternGen): PatternGen {
   return { kind: 'density', density: buildDensity(curve) };
 }
 
-function decimalsFromAttrs(attrs: Record<string, string | undefined>): number {
+export function decimalsFromAttrs(attrs: Record<string, string | undefined>): number {
   const raw = attrs['decimals'];
   const decimals = raw === undefined || raw.trim() === '' ? 0 : Number(raw);
   if (!Number.isInteger(decimals) || decimals < 0) {

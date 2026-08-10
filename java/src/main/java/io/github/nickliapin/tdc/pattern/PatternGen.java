@@ -331,7 +331,7 @@ public final class PatternGen {
     }
   }
 
-  static Curve.Interp interp(String raw) {
+  public static Curve.Interp interp(String raw) {
     if (raw == null || raw.isBlank()) {
       return Curve.Interp.LINEAR;
     }
@@ -344,7 +344,7 @@ public final class PatternGen {
     };
   }
 
-  static String mode(String raw) {
+  public static String mode(String raw) {
     if (raw == null || raw.isBlank()) {
       return "signal";
     }
@@ -356,7 +356,7 @@ public final class PatternGen {
     return v;
   }
 
-  private static double spread(Map<String, String> attrs) {
+  public static double spread(Map<String, String> attrs) {
     String raw = attrs.get("spread");
     if (raw == null || raw.isBlank()) {
       return 0;
@@ -372,7 +372,7 @@ public final class PatternGen {
     }
   }
 
-  private static int decimals(Map<String, String> attrs) {
+  public static int decimals(Map<String, String> attrs) {
     String raw = attrs.get("decimals");
     if (raw == null || raw.isBlank()) {
       return 0;
