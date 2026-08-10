@@ -46,6 +46,7 @@ import { permute, permuteKey } from '../prng/permute.js';
 import { anomalyFlagSequence, missingAnomalyMod, type RawAt } from './stream-anomaly.js';
 import { buildMixSeq } from './stream-mix.js';
 import { lazy } from './stream-lazy.js';
+import { redrawUntilFresh } from './repeat-distinct.js';
 import { poolRefName } from './pool.js';
 import { lazyPoolRefColumns } from './pool-ref.js';
 import { createPrng } from '../prng/prng.js';
@@ -68,6 +69,7 @@ import {
   joinPartsOpt,
   parseRepeat,
   planRepeat,
+  drawDistinct,
   repeatLengthPercents,
   withoutRepeat,
 } from './repeat.js';
@@ -829,6 +831,25 @@ function buildValueSequence(
           const p = repeatPosAt(i);
           if (p === undefined || !repeatPlan) return undefined;
           const keep = repeatPlan.lengthAt(p);
+          // `distinct` cannot read a pre-laid-out slot — a row that must not
+          // repeat itself has to CHOOSE. One uniform per pick off the row's own
+          // `#dist` stream, budgeted at the maximum length, so the row still
+          // resolves alone and the memory engine lands on the same values.
+          if (genRepeat.distinct) {
+            const draws = seekableUniforms(seed, `${streamId}#dist`, i, genRepeat.max);
+            let k = 0;
+            const picked = drawDistinct(
+              values,
+              percents,
+              keep,
+              () => draws[k++] ?? 1,
+              () => 'the value list',
+            );
+            return joinParts(
+              picked.map((raw, at) => (mod ? mod(i, raw, at) : raw) ?? ''),
+              genRepeat,
+            );
+          }
           const parts: string[] = [];
           for (let k = 0; k < keep; k++) {
             const slot = slotAt(i, k);
@@ -914,14 +935,32 @@ function buildValueSequence(
       return out;
     };
     const flagName = gen.attrs['anomaly_flag'];
-    const sequence = lazy(streamId, (i) =>
-      joinPartsOpt(
-        perElement(i, (k) =>
-          resolveGenValueAt(single, i, seed, `${streamId}#e${String(k)}`, locale, now, options),
-        ),
+    // A drawn generator has no pool to draw down, so `distinct` is rejection
+    // sampling on fresh sub-streams — the same ids the memory engine uses, so
+    // the two agree value for value.
+    const drawAt = (i: number, k: number, suffix: string): string =>
+      resolveGenValueAt(
+        single,
+        i,
+        seed,
+        `${streamId}#e${String(k)}${suffix}`,
+        locale,
+        now,
+        options,
+      );
+    const sequence = lazy(streamId, (i) => {
+      const seen: string[] = [];
+      return joinPartsOpt(
+        perElement(i, (k) => {
+          const value = genRepeat.distinct
+            ? redrawUntilFresh(seen, gen.type, (suffix) => drawAt(i, k, suffix))
+            : drawAt(i, k, '');
+          seen.push(value);
+          return value;
+        }),
         genRepeat,
-      ),
-    );
+      );
+    });
     if (flagName === undefined || flagName.trim() === '' || !parseAnomaly(gen.attrs)) {
       return { sequence };
     }

@@ -32,7 +32,23 @@ export interface RepeatSpec {
   readonly separator: string;
   /** `accumulate=`: the list is replaced by its running total before joining. */
   readonly accumulate?: AccumulateOp | undefined;
+  /**
+   * `distinct=`: the row's values are drawn WITHOUT replacement, so a cell
+   * cannot hold the same value twice.
+   *
+   * This changes the regime the column is built in, which is the whole reason
+   * `percent` is refused beside it. Ordinarily a listed column lays its values
+   * out over the entire run as an exact quota; under `distinct` it draws per
+   * row instead, because keeping an exact whole-run quota AND a per-row
+   * guarantee at once costs either streaming or the randomness of the sample.
+   * The trade is deliberate: frequencies stay approximate, rows stay
+   * independent, and `--jobs` keeps working.
+   */
+  readonly distinct?: boolean | undefined;
 }
+
+/** Bounded retries before a `distinct` draw admits it cannot find a fresh value. */
+export const DISTINCT_MAX_TRIES = 64;
 
 export class RepeatError extends Error {
   public override readonly name = 'RepeatError';
@@ -98,7 +114,76 @@ export function parseRepeat(attrs: Record<string, string | undefined>): RepeatSp
     max,
     separator: attrs['separator'] ?? DEFAULT_SEPARATOR,
     accumulate: readAccumulate(attrs),
+    distinct: readDistinct(attrs),
   };
+}
+
+/** `distinct="true"`. Anything other than the two words is refused by the validator. */
+export function readDistinct(attrs: Record<string, string | undefined>): boolean {
+  return (attrs['distinct'] ?? '').trim() === 'true';
+}
+
+/**
+ * Draw `keep` DIFFERENT values from a weighted list, using one uniform per
+ * attempt off the row's own stream.
+ *
+ * Weights survive — a frequent name is still more likely to be picked first —
+ * but the exact whole-run quota does not, which is the documented price of
+ * `distinct` and the reason `percent` may not appear beside it.
+ *
+ * The caller has already been told (by the validator) that the pool is big
+ * enough, so running out here means a pool that only became known at run time.
+ * That case throws rather than returning a short list: a list quietly shorter
+ * than `repeat` asked for is exactly the silent-and-wrong outcome this whole
+ * feature exists to prevent.
+ */
+export function drawDistinct(
+  values: readonly string[],
+  weights: readonly number[],
+  keep: number,
+  nextUniform: () => number,
+  describePool: () => string,
+): string[] {
+  if (keep > values.length) {
+    throw new RepeatError(
+      `repeat with distinct="true" asks for ${String(keep)} different values, but ${describePool()} holds only ${String(values.length)}`,
+    );
+  }
+
+  // Weighted draw without replacement: pick against the remaining weight, then
+  // remove the winner. Swap-with-last keeps it linear per pick without
+  // disturbing determinism, because the order of the remaining candidates is a
+  // pure function of the picks already made.
+  const pool = values.slice();
+  const w =
+    weights.length === values.length ? weights.slice() : new Array<number>(values.length).fill(1);
+  let total = 0;
+  for (const x of w) total += x > 0 ? x : 0;
+
+  const out: string[] = [];
+  for (let picked = 0; picked < keep; picked++) {
+    const size = pool.length - picked;
+    let index = size - 1;
+    if (total > 0) {
+      let target = nextUniform() * total;
+      for (let i = 0; i < size; i++) {
+        target -= Math.max(0, w[i] ?? 0);
+        if (target < 0) {
+          index = i;
+          break;
+        }
+      }
+    } else {
+      index = Math.min(size - 1, Math.floor(nextUniform() * size));
+    }
+    out.push(pool[index] ?? '');
+    total -= Math.max(0, w[index] ?? 0);
+    const last = size - 1;
+    pool[index] = pool[last] ?? '';
+    w[index] = w[last] ?? 0;
+    pool[last] = out[out.length - 1] ?? '';
+  }
+  return out;
 }
 
 /**

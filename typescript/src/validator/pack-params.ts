@@ -46,6 +46,7 @@ const GEN_ATTRIBUTES: ReadonlySet<string> = new Set([
   'comment',
   'count',
   'cycle',
+  'distinct',
   'flag',
   'if',
   'local',

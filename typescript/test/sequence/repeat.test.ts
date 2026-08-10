@@ -26,11 +26,21 @@ describe('parseRepeat', () => {
   });
 
   it('reads a fixed count', () => {
-    expect(parseRepeat({ repeat: '3' })).toEqual({ min: 3, max: 3, separator: ',' });
+    expect(parseRepeat({ repeat: '3' })).toEqual({
+      min: 3,
+      max: 3,
+      separator: ',',
+      distinct: false,
+    });
   });
 
   it('reads a range, tolerating spaces', () => {
-    expect(parseRepeat({ repeat: ' 1 .. 5 ' })).toEqual({ min: 1, max: 5, separator: ',' });
+    expect(parseRepeat({ repeat: ' 1 .. 5 ' })).toEqual({
+      min: 1,
+      max: 5,
+      separator: ',',
+      distinct: false,
+    });
   });
 
   it('allows 0 as a minimum (an empty list is a real value)', () => {

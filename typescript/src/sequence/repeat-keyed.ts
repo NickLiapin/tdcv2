@@ -21,7 +21,14 @@ import { seekableGen, seekableUniforms } from '../prng/seekable.js';
 import { buildGenValues } from './build.js';
 import type { SequenceBuildContext } from './context.js';
 import { absoluteRow } from './per-row.js';
-import { joinParts, planRepeat, type RepeatSpec, repeatLengthPercents } from './repeat.js';
+import { redrawUntilFresh } from './repeat-distinct.js';
+import {
+  drawDistinct,
+  joinParts,
+  planRepeat,
+  type RepeatSpec,
+  repeatLengthPercents,
+} from './repeat.js';
 import type { GenSpec } from './types.js';
 
 /** The same gen with `repeat` removed, so the per-element build cannot re-apply it. */
@@ -72,8 +79,15 @@ export function buildKeyedRepeatDraws(
     const marks: string[] = [];
     for (let k = 0; k < keep; k++) {
       const flags: string[] | undefined = flagTextOut ? [] : undefined;
-      const draw = seekableGen(seed, `${streamId}#e${String(k)}`, row);
-      parts.push(buildGenValues(single, 1, draw, locale, now, ctx, flags)[0] ?? '');
+      // A drawn generator has no pool to draw down, so `distinct` is rejection
+      // sampling on fresh sub-streams — the shared helper, so this engine and
+      // the streaming one run the identical loop over identical stream ids.
+      const drawAt = (suffix: string): string => {
+        const draw = seekableGen(seed, `${streamId}#e${String(k)}${suffix}`, row);
+        return buildGenValues(single, 1, draw, locale, now, ctx, flags)[0] ?? '';
+      };
+      const value = spec.distinct ? redrawUntilFresh(parts, gen.type, drawAt) : drawAt('');
+      parts.push(value);
       if (flags) marks.push(flags[0] ?? 'false');
     }
     out[i] = joinParts(parts, spec);
@@ -120,16 +134,37 @@ export function buildKeyedRepeatLayout(
     return values[lo] ?? '';
   };
 
+  // `distinct` leaves the whole-run layout behind: a row that must not repeat
+  // itself has to CHOOSE from the pool, and a choice cannot be read off a
+  // pre-laid-out slot. One uniform per pick, off the row's own stream, with the
+  // budget fixed at the maximum length so the row still resolves alone.
+  const distinctAt = spec.distinct
+    ? keyedElementUniforms(seed, streamId, '#dist', spec.max)
+    : undefined;
+
   const out = new Array<string>(count);
   for (let i = 0; i < count; i++) {
     const p = positionAt(i);
     const row = absoluteRow(ctx, i);
     const start = plan.slotStartAt(p);
     const keep = plan.lengthAt(p);
-    const parts: string[] = [];
-    for (let k = 0; k < keep; k++) {
-      const raw = valueForSlot(permute(start + k, slotCount, key));
-      parts.push(modify ? modify(row, raw, k) : raw);
+    let parts: string[];
+    if (distinctAt) {
+      let k = 0;
+      parts = drawDistinct(
+        values,
+        percents,
+        keep,
+        () => distinctAt(row, k++),
+        () => 'the value list',
+      );
+      if (modify) parts = parts.map((raw, at) => modify(row, raw, at));
+    } else {
+      parts = [];
+      for (let k = 0; k < keep; k++) {
+        const raw = valueForSlot(permute(start + k, slotCount, key));
+        parts.push(modify ? modify(row, raw, k) : raw);
+      }
     }
     out[i] = joinParts(parts, spec);
   }

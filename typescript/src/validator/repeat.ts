@@ -67,6 +67,8 @@ export function checkGenRepeat(
     }
   }
 
+  checkDistinct(attrs, attrMap, repeatAttr, diagnostics);
+
   if (!repeatAttr) {
     if (separatorAttr) {
       diagnostics.push({
@@ -116,6 +118,118 @@ export function checkGenRepeat(
       code: 'TDC204',
     });
   }
+}
+
+/**
+ * `distinct="true"` — the row's values are drawn without replacement.
+ *
+ * Three refusals, and each one is a proof rather than a guess. They exist
+ * because the alternative in every case is a config that says something and
+ * silently gets something else.
+ */
+function checkDistinct(
+  attrs: readonly AttrContext[],
+  attrMap: Record<string, string>,
+  repeatAttr: AttrContext | undefined,
+  diagnostics: Diagnostic[],
+): void {
+  const distinctAttr = findAttr(attrs, 'distinct');
+  if (!distinctAttr) return;
+
+  const raw = (attrMap['distinct'] ?? '').trim();
+  if (raw !== 'true' && raw !== 'false') {
+    diagnostics.push({
+      severity: 'error',
+      source: 'validator',
+      ...attrValueRange(distinctAttr),
+      message: `"distinct" takes true or false, not "${raw}"`,
+      hint: 'distinct="true" draws a repeat list without replacement. Omit it, or write distinct="false".',
+      code: 'TDC289',
+    });
+    return;
+  }
+  if (raw === 'false') return;
+
+  // One value cannot repeat itself, so the attribute would be read and then do
+  // nothing — the accepted-and-ignored failure this project keeps closing.
+  if (!repeatAttr) {
+    diagnostics.push({
+      severity: 'error',
+      source: 'validator',
+      ...attrValueRange(distinctAttr),
+      message: '"distinct" has no effect without "repeat"',
+      hint:
+        'distinct= stops one cell holding the same value twice, so there has to be a list. ' +
+        'Add repeat="N" or repeat="A..B", or drop distinct=.',
+      code: 'TDC290',
+    });
+    return;
+  }
+
+  // `percent` is an EXACT quota over the whole run; `distinct` is a guarantee
+  // inside one row. Holding both would cost either streaming or the randomness
+  // of the sample, so the pair is refused and the user is pointed at the
+  // construct that does express proportions over lists.
+  const percentAttr = findAttr(attrs, 'percent');
+  if (percentAttr) {
+    diagnostics.push({
+      severity: 'error',
+      source: 'validator',
+      ...attrValueRange(percentAttr),
+      message: '"percent" and "distinct" cannot both be on one <gen>',
+      hint:
+        'percent= promises exact proportions across the whole run; distinct= trades that promise ' +
+        'away for a guarantee inside each row, so the two cannot both hold. Drop one — or put the ' +
+        'proportions on a <mix> or <switch> outside, with repeat= on the <gen> inside.',
+      code: 'TDC291',
+    });
+  }
+
+  // The pool is only knowable up front for the types that carry it in the
+  // config. Where it is not — a pack file, a regex — the same refusal fires at
+  // run time instead, so a passing `check` never turns into a mid-run death.
+  const pool = poolSizeFromConfig(attrMap);
+  let longest: number | undefined;
+  try {
+    longest = parseRepeat(attrMap)?.max;
+  } catch {
+    return; // A malformed repeat= is already reported as TDC195.
+  }
+  if (pool !== undefined && longest !== undefined && longest > pool) {
+    diagnostics.push({
+      severity: 'error',
+      source: 'validator',
+      ...attrValueRange(repeatAttr),
+      message: `"repeat" asks for up to ${String(longest)} different values, but the list holds only ${String(pool)}`,
+      hint: `With distinct="true" a value cannot be used twice in one cell, so ${String(longest)} of them cannot be found. Lower repeat=, or widen value=.`,
+      code: 'TDC292',
+    });
+  }
+}
+
+/**
+ * How many different values this generator can offer, when the config alone
+ * says so. `undefined` means "not knowable here" — never a guess.
+ */
+function poolSizeFromConfig(attrMap: Record<string, string>): number | undefined {
+  const value = (attrMap['value'] ?? '').trim();
+  if (value === '') return undefined;
+  const type = attrMap['type'] ?? '';
+
+  if (type === 'text') return new Set(value.split(',').map((v) => v.trim())).size;
+
+  if (type === 'number') {
+    const dots = value.indexOf('..');
+    if (dots < 0) return undefined;
+    const lo = Number(value.slice(0, dots).trim());
+    const hi = Number(value.slice(dots + 2).trim());
+    // Only whole-number ranges have a countable pool; `1.0..2.0` does not.
+    if (!Number.isSafeInteger(lo) || !Number.isSafeInteger(hi) || hi < lo) return undefined;
+    if ((attrMap['decimals'] ?? '').trim() !== '') return undefined;
+    return hi - lo + 1;
+  }
+
+  return undefined;
 }
 
 /**
