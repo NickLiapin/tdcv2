@@ -108,13 +108,7 @@ export function checkEnvUniqCapacity(
     }
 
     if (count > ceiling) {
-      throw new Error(
-        uniqGroupMessage(
-          group.join(' × '),
-          count,
-          ceiling,
-        ),
-      );
+      throw new Error(uniqGroupMessage(group.join(' × '), count, ceiling));
     }
   }
 }

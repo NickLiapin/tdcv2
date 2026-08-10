@@ -16,6 +16,9 @@ export default tseslint.config(
       // Written by scripts/generate-quick-types.mjs: 3957 addresses, one
       // property each. Nothing in it is a style decision.
       '**/quick/addresses.ts',
+      // Written by scripts/generate-examples.mjs from data/examples — three
+      // worked example files as one string constant each.
+      '**/cli/examples.generated.ts',
       'eslint.config.mjs',
       // The one file here that is deliberately CommonJS: what a `require()`
       // reaches so it gets an explanation instead of Node's confusing
@@ -25,7 +28,13 @@ export default tseslint.config(
       // The types the require() side gets. Not part of the compiled sources — it
       // describes what require() DOES (throw), so the project service has no
       // tsconfig that owns it.
-      'esm-only.d.cts',
+      //
+      // `**/` is load-bearing. lint-staged runs eslint from the REPO ROOT with
+      // --config typescript/eslint.config.mjs, so a bare `esm-only.d.cts`
+      // resolves against the root and matches nothing — the ignore looked
+      // present and did nothing. It only surfaced when prettier reformatted the
+      // file and the hook linted it for the first time.
+      '**/esm-only.d.cts',
     ],
   },
   eslint.configs.recommended,

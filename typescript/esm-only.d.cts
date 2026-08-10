@@ -14,7 +14,6 @@
 // message: reaching for anything on it fails at compile time with the sentence a
 // reader needs.
 
-declare const tdcv2IsEsmOnly:
-  'tdcv2 is an ES module: use `import { TDC } from "tdcv2"`, or `await import("tdcv2")` from CommonJS';
+declare const tdcv2IsEsmOnly: 'tdcv2 is an ES module: use `import { TDC } from "tdcv2"`, or `await import("tdcv2")` from CommonJS';
 
 export = tdcv2IsEsmOnly;

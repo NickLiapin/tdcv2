@@ -9,3 +9,11 @@ src/generated/
 
 # Dependencies
 node_modules/
+
+# Generated files, listed here rather than only in the repo-root .prettierignore.
+# `format:check` runs `prettier --check .` from INSIDE this folder, so prettier
+# reads this file and never looks at the root one — which is why CI was red on a
+# rule the root ignore appeared to cover. Keep both in step, or delete the root
+# entries; do not assume one covers the other.
+src/quick/addresses.ts
+src/cli/examples.generated.ts
