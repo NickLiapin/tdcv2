@@ -17,6 +17,7 @@
 import {
   closeSync,
   openSync,
+  existsSync,
   readFileSync,
   realpathSync,
   renameSync,
@@ -302,6 +303,21 @@ function parseMode(value: string): 'memory' | 'disk' {
   throw new Error(`invalid --mode "${value}" — expected "memory" or "disk"`);
 }
 
+/**
+ * What to say when the config named on the command line is not there.
+ *
+ * Byte-identical in all five, because it is the same command with five front
+ * ends and a reader who hits it in one must not get less help in the next.
+ */
+export function missingConfigMessage(file: string): string {
+  return (
+    `tdcv2: no config file at "${file}"\n` +
+    `\n` +
+    `  \`tdcv2 init\` writes a config and three worked examples into this folder,\n` +
+    `  then prints the command that runs the first one.\n`
+  );
+}
+
 export async function main(argv: readonly string[]): Promise<number> {
   if (argv[0] === 'check') return runCheck(argv.slice(1));
   if (argv[0] === 'format') return runFormat(argv.slice(1));
@@ -341,6 +357,17 @@ export async function main(argv: readonly string[]): Promise<number> {
   // Captured before the merge below reassigns `args` (which would lose the
   // narrowing that `input` is non-undefined here).
   const inputFile = args.input;
+
+  // Checked here rather than left to the reader, because this is the first
+  // error a newcomer can hit and it used to be the worst one in the product:
+  // a raw `ENOENT: no such file or directory` with no code, no hint and no
+  // mention of the command that would have created something to run. Every
+  // documented first command named a file the docs created a hundred lines
+  // later, so the very first thing a reader typed produced it.
+  if (!existsSync(inputFile)) {
+    process.stderr.write(missingConfigMessage(inputFile));
+    return 1;
+  }
 
   // The config cascade (global → project → --flags) is folded in by `TDC`
   // itself, not here, so that the library and `tdcv2 check` see the project's

@@ -261,7 +261,10 @@
       "name": "a file that is not there exits 1 rather than crashing",
       "argv": ["{dir}/nope.tdc"],
       "exit": 1,
-      "stderrContains": ["tdcv2:"]
+      "stderrContains": [
+        "tdcv2: no config file at \"",
+        "`tdcv2 init` writes a config and three worked examples into this folder,"
+      ]
     },
     {
       "name": "check on a valid config exits 0 and writes nothing to stdout",

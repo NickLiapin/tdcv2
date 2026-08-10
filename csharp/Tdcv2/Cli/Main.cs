@@ -137,8 +137,28 @@ See https://github.com/NickLiapin/tdcv2 for the DSL reference.
         return Generate(options, stdout, stderr);
     }
 
+    /// <summary>What to say when the config named on the command line is not there.</summary>
+    /// <remarks>
+    /// Byte-identical in all five: it is one command with five front ends, and a reader who
+    /// hits this in one must not get less help in the next.
+    /// </remarks>
+    internal static string MissingConfigMessage(string file) =>
+        $"tdcv2: no config file at \"{file}\"\n\n" +
+        "  `tdcv2 init` writes a config and three worked examples into this folder,\n" +
+        "  then prints the command that runs the first one.\n";
+
     private static int Generate(Args.Options options, TextWriter stdout, TextWriter stderr)
     {
+        // Checked here rather than left to the reader: this is the first error a newcomer can
+        // hit and it used to be the worst one in the product — a raw "Could not find file" with
+        // no code, no hint and no mention of the command that would have created something to
+        // run.
+        if (options.Input is not null && !File.Exists(options.Input))
+        {
+            stderr.Write(MissingConfigMessage(options.Input));
+            return 1;
+        }
+
         Tdc data;
         try
         {

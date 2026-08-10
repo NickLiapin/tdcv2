@@ -192,12 +192,15 @@ describe('CLI — rendering', () => {
     expect(stderrBuf).toContain('aborted:');
   });
 
-  it('runtime file errors exit 1 with a concise CLI error', async () => {
+  it('a config that is not there names the command that would create one', async () => {
     const missing = join(tmpdir(), `tdc-missing-${String(Date.now())}.xml`);
     const code = await main([missing]);
     expect(code).toBe(1);
-    expect(stderrBuf).toContain('tdcv2:');
-    expect(stderrBuf).toContain('ENOENT');
+    // This used to assert the raw `ENOENT` the host runtime threw — the test
+    // pinned the worst message in the product in place. It is the first error a
+    // newcomer can hit, so it now names the command that writes something to run.
+    expect(stderrBuf).toContain('tdcv2: no config file at');
+    expect(stderrBuf).toContain('`tdcv2 init` writes a config');
   });
 });
 

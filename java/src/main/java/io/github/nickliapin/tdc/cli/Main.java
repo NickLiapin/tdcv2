@@ -129,7 +129,27 @@ public final class Main {
     return generate(options);
   }
 
+  /**
+   * What to say when the config named on the command line is not there.
+   *
+   * <p>Byte-identical in all five: it is one command with five front ends, and a reader who
+   * hits this in one must not get less help in the next.
+   */
+  static String missingConfigMessage(String file) {
+    return "tdcv2: no config file at \"" + file + "\"\n\n"
+        + "  `tdcv2 init` writes a config and three worked examples into this folder,\n"
+        + "  then prints the command that runs the first one.\n";
+  }
+
   private static int generate(Args.Options options) {
+    // Checked here rather than left to the reader: this is the first error a newcomer can hit
+    // and it used to be the worst one in the product — a bare "cannot read config" with no
+    // code, no hint and no mention of the command that would have created something to run.
+    if (options.input() != null && !java.nio.file.Files.exists(java.nio.file.Path.of(options.input()))) {
+      System.err.print(missingConfigMessage(options.input()));
+      return 1;
+    }
+
     TDC data;
     try {
       TDC.Options built = TDC.options().configFile(options.input());

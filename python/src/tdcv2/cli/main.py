@@ -125,8 +125,31 @@ def cli() -> None:
     raise SystemExit(main())
 
 
+MISSING_CONFIG_HINT = (
+    "  `tdcv2 init` writes a config and three worked examples into this folder,\n"
+    "  then prints the command that runs the first one.\n"
+)
+
+
+def _missing_config(path: str) -> str:
+    """What to say when the config named on the command line is not there.
+
+    Byte-identical in all five: it is one command with five front ends, and a reader who
+    hits this in one must not get less help in the next.
+    """
+    return f'tdcv2: no config file at "{path}"\n\n' + MISSING_CONFIG_HINT
+
+
 def _generate(options: Options) -> int:
     from ..tdc import TDC
+
+    # Checked here rather than left to the reader: this is the first error a newcomer can
+    # hit and it used to be the worst one in the product — a raw "[Errno 2] No such file"
+    # with no code, no hint and no mention of the command that would have created
+    # something to run.
+    if options.input and not Path(options.input).exists():
+        sys.stderr.write(_missing_config(options.input))
+        return 1
 
     try:
         data = TDC(

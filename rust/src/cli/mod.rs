@@ -112,12 +112,31 @@ pub fn run(
     generate(&options, &input, stdout, stderr)
 }
 
+/// What to say when the config named on the command line is not there.
+///
+/// Byte-identical in all five: it is one command with five front ends, and a
+/// reader who hits this in one must not get less help in the next.
+pub fn missing_config_message(file: &str) -> String {
+    format!(
+        "tdcv2: no config file at \"{file}\"\n\n  `tdcv2 init` writes a config and three worked examples into this folder,\n  then prints the command that runs the first one.\n"
+    )
+}
+
 fn generate(
     options: &args::Options,
     input: &str,
     stdout: &mut dyn Write,
     stderr: &mut dyn Write,
 ) -> std::io::Result<i32> {
+    // Checked here rather than left to the reader: this is the first error a
+    // newcomer can hit and it used to be the worst one in the product — a raw
+    // `No such file or directory (os error 2)` with no code, no hint and no
+    // mention of the command that would have created something to run.
+    if !std::path::Path::new(input).exists() {
+        write!(stderr, "{}", missing_config_message(input))?;
+        return Ok(1);
+    }
+
     let built = Options {
         config_file: Some(input.to_string()),
         count: options.count,
