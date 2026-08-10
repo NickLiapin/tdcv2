@@ -23,8 +23,8 @@ A fondo: [El sublenguaje compute](../compute/overview.mdx)
 | [`<str>`](../compute/strings.mdx#str--un-literal-de-string)                | `v=` → `str`               | Un literal de cadena (atributo `v`)                             |
 | [`<list>`](../compute/lists.mdx#list--una-lista-literal-de-valores)        | `v=` o `int…` → `list`     | Una lista literal de enteros, o armada con expresiones anidadas |
 | [`<field>`](../compute/overview.mdx#un-valor-de-un-field-es-un-string)     | `name=` → `str`            | El valor de una secuencia en el ámbito — como `${{X}}`          |
-| [`<use>`](../compute/overview.mdx#let-y-var-no-son-dos-clases-de-variable) | `name=` → `int\|str\|list` | Un valor ligado con `<let>`                                     |
-| [`<let>`](../compute/overview.mdx#let-y-var-no-son-dos-clases-de-variable) | `name=` + 1 → `—`          | Nombra un resultado intermedio para las etiquetas hermanas      |
+| [`<use>`](../compute/overview.mdx#let-nombra-un-valor-una-vez-use-lo-vuelve-a-leer) | `name=` → `int\|str\|list` | Un valor ligado con `<let>`                                     |
+| [`<let>`](../compute/overview.mdx#let-nombra-un-valor-una-vez-use-lo-vuelve-a-leer) | `name=` + 1 → `—`          | Nombra un resultado intermedio para las etiquetas hermanas      |
 | [`<current>`](../compute/lists.mdx#each--mapear-sobre-una-lista)           | → `int\|str`               | El elemento actual de la iteración (dentro de `<do>`)           |
 | [`<current_index>`](../compute/lists.mdx#each--mapear-sobre-una-lista)     | → `int`                    | El índice del elemento actual, desde cero                       |
 | [`<acc>`](../compute/lists.mdx#reduce--plegar-a-un-solo-valor)             | → `int\|str\|list`         | El acumulador (dentro de `<reduce>`)                            |

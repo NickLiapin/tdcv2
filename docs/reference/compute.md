@@ -29,8 +29,8 @@ In depth: [The compute sub-language](../compute/overview.md#top)
 | [`<str>`](../compute/strings.md#str--a-string-literal)                      | `v=` → `str`               | A string literal (attribute `v`)                             |
 | [`<list>`](../compute/lists.md#list--a-literal-list-of-values)              | `v=` or `int…` → `list`    | A literal list of ints, or one built from nested expressions |
 | [`<field>`](../compute/overview.md#a-value-from-a-field-is-a-string)        | `name=` → `str`            | The value of a sequence in scope — the same as `${{X}}`      |
-| [`<use>`](../compute/overview.md#let-and-var-are-not-two-kinds-of-variable) | `name=` → `int\|str\|list` | A value bound by `<let>`                                     |
-| [`<let>`](../compute/overview.md#let-and-var-are-not-two-kinds-of-variable) | `name=` + 1 → `—`          | Name an intermediate result for sibling tags                 |
+| [`<use>`](../compute/overview.md#let-names-a-value-once-use-reads-it-back) | `name=` → `int\|str\|list` | A value bound by `<let>`                                     |
+| [`<let>`](../compute/overview.md#let-names-a-value-once-use-reads-it-back) | `name=` + 1 → `—`          | Name an intermediate result for sibling tags                 |
 | [`<current>`](../compute/lists.md#each--map-over-a-list)                    | → `int\|str`               | The current iteration item (inside `<do>`)                   |
 | [`<current_index>`](../compute/lists.md#each--map-over-a-list)              | → `int`                    | The current item's index, counting from zero                 |
 | [`<acc>`](../compute/lists.md#reduce--fold-to-one-value)                    | → `int\|str\|list`         | The accumulator (inside `<reduce>`)                          |
