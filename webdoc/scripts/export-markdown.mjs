@@ -22,7 +22,7 @@ import { cpSync, existsSync, mkdirSync, readFileSync, readdirSync, rmSync, statS
 import { dirname, join, relative, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-import { TOKENS } from '../plugins/remark-version.mjs';
+import { ISO_UPDATED, TOKENS, spellDate } from '../plugins/remark-version.mjs';
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const WEBSITE = join(HERE, '..');
@@ -281,7 +281,12 @@ function convert(body, page, code) {
   // alone; this is the one rewrite that must reach into it. Both this and the
   // site build read VERSION from the same module, so the copy GitHub renders and
   // the copy the site renders cannot name different numbers.
-  for (const [token, value] of Object.entries(TOKENS)) t = t.split(token).join(value);
+  // The date is the one token whose value depends on the page's language: the
+  // month is spelled out so no reader has to guess whether 08-10 is August or
+  // October, and it is spelled in THEIR language. Without this the exported
+  // Russian mirror said "10 August 2026" while the site said "10 августа".
+  const tokens = { ...TOKENS, '%%TDC_UPDATED%%': spellDate(ISO_UPDATED, code) };
+  for (const [token, value] of Object.entries(tokens)) t = t.split(token).join(value);
 
   // Fenced code next: nothing below may rewrite what a reader will copy.
   t = t.replace(/^(```|~~~)[^\n]*\n[\s\S]*?^\1[ \t]*$/gm, (m) => hold(m));

@@ -98,10 +98,53 @@ function lastUpdated() {
   return new Date().toISOString().slice(0, 10);
 }
 
+/**
+ * The month written out, in the language of the page it lands on.
+ *
+ * `2026-08-10` is only unambiguous to a reader who knows ISO. Everyone else
+ * splits on nationality: an American reads `08/10` as 8 October, a Russian as
+ * 10 August, and neither of them is wrong about their own convention. A month
+ * spelled as a WORD cannot be misread, which is the whole point.
+ *
+ * The names are written out rather than taken from `Intl`, for two reasons that
+ * both bit on the way here: `toLocaleDateString('ru-RU', …)` appends a bare
+ * ` г.`, and `new Date('2026-08-10')` is UTC midnight, so west of Greenwich
+ * `.getDate()` answers 9. The ISO string is split instead of parsed.
+ */
+const MONTHS = {
+  en: ['January', 'February', 'March', 'April', 'May', 'June',
+       'July', 'August', 'September', 'October', 'November', 'December'],
+  ru: ['января', 'февраля', 'марта', 'апреля', 'мая', 'июня',
+       'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря'],
+  es: ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio',
+       'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'],
+};
+
+export function spellDate(iso, locale = 'en') {
+  const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(iso);
+  if (!m) return iso;
+  const [, year, month, day] = m;
+  const names = MONTHS[locale] ?? MONTHS.en;
+  const name = names[Number(month) - 1];
+  const d = String(Number(day)); // no leading zero: "8 August", not "08 August"
+  if (locale === 'es') return `${d} de ${name} de ${year}`;
+  return `${d} ${name} ${year}`;
+}
+
+/** Which translation a file belongs to, read from its path. */
+function localeOf(file) {
+  const path = String(file?.path ?? file?.history?.[0] ?? '');
+  const m = /[/\\]i18n[/\\]([a-z]{2})[/\\]/.exec(path);
+  return m ? m[1] : 'en';
+}
+
+/** The machine form, resolved once; every page spells it in its own language. */
+export const ISO_UPDATED = lastUpdated();
+
 /** Every token the build substitutes, resolved once. */
 export const TOKENS = {
   [TOKEN]: VERSION,
-  '%%TDC_UPDATED%%': lastUpdated(),
+  '%%TDC_UPDATED%%': spellDate(ISO_UPDATED, 'en'),
   ...packCounts(),
 };
 
@@ -109,11 +152,13 @@ export const TOKENS = {
 const CARRIES_TEXT = ['text', 'code', 'inlineCode', 'html', 'yaml'];
 
 export default function remarkVersion() {
-  return (tree) => {
+  return (tree, file) => {
+    // Resolved per file: the same ISO date, spelled in the page's own language.
+    const tokens = { ...TOKENS, '%%TDC_UPDATED%%': spellDate(ISO_UPDATED, localeOf(file)) };
     for (const type of CARRIES_TEXT) {
       visit(tree, type, (node) => {
         if (typeof node.value !== 'string') return;
-        for (const [token, value] of Object.entries(TOKENS)) {
+        for (const [token, value] of Object.entries(tokens)) {
           if (node.value.includes(token)) node.value = node.value.split(token).join(value);
         }
       });
@@ -128,7 +173,7 @@ export default function remarkVersion() {
       if (!Array.isArray(node.attributes)) return;
       for (const attr of node.attributes) {
         if (typeof attr.value !== 'string') continue;
-        for (const [token, value] of Object.entries(TOKENS)) {
+        for (const [token, value] of Object.entries(tokens)) {
           if (attr.value.includes(token)) attr.value = attr.value.split(token).join(value);
         }
       }

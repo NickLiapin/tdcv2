@@ -26,7 +26,7 @@
 > [!IMPORTANT]
 > **Sobre esta documentación**
 >
-> Cubre TDC **0.2.0**, última actualización **2026-08-10** — la fecha del
+> Cubre TDC **0.2.0**, última actualización **10 de agosto de 2026** — la fecha del
 > cambio más reciente en cualquier página, no la fecha en que se compiló este sitio.
 
 TDC genera datos de prueba coherentes dentro de cada registro. En una misma fila, los
