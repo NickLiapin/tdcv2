@@ -335,19 +335,19 @@ export const KNOWN_BLOCK_CHILDREN: readonly string[] = ['line', 'data'] as const
  *
  * Inside a `<sequence>` they group the FIELDS of one record — `<gen>`s. At
  * `<env>` level they group whole COLUMNS, so their members are declarations:
- * sequences, mixes, switches, or a bare `<member name="…"/>` naming one. One
- * list for both refused half the working configs in the suite, which is how
- * this comment came to be written.
+ * sequences, mixes and switches. One list for both refused half the working
+ * configs in the suite, which is how this comment came to be written.
+ *
+ * A `<member name="…"/>` used to be listed here too. Nothing ever read it: the
+ * name let it past the unknown-child check, the group then wrapped no
+ * sequences, and the author got TDC221 — a warning about a symptom, for a tag
+ * that does nothing. It was never designed, documented or used by a fixture, so
+ * it is gone rather than implemented.
  */
 export const KNOWN_DISTINCT_CHILDREN: readonly string[] = ['gen'] as const;
 
 /** Members of an `<env>`-level `<distinct>` / `<uniq>` group. */
-export const KNOWN_ENV_GROUP_CHILDREN: readonly string[] = [
-  'sequence',
-  'mix',
-  'switch',
-  'member',
-] as const;
+export const KNOWN_ENV_GROUP_CHILDREN: readonly string[] = ['sequence', 'mix', 'switch'] as const;
 
 /**
  * Tag names valid as direct children of `<pool>`.
@@ -363,7 +363,6 @@ export const KNOWN_POOL_CHILDREN: readonly string[] = [
   'switch',
   'uniq',
   'distinct',
-  'member',
 ] as const;
 
 /** Tag names valid inside a fixture (`<before>`, `<after>`, the delimiters…). */

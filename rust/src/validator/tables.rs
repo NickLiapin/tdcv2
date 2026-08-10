@@ -43,11 +43,11 @@ pub const SEQUENCE_CHILDREN: [&str; 4] = ["gen", "data", "distinct", "compute"];
 pub const DISTINCT_CHILDREN: [&str; 1] = ["gen"];
 
 /// Members of an `<env>`-level `<distinct>`/`<uniq>` group.
-pub const ENV_GROUP_CHILDREN: [&str; 4] = ["sequence", "mix", "switch", "member"];
+pub const ENV_GROUP_CHILDREN: [&str; 3] = ["sequence", "mix", "switch"];
 
 /// What may sit inside `<pool>`. Deliberately generous: too SHORT a list refuses
 /// configs that work, while too long a one merely leaves a little silence.
-pub const POOL_CHILDREN: [&str; 6] = ["sequence", "mix", "switch", "uniq", "distinct", "member"];
+pub const POOL_CHILDREN: [&str; 5] = ["sequence", "mix", "switch", "uniq", "distinct"];
 
 /// What a fixture (`<before>`, `<after>`, the delimiters) holds: literal text.
 /// A fixture body is made of `<line>`s and nothing else.

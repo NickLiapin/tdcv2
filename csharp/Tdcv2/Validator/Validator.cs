@@ -357,6 +357,18 @@ public sealed class Validator
         "after_block", "delimiter_block", "before_line", "after_line", "delimiter_line");
 
     /// <summary>
+    /// What an <c>&lt;env&gt;</c>-level <c>&lt;uniq&gt;</c> / <c>&lt;distinct&gt;</c> may wrap.
+    /// </summary>
+    /// <remarks>
+    /// Inside a <c>&lt;sequence&gt;</c> those two group the FIELDS of one record; at env level
+    /// they group whole COLUMNS, so their members are declarations. There was no list here at
+    /// all, so an invented tag inside a group was accepted in silence while the reference
+    /// refused it — measured with <c>&lt;banana/&gt;</c>: TDC010 in TypeScript, nothing here.
+    /// </remarks>
+    private static readonly IReadOnlySet<string> EnvGroupChildren =
+        Set("sequence", "mix", "switch");
+
+    /// <summary>
     /// Everything a <c>&lt;gen&gt;</c> may carry, whatever its type.
     ///
     /// Eight names are deliberately ABSENT: <c>seed</c>, <c>engine</c>, <c>version</c> and
@@ -1170,6 +1182,14 @@ public sealed class Validator
         this.CollectPoolFieldValues(env);
         this.CollectPoolReferences(env);
         CheckChildren(env.content(), "env", EnvChildren);
+        foreach (TDCParser.ElementContext child in env.content().element())
+        {
+            TDCParser.OpenCloseElementContext? group = child.openCloseElement();
+            if (group is not null && (group.name.Text == "uniq" || group.name.Text == "distinct"))
+            {
+                CheckChildren(group.content(), group.name.Text, EnvGroupChildren);
+            }
+        }
         this.CheckAsserts(env);
         foreach (TDCParser.ElementContext c in env.content().element())
         {
@@ -6694,7 +6714,7 @@ public sealed class Validator
     /// <summary>Deliberately generous: too short a list refuses configs that work today.</summary>
     private static readonly IReadOnlySet<string> PoolChildren = new HashSet<string>
     {
-        "sequence", "mix", "switch", "uniq", "distinct", "member", "data",
+        "sequence", "mix", "switch", "uniq", "distinct", "data",
     };
 
     /// <summary>A fixture holds literal text and <c>&lt;line&gt;</c>s.</summary>

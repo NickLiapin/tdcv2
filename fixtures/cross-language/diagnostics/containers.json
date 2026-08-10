@@ -70,6 +70,24 @@
       "description": "Both `<env>` and `<block>` are read by taking the FIRST of their kind, so a second one is dropped whole — every sequence it declares, every line it lays out — and the run finishes looking healthy while half the config produced nothing. `check` called such a document valid. The same silent discard TDC014 refuses for the self-closing spelling, one level up. Reported on the SECOND one, which is the surprise.",
       "config": "<tdc><env count=\"2\" seed=\"a\"><sequence name=\"A\"><gen type=\"text\" value=\"x\"/></sequence></env><block><line><data>${{A}}</data></line></block><block><line><data>second</data></line></block></tdc>",
       "expected": ["error TDC270 1:140"]
+    },
+    {
+      "name": "an-invented-tag-inside-an-env-level-uniq-group",
+      "demonstrates": "TDC010",
+      "description": "The children of an env-level <uniq>/<distinct> were checked by the reference alone. The four ports declared the list and never read it, so an invented tag inside a group was accepted in silence — the very hole the unknown-child work was meant to close.",
+      "config": "<tdc><env count=\"5\" seed=\"s\" local=\"en\"><uniq><sequence name=\"A\"><gen type=\"text\" value=\"x,y\"/></sequence><banana/></uniq></env><block><line><data>${{A}}</data></line></block></tdc>",
+      "expected": ["error TDC010 1:106", "warning TDC221 1:40"]
+    },
+    {
+      "name": "member-was-never-a-tag",
+      "demonstrates": "TDC010",
+      "description": "`<member name=\"…\"/>` sat in the allowed-children lists of all five and was read by nothing: it slipped past the unknown-child check, the group then wrapped no sequences, and the author got TDC221 — a warning about the symptom. Never designed, never documented, in no fixture. Removed, so it is refused like any other invented tag.",
+      "config": "<tdc><env count=\"5\" seed=\"s\" local=\"en\"><sequence name=\"A\"><gen type=\"text\" value=\"x,y\"/></sequence><sequence name=\"B\"><gen type=\"text\" value=\"1,2\"/></sequence><uniq><member name=\"A\"/><member name=\"B\"/></uniq></env><block><line><data>${{A}}${{B}}</data></line></block></tdc>",
+      "expected": [
+        "error TDC010 1:166",
+        "error TDC010 1:184",
+        "warning TDC221 1:160"
+      ]
     }
   ]
 }

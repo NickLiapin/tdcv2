@@ -62,7 +62,20 @@ page — is tracked in that implementation's own changelog:
 
 ### Fixed
 
-<!-- covers: secret anomaly_flag group filter parent value mode interp spread decimals percent inject -->
+<!-- covers: secret anomaly_flag group filter parent value mode interp spread decimals percent inject member -->
+
+- `<member name="…"/>` is gone. It sat in the allowed-children list of an env-level `<uniq>` /
+  `<distinct>` in all five implementations and was read by none of them: the name let it past
+  the unknown-child check, the group then wrapped no sequences, and the author was handed
+  TDC221 — a warning about the symptom, for a tag that does nothing. It was never designed,
+  appears in no page of the documentation and in no fixture. It is now refused as TDC010, like
+  any other invented tag.
+
+- Removing it exposed a wider hole. The children of an env-level group were checked by the
+  REFERENCE alone: the four ports each declared the list and never read it, so any invented tag
+  inside `<uniq>` or `<distinct>` was accepted in silence. Measured with `<banana/>`: TDC010 in
+  TypeScript, nothing at all in Python, Rust, Java and C#. All five now report the same code at
+  the same position, and two shared cases hold both.
 
 - Rust left an `inject` marker unsubstituted where the other four implementations replaced it —
   the same config, different data, and nothing said. `inject="%{%}%"` holds three `%` and the

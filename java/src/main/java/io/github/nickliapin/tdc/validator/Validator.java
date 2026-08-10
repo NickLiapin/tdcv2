@@ -367,6 +367,17 @@ public final class Validator {
           "before_block", "after_block", "delimiter_block", "before_line", "after_line",
           "delimiter_line");
 
+  /**
+   * What an {@code <env>}-level {@code <uniq>} / {@code <distinct>} may wrap.
+   *
+   * <p>Inside a {@code <sequence>} those two group the FIELDS of one record; at {@code <env>}
+   * level they group whole COLUMNS, so their members are declarations. There was no list here
+   * at all, which meant an invented tag inside a group was accepted in silence while the
+   * reference refused it — measured with {@code <banana/>}: TDC010 in TypeScript, nothing in
+   * the four ports.
+   */
+  private static final Set<String> ENV_GROUP_CHILDREN = Set.of("sequence", "mix", "switch");
+
   /** Everything a {@code <gen>} may carry, whatever its type. */
   /**
    * Everything a {@code <gen>} may carry, whatever its type.
@@ -1034,6 +1045,13 @@ public final class Validator {
     collectPoolFieldValues(env);
     collectPoolReferences(env);
     checkChildren(env.content(), "env", ENV_CHILDREN);
+    for (TDCParser.ElementContext child : env.content().element()) {
+      TDCParser.OpenCloseElementContext group = child.openCloseElement();
+      if (group != null
+          && ("uniq".equals(group.name.getText()) || "distinct".equals(group.name.getText()))) {
+        checkChildren(group.content(), group.name.getText(), ENV_GROUP_CHILDREN);
+      }
+    }
     checkAsserts(env);
     for (TDCParser.ElementContext c : env.content().element()) {
       TDCParser.OpenCloseElementContext el = c.openCloseElement();
@@ -5412,7 +5430,7 @@ public final class Validator {
 
   /** Deliberately generous: too short a list refuses configs that work today. */
   private static final Set<String> POOL_CHILDREN =
-      Set.of("sequence", "mix", "switch", "uniq", "distinct", "member", "data");
+      Set.of("sequence", "mix", "switch", "uniq", "distinct", "data");
 
   /** A fixture holds literal text and {@code <line>}s. */
   /**

@@ -685,6 +685,17 @@ impl Validator {
         }
 
         self.check_children(env, "env", &tables::ENV_CHILDREN);
+        // ENV_GROUP_CHILDREN was written down when the unknown-child holes were
+        // closed and then never read, so an invented tag inside an env-level
+        // <uniq> or <distinct> was accepted in silence here while the reference
+        // refused it. Measured before this line existed: `<banana/>` inside a
+        // group was TDC010 in TypeScript and nothing at all in the four ports.
+        for child in &env.children {
+            if child.name == "uniq" || child.name == "distinct" {
+                let group = child.name.clone();
+                self.check_children(child, &group, &tables::ENV_GROUP_CHILDREN);
+            }
+        }
         self.check_asserts(env);
         self.check_closed_tag_attrs("env", env);
         self.check_group_sizes(env);

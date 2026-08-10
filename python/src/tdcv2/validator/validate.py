@@ -247,11 +247,11 @@ SEQUENCE_CHILDREN = frozenset({"gen", "data", "distinct", "compute"})
 # Inside a <sequence> they group the FIELDS of one record; at <env> level, whole COLUMNS.
 # One list for both refuses working configs.
 DISTINCT_CHILDREN = frozenset({"gen"})
-ENV_GROUP_CHILDREN = frozenset({"sequence", "mix", "switch", "member"})
+ENV_GROUP_CHILDREN = frozenset({"sequence", "mix", "switch"})
 
 # Deliberately generous: too SHORT a list refuses configs that work, while too long a one
 # merely leaves a little of the old silence in place.
-POOL_CHILDREN = frozenset({"sequence", "mix", "switch", "uniq", "distinct", "member", "data"})
+POOL_CHILDREN = frozenset({"sequence", "mix", "switch", "uniq", "distinct", "data"})
 
 # A fixture holds literal text and <line>s.
 #: A fixture body is made of ``<line>``s and nothing else.
@@ -1703,6 +1703,10 @@ class _Validator:
                         self._check_group_size(member, member.name.text, wrapped_count)
             elif tag in ("uniq", "distinct"):
                 self._check_closed_tag_attrs(tag, open_el.attr(), _line(open_el), _column(open_el))
+                # ENV_GROUP_CHILDREN was declared when the unknown-child holes were closed and
+                # then never read here, so an invented tag inside an env-level group was accepted
+                # in silence — the reference refused it and the four ports did not.
+                self._check_children(open_el.content(), tag, ENV_GROUP_CHILDREN)
                 members = 0
                 for inner in _elements(open_el):
                     wrapped = inner.openCloseElement()
