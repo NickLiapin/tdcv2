@@ -36,7 +36,7 @@ jobs:
   verify:
     name: Verify
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 20
 
     strategy:
       fail-fast: false
@@ -70,6 +70,24 @@ jobs:
 
       - name: Build
         run: npm run build --workspace=typescript
+
+      # The whole gate, as one command, on one leg of the matrix.
+      #
+      # Written this way on purpose. CI used to name its checks one at a time,
+      # and the list fell behind: of the fourteen steps in `npm run check`,
+      # ELEVEN were absent here — every shared-fixture harness among them, so
+      # the reference's agreement with the fixtures was verified by nobody
+      # (five-ways.yml runs the four ports and not TypeScript). A doc example
+      # could go stale, a diagnostic could move, an engine could disagree with
+      # its own fixtures, and this file stayed green.
+      #
+      # `check` is the definition of the gate. Naming it rather than its
+      # contents means a harness added later is in CI the day it is written.
+      # ~4 minutes locally; it repeats lint, typecheck and test, which is a
+      # price worth paying for a list that cannot drift.
+      - name: The whole gate (same command as local `npm run check`)
+        if: matrix.node-version == '20.x'
+        run: npm run check --workspace=typescript
 
       - name: Docs cover the engine
         if: matrix.node-version == '20.x'
