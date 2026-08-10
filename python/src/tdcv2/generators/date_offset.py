@@ -15,9 +15,9 @@ declared ABOVE it.
 
 from __future__ import annotations
 
+from ..date import parse as date_parse
 from ..date.calendar import OffsetSpec, apply_offset, parse_offset
 from ..date.formatter import format_date_time
-from ..date import parse as date_parse
 from ..date.plain import PlainDateTime, from_epoch_millis, to_epoch_millis
 from ..prng.prng import Sfc32
 
@@ -109,7 +109,7 @@ def _start(
         return None if millis is None else from_epoch_millis(millis)
     try:
         return date_parse.date_time(text.strip()).value
-    except Exception as error:  # noqa: BLE001 — every parse failure means the same thing here
+    except Exception as error:
         raise DateOffsetError(
             f'date offset ("{name}"): "{text}" in column "{source_of(attrs)}" is not a date '
             "this can measure from. A date TDC generated carries its own value and any format= "

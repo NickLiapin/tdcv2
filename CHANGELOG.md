@@ -62,7 +62,26 @@ page — is tracked in that implementation's own changelog:
 
 ### Fixed
 
-<!-- covers: secret anomaly_flag group filter parent -->
+<!-- covers: secret anomaly_flag group filter parent value -->
+
+- A blank `value=""` meant six different things across the five implementations, and one of
+  them invented data. Every per-type check asked only whether the attribute NODE was there,
+  so blank text walked past a guard meant to catch a missing list and each generator then
+  improvised its own answer:
+
+  ```
+  <gen type="number" value=""/>      reference refused, four ports printed 4 2 8
+  <gen type="text" value=""/>        reference printed empty cells, four ports refused
+  <gen type="increment" value=""/>   reference counted 0 1 2, four ports refused
+  ```
+
+  A written attribute is written, not absent. All five now refuse a blank one with the code
+  that type already had — TDC050, TDC070, TDC081, TDC090, TDC095, TDC098, TDC128, TDC244 —
+  and the reference's template case moved from TDC071 to TDC070, since a blank address is no
+  address rather than an unknown one. The line is drawn where the engines already agreed:
+  `value=","` is two options that both happen to be empty and `value="()"` is a pattern that
+  matches the empty string; both name something to draw from, both stay legal, and two shared
+  cases pin that they do.
 
 - `anomaly_flag=` on a `<gen>` that is only one PART of its sequence minted no column at
   all, while `check` called the config valid and the anomaly fired. A second `<gen>`, a

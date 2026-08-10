@@ -3203,8 +3203,11 @@ public final class Validator {
       return;
     }
 
+    // A blank value= is a written attribute, not an absent one. Skipping it here let the
+    // generator fall back to its default range and invent numbers for a config that had named
+    // none: value="" produced 4 2 8 while the reference refused the same file.
     String value = attrs.get("value");
-    if (value != null && !value.isBlank()) {
+    if (value != null) {
       String problem = Checks.numberRangeProblem(value);
       if (problem != null) {
         error("TDC081", "invalid number range \"" + value + "\"",

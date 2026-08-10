@@ -10,6 +10,7 @@ import type {
 } from '../generated/TDCParser.js';
 import { parseRegexMaxLength, parseRegexProgram } from '../generators/regex.js';
 import { extractAttrs } from '../processor/walk.js';
+import { isBlank } from './blank-value.js';
 
 interface RegexValidationContext {
   readonly diagnostics: Diagnostic[];
@@ -23,7 +24,7 @@ export function checkGenRegex(
   const attrs = gen.attr();
   const attrMap = extractAttrs(attrs);
   const valueAttr = findAttr(attrs, 'value');
-  if (!valueAttr) {
+  if (!valueAttr || isBlank(attrMap['value'])) {
     ctx.diagnostics.push({
       severity: 'error',
       source: 'validator',

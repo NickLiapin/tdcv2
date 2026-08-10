@@ -1,0 +1,89 @@
+{
+  "schemaVersion": 1,
+  "cases": [
+    {
+      "name": "blank-value-on-text",
+      "demonstrates": "TDC050",
+      "description": "value=\"\" is a list with no options. The reference used to accept it and print a column of empty cells while the four ports refused the same file.",
+      "config": "<tdc><env count=\"3\" seed=\"s\" local=\"en\"><sequence name=\"V\"><gen type=\"text\" value=\"\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
+      "expected": ["error TDC050 1:59"]
+    },
+    {
+      "name": "whitespace-value-on-text",
+      "demonstrates": "TDC050",
+      "description": "A lone space is trimmed away before anything reads it, so it names no option either.",
+      "config": "<tdc><env count=\"3\" seed=\"s\" local=\"en\"><sequence name=\"V\"><gen type=\"text\" value=\" \"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
+      "expected": ["error TDC050 1:59"]
+    },
+    {
+      "name": "blank-value-on-regex",
+      "demonstrates": "TDC095",
+      "description": "No pattern at all, as opposed to a pattern that matches nothing.",
+      "config": "<tdc><env count=\"3\" seed=\"s\" local=\"en\"><sequence name=\"V\"><gen type=\"regex\" value=\"\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
+      "expected": ["error TDC095 1:59"]
+    },
+    {
+      "name": "blank-value-on-advanced-regex",
+      "demonstrates": "TDC128",
+      "description": "Same rule for the weighted flavour.",
+      "config": "<tdc><env count=\"3\" seed=\"s\" local=\"en\"><sequence name=\"V\"><gen type=\"advanced_regex\" value=\"\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
+      "expected": ["error TDC128 1:59"]
+    },
+    {
+      "name": "blank-value-on-increment",
+      "demonstrates": "TDC090",
+      "description": "Number(\"\") is 0 in the reference's host language, so a blank start silently counted 0 1 2 from an attribute that named nothing.",
+      "config": "<tdc><env count=\"3\" seed=\"s\" local=\"en\"><sequence name=\"V\"><gen type=\"increment\" value=\"\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
+      "expected": ["error TDC090 1:88"]
+    },
+    {
+      "name": "blank-value-on-decrement",
+      "demonstrates": "TDC090",
+      "description": "The counter's other direction, held to the same rule.",
+      "config": "<tdc><env count=\"3\" seed=\"s\" local=\"en\"><sequence name=\"V\"><gen type=\"decrement\" value=\"\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
+      "expected": ["error TDC090 1:88"]
+    },
+    {
+      "name": "blank-value-on-number",
+      "demonstrates": "TDC081",
+      "description": "The worst of the six: four ports skipped the check when the text was blank, fell back to the default range and printed 4 2 8 for a config that had named no range at all.",
+      "config": "<tdc><env count=\"3\" seed=\"s\" local=\"en\"><sequence name=\"V\"><gen type=\"number\" value=\"\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
+      "expected": ["error TDC081 1:85"]
+    },
+    {
+      "name": "blank-value-on-template",
+      "demonstrates": "TDC070",
+      "description": "A blank address is no address, not an unknown one — TDC071 would offer to check the spelling of text nobody wrote.",
+      "config": "<tdc><env count=\"3\" seed=\"s\" local=\"en\"><sequence name=\"V\"><gen type=\"template\" value=\"\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
+      "expected": ["error TDC070 1:59"]
+    },
+    {
+      "name": "blank-value-on-symbol",
+      "demonstrates": "TDC098",
+      "description": "Already agreed five ways before the rule was written down; here so it stays that way.",
+      "config": "<tdc><env count=\"3\" seed=\"s\" local=\"en\"><sequence name=\"V\"><gen type=\"symbol\" value=\"\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
+      "expected": ["error TDC098 1:59"]
+    },
+    {
+      "name": "blank-value-on-pattern",
+      "demonstrates": "TDC244",
+      "description": "The other type that already agreed.",
+      "config": "<tdc><env count=\"3\" seed=\"s\" local=\"en\"><sequence name=\"V\"><gen type=\"pattern\" value=\"\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
+      "expected": ["error TDC244 1:59"]
+    },
+    {
+      "name": "a-comma-is-two-empty-options-and-stays-legal",
+      "demonstrates": "",
+      "description": "The line the refusals are drawn against. This names two options that both happen to be empty — there IS something to draw from — and all five accept it. Refusing value=\"\" while accepting this is a claim about options, not about spelling.",
+      "config": "<tdc><env count=\"3\" seed=\"s\" local=\"en\"><sequence name=\"V\"><gen type=\"text\" value=\",\"/></sequence></env><block><line><data>[${{V}}]</data></line></block></tdc>",
+      "expected": []
+    },
+    {
+      "name": "an-empty-group-is-a-pattern-and-stays-legal",
+      "demonstrates": "",
+      "description": "The same line on the regex side: a pattern that matches the empty string is a pattern, and all five run it.",
+      "config": "<tdc><env count=\"3\" seed=\"s\" local=\"en\"><sequence name=\"V\"><gen type=\"regex\" value=\"()\"/></sequence></env><block><line><data>[${{V}}]</data></line></block></tdc>",
+      "expected": []
+    }
+  ]
+}

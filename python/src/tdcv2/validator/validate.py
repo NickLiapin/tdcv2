@@ -14,23 +14,23 @@ one implementation and not the other is exactly the divergence this file is mean
 
 from __future__ import annotations
 
-import math
 import dataclasses
+import math
 import re
 from pathlib import Path
 from urllib.parse import urlparse
 
-from ..expr.match_key import match_key
 from ..date import calendar
-from ..date import locales as date_locales
 from ..date import formatter as date_formatter
 from ..date import gen as date_gen
+from ..date import locales as date_locales
 from ..date import parse as date_parse
 from ..date.plain import Precision
 from ..distribution import percent_mask
 from ..engine.memory import RESERVED_TEMPLATE_ATTRS
 from ..errors import Diagnostic
 from ..expr import parse as expr_parse
+from ..expr.match_key import match_key
 from ..expr.parse import (
     Array,
     Binary,
@@ -50,9 +50,9 @@ from ..format import mask as mask_mod
 from ..format import transforms
 from ..generators import accumulate as accumulate_gen
 from ..generators import file as file_gen
+from ..generators import number as number_gen
 from ..generators import regex
 from ..generators import stat as stat_gen
-from ..generators import number as number_gen
 from ..lib import numbers
 from ..output import column_type
 from ..packs import DataPacks
@@ -370,13 +370,28 @@ GEN_ATTRS = frozenset(
 #: exists one step later and is better, because the interpolation filter runs where the value is
 #: PRINTED, so ``${{Total|mask:x}}`` works today.
 WRAPPERS_NOT_READ: dict[str, frozenset[str]] = {
-    "running": frozenset({"mask", "case", "missing", "missing_as", "repeat", "anomaly", "anomaly_factor"}),
-    "stat": frozenset({"mask", "case", "missing", "missing_as", "repeat", "anomaly", "anomaly_factor"}),
+    "running": frozenset(
+        {"mask", "case", "missing", "missing_as", "repeat", "anomaly", "anomaly_factor"}
+    ),
+    "stat": frozenset(
+        {"mask", "case", "missing", "missing_as", "repeat", "anomaly", "anomaly_factor"}
+    ),
     # A pool reference hands the row a whole MEMBER from a table built before the run. There is
     # no value of its own for the formatting layer to reach, so every one of these sat on it doing
     # nothing while `check` called the config valid — six rows over a four-member pool came out
     # byte-identical with and without each of them.
-    "pool": frozenset({"mask", "case", "missing", "missing_as", "repeat", "anomaly", "anomaly_factor", "percent"}),
+    "pool": frozenset(
+        {
+            "mask",
+            "case",
+            "missing",
+            "missing_as",
+            "repeat",
+            "anomaly",
+            "anomaly_factor",
+            "percent",
+        }
+    ),
 }
 
 ATTRIBUTE_OWNERS: dict[str, frozenset[str]] = {
@@ -1663,7 +1678,8 @@ class _Validator:
                 # by the pre-pass. A condition naming an env column is not merely out of scope —
                 # the pool is built before any row exists, so it is constant-false on every
                 # member, and the column it guards came out empty on every row.
-                scope = frozenset(self.pool_fields.get(_attrs(open_el.attr()).get("name") or "", []))
+                pool_name = _attrs(open_el.attr()).get("name") or ""
+                scope = frozenset(self.pool_fields.get(pool_name, []))
                 for member_el in _elements(open_el):
                     member = member_el.openCloseElement()
                     if member is None:
@@ -3087,8 +3103,11 @@ class _Validator:
                 )
             return
 
+        # A blank value= is a written attribute, not an absent one. Skipping it here let the
+        # generator fall back to its default range and invent numbers for a config that had
+        # named none: value="" produced 4 2 8 while the reference refused the same file.
         value = attrs.get("value")
-        if value is not None and value.strip() and checks.number_range_problem(value) is not None:
+        if value is not None and checks.number_range_problem(value) is not None:
             line, column = _at(gen, "value")
             self._error(
                 "TDC081",
@@ -3477,7 +3496,11 @@ class _Validator:
         dots = raw.find("..")
         if dots > 0:
             pairs.append(
-                (raw[:dots], raw[dots + 2 :], "range" if attrs.get("range") is not None else "value")
+                (
+                    raw[:dots],
+                    raw[dots + 2 :],
+                    "range" if attrs.get("range") is not None else "value",
+                )
             )
         for start_raw, end_raw, where in pairs:
             if not start_raw or not end_raw:
@@ -4468,7 +4491,8 @@ class _Validator:
                             "TDC209",
                             f'<data name="{column_name}"> declares a typed column, so its if= '
                             "cannot be honoured",
-                            "A column has one cell per card, collected whether or not the line was rendered "
+                            "A column has one cell per card, collected whether or not the "
+                            "line was rendered "
             "\u2014 the condition would be dropped and the typed file would disagree with the "
             "text one. Put the condition on the sequence instead (<gen if=\u2026>) and declare "
             "the column nullable: an empty cell in a nullable column is a NULL.",

@@ -12,12 +12,7 @@ import type { OpenCloseElementContext, SelfClosingElementContext } from '../gene
 import { attrValueRange, nodeRange } from '../errors/index.js';
 import { extractAttrs } from '../processor/walk.js';
 import { PercentMaskError, expandPercentMask } from '../distribution/index.js';
-import type { AttrContext } from '../generated/TDCParser.js';
-
-/** The attribute node by name, so a complaint can point at its value. */
-function findAttr(attrs: readonly AttrContext[], name: string): AttrContext | undefined {
-  return attrs.find((a) => a._attrName?.text === name);
-}
+import { findAttr, isBlank } from './blank-value.js';
 
 export function checkGenText(
   gen: OpenCloseElementContext | SelfClosingElementContext,
@@ -27,7 +22,7 @@ export function checkGenText(
   const attrMap = extractAttrs(attrs);
   checkSequentialDropsPercent(gen, diagnostics);
   const valueAttr = findAttr(attrs, 'value');
-  if (!valueAttr) {
+  if (!valueAttr || isBlank(attrMap['value'])) {
     diagnostics.push({
       severity: 'error',
       source: 'validator',

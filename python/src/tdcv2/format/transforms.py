@@ -117,7 +117,8 @@ def apply_group(value: str, size: float, separator: str) -> str:
     # written for, and so does every other string.
     decimal = _DECIMAL.match(value)
     if decimal is not None:
-        return decimal.group(1) + _chunk_from_right(decimal.group(2), step, separator) + decimal.group(3)
+        whole = _chunk_from_right(decimal.group(2), step, separator)
+        return decimal.group(1) + whole + decimal.group(3)
     return _chunk_from_right(value, step, separator)
 
 

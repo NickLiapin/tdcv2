@@ -343,7 +343,7 @@ def _dictionary_page_header(raw_size: int, compressed_size: int, num_values: int
     return w.bytes()
 
 
-def _write_column_orders(w: "thrift.Writer", leaves: int) -> None:
+def _write_column_orders(w: thrift.Writer, leaves: int) -> None:
     """``column_orders`` — the field that makes the statistics USABLE.
 
     The spec is explicit: a reader must ignore ``min_value``/``max_value`` unless

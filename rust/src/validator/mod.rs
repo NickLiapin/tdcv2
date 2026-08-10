@@ -3085,8 +3085,11 @@ impl Validator {
             return;
         }
 
+        // A blank value= is a written attribute, not an absent one. Skipping it here let the
+        // generator fall back to its default range and invent numbers for a config that had
+        // named none: value="" produced 4 2 8 while the reference refused the same file.
         let value = attrs.get("value").map(String::as_str);
-        if let Some(value) = value.filter(|v| !v.trim().is_empty()) {
+        if let Some(value) = value {
             if number::parse_ranges(value).is_err() {
                 self.error(
                     "TDC081",

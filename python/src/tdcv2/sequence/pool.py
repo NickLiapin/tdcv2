@@ -15,8 +15,8 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 
-from ..expr.match_key import match_key
 from ..expr import evaluate as expr
+from ..expr.match_key import match_key
 from ..prng import seekable
 
 # Measured on the reference: about 320 bytes a member with four fields, so a million members

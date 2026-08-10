@@ -16,6 +16,7 @@ import type {
 import { parseRegexMaxLength } from '../generators/regex.js';
 import { extractAttrs } from '../processor/walk.js';
 import { parseAdvancedRegexProgram } from '../generators/advanced-regex.js';
+import { isBlank } from './blank-value.js';
 
 interface AdvancedRegexValidationContext {
   readonly diagnostics: Diagnostic[];
@@ -29,7 +30,7 @@ export function checkGenAdvancedRegex(
   const attrs = gen.attr();
   const attrMap = extractAttrs(attrs);
   const valueAttr = findAttr(attrs, 'value');
-  if (!valueAttr) {
+  if (!valueAttr || isBlank(attrMap['value'])) {
     ctx.diagnostics.push({
       severity: 'error',
       source: 'validator',

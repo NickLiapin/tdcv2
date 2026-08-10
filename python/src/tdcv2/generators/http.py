@@ -12,8 +12,8 @@ and nothing about sequences; the caller wraps a failure with the sequence name a
 from __future__ import annotations
 
 import hashlib
-import os
 import hmac
+import os
 import time
 import urllib.error
 import urllib.request
@@ -104,7 +104,7 @@ def sign_request(secret: str, timestamp: str, seed: str, count: int, body: str) 
     ).hexdigest()
 
 
-def contract_headers(request: "Request", body: str) -> dict[str, str]:
+def contract_headers(request: Request, body: str) -> dict[str, str]:
     """The headers that say what this request IS, beyond its body.
 
     ``X-TDC-Input`` is the one that closes a real ambiguity: ``in=`` naming a column of one empty

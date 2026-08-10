@@ -20,9 +20,9 @@ from __future__ import annotations
 
 import math
 
-from . import accumulate as accumulate_gen
 from ..lib import numbers
 from ..math import tdc_math
+from . import accumulate as accumulate_gen
 
 OPS = ("sum", "mean", "median", "min", "max", "count", "stddev")
 

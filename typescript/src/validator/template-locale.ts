@@ -19,6 +19,7 @@ import type {
 import { extractAttrs } from '../processor/walk.js';
 import { nodeRange } from '../errors/source-map.js';
 import { closestMatch } from '../errors/suggestions.js';
+import { isBlank } from './blank-value.js';
 import {
   KNOWN_TEMPLATE_PATHS,
   candidateTemplatePaths,
@@ -98,7 +99,9 @@ export function checkGenTemplate(
   const attrs = gen.attr();
   const attrMap = extractAttrs(attrs);
   const valueAttr = findAttr(attrs, 'value');
-  if (!valueAttr) {
+  // A blank address is no address. TDC071 would call the empty string an unknown
+  // path and offer to check its spelling, which is a hint about text nobody wrote.
+  if (!valueAttr || isBlank(attrMap['value'])) {
     ctx.diagnostics.push({
       severity: 'error',
       source: 'validator',

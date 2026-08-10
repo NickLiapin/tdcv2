@@ -14,13 +14,13 @@ from pathlib import Path
 
 from ..errors import Diagnostic
 from . import project_config, source
-from .registry import Registry
-from .source import Source
 
 #: `<sequence name="…">` in a pack generator body — the pack's parameter list. Read by
 #: scanning rather than by parsing: the validator asks before anything is built, and
 #: parsing a pack body there would report a pack author's syntax error at the caller's line.
 from .param_width import parameter_widths
+from .registry import Registry
+from .source import Source
 
 _SEQUENCE_NAME = re.compile(r'<sequence\s+[^>]*name\s*=\s*"([^"]+)"')
 

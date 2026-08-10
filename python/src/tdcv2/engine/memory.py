@@ -16,13 +16,13 @@ from collections.abc import Callable
 from dataclasses import dataclass, field, replace
 from pathlib import Path
 
-from ..expr.match_key import match_key
 from ..compute import evaluate as compute_evaluate
 from ..compute import evaluate_predicate
 from ..date import gen as date_gen
 from ..date.plain import to_epoch_millis
 from ..distribution import hamilton, percent_mask
 from ..expr import as_condition
+from ..expr.match_key import match_key
 from ..format import interpolate
 from ..format.mask import apply_mask
 from ..format.transforms import apply_case, is_case_transform

@@ -3689,8 +3689,11 @@ public sealed class Validator
             return;
         }
 
+        // A blank value= is a written attribute, not an absent one. Skipping it here let the
+        // generator fall back to its default range and invent numbers for a config that had
+        // named none: value="" produced 4 2 8 while the reference refused the same file.
         string? value = attrs.GetValueOrDefault("value");
-        if (!string.IsNullOrWhiteSpace(value) && Checks.NumberRangeProblem(value) is not null)
+        if (value is not null && Checks.NumberRangeProblem(value) is not null)
         {
             (int line, int column) = At(gen, "value");
             Error(

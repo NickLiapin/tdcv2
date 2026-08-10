@@ -11,12 +11,7 @@ import type { Diagnostic } from '../errors/index.js';
 import type { OpenCloseElementContext, SelfClosingElementContext } from '../generated/TDCParser.js';
 import { attrValueRange } from '../errors/index.js';
 import { extractAttrs } from '../processor/walk.js';
-import type { AttrContext } from '../generated/TDCParser.js';
-
-/** The attribute node by name, so a complaint can point at its value. */
-function findAttr(attrs: readonly AttrContext[], name: string): AttrContext | undefined {
-  return attrs.find((a) => a._attrName?.text === name);
-}
+import { findAttr, isBlank } from './blank-value.js';
 
 export function checkGenCounter(
   gen: OpenCloseElementContext | SelfClosingElementContext,
@@ -28,8 +23,11 @@ export function checkGenCounter(
     const a = findAttr(attrs, name);
     if (!a) continue;
     const raw = attrMap[name] ?? '';
+    // Number("") is 0, which is finite — so a blank start used to be read as a
+    // start of zero and the column counted 0 1 2 from an attribute that named
+    // nothing. Blank is not a number; the four ports already said so.
     const n = Number(raw);
-    if (!Number.isFinite(n)) {
+    if (isBlank(raw) || !Number.isFinite(n)) {
       diagnostics.push({
         severity: 'error',
         source: 'validator',
