@@ -53,12 +53,43 @@ function looksLikeCommand(body) {
  * still has to match character for character.
  */
 export function matches(expected, actual) {
-  if (expected === actual) return { ok: true, abridged: false };
-  const want = expected.split('\n');
-  const got = actual.split('\n');
+  // Trailing spaces on a line are compared away, in both directions. A run that
+  // prints an empty last column really does emit `US ` with the space, and the
+  // page really does say `US` — because prettier strips trailing whitespace from
+  // markdown on the way into a commit. Neither is wrong and no reader can tell
+  // them apart, so pinning them would make the gate fail every time it passed.
+  const want = expected.split('\n').map(trimEnd);
+  const got = actual.split('\n').map(trimEnd);
+  if (want.length === got.length && want.every((line, i) => line === got[i])) {
+    return { ok: true, abridged: false };
+  }
   if (want.length >= got.length) return { ok: false, abridged: false };
   const ok = want.every((line, i) => line === got[i]);
   return { ok, abridged: ok };
+}
+
+function trimEnd(line) {
+  return line.replace(/[ \t]+$/, '');
+}
+
+/**
+ * The runnable text of an example, or `undefined` when it is only a fragment.
+ *
+ * Two shapes count. A full `<tdc>…</tdc>` is obvious. The second is the house
+ * style of every page that teaches a construct rather than the file format:
+ * `<env>…</env>` followed by `<block>…</block>`, with the wrapper left off
+ * because it says nothing about the point being made.
+ *
+ * That second shape was invisible here, and the pages using it are the ones a
+ * reader trusts most: hierarchical-dependencies, relational-tables,
+ * output-formatting, conditional-output, output-formats. 63 transcripts across
+ * the three languages sat outside the gate — the whole reason a hand audit kept
+ * finding stale numbers the check had already declared clean.
+ */
+function wholeConfig(body) {
+  if (body.includes('<tdc') && body.includes('</tdc>')) return body;
+  if (body.includes('<env') && body.includes('</block>')) return `<tdc>\n${body}\n</tdc>`;
+  return undefined;
 }
 
 /**
@@ -103,8 +134,9 @@ export function extractExamples(markdown) {
   const examples = [];
   for (let i = 0; i < blocks.length; i++) {
     const block = blocks[i];
-    if (block.lang !== 'xml' || !block.body.includes('<tdc')) continue;
-    if (!block.body.includes('</tdc>')) continue; // fragments stay a reader's job
+    if (block.lang !== 'xml') continue;
+    const runnable = wholeConfig(block.body);
+    if (runnable === undefined) continue; // fragments stay a reader's job
 
     const next = blocks[i + 1];
     if (!next || next.lang !== '') continue;
@@ -119,7 +151,7 @@ export function extractExamples(markdown) {
 
     examples.push({
       line: before.split('\n').length,
-      config: block.body,
+      config: runnable,
       expected: next.body.replace(/\s+$/, ''),
       expectedSpan: next.bodySpan,
       skip: skip ? skip[1] : undefined,

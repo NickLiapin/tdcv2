@@ -113,6 +113,8 @@ The separator is just a character you type. Want semicolons (common when the val
 contain commas) or tabs? Change the literal text in `<data>` and in the header to match —
 there's no mode to switch.
 
+{/* doc-check: skip the config is abbreviated — the comment stands in for sequences declared earlier on this page */}
+
 ```xml
 <env count="3" seed="demo">
     <before><line><data>id;name;category</data></line></before>
@@ -489,6 +491,8 @@ INSERT INTO customers VALUES (3, 'John Johnson', 'Chicago');`}
 A thousand bare `INSERT`s are a thousand transactions — slow. Wrap the run in
 `BEGIN` / `COMMIT` so it loads as one, which takes a single extra line in each fixture:
 
+{/* doc-check: skip the config is abbreviated — the comment stands in for sequences declared earlier on this page */}
+
 ```xml
 <env count="3" seed="demo">
     <before>… schema …<line><data>BEGIN;</data></line></before>
@@ -522,6 +526,8 @@ The same three pieces build any text shape you like — you control every charac
   rows in `<block>`.
 - **A fixed-width report** — pad the fields to a set width with the
   [`mask`](masks-and-case.mdx) and slice filters, then line the columns up.
+
+{/* doc-check: skip the config is abbreviated — the comment stands in for sequences declared earlier on this page */}
 
 ```xml
 <env count="3" seed="demo">

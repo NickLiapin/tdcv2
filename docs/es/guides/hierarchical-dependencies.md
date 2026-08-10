@@ -144,14 +144,14 @@ género de la fila. Dos generadores de nombres, cada uno bajo su propio `parent`
 `./run demo.tdc`
 
 ```
-Mujer: Alexis
-Hombre: Bruno
-Hombre: Khari
-Hombre: Adriel
-Hombre: Wayne
-Hombre: Callan
-Mujer: Alena
-Mujer: Naomi
+Mujer: Elizabeth
+Hombre: William
+Hombre: James
+Hombre: John
+Hombre: Michael
+Hombre: Robert
+Mujer: Patricia
+Mujer: Mary
 ```
 
 - `Gender` con `count="8"` produce 5 `Hombre` + 3 `Mujer` (60/40 de ocho, redondeado con
@@ -162,7 +162,7 @@ Mujer: Naomi
   femeninas queda vacío.
 - `FemaleName`, de forma simétrica, se llena solo en las filas femeninas.
 - Concatenar `${{MaleName}}${{FemaleName}}` deja exactamente un nombre por fila, y
-  siempre corresponde al género — nunca `Hombre: Alena`.
+  siempre corresponde al género — nunca `Hombre: Patricia`.
 
 ## Probabilidad dentro de un subconjunto
 
@@ -277,13 +277,13 @@ usa la forma sin valor:
 `./run demo.tdc`
 
 ```
-US | New York 10021
-US | Chicago 60614
+US | Chicago 78249
+US | New York 90094
 UK |
 UK |
-US | New York 10021
+US | Chicago 17025
 UK |
-US | Chicago 60614
+US | New York 41341
 UK |
 ```
 

@@ -120,6 +120,8 @@ id,name,category,price
 когда значение и так содержит запятые) или табы? Поменяйте текст в `<data>` и заголовок под
 него — переключать никакой режим не надо.
 
+<!-- doc-check: skip the config is abbreviated — the comment stands in for sequences declared earlier on this page -->
+
 ```xml
 <env count="3" seed="demo">
     <before><line><data>id;name;category</data></line></before>
@@ -511,15 +513,17 @@ CREATE TABLE customers (
   name  TEXT NOT NULL,
   city  TEXT NOT NULL
 );
-INSERT INTO customers VALUES (1, 'Захар Петров', 'Берлин');
-INSERT INTO customers VALUES (2, 'Демьян Вишневский', 'Париж');
-INSERT INTO customers VALUES (3, 'Денис Фролов', 'Москва');
+INSERT INTO customers VALUES (1, 'Александр Иванов', 'Берлин');
+INSERT INTO customers VALUES (2, 'Владимир Кузнецов', 'Париж');
+INSERT INTO customers VALUES (3, 'Сергей Смирнов', 'Москва');
 ```
 
 ### Обернуть в одну транзакцию
 
 Тысяча голых `INSERT` — это тысяча транзакций, а значит медленно. Оберните сборку в
 `BEGIN` / `COMMIT`, чтобы она загрузилась как одна, добавив по строке в каждую фикстуру:
+
+<!-- doc-check: skip the config is abbreviated — the comment stands in for sequences declared earlier on this page -->
 
 ```xml
 <env count="3" seed="demo">
@@ -556,6 +560,8 @@ psql -f shop.sql
   `<before>`, строки с `|` в `<block>`.
 - **Отчёт фиксированной ширины** — дополняйте поля до заданной ширины фильтрами
   [`mask`](masks-and-case.md#top) / срезами и выравнивайте колонки.
+
+<!-- doc-check: skip the config is abbreviated — the comment stands in for sequences declared earlier on this page -->
 
 ```xml
 <env count="3" seed="demo">

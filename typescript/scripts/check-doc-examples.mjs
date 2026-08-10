@@ -84,7 +84,16 @@ for (const file of DOC_ROOTS.flatMap(docFiles)) {
         // now the first N the engine actually prints.
         const shown = ex.expected.split('\n').length;
         const trailer = ex.expected.endsWith('\n') ? '\n' : '';
-        const replacement = actual.split('\n').slice(0, shown).join('\n') + trailer;
+        // Trailing spaces are written out trimmed: prettier strips them from markdown
+        // on the way into a commit, so leaving them in would make the very next run
+        // of this check disagree with the file it had just corrected. `matches` reads
+        // both forms as the same, so nothing is lost.
+        const replacement =
+          actual
+            .split('\n')
+            .slice(0, shown)
+            .map((line) => line.replace(/[ \t]+$/, ''))
+            .join('\n') + trailer;
         splices.push([ex.expectedSpan, replacement]);
         updated++;
         continue;

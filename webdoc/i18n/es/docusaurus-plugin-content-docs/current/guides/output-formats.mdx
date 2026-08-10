@@ -117,6 +117,8 @@ El separador es apenas un carácter que usted escribe. ¿Quiere punto y coma (al
 cuando un valor ya trae comas) o tabuladores? Cambie el texto literal en `<data>` y en el
 encabezado para que coincidan — no hay ningún modo que activar.
 
+{/* doc-check: skip the config is abbreviated — the comment stands in for sequences declared earlier on this page */}
+
 ```xml
 <env count="3" seed="demo">
     <before><line><data>id;name;category</data></line></before>
@@ -504,6 +506,8 @@ INSERT INTO customers VALUES (3, 'Lucio Aldana', 'Guadalajara');`}
 Mil `INSERT` pelados son mil transacciones — lento. Envuelva la corrida en
 `BEGIN` / `COMMIT` para que cargue como una sola, agregando una línea a cada fixture:
 
+{/* doc-check: skip the config is abbreviated — the comment stands in for sequences declared earlier on this page */}
+
 ```xml
 <env count="3" seed="demo">
     <before>… esquema …<line><data>BEGIN;</data></line></before>
@@ -538,6 +542,8 @@ Las mismas tres piezas construyen cualquier forma de texto — usted controla ca
   `<before>`, y filas con `|` en `<block>`.
 - **Un reporte de ancho fijo** — rellene los campos hasta un ancho fijo con los filtros
   [`mask`](masks-and-case.mdx) / slice y alinee las columnas.
+
+{/* doc-check: skip the config is abbreviated — the comment stands in for sequences declared earlier on this page */}
 
 ```xml
 <env count="3" seed="demo">

@@ -140,14 +140,14 @@ under its own `parent`, can:
 `./run demo.tdc`
 
 ```
-Female: Alexis
-Male: Bruno
-Male: Khari
-Male: Adriel
-Male: Wayne
-Male: Callan
-Female: Alena
-Female: Naomi
+Female: Elizabeth
+Male: William
+Male: James
+Male: John
+Male: Michael
+Male: Robert
+Female: Patricia
+Female: Mary
 ```
 
 - `Gender` at `count="8"` yields 5 `Male` + 3 `Female` (60/40 of eight, rounded by the
@@ -157,7 +157,7 @@ Female: Naomi
   draws from the male dictionary); on female rows it's empty.
 - `FemaleName` works symmetrically: it's filled only on female rows.
 - Concatenating `${{MaleName}}${{FemaleName}}` leaves exactly one name per row, and it
-  always matches the gender — never `Male: Alena`.
+  always matches the gender — never `Male: Patricia`.
 
 ## Probability within a subset
 
@@ -271,13 +271,13 @@ form:
 `./run demo.tdc`
 
 ```
-US | New York 10021
-US | Chicago 60614
+US | Chicago 78249
+US | New York 90094
 UK |
 UK |
-US | New York 10021
+US | Chicago 17025
 UK |
-US | Chicago 60614
+US | New York 41341
 UK |
 ```
 
