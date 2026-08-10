@@ -103,10 +103,16 @@ export function checkGenRepeat(
       source: 'validator',
       ...attrValueRange(repeatAttr),
       message: `"repeat" is not supported on <gen type="${attrMap['type'] ?? ''}"> — ${reason}`,
+      // The rule is a four-item refusal, not a whitelist, so the hint says which
+      // four rather than listing what is allowed. The old wording listed seven
+      // "supported" types, left `text` out of them, and then advised drawing a
+      // list of words with regex or symbol — steering the reader away from the
+      // generator that does exactly that, works, and is what multiple-values.mdx
+      // teaches.
       hint:
-        'Repeat works on generators that draw each value independently: number, symbol, regex, ' +
-        'advanced_regex, date, template, file. For a list of words, draw them with regex or ' +
-        'symbol, or build the list with several sequences.',
+        'Only increment, decrement, timeseries and pattern refuse it, and all four for the ' +
+        'same reason: their value is decided by the row index, which a list of unknown ' +
+        'length leaves undecided. Every other generator repeats, text included.',
       code: 'TDC204',
     });
   }
