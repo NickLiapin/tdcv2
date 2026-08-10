@@ -360,6 +360,36 @@ class ComputeCheck:
                     break
         self._wrapper(node, "then", scope)
 
+    def _comparison_literals(self, node: _Node) -> None:
+        """A `<str>` literal under a comparison, holding something that is not a number.
+
+        The three comparisons work on NUMBERS. A string of digits is accepted and read as
+        one — `<equals><str v="7"/><int v="7"/></equals>` is true — so the tag is not
+        "integers only", and refusing every `<str>` would break a config that works. What
+        cannot work is a `<str>` whose text is not a number: measured, the run stopped with
+        `expected an integer in <equals>, got the string "ab"`, naming no file, no line and
+        no code, on a config `check` had called valid.
+
+        Only a LITERAL is checked. What a `<field>` or a `<var>` will hold is not known
+        before the run, and a refusal here has to be a proof.
+        """
+        for child in node.children:
+            inner = _node(child)
+            if inner is None or inner.name != "str":
+                continue
+            raw = inner.attrs.get("v", "")
+            if _INTEGER.match(raw.strip()):
+                continue
+            self._report(
+                inner,
+                "TDC287",
+                f"<{node.name}> compares numbers, and "
+                f'<str v="{raw}"> is not one',
+                'A <str> holding digits is read as the number it spells, so <str v="7"/> is '
+                "fine. This one is not a number, so the run would stop on the first row. Use "
+                "<int>, or <to_number> around the value you meant to compare.",
+            )
+
     def _numeric_builtin_argument(self, children, tag: str) -> None:
         """`<is_digit>` and `<encode>` both want ONE CHARACTER OF TEXT, and both took a number.
 
@@ -396,6 +426,7 @@ class ComputeCheck:
         if node.name in ("equals", "greater_than", "less_than"):
             if _count_nodes(node) != 2:
                 self._report(node, "TDC183", f"<{node.name}> requires exactly 2 children", None)
+            self._comparison_literals(node)
             for child in node.children:
                 self._expr(child, scope)
         elif node.name == "is_digit":

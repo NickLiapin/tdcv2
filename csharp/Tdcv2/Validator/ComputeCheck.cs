@@ -552,6 +552,44 @@ internal sealed class ComputeCheck
     /// stop the run, but with "expected a single-character string" and no file, no line and no
     /// code, on a config check had also called valid. Same cause, so one refusal covers both.
     /// </remarks>
+    /// <summary>
+    /// A <c>&lt;str&gt;</c> literal under a comparison, holding something that is not a number.
+    /// </summary>
+    /// <remarks>
+    /// The three comparisons work on NUMBERS. A string of digits is accepted and read as one —
+    /// <c>&lt;equals&gt;&lt;str v="7"/&gt;&lt;int v="7"/&gt;&lt;/equals&gt;</c> is true — so the
+    /// tag is not "integers only", and refusing every <c>&lt;str&gt;</c> would break a config
+    /// that works. What cannot work is a <c>&lt;str&gt;</c> whose text is not a number:
+    /// measured, the run stopped with "expected an integer in &lt;equals&gt;, got the string
+    /// ab", naming no file, no line and no code, on a config check had called valid.
+    /// Only a LITERAL is checked — what a <c>&lt;field&gt;</c> will hold is not known before the
+    /// run, and a refusal here has to be a proof.
+    /// </remarks>
+    private void ComparisonLiterals(Node node)
+    {
+        foreach (TDCParser.ElementContext child in node.Children)
+        {
+            Node? inner = ToNode(child);
+            if (inner is null || inner.Name != "str")
+            {
+                continue;
+            }
+
+            string raw = inner.Attrs.TryGetValue("v", out string? v) ? v : "";
+            if (Regex.IsMatch(raw.Trim(), "^-?[0-9]+$"))
+            {
+                continue;
+            }
+
+            Report(
+                inner, "TDC287",
+                $"<{node.Name}> compares numbers, and <str v=\"{raw}\"> is not one",
+                "A <str> holding digits is read as the number it spells, so <str v=\"7\"/> is " +
+                "fine. This one is not a number, so the run would stop on the first row. Use " +
+                "<int>, or <to_number> around the value you meant to compare.");
+        }
+    }
+
     private void NumericBuiltinArgument(
         IReadOnlyList<TDCParser.ElementContext> children, string tag)
     {
@@ -593,6 +631,7 @@ internal sealed class ComputeCheck
                     Report(node, "TDC183", $"<{node.Name}> requires exactly 2 children", null);
                 }
 
+                ComparisonLiterals(node);
                 foreach (TDCParser.ElementContext child in node.Children)
                 {
                     WalkExpr(child, scope);

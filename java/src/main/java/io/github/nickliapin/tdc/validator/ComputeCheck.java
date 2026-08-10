@@ -407,6 +407,39 @@ final class ComputeCheck {
    * but with "expected a single-character string" and no file, no line and no code, on a config
    * check had also called valid. Same cause, so one refusal covers both.
    */
+  /**
+   * A {@code <str>} literal under a comparison, holding something that is not a number.
+   *
+   * <p>The three comparisons work on NUMBERS. A string of digits is accepted and read as one —
+   * {@code <equals><str v="7"/><int v="7"/></equals>} is true — so the tag is not "integers
+   * only", and refusing every {@code <str>} would break a config that works. What cannot work is
+   * a {@code <str>} whose text is not a number: measured, the run stopped with "expected an
+   * integer in &lt;equals&gt;, got the string \"ab\"", naming no file, no line and no code, on a
+   * config check had called valid.
+   *
+   * <p>Only a LITERAL is checked. What a {@code <field>} or a {@code <var>} will hold is not
+   * known before the run, and a refusal here has to be a proof.
+   */
+  private void comparisonLiterals(Node node) {
+    for (TDCParser.ElementContext child : node.children()) {
+      Node inner = node(child);
+      if (inner == null || !"str".equals(inner.name())) {
+        continue;
+      }
+      String raw = inner.attrs().getOrDefault("v", "");
+      if (raw.trim().matches("^-?\\d+$")) {
+        continue;
+      }
+      report(
+          inner,
+          "TDC287",
+          "<" + node.name() + "> compares numbers, and <str v=\"" + raw + "\"> is not one",
+          "A <str> holding digits is read as the number it spells, so <str v=\"7\"/> is fine. "
+              + "This one is not a number, so the run would stop on the first row. Use <int>, "
+              + "or <to_number> around the value you meant to compare.");
+    }
+  }
+
   private void numericBuiltinArgument(List<TDCParser.ElementContext> children, String tag) {
     for (TDCParser.ElementContext child : children) {
       Node inner = node(child);
@@ -441,6 +474,7 @@ final class ComputeCheck {
         if (countNodes(node) != 2) {
           report(node, "TDC183", "<" + node.name() + "> requires exactly 2 children", null);
         }
+        comparisonLiterals(node);
         for (TDCParser.ElementContext child : node.children()) {
           walkExpr(child, scope);
         }

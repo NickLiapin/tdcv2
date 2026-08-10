@@ -89,7 +89,7 @@
 | [`<otherwise>`](../compute/conditionals.md#otherwise-обязателен--ошибка-tdc184)  | 1 → `int\|str\|list`                       | Ветка «иначе» (обязательна)                  |
 | [`<test>`](../compute/conditionals.md#test--место-для-условия)                   | 1 → `yes\|no`                              | Держит один предикат, даёт «да/нет»          |
 | [`<then>`](../compute/conditionals.md#when--одна-ветка)                          | 1 → `int\|str\|list`                       | Значение сработавшей ветки                   |
-| [`<equals>`](../compute/conditionals.md#equals--два-целых-равны)                 | `int\|str` ×2 → `yes\|no`                  | Предикат: два целых равны                    |
+| [`<equals>`](../compute/conditionals.md#equals--два-целых-равны)                 | `int` `int` → `yes\|no`                    | Предикат: два целых равны                    |
 | [`<greater_than>`](../compute/conditionals.md#greater_than--строго-a--b)         | `int` `int` → `yes\|no`                    | Предикат: A > B                              |
 | [`<less_than>`](../compute/conditionals.md#less_than--строго-a--b)               | `int` `int` → `yes\|no`                    | Предикат: A < B                              |
 | [`<is_digit>`](../compute/conditionals.md#is_digit--символ-09)                   | `str`(1) → `yes\|no`                       | Предикат: символ — цифра 0–9                 |

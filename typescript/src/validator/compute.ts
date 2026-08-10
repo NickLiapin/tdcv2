@@ -578,6 +578,37 @@ function walkWhen(n: CN, scope: VScope, diags: Diagnostic[]): void {
   walkWrapper(n, 'then', scope, diags);
 }
 
+/**
+ * A `<str>` literal under a comparison, holding something that is not a number.
+ *
+ * The three comparisons work on NUMBERS. A string of digits is accepted and read as
+ * one — `<equals><str v="7"/><int v="7"/></equals>` is true — so the tag is not
+ * "integers only", and refusing every `<str>` would break a config that works. What
+ * cannot work is a `<str>` whose text is not a number: measured, the run stopped with
+ * `expected an integer in <equals>, got the string "ab"`, naming no file, no line and
+ * no code, on a config `check` had called valid.
+ *
+ * Only a LITERAL is checked. What a `<field>` or a `<var>` will hold is not known
+ * before the run, and a refusal here has to be a proof.
+ */
+function checkComparisonLiterals(n: CN, diags: Diagnostic[]): void {
+  for (const child of n.children) {
+    const c = cnode(child);
+    if (c?.name !== 'str') continue;
+    const raw = (c.attrs['v'] ?? '').trim();
+    if (/^-?\d+$/.test(raw)) continue;
+    report(
+      diags,
+      c.node,
+      'TDC287',
+      `<${n.name}> compares numbers, and <str v="${c.attrs['v'] ?? ''}"> is not one`,
+      'A <str> holding digits is read as the number it spells, so <str v="7"/> is fine. ' +
+        'This one is not a number, so the run would stop on the first row. Use <int>, or ' +
+        '<to_number> around the value you meant to compare.',
+    );
+  }
+}
+
 function walkPredicate(n: CN, scope: VScope, diags: Diagnostic[]): void {
   switch (n.name) {
     case 'equals':
@@ -586,6 +617,7 @@ function walkPredicate(n: CN, scope: VScope, diags: Diagnostic[]): void {
       if (n.children.length !== 2) {
         report(diags, n.node, 'TDC183', `<${n.name}> requires exactly 2 children`);
       }
+      checkComparisonLiterals(n, diags);
       for (const c of n.children) walkExpr(c, scope, diags);
       return;
     case 'is_digit':

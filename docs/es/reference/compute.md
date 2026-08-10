@@ -89,7 +89,7 @@ A fondo: [Condicionales](../compute/conditionals.md#top)
 | [`<otherwise>`](../compute/conditionals.md#otherwise-es-obligatorio--error-tdc184)   | 1 → `int\|str\|list`                       | La rama «si no» (obligatoria)                 |
 | [`<test>`](../compute/conditionals.md#test--la-ranura-de-la-condición)               | 1 → `yes\|no`                              | Contiene un predicado, da sí/no               |
 | [`<then>`](../compute/conditionals.md#when--una-rama)                                | 1 → `int\|str\|list`                       | El valor de la rama que coincidió             |
-| [`<equals>`](../compute/conditionals.md#equals--dos-enteros-son-iguales)             | `int\|str` ×2 → `yes\|no`                  | Predicado: dos enteros son iguales            |
+| [`<equals>`](../compute/conditionals.md#equals--dos-enteros-son-iguales)             | `int` `int` → `yes\|no`                    | Predicado: dos enteros son iguales            |
 | [`<greater_than>`](../compute/conditionals.md#greater_than--a--b-estricto)           | `int` `int` → `yes\|no`                    | Predicado: A > B                              |
 | [`<less_than>`](../compute/conditionals.md#less_than--a--b-estricto)                 | `int` `int` → `yes\|no`                    | Predicado: A < B                              |
 | [`<is_digit>`](../compute/conditionals.md#is_digit--un-carácter-es-09)               | `str`(1) → `yes\|no`                       | Predicado: un carácter es un dígito 0–9       |

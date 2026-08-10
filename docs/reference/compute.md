@@ -90,7 +90,7 @@ In depth: [Conditionals](../compute/conditionals.md#top)
 | [`<otherwise>`](../compute/conditionals.md#otherwise-is-required--error-tdc184) | 1 → `int\|str\|list`                       | The "else" branch (required)                  |
 | [`<test>`](../compute/conditionals.md#test--the-condition-slot)                 | 1 → `yes\|no`                              | Holds one predicate, yields yes or no         |
 | [`<then>`](../compute/conditionals.md#when--one-branch)                         | 1 → `int\|str\|list`                       | The value of the matched branch               |
-| [`<equals>`](../compute/conditionals.md#equals--two-integers-are-equal)         | `int\|str` ×2 → `yes\|no`                  | Predicate: two ints are equal                 |
+| [`<equals>`](../compute/conditionals.md#equals--two-integers-are-equal)         | `int` `int` → `yes\|no`                    | Predicate: two ints are equal                 |
 | [`<greater_than>`](../compute/conditionals.md#greater_than--strict-a--b)        | `int` `int` → `yes\|no`                    | Predicate: A > B                              |
 | [`<less_than>`](../compute/conditionals.md#less_than--strict-a--b)              | `int` `int` → `yes\|no`                    | Predicate: A < B                              |
 | [`<is_digit>`](../compute/conditionals.md#is_digit--a-character-is-09)          | `str`(1) → `yes\|no`                       | Predicate: a character is a digit 0–9         |

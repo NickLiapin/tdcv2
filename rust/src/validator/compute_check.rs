@@ -522,6 +522,7 @@ impl<'a> ComputeCheck<'a> {
                         "",
                     );
                 }
+                self.comparison_literals(node, name);
                 for child in nodes(node) {
                     self.walk_expr(child, scope);
                 }
@@ -550,6 +551,35 @@ impl<'a> ComputeCheck<'a> {
     /// did stop the run, but with `<encode>: expected a single-character string` and no
     /// file, no line and no code, on a config `check` had also called valid. Same cause,
     /// so one refusal covers both.
+    /// A `<str>` literal under a comparison, holding something that is not a number.
+    ///
+    /// The three comparisons work on NUMBERS. A string of digits is accepted and read
+    /// as one — `<equals><str v="7"/><int v="7"/></equals>` is true — so the tag is not
+    /// "integers only", and refusing every `<str>` would break a config that works. What
+    /// cannot work is a `<str>` whose text is not a number: measured, the run stopped
+    /// with `expected an integer in <equals>, got the string "ab"`, naming no file, no
+    /// line and no code, on a config `check` had called valid.
+    ///
+    /// Only a LITERAL is checked. What a `<field>` or a `<var>` will hold is not known
+    /// before the run, and a refusal here has to be a proof.
+    fn comparison_literals(&mut self, node: &Element, tag: &str) {
+        for child in node.children.iter().filter(|c| c.kind != Kind::Data) {
+            if child.name != "str" {
+                continue;
+            }
+            let raw = child.attr_value("v").unwrap_or("").to_string();
+            if is_integer_text(raw.trim()) {
+                continue;
+            }
+            self.report(
+                child,
+                "TDC287",
+                format!("<{tag}> compares numbers, and <str v=\"{raw}\"> is not one"),
+                "A <str> holding digits is read as the number it spells, so <str v=\"7\"/> is fine. This one is not a number, so the run would stop on the first row. Use <int>, or <to_number> around the value you meant to compare.",
+            );
+        }
+    }
+
     fn numeric_builtin_argument(&mut self, children: &[Element], tag: &str) {
         for child in children.iter().filter(|c| c.kind != Kind::Data) {
             if child.name != "field" {

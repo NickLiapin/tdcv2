@@ -140,6 +140,20 @@
       "description": "Same cause as the <is_digit> case above, different symptom. check called this valid and the run then died with \"<encode>: expected a single-character string\" — no file, no line, no code. <concat> around the field is the fix that works: measured 49, 50, 51, the ASCII of 1, 2 and 3.",
       "config": "<tdc><env count=\"3\" seed=\"s\" local=\"en\" mode=\"memory\"><sequence name=\"V\"><compute><result><encode as=\"ascii\"><field name=\"_count\"/></encode></result></compute></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
       "expected": ["error TDC286 1:109"]
+    },
+    {
+      "name": "a-comparison-refuses-a-str-literal-that-is-not-a-number",
+      "demonstrates": "TDC287",
+      "description": "The reference table declared <equals> as int|str x2, so a reader could believe two words compare. Measured: the run stopped with 'expected an integer in <equals>, got the string \"ab\"' — no file, no line, no code — on a config check had called valid. Both literals are wrong, so both are named.",
+      "config": "<tdc><env count=\"1\" seed=\"s\" local=\"en\" mode=\"memory\"><sequence name=\"V\"><compute><result><choose><when><test><equals><str v=\"ab\"/><str v=\"ab\"/></equals></test><then><str v=\"EQ\"/></then></when><otherwise><str v=\"NE\"/></otherwise></choose></result></compute></sequence></env><block><line><data>[${{V}}]</data></line></block></tdc>",
+      "expected": ["error TDC287 1:118", "error TDC287 1:131"]
+    },
+    {
+      "name": "a-comparison-accepts-a-str-literal-that-spells-a-number",
+      "demonstrates": "",
+      "description": "The other half of the same rule, and the reason it cannot simply refuse every <str>: <equals><str v=\"7\"/><int v=\"7\"/></equals> is TRUE at run time. Measured [EQ]. A blanket refusal would have broken a working config.",
+      "config": "<tdc><env count=\"1\" seed=\"s\" local=\"en\" mode=\"memory\"><sequence name=\"V\"><compute><result><choose><when><test><equals><str v=\"7\"/><int v=\"7\"/></equals></test><then><str v=\"EQ\"/></then></when><otherwise><str v=\"NE\"/></otherwise></choose></result></compute></sequence></env><block><line><data>[${{V}}]</data></line></block></tdc>",
+      "expected": []
     }
   ]
 }

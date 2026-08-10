@@ -258,7 +258,7 @@ que Unicode se corta por letras, no por bytes).
 
 | Atributo | Obligatorio | Define                                                                 |
 | :------- | :---------- | :--------------------------------------------------------------------- |
-| `from`   | sí          | índice del primer carácter (empieza en cero), incluido                 |
+| `from`   | no          | índice del primer carácter (empieza en cero), incluido; omitido → 0    |
 | `to`     | no          | índice justo después del último carácter; si se omite → hasta el final |
 
 **Úselo cuando** necesite una parte fija de un valor — el año o el mes de una fecha, el
@@ -294,8 +294,8 @@ sin cambios.
 
 | Atributo | Obligatorio | Define               |
 | :------- | :---------- | :------------------- |
-| `from`   | sí          | qué buscar (literal) |
-| `to`     | sí          | con qué reemplazarlo |
+| `from`   | no          | qué buscar (literal); omitido → no se reemplaza nada |
+| `to`     | no          | con qué reemplazarlo; omitido → cada coincidencia se elimina |
 
 **Úselo cuando** necesite cambiar un separador (guion → diagonal en una fecha) o quitar un
 carácter por completo (`to=""` elimina cada coincidencia):

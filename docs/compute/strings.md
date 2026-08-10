@@ -271,7 +271,7 @@ cut by letters, not bytes).
 
 | Attribute | Required | Sets                                                     |
 | :-------- | :------- | :------------------------------------------------------- |
-| `from`    | yes      | index of the first character (zero-based), included      |
+| `from`    | no       | index of the first character (zero-based), included; omitted → 0 |
 | `to`      | no       | index just past the last character; omitted → to the end |
 
 **Use it when** you need a fixed part of a value — the year or month of a date, a code
@@ -308,8 +308,8 @@ verbatim. If `from` is empty, or isn't found, the string is returned unchanged.
 
 | Attribute | Required | Sets                         |
 | :-------- | :------- | :--------------------------- |
-| `from`    | yes      | what to search for (literal) |
-| `to`      | yes      | what to replace it with      |
+| `from`    | no       | what to search for (literal); omitted → nothing is replaced |
+| `to`      | no       | what to replace it with; omitted → every match is removed   |
 
 **Use it when** you need to swap a separator (dash → slash in a date) or strip a
 character entirely (`to=""` removes every match):
