@@ -408,7 +408,7 @@ raw character:
 
 ```xml
 <gen if="Weight > 20" .../>      <!-- yes -->
-<gen if="Weight &gt; 20" .../>   <!-- no: TDC100, and the message says why -->
+<gen if="Weight &gt; 20" .../>   <!-- no: TDC103, the entity is four characters -->
 ```
 
 ---

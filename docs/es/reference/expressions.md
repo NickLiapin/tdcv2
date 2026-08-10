@@ -409,7 +409,7 @@ carácter directamente:
 
 ```xml
 <gen if="Weight > 20" .../>      <!-- sí -->
-<gen if="Weight &gt; 20" .../>   <!-- no: TDC100, y el mensaje explica por qué -->
+<gen if="Weight &gt; 20" .../>   <!-- no: TDC103, la entidad son cuatro caracteres -->
 ```
 
 ---

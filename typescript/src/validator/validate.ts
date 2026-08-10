@@ -1068,7 +1068,7 @@ function checkLine(lineEl: OpenCloseElementContext, ctx: Ctx): void {
         source: 'validator',
         ...nodeRange(node),
         message: `a <${name}> is not allowed inside <line> — the output block is for formatting only`,
-        hint: 'Declare it in <env> and reference it here with ${{Name}}. See https://nickliapin.github.io/tdcv2/docs/guides/mix',
+        hint: 'Declare it in <env> and reference it here with ${{Name}}. See https://nickliapin.github.io/tdcv2/docs/constructs/mix',
         code: 'TDC132',
       });
       continue;
