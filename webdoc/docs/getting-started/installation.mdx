@@ -36,11 +36,17 @@ own.
 
 ```bash
 npm install -D tdcv2
-npx tdcv2 demo.tdc
+npx tdcv2 init
 ```
 
-That is the whole installation. The `common`, `en` and USA data packs come with
-the package, so the example below runs without downloading anything.
+That is the whole installation. `init` writes a config and a `tdcv2-examples/`
+folder holding three worked examples, and prints the command that runs the first
+one. The `common`, `en` and USA data packs come with the package, so they run
+without downloading anything.
+
+`npx` is not decoration here: `npm install -D` puts the command in
+`node_modules/.bin`, not on your PATH. The other four ecosystems below install it
+as a real command, so their examples say plain `tdcv2`.
 
 To work on the engine itself instead, run it from a checkout of the repository.
 Build it once:
@@ -52,7 +58,7 @@ npm --workspace typescript run build
 Then run any config by pointing Node at the built CLI:
 
 ```bash
-node typescript/dist/cli/main.js demo.tdc
+node typescript/dist/cli/main.js tdcv2-examples/01-starter.tdc
 ```
 
 There's also a one-command wrapper at the repository root, so you don't have to
@@ -76,7 +82,7 @@ One command gets you both the library and the `tdcv2` command:
 
 ```bash
 pip install tdcv2
-tdcv2 demo.tdc
+tdcv2 init
 ```
 
 That is the whole setup. A starter set of data packs travels inside the wheel,
@@ -118,7 +124,7 @@ by the `cli` classifier:
 
 ```bash
 curl -LO https://repo1.maven.org/maven2/io/github/nickliapin/tdcv2/%%TDC_VERSION%%/tdcv2-%%TDC_VERSION%%-cli.jar
-java -jar tdcv2-%%TDC_VERSION%%-cli.jar demo.tdc
+java -jar tdcv2-%%TDC_VERSION%%-cli.jar init
 ```
 
 Worth an alias: `alias tdcv2='java -jar /path/to/tdcv2-cli.jar'`, after which
@@ -147,7 +153,7 @@ is on your PATH:
 
 ```bash
 dotnet tool install --global Tdcv2.Cli
-tdcv2 demo.tdc
+tdcv2 init
 ```
 
 The DSL and behavior are identical to the npm version.
@@ -162,7 +168,7 @@ One crate carries both the library and the command line:
 ```bash
 cargo add tdcv2      # as a dependency
 cargo install tdcv2  # as a command
-tdcv2 demo.tdc
+tdcv2 init
 ```
 
 The starter data packs are compiled into the binary, so an installed crate
@@ -172,7 +178,7 @@ Or from a checkout:
 
 ```bash
 cd rust && cargo build --release
-./target/release/tdcv2 demo.tdc
+./target/release/tdcv2 init
 ```
 
 The crate takes **no dependencies**, so the build needs nothing but a Rust
@@ -186,7 +192,18 @@ The DSL and behavior are identical to the npm version.
 
 ## Verify it works
 
-Create a file called `demo.tdc`. It declares two columns and one line of output. The name
+`init` already left you something to run — `tdcv2-examples/01-starter.tdc`, and
+two more beside it. **Those files exist only after you run `init`**; nothing
+creates them at install time, and they are yours to edit afterwards.
+
+Running the first one is the check that the install works:
+
+```bash
+tdcv2 tdcv2-examples/01-starter.tdc
+```
+
+The rest of this section builds the same thing by hand, so you can see where
+every line comes from. Create a file called `demo.tdc`. It declares two columns and one line of output. The name
 is picked from a list with [`type="text"`](../generators/text.mdx), and the age is drawn
 from a range with [`type="number"`](../generators/number.mdx):
 
@@ -216,11 +233,11 @@ second artefact:
 
 | Installed with | The command                                                                                                |
 | :------------- | :--------------------------------------------------------------------------------------------------------- |
-| Node.js        | `npx tdcv2 demo.tdc`                                                                                       |
-| Python         | `tdcv2 demo.tdc`                                                                                           |
-| Rust           | `tdcv2 demo.tdc`, after `cargo install tdcv2`                                                              |
+| Node.js        | `npx tdcv2 tdcv2-examples/01-starter.tdc`                                                                  |
+| Python         | `tdcv2 tdcv2-examples/01-starter.tdc`                                                                      |
+| Rust           | `tdcv2 tdcv2-examples/01-starter.tdc`, after `cargo install tdcv2`                                         |
 | C#             | `tdcv2 demo.tdc`, after `dotnet tool install --global Tdcv2.Cli`                                           |
-| Java           | `java -jar tdcv2-%%TDC_VERSION%%-cli.jar demo.tdc` — the `cli` classifier of the library's own coordinates            |
+| Java           | `java -jar tdcv2-%%TDC_VERSION%%-cli.jar tdcv2-examples/01-starter.tdc` — the `cli` classifier of the library's own coordinates            |
 
 From the repository root, `./run demo.tdc` is the shortest of them all.
 
@@ -353,6 +370,12 @@ tdcv2 init            # choose where packs live and the default locale
 tdcv2 pack list       # see what the registry offers
 tdcv2 pack add en usa # download and wire up the packs you want
 ```
+
+:::note
+On an npm install every one of those is `npx tdcv2 …` — the command lives in
+`node_modules/.bin`. pip, cargo and `dotnet tool install -g` put `tdcv2` on your
+PATH, so there the line above is exactly what you type.
+:::
 
 `tdcv2 pack list` prints the catalog and marks what's already installed:
 

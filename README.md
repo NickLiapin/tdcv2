@@ -87,8 +87,15 @@ Install it and run it:
 
 ```bash
 npm install -D tdcv2
-npx tdcv2 demo.tdc -o out.csv
+npx tdcv2 init
+npx tdcv2 tdcv2-examples/01-starter.tdc
 ```
+
+`init` writes a config and three worked examples into `tdcv2-examples/`, then
+prints the command that runs the first one. **Those files exist only after
+`init`** — nothing puts them there at install time, and once written they are
+yours to edit. `npx` matters on npm: `npm install -D` leaves the command in
+`node_modules/.bin` rather than on your PATH.
 
 The same command line comes with all five packages — `pip install tdcv2`,
 `cargo install tdcv2`, `dotnet tool install -g Tdcv2.Cli`, or the `cli` jar from
@@ -99,7 +106,7 @@ To run it from a checkout instead — while working on the engine itself:
 
 ```bash
 npm --workspace typescript run build
-node typescript/dist/cli/main.js demo.tdc -o out.csv
+node typescript/dist/cli/main.js tdcv2-examples/01-starter.tdc -o out.csv
 ```
 
 ---

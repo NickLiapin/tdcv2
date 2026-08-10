@@ -31,11 +31,16 @@ TDC задуман для пяти экосистем — **npm** (Node.js / Typ
 
 ```bash
 npm install -D tdcv2
-npx tdcv2 demo.tdc
+npx tdcv2 init
 ```
 
-Это вся установка. Пакеты данных `common`, `en` и США идут вместе с пакетом, поэтому
-пример ниже работает без единой загрузки.
+Это вся установка. `init` пишет конфиг и папку `tdcv2-examples/` с тремя разобранными
+примерами, а в конце печатает команду, которая запускает первый. Пакеты данных
+`common`, `en` и США идут вместе с пакетом, поэтому они работают без единой загрузки.
+
+`npx` здесь не украшение: `npm install -D` кладёт команду в `node_modules/.bin`, а не
+в PATH. Остальные четыре экосистемы ниже ставят её настоящей командой, поэтому там в
+примерах просто `tdcv2`.
 
 Если же вы хотите работать над самим движком, запускайте его из копии репозитория.
 Соберите его один раз:
@@ -47,7 +52,7 @@ npm --workspace typescript run build
 Дальше любой конфиг запускается указанием Node на собранный CLI:
 
 ```bash
-node typescript/dist/cli/main.js demo.tdc
+node typescript/dist/cli/main.js tdcv2-examples/01-starter.tdc
 ```
 
 В корне репозитория есть и однокомандная обёртка, чтобы не запоминать этот путь:
@@ -68,7 +73,7 @@ node typescript/dist/cli/main.js demo.tdc
 
 ```bash
 pip install tdcv2
-tdcv2 demo.tdc
+tdcv2 init
 ```
 
 Это вся настройка. Стартовый набор паков едет внутри колеса, поэтому пример выше
@@ -108,7 +113,7 @@ implementation("io.github.nickliapin:tdcv2:0.2.0")
 
 ```bash
 curl -LO https://repo1.maven.org/maven2/io/github/nickliapin/tdcv2/0.2.0/tdcv2-0.2.0-cli.jar
-java -jar tdcv2-0.2.0-cli.jar demo.tdc
+java -jar tdcv2-0.2.0-cli.jar init
 ```
 
 Стоит завести алиас: `alias tdcv2='java -jar /path/to/tdcv2-cli.jar'` — после этого
@@ -135,7 +140,7 @@ dotnet add package Tdcv2
 
 ```bash
 dotnet tool install --global Tdcv2.Cli
-tdcv2 demo.tdc
+tdcv2 init
 ```
 
 DSL и поведение идентичны npm-версии.
@@ -149,7 +154,7 @@ DSL и поведение идентичны npm-версии.
 ```bash
 cargo add tdcv2      # как зависимость
 cargo install tdcv2  # как команда
-tdcv2 demo.tdc
+tdcv2 init
 ```
 
 Стартовые паки вшиты в бинарник, поэтому установленному крейту не нужно ничего на
@@ -159,7 +164,7 @@ tdcv2 demo.tdc
 
 ```bash
 cd rust && cargo build --release
-./target/release/tdcv2 demo.tdc
+./target/release/tdcv2 init
 ```
 
 У крейта **нет зависимостей**, так что для сборки не нужно ничего, кроме самого
@@ -170,7 +175,18 @@ DSL и поведение — те же, что в npm-версии.
 
 ## Проверяем, что всё работает
 
-Когда npm-версия настроена, создайте файл `demo.tdc`. В нём две колонки — имя,
+`init` уже оставил вам что запустить — `tdcv2-examples/01-starter.tdc` и ещё два рядом.
+**Эти файлы появляются только после `init`**: при установке их никто не создаёт, и после
+они ваши — правьте как хотите.
+
+Запуск первого и есть проверка, что установка живая:
+
+```bash
+tdcv2 tdcv2-examples/01-starter.tdc
+```
+
+Дальше в этом разделе то же самое собирается руками, чтобы было видно, откуда берётся
+каждая строка. Создайте файл `demo.tdc`. В нём две колонки — имя,
 выбранное из списка через [`type="text"`](../generators/text.md#top), и возраст из
 диапазона через [`type="number"`](../generators/number.md#top), — и однострочный
 шаблон вывода:
@@ -200,11 +216,11 @@ PATH из того же пакета, что несёт библиотеку; у
 
 | Язык    | Команда                                                                                                         |
 | :------ | :-------------------------------------------------------------------------------------------------------------- |
-| Node.js | `npx tdcv2 demo.tdc`                                                                                            |
-| Python  | `tdcv2 demo.tdc`                                                                                                |
-| Rust    | `tdcv2 demo.tdc`, после `cargo install tdcv2`                                                                   |
-| C#      | `tdcv2 demo.tdc`, после `dotnet tool install --global Tdcv2.Cli`                                                |
-| Java    | `java -jar tdcv2-0.2.0-cli.jar demo.tdc` — классификатор `cli` у координат самой библиотеки                     |
+| Node.js | `npx tdcv2 tdcv2-examples/01-starter.tdc`                                                                                            |
+| Python  | `tdcv2 tdcv2-examples/01-starter.tdc`                                                                                                |
+| Rust    | `tdcv2 tdcv2-examples/01-starter.tdc`, после `cargo install tdcv2`                                                                   |
+| C#      | `tdcv2 tdcv2-examples/01-starter.tdc`, после `dotnet tool install --global Tdcv2.Cli`                                                |
+| Java    | `java -jar tdcv2-0.2.0-cli.jar tdcv2-examples/01-starter.tdc` — классификатор `cli` у координат самой библиотеки                     |
 
 Из корня репозитория короче всех — `./run demo.tdc`.
 
@@ -331,6 +347,11 @@ tdcv2 init            # выбрать, где лежат пакеты, и ло�
 tdcv2 pack list       # посмотреть, что предлагает реестр
 tdcv2 pack add en usa # скачать и подключить нужные пакеты
 ```
+
+> [!NOTE]
+> При установке через npm каждая из них — это `npx tdcv2 …`: команда живёт в
+> `node_modules/.bin`. pip, cargo и `dotnet tool install -g` кладут `tdcv2` в PATH, там
+> строки выше набираются ровно так, как написаны.
 
 `tdcv2 pack list` печатает каталог, отмечая уже установленное:
 
