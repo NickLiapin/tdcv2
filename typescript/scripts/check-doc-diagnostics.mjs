@@ -182,6 +182,17 @@ function withContinuation(src, afterIndex, first) {
   let out = first;
   for (const raw of rest) {
     const line = raw.trim();
+    // `-->` is the LOCATOR line of a TDC diagnostic, the Rust-style one:
+    //
+    //     error[TDC050]: <gen type="text"> requires a "value" attribute
+    //      --> demo.tdc:1:60
+    //       |
+    //
+    // Not an HTML comment. CodeQL reads the literal as one (js/bad-tag-filter,
+    // "only parses --> and not --!>") because the rule cannot know the domain;
+    // the finding is dismissed as a false positive rather than the code bent to
+    // satisfy it. This script reads our own documentation at build time and
+    // parses no markup at all.
     if (line === '' || line === '`}' || /^(-->|\||note:|help:|suggestion:|\$)/.test(line)) break;
     if (!/^\s{2,}/.test(raw)) break;
     if (/^(error|warning)\[TDC/.test(line)) break;
