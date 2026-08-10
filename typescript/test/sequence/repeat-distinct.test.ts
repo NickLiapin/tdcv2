@@ -81,6 +81,43 @@ describe('distinct= on a repeat list', () => {
     }
   });
 
+  it('holds for every generator type that can carry repeat', () => {
+    // The listed path draws the pool down; everything else is bounded rejection
+    // sampling. Both are covered, so no type is quietly left out.
+    const gens: readonly [string, string][] = [
+      ['text', '<gen type="text" value="a,b,c,d,e" repeat="3" separator=", " distinct="true"/>'],
+      ['number', '<gen type="number" value="1..5" repeat="3" separator=", " distinct="true"/>'],
+      ['regex', '<gen type="regex" value="[A-C]{1}" repeat="3" separator=", " distinct="true"/>'],
+      [
+        'advanced_regex',
+        '<gen type="advanced_regex" value="(x|y|z)" repeat="3" separator=", " distinct="true"/>',
+      ],
+      ['symbol', '<gen type="symbol" value="ABCDE" repeat="3" separator=", " distinct="true"/>'],
+      [
+        'date',
+        '<gen type="date" value="2020-01-01..2020-01-05" repeat="3" separator=", " distinct="true"/>',
+      ],
+      [
+        'template',
+        '<gen type="template" value="person.lastName" repeat="3" separator=", " distinct="true"/>',
+      ],
+    ];
+    for (const [label, gen] of gens) {
+      for (const cell of rows(gen, 25)) {
+        expect(new Set(cell).size, `${label}: ${cell.join(', ')}`).toBe(cell.length);
+      }
+    }
+  });
+
+  it('a run-time pool too small to satisfy the list is refused, never shortened', () => {
+    // Three days cannot yield six different dates. The config alone cannot
+    // prove it for every date shape, so the refusal fires at run time — but it
+    // is a refusal, not a quietly shorter cell.
+    expect(() =>
+      rows('<gen type="date" value="2020-01-01..2020-01-03" repeat="6" distinct="true"/>', 3),
+    ).toThrow(/could not find/);
+  });
+
   it('the streaming engine and the memory engine agree value for value', () => {
     const gen = `<gen type="text" value="${TAGS}" repeat="3" separator=", " distinct="true"/>`;
     expect(render1(config(gen, 20), { now: NOW, stream: true })).toBe(
@@ -122,6 +159,21 @@ describe('distinct= refusals', () => {
     expect(codes('<gen type="number" value="1..5" repeat="9" distinct="true"/>')).toContain(
       'TDC292',
     );
+  });
+
+  it('TDC292 counts a one-character symbol set, but only the plain shape', () => {
+    expect(codes('<gen type="symbol" value="ABCDE" repeat="9" distinct="true"/>')).toContain(
+      'TDC292',
+    );
+    // 26 letters is plenty.
+    expect(codes('<gen type="symbol" value="[a-z]" repeat="9" distinct="true"/>')).not.toContain(
+      'TDC292',
+    );
+    // length="3" draws a 3-character string, so the pool is not the set size —
+    // guessing here would refuse a config that works.
+    expect(
+      codes('<gen type="symbol" value="ABCDE" length="3" repeat="9" distinct="true"/>'),
+    ).not.toContain('TDC292');
   });
 
   it('TDC292 stays silent when the pool is big enough, and when it is unknowable', () => {

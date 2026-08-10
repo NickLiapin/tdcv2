@@ -15,6 +15,7 @@ import type {
   SelfClosingElementContext,
 } from '../generated/TDCParser.js';
 import { extractAttrs } from '../processor/walk.js';
+import { parseCharSet } from '../unicode/charset.js';
 import { RepeatError, parseRepeat, repeatUnsupportedReason } from '../sequence/repeat.js';
 import { ACCUMULATE_OPS, AccumulateError, parseAccumulate } from '../sequence/accumulate.js';
 
@@ -217,6 +218,24 @@ function poolSizeFromConfig(attrMap: Record<string, string>): number | undefined
   const type = attrMap['type'] ?? '';
 
   if (type === 'text') return new Set(value.split(',').map((v) => v.trim())).size;
+
+  // A one-character symbol draws from its inline set, so the set IS the pool.
+  // Only the plain shape is counted: a named `alphabet`, `include`/`exclude`,
+  // or a length above one all change the answer, and a refusal built on a
+  // guess is worse than no refusal at all. Those fall to the run-time arm.
+  if (type === 'symbol') {
+    const plain =
+      (attrMap['alphabet'] ?? '') === '' &&
+      (attrMap['include'] ?? '') === '' &&
+      (attrMap['exclude'] ?? '') === '' &&
+      ['', '1'].includes((attrMap['length'] ?? '').trim());
+    if (!plain) return undefined;
+    try {
+      return new Set(parseCharSet(value)).size;
+    } catch {
+      return undefined; // A malformed set is TDC's charset error, not this one.
+    }
+  }
 
   if (type === 'number') {
     const dots = value.indexOf('..');
