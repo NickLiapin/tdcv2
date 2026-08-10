@@ -312,7 +312,7 @@ publishing {
                 developers {
                     developer {
                         id = "nickliapin"
-                        name = "Nick Liapin"
+                        name = "Nikolai Liapin"
                         url = "https://github.com/NickLiapin"
                     }
                 }

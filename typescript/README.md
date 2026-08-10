@@ -326,4 +326,4 @@ choice of rounding or compression is allowed to change the bytes.
 
 ## License
 
-MIT © Nick Liapin
+MIT © Nikolai Liapin

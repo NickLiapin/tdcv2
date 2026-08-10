@@ -13,7 +13,7 @@ description = "Deterministic test-data generator: coherent records, exact propor
 readme = "README.md"
 requires-python = ">=3.10"
 license = { text = "MIT" }
-authors = [{ name = "Nick Liapin" }]
+authors = [{ name = "Nikolai Liapin" }]
 
 # The terms people actually type when they are looking for this. PyPI's own search
 # leans on the description far more than on these, but the classifiers below and

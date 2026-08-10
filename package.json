@@ -4,7 +4,7 @@
   "private": true,
   "description": "TDC monorepo root — coordinates TypeScript (v1.0), Python (v2.0), and Java (v3.0) implementations of The Data Constructor.",
   "license": "MIT",
-  "author": "Nick Liapin",
+  "author": "Nikolai Liapin",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/NickLiapin/tdcv2.git"

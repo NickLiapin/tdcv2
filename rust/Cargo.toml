@@ -2,6 +2,7 @@
 name = "tdcv2"
 version = "0.2.0"
 edition = "2021"
+authors = ["Nikolai Liapin"]
 rust-version = "1.74"
 description = "TDC — The Data Constructor. Deterministic test data from a declarative config."
 license = "MIT"

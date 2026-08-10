@@ -134,7 +134,7 @@ const config = {
         ],
         // The version and the last-changed date on every page, from the same two
         // values the pages themselves ask for — so the footer cannot drift either.
-        copyright: `TDC ${VERSION} \u2014 documentation updated ${TOKENS['%%TDC_UPDATED%%']}. \u00a9 2026 Nick Liapin. Built with Docusaurus.`,
+        copyright: `TDC ${VERSION} \u2014 documentation updated ${TOKENS['%%TDC_UPDATED%%']}. \u00a9 2026 Nikolai Liapin. Built with Docusaurus.`,
       },
       prism: {
         theme: prismThemes.github,

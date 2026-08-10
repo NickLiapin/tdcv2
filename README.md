@@ -190,7 +190,7 @@ Key rules:
 
 ## License
 
-[MIT](LICENSE) — Copyright (c) 2026 Nick Liapin.
+[MIT](LICENSE) — Copyright (c) 2026 Nikolai Liapin.
 
 TDC is and will remain open source without monetization plans. All features
 equally accessible, all users equal, community-driven development.
