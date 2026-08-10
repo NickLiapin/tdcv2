@@ -86,21 +86,21 @@
 `./run each-demo.tdc`
 
 ```
-INSERT INTO customers VALUES (1, 'Дмитрий', 'обычный');
+INSERT INTO customers VALUES (1, 'Александр', 'обычный');
 INSERT INTO orders VALUES (4, 1, 433);
 INSERT INTO orders VALUES (5, 1, 474);
-INSERT INTO customers VALUES (2, 'Сергей', 'обычный');
-INSERT INTO customers VALUES (3, 'Николай', 'VIP');
+INSERT INTO customers VALUES (2, 'Андрей', 'обычный');
+INSERT INTO customers VALUES (3, 'Сергей', 'VIP');
 INSERT INTO orders VALUES (11, 3, 2460);
 INSERT INTO orders VALUES (12, 3, 5137);
 INSERT INTO orders VALUES (13, 3, 7717);
-INSERT INTO customers VALUES (4, 'Андрей', 'VIP');
+INSERT INTO customers VALUES (4, 'Владимир', 'VIP');
 INSERT INTO orders VALUES (16, 4, 5249);
 INSERT INTO orders VALUES (17, 4, 2324);
 ```
 
 Строка с заказом написана в конфиге **один раз**, а печатается столько раз, сколько
-заказов у клиента. У клиента №2 (`Сергей`) выпало **ноль** заказов — поэтому строк
+заказов у клиента. У клиента №2 (`Андрей`) выпало **ноль** заказов — поэтому строк
 с его заказами нет вовсе, и никакой пустой заглушки не осталось. Два `VIP`-клиента
 берут заказы из `VipOrders`, обычные — из `StdOrders`, и на каждой строке обходится
 именно нужный список, потому что [`parent`](../guides/hierarchical-dependencies.md#top) уже отобрал,

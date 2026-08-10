@@ -274,7 +274,22 @@ export function parseDelimiter(value: string | undefined): string {
 }
 
 export function resolveCsvColumnIndex(headerRow: readonly string[], column: string): number {
-  if (/^[1-9][0-9]*$/.test(column)) return Number(column) - 1;
+  if (/^[1-9][0-9]*$/.test(column)) {
+    const index = Number(column) - 1;
+    // A number past the last column used to be accepted here, and every cell then
+    // read as empty — so the failure arrived as the BLANK CELL error, advising
+    // "fill it in, remove the row, or point column= at a column that is complete"
+    // for a column that does not exist. Measured on a four-column file:
+    // `column="9"` reported "column \"9\" is empty on value row 1". Say what is
+    // actually wrong, and say how many columns there are.
+    if (index >= headerRow.length) {
+      throw new Error(
+        `file generator: CSV column "${column}" is past the last column — the file has ` +
+          String(headerRow.length),
+      );
+    }
+    return index;
+  }
 
   // `trim()` here is load-bearing beyond stray spaces: it also strips the UTF-8
   // BOM that Excel writes ahead of the first header cell, because ECMAScript

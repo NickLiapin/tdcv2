@@ -13,7 +13,7 @@
 > [!IMPORTANT]
 > **This documentation**
 >
-> Covers TDC **0.2.0**, last updated **2026-08-09** — the date of the newest
+> Covers TDC **0.2.0**, last updated **2026-08-10** — the date of the newest
 > change to any page, not the date this site was built.
 
 TDC generates internally consistent test data. Within each row, names match gender

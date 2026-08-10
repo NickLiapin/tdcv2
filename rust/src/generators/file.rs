@@ -430,7 +430,18 @@ fn csv_column(
 
 fn column_index(header_row: &[String], column: &str) -> EngineResult<usize> {
     if is_numbered(column) {
-        return Ok(column.parse::<usize>().unwrap_or(1) - 1);
+        let index = column.parse::<usize>().unwrap_or(1) - 1;
+        // A number past the last column used to be accepted here, and every cell then read
+        // as empty — so the failure arrived as the BLANK CELL error, advising "fill it in,
+        // remove the row, or point column= at a column that is complete" for a column that
+        // does not exist. Say what is actually wrong, and how many columns there are.
+        if index >= header_row.len() {
+            return invalid(&format!(
+                "file generator: CSV column \"{column}\" is past the last column — the file has {}",
+                header_row.len()
+            ));
+        }
+        return Ok(index);
     }
     for (i, head) in header_row.iter().enumerate() {
         // Stripping the byte-order mark matters more than the stray spaces:

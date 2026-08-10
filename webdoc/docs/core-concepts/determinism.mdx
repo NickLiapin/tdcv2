@@ -188,7 +188,9 @@ Hamilton method), uniqueness ([`uniq`](../constructs/unique-values.mdx)), a
 **weighted** [`template`](../generators/template.mdx) pack, and the **list lengths** of
 [`repeat="min..max"`](../constructs/multiple-values.mdx) — a range there is a quota over
 the run, not a die rolled per row, so 200 rows of `repeat="1..4"` come out
-50 / 50 / 50 / 50 and 201 rows come out 51 / 50 / 50 / 50. The name and place packs carry
+50 / 50 / 50 / 50, and 201 rows give one of the four an extra row — which one is decided by
+the seed, so `seed="s"` measures 50 / 50 / 51 / 50 and `seed="beta"` measures
+51 / 50 / 50 / 50. The name and place packs carry
 a frequency per value, and TDC turns those into exact quotas over the whole count with the
 same machinery `percent` uses. So `person.male.firstName` reshuffles when
 `count` changes, while an unweighted list like `location.country` stays a prefix.

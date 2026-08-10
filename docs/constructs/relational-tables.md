@@ -88,18 +88,18 @@ Give the orders their own [`repeat`](../reference/attributes.md#top) list, then 
 INSERT INTO customers VALUES (1, 'James', 'standard');
 INSERT INTO orders VALUES (4, 1, 433);
 INSERT INTO orders VALUES (5, 1, 474);
-INSERT INTO customers VALUES (2, 'Robert', 'standard');
-INSERT INTO customers VALUES (3, 'William', 'VIP');
+INSERT INTO customers VALUES (2, 'Michael', 'standard');
+INSERT INTO customers VALUES (3, 'John', 'VIP');
 INSERT INTO orders VALUES (11, 3, 2460);
 INSERT INTO orders VALUES (12, 3, 5137);
 INSERT INTO orders VALUES (13, 3, 7717);
-INSERT INTO customers VALUES (4, 'Michael', 'VIP');
+INSERT INTO customers VALUES (4, 'Robert', 'VIP');
 INSERT INTO orders VALUES (16, 4, 5249);
 INSERT INTO orders VALUES (17, 4, 2324);
 ```
 
 The order line is written **once** in the config, yet it prints as many times as the
-customer has orders. Customer 2 (`Robert`) drew **zero** orders, so there are no
+customer has orders. Customer 2 (`Michael`) drew **zero** orders, so there are no
 order rows for him at all and no empty placeholder left behind. The two `VIP`
 customers draw from `VipOrders` and the standard customers from `StdOrders`, and each
 row iterates the right list because

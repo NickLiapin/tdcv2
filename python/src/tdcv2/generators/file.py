@@ -337,7 +337,17 @@ def parse_delimiter(value: str | None) -> str:
 
 def column_index(header_row: list[str], column: str) -> int:
     if _NUMBERED.match(column):
-        return int(column) - 1
+        index = int(column) - 1
+        # A number past the last column used to be accepted here, and every cell then read
+        # as empty — so the failure arrived as the BLANK CELL error, advising "fill it in,
+        # remove the row, or point column= at a column that is complete" for a column that
+        # does not exist. Say what is actually wrong, and how many columns there are.
+        if index >= len(header_row):
+            raise ValueError(
+                f'file generator: CSV column "{column}" is past the last column — '
+                f"the file has {len(header_row)}"
+            )
+        return index
     for i, cell in enumerate(header_row):
         if cell.replace(_BOM, "").strip() == column:
             return i

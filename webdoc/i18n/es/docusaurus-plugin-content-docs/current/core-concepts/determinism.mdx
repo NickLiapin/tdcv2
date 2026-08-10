@@ -191,7 +191,9 @@ trabajan así: las proporciones exactas (`percent` en [`text`](../generators/tex
 [`template`](../generators/template.mdx) **ponderado**, y las **longitudes de lista** de
 [`repeat="min..max"`](../constructs/multiple-values.mdx) — allí un rango es una cuota
 sobre la corrida, no un dado por fila, así que 200 filas con `repeat="1..4"` salen
-50 / 50 / 50 / 50 y 201 filas salen 51 / 50 / 50 / 50. Los packs de nombres y lugares
+50 / 50 / 50 / 50, y con 201 filas una de las cuatro longitudes recibe la fila extra — cuál
+lo decide la semilla: con `seed="s"` se midió 50 / 50 / 51 / 50 y con `seed="beta"`,
+51 / 50 / 50 / 50. Los packs de nombres y lugares
 llevan frecuencias por valor, y TDC las reparte en una cuota exacta sobre todo el `count`,
 la misma maquinaria que `percent`. Por eso `person.male.firstName` se rebaraja cuando
 `count` cambia, mientras que una lista sin ponderar como `location.country` sigue siendo un

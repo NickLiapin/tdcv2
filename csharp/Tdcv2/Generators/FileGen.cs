@@ -412,7 +412,20 @@ public static class FileGen
     {
         if (Numbered.IsMatch(column))
         {
-            return int.Parse(column, CultureInfo.InvariantCulture) - 1;
+            int index = int.Parse(column, CultureInfo.InvariantCulture) - 1;
+
+            // A number past the last column used to be accepted here, and every cell then read
+            // as empty — so the failure arrived as the BLANK CELL error, advising "fill it in,
+            // remove the row, or point column= at a column that is complete" for a column that
+            // does not exist. Say what is actually wrong, and how many columns there are.
+            if (index >= headerRow.Count)
+            {
+                throw new ArgumentException(
+                    $"file generator: CSV column \"{column}\" is past the last column — " +
+                    $"the file has {headerRow.Count}");
+            }
+
+            return index;
         }
 
         for (int i = 0; i < headerRow.Count; i++)
