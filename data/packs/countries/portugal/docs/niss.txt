@@ -9,13 +9,13 @@ locale: pt
 <sequence name="niss"><compute>
   <let name="base"><concat><field name="first"/><field name="body"/></concat></let>
   <let name="sum"><reduce>
-    <over><var name="base"/></over>
+    <over><use name="base"/></over>
     <init><int v="0"/></init>
     <do><add><acc/><multiply><current/>
       <at><in><list v="29,23,19,17,13,11,7,5,3,2"/></in><index><current_index/></index></at>
     </multiply></add></do>
   </reduce></let>
-  <let name="check"><subtract><int v="9"/><mod><var name="sum"/><int v="10"/></mod></subtract></let>
-  <result><concat><field name="first"/><field name="body"/><var name="check"/></concat></result>
+  <let name="check"><subtract><int v="9"/><mod><use name="sum"/><int v="10"/></mod></subtract></let>
+  <result><concat><field name="first"/><field name="body"/><use name="check"/></concat></result>
 </compute></sequence>
 <data>${{niss}}</data>

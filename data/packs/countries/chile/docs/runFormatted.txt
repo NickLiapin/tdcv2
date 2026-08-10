@@ -24,7 +24,7 @@ generator: tdc
         <multiply><current/>
           <add><int v="2"/>
             <mod>
-              <subtract><var name="len"/><int v="1"/><current_index/></subtract>
+              <subtract><use name="len"/><int v="1"/><current_index/></subtract>
               <int v="6"/>
             </mod>
           </add>
@@ -34,11 +34,11 @@ generator: tdc
   </let>
   <!-- 11 - (sum mod 11), folded so 11 becomes 0; a remainder of 1 leaves 10,
        which prints as K. Roughly one RUT in eleven ends in K. -->
-  <let name="c"><mod><subtract><int v="11"/><mod><var name="sum"/><int v="11"/></mod></subtract><int v="11"/></mod></let>
+  <let name="c"><mod><subtract><int v="11"/><mod><use name="sum"/><int v="11"/></mod></subtract><int v="11"/></mod></let>
   <result>
     <choose>
-      <when><test><equals><var name="c"/><int v="10"/></equals></test><then><str v="K"/></then></when>
-      <otherwise><var name="c"/></otherwise>
+      <when><test><equals><use name="c"/><int v="10"/></equals></test><then><str v="K"/></then></when>
+      <otherwise><use name="c"/></otherwise>
     </choose>
   </result>
 </compute></sequence>

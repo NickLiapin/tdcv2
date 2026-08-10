@@ -14,7 +14,7 @@ generator: tdc
       </multiply></add></do>
     </reduce>
   </let>
-  <let name="check"><pad width="2"><mod><mod><var name="sum"/><int v="101"/></mod><int v="100"/></mod></pad></let>
-  <result><concat><field name="base"/><var name="check"/></concat></result>
+  <let name="check"><pad width="2"><mod><mod><use name="sum"/><int v="101"/></mod><int v="100"/></mod></pad></let>
+  <result><concat><field name="base"/><use name="check"/></concat></result>
 </compute></sequence>
 <data>${{snils}}</data>

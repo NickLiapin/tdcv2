@@ -10,7 +10,7 @@ generator: tdc
   <let name="padded"><pad width="7" fill="0"><field name="body"/></pad></let>
   <let name="sum">
     <reduce>
-      <over><var name="padded"/></over>
+      <over><use name="padded"/></over>
       <init><int v="0"/></init>
       <do><add><acc/>
         <multiply><current/>
@@ -21,7 +21,7 @@ generator: tdc
   </let>
   <!-- (10 - sum mod 10) mod 10, so a sum ending in 0 yields the digit 0.
        Published example: 1.234.567 sums to 148 and checks to 2. -->
-  <let name="check"><mod><subtract><int v="10"/><mod><var name="sum"/><int v="10"/></mod></subtract><int v="10"/></mod></let>
-  <result><concat><var name="padded"/><var name="check"/></concat></result>
+  <let name="check"><mod><subtract><int v="10"/><mod><use name="sum"/><int v="10"/></mod></subtract><int v="10"/></mod></let>
+  <result><concat><use name="padded"/><use name="check"/></concat></result>
 </compute></sequence>
 <data>${{ci}}</data>

@@ -15,8 +15,8 @@ generator: tdc
       </choose>
     </do></each></join>
   </let>
-  <let name="base"><concat><str v="1"/><field name="year"/><var name="region"/><field name="tail"/></concat></let>
-  <let name="check"><mod><mod><to_number><var name="base"/></to_number><int v="11"/></mod><int v="10"/></mod></let>
-  <result><concat><var name="base"/><var name="check"/></concat></result>
+  <let name="base"><concat><str v="1"/><field name="year"/><use name="region"/><field name="tail"/></concat></let>
+  <let name="check"><mod><mod><to_number><use name="base"/></to_number><int v="11"/></mod><int v="10"/></mod></let>
+  <result><concat><use name="base"/><use name="check"/></concat></result>
 </compute></sequence>
 <data>${{ogrn}}</data>

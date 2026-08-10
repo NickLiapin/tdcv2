@@ -545,7 +545,7 @@ directly, since a one-character string is coerced on its own).
   silent wrap.
 - **Tag names use `_`**: `to_number`, `current_index`, and so on.
 - **Tree errors are caught before the run** (codes `TDC180`–`TDC187`): an unknown tag,
-  a wrong child count, an unbound [`<var>`](overview.md#top), and the like.
+  a wrong child count, an unbound [`<use>`](overview.md#top), and the like.
 
 ## See also
 

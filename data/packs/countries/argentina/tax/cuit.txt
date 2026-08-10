@@ -9,7 +9,7 @@ generator: tdc
   <let name="payload"><concat><field name="prefix"/><field name="dni"/></concat></let>
   <let name="sum">
     <reduce>
-      <over><var name="payload"/></over>
+      <over><use name="payload"/></over>
       <init><int v="0"/></init>
       <do><add><acc/>
         <multiply><current/>
@@ -18,15 +18,15 @@ generator: tdc
       </add></do>
     </reduce>
   </let>
-  <let name="r"><mod><var name="sum"/><int v="11"/></mod></let>
+  <let name="r"><mod><use name="sum"/><int v="11"/></mod></let>
   <!-- verificador = 11 - r, folded: 11 -> 0, 10 -> 9. -->
   <let name="check">
     <choose>
-      <when><test><equals><var name="r"/><int v="0"/></equals></test><then><int v="0"/></then></when>
-      <when><test><equals><var name="r"/><int v="1"/></equals></test><then><int v="9"/></then></when>
-      <otherwise><subtract><int v="11"/><var name="r"/></subtract></otherwise>
+      <when><test><equals><use name="r"/><int v="0"/></equals></test><then><int v="0"/></then></when>
+      <when><test><equals><use name="r"/><int v="1"/></equals></test><then><int v="9"/></then></when>
+      <otherwise><subtract><int v="11"/><use name="r"/></subtract></otherwise>
     </choose>
   </let>
-  <result><concat><var name="payload"/><var name="check"/></concat></result>
+  <result><concat><use name="payload"/><use name="check"/></concat></result>
 </compute></sequence>
 <data>${{cuit}}</data>

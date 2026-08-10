@@ -12,7 +12,7 @@ generator: tdc
   <let name="head"><concat><field name="prefix"/><slice from="0" to="5"><field name="middle"/></slice></concat></let>
   <let name="headSum">
     <reduce>
-      <over><var name="head"/></over>
+      <over><use name="head"/></over>
       <init><int v="0"/></init>
       <do><add><acc/>
         <multiply><current/>
@@ -38,8 +38,8 @@ generator: tdc
   <let name="trial">
     <mod>
       <add>
-        <add><var name="headSum"/><multiply><int v="5"/><var name="last"/></multiply></add>
-        <var name="branchSum"/>
+        <add><use name="headSum"/><multiply><int v="5"/><use name="last"/></multiply></add>
+        <use name="branchSum"/>
       </add>
       <int v="11"/>
     </mod>
@@ -49,14 +49,14 @@ generator: tdc
        9 -> 0; either way the check digit becomes legal. -->
   <let name="fixed">
     <choose>
-      <when><test><equals><var name="trial"/><int v="1"/></equals></test>
-        <then><mod><add><var name="last"/><int v="1"/></add><int v="10"/></mod></then></when>
-      <otherwise><var name="last"/></otherwise>
+      <when><test><equals><use name="trial"/><int v="1"/></equals></test>
+        <then><mod><add><use name="last"/><int v="1"/></add><int v="10"/></mod></then></when>
+      <otherwise><use name="last"/></otherwise>
     </choose>
   </let>
   <result><concat>
     <field name="prefix"/><slice from="0" to="5"><field name="middle"/></slice>
-    <var name="fixed"/><field name="branch"/>
+    <use name="fixed"/><field name="branch"/>
   </concat></result>
 </compute></sequence>
 <sequence name="rut"><compute>
@@ -71,16 +71,16 @@ generator: tdc
       </add></do>
     </reduce>
   </let>
-  <let name="raw"><subtract><int v="11"/><mod><var name="sum"/><int v="11"/></mod></subtract></let>
+  <let name="raw"><subtract><int v="11"/><mod><use name="sum"/><int v="11"/></mod></subtract></let>
   <let name="check">
     <choose>
-      <when><test><equals><var name="raw"/><int v="11"/></equals></test><then><int v="0"/></then></when>
+      <when><test><equals><use name="raw"/><int v="11"/></equals></test><then><int v="0"/></then></when>
       <!-- Unreachable for a body this pack builds; only a caller-supplied
            body= that DGI would itself reject can land here. -->
-      <when><test><equals><var name="raw"/><int v="10"/></equals></test><then><int v="1"/></then></when>
-      <otherwise><var name="raw"/></otherwise>
+      <when><test><equals><use name="raw"/><int v="10"/></equals></test><then><int v="1"/></then></when>
+      <otherwise><use name="raw"/></otherwise>
     </choose>
   </let>
-  <result><concat><field name="body"/><var name="check"/></concat></result>
+  <result><concat><field name="body"/><use name="check"/></concat></result>
 </compute></sequence>
 <data>${{rut}}</data>

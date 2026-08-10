@@ -16,7 +16,7 @@ generator: tdc
       </add></do>
     </reduce>
   </let>
-  <result><mod><subtract><int v="11"/><mod><var name="sum"/><int v="11"/></mod></subtract><int v="11"/></mod></result>
+  <result><mod><subtract><int v="11"/><mod><use name="sum"/><int v="11"/></mod></subtract><int v="11"/></mod></result>
 </compute></sequence>
 <valid><less_than><to_number><field name="check"/></to_number><int v="10"/></less_than></valid>
 <sequence name="out"><compute>

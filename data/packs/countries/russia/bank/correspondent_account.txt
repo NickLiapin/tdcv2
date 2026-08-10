@@ -11,20 +11,20 @@ generator: tdc
   <let name="bchars"><each><over><field name="bik"/></over><do><current/></do></each></let>
   <!-- Correspondent account embeds the BIK's last three digits at its tail. -->
   <let name="biktail"><concat>
-    <at><in><var name="bchars"/></in><index><int v="6"/></index></at>
-    <at><in><var name="bchars"/></in><index><int v="7"/></index></at>
-    <at><in><var name="bchars"/></in><index><int v="8"/></index></at>
+    <at><in><use name="bchars"/></in><index><int v="6"/></index></at>
+    <at><in><use name="bchars"/></in><index><int v="7"/></index></at>
+    <at><in><use name="bchars"/></in><index><int v="8"/></index></at>
   </concat></let>
   <!-- 20-char account with a '0' placeholder at index 8 (the control-key slot). -->
-  <let name="acct"><concat><field name="prefix"/><field name="currency"/><str v="0"/><field name="body"/><var name="biktail"/></concat></let>
+  <let name="acct"><concat><field name="prefix"/><field name="currency"/><str v="0"/><field name="body"/><use name="biktail"/></concat></let>
   <!-- Control key is computed over ('0' + BIK digits 4..5) + account body. -->
   <let name="bikpart"><concat><str v="0"/>
-    <at><in><var name="bchars"/></in><index><int v="4"/></index></at>
-    <at><in><var name="bchars"/></in><index><int v="5"/></index></at>
+    <at><in><use name="bchars"/></in><index><int v="4"/></index></at>
+    <at><in><use name="bchars"/></in><index><int v="5"/></index></at>
   </concat></let>
-  <let name="source"><concat><var name="bikpart"/><var name="acct"/></concat></let>
+  <let name="source"><concat><use name="bikpart"/><use name="acct"/></concat></let>
   <let name="sum"><reduce>
-    <over><var name="source"/></over>
+    <over><use name="source"/></over>
     <init><int v="0"/></init>
     <do><add><acc/>
       <mod>
@@ -36,14 +36,14 @@ generator: tdc
     </add></do>
   </reduce></let>
   <let name="key"><mod>
-    <multiply><subtract><int v="10"/><mod><var name="sum"/><int v="10"/></mod></subtract><int v="7"/></multiply>
+    <multiply><subtract><int v="10"/><mod><use name="sum"/><int v="10"/></mod></subtract><int v="7"/></multiply>
     <int v="10"/>
   </mod></let>
   <result><join sep=""><each>
-    <over><var name="acct"/></over>
+    <over><use name="acct"/></over>
     <do>
       <choose>
-        <when><test><equals><current_index/><int v="8"/></equals></test><then><var name="key"/></then></when>
+        <when><test><equals><current_index/><int v="8"/></equals></test><then><use name="key"/></then></when>
         <otherwise><current/></otherwise>
       </choose>
     </do>

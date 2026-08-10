@@ -8,16 +8,16 @@ generator: tdc
 <sequence name="named"><gen type="template" value="usa.geo.streetNamed"/></sequence>
 <sequence name="street"><compute>
   <let name="num"><to_number><field name="n"/></to_number></let>
-  <let name="m10"><mod><var name="num"/><int v="10"/></mod></let>
-  <let name="m100"><mod><var name="num"/><int v="100"/></mod></let>
+  <let name="m10"><mod><use name="num"/><int v="10"/></mod></let>
+  <let name="m100"><mod><use name="num"/><int v="100"/></mod></let>
   <let name="suffix">
     <choose>
-      <when><test><equals><var name="m10"/><int v="1"/></equals></test>
-        <then><choose><when><test><equals><var name="m100"/><int v="11"/></equals></test><then><str v="th"/></then></when><otherwise><str v="st"/></otherwise></choose></then></when>
-      <when><test><equals><var name="m10"/><int v="2"/></equals></test>
-        <then><choose><when><test><equals><var name="m100"/><int v="12"/></equals></test><then><str v="th"/></then></when><otherwise><str v="nd"/></otherwise></choose></then></when>
-      <when><test><equals><var name="m10"/><int v="3"/></equals></test>
-        <then><choose><when><test><equals><var name="m100"/><int v="13"/></equals></test><then><str v="th"/></then></when><otherwise><str v="rd"/></otherwise></choose></then></when>
+      <when><test><equals><use name="m10"/><int v="1"/></equals></test>
+        <then><choose><when><test><equals><use name="m100"/><int v="11"/></equals></test><then><str v="th"/></then></when><otherwise><str v="st"/></otherwise></choose></then></when>
+      <when><test><equals><use name="m10"/><int v="2"/></equals></test>
+        <then><choose><when><test><equals><use name="m100"/><int v="12"/></equals></test><then><str v="th"/></then></when><otherwise><str v="nd"/></otherwise></choose></then></when>
+      <when><test><equals><use name="m10"/><int v="3"/></equals></test>
+        <then><choose><when><test><equals><use name="m100"/><int v="13"/></equals></test><then><str v="th"/></then></when><otherwise><str v="rd"/></otherwise></choose></then></when>
       <otherwise><str v="th"/></otherwise>
     </choose>
   </let>
@@ -25,7 +25,7 @@ generator: tdc
     <choose>
       <when><test><equals><to_number><field name="mode"/></to_number><int v="5"/></equals></test>
         <then><field name="named"/></then></when>
-      <otherwise><concat><field name="n"/><var name="suffix"/></concat></otherwise>
+      <otherwise><concat><field name="n"/><use name="suffix"/></concat></otherwise>
     </choose>
   </result>
 </compute></sequence>

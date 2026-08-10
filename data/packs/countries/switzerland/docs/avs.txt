@@ -10,7 +10,7 @@ locale: fr
        left, check = (10 - sum mod 10) mod 10. -->
   <let name="base"><concat><str v="756"/><field name="nine"/></concat></let>
   <let name="sum"><reduce>
-    <over><var name="base"/></over>
+    <over><use name="base"/></over>
     <init><int v="0"/></init>
     <do><add><acc/>
       <multiply><current/>
@@ -18,13 +18,13 @@ locale: fr
       </multiply>
     </add></do>
   </reduce></let>
-  <let name="check"><mod><subtract><int v="10"/><mod><var name="sum"/><int v="10"/></mod></subtract><int v="10"/></mod></let>
+  <let name="check"><mod><subtract><int v="10"/><mod><use name="sum"/><int v="10"/></mod></subtract><int v="10"/></mod></let>
   <result><concat>
     <str v="756."/>
     <slice from="0" to="4"><field name="nine"/></slice><str v="."/>
     <slice from="4" to="8"><field name="nine"/></slice><str v="."/>
     <slice from="8" to="9"><field name="nine"/></slice>
-    <var name="check"/>
+    <use name="check"/>
   </concat></result>
 </compute></sequence>
 <data>${{avs}}</data>

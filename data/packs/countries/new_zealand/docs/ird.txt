@@ -17,13 +17,13 @@ locale: en
       </multiply>
     </add></do>
   </reduce></let>
-  <let name="r1"><mod><var name="sum1"/><int v="11"/></mod></let>
+  <let name="r1"><mod><use name="sum1"/><int v="11"/></mod></let>
   <!-- 11 - remainder, with remainder 0 mapping to check 0. A check of 10
        (remainder 1) is not a valid digit and falls through to the secondary
        stage below. -->
   <let name="c1"><choose>
-    <when><test><equals><var name="r1"/><int v="0"/></equals></test><then><int v="0"/></then></when>
-    <otherwise><subtract><int v="11"/><var name="r1"/></subtract></otherwise>
+    <when><test><equals><use name="r1"/><int v="0"/></equals></test><then><int v="0"/></then></when>
+    <otherwise><subtract><int v="11"/><use name="r1"/></subtract></otherwise>
   </choose></let>
   <!-- Secondary weighting 7,4,3,2,5,2,7,6; only used when c1 resolves to 10. -->
   <let name="sum2"><reduce>
@@ -35,10 +35,10 @@ locale: en
       </multiply>
     </add></do>
   </reduce></let>
-  <let name="r2"><mod><var name="sum2"/><int v="11"/></mod></let>
+  <let name="r2"><mod><use name="sum2"/><int v="11"/></mod></let>
   <let name="c2"><choose>
-    <when><test><equals><var name="r2"/><int v="0"/></equals></test><then><int v="0"/></then></when>
-    <otherwise><subtract><int v="11"/><var name="r2"/></subtract></otherwise>
+    <when><test><equals><use name="r2"/><int v="0"/></equals></test><then><int v="0"/></then></when>
+    <otherwise><subtract><int v="11"/><use name="r2"/></subtract></otherwise>
   </choose></let>
   <!-- Residual case (c1 == 10 and c2 == 10): this base has no valid check
        digit, so IRD would never issue it. Bump the last base digit by 1
@@ -46,22 +46,22 @@ locale: en
        shift moves the primary remainder to 3 (or to 5 when the digit wrapped
        9 -> 0), giving a valid single-digit check of 8 (or 6). -->
   <let name="last"><to_number><slice from="7" to="8"><field name="base"/></slice></to_number></let>
-  <let name="bumpedLast"><mod><add><var name="last"/><int v="1"/></add><int v="10"/></mod></let>
+  <let name="bumpedLast"><mod><add><use name="last"/><int v="1"/></add><int v="10"/></mod></let>
   <let name="bumpedCheck"><choose>
-    <when><test><equals><var name="last"/><int v="9"/></equals></test><then><int v="6"/></then></when>
+    <when><test><equals><use name="last"/><int v="9"/></equals></test><then><int v="6"/></then></when>
     <otherwise><int v="8"/></otherwise>
   </choose></let>
   <result>
     <choose>
-      <when><test><equals><var name="c1"/><int v="10"/></equals></test>
+      <when><test><equals><use name="c1"/><int v="10"/></equals></test>
         <then>
           <choose>
-            <when><test><equals><var name="c2"/><int v="10"/></equals></test>
-              <then><concat><slice from="0" to="7"><field name="base"/></slice><var name="bumpedLast"/><var name="bumpedCheck"/></concat></then></when>
-            <otherwise><concat><field name="base"/><var name="c2"/></concat></otherwise>
+            <when><test><equals><use name="c2"/><int v="10"/></equals></test>
+              <then><concat><slice from="0" to="7"><field name="base"/></slice><use name="bumpedLast"/><use name="bumpedCheck"/></concat></then></when>
+            <otherwise><concat><field name="base"/><use name="c2"/></concat></otherwise>
           </choose>
         </then></when>
-      <otherwise><concat><field name="base"/><var name="c1"/></concat></otherwise>
+      <otherwise><concat><field name="base"/><use name="c1"/></concat></otherwise>
     </choose>
   </result>
 </compute></sequence>

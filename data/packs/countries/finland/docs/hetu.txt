@@ -17,15 +17,15 @@ locale: fi
   <!-- Century marker: + = 1800s, - = 1900s, A = 2000s. Only - and A are produced. -->
   <let name="century">
     <choose>
-      <when><test><greater_than><var name="year"/><int v="1999"/></greater_than></test><then><str v="A"/></then></when>
+      <when><test><greater_than><use name="year"/><int v="1999"/></greater_than></test><then><str v="A"/></then></when>
       <otherwise><str v="-"/></otherwise>
     </choose>
   </let>
   <!-- The check reads DDMMYY and the individual number as one 9-digit number. -->
-  <let name="body"><concat><var name="ddmmyy"/><field name="individual"/></concat></let>
+  <let name="body"><concat><use name="ddmmyy"/><field name="individual"/></concat></let>
   <!-- Horner fold: rem = (rem * 10 + digit) mod 31, so the 9-digit value never overflows. -->
   <let name="rem"><reduce>
-    <over><var name="body"/></over>
+    <over><use name="body"/></over>
     <init><int v="0"/></init>
     <do><mod><add><multiply><acc/><int v="10"/></multiply><current/></add><int v="31"/></mod></do>
   </reduce></let>
@@ -33,8 +33,8 @@ locale: fi
        0123456789ABCDEFHJKLMNPRSTUVWXY (G, I, O and Q are left out). -->
   <let name="check"><at>
     <in><list><str v="0"/><str v="1"/><str v="2"/><str v="3"/><str v="4"/><str v="5"/><str v="6"/><str v="7"/><str v="8"/><str v="9"/><str v="A"/><str v="B"/><str v="C"/><str v="D"/><str v="E"/><str v="F"/><str v="H"/><str v="J"/><str v="K"/><str v="L"/><str v="M"/><str v="N"/><str v="P"/><str v="R"/><str v="S"/><str v="T"/><str v="U"/><str v="V"/><str v="W"/><str v="X"/><str v="Y"/></list></in>
-    <index><var name="rem"/></index>
+    <index><use name="rem"/></index>
   </at></let>
-  <result><concat><var name="ddmmyy"/><var name="century"/><field name="individual"/><var name="check"/></concat></result>
+  <result><concat><use name="ddmmyy"/><use name="century"/><field name="individual"/><use name="check"/></concat></result>
 </compute></sequence>
 <data>${{hetu}}</data>

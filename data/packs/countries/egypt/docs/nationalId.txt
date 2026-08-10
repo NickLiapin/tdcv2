@@ -19,25 +19,25 @@ locale: ar
   <let name="yymmdd"><slice from="2" to="8"><field name="birth"/></slice></let>
   <!-- 13-digit body: century + YYMMDD + governorate + serial. -->
   <let name="body"><concat>
-    <var name="century"/><var name="yymmdd"/><field name="gov"/><field name="serial"/>
+    <use name="century"/><use name="yymmdd"/><field name="gov"/><field name="serial"/>
   </concat></let>
   <!-- Luhn check: double the positions whose index parity matches (length + 1). -->
   <let name="sum"><reduce>
-    <over><var name="body"/></over>
+    <over><use name="body"/></over>
     <init><int v="0"/></init>
     <do><add><acc/>
       <choose>
         <when>
           <test><equals>
             <mod><current_index/><int v="2"/></mod>
-            <mod><add><length><var name="body"/></length><int v="1"/></add><int v="2"/></mod>
+            <mod><add><length><use name="body"/></length><int v="1"/></add><int v="2"/></mod>
           </equals></test>
           <then>
             <let name="d"><multiply><current/><int v="2"/></multiply></let>
             <choose>
-              <when><test><greater_than><var name="d"/><int v="9"/></greater_than></test>
-                    <then><subtract><var name="d"/><int v="9"/></subtract></then></when>
-              <otherwise><var name="d"/></otherwise>
+              <when><test><greater_than><use name="d"/><int v="9"/></greater_than></test>
+                    <then><subtract><use name="d"/><int v="9"/></subtract></then></when>
+              <otherwise><use name="d"/></otherwise>
             </choose>
           </then>
         </when>
@@ -45,9 +45,9 @@ locale: ar
       </choose>
     </add></do>
   </reduce></let>
-  <let name="check"><mod><subtract><int v="10"/><mod><var name="sum"/><int v="10"/></mod></subtract><int v="10"/></mod></let>
+  <let name="check"><mod><subtract><int v="10"/><mod><use name="sum"/><int v="10"/></mod></subtract><int v="10"/></mod></let>
   <result><concat>
-    <var name="century"/><var name="yymmdd"/><field name="gov"/><field name="serial"/><var name="check"/>
+    <use name="century"/><use name="yymmdd"/><field name="gov"/><field name="serial"/><use name="check"/>
   </concat></result>
 </compute></sequence>
 <data>${{nid}}</data>

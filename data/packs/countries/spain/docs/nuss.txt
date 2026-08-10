@@ -22,14 +22,14 @@ generator: tdc
   <!-- Horner fold mod 97 over the digits. -->
   <let name="rem">
     <reduce>
-      <over><var name="base"/></over>
+      <over><use name="base"/></over>
       <init><int v="0"/></init>
       <do><mod><add><multiply><acc/><int v="10"/></multiply><current/></add><int v="97"/></mod></do>
     </reduce>
   </let>
   <result><concat>
     <field name="province"/><field name="serial"/>
-    <pad width="2" fill="0"><var name="rem"/></pad>
+    <pad width="2" fill="0"><use name="rem"/></pad>
   </concat></result>
 </compute></sequence>
 <data>${{nuss}}</data>

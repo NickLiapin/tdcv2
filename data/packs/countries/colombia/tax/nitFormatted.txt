@@ -27,13 +27,13 @@ generator: tdc
       </add></do>
     </reduce>
   </let>
-  <let name="r"><mod><var name="sum"/><int v="11"/></mod></let>
+  <let name="r"><mod><use name="sum"/><int v="11"/></mod></let>
   <!-- Remainders 0 and 1 are the check digit as they stand; every other
        remainder r becomes 11 - r. -->
   <result>
     <choose>
-      <when><test><less_than><var name="r"/><int v="2"/></less_than></test><then><var name="r"/></then></when>
-      <otherwise><subtract><int v="11"/><var name="r"/></subtract></otherwise>
+      <when><test><less_than><use name="r"/><int v="2"/></less_than></test><then><use name="r"/></then></when>
+      <otherwise><subtract><int v="11"/><use name="r"/></subtract></otherwise>
     </choose>
   </result>
 </compute></sequence>

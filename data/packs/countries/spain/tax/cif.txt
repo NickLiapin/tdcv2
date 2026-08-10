@@ -26,7 +26,7 @@ generator: tdc
        digit; even positions are added as they stand. -->
   <let name="sum">
     <reduce>
-      <over><var name="digits"/></over>
+      <over><use name="digits"/></over>
       <init><int v="0"/></init>
       <do><add><acc/>
         <choose>
@@ -35,9 +35,9 @@ generator: tdc
             <then>
               <let name="d"><multiply><current/><int v="2"/></multiply></let>
               <choose>
-                <when><test><greater_than><var name="d"/><int v="9"/></greater_than></test>
-                      <then><subtract><var name="d"/><int v="9"/></subtract></then></when>
-                <otherwise><var name="d"/></otherwise>
+                <when><test><greater_than><use name="d"/><int v="9"/></greater_than></test>
+                      <then><subtract><use name="d"/><int v="9"/></subtract></then></when>
+                <otherwise><use name="d"/></otherwise>
               </choose>
             </then>
           </when>
@@ -46,7 +46,7 @@ generator: tdc
       </add></do>
     </reduce>
   </let>
-  <let name="e"><mod><subtract><int v="10"/><mod><var name="sum"/><int v="10"/></mod></subtract><int v="10"/></mod></let>
+  <let name="e"><mod><subtract><int v="10"/><mod><use name="sum"/><int v="10"/></mod></subtract><int v="10"/></mod></let>
   <let name="entity">
     <choose>
       <when><test><greater_than><to_number><field name="mode"/></to_number><int v="8"/></greater_than></test>
@@ -61,12 +61,12 @@ generator: tdc
       <when><test><greater_than><to_number><field name="mode"/></to_number><int v="8"/></greater_than></test>
         <then>
           <at><in><list><str v="J"/><str v="A"/><str v="B"/><str v="C"/><str v="D"/><str v="E"/><str v="F"/><str v="G"/><str v="H"/><str v="I"/></list></in>
-              <index><var name="e"/></index></at>
+              <index><use name="e"/></index></at>
         </then>
       </when>
-      <otherwise><var name="e"/></otherwise>
+      <otherwise><use name="e"/></otherwise>
     </choose>
   </let>
-  <result><concat><var name="entity"/><var name="digits"/><var name="control"/></concat></result>
+  <result><concat><use name="entity"/><use name="digits"/><use name="control"/></concat></result>
 </compute></sequence>
 <data>${{cif}}</data>

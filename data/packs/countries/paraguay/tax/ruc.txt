@@ -13,20 +13,20 @@ generator: tdc
       <do><add><acc/>
         <multiply><current/>
           <add><int v="2"/>
-            <mod><subtract><subtract><var name="len"/><int v="1"/></subtract><current_index/></subtract><int v="10"/></mod>
+            <mod><subtract><subtract><use name="len"/><int v="1"/></subtract><current_index/></subtract><int v="10"/></mod>
           </add>
         </multiply>
       </add></do>
     </reduce>
   </let>
-  <let name="rem"><mod><var name="sum"/><int v="11"/></mod></let>
+  <let name="rem"><mod><use name="sum"/><int v="11"/></mod></let>
   <let name="check">
     <choose>
-      <when><test><greater_than><var name="rem"/><int v="1"/></greater_than></test>
-        <then><subtract><int v="11"/><var name="rem"/></subtract></then></when>
+      <when><test><greater_than><use name="rem"/><int v="1"/></greater_than></test>
+        <then><subtract><int v="11"/><use name="rem"/></subtract></then></when>
       <otherwise><int v="0"/></otherwise>
     </choose>
   </let>
-  <result><concat><field name="body"/><var name="check"/></concat></result>
+  <result><concat><field name="body"/><use name="check"/></concat></result>
 </compute></sequence>
 <data>${{ruc}}</data>

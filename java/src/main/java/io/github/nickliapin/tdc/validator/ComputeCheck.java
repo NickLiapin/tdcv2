@@ -13,7 +13,7 @@ import java.util.Set;
  * The {@code <compute>} tree, checked before it runs.
  *
  * <p>Compute is a small language of its own, and its mistakes are the quiet kind: a
- * {@code <var>} nobody bound reads as empty, a {@code <choose>} with no fallback produces nothing
+ * {@code <use>} nobody bound reads as empty, a {@code <choose>} with no fallback produces nothing
  * when every branch misses, a second {@code <result>} silently wins over the first. None of that
  * stops a run — it produces a check digit that is wrong, in a file of a million records that all
  * look plausible.
@@ -48,10 +48,24 @@ final class ComputeCheck {
       java.util.Set.of("_count", "_total");
 
 
+  /**
+   * Tags that used to be called something else.
+   *
+   * <p>Without this a renamed tag falls through to "unknown compute tag", which tells a reader
+   * their spelling is wrong and not what the right one is. The rename is the one moment when the
+   * engine knows exactly what was meant, so it says so.
+   */
+  private static final Map<String, String[]> RENAMED_TAGS = Map.of(
+      "var", new String[] {
+        "use",
+        "It never declared anything — <let> binds a name and this reads it back, which is what "
+            + "the new name says. Rename the tag; the name= attribute is unchanged."
+      });
+
   private static final Set<String> KNOWN_TAGS =
       Set.of(
           // literals and references
-          "int", "str", "list", "field", "var", "current", "current_index", "acc",
+          "int", "str", "list", "field", "use", "current", "current_index", "acc",
           // binding
           "let",
           // collections
@@ -182,6 +196,12 @@ final class ComputeCheck {
               + "></test></when><then>…</then></choose>.");
       return;
     }
+    String[] renamed = RENAMED_TAGS.get(node.name());
+    if (renamed != null) {
+      report(node, "TDC288", "<" + node.name() + "> has been renamed to <" + renamed[0] + ">",
+          renamed[1]);
+      return;
+    }
     if (!KNOWN_TAGS.contains(node.name())) {
       report(node, "TDC180", "unknown compute tag <" + node.name() + ">",
           HINTS_BY_TAG.get(node.name()));
@@ -200,10 +220,10 @@ final class ComputeCheck {
           report(node, "TDC181", "<acc/> is only valid inside a <reduce> <do> body", null);
         }
       }
-      case "var" -> {
+      case "use" -> {
         String name = node.attrs().getOrDefault("name", "");
         if (!scope.vars().contains(name)) {
-          report(node, "TDC182", "<var name=\"" + name + "\"> is not bound by an enclosing <let>",
+          report(node, "TDC182", "<use name=\"" + name + "\"> is not bound by an enclosing <let>",
               null);
         }
       }
@@ -417,7 +437,7 @@ final class ComputeCheck {
    * integer in &lt;equals&gt;, got the string \"ab\"", naming no file, no line and no code, on a
    * config check had called valid.
    *
-   * <p>Only a LITERAL is checked. What a {@code <field>} or a {@code <var>} will hold is not
+   * <p>Only a LITERAL is checked. What a {@code <field>} or a {@code <use>} will hold is not
    * known before the run, and a refusal here has to be a proof.
    */
   private void comparisonLiterals(Node node) {

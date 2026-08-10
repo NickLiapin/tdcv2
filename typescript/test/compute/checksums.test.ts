@@ -30,7 +30,7 @@ const INN_CHECK = `<compute name="check">
       </do>
     </reduce>
   </let>
-  <result><mod><mod><var name="sum"/><int v="11"/></mod><int v="10"/></mod></result>
+  <result><mod><mod><use name="sum"/><int v="11"/></mod><int v="10"/></mod></result>
 </compute>`;
 
 const IBAN_CHECK = `<compute name="check">
@@ -40,14 +40,14 @@ const IBAN_CHECK = `<compute name="check">
   <let name="digits">
     <join>
       <each>
-        <over><var name="normalized"/></over>
+        <over><use name="normalized"/></over>
         <do><encode as="base36"><current/></encode></do>
       </each>
     </join>
   </let>
   <let name="rem">
     <reduce>
-      <over><var name="digits"/></over>
+      <over><use name="digits"/></over>
       <init><int v="0"/></init>
       <do>
         <mod>
@@ -57,7 +57,7 @@ const IBAN_CHECK = `<compute name="check">
       </do>
     </reduce>
   </let>
-  <result><pad width="2"><subtract><int v="98"/><var name="rem"/></subtract></pad></result>
+  <result><pad width="2"><subtract><int v="98"/><use name="rem"/></subtract></pad></result>
 </compute>`;
 
 const LUHN_CHECK = `<compute name="check">
@@ -77,9 +77,9 @@ const LUHN_CHECK = `<compute name="check">
               <then>
                 <let name="d"><multiply><current/><int v="2"/></multiply></let>
                 <choose>
-                  <when><test><greater_than><var name="d"/><int v="9"/></greater_than></test>
-                        <then><subtract><var name="d"/><int v="9"/></subtract></then></when>
-                  <otherwise><var name="d"/></otherwise>
+                  <when><test><greater_than><use name="d"/><int v="9"/></greater_than></test>
+                        <then><subtract><use name="d"/><int v="9"/></subtract></then></when>
+                  <otherwise><use name="d"/></otherwise>
                 </choose>
               </then>
             </when>
@@ -89,7 +89,7 @@ const LUHN_CHECK = `<compute name="check">
       </do>
     </reduce>
   </let>
-  <result><mod><subtract><int v="10"/><mod><var name="sum"/><int v="10"/></mod></subtract><int v="10"/></mod></result>
+  <result><mod><subtract><int v="10"/><mod><use name="sum"/><int v="10"/></mod></subtract><int v="10"/></mod></result>
 </compute>`;
 
 // --- oracles ---

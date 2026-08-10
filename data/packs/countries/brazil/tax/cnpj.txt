@@ -10,7 +10,7 @@ generator: tdc
   <let name="d1">
     <let name="s1">
       <reduce>
-        <over><var name="base"/></over>
+        <over><use name="base"/></over>
         <init><int v="0"/></init>
         <do><add><acc/>
           <multiply><current/>
@@ -19,17 +19,17 @@ generator: tdc
         </add></do>
       </reduce>
     </let>
-    <let name="r1"><mod><var name="s1"/><int v="11"/></mod></let>
+    <let name="r1"><mod><use name="s1"/><int v="11"/></mod></let>
     <choose>
-      <when><test><less_than><var name="r1"/><int v="2"/></less_than></test><then><int v="0"/></then></when>
-      <otherwise><subtract><int v="11"/><var name="r1"/></subtract></otherwise>
+      <when><test><less_than><use name="r1"/><int v="2"/></less_than></test><then><int v="0"/></then></when>
+      <otherwise><subtract><int v="11"/><use name="r1"/></subtract></otherwise>
     </choose>
   </let>
-  <let name="base2"><concat><var name="base"/><var name="d1"/></concat></let>
+  <let name="base2"><concat><use name="base"/><use name="d1"/></concat></let>
   <let name="d2">
     <let name="s2">
       <reduce>
-        <over><var name="base2"/></over>
+        <over><use name="base2"/></over>
         <init><int v="0"/></init>
         <do><add><acc/>
           <multiply><current/>
@@ -38,12 +38,12 @@ generator: tdc
         </add></do>
       </reduce>
     </let>
-    <let name="r2"><mod><var name="s2"/><int v="11"/></mod></let>
+    <let name="r2"><mod><use name="s2"/><int v="11"/></mod></let>
     <choose>
-      <when><test><less_than><var name="r2"/><int v="2"/></less_than></test><then><int v="0"/></then></when>
-      <otherwise><subtract><int v="11"/><var name="r2"/></subtract></otherwise>
+      <when><test><less_than><use name="r2"/><int v="2"/></less_than></test><then><int v="0"/></then></when>
+      <otherwise><subtract><int v="11"/><use name="r2"/></subtract></otherwise>
     </choose>
   </let>
-  <result><concat><var name="base"/><var name="d1"/><var name="d2"/></concat></result>
+  <result><concat><use name="base"/><use name="d1"/><use name="d2"/></concat></result>
 </compute></sequence>
 <data>${{cnpj}}</data>

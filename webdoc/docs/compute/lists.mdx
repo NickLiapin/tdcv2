@@ -418,7 +418,7 @@ sum into a check digit with a double [`<mod>`](arithmetic.mdx) (`% 11`, then `% 
         </reduce>
         <int v="11"/></mod><int v="10"/></mod>
     </let>
-    <result><concat><field name="Base"/><var name="check"/></concat></result>
+    <result><concat><field name="Base"/><use name="check"/></concat></result>
   </compute>
 </sequence>
 ```

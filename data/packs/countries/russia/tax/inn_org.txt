@@ -10,7 +10,7 @@ generator: tdc
   <let name="check">
     <mod><mod>
       <reduce>
-        <over><var name="base"/></over>
+        <over><use name="base"/></over>
         <init><int v="0"/></init>
         <do><add><acc/>
           <multiply><current/>
@@ -20,6 +20,6 @@ generator: tdc
       </reduce>
       <int v="11"/></mod><int v="10"/></mod>
   </let>
-  <result><concat><var name="base"/><var name="check"/></concat></result>
+  <result><concat><use name="base"/><use name="check"/></concat></result>
 </compute></sequence>
 <data>${{inn}}</data>

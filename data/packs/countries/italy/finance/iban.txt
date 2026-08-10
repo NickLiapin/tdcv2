@@ -12,7 +12,7 @@ locale: it
        folded over ABI + CAB + account, then mapped to a letter. -->
   <let name="body"><concat><field name="abi"/><field name="cab"/><field name="account"/></concat></let>
   <let name="cinSum"><reduce>
-    <over><var name="body"/></over>
+    <over><use name="body"/></over>
     <init><int v="0"/></init>
     <do><add><acc/>
       <choose>
@@ -27,20 +27,20 @@ locale: it
   <!-- The remainder maps to the CIN letter through a list of <str> children. -->
   <let name="cin"><at>
     <in><list><str v="A"/><str v="B"/><str v="C"/><str v="D"/><str v="E"/><str v="F"/><str v="G"/><str v="H"/><str v="I"/><str v="J"/><str v="K"/><str v="L"/><str v="M"/><str v="N"/><str v="O"/><str v="P"/><str v="Q"/><str v="R"/><str v="S"/><str v="T"/><str v="U"/><str v="V"/><str v="W"/><str v="X"/><str v="Y"/><str v="Z"/></list></in>
-    <index><mod><var name="cinSum"/><int v="26"/></mod></index>
+    <index><mod><use name="cinSum"/><int v="26"/></mod></index>
   </at></let>
-  <let name="bban"><concat><var name="cin"/><var name="body"/></concat></let>
-  <let name="rearranged"><concat><var name="bban"/><str v="IT"/><str v="00"/></concat></let>
+  <let name="bban"><concat><use name="cin"/><use name="body"/></concat></let>
+  <let name="rearranged"><concat><use name="bban"/><str v="IT"/><str v="00"/></concat></let>
   <let name="digits"><join><each>
-    <over><var name="rearranged"/></over>
+    <over><use name="rearranged"/></over>
     <do><encode as="base36"><current/></encode></do>
   </each></join></let>
   <let name="rem"><reduce>
-    <over><var name="digits"/></over>
+    <over><use name="digits"/></over>
     <init><int v="0"/></init>
     <do><mod><add><multiply><acc/><int v="10"/></multiply><current/></add><int v="97"/></mod></do>
   </reduce></let>
-  <let name="check"><pad width="2" fill="0"><subtract><int v="98"/><var name="rem"/></subtract></pad></let>
-  <result><concat><str v="IT"/><var name="check"/><var name="bban"/></concat></result>
+  <let name="check"><pad width="2" fill="0"><subtract><int v="98"/><use name="rem"/></subtract></pad></let>
+  <result><concat><str v="IT"/><use name="check"/><use name="bban"/></concat></result>
 </compute></sequence>
 <data>${{iban}}</data>

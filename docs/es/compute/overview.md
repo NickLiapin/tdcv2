@@ -192,9 +192,9 @@ dígito que vuelve válido al conjunto:
           </reduce>
         </let>
         <let name="check">
-          <mod><subtract><int v="10"/><mod><var name="sum"/><int v="10"/></mod></subtract><int v="10"/></mod>
+          <mod><subtract><int v="10"/><mod><use name="sum"/><int v="10"/></mod></subtract><int v="10"/></mod>
         </let>
-        <result><concat><field name="Base"/><var name="check"/></concat></result>
+        <result><concat><field name="Base"/><use name="check"/></concat></result>
       </compute>
     </sequence>
   </env>
@@ -261,21 +261,22 @@ no deducida.
 
 Tres de estas merecen más que una fila.
 
-### `<let>` y `<var>` no son dos clases de variable
+### `<let>` nombra un valor una vez, `<use>` lo vuelve a leer
 
-Son una **declaración** y una **lectura**. `<let name="x">` liga un nombre;
-`<var name="x"/>` lo vuelve a leer. En la mayoría de los lenguajes de programación tanto `let` como `var` declaran una
-variable, y por eso justamente el par confunde aquí.
+`<let name="x">` liga un nombre; `<use name="x"/>` lo lee. La etiqueta de lectura se llamaba
+`<var>` hasta que se renombró: `var` es la palabra para variable, y estaba puesta sobre la
+etiqueta que no declara nada. A un config que aún escriba `<var>` el motor se lo dice por su
+nombre, con [`TDC288`](../reference/errors.md#top).
 
 De ahí salen tres reglas, y el motor hace cumplir las tres:
 
 | Regla                                                   | Lo que obtiene si la rompe                                               |
 | :------------------------------------------------------ | :----------------------------------------------------------------------- |
-| Un nombre debe ligarse antes de leerse                  | `TDC182: <var name="x"> is not bound by an enclosing <let>`              |
+| Un nombre debe ligarse antes de leerse                  | `TDC182: <use name="x"> is not bound by an enclosing <let>`              |
 | Un nombre se liga una vez y no se vuelve a ligar        | `TDC185: <let name="x"> shadows an outer binding of the same name`       |
 | Una ligadura solo es visible dentro de su propia ranura | un `<let>` dentro de `<do>` es invisible fuera de él — otra vez `TDC182` |
 
-Dicho simple: `<let>` calcula un valor una sola vez y le pone nombre, y `<var>` es la
+Dicho simple: `<let>` calcula un valor una sola vez y le pone nombre, y `<use>` es la
 forma de volver a pedir ese valor sin rehacer el trabajo. Una vez nombrado, el valor ya
 no cambia — para eso sirve ponerle nombre. Es el mismo movimiento que hacer cuentas en
 papel: _sea s el puntaje como número_, escrito una vez y usado hasta el final.
@@ -320,7 +321,7 @@ Los valores de los que se parte y los nombres que se dan a los resultados interm
 | `<str v="AB"/>`      | un string                                                              |
 | `<list v="2,4,10"/>` | una lista de enteros separados por comas                               |
 | `<field name="X"/>`  | el valor de la secuencia `X` en el alcance — igual que `${{X}}`        |
-| `<var name="X"/>`    | el valor ligado por un `<let name="X">` que lo contiene                |
+| `<use name="X"/>`    | el valor ligado por un `<let name="X">` que lo contiene                |
 | `<let name="X">…`    | nombra un resultado intermedio para que lo lean las etiquetas hermanas |
 | `<current/>`         | el elemento actual (solo dentro de `<do>`)                             |
 | `<current_index/>`   | la posición del elemento actual, empezando en cero                     |
@@ -356,9 +357,9 @@ valor: `<equals>`, `<greater_than>`, `<less_than>` (comparan dos enteros) e
 
 ```xml
 <choose>
-  <when><test><greater_than><var name="d"/><int v="9"/></greater_than></test>
-        <then><subtract><var name="d"/><int v="9"/></subtract></then></when>
-  <otherwise><var name="d"/></otherwise>
+  <when><test><greater_than><use name="d"/><int v="9"/></greater_than></test>
+        <then><subtract><use name="d"/><int v="9"/></subtract></then></when>
+  <otherwise><use name="d"/></otherwise>
 </choose>
 ```
 
@@ -437,7 +438,7 @@ filas buenas.
 - **Los nombres de etiquetas usan `_`** (como `before_block`): `current_index`,
   `to_number`, `greater_than`, `less_than`, `is_digit`.
 - **Los errores de árbol se detectan antes de la corrida** (códigos `TDC180`–`TDC187`):
-  una etiqueta desconocida, un `<var>` sin ligar, un `<choose>` sin `<otherwise>`, y así.
+  una etiqueta desconocida, un `<use>` sin ligar, un `<choose>` sin `<otherwise>`, y así.
 
 ## Vea también
 

@@ -1,6 +1,6 @@
 """The ``<compute>`` tree, checked before it runs.
 
-Compute is a small language of its own, and its mistakes are the quiet kind: a ``<var>`` nobody
+Compute is a small language of its own, and its mistakes are the quiet kind: a ``<use>`` nobody
 bound reads as empty, a ``<choose>`` with no fallback produces nothing when every branch misses, a
 second ``<result>`` silently wins over the first. None of that stops a run — it produces a check
 digit that is wrong, in a file of a million records that all look plausible.
@@ -21,7 +21,7 @@ _ENCODINGS = frozenset({"base36", "ascii", "unicode", "hex", "binary", "octal"})
 _KNOWN_TAGS = frozenset(
     {
         # literals and references
-        "int", "str", "list", "field", "var", "current", "current_index", "acc",
+        "int", "str", "list", "field", "use", "current", "current_index", "acc",
         # binding
         "let",
         # collections
@@ -41,6 +41,19 @@ _KNOWN_TAGS = frozenset(
 
 # Tags the compute spec describes but this version does not ship, so the diagnostic explains the
 # gap instead of reading like a typo.
+#: Tags that used to be called something else.
+#:
+#: Without this a renamed tag falls through to "unknown compute tag", which tells a reader
+#: their spelling is wrong and not what the right one is. The rename is the one moment when
+#: the engine knows exactly what was meant, so it says so.
+_RENAMED_TAGS = {
+    "var": (
+        "use",
+        "It never declared anything — <let> binds a name and this reads it back, which is "
+        "what the new name says. Rename the tag; the name= attribute is unchanged.",
+    ),
+}
+
 _HINTS_BY_TAG = {
     "param": (
         "<param> belongs to the compute-def/use feature, which is not implemented yet. "
@@ -173,6 +186,10 @@ class ComputeCheck:
                 "<then>…</then></choose>.",
             )
             return
+        renamed = _RENAMED_TAGS.get(name)
+        if renamed is not None:
+            self._report(node, "TDC288", f"<{name}> has been renamed to <{renamed[0]}>", renamed[1])
+            return
         if name not in _KNOWN_TAGS:
             self._report(node, "TDC180", f"unknown compute tag <{name}>", _HINTS_BY_TAG.get(name))
             return
@@ -187,11 +204,11 @@ class ComputeCheck:
                 self._report(
                     node, "TDC181", "<acc/> is only valid inside a <reduce> <do> body", None
                 )
-        elif name == "var":
+        elif name == "use":
             key = node.attrs.get("name", "")
             if key not in scope.variables:
                 self._report(
-                    node, "TDC182", f'<var name="{key}"> is not bound by an enclosing <let>', None
+                    node, "TDC182", f'<use name="{key}"> is not bound by an enclosing <let>', None
                 )
         elif name == "field":
             key = node.attrs.get("name", "")
@@ -370,7 +387,7 @@ class ComputeCheck:
         `expected an integer in <equals>, got the string "ab"`, naming no file, no line and
         no code, on a config `check` had called valid.
 
-        Only a LITERAL is checked. What a `<field>` or a `<var>` will hold is not known
+        Only a LITERAL is checked. What a `<field>` or a `<use>` will hold is not known
         before the run, and a refusal here has to be a proof.
         """
         for child in node.children:

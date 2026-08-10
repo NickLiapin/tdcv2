@@ -21,14 +21,14 @@ generator: tdc
        for people born from 2000 on. -->
   <let name="homo">
     <choose>
-      <when><test><equals><to_number><var name="century"/></to_number><int v="20"/></equals></test>
+      <when><test><equals><to_number><use name="century"/></to_number><int v="20"/></equals></test>
         <then><field name="homoLetter"/></then></when>
       <otherwise><field name="homoDigit"/></otherwise>
     </choose>
   </let>
   <let name="base"><concat>
-    <field name="letters"/><var name="yymmdd"/><field name="sex"/>
-    <field name="entity"/><field name="cons"/><var name="homo"/>
+    <field name="letters"/><use name="yymmdd"/><field name="sex"/>
+    <field name="entity"/><field name="cons"/><use name="homo"/>
   </concat></let>
   <!-- Check digit: sum over the 17 chars of value(char) * (18 - index), mod 10,
        subtracted from 10. Official alphabet is 0-9 A-Z with Ñ inserted between
@@ -36,7 +36,7 @@ generator: tdc
        Ñ itself is 24; the pack never emits it. -->
   <let name="sum">
     <reduce>
-      <over><var name="base"/></over>
+      <over><use name="base"/></over>
       <init><int v="0"/></init>
       <do>
         <add><acc/>
@@ -53,8 +53,8 @@ generator: tdc
     </reduce>
   </let>
   <let name="check">
-    <mod><subtract><int v="10"/><mod><var name="sum"/><int v="10"/></mod></subtract><int v="10"/></mod>
+    <mod><subtract><int v="10"/><mod><use name="sum"/><int v="10"/></mod></subtract><int v="10"/></mod>
   </let>
-  <result><concat><var name="base"/><var name="check"/></concat></result>
+  <result><concat><use name="base"/><use name="check"/></concat></result>
 </compute></sequence>
 <data>${{curp}}</data>

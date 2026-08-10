@@ -33,7 +33,7 @@ productos y elija el último dígito para que el total caiga en un múltiplo de 
                 <let name="base"><concat><field name="Prefix"/><field name="Tail"/></concat></let>
                 <let name="weighted">
                     <reduce>
-                        <over><var name="base"/></over>
+                        <over><use name="base"/></over>
                         <init><int v="0"/></init>
                         <do>
                             <add>
@@ -47,9 +47,9 @@ productos y elija el último dígito para que el total caiga en un múltiplo de 
                     </reduce>
                 </let>
                 <let name="check">
-                    <mod><subtract><int v="10"/><mod><var name="weighted"/><int v="10"/></mod></subtract><int v="10"/></mod>
+                    <mod><subtract><int v="10"/><mod><use name="weighted"/><int v="10"/></mod></subtract><int v="10"/></mod>
                 </let>
-                <result><concat><var name="base"/><var name="check"/></concat></result>
+                <result><concat><use name="base"/><use name="check"/></concat></result>
             </compute>
         </sequence>
     </env>
@@ -108,7 +108,7 @@ partes, las reglas están en el cómputo.
 `<field>` trae una columna que ya existe; `<concat>` pega las dos cadenas en una de ocho
 caracteres; `<let>` le da a esa cadena el nombre `base`.
 
-A partir de aquí `base` se lee como `<var name="base"/>` en el resto de este `<compute>`,
+A partir de aquí `base` se lee como `<use name="base"/>` en el resto de este `<compute>`,
 y solo después de esta línea. Un nombre se liga una vez, se lee hacia adelante y no se
 vuelve a ligar.
 
@@ -116,7 +116,7 @@ vuelve a ligar.
 
 ```xml
 <reduce>
-    <over><var name="base"/></over>
+    <over><use name="base"/></over>
     <init><int v="0"/></init>
     <do>
         <add>
@@ -161,7 +161,7 @@ Así que `weighted` vale 193 para ese registro.
 ### El dígito de control: lo que falta para un diez redondo
 
 ```xml
-<mod><subtract><int v="10"/><mod><var name="weighted"/><int v="10"/></mod></subtract><int v="10"/></mod>
+<mod><subtract><int v="10"/><mod><use name="weighted"/><int v="10"/></mod></subtract><int v="10"/></mod>
 ```
 
 Léalo de dentro hacia fuera. `193 mod 10` es 3: cuánto ha pasado ya la suma de un múltiplo
@@ -175,7 +175,7 @@ cada diez que las necesita.
 ### La respuesta
 
 ```xml
-<result><concat><var name="base"/><var name="check"/></concat></result>
+<result><concat><use name="base"/><use name="check"/></concat></result>
 ```
 
 Ocho dígitos y el noveno, unidos. `<result>` es donde termina un `<compute>`: hay

@@ -13,30 +13,30 @@ generator: tdc
       <multiply><current/><subtract><int v="10"/><current_index/></subtract></multiply>
     </add></do>
   </reduce></let>
-  <let name="rRaw"><mod><var name="sumRaw"/><int v="11"/></mod></let>
+  <let name="rRaw"><mod><use name="sumRaw"/><int v="11"/></mod></let>
   <!-- check = 11 - (sum mod 11) is a single digit 0-9 EXCEPT when the remainder
        is 1 (check would be 10, never issued). In that one case bump the last body
        digit by 1 (mod 10): that shifts the remainder to 3 or 5, off both 1 and 0,
        so every emitted number has a valid single-digit check. -->
   <let name="last"><to_number><slice from="8" to="9"><field name="raw"/></slice></to_number></let>
-  <let name="bumped"><mod><add><var name="last"/><int v="1"/></add><int v="10"/></mod></let>
+  <let name="bumped"><mod><add><use name="last"/><int v="1"/></add><int v="10"/></mod></let>
   <let name="body"><choose>
-    <when><test><equals><var name="rRaw"/><int v="1"/></equals></test>
-      <then><concat><slice from="0" to="8"><field name="raw"/></slice><var name="bumped"/></concat></then></when>
+    <when><test><equals><use name="rRaw"/><int v="1"/></equals></test>
+      <then><concat><slice from="0" to="8"><field name="raw"/></slice><use name="bumped"/></concat></then></when>
     <otherwise><field name="raw"/></otherwise>
   </choose></let>
   <let name="sum"><reduce>
-    <over><var name="body"/></over>
+    <over><use name="body"/></over>
     <init><int v="0"/></init>
     <do><add><acc/>
       <multiply><current/><subtract><int v="10"/><current_index/></subtract></multiply>
     </add></do>
   </reduce></let>
-  <let name="r"><mod><var name="sum"/><int v="11"/></mod></let>
+  <let name="r"><mod><use name="sum"/><int v="11"/></mod></let>
   <let name="check"><choose>
-    <when><test><equals><var name="r"/><int v="0"/></equals></test><then><int v="0"/></then></when>
-    <otherwise><subtract><int v="11"/><var name="r"/></subtract></otherwise>
+    <when><test><equals><use name="r"/><int v="0"/></equals></test><then><int v="0"/></then></when>
+    <otherwise><subtract><int v="11"/><use name="r"/></subtract></otherwise>
   </choose></let>
-  <result><concat><var name="body"/><var name="check"/></concat></result>
+  <result><concat><use name="body"/><use name="check"/></concat></result>
 </compute></sequence>
 <data>${{nhs}}</data>

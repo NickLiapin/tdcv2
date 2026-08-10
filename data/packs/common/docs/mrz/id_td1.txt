@@ -59,7 +59,7 @@ generator: tdc
 <sequence name="composite"><compute>
   <let name="src"><concat><field name="doc"/><field name="docCd"/><field name="opt1"/><field name="birth"/><field name="birthCd"/><field name="expiry"/><field name="expiryCd"/><field name="opt2"/></concat></let>
   <result><mod><reduce>
-    <over><var name="src"/></over>
+    <over><use name="src"/></over>
     <init><int v="0"/></init>
     <do><add><acc/><multiply>
       <choose>
@@ -77,13 +77,13 @@ generator: tdc
 <sequence name="line2"><compute><result><concat><field name="birth"/><field name="birthCd"/><field name="sex"/><field name="expiry"/><field name="expiryCd"/><field name="nationality"/><field name="opt2"/><field name="composite"/></concat></result></compute></sequence>
 <sequence name="line3"><compute>
   <let name="raw"><concat><field name="surname"/><str v="<<"/><field name="given"/></concat></let>
-  <let name="rc"><each><over><var name="raw"/></over><do><current/></do></each></let>
-  <let name="rlen"><length><var name="raw"/></length></let>
+  <let name="rc"><each><over><use name="raw"/></over><do><current/></do></each></let>
+  <let name="rlen"><length><use name="raw"/></length></let>
   <result><join sep=""><each>
     <over><field name="pad"/></over>
     <do><choose>
-      <when><test><less_than><current_index/><var name="rlen"/></less_than></test>
-        <then><at><in><var name="rc"/></in><index><current_index/></index></at></then></when>
+      <when><test><less_than><current_index/><use name="rlen"/></less_than></test>
+        <then><at><in><use name="rc"/></in><index><current_index/></index></at></then></when>
       <otherwise><str v="<"/></otherwise>
     </choose></do>
   </each></join></result>

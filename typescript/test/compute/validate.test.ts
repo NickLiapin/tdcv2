@@ -23,7 +23,7 @@ describe('checkCompute — valid trees produce no diagnostics', () => {
     const diags = check(
       '<compute><let name="s"><reduce><over><field name="base"/></over>' +
         '<init><int v="0"/></init><do><add><acc/><current/></add></do></reduce></let>' +
-        '<result><var name="s"/></result></compute>',
+        '<result><use name="s"/></result></compute>',
       ['base'],
     );
     expect(diags).toEqual([]);
@@ -51,7 +51,7 @@ describe('checkCompute — structural errors', () => {
   });
 
   it('TDC182: unbound var', () => {
-    expect(codes(check('<compute><result><var name="ghost"/></result></compute>'))).toContain(
+    expect(codes(check('<compute><result><use name="ghost"/></result></compute>'))).toContain(
       'TDC182',
     );
   });
@@ -90,7 +90,7 @@ describe('checkCompute — structural errors', () => {
       codes(
         check(
           '<compute><let name="a"><int v="1"/></let><let name="a"><int v="2"/></let>' +
-            '<result><var name="a"/></result></compute>',
+            '<result><use name="a"/></result></compute>',
         ),
       ),
     ).toContain('TDC185');

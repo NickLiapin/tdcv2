@@ -13,13 +13,13 @@ locale: pt
       <at><in><list v="3,2,9,8,7,6,5,4,3,2"/></in><index><current_index/></index></at>
     </multiply></add></do>
   </reduce></let>
-  <let name="raw"><subtract><int v="11"/><mod><var name="sum"/><int v="11"/></mod></subtract></let>
+  <let name="raw"><subtract><int v="11"/><mod><use name="sum"/><int v="11"/></mod></subtract></let>
   <let name="check">
     <choose>
-      <when><test><greater_than><var name="raw"/><int v="9"/></greater_than></test><then><int v="0"/></then></when>
-      <otherwise><var name="raw"/></otherwise>
+      <when><test><greater_than><use name="raw"/><int v="9"/></greater_than></test><then><int v="0"/></then></when>
+      <otherwise><use name="raw"/></otherwise>
     </choose>
   </let>
-  <result><concat><field name="base"/><var name="check"/></concat></result>
+  <result><concat><field name="base"/><use name="check"/></concat></result>
 </compute></sequence>
 <data>${{pis}}</data>

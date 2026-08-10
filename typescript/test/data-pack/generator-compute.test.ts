@@ -42,7 +42,7 @@ describe('compute inside a pack generator (editable checksum as data)', () => {
         '      </reduce>',
         '      <int v="11"/></mod><int v="10"/></mod>',
         '  </let>',
-        '  <result><concat><field name="Base"/><var name="check"/></concat></result>',
+        '  <result><concat><field name="Base"/><use name="check"/></concat></result>',
         '</compute></sequence>',
         '<data>${{Full}}</data>',
       ].join('\n'),

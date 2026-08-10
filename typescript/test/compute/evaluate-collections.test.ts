@@ -81,7 +81,7 @@ describe('reduce', () => {
       evalExpr(
         '<reduce><over><field name="s"/></over><init><int v="0"/></init>' +
           '<do><let name="doubled"><multiply><current/><int v="2"/></multiply></let>' +
-          '<add><acc/><var name="doubled"/></add></do></reduce>',
+          '<add><acc/><use name="doubled"/></add></do></reduce>',
         { s: '123' },
       ),
     ).toBe('12');

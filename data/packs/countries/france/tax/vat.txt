@@ -19,9 +19,9 @@ generator: tdc
             <then>
               <let name="d"><multiply><current/><int v="2"/></multiply></let>
               <choose>
-                <when><test><greater_than><var name="d"/><int v="9"/></greater_than></test>
-                      <then><subtract><var name="d"/><int v="9"/></subtract></then></when>
-                <otherwise><var name="d"/></otherwise>
+                <when><test><greater_than><use name="d"/><int v="9"/></greater_than></test>
+                      <then><subtract><use name="d"/><int v="9"/></subtract></then></when>
+                <otherwise><use name="d"/></otherwise>
               </choose>
             </then>
           </when>
@@ -30,10 +30,10 @@ generator: tdc
       </add></do>
     </reduce>
   </let>
-  <let name="scheck"><mod><subtract><int v="10"/><mod><var name="sum"/><int v="10"/></mod></subtract><int v="10"/></mod></let>
-  <let name="siren"><concat><field name="sbase"/><var name="scheck"/></concat></let>
-  <let name="rem"><mod><to_number><var name="siren"/></to_number><int v="97"/></mod></let>
-  <let name="key"><mod><add><int v="12"/><multiply><int v="3"/><var name="rem"/></multiply></add><int v="97"/></mod></let>
-  <result><concat><str v="FR"/><pad width="2"><var name="key"/></pad><var name="siren"/></concat></result>
+  <let name="scheck"><mod><subtract><int v="10"/><mod><use name="sum"/><int v="10"/></mod></subtract><int v="10"/></mod></let>
+  <let name="siren"><concat><field name="sbase"/><use name="scheck"/></concat></let>
+  <let name="rem"><mod><to_number><use name="siren"/></to_number><int v="97"/></mod></let>
+  <let name="key"><mod><add><int v="12"/><multiply><int v="3"/><use name="rem"/></multiply></add><int v="97"/></mod></let>
+  <result><concat><str v="FR"/><pad width="2"><use name="key"/></pad><use name="siren"/></concat></result>
 </compute></sequence>
 <data>${{vat}}</data>

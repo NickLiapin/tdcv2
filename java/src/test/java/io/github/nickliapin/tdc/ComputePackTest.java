@@ -138,10 +138,10 @@ class ComputePackTest {
                           <let name="folded">
                             <choose>
                               <when>
-                                <test><greater_than><var name="doubled"/><int v="9"/></greater_than></test>
-                                <then><subtract><var name="doubled"/><int v="9"/></subtract></then>
+                                <test><greater_than><use name="doubled"/><int v="9"/></greater_than></test>
+                                <then><subtract><use name="doubled"/><int v="9"/></subtract></then>
                               </when>
-                              <otherwise><var name="doubled"/></otherwise>
+                              <otherwise><use name="doubled"/></otherwise>
                             </choose>
                           </let>
                           <add>
@@ -149,7 +149,7 @@ class ComputePackTest {
                             <choose>
                               <when>
                                 <test><equals><mod><current_index/><int v="2"/></mod><int v="0"/></equals></test>
-                                <then><var name="folded"/></then>
+                                <then><use name="folded"/></then>
                               </when>
                               <otherwise><current/></otherwise>
                             </choose>
@@ -157,8 +157,8 @@ class ComputePackTest {
                         </do>
                       </reduce>
                     </let>
-                    <let name="check"><mod><subtract><int v="10"/><mod><var name="sum"/><int v="10"/></mod></subtract><int v="10"/></mod></let>
-                    <result><concat><field name="base"/><var name="check"/></concat></result>
+                    <let name="check"><mod><subtract><int v="10"/><mod><use name="sum"/><int v="10"/></mod></subtract><int v="10"/></mod></let>
+                    <result><concat><field name="base"/><use name="check"/></concat></result>
                   </compute></sequence>
                 </env><block><line><data>${{card}}</data></line></block></tdc>
                 """)

@@ -55,21 +55,21 @@ describe('field references', () => {
 
 describe('let / var', () => {
   it('binds and reads a variable', () => {
-    expect(evalExpr('<let name="a"><int v="5"/></let><var name="a"/>')).toBe('5');
+    expect(evalExpr('<let name="a"><int v="5"/></let><use name="a"/>')).toBe('5');
   });
 
   it('a later let sees an earlier one', () => {
     expect(
       evalExpr(
         '<let name="a"><int v="5"/></let>' +
-          '<let name="b"><add><var name="a"/><int v="1"/></add></let>' +
-          '<var name="b"/>',
+          '<let name="b"><add><use name="a"/><int v="1"/></add></let>' +
+          '<use name="b"/>',
       ),
     ).toBe('6');
   });
 
   it('errors on an unbound var', () => {
-    expect(() => evalExpr('<var name="z"/>')).toThrow(/not bound/);
+    expect(() => evalExpr('<use name="z"/>')).toThrow(/not bound/);
   });
 });
 

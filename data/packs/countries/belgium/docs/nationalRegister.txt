@@ -13,14 +13,14 @@ generator: tdc
   </concat></let>
   <!-- Check = 97 - (base mod 97); a remainder of 0 yields 97, so it is 01..97. -->
   <let name="rem"><reduce>
-    <over><var name="base"/></over>
+    <over><use name="base"/></over>
     <init><int v="0"/></init>
     <do><mod><add><multiply><acc/><int v="10"/></multiply><current/></add><int v="97"/></mod></do>
   </reduce></let>
-  <let name="check"><subtract><int v="97"/><var name="rem"/></subtract></let>
+  <let name="check"><subtract><int v="97"/><use name="rem"/></subtract></let>
   <result><concat>
     <field name="year"/><field name="month"/><field name="day"/><field name="serial"/>
-    <pad width="2" fill="0"><var name="check"/></pad>
+    <pad width="2" fill="0"><use name="check"/></pad>
   </concat></result>
 </compute></sequence>
 <data>${{nn}}</data>

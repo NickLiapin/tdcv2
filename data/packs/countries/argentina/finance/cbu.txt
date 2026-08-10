@@ -12,7 +12,7 @@ generator: tdc
   <let name="block1"><concat><field name="bank"/><field name="branch"/></concat></let>
   <!-- DV1 over the 7 digits of block 1, weights 7,1,3,9,7,1,3. -->
   <let name="sum1"><reduce>
-    <over><var name="block1"/></over>
+    <over><use name="block1"/></over>
     <init><int v="0"/></init>
     <do><add><acc/>
       <multiply><current/>
@@ -21,13 +21,13 @@ generator: tdc
     </add></do>
   </reduce></let>
   <let name="dv1">
-    <mod><subtract><int v="10"/><mod><var name="sum1"/><int v="10"/></mod></subtract><int v="10"/></mod>
+    <mod><subtract><int v="10"/><mod><use name="sum1"/><int v="10"/></mod></subtract><int v="10"/></mod>
   </let>
   <!-- DV2 over the 13 account digits, weights 3,9,7,1,3 repeating in the
        published 3,9,7,1 cycle read from the right. -->
   <let name="body2"><field name="account"/></let>
   <let name="sum2"><reduce>
-    <over><var name="body2"/></over>
+    <over><use name="body2"/></over>
     <init><int v="0"/></init>
     <do><add><acc/>
       <multiply><current/>
@@ -36,8 +36,8 @@ generator: tdc
     </add></do>
   </reduce></let>
   <let name="dv2">
-    <mod><subtract><int v="10"/><mod><var name="sum2"/><int v="10"/></mod></subtract><int v="10"/></mod>
+    <mod><subtract><int v="10"/><mod><use name="sum2"/><int v="10"/></mod></subtract><int v="10"/></mod>
   </let>
-  <result><concat><var name="block1"/><var name="dv1"/><var name="body2"/><var name="dv2"/></concat></result>
+  <result><concat><use name="block1"/><use name="dv1"/><use name="body2"/><use name="dv2"/></concat></result>
 </compute></sequence>
 <data>${{cbu}}</data>

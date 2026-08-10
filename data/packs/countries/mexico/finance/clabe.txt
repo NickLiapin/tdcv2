@@ -11,7 +11,7 @@ generator: tdc
   <let name="base"><concat><field name="bank"/><field name="plaza"/><field name="account"/></concat></let>
   <!-- Weights 3,7,1 repeat; every digit*weight is folded mod 10 before summing. -->
   <let name="sum"><reduce>
-    <over><var name="base"/></over>
+    <over><use name="base"/></over>
     <init><int v="0"/></init>
     <do><add><acc/>
       <mod>
@@ -24,8 +24,8 @@ generator: tdc
   </reduce></let>
   <!-- Control digit = (10 - sum mod 10) mod 10, so a sum ending in 0 yields 0. -->
   <let name="check">
-    <mod><subtract><int v="10"/><mod><var name="sum"/><int v="10"/></mod></subtract><int v="10"/></mod>
+    <mod><subtract><int v="10"/><mod><use name="sum"/><int v="10"/></mod></subtract><int v="10"/></mod>
   </let>
-  <result><concat><var name="base"/><var name="check"/></concat></result>
+  <result><concat><use name="base"/><use name="check"/></concat></result>
 </compute></sequence>
 <data>${{clabe}}</data>

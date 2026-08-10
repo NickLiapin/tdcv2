@@ -13,15 +13,15 @@ generator: tdc
   <!-- Weighted sum of the three fields; the clé makes the whole thing ≡ 0 (mod 97). -->
   <let name="sum">
     <add>
-      <add><multiply><int v="89"/><var name="nb"/></multiply><multiply><int v="15"/><var name="ng"/></multiply></add>
-      <multiply><int v="3"/><var name="nc"/></multiply>
+      <add><multiply><int v="89"/><use name="nb"/></multiply><multiply><int v="15"/><use name="ng"/></multiply></add>
+      <multiply><int v="3"/><use name="nc"/></multiply>
     </add>
   </let>
   <!-- key = 97 - (sum mod 97); ranges 1..97, so it is never "00". -->
-  <let name="key"><subtract><int v="97"/><mod><var name="sum"/><int v="97"/></mod></subtract></let>
+  <let name="key"><subtract><int v="97"/><mod><use name="sum"/><int v="97"/></mod></subtract></let>
   <result><concat>
     <field name="bank"/><field name="branch"/><field name="account"/>
-    <pad width="2"><var name="key"/></pad>
+    <pad width="2"><use name="key"/></pad>
   </concat></result>
 </compute></sequence>
 <data>${{rib}}</data>

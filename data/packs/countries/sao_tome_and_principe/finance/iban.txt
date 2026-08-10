@@ -12,17 +12,17 @@ locale: pt
   <!-- ISO 13616: move "ST00" to the end, expand letters to their base-36 value
        (S -> 28, T -> 29), Horner-fold mod 97, check = 98 - remainder. -->
   <let name="bban"><concat><field name="bank"/><field name="branch"/><field name="account"/><field name="nacional"/></concat></let>
-  <let name="rearranged"><concat><var name="bban"/><str v="ST"/><str v="00"/></concat></let>
+  <let name="rearranged"><concat><use name="bban"/><str v="ST"/><str v="00"/></concat></let>
   <let name="digits"><join><each>
-    <over><var name="rearranged"/></over>
+    <over><use name="rearranged"/></over>
     <do><encode as="base36"><current/></encode></do>
   </each></join></let>
   <let name="rem"><reduce>
-    <over><var name="digits"/></over>
+    <over><use name="digits"/></over>
     <init><int v="0"/></init>
     <do><mod><add><multiply><acc/><int v="10"/></multiply><current/></add><int v="97"/></mod></do>
   </reduce></let>
-  <let name="check"><pad width="2" fill="0"><subtract><int v="98"/><var name="rem"/></subtract></pad></let>
-  <result><concat><str v="ST"/><var name="check"/><field name="bank"/><field name="branch"/><field name="account"/><field name="nacional"/></concat></result>
+  <let name="check"><pad width="2" fill="0"><subtract><int v="98"/><use name="rem"/></subtract></pad></let>
+  <result><concat><str v="ST"/><use name="check"/><field name="bank"/><field name="branch"/><field name="account"/><field name="nacional"/></concat></result>
 </compute></sequence>
 <data>${{iban}}</data>

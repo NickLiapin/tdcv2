@@ -12,7 +12,7 @@ generator: tdc
        summed, mod 11. Digits map to themselves; the value table is indexed A..Z (0..25). -->
   <result><mod>
     <reduce>
-      <over><var name="base"/></over>
+      <over><use name="base"/></over>
       <init><int v="0"/></init>
       <do><add><acc/>
         <multiply>

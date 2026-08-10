@@ -52,10 +52,26 @@ internal sealed class ComputeCheck
         new(StringComparer.Ordinal) { "_count", "_total" };
 
 
+    /// <summary>
+    /// Tags that used to be called something else.
+    /// </summary>
+    /// <remarks>
+    /// Without this a renamed tag falls through to "unknown compute tag", which tells a reader
+    /// their spelling is wrong and not what the right one is. The rename is the one moment when
+    /// the engine knows exactly what was meant, so it says so.
+    /// </remarks>
+    private static readonly Dictionary<string, (string To, string Why)> RenamedTags =
+        new(StringComparer.Ordinal)
+        {
+            ["var"] = ("use",
+                "It never declared anything — <let> binds a name and this reads it back, which " +
+                "is what the new name says. Rename the tag; the name= attribute is unchanged."),
+        };
+
     private static readonly HashSet<string> KnownTags = new(StringComparer.Ordinal)
     {
         // literals and references
-        "int", "str", "list", "field", "var", "current", "current_index", "acc",
+        "int", "str", "list", "field", "use", "current", "current_index", "acc",
 
         // binding
         "let",
@@ -228,6 +244,13 @@ internal sealed class ComputeCheck
             return;
         }
 
+        if (RenamedTags.TryGetValue(node.Name, out (string To, string Why) renamed))
+        {
+            Report(
+                node, "TDC288", $"<{node.Name}> has been renamed to <{renamed.To}>", renamed.Why);
+            return;
+        }
+
         if (!KnownTags.Contains(node.Name))
         {
             Report(
@@ -258,14 +281,14 @@ internal sealed class ComputeCheck
 
                 return;
 
-            case "var":
+            case "use":
             {
                 string name = node.Attrs.GetValueOrDefault("name", "");
                 if (!scope.Vars.Contains(name))
                 {
                     Report(
                         node, "TDC182",
-                        $"<var name=\"{name}\"> is not bound by an enclosing <let>", null);
+                        $"<use name=\"{name}\"> is not bound by an enclosing <let>", null);
                 }
 
                 return;

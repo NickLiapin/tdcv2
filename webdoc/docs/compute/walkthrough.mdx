@@ -33,7 +33,7 @@ last digit so the total lands on a multiple of ten.
                 <let name="base"><concat><field name="Prefix"/><field name="Tail"/></concat></let>
                 <let name="weighted">
                     <reduce>
-                        <over><var name="base"/></over>
+                        <over><use name="base"/></over>
                         <init><int v="0"/></init>
                         <do>
                             <add>
@@ -47,9 +47,9 @@ last digit so the total lands on a multiple of ten.
                     </reduce>
                 </let>
                 <let name="check">
-                    <mod><subtract><int v="10"/><mod><var name="weighted"/><int v="10"/></mod></subtract><int v="10"/></mod>
+                    <mod><subtract><int v="10"/><mod><use name="weighted"/><int v="10"/></mod></subtract><int v="10"/></mod>
                 </let>
-                <result><concat><var name="base"/><var name="check"/></concat></result>
+                <result><concat><use name="base"/><use name="check"/></concat></result>
             </compute>
         </sequence>
     </env>
@@ -108,14 +108,14 @@ rules are in the compute.
 `<field>` pulls in a column that already exists; `<concat>` glues the two strings into
 one eight-character string; `<let>` gives that string the name `base`.
 
-`base` is now readable as `<var name="base"/>` for the rest of this `<compute>` — and
+`base` is now readable as `<use name="base"/>` for the rest of this `<compute>` — and
 only after this line. A name is bound once, read forward, and never rebound.
 
 ### The weighted sum: a fold with a lookup inside
 
 ```xml
 <reduce>
-    <over><var name="base"/></over>
+    <over><use name="base"/></over>
     <init><int v="0"/></init>
     <do>
         <add>
@@ -160,7 +160,7 @@ So `weighted` is 193 for that record.
 ### The check digit: what is missing to reach a round ten
 
 ```xml
-<mod><subtract><int v="10"/><mod><var name="weighted"/><int v="10"/></mod></subtract><int v="10"/></mod>
+<mod><subtract><int v="10"/><mod><use name="weighted"/><int v="10"/></mod></subtract><int v="10"/></mod>
 ```
 
 Read it inside out. `193 mod 10` is 3 — how far past a multiple of ten the sum already
@@ -174,7 +174,7 @@ that needs it.
 ### The answer
 
 ```xml
-<result><concat><var name="base"/><var name="check"/></concat></result>
+<result><concat><use name="base"/><use name="check"/></concat></result>
 ```
 
 Eight digits and the ninth, joined. `<result>` is where a `<compute>` ends; there is

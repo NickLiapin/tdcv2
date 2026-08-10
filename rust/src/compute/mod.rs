@@ -188,11 +188,11 @@ fn eval(el: &Element, scope: &Scope) -> ComputeResult<Value> {
                 None => err(format!("<field>: \"{name}\" is not in scope")),
             }
         }
-        "var" => {
+        "use" => {
             let name = attr("name").unwrap_or("");
             match scope.vars.get(name) {
                 Some(v) => Ok(v.clone()),
-                None => err(format!("<var>: \"{name}\" is not bound")),
+                None => err(format!("<use>: \"{name}\" is not bound")),
             }
         }
         "current" => match &scope.current {

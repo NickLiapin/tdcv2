@@ -16,13 +16,13 @@ generator: tdc
       </add></do>
     </reduce>
   </let>
-  <let name="c"><subtract><int v="11"/><mod><var name="sum"/><int v="11"/></mod></subtract></let>
+  <let name="c"><subtract><int v="11"/><mod><use name="sum"/><int v="11"/></mod></subtract></let>
   <let name="check">
     <choose>
-      <when><test><greater_than><var name="c"/><int v="9"/></greater_than></test><then><int v="0"/></then></when>
-      <otherwise><var name="c"/></otherwise>
+      <when><test><greater_than><use name="c"/><int v="9"/></greater_than></test><then><int v="0"/></then></when>
+      <otherwise><use name="c"/></otherwise>
     </choose>
   </let>
-  <result><concat><str v="PT"/><field name="base"/><var name="check"/></concat></result>
+  <result><concat><str v="PT"/><field name="base"/><use name="check"/></concat></result>
 </compute></sequence>
 <data>${{vat}}</data>

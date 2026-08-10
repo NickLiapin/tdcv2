@@ -19,7 +19,7 @@ locale: el
       </add></do>
     </reduce>
   </let>
-  <let name="check"><mod><mod><var name="sum"/><int v="11"/></mod><int v="10"/></mod></let>
-  <result><concat><field name="base"/><var name="check"/></concat></result>
+  <let name="check"><mod><mod><use name="sum"/><int v="11"/></mod><int v="10"/></mod></let>
+  <result><concat><field name="base"/><use name="check"/></concat></result>
 </compute></sequence>
 <data>${{afm}}</data>

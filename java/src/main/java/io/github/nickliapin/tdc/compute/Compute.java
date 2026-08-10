@@ -176,11 +176,11 @@ public final class Compute {
         }
         return Value.of(value);
       }
-      case "var": {
+      case "use": {
         String name = n.attrs().getOrDefault("name", "");
         Value value = scope.vars().get(name);
         if (value == null) {
-          throw new ComputeError("<var>: \"" + name + "\" is not bound");
+          throw new ComputeError("<use>: \"" + name + "\" is not bound");
         }
         return value;
       }

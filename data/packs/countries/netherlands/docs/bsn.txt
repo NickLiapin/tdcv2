@@ -14,7 +14,7 @@ locale: nl
        eighth digit carries weight 2 and is added separately, because it is the
        digit that gets bumped when the prefix turns out to be unusable. -->
   <let name="sumHead"><reduce>
-    <over><var name="head"/></over>
+    <over><use name="head"/></over>
     <init><int v="0"/></init>
     <do><add><acc/>
       <multiply><current/>
@@ -22,19 +22,19 @@ locale: nl
       </multiply>
     </add></do>
   </reduce></let>
-  <let name="s"><mod><add><var name="sumHead"/><multiply><int v="2"/><var name="d8"/></multiply></add><int v="11"/></mod></let>
+  <let name="s"><mod><add><use name="sumHead"/><multiply><int v="2"/><use name="d8"/></multiply></add><int v="11"/></mod></let>
   <!-- s == 10 would demand a two-digit check, which cannot exist. Bumping d8
        by one shifts the sum by +2 (or by -18 when 9 wraps to 0), i.e. by a
        non-zero amount mod 11, so the second attempt is always 9 or less. -->
   <let name="d8final"><choose>
-    <when><test><equals><var name="s"/><int v="10"/></equals></test>
-      <then><mod><add><var name="d8"/><int v="1"/></add><int v="10"/></mod></then></when>
-    <otherwise><var name="d8"/></otherwise>
+    <when><test><equals><use name="s"/><int v="10"/></equals></test>
+      <then><mod><add><use name="d8"/><int v="1"/></add><int v="10"/></mod></then></when>
+    <otherwise><use name="d8"/></otherwise>
   </choose></let>
-  <let name="check"><mod><add><var name="sumHead"/><multiply><int v="2"/><var name="d8final"/></multiply></add><int v="11"/></mod></let>
+  <let name="check"><mod><add><use name="sumHead"/><multiply><int v="2"/><use name="d8final"/></multiply></add><int v="11"/></mod></let>
   <result><concat>
     <slice from="0" to="7"><field name="base"/></slice>
-    <var name="d8final"/><var name="check"/>
+    <use name="d8final"/><use name="check"/>
   </concat></result>
 </compute></sequence>
 <data>${{bsn}}</data>

@@ -16,7 +16,7 @@ generator: tdc
        doubles. With the check digit appended, that is the ODD indices of the
        10-digit payload (1,3,5,7,9). Doubled values over 9 lose 9. -->
   <let name="sum"><reduce>
-    <over><var name="base"/></over>
+    <over><use name="base"/></over>
     <init><int v="0"/></init>
     <do><add><acc/>
       <choose>
@@ -33,8 +33,8 @@ generator: tdc
     </add></do>
   </reduce></let>
   <let name="check">
-    <mod><subtract><int v="10"/><mod><var name="sum"/><int v="10"/></mod></subtract><int v="10"/></mod>
+    <mod><subtract><int v="10"/><mod><use name="sum"/><int v="10"/></mod></subtract><int v="10"/></mod>
   </let>
-  <result><concat><var name="base"/><var name="check"/></concat></result>
+  <result><concat><use name="base"/><use name="check"/></concat></result>
 </compute></sequence>
 <data>${{nss}}</data>

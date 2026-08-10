@@ -14,7 +14,7 @@ generator: tdc
       </add></do>
     </reduce>
   </let>
-  <let name="check"><mod><subtract><int v="10"/><mod><var name="sum"/><int v="10"/></mod></subtract><int v="10"/></mod></let>
-  <result><concat><field name="body"/><var name="check"/></concat></result>
+  <let name="check"><mod><subtract><int v="10"/><mod><use name="sum"/><int v="10"/></mod></subtract><int v="10"/></mod></let>
+  <result><concat><field name="body"/><use name="check"/></concat></result>
 </compute></sequence>
 <data>${{nit}}</data>

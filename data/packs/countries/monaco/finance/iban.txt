@@ -9,28 +9,28 @@ generator: tdc
 <sequence name="bban"><compute>
   <let name="body"><concat><field name="bank"/><field name="branch"/><field name="account"/></concat></let>
   <let name="ribrem"><reduce>
-    <over><concat><var name="body"/><str v="00"/></concat></over>
+    <over><concat><use name="body"/><str v="00"/></concat></over>
     <init><int v="0"/></init>
     <do><mod><add><multiply><acc/><int v="10"/></multiply><current/></add><int v="97"/></mod></do>
   </reduce></let>
-  <let name="ribkey"><subtract><int v="97"/><var name="ribrem"/></subtract></let>
+  <let name="ribkey"><subtract><int v="97"/><use name="ribrem"/></subtract></let>
   <result><concat>
     <field name="bank"/><field name="branch"/><field name="account"/>
-    <pad width="2" fill="0"><var name="ribkey"/></pad>
+    <pad width="2" fill="0"><use name="ribkey"/></pad>
   </concat></result>
 </compute></sequence>
 <sequence name="iban"><compute>
   <let name="rearranged"><concat><field name="bban"/><str v="MC"/><str v="00"/></concat></let>
   <let name="digits"><join><each>
-    <over><var name="rearranged"/></over>
+    <over><use name="rearranged"/></over>
     <do><encode as="base36"><current/></encode></do>
   </each></join></let>
   <let name="rem"><reduce>
-    <over><var name="digits"/></over>
+    <over><use name="digits"/></over>
     <init><int v="0"/></init>
     <do><mod><add><multiply><acc/><int v="10"/></multiply><current/></add><int v="97"/></mod></do>
   </reduce></let>
-  <let name="check"><pad width="2" fill="0"><subtract><int v="98"/><var name="rem"/></subtract></pad></let>
-  <result><concat><str v="MC"/><var name="check"/><field name="bban"/></concat></result>
+  <let name="check"><pad width="2" fill="0"><subtract><int v="98"/><use name="rem"/></subtract></pad></let>
+  <result><concat><str v="MC"/><use name="check"/><field name="bban"/></concat></result>
 </compute></sequence>
 <data>${{iban}}</data>

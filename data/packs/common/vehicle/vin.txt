@@ -13,7 +13,7 @@ generator: tdc
   <!-- Weighted mod-11 with ISO 3779 transliteration. Letter value table indexed A..Z (0..25);
        digits map to themselves. Position weights sum against [8,7,6,5,4,3,2,10,0,9,8,7,6,5,4,3,2]. -->
   <let name="sum"><reduce>
-    <over><var name="body"/></over>
+    <over><use name="body"/></over>
     <init><int v="0"/></init>
     <do><add><acc/>
       <multiply>
@@ -28,19 +28,19 @@ generator: tdc
       </multiply>
     </add></do>
   </reduce></let>
-  <let name="rem"><mod><var name="sum"/><int v="11"/></mod></let>
+  <let name="rem"><mod><use name="sum"/><int v="11"/></mod></let>
   <let name="check">
     <choose>
-      <when><test><equals><var name="rem"/><int v="10"/></equals></test><then><str v="X"/></then></when>
-      <otherwise><var name="rem"/></otherwise>
+      <when><test><equals><use name="rem"/><int v="10"/></equals></test><then><str v="X"/></then></when>
+      <otherwise><use name="rem"/></otherwise>
     </choose>
   </let>
   <!-- Replace the position-8 placeholder with the computed check character. -->
   <result><join sep=""><each>
-    <over><var name="body"/></over>
+    <over><use name="body"/></over>
     <do>
       <choose>
-        <when><test><equals><current_index/><int v="8"/></equals></test><then><var name="check"/></then></when>
+        <when><test><equals><current_index/><int v="8"/></equals></test><then><use name="check"/></then></when>
         <otherwise><current/></otherwise>
       </choose>
     </do>

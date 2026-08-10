@@ -11,47 +11,47 @@ generator: tdc
   <let name="d"><each><over><field name="dob"/></over><do><current/></do></each></let>
   <!-- Decode the drawn calendar date (YYYYMMDD). -->
   <let name="year"><to_number><concat>
-    <at><in><var name="d"/></in><index><int v="0"/></index></at>
-    <at><in><var name="d"/></in><index><int v="1"/></index></at>
-    <at><in><var name="d"/></in><index><int v="2"/></index></at>
-    <at><in><var name="d"/></in><index><int v="3"/></index></at>
+    <at><in><use name="d"/></in><index><int v="0"/></index></at>
+    <at><in><use name="d"/></in><index><int v="1"/></index></at>
+    <at><in><use name="d"/></in><index><int v="2"/></index></at>
+    <at><in><use name="d"/></in><index><int v="3"/></index></at>
   </concat></to_number></let>
   <let name="yy"><concat>
-    <at><in><var name="d"/></in><index><int v="2"/></index></at>
-    <at><in><var name="d"/></in><index><int v="3"/></index></at>
+    <at><in><use name="d"/></in><index><int v="2"/></index></at>
+    <at><in><use name="d"/></in><index><int v="3"/></index></at>
   </concat></let>
   <let name="mm"><to_number><concat>
-    <at><in><var name="d"/></in><index><int v="4"/></index></at>
-    <at><in><var name="d"/></in><index><int v="5"/></index></at>
+    <at><in><use name="d"/></in><index><int v="4"/></index></at>
+    <at><in><use name="d"/></in><index><int v="5"/></index></at>
   </concat></to_number></let>
   <let name="dd"><concat>
-    <at><in><var name="d"/></in><index><int v="6"/></index></at>
-    <at><in><var name="d"/></in><index><int v="7"/></index></at>
+    <at><in><use name="d"/></in><index><int v="6"/></index></at>
+    <at><in><use name="d"/></in><index><int v="7"/></index></at>
   </concat></let>
   <!-- PESEL encodes the century into the month: 1900s = month+0, 2000s = month+20. -->
   <let name="offset">
     <choose>
-      <when><test><greater_than><var name="year"/><int v="1999"/></greater_than></test><then><int v="20"/></then></when>
+      <when><test><greater_than><use name="year"/><int v="1999"/></greater_than></test><then><int v="20"/></then></when>
       <otherwise><int v="0"/></otherwise>
     </choose>
   </let>
-  <let name="encmonth"><pad width="2"><add><var name="mm"/><var name="offset"/></add></pad></let>
+  <let name="encmonth"><pad width="2"><add><use name="mm"/><use name="offset"/></add></pad></let>
   <!-- Sex digit: female = even, male = odd, otherwise any. Derive parity from a random digit. -->
   <let name="schars"><each><over><field name="sex"/></over><do><current/></do></each></let>
-  <let name="sexcode"><to_number><encode as="unicode"><at><in><var name="schars"/></in><index><int v="0"/></index></at></encode></to_number></let>
+  <let name="sexcode"><to_number><encode as="unicode"><at><in><use name="schars"/></in><index><int v="0"/></index></at></encode></to_number></let>
   <let name="base5"><mod><field name="sexraw"/><int v="5"/></mod></let>
   <let name="sexdigit">
     <choose>
-      <when><test><equals><var name="sexcode"/><int v="109"/></equals></test>
-        <then><add><multiply><var name="base5"/><int v="2"/></multiply><int v="1"/></add></then></when>
-      <when><test><equals><var name="sexcode"/><int v="102"/></equals></test>
-        <then><multiply><var name="base5"/><int v="2"/></multiply></then></when>
+      <when><test><equals><use name="sexcode"/><int v="109"/></equals></test>
+        <then><add><multiply><use name="base5"/><int v="2"/></multiply><int v="1"/></add></then></when>
+      <when><test><equals><use name="sexcode"/><int v="102"/></equals></test>
+        <then><multiply><use name="base5"/><int v="2"/></multiply></then></when>
       <otherwise><field name="sexraw"/></otherwise>
     </choose>
   </let>
-  <let name="base"><concat><var name="yy"/><var name="encmonth"/><var name="dd"/><field name="serial"/><var name="sexdigit"/></concat></let>
+  <let name="base"><concat><use name="yy"/><use name="encmonth"/><use name="dd"/><field name="serial"/><use name="sexdigit"/></concat></let>
   <let name="sum"><reduce>
-    <over><var name="base"/></over>
+    <over><use name="base"/></over>
     <init><int v="0"/></init>
     <do><add><acc/>
       <multiply><current/>
@@ -59,7 +59,7 @@ generator: tdc
       </multiply>
     </add></do>
   </reduce></let>
-  <let name="check"><mod><subtract><int v="10"/><mod><var name="sum"/><int v="10"/></mod></subtract><int v="10"/></mod></let>
-  <result><concat><var name="base"/><var name="check"/></concat></result>
+  <let name="check"><mod><subtract><int v="10"/><mod><use name="sum"/><int v="10"/></mod></subtract><int v="10"/></mod></let>
+  <result><concat><use name="base"/><use name="check"/></concat></result>
 </compute></sequence>
 <data>${{pesel}}</data>

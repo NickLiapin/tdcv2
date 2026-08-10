@@ -18,8 +18,8 @@
     {
       "name": "compute-unbound-var",
       "demonstrates": "TDC182",
-      "description": "<var> naming a binding no <let> made",
-      "config": "<tdc><env count=\"2\" seed=\"s\"><sequence name=\"A\"><gen type=\"number\" value=\"1..9\"/></sequence><sequence name=\"C\"><compute><result><var name=\"ghost\"/></result></compute></sequence></env><block><line><data>${{C}}</data></line></block></tdc>",
+      "description": "<use> naming a binding no <let> made",
+      "config": "<tdc><env count=\"2\" seed=\"s\"><sequence name=\"A\"><gen type=\"number\" value=\"1..9\"/></sequence><sequence name=\"C\"><compute><result><use name=\"ghost\"/></result></compute></sequence></env><block><line><data>${{C}}</data></line></block></tdc>",
       "expected": ["error TDC182 1:128"]
     },
     {
@@ -40,7 +40,7 @@
       "name": "compute-shadowing-let",
       "demonstrates": "TDC185",
       "description": "A binding that hides an outer one of the same name",
-      "config": "<tdc><env count=\"2\" seed=\"s\"><sequence name=\"A\"><gen type=\"number\" value=\"1..9\"/></sequence><sequence name=\"C\"><compute><let name=\"x\"><int v=\"1\"/></let><let name=\"x\"><int v=\"2\"/></let><result><var name=\"x\"/></result></compute></sequence></env><block><line><data>${{C}}</data></line></block></tdc>",
+      "config": "<tdc><env count=\"2\" seed=\"s\"><sequence name=\"A\"><gen type=\"number\" value=\"1..9\"/></sequence><sequence name=\"C\"><compute><let name=\"x\"><int v=\"1\"/></let><let name=\"x\"><int v=\"2\"/></let><result><use name=\"x\"/></result></compute></sequence></env><block><line><data>${{C}}</data></line></block></tdc>",
       "expected": ["error TDC185 1:152"]
     },
     {
@@ -154,6 +154,13 @@
       "description": "The other half of the same rule, and the reason it cannot simply refuse every <str>: <equals><str v=\"7\"/><int v=\"7\"/></equals> is TRUE at run time. Measured [EQ]. A blanket refusal would have broken a working config.",
       "config": "<tdc><env count=\"1\" seed=\"s\" local=\"en\" mode=\"memory\"><sequence name=\"V\"><compute><result><choose><when><test><equals><str v=\"7\"/><int v=\"7\"/></equals></test><then><str v=\"EQ\"/></then></when><otherwise><str v=\"NE\"/></otherwise></choose></result></compute></sequence></env><block><line><data>[${{V}}]</data></line></block></tdc>",
       "expected": []
+    },
+    {
+      "name": "the-old-var-spelling-names-its-replacement",
+      "demonstrates": "TDC288",
+      "description": "<var> was renamed to <use>. Without a dedicated refusal the tag falls through to \"unknown compute tag\", which tells a reader their spelling is wrong and not what the right one is — and every config written before the rename hits this, including the 174 shipped pack files that had to be rewritten.",
+      "config": "<tdc><env count=\"2\" seed=\"s\" local=\"en\" mode=\"memory\"><sequence name=\"V\"><compute><result><let name=\"s\"><int v=\"7\"/></let><add><var name=\"s\"/><int v=\"10\"/></add></result></compute></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
+      "expected": ["error TDC288 1:127"]
     }
   ]
 }

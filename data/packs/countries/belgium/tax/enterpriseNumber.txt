@@ -6,6 +6,6 @@ generator: tdc
 <sequence name="base"><gen type="regex" value="[01][0-9]{7}"/></sequence>
 <sequence name="bce"><compute>
   <let name="check"><subtract><int v="97"/><mod><to_number><field name="base"/></to_number><int v="97"/></mod></subtract></let>
-  <result><concat><field name="base"/><pad width="2" fill="0"><var name="check"/></pad></concat></result>
+  <result><concat><field name="base"/><pad width="2" fill="0"><use name="check"/></pad></concat></result>
 </compute></sequence>
 <data>${{bce}}</data>

@@ -33,7 +33,7 @@ import Terminal from '@site/src/components/Terminal';
                 <let name="base"><concat><field name="Prefix"/><field name="Tail"/></concat></let>
                 <let name="weighted">
                     <reduce>
-                        <over><var name="base"/></over>
+                        <over><use name="base"/></over>
                         <init><int v="0"/></init>
                         <do>
                             <add>
@@ -47,9 +47,9 @@ import Terminal from '@site/src/components/Terminal';
                     </reduce>
                 </let>
                 <let name="check">
-                    <mod><subtract><int v="10"/><mod><var name="weighted"/><int v="10"/></mod></subtract><int v="10"/></mod>
+                    <mod><subtract><int v="10"/><mod><use name="weighted"/><int v="10"/></mod></subtract><int v="10"/></mod>
                 </let>
-                <result><concat><var name="base"/><var name="check"/></concat></result>
+                <result><concat><use name="base"/><use name="check"/></concat></result>
             </compute>
         </sequence>
     </env>
@@ -108,14 +108,14 @@ import Terminal from '@site/src/components/Terminal';
 `<field>` втягивает уже существующую колонку, `<concat>` склеивает две строки в одну
 восьмисимвольную, `<let>` даёт этой строке имя `base`.
 
-Дальше `base` читается как `<var name="base"/>` до конца этого `<compute>` — и только
+Дальше `base` читается как `<use name="base"/>` до конца этого `<compute>` — и только
 после этой строки. Имя связывается один раз, читается вперёд и не переприсваивается.
 
 ### Взвешенная сумма: свёртка с таблицей внутри
 
 ```xml
 <reduce>
-    <over><var name="base"/></over>
+    <over><use name="base"/></over>
     <init><int v="0"/></init>
     <do>
         <add>
@@ -160,7 +160,7 @@ import Terminal from '@site/src/components/Terminal';
 ### Контрольная цифра: сколько не хватает до круглого десятка
 
 ```xml
-<mod><subtract><int v="10"/><mod><var name="weighted"/><int v="10"/></mod></subtract><int v="10"/></mod>
+<mod><subtract><int v="10"/><mod><use name="weighted"/><int v="10"/></mod></subtract><int v="10"/></mod>
 ```
 
 Читайте изнутри наружу. `193 mod 10` — это 3, насколько сумма уже перевалила за кратное
@@ -174,7 +174,7 @@ import Terminal from '@site/src/components/Terminal';
 ### Ответ
 
 ```xml
-<result><concat><var name="base"/><var name="check"/></concat></result>
+<result><concat><use name="base"/><use name="check"/></concat></result>
 ```
 
 Восемь цифр и девятая, склеенные. `<result>` — это конец `<compute>`: он один, и его

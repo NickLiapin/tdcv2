@@ -76,7 +76,7 @@ compute.
 <sequence name="Full">
   <compute>
     <let name="c"><mod><to_number><field name="Base"/></to_number><int v="7"/></mod></let>
-    <result><concat><field name="Base"/><str v="-"/><var name="c"/></concat></result>
+    <result><concat><field name="Base"/><str v="-"/><use name="c"/></concat></result>
   </compute>
 </sequence>
 ...

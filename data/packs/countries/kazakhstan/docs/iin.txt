@@ -11,7 +11,7 @@ locale: ru
   <let name="base"><concat><field name="dob"/><field name="cs"/><field name="serial"/></concat></let>
   <!-- Pass 1: weights 1..11 over the 11 base digits. -->
   <let name="c1"><mod><reduce>
-    <over><var name="base"/></over>
+    <over><use name="base"/></over>
     <init><int v="0"/></init>
     <do><add><acc/><multiply><current/>
       <at><in><list v="1,2,3,4,5,6,7,8,9,10,11"/></in><index><current_index/></index></at>
@@ -19,7 +19,7 @@ locale: ru
   </reduce><int v="11"/></mod></let>
   <!-- Pass 2 (used only when pass 1 gives 10): shifted weights 3..11,1,2. -->
   <let name="c2"><mod><reduce>
-    <over><var name="base"/></over>
+    <over><use name="base"/></over>
     <init><int v="0"/></init>
     <do><add><acc/><multiply><current/>
       <at><in><list v="3,4,5,6,7,8,9,10,11,1,2"/></in><index><current_index/></index></at>
@@ -27,15 +27,15 @@ locale: ru
   </reduce><int v="11"/></mod></let>
   <let name="check">
     <choose>
-      <when><test><equals><var name="c1"/><int v="10"/></equals></test>
+      <when><test><equals><use name="c1"/><int v="10"/></equals></test>
         <then><choose>
-          <when><test><equals><var name="c2"/><int v="10"/></equals></test><then><int v="0"/></then></when>
-          <otherwise><var name="c2"/></otherwise>
+          <when><test><equals><use name="c2"/><int v="10"/></equals></test><then><int v="0"/></then></when>
+          <otherwise><use name="c2"/></otherwise>
         </choose></then>
       </when>
-      <otherwise><var name="c1"/></otherwise>
+      <otherwise><use name="c1"/></otherwise>
     </choose>
   </let>
-  <result><concat><field name="dob"/><field name="cs"/><field name="serial"/><var name="check"/></concat></result>
+  <result><concat><field name="dob"/><field name="cs"/><field name="serial"/><use name="check"/></concat></result>
 </compute></sequence>
 <data>${{iin}}</data>

@@ -207,10 +207,10 @@ def _element(element, scope: Scope) -> Value:
         if key in _NUMERIC_BUILTIN_FIELDS:
             return int_value(int(value))
         return str_value(value)
-    if name == "var":
+    if name == "use":
         key = n.attrs.get("name", "")
         if key not in scope.variables:
-            raise ComputeError(f'<var>: "{key}" is not bound')
+            raise ComputeError(f'<use>: "{key}" is not bound')
         return scope.variables[key]
     if name == "current":
         if scope.current is None:

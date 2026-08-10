@@ -191,9 +191,9 @@ the whole thing valid:
           </reduce>
         </let>
         <let name="check">
-          <mod><subtract><int v="10"/><mod><var name="sum"/><int v="10"/></mod></subtract><int v="10"/></mod>
+          <mod><subtract><int v="10"/><mod><use name="sum"/><int v="10"/></mod></subtract><int v="10"/></mod>
         </let>
-        <result><concat><field name="Base"/><var name="check"/></concat></result>
+        <result><concat><field name="Base"/><use name="check"/></concat></result>
       </compute>
     </sequence>
   </env>
@@ -256,21 +256,22 @@ inferred.
 
 Three of these deserve more than a row.
 
-### `<let>` and `<var>` are not two kinds of variable
+### `<let>` names a value once, `<use>` reads it back
 
-They are a **declaration** and a **read**. `<let name="x">` binds a name; `<var name="x"/>`
-reads it back. In most programming languages both `let` and `var` declare a variable, which is
-exactly why the pair misleads here.
+`<let name="x">` binds a name; `<use name="x"/>` reads it. The read tag was called `<var>`
+until it was renamed — `var` is the word for a variable, and it sat on the tag that declares
+nothing. A config still writing `<var>` is told so by name, with
+[`TDC288`](../reference/errors.mdx).
 
 Three rules follow, and the engine enforces all three:
 
 | Rule                                          | What you get when you break it                                     |
 | :-------------------------------------------- | :----------------------------------------------------------------- |
-| A name must be bound before it is read        | `TDC182: <var name="x"> is not bound by an enclosing <let>`        |
+| A name must be bound before it is read        | `TDC182: <use name="x"> is not bound by an enclosing <let>`        |
 | A name is bound once and cannot be rebound    | `TDC185: <let name="x"> shadows an outer binding of the same name` |
 | A binding is visible only inside its own slot | a `<let>` inside `<do>` is invisible outside it — `TDC182` again   |
 
-Put plainly: `<let>` works a value out once and gives it a name, and `<var>` is how the
+Put plainly: `<let>` works a value out once and gives it a name, and `<use>` is how the
 rest of the block asks for that value again instead of repeating the work. The value
 never changes after it is named — that is what makes naming it worth anything. It is the
 same move as arithmetic on paper: _let s be the score as a number_, written once and used
@@ -317,7 +318,7 @@ The values you start from and the names you give intermediate results.
 | `<str v="AB"/>`      | a string                                                |
 | `<list v="2,4,10"/>` | a comma-separated list of ints                          |
 | `<field name="X"/>`  | the value of sequence `X` in scope — same as `${{X}}`   |
-| `<var name="X"/>`    | the value bound by an enclosing `<let name="X">`        |
+| `<use name="X"/>`    | the value bound by an enclosing `<let name="X">`        |
 | `<let name="X">…`    | names an intermediate result that sibling tags can read |
 | `<current/>`         | the current element (only inside `<do>`)                |
 | `<current_index/>`   | the zero-based position of the current element          |
@@ -353,9 +354,9 @@ value: `<equals>`, `<greater_than>`, and `<less_than>` compare two ints, and
 
 ```xml
 <choose>
-  <when><test><greater_than><var name="d"/><int v="9"/></greater_than></test>
-        <then><subtract><var name="d"/><int v="9"/></subtract></then></when>
-  <otherwise><var name="d"/></otherwise>
+  <when><test><greater_than><use name="d"/><int v="9"/></greater_than></test>
+        <then><subtract><use name="d"/><int v="9"/></subtract></then></when>
+  <otherwise><use name="d"/></otherwise>
 </choose>
 ```
 
@@ -427,7 +428,7 @@ range, a forbidden check digit — and you want the pack to emit nothing but goo
 - **Tag names use `_`** (like `before_block`): `current_index`, `to_number`,
   `greater_than`, `less_than`, `is_digit`.
 - **Tree errors are caught before the run** (codes `TDC180`–`TDC187`): an unknown tag,
-  an unbound `<var>`, a `<choose>` with no `<otherwise>`, and so on.
+  an unbound `<use>`, a `<choose>` with no `<otherwise>`, and so on.
 
 ## See also
 

@@ -19,15 +19,15 @@ generator: tdc
   <!-- Control key = 97 - (body mod 97). Horner fold keeps the 13-digit body
        from ever becoming one number; a remainder of 0 yields the key 97. -->
   <let name="rem"><reduce>
-    <over><var name="body"/></over>
+    <over><use name="body"/></over>
     <init><int v="0"/></init>
     <do><mod><add><multiply><acc/><int v="10"/></multiply><current/></add><int v="97"/></mod></do>
   </reduce></let>
-  <let name="ctrl"><subtract><int v="97"/><var name="rem"/></subtract></let>
+  <let name="ctrl"><subtract><int v="97"/><use name="rem"/></subtract></let>
   <result><concat>
     <field name="sex"/><field name="year"/><field name="month"/>
     <field name="dept"/><field name="commune"/><field name="serial"/>
-    <pad width="2" fill="0"><var name="ctrl"/></pad>
+    <pad width="2" fill="0"><use name="ctrl"/></pad>
   </concat></result>
 </compute></sequence>
 <data>${{nir}}</data>

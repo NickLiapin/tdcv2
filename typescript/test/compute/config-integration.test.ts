@@ -20,7 +20,7 @@ const INN_CONFIG = `<tdc><env count="25" seed="inn-demo">
         </reduce>
         <int v="11"/></mod><int v="10"/></mod>
     </let>
-    <result><concat><field name="Base"/><var name="check"/></concat></result>
+    <result><concat><field name="Base"/><use name="check"/></concat></result>
   </compute></sequence>
 </env><block><line><data>\${{Inn}}</data></line></block></tdc>`;
 
@@ -43,9 +43,9 @@ const CARD_CONFIG = `<tdc><env count="25" seed="card-demo">
                 <then>
                   <let name="d"><multiply><current/><int v="2"/></multiply></let>
                   <choose>
-                    <when><test><greater_than><var name="d"/><int v="9"/></greater_than></test>
-                          <then><subtract><var name="d"/><int v="9"/></subtract></then></when>
-                    <otherwise><var name="d"/></otherwise>
+                    <when><test><greater_than><use name="d"/><int v="9"/></greater_than></test>
+                          <then><subtract><use name="d"/><int v="9"/></subtract></then></when>
+                    <otherwise><use name="d"/></otherwise>
                   </choose>
                 </then>
               </when>
@@ -55,7 +55,7 @@ const CARD_CONFIG = `<tdc><env count="25" seed="card-demo">
         </reduce>
         <int v="10"/></mod></subtract><int v="10"/></mod>
     </let>
-    <result><concat><field name="Base"/><var name="check"/></concat></result>
+    <result><concat><field name="Base"/><use name="check"/></concat></result>
   </compute></sequence>
 </env><block><line><data>\${{Card}}</data></line></block></tdc>`;
 
@@ -108,7 +108,7 @@ describe('compute inside a real config (Luhn card)', () => {
 describe('validator surfaces malformed compute in a config', () => {
   it('reports an unbound var (TDC182)', () => {
     const bad = `<tdc><env count="1" seed="x">
-      <sequence name="A"><compute><result><var name="ghost"/></result></compute></sequence>
+      <sequence name="A"><compute><result><use name="ghost"/></result></compute></sequence>
     </env><block><line><data>\${{A}}</data></line></block></tdc>`;
     const diags = validate(parse(bad).tree).diagnostics;
     expect(diags.some((d) => d.code === 'TDC182')).toBe(true);

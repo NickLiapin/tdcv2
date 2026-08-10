@@ -21,7 +21,7 @@ locale: en
       </add></do>
     </reduce>
   </let>
-  <result><mod><var name="sum"/><int v="11"/></mod></result>
+  <result><mod><use name="sum"/><int v="11"/></mod></result>
 </compute></sequence>
 <!-- A required check of 10 has no single-digit form; the guard redraws. -->
 <valid><less_than><to_number><field name="check"/></to_number><int v="10"/></less_than></valid>

@@ -44,23 +44,23 @@ locale: zh-cn
       </do>
     </reduce>
   </let>
-  <let name="rem"><mod><var name="sum"/><int v="11"/></mod></let>
+  <let name="rem"><mod><use name="sum"/><int v="11"/></mod></let>
   <!-- check char = "10X98765432"[rem] -->
   <let name="check">
     <choose>
-      <when><test><equals><var name="rem"/><int v="0"/></equals></test><then><str v="1"/></then></when>
-      <when><test><equals><var name="rem"/><int v="1"/></equals></test><then><str v="0"/></then></when>
-      <when><test><equals><var name="rem"/><int v="2"/></equals></test><then><str v="X"/></then></when>
-      <when><test><equals><var name="rem"/><int v="3"/></equals></test><then><str v="9"/></then></when>
-      <when><test><equals><var name="rem"/><int v="4"/></equals></test><then><str v="8"/></then></when>
-      <when><test><equals><var name="rem"/><int v="5"/></equals></test><then><str v="7"/></then></when>
-      <when><test><equals><var name="rem"/><int v="6"/></equals></test><then><str v="6"/></then></when>
-      <when><test><equals><var name="rem"/><int v="7"/></equals></test><then><str v="5"/></then></when>
-      <when><test><equals><var name="rem"/><int v="8"/></equals></test><then><str v="4"/></then></when>
-      <when><test><equals><var name="rem"/><int v="9"/></equals></test><then><str v="3"/></then></when>
+      <when><test><equals><use name="rem"/><int v="0"/></equals></test><then><str v="1"/></then></when>
+      <when><test><equals><use name="rem"/><int v="1"/></equals></test><then><str v="0"/></then></when>
+      <when><test><equals><use name="rem"/><int v="2"/></equals></test><then><str v="X"/></then></when>
+      <when><test><equals><use name="rem"/><int v="3"/></equals></test><then><str v="9"/></then></when>
+      <when><test><equals><use name="rem"/><int v="4"/></equals></test><then><str v="8"/></then></when>
+      <when><test><equals><use name="rem"/><int v="5"/></equals></test><then><str v="7"/></then></when>
+      <when><test><equals><use name="rem"/><int v="6"/></equals></test><then><str v="6"/></then></when>
+      <when><test><equals><use name="rem"/><int v="7"/></equals></test><then><str v="5"/></then></when>
+      <when><test><equals><use name="rem"/><int v="8"/></equals></test><then><str v="4"/></then></when>
+      <when><test><equals><use name="rem"/><int v="9"/></equals></test><then><str v="3"/></then></when>
       <otherwise><str v="2"/></otherwise>
     </choose>
   </let>
-  <result><concat><field name="base"/><var name="check"/></concat></result>
+  <result><concat><field name="base"/><use name="check"/></concat></result>
 </compute></sequence>
 <data>${{id}}</data>

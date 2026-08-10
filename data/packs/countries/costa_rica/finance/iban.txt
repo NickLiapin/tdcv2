@@ -9,12 +9,12 @@ generator: tdc
   <!-- BBAN = reserved 0 + entity code (3) + account (14) = 18 digits. -->
   <let name="bban"><concat><str v="0"/><field name="bank"/><field name="account"/></concat></let>
   <!-- ISO 13616: move the country code and a "00" placeholder to the end. -->
-  <let name="rearranged"><concat><var name="bban"/><str v="CR"/><str v="00"/></concat></let>
+  <let name="rearranged"><concat><use name="bban"/><str v="CR"/><str v="00"/></concat></let>
   <!-- Letters become their base-36 value (C -> 12, R -> 27); digits stay. -->
   <let name="digits">
     <join>
       <each>
-        <over><var name="rearranged"/></over>
+        <over><use name="rearranged"/></over>
         <do><encode as="base36"><current/></encode></do>
       </each>
     </join>
@@ -22,12 +22,12 @@ generator: tdc
   <!-- Horner fold, so the 24-digit value never has to exist as one number. -->
   <let name="rem">
     <reduce>
-      <over><var name="digits"/></over>
+      <over><use name="digits"/></over>
       <init><int v="0"/></init>
       <do><mod><add><multiply><acc/><int v="10"/></multiply><current/></add><int v="97"/></mod></do>
     </reduce>
   </let>
-  <let name="check"><pad width="2" fill="0"><subtract><int v="98"/><var name="rem"/></subtract></pad></let>
-  <result><concat><str v="CR"/><var name="check"/><var name="bban"/></concat></result>
+  <let name="check"><pad width="2" fill="0"><subtract><int v="98"/><use name="rem"/></subtract></pad></let>
+  <result><concat><str v="CR"/><use name="check"/><use name="bban"/></concat></result>
 </compute></sequence>
 <data>${{iban}}</data>

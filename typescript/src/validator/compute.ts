@@ -3,7 +3,7 @@
  *
  * Catches the structural problems that can be found without running the tree:
  * unknown tags, contextual tags used outside an iteration, references to an
- * unbound `<var>` or unknown `<field>`, wrong arithmetic arity, a `<choose>`
+ * unbound `<use>` or unknown `<field>`, wrong arithmetic arity, a `<choose>`
  * with no `<otherwise>`, `<let>` name shadowing, and unknown `<encode>` systems.
  * Deeper value/coercion errors are left to the evaluator, which reports them at
  * render time with a clear message.
@@ -59,7 +59,7 @@ export const COMPUTE_TAGS = new Set([
   'str',
   'list',
   'field',
-  'var',
+  'use',
   'current',
   'current_index',
   'acc',
@@ -262,7 +262,7 @@ function walkWrapper(n: CN, wrapper: string, scope: VScope, diags: Diagnostic[])
  *
  * The `<otherwise>` won every row, so every card number was wrong — and nothing
  * anywhere said so. Worse, the dead subtree escaped every other check too: an
- * unknown tag or an unbound `<var>` inside it went unreported, because no walk
+ * unknown tag or an unbound `<use>` inside it went unreported, because no walk
  * ever reached it.
  *
  * The refusal is a proof rather than a guess: the evaluator looks these slots up
@@ -299,6 +299,22 @@ function checkSlotNames(n: CN, slots: readonly string[], diags: Diagnostic[]): v
  * to the `compute-def`/`use` feature, which the spec defers to phase 2; the
  * evaluator has no case for it and would fail mid-run.
  */
+/**
+ * Tags that used to be called something else.
+ *
+ * Without this a renamed tag falls through to "unknown compute tag", which tells a
+ * reader their spelling is wrong and not what the right one is. The rename is the
+ * one moment when the engine knows exactly what was meant, so it says so.
+ */
+const RENAMED_TAGS: Record<string, { to: string; why: string }> = {
+  var: {
+    to: 'use',
+    why:
+      'It never declared anything — <let> binds a name and this reads it back, which is ' +
+      'what the new name says. Rename the tag; the name= attribute is unchanged.',
+  },
+};
+
 const HINTS_BY_TAG: Record<string, string> = {
   param:
     '<param> belongs to the compute-def/use feature, which is not implemented yet. ' +
@@ -340,6 +356,11 @@ function walkExpr(el: ElementContext, scope: VScope, diags: Diagnostic[]): void 
     );
     return;
   }
+  const renamed = RENAMED_TAGS[n.name];
+  if (renamed) {
+    report(diags, n.node, 'TDC288', `<${n.name}> has been renamed to <${renamed.to}>`, renamed.why);
+    return;
+  }
   if (!COMPUTE_TAGS.has(n.name)) {
     // A tag with a note of its own keeps it — those explain a real confusion.
     // Everything else gets the same "Allowed inside <X>" list every container
@@ -366,13 +387,14 @@ function walkExpr(el: ElementContext, scope: VScope, diags: Diagnostic[]): void 
         report(diags, n.node, 'TDC181', '<acc/> is only valid inside a <reduce> <do> body');
       }
       return;
-    case 'var': {
+    case 'use': {
       const name = n.attrs['name'] ?? '';
       if (!scope.vars.has(name)) {
-        report(diags, n.node, 'TDC182', `<var name="${name}"> is not bound by an enclosing <let>`);
+        report(diags, n.node, 'TDC182', `<use name="${name}"> is not bound by an enclosing <let>`);
       }
       return;
     }
+
     case 'field': {
       const name = n.attrs['name'] ?? '';
       if (scope.knownFields && !scope.knownFields.has(name)) {
@@ -588,7 +610,7 @@ function walkWhen(n: CN, scope: VScope, diags: Diagnostic[]): void {
  * `expected an integer in <equals>, got the string "ab"`, naming no file, no line and
  * no code, on a config `check` had called valid.
  *
- * Only a LITERAL is checked. What a `<field>` or a `<var>` will hold is not known
+ * Only a LITERAL is checked. What a `<field>` or a `<use>` will hold is not known
  * before the run, and a refusal here has to be a proof.
  */
 function checkComparisonLiterals(n: CN, diags: Diagnostic[]): void {

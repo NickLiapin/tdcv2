@@ -11,7 +11,7 @@ generator: tdc
        left-padded with "00" to line up with the weight table. -->
   <let name="head"><concat><str v="00"/><field name="entidad"/><field name="oficina"/></concat></let>
   <let name="sumHead"><reduce>
-    <over><var name="head"/></over>
+    <over><use name="head"/></over>
     <init><int v="0"/></init>
     <do><add><acc/>
       <multiply><current/>
@@ -30,22 +30,22 @@ generator: tdc
   </reduce></let>
   <!-- d = 11 - (sum mod 11); the two overflow cases collapse: 11 -> 0, 10 -> 1. -->
   <let name="dc1"><choose>
-    <when><test><equals><mod><var name="sumHead"/><int v="11"/></mod><int v="0"/></equals></test>
+    <when><test><equals><mod><use name="sumHead"/><int v="11"/></mod><int v="0"/></equals></test>
       <then><int v="0"/></then></when>
-    <when><test><equals><mod><var name="sumHead"/><int v="11"/></mod><int v="1"/></equals></test>
+    <when><test><equals><mod><use name="sumHead"/><int v="11"/></mod><int v="1"/></equals></test>
       <then><int v="1"/></then></when>
-    <otherwise><subtract><int v="11"/><mod><var name="sumHead"/><int v="11"/></mod></subtract></otherwise>
+    <otherwise><subtract><int v="11"/><mod><use name="sumHead"/><int v="11"/></mod></subtract></otherwise>
   </choose></let>
   <let name="dc2"><choose>
-    <when><test><equals><mod><var name="sumTail"/><int v="11"/></mod><int v="0"/></equals></test>
+    <when><test><equals><mod><use name="sumTail"/><int v="11"/></mod><int v="0"/></equals></test>
       <then><int v="0"/></then></when>
-    <when><test><equals><mod><var name="sumTail"/><int v="11"/></mod><int v="1"/></equals></test>
+    <when><test><equals><mod><use name="sumTail"/><int v="11"/></mod><int v="1"/></equals></test>
       <then><int v="1"/></then></when>
-    <otherwise><subtract><int v="11"/><mod><var name="sumTail"/><int v="11"/></mod></subtract></otherwise>
+    <otherwise><subtract><int v="11"/><mod><use name="sumTail"/><int v="11"/></mod></subtract></otherwise>
   </choose></let>
   <result><concat>
     <field name="entidad"/><field name="oficina"/>
-    <var name="dc1"/><var name="dc2"/>
+    <use name="dc1"/><use name="dc2"/>
     <field name="cuenta"/>
   </concat></result>
 </compute></sequence>

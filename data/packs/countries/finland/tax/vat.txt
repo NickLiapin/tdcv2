@@ -16,11 +16,11 @@ generator: tdc
       </add></do>
     </reduce>
   </let>
-  <let name="r"><mod><var name="sum"/><int v="11"/></mod></let>
+  <let name="r"><mod><use name="sum"/><int v="11"/></mod></let>
   <result>
     <choose>
-      <when><test><equals><var name="r"/><int v="0"/></equals></test><then><int v="0"/></then></when>
-      <otherwise><subtract><int v="11"/><var name="r"/></subtract></otherwise>
+      <when><test><equals><use name="r"/><int v="0"/></equals></test><then><int v="0"/></then></when>
+      <otherwise><subtract><int v="11"/><use name="r"/></subtract></otherwise>
     </choose>
   </result>
 </compute></sequence>

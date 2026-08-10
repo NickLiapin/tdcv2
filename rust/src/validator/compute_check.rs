@@ -1,7 +1,7 @@
 //! The `<compute>` tree, checked before it runs.
 //!
 //! Compute is a small language of its own, and its mistakes are the quiet kind:
-//! a `<var>` nobody bound reads as empty, a `<choose>` with no fallback produces
+//! a `<use>` nobody bound reads as empty, a `<choose>` with no fallback produces
 //! nothing when every branch misses, a second `<result>` silently wins over the
 //! first. None of that stops a run — it produces a check digit that is wrong, in
 //! a file of a million records that all look plausible.
@@ -35,7 +35,7 @@ const KNOWN_TAGS: [&str; 48] = [
     "str",
     "list",
     "field",
-    "var",
+    "use",
     "current",
     "current_index",
     "acc",
@@ -232,6 +232,15 @@ impl<'a> ComputeCheck<'a> {
             );
             return;
         }
+        if let Some((to, why)) = renamed_tag(name) {
+            self.report(
+                node,
+                "TDC288",
+                format!("<{name}> has been renamed to <{to}>"),
+                why,
+            );
+            return;
+        }
         if !KNOWN_TAGS.contains(&name) {
             self.report(
                 node,
@@ -265,13 +274,13 @@ impl<'a> ComputeCheck<'a> {
                 }
             }
 
-            "var" => {
+            "use" => {
                 let bound = node.attr_value("name").unwrap_or("").to_string();
                 if !scope.vars.contains(&bound) {
                     self.report(
                         node,
                         "TDC182",
-                        format!("<var name=\"{bound}\"> is not bound by an enclosing <let>"),
+                        format!("<use name=\"{bound}\"> is not bound by an enclosing <let>"),
                         "",
                     );
                 }
@@ -560,7 +569,7 @@ impl<'a> ComputeCheck<'a> {
     /// with `expected an integer in <equals>, got the string "ab"`, naming no file, no
     /// line and no code, on a config `check` had called valid.
     ///
-    /// Only a LITERAL is checked. What a `<field>` or a `<var>` will hold is not known
+    /// Only a LITERAL is checked. What a `<field>` or a `<use>` will hold is not known
     /// before the run, and a refusal here has to be a proof.
     fn comparison_literals(&mut self, node: &Element, tag: &str) {
         for child in node.children.iter().filter(|c| c.kind != Kind::Data) {
@@ -616,6 +625,21 @@ impl<'a> ComputeCheck<'a> {
 /// not an argument.
 fn nodes(element: &Element) -> impl Iterator<Item = &Element> {
     element.children.iter().filter(|c| c.kind != Kind::Data)
+}
+
+/// Tags that used to be called something else.
+///
+/// Without this a renamed tag falls through to "unknown compute tag", which tells a
+/// reader their spelling is wrong and not what the right one is. The rename is the one
+/// moment when the engine knows exactly what was meant, so it says so.
+fn renamed_tag(name: &str) -> Option<(&'static str, &'static str)> {
+    match name {
+        "var" => Some((
+            "use",
+            "It never declared anything — <let> binds a name and this reads it back, which is what the new name says. Rename the tag; the name= attribute is unchanged.",
+        )),
+        _ => None,
+    }
 }
 
 /// `^-?\d+$`

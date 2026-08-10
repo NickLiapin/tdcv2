@@ -205,10 +205,10 @@ function evalElement(el: ElementContext, scope: EvalScope): Value {
       if (NUMERIC_BUILTIN_FIELDS.has(name)) return int(BigInt(value));
       return str(value);
     }
-    case 'var': {
+    case 'use': {
       const name = n.attrs['name'] ?? '';
       const value = scope.vars.get(name);
-      if (value === undefined) throw new ComputeError(`<var>: "${name}" is not bound`);
+      if (value === undefined) throw new ComputeError(`<use>: "${name}" is not bound`);
       return value;
     }
     case 'current':

@@ -8,8 +8,8 @@ generator: tdc
   <let name="idx"><mod><to_number><field name="number"/></to_number><int v="23"/></mod></let>
   <let name="letter">
     <at><in><list><str v="T"/><str v="R"/><str v="W"/><str v="A"/><str v="G"/><str v="M"/><str v="Y"/><str v="F"/><str v="P"/><str v="D"/><str v="X"/><str v="B"/><str v="N"/><str v="J"/><str v="Z"/><str v="S"/><str v="Q"/><str v="V"/><str v="H"/><str v="L"/><str v="C"/><str v="K"/><str v="E"/></list></in>
-        <index><var name="idx"/></index></at>
+        <index><use name="idx"/></index></at>
   </let>
-  <result><concat><field name="number"/><var name="letter"/></concat></result>
+  <result><concat><field name="number"/><use name="letter"/></concat></result>
 </compute></sequence>
 <data>${{dni}}</data>

@@ -28,7 +28,7 @@ A fondo: [El sublenguaje compute](../compute/overview.md#top)
 | [`<str>`](../compute/strings.md#str--un-literal-de-string)                | `v=` → `str`               | Un literal de cadena (atributo `v`)                             |
 | [`<list>`](../compute/lists.md#list--una-lista-literal-de-valores)        | `v=` o `int…` → `list`     | Una lista literal de enteros, o armada con expresiones anidadas |
 | [`<field>`](../compute/overview.md#un-valor-de-un-field-es-un-string)     | `name=` → `str`            | El valor de una secuencia en el ámbito — como `${{X}}`          |
-| [`<var>`](../compute/overview.md#let-y-var-no-son-dos-clases-de-variable) | `name=` → `int\|str\|list` | Un valor ligado con `<let>`                                     |
+| [`<use>`](../compute/overview.md#let-y-var-no-son-dos-clases-de-variable) | `name=` → `int\|str\|list` | Un valor ligado con `<let>`                                     |
 | [`<let>`](../compute/overview.md#let-y-var-no-son-dos-clases-de-variable) | `name=` + 1 → `—`          | Nombra un resultado intermedio para las etiquetas hermanas      |
 | [`<current>`](../compute/lists.md#each--mapear-sobre-una-lista)           | → `int\|str`               | El elemento actual de la iteración (dentro de `<do>`)           |
 | [`<current_index>`](../compute/lists.md#each--mapear-sobre-una-lista)     | → `int`                    | El índice del elemento actual, desde cero                       |

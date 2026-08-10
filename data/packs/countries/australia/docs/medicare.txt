@@ -25,7 +25,7 @@ locale: en
       </add></do>
     </reduce>
   </let>
-  <result><mod><var name="sum"/><int v="10"/></mod></result>
+  <result><mod><use name="sum"/><int v="10"/></mod></result>
 </compute></sequence>
 <!-- Issue number (10th), 1-9. -->
 <sequence name="issue"><gen type="regex" value="[1-9]"/></sequence>

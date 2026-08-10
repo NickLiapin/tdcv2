@@ -81,8 +81,8 @@ def test_an_overflow_is_an_error_rather_than_a_silent_wrap() -> None:
 def test_padding_and_length_match_the_reference() -> None:
     body = (
         '<let name="s"><str v="42"/></let>'
-        '<result><concat><pad width="6"><var name="s"/></pad><str v="|"/>'
-        '<pad width="6" fill="*"><var name="s"/></pad><str v="|"/>'
+        '<result><concat><pad width="6"><use name="s"/></pad><str v="|"/>'
+        '<pad width="6" fill="*"><use name="s"/></pad><str v="|"/>'
         '<length><str v="hello"/></length></concat></result>'
     )
     assert _compute(body) == "000042|****42|5"
@@ -91,15 +91,15 @@ def test_padding_and_length_match_the_reference() -> None:
 def test_a_binding_is_visible_to_the_bindings_after_it() -> None:
     body = (
         '<let name="a"><int v="2"/></let>'
-        '<let name="b"><multiply><var name="a"/><int v="3"/></multiply></let>'
-        '<result><var name="b"/></result>'
+        '<let name="b"><multiply><use name="a"/><int v="3"/></multiply></let>'
+        '<result><use name="b"/></result>'
     )
     assert _compute(body) == "6"
 
 
 def test_an_unbound_variable_is_named() -> None:
     with pytest.raises(ComputeError, match='"nope" is not bound'):
-        _compute('<result><var name="nope"/></result>')
+        _compute('<result><use name="nope"/></result>')
 
 
 # ── iteration ───────────────────────────────────────────────────────────────────────────────

@@ -12,8 +12,8 @@ generator: tdc
   <result><concat>
     <str v="+54"/><field name="area"/>
     <choose>
-      <when><test><equals><var name="len"/><int v="2"/></equals></test><then><field name="sub8"/></then></when>
-      <when><test><equals><var name="len"/><int v="3"/></equals></test><then><field name="sub7"/></then></when>
+      <when><test><equals><use name="len"/><int v="2"/></equals></test><then><field name="sub8"/></then></when>
+      <when><test><equals><use name="len"/><int v="3"/></equals></test><then><field name="sub7"/></then></when>
       <otherwise><field name="sub6"/></otherwise>
     </choose>
   </concat></result>

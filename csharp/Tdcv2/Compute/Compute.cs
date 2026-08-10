@@ -223,12 +223,12 @@ public static class Compute
                 return Value.Of(value);
             }
 
-            case "var":
+            case "use":
             {
                 string name = n.Attrs.GetValueOrDefault("name", "");
                 return scope.Vars.TryGetValue(name, out Value? value)
                     ? value
-                    : throw new ComputeError($"<var>: \"{name}\" is not bound");
+                    : throw new ComputeError($"<use>: \"{name}\" is not bound");
             }
 
             case "current":

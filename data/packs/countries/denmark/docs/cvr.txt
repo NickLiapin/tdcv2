@@ -10,32 +10,32 @@ locale: da
   <!-- First attempt: the drawn 7-digit prefix. -->
   <let name="prefix"><concat><field name="head"/><field name="tail"/></concat></let>
   <let name="sum"><reduce>
-    <over><var name="prefix"/></over>
+    <over><use name="prefix"/></over>
     <init><int v="0"/></init>
     <do><add><acc/><multiply><current/>
       <at><in><list v="2,7,6,5,4,3,2"/></in><index><current_index/></index></at>
     </multiply></add></do>
   </reduce></let>
   <!-- check = 11 - (sum mod 11); a check of 11 becomes 0. -->
-  <let name="check"><mod><subtract><int v="11"/><mod><var name="sum"/><int v="11"/></mod></subtract><int v="11"/></mod></let>
+  <let name="check"><mod><subtract><int v="11"/><mod><use name="sum"/><int v="11"/></mod></subtract><int v="11"/></mod></let>
   <!-- Fallback: bump the 7th digit by one (9 wraps to 0) and recompute. -->
   <let name="alttail"><mod><add><field name="tail"/><int v="1"/></add><int v="10"/></mod></let>
-  <let name="altprefix"><concat><field name="head"/><var name="alttail"/></concat></let>
+  <let name="altprefix"><concat><field name="head"/><use name="alttail"/></concat></let>
   <let name="altsum"><reduce>
-    <over><var name="altprefix"/></over>
+    <over><use name="altprefix"/></over>
     <init><int v="0"/></init>
     <do><add><acc/><multiply><current/>
       <at><in><list v="2,7,6,5,4,3,2"/></in><index><current_index/></index></at>
     </multiply></add></do>
   </reduce></let>
-  <let name="altcheck"><mod><subtract><int v="11"/><mod><var name="altsum"/><int v="11"/></mod></subtract><int v="11"/></mod></let>
+  <let name="altcheck"><mod><subtract><int v="11"/><mod><use name="altsum"/><int v="11"/></mod></subtract><int v="11"/></mod></let>
   <let name="number">
     <choose>
-      <when><test><equals><var name="check"/><int v="10"/></equals></test>
-        <then><concat><field name="head"/><var name="alttail"/><var name="altcheck"/></concat></then></when>
-      <otherwise><concat><field name="head"/><field name="tail"/><var name="check"/></concat></otherwise>
+      <when><test><equals><use name="check"/><int v="10"/></equals></test>
+        <then><concat><field name="head"/><use name="alttail"/><use name="altcheck"/></concat></then></when>
+      <otherwise><concat><field name="head"/><field name="tail"/><use name="check"/></concat></otherwise>
     </choose>
   </let>
-  <result><var name="number"/></result>
+  <result><use name="number"/></result>
 </compute></sequence>
 <data>${{cvr}}</data>

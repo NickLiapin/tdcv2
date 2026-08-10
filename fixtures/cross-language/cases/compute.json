@@ -52,7 +52,7 @@
     {
       "name": "compute-pad-and-slice",
       "description": "pad, slice and length",
-      "config": "<tdc><env count=\"1\" seed=\"unit-test\" local=\"en\" mode=\"memory\"><sequence name=\"V\"><compute><let name=\"s\"><str v=\"42\"/></let><result><concat><pad width=\"6\"><var name=\"s\"/></pad><str v=\"|\"/><pad width=\"6\" fill=\"*\"><var name=\"s\"/></pad><str v=\"|\"/><length><str v=\"hello\"/></length></concat></result></compute></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
+      "config": "<tdc><env count=\"1\" seed=\"unit-test\" local=\"en\" mode=\"memory\"><sequence name=\"V\"><compute><let name=\"s\"><str v=\"42\"/></let><result><concat><pad width=\"6\"><use name=\"s\"/></pad><str v=\"|\"/><pad width=\"6\" fill=\"*\"><use name=\"s\"/></pad><str v=\"|\"/><length><str v=\"hello\"/></length></concat></result></compute></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
       "expected": ["000042|****42|5"]
     },
     {

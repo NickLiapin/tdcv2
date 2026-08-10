@@ -82,10 +82,10 @@
             <let name="x"><multiply><current/><int v="2"/></multiply></let>
             <choose>
               <when>
-                <test><greater_than><var name="x"/><int v="9"/></greater_than></test>
-                <then><subtract><var name="x"/><int v="9"/></subtract></then>
+                <test><greater_than><use name="x"/><int v="9"/></greater_than></test>
+                <then><subtract><use name="x"/><int v="9"/></subtract></then>
               </when>
-              <otherwise><var name="x"/></otherwise>
+              <otherwise><use name="x"/></otherwise>
             </choose>
           </do>
         </each>
@@ -130,11 +130,11 @@
     <result>
       <choose>
         <when>
-          <test><less_than><var name="s"/><int v="30"/></less_than></test>
+          <test><less_than><use name="s"/><int v="30"/></less_than></test>
           <then><str v="low"/></then>
         </when>
         <when>
-          <test><less_than><var name="s"/><int v="80"/></less_than></test>
+          <test><less_than><use name="s"/><int v="80"/></less_than></test>
           <then><str v="mid"/></then>
         </when>
         <otherwise><str v="high"/></otherwise>

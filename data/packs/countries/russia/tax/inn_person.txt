@@ -10,7 +10,7 @@ generator: tdc
   <let name="first">
     <mod><mod>
       <reduce>
-        <over><var name="base"/></over>
+        <over><use name="base"/></over>
         <init><int v="0"/></init>
         <do><add><acc/><multiply><current/>
           <at><in><list v="7,2,4,10,3,5,9,4,6,8"/></in><index><current_index/></index></at>
@@ -18,11 +18,11 @@ generator: tdc
       </reduce>
       <int v="11"/></mod><int v="10"/></mod>
   </let>
-  <let name="ten"><concat><var name="base"/><var name="first"/></concat></let>
+  <let name="ten"><concat><use name="base"/><use name="first"/></concat></let>
   <let name="second">
     <mod><mod>
       <reduce>
-        <over><var name="ten"/></over>
+        <over><use name="ten"/></over>
         <init><int v="0"/></init>
         <do><add><acc/><multiply><current/>
           <at><in><list v="3,7,2,4,10,3,5,9,4,6,8"/></in><index><current_index/></index></at>
@@ -30,6 +30,6 @@ generator: tdc
       </reduce>
       <int v="11"/></mod><int v="10"/></mod>
   </let>
-  <result><concat><var name="base"/><var name="first"/><var name="second"/></concat></result>
+  <result><concat><use name="base"/><use name="first"/><use name="second"/></concat></result>
 </compute></sequence>
 <data>${{inn}}</data>
