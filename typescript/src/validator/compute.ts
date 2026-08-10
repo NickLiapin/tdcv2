@@ -39,6 +39,17 @@ interface VScope {
 const ENCODINGS = new Set(['base36', 'ascii', 'unicode', 'hex', 'binary', 'octal']);
 
 /**
+ * The two `<field>` names that arrive as NUMBERS rather than text.
+ *
+ * Everything else a `<field>` can name is a rendered value, which is text until
+ * `<to_number>` says otherwise. These two are counts, so they go straight into
+ * `<add>` or `<mod>` — and, for the same reason, they are not something
+ * `<is_digit>` or `<encode>` can take. Their type is known before the run, which is
+ * what makes a refusal a proof here and impossible for a `<field>` in general.
+ */
+const NUMERIC_BUILTIN_FIELDS = new Set(['_count', '_total']);
+
+/**
  * Every tag of the compute sub-language, exported for the completion brain:
  * inside a `<compute>` subtree these are the only names worth offering.
  */
@@ -99,6 +110,42 @@ export const COMPUTE_TAGS = new Set([
   'less_than',
   'is_digit',
 ]);
+
+/**
+ * `<is_digit>` and `<encode>` both want ONE CHARACTER OF TEXT, and both were handed
+ * a number without a word said.
+ *
+ * The two failures look nothing alike, which is why only one of them was ever
+ * noticed. `<is_digit>` answered "no" on every row — including rows 1 to 9, where
+ * the count plainly is a digit — and `check` called the config valid. `<encode>`
+ * did stop the run, but with `<encode>: expected a single-character string` and no
+ * file, no line and no code, on a config `check` had also called valid. Same cause,
+ * so one refusal covers both.
+ */
+function checkNumericBuiltinArgument(
+  children: readonly ElementContext[],
+  tag: 'is_digit' | 'encode',
+  diags: Diagnostic[],
+): void {
+  for (const child of children) {
+    const c = cnode(child);
+    const named = c?.name === 'field' ? (c.attrs['name'] ?? '') : '';
+    if (!c || !NUMERIC_BUILTIN_FIELDS.has(named)) continue;
+    report(
+      diags,
+      c.node,
+      'TDC286',
+      `<${tag}> asks about one character of text, and <field name="${named}"> is a number`,
+      tag === 'is_digit'
+        ? 'It would answer "no" on every row, including the rows where the count is a single ' +
+            'digit. Compare the number itself with <equals> or <less_than>, or put the digit ' +
+            'you mean into a <str>.'
+        : 'The run would stop with "expected a single-character string", naming no file and no ' +
+            'line. Wrap it in <concat> to turn the number into its digits — <encode> still needs ' +
+            'exactly one of them — or put the character you mean into a <str>.',
+    );
+  }
+}
 
 function cnode(el: ElementContext): CN | undefined {
   const k = elementKind(el);
@@ -418,6 +465,7 @@ function walkExpr(el: ElementContext, scope: VScope, diags: Diagnostic[]): void 
       if (!ENCODINGS.has(as)) {
         report(diags, n.node, 'TDC186', `<encode>: unknown encoding "${as}"`);
       }
+      checkNumericBuiltinArgument(n.children, 'encode', diags);
       walkSlot(n.children, scope, diags);
       return;
     }
@@ -541,7 +589,8 @@ function walkPredicate(n: CN, scope: VScope, diags: Diagnostic[]): void {
       for (const c of n.children) walkExpr(c, scope, diags);
       return;
     case 'is_digit':
-      for (const c of n.children) walkExpr(c, scope, diags);
+      checkNumericBuiltinArgument(n.children, 'is_digit', diags);
+      for (const child of n.children) walkExpr(child, scope, diags);
       return;
     default:
       report(diags, n.node, 'TDC180', `unknown predicate <${n.name}> (valid only inside <test>)`);

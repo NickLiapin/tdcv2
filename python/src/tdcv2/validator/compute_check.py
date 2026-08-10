@@ -54,6 +54,11 @@ _HINTS_BY_TAG = {
 #: only at render time and named no file, line or code.
 _PREDICATE_TAGS = frozenset({"equals", "greater_than", "less_than", "is_digit"})
 
+# The two `<field>` names that arrive as NUMBERS rather than text. Everything else a `<field>`
+# can name is a rendered value, text until `<to_number>` says otherwise. Their type is known
+# before the run, which is what makes the TDC286 refusal a proof rather than a guess.
+_NUMERIC_BUILTIN_FIELDS = frozenset({"_count", "_total"})
+
 _POSITIVE_INT = re.compile(r"^[1-9][0-9]*$")
 _INTEGER = re.compile(r"^-?\d+$")
 
@@ -266,6 +271,7 @@ class ComputeCheck:
             as_what = node.attrs.get("as", "")
             if as_what not in _ENCODINGS:
                 self._report(node, "TDC186", f'<encode>: unknown encoding "{as_what}"', None)
+            self._numeric_builtin_argument(node.children, "encode")
             self._slot(node.children, scope)
         elif name == "mask":
             # The filter form of the same fault is TDC256 in validate.py. A mask with no pattern
@@ -354,6 +360,38 @@ class ComputeCheck:
                     break
         self._wrapper(node, "then", scope)
 
+    def _numeric_builtin_argument(self, children, tag: str) -> None:
+        """`<is_digit>` and `<encode>` both want ONE CHARACTER OF TEXT, and both took a number.
+
+        The two failures look nothing alike, which is why only one was ever noticed.
+        `<is_digit>` answered "no" on every row — including rows 1 to 9, where the count
+        plainly is a digit — and `check` called the config valid. `<encode>` did stop the
+        run, but with "expected a single-character string" and no file, no line and no
+        code, on a config `check` had also called valid. Same cause, so one refusal.
+        """
+        for child in children:
+            inner = _node(child)
+            named = inner.attrs.get("name", "") if inner and inner.name == "field" else ""
+            if named not in _NUMERIC_BUILTIN_FIELDS:
+                continue
+            hint = (
+                'It would answer "no" on every row, including the rows where the '
+                "count is a single digit. Compare the number itself with <equals> or "
+                "<less_than>, or put the digit you mean into a <str>."
+                if tag == "is_digit"
+                else 'The run would stop with "expected a single-character string", naming '
+                "no file and no line. Wrap it in <concat> to turn the number into its "
+                "digits — <encode> still needs exactly one of them — or put the character "
+                "you mean into a <str>."
+            )
+            self._report(
+                inner,
+                "TDC286",
+                f"<{tag}> asks about one character of text, and "
+                f'<field name="{named}"> is a number',
+                hint,
+            )
+
     def _predicate(self, node: _Node, scope: _Scope) -> None:
         if node.name in ("equals", "greater_than", "less_than"):
             if _count_nodes(node) != 2:
@@ -361,6 +399,7 @@ class ComputeCheck:
             for child in node.children:
                 self._expr(child, scope)
         elif node.name == "is_digit":
+            self._numeric_builtin_argument(node.children, "is_digit")
             for child in node.children:
                 self._expr(child, scope)
         else:

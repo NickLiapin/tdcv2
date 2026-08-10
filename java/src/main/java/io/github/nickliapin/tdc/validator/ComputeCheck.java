@@ -35,6 +35,18 @@ final class ComputeCheck {
   private static final java.util.Set<String> PREDICATE_TAGS =
       java.util.Set.of("equals", "greater_than", "less_than", "is_digit");
 
+  /**
+   * The two {@code <field>} names that arrive as NUMBERS rather than text.
+   *
+   * <p>Everything else a {@code <field>} can name is a rendered value, which is text until
+   * {@code <to_number>} says otherwise. These two are counts, so they go straight into
+   * {@code <add>} or {@code <mod>} — and, for the same reason, they are not something
+   * {@code <is_digit>} can answer about. Their type is known before the run, which is what
+   * makes a refusal a proof here and impossible for a {@code <field>} in general.
+   */
+  private static final java.util.Set<String> NUMERIC_BUILTIN_FIELDS =
+      java.util.Set.of("_count", "_total");
+
 
   private static final Set<String> KNOWN_TAGS =
       Set.of(
@@ -283,6 +295,7 @@ final class ComputeCheck {
         if (!ENCODINGS.contains(as)) {
           report(node, "TDC186", "<encode>: unknown encoding \"" + as + "\"", null);
         }
+        numericBuiltinArgument(node.children(), "encode");
         walkSlot(node.children(), scope);
       }
       case "choose" -> walkChoose(node, scope);
@@ -384,6 +397,44 @@ final class ComputeCheck {
     walkWrapper(node, "then", scope);
   }
 
+  /**
+   * {@code <is_digit>} and {@code <encode>} both want ONE CHARACTER OF TEXT, and both took a
+   * number without a word said.
+   *
+   * <p>The two failures look nothing alike, which is why only one of them was ever noticed.
+   * {@code <is_digit>} answered "no" on every row — including rows 1 to 9, where the count
+   * plainly is a digit — and check called the config valid. {@code <encode>} did stop the run,
+   * but with "expected a single-character string" and no file, no line and no code, on a config
+   * check had also called valid. Same cause, so one refusal covers both.
+   */
+  private void numericBuiltinArgument(List<TDCParser.ElementContext> children, String tag) {
+    for (TDCParser.ElementContext child : children) {
+      Node inner = node(child);
+      String named =
+          inner != null && "field".equals(inner.name())
+              ? inner.attrs().getOrDefault("name", "")
+              : "";
+      if (!NUMERIC_BUILTIN_FIELDS.contains(named)) {
+        continue;
+      }
+      String hint =
+          "is_digit".equals(tag)
+              ? "It would answer \"no\" on every row, including the rows where the count is a "
+                  + "single digit. Compare the number itself with <equals> or <less_than>, or "
+                  + "put the digit you mean into a <str>."
+              : "The run would stop with \"expected a single-character string\", naming no file "
+                  + "and no line. Wrap it in <concat> to turn the number into its digits — "
+                  + "<encode> still needs exactly one of them — or put the character you mean "
+                  + "into a <str>.";
+      report(
+          inner,
+          "TDC286",
+          "<" + tag + "> asks about one character of text, and <field name=\"" + named
+              + "\"> is a number",
+          hint);
+    }
+  }
+
   private void walkPredicate(Node node, Scope scope) {
     switch (node.name()) {
       case "equals", "greater_than", "less_than" -> {
@@ -395,6 +446,7 @@ final class ComputeCheck {
         }
       }
       case "is_digit" -> {
+        numericBuiltinArgument(node.children(), "is_digit");
         for (TDCParser.ElementContext child : node.children()) {
           walkExpr(child, scope);
         }

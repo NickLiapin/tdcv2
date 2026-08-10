@@ -298,6 +298,13 @@ olvida, el error nombra la etiqueta que recibió el tipo equivocado.
 
 El cruce inverso es automático: un número puesto en `<concat>` se vuelve sus dígitos.
 
+Dos nombres son la excepción, porque son conteos y no datos: `_count` y `_total` llegan como
+**números**. Van directo a `<mod>` o `<add>` sin `<to_number>` — y, por la misma razón,
+`<is_digit>` y `<encode>` no los aceptan: ambos esperan un solo carácter de texto. `check`
+rechaza esa pareja con [`TDC286`](../reference/errors.md#top) en vez de dejárselo a la corrida:
+antes `<is_digit>` respondía «no» en todas las filas, incluidas aquellas en las que el conteo
+sí es un solo dígito, y `<encode>` detenía la corrida sin nombrar archivo ni línea.
+
 ## Las familias de etiquetas
 
 Cada familia tiene su propia página con ejemplos resueltos; el catálogo alfabético

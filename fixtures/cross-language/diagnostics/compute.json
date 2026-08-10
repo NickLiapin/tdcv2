@@ -126,6 +126,20 @@
       "description": "<greater_than> answers true or false, so it is valid only inside <test>. It used to pass check and die mid-run with a message carrying no code, no line and no file.",
       "config": "<tdc><env count=\"2\" seed=\"s\"><sequence name=\"C\"><compute><result><greater_than><int v=\"2\"/><int v=\"1\"/></greater_than></result></compute></sequence></env><block><line><data>${{C}}</data></line></block></tdc>",
       "expected": ["error TDC180 1:65"]
+    },
+    {
+      "name": "is_digit-on-a-numeric-builtin-is-refused-not-answered-no",
+      "demonstrates": "TDC286",
+      "description": "<is_digit> asks about one character of TEXT; _count and _total arrive as numbers. Measured on the unfixed engine: the branch answered \"no\" on rows 1, 2 and 3 — rows where the count plainly is a single digit — and check said nothing at all.",
+      "config": "<tdc><env count=\"3\" seed=\"s\" local=\"en\" mode=\"memory\"><sequence name=\"V\"><compute><result><choose><when><test><is_digit><field name=\"_count\"/></is_digit></test><then><str v=\"DIGIT\"/></then></when><otherwise><str v=\"not\"/></otherwise></choose></result></compute></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
+      "expected": ["error TDC286 1:120"]
+    },
+    {
+      "name": "encode-on-a-numeric-builtin-is-refused-before-the-run-not-during-it",
+      "demonstrates": "TDC286",
+      "description": "Same cause as the <is_digit> case above, different symptom. check called this valid and the run then died with \"<encode>: expected a single-character string\" — no file, no line, no code. <concat> around the field is the fix that works: measured 49, 50, 51, the ASCII of 1, 2 and 3.",
+      "config": "<tdc><env count=\"3\" seed=\"s\" local=\"en\" mode=\"memory\"><sequence name=\"V\"><compute><result><encode as=\"ascii\"><field name=\"_count\"/></encode></result></compute></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
+      "expected": ["error TDC286 1:109"]
     }
   ]
 }

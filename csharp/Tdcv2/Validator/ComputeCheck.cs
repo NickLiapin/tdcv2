@@ -37,6 +37,20 @@ internal sealed class ComputeCheck
     private static readonly HashSet<string> PredicateTags =
         new(StringComparer.Ordinal) { "equals", "greater_than", "less_than", "is_digit" };
 
+    /// <summary>
+    /// The two <c>&lt;field&gt;</c> names that arrive as NUMBERS rather than text.
+    /// </summary>
+    /// <remarks>
+    /// Everything else a <c>&lt;field&gt;</c> can name is a rendered value, which is text
+    /// until <c>&lt;to_number&gt;</c> says otherwise. These two are counts, so they go
+    /// straight into <c>&lt;add&gt;</c> or <c>&lt;mod&gt;</c> — and, for the same reason,
+    /// they are not something <c>&lt;is_digit&gt;</c> can answer about. Their type is known
+    /// before the run, which is what makes a refusal a proof here and impossible for a
+    /// <c>&lt;field&gt;</c> in general.
+    /// </remarks>
+    private static readonly HashSet<string> NumericBuiltinFields =
+        new(StringComparer.Ordinal) { "_count", "_total" };
+
 
     private static readonly HashSet<string> KnownTags = new(StringComparer.Ordinal)
     {
@@ -409,6 +423,7 @@ internal sealed class ComputeCheck
                     Report(node, "TDC186", $"<encode>: unknown encoding \"{@as}\"", null);
                 }
 
+                NumericBuiltinArgument(node.Children, "encode");
                 WalkSlot(node.Children, scope);
                 return;
             }
@@ -526,6 +541,46 @@ internal sealed class ComputeCheck
         WalkWrapper(node, "then", scope);
     }
 
+    /// <summary>
+    /// <c>&lt;is_digit&gt;</c> and <c>&lt;encode&gt;</c> both want ONE CHARACTER OF TEXT, and
+    /// both took a number without a word said.
+    /// </summary>
+    /// <remarks>
+    /// The two failures look nothing alike, which is why only one of them was ever noticed.
+    /// <c>&lt;is_digit&gt;</c> answered "no" on every row — including rows 1 to 9, where the
+    /// count plainly is a digit — and check called the config valid. <c>&lt;encode&gt;</c> did
+    /// stop the run, but with "expected a single-character string" and no file, no line and no
+    /// code, on a config check had also called valid. Same cause, so one refusal covers both.
+    /// </remarks>
+    private void NumericBuiltinArgument(
+        IReadOnlyList<TDCParser.ElementContext> children, string tag)
+    {
+        foreach (TDCParser.ElementContext child in children)
+        {
+            Node? inner = ToNode(child);
+            string named = inner is not null && inner.Name == "field"
+                ? (inner.Attrs.TryGetValue("name", out string? n) ? n : "")
+                : "";
+            if (inner is null || !NumericBuiltinFields.Contains(named))
+            {
+                continue;
+            }
+
+            string hint = tag == "is_digit"
+                ? "It would answer \"no\" on every row, including the rows where the count is " +
+                  "a single digit. Compare the number itself with <equals> or <less_than>, or " +
+                  "put the digit you mean into a <str>."
+                : "The run would stop with \"expected a single-character string\", naming no " +
+                  "file and no line. Wrap it in <concat> to turn the number into its digits — " +
+                  "<encode> still needs exactly one of them — or put the character you mean " +
+                  "into a <str>.";
+            Report(
+                inner, "TDC286",
+                $"<{tag}> asks about one character of text, and <field name=\"{named}\"> is a number",
+                hint);
+        }
+    }
+
     private void WalkPredicate(Node node, Scope scope)
     {
         switch (node.Name)
@@ -546,6 +601,7 @@ internal sealed class ComputeCheck
                 return;
 
             case "is_digit":
+                NumericBuiltinArgument(node.Children, "is_digit");
                 foreach (TDCParser.ElementContext child in node.Children)
                 {
                     WalkExpr(child, scope);

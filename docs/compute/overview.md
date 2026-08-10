@@ -299,7 +299,10 @@ The reverse crossing is automatic: a number placed in `<concat>` becomes its dig
 Two names are the exception, because they are counts rather than data: `_count` and
 `_total` arrive as **numbers**. They go straight into `<mod>` or `<add>` with no
 `<to_number>` — and, for the same reason, `<is_digit>` and `<encode>` will not take them,
-since both expect a single character of text.
+since both expect a single character of text. `check` refuses that pairing with
+[`TDC286`](../reference/errors.md#top) rather than leaving it to the run: `<is_digit>` used to
+answer "no" on every row, including the rows where the count is a single digit, and
+`<encode>` used to stop mid-run naming no file and no line.
 
 ## The tag families
 

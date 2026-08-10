@@ -25,6 +25,10 @@ const ENCODINGS: [&str; 6] = ["base36", "ascii", "unicode", "hex", "binary", "oc
 /// file, line or code.
 const PREDICATE_TAGS: [&str; 4] = ["equals", "greater_than", "less_than", "is_digit"];
 
+/// The two `<field>` names that arrive as NUMBERS rather than text. Their type is
+/// known before the run, which is what makes the TDC286 refusal a proof.
+const NUMERIC_BUILTIN_FIELDS: [&str; 2] = ["_count", "_total"];
+
 const KNOWN_TAGS: [&str; 48] = [
     // literals and references
     "int",
@@ -412,6 +416,7 @@ impl<'a> ComputeCheck<'a> {
                         "",
                     );
                 }
+                self.numeric_builtin_argument(&node.children, "encode");
                 self.walk_slot(&node.children, scope);
             }
 
@@ -522,6 +527,7 @@ impl<'a> ComputeCheck<'a> {
                 }
             }
             "is_digit" => {
+                self.numeric_builtin_argument(&node.children, "is_digit");
                 for child in nodes(node) {
                     self.walk_expr(child, scope);
                 }
@@ -532,6 +538,41 @@ impl<'a> ComputeCheck<'a> {
                 format!("unknown predicate <{name}> (valid only inside <test>)"),
                 "",
             ),
+        }
+    }
+
+    /// `<is_digit>` and `<encode>` both want ONE CHARACTER OF TEXT, and both took a
+    /// number without a word said.
+    ///
+    /// The two failures look nothing alike, which is why only one of them was ever
+    /// noticed. `<is_digit>` answered "no" on every row — including rows 1 to 9, where
+    /// the count plainly is a digit — and `check` called the config valid. `<encode>`
+    /// did stop the run, but with `<encode>: expected a single-character string` and no
+    /// file, no line and no code, on a config `check` had also called valid. Same cause,
+    /// so one refusal covers both.
+    fn numeric_builtin_argument(&mut self, children: &[Element], tag: &str) {
+        for child in children.iter().filter(|c| c.kind != Kind::Data) {
+            if child.name != "field" {
+                continue;
+            }
+            let named = child.attr_value("name").unwrap_or("").to_string();
+            if !NUMERIC_BUILTIN_FIELDS.contains(&named.as_str()) {
+                continue;
+            }
+            let hint = if tag == "is_digit" {
+                "It would answer \"no\" on every row, including the rows where the count is a single digit. Compare the number itself with <equals> or <less_than>, or put the digit you mean into a <str>."
+            } else {
+                "The run would stop with \"expected a single-character string\", naming no file and no line. Wrap it in <concat> to turn the number into its digits — <encode> still needs exactly one of them — or put the character you mean into a <str>."
+            };
+            self.report(
+                child,
+                "TDC286",
+                format!(
+                    "<{tag}> asks about one character of text, and \
+                     <field name=\"{named}\"> is a number"
+                ),
+                hint,
+            );
         }
     }
 
