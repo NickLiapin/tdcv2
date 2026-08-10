@@ -316,9 +316,18 @@ rows: **five**. Ten percent of five rows is **half a row**.
 The coin is tossed once, when you choose the seed — not again on every run. The
 config above returns the same ten records forever, so a column that came out
 empty stays empty, and re-running it proves nothing. That is
-[determinism](../core-concepts/determinism.md#top) working as promised, and it is
-what makes the trap hard to spot: the output is stable, repeatable, and wrong
-about the share you asked for.
+[determinism](../core-concepts/determinism.md#top) working as promised, and it used
+to be what made the trap hard to spot: the output is stable, repeatable, and
+wrong about the share you asked for.
+
+`check` says so now, before the run, and it does the arithmetic for you — once
+per branch:
+
+`./run diagnosis.tdc --check`
+
+```
+warning[TDC251]: percent="10" over 5 rows asks for 0.5 records — the result is 0 or 1, and the seed decides which
+```
 
 ### There is no gradual middle
 

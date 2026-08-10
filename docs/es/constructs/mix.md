@@ -319,8 +319,17 @@ El volado se tira una sola vez, cuando usted elige el seed, y no otra vez en cad
 ejecución. La configuración de arriba devuelve los mismos diez registros siempre:
 una columna que salió vacía sigue vacía, y volver a ejecutarla no prueba nada. Es
 el [determinismo](../core-concepts/determinism.md#top) funcionando tal como se
-promete, y es justo lo que vuelve difícil de detectar la trampa. La salida es
+promete, y era justo lo que volvía difícil de detectar la trampa. La salida es
 estable, reproducible y no corresponde a la proporción que usted pidió.
+
+Ahora `check` lo dice antes de correr, y hace la cuenta por usted — una vez por
+rama:
+
+`./run diagnosis.tdc --check`
+
+```
+warning[TDC251]: percent="10" over 5 rows asks for 0.5 records — the result is 0 or 1, and the seed decides which
+```
 
 ### Aquí no hay término medio
 

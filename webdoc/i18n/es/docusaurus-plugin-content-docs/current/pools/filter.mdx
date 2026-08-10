@@ -187,9 +187,12 @@ El mensaje nombra la fila y el valor que la acotó hasta cero:
 {`tdcv2: pool "Doctors": no member satisfies filter="clinic == Clinic" for row 3 (Clinic="South"). A filter narrows the members a row may draw from; when it narrows them to none there is nothing to substitute. Add a member that matches, or widen the filter.`}
 </Terminal>
 
-Es un rechazo **en tiempo de ejecución**, no un error de validación, y no puede ser de otra
-manera: el validador no puede saber que ningún miembro saldrá `South` hasta que el pool se
-haya sorteado. Las dos soluciones están en el mensaje — añadir un miembro que encaje o
+Este en concreto es un rechazo **en tiempo de ejecución**, porque el validador no puede
+saber que ningún miembro saldrá `South` hasta que el pool se haya sorteado. Cuando la
+contradicción SÍ se puede probar desde el config — ambos lados salen de listas escritas que
+no se cruzan — `check` lo rechaza antes de correr y sin adivinar, como
+[`TDC225`](../reference/errors.mdx). La línea la marca lo que se puede probar, no cuándo
+aparece el fallo. Las dos soluciones están en el mensaje — añadir un miembro que encaje o
 ampliar el filtro — y hay una tercera que conviene conocer: darle al campo del pool la
 misma lista finita de la que sortea la columna de la fila, para que todos los valores estén
 representados.

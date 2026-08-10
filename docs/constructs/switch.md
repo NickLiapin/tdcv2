@@ -380,7 +380,8 @@ Not "about ten" — the count is the same on every seed.
 > decided by the seed, and the run looks like the config never worked.
 >
 > Multiply the share by the number of rows the branch will match. Below 1, the
-> column is a coin flip. The worked example is
+> column is a coin flip — and `check` does that multiplication for you, warning
+> with [`TDC251`](../reference/errors.md#top) before the run. The worked example is
 > [A share smaller than one record](./mix.md#a-share-smaller-than-one-record).
 
 **Why it matters:** the denominator is the branch. A share measured against the whole run

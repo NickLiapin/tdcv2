@@ -62,7 +62,25 @@ page — is tracked in that implementation's own changelog:
 
 ### Fixed
 
-<!-- covers: secret anomaly_flag group filter parent value mode interp spread decimals -->
+<!-- covers: secret anomaly_flag group filter parent value mode interp spread decimals percent -->
+
+- Documentation that measurement contradicted, in all three languages. Nothing here changes what
+  the engine does; each entry is a page that described it wrongly.
+  - The expression reference showed a refusal for an out-of-range integer LITERAL. There is
+    none, and there must not be: `1 / 0 > 100000000000000000000` is how a config says "bigger
+    than any whole number we hold", and a shared case has pinned it since the maths layer was
+    written. What IS refused is an arithmetic RESULT past the domain, and only at run time —
+    both operands sit inside it, so `check` has nothing to prove. Three new shared cases record
+    the boundary from both sides, including that
+    `10000000000000000000 == 10000000000000000001` is **true**, both literals having rounded to
+    the same double.
+  - `errors.mdx` counted **nine** warnings and listed nine; there are eleven — TDC272 and
+    TDC284 were missing, and the same page already labels TDC272 a warning further down.
+  - `pools/filter.mdx` said the empty-filter refusal is a run-time one "and it cannot be
+    otherwise". Where the contradiction is provable from the config, `check` refuses it as
+    TDC225 without running anything, which `errors.mdx` states correctly.
+  - `mix.mdx` and `switch.mdx` still taught that a share below one row fails invisibly. TDC251
+    warns on exactly that, twice on `mix.mdx`'s own example, naming the arithmetic.
 
 - `check` answered "would this run?" everywhere except one generator. A drawing's `mode=`,
   `interp=`, `spread=` and `decimals=` were read only at render time, so `check` called

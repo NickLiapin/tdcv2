@@ -393,7 +393,9 @@ No «unos diez» — el recuento es el mismo con cualquier `seed`.
 > configuración nunca hubiera funcionado.
 >
 > Multiplique la proporción por la cantidad de filas que capturará esa rama. Por
-> debajo de 1, la columna es un volado. El ejemplo resuelto está en
+> debajo de 1, la columna es un volado — y esa multiplicación la hace `check` por
+> usted, avisando con [`TDC251`](../reference/errors.md#top) antes de la corrida. El
+> ejemplo resuelto está en
 > [Una proporción menor que un registro](./mix.md#una-proporción-menor-que-un-registro).
 
 **Por qué importa:** el denominador es la rama. Una proporción medida sobre la ejecución

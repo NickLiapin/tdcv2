@@ -77,12 +77,21 @@ carried as one, and only becomes a double when something asks it to:
 | anything handed to `sqrt`, `log`, `sin`… | becomes a double, because those have no exact answer to give |
 
 The domain is signed 64-bit, the same as the [compute layer](compute.mdx) — the widest integer
-all five implementations hold natively. Past it the answer is a refusal, in the same words
-compute uses, rather than a quiet slide back into floating point:
+all five implementations hold natively. An arithmetic RESULT past it is a refusal, in the same
+words compute uses, rather than a quiet slide back into floating point:
 
 <Terminal title="tdcv2 ledger.tdc">
-{`tdcv2: integer overflow: 10000000000000000000 is outside the signed 64-bit range`}
+{`tdcv2: integer overflow: 9223372036854775808 is outside the signed 64-bit range`}
 </Terminal>
+
+The refusal comes from the run, not from `check`: both operands are inside the domain and only
+the answer is not, so there is nothing for the validator to prove.
+
+A LITERAL wider than the domain is a different thing, and it is a double. `1 / 0 >
+100000000000000000000` is how you write "bigger than any whole number we hold", and it works;
+the price is that two literals that round to the same double compare equal, so
+`10000000000000000000 == 10000000000000000001` is **true**. Write such a value as text if you
+mean an identifier rather than a number.
 
 One edge worth knowing: −2⁶³ can be reached by arithmetic but not written as a literal, since
 `-9223372036854775808` is a minus sign applied to a magnitude one past the largest positive.

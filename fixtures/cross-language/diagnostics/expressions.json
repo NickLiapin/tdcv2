@@ -7,6 +7,34 @@
       "description": "each=\"\" names no sequence",
       "config": "<tdc><env count=\"2\" seed=\"s\"><sequence name=\"G\"><gen type=\"text\" value=\"a,b\"/></sequence></env><block><line each=\"\"><data>x</data></line></block></tdc>",
       "expected": ["error TDC206 1:114"]
+    },
+    {
+      "name": "an-integer-literal-past-the-domain-is-a-double",
+      "demonstrates": "",
+      "description": "Where the whole-number domain ends. A literal wider than signed 64-bit is a DOUBLE, not a refusal — so these two different numbers compare equal, both having rounded to the same double. That is deliberate and pinned elsewhere: the shared case `expressions-math-2/nan-and-infinity-behave-as-ieee-says` compares 1/0 against 100000000000000000000 on purpose, and refusing the literal would break it. Only ARITHMETIC that leaves the domain is refused, which the case below shows.",
+      "config": "<tdc><env count=\"2\" seed=\"s\" local=\"en\"><sequence name=\"V\"><gen type=\"text\" value=\"x\" if=\"10000000000000000000 == 10000000000000000001\"/></sequence></env><block><line><data>[${{V}}]</data></line></block></tdc>",
+      "expected": []
+    },
+    {
+      "name": "the-largest-integer-still-fits",
+      "demonstrates": "",
+      "description": "The other side of the boundary: the two largest values the domain holds compare correctly, and nothing is refused.",
+      "config": "<tdc><env count=\"2\" seed=\"s\" local=\"en\"><sequence name=\"V\"><gen type=\"text\" value=\"x\" if=\"9223372036854775807 == 9223372036854775806\"/></sequence></env><block><line><data>[${{V}}]</data></line></block></tdc>",
+      "expected": []
+    },
+    {
+      "name": "a-fraction-is-still-a-fraction",
+      "demonstrates": "",
+      "description": "The rule is about WHOLE numbers. A literal written with a point is a fraction on purpose and stays a double.",
+      "config": "<tdc><env count=\"2\" seed=\"s\" local=\"en\"><sequence name=\"V\"><gen type=\"text\" value=\"x\" if=\"3.14 > 3\"/></sequence></env><block><line><data>[${{V}}]</data></line></block></tdc>",
+      "expected": []
+    },
+    {
+      "name": "arithmetic-that-leaves-the-domain-passes-check",
+      "demonstrates": "",
+      "description": "The other side of the same boundary. Both operands are inside the domain and only the RESULT is not, so `check` cannot see it: this config validates and the run refuses it with `integer overflow: 9223372036854775808 is outside the signed 64-bit range`. Recorded here so the silence at validation time is deliberate rather than discovered.",
+      "config": "<tdc><env count=\"2\" seed=\"s\" local=\"en\"><sequence name=\"V\"><gen type=\"text\" value=\"x\" if=\"9223372036854775807 + 1 > 0\"/></sequence></env><block><line><data>[${{V}}]</data></line></block></tdc>",
+      "expected": []
     }
   ]
 }

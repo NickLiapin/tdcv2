@@ -77,12 +77,21 @@ ES un número entero se lleva como tal:
 | `/` | **siempre** en coma flotante — la división no es cerrada sobre los enteros |
 | lo que se pasa a `sqrt`, `log`, `sin`… | pasa a double: esas no tienen respuesta exacta que dar |
 
-El dominio son 64 bits con signo, el mismo que la [capa compute](compute.mdx). Más allá la
-respuesta es un rechazo, con las mismas palabras que usa compute:
+El dominio son 64 bits con signo, el mismo que la [capa compute](compute.mdx). Un RESULTADO
+aritmético más allá es un rechazo, con las mismas palabras que usa compute:
 
 <Terminal title="tdcv2 ledger.tdc">
-{`tdcv2: integer overflow: 10000000000000000000 is outside the signed 64-bit range`}
+{`tdcv2: integer overflow: 9223372036854775808 is outside the signed 64-bit range`}
 </Terminal>
+
+El rechazo viene de la corrida, no de `check`: ambos operandos están dentro del dominio y solo
+la respuesta queda fuera, así que no hay nada que el validador pueda probar.
+
+Un LITERAL más ancho que el dominio es otra cosa: es un double. `1 / 0 >
+100000000000000000000` es la manera de escribir «mayor que cualquier entero que sostenemos», y
+funciona; el precio es que dos literales que redondean al mismo double se comparan iguales, así
+que `10000000000000000000 == 10000000000000000001` es **verdadero**. Si quería un identificador
+y no un número, escríbalo como texto.
 
 Un borde que conviene saber: −2⁶³ se alcanza con aritmética pero no se escribe como literal.
 

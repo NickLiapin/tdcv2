@@ -197,9 +197,12 @@ a gap. The message names the row and the value that narrowed it to nothing:
 tdcv2: pool "Doctors": no member satisfies filter="clinic == Clinic" for row 3 (Clinic="South"). A filter narrows the members a row may draw from; when it narrows them to none there is nothing to substitute. Add a member that matches, or widen the filter.
 ```
 
-This is a **run-time** refusal, not a validation error, and it cannot be otherwise: the
-validator cannot know that no member will come out `South` until the pool has been
-drawn. The two fixes are in the message — add a member that matches, or widen the
+This particular one is a **run-time** refusal, because the validator cannot know that no
+member will come out `South` until the pool has been drawn. Where the contradiction IS
+provable from the config — both sides drawn from written lists that do not meet — `check`
+refuses it before the run, without guessing, as [`TDC225`](../reference/errors.md#top). The
+line between the two is what each side can be proven from, not when the failure happens to
+show up. The two fixes are in the message — add a member that matches, or widen the
 filter — and there is a third worth knowing: give the pool's field the same finite list
 the row's column draws from, so every value is represented.
 
