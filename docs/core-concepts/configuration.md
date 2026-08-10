@@ -280,8 +280,10 @@ exactly the same. Which locales you have available depends on the installed
 Sets the token that marks a value substitution inside [`<data>`](output-formatting.md#top).
 It defaults to `${{%}}`, where the `%` stands in for the sequence name. Change it when
 the output itself has to contain a literal `${{...}}` — a CI config, a Handlebars
-template, another TDC file — so your markers and the target's don't collide. The string
-must contain exactly one `%`.
+template, another TDC file — so your markers and the target's don't collide. The `%` needs
+text on both sides of it, and where the string holds several the slot is the **rightmost one
+that still does** — so `inject="%{%}%"` puts the name between `%{` and `}%`, and the outer two
+are literal.
 
 ```xml
 <env count="2" seed="demo" inject="[%]">
