@@ -1,5 +1,12 @@
 # TDC — The Data Constructor
 
+> **TDC and `tdcv2` — two names, two things.** **TDC** is the language: what a
+> `.tdc` file contains and what the `TDC001`-style codes in error messages refer
+> to. **`tdcv2`** is the package and the command that run it. The `v2` is there
+> for a dull reason — `tdc` was already taken on npm and PyPI by unrelated
+> packages — and it is not the version of the language: the package will still be
+> called `tdcv2` at 1.0.
+
 > Declarative test-data generator: deterministic, exact proportions, any text
 > format you can describe.
 

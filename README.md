@@ -4,6 +4,13 @@
 
 **Status:** v1.0 in development · pre-release · cross-language OSS project.
 
+> **TDC and `tdcv2` — two names, two things.** **TDC** is the language: what a
+> `.tdc` file contains and what the `TDC001`-style codes in error messages refer
+> to. **`tdcv2`** is the package and the command that run it. The `v2` is there
+> for a dull reason — `tdc` was already taken on npm and PyPI by unrelated
+> packages — and it is not the version of the language: the package will still be
+> called `tdcv2` at 1.0.
+
 TDC builds realistic test and synthetic data from a short, declarative config.
 Unlike random fakers or LLM-generated data, TDC is **deterministic** (same seed →
 byte-identical output), produces **exact proportions**, and emits **any text

@@ -10,6 +10,19 @@
 
 # TDC — The Data Constructor
 
+> [!NOTE]
+> **TDC y `tdcv2` — dos nombres, dos cosas**
+>
+> **TDC** es el lenguaje: lo que contiene un archivo `.tdc`, a lo que se refieren los
+> códigos del tipo `TDC001` en los mensajes de error, y lo que enseña esta
+> documentación.
+>
+> **`tdcv2`** es el paquete y el comando que lo ejecutan — `npm install tdcv2`,
+> `pip install tdcv2`, `npx tdcv2 …`. El `v2` está ahí por una razón aburrida:
+> `tdc` ya estaba ocupado en npm y PyPI por paquetes ajenos. No es la versión del
+> lenguaje y no cambia cuando cambia la versión: en 1.0 el paquete se seguirá
+> llamando `tdcv2`.
+
 > [!IMPORTANT]
 > **Sobre esta documentación**
 >
