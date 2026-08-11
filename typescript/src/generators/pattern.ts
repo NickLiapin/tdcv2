@@ -237,9 +237,9 @@ export function buildCorridor(
 }
 
 /** Random value between the two curves at position `t`, using uniform `u`. */
-export function corridorValueAt(c: Corridor, t: number, u: number, dt = 0): number {
-  const a = signalValueAt(c.lower, t, dt);
-  const b = signalValueAt(c.upper, t, dt);
+export function corridorValueAt(c: Corridor, t: number, u: number): number {
+  const a = signalValueAt(c.lower, t);
+  const b = signalValueAt(c.upper, t);
   const lo = Math.min(a, b);
   const hi = Math.max(a, b);
   return lo + u * (hi - lo);
@@ -286,41 +286,39 @@ function heightAtX(curve: SignalCurve, x: number): number {
 }
 
 /**
- * The value of the card at position `t ∈ [0,1]`.
+ * The value of the card at position `t ∈ [0,1]`: where the card's vertical line
+ * CROSSES the drawing. Ten cards are ten crossings, measured with a ruler.
  *
- * `dt` is how much of the drawing ONE card covers (1/(count−1)). When the cards
- * outnumber the points that window is shorter than a segment and the reading is
- * simply the point on the curve. When the drawing has MORE points than there are
- * cards — a thousand-point trace squeezed into ten rows — each card instead
- * averages the curve across its whole window, so the detail in between is
- * summarised rather than silently dropped by landing on one arbitrary sample.
+ * There used to be a second rule beside this one. A card also owned a WINDOW —
+ * the slice of the drawing between it and its neighbours — and whenever a drawn
+ * vertex fell inside that window the card returned the window's average instead
+ * of the crossing. The intent was decent: a thousand-point trace squeezed into
+ * ten rows would summarise its detail rather than drop it.
+ *
+ * The cost was worse than what it bought. Which rule a card used depended on
+ * where the vertices happened to land, so neighbouring cards of one drawing were
+ * computed by different laws and nothing in the picture said which was which. A
+ * card sitting on a stretch running from 49.58 to 49.68 — flat to the eye, 50 by
+ * the ruler — came out as 52, because its window reached back into a slope it
+ * was not standing on. And the averaging never matched its own intent anyway: a
+ * single vertex in the window gave a two-step trapezoid, so a window whose exact
+ * mean was 50.87 was reported as 51.90.
+ *
+ * Ten cards are a request for ten readings, and ten readings are what they get.
+ * Missing a peak that falls between two of them is not a lost measurement — it
+ * is the consequence of having asked for ten. Draw in more detail, or ask for
+ * more cards: on a million cards the same drawing spells itself out completely,
+ * peaks included. What matters more is that a person can now look at their own
+ * drawing and say what will come out.
  */
-export function signalValueAt(curve: SignalCurve, t: number, dt = 0): number {
+export function signalValueAt(curve: SignalCurve, t: number): number {
   const { xs } = curve;
   const x0 = xs[0] ?? 0;
   const xN = xs[xs.length - 1] ?? 0;
   const span = xN - x0;
   const at = (tt: number): number => heightAtX(curve, x0 + Math.min(Math.max(tt, 0), 1) * span);
 
-  let y: number;
-  const half = dt / 2;
-  const xa = x0 + Math.min(Math.max(t - half, 0), 1) * span;
-  const xb = x0 + Math.min(Math.max(t + half, 0), 1) * span;
-  // Points of the drawing inside this card's window decide whether averaging
-  // buys anything: none → the window is finer than the drawing, take the point.
-  const inside = dt > 0 ? segmentAt(xs, xb) - segmentAt(xs, xa) : 0;
-  if (inside <= 0) {
-    y = at(t);
-  } else {
-    const steps = Math.min(64, Math.max(2, inside * 2));
-    let sum = 0;
-    for (let i = 0; i <= steps; i++) {
-      const w = i === 0 || i === steps ? 0.5 : 1; // trapezoid weights
-      sum += w * heightAtX(curve, xa + ((xb - xa) * i) / steps);
-    }
-    y = sum / steps;
-  }
-
+  const y = at(t);
   if (!curve.yRange) return y;
   const [a, b] = curve.yRange;
   // The CANVAS is the scale, never the ink. For a raster the canvas is the
@@ -501,23 +499,22 @@ export type PatternGen =
 
 /**
  * Value of the card at position `t`. `u` is the per-card uniform, used when the
- * gen has a band to pick from (a corridor, or any curve given a `spread`);
- * `dt` is the share of the drawing one card covers.
+ * gen has a band to pick from (a corridor, or any curve given a `spread`).
  */
-export function patternGenValue(pg: PatternGen, t: number, u: number, dt = 0): string {
+export function patternGenValue(pg: PatternGen, t: number, u: number): string {
   if (pg.kind === 'density') {
     // Position in the run means nothing here — the drawing is a distribution, so
     // the card's own uniform draw picks the value and the order is random.
     return densityValueAt(pg.density, u).toFixed(pg.density.decimals);
   }
   if (pg.kind === 'signal') {
-    const v = signalValueAt(pg.curve, t, dt);
+    const v = signalValueAt(pg.curve, t);
     const out = pg.spread > 0 ? v + (2 * u - 1) * pg.spread : v;
     return formatSignal(out, pg.curve);
   }
   const c = pg.corridor;
-  const a = signalValueAt(c.lower, t, dt);
-  const b = signalValueAt(c.upper, t, dt);
+  const a = signalValueAt(c.lower, t);
+  const b = signalValueAt(c.upper, t);
   const lo = Math.min(a, b) - pg.spread;
   const hi = Math.max(a, b) + pg.spread;
   return (lo + u * (hi - lo)).toFixed(c.decimals);

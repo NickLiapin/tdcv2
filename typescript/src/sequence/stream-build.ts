@@ -758,7 +758,7 @@ function buildValueSequence(
         const r = popIndexAt(i);
         if (r === undefined) return undefined;
         const u = draws ? (seekableUniforms(seed, `${streamId}:pat`, i, 1)[0] ?? 0.5) : 0;
-        return patternGenValue(pg, r / denom, u, 1 / denom);
+        return patternGenValue(pg, r / denom, u);
       }),
     };
   }

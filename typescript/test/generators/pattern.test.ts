@@ -166,24 +166,25 @@ describe('corridor — random value between two curves', () => {
   });
 });
 
-describe('averaging — more drawn points than cards', () => {
-  // A 200-point zigzag between 0 and 100. Five cards cannot show the teeth, so
-  // each card reports the average over the slice of curve it covers.
+describe('a card reads the crossing, never a window average', () => {
+  // A 200-point zigzag between 0 and 100. Five cards cannot show the teeth, and
+  // that is the point: five cards are five readings of the line, not five
+  // summaries of what lies between them.
   const teeth = Array.from({ length: 200 }, (_, i) => `${String(i)},${i % 2 === 0 ? '0' : '100'}`);
   const saw = buildSignalCurve(parsePoints(teeth.join(' ')), [0, 100], 1);
 
-  it('a card wide enough to span many teeth reads their mean, not one tooth', () => {
-    const dt = 1 / 4; // 5 cards over t ∈ [0,1]
-    for (let i = 0; i < 5; i++) {
-      const v = signalValueAt(saw, i / 4, dt);
-      expect(v).toBeGreaterThan(45);
-      expect(v).toBeLessThan(55);
-    }
+  it('reads teeth and valleys, not the ~50 a window mean would have given', () => {
+    // Read the drawing where it is actually drawn: x = 0, 1, 2 of 199.
+    expect(signalValueAt(saw, 0)).toBeCloseTo(0, 6); // a valley
+    expect(signalValueAt(saw, 1 / 199)).toBeCloseTo(100, 6); // the tooth beside it
+    expect(signalValueAt(saw, 2 / 199)).toBeCloseTo(0, 6); // and back down
   });
 
-  it('without a window (dt=0) the same curve reads the individual teeth', () => {
-    const lows = [0, 0.25, 0.5, 0.75, 1].map((t) => signalValueAt(saw, t, 0));
-    expect(Math.max(...lows)).toBeGreaterThan(90); // an actual peak is hit
+  it('a flat stretch reads flat, whatever its neighbours do', () => {
+    // The case that exposed the old rule: a card standing on a level run came
+    // out 2 higher, because its window reached back into the slope before it.
+    const c = buildSignalCurve(parsePoints('0,0 76.18,100 86.41,49.58 100,49.68'), [0, 100], 2);
+    expect(signalValueAt(c, 0.8889)).toBeCloseTo(49.6, 1);
   });
 });
 

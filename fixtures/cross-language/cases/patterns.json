@@ -24,7 +24,7 @@
         "0.00",
         "3.44",
         "7.11",
-        "9.46",
+        "9.62",
         "9.62",
         "7.11",
         "3.44",
@@ -39,7 +39,7 @@
         "0.00",
         "0.00",
         "0.00",
-        "2.50",
+        "0.00",
         "10.00",
         "10.00",
         "10.00",
@@ -107,10 +107,10 @@
       ]
     },
     {
-      "name": "pattern-averaged",
-      "description": "More points than rows are averaged, not sampled at one place",
+      "name": "pattern-reads-the-crossing",
+      "description": "A drawing with more detail than the run has cards. Each card reads where its own position crosses the line — never an average of the slice around it, which used to make neighbouring cards obey different rules.",
       "config": "<tdc><env count=\"3\" seed=\"unit-test\" local=\"en\" mode=\"memory\"><sequence name=\"V\"><gen type=\"pattern\" points=\"0,0 1,50 2,10 3,90 4,0\" y_range=\"0..10\" decimals=\"3\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
-      "expected": ["2.500", "4.000", "0.000"]
+      "expected": ["0.000", "1.000", "0.000"]
     },
     {
       "name": "pattern-flat-line-is-the-middle",

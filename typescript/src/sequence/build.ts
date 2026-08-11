@@ -1378,7 +1378,7 @@ function buildGenValuesRaw(
             ? (seekableUniforms(keyed.seed, `${keyed.streamId}:pat`, absoluteRow(ctx, i), 1)[0] ??
               0.5)
             : openUnit(prng());
-        out[i] = patternGenValue(pg, i / denom, u, 1 / denom);
+        out[i] = patternGenValue(pg, i / denom, u);
       }
       return out;
     }
