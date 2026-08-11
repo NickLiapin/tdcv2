@@ -6,9 +6,10 @@
  * points) is interpolated onto however many cards you generate (1, 1000,
  * 1_000_000). The curve's VERTICAL axis is the value; because a drawing has no
  * inherent scale, the caller declares the value range with `y_range="min..max"`
- * — the curve's own height extent is normalized into it (so only the SHAPE
- * matters, not the pixel heights). Without `y_range` the raw point-Y values are
- * used as-is.
+ * — REQUIRED, and the floor and ceiling the drawing's CANVAS becomes. The canvas
+ * is the image for a raster and a percentage board (0..100, grown only to hold
+ * anything drawn outside it) for a list of points, so what a drawing means never
+ * depends on how much of the board it happens to use.
  *
  * Mode 1 (this file) is a single curve → a deterministic signal. Corridor mode
  * (two curves → a random value between them) and raster input (PNG → vector)
@@ -129,9 +130,37 @@ export function parseYRange(raw: string | undefined): [number, number] {
 }
 
 /**
- * Build a signal curve from raw points: sort by x, record the y extent used for
- * `y_range` normalization. `normExtent` overrides that extent — a corridor
- * passes the SHARED extent of both curves so they live in one value space.
+ * The default height of a drawn canvas — a percentage board, the same one the
+ * Studio draws on.
+ *
+ * It is a CONSTANT rather than a measurement, and that is the whole point: a
+ * horizontal line at 50 sits halfway up a canvas of 100 no matter how many
+ * points the drawing has, so `y_range="0..100"` gives back 50 and `-5..5` gives
+ * back 0. Measuring the drawing instead would make that same line the highest
+ * thing present, hence the top of the range — which is how a flat line used to
+ * come out as the floor and a ripple of ten units became indistinguishable from
+ * a mountain across the whole board.
+ */
+const VECTOR_CANVAS_TOP = 100;
+
+/**
+ * The canvas a drawn list of points is read against.
+ *
+ * It never shrinks below 0..100; it only GROWS, to hold whatever was drawn
+ * outside it. So a picture that fits the default board is measured against the
+ * board, and a picture exported from a tool running 0..10002345345 is measured
+ * against itself — in both cases the whole drawing lands inside `y_range` and
+ * its proportions survive.
+ */
+function vectorCanvas(yMin: number, yMax: number): [number, number] {
+  return [Math.min(0, yMin), Math.max(VECTOR_CANVAS_TOP, yMax)];
+}
+
+/**
+ * Build a signal curve from raw points: sort by x, record the canvas the
+ * drawing is read against. `normExtent` overrides that canvas — a raster passes
+ * the image frame, and a corridor passes the SHARED canvas of both curves so
+ * the band between them stays a band.
  */
 export function buildSignalCurve(
   points: readonly (readonly [number, number])[],
@@ -152,7 +181,7 @@ export function buildSignalCurve(
     if (y < yMin) yMin = y;
     if (y > yMax) yMax = y;
   }
-  const [nyMin, nyMax] = normExtent ?? [yMin, yMax];
+  const [nyMin, nyMax] = normExtent ?? vectorCanvas(yMin, yMax);
   return {
     xs,
     ys,
@@ -184,7 +213,11 @@ export function buildCorridor(
   decimals: number,
   interp: Interp = 'linear',
 ): Corridor {
-  const ext: [number, number] = [yRange[0], yRange[1]];
+  // ONE canvas for both curves. Measuring them separately would let each fill
+  // the range on its own, so a narrow band and a wide one would come out the
+  // same width and the corridor would stop meaning anything.
+  const all = [...upperPts, ...(lowerPts ?? [])].map((p) => p[1]);
+  const ext = vectorCanvas(Math.min(...all), Math.max(...all));
   const upper = buildSignalCurve(upperPts, yRange, decimals, ext, interp);
   const x0 = upperPts[0]?.[0] ?? 0;
   const xN = upperPts[upperPts.length - 1]?.[0] ?? 0;
@@ -290,16 +323,17 @@ export function signalValueAt(curve: SignalCurve, t: number, dt = 0): number {
 
   if (!curve.yRange) return y;
   const [a, b] = curve.yRange;
-  // The FRAME is the scale, never the ink. For a raster the frame is the image
-  // (floor = min, top = max); for a drawn list of points the frame is the range
-  // itself, so the y values ARE values and the mapping below is the identity.
-  // Measuring the ink instead threw the drawing's amplitude away: a ripple of
-  // ten units and a mountain across the whole canvas came out identical, and a
-  // flat line — nothing to divide by — collapsed to the floor.
+  // The CANVAS is the scale, never the ink. For a raster the canvas is the
+  // image; for a drawn list of points it is 0..100, grown only far enough to
+  // hold anything drawn outside it. Measuring the ink instead threw the
+  // drawing's amplitude away: a ripple of ten units and a mountain across the
+  // whole board came out identical, and a flat line — nothing to divide by —
+  // collapsed to the floor.
   const vspan = curve.yMax - curve.yMin;
   const yn = vspan === 0 ? 0.5 : (y - curve.yMin) / vspan;
   const scaled = a + yn * (b - a);
-  // Nothing leaves the declared axis, whatever coordinates somebody drew in.
+  // A drawn point is inside its canvas by construction, so this catches only
+  // what is added AFTER the mapping — `spread` scatter and a band's width.
   return Math.min(Math.max(scaled, Math.min(a, b)), Math.max(a, b));
 }
 
@@ -539,14 +573,15 @@ export function signalCurveFromAttrs(
   points: readonly (readonly [number, number])[],
 ): SignalCurve {
   const yRange = parseYRange(attrs['y_range']);
-  // The range IS the frame for a drawn curve: a point at 50 on a 0..100 axis
-  // means 50, and adding y_range="0..100" to points already in 0..100 is a
-  // no-op, as it must be.
+  // No extent is passed: a drawn curve is read against the default canvas, and
+  // `y_range` says what that canvas's floor and ceiling become. Passing the
+  // range here instead would make the points raw values and turn `y_range` into
+  // a clamp, so anything but 0..100 would flatten the drawing against one edge.
   return buildSignalCurve(
     points,
     yRange,
     decimalsFromAttrs(attrs),
-    yRange,
+    undefined,
     parseInterp(attrs['interp']),
   );
 }

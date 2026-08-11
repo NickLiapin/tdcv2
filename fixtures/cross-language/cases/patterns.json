@@ -4,7 +4,7 @@
     {
       "name": "pattern-signal",
       "description": "A single line is a trajectory and takes no draws",
-      "config": "<tdc><env count=\"8\" seed=\"unit-test\" local=\"en\" mode=\"memory\"><sequence name=\"V\"><gen type=\"pattern\" points=\"0,0 5,10 10,0\" y_range=\"0..10\" decimals=\"2\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
+      "config": "<tdc><env count=\"8\" seed=\"unit-test\" local=\"en\" mode=\"memory\"><sequence name=\"V\"><gen type=\"pattern\" points=\"0,0 5,100 10,0\" y_range=\"0..10\" decimals=\"2\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
       "expected": [
         "0.00",
         "2.86",
@@ -19,7 +19,7 @@
     {
       "name": "pattern-smooth",
       "description": "smooth eases through the points without overshooting them",
-      "config": "<tdc><env count=\"8\" seed=\"unit-test\" local=\"en\" mode=\"memory\"><sequence name=\"V\"><gen type=\"pattern\" points=\"0,0 5,10 10,0\" y_range=\"0..10\" decimals=\"2\" interp=\"smooth\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
+      "config": "<tdc><env count=\"8\" seed=\"unit-test\" local=\"en\" mode=\"memory\"><sequence name=\"V\"><gen type=\"pattern\" points=\"0,0 5,100 10,0\" y_range=\"0..10\" decimals=\"2\" interp=\"smooth\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
       "expected": [
         "0.00",
         "3.44",
@@ -34,7 +34,7 @@
     {
       "name": "pattern-step",
       "description": "step holds each value until the next point",
-      "config": "<tdc><env count=\"8\" seed=\"unit-test\" local=\"en\" mode=\"memory\"><sequence name=\"V\"><gen type=\"pattern\" points=\"0,0 5,10 10,0\" y_range=\"0..10\" decimals=\"2\" interp=\"step\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
+      "config": "<tdc><env count=\"8\" seed=\"unit-test\" local=\"en\" mode=\"memory\"><sequence name=\"V\"><gen type=\"pattern\" points=\"0,0 5,100 10,0\" y_range=\"0..10\" decimals=\"2\" interp=\"step\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
       "expected": [
         "0.00",
         "0.00",
@@ -49,7 +49,7 @@
     {
       "name": "pattern-y-range",
       "description": "y_range maps the drawing's height into real values",
-      "config": "<tdc><env count=\"8\" seed=\"unit-test\" local=\"en\" mode=\"memory\"><sequence name=\"V\"><gen type=\"pattern\" points=\"0,100 5,200 10,100\" y_range=\"100..200\" decimals=\"1\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
+      "config": "<tdc><env count=\"8\" seed=\"unit-test\" local=\"en\" mode=\"memory\"><sequence name=\"V\"><gen type=\"pattern\" points=\"0,0 5,100 10,0\" y_range=\"100..200\" decimals=\"1\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
       "expected": [
         "100.0",
         "128.6",
@@ -64,7 +64,7 @@
     {
       "name": "pattern-spread",
       "description": "spread scatters a single line into a tunnel",
-      "config": "<tdc><env count=\"8\" seed=\"unit-test\" local=\"en\" mode=\"memory\"><sequence name=\"V\"><gen type=\"pattern\" points=\"0,0 5,10 10,0\" y_range=\"0..10\" decimals=\"2\" spread=\"1\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
+      "config": "<tdc><env count=\"8\" seed=\"unit-test\" local=\"en\" mode=\"memory\"><sequence name=\"V\"><gen type=\"pattern\" points=\"0,0 5,100 10,0\" y_range=\"0..10\" decimals=\"2\" spread=\"1\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
       "expected": [
         "0.83",
         "3.17",
@@ -109,8 +109,29 @@
     {
       "name": "pattern-averaged",
       "description": "More points than rows are averaged, not sampled at one place",
-      "config": "<tdc><env count=\"3\" seed=\"unit-test\" local=\"en\" mode=\"memory\"><sequence name=\"V\"><gen type=\"pattern\" points=\"0,0 1,5 2,1 3,9 4,0\" y_range=\"0..10\" decimals=\"3\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
+      "config": "<tdc><env count=\"3\" seed=\"unit-test\" local=\"en\" mode=\"memory\"><sequence name=\"V\"><gen type=\"pattern\" points=\"0,0 1,50 2,10 3,90 4,0\" y_range=\"0..10\" decimals=\"3\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
       "expected": ["2.500", "4.000", "0.000"]
+    },
+    {
+      "name": "pattern-flat-line-is-the-middle",
+      "description": "A single line is a trajectory and takes no draws",
+      "config": "<tdc><env count=\"8\" seed=\"unit-test\" local=\"en\" mode=\"memory\"><sequence name=\"V\"><gen type=\"pattern\" points=\"0,50 10,50\" y_range=\"-5..5\" decimals=\"1\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
+      "expected": ["0.0", "0.0", "0.0", "0.0", "0.0", "0.0", "0.0", "0.0"]
+    },
+    {
+      "name": "pattern-flat-line-scales-up",
+      "description": "A single line is a trajectory and takes no draws",
+      "config": "<tdc><env count=\"8\" seed=\"unit-test\" local=\"en\" mode=\"memory\"><sequence name=\"V\"><gen type=\"pattern\" points=\"0,50 10,50\" y_range=\"0..200\" decimals=\"1\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
+      "expected": [
+        "100.0",
+        "100.0",
+        "100.0",
+        "100.0",
+        "100.0",
+        "100.0",
+        "100.0",
+        "100.0"
+      ]
     }
   ]
 }
