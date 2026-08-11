@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 1,
+  "cases": [
+    {
+      "name": "distinct-that-is-neither-true-nor-false",
+      "demonstrates": "TDC289",
+      "description": "The attribute takes two words. Silently treating anything else as false would be a config that says one thing and gets another.",
+      "config": "<tdc><env count=\"3\" seed=\"s\" local=\"en\"><sequence name=\"A\"><gen type=\"text\" value=\"a,b,c\" repeat=\"2\" distinct=\"yes\"/></sequence></env><block><line><data>${{A}}</data></line></block></tdc>",
+      "expected": ["error TDC289 1:111"]
+    },
+    {
+      "name": "distinct-without-repeat",
+      "demonstrates": "TDC290",
+      "description": "One value cannot repeat itself, so the attribute would be read and then do nothing — the accepted-and-ignored failure this project keeps closing.",
+      "config": "<tdc><env count=\"3\" seed=\"s\" local=\"en\"><sequence name=\"A\"><gen type=\"text\" value=\"a,b,c\" distinct=\"true\"/></sequence></env><block><line><data>${{A}}</data></line></block></tdc>",
+      "expected": ["error TDC290 1:100"]
+    },
+    {
+      "name": "percent-and-distinct-on-one-gen",
+      "demonstrates": "TDC291",
+      "description": "percent= is an exact quota over the whole run; distinct= is a guarantee inside one row. Holding both would cost either streaming or the randomness of the sample, so the pair is refused rather than silently resolved one way.",
+      "config": "<tdc><env count=\"3\" seed=\"s\" local=\"en\"><sequence name=\"A\"><gen type=\"text\" value=\"a,b,c\" repeat=\"2\" percent=\"70,20,10\" distinct=\"true\"/></sequence></env><block><line><data>${{A}}</data></line></block></tdc>",
+      "expected": ["error TDC291 1:110"]
+    },
+    {
+      "name": "percent-and-repeat-without-distinct-stay-legal",
+      "demonstrates": "",
+      "description": "The pair that is NOT refused. Article tags — one to four per row, 40/30/20/10 across the corpus — is a real, documented feature, and only the interaction with distinct is a contradiction.",
+      "config": "<tdc><env count=\"3\" seed=\"s\" local=\"en\"><sequence name=\"A\"><gen type=\"text\" value=\"a,b,c\" repeat=\"2\" percent=\"70,20,10\"/></sequence></env><block><line><data>${{A}}</data></line></block></tdc>",
+      "expected": []
+    },
+    {
+      "name": "a-list-longer-than-the-pool",
+      "demonstrates": "TDC292",
+      "description": "Ten different values cannot be drawn from three. Provable from the config, so it is refused before anything runs.",
+      "config": "<tdc><env count=\"3\" seed=\"s\" local=\"en\"><sequence name=\"A\"><gen type=\"text\" value=\"a,b,c\" repeat=\"1..10\" distinct=\"true\"/></sequence></env><block><line><data>${{A}}</data></line></block></tdc>",
+      "expected": ["error TDC292 1:98"]
+    },
+    {
+      "name": "a-one-character-symbol-set-is-counted-too",
+      "demonstrates": "TDC292",
+      "description": "The set is written out in the config, so the pool is five and the refusal fires at check time rather than after 64 run-time retries.",
+      "config": "<tdc><env count=\"3\" seed=\"s\" local=\"en\"><sequence name=\"A\"><gen type=\"symbol\" value=\"ABCDE\" repeat=\"9\" distinct=\"true\"/></sequence></env><block><line><data>${{A}}</data></line></block></tdc>",
+      "expected": ["error TDC292 1:100"]
+    },
+    {
+      "name": "a-longer-symbol-is-not-guessed-at",
+      "demonstrates": "",
+      "description": "length=\"3\" draws a three-character string, so the pool is no longer the set size. Refusing here on a guess would reject a config that works, so this one falls to the run-time arm.",
+      "config": "<tdc><env count=\"3\" seed=\"s\" local=\"en\"><sequence name=\"A\"><gen type=\"symbol\" value=\"ABCDE\" length=\"3\" repeat=\"9\" distinct=\"true\"/></sequence></env><block><line><data>${{A}}</data></line></block></tdc>",
+      "expected": []
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "schemaVersion": 1,
+  "cases": [
+    {
+      "name": "a-listed-column-drawn-without-replacement",
+      "description": "distinct=\"true\" on a repeating text column. Without it the same tag can land twice in one cell, which is normal and often wanted; with it the row's values are drawn from the pool without replacement.",
+      "config": "<tdc><env count=\"6\" seed=\"d1\" local=\"en\"><sequence name=\"T\"><gen type=\"text\" value=\"news,tech,sport,food,travel\" repeat=\"3\" separator=\", \" distinct=\"true\"/></sequence></env><block><line><data>${{T}}</data></line></block></tdc>",
+      "expected": [
+        "tech, news, travel",
+        "news, sport, travel",
+        "tech, news, sport",
+        "tech, food, travel",
+        "tech, food, sport",
+        "travel, sport, food"
+      ]
+    },
+    {
+      "name": "the-same-column-on-the-in-memory-engine",
+      "description": "The engines are not merely both correct, they agree value for value: distinct draws off a #dist sub-stream keyed the same way in both, so the cells are identical to the case above.",
+      "config": "<tdc><env count=\"6\" seed=\"d1\" local=\"en\" mode=\"memory\"><sequence name=\"T\"><gen type=\"text\" value=\"news,tech,sport,food,travel\" repeat=\"3\" separator=\", \" distinct=\"true\"/></sequence></env><block><line><data>${{T}}</data></line></block></tdc>",
+      "expected": [
+        "tech, news, travel",
+        "news, sport, travel",
+        "tech, news, sport",
+        "tech, food, travel",
+        "tech, food, sport",
+        "travel, sport, food"
+      ]
+    },
+    {
+      "name": "a-full-width-list-is-a-permutation",
+      "description": "Asking for as many values as the pool holds must yield every one of them, in some order. Anything else would mean the draw is not really without replacement.",
+      "config": "<tdc><env count=\"4\" seed=\"d1\" local=\"en\"><sequence name=\"T\"><gen type=\"text\" value=\"news,tech,sport,food,travel\" repeat=\"5\" separator=\", \" distinct=\"true\"/></sequence></env><block><line><data>${{T}}</data></line></block></tdc>",
+      "expected": [
+        "tech, news, travel, food, sport",
+        "news, sport, travel, food, tech",
+        "tech, news, sport, travel, food",
+        "tech, food, travel, news, sport"
+      ]
+    },
+    {
+      "name": "a-drawn-generator-has-no-pool-so-it-redraws",
+      "description": "A number is not a list to draw down. distinct there is bounded rejection sampling on #e{k}r{n} sub-streams — four different values out of five, every row.",
+      "config": "<tdc><env count=\"6\" seed=\"d1\" local=\"en\"><sequence name=\"N\"><gen type=\"number\" value=\"1..5\" repeat=\"4\" separator=\", \" distinct=\"true\"/></sequence></env><block><line><data>${{N}}</data></line></block></tdc>",
+      "expected": [
+        "1, 2, 3, 5",
+        "1, 4, 2, 5",
+        "3, 1, 2, 5",
+        "3, 2, 5, 1",
+        "1, 3, 5, 2",
+        "2, 3, 5, 1"
+      ]
+    },
+    {
+      "name": "the-case-that-asked-for-the-feature",
+      "description": "A double first name from a WEIGHTED pack. Jesus Jesus Gonzales is not a name. The weights survive — frequent names are still likelier — but the whole-run quota does not, which is why percent= is refused beside distinct=.",
+      "config": "<tdc><env count=\"5\" seed=\"d1\" local=\"en\"><sequence name=\"P\"><gen type=\"template\" value=\"person.male.firstName\" repeat=\"2\" separator=\" \" distinct=\"true\"/></sequence></env><block><line><data>${{P}}</data></line></block></tdc>",
+      "expected": [
+        "Robert John",
+        "Justin Aaron",
+        "Abraham Joshua",
+        "Louis Jared",
+        "Xavier Noel"
+      ]
+    }
+  ]
+}
