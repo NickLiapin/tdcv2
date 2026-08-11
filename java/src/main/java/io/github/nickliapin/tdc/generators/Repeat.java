@@ -346,9 +346,25 @@ public final class Repeat {
    */
   public static String redrawUntilFresh(
       List<String> seen, String genType, java.util.function.Function<String, String> draw) {
-    String value = draw.apply("");
+    return redrawUntilFreshAt(seen, genType, draw)[0];
+  }
+
+  /**
+   * The same loop, reporting WHICH sub-stream won, as {@code [value, suffix]}.
+   *
+   * <p>The anomaly flag needs this. A flag is resolved by re-running the element's draw and
+   * asking whether it spiked — and under {@code distinct} the value that survived may have come
+   * from {@code r3} rather than the first attempt. Resolving the flag on the first attempt would
+   * describe a value that was thrown away: the list would say {@code false} beside a number that
+   * plainly spiked, which is worse than no flag at all.
+   */
+  public static String[] redrawUntilFreshAt(
+      List<String> seen, String genType, java.util.function.Function<String, String> draw) {
+    String suffix = "";
+    String value = draw.apply(suffix);
     for (int attempt = 1; seen.contains(value) && attempt <= DISTINCT_MAX_TRIES; attempt++) {
-      value = draw.apply("r" + attempt);
+      suffix = "r" + attempt;
+      value = draw.apply(suffix);
     }
     if (seen.contains(value)) {
       throw new IllegalArgumentException(
@@ -360,6 +376,6 @@ public final class Repeat {
               + DISTINCT_MAX_TRIES
               + " tries — the generator does not produce that many");
     }
-    return value;
+    return new String[] {value, suffix};
   }
 }

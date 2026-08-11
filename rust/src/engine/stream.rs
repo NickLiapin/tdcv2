@@ -2102,25 +2102,40 @@ impl StreamEngine<'_> {
                     return Ok(None);
                 };
                 let mut parts = Vec::new();
+                // Under `distinct` the surviving value may have come off `#e{k}r3` rather
+                // than the first attempt, so the FLAG has to be resolved on the same
+                // sub-stream. Replaying the draw is what finds out which one won; asking
+                // the first attempt would flag a value that was thrown away.
+                let mut seen: Vec<String> = Vec::new();
                 for k in 0..plan.length_at(p) {
-                    if *flags {
-                        let element_stream = format!("{stream}#e{k}");
-                        let mut spiked = [false];
-                        self.one_value(gen, &element_stream, row, Some(&mut spiked))?;
-                        parts.push(bool_text(spiked[0]));
-                        continue;
-                    }
                     // A drawn generator has no pool to draw down, so `distinct` is
                     // rejection sampling on fresh sub-streams — the same ids the reference
                     // uses, so the two agree value for value.
                     let draw_at = |suffix: &str| -> EngineResult<String> {
                         self.one_value(gen, &format!("{stream}#e{k}{suffix}"), row, None)
                     };
-                    parts.push(if *distinct {
-                        repeat::redraw_until_fresh(&parts, &gen.gen_type, draw_at)?
+                    let suffix = if *distinct {
+                        let (value, suffix) =
+                            repeat::redraw_until_fresh_at(&seen, &gen.gen_type, draw_at)?;
+                        seen.push(value);
+                        suffix
                     } else {
-                        draw_at("")?
-                    });
+                        String::new()
+                    };
+                    if *flags {
+                        let mut spiked = [false];
+                        self.one_value(
+                            gen,
+                            &format!("{stream}#e{k}{suffix}"),
+                            row,
+                            Some(&mut spiked),
+                        )?;
+                        parts.push(bool_text(spiked[0]));
+                    } else if *distinct {
+                        parts.push(seen[seen.len() - 1].clone());
+                    } else {
+                        parts.push(draw_at("")?);
+                    }
                 }
                 let running = match accumulate {
                     Some(op) => match crate::generators::accumulate::apply(&parts, op) {

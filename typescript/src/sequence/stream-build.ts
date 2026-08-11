@@ -46,7 +46,7 @@ import { permute, permuteKey } from '../prng/permute.js';
 import { anomalyFlagSequence, missingAnomalyMod, type RawAt } from './stream-anomaly.js';
 import { buildMixSeq } from './stream-mix.js';
 import { lazy } from './stream-lazy.js';
-import { redrawUntilFresh } from './repeat-distinct.js';
+import { redrawUntilFresh, redrawUntilFreshAt } from './repeat-distinct.js';
 import { poolRefName } from './pool.js';
 import { lazyPoolRefColumns } from './pool-ref.js';
 import { createPrng } from '../prng/prng.js';
@@ -973,19 +973,30 @@ function buildValueSequence(
         // The flag list is a parallel list of true/false, never a running total —
         // accumulating it would be meaningless — so it joins with the separator
         // alone rather than through joinParts.
-        sequence: lazy(flagName, (i) =>
-          perElement(i, (k) =>
-            resolveGenAnomalyFlagTextAt(
+        // Under `distinct` the surviving value may have come off `#e{k}r3` rather
+        // than the first attempt, so the flag has to be resolved on the SAME
+        // sub-stream. Replaying the draw is what finds out which one won; asking
+        // the first attempt would flag a value that was thrown away.
+        sequence: lazy(flagName, (i) => {
+          const seen: string[] = [];
+          return perElement(i, (k) => {
+            let suffix = '';
+            if (genRepeat.distinct) {
+              const won = redrawUntilFreshAt(seen, gen.type, (s) => drawAt(i, k, s));
+              seen.push(won.value);
+              suffix = won.suffix;
+            }
+            return resolveGenAnomalyFlagTextAt(
               single,
               i,
               seed,
-              `${streamId}#e${String(k)}`,
+              `${streamId}#e${String(k)}${suffix}`,
               locale,
               now,
               options,
-            ),
-          )?.join(genRepeat.separator),
-        ),
+            );
+          })?.join(genRepeat.separator);
+        }),
       },
     };
   }

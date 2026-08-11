@@ -982,10 +982,30 @@ public final class StreamEngine {
             if (p == null) {
               return null;
             }
+            // Under `distinct` the surviving value may have come off `#e{k}r3` rather than
+            // the first attempt, so the flag has to be resolved on the SAME sub-stream.
+            // Replaying the draw is what finds out which one won; asking the first attempt
+            // would flag a value that was thrown away.
             List<String> flags = new ArrayList<>();
+            List<String> seen = new ArrayList<>();
             for (int k = 0; k < plan.lengthAt(p); k++) {
+              String suffix = "";
+              if (repeat.distinct()) {
+                final int at = k;
+                java.util.function.Function<String, String> drawAt =
+                    s2 ->
+                        first(
+                            genValues(
+                                single,
+                                Seekable.generator(seed, streamId + "#e" + at + s2, row),
+                                null));
+                String[] won = Repeat.redrawUntilFreshAt(seen, gen.type(), drawAt);
+                seen.add(won[0]);
+                suffix = won[1];
+              }
               boolean[] spiked = new boolean[1];
-              genValues(single, Seekable.generator(seed, streamId + "#e" + k, row), spiked);
+              genValues(
+                  single, Seekable.generator(seed, streamId + "#e" + k + suffix, row), spiked);
               flags.add(String.valueOf(spiked[0]));
             }
             return String.join(repeat.separator(), flags);

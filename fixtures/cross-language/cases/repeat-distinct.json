@@ -62,6 +62,19 @@
         "Louis Jared",
         "Xavier Noel"
       ]
+    },
+    {
+      "name": "the-anomaly-flag-follows-the-value-that-survived",
+      "description": "Under distinct the value that survived may have come off a REDRAWN sub-stream. The flag list is resolved on that same sub-stream, so `true` sits beside the element that actually spiked. Resolving it on the first attempt would describe a value that was thrown away — which is what this case exists to catch.",
+      "config": "<tdc><env count=\"6\" seed=\"fl\" local=\"en\"><sequence name=\"N\"><gen type=\"number\" value=\"1..5\" repeat=\"4\" separator=\",\" distinct=\"true\" anomaly=\"0.5\" anomaly_factor=\"100\" anomaly_flag=\"F\"/></sequence></env><block><line><data>${{N}} -> ${{F}}</data></line></block></tdc>",
+      "expected": [
+        "500,1,100,200 -> true,false,true,true",
+        "200,4,5,500 -> true,false,false,true",
+        "3,2,1,5 -> false,false,false,false",
+        "2,100,1,400 -> false,true,false,true",
+        "400,3,2,4 -> true,false,false,false",
+        "5,3,100,4 -> false,false,true,false"
+      ]
     }
   ]
 }

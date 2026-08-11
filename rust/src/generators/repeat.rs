@@ -354,12 +354,29 @@ pub fn draw_distinct(
 pub fn redraw_until_fresh(
     seen: &[String],
     gen_type: &str,
-    mut draw: impl FnMut(&str) -> EngineResult<String>,
+    draw: impl FnMut(&str) -> EngineResult<String>,
 ) -> EngineResult<String> {
-    let mut value = draw("")?;
+    Ok(redraw_until_fresh_at(seen, gen_type, draw)?.0)
+}
+
+/// The same loop, reporting WHICH sub-stream won.
+///
+/// The anomaly flag needs this. A flag is resolved by re-running the element's draw and
+/// asking whether it spiked — and under `distinct` the value that survived may have come
+/// from `r3` rather than the first attempt. Resolving the flag on the first attempt would
+/// describe a value that was thrown away: the list would say `false` beside a number that
+/// plainly spiked, which is worse than no flag at all.
+pub fn redraw_until_fresh_at(
+    seen: &[String],
+    gen_type: &str,
+    mut draw: impl FnMut(&str) -> EngineResult<String>,
+) -> EngineResult<(String, String)> {
+    let mut suffix = String::new();
+    let mut value = draw(&suffix)?;
     let mut attempt = 1usize;
     while seen.contains(&value) && attempt <= DISTINCT_MAX_TRIES {
-        value = draw(&format!("r{attempt}"))?;
+        suffix = format!("r{attempt}");
+        value = draw(&suffix)?;
         attempt += 1;
     }
     if seen.contains(&value) {
@@ -368,5 +385,5 @@ pub fn redraw_until_fresh(
             seen.len() + 1
         ));
     }
-    Ok(value)
+    Ok((value, suffix))
 }

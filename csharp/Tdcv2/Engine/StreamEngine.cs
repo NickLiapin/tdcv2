@@ -1086,11 +1086,35 @@ public sealed class StreamEngine
                     return null;
                 }
 
+                // Under `distinct` the surviving value may have come off `#e{k}r3` rather than
+                // the first attempt, so the flag has to be resolved on the SAME sub-stream.
+                // Replaying the draw is what finds out which one won; asking the first attempt
+                // would flag a value that was thrown away.
                 var flags = new List<string>();
+                var seen = new List<string>();
                 for (int k = 0; k < plan.LengthAt(p.Value); k++)
                 {
+                    string suffix = "";
+                    if (r2.Distinct)
+                    {
+                        int at = k;
+                        string DrawAt(string s2) =>
+                            First(
+                                GenValues(
+                                    single,
+                                    Seekable.Generator(_seed, streamId + "#e" + at + s2, row),
+                                    null));
+
+                        (string won, string winning) =
+                            Repeat.RedrawUntilFreshAt(seen, type, DrawAt);
+                        seen.Add(won);
+                        suffix = winning;
+                    }
+
                     var spiked = new bool[1];
-                    GenValues(single, Seekable.Generator(_seed, streamId + "#e" + k, row), spiked);
+                    GenValues(
+                        single, Seekable.Generator(_seed, streamId + "#e" + k + suffix, row),
+                        spiked);
                     flags.Add(spiked[0] ? "true" : "false");
                 }
 

@@ -118,6 +118,36 @@ describe('distinct= on a repeat list', () => {
     ).toThrow(/could not find/);
   });
 
+  it('the anomaly flag describes the value that survived, not the one redrawn away', () => {
+    // The defect this pins: under distinct the surviving value can come off `#e{k}r3`,
+    // and the flag used to be resolved on the first attempt — so the list said `false`
+    // beside a number that plainly spiked, and the two engines disagreed about it.
+    const gen =
+      '<gen type="number" value="1..5" repeat="4" separator="," distinct="true" ' +
+      'anomaly="0.5" anomaly_factor="100" anomaly_flag="F"/>';
+    const source =
+      `<tdc><env count="12" seed="fl" local="en"><sequence name="T">${gen}</sequence></env>` +
+      '<block><line><data>${{T}} -> ${{F}}</data></line></block></tdc>';
+
+    for (const opts of [
+      { now: NOW, stream: true },
+      { now: NOW, mode: 'memory' as const },
+    ]) {
+      for (const line of render1(source, opts).split('\n').slice(0, -1)) {
+        const [values, flags] = line.split(' -> ');
+        const nums = (values ?? '').split(',');
+        const marks = (flags ?? '').split(',');
+        expect(marks).toHaveLength(nums.length);
+        for (const [at, raw] of nums.entries()) {
+          // anomaly_factor="100" over a 1..5 range: anything above 5 is a spike.
+          expect(marks[at], `${line} element ${String(at)}`).toBe(
+            Number(raw) > 5 ? 'true' : 'false',
+          );
+        }
+      }
+    }
+  });
+
   it('the streaming engine and the memory engine agree value for value', () => {
     const gen = `<gen type="text" value="${TAGS}" repeat="3" separator=", " distinct="true"/>`;
     expect(render1(config(gen, 20), { now: NOW, stream: true })).toBe(

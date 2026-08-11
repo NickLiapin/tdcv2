@@ -169,6 +169,22 @@ def redraw_until_fresh(
     gen_type: str,
     draw: Callable[[str], str],
 ) -> str:
+    return redraw_until_fresh_at(seen, gen_type, draw)[0]
+
+
+def redraw_until_fresh_at(
+    seen: list[str],
+    gen_type: str,
+    draw: Callable[[str], str],
+) -> tuple[str, str]:
+    """The same loop, reporting WHICH sub-stream won.
+
+    The anomaly flag needs this. A flag is resolved by re-running the element's draw and
+    asking whether it spiked — and under ``distinct`` the value that survived may have come
+    from ``r3`` rather than the first attempt. Resolving the flag on the first attempt would
+    describe a value that was thrown away: the list would say ``false`` beside a number that
+    plainly spiked, which is worse than no flag at all.
+    """
     """Ask ``draw`` for a value that is not already in ``seen``.
 
     A drawn generator has no pool to draw down, so ``distinct`` is rejection sampling.
@@ -179,10 +195,12 @@ def redraw_until_fresh(
     ``regex="[01]"`` under ``repeat="5"`` cannot be satisfied by anything, and saying so is
     the entire point of the attribute.
     """
-    value = draw("")
+    suffix = ""
+    value = draw(suffix)
     attempt = 1
     while value in seen and attempt <= DISTINCT_MAX_TRIES:
-        value = draw(f"r{attempt}")
+        suffix = f"r{attempt}"
+        value = draw(suffix)
         attempt += 1
     if value in seen:
         raise ValueError(
@@ -190,7 +208,7 @@ def redraw_until_fresh(
             f'for <gen type="{gen_type}"> after {DISTINCT_MAX_TRIES} tries — '
             "the generator does not produce that many"
         )
-    return value
+    return value, suffix
 
 
 def build(spec: Spec, count: int, prng: Sfc32, build_flat: Callable[[int], list[str]]) -> list[str]:

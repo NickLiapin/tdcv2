@@ -748,11 +748,32 @@ class StreamEngine:
                 p = repeat_pos_at(row)
                 if p is None:
                     return None
+                # Under `distinct` the surviving value may have come off `#e{k}r3` rather
+                # than the first attempt, so the flag has to be resolved on the SAME
+                # sub-stream. Replaying the draw is what finds out which one won; asking
+                # the first attempt would flag a value that was thrown away.
                 flags = []
+                seen: list[str] = []
                 for k in range(plan.length_at(p)):
+                    suffix = ""
+                    if repeat.distinct:
+
+                        def draw_at(s: str, k: int = k, row: int = row) -> str:
+                            return _first(
+                                self._gen_values(
+                                    single,
+                                    seekable.generator(self.seed, f"{stream_id}#e{k}{s}", row),
+                                    None,
+                                )
+                            )
+
+                        chosen, suffix = repeat_gen.redraw_until_fresh_at(seen, type_, draw_at)
+                        seen.append(chosen)
                     spiked = [False]
                     self._gen_values(
-                        single, seekable.generator(self.seed, f"{stream_id}#e{k}", row), spiked
+                        single,
+                        seekable.generator(self.seed, f"{stream_id}#e{k}{suffix}", row),
+                        spiked,
                     )
                     flags.append(str(spiked[0]).lower())
                 return repeat.separator.join(flags)

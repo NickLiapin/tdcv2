@@ -29,9 +29,28 @@ export function redrawUntilFresh(
   genType: string,
   draw: (suffix: string) => string,
 ): string {
-  let value = draw('');
+  return redrawUntilFreshAt(seen, genType, draw).value;
+}
+
+/**
+ * The same loop, reporting WHICH sub-stream won.
+ *
+ * The anomaly flag needs this. A flag is resolved by re-running the element's draw and
+ * asking whether it spiked — and under `distinct` the value that survived may have come
+ * from `r3` rather than the first attempt. Resolving the flag on the first attempt would
+ * describe a value that was thrown away: the list would say `false` beside a number that
+ * plainly spiked, which is worse than no flag at all.
+ */
+export function redrawUntilFreshAt(
+  seen: readonly string[],
+  genType: string,
+  draw: (suffix: string) => string,
+): { value: string; suffix: string } {
+  let suffix = '';
+  let value = draw(suffix);
   for (let attempt = 1; seen.includes(value) && attempt <= DISTINCT_MAX_TRIES; attempt++) {
-    value = draw(`r${String(attempt)}`);
+    suffix = `r${String(attempt)}`;
+    value = draw(suffix);
   }
   if (seen.includes(value)) {
     throw new RepeatError(
@@ -40,5 +59,5 @@ export function redrawUntilFresh(
         'not produce that many',
     );
   }
-  return value;
+  return { value, suffix };
 }

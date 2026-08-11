@@ -409,12 +409,26 @@ public static class Repeat
     /// </para>
     /// </remarks>
     public static string RedrawUntilFresh(
+        IReadOnlyList<string> seen, string genType, Func<string, string> draw) =>
+        RedrawUntilFreshAt(seen, genType, draw).Value;
+
+    /// <summary>The same loop, reporting WHICH sub-stream won.</summary>
+    /// <remarks>
+    /// The anomaly flag needs this. A flag is resolved by re-running the element's draw and
+    /// asking whether it spiked — and under <c>distinct</c> the value that survived may have come
+    /// from <c>r3</c> rather than the first attempt. Resolving the flag on the first attempt would
+    /// describe a value that was thrown away: the list would say <c>false</c> beside a number that
+    /// plainly spiked, which is worse than no flag at all.
+    /// </remarks>
+    public static (string Value, string Suffix) RedrawUntilFreshAt(
         IReadOnlyList<string> seen, string genType, Func<string, string> draw)
     {
-        var value = draw("");
+        var suffix = "";
+        var value = draw(suffix);
         for (var attempt = 1; seen.Contains(value) && attempt <= DistinctMaxTries; attempt++)
         {
-            value = draw($"r{attempt}");
+            suffix = $"r{attempt}";
+            value = draw(suffix);
         }
 
         if (seen.Contains(value))
@@ -425,6 +439,6 @@ public static class Repeat
                     + "generator does not produce that many");
         }
 
-        return value;
+        return (value, suffix);
     }
 }

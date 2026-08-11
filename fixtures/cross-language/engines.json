@@ -3050,6 +3050,28 @@
         ]
       }
     },
+    "repeat-distinct/the-anomaly-flag-follows-the-value-that-survived": {
+      "engine2": {
+        "lines": [
+          "500,1,100,200 -> true,false,true,true",
+          "200,4,5,500 -> true,false,false,true",
+          "3,2,1,5 -> false,false,false,false",
+          "2,100,1,400 -> false,true,false,true",
+          "400,3,2,4 -> true,false,false,false",
+          "5,3,100,4 -> false,false,true,false"
+        ]
+      },
+      "engine3": {
+        "lines": [
+          "500,1,100,200 -> true,false,true,true",
+          "200,4,5,500 -> true,false,false,true",
+          "3,2,1,5 -> false,false,false,false",
+          "2,100,1,400 -> false,true,false,true",
+          "400,3,2,4 -> true,false,false,false",
+          "5,3,100,4 -> false,false,true,false"
+        ]
+      }
+    },
     "running/a-running-total-down-a-column": {
       "engine2": {
         "refused": "a running total (\"Balance\") is the accumulation of every row before it, so it cannot be computed one row at a time; the in-memory engine handles it (run without a forced streaming engine)"
