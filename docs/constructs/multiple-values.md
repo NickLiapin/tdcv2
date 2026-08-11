@@ -301,8 +301,93 @@ values:       120000 news   90000 tech   60000 sport  30000 food   (exactly 40/3
 >
 > `[travel, travel, news]` above is fine, not a bug. Each slot is filled
 > independently, so the same value can land twice — two readings of `40` or two of
-> the same item in a cart are normal data. There's no built-in "make them distinct"
-> for `repeat`; if you need that, it's a different constraint.
+> the same item in a cart are normal data. When you need the opposite, say so with
+> [`distinct="true"`](#no-repeats-inside-one-cell-distinct).
+
+## No repeats inside one cell: `distinct`
+
+Sometimes a repeated value is wrong rather than merely uninteresting. A double
+first name is the clearest case: `Jesus Jesus Gonzales` is not a name.
+
+`distinct="true"` draws the row's values **without replacement**, so a cell
+cannot hold the same value twice:
+
+```xml
+<gen name="First" type="template" value="person.male.firstName"
+     repeat="2" separator=" " distinct="true"/>
+```
+
+`./run names.tdc (count=5)`
+
+```
+William Robert Jones
+Matthew Tyrone Smith
+James Zachery Williams
+Devin Jacob Brown
+Thomas Preston Johnson
+```
+
+Side by side, the same five tags with and without it:
+
+```xml
+<gen name="Tags"   type="text" value="news,tech,sport,food,travel" repeat="1..3" separator=", "/>
+<gen name="Unique" type="text" value="news,tech,sport,food,travel" repeat="1..3" separator=", " distinct="true"/>
+```
+
+`./run tags.tdc (count=6)`
+
+```
+tech   |   sport, tech, news
+news, food, food   |   travel, tech
+sport   |   news
+news, travel   |   sport, travel
+tech, travel   |   tech
+sport, sport, tech   |   travel, news, food
+```
+
+`food, food` and `sport, sport` on the left; never on the right.
+
+### What it costs
+
+`distinct` is not free, and the price is worth understanding before you reach
+for it.
+
+Without it, a listed column lays its values out across the **whole run** as an
+exact quota — that is what makes `percent` land on the nose. A row that must not
+repeat itself cannot read a pre-decided slot; it has to **choose**. So under
+`distinct` the column draws per row instead, and its overall frequencies become
+**approximate rather than exact**.
+
+A weighted [data pack](../data-packs/overview.md#top) still works and still
+leans on its frequent values — common first names stay common. It simply no
+longer lands on an exact count over the run.
+
+That is why `percent` and `distinct` cannot both sit on one generator: `percent`
+promises exactness the column can no longer deliver, so TDC refuses the pair
+([`TDC291`](../reference/errors.md#top)) instead of quietly honouring one and
+dropping the other. If you want proportions over list **lengths**, put them on a
+[`<mix>`](./mix.md#top) or `<switch>` outside, with `repeat`
+on the generator inside.
+
+Everything else about `repeat` is unchanged: rows stay independent, so streaming
+and `--jobs` keep working.
+
+### When it can't be done
+
+Five values cannot yield six different ones. TDC says so rather than quietly
+handing back a shorter list:
+
+| what you wrote | what happens |
+| :--- | :--- |
+| `distinct="true"` with no `repeat=` | `TDC290` — one value cannot repeat itself |
+| `percent=` and `distinct=` together | `TDC291` — see above |
+| `repeat="1..10"` over a five-value list | `TDC292`, before the run — the list is in the config |
+| the same, from a pack or a file | the same refusal, at run time — the pool is only known then |
+
+The last row is the reason for the split. A `value="a,b,c"` list is countable
+from the config, so `tdcv2 check` catches it; a pack file or a CSV column is
+read while generating, so the refusal has to wait until then. Either way it is a
+refusal, never a short cell.
 
 ## Where `repeat` won't work
 

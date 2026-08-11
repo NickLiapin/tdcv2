@@ -155,6 +155,7 @@
 | `order`                | Порядок значений (`random` / `sequential`) — только `text`, `file` и `date` | [Генераторы](../generators/overview.md#top)                        |
 | `cycle`                | При `sequential`: зациклить или ошибка — те же три типа | [Генераторы](../generators/overview.md#top)                        |
 | `repeat` / `separator` | Несколько значений в одной ячейке             | [Несколько значений](../constructs/multiple-values.md#top)          |
+| `distinct` | Без повторов внутри ячейки (нужен `repeat`)   | [Несколько значений](../constructs/multiple-values.md#top)          |
 | `each`                 | Повторить строку для каждого элемента списка  | [Связанные таблицы](../constructs/relational-tables.md#top)         |
 | `flag`                 | Колонка-ответ для разметки выбросов в `<mix>` | [Mix](../constructs/mix.md#top)                                     |
 

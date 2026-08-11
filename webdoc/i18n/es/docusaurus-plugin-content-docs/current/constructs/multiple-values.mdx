@@ -286,9 +286,90 @@ los mismos números — el archivo es idéntico byte por byte.
 :::note[Los valores dentro de una celda pueden repetirse]
 El `[travel, travel, news]` de arriba está bien, no es un error. Cada ranura se llena de
 forma independiente, así que el mismo valor puede caer dos veces — dos lecturas de `40` o
-dos veces el mismo artículo en un carrito son datos normales. No hay nada integrado del
-tipo «hazlos distintos» para `repeat`; si necesita eso, es otra restricción distinta.
+dos veces el mismo artículo en un carrito son datos normales. Cuando necesite lo contrario,
+dígalo de forma explícita:
+[`distinct="true"`](#sin-repeticiones-dentro-de-una-celda-distinct).
 :::
+
+## Sin repeticiones dentro de una celda: `distinct`
+
+A veces un valor repetido no es solo poco interesante, sino directamente erróneo. El caso
+más claro es un nombre doble: `Jesus Jesus Gonzales` no es un nombre.
+
+`distinct="true"` toma los valores de la fila **sin reemplazo**, de modo que una celda no
+puede contener el mismo valor dos veces:
+
+```xml
+<gen name="First" type="template" value="person.male.firstName"
+     repeat="2" separator=" " distinct="true"/>
+```
+
+<Terminal title="./run names.tdc (count=5)">
+{`William Robert Jones
+Matthew Tyrone Smith
+James Zachery Williams
+Devin Jacob Brown
+Thomas Preston Johnson`}
+</Terminal>
+
+Las mismas cinco etiquetas, una al lado de la otra, sin el atributo y con él:
+
+```xml
+<gen name="Tags"   type="text" value="news,tech,sport,food,travel" repeat="1..3" separator=", "/>
+<gen name="Unique" type="text" value="news,tech,sport,food,travel" repeat="1..3" separator=", " distinct="true"/>
+```
+
+<Terminal title="./run tags.tdc (count=6)">
+{`tech   |   sport, tech, news
+news, food, food   |   travel, tech
+sport   |   news
+news, travel   |   sport, travel
+tech, travel   |   tech
+sport, sport, tech   |   travel, news, food`}
+</Terminal>
+
+`food, food` y `sport, sport` a la izquierda; nunca a la derecha.
+
+### Lo que cuesta
+
+`distinct` no es gratis, y conviene entender el precio antes de recurrir a él.
+
+Sin él, una columna de valores listados se acomoda a lo largo de **toda la ejecución** como
+una cuota exacta — eso es lo que hace que `percent` caiga justo. Una fila que no puede
+repetirse no puede leer una ranura decidida de antemano: tiene que **elegir**. Así que bajo
+`distinct` la columna sortea fila por fila, y sus frecuencias globales pasan a ser
+**aproximadas en lugar de exactas**.
+
+Un [pack de datos](../data-packs/overview.mdx) ponderado sigue funcionando y sigue
+apoyándose en sus valores frecuentes — los nombres comunes siguen siendo comunes. Solo que
+ya no caen en un recuento exacto sobre la ejecución.
+
+Por eso `percent` y `distinct` no pueden estar en el mismo generador: `percent` promete una
+exactitud que la columna ya no puede dar, y TDC rechaza el par
+([`TDC291`](../reference/errors.mdx)) en vez de cumplir uno en silencio y descartar el otro.
+Si quiere proporciones sobre las **longitudes** de las listas, póngalas en un
+[`<mix>`](./mix.mdx) o un `<switch>` por fuera, con `repeat` en el
+generador de dentro.
+
+Todo lo demás sobre `repeat` no cambia: las filas siguen siendo independientes, así que el
+streaming y `--jobs` siguen funcionando.
+
+### Cuando no se puede
+
+Cinco valores no pueden dar seis distintos. TDC lo dice en vez de devolver en silencio una
+lista más corta:
+
+| lo que escribió | lo que ocurre |
+| :--- | :--- |
+| `distinct="true"` sin `repeat=` | `TDC290` — un valor no puede repetirse a sí mismo |
+| `percent=` y `distinct=` juntos | `TDC291` — véase arriba |
+| `repeat="1..10"` sobre una lista de cinco | `TDC292`, antes de la ejecución — la lista está en la configuración |
+| lo mismo, desde un pack o un archivo | el mismo rechazo, en tiempo de ejecución — el conjunto solo se conoce entonces |
+
+La última fila explica la división. Una lista `value="a,b,c"` se puede contar desde la
+configuración, así que la detecta `tdcv2 check`; un archivo de pack o una columna CSV se leen
+mientras se genera, de modo que el rechazo tiene que esperar. En ambos casos es un rechazo,
+nunca una celda corta.
 
 ## Dónde `repeat` no funciona
 
