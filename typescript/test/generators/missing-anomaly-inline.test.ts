@@ -38,7 +38,10 @@ describe('missing on inline streaming types — applied in every engine', () => 
     ['text', '<gen type="text" value="A,B,C" missing="0.4" missing_as="NULL"/>'],
     ['increment', '<gen type="increment" value="1" missing="0.4" missing_as="NULL"/>'],
     ['timeseries', '<gen type="timeseries" base="100" trend="1" missing="0.4" missing_as="NULL"/>'],
-    ['pattern', '<gen type="pattern" points="0,0 50,100 100,0" missing="0.4" missing_as="NULL"/>'],
+    [
+      'pattern',
+      '<gen type="pattern" points="0,0 50,100 100,0" y_range="0..100" missing="0.4" missing_as="NULL"/>',
+    ],
   ];
   for (const [type, body] of cases) {
     for (const [label, opts] of ENGINES) {

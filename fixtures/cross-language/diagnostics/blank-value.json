@@ -69,7 +69,7 @@
       "demonstrates": "TDC244",
       "description": "The other type that already agreed.",
       "config": "<tdc><env count=\"3\" seed=\"s\" local=\"en\"><sequence name=\"V\"><gen type=\"pattern\" value=\"\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
-      "expected": ["error TDC244 1:59"]
+      "expected": ["error TDC293 1:59", "error TDC244 1:59"]
     },
     {
       "name": "a-comma-is-two-empty-options-and-stays-legal",

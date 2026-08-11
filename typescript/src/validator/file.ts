@@ -17,6 +17,7 @@ import {
   spreadFromAttrs,
 } from '../generators/pattern.js';
 import { extractAttrs } from '../processor/walk.js';
+import { checkGenPattern } from './pattern.js';
 import { checkSequentialDropsPercent } from './text.js';
 
 export interface FileValidationContext {
@@ -120,6 +121,7 @@ export function checkGenDrawing(
 ): void {
   const attrs = gen.attr();
   const attrMap = extractAttrs(attrs);
+  checkGenPattern(gen, ctx.diagnostics);
   if (DRAWING_SOURCES.every((name) => (attrMap[name] ?? '').trim() === '')) {
     ctx.diagnostics.push({
       severity: 'error',

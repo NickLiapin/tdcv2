@@ -59,14 +59,18 @@ describe('validator — anomaly= and missing= (TDC242, TDC243)', () => {
 
 describe('validator — a drawing with nothing to draw (TDC244)', () => {
   it('refuses a pattern given no shape at all', () => {
-    expect(codes(wrap('<gen type="pattern"/>'))).toEqual(['TDC244']);
+    // Two independent things are missing, and both are said: there is nothing to
+    // draw, and no axis to draw it into.
+    expect(codes(wrap('<gen type="pattern"/>'))).toEqual(['TDC293', 'TDC244']);
   });
 
   it('accepts each of the three ways to give it one', () => {
-    expect(codes(wrap('<gen type="pattern" points="0,0 1,5 2,3"/>'))).toEqual([]);
-    expect(codes(wrap('<gen type="pattern" upper="0,9 1,9"/>'))).toEqual([]);
+    expect(codes(wrap('<gen type="pattern" points="0,0 1,5 2,3" y_range="0..10"/>'))).toEqual([]);
+    expect(codes(wrap('<gen type="pattern" upper="0,9 1,9" y_range="0..10"/>'))).toEqual([]);
     // A src= that does not resolve is TDC061, which is a different complaint —
     // what matters here is that TDC244 stands down once a shape is named.
-    expect(codes(wrap('<gen type="pattern" src="nowhere.svg"/>'))).toEqual(['TDC061']);
+    expect(codes(wrap('<gen type="pattern" src="nowhere.svg" y_range="0..10"/>'))).toEqual([
+      'TDC061',
+    ]);
   });
 });

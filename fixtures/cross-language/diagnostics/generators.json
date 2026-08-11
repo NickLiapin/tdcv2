@@ -335,7 +335,7 @@
       "demonstrates": "TDC244",
       "description": "A pattern reads a shape from points=, from a file in src=, or from upper=/lower=. With none of the three it has nothing to read, and the run stopped on row one where TDC095 and TDC128 stop before it for the two regex types.",
       "config": "<tdc><env count=\"3\" seed=\"s\" local=\"en\"><sequence name=\"X\"><gen type=\"pattern\"/></sequence></env><block><line><data>${{X}}</data></line></block></tdc>",
-      "expected": ["error TDC244 1:59"]
+      "expected": ["error TDC293 1:59", "error TDC244 1:59"]
     },
     {
       "name": "percent-beside-order-sequential-is-refused",
@@ -383,35 +383,35 @@
       "name": "a-drawing-mode-that-is-not-a-mode",
       "demonstrates": "TDC285",
       "description": "mode= was read only by the generator, so `check` called this valid and the run then refused it with a bare sentence and no code — the one place `check` did not answer \"would this run?\".",
-      "config": "<tdc><env count=\"3\" seed=\"s\" local=\"en\"><sequence name=\"V\"><gen type=\"pattern\" points=\"0,0 1,5\" mode=\"banana\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
-      "expected": ["error TDC285 1:102"]
+      "config": "<tdc><env count=\"3\" seed=\"s\" local=\"en\"><sequence name=\"V\"><gen type=\"pattern\" y_range=\"0..10\" points=\"0,0 1,5\" mode=\"banana\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
+      "expected": ["error TDC285 1:118"]
     },
     {
       "name": "a-drawing-interpolation-that-is-not-one",
       "demonstrates": "TDC285",
       "description": "The same hole in the attribute beside it.",
-      "config": "<tdc><env count=\"3\" seed=\"s\" local=\"en\"><sequence name=\"V\"><gen type=\"pattern\" points=\"0,0 1,5\" interp=\"banana\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
-      "expected": ["error TDC285 1:104"]
+      "config": "<tdc><env count=\"3\" seed=\"s\" local=\"en\"><sequence name=\"V\"><gen type=\"pattern\" y_range=\"0..10\" points=\"0,0 1,5\" interp=\"banana\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
+      "expected": ["error TDC285 1:120"]
     },
     {
       "name": "a-negative-drawing-spread",
       "demonstrates": "TDC285",
       "description": "A number rather than a word, held to the same rule: half a band cannot be negative.",
-      "config": "<tdc><env count=\"3\" seed=\"s\" local=\"en\"><sequence name=\"V\"><gen type=\"pattern\" points=\"0,0 1,5\" spread=\"-1\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
-      "expected": ["error TDC285 1:104"]
+      "config": "<tdc><env count=\"3\" seed=\"s\" local=\"en\"><sequence name=\"V\"><gen type=\"pattern\" y_range=\"0..10\" points=\"0,0 1,5\" spread=\"-1\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
+      "expected": ["error TDC285 1:120"]
     },
     {
       "name": "drawing-decimals-that-are-not-a-number",
       "demonstrates": "TDC285",
       "description": "The fourth and last of the drawing attributes whose value the generator alone used to read.",
-      "config": "<tdc><env count=\"3\" seed=\"s\" local=\"en\"><sequence name=\"V\"><gen type=\"pattern\" points=\"0,0 1,5\" decimals=\"x\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
-      "expected": ["error TDC285 1:106"]
+      "config": "<tdc><env count=\"3\" seed=\"s\" local=\"en\"><sequence name=\"V\"><gen type=\"pattern\" y_range=\"0..10\" points=\"0,0 1,5\" decimals=\"x\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
+      "expected": ["error TDC285 1:122"]
     },
     {
       "name": "a-drawing-mode-that-is-a-mode",
       "demonstrates": "",
       "description": "The other half of the rule: the two words the generator accepts stay accepted.",
-      "config": "<tdc><env count=\"3\" seed=\"s\" local=\"en\"><sequence name=\"V\"><gen type=\"pattern\" points=\"0,0 1,5\" mode=\"density\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
+      "config": "<tdc><env count=\"3\" seed=\"s\" local=\"en\"><sequence name=\"V\"><gen type=\"pattern\" y_range=\"0..10\" points=\"0,0 1,5\" mode=\"density\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
       "expected": []
     }
   ]

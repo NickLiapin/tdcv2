@@ -104,9 +104,21 @@ export function parsePoints(raw: string): [number, number][] {
   return points;
 }
 
-/** Optional `y_range="min..max"` → `[min, max]` (the value axis). */
-export function parseYRange(raw: string | undefined): [number, number] | undefined {
-  if (raw === undefined || raw.trim() === '') return undefined;
+/**
+ * `y_range="min..max"` → `[min, max]` — the value axis, and REQUIRED.
+ *
+ * A drawing carries no units of its own: a curve exported from one tool runs
+ * 0..100, from another 0..480, from a third 0..10002345345. `y_range` is what
+ * those coordinates mean, so without it there is nothing to bring the picture
+ * into and every answer would be a guess about somebody's export settings.
+ */
+export function parseYRange(raw: string | undefined): [number, number] {
+  if (raw === undefined || raw.trim() === '') {
+    throw new Error(
+      'pattern: y_range is required — it is the value axis a drawing is brought into, ' +
+        'and a drawing has no scale of its own. Write y_range="0..100".',
+    );
+  }
   const parts = raw.split('..');
   const a = Number(parts[0]);
   const b = Number(parts[1]);
@@ -162,19 +174,17 @@ export interface Corridor {
 
 /**
  * Build a corridor from an upper curve and an optional lower one (omitted → a
- * flat floor at 0). Both curves are normalized against their SHARED height
- * extent so the band between them is meaningful.
+ * flat floor at the axis minimum). Both curves live in the declared value axis,
+ * so the band between them is read off the same frame the single curve uses.
  */
 export function buildCorridor(
   upperPts: readonly (readonly [number, number])[],
   lowerPts: readonly (readonly [number, number])[] | undefined,
-  yRange: readonly [number, number] | undefined,
+  yRange: readonly [number, number],
   decimals: number,
   interp: Interp = 'linear',
 ): Corridor {
-  const heights = [...upperPts, ...(lowerPts ?? [])].map((p) => p[1]);
-  if (!lowerPts) heights.push(0); // include the 0 floor in the shared extent
-  const ext: [number, number] = [Math.min(...heights), Math.max(...heights)];
+  const ext: [number, number] = [yRange[0], yRange[1]];
   const upper = buildSignalCurve(upperPts, yRange, decimals, ext, interp);
   const x0 = upperPts[0]?.[0] ?? 0;
   const xN = upperPts[upperPts.length - 1]?.[0] ?? 0;
@@ -279,10 +289,18 @@ export function signalValueAt(curve: SignalCurve, t: number, dt = 0): number {
   }
 
   if (!curve.yRange) return y;
-  const vspan = curve.yMax - curve.yMin;
-  const yn = vspan === 0 ? 0 : (y - curve.yMin) / vspan;
   const [a, b] = curve.yRange;
-  return a + yn * (b - a);
+  // The FRAME is the scale, never the ink. For a raster the frame is the image
+  // (floor = min, top = max); for a drawn list of points the frame is the range
+  // itself, so the y values ARE values and the mapping below is the identity.
+  // Measuring the ink instead threw the drawing's amplitude away: a ripple of
+  // ten units and a mountain across the whole canvas came out identical, and a
+  // flat line — nothing to divide by — collapsed to the floor.
+  const vspan = curve.yMax - curve.yMin;
+  const yn = vspan === 0 ? 0.5 : (y - curve.yMin) / vspan;
+  const scaled = a + yn * (b - a);
+  // Nothing leaves the declared axis, whatever coordinates somebody drew in.
+  return Math.min(Math.max(scaled, Math.min(a, b)), Math.max(a, b));
 }
 
 export function formatSignal(v: number, curve: SignalCurve): string {
@@ -520,11 +538,15 @@ export function signalCurveFromAttrs(
   attrs: Record<string, string | undefined>,
   points: readonly (readonly [number, number])[],
 ): SignalCurve {
+  const yRange = parseYRange(attrs['y_range']);
+  // The range IS the frame for a drawn curve: a point at 50 on a 0..100 axis
+  // means 50, and adding y_range="0..100" to points already in 0..100 is a
+  // no-op, as it must be.
   return buildSignalCurve(
     points,
-    parseYRange(attrs['y_range']),
+    yRange,
     decimalsFromAttrs(attrs),
-    undefined,
+    yRange,
     parseInterp(attrs['interp']),
   );
 }
