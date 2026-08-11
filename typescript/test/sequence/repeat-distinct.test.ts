@@ -148,6 +148,56 @@ describe('distinct= on a repeat list', () => {
     }
   });
 
+  it('survives the modifiers and the containers it can be wrapped in', () => {
+    // Each of these layers something ON TOP of the draw, and each was a place the two
+    // engines could have drifted apart. Checked as combinations rather than in isolation
+    // because that is where the anomaly flag broke.
+    const combos: readonly [string, string][] = [
+      [
+        'accumulate',
+        '<sequence name="T"><gen type="number" value="1..9" repeat="3" separator="," distinct="true" accumulate="sum"/></sequence>',
+      ],
+      [
+        'case=',
+        '<sequence name="T"><gen type="text" value="ann,bob,cid,dee" repeat="3" separator="," distinct="true" case="upper"/></sequence>',
+      ],
+      [
+        'missing=',
+        '<sequence name="T"><gen type="text" value="a,b,c,d,e" repeat="3" separator="," distinct="true" missing="0.4"/></sequence>',
+      ],
+      [
+        'a list that may be empty',
+        '<sequence name="T"><gen type="text" value="a,b,c" repeat="0..2" separator="," distinct="true"/></sequence>',
+      ],
+      [
+        'inside a <mix> case',
+        '<mix name="T" percent="50,50"><case><gen type="text" value="a,b,c" repeat="2" separator="," distinct="true"/></case><case><data>x</data></case></mix>',
+      ],
+    ];
+    for (const [label, body] of combos) {
+      const source =
+        `<tdc><env count="12" seed="q" local="en">${body}</env>` +
+        '<block><line><data>${{T}}</data></line></block></tdc>';
+      expect(render1(source, { now: NOW, stream: true }), label).toBe(
+        render1(source, { now: NOW, mode: 'memory' }),
+      );
+    }
+  });
+
+  it('holds over two thousand rows, which is where a per-row draw would show strain', () => {
+    const source =
+      '<tdc><env count="2000" seed="j7" local="en"><sequence name="T">' +
+      '<gen type="text" value="news,tech,sport,food,travel" repeat="1..4" separator="," distinct="true"/>' +
+      '</sequence></env><block><line><data>${{T}}</data></line></block></tdc>';
+    let checked = 0;
+    for (const line of render1(source).split('\n').slice(0, -1)) {
+      const parts = line.split(',');
+      expect(new Set(parts).size, line).toBe(parts.length);
+      checked += 1;
+    }
+    expect(checked).toBe(2000);
+  });
+
   it('the streaming engine and the memory engine agree value for value', () => {
     const gen = `<gen type="text" value="${TAGS}" repeat="3" separator=", " distinct="true"/>`;
     expect(render1(config(gen, 20), { now: NOW, stream: true })).toBe(
