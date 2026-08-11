@@ -32,6 +32,7 @@ internal static class RepeatKeyed
         Repeat.Spec spec,
         int count,
         PerRow.Stream stream,
+        string genType,
         Func<int, Sfc32, bool[], string> oneElement,
         List<string>? flagTextOut)
     {
@@ -45,9 +46,23 @@ internal static class RepeatKeyed
             var marks = new List<string>(keep);
             for (int k = 0; k < keep; k++)
             {
-                Sfc32 elementPrng = Seekable.Generator(stream.Seed, $"{stream.Id}#e{k}", row);
                 var flag = new bool[1];
-                parts.Add(oneElement(k, elementPrng, flag));
+                int at = k;
+                int atRow = row;
+
+                // A drawn generator has no pool to draw down, so `distinct` is rejection
+                // sampling on fresh sub-streams — the same ids the reference uses, so the two
+                // agree value for value.
+                string DrawAt(string suffix) =>
+                    oneElement(
+                        at,
+                        Seekable.Generator(stream.Seed, $"{stream.Id}#e{at}{suffix}", atRow),
+                        flag);
+
+                parts.Add(
+                    spec.Distinct
+                        ? Repeat.RedrawUntilFresh(parts, genType, DrawAt)
+                        : DrawAt(""));
                 marks.Add(flag[0] ? "true" : "false");
             }
 
@@ -118,10 +133,35 @@ internal static class RepeatKeyed
             int start = plan.SlotStartAt(p);
             int keep = plan.LengthAt(p);
             var parts = new List<string>(keep);
-            for (int k = 0; k < keep; k++)
+
+            // `distinct` leaves the whole-run layout behind: a row that must not repeat itself
+            // has to CHOOSE from the pool, and a choice cannot be read off a pre-laid-out slot.
+            // One uniform per pick off the row's own stream, budgeted at the maximum length, so
+            // the row still resolves alone.
+            if (spec.Distinct)
             {
-                string raw = ValueForSlot(Permute.Apply(start + k, slots, key));
-                parts.Add(modify is null ? raw : modify(row, raw, k));
+                double[] draws =
+                    Seekable.Uniforms(stream.Seed, $"{stream.Id}#dist", row, spec.Max);
+                int at = 0;
+                List<string> picked = Repeat.DrawDistinct(
+                    values,
+                    percents,
+                    keep,
+                    () => at < draws.Length ? draws[at++] : 1.0,
+                    "the value list");
+                for (int k = 0; k < picked.Count; k++)
+                {
+                    string raw = picked[k];
+                    parts.Add(modify is null ? raw : modify(row, raw, k));
+                }
+            }
+            else
+            {
+                for (int k = 0; k < keep; k++)
+                {
+                    string raw = ValueForSlot(Permute.Apply(start + k, slots, key));
+                    parts.Add(modify is null ? raw : modify(row, raw, k));
+                }
             }
 
             result.Add(Repeat.Join(parts, spec));

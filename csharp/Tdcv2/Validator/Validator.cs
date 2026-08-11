@@ -108,7 +108,7 @@ public sealed class Validator
     /// </summary>
     private static readonly IReadOnlySet<string> PackWrapperAttrs = Set(
         "anomaly", "anomaly_factor", "anomaly_flag", "case", "comment", "count", "cycle", "flag", "if", "local",
-        "mask", "missing", "missing_as", "name", "order", "parent", "repeat", "separator", "type", "value");
+        "mask", "missing", "missing_as", "name", "order", "parent", "repeat", "separator", "type", "value", "distinct");
 
     /// <summary>The output wrappers a generator type does NOT put its value through.</summary>
     /// <remarks>
@@ -389,7 +389,8 @@ public sealed class Validator
 
     private static readonly IReadOnlySet<string> GenAttrs = Set(
         "type", "value", "name", "if", "comment", "case", "mask", "order", "cycle", "repeat",
-        "separator", "accumulate", "of", "plus", "reset", "op", "missing", "missing_as", "anomaly",
+        "separator", "accumulate", "distinct", "of", "plus", "reset", "op", "missing",
+        "missing_as", "anomaly",
         "anomaly_factor",
         "anomaly_flag",
         "local", "weight", "percent", "first_zero", "include", "exclude",
@@ -4954,6 +4955,7 @@ public sealed class Validator
         }
 
         CheckAccumulate(gen, attrs, repeats);
+        CheckDistinct(gen, attrs, repeats, type);
 
         if (repeats)
         {
@@ -4975,6 +4977,99 @@ public sealed class Validator
             Error(
                 "TDC198", "\"separator\" has no effect without \"repeat\"",
                 "separator joins the values a repeating gen produces. Add repeat=\"N\", or drop it.",
+                line, column);
+        }
+    }
+
+    /// <summary><c>distinct="true"</c> — the row's values are drawn without replacement.</summary>
+    /// <remarks>
+    /// Four refusals, and each one is a proof rather than a guess. They exist because the
+    /// alternative in every case is a config that says something and silently gets something
+    /// else.
+    /// </remarks>
+    private void CheckDistinct(
+        TDCParser.SelfClosingElementContext gen,
+        IReadOnlyDictionary<string, string> attrs,
+        bool repeats,
+        string? type)
+    {
+        if (!attrs.TryGetValue("distinct", out string? raw))
+        {
+            return;
+        }
+
+        string word = raw.Trim();
+        if (word != "true" && word != "false")
+        {
+            (int line, int column) = At(gen, "distinct");
+            Error(
+                "TDC289", $"\"distinct\" takes true or false, not \"{word}\"",
+                "distinct=\"true\" draws a repeat list without replacement. Omit it, or write "
+                + "distinct=\"false\".",
+                line, column);
+            return;
+        }
+
+        if (word == "false")
+        {
+            return;
+        }
+
+        // One value cannot repeat itself, so the attribute would be read and then do nothing —
+        // the accepted-and-ignored failure this project keeps closing.
+        if (!repeats)
+        {
+            (int line, int column) = At(gen, "distinct");
+            Error(
+                "TDC290", "\"distinct\" has no effect without \"repeat\"",
+                "distinct= stops one cell holding the same value twice, so there has to be a "
+                + "list. Add repeat=\"N\" or repeat=\"A..B\", or drop distinct=.",
+                line, column);
+            return;
+        }
+
+        // `percent` is an EXACT quota over the whole run; `distinct` is a guarantee inside one
+        // row. Holding both would cost either streaming or the randomness of the sample, so the
+        // pair is refused.
+        if (attrs.ContainsKey("percent"))
+        {
+            (int line, int column) = At(gen, "percent");
+            Error(
+                "TDC291", "\"percent\" and \"distinct\" cannot both be on one <gen>",
+                "percent= promises exact proportions across the whole run; distinct= trades that "
+                + "promise away for a guarantee inside each row, so the two cannot both hold. "
+                + "Drop one — or put the proportions on a <mix> or <switch> outside, with "
+                + "repeat= on the <gen> inside.",
+                line, column);
+        }
+
+        // The pool is only knowable up front for the types that carry it in the config. Where it
+        // is not — a pack file, a regex — the same refusal fires at run time.
+        int? pool = Checks.DistinctPoolSize(type, attrs);
+        if (pool is null)
+        {
+            return;
+        }
+
+        int longest;
+        try
+        {
+            longest = Repeat.Parse(attrs)!.Value.Max;
+        }
+        catch (ArgumentException)
+        {
+            return; // A malformed repeat= is already reported as TDC195.
+        }
+
+        if (longest > pool.Value)
+        {
+            (int line, int column) = At(gen, "repeat");
+            Error(
+                "TDC292",
+                $"\"repeat\" asks for up to {longest} different values, but the list holds only "
+                + $"{pool.Value}",
+                $"With distinct=\"true\" a value cannot be used twice in one cell, so {longest} "
+                + "of them cannot be found. Lower repeat=, or widen value=.",
                 line, column);
         }
     }
@@ -6395,7 +6490,8 @@ public sealed class Validator
     /// </summary>
     private static readonly string[] DroppedByUniq =
     {
-        "mask", "case", "missing", "missing_as", "repeat", "separator", "anomaly", "anomaly_flag",
+        "mask", "case", "missing", "missing_as", "repeat", "separator", "distinct", "anomaly",
+        "anomaly_flag",
     };
 
     /// <summary>

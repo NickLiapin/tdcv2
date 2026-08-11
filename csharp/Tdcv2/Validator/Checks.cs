@@ -101,4 +101,73 @@ internal static class Checks
             return e.Message;
         }
     }
+
+    /// <summary>
+    /// How many different values this generator can offer, when the config alone says so.
+    /// </summary>
+    /// <remarks>
+    /// <c>null</c> means "not knowable here" — never a guess. A pack file, a regex or a date
+    /// shape is read while generating, so those fall to the run-time refusal instead.
+    /// </remarks>
+    internal static int? DistinctPoolSize(
+        string? type, IReadOnlyDictionary<string, string> attrs)
+    {
+        string value = attrs.GetValueOrDefault("value", "").Trim();
+        if (value.Length == 0 || type is null)
+        {
+            return null;
+        }
+
+        if (type == "text")
+        {
+            return value.Split(',').Select(part => part.Trim()).Distinct().Count();
+        }
+
+        // A one-character symbol draws from its inline set, so the set IS the pool. Only the
+        // plain shape is counted: a named `alphabet`, `include`/`exclude`, or a length above one
+        // all change the answer, and a refusal built on a guess is worse than no refusal at all.
+        if (type == "symbol")
+        {
+            string length = attrs.GetValueOrDefault("length", "").Trim();
+            bool plain =
+                attrs.GetValueOrDefault("alphabet", "").Length == 0
+                && attrs.GetValueOrDefault("include", "").Length == 0
+                && attrs.GetValueOrDefault("exclude", "").Length == 0
+                && (length.Length == 0 || length == "1");
+            if (!plain)
+            {
+                return null;
+            }
+
+            try
+            {
+                return Tdcv2.Unicode.CharSet.Parse(value).Distinct().Count();
+            }
+            catch (ArgumentException)
+            {
+                return null; // A malformed set is the charset error, not this one.
+            }
+        }
+
+        if (type == "number")
+        {
+            int dots = value.IndexOf("..", StringComparison.Ordinal);
+            if (dots < 0 || attrs.GetValueOrDefault("decimals", "").Trim().Length > 0)
+            {
+                return null;
+            }
+
+            // Only whole-number ranges have a countable pool.
+            if (!long.TryParse(value[..dots].Trim(), out long lo)
+                || !long.TryParse(value[(dots + 2)..].Trim(), out long hi)
+                || hi < lo)
+            {
+                return null;
+            }
+
+            return (int)(hi - lo + 1);
+        }
+
+        return null;
+    }
 }

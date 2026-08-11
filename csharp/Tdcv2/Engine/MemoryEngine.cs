@@ -862,7 +862,7 @@ public static class MemoryEngine
                     Gen element = new(spec.Gen.Type, Repeat.Without(spec.Gen.Attrs));
                     repeatFlags = flagNamed ? new List<string>() : null;
                     values = RepeatKeyed.BuildDraws(
-                        r, applicable, stream,
+                        r, applicable, stream, spec.Gen.Type,
                         (_, elementPrng, flag) =>
                         {
                             IReadOnlyList<string> done = Finish(

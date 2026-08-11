@@ -1051,9 +1051,20 @@ public sealed class StreamEngine
                 var parts = new List<string>();
                 for (int k = 0; k < plan.LengthAt(p.Value); k++)
                 {
-                    parts.Add(First(
-                        GenValues(
-                            single, Seekable.Generator(_seed, streamId + "#e" + k, row), null)));
+                    int at = k;
+
+                    // A drawn generator has no pool to draw down, so `distinct` is rejection
+                    // sampling on fresh sub-streams — the same ids the reference uses, so the
+                    // two agree value for value.
+                    string DrawAt(string suffix) =>
+                        First(
+                            GenValues(
+                                single,
+                                Seekable.Generator(_seed, streamId + "#e" + at + suffix, row),
+                                null));
+
+                    parts.Add(
+                        r2.Distinct ? Repeat.RedrawUntilFresh(parts, type, DrawAt) : DrawAt(""));
                 }
 
                 return Repeat.Join(parts, r2);
@@ -1245,8 +1256,34 @@ public sealed class StreamEngine
                     return null;
                 }
 
+                int keep = repeatPlan!.LengthAt(p.Value);
                 var parts = new List<string>();
-                for (int k = 0; k < repeatPlan!.LengthAt(p.Value); k++)
+
+                // `distinct` cannot read a pre-laid-out slot — a row that must not repeat itself
+                // has to CHOOSE. One uniform per pick off the row's own `#dist` stream, budgeted
+                // at the maximum length, so the row still resolves alone and the in-memory
+                // engine lands on the same values.
+                if (r2.Distinct)
+                {
+                    double[] draws =
+                        Seekable.Uniforms(_seed, streamId + "#dist", row, r2.Max);
+                    int at = 0;
+                    List<string> picked = Repeat.DrawDistinct(
+                        values,
+                        percents,
+                        keep,
+                        () => at < draws.Length ? draws[at++] : 1.0,
+                        "the value list");
+                    for (int k = 0; k < picked.Count; k++)
+                    {
+                        string raw = picked[k];
+                        parts.Add(mod is null ? raw : NullToEmpty(mod(row, raw, k)));
+                    }
+
+                    return Repeat.Join(parts, r2);
+                }
+
+                for (int k = 0; k < keep; k++)
                 {
                     int? slot = SlotAt(row, k);
                     string raw = slot is null ? "" : values[RunFor(cumHi, slot.Value)];

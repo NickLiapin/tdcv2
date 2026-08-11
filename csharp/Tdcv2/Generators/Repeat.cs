@@ -33,7 +33,21 @@ public static class Repeat
 
     public const string DefaultSeparator = ",";
 
-    public readonly record struct Spec(int Min, int Max, string Separator, string? Accumulate);
+    /// <summary>Bounded retries before a <c>distinct</c> draw admits it cannot find a fresh value.</summary>
+    public const int DistinctMaxTries = 64;
+
+    /// <param name="Distinct">
+    /// <c>distinct=</c>: the row's values are drawn WITHOUT replacement.
+    /// <para>
+    /// This changes the regime the column is built in, which is why <c>percent</c> is refused
+    /// beside it. Ordinarily a listed column lays its values out over the whole run as an exact
+    /// quota; under <c>distinct</c> it draws per row instead, because holding an exact whole-run
+    /// quota AND a per-row guarantee at once costs either streaming or the randomness of the
+    /// sample. Frequencies stay approximate, rows stay independent.
+    /// </para>
+    /// </param>
+    public readonly record struct Spec(
+        int Min, int Max, string Separator, string? Accumulate, bool Distinct);
 
     /// <summary><c>null</c> when the generator has no <c>repeat</c>, which is the ordinary case.</summary>
     public static Spec? Parse(IReadOnlyDictionary<string, string> attrs)
@@ -71,7 +85,8 @@ public static class Repeat
             min,
             max,
             attrs.GetValueOrDefault("separator", DefaultSeparator),
-            Accumulate.Read(attrs));
+            Accumulate.Read(attrs),
+            ReadDistinct(attrs));
     }
 
     /// <summary>The same attributes without <c>repeat</c>, for building one element at a time.</summary>
@@ -294,4 +309,122 @@ public static class Repeat
             ? value
             : throw new ArgumentException(
                 $"repeat: {label} of \"{raw}\" must be a whole number");
+
+    /// <summary><c>distinct="true"</c>. Anything but the two words is refused by the validator.</summary>
+    public static bool ReadDistinct(IReadOnlyDictionary<string, string> attrs) =>
+        attrs.GetValueOrDefault("distinct", "").Trim() == "true";
+
+    /// <summary>Draw <paramref name="keep"/> DIFFERENT values from a weighted list.</summary>
+    /// <remarks>
+    /// <para>
+    /// Weights survive — a frequent name is still likelier to be picked first — but the exact
+    /// whole-run quota does not, which is the documented price of <c>distinct</c> and the reason
+    /// <c>percent</c> may not appear beside it.
+    /// </para>
+    /// <para>
+    /// Running out throws rather than returning a short list: a cell quietly shorter than
+    /// <c>repeat</c> asked for is the silent-and-wrong outcome the feature exists to prevent.
+    /// </para>
+    /// </remarks>
+    public static List<string> DrawDistinct(
+        IReadOnlyList<string> values,
+        IReadOnlyList<double> weights,
+        int keep,
+        Func<double> nextUniform,
+        string describePool)
+    {
+        if (keep > values.Count)
+        {
+            throw new ArgumentException(
+                $"repeat with distinct=\"true\" asks for {keep} different values, but "
+                    + $"{describePool} holds only {values.Count}");
+        }
+
+        // Weighted draw without replacement: pick against the remaining weight, then swap the
+        // winner out with the last live candidate. What remains is a pure function of the picks
+        // already made, so the draw stays deterministic.
+        var pool = new List<string>(values);
+        var w = new double[values.Count];
+        for (var i = 0; i < w.Length; i++)
+        {
+            w[i] = weights != null && weights.Count == values.Count ? weights[i] : 1.0;
+        }
+
+        var total = 0.0;
+        foreach (var x in w)
+        {
+            if (x > 0)
+            {
+                total += x;
+            }
+        }
+
+        var outp = new List<string>(keep);
+        for (var picked = 0; picked < keep; picked++)
+        {
+            var size = pool.Count - picked;
+            var index = size - 1;
+            if (total > 0)
+            {
+                var target = nextUniform() * total;
+                for (var i = 0; i < size; i++)
+                {
+                    target -= Math.Max(0, w[i]);
+                    if (target < 0)
+                    {
+                        index = i;
+                        break;
+                    }
+                }
+            }
+            else
+            {
+                index = Math.Min(size - 1, (int)(nextUniform() * size));
+            }
+
+            var chosen = pool[index];
+            outp.Add(chosen);
+            total -= Math.Max(0, w[index]);
+            var last = size - 1;
+            pool[index] = pool[last];
+            w[index] = w[last];
+            pool[last] = chosen;
+        }
+
+        return outp;
+    }
+
+    /// <summary>Ask <paramref name="draw"/> for a value that is not already in <paramref name="seen"/>.</summary>
+    /// <remarks>
+    /// <para>
+    /// A drawn generator has no pool to draw down, so <c>distinct</c> is rejection sampling.
+    /// <paramref name="draw"/> receives the sub-stream suffix: empty for the first attempt (so a
+    /// config WITHOUT <c>distinct</c> reads the very same stream), then <c>r1</c>, <c>r2</c> and
+    /// so on.
+    /// </para>
+    /// <para>
+    /// Exhausting the tries throws rather than returning a duplicate or a short list.
+    /// <c>regex="[01]"</c> under <c>repeat="5"</c> cannot be satisfied by anything, and saying so
+    /// is the entire point of the attribute.
+    /// </para>
+    /// </remarks>
+    public static string RedrawUntilFresh(
+        IReadOnlyList<string> seen, string genType, Func<string, string> draw)
+    {
+        var value = draw("");
+        for (var attempt = 1; seen.Contains(value) && attempt <= DistinctMaxTries; attempt++)
+        {
+            value = draw($"r{attempt}");
+        }
+
+        if (seen.Contains(value))
+        {
+            throw new ArgumentException(
+                $"repeat with distinct=\"true\" could not find {seen.Count + 1} different values "
+                    + $"for <gen type=\"{genType}\"> after {DistinctMaxTries} tries — the "
+                    + "generator does not produce that many");
+        }
+
+        return value;
+    }
 }
