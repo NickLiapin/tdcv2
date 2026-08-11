@@ -17,6 +17,42 @@ page — is tracked in that implementation's own changelog:
 
 ### Added
 
+<!-- covers: distinct -->
+
+- `distinct="true"` on a repeating generator draws the row's values **without
+  replacement**, so one cell cannot hold the same value twice. A double first name was
+  the case that asked for it: `Jesus Jesus Gonzales` is not a name.
+
+  ```xml
+  <gen name="First" type="template" value="person.male.firstName"
+       repeat="2" separator=" " distinct="true"/>
+  ```
+
+  Duplicates inside a cell remain the default and are usually right — two readings of
+  `40`, two of the same item in a cart. This is the opt-out, and it works on every
+  generator type that can carry `repeat`: a listed column draws its pool down, while a
+  number, a date or a regex has no pool and redraws on a fresh sub-stream instead.
+
+  It has a price, and the price is why `percent` is refused beside it. Ordinarily a
+  listed column lays its values out across the whole run as an exact quota, which is
+  what makes `percent` land on the nose; a row that must not repeat itself has to
+  **choose** instead, so under `distinct` the column's overall frequencies become
+  approximate. A weighted data pack still leans on its frequent values — common names
+  stay common — it simply no longer lands on an exact count. For proportions over list
+  LENGTHS, put them on a `<mix>` or `<switch>` outside, with `repeat` on the generator
+  inside.
+
+  Rows stay independent, so streaming and `--jobs` are unaffected: `--jobs 1` and
+  `--jobs 7` produce byte-identical files.
+
+  Four refusals, each provable rather than guessed: `TDC289` (a value that is neither
+  `true` nor `false`), `TDC290` (`distinct` with no `repeat` — one value cannot repeat
+  itself), `TDC291` (`percent` and `distinct` together), `TDC292` (more different values
+  asked for than the list can offer). The last is reported before the run where the pool
+  is in the config — `type="text"`, a whole-number range, a one-character `symbol` set —
+  and at run time where it is not, since a pack file or a CSV column is only read while
+  generating. Either way it is a refusal, never a quietly shorter cell.
+
 <!-- covers: secret -->
 
 - `secret=` on a `<gen type="http">` signs each request, so a service can tell TDC from

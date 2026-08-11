@@ -103,6 +103,8 @@ export const ATTR_DOCS: Record<string, string> = {
   pair: 'A marker that pairs an opening and closing `<data>`, so a literal closing tag can appear inside.',
   repeat: 'Several values in one cell: `3`, or a range like `1..5`. The cap is 64.',
   separator: 'What the values of a `repeat` are joined with — a comma by default.',
+  distinct:
+    "With `repeat`, draw the row's values WITHOUT replacement, so one cell cannot hold the same value twice. Needs `repeat`, and cannot sit beside `percent` — exact whole-run proportions and a per-row guarantee cannot both hold.",
   each: 'Repeat this line once per element of a list value.',
   flag: 'An extra column marking the records that took a branch marked `anomaly="true"`.',
   mask: 'A positional template that rebuilds the printed value: `x` — one character, `w` — one word, `*` — everything left over, anything else a literal. `x[i]` / `w[i]` address the original, so `w[1] w[0]` turns `John Smith` into `Smith John`, and `x[0].` into `J.`',
