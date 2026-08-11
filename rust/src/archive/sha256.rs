@@ -273,7 +273,10 @@ mod hmac_tests {
     fn hashes_an_over_long_key() {
         let key = vec![0xaa_u8; 131];
         assert_eq!(
-            hmac_hex(&key, b"Test Using Larger Than Block-Size Key - Hash Key First"),
+            hmac_hex(
+                &key,
+                b"Test Using Larger Than Block-Size Key - Hash Key First"
+            ),
             "60e431591ee0b67f0d8a26aacbf5b77f8e0bc6213728c5140546040f0ee37f54"
         );
     }

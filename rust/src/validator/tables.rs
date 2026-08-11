@@ -104,7 +104,7 @@ pub const MISPLACED_IN_SEQUENCE: [&str; 5] = ["mix", "switch", "case", "default"
 /// to `<case>`; `on` to `<switch>`; `v` to `<tdc>`. The list was one flat union of
 /// every attribute name in the language, so writing any of them on a `<gen>`
 /// passed in silence while the reference refused it.
-pub const GEN_ATTRS: [&str; 80] = [
+pub const GEN_ATTRS: [&str; 81] = [
     "type",
     "value",
     "name",
@@ -120,6 +120,7 @@ pub const GEN_ATTRS: [&str; 80] = [
     "repeat",
     "separator",
     "accumulate",
+    "distinct",
     "of",
     "plus",
     "reset",
@@ -508,15 +509,28 @@ pub fn lookup<'a>(table: &'a [(&'a str, &'a [&'a str])], key: &str) -> Option<&'
 /// it refused `base=` on the 39 packs that declare a `<sequence name="base">`,
 /// the whole check-digit family, on configs the engine would have run.
 pub const RESERVED_TEMPLATE_ATTRS: [&str; 15] = [
-    "type", "value", "local", "name", "if", "comment", "anomaly", "anomaly_factor",
-    "anomaly_flag", "missing", "missing_as", "mask", "case", "order", "cycle",
+    "type",
+    "value",
+    "local",
+    "name",
+    "if",
+    "comment",
+    "anomaly",
+    "anomaly_factor",
+    "anomaly_flag",
+    "missing",
+    "missing_as",
+    "mask",
+    "case",
+    "order",
+    "cycle",
 ];
 
 /// What the pack-parameter check may skip: the engine-reserved names plus the
 /// wrappers applied around the produced value. Using the union of EVERY
 /// generator's attributes instead meant a name like `points=` was reported by
 /// nobody once the ownership check stopped guessing.
-pub const PACK_WRAPPER_ATTRS: [&str; 20] = [
+pub const PACK_WRAPPER_ATTRS: [&str; 21] = [
     "anomaly",
     "anomaly_factor",
     "anomaly_flag",
@@ -537,6 +551,7 @@ pub const PACK_WRAPPER_ATTRS: [&str; 20] = [
     "separator",
     "type",
     "value",
+    "distinct",
 ];
 
 /// The output wrappers a generator type does NOT put its value through.
@@ -547,12 +562,43 @@ pub const PACK_WRAPPER_ATTRS: [&str; 20] = [
 /// Refused rather than implemented: the interpolation filter runs where the
 /// value is PRINTED, so `${{Total|mask:x}}` works today.
 pub const WRAPPERS_NOT_READ: [(&str, &[&str]); 3] = [
-    ("running", &["mask", "case", "missing", "missing_as", "repeat", "anomaly", "anomaly_factor"]),
-    ("stat", &["mask", "case", "missing", "missing_as", "repeat", "anomaly", "anomaly_factor"]),
+    (
+        "running",
+        &[
+            "mask",
+            "case",
+            "missing",
+            "missing_as",
+            "repeat",
+            "anomaly",
+            "anomaly_factor",
+        ],
+    ),
+    (
+        "stat",
+        &[
+            "mask",
+            "case",
+            "missing",
+            "missing_as",
+            "repeat",
+            "anomaly",
+            "anomaly_factor",
+        ],
+    ),
     // A pool reference hands the row a whole MEMBER from a table built before the
     // run, so there is no value of its own for the formatting layer to reach.
     (
         "pool",
-        &["mask", "case", "missing", "missing_as", "repeat", "anomaly", "anomaly_factor", "percent"],
+        &[
+            "mask",
+            "case",
+            "missing",
+            "missing_as",
+            "repeat",
+            "anomaly",
+            "anomaly_factor",
+            "percent",
+        ],
     ),
 ];

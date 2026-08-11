@@ -64,7 +64,15 @@ fn a_batch_of_nothing_asks_no_service_anything() {
     // count=0 must not open a socket. A config with a parent that filtered
     // everything out reaches here, and a service woken to be asked for nothing
     // is a service that will be woken a lot.
-    let values = http::fetch("http://127.0.0.1:1/never", 0, None, None, OnError::Fail, 1, None)
-        .expect("no call, no failure");
+    let values = http::fetch(
+        "http://127.0.0.1:1/never",
+        0,
+        None,
+        None,
+        OnError::Fail,
+        1,
+        None,
+    )
+    .expect("no call, no failure");
     assert!(values.is_empty());
 }

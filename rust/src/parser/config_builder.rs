@@ -771,8 +771,21 @@ const WHOLE_COLUMN_ATTRS: [&str; 2] = ["uniq", "order"];
 /// runs. A `<sequence>` named one of these can never be set by a caller: the
 /// parameter simply does not exist, however plainly the pack declares it.
 const RESERVED_TEMPLATE_NAMES: [&str; 15] = [
-    "type", "value", "local", "name", "if", "comment", "anomaly", "anomaly_factor",
-    "anomaly_flag", "missing", "missing_as", "mask", "case", "order", "cycle",
+    "type",
+    "value",
+    "local",
+    "name",
+    "if",
+    "comment",
+    "anomaly",
+    "anomaly_factor",
+    "anomaly_flag",
+    "missing",
+    "missing_as",
+    "mask",
+    "case",
+    "order",
+    "cycle",
 ];
 
 /// A pack sequence whose name the engine takes for itself, so no caller can set it.

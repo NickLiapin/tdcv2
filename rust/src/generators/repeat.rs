@@ -26,6 +26,9 @@ pub const MAX_REPEAT: i32 = 64;
 
 pub const DEFAULT_SEPARATOR: &str = ",";
 
+/// Bounded retries before a `distinct` draw admits it cannot find a fresh value.
+pub const DISTINCT_MAX_TRIES: usize = 64;
+
 #[derive(Clone, Debug)]
 pub struct Spec {
     pub min: i32,
@@ -33,6 +36,14 @@ pub struct Spec {
     pub separator: String,
     /// `accumulate=`: the list is replaced by its running total before joining.
     pub accumulate: Option<String>,
+    /// `distinct=`: the row's values are drawn WITHOUT replacement.
+    ///
+    /// This changes the regime the column is built in, which is why `percent` is refused
+    /// beside it. Ordinarily a listed column lays its values out over the whole run as an
+    /// exact quota; under `distinct` it draws per row instead, because holding an exact
+    /// whole-run quota AND a per-row guarantee at once costs either streaming or the
+    /// randomness of the sample. Frequencies stay approximate, rows stay independent.
+    pub distinct: bool,
 }
 
 /// `None` when the generator has no `repeat`, which is the ordinary case.
@@ -76,6 +87,7 @@ pub fn parse(attrs: &BTreeMap<String, String>) -> EngineResult<Option<Spec>> {
             .cloned()
             .unwrap_or_else(|| DEFAULT_SEPARATOR.to_string()),
         accumulate: super::accumulate::read(attrs),
+        distinct: read_distinct(attrs),
     }))
 }
 
@@ -263,4 +275,98 @@ fn whole(text: &str, raw: &str, label: &str) -> EngineResult<i32> {
             "repeat: {label} of \"{raw}\" must be a whole number"
         )),
     }
+}
+
+/// `distinct="true"`. Anything but the two words is refused by the validator.
+pub fn read_distinct(attrs: &BTreeMap<String, String>) -> bool {
+    attrs.get("distinct").map(|v| v.trim()) == Some("true")
+}
+
+/// Draw `keep` DIFFERENT values from a weighted list, one uniform per pick.
+///
+/// Weights survive — a frequent name is still likelier to be picked first — but the exact
+/// whole-run quota does not, which is the documented price of `distinct` and the reason
+/// `percent` may not appear beside it.
+///
+/// Running out is an error rather than a short list: a cell quietly shorter than `repeat`
+/// asked for is the silent-and-wrong outcome the feature exists to prevent.
+pub fn draw_distinct(
+    values: &[String],
+    weights: &[f64],
+    keep: usize,
+    mut next_uniform: impl FnMut() -> f64,
+    describe_pool: &str,
+) -> EngineResult<Vec<String>> {
+    if keep > values.len() {
+        return invalid(&format!(
+            "repeat with distinct=\"true\" asks for {keep} different values, but {describe_pool} holds only {}",
+            values.len()
+        ));
+    }
+
+    // Weighted draw without replacement: pick against the remaining weight, then swap the
+    // winner out with the last live candidate. What remains is a pure function of the picks
+    // already made, so the draw stays deterministic.
+    let mut pool: Vec<String> = values.to_vec();
+    let mut w: Vec<f64> = if weights.len() == values.len() {
+        weights.to_vec()
+    } else {
+        vec![1.0; values.len()]
+    };
+    let mut total: f64 = w.iter().filter(|x| **x > 0.0).sum();
+
+    let mut out: Vec<String> = Vec::with_capacity(keep);
+    for picked in 0..keep {
+        let size = pool.len() - picked;
+        let mut index = size - 1;
+        if total > 0.0 {
+            let mut target = next_uniform() * total;
+            for (i, weight) in w.iter().take(size).enumerate() {
+                target -= weight.max(0.0);
+                if target < 0.0 {
+                    index = i;
+                    break;
+                }
+            }
+        } else {
+            index = ((next_uniform() * size as f64) as usize).min(size - 1);
+        }
+        let chosen = pool[index].clone();
+        total -= w[index].max(0.0);
+        let last = size - 1;
+        pool[index] = pool[last].clone();
+        w[index] = w[last];
+        pool[last] = chosen.clone();
+        out.push(chosen);
+    }
+    Ok(out)
+}
+
+/// Ask `draw` for a value that is not already in `seen`.
+///
+/// A drawn generator has no pool to draw down, so `distinct` is rejection sampling. `draw`
+/// receives the sub-stream suffix: empty for the first attempt (so a config WITHOUT
+/// `distinct` reads the very same stream), then `r1`, `r2` and so on.
+///
+/// Exhausting the tries is an error rather than a duplicate or a short list.
+/// `regex="[01]"` under `repeat="5"` cannot be satisfied by anything, and saying so is the
+/// entire point of the attribute.
+pub fn redraw_until_fresh(
+    seen: &[String],
+    gen_type: &str,
+    mut draw: impl FnMut(&str) -> EngineResult<String>,
+) -> EngineResult<String> {
+    let mut value = draw("")?;
+    let mut attempt = 1usize;
+    while seen.contains(&value) && attempt <= DISTINCT_MAX_TRIES {
+        value = draw(&format!("r{attempt}"))?;
+        attempt += 1;
+    }
+    if seen.contains(&value) {
+        return invalid(&format!(
+            "repeat with distinct=\"true\" could not find {} different values for <gen type=\"{gen_type}\"> after {DISTINCT_MAX_TRIES} tries — the generator does not produce that many",
+            seen.len() + 1
+        ));
+    }
+    Ok(value)
 }

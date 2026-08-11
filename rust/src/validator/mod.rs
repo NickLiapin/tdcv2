@@ -879,11 +879,9 @@ impl Validator {
                     // A pool reference draws no column of its own — it hands the row a
                     // whole member from a table built before the run — so there is
                     // nothing to take without replacement.
-                    if open
-                        .children
-                        .iter()
-                        .any(|c| c.name == "gen" && c.attr("type").map(|a| a.value()) == Some("pool"))
-                    {
+                    if open.children.iter().any(|c| {
+                        c.name == "gen" && c.attr("type").map(|a| a.value()) == Some("pool")
+                    }) {
                         self.uniq_unsupported(
                             open,
                             Some(n),
@@ -1082,9 +1080,11 @@ impl Validator {
             // config the run would have answered. Raw text refused `code == Want`
             // where the members hold 01,02,03 and the column produces 1,2,3 — the
             // same question written with one extra term matched every row.
-            let field_keys: BTreeSet<String> =
-                field_values.iter().map(|v| match_key(v)).collect();
-            if other_values.iter().any(|v| field_keys.contains(&match_key(v))) {
+            let field_keys: BTreeSet<String> = field_values.iter().map(|v| match_key(v)).collect();
+            if other_values
+                .iter()
+                .any(|v| field_keys.contains(&match_key(v)))
+            {
                 continue;
             }
 
@@ -1836,13 +1836,14 @@ impl Validator {
     /// same text — a mask hides the digits that told them apart, `case` folds
     /// `ab` and `AB` together, `missing` writes the same blank on many rows,
     /// `repeat` turns the cell into a list.
-    const DROPPED_BY_UNIQ: [&str; 8] = [
+    const DROPPED_BY_UNIQ: [&str; 9] = [
         "mask",
         "case",
         "missing",
         "missing_as",
         "repeat",
         "separator",
+        "distinct",
         "anomaly",
         "anomaly_flag",
     ];
@@ -2448,7 +2449,11 @@ impl Validator {
         // threw at run time — and Python read the attribute as milliseconds,
         // so the documented `timeout="30"` gave up after 30ms.
         if let Some(timeout) = attrs.get("timeout") {
-            let ok = timeout.trim().parse::<f64>().map(|v| v > 0.0).unwrap_or(false);
+            let ok = timeout
+                .trim()
+                .parse::<f64>()
+                .map(|v| v > 0.0)
+                .unwrap_or(false);
             if !ok {
                 self.error(
                     "TDC069",
@@ -3260,7 +3265,11 @@ impl Validator {
         if attrs.get("first_zero").map(|s| s.trim()) != Some("false") {
             return;
         }
-        let value = attrs.get("value").map(|s| s.trim()).unwrap_or("").to_string();
+        let value = attrs
+            .get("value")
+            .map(|s| s.trim())
+            .unwrap_or("")
+            .to_string();
         let length = attrs.get("length").map(|s| s.trim()).unwrap_or("");
         if value.is_empty() || length.is_empty() {
             return;
@@ -3745,7 +3754,11 @@ impl Validator {
     /// swapped.
     fn check_date_range_not_reversed(&mut self, gen: &Element, attrs: &Attrs) {
         let mut pairs: Vec<(String, String, &str)> = vec![(
-            attrs.get("from").map(|v| v.trim()).unwrap_or("").to_string(),
+            attrs
+                .get("from")
+                .map(|v| v.trim())
+                .unwrap_or("")
+                .to_string(),
             attrs.get("to").map(|v| v.trim()).unwrap_or("").to_string(),
             "to",
         )];
@@ -3757,7 +3770,11 @@ impl Validator {
             .to_string();
         if let Some(dots) = raw.find("..") {
             if dots > 0 {
-                let where_ = if attrs.get("range").is_some() { "range" } else { "value" };
+                let where_ = if attrs.get("range").is_some() {
+                    "range"
+                } else {
+                    "value"
+                };
                 pairs.push((raw[..dots].to_string(), raw[dots + 2..].to_string(), where_));
             }
         }
@@ -3949,6 +3966,7 @@ impl Validator {
         };
 
         self.check_accumulate(gen, attrs, repeats);
+        self.check_distinct(gen, attrs, repeats, gen_type);
 
         if repeats {
             if let Some(reason) = repeat_unsupported_reason(gen_type) {
@@ -3971,6 +3989,87 @@ impl Validator {
                 "\"separator\" has no effect without \"repeat\"".to_string(),
                 "separator joins the values a repeating gen produces. Add repeat=\"N\", or drop it.",
                 gen.at("separator"),
+            );
+        }
+    }
+
+    /// `distinct="true"` — the row's values are drawn without replacement.
+    ///
+    /// Four refusals, and each one is a proof rather than a guess. They exist because the
+    /// alternative in every case is a config that says something and silently gets
+    /// something else.
+    fn check_distinct(
+        &mut self,
+        gen: &Element,
+        attrs: &Attrs,
+        repeats: bool,
+        gen_type: Option<&str>,
+    ) {
+        let Some(raw) = attrs.get("distinct") else {
+            return;
+        };
+        let word = raw.trim();
+        if word != "true" && word != "false" {
+            self.error(
+                "TDC289",
+                format!("\"distinct\" takes true or false, not \"{word}\""),
+                "distinct=\"true\" draws a repeat list without replacement. Omit it, or write \
+                 distinct=\"false\".",
+                gen.at("distinct"),
+            );
+            return;
+        }
+        if word == "false" {
+            return;
+        }
+
+        // One value cannot repeat itself, so the attribute would be read and then do
+        // nothing — the accepted-and-ignored failure this project keeps closing.
+        if !repeats {
+            self.error(
+                "TDC290",
+                "\"distinct\" has no effect without \"repeat\"".to_string(),
+                "distinct= stops one cell holding the same value twice, so there has to be a \
+                 list. Add repeat=\"N\" or repeat=\"A..B\", or drop distinct=.",
+                gen.at("distinct"),
+            );
+            return;
+        }
+
+        // `percent` is an EXACT quota over the whole run; `distinct` is a guarantee inside
+        // one row. Holding both would cost either streaming or the randomness of the
+        // sample, so the pair is refused.
+        if attrs.contains_key("percent") {
+            self.error(
+                "TDC291",
+                "\"percent\" and \"distinct\" cannot both be on one <gen>".to_string(),
+                "percent= promises exact proportions across the whole run; distinct= trades \
+                 that promise away for a guarantee inside each row, so the two cannot both \
+                 hold. Drop one — or put the proportions on a <mix> or <switch> outside, with \
+                 repeat= on the <gen> inside.",
+                gen.at("percent"),
+            );
+        }
+
+        // The pool is only knowable up front for the types that carry it in the config.
+        // Where it is not — a pack file, a regex — the same refusal fires at run time.
+        let Some(pool) = distinct_pool_size(gen_type, attrs) else {
+            return;
+        };
+        let Ok(Some(spec)) = repeat::parse(attrs) else {
+            return; // A malformed repeat= is already reported as TDC195.
+        };
+        let longest = spec.max as usize;
+        if longest > pool {
+            self.error(
+                "TDC292",
+                format!(
+                    "\"repeat\" asks for up to {longest} different values, but the list holds only {pool}"
+                ),
+                &format!(
+                    "With distinct=\"true\" a value cannot be used twice in one cell, so {longest} of them cannot be found. Lower repeat=, or widen value=."
+                ),
+                gen.at("repeat"),
             );
         }
     }
@@ -4696,7 +4795,9 @@ impl Validator {
             if let Some(a) = arg {
                 self.error(
                     "TDC274",
-                    format!("the \"{kind}\" filter takes no argument — \":{a}\" is read by nothing"),
+                    format!(
+                        "the \"{kind}\" filter takes no argument — \":{a}\" is read by nothing"
+                    ),
                     &format!(
                         "Write ${{{{X|{kind}}}}}. Chain filters with more pipes instead: \
                          ${{{{X|trim|{kind}}}}}."
@@ -4738,7 +4839,9 @@ impl Validator {
             if start.is_none() || end == Some(None) {
                 self.error(
                     "TDC273",
-                    format!("\"slice:{a}\" is not a pair of indices — the value comes out unsliced"),
+                    format!(
+                        "\"slice:{a}\" is not a pair of indices — the value comes out unsliced"
+                    ),
                     "Indices are whole numbers, 0-based, end exclusive: ${{X|slice:0,4}}. A \
                      negative index counts from the end: ${{X|slice:-3}}.",
                     at,
@@ -4767,7 +4870,9 @@ impl Validator {
                 if size.is_none_or(|n| n <= 0) {
                     self.error(
                         "TDC273",
-                        format!("\"group:{a}\" is not a group size — the value comes out ungrouped"),
+                        format!(
+                            "\"group:{a}\" is not a group size — the value comes out ungrouped"
+                        ),
                         "The size is a whole number above zero, counted from the RIGHT: \
                          ${{X|group:3}} \u{2192} 1 234 567. A separator follows it: \
                          ${{X|group:4,-}}.",
@@ -5302,6 +5407,61 @@ fn interpolations(text: &str) -> Vec<String> {
 }
 
 /// A generator type on which `repeat=` is refused, and why.
+/// How many different values this generator can offer, when the config alone says so.
+///
+/// `None` means "not knowable here" — never a guess. A pack file, a regex or a date shape is
+/// read while generating, so those fall to the run-time refusal instead.
+fn distinct_pool_size(gen_type: Option<&str>, attrs: &Attrs) -> Option<usize> {
+    let value = attrs.get("value").map(|v| v.trim()).unwrap_or("");
+    if value.is_empty() {
+        return None;
+    }
+    match gen_type {
+        Some("text") => Some(
+            value
+                .split(',')
+                .map(str::trim)
+                .collect::<std::collections::BTreeSet<_>>()
+                .len(),
+        ),
+        // A one-character symbol draws from its inline set, so the set IS the pool. Only the
+        // plain shape is counted: a named `alphabet`, `include`/`exclude`, or a length above
+        // one all change the answer, and a refusal built on a guess is worse than no refusal.
+        Some("symbol") => {
+            let plain = blank(attrs.get("alphabet"))
+                && blank(attrs.get("include"))
+                && blank(attrs.get("exclude"))
+                && matches!(
+                    attrs.get("length").map(|v| v.trim()).unwrap_or(""),
+                    "" | "1"
+                );
+            if !plain {
+                return None;
+            }
+            crate::unicode::char_set::parse(value).ok().map(|chars| {
+                chars
+                    .into_iter()
+                    .collect::<std::collections::BTreeSet<_>>()
+                    .len()
+            })
+        }
+        Some("number") => {
+            let dots = value.find("..")?;
+            if !blank(attrs.get("decimals")) {
+                return None;
+            }
+            // Only whole-number ranges have a countable pool.
+            let lo: i64 = value[..dots].trim().parse().ok()?;
+            let hi: i64 = value[dots + 2..].trim().parse().ok()?;
+            if hi < lo {
+                return None;
+            }
+            Some((hi - lo + 1) as usize)
+        }
+        _ => None,
+    }
+}
+
 fn repeat_unsupported_reason(gen_type: Option<&str>) -> Option<&'static str> {
     match gen_type {
         Some("increment" | "decrement" | "timeseries" | "pattern") => Some(

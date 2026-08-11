@@ -31,12 +31,12 @@ use std::collections::BTreeMap;
 
 use super::memory::{self, Env};
 use super::{invalid, unsupported, EngineError, EngineResult, RowSource};
-use crate::expr::match_key::match_key;
 use crate::compute;
 use crate::date;
 use crate::distribution::percent_mask;
 use crate::engine::exact_uniq;
 use crate::expr::evaluate;
+use crate::expr::match_key::match_key;
 use crate::format::interpolate::{self, Lookup};
 use crate::format::{mask, transforms};
 use crate::generators::{date_offset, file, imperfections, number, repeat};
@@ -161,7 +161,14 @@ impl RepeatPlan {
 /// know about any other, and the totals still come out exactly as declared.
 #[derive(Clone, Debug)]
 struct Quota {
+    /// Needed by `distinct`, whose per-row draw comes off a `#dist` sub-stream of this id —
+    /// the same one the in-memory engine uses, which is what makes the two agree.
+    stream_id: String,
     values: Vec<String>,
+    /// The declared shares. `counts` is their Hamilton apportionment over the slots; the two
+    /// are not interchangeable, because rounding moves a count by one and a `distinct` draw
+    /// weighted by counts would then diverge from the reference near a boundary.
+    percents: Vec<f64>,
     counts: Vec<i32>,
     cum_hi: Vec<i32>,
     key: i32,
@@ -264,6 +271,9 @@ enum Column {
         plan: RepeatPlan,
         repeat_key: i32,
         stream: String,
+        /// `distinct="true"`: the row's values are drawn without replacement. A drawn
+        /// generator has no pool to draw down, so this is bounded rejection sampling.
+        distinct: bool,
         /// The flag column rather than the value column: a parallel LIST of
         /// booleans, because one boolean could not say which element spiked.
         flags: bool,
@@ -1104,7 +1114,10 @@ impl StreamEngine<'_> {
                 plan,
                 repeat_key,
                 modifier,
-                attrs.get("anomaly_flag").map(|n| n.trim().to_string()).filter(|n| !n.is_empty()),
+                attrs
+                    .get("anomaly_flag")
+                    .map(|n| n.trim().to_string())
+                    .filter(|n| !n.is_empty()),
             ));
         }
 
@@ -1143,6 +1156,7 @@ impl StreamEngine<'_> {
                 plan: plan.clone(),
                 repeat_key,
                 stream: stream_id.to_string(),
+                distinct: spec.distinct,
                 flags: false,
             };
             let flag_name = trim_to_none(attrs.get("anomaly_flag").map(String::as_str))
@@ -1156,6 +1170,7 @@ impl StreamEngine<'_> {
                 plan,
                 repeat_key,
                 stream: stream_id.to_string(),
+                distinct: spec.distinct,
                 flags: true,
             });
             return Ok(Built {
@@ -1705,8 +1720,10 @@ impl StreamEngine<'_> {
         let mut prng = prng::create(&format!("{}|{stream_id}|pct", self.seed));
         let counts = hamilton::counts_per_value(slot_count, percents, &mut prng);
         let quota = Quota {
+            stream_id: stream_id.to_string(),
             cum_hi: cumulative(&counts),
             values,
+            percents: percents.to_vec(),
             counts,
             key: permute::key(&self.seed, stream_id),
             slot_count,
@@ -1837,7 +1854,10 @@ impl StreamEngine<'_> {
             (Some((_, column)), Some(buckets)) => {
                 let wanted = self.value_at(column, row)?.unwrap_or_default();
                 (
-                    buckets.get(&match_key(&wanted)).cloned().unwrap_or_default(),
+                    buckets
+                        .get(&match_key(&wanted))
+                        .cloned()
+                        .unwrap_or_default(),
                     format!(" ({column}=\"{wanted}\")"),
                 )
             }
@@ -2075,6 +2095,7 @@ impl StreamEngine<'_> {
                 plan,
                 repeat_key,
                 stream,
+                distinct,
                 flags,
             } => {
                 let Some(p) = self.repeat_pos_at(domain, *repeat_key, row)? else {
@@ -2082,14 +2103,24 @@ impl StreamEngine<'_> {
                 };
                 let mut parts = Vec::new();
                 for k in 0..plan.length_at(p) {
-                    let element_stream = format!("{stream}#e{k}");
                     if *flags {
+                        let element_stream = format!("{stream}#e{k}");
                         let mut spiked = [false];
                         self.one_value(gen, &element_stream, row, Some(&mut spiked))?;
                         parts.push(bool_text(spiked[0]));
-                    } else {
-                        parts.push(self.one_value(gen, &element_stream, row, None)?);
+                        continue;
                     }
+                    // A drawn generator has no pool to draw down, so `distinct` is
+                    // rejection sampling on fresh sub-streams — the same ids the reference
+                    // uses, so the two agree value for value.
+                    let draw_at = |suffix: &str| -> EngineResult<String> {
+                        self.one_value(gen, &format!("{stream}#e{k}{suffix}"), row, None)
+                    };
+                    parts.push(if *distinct {
+                        repeat::redraw_until_fresh(&parts, &gen.gen_type, draw_at)?
+                    } else {
+                        draw_at("")?
+                    });
                 }
                 let running = match accumulate {
                     Some(op) => match crate::generators::accumulate::apply(&parts, op) {
@@ -2342,8 +2373,38 @@ impl StreamEngine<'_> {
         let Some(p) = self.repeat_pos_at(&quota.domain, quota.repeat_key, row)? else {
             return Ok(None);
         };
+        let keep = plan.length_at(p);
         let mut parts = Vec::new();
-        for k in 0..plan.length_at(p) {
+        // `distinct` cannot read a pre-laid-out slot — a row that must not repeat itself has
+        // to CHOOSE. One uniform per pick off the row's own `#dist` stream, budgeted at the
+        // maximum length, so the row still resolves alone and the in-memory engine lands on
+        // the same values.
+        if spec.distinct {
+            let draws = seekable::uniforms(
+                &self.seed,
+                &format!("{}#dist", quota.stream_id),
+                row,
+                spec.max as usize,
+            );
+            let mut at = 0usize;
+            let picked = repeat::draw_distinct(
+                &quota.values,
+                &quota.percents,
+                keep as usize,
+                || {
+                    let u = draws.get(at).copied().unwrap_or(1.0);
+                    at += 1;
+                    u
+                },
+                "the value list",
+            )?;
+            for (k, raw) in picked.into_iter().enumerate() {
+                let dressed = self.modify(&quota.modifier, row, Some(raw), k)?;
+                parts.push(dressed.unwrap_or_default());
+            }
+            return Ok(Some(repeat::join(&parts, spec)?));
+        }
+        for k in 0..keep {
             let raw = match self.slot_at(quota, row, k)? {
                 Some(slot) => quota.values[run_for(&quota.cum_hi, slot)].clone(),
                 None => String::new(),
@@ -2746,7 +2807,9 @@ impl evaluate::Scope for StreamMemberScope<'_> {
             .flatten()
             .unwrap_or_default();
         if self.engine.columns.contains_key(name) {
-            self.read.borrow_mut().insert(name.to_string(), value.clone());
+            self.read
+                .borrow_mut()
+                .insert(name.to_string(), value.clone());
         }
         value
     }

@@ -126,7 +126,9 @@ pub fn parameter_widths(body: &str) -> BTreeMap<String, usize> {
         let tag = &rest[..tag_end];
         let name = attr(tag, "name").map(str::to_string);
         rest = &rest[tag_end + 1..];
-        let Some(close) = rest.find("</sequence>") else { break };
+        let Some(close) = rest.find("</sequence>") else {
+            break;
+        };
         let inner = &rest[..close];
         rest = &rest[close..];
 
@@ -142,7 +144,9 @@ pub fn parameter_widths(body: &str) -> BTreeMap<String, usize> {
         }
         let gen_at = inner.find("<gen").expect("counted one above");
         let after = &inner[gen_at + "<gen".len()..];
-        let Some(gen_end) = after.find('>') else { continue };
+        let Some(gen_end) = after.find('>') else {
+            continue;
+        };
         let gen_tag = &after[..gen_end];
         // A named <gen> is one field of a compound; repetition or formatting means the
         // bare width read below is no longer what the sequence produces.

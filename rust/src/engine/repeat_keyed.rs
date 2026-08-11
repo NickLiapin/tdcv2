@@ -33,6 +33,7 @@ pub fn build_draws(
     spec: &repeat::Spec,
     count: usize,
     stream: &Stream,
+    gen_type: &str,
     mut one_element: impl FnMut(usize, &mut Sfc32, &mut [bool]) -> EngineResult<String>,
     mut flag_text_out: Option<&mut Vec<String>>,
 ) -> EngineResult<Vec<String>> {
@@ -44,10 +45,24 @@ pub fn build_draws(
         let mut parts = Vec::with_capacity(keep);
         let mut marks = Vec::with_capacity(keep);
         for k in 0..keep {
-            let mut element_prng =
-                seekable::generator(&stream.seed, &format!("{}#e{k}", stream.id), row as i32);
             let mut flag = [false];
-            parts.push(one_element(k, &mut element_prng, &mut flag)?);
+            // A drawn generator has no pool to draw down, so `distinct` is rejection
+            // sampling on fresh sub-streams — the same ids the reference uses, so the two
+            // agree value for value.
+            let mut draw_at = |suffix: &str, flag: &mut [bool]| -> EngineResult<String> {
+                let mut element_prng = seekable::generator(
+                    &stream.seed,
+                    &format!("{}#e{k}{suffix}", stream.id),
+                    row as i32,
+                );
+                one_element(k, &mut element_prng, flag)
+            };
+            let value = if spec.distinct {
+                repeat::redraw_until_fresh(&parts, gen_type, |suffix| draw_at(suffix, &mut flag))?
+            } else {
+                draw_at("", &mut flag)?
+            };
+            parts.push(value);
             marks.push(if flag[0] { "true" } else { "false" }.to_string());
         }
         out.push(repeat::join(&parts, spec)?);
@@ -104,9 +119,37 @@ pub fn build_layout(
         let start = plan.slot_start_at(p);
         let keep = plan.length_at(p);
         let mut parts = Vec::with_capacity(keep);
-        for k in 0..keep {
-            let raw = value_for_slot(permute::apply((start + k) as i32, slots as i32, key));
-            parts.push(modify(row, raw, k));
+        // `distinct` leaves the whole-run layout behind: a row that must not repeat itself
+        // has to CHOOSE from the pool, and a choice cannot be read off a pre-laid-out slot.
+        // One uniform per pick off the row's own stream, budgeted at the maximum length, so
+        // the row still resolves alone.
+        if spec.distinct {
+            let draws = seekable::uniforms(
+                &stream.seed,
+                &format!("{}#dist", stream.id),
+                row as i32,
+                spec.max as usize,
+            );
+            let mut at = 0usize;
+            let picked = repeat::draw_distinct(
+                values,
+                percents,
+                keep,
+                || {
+                    let u = draws.get(at).copied().unwrap_or(1.0);
+                    at += 1;
+                    u
+                },
+                "the value list",
+            )?;
+            for (k, raw) in picked.into_iter().enumerate() {
+                parts.push(modify(row, raw, k));
+            }
+        } else {
+            for k in 0..keep {
+                let raw = value_for_slot(permute::apply((start + k) as i32, slots as i32, key));
+                parts.push(modify(row, raw, k));
+            }
         }
         out.push(repeat::join(&parts, spec)?);
     }

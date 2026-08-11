@@ -22,16 +22,16 @@ fn signatures_match_every_implementation() {
 
     for vector in vectors {
         let name = vector.get("name").and_then(|v| v.as_str()).expect("name");
-        let secret = vector.get("secret").and_then(|v| v.as_str()).expect("secret");
+        let secret = vector
+            .get("secret")
+            .and_then(|v| v.as_str())
+            .expect("secret");
         let timestamp = vector
             .get("timestamp")
             .and_then(|v| v.as_str())
             .expect("timestamp");
         let seed = vector.get("seed").and_then(|v| v.as_str()).expect("seed");
-        let count = vector
-            .get("count")
-            .and_then(|v| v.as_i64())
-            .expect("count") as usize;
+        let count = vector.get("count").and_then(|v| v.as_i64()).expect("count") as usize;
         let body = vector.get("body").and_then(|v| v.as_str()).expect("body");
         let want = vector
             .get("signature")
@@ -90,6 +90,10 @@ fn derived_seeds_match_every_implementation() {
             .get("derived")
             .and_then(|v| v.as_str())
             .expect("derived");
-        assert_eq!(http::seed_for(env_seed, sequence), want, "{env_seed}|{sequence}");
+        assert_eq!(
+            http::seed_for(env_seed, sequence),
+            want,
+            "{env_seed}|{sequence}"
+        );
     }
 }

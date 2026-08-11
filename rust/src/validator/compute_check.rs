@@ -338,7 +338,10 @@ impl<'a> ComputeCheck<'a> {
                 // `<list>` has two spellings and reads only the first: with `v=` set the
                 // children are never evaluated, so writing both keeps whichever the author
                 // was not looking at.
-                if node.name == "list" && node.attr_value("v").is_some() && nodes(node).next().is_some() {
+                if node.name == "list"
+                    && node.attr_value("v").is_some()
+                    && nodes(node).next().is_some()
+                {
                     self.report(
                         node,
                         "TDC189",

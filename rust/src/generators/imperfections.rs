@@ -145,16 +145,16 @@ pub fn spike(value: &str, factor: f64) -> String {
 }
 
 /// The spike keeps the SHAPE of the value it replaced.
-/// 
+///
 /// Multiplying and re-stringifying threw away everything the column had already been
 /// rendered with — the zero padding length= asked for, and the decimal places decimals=
 /// asked for — so the outlier rows were the only ones in the file with a different shape:
-/// 
+///
 /// ```text
 /// length="5"    00014 00046 00053 ...  and then  117
 /// decimals="2"  85.66 40.97 11.52 ...  and then  6.445
 /// ```
-/// 
+///
 /// A column of fixed-width identifiers stopped being fixed width on exactly the rows a test
 /// is about to exercise, and a column declared with decimals is typed a float in Parquet — a
 /// third place is a value the declared type never promised. An outlier is meant to be far

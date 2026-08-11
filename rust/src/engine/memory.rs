@@ -18,13 +18,13 @@ use std::collections::{BTreeMap, BTreeSet};
 
 use super::per_row;
 use super::{invalid, not_ported, EngineError, EngineResult, RowSource};
-use crate::expr::match_key::match_key;
 use crate::compute;
 use crate::date;
 use crate::date::to_epoch_millis;
 use crate::distribution::percent_mask;
 use crate::expr::evaluate;
 use crate::expr::evaluate as expr;
+use crate::expr::match_key::match_key;
 use crate::format::interpolate::{self, Lookup};
 use crate::format::{mask, transforms};
 use crate::generators::accumulate;
@@ -404,7 +404,10 @@ fn pool_reference(
                     .get(column)
                     .and_then(|c| c.get(row).cloned().flatten())
                     .unwrap_or_default();
-                let found = buckets.get(&match_key(&wanted)).cloned().unwrap_or_default();
+                let found = buckets
+                    .get(&match_key(&wanted))
+                    .cloned()
+                    .unwrap_or_default();
                 (found, format!(" ({column}=\"{wanted}\")"))
             }
             _ => {
@@ -709,6 +712,7 @@ fn build_columns_with(
                                 &repeat_spec,
                                 applicable,
                                 &stream,
+                                &gen.gen_type,
                                 |_, element_prng, flag| {
                                     let drawn = generate(&element, 1, element_prng, env)?;
                                     let done =
@@ -2165,12 +2169,12 @@ fn resolve_http(
                     spec_text,
                     std::path::Path::new(env.base_dir.as_deref().unwrap_or(".")),
                 )
-                    .map_err(|why| {
-                        EngineError::Invalid(format!(
-                            "http service for sequence \"{}\": {why}",
-                            spec.name
-                        ))
-                    })?,
+                .map_err(|why| {
+                    EngineError::Invalid(format!(
+                        "http service for sequence \"{}\": {why}",
+                        spec.name
+                    ))
+                })?,
             ),
         };
 
