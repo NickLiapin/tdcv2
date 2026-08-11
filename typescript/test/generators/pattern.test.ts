@@ -228,6 +228,18 @@ describe('interp — how the line behaves between the drawn points', () => {
     }
   });
 
+  it('every mode reads the LAST drawn point at the right edge', () => {
+    // A step holds a point's value in the band to its right, and the last point
+    // has no band — so under step it used to be drawn and unreachable, and the
+    // edge reported the plateau before it while linear and smooth reported the
+    // point. Three modes, one drawing, no visible reason for the disagreement.
+    const p = parsePoints('0,0 50,100 100,25');
+    for (const mode of ['linear', 'smooth', 'step'] as const) {
+      const c = buildSignalCurve(p, [0, 100], 0, undefined, mode);
+      expect(signalValueAt(c, 1)).toBeCloseTo(25, 6);
+    }
+  });
+
   it('step holds each point until the next one', () => {
     expect(signalValueAt(stp, 0.25)).toBeCloseTo(signalValueAt(stp, 0.1), 6);
     expect(signalValueAt(stp, 0.75)).toBeCloseTo(signalValueAt(stp, 0.6), 6);

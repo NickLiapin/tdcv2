@@ -268,7 +268,15 @@ function heightAtX(curve: SignalCurve, x: number): number {
   const dx = xb - xa;
   if (dx <= 0) return ya;
   const s = (x - xa) / dx;
-  if (curve.interp === 'step') return ya;
+  // A step holds each point's value in the band to its RIGHT, up to the next
+  // point. The last point has no band — the drawing ends there — so it used to
+  // be drawn and yet unreachable, and the right edge reported the plateau
+  // before it. There is exactly one place the last point can be read, and it is
+  // the one place every run visits: the final coordinate itself, where the last
+  // card's line crosses the drawing. `linear` and `smooth` already answer with
+  // the drawn point there, so this is also what stops the three modes
+  // disagreeing at the edge for no reason a person could see.
+  if (curve.interp === 'step') return x >= xb ? yb : ya;
   if (curve.interp === 'smooth' && curve.slopes) {
     // Cubic Hermite on the segment with the monotone tangents.
     const ma = curve.slopes[k] ?? 0;
