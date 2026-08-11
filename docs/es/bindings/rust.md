@@ -19,7 +19,7 @@ Un solo crate: biblioteca y línea de comandos a la vez.
 ## Cómo obtenerlo
 
 > [!TIP]
-> **En crates.io — versión 0.2.0**
+> **En crates.io — versión 0.2.1**
 >
 >
 > ```bash

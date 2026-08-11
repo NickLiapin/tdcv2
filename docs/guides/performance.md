@@ -66,7 +66,7 @@ what 0.1.5 does and the other four are what 0.1.4 did.
 The engine changes between the two releases were a routing recovery and three diagnostic
 messages — none of which touches how fast a row is produced or how much memory a run holds.
 
-**These numbers have not been re-measured since.** The engine is at 0.2.0 now, and
+**These numbers have not been re-measured since.** The engine is at 0.2.1 now, and
 the work in between was correctness and diagnostics rather than throughput, so the shape —
 which engine wins where, how memory behaves — is the part to trust. Treat the absolute
 seconds as a measurement of 0.1.5 on one machine, not as a promise about your own.

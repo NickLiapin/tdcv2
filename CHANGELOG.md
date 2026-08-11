@@ -13,14 +13,14 @@ page — is tracked in that implementation's own changelog:
 [TypeScript](typescript/CHANGELOG.md) · [Python](python/CHANGELOG.md) ·
 [Java](java/CHANGELOG.md) · [C#](csharp/CHANGELOG.md) · [Rust](rust/CHANGELOG.md).
 
-## [Unreleased]
+## [0.2.1] — 2026-08-11
 
 ### Added
 
 <!-- covers: distinct -->
 
-- `distinct="true"` on a repeating generator draws the row's values **without
-  replacement**, so one cell cannot hold the same value twice. A double first name was
+- **`distinct="true"` on a repeating generator draws the row's values without
+  replacement, so one cell cannot hold the same value twice.** A double first name was
   the case that asked for it: `Jesus Jesus Gonzales` is not a name.
 
   ```xml
@@ -55,8 +55,8 @@ page — is tracked in that implementation's own changelog:
 
 <!-- covers: secret -->
 
-- `secret=` on a `<gen type="http">` signs each request, so a service can tell TDC from
-  anyone else who can reach the port. The secret is the key, never the message: two
+- **`secret=` on a `<gen type="http">` signs each request, so a service can tell TDC from
+  anyone else who can reach the port.** The secret is the key, never the message: two
   headers travel with the request and the key itself does not.
 
   ```
@@ -74,8 +74,8 @@ page — is tracked in that implementation's own changelog:
   anyone could forge. The engine sends its REAL clock rather than the run's `--now`, or a
   config pinned to a past date would be refused by every service that checks.
 
-- `X-TDC-Input: N` travels with every `http` request that carries `in=`, and says how many
-  input lines the body holds. It closes an ambiguity that reached services as a wrong
+- **`X-TDC-Input: N` travels with every `http` request that carries `in=`, and says how many
+  input lines the body holds.** It closes an ambiguity that reached services as a wrong
   answer: `in=` naming a column of one empty value sends an empty body, which is byte for
   byte what a pure source sends, so the service invented a value where it had been asked
   to process one — measured `city=[] handled=[68784219]`. A service that ignores the
@@ -86,7 +86,7 @@ page — is tracked in that implementation's own changelog:
 
 <!-- covers: === !== -->
 
-- `===` and `!==` now ask whether both sides print the same CHARACTERS. They used to be the
+- **`===` and `!==` now ask whether both sides print the same CHARACTERS.** They used to be the
   host language's identity test — "same type and same value" — which is a fine question in
   a language with types and a meaningless one here, because every column TDC produces is
   text and the only things that are not are the literals you write. Measured with `N` a
@@ -100,36 +100,36 @@ page — is tracked in that implementation's own changelog:
 
 <!-- covers: secret anomaly_flag group filter parent value mode interp spread decimals percent inject member -->
 
-- `<member name="…"/>` is gone. It sat in the allowed-children list of an env-level `<uniq>` /
+- **`<member name="…"/>` is gone.** It sat in the allowed-children list of an env-level `<uniq>` /
   `<distinct>` in all five implementations and was read by none of them: the name let it past
   the unknown-child check, the group then wrapped no sequences, and the author was handed
   TDC221 — a warning about the symptom, for a tag that does nothing. It was never designed,
   appears in no page of the documentation and in no fixture. It is now refused as TDC010, like
   any other invented tag.
 
-- Removing it exposed a wider hole. The children of an env-level group were checked by the
+- **Removing it exposed a wider hole.** The children of an env-level group were checked by the
   REFERENCE alone: the four ports each declared the list and never read it, so any invented tag
   inside `<uniq>` or `<distinct>` was accepted in silence. Measured with `<banana/>`: TDC010 in
   TypeScript, nothing at all in Python, Rust, Java and C#. All five now report the same code at
   the same position, and two shared cases hold both.
 
-- Rust left an `inject` marker unsubstituted where the other four implementations replaced it —
-  the same config, different data, and nothing said. `inject="%{%}%"` holds three `%` and the
+- **Rust left an `inject` marker unsubstituted where the other four implementations replaced it —
+  the same config, different data, and nothing said.** `inject="%{%}%"` holds three `%` and the
   slot is the MIDDLE one, the rightmost that still leaves text on both sides. The reference
   finds it by backtracking inside `(.+)%(.+)`; Rust took the last `%` with `rfind`, found
   nothing after it, and gave up, so every `%{Name}%` reached the output verbatim. Measured
   before the fix: four printed `1`, Rust printed `%{Id}%`. A shared case pins it, and it fails
   in Rust with the fix reverted.
 
-- The reference counted a `text` option list one way and drew from it another, so a legal
-  config could not be written. `value="a,,b"` is three options — measured over 300 rows, 100
+- **The reference counted a `text` option list one way and drew from it another, so a legal
+  config could not be written.** `value="a,,b"` is three options — measured over 300 rows, 100
   `a`, 100 `b` and 100 empty — but the validator dropped the empty one before counting and
   refused the documented `percent="30,40,30"` beside it as _"3 entries but value has 2"_. The
   four ports accepted it all along; only TypeScript refused. It now splits exactly as the
   generator does, the shares come out 90/120/90, and a genuine mismatch (two options, three
   shares) is still TDC051.
 
-- Documentation that measurement contradicted, in all three languages. Nothing here changes what
+- **Documentation that measurement contradicted, in all three languages.** Nothing here changes what
   the engine does; each entry is a page that described it wrongly.
   - The expression reference showed a refusal for an out-of-range integer LITERAL. There is
     none, and there must not be: `1 / 0 > 100000000000000000000` is how a config says "bigger
@@ -147,7 +147,7 @@ page — is tracked in that implementation's own changelog:
   - `mix.mdx` and `switch.mdx` still taught that a share below one row fails invisibly. TDC251
     warns on exactly that, twice on `mix.mdx`'s own example, naming the arithmetic.
 
-- `check` answered "would this run?" everywhere except one generator. A drawing's `mode=`,
+- **`check` answered "would this run?" everywhere except one generator.** A drawing's `mode=`,
   `interp=`, `spread=` and `decimals=` were read only at render time, so `check` called
   `mode="banana"` valid and exited 0, and the run then refused it with a bare sentence
   carrying no TDC code — in the one command the docs sell for CI. TDC285 now checks all four
@@ -155,8 +155,8 @@ page — is tracked in that implementation's own changelog:
   parsers rather than repeating their rules: a second copy of "linear, smooth or step" is a
   second thing to keep in step, and drifting apart is the failure being closed.
 
-- The two numbers a service recomputes were pinned by value in one or two implementations
-  and nowhere else. The signature lived in Rust and C#; the derived `X-TDC-Seed` lived in
+- **The two numbers a service recomputes were pinned by value in one or two implementations
+  and nowhere else.** The signature lived in Rust and C#; the derived `X-TDC-Seed` lived in
   Rust alone; Python's http generator had no tests at all. A port could have computed
   something entirely different and four suites would still have been green — the failure
   would have surfaced as 401s in a user's own service rather than as a red test here.
@@ -165,8 +165,23 @@ page — is tracked in that implementation's own changelog:
   field each, so an implementation that dropped a field from the signed message matches the
   first and fails the rest.
 
-- A blank `value=""` meant six different things across the five implementations, and one of
-  them invented data. Every per-type check asked only whether the attribute NODE was there,
+- **`timeout=` on a `<gen type="http">` was seconds in four implementations and milliseconds
+  in the fifth.** The generator's page says seconds, and TypeScript, Java, C# and Rust all
+  multiply by 1000; Python did not. So the documented default, written out:
+
+  ```
+  timeout="30"   ->  four: gives up after 30s
+                     Python: "did not answer within 30ms", in 0.185s
+  ```
+
+  Python's own default was 10s where the other four use 30s, so a config that set nothing
+  disagreed as well. Underneath sat a second divergence: nobody validated the attribute at
+  all — four fell back to the default in silence, Python threw at run time with no code and
+  no source line. `TDC069` now refuses a `timeout=` that is not a positive number of seconds
+  in all five, before the run, which closes the silence and the divergence together.
+
+- **A blank `value=""` meant six different things across the five implementations, and one of
+  them invented data.** Every per-type check asked only whether the attribute NODE was there,
   so blank text walked past a guard meant to catch a missing list and each generator then
   improvised its own answer:
 
@@ -184,8 +199,8 @@ page — is tracked in that implementation's own changelog:
   matches the empty string; both name something to draw from, both stay legal, and two shared
   cases pin that they do.
 
-- `anomaly_flag=` on a `<gen>` that is only one PART of its sequence minted no column at
-  all, while `check` called the config valid and the anomaly fired. A second `<gen>`, a
+- **`anomaly_flag=` on a `<gen>` that is only one PART of its sequence minted no column at
+  all, while `check` called the config valid and the anomaly fired.** A second `<gen>`, a
   `<data>` literal, or a `name=` that turns the gen into a field is enough — the values
   came out perturbed and `${{NAME}}` reached the output as its own literal text on every
   row, so the ground truth the author asked for was simply absent. The boundary was
@@ -193,7 +208,7 @@ page — is tracked in that implementation's own changelog:
   other three do not. TDC283 now refuses exactly those three, with the same reasoning
   TDC246 already applies to a `<gen>` inside a `<case>`.
 
-- `group:` put the separator inside the fraction of a decimal number. Chunking ran over
+- **`group:` put the separator inside the fraction of a decimal number.** Chunking ran over
   the whole string from the right, blind to the decimal point, so a money column came out
   `1 970 .30` — a number in no locale, from a config `check` called valid. The integer
   part is now grouped and the fraction left alone (`1234567.89` → `1 234 567.89`, the sign
@@ -202,26 +217,26 @@ page — is tracked in that implementation's own changelog:
   function serves both the `group:` filter and the `<group>` compute tag, so both are
   fixed.
 
-- A `<pool>` member's `if=` was checked against the RUN's names rather than the pool's, in
-  the four ports. Naming an env column passed `check` and was then constant-false on every
+- **A `<pool>` member's `if=` was checked against the RUN's names rather than the pool's, in
+  the four ports.** Naming an env column passed `check` and was then constant-false on every
   member — the table is built before any row exists — so the guarded column came out empty
   on every row. TDC215 now refuses it in all five; reading a SIBLING field of the same pool
   stays valid, which is the other direction of the same scope.
 
-- `order="sequential"` on only some members of a `row=` link had a refusal in all five and
-  no shared case behind it. TDC282 has one now, and the diagnostic surface is fully
+- **`order="sequential"` on only some members of a `row=` link had a refusal in all five and
+  no shared case behind it.** TDC282 has one now, and the diagnostic surface is fully
   covered again.
 
-- A pool `filter=` that matched nobody named the failing filter and the row number, and —
+- **A pool `filter=` that matched nobody named the failing filter and the row number, and —
   on the general expression path — nothing about the row itself, leaving the author unable
-  to tell a pool missing a member from a filter comparing against the wrong thing. The
+  to tell a pool missing a member from a filter comparing against the wrong thing.** The
   bucketed `field == Column` path had named the value all along. Both now say it:
   `no member satisfies filter="price < Budget" for row 1 (Budget="1")`. The names are
   recorded during the scan rather than parsed back out of the expression, so what the
   message reports is exactly what the filter read.
 
-- The qualified spelling of a pool filter fell off the bucketed fast path and scanned every
-  member. `Doctors.clinic == Clinic` is what TDC232 tells the author to write when a name
+- **The qualified spelling of a pool filter fell off the bucketed fast path and scanned every
+  member.** `Doctors.clinic == Clinic` is what TDC232 tells the author to write when a name
   is both a member field and a row column — and following that advice cost, measured on
   40,000 rows over a pool of 2,000:
 
@@ -236,8 +251,8 @@ page — is tracked in that implementation's own changelog:
 
 <!-- covers: range -->
 
-- Two spellings of the same date range on one `<gen>`: one silently won and the rest were
-  discarded. `value=`, the `from`/`to` pair and `range=` are three ways to say one thing, and
+- **Two spellings of the same date range on one `<gen>`: one silently won and the rest were
+  discarded.** `value=`, the `from`/`to` pair and `range=` are three ways to say one thing, and
   the generator read them in that order and stopped:
 
   ```
@@ -247,14 +262,14 @@ page — is tracked in that implementation's own changelog:
 
   The page already said to use only one; nothing enforced it. TDC280 now does.
 
-- A reversed range was quietly swapped. The draw took the min and max of the two ends, so
+- **A reversed range was quietly swapped.** The draw took the min and max of the two ends, so
   `from="2020-01-01" to="2010-01-01"` produced perfectly plausible dates from a range nobody
   wrote. `plus="10..3d"` has been refused as a typo rather than swapped since it was written;
   this is the same typo, and TDC281 refuses it the same way.
 
 <!-- covers: column weight -->
 
-- A blank cell in a file column silently deleted its row from the values. The row left the
+- **A blank cell in a file column silently deleted its row from the values.** The row left the
   pool entirely, so the file's own proportions stopped being the run's — measured on a
   three-person CSV with one empty email, 60 rows came out 28 / 32 between the other two and
   no sign of the third at all. It is now refused, and the message names the value row. The
@@ -264,7 +279,7 @@ page — is tracked in that implementation's own changelog:
 
 <!-- covers: anomaly anomaly_factor -->
 
-- An `anomaly=` spike broke the shape of the column it was in. The value had already been
+- **An `anomaly=` spike broke the shape of the column it was in.** The value had already been
   rendered — zero-padded to `length=`, or fixed to `decimals=` places — and the spike
   multiplied the raw number and re-stringified it, discarding both:
 
@@ -281,7 +296,7 @@ page — is tracked in that implementation's own changelog:
 
 <!-- covers: decimals first_zero -->
 
-- Three number attributes were accepted and then discarded inside the generator, each
+- **Three number attributes were accepted and then discarded inside the generator**, each
   leaving a column that looks right:
 
   ```
@@ -299,8 +314,8 @@ page — is tracked in that implementation's own changelog:
 
 <!-- covers: from to format precision oldest youngest length include exclude decimals distribution regex_max_length mode -->
 
-- Thirteen real attributes were accepted on generator types that never read them, and the
-  column came out wrong without a word. `from`/`to` were the worst of them — they are the
+- **Thirteen real attributes were accepted on generator types that never read them, and the
+  column came out wrong without a word.** `from`/`to` were the worst of them — they are the
   natural way to write a numeric range, they are real attributes, and a number generator has
   never read either:
 
@@ -323,21 +338,21 @@ page — is tracked in that implementation's own changelog:
 
 <!-- covers: == != -->
 
-- A column of amounts failed its own equality test. `Total == 100` was false while
+- **A column of amounts failed its own equality test.** `Total == 100` was false while
   `Total > 99` was true, because 100 is a whole number and `100.00` is not, so the two
   never met. The ordering operators had always read the column as a hundred; only equality
   disagreed, and said nothing.
 
 <!-- covers: if -->
 
-- A whole number written in a condition was false at zero in three implementations and true
-  in two, so `if="1 - 1"` answered differently depending on which one ran it. It is false
+- **A whole number written in a condition was false at zero in three implementations and true
+  in two, so `if="1 - 1"` answered differently depending on which one ran it.** It is false
   everywhere now, like the double beside it. Text is unaffected: `""` and `"false"` are
   false, and every other text — `"0"` included — is true.
 
 <!-- covers: filter -->
 
-- A pool filter refused a config its own twin accepted. `field == Column` is bucketed
+- **A pool filter refused a config its own twin accepted.** `field == Column` is bucketed
   rather than evaluated, and the bucket was keyed by raw text where `==` compares whole
   numbers. On a pool holding `01,02,03` against a column producing `1,2,3`,
   `filter="code == Want"` was refused by TDC225 as unmatchable, while
@@ -346,7 +361,7 @@ page — is tracked in that implementation's own changelog:
 
 <!-- covers: --jobs -->
 
-- A parallel run silently disagreed with a single-threaded one. The coordinator built its
+- **A parallel run silently disagreed with a single-threaded one.** The coordinator built its
   workers from the COMMAND LINE rather than from the resolved config, so three things were
   dropped on the way in: the config's own `local=` (the locale flag's default `en` won
   instead), every installed data pack (the worker fell back to the bundled set), and the
@@ -358,23 +373,23 @@ page — is tracked in that implementation's own changelog:
 
 <!-- covers: TDC267 -->
 
-- `uniq="true"` on a simple sequence silently discarded `mask=`, `case=`, `missing=`,
-  `missing_as=`, `repeat=`, `separator=` and `anomaly=` on its `<gen>`. A draw without
+- **`uniq="true"` on a simple sequence silently discarded `mask=`, `case=`, `missing=`,
+  `missing_as=`, `repeat=`, `separator=` and `anomaly=` on its `<gen>`.** A draw without
   replacement produces the column directly and never reaches the layer that rewrites
   values, so a masked column came out unmasked and a `missing="1"` column came out
   complete — with `check` reporting the config valid. The combination is now refused by
   TDC267, which names the attribute. Applying them instead would have broken the promise
   from the other side: a mask maps two distinct draws onto the same characters.
 
-- `uniq="True"` was a silent no-op. The engine compared the raw attribute against the
+- **`uniq="True"` was a silent no-op.** The engine compared the raw attribute against the
   lowercase literal while the validator lowercased it first, so a capitalised value passed
   validation as a uniqueness promise and then drew with replacement. Every other boolean
   attribute in the DSL is read case-insensitively; `uniq` now is too, in all five.
 
 <!-- covers: distinct -->
 
-- A `<switch>` member of an env-level `<distinct>` came out **blank** on the rows where it
-  collided, on every engine and with no diagnostic. The redraw was given no row, so it could
+- **A `<switch>` member of an env-level `<distinct>` came out blank on the rows where it
+  collided, on every engine and with no diagnostic.** The redraw was given no row, so it could
   not tell which branch the subject had selected and returned the empty string — which the
   caller then accepted as a value different from all the others and wrote into the cell. It
   now redraws inside the branch the row belongs to: a `<case is="p">` row comes back with
@@ -382,7 +397,7 @@ page — is tracked in that implementation's own changelog:
 
 <!-- covers: TDC268 -->
 
-- `if=` on a `<gen type="pool">` is refused by TDC268 instead of leaking. A `<gen>` carrying
+- **`if=` on a `<gen type="pool">` is refused by TDC268 instead of leaking.** A `<gen>` carrying
   `if=` becomes a conditional branch, and the pool resolver only recognises a plain
   `<gen type="pool">` — so the reference registered no `Ref.field` column at all and
   `${{Ref.name}}` reached the output as its own literal text, on EVERY row including the ones
@@ -393,23 +408,23 @@ page — is tracked in that implementation's own changelog:
 
 <!-- covers: anomaly_flag -->
 
-- `anomaly_flag` recorded the per-row SELECTION rather than the outcome. `anomaly=`
+- **`anomaly_flag` recorded the per-row SELECTION rather than the outcome.** `anomaly=`
   multiplies a NUMBER and leaves anything else alone, so a `type="template"` column of
   surnames was selected like any other and then left untouched — and came out flagged
   `true` beside an ordinary name, while the page promised the flag and the spike "can never
   disagree". Worse than a wrong number: the flag is training data for an anomaly detector,
   and every such row teaches it something false. It now records what happened.
 
-- On the streaming and exact-on-disk engines of Python, Rust, C# and Java, a column whose
+- **On the streaming and exact-on-disk engines of Python, Rust, C# and Java, a column whose
   values are apportioned exactly — `type="text"`, a weighted file column, a weighted pack —
   published NO `anomaly_flag` column at all, so `${{Flag}}` reached the output as its own
-  literal text while the in-memory engine rendered it correctly. Found by the shared case
+  literal text while the in-memory engine rendered it correctly.** Found by the shared case
   written for the entry above. The value and the anomaly draw are both functions of the row
   on that path, so the flag is now computed there like everything else.
 
 <!-- covers: TDC269 -->
 
-- `if=` on a `<gen>` inside a `<case>` is refused by TDC269. A case body is several parts
+- **`if=` on a `<gen>` inside a `<case>` is refused by TDC269.** A case body is several parts
   JOINED into one value, so a condition on one part has no answer to give: if it were false,
   the part would have to become something, and there is no honest candidate. It used to be
   accepted and ignored, so `<gen if="K == p">` inside a case put its value on EVERY row —
@@ -419,7 +434,7 @@ page — is tracked in that implementation's own changelog:
 
 <!-- covers: TDC270 -->
 
-- A second `<env>` or a second `<block>` under `<tdc>` is refused by TDC270. Both are read
+- **A second `<env>` or a second `<block>` under `<tdc>` is refused by TDC270.** Both are read
   by taking the FIRST of their kind, so a second one was dropped whole — every sequence it
   declared, every line it laid out — and the run finished looking healthy while half the
   config had produced nothing. `check` called such a document valid. The same silent discard
@@ -427,7 +442,7 @@ page — is tracked in that implementation's own changelog:
 
 <!-- covers: TDC271 -->
 
-- `percent=` beside `order="sequential"` is refused by TDC271. Walking the list in order
+- **`percent=` beside `order="sequential"` is refused by TDC271.** Walking the list in order
   gives row `r` element `r mod N` — a rule about POSITION, which leaves no room for a rule
   about SHARE. The engine ignored the percentage outright and said nothing:
   `percent="98,1,1"` over a hundred rows came out 34 / 33 / 33 from a config `check` had
@@ -435,8 +450,8 @@ page — is tracked in that implementation's own changelog:
 
 <!-- covers: TDC272 -->
 
-- `<env local="af">` with a date now warns (TDC272) instead of quietly rendering it in
-  English. The same value is an ERROR on `<gen type="date" local="af">` (TDC153) and was a
+- **`<env local="af">` with a date now warns (TDC272) instead of quietly rendering it in
+  English.** The same value is an ERROR on `<gen type="date" local="af">` (TDC153) and was a
   silent downgrade here — an asymmetry the user could not see. Refusing it on `<env>` would
   be wrong: a locale can be a perfectly good source of names and still ship no month names,
   and refusing would forbid the Afrikaans name pack because Afrikaans dates are missing. The
@@ -446,7 +461,7 @@ page — is tracked in that implementation's own changelog:
 
 <!-- covers: TDC273, TDC274, TDC275 -->
 
-- The ARGUMENT of an interpolation filter is checked. The filter NAME has been checked
+- **The ARGUMENT of an interpolation filter is checked.** The filter NAME has been checked
   since TDC192 and a mask pattern since TDC199/TDC256; everything after the colon reached
   the renderer unread. The renderer is lenient by design — one bad row must not abort a
   million-row run — so `group:abc`, `group:0`, `compact:1`, `compact:99` and `slice:abc`
@@ -460,8 +475,8 @@ page — is tracked in that implementation's own changelog:
 
 <!-- covers: TDC276 -->
 
-- A pinned pack parameter of the wrong width is refused (TDC276) instead of breaking the
-  run or the data. `<gen type="template" value="usa.finance.aba_routing" prefix="12345"/>`
+- **A pinned pack parameter of the wrong width is refused (TDC276) instead of breaking the
+  run or the data.** `<gen type="template" value="usa.finance.aba_routing" prefix="12345"/>`
   passed `check` and then aborted with `<at>: index 8 is out of range and no default is
 set` — a message naming no file, no line and no code. `tail="678"` passed `check`, said
   nothing at all, and wrote `326784`: six digits, and not a routing number. These packs
@@ -476,8 +491,8 @@ set` — a message naming no file, no line and no code. `tail="678"` passed `che
   the parsed spec and the four ports scan the body; the two were diffed across every
   bundled pack and agree on all 173.
 
-- A pack parameter that shares a name with another generator's attribute is no longer
-  refused. `<gen type="template" value="common.payment.card.pan" base="4111111111111"/>`
+- **A pack parameter that shares a name with another generator's attribute is no longer
+  refused.** `<gen type="template" value="common.payment.card.pan" base="4111111111111"/>`
   was answered with `TDC015: <gen> does not read "base" — it belongs to type="running",
 type="timeseries"`. The pack declares `<sequence name="base">`, the ENGINE was already
   handing `base=` to it, and only the validator objected — on 39 packs, every one that
@@ -498,7 +513,7 @@ type="timeseries"`. The pack declares `<sequence name="base">`, the ENGINE was a
   ownership check stopped guessing. All five now skip the same twenty wrapper names, and
   three shared cases pin it.
 
-- A data pack can no longer ship a parameter nobody can set. A pack's parameters ARE its
+- **A data pack can no longer ship a parameter nobody can set.** A pack's parameters ARE its
   sequence names, and a handful of names are read by the ENGINE off the calling `<gen>`
   first — `local=` is the locale override, `order=`/`case=`/`mask=` are wrappers around
   whatever the pack produces. A `<sequence>` called one of those works fine inside the
@@ -518,7 +533,7 @@ type="timeseries"`. The pack declares `<sequence name="base">`, the ENGINE was a
 
 ### Documentation
 
-- The Python binding page's first example did not run. It called `to_string()`,
+- **The Python binding page's first example did not run.** It called `to_string()`,
   `iterate()`, `to_array()` and `get_at()` — four names Python does not have, because
   Python spells them `str(data)`, `for row in data`, `data.to_list()` and `data[3]`. The
   capabilities were never missing, only the page. It survived because the documentation
@@ -526,23 +541,23 @@ type="timeseries"`. The pack declares `<sequence name="base">`, the ENGINE was a
   now runs every call the page shows, so a rename fails the build. The other four binding
   pages were checked the same way and were already correct.
 
-- `ink_threshold` was documented backwards, which made the value the page prescribed a
-  no-op. A pixel is ink when it is at or DARKER than the cutoff, so raising it takes in
+- **`ink_threshold` was documented backwards, which made the value the page prescribed a
+  no-op.** A pixel is ink when it is at or DARKER than the cutoff, so raising it takes in
   faint gray and lowering it keeps only near-black. Measured on the page's own figure:
   `0.3` produces exactly the default's output, `0.8` picks up the gray stroke. The figure
   caption underneath had been right all along.
 
-- Six behaviours the engine had never written down: the 64-level nesting cap behind
+- **Six behaviours the engine had never written down: the 64-level nesting cap behind
   TDC001; `distribution="zipf"` refusing an `n` above 10 000 000; `missing_as=` being
   reshaped by `mask=` and `case=` like any other value; `local=` working per generator as
   well as per run; the `csv` filter accepting a delimiter it deliberately ignores; and
   what the object API costs — `getAt(index)` is one row's work at any index (2 ms against
-  `toArray()`'s 210 ms on 200 000 rows).
+  `toArray()`'s 210 ms on 200 000 rows).**
 
 ### Fixed
 
-- `mask=`, `case=`, `missing=`, `repeat=` and `anomaly=` on `<gen type="running">` and
-  `<gen type="stat">` are refused (TDC015) instead of accepted and ignored. Both resolve
+- **`mask=`, `case=`, `missing=`, `repeat=` and `anomaly=` on `<gen type="running">` and
+  `<gen type="stat">` are refused (TDC015) instead of accepted and ignored.** Both resolve
   before the formatting layer — they read a column that already exists and publish the
   number as it stands — so all five sat there doing nothing while `check` called the
   config valid. Measured: `mask="x"` turns `33` into `3` on a `number` and leaves `77`
@@ -556,19 +571,19 @@ type="timeseries"`. The pack declares `<sequence name="base">`, the ENGINE was a
   Three shared cases pin it, including one that checks the same wrappers still work on a
   plain `number`.
 
-- `order=` and `cycle=` were presented as attributes of any generator. They are read by
+- **`order=` and `cycle=` were presented as attributes of any generator.** They are read by
   the three that have an order to walk — `text`, `file` and `date` — and refused (TDC015)
   everywhere else, which is what the engine has done all along. Checked against ten
   generator types; the pages now say which three.
 
-- A predicate written where a value belongs — `<result><greater_than>…</greater_than>` —
+- **A predicate written where a value belongs — `<result><greater_than>…</greater_than>` —
   passed `check` and then died mid-run with `unknown compute tag <greater_than>`: no code,
-  no line, no file. The four predicates are compute tags, so the unknown-tag check waved
+  no line, no file.** The four predicates are compute tags, so the unknown-tag check waved
   them through wherever they appeared, and the errors reference had been claiming TDC180
   caught this all along. It does now, in all five, with a hint that shows the `<choose>`
   wrapper. Pinned by a shared case.
 
-- Four claims in the reference that the engine does not make. `TDC183` said `<add>` and
+- **Four claims in the reference that the engine does not make.** `TDC183` said `<add>` and
   `<subtract>` "take exactly two operands" — only `<divide>` and `<mod>` are binary; the
   other three are variadic, and `<add>` over nothing is `0`. `TDC125` listed three allowed
   children of `<case>`; there are four, and the fourth, `<switch>`, has its own error code
@@ -579,7 +594,7 @@ type="timeseries"`. The pack declares `<sequence name="base">`, the ENGINE was a
   swapping the two produces identical output and passes `check`, because the pool tables
   are built before any row is drawn.
 
-- The error transcripts are checked now. `docs:examples` runs the examples that pair a
+- **The error transcripts are checked now.** `docs:examples` runs the examples that pair a
   complete `<tdc>…</tdc>` with their output; a transcript showing an ERROR almost never
   has that shape — the config above it is a fragment, or the block is a terminal session
   — so the error transcripts were the one part of the site nothing checked, and they
@@ -596,24 +611,24 @@ self-closing — its attributes and children would be ignored`); `TDC101` still 
   `suggestion:` where the engine writes `help:`. It also found a message quoted on the
   pools page with no shared case behind it, so `TDC236` now has one.
 
-- The catalogue counts are generated, not written. "108 sets today: `common`, ten
+- **The catalogue counts are generated, not written.** "108 sets today: `common`, ten
   languages, and 97 countries" was a release behind — the answer had become 109 and 98,
   and it is a sentence nobody thinks to revisit when a country pack lands, because the
   pack does not live anywhere near the page. The build already substituted the version
   this way, for exactly this reason; it now substitutes the counts too, read from
   `data/bundles.json`. The page states no number, it asks for one.
 
-- The postal-code count on the template page said 48; counting the country packs that
-  ship a postal-code address gives 46. The sentence now names the address names it
+- **The postal-code count on the template page said 48; counting the country packs that
+  ship a postal-code address gives 46.** The sentence now names the address names it
   counted (`zip`, `postalCode`, `eircode`, `cep`, `cap`, `cpa`), so the number can be
   reproduced instead of trusted.
 
-- The performance page said "the figures stand for 0.1.5" while the engine shipped 0.2.0.
+- **The performance page said "the figures stand for 0.1.5" while the engine shipped 0.2.0.**
   It now says plainly that the numbers were measured on 0.1.4/0.1.5 and have not been
   re-measured since, and which part of them — the shape, not the absolute seconds — is
   the part to trust.
 
-- Nine more transcripts re-run and replaced with what the engine prints. The two `uniq`
+- **Nine more transcripts re-run and replaced with what the engine prints.** The two `uniq`
   infeasibility messages and the parent-declaration-order error were in retired formats
   (`uniq: …`, `tdc: …`, `Error: …`) that no version prints any more; the
   `--count 5 --seed alt` run on the first-run page, both name runs on the configuration
@@ -626,13 +641,13 @@ self-closing — its attributes and children would be ignored`); `TDC101` still 
   substitution of the quick-API surname reached two blocks it should not have, and
   `docs:examples` failed on one of them, which is the whole reason that check exists.
 
-- The `accumulate=` transcript paired two different draws, so the arithmetic it invited
+- **The `accumulate=` transcript paired two different draws, so the arithmetic it invited
   you to check did not hold: `792.47` on the left against `459.93` on the right, and
-  `792.47 + 325.07` nowhere near the `1277.62` beside it. A reader who checked it would
+  `792.47 + 325.07` nowhere near the `1277.62` beside it.** A reader who checked it would
   conclude `accumulate` was broken; the engine was fine, the transcript was two runs
   spliced. Re-run as one pair, every subtotal now verifies.
 
-- The regex page promised that `seed="demo"` alone reproduces its strings. Two things
+- **The regex page promised that `seed="demo"` alone reproduces its strings.** Two things
   decide a draw — the seed **and the sequence's name** — because each column draws from
   its own derived stream, which is what keeps adding a column from shifting the ones
   beside it. The same pattern under `<sequence name="Phone">` and under
@@ -640,8 +655,8 @@ self-closing — its attributes and children would be ignored`); `TDC101` still 
   off the page and getting different strings was seeing the design, not a bug. The page
   says so now.
 
-- Parquet: the footer now declares `column_orders`, so the column statistics can actually
-  be used. The min/max bounds were written and correct; the format says a reader must
+- **Parquet: the footer now declares `column_orders`, so the column statistics can actually
+  be used.** The min/max bounds were written and correct; the format says a reader must
   ignore them until `FileMetaData.column_orders` declares the sort order, and parquet-mr
   (Spark, Hive, Impala) drops BYTE_ARRAY bounds outright without it. So every row group
   was decoded in full — exactly what the statistics exist to avoid. Nine bytes of footer
@@ -650,8 +665,8 @@ self-closing — its attributes and children would be ignored`); `TDC101` still 
   (an independent reader) to confirm the rows, the NULL, the anomaly flags, the decimals
   and the dates all survive.
 
-- Parquet: `<gen type="http">` with `-o out.parquet` wrote the TEXT rendering under a
-  `.parquet` name and exited 0. An http config can only be prepared asynchronously — the
+- **Parquet: `<gen type="http">` with `-o out.parquet` wrote the TEXT rendering under a
+  `.parquet` name and exited 0.** An http config can only be prepared asynchronously — the
   service call IS the preparation — and the CLI's async path ignored the file extension
   entirely. The extension now chooses the container on both paths. TypeScript only: the
   four ports call their services synchronously and were already writing Parquet here.
@@ -659,8 +674,8 @@ self-closing — its attributes and children would be ignored`); `TDC101` still 
 
 ### Documentation
 
-- The exact-shares promise now carries the one thing that breaks it: `missing=` on the same
-  generator. The quota is laid over the whole column first and blanks are applied without
+- **The exact-shares promise now carries the one thing that breaks it: `missing=` on the same
+  generator.** The quota is laid over the whole column first and blanks are applied without
   regard to which value a cell holds, so `percent="90,10" missing="0.5"` gives about
   450 / 50 / 500 blank — the RATIO survives, the absolute counts do not. No ordering could
   fix it: exactly 100 `fail` rows AND half the file blank would make `fail` 20% of the
@@ -669,8 +684,8 @@ self-closing — its attributes and children would be ignored`); `TDC101` still 
 
 <!-- covers: abs, round, floor, ceil, trunc, min, max -->
 
-- `abs`, `round`, `floor`, `ceil`, `trunc`, `min` and `max` in `if=` and `filter=` kept
-  the exact answer only up to 2^53. Arithmetic already carried a whole number as one, so
+- **`abs`, `round`, `floor`, `ceil`, `trunc`, `min` and `max` in `if=` and `filter=` kept
+  the exact answer only up to 2^53.** Arithmetic already carried a whole number as one, so
   `9007199254740993 - 1` was right, but handing that number to `round` — which for a whole
   number is the number itself — pushed it through a double and gave back
   `9007199254740992`. All five implementations agreed on the wrong answer, so no test
@@ -678,10 +693,10 @@ self-closing — its attributes and children would be ignored`); `TDC101` still 
 
 ### Documentation
 
-- The whole-number table in the expression reference now lists the rounding and selection
+- **The whole-number table in the expression reference now lists the rounding and selection
   functions, which stay whole like `+ - *` do, and the `%` caution names the negative
   DIVISOR — `7 % -3` is 1 here and −2 in Python, the one place Euclidean and floored
-  disagree that the old text did not cover.
+  disagree that the old text did not cover.**
 
 ## [0.2.0] — 2026-08-07
 
