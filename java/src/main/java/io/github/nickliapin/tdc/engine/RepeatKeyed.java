@@ -47,6 +47,7 @@ final class RepeatKeyed {
       Repeat.Spec spec,
       int count,
       PerRow.Stream stream,
+      String genType,
       Element element,
       List<String> flagTextOut) {
     Repeat.Plan plan = lengthPlan(spec, count, stream);
@@ -58,9 +59,21 @@ final class RepeatKeyed {
       List<String> parts = new ArrayList<>(keep);
       List<String> marks = new ArrayList<>(keep);
       for (int k = 0; k < keep; k++) {
-        Prng.Sfc32 elementPrng = Seekable.generator(stream.seed(), stream.id() + "#e" + k, row);
         boolean[] flag = new boolean[1];
-        parts.add(element.build(k, elementPrng, flag));
+        final int at = k;
+        final int atRow = row;
+        // A drawn generator has no pool to draw down, so `distinct` is rejection sampling on
+        // fresh sub-streams — the same ids the reference uses, so the two agree value for value.
+        java.util.function.Function<String, String> drawAt =
+            suffix ->
+                element.build(
+                    at,
+                    Seekable.generator(stream.seed(), stream.id() + "#e" + at + suffix, atRow),
+                    flag);
+        parts.add(
+            spec.distinct()
+                ? Repeat.redrawUntilFresh(parts, genType, drawAt)
+                : drawAt.apply(""));
         marks.add(flag[0] ? "true" : "false");
       }
       out.add(Repeat.join(parts, spec));
@@ -108,9 +121,29 @@ final class RepeatKeyed {
       int start = plan.slotStartAt(p);
       int keep = plan.lengthAt(p);
       List<String> parts = new ArrayList<>(keep);
-      for (int k = 0; k < keep; k++) {
-        String raw = valueForSlot(values, cumHi, Permute.permute(start + k, slots, key));
-        parts.add(modify == null ? raw : modify.apply(row, raw, k));
+      // `distinct` leaves the whole-run layout behind: a row that must not repeat itself has to
+      // CHOOSE from the pool, and a choice cannot be read off a pre-laid-out slot. One uniform
+      // per pick off the row's own stream, budgeted at the maximum length, so the row still
+      // resolves alone.
+      if (spec.distinct()) {
+        double[] draws = Seekable.uniforms(stream.seed(), stream.id() + "#dist", row, spec.max());
+        int[] at = {0};
+        List<String> picked =
+            Repeat.drawDistinct(
+                values,
+                percents,
+                keep,
+                () -> at[0] < draws.length ? draws[at[0]++] : 1.0,
+                "the value list");
+        for (int k = 0; k < picked.size(); k++) {
+          String raw = picked.get(k);
+          parts.add(modify == null ? raw : modify.apply(row, raw, k));
+        }
+      } else {
+        for (int k = 0; k < keep; k++) {
+          String raw = valueForSlot(values, cumHi, Permute.permute(start + k, slots, key));
+          parts.add(modify == null ? raw : modify.apply(row, raw, k));
+        }
       }
       out.add(Repeat.join(parts, spec));
     }

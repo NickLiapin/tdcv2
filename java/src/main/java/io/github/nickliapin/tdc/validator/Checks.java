@@ -7,6 +7,7 @@ import io.github.nickliapin.tdc.generators.NumberGen;
 import io.github.nickliapin.tdc.generators.RegexGen;
 import io.github.nickliapin.tdc.generators.Repeat;
 import io.github.nickliapin.tdc.unicode.Alphabets;
+import io.github.nickliapin.tdc.unicode.CharSet;
 import java.util.List;
 import java.util.Set;
 
@@ -113,5 +114,63 @@ final class Checks {
 
   static boolean hasRepeat(java.util.Map<String, String> attrs) {
     return Repeat.parse(attrs) != null;
+  }
+
+  /**
+   * How many different values this generator can offer, when the config alone says so.
+   *
+   * <p>{@code null} means "not knowable here" — never a guess. A pack file, a regex or a date
+   * shape is read while generating, so those fall to the run-time refusal instead.
+   */
+  static Integer distinctPoolSize(String type, java.util.Map<String, String> attrs) {
+    String value = attrs.getOrDefault("value", "").trim();
+    if (value.isEmpty() || type == null) {
+      return null;
+    }
+
+    if ("text".equals(type)) {
+      java.util.Set<String> seen = new java.util.LinkedHashSet<>();
+      for (String part : value.split(",", -1)) {
+        seen.add(part.trim());
+      }
+      return seen.size();
+    }
+
+    // A one-character symbol draws from its inline set, so the set IS the pool. Only the plain
+    // shape is counted: a named `alphabet`, `include`/`exclude`, or a length above one all change
+    // the answer, and a refusal built on a guess is worse than no refusal at all.
+    if ("symbol".equals(type)) {
+      String length = attrs.getOrDefault("length", "").trim();
+      boolean plain =
+          attrs.getOrDefault("alphabet", "").isEmpty()
+              && attrs.getOrDefault("include", "").isEmpty()
+              && attrs.getOrDefault("exclude", "").isEmpty()
+              && (length.isEmpty() || "1".equals(length));
+      if (!plain) {
+        return null;
+      }
+      try {
+        return new java.util.LinkedHashSet<>(CharSet.parse(value)).size();
+      } catch (RuntimeException e) {
+        return null; // A malformed set is the charset error, not this one.
+      }
+    }
+
+    if ("number".equals(type)) {
+      int dots = value.indexOf("..");
+      if (dots < 0 || !attrs.getOrDefault("decimals", "").trim().isEmpty()) {
+        return null;
+      }
+      try {
+        // Only whole-number ranges have a countable pool.
+        long lo = Long.parseLong(value.substring(0, dots).trim());
+        long hi = Long.parseLong(value.substring(dots + 2).trim());
+        return hi >= lo ? (int) (hi - lo + 1) : null;
+      } catch (NumberFormatException e) {
+        return null;
+      }
+    }
+
+    return null;
   }
 }

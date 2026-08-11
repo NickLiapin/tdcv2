@@ -949,7 +949,21 @@ public final class StreamEngine {
             }
             List<String> parts = new ArrayList<>();
             for (int k = 0; k < plan.lengthAt(p); k++) {
-              parts.add(first(genValues(single, Seekable.generator(seed, streamId + "#e" + k, row), null)));
+              final int at = k;
+              // A drawn generator has no pool to draw down, so `distinct` is rejection sampling
+              // on fresh sub-streams — the same ids the reference uses, so the two agree value
+              // for value.
+              java.util.function.Function<String, String> drawAt =
+                  suffix ->
+                      first(
+                          genValues(
+                              single,
+                              Seekable.generator(seed, streamId + "#e" + at + suffix, row),
+                              null));
+              parts.add(
+                  repeat.distinct()
+                      ? Repeat.redrawUntilFresh(parts, gen.type(), drawAt)
+                      : drawAt.apply(""));
             }
             return Repeat.join(parts, repeat);
           };
@@ -1114,8 +1128,29 @@ public final class StreamEngine {
             if (p == null) {
               return null;
             }
+            int keep = repeatPlan.lengthAt(p);
             List<String> parts = new ArrayList<>();
-            for (int k = 0; k < repeatPlan.lengthAt(p); k++) {
+            // `distinct` cannot read a pre-laid-out slot — a row that must not repeat itself
+            // has to CHOOSE. One uniform per pick off the row's own `#dist` stream, budgeted
+            // at the maximum length, so the row still resolves alone and the in-memory engine
+            // lands on the same values.
+            if (repeat.distinct()) {
+              double[] draws = Seekable.uniforms(seed, streamId + "#dist", row, repeat.max());
+              int[] at = {0};
+              List<String> picked =
+                  Repeat.drawDistinct(
+                      values,
+                      percents,
+                      keep,
+                      () -> at[0] < draws.length ? draws[at[0]++] : 1.0,
+                      "the value list");
+              for (int k = 0; k < picked.size(); k++) {
+                String raw = picked.get(k);
+                parts.add(mod == null ? raw : nullToEmpty(mod.apply(row, raw, k)));
+              }
+              return Repeat.join(parts, repeat);
+            }
+            for (int k = 0; k < keep; k++) {
               Integer slot = slotAt.apply(row, k);
               String raw = slot == null ? "" : values.get(runFor(cumHi, slot));
               parts.add(mod == null ? raw : nullToEmpty(mod.apply(row, raw, k)));

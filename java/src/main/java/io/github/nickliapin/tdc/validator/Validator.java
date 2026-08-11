@@ -8,6 +8,7 @@ import io.github.nickliapin.tdc.distribution.PercentMask;
 import io.github.nickliapin.tdc.generators.Accumulate;
 import io.github.nickliapin.tdc.generators.RegexGen;
 import io.github.nickliapin.tdc.generators.Stat;
+import io.github.nickliapin.tdc.generators.Repeat;
 import io.github.nickliapin.tdc.parser.PairedData;
 import io.github.nickliapin.tdc.parser.generated.TDCParser;
 import io.github.nickliapin.tdc.sequence.Pool;
@@ -107,7 +108,7 @@ public final class Validator {
       java.util.Set.of(
           "anomaly", "anomaly_factor", "anomaly_flag", "case", "comment", "count", "cycle", "flag",
           "if", "local", "mask", "missing", "missing_as", "name", "order", "parent",
-          "repeat", "separator", "type", "value");
+          "repeat", "separator", "type", "value", "distinct");
 
   /**
    * The output wrappers a generator type does NOT put its value through.
@@ -401,7 +402,7 @@ public final class Validator {
           "type", "value", "name", "if", "comment", "case", "mask", "order", "cycle", "repeat",
           "separator", "missing", "missing_as", "anomaly", "anomaly_factor", "anomaly_flag",
           "local", "weight", "percent", "first_zero", "include", "exclude",
-          "accumulate", "of", "plus", "reset", "op", "length", "decimals", "distribution", "regex_max_length", "alphabet",
+          "accumulate", "distinct", "of", "plus", "reset", "op", "length", "decimals", "distribution", "regex_max_length", "alphabet",
           "format", "from",
           "to", "oldest", "youngest", "precision", "range", "step", "weekdays", "peak_at", "src",
           "column",
@@ -2867,7 +2868,8 @@ public final class Validator {
    * writes the same blank on many rows, {@code repeat} turns the cell into a list.
    */
   private static final String[] DROPPED_BY_UNIQ = {
-    "mask", "case", "missing", "missing_as", "repeat", "separator", "anomaly", "anomaly_flag"
+    "mask", "case", "missing", "missing_as", "repeat", "separator", "distinct", "anomaly",
+    "anomaly_flag"
   };
 
   /**
@@ -4203,6 +4205,7 @@ public final class Validator {
     }
 
     checkAccumulate(gen, attrs, repeats);
+    checkDistinct(gen, attrs, repeats, type);
 
     if (repeats) {
       String reason = Checks.repeatUnsupportedReason(type);
@@ -4216,6 +4219,77 @@ public final class Validator {
       error("TDC198", "\"separator\" has no effect without \"repeat\"",
           "separator joins the values a repeating gen produces. Add repeat=\"N\", or drop it.",
           at(gen, "separator")[0], at(gen, "separator")[1]);
+    }
+  }
+
+  /**
+   * {@code distinct="true"} — the row's values are drawn without replacement.
+   *
+   * <p>Four refusals, and each one is a proof rather than a guess. They exist because the
+   * alternative in every case is a config that says something and silently gets something else.
+   */
+  private void checkDistinct(
+      TDCParser.SelfClosingElementContext gen,
+      Map<String, String> attrs,
+      boolean repeats,
+      String type) {
+    String raw = attrs.get("distinct");
+    if (raw == null) {
+      return;
+    }
+    String word = raw.trim();
+    if (!"true".equals(word) && !"false".equals(word)) {
+      error("TDC289", "\"distinct\" takes true or false, not \"" + word + "\"",
+          "distinct=\"true\" draws a repeat list without replacement. Omit it, or write "
+              + "distinct=\"false\".",
+          at(gen, "distinct")[0], at(gen, "distinct")[1]);
+      return;
+    }
+    if ("false".equals(word)) {
+      return;
+    }
+
+    // One value cannot repeat itself, so the attribute would be read and then do nothing — the
+    // accepted-and-ignored failure this project keeps closing.
+    if (!repeats) {
+      error("TDC290", "\"distinct\" has no effect without \"repeat\"",
+          "distinct= stops one cell holding the same value twice, so there has to be a list. "
+              + "Add repeat=\"N\" or repeat=\"A..B\", or drop distinct=.",
+          at(gen, "distinct")[0], at(gen, "distinct")[1]);
+      return;
+    }
+
+    // `percent` is an EXACT quota over the whole run; `distinct` is a guarantee inside one row.
+    // Holding both would cost either streaming or the randomness of the sample, so the pair is
+    // refused.
+    if (attrs.get("percent") != null) {
+      error("TDC291", "\"percent\" and \"distinct\" cannot both be on one <gen>",
+          "percent= promises exact proportions across the whole run; distinct= trades that "
+              + "promise away for a guarantee inside each row, so the two cannot both hold. Drop "
+              + "one — or put the proportions on a <mix> or <switch> outside, with repeat= on the "
+              + "<gen> inside.",
+          at(gen, "percent")[0], at(gen, "percent")[1]);
+    }
+
+    // The pool is only knowable up front for the types that carry it in the config. Where it is
+    // not — a pack file, a regex — the same refusal fires at run time.
+    Integer pool = Checks.distinctPoolSize(type, attrs);
+    if (pool == null) {
+      return;
+    }
+    int longest;
+    try {
+      longest = Repeat.parse(attrs).max();
+    } catch (RuntimeException e) {
+      return; // A malformed repeat= is already reported as TDC195.
+    }
+    if (longest > pool) {
+      error("TDC292",
+          "\"repeat\" asks for up to " + longest + " different values, but the list holds only "
+              + pool,
+          "With distinct=\"true\" a value cannot be used twice in one cell, so " + longest
+              + " of them cannot be found. Lower repeat=, or widen value=.",
+          at(gen, "repeat")[0], at(gen, "repeat")[1]);
     }
   }
 

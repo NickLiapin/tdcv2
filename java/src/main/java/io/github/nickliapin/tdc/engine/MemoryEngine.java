@@ -827,6 +827,7 @@ public final class MemoryEngine {
                   repeat,
                   applicable,
                   stream,
+                  spec.gen().type(),
                   (k, elementPrng, flag) -> {
                     List<String> done =
                         finish(

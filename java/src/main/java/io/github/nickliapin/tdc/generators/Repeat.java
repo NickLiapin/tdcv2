@@ -31,7 +31,19 @@ public final class Repeat {
 
   public static final String DEFAULT_SEPARATOR = ",";
 
-  public record Spec(int min, int max, String separator, String accumulate) {}
+  /** Bounded retries before a {@code distinct} draw admits it cannot find a fresh value. */
+  public static final int DISTINCT_MAX_TRIES = 64;
+
+  /**
+   * @param distinct {@code distinct=}: the row's values are drawn WITHOUT replacement.
+   *     <p>This changes the regime the column is built in, which is why {@code percent} is
+   *     refused beside it. Ordinarily a listed column lays its values out over the whole run as
+   *     an exact quota; under {@code distinct} it draws per row instead, because holding an
+   *     exact whole-run quota AND a per-row guarantee at once costs either streaming or the
+   *     randomness of the sample. Frequencies stay approximate, rows stay independent.
+   */
+  public record Spec(
+      int min, int max, String separator, String accumulate, boolean distinct) {}
 
   private Repeat() {}
 
@@ -63,7 +75,8 @@ public final class Repeat {
         min,
         max,
         attrs.getOrDefault("separator", DEFAULT_SEPARATOR),
-        Accumulate.read(attrs));
+        Accumulate.read(attrs),
+        readDistinct(attrs));
   }
 
   /**
@@ -245,5 +258,108 @@ public final class Repeat {
       throw new IllegalArgumentException(
           "repeat: " + label + " of \"" + raw + "\" must be a whole number");
     }
+  }
+
+  /** {@code distinct="true"}. Anything but the two words is refused by the validator. */
+  public static boolean readDistinct(Map<String, String> attrs) {
+    return "true".equals(attrs.getOrDefault("distinct", "").trim());
+  }
+
+  /**
+   * Draw {@code keep} DIFFERENT values from a weighted list, one uniform per pick.
+   *
+   * <p>Weights survive — a frequent name is still likelier to be picked first — but the exact
+   * whole-run quota does not, which is the documented price of {@code distinct} and the reason
+   * {@code percent} may not appear beside it.
+   *
+   * <p>Running out throws rather than returning a short list: a cell quietly shorter than
+   * {@code repeat} asked for is the silent-and-wrong outcome the feature exists to prevent.
+   */
+  public static List<String> drawDistinct(
+      List<String> values,
+      double[] weights,
+      int keep,
+      java.util.function.DoubleSupplier nextUniform,
+      String describePool) {
+    if (keep > values.size()) {
+      throw new IllegalArgumentException(
+          "repeat with distinct=\"true\" asks for "
+              + keep
+              + " different values, but "
+              + describePool
+              + " holds only "
+              + values.size());
+    }
+
+    // Weighted draw without replacement: pick against the remaining weight, then swap the
+    // winner out with the last live candidate. What remains is a pure function of the picks
+    // already made, so the draw stays deterministic.
+    List<String> pool = new ArrayList<>(values);
+    double[] w = new double[values.size()];
+    for (int i = 0; i < w.length; i++) {
+      w[i] = weights != null && weights.length == values.size() ? weights[i] : 1.0;
+    }
+    double total = 0;
+    for (double x : w) {
+      if (x > 0) {
+        total += x;
+      }
+    }
+
+    List<String> out = new ArrayList<>(keep);
+    for (int picked = 0; picked < keep; picked++) {
+      int size = pool.size() - picked;
+      int index = size - 1;
+      if (total > 0) {
+        double target = nextUniform.getAsDouble() * total;
+        for (int i = 0; i < size; i++) {
+          target -= Math.max(0, w[i]);
+          if (target < 0) {
+            index = i;
+            break;
+          }
+        }
+      } else {
+        index = Math.min(size - 1, (int) (nextUniform.getAsDouble() * size));
+      }
+      String chosen = pool.get(index);
+      out.add(chosen);
+      total -= Math.max(0, w[index]);
+      int last = size - 1;
+      pool.set(index, pool.get(last));
+      w[index] = w[last];
+      pool.set(last, chosen);
+    }
+    return out;
+  }
+
+  /**
+   * Ask {@code draw} for a value that is not already in {@code seen}.
+   *
+   * <p>A drawn generator has no pool to draw down, so {@code distinct} is rejection sampling.
+   * {@code draw} receives the sub-stream suffix: empty for the first attempt (so a config
+   * WITHOUT {@code distinct} reads the very same stream), then {@code r1}, {@code r2} and so on.
+   *
+   * <p>Exhausting the tries throws rather than returning a duplicate or a short list.
+   * {@code regex="[01]"} under {@code repeat="5"} cannot be satisfied by anything, and saying so
+   * is the entire point of the attribute.
+   */
+  public static String redrawUntilFresh(
+      List<String> seen, String genType, java.util.function.Function<String, String> draw) {
+    String value = draw.apply("");
+    for (int attempt = 1; seen.contains(value) && attempt <= DISTINCT_MAX_TRIES; attempt++) {
+      value = draw.apply("r" + attempt);
+    }
+    if (seen.contains(value)) {
+      throw new IllegalArgumentException(
+          "repeat with distinct=\"true\" could not find "
+              + (seen.size() + 1)
+              + " different values for <gen type=\""
+              + genType
+              + "\"> after "
+              + DISTINCT_MAX_TRIES
+              + " tries — the generator does not produce that many");
+    }
+    return value;
   }
 }
