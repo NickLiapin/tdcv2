@@ -408,11 +408,16 @@ September 17, 1988    17 сентября 1988 г.`}
 
 ### `date.range` — a date from a range
 
-| Attribute | Default      | Description                               |
-| :-------- | :----------- | :---------------------------------------- |
-| `range`   | —            | **Required.** `"YYYY.MM.DD - YYYY.MM.DD"` |
-| `format`  | `L`          | Output format                             |
-| `local`   | from `<env>` | Locale for localized formats              |
+| Attribute   | Default      | Description                               |
+| :---------- | :----------- | :---------------------------------------- |
+| `range`     | —            | **Required.** `"YYYY.MM.DD - YYYY.MM.DD"` |
+| `format`    | `L`          | Output format                             |
+| `local`     | from `<env>` | Locale for localized formats              |
+| `precision` | `day`        | `day`, `second` or `millisecond`          |
+
+`range` takes that spelling and no other: two dates with **dots**, separated by a
+hyphen. `"2020-01-01..2020-12-31"` — the spelling `<gen type="date">` uses — is
+refused with [TDC073](../reference/errors.mdx) rather than silently misread.
 
 Use it for any date that isn't a birthday — an order date, a signup, an event —
 anywhere you want a uniform draw between two explicit bounds.
@@ -433,6 +438,27 @@ anywhere you want a uniform draw between two explicit bounds.
 The same `LL` localization applies here too — swap `format="LL"` and the month prints as
 a word in the active locale (`December 8, 2023` under `en`, `8 декабря 2023 г.` under
 `ru`).
+
+#### A timestamp instead of a date
+
+By default the draw snaps to the **day**, so a format asking for a time prints
+midnight every row. `precision="second"` draws the time of day as well:
+
+```xml
+<gen type="template" value="date.range" range="2020.01.01 - 2025.12.31"
+     precision="second" format="YYYY-MM-DD HH:mm:ss"/>
+```
+
+<Terminal title="./run event.tdc (precision=second)">
+{`2024-08-10 07:59:57
+2021-01-22 23:48:52
+2021-06-06 17:44:00
+2025-12-17 04:31:37`}
+</Terminal>
+
+This is the mirror of the `person.b_day` note above: the birthday defaults to
+**millisecond** and a range defaults to **day**, so each one needs the opposite
+correction when you want the other behaviour.
 
 ## Technical identifiers
 

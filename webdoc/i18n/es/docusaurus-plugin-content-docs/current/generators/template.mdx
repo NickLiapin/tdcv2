@@ -422,11 +422,16 @@ September 17, 1988    17 сентября 1988 г.`}
 
 ### `date.range` — una fecha de un rango
 
-| Atributo | Por omisión | Descripción                                  |
-| :------- | :---------- | :------------------------------------------- |
-| `range`  | —           | **Obligatorio.** `"YYYY.MM.DD - YYYY.MM.DD"` |
-| `format` | `L`         | Formato de salida                            |
-| `local`  | del `<env>` | Locale para los formatos localizados         |
+| Atributo    | Por omisión | Descripción                                  |
+| :---------- | :---------- | :------------------------------------------- |
+| `range`     | —           | **Obligatorio.** `"YYYY.MM.DD - YYYY.MM.DD"` |
+| `format`    | `L`         | Formato de salida                            |
+| `local`     | del `<env>` | Locale para los formatos localizados         |
+| `precision` | `day`       | `day`, `second` o `millisecond`              |
+
+`range` acepta esa escritura y ninguna otra: dos fechas con **puntos**, separadas por
+un guion. La escritura `"2020-01-01..2020-12-31"` —la que usa `<gen type="date">`— se
+rechaza con [TDC073](../reference/errors.mdx) en vez de leerse mal en silencio.
 
 Úsela para cualquier fecha que no sea de nacimiento —la fecha de un pedido, un
 registro de alta, un evento—, donde quiera un sorteo uniforme entre dos límites
@@ -448,6 +453,27 @@ explícitos.
 La misma localización con `LL` aplica también aquí — cambie a `format="LL"` y el mes
 se imprime como palabra en el locale activo (`December 8, 2023` con `en`,
 `8 декабря 2023 г.` con `ru`).
+
+#### Una marca de tiempo en vez de una fecha
+
+Por omisión el sorteo se ajusta al **día**, así que un formato que pide hora imprime
+medianoche en cada fila. `precision="second"` sortea también la hora del día:
+
+```xml
+<gen type="template" value="date.range" range="2020.01.01 - 2025.12.31"
+     precision="second" format="YYYY-MM-DD HH:mm:ss"/>
+```
+
+<Terminal title="./run event.tdc (precision=second)">
+{`2024-08-10 07:59:57
+2021-01-22 23:48:52
+2021-06-06 17:44:00
+2025-12-17 04:31:37`}
+</Terminal>
+
+Es el espejo de la nota sobre `person.b_day` de arriba: el cumpleaños por omisión es
+**milisegundo** y un rango es **día**, así que cada uno necesita la corrección
+contraria cuando quiere el otro comportamiento.
 
 ## Identificadores técnicos
 
