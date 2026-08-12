@@ -151,14 +151,17 @@ const gen = (attrs) => `<gen type="pattern" ${attrs}/>`;
 const values = (attrs, count, seed) => run(oneColumn(gen(attrs), count, seed)).map(Number);
 
 /**
- * What `points=` actually produces: straight segments through the points, with
- * the list's own y extent normalized into y_range. (A PNG differs — there the
- * image frame is the scale, which is why those figures plot the raw curve.)
+ * What `points=` actually produces: straight segments through the points, read
+ * against the CANVAS and mapped into y_range. The canvas is a percentage board
+ * — 0..100 by default, grown only far enough to hold anything drawn outside it,
+ * never shrunk. Measuring the drawing's own ink instead is what used to make a
+ * flat line come out at the floor. (A PNG differs — there the image frame is the
+ * canvas, which is why those figures plot the raw curve.)
  */
 function pointsValue(pts, [lo, hi] = [0, 100]) {
   const ys = pts.map(([, y]) => y);
-  const yLo = Math.min(...ys);
-  const yHi = Math.max(...ys);
+  const yLo = Math.min(0, ...ys);
+  const yHi = Math.max(100, ...ys);
   const last = pts[pts.length - 1][0];
   return (u) => {
     const x = u * last;
@@ -231,7 +234,10 @@ const DATA = {
   thrLow: values(`${src('threshold-input.png')} y_range="0..100" ink_threshold="0.5"`, 60),
   thrHigh: values(`${src('threshold-input.png')} y_range="0..100" ink_threshold="0.8"`, 60),
   sawMany: values(`${asPoints(SAW_PTS)} y_range="0..100"`, 300),
-  sawFew: values(`${asPoints(SAW_PTS)} y_range="0..100" decimals="1"`, 6),
+  // Seven, not six: six rows over a 41-point zigzag land on every EVEN x, which is
+  // every valley, so the panel would be a flat line of zeros. True, and a fine thing
+  // to know, but it reads as a broken figure rather than as a sparse sample.
+  sawFew: values(`${asPoints(SAW_PTS)} y_range="0..100" decimals="1"`, 7),
   interp: Object.fromEntries(
     ['linear', 'smooth', 'step'].map((m) => [
       m,

@@ -315,12 +315,12 @@ que usted puede mirar su propio dibujo de antemano y decir qué va a salir.
 
 ![Un zigzag leído con 300 filas y con 6 filas](../../img/pattern/saw.svg)
 
-*El mismo zigzag. Con filas de sobra se nota cada diente; con seis filas, cada una lee el lugar donde su propia línea cruza el dibujo, y los dientes intermedios simplemente no están entre las seis mediciones pedidas.*
+*El mismo zigzag. Con filas de sobra se nota cada diente; con siete filas, cada una lee el lugar donde su propia línea cruza el dibujo, y los dientes intermedios simplemente no están entre las siete mediciones pedidas.*
 
 - **drawn** — el zigzag dibujado
 - **made** — valores generados
 - **A** — 300 filas — los dientes se notan
-- **B** — 6 filas — seis cruces, y el resto cae entre ellos
+- **B** — 7 filas — siete cruces, y el resto cae entre ellos
 
 **Más filas que puntos dibujados → interpolación**, y ahí es donde entra `interp`.
 

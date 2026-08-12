@@ -306,12 +306,12 @@ that you can look at your own drawing beforehand and say what will come out.
 
 ![A zigzag read at 300 rows and at 6 rows](../img/pattern/saw.svg)
 
-*The same zigzag. With rows to spare, every tooth comes through; with six rows, each one reads the place its own line crosses the drawing, and the teeth in between are simply not among the six readings asked for.*
+*The same zigzag. With rows to spare, every tooth comes through; with seven rows, each one reads the place its own line crosses the drawing, and the teeth in between are simply not among the seven readings asked for.*
 
 - **drawn** — the drawn zigzag
 - **made** — generated values
 - **A** — 300 rows — the teeth come through
-- **B** — 6 rows — six crossings, and the rest fall between them
+- **B** — 7 rows — seven crossings, and the rest fall between them
 
 **More rows than drawn points → interpolation**, which is where `interp` comes in.
 
