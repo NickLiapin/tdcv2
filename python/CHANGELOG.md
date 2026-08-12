@@ -9,6 +9,17 @@ the Python package: its API surface, its command line, its landing page.
 
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [0.2.1] — 2026-08-11
+
+Nothing changed in the PyPI package itself: no API was added, removed or renamed, the
+command line takes the same arguments, and the wheel carries the same data. What this
+version does change is what a config PRODUCES — `<gen type="pattern">` in particular —
+and that is written up in [the repository's CHANGELOG](../CHANGELOG.md), where it is true
+of all five implementations at once.
+
+The line is here rather than absent because silence and "nothing to report" look the same
+in a changelog, and only one of them is an answer.
+
 ## [0.1.4] — 2026-08-03
 
 ### Changed

@@ -84,6 +84,55 @@ page — is tracked in that implementation's own changelog:
 
 ### Changed
 
+<!-- covers: TDC293 -->
+
+- **BREAKING — `<gen type="pattern">` now requires `y_range`, and it scales the drawing's
+  CANVAS rather than its ink.** A drawing carries no units of its own: the same curve
+  leaves one tool running 0..100, another 0..480, a third 0..10002345345. Without a
+  declared axis every answer was a guess about somebody's export settings, so a config
+  without `y_range` is refused before the run with **TDC293** rather than quietly given
+  the raw coordinates.
+
+  What it scales changed with it. The old rule measured the drawn ink — the lowest point
+  became the minimum, the highest the maximum — which threw the drawing's amplitude away:
+  a ripple of ten units and a mountain across the whole board produced **identical**
+  numbers, and a flat line, having nothing to divide by, collapsed to the floor. A
+  horizontal line drawn halfway up came out as zeros.
+
+  The canvas is now the scale: the image frame for a PNG or SVG, and for a typed-in
+  drawing a percentage board of 0..100 that only ever GROWS to hold what was drawn
+  outside it. A flat line at 50 is therefore the middle of whatever range it is asked in,
+  and a drawing exported at 0..10002345345 is measured against itself and still lands
+  inside the range with its proportions intact.
+
+  ```
+  points="0,50 100,50"   y_range="0..100"  ->   50
+                         y_range="0..200"  ->  100
+                         y_range="-5..5"   ->    0
+  ```
+
+  **To upgrade:** add `y_range` wherever it is missing, and redraw typed-in points on a
+  0..100 board. `check` names every place that needs it.
+
+- **BREAKING — a row reads where its line CROSSES the drawing, never an average of the
+  slice around it.** A row used to own a window, and whenever a drawn vertex fell inside
+  that window the row returned the window's mean instead of the crossing. Which rule a row
+  used depended on where the vertices happened to land, so neighbouring rows of one
+  drawing were computed by different laws and nothing in the picture said which was which.
+  A row standing on a stretch running 49.58 → 49.68 — flat to the eye, 50 by the ruler —
+  came out as 52, because its window reached back into a slope it was not standing on.
+
+  Ten rows are ten readings. A peak that falls between two of them is the consequence of
+  asking for ten, not a lost measurement: draw in more detail, or ask for more rows. What
+  is gained is that you can look at your own drawing beforehand and say what will come
+  out.
+
+- **`interp="step"` reaches its last drawn point.** A staircase holds each point's value in
+  the band to its RIGHT, and the last point has no band — the drawing ends there — so it
+  was written in the config and absent from every row, while `linear` and `smooth` both
+  reported it at the right edge. All three modes now agree there, on the last thing you
+  drew. Exactly one row moves: the last.
+
 <!-- covers: === !== -->
 
 - **`===` and `!==` now ask whether both sides print the same CHARACTERS.** They used to be the
@@ -97,6 +146,15 @@ page — is tracked in that implementation's own changelog:
   sides are the same NUMBER.
 
 ### Fixed
+
+- **Rust handed out `_item_id` lanes in alphabetical order instead of declaration order.**
+  Two repeating sequences share one child table, so each gets its own slice of every card's
+  key block; Rust walked a map sorted by NAME while the other four walk the config. With
+  `zebra` written first and `alpha` second, the reference produced `Z 1 Z 2 A 3 A 4 A 5` and
+  Rust produced `Z 4 Z 5 A 1 A 2 A 3`. Renaming a sequence moved every id in the child
+  table — the kind of thing found downstream, in a foreign key that no longer joins. Present
+  since 0.2.0. A shared fixture now pins it, named so that alphabetical and declaration
+  order disagree.
 
 <!-- covers: secret anomaly_flag group filter parent value mode interp spread decimals percent inject member -->
 

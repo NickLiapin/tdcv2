@@ -124,6 +124,47 @@ function changelogSection(version) {
   return body;
 }
 
+/**
+ * The five package changelogs — the ones that actually ship, inside the npm tarball,
+ * the wheel, the crate, the jar and the nupkg.
+ *
+ * The root changelog is engine-wide: what a config produces, true of all five at one
+ * version. Each package file carries what is specific to that package. Nothing checked
+ * them until 0.2.1, and by then two had stopped at 0.1.4 and three were still holding
+ * shipped work under [Unreleased] — a reader who installed from PyPI and opened the
+ * changelog would have been told the package had not changed since August 3rd.
+ *
+ * "Nothing package-specific happened" is a fine thing for a release to say. It just has
+ * to be SAID: silence and nothing-to-report are indistinguishable in a changelog, and
+ * only one of them is an answer.
+ */
+function packageChangelogs(version) {
+  const files = [
+    'typescript/CHANGELOG.md',
+    'python/CHANGELOG.md',
+    'rust/CHANGELOG.md',
+    'java/CHANGELOG.md',
+    'csharp/CHANGELOG.md',
+  ];
+  const missing = [];
+  const stillUnreleased = [];
+  for (const file of files) {
+    const text = read(file);
+    if (!text.includes(`## [${version}]`)) missing.push(file);
+    const unreleased = /## \[Unreleased\]([\s\S]*?)(\n## \[|$)/.exec(text)?.[1] ?? '';
+    if (/^- /m.test(unreleased)) stillUnreleased.push(file);
+  }
+  if (missing.length > 0) {
+    fail(`no "## [${version}]" section in: ${missing.join(', ')}`);
+  }
+  if (stillUnreleased.length > 0) {
+    fail(`entries still under [Unreleased] in: ${stillUnreleased.join(', ')}`);
+  }
+  if (missing.length === 0 && stillUnreleased.length === 0) {
+    ok(`all ${String(files.length)} package changelogs have a ${version} section`);
+  }
+}
+
 // ── 3. every NAME the engine gained is mentioned ─────────────────────────────
 
 /**
@@ -292,6 +333,7 @@ console.log(`\nreleasing over ${lastTag}\n`);
 const version = versions();
 if (version) {
   const section = changelogSection(version);
+  packageChangelogs(version);
   if (section) await changelogCoversTheSurface(section, lastTag);
   treeIsReleasable(version);
   centralBudget();
