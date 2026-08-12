@@ -1,5 +1,6 @@
 package io.github.nickliapin.tdc.pattern;
 
+import io.github.nickliapin.tdc.lib.Fixed;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
@@ -90,6 +91,21 @@ public final class Curve {
       List<double[]> points, double[] yRange, int decimals, double[] normExtent, Interp interp) {
     if (points.size() < 2) {
       throw new IllegalArgumentException("pattern: need at least two points to define a curve");
+    }
+    // Two points on ONE x is the same emptiness as a single point, one step later: no width,
+    // so "where this card's line crosses the drawing" has no single answer.
+    boolean flat = true;
+    for (double[] p : points) {
+      if (p[0] != points.get(0)[0]) {
+        flat = false;
+        break;
+      }
+    }
+    if (flat) {
+      throw new IllegalArgumentException(
+          "pattern: every point sits at x=" + Fixed.toFixed(points.get(0)[0], 0)
+              + ", so the drawing has no width and a card has nothing to read across. Give the"
+              + " points at least two different x coordinates.");
     }
     List<double[]> sorted = new ArrayList<>(points);
     sorted.sort(Comparator.comparingDouble(p -> p[0]));

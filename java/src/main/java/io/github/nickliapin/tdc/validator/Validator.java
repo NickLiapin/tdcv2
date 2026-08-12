@@ -2684,12 +2684,18 @@ public final class Validator {
     // The GENERATOR's own readers are called here rather than their rules repeated: a second
     // copy is a second thing to keep in step, and drifting apart is the failure being closed.
     if ("pattern".equals(type)) {
-      for (String name : List.of("mode", "interp", "spread", "decimals")) {
+      for (String name :
+          List.of("points", "upper", "lower", "mode", "interp", "spread", "decimals")) {
         if (attrs.get(name) == null) {
           continue;
         }
         try {
           switch (name) {
+            // The three that carry a DRAWING, read by the same code the run uses.
+            case "points", "upper", "lower" ->
+                io.github.nickliapin.tdc.pattern.Curve.of(
+                    io.github.nickliapin.tdc.pattern.PatternGen.points(attrs.get(name)),
+                    null, 0, null, io.github.nickliapin.tdc.pattern.Curve.Interp.LINEAR);
             case "mode" -> io.github.nickliapin.tdc.pattern.PatternGen.mode(attrs.get(name));
             case "interp" -> io.github.nickliapin.tdc.pattern.PatternGen.interp(attrs.get(name));
             case "spread" -> io.github.nickliapin.tdc.pattern.PatternGen.spread(attrs);

@@ -340,6 +340,16 @@ fn corridor(
 /// same — which is what lets a config paste coordinates from wherever it has
 /// them.
 pub fn points(raw: &str) -> EngineResult<Vec<[f64; 2]>> {
+    // A `;` is NOT a separator: every number is read in order, so
+    // `0,20 100,20; 0,80 100,80` would silently become ONE curve of four points.
+    // Somebody writing that meant a band, so name the spelling that works.
+    if raw.contains(';') {
+        return invalid(
+            "pattern: \";\" does not separate two lines in points= — every number is read as \
+             one curve. For a band, draw the two edges separately: upper=\"0,80 100,80\" \
+             lower=\"0,20 100,20\".",
+        );
+    }
     let nums = numbers_in(raw);
     if nums.is_empty() || nums.len() % 2 != 0 {
         return invalid(&format!(

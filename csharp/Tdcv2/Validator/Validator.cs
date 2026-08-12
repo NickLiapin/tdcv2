@@ -3250,7 +3250,7 @@ public sealed class Validator
         // exactly the failure being closed.
         if (type == "pattern")
         {
-            foreach (string name in new[] { "mode", "interp", "spread", "decimals" })
+            foreach (string name in new[] { "points", "upper", "lower", "mode", "interp", "spread", "decimals" })
             {
                 if (!attrs.ContainsKey(name))
                 {
@@ -3261,6 +3261,13 @@ public sealed class Validator
                 {
                     switch (name)
                     {
+                        // The three that carry a DRAWING, read by the same code the run
+                        // uses: a `;` that becomes one curve, and points with no width.
+                        case "points":
+                        case "upper":
+                        case "lower":
+                            Pattern.Curve.Of(Pattern.PatternGen.Points(attrs[name]), null, 0, null, Pattern.Interp.Linear);
+                            break;
                         case "mode": Pattern.PatternGen.Mode(attrs[name]); break;
                         case "interp": Pattern.PatternGen.InterpOf(attrs[name]); break;
                         case "spread": Pattern.PatternGen.Spread(attrs); break;

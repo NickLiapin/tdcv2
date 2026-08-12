@@ -78,6 +78,16 @@ impl Curve {
         if points.len() < 2 {
             return invalid("pattern: need at least two points to define a curve");
         }
+        // Two points on ONE x is the same emptiness as a single point, one step later:
+        // no width, so "where this card's line crosses the drawing" has no one answer.
+        if points.iter().all(|p| p[0] == points[0][0]) {
+            return invalid(&format!(
+                "pattern: every point sits at x={}, so the drawing has no width and a card \
+                 has nothing to read across. Give the points at least two different x \
+                 coordinates.",
+                crate::numbers::to_fixed(points[0][0], 0)
+            ));
+        }
 
         // A STABLE sort: two points at the same x keep the order they were
         // written. `sort_unstable_by` would be faster and would reorder them.

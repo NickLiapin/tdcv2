@@ -2782,6 +2782,21 @@ class _Validator:
         # exactly the failure being closed.
         if type_ == "pattern":
             for name, parse in (
+                # The three that carry a DRAWING, read by the same code the run uses: a `;`
+                # that becomes one curve instead of two, and points with no width, both used
+                # to pass `check` and die in the run.
+                (
+                    "points",
+                    lambda: curve.build(curve.parse_points(attrs.get("points") or ""), None, 0),
+                ),
+                (
+                    "upper",
+                    lambda: curve.build(curve.parse_points(attrs.get("upper") or ""), None, 0),
+                ),
+                (
+                    "lower",
+                    lambda: curve.build(curve.parse_points(attrs.get("lower") or ""), None, 0),
+                ),
                 ("mode", lambda: curve.parse_mode(attrs.get("mode"))),
                 ("interp", lambda: curve.parse_interp(attrs.get("interp"))),
                 ("spread", lambda: curve.parse_spread(attrs)),

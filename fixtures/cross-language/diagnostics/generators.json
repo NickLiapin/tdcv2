@@ -413,6 +413,20 @@
       "description": "The other half of the rule: the two words the generator accepts stay accepted.",
       "config": "<tdc><env count=\"3\" seed=\"s\" local=\"en\"><sequence name=\"V\"><gen type=\"pattern\" y_range=\"0..10\" points=\"0,0 1,5\" mode=\"density\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
       "expected": []
+    },
+    {
+      "name": "a-drawing-with-no-width",
+      "demonstrates": "TDC285",
+      "description": "Two points on ONE x. There is no width, so \"where this card's line crosses the drawing\" has no single answer — the same emptiness as a single point, one step later. The engine used to take the first point and say nothing, which is the silent half of a refusal that already exists for one point.",
+      "config": "<tdc><env count=\"3\" seed=\"unit-test\" local=\"en\"><sequence name=\"V\"><gen type=\"pattern\" points=\"50,10 50,90\" y_range=\"0..100\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
+      "expected": ["error TDC285 1:95"]
+    },
+    {
+      "name": "a-semicolon-in-points-is-not-two-lines",
+      "demonstrates": "TDC285",
+      "description": "A `;` looks like it separates two curves and does not: every number in the string is read in order, so this silently becomes ONE curve of four points. Somebody writing it meant a band and got a shape they never drew. The refusal names the spelling that works — upper= and lower= — because the mistake is a guess at syntax, not a typo.",
+      "config": "<tdc><env count=\"3\" seed=\"unit-test\" local=\"en\"><sequence name=\"V\"><gen type=\"pattern\" points=\"0,20 100,20; 0,80 100,80\" y_range=\"0..100\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
+      "expected": ["error TDC285 1:95"]
     }
   ]
 }

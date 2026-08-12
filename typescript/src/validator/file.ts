@@ -11,9 +11,11 @@ import type {
 } from '../generated/TDCParser.js';
 import { loadFileValues } from '../generators/file.js';
 import {
+  buildSignalCurve,
   decimalsFromAttrs,
   parseInterp,
   parseMode,
+  parsePoints,
   spreadFromAttrs,
 } from '../generators/pattern.js';
 import { extractAttrs } from '../processor/walk.js';
@@ -184,6 +186,12 @@ function checkDrawingValues(
   diagnostics: Diagnostic[],
 ): void {
   const checks: readonly [string, () => unknown][] = [
+    // The three that carry a DRAWING, checked by the same reader the run uses. A `;`
+    // that reads as one curve instead of two, and a set of points with no width, both
+    // used to pass `check` and die in the run.
+    ['points', () => buildSignalCurve(parsePoints(attrMap['points'] ?? ''), undefined, 0)],
+    ['upper', () => buildSignalCurve(parsePoints(attrMap['upper'] ?? ''), undefined, 0)],
+    ['lower', () => buildSignalCurve(parsePoints(attrMap['lower'] ?? ''), undefined, 0)],
     ['mode', () => parseMode(attrMap['mode'])],
     ['interp', () => parseInterp(attrMap['interp'])],
     ['spread', () => spreadFromAttrs(attrMap)],

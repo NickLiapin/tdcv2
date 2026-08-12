@@ -2609,9 +2609,14 @@ impl Validator {
         // repeated: a second copy is a second thing to keep in step, and drifting apart is
         // exactly the failure being closed.
         if gen_type == Some("pattern") {
-            for name in ["mode", "interp", "spread", "decimals"] {
+            // The three that carry a DRAWING go through the same reader the run uses, so a
+            // `;` that becomes one curve and points with no width are caught before the run.
+            for name in ["points", "upper", "lower", "mode", "interp", "spread", "decimals"] {
                 let Some(raw) = attrs.get(name) else { continue };
                 let problem = match name {
+                    "points" | "upper" | "lower" => crate::pattern::points(raw)
+                        .and_then(|pts| crate::pattern::curve::Curve::of(&pts, None, 0, None, crate::pattern::curve::Interp::Linear))
+                        .err(),
                     "mode" => crate::pattern::read_mode(raw).err(),
                     "interp" => crate::pattern::read_interp(raw).err(),
                     "spread" => crate::pattern::read_spread(raw).err(),

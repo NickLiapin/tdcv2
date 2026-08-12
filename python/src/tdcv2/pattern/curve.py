@@ -85,7 +85,17 @@ def parse_points(raw: str) -> list[tuple[float, float]]:
     Both ``"x,y x,y"`` and SVG's space-separated ``"x y x y"`` work: every number is extracted and
     the numbers are paired. A points list gets copied out of an editor as often as it gets typed,
     and the two spellings are indistinguishable in intent.
+
+    A ``;`` is NOT a separator: every number is read in order, so ``0,20 100,20; 0,80 100,80``
+    would silently become one curve of four points. Somebody writing that meant a band, so it is
+    refused and pointed at the spelling that works.
     """
+    if ";" in raw:
+        raise ValueError(
+            'pattern: ";" does not separate two lines in points= — every number is read as one '
+            'curve. For a band, draw the two edges separately: upper="0,80 100,80" '
+            'lower="0,20 100,20".'
+        )
     found = re.findall(r"-?\d+(?:\.\d+)?(?:[eE][+-]?\d+)?", raw)
     if not found or len(found) % 2 != 0:
         raise ValueError(
@@ -170,6 +180,14 @@ def build(
 ) -> Curve:
     if len(points) < 2:
         raise ValueError("pattern: need at least two points to define a curve")
+    # Two points on ONE x is the same emptiness as a single point, one step later: no width,
+    # so "the value where this card's line crosses the drawing" has no single answer.
+    if all(p[0] == points[0][0] for p in points):
+        raise ValueError(
+            f"pattern: every point sits at x={points[0][0]:g}, so the drawing has no "
+            "width and a card has nothing to read across. Give the points at least two "
+            "different x coordinates."
+        )
     ordered = sorted(points, key=lambda p: p[0])
     xs = tuple(p[0] for p in ordered)
     ys = tuple(p[1] for p in ordered)

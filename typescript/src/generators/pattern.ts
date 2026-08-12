@@ -94,6 +94,16 @@ function pchipSlopes(xs: readonly number[], ys: readonly number[]): number[] {
  * space-separated `"x y x y"`: extracts every number and pairs them.
  */
 export function parsePoints(raw: string): [number, number][] {
+  // A `;` looks like it separates two lines, and it does not: every number in the
+  // string is collected in order, so `0,20 100,20; 0,80 100,80` silently becomes ONE
+  // curve of four points. Somebody writing that meant a band, and got a shape they
+  // did not draw. Refused rather than guessed, because the right spelling exists.
+  if (raw.includes(';')) {
+    throw new Error(
+      'pattern: ";" does not separate two lines in points= — every number is read as one ' +
+        'curve. For a band, draw the two edges separately: upper="0,80 100,80" lower="0,20 100,20".',
+    );
+  }
   const nums = (raw.match(/-?\d+(?:\.\d+)?(?:[eE][+-]?\d+)?/g) ?? []).map(Number);
   if (nums.length === 0 || nums.length % 2 !== 0) {
     throw new Error(
@@ -171,6 +181,16 @@ export function buildSignalCurve(
 ): SignalCurve {
   if (points.length < 2) {
     throw new Error('pattern: need at least two points to define a curve');
+  }
+  // Two points ON ONE x is the same emptiness as one point, one step later: there is no
+  // width, so "the value where this card's line crosses the drawing" has no single
+  // answer. The engine used to take the first point and say nothing.
+  if (points.every((p) => p[0] === points[0]?.[0])) {
+    throw new Error(
+      `pattern: every point sits at x=${String(points[0]?.[0] ?? 0)}, so the drawing has no ` +
+        'width and a card has nothing to read across. Give the points at least two different ' +
+        'x coordinates.',
+    );
   }
   const sorted = [...points].sort((a, b) => a[0] - b[0]);
   const xs = sorted.map((p) => p[0]);
