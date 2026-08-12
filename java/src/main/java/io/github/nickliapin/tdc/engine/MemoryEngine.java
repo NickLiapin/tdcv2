@@ -2396,7 +2396,7 @@ public final class MemoryEngine {
           draws
               ? Seekable.uniforms(stream.seed(), stream.id() + ":pat", stream.rowAt(i), 1)[0]
               : 0;
-      out.add(gen.valueAt(i / denom, u, 1 / denom));
+      out.add(gen.valueAt(i / denom, u));
     }
     return out;
   }

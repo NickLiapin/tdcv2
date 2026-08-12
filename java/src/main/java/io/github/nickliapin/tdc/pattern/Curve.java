@@ -106,8 +106,9 @@ public final class Curve {
       lo = Math.min(lo, y);
       hi = Math.max(hi, y);
     }
-    double nyMin = normExtent != null ? normExtent[0] : lo;
-    double nyMax = normExtent != null ? normExtent[1] : hi;
+    double[] canvas = normExtent != null ? normExtent : vectorCanvas(lo, hi);
+    double nyMin = canvas[0];
+    double nyMax = canvas[1];
     double[] slopes = interp == Interp.SMOOTH ? pchipSlopes(xs, ys) : null;
     return new Curve(xs, ys, nyMin, nyMax, yRange, decimals, interp, slopes);
   }
@@ -169,8 +170,11 @@ public final class Curve {
       return ya;
     }
     double s = (x - xa) / dx;
+    // A step holds each point's value in the band to its RIGHT, and the last point has no band —
+    // the drawing ends there. So it used to be drawn and yet unreachable, with the right edge
+    // reporting the plateau before it while linear and smooth reported the point.
     if (interp == Interp.STEP) {
-      return ya;
+      return x >= xb ? yb : ya;
     }
     if (interp == Interp.SMOOTH && slopes != null) {
       double ma = slopes[k];
@@ -188,42 +192,52 @@ public final class Curve {
   /**
    * The value at position {@code t} in [0,1].
    *
-   * <p>{@code dt} is how much of the drawing one row covers. When the rows outnumber the drawn
-   * points, that window is shorter than a segment and the reading is simply the point on the
-   * line. When the drawing has <em>more</em> points than there are rows — a thousand-point trace
-   * squeezed into ten — each row averages the line across its whole window instead, so the
-   * detail in between is summarised rather than silently dropped by landing on one arbitrary
-   * sample.
+   * <p>A row also used to own a WINDOW — the slice of drawing between it and its neighbours —
+   * and whenever a drawn vertex fell inside it the row returned that window's average instead of
+   * the crossing. Which rule a row used depended on where the vertices happened to land, so
+   * neighbouring rows of one drawing were computed by different laws and nothing in the picture
+   * said which was which. Ten rows are a request for ten readings, and ten readings are what they
+   * get; a peak between two of them is the consequence of having asked for ten, not a lost
+   * measurement.
    */
-  public double valueAt(double t, double dt) {
+  public double valueAt(double t) {
     double x0 = xs[0];
     double xN = xs[xs.length - 1];
     double span = xN - x0;
 
-    double half = dt / 2;
-    double xa = x0 + clamp01(t - half) * span;
-    double xb = x0 + clamp01(t + half) * span;
-    int inside = dt > 0 ? segmentAt(xs, xb) - segmentAt(xs, xa) : 0;
-
-    double y;
-    if (inside <= 0) {
-      y = heightAtX(x0 + clamp01(t) * span);
-    } else {
-      int steps = Math.min(64, Math.max(2, inside * 2));
-      double sum = 0;
-      for (int i = 0; i <= steps; i++) {
-        double w = i == 0 || i == steps ? 0.5 : 1;
-        sum += w * heightAtX(xa + (xb - xa) * i / steps);
-      }
-      y = sum / steps;
-    }
+    double y = heightAtX(x0 + clamp01(t) * span);
 
     if (yRange == null) {
       return y;
     }
+    // The CANVAS is the scale, never the ink: the image for a raster, 0..100 grown only to hold
+    // what was drawn outside it for a list of points.
     double vspan = yMax - yMin;
-    double yn = vspan == 0 ? 0 : (y - yMin) / vspan;
-    return yRange[0] + yn * (yRange[1] - yRange[0]);
+    double yn = vspan == 0 ? 0.5 : (y - yMin) / vspan;
+    double scaled = yRange[0] + yn * (yRange[1] - yRange[0]);
+    // A drawn point is inside its canvas by construction, so this catches only what is added
+    // AFTER the mapping — a spread's scatter and a band's width.
+    double lowEdge = Math.min(yRange[0], yRange[1]);
+    double highEdge = Math.max(yRange[0], yRange[1]);
+    return Math.min(Math.max(scaled, lowEdge), highEdge);
+  }
+
+  /**
+   * The default height of a drawn canvas — a percentage board, the same one the Studio draws on.
+   *
+   * <p>It is a CONSTANT rather than a measurement: a horizontal line at 50 sits halfway up a
+   * canvas of 100 no matter how many points the drawing has, so {@code y_range="0..100"} gives
+   * back 50 and {@code -5..5} gives back 0. Measuring the drawing instead would make that same
+   * line the highest thing present, hence the top of the range.
+   */
+  private static final double VECTOR_CANVAS_TOP = 100;
+
+  /**
+   * The canvas a drawn list of points is read against. It never shrinks below 0..100; it only
+   * GROWS, to hold whatever was drawn outside it.
+   */
+  static double[] vectorCanvas(double yMin, double yMax) {
+    return new double[] {Math.min(0, yMin), Math.max(VECTOR_CANVAS_TOP, yMax)};
   }
 
   private static double clamp01(double v) {

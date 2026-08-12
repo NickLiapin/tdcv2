@@ -860,7 +860,7 @@ public final class StreamEngine {
                 }
                 double u =
                     drawing.draws() ? Seekable.uniforms(seed, streamId + ":pat", row, 1)[0] : 0;
-                return drawing.valueAt(r / denom, u, 1 / denom);
+                return drawing.valueAt(r / denom, u);
               }));
     }
 

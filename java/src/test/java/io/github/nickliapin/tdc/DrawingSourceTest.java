@@ -60,7 +60,7 @@ class DrawingSourceTest {
     Files.writeString(dir.resolve("curve.svg"), CURVE_SVG);
     // A cubic and a smooth-curve shorthand, flattened. Dropping either would give a shape that
     // still looks like a curve and is the wrong one.
-    assertEquals(List.of("2.1", "33.5", "90.4", "90.4", "33.5", "2.1"), read(dir, "curve.svg"));
+    assertEquals(List.of("0.0", "6.6", "20.0", "20.0", "6.6", "0.0"), read(dir, "curve.svg"));
   }
 
   @Test
@@ -77,7 +77,7 @@ class DrawingSourceTest {
     Files.write(dir.resolve("line.png"), diagonalPng(20, 10));
     // The picture's own height is the value scale, so the diagonal spans the whole range.
     assertEquals(
-        List.of("100.0", "87.2", "66.0", "45.1", "24.0", "8.1"), read(dir, "line.png"));
+        List.of("100.0", "88.9", "66.7", "44.4", "22.2", "0.0"), read(dir, "line.png"));
   }
 
   @Test

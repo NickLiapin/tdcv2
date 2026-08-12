@@ -29,7 +29,8 @@ class PatternTest {
   @Test
   @DisplayName("a single line is a trajectory and takes no draws at all")
   void signalIsDeterministic() {
-    Map<String, String> a = attrs("points", "0,0 5,10 10,0", "decimals", "2");
+    Map<String, String> a =
+        attrs("points", "0,0 5,100 10,0", "y_range", "0..10", "decimals", "2");
     assertEquals(
         List.of("0.00", "2.86", "5.71", "8.57", "8.57", "5.71", "2.86", "0.00"), gen(a, 8));
     // No draw is taken, so the seed cannot matter — a plain trend can be dropped into a config
@@ -43,13 +44,19 @@ class PatternTest {
   @DisplayName("interp changes how the line is read between points")
   void interpolationModes() {
     assertEquals(
-        List.of("0.00", "3.44", "7.11", "9.46", "9.62", "7.11", "3.44", "0.00"),
-        gen(attrs("points", "0,0 5,10 10,0", "decimals", "2", "interp", "smooth"), 8));
+        List.of("0.00", "3.44", "7.11", "9.62", "9.62", "7.11", "3.44", "0.00"),
+        gen(
+            attrs("points", "0,0 5,100 10,0", "y_range", "0..10", "decimals", "2", "interp",
+                "smooth"),
+            8));
     // Smooth never overshoots the drawn maximum of 10 — that is what monotone cubic buys over
     // an ordinary spline when the drawing is the specification.
     assertEquals(
-        List.of("0.00", "0.00", "0.00", "2.50", "10.00", "10.00", "10.00", "10.00"),
-        gen(attrs("points", "0,0 5,10 10,0", "decimals", "2", "interp", "step"), 8));
+        List.of("0.00", "0.00", "0.00", "0.00", "10.00", "10.00", "10.00", "0.00"),
+        gen(
+            attrs("points", "0,0 5,100 10,0", "y_range", "0..10", "decimals", "2", "interp",
+                "step"),
+            8));
   }
 
   @Test
@@ -58,7 +65,7 @@ class PatternTest {
     // Only the shape matters: the same drawing, read into 100..200.
     assertEquals(
         List.of("100.0", "128.6", "157.1", "185.7", "185.7", "157.1", "128.6", "100.0"),
-        gen(attrs("points", "0,0 5,10 10,0", "y_range", "100..200", "decimals", "1"), 8));
+        gen(attrs("points", "0,0 5,100 10,0", "y_range", "100..200", "decimals", "1"), 8));
   }
 
   @Test
@@ -66,7 +73,9 @@ class PatternTest {
   void spread() {
     assertEquals(
         List.of("0.38", "3.46", "5.84", "9.27", "7.86", "6.61", "2.59", "-0.95"),
-        gen(attrs("points", "0,0 5,10 10,0", "decimals", "2", "spread", "1"), 8));
+        gen(
+            attrs("points", "0,0 5,100 10,0", "y_range", "0..10", "decimals", "2", "spread", "1"),
+            8));
   }
 
   @Test
@@ -87,7 +96,10 @@ class PatternTest {
   void density() {
     assertEquals(
         List.of("60.8", "68.4", "53.3", "72.4", "26.7", "84.2", "42.7", "11.7"),
-        gen(attrs("points", "0,0 5,10 10,0", "y_range", "0..100", "decimals", "1", "mode", "density"), 8));
+        gen(
+            attrs("points", "0,0 5,100 10,0", "y_range", "0..100", "decimals", "1", "mode",
+                "density"),
+            8));
     // A flat drawing has no shape to weight by, so it becomes uniform rather than an error.
     assertEquals(
         List.of("6.92", "8.00", "5.65", "8.47", "1.43", "9.50", "3.65", "0.27"),
@@ -97,11 +109,12 @@ class PatternTest {
   @Test
   @DisplayName("more points than rows are averaged, not sampled at one arbitrary place")
   void detailIsSummarised() {
-    // Five drawn points squeezed into three rows: each row averages its own window, so the
+    // Five drawn points squeezed into three rows: each row reads where its own line crosses the
     // spike at x=3 is not simply missed.
     assertEquals(
-        List.of("2.500", "4.000", "0.000"),
-        gen(attrs("points", "0,0 1,5 2,1 3,9 4,0", "decimals", "3"), 3));
+        List.of("0.000", "1.000", "0.000"),
+        gen(
+            attrs("points", "0,0 1,50 2,10 3,90 4,0", "y_range", "0..10", "decimals", "3"), 3));
   }
 
   @Test
@@ -112,7 +125,7 @@ class PatternTest {
     assertThrows(IllegalArgumentException.class, () -> gen(attrs("points", "0,0"), 4));
     assertThrows(
         IllegalArgumentException.class,
-        () -> gen(attrs("points", "0,0 1,1", "interp", "bezier"), 4));
+        () -> gen(attrs("points", "0,0 1,1", "y_range", "0..100", "interp", "bezier"), 4));
     assertThrows(
         IllegalArgumentException.class,
         () -> gen(attrs("points", "0,0 1,1", "y_range", "0"), 4));
@@ -132,7 +145,7 @@ class PatternTest {
                 <tdc>
                   <env mode="memory" count="5" seed="pat" local="en">
                     <sequence name="Load">
-                      <gen type="pattern" points="0,0 5,10 10,0" y_range="0..100" decimals="1"/>
+                      <gen type="pattern" points="0,0 5,100 10,0" y_range="0..100" decimals="1"/>
                     </sequence>
                   </env>
                   <block><line><data>${{Load}}</data></line></block>
@@ -143,7 +156,7 @@ class PatternTest {
     // peak of 100 — its window straddles the vertex, so it averages across it. Checked against
     // the reference: the peak of a drawing is not guaranteed to land exactly on a row.
     assertEquals(
-        List.of("0.0", "50.0", "87.5", "50.0", "0.0"),
+        List.of("0.0", "50.0", "100.0", "50.0", "0.0"),
         tdc.toList().stream().map(r -> r.get("Load")).toList());
   }
 }

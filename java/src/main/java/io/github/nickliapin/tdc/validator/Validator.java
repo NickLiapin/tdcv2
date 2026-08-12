@@ -2641,6 +2641,22 @@ public final class Validator {
     if (!"file".equals(type) && !"pattern".equals(type)) {
       return;
     }
+    // `y_range=` is the value axis a drawing is brought into, and a drawing has no scale of its
+    // own. The generator refuses without it, but a refusal at run time is not enough: a config
+    // that passes `check` and then dies is the exact defect this validator exists to close.
+    if ("pattern".equals(type)) {
+      String axis = attrs.get("y_range");
+      if (axis == null || axis.isBlank()) {
+        error("TDC293",
+            "<gen type=\"pattern\"> needs y_range — a drawing has no scale of its own",
+            "y_range=\"min..max\" is the value axis the picture is brought into: its floor is "
+                + "the minimum, its top is the maximum, and nothing leaves the range. Without it "
+                + "the drawing would be measured against its own ink, so a flat line halfway up "
+                + "would come out at the floor. Write y_range=\"0..100\" for a percentage "
+                + "canvas, or the units you actually mean.",
+            line(gen), column(gen));
+      }
+    }
     // `src=` is one of three ways to hand a drawing a shape, so its absence is only a mistake
     // when the other two are absent too — the drawing equivalent of a regex with no pattern,
     // which TDC095 and TDC128 have always caught before the run.

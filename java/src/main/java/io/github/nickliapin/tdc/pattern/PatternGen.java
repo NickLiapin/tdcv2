@@ -68,7 +68,7 @@ public final class PatternGen {
     double denom = count > 1 ? count - 1 : 1;
     for (int i = 0; i < count; i++) {
       double u = draws ? Distribution.openUnit(prng.next()) : 0;
-      out.add(gen.valueAt(i / denom, u, 1 / denom));
+      out.add(gen.valueAt(i / denom, u));
     }
     return out;
   }
@@ -270,18 +270,18 @@ public final class PatternGen {
     return kind != Kind.SIGNAL || spread > 0;
   }
 
-  public String valueAt(double t, double u, double dt) {
+  public String valueAt(double t, double u) {
     if (kind == Kind.DENSITY) {
       // Position in the run means nothing here — the drawing is a distribution, so the row's
       // own draw picks the value and the order comes out random.
       return format(density.valueAt(u), density.decimals());
     }
     if (kind == Kind.SIGNAL) {
-      double v = curve.valueAt(t, dt);
+      double v = curve.valueAt(t);
       return format(spread > 0 ? v + (2 * u - 1) * spread : v, decimals);
     }
-    double a = lower.valueAt(t, dt);
-    double b = upper.valueAt(t, dt);
+    double a = lower.valueAt(t);
+    double b = upper.valueAt(t);
     double lo = Math.min(a, b) - spread;
     double hi = Math.max(a, b) + spread;
     return format(lo + u * (hi - lo), decimals);
@@ -310,8 +310,13 @@ public final class PatternGen {
   }
 
   static double[] yRange(String raw) {
+    // A drawing carries no units of its own: a curve exported from one tool runs 0..100, from
+    // another 0..10002345345. Without a declared axis every answer would be a guess about
+    // somebody's export settings, so the attribute is required rather than assumed.
     if (raw == null || raw.isBlank()) {
-      return null;
+      throw new IllegalArgumentException(
+          "pattern: y_range is required — it is the value axis a drawing is brought into, and a"
+              + " drawing has no scale of its own. Write y_range=\"0..100\".");
     }
     String[] parts = raw.split("\\.\\.", -1);
     if (parts.length != 2) {
