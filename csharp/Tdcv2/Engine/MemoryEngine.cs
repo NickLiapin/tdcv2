@@ -3157,7 +3157,7 @@ public static class MemoryEngine
             double u = draws
                 ? Seekable.Uniforms(stream.Seed, $"{stream.Id}:pat", stream.RowAt(i), 1)[0]
                 : 0;
-            result.Add(gen.ValueAt(i / denom, u, 1 / denom));
+            result.Add(gen.ValueAt(i / denom, u));
         }
 
         return result;

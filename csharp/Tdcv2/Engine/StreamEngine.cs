@@ -949,7 +949,7 @@ public sealed class StreamEngine
                 double u = drawing.Draws
                     ? Seekable.Uniforms(_seed, streamId + ":pat", row, 1)[0]
                     : 0;
-                return drawing.ValueAt(r.Value / denom, u, 1 / denom);
+                return drawing.ValueAt(r.Value / denom, u);
             }));
         }
 

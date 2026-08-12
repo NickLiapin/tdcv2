@@ -80,7 +80,7 @@ public sealed class PatternGen
         for (int i = 0; i < count; i++)
         {
             double u = draws ? Seekable.OpenUnit(prng.Next()) : 0;
-            result.Add(gen.ValueAt(i / denom, u, 1 / denom));
+            result.Add(gen.ValueAt(i / denom, u));
         }
 
         return result;
@@ -315,7 +315,7 @@ public sealed class PatternGen
     /// <summary>Whether a row costs a draw: a band, a spread, or a density. A bare line costs none.</summary>
     public bool Draws => _kind != Kind.Signal || _spread > 0;
 
-    public string ValueAt(double t, double u, double dt)
+    public string ValueAt(double t, double u)
     {
         if (_kind == Kind.DensityKind)
         {
@@ -326,12 +326,12 @@ public sealed class PatternGen
 
         if (_kind == Kind.Signal)
         {
-            double v = _curve!.ValueAt(t, dt);
+            double v = _curve!.ValueAt(t);
             return Format(_spread > 0 ? v + (((2 * u) - 1) * _spread) : v, _decimals);
         }
 
-        double a = _lower!.ValueAt(t, dt);
-        double b = _upper!.ValueAt(t, dt);
+        double a = _lower!.ValueAt(t);
+        double b = _upper!.ValueAt(t);
         double low = Math.Min(a, b) - _spread;
         double high = Math.Max(a, b) + _spread;
         return Format(low + (u * (high - low)), _decimals);
@@ -364,11 +364,18 @@ public sealed class PatternGen
         return points;
     }
 
+    /// <summary>
+    /// <c>y_range="min..max"</c> — the value axis, and REQUIRED. A drawing carries no units of
+    /// its own: a curve exported from one tool runs 0..100, from another 0..10002345345. Without
+    /// it every answer would be a guess about somebody's export settings.
+    /// </summary>
     internal static double[]? YRange(string? raw)
     {
         if (string.IsNullOrWhiteSpace(raw))
         {
-            return null;
+            throw new ArgumentException(
+                "pattern: y_range is required — it is the value axis a drawing is brought into, "
+                + "and a drawing has no scale of its own. Write y_range=\"0..100\".");
         }
 
         string[] parts = raw.Split("..");

@@ -52,7 +52,7 @@ public class DrawingSourceTest : IDisposable
         File.WriteAllText(Path.Combine(_dir, "curve.svg"), CurveSvg);
         // A cubic and a smooth-curve shorthand, flattened. Dropping either would give a shape that
         // still looks like a curve and is the wrong one.
-        Assert.Equal(new[] { "2.1", "33.5", "90.4", "90.4", "33.5", "2.1" }, Read("curve.svg"));
+        Assert.Equal(new[] { "0.0", "6.6", "20.0", "20.0", "6.6", "0.0" }, Read("curve.svg"));
     }
 
     [Fact]
@@ -68,7 +68,7 @@ public class DrawingSourceTest : IDisposable
         File.WriteAllBytes(Path.Combine(_dir, "line.png"), DiagonalPng(20, 10));
         // The picture's own height is the value scale, so the diagonal spans the whole range.
         Assert.Equal(
-            new[] { "100.0", "87.2", "66.0", "45.1", "24.0", "8.1" }, Read("line.png"));
+            new[] { "100.0", "88.9", "66.7", "44.4", "22.2", "0.0" }, Read("line.png"));
     }
 
     [Fact]
