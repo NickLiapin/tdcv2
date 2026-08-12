@@ -2048,7 +2048,7 @@ impl StreamEngine<'_> {
                 } else {
                     0.0
                 };
-                let value = drawing.value_at(f64::from(r) / denom, u, 1.0 / denom);
+                let value = drawing.value_at(f64::from(r) / denom, u);
                 self.modify(modifier, row, Some(value), 0)
             }
 

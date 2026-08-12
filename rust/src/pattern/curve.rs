@@ -40,6 +40,27 @@ pub struct Curve {
     slopes: Option<Vec<f64>>,
 }
 
+/// The default height of a drawn canvas — a percentage board, the same one the
+/// Studio draws on.
+///
+/// It is a CONSTANT rather than a measurement, and that is the whole point: a
+/// horizontal line at 50 sits halfway up a canvas of 100 no matter how many
+/// points the drawing has, so `y_range="0..100"` gives back 50 and `-5..5` gives
+/// back 0. Measuring the drawing instead would make that same line the highest
+/// thing present, hence the top of the range.
+const VECTOR_CANVAS_TOP: f64 = 100.0;
+
+/// The canvas a drawn list of points is read against.
+///
+/// It never shrinks below 0..100; it only GROWS, to hold whatever was drawn
+/// outside it. So a picture that fits the default board is measured against the
+/// board, and one exported at 0..10002345345 is measured against itself — in
+/// both cases the whole drawing lands inside `y_range` and its proportions
+/// survive.
+pub fn vector_canvas(y_min: f64, y_max: f64) -> (f64, f64) {
+    (y_min.min(0.0), y_max.max(VECTOR_CANVAS_TOP))
+}
+
 impl Curve {
     /// Build a curve from raw points.
     ///
@@ -70,7 +91,7 @@ impl Curve {
         let hi = ys.iter().copied().fold(ys[0], f64::max);
         let (y_min, y_max) = match norm_extent {
             Some([a, b]) => (a, b),
-            None => (lo, hi),
+            None => vector_canvas(lo, hi),
         };
 
         let slopes = (interp == Interp::Smooth).then(|| pchip_slopes(&xs, &ys));
@@ -114,7 +135,17 @@ impl Curve {
 
         let s = (x - xa) / dx;
         match self.interp {
-            Interp::Step => ya,
+            // A step holds each point's value in the band to its RIGHT, and the
+            // last point has no band — the drawing ends there. So it used to be
+            // drawn and yet unreachable, with the right edge reporting the
+            // plateau before it while linear and smooth reported the point.
+            Interp::Step => {
+                if x >= xb {
+                    yb
+                } else {
+                    ya
+                }
+            }
             Interp::Smooth => {
                 let slopes = self.slopes.as_ref().expect("built for Smooth");
                 let (ma, mb) = (slopes[k], slopes[k + 1]);
@@ -132,46 +163,35 @@ impl Curve {
     /// The value at position `t` in [0,1].
     ///
     /// `dt` is how much of the drawing one row covers. When the rows outnumber
-    /// the drawn points, that window is shorter than a segment and the reading is
-    /// simply the point on the line. When the drawing has *more* points than
-    /// there are rows — a thousand-point trace squeezed into ten — each row
-    /// averages the line across its whole window instead, so the detail in
-    /// between is summarised rather than silently dropped by landing on one
-    /// arbitrary sample.
-    pub fn value_at(&self, t: f64, dt: f64) -> f64 {
+    /// a row also owned a WINDOW — the slice of drawing between it and its
+    /// neighbours — and whenever a drawn vertex fell inside it the row returned
+    /// that window's average instead of the crossing. Which rule a row used
+    /// depended on where the vertices happened to land, so neighbouring rows of
+    /// one drawing were computed by different laws and nothing in the picture
+    /// said which was which. Ten rows are a request for ten readings, and ten
+    /// readings are what they get; a peak between two of them is the consequence
+    /// of having asked for ten, not a lost measurement.
+    pub fn value_at(&self, t: f64) -> f64 {
         let x0 = self.xs[0];
         let xn = self.xs[self.xs.len() - 1];
         let span = xn - x0;
 
-        let half = dt / 2.0;
-        let xa = x0 + clamp01(t - half) * span;
-        let xb = x0 + clamp01(t + half) * span;
-        let inside = if dt > 0.0 {
-            segment_at(&self.xs, xb) as i64 - segment_at(&self.xs, xa) as i64
-        } else {
-            0
-        };
-
-        let y = if inside <= 0 {
-            self.height_at_x(x0 + clamp01(t) * span)
-        } else {
-            let steps = (inside * 2).clamp(2, 64);
-            let mut sum = 0.0;
-            for i in 0..=steps {
-                let w = if i == 0 || i == steps { 0.5 } else { 1.0 };
-                sum += w * self.height_at_x(xa + (xb - xa) * i as f64 / steps as f64);
-            }
-            sum / steps as f64
-        };
+        let y = self.height_at_x(x0 + clamp01(t) * span);
 
         let Some(range) = self.y_range else { return y };
+        // The CANVAS is the scale, never the ink: the image for a raster, 0..100
+        // grown only to hold what was drawn outside it for a list of points.
         let vspan = self.y_max - self.y_min;
         let yn = if vspan == 0.0 {
-            0.0
+            0.5
         } else {
             (y - self.y_min) / vspan
         };
-        range[0] + yn * (range[1] - range[0])
+        let scaled = range[0] + yn * (range[1] - range[0]);
+        // A drawn point is inside its canvas by construction, so this catches
+        // only what is added AFTER the mapping — a spread's scatter and a band's
+        // width.
+        scaled.clamp(range[0].min(range[1]), range[0].max(range[1]))
     }
 }
 

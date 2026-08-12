@@ -1974,7 +1974,7 @@ fn pattern_keyed(
         } else {
             0.0
         };
-        result.push(gen.value_at(i as f64 / denom, u, 1.0 / denom));
+        result.push(gen.value_at(i as f64 / denom, u));
     }
     Ok(result)
 }

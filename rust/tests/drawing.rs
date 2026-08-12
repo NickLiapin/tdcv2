@@ -51,7 +51,10 @@ fn an_svg_path_curves_and_all_matches_the_reference() {
     // a shape that still looks like a curve and is the wrong one.
     assert_eq!(
         read(&dir, "curve.svg").expect("the drawing reads"),
-        ["2.1", "33.5", "90.4", "90.4", "33.5", "2.1"]
+        // Verified against the TypeScript reference on this very file: a row reads
+        // where its line crosses the drawing, and the curve is read against the
+        // 0..100 board rather than its own ink.
+        ["0.0", "6.6", "20.0", "20.0", "6.6", "0.0"]
     );
 }
 
@@ -69,11 +72,13 @@ fn two_strokes_are_a_band_and_a_transform_is_honoured() {
 fn a_png_is_traced_column_by_column_and_matches_the_reference() {
     let dir = scratch("png");
     std::fs::write(dir.join("line.png"), diagonal_png(20, 10)).expect("the file is written");
-    // The picture's own height is the value scale, so the diagonal spans the
-    // whole range.
+    // The picture's own height is the value scale — the raster extent is untouched
+    // by the canvas rule. What moved is that a row reads the crossing rather than
+    // the average of the slice around it, which turns a drawn diagonal into an
+    // even ramp instead of one bent at both ends.
     assert_eq!(
         read(&dir, "line.png").expect("the drawing reads"),
-        ["100.0", "87.2", "66.0", "45.1", "24.0", "8.1"]
+        ["100.0", "88.9", "66.7", "44.4", "22.2", "0.0"]
     );
 }
 

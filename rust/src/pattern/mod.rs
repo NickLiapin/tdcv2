@@ -64,7 +64,7 @@ pub fn generate(
         } else {
             0.0
         };
-        result.push(gen.value_at(i as f64 / denom, u, 1.0 / denom));
+        result.push(gen.value_at(i as f64 / denom, u));
     }
     Ok(result)
 }
@@ -158,7 +158,7 @@ impl PatternGen {
         !matches!(self.kind, Kind::Signal(_)) || self.spread > 0.0
     }
 
-    pub fn value_at(&self, t: f64, u: f64, dt: f64) -> String {
+    pub fn value_at(&self, t: f64, u: f64) -> String {
         match &self.kind {
             Kind::Density(d) => {
                 // Position in the run means nothing here — the drawing is a
@@ -167,7 +167,7 @@ impl PatternGen {
                 numbers::to_fixed(d.value_at(u), d.decimals())
             }
             Kind::Signal(c) => {
-                let v = c.value_at(t, dt);
+                let v = c.value_at(t);
                 let v = if self.spread > 0.0 {
                     v + (2.0 * u - 1.0) * self.spread
                 } else {
@@ -176,8 +176,8 @@ impl PatternGen {
                 numbers::to_fixed(v, self.decimals)
             }
             Kind::Corridor { lower, upper } => {
-                let a = lower.value_at(t, dt);
-                let b = upper.value_at(t, dt);
+                let a = lower.value_at(t);
+                let b = upper.value_at(t);
                 let low = a.min(b) - self.spread;
                 let high = a.max(b) + self.spread;
                 numbers::to_fixed(low + u * (high - low), self.decimals)
@@ -250,6 +250,9 @@ fn from_envelope(
     }
 
     let heights = top.iter().chain(bottom).map(|p| p[1]);
+    // ONE canvas for both curves. Measuring them separately would let each fill
+    // the range on its own, so a narrow band and a wide one would come out the
+    // same width and the corridor would stop meaning anything.
     let extent = norm_extent.unwrap_or_else(|| {
         let (mut lo, mut hi) = (f64::INFINITY, f64::NEG_INFINITY);
         for y in heights {
@@ -395,9 +398,18 @@ fn numbers_in(raw: &str) -> Vec<f64> {
     out
 }
 
+/// `y_range="min..max"` — the value axis, and REQUIRED.
+///
+/// A drawing carries no units of its own: a curve exported from one tool runs
+/// 0..100, from another 0..480, from a third 0..10002345345. `y_range` is what
+/// those coordinates mean, so without it there is nothing to bring the picture
+/// into and every answer would be a guess about somebody's export settings.
 pub fn read_y_range(raw: &str) -> EngineResult<Option<[f64; 2]>> {
     if raw.trim().is_empty() {
-        return Ok(None);
+        return invalid(
+            "pattern: y_range is required — it is the value axis a drawing is brought into, \
+             and a drawing has no scale of its own. Write y_range=\"0..100\".",
+        );
     }
     let parts: Vec<&str> = raw.split("..").collect();
     if parts.len() != 2 {
