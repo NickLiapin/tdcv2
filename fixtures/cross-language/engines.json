@@ -1448,6 +1448,14 @@
         ]
       }
     },
+    "expressions/an-integer-literal-past-the-domain-is-a-double": {
+      "engine2": {
+        "lines": ["same=yes inside="]
+      },
+      "engine3": {
+        "lines": ["same=yes inside="]
+      }
+    },
     "formatting/mask-phone": {
       "engine2": {
         "lines": ["555-123-4567"]

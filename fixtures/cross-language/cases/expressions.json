@@ -155,6 +155,12 @@
       "expected": [
         "счёт третий сумма максимум за-концом-пусто по-символам список-склеен склейка среднее медиана разброс-по-n"
       ]
+    },
+    {
+      "name": "an-integer-literal-past-the-domain-is-a-double",
+      "description": "An integer LITERAL wider than signed 64-bit is not refused — it becomes a double, so two different literals can compare equal. Arithmetic OVERFLOW is refused (pinned in diagnostics/expressions.json); a literal is a different door and nothing held it. Pinned here so the five agree on what a config already does: a port that widened literals, or refused them, would change what an existing config produces without anything going red. Whether it SHOULD refuse is a separate decision — this case records the behaviour, not an endorsement of it.",
+      "config": "<tdc><env count=\"1\" seed=\"unit-test\" local=\"en\" mode=\"memory\"><sequence name=\"Same\"><gen type=\"text\" value=\"yes\" if=\"10000000000000000000 == 10000000000000000001\"/></sequence><sequence name=\"Inside\"><gen type=\"text\" value=\"yes\" if=\"9223372036854775806 == 9223372036854775807\"/></sequence></env><block><line><data>same=${{Same}} inside=${{Inside}}</data></line></block></tdc>",
+      "expected": ["same=yes inside="]
     }
   ]
 }
