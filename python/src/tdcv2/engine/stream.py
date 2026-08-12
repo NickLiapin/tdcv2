@@ -638,7 +638,7 @@ class StreamEngine:
                 if r is None:
                     return None
                 u = seekable.uniforms(self.seed, f"{stream_id}:pat", row, 1)[0] if draws else 0.0
-                return patterns.value_at(drawing, r / denom, u, 1 / denom)
+                return patterns.value_at(drawing, r / denom, u)
 
             return Built(_wrap(mod, drawn))
 

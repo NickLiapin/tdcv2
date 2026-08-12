@@ -92,7 +92,13 @@ def from_envelope(
         )
 
     heights = [p[1] for p in top] + [p[1] for p in bottom]
-    extent = norm_extent if norm_extent is not None else (min(heights), max(heights))
+    # ONE canvas for both curves. Measuring them separately would let each fill the range on
+    # its own, so a narrow band and a wide one would come out the same width.
+    extent = (
+        norm_extent
+        if norm_extent is not None
+        else curves.vector_canvas(min(heights), max(heights))
+    )
     return Pattern(
         "corridor",
         corridor=curves.Corridor(
@@ -186,11 +192,11 @@ def as_density(pattern: Pattern) -> Pattern:
     return Pattern("density", density=densities.build(source))
 
 
-def value_at(pattern: Pattern, t: float, u: float, dt: float = 0) -> str:
+def value_at(pattern: Pattern, t: float, u: float) -> str:
     """The value of the row at position ``t``.
 
     ``u`` is that row's uniform, used when there is a band to pick from — a corridor, a spread, or
-    a density. ``dt`` is the share of the drawing one row covers.
+    a density.
     """
     if pattern.kind == "density":
         assert pattern.density is not None
@@ -202,14 +208,14 @@ def value_at(pattern: Pattern, t: float, u: float, dt: float = 0) -> str:
 
     if pattern.kind == "signal":
         assert pattern.curve is not None
-        v = curves.value_at(pattern.curve, t, dt)
+        v = curves.value_at(pattern.curve, t)
         if pattern.spread > 0:
             v += (2 * u - 1) * pattern.spread
         return curves.format_value(v, pattern.curve.decimals)
 
     assert pattern.corridor is not None
-    a = curves.value_at(pattern.corridor.lower, t, dt)
-    b = curves.value_at(pattern.corridor.upper, t, dt)
+    a = curves.value_at(pattern.corridor.lower, t)
+    b = curves.value_at(pattern.corridor.upper, t)
     lo = min(a, b) - pattern.spread
     hi = max(a, b) + pattern.spread
     return curves.format_value(lo + u * (hi - lo), pattern.corridor.decimals)

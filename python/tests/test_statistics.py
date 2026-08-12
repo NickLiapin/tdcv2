@@ -217,7 +217,7 @@ def _pattern(attrs: dict[str, str], count: int) -> list[str]:
     prng = create("unit-test")
     denom = count - 1 if count > 1 else 1
     return [
-        patterns.value_at(pattern, i / denom, open_unit(prng.next()) if draws else 0.0, 1 / denom)
+        patterns.value_at(pattern, i / denom, open_unit(prng.next()) if draws else 0.0)
         for i in range(count)
     ]
 
@@ -225,44 +225,68 @@ def _pattern(attrs: dict[str, str], count: int) -> list[str]:
 @pytest.mark.parametrize(
     ("attrs", "count", "expected"),
     [
+        # Config and expectation both taken from fixtures/cross-language/cases/patterns.json, so
+        # these are pinned to the TypeScript reference rather than to whatever this port prints.
         (
-            {"points": "0,0 5,10 10,0", "decimals": "2"},
+            {"points": "0,0 5,100 10,0", "y_range": "0..10", "decimals": "2"},
             8,
             ["0.00", "2.86", "5.71", "8.57", "8.57", "5.71", "2.86", "0.00"],
         ),
         (
-            {"points": "0,0 5,10 10,0", "decimals": "2", "interp": "smooth"},
+            {"points": "0,0 5,100 10,0", "y_range": "0..10", "decimals": "2", "interp": "smooth"},
             8,
-            ["0.00", "3.44", "7.11", "9.46", "9.62", "7.11", "3.44", "0.00"],
+            ["0.00", "3.44", "7.11", "9.62", "9.62", "7.11", "3.44", "0.00"],
+        ),
+        # The last row is the drawn point, not the plateau before it: a step holds a value in the
+        # band to its RIGHT, and the last point has no band.
+        (
+            {"points": "0,0 5,100 10,0", "y_range": "0..10", "decimals": "2", "interp": "step"},
+            8,
+            ["0.00", "0.00", "0.00", "0.00", "10.00", "10.00", "10.00", "0.00"],
         ),
         (
-            {"points": "0,0 5,10 10,0", "decimals": "2", "interp": "step"},
-            8,
-            ["0.00", "0.00", "0.00", "2.50", "10.00", "10.00", "10.00", "10.00"],
-        ),
-        (
-            {"points": "0,0 5,10 10,0", "y_range": "100..200", "decimals": "1"},
+            {"points": "0,0 5,100 10,0", "y_range": "100..200", "decimals": "1"},
             8,
             ["100.0", "128.6", "157.1", "185.7", "185.7", "157.1", "128.6", "100.0"],
         ),
+        # The three below spend a random draw, and this helper feeds the generator a raw PRNG
+        # rather than running a whole config, so its draw sequence differs from the fixture's.
+        # Their numbers are therefore this path's own, unchanged by the canvas rule; what pins
+        # them to the reference is the shared case of the same name, not this file.
         (
-            {"points": "0,0 5,10 10,0", "decimals": "2", "spread": "1"},
+            {"points": "0,0 5,100 10,0", "y_range": "0..10", "decimals": "2", "spread": "1"},
             8,
             ["0.38", "3.46", "5.84", "9.27", "7.86", "6.61", "2.59", "-0.95"],
         ),
         (
-            {"upper": "0,10 10,10", "lower": "0,0 10,0", "y_range": "0..100", "decimals": "1"},
+            {"upper": "0,100 10,100", "lower": "0,0 10,0", "y_range": "0..100", "decimals": "1"},
             8,
             ["69.2", "80.0", "56.5", "84.7", "14.3", "95.0", "36.5", "2.7"],
         ),
         (
-            {"points": "0,0 5,10 10,0", "y_range": "0..100", "decimals": "1", "mode": "density"},
+            {"points": "0,0 5,100 10,0", "y_range": "0..100", "decimals": "1", "mode": "density"},
             8,
             ["60.8", "68.4", "53.3", "72.4", "26.7", "84.2", "42.7", "11.7"],
         ),
-        # More points than rows: each row averages its own window instead of landing on one
-        # arbitrary sample.
-        ({"points": "0,0 1,5 2,1 3,9 4,0", "decimals": "3"}, 3, ["2.500", "4.000", "0.000"]),
+        # More drawn detail than rows: each row reads where its own line crosses the drawing,
+        # never an average of the slice around it.
+        (
+            {"points": "0,0 1,50 2,10 3,90 4,0", "y_range": "0..10", "decimals": "3"},
+            3,
+            ["0.000", "1.000", "0.000"],
+        ),
+        # A flat line halfway up the board is the MIDDLE of whatever range it is asked in —
+        # not the floor (measuring the ink) and not the ceiling (clamping).
+        (
+            {"points": "0,50 10,50", "y_range": "-5..5", "decimals": "1"},
+            8,
+            ["0.0", "0.0", "0.0", "0.0", "0.0", "0.0", "0.0", "0.0"],
+        ),
+        (
+            {"points": "0,50 10,50", "y_range": "0..200", "decimals": "1"},
+            8,
+            ["100.0", "100.0", "100.0", "100.0", "100.0", "100.0", "100.0", "100.0"],
+        ),
     ],
 )
 def test_a_drawing_matches_the_reference(
@@ -272,14 +296,20 @@ def test_a_drawing_matches_the_reference(
 
 
 def test_a_signal_without_spread_spends_no_draw() -> None:
-    plain = patterns.from_points({"points": "0,0 1,1"}, curves.parse_points("0,0 1,1"))
+    plain = patterns.from_points(
+        {"points": "0,0 1,1", "y_range": "0..100"}, curves.parse_points("0,0 1,1")
+    )
     assert patterns.draws(plain) is False
-    scattered = patterns.from_points({"points": "0,0 1,1", "spread": "1"}, [(0, 0), (1, 1)])
+    scattered = patterns.from_points(
+        {"points": "0,0 1,1", "spread": "1", "y_range": "0..100"}, [(0, 0), (1, 1)]
+    )
     assert patterns.draws(scattered) is True
 
 
 def test_spread_and_density_together_are_refused() -> None:
-    scattered = patterns.from_points({"points": "0,0 1,1", "spread": "1"}, [(0, 0), (1, 1)])
+    scattered = patterns.from_points(
+        {"points": "0,0 1,1", "spread": "1", "y_range": "0..100"}, [(0, 0), (1, 1)]
+    )
     with pytest.raises(ValueError, match='"spread" has no meaning'):
         patterns.as_density(scattered)
 

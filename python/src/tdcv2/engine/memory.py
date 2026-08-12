@@ -1950,7 +1950,7 @@ def _pattern(attrs: dict[str, str], count: int, run: _Run) -> list[str]:
         seed, stream_id = key_pair
         return seekable.uniforms(seed, f"{stream_id}:pat", per_row.absolute_row(run, i), 1)[0]
 
-    return [patterns.value_at(resolved, i / denom, band(i), 1 / denom) for i in range(count)]
+    return [patterns.value_at(resolved, i / denom, band(i)) for i in range(count)]
 
 
 def _linked_file_values(row_key: str, attrs: dict[str, str], count: int, run: _Run) -> list[str]:

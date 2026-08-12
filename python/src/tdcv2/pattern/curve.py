@@ -95,9 +95,19 @@ def parse_points(raw: str) -> list[tuple[float, float]]:
     return [(values[i], values[i + 1]) for i in range(0, len(values), 2)]
 
 
-def parse_y_range(raw: str | None) -> tuple[float, float] | None:
+def parse_y_range(raw: str | None) -> tuple[float, float]:
+    """``y_range="min..max"`` — the value axis, and REQUIRED.
+
+    A drawing carries no units of its own: a curve exported from one tool runs 0..100, from
+    another 0..480, from a third 0..10002345345. ``y_range`` is what those coordinates mean, so
+    without it there is nothing to bring the picture into and every answer would be a guess about
+    somebody's export settings.
+    """
     if raw is None or not raw.strip():
-        return None
+        raise ValueError(
+            "pattern: y_range is required — it is the value axis a drawing is brought into, "
+            'and a drawing has no scale of its own. Write y_range="0..100".'
+        )
     parts = raw.split("..")
     if len(parts) != 2:
         raise ValueError(f'pattern: y_range "{raw}" must be "min..max" with two numbers')
@@ -105,6 +115,26 @@ def parse_y_range(raw: str | None) -> tuple[float, float] | None:
     if a != a or b != b or a in (float("inf"), float("-inf")) or b in (float("inf"), float("-inf")):
         raise ValueError(f'pattern: y_range "{raw}" must be "min..max" with two numbers')
     return a, b
+
+
+#: The default height of a drawn canvas — a percentage board, the same one the Studio draws on.
+#:
+#: It is a CONSTANT rather than a measurement, and that is the whole point: a horizontal line at
+#: 50 sits halfway up a canvas of 100 no matter how many points the drawing has, so
+#: ``y_range="0..100"`` gives back 50 and ``-5..5`` gives back 0. Measuring the drawing instead
+#: would make that same line the highest thing present, hence the top of the range.
+VECTOR_CANVAS_TOP = 100.0
+
+
+def vector_canvas(y_min: float, y_max: float) -> tuple[float, float]:
+    """The canvas a drawn list of points is read against.
+
+    It never shrinks below 0..100; it only GROWS, to hold whatever was drawn outside it. So a
+    picture that fits the default board is measured against the board, and one exported at
+    0..10002345345 is measured against itself — in both cases the whole drawing lands inside
+    ``y_range`` and its proportions survive.
+    """
+    return min(0.0, y_min), max(VECTOR_CANVAS_TOP, y_max)
 
 
 def parse_decimals(attrs: dict[str, str]) -> int:
@@ -143,7 +173,7 @@ def build(
     ordered = sorted(points, key=lambda p: p[0])
     xs = tuple(p[0] for p in ordered)
     ys = tuple(p[1] for p in ordered)
-    extent = norm_extent if norm_extent is not None else (min(ys), max(ys))
+    extent = norm_extent if norm_extent is not None else vector_canvas(min(ys), max(ys))
     return Curve(
         xs,
         ys,
@@ -184,45 +214,39 @@ def build_corridor(
     return Corridor(lower, upper, decimals)
 
 
-def value_at(curve: Curve, t: float, dt: float = 0) -> float:
+def value_at(curve: Curve, t: float) -> float:
     """The value of the row at position ``t`` in [0,1].
 
-    ``dt`` is how much of the drawing ONE row covers. When the rows outnumber the points that
-    window is shorter than a segment and the reading is simply the point on the curve. When the
-    drawing has MORE points than there are rows — a thousand-point trace squeezed into ten — each
-    row averages the curve across its whole window instead, so the detail in between is summarised
-    rather than silently dropped by landing on one arbitrary sample.
+    A row also used to own a WINDOW — the slice of drawing between it and its neighbours — and
+    whenever a drawn vertex fell inside it the row returned that window's average instead of the
+    crossing. Which rule a row used depended on where the vertices happened to land, so
+    neighbouring rows of one drawing were computed by different laws and nothing in the picture
+    said which was which. Ten rows are a request for ten readings, and ten readings are what they
+    get; a peak between two of them is the consequence of having asked for ten, not a lost
+    measurement.
     """
     x0 = curve.xs[0]
     xn = curve.xs[-1]
     span = xn - x0
 
-    half = dt / 2
-    xa = x0 + min(max(t - half, 0.0), 1.0) * span
-    xb = x0 + min(max(t + half, 0.0), 1.0) * span
-    inside = _segment_at(curve.xs, xb) - _segment_at(curve.xs, xa) if dt > 0 else 0
-
-    if inside <= 0:
-        y = _height_at(curve, x0 + min(max(t, 0.0), 1.0) * span)
-    else:
-        steps = min(64, max(2, inside * 2))
-        total = 0.0
-        for i in range(steps + 1):
-            weight = 0.5 if i in (0, steps) else 1.0  # trapezoid ends count half
-            total += weight * _height_at(curve, xa + (xb - xa) * i / steps)
-        y = total / steps
+    y = _height_at(curve, x0 + min(max(t, 0.0), 1.0) * span)
 
     if curve.y_range is None:
         return y
+    # The CANVAS is the scale, never the ink: the image for a raster, 0..100 grown only to hold
+    # what was drawn outside it for a list of points.
     vspan = curve.y_max - curve.y_min
-    normalized = 0.0 if vspan == 0 else (y - curve.y_min) / vspan
+    normalized = 0.5 if vspan == 0 else (y - curve.y_min) / vspan
     a, b = curve.y_range
-    return a + normalized * (b - a)
+    scaled = a + normalized * (b - a)
+    # A drawn point is inside its canvas by construction, so this catches only what is added
+    # AFTER the mapping — a spread's scatter and a band's width.
+    return min(max(scaled, min(a, b)), max(a, b))
 
 
-def corridor_value_at(corridor: Corridor, t: float, u: float, dt: float = 0) -> float:
-    a = value_at(corridor.lower, t, dt)
-    b = value_at(corridor.upper, t, dt)
+def corridor_value_at(corridor: Corridor, t: float, u: float) -> float:
+    a = value_at(corridor.lower, t)
+    b = value_at(corridor.upper, t)
     lo, hi = min(a, b), max(a, b)
     return lo + u * (hi - lo)
 
@@ -285,8 +309,11 @@ def _height_at(curve: Curve, x: float) -> float:
     if dx <= 0:
         return ya
     s = (x - xa) / dx
+    # A step holds each point's value in the band to its RIGHT, and the last point has no band —
+    # the drawing ends there. So it used to be drawn and yet unreachable, with the right edge
+    # reporting the plateau before it while linear and smooth reported the point.
     if curve.interp == "step":
-        return ya
+        return yb if x >= xb else ya
     if curve.interp == "smooth" and curve.slopes is not None:
         # Cubic Hermite on the segment, with the monotone tangents.
         ma, mb = curve.slopes[k], curve.slopes[k + 1]
