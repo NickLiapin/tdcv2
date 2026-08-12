@@ -29,7 +29,7 @@
  */
 
 import { execFileSync } from 'node:child_process';
-import { existsSync, mkdtempSync, readFileSync, writeFileSync } from 'node:fs';
+import { existsSync, mkdtempSync, readFileSync, readdirSync, statSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 
@@ -45,6 +45,7 @@ const IMPLEMENTATIONS = [
     id: 'typescript',
     label: 'TypeScript (reference)',
     artefact: 'typescript/dist/cli/main.js',
+    sources: 'typescript/src',
     command: [process.execPath, [join(REPO, 'typescript/dist/cli/main.js')]],
     build: 'npm --prefix typescript run build',
   },
@@ -52,6 +53,7 @@ const IMPLEMENTATIONS = [
     id: 'python',
     label: 'Python',
     artefact: 'python/.venv/bin/tdcv2',
+    sources: 'python/src',
     command: [join(REPO, 'python/.venv/bin/tdcv2'), []],
     build: 'python3 -m venv python/.venv && python/.venv/bin/pip install -e "python[dev]"',
   },
@@ -59,6 +61,7 @@ const IMPLEMENTATIONS = [
     id: 'rust',
     label: 'Rust',
     artefact: 'rust/target/release/tdcv2',
+    sources: 'rust/src',
     command: [join(REPO, 'rust/target/release/tdcv2'), []],
     build: 'cargo build --release --manifest-path rust/Cargo.toml',
   },
@@ -66,6 +69,7 @@ const IMPLEMENTATIONS = [
     id: 'csharp',
     label: 'C#',
     artefact: 'csharp/Tdcv2.Cli.Tool/bin/Release/net6.0/Tdcv2.Cli.dll',
+    sources: 'csharp/Tdcv2',
     command: ['dotnet', [join(REPO, 'csharp/Tdcv2.Cli.Tool/bin/Release/net6.0/Tdcv2.Cli.dll')]],
     build: 'dotnet build csharp/Tdcv2.Cli.Tool -c Release',
   },
@@ -75,6 +79,7 @@ const IMPLEMENTATIONS = [
     // The jar carries the version in its name, so naming one pins the audit to a release
     // that will stop existing at the next bump. Found by the file itself instead.
     artefact: javaCliJar(),
+    sources: 'java/src/main',
     command: ['java', ['-jar', join(REPO, javaCliJar() ?? '')]],
     build: 'cd java && ./gradlew cliJar',
   },
@@ -105,10 +110,39 @@ const jsonAt = args.indexOf('--json');
 const jsonPath = jsonAt === -1 ? null : args[jsonAt + 1];
 
 const chosen = IMPLEMENTATIONS.filter((i) => !only || only.has(i.id));
-const missing = chosen.filter((i) => !existsSync(join(REPO, i.artefact)));
+const missing = chosen.filter((i) => !i.artefact || !existsSync(join(REPO, i.artefact)));
 if (missing.length > 0) {
   console.error('These implementations are not built, so the audit would be a lie:\n');
   for (const i of missing) console.error(`  ${i.label}\n    ${i.build}\n`);
+  process.exit(2);
+}
+
+/** The newest mtime anywhere under a directory. */
+function newestUnder(dir) {
+  let newest = 0;
+  for (const entry of readdirSync(dir, { withFileTypes: true })) {
+    const path = join(dir, entry.name);
+    if (entry.isDirectory()) {
+      newest = Math.max(newest, newestUnder(path));
+    } else if (entry.isFile()) {
+      newest = Math.max(newest, statSync(path).mtimeMs);
+    }
+  }
+  return newest;
+}
+
+// A build that EXISTS is not the same as a build that is CURRENT, and the second
+// mistake is the more expensive one: a stale binary reports as a disagreement
+// between implementations, which reads as a defect in the code rather than in the
+// build. That is exactly what happened while preparing 0.2.1 — the Rust release
+// binary was a day old, and this audit blamed the engine for a bug that had been
+// fixed hours earlier.
+const stale = chosen.filter(
+  (i) => i.sources && newestUnder(join(REPO, i.sources)) > statSync(join(REPO, i.artefact)).mtimeMs,
+);
+if (stale.length > 0) {
+  console.error('These builds are older than their own sources, so the audit would be a lie:\n');
+  for (const i of stale) console.error(`  ${i.label}\n    ${i.build}\n`);
   process.exit(2);
 }
 
