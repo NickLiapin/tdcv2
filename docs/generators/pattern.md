@@ -562,9 +562,9 @@ Things worth knowing about `density`:
 
 A few one-liners to build intuition:
 
-- `points="0,0 50,100 100,0"` — a triangle: values rise to the middle and fall.
-- `points="0,10 90,10 100,100"` — a flat line with a spike only in the last 10% of rows.
-- `upper="0,0 50,40 100,0"` — a band: random from `0` up to a central peak.
+- `points="0,0 50,100 100,0" y_range="0..100"` — a triangle: values rise to the middle and fall.
+- `points="0,10 90,10 100,100" y_range="0..100"` — a flat line with a spike only in the last 10% of rows.
+- `upper="0,0 50,40 100,0" y_range="0..100"` — a band: random from `0` up to a central peak.
 - `src="chart.png" y_range="0..100"` — a drawn shape becomes data along its outline.
 - add `spread="2"` to any of them — the same shape, now with wobble.
 - add `mode="density"` instead — the same shape now decides how **often** each value
@@ -576,7 +576,7 @@ The spike case makes the "position = row number" idea obvious:
 
 ```
 rows 1–18: 10   (the flat stretch)
-row 19: 55      (climbing)
+row 19: 53      (climbing)
 row 20: 100     (the spike)
 ```
 

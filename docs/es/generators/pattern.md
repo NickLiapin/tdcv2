@@ -575,9 +575,9 @@ Cosas que vale la pena saber sobre `density`:
 
 Unas cuantas líneas sueltas para construir intuición:
 
-- `points="0,0 50,100 100,0"` — un triángulo: los valores suben hasta el medio y caen.
-- `points="0,10 90,10 100,100"` — una línea plana con un pico solo en el último 10% de las filas.
-- `upper="0,0 50,40 100,0"` — una banda: aleatorio desde `0` hasta un pico central.
+- `points="0,0 50,100 100,0" y_range="0..100"` — un triángulo: los valores suben hasta el medio y caen.
+- `points="0,10 90,10 100,100" y_range="0..100"` — una línea plana con un pico solo en el último 10% de las filas.
+- `upper="0,0 50,40 100,0" y_range="0..100"` — una banda: aleatorio desde `0` hasta un pico central.
 - `src="chart.png" y_range="0..100"` — una forma dibujada se vuelve datos a lo largo de su contorno.
 - agréguele `spread="2"` a cualquiera de ellas — la misma forma, ahora con bamboleo.
 - agréguele `mode="density"` en cambio — la misma forma ahora decide **con qué
@@ -589,7 +589,7 @@ El caso del pico deja obvia la idea de «posición = número de fila»:
 
 ```
 filas 1–18: 10   (el tramo plano)
-fila 19: 55      (subiendo)
+fila 19: 53      (subiendo)
 fila 20: 100     (el pico)
 ```
 
