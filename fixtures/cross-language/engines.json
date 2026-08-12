@@ -3855,6 +3855,36 @@
         "lines": ["ab", "ab"]
       }
     },
+    "structure/item-id-lanes-follow-declaration-order": {
+      "engine2": {
+        "lines": [
+          "Z 1",
+          "Z 2",
+          "A 3",
+          "A 4",
+          "A 5",
+          "Z 6",
+          "Z 7",
+          "A 8",
+          "A 9",
+          "A 10"
+        ]
+      },
+      "engine3": {
+        "lines": [
+          "Z 1",
+          "Z 2",
+          "A 3",
+          "A 4",
+          "A 5",
+          "Z 6",
+          "Z 7",
+          "A 8",
+          "A 9",
+          "A 10"
+        ]
+      }
+    },
     "uniq-distinct/distinct-pair": {
       "engine2": {
         "lines": [

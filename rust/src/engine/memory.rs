@@ -3385,7 +3385,7 @@ fn emit_lines(
     columns: &BTreeMap<String, Vec<Option<String>>>,
     row: usize,
     config: &Config,
-    each: &BTreeMap<String, repeat::Spec>,
+    each: &[(String, repeat::Spec)],
 ) -> EngineResult<()> {
     for line in lines {
         // A fixture line is one output line, and `render_line` hands back the LINES.
@@ -3396,19 +3396,34 @@ fn emit_lines(
     Ok(())
 }
 
-/// The repeating sequences, indexed by name.
+/// The repeating sequences, in the order the config DECLARES them.
 ///
 /// A name that is not here is not a list, so `each=` on it walks nothing.
-pub(super) fn each_info(config: &Config) -> EngineResult<BTreeMap<String, repeat::Spec>> {
-    let mut result = BTreeMap::new();
+///
+/// The order is the whole point, which is why this is a list and not a map. Lanes
+/// are handed out by walking it, so a map sorted by name would give the first
+/// lane to whichever sequence sorts first rather than to the one written first —
+/// and the reference walks declaration order. That divergence shipped in 0.2.0
+/// and produced different `_item_id` values in Rust than in every other
+/// implementation for the same config.
+pub(super) fn each_info(config: &Config) -> EngineResult<Vec<(String, repeat::Spec)>> {
+    let mut result = Vec::new();
     for spec in &config.sequences {
         if let Some(gen) = spec.gen() {
             if let Some(repeat) = repeat::parse(&gen.attrs)? {
-                result.insert(spec.name.clone(), repeat);
+                result.push((spec.name.clone(), repeat));
             }
         }
     }
     Ok(result)
+}
+
+/// The spec for one repeating sequence, or `None` when the name is not a list.
+fn each_spec<'a>(
+    each_info: &'a [(String, repeat::Spec)],
+    name: &str,
+) -> Option<&'a repeat::Spec> {
+    each_info.iter().find(|(n, _)| n == name).map(|(_, s)| s)
 }
 
 /// One line — or, with `each="NAME"`, one line per element of that list.
@@ -3421,7 +3436,7 @@ fn render_line(
     columns: &BTreeMap<String, Vec<Option<String>>>,
     row: usize,
     config: &Config,
-    each_info: &BTreeMap<String, repeat::Spec>,
+    each_info: &[(String, repeat::Spec)],
 ) -> EngineResult<Vec<String>> {
     let mut template = String::new();
     for part in &line.parts {
@@ -3446,7 +3461,7 @@ fn render_line(
         return Ok(vec![text]);
     };
 
-    let spec = each_info.get(list_name);
+    let spec = each_spec(each_info, list_name);
     let cell = columns
         .get(list_name)
         .and_then(|c| c.get(row))

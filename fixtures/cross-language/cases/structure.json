@@ -245,6 +245,23 @@
       "description": "pair= on a self-closing <data/> is inert — nothing to close, nothing to rewrite",
       "config": "<tdc><env count=\"2\" seed=\"unit-test\" local=\"en\" mode=\"memory\"></env><block><line><data>a</data><data pair=\"x\"/><data>b</data></line></block></tdc>",
       "expected": ["ab", "ab"]
+    },
+    {
+      "name": "item-id-lanes-follow-declaration-order",
+      "description": "Two repeating sequences share one child table, so each gets its own slice of every card key block. The slices are handed out in the order the config DECLARES the sequences — not sorted by name, which is what Rust did until this case existed: zebra is written first and takes the first lane even though alpha sorts before it.",
+      "config": "<tdc><env count=\"2\" seed=\"lane\" local=\"en\" mode=\"memory\"><sequence name=\"zebra\"><gen type=\"number\" value=\"1..9\" repeat=\"2\"/></sequence><sequence name=\"alpha\"><gen type=\"number\" value=\"1..9\" repeat=\"3\"/></sequence></env><block><line each=\"zebra\"><data>Z ${{_item_id}}</data></line><line each=\"alpha\"><data>A ${{_item_id}}</data></line></block></tdc>",
+      "expected": [
+        "Z 1",
+        "Z 2",
+        "A 3",
+        "A 4",
+        "A 5",
+        "Z 6",
+        "Z 7",
+        "A 8",
+        "A 9",
+        "A 10"
+      ]
     }
   ]
 }

@@ -2564,7 +2564,7 @@ impl StreamEngine<'_> {
     }
 
     fn emit<W: std::fmt::Write>(&self, to: &mut W, lines: &[Line], row: i32) -> EngineResult<()> {
-        let none = BTreeMap::new();
+        let none: Vec<(String, repeat::Spec)> = Vec::new();
         for line in lines {
             // A fixture line is one output line, and `render_line` hands back the LINES.
             for text in self.render_line(line, row, &none)? {
@@ -2578,7 +2578,7 @@ impl StreamEngine<'_> {
         &self,
         line: &Line,
         row: i32,
-        each_info: &BTreeMap<String, repeat::Spec>,
+        each_info: &[(String, repeat::Spec)],
     ) -> EngineResult<Vec<String>> {
         let mut template = String::new();
         for part in &line.parts {
@@ -2600,7 +2600,10 @@ impl StreamEngine<'_> {
             return Ok(vec![text]);
         };
 
-        let spec = each_info.get(list_name);
+        let spec = each_info
+            .iter()
+            .find(|(n, _)| n == list_name)
+            .map(|(_, s)| s);
         let cell = self.value_at(list_name, row)?;
         let elements = repeat::split(
             cell.as_deref(),
