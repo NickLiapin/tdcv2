@@ -115,7 +115,7 @@
 | `points`          | Пары `x,y` прямо в конфиге вместо файла           | [Pattern](../generators/pattern.md#top) |
 | `upper` / `lower` | Две границы — коридор                             | [Pattern](../generators/pattern.md#top) |
 | `mode`            | `signal` (траектория) / `density` (распределение) | [Pattern](../generators/pattern.md#top) |
-| `y_range`         | `min..max` — вертикальный масштаб                 | [Pattern](../generators/pattern.md#top) |
+| `y_range`         | `min..max` — вертикальный масштаб (**обязателен**)                 | [Pattern](../generators/pattern.md#top) |
 | `interp`          | `linear` / `smooth` / `step` между точками        | [Pattern](../generators/pattern.md#top) |
 | `spread`          | Превратить линию в туннель шириной ±N             | [Pattern](../generators/pattern.md#top) |
 | `ink_threshold`   | Насколько тёмный пиксель PNG считать краской      | [Pattern](../generators/pattern.md#top) |

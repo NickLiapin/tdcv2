@@ -338,6 +338,7 @@ but the combination it asks for can't be carried out.
 | `TDC290` | `distinct=` with no `repeat=` | One value cannot repeat itself, so the attribute would be read and then do nothing. Add `repeat="N"` or `repeat="A..B"`, or drop `distinct=` |
 | `TDC291` | `percent=` and `distinct=` on the same `<gen>` | `percent=` promises exact proportions across the whole run; `distinct=` trades that promise away for a guarantee inside each row. Both cannot hold, so neither is silently dropped. For proportions over list LENGTHS, put them on a `<mix>` or `<switch>` outside, with `repeat=` on the `<gen>` inside |
 | `TDC292` | `repeat=` under `distinct=` asks for more values than the list can offer | Five values cannot yield six different ones. Reported before the run where the pool is in the config (`type="text"`, a whole-number range, a one-character `symbol` set); at run time where it is not (a pack file, a CSV column, a regex), since those are only read while generating |
+| `TDC293` | `<gen type="pattern">` without `y_range=` | A drawing has no scale of its own — the same curve leaves one tool running 0..100 and another 0..10002345345. `y_range="min..max"` is what those coordinates mean: it becomes the floor and ceiling of the drawing's canvas. Without it every answer would be a guess about somebody's export settings, so the attribute is required rather than assumed |
 
 ## See also
 

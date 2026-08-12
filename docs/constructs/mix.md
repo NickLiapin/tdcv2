@@ -169,6 +169,54 @@ trailing comma (`"25,70,"`) — divide what's left of 100 equally among themselv
 Both examples at the top of this page already rely on that rule: `percent="25,70"`
 leaves the third branch to soak up the remainder.
 
+## `count` decides which rows get which branch
+
+`percent` is a quota over the **whole run**, not a coin flip per row. That is a promise
+worth having — ask for 15% and you get 15%, not "roughly, depending on luck". It also
+has a consequence that surprises people the first time, so it is worth meeting here
+rather than in your data.
+
+```xml
+<mix name="Temperature" percent="85">
+    <case><gen type="number" value="-5..5" decimals="2"/></case>
+    <case><gen type="number" value="[450..501],[650..701],[1000..1100]" decimals="2"/></case>
+</mix>
+```
+
+Run it at `count="10"`, then again at `count="100"`, and compare the first ten rows:
+
+`./run temp.tdc — the first ten rows, same seed`
+
+```
+count=10    -1.76  3.70    -0.44  0.96  499.88  0.21  2.18  2.20  -3.16  0.69
+count=100   -1.76  468.42  -0.44  0.96  499.88  0.21  2.18  2.20  -3.16  0.69
+```
+
+Row two changed. Nothing else did — `-1.76`, `-0.44`, `0.96`, `0.21`, `2.18` and `0.69`
+are identical, and even the spike in row five stayed put. **The values did not move; the
+branch assignment did.** Each row's number is keyed to that row, so it holds; what
+changes is which branch the row was given.
+
+The reason is arithmetic. At ten rows, 15% is one and a half rows, and a row cannot be
+split — so the quota comes out as one spike. At a hundred rows it is exactly fifteen.
+Different counts mean different numbers of spike rows, and the places for them come from
+a permutation over the whole run, so a longer run is a different permutation:
+
+| `count` | spike rows | 15% of `count` |
+| ------: | ---------: | -------------: |
+| 10      | 1          | 1.5            |
+| 20      | 3          | 3.0            |
+| 100     | 15         | 15.0           |
+| 1000    | 150        | 150.0          |
+
+If you need a row to stay the same when `count` changes, you want a per-row decision
+instead — [`anomaly`](../generators/number.md#top) on the generator decides each row on its
+own, so the first ten rows are identical at any run length. The trade is mirrored: the
+share becomes approximate, and ten rows might carry one outlier or three.
+
+So: `<mix percent=>` for an exact share, when you are producing a fixed dataset.
+`anomaly=` for stable rows, when you are raising `count` to see what happens next.
+
 ## `parent` — a distribution inside a subset
 
 Give a `<mix>` a `parent` and the percentages are counted against the **filtered

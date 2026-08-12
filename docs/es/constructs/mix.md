@@ -169,6 +169,55 @@ una coma final (`"25,70,"`) — reparte por igual lo que falta para llegar a 100
 dos ejemplos del inicio de esta página ya se apoyan en esa regla: `percent="25,70"`
 deja que la tercera rama absorba el resto.
 
+## `count` decide qué fila recibe qué rama
+
+`percent` es una cuota sobre **toda la corrida**, no una moneda al aire por fila. Es una
+promesa que vale tener: pida 15% y obtiene 15%, no "más o menos, según la suerte". Pero
+trae una consecuencia que sorprende la primera vez, y conviene encontrarla aquí y no en
+sus datos.
+
+```xml
+<mix name="Temperature" percent="85">
+    <case><gen type="number" value="-5..5" decimals="2"/></case>
+    <case><gen type="number" value="[450..501],[650..701],[1000..1100]" decimals="2"/></case>
+</mix>
+```
+
+Ejecútelo con `count="10"`, luego con `count="100"`, y compare las primeras diez filas:
+
+`./run temp.tdc — las primeras diez filas, la misma semilla`
+
+```
+count=10    -1.76  3.70    -0.44  0.96  499.88  0.21  2.18  2.20  -3.16  0.69
+count=100   -1.76  468.42  -0.44  0.96  499.88  0.21  2.18  2.20  -3.16  0.69
+```
+
+Cambió la fila dos. Nada más: `-1.76`, `-0.44`, `0.96`, `0.21`, `2.18` y `0.69` son
+idénticos, e incluso el pico de la fila cinco se quedó donde estaba. **Los valores no se
+movieron; lo que se movió fue la asignación de rama.** El número de cada fila está atado
+a esa fila y se mantiene; lo que cambia es qué rama le tocó.
+
+La razón es aritmética. Con diez filas, 15% son una fila y media, y una fila no se parte,
+así que la cuota sale en un solo pico. Con cien filas son exactamente quince. Distinto
+`count` significa distinta cantidad de filas con pico, y sus lugares salen de una
+permutación sobre toda la corrida, de modo que una corrida más larga es otra permutación:
+
+| `count` | filas con pico | 15% de `count` |
+| ------: | -------------: | -------------: |
+| 10      | 1              | 1.5            |
+| 20      | 3              | 3.0            |
+| 100     | 15             | 15.0           |
+| 1000    | 150            | 150.0          |
+
+Si necesita que una fila no cambie al cambiar `count`, lo que quiere es una decisión por
+fila — [`anomaly`](../generators/number.md#top) en el generador decide fila por fila, así que
+las primeras diez filas son idénticas con cualquier longitud de corrida. El intercambio es
+simétrico: la proporción pasa a ser aproximada, y diez filas podrían llevar un valor
+atípico o tres.
+
+En resumen: `<mix percent=>` para una proporción exacta, cuando produce un conjunto de
+datos fijo. `anomaly=` para filas estables, cuando sube `count` para ver qué sigue.
+
 ## `parent` — una distribución dentro de un subconjunto
 
 Déle un `parent` a un `<mix>` y los porcentajes se cuentan contra el **subconjunto

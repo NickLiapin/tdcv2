@@ -57,7 +57,7 @@ puntos en línea: una sola línea con `points`, o una banda con `upper` / `lower
 | `points`          | Pares `x,y` tecleados en el config en vez de un archivo: `x` a lo ancho, `y` la altura                                                |
 | `upper` / `lower` | Dos curvas de borde tecleadas en el config — un [corredor](#el-dibujo-se-lee-columna-por-columna)                                     |
 | `mode`            | `signal` (por omisión) — una trayectoria; `density` — una [distribución](#mode--las-dos-preguntas-que-se-le-pueden-hacer-a-un-dibujo) |
-| `y_range`         | `min..max` — el rango de los valores que se obtienen; el dibujo se estira dentro de él                                                |
+| `y_range`         | **Obligatorio.** `min..max` — en qué se convierten el piso y el techo del lienzo del dibujo                                           |
 | `interp`          | `linear` (por omisión) / `smooth` / `step` — el comportamiento de la línea entre puntos                                               |
 | `spread`          | Dispersa cada fila en ±N, en unidades de `y_range` (por omisión `0` — línea exacta)                                                   |
 | `ink_threshold`   | `0..1` — qué tan oscuro debe ser un píxel del PNG para contar como tinta (por omisión `0.5`)                                          |
@@ -239,21 +239,38 @@ idéntica, la segunda no:
 seed B:  50  50  50  50  50  51  57  61  60  81  35`}
 </Terminal>
 
-## `y_range` — fijar la escala vertical
+## `y_range` — la escala, y es obligatoria
 
-Un dibujo es un pseudográfico **sin escala propia**: `y_range="min..max"` dice qué
-significan su base y su tope. El punto más bajo se mapea a `min`, el más alto a `max`,
-y todo lo de en medio se estira linealmente. Úselo siempre que los números que quiere
-no coincidan con las coordenadas propias de la figura — incluidas salidas **con signo**
-o **fraccionarias**.
+Un dibujo **no trae escala propia**. La misma curva sale de una herramienta en
+coordenadas 0..100, de otra en 0..480, de una tercera en 0..10002345345, y ninguno de
+esos números significa nada hasta que usted diga cuál es el eje. `y_range="min..max"` es
+esa declaración, y por eso el atributo es obligatorio y no opcional: sin él toda
+respuesta sería una conjetura sobre los ajustes de exportación de alguien más.
+
+Lo que se escala es el **lienzo**, no la tinta:
+
+| de dónde viene el dibujo | piso del lienzo | techo del lienzo |
+| :----------------------- | :-------------- | :--------------- |
+| una imagen PNG o SVG | la base de la imagen | el tope de la imagen |
+| `points` / `upper` / `lower` | `0`, crece hacia abajo si dibujó más abajo | `100`, crece hacia arriba si dibujó más arriba |
+
+Para un dibujo escrito a mano el lienzo es un **tablero porcentual**: 0..100 por
+omisión, y sólo crece para contener lo que usted dibujó fuera de él — nunca se encoge.
+Eso es lo que hace que una línea plana en 50 sea el *medio* del rango que pida. Medida
+contra la tinta, esa misma línea sería lo más alto que hay, y por tanto el techo.
 
 ```xml
-<gen type="pattern" src="chart.svg" y_range="0..40"/>
-<gen type="pattern" src="chart.svg" y_range="-2..2"/>
+<gen type="pattern" points="0,0 50,100 100,0" y_range="0..40" decimals="1"/>
+<gen type="pattern" points="0,0 50,100 100,0" y_range="-2..2" decimals="1"/>
 ```
 
-Sin `y_range` se usan los números `y` crudos tal cual. Combínelo con `decimals` cuando
-necesite valores continuos en vez de enteros redondeados.
+<Terminal title="./run yrange.tdc (el mismo triángulo, 11 filas)">
+{`0..40    0.0   8.0   16.0   24.0   32.0   40.0   32.0   24.0   16.0   8.0   0.0
+-2..2   -2.0  -1.2   -0.4    0.4    1.2    2.0    1.2    0.4   -0.4  -1.2  -2.0`}
+</Terminal>
+
+Nada sale del rango, sin importar en qué coordenadas haya dibujado. Combínelo con
+`decimals` cuando necesite valores continuos en vez de enteros.
 
 <Figure
   src="/img/pattern/yrange.svg"
@@ -281,25 +298,23 @@ cualquier magnitud medida donde redondear a enteros aplanaría la forma.
 ```
 
 <Terminal title="./run decimals.tdc (11 filas)">
-{`-1.00   -0.60   -0.20   0.20   0.60   0.90   0.60   0.20   -0.20   -0.60   -1.00`}
+{`-1.00   -0.60   -0.20   0.20   0.60   1.00   0.60   0.20   -0.20   -0.60   -1.00`}
 </Terminal>
 
-La fila del medio cae justo en la cima y aun así lee `0.90` y no `1.00`: una fila cubre
-una **rebanada** del dibujo y reporta el promedio de esa rebanada, así que el único punto
-que toca el techo se promedia con todo lo que tiene al lado. Más abajo,
+La fila del medio cae en la cima y lee `1.00`, porque ahí es donde su línea cruza el
+dibujo. Más abajo,
 [Estiramiento](#estiramiento--el-dibujo-casi-nunca-tiene-tantos-puntos-como-filas-hay)
 desarrolla esa regla completa.
 
 ## Estiramiento — el dibujo casi nunca tiene tantos puntos como filas hay
 
-La fila `i` de `count` lee el dibujo en `t = i / (count − 1)`. El ancho del dibujo se
-reparte sobre toda la corrida, así que los dos lados del desajuste se tratan distinto:
+La fila `i` de `count` lee el dibujo en `t = i / (count − 1)`, y su valor es **donde su
+propia línea vertical cruza la línea que usted dibujó**. Diez filas son diez cruces, y
+puede comprobarlas sobre la figura con una regla. No hay una segunda regla debajo.
 
-**Menos filas que detalle dibujado → promediado.** Una fila no muestrea un solo punto:
-cubre una **rebanada** del dibujo tan ancha como la porción que le toca, y reporta el
-promedio de esa rebanada. Un zigzag de cinco dientes entre 0 y 100 exprimido en 5 filas
-da la media de los dientes, no el diente que casualmente quedó bajo un punto de
-muestreo:
+**Más detalle dibujado que filas → obtiene los cruces, no un resumen.** Un zigzag de
+cinco dientes exprimido en cinco filas reporta los cinco lugares donde caen esas filas,
+y cada uno es un punto real del zigzag:
 
 ```xml
 <gen type="pattern" points="0,0 10,100 20,0 30,100 40,0 50,100 60,0 70,100 80,0 90,100 100,0"
@@ -307,20 +322,25 @@ muestreo:
 ```
 
 <Terminal title="./run saw.tdc (5 dientes en 5 filas)">
-{`50   50   46   50   50`}
+{`0   50   100   50   0`}
 </Terminal>
 
-Amplíe la misma corrida a 40 filas y los dientes vuelven, porque ahora cada fila es lo
-bastante angosta como para verlos: `0  26  51  77  92  72  46  21  9  31  56  82 …`
+Amplíe la misma corrida a 40 filas y los dientes se notan, porque ahora las filas van lo
+bastante juntas como para caer sobre ellos: `0  26  51  77  97  72  46  21  5  31  56  82 …`
+
+No dar con un pico que queda entre dos filas no es una medición perdida: es lo que
+significa pedir cinco filas. Dibuje con más detalle, o pida más filas: con un millón de
+filas el mismo dibujo se despliega entero, con todos sus picos. Lo que gana la regla es
+que usted puede mirar su propio dibujo de antemano y decir qué va a salir.
 
 <Figure
   src="/img/pattern/saw.svg"
   alt="Un zigzag leído con 300 filas y con 6 filas"
-  caption="El mismo zigzag. Con filas de sobra, los dientes se notan; con seis filas, cada una reporta la media de todo lo que cubre en vez del diente que quedó debajo."
+  caption="El mismo zigzag. Con filas de sobra se nota cada diente; con seis filas, cada una lee el lugar donde su propia línea cruza el dibujo, y los dientes intermedios simplemente no están entre las seis mediciones pedidas."
 />
 
 <Legend
-  items={[["drawn", "el zigzag dibujado"], ["made", "valores generados"], ["A", "300 filas — los dientes se notan"], ["B", "6 filas — cada una reporta la media de la rebanada que cubre"]]}
+  items={[["drawn", "el zigzag dibujado"], ["made", "valores generados"], ["A", "300 filas — los dientes se notan"], ["B", "6 filas — seis cruces, y el resto cae entre ellos"]]}
 />
 
 **Más filas que puntos dibujados → interpolación**, y ahí es donde entra `interp`.
@@ -343,10 +363,16 @@ dibujó, así que de un recodo no sale ningún pico fantasma. El mismo dibujo de
 puntos sobre 11 filas:
 
 <Terminal title="./run kink.tdc (11 filas, tres modos)">
-{`linear:  0   8  16  24  32  41  52  64  76  88  100
+{`linear:  0   8  16  24  32  40  52  64  76  88  100
 smooth:  0   8  15  23  31  40  50  62  75  88  100
-step:    0   0   0   0   0  30  40  40  40  40   40`}
+step:    0   0   0   0   0  40  40  40  40  40  100`}
 </Terminal>
+
+Fíjese en cómo termina `step`. Una escalera sostiene el valor de cada punto en la banda
+a su **derecha**, y el último punto no tiene banda — ahí se acaba el dibujo. Por eso el
+último punto se lee en el único lugar que toda corrida visita: el borde derecho mismo,
+donde lo cruza la línea de la última fila. Los tres modos coinciden ahí, en lo último
+que usted dibujó.
 
 En un dibujo con esquinas de verdad los tres se distinguen sin duda — la línea
 punteada es lo que se dibujó, los puntos son lo que salió:

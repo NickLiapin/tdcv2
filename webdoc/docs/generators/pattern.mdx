@@ -55,7 +55,7 @@ single line with `points`, or a band with `upper` / `lower`:
 | `points`          | Pairs `x,y` typed inline instead of a file: `x` across, `y` height                                              |
 | `upper` / `lower` | Two boundary curves typed inline — a [corridor](#a-drawing-is-read-column-by-column)                            |
 | `mode`            | `signal` (default) — a trajectory; `density` — a [distribution](#mode--the-two-questions-you-can-ask-a-drawing) |
-| `y_range`         | `min..max` — the range of the values you get; the drawing is stretched into it                                  |
+| `y_range`         | **Required.** `min..max` — what the drawing's canvas floor and ceiling become                                   |
 | `interp`          | `linear` (default) / `smooth` / `step` — how the line behaves between points                                    |
 | `spread`          | Randomize every row by ±N in `y_range` units (default `0` — an exact line)                                      |
 | `ink_threshold`   | `0..1` — how dark a PNG pixel must be to count as ink (default `0.5`)                                           |
@@ -231,20 +231,38 @@ the second half is not:
 seed B:  50  50  50  50  50  51  57  61  60  81  35`}
 </Terminal>
 
-## `y_range` — set the vertical scale
+## `y_range` — the scale, and it is required
 
-A drawing carries **no scale of its own**: `y_range="min..max"` says what its bottom
-and top mean. The lowest point maps to `min` and the highest to `max`; everything in
-between is stretched linearly. Use it whenever the numbers you want don't match the
-picture's own coordinates — including **signed** or **fractional** output.
+A drawing carries **no scale of its own**. The same curve leaves one tool running
+0..100, another 0..480, a third 0..10002345345, and none of those numbers mean
+anything until you say what the axis is. `y_range="min..max"` is that statement, which
+is why it is required rather than optional: without it every answer would be a guess
+about somebody's export settings.
+
+What it scales is the **canvas**, not the ink:
+
+| the drawing came from | canvas floor | canvas ceiling |
+| :-------------------- | :----------- | :------------- |
+| a PNG or SVG image     | bottom of the image | top of the image |
+| `points` / `upper` / `lower` | `0`, grown down if you drew below it | `100`, grown up if you drew above it |
+
+For a typed-in drawing the canvas is a **percentage board**: 0..100 by default, and it
+only ever grows to hold what you drew outside it — it never shrinks. That is what makes
+a flat line at 50 the *middle* of whatever range you ask for. Measured against the ink
+instead, that same line would be the highest thing present, and so the top.
 
 ```xml
-<gen type="pattern" src="chart.svg" y_range="0..40"/>
-<gen type="pattern" src="chart.svg" y_range="-2..2"/>
+<gen type="pattern" points="0,0 50,100 100,0" y_range="0..40" decimals="1"/>
+<gen type="pattern" points="0,0 50,100 100,0" y_range="-2..2" decimals="1"/>
 ```
 
-Without `y_range` the raw `y` numbers are used as-is. Combine it with `decimals` when
-you need continuous values rather than rounded integers.
+<Terminal title="./run yrange.tdc (the same triangle, 11 rows)">
+{`0..40    0.0   8.0   16.0   24.0   32.0   40.0   32.0   24.0   16.0   8.0   0.0
+-2..2   -2.0  -1.2   -0.4    0.4    1.2    2.0    1.2    0.4   -0.4  -1.2  -2.0`}
+</Terminal>
+
+Nothing leaves the range, whatever coordinates you drew in. Combine `y_range` with
+`decimals` when you need continuous values rather than whole numbers.
 
 <Figure
   src="/img/pattern/yrange.svg"
@@ -272,23 +290,22 @@ quantity where rounding to integers would flatten the shape.
 ```
 
 <Terminal title="./run decimals.tdc (11 rows)">
-{`-1.00   -0.60   -0.20   0.20   0.60   0.90   0.60   0.20   -0.20   -0.60   -1.00`}
+{`-1.00   -0.60   -0.20   0.20   0.60   1.00   0.60   0.20   -0.20   -0.60   -1.00`}
 </Terminal>
 
-The middle row sits on the apex and still reads `0.90` rather than `1.00`: a row covers a
-**slice** of the drawing and reports the average over it, so the one point that touches the
-top is averaged with everything beside it. [Stretching](#stretching--the-drawing-rarely-has-as-many-points-as-you-have-rows),
+The middle row sits on the apex and reads `1.00`, because that is where its line crosses
+the drawing. [Stretching](#stretching--the-drawing-rarely-has-as-many-points-as-you-have-rows),
 below, is that rule in full.
 
 ## Stretching — the drawing rarely has as many points as you have rows
 
-Row `i` of `count` reads the drawing at `t = i / (count − 1)`. The drawing's width is
-mapped onto the whole run, so the two sides of the mismatch are handled differently:
+Row `i` of `count` reads the drawing at `t = i / (count − 1)`, and its value is **where
+its own vertical line crosses the line you drew**. Ten rows are ten crossings; you can
+check them on the picture with a ruler. There is no second rule underneath.
 
-**Fewer rows than drawn detail → averaging.** A row doesn't sample a single spot; it
-covers a **slice** of the drawing as wide as one row's share, and reports the average
-over that slice. A five-tooth zigzag between 0 and 100 squeezed into 5 rows gives the
-teeth's mean, not whichever tooth happened to sit under a sample point:
+**More drawn detail than rows → you get the crossings, not a summary.** A five-tooth
+zigzag squeezed into five rows reports the five places those rows land, each of which is
+a real point of the zigzag:
 
 ```xml
 <gen type="pattern" points="0,0 10,100 20,0 30,100 40,0 50,100 60,0 70,100 80,0 90,100 100,0"
@@ -296,20 +313,25 @@ teeth's mean, not whichever tooth happened to sit under a sample point:
 ```
 
 <Terminal title="./run saw.tdc (5 teeth into 5 rows)">
-{`50   50   46   50   50`}
+{`0   50   100   50   0`}
 </Terminal>
 
-Widen the same run to 40 rows and the teeth come back, because now each row is
-narrow enough to see them: `0  26  51  77  92  72  46  21  9  31  56  82 …`
+Widen the same run to 40 rows and the teeth come through, because now the rows are close
+enough together to land on them: `0  26  51  77  97  72  46  21  5  31  56  82 …`
+
+Missing a peak that falls between two rows is not a lost measurement — it is what asking
+for five rows means. Draw in more detail, or ask for more rows: at a million rows the
+same drawing spells itself out completely, every peak included. The point of the rule is
+that you can look at your own drawing beforehand and say what will come out.
 
 <Figure
   src="/img/pattern/saw.svg"
   alt="A zigzag read at 300 rows and at 6 rows"
-  caption="The same zigzag. With rows to spare, the teeth come through; with six rows, each one reports the mean of everything it covers instead of whichever tooth sat under it."
+  caption="The same zigzag. With rows to spare, every tooth comes through; with six rows, each one reads the place its own line crosses the drawing, and the teeth in between are simply not among the six readings asked for."
 />
 
 <Legend
-  items={[["drawn", "the drawn zigzag"], ["made", "generated values"], ["A", "300 rows — the teeth come through"], ["B", "6 rows — each reports the mean of the slice it covers"]]}
+  items={[["drawn", "the drawn zigzag"], ["made", "generated values"], ["A", "300 rows — the teeth come through"], ["B", "6 rows — six crossings, and the rest fall between them"]]}
 />
 
 **More rows than drawn points → interpolation**, which is where `interp` comes in.
@@ -331,10 +353,15 @@ never take the line above or below the values you actually drew, so no phantom p
 appears out of a bend. The same three-point drawing over 11 rows:
 
 <Terminal title="./run kink.tdc (11 rows, three modes)">
-{`linear:  0   8  16  24  32  41  52  64  76  88  100
+{`linear:  0   8  16  24  32  40  52  64  76  88  100
 smooth:  0   8  15  23  31  40  50  62  75  88  100
-step:    0   0   0   0   0  30  40  40  40  40   40`}
+step:    0   0   0   0   0  40  40  40  40  40  100`}
 </Terminal>
+
+Note where `step` ends. A staircase holds each point's value in the band to its
+**right**, and the last point has no band — the drawing stops there. So the last point
+is read at the one place every run visits: the right edge itself, where the final row's
+line crosses it. All three modes agree there, on the last thing you drew.
 
 On a drawing with real corners the three are unmistakable — the dashed line is what
 was drawn, the dots are what came out:

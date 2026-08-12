@@ -116,7 +116,7 @@ etiqueta y se explica donde se explica esa etiqueta — ver la
 | `points`          | Pares `x,y` escritos en línea en vez de un archivo       | [Pattern](../generators/pattern.md#top) |
 | `upper` / `lower` | Dos curvas límite — un corredor                          | [Pattern](../generators/pattern.md#top) |
 | `mode`            | `signal` (trayectoria) / `density` (distribución)        | [Pattern](../generators/pattern.md#top) |
-| `y_range`         | `min..max` — la escala vertical                          | [Pattern](../generators/pattern.md#top) |
+| `y_range`         | `min..max` — la escala vertical (**obligatorio**)        | [Pattern](../generators/pattern.md#top) |
 | `interp`          | `linear` / `smooth` / `step` entre puntos                | [Pattern](../generators/pattern.md#top) |
 | `spread`          | Convertir la línea en un túnel de ancho ±N               | [Pattern](../generators/pattern.md#top) |
 | `ink_threshold`   | Cuán oscuro debe ser un píxel PNG para contar como tinta | [Pattern](../generators/pattern.md#top) |
