@@ -231,6 +231,33 @@ the second half is not:
 seed B:  50  50  50  50  50  51  57  61  60  81  35`}
 </Terminal>
 
+### Typing a corridor inline: two attributes, never one string
+
+A corridor drawn in a file needs no attributes at all — two strokes in the picture
+already read as two edges. Typed inline it needs **two attributes**, `upper` and
+`lower`, one curve each:
+
+```xml
+<gen type="pattern" upper="0,80 100,80" lower="0,20 100,20" y_range="0..100"/>
+```
+
+The tempting shorthand — one `points` with a separator between the two lines —
+does not exist, and a `;` is refused rather than ignored:
+
+<Terminal title="tdcv2 check corridor.tdc">
+{`error[TDC285]: pattern: ";" does not separate two lines in points= — every number is read as one curve. For a band, draw the two edges separately: upper="0,80 100,80" lower="0,20 100,20".`}
+</Terminal>
+
+The same check catches a drawing with **no width** — every point on the same `x`:
+
+<Terminal title="tdcv2 check flat.tdc">
+{`error[TDC285]: pattern: every point sits at x=50, so the drawing has no width and a card has nothing to read across. Give the points at least two different x coordinates.`}
+</Terminal>
+
+Both are reported by [`check`](../reference/cli.mdx) as well as by the run: `points`,
+`upper` and `lower` are read before a single row exists, by the same code the run
+uses.
+
 ## `y_range` — the scale, and it is required
 
 A drawing carries **no scale of its own**. The same curve leaves one tool running

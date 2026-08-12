@@ -216,6 +216,37 @@ seed A:  50  50  50  50  50  50  44  47  66  18  45
 seed B:  50  50  50  50  50  51  57  61  60  81  35
 ```
 
+### Un corredor escrito a mano: dos atributos, nunca una sola cadena
+
+Un corredor dibujado en un archivo no necesita ningún atributo: dos trazos en la
+imagen ya se leen como dos bordes. Escrito a mano necesita **dos atributos**,
+`upper` y `lower`, con una curva cada uno:
+
+```xml
+<gen type="pattern" upper="0,80 100,80" lower="0,20 100,20" y_range="0..100"/>
+```
+
+El atajo tentador —un solo `points` con un separador entre las dos líneas— no
+existe, y un `;` se rechaza en lugar de ignorarse:
+
+`tdcv2 check corridor.tdc`
+
+```
+error[TDC285]: pattern: ";" does not separate two lines in points= — every number is read as one curve. For a band, draw the two edges separately: upper="0,80 100,80" lower="0,20 100,20".
+```
+
+La misma comprobación atrapa un dibujo **sin ancho**: todos los puntos en la misma `x`.
+
+`tdcv2 check flat.tdc`
+
+```
+error[TDC285]: pattern: every point sits at x=50, so the drawing has no width and a card has nothing to read across. Give the points at least two different x coordinates.
+```
+
+Ambos los reporta [`check`](../reference/cli.md#top) además de la corrida: `points`,
+`upper` y `lower` se leen antes de que exista una sola fila, con el mismo código que
+usa la corrida.
+
 ## `y_range` — la escala, y es obligatoria
 
 Un dibujo **no trae escala propia**. La misma curva sale de una herramienta en

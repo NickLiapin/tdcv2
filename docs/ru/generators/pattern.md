@@ -204,6 +204,36 @@ seed A:  50  50  50  50  50  50  44  47  66  18  45
 seed B:  50  50  50  50  50  51  57  61  60  81  35
 ```
 
+### Коридор прямо в конфиге: два атрибута, а не одна строка
+
+Коридору, нарисованному в файле, атрибуты вообще не нужны — два штриха на картинке
+уже читаются как две границы. Набранному прямо в конфиге нужны **два атрибута**,
+`upper` и `lower`, по одной кривой в каждом:
+
+```xml
+<gen type="pattern" upper="0,80 100,80" lower="0,20 100,20" y_range="0..100"/>
+```
+
+Соблазнительное сокращение — один `points` с разделителем между двумя линиями —
+не существует, и `;` не проглатывается, а получает отказ:
+
+`tdcv2 check corridor.tdc`
+
+```
+error[TDC285]: pattern: ";" does not separate two lines in points= — every number is read as one curve. For a band, draw the two edges separately: upper="0,80 100,80" lower="0,20 100,20".
+```
+
+Та же проверка ловит рисунок **нулевой ширины** — все точки на одном `x`:
+
+`tdcv2 check flat.tdc`
+
+```
+error[TDC285]: pattern: every point sits at x=50, so the drawing has no width and a card has nothing to read across. Give the points at least two different x coordinates.
+```
+
+Оба отказа выдаёт и [`check`](../reference/cli.md#top), и прогон: `points`, `upper` и
+`lower` читаются до первой карточки тем же кодом, что и в прогоне.
+
 ## `y_range` — масштаб, и он обязателен
 
 У рисунка **нет собственного масштаба**. Одна и та же кривая выходит из одного
