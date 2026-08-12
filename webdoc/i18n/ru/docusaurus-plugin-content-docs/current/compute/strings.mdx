@@ -13,9 +13,10 @@ import Terminal from '@site/src/components/Terminal';
 через [`<field name="…"/>`](overview.mdx) — те же имена, что и в
 [`${{…}}`](../core-concepts/output-formatting.mdx).
 
-Большинство из них (`mask`, `case`, `slice`, `replace`, `trim`, `group`) доступны
-ещё двумя способами — как атрибут [`<gen>`](../generators/overview.mdx)
-(`mask=` / `case=`) и как фильтр в интерполяции (`${{X | mask:…}}`). Руководство
+Большинство из них доступны и вне `<compute>`, но не одними и теми же путями: все шесть —
+`mask`, `case`, `slice`, `replace`, `trim`, `group` — работают как фильтр в интерполяции
+(`${{X | mask:…}}`), а два из них, `mask` и `case`, ещё и как атрибут
+[`<gen>`](../generators/overview.mdx). `<gen slice="1,3">` отвергается с TDC015. Руководство
 [Маски и регистр](../guides/masks-and-case.mdx) показывает эти способы с готовым
 выводом. Берите **тег compute**, когда форматирование — звено вычисления:
 например, наложить маску на число и _затем_ поднять регистр, прежде чем допишется

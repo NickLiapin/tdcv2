@@ -13,9 +13,11 @@ These tags shape a **string** as a step in a calculation. They live inside
 [`<field name="…"/>`](overview.mdx) — the same names you'd use in
 [`${{…}}`](../core-concepts/output-formatting.mdx).
 
-Most of them (`mask`, `case`, `slice`, `replace`, `trim`, `group`) are also available in
-two other ways — as a [`<gen>`](../generators/overview.mdx) attribute
-(`mask=` / `case=`) and as an interpolation filter (`${{X | mask:…}}`). The
+Most of them are also available outside `<compute>`, though not by the same routes: all six
+of `mask`, `case`, `slice`, `replace`, `trim` and `group` work as an interpolation filter
+(`${{X | mask:…}}`), and two of them — `mask` and `case` — additionally as a
+[`<gen>`](../generators/overview.mdx) attribute. `<gen slice="1,3">` is refused with TDC015.
+The
 [Masks & case](../guides/masks-and-case.mdx) guide covers those routes with worked
 output. Reach for the **compute tag** when the formatting is a step in a calculation —
 for example, masking a number and _then_ uppercasing it before appending a check digit.

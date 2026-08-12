@@ -182,9 +182,10 @@ columna de texto contra una lista de palabras numéricas sigue coincidiendo.
 | `zeta(s)`                  | 1          | la función zeta de Riemann, para s real            |
 | `degrees(x)` `radians(x)`  | 1          | entre las dos formas de escribir un ángulo         |
 
-Todo lo que está por encima de la raya es exacto: construido con comparaciones y con la
-aritmética que IEEE-754 fija sin ambigüedad, así que las cinco implementaciones no pueden
-discrepar. Todo lo que está por debajo, TDC lo calcula por sí mismo.
+Los operadores — comparaciones, conectivas lógicas y aritmética — son exactos: construidos
+con lo que IEEE-754 fija sin ambigüedad, así que las cinco implementaciones no pueden
+discrepar sobre ellos. Las FUNCIONES de la tabla de arriba son las que TDC calcula por sí
+mismo, y por eso cada una lleva una cota de precisión en vez de una promesa de exactitud.
 
 > [!NOTE]
 > **Dos reglas que conviene saber antes de apoyarse en ellas**

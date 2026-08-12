@@ -16,9 +16,10 @@ una [`<sequence>`](../core-concepts/sequences.md#top), y leen otras secuencias c
 [`<field name="…"/>`](overview.md#top) — los mismos nombres que usaría en
 [`${{…}}`](../core-concepts/output-formatting.md#top).
 
-La mayoría de ellas (`mask`, `case`, `slice`, `replace`, `trim`, `group`) también están
-disponibles por otras dos vías: como atributo de [`<gen>`](../generators/overview.md#top)
-(`mask=` / `case=`) y como filtro de interpolación (`${{X | mask:…}}`). La guía
+La mayoría también están disponibles fuera de `<compute>`, aunque no por las mismas vías:
+las seis — `mask`, `case`, `slice`, `replace`, `trim` y `group` — funcionan como filtro de
+interpolación (`${{X | mask:…}}`), y dos de ellas, `mask` y `case`, además como atributo de
+[`<gen>`](../generators/overview.md#top). `<gen slice="1,3">` se rechaza con TDC015. La guía
 [Máscaras y mayúsculas](../guides/masks-and-case.md#top) muestra esas rutas con salidas
 resueltas. Eche mano de la **etiqueta de compute** cuando el formato sea un paso dentro de
 un cálculo — por ejemplo, enmascarar un número y _después_ ponerlo en mayúsculas antes de

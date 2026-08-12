@@ -183,9 +183,10 @@ list of numeric words still matches.
 | `zeta(s)`                  | 1      | the Riemann zeta function, for real s            |
 | `degrees(x)` `radians(x)`  | 1      | between the two ways of writing an angle         |
 
-Everything above the rule is exact — built from comparisons and from the arithmetic IEEE-754
-pins down, so the five implementations cannot disagree. Everything below it, TDC computes
-itself.
+The operators — comparisons, the logical connectives and arithmetic — are exact, built from
+what IEEE-754 pins down, so the five implementations cannot disagree about them. The
+FUNCTIONS in the table above are the ones TDC computes itself, which is why each carries an
+accuracy bound rather than a promise of exactness.
 
 > [!NOTE]
 > **Two rules worth knowing before you rely on them**
