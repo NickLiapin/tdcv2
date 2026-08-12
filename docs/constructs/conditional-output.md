@@ -416,6 +416,18 @@ The `"false"` case is special: it exists so the
 [built-in sequences](../reference/builtins.md#top) `_first` / `_last`, which are stored
 as the literal strings `"true"` / `"false"`, behave intuitively in `if`.
 
+> [!WARNING]
+> **A column holding `0` is TRUE**
+>
+> The `0` row above is about a NUMBER you write in the config. Every column TDC produces is
+> TEXT, so a column holding `0` is the one-character string `"0"` — and by the row above it,
+> "any other string" is **true**. `if="Flag"` over a 0/1 column therefore fires on every row,
+> including the zeros.
+>
+> Compare instead of relying on truthiness: `if="Flag == 1"` asks the question you meant.
+> The [comparison rules](../reference/comparison.md#top) explain why `"0"` is not the number 0
+> here — it is the same decision that makes `"01" == 1` true.
+
 ## Built-ins in `if`
 
 The four built-ins — `_count`, `_first`, `_last`, `_total` — are the most common

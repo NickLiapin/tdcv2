@@ -430,6 +430,19 @@ El caso de `"false"` es especial: existe para que las
 como las cadenas literales `"true"` / `"false"`, se comporten de forma intuitiva
 dentro de `if`.
 
+> [!WARNING]
+> **Una columna que vale `0` es VERDADERA**
+>
+> La fila `0` de la tabla de arriba habla del NÚMERO que usted escribe en la configuración.
+> Todo lo que TDC produce en una columna es TEXTO, así que una columna que vale `0` es la
+> cadena de un carácter `"0"` — y según la fila de arriba, "cualquier otra cadena" es
+> **verdadera**. Por eso `if="Flag"` sobre una columna de ceros y unos se cumple en todas las
+> filas, ceros incluidos.
+>
+> Compare explícitamente en vez de confiar en la veracidad: `if="Flag == 1"` hace la pregunta
+> que usted quería hacer. Las [reglas de comparación](../reference/comparison.md#top) explican
+> por qué `"0"` no es aquí el número 0 — es la misma decisión que hace verdadero `"01" == 1`.
+
 ## Las integradas dentro de `if`
 
 Las cuatro integradas — `_count`, `_first`, `_last`, `_total` — son lo que más
