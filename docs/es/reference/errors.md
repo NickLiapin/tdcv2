@@ -224,6 +224,24 @@ Ver [Registros coherentes](../pools/overview.md#top).
 | `TDC297` | Dos lecturas de un mismo archivo a la vez — `read="quantile"` junto a `weight=`, `row=` u `order="sequential"`; un `read=` mal escrito; `sample=` sin él | `weight=` guarda las proporciones en una segunda columna, `row=` enlaza varias columnas a una LÍNEA, `order="sequential"` recorre la lista en orden, y `read="quantile"` dice que los valores SON la distribución y que una fila cae en cualquier punto de la muestra ordenada. Quédese con una lectura: lo contable quiere `weight=` y su cuota exacta, lo medido quiere la lectura por cuantiles |
 | `TDC244` | `type="pattern"` sin `points`, `src` ni `upper`                             | Un dibujo necesita una forma de la que leer: `points="0,0 1,5 2,3"`, un archivo en `src`, o `upper`/`lower` para una banda                                                                                                                                  |
 
+Tres números de este rango se reservaron mientras se diseñaban los pools y quedarán sin
+usar, así que los huecos están declarados en vez de quedar en silencio:
+
+- **`TDC227`** — un `filter=` que nombra una columna que no existe. Una palabra suelta en
+  el lenguaje de expresiones siempre ha sido un literal de texto, y eso es lo que usa
+  `filter="clinic == North"` para decir «solo los del norte». Un error de tipeo y un
+  literal se escriben igual, así que la comprobación pondría un error sobre
+  configuraciones que funcionan. Donde el literal es un error seguro — ningún miembro
+  podría tener ese valor — lo dice `TDC225`, sin adivinar.
+- **`TDC228`** — un `${{Pool.campo}}` que llega al pool sin pasar por una referencia.
+  `TDC193` ya lo reporta como un nombre que no resuelve a nada, y un segundo código para
+  la misma frase no vale el número.
+- **`TDC233`** — ningún candidato pasó el `filter=` en la fila N, para expresiones más
+  ricas que una igualdad simple. Ese rechazo ocurre y vale la pena tenerlo; solo que no
+  es un código de diagnóstico. Compara contra un valor que solo existe cuando la fila ya
+  se está construyendo, así que pertenece a la corrida, y el mensaje de la corrida nombra
+  la fila y el valor con el que nadie coincidió.
+
 ## Totales acumulados
 
 Véase [`accumulate=`](../constructs/multiple-values.md#accumulate--un-total-acumulado-a-lo-largo-de-la-lista)

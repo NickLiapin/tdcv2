@@ -177,7 +177,12 @@ como literal.
 | `w`                 | una palabra (letras hasta un espacio) y **se traga un** espacio    |
 | `*`                 | toda la entrada restante                                           |
 | `\`                 | escapa el siguiente carácter (`\x` → una `x` literal)              |
+| `x[2]` `w[1]`       | un pedazo POR POSICIÓN, así que puede reordenarse o repetirse      |
 | cualquier otra cosa | un literal: guion, punto, espacio, corchetes — se imprime tal cual |
+
+Las formas con índice son las mismas que toma el filtro `mask:` — `x[0..2]` para un rango,
+`x[-1]` contando desde el final — y la [guía de máscaras](../guides/masks-and-case.mdx#mover-piezas--x0-w0-y-rangos)
+las recorre una por una. `pattern="x[2]x[1]x[0]"` sobre `ABC` da `CBA`.
 
 `pattern` es el único atributo (y es obligatorio). Una máscara es **tolerante y nunca
 falla**: si `x` / `w` se pasan del final de la entrada no imprimen nada, y cualquier cola
