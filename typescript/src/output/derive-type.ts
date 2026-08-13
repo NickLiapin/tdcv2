@@ -102,7 +102,46 @@ export function deriveColumnType(
     case 'decrement':
       return withNullable('int64', nullable);
     case 'timeseries':
+    case 'pattern':
+      // A pattern draws a NUMBER from a shape — `y_range="1..30"` is a range of
+      // numbers whatever the curve looks like — so it types exactly like a
+      // timeseries. It used to fall through to text, which is the worst place
+      // for it: the drawn-shape generator is the one a data-science reader
+      // reaches for, and a string column is precisely the repair in pandas that
+      // typed output exists to remove.
       return withNullable(Number(gen.attrs['decimals'] ?? '0') > 0 ? 'double' : 'int64', nullable);
+    case 'running': {
+      // A running total is the arithmetic of the column it reads, so its type is
+      // that column's — recursively, since `of=` may name another derived one.
+      // `sum`, `min` and `max` of whole numbers are whole numbers; `decimals=`
+      // on the running gen itself makes it fractional whatever the source was.
+      if (Number(gen.attrs['decimals'] ?? '0') > 0) return withNullable('double', nullable);
+      const source = (gen.attrs['of'] ?? '').trim();
+      if (source === '' || source === name) return undefined;
+      const from = deriveColumnType(source, specs);
+      // Only a numeric source gives a numeric total. Anything else — or a source
+      // this file cannot type — stays text rather than guessing.
+      if (from?.kind !== 'int64' && from?.kind !== 'double') return undefined;
+      return withNullable(from.kind, nullable);
+    }
+    case 'stat': {
+      // A statistic's type follows the OPERATION, which is declared. Counting is
+      // whole by definition; a mean, a median and a standard deviation are not,
+      // whatever they are computed from; a sum, a minimum and a maximum keep the
+      // source column's type, the way `running` does.
+      if (Number(gen.attrs['decimals'] ?? '0') > 0) return withNullable('double', nullable);
+      const op = (gen.attrs['op'] ?? '').trim();
+      if (op === 'count') return withNullable('int64', nullable);
+      if (op === 'mean' || op === 'median' || op === 'stddev') {
+        return withNullable('double', nullable);
+      }
+      if (op !== 'sum' && op !== 'min' && op !== 'max') return undefined;
+      const source = (gen.attrs['of'] ?? '').trim();
+      if (source === '' || source === name) return undefined;
+      const from = deriveColumnType(source, specs);
+      if (from?.kind !== 'int64' && from?.kind !== 'double') return undefined;
+      return withNullable(from.kind, nullable);
+    }
     case 'formula': {
       // A formula's type is knowable exactly when the config declared how many
       // digits it wants, and not otherwise: `expr="A + 1"` is a whole number,

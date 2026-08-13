@@ -184,6 +184,21 @@ entero; `common.id.uuid` → UUID; una columna marcadora de
 [`missing`](../reference/attributes.mdx) **hace la columna nullable por sí solo** (`qty`
 quedó como `OPTIONAL`).
 
+**Las columnas calculadas también reciben tipo**, por el mismo razonamiento: lo que pueden
+producir se sabe antes de que exista una sola fila.
+
+| generador | tipo de columna |
+| :-------- | :-------------- |
+| [`timeseries`](../generators/timeseries.mdx), [`pattern`](../generators/pattern.mdx) | entero, o decimal con `decimals` |
+| [`running`](../generators/running.mdx) | el tipo de la columna que nombra su `of=` |
+| [`stat`](../generators/stat.mdx) | `count` → entero; `mean`, `median`, `stddev` → decimal; `sum`, `min`, `max` → el tipo del origen |
+| [`formula`](../generators/formula.mdx) | entero o decimal **cuando se da `decimals=`**, texto en caso contrario |
+
+La fila de la fórmula se sale a propósito. `expr="A + 1"` es un número entero,
+`expr="A / 2"` ya no lo es, y `expr="A > 5 ? over : under"` es una PALABRA — así que
+`decimals=` es la única señal honesta de lo que contiene la columna. Escriba `decimals="0"`
+cuando la respuesta sea entera y quiera una columna de enteros.
+
 **El orden es:** `type=` explícito → inferido a partir del generador → **texto**. TDC
 **nunca adivina un tipo a partir de los valores mismos** — eso es exactamente lo que
 corrompe los CSV (`007` → `7`). Cuando TDC no está seguro, la columna se queda como

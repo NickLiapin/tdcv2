@@ -231,3 +231,71 @@ describe('deriveOutputColumnType — repeat', () => {
     });
   });
 });
+
+/**
+ * The three SHIPPED generators that used to leave a number in a string column.
+ *
+ * Measured on 0.2.1 with pyarrow: a `pattern`, a `running` total and a `stat`
+ * all arrived in a `.parquet` file as `string` while `number` and `timeseries`
+ * beside them were typed. That defeats the whole point of typed output — the
+ * repair in pandas is exactly what it exists to remove — and `pattern` is the
+ * generator a data-science reader reaches for first.
+ *
+ * All three are knowable statically: a pattern draws a number from a shape, a
+ * running total is the arithmetic of the column it reads, and a statistic's
+ * type follows the operation, which is declared.
+ */
+describe('derived numeric columns are not text', () => {
+  const NUM = '<sequence name="A"><gen type="number" value="1..100"/></sequence>';
+
+  it('types a pattern like a timeseries', () => {
+    const specs = specsOf(
+      '<sequence name="P"><gen type="pattern" points="0,100 100,1" y_range="1..30" mode="density"/></sequence>',
+    );
+    expect(deriveColumnType('P', specs)?.kind).toBe('int64');
+  });
+
+  it('types a pattern with decimals as a double', () => {
+    const specs = specsOf(
+      '<sequence name="P"><gen type="pattern" points="0,100 100,1" y_range="1..30" mode="density" decimals="2"/></sequence>',
+    );
+    expect(deriveColumnType('P', specs)?.kind).toBe('double');
+  });
+
+  it('gives a running total the type of the column it reads', () => {
+    const whole = specsOf(
+      `${NUM}<sequence name="R"><gen type="running" of="A" accumulate="sum"/></sequence>`,
+    );
+    expect(deriveColumnType('R', whole)?.kind).toBe('int64');
+
+    const fractional = specsOf(
+      '<sequence name="A"><gen type="number" value="1..100" decimals="2"/></sequence>' +
+        '<sequence name="R"><gen type="running" of="A" accumulate="sum"/></sequence>',
+    );
+    expect(deriveColumnType('R', fractional)?.kind).toBe('double');
+  });
+
+  it('types a statistic from its operation', () => {
+    const of = (op: string) =>
+      deriveColumnType(
+        'S',
+        specsOf(`${NUM}<sequence name="S"><gen type="stat" of="A" op="${op}"/></sequence>`),
+      )?.kind;
+    expect(of('count')).toBe('int64');
+    expect(of('mean')).toBe('double');
+    expect(of('median')).toBe('double');
+    expect(of('stddev')).toBe('double');
+    // These three keep the source's type, the way a running total does.
+    expect(of('sum')).toBe('int64');
+    expect(of('min')).toBe('int64');
+    expect(of('max')).toBe('int64');
+  });
+
+  it('stays text when the source cannot be typed', () => {
+    const specs = specsOf(
+      '<sequence name="W"><gen type="text" value="a,b"/></sequence>' +
+        '<sequence name="R"><gen type="running" of="W" accumulate="sum"/></sequence>',
+    );
+    expect(deriveColumnType('R', specs)).toBeUndefined();
+  });
+});

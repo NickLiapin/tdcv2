@@ -184,6 +184,21 @@ with `decimals` → float; an [`increment`](../generators/counters.md#top) count
 boolean. And handily, [`missing`](../reference/attributes.md#top) **makes the column nullable
 on its own** (`qty` came out `OPTIONAL`).
 
+**Computed columns are typed too**, by the same reasoning — what they can produce is
+known before a single row exists:
+
+| generator | column type |
+| :-------- | :---------- |
+| [`timeseries`](../generators/timeseries.md#top), [`pattern`](../generators/pattern.md#top) | integer, or float with `decimals` |
+| [`running`](../generators/running.md#top) | the type of the column its `of=` names |
+| [`stat`](../generators/stat.md#top) | `count` → integer; `mean`, `median`, `stddev` → float; `sum`, `min`, `max` → the source's type |
+| [`formula`](../generators/formula.md#top) | integer or float **when `decimals=` is given**, text otherwise |
+
+The formula row is the odd one out on purpose. `expr="A + 1"` is a whole number,
+`expr="A / 2"` is not, and `expr="A > 5 ? over : under"` is a WORD — so `decimals=` is
+the one honest signal of what the column holds. Write `decimals="0"` when the answer is
+whole and you want an integer column.
+
 **The order is:** an explicit `type=`, then inference from the generator, then **text**.
 TDC **never guesses a type from the values themselves** — that's exactly what corrupts
 CSV (`007` → `7`). When TDC isn't sure, the column stays a string: a string breaks
