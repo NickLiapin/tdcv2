@@ -3148,7 +3148,7 @@ class _Validator:
 
     def _ignored(self, gen, name: str, why: str) -> None:
         line, column = _at(gen, name)
-        self._error("TDC015", f'<gen> does not read "{name}" — it is ignored', why, line, column)
+        self._error("TDC015", f'<gen> has no "{name}" attribute', why, line, column)
 
     def _check_required_value(self, gen, attrs: dict[str, str], type_: str | None) -> None:
         """Every generator that cannot work without one particular attribute."""

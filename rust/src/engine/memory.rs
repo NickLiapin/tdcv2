@@ -1994,13 +1994,10 @@ pub(super) fn column_values_into(
         let key = prng::permute::key(&stream.seed, &stream.id);
         let swept: Vec<String> = (0..count)
             .map(|i| {
-                quantile::exact_at(
-                    &source,
-                    decimals,
-                    count as i32,
-                    key,
-                    i32::try_from(stream.row_at(i)).unwrap_or(0),
-                )
+                // The POSITION inside this column, not the absolute row: the sweep spreads
+                // `count` points over the rows this column actually has, and a filtered
+                // column has fewer of them than the run does.
+                quantile::exact_at(&source, decimals, count as i32, key, i32::try_from(i).unwrap_or(0))
             })
             .collect();
         return finish_keyed(swept, gen, prng, anomaly_flags, Some(stream));

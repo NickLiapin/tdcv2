@@ -113,11 +113,10 @@ public class StreamEngineTest
             : 0;
 
         Config final = config.Override(count, seed, locale);
+        string baseDir = PrngVectorsTest.BaseDirOf(node);
         return engine == 2
-            ? StreamEngine.Rows(final, DataPacks.Discover(), now, PrngVectorsTest.FixturesDir())
-                .Text()
-            : DiskEngine.Rows(final, DataPacks.Discover(), now, PrngVectorsTest.FixturesDir())
-                .Text();
+            ? StreamEngine.Rows(final, DataPacks.Discover(), now, baseDir).Text()
+            : DiskEngine.Rows(final, DataPacks.Discover(), now, baseDir).Text();
     }
 
     /// <summary>How far the streaming engine has got, as a number rather than an impression.</summary>

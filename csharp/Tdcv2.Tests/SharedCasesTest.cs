@@ -85,7 +85,7 @@ public class SharedCasesTest
         // Rendering straight off the parse tree skips that presumption, so a port whose validator
         // refuses an attribute the reference reads passes here while `tdcv2 check` on the same file
         // fails. That is how `base=` on <gen type="running"> stayed refused in three ports.
-        var refusals = Validator.Validate(parsed.Tree)
+        var refusals = Validator.Validate(parsed.Tree, PrngVectorsTest.BaseDirOf(node), null)
             .Where(d => d.Severity == Severity.Error)
             .ToList();
         if (refusals.Count > 0)
@@ -114,7 +114,8 @@ public class SharedCasesTest
                 .ToUnixTimeMilliseconds()
             : null;
 
-        return Engines.Render(config.Override(count, seed, locale), null, now);
+        return Engines.Render(
+            config.Override(count, seed, locale), null, now, PrngVectorsTest.BaseDirOf(node));
     }
 
     /// <summary>How far the port has got, as a number rather than an impression.</summary>

@@ -953,6 +953,29 @@ public sealed class StreamEngine
             }));
         }
 
+        // `sample="exact"` on a quantile read: the row's point on the sorted sample comes from a
+        // scatter over the WHOLE column, so it cannot go down the generic per-row path, which is
+        // handed a count of one and would give every row the median. The file is read and sorted
+        // ONCE, here, so a run of any length costs the sample and nothing more.
+        if (type == "file" && Quantile.IsQuantile(attrs) && Quantile.IsExactSample(attrs))
+        {
+            var quantileSource = Quantile.Read(
+                FileGen.Load(attrs, _baseDir, _packs.DataRoots),
+                (attrs.GetValueOrDefault("src") ?? "").Trim());
+            int quantileDecimals = Quantile.DecimalsFor(attrs, quantileSource);
+            int sweepKey = Permute.Key(_seed, streamId);
+            return new Built(Wrap(mod, row =>
+            {
+                int? r = domain.PopIndexAt(row);
+                // Over the rows this column HAS, which for a filtered one is its domain rather
+                // than the run — the same count the in-memory engine sweeps.
+                return r is null
+                    ? null
+                    : Quantile.ExactAt(
+                        quantileSource, quantileDecimals, domain.Size, sweepKey, r.Value);
+            }));
+        }
+
         // A row-linked file: every field on the key must land on the same record for a given row,
         // and a different one per row. The in-memory engine plans that for the whole column; here
         // the index is re-derived from a stream keyed by the LINK, so the fields agree without one.
@@ -2027,8 +2050,8 @@ public sealed class StreamEngine
     private RepeatPlan PlanRepeat(Repeat.Spec spec, int rowCount, string streamId)
     {
         int groups = spec.Max - spec.Min + 1;
-        var percents = new double[groups];
-        Array.Fill(percents, 100.0 / groups);
+        // `lengths=` when the config declared a shape for the fan-out, an even split otherwise.
+        double[] percents = Repeat.LengthPercents(spec);
         int[] counts = Hamilton.CountsPerValue(
             rowCount, percents, Prng.Prng.Create(_seed + "|" + streamId + "|replen"));
 

@@ -2198,7 +2198,7 @@ impl Validator {
             if !known.contains(&key.as_str()) {
                 self.error(
                     "TDC015",
-                    format!("<{tag}> does not read \"{key}\" — it is ignored"),
+                    format!("<{tag}> has no \"{key}\" attribute"),
                     &format!("Attributes of <{tag}>: {}.", sorted(known).join(", ")),
                     element.at(&key),
                 );
@@ -3193,7 +3193,7 @@ impl Validator {
     fn ignored(&mut self, gen: &Element, name: &str, why: &str) {
         self.error(
             "TDC015",
-            format!("<gen> does not read \"{name}\" — it is ignored"),
+            format!("<gen> has no \"{name}\" attribute"),
             why,
             gen.at(name),
         );

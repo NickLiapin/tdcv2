@@ -2022,10 +2022,12 @@ impl StreamEngine<'_> {
                 let Some(r) = self.pop_index_at(domain, row)? else {
                     return Ok(None);
                 };
+                // Over the rows this column HAS, which for a filtered one is its domain
+                // rather than the run — the same count the in-memory engine sweeps.
                 let value = quantile::exact_at(
                     source,
                     *decimals,
-                    i32::try_from(self.count).unwrap_or(i32::MAX),
+                    i32::try_from(domain.size).unwrap_or(i32::MAX),
                     *key,
                     i32::try_from(r).unwrap_or(0),
                 );

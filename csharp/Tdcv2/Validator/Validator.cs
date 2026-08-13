@@ -214,7 +214,18 @@ public sealed class Validator
 
             // How many places the answer is printed to. Four generators produce a number they
             // may have to round; the rest produce text, which has no places.
-            ["decimals"] = Set("number", "timeseries", "pattern", "stat"),
+            ["decimals"] = Set("number", "timeseries", "pattern", "stat", "formula", "file"),
+            // How a file is READ, and how the distribution behind it is sampled.
+            ["read"] = Set("file"),
+            ["sample"] = Set("file"),
+            // The shape of a repeat's LENGTHS — meaningless without `repeat=`, which the
+            // validator checks separately.
+            ["lengths"] = Set(
+                "text", "number", "date", "regex", "advanced_regex", "symbol", "template", "file",
+                "formula"),
+            // The expression a formula evaluates. Only `formula` — `if=` and `filter=` hold one
+            // too, but those are wrappers every type takes, not this one's own parameter.
+            ["expr"] = Set("formula"),
             ["distribution"] = Set("number"),
 
             // The ceiling on what an unbounded pattern may expand to.
@@ -402,12 +413,12 @@ public sealed class Validator
         "lower", "y_range", "interp", "spread", "ink_threshold", "mode", "in", "on_error",
         "timeout", "secret", "mean", "sd", "meanlog", "sdlog", "rate", "alpha", "xmin",
         "shape", "scale",
-        "lambda", "n", "s", "beta", "min", "max", "filter");
+        "lambda", "n", "s", "beta", "min", "max", "filter", "read", "sample", "expr", "lengths");
 
     private static readonly IReadOnlySet<string> GenTypes = Set(
         "text", "file", "template", "number", "regex", "advanced_regex", "symbol", "date",
         "increment", "decrement", "timeseries", "pattern", "http", "pool", "running",
-        "stat");
+        "stat", "formula");
 
     /// <summary>
     /// Template paths that are generators rather than pack files.
@@ -3576,7 +3587,7 @@ public sealed class Validator
     private void Ignored(TDCParser.SelfClosingElementContext gen, string name, string why)
     {
         (int line, int column) = At(gen, name);
-        Error("TDC015", $"<gen> does not read \"{name}\" — it is ignored", why, line, column);
+        Error("TDC015", $"<gen> has no \"{name}\" attribute", why, line, column);
     }
 
     private void CheckRequiredValue(
@@ -5112,7 +5123,7 @@ public sealed class Validator
             {
                 (int l, int c) = At(attrs, attr.Key, line, column);
                 Error(
-                    "TDC015", $"<{tag}> does not read \"{attr.Key}\" — it is ignored",
+                    "TDC015", $"<{tag}> has no \"{attr.Key}\" attribute",
                     $"Attributes of <{tag}>: "
                     + string.Join(", ", known.OrderBy(k => k, StringComparer.Ordinal)) + ".",
                     l, c);

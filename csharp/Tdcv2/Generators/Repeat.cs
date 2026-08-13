@@ -1,3 +1,4 @@
+using System.Globalization;
 using System.Text.RegularExpressions;
 using Tdcv2.Distribution;
 using Tdcv2.Prng;
@@ -46,8 +47,18 @@ public static class Repeat
     /// sample. Frequencies stay approximate, rows stay independent.
     /// </para>
     /// </param>
+    /// <param name="Lengths">
+    /// <c>lengths=</c>: the share of rows that get each possible length, <c>Min</c> first.
+    /// <para>
+    /// Without it every length is equally likely, and exactly so — the lengths are laid out as a
+    /// Hamilton quota, which is the wrong shape for every real one-to-many relationship. The
+    /// shares live HERE, in the spec, rather than in a per-row draw: a per-row count would make a
+    /// row's draws depend on the rows before it.
+    /// </para>
+    /// </param>
     public readonly record struct Spec(
-        int Min, int Max, string Separator, string? Accumulate, bool Distinct);
+        int Min, int Max, string Separator, string? Accumulate, bool Distinct,
+        double[]? Lengths = null);
 
     /// <summary><c>null</c> when the generator has no <c>repeat</c>, which is the ordinary case.</summary>
     public static Spec? Parse(IReadOnlyDictionary<string, string> attrs)
@@ -86,7 +97,60 @@ public static class Repeat
             max,
             attrs.GetValueOrDefault("separator", DefaultSeparator),
             Accumulate.Read(attrs),
-            ReadDistinct(attrs));
+            ReadDistinct(attrs),
+            ParseLengths(attrs.GetValueOrDefault("lengths"), min, max));
+    }
+
+    /// <summary><c>lengths="40,25,15,10,7,3"</c> — one share per possible length, <c>min</c> first.</summary>
+    /// <remarks>
+    /// One share per length and a sum of 100, both refused rather than repaired: a fan-out
+    /// written with five shares for six lengths is a config whose author is thinking of a
+    /// different range, and quietly filling the sixth in would hide that.
+    /// </remarks>
+    public static double[]? ParseLengths(string? raw, int min, int max)
+    {
+        string text = (raw ?? "").Trim();
+        if (text.Length == 0)
+        {
+            return null;
+        }
+
+        string[] parts = text.Split(',')
+            .Select(p => p.Trim())
+            .Where(p => p.Length > 0)
+            .ToArray();
+        int groups = Math.Max(1, max - min + 1);
+        if (parts.Length != groups)
+        {
+            throw new ArgumentException(
+                $"lengths: {parts.Length} share(s) for {groups} possible length(s) — "
+                + $"repeat=\"{min}..{max}\" can produce {min} to {max} values, so it needs one "
+                + "share for each");
+        }
+
+        var values = new double[parts.Length];
+        for (int i = 0; i < parts.Length; i++)
+        {
+            if (!double.TryParse(
+                    parts[i], NumberStyles.Float, CultureInfo.InvariantCulture, out double v)
+                || double.IsNaN(v) || double.IsInfinity(v) || v < 0)
+            {
+                throw new ArgumentException(
+                    $"lengths: share for length {min + i} is not a number >= 0");
+            }
+
+            values[i] = v;
+        }
+
+        double total = values.Sum();
+        if (Math.Abs(total - 100.0) > 1e-9)
+        {
+            throw new ArgumentException(
+                "lengths: shares sum to "
+                + total.ToString("R", CultureInfo.InvariantCulture) + ", expected 100");
+        }
+
+        return values;
     }
 
     /// <summary>The same attributes without <c>repeat</c>, for building one element at a time.</summary>
@@ -189,6 +253,11 @@ public static class Repeat
     /// </summary>
     public static double[] LengthPercents(Spec spec)
     {
+        if (spec.Lengths is { } declared)
+        {
+            return declared;
+        }
+
         int groups = Math.Max(1, spec.Max - spec.Min + 1);
         return Enumerable.Repeat(100.0 / groups, groups).ToArray();
     }
@@ -198,13 +267,13 @@ public static class Repeat
     {
         int groups = spec.Max - spec.Min + 1;
 
-        // The lengths, as an exact quota rather than a per-row coin flip.
+        // The lengths, as an exact quota rather than a per-row coin flip — `lengths=` when the
+        // config declared a shape, an even split otherwise.
         var groupIds = new List<int>(groups);
-        var percents = new double[groups];
+        double[] percents = LengthPercents(spec);
         for (int j = 0; j < groups; j++)
         {
             groupIds.Add(j);
-            percents[j] = 100.0 / groups;
         }
 
         IReadOnlyList<int> perRowGroup = Hamilton.Distribute(count, groupIds, percents, prng);

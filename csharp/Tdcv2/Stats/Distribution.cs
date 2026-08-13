@@ -1,3 +1,4 @@
+using System.Text;
 using System.Globalization;
 
 namespace Tdcv2.Stats;
@@ -161,13 +162,150 @@ public static class Distribution
     /// JavaScript's <c>Number.prototype.toFixed</c>, which is what every implementation matches.
     /// </summary>
     /// <remarks>
-    /// .NET's <c>"F"</c> format rounds half away from zero, and so does this — but the rounding
-    /// has to happen on the same value the reference rounds, so the number is not touched before
-    /// it gets here.
+    /// <para>NOT .NET's <c>"F"</c> format, which rounds a tie to the EVEN digit: 20.5 comes out
+    /// 20 there and 21 in the reference. On a swept quantile column, where exact halves are
+    /// common rather than rare, that put a wrong number in one cell in twenty.</para>
+    ///
+    /// <para>The digits are expanded EXACTLY before the rounding decision is made, so a value
+    /// that merely prints like a tie is told apart from one that is a tie. A double is
+    /// <c>m × 2^e</c>; for <c>e &lt; 0</c> that is <c>m × 5^|e| / 10^|e|</c>, so multiplying the
+    /// mantissa by five <c>|e|</c> times gives the whole expansion.</para>
     /// </remarks>
-    public static string ToFixed(double value, int decimals) =>
-        value.ToString("F" + decimals.ToString(CultureInfo.InvariantCulture),
-            CultureInfo.InvariantCulture);
+    public static string ToFixed(double value, int decimals)
+    {
+        if (double.IsNaN(value) || double.IsInfinity(value) || Math.Abs(value) >= 1e21)
+        {
+            return value.ToString("R", CultureInfo.InvariantCulture);
+        }
+
+        // The sign comes from the INPUT, not from the result: `(-0.0001).toFixed(2)` is
+        // `"-0.00"`, a signed zero that says the value was below it. `-0` itself gets none, and
+        // that falls out of `value < 0` being false for negative zero — in C# as in JavaScript.
+        bool negative = value < 0;
+        List<byte> digits = ExactDigits(Math.Abs(value), out int point);
+        RoundHalfUp(digits, point, decimals);
+
+        // Rounding may have carried into a new leading digit, so the point is read back from the
+        // length rather than remembered.
+        point = digits.Count - decimals;
+        string whole = string.Concat(digits.Take(point).Select(d => (char)('0' + d))).TrimStart('0');
+        var text = new StringBuilder();
+        if (negative)
+        {
+            text.Append('-');
+        }
+
+        text.Append(whole.Length == 0 ? "0" : whole);
+        if (decimals > 0)
+        {
+            text.Append('.');
+            foreach (byte d in digits.Skip(point))
+            {
+                text.Append((char)('0' + d));
+            }
+        }
+
+        return text.ToString();
+    }
+
+    /// <summary>The exact decimal digits of a non-negative finite double, big-endian.</summary>
+    /// <param name="point">How many of the digits sit before the decimal point.</param>
+    private static List<byte> ExactDigits(double value, out int point)
+    {
+        long bits = BitConverter.DoubleToInt64Bits(value);
+        int rawExponent = (int)((bits >> 52) & 0x7FF);
+        long rawMantissa = bits & 0x000F_FFFF_FFFF_FFFF;
+        // Subnormal: no implicit leading one, and a fixed exponent.
+        long mantissa = rawExponent == 0 ? rawMantissa : rawMantissa | 0x0010_0000_0000_0000;
+        int exponent = rawExponent == 0 ? -1074 : rawExponent - 1075;
+
+        var digits = mantissa == 0
+            ? new List<byte> { 0 }
+            : mantissa.ToString(CultureInfo.InvariantCulture)
+                .Select(c => (byte)(c - '0')).ToList();
+
+        if (exponent >= 0)
+        {
+            for (int i = 0; i < exponent; i++)
+            {
+                MultiplySmall(digits, 2);
+            }
+
+            point = digits.Count;
+            return digits;
+        }
+
+        int fractional = -exponent;
+        for (int i = 0; i < fractional; i++)
+        {
+            MultiplySmall(digits, 5);
+        }
+
+        // Left-pad so there are at least `fractional` digits after the point.
+        while (digits.Count <= fractional)
+        {
+            digits.Insert(0, 0);
+        }
+
+        point = digits.Count - fractional;
+        return digits;
+    }
+
+    /// <summary>Multiply a big-endian decimal digit list by a single digit.</summary>
+    private static void MultiplySmall(List<byte> digits, int factor)
+    {
+        int carry = 0;
+        for (int i = digits.Count - 1; i >= 0; i--)
+        {
+            int v = (digits[i] * factor) + carry;
+            digits[i] = (byte)(v % 10);
+            carry = v / 10;
+        }
+
+        while (carry > 0)
+        {
+            digits.Insert(0, (byte)(carry % 10));
+            carry /= 10;
+        }
+    }
+
+    /// <summary>Cut the expansion to <paramref name="decimals"/> places, ties away from zero.</summary>
+    /// <remarks>The sign was taken off before this, so "away from zero" is simply "up".</remarks>
+    private static void RoundHalfUp(List<byte> digits, int point, int decimals)
+    {
+        int keep = point + decimals;
+        if (digits.Count <= keep)
+        {
+            // Shorter than asked for: pad rather than round.
+            while (digits.Count < keep)
+            {
+                digits.Add(0);
+            }
+
+            return;
+        }
+
+        byte firstDropped = digits[keep];
+        digits.RemoveRange(keep, digits.Count - keep);
+        if (firstDropped < 5)
+        {
+            return;
+        }
+
+        for (int at = digits.Count - 1; at >= 0; at--)
+        {
+            if (digits[at] == 9)
+            {
+                digits[at] = 0;
+                continue;
+            }
+
+            digits[at]++;
+            return;
+        }
+
+        digits.Insert(0, 1);
+    }
 
     /// <summary>A standard normal deviate by Box–Muller, from two uniforms in (0,1).</summary>
     private static double BoxMuller(double u1, double u2) =>

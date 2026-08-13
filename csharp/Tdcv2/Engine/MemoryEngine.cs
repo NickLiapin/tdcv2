@@ -1053,6 +1053,29 @@ public static class MemoryEngine
                     return walked;
                 }
 
+                // `read="quantile"` reads the SAME file as a distribution rather than a bag:
+                // sorted once, a row lands anywhere on it, and the values between observations
+                // appear on their own. One uniform per row and nothing shared, so this needs no
+                // branch of its own on the streaming engine — it arrives here a row at a time and
+                // answers the same way. The EXACT sweep is a plan over the whole column and lives
+                // where the stream is.
+                if (Quantile.IsQuantile(gen.Attrs))
+                {
+                    IReadOnlyList<string> raw =
+                        FileGen.Load(gen.Attrs, ctx.BaseDir, ctx.Packs.DataRoots);
+                    var source = Quantile.Read(
+                        raw, (gen.Attrs.GetValueOrDefault("src") ?? "").Trim());
+                    int decimals = Quantile.DecimalsFor(gen.Attrs, source);
+                    var drawn = new List<string>(count);
+                    for (int i = 0; i < count; i++)
+                    {
+                        drawn.Add(Quantile.Render(
+                            Quantile.At(source.Sorted, Seekable.OpenUnit(prng.Next())), decimals));
+                    }
+
+                    return drawn;
+                }
+
                 string? rowKey = gen.Attrs.GetValueOrDefault("row")?.Trim();
                 if (!string.IsNullOrEmpty(rowKey))
                 {
@@ -2914,6 +2937,25 @@ public static class MemoryEngine
             string[] laid = PerRow.ExactTextLayout(
                 list.Values, list.Percents, count, stream, layouts);
             return FinishKeyed(laid, gen, prng, anomalyFlags, stream);
+        }
+
+        // `sample="exact"` on a quantile read is a PLAN, like the layout above: every row takes
+        // its own point on the sorted sample, and which point follows from a scatter over the
+        // whole column. Built a row at a time it would see a count of one and hand every row the
+        // median.
+        if (gen.Type == "file" && Quantile.IsQuantile(gen.Attrs) && Quantile.IsExactSample(gen.Attrs))
+        {
+            IReadOnlyList<string> raw = FileGen.Load(gen.Attrs, ctx.BaseDir, ctx.Packs.DataRoots);
+            var source = Quantile.Read(raw, (gen.Attrs.GetValueOrDefault("src") ?? "").Trim());
+            int decimals = Quantile.DecimalsFor(gen.Attrs, source);
+            int key = Permute.Key(stream.Seed, stream.Id);
+            var swept = new string[count];
+            for (int i = 0; i < count; i++)
+            {
+                swept[i] = Quantile.ExactAt(source, decimals, count, key, stream.RowAt(i));
+            }
+
+            return FinishKeyed(swept, gen, prng, anomalyFlags, stream);
         }
 
         // Two types the streaming engine builds INLINE: the value follows the position, and only

@@ -3146,7 +3146,7 @@ public final class Validator {
   }
 
   private void ignored(TDCParser.SelfClosingElementContext gen, String name, String why) {
-    error("TDC015", "<gen> does not read \"" + name + "\" — it is ignored", why,
+    error("TDC015", "<gen> has no \"" + name + "\" attribute", why,
         at(gen, name)[0], at(gen, name)[1]);
   }
 
@@ -4331,7 +4331,7 @@ public final class Validator {
     for (Map.Entry<String, String> attr : attributes(attrs).entrySet()) {
       if (!known.contains(attr.getKey())) {
         int[] where = at(attrs, attr.getKey(), line, column);
-        error("TDC015", "<" + tag + "> does not read \"" + attr.getKey() + "\" — it is ignored",
+        error("TDC015", "<" + tag + "> has no \"" + attr.getKey() + "\" attribute",
             "Attributes of <" + tag + ">: " + String.join(", ", new java.util.TreeSet<>(known)) + ".",
             where[0], where[1]);
       }

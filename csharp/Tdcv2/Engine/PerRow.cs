@@ -108,6 +108,14 @@ internal static class PerRow
     /// </remarks>
     internal static bool PerRowBuildable(Gen gen, int count, bool weighted, bool wholeColumn)
     {
+        // `sample="exact"` on a quantile read is a PLAN too: every row takes its own point on
+        // the sorted sample, and which point follows from a scatter over the whole column. Built
+        // a row at a time it would see a count of one and hand every row the median.
+        if ((gen.Attrs.GetValueOrDefault("sample") ?? "").Trim() == "exact")
+        {
+            return false;
+        }
+
         if (count <= 1 || !PerRowTypes.Contains(gen.Type))
         {
             return false;

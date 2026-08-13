@@ -40,6 +40,17 @@ public class PrngVectorsTest
             "cannot find fixtures/cross-language above " + AppContext.BaseDirectory);
     }
 
+    /// <summary>Where a case's relative <c>src=</c> resolves from.</summary>
+    /// <remarks>
+    /// A case carrying <c>dataPath</c> names a FOLDER under <c>cases/</c> holding its sample
+    /// files, so the config reads them the way the CLI would read a file beside a <c>.tdc</c>.
+    /// Without it the base directory is the fixtures root.
+    /// </remarks>
+    internal static string BaseDirOf(JsonElement node) =>
+        node.TryGetProperty("dataPath", out JsonElement p) && p.ValueKind == JsonValueKind.String
+            ? Path.Combine(FixturesDir(), "cases", p.GetString()!)
+            : FixturesDir();
+
     [Fact]
     public void MatchesTheSharedVectors()
     {
