@@ -97,6 +97,30 @@ describe('the uniq routing table', () => {
   });
 });
 
+describe('a parent filter', () => {
+  // `parent="Name.Value"` asks about the row: it either drew that value or it did
+  // not. `parent="Name"` asks about the finished column — the rows where the parent
+  // produced anything — which the streaming builder refuses. Deciding it HERE is the
+  // whole point: on the single-threaded path the refusal was caught and the run fell
+  // back to memory, but `--jobs` hands each worker a forced streaming engine with
+  // nowhere to fall back to. So the documentation page's own valueless-`parent`
+  // example wrote 99,999 rows and exited 0, then wrote a ZERO-BYTE file and exited 1
+  // at 100,000 — the row count where a run parallelises itself.
+  const PARENT = `<sequence name="P"><gen type="text" value="US,UK"/></sequence>`;
+
+  it('parent="Name.Value" — the row decides, so it streams', () => {
+    expect(engineFor(`${PARENT}<sequence name="C" parent="P.US">${DRAWN}</sequence>`)).toBe(2);
+  });
+
+  it('a bare parent="Name" — in-memory, whatever the job count', () => {
+    expect(engineFor(`${PARENT}<sequence name="C" parent="P">${DRAWN}</sequence>`)).toBe(1);
+  });
+
+  it('a trailing dot is a bare parent too', () => {
+    expect(engineFor(`${PARENT}<sequence name="C" parent="P.">${DRAWN}</sequence>`)).toBe(1);
+  });
+});
+
 describe('what still streams', () => {
   it('a plain drawn column', () => {
     expect(engineFor(`<sequence name="K">${DRAWN}</sequence>`)).toBe(2);

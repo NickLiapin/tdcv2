@@ -110,6 +110,19 @@ _count"` is a sensor that grows noisier as the run goes on.
 
 ### Fixed
 
+- **A bare `parent="Name"` wrote a zero-byte file at exactly 100,000 rows.** At that count a
+  run parallelises itself, and each worker carries a FORCED streaming engine. The streaming
+  builder refuses a valueless `parent=` — it narrows a column to the rows where the parent
+  produced anything, which needs the parent's finished column — and a refusal is only a
+  fallback on the single-threaded path. So the hierarchical-dependencies page's own example
+  wrote 99,999 rows and exited 0, then wrote nothing and exited 1 at 100,000. `check` called
+  it valid at both sizes.
+
+  The shape is now decided in the static router, beside the switch-percent rule that was
+  fixed for exactly this reason, so the serial and the parallel path see one answer.
+  `--jobs` is again what the documentation promises: only about speed. TypeScript-only —
+  it is the one implementation that parallelises without being asked.
+
 - **Four ports wrote `pattern`, `running`, `stat` and `formula` columns as TEXT in Parquet.**
   The reference inferred all four from the generator; Python, Rust, C# and Java did not, so the
   same config gave a `DOUBLE` from one implementation and the string `29.2` from another —

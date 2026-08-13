@@ -845,6 +845,16 @@ export function resolveRenderEngine(
   // what keeps that refusal from reaching a parallel worker, which has no
   // fallback. See `specsUseDerivedColumn` for what this cost before.
   if (specsUseDerivedColumn(specs)) return 1;
+  // `parent="Name"` with no value narrows a column to the rows where the parent
+  // produced ANYTHING, which the streaming builder refuses because it cannot know
+  // that without the parent's whole column. Same reason as the two lines above:
+  // the refusal is only a fallback on the single-threaded path, and `--jobs`
+  // hands each worker a FORCED streaming engine with nowhere to fall back to.
+  // Measured before this line existed: the hierarchical-dependencies page's own
+  // valueless-`parent` example wrote 99,999 rows and exited 0, then wrote a
+  // ZERO-BYTE file and exited 1 at 100,000 — `AUTO_JOBS_MIN_ROWS`, the point
+  // where the run parallelises itself. `check` called it valid at both sizes.
+  if (specsUseBareParent(specs)) return 1;
   // disk mode: the fastest engine the config allows.
   return needsExactEngine(specs, envUniqGroups) ? 3 : 2;
 }
@@ -967,6 +977,25 @@ export function specsUseDerivedColumn(specs: readonly SequenceSpec[]): boolean {
       g.type === 'stat' ||
       (g.type === 'date' && (g.attrs['of'] ?? '').trim() !== ''),
   );
+}
+
+/**
+ * Any sequence whose `parent=` names a sequence but not one of its VALUES.
+ *
+ * `parent="Country.US"` is a filter the streaming engines can evaluate a row at a
+ * time: the row either drew `US` or it did not. `parent="Country"` asks a different
+ * question — "the rows where Country produced anything at all" — and answering it
+ * needs the parent's finished column, which is exactly what streaming does not have.
+ * The condition is kept identical to `domainOf` in `sequence/stream-build.ts`, which
+ * is the code that would otherwise refuse it mid-run.
+ */
+export function specsUseBareParent(specs: readonly SequenceSpec[]): boolean {
+  return specs.some((s) => {
+    const parent = (s.parent ?? '').trim();
+    if (parent === '') return false;
+    const dot = parent.indexOf('.');
+    return dot < 0 || parent.slice(dot + 1).length === 0;
+  });
 }
 
 /** True if any `<gen>` in `specs` (simple or compound field) satisfies `pred`. */
