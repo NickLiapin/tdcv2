@@ -81,6 +81,22 @@ export function checkGenRepeat(
         code: 'TDC198',
       });
     }
+    // Same sentence about the other attribute that only means something beside a
+    // repeat: `lengths=` shapes how many values a row gets, and without a repeat
+    // every row gets one.
+    const lengthsAttr = findAttr(attrs, 'lengths');
+    if (lengthsAttr) {
+      diagnostics.push({
+        severity: 'error',
+        source: 'validator',
+        ...attrValueRange(lengthsAttr),
+        message: '"lengths" has no effect without "repeat"',
+        hint:
+          'lengths gives the share of rows that get each possible length, so it needs a range ' +
+          'to shape: repeat="0..5" lengths="40,25,15,10,7,3".',
+        code: 'TDC198',
+      });
+    }
     return;
   }
 

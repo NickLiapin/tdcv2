@@ -157,6 +157,7 @@ motores; en un generador `pattern` elige la pregunta que se le hace al dibujo.
 | `order`                | Orden de los valores (`random` / `sequential`) — solo `text`, `file` y `date` | [Generadores](../generators/overview.md#top)                  |
 | `cycle`                | Con `sequential`: repetir el ciclo o dar error — los mismos tres tipos | [Generadores](../generators/overview.md#top)                  |
 | `repeat` / `separator` | Varios valores en una misma celda                    | [Varios valores](../constructs/multiple-values.md#top)        |
+| `lengths`   | Junto a `repeat="A..B"`: la proporción de filas que recibe cada longitud posible, empezando por `A` — una cuota exacta, no una aproximación                                                        | [Varios valores](../constructs/multiple-values.md#top)                  |
 | `distinct` | Sin repeticiones dentro de una celda (necesita `repeat`) | [Varios valores](../constructs/multiple-values.md#top)        |
 | `each`                 | Repetir una línea por cada elemento de la lista      | [Tablas relacionales](../constructs/relational-tables.md#top) |
 | `flag`                 | Columna de respuesta para marcar outliers de `<mix>` | [Mix](../constructs/mix.md#top)                               |

@@ -155,6 +155,7 @@ engine family; on a `pattern` generator it picks what you're asking the drawing 
 | `order`                | Value order (`random` / `sequential`) — `text`, `file` and `date` only | [Generators](../generators/overview.md#top)                      |
 | `cycle`                | With `sequential`: cycle or raise an error — the same three types | [Generators](../generators/overview.md#top)                      |
 | `repeat` / `separator` | Several values in one cell                 | [Multiple values](../constructs/multiple-values.md#top)          |
+| `lengths`   | Beside `repeat="A..B"`: the share of rows that get each possible length, `A` first — an exact quota, not an approximation                                                        | [Multiple values](../constructs/multiple-values.md#top)                  |
 | `distinct` | No repeats inside one cell (needs `repeat`) | [Multiple values](../constructs/multiple-values.md#top)          |
 | `each`                 | Repeat a line for each list element        | [Relational tables](../constructs/relational-tables.md#top)      |
 | `flag`                 | Answer column that marks `<mix>` outliers  | [Mix](../constructs/mix.md#marking-outliers-with-flag)       |

@@ -136,6 +136,49 @@ Articles 2 and 4 drew a length of zero, so their cells are blank — not a speci
 value, just an empty list. **Why:** "sometimes present, sometimes absent" is a
 real data shape, and `0..n` models it without a second sequence.
 
+## `lengths=` — how many rows get each count
+
+Without it every length is equally likely, and "equally" here is **exact** rather than
+approximate: the lengths are laid out as a quota, so `repeat="0..5"` gives each of the six
+counts one sixth of the rows, with no sampling noise at all.
+
+Real one-to-many data never looks like that. Orders per customer, visits per patient,
+transactions per account: most parents have one or two children, a few have twenty.
+`lengths=` gives the share of rows that get each count, lowest first:
+
+```xml
+<gen type="number" value="100..999" repeat="0..5" lengths="40,25,15,10,7,3" separator=";"/>
+```
+
+<Terminal title="./run orders.tdc (8 rows)">
+{`[896;648;701;334]
+[]
+[765]
+[342;706]
+[447;991;569]
+[]
+[148]
+[]`}
+</Terminal>
+
+Over 20,000 rows the shares come out to the hundredth, because they are a quota and not a
+draw:
+
+<Terminal title="./run orders.tdc (20,000 rows, counted)">
+{`0: 40.00%  1: 25.00%  2: 15.00%  3: 10.00%  4: 7.00%  5: 3.00%`}
+</Terminal>
+
+One share per possible length, and they must sum to 100 — the same arithmetic `percent=`
+uses. Five shares for six lengths is refused rather than repaired: a config written that way
+had a shape in mind, and guessing which one was forgotten is not this engine's job.
+
+:::note[Exact, unlike a drawn distribution]
+`lengths=` is a **quota**: 40% means 40.00%. A shape drawn with
+[`<gen type="pattern" mode="density">`](../generators/pattern.mdx) reproduces a *shape* to
+within a fraction of a percent, which is the right tool for "roughly like this" and the
+wrong one for "exactly this many".
+:::
+
 ## `separator=` — how the values are joined
 
 Without `separator`, the values are joined with a comma. Set it to any string to

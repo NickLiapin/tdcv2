@@ -141,6 +141,51 @@ Los artículos 2 y 4 sacaron longitud cero, así que su celda queda en blanco �
 valor especial, solo una lista vacía. **Por qué:** «a veces presente, a veces ausente» es
 una forma real de los datos, y `0..n` la modela sin una segunda secuencia.
 
+## `lengths=` — qué proporción de filas recibe cada cantidad
+
+Sin él todas las longitudes son igual de probables, y "igual" aquí es **exacto**, no
+aproximado: las longitudes se reparten como una cuota, así que `repeat="0..5"` da a cada una
+de las seis un sexto de las filas, sin ninguna variación de muestreo.
+
+Los datos reales de uno-a-muchos nunca se ven así. Pedidos por cliente, visitas por
+paciente, transacciones por cuenta: la mayoría de los padres tienen uno o dos hijos, unos
+pocos tienen veinte. `lengths=` da la proporción de filas que recibe cada cantidad,
+empezando por la menor:
+
+```xml
+<gen type="number" value="100..999" repeat="0..5" lengths="40,25,15,10,7,3" separator=";"/>
+```
+
+<Terminal title="./run orders.tdc (8 filas)">
+{`[896;648;701;334]
+[]
+[765]
+[342;706]
+[447;991;569]
+[]
+[148]
+[]`}
+</Terminal>
+
+Sobre 20 000 filas las proporciones salen hasta la centésima, porque son una cuota y no un
+sorteo:
+
+<Terminal title="./run orders.tdc (20 000 filas, contadas)">
+{`0: 40.00%  1: 25.00%  2: 15.00%  3: 10.00%  4: 7.00%  5: 3.00%`}
+</Terminal>
+
+Una proporción por cada longitud posible, y deben sumar 100 — la misma aritmética que usa
+`percent=`. Cinco proporciones para seis longitudes se rechazan en vez de repararse: un
+config escrito así tenía una forma en mente, y adivinar cuál de las seis se olvidó no es
+tarea del motor.
+
+:::note[Exacto, a diferencia de una distribución dibujada]
+`lengths=` es una **cuota**: 40% significa 40.00%. Una forma dibujada con
+[`<gen type="pattern" mode="density">`](../generators/pattern.mdx) reproduce una *forma* con
+una precisión de décimas de punto — la herramienta correcta para "más o menos así" y la
+incorrecta para "exactamente esta cantidad".
+:::
+
 ## `separator=` — cómo se unen los valores
 
 Sin `separator`, los valores se unen con una coma. Póngale cualquier cadena para que

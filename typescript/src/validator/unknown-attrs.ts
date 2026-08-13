@@ -133,6 +133,7 @@ export const GEN_ATTRIBUTES: ReadonlySet<string> = new Set([
   'weight',
   // read by one generator type or another
   'expr',
+  'lengths',
   'filter',
   'percent',
   'first_zero',
@@ -236,6 +237,22 @@ export const ATTRIBUTE_OWNERS: ReadonlyMap<string, ReadonlySet<string>> = new Ma
   ['of', new Set(['running', 'stat', 'date'])],
   ['reset', new Set(['running'])],
   ['op', new Set(['stat'])],
+  // The shape of a repeat's LENGTHS — meaningless without `repeat=`, which the
+  // validator checks separately.
+  [
+    'lengths',
+    new Set([
+      'text',
+      'number',
+      'date',
+      'regex',
+      'advanced_regex',
+      'symbol',
+      'template',
+      'file',
+      'formula',
+    ]),
+  ],
   // The expression a formula evaluates. Only `formula` — `if=` and `filter=`
   // hold one too, but those are wrappers every type takes, not this one's own
   // parameter.

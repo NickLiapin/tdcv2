@@ -25,6 +25,24 @@ export const MAX_REPEAT = 64;
 export const DEFAULT_SEPARATOR = ',';
 
 export interface RepeatSpec {
+  /**
+   * `lengths=`: the share of rows that get each possible length, `min` first.
+   *
+   * Without it every length is equally likely, and "equally" here is exact
+   * rather than approximate — the lengths are laid out as a Hamilton quota, so
+   * `repeat="0..5"` over 20,000 rows gives 16.66% to each of the six, with no
+   * sampling noise at all. That is the wrong shape for every real one-to-many
+   * relationship: orders per customer, visits per patient, transactions per
+   * account are all heavy-tailed, most parents have one or two children and a
+   * few have twenty.
+   *
+   * The shares go HERE, in the spec, rather than into a per-row draw, because a
+   * per-row count would break the property this whole file exists to protect —
+   * see the header. Deciding the lengths first, as a quota, keeps rows
+   * independent AND makes the shape exact: `lengths="40,25,15,10,7,3"` means 40%
+   * of parents have none, not "about 40%".
+   */
+  readonly lengths?: readonly number[] | undefined;
   /** Fewest values per row; may be 0 (empty list). */
   readonly min: number;
   /** Most values per row — also the per-row draw budget. */
@@ -109,13 +127,56 @@ export function parseRepeat(attrs: Record<string, string | undefined>): RepeatSp
     throw new RepeatError(`repeat: maximum of "${raw}" must not exceed ${String(MAX_REPEAT)}`);
   }
 
+  const lengths = parseLengths(attrs['lengths'], min, max);
+
   return {
     min,
     max,
+    ...(lengths ? { lengths } : {}),
     separator: attrs['separator'] ?? DEFAULT_SEPARATOR,
     accumulate: readAccumulate(attrs),
     distinct: readDistinct(attrs),
   };
+}
+
+/**
+ * `lengths="40,25,15,10,7,3"` — one share per possible length, `min` first.
+ *
+ * Refused rather than repaired when the count is wrong or the shares do not sum
+ * to 100: a fan-out written with five shares for six lengths is a config whose
+ * author had a shape in mind, and guessing which of the six they forgot would be
+ * the sort of silent repair this project spends its time removing. The sum rule
+ * is `percent=`'s, deliberately — one arithmetic for shares everywhere.
+ */
+export function parseLengths(
+  raw: string | undefined,
+  min: number,
+  max: number,
+): readonly number[] | undefined {
+  if (raw === undefined || raw.trim() === '') return undefined;
+  const parts = raw
+    .split(',')
+    .map((p) => p.trim())
+    .filter((p) => p !== '');
+  const groups = max - min + 1;
+  if (parts.length !== groups) {
+    throw new RepeatError(
+      `lengths: ${String(parts.length)} share(s) for ${String(groups)} possible ` +
+        `length(s) — repeat="${String(min)}..${String(max)}" can produce ${String(min)} ` +
+        `to ${String(max)} values, so it needs one share for each`,
+    );
+  }
+  const values = parts.map((p) => Number(p));
+  for (const [i, v] of values.entries()) {
+    if (!Number.isFinite(v) || v < 0) {
+      throw new RepeatError(`lengths: share for length ${String(min + i)} is not a number ≥ 0`);
+    }
+  }
+  const sum = values.reduce((a, b) => a + b, 0);
+  if (Math.abs(sum - 100) > 1e-9) {
+    throw new RepeatError(`lengths: shares sum to ${String(sum)}, expected 100`);
+  }
+  return values;
 }
 
 /** `distinct="true"`. Anything other than the two words is refused by the validator. */
@@ -269,9 +330,17 @@ export function planRepeat(
   };
 }
 
-/** Even split across the possible lengths — the shares `planRepeat` quotas by. */
+/**
+ * The shares `planRepeat` quotas by: `lengths=` when the config gave one, an
+ * even split otherwise.
+ *
+ * Every caller — the in-memory builder, the keyed-draw layout and the streaming
+ * builder — asks this one function, so a declared shape reaches all three
+ * without any of them knowing it exists.
+ */
 export function repeatLengthPercents(spec: RepeatSpec): number[] {
   const groups = spec.max - spec.min + 1;
+  if (spec.lengths) return [...spec.lengths];
   return new Array<number>(groups).fill(100 / groups);
 }
 
