@@ -103,6 +103,12 @@ One edge worth knowing: −2⁶³ can be reached by arithmetic but not written a
 | comparison | `== != === !== < > <= >=`        |
 | logic      | `&& \|\| !`                      |
 | arithmetic | `+ - * / %`                      |
+
+`+` **adds** whenever both sides read as numbers, and every column reads as text, so
+`Price + Delivery` on two decimal columns is arithmetic and not a joined string. It
+concatenates only when a side is genuinely not a number — `'a' + 'b'` is `ab`. To join
+values deliberately, put them next to each other where they are printed:
+`${{First}} ${{Last}}`.
 | membership | `in`                             |
 | choice     | `a ? b : c`                      |
 

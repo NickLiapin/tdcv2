@@ -102,6 +102,12 @@ Un borde que conviene saber: −2⁶³ se alcanza con aritmética pero no se esc
 | comparación    | `== != === !== < > <= >=`        |
 | lógica         | `&& \|\| !`                      |
 | aritmética     | `+ - * / %`                      |
+
+`+` **suma** siempre que ambos lados se lean como números, y toda columna se lee como
+texto, así que `Price + Delivery` sobre dos columnas decimales es aritmética y no una
+cadena unida. Solo concatena cuando un lado realmente no es un número: `'a' + 'b'` da
+`ab`. Para unir valores a propósito, póngalos juntos donde se imprimen:
+`${{First}} ${{Last}}`.
 | pertenencia    | `in`                             |
 | elección       | `a ? b : c`                      |
 

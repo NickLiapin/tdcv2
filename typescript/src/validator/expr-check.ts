@@ -92,7 +92,13 @@ const XML_ENTITIES: readonly (readonly [string, string])[] = [
   ['&apos;', "'"],
 ];
 
-function xmlEntity(expr: string): { found: string; means: string } | undefined {
+/**
+ * The `&amp;&amp;` trap, shared so every attribute holding an expression can
+ * explain it the same way. A config is XML-SHAPED but is not XML, so an entity
+ * is the characters it is written with — and a parser error about "&" sends the
+ * reader looking for a syntax mistake that is not there.
+ */
+export function xmlEntity(expr: string): { found: string; means: string } | undefined {
   for (const [found, means] of XML_ENTITIES) {
     if (expr.includes(found)) return { found, means };
   }

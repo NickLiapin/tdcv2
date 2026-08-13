@@ -29,6 +29,7 @@ import { attrValueRange, closestMatch, formatCandidates, nodeRange } from '../er
 import { extractAttrs } from '../processor/walk.js';
 import { FormulaError, formulaDecimals } from '../sequence/formula.js';
 import { BUILTIN_SEQUENCES } from './known.js';
+import { xmlEntity } from './expr-check.js';
 
 /** Everything a formula cannot do without, and the names it is allowed to read. */
 export function checkGenFormula(
@@ -56,6 +57,23 @@ export function checkGenFormula(
 
   const exprAttr = gen.attr().find((a) => a._attrName?.text === 'expr');
   const at = exprAttr ? attrValueRange(exprAttr) : nodeRange(gen);
+
+  // Before the parser gets a chance to blame the "&": a config is XML-SHAPED and
+  // not XML, so `&amp;&amp;` is five literal characters. `if=` has explained
+  // this for a while; an expression in `expr=` deserves the same sentence rather
+  // than a parse error pointing at a character the author never typed.
+  const entity = xmlEntity(expr);
+  if (entity) {
+    diagnostics.push({
+      severity: 'error',
+      source: 'validator',
+      ...at,
+      message: `expr="${expr}": TDC does not expand XML entities, so "${entity.found}" is ${String(entity.found.length)} literal characters, not "${entity.means}"`,
+      hint: `Write ${entity.means} directly — the config is XML-shaped but it is not XML, and the raw character is what the expression parser reads.`,
+      code: 'TDC294',
+    });
+    return;
+  }
 
   let ast: jsep.Expression;
   try {

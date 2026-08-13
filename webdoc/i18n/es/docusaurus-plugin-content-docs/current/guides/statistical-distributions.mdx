@@ -63,6 +63,57 @@ fijo es la **forma** que garantiza cada distribución. Las distribuciones son
 deterministas: misma `seed`, mismos números.
 :::
 
+## Un parámetro puede seguir a otra columna
+
+Cualquier parámetro —`mean`, `sd`, `lambda`, `rate`, `alpha`, `xmin`, `shape`,
+`scale`— puede ser una [expresión](../reference/expressions.mdx) sobre las otras
+columnas de la fila en lugar de un número fijo. Un número simple sigue siendo el caso
+normal y no cuesta nada.
+
+Así se escribe una intensidad que depende de otra cosa. Pedidos que llegan a un ritmo
+que cambia según la hora:
+
+```xml
+<sequence name="Hour"><gen type="text" value="5,6,7,8,9,10" order="sequential"/></sequence>
+<sequence name="Rate"><gen type="formula" expr="Hour > 6 && Hour < 10 ? 120 : 20"/></sequence>
+<sequence name="Orders"><gen type="number" distribution="poisson" lambda="Rate"/></sequence>
+```
+
+<Terminal title="./run traffic.tdc">
+{`hour=5  rate=20  orders=18
+hour=6  rate=20  orders=22
+hour=7  rate=120 orders=132
+hour=8  rate=120 orders=133
+hour=9  rate=120 orders=111
+hour=10 rate=20  orders=19`}
+</Terminal>
+
+La misma costura da una dispersión que se desplaza. Un sensor que envejece hace más
+ruido conforme avanza la corrida, y [`_count`](../reference/builtins.mdx) es el número
+de fila:
+
+```xml
+<gen type="number" distribution="normal" mean="20" sd="0.2 + 0.4 * _count" decimals="2"/>
+```
+
+<Terminal title="./run sensor.tdc">
+{`19.88
+21.22
+19.75
+19.04
+22.47
+22.12`}
+</Terminal>
+
+:::note[Por qué esto se permite y un `repeat=` por fila no]
+Cuántos sorteos aleatorios consume una fila depende de QUÉ distribución, nunca de sus
+parámetros, así que un parámetro que cambia por fila deja la fila calculable por sí
+sola — la propiedad sobre la que están construidos los
+[motores de streaming](large-outputs.mdx). Un `repeat=` por fila
+([varios valores](../constructs/multiple-values.mdx)) cambiaría el número de sorteos, y
+por eso la forma del abanico se declara como una cuota de toda la corrida.
+:::
+
 ## Uniforme frente a «como en la vida real» — visible en un histograma
 
 **El problema.** Mirar fijamente una columna de números no le dirá si están planos o

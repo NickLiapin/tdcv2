@@ -114,6 +114,45 @@ expression language and are written out in
 > means a branch written as `if="A + B == 0.3"` may never fire. Compare with `<` and `>`, or
 > round both sides first.
 
+## An empty source makes an empty answer
+
+A cell that [`parent=`](../core-concepts/sequences.md#top) or [`missing=`](../guides/missing-data.md#top)
+left empty is not a zero, and a formula reading it produces nothing rather than
+inventing a number:
+
+```xml
+<sequence name="H" parent="G.M"><gen type="number" value="170..190"/></sequence>
+<sequence name="W"><gen type="formula" expr="H * 2"/></sequence>
+```
+
+`./run people.tdc`
+
+```
+F,,
+F,,
+M,170,340
+M,172,344
+```
+
+The rows where `H` has no value leave `W` empty too. That is the same rule
+[running](running.md#top) and [stat](stat.md#top) follow when they skip an emptied cell,
+seen from the other side — and it is what makes a formula safe to put over a
+`missing=` column: the blanks stay blanks instead of turning into arithmetic.
+
+## The wrappers a formula does not take
+
+`mask=`, `case=`, `missing=`, `missing_as=`, `repeat=`, `anomaly=` and
+`anomaly_factor=` are refused with [`TDC015`](../reference/errors.md#top) rather than
+accepted and ignored. A formula is resolved before the formatting layer runs — the
+same position `running` and `stat` hold.
+
+The answer already exists one step later and is better, because it works where the
+value is PRINTED:
+
+```xml
+<data>${{Weight|mask:x}}</data>
+```
+
 ## Which layer: formula or `<compute>`
 
 Both compute a value, and the split is not a matter of taste:

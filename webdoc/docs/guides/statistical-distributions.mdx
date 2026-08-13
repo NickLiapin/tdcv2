@@ -58,6 +58,54 @@ by core version, but the **shape** each distribution guarantees is what stays fi
 Distributions are deterministic — same `seed`, same numbers.
 :::
 
+## A parameter can follow another column
+
+Every parameter — `mean`, `sd`, `lambda`, `rate`, `alpha`, `xmin`, `shape`, `scale` —
+may be an [expression](../reference/expressions.mdx) over the row's other columns
+instead of a fixed number. A plain number is the ordinary case and costs nothing.
+
+That is how an intensity that depends on something else is written. Orders arriving
+at a rate that changes with the hour:
+
+```xml
+<sequence name="Hour"><gen type="text" value="5,6,7,8,9,10" order="sequential"/></sequence>
+<sequence name="Rate"><gen type="formula" expr="Hour > 6 && Hour < 10 ? 120 : 20"/></sequence>
+<sequence name="Orders"><gen type="number" distribution="poisson" lambda="Rate"/></sequence>
+```
+
+<Terminal title="./run traffic.tdc">
+{`hour=5  rate=20  orders=18
+hour=6  rate=20  orders=22
+hour=7  rate=120 orders=132
+hour=8  rate=120 orders=133
+hour=9  rate=120 orders=111
+hour=10 rate=20  orders=19`}
+</Terminal>
+
+The same seam gives a spread that drifts. An ageing sensor gets noisier as the run
+goes on, and [`_count`](../reference/builtins.mdx) is the row number:
+
+```xml
+<gen type="number" distribution="normal" mean="20" sd="0.2 + 0.4 * _count" decimals="2"/>
+```
+
+<Terminal title="./run sensor.tdc">
+{`19.88
+21.22
+19.75
+19.04
+22.47
+22.12`}
+</Terminal>
+
+:::note[Why this is allowed, when a per-row `repeat=` is not]
+How many random draws a row consumes depends on WHICH distribution and never on its
+parameters, so a parameter that changes per row leaves the row computable on its own —
+the property the [streaming engines](large-outputs.mdx) are built on. A per-row
+[`repeat=`](../constructs/multiple-values.mdx) count would change the number of draws,
+which is why the shape of a fan-out is declared as a whole-run quota instead.
+:::
+
 ## Uniform vs. "like real life" — visible on a histogram
 
 **The problem.** Staring at a column of numbers won't tell you whether they're flat or

@@ -115,6 +115,45 @@ escritas en [Expresiones](../reference/expressions.md#números-enteros).
 > significa que una rama escrita como `if="A + B == 0.3"` puede no dispararse nunca. Compare
 > con `<` y `>`, o redondee ambos lados primero.
 
+## Una fuente vacía da una respuesta vacía
+
+Una celda que [`parent=`](../core-concepts/sequences.md#top) o
+[`missing=`](../guides/missing-data.md#top) dejó vacía no es un cero, y una fórmula
+que la lee produce nada en vez de inventar un número:
+
+```xml
+<sequence name="H" parent="G.M"><gen type="number" value="170..190"/></sequence>
+<sequence name="W"><gen type="formula" expr="H * 2"/></sequence>
+```
+
+`./run people.tdc`
+
+```
+F,,
+F,,
+M,170,340
+M,172,344
+```
+
+Las filas donde `H` no tiene valor dejan `W` vacía también. Es la misma regla que
+siguen [acumulado](running.md#top) y [estadística](stat.md#top) al saltarse una celda
+vaciada, vista desde el otro lado — y es lo que hace segura una fórmula sobre una
+columna con `missing=`: los vacíos siguen vacíos en vez de volverse aritmética.
+
+## Los envoltorios que una fórmula no toma
+
+`mask=`, `case=`, `missing=`, `missing_as=`, `repeat=`, `anomaly=` y
+`anomaly_factor=` se rechazan con [`TDC015`](../reference/errors.md#top) en lugar de
+aceptarse y ser ignorados. Una fórmula se resuelve antes de que corra la capa de
+formato — la misma posición que ocupan `running` y `stat`.
+
+La respuesta existe un paso más adelante y es mejor, porque funciona donde el valor se
+IMPRIME:
+
+```xml
+<data>${{Weight|mask:x}}</data>
+```
+
 ## Qué capa: formula o `<compute>`
 
 Ambas calculan un valor, y la separación no es cuestión de gusto:
