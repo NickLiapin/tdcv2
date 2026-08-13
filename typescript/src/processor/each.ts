@@ -104,13 +104,47 @@ export interface EachInfo {
  * Only sequences whose generator declares `repeat` appear: a name absent from
  * this map is not a list, which is what the validator reports as TDC207.
  */
+/**
+ * The list a sequence produces, whether it has ONE generator or several branches.
+ *
+ * Reading only `spec.gen` was the whole of the defect: a conditional sequence
+ * keeps its generators in `spec.conditional`, so the moment a repeating gen was
+ * put inside `<gen if="…">` the sequence stopped being a list as far as `each=`
+ * was concerned. It still PRODUCED one — the branch joined its values with the
+ * separator as always — so `each=` printed `1;4;5` on one line instead of three
+ * lines, with no refusal and no warning. `<mix>` in the same position refuses
+ * outright (TDC207); the conditional said nothing.
+ *
+ * It matters more than it looks. "How many children does this parent have"
+ * is the first thing anyone writing one-to-many data wants to make DEPEND on the
+ * parent — twenty orders for a premium customer, one for everybody else — and a
+ * conditional is exactly how that is written.
+ *
+ * Branches may disagree about how many they repeat; the lane layout reserves the
+ * LARGEST, because a lane has to fit whichever branch a row happens to take. The
+ * separator comes from the first branch that declares one — they are checked for
+ * agreement by the validator, not guessed at here.
+ */
+function repeatOfSequence(spec: SequenceSpec): { separator: string; max: number } | undefined {
+  if (spec.gen) return parseRepeat(spec.gen.attrs);
+  const branches = spec.conditional;
+  if (!branches || branches.length === 0) return undefined;
+  let separator: string | undefined;
+  let max = 0;
+  for (const branch of branches) {
+    const repeat = parseRepeat(branch.gen.attrs);
+    if (!repeat) continue;
+    separator ??= repeat.separator;
+    max = Math.max(max, repeat.max);
+  }
+  return separator === undefined ? undefined : { separator, max };
+}
+
 export function buildEachInfo(specs: readonly SequenceSpec[]): Map<string, EachInfo> {
   // First pass: collect the lists and lay out their lanes in declaration order.
   const found: { name: string; separator: string; max: number }[] = [];
   for (const spec of specs) {
-    const gen = spec.gen;
-    if (!gen) continue;
-    const repeat = parseRepeat(gen.attrs);
+    const repeat = repeatOfSequence(spec);
     if (!repeat) continue;
     found.push({ name: spec.name, separator: repeat.separator, max: repeat.max });
   }
