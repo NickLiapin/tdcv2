@@ -397,6 +397,21 @@ const WRAPPERS_NOT_READ: ReadonlyMap<string, ReadonlySet<string>> = new Map([
     'stat',
     new Set(['mask', 'case', 'missing', 'missing_as', 'repeat', 'anomaly', 'anomaly_factor']),
   ],
+  // A formula is resolved in declaration order, before the formatting layer
+  // runs — the same position `running` and `stat` hold, and so the same list.
+  // Measured over 20 rows, each of the five byte-identical to the plain run:
+  // `missing="0.5"` blanked nothing, `mask="xx"` left 483 as 483, `case="upper"`
+  // left `big` lowercase, `anomaly="0.5" anomaly_factor="10"` moved no value,
+  // and `repeat="3"` produced one. Five attributes doing nothing while `check`
+  // called the config valid.
+  //
+  // Refused rather than implemented, for the reason `running` gives: the answer
+  // already exists one step later and is better — the interpolation filter runs
+  // where the value is PRINTED, so `${{Weight|mask:x}}` works today.
+  [
+    'formula',
+    new Set(['mask', 'case', 'missing', 'missing_as', 'repeat', 'anomaly', 'anomaly_factor']),
+  ],
   // A pool reference hands the row a whole MEMBER, drawn from a table that was
   // built before the run. There is no value of its own for the formatting layer
   // to reach, so every one of these sat on it doing nothing while `check` called

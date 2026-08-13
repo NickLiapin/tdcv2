@@ -35,6 +35,9 @@ import { evaluateValueInScope } from '../expr/index.js';
 import { sequenceValueAt } from './types.js';
 import type { Sequence, SequenceSpec } from './types.js';
 
+/** A value that reads as a number: the expression language's own idea of one. */
+const NUMERIC = /^\s*[+-]?(\d+\.?\d*|\.\d+)([eE][+-]?\d+)?\s*$/;
+
 /** Raised when a formula cannot produce a value; surfaced as a run refusal. */
 export class FormulaError extends Error {
   constructor(message: string) {
@@ -70,7 +73,11 @@ export function formulaDecimals(attrs: Record<string, string>): number | undefin
  * A whole number is printed from the bigint it still is. Going through a double
  * to print it would undo the exactness the expression language worked to keep.
  */
-export function renderFormulaValue(value: unknown, decimals: number | undefined): string {
+export function renderFormulaValue(
+  value: unknown,
+  decimals: number | undefined,
+  read?: ColumnsRead,
+): string {
   if (typeof value === 'bigint') {
     return decimals === undefined ? value.toString() : Number(value).toFixed(decimals);
   }
@@ -81,12 +88,24 @@ export function renderFormulaValue(value: unknown, decimals: number | undefined)
       // makes every comparison false and the branch quietly does not fire; in a
       // column it would PRINT, and a file full of `NaN` that no one was warned
       // about is the defect this project keeps closing. Refuse instead.
+      // Name the cause rather than guess at it. The scope records what the
+      // expression actually read, so a text operand can be POINTED AT instead of
+      // being offered as one of two possibilities — and when every operand was a
+      // number, the maths is the cause and saying "a text column" would be a
+      // diagnostic that lies.
+      const text = read?.text;
+      if (Number.isNaN(value)) {
+        throw new FormulaError(
+          text === undefined
+            ? 'the expression has no number as its answer — 0/0, the square root of a ' +
+                'negative, or another sum with no value'
+            : `the expression is not a number: column "${text.name}" holds "${text.value}", ` +
+                'which is text rather than a number',
+        );
+      }
       throw new FormulaError(
-        Number.isNaN(value)
-          ? 'the expression is not a number — this is what arithmetic on a text column ' +
-              'produces, e.g. multiplying a column of words'
-          : `the expression is ${String(value)} — a division by zero, or a value past the ` +
-              'range a number can hold',
+        `the expression is ${String(value)} — a division by zero, the logarithm of zero, ` +
+          'or a value past the range a number can hold',
       );
     }
     return decimals === undefined ? String(value) : value.toFixed(decimals);
@@ -120,12 +139,35 @@ export function registerFormula(
   if (expr === '') return; // no expr= — the validator reports it
 
   const decimals = formulaDecimals(spec.gen?.attrs ?? {});
-  const values = new Array<string>(count);
+  const values = new Array<string | undefined>(count);
   for (let i = 0; i < count; i++) {
-    values[i] = renderFormulaValue(evaluateValueInScope(expr, rowScope(registry, i)), decimals);
+    const read: ColumnsRead = {};
+    const answer = evaluateValueInScope(expr, rowScope(registry, i, read));
+    // A column this row does not have is not a zero. `parent=` leaves a cell
+    // empty on the rows its condition did not pick, and `Height * 2` on such a
+    // row used to print 0 — a number nobody generated, sitting in a file that
+    // looks complete. `running` and `stat` already skip an emptied cell; a
+    // formula propagates the emptiness instead, which is the same rule seen
+    // from the other side.
+    values[i] = read.empty === true ? undefined : renderFormulaValue(answer, decimals, read);
   }
 
   registry[spec.name] = { name: spec.name, values };
+}
+
+/**
+ * What one row's evaluation actually read — filled in by the scope as it goes.
+ *
+ * Two things are worth knowing after the fact and cannot be known before it:
+ * whether a column this row does not have was touched, and whether a column
+ * holding text was handed to arithmetic. Both turn a silent wrong answer into a
+ * refusal that names its cause.
+ */
+export interface ColumnsRead {
+  /** A referenced column was empty on this row. */
+  empty?: boolean;
+  /** The first non-numeric column value the expression read. */
+  text?: { name: string; value: string };
 }
 
 /**
@@ -138,10 +180,17 @@ export function registerFormula(
 export function rowScope(
   registry: Record<string, Sequence>,
   iteration: number,
+  read?: ColumnsRead,
 ): (name: string) => string | undefined {
   return (name) => {
     if (name === '_count') return String(iteration + 1);
     const seq = registry[name];
-    return seq ? (sequenceValueAt(seq, iteration) ?? '') : undefined;
+    if (!seq) return undefined; // not a column: a bare word, as `if=` reads it
+    const value = sequenceValueAt(seq, iteration) ?? '';
+    if (read) {
+      if (value === '') read.empty = true;
+      else if (read.text === undefined && !NUMERIC.test(value)) read.text = { name, value };
+    }
+    return value;
   };
 }

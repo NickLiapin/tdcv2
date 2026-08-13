@@ -840,6 +840,11 @@ export function resolveRenderEngine(
   // refusal under `--jobs 4`. Decide it here, statically, where both paths see
   // the same answer.
   if (specsUseUnstreamableSwitchPercent(specs)) return 1;
+  // A column derived from another column — running, stat, a date offset, a
+  // formula. The streaming builder refuses each by name; deciding it here is
+  // what keeps that refusal from reaching a parallel worker, which has no
+  // fallback. See `specsUseDerivedColumn` for what this cost before.
+  if (specsUseDerivedColumn(specs)) return 1;
   // disk mode: the fastest engine the config allows.
   return needsExactEngine(specs, envUniqGroups) ? 3 : 2;
 }
@@ -925,6 +930,38 @@ function nestedSwitches(body: CaseSpec | undefined): SwitchSpec[] {
 /** Any `<gen type="http">` — the network-backed generator. */
 export function specsUseHttp(specs: readonly SequenceSpec[]): boolean {
   return anyGen(specs, (g) => g.type === 'http');
+}
+
+/**
+ * True if any sequence is a column DERIVED from another column.
+ *
+ * `running`, `stat`, a date offset and `formula` are all built in declaration
+ * order out of columns that already exist, and the streaming builder refuses
+ * each of them by name. Before this existed the refusal was left to the build,
+ * which worked single-threaded — the auto-routed disk mode caught it and fell
+ * back to the in-memory engine — and then died above the row count where the
+ * run goes parallel, because each worker gets a FORCED streaming engine with
+ * nowhere to fall back to. The message it printed was the worst part: "run
+ * without a forced streaming engine", to a user who had forced nothing.
+ *
+ * Measured on 0.2.1, before this line: a 200,000-row config with `running`,
+ * with `stat`, with `<gen type="date" of=…>`, and with `formula` all produced a
+ * full file at 5,000 rows and exited 1 at 200,000. Three of those four are
+ * SHIPPED features.
+ *
+ * So the decision moves here, where it is static and both paths see the same
+ * answer — exactly the reasoning `specsUseUnstreamableSwitchPercent` already
+ * carries, applied to the case it did not cover.
+ */
+export function specsUseDerivedColumn(specs: readonly SequenceSpec[]): boolean {
+  return anyGen(
+    specs,
+    (g) =>
+      g.type === 'running' ||
+      g.type === 'stat' ||
+      g.type === 'formula' ||
+      (g.type === 'date' && (g.attrs['of'] ?? '').trim() !== ''),
+  );
 }
 
 /** True if any `<gen>` in `specs` (simple or compound field) satisfies `pred`. */
