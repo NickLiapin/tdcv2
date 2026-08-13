@@ -118,7 +118,7 @@ export function checkGenByType(
       checkGenTemplate(gen, ctx);
       break;
     case 'number':
-      checkGenNumber(gen, ctx.diagnostics);
+      checkGenNumber(gen, ctx.diagnostics, ctx.declaredSequences);
       break;
     case 'regex':
       checkGenRegex(gen, ctx);

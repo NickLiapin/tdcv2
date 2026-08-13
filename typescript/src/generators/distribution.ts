@@ -362,6 +362,22 @@ const PLAIN_NUMBER = /^\s*[+-]?(\d+\.?\d*|\.\d+)([eE][+-]?\d+)?\s*$/;
  * the difference from `repeat=`, where a per-row count would have changed the
  * draw budget and was therefore refused; see `sequence/repeat.ts`.
  */
+/**
+ * How many uniforms a row of this distribution consumes, known from the NAME
+ * alone — no parameters needed.
+ *
+ * Wanted by a row that cannot be drawn at all (a parameter read an empty cell),
+ * which must still spend what a drawn row would spend. Otherwise blanking one
+ * cell would slide every value after it, and a `parent=` filter would quietly
+ * rewrite the rest of the column.
+ */
+export function distributionDraws(attrs: Record<string, string | undefined>): number {
+  return TWO_DRAW.has((attrs['distribution'] ?? '').trim().toLowerCase()) ? 2 : 1;
+}
+
+/** The two distributions sampled from a PAIR of uniforms (Box-Muller). */
+const TWO_DRAW = new Set(['normal', 'lognormal']);
+
 export function expressionParams(attrs: Record<string, string | undefined>): readonly string[] {
   const found: string[] = [];
   for (const name of DISTRIBUTION_PARAMS) {

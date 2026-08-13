@@ -145,6 +145,7 @@ export function buildLazyRegistry(
       const seq = registry[name];
       return seq ? sequenceValueAt(seq, row) : undefined;
     },
+    hasColumn: (name) => registry[name] !== undefined,
   };
 
   // A `<uniq>` group REARRANGES whole columns so each keeps its multiset — a

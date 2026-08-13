@@ -80,6 +80,16 @@ export interface SequenceBuildContext {
    */
   readonly valueAt?: ((name: string, row: number) => string | undefined) | undefined;
   /**
+   * Is this name a COLUMN at all?
+   *
+   * `valueAt` answers `undefined` both for a column that is empty on this row
+   * and for a word that is no column — and the two must not be confused, since
+   * an unresolved word is a text literal in this language (`if="Tier == hi"`).
+   * Asked live rather than from a snapshot, because the streaming registry
+   * fills in as columns are reached.
+   */
+  readonly hasColumn?: ((name: string) => boolean) | undefined;
+  /**
    * Date columns that must keep their instant beside their text, because some
    * `<gen type="date" of="…">` measures from them.
    *

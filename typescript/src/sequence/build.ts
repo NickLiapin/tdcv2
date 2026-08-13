@@ -111,6 +111,8 @@ export interface SequenceBuildOptions {
    * registry; the in-memory engine passes the same shape on its context.
    */
   readonly valueAt?: ((name: string, row: number) => string | undefined) | undefined;
+  /** Is this name a column? See `SequenceBuildContext.hasColumn`. */
+  readonly hasColumn?: ((name: string) => boolean) | undefined;
   /**
    * Pools already computed for this run, by name — see `pool-build.ts`. A
    * `<gen type="pool">` reads a member out of one of these instead of drawing a
@@ -350,6 +352,7 @@ export function buildSequences(
       const seq = registry[name];
       return seq ? sequenceValueAt(seq, row) : undefined;
     },
+    hasColumn: (name) => registry[name] !== undefined,
     instantColumns: instantColumnsOf(specs),
   };
 
@@ -911,6 +914,7 @@ export function streamCtx(options: SequenceBuildOptions): SequenceBuildContext {
     // and a distribution parameter written as an expression needs exactly the
     // same thing, so it is carried through rather than invented again.
     valueAt: options.valueAt,
+    hasColumn: options.hasColumn,
   };
   streamCtxCache.set(options, ctx);
   return ctx;

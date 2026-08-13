@@ -15,6 +15,7 @@
  */
 
 import {
+  distributionDraws,
   expressionParams,
   formatSample,
   parseDistribution,
@@ -46,14 +47,21 @@ export function resolveParams(
   dynamic: readonly string[],
   ctx: SequenceBuildContext,
   row: number,
-): AttrMap {
+): ResolvedParams {
   const out: Record<string, string> = { ...attrs };
+  let empty = false;
   for (const name of dynamic) {
     const expr = attrs[name];
     if (expr === undefined) continue;
     const value = evaluateValueInScope(expr, (ref) => {
       if (ref === '_count') return String(row + 1);
-      return ctx.valueAt?.(ref, row);
+      const cell = ctx.valueAt?.(ref, row);
+      // A name the registry knows, holding nothing: the row a `parent=` filter
+      // switched off, or a `missing=` blank. That is not a zero, and it cannot
+      // be told apart later — an unresolved bare word evaluates to the WORD, the
+      // way `if="Tier == hi"` reads `hi`. So it is noticed here, at the lookup.
+      if ((cell ?? '').trim() === '' && ctx.hasColumn?.(ref) === true) empty = true;
+      return cell;
     });
     if (typeof value === 'bigint') out[name] = value.toString();
     else if (typeof value === 'number' && Number.isFinite(value)) out[name] = String(value);
@@ -63,7 +71,14 @@ export function resolveParams(
     else if (typeof value === 'string' && value.trim() !== '' && Number.isFinite(Number(value)))
       out[name] = value.trim();
   }
-  return out;
+  return { attrs: out, empty };
+}
+
+/** A resolved parameter set, and whether any of it read an empty cell. */
+export interface ResolvedParams {
+  readonly attrs: AttrMap;
+  /** A referenced column was empty on this row, so nothing can be drawn. */
+  readonly empty: boolean;
 }
 
 /**
@@ -83,8 +98,20 @@ export function distributionColumn(
   const fixed = dynamic.length === 0 ? parseDistribution(attrs) : undefined;
   const out = new Array<string>(count);
   for (let i = 0; i < count; i++) {
-    const spec =
-      fixed ?? parseDistribution(resolveParams(attrs, dynamic, ctx, absoluteRow(ctx, i)));
+    const resolved =
+      fixed === undefined ? resolveParams(attrs, dynamic, ctx, absoluteRow(ctx, i)) : undefined;
+    // Nothing to draw from, so nothing is drawn: the row comes out empty, which
+    // is what `<gen type="formula">` does with the same input. One rule for "the
+    // source said nothing", wherever the source is read.
+    if (resolved?.empty === true) {
+      // The uniforms are spent anyway. Otherwise blanking one cell would slide
+      // every value after it, and a `parent=` filter would quietly rewrite the
+      // rest of the column.
+      for (let d = 0; d < distributionDraws(attrs); d++) prng();
+      out[i] = '';
+      continue;
+    }
+    const spec = fixed ?? parseDistribution(resolved?.attrs ?? attrs);
     const uniforms = new Array<number>(spec.draws);
     for (let d = 0; d < spec.draws; d++) uniforms[d] = openUnit(prng());
     out[i] = formatSample(sampleDistribution(spec, uniforms), spec);

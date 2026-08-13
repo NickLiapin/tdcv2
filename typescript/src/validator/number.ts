@@ -3,14 +3,24 @@
  */
 
 import { PercentMaskError, expandPercentMask } from '../distribution/index.js';
+import jsep from 'jsep';
+
 import { expressionParams, parseDistribution } from '../generators/distribution.js';
+import { identifiersOf } from './formula.js';
+import { BUILTIN_SEQUENCES } from './known.js';
 import {
   computeAllowedIntervals,
   parseNumberIntervalList,
   parseNumberLengthChoices,
   parseNumberRanges,
 } from '../generators/number.js';
-import { type Diagnostic, attrValueRange, nodeRange } from '../errors/index.js';
+import {
+  attrValueRange,
+  closestMatch,
+  formatCandidates,
+  nodeRange,
+  type Diagnostic,
+} from '../errors/index.js';
 import type {
   AttrContext,
   OpenCloseElementContext,
@@ -21,6 +31,8 @@ import { extractAttrs } from '../processor/walk.js';
 export function checkGenNumber(
   gen: OpenCloseElementContext | SelfClosingElementContext,
   diagnostics: Diagnostic[],
+  /** Every sequence declared before this one — a parameter may only read those. */
+  declaredAbove: readonly string[] = [],
 ): void {
   const attrs = gen.attr();
   const attrMap = extractAttrs(attrs);
@@ -29,7 +41,7 @@ export function checkGenNumber(
   // model, so it is validated on its own and the range checks below are skipped.
   const distAttr = findAttr(attrs, 'distribution');
   if (distAttr && (attrMap['distribution'] ?? '').trim() !== '') {
-    checkDistribution(attrs, attrMap, distAttr, diagnostics);
+    checkDistribution(attrs, attrMap, distAttr, declaredAbove, diagnostics);
     return;
   }
 
@@ -306,10 +318,58 @@ const DISTRIBUTION_INCOMPATIBLE = ['value', 'percent', 'length', 'include', 'exc
  * which we reuse the runtime parser (`parseDistribution`) so validation and
  * generation never disagree.
  */
+/**
+ * The names inside a parameter written as an expression.
+ *
+ * The same rule a formula follows, and for the same two reasons. A TYPO reaches
+ * arithmetic rather than being compared as a word, so `lambda="Trafic * 0.5"`
+ * used to die at run time with "lambda must be a number" — true, and no help at
+ * all about the missing `f`.
+ *
+ * A FORWARD reference was worse: it made the two engines disagree. The streaming
+ * registry registers every column as a resolver before any row is asked for, so
+ * a parameter naming a column declared BELOW quietly worked there; the in-memory
+ * engine builds in declaration order and refused. One config, two answers,
+ * decided by a routing choice the user never made.
+ */
+function checkParamNames(
+  attrs: readonly AttrContext[],
+  attrMap: Record<string, string | undefined>,
+  param: string,
+  declaredAbove: readonly string[],
+  diagnostics: Diagnostic[],
+): void {
+  const raw = attrMap[param] ?? '';
+  let ast: jsep.Expression;
+  try {
+    ast = jsep(raw);
+  } catch {
+    return; // not an expression at all — parseDistribution reports it
+  }
+  const attr = findAttr(attrs, param);
+  for (const name of identifiersOf(ast)) {
+    if (BUILTIN_SEQUENCES.includes(name) || declaredAbove.includes(name)) continue;
+    const suggestion = closestMatch(name, [...declaredAbove]);
+    diagnostics.push({
+      severity: 'error',
+      source: 'validator',
+      ...(attr ? attrValueRange(attr) : { line: 1, column: 1 }),
+      message: `"${name}" in ${param}= is not a sequence declared above this one`,
+      ...(suggestion ? { suggestion: `did you mean "${suggestion}"?` } : {}),
+      hint:
+        declaredAbove.length === 0
+          ? 'A parameter reads columns that already exist, so the columns it reads have to come first.'
+          : `Declared above: ${formatCandidates([...declaredAbove])}.`,
+      code: 'TDC240',
+    });
+  }
+}
+
 function checkDistribution(
   attrs: readonly AttrContext[],
   attrMap: Record<string, string | undefined>,
   distAttr: AttrContext,
+  declaredAbove: readonly string[],
   diagnostics: Diagnostic[],
 ): void {
   for (const key of DISTRIBUTION_INCOMPATIBLE) {
@@ -337,6 +397,7 @@ function checkDistribution(
   // `sd`, say — is caught by the run, where the value finally exists, with the
   // same message this check would have produced.
   const dynamic = expressionParams(attrMap);
+  for (const name of dynamic) checkParamNames(attrs, attrMap, name, declaredAbove, diagnostics);
   const forCheck: Record<string, string | undefined> =
     dynamic.length === 0
       ? attrMap

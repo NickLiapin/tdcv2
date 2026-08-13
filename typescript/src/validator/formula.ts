@@ -136,7 +136,7 @@ export function checkGenFormula(
  * a LABEL — `expr="BMI > 25 ? over : normal"`. Those two are words on purpose,
  * so they are skipped, exactly as the right-hand side of a comparison is.
  */
-function identifiersOf(node: jsep.Expression): string[] {
+export function identifiersOf(node: jsep.Expression): string[] {
   const found: string[] = [];
   const walk = (n: jsep.Expression | null | undefined, bareWordsAllowed: boolean): void => {
     if (!n) return;
