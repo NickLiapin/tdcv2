@@ -9,6 +9,7 @@ pub mod file;
 pub mod http;
 pub mod imperfections;
 pub mod number;
+pub mod quantile;
 pub mod rand;
 pub mod regex;
 pub mod repeat;

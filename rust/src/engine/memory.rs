@@ -31,7 +31,8 @@ use crate::generators::accumulate;
 use crate::generators::date_offset;
 use crate::generators::stat;
 use crate::generators::{
-    advanced_regex, counter, file, http, imperfections, number, rand, regex, repeat, symbol,
+    advanced_regex, counter, file, http, imperfections, number, quantile, rand, regex, repeat,
+    symbol,
 };
 use crate::model::{
     Branch, Case, CasePart, Config, Field, Gen, Item, Line, Mix, SequenceSpec, Source, Switch,
@@ -1814,6 +1815,33 @@ pub(super) fn column_values_into(
         return finish_keyed(laid, gen, prng, anomaly_flags, Some(stream));
     }
 
+    // `sample="exact"` on a quantile read is a PLAN, like the layout above: every row
+    // takes its own point on the sorted sample, and which point follows from a scatter
+    // over the whole column. Built a row at a time it would see a count of one and hand
+    // every row the median.
+    if gen.gen_type == "file"
+        && quantile::is_quantile(&gen.attrs)
+        && quantile::is_exact_sample(&gen.attrs)
+    {
+        let values = file::load(&gen.attrs, env.base_dir, env.packs.data_roots())?;
+        let src = gen.attrs.get("src").map(|s| s.trim()).unwrap_or_default();
+        let source = quantile::source(&values, src)?;
+        let decimals = quantile::decimals_for(&gen.attrs, &source);
+        let key = prng::permute::key(&stream.seed, &stream.id);
+        let swept: Vec<String> = (0..count)
+            .map(|i| {
+                quantile::exact_at(
+                    &source,
+                    decimals,
+                    count as i32,
+                    key,
+                    i32::try_from(stream.row_at(i)).unwrap_or(0),
+                )
+            })
+            .collect();
+        return finish_keyed(swept, gen, prng, anomaly_flags, Some(stream));
+    }
+
     // Two types the streaming engine builds INLINE: the value follows the position, and only
     // the one draw that perturbs it is keyed by the row.
     match gen.gen_type.as_str() {
@@ -2216,6 +2244,27 @@ pub(super) fn composes_own_value(items: &[Item]) -> bool {
 }
 
 /// `<gen type="file">` — the four shapes, in the order the reference tries them.
+/// One `read="quantile"` column, drawn.
+///
+/// One uniform per row, so this needs nothing but the PRNG — which is also why the
+/// streaming engine answers it through the same generic path. The EXACT sweep is a plan
+/// over the whole column and lives in `column_values_into`, where the stream is.
+fn quantile_values(
+    attrs: &BTreeMap<String, String>,
+    count: usize,
+    prng: &mut Sfc32,
+    env: &Env,
+) -> EngineResult<Vec<String>> {
+    let values = file::load(attrs, env.base_dir, env.packs.data_roots())?;
+    let src = attrs.get("src").map(|s| s.trim()).unwrap_or_default();
+    let source = quantile::source(&values, src)?;
+    let decimals = quantile::decimals_for(attrs, &source);
+
+    Ok((0..count)
+        .map(|_| quantile::render(quantile::at(&source.sorted, seekable::open_unit(prng.next())), decimals))
+        .collect())
+}
+
 fn file_values(gen: &Gen, count: usize, prng: &mut Sfc32, env: &Env) -> EngineResult<Vec<String>> {
     let attrs = &gen.attrs;
     let roots = env.packs.data_roots();
@@ -2234,6 +2283,13 @@ fn file_values(gen: &Gen, count: usize, prng: &mut Sfc32, env: &Env) -> EngineRe
         .filter(|r| !r.is_empty())
     {
         return linked_file_values(&row_key, attrs, count, prng, env);
+    }
+
+    // `read="quantile"` reads the SAME file as a distribution rather than a bag: sorted
+    // once, a row lands anywhere on it, and the values between observations appear on
+    // their own.
+    if quantile::is_quantile(attrs) {
+        return quantile_values(attrs, count, prng, env);
     }
 
     if let Some(weighted) = file::load_weighted(attrs, env.base_dir, roots)? {

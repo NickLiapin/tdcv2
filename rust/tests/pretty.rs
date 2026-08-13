@@ -156,5 +156,6 @@ fn clone_case(case: &common::Case) -> common::Case {
         seed: case.seed.clone(),
         locale: case.locale.clone(),
         now: case.now.clone(),
+        data_path: case.data_path.clone(),
     }
 }

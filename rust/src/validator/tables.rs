@@ -104,7 +104,7 @@ pub const MISPLACED_IN_SEQUENCE: [&str; 5] = ["mix", "switch", "case", "default"
 /// to `<case>`; `on` to `<switch>`; `v` to `<tdc>`. The list was one flat union of
 /// every attribute name in the language, so writing any of them on a `<gen>`
 /// passed in silence while the reference refused it.
-pub const GEN_ATTRS: [&str; 81] = [
+pub const GEN_ATTRS: [&str; 85] = [
     "type",
     "value",
     "name",
@@ -132,6 +132,10 @@ pub const GEN_ATTRS: [&str; 81] = [
     "anomaly_flag",
     "local",
     "weight",
+    "read",
+    "sample",
+    "expr",
+    "lengths",
     "percent",
     "first_zero",
     "include",
@@ -188,7 +192,8 @@ pub const GEN_ATTRS: [&str; 81] = [
     "max",
 ];
 
-pub const GEN_TYPES: [&str; 16] = [
+pub const GEN_TYPES: [&str; 17] = [
+    "formula",
     "text",
     "file",
     "template",
@@ -212,7 +217,7 @@ pub const GEN_TYPES: [&str; 16] = [
 /// An attribute in [`GEN_ATTRS`] is spelled correctly for SOME generator; this
 /// says whether it means anything for THIS one. Without it a `min=`/`max=` on a
 /// number and a `range=` on anything but a date pass silently and are dropped.
-pub const ATTRIBUTE_OWNERS: [(&str, &[&str]); 45] = [
+pub const ATTRIBUTE_OWNERS: [(&str, &[&str]); 49] = [
     // A list to walk — or, on a date, a range walked instead of drawn.
     ("order", &["text", "file", "date"]),
     ("cycle", &["text", "file", "date"]),
@@ -282,7 +287,14 @@ pub const ATTRIBUTE_OWNERS: [(&str, &[&str]); 45] = [
     ("exclude", &["number", "symbol"]),
     // How many places the answer is printed to. Four generators produce a
     // number they may have to round; the rest produce text, which has none.
-    ("decimals", &["number", "timeseries", "pattern", "stat"]),
+    // `file` is on the list only because `read="quantile"` makes it produce a number — an
+    // interpolated point between two observations, written to the source's precision.
+    ("decimals", &["number", "timeseries", "pattern", "stat", "formula", "file"]),
+    // How a source file is READ, and whether the quantile read draws or sweeps.
+    ("read", &["file"]),
+    ("sample", &["file"]),
+    ("expr", &["formula"]),
+    ("lengths", &["number", "text", "template", "file", "symbol", "regex"]),
     ("distribution", &["number"]),
     // The ceiling on what an unbounded pattern may expand to.
     ("regex_max_length", &["regex", "advanced_regex"]),

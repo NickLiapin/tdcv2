@@ -126,6 +126,13 @@ pub fn is_inline_anomaly(gen_type: &str) -> bool {
 /// `weighted` and `whole_column` are decided by the caller, which is the only place that can
 /// reach the pack registry without this module depending on it.
 pub fn per_row_buildable(gen: &Gen, count: usize, weighted: bool, whole_column: bool) -> bool {
+    // `sample="exact"` on a quantile read is a PLAN too: every row takes its own point on
+    // the sorted sample, and which point follows from a scatter over the whole column.
+    // Built a row at a time it would see a count of one and hand every row the median.
+    if gen.attrs.get("sample").map(|v| v.trim()) == Some("exact") {
+        return false;
+    }
+
     if count <= 1 || !PER_ROW_TYPES.contains(&gen.gen_type.as_str()) {
         return false;
     }

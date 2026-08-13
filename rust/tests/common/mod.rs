@@ -49,6 +49,17 @@ pub struct Case {
     pub seed: Option<String>,
     pub locale: Option<String>,
     pub now: Option<String>,
+    /// The folder a `type="file"` case's samples live in, relative to the cases
+    /// directory. Every implementation's runner reads the same field, so file
+    /// reading can be pinned across languages like anything else.
+    pub data_path: Option<String>,
+}
+
+/// The absolute folder a case's `src=` resolves from, when it names one.
+pub fn base_dir_of(case: &Case) -> Option<String> {
+    case.data_path
+        .as_ref()
+        .map(|rel| fixtures_dir().join("cases").join(rel).display().to_string())
 }
 
 pub fn all_cases() -> Vec<Case> {
@@ -98,6 +109,10 @@ pub fn all_cases() -> Vec<Case> {
                     .and_then(Value::as_str)
                     .map(str::to_string),
                 now: node.get("now").and_then(Value::as_str).map(str::to_string),
+                data_path: node
+                    .get("dataPath")
+                    .and_then(Value::as_str)
+                    .map(str::to_string),
             });
         }
     }
@@ -119,7 +134,9 @@ pub fn config_of(case: &Case) -> Result<Config, EngineError> {
     // port whose validator refuses an attribute the reference reads passes here while
     // `tdcv2 check` on the same file fails. That is how `base=` on
     // <gen type="running"> stayed refused in three ports.
-    let refusals: Vec<String> = tdcv2::validator::validate(&parsed.tree)
+    let base_dir = base_dir_of(case);
+    let refusals: Vec<String> =
+        tdcv2::validator::validate_in(&parsed.tree, None, base_dir.as_deref())
         .into_iter()
         .filter(|d| d.severity == Severity::Error)
         .map(|d| format!("{} {}", d.code, d.message))
@@ -150,7 +167,7 @@ pub fn now_of(case: &Case) -> Result<i64, EngineError> {
 
 /// What a case renders, or why it could not.
 pub fn render(case: &Case) -> Result<String, EngineError> {
-    engine::render(&config_of(case)?, now_of(case)?)
+    engine::render_in(&config_of(case)?, now_of(case)?, base_dir_of(case).as_deref())
 }
 
 /// Every case a scoreboard let through as "not ported yet", by name.

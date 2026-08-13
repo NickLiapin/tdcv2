@@ -17,7 +17,8 @@
 
 use std::collections::BTreeMap;
 
-use crate::engine::{invalid, EngineResult};
+use crate::engine::{invalid, EngineError, EngineResult};
+use crate::numbers;
 use crate::prng::Sfc32;
 use crate::stats::hamilton;
 
@@ -34,6 +35,13 @@ pub struct Spec {
     pub min: i32,
     pub max: i32,
     pub separator: String,
+    /// `lengths=`: the share of rows that get each possible length, `min` first.
+    ///
+    /// Without it every length is equally likely, and exactly so — the lengths are laid
+    /// out as a Hamilton quota, which is the wrong shape for every real one-to-many
+    /// relationship. The shares live HERE, in the spec, rather than in a per-row draw:
+    /// a per-row count would make a row's draws depend on the rows before it.
+    pub lengths: Option<Vec<f64>>,
     /// `accumulate=`: the list is replaced by its running total before joining.
     pub accumulate: Option<String>,
     /// `distinct=`: the row's values are drawn WITHOUT replacement.
@@ -86,9 +94,54 @@ pub fn parse(attrs: &BTreeMap<String, String>) -> EngineResult<Option<Spec>> {
             .get("separator")
             .cloned()
             .unwrap_or_else(|| DEFAULT_SEPARATOR.to_string()),
+        lengths: parse_lengths(attrs.get("lengths").map(String::as_str), min, max)?,
         accumulate: super::accumulate::read(attrs),
         distinct: read_distinct(attrs),
     }))
+}
+
+/// `lengths="40,25,15,10,7,3"` — one share per possible length, `min` first.
+///
+/// Refused rather than repaired when the count is wrong or the shares do not sum to 100:
+/// a fan-out written with five shares for six lengths is a config whose author had a
+/// shape in mind, and guessing which of the six they forgot is the silent repair this
+/// project spends its time removing. The sum rule is `percent=`'s, deliberately.
+pub fn parse_lengths(raw: Option<&str>, min: i32, max: i32) -> EngineResult<Option<Vec<f64>>> {
+    let Some(text) = raw.map(str::trim).filter(|t| !t.is_empty()) else {
+        return Ok(None);
+    };
+    let parts: Vec<&str> = text
+        .split(',')
+        .map(str::trim)
+        .filter(|p| !p.is_empty())
+        .collect();
+    let groups = (max - min + 1).max(1) as usize;
+    if parts.len() != groups {
+        return Err(EngineError::Invalid(format!(
+            "lengths: {} share(s) for {groups} possible length(s) — repeat=\"{min}..{max}\" \
+             can produce {min} to {max} values, so it needs one share for each",
+            parts.len()
+        )));
+    }
+    let mut values = Vec::with_capacity(parts.len());
+    for (index, part) in parts.iter().enumerate() {
+        let value: f64 = part.parse().unwrap_or(f64::NAN);
+        if !value.is_finite() || value < 0.0 {
+            return Err(EngineError::Invalid(format!(
+                "lengths: share for length {} is not a number >= 0",
+                min + index as i32
+            )));
+        }
+        values.push(value);
+    }
+    let total: f64 = values.iter().sum();
+    if (total - 100.0).abs() > 1e-9 {
+        return Err(EngineError::Invalid(format!(
+            "lengths: shares sum to {}, expected 100",
+            numbers::to_text(total)
+        )));
+    }
+    Ok(Some(values))
 }
 
 /// The same attributes without `repeat`, for building one element at a time.
@@ -168,6 +221,9 @@ pub fn plan(spec: &Spec, counts: &[i32]) -> Plan {
 
 /// An even split across the possible lengths — the shares `plan` quotas by.
 pub fn length_percents(spec: &Spec) -> Vec<f64> {
+    if let Some(declared) = &spec.lengths {
+        return declared.clone();
+    }
     let groups = (spec.max - spec.min + 1).max(1) as usize;
     vec![100.0 / groups as f64; groups]
 }
@@ -180,9 +236,11 @@ pub fn build(
 ) -> EngineResult<Vec<String>> {
     let groups = (spec.max - spec.min + 1).max(1) as usize;
 
-    // The lengths, as an exact quota rather than a per-row coin flip.
+    // The lengths, as an exact quota rather than a per-row coin flip — and by the
+    // DECLARED shares when `lengths=` gave any, which is the one place that decides how
+    // many rows get one value and how many get five.
     let group_ids: Vec<usize> = (0..groups).collect();
-    let percents = vec![100.0 / groups as f64; groups];
+    let percents = length_percents(spec);
     let per_row_group = hamilton::distribute(count as i32, &group_ids, &percents, prng);
 
     let mut counts = vec![0usize; groups];

@@ -39,7 +39,7 @@ use crate::expr::evaluate;
 use crate::expr::match_key::match_key;
 use crate::format::interpolate::{self, Lookup};
 use crate::format::{mask, transforms};
-use crate::generators::{date_offset, file, imperfections, number, repeat};
+use crate::generators::{date_offset, file, imperfections, number, quantile, repeat};
 use crate::model::{
     Case, CasePart, Config, Field, Gen, Item, Line, Mix, SequenceSpec, Source, Switch,
 };
@@ -202,6 +202,19 @@ enum Column {
         /// `field == Column` bucketed once, so a row costs a map lookup.
         equality: Option<(String, String)>,
         buckets: Option<std::rc::Rc<BTreeMap<String, Vec<usize>>>>,
+    },
+    /// `read="quantile" sample="exact"` — the row's point on the sorted sample comes
+    /// from a scatter over the WHOLE run, so it cannot go down the generic per-row path
+    /// (which is handed a count of one and would give every row the median).
+    ///
+    /// The DRAWN form needs no variant: it is one uniform per row, and the generic path
+    /// answers it identically.
+    QuantileSweep {
+        domain: Domain,
+        source: std::rc::Rc<quantile::Source>,
+        decimals: usize,
+        key: i32,
+        modifier: Option<Modifier>,
     },
     /// `order="sequential"` — row r takes element r mod N, so it needs no draw.
     Sequential {
@@ -1069,6 +1082,23 @@ impl StreamEngine<'_> {
         // for a given row, and a different one per row. The in-memory engine
         // plans that for the whole column; here the index is re-derived from a
         // stream keyed by the LINK, so the fields agree without one.
+        if gen_type == "file"
+            && quantile::is_quantile(attrs)
+            && quantile::is_exact_sample(attrs)
+        {
+            let values = file::load(attrs, self.env.base_dir, self.env.packs.data_roots())?;
+            let src = attrs.get("src").map(|s| s.trim()).unwrap_or_default();
+            let source = quantile::source(&values, src)?;
+            let decimals = quantile::decimals_for(attrs, &source);
+            return Ok(Built::plain(Column::QuantileSweep {
+                domain,
+                source: std::rc::Rc::new(source),
+                decimals,
+                key: prng::permute::key(&self.env.config.seed, &stream_id),
+                modifier,
+            }));
+        }
+
         if gen_type == "file" && weight_column.is_none() {
             if let Some(row_key) = trim_to_none(attrs.get("row").map(String::as_str)) {
                 let source =
@@ -1773,7 +1803,10 @@ impl StreamEngine<'_> {
 
     fn plan_repeat(&self, spec: &repeat::Spec, row_count: i32, stream_id: &str) -> RepeatPlan {
         let groups = (spec.max - spec.min + 1).max(1) as usize;
-        let percents = vec![100.0 / groups as f64; groups];
+        // The DECLARED shares when `lengths=` gave any, an even split otherwise — the
+        // same call the in-memory engine makes, so the two agree on how many rows get
+        // one value and how many get five.
+        let percents = repeat::length_percents(spec);
         let mut prng = prng::create(&format!("{}|{stream_id}|replen", self.seed));
         let counts = hamilton::counts_per_value(row_count, &percents, &mut prng);
 
@@ -1957,6 +1990,26 @@ impl StreamEngine<'_> {
             Column::Last => Ok(Some(bool_text(row == self.count - 1))),
             Column::Total => Ok(Some(self.count.to_string())),
             Column::Absent => Ok(None),
+
+            Column::QuantileSweep {
+                domain,
+                source,
+                decimals,
+                key,
+                modifier,
+            } => {
+                let Some(r) = self.pop_index_at(domain, row)? else {
+                    return Ok(None);
+                };
+                let value = quantile::exact_at(
+                    source,
+                    *decimals,
+                    i32::try_from(self.count).unwrap_or(i32::MAX),
+                    *key,
+                    i32::try_from(r).unwrap_or(0),
+                );
+                self.modify(modifier, row, Some(value), 0)
+            }
 
             Column::Sequential {
                 domain,
