@@ -1747,11 +1747,11 @@ pub(super) fn finish_into(
     mut values: Vec<String>,
     attrs: &BTreeMap<String, String>,
     prng: &mut Sfc32,
-    anomaly_flags: Option<&mut [bool]>,
+    mut anomaly_flags: Option<&mut [bool]>,
     instants: Option<&mut Vec<Option<i64>>>,
 ) -> EngineResult<Vec<String>> {
     if let Some(anomaly) = imperfections::parse_anomaly(attrs)? {
-        imperfections::apply_anomaly(&mut values, anomaly, prng, anomaly_flags);
+        imperfections::apply_anomaly(&mut values, anomaly, prng, anomaly_flags.as_deref_mut());
     }
     if let Some(missing) = imperfections::parse_missing(attrs)? {
         let before = values.clone();
@@ -1760,6 +1760,17 @@ pub(super) fn finish_into(
             for i in 0..values.len().min(sink.len()) {
                 if values[i] != before[i] {
                     sink[i] = None;
+                }
+            }
+        }
+        // And the ground-truth flag goes with it, for the same reason. `anomaly_flag` is
+        // sold as the label an outlier detector is scored against, and the anomalies page
+        // promises the flag and the spike "can never disagree" — but a blanked cell HAS no
+        // spike to agree with.
+        if let Some(flags) = anomaly_flags.as_deref_mut() {
+            for i in 0..values.len().min(flags.len()) {
+                if values[i] != before[i] {
+                    flags[i] = false;
                 }
             }
         }
@@ -1823,11 +1834,30 @@ fn finish_with(
                 for (i, value) in values.iter_mut().enumerate() {
                     if per_row::purpose_draw(s, "#miss", s.row_at(i)) < missing.probability {
                         *value = missing.token.clone();
+                        // A blanked cell has no spike left to label. `anomaly_flag` is the
+                        // ground truth an outlier detector is scored against, and the
+                        // anomalies page promises the flag and the spike "can never
+                        // disagree".
+                        if let Some(flags) = anomaly_flags.as_deref_mut() {
+                            if i < flags.len() {
+                                flags[i] = false;
+                            }
+                        }
                     }
                 }
             }
             Some(_) => {}
-            None => imperfections::apply_missing(&mut values, &missing, prng),
+            None => {
+                let before = values.clone();
+                imperfections::apply_missing(&mut values, &missing, prng);
+                if let Some(flags) = anomaly_flags.as_deref_mut() {
+                    for i in 0..values.len().min(flags.len()) {
+                        if values[i] != before[i] {
+                            flags[i] = false;
+                        }
+                    }
+                }
+            }
         }
     }
     format_values(values, attrs)

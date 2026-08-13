@@ -854,11 +854,21 @@ class StreamEngine:
             return None
         inline = gen.type in INLINE_TYPES
         p = anomaly.probability
+        # A cell ``missing=`` blanked has no spike left to label. The independently-drawn types
+        # get this from the in-memory builder they re-run; the inline ones decide here, so the
+        # same rule has to be written down twice.
+        missing = imperfections.parse_missing(gen.attrs)
+        miss_p = missing.probability if missing is not None else 0.0
 
         def flag(row: int) -> str | None:
             if domain.pop_index_at(row) is None:
                 return None
             if inline:
+                if (
+                    miss_p > 0
+                    and seekable.uniforms(self.seed, f"{stream_id}#miss", row, 1)[0] < miss_p
+                ):
+                    return "false"
                 drawn = seekable.uniforms(self.seed, f"{stream_id}#anom", row, 1)[0]
                 return str(drawn < p).lower()
             spiked = [False]

@@ -3393,6 +3393,21 @@ public static class MemoryEngine
                     }
                 }
             }
+
+            // And the ground-truth flag goes with it, for the same reason. `anomaly_flag` is sold
+            // as the label an outlier detector is scored against, and the anomalies page promises
+            // the flag and the spike "can never disagree" — but a blanked cell HAS no spike to
+            // agree with.
+            if (anomalyFlags is not null)
+            {
+                for (int i = 0; i < Math.Min(result.Count, anomalyFlags.Length); i++)
+                {
+                    if (result[i] != before[i])
+                    {
+                        anomalyFlags[i] = false;
+                    }
+                }
+            }
         }
 
         return FormatValues(result, attrs);

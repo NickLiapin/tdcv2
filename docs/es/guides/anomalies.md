@@ -243,6 +243,12 @@ La bandera se calcula a partir de **la misma** decisión que produjo el pico, as
 dos nunca pueden contradecirse — y esto se cumple en todos los motores, con cualquier
 volumen.
 
+Esa promesa decide el único caso en que podrían: una celda que
+[`missing`](../reference/attributes.md#top) dejó en blanco ya no tiene pico que describir, así
+que su bandera es `false`. Una etiqueta que dijera «atípico» junto a una celda vacía
+enseñaría algo falso al detector en cada una de esas filas, y el sorteo de la anomalía no
+sabe nada del blanqueo.
+
 **La bandera es una columna común y corriente**, así que puede filtrar por ella con
 [`if`](../core-concepts/output-formatting.md#top). Quédese solo con los valores atípicos
 usando `if="IsOutlier"` (lee la veracidad de la fila, igual que los integrados

@@ -115,8 +115,20 @@ export function anomalyFlagSequence(
   //
   // `rawAt` is the value BEFORE the modifier ran. It has to be the raw one: once
   // `missing=` has blanked a cell, a text value and a spiked number look alike.
+  // A cell `missing=` blanked has no spike left to label. The independent types
+  // get this from the in-memory builder they share; the inline ones decide here,
+  // so the same rule has to be written down twice. Without it the pairing the
+  // anomalies page recommends — `anomaly` beside `missing` — wrote `true` next to
+  // an empty cell, and the two engines disagreed about it as well.
+  const missing = parseMissing(gen.attrs);
+  const blanked =
+    missing && missing.p > 0
+      ? (i: number): boolean =>
+          (seekableUniforms(seed, `${streamId}#miss`, i, 1)[0] ?? 1) < missing.p
+      : (): boolean => false;
   const decide = INLINE_ANOMALY_TYPES.has(gen.type)
     ? (i: number): string =>
+        !blanked(i) &&
         (seekableUniforms(seed, `${streamId}#anom`, i, 1)[0] ?? 1) < p &&
         Number.isFinite(Number(rawAt ? rawAt(i) : Number.NaN))
           ? 'true'

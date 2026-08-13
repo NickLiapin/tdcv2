@@ -2553,6 +2553,16 @@ public final class MemoryEngine {
           }
         }
       }
+      // And the ground-truth flag goes with it, for the same reason. `anomaly_flag` is sold as
+      // the label an outlier detector is scored against, and the anomalies page promises the flag
+      // and the spike "can never disagree" — but a blanked cell HAS no spike to agree with.
+      if (anomalyFlags != null) {
+        for (int i = 0; i < Math.min(out.size(), anomalyFlags.length); i++) {
+          if (!java.util.Objects.equals(out.get(i), before.get(i))) {
+            anomalyFlags[i] = false;
+          }
+        }
+      }
     }
 
     return formatValues(out, attrs);

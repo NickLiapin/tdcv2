@@ -910,6 +910,13 @@ def _finish(
             for i in range(min(len(out), len(instants_out))):
                 if out[i] != before[i]:
                     instants_out[i] = None
+        # And the ground-truth flag goes with it, for the same reason. `anomaly_flag` is sold as
+        # the label an outlier detector is scored against, and the anomalies page promises the flag
+        # and the spike "can never disagree" — but a blanked cell HAS no spike to agree with.
+        if anomaly_flags is not None:
+            for i in range(min(len(out), len(anomaly_flags))):
+                if out[i] != before[i]:
+                    anomaly_flags[i] = False
 
     mask = attrs.get("mask")
     if mask is not None:

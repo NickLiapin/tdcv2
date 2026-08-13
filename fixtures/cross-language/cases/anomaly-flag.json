@@ -60,6 +60,25 @@
         "00090 20.69 31",
         "00089 17.56 61"
       ]
+    },
+    {
+      "name": "a-blanked-cell-carries-no-label",
+      "description": "anomaly_flag is the ground truth an outlier detector is scored against, and the anomalies page promises the flag and the spike can never disagree. A cell missing= blanked has no spike to agree with, so the label is false there. This is the pairing that page explicitly recommends, and it wrote true beside an empty cell until the flag learned to follow the outcome.",
+      "config": "<tdc><env count=\"12\" seed=\"af\" local=\"en\"><sequence name=\"V\"><gen type=\"number\" value=\"40..60\" anomaly=\"0.5\" anomaly_factor=\"10\" anomaly_flag=\"IsOut\" missing=\"0.5\" missing_as=\"NULL\"/></sequence></env><block><line><data>${{V}} ${{IsOut}}</data></line></block></tdc>",
+      "expected": [
+        "NULL false",
+        "NULL false",
+        "550 true",
+        "47 false",
+        "41 false",
+        "NULL false",
+        "NULL false",
+        "NULL false",
+        "420 true",
+        "53 false",
+        "540 true",
+        "NULL false"
+      ]
     }
   ]
 }

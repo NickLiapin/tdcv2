@@ -1089,14 +1089,23 @@ function buildGenValuesOnce(
   const anomaly = parseAnomaly(gen.attrs);
   const spiked = anomaly ? applyAnomaly(values, anomaly, drawOn('#anom'), anomalyFlagsOut) : values;
   const missing = parseMissing(gen.attrs);
+  // `applyMissing` blanks IN PLACE and hands back the same array, so the two
+  // "did this row get blanked" tests below cannot ask by identity — they would
+  // compare an array with itself and never fire. Snapshot first, and only when
+  // someone is actually asking.
+  const beforeMissing =
+    missing && (instantsOut ?? anomalyFlagsOut) ? Array.from(spiked) : undefined;
   const withMissing = missing ? applyMissing(spiked, missing, drawOn('#miss')) : spiked;
-  // A cell `missing=` blanked no longer shows the date it was built from, so the
-  // instant behind it goes too — otherwise a column measuring from this one
-  // would produce a date on a row whose source says nothing. `mask=`/`case=`
-  // below change only the SPELLING, which is exactly what the instant outlives.
-  if (instantsOut && withMissing !== spiked) {
+  // A blanked cell keeps neither of the two things computed beside it. The INSTANT
+  // goes because a column measuring from this one would otherwise produce a date on
+  // a row whose source says nothing; the anomaly FLAG goes because it is the label a
+  // detector is scored against, and `true` beside an empty cell teaches it something
+  // untrue. (`mask=`/`case=` below change only the SPELLING, which both outlive.)
+  if (beforeMissing) {
     for (let i = 0; i < count; i++) {
-      if (withMissing[i] !== spiked[i]) instantsOut[i] = undefined;
+      if (withMissing[i] === beforeMissing[i]) continue;
+      if (instantsOut) instantsOut[i] = undefined;
+      if (anomalyFlagsOut) anomalyFlagsOut[i] = false;
     }
   }
   // Output formatting: `mask=`/`case=` post-process each value (mask then case).

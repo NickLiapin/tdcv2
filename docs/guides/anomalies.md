@@ -236,6 +236,12 @@ rows that spiked:
 computed from the **same** decision as the spike itself, so the two can never
 disagree — and this holds in every engine, at any volume.
 
+That promise is what decides the one case where they could: a cell
+[`missing`](../reference/attributes.md#top) blanked has no spike left to describe, so its
+flag is `false`. A label saying "outlier" beside an empty cell would teach a detector
+something untrue on every such row, and blanking is not something the anomaly draw knows
+about.
+
 **The flag is an ordinary column**, so you can filter on it with
 [`if`](../core-concepts/output-formatting.md#top). Keep only the outliers with
 `if="IsOutlier"` (it reads the row's truthiness, like the `_first`/`_last`

@@ -110,6 +110,17 @@ _count"` is a sensor that grows noisier as the run goes on.
 
 ### Fixed
 
+- **`anomaly_flag` said `true` beside cells `missing=` had blanked.** The flag is the ground
+  truth an outlier detector is scored against, and the anomalies page promises the flag and
+  the spike "can never disagree" — while recommending exactly this pairing. A blanked cell
+  has no spike to agree with, so on a `0.5`/`0.5` config a third of the rows carried
+  "outlier" next to nothing at all: a silently mislabelled training set. The flag now
+  follows the outcome, in all five and on all three engines.
+
+  The identity test the in-memory builder used to notice a blanked row could never fire —
+  `applyMissing` blanks in place and hands back the same array — so the neighbouring rule
+  that clears a blanked date's instant was inert too. Both now compare against a snapshot.
+
 - **`--data-path` was the LOWEST-priority root for `@data/…` files, not the highest.** Its
   own `--help` and the installing-packs page both promise the opposite. The list is
   assembled low to high because the pack loader needs it that way — a later root shadows an
