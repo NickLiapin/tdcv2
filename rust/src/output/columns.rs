@@ -123,10 +123,62 @@ fn derive_gen(gen: &Gen, config: &Config) -> Option<ColumnType> {
     let nullable = gen.attr("missing").is_some_and(positive);
 
     match gen.gen_type.as_str() {
-        "number" | "timeseries" => {
+        // A pattern draws a NUMBER from a shape — `y_range="1..30"` is a range of
+        // numbers whatever the curve looks like — so it types exactly like a
+        // timeseries.
+        "number" | "timeseries" | "pattern" => {
             with_nullable(if decimals(gen) > 0 { "double" } else { "int64" }, nullable)
         }
         "increment" | "decrement" => with_nullable("int64", nullable),
+        // A running total is the arithmetic of the column it reads, so its type
+        // is that column's — recursively, since `of=` may name another derived
+        // one. `decimals=` on the running gen itself makes it fractional
+        // whatever the source was.
+        "running" => {
+            if decimals(gen) > 0 {
+                return with_nullable("double", nullable);
+            }
+            numeric_source(gen.attr_or("of", ""), config, nullable)
+        }
+        // A statistic's type follows the OPERATION, which is declared. Counting
+        // is whole by definition; a mean, a median and a standard deviation are
+        // not, whatever they are computed from; a sum, a minimum and a maximum
+        // keep the source column's type, the way `running` does.
+        "stat" => {
+            if decimals(gen) > 0 {
+                return with_nullable("double", nullable);
+            }
+            match gen.attr_or("op", "").trim() {
+                "count" => with_nullable("int64", nullable),
+                "mean" | "median" | "stddev" => with_nullable("double", nullable),
+                "sum" | "min" | "max" => numeric_source(gen.attr_or("of", ""), config, nullable),
+                _ => None,
+            }
+        }
+        // A formula's type is knowable exactly when the config declared how many
+        // digits it wants, and not otherwise: `expr="A + 1"` is a whole number,
+        // `expr="A / 2"` is not, and `expr="A > 5 ? over : under"` is a WORD. So
+        // `decimals=` is the one honest signal, and without it the column stays
+        // text — the same "never corrupt data" rule the rest of this file follows.
+        "formula" => match declared_decimals(gen) {
+            None => None,
+            Some(places) => with_nullable(if places > 0 { "double" } else { "int64" }, nullable),
+        },
+        // A file is a bag of whatever the file holds, so an ordinary read stays
+        // text. `read="quantile"` is the exception, and not by inspection of the
+        // values: the file MUST be numeric or the run refuses, so the column is a
+        // number by construction.
+        //
+        // Which number is decided by the config alone, because this layer never
+        // opens the file. `decimals="0"` is the one declaration that promises
+        // whole values; without it the precision comes from the source and may be
+        // fractional, so the safe numeric answer is a double.
+        "file" if gen.attr_or("read", "").trim() == "quantile" => {
+            with_nullable(
+                if declared_decimals(gen) == Some(0) { "int64" } else { "double" },
+                nullable,
+            )
+        }
         // The default rendering is locale-shaped (05/25/1996), not ISO, so a
         // date column is only safe to infer when the config asked for ISO.
         // Otherwise it stays text, and the author can still say type="date" if
@@ -260,6 +312,37 @@ fn spell(ty: &ColumnType) -> String {
 
 fn decimals(gen: &Gen) -> i32 {
     gen.attr_or("decimals", "0").parse::<f64>().unwrap_or(0.0) as i32
+}
+
+/// `decimals=` as the config WROTE it — `None` when it said nothing at all.
+///
+/// Different from [`decimals`], which reads an absent attribute as zero. Two
+/// generators need the difference: a formula is typed only when the config
+/// declared one, and a quantile read is whole only when it declared zero.
+fn declared_decimals(gen: &Gen) -> Option<i32> {
+    let raw = gen.attr_or("decimals", "");
+    let text = raw.trim();
+    if text.is_empty() {
+        return None;
+    }
+    text.parse::<f64>().ok().filter(|v| v.is_finite()).map(|v| v as i32)
+}
+
+/// The type of the column `of=` names, when it is a number.
+///
+/// Anything else — or a source this file cannot type — stays text rather than
+/// guessing: only a numeric source gives a numeric total.
+fn numeric_source(of: &str, config: &Config, nullable: bool) -> Option<ColumnType> {
+    let source = of.trim();
+    if source.is_empty() {
+        return None;
+    }
+    let from = derive(source, config)?;
+    match from.kind {
+        Kind::Int64 => with_nullable("int64", nullable),
+        Kind::Double => with_nullable("double", nullable),
+        _ => None,
+    }
 }
 
 fn positive(raw: &str) -> bool {

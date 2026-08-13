@@ -25,13 +25,26 @@ fn every_pinned_file_is_written_byte_for_byte() {
         .get("cases")
         .and_then(Value::as_array)
         .expect("the cases");
-    assert_eq!(cases.len(), 6, "the fixture moved");
+    let total = cases.len();
+    assert!(total >= 6, "the fixture moved");
 
     let mut matched = 0usize;
     let mut wrong: Vec<String> = Vec::new();
 
     for case in cases {
         let name = case.get("name").and_then(Value::as_str).unwrap_or("?");
+        // A case with `dataPath` reads sample files from a folder under `cases/`,
+        // the same field and the same place the shared cases already use.
+        let base_dir = case
+            .get("dataPath")
+            .and_then(Value::as_str)
+            .map(|rel| {
+                common::fixtures_dir()
+                    .join("cases")
+                    .join(rel)
+                    .display()
+                    .to_string()
+            });
         let source = case
             .get("config")
             .and_then(Value::as_str)
@@ -48,7 +61,7 @@ fn every_pinned_file_is_written_byte_for_byte() {
             .unwrap_or_else(|e| panic!("{name}: {}", e.message));
 
         let packs = tdcv2::packs::DataPacks::discover().expect("the repository's packs");
-        let rows = match engine::run_in(&config, &packs, NOW_MILLIS, None) {
+        let rows = match engine::run_in(&config, &packs, NOW_MILLIS, base_dir.as_deref()) {
             Ok(rows) => rows,
             Err(e) => {
                 wrong.push(format!("{name}: the run failed: {e}"));
@@ -76,7 +89,7 @@ fn every_pinned_file_is_written_byte_for_byte() {
         ));
     }
 
-    println!("parquet: {matched} of 6 match the reference byte for byte");
+    println!("parquet: {matched} of {total} match the reference byte for byte");
     for w in &wrong {
         println!("  {w}");
     }

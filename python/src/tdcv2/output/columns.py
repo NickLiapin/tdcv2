@@ -16,7 +16,7 @@ from dataclasses import dataclass
 
 from ..model.config import Config, Gen, SequenceSpec
 from . import column_type
-from .column_type import ColumnType
+from .column_type import ColumnType, Kind
 
 
 @dataclass(frozen=True, slots=True)
@@ -108,10 +108,52 @@ def _derive_gen(gen: Gen, config: Config) -> ColumnType | None:
     missing = gen.attrs.get("missing")
     nullable = missing is not None and missing.strip() != "" and _positive(missing)
 
-    if gen.type == "number" or gen.type == "timeseries":
+    # A pattern draws a NUMBER from a shape — ``y_range="1..30"`` is a range of numbers whatever
+    # the curve looks like — so it types exactly like a timeseries.
+    if gen.type in ("number", "timeseries", "pattern"):
         return _with_nullable("double" if _decimals(gen) > 0 else "int64", nullable)
     if gen.type in ("increment", "decrement"):
         return _with_nullable("int64", nullable)
+    if gen.type == "running":
+        # A running total is the arithmetic of the column it reads, so its type is that column's
+        # — recursively, since ``of=`` may name another derived one. ``decimals=`` on the running
+        # gen itself makes it fractional whatever the source was.
+        if _decimals(gen) > 0:
+            return _with_nullable("double", nullable)
+        return _numeric_source(gen.attrs.get("of", ""), config, nullable)
+    if gen.type == "stat":
+        # A statistic's type follows the OPERATION, which is declared. Counting is whole by
+        # definition; a mean, a median and a standard deviation are not, whatever they are
+        # computed from; a sum, a minimum and a maximum keep the source column's type.
+        if _decimals(gen) > 0:
+            return _with_nullable("double", nullable)
+        op = (gen.attrs.get("op") or "").strip()
+        if op == "count":
+            return _with_nullable("int64", nullable)
+        if op in ("mean", "median", "stddev"):
+            return _with_nullable("double", nullable)
+        if op in ("sum", "min", "max"):
+            return _numeric_source(gen.attrs.get("of", ""), config, nullable)
+        return None
+    if gen.type == "formula":
+        # A formula's type is knowable exactly when the config declared how many digits it wants,
+        # and not otherwise: ``expr="A + 1"`` is a whole number, ``expr="A / 2"`` is not, and
+        # ``expr="A > 5 ? over : under"`` is a WORD. So ``decimals=`` is the one honest signal.
+        places = _declared_decimals(gen)
+        if places is None:
+            return None
+        return _with_nullable("double" if places > 0 else "int64", nullable)
+    if gen.type == "file":
+        # A file is a bag of whatever the file holds, so an ordinary read stays text.
+        # ``read="quantile"`` is the exception, and not by inspection of the values: the file MUST
+        # be numeric or the run refuses, so the column is a number by construction.
+        #
+        # Which number is decided by the config alone, because this layer never opens the file.
+        # ``decimals="0"`` is the one declaration that promises whole values; without it the
+        # precision comes from the source and may be fractional, so the safe answer is a double.
+        if (gen.attrs.get("read") or "").strip() != "quantile":
+            return None
+        return _with_nullable("int64" if _declared_decimals(gen) == 0 else "double", nullable)
     if gen.type == "date":
         # The default rendering is locale-shaped (05/25/1996), not ISO, so a date column is only
         # safe to infer when the config asked for ISO. Otherwise it stays text, and the author can
@@ -210,6 +252,37 @@ def _decimals(gen: Gen) -> int:
         return int(float(gen.attrs.get("decimals", "0")))
     except ValueError:
         return 0
+
+
+def _declared_decimals(gen: Gen) -> int | None:
+    """``decimals=`` as the config WROTE it — ``None`` when it said nothing at all.
+
+    Different from :func:`_decimals`, which reads an absent attribute as zero. Two generators need
+    the difference: a formula is typed only when the config declared one, and a quantile read is
+    whole only when it declared zero.
+    """
+    raw = (gen.attrs.get("decimals") or "").strip()
+    if raw == "":
+        return None
+    try:
+        return int(float(raw))
+    except ValueError:
+        return None
+
+
+def _numeric_source(of: str, config: Config, nullable: bool) -> ColumnType | None:
+    """The type of the column ``of=`` names, when it is a number.
+
+    Anything else — or a source this file cannot type — stays text rather than guessing: only a
+    numeric source gives a numeric total.
+    """
+    source = (of or "").strip()
+    if source == "":
+        return None
+    from_type = derive(source, config)
+    if from_type is None or from_type.kind not in (Kind.INT64, Kind.DOUBLE):
+        return None
+    return _with_nullable("int64" if from_type.kind is Kind.INT64 else "double", nullable)
 
 
 def _positive(raw: str) -> bool:

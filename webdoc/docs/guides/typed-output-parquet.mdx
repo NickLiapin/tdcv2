@@ -188,7 +188,7 @@ known before a single row exists:
 | [`running`](../generators/running.mdx) | the type of the column its `of=` names |
 | [`stat`](../generators/stat.mdx) | `count` → integer; `mean`, `median`, `stddev` → float; `sum`, `min`, `max` → the source's type |
 | [`formula`](../generators/formula.mdx) | integer or float **when `decimals=` is given**, text otherwise |
-| [`file` with `read="quantile"`](../generators/file.mdx) | **text** — declare `type="float"` when you want a numeric column |
+| [`file` with `read="quantile"`](../generators/file.mdx) | float, or integer with `decimals="0"` |
 
 The formula row is the odd one out on purpose. `expr="A + 1"` is a whole number,
 `expr="A / 2"` is not, and `expr="A > 5 ? over : under"` is a WORD — so `decimals=` is
@@ -200,16 +200,25 @@ TDC **never guesses a type from the values themselves** — that's exactly what 
 CSV (`007` → `7`). When TDC isn't sure, the column stays a string: a string breaks
 nothing.
 
-A [quantile read](../generators/file.mdx) is the one row on that table where the value
-IS provably a number — the file has to be numeric or the run refuses — and the column is
-still written as text. That is inference following its own rule rather than the value:
-what the engine knows is that a `file` generator produces whatever the file holds, and
-that is a fact about the generator, not about this use of it. Write `type="float"` (or
-`type="int64"` for a whole-number sample) and the column is typed:
+A [quantile read](../generators/file.mdx) is the one row on that table where the file
+generator is typed at all, and for the usual reason: `read="quantile"` means the file has
+to be numeric or the run refuses, so the column is a number **by construction** — a fact
+about the generator, not a guess from the values. An ordinary file read is still text,
+because a file is a bag of whatever the file holds.
+
+Which number comes from the config alone, since this layer never opens the file.
+`decimals="0"` is the one declaration that promises whole values; without it the precision
+comes from the source and may be fractional, so the answer is a float. That is the safe
+direction — a float holds every value such a column can produce, and `31` written as
+`31.0` loses nothing, where text loses the type outright:
 
 ```xml
-<data name="amount" type="float">${{Amount}}</data>
+<sequence name="Amount"><gen type="file" src="amounts.txt" read="quantile"/></sequence>
+<sequence name="Age"><gen type="file" src="ages.txt" read="quantile" decimals="0"/></sequence>
 ```
+
+`amount` comes out `DOUBLE`, `age` comes out `INT64`. Declare `type=` by hand if you want
+something narrower.
 
 ### Two cases where inference is deliberately skipped
 

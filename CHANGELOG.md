@@ -100,7 +100,22 @@ _count"` is a sensor that grows noisier as the run goes on.
   that is not there or is declared BELOW: a forward reference used to make the two engines
   disagree, and one config would have meant two datasets.
 
+<!-- covers: read parquet -->
+
+- **A quantile column is typed in Parquet instead of falling back to text.** `read="quantile"`
+  refuses a file that is not numeric, so the column is a number **by construction** — the same
+  kind of fact about the generator that types every other inferred column. `decimals="0"` gives
+  an `INT64`; without it the precision comes from the source and may be fractional, so the
+  answer is a `DOUBLE`, which holds every value such a column can produce.
+
 ### Fixed
+
+- **Four ports wrote `pattern`, `running`, `stat` and `formula` columns as TEXT in Parquet.**
+  The reference inferred all four from the generator; Python, Rust, C# and Java did not, so the
+  same config gave a `DOUBLE` from one implementation and the string `29.2` from another —
+  exactly the loss typed output exists to prevent. The six pinned Parquet fixtures never
+  exercised an inferred derived type, which is why it went unseen; two new shared cases pin
+  these types and the quantile rule, so all five now write byte-identical files.
 
 - **C#: `decimals=` rounded a tie to the even digit instead of away from zero.** The
   helper was .NET's `"F"` format, whose comment claimed it rounded away from zero. It does

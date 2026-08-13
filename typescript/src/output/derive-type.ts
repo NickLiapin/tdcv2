@@ -154,6 +154,24 @@ export function deriveColumnType(
       if (!Number.isFinite(decimals)) return undefined;
       return withNullable(decimals > 0 ? 'double' : 'int64', nullable);
     }
+    case 'file': {
+      // A file is a bag of whatever the file holds, so an ordinary read stays
+      // text. `read="quantile"` is the exception, and not by inspection of the
+      // values: the file MUST be numeric or the run refuses, so the column is a
+      // number by construction — the same kind of fact about the generator that
+      // types every other case here.
+      //
+      // Which number is decided by the config alone, because this layer never
+      // opens the file. `decimals="0"` is the one declaration that promises
+      // whole values; without it the precision comes from the source and may be
+      // fractional, so the safe numeric answer is a double. A double holds every
+      // value such a column can produce, and 31 written as 31.0 loses nothing —
+      // where a string column loses the type outright.
+      if ((gen.attrs['read'] ?? '').trim() !== 'quantile') return undefined;
+      const raw = (gen.attrs['decimals'] ?? '').trim();
+      const decimals = raw === '' ? undefined : Number(raw);
+      return withNullable(decimals === 0 ? 'int64' : 'double', nullable);
+    }
     case 'date':
       // The default rendering is locale-shaped (e.g. 05/25/1996), NOT ISO, so a
       // date column is only safe to infer when the config asked for ISO output.

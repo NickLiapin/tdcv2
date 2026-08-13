@@ -27,9 +27,20 @@ _CASES = _DOCUMENT["cases"]
 NOW = 1776945600000
 
 
+def _base_dir(case: dict) -> Path | None:
+    """A case with `dataPath` names a folder under `cases/` holding the files it reads."""
+    data_path = case.get("dataPath")
+    return FIXTURE.parent / "cases" / data_path if data_path else None
+
+
 @pytest.mark.parametrize("case", _CASES, ids=[c["name"] for c in _CASES])
 def test_the_writer_produces_the_reference_bytes(case: dict) -> None:
-    tdc = TDC(config_string=case["config"], now=NOW, packs_dir=REPO / "data" / "packs")
+    tdc = TDC(
+        config_string=case["config"],
+        now=NOW,
+        packs_dir=REPO / "data" / "packs",
+        base_dir=_base_dir(case),
+    )
     produced = parquet_output.to_bytes(tdc.config, tdc.rows())
 
     assert len(produced) == case["size"], case["description"]

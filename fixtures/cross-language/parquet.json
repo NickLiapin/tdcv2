@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "comment": "Parquet files, by length and digest. Rendered with now=2026-04-23T12:00:00Z. Regenerate with: npm run parquet -- --update",
+  "comment": "Parquet files, by length and digest. Rendered with now=2026-04-23T12:00:00Z. A case with `dataPath` names a folder under cases/ holding the files it reads. Regenerate with: npm run parquet -- --update",
   "now": "2026-04-23T12:00:00Z",
   "cases": [
     {
@@ -37,6 +37,21 @@
       "config": "<tdc><env count=\"400\" seed=\"pq-dict\" inject=\"${{%}}\">\n<sequence name=\"C\"><gen type=\"text\" value=\"Moscow,Paris,Berlin,Rome\" percent=\"40,30,20,10\"/></sequence>\n</env><block><line><data name=\"city\">${{C}}</data></line></block></tdc>",
       "size": 292,
       "sha256": "5f09c5715d1cb6aea6899fb468d60b981198553d7c71709b650c076278d8c1a3"
+    },
+    {
+      "name": "inferred-derived-types",
+      "description": "a column no one declared a type for, typed from the generator that feeds it",
+      "config": "<tdc><env count=\"8\" seed=\"pq-derived\" inject=\"${{%}}\" mode=\"memory\">\n<sequence name=\"W\"><gen type=\"number\" value=\"60..90\"/></sequence>\n<sequence name=\"H\"><gen type=\"number\" value=\"150..190\"/></sequence>\n<sequence name=\"Bmi\"><gen type=\"formula\" expr=\"W * 10000 / (H * H)\" decimals=\"1\"/></sequence>\n<sequence name=\"Whole\"><gen type=\"formula\" expr=\"W + H\" decimals=\"0\"/></sequence>\n<sequence name=\"Total\"><gen type=\"running\" of=\"W\" accumulate=\"sum\"/></sequence>\n<sequence name=\"Avg\"><gen type=\"stat\" of=\"W\" op=\"mean\"/></sequence>\n<sequence name=\"Sig\"><gen type=\"pattern\" points=\"0,0 5,100 10,0\" y_range=\"0..10\" decimals=\"2\"/></sequence>\n</env><block><line>\n<data name=\"w\">${{W}}</data><data name=\"bmi\">${{Bmi}}</data><data name=\"whole\">${{Whole}}</data>\n<data name=\"total\">${{Total}}</data><data name=\"avg\">${{Avg}}</data><data name=\"sig\">${{Sig}}</data>\n</line></block></tdc>",
+      "size": 773,
+      "sha256": "222a6d79adfdf1231cd5c1494b9748fa1f945fd5c43015de5684bbf267251f91"
+    },
+    {
+      "name": "quantile-columns-are-numbers",
+      "description": "read=\"quantile\" is numeric by construction; an ordinary file read stays text",
+      "config": "<tdc><env count=\"8\" seed=\"pq-quantile\" inject=\"${{%}}\">\n<sequence name=\"A\"><gen type=\"file\" src=\"sample-amounts.txt\" read=\"quantile\"/></sequence>\n<sequence name=\"G\"><gen type=\"file\" src=\"sample-ages.txt\" read=\"quantile\" decimals=\"0\"/></sequence>\n<sequence name=\"B\"><gen type=\"file\" src=\"sample-ages.txt\"/></sequence>\n</env><block><line>\n<data name=\"amount\">${{A}}</data><data name=\"age\">${{G}}</data><data name=\"raw\">${{B}}</data>\n</line></block></tdc>",
+      "dataPath": "data",
+      "size": 430,
+      "sha256": "839b3cc6c89e85c59a9009dd3276b32a03ac88b45309bd0444cf9a7c08656024"
     },
     {
       "name": "two-row-groups",

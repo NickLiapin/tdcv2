@@ -58,14 +58,14 @@ public class ParquetTest
         using JsonDocument node = JsonDocument.Parse(raw);
         JsonElement root = node.RootElement;
 
-        byte[] file = Build(root.GetProperty("config").GetString()!);
+        byte[] file = Build(root.GetProperty("config").GetString()!, PrngVectorsTest.BaseDirOf(root));
 
         // Length first: off by a little is usually one field, off by a lot is usually an encoding.
         Assert.Equal(root.GetProperty("size").GetInt32(), file.Length);
         Assert.Equal(root.GetProperty("sha256").GetString(), Digest(file));
     }
 
-    private static byte[] Build(string config)
+    private static byte[] Build(string config, string baseDir)
     {
         TdcParserFacade.Result parsed = TdcParserFacade.Parse(config);
         Assert.True(parsed.Ok, "does not parse: " + string.Join("; ", parsed.Problems));
@@ -74,8 +74,7 @@ public class ParquetTest
         // Through the ROUTER, as the reference's own test does. Most of these configs declare no
         // mode, so they belong to the streaming engine — building them in memory would compare
         // against bytes the reference never wrote.
-        IRowSource rows = Engines.Run(
-            built, DataPacks.Discover(), Now(), PrngVectorsTest.FixturesDir());
+        IRowSource rows = Engines.Run(built, DataPacks.Discover(), Now(), baseDir);
         return ParquetOutput.ToBytes(built, rows);
     }
 
@@ -96,7 +95,8 @@ public class ParquetTest
             JsonElement root = node.RootElement;
             try
             {
-                byte[] file = Build(root.GetProperty("config").GetString()!);
+                byte[] file = Build(
+                    root.GetProperty("config").GetString()!, PrngVectorsTest.BaseDirOf(root));
                 if (root.GetProperty("sha256").GetString() == Digest(file))
                 {
                     matched++;

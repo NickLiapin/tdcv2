@@ -198,7 +198,7 @@ producir se sabe antes de que exista una sola fila.
 | [`running`](../generators/running.md#top) | el tipo de la columna que nombra su `of=` |
 | [`stat`](../generators/stat.md#top) | `count` → entero; `mean`, `median`, `stddev` → decimal; `sum`, `min`, `max` → el tipo del origen |
 | [`formula`](../generators/formula.md#top) | entero o decimal **cuando se da `decimals=`**, texto en caso contrario |
-| [`file` con `read="quantile"`](../generators/file.md#top) | **texto** — declare `type="float"` si quiere una columna numérica |
+| [`file` con `read="quantile"`](../generators/file.md#top) | decimal, o entero con `decimals="0"` |
 
 La fila de la fórmula se sale a propósito. `expr="A + 1"` es un número entero,
 `expr="A / 2"` ya no lo es, y `expr="A > 5 ? over : under"` es una PALABRA — así que
@@ -210,17 +210,26 @@ cuando la respuesta sea entera y quiera una columna de enteros.
 corrompe los CSV (`007` → `7`). Cuando TDC no está seguro, la columna se queda como
 string: un string no rompe nada.
 
-Una [lectura por cuantiles](../generators/file.md#top) es la única fila de esa tabla donde
-el valor ES demostrablemente un número — el archivo tiene que ser numérico o la ejecución
-se rechaza — y la columna se escribe igualmente como texto. Es la inferencia siguiendo su
-propia regla y no el valor: lo que el motor sabe es que un generador `file` produce lo que
-el archivo contenga, y eso es un hecho sobre el generador, no sobre este uso concreto.
-Escriba `type="float"` (o `type="int64"` para una muestra de números enteros) y la columna
-queda tipada:
+Una [lectura por cuantiles](../generators/file.md#top) es la única fila de esa tabla donde el
+generador `file` recibe un tipo, y por la razón de siempre: `read="quantile"` exige que el
+archivo sea numérico o la ejecución se rechaza, así que la columna es un número **por
+construcción** — un hecho sobre el generador, no una conjetura a partir de los valores. Una
+lectura normal de archivo sigue siendo texto, porque un archivo es un saco de lo que
+contenga.
+
+Qué número lo decide la configuración sola, porque esta capa nunca abre el archivo.
+`decimals="0"` es la única declaración que promete valores enteros; sin ella la precisión
+viene de la fuente y puede ser decimal, así que la respuesta es un decimal. Esa es la
+dirección segura: un decimal admite cualquier valor que esa columna pueda producir, y `31`
+escrito como `31.0` no pierde nada, mientras que el texto pierde el tipo entero:
 
 ```xml
-<data name="amount" type="float">${{Amount}}</data>
+<sequence name="Amount"><gen type="file" src="amounts.txt" read="quantile"/></sequence>
+<sequence name="Age"><gen type="file" src="ages.txt" read="quantile" decimals="0"/></sequence>
 ```
+
+`amount` sale como `DOUBLE` y `age` como `INT64`. Declare `type=` a mano si quiere algo más
+estrecho.
 
 ### Dos casos donde la inferencia se omite a propósito
 

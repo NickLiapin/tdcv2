@@ -23,7 +23,10 @@ import { renderParquet } from '../src/output/render-parquet.ts';
 import { parseStrict } from '../src/parser/index.ts';
 
 const here = dirname(fileURLToPath(import.meta.url));
-const OUT = join(resolve(here, '..', '..', 'fixtures', 'cross-language'), 'parquet.json');
+const SHARED = resolve(here, '..', '..', 'fixtures', 'cross-language');
+const OUT = join(SHARED, 'parquet.json');
+/** A case that reads a file names a folder here, the way the shared cases already do. */
+const CASES_DIR = join(SHARED, 'cases');
 
 const NOW = Date.parse('2026-04-23T12:00:00Z');
 const update = process.argv.includes('--update');
@@ -84,6 +87,34 @@ const CASES = [
 </env><block><line><data name="city">\${{C}}</data></line></block></tdc>`,
   },
   {
+    name: 'inferred-derived-types',
+    description: 'a column no one declared a type for, typed from the generator that feeds it',
+    config: `<tdc><env count="8" seed="pq-derived" inject="\${{%}}" mode="memory">
+<sequence name="W"><gen type="number" value="60..90"/></sequence>
+<sequence name="H"><gen type="number" value="150..190"/></sequence>
+<sequence name="Bmi"><gen type="formula" expr="W * 10000 / (H * H)" decimals="1"/></sequence>
+<sequence name="Whole"><gen type="formula" expr="W + H" decimals="0"/></sequence>
+<sequence name="Total"><gen type="running" of="W" accumulate="sum"/></sequence>
+<sequence name="Avg"><gen type="stat" of="W" op="mean"/></sequence>
+<sequence name="Sig"><gen type="pattern" points="0,0 5,100 10,0" y_range="0..10" decimals="2"/></sequence>
+</env><block><line>
+<data name="w">\${{W}}</data><data name="bmi">\${{Bmi}}</data><data name="whole">\${{Whole}}</data>
+<data name="total">\${{Total}}</data><data name="avg">\${{Avg}}</data><data name="sig">\${{Sig}}</data>
+</line></block></tdc>`,
+  },
+  {
+    name: 'quantile-columns-are-numbers',
+    description: 'read="quantile" is numeric by construction; an ordinary file read stays text',
+    dataPath: 'data',
+    config: `<tdc><env count="8" seed="pq-quantile" inject="\${{%}}">
+<sequence name="A"><gen type="file" src="sample-amounts.txt" read="quantile"/></sequence>
+<sequence name="G"><gen type="file" src="sample-ages.txt" read="quantile" decimals="0"/></sequence>
+<sequence name="B"><gen type="file" src="sample-ages.txt"/></sequence>
+</env><block><line>
+<data name="amount">\${{A}}</data><data name="age">\${{G}}</data><data name="raw">\${{B}}</data>
+</line></block></tdc>`,
+  },
+  {
     name: 'two-row-groups',
     description: 'more rows than one group holds — the offsets in the footer have to follow',
     config: `<tdc><env count="60000" seed="pq-groups" inject="\${{%}}">
@@ -93,11 +124,14 @@ const CASES = [
 ];
 
 const results = CASES.map((testCase) => {
-  const bytes = renderParquet(parseStrict(testCase.config), { now: NOW });
+  const options = { now: NOW };
+  if (testCase.dataPath !== undefined) options.dataPaths = [join(CASES_DIR, testCase.dataPath)];
+  const bytes = renderParquet(parseStrict(testCase.config), options);
   return {
     name: testCase.name,
     description: testCase.description,
     config: testCase.config,
+    ...(testCase.dataPath === undefined ? {} : { dataPath: testCase.dataPath }),
     size: bytes.length,
     sha256: createHash('sha256').update(bytes).digest('hex'),
   };
@@ -107,6 +141,7 @@ const document = {
   schemaVersion: 1,
   comment:
     'Parquet files, by length and digest. Rendered with now=2026-04-23T12:00:00Z. ' +
+    'A case with `dataPath` names a folder under cases/ holding the files it reads. ' +
     'Regenerate with: npm run parquet -- --update',
   now: '2026-04-23T12:00:00Z',
   cases: results,

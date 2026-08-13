@@ -51,7 +51,13 @@ class CrossLanguageParquetTest {
   @MethodSource("cases")
   @DisplayName("writes the same bytes as the reference")
   void matchesTheReference(String name, JsonNode node, long now) throws Exception {
-    TDC tdc = TDC.options().configString(node.get("config").asText()).now(now).build();
+    TDC.Options options = TDC.options().configString(node.get("config").asText()).now(now);
+    // A case with `dataPath` reads sample files from a folder under `cases/`, the same field
+    // and the same place the shared cases already use.
+    if (node.hasNonNull("dataPath")) {
+      options.baseDir(fixture().getParent().resolve("cases").resolve(node.get("dataPath").asText()));
+    }
+    TDC tdc = options.build();
     byte[] bytes =
         io.github.nickliapin.tdc.output.ParquetOutput.toBytes(tdc.config(), tdc.rows());
 

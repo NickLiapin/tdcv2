@@ -129,7 +129,58 @@ public final class Columns {
       case "decrement":
         return withNullable("int64", nullable);
       case "timeseries":
+      // A pattern draws a NUMBER from a shape — `y_range="1..30"` is a range of numbers whatever
+      // the curve looks like — so it types exactly like a timeseries.
+      case "pattern":
         return withNullable(decimals(gen) > 0 ? "double" : "int64", nullable);
+      case "running":
+        // A running total is the arithmetic of the column it reads, so its type is that column's
+        // — recursively, since `of=` may name another derived one. `decimals=` on the running gen
+        // itself makes it fractional whatever the source was.
+        return decimals(gen) > 0
+            ? withNullable("double", nullable)
+            : numericSource(gen.attrs().getOrDefault("of", ""), config, nullable);
+      case "stat": {
+        // A statistic's type follows the OPERATION, which is declared. Counting is whole by
+        // definition; a mean, a median and a standard deviation are not, whatever they are
+        // computed from; a sum, a minimum and a maximum keep the source column's type.
+        if (decimals(gen) > 0) {
+          return withNullable("double", nullable);
+        }
+        String op = gen.attrs().getOrDefault("op", "").trim();
+        if ("count".equals(op)) {
+          return withNullable("int64", nullable);
+        }
+        if ("mean".equals(op) || "median".equals(op) || "stddev".equals(op)) {
+          return withNullable("double", nullable);
+        }
+        if ("sum".equals(op) || "min".equals(op) || "max".equals(op)) {
+          return numericSource(gen.attrs().getOrDefault("of", ""), config, nullable);
+        }
+        return null;
+      }
+      case "formula": {
+        // A formula's type is knowable exactly when the config declared how many digits it wants,
+        // and not otherwise: `expr="A + 1"` is a whole number, `expr="A / 2"` is not, and
+        // `expr="A > 5 ? over : under"` is a WORD. So `decimals=` is the one honest signal, and
+        // without it the column stays text.
+        Integer places = declaredDecimals(gen);
+        return places == null ? null : withNullable(places > 0 ? "double" : "int64", nullable);
+      }
+      case "file": {
+        // A file is a bag of whatever the file holds, so an ordinary read stays text.
+        // `read="quantile"` is the exception, and not by inspection of the values: the file MUST
+        // be numeric or the run refuses, so the column is a number by construction.
+        //
+        // Which number is decided by the config alone, because this layer never opens the file.
+        // `decimals="0"` is the one declaration that promises whole values; without it the
+        // precision comes from the source and may be fractional, so the safe answer is a double.
+        if (!"quantile".equals(gen.attrs().getOrDefault("read", "").trim())) {
+          return null;
+        }
+        Integer places = declaredDecimals(gen);
+        return withNullable(places != null && places == 0 ? "int64" : "double", nullable);
+      }
       case "date":
         // The default rendering is locale-shaped (05/25/1996), not ISO, so a date column is only
         // safe to infer when the config asked for ISO. Otherwise it stays text, and the author
@@ -243,6 +294,46 @@ public final class Columns {
 
   private static ColumnType withNullable(String type, boolean nullable) {
     return ColumnType.parse(nullable ? type + "|null" : type);
+  }
+
+  /**
+   * {@code decimals=} as the config WROTE it — {@code null} when it said nothing at all.
+   *
+   * <p>Different from {@link #decimals}, which reads an absent attribute as zero. Two generators
+   * need the difference: a formula is typed only when the config declared one, and a quantile read
+   * is whole only when it declared zero.
+   */
+  private static Integer declaredDecimals(Config.Gen gen) {
+    String raw = gen.attrs().getOrDefault("decimals", "").trim();
+    if (raw.isEmpty()) {
+      return null;
+    }
+    try {
+      return (int) Double.parseDouble(raw);
+    } catch (NumberFormatException e) {
+      return null;
+    }
+  }
+
+  /**
+   * The type of the column {@code of=} names, when it is a number.
+   *
+   * <p>Anything else — or a source this file cannot type — stays text rather than guessing: only a
+   * numeric source gives a numeric total.
+   */
+  private static ColumnType numericSource(String of, Config config, boolean nullable) {
+    String source = of == null ? "" : of.trim();
+    if (source.isEmpty()) {
+      return null;
+    }
+    ColumnType from = derive(source, config);
+    if (from == null) {
+      return null;
+    }
+    if (from.kind() == ColumnType.Kind.INT64) {
+      return withNullable("int64", nullable);
+    }
+    return from.kind() == ColumnType.Kind.DOUBLE ? withNullable("double", nullable) : null;
   }
 
   private static int decimals(Config.Gen gen) {
