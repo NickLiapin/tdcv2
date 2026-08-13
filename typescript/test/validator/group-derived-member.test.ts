@@ -65,6 +65,19 @@ describe('a derived column may not be a group member', () => {
     expect(d.find((x) => x.code === 'TDC296')?.message).toContain('<distinct>');
   });
 
+  it('refuses a <compute> member, which used to break the promise in silence', () => {
+    // Measured before this check: five rows, a `<compute>` and a constant beside
+    // it inside `<uniq>` — two records came out identical and nothing said so.
+    // `uniq="true"` on such a sequence was already TDC218; the group form was
+    // the hole.
+    const d = diagnose(
+      '<sequence name="A"><gen type="number" value="1..5"/></sequence>' +
+        '<uniq><sequence name="C"><compute><result><field name="A"/></result></compute></sequence>' +
+        `${OTHER}</uniq>`,
+    );
+    expect(d.find((x) => x.code === 'TDC296')?.message).toContain('<compute>');
+  });
+
   it('leaves a group of ordinary drawn columns alone', () => {
     const d = diagnose(
       `<uniq><sequence name="A"><gen type="number" value="1..50"/></sequence>${OTHER}</uniq>`,

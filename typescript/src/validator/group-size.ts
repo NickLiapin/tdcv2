@@ -18,6 +18,7 @@ import {
   elementKind,
   elementName,
   extractAttrs,
+  findChildElement,
 } from '../processor/walk.js';
 
 import { nodeRange } from '../errors/source-map.js';
@@ -101,6 +102,28 @@ export function checkGroupDerivedMember(
     if (k?.kind !== 'open') continue;
     if (elementName(k.node) !== 'sequence') continue;
     const name = extractAttrs(k.node.attr())['name'];
+    // A `<compute>` is the same case reached from the other side: `f(x)` is
+    // `f(x)`, so it has no pool to draw from and no column of its own to
+    // rearrange. `uniq="true"` on such a sequence is already TDC218; inside a
+    // GROUP it used to be accepted and then quietly do nothing — measured on
+    // five rows, two records came out identical and nothing said so.
+    const compute = findChildElement(k.node.content(), 'compute');
+    if (compute !== undefined) {
+      diagnostics.push({
+        severity: 'error',
+        source: 'validator',
+        ...nodeRange(compute),
+        message:
+          `<sequence name="${name ?? '?'}"> holds a <compute>, which cannot be a member of ` +
+          `<${tag}>: it derives its value from other columns, so it has nothing of its own to ` +
+          "rearrange and cannot keep the group's promise",
+        hint:
+          `Put the <${tag}> around the <gen> sequences the <compute> READS. Its value follows ` +
+          'them, so arranging the inputs arranges the result.',
+        code: 'TDC296',
+      });
+      continue;
+    }
     for (const gen of collectSequenceGens(k.node).nodes) {
       const attrs = extractAttrs(gen.attr());
       const type = attrs['type'];
