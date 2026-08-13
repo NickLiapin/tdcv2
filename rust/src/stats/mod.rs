@@ -1,5 +1,6 @@
 //! Exact splits, named distributions, and the shuffle that hides an order.
 
+pub mod dist_params;
 pub mod distribution;
 pub mod hamilton;
 pub mod special;

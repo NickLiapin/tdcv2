@@ -28,7 +28,7 @@ pub trait Scope {
 /// language — which is the point: they are JavaScript's rules, and Rust has none
 /// of its own to fall back on.
 #[derive(Clone, Debug, PartialEq)]
-enum V {
+pub enum V {
     Null,
     Num(f64),
     /// A whole number, kept exact.
@@ -58,6 +58,16 @@ pub fn as_condition(source: &str, scope: &dyn Scope) -> EngineResult<bool> {
     // or a per-run map and buys nothing measurable at the sizes an `if=` runs at.
     let expr = super::parse(source)?;
     Ok(to_boolean(&eval(&expr, scope)?))
+}
+
+/// What `source` evaluates TO on this row, rather than whether it holds.
+///
+/// The same evaluator as `as_condition` and deliberately so: a distribution parameter
+/// and a formula must not come to mean different things from the same words as a
+/// condition does.
+pub fn as_value(source: &str, scope: &dyn Scope) -> EngineResult<V> {
+    let expr = super::parse(source)?;
+    eval(&expr, scope)
 }
 
 fn eval(node: &Expr, scope: &dyn Scope) -> EngineResult<V> {
