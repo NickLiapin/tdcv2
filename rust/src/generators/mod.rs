@@ -6,6 +6,7 @@ pub mod advanced_regex;
 pub mod counter;
 pub mod date_offset;
 pub mod file;
+pub mod formula;
 pub mod http;
 pub mod imperfections;
 pub mod number;

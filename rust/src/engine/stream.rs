@@ -39,7 +39,7 @@ use crate::expr::evaluate;
 use crate::expr::match_key::match_key;
 use crate::format::interpolate::{self, Lookup};
 use crate::format::{mask, transforms};
-use crate::generators::{date_offset, file, imperfections, number, quantile, repeat};
+use crate::generators::{date_offset, file, formula, imperfections, number, quantile, repeat};
 use crate::model::{
     Case, CasePart, Config, Field, Gen, Item, Line, Mix, SequenceSpec, Source, Switch,
 };
@@ -312,6 +312,14 @@ enum Column {
         probability: f64,
     },
     Compute(Box<Element>),
+    /// `<gen type="formula">` — arithmetic over this row's other columns.
+    ///
+    /// Lazy like `Compute`, and for the same reason: it reads siblings and draws nothing,
+    /// so the row it belongs to is the only row it needs.
+    Formula {
+        expr: String,
+        decimals: Option<usize>,
+    },
     /// A composed sequence's own value: its parts, concatenated per row.
     Composed {
         parts: Vec<Part>,
@@ -660,6 +668,19 @@ impl<'a> StreamEngine<'a> {
                          handles it (run without a forced streaming engine)",
                         spec.name
                     ));
+                }
+                // Arithmetic over the columns beside it. Unlike the two refusals below,
+                // a formula reads only its OWN row, so the streaming engine answers it
+                // lazily exactly as it answers a `<compute>`.
+                if gen.gen_type == "formula" {
+                    self.put(
+                        &spec.name,
+                        Column::Formula {
+                            expr: formula::expression_of(&gen.attrs)?,
+                            decimals: formula::decimals_of(&gen.attrs)?,
+                        },
+                    );
+                    continue;
                 }
                 // A statistic over the whole run is the stronger form of the
                 // same thing: it is not knowable from the rows SO FAR either,
@@ -2327,6 +2348,20 @@ impl StreamEngine<'_> {
                     .map(Some)
                     .map_err(|e| EngineError::Invalid(e.message))
             }
+
+            Column::Formula { expr, decimals } => formula::value_at_row(
+                expr,
+                *decimals,
+                row.max(0) as usize,
+                &|name| self.columns.contains_key(name),
+                &|name| match self.value_at(name, row) {
+                    Ok(value) => value,
+                    Err(e) => {
+                        self.remember(e);
+                        None
+                    }
+                },
+            ),
         }
     }
 

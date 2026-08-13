@@ -29,6 +29,7 @@ use crate::format::interpolate::{self, Lookup};
 use crate::format::{mask, transforms};
 use crate::generators::accumulate;
 use crate::generators::date_offset;
+use crate::generators::formula;
 use crate::generators::stat;
 use crate::generators::{
     advanced_regex, counter, file, http, imperfections, number, quantile, rand, regex, repeat,
@@ -306,6 +307,33 @@ fn stat_column(
         }
         Err(message) => invalid(&message),
     }
+}
+
+/// `<gen type="formula">` — arithmetic over the columns beside it.
+///
+/// Resolved here for the same reason `running` and `stat` are: it reads columns that
+/// already exist, so every name in `expr=` has to be declared above. Unlike them it needs
+/// only its OWN row, which is why it also streams.
+fn formula_column(
+    spec: &SequenceSpec,
+    gen: &Gen,
+    columns: &mut BTreeMap<String, Vec<Option<String>>>,
+    count: usize,
+) -> EngineResult<()> {
+    let source = formula::expression_of(&gen.attrs)?;
+    let decimals = formula::decimals_of(&gen.attrs)?;
+    let mut values = Vec::with_capacity(count);
+    for row in 0..count {
+        values.push(formula::value_at_row(
+            &source,
+            decimals,
+            row,
+            &|name| columns.contains_key(name),
+            &|name| columns.get(name).and_then(|c| c.get(row).cloned()).flatten(),
+        )?);
+    }
+    columns.insert(spec.name.clone(), values);
+    Ok(())
 }
 
 /// A date measured from another date. Reads a sibling column, so it lives here
@@ -665,6 +693,14 @@ fn build_columns_with(
     };
 
     for spec in &env.config.sequences {
+        // Everything published so far, kept only if an expression somewhere can name it.
+        // At the TOP of the iteration rather than the bottom: several shapes below finish
+        // with `continue`, and one place every path passes through cannot forget a column.
+        // A column is written once inside this loop, so the first copy is the final one.
+        for (name, column) in columns.iter() {
+            env.remember_sibling(name, column);
+        }
+
         // Named one by one rather than as "that shape": each is a separate piece
         // of work, and a single message would hide which one is actually holding
         // a config up.
@@ -695,6 +731,14 @@ fn build_columns_with(
             // why `of=` must name a sequence declared above it.
             if gen.gen_type == "running" {
                 running_column(spec, gen, &mut columns, count)?;
+                continue;
+            }
+            // Arithmetic over the columns beside it. Resolved here for the same
+            // reason as the two below: it reads columns that already exist, so
+            // every name in `expr=` has to be declared above. Unlike them it
+            // needs only its OWN row, which is why it also streams.
+            if gen.gen_type == "formula" {
+                formula_column(spec, gen, &mut columns, count)?;
                 continue;
             }
             // A statistic over the whole run. Resolved here for the same reason
@@ -1073,15 +1117,6 @@ fn build_columns_with(
                     columns.insert(flag_name, flag_values);
                 }
             }
-        }
-
-        // Everything published so far, kept only if an expression somewhere can name it.
-        // Done here rather than at each `insert` because a sequence publishes under
-        // several keys — its own name, `Name.field`, a flag column — and one place that
-        // sees them all cannot forget one of them. A column is written once inside this
-        // loop, so the first copy is the final one.
-        for (name, column) in columns.iter() {
-            env.remember_sibling(name, column);
         }
     }
 

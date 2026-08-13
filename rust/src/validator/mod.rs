@@ -750,10 +750,9 @@ impl Validator {
         for declaration in declarations(env) {
             let tag = declaration.name.clone();
             if tag == "sequence" && declaration.wrapped_in_group.is_some() {
-                self.check_env_group_member(
-                    declaration.element,
-                    declaration.wrapped_in_group.unwrap(),
-                );
+                let group = declaration.wrapped_in_group.unwrap();
+                self.check_env_group_member(declaration.element, group);
+                self.check_group_derived_member(declaration.element, group);
             }
             let in_pool = declaration.pool.is_some();
             // Every expression deferred while this declaration is walked is a
@@ -1463,6 +1462,213 @@ impl Validator {
         }
     }
 
+    /// A DERIVED column inside a `<uniq>` or `<distinct>` group.
+    ///
+    /// A group is a rearrangement: it keeps every member's multiset of values and permutes
+    /// the columns until each record is unique. Sound for drawn columns — a draw means the
+    /// same wherever it lands — and destructive for a derived one, whose value is a
+    /// statement ABOUT the row it was computed for. Measured on the reference, `<uniq>` over
+    /// `A` (1..5) and `F = A * 10` gave `2|20  3|20  3|30  2|30  5|50`: two rows of five
+    /// saying that ten times three is twenty, with `check` calling the config valid.
+    ///
+    /// A `<compute>` is the same case from the other side — `f(x)` is `f(x)`, so it has no
+    /// pool to draw from and no column of its own to rearrange.
+    fn check_group_derived_member(&mut self, sequence: &Element, tag: &str) {
+        let name = sequence.attr_value("name").unwrap_or("?").to_string();
+        for child in &sequence.children {
+            if child.kind == Kind::OpenClose && child.name == "compute" {
+                self.error(
+                    "TDC296",
+                    format!(
+                        "<sequence name=\"{name}\"> holds a <compute>, which cannot be a member \
+                         of <{tag}>: it derives its value from other columns, so it has nothing \
+                         of its own to rearrange and cannot keep the group's promise"
+                    ),
+                    &format!(
+                        "Put the <{tag}> around the <gen> sequences the <compute> READS. Its \
+                         value follows them, so arranging the inputs arranges the result."
+                    ),
+                    child.pos,
+                );
+                return;
+            }
+            if !is_gen(child) {
+                continue;
+            }
+            let attrs = child.attr_map();
+            let gen_type = attrs.get("type").map(String::as_str);
+            if !is_derived(gen_type, &attrs) {
+                continue;
+            }
+            let described = match gen_type {
+                Some("date") => "a date measured from another column (of=)".to_string(),
+                Some(other) => format!("a type=\"{other}\" column"),
+                None => "a computed column".to_string(),
+            };
+            self.error(
+                "TDC296",
+                format!(
+                    "<sequence name=\"{name}\"> holds {described}, which cannot be a member of \
+                     <{tag}>: the group rearranges finished columns, and a computed value moved \
+                     to another row no longer describes that row"
+                ),
+                &format!(
+                    "Put the {tag} group around the columns this one READS, and leave the \
+                     computed column outside it. It follows whatever the group arranges, so it \
+                     stays true row by row."
+                ),
+                child.pos,
+            );
+            return;
+        }
+    }
+
+    /// `expr=` is what a formula IS, and every name in it must be a column declared above.
+    fn check_formula(&mut self, gen: &Element, attrs: &Attrs, gen_type: Option<&str>) {
+        if gen_type != Some("formula") {
+            return;
+        }
+        let source = attrs.get("expr").map(|s| s.trim()).unwrap_or("");
+        if source.is_empty() {
+            self.error(
+                "TDC294",
+                "<gen type=\"formula\"> needs expr=\"\u{2026}\"".to_string(),
+                "The expression is what the column IS: expr=\"Weight / (Height * Height)\".",
+                gen.at("type"),
+            );
+            return;
+        }
+        self.check_param_names(gen, "expr", source);
+    }
+
+    /// A derived column cannot be ONE BRANCH of a per-row choice.
+    ///
+    /// `running`, `stat`, a date offset and `formula` are built once, for the whole column,
+    /// in declaration order. An `if=` asks for something else entirely: a value chosen row by
+    /// row. The two cannot both be true, and the run used to die with a message that read
+    /// like an unfinished engine rather than a config that cannot mean anything.
+    fn check_derived_not_conditional(
+        &mut self,
+        gen: &Element,
+        attrs: &Attrs,
+        gen_type: Option<&str>,
+    ) {
+        if !is_derived(gen_type, attrs) {
+            return;
+        }
+        if attrs.get("if").map(|s| s.trim()).unwrap_or("").is_empty() {
+            return;
+        }
+        let described = gen_type.unwrap_or("");
+        self.error(
+            "TDC295",
+            format!(
+                "a type=\"{described}\" column is built for the whole run, so it cannot carry if="
+            ),
+            "It reads other columns in declaration order and produces one column, not a value \
+             chosen per row. Put the condition where the value is USED \u{2014} `<data \
+             if=\"\u{2026}\">` \u{2014} or compute the column unconditionally and branch on it \
+             afterwards.",
+            gen.at("if"),
+        );
+    }
+
+    /// `read="quantile"` — the file as a sorted sample rather than a bag of values.
+    ///
+    /// Everything refused here asks for TWO readings of one file at once. `weight=` says the
+    /// shares live in a second column; `read="quantile"` says the values ARE the
+    /// distribution. `row=` links several columns to one LINE, and a quantile answer is a
+    /// point between two of them. `order="sequential"` walks the list in order, which a
+    /// distribution has no notion of.
+    fn check_quantile_read(&mut self, gen: &Element, attrs: &Attrs, gen_type: Option<&str>) {
+        if gen_type != Some("file") {
+            return;
+        }
+        let read = attrs.get("read").map(|s| s.trim()).unwrap_or("");
+        let sample = attrs.get("sample").map(|s| s.trim()).unwrap_or("");
+
+        if attrs.contains_key("read") && read != "quantile" {
+            self.error(
+                "TDC297",
+                format!(
+                    "read=\"{read}\" is not a way of reading a file \u{2014} the only one is \
+                     \"quantile\""
+                ),
+                "Leave read= off to pick one of the file's values at random, or write \
+                 read=\"quantile\" to read the file as a sorted sample and land anywhere on it.",
+                gen.at("read"),
+            );
+            return;
+        }
+
+        if attrs.contains_key("sample") && sample != "exact" {
+            self.error(
+                "TDC297",
+                format!(
+                    "sample=\"{sample}\" is not a sampling mode \u{2014} the only one is \"exact\""
+                ),
+                "Leave sample= off to draw from the distribution row by row, or write \
+                 sample=\"exact\" to sweep it evenly so the run reproduces the sample with no \
+                 sampling noise.",
+                gen.at("sample"),
+            );
+        }
+
+        if attrs.contains_key("sample") && read != "quantile" {
+            self.error(
+                "TDC297",
+                "sample= only means something beside read=\"quantile\"".to_string(),
+                "It chooses between drawing from the distribution and sweeping it evenly, and a \
+                 file read as a plain list of values has no distribution to sweep.",
+                gen.at("sample"),
+            );
+        }
+
+        if read != "quantile" {
+            return;
+        }
+
+        for (name, why, hint) in [
+            (
+                "weight",
+                "weight= puts the shares in a COLUMN beside the values, and read=\"quantile\" \
+                 says the values are the distribution themselves \u{2014} how often one appears \
+                 in the file IS its share",
+                "Keep one of the two readings. A countable value wants weight= and its exact \
+                 quota; a measured one wants the quantile read, which also fills in the values \
+                 between the observations.",
+            ),
+            (
+                "row",
+                "row= links several columns to one LINE of the file, and a quantile answer is \
+                 not a line: it is a point between two of them",
+                "To keep a record together, read the file as lines with row= and leave read= \
+                 off.",
+            ),
+        ] {
+            if attrs.get(name).map(|s| s.trim()).unwrap_or("").is_empty() {
+                continue;
+            }
+            self.error(
+                "TDC297",
+                format!("{name}= cannot be combined with read=\"quantile\": {why}"),
+                hint,
+                gen.at(name),
+            );
+        }
+
+        if attrs.get("order").map(|s| s.trim()) == Some("sequential") {
+            self.error(
+                "TDC297",
+                "order=\"sequential\" cannot be combined with read=\"quantile\"".to_string(),
+                "Walking a list in order and sampling a distribution are different jobs: one \
+                 hands out the file's lines one after another, the other says where on the \
+                 sorted sample a row lands.",
+                gen.at("order"),
+            );
+        }
+    }
+
     /// Register `Name.Field` for every field, wherever in the sequence body it
     /// sits.
     fn collect_field_names(&mut self, element: &Element, name: &str) {
@@ -2084,10 +2290,16 @@ impl Validator {
         self.check_gen_attributes(gen, &attrs, gen_type);
 
         self.check_weight(gen, &attrs, gen_type);
+        // Before the source path is resolved: a file read the wrong way is a mistake about
+        // the READING, and hearing "no such file" first would send the reader looking in the
+        // wrong place.
+        self.check_quantile_read(gen, &attrs, gen_type);
         self.check_source(gen, &attrs, gen_type);
         self.check_http(gen, &attrs, gen_type);
         self.check_running(gen, &attrs, gen_type);
         self.check_stat(gen, &attrs, gen_type);
+        self.check_formula(gen, &attrs, gen_type);
+        self.check_derived_not_conditional(gen, &attrs, gen_type);
         self.check_mask(gen, &attrs);
         self.check_counter(gen, &attrs, gen_type);
         self.check_date_templates(gen, &attrs, gen_type);
@@ -5642,6 +5854,18 @@ pub const BUILTINS: [&str; 6] = ["_count", "_first", "_last", "_item", "_item_id
 
 pub fn is_builtin(name: &str) -> bool {
     BUILTINS.contains(&name)
+}
+
+/// A `<gen>` whose whole COLUMN is read from other columns rather than drawn.
+///
+/// A date is on the list only when `of=` makes it one: without it a date draws like
+/// anything else.
+fn is_derived(gen_type: Option<&str>, attrs: &Attrs) -> bool {
+    match gen_type {
+        Some("formula" | "running" | "stat") => true,
+        Some("date") => !attrs.get("of").map(|s| s.trim()).unwrap_or("").is_empty(),
+        _ => false,
+    }
 }
 
 /// Every bare name an expression mentions, the root of a dotted path included.

@@ -16,7 +16,7 @@ mod common;
 
 use std::collections::BTreeMap;
 
-use common::{all_cases, config_of, now_of, print_excused, Case};
+use common::{all_cases, base_dir_of, config_of, now_of, print_excused, Case};
 use tdcv2::engine::{self, EngineError};
 use tdcv2::json::Value;
 
@@ -58,7 +58,9 @@ fn expected_on(engine: &str) -> BTreeMap<String, Expected> {
 
 fn render_on(case: &Case, engine: &str) -> Result<String, EngineError> {
     let config = config_of(case)?.with_engine(engine);
-    engine::render(&config, now_of(case)?)
+    // From the case's own folder, so a `dataPath` case finds its sample file — the same
+    // resolution the CLI does from the config's directory.
+    engine::render_in(&config, now_of(case)?, base_dir_of(case).as_deref())
 }
 
 #[test]

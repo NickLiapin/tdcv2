@@ -90,8 +90,10 @@ def render(value: object, decimals: int | None, read: ColumnsRead | None = None)
         if decimals is None:
             return numbers.to_text(number) if not isinstance(value, int) else str(value)
         return numbers.to_fixed(number, decimals)
-    text_value = str(value)
-    return text_value if decimals is None else numbers.to_fixed(numbers.parse(text_value), decimals)
+    # Text. A formula is allowed to produce it — ``expr="Age > 65 ? senior : adult"`` is a label,
+    # and labels are half of what a data-science config builds. ``decimals=`` says nothing about a
+    # label, so it is left alone rather than forced through a number.
+    return str(value)
 
 
 def row_scope(
