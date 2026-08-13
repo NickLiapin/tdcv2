@@ -34,6 +34,7 @@ export function checkGenFile(
   const attrs = gen.attr();
   const attrMap = extractAttrs(attrs);
   checkSequentialDropsPercent(gen, ctx.diagnostics);
+  checkQuantileRead(gen, attrMap, ctx.diagnostics);
   const srcAttr = findAttr(attrs, 'src');
   if (!srcAttr) {
     ctx.diagnostics.push({
@@ -212,5 +213,101 @@ function checkDrawingValues(
         code: 'TDC285',
       });
     }
+  }
+}
+
+/**
+ * `read="quantile"` — the file as a sorted sample rather than a bag of values.
+ *
+ * Everything refused here is a config that asks for TWO readings of one file at
+ * once. `weight=` says "the shares live in a column beside the values";
+ * `read="quantile"` says "the values ARE the distribution, and how often each
+ * appears is its share". `row=` links several columns to one LINE of the file,
+ * and a quantile answer is not a line — it is a point between two of them.
+ * `order="sequential"` walks the list in order, which is the one thing a
+ * distribution has no notion of.
+ *
+ * Each of these would otherwise have been resolved by whichever branch the
+ * engine reached first, silently — the defect this project keeps closing.
+ */
+function checkQuantileRead(
+  gen: OpenCloseElementContext | SelfClosingElementContext,
+  attrMap: Record<string, string>,
+  diagnostics: Diagnostic[],
+): void {
+  const attrs = gen.attr();
+  const readAttr = findAttr(attrs, 'read');
+  const read = (attrMap['read'] ?? '').trim();
+  const sampleAttr = findAttr(attrs, 'sample');
+  const sample = (attrMap['sample'] ?? '').trim();
+
+  if (readAttr && read !== 'quantile') {
+    diagnostics.push({
+      severity: 'error',
+      source: 'validator',
+      ...attrValueRange(readAttr),
+      message: `read="${read}" is not a way of reading a file — the only one is "quantile"`,
+      hint: 'Leave read= off to pick one of the file\'s values at random, or write read="quantile" to read the file as a sorted sample and land anywhere on it.',
+      code: 'TDC297',
+    });
+    return;
+  }
+
+  if (sampleAttr && sample !== 'exact') {
+    diagnostics.push({
+      severity: 'error',
+      source: 'validator',
+      ...attrValueRange(sampleAttr),
+      message: `sample="${sample}" is not a sampling mode — the only one is "exact"`,
+      hint: 'Leave sample= off to draw from the distribution row by row, or write sample="exact" to sweep it evenly so the run reproduces the sample with no sampling noise.',
+      code: 'TDC297',
+    });
+  }
+
+  if (sampleAttr && read !== 'quantile') {
+    diagnostics.push({
+      severity: 'error',
+      source: 'validator',
+      ...attrValueRange(sampleAttr),
+      message: 'sample= only means something beside read="quantile"',
+      hint: 'It chooses between drawing from the distribution and sweeping it evenly, and a file read as a plain list of values has no distribution to sweep.',
+      code: 'TDC297',
+    });
+  }
+
+  if (read !== 'quantile') return;
+
+  for (const [name, why] of [
+    [
+      'weight',
+      'weight= puts the shares in a COLUMN beside the values, and read="quantile" says the values are the distribution themselves — how often one appears in the file IS its share',
+    ],
+    [
+      'row',
+      'row= links several columns to one LINE of the file, and a quantile answer is not a line: it is a point between two of them',
+    ],
+  ] as const) {
+    const attr = findAttr(attrs, name);
+    if (!attr) continue;
+    diagnostics.push({
+      severity: 'error',
+      source: 'validator',
+      ...attrValueRange(attr),
+      message: `${name}= cannot be combined with read="quantile": ${why}`,
+      hint: `Keep one of the two readings. ${name === 'weight' ? 'A countable value — a city, a status, a number of orders — wants weight= and its exact quota; a measured one wants the quantile read, which also fills in the values between the observations.' : 'To keep a record together, read the file as lines with row= and leave read= off.'}`,
+      code: 'TDC297',
+    });
+  }
+
+  if ((attrMap['order'] ?? '').trim() === 'sequential') {
+    const attr = findAttr(attrs, 'order');
+    diagnostics.push({
+      severity: 'error',
+      source: 'validator',
+      ...(attr ? attrValueRange(attr) : nodeRange(gen)),
+      message: 'order="sequential" cannot be combined with read="quantile"',
+      hint: "Walking a list in order and sampling a distribution are different jobs: one hands out the file's lines one after another, the other says where on the sorted sample a row lands.",
+      code: 'TDC297',
+    });
   }
 }

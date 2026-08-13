@@ -131,6 +131,8 @@ export const GEN_ATTRIBUTES: ReadonlySet<string> = new Set([
   'anomaly_flag',
   'local',
   'weight',
+  'read',
+  'sample',
   // read by one generator type or another
   'expr',
   'lengths',
@@ -221,6 +223,12 @@ export const ATTRIBUTE_OWNERS: ReadonlyMap<string, ReadonlySet<string>> = new Ma
   // A list to walk. A range-based generator draws instead of stepping.
   // `date` joined these when a range became walkable: the same word, the same
   // looping, the same `cycle="false"` refusal — see `dateAxis`.
+  // How a source file is READ: as a bag of values (the default) or as a sorted
+  // sample the run interpolates between. Only `file` has a source to read.
+  ['read', new Set(['file'])],
+  // Whether the quantile read DRAWS from the sample or sweeps it evenly. Only
+  // meaningful beside `read="quantile"`, which only `file` has.
+  ['sample', new Set(['file'])],
   ['order', new Set(['text', 'file', 'date'])],
   ['cycle', new Set(['text', 'file', 'date'])],
   // `step` predates this: on a counter it is how much each row ADDS. A walked
@@ -324,9 +332,12 @@ export const ATTRIBUTE_OWNERS: ReadonlyMap<string, ReadonlySet<string>> = new Ma
   ['length', new Set(['number', 'symbol'])],
   ['include', new Set(['number', 'symbol'])],
   ['exclude', new Set(['number', 'symbol'])],
-  // How many places the answer is printed to. Four generators produce a number
-  // they may have to round; the rest produce text, which has no places.
-  ['decimals', new Set(['number', 'timeseries', 'pattern', 'stat', 'formula'])],
+  // How many places the answer is printed to. These produce a number they may
+  // have to round; the rest produce text, which has no places. `file` is on the
+  // list only because `read="quantile"` makes it produce one — an interpolated
+  // point between two observations, which by default is written to the same
+  // precision as the source.
+  ['decimals', new Set(['number', 'timeseries', 'pattern', 'stat', 'formula', 'file'])],
   ['distribution', new Set(['number'])],
   // The ceiling on what an unbounded pattern may expand to.
   ['regex_max_length', new Set(['regex', 'advanced_regex'])],

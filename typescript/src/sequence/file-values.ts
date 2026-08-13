@@ -22,9 +22,18 @@ import {
 import { distributeByPercent } from '../distribution/hamilton.js';
 import { WeightedFileError, loadWeightedValues, weightColumnOf } from '../generators/weighted.js';
 import { randomInt } from '../prng/random.js';
+import { openUnit } from '../prng/seekable.js';
+import {
+  exactQuantileAt,
+  quantileAt,
+  quantileSource,
+  renderQuantile,
+} from '../generators/quantile.js';
+import { permuteKey } from '../prng/permute.js';
+import { loadFileValues } from '../generators/file.js';
 
 import type { SequenceBuildContext } from './context.js';
-import { exactTextLayout } from './per-row.js';
+import { exactTextLayout, keyedDraws } from './per-row.js';
 import { normalizeRowLink } from './row-link.js';
 import type { GenSpec } from './types.js';
 
@@ -53,6 +62,33 @@ export function buildFileValues(
   };
   const rowKey = normalizeRowLink(gen.attrs['row']);
   const resolvedSrc = resolveExistingDataSourcePath(src, ctx.dataSources).path;
+
+  // `read="quantile"` reads the SAME file as a distribution rather than a bag:
+  // sorted once, a row lands anywhere on it, and the values between observations
+  // appear on their own. One uniform per row and nothing shared, so this needs
+  // no branch of its own on the streaming engine — it arrives here a row at a
+  // time and answers the same way.
+  if ((gen.attrs['read'] ?? '').trim() === 'quantile') {
+    const source = quantileSource(loadFileValues(resolvedSrc, options), src);
+    const raw = (gen.attrs['decimals'] ?? '').trim();
+    const decimals = raw === '' ? source.decimals : Number(raw);
+    const out = new Array<string>(count);
+    // `sample="exact"` sweeps the distribution instead of drawing from it — see
+    // `exactQuantileAt`. It needs a seed and a column name to key the scatter by;
+    // an inline build has neither, and falls back to the drawn form.
+    const keyed = exactSample(gen) ? keyedDraws(ctx) : undefined;
+    if (keyed) {
+      const key = permuteKey(keyed.seed, keyed.streamId);
+      for (let i = 0; i < count; i++) {
+        out[i] = exactQuantileAt(source, decimals, count, key, i);
+      }
+      return out;
+    }
+    for (let i = 0; i < count; i++) {
+      out[i] = renderQuantile(quantileAt(source.sorted, openUnit(prng())), decimals);
+    }
+    return out;
+  }
 
   // `weight=` takes the proportions from a column of the file and honours them
   // EXACTLY — the same Hamilton path `percent=` uses, not a weighted coin flip.
@@ -157,4 +193,9 @@ function weightedRowIndexes(
   const total = counts.reduce((sum, w) => sum + w, 0);
   const percents = counts.map((w) => (w / total) * 100);
   return distributeByPercent({ count, values: indices, percents, prng });
+}
+
+/** `sample="exact"`: cover the distribution evenly rather than draw from it. */
+export function exactSample(gen: GenSpec): boolean {
+  return (gen.attrs['sample'] ?? '').trim() === 'exact';
 }

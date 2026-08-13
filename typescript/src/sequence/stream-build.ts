@@ -43,6 +43,8 @@ import {
 } from '../generators/timeseries.js';
 import { parseAnomaly } from '../generators/anomaly.js';
 import { permute, permuteKey } from '../prng/permute.js';
+import { seekableUniforms } from '../prng/seekable.js';
+import { atRow, exactQuantileSweep, rowLinkedFileValue } from './stream-quantile.js';
 import { anomalyFlagSequence, missingAnomalyMod, type RawAt } from './stream-anomaly.js';
 import { buildMixSeq } from './stream-mix.js';
 import { lazy } from './stream-lazy.js';
@@ -51,8 +53,6 @@ import { redrawUntilFresh, redrawUntilFreshAt } from './repeat-distinct.js';
 import { poolRefName } from './pool.js';
 import { lazyPoolRefColumns } from './pool-ref.js';
 import { createPrng } from '../prng/prng.js';
-import { seekableInt, seekableUniforms } from '../prng/seekable.js';
-import { csvColumnCell } from '../generators/file.js';
 import { resolveExistingDataSourcePath } from '../data-source/index.js';
 
 import {
@@ -76,7 +76,6 @@ import {
 } from './repeat.js';
 import type { NumberLengthChoice } from '../generators/number.js';
 import { numberLengthChoicesOf, pinLength, weightedTemplatePack } from './stream-weighted.js';
-import { prepareRowLinkedFileSource } from './row-link.js';
 import { arrangeExactUniq, type ExactUniqField } from './exact-uniq.js';
 import { counterValueAt } from './stream-resolve.js';
 import { buildComposedStream, composesOwnValue } from './composed.js';
@@ -707,25 +706,23 @@ function buildValueSequence(
     };
   }
 
-  // Row-linked file field (`row="K"`): every field sharing the key must resolve
-  // the SAME CSV row for a given card (column coherence), while the row varies
-  // per card. Engine 1 builds a shared plan of `count` indexes for this; the
-  // streaming path can't materialize that (it resolves one card at a time), so
-  // it re-derives the card's row index from a seekable stream keyed by the LINK
-  // — shared across the link's fields, independent of each field's own stream.
-  // `wrapLazy` still applies this field's own `missing`/`anomaly`/format.
-  if (gen.type === 'file' && weightColumn === undefined) {
-    const linked = prepareRowLinkedFileSource(gen, options.dataSources ?? {});
-    if (linked) {
-      return {
-        sequence: wrapLazy((i) => {
-          const r = popIndexAt(i);
-          if (r === undefined) return undefined;
-          const index = seekableInt(seed, linked.streamId, i, linked.rowCount);
-          return csvColumnCell(linked.rows[index] ?? [], linked.columnIndex);
-        }),
-      };
-    }
+  // `read="quantile" sample="exact"`: the row's point on the sorted sample comes
+  // from a scatter over the WHOLE run, so it cannot go down the generic per-row
+  // path (which is handed a count of one). See `stream-quantile.ts`.
+  const sweep = exactQuantileSweep(gen, options.dataSources ?? {}, seed, streamId, size);
+  if (sweep) {
+    return { sequence: wrapLazy((i) => atRow(popIndexAt(i), sweep)) };
+  }
+
+  // Row-linked file field (`row="K"`): the card's row is re-derived from a
+  // seekable stream keyed by the LINK, so every field sharing it lands on the
+  // same CSV row. See `stream-quantile.ts` for the resolver.
+  const linked =
+    weightColumn === undefined
+      ? rowLinkedFileValue(gen, options.dataSources ?? {}, seed)
+      : undefined;
+  if (linked) {
+    return { sequence: wrapLazy((i) => atRow(popIndexAt(i), () => linked(i))) };
   }
 
   if (gen.type === 'increment' || gen.type === 'decrement') {

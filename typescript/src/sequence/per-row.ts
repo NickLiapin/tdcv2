@@ -132,6 +132,12 @@ export function perRowBuildable(
   // quotas over the whole column: the streaming engine lays them out the way
   // it lays out weighted text, so this engine must too, not draw per row.
   if (gen.attrs['weight'] !== undefined) return false;
+  // `sample="exact"` on a quantile read is a PLAN too: every row takes its own
+  // point on the sorted sample, and which point follows from a scatter over the
+  // whole column. Built a row at a time it would see a count of one and hand
+  // every row the median — measured, before this line existed: the first
+  // hundred thousand rows all came out 53.30.
+  if ((gen.attrs['sample'] ?? '').trim() === 'exact') return false;
   if (weightedTemplatePack(gen, ctx.packs, gen.attrs['local'] ?? locale) !== undefined)
     return false;
   // A weighted choice inside an advanced_regex — `(?%{RU:70|US:20|DE:10})` —
