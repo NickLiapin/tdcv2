@@ -554,11 +554,30 @@ de veinte enteros, el valor `46` (uno de veinte, o sea el 5% de la muestra) sale
 el 0.4% de las filas; el resto se fue a 47, 48 y 49, que la muestra nunca vio pero
 que la magnitud continua a la que representa sí contiene.
 
-A un átomo grande no le afecta: un 40% de ceros exactos vuelve como 39.995%, porque
-su meseta es mucho más ancha que las rampas de sus bordes. Un valor que aparece dos
-veces entre mil conserva más o menos la mitad de su proporción.
+Lo que decide es la DISTANCIA al siguiente valor observado, no cuántas veces se
+repite uno. Medido sobre ocho observaciones, cada una presente exactamente una vez
+— cuatro separadas por uno y cuatro lejanas:
 
-En resumen: si lo que importa es la proporción exacta de cada valor listado, eso es
+```
+10 → 12.500%   11 → 12.500%   12 → 12.500%   13 → 6.481%
+40 → 0%        80 → 0%       160 → 0%       320 → 0%
+```
+
+A cada una le corresponde el 12.5%. Las tres con vecino a ambos lados lo conservan
+entero; `13` conserva la mitad, porque de un lado hay densidad y del otro un hueco;
+las cuatro lejanas se disuelven en los valores intermedios. Un átomo grande
+sobrevive por la misma razón: un 40% de ceros exactos vuelve como 39.997%, porque
+su meseta es mucho más ancha que las rampas de sus bordes.
+
+De ahí la comprobación que puede hacer sobre su propio archivo sin generar nada:
+
+- **Sin huecos en el paso de la propia muestra** — enteros seguidos, céntimos
+  seguidos — y todas las proporciones salen exactas. Medido sobre los enteros 0…20
+  sin un solo hueco: peor desviación 0.0003 puntos porcentuales en los 21 valores.
+- **Con huecos** — se reproduce la forma, y la proporción de un valor concreto se
+  reparte por el hueco tanto más cuanto más ancho sea.
+
+Y si lo que hace falta es la proporción exacta de cada valor listado, eso es
 [`weight=`](#weighted-rows--row--weight) y su cuota exacta. La lectura por cuantiles
 es para cuando la muestra representa algo continuo.
 

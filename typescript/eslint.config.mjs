@@ -70,11 +70,18 @@ export default tseslint.config(
     // Build scripts are plain ESM run by node, not part of the type-checked
     // project — the type-aware rules need a tsconfig they are deliberately not
     // in. They still get the core rules, which is the point of linting them.
-    files: ['scripts/**/*.mjs'],
+    // `.cjs` is here for the one script that is plain CommonJS: the quantile
+    // signature check, which came in from the Studio side and is meant to be
+    // copied to each port as-is.
+    files: ['scripts/**/*.mjs', 'scripts/**/*.cjs'],
     extends: [tseslint.configs.disableTypeChecked],
     languageOptions: {
       globals: globals.node,
       parserOptions: { projectService: false, project: false },
+    },
+    rules: {
+      // A `.cjs` script IS CommonJS; `require` is how it loads anything.
+      '@typescript-eslint/no-require-imports': 'off',
     },
   },
   {

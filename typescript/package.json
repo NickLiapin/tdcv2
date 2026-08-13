@@ -104,6 +104,7 @@
     "diagnostics:update": "npx tsx scripts/cross-language-diagnostics.mjs --update",
     "engines": "npx tsx scripts/cross-language-engines.mjs",
     "engines:update": "npx tsx scripts/cross-language-engines.mjs --update",
+    "signature": "node scripts/signature/quantile-signature.cjs dist/cli/main.js",
     "parquet": "npx tsx scripts/cross-language-parquet.mjs",
     "parquet:update": "npx tsx scripts/cross-language-parquet.mjs --update",
     "docs:examples": "npx tsx scripts/check-doc-examples.mjs --quiet",

@@ -62,3 +62,23 @@ Every case runs against the **in-memory engine**. The streaming engines compute
 a row from its index and consume the generator in a different order, so they
 produce different values from the same seed by design; mixing the two here would
 compare two algorithms rather than two implementations.
+
+## Beyond the cases: `npm run signature`
+
+Six of the quantile cases pin ten lines each. The promises `read="quantile"`
+exists for — a six-order-of-magnitude tail reproduced to 0.0000%, every
+observation owning exactly its share, the comb gone — live on a hundred thousand
+rows and cannot be written as bytes. `typescript/scripts/signature/quantile-signature.cjs`
+asserts them directly against any implementation's CLI:
+
+```
+node scripts/signature/quantile-signature.cjs dist/cli/main.js
+```
+
+It builds its own samples, exits non-zero on failure, and is meant to be hung in
+each port's CI. Fourteen checks; the reference passes all fourteen.
+
+One thing to know before reading a failure as a defect: its reference quantile
+uses the MIDPOINT convention, `sorted[i]` at `(i + 0.5)/n` — the same one the
+engine uses. Computed against the ends, `i/(n-1)`, the same runs read about 1.3%
+off, and that is two definitions of a quantile rather than an error.
