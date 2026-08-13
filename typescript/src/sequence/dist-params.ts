@@ -24,6 +24,7 @@ import {
 import { openUnit } from '../prng/seekable.js';
 import { evaluateValueInScope } from '../expr/index.js';
 import { absoluteRow } from './per-row.js';
+import { FormulaError, NUMERIC } from './formula.js';
 import type { AttrMap } from '../processor/attrs.js';
 
 import type { SequenceBuildContext } from './context.js';
@@ -49,18 +50,26 @@ export function resolveParams(
   row: number,
 ): ResolvedParams {
   const out: Record<string, string> = { ...attrs };
-  let empty = false;
+  // What the lookups saw, in the shape `formula` uses: `empty` for a column that
+  // held nothing, `text` for the first that held words rather than a number.
+  // An object rather than two locals because they are written inside a callback,
+  // and the reader below must see what the callback wrote.
+  const read: { empty: boolean; text?: { name: string; value: string } } = { empty: false };
   for (const name of dynamic) {
     const expr = attrs[name];
     if (expr === undefined) continue;
     const value = evaluateValueInScope(expr, (ref) => {
       if (ref === '_count') return String(row + 1);
       const cell = ctx.valueAt?.(ref, row);
-      // A name the registry knows, holding nothing: the row a `parent=` filter
-      // switched off, or a `missing=` blank. That is not a zero, and it cannot
-      // be told apart later — an unresolved bare word evaluates to the WORD, the
-      // way `if="Tier == hi"` reads `hi`. So it is noticed here, at the lookup.
-      if ((cell ?? '').trim() === '' && ctx.hasColumn?.(ref) === true) empty = true;
+      if (ctx.hasColumn?.(ref) === true) {
+        // A name the registry knows, holding nothing: the row a `parent=` filter
+        // switched off, or a `missing=` blank. That is not a zero, and it cannot
+        // be told apart later — an unresolved bare word evaluates to the WORD,
+        // the way `if="Tier == hi"` reads `hi`. So it is noticed at the lookup.
+        if ((cell ?? '').trim() === '') read.empty = true;
+        else if (read.text === undefined && !NUMERIC.test(cell ?? ''))
+          read.text = { name: ref, value: cell ?? '' };
+      }
       return cell;
     });
     if (typeof value === 'bigint') out[name] = value.toString();
@@ -70,8 +79,18 @@ export function resolveParams(
     // and nothing else is the simplest way to write this and must work too.
     else if (typeof value === 'string' && value.trim() !== '' && Number.isFinite(Number(value)))
       out[name] = value.trim();
+    // Nothing numeric came out, and a column is the reason. Say which — the
+    // distribution's own message would only repeat that the parameter is "not a
+    // number", which the author can already see. Same wording as the formula
+    // generator, because it is the same mistake read from the same columns.
+    else if (!read.empty && read.text !== undefined) {
+      throw new FormulaError(
+        `${name}: the expression is not a number: column "${read.text.name}" holds ` +
+          `"${read.text.value}", which is text rather than a number`,
+      );
+    }
   }
-  return { attrs: out, empty };
+  return { attrs: out, empty: read.empty };
 }
 
 /** A resolved parameter set, and whether any of it read an empty cell. */

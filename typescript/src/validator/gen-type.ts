@@ -55,7 +55,8 @@ export type GenTypeCtx = FileValidationContext &
  */
 const DERIVED_TYPES: ReadonlySet<string> = new Set(['running', 'stat', 'formula']);
 
-function isDerived(type: string | undefined, attrs: Record<string, string>): boolean {
+/** Is this `<gen>` a whole column read from other columns? */
+export function isDerived(type: string | undefined, attrs: Record<string, string>): boolean {
   if (type === undefined) return false;
   if (DERIVED_TYPES.has(type)) return true;
   return type === 'date' && (attrs['of'] ?? '').trim() !== '';
