@@ -46,10 +46,32 @@ const fs = require('fs');
 const os = require('os');
 const path = require('path');
 
-const CLI = process.argv[2];
-if (!CLI) {
-  console.error('give it a CLI: node quantile-signature.cjs /path/to/dist/cli/main.js');
+// One argument is a Node script, which is how the reference is run. Several are a whole
+// command — `python -m tdcv2.cli`, `java -jar tdc.jar`, a Rust or C# binary — so the same
+// checks run against any of the five without a copy per language.
+const COMMAND = process.argv.slice(2);
+if (COMMAND.length === 0) {
+  console.error(
+    'give it a CLI: node quantile-signature.cjs dist/cli/main.js\n' +
+      '            or node quantile-signature.cjs java -jar build/libs/tdc.jar',
+  );
   process.exit(2);
+}
+// One argument ending in a JS extension is a script and needs `node` in front of it;
+// anything else is run as it stands, which covers a native binary and a whole command.
+const [EXE, ...PREFIX] =
+  COMMAND.length === 1 && /\.[cm]?js$/.test(COMMAND[0]) ? ['node', COMMAND[0]] : COMMAND;
+const CLI = COMMAND.join(' ');
+
+/** Run the implementation under test on one config. */
+function run(args) {
+  try {
+    return execFileSync(EXE, [...PREFIX, ...args], { stdio: ['ignore', 'pipe', 'pipe'] });
+  } catch (e) {
+    // The implementation's own words, not a Node stack trace over a Buffer of bytes.
+    const said = (e.stderr ?? Buffer.alloc(0)).toString().trim();
+    throw new Error(`${CLI} refused:\n${said || e.message}`);
+  }
 }
 
 const DIR = fs.mkdtempSync(path.join(os.tmpdir(), 'sigcheck-'));
@@ -74,7 +96,7 @@ const generate = (src, count, extra, tag) => {
   const cfg = path.join(DIR, `${tag}.tdc`);
   const out = path.join(DIR, `${tag}.out`);
   fs.writeFileSync(cfg, config);
-  execFileSync('node', [CLI, cfg, '--data-path', DIR, '-o', out]);
+  run([cfg, '--data-path', DIR, '-o', out]);
   return fs.readFileSync(out, 'utf8').trim().split('\n');
 };
 
@@ -240,7 +262,7 @@ console.log(`\nread="quantile" — the promises that only show up at scale\nCLI:
   const cfg = path.join(DIR, 'nbr.tdc');
   const out = path.join(DIR, 'nbr.out');
   fs.writeFileSync(cfg, config);
-  execFileSync('node', [CLI, cfg, '--data-path', DIR, '-o', out]);
+  run([cfg, '--data-path', DIR, '-o', out]);
   const lines = fs.readFileSync(out, 'utf8').trim().split('\n');
   const blank = (lines.filter((x) => x === '').length / lines.length) * 100;
   check(
@@ -289,7 +311,7 @@ console.log(`\nread="quantile" — the promises that only show up at scale\nCLI:
   const outs = variants.map((args, k) => {
     const out = path.join(DIR, `det${k}.out`);
     try {
-      execFileSync('node', [CLI, cfg, '--data-path', DIR, '-o', out, ...args]);
+      run([cfg, '--data-path', DIR, '-o', out, ...args]);
       return fs.readFileSync(out, 'utf8');
     } catch {
       return null;
