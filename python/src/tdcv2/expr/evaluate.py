@@ -376,7 +376,6 @@ _INT64_MIN = -9223372036854775808
 _INT64_MAX = 9223372036854775807
 
 
-
 def _exact_or(args: list, whole_answer, float_answer):
     """Answer exactly when the argument is a whole number, else in floating point."""
     whole = _as_exact_int(_at(args, 0))

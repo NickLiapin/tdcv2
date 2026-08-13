@@ -27,10 +27,10 @@ from ..format import interpolate
 from ..format.mask import apply_mask
 from ..format.transforms import apply_case, is_case_transform
 from ..generators import accumulate as accumulate_gen
-from ..generators import advanced_regex, counter, imperfections, number, regex, symbol
+from ..generators import advanced_regex, counter, imperfections, number, quantile, regex, symbol
 from ..generators import date_offset as date_offset_gen
 from ..generators import file as file_gen
-from ..generators import quantile
+from ..generators import formula as formula_gen
 from ..generators import http as http_gen
 from ..generators import repeat as repeat_gen
 from ..generators import stat as stat_gen
@@ -44,9 +44,8 @@ from ..prng.seekable import open_unit
 from ..sequence import assertions, uniq_simple
 from ..sequence import pool as pool_mod
 from ..sequence import uniq as uniq_lib
-from ..stats import dist_params
+from ..stats import dist_params, timeseries
 from ..stats import distribution as dist
-from ..stats import timeseries
 from . import per_row, repeat_keyed
 
 # How many redraws a <distinct> field gets before its source is called too small.
@@ -138,7 +137,7 @@ def build(
     assertions.check(
         config.asserts,
         config.sequences,
-        lambda name, row: (columns[name][row] if name in columns else None),
+        lambda name, row: columns[name][row] if name in columns else None,
         lambda name: name in columns,
         count,
     )
@@ -431,6 +430,13 @@ def _build_columns(
             _running(spec, columns, count)
             continue
 
+        # Arithmetic over the columns beside it. Resolved here for the same reason as the two
+        # below: it reads columns that already exist, so every name in `expr=` has to be
+        # declared above. Unlike them it needs only its OWN row, which is why it also streams.
+        if spec.gen is not None and spec.gen.type == "formula":
+            _formula(spec, columns, count)
+            continue
+
         # A statistic over the whole run. Resolved here for the same reason and by the same
         # rule: it reads a column that already exists, so `of=` has to name a sequence above it.
         if spec.gen is not None and spec.gen.type == "stat":
@@ -533,8 +539,10 @@ def composes_own_value(items: list[Item]) -> bool:
     A body of nothing but named items — fields and constants — has none, and ``${{Name}}`` stays
     the literal marker that says you meant a field.
     """
-    return any(item.constant_name is None and (item.gen is not None or item.text is not None)
-               for item in items)
+    return any(
+        item.constant_name is None and (item.gen is not None or item.text is not None)
+        for item in items
+    )
 
 
 def _composed(
@@ -625,11 +633,7 @@ def _compound(
     produced: dict[str, list[str]] = {}
     for f in spec.fields:
         field_run = per_row.with_rows(run, f"{spec.name}.{f.name}", rows)
-        produced[f.name] = (
-            []
-            if applicable == 0
-            else _column_values(f.gen, applicable, field_run)
-        )
+        produced[f.name] = [] if applicable == 0 else _column_values(f.gen, applicable, field_run)
 
     if applicable > 0 and spec.distinct_groups is not None:
         _enforce_distinct(spec, produced, applicable, run, rows)
@@ -653,7 +657,7 @@ def _mix_column(
     # The '#switch' suffix is a stable historical PRNG key — the streaming engine uses it
     # verbatim so a <mix> keeps the values of the <switch> it replaced. Both must spell it the
     # same way.
-    mix_run = per_row.with_rows(run, f'{spec.name}#switch', rows)
+    mix_run = per_row.with_rows(run, f"{spec.name}#switch", rows)
     produced = [] if applicable == 0 else _mix_values(spec.mix, applicable, mix_run, flags)
     columns[spec.name or ""] = _spread(rows, produced, count)
 
@@ -756,9 +760,7 @@ def _plain_column(
         # from a label the data never had. With `repeat` the label is a LIST parallel to the
         # values, saying which element spiked rather than merely that one did.
         labels = (
-            repeat_flags
-            if repeat_flags is not None
-            else [str(on).lower() for on in anomaly_flags]
+            repeat_flags if repeat_flags is not None else [str(on).lower() for on in anomaly_flags]
         )
         columns[flag_name] = _spread(rows, labels, count)
 
@@ -1021,9 +1023,7 @@ def _case_values(case, count: int, run: _Run) -> list[str]:
     """
     out = [""] * count
     for p, part in enumerate(case.parts):
-        part_run = (
-            run if run.stream_id is None else replace(run, stream_id=f"{run.stream_id}#p{p}")
-        )
+        part_run = run if run.stream_id is None else replace(run, stream_id=f"{run.stream_id}#p{p}")
         if part.text is not None:
             values = [part.text] * count
         elif part.gen is not None:
@@ -1138,9 +1138,7 @@ def _switch_values(spec, count: int, run: _Run, columns, name: str) -> list[str 
             return
         ordered = [positions[j] for j in order]
         ordered_rows = [rows[j] for j in order]
-        values = _case_values(
-            case, len(ordered), per_row.with_rows(run, stream_id, ordered_rows)
-        )
+        values = _case_values(case, len(ordered), per_row.with_rows(run, stream_id, ordered_rows))
         for local, position in enumerate(ordered):
             out[position] = values[local]
 
@@ -1830,9 +1828,7 @@ def _generate(
             # The same apportionment percent= uses, so the file's counts come out exact rather
             # than approximate — and laid out the way the streaming engine lays it out, so a
             # weighted file column reads the same on every engine.
-            exact = per_row.exact_text_layout(
-                weighted.values, None, count, run, weighted.percents
-            )
+            exact = per_row.exact_text_layout(weighted.values, None, count, run, weighted.percents)
             if exact is not None:
                 return exact
             return hamilton.distribute(count, weighted.values, weighted.percents, prng)
@@ -1879,9 +1875,7 @@ def _generate(
             # proportions the run has to hit, which is the same path percent= takes — and laid
             # out the way the streaming engine lays it out, so `Smith` gets its Census share on
             # the same rows on every engine.
-            exact = per_row.exact_text_layout(
-                entry.values, None, count, run, entry.percents or []
-            )
+            exact = per_row.exact_text_layout(entry.values, None, count, run, entry.percents or [])
             if exact is not None:
                 return exact
             return hamilton.distribute(count, entry.values, entry.percents or [], prng)
@@ -1951,9 +1945,7 @@ def _timeseries(attrs: dict[str, str], count: int, run: _Run) -> list[str]:
             # stream the streaming engine uses. Same two names, same two uniforms, same series.
             if key_pair is not None:
                 seed, stream_id = key_pair
-                u1, u2 = seekable.uniforms(
-                    seed, f"{stream_id}:ts", per_row.absolute_row(run, i), 2
-                )
+                u1, u2 = seekable.uniforms(seed, f"{stream_id}:ts", per_row.absolute_row(run, i), 2)
             else:
                 u1, u2 = open_unit(run.prng.next()), open_unit(run.prng.next())
             z = timeseries.standard_normal(u1, u2)
@@ -1978,6 +1970,26 @@ def _pattern(attrs: dict[str, str], count: int, run: _Run) -> list[str]:
         return seekable.uniforms(seed, f"{stream_id}:pat", per_row.absolute_row(run, i), 1)[0]
 
     return [patterns.value_at(resolved, i / denom, band(i)) for i in range(count)]
+
+
+def _formula(spec, columns: dict[str, list[str]], count: int) -> None:
+    """One `<gen type="formula">` column, from the columns already in the registry."""
+    gen = spec.gen
+    source = formula_gen.expression_of(gen.attrs)
+    decimals = formula_gen.decimals_of(gen.attrs)
+    values: list[str] = []
+    for i in range(count):
+        answer = formula_gen.value_at_row(
+            source,
+            decimals,
+            lambda name, r=i: (
+                columns[name][r] if name in columns and r < len(columns[name]) else None
+            ),
+            lambda name: name in columns,
+            i,
+        )
+        values.append("" if answer is None else answer)
+    columns[spec.name or ""] = values
 
 
 def _quantile_values(attrs: dict[str, str], count: int, prng: Sfc32, run: _Run) -> list[str]:

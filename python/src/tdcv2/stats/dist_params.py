@@ -14,8 +14,8 @@ predecessors — the property every engine is built on.
 from __future__ import annotations
 
 import re
+from collections.abc import Callable
 from dataclasses import dataclass
-from typing import Callable
 
 from ..expr import as_value
 from ..lib import numbers

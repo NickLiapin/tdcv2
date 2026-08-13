@@ -32,10 +32,10 @@ from ..expr.match_key import match_key
 from ..format import interpolate
 from ..format.mask import apply_mask
 from ..format.transforms import apply_case, is_case_transform
-from ..generators import advanced_regex, imperfections, number
+from ..generators import advanced_regex, imperfections, number, quantile
 from ..generators import date_offset as date_offset_gen
 from ..generators import file as file_gen
-from ..generators import quantile
+from ..generators import formula as formula_gen
 from ..generators import repeat as repeat_gen
 from ..lib import numbers
 from ..model.config import Case, Config, Gen, Line, SequenceSpec
@@ -643,6 +643,30 @@ class StreamEngine:
 
             return Built(_wrap(mod, drawn))
 
+        # Arithmetic over the columns beside it. It needs only its OWN row, so unlike a running
+        # total it streams: the lazy registry answers the siblings at the same row, and nothing is
+        # carried between rows.
+        if type_ == "formula":
+            source = formula_gen.expression_of(attrs)
+            decimals = formula_gen.decimals_of(attrs)
+
+            def computed(row: int) -> str | None:
+                r = domain.pop_index_at(row)
+                if r is None:
+                    return None
+                answer = formula_gen.value_at_row(
+                    source,
+                    decimals,
+                    lambda name, rr=row: (
+                        (self.columns[name](rr) or "") if name in self.columns else None
+                    ),
+                    lambda name: name in self.columns,
+                    r,
+                )
+                return "" if answer is None else answer
+
+            return Built(_wrap(mod, computed))
+
         # `read="quantile"` reads the file as a sorted sample. The DRAWN form needs no branch —
         # one uniform per row, so the generic per-row path answers it identically. The EXACT
         # sweep does need one: it maps the row into a scatter over the WHOLE run, and the generic
@@ -862,7 +886,9 @@ class StreamEngine:
             self.base_dir,
             prng,
             rows=None if row is None else [row],
-            value_at=lambda name, r: (self.columns[name](r) or "") if name in self.columns else None,
+            value_at=lambda name, r: (
+                (self.columns[name](r) or "") if name in self.columns else None
+            ),
         )
         repeat = repeat_gen.parse(gen.attrs)
         if repeat is None:

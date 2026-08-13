@@ -516,6 +516,7 @@ GEN_TYPES = frozenset(
     {
         "text", "file", "template", "number", "regex", "advanced_regex", "symbol", "date",
         "increment", "decrement", "timeseries", "pattern", "http", "pool", "running", "stat",
+        "formula",
     }
 )  # fmt: skip
 
@@ -609,6 +610,19 @@ def _bad_index_literal(node) -> str | None:
         inner = node.operand.value
         return "-" + (numbers.to_text(float(inner)) if isinstance(inner, float) else str(inner))
     return None
+
+
+#: The four types that are a WHOLE COLUMN read from other columns.
+_DERIVED_TYPES = frozenset({"running", "stat", "formula"})
+
+
+def _is_derived(type_: str | None, attrs: dict[str, str]) -> bool:
+    """Is this `<gen>` a whole column read from other columns?"""
+    if type_ is None:
+        return False
+    if type_ in _DERIVED_TYPES:
+        return True
+    return type_ == "date" and bool((attrs.get("of") or "").strip())
 
 
 def _identifiers_of(node) -> set[str]:
@@ -1762,6 +1776,7 @@ class _Validator:
                         out.append(wrapped)
                     elif inner_tag == "sequence":
                         members += 1
+                        self._check_group_derived_member(wrapped, tag)
                         self._check_env_group_member(wrapped, tag)
                         out.append(wrapped)
                 self._check_group_size(open_el, tag, members)
@@ -1850,6 +1865,61 @@ class _Validator:
             )
             self._check_if_expression(that, where[0], where[1])
             self._defer_expression(that, where[0], where[1], False)
+
+    def _check_group_derived_member(self, sequence, tag: str) -> None:
+        """A DERIVED column inside a `<uniq>` or `<distinct>` group.
+
+        A group is a rearrangement: it keeps every member's multiset of values and permutes the
+        columns until each record is unique. Sound for drawn columns — a draw means the same
+        wherever it lands — and destructive for a derived one, whose value is a statement ABOUT
+        the row it was computed for. Measured on the reference, `<uniq>` over `A` (1..5) and
+        `F = A * 10` gave `2|20  3|20  3|30  2|30  5|50`: two rows of five saying that ten times
+        three is twenty, with `check` calling the config valid.
+
+        A `<compute>` is the same case from the other side — `f(x)` is `f(x)`, so it has no pool
+        to draw from and no column of its own to rearrange.
+        """
+        name = _attrs(sequence.attr()).get("name") or "?"
+        for child in _elements(sequence):
+            open_el = child.openCloseElement()
+            if open_el is not None and open_el.name.text == "compute":
+                line, column = _line(open_el), _column(open_el)
+                self._error(
+                    "TDC296",
+                    f'<sequence name="{name}"> holds a <compute>, which cannot be a member of '
+                    f"<{tag}>: it derives its value from other columns, so it has nothing of its "
+                    "own to rearrange and cannot keep the group's promise",
+                    f"Put the <{tag}> around the <gen> sequences the <compute> READS. Its value "
+                    "follows them, so arranging the inputs arranges the result.",
+                    line,
+                    column,
+                )
+                return
+            gen = child.selfClosingElement()
+            if gen is None or gen.name.text != "gen":
+                continue
+            attrs = _attrs(gen.attr())
+            type_ = attrs.get("type")
+            if not _is_derived(type_, attrs):
+                continue
+            described = (
+                "a date measured from another column (of=)"
+                if type_ == "date"
+                else f'a type="{type_}" column'
+            )
+            line, column = _line(gen), _column(gen)
+            self._error(
+                "TDC296",
+                f'<sequence name="{name}"> holds {described}, which cannot be a member of '
+                f"<{tag}>: the group rearranges finished columns, and a computed value moved to "
+                "another row no longer describes that row",
+                f"Put the {tag} group around the columns this one READS, and leave the computed "
+                "column outside it. It follows whatever the group arranges, so it stays true row "
+                "by row.",
+                line,
+                column,
+            )
+            return
 
     def _check_env_group_member(self, sequence, tag: str) -> None:
         """A member of an env-level group has to produce one value per row.
@@ -2575,10 +2645,16 @@ class _Validator:
         self._check_gen_attributes(gen, attrs, type_)
 
         self._check_weight(gen, attrs, type_)
+        # Before the source is read: how the file is READ is a question about the config, and a
+        # reader whose `read=` is misspelled should be told that first, not sent to look at the
+        # path. The reference reports them in this order and the fixtures pin it.
+        self._check_quantile_read(gen, attrs, type_)
         self._check_source(gen, attrs, type_)
         self._check_http(gen, attrs, type_)
         self._check_running(gen, attrs, type_)
         self._check_stat(gen, attrs, type_)
+        self._check_formula(gen, attrs, type_)
+        self._check_derived_not_conditional(gen, attrs, type_)
         self._check_mask(gen, attrs)
         self._check_counter(gen, attrs, type_)
         self._check_date_templates(gen, attrs, type_)
@@ -4135,6 +4211,138 @@ class _Validator:
                 "come first."
                 if not self.declared_order
                 else "Declared above: " + ", ".join(self.declared_order) + ".",
+                line,
+                column,
+            )
+
+    def _check_formula(self, gen, attrs: dict[str, str], type_: str | None) -> None:
+        """`expr=` is what a formula IS, and every name in it must be a column declared above."""
+        if type_ != "formula":
+            return
+        source = (attrs.get("expr") or "").strip()
+        if not source:
+            line, column = _at(gen, "type")
+            self._error(
+                "TDC294",
+                '<gen type="formula"> needs expr="…"',
+                'The expression is what the column IS: expr="Weight / (Height * Height)".',
+                line,
+                column,
+            )
+            return
+        self._expression_names(gen, "expr", source)
+
+    def _check_derived_not_conditional(self, gen, attrs: dict[str, str], type_: str | None) -> None:
+        """A derived column cannot be ONE BRANCH of a per-row choice.
+
+        `running`, `stat`, a date offset and `formula` are built once, for the whole column, in
+        declaration order. An `if=` asks for something else entirely: a value chosen row by row.
+        The two cannot both be true, and the run used to die with a message that read like an
+        unfinished engine rather than a config that cannot mean anything.
+        """
+        if not _is_derived(type_, attrs):
+            return
+        if not (attrs.get("if") or "").strip():
+            return
+        line, column = _at(gen, "if")
+        self._error(
+            "TDC295",
+            f'a type="{type_}" column is built for the whole run, so it cannot carry if=',
+            "It reads other columns in declaration order and produces one column, not a value "
+            'chosen per row. Put the condition where the value is USED — `<data if="…">` — or '
+            "compute the column unconditionally and branch on it afterwards.",
+            line,
+            column,
+        )
+
+    def _check_quantile_read(self, gen, attrs: dict[str, str], type_: str | None) -> None:
+        """`read="quantile"` — the file as a sorted sample rather than a bag of values.
+
+        Everything refused here asks for TWO readings of one file at once. `weight=` says the
+        shares live in a second column; `read="quantile"` says the values ARE the distribution.
+        `row=` links several columns to one LINE, and a quantile answer is a point between two of
+        them. `order="sequential"` walks the list in order, which a distribution has no notion of.
+        """
+        if type_ != "file":
+            return
+        read = (attrs.get("read") or "").strip()
+        sample = (attrs.get("sample") or "").strip()
+
+        if "read" in attrs and read != "quantile":
+            line, column = _at(gen, "read")
+            self._error(
+                "TDC297",
+                f'read="{read}" is not a way of reading a file — the only one is "quantile"',
+                "Leave read= off to pick one of the file's values at random, or write "
+                'read="quantile" to read the file as a sorted sample and land anywhere on it.',
+                line,
+                column,
+            )
+            return
+
+        if "sample" in attrs and sample != "exact":
+            line, column = _at(gen, "sample")
+            self._error(
+                "TDC297",
+                f'sample="{sample}" is not a sampling mode — the only one is "exact"',
+                "Leave sample= off to draw from the distribution row by row, or write "
+                'sample="exact" to sweep it evenly so the run reproduces the sample with no '
+                "sampling noise.",
+                line,
+                column,
+            )
+
+        if "sample" in attrs and read != "quantile":
+            line, column = _at(gen, "sample")
+            self._error(
+                "TDC297",
+                'sample= only means something beside read="quantile"',
+                "It chooses between drawing from the distribution and sweeping it evenly, and a "
+                "file read as a plain list of values has no distribution to sweep.",
+                line,
+                column,
+            )
+
+        if read != "quantile":
+            return
+
+        for name, why in (
+            (
+                "weight",
+                'weight= puts the shares in a COLUMN beside the values, and read="quantile" '
+                "says the values are the distribution themselves — how often one appears in the "
+                "file IS its share",
+            ),
+            (
+                "row",
+                "row= links several columns to one LINE of the file, and a quantile answer is not "
+                "a line: it is a point between two of them",
+            ),
+        ):
+            if not (attrs.get(name) or "").strip():
+                continue
+            line, column = _at(gen, name)
+            self._error(
+                "TDC297",
+                f'{name}= cannot be combined with read="quantile": {why}',
+                "Keep one of the two readings. A countable value wants weight= and its exact "
+                "quota; a measured one wants the quantile read, which also fills in the values "
+                "between the observations."
+                if name == "weight"
+                else "To keep a record together, read the file as lines with row= and leave "
+                "read= off.",
+                line,
+                column,
+            )
+
+        if (attrs.get("order") or "").strip() == "sequential":
+            line, column = _at(gen, "order")
+            self._error(
+                "TDC297",
+                'order="sequential" cannot be combined with read="quantile"',
+                "Walking a list in order and sampling a distribution are different jobs: one "
+                "hands out the file's lines one after another, the other says where on the "
+                "sorted sample a row lands.",
                 line,
                 column,
             )
