@@ -360,6 +360,7 @@ GEN_ATTRS = frozenset(
         "timeout", "secret", "mean", "sd", "meanlog", "sdlog", "rate", "alpha", "xmin",
         "shape", "scale",
         "lambda", "n", "s", "beta", "min", "max", "filter", "peak_at",
+        "expr", "lengths", "read", "sample",
     }
 )  # fmt: skip
 
@@ -417,6 +418,11 @@ ATTRIBUTE_OWNERS: dict[str, frozenset[str]] = {
     "header": frozenset({"file"}),
     "delimiter": frozenset({"file"}),
     "row": frozenset({"file"}),
+    # How a source file is READ: as a bag of values (the default) or as a sorted sample the run
+    # interpolates between. Only `file` has a source to read.
+    "read": frozenset({"file"}),
+    # Whether that quantile read DRAWS from the distribution or sweeps it evenly.
+    "sample": frozenset({"file"}),
     # The network generator's own knobs.
     "in": frozenset({"http"}),
     "on_error": frozenset({"http"}),
@@ -468,8 +474,12 @@ ATTRIBUTE_OWNERS: dict[str, frozenset[str]] = {
     "exclude": frozenset({"number", "symbol"}),
     # How many places the answer is printed to. Four generators produce a number they may have
     # to round; the rest produce text, which has no places.
-    "decimals": frozenset({"number", "timeseries", "pattern", "stat"}),
+    # `file` is on the list only because `read="quantile"` makes it produce a number — an
+    # interpolated point between two observations, written to the source's precision by default.
+    "decimals": frozenset({"number", "timeseries", "pattern", "stat", "formula", "file"}),
     "distribution": frozenset({"number"}),
+    "expr": frozenset({"formula"}),
+    "lengths": frozenset({"number", "text", "template", "file", "symbol", "regex"}),
     # The ceiling on what an unbounded pattern may expand to.
     "regex_max_length": frozenset({"regex", "advanced_regex"}),
     # How a drawing is read — as a curve or as a density.

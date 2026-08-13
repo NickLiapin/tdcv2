@@ -67,11 +67,18 @@ def test_a_shared_case_renders_what_the_reference_rendered(case: dict) -> None:
     # Rendering straight off the parse tree skips that presumption, and a port whose validator
     # refuses an attribute the reference reads then passes here while `tdcv2 check` on the same
     # file fails. That is how `base=` on <gen type="running"> stayed refused in three ports.
-    refusals = [d for d in validate(parsed.tree, packs=_PACKS) if d.severity is Severity.ERROR]
+    data_path = case.get("dataPath")
+    base_dir = CASES / data_path if data_path else None
+
+    refusals = [
+        d
+        for d in validate(parsed.tree, base_dir=base_dir, packs=_PACKS)
+        if d.severity is Severity.ERROR
+    ]
     assert not refusals, f"the validator refuses a shared case: {[d.signature() for d in refusals]}"
 
     config = config_builder.build(parsed.tree)
     now = now_millis(case)
 
-    produced = engine.render(config, _PACKS, now)
+    produced = engine.render(config, _PACKS, now, base_dir)
     assert produced.split("\n")[:-1] == case["expected"]

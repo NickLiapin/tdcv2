@@ -30,6 +30,7 @@ from ..generators import accumulate as accumulate_gen
 from ..generators import advanced_regex, counter, imperfections, number, regex, symbol
 from ..generators import date_offset as date_offset_gen
 from ..generators import file as file_gen
+from ..generators import quantile
 from ..generators import http as http_gen
 from ..generators import repeat as repeat_gen
 from ..generators import stat as stat_gen
@@ -1819,6 +1820,10 @@ def _generate(
         row_key = _trim_to_none(attrs.get("row"))
         if row_key is not None:
             return _linked_file_values(row_key, attrs, count, run)
+        # `read="quantile"` reads the SAME file as a distribution rather than a bag: sorted once,
+        # a row lands anywhere on it, and the values between observations appear on their own.
+        if quantile.is_quantile(attrs):
+            return _quantile_values(attrs, count, prng, run)
         weighted = file_gen.load_weighted(attrs, run.base_dir, run.packs.data_roots)
         if weighted is not None:
             # The same apportionment percent= uses, so the file's counts come out exact rather
@@ -1951,6 +1956,25 @@ def _pattern(attrs: dict[str, str], count: int, run: _Run) -> list[str]:
         return seekable.uniforms(seed, f"{stream_id}:pat", per_row.absolute_row(run, i), 1)[0]
 
     return [patterns.value_at(resolved, i / denom, band(i)) for i in range(count)]
+
+
+def _quantile_values(attrs: dict[str, str], count: int, prng: Sfc32, run: _Run) -> list[str]:
+    """One `read="quantile"` column.
+
+    The drawn form is one uniform per row, so it needs nothing from the run but its PRNG. The
+    exact sweep needs a seed and a column name to key its scatter by; an inline build has
+    neither, and falls back to the drawn form.
+    """
+    values = file_gen.load(attrs, run.base_dir, run.packs.data_roots)
+    src = quantile.source(values, (attrs.get("src") or "").strip())
+    decimals = quantile.decimals_for(attrs, src)
+    if quantile.is_exact_sample(attrs) and run.stream_id is not None:
+        key = permute.key(run.config.seed, run.stream_id)
+        return [quantile.exact_at(src, decimals, count, key, i) for i in range(count)]
+    return [
+        quantile.render(quantile.at(src.sorted_values, open_unit(prng.next())), decimals)
+        for _ in range(count)
+    ]
 
 
 def _linked_file_values(row_key: str, attrs: dict[str, str], count: int, run: _Run) -> list[str]:

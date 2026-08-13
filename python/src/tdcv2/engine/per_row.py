@@ -156,6 +156,11 @@ def per_row_buildable(gen: Gen, count: int, run: _Run) -> bool:
     # this engine must too, not draw per row.
     if attrs.get("weight") is not None:
         return False
+    # `sample="exact"` on a quantile read is a PLAN too: every row takes its own point on the
+    # sorted sample, and which point follows from a scatter over the whole column. Built a row at
+    # a time it would see a count of one and hand every row the median.
+    if (attrs.get("sample") or "").strip() == "exact":
+        return False
     if weighted_template_pack(gen, run) is not None:
         return False
     # A pack GENERATOR may declare a share too. Its values are computed rather than listed,

@@ -35,6 +35,7 @@ from ..format.transforms import apply_case, is_case_transform
 from ..generators import advanced_regex, imperfections, number
 from ..generators import date_offset as date_offset_gen
 from ..generators import file as file_gen
+from ..generators import quantile
 from ..generators import repeat as repeat_gen
 from ..lib import numbers
 from ..model.config import Case, Config, Gen, Line, SequenceSpec
@@ -641,6 +642,25 @@ class StreamEngine:
                 return patterns.value_at(drawing, r / denom, u)
 
             return Built(_wrap(mod, drawn))
+
+        # `read="quantile"` reads the file as a sorted sample. The DRAWN form needs no branch —
+        # one uniform per row, so the generic per-row path answers it identically. The EXACT
+        # sweep does need one: it maps the row into a scatter over the WHOLE run, and the generic
+        # path is handed a count of one and could not know how many rows there are.
+        if type_ == "file" and quantile.is_quantile(attrs) and quantile.is_exact_sample(attrs):
+            values = file_gen.load(attrs, self.base_dir, self.packs.data_roots)
+            src = quantile.source(values, (attrs.get("src") or "").strip())
+            decimals = quantile.decimals_for(attrs, src)
+            sweep_key = permute.key(self.seed, stream_id)
+            size = domain.size
+
+            def swept(row: int) -> str | None:
+                r = domain.pop_index_at(row)
+                if r is None:
+                    return None
+                return quantile.exact_at(src, decimals, size, sweep_key, r)
+
+            return Built(_wrap(mod, swept))
 
         # A row-linked file: every field on the key must land on the same record for a given row,
         # and a different one per row. The in-memory engine plans that for the whole column; here
