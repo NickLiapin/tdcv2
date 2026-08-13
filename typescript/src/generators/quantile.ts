@@ -96,23 +96,38 @@ function decimalsOf(text: string): number {
 /**
  * The value at probability `u`, interpolating between neighbours.
  *
- * `u` is expected in (0,1). Position `u · (n − 1)` puts `u = 0` on the smallest
- * observation and `u = 1` on the largest, so the generated range is exactly the
- * observed one — no tail is invented beyond what was measured, which would be a
- * claim the sample cannot support.
+ * Each observation sits at `(i + 0.5) / n` — the MIDDLE of the slice of
+ * probability it owns — rather than at `i / (n - 1)`, which is where the ends
+ * of the sample would be. That is not a detail of taste; the end convention
+ * gives the smallest and largest observations exactly HALF the weight they
+ * should have, because there is nothing on the far side of them to ramp from.
+ * Measured before this was fixed, on a file of a hundred distinct values that
+ * each owe 1.000%:
+ *
+ *     first 0.505%   …   middle 1.010%   …   last 0.505%
+ *
+ * The middle was over by 100/99 for the same reason the edges were short.
+ *
+ * It also decides what a REPEATED value is worth. An atom of multiplicity `k`
+ * holds a plateau `(k-1)/n` wide, and the two ramps leaving it each round their
+ * near half onto it — `1/n` more — so the atom gets exactly its `k/n`. Under the
+ * end convention it got `(k-1)/(k)` of its share: a value written twice was
+ * worth once, in a sample of any size.
+ *
+ * `u` below `0.5/n` and above `1 - 0.5/n` lands on the smallest and largest
+ * observation, which is what returns their full weight — and it is the same
+ * convention the ROW axis already uses, where row `i` reads `(slot + 0.5) /
+ * count`. One rule on both axes, which is what it should have been.
  */
 export function quantileAt(sorted: readonly number[], u: number): number {
   const n = sorted.length;
   if (n === 1) return sorted[0] ?? 0;
-  const p = u * (n - 1);
+  const p = Math.min(n - 1, Math.max(0, u * n - 0.5));
   const lo = Math.floor(p);
   const hi = lo + 1;
   const low = sorted[lo] ?? 0;
   if (hi >= n) return sorted[n - 1] ?? low;
   const high = sorted[hi] ?? low;
-  // A repeated value makes low === high, and the interpolation returns it
-  // unchanged — that is how an atom keeps exactly its own share of the run
-  // while everything around it stays continuous.
   return low + (p - lo) * (high - low);
 }
 

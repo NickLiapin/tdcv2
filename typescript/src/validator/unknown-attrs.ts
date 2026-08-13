@@ -518,7 +518,14 @@ const MISPLACED: ReadonlyMap<string, string> = new Map([
   ],
 ]);
 
-/** Report `name` as an attribute this `<gen>` will not read. */
+/**
+ * Report `name` as an attribute this `<gen>` does not have.
+ *
+ * The message used to end "— it is ignored", which reads as advice while the
+ * severity is `error` and the run stops. A reader who is told the attribute is
+ * ignored and then watches the run abort has been given two different answers;
+ * the wording now matches what happens.
+ */
 function reportIgnored(
   attr: AttrContext,
   name: string,
@@ -532,7 +539,7 @@ function reportIgnored(
     severity: 'error',
     source: 'validator',
     ...attrValueRange(attr),
-    message: `<gen> does not read "${name}" — it is ignored`,
+    message: `<gen> has no "${name}" attribute`,
     ...(suggestion && suggestion !== name ? { suggestion: `did you mean "${suggestion}"?` } : {}),
     hint: misplaced ?? why,
     code: 'TDC015',
@@ -761,7 +768,7 @@ export function checkUnknownAttrs(
       severity: 'error',
       source: 'validator',
       ...attrValueRange(attr),
-      message: `<${tag}> does not read "${name}" — it is ignored`,
+      message: `<${tag}> has no "${name}" attribute`,
       ...(suggestion ? { suggestion: `did you mean "${suggestion}"?` } : {}),
       hint: misplaced ?? `Attributes of <${tag}>: ${formatCandidates([...known].sort())}.`,
       code: 'TDC015',

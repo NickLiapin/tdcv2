@@ -516,6 +516,25 @@ respuesta se escribe con tantos decimales como usó el origen: una muestra de
 números enteros da enteros; una escrita al céntimo, céntimos.
 [`decimals`](../reference/attributes.mdx) lo sobrescribe.
 
+:::note Lo que la lectura por cuantiles NO promete
+
+Reproduce la **forma**, no la proporción de cada valor concreto. La interpolación
+toma masa de los puntos observados y se la da a los valores intermedios — esa es
+justamente la cura del peine, y no se consigue sin ese intercambio. En una muestra
+de veinte enteros, el valor `46` (uno de veinte, o sea el 5% de la muestra) sale en
+el 0.4% de las filas; el resto se fue a 47, 48 y 49, que la muestra nunca vio pero
+que la magnitud continua a la que representa sí contiene.
+
+A un átomo grande no le afecta: un 40% de ceros exactos vuelve como 39.995%, porque
+su meseta es mucho más ancha que las rampas de sus bordes. Un valor que aparece dos
+veces entre mil conserva más o menos la mitad de su proporción.
+
+En resumen: si lo que importa es la proporción exacta de cada valor listado, eso es
+[`weight=`](#weighted-rows--row--weight) y su cuota exacta. La lectura por cuantiles
+es para cuando la muestra representa algo continuo.
+
+:::
+
 ### `sample="exact"` — reproducir la muestra sin ruido de muestreo
 
 Por defecto cada fila tira sus propios dados, así que las proporciones oscilan lo

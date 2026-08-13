@@ -57,9 +57,19 @@ function bothEngines(cfg: string): string[] {
   return memory;
 }
 
-/** The value at probability p of an ascending list, interpolated. */
+/**
+ * The value at probability p of an ascending list, interpolated.
+ *
+ * Observation `i` sits at `(i + 0.5) / n`, the same convention the engine uses —
+ * and it has to be the same, or this would measure the CONVENTION rather than
+ * the fidelity. Measured both ways on a 951-value sample: each convention
+ * reproduces its own definition to 0.0000% and reads 1.28% off against the
+ * other. The reason to prefer this one is not accuracy against a reference, it
+ * is that every observation then owns exactly `1/n` of the run — including the
+ * smallest and the largest, which the ends convention paid half.
+ */
 function quantile(sorted: readonly number[], p: number): number {
-  const i = p * (sorted.length - 1);
+  const i = Math.min(sorted.length - 1, Math.max(0, p * sorted.length - 0.5));
   const lo = Math.floor(i);
   const a = sorted[lo] ?? 0;
   const b = sorted[Math.min(lo + 1, sorted.length - 1)] ?? a;
@@ -158,6 +168,29 @@ describe('a file read as a quantile function', () => {
     const asNumbers = values.map(Number);
     const ascending = [...asNumbers].sort((a, b) => a - b);
     expect(asNumbers).not.toEqual(ascending);
+  });
+
+  it('gives every observation the same weight, edges included', () => {
+    // The convention question, and it is not cosmetic. Placing observation `i`
+    // at `i / (n - 1)` — at the ENDS of the sample rather than in the middle of
+    // the slice it owns — gives the smallest and largest exactly HALF their
+    // weight, because there is nothing on the far side of them to ramp from.
+    // Measured before this was fixed, on this very file: 0.505% at each end and
+    // 1.010% in the middle, against the 1.000% each of them owes.
+    const src = sample(
+      'even.txt',
+      Array.from({ length: 100 }, (_, i) => i + 1),
+    );
+    const rows = 20000;
+    const counts = new Map<string, number>();
+    for (const v of bothEngines(config(src, 'sample="exact"', rows))) {
+      counts.set(v, (counts.get(v) ?? 0) + 1);
+    }
+    expect(counts.size).toBe(100);
+    for (const [, n] of counts) {
+      // Every value lands within a tenth of a percent of its 1.000%.
+      expect(Math.abs(n / rows - 0.01)).toBeLessThan(0.001);
+    }
   });
 
   it('refuses a line that is not a number, and says which line', () => {

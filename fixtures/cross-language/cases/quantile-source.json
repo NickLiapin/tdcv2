@@ -5,7 +5,7 @@
       "name": "a-sample-read-as-a-distribution",
       "description": "The file is ten whole ages, sorted once and treated as a ruler; a row lands anywhere on it and takes the value between two neighbours. The answer is whole because the SOURCE is whole — the file's own precision decides, not a guess.",
       "config": "<tdc><env count=\"10\" seed=\"ages\" local=\"en\"><sequence name=\"OUT\"><gen type=\"file\" src=\"sample-ages.txt\" read=\"quantile\"/></sequence></env><block><line><data>${{OUT}}</data></line></block></tdc>",
-      "expected": ["46", "34", "29", "44", "41", "25", "29", "36", "24", "24"],
+      "expected": ["48", "33", "27", "46", "41", "23", "27", "35", "23", "23"],
       "dataPath": "data"
     },
     {
@@ -13,16 +13,16 @@
       "description": "The same read over amounts written to the cent. Nothing is declared: two decimal places in, two decimal places out.",
       "config": "<tdc><env count=\"10\" seed=\"money\" local=\"en\"><sequence name=\"OUT\"><gen type=\"file\" src=\"sample-amounts.txt\" read=\"quantile\"/></sequence></env><block><line><data>${{OUT}}</data></line></block></tdc>",
       "expected": [
-        "14.39",
-        "20.86",
-        "19.80",
-        "18.98",
-        "13.91",
-        "36.47",
-        "13.06",
-        "14.81",
-        "21.86",
-        "21.66"
+        "14.10",
+        "21.25",
+        "20.09",
+        "19.18",
+        "13.56",
+        "41.79",
+        "12.59",
+        "14.59",
+        "22.39",
+        "22.16"
       ],
       "dataPath": "data"
     },
@@ -31,16 +31,16 @@
       "description": "A whole-number sample asked for three places gives the interpolated value itself, unrounded — which is what makes the interpolation visible in a fixture.",
       "config": "<tdc><env count=\"10\" seed=\"ages\" local=\"en\"><sequence name=\"OUT\"><gen type=\"file\" src=\"sample-ages.txt\" read=\"quantile\" decimals=\"3\"/></sequence></env><block><line><data>${{OUT}}</data></line></block></tdc>",
       "expected": [
-        "45.842",
-        "33.920",
-        "29.023",
-        "44.321",
+        "47.872",
+        "33.411",
+        "26.744",
+        "46.357",
         "41.000",
-        "24.665",
-        "29.064",
-        "35.690",
-        "24.025",
-        "24.157"
+        "23.000",
+        "26.881",
+        "35.211",
+        "23.000",
+        "23.000"
       ],
       "dataPath": "data"
     },
@@ -48,7 +48,7 @@
       "name": "the-exact-sweep-covers-the-distribution",
       "description": "sample=\"exact\" throws no dice: row i takes slot permute(i, count, key) and reads probability (slot + 0.5) / count, so the run sweeps the sample instead of drawing from it. The column is scattered rather than sorted, and every engine lands on the same scatter.",
       "config": "<tdc><env count=\"10\" seed=\"sweep\" local=\"en\"><sequence name=\"OUT\"><gen type=\"file\" src=\"sample-ages.txt\" read=\"quantile\" sample=\"exact\"/></sequence></env><block><line><data>${{OUT}}</data></line></block></tdc>",
-      "expected": ["41", "41", "41", "38", "30", "26", "35", "32", "45", "50"],
+      "expected": ["41", "41", "41", "38", "29", "23", "34", "31", "47", "52"],
       "dataPath": "data"
     },
     {
@@ -56,14 +56,14 @@
       "description": "The same sweep over the amounts file, so the two precisions are pinned on both paths.",
       "config": "<tdc><env count=\"8\" seed=\"sweep\" local=\"en\"><sequence name=\"OUT\"><gen type=\"file\" src=\"sample-amounts.txt\" read=\"quantile\" sample=\"exact\" decimals=\"2\"/></sequence></env><block><line><data>${{OUT}}</data></line></block></tdc>",
       "expected": [
-        "38.40",
-        "28.87",
-        "23.05",
-        "19.68",
-        "8.75",
+        "44.00",
+        "31.20",
+        "23.75",
+        "19.99",
         "7.05",
-        "15.41",
-        "12.99"
+        "7.05",
+        "15.10",
+        "12.50"
       ],
       "dataPath": "data"
     },

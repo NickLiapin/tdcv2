@@ -509,6 +509,25 @@ the answer is written with as many decimal places as the source used: a
 whole-number sample gives whole numbers, a sample written to the cent gives cents.
 [`decimals`](../reference/attributes.mdx) overrides it when you want something else.
 
+:::note What the quantile read does not promise
+
+It reproduces the **shape**, not the share of any individual value. Interpolation
+takes mass from the observed points and gives it to the values in between — that
+is the whole cure for the comb, and it cannot be had without the trade. On a
+sample of twenty integers, the value `46` (one of twenty, so 5% of the sample)
+comes out in 0.4% of the rows; the rest went to 47, 48 and 49, which the sample
+never saw but the continuum it stands for certainly contains.
+
+A big atom is unaffected — 40% of the sample being exactly zero comes back as
+39.995% — because its plateau dwarfs the ramps at its edges. A value that appears
+twice in a thousand keeps roughly half its share.
+
+So: if the exact share of each listed value is what matters, that is
+[`weight=`](#weighted-rows--row--weight) and its exact quota. The quantile read is
+for the case where the sample stands for something continuous.
+
+:::
+
 ### `sample="exact"` — reproduce the sample, without sampling noise
 
 By default each row throws its own dice, so the shares wobble by the ordinary
