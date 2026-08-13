@@ -35,6 +35,10 @@ function render(testCase) {
   if (testCase.locale !== undefined) options.locale = testCase.locale;
   // A case that reads the clock has to pin it, or it passes today and fails tomorrow.
   if (testCase.now !== undefined) options.now = Date.parse(testCase.now);
+  // A case that reads a FILE names the folder its samples live in, relative to
+  // the cases directory. Every implementation resolves it the same way, so a
+  // `type="file"` config can be pinned across languages like any other.
+  if (testCase.dataPath !== undefined) options.dataPaths = [join(CASES_DIR, testCase.dataPath)];
   return new TDC(options).toString();
 }
 

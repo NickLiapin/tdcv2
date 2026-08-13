@@ -1,0 +1,89 @@
+{
+  "schemaVersion": 1,
+  "cases": [
+    {
+      "name": "a-formula-over-two-columns",
+      "description": "Arithmetic over the columns beside it, one column out. The point of the case is that the two engines fetch a sibling from different places — an array in memory, a resolve(i) when streaming — and must still agree.",
+      "config": "<tdc><env count=\"6\" seed=\"bmi\" local=\"en\"><sequence name=\"W\"><gen type=\"number\" value=\"60..90\"/></sequence><sequence name=\"H\"><gen type=\"number\" value=\"150..190\"/></sequence><sequence name=\"OUT\"><gen type=\"formula\" expr=\"W * 10000 / (H * H)\" decimals=\"1\"/></sequence></env><block><line><data>${{W}} ${{H}} ${{OUT}}</data></line></block></tdc>",
+      "expected": [
+        "79 160 30.9",
+        "68 177 21.7",
+        "75 152 32.5",
+        "73 185 21.3",
+        "64 159 25.3",
+        "64 183 19.1"
+      ]
+    },
+    {
+      "name": "a-formula-counts-the-row",
+      "description": "_count is the row number, one-based, and it is a NUMBER rather than text — so multiplying it is arithmetic and not repetition.",
+      "config": "<tdc><env count=\"5\" seed=\"cnt\" local=\"en\"><sequence name=\"OUT\"><gen type=\"formula\" expr=\"_count * 3\"/></sequence></env><block><line><data>${{OUT}}</data></line></block></tdc>",
+      "expected": ["3", "6", "9", "12", "15"]
+    },
+    {
+      "name": "a-formula-adds-fractions-instead-of-joining-them",
+      "description": "`+` between two fractional values is addition. It used to concatenate — 0.5 + 0.25 came out \"0.50.25\" — and nothing warned, so this case exists to keep the easy thing pinned as well as the hard ones.",
+      "config": "<tdc><env count=\"2\" seed=\"add\" local=\"en\"><sequence name=\"OUT\"><gen type=\"formula\" expr=\"0.5 + 0.25\"/></sequence></env><block><line><data>${{OUT}}</data></line></block></tdc>",
+      "expected": ["0.75", "0.75"]
+    },
+    {
+      "name": "a-formula-leaves-an-empty-source-empty",
+      "description": "A cell a parent= filter switched off is not a zero, so the formula that reads it answers with nothing rather than with 0. Both engines, same rule.",
+      "config": "<tdc><env count=\"8\" seed=\"mask\" local=\"en\"><sequence name=\"G\"><gen type=\"text\" value=\"M,F\"/></sequence><sequence name=\"S\" parent=\"G.M\"><gen type=\"number\" value=\"7..7\"/></sequence><sequence name=\"OUT\"><gen type=\"formula\" expr=\"S * 2\"/></sequence></env><block><line><data>${{G}} ${{OUT}}</data></line></block></tdc>",
+      "expected": ["M 14", "M 14", "M 14", "F ", "F ", "F ", "F ", "M 14"]
+    },
+    {
+      "name": "a-fan-out-with-a-declared-shape",
+      "description": "lengths= is a whole-run quota over how many values each row gets: 50% of the rows one value, 30% two, 20% three. Not approximately — exactly, laid out by the same Hamilton arithmetic percent= uses.",
+      "config": "<tdc><env count=\"10\" seed=\"fan\" local=\"en\"><sequence name=\"OUT\"><gen type=\"number\" value=\"1..9\" repeat=\"1..3\" lengths=\"50,30,20\" separator=\";\"/></sequence></env><block><line><data>${{OUT}}</data></line></block></tdc>",
+      "expected": [
+        "2;7;7",
+        "1",
+        "4",
+        "9;9",
+        "3;3",
+        "8;6",
+        "3",
+        "4",
+        "3;6;6",
+        "9"
+      ]
+    },
+    {
+      "name": "a-distribution-parameter-that-follows-another-column",
+      "description": "lambda reads a column instead of holding a number. How many uniforms a row spends depends on WHICH distribution and never on its parameters, so the row stays computable on its own and every engine agrees.",
+      "config": "<tdc><env count=\"8\" seed=\"traffic\" local=\"en\"><sequence name=\"T\"><gen type=\"number\" value=\"10..40\"/></sequence><sequence name=\"OUT\"><gen type=\"number\" distribution=\"poisson\" lambda=\"T * 0.1\"/></sequence></env><block><line><data>${{T}} ${{OUT}}</data></line></block></tdc>",
+      "expected": [
+        "22 3",
+        "25 5",
+        "21 2",
+        "12 1",
+        "37 2",
+        "12 2",
+        "30 7",
+        "25 2"
+      ]
+    },
+    {
+      "name": "a-spread-that-drifts-over-the-run",
+      "description": "sd is an expression over _count, so the noise grows as the run goes on — an ageing sensor, with no feature of its own.",
+      "config": "<tdc><env count=\"8\" seed=\"drift\" local=\"en\"><sequence name=\"OUT\"><gen type=\"number\" distribution=\"normal\" mean=\"100\" sd=\"0.1 + 0.5 * _count\" decimals=\"2\"/></sequence></env><block><line><data>${{OUT}}</data></line></block></tdc>",
+      "expected": [
+        "100.02",
+        "100.66",
+        "98.88",
+        "99.35",
+        "98.83",
+        "109.18",
+        "98.63",
+        "95.76"
+      ]
+    },
+    {
+      "name": "a-distribution-parameter-that-reads-an-empty-cell",
+      "description": "Nothing to draw from, so nothing is drawn: the row comes out empty, the way a formula answers the same input. The skipped row still spends the uniforms a drawn row would, so blanking a cell cannot slide the rest of the column.",
+      "config": "<tdc><env count=\"8\" seed=\"pfilter\" local=\"en\"><sequence name=\"G\"><gen type=\"text\" value=\"M,F\"/></sequence><sequence name=\"H\" parent=\"G.M\"><gen type=\"number\" value=\"5..5\"/></sequence><sequence name=\"OUT\"><gen type=\"number\" distribution=\"poisson\" lambda=\"H\"/></sequence></env><block><line><data>${{G}} ${{OUT}}</data></line></block></tdc>",
+      "expected": ["F ", "F ", "M 6", "F ", "M 2", "F ", "M 4", "M 3"]
+    }
+  ]
+}

@@ -13,16 +13,23 @@ attributes fails here, where a unit test of the function alone would pass.
 
 Each `*.json` groups cases by area. Every case has:
 
-| field         | meaning                                                     |
-| :------------ | :---------------------------------------------------------- |
-| `name`        | unique within the file; used in the test report             |
-| `description` | what the case pins down, in one line                        |
-| `config`      | the `.tdc` source                                           |
-| `expected`    | the exact output, as an array of lines                      |
-| `seed`        | optional override of `<env seed>`                           |
-| `count`       | optional override of `<env count>`                          |
-| `locale`      | optional override of `<env local>`                          |
-| `now`         | optional clock, ISO-8601 — required by any case using dates |
+| field         | meaning                                                              |
+| :------------ | :------------------------------------------------------------------- |
+| `name`        | unique within the file; used in the test report                      |
+| `description` | what the case pins down, in one line                                 |
+| `config`      | the `.tdc` source                                                    |
+| `expected`    | the exact output, as an array of lines                               |
+| `seed`        | optional override of `<env seed>`                                    |
+| `count`       | optional override of `<env count>`                                   |
+| `locale`      | optional override of `<env local>`                                   |
+| `now`         | optional clock, ISO-8601 — required by any case using dates          |
+| `dataPath`    | optional folder, relative to THIS directory, where `src=` files live |
+
+`dataPath` is how a `type="file"` case reaches its sample: the folder is resolved
+against the cases directory, so `"dataPath": "data"` reads
+`fixtures/cross-language/cases/data/`. Keep those samples SMALL and
+hand-checkable — a shared fixture that nobody can verify by eye is a hash, not a
+contract.
 
 `expected` is an array of lines rather than one string only because a diff
 between arrays reads far better in a failing test than a diff between two blobs.

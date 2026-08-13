@@ -41,6 +41,9 @@ function render(testCase, engine) {
   if (testCase.count !== undefined) options.count = testCase.count;
   if (testCase.locale !== undefined) options.locale = testCase.locale;
   if (testCase.now !== undefined) options.now = Date.parse(testCase.now);
+  // Same rule as the cases harness: a `type="file"` case names the folder its
+  // samples live in, relative to the cases directory.
+  if (testCase.dataPath !== undefined) options.dataPaths = [join(CASES_DIR, testCase.dataPath)];
   return new TDC(options).toString();
 }
 

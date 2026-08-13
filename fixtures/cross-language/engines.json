@@ -968,6 +968,142 @@
         "lines": ["2024-02-28", "2024-02-29", "2024-03-01"]
       }
     },
+    "derived-columns/a-formula-over-two-columns": {
+      "engine2": {
+        "lines": [
+          "79 160 30.9",
+          "68 177 21.7",
+          "75 152 32.5",
+          "73 185 21.3",
+          "64 159 25.3",
+          "64 183 19.1"
+        ]
+      },
+      "engine3": {
+        "lines": [
+          "79 160 30.9",
+          "68 177 21.7",
+          "75 152 32.5",
+          "73 185 21.3",
+          "64 159 25.3",
+          "64 183 19.1"
+        ]
+      }
+    },
+    "derived-columns/a-formula-counts-the-row": {
+      "engine2": {
+        "lines": ["3", "6", "9", "12", "15"]
+      },
+      "engine3": {
+        "lines": ["3", "6", "9", "12", "15"]
+      }
+    },
+    "derived-columns/a-formula-adds-fractions-instead-of-joining-them": {
+      "engine2": {
+        "lines": ["0.75", "0.75"]
+      },
+      "engine3": {
+        "lines": ["0.75", "0.75"]
+      }
+    },
+    "derived-columns/a-formula-leaves-an-empty-source-empty": {
+      "engine2": {
+        "lines": ["M 14", "M 14", "M 14", "F ", "F ", "F ", "F ", "M 14"]
+      },
+      "engine3": {
+        "lines": ["M 14", "M 14", "M 14", "F ", "F ", "F ", "F ", "M 14"]
+      }
+    },
+    "derived-columns/a-fan-out-with-a-declared-shape": {
+      "engine2": {
+        "lines": [
+          "2;7;7",
+          "1",
+          "4",
+          "9;9",
+          "3;3",
+          "8;6",
+          "3",
+          "4",
+          "3;6;6",
+          "9"
+        ]
+      },
+      "engine3": {
+        "lines": [
+          "2;7;7",
+          "1",
+          "4",
+          "9;9",
+          "3;3",
+          "8;6",
+          "3",
+          "4",
+          "3;6;6",
+          "9"
+        ]
+      }
+    },
+    "derived-columns/a-distribution-parameter-that-follows-another-column": {
+      "engine2": {
+        "lines": [
+          "22 3",
+          "25 5",
+          "21 2",
+          "12 1",
+          "37 2",
+          "12 2",
+          "30 7",
+          "25 2"
+        ]
+      },
+      "engine3": {
+        "lines": [
+          "22 3",
+          "25 5",
+          "21 2",
+          "12 1",
+          "37 2",
+          "12 2",
+          "30 7",
+          "25 2"
+        ]
+      }
+    },
+    "derived-columns/a-spread-that-drifts-over-the-run": {
+      "engine2": {
+        "lines": [
+          "100.02",
+          "100.66",
+          "98.88",
+          "99.35",
+          "98.83",
+          "109.18",
+          "98.63",
+          "95.76"
+        ]
+      },
+      "engine3": {
+        "lines": [
+          "100.02",
+          "100.66",
+          "98.88",
+          "99.35",
+          "98.83",
+          "109.18",
+          "98.63",
+          "95.76"
+        ]
+      }
+    },
+    "derived-columns/a-distribution-parameter-that-reads-an-empty-cell": {
+      "engine2": {
+        "lines": ["F ", "F ", "M 6", "F ", "M 2", "F ", "M 4", "M 3"]
+      },
+      "engine3": {
+        "lines": ["F ", "F ", "M 6", "F ", "M 2", "F ", "M 4", "M 3"]
+      }
+    },
     "expressions-math-2/pow-and-log2-are-exact-where-they-can-be": {
       "engine2": {
         "lines": [
@@ -2986,6 +3122,150 @@
       },
       "engine3": {
         "lines": ["1 -> alpha", "2 -> beta", "3 -> gamma"]
+      }
+    },
+    "quantile-source/a-sample-read-as-a-distribution": {
+      "engine2": {
+        "lines": ["46", "34", "29", "44", "41", "25", "29", "36", "24", "24"]
+      },
+      "engine3": {
+        "lines": ["46", "34", "29", "44", "41", "25", "29", "36", "24", "24"]
+      }
+    },
+    "quantile-source/a-money-sample-keeps-its-cents": {
+      "engine2": {
+        "lines": [
+          "14.39",
+          "20.86",
+          "19.80",
+          "18.98",
+          "13.91",
+          "36.47",
+          "13.06",
+          "14.81",
+          "21.86",
+          "21.66"
+        ]
+      },
+      "engine3": {
+        "lines": [
+          "14.39",
+          "20.86",
+          "19.80",
+          "18.98",
+          "13.91",
+          "36.47",
+          "13.06",
+          "14.81",
+          "21.86",
+          "21.66"
+        ]
+      }
+    },
+    "quantile-source/decimals-overrides-the-source-precision": {
+      "engine2": {
+        "lines": [
+          "45.842",
+          "33.920",
+          "29.023",
+          "44.321",
+          "41.000",
+          "24.665",
+          "29.064",
+          "35.690",
+          "24.025",
+          "24.157"
+        ]
+      },
+      "engine3": {
+        "lines": [
+          "45.842",
+          "33.920",
+          "29.023",
+          "44.321",
+          "41.000",
+          "24.665",
+          "29.064",
+          "35.690",
+          "24.025",
+          "24.157"
+        ]
+      }
+    },
+    "quantile-source/the-exact-sweep-covers-the-distribution": {
+      "engine2": {
+        "lines": ["41", "41", "41", "38", "30", "26", "35", "32", "45", "50"]
+      },
+      "engine3": {
+        "lines": ["41", "41", "41", "38", "30", "26", "35", "32", "45", "50"]
+      }
+    },
+    "quantile-source/the-exact-sweep-over-money": {
+      "engine2": {
+        "lines": [
+          "38.40",
+          "28.87",
+          "23.05",
+          "19.68",
+          "8.75",
+          "7.05",
+          "15.41",
+          "12.99"
+        ]
+      },
+      "engine3": {
+        "lines": [
+          "38.40",
+          "28.87",
+          "23.05",
+          "19.68",
+          "8.75",
+          "7.05",
+          "15.41",
+          "12.99"
+        ]
+      }
+    },
+    "quantile-source/a-plain-read-of-the-same-file-still-picks-whole-values": {
+      "engine2": {
+        "lines": [
+          "41",
+          "29",
+          "23",
+          "41",
+          "23",
+          "34",
+          "31",
+          "52",
+          "52",
+          "23",
+          "31",
+          "38",
+          "29",
+          "34",
+          "41",
+          "41"
+        ]
+      },
+      "engine3": {
+        "lines": [
+          "41",
+          "29",
+          "23",
+          "41",
+          "23",
+          "34",
+          "31",
+          "52",
+          "52",
+          "23",
+          "31",
+          "38",
+          "29",
+          "34",
+          "41",
+          "41"
+        ]
       }
     },
     "repeat-distinct/a-listed-column-drawn-without-replacement": {

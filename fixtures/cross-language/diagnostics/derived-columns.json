@@ -1,0 +1,75 @@
+{
+  "schemaVersion": 1,
+  "cases": [
+    {
+      "name": "a-formula-that-names-a-column-that-is-not-there",
+      "demonstrates": "TDC240",
+      "description": "A typo in expr= used to reach the engine and die there. The name is checked against the sequences declared ABOVE this one, which is also what makes the answer the same on every engine.",
+      "config": "<tdc><env count=\"3\" seed=\"s\" local=\"en\"><sequence name=\"Traffic\"><gen type=\"number\" value=\"1..9\"/></sequence><sequence name=\"F\"><gen type=\"formula\" expr=\"Trafic * 2\"/></sequence></env><block><line><data>${{F}}</data></line></block></tdc>",
+      "expected": ["error TDC240 1:154"]
+    },
+    {
+      "name": "a-formula-that-names-a-column-declared-below-it",
+      "demonstrates": "TDC240",
+      "description": "Worse than a typo: the streaming registry answers a forward reference and the in-memory one does not, so one config would mean two datasets. Refused before either engine is chosen.",
+      "config": "<tdc><env count=\"3\" seed=\"s\" local=\"en\"><sequence name=\"F\"><gen type=\"formula\" expr=\"Later * 2\"/></sequence><sequence name=\"Later\"><gen type=\"number\" value=\"1..9\"/></sequence></env><block><line><data>${{F}}</data></line></block></tdc>",
+      "expected": ["error TDC240 1:85"]
+    },
+    {
+      "name": "a-distribution-parameter-that-names-a-column-that-is-not-there",
+      "demonstrates": "TDC240",
+      "description": "The same rule for a parameter written as an expression. Without it the run said only that lambda must be a number, which names the symptom and not the typo.",
+      "config": "<tdc><env count=\"3\" seed=\"s\" local=\"en\"><sequence name=\"Traffic\"><gen type=\"number\" value=\"1..9\"/></sequence><sequence name=\"N\"><gen type=\"number\" distribution=\"poisson\" lambda=\"Trafic * 0.5\"/></sequence></env><block><line><data>${{N}}</data></line></block></tdc>",
+      "expected": ["error TDC240 1:178"]
+    },
+    {
+      "name": "a-derived-column-under-a-condition",
+      "demonstrates": "TDC295",
+      "description": "running, stat, formula and a date offset are built once for the whole run, in declaration order. An if= asks for a value chosen row by row, and the two cannot both be true.",
+      "config": "<tdc><env count=\"3\" seed=\"s\" local=\"en\"><sequence name=\"T\"><gen type=\"text\" value=\"hi,lo\"/></sequence><sequence name=\"N\"><gen type=\"number\" value=\"4..4\"/></sequence><sequence name=\"F\"><gen if=\"T == hi\" type=\"formula\" expr=\"N * 100\"/></sequence></env><block><line><data>${{F}}</data></line></block></tdc>",
+      "expected": ["error TDC295 1:193"]
+    },
+    {
+      "name": "a-computed-column-inside-a-uniq-group",
+      "demonstrates": "TDC296",
+      "description": "A group REARRANGES finished columns until each record is unique. A drawn value means the same wherever it lands; a computed one describes the row it was computed for. Measured before this check: two rows of five said that ten times three is twenty.",
+      "config": "<tdc><env count=\"5\" seed=\"s\" local=\"en\"><sequence name=\"A\"><gen type=\"number\" value=\"1..5\"/></sequence><uniq><sequence name=\"F\"><gen type=\"formula\" expr=\"A * 10\"/></sequence><sequence name=\"B\"><gen type=\"number\" value=\"1..5\"/></sequence></uniq></env><block><line><data>${{F}}</data></line></block></tdc>",
+      "expected": ["error TDC296 1:128"]
+    },
+    {
+      "name": "a-compute-inside-a-uniq-group",
+      "demonstrates": "TDC296",
+      "description": "The same rule from the other side: a processor has no pool to draw from and no column of its own to rearrange, so inside a group it used to be accepted and then quietly do nothing — five rows, two identical records, no message.",
+      "config": "<tdc><env count=\"5\" seed=\"s\" local=\"en\"><sequence name=\"A\"><gen type=\"number\" value=\"1..5\"/></sequence><uniq><sequence name=\"C\"><compute><result><field name=\"A\"/></result></compute></sequence><sequence name=\"B\"><gen type=\"number\" value=\"1..5\"/></sequence></uniq></env><block><line><data>${{C}}</data></line></block></tdc>",
+      "expected": ["error TDC296 1:128"]
+    },
+    {
+      "name": "a-way-of-reading-a-file-that-does-not-exist",
+      "demonstrates": "TDC297",
+      "description": "read= has exactly one value. A misspelling would otherwise fall back to the ordinary read and produce a plausible column that is not what was asked for.",
+      "config": "<tdc><env count=\"3\" seed=\"s\" local=\"en\"><sequence name=\"A\"><gen type=\"file\" src=\"x.txt\" read=\"quantle\"/></sequence></env><block><line><data>${{A}}</data></line></block></tdc>",
+      "expected": ["error TDC297 1:94", "error TDC061 1:81"]
+    },
+    {
+      "name": "two-readings-of-one-file-at-once",
+      "demonstrates": "TDC297",
+      "description": "weight= puts the shares in a second column; read=\"quantile\" says the values ARE the distribution and how often one appears is its share. Asking for both leaves the engine to pick whichever branch it reaches first.",
+      "config": "<tdc><env count=\"3\" seed=\"s\" local=\"en\"><sequence name=\"A\"><gen type=\"file\" src=\"x.csv\" column=\"v\" weight=\"c\" read=\"quantile\"/></sequence></env><block><line><data>${{A}}</data></line></block></tdc>",
+      "expected": ["error TDC297 1:107", "error TDC061 1:81"]
+    },
+    {
+      "name": "a-sampling-mode-without-a-distribution-to-sample",
+      "demonstrates": "TDC297",
+      "description": "sample= chooses between drawing from the distribution and sweeping it evenly, and a file read as a plain list of values has no distribution to sweep.",
+      "config": "<tdc><env count=\"3\" seed=\"s\" local=\"en\"><sequence name=\"A\"><gen type=\"file\" src=\"x.txt\" sample=\"exact\"/></sequence></env><block><line><data>${{A}}</data></line></block></tdc>",
+      "expected": ["error TDC297 1:96", "error TDC061 1:81"]
+    },
+    {
+      "name": "walking-a-list-and-sampling-a-distribution-at-once",
+      "demonstrates": "TDC297",
+      "description": "order=\"sequential\" hands out the file's lines one after another; the quantile read says where on the sorted sample a row lands. Different jobs, and only one of them can be done.",
+      "config": "<tdc><env count=\"3\" seed=\"s\" local=\"en\"><sequence name=\"A\"><gen type=\"file\" src=\"x.txt\" read=\"quantile\" order=\"sequential\"/></sequence></env><block><line><data>${{A}}</data></line></block></tdc>",
+      "expected": ["error TDC297 1:111", "error TDC061 1:81"]
+    }
+  ]
+}
