@@ -23,9 +23,11 @@ export function resolveGenValueAt(
   now: number,
   options: SequenceBuildOptions = {},
 ): string {
-  return (
-    buildGenValues(gen, 1, seekableGen(seed, streamId, i), locale, now, streamCtx(options))[0] ?? ''
-  );
+  // `rows: [i]` tells the one-row build which ABSOLUTE row it is, so anything
+  // that reads a sibling column — a distribution parameter written as an
+  // expression — asks for the right row rather than for row 0 every time.
+  const ctx = { ...streamCtx(options), rows: [i] };
+  return buildGenValues(gen, 1, seekableGen(seed, streamId, i), locale, now, ctx)[0] ?? '';
 }
 
 /**

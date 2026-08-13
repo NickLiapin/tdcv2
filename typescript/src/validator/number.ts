@@ -3,7 +3,7 @@
  */
 
 import { PercentMaskError, expandPercentMask } from '../distribution/index.js';
-import { parseDistribution } from '../generators/distribution.js';
+import { expressionParams, parseDistribution } from '../generators/distribution.js';
 import {
   computeAllowedIntervals,
   parseNumberIntervalList,
@@ -325,8 +325,24 @@ function checkDistribution(
       });
     }
   }
+  // A parameter written as an EXPRESSION is resolved per row against the other
+  // columns, so its VALUE is not knowable here. Stand a plausible number in its
+  // place and check everything else — the distribution's name, the parameters it
+  // requires, the attributes it refuses — so writing `lambda="Traffic * 0.5"`
+  // does not buy silence about the rest of the generator.
+  //
+  // `1` is the stand-in because every parameter in every distribution accepts
+  // it: the positive ones are happy, and the unbounded ones do not care. A
+  // parameter that resolves to something the distribution rejects — a negative
+  // `sd`, say — is caught by the run, where the value finally exists, with the
+  // same message this check would have produced.
+  const dynamic = expressionParams(attrMap);
+  const forCheck: Record<string, string | undefined> =
+    dynamic.length === 0
+      ? attrMap
+      : { ...attrMap, ...Object.fromEntries(dynamic.map((k) => [k, '1'])) };
   try {
-    parseDistribution(attrMap);
+    parseDistribution(forCheck);
   } catch (err) {
     diagnostics.push({
       severity: 'error',

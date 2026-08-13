@@ -320,3 +320,54 @@ function requireIntPositive(
   }
   return n;
 }
+
+/**
+ * Every attribute a distribution reads as a NUMBER — the ones that may instead
+ * be an expression over the row's other columns.
+ *
+ * Kept as one list so "which parameters can follow a column" has a single
+ * answer, rather than each caller remembering a different subset.
+ */
+export const DISTRIBUTION_PARAMS: readonly string[] = [
+  'mean',
+  'sd',
+  'meanlog',
+  'sdlog',
+  'rate',
+  'alpha',
+  'xmin',
+  'shape',
+  'scale',
+  'lambda',
+  'beta',
+  's',
+  'n',
+  'min',
+  'max',
+];
+
+/** Digits, a point, a sign, an exponent — anything a plain number can be. */
+const PLAIN_NUMBER = /^\s*[+-]?(\d+\.?\d*|\.\d+)([eE][+-]?\d+)?\s*$/;
+
+/**
+ * The parameters this generator wrote as an EXPRESSION rather than a number.
+ *
+ * A bare number stays the degenerate case, so a config that never wanted this
+ * pays nothing: the spec is parsed once, exactly as before, and only a config
+ * that actually names a column takes the per-row path.
+ *
+ * This does NOT change how many uniforms a row consumes — `draws` depends only
+ * on WHICH distribution, never on its parameters — so the property every engine
+ * is built on (a row computable without its predecessors) is untouched. That is
+ * the difference from `repeat=`, where a per-row count would have changed the
+ * draw budget and was therefore refused; see `sequence/repeat.ts`.
+ */
+export function expressionParams(attrs: Record<string, string | undefined>): readonly string[] {
+  const found: string[] = [];
+  for (const name of DISTRIBUTION_PARAMS) {
+    const raw = attrs[name];
+    if (raw === undefined || raw.trim() === '') continue;
+    if (!PLAIN_NUMBER.test(raw)) found.push(name);
+  }
+  return found;
+}

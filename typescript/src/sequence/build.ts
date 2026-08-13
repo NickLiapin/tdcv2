@@ -31,7 +31,6 @@ import { decrementGenerator, incrementGenerator } from '../generators/counter.js
 import { dateAxis, dateGenerator } from '../generators/date.js';
 import { toEpochMillis } from '../date/index.js';
 import { loadCsvColumnFile, loadListFile } from '../generators/file.js';
-import { formatSample, parseDistribution, sampleDistribution } from '../generators/distribution.js';
 
 import { applyAnomaly, keepShape, parseAnomaly } from '../generators/anomaly.js';
 import { applyMissing, parseMissing } from '../generators/missing.js';
@@ -102,6 +101,7 @@ import { poolRefName, type PoolTables } from './pool.js';
 import { registerPoolRef } from './pool-ref.js';
 import { isDateOffset, offsetOf } from './date-offset.js';
 import { registerDerivedColumn } from './derived.js';
+import { distributionColumn } from './dist-params.js';
 
 export interface SequenceBuildOptions {
   readonly regexMaxLength?: number | undefined;
@@ -906,6 +906,11 @@ export function streamCtx(options: SequenceBuildOptions): SequenceBuildContext {
     packs: options.packs,
     fileRowLinks: new Map<string, LinkedFileRowPlan>(),
     perRow: true,
+    // A sibling column, read lazily. The streaming builder already fills this in
+    // its options — it is how a `<switch>` inside a `<case>` finds its subject —
+    // and a distribution parameter written as an expression needs exactly the
+    // same thing, so it is carried through rather than invented again.
+    valueAt: options.valueAt,
   };
   streamCtxCache.set(options, ctx);
   return ctx;
@@ -946,9 +951,24 @@ export function buildGenValues(
       // every row overwrite slot 0 before it was copied out.
       const one: (number | undefined)[] | undefined = instantsOut ? [] : undefined;
       const row = ctx.rows ? (ctx.rows[i] ?? i) : i;
+      // The one-row build carries the row it IS. Without this the inner call
+      // sees the whole `rows` array and reads position 0 out of it, so anything
+      // asking "which row am I" — a distribution parameter written as an
+      // expression — answered "the first" on every row. The streaming path
+      // already narrowed this way (`resolveGenValueAt`), and the two engines
+      // disagreeing about the same question is what made it visible.
+      const rowCtx = { ...ctx, rows: [row] };
       out[i] =
-        buildGenValues(gen, 1, seekableGen(seed, streamId, row), locale, now, ctx, flags, one)[0] ??
-        '';
+        buildGenValues(
+          gen,
+          1,
+          seekableGen(seed, streamId, row),
+          locale,
+          now,
+          rowCtx,
+          flags,
+          one,
+        )[0] ?? '';
       if (flagTextOut && flags) flagTextOut[i] = flags[0] ?? 'false';
       if (instantsOut && one) instantsOut[i] = one[0];
     }
@@ -1244,15 +1264,10 @@ function buildGenValuesRaw(
       if (distAttr !== undefined && distAttr.trim() !== '') {
         // Distribution mode: each row draws a FIXED number of uniforms from the
         // (sequential, in-memory) PRNG, so it stays deterministic; the streaming
-        // engine supplies the same shape of draws seekably.
-        const spec = parseDistribution(gen.attrs);
-        const out = new Array<string>(count);
-        for (let i = 0; i < count; i++) {
-          const uniforms = new Array<number>(spec.draws);
-          for (let d = 0; d < spec.draws; d++) uniforms[d] = openUnit(prng());
-          out[i] = formatSample(sampleDistribution(spec, uniforms), spec);
-        }
-        return out;
+        // engine supplies the same shape of draws seekably. A parameter written
+        // as an EXPRESSION follows the row — see `dist-params.ts` for why that
+        // is safe here and was not for `repeat=`.
+        return distributionColumn(gen.attrs, count, prng, ctx);
       }
       const lengthAttr = gen.attrs['length'];
       const firstZeroAttr = gen.attrs['first_zero'];
