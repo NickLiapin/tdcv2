@@ -32,7 +32,7 @@ use crate::generators::{accumulate, advanced_regex, file, number, regex, repeat,
 use crate::numbers;
 use crate::output::column_type::ColumnType;
 use crate::packs::DataPacks;
-use crate::stats::distribution;
+use crate::stats::{dist_params, distribution};
 use crate::unicode;
 
 /// A tag's attributes, unquoted and by name.
@@ -3106,6 +3106,40 @@ impl Validator {
         }
     }
 
+    /// Every column an expression-valued distribution parameter names must be declared
+    /// ABOVE it.
+    ///
+    /// The same rule `formula`, `running` and `of=` follow, and for a sharper reason than
+    /// a typo: a FORWARD reference makes the two engines disagree — the streaming registry
+    /// answers it and the in-memory one does not — so one config would mean two datasets.
+    /// TDC240 is shared with them on purpose; it is the same complaint about the same
+    /// thing.
+    fn check_param_names(&mut self, gen: &Element, param: &str, source: &str) {
+        let Ok(parsed) = expr::parse(source) else {
+            return; // Not an expression at all — TDC089 reports it.
+        };
+        let mut names = std::collections::BTreeSet::new();
+        collect_identifiers(&parsed, &mut names);
+        for name in names {
+            if is_builtin(&name) || self.declared_order.contains(&name) {
+                continue;
+            }
+            let hint = if self.declared_order.is_empty() {
+                "A parameter reads a column that already exists, so the column it reads has \
+                 to come first."
+                    .to_string()
+            } else {
+                format!("Declared above: {}.", self.declared_order.join(", "))
+            };
+            self.error(
+                "TDC240",
+                format!("\"{name}\" in {param}= is not a sequence declared above this one"),
+                &hint,
+                gen.at(param),
+            );
+        }
+    }
+
     /// The number generator's own parsers decide what is valid.
     ///
     /// A validator with its own idea of a valid range drifts from the generator
@@ -3136,9 +3170,27 @@ impl Validator {
                     );
                 }
             }
+            // A parameter written as an EXPRESSION is resolved per row against the other
+            // columns, so its VALUE is not knowable here. Stand a plausible number in its
+            // place and check everything else — the distribution's name, the parameters
+            // it requires, the attributes it refuses — so writing `lambda="Traffic * 0.5"`
+            // does not buy silence about the rest of the generator.
+            //
+            // `1` is the stand-in because every parameter of every distribution accepts
+            // it: the positive ones are happy, the unbounded ones do not care. A parameter
+            // that resolves to something the distribution rejects — a negative `sd` — is
+            // caught by the run, where the value finally exists, with this same message.
+            let dynamic = dist_params::expression_params(attrs);
+            for name in &dynamic {
+                self.check_param_names(gen, name, attrs.get(*name).map_or("", String::as_str));
+            }
+            let mut for_check = attrs.clone();
+            for name in &dynamic {
+                for_check.insert((*name).to_string(), "1".to_string());
+            }
             // The distribution's own parameters: a shape nobody can draw from is
             // an error before the run, not a surprise on the first row.
-            if let Err(e) = distribution::parse(attrs) {
+            if let Err(e) = distribution::parse(&for_check) {
                 self.error(
                     "TDC089",
                     e.message().to_string(),
@@ -5590,6 +5642,40 @@ pub const BUILTINS: [&str; 6] = ["_count", "_first", "_last", "_item", "_item_id
 
 pub fn is_builtin(name: &str) -> bool {
     BUILTINS.contains(&name)
+}
+
+/// Every bare name an expression mentions, the root of a dotted path included.
+///
+/// A distribution parameter is a NUMBER, so every identifier in one has to be a column —
+/// unlike `if=`, where an unknown name is a legitimate bare word. That is what makes
+/// checking them all correct here and wrong there.
+fn collect_identifiers(node: &expr::Expr, found: &mut std::collections::BTreeSet<String>) {
+    match node {
+        expr::Expr::Name(name) => {
+            found.insert(name.clone());
+        }
+        expr::Expr::Member(path) => {
+            found.insert(path.split('.').next().unwrap_or(path).to_string());
+        }
+        expr::Expr::Unary(_, inner) | expr::Expr::Computed(inner) => {
+            collect_identifiers(inner, found);
+        }
+        expr::Expr::Binary(_, left, right) => {
+            collect_identifiers(left, found);
+            collect_identifiers(right, found);
+        }
+        expr::Expr::Conditional(test, yes, no) => {
+            collect_identifiers(test, found);
+            collect_identifiers(yes, found);
+            collect_identifiers(no, found);
+        }
+        expr::Expr::Call(_, args) | expr::Expr::Array(args) => {
+            for arg in args {
+                collect_identifiers(arg, found);
+            }
+        }
+        _ => {}
+    }
 }
 
 /// One entry of [`declarations`]: the element, and the env-level group it was

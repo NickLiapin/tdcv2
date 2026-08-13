@@ -44,7 +44,7 @@ use crate::pattern;
 use crate::prng::{self, seekable, Sfc32};
 use crate::sequence::pool::{self, PoolTable};
 use crate::sequence::uniq;
-use crate::stats::{distribution, hamilton, timeseries};
+use crate::stats::{dist_params, distribution, hamilton, timeseries};
 
 /// Every column already built; text is rendered on demand from those same values.
 pub struct MaterializedRows {
@@ -99,6 +99,17 @@ pub struct Env<'a> {
     /// every later one follows them, which is what makes a city and its postcode
     /// come from one real record.
     row_links: RefCell<BTreeMap<String, RowLinkPlan>>,
+    /// The finished columns a later expression will READ, and only those.
+    ///
+    /// A distribution parameter written as an expression — `lambda="Traffic * 0.5"` —
+    /// needs its sibling's value on this row, and Rust does not thread the whole column
+    /// registry down to the generator layer the way the other implementations do.
+    /// Copying every column to make that possible would double the run's memory; the
+    /// names an expression can name are known from the config, so only those are kept.
+    ///
+    /// Safe because TDC240 already refuses a parameter that names a column not declared
+    /// ABOVE it: whatever it reads is finished by the time this column is built.
+    siblings: RefCell<BTreeMap<String, Vec<Option<String>>>>,
 }
 
 impl<'a> Env<'a> {
@@ -114,7 +125,65 @@ impl<'a> Env<'a> {
             now_millis,
             base_dir,
             row_links: RefCell::new(BTreeMap::new()),
+            siblings: RefCell::new(BTreeMap::new()),
         }
+    }
+
+    /// Keep a finished column, if some expression in this config can read it.
+    pub(super) fn remember_sibling(&self, name: &str, column: &[Option<String>]) {
+        if self.siblings.borrow().contains_key(name) || !expression_reads(self.config, name) {
+            return;
+        }
+        self.siblings
+            .borrow_mut()
+            .insert(name.to_string(), column.to_vec());
+    }
+
+    /// This column's value on `row`, when it was kept.
+    pub(super) fn sibling_at(&self, name: &str, row: usize) -> Option<String> {
+        self.siblings
+            .borrow()
+            .get(name)
+            .and_then(|column| column.get(row).cloned())
+            .flatten()
+    }
+
+}
+
+impl Siblings for Env<'_> {
+    fn has(&self, name: &str) -> bool {
+        self.siblings.borrow().contains_key(name)
+    }
+
+    fn at(&self, name: &str, row: usize) -> Option<String> {
+        self.sibling_at(name, row)
+    }
+}
+
+/// Where a per-row expression reads the columns beside it.
+///
+/// One seam, two fillings: the in-memory engine answers from the columns it has already
+/// built, the streaming engine from its lazy registry. It is the same split the reference
+/// makes with `ctx.valueAt`, and it is what lets a distribution parameter be an
+/// expression without either engine learning about the other.
+pub(super) trait Siblings {
+    /// Does the run know a column by this name? Separate from the value, because an
+    /// ABSENT name is not an empty one: an unresolved bare word evaluates to the WORD,
+    /// the way `if="Tier == hi"` reads `hi`, and only a name the registry KNOWS can mark
+    /// the row empty.
+    fn has(&self, name: &str) -> bool;
+    fn at(&self, name: &str, row: usize) -> Option<String>;
+}
+
+/// The absolute row behind each position of a build, and where to read siblings from.
+pub(super) struct SiblingScope<'a> {
+    pub rows: &'a [usize],
+    pub siblings: &'a dyn Siblings,
+}
+
+impl SiblingScope<'_> {
+    fn row_at(&self, position: usize) -> usize {
+        self.rows.get(position).copied().unwrap_or(position)
     }
 }
 
@@ -1005,6 +1074,15 @@ fn build_columns_with(
                 }
             }
         }
+
+        // Everything published so far, kept only if an expression somewhere can name it.
+        // Done here rather than at each `insert` because a sequence publishes under
+        // several keys — its own name, `Name.field`, a flag column — and one place that
+        // sees them all cannot forget one of them. A column is written once inside this
+        // loop, so the first copy is the final one.
+        for (name, column) in columns.iter() {
+            env.remember_sibling(name, column);
+        }
     }
 
     // Both run over finished columns, for the same reason the per-sequence ones
@@ -1793,6 +1871,57 @@ pub(super) fn column_values(
     column_values_into(gen, count, prng, env, stream, anomaly_flags, layouts, None)
 }
 
+/// Every name any expression in this config can read — parameters today, `formula`
+/// tomorrow.
+///
+/// Computed by scanning the config rather than declared, so adding an expression
+/// somewhere new cannot leave its sibling uncached. A whole-config scan per column would
+/// be wasteful, so this answers one name at a time and the callers ask only about
+/// columns they have just finished.
+fn expression_reads(config: &Config, name: &str) -> bool {
+    fn mentions(source: &str, name: &str) -> bool {
+        source.split(|c: char| !c.is_alphanumeric() && c != '_' && c != '.')
+            .any(|word| word == name || word.split('.').next() == Some(name))
+    }
+    fn gen_reads(gen: &Gen, name: &str) -> bool {
+        if let Some(expr) = gen.attrs.get("expr") {
+            if mentions(expr, name) {
+                return true;
+            }
+        }
+        crate::stats::dist_params::PARAMS.iter().any(|param| {
+            gen.attrs
+                .get(*param)
+                .is_some_and(|raw| raw.parse::<f64>().is_err() && mentions(raw, name))
+        })
+    }
+    fn case_reads(case: &Case, name: &str) -> bool {
+        case.parts.iter().any(|part| match part {
+            CasePart::Gen(g) => gen_reads(g, name),
+            CasePart::Mix(mix) => mix.cases.iter().any(|c| case_reads(c, name)),
+            CasePart::Switch(switch) => switch_reads(switch, name),
+            CasePart::Text(_) => false,
+        })
+    }
+    fn switch_reads(switch: &Switch, name: &str) -> bool {
+        switch.entries.iter().any(|entry| case_reads(&entry.value, name))
+            || switch.fallback.as_ref().is_some_and(|c| case_reads(c, name))
+    }
+    config.sequences.iter().any(|spec| match &spec.source {
+        Source::Gen(gen) => gen_reads(gen, name),
+        Source::Fields(fields) => fields.iter().any(|field| gen_reads(&field.gen, name)),
+        Source::Items(items) => items.iter().any(|item| match item {
+            Item::Gen(gen) => gen_reads(gen, name),
+            Item::Field(field) => gen_reads(&field.gen, name),
+            Item::Text(_) | Item::Constant { .. } => false,
+        }),
+        Source::Branches(branches) => branches.iter().any(|b| gen_reads(&b.gen, name)),
+        Source::Mix(mix) => mix.cases.iter().any(|c| case_reads(c, name)),
+        Source::Switch(switch) => switch_reads(switch, name),
+        Source::Compute(_) => false,
+    })
+}
+
 /// `column_values`, also keeping the instants behind a date column some offset reads.
 #[allow(clippy::too_many_arguments)]
 pub(super) fn column_values_into(
@@ -1806,7 +1935,7 @@ pub(super) fn column_values_into(
     mut instants: Option<&mut Vec<Option<i64>>>,
 ) -> EngineResult<Vec<String>> {
     let Some(stream) = stream else {
-        let drawn = generate_into(gen, count, prng, env, instants.as_deref_mut())?;
+        let drawn = generate_into(gen, count, prng, env, instants.as_deref_mut(), None)?;
         return finish_into(drawn, &gen.attrs, prng, anomaly_flags, instants);
     };
 
@@ -1871,7 +2000,12 @@ pub(super) fn column_values_into(
             // One row's instant lands in its own scratch: the inner call knows nothing of `i`,
             // and a later `missing=` pass has to line up with the values it just blanked.
             let mut scratch: Option<Vec<Option<i64>>> = instants.as_ref().map(|_| Vec::new());
-            let drawn = generate_into(gen, 1, &mut row_prng, env, scratch.as_mut())?;
+            let here = [stream.row_at(i)];
+            let scope = SiblingScope {
+                rows: &here,
+                siblings: env,
+            };
+            let drawn = generate_into(gen, 1, &mut row_prng, env, scratch.as_mut(), Some(&scope))?;
             let mut one = [false];
             let done = finish_into(
                 drawn,
@@ -1891,7 +2025,12 @@ pub(super) fn column_values_into(
         return Ok(out);
     }
 
-    let drawn = generate(gen, count, prng, env)?;
+    let here: Vec<usize> = (0..count).map(|i| stream.row_at(i)).collect();
+    let scope = SiblingScope {
+        rows: &here,
+        siblings: env,
+    };
+    let drawn = generate_into(gen, count, prng, env, None, Some(&scope))?;
     finish_keyed(drawn, gen, prng, anomaly_flags, Some(stream))
 }
 
@@ -2051,7 +2190,7 @@ pub(super) fn generate(
     prng: &mut Sfc32,
     env: &Env,
 ) -> EngineResult<Vec<String>> {
-    generate_into(gen, count, prng, env, None)
+    generate_into(gen, count, prng, env, None, None)
 }
 
 /// One generator's values, optionally keeping the instants behind a date column.
@@ -2060,12 +2199,16 @@ pub(super) fn generate(
 /// a RENDERING — `02/03/2026` in an en locale, `03.02.2026` in a ru one — and
 /// reading a date back out of that is a guess. The column that produced it keeps
 /// what it generated, and an offset measures from THAT.
+/// `scope` says which absolute row each position is and where its siblings are read
+/// from, for the one generator that needs both: a distribution whose parameter is an
+/// expression. `None` means the positions ARE the rows and there is nothing to read.
 pub(super) fn generate_into(
     gen: &Gen,
     count: usize,
     prng: &mut Sfc32,
     env: &Env,
     instants: Option<&mut Vec<Option<i64>>>,
+    scope: Option<&SiblingScope>,
 ) -> EngineResult<Vec<String>> {
     // Attributes that change what a generator produces are refused before the
     // generator runs, so a column never silently ignores one it was given.
@@ -2087,7 +2230,9 @@ pub(super) fn generate_into(
 
     match gen.gen_type.as_str() {
         "text" => text(gen, count, prng),
-        "number" if gen.attrs.contains_key("distribution") => distributed(&gen.attrs, count, prng),
+        "number" if gen.attrs.contains_key("distribution") => {
+            distributed(&gen.attrs, count, prng, scope)
+        }
         "number" => number::generate(&gen.attrs, count, prng),
         // The same rule over a date range: row i is the i-th step from the start.
         // The axis is arithmetic rather than a list, so a long range costs
@@ -2789,14 +2934,56 @@ fn ranked_branch_rows(
 /// Every distribution spends a FIXED number of draws per row, and the uniforms
 /// are nudged into the open interval first: inverse-CDF sampling takes
 /// logarithms, and at exactly zero those are infinite.
+///
+/// A parameter may also be an EXPRESSION over the columns beside it, and then the spec is
+/// rebuilt per row. That is safe for exactly the reason a per-row `repeat=` is not: how
+/// many uniforms a row spends depends on WHICH distribution, never on its parameters.
 fn distributed(
     attrs: &std::collections::BTreeMap<String, String>,
     count: usize,
     prng: &mut Sfc32,
+    scope: Option<&SiblingScope>,
 ) -> EngineResult<Vec<String>> {
-    let spec = distribution::parse(attrs)?;
+    let dynamic = dist_params::expression_params(attrs);
+    let fixed = if dynamic.is_empty() {
+        Some(distribution::parse(attrs)?)
+    } else {
+        None
+    };
     let mut result = Vec::with_capacity(count);
-    for _ in 0..count {
+    for i in 0..count {
+        let resolved = match &fixed {
+            Some(_) => None,
+            None => {
+                let row = scope.map_or(i, |s| s.row_at(i));
+                let siblings = scope.map(|s| s.siblings);
+                Some(dist_params::resolve(
+                    attrs,
+                    &dynamic,
+                    row,
+                    &|name| siblings.is_some_and(|s| s.has(name)),
+                    &|name| siblings.and_then(|s| s.at(name, row)),
+                )?)
+            }
+        };
+        // Nothing to draw from, so nothing is drawn: the row comes out empty, which is
+        // what `<gen type="formula">` does with the same input. One rule for "the source
+        // said nothing", wherever the source is read.
+        if resolved.as_ref().is_some_and(|r| r.empty) {
+            // The uniforms are spent anyway. Otherwise blanking one cell would slide every
+            // value after it, and a `parent=` filter would quietly rewrite the rest of the
+            // column.
+            for _ in 0..dist_params::draws(attrs) {
+                prng.next();
+            }
+            result.push(String::new());
+            continue;
+        }
+        let spec = match (&fixed, &resolved) {
+            (Some(spec), _) => spec.clone(),
+            (None, Some(r)) => distribution::parse(&r.attrs)?,
+            (None, None) => distribution::parse(attrs)?,
+        };
         let uniforms: Vec<f64> = (0..spec.draws)
             .map(|_| seekable::open_unit(prng.next()))
             .collect();

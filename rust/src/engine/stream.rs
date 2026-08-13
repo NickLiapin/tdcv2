@@ -2497,7 +2497,15 @@ impl StreamEngine<'_> {
         flags: Option<&mut [bool]>,
     ) -> EngineResult<String> {
         let mut prng = seekable::generator(&self.seed, stream_id, row);
-        let drawn = memory::generate(gen, 1, &mut prng, &self.env)?;
+        // The row this value belongs to, and this engine's own registry to read siblings
+        // from — what a distribution parameter written as an expression needs. Nothing
+        // else looks at it, and a generator without one costs no lookup.
+        let here = [row.max(0) as usize];
+        let scope = memory::SiblingScope {
+            rows: &here,
+            siblings: self,
+        };
+        let drawn = memory::generate_into(gen, 1, &mut prng, &self.env, None, Some(&scope))?;
         let mut own = [false];
         let finished = memory::finish(
             drawn,
@@ -2735,6 +2743,28 @@ impl Lookup for StreamLookup<'_, '_> {
             Err(e) => {
                 self.engine.remember(e);
                 String::new()
+            }
+        }
+    }
+}
+
+/// The streaming half of the sibling seam: a column is asked for a value at a row, and
+/// the lazy registry computes exactly that row of exactly that column.
+///
+/// A forward reference cannot arrive here — TDC240 refuses a parameter naming a column
+/// declared below it — so this never asks the registry to build a column that is asking
+/// for this one.
+impl memory::Siblings for StreamEngine<'_> {
+    fn has(&self, name: &str) -> bool {
+        self.columns.contains_key(name)
+    }
+
+    fn at(&self, name: &str, row: usize) -> Option<String> {
+        match self.value_at(name, row as i32) {
+            Ok(value) => value,
+            Err(e) => {
+                self.remember(e);
+                None
             }
         }
     }
