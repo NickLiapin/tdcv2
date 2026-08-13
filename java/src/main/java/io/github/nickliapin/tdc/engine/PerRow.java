@@ -102,6 +102,12 @@ final class PerRow {
    * that can reach the pack registry without this class depending on it.
    */
   static boolean perRowBuildable(Config.Gen gen, int count, boolean weighted, boolean wholeColumn) {
+    // `sample="exact"` on a quantile read is a PLAN too: every row takes its own point on the
+    // sorted sample, and which point follows from a scatter over the whole column. Built a row at
+    // a time it would see a count of one and hand every row the median.
+    if ("exact".equals(gen.attrs().getOrDefault("sample", "").trim())) {
+      return false;
+    }
     if (count <= 1 || !PER_ROW_TYPES.contains(gen.type())) {
       return false;
     }

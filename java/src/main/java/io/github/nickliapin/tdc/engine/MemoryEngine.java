@@ -13,6 +13,8 @@ import io.github.nickliapin.tdc.generators.DateOffset;
 import io.github.nickliapin.tdc.generators.AdvancedRegexGen;
 import io.github.nickliapin.tdc.generators.Counter;
 import io.github.nickliapin.tdc.generators.FileGen;
+import io.github.nickliapin.tdc.generators.Formula;
+import io.github.nickliapin.tdc.generators.Quantile;
 import io.github.nickliapin.tdc.generators.HttpGen;
 import io.github.nickliapin.tdc.generators.Accumulate;
 import io.github.nickliapin.tdc.generators.Stat;
@@ -33,6 +35,7 @@ import io.github.nickliapin.tdc.prng.Prng;
 import io.github.nickliapin.tdc.prng.Seekable;
 import io.github.nickliapin.tdc.prng.Random;
 import io.github.nickliapin.tdc.sequence.Uniq;
+import io.github.nickliapin.tdc.stats.DistParams;
 import io.github.nickliapin.tdc.stats.Distribution;
 import io.github.nickliapin.tdc.stats.Timeseries;
 import java.nio.file.Path;
@@ -232,6 +235,35 @@ public final class MemoryEngine {
    * <p>Reads its source out of the columns rather than drawing anything, exactly as a running
    * total does — which is why adding one leaves every other column where it was.
    */
+  /**
+   * {@code <gen type="formula">} — arithmetic over the columns beside it.
+   *
+   * <p>Resolved here for the same reason {@code running} and {@code stat} are: it reads columns
+   * that already exist, so every name in {@code expr=} has to be declared above. Unlike them it
+   * needs only its OWN row, which is why it also streams.
+   */
+  private static void formulaColumn(
+      Config.SequenceSpec spec, Map<String, String[]> columns, int count) {
+    Map<String, String> attrs = spec.gen().attrs();
+    String source = Formula.expressionOf(attrs);
+    Integer decimals = Formula.decimalsOf(attrs);
+    String[] values = new String[count];
+    for (int row = 0; row < count; row++) {
+      final int here = row;
+      values[row] =
+          Formula.valueAtRow(
+              source,
+              decimals,
+              here,
+              columns::containsKey,
+              name -> {
+                String[] column = columns.get(name);
+                return column != null && here < column.length ? column[here] : null;
+              });
+    }
+    columns.put(spec.name(), values);
+  }
+
   private static void statColumn(
       Config.SequenceSpec spec, Map<String, String[]> columns, int count) {
     Map<String, String> attrs = spec.gen().attrs();
@@ -515,6 +547,13 @@ public final class MemoryEngine {
       }
       // A statistic over the whole run. Resolved here for the same reason and by the same rule:
       // it reads a column that already exists, so `of=` has to name a sequence above it.
+      // Arithmetic over the columns beside it. Resolved here for the same reason as the two
+      // below: it reads columns that already exist, so every name in `expr=` has to be declared
+      // above. Unlike them it needs only its OWN row, which is why it also streams.
+      if (spec.gen() != null && "formula".equals(spec.gen().type())) {
+        formulaColumn(spec, columns, count);
+        continue;
+      }
       if (spec.gen() != null && "stat".equals(spec.gen().type())) {
         statColumn(spec, columns, count);
         continue;
@@ -599,7 +638,7 @@ public final class MemoryEngine {
                 new ArrayList<>(
                     columnValues(
                         gen, applicable, prng, packs, config, nowMillis, baseDir, rowLinks,
-                        part, null, layouts));
+                        part, null, layouts, Siblings.of(columns)));
           }
           if (item.field() != null) {
             built.put(item.field().name(), values);
@@ -646,7 +685,8 @@ public final class MemoryEngine {
                           new PerRow.Stream(
                               config.seed(), spec.name() + "." + field.name(), rows),
                           null,
-                          layouts)));
+                          layouts,
+                          Siblings.of(columns))));
         }
 
         if (applicable > 0 && spec.distinctGroups() != null) {
@@ -851,7 +891,7 @@ public final class MemoryEngine {
         produced =
             columnValues(
                 spec.gen(), applicable, prng, packs, config, nowMillis, baseDir, rowLinks,
-                stream, anomalyFlags, layouts, collected);
+                stream, anomalyFlags, layouts, collected, Siblings.of(columns));
         // Attach the instants only if the build actually filled them for every row. A sink that
         // was asked for and left empty is NOT "this column has no date on any row" — it is "this
         // build never wrote one", and the two answers are opposite. Refusing to attach gives the
@@ -1724,7 +1764,7 @@ public final class MemoryEngine {
         values =
             columnValues(
                 part.gen(), count, prng, packs, config, nowMillis, baseDir, rowLinks, sub, null,
-                null);
+                null, columns == null ? null : Siblings.of(columns));
       } else if (part.mix() != null) {
         values =
             mixValues(
@@ -2079,7 +2119,8 @@ public final class MemoryEngine {
               rowLinks,
               new PerRow.Stream(config.seed(), spec.name() + "#if" + b, null),
               spiked,
-              null));
+              null,
+              columns == null ? null : Siblings.of(columns)));
       String declared = gen.attrs().get("anomaly_flag");
       flagNames.add(declared == null || declared.trim().isEmpty() ? null : declared.trim());
       flags.add(spiked);
@@ -2154,10 +2195,11 @@ public final class MemoryEngine {
       Map<String, RowLinkPlan> rowLinks,
       PerRow.Stream stream,
       boolean[] anomalyFlags,
-      Map<String, PerRow.ExactLayout> layouts) {
+      Map<String, PerRow.ExactLayout> layouts,
+      Siblings siblings) {
     return columnValues(
         gen, count, prng, packs, config, nowMillis, baseDir, rowLinks, stream, anomalyFlags,
-        layouts, null);
+        layouts, null, siblings);
   }
 
   /** {@link #columnValues}, also keeping the instants behind a date column some offset reads. */
@@ -2173,10 +2215,13 @@ public final class MemoryEngine {
       PerRow.Stream stream,
       boolean[] anomalyFlags,
       Map<String, PerRow.ExactLayout> layouts,
-      List<Long> instants) {
+      List<Long> instants,
+      Siblings siblings) {
     if (stream == null) {
       return finish(
-          generate(gen, count, prng, packs, config, nowMillis, baseDir, rowLinks, instants),
+          generate(
+              gen, count, prng, packs, config, nowMillis, baseDir, rowLinks, instants, siblings,
+              null),
           gen.attrs(),
           prng,
           anomalyFlags,
@@ -2191,6 +2236,27 @@ public final class MemoryEngine {
           prng,
           anomalyFlags,
           stream);
+    }
+
+    // `sample="exact"` on a quantile read is a PLAN, like the layout above: every row takes its
+    // own point on the sorted sample, and which point follows from a scatter over the whole
+    // column. Built a row at a time it would see a count of one and hand every row the median.
+    if ("file".equals(gen.type())
+        && Quantile.isQuantile(gen.attrs())
+        && Quantile.isExactSample(gen.attrs())) {
+      Quantile.Source source =
+          Quantile.read(
+              FileGen.load(gen.attrs(), baseDir, packs.dataRoots()), gen.attr("src", "").trim());
+      int sweepDecimals = Quantile.decimalsFor(gen.attrs(), source);
+      int sweepKey = Permute.key(stream.seed(), stream.id());
+      List<String> swept = new ArrayList<>(count);
+      for (int i = 0; i < count; i++) {
+        // The POSITION inside this column, not the absolute row: the sweep spreads `count`
+        // points over the rows this column actually has, and a filtered column has fewer of
+        // them than the run does.
+        swept.add(Quantile.exactAt(source, sweepDecimals, count, sweepKey, i));
+      }
+      return finishKeyed(swept, gen, prng, anomalyFlags, stream);
     }
 
     // Two types the streaming engine builds INLINE: the value follows the position, and only the
@@ -2215,13 +2281,16 @@ public final class MemoryEngine {
       List<String> out = new ArrayList<>(count);
       for (int i = 0; i < count; i++) {
         Prng.Sfc32 rowPrng = PerRow.rowGenerator(stream, stream.rowAt(i));
+        final int here = stream.rowAt(i);
         boolean[] one = new boolean[1];
         // One row's instant lands in its own scratch: the inner call knows nothing of `i`, and a
         // later `missing=` pass has to line up with the values it just blanked.
         List<Long> scratch = instants == null ? null : new ArrayList<>(1);
         List<String> done =
             finish(
-                generate(gen, 1, rowPrng, packs, config, nowMillis, baseDir, rowLinks, scratch),
+                generate(
+                    gen, 1, rowPrng, packs, config, nowMillis, baseDir, rowLinks, scratch,
+                    siblings, position -> here),
                 gen.attrs(),
                 rowPrng,
                 one,
@@ -2238,7 +2307,9 @@ public final class MemoryEngine {
     }
 
     return finishKeyed(
-        generate(gen, count, prng, packs, config, nowMillis, baseDir, rowLinks),
+        generate(
+            gen, count, prng, packs, config, nowMillis, baseDir, rowLinks, null, siblings,
+            stream::rowAt),
         gen,
         prng,
         anomalyFlags,
@@ -2511,10 +2582,40 @@ public final class MemoryEngine {
    * would break that.
    */
   private static List<String> distribute(
-      Map<String, String> attrs, int count, Prng.Sfc32 prng) {
-    Distribution.Spec spec = Distribution.parse(attrs);
+      Map<String, String> attrs,
+      int count,
+      Prng.Sfc32 prng,
+      Siblings siblings,
+      java.util.function.IntUnaryOperator rowAt) {
+    List<String> dynamic = DistParams.expressionParams(attrs);
+    Distribution.Spec fixed = dynamic.isEmpty() ? Distribution.parse(attrs) : null;
     List<String> out = new ArrayList<>(count);
     for (int i = 0; i < count; i++) {
+      DistParams.Resolved resolved = null;
+      if (fixed == null) {
+        int row = rowAt == null ? i : rowAt.applyAsInt(i);
+        resolved =
+            DistParams.resolve(
+                attrs,
+                dynamic,
+                row,
+                name -> siblings != null && siblings.has().test(name),
+                name -> siblings == null ? null : siblings.at().apply(name, row));
+      }
+      // Nothing to draw from, so nothing is drawn: the row comes out empty, which is what
+      // `<gen type="formula">` does with the same input. One rule for "the source said nothing",
+      // wherever the source is read.
+      if (resolved != null && resolved.empty()) {
+        // The uniforms are spent anyway. Otherwise blanking one cell would slide every value
+        // after it, and a `parent=` filter would quietly rewrite the rest of the column.
+        for (int d = 0; d < DistParams.draws(attrs); d++) {
+          prng.next();
+        }
+        out.add("");
+        continue;
+      }
+      Distribution.Spec spec =
+          fixed != null ? fixed : Distribution.parse(resolved == null ? attrs : resolved.attrs());
       double[] uniforms = new double[spec.draws()];
       for (int d = 0; d < spec.draws(); d++) {
         uniforms[d] = Distribution.openUnit(prng.next());
@@ -2527,6 +2628,34 @@ public final class MemoryEngine {
 
   /** One row link's plan: which row of the file each record reads. */
   private record RowLinkPlan(String sourceKey, List<Integer> indexes) {}
+
+  /**
+   * Where a per-row expression reads the columns beside it.
+   *
+   * <p>{@code has} is separate from {@code at} because an ABSENT name is not an empty one: an
+   * unresolved bare word evaluates to the WORD, the way {@code if="Tier == hi"} reads {@code hi},
+   * and only a name the registry KNOWS can mark the row empty. It is the same seam the reference
+   * calls {@code ctx.valueAt}.
+   */
+  record Siblings(
+      java.util.function.Predicate<String> has,
+      java.util.function.BiFunction<String, Integer, String> at) {
+
+    /**
+     * The finished columns, as the seam.
+     *
+     * <p>Safe because TDC240 refuses a parameter that names a column not declared ABOVE it: what
+     * it reads is finished by the time the column that reads it is built.
+     */
+    static Siblings of(Map<String, String[]> columns) {
+      return new Siblings(
+          columns::containsKey,
+          (name, row) -> {
+            String[] column = columns.get(name);
+            return column != null && row < column.length ? column[row] : null;
+          });
+    }
+  }
 
   /**
    * {@code row="key"} — every sequence on the same key reads the same row of the file.
@@ -3039,7 +3168,7 @@ public final class MemoryEngine {
       long nowMillis,
       Path baseDir,
       Map<String, RowLinkPlan> rowLinks) {
-    return generate(gen, count, prng, packs, config, nowMillis, baseDir, rowLinks, null);
+    return generate(gen, count, prng, packs, config, nowMillis, baseDir, rowLinks, null, null, null);
   }
 
   /**
@@ -3060,6 +3189,28 @@ public final class MemoryEngine {
       Path baseDir,
       Map<String, RowLinkPlan> rowLinks,
       List<Long> instants) {
+    return generate(
+        gen, count, prng, packs, config, nowMillis, baseDir, rowLinks, instants, null, null);
+  }
+
+  /**
+   * The same, with the seam a distribution parameter written as an EXPRESSION reads through.
+   *
+   * <p>{@code rowAt} says which absolute row each position is; {@code null} means the positions
+   * ARE the rows — the whole-column build of an unfiltered sequence.
+   */
+  static List<String> generate(
+      Config.Gen gen,
+      int count,
+      Prng.Sfc32 prng,
+      DataPacks packs,
+      Config config,
+      long nowMillis,
+      Path baseDir,
+      Map<String, RowLinkPlan> rowLinks,
+      List<Long> instants,
+      Siblings siblings,
+      java.util.function.IntUnaryOperator rowAt) {
     String locale = config.locale();
 
     // order="sequential" comes before everything else: it replaces the draw entirely, so the
@@ -3115,7 +3266,7 @@ public final class MemoryEngine {
       case "number" -> {
         String distribution = gen.attrs().get("distribution");
         if (distribution != null && !distribution.isBlank()) {
-          return distribute(gen.attrs(), count, prng);
+          return distribute(gen.attrs(), count, prng, siblings, rowAt);
         }
         return NumberGen.generate(gen.attrs(), count, prng);
       }
@@ -3123,6 +3274,26 @@ public final class MemoryEngine {
         return Timeseries.generate(gen.attrs(), count, prng);
       }
       case "file" -> {
+        // `read="quantile"` reads the SAME file as a distribution rather than a bag: sorted
+        // once, a row lands anywhere on it, and the values between observations appear on their
+        // own. One uniform per row and nothing shared, so this needs no branch of its own on the
+        // streaming engine — it arrives here a row at a time and answers the same way. The EXACT
+        // sweep is a plan over the whole column and lives where the stream is.
+        if (Quantile.isQuantile(gen.attrs())) {
+          Quantile.Source source =
+              Quantile.read(
+                  FileGen.load(gen.attrs(), baseDir, packs.dataRoots()),
+                  gen.attr("src", "").trim());
+          int quantileDecimals = Quantile.decimalsFor(gen.attrs(), source);
+          List<String> drawn = new ArrayList<>(count);
+          for (int i = 0; i < count; i++) {
+            drawn.add(
+                Quantile.render(
+                    Quantile.at(source.sorted(), Seekable.openUnit(prng.next())),
+                    quantileDecimals));
+          }
+          return drawn;
+        }
         String rowKey = trimToNull(gen.attrs().get("row"));
         if (rowKey != null) {
           return linkedFileValues(

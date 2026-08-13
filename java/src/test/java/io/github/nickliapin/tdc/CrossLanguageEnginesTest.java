@@ -140,6 +140,9 @@ class CrossLanguageEnginesTest {
     if (node.hasNonNull("now")) {
       options.now(Instant.parse(node.get("now").asText()).toEpochMilli());
     }
+    if (node.hasNonNull("dataPath")) {
+      options.baseDir(sharedDir().resolve("cases").resolve(node.get("dataPath").asText()));
+    }
     return options.build().toString();
   }
 }

@@ -42,8 +42,21 @@ public final class Repeat {
    *     exact whole-run quota AND a per-row guarantee at once costs either streaming or the
    *     randomness of the sample. Frequencies stay approximate, rows stay independent.
    */
+  /**
+   * @param lengths {@code lengths=}: the share of rows that get each possible length, {@code min}
+   *     first, or {@code null} for an even split.
+   *     <p>Without it every length is equally likely, and exactly so — the lengths are laid out as
+   *     a Hamilton quota, which is the wrong shape for every real one-to-many relationship. The
+   *     shares live HERE, in the spec, rather than in a per-row draw: a per-row count would make a
+   *     row's draws depend on the rows before it.
+   */
   public record Spec(
-      int min, int max, String separator, String accumulate, boolean distinct) {}
+      int min,
+      int max,
+      String separator,
+      String accumulate,
+      boolean distinct,
+      double[] lengths) {}
 
   private Repeat() {}
 
@@ -76,7 +89,71 @@ public final class Repeat {
         max,
         attrs.getOrDefault("separator", DEFAULT_SEPARATOR),
         Accumulate.read(attrs),
-        readDistinct(attrs));
+        readDistinct(attrs),
+        parseLengths(attrs.get("lengths"), min, max));
+  }
+
+  /**
+   * {@code lengths="40,25,15,10,7,3"} — one share per possible length, {@code min} first.
+   *
+   * <p>One share per length and a sum of 100, both refused rather than repaired: a fan-out written
+   * with five shares for six lengths is a config whose author is thinking of a different range,
+   * and quietly filling the sixth in would hide that.
+   */
+  public static double[] parseLengths(String raw, int min, int max) {
+    String text = raw == null ? "" : raw.trim();
+    if (text.isEmpty()) {
+      return null;
+    }
+    List<String> parts = new ArrayList<>();
+    for (String piece : text.split(",", -1)) {
+      String trimmed = piece.trim();
+      if (!trimmed.isEmpty()) {
+        parts.add(trimmed);
+      }
+    }
+    int groups = Math.max(1, max - min + 1);
+    if (parts.size() != groups) {
+      throw new IllegalArgumentException(
+          "lengths: "
+              + parts.size()
+              + " share(s) for "
+              + groups
+              + " possible length(s) — repeat=\""
+              + min
+              + ".."
+              + max
+              + "\" can produce "
+              + min
+              + " to "
+              + max
+              + " values, so it needs one share for each");
+    }
+    double[] values = new double[parts.size()];
+    for (int i = 0; i < parts.size(); i++) {
+      double value;
+      try {
+        value = Double.parseDouble(parts.get(i));
+      } catch (NumberFormatException e) {
+        throw new IllegalArgumentException(
+            "lengths: share for length " + (min + i) + " is not a number >= 0");
+      }
+      if (Double.isNaN(value) || Double.isInfinite(value) || value < 0) {
+        throw new IllegalArgumentException(
+            "lengths: share for length " + (min + i) + " is not a number >= 0");
+      }
+      values[i] = value;
+    }
+    double total = 0;
+    for (double value : values) {
+      total += value;
+    }
+    if (Math.abs(total - 100.0) > 1e-9) {
+      throw new IllegalArgumentException(
+          "lengths: shares sum to " + io.github.nickliapin.tdc.lib.Numbers.toText(total)
+              + ", expected 100");
+    }
+    return values;
   }
 
   /**
@@ -141,8 +218,14 @@ public final class Repeat {
     return new Plan(spec, slotAcc, rowCumLo, slotOffset);
   }
 
-  /** An even split across the possible lengths — the shares {@link #plan} quotas by. */
+  /**
+   * The shares {@link #plan} quotas by: {@code lengths=} when the config gave one, an even split
+   * otherwise.
+   */
   public static double[] lengthPercents(Spec spec) {
+    if (spec.lengths() != null) {
+      return spec.lengths();
+    }
     int groups = spec.max() - spec.min() + 1;
     double[] out = new double[groups];
     java.util.Arrays.fill(out, 100.0 / groups);
@@ -160,12 +243,12 @@ public final class Repeat {
       Spec spec, int count, Prng.Sfc32 prng, IntFunction<List<String>> buildFlat) {
     int groups = spec.max() - spec.min() + 1;
 
-    // The lengths, as an exact quota rather than a per-row coin flip.
+    // The lengths, as an exact quota rather than a per-row coin flip — `lengths=` when the config
+    // declared a shape, an even split otherwise.
     List<Integer> groupIds = new ArrayList<>(groups);
-    double[] percents = new double[groups];
+    double[] percents = lengthPercents(spec);
     for (int j = 0; j < groups; j++) {
       groupIds.add(j);
-      percents[j] = 100.0 / groups;
     }
     List<Integer> perRowGroup = Hamilton.distribute(count, groupIds, percents, prng);
 

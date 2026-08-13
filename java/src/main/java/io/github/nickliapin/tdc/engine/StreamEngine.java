@@ -11,6 +11,8 @@ import io.github.nickliapin.tdc.format.Transforms;
 import io.github.nickliapin.tdc.generators.DateOffset;
 import io.github.nickliapin.tdc.generators.AdvancedRegexGen;
 import io.github.nickliapin.tdc.generators.FileGen;
+import io.github.nickliapin.tdc.generators.Formula;
+import io.github.nickliapin.tdc.generators.Quantile;
 import io.github.nickliapin.tdc.generators.Imperfections;
 import io.github.nickliapin.tdc.generators.NumberGen;
 import io.github.nickliapin.tdc.generators.Repeat;
@@ -294,6 +296,24 @@ public final class StreamEngine {
                 + "it (run without a forced streaming engine)");
       }
 
+      // Arithmetic over the columns beside it. Unlike the two refusals around it, a formula
+      // reads only its OWN row, so the streaming engine answers it lazily exactly as it answers
+      // a `<compute>`.
+      if (spec.gen() != null && "formula".equals(spec.gen().type())) {
+        String formulaSource = Formula.expressionOf(spec.gen().attrs());
+        Integer formulaDecimals = Formula.decimalsOf(spec.gen().attrs());
+        columns.put(
+            spec.name(),
+            row ->
+                Formula.valueAtRow(
+                    formulaSource,
+                    formulaDecimals,
+                    row,
+                    columns::containsKey,
+                    name -> valueAt(name, row)));
+        continue;
+      }
+
       // A statistic over the whole run is the stronger form of the same thing: it is not knowable
       // from the rows SO FAR either, because the rows after this one are part of the answer.
       if (spec.gen() != null && "stat".equals(spec.gen().type())) {
@@ -450,7 +470,8 @@ public final class StreamEngine {
                           genValues(
                               genByName.get(name),
                               Seekable.generator(seed, name + "#ed" + attempt, row),
-                              null));
+                              null,
+                              row));
                 }
                 values.put(name, value);
                 seen.add(value);
@@ -864,6 +885,34 @@ public final class StreamEngine {
               }));
     }
 
+    // `sample="exact"` on a quantile read: the row's point on the sorted sample comes from a
+    // scatter over the WHOLE column, so it cannot go down the generic per-row path, which is
+    // handed a count of one and would give every row the median. The file is read and sorted
+    // ONCE, here, so a run of any length costs the sample and nothing more.
+    if ("file".equals(type)
+        && Quantile.isQuantile(attrs)
+        && Quantile.isExactSample(attrs)) {
+      Quantile.Source quantileSource =
+          Quantile.read(
+              FileGen.load(attrs, baseDir, packs.dataRoots()),
+              attrs.getOrDefault("src", "").trim());
+      int quantileDecimals = Quantile.decimalsFor(attrs, quantileSource);
+      int sweepKey = Permute.key(seed, streamId);
+      int sweepCount = domain.size();
+      return new Built(
+          wrap(
+              mod,
+              row -> {
+                Integer r = domain.popIndexAt().apply(row);
+                // Over the rows this column HAS, which for a filtered one is its domain rather
+                // than the run — the same count the in-memory engine sweeps.
+                return r == null
+                    ? null
+                    : Quantile.exactAt(
+                        quantileSource, quantileDecimals, sweepCount, sweepKey, r);
+              }));
+    }
+
     // A row-linked file: every field on the key must land on the same record for a given row,
     // and a different one per row. The in-memory engine plans that for the whole column; here
     // the index is re-derived from a stream keyed by the LINK, so the fields agree without one.
@@ -932,7 +981,7 @@ public final class StreamEngine {
                 NumberGen.LengthChoice group =
                     lengthChoices.get(runFor(cumHi, Permute.permute(r, domain.size(), key)));
                 Config.Gen pinned = new Config.Gen(type, NumberGen.pinLength(attrs, group));
-                return first(genValues(pinned, Seekable.generator(seed, streamId, row), null));
+                return first(genValues(pinned, Seekable.generator(seed, streamId, row), null, row));
               }));
     }
 
@@ -959,7 +1008,8 @@ public final class StreamEngine {
                           genValues(
                               single,
                               Seekable.generator(seed, streamId + "#e" + at + suffix, row),
-                              null));
+                              null,
+                              row));
               parts.add(
                   repeat.distinct()
                       ? Repeat.redrawUntilFresh(parts, gen.type(), drawAt)
@@ -998,14 +1048,16 @@ public final class StreamEngine {
                             genValues(
                                 single,
                                 Seekable.generator(seed, streamId + "#e" + at + s2, row),
-                                null));
+                                null,
+                                row));
                 String[] won = Repeat.redrawUntilFreshAt(seen, gen.type(), drawAt);
                 seen.add(won[0]);
                 suffix = won[1];
               }
               boolean[] spiked = new boolean[1];
               genValues(
-                  single, Seekable.generator(seed, streamId + "#e" + k + suffix, row), spiked);
+                  single, Seekable.generator(seed, streamId + "#e" + k + suffix, row), spiked,
+                  row);
               flags.add(String.valueOf(spiked[0]));
             }
             return String.join(repeat.separator(), flags);
@@ -1017,7 +1069,7 @@ public final class StreamEngine {
     Column column =
         row -> {
           Integer r = domain.popIndexAt().apply(row);
-          return r == null ? null : first(genValues(gen, Seekable.generator(seed, streamId, row), null));
+          return r == null ? null : first(genValues(gen, Seekable.generator(seed, streamId, row), null, row));
         };
     return new Built(
         column, null, anomalyFlagName(attrs), anomalyFlagColumn(streamId, gen, domain));
@@ -1051,7 +1103,7 @@ public final class StreamEngine {
         return String.valueOf(Seekable.uniforms(seed, streamId + "#anom", row, 1)[0] < p);
       }
       boolean[] spiked = new boolean[1];
-      genValues(gen, Seekable.generator(seed, streamId, row), spiked);
+      genValues(gen, Seekable.generator(seed, streamId, row), spiked, row);
       return String.valueOf(spiked[0]);
     };
   }
@@ -1064,11 +1116,26 @@ public final class StreamEngine {
    * different column for the same seed, which is the one thing neither engine may do.
    */
   private List<String> genValues(Config.Gen gen, Prng.Sfc32 prng, boolean[] flagsOut) {
+    return genValues(gen, prng, flagsOut, 0);
+  }
+
+  /**
+   * The same, told which row the value belongs to.
+   *
+   * <p>Only a distribution parameter written as an expression looks at it, and it reads the
+   * columns beside it through the lazy registry — the streaming half of the seam the in-memory
+   * engine fills from its finished columns. A forward reference cannot arrive here: TDC240 refuses
+   * a parameter naming a column declared below it.
+   */
+  private List<String> genValues(Config.Gen gen, Prng.Sfc32 prng, boolean[] flagsOut, int row) {
+    MemoryEngine.Siblings siblings =
+        new MemoryEngine.Siblings(columns::containsKey, (name, at) -> valueAt(name, at));
     Repeat.Spec repeat = Repeat.parse(gen.attrs());
     if (repeat == null) {
       return MemoryEngine.finish(
           MemoryEngine.generate(
-              gen, 1, prng, packs, config, nowMillis, baseDir, new LinkedHashMap<>()),
+              gen, 1, prng, packs, config, nowMillis, baseDir, new LinkedHashMap<>(), null,
+              siblings, position -> row),
           gen.attrs(),
           prng,
           flagsOut == null ? new boolean[1] : flagsOut);
@@ -1080,7 +1147,8 @@ public final class StreamEngine {
         slots ->
             MemoryEngine.finish(
                 MemoryEngine.generate(
-                    gen, slots, prng, packs, config, nowMillis, baseDir, new LinkedHashMap<>()),
+                    gen, slots, prng, packs, config, nowMillis, baseDir, new LinkedHashMap<>(),
+                    null, siblings, position -> row),
                 gen.attrs(),
                 prng,
                 new boolean[slots]));
@@ -1618,7 +1686,7 @@ public final class StreamEngine {
                               + " attempts — its source likely has too few distinct values.");
                     }
                     String key = spec.name() + "." + fieldName + "#d" + attempt;
-                    value = first(genValues(gen, Seekable.generator(seed, key, row), null));
+                    value = first(genValues(gen, Seekable.generator(seed, key, row), null, row));
                   }
                   values.put(fieldName, value);
                   seen.add(value);

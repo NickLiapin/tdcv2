@@ -31,6 +31,17 @@ public final class Evaluate {
     return toBoolean(eval(ast, scope));
   }
 
+  /**
+   * The expression's VALUE rather than its truth.
+   *
+   * <p>The same evaluator an {@code if=} uses — a formula and a distribution parameter are the same
+   * language asking for the answer instead of the verdict, which is what keeps a condition and a
+   * computed column from coming to mean different things by the same words.
+   */
+  public static Object asValue(String source, Scope scope) {
+    return eval(CACHE.computeIfAbsent(source, Expr::parse), scope);
+  }
+
   // A chain of `instanceof` rather than a switch over the sealed type: switch patterns are still
   // a preview feature on Java 17, and 17 is the version the docs promise this library runs on.
   private static Object eval(Expr node, Scope scope) {

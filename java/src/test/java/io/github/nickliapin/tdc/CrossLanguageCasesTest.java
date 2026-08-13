@@ -78,6 +78,11 @@ class CrossLanguageCasesTest {
       // A case that reads the clock pins it, or it would pass today and fail tomorrow.
       options.now(Instant.parse(node.get("now").asText()).toEpochMilli());
     }
+    if (node.hasNonNull("dataPath")) {
+      // A case with a sample file beside it names the FOLDER holding it, so a relative `src=`
+      // resolves the way the CLI resolves one beside a `.tdc`.
+      options.baseDir(casesDir().resolve(node.get("dataPath").asText()));
+    }
 
     List<String> want = new ArrayList<>();
     for (JsonNode line : node.get("expected")) {

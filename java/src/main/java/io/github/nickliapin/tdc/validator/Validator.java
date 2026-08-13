@@ -200,7 +200,22 @@ public final class Validator {
           Map.entry("exclude", java.util.Set.of("number", "symbol")),
           // How many places the answer is printed to. Four generators produce a number they may
           // have to round; the rest produce text, which has no places.
-          Map.entry("decimals", java.util.Set.of("number", "timeseries", "pattern", "stat")),
+          Map.entry(
+              "decimals",
+              java.util.Set.of("number", "timeseries", "pattern", "stat", "formula", "file")),
+          // How a file is READ, and how the distribution behind it is sampled.
+          Map.entry("read", java.util.Set.of("file")),
+          Map.entry("sample", java.util.Set.of("file")),
+          // The shape of a repeat's LENGTHS — meaningless without `repeat=`, which the validator
+          // checks separately.
+          Map.entry(
+              "lengths",
+              java.util.Set.of(
+                  "text", "number", "date", "regex", "advanced_regex", "symbol", "template",
+                  "file", "formula")),
+          // The expression a formula evaluates. Only `formula` — `if=` and `filter=` hold one
+          // too, but those are wrappers every type takes, not this one's own parameter.
+          Map.entry("expr", java.util.Set.of("formula")),
           Map.entry("distribution", java.util.Set.of("number")),
           // The ceiling on what an unbounded pattern may expand to.
           Map.entry("regex_max_length", java.util.Set.of("regex", "advanced_regex")),
@@ -411,13 +426,14 @@ public final class Validator {
           "lower", "y_range", "interp", "spread", "ink_threshold", "mode", "in", "on_error",
           "timeout", "secret", "mean", "sd", "meanlog", "sdlog", "rate", "alpha", "xmin",
           "shape", "scale",
-          "lambda", "n", "s", "beta", "min", "max", "filter");
+          "lambda", "n", "s", "beta", "min", "max", "filter", "read", "sample", "expr",
+          "lengths");
 
   private static final Set<String> GEN_TYPES =
       Set.of(
           "text", "file", "template", "number", "regex", "advanced_regex", "symbol", "date",
           "increment", "decrement", "timeseries", "pattern", "http", "pool", "running",
-          "stat");
+          "stat", "formula");
 
   /**
    * Template paths that are generators rather than pack files.
@@ -1253,6 +1269,7 @@ public final class Validator {
           } else if ("sequence".equals(wrapped.name.getText())) {
             members++;
             checkEnvGroupMember(wrapped, tag);
+            checkGroupDerivedMember(wrapped, tag);
             out.add(wrapped);
           }
         }
@@ -1875,6 +1892,276 @@ public final class Validator {
   }
 
   /**
+   * A DERIVED column inside a {@code <uniq>} or {@code <distinct>} group.
+   *
+   * <p>A group is a rearrangement: it keeps every member's multiset of values and permutes the
+   * columns until each record is unique. Sound for drawn columns — a draw means the same wherever
+   * it lands — and destructive for a derived one, whose value is a statement ABOUT the row it was
+   * computed for. Measured on the reference, {@code <uniq>} over {@code A} (1..5) and
+   * {@code F = A * 10} gave {@code 2|20  3|20  3|30  2|30  5|50}: two rows of five saying that ten
+   * times three is twenty, with {@code check} calling the config valid.
+   *
+   * <p>A {@code <compute>} is the same case from the other side — {@code f(x)} is {@code f(x)}, so
+   * it has no pool to draw from and no column of its own to rearrange.
+   */
+  private void checkGroupDerivedMember(TDCParser.OpenCloseElementContext sequence, String tag) {
+    String declaredName = attributes(sequence.attr()).get("name");
+    String name = declaredName == null ? "?" : declaredName;
+    for (TDCParser.ElementContext child : sequence.content().element()) {
+      TDCParser.OpenCloseElementContext open = child.openCloseElement();
+      if (open != null && "compute".equals(open.name.getText())) {
+        error(
+            "TDC296",
+            "<sequence name=\"" + name + "\"> holds a <compute>, which cannot be a member of <"
+                + tag + ">: it derives its value from other columns, so it has nothing of its own "
+                + "to rearrange and cannot keep the group's promise",
+            "Put the <" + tag + "> around the <gen> sequences the <compute> READS. Its value "
+                + "follows them, so arranging the inputs arranges the result.",
+            line(open), column(open));
+        return;
+      }
+      TDCParser.SelfClosingElementContext gen = child.selfClosingElement();
+      if (gen == null || !"gen".equals(gen.name.getText())) {
+        continue;
+      }
+      Map<String, String> attrs = attributes(gen.attr());
+      String type = attrs.get("type");
+      if (!isDerived(type, attrs)) {
+        continue;
+      }
+      String described =
+          "date".equals(type)
+              ? "a date measured from another column (of=)"
+              : "a type=\"" + type + "\" column";
+      error(
+          "TDC296",
+          "<sequence name=\"" + name + "\"> holds " + described + ", which cannot be a member of <"
+              + tag + ">: the group rearranges finished columns, and a computed value moved to "
+              + "another row no longer describes that row",
+          "Put the " + tag + " group around the columns this one READS, and leave the computed "
+              + "column outside it. It follows whatever the group arranges, so it stays true row "
+              + "by row.",
+          line(gen), column(gen));
+      return;
+    }
+  }
+
+  /**
+   * A {@code <gen>} whose whole COLUMN is read from other columns rather than drawn.
+   *
+   * <p>A date is on the list only when {@code of=} makes it one: without it a date draws like
+   * anything else.
+   */
+  private static boolean isDerived(String type, Map<String, String> attrs) {
+    if (type == null) {
+      return false;
+    }
+    if ("formula".equals(type) || "running".equals(type) || "stat".equals(type)) {
+      return true;
+    }
+    return "date".equals(type) && !attrs.getOrDefault("of", "").trim().isEmpty();
+  }
+
+  /**
+   * Every column an expression-valued parameter names must be declared ABOVE it.
+   *
+   * <p>The same rule {@code formula}, {@code running} and {@code of=} follow, and for a sharper
+   * reason than a typo: a FORWARD reference makes the two engines disagree — the streaming
+   * registry answers it and the in-memory one does not — so one config would mean two datasets.
+   */
+  private void checkParamNames(
+      TDCParser.SelfClosingElementContext gen, String param, String source) {
+    io.github.nickliapin.tdc.expr.Expr parsed;
+    try {
+      parsed = io.github.nickliapin.tdc.expr.Expr.parse(source);
+    } catch (RuntimeException e) {
+      return; // Not an expression at all — TDC089 reports it.
+    }
+    java.util.SortedSet<String> names = new java.util.TreeSet<>();
+    collectIdentifiers(parsed, names);
+    for (String name : names) {
+      if (Checks.isBuiltin(name) || declaredOrder.contains(name)) {
+        continue;
+      }
+      int[] at = at(gen, param);
+      error(
+          "TDC240",
+          "\"" + name + "\" in " + param + "= is not a sequence declared above this one",
+          declaredOrder.isEmpty()
+              ? "A parameter reads a column that already exists, so the column it reads has to "
+                  + "come first."
+              : "Declared above: " + String.join(", ", declaredOrder) + ".",
+          at[0], at[1]);
+    }
+  }
+
+  /**
+   * Every bare name an expression mentions, the root of a dotted path included.
+   *
+   * <p>A distribution parameter is a NUMBER, so every identifier in one has to be a column —
+   * unlike {@code if=}, where an unknown name is a legitimate bare word. That is what makes
+   * checking them all correct here and wrong there.
+   */
+  private static void collectIdentifiers(
+      io.github.nickliapin.tdc.expr.Expr node, java.util.Set<String> found) {
+    if (node instanceof io.github.nickliapin.tdc.expr.Expr.Name n) {
+      found.add(n.value());
+    } else if (node instanceof io.github.nickliapin.tdc.expr.Expr.Member m) {
+      found.add(m.dotted().split("\\.", 2)[0]);
+    } else if (node instanceof io.github.nickliapin.tdc.expr.Expr.Unary u) {
+      collectIdentifiers(u.operand(), found);
+    } else if (node instanceof io.github.nickliapin.tdc.expr.Expr.Binary b) {
+      collectIdentifiers(b.left(), found);
+      collectIdentifiers(b.right(), found);
+    } else if (node instanceof io.github.nickliapin.tdc.expr.Expr.Conditional t) {
+      collectIdentifiers(t.test(), found);
+      collectIdentifiers(t.consequent(), found);
+      collectIdentifiers(t.alternate(), found);
+    } else if (node instanceof io.github.nickliapin.tdc.expr.Expr.Call c) {
+      for (io.github.nickliapin.tdc.expr.Expr arg : c.args()) {
+        collectIdentifiers(arg, found);
+      }
+    } else if (node instanceof io.github.nickliapin.tdc.expr.Expr.Arr a) {
+      for (io.github.nickliapin.tdc.expr.Expr item : a.items()) {
+        collectIdentifiers(item, found);
+      }
+    }
+  }
+
+  /** {@code expr=} is what a formula IS, and every name in it must be declared above. */
+  private void checkFormula(
+      TDCParser.SelfClosingElementContext gen, Map<String, String> attrs, String type) {
+    if (!"formula".equals(type)) {
+      return;
+    }
+    String source = attrs.getOrDefault("expr", "").trim();
+    if (source.isEmpty()) {
+      int[] at = at(gen, "type");
+      error(
+          "TDC294", "<gen type=\"formula\"> needs expr=\"\u2026\"",
+          "The expression is what the column IS: expr=\"Weight / (Height * Height)\".",
+          at[0], at[1]);
+      return;
+    }
+    checkParamNames(gen, "expr", source);
+  }
+
+  /**
+   * A derived column cannot be ONE BRANCH of a per-row choice.
+   *
+   * <p>{@code running}, {@code stat}, a date offset and {@code formula} are built once, for the
+   * whole column, in declaration order. An {@code if=} asks for something else entirely: a value
+   * chosen row by row. The two cannot both be true, and the run used to die with a message that
+   * read like an unfinished engine rather than a config that cannot mean anything.
+   */
+  private void checkDerivedNotConditional(
+      TDCParser.SelfClosingElementContext gen, Map<String, String> attrs, String type) {
+    if (!isDerived(type, attrs) || attrs.getOrDefault("if", "").trim().isEmpty()) {
+      return;
+    }
+    int[] at = at(gen, "if");
+    error(
+        "TDC295",
+        "a type=\"" + type + "\" column is built for the whole run, so it cannot carry if=",
+        "It reads other columns in declaration order and produces one column, not a value chosen "
+            + "per row. Put the condition where the value is USED \u2014 `<data if=\"\u2026\">` "
+            + "\u2014 or compute the column unconditionally and branch on it afterwards.",
+        at[0], at[1]);
+  }
+
+  /**
+   * {@code read="quantile"} — the file as a sorted sample rather than a bag of values.
+   *
+   * <p>Everything refused here asks for TWO readings of one file at once. {@code weight=} says the
+   * shares live in a second column; {@code read="quantile"} says the values ARE the distribution.
+   * {@code row=} links several columns to one LINE, and a quantile answer is a point between two
+   * of them. {@code order="sequential"} walks the list in order, which a distribution has no
+   * notion of.
+   */
+  private void checkQuantileRead(
+      TDCParser.SelfClosingElementContext gen, Map<String, String> attrs, String type) {
+    if (!"file".equals(type)) {
+      return;
+    }
+    String read = attrs.getOrDefault("read", "").trim();
+    String sample = attrs.getOrDefault("sample", "").trim();
+
+    if (attrs.containsKey("read") && !"quantile".equals(read)) {
+      int[] at = at(gen, "read");
+      error(
+          "TDC297",
+          "read=\"" + read + "\" is not a way of reading a file \u2014 the only one is "
+              + "\"quantile\"",
+          "Leave read= off to pick one of the file's values at random, or write read=\"quantile\" "
+              + "to read the file as a sorted sample and land anywhere on it.",
+          at[0], at[1]);
+      return;
+    }
+
+    if (attrs.containsKey("sample") && !"exact".equals(sample)) {
+      int[] at = at(gen, "sample");
+      error(
+          "TDC297",
+          "sample=\"" + sample + "\" is not a sampling mode \u2014 the only one is \"exact\"",
+          "Leave sample= off to draw from the distribution row by row, or write sample=\"exact\" "
+              + "to sweep it evenly so the run reproduces the sample with no sampling noise.",
+          at[0], at[1]);
+    }
+
+    if (attrs.containsKey("sample") && !"quantile".equals(read)) {
+      int[] at = at(gen, "sample");
+      error(
+          "TDC297", "sample= only means something beside read=\"quantile\"",
+          "It chooses between drawing from the distribution and sweeping it evenly, and a file "
+              + "read as a plain list of values has no distribution to sweep.",
+          at[0], at[1]);
+    }
+
+    if (!"quantile".equals(read)) {
+      return;
+    }
+
+    String[][] pairs = {
+      {
+        "weight",
+        "weight= puts the shares in a COLUMN beside the values, and read=\"quantile\" says the "
+            + "values are the distribution themselves \u2014 how often one appears in the file IS "
+            + "its share",
+        "Keep one of the two readings. A countable value wants weight= and its exact quota; a "
+            + "measured one wants the quantile read, which also fills in the values between the "
+            + "observations."
+      },
+      {
+        "row",
+        "row= links several columns to one LINE of the file, and a quantile answer is not a line: "
+            + "it is a point between two of them",
+        "To keep a record together, read the file as lines with row= and leave read= off."
+      }
+    };
+    for (String[] pair : pairs) {
+      if (attrs.getOrDefault(pair[0], "").trim().isEmpty()) {
+        continue;
+      }
+      int[] at = at(gen, pair[0]);
+      error(
+          "TDC297",
+          pair[0] + "= cannot be combined with read=\"quantile\": " + pair[1],
+          pair[2],
+          at[0], at[1]);
+    }
+
+    if ("sequential".equals(attrs.getOrDefault("order", "").trim())) {
+      int[] at = at(gen, "order");
+      error(
+          "TDC297", "order=\"sequential\" cannot be combined with read=\"quantile\"",
+          "Walking a list in order and sampling a distribution are different jobs: one hands out "
+              + "the file's lines one after another, the other says where on the sorted sample a "
+              + "row lands.",
+          at[0], at[1]);
+    }
+  }
+
+  /**
    * A {@code <compute>} sequence's tree, checked against everything declared so far.
    *
    * <p>Its {@code <field>} references can only name a sequence that already exists — the value
@@ -2407,10 +2694,15 @@ public final class Validator {
     checkGenAttributes(gen, attrs, type);
 
     checkWeight(gen, attrs, type);
+    // Before the source path is resolved: a file read the wrong way is a mistake about the
+    // READING, and hearing "no such file" first would send the reader looking in the wrong place.
+    checkQuantileRead(gen, attrs, type);
     checkSource(gen, attrs, type);
     checkHttp(gen, attrs, type);
     checkRunning(gen, attrs, type);
     checkStat(gen, attrs, type);
+    checkFormula(gen, attrs, type);
+    checkDerivedNotConditional(gen, attrs, type);
     checkMask(gen, attrs);
     checkCounter(gen, attrs, type);
     checkDateTemplates(gen, attrs, type);
@@ -3257,10 +3549,29 @@ public final class Validator {
               at(gen, key)[0], at(gen, key)[1]);
         }
       }
+      // A parameter written as an EXPRESSION is resolved per row against the other columns, so
+      // its VALUE is not knowable here. Stand a plausible number in its place and check
+      // everything else — the distribution's name, the parameters it requires, the attributes it
+      // refuses — so writing `lambda="Traffic * 0.5"` does not buy silence about the rest of the
+      // generator.
+      //
+      // `1` is the stand-in because every parameter of every distribution accepts it: the
+      // positive ones are happy, the unbounded ones do not care. A parameter that resolves to
+      // something the distribution rejects — a negative `sd` — is caught by the run, where the
+      // value finally exists, with this same message.
+      List<String> dynamicParams = io.github.nickliapin.tdc.stats.DistParams.expressionParams(attrs);
+      for (String param : dynamicParams) {
+        checkParamNames(gen, param, attrs.getOrDefault(param, ""));
+      }
+      Map<String, String> forCheck = new java.util.LinkedHashMap<>(attrs);
+      for (String param : dynamicParams) {
+        forCheck.put(param, "1");
+      }
+
       // The distribution's own parameters: a shape nobody can draw from is an error before the
       // run, not a surprise on the first row.
       try {
-        io.github.nickliapin.tdc.stats.Distribution.parse(attrs);
+        io.github.nickliapin.tdc.stats.Distribution.parse(forCheck);
       } catch (RuntimeException e) {
         error("TDC089", e.getMessage(),
             "Distributions: normal (mean, sd), lognormal (meanlog, sdlog), exponential (rate), "
