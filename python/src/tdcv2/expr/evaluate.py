@@ -46,6 +46,19 @@ def as_condition(source: str, has: Callable[[str], bool], value: Callable[[str],
     return to_boolean(_eval(ast, has, value))
 
 
+def as_value(source: str, has: Callable[[str], bool], value: Callable[[str], str]):
+    """What ``source`` evaluates TO on this row, rather than whether it holds.
+
+    The same evaluator as ``as_condition`` and deliberately so: a distribution parameter and a
+    formula must not come to mean different things from the same words as a condition does.
+    """
+    ast = _CACHE.get(source)
+    if ast is None:
+        ast = parse(source)
+        _CACHE[source] = ast
+    return _eval(ast, has, value)
+
+
 def _eval(node: Node, has: Callable[[str], bool], value: Callable[[str], str]):
     if isinstance(node, Num):
         return node.value

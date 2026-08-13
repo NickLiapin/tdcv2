@@ -16,6 +16,7 @@ from collections.abc import Callable
 from dataclasses import dataclass
 
 from ..distribution import hamilton
+from ..lib import numbers
 from ..prng.prng import Sfc32
 from . import accumulate as accumulate_gen
 
@@ -32,6 +33,13 @@ class Spec:
     min: int
     max: int
     separator: str
+    #: ``lengths=``: the share of rows that get each possible length, ``min`` first.
+    #:
+    #: Without it every length is equally likely, and exactly so — the lengths are laid out as
+    #: a Hamilton quota, which is the wrong shape for every real one-to-many relationship.
+    #: The shares live HERE, in the spec, rather than in a per-row draw: a per-row count would
+    #: make a row's draws depend on the rows before it.
+    lengths: tuple[float, ...] | None = None
     #: ``accumulate=``: the list is replaced by its running total before joining.
     accumulate: str | None = None
     #: ``distinct=``: the row's values are drawn WITHOUT replacement.
@@ -102,9 +110,45 @@ def parse(attrs: dict[str, str]) -> Spec | None:
         minimum,
         maximum,
         attrs.get("separator", DEFAULT_SEPARATOR),
+        parse_lengths(attrs.get("lengths"), minimum, maximum),
         accumulate_gen.read(attrs),
         read_distinct(attrs),
     )
+
+
+def parse_lengths(raw: str | None, minimum: int, maximum: int) -> tuple[float, ...] | None:
+    """``lengths="40,25,15,10,7,3"`` — one share per possible length, ``min`` first.
+
+    Refused rather than repaired when the count is wrong or the shares do not sum to 100: a
+    fan-out written with five shares for six lengths is a config whose author had a shape in
+    mind, and guessing which of the six they forgot is the silent repair this project spends
+    its time removing. The sum rule is ``percent=``'s, deliberately.
+    """
+    if raw is None or not raw.strip():
+        return None
+    parts = [p.strip() for p in raw.split(",") if p.strip()]
+    groups = maximum - minimum + 1
+    if len(parts) != groups:
+        raise ValueError(
+            f"lengths: {len(parts)} share(s) for {groups} possible length(s) — "
+            f'repeat="{minimum}..{maximum}" can produce {minimum} to {maximum} values, '
+            "so it needs one share for each"
+        )
+    values: list[float] = []
+    for index, part in enumerate(parts):
+        try:
+            value = float(part)
+        except ValueError as err:
+            raise ValueError(
+                f"lengths: share for length {minimum + index} is not a number >= 0"
+            ) from err
+        if value != value or value < 0 or value in (float("inf"), float("-inf")):
+            raise ValueError(f"lengths: share for length {minimum + index} is not a number >= 0")
+        values.append(value)
+    total = sum(values)
+    if abs(total - 100) > 1e-9:
+        raise ValueError(f"lengths: shares sum to {numbers.to_text(total)}, expected 100")
+    return tuple(values)
 
 
 def read_distinct(attrs: dict[str, str]) -> bool:
@@ -286,7 +330,9 @@ def plan(spec: Spec, row_count: int, counts: list[int]) -> Plan:
 
 
 def length_percents(spec: Spec) -> list[float]:
-    """An even split across the possible lengths — the shares ``plan`` quotas by."""
+    """The declared shares, or an even split — what ``plan`` quotas the lengths by."""
+    if spec.lengths is not None:
+        return list(spec.lengths)
     groups = spec.max - spec.min + 1
     return [100.0 / groups] * groups
 

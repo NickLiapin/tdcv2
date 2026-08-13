@@ -44,6 +44,7 @@ from ..prng.seekable import open_unit
 from ..sequence import assertions, uniq_simple
 from ..sequence import pool as pool_mod
 from ..sequence import uniq as uniq_lib
+from ..stats import dist_params
 from ..stats import distribution as dist
 from ..stats import timeseries
 from . import per_row, repeat_keyed
@@ -1812,7 +1813,7 @@ def _generate(
     if gen.type == "number":
         distribution = attrs.get("distribution")
         if distribution is not None and distribution.strip():
-            return _distribute(attrs, count, prng)
+            return _distribute(attrs, count, prng, run)
         return number.generate(attrs, count, prng)
     if gen.type == "timeseries":
         return _timeseries(attrs, count, run)
@@ -1903,16 +1904,37 @@ def _generate(
     return hamilton.distribute(count, values, percent_mask.expand(percent, len(values)), prng)
 
 
-def _distribute(attrs: dict[str, str], count: int, prng: Sfc32) -> list[str]:
+def _distribute(attrs: dict[str, str], count: int, prng: Sfc32, run: _Run) -> list[str]:
     """A column drawn from a named distribution.
 
     Each row spends the same number of uniforms whatever the value turns out to be, which is what
     keeps a row computable from its index. Rejection sampling would be simpler to write and would
-    break that.
+    break that — and it is also why a PARAMETER may be an expression while a per-row `repeat=` may
+    not: how many draws a row spends follows from which distribution, never from its parameters.
     """
-    spec = dist.parse(attrs)
+    dynamic = dist_params.expression_params(attrs)
+    fixed = dist.parse(attrs) if not dynamic else None
     out = []
-    for _ in range(count):
+    for i in range(count):
+        resolved = None
+        if fixed is None:
+            row = per_row.absolute_row(run, i)
+            resolved = dist_params.resolve(
+                attrs,
+                dynamic,
+                row,
+                lambda ref, r=row: run.value_at is not None and run.value_at(ref, r) is not None,
+                lambda ref, r=row: run.value_at(ref, r) if run.value_at else None,
+            )
+            # Nothing to draw from, so nothing is drawn: the row comes out empty, which is what
+            # `formula` does with the same input. The uniforms are spent anyway, or blanking one
+            # cell would slide every value after it.
+            if resolved.empty:
+                for _ in range(dist_params.draws(attrs)):
+                    prng.next()
+                out.append("")
+                continue
+        spec = fixed if fixed is not None else dist.parse(resolved.attrs)
         uniforms = [open_unit(prng.next()) for _ in range(spec.draws)]
         out.append(dist.format_sample(dist.sample(spec, uniforms), spec))
     return out

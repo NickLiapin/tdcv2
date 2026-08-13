@@ -59,6 +59,7 @@ from ..output import column_type
 from ..packs import DataPacks
 from ..parser import paired_data
 from ..pattern import curve
+from ..stats import dist_params
 from ..stats import distribution as dist
 from . import checks
 from .compute_check import ComputeCheck
@@ -608,6 +609,33 @@ def _bad_index_literal(node) -> str | None:
         inner = node.operand.value
         return "-" + (numbers.to_text(float(inner)) if isinstance(inner, float) else str(inner))
     return None
+
+
+def _identifiers_of(node) -> set[str]:
+    """Every bare name an expression mentions, root of a dotted path included.
+
+    A parameter is a NUMBER, so every identifier in one has to be a column — unlike `if=`, where
+    an unknown name is a legitimate bare word. That is what makes checking them all correct here
+    and wrong there.
+    """
+    found: set[str] = set()
+
+    def walk(n) -> None:
+        if isinstance(n, Name):
+            found.add(n.value.split(".")[0])
+            return
+        for attr in ("left", "right", "argument", "test", "consequent", "alternate", "object"):
+            child = getattr(n, attr, None)
+            if child is not None:
+                walk(child)
+        for attr in ("arguments", "elements"):
+            children = getattr(n, attr, None)
+            if children:
+                for child in children:
+                    walk(child)
+
+    walk(node)
+    return found
 
 
 class _Validator:
@@ -3168,8 +3196,19 @@ class _Validator:
                     )
             # The distribution's own parameters: a shape nobody can draw from is an error before
             # the run, not a surprise on the first row.
+            #
+            # A parameter written as an EXPRESSION has no value yet, so it is checked with `1`
+            # standing in — every parameter of every distribution accepts it, and the rest of the
+            # generator is still judged. A value the distribution rejects (a negative `sd`) is
+            # caught by the run, where it finally exists, with the same message.
+            dynamic = dist_params.expression_params(attrs)
+            for name in dynamic:
+                self._expression_names(gen, name, attrs.get(name, ""))
+            for_check = dict(attrs)
+            for name in dynamic:
+                for_check[name] = "1"
             try:
-                dist.parse(attrs)
+                dist.parse(for_check)
             except ValueError as e:
                 line, column = _at(gen, "distribution")
                 self._error(
@@ -4071,6 +4110,33 @@ class _Validator:
                 else "Declared above: " + ", ".join(self.declared_order) + ".",
                 at_line,
                 at_column,
+            )
+
+    def _expression_names(self, gen, attribute: str, source: str) -> None:
+        """Every column an expression-valued parameter names must be declared ABOVE it.
+
+        The same rule `formula` follows, and for a sharper reason than a typo: a FORWARD reference
+        makes the two engines disagree — the streaming registry answers it and the in-memory one
+        does not — so one config would mean two datasets. TDC240 is shared with `running` on
+        purpose; it is the same complaint about the same thing.
+        """
+        try:
+            parsed = expr_parse(source)
+        except ValueError:
+            return  # Already reported; there is no tree to walk.
+        for name in sorted(_identifiers_of(parsed)):
+            if checks.is_builtin(name) or name in self.declared_order:
+                continue
+            line, column = _at(gen, attribute)
+            self._error(
+                "TDC240",
+                f'"{name}" in {attribute}= is not a sequence declared above this one',
+                "A parameter reads a column that already exists, so the column it reads has to "
+                "come first."
+                if not self.declared_order
+                else "Declared above: " + ", ".join(self.declared_order) + ".",
+                line,
+                column,
             )
 
     def _check_stat(self, gen, attrs: dict[str, str], type_: str | None) -> None:

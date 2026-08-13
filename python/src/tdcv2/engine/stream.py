@@ -807,7 +807,7 @@ class StreamEngine:
             if r is None:
                 return None
             return _first(
-                self._gen_values(gen, seekable.generator(self.seed, stream_id, row), None)
+                self._gen_values(gen, seekable.generator(self.seed, stream_id, row), None, row)
             )
 
         return Built(
@@ -843,14 +843,27 @@ class StreamEngine:
 
         return flag
 
-    def _gen_values(self, gen: Gen, prng, flags_out: list[bool] | None) -> list[str]:
+    def _gen_values(
+        self, gen: Gen, prng, flags_out: list[bool] | None, row: int | None = None
+    ) -> list[str]:
         """One row's worth of an independently-drawn generator.
 
         The values and the modifiers come off the SAME generator, in that order, because that is
         the order the in-memory engine takes them in. Splitting them across two streams would give
         a different column for the same seed, which is the one thing neither engine may do.
         """
-        run = memory._Run(self.config, self.packs, self.now_millis, self.base_dir, prng)
+        # A distribution parameter written as an expression reads a SIBLING column, so the
+        # one-row run needs the registry the way the in-memory engine has it — and it needs to
+        # know which row it is on, or `_count` and the sibling would both answer for row one.
+        run = memory._Run(
+            self.config,
+            self.packs,
+            self.now_millis,
+            self.base_dir,
+            prng,
+            rows=None if row is None else [row],
+            value_at=lambda name, r: (self.columns[name](r) or "") if name in self.columns else None,
+        )
         repeat = repeat_gen.parse(gen.attrs)
         if repeat is None:
             return memory._finish(

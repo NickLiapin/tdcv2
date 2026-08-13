@@ -44,9 +44,13 @@ def _run(case: dict, engine: int) -> str:
     assert parsed.ok, f"syntax errors: {[str(p) for p in parsed.problems]}"
     config = config_builder.build(parsed.tree)
     now = now_millis(case)
+    # A `type="file"` case names the folder its samples live in, relative to the cases directory —
+    # the same field the render runner reads.
+    data_path = case.get("dataPath")
+    base_dir = CASES / data_path if data_path else None
     if engine == 2:
-        return stream.render(config, _PACKS, now)
-    return disk.render(config, _PACKS, now)
+        return stream.render(config, _PACKS, now, base_dir)
+    return disk.render(config, _PACKS, now, base_dir)
 
 
 @pytest.mark.parametrize(("name", "case"), ALL, ids=[name for name, _ in ALL])
