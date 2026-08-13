@@ -154,6 +154,13 @@ un paso más fuerte: un total acumulado al menos conoce su respuesta cuando lleg
 fila, y una estadística no la conoce hasta que la ejecución termina. La columna que lee se
 mantiene durante toda la ejecución.
 
+:::tip[Si basta con la propia fila, usa una formula]
+Un estadístico es la herramienta correcta cuando una fila tiene que saber de TODAS las
+filas. Cuando solo tiene que saber de sí misma, [`<gen type="formula">`](formula.mdx)
+lo hace y **hace streaming**, así que el límite de ejecución entera de arriba no se
+aplica.
+:::
+
 **Todo lo demás sigue fluyendo.** El límite es por configuración, no por proyecto: una
 ejecución sin estadística no se ve afectada.
 

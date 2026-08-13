@@ -111,10 +111,34 @@ estimates that before the run.
 
 One more route exists for what the list cannot see in advance. If the streaming engine
 turns out to refuse a config anyway — a [running
-total](../generators/running.md#which-engine-runs-it), a bare `parent="Name"` with no
-value, a [pool](../pools/overview.md#top) reference — an automatically routed disk run falls
+total](../generators/running.md#which-engine-runs-it), a
+[statistic](../generators/stat.md#top), a [date measured from another
+column](../generators/date.md#top), a bare `parent="Name"` with no value, a
+[pool](../pools/overview.md#top) reference — an automatically routed disk run falls
 back to the in-memory engine rather than failing. A **forced** `--engine 2` still fails,
-which is the point of forcing it.
+which is the point of forcing it:
+
+`./run report.tdc --engine 2`
+
+```
+tdcv2: a statistic ("Avg") is computed over every row of the run, including the ones after this one, so it cannot be computed one row at a time; the in-memory engine handles it (run without a forced streaming engine)
+```
+
+### What streams that you might expect not to
+
+Two constructs read the columns beside them and still stream, because each needs only
+its OWN row — and one row is exactly what the lazy registry can produce:
+
+| Construct                                                                             | Streams? | Why                                                                              |
+| :------------------------------------------------------------------------------------ | :------- | :------------------------------------------------------------------------------- |
+| [`<gen type="formula">`](../generators/formula.md#top)                                   | **yes**  | Row i is computed from row i. Nothing before it takes part.                      |
+| A [distribution parameter](statistical-distributions.md#a-parameter-can-follow-another-column) written as an expression | **yes**  | It changes the value the draws become, never how many draws a row spends.        |
+| [`read="quantile"`](../generators/file.md#top) on a file                                 | **yes**  | The file is sorted once; a row then takes one point on it.                       |
+| [`<gen type="running">`](../generators/running.md#top)                                   | no       | Row 900,000,000 IS the sum of everything before it.                              |
+| [`<gen type="stat">`](../generators/stat.md#top)                                         | no       | The rows AFTER this one are part of the answer.                                  |
+
+The dividing line is not "drawn or computed" — it is whether the answer needs a row
+other than this one.
 
 > [!CAUTION]
 > **`uniq` on a huge output is SLOW — and `uniq` + `percent` is the slowest thing TDC does**

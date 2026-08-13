@@ -13,6 +13,102 @@ page — is tracked in that implementation's own changelog:
 [TypeScript](typescript/CHANGELOG.md) · [Python](python/CHANGELOG.md) ·
 [Java](java/CHANGELOG.md) · [C#](csharp/CHANGELOG.md) · [Rust](rust/CHANGELOG.md).
 
+## [Unreleased]
+
+### Added
+
+<!-- covers: formula expr TDC294 TDC295 TDC296 -->
+
+- **`<gen type="formula" expr="…">` — a column computed from the other columns of its
+  own row.** The expression language was already there and already agreed bit for bit
+  across five implementations; it could only ever answer a yes/no, and the value behind
+  the answer was thrown away. A formula keeps it.
+
+  ```xml
+  <sequence name="BMI"><gen type="formula" expr="Weight / pow(Height / 100, 2)" decimals="1"/></sequence>
+  ```
+
+  It reads its OWN row and nothing else, which is why — unlike `running` and `stat` — it
+  **streams**: row nine million is computed from row nine million. `decimals=` rounds the
+  answer; without it the value prints in full, and a whole number stays whole. A source
+  cell that is empty makes the answer empty, because a cell a `parent=` filter switched
+  off is not a zero.
+
+  A ternary makes a formula produce a LABEL rather than a number —
+  `expr="Age > 65 ? senior : adult"` — which is how a training set gets its target column.
+
+  `check` refuses what cannot mean anything: a formula without `expr=` (TDC294), a derived
+  column carrying `if=` (TDC295, shared with `running`, `stat` and a date offset — all
+  four are built once for the whole column, not chosen per row), and a derived column
+  inside a `<uniq>` or `<distinct>` group (TDC296, because a group rearranges finished
+  columns and a computed value moved to another row stops describing that row).
+
+<!-- covers: read sample TDC297 -->
+
+- **`read="quantile"` — a file of measurements read as a distribution rather than as a bag
+  of values.** An ordinary read picks one of the file's values, which is right for
+  something countable and wrong for a measurement: a thousand recorded amounts stretched
+  to a million rows give back those thousand values with nothing between them — a comb the
+  real data never had.
+
+  ```xml
+  <gen type="file" src="amounts.txt" read="quantile"/>
+  ```
+
+  The file is sorted once and treated as a ruler; a row lands anywhere on it and
+  interpolates between two neighbours. The resolution follows the mass rather than the
+  range, a repeated value keeps its share as an atom, and nothing outside the observed
+  range is invented. The answer is written with as many decimal places as the source used.
+
+  `sample="exact"` sweeps the distribution instead of drawing from it: row _i_ takes the
+  point at `(permute(i) + 0.5) / count`, so over the run the column reproduces the sample
+  with **no sampling noise at all** — measured across 99 quantiles, a worst deviation of
+  0.0000%. Both forms cost one uniform per row and stream.
+
+  TDC297 refuses the readings that ask for two things at once — `weight=`, `row=` or
+  `order="sequential"` beside a quantile read, and a `sample=` with no distribution to
+  sample.
+
+<!-- covers: lengths -->
+
+- **`lengths=` gives a `repeat` fan-out a declared shape.** Without it every length is
+  equally likely — and exactly so, since the lengths are a whole-run quota — which is the
+  wrong shape for every real one-to-many relationship.
+
+  ```xml
+  <gen type="number" value="1..9" repeat="1..6" lengths="40,25,15,10,7,3" separator=";"/>
+  ```
+
+  One share per possible length, `min` first, summing to 100. A count that does not match
+  the range is refused rather than repaired: five shares for six lengths is a config whose
+  author is thinking of a different range.
+
+<!-- covers: TDC240 -->
+
+- **A distribution parameter may be an expression over the columns beside it.**
+  `lambda="Traffic * 0.1"` is an intensity driven by another column; `sd="0.1 + 0.5 *
+_count"` is a sensor that grows noisier as the run goes on.
+
+  This is allowed where a per-row `repeat=` is not, and the reason is exact: how many
+  uniform draws a row spends depends on WHICH distribution, never on its parameters. The
+  parameter changes the value the draws become, not their number — so the row stays
+  computable without its predecessors, and the feature streams.
+
+  A parameter that reads an empty cell spends its uniforms and writes an empty cell, so
+  blanking one row cannot slide the rest of the column. TDC240 — already the complaint for
+  `running`, `stat` and `of=` — now also catches a parameter or an `expr=` naming a column
+  that is not there or is declared BELOW: a forward reference used to make the two engines
+  disagree, and one config would have meant two datasets.
+
+### Fixed
+
+- **C#: `decimals=` rounded a tie to the even digit instead of away from zero.** The
+  helper was .NET's `"F"` format, whose comment claimed it rounded away from zero. It does
+  not. Rare on a drawn column and common on a swept one, where it put a wrong number in
+  one cell in twenty. The digits of the double are now expanded exactly before the
+  rounding decision, so a value that merely prints like a tie is told apart from one that
+  is one.
+
 ## [0.2.1] — 2026-08-11
 
 ### Added

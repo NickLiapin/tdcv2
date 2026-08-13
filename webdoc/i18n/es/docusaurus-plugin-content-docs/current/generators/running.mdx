@@ -133,6 +133,14 @@ de unos millones de filas está bien; uno de mil millones no es algo que TDC hag
 todo el sentido de los motores de streaming es que una fila se calcula desde su índice, y
 acá no se puede.
 
+:::tip[Si basta con la propia fila, usa una formula]
+Un total acumulado es la herramienta correcta cuando una fila tiene que saber de las
+filas ANTERIORES. Cuando solo tiene que saber de sí misma — el total de una línea a
+partir de precio y cantidad, un margen de dos columnas —
+[`<gen type="formula">`](formula.mdx) lo hace y **hace streaming**, así que el límite
+de columna entera de arriba no se aplica.
+:::
+
 **Todo lo demás sigue en streaming.** El límite es por configuración, no por proyecto: una
 corrida sin total acumulado queda intacta, y el [total acumulado dentro de un
 registro](../constructs/multiple-values.mdx#accumulate--un-total-acumulado-a-lo-largo-de-la-lista)

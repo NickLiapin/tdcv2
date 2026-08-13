@@ -10,9 +10,18 @@
 
 # Expressions
 
-The little language inside `if=` — and inside `filter=` on a [pool](../pools/filter.md#top),
-which reads the same way. It decides whether a `<gen>`, a `<line>`, a `<case>` or a `<data>`
-takes part in a row.
+The little language with four homes, all reading the same way:
+
+| Where             | It answers                                                                       |
+| :---------------- | :------------------------------------------------------------------------------- |
+| `if=`             | whether a `<gen>`, a `<line>`, a `<case>` or a `<data>` takes part in this row    |
+| `filter=`         | which members of a [pool](../pools/filter.md#top) this row may draw from             |
+| `expr=`           | the VALUE of a [`formula`](../generators/formula.md#top) column                      |
+| a distribution parameter | the value of `mean`, `sd`, `lambda` … [on this row](../guides/statistical-distributions.md#a-parameter-can-follow-another-column) |
+
+The first two consume the answer as a yes/no and throw the value away; the last two keep
+it. Same operators, same functions, same names for the same columns — which is what stops
+a condition and a computed column from coming to mean different things by the same words.
 
 ```xml
 <sequence name="Zone">

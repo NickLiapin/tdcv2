@@ -10,9 +10,19 @@
 
 # Expresiones
 
-El pequeño lenguaje que vive dentro de `if=` — y dentro de `filter=` en un
-[pool](../pools/filter.md#top), que se lee igual. Decide si un `<gen>`, una `<line>`, un
-`<case>` o un `<data>` participa en una fila.
+El pequeño lenguaje con cuatro hogares, todos leídos de la misma manera:
+
+| Dónde                      | Qué responde                                                                     |
+| :------------------------- | :-------------------------------------------------------------------------------- |
+| `if=`                      | si un `<gen>`, una `<line>`, un `<case>` o un `<data>` participa en esta fila     |
+| `filter=`                  | de qué miembros de un [pool](../pools/filter.md#top) puede sortear esta fila         |
+| `expr=`                    | el VALOR de una columna [`formula`](../generators/formula.md#top)                    |
+| un parámetro de distribución | el valor de `mean`, `sd`, `lambda` … [en esta fila](../guides/statistical-distributions.md#un-parámetro-puede-seguir-a-otra-columna) |
+
+Los dos primeros consumen la respuesta como un sí/no y tiran el valor; los dos últimos lo
+conservan. Mismos operadores, mismas funciones, mismos nombres para las mismas columnas —
+que es lo que impide que una condición y una columna calculada acaben significando cosas
+distintas con las mismas palabras.
 
 ```xml
 <sequence name="Zone">

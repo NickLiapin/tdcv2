@@ -142,6 +142,14 @@ That is the honest boundary of this generator. A ledger of a few million rows is
 billion-row ledger is not something TDC does, because the whole point of the streaming
 engines is that a row can be computed from its index, and here it cannot.
 
+> [!TIP]
+> **If the same row is enough, use a formula**
+>
+> A running total is the right tool when a row has to know about the rows BEFORE it. When
+> it only has to know about itself — a line total from a price and a quantity, a margin
+> from two columns — [`<gen type="formula">`](formula.md#top) does that and **streams**, so
+> the whole-column boundary above never applies.
+
 **Everything else still streams.** The limit is per config, not per project: a run without
 a running total is untouched, and the [running total inside one
 record](../constructs/multiple-values.md#accumulate--a-running-total-across-the-list)

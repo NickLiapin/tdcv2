@@ -118,10 +118,35 @@ antes de la corrida.
 
 Existe una ruta más, para lo que la lista no puede ver de antemano. Si el motor de
 streaming termina rechazando una configuración de todos modos — un [total
-acumulado](../generators/running.md#qué-motor-lo-ejecuta), un `parent="Nombre"` pelado sin
-valor, una referencia a un [pool](../pools/overview.md#top) — una corrida a disco ruteada
-automáticamente cae de vuelta al motor en memoria en lugar de fallar. Un `--engine 2`
-**forzado** igual falla, que es justamente el punto de forzarlo.
+acumulado](../generators/running.md#qué-motor-lo-ejecuta), un
+[estadístico](../generators/stat.md#top), una [fecha medida desde otra
+columna](../generators/date.md#top), un `parent="Nombre"` pelado sin valor, una referencia a
+un [pool](../pools/overview.md#top) — una corrida a disco ruteada automáticamente cae de
+vuelta al motor en memoria en lugar de fallar. Un `--engine 2` **forzado** igual falla,
+que es justamente el punto de forzarlo:
+
+`./run report.tdc --engine 2`
+
+```
+tdcv2: a statistic ("Avg") is computed over every row of the run, including the ones after this one, so it cannot be computed one row at a time; the in-memory engine handles it (run without a forced streaming engine)
+```
+
+### Lo que sí hace streaming aunque no lo parezca
+
+Dos construcciones leen las columnas de al lado y aun así hacen streaming, porque cada
+una necesita solo su PROPIA fila — y una fila es exactamente lo que el registro perezoso
+sabe producir:
+
+| Construcción                                                                                | ¿Streaming? | Por qué                                                                     |
+| :------------------------------------------------------------------------------------------- | :---------- | :-------------------------------------------------------------------------- |
+| [`<gen type="formula">`](../generators/formula.md#top)                                         | **sí**      | La fila i se calcula a partir de la fila i. Nada anterior participa.        |
+| Un [parámetro de distribución](statistical-distributions.md#un-parámetro-puede-seguir-a-otra-columna) escrito como expresión | **sí**      | Cambia el valor en que se convierten los sorteos, nunca cuántos gasta una fila. |
+| [`read="quantile"`](../generators/file.md#top) sobre un archivo                                | **sí**      | El archivo se ordena una vez; luego una fila toma un punto sobre él.       |
+| [`<gen type="running">`](../generators/running.md#top)                                          | no          | La fila 900.000.000 ES la suma de todo lo anterior.                        |
+| [`<gen type="stat">`](../generators/stat.md#top)                                                | no          | Las filas POSTERIORES a esta forman parte de la respuesta.                 |
+
+La línea divisoria no es «sorteado o calculado», sino si la respuesta necesita alguna
+fila distinta de esta.
 
 > [!CAUTION]
 > **`uniq` sobre una salida enorme es LENTO — y `uniq` + `percent` es lo más lento que hace TDC**
