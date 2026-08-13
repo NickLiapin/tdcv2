@@ -20,6 +20,8 @@ import { extractMapText } from '../processor/walk.js';
 export function checkSwitchMap(
   mapEl: MapElementContext,
   ctx: { diagnostics: Diagnostic[] },
+  /** The values the subject can produce, when they are known from the config. */
+  subjectValues?: readonly string[],
 ): number {
   const text = extractMapText(mapEl);
   let entries = 0;
@@ -38,6 +40,25 @@ export function checkSwitchMap(
       continue;
     }
     entries += 1;
+    // A key the subject never produces — the `<map>` half of the same question
+    // `<case is="…">` answers below. `<map>` splits ENTRIES on commas and keys
+    // within an entry on `|`, so `a:1, zzz:2` is two entries and `zzz` is the
+    // unreachable one.
+    if (subjectValues !== undefined && subjectValues.length > 0) {
+      const key = row.slice(0, row.indexOf(':'));
+      const known = new Set(subjectValues);
+      for (const k of key.split('|').map((x) => x.trim())) {
+        if (k === '' || known.has(k)) continue;
+        ctx.diagnostics.push({
+          severity: 'warning',
+          source: 'validator',
+          ...nodeRange(mapEl),
+          message: `<map> key "${k}" is not a value the subject produces — this entry is never used`,
+          hint: `The subject produces: ${[...known].sort().join(', ')}.`,
+          code: 'TDC216',
+        });
+      }
+    }
   }
   return entries;
 }

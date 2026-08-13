@@ -602,6 +602,7 @@ function checkDeclName(
     diagnostics: ctx.diagnostics,
     declared: ctx.declaredSequences,
     valueless: ctx.valuelessSequences,
+    finiteValues: ctx.finiteValues,
   });
 }
 
@@ -1294,7 +1295,11 @@ function checkSwitch(switchEl: OpenCloseElementContext, ctx: Ctx, named = true):
   for (const el of contentElements(switchEl.content())) {
     const mapEl = el.mapElement();
     if (mapEl) {
-      entryCount += checkSwitchMap(mapEl, ctx);
+      entryCount += checkSwitchMap(
+        mapEl,
+        ctx,
+        on === undefined ? undefined : ctx.finiteValues.get(on),
+      );
       continue;
     }
     const k = elementKind(el);

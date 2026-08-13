@@ -29,6 +29,8 @@ export interface ParentRefContext {
   readonly declared: readonly string[];
   /** Of those, the compounds — the ones with no value of their own. */
   readonly valueless: readonly string[];
+  /** What each sequence produces, where the config says outright. */
+  readonly finiteValues?: ReadonlyMap<string, readonly string[]>;
 }
 
 export function checkParentRef(
@@ -68,6 +70,31 @@ export function checkParentRef(
       code: 'TDC035',
     });
     return;
+  }
+
+  // `parent="Gender.Male"` where Gender produces M and F. The child is then
+  // active on ZERO rows, and until now nothing said so — `check` called the
+  // config valid and the two engines disagreed about what to do next: the
+  // streaming builder refused ("stream mode: … which the parent never
+  // produces"), the in-memory engine handed back a column of blanks. One config,
+  // two answers, depending on a routing decision the user never made.
+  //
+  // The same question `if="Gender.Male"` has warned about for a while, and the
+  // documentation says the two readings are the same. Warned here with the same
+  // code and the same words.
+  const wanted = dotIdx < 0 ? '' : raw.slice(dotIdx + 1);
+  const parentValues = ctx.finiteValues?.get(parentName);
+  if (wanted !== '' && parentValues && !parentValues.includes(wanted)) {
+    const suggestion = closestMatch(wanted, [...parentValues]);
+    ctx.diagnostics.push({
+      severity: 'warning',
+      source: 'validator',
+      ...attrValueRange(parentAttr),
+      message: `"${parentName}" never produces "${wanted}", so this sequence is drawn on no row`,
+      ...(suggestion ? { suggestion: `did you mean "${suggestion}"?` } : {}),
+      hint: `"${parentName}" produces: ${[...parentValues].join(', ')}.`,
+      code: 'TDC216',
+    });
   }
 
   if (ctx.valueless.includes(parentName)) {

@@ -522,6 +522,38 @@ export function checkExpressionNames(
     }
   };
 
+  /**
+   * `Gender == Male` where Gender never produces `Male`.
+   *
+   * The dotted spelling of the same question — `if="Gender.Male"` — has warned
+   * for a while; this one did not, and the documentation says outright that the
+   * two are the same reading. So one wording caught the typo and its twin sat
+   * silent, which is the worse half of a pair to leave alone: `==` is how most
+   * people write it.
+   *
+   * Only equality, and only against a BARE WORD. `A == B` where B is a declared
+   * column compares two columns and nothing is knowable; `A > Male` is a
+   * different mistake with a different answer. And only where the left column
+   * says outright what it produces — no list, no opinion.
+   */
+  const checkEqualityValue = (bin: jsep.BinaryExpression): void => {
+    if (!EQUALITIES.includes(bin.operator)) return;
+    if (bin.left.type !== 'Identifier' || bin.right.type !== 'Identifier') return;
+    const column = (bin.left as jsep.Identifier).name;
+    const word = (bin.right as jsep.Identifier).name;
+    if (declared(word)) return; // a column, not a word — nothing to say
+    const values = finiteValues.get(column);
+    if (!values || values.includes(word)) return;
+    const suggestion = closestMatch(word, values);
+    const never = bin.operator === '==' || bin.operator === '===';
+    complain(
+      `"${column}" never produces "${word}", so this branch is taken on ${never ? 'no' : 'every'} row`,
+      `"${column}" produces: ${values.join(', ')}.`,
+      suggestion ? `did you mean "${suggestion}"?` : undefined,
+      'TDC216',
+    );
+  };
+
   /** `asName` says whether an identifier here is a reference or a bare word. */
   const walk = (node: jsep.Expression, asName: boolean): void => {
     switch (node.type) {
@@ -543,6 +575,7 @@ export function checkExpressionNames(
         const bin = node as jsep.BinaryExpression;
         const comparison = COMPARISONS.includes(bin.operator);
         walk(bin.left, true);
+        checkEqualityValue(bin);
         // Arithmetic on a bare word is meaningless, so both sides are names
         // there; on a comparison the right side may be the word to match.
         walk(bin.right, !comparison);
@@ -558,6 +591,9 @@ export function checkExpressionNames(
 
 /** Operators whose right side may be a bare word rather than a name. */
 const COMPARISONS: readonly string[] = ['==', '!=', '===', '!==', '<', '>', '<=', '>='];
+
+/** The four that ask whether a column IS a value — the only ones a list can judge. */
+const EQUALITIES: readonly string[] = ['==', '!=', '===', '!=='];
 
 /** One `if=` put aside, and where its complaint belongs in the report. */
 export interface PendingExpression {
