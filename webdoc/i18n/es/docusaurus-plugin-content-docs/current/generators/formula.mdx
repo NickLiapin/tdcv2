@@ -80,6 +80,17 @@ n=5  half=2.5 rem=2 row=4`}
 `_count` y cualquier otro [valor incorporado](../reference/builtins.mdx) se puede leer, así
 que una tendencia a mano es `expr="100 + 0.05 * _count"`.
 
+:::note[Una comparación imprime `true` / `false`, no 1 / 0]
+`expr="BMI > 25"` da la palabra `true`, igual que `_last`, `_first` y cualquier columna
+`anomaly_flag`: una sola escritura para una bandera en todo el motor.
+
+Un conjunto de entrenamiento suele querer la otra forma, y el ternario está ahí mismo:
+
+```xml
+<gen type="formula" expr="BMI > 25 ? 1 : 0"/>
+```
+:::
+
 ## Los enteros siguen siendo enteros
 
 Un operando que ES un número entero se lleva como tal y solo se vuelve doble cuando algo se

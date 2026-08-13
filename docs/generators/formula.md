@@ -85,6 +85,18 @@ n=5  half=2.5 rem=2 row=4
 `_count` and every other [built-in](../reference/builtins.md#top) is readable, so a trend by
 hand is `expr="100 + 0.05 * _count"`.
 
+> [!NOTE]
+> **A comparison prints `true` / `false`, not 1 / 0**
+>
+> `expr="BMI > 25"` gives the word `true`, matching `_last`, `_first` and every
+> `anomaly_flag` column — one spelling for a flag across the whole engine.
+>
+> A training set usually wants the other shape, and the ternary is right there:
+>
+> ```xml
+> <gen type="formula" expr="BMI > 25 ? 1 : 0"/>
+> ```
+
 ## Whole numbers stay whole
 
 An operand that IS a whole number is carried as one and only becomes a double when

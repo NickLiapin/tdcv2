@@ -670,8 +670,24 @@ function applyBinary(op: string, left: unknown, right: unknown): unknown {
     case '+': {
       const whole = bothWhole(left, right);
       if (whole) return checkedInteger(whole[0] + whole[1]);
-      // If both sides look numeric, prefer numeric addition; otherwise
-      // fall back to string concatenation to match JS semantics.
+      // Both sides read as numbers → ADD them. The old rule asked whether an
+      // operand was a JS `number`, which a column value never is: every column
+      // is text, so `A + B` on two decimal columns took the JS-semantics escape
+      // hatch and CONCATENATED. Measured: 10.00 + 5.00 gave "10.005.00", and
+      // `if="A + 1 == 11"` with A=10.00 fired on no row at all.
+      //
+      // Silent, and plausible: "10.005.00" looks like a number in a CSV until
+      // someone tries to add it. Addition of two fractional columns is also the
+      // most common thing anyone does with numbers — two signals summed, price
+      // plus delivery, a base plus a correction — and it was the ONE operator
+      // with this hole: `-`, `*`, `/` and `%` all go through `asNumber` and were
+      // always right, which is why nothing else showed it.
+      //
+      // Concatenation stays for genuine text (`"a" + "b"`), which is the only
+      // case the escape hatch was ever meant to serve.
+      const ln = numericOperand(left);
+      const rn = numericOperand(right);
+      if (ln !== undefined && rn !== undefined) return ln + rn;
       return typeof left === 'number' || typeof right === 'number'
         ? asNumber(left) + asNumber(right)
         : String(left) + String(right);
@@ -859,6 +875,26 @@ function extremum(args: readonly unknown[], wanted: 'max' | 'min'): unknown {
   }
   const numbers = values.map((v) => asNumber(v));
   return numbers.reduce((x, y) => ((wanted === 'max' ? y > x : y < x) ? y : x));
+}
+
+/**
+ * The value as a number when it genuinely reads as one, else undefined.
+ *
+ * Deliberately stricter than `asNumber`, which answers for anything: this one
+ * decides whether `+` is arithmetic or concatenation, so it must say no to text
+ * rather than turn it into NaN. Empty text is not a number either — an emptied
+ * cell has no value to add.
+ */
+function numericOperand(v: unknown): number | undefined {
+  if (typeof v === 'number') return v;
+  if (typeof v === 'bigint') return Number(v);
+  if (typeof v === 'string') {
+    const t = v.trim();
+    if (t === '') return undefined;
+    const n = Number(t);
+    return Number.isNaN(n) ? undefined : n;
+  }
+  return undefined;
 }
 
 function asNumber(v: unknown): number {

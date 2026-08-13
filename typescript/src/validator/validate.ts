@@ -815,6 +815,32 @@ function checkSequence(seqEl: OpenCloseElementContext, ctx: Ctx): void {
         ctx.diagnostics,
       );
     }
+    // A column DERIVED from other columns — running, stat, formula, a date
+    // offset. Same reason as the pool reference above: nothing is drawn, so
+    // there is nothing to take without replacement. Measured, all three silently
+    // ignoring `uniq="true"`: `running` over a column of zeros gave 0,0,0,0; a
+    // `stat` gave one value on every row, which is what a statistic IS; a
+    // formula over 1,1,2,2 gave 1,2,1,2.
+    if (
+      collectSequenceGens(seqEl).nodes.some((g) => {
+        const a = extractAttrs(g.attr());
+        const t = a['type'];
+        return (
+          t === 'running' ||
+          t === 'stat' ||
+          t === 'formula' ||
+          (t === 'date' && (a['of'] ?? '').trim() !== '')
+        );
+      })
+    ) {
+      checkUniqUnsupported(
+        seqEl,
+        name,
+        'it is computed from other columns rather than drawn, so there is nothing to draw ' +
+          'without replacement — put uniq= on the columns it reads',
+        ctx.diagnostics,
+      );
+    }
     // `<gen>` is usually self-closing, so collect it the way the rest of the
     // validator does rather than looking for a paired tag. A sequence whose gen
     // repeats is the only kind `each=` can walk.

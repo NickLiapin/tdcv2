@@ -103,6 +103,18 @@ export function deriveColumnType(
       return withNullable('int64', nullable);
     case 'timeseries':
       return withNullable(Number(gen.attrs['decimals'] ?? '0') > 0 ? 'double' : 'int64', nullable);
+    case 'formula': {
+      // A formula's type is knowable exactly when the config declared how many
+      // digits it wants, and not otherwise: `expr="A + 1"` is a whole number,
+      // `expr="A / 2"` is not, and `expr="A > 5 ? over : under"` is a WORD. So
+      // `decimals=` is the one honest signal, and without it the column stays
+      // text — the same "never corrupt data" rule the rest of this file follows.
+      const raw = (gen.attrs['decimals'] ?? '').trim();
+      if (raw === '') return undefined;
+      const decimals = Number(raw);
+      if (!Number.isFinite(decimals)) return undefined;
+      return withNullable(decimals > 0 ? 'double' : 'int64', nullable);
+    }
     case 'date':
       // The default rendering is locale-shaped (e.g. 05/25/1996), NOT ISO, so a
       // date column is only safe to infer when the config asked for ISO output.
