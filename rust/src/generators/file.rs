@@ -287,8 +287,10 @@ pub fn resolve(src: &str, base_dir: Option<&str>, roots: &[String]) -> EngineRes
                  or name one in tdcv2.config.json",
             );
         }
+        // HIGHEST priority first — see the note on `roots` below.
         let attempts: Vec<String> = roots
             .iter()
+            .rev()
             .map(|root| normalize(&Path::new(root).join(alias)))
             .collect();
         return Ok(first_readable(&attempts));
@@ -306,10 +308,16 @@ pub fn resolve(src: &str, base_dir: Option<&str>, roots: &[String]) -> EngineRes
         return Ok(beside);
     }
 
+    // `roots` arrives low to high — global config, project config, `--data-path` flags —
+    // because that is the order the pack loader needs, where a later root shadows an
+    // earlier one. A file lookup takes the FIRST readable candidate, so reading the list as
+    // given hands the answer to the LOWEST priority root: `--data-path ./private-data` to
+    // shadow a checked-in fixture exited 0 and generated from the checked-in file, silently.
     let mut attempts = vec![beside];
     attempts.extend(
         roots
             .iter()
+            .rev()
             .map(|root| normalize(&Path::new(root).join(text))),
     );
     Ok(first_readable(&attempts))

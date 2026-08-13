@@ -233,7 +233,12 @@ def resolve(src: str, base_dir: Path | None, roots: list[Path] | None = None) ->
     better than reporting a missing file.
     """
     text = src.strip()
-    candidates = list(roots or [])
+    # HIGHEST priority first. ``roots`` arrives low to high — global config, project config,
+    # ``--data-path`` flags — because that is the order the pack loader needs, where a later root
+    # shadows an earlier one. A file lookup takes the FIRST readable candidate, so reading the list
+    # as given hands the answer to the LOWEST priority root: ``--data-path ./private-data`` to
+    # shadow a checked-in fixture exited 0 and generated from the checked-in file, silently.
+    candidates = list(reversed(roots or []))
 
     if text.startswith("file://"):
         return Path(url2pathname(urlparse(text).path))

@@ -110,6 +110,14 @@ _count"` is a sensor that grows noisier as the run goes on.
 
 ### Fixed
 
+- **`--data-path` was the LOWEST-priority root for `@data/…` files, not the highest.** Its
+  own `--help` and the installing-packs page both promise the opposite. The list is
+  assembled low to high because the pack loader needs it that way — a later root shadows an
+  earlier one — but a file lookup takes the first readable candidate, so the flag lost to
+  the project config every time. `--data-path ./private-data` to shadow a checked-in fixture
+  exited 0 and generated from the checked-in file, silently. Fixed in all five; the pack
+  loader's order is untouched.
+
 - **A bare `parent="Name"` wrote a zero-byte file at exactly 100,000 rows.** At that count a
   run parallelises itself, and each worker carries a FORCED streaming engine. The streaming
   builder refuses a valueless `parent=` — it narrows a column to the rows where the parent

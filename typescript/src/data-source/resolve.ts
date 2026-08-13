@@ -71,9 +71,23 @@ function resolveDataAlias(aliasPath: string, options: DataSourceOptions): DataSo
   return { path: existing ?? attempts[0] ?? normalized, attempts };
 }
 
+/**
+ * The configured roots to try, HIGHEST priority first.
+ *
+ * `dataPaths` is assembled low to high — built-in, global config, project config,
+ * `--data-path` flags — because that is the order the pack loader needs, where a
+ * later root shadows an earlier one. A file lookup takes the FIRST readable
+ * candidate, so reading the list as assembled hands the answer to the LOWEST
+ * priority root: `--data-path ./private-data` to shadow a checked-in fixture
+ * exited 0 and generated from the checked-in file, silently. The flag's own
+ * `--help` and the installing-packs page both promise the opposite.
+ *
+ * Reversing here rather than at assembly is deliberate: the pack loader reads the
+ * same list and depends on the low-to-high order.
+ */
 function dataPathAttempts(source: string, options: DataSourceOptions): string[] {
   const paths = options.dataPaths ?? [];
-  return paths.map((path) => resolve(path, source));
+  return paths.map((path) => resolve(path, source)).reverse();
 }
 
 function baseDir(options: DataSourceOptions): string {

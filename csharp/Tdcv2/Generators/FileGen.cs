@@ -292,7 +292,12 @@ public static class FileGen
     public static string Resolve(string src, string? baseDir, IReadOnlyList<string>? roots)
     {
         string text = src.Trim();
-        IReadOnlyList<string> candidates = roots ?? Array.Empty<string>();
+        // HIGHEST priority first. `roots` arrives low to high — global config, project config,
+        // data-path flags — because that is the order the pack loader needs, where a later root
+        // shadows an earlier one. A file lookup takes the FIRST readable candidate, so reading the
+        // list as given hands the answer to the LOWEST priority root: a data-path flag pointing at
+        // private data exited 0 and generated from the checked-in file, silently.
+        IReadOnlyList<string> candidates = (roots ?? Array.Empty<string>()).Reverse().ToList();
 
         if (text.StartsWith("file://", StringComparison.Ordinal))
         {

@@ -9,6 +9,7 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
@@ -350,7 +351,13 @@ public final class FileGen {
    */
   public static Path resolve(String src, Path baseDir, List<Path> roots) {
     String text = src.trim();
-    List<Path> candidates = roots == null ? List.of() : roots;
+    // HIGHEST priority first. `roots` arrives low to high — global config, project config,
+    // data-path flags — because that is the order the pack loader needs, where a later root
+    // shadows an earlier one. A file lookup takes the FIRST readable candidate, so reading the
+    // list as given hands the answer to the LOWEST priority root: a data-path flag pointing at
+    // private data exited 0 and generated from the checked-in file, silently.
+    List<Path> candidates = new ArrayList<>(roots == null ? List.of() : roots);
+    Collections.reverse(candidates);
 
     if (text.startsWith("file://")) {
       return Path.of(URI.create(text));
