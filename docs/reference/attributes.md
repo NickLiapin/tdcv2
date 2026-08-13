@@ -133,6 +133,8 @@ engine family; on a `pattern` generator it picks what you're asking the drawing 
 | `delimiter` | CSV separator                      | [File](../generators/file.md#top)               |
 | `row`       | Linked-row key                     | [File](../generators/file.md#top)               |
 | `weight`    | Frequency column for weighted rows | [Coherent data](../guides/coherent-data.md#top) |
+| `read`      | `"quantile"` — read the file as a sorted sample and land anywhere on it | [File](../generators/file.md#top) |
+| `sample`    | `"exact"` — sweep that distribution evenly instead of drawing from it | [File](../generators/file.md#top) |
 
 ## HTTP service
 

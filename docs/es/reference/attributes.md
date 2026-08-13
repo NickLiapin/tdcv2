@@ -135,6 +135,8 @@ motores; en un generador `pattern` elige la pregunta que se le hace al dibujo.
 | `delimiter` | Separador del CSV                           | [File](../generators/file.md#top)                  |
 | `row`       | Clave de fila vinculada                     | [File](../generators/file.md#top)                  |
 | `weight`    | Columna de frecuencia para filas ponderadas | [Datos coherentes](../guides/coherent-data.md#top) |
+| `read`      | `"quantile"` — leer el archivo como muestra ordenada y caer en cualquier punto | [Archivo](../generators/file.md#top) |
+| `sample`    | `"exact"` — recorrer esa distribución de forma uniforme en vez de sortear | [Archivo](../generators/file.md#top) |
 
 ## Servicio HTTP
 

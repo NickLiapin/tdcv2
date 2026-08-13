@@ -489,6 +489,100 @@ relacionales](../guides/coherent-data.md#top)**.
   filas aparte para cada combinación de fuente, delimitador y modo de encabezado. No es
   un error, solo algo que conviene tener presente.
 
+## `read="quantile"` — una muestra medida como distribución
+
+Todo lo anterior trata el archivo como una **bolsa de valores**: saca uno y ponlo
+en la celda. Eso es exactamente lo correcto cuando los valores son contables — una
+ciudad, un estado, un número de pedidos — y `weight=` incluso respeta sus
+proporciones fila a fila.
+
+Es equivocado para una **medición**. Un archivo con mil importes reales, leído como
+bolsa, da mil importes distintos por muchas filas que pida. Un millón de filas
+sigue teniendo mil valores y nada entre ellos: un peine. El dinero real no tiene
+esa forma, y un modelo entrenado con esa salida aprende una estructura que los
+datos reales nunca tuvieron.
+
+`read="quantile"` lee el mismo archivo al revés: lo ordena una vez y lo trata como
+una regla graduada. Una fila cae en cualquier punto de ella y, si cae entre dos
+observaciones, toma el valor intermedio.
+
+```text title="amounts.txt"
+23.10
+25.40
+25.40
+31.00
+40.75
+```
+
+```xml
+<sequence name="Amount"><gen type="file" src="amounts.txt" read="quantile"/></sequence>
+```
+
+Medido sobre una muestra de 951 importes, 100 000 filas:
+
+| | origen | `read="quantile"` | elección normal |
+| :-- | --: | --: | --: |
+| percentil 10 | 25.25 | 25.13 | 25.12 |
+| mediana | 53.30 | 52.98 | 53.64 |
+| percentil 99 | 227.66 | 227.39 | 231.52 |
+| **valores distintos** | **951** | **15 083** | **951** |
+
+De esta lectura se siguen tres cosas, y cada una es una razón para preferirla en
+una magnitud medida:
+
+- **La resolución sigue a la masa, no al rango.** Una cola de seis órdenes de
+  magnitud cuesta los mismos puntos que una joroba estrecha: la densidad del propio
+  archivo decide dónde está el detalle.
+- **Un valor repetido sigue siendo un átomo.** `25.40` dos veces en la muestra de
+  arriba es un escalón plano en la regla, así que conserva exactamente su parte de
+  la ejecución mientras todo a su alrededor sigue siendo continuo.
+- **No se inventa nada fuera de la muestra.** El rango generado es exactamente el
+  observado: una muestra no puede responder por valores que nunca vio.
+
+**La precisión la decide su archivo, no una suposición.** Interpolar entre 31 y 40
+da 35.4, correcto para dinero y equivocado para un número de pedidos. Por eso la
+respuesta se escribe con tantos decimales como usó el origen: una muestra de
+números enteros da enteros; una escrita al céntimo, céntimos.
+[`decimals`](../reference/attributes.md#top) lo sobrescribe.
+
+### `sample="exact"` — reproducir la muestra sin ruido de muestreo
+
+Por defecto cada fila tira sus propios dados, así que las proporciones oscilan lo
+que oscila cualquier muestra. Con `sample="exact"` no se tiran dados en absoluto:
+la fila `i` toma su propio punto de la regla y, a lo largo de la ejecución, los
+puntos la cubren de forma uniforme.
+
+```xml
+<sequence name="Amount">
+  <gen type="file" src="amounts.txt" read="quantile" sample="exact"/>
+</sequence>
+```
+
+El mismo archivo y las mismas 100 000 filas, peor error entre 99 percentiles:
+
+| | peor error |
+| :-- | --: |
+| sorteado (por defecto) | 0.600% |
+| `sample="exact"` | **0.024%** |
+
+y ese 0.024% restante es el redondeo al céntimo, no muestreo.
+
+La columna **no** sale ordenada — los puntos se dispersan con la misma permutación
+sembrada que usa [`uniq`](../constructs/unique-values.md#top) — y la ejecución sigue
+siendo reproducible, transmisible y paralela: los tres motores producen los mismos
+bytes y `--jobs 7` equivale a `--jobs 1`.
+
+### Qué lectura usar
+
+| su columna | archivo | qué escribir |
+| :-- | :-- | :-- |
+| contable (ciudad, estado, número de pedidos) | `value,count` | [`weight="count"`](#weighted-rows--row--weight) — cuota exacta |
+| medida (dinero, peso, duración) | la muestra cruda, uno por línea | `read="quantile"`, más `sample="exact"` para quitar el ruido |
+
+`read="quantile"` no se combina con `weight=`, `row=` ni `order="sequential"`:
+cada uno es una forma distinta de leer el mismo archivo, y pedir dos a la vez es
+[`TDC297`](../reference/errors.md#top).
+
 ## Vea también
 
 - [`src`](../reference/attributes.md#top), [`column`](../reference/attributes.md#top),

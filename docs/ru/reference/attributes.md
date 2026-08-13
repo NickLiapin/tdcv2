@@ -134,6 +134,8 @@
 | `delimiter` | Разделитель CSV                      | [Файлы](../generators/file.md#top)               |
 | `row`       | Ключ связанной строки                | [Файлы](../generators/file.md#top)               |
 | `weight`    | Колонка частоты для взвешенных строк | [Связные данные](../guides/coherent-data.md#top) |
+| `read`      | `"quantile"` — читать файл как отсортированную выборку и попадать в любую её точку | [Файл](../generators/file.md#top) |
+| `sample`    | `"exact"` — пройти это распределение равномерно, а не бросать жребий | [Файл](../generators/file.md#top) |
 
 ## HTTP-сервис
 
