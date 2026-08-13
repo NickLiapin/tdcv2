@@ -1304,7 +1304,7 @@ function checkSwitch(switchEl: OpenCloseElementContext, ctx: Ctx, named = true):
     if (!k || k.kind === 'data') continue;
     const childName = elementName(k.node);
     if (childName === 'case' && k.kind === 'open') {
-      checkSwitchEntry(k.node, ctx);
+      checkSwitchEntry(k.node, ctx, on === undefined ? undefined : ctx.finiteValues.get(on));
       entryCount += 1;
     } else if (childName === 'default' && k.kind === 'open') {
       checkCaseContent(k.node, ctx);
@@ -1332,8 +1332,12 @@ function checkSwitch(switchEl: OpenCloseElementContext, ctx: Ctx, named = true):
 }
 
 /** Validate one `<case is="…">` inside a `<switch>`; returns nothing. */
-function checkSwitchEntry(caseEl: OpenCloseElementContext, ctx: Ctx): void {
-  checkSwitchCaseAttrs(caseEl, ctx);
+function checkSwitchEntry(
+  caseEl: OpenCloseElementContext,
+  ctx: Ctx,
+  subjectValues?: readonly string[],
+): void {
+  checkSwitchCaseAttrs(caseEl, ctx, subjectValues);
   checkCaseContent(caseEl, ctx);
 }
 
