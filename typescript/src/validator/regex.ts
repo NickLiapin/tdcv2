@@ -12,7 +12,7 @@ import { parseRegexMaxLength, parseRegexProgram } from '../generators/regex.js';
 import { extractAttrs } from '../processor/walk.js';
 import { isBlank } from './blank-value.js';
 
-interface RegexValidationContext {
+export interface RegexValidationContext {
   readonly diagnostics: Diagnostic[];
   readonly regexMaxLength: number;
 }

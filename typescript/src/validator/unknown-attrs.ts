@@ -132,6 +132,7 @@ export const GEN_ATTRIBUTES: ReadonlySet<string> = new Set([
   'local',
   'weight',
   // read by one generator type or another
+  'expr',
   'filter',
   'percent',
   'first_zero',
@@ -235,6 +236,10 @@ export const ATTRIBUTE_OWNERS: ReadonlyMap<string, ReadonlySet<string>> = new Ma
   ['of', new Set(['running', 'stat', 'date'])],
   ['reset', new Set(['running'])],
   ['op', new Set(['stat'])],
+  // The expression a formula evaluates. Only `formula` — `if=` and `filter=`
+  // hold one too, but those are wrappers every type takes, not this one's own
+  // parameter.
+  ['expr', new Set(['formula'])],
   // How far a date sits from the one `of=` names.
   ['plus', new Set(['date'])],
   ['src', new Set(['file', 'http', 'pattern'])],
@@ -304,7 +309,7 @@ export const ATTRIBUTE_OWNERS: ReadonlyMap<string, ReadonlySet<string>> = new Ma
   ['exclude', new Set(['number', 'symbol'])],
   // How many places the answer is printed to. Four generators produce a number
   // they may have to round; the rest produce text, which has no places.
-  ['decimals', new Set(['number', 'timeseries', 'pattern', 'stat'])],
+  ['decimals', new Set(['number', 'timeseries', 'pattern', 'stat', 'formula'])],
   ['distribution', new Set(['number'])],
   // The ceiling on what an unbounded pattern may expand to.
   ['regex_max_length', new Set(['regex', 'advanced_regex'])],

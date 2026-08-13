@@ -50,7 +50,6 @@ import {
 } from '../processor/walk.js';
 import { checkSequenceDataAttrs, type SequenceShape, sequenceShape } from './sequence-body.js';
 
-import { checkGenTemplate } from './template-locale.js';
 import {
   BUILTIN_SEQUENCES,
   KNOWN_CASE_CHILDREN,
@@ -62,7 +61,6 @@ import {
   KNOWN_SEQUENCE_CHILDREN,
   KNOWN_TDC_CHILDREN,
 } from './known.js';
-import { checkGenNumber as checkGenNumberAttrs } from './number.js';
 import {
   childNode,
   childTagName,
@@ -70,16 +68,11 @@ import {
   reportMisplaced,
   reportUnknownChild,
 } from './placement.js';
+import { checkGenByType } from './gen-type.js';
 import { checkIfExpression, type PendingExpression, runPendingExpressions } from './expr-check.js';
-import { checkGenAdvancedRegex } from './advanced-regex.js';
-import { checkGenDate } from './date.js';
-import { checkGenDrawing, checkGenFile } from './file.js';
 import { checkSwitchCaseAttrs, checkSwitchMap } from './switch-body.js';
-import { checkGenRegex } from './regex.js';
-import { checkGenSymbol } from './symbol.js';
 import { checkRowLinkOrder } from './row-link-order.js';
 import { checkSequentialRepeat } from './sequential-repeat.js';
-import { checkGenTimeseries } from './timeseries.js';
 import { checkCompute } from './compute.js';
 import { checkGroupSize } from './group-size.js';
 import { checkAssertTag } from './assert.js';
@@ -118,12 +111,7 @@ import { checkGenMask } from './mask.js';
 import { checkAnomalyFlag, checkGenIfInCase, checkGenImperfections } from './imperfections.js';
 import { checkParentRef } from './parent-ref.js';
 import { checkAllUnknownAttrs, checkUnknownAttrs } from './unknown-attrs.js';
-import { checkGenHttp } from './http.js';
 import { checkAttrInterpolation } from './interpolation.js';
-import { checkGenStat } from './stat.js';
-import { checkGenRunning } from './running.js';
-import { checkGenText } from './text.js';
-import { checkGenCounter } from './counter.js';
 import { FIXTURE_TAGS, checkFixture } from './fixture.js';
 import { checkData } from './data-element.js';
 import { isCaseTransform } from '../format/transforms.js';
@@ -929,51 +917,7 @@ function checkGen(
   // one. Five generators used to each blame what they happened to be parsing.
   if (checkAttrInterpolation(attrs, ctx.diagnostics)) return;
 
-  switch (type) {
-    case 'text':
-      checkGenText(gen, ctx.diagnostics);
-      break;
-    case 'file':
-      checkGenFile(gen, ctx);
-      break;
-    case 'pattern':
-      checkGenDrawing(gen, ctx);
-      break;
-    case 'template':
-      checkGenTemplate(gen, ctx);
-      break;
-    case 'number':
-      checkGenNumberAttrs(gen, ctx.diagnostics);
-      break;
-    case 'regex':
-      checkGenRegex(gen, ctx);
-      break;
-    case 'advanced_regex':
-      checkGenAdvancedRegex(gen, ctx);
-      break;
-    case 'symbol':
-      checkGenSymbol(gen, ctx.diagnostics);
-      break;
-    case 'date':
-      checkGenDate(gen, ctx.declaredSequences, ctx.diagnostics, ctx.locale);
-      break;
-    case 'timeseries':
-      checkGenTimeseries(gen, ctx.diagnostics);
-      break;
-    case 'increment':
-    case 'decrement':
-      checkGenCounter(gen, ctx.diagnostics);
-      break;
-    case 'http':
-      checkGenHttp(gen, ctx);
-      break;
-    case 'running':
-      checkGenRunning(gen, ctx.declaredSequences, ctx.diagnostics);
-      break;
-    case 'stat':
-      checkGenStat(gen, ctx.declaredSequences, ctx.diagnostics);
-      break;
-  }
+  checkGenByType(gen, type, ctx);
 
   // A conditional-sequence gen carries `if` as its branch condition; a
   // plain gen may also have one. Just validate the expression if present.

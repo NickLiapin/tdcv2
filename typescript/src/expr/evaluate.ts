@@ -82,6 +82,23 @@ export function evaluateInScope(expr: string, scope: ExprScope): boolean {
 }
 
 /**
+ * Evaluate `expr` with names resolved by `scope`, and hand back the VALUE.
+ *
+ * The same walk `evaluateInScope` runs — this one simply does not throw the
+ * answer away. Everything the expression language already decided stays
+ * decided: a whole number arrives as a `bigint` and is still exact past 2⁵³,
+ * anything inexact arrives as a `number`, and a name that is no column arrives
+ * as its own text.
+ *
+ * `<gen type="formula">` is the only caller today. It exists as a separate
+ * entry point rather than a flag on the boolean one so that neither reading
+ * can quietly acquire the other's coercion.
+ */
+export function evaluateValueInScope(expr: string, scope: ExprScope): unknown {
+  return walk(compile(expr), scope);
+}
+
+/**
  * What counts as TRUE — for a bare `if="X"`, and for `!`, `&&` and `||`.
  *
  * Two texts are false and every other text is true:

@@ -25,6 +25,7 @@
 - [HTTP-сервис](./http.md#top)
 - [Нарастающий итог](./running.md#top)
 - [Статистика](./stat.md#top)
+- [Formula (формула)](./formula.md#top)
 
 ---
 

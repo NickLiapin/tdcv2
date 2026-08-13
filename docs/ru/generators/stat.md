@@ -4,7 +4,7 @@
 
 📖 **[Открыть на сайте документации →](https://nickliapin.github.io/tdcv2/ru/docs/generators/stat)**
 
-← Назад: [Нарастающий итог](./running.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Обзор](../pools/overview.md#top) →
+← Назад: [Нарастающий итог](./running.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Formula (формула)](./formula.md#top) →
 
 ---
 
@@ -179,6 +179,6 @@ tdcv2: a statistic ("Average") is computed over every row of the run, including 
 
 ---
 
-← Назад: [Нарастающий итог](./running.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Обзор](../pools/overview.md#top) →
+← Назад: [Нарастающий итог](./running.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Formula (формула)](./formula.md#top) →
 
 📖 **[Открыть на сайте документации →](https://nickliapin.github.io/tdcv2/ru/docs/generators/stat)**

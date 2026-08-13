@@ -18,7 +18,7 @@ import { extractAttrs } from '../processor/walk.js';
 import { parseAdvancedRegexProgram } from '../generators/advanced-regex.js';
 import { isBlank } from './blank-value.js';
 
-interface AdvancedRegexValidationContext {
+export interface AdvancedRegexValidationContext {
   readonly diagnostics: Diagnostic[];
   readonly regexMaxLength: number;
 }

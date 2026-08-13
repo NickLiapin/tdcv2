@@ -4,7 +4,7 @@
 
 📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/generators/stat)**
 
-← Anterior: [Total acumulado](./running.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Resumen](../pools/overview.md#top) →
+← Anterior: [Total acumulado](./running.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Formula (fórmula)](./formula.md#top) →
 
 ---
 
@@ -180,6 +180,6 @@ ejecución sin estadística no se ve afectada.
 
 ---
 
-← Anterior: [Total acumulado](./running.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Resumen](../pools/overview.md#top) →
+← Anterior: [Total acumulado](./running.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Formula (fórmula)](./formula.md#top) →
 
 📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/generators/stat)**

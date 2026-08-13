@@ -25,6 +25,7 @@
 - [HTTP service](./http.md#top)
 - [Running total](./running.md#top)
 - [Statistic](./stat.md#top)
+- [Formula](./formula.md#top)
 
 ---
 

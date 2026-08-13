@@ -40,6 +40,7 @@
 - [HTTP service](./generators/http.md#top)
 - [Running total](./generators/running.md#top)
 - [Statistic](./generators/stat.md#top)
+- [Formula](./generators/formula.md#top)
 
 ## Pools
 

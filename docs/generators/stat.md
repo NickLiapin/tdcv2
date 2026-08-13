@@ -4,7 +4,7 @@
 
 📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/generators/stat)**
 
-← Previous: [Running total](./running.md#top) · **[Contents](../README.md#top)** · Next: [Overview](../pools/overview.md#top) →
+← Previous: [Running total](./running.md#top) · **[Contents](../README.md#top)** · Next: [Formula](./formula.md#top) →
 
 ---
 
@@ -176,6 +176,6 @@ a statistic is untouched.
 
 ---
 
-← Previous: [Running total](./running.md#top) · **[Contents](../README.md#top)** · Next: [Overview](../pools/overview.md#top) →
+← Previous: [Running total](./running.md#top) · **[Contents](../README.md#top)** · Next: [Formula](./formula.md#top) →
 
 📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/generators/stat)**

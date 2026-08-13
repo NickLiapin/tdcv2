@@ -27,6 +27,7 @@ export const KNOWN_GEN_TYPES: readonly string[] = [
   'pool',
   'running',
   'stat',
+  'formula',
 ] as const;
 
 /**

@@ -4,7 +4,7 @@
 
 📖 **[Открыть на сайте документации →](https://nickliapin.github.io/tdcv2/ru/docs/pools/overview)**
 
-← Назад: [Статистика](../generators/stat.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Отбор через filter](./filter.md#top) →
+← Назад: [Formula (формула)](../generators/formula.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Отбор через filter](./filter.md#top) →
 
 ---
 
@@ -256,6 +256,6 @@ _разные вещи_, обычно нужно это хотя бы на од�
 
 ---
 
-← Назад: [Статистика](../generators/stat.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Отбор через filter](./filter.md#top) →
+← Назад: [Formula (формула)](../generators/formula.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Отбор через filter](./filter.md#top) →
 
 📖 **[Открыть на сайте документации →](https://nickliapin.github.io/tdcv2/ru/docs/pools/overview)**

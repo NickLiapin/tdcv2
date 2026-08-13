@@ -29,6 +29,7 @@ Every `type` for [`<gen>`](../generators/overview.md#top). Each one links to its
 | [`pool`](../pools/overview.md#top)                         | One whole member of a `<pool>` — a record, not a value |
 | [`running`](../generators/running.md#top)                  | A total accumulated down the column, not drawn         |
 | [`stat`](../generators/stat.md#top)                        | One number over the whole run, on every row            |
+| [`formula`](../generators/formula.md#top)                  | A column computed from the other columns of its row    |
 
 ## Cross-cutting attributes
 

@@ -40,6 +40,7 @@
 - [HTTP-сервис](./generators/http.md#top)
 - [Нарастающий итог](./generators/running.md#top)
 - [Статистика](./generators/stat.md#top)
+- [Formula (формула)](./generators/formula.md#top)
 
 ## Pools
 

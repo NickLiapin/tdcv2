@@ -25,6 +25,7 @@
 - [Servicio HTTP](./http.md#top)
 - [Total acumulado](./running.md#top)
 - [Estadística](./stat.md#top)
+- [Formula (fórmula)](./formula.md#top)
 
 ---
 

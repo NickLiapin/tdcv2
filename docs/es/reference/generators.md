@@ -29,6 +29,7 @@ Todos los valores de `type` para [`<gen>`](../generators/overview.md#top). Cada 
 | [`pool`](../pools/overview.md#top)                         | Un miembro entero de un `<pool>` — un registro, no un valor         |
 | [`running`](../generators/running.md#top)                  | Un total acumulado por la columna, no sorteado                      |
 | [`stat`](../generators/stat.md#top)                        | Un número sobre toda la ejecución, en cada fila                     |
+| [`formula`](../generators/formula.md#top)                  | Una columna calculada a partir de las otras columnas de su fila     |
 
 ## Atributos transversales
 

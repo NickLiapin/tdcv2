@@ -197,6 +197,19 @@ export function buildLazyRegistry(
       );
     }
 
+    // A formula reads sibling columns of its OWN row, so unlike a running total
+    // the idea itself streams perfectly — row i needs row i and nothing else.
+    // What is missing is the same thing a date offset is missing: the streaming
+    // path has no way to read a sibling column lazily. Refused by name until it
+    // has one, and the router hands the config to the in-memory engine.
+    if (spec.gen?.type === 'formula') {
+      throw new StreamUnsupportedError(
+        `a formula ("${spec.name}") reads the other columns of its row, and the streaming ` +
+          'builder cannot read a sibling column yet; the in-memory engine handles it ' +
+          '(run without a forced streaming engine)',
+      );
+    }
+
     // A date measured from another date needs only the SAME row of its source,
     // so unlike a running total it is not the idea that resists streaming — the
     // streaming path simply has no way to read a sibling column lazily, which is

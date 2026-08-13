@@ -2,4 +2,5 @@
  * Expression module public surface.
  */
 
-export { evaluateIf } from './evaluate.js';
+export { evaluateIf, evaluateValueInScope } from './evaluate.js';
+export type { ExprScope } from './evaluate.js';
