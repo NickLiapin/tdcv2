@@ -935,9 +935,15 @@ export function specsUseHttp(specs: readonly SequenceSpec[]): boolean {
 /**
  * True if any sequence is a column DERIVED from another column.
  *
- * `running`, `stat`, a date offset and `formula` are all built in declaration
- * order out of columns that already exist, and the streaming builder refuses
- * each of them by name. Before this existed the refusal was left to the build,
+ * `running`, `stat` and a date offset are built in declaration order out of
+ * columns that already exist, and the streaming builder refuses each by name.
+ *
+ * `formula` is NOT in this list, and the difference is the whole point: it reads
+ * only its OWN row, so it streams — see the formula case in `stream-build.ts`.
+ * `running` needs every row before this one and `stat` needs every row at all,
+ * which is not a gap in the streaming builder but what those two constructs
+ * mean. A date offset needs only its own row too and could join `formula` once
+ * its instant-column bookkeeping is taught to resolve lazily. Before this existed the refusal was left to the build,
  * which worked single-threaded — the auto-routed disk mode caught it and fell
  * back to the in-memory engine — and then died above the row count where the
  * run goes parallel, because each worker gets a FORCED streaming engine with
@@ -959,7 +965,6 @@ export function specsUseDerivedColumn(specs: readonly SequenceSpec[]): boolean {
     (g) =>
       g.type === 'running' ||
       g.type === 'stat' ||
-      g.type === 'formula' ||
       (g.type === 'date' && (g.attrs['of'] ?? '').trim() !== ''),
   );
 }

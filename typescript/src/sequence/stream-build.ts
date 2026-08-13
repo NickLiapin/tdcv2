@@ -46,6 +46,7 @@ import { permute, permuteKey } from '../prng/permute.js';
 import { anomalyFlagSequence, missingAnomalyMod, type RawAt } from './stream-anomaly.js';
 import { buildMixSeq } from './stream-mix.js';
 import { lazy } from './stream-lazy.js';
+import { lazyFormula } from './formula.js';
 import { redrawUntilFresh, redrawUntilFreshAt } from './repeat-distinct.js';
 import { poolRefName } from './pool.js';
 import { lazyPoolRefColumns } from './pool-ref.js';
@@ -197,17 +198,15 @@ export function buildLazyRegistry(
       );
     }
 
-    // A formula reads sibling columns of its OWN row, so unlike a running total
-    // the idea itself streams perfectly — row i needs row i and nothing else.
-    // What is missing is the same thing a date offset is missing: the streaming
-    // path has no way to read a sibling column lazily. Refused by name until it
-    // has one, and the router hands the config to the in-memory engine.
+    // A formula STREAMS. Row i is computed from row i and nothing else, which is
+    // exactly the property the lazy registry is built on — so it is the one of
+    // the four derived columns that belongs here rather than in memory. The
+    // mechanism is not new: `<compute>` above resolves the same way. An earlier
+    // version of this file refused a formula saying the streaming builder
+    // "cannot read a sibling column yet", which was never true.
     if (spec.gen?.type === 'formula') {
-      throw new StreamUnsupportedError(
-        `a formula ("${spec.name}") reads the other columns of its row, and the streaming ` +
-          'builder cannot read a sibling column yet; the in-memory engine handles it ' +
-          '(run without a forced streaming engine)',
-      );
+      registry[spec.name] = lazyFormula(spec, registry);
+      continue;
     }
 
     // A date measured from another date needs only the SAME row of its source,

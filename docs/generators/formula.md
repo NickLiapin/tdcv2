@@ -150,10 +150,16 @@ by zero**.
   consumes no randomness — adding one leaves every other column exactly where it was.
 - **Declaration order.** A formula is built out of columns that already exist, so every
   name in `expr=` must belong to a sequence declared above it.
-- **Engine.** A config with a formula runs on the
-  [in-memory engine](../guides/large-outputs.md#top): the streaming builder has no way to read
-  a sibling column yet, the same limit a [date offset](date.md#top) has. The router handles it
-  — nothing to set.
+- **It streams.** Reading only its own row is exactly what the
+  [streaming engine](../guides/large-outputs.md#top) is built on, so a formula runs there like
+  any drawn column — memory stays flat as the row count grows. Measured on one config:
+  1M rows 2.1 s, 5M rows 3.9 s, 20M rows 9.5 s and a 291 MB file, with peak memory rising
+  1.3× while the row count rose 20×. The in-memory engine on the same 5M config took 12.5 s
+  and used more memory, and cannot reach 20M at all.
+
+  This is what separates a formula from [running](running.md#top) and [stat](stat.md#top): those
+  two need rows other than this one — every row before, and every row at all — so they stay
+  in memory by definition, not by omission.
 
 ## See also
 
