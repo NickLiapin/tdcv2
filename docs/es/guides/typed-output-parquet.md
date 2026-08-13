@@ -198,6 +198,7 @@ producir se sabe antes de que exista una sola fila.
 | [`running`](../generators/running.md#top) | el tipo de la columna que nombra su `of=` |
 | [`stat`](../generators/stat.md#top) | `count` → entero; `mean`, `median`, `stddev` → decimal; `sum`, `min`, `max` → el tipo del origen |
 | [`formula`](../generators/formula.md#top) | entero o decimal **cuando se da `decimals=`**, texto en caso contrario |
+| [`file` con `read="quantile"`](../generators/file.md#top) | **texto** — declare `type="float"` si quiere una columna numérica |
 
 La fila de la fórmula se sale a propósito. `expr="A + 1"` es un número entero,
 `expr="A / 2"` ya no lo es, y `expr="A > 5 ? over : under"` es una PALABRA — así que
@@ -208,6 +209,18 @@ cuando la respuesta sea entera y quiera una columna de enteros.
 **nunca adivina un tipo a partir de los valores mismos** — eso es exactamente lo que
 corrompe los CSV (`007` → `7`). Cuando TDC no está seguro, la columna se queda como
 string: un string no rompe nada.
+
+Una [lectura por cuantiles](../generators/file.md#top) es la única fila de esa tabla donde
+el valor ES demostrablemente un número — el archivo tiene que ser numérico o la ejecución
+se rechaza — y la columna se escribe igualmente como texto. Es la inferencia siguiendo su
+propia regla y no el valor: lo que el motor sabe es que un generador `file` produce lo que
+el archivo contenga, y eso es un hecho sobre el generador, no sobre este uso concreto.
+Escriba `type="float"` (o `type="int64"` para una muestra de números enteros) y la columna
+queda tipada:
+
+```xml
+<data name="amount" type="float">${{Amount}}</data>
+```
 
 ### Dos casos donde la inferencia se omite a propósito
 

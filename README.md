@@ -40,16 +40,26 @@ Users describe **what** data they need via sequences with hierarchical dependenc
 and **how** it should be formatted via wrapper tags. The tool generates
 deterministically (via seed) with exact percentage proportions, in any text format.
 
-**Three unique moats:**
+**Four unique moats:**
 
 1. **Any text output format constructed in DSL.** No list of formats — users build
    CSV, JSON, SQL, YAML, Markdown, or any custom format via `<before>`, `<after>`,
    `<block>` wrappers.
 2. **Hierarchical probabilistic dependencies.** `<sequence parent="Gender.Man">` —
    child distributions applied to parent subsets. Unavailable in faker-type tools.
+   The numeric counterpart is `<gen type="formula" expr="…">`: a column computed from
+   the others in its row — a weight that follows a height, a total that follows a price
+   and a quantity — and a distribution parameter that can itself be an expression over
+   another column (`lambda="Traffic * 0.1"`). Independent columns are what a model
+   cannot learn anything from.
 3. **Pattern-graph distributions** (shipped). Users draw an SVG/PNG curve, TDC uses
    its shape as a probability distribution — signal, corridor, and density modes.
    Nobody else does this.
+4. **A real sample used as a distribution.** `read="quantile"` treats a file of
+   measurements as a quantile function rather than a bag of values, so a thousand
+   recorded amounts stretch to a million rows instead of collapsing into a comb of a
+   thousand repeats; `sample="exact"` reproduces the sample with no sampling noise at
+   all — measured, a worst deviation of 0.0000% across 99 quantiles.
 
 Plus: deterministic via seed, exact proportions via the Hamilton method. It is
 **cross-language** — one config, byte-identical output in TypeScript, Python, Java,

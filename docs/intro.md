@@ -243,6 +243,19 @@ byte-for-byte match with the output shown above.
 - **[External data sources](guides/files-and-csv.md#top).** Individual values or complete
   linked rows can be read from your own data sources.
 
+- **[A column that follows another one](generators/formula.md#top).** A weight that follows
+  a height, a total that follows a price and a quantity, a rate driven by the traffic
+  beside it. `<gen type="formula" expr="…">` computes a column from the others in its row,
+  and a [distribution parameter](guides/statistical-distributions.md#a-parameter-can-follow-another-column)
+  can be an expression too. Independent columns are what a model cannot learn anything
+  from; these move together.
+
+- **[The shape of a real sample](generators/file.md#readquantile--a-measured-sample-as-a-distribution).**
+  `read="quantile"` treats your file of measurements as a distribution rather than a bag
+  of values, so a thousand recorded amounts stretch to a million rows without becoming a
+  comb of a thousand repeats. `sample="exact"` reproduces the sample with no sampling
+  noise at all.
+
 - **[Flexible output formats](guides/output-formats.md#top).** Generate CSV, JSON, SQL,
   YAML, or a custom format of your own.
 

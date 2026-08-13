@@ -251,6 +251,20 @@ coincidencia byte por byte con la salida de arriba.
 - **[Fuentes de datos externas](guides/files-and-csv.mdx).** Valores sueltos o filas
   enlazadas completas se pueden leer de sus propias fuentes.
 
+- **[Una columna que sigue a otra](generators/formula.mdx).** Un peso que sigue a una
+  estatura, un total que sigue a un precio y una cantidad, una intensidad guiada por el
+  tráfico de al lado. `<gen type="formula" expr="…">` calcula una columna a partir de las
+  demás de su fila, y un [parámetro de
+  distribución](guides/statistical-distributions.mdx#un-parámetro-puede-seguir-a-otra-columna)
+  también puede ser una expresión. De columnas independientes un modelo no puede aprender
+  nada; estas se mueven juntas.
+
+- **[La forma de una muestra real](generators/file.mdx#readquantile--una-muestra-medida-como-distribución).**
+  `read="quantile"` trata su archivo de mediciones como una distribución y no como una
+  bolsa de valores, así que mil importes registrados se estiran a un millón de filas sin
+  convertirse en un peine de mil repeticiones. `sample="exact"` reproduce la muestra sin
+  ruido de muestreo alguno.
+
 - **[Formatos de salida flexibles](guides/output-formats.mdx).** Genere CSV, JSON, SQL,
   YAML o un formato propio.
 

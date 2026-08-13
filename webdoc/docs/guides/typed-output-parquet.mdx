@@ -188,6 +188,7 @@ known before a single row exists:
 | [`running`](../generators/running.mdx) | the type of the column its `of=` names |
 | [`stat`](../generators/stat.mdx) | `count` → integer; `mean`, `median`, `stddev` → float; `sum`, `min`, `max` → the source's type |
 | [`formula`](../generators/formula.mdx) | integer or float **when `decimals=` is given**, text otherwise |
+| [`file` with `read="quantile"`](../generators/file.mdx) | **text** — declare `type="float"` when you want a numeric column |
 
 The formula row is the odd one out on purpose. `expr="A + 1"` is a whole number,
 `expr="A / 2"` is not, and `expr="A > 5 ? over : under"` is a WORD — so `decimals=` is
@@ -198,6 +199,17 @@ whole and you want an integer column.
 TDC **never guesses a type from the values themselves** — that's exactly what corrupts
 CSV (`007` → `7`). When TDC isn't sure, the column stays a string: a string breaks
 nothing.
+
+A [quantile read](../generators/file.mdx) is the one row on that table where the value
+IS provably a number — the file has to be numeric or the run refuses — and the column is
+still written as text. That is inference following its own rule rather than the value:
+what the engine knows is that a `file` generator produces whatever the file holds, and
+that is a fact about the generator, not about this use of it. Write `type="float"` (or
+`type="int64"` for a whole-number sample) and the column is typed:
+
+```xml
+<data name="amount" type="float">${{Amount}}</data>
+```
 
 ### Two cases where inference is deliberately skipped
 
