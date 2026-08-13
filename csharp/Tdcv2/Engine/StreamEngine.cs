@@ -884,11 +884,11 @@ public sealed class StreamEngine
                 ? FileGen.Load(attrs, _baseDir, _packs.DataRoots)
                 : MemoryEngine.SplitText(attrs.GetValueOrDefault("value", ""));
             bool cycle = attrs.GetValueOrDefault("cycle") != "false";
-            return new Built(Wrap(mod, row =>
+            return InlineBuilt(mod, row =>
             {
                 int? r = domain.PopIndexAt(row);
                 return r is null ? null : MemoryEngine.PickSequential(list, r.Value, cycle);
-            }));
+            }, streamId, gen, domain);
         }
 
         // The same rule over a date range. The axis is arithmetic rather than a list, which is
@@ -897,7 +897,7 @@ public sealed class StreamEngine
         {
             DateGen.Axis axis = DateGen.DateAxis(attrs, LocaleOf(attrs), _nowMillis);
             bool walkCycle = attrs.GetValueOrDefault("cycle") != "false";
-            return new Built(Wrap(mod, row =>
+            return InlineBuilt(mod, row =>
             {
                 int? r = domain.PopIndexAt(row);
                 if (r is null)
@@ -909,7 +909,7 @@ public sealed class StreamEngine
                 return axis.Size is long size
                     ? axis.At(MemoryEngine.SequentialIndex(size, r.Value, walkCycle))
                     : axis.At(r.Value);
-            }));
+            }, streamId, gen, domain);
         }
 
         if (type is "increment" or "decrement")
@@ -917,21 +917,21 @@ public sealed class StreamEngine
             long start = LongAttr(attrs.GetValueOrDefault("value"), 0);
             long step = LongAttr(attrs.GetValueOrDefault("step"), 1);
             bool up = type == "increment";
-            return new Built(Wrap(mod, row =>
+            return InlineBuilt(mod, row =>
             {
                 int? r = domain.PopIndexAt(row);
                 return r is null
                     ? null
                     : (up ? start + (step * r.Value) : start - (step * r.Value))
                         .ToString(CultureInfo.InvariantCulture);
-            }));
+            }, streamId, gen, domain);
         }
 
         if (type == "timeseries")
         {
             Timeseries.Spec spec = Timeseries.Parse(attrs);
             bool noisy = spec.HasNoise;
-            return new Built(Wrap(mod, row =>
+            return InlineBuilt(mod, row =>
             {
                 int? r = domain.PopIndexAt(row);
                 if (r is null)
@@ -948,7 +948,7 @@ public sealed class StreamEngine
 
                 return Stats.Distribution.ToFixed(
                     Timeseries.ValueAt(spec, r.Value, z), spec.Decimals);
-            }));
+            }, streamId, gen, domain);
         }
 
         if (type == "pattern")
@@ -956,7 +956,7 @@ public sealed class StreamEngine
             Pattern.PatternGen drawing =
                 Pattern.PatternGen.Of(attrs, _baseDir, _packs.DataRoots);
             double denom = domain.Size > 1 ? domain.Size - 1 : 1;
-            return new Built(Wrap(mod, row =>
+            return InlineBuilt(mod, row =>
             {
                 int? r = domain.PopIndexAt(row);
                 if (r is null)
@@ -968,7 +968,7 @@ public sealed class StreamEngine
                     ? Seekable.Uniforms(_seed, streamId + ":pat", row, 1)[0]
                     : 0;
                 return drawing.ValueAt(r.Value / denom, u);
-            }));
+            }, streamId, gen, domain);
         }
 
         // `sample="exact"` on a quantile read: the row's point on the sorted sample comes from a
@@ -982,7 +982,7 @@ public sealed class StreamEngine
                 (attrs.GetValueOrDefault("src") ?? "").Trim());
             int quantileDecimals = Quantile.DecimalsFor(attrs, quantileSource);
             int sweepKey = Permute.Key(_seed, streamId);
-            return new Built(Wrap(mod, row =>
+            return InlineBuilt(mod, row =>
             {
                 int? r = domain.PopIndexAt(row);
                 // Over the rows this column HAS, which for a filtered one is its domain rather
@@ -991,7 +991,7 @@ public sealed class StreamEngine
                     ? null
                     : Quantile.ExactAt(
                         quantileSource, quantileDecimals, domain.Size, sweepKey, r.Value);
-            }));
+            }, streamId, gen, domain);
         }
 
         // A row-linked file: every field on the key must land on the same record for a given row,
@@ -1002,7 +1002,7 @@ public sealed class StreamEngine
         {
             FileGen.RowSource source = FileGen.LoadRows(attrs, _baseDir, _packs.DataRoots);
             string linkStream = "filerowlink|" + rowKey;
-            return new Built(Wrap(mod, row =>
+            return InlineBuilt(mod, row =>
             {
                 int? r = domain.PopIndexAt(row);
                 if (r is null)
@@ -1012,7 +1012,7 @@ public sealed class StreamEngine
 
                 int index = Seekable.NextInt(_seed, linkStream, row, source.Rows.Count);
                 return FileGen.CellAt(source, index);
-            }));
+            }, streamId, gen, domain);
         }
 
         // An exact quota: text, a weighted file column, or a weighted pack. All three say what
@@ -1060,7 +1060,7 @@ public sealed class StreamEngine
                 Hamilton.CountsPerValue(
                     domain.Size, percents, Prng.Prng.Create(_seed + "|" + streamId + "|lenpct")));
             int key = Permute.Key(_seed, streamId + "#lenpct");
-            return new Built(Wrap(mod, row =>
+            return InlineBuilt(mod, row =>
             {
                 int? r = domain.PopIndexAt(row);
                 if (r is null)
@@ -1072,7 +1072,7 @@ public sealed class StreamEngine
                     lengthChoices[RunFor(cumHi, Permute.Apply(r.Value, domain.Size, key))];
                 var pinned = new Gen(type, NumberGen.PinLength(attrs, group));
                 return First(GenValues(pinned, Seekable.Generator(_seed, streamId, row), null, row));
-            }));
+            }, streamId, gen, domain);
         }
 
         // With `repeat`, each element of the cell is an independent draw on a stream of its own, so
@@ -1190,7 +1190,7 @@ public sealed class StreamEngine
     /// for the types that draw independently. Deciding it any other way would give a flag that is
     /// right on average and wrong per row, which is worse than no flag at all.
     /// </remarks>
-    private Column? AnomalyFlagColumn(string streamId, Gen gen, Domain domain)
+    private Column? AnomalyFlagColumn(string streamId, Gen gen, Domain domain, Column? raw = null)
     {
         Imperfections.Anomaly? anomaly = Imperfections.ParseAnomaly(gen.Attrs);
         if (anomaly is null || TrimToNull(gen.Attrs.GetValueOrDefault("anomaly_flag")) is null)
@@ -1200,6 +1200,8 @@ public sealed class StreamEngine
 
         bool inline = InlineTypes.Contains(gen.Type);
         double p = anomaly.Value.Probability;
+        Imperfections.Missing? missing = Imperfections.ParseMissing(gen.Attrs);
+        double missP = missing?.Probability ?? 0.0;
         return row =>
         {
             if (domain.PopIndexAt(row) is null)
@@ -1209,7 +1211,21 @@ public sealed class StreamEngine
 
             if (inline)
             {
-                return Seekable.Uniforms(_seed, streamId + "#anom", row, 1)[0] < p
+                // A cell `missing=` blanked has no spike left to label.
+                if (missP > 0 && Seekable.Uniforms(_seed, streamId + "#miss", row, 1)[0] < missP)
+                {
+                    return "false";
+                }
+
+                // Selection is only half of it: a spike replaces a NUMBER, so a selected word is
+                // left exactly as it was. `raw` is the value BEFORE the modifiers ran, because
+                // once `missing=` has blanked a cell a word and a spiked number look alike.
+                bool numeric = raw is not null
+                    && double.TryParse(
+                        raw(row)?.Trim(), NumberStyles.Float, CultureInfo.InvariantCulture,
+                        out double v)
+                    && !double.IsNaN(v) && !double.IsInfinity(v);
+                return Seekable.Uniforms(_seed, streamId + "#anom", row, 1)[0] < p && numeric
                     ? "true" : "false";
             }
 
@@ -1218,6 +1234,19 @@ public sealed class StreamEngine
             return spiked[0] ? "true" : "false";
         };
     }
+
+    /// <summary>
+    /// An inline column, plus the <c>anomaly_flag</c> column beside it when one is declared.
+    /// </summary>
+    /// <remarks>
+    /// The types built here never route through the per-row builder, so the flag they would
+    /// otherwise inherit from it has to be attached explicitly. Leaving it off did not fail
+    /// loudly: the column simply did not exist, and <c>${{IsOut}}</c> reached the output as its
+    /// own literal text.
+    /// </remarks>
+    private Built InlineBuilt(Modifier? mod, Column raw, string streamId, Gen gen, Domain domain) =>
+        new(Wrap(mod, raw), null, AnomalyFlagName(gen.Attrs),
+            AnomalyFlagColumn(streamId, gen, domain, raw));
 
     /// <summary>
     /// One row's worth of an independently-drawn generator.

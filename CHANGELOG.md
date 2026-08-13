@@ -110,6 +110,18 @@ _count"` is a sensor that grows noisier as the run goes on.
 
 ### Fixed
 
+- **An inline generator's `anomaly_flag` column did not exist on the streaming engines in any
+  of the four ports.** `<gen type="timeseries" … anomaly_flag="IsOut"/>` on engine 2 or 3 left
+  `${{IsOut}}` in the output as its own literal text: the column was never built. The types
+  built inline — a counter, a timeseries, a drawn pattern, a sequential list or date — never
+  route through the per-row builder, so the flag they would otherwise inherit from it has to
+  be attached explicitly, and four implementations attached nothing.
+
+  Found while fixing the blanked-cell rule below, not by either audit: no shared case had ever
+  put `anomaly_flag` on an inline type and run it through a streaming engine. The flag now
+  also answers what the reference answers — a spike replaces a NUMBER, so a selected word is
+  left as it was and its label is `false`.
+
 - **`anomaly_flag` said `true` beside cells `missing=` had blanked.** The flag is the ground
   truth an outlier detector is scored against, and the anomalies page promises the flag and
   the spike "can never disagree" — while recommending exactly this pairing. A blanked cell

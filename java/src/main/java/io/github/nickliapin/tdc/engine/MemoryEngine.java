@@ -2360,6 +2360,12 @@ public final class MemoryEngine {
       for (int i = 0; i < out.size(); i++) {
         if (PerRow.purposeDraw(stream, "#miss", stream.rowAt(i)) < missing.probability()) {
           out.set(i, missing.token());
+          // A blanked cell has no spike left to label. `anomaly_flag` is the ground truth an
+          // outlier detector is scored against, and the anomalies page promises the flag and the
+          // spike "can never disagree".
+          if (anomalyFlags != null && i < anomalyFlags.length) {
+            anomalyFlags[i] = false;
+          }
         }
       }
     }

@@ -579,7 +579,7 @@ class StreamEngine:
                 r = domain.pop_index_at(row)
                 return None if r is None else _pick_sequential(values, r, cycle)
 
-            return Built(_wrap(mod, sequential))
+            return self._inline_built(mod, sequential, stream_id, gen, domain)
 
         # The same rule over a date range. The axis is arithmetic rather than a list, which is
         # what lets this stay seekable and bounded however long the range is.
@@ -598,7 +598,7 @@ class StreamEngine:
                     return axis.at(r)
                 return axis.at(memory.sequential_index(axis.size, r, cycle))
 
-            return Built(_wrap(mod, walked))
+            return self._inline_built(mod, walked, stream_id, gen, domain)
 
         if type_ in ("increment", "decrement"):
             start = _long_attr(attrs.get("value"), 0)
@@ -611,7 +611,7 @@ class StreamEngine:
                     return None
                 return str(start + step * r if up else start - step * r)
 
-            return Built(_wrap(mod, counted))
+            return self._inline_built(mod, counted, stream_id, gen, domain)
 
         if type_ == "timeseries":
             spec = timeseries.parse(attrs)
@@ -627,7 +627,7 @@ class StreamEngine:
                     z = timeseries.standard_normal(u[0], u[1])
                 return numbers.to_fixed(timeseries.value_at(spec, r, z), spec.decimals)
 
-            return Built(_wrap(mod, series))
+            return self._inline_built(mod, series, stream_id, gen, domain)
 
         if type_ == "pattern":
             drawing = patterns.of(attrs, self.base_dir, self.packs.data_roots)
@@ -641,7 +641,7 @@ class StreamEngine:
                 u = seekable.uniforms(self.seed, f"{stream_id}:pat", row, 1)[0] if draws else 0.0
                 return patterns.value_at(drawing, r / denom, u)
 
-            return Built(_wrap(mod, drawn))
+            return self._inline_built(mod, drawn, stream_id, gen, domain)
 
         # Arithmetic over the columns beside it. It needs only its OWN row, so unlike a running
         # total it streams: the lazy registry answers the siblings at the same row, and nothing is
@@ -747,7 +747,7 @@ class StreamEngine:
                     self._gen_values(pinned, seekable.generator(self.seed, stream_id, row), None)
                 )
 
-            return Built(_wrap(mod, by_length))
+            return self._inline_built(mod, by_length, stream_id, gen, domain)
 
         # With `repeat`, each element of the cell is an independent draw on a stream of its own, so
         # the cell is reproducible without the row ever knowing what its neighbours produced.
@@ -841,7 +841,24 @@ class StreamEngine:
             self._anomaly_flag_column(stream_id, gen, domain),
         )
 
-    def _anomaly_flag_column(self, stream_id: str, gen: Gen, domain: Domain) -> Column | None:
+    def _inline_built(self, mod, raw: Column, stream_id: str, gen: Gen, domain: Domain) -> Built:
+        """An inline column, plus the ``anomaly_flag`` column beside it when one is declared.
+
+        The types built here never route through the per-row builder, so the flag they would
+        otherwise inherit from it has to be attached explicitly. Leaving it off did not fail
+        loudly: the column simply did not exist, and ``${{IsOut}}`` reached the output as its
+        own literal text.
+        """
+        return Built(
+            _wrap(mod, raw),
+            None,
+            _anomaly_flag_name(gen.attrs),
+            self._anomaly_flag_column(stream_id, gen, domain, raw),
+        )
+
+    def _anomaly_flag_column(
+        self, stream_id: str, gen: Gen, domain: Domain, raw_at: Column | None = None
+    ) -> Column | None:
         """The flag that marks which rows were spiked.
 
         It has to agree with the value on every row, so it is decided exactly the way the value's
@@ -870,7 +887,11 @@ class StreamEngine:
                 ):
                     return "false"
                 drawn = seekable.uniforms(self.seed, f"{stream_id}#anom", row, 1)[0]
-                return str(drawn < p).lower()
+                # Selection is only half of it: a spike replaces a NUMBER, so a selected word is
+                # left exactly as it was. ``raw_at`` is the value BEFORE the modifiers ran — it
+                # has to be the raw one, because once ``missing=`` has blanked a cell a word and
+                # a spiked number look alike.
+                return str(drawn < p and _is_number(None if raw_at is None else raw_at(row))).lower()
             spiked = [False]
             self._gen_values(gen, seekable.generator(self.seed, stream_id, row), spiked)
             return str(spiked[0]).lower()
@@ -1673,6 +1694,17 @@ def _cumulative(counts: list[int]) -> list[int]:
 
 def _wrap(mod, column: Column) -> Column:
     return column if mod is None else (lambda row: mod(row, column(row), 0))
+
+
+def _is_number(text: str | None) -> bool:
+    """Whether a spike could have landed on this value — only a number can be multiplied."""
+    if text is None:
+        return False
+    try:
+        value = float(text.strip())
+    except ValueError:
+        return False
+    return value == value and value not in (float("inf"), float("-inf"))
 
 
 def _split_text(value: str) -> list[str]:

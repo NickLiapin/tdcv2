@@ -202,6 +202,40 @@
         ]
       }
     },
+    "anomaly-flag/a-blanked-cell-carries-no-label-inline": {
+      "engine2": {
+        "lines": [
+          "NULL false",
+          "1010 true",
+          "NULL false",
+          "1030 true",
+          "104 false",
+          "NULL false",
+          "NULL false",
+          "1070 true",
+          "1080 true",
+          "NULL false",
+          "NULL false",
+          "NULL false"
+        ]
+      },
+      "engine3": {
+        "lines": [
+          "NULL false",
+          "1010 true",
+          "NULL false",
+          "1030 true",
+          "104 false",
+          "NULL false",
+          "NULL false",
+          "1070 true",
+          "1080 true",
+          "NULL false",
+          "NULL false",
+          "NULL false"
+        ]
+      }
+    },
     "assert/an-assertion-that-holds-changes-nothing": {
       "engine2": {
         "refused": "a statistic (\"Rows\") is computed over every row of the run, including the ones after this one, so it cannot be computed one row at a time; the in-memory engine handles it (run without a forced streaming engine)"

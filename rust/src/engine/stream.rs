@@ -310,6 +310,13 @@ enum Column {
         stream: String,
         inline: bool,
         probability: f64,
+        /// The inline column with its modifiers stripped, so the flag can ask what the
+        /// generator produced BEFORE `anomaly=`/`missing=` touched it. A spike replaces a
+        /// NUMBER, so a selected word is left exactly as it was, and once `missing=` has
+        /// blanked a cell a word and a spiked number look alike.
+        raw: Option<Box<Column>>,
+        /// How often `missing=` blanks a cell. A blanked cell has no spike to label.
+        missing: f64,
     },
     Compute(Box<Element>),
     /// `<gen type="formula">` — arithmetic over this row's other columns.
@@ -981,6 +988,52 @@ impl Built {
 }
 
 impl StreamEngine<'_> {
+    /// An inline column, plus the `anomaly_flag` column beside it when one is declared.
+    ///
+    /// The types built here never route through the per-row builder, so the flag they would
+    /// otherwise inherit from it has to be attached explicitly. Leaving it off did not fail
+    /// loudly: the column simply did not exist, and `${{IsOut}}` reached the output as its
+    /// own literal text.
+    ///
+    /// `raw` is the same column with its modifiers stripped — what the generator produced
+    /// before `anomaly=` and `missing=` ran, which is the only thing that can say whether a
+    /// spike could have landed on this row.
+    fn inline_built(
+        &self,
+        column: Column,
+        raw: Column,
+        gen: &Gen,
+        gen_type: &str,
+        stream_id: &str,
+        domain: &Domain,
+    ) -> EngineResult<Built> {
+        let attrs = &gen.attrs;
+        let anomaly = imperfections::parse_anomaly(attrs)?;
+        let flag_name = anomaly
+            .and_then(|_| trim_to_none(attrs.get("anomaly_flag").map(String::as_str)))
+            .map(str::to_string);
+        let flag = anomaly
+            .filter(|_| flag_name.is_some())
+            .map(|a| Column::AnomalyFlag {
+                domain: domain.clone(),
+                gen: gen.clone(),
+                stream: stream_id.to_string(),
+                inline: INLINE_TYPES.contains(&gen_type),
+                probability: a.probability,
+                raw: Some(Box::new(raw)),
+                missing: imperfections::parse_missing(attrs)
+                    .ok()
+                    .flatten()
+                    .map_or(0.0, |m| m.probability),
+            });
+        Ok(Built {
+            column,
+            parent: None,
+            flag_name,
+            flag,
+        })
+    }
+
     fn build_gen(&self, stream_id: &str, gen: &Gen, domain: Domain) -> EngineResult<Built> {
         let attrs = &gen.attrs;
         let gen_type = gen.gen_type.as_str();
@@ -1042,12 +1095,26 @@ impl StreamEngine<'_> {
             } else {
                 memory::split_text(gen.attr_or("value", ""))
             };
-            return Ok(Built::plain(Column::Sequential {
-                domain,
-                list,
-                cycle: attrs.get("cycle").map(String::as_str) != Some("false"),
-                modifier,
-            }));
+            let cycle = attrs.get("cycle").map(String::as_str) != Some("false");
+            let raw = Column::Sequential {
+                domain: domain.clone(),
+                list: list.clone(),
+                cycle,
+                modifier: None,
+            };
+            return self.inline_built(
+                Column::Sequential {
+                    domain: domain.clone(),
+                    list,
+                    cycle,
+                    modifier,
+                },
+                raw,
+                gen,
+                gen_type,
+                stream_id,
+                &domain,
+            );
         }
 
         if gen_type == "date" && attrs.get("order").map(String::as_str) == Some("sequential") {
@@ -1059,44 +1126,100 @@ impl StreamEngine<'_> {
                     .or(self.env.config.locale.as_deref()),
                 self.env.now_millis,
             )?;
-            return Ok(Built::plain(Column::WalkedDate {
-                domain,
-                axis: std::rc::Rc::new(axis),
-                cycle: attrs.get("cycle").map(String::as_str) != Some("false"),
-                modifier,
-            }));
+            let cycle = attrs.get("cycle").map(String::as_str) != Some("false");
+            let axis = std::rc::Rc::new(axis);
+            let raw = Column::WalkedDate {
+                domain: domain.clone(),
+                axis: axis.clone(),
+                cycle,
+                modifier: None,
+            };
+            return self.inline_built(
+                Column::WalkedDate {
+                    domain: domain.clone(),
+                    axis,
+                    cycle,
+                    modifier,
+                },
+                raw,
+                gen,
+                gen_type,
+                stream_id,
+                &domain,
+            );
         }
 
         if gen_type == "increment" || gen_type == "decrement" {
-            return Ok(Built::plain(Column::Counter {
-                domain,
-                start: long_attr(attrs.get("value"), 0)?,
-                step: long_attr(attrs.get("step"), 1)?,
-                up: gen_type == "increment",
-                modifier,
-            }));
+            let start = long_attr(attrs.get("value"), 0)?;
+            let step = long_attr(attrs.get("step"), 1)?;
+            let up = gen_type == "increment";
+            let raw = Column::Counter {
+                domain: domain.clone(),
+                start,
+                step,
+                up,
+                modifier: None,
+            };
+            return self.inline_built(
+                Column::Counter {
+                    domain: domain.clone(),
+                    start,
+                    step,
+                    up,
+                    modifier,
+                },
+                raw,
+                gen,
+                gen_type,
+                stream_id,
+                &domain,
+            );
         }
 
         if gen_type == "timeseries" {
-            return Ok(Built::plain(Column::Timeseries {
-                domain,
-                spec: timeseries::parse(attrs)?,
+            let spec = timeseries::parse(attrs)?;
+            let raw = Column::Timeseries {
+                domain: domain.clone(),
+                spec: spec.clone(),
                 stream: stream_id.to_string(),
-                modifier,
-            }));
+                modifier: None,
+            };
+            return self.inline_built(
+                Column::Timeseries {
+                    domain: domain.clone(),
+                    spec,
+                    stream: stream_id.to_string(),
+                    modifier,
+                },
+                raw,
+                gen,
+                gen_type,
+                stream_id,
+                &domain,
+            );
         }
 
         if gen_type == "pattern" {
-            return Ok(Built::plain(Column::Pattern {
-                domain,
-                drawing: Box::new(PatternGen::of(
-                    attrs,
-                    self.env.base_dir,
-                    self.env.packs.data_roots(),
-                )?),
+            let drawing = PatternGen::of(attrs, self.env.base_dir, self.env.packs.data_roots())?;
+            let raw = Column::Pattern {
+                domain: domain.clone(),
+                drawing: Box::new(drawing.clone()),
                 stream: stream_id.to_string(),
-                modifier,
-            }));
+                modifier: None,
+            };
+            return self.inline_built(
+                Column::Pattern {
+                    domain: domain.clone(),
+                    drawing: Box::new(drawing),
+                    stream: stream_id.to_string(),
+                    modifier,
+                },
+                raw,
+                gen,
+                gen_type,
+                stream_id,
+                &domain,
+            );
         }
 
         // A row-linked file: every field on the key must land on the same record
@@ -1247,6 +1370,11 @@ impl StreamEngine<'_> {
                 stream: stream_id.to_string(),
                 inline: INLINE_TYPES.contains(&gen_type),
                 probability: a.probability,
+                raw: None,
+                missing: imperfections::parse_missing(attrs)
+                    .ok()
+                    .flatten()
+                    .map_or(0.0, |m| m.probability),
             });
         Ok(Built {
             column: Column::Plain {
@@ -2240,13 +2368,27 @@ impl StreamEngine<'_> {
                 stream,
                 inline,
                 probability,
+                raw,
+                missing,
             } => {
                 if self.pop_index_at(domain, row)?.is_none() {
                     return Ok(None);
                 }
                 if *inline {
+                    if *missing > 0.0
+                        && seekable::uniforms(&self.seed, &format!("{stream}#miss"), row, 1)[0]
+                            < *missing
+                    {
+                        return Ok(Some(bool_text(false)));
+                    }
                     let u = seekable::uniforms(&self.seed, &format!("{stream}#anom"), row, 1)[0];
-                    return Ok(Some(bool_text(u < *probability)));
+                    let numeric = match raw {
+                        None => false,
+                        Some(column) => self
+                            .value_of(column, row)?
+                            .is_some_and(|v| v.trim().parse::<f64>().is_ok_and(f64::is_finite)),
+                    };
+                    return Ok(Some(bool_text(u < *probability && numeric)));
                 }
                 let mut spiked = [false];
                 self.one_value(gen, stream, row, Some(&mut spiked))?;

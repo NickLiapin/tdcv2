@@ -805,13 +805,15 @@ public final class StreamEngine {
               ? FileGen.load(attrs, baseDir, packs.dataRoots())
               : splitText(attrs.getOrDefault("value", ""));
       boolean cycle = !"false".equals(attrs.get("cycle"));
-      return new Built(
-          wrap(
-              mod,
+      return inlineBuilt(
+          mod,
               row -> {
                 Integer r = domain.popIndexAt().apply(row);
                 return r == null ? null : pickSequential(list, r, cycle);
-              }));
+              },
+          streamId,
+          gen,
+          domain);
     }
 
     // The same rule over a date range. The axis is arithmetic rather than a list, which is what
@@ -820,9 +822,8 @@ public final class StreamEngine {
       DateGen.Axis axis =
           DateGen.dateAxis(attrs, localeOf(attrs), nowMillis);
       boolean cycle = !"false".equals(attrs.get("cycle"));
-      return new Built(
-          wrap(
-              mod,
+      return inlineBuilt(
+          mod,
               row -> {
                 Integer r = domain.popIndexAt().apply(row);
                 if (r == null) {
@@ -832,28 +833,32 @@ public final class StreamEngine {
                 return axis.size() == null
                     ? axis.at(r)
                     : axis.at(MemoryEngine.sequentialIndex(axis.size(), r, cycle));
-              }));
+              },
+          streamId,
+          gen,
+          domain);
     }
 
     if ("increment".equals(type) || "decrement".equals(type)) {
       long start = longAttr(attrs.get("value"), 0);
       long step = longAttr(attrs.get("step"), 1);
       boolean up = "increment".equals(type);
-      return new Built(
-          wrap(
-              mod,
+      return inlineBuilt(
+          mod,
               row -> {
                 Integer r = domain.popIndexAt().apply(row);
                 return r == null ? null : String.valueOf(up ? start + step * r : start - step * r);
-              }));
+              },
+          streamId,
+          gen,
+          domain);
     }
 
     if ("timeseries".equals(type)) {
       Timeseries.Spec spec = Timeseries.parse(attrs);
       boolean noisy = spec.hasNoise();
-      return new Built(
-          wrap(
-              mod,
+      return inlineBuilt(
+          mod,
               row -> {
                 Integer r = domain.popIndexAt().apply(row);
                 if (r == null) {
@@ -865,15 +870,17 @@ public final class StreamEngine {
                   z = Timeseries.standardNormal(u[0], u[1]);
                 }
                 return format(Timeseries.valueAt(spec, r, z), spec.decimals());
-              }));
+              },
+          streamId,
+          gen,
+          domain);
     }
 
     if ("pattern".equals(type)) {
       PatternGen drawing = PatternGen.of(attrs, baseDir, packs.dataRoots());
       double denom = domain.size() > 1 ? domain.size() - 1 : 1;
-      return new Built(
-          wrap(
-              mod,
+      return inlineBuilt(
+          mod,
               row -> {
                 Integer r = domain.popIndexAt().apply(row);
                 if (r == null) {
@@ -882,7 +889,10 @@ public final class StreamEngine {
                 double u =
                     drawing.draws() ? Seekable.uniforms(seed, streamId + ":pat", row, 1)[0] : 0;
                 return drawing.valueAt(r / denom, u);
-              }));
+              },
+          streamId,
+          gen,
+          domain);
     }
 
     // `sample="exact"` on a quantile read: the row's point on the sorted sample comes from a
@@ -899,9 +909,8 @@ public final class StreamEngine {
       int quantileDecimals = Quantile.decimalsFor(attrs, quantileSource);
       int sweepKey = Permute.key(seed, streamId);
       int sweepCount = domain.size();
-      return new Built(
-          wrap(
-              mod,
+      return inlineBuilt(
+          mod,
               row -> {
                 Integer r = domain.popIndexAt().apply(row);
                 // Over the rows this column HAS, which for a filtered one is its domain rather
@@ -910,7 +919,10 @@ public final class StreamEngine {
                     ? null
                     : Quantile.exactAt(
                         quantileSource, quantileDecimals, sweepCount, sweepKey, r);
-              }));
+              },
+          streamId,
+          gen,
+          domain);
     }
 
     // A row-linked file: every field on the key must land on the same record for a given row,
@@ -920,9 +932,8 @@ public final class StreamEngine {
       String rowKey = trimToNull(attrs.get("row"));
       FileGen.RowSource source = FileGen.loadRows(attrs, baseDir, packs.dataRoots());
       String linkStream = "filerowlink|" + rowKey;
-      return new Built(
-          wrap(
-              mod,
+      return inlineBuilt(
+          mod,
               row -> {
                 Integer r = domain.popIndexAt().apply(row);
                 if (r == null) {
@@ -930,7 +941,10 @@ public final class StreamEngine {
                 }
                 int index = Seekable.nextInt(seed, linkStream, row, source.rows().size());
                 return FileGen.cellAt(source, index);
-              }));
+              },
+          streamId,
+          gen,
+          domain);
     }
 
     // An exact quota: text, a weighted file column, or a weighted pack. All three say what
@@ -970,9 +984,8 @@ public final class StreamEngine {
               Hamilton.countsPerValue(
                   domain.size(), percents, Prng.create(seed + "|" + streamId + "|lenpct")));
       int key = Permute.key(seed, streamId + "#lenpct");
-      return new Built(
-          wrap(
-              mod,
+      return inlineBuilt(
+          mod,
               row -> {
                 Integer r = domain.popIndexAt().apply(row);
                 if (r == null) {
@@ -982,7 +995,10 @@ public final class StreamEngine {
                     lengthChoices.get(runFor(cumHi, Permute.permute(r, domain.size(), key)));
                 Config.Gen pinned = new Config.Gen(type, NumberGen.pinLength(attrs, group));
                 return first(genValues(pinned, Seekable.generator(seed, streamId, row), null, row));
-              }));
+              },
+          streamId,
+          gen,
+          domain);
     }
 
     // With `repeat`, each element of the cell is an independent draw on a stream of its own, so
@@ -1089,23 +1105,71 @@ public final class StreamEngine {
    * that is right on average and wrong per row, which is worse than no flag at all.
    */
   private Column anomalyFlagColumn(String streamId, Config.Gen gen, Domain domain) {
+    return anomalyFlagColumn(streamId, gen, domain, null);
+  }
+
+  private Column anomalyFlagColumn(
+      String streamId, Config.Gen gen, Domain domain, Column raw) {
     Imperfections.Anomaly anomaly = Imperfections.parseAnomaly(gen.attrs());
     if (anomaly == null || trimToNull(gen.attrs().get("anomaly_flag")) == null) {
       return null;
     }
     boolean inline = INLINE_TYPES.contains(gen.type());
     double p = anomaly.probability();
+    Imperfections.Missing missing = Imperfections.parseMissing(gen.attrs());
+    double missP = missing == null ? 0.0 : missing.probability();
     return row -> {
       if (domain.popIndexAt().apply(row) == null) {
         return null;
       }
       if (inline) {
-        return String.valueOf(Seekable.uniforms(seed, streamId + "#anom", row, 1)[0] < p);
+        // A cell `missing=` blanked has no spike left to label.
+        if (missP > 0 && Seekable.uniforms(seed, streamId + "#miss", row, 1)[0] < missP) {
+          return "false";
+        }
+        // Selection is only half of it: a spike replaces a NUMBER, so a selected word is left
+        // exactly as it was. `raw` is the value BEFORE the modifiers ran, because once
+        // `missing=` has blanked a cell a word and a spiked number look alike.
+        return String.valueOf(
+            Seekable.uniforms(seed, streamId + "#anom", row, 1)[0] < p && isNumber(raw, row));
       }
       boolean[] spiked = new boolean[1];
       genValues(gen, Seekable.generator(seed, streamId, row), spiked, row);
       return String.valueOf(spiked[0]);
     };
+  }
+
+  /** Whether a spike could have landed on this row — only a number can be multiplied. */
+  private static boolean isNumber(Column raw, int row) {
+    if (raw == null) {
+      return false;
+    }
+    String text = raw.valueAt(row);
+    if (text == null) {
+      return false;
+    }
+    try {
+      double value = Double.parseDouble(text.trim());
+      return !Double.isNaN(value) && !Double.isInfinite(value);
+    } catch (NumberFormatException e) {
+      return false;
+    }
+  }
+
+  /**
+   * An inline column, plus the {@code anomaly_flag} column beside it when one is declared.
+   *
+   * <p>The types built here never route through the per-row builder, so the flag they would
+   * otherwise inherit from it has to be attached explicitly. Leaving it off did not fail loudly:
+   * the column simply did not exist, and the interpolation reached the output as literal text.
+   */
+  private Built inlineBuilt(
+      Modifier mod, Column raw, String streamId, Config.Gen gen, Domain domain) {
+    return new Built(
+        wrap(mod, raw),
+        null,
+        anomalyFlagName(gen.attrs()),
+        anomalyFlagColumn(streamId, gen, domain, raw));
   }
 
   /**

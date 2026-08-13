@@ -79,6 +79,25 @@
         "540 true",
         "NULL false"
       ]
+    },
+    {
+      "name": "a-blanked-cell-carries-no-label-inline",
+      "description": "The same rule for a generator built INLINE rather than drawn. Those types never route through the per-row builder, so on the streaming engines their anomaly_flag column has to be attached explicitly — four ports attached nothing at all, and ${{IsOut}} reached the output as its own literal text.",
+      "config": "<tdc><env count=\"12\" seed=\"afi\" local=\"en\"><sequence name=\"V\"><gen type=\"timeseries\" base=\"100\" trend=\"1\" noise=\"0.1\" anomaly=\"0.5\" anomaly_factor=\"10\" anomaly_flag=\"IsOut\" missing=\"0.5\" missing_as=\"NULL\"/></sequence></env><block><line><data>${{V}} ${{IsOut}}</data></line></block></tdc>",
+      "expected": [
+        "NULL false",
+        "1010 true",
+        "NULL false",
+        "1030 true",
+        "104 false",
+        "NULL false",
+        "NULL false",
+        "1070 true",
+        "1080 true",
+        "NULL false",
+        "NULL false",
+        "NULL false"
+      ]
     }
   ]
 }
