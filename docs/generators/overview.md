@@ -91,6 +91,7 @@ Each type has its own page, with every parameter and worked examples.
 | [`http`](http.md#top)                        | Values answered by your own service, batch by batch                 |
 | [`running`](running.md#top)                  | A total that carries down the column — a balance, a high-water mark |
 | [`stat`](stat.md#top)                        | One number for the whole run — an average, a total, a largest        |
+| [`formula`](formula.md#top)                  | Arithmetic over the other columns of the same row                   |
 
 **On presets.** The old `type="preset"` no longer exists. Algorithmic identifiers —
 UUIDs, IBANs, credit-card numbers, git SHAs, national IDs — are now

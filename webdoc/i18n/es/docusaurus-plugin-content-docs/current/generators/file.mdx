@@ -516,7 +516,7 @@ respuesta se escribe con tantos decimales como usó el origen: una muestra de
 números enteros da enteros; una escrita al céntimo, céntimos.
 [`decimals`](../reference/attributes.mdx) lo sobrescribe.
 
-:::note Lo que la lectura por cuantiles NO promete
+:::note[Lo que la lectura por cuantiles NO promete]
 
 Reproduce la **forma**, no la proporción de cada valor concreto. La interpolación
 toma masa de los puntos observados y se la da a los valores intermedios — esa es
@@ -549,7 +549,7 @@ De ahí la comprobación que puede hacer sobre su propio archivo sin generar nad
   reparte por el hueco tanto más cuanto más ancho sea.
 
 Y si lo que hace falta es la proporción exacta de cada valor listado, eso es
-[`weight=`](#weighted-rows--row--weight) y su cuota exacta. La lectura por cuantiles
+[`weight=`](#filas-ponderadas--row--weight) y su cuota exacta. La lectura por cuantiles
 es para cuando la muestra representa algo continuo.
 
 :::
@@ -585,7 +585,7 @@ bytes y `--jobs 7` equivale a `--jobs 1`.
 
 | su columna | archivo | qué escribir |
 | :-- | :-- | :-- |
-| contable (ciudad, estado, número de pedidos) | `value,count` | [`weight="count"`](#weighted-rows--row--weight) — cuota exacta |
+| contable (ciudad, estado, número de pedidos) | `value,count` | [`weight="count"`](#filas-ponderadas--row--weight) — cuota exacta |
 | medida (dinero, peso, duración) | la muestra cruda, uno por línea | `read="quantile"`, más `sample="exact"` para quitar el ruido |
 
 `read="quantile"` no se combina con `weight=`, `row=` ni `order="sequential"`:

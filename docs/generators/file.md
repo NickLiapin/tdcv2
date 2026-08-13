@@ -538,43 +538,44 @@ the answer is written with as many decimal places as the source used: a
 whole-number sample gives whole numbers, a sample written to the cent gives cents.
 [`decimals`](../reference/attributes.md#top) overrides it when you want something else.
 
-:::note What the quantile read does not promise
-
-It reproduces the **shape**, not the share of any individual value. Interpolation
-takes mass from the observed points and gives it to the values in between — that
-is the whole cure for the comb, and it cannot be had without the trade. On a
-sample of twenty integers, the value `46` (one of twenty, so 5% of the sample)
-comes out in 0.4% of the rows; the rest went to 47, 48 and 49, which the sample
-never saw but the continuum it stands for certainly contains.
-
-What decides it is the DISTANCE to the next observation, not how often a value
-repeats. Measured on eight observations, every one of them appearing exactly once —
-four standing one apart and four far away:
-
-```
-10 → 12.500%   11 → 12.500%   12 → 12.500%   13 → 6.481%
-40 → 0%        80 → 0%       160 → 0%       320 → 0%
-```
-
-Each owes 12.5%. The three with a neighbour on both sides keep all of it; `13`
-keeps half, because one side is dense and the other is a gap; the far four
-dissolve into the values between them. A big atom survives for the same reason —
-40% of the sample being exactly zero comes back as 39.997%, because its plateau
-dwarfs the ramps at its edges.
-
-So the check to run on your own file needs no generation at all:
-
-- **No gaps at the file's own step** — whole numbers in a row, amounts to the cent
-  in a row — and every share comes out exact. Measured on the integers 0…20 with
-  no gap: worst deviation 0.0003 percentage points across all 21 values.
-- **Gaps** — the shape is reproduced and an individual value's share spreads into
-  the gap, the wider the gap the more.
-
-And if the exact share of each listed value is the requirement, that is
-[`weight=`](#weighted-rows--row--weight) and its exact quota. The quantile read is
-for the case where the sample stands for something continuous.
-
-:::
+> [!NOTE]
+> **What the quantile read does not promise**
+>
+>
+> It reproduces the **shape**, not the share of any individual value. Interpolation
+> takes mass from the observed points and gives it to the values in between — that
+> is the whole cure for the comb, and it cannot be had without the trade. On a
+> sample of twenty integers, the value `46` (one of twenty, so 5% of the sample)
+> comes out in 0.4% of the rows; the rest went to 47, 48 and 49, which the sample
+> never saw but the continuum it stands for certainly contains.
+>
+> What decides it is the DISTANCE to the next observation, not how often a value
+> repeats. Measured on eight observations, every one of them appearing exactly once —
+> four standing one apart and four far away:
+>
+> ```
+> 10 → 12.500%   11 → 12.500%   12 → 12.500%   13 → 6.481%
+> 40 → 0%        80 → 0%       160 → 0%       320 → 0%
+> ```
+>
+> Each owes 12.5%. The three with a neighbour on both sides keep all of it; `13`
+> keeps half, because one side is dense and the other is a gap; the far four
+> dissolve into the values between them. A big atom survives for the same reason —
+> 40% of the sample being exactly zero comes back as 39.997%, because its plateau
+> dwarfs the ramps at its edges.
+>
+> So the check to run on your own file needs no generation at all:
+>
+> - **No gaps at the file's own step** — whole numbers in a row, amounts to the cent
+>   in a row — and every share comes out exact. Measured on the integers 0…20 with
+>   no gap: worst deviation 0.0003 percentage points across all 21 values.
+> - **Gaps** — the shape is reproduced and an individual value's share spreads into
+>   the gap, the wider the gap the more.
+>
+> And if the exact share of each listed value is the requirement, that is
+> [`weight=`](#weighted-rows--row--weight) and its exact quota. The quantile read is
+> for the case where the sample stands for something continuous.
+>
 
 ### `sample="exact"` — reproduce the sample, without sampling noise
 

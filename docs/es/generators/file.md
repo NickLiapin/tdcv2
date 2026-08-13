@@ -545,43 +545,44 @@ respuesta se escribe con tantos decimales como usó el origen: una muestra de
 números enteros da enteros; una escrita al céntimo, céntimos.
 [`decimals`](../reference/attributes.md#top) lo sobrescribe.
 
-:::note Lo que la lectura por cuantiles NO promete
-
-Reproduce la **forma**, no la proporción de cada valor concreto. La interpolación
-toma masa de los puntos observados y se la da a los valores intermedios — esa es
-justamente la cura del peine, y no se consigue sin ese intercambio. En una muestra
-de veinte enteros, el valor `46` (uno de veinte, o sea el 5% de la muestra) sale en
-el 0.4% de las filas; el resto se fue a 47, 48 y 49, que la muestra nunca vio pero
-que la magnitud continua a la que representa sí contiene.
-
-Lo que decide es la DISTANCIA al siguiente valor observado, no cuántas veces se
-repite uno. Medido sobre ocho observaciones, cada una presente exactamente una vez
-— cuatro separadas por uno y cuatro lejanas:
-
-```
-10 → 12.500%   11 → 12.500%   12 → 12.500%   13 → 6.481%
-40 → 0%        80 → 0%       160 → 0%       320 → 0%
-```
-
-A cada una le corresponde el 12.5%. Las tres con vecino a ambos lados lo conservan
-entero; `13` conserva la mitad, porque de un lado hay densidad y del otro un hueco;
-las cuatro lejanas se disuelven en los valores intermedios. Un átomo grande
-sobrevive por la misma razón: un 40% de ceros exactos vuelve como 39.997%, porque
-su meseta es mucho más ancha que las rampas de sus bordes.
-
-De ahí la comprobación que puede hacer sobre su propio archivo sin generar nada:
-
-- **Sin huecos en el paso de la propia muestra** — enteros seguidos, céntimos
-  seguidos — y todas las proporciones salen exactas. Medido sobre los enteros 0…20
-  sin un solo hueco: peor desviación 0.0003 puntos porcentuales en los 21 valores.
-- **Con huecos** — se reproduce la forma, y la proporción de un valor concreto se
-  reparte por el hueco tanto más cuanto más ancho sea.
-
-Y si lo que hace falta es la proporción exacta de cada valor listado, eso es
-[`weight=`](#weighted-rows--row--weight) y su cuota exacta. La lectura por cuantiles
-es para cuando la muestra representa algo continuo.
-
-:::
+> [!NOTE]
+> **Lo que la lectura por cuantiles NO promete**
+>
+>
+> Reproduce la **forma**, no la proporción de cada valor concreto. La interpolación
+> toma masa de los puntos observados y se la da a los valores intermedios — esa es
+> justamente la cura del peine, y no se consigue sin ese intercambio. En una muestra
+> de veinte enteros, el valor `46` (uno de veinte, o sea el 5% de la muestra) sale en
+> el 0.4% de las filas; el resto se fue a 47, 48 y 49, que la muestra nunca vio pero
+> que la magnitud continua a la que representa sí contiene.
+>
+> Lo que decide es la DISTANCIA al siguiente valor observado, no cuántas veces se
+> repite uno. Medido sobre ocho observaciones, cada una presente exactamente una vez
+> — cuatro separadas por uno y cuatro lejanas:
+>
+> ```
+> 10 → 12.500%   11 → 12.500%   12 → 12.500%   13 → 6.481%
+> 40 → 0%        80 → 0%       160 → 0%       320 → 0%
+> ```
+>
+> A cada una le corresponde el 12.5%. Las tres con vecino a ambos lados lo conservan
+> entero; `13` conserva la mitad, porque de un lado hay densidad y del otro un hueco;
+> las cuatro lejanas se disuelven en los valores intermedios. Un átomo grande
+> sobrevive por la misma razón: un 40% de ceros exactos vuelve como 39.997%, porque
+> su meseta es mucho más ancha que las rampas de sus bordes.
+>
+> De ahí la comprobación que puede hacer sobre su propio archivo sin generar nada:
+>
+> - **Sin huecos en el paso de la propia muestra** — enteros seguidos, céntimos
+>   seguidos — y todas las proporciones salen exactas. Medido sobre los enteros 0…20
+>   sin un solo hueco: peor desviación 0.0003 puntos porcentuales en los 21 valores.
+> - **Con huecos** — se reproduce la forma, y la proporción de un valor concreto se
+>   reparte por el hueco tanto más cuanto más ancho sea.
+>
+> Y si lo que hace falta es la proporción exacta de cada valor listado, eso es
+> [`weight=`](#filas-ponderadas--row--weight) y su cuota exacta. La lectura por cuantiles
+> es para cuando la muestra representa algo continuo.
+>
 
 ### `sample="exact"` — reproducir la muestra sin ruido de muestreo
 
@@ -614,7 +615,7 @@ bytes y `--jobs 7` equivale a `--jobs 1`.
 
 | su columna | archivo | qué escribir |
 | :-- | :-- | :-- |
-| contable (ciudad, estado, número de pedidos) | `value,count` | [`weight="count"`](#weighted-rows--row--weight) — cuota exacta |
+| contable (ciudad, estado, número de pedidos) | `value,count` | [`weight="count"`](#filas-ponderadas--row--weight) — cuota exacta |
 | medida (dinero, peso, duración) | la muestra cruda, uno por línea | `read="quantile"`, más `sample="exact"` para quitar el ruido |
 
 `read="quantile"` no se combina con `weight=`, `row=` ni `order="sequential"`:

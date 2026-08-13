@@ -165,6 +165,38 @@ Because both generators share `row="loc"`, the city and its state always come fr
 same line; `weight="population"` on the city makes bigger places show up more often.
 Full details are on the [File generator](../generators/file.mdx) page.
 
+## The numeric cousin — a column computed from another
+
+The two mechanisms above keep **drawn** values together: one file decides another
+file, or one CSV line feeds several fields. A number often has to hold together
+differently — not drawn at all, but **computed** from the column beside it. A weight
+follows a height; an area follows a price; a total follows a quantity and a rate.
+
+That is [`formula`](../generators/formula.mdx):
+
+```xml
+<sequence name="Height"><gen type="number" distribution="normal" mean="170" sd="10" decimals="1"/></sequence>
+<sequence name="Noise"> <gen type="number" distribution="normal" mean="0" sd="1" decimals="4"/></sequence>
+<sequence name="Weight"><gen type="formula" expr="0.75 * Height - 58 + 6 * Noise" decimals="1"/></sequence>
+```
+
+<Terminal title="./run clinic.tdc">
+{`171.2, 77.5
+177.6, 83.4
+164.6, 76.9
+164.4, 68.4
+175.8, 74.8`}
+</Terminal>
+
+`Noise` is what keeps the pair from being a straight line, and it never has to be
+printed — a sequence left out of `<block>` still takes part in the calculation. Two
+columns that move together like this are what a model can actually learn from;
+independent draws of the same two ranges are not.
+
+A third way in is a **distribution parameter**: `lambda="Traffic * 0.1"` shapes the
+draw itself by another column rather than computing a value after the fact. See
+[A parameter can follow another column](statistical-distributions.mdx#a-parameter-can-follow-another-column).
+
 ## See also
 
 - **[Hierarchical dependencies](hierarchical-dependencies.mdx)** — filtering a child on a specific parent value.

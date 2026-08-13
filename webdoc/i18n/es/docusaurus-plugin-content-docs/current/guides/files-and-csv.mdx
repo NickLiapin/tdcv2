@@ -308,6 +308,30 @@ incoherentes en silencio. Vea
   distintos van a la par, pero no línea por línea. Si necesita correspondencia exacta,
   ponga las columnas en un solo archivo.
 
+## Un archivo de mediciones — `read="quantile"`
+
+Todo lo anterior trata un archivo como una **bolsa de valores**: se toma uno y se pone
+en la celda. Eso es correcto para algo contable — una ciudad, un estado, un número de
+pedidos — y `weight=` incluso respeta las proporciones reales.
+
+Es incorrecto para una **medición**. Mil importes registrados, leídos como una bolsa,
+dan mil importes distintos por muchas filas que pidas: un millón de filas siguen
+conteniendo esos mil valores y nada entre ellos. El dinero real no tiene esa forma, y un
+modelo entrenado con eso aprende una estructura que los datos nunca tuvieron.
+
+`read="quantile"` lee el mismo archivo al revés — ordenado una vez y tratado como una
+regla sobre la que una fila puede caer en cualquier punto:
+
+```xml
+<sequence name="Amount"><gen type="file" src="amounts.txt" read="quantile"/></sequence>
+```
+
+La forma de la muestra vuelve, los valores entre las observaciones aparecen solos, y la
+respuesta se escribe con tantos decimales como usara el archivo. Añade `sample="exact"`
+para barrer la distribución en vez de sortearla, y la ejecución reproduce la muestra sin
+ruido de muestreo alguno. Ambos se explican por completo en la página del
+[generador file](../generators/file.mdx#readquantile--una-muestra-medida-como-distribución).
+
 ## Escribir CSV de vuelta
 
 Leer CSV es la mitad del trabajo — **escribirlo** con seguridad es la otra mitad. Un

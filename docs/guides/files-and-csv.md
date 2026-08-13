@@ -318,6 +318,31 @@ See [Coherent & relational data](coherent-data.md#top) for the full picture.
   with line 1. Two files of the same length line up exactly; two of different lengths stay
   in step but not in lockstep. If you need line-for-line, put the columns in one file.
 
+## A file of measurements — `read="quantile"`
+
+Everything above treats a file as a **bag of values**: pick one, put it in the cell.
+That is right for something countable — a city, a status, a number of orders — and
+`weight=` even honours the real shares.
+
+It is wrong for a **measurement**. A thousand recorded transaction amounts, read as a
+bag, give a thousand distinct amounts however many rows you ask for: a million rows
+still hold those thousand values with nothing between them. Real money is not shaped
+like that, and a model trained on it learns a structure the data never had.
+
+`read="quantile"` reads the same file the other way — sorted once, and treated as a
+ruler that a row can land anywhere on:
+
+```xml
+<sequence name="Amount"><gen type="file" src="amounts.txt" read="quantile"/></sequence>
+```
+
+The shape of the sample comes back, the values between the observations appear on their
+own, and the answer is written with as many decimal places as the file used. Add
+`sample="exact"` to sweep the distribution instead of drawing from it, and the run
+reproduces the sample with no sampling noise at all. Both are covered in full on the
+[File generator](../generators/file.md#readquantile--a-measured-sample-as-a-distribution)
+page.
+
 ## Writing CSV back out
 
 Reading CSV is half the job — **writing** it safely is the other half. A value with a

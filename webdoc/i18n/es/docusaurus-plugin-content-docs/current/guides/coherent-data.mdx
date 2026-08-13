@@ -172,6 +172,39 @@ registros distintos; `weight="population"` en la ciudad hace que los lugares má
 aparezcan con más frecuencia. Todos los detalles están en el
 [generador File](../generators/file.mdx).
 
+## El primo numérico — una columna calculada a partir de otra
+
+Los dos mecanismos anteriores mantienen juntos los valores **sorteados**: un archivo decide
+de qué archivo sale otro, o una línea de CSV alimenta varios campos. Un número a menudo se
+mantiene de otra manera — no se sortea en absoluto, sino que se **calcula** a partir de la
+columna de al lado. El peso sigue a la estatura; el área sigue al precio; el total sigue a
+la cantidad y a la tarifa.
+
+Eso es [`formula`](../generators/formula.mdx):
+
+```xml
+<sequence name="Height"><gen type="number" distribution="normal" mean="170" sd="10" decimals="1"/></sequence>
+<sequence name="Noise"> <gen type="number" distribution="normal" mean="0" sd="1" decimals="4"/></sequence>
+<sequence name="Weight"><gen type="formula" expr="0.75 * Height - 58 + 6 * Noise" decimals="1"/></sequence>
+```
+
+<Terminal title="./run clinic.tdc">
+{`171.2, 77.5
+177.6, 83.4
+164.6, 76.9
+164.4, 68.4
+175.8, 74.8`}
+</Terminal>
+
+`Noise` es lo que impide que el par sea una línea recta, y no hace falta imprimirlo: una
+secuencia que se queda fuera de `<block>` sigue participando en el cálculo. Dos columnas
+que se mueven juntas así son de lo que un modelo puede aprender de verdad; dos sorteos
+independientes de los mismos rangos, no.
+
+Una tercera vía es un **parámetro de distribución**: `lambda="Traffic * 0.1"` da forma al
+sorteo mismo según otra columna, en lugar de calcular un valor a posteriori. Véase
+[Un parámetro puede seguir a otra columna](statistical-distributions.mdx#un-parámetro-puede-seguir-a-otra-columna).
+
 ## Véase también
 
 - **[Dependencias jerárquicas](hierarchical-dependencies.mdx)** — filtrar un hijo por un valor específico del padre.
